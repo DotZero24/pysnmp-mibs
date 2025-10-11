@@ -1,40 +1,269 @@
+# SNMP MIB module (CISCO-FIREPOWER-LLDP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-FIREPOWER-LLDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-FIREPOWER-LLDP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:23:10 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-FIREPOWER-LLDP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:21:58 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoFirepowerMIBObjects, CfprManagedObjectId, CfprManagedObjectDn = mibBuilder.importSymbols("CISCO-FIREPOWER-MIB", "ciscoFirepowerMIBObjects", "CfprManagedObjectId", "CfprManagedObjectDn")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoInetAddressMask, CiscoNetworkAddress, CiscoAlarmSeverity, TimeIntervalSec, Unsigned64 = mibBuilder.importSymbols("CISCO-TC", "CiscoInetAddressMask", "CiscoNetworkAddress", "CiscoAlarmSeverity", "TimeIntervalSec", "Unsigned64")
-InetAddressIPv4, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressIPv6")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, TextualConvention, TimeInterval, MacAddress, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
-cfprLldpObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45))
-if mibBuilder.loadTexts: cfprLldpObjects.setLastUpdated('202003100000Z')
-if mibBuilder.loadTexts: cfprLldpObjects.setOrganization('Cisco Systems Inc.')
-cfprLldpAcquiredTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1), )
-if mibBuilder.loadTexts: cfprLldpAcquiredTable.setStatus('current')
-cfprLldpAcquiredEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1), ).setIndexNames((0, "CISCO-FIREPOWER-LLDP-MIB", "cfprLldpAcquiredInstanceId"))
-if mibBuilder.loadTexts: cfprLldpAcquiredEntry.setStatus('current')
-cfprLldpAcquiredInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 1), CfprManagedObjectId())
-if mibBuilder.loadTexts: cfprLldpAcquiredInstanceId.setStatus('current')
-cfprLldpAcquiredDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprLldpAcquiredDn.setStatus('current')
-cfprLldpAcquiredRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprLldpAcquiredRn.setStatus('current')
-cfprLldpAcquiredAcqts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 4), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprLldpAcquiredAcqts.setStatus('current')
-cfprLldpAcquiredChassisMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 5), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprLldpAcquiredChassisMac.setStatus('current')
-cfprLldpAcquiredPeerDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprLldpAcquiredPeerDn.setStatus('current')
-cfprLldpAcquiredPortMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 7), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprLldpAcquiredPortMac.setStatus('current')
-mibBuilder.exportSymbols("CISCO-FIREPOWER-LLDP-MIB", cfprLldpAcquiredPeerDn=cfprLldpAcquiredPeerDn, cfprLldpAcquiredTable=cfprLldpAcquiredTable, cfprLldpObjects=cfprLldpObjects, cfprLldpAcquiredChassisMac=cfprLldpAcquiredChassisMac, cfprLldpAcquiredInstanceId=cfprLldpAcquiredInstanceId, cfprLldpAcquiredAcqts=cfprLldpAcquiredAcqts, cfprLldpAcquiredPortMac=cfprLldpAcquiredPortMac, cfprLldpAcquiredEntry=cfprLldpAcquiredEntry, PYSNMP_MODULE_ID=cfprLldpObjects, cfprLldpAcquiredRn=cfprLldpAcquiredRn, cfprLldpAcquiredDn=cfprLldpAcquiredDn)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(CfprManagedObjectDn,
+ CfprManagedObjectId,
+ ciscoFirepowerMIBObjects) = mibBuilder.importSymbols(
+    "CISCO-FIREPOWER-MIB",
+    "CfprManagedObjectDn",
+    "CfprManagedObjectId",
+    "ciscoFirepowerMIBObjects")
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CiscoAlarmSeverity,
+ CiscoInetAddressMask,
+ CiscoNetworkAddress,
+ TimeIntervalSec,
+ Unsigned64) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoAlarmSeverity",
+    "CiscoInetAddressMask",
+    "CiscoNetworkAddress",
+    "TimeIntervalSec",
+    "Unsigned64")
+
+(InetAddressIPv4,
+ InetAddressIPv6) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv4",
+    "InetAddressIPv6")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cfprLldpObjects = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CfprLldpAcquiredTable_Object = MibTable
+cfprLldpAcquiredTable = _CfprLldpAcquiredTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1)
+)
+if mibBuilder.loadTexts:
+    cfprLldpAcquiredTable.setStatus("current")
+_CfprLldpAcquiredEntry_Object = MibTableRow
+cfprLldpAcquiredEntry = _CfprLldpAcquiredEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1)
+)
+cfprLldpAcquiredEntry.setIndexNames(
+    (0, "CISCO-FIREPOWER-LLDP-MIB", "cfprLldpAcquiredInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cfprLldpAcquiredEntry.setStatus("current")
+_CfprLldpAcquiredInstanceId_Type = CfprManagedObjectId
+_CfprLldpAcquiredInstanceId_Object = MibTableColumn
+cfprLldpAcquiredInstanceId = _CfprLldpAcquiredInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 1),
+    _CfprLldpAcquiredInstanceId_Type()
+)
+cfprLldpAcquiredInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cfprLldpAcquiredInstanceId.setStatus("current")
+_CfprLldpAcquiredDn_Type = CfprManagedObjectDn
+_CfprLldpAcquiredDn_Object = MibTableColumn
+cfprLldpAcquiredDn = _CfprLldpAcquiredDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 2),
+    _CfprLldpAcquiredDn_Type()
+)
+cfprLldpAcquiredDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprLldpAcquiredDn.setStatus("current")
+_CfprLldpAcquiredRn_Type = SnmpAdminString
+_CfprLldpAcquiredRn_Object = MibTableColumn
+cfprLldpAcquiredRn = _CfprLldpAcquiredRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 3),
+    _CfprLldpAcquiredRn_Type()
+)
+cfprLldpAcquiredRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprLldpAcquiredRn.setStatus("current")
+_CfprLldpAcquiredAcqts_Type = DateAndTime
+_CfprLldpAcquiredAcqts_Object = MibTableColumn
+cfprLldpAcquiredAcqts = _CfprLldpAcquiredAcqts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 4),
+    _CfprLldpAcquiredAcqts_Type()
+)
+cfprLldpAcquiredAcqts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprLldpAcquiredAcqts.setStatus("current")
+_CfprLldpAcquiredChassisMac_Type = MacAddress
+_CfprLldpAcquiredChassisMac_Object = MibTableColumn
+cfprLldpAcquiredChassisMac = _CfprLldpAcquiredChassisMac_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 5),
+    _CfprLldpAcquiredChassisMac_Type()
+)
+cfprLldpAcquiredChassisMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprLldpAcquiredChassisMac.setStatus("current")
+_CfprLldpAcquiredPeerDn_Type = SnmpAdminString
+_CfprLldpAcquiredPeerDn_Object = MibTableColumn
+cfprLldpAcquiredPeerDn = _CfprLldpAcquiredPeerDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 6),
+    _CfprLldpAcquiredPeerDn_Type()
+)
+cfprLldpAcquiredPeerDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprLldpAcquiredPeerDn.setStatus("current")
+_CfprLldpAcquiredPortMac_Type = MacAddress
+_CfprLldpAcquiredPortMac_Object = MibTableColumn
+cfprLldpAcquiredPortMac = _CfprLldpAcquiredPortMac_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 45, 1, 1, 7),
+    _CfprLldpAcquiredPortMac_Type()
+)
+cfprLldpAcquiredPortMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprLldpAcquiredPortMac.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-FIREPOWER-LLDP-MIB",
+    **{"cfprLldpObjects": cfprLldpObjects,
+       "cfprLldpAcquiredTable": cfprLldpAcquiredTable,
+       "cfprLldpAcquiredEntry": cfprLldpAcquiredEntry,
+       "cfprLldpAcquiredInstanceId": cfprLldpAcquiredInstanceId,
+       "cfprLldpAcquiredDn": cfprLldpAcquiredDn,
+       "cfprLldpAcquiredRn": cfprLldpAcquiredRn,
+       "cfprLldpAcquiredAcqts": cfprLldpAcquiredAcqts,
+       "cfprLldpAcquiredChassisMac": cfprLldpAcquiredChassisMac,
+       "cfprLldpAcquiredPeerDn": cfprLldpAcquiredPeerDn,
+       "cfprLldpAcquiredPortMac": cfprLldpAcquiredPortMac}
+)

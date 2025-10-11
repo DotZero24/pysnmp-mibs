@@ -1,60 +1,435 @@
+# SNMP MIB module (HPN-ICF-SPB-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-SPB-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-SPB-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:07:58 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HPN-ICF-SPB-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:33:36 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-IEEE8021SpbmSPsourceId, = mibBuilder.importSymbols("IEEE8021-SPB-MIB", "IEEE8021SpbmSPsourceId")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-VlanIdOrNone, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIdOrNone")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-hpnicfSpb = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128))
-hpnicfSpb.setRevisions(('2012-11-22 00:00',))
-if mibBuilder.loadTexts: hpnicfSpb.setLastUpdated('201211220000Z')
-if mibBuilder.loadTexts: hpnicfSpb.setOrganization('')
-hpnicfSpbObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1))
-hpnicfSpbSysObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 1))
-hpnicfSpbSysStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfSpbSysStatus.setStatus('current')
-hpnicfSpbMulticastBVlanStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfSpbMulticastBVlanStatus.setStatus('current')
-hpnicfSpbConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2))
-hpnicfSpbIfTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 1), )
-if mibBuilder.loadTexts: hpnicfSpbIfTable.setStatus('current')
-hpnicfSpbIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hpnicfSpbIfEntry.setStatus('current')
-hpnicfSpbIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfSpbIfStatus.setStatus('current')
-hpnicfSpbSrvTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2), )
-if mibBuilder.loadTexts: hpnicfSpbSrvTable.setStatus('current')
-hpnicfSpbSrvEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2, 1), ).setIndexNames((0, "HPN-ICF-SPB-MIB", "hpnicfSpbSrvTableEntryTopIx"), (0, "HPN-ICF-SPB-MIB", "hpnicfSpbSrvTableEntryIsid"))
-if mibBuilder.loadTexts: hpnicfSpbSrvEntry.setStatus('current')
-hpnicfSpbSrvTableEntryTopIx = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: hpnicfSpbSrvTableEntryTopIx.setStatus('current')
-hpnicfSpbSrvTableEntryIsid = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(255, 16777215)))
-if mibBuilder.loadTexts: hpnicfSpbSrvTableEntryIsid.setStatus('current')
-hpnicfSpbSrvTableEntryBaseVid = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2, 1, 3), VlanIdOrNone()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfSpbSrvTableEntryBaseVid.setStatus('current')
-hpnicfSpbSrvTableEntryMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("headEnd", 1), ("tandem", 2))).clone('headEnd')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfSpbSrvTableEntryMode.setStatus('current')
-hpnicfSpbTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3))
-hpnicfSpbTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 0))
-hpnicfSpbTrapsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 1))
-hpnicfSpbSPSourceConflictTrap = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 0, 1)).setObjects(("HPN-ICF-SPB-MIB", "hpnicfSpbConflictSysID"), ("HPN-ICF-SPB-MIB", "hpnicfSpbConflictSPSourceID"))
-if mibBuilder.loadTexts: hpnicfSpbSPSourceConflictTrap.setStatus('current')
-hpnicfSpbBMacConflictTrap = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 0, 2)).setObjects(("HPN-ICF-SPB-MIB", "hpnicfSpbConflictSysID"), ("HPN-ICF-SPB-MIB", "hpnicfSpbConflictBMac"))
-if mibBuilder.loadTexts: hpnicfSpbBMacConflictTrap.setStatus('current')
-hpnicfSpbConflictSysID = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 1, 1), MacAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfSpbConflictSysID.setStatus('current')
-hpnicfSpbConflictSPSourceID = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 1, 2), IEEE8021SpbmSPsourceId()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfSpbConflictSPSourceID.setStatus('current')
-hpnicfSpbConflictBMac = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 1, 3), MacAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfSpbConflictBMac.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-SPB-MIB", hpnicfSpbTrapsObjects=hpnicfSpbTrapsObjects, hpnicfSpbSysStatus=hpnicfSpbSysStatus, hpnicfSpbSysObjects=hpnicfSpbSysObjects, hpnicfSpbSrvTable=hpnicfSpbSrvTable, hpnicfSpbTrap=hpnicfSpbTrap, hpnicfSpbConfig=hpnicfSpbConfig, hpnicfSpbSrvEntry=hpnicfSpbSrvEntry, hpnicfSpbBMacConflictTrap=hpnicfSpbBMacConflictTrap, hpnicfSpbSPSourceConflictTrap=hpnicfSpbSPSourceConflictTrap, hpnicfSpbConflictSPSourceID=hpnicfSpbConflictSPSourceID, hpnicfSpbSrvTableEntryBaseVid=hpnicfSpbSrvTableEntryBaseVid, hpnicfSpbIfStatus=hpnicfSpbIfStatus, hpnicfSpbSrvTableEntryTopIx=hpnicfSpbSrvTableEntryTopIx, hpnicfSpbConflictSysID=hpnicfSpbConflictSysID, hpnicfSpbSrvTableEntryMode=hpnicfSpbSrvTableEntryMode, hpnicfSpbIfEntry=hpnicfSpbIfEntry, PYSNMP_MODULE_ID=hpnicfSpb, hpnicfSpbMulticastBVlanStatus=hpnicfSpbMulticastBVlanStatus, hpnicfSpbSrvTableEntryIsid=hpnicfSpbSrvTableEntryIsid, hpnicfSpbTraps=hpnicfSpbTraps, hpnicfSpbObjects=hpnicfSpbObjects, hpnicfSpbConflictBMac=hpnicfSpbConflictBMac, hpnicfSpb=hpnicfSpb, hpnicfSpbIfTable=hpnicfSpbIfTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpnicfCommon,) = mibBuilder.importSymbols(
+    "HPN-ICF-OID-MIB",
+    "hpnicfCommon")
+
+(IEEE8021SpbmSPsourceId,) = mibBuilder.importSymbols(
+    "IEEE8021-SPB-MIB",
+    "IEEE8021SpbmSPsourceId")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(VlanIdOrNone,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "VlanIdOrNone")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpnicfSpb = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128)
+)
+if mibBuilder.loadTexts:
+    hpnicfSpb.setRevisions(
+        ("2012-11-22 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfSpbObjects_ObjectIdentity = ObjectIdentity
+hpnicfSpbObjects = _HpnicfSpbObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1)
+)
+_HpnicfSpbSysObjects_ObjectIdentity = ObjectIdentity
+hpnicfSpbSysObjects = _HpnicfSpbSysObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 1)
+)
+
+
+class _HpnicfSpbSysStatus_Type(Integer32):
+    """Custom type hpnicfSpbSysStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_HpnicfSpbSysStatus_Type.__name__ = "Integer32"
+_HpnicfSpbSysStatus_Object = MibScalar
+hpnicfSpbSysStatus = _HpnicfSpbSysStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 1, 1),
+    _HpnicfSpbSysStatus_Type()
+)
+hpnicfSpbSysStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfSpbSysStatus.setStatus("current")
+
+
+class _HpnicfSpbMulticastBVlanStatus_Type(Integer32):
+    """Custom type hpnicfSpbMulticastBVlanStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_HpnicfSpbMulticastBVlanStatus_Type.__name__ = "Integer32"
+_HpnicfSpbMulticastBVlanStatus_Object = MibScalar
+hpnicfSpbMulticastBVlanStatus = _HpnicfSpbMulticastBVlanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 1, 2),
+    _HpnicfSpbMulticastBVlanStatus_Type()
+)
+hpnicfSpbMulticastBVlanStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfSpbMulticastBVlanStatus.setStatus("current")
+_HpnicfSpbConfig_ObjectIdentity = ObjectIdentity
+hpnicfSpbConfig = _HpnicfSpbConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2)
+)
+_HpnicfSpbIfTable_Object = MibTable
+hpnicfSpbIfTable = _HpnicfSpbIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hpnicfSpbIfTable.setStatus("current")
+_HpnicfSpbIfEntry_Object = MibTableRow
+hpnicfSpbIfEntry = _HpnicfSpbIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 1, 1)
+)
+hpnicfSpbIfEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfSpbIfEntry.setStatus("current")
+
+
+class _HpnicfSpbIfStatus_Type(Integer32):
+    """Custom type hpnicfSpbIfStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_HpnicfSpbIfStatus_Type.__name__ = "Integer32"
+_HpnicfSpbIfStatus_Object = MibTableColumn
+hpnicfSpbIfStatus = _HpnicfSpbIfStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 1, 1, 1),
+    _HpnicfSpbIfStatus_Type()
+)
+hpnicfSpbIfStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfSpbIfStatus.setStatus("current")
+_HpnicfSpbSrvTable_Object = MibTable
+hpnicfSpbSrvTable = _HpnicfSpbSrvTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    hpnicfSpbSrvTable.setStatus("current")
+_HpnicfSpbSrvEntry_Object = MibTableRow
+hpnicfSpbSrvEntry = _HpnicfSpbSrvEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2, 1)
+)
+hpnicfSpbSrvEntry.setIndexNames(
+    (0, "HPN-ICF-SPB-MIB", "hpnicfSpbSrvTableEntryTopIx"),
+    (0, "HPN-ICF-SPB-MIB", "hpnicfSpbSrvTableEntryIsid"),
+)
+if mibBuilder.loadTexts:
+    hpnicfSpbSrvEntry.setStatus("current")
+_HpnicfSpbSrvTableEntryTopIx_Type = Unsigned32
+_HpnicfSpbSrvTableEntryTopIx_Object = MibTableColumn
+hpnicfSpbSrvTableEntryTopIx = _HpnicfSpbSrvTableEntryTopIx_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2, 1, 1),
+    _HpnicfSpbSrvTableEntryTopIx_Type()
+)
+hpnicfSpbSrvTableEntryTopIx.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpnicfSpbSrvTableEntryTopIx.setStatus("current")
+
+
+class _HpnicfSpbSrvTableEntryIsid_Type(Unsigned32):
+    """Custom type hpnicfSpbSrvTableEntryIsid based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(255, 16777215),
+    )
+
+
+_HpnicfSpbSrvTableEntryIsid_Type.__name__ = "Unsigned32"
+_HpnicfSpbSrvTableEntryIsid_Object = MibTableColumn
+hpnicfSpbSrvTableEntryIsid = _HpnicfSpbSrvTableEntryIsid_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2, 1, 2),
+    _HpnicfSpbSrvTableEntryIsid_Type()
+)
+hpnicfSpbSrvTableEntryIsid.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpnicfSpbSrvTableEntryIsid.setStatus("current")
+_HpnicfSpbSrvTableEntryBaseVid_Type = VlanIdOrNone
+_HpnicfSpbSrvTableEntryBaseVid_Object = MibTableColumn
+hpnicfSpbSrvTableEntryBaseVid = _HpnicfSpbSrvTableEntryBaseVid_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2, 1, 3),
+    _HpnicfSpbSrvTableEntryBaseVid_Type()
+)
+hpnicfSpbSrvTableEntryBaseVid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfSpbSrvTableEntryBaseVid.setStatus("current")
+
+
+class _HpnicfSpbSrvTableEntryMode_Type(Integer32):
+    """Custom type hpnicfSpbSrvTableEntryMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("headEnd", 1),
+          ("tandem", 2))
+    )
+
+
+_HpnicfSpbSrvTableEntryMode_Type.__name__ = "Integer32"
+_HpnicfSpbSrvTableEntryMode_Object = MibTableColumn
+hpnicfSpbSrvTableEntryMode = _HpnicfSpbSrvTableEntryMode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 2, 2, 1, 4),
+    _HpnicfSpbSrvTableEntryMode_Type()
+)
+hpnicfSpbSrvTableEntryMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfSpbSrvTableEntryMode.setStatus("current")
+_HpnicfSpbTrap_ObjectIdentity = ObjectIdentity
+hpnicfSpbTrap = _HpnicfSpbTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3)
+)
+_HpnicfSpbTraps_ObjectIdentity = ObjectIdentity
+hpnicfSpbTraps = _HpnicfSpbTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 0)
+)
+_HpnicfSpbTrapsObjects_ObjectIdentity = ObjectIdentity
+hpnicfSpbTrapsObjects = _HpnicfSpbTrapsObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 1)
+)
+_HpnicfSpbConflictSysID_Type = MacAddress
+_HpnicfSpbConflictSysID_Object = MibScalar
+hpnicfSpbConflictSysID = _HpnicfSpbConflictSysID_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 1, 1),
+    _HpnicfSpbConflictSysID_Type()
+)
+hpnicfSpbConflictSysID.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfSpbConflictSysID.setStatus("current")
+_HpnicfSpbConflictSPSourceID_Type = IEEE8021SpbmSPsourceId
+_HpnicfSpbConflictSPSourceID_Object = MibScalar
+hpnicfSpbConflictSPSourceID = _HpnicfSpbConflictSPSourceID_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 1, 2),
+    _HpnicfSpbConflictSPSourceID_Type()
+)
+hpnicfSpbConflictSPSourceID.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfSpbConflictSPSourceID.setStatus("current")
+_HpnicfSpbConflictBMac_Type = MacAddress
+_HpnicfSpbConflictBMac_Object = MibScalar
+hpnicfSpbConflictBMac = _HpnicfSpbConflictBMac_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 1, 3),
+    _HpnicfSpbConflictBMac_Type()
+)
+hpnicfSpbConflictBMac.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfSpbConflictBMac.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hpnicfSpbSPSourceConflictTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 0, 1)
+)
+hpnicfSpbSPSourceConflictTrap.setObjects(
+      *(("HPN-ICF-SPB-MIB", "hpnicfSpbConflictSysID"),
+        ("HPN-ICF-SPB-MIB", "hpnicfSpbConflictSPSourceID"))
+)
+if mibBuilder.loadTexts:
+    hpnicfSpbSPSourceConflictTrap.setStatus(
+        "current"
+    )
+
+hpnicfSpbBMacConflictTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 128, 1, 3, 0, 2)
+)
+hpnicfSpbBMacConflictTrap.setObjects(
+      *(("HPN-ICF-SPB-MIB", "hpnicfSpbConflictSysID"),
+        ("HPN-ICF-SPB-MIB", "hpnicfSpbConflictBMac"))
+)
+if mibBuilder.loadTexts:
+    hpnicfSpbBMacConflictTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-SPB-MIB",
+    **{"hpnicfSpb": hpnicfSpb,
+       "hpnicfSpbObjects": hpnicfSpbObjects,
+       "hpnicfSpbSysObjects": hpnicfSpbSysObjects,
+       "hpnicfSpbSysStatus": hpnicfSpbSysStatus,
+       "hpnicfSpbMulticastBVlanStatus": hpnicfSpbMulticastBVlanStatus,
+       "hpnicfSpbConfig": hpnicfSpbConfig,
+       "hpnicfSpbIfTable": hpnicfSpbIfTable,
+       "hpnicfSpbIfEntry": hpnicfSpbIfEntry,
+       "hpnicfSpbIfStatus": hpnicfSpbIfStatus,
+       "hpnicfSpbSrvTable": hpnicfSpbSrvTable,
+       "hpnicfSpbSrvEntry": hpnicfSpbSrvEntry,
+       "hpnicfSpbSrvTableEntryTopIx": hpnicfSpbSrvTableEntryTopIx,
+       "hpnicfSpbSrvTableEntryIsid": hpnicfSpbSrvTableEntryIsid,
+       "hpnicfSpbSrvTableEntryBaseVid": hpnicfSpbSrvTableEntryBaseVid,
+       "hpnicfSpbSrvTableEntryMode": hpnicfSpbSrvTableEntryMode,
+       "hpnicfSpbTrap": hpnicfSpbTrap,
+       "hpnicfSpbTraps": hpnicfSpbTraps,
+       "hpnicfSpbSPSourceConflictTrap": hpnicfSpbSPSourceConflictTrap,
+       "hpnicfSpbBMacConflictTrap": hpnicfSpbBMacConflictTrap,
+       "hpnicfSpbTrapsObjects": hpnicfSpbTrapsObjects,
+       "hpnicfSpbConflictSysID": hpnicfSpbConflictSysID,
+       "hpnicfSpbConflictSPSourceID": hpnicfSpbConflictSPSourceID,
+       "hpnicfSpbConflictBMac": hpnicfSpbConflictBMac}
+)

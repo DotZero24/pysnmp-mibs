@@ -1,95 +1,522 @@
+# SNMP MIB module (ITU-ALARM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ITU-ALARM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rfc/ITU-ALARM-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:48:21 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/rfc/ITU-ALARM-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:19:51 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-alarmActiveIndex, alarmListName, alarmActiveDateAndTime, alarmModelIndex = mibBuilder.importSymbols("ALARM-MIB", "alarmActiveIndex", "alarmListName", "alarmActiveDateAndTime", "alarmModelIndex")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-IANAItuEventType, IANAItuProbableCause = mibBuilder.importSymbols("IANA-ITU-ALARM-TC-MIB", "IANAItuEventType", "IANAItuProbableCause")
-ItuPerceivedSeverity, ItuTrendIndication = mibBuilder.importSymbols("ITU-ALARM-TC-MIB", "ItuPerceivedSeverity", "ItuTrendIndication")
-ZeroBasedCounter32, = mibBuilder.importSymbols("RMON2-MIB", "ZeroBasedCounter32")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, mib_2, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "mib-2", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-AutonomousType, TextualConvention, RowPointer, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "AutonomousType", "TextualConvention", "RowPointer", "DisplayString")
-ituAlarmMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 121))
-ituAlarmMIB.setRevisions(('2004-09-09 00:00',))
-if mibBuilder.loadTexts: ituAlarmMIB.setLastUpdated('200409090000Z')
-if mibBuilder.loadTexts: ituAlarmMIB.setOrganization('IETF Distributed Management Working Group')
-ituAlarmObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 121, 1))
-ituAlarmModel = MibIdentifier((1, 3, 6, 1, 2, 1, 121, 1, 1))
-ituAlarmActive = MibIdentifier((1, 3, 6, 1, 2, 1, 121, 1, 2))
-ituAlarmTable = MibTable((1, 3, 6, 1, 2, 1, 121, 1, 1, 1), )
-if mibBuilder.loadTexts: ituAlarmTable.setStatus('current')
-ituAlarmEntry = MibTableRow((1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1), ).setIndexNames((0, "ALARM-MIB", "alarmListName"), (0, "ALARM-MIB", "alarmModelIndex"), (0, "ITU-ALARM-MIB", "ituAlarmPerceivedSeverity"))
-if mibBuilder.loadTexts: ituAlarmEntry.setStatus('current')
-ituAlarmPerceivedSeverity = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1, 1), ItuPerceivedSeverity())
-if mibBuilder.loadTexts: ituAlarmPerceivedSeverity.setStatus('current')
-ituAlarmEventType = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1, 2), IANAItuEventType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ituAlarmEventType.setStatus('current')
-ituAlarmProbableCause = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1, 3), IANAItuProbableCause()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ituAlarmProbableCause.setStatus('current')
-ituAlarmAdditionalText = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1, 4), SnmpAdminString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ituAlarmAdditionalText.setStatus('current')
-ituAlarmGenericModel = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1, 5), RowPointer()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ituAlarmGenericModel.setStatus('current')
-ituAlarmActiveTable = MibTable((1, 3, 6, 1, 2, 1, 121, 1, 2, 1), )
-if mibBuilder.loadTexts: ituAlarmActiveTable.setStatus('current')
-ituAlarmActiveEntry = MibTableRow((1, 3, 6, 1, 2, 1, 121, 1, 2, 1, 1), ).setIndexNames((0, "ALARM-MIB", "alarmListName"), (0, "ALARM-MIB", "alarmActiveDateAndTime"), (0, "ALARM-MIB", "alarmActiveIndex"))
-if mibBuilder.loadTexts: ituAlarmActiveEntry.setStatus('current')
-ituAlarmActiveTrendIndication = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 1, 1, 1), ItuTrendIndication()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveTrendIndication.setStatus('current')
-ituAlarmActiveDetector = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 1, 1, 2), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveDetector.setStatus('current')
-ituAlarmActiveServiceProvider = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 1, 1, 3), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveServiceProvider.setStatus('current')
-ituAlarmActiveServiceUser = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 1, 1, 4), AutonomousType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveServiceUser.setStatus('current')
-ituAlarmActiveStatsTable = MibTable((1, 3, 6, 1, 2, 1, 121, 1, 2, 2), )
-if mibBuilder.loadTexts: ituAlarmActiveStatsTable.setStatus('current')
-ituAlarmActiveStatsEntry = MibTableRow((1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1), ).setIndexNames((0, "ALARM-MIB", "alarmListName"))
-if mibBuilder.loadTexts: ituAlarmActiveStatsEntry.setStatus('current')
-ituAlarmActiveStatsIndeterminateCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveStatsIndeterminateCurrent.setStatus('current')
-ituAlarmActiveStatsCriticalCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveStatsCriticalCurrent.setStatus('current')
-ituAlarmActiveStatsMajorCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveStatsMajorCurrent.setStatus('current')
-ituAlarmActiveStatsMinorCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveStatsMinorCurrent.setStatus('current')
-ituAlarmActiveStatsWarningCurrent = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 5), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveStatsWarningCurrent.setStatus('current')
-ituAlarmActiveStatsIndeterminates = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 6), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveStatsIndeterminates.setStatus('current')
-ituAlarmActiveStatsCriticals = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 7), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveStatsCriticals.setStatus('current')
-ituAlarmActiveStatsMajors = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 8), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveStatsMajors.setStatus('current')
-ituAlarmActiveStatsMinors = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 9), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveStatsMinors.setStatus('current')
-ituAlarmActiveStatsWarnings = MibTableColumn((1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 10), ZeroBasedCounter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ituAlarmActiveStatsWarnings.setStatus('current')
-ituAlarmConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 121, 2))
-ituAlarmCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 121, 2, 1))
-ituAlarmCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 121, 2, 1, 1)).setObjects(("ITU-ALARM-MIB", "ituAlarmGroup"), ("ITU-ALARM-MIB", "ituAlarmServiceUserGroup"), ("ITU-ALARM-MIB", "ituAlarmSecurityGroup"), ("ITU-ALARM-MIB", "ituAlarmStatisticsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ituAlarmCompliance = ituAlarmCompliance.setStatus('current')
-ituAlarmGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 121, 2, 2))
-ituAlarmGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 121, 2, 2, 1)).setObjects(("ITU-ALARM-MIB", "ituAlarmEventType"), ("ITU-ALARM-MIB", "ituAlarmProbableCause"), ("ITU-ALARM-MIB", "ituAlarmGenericModel"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ituAlarmGroup = ituAlarmGroup.setStatus('current')
-ituAlarmServiceUserGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 121, 2, 2, 2)).setObjects(("ITU-ALARM-MIB", "ituAlarmAdditionalText"), ("ITU-ALARM-MIB", "ituAlarmActiveTrendIndication"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ituAlarmServiceUserGroup = ituAlarmServiceUserGroup.setStatus('current')
-ituAlarmSecurityGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 121, 2, 2, 3)).setObjects(("ITU-ALARM-MIB", "ituAlarmActiveDetector"), ("ITU-ALARM-MIB", "ituAlarmActiveServiceProvider"), ("ITU-ALARM-MIB", "ituAlarmActiveServiceUser"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ituAlarmSecurityGroup = ituAlarmSecurityGroup.setStatus('current')
-ituAlarmStatisticsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 121, 2, 2, 4)).setObjects(("ITU-ALARM-MIB", "ituAlarmActiveStatsIndeterminateCurrent"), ("ITU-ALARM-MIB", "ituAlarmActiveStatsCriticalCurrent"), ("ITU-ALARM-MIB", "ituAlarmActiveStatsMajorCurrent"), ("ITU-ALARM-MIB", "ituAlarmActiveStatsMinorCurrent"), ("ITU-ALARM-MIB", "ituAlarmActiveStatsWarningCurrent"), ("ITU-ALARM-MIB", "ituAlarmActiveStatsIndeterminates"), ("ITU-ALARM-MIB", "ituAlarmActiveStatsCriticals"), ("ITU-ALARM-MIB", "ituAlarmActiveStatsMajors"), ("ITU-ALARM-MIB", "ituAlarmActiveStatsMinors"), ("ITU-ALARM-MIB", "ituAlarmActiveStatsWarnings"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ituAlarmStatisticsGroup = ituAlarmStatisticsGroup.setStatus('current')
-mibBuilder.exportSymbols("ITU-ALARM-MIB", ituAlarmMIB=ituAlarmMIB, ituAlarmPerceivedSeverity=ituAlarmPerceivedSeverity, PYSNMP_MODULE_ID=ituAlarmMIB, ituAlarmActiveStatsEntry=ituAlarmActiveStatsEntry, ituAlarmCompliances=ituAlarmCompliances, ituAlarmCompliance=ituAlarmCompliance, ituAlarmActiveStatsIndeterminates=ituAlarmActiveStatsIndeterminates, ituAlarmActiveStatsMinorCurrent=ituAlarmActiveStatsMinorCurrent, ituAlarmSecurityGroup=ituAlarmSecurityGroup, ituAlarmActiveServiceProvider=ituAlarmActiveServiceProvider, ituAlarmActiveStatsCriticalCurrent=ituAlarmActiveStatsCriticalCurrent, ituAlarmGroup=ituAlarmGroup, ituAlarmActiveTrendIndication=ituAlarmActiveTrendIndication, ituAlarmAdditionalText=ituAlarmAdditionalText, ituAlarmActiveStatsCriticals=ituAlarmActiveStatsCriticals, ituAlarmActive=ituAlarmActive, ituAlarmEntry=ituAlarmEntry, ituAlarmGenericModel=ituAlarmGenericModel, ituAlarmActiveStatsIndeterminateCurrent=ituAlarmActiveStatsIndeterminateCurrent, ituAlarmActiveStatsWarningCurrent=ituAlarmActiveStatsWarningCurrent, ituAlarmActiveStatsMajors=ituAlarmActiveStatsMajors, ituAlarmActiveStatsMajorCurrent=ituAlarmActiveStatsMajorCurrent, ituAlarmGroups=ituAlarmGroups, ituAlarmActiveStatsWarnings=ituAlarmActiveStatsWarnings, ituAlarmConformance=ituAlarmConformance, ituAlarmObjects=ituAlarmObjects, ituAlarmServiceUserGroup=ituAlarmServiceUserGroup, ituAlarmActiveEntry=ituAlarmActiveEntry, ituAlarmActiveStatsTable=ituAlarmActiveStatsTable, ituAlarmActiveDetector=ituAlarmActiveDetector, ituAlarmProbableCause=ituAlarmProbableCause, ituAlarmEventType=ituAlarmEventType, ituAlarmModel=ituAlarmModel, ituAlarmActiveServiceUser=ituAlarmActiveServiceUser, ituAlarmStatisticsGroup=ituAlarmStatisticsGroup, ituAlarmActiveTable=ituAlarmActiveTable, ituAlarmTable=ituAlarmTable, ituAlarmActiveStatsMinors=ituAlarmActiveStatsMinors)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(alarmActiveDateAndTime,
+ alarmActiveIndex,
+ alarmListName,
+ alarmModelIndex) = mibBuilder.importSymbols(
+    "ALARM-MIB",
+    "alarmActiveDateAndTime",
+    "alarmActiveIndex",
+    "alarmListName",
+    "alarmModelIndex")
+
+(IANAItuEventType,
+ IANAItuProbableCause) = mibBuilder.importSymbols(
+    "IANA-ITU-ALARM-TC-MIB",
+    "IANAItuEventType",
+    "IANAItuProbableCause")
+
+(ItuPerceivedSeverity,
+ ItuTrendIndication) = mibBuilder.importSymbols(
+    "ITU-ALARM-TC-MIB",
+    "ItuPerceivedSeverity",
+    "ItuTrendIndication")
+
+(ZeroBasedCounter32,) = mibBuilder.importSymbols(
+    "RMON2-MIB",
+    "ZeroBasedCounter32")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(AutonomousType,
+ DisplayString,
+ PhysAddress,
+ RowPointer,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "AutonomousType",
+    "DisplayString",
+    "PhysAddress",
+    "RowPointer",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ituAlarmMIB = ModuleIdentity(
+    (1, 3, 6, 1, 2, 1, 121)
+)
+if mibBuilder.loadTexts:
+    ituAlarmMIB.setRevisions(
+        ("2004-09-09 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ItuAlarmObjects_ObjectIdentity = ObjectIdentity
+ituAlarmObjects = _ItuAlarmObjects_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 121, 1)
+)
+_ItuAlarmModel_ObjectIdentity = ObjectIdentity
+ituAlarmModel = _ItuAlarmModel_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 121, 1, 1)
+)
+_ItuAlarmTable_Object = MibTable
+ituAlarmTable = _ItuAlarmTable_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ituAlarmTable.setStatus("current")
+_ItuAlarmEntry_Object = MibTableRow
+ituAlarmEntry = _ItuAlarmEntry_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1)
+)
+ituAlarmEntry.setIndexNames(
+    (0, "ALARM-MIB", "alarmListName"),
+    (0, "ALARM-MIB", "alarmModelIndex"),
+    (0, "ITU-ALARM-MIB", "ituAlarmPerceivedSeverity"),
+)
+if mibBuilder.loadTexts:
+    ituAlarmEntry.setStatus("current")
+_ItuAlarmPerceivedSeverity_Type = ItuPerceivedSeverity
+_ItuAlarmPerceivedSeverity_Object = MibTableColumn
+ituAlarmPerceivedSeverity = _ItuAlarmPerceivedSeverity_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1, 1),
+    _ItuAlarmPerceivedSeverity_Type()
+)
+ituAlarmPerceivedSeverity.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ituAlarmPerceivedSeverity.setStatus("current")
+_ItuAlarmEventType_Type = IANAItuEventType
+_ItuAlarmEventType_Object = MibTableColumn
+ituAlarmEventType = _ItuAlarmEventType_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1, 2),
+    _ItuAlarmEventType_Type()
+)
+ituAlarmEventType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ituAlarmEventType.setStatus("current")
+_ItuAlarmProbableCause_Type = IANAItuProbableCause
+_ItuAlarmProbableCause_Object = MibTableColumn
+ituAlarmProbableCause = _ItuAlarmProbableCause_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1, 3),
+    _ItuAlarmProbableCause_Type()
+)
+ituAlarmProbableCause.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ituAlarmProbableCause.setStatus("current")
+_ItuAlarmAdditionalText_Type = SnmpAdminString
+_ItuAlarmAdditionalText_Object = MibTableColumn
+ituAlarmAdditionalText = _ItuAlarmAdditionalText_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1, 4),
+    _ItuAlarmAdditionalText_Type()
+)
+ituAlarmAdditionalText.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ituAlarmAdditionalText.setStatus("current")
+_ItuAlarmGenericModel_Type = RowPointer
+_ItuAlarmGenericModel_Object = MibTableColumn
+ituAlarmGenericModel = _ItuAlarmGenericModel_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 1, 1, 1, 5),
+    _ItuAlarmGenericModel_Type()
+)
+ituAlarmGenericModel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ituAlarmGenericModel.setStatus("current")
+_ItuAlarmActive_ObjectIdentity = ObjectIdentity
+ituAlarmActive = _ItuAlarmActive_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2)
+)
+_ItuAlarmActiveTable_Object = MibTable
+ituAlarmActiveTable = _ItuAlarmActiveTable_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    ituAlarmActiveTable.setStatus("current")
+_ItuAlarmActiveEntry_Object = MibTableRow
+ituAlarmActiveEntry = _ItuAlarmActiveEntry_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 1, 1)
+)
+ituAlarmActiveEntry.setIndexNames(
+    (0, "ALARM-MIB", "alarmListName"),
+    (0, "ALARM-MIB", "alarmActiveDateAndTime"),
+    (0, "ALARM-MIB", "alarmActiveIndex"),
+)
+if mibBuilder.loadTexts:
+    ituAlarmActiveEntry.setStatus("current")
+_ItuAlarmActiveTrendIndication_Type = ItuTrendIndication
+_ItuAlarmActiveTrendIndication_Object = MibTableColumn
+ituAlarmActiveTrendIndication = _ItuAlarmActiveTrendIndication_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 1, 1, 1),
+    _ItuAlarmActiveTrendIndication_Type()
+)
+ituAlarmActiveTrendIndication.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveTrendIndication.setStatus("current")
+_ItuAlarmActiveDetector_Type = AutonomousType
+_ItuAlarmActiveDetector_Object = MibTableColumn
+ituAlarmActiveDetector = _ItuAlarmActiveDetector_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 1, 1, 2),
+    _ItuAlarmActiveDetector_Type()
+)
+ituAlarmActiveDetector.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveDetector.setStatus("current")
+_ItuAlarmActiveServiceProvider_Type = AutonomousType
+_ItuAlarmActiveServiceProvider_Object = MibTableColumn
+ituAlarmActiveServiceProvider = _ItuAlarmActiveServiceProvider_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 1, 1, 3),
+    _ItuAlarmActiveServiceProvider_Type()
+)
+ituAlarmActiveServiceProvider.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveServiceProvider.setStatus("current")
+_ItuAlarmActiveServiceUser_Type = AutonomousType
+_ItuAlarmActiveServiceUser_Object = MibTableColumn
+ituAlarmActiveServiceUser = _ItuAlarmActiveServiceUser_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 1, 1, 4),
+    _ItuAlarmActiveServiceUser_Type()
+)
+ituAlarmActiveServiceUser.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveServiceUser.setStatus("current")
+_ItuAlarmActiveStatsTable_Object = MibTable
+ituAlarmActiveStatsTable = _ItuAlarmActiveStatsTable_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsTable.setStatus("current")
+_ItuAlarmActiveStatsEntry_Object = MibTableRow
+ituAlarmActiveStatsEntry = _ItuAlarmActiveStatsEntry_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1)
+)
+ituAlarmActiveStatsEntry.setIndexNames(
+    (0, "ALARM-MIB", "alarmListName"),
+)
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsEntry.setStatus("current")
+_ItuAlarmActiveStatsIndeterminateCurrent_Type = Gauge32
+_ItuAlarmActiveStatsIndeterminateCurrent_Object = MibTableColumn
+ituAlarmActiveStatsIndeterminateCurrent = _ItuAlarmActiveStatsIndeterminateCurrent_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 1),
+    _ItuAlarmActiveStatsIndeterminateCurrent_Type()
+)
+ituAlarmActiveStatsIndeterminateCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsIndeterminateCurrent.setStatus("current")
+_ItuAlarmActiveStatsCriticalCurrent_Type = Gauge32
+_ItuAlarmActiveStatsCriticalCurrent_Object = MibTableColumn
+ituAlarmActiveStatsCriticalCurrent = _ItuAlarmActiveStatsCriticalCurrent_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 2),
+    _ItuAlarmActiveStatsCriticalCurrent_Type()
+)
+ituAlarmActiveStatsCriticalCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsCriticalCurrent.setStatus("current")
+_ItuAlarmActiveStatsMajorCurrent_Type = Gauge32
+_ItuAlarmActiveStatsMajorCurrent_Object = MibTableColumn
+ituAlarmActiveStatsMajorCurrent = _ItuAlarmActiveStatsMajorCurrent_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 3),
+    _ItuAlarmActiveStatsMajorCurrent_Type()
+)
+ituAlarmActiveStatsMajorCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsMajorCurrent.setStatus("current")
+_ItuAlarmActiveStatsMinorCurrent_Type = Gauge32
+_ItuAlarmActiveStatsMinorCurrent_Object = MibTableColumn
+ituAlarmActiveStatsMinorCurrent = _ItuAlarmActiveStatsMinorCurrent_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 4),
+    _ItuAlarmActiveStatsMinorCurrent_Type()
+)
+ituAlarmActiveStatsMinorCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsMinorCurrent.setStatus("current")
+_ItuAlarmActiveStatsWarningCurrent_Type = Gauge32
+_ItuAlarmActiveStatsWarningCurrent_Object = MibTableColumn
+ituAlarmActiveStatsWarningCurrent = _ItuAlarmActiveStatsWarningCurrent_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 5),
+    _ItuAlarmActiveStatsWarningCurrent_Type()
+)
+ituAlarmActiveStatsWarningCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsWarningCurrent.setStatus("current")
+_ItuAlarmActiveStatsIndeterminates_Type = ZeroBasedCounter32
+_ItuAlarmActiveStatsIndeterminates_Object = MibTableColumn
+ituAlarmActiveStatsIndeterminates = _ItuAlarmActiveStatsIndeterminates_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 6),
+    _ItuAlarmActiveStatsIndeterminates_Type()
+)
+ituAlarmActiveStatsIndeterminates.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsIndeterminates.setStatus("current")
+_ItuAlarmActiveStatsCriticals_Type = ZeroBasedCounter32
+_ItuAlarmActiveStatsCriticals_Object = MibTableColumn
+ituAlarmActiveStatsCriticals = _ItuAlarmActiveStatsCriticals_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 7),
+    _ItuAlarmActiveStatsCriticals_Type()
+)
+ituAlarmActiveStatsCriticals.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsCriticals.setStatus("current")
+_ItuAlarmActiveStatsMajors_Type = ZeroBasedCounter32
+_ItuAlarmActiveStatsMajors_Object = MibTableColumn
+ituAlarmActiveStatsMajors = _ItuAlarmActiveStatsMajors_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 8),
+    _ItuAlarmActiveStatsMajors_Type()
+)
+ituAlarmActiveStatsMajors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsMajors.setStatus("current")
+_ItuAlarmActiveStatsMinors_Type = ZeroBasedCounter32
+_ItuAlarmActiveStatsMinors_Object = MibTableColumn
+ituAlarmActiveStatsMinors = _ItuAlarmActiveStatsMinors_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 9),
+    _ItuAlarmActiveStatsMinors_Type()
+)
+ituAlarmActiveStatsMinors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsMinors.setStatus("current")
+_ItuAlarmActiveStatsWarnings_Type = ZeroBasedCounter32
+_ItuAlarmActiveStatsWarnings_Object = MibTableColumn
+ituAlarmActiveStatsWarnings = _ItuAlarmActiveStatsWarnings_Object(
+    (1, 3, 6, 1, 2, 1, 121, 1, 2, 2, 1, 10),
+    _ItuAlarmActiveStatsWarnings_Type()
+)
+ituAlarmActiveStatsWarnings.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ituAlarmActiveStatsWarnings.setStatus("current")
+_ItuAlarmConformance_ObjectIdentity = ObjectIdentity
+ituAlarmConformance = _ItuAlarmConformance_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 121, 2)
+)
+_ItuAlarmCompliances_ObjectIdentity = ObjectIdentity
+ituAlarmCompliances = _ItuAlarmCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 121, 2, 1)
+)
+_ItuAlarmGroups_ObjectIdentity = ObjectIdentity
+ituAlarmGroups = _ItuAlarmGroups_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 121, 2, 2)
+)
+
+# Managed Objects groups
+
+ituAlarmGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 121, 2, 2, 1)
+)
+ituAlarmGroup.setObjects(
+      *(("ITU-ALARM-MIB", "ituAlarmEventType"),
+        ("ITU-ALARM-MIB", "ituAlarmProbableCause"),
+        ("ITU-ALARM-MIB", "ituAlarmGenericModel"))
+)
+if mibBuilder.loadTexts:
+    ituAlarmGroup.setStatus("current")
+
+ituAlarmServiceUserGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 121, 2, 2, 2)
+)
+ituAlarmServiceUserGroup.setObjects(
+      *(("ITU-ALARM-MIB", "ituAlarmAdditionalText"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveTrendIndication"))
+)
+if mibBuilder.loadTexts:
+    ituAlarmServiceUserGroup.setStatus("current")
+
+ituAlarmSecurityGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 121, 2, 2, 3)
+)
+ituAlarmSecurityGroup.setObjects(
+      *(("ITU-ALARM-MIB", "ituAlarmActiveDetector"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveServiceProvider"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveServiceUser"))
+)
+if mibBuilder.loadTexts:
+    ituAlarmSecurityGroup.setStatus("current")
+
+ituAlarmStatisticsGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 121, 2, 2, 4)
+)
+ituAlarmStatisticsGroup.setObjects(
+      *(("ITU-ALARM-MIB", "ituAlarmActiveStatsIndeterminateCurrent"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveStatsCriticalCurrent"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveStatsMajorCurrent"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveStatsMinorCurrent"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveStatsWarningCurrent"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveStatsIndeterminates"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveStatsCriticals"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveStatsMajors"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveStatsMinors"),
+        ("ITU-ALARM-MIB", "ituAlarmActiveStatsWarnings"))
+)
+if mibBuilder.loadTexts:
+    ituAlarmStatisticsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ituAlarmCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 121, 2, 1, 1)
+)
+ituAlarmCompliance.setObjects(
+      *(("ITU-ALARM-MIB", "ituAlarmGroup"),
+        ("ITU-ALARM-MIB", "ituAlarmServiceUserGroup"),
+        ("ITU-ALARM-MIB", "ituAlarmSecurityGroup"),
+        ("ITU-ALARM-MIB", "ituAlarmStatisticsGroup"))
+)
+if mibBuilder.loadTexts:
+    ituAlarmCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ITU-ALARM-MIB",
+    **{"ituAlarmMIB": ituAlarmMIB,
+       "ituAlarmObjects": ituAlarmObjects,
+       "ituAlarmModel": ituAlarmModel,
+       "ituAlarmTable": ituAlarmTable,
+       "ituAlarmEntry": ituAlarmEntry,
+       "ituAlarmPerceivedSeverity": ituAlarmPerceivedSeverity,
+       "ituAlarmEventType": ituAlarmEventType,
+       "ituAlarmProbableCause": ituAlarmProbableCause,
+       "ituAlarmAdditionalText": ituAlarmAdditionalText,
+       "ituAlarmGenericModel": ituAlarmGenericModel,
+       "ituAlarmActive": ituAlarmActive,
+       "ituAlarmActiveTable": ituAlarmActiveTable,
+       "ituAlarmActiveEntry": ituAlarmActiveEntry,
+       "ituAlarmActiveTrendIndication": ituAlarmActiveTrendIndication,
+       "ituAlarmActiveDetector": ituAlarmActiveDetector,
+       "ituAlarmActiveServiceProvider": ituAlarmActiveServiceProvider,
+       "ituAlarmActiveServiceUser": ituAlarmActiveServiceUser,
+       "ituAlarmActiveStatsTable": ituAlarmActiveStatsTable,
+       "ituAlarmActiveStatsEntry": ituAlarmActiveStatsEntry,
+       "ituAlarmActiveStatsIndeterminateCurrent": ituAlarmActiveStatsIndeterminateCurrent,
+       "ituAlarmActiveStatsCriticalCurrent": ituAlarmActiveStatsCriticalCurrent,
+       "ituAlarmActiveStatsMajorCurrent": ituAlarmActiveStatsMajorCurrent,
+       "ituAlarmActiveStatsMinorCurrent": ituAlarmActiveStatsMinorCurrent,
+       "ituAlarmActiveStatsWarningCurrent": ituAlarmActiveStatsWarningCurrent,
+       "ituAlarmActiveStatsIndeterminates": ituAlarmActiveStatsIndeterminates,
+       "ituAlarmActiveStatsCriticals": ituAlarmActiveStatsCriticals,
+       "ituAlarmActiveStatsMajors": ituAlarmActiveStatsMajors,
+       "ituAlarmActiveStatsMinors": ituAlarmActiveStatsMinors,
+       "ituAlarmActiveStatsWarnings": ituAlarmActiveStatsWarnings,
+       "ituAlarmConformance": ituAlarmConformance,
+       "ituAlarmCompliances": ituAlarmCompliances,
+       "ituAlarmCompliance": ituAlarmCompliance,
+       "ituAlarmGroups": ituAlarmGroups,
+       "ituAlarmGroup": ituAlarmGroup,
+       "ituAlarmServiceUserGroup": ituAlarmServiceUserGroup,
+       "ituAlarmSecurityGroup": ituAlarmSecurityGroup,
+       "ituAlarmStatisticsGroup": ituAlarmStatisticsGroup}
+)

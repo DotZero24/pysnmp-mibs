@@ -1,1666 +1,14094 @@
+# SNMP MIB module (PRIVATETECH-OP-MEN99810B-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PRIVATETECH-OP-MEN99810B-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rubytech/PRIVATETECH-OP-MEN99810B-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:38 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/rubytech/PRIVATETECH-OP-MEN99810B-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:15:42 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-MacAddress, = mibBuilder.importSymbols("BRIDGE-MIB", "MacAddress")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-InetAddress, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-privatetech = ModuleIdentity((1, 3, 6, 1, 4, 1, 5205))
-if mibBuilder.loadTexts: privatetech.setLastUpdated('201608240000Z')
-if mibBuilder.loadTexts: privatetech.setOrganization('Corp.')
-switch = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2))
-opmen99810bProductId = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94))
-opmen99810bSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1))
-opmen99810bSystemInformation = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1))
-opmen99810bModelName = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bModelName.setStatus('current')
-opmen99810bBIOSVersion = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bBIOSVersion.setStatus('current')
-opmen99810bFirmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bFirmwareVersion.setStatus('current')
-opmen99810bHardwareMechanicalVersion = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bHardwareMechanicalVersion.setStatus('current')
-opmen99810bSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSerialNumber.setStatus('current')
-opmen99810bHostMACAddress = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 6), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bHostMACAddress.setStatus('current')
-opmen99810bConsoleBaudrate = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bConsoleBaudrate.setStatus('current')
-opmen99810bRAMSize = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bRAMSize.setStatus('current')
-opmen99810bFlashSize = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bFlashSize.setStatus('current')
-opmen99810bBridgeFBDSize = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bBridgeFBDSize.setStatus('current')
-opmen99810bTransmitQueue = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 11), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bTransmitQueue.setStatus('current')
-opmen99810bMaximumFrameSize = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 12), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bMaximumFrameSize.setStatus('current')
-opmen99810bCPULoad = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 13), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bCPULoad.setStatus('current')
-opmen99810bPowerSource = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 14), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPowerSource.setStatus('current')
-opmen99810bSystemTime = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2))
-opmen99810bSystemTimeManual = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1))
-opmen99810bSystemTimeManualClockSource = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("useLocal", 0), ("useNTP", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualClockSource.setStatus('current')
-opmen99810bSystemTimeManualLocaltime = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualLocaltime.setStatus('current')
-opmen99810bSystemTimeManualTimeZoneOffset = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-720, 780))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualTimeZoneOffset.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavings = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavings.setStatus('current')
-opmen99810bSystemTimeManualTimeSetOffset = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1440))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualTimeSetOffset.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavingsType = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("byDates", 0), ("recurring", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavingsType.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavingsBydatesFrom = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 7), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavingsBydatesFrom.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavingsBydatesTo = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavingsBydatesTo.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("sunday", 0), ("monday", 1), ("tuseday", 2), ("wednesday", 3), ("thursday", 4), ("friday", 5), ("saturday", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("firstWeek", 1), ("secondWeek", 2), ("thirdWeek", 3), ("fourthWeek", 4), ("listWeek", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("jan", 1), ("feb", 2), ("mar", 3), ("apr", 4), ("may", 5), ("jun", 6), ("jul", 7), ("aug", 8), ("sep", 9), ("oct", 10), ("nov", 11), ("dec", 12)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 12), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("sunday", 0), ("monday", 1), ("tuseday", 2), ("wednesday", 3), ("thursday", 4), ("friday", 5), ("saturday", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("firstWeek", 1), ("secondWeek", 2), ("thirdWeek", 3), ("fourthWeek", 4), ("listWeek", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("jan", 1), ("feb", 2), ("mar", 3), ("apr", 4), ("may", 5), ("jun", 6), ("jul", 7), ("aug", 8), ("sep", 9), ("oct", 10), ("nov", 11), ("dec", 12)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo.setStatus('current')
-opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 16), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo.setStatus('current')
-opmen99810bSystemTimeNTP = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2))
-opmen99810bSystemTimeNTPTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1), )
-if mibBuilder.loadTexts: opmen99810bSystemTimeNTPTable.setStatus('current')
-opmen99810bSystemTimeNTPEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bSystemTimeNTPIndex"))
-if mibBuilder.loadTexts: opmen99810bSystemTimeNTPEntry.setStatus('current')
-opmen99810bSystemTimeNTPIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5)))
-if mibBuilder.loadTexts: opmen99810bSystemTimeNTPIndex.setStatus('current')
-opmen99810bSystemTimeNTPServerIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("ipv4", 0), ("ipv6", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeNTPServerIPType.setStatus('current')
-opmen99810bSystemTimeNTPServer = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeNTPServer.setStatus('current')
-opmen99810bSystemTimeNTPCurrentMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("empty", 0), ("active", 1), ("edit", 2), ("delete", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemTimeNTPCurrentMode.setStatus('current')
-opmen99810bSystemAccount = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3))
-opmen99810bSystemAccountUsers = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1))
-opmen99810bSystemAccountUserCreate = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("create", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemAccountUserCreate.setStatus('current')
-opmen99810bSystemAccountUsersTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2), )
-if mibBuilder.loadTexts: opmen99810bSystemAccountUsersTable.setStatus('current')
-opmen99810bSystemAccountUsersEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bUserIndex"))
-if mibBuilder.loadTexts: opmen99810bSystemAccountUsersEntry.setStatus('current')
-opmen99810bUserIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 20)))
-if mibBuilder.loadTexts: opmen99810bUserIndex.setStatus('current')
-opmen99810bUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bUserName.setStatus('current')
-opmen99810bPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPassword.setStatus('current')
-opmen99810bUserPrivilegeLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bUserPrivilegeLevel.setStatus('current')
-opmen99810bAccountUserRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("active", 1), ("notInservice", 2), ("edit", 3), ("destroy", 4), ("undo", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccountUserRowStatus.setStatus('current')
-opmen99810bSystemAccountPrivilegeLevel = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2))
-opmen99810bAccountPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccountPrivilegeLevel.setStatus('current')
-opmen99810bAggregationPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAggregationPrivilegeLevel.setStatus('current')
-opmen99810bDiagnosticsPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDiagnosticsPrivilegeLevel.setStatus('current')
-opmen99810bEEEPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bEEEPrivilegeLevel.setStatus('current')
-opmen99810bEasyportPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bEasyportPrivilegeLevel.setStatus('current')
-opmen99810bGARPPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGARPPrivilegeLevel.setStatus('current')
-opmen99810bGVRPPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGVRPPrivilegeLevel.setStatus('current')
-opmen99810bIPPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPPrivilegeLevel.setStatus('current')
-opmen99810bIPMCSnoopingPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPMCSnoopingPrivilegeLevel.setStatus('current')
-opmen99810bLACPPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bLACPPrivilegeLevel.setStatus('current')
-opmen99810bLLDPPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bLLDPPrivilegeLevel.setStatus('current')
-opmen99810bLLDPMEDPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bLLDPMEDPrivilegeLevel.setStatus('current')
-opmen99810bLoopProtectPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bLoopProtectPrivilegeLevel.setStatus('current')
-opmen99810bMACTablePrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bMACTablePrivilegeLevel.setStatus('current')
-opmen99810bMVRPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bMVRPrivilegeLevel.setStatus('current')
-opmen99810bMaintenancePrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bMaintenancePrivilegeLevel.setStatus('current')
-opmen99810bMirroringPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bMirroringPrivilegeLevel.setStatus('current')
-opmen99810bPortsPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortsPrivilegeLevel.setStatus('current')
-opmen99810bPrivateVLANsPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPrivateVLANsPrivilegeLevel.setStatus('current')
-opmen99810bQoSPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 29), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQoSPrivilegeLevel.setStatus('current')
-opmen99810bSFlowPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 30), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSFlowPrivilegeLevel.setStatus('current')
-opmen99810bSMTPPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 31), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPPrivilegeLevel.setStatus('current')
-opmen99810bSNMPPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 32), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSNMPPrivilegeLevel.setStatus('current')
-opmen99810bSecurityPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 33), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSecurityPrivilegeLevel.setStatus('current')
-opmen99810bSingleIPPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 34), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSingleIPPrivilegeLevel.setStatus('current')
-opmen99810bSpanningTreePrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 35), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSpanningTreePrivilegeLevel.setStatus('current')
-opmen99810bSystemPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 36), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSystemPrivilegeLevel.setStatus('current')
-opmen99810bTrapEventPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 37), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventPrivilegeLevel.setStatus('current')
-opmen99810bUPnPPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 38), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bUPnPPrivilegeLevel.setStatus('current')
-opmen99810bVCLPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 39), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVCLPrivilegeLevel.setStatus('current')
-opmen99810bVLANsPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 41), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVLANsPrivilegeLevel.setStatus('current')
-opmen99810bVoiceVLANPrivilegeLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 42), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANPrivilegeLevel.setStatus('current')
-opmen99810bIP = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4))
-opmen99810bIPv4 = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1))
-opmen99810bIPv4Configured = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1))
-opmen99810bIpv4DHCPClient = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIpv4DHCPClient.setStatus('current')
-opmen99810bIPv4Address = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPv4Address.setStatus('current')
-opmen99810bIPv4Mask = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPv4Mask.setStatus('current')
-opmen99810bIPv4Gateway = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPv4Gateway.setStatus('current')
-opmen99810bIPv4VLANId = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPv4VLANId.setStatus('current')
-opmen99810bIPv4DNSServer = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 6), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPv4DNSServer.setStatus('current')
-opmen99810bIPv4DNSProxy = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPv4DNSProxy.setStatus('current')
-opmen99810bIPv4Current = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2))
-opmen99810bIpv4CurrentDHCPClient = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("renew", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIpv4CurrentDHCPClient.setStatus('current')
-opmen99810bIPv4CurrentAddress = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIPv4CurrentAddress.setStatus('current')
-opmen99810bIPv4CurrentMask = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIPv4CurrentMask.setStatus('current')
-opmen99810bIPv4CurrentGateway = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIPv4CurrentGateway.setStatus('current')
-opmen99810bIPv4CurrentVLANId = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIPv4CurrentVLANId.setStatus('current')
-opmen99810bIPv4CurrentDNSServer = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 6), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIPv4CurrentDNSServer.setStatus('current')
-opmen99810bIPv6 = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2))
-opmen99810bIPv6Configured = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 1))
-opmen99810bIpv6AutoConfiguration = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIpv6AutoConfiguration.setStatus('current')
-opmen99810bIpv6Address = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIpv6Address.setStatus('current')
-opmen99810bIpv6Prefix = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIpv6Prefix.setStatus('current')
-opmen99810bIpv6Gateway = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIpv6Gateway.setStatus('current')
-opmen99810bIPv6Current = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2))
-opmen99810bIpv6CurrentAutoConfiguration = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIpv6CurrentAutoConfiguration.setStatus('current')
-opmen99810bIpv6CurrentAddress = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIpv6CurrentAddress.setStatus('current')
-opmen99810bIpv6CurrentLinkLocalAddress = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIpv6CurrentLinkLocalAddress.setStatus('current')
-opmen99810bIpv6CurrentPrefix = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIpv6CurrentPrefix.setStatus('current')
-opmen99810bIpv6CurrentGateway = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIpv6CurrentGateway.setStatus('current')
-opmen99810bSyslog = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5))
-opmen99810bSyslogConf = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 1))
-opmen99810bServerMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bServerMode.setStatus('current')
-opmen99810bServerAddress1 = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bServerAddress1.setStatus('current')
-opmen99810bServerAddress2 = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bServerAddress2.setStatus('current')
-opmen99810bSyslogLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSyslogLevel.setStatus('current')
-opmen99810bSyslogDetailedInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2))
-opmen99810bSyslogDetailedInfoClear = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("clear", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSyslogDetailedInfoClear.setStatus('current')
-opmen99810bSyslogDetailedInfoTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2), )
-if mibBuilder.loadTexts: opmen99810bSyslogDetailedInfoTable.setStatus('current')
-opmen99810bSyslogDetailedInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bSyslogDetailedInfoIndex"))
-if mibBuilder.loadTexts: opmen99810bSyslogDetailedInfoEntry.setStatus('current')
-opmen99810bSyslogDetailedInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024)))
-if mibBuilder.loadTexts: opmen99810bSyslogDetailedInfoIndex.setStatus('current')
-opmen99810bSyslogDetailedInfoLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSyslogDetailedInfoLevel.setStatus('current')
-opmen99810bSyslogDetailedInfoTime = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSyslogDetailedInfoTime.setStatus('current')
-opmen99810bSyslogDetailedInfoMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSyslogDetailedInfoMessage.setStatus('current')
-opmen99810bSnmp = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6))
-opmen99810bSnmpConf = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1))
-opmen99810bGetCommunity = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGetCommunity.setStatus('current')
-opmen99810bSetCommunityMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSetCommunityMode.setStatus('current')
-opmen99810bSetCommunity = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSetCommunity.setStatus('current')
-opmen99810bTrapHostConfTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4), )
-if mibBuilder.loadTexts: opmen99810bTrapHostConfTable.setStatus('current')
-opmen99810bTrapHostConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bTrapHostConfIndex"))
-if mibBuilder.loadTexts: opmen99810bTrapHostConfEntry.setStatus('current')
-opmen99810bTrapHostConfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 6)))
-if mibBuilder.loadTexts: opmen99810bTrapHostConfIndex.setStatus('current')
-opmen99810bTrapHostConfVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("snmpv2c", 2), ("snmpv3", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfVersion.setStatus('current')
-opmen99810bTrapHostConfIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(4, 6))).clone(namedValues=NamedValues(("ipv4", 4), ("ipv6", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfIPType.setStatus('current')
-opmen99810bTrapHostConfIP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfIP.setStatus('current')
-opmen99810bTrapHostConfPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfPort.setStatus('current')
-opmen99810bTrapHostConfCommunity = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfCommunity.setStatus('current')
-opmen99810bTrapHostConfSeverityLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfSeverityLevel.setStatus('current')
-opmen99810bTrapHostConfSecurityLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noAuthNoPriv", 1), ("authNoPriv", 2), ("authPriv", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfSecurityLevel.setStatus('current')
-opmen99810bTrapHostConfAuthPtc = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("md5", 1), ("sha", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfAuthPtc.setStatus('current')
-opmen99810bTrapHostConfAuthPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 10), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfAuthPassword.setStatus('current')
-opmen99810bTrapHostConfPrivPtc = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("des", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfPrivPtc.setStatus('current')
-opmen99810bTrapHostConfPrivPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 12), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfPrivPassword.setStatus('current')
-opmen99810bTrapHostConfCurrentMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("empty", 0), ("active", 1), ("edit", 2), ("delete", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapHostConfCurrentMode.setStatus('current')
-opmen99810bConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2))
-opmen99810bPort = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1))
-opmen99810bPortConfigurationTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1), )
-if mibBuilder.loadTexts: opmen99810bPortConfigurationTable.setStatus('current')
-opmen99810bPortConfigurationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortConfPort"))
-if mibBuilder.loadTexts: opmen99810bPortConfigurationEntry.setStatus('current')
-opmen99810bPortConfPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bPortConfPort.setStatus('current')
-opmen99810bPortConfPortMedia = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 4))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortConfPortMedia.setStatus('current')
-opmen99810bPortConfLink = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(2, 4))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortConfLink.setStatus('current')
-opmen99810bPortConfCurrentSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(6, 12))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortConfCurrentSpeed.setStatus('current')
-opmen99810bPortConfSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("disable", 0), ("auto", 1), ("speed10Half", 2), ("speed10Full", 3), ("speed100Half", 4), ("speed100Full", 5), ("speed1Gfull", 6), ("sfpAutoAMS", 7), ("speed100FXAMS", 8), ("speed1000XAMS", 9), ("speed100FX", 10), ("speed1000X", 11)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortConfSpeed.setStatus('current')
-opmen99810bPortConfCurrentFlowControlRx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1), ("noSupport", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortConfCurrentFlowControlRx.setStatus('current')
-opmen99810bPortConfCurrentFlowControlTx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1), ("noSupport", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortConfCurrentFlowControlTx.setStatus('current')
-opmen99810bPortConfFlowControl = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1), ("noSupport", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortConfFlowControl.setStatus('current')
-opmen99810bPortConfMaxFrameSize = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1518, 9600))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortConfMaxFrameSize.setStatus('current')
-opmen99810bPortConfExcessiveCollisionMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("discard", 0), ("restart", 1), ("noSupport", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortConfExcessiveCollisionMode.setStatus('current')
-opmen99810bPortConfPowerControl = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("disable", 0), ("actiphy", 1), ("dynamic", 2), ("enable", 3), ("noSupport", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortConfPowerControl.setStatus('current')
-opmen99810bPortConfDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 12), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortConfDescription.setStatus('current')
-opmen99810bPortTrafficStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2), )
-if mibBuilder.loadTexts: opmen99810bPortTrafficStatisticsTable.setStatus('current')
-opmen99810bPortTrafficStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortTrafficStatisticsPort"))
-if mibBuilder.loadTexts: opmen99810bPortTrafficStatisticsEntry.setStatus('current')
-opmen99810bPortTrafficStatisticsPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bPortTrafficStatisticsPort.setStatus('current')
-opmen99810bPortTrafficStatisticsClear = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortTrafficStatisticsClear.setStatus('current')
-opmen99810bPortTrafficRxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxPackets.setStatus('current')
-opmen99810bPortTrafficRxOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxOctets.setStatus('current')
-opmen99810bPortTrafficRxUnicast = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxUnicast.setStatus('current')
-opmen99810bPortTrafficRxMulticast = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxMulticast.setStatus('current')
-opmen99810bPortTrafficRxBroadcast = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxBroadcast.setStatus('current')
-opmen99810bPortTrafficRxPause = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxPause.setStatus('current')
-opmen99810bPortTrafficRx64Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRx64Bytes.setStatus('current')
-opmen99810bPortTrafficRx65to127Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRx65to127Bytes.setStatus('current')
-opmen99810bPortTrafficRx128to255Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRx128to255Bytes.setStatus('current')
-opmen99810bPortTrafficRx256to511Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRx256to511Bytes.setStatus('current')
-opmen99810bPortTrafficRx512to1023Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRx512to1023Bytes.setStatus('current')
-opmen99810bPortTrafficRx1024to1526Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRx1024to1526Bytes.setStatus('current')
-opmen99810bPortTrafficRxExceecd1527Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxExceecd1527Bytes.setStatus('current')
-opmen99810bPortTrafficRxQ0 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxQ0.setStatus('current')
-opmen99810bPortTrafficRxQ1 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 17), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxQ1.setStatus('current')
-opmen99810bPortTrafficRxQ2 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 18), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxQ2.setStatus('current')
-opmen99810bPortTrafficRxQ3 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 19), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxQ3.setStatus('current')
-opmen99810bPortTrafficRxQ4 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 20), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxQ4.setStatus('current')
-opmen99810bPortTrafficRxQ5 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 21), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxQ5.setStatus('current')
-opmen99810bPortTrafficRxQ6 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 22), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxQ6.setStatus('current')
-opmen99810bPortTrafficRxQ7 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 23), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxQ7.setStatus('current')
-opmen99810bPortTrafficRxDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 24), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxDrops.setStatus('current')
-opmen99810bPortTrafficRxCRCorAlignment = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 25), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxCRCorAlignment.setStatus('current')
-opmen99810bPortTrafficRxUndersize = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 26), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxUndersize.setStatus('current')
-opmen99810bPortTrafficRxOversize = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 27), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxOversize.setStatus('current')
-opmen99810bPortTrafficRxFragments = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 28), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxFragments.setStatus('current')
-opmen99810bPortTrafficRxJabber = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 29), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxJabber.setStatus('current')
-opmen99810bPortTrafficRxFiltered = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 30), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficRxFiltered.setStatus('current')
-opmen99810bPortTrafficTxPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 31), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxPackets.setStatus('current')
-opmen99810bPortTrafficTxOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 32), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxOctets.setStatus('current')
-opmen99810bPortTrafficTxUnicast = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 33), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxUnicast.setStatus('current')
-opmen99810bPortTrafficTxMulticast = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 34), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxMulticast.setStatus('current')
-opmen99810bPortTrafficTxBroadcast = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 35), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxBroadcast.setStatus('current')
-opmen99810bPortTrafficTxPause = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 36), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxPause.setStatus('current')
-opmen99810bPortTrafficTx64Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 37), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTx64Bytes.setStatus('current')
-opmen99810bPortTrafficTx65to127Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 38), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTx65to127Bytes.setStatus('current')
-opmen99810bPortTrafficTx128to255Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 39), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTx128to255Bytes.setStatus('current')
-opmen99810bPortTrafficTx256to511Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 40), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTx256to511Bytes.setStatus('current')
-opmen99810bPortTrafficTx512to1023Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 41), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTx512to1023Bytes.setStatus('current')
-opmen99810bPortTrafficTx1024to1526Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 42), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTx1024to1526Bytes.setStatus('current')
-opmen99810bPortTrafficTxExceecd1527Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 43), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxExceecd1527Bytes.setStatus('current')
-opmen99810bPortTrafficTxQ0 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 44), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxQ0.setStatus('current')
-opmen99810bPortTrafficTxQ1 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 45), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxQ1.setStatus('current')
-opmen99810bPortTrafficTxQ2 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 46), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxQ2.setStatus('current')
-opmen99810bPortTrafficTxQ3 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 47), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxQ3.setStatus('current')
-opmen99810bPortTrafficTxQ4 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 48), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxQ4.setStatus('current')
-opmen99810bPortTrafficTxQ5 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 49), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxQ5.setStatus('current')
-opmen99810bPortTrafficTxQ6 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 50), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxQ6.setStatus('current')
-opmen99810bPortTrafficTxQ7 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 51), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxQ7.setStatus('current')
-opmen99810bPortTrafficTxDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 52), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxDrops.setStatus('current')
-opmen99810bPortTrafficTxLateOrExcColl = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 53), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortTrafficTxLateOrExcColl.setStatus('current')
-opmen99810bPortQoSStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3))
-opmen99810bPortQoSStatisticsClear = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("clear", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSStatisticsClear.setStatus('current')
-opmen99810bPortQoSStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2), )
-if mibBuilder.loadTexts: opmen99810bPortQoSStatisticsTable.setStatus('current')
-opmen99810bPortQoSStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortQoSStatisticsPort"))
-if mibBuilder.loadTexts: opmen99810bPortQoSStatisticsEntry.setStatus('current')
-opmen99810bPortQoSStatisticsPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bPortQoSStatisticsPort.setStatus('current')
-opmen99810bPortQoSQ0Rx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ0Rx.setStatus('current')
-opmen99810bPortQoSQ0Tx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ0Tx.setStatus('current')
-opmen99810bPortQoSQ1Rx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ1Rx.setStatus('current')
-opmen99810bPortQoSQ1Tx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ1Tx.setStatus('current')
-opmen99810bPortQoSQ2Rx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ2Rx.setStatus('current')
-opmen99810bPortQoSQ2Tx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ2Tx.setStatus('current')
-opmen99810bPortQoSQ3Rx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ3Rx.setStatus('current')
-opmen99810bPortQoSQ3Tx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ3Tx.setStatus('current')
-opmen99810bPortQoSQ4Rx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ4Rx.setStatus('current')
-opmen99810bPortQoSQ4Tx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ4Tx.setStatus('current')
-opmen99810bPortQoSQ5Rx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ5Rx.setStatus('current')
-opmen99810bPortQoSQ5Tx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ5Tx.setStatus('current')
-opmen99810bPortQoSQ6Rx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ6Rx.setStatus('current')
-opmen99810bPortQoSQ6Tx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ6Tx.setStatus('current')
-opmen99810bPortQoSQ7Rx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ7Rx.setStatus('current')
-opmen99810bPortQoSQ7Tx = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 17), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortQoSQ7Tx.setStatus('current')
-opmen99810bSFPInfoTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4), )
-if mibBuilder.loadTexts: opmen99810bSFPInfoTable.setStatus('current')
-opmen99810bSFPInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bSFPInfoIndex"))
-if mibBuilder.loadTexts: opmen99810bSFPInfoEntry.setStatus('current')
-opmen99810bSFPInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bSFPInfoIndex.setStatus('current')
-opmen99810bSFPInfoPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPInfoPort.setStatus('current')
-opmen99810bSFPConnectorType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPConnectorType.setStatus('current')
-opmen99810bSFPFiberType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPFiberType.setStatus('current')
-opmen99810bSFPTxCentralWavelength = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPTxCentralWavelength.setStatus('current')
-opmen99810bSFPBaudRate = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPBaudRate.setStatus('current')
-opmen99810bSFPVendorOUI = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPVendorOUI.setStatus('current')
-opmen99810bSFPVendorName = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPVendorName.setStatus('current')
-opmen99810bSFPVendorPN = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPVendorPN.setStatus('current')
-opmen99810bSFPVendorRev = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 10), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPVendorRev.setStatus('current')
-opmen99810bSFPVendorSN = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 11), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPVendorSN.setStatus('current')
-opmen99810bSFPDateCode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 12), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPDateCode.setStatus('current')
-opmen99810bSFPTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 13), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPTemperature.setStatus('current')
-opmen99810bSFPVcc = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 14), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPVcc.setStatus('current')
-opmen99810bSFPMon1Bias = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 15), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPMon1Bias.setStatus('current')
-opmen99810bSFPMon2TxPWR = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 16), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPMon2TxPWR.setStatus('current')
-opmen99810bSFPMon3RxPWR = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 17), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSFPMon3RxPWR.setStatus('current')
-opmen99810bPortEEETable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5), )
-if mibBuilder.loadTexts: opmen99810bPortEEETable.setStatus('current')
-opmen99810bPortEEEEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortEEEPort"))
-if mibBuilder.loadTexts: opmen99810bPortEEEEntry.setStatus('current')
-opmen99810bPortEEEPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bPortEEEPort.setStatus('current')
-opmen99810bPortEEEMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortEEEMode.setStatus('current')
-opmen99810bPortEEEUrgentQueue1 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortEEEUrgentQueue1.setStatus('current')
-opmen99810bPortEEEUrgentQueue2 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortEEEUrgentQueue2.setStatus('current')
-opmen99810bPortEEEUrgentQueue3 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortEEEUrgentQueue3.setStatus('current')
-opmen99810bPortEEEUrgentQueue4 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortEEEUrgentQueue4.setStatus('current')
-opmen99810bPortEEEUrgentQueue5 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortEEEUrgentQueue5.setStatus('current')
-opmen99810bPortEEEUrgentQueue6 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortEEEUrgentQueue6.setStatus('current')
-opmen99810bPortEEEUrgentQueue7 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortEEEUrgentQueue7.setStatus('current')
-opmen99810bPortEEEUrgentQueue8 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortEEEUrgentQueue8.setStatus('current')
-opmen99810bVoiceVLAN = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2))
-opmen99810bVoiceVLANConf = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1))
-opmen99810bVoiceVLANMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANMode.setStatus('current')
-opmen99810bVoiceVLANVLANId = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANVLANId.setStatus('current')
-opmen99810bVoiceVLANAgingTime = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 1000000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANAgingTime.setStatus('current')
-opmen99810bVoiceVLANTrafficClass = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANTrafficClass.setStatus('current')
-opmen99810bVoiceVLANPortTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5), )
-if mibBuilder.loadTexts: opmen99810bVoiceVLANPortTable.setStatus('current')
-opmen99810bVoiceVLANPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bVoiceVLANPort"))
-if mibBuilder.loadTexts: opmen99810bVoiceVLANPortEntry.setStatus('current')
-opmen99810bVoiceVLANPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bVoiceVLANPort.setStatus('current')
-opmen99810bVoiceVLANPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disable", 0), ("auto", 1), ("forced", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANPortMode.setStatus('current')
-opmen99810bVoiceVLANPortSecurity = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANPortSecurity.setStatus('current')
-opmen99810bVoiceVLANPortDiscoveryProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("oui", 0), ("lldp", 1), ("both", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANPortDiscoveryProtocol.setStatus('current')
-opmen99810bVoiceVLANOUI = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2))
-opmen99810bVoiceVLANOUICreate = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("create", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANOUICreate.setStatus('current')
-opmen99810bVoiceVLANOUITable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2), )
-if mibBuilder.loadTexts: opmen99810bVoiceVLANOUITable.setStatus('current')
-opmen99810bVoiceVLANOUIEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bVoiceVLANOUIIndex"))
-if mibBuilder.loadTexts: opmen99810bVoiceVLANOUIEntry.setStatus('current')
-opmen99810bVoiceVLANOUIIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: opmen99810bVoiceVLANOUIIndex.setStatus('current')
-opmen99810bVoiceVLANTelephonyOUI = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANTelephonyOUI.setStatus('current')
-opmen99810bVoiceVLANDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANDescription.setStatus('current')
-opmen99810bVoiceVLANOUIRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 5))).clone(namedValues=NamedValues(("active", 1), ("notInservice", 2), ("destroy", 4), ("undo", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVoiceVLANOUIRowStatus.setStatus('current')
-opmen99810bGARP = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3))
-opmen99810bGARPConfTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1), )
-if mibBuilder.loadTexts: opmen99810bGARPConfTable.setStatus('current')
-opmen99810bGARPConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bGARPConfPort"))
-if mibBuilder.loadTexts: opmen99810bGARPConfEntry.setStatus('current')
-opmen99810bGARPConfPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bGARPConfPort.setStatus('current')
-opmen99810bGARPJoinTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(200, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGARPJoinTimer.setStatus('current')
-opmen99810bGARPLeaveTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(600, 3000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGARPLeaveTimer.setStatus('current')
-opmen99810bGARPLeaveAllTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10000, 50000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGARPLeaveAllTimer.setStatus('current')
-opmen99810bGARPApplicantion = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("gvrp", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGARPApplicantion.setStatus('current')
-opmen99810bGARPAttributeType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("vlan", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGARPAttributeType.setStatus('current')
-opmen99810bGARPApplicant = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("participant", 0), ("nonParticipant", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGARPApplicant.setStatus('current')
-opmen99810bGARPStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 2), )
-if mibBuilder.loadTexts: opmen99810bGARPStatisticsTable.setStatus('current')
-opmen99810bGARPStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bGARPStatisticsPort"))
-if mibBuilder.loadTexts: opmen99810bGARPStatisticsEntry.setStatus('current')
-opmen99810bGARPStatisticsPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bGARPStatisticsPort.setStatus('current')
-opmen99810bGARPStatisticsPeerMAC = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bGARPStatisticsPeerMAC.setStatus('current')
-opmen99810bGARPStatisticsFailedCount = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bGARPStatisticsFailedCount.setStatus('current')
-opmen99810bGVRP = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4))
-opmen99810bGVRPConf = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1))
-opmen99810bGVRPMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGVRPMode.setStatus('current')
-opmen99810bGVRPConfTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 2), )
-if mibBuilder.loadTexts: opmen99810bGVRPConfTable.setStatus('current')
-opmen99810bGVRPConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bGVRPConfPort"))
-if mibBuilder.loadTexts: opmen99810bGVRPConfEntry.setStatus('current')
-opmen99810bGVRPConfPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bGVRPConfPort.setStatus('current')
-opmen99810bGVRPConfPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGVRPConfPortMode.setStatus('current')
-opmen99810bGVRPConfPortRRole = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bGVRPConfPortRRole.setStatus('current')
-opmen99810bGVRPStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 2), )
-if mibBuilder.loadTexts: opmen99810bGVRPStatisticsTable.setStatus('current')
-opmen99810bGVRPStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bGVRPStatisticsPort"))
-if mibBuilder.loadTexts: opmen99810bGVRPStatisticsEntry.setStatus('current')
-opmen99810bGVRPStatisticsPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bGVRPStatisticsPort.setStatus('current')
-opmen99810bGVRPStatisticsJoinTxCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bGVRPStatisticsJoinTxCnt.setStatus('current')
-opmen99810bGVRPStatisticsLeaveTxCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bGVRPStatisticsLeaveTxCnt.setStatus('current')
-opmen99810bMirroring = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6))
-opmen99810bPortToMirrorOn = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortToMirrorOn.setStatus('current')
-opmen99810bMirrorTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6, 2), )
-if mibBuilder.loadTexts: opmen99810bMirrorTable.setStatus('current')
-opmen99810bMirrorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bMirrorPort"))
-if mibBuilder.loadTexts: opmen99810bMirrorEntry.setStatus('current')
-opmen99810bMirrorPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bMirrorPort.setStatus('current')
-opmen99810bMirrorMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1), ("rxOnly", 2), ("txOnly", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bMirrorMode.setStatus('current')
-opmen99810bTrapEventSeverity = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7))
-opmen99810bTrapEventSeverityACL = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityACL.setStatus('current')
-opmen99810bTrapEventSeverityACLLog = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityACLLog.setStatus('current')
-opmen99810bTrapEventSeverityAccessMgmt = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityAccessMgmt.setStatus('current')
-opmen99810bTrapEventSeverityAuthFailed = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityAuthFailed.setStatus('current')
-opmen99810bTrapEventSeverityColdStart = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityColdStart.setStatus('current')
-opmen99810bTrapEventSeverityConfigInfo = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityConfigInfo.setStatus('current')
-opmen99810bTrapEventSeverityFirmwareUpgrade = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityFirmwareUpgrade.setStatus('current')
-opmen99810bTrapEventSeverityImportExport = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityImportExport.setStatus('current')
-opmen99810bTrapEventSeverityLACP = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityLACP.setStatus('current')
-opmen99810bTrapEventSeverityLinkStatus = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityLinkStatus.setStatus('current')
-opmen99810bTrapEventSeverityLogin = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityLogin.setStatus('current')
-opmen99810bTrapEventSeverityLogout = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityLogout.setStatus('current')
-opmen99810bTrapEventSeverityLoopProtect = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityLoopProtect.setStatus('current')
-opmen99810bTrapEventSeverityMgmtIPChange = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityMgmtIPChange.setStatus('current')
-opmen99810bTrapEventSeverityModuleChange = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityModuleChange.setStatus('current')
-opmen99810bTrapEventSeverityNAS = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityNAS.setStatus('current')
-opmen99810bTrapEventSeverityPasswordChange = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityPasswordChange.setStatus('current')
-opmen99810bTrapEventSeverityPortSecurity = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityPortSecurity.setStatus('current')
-opmen99810bTrapEventSeverityVLAN = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityVLAN.setStatus('current')
-opmen99810bTrapEventSeverityWarmStart = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTrapEventSeverityWarmStart.setStatus('current')
-opmen99810bSMTP = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8))
-opmen99810bSMTPMailServer = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPMailServer.setStatus('current')
-opmen99810bSMTPUserName = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPUserName.setStatus('current')
-opmen99810bSMTPPassword = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPPassword.setStatus('current')
-opmen99810bSMTPServeriryLevel = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("emergency", 0), ("alert", 1), ("critical", 2), ("error", 3), ("warning", 4), ("notice", 5), ("info", 6), ("debug", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPServeriryLevel.setStatus('current')
-opmen99810bSMTPSender = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPSender.setStatus('current')
-opmen99810bSMTPReturnPath = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPReturnPath.setStatus('current')
-opmen99810bSMTPPort = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPPort.setStatus('current')
-opmen99810bSMTPEmailAddress1 = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPEmailAddress1.setStatus('current')
-opmen99810bSMTPEmailAddress2 = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 9), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPEmailAddress2.setStatus('current')
-opmen99810bSMTPEmailAddress3 = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 10), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPEmailAddress3.setStatus('current')
-opmen99810bSMTPEmailAddress4 = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 11), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPEmailAddress4.setStatus('current')
-opmen99810bSMTPEmailAddress5 = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 12), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPEmailAddress5.setStatus('current')
-opmen99810bSMTPEmailAddress6 = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 13), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSMTPEmailAddress6.setStatus('current')
-opmen99810bACL = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9))
-opmen99810bACLPortsConfTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1), )
-if mibBuilder.loadTexts: opmen99810bACLPortsConfTable.setStatus('current')
-opmen99810bACLPortsConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bACLPortsConfPort"))
-if mibBuilder.loadTexts: opmen99810bACLPortsConfEntry.setStatus('current')
-opmen99810bACLPortsConfPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bACLPortsConfPort.setStatus('current')
-opmen99810bACLPortsConfPolicyID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLPortsConfPolicyID.setStatus('current')
-opmen99810bACLPortsConfAction = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("deny", 0), ("permit", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLPortsConfAction.setStatus('current')
-opmen99810bACLPortsConfRateLimiterID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 12))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLPortsConfRateLimiterID.setStatus('current')
-opmen99810bACLPortsConfPortRedirect = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLPortsConfPortRedirect.setStatus('current')
-opmen99810bACLPortsConfMirror = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLPortsConfMirror.setStatus('current')
-opmen99810bACLPortsConfLogging = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLPortsConfLogging.setStatus('current')
-opmen99810bACLPortsConfShutdown = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLPortsConfShutdown.setStatus('current')
-opmen99810bACLPortsConfState = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLPortsConfState.setStatus('current')
-opmen99810bACLPortsConfCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLPortsConfCounter.setStatus('current')
-opmen99810bACLRateLimiterTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 2), )
-if mibBuilder.loadTexts: opmen99810bACLRateLimiterTable.setStatus('current')
-opmen99810bACLRateLimiterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bACLRateLimiterID"))
-if mibBuilder.loadTexts: opmen99810bACLRateLimiterEntry.setStatus('current')
-opmen99810bACLRateLimiterID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 12)))
-if mibBuilder.loadTexts: opmen99810bACLRateLimiterID.setStatus('current')
-opmen99810bACLRateLimiterUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("pps", 0), ("kbps", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLRateLimiterUnit.setStatus('current')
-opmen99810bACLRateLimiterRate = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3276700))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLRateLimiterRate.setStatus('current')
-opmen99810bACLACE = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3))
-opmen99810bACLACECreate = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("create", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACECreate.setStatus('current')
-opmen99810bACLACETable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2), )
-if mibBuilder.loadTexts: opmen99810bACLACETable.setStatus('current')
-opmen99810bACLACEEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bACLACEIndex"))
-if mibBuilder.loadTexts: opmen99810bACLACEEntry.setStatus('current')
-opmen99810bACLACEIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 256)))
-if mibBuilder.loadTexts: opmen99810bACLACEIndex.setStatus('current')
-opmen99810bACLACEID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEID.setStatus('current')
-opmen99810bACLACENextID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACENextID.setStatus('current')
-opmen99810bACLACEIngressPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEIngressPort.setStatus('current')
-opmen99810bACLACEPortPolicyNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEPortPolicyNumber.setStatus('current')
-opmen99810bACLACEPortPolicyBitmask = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEPortPolicyBitmask.setStatus('current')
-opmen99810bACLACEFrameType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("any", 0), ("arp", 1), ("etype", 2), ("icmp", 3), ("ipv4", 4), ("tcp", 5), ("udp", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEFrameType.setStatus('current')
-opmen99810bACLACEAction = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("deny", 0), ("permit", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEAction.setStatus('current')
-opmen99810bACLACEDenyPortRedirect = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 9), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEDenyPortRedirect.setStatus('current')
-opmen99810bACLACELogging = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACELogging.setStatus('current')
-opmen99810bACLACEMirror = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEMirror.setStatus('current')
-opmen99810bACLACERateLimiter = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 12))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACERateLimiter.setStatus('current')
-opmen99810bACLACEShutdown = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEShutdown.setStatus('current')
-opmen99810bACLACEVLAN8021QTagged = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1), ("any", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEVLAN8021QTagged.setStatus('current')
-opmen99810bACLACEVLANTagPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEVLANTagPriority.setStatus('current')
-opmen99810bACLACEVLANVID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEVLANVID.setStatus('current')
-opmen99810bACLACEEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEEtherType.setStatus('current')
-opmen99810bACLACESMAC = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 18), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACESMAC.setStatus('current')
-opmen99810bACLACEDMACType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("any", 0), ("broadcast", 1), ("unicast", 2), ("multicast", 3), ("macAddress", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEDMACType.setStatus('current')
-opmen99810bACLACEDMAC = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 20), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEDMAC.setStatus('current')
-opmen99810bACLACEArpOpcode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("any", 0), ("arp", 1), ("rarp", 2), ("other", 3), ("noData", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEArpOpcode.setStatus('current')
-opmen99810bACLACEArpFlagsRequestReply = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("reply", 0), ("request", 1), ("any", 2), ("noData", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEArpFlagsRequestReply.setStatus('current')
-opmen99810bACLACEArpFlagsArpSmac = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("notEqualSMAC", 0), ("equalSMAC", 1), ("any", 2), ("noData", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEArpFlagsArpSmac.setStatus('current')
-opmen99810bACLACEArpFlagsRarpDmac = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("notEqualDMAC", 0), ("equalDMAC", 1), ("any", 2), ("noData", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEArpFlagsRarpDmac.setStatus('current')
-opmen99810bACLACEArpFlagsLength = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEArpFlagsLength.setStatus('current')
-opmen99810bACLACEArpFlagsIp = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 26), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEArpFlagsIp.setStatus('current')
-opmen99810bACLACEArpFlagsEthernet = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEArpFlagsEthernet.setStatus('current')
-opmen99810bACLACESIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("any", 0), ("ip", 1), ("noData", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACESIPType.setStatus('current')
-opmen99810bACLACESIPIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 29), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACESIPIPAddress.setStatus('current')
-opmen99810bACLACESIPNetworkPrefix = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 30), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACESIPNetworkPrefix.setStatus('current')
-opmen99810bACLACEDIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 32), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("any", 0), ("ip", 1), ("noData", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEDIPType.setStatus('current')
-opmen99810bACLACEDIPIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 33), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEDIPIPAddress.setStatus('current')
-opmen99810bACLACEDIPNetworkPrefix = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 34), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEDIPNetworkPrefix.setStatus('current')
-opmen99810bACLACEIPProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 36), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 257))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEIPProtocol.setStatus('current')
-opmen99810bACLACEIPFlagsTTL = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 37), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEIPFlagsTTL.setStatus('current')
-opmen99810bACLACEIPFlagsOptions = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 38), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unset", 0), ("set", 1), ("any", 2), ("noData", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEIPFlagsOptions.setStatus('current')
-opmen99810bACLACEIPFlagsFragment = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 39), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEIPFlagsFragment.setStatus('current')
-opmen99810bACLACEICMPType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 40), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 257))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEICMPType.setStatus('current')
-opmen99810bACLACEICMPCode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 41), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 257))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEICMPCode.setStatus('current')
-opmen99810bACLACESourcePortMin = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 42), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACESourcePortMin.setStatus('current')
-opmen99810bACLACESourcePortMax = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 43), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACESourcePortMax.setStatus('current')
-opmen99810bACLACEDestPortMin = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 44), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEDestPortMin.setStatus('current')
-opmen99810bACLACEDestPortMax = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 45), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEDestPortMax.setStatus('current')
-opmen99810bACLACETCPFlagsFin = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 46), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unset", 0), ("set", 1), ("any", 2), ("noData", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACETCPFlagsFin.setStatus('current')
-opmen99810bACLACETCPFlagsSyn = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 47), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unset", 0), ("set", 1), ("any", 2), ("noData", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACETCPFlagsSyn.setStatus('current')
-opmen99810bACLACETCPFlagsRst = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 48), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unset", 0), ("set", 1), ("any", 2), ("noData", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACETCPFlagsRst.setStatus('current')
-opmen99810bACLACETCPFlagsPsh = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 49), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unset", 0), ("set", 1), ("any", 2), ("noData", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACETCPFlagsPsh.setStatus('current')
-opmen99810bACLACETCPFlagsAck = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 50), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unset", 0), ("set", 1), ("any", 2), ("noData", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACETCPFlagsAck.setStatus('current')
-opmen99810bACLACETCPFlagsUrg = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 51), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("unset", 0), ("set", 1), ("any", 2), ("noData", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACETCPFlagsUrg.setStatus('current')
-opmen99810bACLACERowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 66), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 5))).clone(namedValues=NamedValues(("active", 1), ("notInservice", 2), ("destroy", 4), ("undo", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACERowStatus.setStatus('current')
-opmen99810bACLACEClear = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noAction", 0), ("clear", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEClear.setStatus('current')
-opmen99810bACLACEMoveACEID = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEMoveACEID.setStatus('current')
-opmen99810bACLACEMoveNextACEID = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bACLACEMoveNextACEID.setStatus('current')
-opmen99810bACLACEStatusTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6), )
-if mibBuilder.loadTexts: opmen99810bACLACEStatusTable.setStatus('current')
-opmen99810bACLACEStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bACLACEStatusIndex"))
-if mibBuilder.loadTexts: opmen99810bACLACEStatusEntry.setStatus('current')
-opmen99810bACLACEStatusIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 256)))
-if mibBuilder.loadTexts: opmen99810bACLACEStatusIndex.setStatus('current')
-opmen99810bACLACEStatusUser = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLACEStatusUser.setStatus('current')
-opmen99810bACLACEStatusID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 256))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLACEStatusID.setStatus('current')
-opmen99810bACLACEStatusIngressPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLACEStatusIngressPort.setStatus('current')
-opmen99810bACLACEStatusFrameType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLACEStatusFrameType.setStatus('current')
-opmen99810bACLACEStatusAction = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLACEStatusAction.setStatus('current')
-opmen99810bACLACEStatusRateLimiter = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLACEStatusRateLimiter.setStatus('current')
-opmen99810bACLACEStatusPortCopy = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLACEStatusPortCopy.setStatus('current')
-opmen99810bACLACEStatusMirror = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLACEStatusMirror.setStatus('current')
-opmen99810bACLACEStatusCPU = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 10), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLACEStatusCPU.setStatus('current')
-opmen99810bACLACEStatusCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLACEStatusCounter.setStatus('current')
-opmen99810bACLACEStatusConflict = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 12), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bACLACEStatusConflict.setStatus('current')
-opmen99810bBroadcastStormProtection = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11))
-opmen99810bBroadcastStormProtectionConfigurationTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1), )
-if mibBuilder.loadTexts: opmen99810bBroadcastStormProtectionConfigurationTable.setStatus('current')
-opmen99810bBroadcastStormProtectionConfigurationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bBroadcastStormProtectionConfPort"))
-if mibBuilder.loadTexts: opmen99810bBroadcastStormProtectionConfigurationEntry.setStatus('current')
-opmen99810bBroadcastStormProtectionConfPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bBroadcastStormProtectionConfPort.setStatus('current')
-opmen99810bBroadcastStormProtectionConfMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bBroadcastStormProtectionConfMode.setStatus('current')
-opmen99810bBroadcastStormProtectionConfAction = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bBroadcastStormProtectionConfAction.setStatus('current')
-opmen99810bBroadcastStormProtectionConfPPS = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bBroadcastStormProtectionConfPPS.setStatus('current')
-opmen99810bBroadcastStormProtectionConfTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bBroadcastStormProtectionConfTimer.setStatus('current')
-opmen99810bBroadcastStormProtectionConfstatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bBroadcastStormProtectionConfstatus.setStatus('current')
-opmen99810bLoopProtection = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12))
-opmen99810bLoopProtectionConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1))
-opmen99810bLoopProtectionGlobalEnable = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionGlobalEnable.setStatus('current')
-opmen99810bLoopProtectionTranmisstionTime = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionTranmisstionTime.setStatus('current')
-opmen99810bLoopProtectionShutdownTime = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 604800))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionShutdownTime.setStatus('current')
-opmen99810bLoopProtectionConfigurationTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4), )
-if mibBuilder.loadTexts: opmen99810bLoopProtectionConfigurationTable.setStatus('current')
-opmen99810bLoopProtectionConfigurationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bLoopProtectionConfPort"))
-if mibBuilder.loadTexts: opmen99810bLoopProtectionConfigurationEntry.setStatus('current')
-opmen99810bLoopProtectionConfPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bLoopProtectionConfPort.setStatus('current')
-opmen99810bLoopProtectionConfEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionConfEnable.setStatus('current')
-opmen99810bLoopProtectionConfAction = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("shutdown", 0), ("shutdownLog", 1), ("log", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionConfAction.setStatus('current')
-opmen99810bLoopProtectionConfTxmode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionConfTxmode.setStatus('current')
-opmen99810bLoopProtectionStatusTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2), )
-if mibBuilder.loadTexts: opmen99810bLoopProtectionStatusTable.setStatus('current')
-opmen99810bLoopProtectionStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bLoopProtectionStatusPort"))
-if mibBuilder.loadTexts: opmen99810bLoopProtectionStatusEntry.setStatus('current')
-opmen99810bLoopProtectionStatusPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bLoopProtectionStatusPort.setStatus('current')
-opmen99810bLoopProtectionStatusAction = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionStatusAction.setStatus('current')
-opmen99810bLoopProtectionStatusTransmit = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionStatusTransmit.setStatus('current')
-opmen99810bLoopProtectionStatusLoops = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionStatusLoops.setStatus('current')
-opmen99810bLoopProtectionStatusStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionStatusStatus.setStatus('current')
-opmen99810bLoopProtectionStatusLoop = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionStatusLoop.setStatus('current')
-opmen99810bLoopProtectionStatusTimeLastLoop = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bLoopProtectionStatusTimeLastLoop.setStatus('current')
-opmen99810bQos = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14))
-opmen99810bQosPortClassification = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1))
-opmen99810bQosPortClassificationTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1), )
-if mibBuilder.loadTexts: opmen99810bQosPortClassificationTable.setStatus('current')
-opmen99810bQosPortClassificationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosPortClassificationPort"))
-if mibBuilder.loadTexts: opmen99810bQosPortClassificationEntry.setStatus('current')
-opmen99810bQosPortClassificationPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bQosPortClassificationPort.setStatus('current')
-opmen99810bQosPortClassificationQoSclass = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortClassificationQoSclass.setStatus('current')
-opmen99810bQosPortClassificationDPlevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 1), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortClassificationDPlevel.setStatus('current')
-opmen99810bQosPortClassificationPCP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortClassificationPCP.setStatus('current')
-opmen99810bQosPortClassificationDEI = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortClassificationDEI.setStatus('current')
-opmen99810bQosPortClassificationTagClass = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortClassificationTagClass.setStatus('current')
-opmen99810bQosPortClassificationDSCPBased = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortClassificationDSCPBased.setStatus('current')
-opmen99810bQoSIngressPortTagClassificationTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2), )
-if mibBuilder.loadTexts: opmen99810bQoSIngressPortTagClassificationTable.setStatus('current')
-opmen99810bQoSIngressPortTagClassificationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQoSIngressPortTagClassificationPort"), (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQoSIngressPortTagPCP"), (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQoSIngressPortTagDEI"))
-if mibBuilder.loadTexts: opmen99810bQoSIngressPortTagClassificationEntry.setStatus('current')
-opmen99810bQoSIngressPortTagClassificationPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bQoSIngressPortTagClassificationPort.setStatus('current')
-opmen99810bQoSIngressPortTagPCP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("pcp0", 1), ("pcp1", 2), ("pcp2", 3), ("pcp3", 4), ("pcp4", 5), ("pcp5", 6), ("pcp6", 7), ("pcp7", 8))))
-if mibBuilder.loadTexts: opmen99810bQoSIngressPortTagPCP.setStatus('current')
-opmen99810bQoSIngressPortTagDEI = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("dei0", 1), ("dei1", 2))))
-if mibBuilder.loadTexts: opmen99810bQoSIngressPortTagDEI.setStatus('current')
-opmen99810bQoSIngressPortTagQosClass = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQoSIngressPortTagQosClass.setStatus('current')
-opmen99810bQoSIngressPortTagDPLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 1), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQoSIngressPortTagDPLevel.setStatus('current')
-opmen99810bQosPortPolicingTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2), )
-if mibBuilder.loadTexts: opmen99810bQosPortPolicingTable.setStatus('current')
-opmen99810bQosPortPolicingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosPortPolicingPort"))
-if mibBuilder.loadTexts: opmen99810bQosPortPolicingEntry.setStatus('current')
-opmen99810bQosPortPolicingPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bQosPortPolicingPort.setStatus('current')
-opmen99810bQosPortPolicingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortPolicingMode.setStatus('current')
-opmen99810bQosPortPolicingRate = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 10000000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortPolicingRate.setStatus('current')
-opmen99810bQosPortPolicingUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("kbps", 0), ("fps", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortPolicingUnit.setStatus('current')
-opmen99810bQosPortPolicingFlowControl = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortPolicingFlowControl.setStatus('current')
-opmen99810bQosPortScheduler = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3))
-opmen99810bQosPortSchedulerModeTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1), )
-if mibBuilder.loadTexts: opmen99810bQosPortSchedulerModeTable.setStatus('current')
-opmen99810bQosPortSchedulerModeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosSchedulerModePort"))
-if mibBuilder.loadTexts: opmen99810bQosPortSchedulerModeEntry.setStatus('current')
-opmen99810bQosSchedulerModePort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bQosSchedulerModePort.setStatus('current')
-opmen99810bQosSchedulerMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("strictPriority", 0), ("weighted", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosSchedulerMode.setStatus('current')
-opmen99810bQosSchedulerShaper = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosSchedulerShaper.setStatus('current')
-opmen99810bQosSchedulerShaperRate = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 1000000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosSchedulerShaperRate.setStatus('current')
-opmen99810bQosPortSchedulerTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2), )
-if mibBuilder.loadTexts: opmen99810bQosPortSchedulerTable.setStatus('current')
-opmen99810bQosPortSchedulerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosSchedulerPort"), (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosSchedulerPortQueue"))
-if mibBuilder.loadTexts: opmen99810bQosPortSchedulerEntry.setStatus('current')
-opmen99810bQosSchedulerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bQosSchedulerPort.setStatus('current')
-opmen99810bQosSchedulerPortQueue = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("q0", 1), ("q1", 2), ("q2", 3), ("q3", 4), ("q4", 5), ("q5", 6), ("q6", 7), ("q7", 8))))
-if mibBuilder.loadTexts: opmen99810bQosSchedulerPortQueue.setStatus('current')
-opmen99810bQosSchedulerPortQueueShaper = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosSchedulerPortQueueShaper.setStatus('current')
-opmen99810bQosSchedulerPortQueueShaperRate = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(100, 1000000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosSchedulerPortQueueShaperRate.setStatus('current')
-opmen99810bQosSchedulerPortQueueShaperExcess = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosSchedulerPortQueueShaperExcess.setStatus('current')
-opmen99810bQosSchedulerPortQueueSchedulerWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosSchedulerPortQueueSchedulerWeight.setStatus('current')
-opmen99810bQosSchedulerPortQueueSchedulerPercent = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bQosSchedulerPortQueueSchedulerPercent.setStatus('current')
-opmen99810bQosPortEgressTagRemarking = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4))
-opmen99810bQosPortEgressTagRemarkingTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 1), )
-if mibBuilder.loadTexts: opmen99810bQosPortEgressTagRemarkingTable.setStatus('current')
-opmen99810bQosPortEgressTagRemarkingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 1, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosEgressTagRemarkingPort"))
-if mibBuilder.loadTexts: opmen99810bQosPortEgressTagRemarkingEntry.setStatus('current')
-opmen99810bQosEgressTagRemarkingPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bQosEgressTagRemarkingPort.setStatus('current')
-opmen99810bQosEgressTagRemarkingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("classified", 0), ("default", 1), ("mapped", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosEgressTagRemarkingMode.setStatus('current')
-opmen99810bQosPortEgressTagRemarkingDefTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 2), )
-if mibBuilder.loadTexts: opmen99810bQosPortEgressTagRemarkingDefTable.setStatus('current')
-opmen99810bQosPortEgressTagRemarkingDefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosEgressTagRemarkingDefPort"))
-if mibBuilder.loadTexts: opmen99810bQosPortEgressTagRemarkingDefEntry.setStatus('current')
-opmen99810bQosEgressTagRemarkingDefPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bQosEgressTagRemarkingDefPort.setStatus('current')
-opmen99810bQosEgressTagRemarkingDefPCP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosEgressTagRemarkingDefPCP.setStatus('current')
-opmen99810bQosEgressTagRemarkingDefDEI = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosEgressTagRemarkingDefDEI.setStatus('current')
-opmen99810bQosPortEgressTagRemarkingMapTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4), )
-if mibBuilder.loadTexts: opmen99810bQosPortEgressTagRemarkingMapTable.setStatus('current')
-opmen99810bQosPortEgressTagRemarkingMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosPortEgressTagRemarkingMapPort"), (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosTagRemarkingQoSClass"), (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosTagRemarkingDPLevel"))
-if mibBuilder.loadTexts: opmen99810bQosPortEgressTagRemarkingMapEntry.setStatus('current')
-opmen99810bQosPortEgressTagRemarkingMapPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bQosPortEgressTagRemarkingMapPort.setStatus('current')
-opmen99810bQosTagRemarkingQoSClass = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("class0", 1), ("class1", 2), ("class2", 3), ("class3", 4), ("class4", 5), ("class5", 6), ("class6", 7), ("class7", 8))))
-if mibBuilder.loadTexts: opmen99810bQosTagRemarkingQoSClass.setStatus('current')
-opmen99810bQosTagRemarkingDPLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("level0", 1), ("level1", 2))))
-if mibBuilder.loadTexts: opmen99810bQosTagRemarkingDPLevel.setStatus('current')
-opmen99810bQosTagRemarkingPCP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosTagRemarkingPCP.setStatus('current')
-opmen99810bQosTagRemarkingDEI = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 1), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosTagRemarkingDEI.setStatus('current')
-opmen99810bQosPortDSCPTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5), )
-if mibBuilder.loadTexts: opmen99810bQosPortDSCPTable.setStatus('current')
-opmen99810bQosPortDSCPEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosPortDSCPPort"))
-if mibBuilder.loadTexts: opmen99810bQosPortDSCPEntry.setStatus('current')
-opmen99810bQosPortDSCPPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bQosPortDSCPPort.setStatus('current')
-opmen99810bQosPortDSCPIngressTranslate = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortDSCPIngressTranslate.setStatus('current')
-opmen99810bQosPortDSCPIngressClassify = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortDSCPIngressClassify.setStatus('current')
-opmen99810bQosPortDSCPEgressRewrite = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPortDSCPEgressRewrite.setStatus('current')
-opmen99810bQosDSCPTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6), )
-if mibBuilder.loadTexts: opmen99810bQosDSCPTable.setStatus('current')
-opmen99810bQosDSCPEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosDSCPList"))
-if mibBuilder.loadTexts: opmen99810bQosDSCPEntry.setStatus('current')
-opmen99810bQosDSCPList = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64)))
-if mibBuilder.loadTexts: opmen99810bQosDSCPList.setStatus('current')
-opmen99810bQosDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bQosDSCP.setStatus('current')
-opmen99810bQosDSCPTrust = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosDSCPTrust.setStatus('current')
-opmen99810bQosDSCPQosClass = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosDSCPQosClass.setStatus('current')
-opmen99810bQosDSCPDPL = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 1), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosDSCPDPL.setStatus('current')
-opmen99810bQosDSCPTranslationTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7), )
-if mibBuilder.loadTexts: opmen99810bQosDSCPTranslationTable.setStatus('current')
-opmen99810bQosDSCPTranslationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosDSCPTranslationList"))
-if mibBuilder.loadTexts: opmen99810bQosDSCPTranslationEntry.setStatus('current')
-opmen99810bQosDSCPTranslationList = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64)))
-if mibBuilder.loadTexts: opmen99810bQosDSCPTranslationList.setStatus('current')
-opmen99810bQosDSCPTranslationDSCPBasedId = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosDSCPTranslationDSCPBasedId.setStatus('current')
-opmen99810bQosDSCPTranslationIngressTranslate = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosDSCPTranslationIngressTranslate.setStatus('current')
-opmen99810bQosDSCPTranslationIngressClassify = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosDSCPTranslationIngressClassify.setStatus('current')
-opmen99810bQosDSCPTranslationEgressRemapDP0 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosDSCPTranslationEgressRemapDP0.setStatus('current')
-opmen99810bQosDSCPTranslationEgressRemapDP1 = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosDSCPTranslationEgressRemapDP1.setStatus('current')
-opmen99810bQosDSCPClassificationTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 8), )
-if mibBuilder.loadTexts: opmen99810bQosDSCPClassificationTable.setStatus('current')
-opmen99810bQosDSCPClassificationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 8, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosDSCPClassificationQoSClass"), (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosDSCPClassificationDPL"))
-if mibBuilder.loadTexts: opmen99810bQosDSCPClassificationEntry.setStatus('current')
-opmen99810bQosDSCPClassificationQoSClass = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 8, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("class0", 1), ("class1", 2), ("class2", 3), ("class3", 4), ("class4", 5), ("class5", 6), ("class6", 7), ("class7", 8))))
-if mibBuilder.loadTexts: opmen99810bQosDSCPClassificationQoSClass.setStatus('current')
-opmen99810bQosDSCPClassificationDPL = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(1, 1), ValueRangeConstraint(2, 2), )))
-if mibBuilder.loadTexts: opmen99810bQosDSCPClassificationDPL.setStatus('current')
-opmen99810bQosDSCPClassificationDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 8, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosDSCPClassificationDSCP.setStatus('current')
-opmen99810bQosControlList = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9))
-opmen99810bQosQceCreate = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("create", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosQceCreate.setStatus('current')
-opmen99810bQosQceTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2), )
-if mibBuilder.loadTexts: opmen99810bQosQceTable.setStatus('current')
-opmen99810bQosQceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosQceIndex"))
-if mibBuilder.loadTexts: opmen99810bQosQceEntry.setStatus('current')
-opmen99810bQosQceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 256)))
-if mibBuilder.loadTexts: opmen99810bQosQceIndex.setStatus('current')
-opmen99810bQosQceID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosQceID.setStatus('current')
-opmen99810bQosQceNextID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosQceNextID.setStatus('current')
-opmen99810bQosQcePortMembers = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosQcePortMembers.setStatus('current')
-opmen99810bQosQceTag = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosQceTag.setStatus('current')
-opmen99810bQosQceVID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosQceVID.setStatus('current')
-opmen99810bQosPCP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 7), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosPCP.setStatus('current')
-opmen99810bQosDEI = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosDEI.setStatus('current')
-opmen99810bQosSMAC = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 9), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosSMAC.setStatus('current')
-opmen99810bQosDMACType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 10), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosDMACType.setStatus('current')
-opmen99810bQosFrameType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("any", 1), ("ethernet", 2), ("llc", 3), ("snap", 4), ("ipv4", 5), ("ipv6", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosFrameType.setStatus('current')
-opmen99810bQosMacEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 12), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosMacEtherType.setStatus('current')
-opmen99810bQosLLCSSAPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 13), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosLLCSSAPAddr.setStatus('current')
-opmen99810bQosLLCDSAPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 14), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosLLCDSAPAddr.setStatus('current')
-opmen99810bQosLLCControl = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 15), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosLLCControl.setStatus('current')
-opmen99810bQosSNAPPID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 16), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosSNAPPID.setStatus('current')
-opmen99810bQosIpv4Protocol = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 17), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv4Protocol.setStatus('current')
-opmen99810bQosIpv4ProtocolValue = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv4ProtocolValue.setStatus('current')
-opmen99810bQosIpv4ProtocolUDPSport = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 19), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv4ProtocolUDPSport.setStatus('current')
-opmen99810bQosIpv4ProtocolUDPDport = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 20), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv4ProtocolUDPDport.setStatus('current')
-opmen99810bQosIpv4ProtocolTCPSport = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 21), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv4ProtocolTCPSport.setStatus('current')
-opmen99810bQosIpv4ProtocolTCPDport = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 22), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv4ProtocolTCPDport.setStatus('current')
-opmen99810bQosIpv4SourceIp = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 23), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv4SourceIp.setStatus('current')
-opmen99810bQosIpv4SourceMask = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 24), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv4SourceMask.setStatus('current')
-opmen99810bQosIpv4IPFragment = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("any", 0), ("no", 1), ("yes", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv4IPFragment.setStatus('current')
-opmen99810bQosIpv4DSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 26), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv4DSCP.setStatus('current')
-opmen99810bQosIpv6Protocol = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 27), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv6Protocol.setStatus('current')
-opmen99810bQosIpv6ProtocolValue = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv6ProtocolValue.setStatus('current')
-opmen99810bQosIpv6ProtocolUDPSport = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 29), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv6ProtocolUDPSport.setStatus('current')
-opmen99810bQosIpv6ProtocolUDPDport = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 30), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv6ProtocolUDPDport.setStatus('current')
-opmen99810bQosIpv6ProtocolTCPSport = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 31), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv6ProtocolTCPSport.setStatus('current')
-opmen99810bQosIpv6ProtocolTCPDport = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 32), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv6ProtocolTCPDport.setStatus('current')
-opmen99810bQosIpv6SourceIp = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 33), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv6SourceIp.setStatus('current')
-opmen99810bQosIpv6SourceMask = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 34), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv6SourceMask.setStatus('current')
-opmen99810bQosIpv6DSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 35), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosIpv6DSCP.setStatus('current')
-opmen99810bQosActionClass = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 36), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosActionClass.setStatus('current')
-opmen99810bQosActionDPL = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 37), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosActionDPL.setStatus('current')
-opmen99810bQosActionDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 38), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosActionDSCP.setStatus('current')
-opmen99810bQosQceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 39), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4))).clone(namedValues=NamedValues(("active", 1), ("notInservice", 2), ("destroy", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosQceRowStatus.setStatus('current')
-opmen99810bQosQceMoveID = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosQceMoveID.setStatus('current')
-opmen99810bQosQceMoveNextID = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 256))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQosQceMoveNextID.setStatus('current')
-opmen99810bQosQCLStatusTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10), )
-if mibBuilder.loadTexts: opmen99810bQosQCLStatusTable.setStatus('current')
-opmen99810bQosQCLStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosQCLStatusList"))
-if mibBuilder.loadTexts: opmen99810bQosQCLStatusEntry.setStatus('current')
-opmen99810bQosQCLStatusList = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bQosQCLStatusList.setStatus('current')
-opmen99810bQosQCLStatusUser = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bQosQCLStatusUser.setStatus('current')
-opmen99810bQosQCLStatusQCEId = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bQosQCLStatusQCEId.setStatus('current')
-opmen99810bQosQCLStatusFrameType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bQosQCLStatusFrameType.setStatus('current')
-opmen99810bQosQCLStatusPortlist = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bQosQCLStatusPortlist.setStatus('current')
-opmen99810bQosQCLStatusActionClass = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bQosQCLStatusActionClass.setStatus('current')
-opmen99810bQosQCLStatusActionDPL = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bQosQCLStatusActionDPL.setStatus('current')
-opmen99810bQosQCLStatusActionDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bQosQCLStatusActionDSCP.setStatus('current')
-opmen99810bQosQCLStatusActionConflict = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bQosQCLStatusActionConflict.setStatus('current')
-opmen99810bQosStormControl = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11))
-opmen99810bQoSStormControlUC = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQoSStormControlUC.setStatus('current')
-opmen99810bQoSStormControlUCRate = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQoSStormControlUCRate.setStatus('current')
-opmen99810bQoSStormControlMC = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQoSStormControlMC.setStatus('current')
-opmen99810bQoSStormControlMCRate = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQoSStormControlMCRate.setStatus('current')
-opmen99810bQoSStormControlBC = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQoSStormControlBC.setStatus('current')
-opmen99810bQoSStormControlBCRate = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 7), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bQoSStormControlBCRate.setStatus('current')
-opmen99810bVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15))
-opmen99810bVlanPorts = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1))
-opmen99810bVlanPortsTPIDforCustomSport = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVlanPortsTPIDforCustomSport.setStatus('current')
-opmen99810bVlanPortsTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2), )
-if mibBuilder.loadTexts: opmen99810bVlanPortsTable.setStatus('current')
-opmen99810bVlanPortsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bVlanPortsPort"))
-if mibBuilder.loadTexts: opmen99810bVlanPortsEntry.setStatus('current')
-opmen99810bVlanPortsPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
-if mibBuilder.loadTexts: opmen99810bVlanPortsPort.setStatus('current')
-opmen99810bVlanPortsPVID = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVlanPortsPVID.setStatus('current')
-opmen99810bVlanPortsFrameType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("all", 0), ("tagged", 1), ("untagged", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVlanPortsFrameType.setStatus('current')
-opmen99810bVlanPortsIngressFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVlanPortsIngressFilter.setStatus('current')
-opmen99810bVlanPortsEgressRule = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("access", 0), ("hybrid", 1), ("trunk", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVlanPortsEgressRule.setStatus('current')
-opmen99810bVlanPortsPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("cPort", 0), ("sCustomPort", 1), ("sPort", 2), ("unaware", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bVlanPortsPortType.setStatus('current')
-opmen99810bSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3))
-opmen99810bIPSourceGuard = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1))
-opmen99810bIPSourceGuardConf = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1))
-opmen99810bIPSourceGuardMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardMode.setStatus('current')
-opmen99810bIPSourceGuardPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 2), )
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardPortConfigTable.setStatus('current')
-opmen99810bIPSourceGuardPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bIPSourceGuardPortConfigPort"))
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardPortConfigEntry.setStatus('current')
-opmen99810bIPSourceGuardPortConfigPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardPortConfigPort.setStatus('current')
-opmen99810bIPSourceGuardPortConfigMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardPortConfigMode.setStatus('current')
-opmen99810bIPSourceGuardPortMaxDynamicClients = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 2), ValueRangeConstraint(99, 99), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardPortMaxDynamicClients.setStatus('current')
-opmen99810bIPSourceGuardStatic = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2))
-opmen99810bIPSourceGuardStaticCreate = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("create", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardStaticCreate.setStatus('current')
-opmen99810bIPSourceGuardStaticTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2), )
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardStaticTable.setStatus('current')
-opmen99810bIPSourceGuardStaticEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bIPSourceGuardStaticIndex"))
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardStaticEntry.setStatus('current')
-opmen99810bIPSourceGuardStaticIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 28)))
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardStaticIndex.setStatus('current')
-opmen99810bIPSourceGuardStaticPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardStaticPort.setStatus('current')
-opmen99810bIPSourceGuardStaticVLANId = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardStaticVLANId.setStatus('current')
-opmen99810bIPSourceGuardStaticIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardStaticIPAddress.setStatus('current')
-opmen99810bIPSourceGuardStaticMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 5), MacAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardStaticMACAddress.setStatus('current')
-opmen99810bIPSourceGuardStaticRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("active", 1), ("notInservice", 2), ("edit", 3), ("destroy", 4), ("undo", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardStaticRowStatus.setStatus('current')
-opmen99810bIPSourceGuardDynamicTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3), )
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardDynamicTable.setStatus('current')
-opmen99810bIPSourceGuardDynamicEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bIPSourceGuardDynamicIndex"))
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardDynamicEntry.setStatus('current')
-opmen99810bIPSourceGuardDynamicIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardDynamicIndex.setStatus('current')
-opmen99810bIPSourceGuardDynamicPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardDynamicPort.setStatus('current')
-opmen99810bIPSourceGuardDynamicVLANId = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardDynamicVLANId.setStatus('current')
-opmen99810bIPSourceGuardDynamicIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardDynamicIPAddress.setStatus('current')
-opmen99810bIPSourceGuardDynamicMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1, 5), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bIPSourceGuardDynamicMACAddress.setStatus('current')
-opmen99810bARPInspection = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2))
-opmen99810bARPInspectionConf = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1))
-opmen99810bARPInspectionConfMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bARPInspectionConfMode.setStatus('current')
-opmen99810bARPInspectionConfTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1, 2), )
-if mibBuilder.loadTexts: opmen99810bARPInspectionConfTable.setStatus('current')
-opmen99810bARPInspectionConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bARPInspectionConfPortIndex"))
-if mibBuilder.loadTexts: opmen99810bARPInspectionConfEntry.setStatus('current')
-opmen99810bARPInspectionConfPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bARPInspectionConfPortIndex.setStatus('current')
-opmen99810bARPInspectionConfPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bARPInspectionConfPortMode.setStatus('current')
-opmen99810bARPInspectionStatic = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2))
-opmen99810bARPInspectionStaticCreate = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("create", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bARPInspectionStaticCreate.setStatus('current')
-opmen99810bARPInspectionStaticTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2), )
-if mibBuilder.loadTexts: opmen99810bARPInspectionStaticTable.setStatus('current')
-opmen99810bARPInspectionStaticEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bARPInspectionStaticIndex"))
-if mibBuilder.loadTexts: opmen99810bARPInspectionStaticEntry.setStatus('current')
-opmen99810bARPInspectionStaticIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bARPInspectionStaticIndex.setStatus('current')
-opmen99810bARPInspectionStaticPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bARPInspectionStaticPort.setStatus('current')
-opmen99810bARPInspectionStaticVLANId = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bARPInspectionStaticVLANId.setStatus('current')
-opmen99810bARPInspectionStaticIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bARPInspectionStaticIPAddress.setStatus('current')
-opmen99810bARPInspectionStaticMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 5), MacAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bARPInspectionStaticMACAddress.setStatus('current')
-opmen99810bARPInspectionStaticRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("active", 1), ("notInservice", 2), ("edit", 3), ("destroy", 4), ("undo", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bARPInspectionStaticRowStatus.setStatus('current')
-opmen99810bARPInspectionDynamicTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3), )
-if mibBuilder.loadTexts: opmen99810bARPInspectionDynamicTable.setStatus('current')
-opmen99810bARPInspectionDynamicEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bARPInspectionDynamicIndex"))
-if mibBuilder.loadTexts: opmen99810bARPInspectionDynamicEntry.setStatus('current')
-opmen99810bARPInspectionDynamicIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bARPInspectionDynamicIndex.setStatus('current')
-opmen99810bARPInspectionDynamicPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bARPInspectionDynamicPort.setStatus('current')
-opmen99810bARPInspectionDynamicVLANId = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bARPInspectionDynamicVLANId.setStatus('current')
-opmen99810bARPInspectionDynamicIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bARPInspectionDynamicIPAddress.setStatus('current')
-opmen99810bARPInspectionDynamicMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1, 5), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bARPInspectionDynamicMACAddress.setStatus('current')
-opmen99810bDHCPSnooping = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3))
-opmen99810bDHCPSnoopingConf = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1))
-opmen99810bDHCPSnoopingMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingMode.setStatus('current')
-opmen99810bDHCPSnoopingPortModeConfigurationTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1, 2), )
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingPortModeConfigurationTable.setStatus('current')
-opmen99810bDHCPSnoopingPortModeConfigurationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bDHCPSnoopingPortModeConfigurationPort"))
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingPortModeConfigurationEntry.setStatus('current')
-opmen99810bDHCPSnoopingPortModeConfigurationPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingPortModeConfigurationPort.setStatus('current')
-opmen99810bDHCPSnoopingPortModeConfigurationMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("trust", 0), ("untrust", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingPortModeConfigurationMode.setStatus('current')
-opmen99810bDHCPSnoopingStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2), )
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingStatisticsTable.setStatus('current')
-opmen99810bDHCPSnoopingStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bDHCPSnoopingStatisticsPort"))
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingStatisticsEntry.setStatus('current')
-opmen99810bDHCPSnoopingStatisticsPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingStatisticsPort.setStatus('current')
-opmen99810bDHCPSnoopingStatisticsClear = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("clear", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingStatisticsClear.setStatus('current')
-opmen99810bDHCPSnoopingRxDiscover = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxDiscover.setStatus('current')
-opmen99810bDHCPSnoopingRxOffer = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxOffer.setStatus('current')
-opmen99810bDHCPSnoopingRxRequest = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxRequest.setStatus('current')
-opmen99810bDHCPSnoopingRxDecline = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxDecline.setStatus('current')
-opmen99810bDHCPSnoopingRxACK = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxACK.setStatus('current')
-opmen99810bDHCPSnoopingRxNAK = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxNAK.setStatus('current')
-opmen99810bDHCPSnoopingRxRelease = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxRelease.setStatus('current')
-opmen99810bDHCPSnoopingRxInform = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxInform.setStatus('current')
-opmen99810bDHCPSnoopingRxLeaseQuery = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxLeaseQuery.setStatus('current')
-opmen99810bDHCPSnoopingRxLeaseUnassigned = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxLeaseUnassigned.setStatus('current')
-opmen99810bDHCPSnoopingRxLeaseUnknown = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxLeaseUnknown.setStatus('current')
-opmen99810bDHCPSnoopingRxLeaseActive = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingRxLeaseActive.setStatus('current')
-opmen99810bDHCPSnoopingTxDiscover = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxDiscover.setStatus('current')
-opmen99810bDHCPSnoopingTxOffer = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxOffer.setStatus('current')
-opmen99810bDHCPSnoopingTxRequest = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxRequest.setStatus('current')
-opmen99810bDHCPSnoopingTxDecline = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxDecline.setStatus('current')
-opmen99810bDHCPSnoopingTxACK = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxACK.setStatus('current')
-opmen99810bDHCPSnoopingTxNAK = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxNAK.setStatus('current')
-opmen99810bDHCPSnoopingTxRelease = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxRelease.setStatus('current')
-opmen99810bDHCPSnoopingTxInform = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 22), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxInform.setStatus('current')
-opmen99810bDHCPSnoopingTxLeaseQuery = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxLeaseQuery.setStatus('current')
-opmen99810bDHCPSnoopingTxLeaseUnassigned = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 24), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxLeaseUnassigned.setStatus('current')
-opmen99810bDHCPSnoopingTxLeaseUnknown = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 25), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxLeaseUnknown.setStatus('current')
-opmen99810bDHCPSnoopingTxLeaseActive = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 26), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bDHCPSnoopingTxLeaseActive.setStatus('current')
-opmen99810bDHCPRelay = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4))
-opmen99810bDHCPRelayConfiguration = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 1))
-opmen99810bDHCPRelayMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDHCPRelayMode.setStatus('current')
-opmen99810bDHCPRelayServer = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDHCPRelayServer.setStatus('current')
-opmen99810bDHCPRelayInformationMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDHCPRelayInformationMode.setStatus('current')
-opmen99810bDHCPRelayInformationPolicy = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("replace", 0), ("keep", 1), ("drop", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDHCPRelayInformationPolicy.setStatus('current')
-opmen99810bDHCPRelayStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2))
-opmen99810bDHCPRelayServerStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1))
-opmen99810bServerStatTransmitToServer = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bServerStatTransmitToServer.setStatus('current')
-opmen99810bServerStatTransmitError = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bServerStatTransmitError.setStatus('current')
-opmen99810bServerStatReceiveFromServer = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bServerStatReceiveFromServer.setStatus('current')
-opmen99810bServerStatReceiveMissingAgentOption = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bServerStatReceiveMissingAgentOption.setStatus('current')
-opmen99810bServerStatReceiveMissingCircuitID = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bServerStatReceiveMissingCircuitID.setStatus('current')
-opmen99810bServerStatReceiveMissingRemoteID = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bServerStatReceiveMissingRemoteID.setStatus('current')
-opmen99810bServerStatReceiveBadCircuitID = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bServerStatReceiveBadCircuitID.setStatus('current')
-opmen99810bServerStatReceiveBadRemoteID = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bServerStatReceiveBadRemoteID.setStatus('current')
-opmen99810bDHCPRelayClientStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2))
-opmen99810bClientStatTransmitToClient = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bClientStatTransmitToClient.setStatus('current')
-opmen99810bClientStatTransmitError = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bClientStatTransmitError.setStatus('current')
-opmen99810bClientStatReceivefromClient = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bClientStatReceivefromClient.setStatus('current')
-opmen99810bClientStatReceiveAgentOption = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bClientStatReceiveAgentOption.setStatus('current')
-opmen99810bClientStatReplaceAgentOption = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bClientStatReplaceAgentOption.setStatus('current')
-opmen99810bClientStatKeepAgentOption = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bClientStatKeepAgentOption.setStatus('current')
-opmen99810bClientStatDropAgentOption = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bClientStatDropAgentOption.setStatus('current')
-opmen99810bPortSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5))
-opmen99810bPortSecLimitCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1))
-opmen99810bPortSecLimitCtrlSystemConf = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 1))
-opmen99810bPortSecurityMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortSecurityMode.setStatus('current')
-opmen99810bPortSecurityAging = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortSecurityAging.setStatus('current')
-opmen99810bPortSecurityAgingPeriod = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 10000000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortSecurityAgingPeriod.setStatus('current')
-opmen99810bPortSecLimitCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2), )
-if mibBuilder.loadTexts: opmen99810bPortSecLimitCtrlTable.setStatus('current')
-opmen99810bPortSecLimitCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortSecLimitCtrlPort"))
-if mibBuilder.loadTexts: opmen99810bPortSecLimitCtrlEntry.setStatus('current')
-opmen99810bPortSecLimitCtrlPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bPortSecLimitCtrlPort.setStatus('current')
-opmen99810bPortSecLimitCtrlPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortSecLimitCtrlPortMode.setStatus('current')
-opmen99810bPortSecLimitCtrlPortLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortSecLimitCtrlPortLimit.setStatus('current')
-opmen99810bPortSecLimitCtrlPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("trap", 1), ("shutdown", 2), ("trapShutdown", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortSecLimitCtrlPortAction.setStatus('current')
-opmen99810bPortSecLimitCtrlPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortSecLimitCtrlPortState.setStatus('current')
-opmen99810bPortSecLimitCtrlPortReOpen = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("reopen", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortSecLimitCtrlPortReOpen.setStatus('current')
-opmen99810bPortSecSwitchStatusTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2), )
-if mibBuilder.loadTexts: opmen99810bPortSecSwitchStatusTable.setStatus('current')
-opmen99810bPortSecSwitchStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortSecSwitchStatusPort"))
-if mibBuilder.loadTexts: opmen99810bPortSecSwitchStatusEntry.setStatus('current')
-opmen99810bPortSecSwitchStatusPort = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bPortSecSwitchStatusPort.setStatus('current')
-opmen99810bPortSecSwitchStatusUsers = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortSecSwitchStatusUsers.setStatus('current')
-opmen99810bPortSecSwitchStatusState = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortSecSwitchStatusState.setStatus('current')
-opmen99810bPortSecSwitchStatusMACCountCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortSecSwitchStatusMACCountCurrent.setStatus('current')
-opmen99810bPortSecSwitchStatusMACCountLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortSecSwitchStatusMACCountLimit.setStatus('current')
-opmen99810bPortSecPortStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3))
-opmen99810bPortSecPortStatusPort = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPortSecPortStatusPort.setStatus('current')
-opmen99810bPortSecPortStatusTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2), )
-if mibBuilder.loadTexts: opmen99810bPortSecPortStatusTable.setStatus('current')
-opmen99810bPortSecPortStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortSecPortStatusIndex"))
-if mibBuilder.loadTexts: opmen99810bPortSecPortStatusEntry.setStatus('current')
-opmen99810bPortSecPortStatusIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)))
-if mibBuilder.loadTexts: opmen99810bPortSecPortStatusIndex.setStatus('current')
-opmen99810bPortSecPortStatusMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortSecPortStatusMACAddress.setStatus('current')
-opmen99810bPortSecPortStatusVLANId = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortSecPortStatusVLANId.setStatus('current')
-opmen99810bPortSecPortStatusState = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortSecPortStatusState.setStatus('current')
-opmen99810bPortSecPortStatusTimeOfAddition = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortSecPortStatusTimeOfAddition.setStatus('current')
-opmen99810bPortSecPortStatusAgeAndHold = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPortSecPortStatusAgeAndHold.setStatus('current')
-opmen99810bAccessManagement = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6))
-opmen99810bAccessMgtConf = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1))
-opmen99810bAccessMgtConfMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccessMgtConfMode.setStatus('current')
-opmen99810bAccessMgtConfCreate = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("create", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccessMgtConfCreate.setStatus('current')
-opmen99810bAccessMgtConfTable = MibTable((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3), )
-if mibBuilder.loadTexts: opmen99810bAccessMgtConfTable.setStatus('current')
-opmen99810bAccessMgtConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1), ).setIndexNames((0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bAccessMgtIndex"))
-if mibBuilder.loadTexts: opmen99810bAccessMgtConfEntry.setStatus('current')
-opmen99810bAccessMgtIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccessMgtIndex.setStatus('current')
-opmen99810bAccessMgtAddresstype = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("ipv4", 0), ("ipv6", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccessMgtAddresstype.setStatus('current')
-opmen99810bAccessMgtStartIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccessMgtStartIpAddress.setStatus('current')
-opmen99810bAccessMgtEndIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccessMgtEndIpAddress.setStatus('current')
-opmen99810bAccessMgtHttpHttps = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccessMgtHttpHttps.setStatus('current')
-opmen99810bAccessMgtSNMP = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccessMgtSNMP.setStatus('current')
-opmen99810bAccessMgtTelnetSSH = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccessMgtTelnetSSH.setStatus('current')
-opmen99810bAccessMgtRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("active", 1), ("notInservice", 2), ("edit", 3), ("destroy", 4), ("undo", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccessMgtRowStatus.setStatus('current')
-opmen99810bAccessMgtStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2))
-opmen99810bHttpReceivedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bHttpReceivedPkts.setStatus('current')
-opmen99810bHttpAllowedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bHttpAllowedPkts.setStatus('current')
-opmen99810bHttpDiscardedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bHttpDiscardedPkts.setStatus('current')
-opmen99810bHttpsReceivedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bHttpsReceivedPkts.setStatus('current')
-opmen99810bHttpsAllowedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bHttpsAllowedPkts.setStatus('current')
-opmen99810bHttpsDiscardedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bHttpsDiscardedPkts.setStatus('current')
-opmen99810bSnmpReceivedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSnmpReceivedPkts.setStatus('current')
-opmen99810bSnmpAllowedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSnmpAllowedPkts.setStatus('current')
-opmen99810bSnmpDiscardedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSnmpDiscardedPkts.setStatus('current')
-opmen99810bTelnetReceivedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bTelnetReceivedPkts.setStatus('current')
-opmen99810bTelnetAllowedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bTelnetAllowedPkts.setStatus('current')
-opmen99810bTelnetDiscardedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bTelnetDiscardedPkts.setStatus('current')
-opmen99810bSSHReceivedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSSHReceivedPkts.setStatus('current')
-opmen99810bSSHAllowedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSSHAllowedPkts.setStatus('current')
-opmen99810bSSHDiscardedPkts = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bSSHDiscardedPkts.setStatus('current')
-opmen99810bAccessMgtStatisticsClearAll = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("clear", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bAccessMgtStatisticsClearAll.setStatus('current')
-opmen99810bSSH = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 7))
-opmen99810bSSHMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 7, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSSHMode.setStatus('current')
-opmen99810bHTTPS = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 8))
-opmen99810bHTTPSMode = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 8, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bHTTPSMode.setStatus('current')
-opmen99810bHTTPSAutoRedirect = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 8, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bHTTPSAutoRedirect.setStatus('current')
-opmen99810bAuthMethod = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9))
-opmen99810bConsoleAuthMethod = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("local", 1), ("radius", 2), ("tacacsplus", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bConsoleAuthMethod.setStatus('current')
-opmen99810bConsoleFallback = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bConsoleFallback.setStatus('current')
-opmen99810bTelnetAuthMethod = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("local", 1), ("radius", 2), ("tacacsplus", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTelnetAuthMethod.setStatus('current')
-opmen99810bTelnetFallback = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bTelnetFallback.setStatus('current')
-opmen99810bSshAuthMethod = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("local", 1), ("radius", 2), ("tacacsplus", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSshAuthMethod.setStatus('current')
-opmen99810bSshFallback = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSshFallback.setStatus('current')
-opmen99810bWebAuthMethod = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("local", 1), ("radius", 2), ("tacacsplus", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bWebAuthMethod.setStatus('current')
-opmen99810bWebFallback = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bWebFallback.setStatus('current')
-opmen99810bMaintenance = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4))
-opmen99810bRestartDevice = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bRestartDevice.setStatus('current')
-opmen99810bFirmware = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 2))
-opmen99810bFirmwareIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 2, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bFirmwareIpAddress.setStatus('current')
-opmen99810bFirmwareFileName = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 2, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bFirmwareFileName.setStatus('current')
-opmen99810bDoFirmwareUpgrade = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("doNothing", 0), ("do", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDoFirmwareUpgrade.setStatus('current')
-opmen99810bSaveOrRestore = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 3))
-opmen99810bFactoryDefaults = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bFactoryDefaults.setStatus('current')
-opmen99810bSaveStart = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSaveStart.setStatus('current')
-opmen99810bSaveUser = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 3, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bSaveUser.setStatus('current')
-opmen99810bRestoreUser = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bRestoreUser.setStatus('current')
-opmen99810bExportOrImport = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4))
-opmen99810bExportIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bExportIpAddress.setStatus('current')
-opmen99810bExportConfigName = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bExportConfigName.setStatus('current')
-opmen99810bDoExportConfig = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("doNothing", 0), ("do", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDoExportConfig.setStatus('current')
-opmen99810bImportIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bImportIpAddress.setStatus('current')
-opmen99810bImportConfigName = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bImportConfigName.setStatus('current')
-opmen99810bDoImportConfig = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("doNothing", 0), ("do", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDoImportConfig.setStatus('current')
-opmen99810bDiagnostics = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5))
-opmen99810bPingIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPingIpAddress.setStatus('current')
-opmen99810bPingSize = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 1400))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPingSize.setStatus('current')
-opmen99810bDoPingConfig = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("doNothing", 0), ("do", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDoPingConfig.setStatus('current')
-opmen99810bPingResult = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPingResult.setStatus('current')
-opmen99810bPing6IpAddress = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPing6IpAddress.setStatus('current')
-opmen99810bPing6Size = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 1400))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bPing6Size.setStatus('current')
-opmen99810bDoPing6Config = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("doNothing", 0), ("do", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: opmen99810bDoPing6Config.setStatus('current')
-opmen99810bPing6Result = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bPing6Result.setStatus('current')
-opmen99810bTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5))
-opmen99810bTrapEvent = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1))
-opmen99810bEmergency = NotificationType((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 1)).setObjects(("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation"))
-if mibBuilder.loadTexts: opmen99810bEmergency.setStatus('current')
-opmen99810bAlert = NotificationType((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 2)).setObjects(("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation"))
-if mibBuilder.loadTexts: opmen99810bAlert.setStatus('current')
-opmen99810bCritical = NotificationType((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 3)).setObjects(("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation"))
-if mibBuilder.loadTexts: opmen99810bCritical.setStatus('current')
-opmen99810bError = NotificationType((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 4)).setObjects(("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation"))
-if mibBuilder.loadTexts: opmen99810bError.setStatus('current')
-opmen99810bWarning = NotificationType((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 5)).setObjects(("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation"))
-if mibBuilder.loadTexts: opmen99810bWarning.setStatus('current')
-opmen99810bNotice = NotificationType((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 6)).setObjects(("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation"))
-if mibBuilder.loadTexts: opmen99810bNotice.setStatus('current')
-opmen99810bInformational = NotificationType((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 7)).setObjects(("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation"))
-if mibBuilder.loadTexts: opmen99810bInformational.setStatus('current')
-opmen99810bDebug = NotificationType((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 8)).setObjects(("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation"))
-if mibBuilder.loadTexts: opmen99810bDebug.setStatus('current')
-opmen99810bTrapVariable = MibIdentifier((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 2))
-opmen99810bInformation = MibScalar((1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 2, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: opmen99810bInformation.setStatus('current')
-mibBuilder.exportSymbols("PRIVATETECH-OP-MEN99810B-MIB", opmen99810bLoopProtectionStatusPort=opmen99810bLoopProtectionStatusPort, opmen99810bSSHMode=opmen99810bSSHMode, opmen99810bSystemTimeManualLocaltime=opmen99810bSystemTimeManualLocaltime, opmen99810bVlanPortsEgressRule=opmen99810bVlanPortsEgressRule, opmen99810bQosPortClassificationPCP=opmen99810bQosPortClassificationPCP, opmen99810bBridgeFBDSize=opmen99810bBridgeFBDSize, opmen99810bTelnetAllowedPkts=opmen99810bTelnetAllowedPkts, opmen99810bACLACEDMACType=opmen99810bACLACEDMACType, opmen99810bTrapHostConfPrivPtc=opmen99810bTrapHostConfPrivPtc, opmen99810bIPSourceGuardMode=opmen99810bIPSourceGuardMode, opmen99810bQoSStormControlUCRate=opmen99810bQoSStormControlUCRate, opmen99810bGVRPMode=opmen99810bGVRPMode, opmen99810bVoiceVLANOUI=opmen99810bVoiceVLANOUI, opmen99810bSyslog=opmen99810bSyslog, opmen99810bQoSIngressPortTagDEI=opmen99810bQoSIngressPortTagDEI, opmen99810bVoiceVLANPortDiscoveryProtocol=opmen99810bVoiceVLANPortDiscoveryProtocol, opmen99810bQosPortEgressTagRemarkingMapTable=opmen99810bQosPortEgressTagRemarkingMapTable, opmen99810bQosPortEgressTagRemarking=opmen99810bQosPortEgressTagRemarking, opmen99810bPortConfFlowControl=opmen99810bPortConfFlowControl, opmen99810bACLACEDIPNetworkPrefix=opmen99810bACLACEDIPNetworkPrefix, opmen99810bQosIpv6DSCP=opmen99810bQosIpv6DSCP, opmen99810bAccessMgtConfCreate=opmen99810bAccessMgtConfCreate, opmen99810bQosIpv6SourceIp=opmen99810bQosIpv6SourceIp, opmen99810bPortTrafficTxUnicast=opmen99810bPortTrafficTxUnicast, opmen99810bSFPConnectorType=opmen99810bSFPConnectorType, opmen99810bACLACEDMAC=opmen99810bACLACEDMAC, opmen99810bSFlowPrivilegeLevel=opmen99810bSFlowPrivilegeLevel, opmen99810bQosDSCPTranslationEgressRemapDP1=opmen99810bQosDSCPTranslationEgressRemapDP1, opmen99810bPortTrafficRxJabber=opmen99810bPortTrafficRxJabber, opmen99810bARPInspectionStaticEntry=opmen99810bARPInspectionStaticEntry, opmen99810bGVRPStatisticsTable=opmen99810bGVRPStatisticsTable, opmen99810bBroadcastStormProtectionConfigurationTable=opmen99810bBroadcastStormProtectionConfigurationTable, opmen99810bPortConfDescription=opmen99810bPortConfDescription, opmen99810bQosSchedulerShaperRate=opmen99810bQosSchedulerShaperRate, opmen99810bQoSIngressPortTagClassificationPort=opmen99810bQoSIngressPortTagClassificationPort, opmen99810bQosDSCPTranslationDSCPBasedId=opmen99810bQosDSCPTranslationDSCPBasedId, opmen99810bMaximumFrameSize=opmen99810bMaximumFrameSize, opmen99810bTrapVariable=opmen99810bTrapVariable, opmen99810bDHCPSnoopingTxInform=opmen99810bDHCPSnoopingTxInform, opmen99810bACLACETable=opmen99810bACLACETable, opmen99810bACLACEStatusMirror=opmen99810bACLACEStatusMirror, opmen99810bQosEgressTagRemarkingDefDEI=opmen99810bQosEgressTagRemarkingDefDEI, opmen99810bPortTrafficRxOctets=opmen99810bPortTrafficRxOctets, opmen99810bPortTrafficRxPackets=opmen99810bPortTrafficRxPackets, opmen99810bLoopProtectionConfTxmode=opmen99810bLoopProtectionConfTxmode, opmen99810bSystemAccountUsers=opmen99810bSystemAccountUsers, opmen99810bARPInspectionConfEntry=opmen99810bARPInspectionConfEntry, opmen99810bACLACEMoveNextACEID=opmen99810bACLACEMoveNextACEID, opmen99810bGARPConfEntry=opmen99810bGARPConfEntry, opmen99810bQosPortClassificationPort=opmen99810bQosPortClassificationPort, opmen99810bQosQCLStatusActionDPL=opmen99810bQosQCLStatusActionDPL, opmen99810bDoImportConfig=opmen99810bDoImportConfig, opmen99810bSMTPEmailAddress1=opmen99810bSMTPEmailAddress1, opmen99810bDoPing6Config=opmen99810bDoPing6Config, opmen99810bInformational=opmen99810bInformational, opmen99810bQosStormControl=opmen99810bQosStormControl, opmen99810bPingResult=opmen99810bPingResult, opmen99810bVoiceVLANPortTable=opmen99810bVoiceVLANPortTable, opmen99810bIPv4CurrentVLANId=opmen99810bIPv4CurrentVLANId, opmen99810bPortQoSQ7Rx=opmen99810bPortQoSQ7Rx, opmen99810bTrapHostConfIPType=opmen99810bTrapHostConfIPType, opmen99810bPortTrafficRxFragments=opmen99810bPortTrafficRxFragments, opmen99810bPortTrafficTx64Bytes=opmen99810bPortTrafficTx64Bytes, opmen99810bQoSStormControlMC=opmen99810bQoSStormControlMC, opmen99810bQosIpv4DSCP=opmen99810bQosIpv4DSCP, opmen99810bACLPortsConfPort=opmen99810bACLPortsConfPort, opmen99810bTrapEventSeverityMgmtIPChange=opmen99810bTrapEventSeverityMgmtIPChange, opmen99810bTrapEventSeverityLogin=opmen99810bTrapEventSeverityLogin, opmen99810bFirmwareIpAddress=opmen99810bFirmwareIpAddress, opmen99810bQosPortPolicingTable=opmen99810bQosPortPolicingTable, opmen99810bIPSourceGuardConf=opmen99810bIPSourceGuardConf, opmen99810bACLACESIPType=opmen99810bACLACESIPType, opmen99810bIPSourceGuardDynamicTable=opmen99810bIPSourceGuardDynamicTable, opmen99810bPortTrafficRxQ7=opmen99810bPortTrafficRxQ7, opmen99810bAccessMgtIndex=opmen99810bAccessMgtIndex, opmen99810bPortSecLimitCtrlEntry=opmen99810bPortSecLimitCtrlEntry, opmen99810bUserIndex=opmen99810bUserIndex, opmen99810bDiagnostics=opmen99810bDiagnostics, opmen99810bPortTrafficTxMulticast=opmen99810bPortTrafficTxMulticast, opmen99810bFlashSize=opmen99810bFlashSize, opmen99810bQosPortDSCPIngressClassify=opmen99810bQosPortDSCPIngressClassify, opmen99810bTrapEventSeverityAuthFailed=opmen99810bTrapEventSeverityAuthFailed, opmen99810bTrapEventSeverityWarmStart=opmen99810bTrapEventSeverityWarmStart, opmen99810bDHCPSnoopingTxACK=opmen99810bDHCPSnoopingTxACK, opmen99810bPortSecurityAging=opmen99810bPortSecurityAging, opmen99810bACLACESourcePortMax=opmen99810bACLACESourcePortMax, opmen99810bQoSIngressPortTagDPLevel=opmen99810bQoSIngressPortTagDPLevel, opmen99810bQosEgressTagRemarkingMode=opmen99810bQosEgressTagRemarkingMode, opmen99810bBroadcastStormProtectionConfPort=opmen99810bBroadcastStormProtectionConfPort, opmen99810bSFPInfoPort=opmen99810bSFPInfoPort, opmen99810bACLACEPortPolicyBitmask=opmen99810bACLACEPortPolicyBitmask, opmen99810bClientStatTransmitToClient=opmen99810bClientStatTransmitToClient, opmen99810bFirmware=opmen99810bFirmware, opmen99810bRestartDevice=opmen99810bRestartDevice, opmen99810bDHCPRelay=opmen99810bDHCPRelay, opmen99810bQosPortDSCPIngressTranslate=opmen99810bQosPortDSCPIngressTranslate, opmen99810bGVRPPrivilegeLevel=opmen99810bGVRPPrivilegeLevel, opmen99810bSshAuthMethod=opmen99810bSshAuthMethod, opmen99810bSetCommunity=opmen99810bSetCommunity, opmen99810bVLANsPrivilegeLevel=opmen99810bVLANsPrivilegeLevel, opmen99810bSystemPrivilegeLevel=opmen99810bSystemPrivilegeLevel, opmen99810bACLACESIPNetworkPrefix=opmen99810bACLACESIPNetworkPrefix, opmen99810bIPv4VLANId=opmen99810bIPv4VLANId, opmen99810bQosPortEgressTagRemarkingEntry=opmen99810bQosPortEgressTagRemarkingEntry, opmen99810bQosQceTag=opmen99810bQosQceTag, opmen99810bSingleIPPrivilegeLevel=opmen99810bSingleIPPrivilegeLevel, opmen99810bMirrorPort=opmen99810bMirrorPort, opmen99810bTrapEventPrivilegeLevel=opmen99810bTrapEventPrivilegeLevel, opmen99810bIPSourceGuardDynamicIPAddress=opmen99810bIPSourceGuardDynamicIPAddress, opmen99810bSystemInformation=opmen99810bSystemInformation, opmen99810bPortTrafficRxQ2=opmen99810bPortTrafficRxQ2, opmen99810bVlanPortsTPIDforCustomSport=opmen99810bVlanPortsTPIDforCustomSport, opmen99810bDHCPSnoopingRxOffer=opmen99810bDHCPSnoopingRxOffer, opmen99810bAccessMgtEndIpAddress=opmen99810bAccessMgtEndIpAddress, opmen99810bPortSecLimitCtrlPortLimit=opmen99810bPortSecLimitCtrlPortLimit, opmen99810bPing6IpAddress=opmen99810bPing6IpAddress, opmen99810bGARPConfTable=opmen99810bGARPConfTable, opmen99810bSyslogDetailedInfoTime=opmen99810bSyslogDetailedInfoTime, opmen99810bPortTrafficTxQ0=opmen99810bPortTrafficTxQ0, opmen99810bACLRateLimiterEntry=opmen99810bACLRateLimiterEntry, opmen99810bPortSecPortStatusTimeOfAddition=opmen99810bPortSecPortStatusTimeOfAddition, opmen99810bACLACECreate=opmen99810bACLACECreate, opmen99810bPortEEEUrgentQueue1=opmen99810bPortEEEUrgentQueue1, opmen99810bACLACEVLANVID=opmen99810bACLACEVLANVID, opmen99810bACLPortsConfTable=opmen99810bACLPortsConfTable, opmen99810bPortSecPortStatusVLANId=opmen99810bPortSecPortStatusVLANId, opmen99810bTrapHostConfCommunity=opmen99810bTrapHostConfCommunity, opmen99810bTelnetAuthMethod=opmen99810bTelnetAuthMethod, opmen99810bACLACEStatusIndex=opmen99810bACLACEStatusIndex, opmen99810bIpv4DHCPClient=opmen99810bIpv4DHCPClient, opmen99810bPortSecLimitCtrlPortReOpen=opmen99810bPortSecLimitCtrlPortReOpen, opmen99810bSecurity=opmen99810bSecurity, opmen99810bACLACEStatusEntry=opmen99810bACLACEStatusEntry, opmen99810bQosIpv6ProtocolTCPDport=opmen99810bQosIpv6ProtocolTCPDport, opmen99810bPortConfLink=opmen99810bPortConfLink, opmen99810bPortEEEUrgentQueue7=opmen99810bPortEEEUrgentQueue7, opmen99810bTrapEventSeverityLoopProtect=opmen99810bTrapEventSeverityLoopProtect, opmen99810bPortTrafficTxQ1=opmen99810bPortTrafficTxQ1, opmen99810bQosSchedulerShaper=opmen99810bQosSchedulerShaper, opmen99810bQosSchedulerPort=opmen99810bQosSchedulerPort, opmen99810bRAMSize=opmen99810bRAMSize, opmen99810bIpv6Gateway=opmen99810bIpv6Gateway, opmen99810bSyslogDetailedInfoTable=opmen99810bSyslogDetailedInfoTable, opmen99810bPortSecSwitchStatusMACCountLimit=opmen99810bPortSecSwitchStatusMACCountLimit, opmen99810bLoopProtectionConfEnable=opmen99810bLoopProtectionConfEnable, opmen99810bSystemTimeNTPIndex=opmen99810bSystemTimeNTPIndex, opmen99810bLoopProtectionConfPort=opmen99810bLoopProtectionConfPort, opmen99810bDHCPSnoopingStatisticsPort=opmen99810bDHCPSnoopingStatisticsPort, opmen99810bDHCPSnoopingTxDiscover=opmen99810bDHCPSnoopingTxDiscover, opmen99810bVoiceVLANTrafficClass=opmen99810bVoiceVLANTrafficClass, opmen99810bIpv6CurrentLinkLocalAddress=opmen99810bIpv6CurrentLinkLocalAddress, opmen99810bQosDSCPTrust=opmen99810bQosDSCPTrust, opmen99810bACLACEIngressPort=opmen99810bACLACEIngressPort, opmen99810bGARPLeaveAllTimer=opmen99810bGARPLeaveAllTimer, opmen99810bACLACEStatusTable=opmen99810bACLACEStatusTable, opmen99810bQosDSCPClassificationEntry=opmen99810bQosDSCPClassificationEntry, opmen99810bQos=opmen99810bQos, opmen99810bQosQceTable=opmen99810bQosQceTable, opmen99810bQoSStormControlMCRate=opmen99810bQoSStormControlMCRate, opmen99810bPortQoSQ2Tx=opmen99810bPortQoSQ2Tx, opmen99810bIPSourceGuardStaticIndex=opmen99810bIPSourceGuardStaticIndex, opmen99810bPortTrafficTx65to127Bytes=opmen99810bPortTrafficTx65to127Bytes, opmen99810bQosLLCDSAPAddr=opmen99810bQosLLCDSAPAddr, opmen99810bPortTrafficRxQ6=opmen99810bPortTrafficRxQ6, opmen99810bPortSecPortStatusTable=opmen99810bPortSecPortStatusTable, opmen99810bQosSchedulerMode=opmen99810bQosSchedulerMode, opmen99810bTrapHostConfPort=opmen99810bTrapHostConfPort, opmen99810bACLRateLimiterTable=opmen99810bACLRateLimiterTable, opmen99810bQosDSCPClassificationDPL=opmen99810bQosDSCPClassificationDPL, opmen99810bQosQceVID=opmen99810bQosQceVID, opmen99810bQosIpv4ProtocolValue=opmen99810bQosIpv4ProtocolValue, opmen99810bIPSourceGuardStaticCreate=opmen99810bIPSourceGuardStaticCreate, opmen99810bARPInspectionStaticIndex=opmen99810bARPInspectionStaticIndex, opmen99810bSystemTimeManualDaylightSavings=opmen99810bSystemTimeManualDaylightSavings, opmen99810bHTTPS=opmen99810bHTTPS, opmen99810bSMTPEmailAddress5=opmen99810bSMTPEmailAddress5, opmen99810bACLACEVLAN8021QTagged=opmen99810bACLACEVLAN8021QTagged, opmen99810bUserPrivilegeLevel=opmen99810bUserPrivilegeLevel, opmen99810bSystemAccountPrivilegeLevel=opmen99810bSystemAccountPrivilegeLevel, opmen99810bQosQceRowStatus=opmen99810bQosQceRowStatus, opmen99810bTrapEventSeverityACL=opmen99810bTrapEventSeverityACL, opmen99810bSyslogDetailedInfoClear=opmen99810bSyslogDetailedInfoClear, opmen99810bIPSourceGuardDynamicEntry=opmen99810bIPSourceGuardDynamicEntry, opmen99810bFirmwareFileName=opmen99810bFirmwareFileName, opmen99810bTrapEventSeverityLACP=opmen99810bTrapEventSeverityLACP, opmen99810bDHCPSnoopingPortModeConfigurationPort=opmen99810bDHCPSnoopingPortModeConfigurationPort, opmen99810bDHCPSnoopingPortModeConfigurationEntry=opmen99810bDHCPSnoopingPortModeConfigurationEntry, opmen99810bBroadcastStormProtectionConfTimer=opmen99810bBroadcastStormProtectionConfTimer, opmen99810bLoopProtectionStatusStatus=opmen99810bLoopProtectionStatusStatus, opmen99810bQosSchedulerPortQueueShaperRate=opmen99810bQosSchedulerPortQueueShaperRate, opmen99810bQosPortDSCPEntry=opmen99810bQosPortDSCPEntry, opmen99810bDHCPSnoopingTxRelease=opmen99810bDHCPSnoopingTxRelease, opmen99810bACLACERateLimiter=opmen99810bACLACERateLimiter, opmen99810bPortQoSQ5Tx=opmen99810bPortQoSQ5Tx, opmen99810bARPInspectionStaticPort=opmen99810bARPInspectionStaticPort, opmen99810bSFPVendorName=opmen99810bSFPVendorName, opmen99810bPortTrafficRx512to1023Bytes=opmen99810bPortTrafficRx512to1023Bytes, opmen99810bARPInspectionDynamicIPAddress=opmen99810bARPInspectionDynamicIPAddress, opmen99810bDiagnosticsPrivilegeLevel=opmen99810bDiagnosticsPrivilegeLevel, opmen99810bConsoleBaudrate=opmen99810bConsoleBaudrate, opmen99810bTrapEventSeverityPasswordChange=opmen99810bTrapEventSeverityPasswordChange, opmen99810bQosEgressTagRemarkingPort=opmen99810bQosEgressTagRemarkingPort, opmen99810bQosIpv6ProtocolTCPSport=opmen99810bQosIpv6ProtocolTCPSport, opmen99810bAccessMgtConfMode=opmen99810bAccessMgtConfMode, opmen99810bGVRP=opmen99810bGVRP, opmen99810bACLACETCPFlagsSyn=opmen99810bACLACETCPFlagsSyn, opmen99810bVoiceVLANPort=opmen99810bVoiceVLANPort, opmen99810bPortTrafficTxOctets=opmen99810bPortTrafficTxOctets, opmen99810bPortQoSStatisticsPort=opmen99810bPortQoSStatisticsPort, opmen99810bPortTrafficRxPause=opmen99810bPortTrafficRxPause, opmen99810bSyslogLevel=opmen99810bSyslogLevel, opmen99810bQosSchedulerPortQueueSchedulerPercent=opmen99810bQosSchedulerPortQueueSchedulerPercent, opmen99810bVCLPrivilegeLevel=opmen99810bVCLPrivilegeLevel, opmen99810bQosDMACType=opmen99810bQosDMACType, opmen99810bFactoryDefaults=opmen99810bFactoryDefaults, opmen99810bPortSecSwitchStatusTable=opmen99810bPortSecSwitchStatusTable, opmen99810bACLACEStatusAction=opmen99810bACLACEStatusAction, switch=switch, opmen99810bSyslogDetailedInfo=opmen99810bSyslogDetailedInfo, opmen99810bDHCPRelayInformationMode=opmen99810bDHCPRelayInformationMode, opmen99810bHttpsDiscardedPkts=opmen99810bHttpsDiscardedPkts, opmen99810bBroadcastStormProtection=opmen99810bBroadcastStormProtection, opmen99810bServerStatTransmitError=opmen99810bServerStatTransmitError, opmen99810bLoopProtection=opmen99810bLoopProtection, opmen99810bQosDSCPTranslationIngressTranslate=opmen99810bQosDSCPTranslationIngressTranslate, opmen99810bPortTrafficTxPackets=opmen99810bPortTrafficTxPackets, opmen99810bDHCPRelayConfiguration=opmen99810bDHCPRelayConfiguration, opmen99810bQosDSCP=opmen99810bQosDSCP, opmen99810bPortQoSQ4Rx=opmen99810bPortQoSQ4Rx, opmen99810bSFPTxCentralWavelength=opmen99810bSFPTxCentralWavelength, opmen99810bSnmpConf=opmen99810bSnmpConf, opmen99810bACLACENextID=opmen99810bACLACENextID, opmen99810bPortSecSwitchStatusMACCountCurrent=opmen99810bPortSecSwitchStatusMACCountCurrent, opmen99810bPortSecLimitCtrlPortAction=opmen99810bPortSecLimitCtrlPortAction, opmen99810bACLACEStatusID=opmen99810bACLACEStatusID, opmen99810bMaintenance=opmen99810bMaintenance, opmen99810bVoiceVLANVLANId=opmen99810bVoiceVLANVLANId, opmen99810bARPInspectionDynamicVLANId=opmen99810bARPInspectionDynamicVLANId, opmen99810bQosQceIndex=opmen99810bQosQceIndex, opmen99810bClientStatReceiveAgentOption=opmen99810bClientStatReceiveAgentOption, opmen99810bLoopProtectionStatusTimeLastLoop=opmen99810bLoopProtectionStatusTimeLastLoop, opmen99810bSFPInfoEntry=opmen99810bSFPInfoEntry, opmen99810bPortTrafficStatisticsClear=opmen99810bPortTrafficStatisticsClear, opmen99810bRestoreUser=opmen99810bRestoreUser, opmen99810bQosLLCSSAPAddr=opmen99810bQosLLCSSAPAddr, opmen99810bSystemAccountUsersEntry=opmen99810bSystemAccountUsersEntry, opmen99810bIPv4DNSServer=opmen99810bIPv4DNSServer, opmen99810bHttpsReceivedPkts=opmen99810bHttpsReceivedPkts, opmen99810bPortEEEEntry=opmen99810bPortEEEEntry, opmen99810bACLACESourcePortMin=opmen99810bACLACESourcePortMin, opmen99810bQosPortClassificationDPlevel=opmen99810bQosPortClassificationDPlevel, opmen99810bQosDSCPList=opmen99810bQosDSCPList, opmen99810bDHCPRelayInformationPolicy=opmen99810bDHCPRelayInformationPolicy, opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom=opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom)
-mibBuilder.exportSymbols("PRIVATETECH-OP-MEN99810B-MIB", opmen99810bSFPBaudRate=opmen99810bSFPBaudRate, opmen99810bQosPortPolicingRate=opmen99810bQosPortPolicingRate, opmen99810bMaintenancePrivilegeLevel=opmen99810bMaintenancePrivilegeLevel, opmen99810bIPSourceGuardStatic=opmen99810bIPSourceGuardStatic, opmen99810bPortQoSStatisticsTable=opmen99810bPortQoSStatisticsTable, opmen99810bIPv4Address=opmen99810bIPv4Address, opmen99810bClientStatDropAgentOption=opmen99810bClientStatDropAgentOption, opmen99810bAggregationPrivilegeLevel=opmen99810bAggregationPrivilegeLevel, opmen99810bACLACEStatusIngressPort=opmen99810bACLACEStatusIngressPort, opmen99810bServerStatReceiveMissingRemoteID=opmen99810bServerStatReceiveMissingRemoteID, opmen99810bQosQCLStatusQCEId=opmen99810bQosQCLStatusQCEId, opmen99810bTelnetFallback=opmen99810bTelnetFallback, opmen99810bPortSecLimitCtrlPortState=opmen99810bPortSecLimitCtrlPortState, opmen99810bVoiceVLANPrivilegeLevel=opmen99810bVoiceVLANPrivilegeLevel, opmen99810bPortSecPortStatusIndex=opmen99810bPortSecPortStatusIndex, opmen99810bACLACEMoveACEID=opmen99810bACLACEMoveACEID, opmen99810bACLACEFrameType=opmen99810bACLACEFrameType, opmen99810bLoopProtectionConfigurationTable=opmen99810bLoopProtectionConfigurationTable, opmen99810bACLACEDIPType=opmen99810bACLACEDIPType, opmen99810bACLPortsConfMirror=opmen99810bACLPortsConfMirror, opmen99810bARPInspectionDynamicMACAddress=opmen99810bARPInspectionDynamicMACAddress, opmen99810bSMTPSender=opmen99810bSMTPSender, opmen99810bPortQoSQ2Rx=opmen99810bPortQoSQ2Rx, opmen99810bACLPortsConfState=opmen99810bACLPortsConfState, opmen99810bDHCPSnoopingStatisticsEntry=opmen99810bDHCPSnoopingStatisticsEntry, opmen99810bACLACEIPFlagsFragment=opmen99810bACLACEIPFlagsFragment, opmen99810bWarning=opmen99810bWarning, opmen99810bDHCPRelayClientStatistics=opmen99810bDHCPRelayClientStatistics, opmen99810bWebFallback=opmen99810bWebFallback, opmen99810bLoopProtectionStatusEntry=opmen99810bLoopProtectionStatusEntry, opmen99810bClientStatReplaceAgentOption=opmen99810bClientStatReplaceAgentOption, opmen99810bDHCPSnoopingRxNAK=opmen99810bDHCPSnoopingRxNAK, opmen99810bSshFallback=opmen99810bSshFallback, opmen99810bPortTrafficTxBroadcast=opmen99810bPortTrafficTxBroadcast, opmen99810bSFPVendorPN=opmen99810bSFPVendorPN, opmen99810bQosPortPolicingUnit=opmen99810bQosPortPolicingUnit, opmen99810bQosPortEgressTagRemarkingDefTable=opmen99810bQosPortEgressTagRemarkingDefTable, opmen99810bPortTrafficRxExceecd1527Bytes=opmen99810bPortTrafficRxExceecd1527Bytes, opmen99810bDHCPSnoopingRxRelease=opmen99810bDHCPSnoopingRxRelease, opmen99810bSnmpAllowedPkts=opmen99810bSnmpAllowedPkts, opmen99810bTrapEventSeverityACLLog=opmen99810bTrapEventSeverityACLLog, opmen99810bPortConfPortMedia=opmen99810bPortConfPortMedia, opmen99810bGVRPStatisticsPort=opmen99810bGVRPStatisticsPort, opmen99810bPortTrafficRxQ3=opmen99810bPortTrafficRxQ3, opmen99810bVlanPortsPortType=opmen99810bVlanPortsPortType, opmen99810bClientStatTransmitError=opmen99810bClientStatTransmitError, opmen99810bBroadcastStormProtectionConfPPS=opmen99810bBroadcastStormProtectionConfPPS, opmen99810bQosFrameType=opmen99810bQosFrameType, opmen99810bWebAuthMethod=opmen99810bWebAuthMethod, opmen99810bBIOSVersion=opmen99810bBIOSVersion, opmen99810bPortTrafficStatisticsTable=opmen99810bPortTrafficStatisticsTable, opmen99810bDHCPSnoopingTxLeaseUnassigned=opmen99810bDHCPSnoopingTxLeaseUnassigned, opmen99810bQosIpv4Protocol=opmen99810bQosIpv4Protocol, opmen99810bAccessMgtTelnetSSH=opmen99810bAccessMgtTelnetSSH, opmen99810bIPSourceGuardStaticRowStatus=opmen99810bIPSourceGuardStaticRowStatus, opmen99810bPortSecLimitCtrl=opmen99810bPortSecLimitCtrl, opmen99810bQosQCLStatusActionDSCP=opmen99810bQosQCLStatusActionDSCP, opmen99810bAccessMgtConfTable=opmen99810bAccessMgtConfTable, opmen99810bConsoleAuthMethod=opmen99810bConsoleAuthMethod, opmen99810bGVRPConfPort=opmen99810bGVRPConfPort, opmen99810bPortTrafficTxPause=opmen99810bPortTrafficTxPause, opmen99810bGARPStatisticsPeerMAC=opmen99810bGARPStatisticsPeerMAC, opmen99810bUserName=opmen99810bUserName, opmen99810bPort=opmen99810bPort, opmen99810bTrapHostConfCurrentMode=opmen99810bTrapHostConfCurrentMode, opmen99810bIPv6Configured=opmen99810bIPv6Configured, opmen99810bTrapEventSeverityImportExport=opmen99810bTrapEventSeverityImportExport, opmen99810bQosDEI=opmen99810bQosDEI, opmen99810bDHCPSnoopingStatisticsTable=opmen99810bDHCPSnoopingStatisticsTable, opmen99810bPortQoSQ3Tx=opmen99810bPortQoSQ3Tx, opmen99810bARPInspectionConfMode=opmen99810bARPInspectionConfMode, opmen99810bACLACEStatusPortCopy=opmen99810bACLACEStatusPortCopy, opmen99810bDHCPSnoopingTxDecline=opmen99810bDHCPSnoopingTxDecline, opmen99810bPortQoSQ1Rx=opmen99810bPortQoSQ1Rx, opmen99810bDHCPSnoopingRxLeaseQuery=opmen99810bDHCPSnoopingRxLeaseQuery, opmen99810bGetCommunity=opmen99810bGetCommunity, opmen99810bSystemAccountUsersTable=opmen99810bSystemAccountUsersTable, opmen99810bACLACEVLANTagPriority=opmen99810bACLACEVLANTagPriority, opmen99810bQoSIngressPortTagClassificationTable=opmen99810bQoSIngressPortTagClassificationTable, opmen99810bPortSecPortStatusAgeAndHold=opmen99810bPortSecPortStatusAgeAndHold, opmen99810bServerAddress2=opmen99810bServerAddress2, opmen99810bACLACELogging=opmen99810bACLACELogging, opmen99810bACLACEIPFlagsTTL=opmen99810bACLACEIPFlagsTTL, opmen99810bQosQCLStatusPortlist=opmen99810bQosQCLStatusPortlist, opmen99810bAccessMgtConf=opmen99810bAccessMgtConf, opmen99810bSyslogDetailedInfoLevel=opmen99810bSyslogDetailedInfoLevel, opmen99810bBroadcastStormProtectionConfAction=opmen99810bBroadcastStormProtectionConfAction, opmen99810bSMTPEmailAddress3=opmen99810bSMTPEmailAddress3, opmen99810bQosQCLStatusUser=opmen99810bQosQCLStatusUser, opmen99810bTrapEventSeverityLogout=opmen99810bTrapEventSeverityLogout, opmen99810bGARPStatisticsFailedCount=opmen99810bGARPStatisticsFailedCount, opmen99810bPortTrafficStatisticsPort=opmen99810bPortTrafficStatisticsPort, opmen99810bPortTrafficRx128to255Bytes=opmen99810bPortTrafficRx128to255Bytes, opmen99810bACLACEStatusCPU=opmen99810bACLACEStatusCPU, opmen99810bTrapEventSeverityVLAN=opmen99810bTrapEventSeverityVLAN, opmen99810bSFPDateCode=opmen99810bSFPDateCode, opmen99810bDHCPSnoopingTxLeaseUnknown=opmen99810bDHCPSnoopingTxLeaseUnknown, opmen99810bQosSchedulerPortQueue=opmen99810bQosSchedulerPortQueue, opmen99810bQosControlList=opmen99810bQosControlList, opmen99810bQosQceCreate=opmen99810bQosQceCreate, opmen99810bDHCPRelayStatistics=opmen99810bDHCPRelayStatistics, opmen99810bSyslogConf=opmen99810bSyslogConf, opmen99810bDHCPSnoopingRxACK=opmen99810bDHCPSnoopingRxACK, opmen99810bVoiceVLANMode=opmen99810bVoiceVLANMode, opmen99810bDHCPSnoopingRxLeaseActive=opmen99810bDHCPSnoopingRxLeaseActive, opmen99810bSetCommunityMode=opmen99810bSetCommunityMode, opmen99810bDHCPRelayServer=opmen99810bDHCPRelayServer, opmen99810bQoSStormControlUC=opmen99810bQoSStormControlUC, opmen99810bACLACEID=opmen99810bACLACEID, opmen99810bPortQoSQ0Tx=opmen99810bPortQoSQ0Tx, opmen99810bACLACEArpFlagsArpSmac=opmen99810bACLACEArpFlagsArpSmac, opmen99810bIPSourceGuardPortConfigEntry=opmen99810bIPSourceGuardPortConfigEntry, opmen99810bQosPortClassificationDEI=opmen99810bQosPortClassificationDEI, opmen99810bIP=opmen99810bIP, opmen99810bDHCPSnoopingTxLeaseQuery=opmen99810bDHCPSnoopingTxLeaseQuery, opmen99810bSpanningTreePrivilegeLevel=opmen99810bSpanningTreePrivilegeLevel, opmen99810bIPPrivilegeLevel=opmen99810bIPPrivilegeLevel, opmen99810bNotice=opmen99810bNotice, opmen99810bSyslogDetailedInfoIndex=opmen99810bSyslogDetailedInfoIndex, opmen99810bQoSIngressPortTagPCP=opmen99810bQoSIngressPortTagPCP, opmen99810bQosPortDSCPEgressRewrite=opmen99810bQosPortDSCPEgressRewrite, opmen99810bPortQoSQ0Rx=opmen99810bPortQoSQ0Rx, opmen99810bACLPortsConfShutdown=opmen99810bACLPortsConfShutdown, opmen99810bPortSecurityMode=opmen99810bPortSecurityMode, opmen99810bGVRPConfPortRRole=opmen99810bGVRPConfPortRRole, opmen99810bPortTrafficRxOversize=opmen99810bPortTrafficRxOversize, opmen99810bPortTrafficTxLateOrExcColl=opmen99810bPortTrafficTxLateOrExcColl, opmen99810bDHCPSnoopingTxNAK=opmen99810bDHCPSnoopingTxNAK, opmen99810bACLACETCPFlagsUrg=opmen99810bACLACETCPFlagsUrg, opmen99810bQosIpv6ProtocolValue=opmen99810bQosIpv6ProtocolValue, opmen99810bACLACEDestPortMin=opmen99810bACLACEDestPortMin, opmen99810bQosQcePortMembers=opmen99810bQosQcePortMembers, opmen99810bDHCPSnoopingRxRequest=opmen99810bDHCPSnoopingRxRequest, opmen99810bPortTrafficTx1024to1526Bytes=opmen99810bPortTrafficTx1024to1526Bytes, opmen99810bPortEEEUrgentQueue3=opmen99810bPortEEEUrgentQueue3, opmen99810bACLACEArpFlagsRarpDmac=opmen99810bACLACEArpFlagsRarpDmac, opmen99810bQosIpv6ProtocolUDPSport=opmen99810bQosIpv6ProtocolUDPSport, opmen99810bPortConfPowerControl=opmen99810bPortConfPowerControl, opmen99810bVoiceVLANTelephonyOUI=opmen99810bVoiceVLANTelephonyOUI, opmen99810bARPInspectionStaticRowStatus=opmen99810bARPInspectionStaticRowStatus, opmen99810bGARPApplicant=opmen99810bGARPApplicant, opmen99810bGVRPStatisticsEntry=opmen99810bGVRPStatisticsEntry, opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo=opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo, opmen99810bPortQoSQ6Tx=opmen99810bPortQoSQ6Tx, opmen99810bIPv4CurrentGateway=opmen99810bIPv4CurrentGateway, opmen99810bIPv4CurrentMask=opmen99810bIPv4CurrentMask, opmen99810bSSHAllowedPkts=opmen99810bSSHAllowedPkts, opmen99810bLoopProtectionStatusLoops=opmen99810bLoopProtectionStatusLoops, opmen99810bACLACEEtherType=opmen99810bACLACEEtherType, opmen99810bPortTrafficTxExceecd1527Bytes=opmen99810bPortTrafficTxExceecd1527Bytes, opmen99810bVlanPortsFrameType=opmen99810bVlanPortsFrameType, opmen99810bDHCPSnoopingConf=opmen99810bDHCPSnoopingConf, opmen99810bDoExportConfig=opmen99810bDoExportConfig, opmen99810bConfiguration=opmen99810bConfiguration, opmen99810bQosQCLStatusActionClass=opmen99810bQosQCLStatusActionClass, opmen99810bHostMACAddress=opmen99810bHostMACAddress, opmen99810bPortQoSQ6Rx=opmen99810bPortQoSQ6Rx, opmen99810bSMTPMailServer=opmen99810bSMTPMailServer, opmen99810bIPv4Gateway=opmen99810bIPv4Gateway, opmen99810bServerStatReceiveBadRemoteID=opmen99810bServerStatReceiveBadRemoteID, opmen99810bSMTPPrivilegeLevel=opmen99810bSMTPPrivilegeLevel, opmen99810bIpv6CurrentAddress=opmen99810bIpv6CurrentAddress, opmen99810bLoopProtectPrivilegeLevel=opmen99810bLoopProtectPrivilegeLevel, opmen99810bPortTrafficTxQ2=opmen99810bPortTrafficTxQ2, opmen99810bVoiceVLANOUIIndex=opmen99810bVoiceVLANOUIIndex, opmen99810bTrapEventSeverityAccessMgmt=opmen99810bTrapEventSeverityAccessMgmt, opmen99810bQoSIngressPortTagClassificationEntry=opmen99810bQoSIngressPortTagClassificationEntry, opmen99810bPortTrafficRx65to127Bytes=opmen99810bPortTrafficRx65to127Bytes, opmen99810bQosPortClassificationQoSclass=opmen99810bQosPortClassificationQoSclass, opmen99810bSnmpReceivedPkts=opmen99810bSnmpReceivedPkts, opmen99810bVlanPortsIngressFilter=opmen99810bVlanPortsIngressFilter, opmen99810bExportOrImport=opmen99810bExportOrImport, opmen99810bPingIpAddress=opmen99810bPingIpAddress, opmen99810bSSHReceivedPkts=opmen99810bSSHReceivedPkts, opmen99810bPortConfCurrentFlowControlTx=opmen99810bPortConfCurrentFlowControlTx, opmen99810bACLPortsConfRateLimiterID=opmen99810bACLPortsConfRateLimiterID, opmen99810bPortTrafficStatisticsEntry=opmen99810bPortTrafficStatisticsEntry, opmen99810bLLDPPrivilegeLevel=opmen99810bLLDPPrivilegeLevel, opmen99810bVoiceVLANPortEntry=opmen99810bVoiceVLANPortEntry, opmen99810bServerStatReceiveMissingCircuitID=opmen99810bServerStatReceiveMissingCircuitID, opmen99810bTrap=opmen99810bTrap, opmen99810bGARPJoinTimer=opmen99810bGARPJoinTimer, opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo=opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo, opmen99810bQosSNAPPID=opmen99810bQosSNAPPID, opmen99810bSFPFiberType=opmen99810bSFPFiberType, opmen99810bQosDSCPTranslationTable=opmen99810bQosDSCPTranslationTable, opmen99810bHttpDiscardedPkts=opmen99810bHttpDiscardedPkts, opmen99810bQosTagRemarkingQoSClass=opmen99810bQosTagRemarkingQoSClass, opmen99810bHTTPSAutoRedirect=opmen99810bHTTPSAutoRedirect, opmen99810bMirroring=opmen99810bMirroring, opmen99810bSaveStart=opmen99810bSaveStart, opmen99810bQosQCLStatusActionConflict=opmen99810bQosQCLStatusActionConflict, opmen99810bIpv6CurrentGateway=opmen99810bIpv6CurrentGateway, opmen99810bDHCPSnoopingRxLeaseUnknown=opmen99810bDHCPSnoopingRxLeaseUnknown, opmen99810bSerialNumber=opmen99810bSerialNumber, opmen99810bPortTrafficRxQ5=opmen99810bPortTrafficRxQ5, opmen99810bQosEgressTagRemarkingDefPCP=opmen99810bQosEgressTagRemarkingDefPCP, opmen99810bProductId=opmen99810bProductId, opmen99810bPortTrafficRxQ4=opmen99810bPortTrafficRxQ4, opmen99810bIpv6CurrentPrefix=opmen99810bIpv6CurrentPrefix, opmen99810bACLACEICMPType=opmen99810bACLACEICMPType, opmen99810bSMTPEmailAddress6=opmen99810bSMTPEmailAddress6, opmen99810bVoiceVLANConf=opmen99810bVoiceVLANConf, opmen99810bPing6Size=opmen99810bPing6Size, opmen99810bQosDSCPTable=opmen99810bQosDSCPTable, opmen99810bIPSourceGuardDynamicPort=opmen99810bIPSourceGuardDynamicPort, opmen99810bSaveUser=opmen99810bSaveUser, opmen99810bSystemTimeNTPTable=opmen99810bSystemTimeNTPTable, opmen99810bVoiceVLANPortMode=opmen99810bVoiceVLANPortMode, opmen99810bSystemAccount=opmen99810bSystemAccount, opmen99810bACLACEDestPortMax=opmen99810bACLACEDestPortMax, opmen99810bSMTPServeriryLevel=opmen99810bSMTPServeriryLevel, opmen99810bPortSecLimitCtrlTable=opmen99810bPortSecLimitCtrlTable, opmen99810bQosPortPolicingPort=opmen99810bQosPortPolicingPort, opmen99810bIPSourceGuardPortConfigMode=opmen99810bIPSourceGuardPortConfigMode, opmen99810bARPInspectionStaticTable=opmen99810bARPInspectionStaticTable, opmen99810bTrapHostConfAuthPtc=opmen99810bTrapHostConfAuthPtc, opmen99810bPortEEEUrgentQueue8=opmen99810bPortEEEUrgentQueue8, opmen99810bQosPCP=opmen99810bQosPCP, opmen99810bPortTrafficRxBroadcast=opmen99810bPortTrafficRxBroadcast, opmen99810bSystemTime=opmen99810bSystemTime, opmen99810bSMTP=opmen99810bSMTP, opmen99810bHttpReceivedPkts=opmen99810bHttpReceivedPkts, opmen99810bDHCPRelayMode=opmen99810bDHCPRelayMode, opmen99810bQosPortEgressTagRemarkingTable=opmen99810bQosPortEgressTagRemarkingTable, opmen99810bLoopProtectionConfAction=opmen99810bLoopProtectionConfAction, opmen99810bACLACERowStatus=opmen99810bACLACERowStatus, opmen99810bAccessMgtStartIpAddress=opmen99810bAccessMgtStartIpAddress, opmen99810bDHCPSnoopingTxRequest=opmen99810bDHCPSnoopingTxRequest, opmen99810bIPv4CurrentDNSServer=opmen99810bIPv4CurrentDNSServer, opmen99810bServerMode=opmen99810bServerMode, opmen99810bQosDSCPClassificationQoSClass=opmen99810bQosDSCPClassificationQoSClass, opmen99810bIPv4Mask=opmen99810bIPv4Mask, opmen99810bDoPingConfig=opmen99810bDoPingConfig, opmen99810bLoopProtectionStatusAction=opmen99810bLoopProtectionStatusAction, opmen99810bARPInspectionStaticIPAddress=opmen99810bARPInspectionStaticIPAddress, opmen99810bSystemTimeManualTimeZoneOffset=opmen99810bSystemTimeManualTimeZoneOffset, opmen99810bPortTrafficRxUndersize=opmen99810bPortTrafficRxUndersize, opmen99810bVoiceVLANAgingTime=opmen99810bVoiceVLANAgingTime, opmen99810bIPv4DNSProxy=opmen99810bIPv4DNSProxy, opmen99810bVoiceVLAN=opmen99810bVoiceVLAN, opmen99810bACLRateLimiterID=opmen99810bACLRateLimiterID, opmen99810bARPInspectionConf=opmen99810bARPInspectionConf, opmen99810bLACPPrivilegeLevel=opmen99810bLACPPrivilegeLevel, opmen99810bIpv6Address=opmen99810bIpv6Address, opmen99810bIPSourceGuardDynamicMACAddress=opmen99810bIPSourceGuardDynamicMACAddress, opmen99810bACL=opmen99810bACL, opmen99810bACLPortsConfLogging=opmen99810bACLPortsConfLogging, opmen99810bAccessMgtStatistics=opmen99810bAccessMgtStatistics, opmen99810bIPSourceGuardStaticIPAddress=opmen99810bIPSourceGuardStaticIPAddress, opmen99810bSystemTimeNTP=opmen99810bSystemTimeNTP, opmen99810bAccessMgtAddresstype=opmen99810bAccessMgtAddresstype, opmen99810bIPSourceGuardDynamicVLANId=opmen99810bIPSourceGuardDynamicVLANId, opmen99810bPortTrafficRxDrops=opmen99810bPortTrafficRxDrops)
-mibBuilder.exportSymbols("PRIVATETECH-OP-MEN99810B-MIB", opmen99810bDHCPSnoopingRxDiscover=opmen99810bDHCPSnoopingRxDiscover, opmen99810bACLACEShutdown=opmen99810bACLACEShutdown, opmen99810bACLACETCPFlagsFin=opmen99810bACLACETCPFlagsFin, opmen99810bGARPStatisticsTable=opmen99810bGARPStatisticsTable, opmen99810bQoSStormControlBCRate=opmen99810bQoSStormControlBCRate, opmen99810bACLACEStatusFrameType=opmen99810bACLACEStatusFrameType, opmen99810bQosDSCPClassificationTable=opmen99810bQosDSCPClassificationTable, opmen99810bQoSPrivilegeLevel=opmen99810bQoSPrivilegeLevel, opmen99810bQosPortClassification=opmen99810bQosPortClassification, opmen99810bIPSourceGuardStaticMACAddress=opmen99810bIPSourceGuardStaticMACAddress, opmen99810bTrapHostConfVersion=opmen99810bTrapHostConfVersion, opmen99810bGVRPConf=opmen99810bGVRPConf, opmen99810bQoSStormControlBC=opmen99810bQoSStormControlBC, opmen99810bPortEEEUrgentQueue4=opmen99810bPortEEEUrgentQueue4, opmen99810bAccessMgtSNMP=opmen99810bAccessMgtSNMP, opmen99810bServerStatReceiveFromServer=opmen99810bServerStatReceiveFromServer, opmen99810bSystemAccountUserCreate=opmen99810bSystemAccountUserCreate, opmen99810bTrapHostConfAuthPassword=opmen99810bTrapHostConfAuthPassword, opmen99810bSFPVcc=opmen99810bSFPVcc, opmen99810bQosPortDSCPPort=opmen99810bQosPortDSCPPort, opmen99810bACLACEEntry=opmen99810bACLACEEntry, opmen99810bQosDSCPTranslationEntry=opmen99810bQosDSCPTranslationEntry, opmen99810bAccessMgtHttpHttps=opmen99810bAccessMgtHttpHttps, opmen99810bQosIpv4SourceMask=opmen99810bQosIpv4SourceMask, opmen99810bAuthMethod=opmen99810bAuthMethod, opmen99810bTrapHostConfTable=opmen99810bTrapHostConfTable, opmen99810bHttpAllowedPkts=opmen99810bHttpAllowedPkts, opmen99810bIPSourceGuardPortMaxDynamicClients=opmen99810bIPSourceGuardPortMaxDynamicClients, opmen99810bQosQCLStatusList=opmen99810bQosQCLStatusList, opmen99810bDHCPSnoopingRxDecline=opmen99810bDHCPSnoopingRxDecline, opmen99810bDHCPSnoopingTxLeaseActive=opmen99810bDHCPSnoopingTxLeaseActive, opmen99810bQosDSCPQosClass=opmen99810bQosDSCPQosClass, opmen99810bPortSecSwitchStatusState=opmen99810bPortSecSwitchStatusState, opmen99810bSnmp=opmen99810bSnmp, opmen99810bQosSchedulerPortQueueSchedulerWeight=opmen99810bQosSchedulerPortQueueSchedulerWeight, opmen99810bServerStatReceiveMissingAgentOption=opmen99810bServerStatReceiveMissingAgentOption, opmen99810bPortConfExcessiveCollisionMode=opmen99810bPortConfExcessiveCollisionMode, opmen99810bIpv6CurrentAutoConfiguration=opmen99810bIpv6CurrentAutoConfiguration, opmen99810bPortEEEMode=opmen99810bPortEEEMode, opmen99810bAlert=opmen99810bAlert, opmen99810bSSH=opmen99810bSSH, opmen99810bVlanPortsTable=opmen99810bVlanPortsTable, opmen99810bPortTrafficTxQ4=opmen99810bPortTrafficTxQ4, opmen99810bQosPortClassificationTagClass=opmen99810bQosPortClassificationTagClass, opmen99810bClientStatReceivefromClient=opmen99810bClientStatReceivefromClient, opmen99810bACLACEStatusConflict=opmen99810bACLACEStatusConflict, opmen99810bACLACEIndex=opmen99810bACLACEIndex, opmen99810bCPULoad=opmen99810bCPULoad, opmen99810bPortTrafficRx64Bytes=opmen99810bPortTrafficRx64Bytes, opmen99810bIPv6=opmen99810bIPv6, opmen99810bSFPInfoTable=opmen99810bSFPInfoTable, opmen99810bARPInspectionDynamicIndex=opmen99810bARPInspectionDynamicIndex, opmen99810bGVRPConfTable=opmen99810bGVRPConfTable, opmen99810bLoopProtectionConfig=opmen99810bLoopProtectionConfig, opmen99810bTrapEventSeverityColdStart=opmen99810bTrapEventSeverityColdStart, opmen99810bDoFirmwareUpgrade=opmen99810bDoFirmwareUpgrade, opmen99810bPortSecPortStatusState=opmen99810bPortSecPortStatusState, opmen99810bACLACEArpFlagsLength=opmen99810bACLACEArpFlagsLength, opmen99810bUPnPPrivilegeLevel=opmen99810bUPnPPrivilegeLevel, opmen99810bACLACEArpFlagsIp=opmen99810bACLACEArpFlagsIp, opmen99810bQosPortPolicingEntry=opmen99810bQosPortPolicingEntry, opmen99810bQosLLCControl=opmen99810bQosLLCControl, opmen99810bQosSchedulerPortQueueShaperExcess=opmen99810bQosSchedulerPortQueueShaperExcess, opmen99810bIPSourceGuardPortConfigTable=opmen99810bIPSourceGuardPortConfigTable, opmen99810bLLDPMEDPrivilegeLevel=opmen99810bLLDPMEDPrivilegeLevel, opmen99810bACLACEArpFlagsRequestReply=opmen99810bACLACEArpFlagsRequestReply, opmen99810bSNMPPrivilegeLevel=opmen99810bSNMPPrivilegeLevel, opmen99810bVlan=opmen99810bVlan, opmen99810bAccountUserRowStatus=opmen99810bAccountUserRowStatus, opmen99810bQosQCLStatusTable=opmen99810bQosQCLStatusTable, opmen99810bACLRateLimiterRate=opmen99810bACLRateLimiterRate, opmen99810bACLACESIPIPAddress=opmen99810bACLACESIPIPAddress, opmen99810bARPInspectionStaticMACAddress=opmen99810bARPInspectionStaticMACAddress, opmen99810bARPInspectionStatic=opmen99810bARPInspectionStatic, opmen99810bPassword=opmen99810bPassword, opmen99810bDHCPSnoopingPortModeConfigurationMode=opmen99810bDHCPSnoopingPortModeConfigurationMode, opmen99810bACLACETCPFlagsPsh=opmen99810bACLACETCPFlagsPsh, opmen99810bPortSecLimitCtrlPort=opmen99810bPortSecLimitCtrlPort, opmen99810bAccessMgtRowStatus=opmen99810bAccessMgtRowStatus, opmen99810bQosTagRemarkingDPLevel=opmen99810bQosTagRemarkingDPLevel, opmen99810bSMTPEmailAddress4=opmen99810bSMTPEmailAddress4, opmen99810bIPv4CurrentAddress=opmen99810bIPv4CurrentAddress, opmen99810bBroadcastStormProtectionConfigurationEntry=opmen99810bBroadcastStormProtectionConfigurationEntry, opmen99810bQosQCLStatusFrameType=opmen99810bQosQCLStatusFrameType, opmen99810bACLACEArpFlagsEthernet=opmen99810bACLACEArpFlagsEthernet, opmen99810bSystem=opmen99810bSystem, opmen99810bIPv4Current=opmen99810bIPv4Current, opmen99810bIPSourceGuardStaticVLANId=opmen99810bIPSourceGuardStaticVLANId, opmen99810bPortQoSQ7Tx=opmen99810bPortQoSQ7Tx, opmen99810bTrapHostConfSecurityLevel=opmen99810bTrapHostConfSecurityLevel, opmen99810bVlanPortsPort=opmen99810bVlanPortsPort, opmen99810bPing6Result=opmen99810bPing6Result, opmen99810bSMTPPassword=opmen99810bSMTPPassword, opmen99810bTransmitQueue=opmen99810bTransmitQueue, opmen99810bQosPortClassificationTable=opmen99810bQosPortClassificationTable, opmen99810bACLACETCPFlagsAck=opmen99810bACLACETCPFlagsAck, opmen99810bQosPortEgressTagRemarkingDefEntry=opmen99810bQosPortEgressTagRemarkingDefEntry, opmen99810bPortTrafficRxQ1=opmen99810bPortTrafficRxQ1, opmen99810bSFPVendorOUI=opmen99810bSFPVendorOUI, opmen99810bQosActionDSCP=opmen99810bQosActionDSCP, opmen99810bVlanPortsEntry=opmen99810bVlanPortsEntry, opmen99810bPortSecPortStatusMACAddress=opmen99810bPortSecPortStatusMACAddress, opmen99810bPortTrafficRxQ0=opmen99810bPortTrafficRxQ0, opmen99810bPortEEETable=opmen99810bPortEEETable, opmen99810bPortEEEUrgentQueue5=opmen99810bPortEEEUrgentQueue5, opmen99810bSystemTimeNTPServerIPType=opmen99810bSystemTimeNTPServerIPType, opmen99810bACLPortsConfEntry=opmen99810bACLPortsConfEntry, opmen99810bQosPortSchedulerEntry=opmen99810bQosPortSchedulerEntry, opmen99810bQosIpv4SourceIp=opmen99810bQosIpv4SourceIp, opmen99810bARPInspectionDynamicPort=opmen99810bARPInspectionDynamicPort, opmen99810bDHCPRelayServerStatistics=opmen99810bDHCPRelayServerStatistics, opmen99810bVoiceVLANOUIEntry=opmen99810bVoiceVLANOUIEntry, opmen99810bARPInspectionConfPortIndex=opmen99810bARPInspectionConfPortIndex, opmen99810bQosPortDSCPTable=opmen99810bQosPortDSCPTable, opmen99810bPortSecPortStatusPort=opmen99810bPortSecPortStatusPort, opmen99810bQosPortSchedulerModeTable=opmen99810bQosPortSchedulerModeTable, opmen99810bServerStatTransmitToServer=opmen99810bServerStatTransmitToServer, opmen99810bACLACEPortPolicyNumber=opmen99810bACLACEPortPolicyNumber, opmen99810bExportIpAddress=opmen99810bExportIpAddress, opmen99810bTrapEventSeverityPortSecurity=opmen99810bTrapEventSeverityPortSecurity, opmen99810bPortConfCurrentSpeed=opmen99810bPortConfCurrentSpeed, opmen99810bLoopProtectionStatusTable=opmen99810bLoopProtectionStatusTable, opmen99810bPortConfigurationEntry=opmen99810bPortConfigurationEntry, opmen99810bPortToMirrorOn=opmen99810bPortToMirrorOn, opmen99810bQosPortScheduler=opmen99810bQosPortScheduler, opmen99810bModelName=opmen99810bModelName, opmen99810bQosTagRemarkingDEI=opmen99810bQosTagRemarkingDEI, opmen99810bGARP=opmen99810bGARP, opmen99810bSystemTimeNTPCurrentMode=opmen99810bSystemTimeNTPCurrentMode, opmen99810bEEEPrivilegeLevel=opmen99810bEEEPrivilegeLevel, opmen99810bPrivateVLANsPrivilegeLevel=opmen99810bPrivateVLANsPrivilegeLevel, opmen99810bIpv6Prefix=opmen99810bIpv6Prefix, opmen99810bSyslogDetailedInfoEntry=opmen99810bSyslogDetailedInfoEntry, opmen99810bQosQceID=opmen99810bQosQceID, opmen99810bPingSize=opmen99810bPingSize, opmen99810bPortTrafficTx128to255Bytes=opmen99810bPortTrafficTx128to255Bytes, opmen99810bSMTPEmailAddress2=opmen99810bSMTPEmailAddress2, opmen99810bQosSchedulerModePort=opmen99810bQosSchedulerModePort, opmen99810bVoiceVLANOUITable=opmen99810bVoiceVLANOUITable, opmen99810bGARPApplicantion=opmen99810bGARPApplicantion, opmen99810bPortTrafficTxQ7=opmen99810bPortTrafficTxQ7, opmen99810bQosIpv4ProtocolTCPDport=opmen99810bQosIpv4ProtocolTCPDport, opmen99810bMirroringPrivilegeLevel=opmen99810bMirroringPrivilegeLevel, opmen99810bPortTrafficTxQ5=opmen99810bPortTrafficTxQ5, opmen99810bQosEgressTagRemarkingDefPort=opmen99810bQosEgressTagRemarkingDefPort, opmen99810bSaveOrRestore=opmen99810bSaveOrRestore, opmen99810bARPInspection=opmen99810bARPInspection, opmen99810bDebug=opmen99810bDebug, opmen99810bGARPConfPort=opmen99810bGARPConfPort, opmen99810bSFPMon2TxPWR=opmen99810bSFPMon2TxPWR, opmen99810bPortSecSwitchStatusPort=opmen99810bPortSecSwitchStatusPort, opmen99810bACLACEAction=opmen99810bACLACEAction, opmen99810bImportIpAddress=opmen99810bImportIpAddress, opmen99810bSystemTimeManual=opmen99810bSystemTimeManual, opmen99810bQosPortClassificationEntry=opmen99810bQosPortClassificationEntry, opmen99810bTelnetDiscardedPkts=opmen99810bTelnetDiscardedPkts, opmen99810bPortQoSQ3Rx=opmen99810bPortQoSQ3Rx, opmen99810bEasyportPrivilegeLevel=opmen99810bEasyportPrivilegeLevel, opmen99810bSecurityPrivilegeLevel=opmen99810bSecurityPrivilegeLevel, opmen99810bSyslogDetailedInfoMessage=opmen99810bSyslogDetailedInfoMessage, opmen99810bACLPortsConfPolicyID=opmen99810bACLPortsConfPolicyID, opmen99810bAccessManagement=opmen99810bAccessManagement, opmen99810bError=opmen99810bError, opmen99810bPortTrafficRxFiltered=opmen99810bPortTrafficRxFiltered, opmen99810bACLACEDenyPortRedirect=opmen99810bACLACEDenyPortRedirect, opmen99810bDHCPSnoopingRxLeaseUnassigned=opmen99810bDHCPSnoopingRxLeaseUnassigned, opmen99810bTrapEvent=opmen99810bTrapEvent, opmen99810bTrapHostConfIP=opmen99810bTrapHostConfIP, opmen99810bSFPTemperature=opmen99810bSFPTemperature, opmen99810bTrapEventSeverityLinkStatus=opmen99810bTrapEventSeverityLinkStatus, opmen99810bTrapHostConfSeverityLevel=opmen99810bTrapHostConfSeverityLevel, opmen99810bIPSourceGuardStaticTable=opmen99810bIPSourceGuardStaticTable, opmen99810bImportConfigName=opmen99810bImportConfigName, opmen99810bACLACESMAC=opmen99810bACLACESMAC, opmen99810bTrapEventSeverityConfigInfo=opmen99810bTrapEventSeverityConfigInfo, opmen99810bQosDSCPEntry=opmen99810bQosDSCPEntry, opmen99810bPortEEEPort=opmen99810bPortEEEPort, opmen99810bPortSecSwitchStatusEntry=opmen99810bPortSecSwitchStatusEntry, opmen99810bPortTrafficTxDrops=opmen99810bPortTrafficTxDrops, opmen99810bAccountPrivilegeLevel=opmen99810bAccountPrivilegeLevel, opmen99810bQosIpv6SourceMask=opmen99810bQosIpv6SourceMask, opmen99810bGVRPStatisticsLeaveTxCnt=opmen99810bGVRPStatisticsLeaveTxCnt, opmen99810bPortTrafficRxUnicast=opmen99810bPortTrafficRxUnicast, opmen99810bQosQceEntry=opmen99810bQosQceEntry, opmen99810bACLACEArpOpcode=opmen99810bACLACEArpOpcode, opmen99810bPortSecLimitCtrlSystemConf=opmen99810bPortSecLimitCtrlSystemConf, opmen99810bQosPortEgressTagRemarkingMapEntry=opmen99810bQosPortEgressTagRemarkingMapEntry, opmen99810bVlanPortsPVID=opmen99810bVlanPortsPVID, opmen99810bACLACEStatusRateLimiter=opmen99810bACLACEStatusRateLimiter, opmen99810bPortSecLimitCtrlPortMode=opmen99810bPortSecLimitCtrlPortMode, opmen99810bGVRPConfEntry=opmen99810bGVRPConfEntry, opmen99810bSystemTimeManualTimeSetOffset=opmen99810bSystemTimeManualTimeSetOffset, opmen99810bQosPortEgressTagRemarkingMapPort=opmen99810bQosPortEgressTagRemarkingMapPort, opmen99810bLoopProtectionStatusTransmit=opmen99810bLoopProtectionStatusTransmit, opmen99810bARPInspectionStaticCreate=opmen99810bARPInspectionStaticCreate, opmen99810bIPv6Current=opmen99810bIPv6Current, opmen99810bVoiceVLANDescription=opmen99810bVoiceVLANDescription, opmen99810bQosActionDPL=opmen99810bQosActionDPL, opmen99810bACLPortsConfCounter=opmen99810bACLPortsConfCounter, opmen99810bTrapHostConfEntry=opmen99810bTrapHostConfEntry, opmen99810bPortTrafficRxCRCorAlignment=opmen99810bPortTrafficRxCRCorAlignment, opmen99810bQosPortSchedulerTable=opmen99810bQosPortSchedulerTable, opmen99810bPortSecPortStatus=opmen99810bPortSecPortStatus, opmen99810bPortsPrivilegeLevel=opmen99810bPortsPrivilegeLevel, opmen99810bAccessMgtConfEntry=opmen99810bAccessMgtConfEntry, opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo=opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo, opmen99810bTrapEventSeverityNAS=opmen99810bTrapEventSeverityNAS, opmen99810bSystemTimeNTPEntry=opmen99810bSystemTimeNTPEntry, opmen99810bQosDSCPTranslationIngressClassify=opmen99810bQosDSCPTranslationIngressClassify, opmen99810bPortEEEUrgentQueue6=opmen99810bPortEEEUrgentQueue6, opmen99810bSFPVendorRev=opmen99810bSFPVendorRev, opmen99810bConsoleFallback=opmen99810bConsoleFallback, opmen99810bACLACEIPProtocol=opmen99810bACLACEIPProtocol, opmen99810bACLACEMirror=opmen99810bACLACEMirror, opmen99810bHardwareMechanicalVersion=opmen99810bHardwareMechanicalVersion, opmen99810bSnmpDiscardedPkts=opmen99810bSnmpDiscardedPkts, opmen99810bPortQoSQ1Tx=opmen99810bPortQoSQ1Tx, opmen99810bSFPMon3RxPWR=opmen99810bSFPMon3RxPWR, opmen99810bQosIpv6ProtocolUDPDport=opmen99810bQosIpv6ProtocolUDPDport, opmen99810bMirrorEntry=opmen99810bMirrorEntry, opmen99810bSystemTimeManualDaylightSavingsBydatesFrom=opmen99810bSystemTimeManualDaylightSavingsBydatesFrom, opmen99810bQosDSCPClassificationDSCP=opmen99810bQosDSCPClassificationDSCP, opmen99810bPortConfSpeed=opmen99810bPortConfSpeed, opmen99810bIPMCSnoopingPrivilegeLevel=opmen99810bIPMCSnoopingPrivilegeLevel, opmen99810bBroadcastStormProtectionConfstatus=opmen99810bBroadcastStormProtectionConfstatus, opmen99810bQosQceNextID=opmen99810bQosQceNextID, opmen99810bARPInspectionDynamicEntry=opmen99810bARPInspectionDynamicEntry, opmen99810bIPSourceGuardStaticPort=opmen99810bIPSourceGuardStaticPort, opmen99810bIPSourceGuard=opmen99810bIPSourceGuard, opmen99810bGVRPConfPortMode=opmen99810bGVRPConfPortMode, opmen99810bPortQoSQ5Rx=opmen99810bPortQoSQ5Rx, opmen99810bPowerSource=opmen99810bPowerSource, opmen99810bTrapEventSeverityModuleChange=opmen99810bTrapEventSeverityModuleChange, opmen99810bACLACEICMPCode=opmen99810bACLACEICMPCode, opmen99810bPortTrafficTxQ3=opmen99810bPortTrafficTxQ3, opmen99810bTrapEventSeverityFirmwareUpgrade=opmen99810bTrapEventSeverityFirmwareUpgrade, opmen99810bSFPVendorSN=opmen99810bSFPVendorSN, opmen99810bTrapHostConfPrivPassword=opmen99810bTrapHostConfPrivPassword, opmen99810bPortConfigurationTable=opmen99810bPortConfigurationTable, opmen99810bPortTrafficTx512to1023Bytes=opmen99810bPortTrafficTx512to1023Bytes, opmen99810bSMTPReturnPath=opmen99810bSMTPReturnPath, opmen99810bPortConfMaxFrameSize=opmen99810bPortConfMaxFrameSize, opmen99810bDHCPSnoopingMode=opmen99810bDHCPSnoopingMode, opmen99810bQosPortPolicingFlowControl=opmen99810bQosPortPolicingFlowControl, opmen99810bQosPortClassificationDSCPBased=opmen99810bQosPortClassificationDSCPBased, opmen99810bVlanPorts=opmen99810bVlanPorts, opmen99810bGARPStatisticsEntry=opmen99810bGARPStatisticsEntry, opmen99810bIPSourceGuardDynamicIndex=opmen99810bIPSourceGuardDynamicIndex, opmen99810bPortSecPortStatusEntry=opmen99810bPortSecPortStatusEntry, opmen99810bPortQoSStatistics=opmen99810bPortQoSStatistics, opmen99810bQosQceMoveID=opmen99810bQosQceMoveID, opmen99810bFirmwareVersion=opmen99810bFirmwareVersion, opmen99810bACLACEStatusCounter=opmen99810bACLACEStatusCounter, opmen99810bSystemTimeManualDaylightSavingsType=opmen99810bSystemTimeManualDaylightSavingsType)
-mibBuilder.exportSymbols("PRIVATETECH-OP-MEN99810B-MIB", opmen99810bPortQoSStatisticsEntry=opmen99810bPortQoSStatisticsEntry, opmen99810bSFPInfoIndex=opmen99810bSFPInfoIndex, opmen99810bACLACEStatusUser=opmen99810bACLACEStatusUser, opmen99810bQosPortPolicingMode=opmen99810bQosPortPolicingMode, opmen99810bSMTPPort=opmen99810bSMTPPort, opmen99810bQosSMAC=opmen99810bQosSMAC, opmen99810bIPSourceGuardStaticEntry=opmen99810bIPSourceGuardStaticEntry, opmen99810bPortSecurity=opmen99810bPortSecurity, opmen99810bInformation=opmen99810bInformation, opmen99810bClientStatKeepAgentOption=opmen99810bClientStatKeepAgentOption, opmen99810bACLPortsConfAction=opmen99810bACLPortsConfAction, opmen99810bACLACEDIPIPAddress=opmen99810bACLACEDIPIPAddress, opmen99810bQosIpv4ProtocolUDPDport=opmen99810bQosIpv4ProtocolUDPDport, opmen99810bDHCPSnoopingTxOffer=opmen99810bDHCPSnoopingTxOffer, opmen99810bCritical=opmen99810bCritical, opmen99810bLoopProtectionShutdownTime=opmen99810bLoopProtectionShutdownTime, opmen99810bPortTrafficTxQ6=opmen99810bPortTrafficTxQ6, opmen99810bQosIpv4ProtocolUDPSport=opmen99810bQosIpv4ProtocolUDPSport, opmen99810bPortSecurityAgingPeriod=opmen99810bPortSecurityAgingPeriod, opmen99810bIPSourceGuardPortConfigPort=opmen99810bIPSourceGuardPortConfigPort, opmen99810bDHCPSnoopingRxInform=opmen99810bDHCPSnoopingRxInform, opmen99810bIpv6AutoConfiguration=opmen99810bIpv6AutoConfiguration, opmen99810bTrapHostConfIndex=opmen99810bTrapHostConfIndex, opmen99810bIpv4CurrentDHCPClient=opmen99810bIpv4CurrentDHCPClient, opmen99810bARPInspectionConfTable=opmen99810bARPInspectionConfTable, opmen99810bARPInspectionStaticVLANId=opmen99810bARPInspectionStaticVLANId, opmen99810bServerStatReceiveBadCircuitID=opmen99810bServerStatReceiveBadCircuitID, opmen99810bHttpsAllowedPkts=opmen99810bHttpsAllowedPkts, opmen99810bMVRPrivilegeLevel=opmen99810bMVRPrivilegeLevel, opmen99810bACLPortsConfPortRedirect=opmen99810bACLPortsConfPortRedirect, opmen99810bARPInspectionConfPortMode=opmen99810bARPInspectionConfPortMode, opmen99810bVoiceVLANPortSecurity=opmen99810bVoiceVLANPortSecurity, opmen99810bPortEEEUrgentQueue2=opmen99810bPortEEEUrgentQueue2, opmen99810bLoopProtectionGlobalEnable=opmen99810bLoopProtectionGlobalEnable, opmen99810bQosMacEtherType=opmen99810bQosMacEtherType, opmen99810bQosDSCPTranslationList=opmen99810bQosDSCPTranslationList, opmen99810bQosQceMoveNextID=opmen99810bQosQceMoveNextID, opmen99810bTelnetReceivedPkts=opmen99810bTelnetReceivedPkts, opmen99810bIPv4=opmen99810bIPv4, opmen99810bBroadcastStormProtectionConfMode=opmen99810bBroadcastStormProtectionConfMode, opmen99810bQoSIngressPortTagQosClass=opmen99810bQoSIngressPortTagQosClass, opmen99810bPortTrafficRx256to511Bytes=opmen99810bPortTrafficRx256to511Bytes, opmen99810bSystemTimeManualDaylightSavingsBydatesTo=opmen99810bSystemTimeManualDaylightSavingsBydatesTo, opmen99810bDHCPSnoopingPortModeConfigurationTable=opmen99810bDHCPSnoopingPortModeConfigurationTable, opmen99810bHTTPSMode=opmen99810bHTTPSMode, opmen99810bMACTablePrivilegeLevel=opmen99810bMACTablePrivilegeLevel, opmen99810bVoiceVLANOUIRowStatus=opmen99810bVoiceVLANOUIRowStatus, opmen99810bQosTagRemarkingPCP=opmen99810bQosTagRemarkingPCP, opmen99810bSSHDiscardedPkts=opmen99810bSSHDiscardedPkts, opmen99810bGARPLeaveTimer=opmen99810bGARPLeaveTimer, opmen99810bSMTPUserName=opmen99810bSMTPUserName, opmen99810bACLACEClear=opmen99810bACLACEClear, opmen99810bPortConfPort=opmen99810bPortConfPort, privatetech=privatetech, opmen99810bSFPMon1Bias=opmen99810bSFPMon1Bias, opmen99810bLoopProtectionConfigurationEntry=opmen99810bLoopProtectionConfigurationEntry, opmen99810bACLACETCPFlagsRst=opmen99810bACLACETCPFlagsRst, opmen99810bQosDSCPTranslationEgressRemapDP0=opmen99810bQosDSCPTranslationEgressRemapDP0, opmen99810bPortTrafficRxMulticast=opmen99810bPortTrafficRxMulticast, opmen99810bMirrorTable=opmen99810bMirrorTable, opmen99810bQosPortSchedulerModeEntry=opmen99810bQosPortSchedulerModeEntry, opmen99810bPortQoSStatisticsClear=opmen99810bPortQoSStatisticsClear, opmen99810bQosIpv4ProtocolTCPSport=opmen99810bQosIpv4ProtocolTCPSport, opmen99810bQosSchedulerPortQueueShaper=opmen99810bQosSchedulerPortQueueShaper, opmen99810bPortSecSwitchStatusUsers=opmen99810bPortSecSwitchStatusUsers, opmen99810bEmergency=opmen99810bEmergency, opmen99810bServerAddress1=opmen99810bServerAddress1, opmen99810bGARPPrivilegeLevel=opmen99810bGARPPrivilegeLevel, opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom=opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom, opmen99810bACLACE=opmen99810bACLACE, opmen99810bDHCPSnoopingStatisticsClear=opmen99810bDHCPSnoopingStatisticsClear, opmen99810bAccessMgtStatisticsClearAll=opmen99810bAccessMgtStatisticsClearAll, opmen99810bSystemTimeManualClockSource=opmen99810bSystemTimeManualClockSource, opmen99810bPortTrafficTx256to511Bytes=opmen99810bPortTrafficTx256to511Bytes, opmen99810bQosIpv4IPFragment=opmen99810bQosIpv4IPFragment, opmen99810bGVRPStatisticsJoinTxCnt=opmen99810bGVRPStatisticsJoinTxCnt, opmen99810bLoopProtectionTranmisstionTime=opmen99810bLoopProtectionTranmisstionTime, opmen99810bACLRateLimiterUnit=opmen99810bACLRateLimiterUnit, opmen99810bPortQoSQ4Tx=opmen99810bPortQoSQ4Tx, opmen99810bLoopProtectionStatusLoop=opmen99810bLoopProtectionStatusLoop, opmen99810bPortConfCurrentFlowControlRx=opmen99810bPortConfCurrentFlowControlRx, opmen99810bVoiceVLANOUICreate=opmen99810bVoiceVLANOUICreate, opmen99810bQosQCLStatusEntry=opmen99810bQosQCLStatusEntry, opmen99810bSystemTimeNTPServer=opmen99810bSystemTimeNTPServer, opmen99810bGARPStatisticsPort=opmen99810bGARPStatisticsPort, opmen99810bPortTrafficRx1024to1526Bytes=opmen99810bPortTrafficRx1024to1526Bytes, opmen99810bQosIpv6Protocol=opmen99810bQosIpv6Protocol, opmen99810bACLACEIPFlagsOptions=opmen99810bACLACEIPFlagsOptions, opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo=opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo, opmen99810bTrapEventSeverity=opmen99810bTrapEventSeverity, opmen99810bMirrorMode=opmen99810bMirrorMode, opmen99810bQosActionClass=opmen99810bQosActionClass, PYSNMP_MODULE_ID=privatetech, opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom=opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom, opmen99810bIPv4Configured=opmen99810bIPv4Configured, opmen99810bARPInspectionDynamicTable=opmen99810bARPInspectionDynamicTable, opmen99810bDHCPSnooping=opmen99810bDHCPSnooping, opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom=opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom, opmen99810bQosDSCPDPL=opmen99810bQosDSCPDPL, opmen99810bGARPAttributeType=opmen99810bGARPAttributeType, opmen99810bExportConfigName=opmen99810bExportConfigName)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(MacAddress,) = mibBuilder.importSymbols(
+    "BRIDGE-MIB",
+    "MacAddress")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(InetAddress,) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+privatetech = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5205)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Switch_ObjectIdentity = ObjectIdentity
+switch = _Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2)
+)
+_Opmen99810bProductId_ObjectIdentity = ObjectIdentity
+opmen99810bProductId = _Opmen99810bProductId_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94)
+)
+_Opmen99810bSystem_ObjectIdentity = ObjectIdentity
+opmen99810bSystem = _Opmen99810bSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1)
+)
+_Opmen99810bSystemInformation_ObjectIdentity = ObjectIdentity
+opmen99810bSystemInformation = _Opmen99810bSystemInformation_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1)
+)
+_Opmen99810bModelName_Type = DisplayString
+_Opmen99810bModelName_Object = MibScalar
+opmen99810bModelName = _Opmen99810bModelName_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 1),
+    _Opmen99810bModelName_Type()
+)
+opmen99810bModelName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bModelName.setStatus("current")
+_Opmen99810bBIOSVersion_Type = DisplayString
+_Opmen99810bBIOSVersion_Object = MibScalar
+opmen99810bBIOSVersion = _Opmen99810bBIOSVersion_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 2),
+    _Opmen99810bBIOSVersion_Type()
+)
+opmen99810bBIOSVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bBIOSVersion.setStatus("current")
+_Opmen99810bFirmwareVersion_Type = DisplayString
+_Opmen99810bFirmwareVersion_Object = MibScalar
+opmen99810bFirmwareVersion = _Opmen99810bFirmwareVersion_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 3),
+    _Opmen99810bFirmwareVersion_Type()
+)
+opmen99810bFirmwareVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bFirmwareVersion.setStatus("current")
+_Opmen99810bHardwareMechanicalVersion_Type = DisplayString
+_Opmen99810bHardwareMechanicalVersion_Object = MibScalar
+opmen99810bHardwareMechanicalVersion = _Opmen99810bHardwareMechanicalVersion_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 4),
+    _Opmen99810bHardwareMechanicalVersion_Type()
+)
+opmen99810bHardwareMechanicalVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bHardwareMechanicalVersion.setStatus("current")
+_Opmen99810bSerialNumber_Type = DisplayString
+_Opmen99810bSerialNumber_Object = MibScalar
+opmen99810bSerialNumber = _Opmen99810bSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 5),
+    _Opmen99810bSerialNumber_Type()
+)
+opmen99810bSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSerialNumber.setStatus("current")
+_Opmen99810bHostMACAddress_Type = MacAddress
+_Opmen99810bHostMACAddress_Object = MibScalar
+opmen99810bHostMACAddress = _Opmen99810bHostMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 6),
+    _Opmen99810bHostMACAddress_Type()
+)
+opmen99810bHostMACAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bHostMACAddress.setStatus("current")
+_Opmen99810bConsoleBaudrate_Type = DisplayString
+_Opmen99810bConsoleBaudrate_Object = MibScalar
+opmen99810bConsoleBaudrate = _Opmen99810bConsoleBaudrate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 7),
+    _Opmen99810bConsoleBaudrate_Type()
+)
+opmen99810bConsoleBaudrate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bConsoleBaudrate.setStatus("current")
+_Opmen99810bRAMSize_Type = DisplayString
+_Opmen99810bRAMSize_Object = MibScalar
+opmen99810bRAMSize = _Opmen99810bRAMSize_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 8),
+    _Opmen99810bRAMSize_Type()
+)
+opmen99810bRAMSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bRAMSize.setStatus("current")
+_Opmen99810bFlashSize_Type = DisplayString
+_Opmen99810bFlashSize_Object = MibScalar
+opmen99810bFlashSize = _Opmen99810bFlashSize_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 9),
+    _Opmen99810bFlashSize_Type()
+)
+opmen99810bFlashSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bFlashSize.setStatus("current")
+_Opmen99810bBridgeFBDSize_Type = DisplayString
+_Opmen99810bBridgeFBDSize_Object = MibScalar
+opmen99810bBridgeFBDSize = _Opmen99810bBridgeFBDSize_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 10),
+    _Opmen99810bBridgeFBDSize_Type()
+)
+opmen99810bBridgeFBDSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bBridgeFBDSize.setStatus("current")
+_Opmen99810bTransmitQueue_Type = DisplayString
+_Opmen99810bTransmitQueue_Object = MibScalar
+opmen99810bTransmitQueue = _Opmen99810bTransmitQueue_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 11),
+    _Opmen99810bTransmitQueue_Type()
+)
+opmen99810bTransmitQueue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bTransmitQueue.setStatus("current")
+_Opmen99810bMaximumFrameSize_Type = DisplayString
+_Opmen99810bMaximumFrameSize_Object = MibScalar
+opmen99810bMaximumFrameSize = _Opmen99810bMaximumFrameSize_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 12),
+    _Opmen99810bMaximumFrameSize_Type()
+)
+opmen99810bMaximumFrameSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bMaximumFrameSize.setStatus("current")
+_Opmen99810bCPULoad_Type = DisplayString
+_Opmen99810bCPULoad_Object = MibScalar
+opmen99810bCPULoad = _Opmen99810bCPULoad_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 13),
+    _Opmen99810bCPULoad_Type()
+)
+opmen99810bCPULoad.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bCPULoad.setStatus("current")
+_Opmen99810bPowerSource_Type = DisplayString
+_Opmen99810bPowerSource_Object = MibScalar
+opmen99810bPowerSource = _Opmen99810bPowerSource_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 1, 14),
+    _Opmen99810bPowerSource_Type()
+)
+opmen99810bPowerSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPowerSource.setStatus("current")
+_Opmen99810bSystemTime_ObjectIdentity = ObjectIdentity
+opmen99810bSystemTime = _Opmen99810bSystemTime_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2)
+)
+_Opmen99810bSystemTimeManual_ObjectIdentity = ObjectIdentity
+opmen99810bSystemTimeManual = _Opmen99810bSystemTimeManual_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1)
+)
+
+
+class _Opmen99810bSystemTimeManualClockSource_Type(Integer32):
+    """Custom type opmen99810bSystemTimeManualClockSource based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("useLocal", 0),
+          ("useNTP", 1))
+    )
+
+
+_Opmen99810bSystemTimeManualClockSource_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeManualClockSource_Object = MibScalar
+opmen99810bSystemTimeManualClockSource = _Opmen99810bSystemTimeManualClockSource_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 1),
+    _Opmen99810bSystemTimeManualClockSource_Type()
+)
+opmen99810bSystemTimeManualClockSource.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualClockSource.setStatus("current")
+_Opmen99810bSystemTimeManualLocaltime_Type = DisplayString
+_Opmen99810bSystemTimeManualLocaltime_Object = MibScalar
+opmen99810bSystemTimeManualLocaltime = _Opmen99810bSystemTimeManualLocaltime_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 2),
+    _Opmen99810bSystemTimeManualLocaltime_Type()
+)
+opmen99810bSystemTimeManualLocaltime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualLocaltime.setStatus("current")
+
+
+class _Opmen99810bSystemTimeManualTimeZoneOffset_Type(Integer32):
+    """Custom type opmen99810bSystemTimeManualTimeZoneOffset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-720, 780),
+    )
+
+
+_Opmen99810bSystemTimeManualTimeZoneOffset_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeManualTimeZoneOffset_Object = MibScalar
+opmen99810bSystemTimeManualTimeZoneOffset = _Opmen99810bSystemTimeManualTimeZoneOffset_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 3),
+    _Opmen99810bSystemTimeManualTimeZoneOffset_Type()
+)
+opmen99810bSystemTimeManualTimeZoneOffset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualTimeZoneOffset.setStatus("current")
+
+
+class _Opmen99810bSystemTimeManualDaylightSavings_Type(Integer32):
+    """Custom type opmen99810bSystemTimeManualDaylightSavings based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bSystemTimeManualDaylightSavings_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeManualDaylightSavings_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavings = _Opmen99810bSystemTimeManualDaylightSavings_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 4),
+    _Opmen99810bSystemTimeManualDaylightSavings_Type()
+)
+opmen99810bSystemTimeManualDaylightSavings.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavings.setStatus("current")
+
+
+class _Opmen99810bSystemTimeManualTimeSetOffset_Type(Integer32):
+    """Custom type opmen99810bSystemTimeManualTimeSetOffset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1440),
+    )
+
+
+_Opmen99810bSystemTimeManualTimeSetOffset_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeManualTimeSetOffset_Object = MibScalar
+opmen99810bSystemTimeManualTimeSetOffset = _Opmen99810bSystemTimeManualTimeSetOffset_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 5),
+    _Opmen99810bSystemTimeManualTimeSetOffset_Type()
+)
+opmen99810bSystemTimeManualTimeSetOffset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualTimeSetOffset.setStatus("current")
+
+
+class _Opmen99810bSystemTimeManualDaylightSavingsType_Type(Integer32):
+    """Custom type opmen99810bSystemTimeManualDaylightSavingsType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("byDates", 0),
+          ("recurring", 1))
+    )
+
+
+_Opmen99810bSystemTimeManualDaylightSavingsType_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeManualDaylightSavingsType_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavingsType = _Opmen99810bSystemTimeManualDaylightSavingsType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 6),
+    _Opmen99810bSystemTimeManualDaylightSavingsType_Type()
+)
+opmen99810bSystemTimeManualDaylightSavingsType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavingsType.setStatus("current")
+_Opmen99810bSystemTimeManualDaylightSavingsBydatesFrom_Type = DisplayString
+_Opmen99810bSystemTimeManualDaylightSavingsBydatesFrom_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavingsBydatesFrom = _Opmen99810bSystemTimeManualDaylightSavingsBydatesFrom_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 7),
+    _Opmen99810bSystemTimeManualDaylightSavingsBydatesFrom_Type()
+)
+opmen99810bSystemTimeManualDaylightSavingsBydatesFrom.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavingsBydatesFrom.setStatus("current")
+_Opmen99810bSystemTimeManualDaylightSavingsBydatesTo_Type = DisplayString
+_Opmen99810bSystemTimeManualDaylightSavingsBydatesTo_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavingsBydatesTo = _Opmen99810bSystemTimeManualDaylightSavingsBydatesTo_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 8),
+    _Opmen99810bSystemTimeManualDaylightSavingsBydatesTo_Type()
+)
+opmen99810bSystemTimeManualDaylightSavingsBydatesTo.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavingsBydatesTo.setStatus("current")
+
+
+class _Opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom_Type(Integer32):
+    """Custom type opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("sunday", 0),
+          ("monday", 1),
+          ("tuseday", 2),
+          ("wednesday", 3),
+          ("thursday", 4),
+          ("friday", 5),
+          ("saturday", 6))
+    )
+
+
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom = _Opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 9),
+    _Opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom_Type()
+)
+opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom.setStatus("current")
+
+
+class _Opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom_Type(Integer32):
+    """Custom type opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("firstWeek", 1),
+          ("secondWeek", 2),
+          ("thirdWeek", 3),
+          ("fourthWeek", 4),
+          ("listWeek", 5))
+    )
+
+
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom = _Opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 10),
+    _Opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom_Type()
+)
+opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom.setStatus("current")
+
+
+class _Opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom_Type(Integer32):
+    """Custom type opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("jan", 1),
+          ("feb", 2),
+          ("mar", 3),
+          ("apr", 4),
+          ("may", 5),
+          ("jun", 6),
+          ("jul", 7),
+          ("aug", 8),
+          ("sep", 9),
+          ("oct", 10),
+          ("nov", 11),
+          ("dec", 12))
+    )
+
+
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom = _Opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 11),
+    _Opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom_Type()
+)
+opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom.setStatus("current")
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom_Type = DisplayString
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom = _Opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 12),
+    _Opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom_Type()
+)
+opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom.setStatus("current")
+
+
+class _Opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo_Type(Integer32):
+    """Custom type opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("sunday", 0),
+          ("monday", 1),
+          ("tuseday", 2),
+          ("wednesday", 3),
+          ("thursday", 4),
+          ("friday", 5),
+          ("saturday", 6))
+    )
+
+
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo = _Opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 13),
+    _Opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo_Type()
+)
+opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo.setStatus("current")
+
+
+class _Opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo_Type(Integer32):
+    """Custom type opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("firstWeek", 1),
+          ("secondWeek", 2),
+          ("thirdWeek", 3),
+          ("fourthWeek", 4),
+          ("listWeek", 5))
+    )
+
+
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo = _Opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 14),
+    _Opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo_Type()
+)
+opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo.setStatus("current")
+
+
+class _Opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo_Type(Integer32):
+    """Custom type opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("jan", 1),
+          ("feb", 2),
+          ("mar", 3),
+          ("apr", 4),
+          ("may", 5),
+          ("jun", 6),
+          ("jul", 7),
+          ("aug", 8),
+          ("sep", 9),
+          ("oct", 10),
+          ("nov", 11),
+          ("dec", 12))
+    )
+
+
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo = _Opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 15),
+    _Opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo_Type()
+)
+opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo.setStatus("current")
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo_Type = DisplayString
+_Opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo_Object = MibScalar
+opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo = _Opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 1, 16),
+    _Opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo_Type()
+)
+opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo.setStatus("current")
+_Opmen99810bSystemTimeNTP_ObjectIdentity = ObjectIdentity
+opmen99810bSystemTimeNTP = _Opmen99810bSystemTimeNTP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2)
+)
+_Opmen99810bSystemTimeNTPTable_Object = MibTable
+opmen99810bSystemTimeNTPTable = _Opmen99810bSystemTimeNTPTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeNTPTable.setStatus("current")
+_Opmen99810bSystemTimeNTPEntry_Object = MibTableRow
+opmen99810bSystemTimeNTPEntry = _Opmen99810bSystemTimeNTPEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1, 1)
+)
+opmen99810bSystemTimeNTPEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bSystemTimeNTPIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeNTPEntry.setStatus("current")
+
+
+class _Opmen99810bSystemTimeNTPIndex_Type(Integer32):
+    """Custom type opmen99810bSystemTimeNTPIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_Opmen99810bSystemTimeNTPIndex_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeNTPIndex_Object = MibTableColumn
+opmen99810bSystemTimeNTPIndex = _Opmen99810bSystemTimeNTPIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1, 1, 1),
+    _Opmen99810bSystemTimeNTPIndex_Type()
+)
+opmen99810bSystemTimeNTPIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeNTPIndex.setStatus("current")
+
+
+class _Opmen99810bSystemTimeNTPServerIPType_Type(Integer32):
+    """Custom type opmen99810bSystemTimeNTPServerIPType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 0),
+          ("ipv6", 1))
+    )
+
+
+_Opmen99810bSystemTimeNTPServerIPType_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeNTPServerIPType_Object = MibTableColumn
+opmen99810bSystemTimeNTPServerIPType = _Opmen99810bSystemTimeNTPServerIPType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1, 1, 2),
+    _Opmen99810bSystemTimeNTPServerIPType_Type()
+)
+opmen99810bSystemTimeNTPServerIPType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeNTPServerIPType.setStatus("current")
+_Opmen99810bSystemTimeNTPServer_Type = DisplayString
+_Opmen99810bSystemTimeNTPServer_Object = MibTableColumn
+opmen99810bSystemTimeNTPServer = _Opmen99810bSystemTimeNTPServer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1, 1, 3),
+    _Opmen99810bSystemTimeNTPServer_Type()
+)
+opmen99810bSystemTimeNTPServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeNTPServer.setStatus("current")
+
+
+class _Opmen99810bSystemTimeNTPCurrentMode_Type(Integer32):
+    """Custom type opmen99810bSystemTimeNTPCurrentMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("empty", 0),
+          ("active", 1),
+          ("edit", 2),
+          ("delete", 3))
+    )
+
+
+_Opmen99810bSystemTimeNTPCurrentMode_Type.__name__ = "Integer32"
+_Opmen99810bSystemTimeNTPCurrentMode_Object = MibTableColumn
+opmen99810bSystemTimeNTPCurrentMode = _Opmen99810bSystemTimeNTPCurrentMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 2, 2, 1, 1, 4),
+    _Opmen99810bSystemTimeNTPCurrentMode_Type()
+)
+opmen99810bSystemTimeNTPCurrentMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemTimeNTPCurrentMode.setStatus("current")
+_Opmen99810bSystemAccount_ObjectIdentity = ObjectIdentity
+opmen99810bSystemAccount = _Opmen99810bSystemAccount_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3)
+)
+_Opmen99810bSystemAccountUsers_ObjectIdentity = ObjectIdentity
+opmen99810bSystemAccountUsers = _Opmen99810bSystemAccountUsers_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1)
+)
+
+
+class _Opmen99810bSystemAccountUserCreate_Type(Integer32):
+    """Custom type opmen99810bSystemAccountUserCreate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("create", 1))
+    )
+
+
+_Opmen99810bSystemAccountUserCreate_Type.__name__ = "Integer32"
+_Opmen99810bSystemAccountUserCreate_Object = MibScalar
+opmen99810bSystemAccountUserCreate = _Opmen99810bSystemAccountUserCreate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 1),
+    _Opmen99810bSystemAccountUserCreate_Type()
+)
+opmen99810bSystemAccountUserCreate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemAccountUserCreate.setStatus("current")
+_Opmen99810bSystemAccountUsersTable_Object = MibTable
+opmen99810bSystemAccountUsersTable = _Opmen99810bSystemAccountUsersTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bSystemAccountUsersTable.setStatus("current")
+_Opmen99810bSystemAccountUsersEntry_Object = MibTableRow
+opmen99810bSystemAccountUsersEntry = _Opmen99810bSystemAccountUsersEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1)
+)
+opmen99810bSystemAccountUsersEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bUserIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bSystemAccountUsersEntry.setStatus("current")
+
+
+class _Opmen99810bUserIndex_Type(Integer32):
+    """Custom type opmen99810bUserIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 20),
+    )
+
+
+_Opmen99810bUserIndex_Type.__name__ = "Integer32"
+_Opmen99810bUserIndex_Object = MibTableColumn
+opmen99810bUserIndex = _Opmen99810bUserIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1, 1),
+    _Opmen99810bUserIndex_Type()
+)
+opmen99810bUserIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bUserIndex.setStatus("current")
+
+
+class _Opmen99810bUserName_Type(DisplayString):
+    """Custom type opmen99810bUserName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_Opmen99810bUserName_Type.__name__ = "DisplayString"
+_Opmen99810bUserName_Object = MibTableColumn
+opmen99810bUserName = _Opmen99810bUserName_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1, 2),
+    _Opmen99810bUserName_Type()
+)
+opmen99810bUserName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bUserName.setStatus("current")
+
+
+class _Opmen99810bPassword_Type(DisplayString):
+    """Custom type opmen99810bPassword based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_Opmen99810bPassword_Type.__name__ = "DisplayString"
+_Opmen99810bPassword_Object = MibTableColumn
+opmen99810bPassword = _Opmen99810bPassword_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1, 3),
+    _Opmen99810bPassword_Type()
+)
+opmen99810bPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPassword.setStatus("current")
+
+
+class _Opmen99810bUserPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bUserPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bUserPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bUserPrivilegeLevel_Object = MibTableColumn
+opmen99810bUserPrivilegeLevel = _Opmen99810bUserPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1, 4),
+    _Opmen99810bUserPrivilegeLevel_Type()
+)
+opmen99810bUserPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bUserPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bAccountUserRowStatus_Type(Integer32):
+    """Custom type opmen99810bAccountUserRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("notInservice", 2),
+          ("edit", 3),
+          ("destroy", 4),
+          ("undo", 5))
+    )
+
+
+_Opmen99810bAccountUserRowStatus_Type.__name__ = "Integer32"
+_Opmen99810bAccountUserRowStatus_Object = MibTableColumn
+opmen99810bAccountUserRowStatus = _Opmen99810bAccountUserRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 1, 2, 1, 5),
+    _Opmen99810bAccountUserRowStatus_Type()
+)
+opmen99810bAccountUserRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccountUserRowStatus.setStatus("current")
+_Opmen99810bSystemAccountPrivilegeLevel_ObjectIdentity = ObjectIdentity
+opmen99810bSystemAccountPrivilegeLevel = _Opmen99810bSystemAccountPrivilegeLevel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2)
+)
+
+
+class _Opmen99810bAccountPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bAccountPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bAccountPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bAccountPrivilegeLevel_Object = MibScalar
+opmen99810bAccountPrivilegeLevel = _Opmen99810bAccountPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 1),
+    _Opmen99810bAccountPrivilegeLevel_Type()
+)
+opmen99810bAccountPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccountPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bAggregationPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bAggregationPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bAggregationPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bAggregationPrivilegeLevel_Object = MibScalar
+opmen99810bAggregationPrivilegeLevel = _Opmen99810bAggregationPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 2),
+    _Opmen99810bAggregationPrivilegeLevel_Type()
+)
+opmen99810bAggregationPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAggregationPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bDiagnosticsPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bDiagnosticsPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bDiagnosticsPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bDiagnosticsPrivilegeLevel_Object = MibScalar
+opmen99810bDiagnosticsPrivilegeLevel = _Opmen99810bDiagnosticsPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 3),
+    _Opmen99810bDiagnosticsPrivilegeLevel_Type()
+)
+opmen99810bDiagnosticsPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDiagnosticsPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bEEEPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bEEEPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bEEEPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bEEEPrivilegeLevel_Object = MibScalar
+opmen99810bEEEPrivilegeLevel = _Opmen99810bEEEPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 4),
+    _Opmen99810bEEEPrivilegeLevel_Type()
+)
+opmen99810bEEEPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bEEEPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bEasyportPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bEasyportPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bEasyportPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bEasyportPrivilegeLevel_Object = MibScalar
+opmen99810bEasyportPrivilegeLevel = _Opmen99810bEasyportPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 9),
+    _Opmen99810bEasyportPrivilegeLevel_Type()
+)
+opmen99810bEasyportPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bEasyportPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bGARPPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bGARPPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bGARPPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bGARPPrivilegeLevel_Object = MibScalar
+opmen99810bGARPPrivilegeLevel = _Opmen99810bGARPPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 10),
+    _Opmen99810bGARPPrivilegeLevel_Type()
+)
+opmen99810bGARPPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGARPPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bGVRPPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bGVRPPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bGVRPPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bGVRPPrivilegeLevel_Object = MibScalar
+opmen99810bGVRPPrivilegeLevel = _Opmen99810bGVRPPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 11),
+    _Opmen99810bGVRPPrivilegeLevel_Type()
+)
+opmen99810bGVRPPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGVRPPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bIPPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bIPPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bIPPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bIPPrivilegeLevel_Object = MibScalar
+opmen99810bIPPrivilegeLevel = _Opmen99810bIPPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 12),
+    _Opmen99810bIPPrivilegeLevel_Type()
+)
+opmen99810bIPPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bIPMCSnoopingPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bIPMCSnoopingPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bIPMCSnoopingPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bIPMCSnoopingPrivilegeLevel_Object = MibScalar
+opmen99810bIPMCSnoopingPrivilegeLevel = _Opmen99810bIPMCSnoopingPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 13),
+    _Opmen99810bIPMCSnoopingPrivilegeLevel_Type()
+)
+opmen99810bIPMCSnoopingPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPMCSnoopingPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bLACPPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bLACPPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bLACPPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bLACPPrivilegeLevel_Object = MibScalar
+opmen99810bLACPPrivilegeLevel = _Opmen99810bLACPPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 14),
+    _Opmen99810bLACPPrivilegeLevel_Type()
+)
+opmen99810bLACPPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bLACPPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bLLDPPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bLLDPPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bLLDPPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bLLDPPrivilegeLevel_Object = MibScalar
+opmen99810bLLDPPrivilegeLevel = _Opmen99810bLLDPPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 15),
+    _Opmen99810bLLDPPrivilegeLevel_Type()
+)
+opmen99810bLLDPPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bLLDPPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bLLDPMEDPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bLLDPMEDPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bLLDPMEDPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bLLDPMEDPrivilegeLevel_Object = MibScalar
+opmen99810bLLDPMEDPrivilegeLevel = _Opmen99810bLLDPMEDPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 16),
+    _Opmen99810bLLDPMEDPrivilegeLevel_Type()
+)
+opmen99810bLLDPMEDPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bLLDPMEDPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bLoopProtectPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bLoopProtectPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bLoopProtectPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bLoopProtectPrivilegeLevel_Object = MibScalar
+opmen99810bLoopProtectPrivilegeLevel = _Opmen99810bLoopProtectPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 17),
+    _Opmen99810bLoopProtectPrivilegeLevel_Type()
+)
+opmen99810bLoopProtectPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bMACTablePrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bMACTablePrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bMACTablePrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bMACTablePrivilegeLevel_Object = MibScalar
+opmen99810bMACTablePrivilegeLevel = _Opmen99810bMACTablePrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 18),
+    _Opmen99810bMACTablePrivilegeLevel_Type()
+)
+opmen99810bMACTablePrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bMACTablePrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bMVRPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bMVRPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bMVRPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bMVRPrivilegeLevel_Object = MibScalar
+opmen99810bMVRPrivilegeLevel = _Opmen99810bMVRPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 22),
+    _Opmen99810bMVRPrivilegeLevel_Type()
+)
+opmen99810bMVRPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bMVRPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bMaintenancePrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bMaintenancePrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bMaintenancePrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bMaintenancePrivilegeLevel_Object = MibScalar
+opmen99810bMaintenancePrivilegeLevel = _Opmen99810bMaintenancePrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 24),
+    _Opmen99810bMaintenancePrivilegeLevel_Type()
+)
+opmen99810bMaintenancePrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bMaintenancePrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bMirroringPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bMirroringPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bMirroringPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bMirroringPrivilegeLevel_Object = MibScalar
+opmen99810bMirroringPrivilegeLevel = _Opmen99810bMirroringPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 25),
+    _Opmen99810bMirroringPrivilegeLevel_Type()
+)
+opmen99810bMirroringPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bMirroringPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bPortsPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bPortsPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bPortsPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bPortsPrivilegeLevel_Object = MibScalar
+opmen99810bPortsPrivilegeLevel = _Opmen99810bPortsPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 27),
+    _Opmen99810bPortsPrivilegeLevel_Type()
+)
+opmen99810bPortsPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortsPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bPrivateVLANsPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bPrivateVLANsPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bPrivateVLANsPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bPrivateVLANsPrivilegeLevel_Object = MibScalar
+opmen99810bPrivateVLANsPrivilegeLevel = _Opmen99810bPrivateVLANsPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 28),
+    _Opmen99810bPrivateVLANsPrivilegeLevel_Type()
+)
+opmen99810bPrivateVLANsPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPrivateVLANsPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bQoSPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bQoSPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bQoSPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bQoSPrivilegeLevel_Object = MibScalar
+opmen99810bQoSPrivilegeLevel = _Opmen99810bQoSPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 29),
+    _Opmen99810bQoSPrivilegeLevel_Type()
+)
+opmen99810bQoSPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQoSPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bSFlowPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bSFlowPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bSFlowPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bSFlowPrivilegeLevel_Object = MibScalar
+opmen99810bSFlowPrivilegeLevel = _Opmen99810bSFlowPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 30),
+    _Opmen99810bSFlowPrivilegeLevel_Type()
+)
+opmen99810bSFlowPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSFlowPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bSMTPPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bSMTPPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bSMTPPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bSMTPPrivilegeLevel_Object = MibScalar
+opmen99810bSMTPPrivilegeLevel = _Opmen99810bSMTPPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 31),
+    _Opmen99810bSMTPPrivilegeLevel_Type()
+)
+opmen99810bSMTPPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bSNMPPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bSNMPPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bSNMPPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bSNMPPrivilegeLevel_Object = MibScalar
+opmen99810bSNMPPrivilegeLevel = _Opmen99810bSNMPPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 32),
+    _Opmen99810bSNMPPrivilegeLevel_Type()
+)
+opmen99810bSNMPPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSNMPPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bSecurityPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bSecurityPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bSecurityPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bSecurityPrivilegeLevel_Object = MibScalar
+opmen99810bSecurityPrivilegeLevel = _Opmen99810bSecurityPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 33),
+    _Opmen99810bSecurityPrivilegeLevel_Type()
+)
+opmen99810bSecurityPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSecurityPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bSingleIPPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bSingleIPPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bSingleIPPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bSingleIPPrivilegeLevel_Object = MibScalar
+opmen99810bSingleIPPrivilegeLevel = _Opmen99810bSingleIPPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 34),
+    _Opmen99810bSingleIPPrivilegeLevel_Type()
+)
+opmen99810bSingleIPPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSingleIPPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bSpanningTreePrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bSpanningTreePrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bSpanningTreePrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bSpanningTreePrivilegeLevel_Object = MibScalar
+opmen99810bSpanningTreePrivilegeLevel = _Opmen99810bSpanningTreePrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 35),
+    _Opmen99810bSpanningTreePrivilegeLevel_Type()
+)
+opmen99810bSpanningTreePrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSpanningTreePrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bSystemPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bSystemPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bSystemPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bSystemPrivilegeLevel_Object = MibScalar
+opmen99810bSystemPrivilegeLevel = _Opmen99810bSystemPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 36),
+    _Opmen99810bSystemPrivilegeLevel_Type()
+)
+opmen99810bSystemPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSystemPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bTrapEventPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bTrapEventPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bTrapEventPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventPrivilegeLevel_Object = MibScalar
+opmen99810bTrapEventPrivilegeLevel = _Opmen99810bTrapEventPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 37),
+    _Opmen99810bTrapEventPrivilegeLevel_Type()
+)
+opmen99810bTrapEventPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bUPnPPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bUPnPPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bUPnPPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bUPnPPrivilegeLevel_Object = MibScalar
+opmen99810bUPnPPrivilegeLevel = _Opmen99810bUPnPPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 38),
+    _Opmen99810bUPnPPrivilegeLevel_Type()
+)
+opmen99810bUPnPPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bUPnPPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bVCLPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bVCLPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bVCLPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bVCLPrivilegeLevel_Object = MibScalar
+opmen99810bVCLPrivilegeLevel = _Opmen99810bVCLPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 39),
+    _Opmen99810bVCLPrivilegeLevel_Type()
+)
+opmen99810bVCLPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVCLPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bVLANsPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bVLANsPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bVLANsPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bVLANsPrivilegeLevel_Object = MibScalar
+opmen99810bVLANsPrivilegeLevel = _Opmen99810bVLANsPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 41),
+    _Opmen99810bVLANsPrivilegeLevel_Type()
+)
+opmen99810bVLANsPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVLANsPrivilegeLevel.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANPrivilegeLevel_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANPrivilegeLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_Opmen99810bVoiceVLANPrivilegeLevel_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANPrivilegeLevel_Object = MibScalar
+opmen99810bVoiceVLANPrivilegeLevel = _Opmen99810bVoiceVLANPrivilegeLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 3, 2, 42),
+    _Opmen99810bVoiceVLANPrivilegeLevel_Type()
+)
+opmen99810bVoiceVLANPrivilegeLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANPrivilegeLevel.setStatus("current")
+_Opmen99810bIP_ObjectIdentity = ObjectIdentity
+opmen99810bIP = _Opmen99810bIP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4)
+)
+_Opmen99810bIPv4_ObjectIdentity = ObjectIdentity
+opmen99810bIPv4 = _Opmen99810bIPv4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1)
+)
+_Opmen99810bIPv4Configured_ObjectIdentity = ObjectIdentity
+opmen99810bIPv4Configured = _Opmen99810bIPv4Configured_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1)
+)
+
+
+class _Opmen99810bIpv4DHCPClient_Type(Integer32):
+    """Custom type opmen99810bIpv4DHCPClient based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bIpv4DHCPClient_Type.__name__ = "Integer32"
+_Opmen99810bIpv4DHCPClient_Object = MibScalar
+opmen99810bIpv4DHCPClient = _Opmen99810bIpv4DHCPClient_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 1),
+    _Opmen99810bIpv4DHCPClient_Type()
+)
+opmen99810bIpv4DHCPClient.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIpv4DHCPClient.setStatus("current")
+_Opmen99810bIPv4Address_Type = IpAddress
+_Opmen99810bIPv4Address_Object = MibScalar
+opmen99810bIPv4Address = _Opmen99810bIPv4Address_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 2),
+    _Opmen99810bIPv4Address_Type()
+)
+opmen99810bIPv4Address.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPv4Address.setStatus("current")
+_Opmen99810bIPv4Mask_Type = IpAddress
+_Opmen99810bIPv4Mask_Object = MibScalar
+opmen99810bIPv4Mask = _Opmen99810bIPv4Mask_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 3),
+    _Opmen99810bIPv4Mask_Type()
+)
+opmen99810bIPv4Mask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPv4Mask.setStatus("current")
+_Opmen99810bIPv4Gateway_Type = IpAddress
+_Opmen99810bIPv4Gateway_Object = MibScalar
+opmen99810bIPv4Gateway = _Opmen99810bIPv4Gateway_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 4),
+    _Opmen99810bIPv4Gateway_Type()
+)
+opmen99810bIPv4Gateway.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPv4Gateway.setStatus("current")
+
+
+class _Opmen99810bIPv4VLANId_Type(Integer32):
+    """Custom type opmen99810bIPv4VLANId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_Opmen99810bIPv4VLANId_Type.__name__ = "Integer32"
+_Opmen99810bIPv4VLANId_Object = MibScalar
+opmen99810bIPv4VLANId = _Opmen99810bIPv4VLANId_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 5),
+    _Opmen99810bIPv4VLANId_Type()
+)
+opmen99810bIPv4VLANId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPv4VLANId.setStatus("current")
+_Opmen99810bIPv4DNSServer_Type = IpAddress
+_Opmen99810bIPv4DNSServer_Object = MibScalar
+opmen99810bIPv4DNSServer = _Opmen99810bIPv4DNSServer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 6),
+    _Opmen99810bIPv4DNSServer_Type()
+)
+opmen99810bIPv4DNSServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPv4DNSServer.setStatus("current")
+
+
+class _Opmen99810bIPv4DNSProxy_Type(Integer32):
+    """Custom type opmen99810bIPv4DNSProxy based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bIPv4DNSProxy_Type.__name__ = "Integer32"
+_Opmen99810bIPv4DNSProxy_Object = MibScalar
+opmen99810bIPv4DNSProxy = _Opmen99810bIPv4DNSProxy_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 1, 7),
+    _Opmen99810bIPv4DNSProxy_Type()
+)
+opmen99810bIPv4DNSProxy.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPv4DNSProxy.setStatus("current")
+_Opmen99810bIPv4Current_ObjectIdentity = ObjectIdentity
+opmen99810bIPv4Current = _Opmen99810bIPv4Current_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2)
+)
+
+
+class _Opmen99810bIpv4CurrentDHCPClient_Type(Integer32):
+    """Custom type opmen99810bIpv4CurrentDHCPClient based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("renew", 1))
+    )
+
+
+_Opmen99810bIpv4CurrentDHCPClient_Type.__name__ = "Integer32"
+_Opmen99810bIpv4CurrentDHCPClient_Object = MibScalar
+opmen99810bIpv4CurrentDHCPClient = _Opmen99810bIpv4CurrentDHCPClient_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 1),
+    _Opmen99810bIpv4CurrentDHCPClient_Type()
+)
+opmen99810bIpv4CurrentDHCPClient.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIpv4CurrentDHCPClient.setStatus("current")
+_Opmen99810bIPv4CurrentAddress_Type = IpAddress
+_Opmen99810bIPv4CurrentAddress_Object = MibScalar
+opmen99810bIPv4CurrentAddress = _Opmen99810bIPv4CurrentAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 2),
+    _Opmen99810bIPv4CurrentAddress_Type()
+)
+opmen99810bIPv4CurrentAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIPv4CurrentAddress.setStatus("current")
+_Opmen99810bIPv4CurrentMask_Type = IpAddress
+_Opmen99810bIPv4CurrentMask_Object = MibScalar
+opmen99810bIPv4CurrentMask = _Opmen99810bIPv4CurrentMask_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 3),
+    _Opmen99810bIPv4CurrentMask_Type()
+)
+opmen99810bIPv4CurrentMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIPv4CurrentMask.setStatus("current")
+_Opmen99810bIPv4CurrentGateway_Type = IpAddress
+_Opmen99810bIPv4CurrentGateway_Object = MibScalar
+opmen99810bIPv4CurrentGateway = _Opmen99810bIPv4CurrentGateway_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 4),
+    _Opmen99810bIPv4CurrentGateway_Type()
+)
+opmen99810bIPv4CurrentGateway.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIPv4CurrentGateway.setStatus("current")
+
+
+class _Opmen99810bIPv4CurrentVLANId_Type(Integer32):
+    """Custom type opmen99810bIPv4CurrentVLANId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_Opmen99810bIPv4CurrentVLANId_Type.__name__ = "Integer32"
+_Opmen99810bIPv4CurrentVLANId_Object = MibScalar
+opmen99810bIPv4CurrentVLANId = _Opmen99810bIPv4CurrentVLANId_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 5),
+    _Opmen99810bIPv4CurrentVLANId_Type()
+)
+opmen99810bIPv4CurrentVLANId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIPv4CurrentVLANId.setStatus("current")
+_Opmen99810bIPv4CurrentDNSServer_Type = IpAddress
+_Opmen99810bIPv4CurrentDNSServer_Object = MibScalar
+opmen99810bIPv4CurrentDNSServer = _Opmen99810bIPv4CurrentDNSServer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 1, 2, 6),
+    _Opmen99810bIPv4CurrentDNSServer_Type()
+)
+opmen99810bIPv4CurrentDNSServer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIPv4CurrentDNSServer.setStatus("current")
+_Opmen99810bIPv6_ObjectIdentity = ObjectIdentity
+opmen99810bIPv6 = _Opmen99810bIPv6_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2)
+)
+_Opmen99810bIPv6Configured_ObjectIdentity = ObjectIdentity
+opmen99810bIPv6Configured = _Opmen99810bIPv6Configured_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 1)
+)
+
+
+class _Opmen99810bIpv6AutoConfiguration_Type(Integer32):
+    """Custom type opmen99810bIpv6AutoConfiguration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bIpv6AutoConfiguration_Type.__name__ = "Integer32"
+_Opmen99810bIpv6AutoConfiguration_Object = MibScalar
+opmen99810bIpv6AutoConfiguration = _Opmen99810bIpv6AutoConfiguration_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 1, 1),
+    _Opmen99810bIpv6AutoConfiguration_Type()
+)
+opmen99810bIpv6AutoConfiguration.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIpv6AutoConfiguration.setStatus("current")
+
+
+class _Opmen99810bIpv6Address_Type(DisplayString):
+    """Custom type opmen99810bIpv6Address based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_Opmen99810bIpv6Address_Type.__name__ = "DisplayString"
+_Opmen99810bIpv6Address_Object = MibScalar
+opmen99810bIpv6Address = _Opmen99810bIpv6Address_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 1, 2),
+    _Opmen99810bIpv6Address_Type()
+)
+opmen99810bIpv6Address.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIpv6Address.setStatus("current")
+
+
+class _Opmen99810bIpv6Prefix_Type(Integer32):
+    """Custom type opmen99810bIpv6Prefix based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+_Opmen99810bIpv6Prefix_Type.__name__ = "Integer32"
+_Opmen99810bIpv6Prefix_Object = MibScalar
+opmen99810bIpv6Prefix = _Opmen99810bIpv6Prefix_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 1, 3),
+    _Opmen99810bIpv6Prefix_Type()
+)
+opmen99810bIpv6Prefix.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIpv6Prefix.setStatus("current")
+
+
+class _Opmen99810bIpv6Gateway_Type(DisplayString):
+    """Custom type opmen99810bIpv6Gateway based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_Opmen99810bIpv6Gateway_Type.__name__ = "DisplayString"
+_Opmen99810bIpv6Gateway_Object = MibScalar
+opmen99810bIpv6Gateway = _Opmen99810bIpv6Gateway_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 1, 4),
+    _Opmen99810bIpv6Gateway_Type()
+)
+opmen99810bIpv6Gateway.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIpv6Gateway.setStatus("current")
+_Opmen99810bIPv6Current_ObjectIdentity = ObjectIdentity
+opmen99810bIPv6Current = _Opmen99810bIPv6Current_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2)
+)
+
+
+class _Opmen99810bIpv6CurrentAutoConfiguration_Type(Integer32):
+    """Custom type opmen99810bIpv6CurrentAutoConfiguration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bIpv6CurrentAutoConfiguration_Type.__name__ = "Integer32"
+_Opmen99810bIpv6CurrentAutoConfiguration_Object = MibScalar
+opmen99810bIpv6CurrentAutoConfiguration = _Opmen99810bIpv6CurrentAutoConfiguration_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2, 1),
+    _Opmen99810bIpv6CurrentAutoConfiguration_Type()
+)
+opmen99810bIpv6CurrentAutoConfiguration.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIpv6CurrentAutoConfiguration.setStatus("current")
+
+
+class _Opmen99810bIpv6CurrentAddress_Type(DisplayString):
+    """Custom type opmen99810bIpv6CurrentAddress based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_Opmen99810bIpv6CurrentAddress_Type.__name__ = "DisplayString"
+_Opmen99810bIpv6CurrentAddress_Object = MibScalar
+opmen99810bIpv6CurrentAddress = _Opmen99810bIpv6CurrentAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2, 2),
+    _Opmen99810bIpv6CurrentAddress_Type()
+)
+opmen99810bIpv6CurrentAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIpv6CurrentAddress.setStatus("current")
+
+
+class _Opmen99810bIpv6CurrentLinkLocalAddress_Type(DisplayString):
+    """Custom type opmen99810bIpv6CurrentLinkLocalAddress based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_Opmen99810bIpv6CurrentLinkLocalAddress_Type.__name__ = "DisplayString"
+_Opmen99810bIpv6CurrentLinkLocalAddress_Object = MibScalar
+opmen99810bIpv6CurrentLinkLocalAddress = _Opmen99810bIpv6CurrentLinkLocalAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2, 3),
+    _Opmen99810bIpv6CurrentLinkLocalAddress_Type()
+)
+opmen99810bIpv6CurrentLinkLocalAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIpv6CurrentLinkLocalAddress.setStatus("current")
+
+
+class _Opmen99810bIpv6CurrentPrefix_Type(Integer32):
+    """Custom type opmen99810bIpv6CurrentPrefix based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+_Opmen99810bIpv6CurrentPrefix_Type.__name__ = "Integer32"
+_Opmen99810bIpv6CurrentPrefix_Object = MibScalar
+opmen99810bIpv6CurrentPrefix = _Opmen99810bIpv6CurrentPrefix_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2, 4),
+    _Opmen99810bIpv6CurrentPrefix_Type()
+)
+opmen99810bIpv6CurrentPrefix.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIpv6CurrentPrefix.setStatus("current")
+
+
+class _Opmen99810bIpv6CurrentGateway_Type(DisplayString):
+    """Custom type opmen99810bIpv6CurrentGateway based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_Opmen99810bIpv6CurrentGateway_Type.__name__ = "DisplayString"
+_Opmen99810bIpv6CurrentGateway_Object = MibScalar
+opmen99810bIpv6CurrentGateway = _Opmen99810bIpv6CurrentGateway_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 4, 2, 2, 5),
+    _Opmen99810bIpv6CurrentGateway_Type()
+)
+opmen99810bIpv6CurrentGateway.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIpv6CurrentGateway.setStatus("current")
+_Opmen99810bSyslog_ObjectIdentity = ObjectIdentity
+opmen99810bSyslog = _Opmen99810bSyslog_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5)
+)
+_Opmen99810bSyslogConf_ObjectIdentity = ObjectIdentity
+opmen99810bSyslogConf = _Opmen99810bSyslogConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 1)
+)
+
+
+class _Opmen99810bServerMode_Type(Integer32):
+    """Custom type opmen99810bServerMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bServerMode_Type.__name__ = "Integer32"
+_Opmen99810bServerMode_Object = MibScalar
+opmen99810bServerMode = _Opmen99810bServerMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 1, 1),
+    _Opmen99810bServerMode_Type()
+)
+opmen99810bServerMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bServerMode.setStatus("current")
+_Opmen99810bServerAddress1_Type = IpAddress
+_Opmen99810bServerAddress1_Object = MibScalar
+opmen99810bServerAddress1 = _Opmen99810bServerAddress1_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 1, 2),
+    _Opmen99810bServerAddress1_Type()
+)
+opmen99810bServerAddress1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bServerAddress1.setStatus("current")
+_Opmen99810bServerAddress2_Type = IpAddress
+_Opmen99810bServerAddress2_Object = MibScalar
+opmen99810bServerAddress2 = _Opmen99810bServerAddress2_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 1, 3),
+    _Opmen99810bServerAddress2_Type()
+)
+opmen99810bServerAddress2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bServerAddress2.setStatus("current")
+
+
+class _Opmen99810bSyslogLevel_Type(Integer32):
+    """Custom type opmen99810bSyslogLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bSyslogLevel_Type.__name__ = "Integer32"
+_Opmen99810bSyslogLevel_Object = MibScalar
+opmen99810bSyslogLevel = _Opmen99810bSyslogLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 1, 4),
+    _Opmen99810bSyslogLevel_Type()
+)
+opmen99810bSyslogLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSyslogLevel.setStatus("current")
+_Opmen99810bSyslogDetailedInfo_ObjectIdentity = ObjectIdentity
+opmen99810bSyslogDetailedInfo = _Opmen99810bSyslogDetailedInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2)
+)
+
+
+class _Opmen99810bSyslogDetailedInfoClear_Type(Integer32):
+    """Custom type opmen99810bSyslogDetailedInfoClear based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("clear", 1))
+    )
+
+
+_Opmen99810bSyslogDetailedInfoClear_Type.__name__ = "Integer32"
+_Opmen99810bSyslogDetailedInfoClear_Object = MibScalar
+opmen99810bSyslogDetailedInfoClear = _Opmen99810bSyslogDetailedInfoClear_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 1),
+    _Opmen99810bSyslogDetailedInfoClear_Type()
+)
+opmen99810bSyslogDetailedInfoClear.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSyslogDetailedInfoClear.setStatus("current")
+_Opmen99810bSyslogDetailedInfoTable_Object = MibTable
+opmen99810bSyslogDetailedInfoTable = _Opmen99810bSyslogDetailedInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bSyslogDetailedInfoTable.setStatus("current")
+_Opmen99810bSyslogDetailedInfoEntry_Object = MibTableRow
+opmen99810bSyslogDetailedInfoEntry = _Opmen99810bSyslogDetailedInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2, 1)
+)
+opmen99810bSyslogDetailedInfoEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bSyslogDetailedInfoIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bSyslogDetailedInfoEntry.setStatus("current")
+
+
+class _Opmen99810bSyslogDetailedInfoIndex_Type(Integer32):
+    """Custom type opmen99810bSyslogDetailedInfoIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_Opmen99810bSyslogDetailedInfoIndex_Type.__name__ = "Integer32"
+_Opmen99810bSyslogDetailedInfoIndex_Object = MibTableColumn
+opmen99810bSyslogDetailedInfoIndex = _Opmen99810bSyslogDetailedInfoIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2, 1, 1),
+    _Opmen99810bSyslogDetailedInfoIndex_Type()
+)
+opmen99810bSyslogDetailedInfoIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bSyslogDetailedInfoIndex.setStatus("current")
+_Opmen99810bSyslogDetailedInfoLevel_Type = DisplayString
+_Opmen99810bSyslogDetailedInfoLevel_Object = MibTableColumn
+opmen99810bSyslogDetailedInfoLevel = _Opmen99810bSyslogDetailedInfoLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2, 1, 2),
+    _Opmen99810bSyslogDetailedInfoLevel_Type()
+)
+opmen99810bSyslogDetailedInfoLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSyslogDetailedInfoLevel.setStatus("current")
+
+
+class _Opmen99810bSyslogDetailedInfoTime_Type(DisplayString):
+    """Custom type opmen99810bSyslogDetailedInfoTime based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_Opmen99810bSyslogDetailedInfoTime_Type.__name__ = "DisplayString"
+_Opmen99810bSyslogDetailedInfoTime_Object = MibTableColumn
+opmen99810bSyslogDetailedInfoTime = _Opmen99810bSyslogDetailedInfoTime_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2, 1, 3),
+    _Opmen99810bSyslogDetailedInfoTime_Type()
+)
+opmen99810bSyslogDetailedInfoTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSyslogDetailedInfoTime.setStatus("current")
+_Opmen99810bSyslogDetailedInfoMessage_Type = DisplayString
+_Opmen99810bSyslogDetailedInfoMessage_Object = MibTableColumn
+opmen99810bSyslogDetailedInfoMessage = _Opmen99810bSyslogDetailedInfoMessage_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 5, 2, 2, 1, 4),
+    _Opmen99810bSyslogDetailedInfoMessage_Type()
+)
+opmen99810bSyslogDetailedInfoMessage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSyslogDetailedInfoMessage.setStatus("current")
+_Opmen99810bSnmp_ObjectIdentity = ObjectIdentity
+opmen99810bSnmp = _Opmen99810bSnmp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6)
+)
+_Opmen99810bSnmpConf_ObjectIdentity = ObjectIdentity
+opmen99810bSnmpConf = _Opmen99810bSnmpConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1)
+)
+_Opmen99810bGetCommunity_Type = DisplayString
+_Opmen99810bGetCommunity_Object = MibScalar
+opmen99810bGetCommunity = _Opmen99810bGetCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 1),
+    _Opmen99810bGetCommunity_Type()
+)
+opmen99810bGetCommunity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGetCommunity.setStatus("current")
+
+
+class _Opmen99810bSetCommunityMode_Type(Integer32):
+    """Custom type opmen99810bSetCommunityMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bSetCommunityMode_Type.__name__ = "Integer32"
+_Opmen99810bSetCommunityMode_Object = MibScalar
+opmen99810bSetCommunityMode = _Opmen99810bSetCommunityMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 2),
+    _Opmen99810bSetCommunityMode_Type()
+)
+opmen99810bSetCommunityMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSetCommunityMode.setStatus("current")
+_Opmen99810bSetCommunity_Type = DisplayString
+_Opmen99810bSetCommunity_Object = MibScalar
+opmen99810bSetCommunity = _Opmen99810bSetCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 3),
+    _Opmen99810bSetCommunity_Type()
+)
+opmen99810bSetCommunity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSetCommunity.setStatus("current")
+_Opmen99810bTrapHostConfTable_Object = MibTable
+opmen99810bTrapHostConfTable = _Opmen99810bTrapHostConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4)
+)
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfTable.setStatus("current")
+_Opmen99810bTrapHostConfEntry_Object = MibTableRow
+opmen99810bTrapHostConfEntry = _Opmen99810bTrapHostConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1)
+)
+opmen99810bTrapHostConfEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bTrapHostConfIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfEntry.setStatus("current")
+
+
+class _Opmen99810bTrapHostConfIndex_Type(Integer32):
+    """Custom type opmen99810bTrapHostConfIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 6),
+    )
+
+
+_Opmen99810bTrapHostConfIndex_Type.__name__ = "Integer32"
+_Opmen99810bTrapHostConfIndex_Object = MibTableColumn
+opmen99810bTrapHostConfIndex = _Opmen99810bTrapHostConfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 1),
+    _Opmen99810bTrapHostConfIndex_Type()
+)
+opmen99810bTrapHostConfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfIndex.setStatus("current")
+
+
+class _Opmen99810bTrapHostConfVersion_Type(Integer32):
+    """Custom type opmen99810bTrapHostConfVersion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("snmpv2c", 2),
+          ("snmpv3", 3))
+    )
+
+
+_Opmen99810bTrapHostConfVersion_Type.__name__ = "Integer32"
+_Opmen99810bTrapHostConfVersion_Object = MibTableColumn
+opmen99810bTrapHostConfVersion = _Opmen99810bTrapHostConfVersion_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 2),
+    _Opmen99810bTrapHostConfVersion_Type()
+)
+opmen99810bTrapHostConfVersion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfVersion.setStatus("current")
+
+
+class _Opmen99810bTrapHostConfIPType_Type(Integer32):
+    """Custom type opmen99810bTrapHostConfIPType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(4,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 4),
+          ("ipv6", 6))
+    )
+
+
+_Opmen99810bTrapHostConfIPType_Type.__name__ = "Integer32"
+_Opmen99810bTrapHostConfIPType_Object = MibTableColumn
+opmen99810bTrapHostConfIPType = _Opmen99810bTrapHostConfIPType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 3),
+    _Opmen99810bTrapHostConfIPType_Type()
+)
+opmen99810bTrapHostConfIPType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfIPType.setStatus("current")
+_Opmen99810bTrapHostConfIP_Type = DisplayString
+_Opmen99810bTrapHostConfIP_Object = MibTableColumn
+opmen99810bTrapHostConfIP = _Opmen99810bTrapHostConfIP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 4),
+    _Opmen99810bTrapHostConfIP_Type()
+)
+opmen99810bTrapHostConfIP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfIP.setStatus("current")
+
+
+class _Opmen99810bTrapHostConfPort_Type(Integer32):
+    """Custom type opmen99810bTrapHostConfPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Opmen99810bTrapHostConfPort_Type.__name__ = "Integer32"
+_Opmen99810bTrapHostConfPort_Object = MibTableColumn
+opmen99810bTrapHostConfPort = _Opmen99810bTrapHostConfPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 5),
+    _Opmen99810bTrapHostConfPort_Type()
+)
+opmen99810bTrapHostConfPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfPort.setStatus("current")
+
+
+class _Opmen99810bTrapHostConfCommunity_Type(DisplayString):
+    """Custom type opmen99810bTrapHostConfCommunity based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_Opmen99810bTrapHostConfCommunity_Type.__name__ = "DisplayString"
+_Opmen99810bTrapHostConfCommunity_Object = MibTableColumn
+opmen99810bTrapHostConfCommunity = _Opmen99810bTrapHostConfCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 6),
+    _Opmen99810bTrapHostConfCommunity_Type()
+)
+opmen99810bTrapHostConfCommunity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfCommunity.setStatus("current")
+
+
+class _Opmen99810bTrapHostConfSeverityLevel_Type(Integer32):
+    """Custom type opmen99810bTrapHostConfSeverityLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapHostConfSeverityLevel_Type.__name__ = "Integer32"
+_Opmen99810bTrapHostConfSeverityLevel_Object = MibTableColumn
+opmen99810bTrapHostConfSeverityLevel = _Opmen99810bTrapHostConfSeverityLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 7),
+    _Opmen99810bTrapHostConfSeverityLevel_Type()
+)
+opmen99810bTrapHostConfSeverityLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfSeverityLevel.setStatus("current")
+
+
+class _Opmen99810bTrapHostConfSecurityLevel_Type(Integer32):
+    """Custom type opmen99810bTrapHostConfSecurityLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noAuthNoPriv", 1),
+          ("authNoPriv", 2),
+          ("authPriv", 3))
+    )
+
+
+_Opmen99810bTrapHostConfSecurityLevel_Type.__name__ = "Integer32"
+_Opmen99810bTrapHostConfSecurityLevel_Object = MibTableColumn
+opmen99810bTrapHostConfSecurityLevel = _Opmen99810bTrapHostConfSecurityLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 8),
+    _Opmen99810bTrapHostConfSecurityLevel_Type()
+)
+opmen99810bTrapHostConfSecurityLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfSecurityLevel.setStatus("current")
+
+
+class _Opmen99810bTrapHostConfAuthPtc_Type(Integer32):
+    """Custom type opmen99810bTrapHostConfAuthPtc based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("md5", 1),
+          ("sha", 2))
+    )
+
+
+_Opmen99810bTrapHostConfAuthPtc_Type.__name__ = "Integer32"
+_Opmen99810bTrapHostConfAuthPtc_Object = MibTableColumn
+opmen99810bTrapHostConfAuthPtc = _Opmen99810bTrapHostConfAuthPtc_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 9),
+    _Opmen99810bTrapHostConfAuthPtc_Type()
+)
+opmen99810bTrapHostConfAuthPtc.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfAuthPtc.setStatus("current")
+_Opmen99810bTrapHostConfAuthPassword_Type = DisplayString
+_Opmen99810bTrapHostConfAuthPassword_Object = MibTableColumn
+opmen99810bTrapHostConfAuthPassword = _Opmen99810bTrapHostConfAuthPassword_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 10),
+    _Opmen99810bTrapHostConfAuthPassword_Type()
+)
+opmen99810bTrapHostConfAuthPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfAuthPassword.setStatus("current")
+
+
+class _Opmen99810bTrapHostConfPrivPtc_Type(Integer32):
+    """Custom type opmen99810bTrapHostConfPrivPtc based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("des", 1)
+    )
+
+
+_Opmen99810bTrapHostConfPrivPtc_Type.__name__ = "Integer32"
+_Opmen99810bTrapHostConfPrivPtc_Object = MibTableColumn
+opmen99810bTrapHostConfPrivPtc = _Opmen99810bTrapHostConfPrivPtc_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 11),
+    _Opmen99810bTrapHostConfPrivPtc_Type()
+)
+opmen99810bTrapHostConfPrivPtc.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfPrivPtc.setStatus("current")
+_Opmen99810bTrapHostConfPrivPassword_Type = DisplayString
+_Opmen99810bTrapHostConfPrivPassword_Object = MibTableColumn
+opmen99810bTrapHostConfPrivPassword = _Opmen99810bTrapHostConfPrivPassword_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 12),
+    _Opmen99810bTrapHostConfPrivPassword_Type()
+)
+opmen99810bTrapHostConfPrivPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfPrivPassword.setStatus("current")
+
+
+class _Opmen99810bTrapHostConfCurrentMode_Type(Integer32):
+    """Custom type opmen99810bTrapHostConfCurrentMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("empty", 0),
+          ("active", 1),
+          ("edit", 2),
+          ("delete", 3))
+    )
+
+
+_Opmen99810bTrapHostConfCurrentMode_Type.__name__ = "Integer32"
+_Opmen99810bTrapHostConfCurrentMode_Object = MibTableColumn
+opmen99810bTrapHostConfCurrentMode = _Opmen99810bTrapHostConfCurrentMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 1, 6, 1, 4, 1, 13),
+    _Opmen99810bTrapHostConfCurrentMode_Type()
+)
+opmen99810bTrapHostConfCurrentMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapHostConfCurrentMode.setStatus("current")
+_Opmen99810bConfiguration_ObjectIdentity = ObjectIdentity
+opmen99810bConfiguration = _Opmen99810bConfiguration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2)
+)
+_Opmen99810bPort_ObjectIdentity = ObjectIdentity
+opmen99810bPort = _Opmen99810bPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1)
+)
+_Opmen99810bPortConfigurationTable_Object = MibTable
+opmen99810bPortConfigurationTable = _Opmen99810bPortConfigurationTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortConfigurationTable.setStatus("current")
+_Opmen99810bPortConfigurationEntry_Object = MibTableRow
+opmen99810bPortConfigurationEntry = _Opmen99810bPortConfigurationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1)
+)
+opmen99810bPortConfigurationEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortConfPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortConfigurationEntry.setStatus("current")
+
+
+class _Opmen99810bPortConfPort_Type(Integer32):
+    """Custom type opmen99810bPortConfPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bPortConfPort_Type.__name__ = "Integer32"
+_Opmen99810bPortConfPort_Object = MibTableColumn
+opmen99810bPortConfPort = _Opmen99810bPortConfPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 1),
+    _Opmen99810bPortConfPort_Type()
+)
+opmen99810bPortConfPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfPort.setStatus("current")
+
+
+class _Opmen99810bPortConfPortMedia_Type(DisplayString):
+    """Custom type opmen99810bPortConfPortMedia based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 4),
+    )
+
+
+_Opmen99810bPortConfPortMedia_Type.__name__ = "DisplayString"
+_Opmen99810bPortConfPortMedia_Object = MibTableColumn
+opmen99810bPortConfPortMedia = _Opmen99810bPortConfPortMedia_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 2),
+    _Opmen99810bPortConfPortMedia_Type()
+)
+opmen99810bPortConfPortMedia.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfPortMedia.setStatus("current")
+
+
+class _Opmen99810bPortConfLink_Type(DisplayString):
+    """Custom type opmen99810bPortConfLink based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 4),
+    )
+
+
+_Opmen99810bPortConfLink_Type.__name__ = "DisplayString"
+_Opmen99810bPortConfLink_Object = MibTableColumn
+opmen99810bPortConfLink = _Opmen99810bPortConfLink_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 3),
+    _Opmen99810bPortConfLink_Type()
+)
+opmen99810bPortConfLink.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfLink.setStatus("current")
+
+
+class _Opmen99810bPortConfCurrentSpeed_Type(DisplayString):
+    """Custom type opmen99810bPortConfCurrentSpeed based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 12),
+    )
+
+
+_Opmen99810bPortConfCurrentSpeed_Type.__name__ = "DisplayString"
+_Opmen99810bPortConfCurrentSpeed_Object = MibTableColumn
+opmen99810bPortConfCurrentSpeed = _Opmen99810bPortConfCurrentSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 4),
+    _Opmen99810bPortConfCurrentSpeed_Type()
+)
+opmen99810bPortConfCurrentSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfCurrentSpeed.setStatus("current")
+
+
+class _Opmen99810bPortConfSpeed_Type(Integer32):
+    """Custom type opmen99810bPortConfSpeed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("auto", 1),
+          ("speed10Half", 2),
+          ("speed10Full", 3),
+          ("speed100Half", 4),
+          ("speed100Full", 5),
+          ("speed1Gfull", 6),
+          ("sfpAutoAMS", 7),
+          ("speed100FXAMS", 8),
+          ("speed1000XAMS", 9),
+          ("speed100FX", 10),
+          ("speed1000X", 11))
+    )
+
+
+_Opmen99810bPortConfSpeed_Type.__name__ = "Integer32"
+_Opmen99810bPortConfSpeed_Object = MibTableColumn
+opmen99810bPortConfSpeed = _Opmen99810bPortConfSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 5),
+    _Opmen99810bPortConfSpeed_Type()
+)
+opmen99810bPortConfSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfSpeed.setStatus("current")
+
+
+class _Opmen99810bPortConfCurrentFlowControlRx_Type(Integer32):
+    """Custom type opmen99810bPortConfCurrentFlowControlRx based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1),
+          ("noSupport", 2))
+    )
+
+
+_Opmen99810bPortConfCurrentFlowControlRx_Type.__name__ = "Integer32"
+_Opmen99810bPortConfCurrentFlowControlRx_Object = MibTableColumn
+opmen99810bPortConfCurrentFlowControlRx = _Opmen99810bPortConfCurrentFlowControlRx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 6),
+    _Opmen99810bPortConfCurrentFlowControlRx_Type()
+)
+opmen99810bPortConfCurrentFlowControlRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfCurrentFlowControlRx.setStatus("current")
+
+
+class _Opmen99810bPortConfCurrentFlowControlTx_Type(Integer32):
+    """Custom type opmen99810bPortConfCurrentFlowControlTx based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1),
+          ("noSupport", 2))
+    )
+
+
+_Opmen99810bPortConfCurrentFlowControlTx_Type.__name__ = "Integer32"
+_Opmen99810bPortConfCurrentFlowControlTx_Object = MibTableColumn
+opmen99810bPortConfCurrentFlowControlTx = _Opmen99810bPortConfCurrentFlowControlTx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 7),
+    _Opmen99810bPortConfCurrentFlowControlTx_Type()
+)
+opmen99810bPortConfCurrentFlowControlTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfCurrentFlowControlTx.setStatus("current")
+
+
+class _Opmen99810bPortConfFlowControl_Type(Integer32):
+    """Custom type opmen99810bPortConfFlowControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1),
+          ("noSupport", 2))
+    )
+
+
+_Opmen99810bPortConfFlowControl_Type.__name__ = "Integer32"
+_Opmen99810bPortConfFlowControl_Object = MibTableColumn
+opmen99810bPortConfFlowControl = _Opmen99810bPortConfFlowControl_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 8),
+    _Opmen99810bPortConfFlowControl_Type()
+)
+opmen99810bPortConfFlowControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfFlowControl.setStatus("current")
+
+
+class _Opmen99810bPortConfMaxFrameSize_Type(Integer32):
+    """Custom type opmen99810bPortConfMaxFrameSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1518, 9600),
+    )
+
+
+_Opmen99810bPortConfMaxFrameSize_Type.__name__ = "Integer32"
+_Opmen99810bPortConfMaxFrameSize_Object = MibTableColumn
+opmen99810bPortConfMaxFrameSize = _Opmen99810bPortConfMaxFrameSize_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 9),
+    _Opmen99810bPortConfMaxFrameSize_Type()
+)
+opmen99810bPortConfMaxFrameSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfMaxFrameSize.setStatus("current")
+
+
+class _Opmen99810bPortConfExcessiveCollisionMode_Type(Integer32):
+    """Custom type opmen99810bPortConfExcessiveCollisionMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("discard", 0),
+          ("restart", 1),
+          ("noSupport", 2))
+    )
+
+
+_Opmen99810bPortConfExcessiveCollisionMode_Type.__name__ = "Integer32"
+_Opmen99810bPortConfExcessiveCollisionMode_Object = MibTableColumn
+opmen99810bPortConfExcessiveCollisionMode = _Opmen99810bPortConfExcessiveCollisionMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 10),
+    _Opmen99810bPortConfExcessiveCollisionMode_Type()
+)
+opmen99810bPortConfExcessiveCollisionMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfExcessiveCollisionMode.setStatus("current")
+
+
+class _Opmen99810bPortConfPowerControl_Type(Integer32):
+    """Custom type opmen99810bPortConfPowerControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("actiphy", 1),
+          ("dynamic", 2),
+          ("enable", 3),
+          ("noSupport", 4))
+    )
+
+
+_Opmen99810bPortConfPowerControl_Type.__name__ = "Integer32"
+_Opmen99810bPortConfPowerControl_Object = MibTableColumn
+opmen99810bPortConfPowerControl = _Opmen99810bPortConfPowerControl_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 11),
+    _Opmen99810bPortConfPowerControl_Type()
+)
+opmen99810bPortConfPowerControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfPowerControl.setStatus("current")
+_Opmen99810bPortConfDescription_Type = DisplayString
+_Opmen99810bPortConfDescription_Object = MibTableColumn
+opmen99810bPortConfDescription = _Opmen99810bPortConfDescription_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 1, 1, 12),
+    _Opmen99810bPortConfDescription_Type()
+)
+opmen99810bPortConfDescription.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortConfDescription.setStatus("current")
+_Opmen99810bPortTrafficStatisticsTable_Object = MibTable
+opmen99810bPortTrafficStatisticsTable = _Opmen99810bPortTrafficStatisticsTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficStatisticsTable.setStatus("current")
+_Opmen99810bPortTrafficStatisticsEntry_Object = MibTableRow
+opmen99810bPortTrafficStatisticsEntry = _Opmen99810bPortTrafficStatisticsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1)
+)
+opmen99810bPortTrafficStatisticsEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortTrafficStatisticsPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficStatisticsEntry.setStatus("current")
+
+
+class _Opmen99810bPortTrafficStatisticsPort_Type(Integer32):
+    """Custom type opmen99810bPortTrafficStatisticsPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bPortTrafficStatisticsPort_Type.__name__ = "Integer32"
+_Opmen99810bPortTrafficStatisticsPort_Object = MibTableColumn
+opmen99810bPortTrafficStatisticsPort = _Opmen99810bPortTrafficStatisticsPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 1),
+    _Opmen99810bPortTrafficStatisticsPort_Type()
+)
+opmen99810bPortTrafficStatisticsPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficStatisticsPort.setStatus("current")
+
+
+class _Opmen99810bPortTrafficStatisticsClear_Type(Integer32):
+    """Custom type opmen99810bPortTrafficStatisticsClear based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortTrafficStatisticsClear_Type.__name__ = "Integer32"
+_Opmen99810bPortTrafficStatisticsClear_Object = MibTableColumn
+opmen99810bPortTrafficStatisticsClear = _Opmen99810bPortTrafficStatisticsClear_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 2),
+    _Opmen99810bPortTrafficStatisticsClear_Type()
+)
+opmen99810bPortTrafficStatisticsClear.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficStatisticsClear.setStatus("current")
+_Opmen99810bPortTrafficRxPackets_Type = Counter64
+_Opmen99810bPortTrafficRxPackets_Object = MibTableColumn
+opmen99810bPortTrafficRxPackets = _Opmen99810bPortTrafficRxPackets_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 3),
+    _Opmen99810bPortTrafficRxPackets_Type()
+)
+opmen99810bPortTrafficRxPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxPackets.setStatus("current")
+_Opmen99810bPortTrafficRxOctets_Type = Counter64
+_Opmen99810bPortTrafficRxOctets_Object = MibTableColumn
+opmen99810bPortTrafficRxOctets = _Opmen99810bPortTrafficRxOctets_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 4),
+    _Opmen99810bPortTrafficRxOctets_Type()
+)
+opmen99810bPortTrafficRxOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxOctets.setStatus("current")
+_Opmen99810bPortTrafficRxUnicast_Type = Counter64
+_Opmen99810bPortTrafficRxUnicast_Object = MibTableColumn
+opmen99810bPortTrafficRxUnicast = _Opmen99810bPortTrafficRxUnicast_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 5),
+    _Opmen99810bPortTrafficRxUnicast_Type()
+)
+opmen99810bPortTrafficRxUnicast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxUnicast.setStatus("current")
+_Opmen99810bPortTrafficRxMulticast_Type = Counter64
+_Opmen99810bPortTrafficRxMulticast_Object = MibTableColumn
+opmen99810bPortTrafficRxMulticast = _Opmen99810bPortTrafficRxMulticast_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 6),
+    _Opmen99810bPortTrafficRxMulticast_Type()
+)
+opmen99810bPortTrafficRxMulticast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxMulticast.setStatus("current")
+_Opmen99810bPortTrafficRxBroadcast_Type = Counter64
+_Opmen99810bPortTrafficRxBroadcast_Object = MibTableColumn
+opmen99810bPortTrafficRxBroadcast = _Opmen99810bPortTrafficRxBroadcast_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 7),
+    _Opmen99810bPortTrafficRxBroadcast_Type()
+)
+opmen99810bPortTrafficRxBroadcast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxBroadcast.setStatus("current")
+_Opmen99810bPortTrafficRxPause_Type = Counter64
+_Opmen99810bPortTrafficRxPause_Object = MibTableColumn
+opmen99810bPortTrafficRxPause = _Opmen99810bPortTrafficRxPause_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 8),
+    _Opmen99810bPortTrafficRxPause_Type()
+)
+opmen99810bPortTrafficRxPause.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxPause.setStatus("current")
+_Opmen99810bPortTrafficRx64Bytes_Type = Counter64
+_Opmen99810bPortTrafficRx64Bytes_Object = MibTableColumn
+opmen99810bPortTrafficRx64Bytes = _Opmen99810bPortTrafficRx64Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 9),
+    _Opmen99810bPortTrafficRx64Bytes_Type()
+)
+opmen99810bPortTrafficRx64Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRx64Bytes.setStatus("current")
+_Opmen99810bPortTrafficRx65to127Bytes_Type = Counter64
+_Opmen99810bPortTrafficRx65to127Bytes_Object = MibTableColumn
+opmen99810bPortTrafficRx65to127Bytes = _Opmen99810bPortTrafficRx65to127Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 10),
+    _Opmen99810bPortTrafficRx65to127Bytes_Type()
+)
+opmen99810bPortTrafficRx65to127Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRx65to127Bytes.setStatus("current")
+_Opmen99810bPortTrafficRx128to255Bytes_Type = Counter64
+_Opmen99810bPortTrafficRx128to255Bytes_Object = MibTableColumn
+opmen99810bPortTrafficRx128to255Bytes = _Opmen99810bPortTrafficRx128to255Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 11),
+    _Opmen99810bPortTrafficRx128to255Bytes_Type()
+)
+opmen99810bPortTrafficRx128to255Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRx128to255Bytes.setStatus("current")
+_Opmen99810bPortTrafficRx256to511Bytes_Type = Counter64
+_Opmen99810bPortTrafficRx256to511Bytes_Object = MibTableColumn
+opmen99810bPortTrafficRx256to511Bytes = _Opmen99810bPortTrafficRx256to511Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 12),
+    _Opmen99810bPortTrafficRx256to511Bytes_Type()
+)
+opmen99810bPortTrafficRx256to511Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRx256to511Bytes.setStatus("current")
+_Opmen99810bPortTrafficRx512to1023Bytes_Type = Counter64
+_Opmen99810bPortTrafficRx512to1023Bytes_Object = MibTableColumn
+opmen99810bPortTrafficRx512to1023Bytes = _Opmen99810bPortTrafficRx512to1023Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 13),
+    _Opmen99810bPortTrafficRx512to1023Bytes_Type()
+)
+opmen99810bPortTrafficRx512to1023Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRx512to1023Bytes.setStatus("current")
+_Opmen99810bPortTrafficRx1024to1526Bytes_Type = Counter64
+_Opmen99810bPortTrafficRx1024to1526Bytes_Object = MibTableColumn
+opmen99810bPortTrafficRx1024to1526Bytes = _Opmen99810bPortTrafficRx1024to1526Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 14),
+    _Opmen99810bPortTrafficRx1024to1526Bytes_Type()
+)
+opmen99810bPortTrafficRx1024to1526Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRx1024to1526Bytes.setStatus("current")
+_Opmen99810bPortTrafficRxExceecd1527Bytes_Type = Counter64
+_Opmen99810bPortTrafficRxExceecd1527Bytes_Object = MibTableColumn
+opmen99810bPortTrafficRxExceecd1527Bytes = _Opmen99810bPortTrafficRxExceecd1527Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 15),
+    _Opmen99810bPortTrafficRxExceecd1527Bytes_Type()
+)
+opmen99810bPortTrafficRxExceecd1527Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxExceecd1527Bytes.setStatus("current")
+_Opmen99810bPortTrafficRxQ0_Type = Counter64
+_Opmen99810bPortTrafficRxQ0_Object = MibTableColumn
+opmen99810bPortTrafficRxQ0 = _Opmen99810bPortTrafficRxQ0_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 16),
+    _Opmen99810bPortTrafficRxQ0_Type()
+)
+opmen99810bPortTrafficRxQ0.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxQ0.setStatus("current")
+_Opmen99810bPortTrafficRxQ1_Type = Counter64
+_Opmen99810bPortTrafficRxQ1_Object = MibTableColumn
+opmen99810bPortTrafficRxQ1 = _Opmen99810bPortTrafficRxQ1_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 17),
+    _Opmen99810bPortTrafficRxQ1_Type()
+)
+opmen99810bPortTrafficRxQ1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxQ1.setStatus("current")
+_Opmen99810bPortTrafficRxQ2_Type = Counter64
+_Opmen99810bPortTrafficRxQ2_Object = MibTableColumn
+opmen99810bPortTrafficRxQ2 = _Opmen99810bPortTrafficRxQ2_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 18),
+    _Opmen99810bPortTrafficRxQ2_Type()
+)
+opmen99810bPortTrafficRxQ2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxQ2.setStatus("current")
+_Opmen99810bPortTrafficRxQ3_Type = Counter64
+_Opmen99810bPortTrafficRxQ3_Object = MibTableColumn
+opmen99810bPortTrafficRxQ3 = _Opmen99810bPortTrafficRxQ3_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 19),
+    _Opmen99810bPortTrafficRxQ3_Type()
+)
+opmen99810bPortTrafficRxQ3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxQ3.setStatus("current")
+_Opmen99810bPortTrafficRxQ4_Type = Counter64
+_Opmen99810bPortTrafficRxQ4_Object = MibTableColumn
+opmen99810bPortTrafficRxQ4 = _Opmen99810bPortTrafficRxQ4_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 20),
+    _Opmen99810bPortTrafficRxQ4_Type()
+)
+opmen99810bPortTrafficRxQ4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxQ4.setStatus("current")
+_Opmen99810bPortTrafficRxQ5_Type = Counter64
+_Opmen99810bPortTrafficRxQ5_Object = MibTableColumn
+opmen99810bPortTrafficRxQ5 = _Opmen99810bPortTrafficRxQ5_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 21),
+    _Opmen99810bPortTrafficRxQ5_Type()
+)
+opmen99810bPortTrafficRxQ5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxQ5.setStatus("current")
+_Opmen99810bPortTrafficRxQ6_Type = Counter64
+_Opmen99810bPortTrafficRxQ6_Object = MibTableColumn
+opmen99810bPortTrafficRxQ6 = _Opmen99810bPortTrafficRxQ6_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 22),
+    _Opmen99810bPortTrafficRxQ6_Type()
+)
+opmen99810bPortTrafficRxQ6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxQ6.setStatus("current")
+_Opmen99810bPortTrafficRxQ7_Type = Counter64
+_Opmen99810bPortTrafficRxQ7_Object = MibTableColumn
+opmen99810bPortTrafficRxQ7 = _Opmen99810bPortTrafficRxQ7_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 23),
+    _Opmen99810bPortTrafficRxQ7_Type()
+)
+opmen99810bPortTrafficRxQ7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxQ7.setStatus("current")
+_Opmen99810bPortTrafficRxDrops_Type = Counter64
+_Opmen99810bPortTrafficRxDrops_Object = MibTableColumn
+opmen99810bPortTrafficRxDrops = _Opmen99810bPortTrafficRxDrops_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 24),
+    _Opmen99810bPortTrafficRxDrops_Type()
+)
+opmen99810bPortTrafficRxDrops.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxDrops.setStatus("current")
+_Opmen99810bPortTrafficRxCRCorAlignment_Type = Counter64
+_Opmen99810bPortTrafficRxCRCorAlignment_Object = MibTableColumn
+opmen99810bPortTrafficRxCRCorAlignment = _Opmen99810bPortTrafficRxCRCorAlignment_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 25),
+    _Opmen99810bPortTrafficRxCRCorAlignment_Type()
+)
+opmen99810bPortTrafficRxCRCorAlignment.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxCRCorAlignment.setStatus("current")
+_Opmen99810bPortTrafficRxUndersize_Type = Counter64
+_Opmen99810bPortTrafficRxUndersize_Object = MibTableColumn
+opmen99810bPortTrafficRxUndersize = _Opmen99810bPortTrafficRxUndersize_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 26),
+    _Opmen99810bPortTrafficRxUndersize_Type()
+)
+opmen99810bPortTrafficRxUndersize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxUndersize.setStatus("current")
+_Opmen99810bPortTrafficRxOversize_Type = Counter64
+_Opmen99810bPortTrafficRxOversize_Object = MibTableColumn
+opmen99810bPortTrafficRxOversize = _Opmen99810bPortTrafficRxOversize_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 27),
+    _Opmen99810bPortTrafficRxOversize_Type()
+)
+opmen99810bPortTrafficRxOversize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxOversize.setStatus("current")
+_Opmen99810bPortTrafficRxFragments_Type = Counter64
+_Opmen99810bPortTrafficRxFragments_Object = MibTableColumn
+opmen99810bPortTrafficRxFragments = _Opmen99810bPortTrafficRxFragments_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 28),
+    _Opmen99810bPortTrafficRxFragments_Type()
+)
+opmen99810bPortTrafficRxFragments.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxFragments.setStatus("current")
+_Opmen99810bPortTrafficRxJabber_Type = Counter64
+_Opmen99810bPortTrafficRxJabber_Object = MibTableColumn
+opmen99810bPortTrafficRxJabber = _Opmen99810bPortTrafficRxJabber_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 29),
+    _Opmen99810bPortTrafficRxJabber_Type()
+)
+opmen99810bPortTrafficRxJabber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxJabber.setStatus("current")
+_Opmen99810bPortTrafficRxFiltered_Type = Counter64
+_Opmen99810bPortTrafficRxFiltered_Object = MibTableColumn
+opmen99810bPortTrafficRxFiltered = _Opmen99810bPortTrafficRxFiltered_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 30),
+    _Opmen99810bPortTrafficRxFiltered_Type()
+)
+opmen99810bPortTrafficRxFiltered.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficRxFiltered.setStatus("current")
+_Opmen99810bPortTrafficTxPackets_Type = Counter64
+_Opmen99810bPortTrafficTxPackets_Object = MibTableColumn
+opmen99810bPortTrafficTxPackets = _Opmen99810bPortTrafficTxPackets_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 31),
+    _Opmen99810bPortTrafficTxPackets_Type()
+)
+opmen99810bPortTrafficTxPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxPackets.setStatus("current")
+_Opmen99810bPortTrafficTxOctets_Type = Counter64
+_Opmen99810bPortTrafficTxOctets_Object = MibTableColumn
+opmen99810bPortTrafficTxOctets = _Opmen99810bPortTrafficTxOctets_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 32),
+    _Opmen99810bPortTrafficTxOctets_Type()
+)
+opmen99810bPortTrafficTxOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxOctets.setStatus("current")
+_Opmen99810bPortTrafficTxUnicast_Type = Counter64
+_Opmen99810bPortTrafficTxUnicast_Object = MibTableColumn
+opmen99810bPortTrafficTxUnicast = _Opmen99810bPortTrafficTxUnicast_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 33),
+    _Opmen99810bPortTrafficTxUnicast_Type()
+)
+opmen99810bPortTrafficTxUnicast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxUnicast.setStatus("current")
+_Opmen99810bPortTrafficTxMulticast_Type = Counter64
+_Opmen99810bPortTrafficTxMulticast_Object = MibTableColumn
+opmen99810bPortTrafficTxMulticast = _Opmen99810bPortTrafficTxMulticast_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 34),
+    _Opmen99810bPortTrafficTxMulticast_Type()
+)
+opmen99810bPortTrafficTxMulticast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxMulticast.setStatus("current")
+_Opmen99810bPortTrafficTxBroadcast_Type = Counter64
+_Opmen99810bPortTrafficTxBroadcast_Object = MibTableColumn
+opmen99810bPortTrafficTxBroadcast = _Opmen99810bPortTrafficTxBroadcast_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 35),
+    _Opmen99810bPortTrafficTxBroadcast_Type()
+)
+opmen99810bPortTrafficTxBroadcast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxBroadcast.setStatus("current")
+_Opmen99810bPortTrafficTxPause_Type = Counter64
+_Opmen99810bPortTrafficTxPause_Object = MibTableColumn
+opmen99810bPortTrafficTxPause = _Opmen99810bPortTrafficTxPause_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 36),
+    _Opmen99810bPortTrafficTxPause_Type()
+)
+opmen99810bPortTrafficTxPause.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxPause.setStatus("current")
+_Opmen99810bPortTrafficTx64Bytes_Type = Counter64
+_Opmen99810bPortTrafficTx64Bytes_Object = MibTableColumn
+opmen99810bPortTrafficTx64Bytes = _Opmen99810bPortTrafficTx64Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 37),
+    _Opmen99810bPortTrafficTx64Bytes_Type()
+)
+opmen99810bPortTrafficTx64Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTx64Bytes.setStatus("current")
+_Opmen99810bPortTrafficTx65to127Bytes_Type = Counter64
+_Opmen99810bPortTrafficTx65to127Bytes_Object = MibTableColumn
+opmen99810bPortTrafficTx65to127Bytes = _Opmen99810bPortTrafficTx65to127Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 38),
+    _Opmen99810bPortTrafficTx65to127Bytes_Type()
+)
+opmen99810bPortTrafficTx65to127Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTx65to127Bytes.setStatus("current")
+_Opmen99810bPortTrafficTx128to255Bytes_Type = Counter64
+_Opmen99810bPortTrafficTx128to255Bytes_Object = MibTableColumn
+opmen99810bPortTrafficTx128to255Bytes = _Opmen99810bPortTrafficTx128to255Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 39),
+    _Opmen99810bPortTrafficTx128to255Bytes_Type()
+)
+opmen99810bPortTrafficTx128to255Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTx128to255Bytes.setStatus("current")
+_Opmen99810bPortTrafficTx256to511Bytes_Type = Counter64
+_Opmen99810bPortTrafficTx256to511Bytes_Object = MibTableColumn
+opmen99810bPortTrafficTx256to511Bytes = _Opmen99810bPortTrafficTx256to511Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 40),
+    _Opmen99810bPortTrafficTx256to511Bytes_Type()
+)
+opmen99810bPortTrafficTx256to511Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTx256to511Bytes.setStatus("current")
+_Opmen99810bPortTrafficTx512to1023Bytes_Type = Counter64
+_Opmen99810bPortTrafficTx512to1023Bytes_Object = MibTableColumn
+opmen99810bPortTrafficTx512to1023Bytes = _Opmen99810bPortTrafficTx512to1023Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 41),
+    _Opmen99810bPortTrafficTx512to1023Bytes_Type()
+)
+opmen99810bPortTrafficTx512to1023Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTx512to1023Bytes.setStatus("current")
+_Opmen99810bPortTrafficTx1024to1526Bytes_Type = Counter64
+_Opmen99810bPortTrafficTx1024to1526Bytes_Object = MibTableColumn
+opmen99810bPortTrafficTx1024to1526Bytes = _Opmen99810bPortTrafficTx1024to1526Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 42),
+    _Opmen99810bPortTrafficTx1024to1526Bytes_Type()
+)
+opmen99810bPortTrafficTx1024to1526Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTx1024to1526Bytes.setStatus("current")
+_Opmen99810bPortTrafficTxExceecd1527Bytes_Type = Counter64
+_Opmen99810bPortTrafficTxExceecd1527Bytes_Object = MibTableColumn
+opmen99810bPortTrafficTxExceecd1527Bytes = _Opmen99810bPortTrafficTxExceecd1527Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 43),
+    _Opmen99810bPortTrafficTxExceecd1527Bytes_Type()
+)
+opmen99810bPortTrafficTxExceecd1527Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxExceecd1527Bytes.setStatus("current")
+_Opmen99810bPortTrafficTxQ0_Type = Counter64
+_Opmen99810bPortTrafficTxQ0_Object = MibTableColumn
+opmen99810bPortTrafficTxQ0 = _Opmen99810bPortTrafficTxQ0_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 44),
+    _Opmen99810bPortTrafficTxQ0_Type()
+)
+opmen99810bPortTrafficTxQ0.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxQ0.setStatus("current")
+_Opmen99810bPortTrafficTxQ1_Type = Counter64
+_Opmen99810bPortTrafficTxQ1_Object = MibTableColumn
+opmen99810bPortTrafficTxQ1 = _Opmen99810bPortTrafficTxQ1_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 45),
+    _Opmen99810bPortTrafficTxQ1_Type()
+)
+opmen99810bPortTrafficTxQ1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxQ1.setStatus("current")
+_Opmen99810bPortTrafficTxQ2_Type = Counter64
+_Opmen99810bPortTrafficTxQ2_Object = MibTableColumn
+opmen99810bPortTrafficTxQ2 = _Opmen99810bPortTrafficTxQ2_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 46),
+    _Opmen99810bPortTrafficTxQ2_Type()
+)
+opmen99810bPortTrafficTxQ2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxQ2.setStatus("current")
+_Opmen99810bPortTrafficTxQ3_Type = Counter64
+_Opmen99810bPortTrafficTxQ3_Object = MibTableColumn
+opmen99810bPortTrafficTxQ3 = _Opmen99810bPortTrafficTxQ3_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 47),
+    _Opmen99810bPortTrafficTxQ3_Type()
+)
+opmen99810bPortTrafficTxQ3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxQ3.setStatus("current")
+_Opmen99810bPortTrafficTxQ4_Type = Counter64
+_Opmen99810bPortTrafficTxQ4_Object = MibTableColumn
+opmen99810bPortTrafficTxQ4 = _Opmen99810bPortTrafficTxQ4_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 48),
+    _Opmen99810bPortTrafficTxQ4_Type()
+)
+opmen99810bPortTrafficTxQ4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxQ4.setStatus("current")
+_Opmen99810bPortTrafficTxQ5_Type = Counter64
+_Opmen99810bPortTrafficTxQ5_Object = MibTableColumn
+opmen99810bPortTrafficTxQ5 = _Opmen99810bPortTrafficTxQ5_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 49),
+    _Opmen99810bPortTrafficTxQ5_Type()
+)
+opmen99810bPortTrafficTxQ5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxQ5.setStatus("current")
+_Opmen99810bPortTrafficTxQ6_Type = Counter64
+_Opmen99810bPortTrafficTxQ6_Object = MibTableColumn
+opmen99810bPortTrafficTxQ6 = _Opmen99810bPortTrafficTxQ6_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 50),
+    _Opmen99810bPortTrafficTxQ6_Type()
+)
+opmen99810bPortTrafficTxQ6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxQ6.setStatus("current")
+_Opmen99810bPortTrafficTxQ7_Type = Counter64
+_Opmen99810bPortTrafficTxQ7_Object = MibTableColumn
+opmen99810bPortTrafficTxQ7 = _Opmen99810bPortTrafficTxQ7_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 51),
+    _Opmen99810bPortTrafficTxQ7_Type()
+)
+opmen99810bPortTrafficTxQ7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxQ7.setStatus("current")
+_Opmen99810bPortTrafficTxDrops_Type = Counter64
+_Opmen99810bPortTrafficTxDrops_Object = MibTableColumn
+opmen99810bPortTrafficTxDrops = _Opmen99810bPortTrafficTxDrops_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 52),
+    _Opmen99810bPortTrafficTxDrops_Type()
+)
+opmen99810bPortTrafficTxDrops.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxDrops.setStatus("current")
+_Opmen99810bPortTrafficTxLateOrExcColl_Type = Counter64
+_Opmen99810bPortTrafficTxLateOrExcColl_Object = MibTableColumn
+opmen99810bPortTrafficTxLateOrExcColl = _Opmen99810bPortTrafficTxLateOrExcColl_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 2, 1, 53),
+    _Opmen99810bPortTrafficTxLateOrExcColl_Type()
+)
+opmen99810bPortTrafficTxLateOrExcColl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortTrafficTxLateOrExcColl.setStatus("current")
+_Opmen99810bPortQoSStatistics_ObjectIdentity = ObjectIdentity
+opmen99810bPortQoSStatistics = _Opmen99810bPortQoSStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3)
+)
+
+
+class _Opmen99810bPortQoSStatisticsClear_Type(Integer32):
+    """Custom type opmen99810bPortQoSStatisticsClear based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("clear", 1))
+    )
+
+
+_Opmen99810bPortQoSStatisticsClear_Type.__name__ = "Integer32"
+_Opmen99810bPortQoSStatisticsClear_Object = MibScalar
+opmen99810bPortQoSStatisticsClear = _Opmen99810bPortQoSStatisticsClear_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 1),
+    _Opmen99810bPortQoSStatisticsClear_Type()
+)
+opmen99810bPortQoSStatisticsClear.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSStatisticsClear.setStatus("current")
+_Opmen99810bPortQoSStatisticsTable_Object = MibTable
+opmen99810bPortQoSStatisticsTable = _Opmen99810bPortQoSStatisticsTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSStatisticsTable.setStatus("current")
+_Opmen99810bPortQoSStatisticsEntry_Object = MibTableRow
+opmen99810bPortQoSStatisticsEntry = _Opmen99810bPortQoSStatisticsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1)
+)
+opmen99810bPortQoSStatisticsEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortQoSStatisticsPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSStatisticsEntry.setStatus("current")
+
+
+class _Opmen99810bPortQoSStatisticsPort_Type(Integer32):
+    """Custom type opmen99810bPortQoSStatisticsPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bPortQoSStatisticsPort_Type.__name__ = "Integer32"
+_Opmen99810bPortQoSStatisticsPort_Object = MibTableColumn
+opmen99810bPortQoSStatisticsPort = _Opmen99810bPortQoSStatisticsPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 1),
+    _Opmen99810bPortQoSStatisticsPort_Type()
+)
+opmen99810bPortQoSStatisticsPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSStatisticsPort.setStatus("current")
+_Opmen99810bPortQoSQ0Rx_Type = Counter64
+_Opmen99810bPortQoSQ0Rx_Object = MibTableColumn
+opmen99810bPortQoSQ0Rx = _Opmen99810bPortQoSQ0Rx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 2),
+    _Opmen99810bPortQoSQ0Rx_Type()
+)
+opmen99810bPortQoSQ0Rx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ0Rx.setStatus("current")
+_Opmen99810bPortQoSQ0Tx_Type = Counter64
+_Opmen99810bPortQoSQ0Tx_Object = MibTableColumn
+opmen99810bPortQoSQ0Tx = _Opmen99810bPortQoSQ0Tx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 3),
+    _Opmen99810bPortQoSQ0Tx_Type()
+)
+opmen99810bPortQoSQ0Tx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ0Tx.setStatus("current")
+_Opmen99810bPortQoSQ1Rx_Type = Counter64
+_Opmen99810bPortQoSQ1Rx_Object = MibTableColumn
+opmen99810bPortQoSQ1Rx = _Opmen99810bPortQoSQ1Rx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 4),
+    _Opmen99810bPortQoSQ1Rx_Type()
+)
+opmen99810bPortQoSQ1Rx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ1Rx.setStatus("current")
+_Opmen99810bPortQoSQ1Tx_Type = Counter64
+_Opmen99810bPortQoSQ1Tx_Object = MibTableColumn
+opmen99810bPortQoSQ1Tx = _Opmen99810bPortQoSQ1Tx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 5),
+    _Opmen99810bPortQoSQ1Tx_Type()
+)
+opmen99810bPortQoSQ1Tx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ1Tx.setStatus("current")
+_Opmen99810bPortQoSQ2Rx_Type = Counter64
+_Opmen99810bPortQoSQ2Rx_Object = MibTableColumn
+opmen99810bPortQoSQ2Rx = _Opmen99810bPortQoSQ2Rx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 6),
+    _Opmen99810bPortQoSQ2Rx_Type()
+)
+opmen99810bPortQoSQ2Rx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ2Rx.setStatus("current")
+_Opmen99810bPortQoSQ2Tx_Type = Counter64
+_Opmen99810bPortQoSQ2Tx_Object = MibTableColumn
+opmen99810bPortQoSQ2Tx = _Opmen99810bPortQoSQ2Tx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 7),
+    _Opmen99810bPortQoSQ2Tx_Type()
+)
+opmen99810bPortQoSQ2Tx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ2Tx.setStatus("current")
+_Opmen99810bPortQoSQ3Rx_Type = Counter64
+_Opmen99810bPortQoSQ3Rx_Object = MibTableColumn
+opmen99810bPortQoSQ3Rx = _Opmen99810bPortQoSQ3Rx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 8),
+    _Opmen99810bPortQoSQ3Rx_Type()
+)
+opmen99810bPortQoSQ3Rx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ3Rx.setStatus("current")
+_Opmen99810bPortQoSQ3Tx_Type = Counter64
+_Opmen99810bPortQoSQ3Tx_Object = MibTableColumn
+opmen99810bPortQoSQ3Tx = _Opmen99810bPortQoSQ3Tx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 9),
+    _Opmen99810bPortQoSQ3Tx_Type()
+)
+opmen99810bPortQoSQ3Tx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ3Tx.setStatus("current")
+_Opmen99810bPortQoSQ4Rx_Type = Counter64
+_Opmen99810bPortQoSQ4Rx_Object = MibTableColumn
+opmen99810bPortQoSQ4Rx = _Opmen99810bPortQoSQ4Rx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 10),
+    _Opmen99810bPortQoSQ4Rx_Type()
+)
+opmen99810bPortQoSQ4Rx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ4Rx.setStatus("current")
+_Opmen99810bPortQoSQ4Tx_Type = Counter64
+_Opmen99810bPortQoSQ4Tx_Object = MibTableColumn
+opmen99810bPortQoSQ4Tx = _Opmen99810bPortQoSQ4Tx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 11),
+    _Opmen99810bPortQoSQ4Tx_Type()
+)
+opmen99810bPortQoSQ4Tx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ4Tx.setStatus("current")
+_Opmen99810bPortQoSQ5Rx_Type = Counter64
+_Opmen99810bPortQoSQ5Rx_Object = MibTableColumn
+opmen99810bPortQoSQ5Rx = _Opmen99810bPortQoSQ5Rx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 12),
+    _Opmen99810bPortQoSQ5Rx_Type()
+)
+opmen99810bPortQoSQ5Rx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ5Rx.setStatus("current")
+_Opmen99810bPortQoSQ5Tx_Type = Counter64
+_Opmen99810bPortQoSQ5Tx_Object = MibTableColumn
+opmen99810bPortQoSQ5Tx = _Opmen99810bPortQoSQ5Tx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 13),
+    _Opmen99810bPortQoSQ5Tx_Type()
+)
+opmen99810bPortQoSQ5Tx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ5Tx.setStatus("current")
+_Opmen99810bPortQoSQ6Rx_Type = Counter64
+_Opmen99810bPortQoSQ6Rx_Object = MibTableColumn
+opmen99810bPortQoSQ6Rx = _Opmen99810bPortQoSQ6Rx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 14),
+    _Opmen99810bPortQoSQ6Rx_Type()
+)
+opmen99810bPortQoSQ6Rx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ6Rx.setStatus("current")
+_Opmen99810bPortQoSQ6Tx_Type = Counter64
+_Opmen99810bPortQoSQ6Tx_Object = MibTableColumn
+opmen99810bPortQoSQ6Tx = _Opmen99810bPortQoSQ6Tx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 15),
+    _Opmen99810bPortQoSQ6Tx_Type()
+)
+opmen99810bPortQoSQ6Tx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ6Tx.setStatus("current")
+_Opmen99810bPortQoSQ7Rx_Type = Counter64
+_Opmen99810bPortQoSQ7Rx_Object = MibTableColumn
+opmen99810bPortQoSQ7Rx = _Opmen99810bPortQoSQ7Rx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 16),
+    _Opmen99810bPortQoSQ7Rx_Type()
+)
+opmen99810bPortQoSQ7Rx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ7Rx.setStatus("current")
+_Opmen99810bPortQoSQ7Tx_Type = Counter64
+_Opmen99810bPortQoSQ7Tx_Object = MibTableColumn
+opmen99810bPortQoSQ7Tx = _Opmen99810bPortQoSQ7Tx_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 3, 2, 1, 17),
+    _Opmen99810bPortQoSQ7Tx_Type()
+)
+opmen99810bPortQoSQ7Tx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortQoSQ7Tx.setStatus("current")
+_Opmen99810bSFPInfoTable_Object = MibTable
+opmen99810bSFPInfoTable = _Opmen99810bSFPInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4)
+)
+if mibBuilder.loadTexts:
+    opmen99810bSFPInfoTable.setStatus("current")
+_Opmen99810bSFPInfoEntry_Object = MibTableRow
+opmen99810bSFPInfoEntry = _Opmen99810bSFPInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1)
+)
+opmen99810bSFPInfoEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bSFPInfoIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bSFPInfoEntry.setStatus("current")
+
+
+class _Opmen99810bSFPInfoIndex_Type(Integer32):
+    """Custom type opmen99810bSFPInfoIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bSFPInfoIndex_Type.__name__ = "Integer32"
+_Opmen99810bSFPInfoIndex_Object = MibTableColumn
+opmen99810bSFPInfoIndex = _Opmen99810bSFPInfoIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 1),
+    _Opmen99810bSFPInfoIndex_Type()
+)
+opmen99810bSFPInfoIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bSFPInfoIndex.setStatus("current")
+_Opmen99810bSFPInfoPort_Type = DisplayString
+_Opmen99810bSFPInfoPort_Object = MibTableColumn
+opmen99810bSFPInfoPort = _Opmen99810bSFPInfoPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 2),
+    _Opmen99810bSFPInfoPort_Type()
+)
+opmen99810bSFPInfoPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPInfoPort.setStatus("current")
+_Opmen99810bSFPConnectorType_Type = DisplayString
+_Opmen99810bSFPConnectorType_Object = MibTableColumn
+opmen99810bSFPConnectorType = _Opmen99810bSFPConnectorType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 3),
+    _Opmen99810bSFPConnectorType_Type()
+)
+opmen99810bSFPConnectorType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPConnectorType.setStatus("current")
+_Opmen99810bSFPFiberType_Type = DisplayString
+_Opmen99810bSFPFiberType_Object = MibTableColumn
+opmen99810bSFPFiberType = _Opmen99810bSFPFiberType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 4),
+    _Opmen99810bSFPFiberType_Type()
+)
+opmen99810bSFPFiberType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPFiberType.setStatus("current")
+_Opmen99810bSFPTxCentralWavelength_Type = DisplayString
+_Opmen99810bSFPTxCentralWavelength_Object = MibTableColumn
+opmen99810bSFPTxCentralWavelength = _Opmen99810bSFPTxCentralWavelength_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 5),
+    _Opmen99810bSFPTxCentralWavelength_Type()
+)
+opmen99810bSFPTxCentralWavelength.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPTxCentralWavelength.setStatus("current")
+_Opmen99810bSFPBaudRate_Type = DisplayString
+_Opmen99810bSFPBaudRate_Object = MibTableColumn
+opmen99810bSFPBaudRate = _Opmen99810bSFPBaudRate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 6),
+    _Opmen99810bSFPBaudRate_Type()
+)
+opmen99810bSFPBaudRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPBaudRate.setStatus("current")
+_Opmen99810bSFPVendorOUI_Type = DisplayString
+_Opmen99810bSFPVendorOUI_Object = MibTableColumn
+opmen99810bSFPVendorOUI = _Opmen99810bSFPVendorOUI_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 7),
+    _Opmen99810bSFPVendorOUI_Type()
+)
+opmen99810bSFPVendorOUI.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPVendorOUI.setStatus("current")
+_Opmen99810bSFPVendorName_Type = DisplayString
+_Opmen99810bSFPVendorName_Object = MibTableColumn
+opmen99810bSFPVendorName = _Opmen99810bSFPVendorName_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 8),
+    _Opmen99810bSFPVendorName_Type()
+)
+opmen99810bSFPVendorName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPVendorName.setStatus("current")
+_Opmen99810bSFPVendorPN_Type = DisplayString
+_Opmen99810bSFPVendorPN_Object = MibTableColumn
+opmen99810bSFPVendorPN = _Opmen99810bSFPVendorPN_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 9),
+    _Opmen99810bSFPVendorPN_Type()
+)
+opmen99810bSFPVendorPN.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPVendorPN.setStatus("current")
+_Opmen99810bSFPVendorRev_Type = DisplayString
+_Opmen99810bSFPVendorRev_Object = MibTableColumn
+opmen99810bSFPVendorRev = _Opmen99810bSFPVendorRev_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 10),
+    _Opmen99810bSFPVendorRev_Type()
+)
+opmen99810bSFPVendorRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPVendorRev.setStatus("current")
+_Opmen99810bSFPVendorSN_Type = DisplayString
+_Opmen99810bSFPVendorSN_Object = MibTableColumn
+opmen99810bSFPVendorSN = _Opmen99810bSFPVendorSN_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 11),
+    _Opmen99810bSFPVendorSN_Type()
+)
+opmen99810bSFPVendorSN.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPVendorSN.setStatus("current")
+_Opmen99810bSFPDateCode_Type = DisplayString
+_Opmen99810bSFPDateCode_Object = MibTableColumn
+opmen99810bSFPDateCode = _Opmen99810bSFPDateCode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 12),
+    _Opmen99810bSFPDateCode_Type()
+)
+opmen99810bSFPDateCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPDateCode.setStatus("current")
+_Opmen99810bSFPTemperature_Type = DisplayString
+_Opmen99810bSFPTemperature_Object = MibTableColumn
+opmen99810bSFPTemperature = _Opmen99810bSFPTemperature_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 13),
+    _Opmen99810bSFPTemperature_Type()
+)
+opmen99810bSFPTemperature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPTemperature.setStatus("current")
+_Opmen99810bSFPVcc_Type = DisplayString
+_Opmen99810bSFPVcc_Object = MibTableColumn
+opmen99810bSFPVcc = _Opmen99810bSFPVcc_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 14),
+    _Opmen99810bSFPVcc_Type()
+)
+opmen99810bSFPVcc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPVcc.setStatus("current")
+_Opmen99810bSFPMon1Bias_Type = DisplayString
+_Opmen99810bSFPMon1Bias_Object = MibTableColumn
+opmen99810bSFPMon1Bias = _Opmen99810bSFPMon1Bias_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 15),
+    _Opmen99810bSFPMon1Bias_Type()
+)
+opmen99810bSFPMon1Bias.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPMon1Bias.setStatus("current")
+_Opmen99810bSFPMon2TxPWR_Type = DisplayString
+_Opmen99810bSFPMon2TxPWR_Object = MibTableColumn
+opmen99810bSFPMon2TxPWR = _Opmen99810bSFPMon2TxPWR_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 16),
+    _Opmen99810bSFPMon2TxPWR_Type()
+)
+opmen99810bSFPMon2TxPWR.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPMon2TxPWR.setStatus("current")
+_Opmen99810bSFPMon3RxPWR_Type = DisplayString
+_Opmen99810bSFPMon3RxPWR_Object = MibTableColumn
+opmen99810bSFPMon3RxPWR = _Opmen99810bSFPMon3RxPWR_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 4, 1, 17),
+    _Opmen99810bSFPMon3RxPWR_Type()
+)
+opmen99810bSFPMon3RxPWR.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSFPMon3RxPWR.setStatus("current")
+_Opmen99810bPortEEETable_Object = MibTable
+opmen99810bPortEEETable = _Opmen99810bPortEEETable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5)
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortEEETable.setStatus("current")
+_Opmen99810bPortEEEEntry_Object = MibTableRow
+opmen99810bPortEEEEntry = _Opmen99810bPortEEEEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1)
+)
+opmen99810bPortEEEEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortEEEPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortEEEEntry.setStatus("current")
+
+
+class _Opmen99810bPortEEEPort_Type(Integer32):
+    """Custom type opmen99810bPortEEEPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bPortEEEPort_Type.__name__ = "Integer32"
+_Opmen99810bPortEEEPort_Object = MibTableColumn
+opmen99810bPortEEEPort = _Opmen99810bPortEEEPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 1),
+    _Opmen99810bPortEEEPort_Type()
+)
+opmen99810bPortEEEPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bPortEEEPort.setStatus("current")
+
+
+class _Opmen99810bPortEEEMode_Type(Integer32):
+    """Custom type opmen99810bPortEEEMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortEEEMode_Type.__name__ = "Integer32"
+_Opmen99810bPortEEEMode_Object = MibTableColumn
+opmen99810bPortEEEMode = _Opmen99810bPortEEEMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 2),
+    _Opmen99810bPortEEEMode_Type()
+)
+opmen99810bPortEEEMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortEEEMode.setStatus("current")
+
+
+class _Opmen99810bPortEEEUrgentQueue1_Type(Integer32):
+    """Custom type opmen99810bPortEEEUrgentQueue1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortEEEUrgentQueue1_Type.__name__ = "Integer32"
+_Opmen99810bPortEEEUrgentQueue1_Object = MibTableColumn
+opmen99810bPortEEEUrgentQueue1 = _Opmen99810bPortEEEUrgentQueue1_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 3),
+    _Opmen99810bPortEEEUrgentQueue1_Type()
+)
+opmen99810bPortEEEUrgentQueue1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortEEEUrgentQueue1.setStatus("current")
+
+
+class _Opmen99810bPortEEEUrgentQueue2_Type(Integer32):
+    """Custom type opmen99810bPortEEEUrgentQueue2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortEEEUrgentQueue2_Type.__name__ = "Integer32"
+_Opmen99810bPortEEEUrgentQueue2_Object = MibTableColumn
+opmen99810bPortEEEUrgentQueue2 = _Opmen99810bPortEEEUrgentQueue2_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 4),
+    _Opmen99810bPortEEEUrgentQueue2_Type()
+)
+opmen99810bPortEEEUrgentQueue2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortEEEUrgentQueue2.setStatus("current")
+
+
+class _Opmen99810bPortEEEUrgentQueue3_Type(Integer32):
+    """Custom type opmen99810bPortEEEUrgentQueue3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortEEEUrgentQueue3_Type.__name__ = "Integer32"
+_Opmen99810bPortEEEUrgentQueue3_Object = MibTableColumn
+opmen99810bPortEEEUrgentQueue3 = _Opmen99810bPortEEEUrgentQueue3_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 5),
+    _Opmen99810bPortEEEUrgentQueue3_Type()
+)
+opmen99810bPortEEEUrgentQueue3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortEEEUrgentQueue3.setStatus("current")
+
+
+class _Opmen99810bPortEEEUrgentQueue4_Type(Integer32):
+    """Custom type opmen99810bPortEEEUrgentQueue4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortEEEUrgentQueue4_Type.__name__ = "Integer32"
+_Opmen99810bPortEEEUrgentQueue4_Object = MibTableColumn
+opmen99810bPortEEEUrgentQueue4 = _Opmen99810bPortEEEUrgentQueue4_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 6),
+    _Opmen99810bPortEEEUrgentQueue4_Type()
+)
+opmen99810bPortEEEUrgentQueue4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortEEEUrgentQueue4.setStatus("current")
+
+
+class _Opmen99810bPortEEEUrgentQueue5_Type(Integer32):
+    """Custom type opmen99810bPortEEEUrgentQueue5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortEEEUrgentQueue5_Type.__name__ = "Integer32"
+_Opmen99810bPortEEEUrgentQueue5_Object = MibTableColumn
+opmen99810bPortEEEUrgentQueue5 = _Opmen99810bPortEEEUrgentQueue5_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 7),
+    _Opmen99810bPortEEEUrgentQueue5_Type()
+)
+opmen99810bPortEEEUrgentQueue5.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortEEEUrgentQueue5.setStatus("current")
+
+
+class _Opmen99810bPortEEEUrgentQueue6_Type(Integer32):
+    """Custom type opmen99810bPortEEEUrgentQueue6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortEEEUrgentQueue6_Type.__name__ = "Integer32"
+_Opmen99810bPortEEEUrgentQueue6_Object = MibTableColumn
+opmen99810bPortEEEUrgentQueue6 = _Opmen99810bPortEEEUrgentQueue6_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 8),
+    _Opmen99810bPortEEEUrgentQueue6_Type()
+)
+opmen99810bPortEEEUrgentQueue6.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortEEEUrgentQueue6.setStatus("current")
+
+
+class _Opmen99810bPortEEEUrgentQueue7_Type(Integer32):
+    """Custom type opmen99810bPortEEEUrgentQueue7 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortEEEUrgentQueue7_Type.__name__ = "Integer32"
+_Opmen99810bPortEEEUrgentQueue7_Object = MibTableColumn
+opmen99810bPortEEEUrgentQueue7 = _Opmen99810bPortEEEUrgentQueue7_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 9),
+    _Opmen99810bPortEEEUrgentQueue7_Type()
+)
+opmen99810bPortEEEUrgentQueue7.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortEEEUrgentQueue7.setStatus("current")
+
+
+class _Opmen99810bPortEEEUrgentQueue8_Type(Integer32):
+    """Custom type opmen99810bPortEEEUrgentQueue8 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortEEEUrgentQueue8_Type.__name__ = "Integer32"
+_Opmen99810bPortEEEUrgentQueue8_Object = MibTableColumn
+opmen99810bPortEEEUrgentQueue8 = _Opmen99810bPortEEEUrgentQueue8_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 1, 5, 1, 10),
+    _Opmen99810bPortEEEUrgentQueue8_Type()
+)
+opmen99810bPortEEEUrgentQueue8.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortEEEUrgentQueue8.setStatus("current")
+_Opmen99810bVoiceVLAN_ObjectIdentity = ObjectIdentity
+opmen99810bVoiceVLAN = _Opmen99810bVoiceVLAN_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2)
+)
+_Opmen99810bVoiceVLANConf_ObjectIdentity = ObjectIdentity
+opmen99810bVoiceVLANConf = _Opmen99810bVoiceVLANConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1)
+)
+
+
+class _Opmen99810bVoiceVLANMode_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bVoiceVLANMode_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANMode_Object = MibScalar
+opmen99810bVoiceVLANMode = _Opmen99810bVoiceVLANMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 1),
+    _Opmen99810bVoiceVLANMode_Type()
+)
+opmen99810bVoiceVLANMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANMode.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANVLANId_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANVLANId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_Opmen99810bVoiceVLANVLANId_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANVLANId_Object = MibScalar
+opmen99810bVoiceVLANVLANId = _Opmen99810bVoiceVLANVLANId_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 2),
+    _Opmen99810bVoiceVLANVLANId_Type()
+)
+opmen99810bVoiceVLANVLANId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANVLANId.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANAgingTime_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANAgingTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 1000000),
+    )
+
+
+_Opmen99810bVoiceVLANAgingTime_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANAgingTime_Object = MibScalar
+opmen99810bVoiceVLANAgingTime = _Opmen99810bVoiceVLANAgingTime_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 3),
+    _Opmen99810bVoiceVLANAgingTime_Type()
+)
+opmen99810bVoiceVLANAgingTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANAgingTime.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANTrafficClass_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANTrafficClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Opmen99810bVoiceVLANTrafficClass_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANTrafficClass_Object = MibScalar
+opmen99810bVoiceVLANTrafficClass = _Opmen99810bVoiceVLANTrafficClass_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 4),
+    _Opmen99810bVoiceVLANTrafficClass_Type()
+)
+opmen99810bVoiceVLANTrafficClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANTrafficClass.setStatus("current")
+_Opmen99810bVoiceVLANPortTable_Object = MibTable
+opmen99810bVoiceVLANPortTable = _Opmen99810bVoiceVLANPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5)
+)
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANPortTable.setStatus("current")
+_Opmen99810bVoiceVLANPortEntry_Object = MibTableRow
+opmen99810bVoiceVLANPortEntry = _Opmen99810bVoiceVLANPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5, 1)
+)
+opmen99810bVoiceVLANPortEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bVoiceVLANPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANPortEntry.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANPort_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bVoiceVLANPort_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANPort_Object = MibTableColumn
+opmen99810bVoiceVLANPort = _Opmen99810bVoiceVLANPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5, 1, 1),
+    _Opmen99810bVoiceVLANPort_Type()
+)
+opmen99810bVoiceVLANPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANPort.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANPortMode_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANPortMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("auto", 1),
+          ("forced", 2))
+    )
+
+
+_Opmen99810bVoiceVLANPortMode_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANPortMode_Object = MibTableColumn
+opmen99810bVoiceVLANPortMode = _Opmen99810bVoiceVLANPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5, 1, 2),
+    _Opmen99810bVoiceVLANPortMode_Type()
+)
+opmen99810bVoiceVLANPortMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANPortMode.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANPortSecurity_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANPortSecurity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bVoiceVLANPortSecurity_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANPortSecurity_Object = MibTableColumn
+opmen99810bVoiceVLANPortSecurity = _Opmen99810bVoiceVLANPortSecurity_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5, 1, 3),
+    _Opmen99810bVoiceVLANPortSecurity_Type()
+)
+opmen99810bVoiceVLANPortSecurity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANPortSecurity.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANPortDiscoveryProtocol_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANPortDiscoveryProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("oui", 0),
+          ("lldp", 1),
+          ("both", 2))
+    )
+
+
+_Opmen99810bVoiceVLANPortDiscoveryProtocol_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANPortDiscoveryProtocol_Object = MibTableColumn
+opmen99810bVoiceVLANPortDiscoveryProtocol = _Opmen99810bVoiceVLANPortDiscoveryProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 1, 5, 1, 4),
+    _Opmen99810bVoiceVLANPortDiscoveryProtocol_Type()
+)
+opmen99810bVoiceVLANPortDiscoveryProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANPortDiscoveryProtocol.setStatus("current")
+_Opmen99810bVoiceVLANOUI_ObjectIdentity = ObjectIdentity
+opmen99810bVoiceVLANOUI = _Opmen99810bVoiceVLANOUI_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2)
+)
+
+
+class _Opmen99810bVoiceVLANOUICreate_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANOUICreate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("create", 1))
+    )
+
+
+_Opmen99810bVoiceVLANOUICreate_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANOUICreate_Object = MibScalar
+opmen99810bVoiceVLANOUICreate = _Opmen99810bVoiceVLANOUICreate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 1),
+    _Opmen99810bVoiceVLANOUICreate_Type()
+)
+opmen99810bVoiceVLANOUICreate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANOUICreate.setStatus("current")
+_Opmen99810bVoiceVLANOUITable_Object = MibTable
+opmen99810bVoiceVLANOUITable = _Opmen99810bVoiceVLANOUITable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANOUITable.setStatus("current")
+_Opmen99810bVoiceVLANOUIEntry_Object = MibTableRow
+opmen99810bVoiceVLANOUIEntry = _Opmen99810bVoiceVLANOUIEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2, 1)
+)
+opmen99810bVoiceVLANOUIEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bVoiceVLANOUIIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANOUIEntry.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANOUIIndex_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANOUIIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_Opmen99810bVoiceVLANOUIIndex_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANOUIIndex_Object = MibTableColumn
+opmen99810bVoiceVLANOUIIndex = _Opmen99810bVoiceVLANOUIIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2, 1, 1),
+    _Opmen99810bVoiceVLANOUIIndex_Type()
+)
+opmen99810bVoiceVLANOUIIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANOUIIndex.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANTelephonyOUI_Type(OctetString):
+    """Custom type opmen99810bVoiceVLANTelephonyOUI based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_Opmen99810bVoiceVLANTelephonyOUI_Type.__name__ = "OctetString"
+_Opmen99810bVoiceVLANTelephonyOUI_Object = MibTableColumn
+opmen99810bVoiceVLANTelephonyOUI = _Opmen99810bVoiceVLANTelephonyOUI_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2, 1, 2),
+    _Opmen99810bVoiceVLANTelephonyOUI_Type()
+)
+opmen99810bVoiceVLANTelephonyOUI.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANTelephonyOUI.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANDescription_Type(DisplayString):
+    """Custom type opmen99810bVoiceVLANDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_Opmen99810bVoiceVLANDescription_Type.__name__ = "DisplayString"
+_Opmen99810bVoiceVLANDescription_Object = MibTableColumn
+opmen99810bVoiceVLANDescription = _Opmen99810bVoiceVLANDescription_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2, 1, 3),
+    _Opmen99810bVoiceVLANDescription_Type()
+)
+opmen99810bVoiceVLANDescription.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANDescription.setStatus("current")
+
+
+class _Opmen99810bVoiceVLANOUIRowStatus_Type(Integer32):
+    """Custom type opmen99810bVoiceVLANOUIRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("notInservice", 2),
+          ("destroy", 4),
+          ("undo", 5))
+    )
+
+
+_Opmen99810bVoiceVLANOUIRowStatus_Type.__name__ = "Integer32"
+_Opmen99810bVoiceVLANOUIRowStatus_Object = MibTableColumn
+opmen99810bVoiceVLANOUIRowStatus = _Opmen99810bVoiceVLANOUIRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 2, 2, 2, 1, 4),
+    _Opmen99810bVoiceVLANOUIRowStatus_Type()
+)
+opmen99810bVoiceVLANOUIRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVoiceVLANOUIRowStatus.setStatus("current")
+_Opmen99810bGARP_ObjectIdentity = ObjectIdentity
+opmen99810bGARP = _Opmen99810bGARP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3)
+)
+_Opmen99810bGARPConfTable_Object = MibTable
+opmen99810bGARPConfTable = _Opmen99810bGARPConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1)
+)
+if mibBuilder.loadTexts:
+    opmen99810bGARPConfTable.setStatus("current")
+_Opmen99810bGARPConfEntry_Object = MibTableRow
+opmen99810bGARPConfEntry = _Opmen99810bGARPConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1)
+)
+opmen99810bGARPConfEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bGARPConfPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bGARPConfEntry.setStatus("current")
+
+
+class _Opmen99810bGARPConfPort_Type(Integer32):
+    """Custom type opmen99810bGARPConfPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bGARPConfPort_Type.__name__ = "Integer32"
+_Opmen99810bGARPConfPort_Object = MibTableColumn
+opmen99810bGARPConfPort = _Opmen99810bGARPConfPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 1),
+    _Opmen99810bGARPConfPort_Type()
+)
+opmen99810bGARPConfPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bGARPConfPort.setStatus("current")
+
+
+class _Opmen99810bGARPJoinTimer_Type(Integer32):
+    """Custom type opmen99810bGARPJoinTimer based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(200, 1000),
+    )
+
+
+_Opmen99810bGARPJoinTimer_Type.__name__ = "Integer32"
+_Opmen99810bGARPJoinTimer_Object = MibTableColumn
+opmen99810bGARPJoinTimer = _Opmen99810bGARPJoinTimer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 2),
+    _Opmen99810bGARPJoinTimer_Type()
+)
+opmen99810bGARPJoinTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGARPJoinTimer.setStatus("current")
+
+
+class _Opmen99810bGARPLeaveTimer_Type(Integer32):
+    """Custom type opmen99810bGARPLeaveTimer based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(600, 3000),
+    )
+
+
+_Opmen99810bGARPLeaveTimer_Type.__name__ = "Integer32"
+_Opmen99810bGARPLeaveTimer_Object = MibTableColumn
+opmen99810bGARPLeaveTimer = _Opmen99810bGARPLeaveTimer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 3),
+    _Opmen99810bGARPLeaveTimer_Type()
+)
+opmen99810bGARPLeaveTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGARPLeaveTimer.setStatus("current")
+
+
+class _Opmen99810bGARPLeaveAllTimer_Type(Integer32):
+    """Custom type opmen99810bGARPLeaveAllTimer based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10000, 50000),
+    )
+
+
+_Opmen99810bGARPLeaveAllTimer_Type.__name__ = "Integer32"
+_Opmen99810bGARPLeaveAllTimer_Object = MibTableColumn
+opmen99810bGARPLeaveAllTimer = _Opmen99810bGARPLeaveAllTimer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 4),
+    _Opmen99810bGARPLeaveAllTimer_Type()
+)
+opmen99810bGARPLeaveAllTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGARPLeaveAllTimer.setStatus("current")
+
+
+class _Opmen99810bGARPApplicantion_Type(Integer32):
+    """Custom type opmen99810bGARPApplicantion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("gvrp", 1)
+    )
+
+
+_Opmen99810bGARPApplicantion_Type.__name__ = "Integer32"
+_Opmen99810bGARPApplicantion_Object = MibTableColumn
+opmen99810bGARPApplicantion = _Opmen99810bGARPApplicantion_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 5),
+    _Opmen99810bGARPApplicantion_Type()
+)
+opmen99810bGARPApplicantion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGARPApplicantion.setStatus("current")
+
+
+class _Opmen99810bGARPAttributeType_Type(Integer32):
+    """Custom type opmen99810bGARPAttributeType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("vlan", 1)
+    )
+
+
+_Opmen99810bGARPAttributeType_Type.__name__ = "Integer32"
+_Opmen99810bGARPAttributeType_Object = MibTableColumn
+opmen99810bGARPAttributeType = _Opmen99810bGARPAttributeType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 6),
+    _Opmen99810bGARPAttributeType_Type()
+)
+opmen99810bGARPAttributeType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGARPAttributeType.setStatus("current")
+
+
+class _Opmen99810bGARPApplicant_Type(Integer32):
+    """Custom type opmen99810bGARPApplicant based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("participant", 0),
+          ("nonParticipant", 1))
+    )
+
+
+_Opmen99810bGARPApplicant_Type.__name__ = "Integer32"
+_Opmen99810bGARPApplicant_Object = MibTableColumn
+opmen99810bGARPApplicant = _Opmen99810bGARPApplicant_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 1, 1, 7),
+    _Opmen99810bGARPApplicant_Type()
+)
+opmen99810bGARPApplicant.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGARPApplicant.setStatus("current")
+_Opmen99810bGARPStatisticsTable_Object = MibTable
+opmen99810bGARPStatisticsTable = _Opmen99810bGARPStatisticsTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bGARPStatisticsTable.setStatus("current")
+_Opmen99810bGARPStatisticsEntry_Object = MibTableRow
+opmen99810bGARPStatisticsEntry = _Opmen99810bGARPStatisticsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 2, 1)
+)
+opmen99810bGARPStatisticsEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bGARPStatisticsPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bGARPStatisticsEntry.setStatus("current")
+
+
+class _Opmen99810bGARPStatisticsPort_Type(Integer32):
+    """Custom type opmen99810bGARPStatisticsPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bGARPStatisticsPort_Type.__name__ = "Integer32"
+_Opmen99810bGARPStatisticsPort_Object = MibTableColumn
+opmen99810bGARPStatisticsPort = _Opmen99810bGARPStatisticsPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 2, 1, 1),
+    _Opmen99810bGARPStatisticsPort_Type()
+)
+opmen99810bGARPStatisticsPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bGARPStatisticsPort.setStatus("current")
+_Opmen99810bGARPStatisticsPeerMAC_Type = DisplayString
+_Opmen99810bGARPStatisticsPeerMAC_Object = MibTableColumn
+opmen99810bGARPStatisticsPeerMAC = _Opmen99810bGARPStatisticsPeerMAC_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 2, 1, 2),
+    _Opmen99810bGARPStatisticsPeerMAC_Type()
+)
+opmen99810bGARPStatisticsPeerMAC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bGARPStatisticsPeerMAC.setStatus("current")
+_Opmen99810bGARPStatisticsFailedCount_Type = Counter32
+_Opmen99810bGARPStatisticsFailedCount_Object = MibTableColumn
+opmen99810bGARPStatisticsFailedCount = _Opmen99810bGARPStatisticsFailedCount_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 3, 2, 1, 3),
+    _Opmen99810bGARPStatisticsFailedCount_Type()
+)
+opmen99810bGARPStatisticsFailedCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bGARPStatisticsFailedCount.setStatus("current")
+_Opmen99810bGVRP_ObjectIdentity = ObjectIdentity
+opmen99810bGVRP = _Opmen99810bGVRP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4)
+)
+_Opmen99810bGVRPConf_ObjectIdentity = ObjectIdentity
+opmen99810bGVRPConf = _Opmen99810bGVRPConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1)
+)
+
+
+class _Opmen99810bGVRPMode_Type(Integer32):
+    """Custom type opmen99810bGVRPMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bGVRPMode_Type.__name__ = "Integer32"
+_Opmen99810bGVRPMode_Object = MibScalar
+opmen99810bGVRPMode = _Opmen99810bGVRPMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 1),
+    _Opmen99810bGVRPMode_Type()
+)
+opmen99810bGVRPMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGVRPMode.setStatus("current")
+_Opmen99810bGVRPConfTable_Object = MibTable
+opmen99810bGVRPConfTable = _Opmen99810bGVRPConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bGVRPConfTable.setStatus("current")
+_Opmen99810bGVRPConfEntry_Object = MibTableRow
+opmen99810bGVRPConfEntry = _Opmen99810bGVRPConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 2, 1)
+)
+opmen99810bGVRPConfEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bGVRPConfPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bGVRPConfEntry.setStatus("current")
+
+
+class _Opmen99810bGVRPConfPort_Type(Integer32):
+    """Custom type opmen99810bGVRPConfPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bGVRPConfPort_Type.__name__ = "Integer32"
+_Opmen99810bGVRPConfPort_Object = MibTableColumn
+opmen99810bGVRPConfPort = _Opmen99810bGVRPConfPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 2, 1, 1),
+    _Opmen99810bGVRPConfPort_Type()
+)
+opmen99810bGVRPConfPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bGVRPConfPort.setStatus("current")
+
+
+class _Opmen99810bGVRPConfPortMode_Type(Integer32):
+    """Custom type opmen99810bGVRPConfPortMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bGVRPConfPortMode_Type.__name__ = "Integer32"
+_Opmen99810bGVRPConfPortMode_Object = MibTableColumn
+opmen99810bGVRPConfPortMode = _Opmen99810bGVRPConfPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 2, 1, 2),
+    _Opmen99810bGVRPConfPortMode_Type()
+)
+opmen99810bGVRPConfPortMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGVRPConfPortMode.setStatus("current")
+
+
+class _Opmen99810bGVRPConfPortRRole_Type(Integer32):
+    """Custom type opmen99810bGVRPConfPortRRole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bGVRPConfPortRRole_Type.__name__ = "Integer32"
+_Opmen99810bGVRPConfPortRRole_Object = MibTableColumn
+opmen99810bGVRPConfPortRRole = _Opmen99810bGVRPConfPortRRole_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 1, 2, 1, 3),
+    _Opmen99810bGVRPConfPortRRole_Type()
+)
+opmen99810bGVRPConfPortRRole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bGVRPConfPortRRole.setStatus("current")
+_Opmen99810bGVRPStatisticsTable_Object = MibTable
+opmen99810bGVRPStatisticsTable = _Opmen99810bGVRPStatisticsTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bGVRPStatisticsTable.setStatus("current")
+_Opmen99810bGVRPStatisticsEntry_Object = MibTableRow
+opmen99810bGVRPStatisticsEntry = _Opmen99810bGVRPStatisticsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 2, 1)
+)
+opmen99810bGVRPStatisticsEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bGVRPStatisticsPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bGVRPStatisticsEntry.setStatus("current")
+
+
+class _Opmen99810bGVRPStatisticsPort_Type(Integer32):
+    """Custom type opmen99810bGVRPStatisticsPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bGVRPStatisticsPort_Type.__name__ = "Integer32"
+_Opmen99810bGVRPStatisticsPort_Object = MibTableColumn
+opmen99810bGVRPStatisticsPort = _Opmen99810bGVRPStatisticsPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 2, 1, 1),
+    _Opmen99810bGVRPStatisticsPort_Type()
+)
+opmen99810bGVRPStatisticsPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bGVRPStatisticsPort.setStatus("current")
+_Opmen99810bGVRPStatisticsJoinTxCnt_Type = Counter32
+_Opmen99810bGVRPStatisticsJoinTxCnt_Object = MibTableColumn
+opmen99810bGVRPStatisticsJoinTxCnt = _Opmen99810bGVRPStatisticsJoinTxCnt_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 2, 1, 2),
+    _Opmen99810bGVRPStatisticsJoinTxCnt_Type()
+)
+opmen99810bGVRPStatisticsJoinTxCnt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bGVRPStatisticsJoinTxCnt.setStatus("current")
+_Opmen99810bGVRPStatisticsLeaveTxCnt_Type = Counter32
+_Opmen99810bGVRPStatisticsLeaveTxCnt_Object = MibTableColumn
+opmen99810bGVRPStatisticsLeaveTxCnt = _Opmen99810bGVRPStatisticsLeaveTxCnt_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 4, 2, 1, 3),
+    _Opmen99810bGVRPStatisticsLeaveTxCnt_Type()
+)
+opmen99810bGVRPStatisticsLeaveTxCnt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bGVRPStatisticsLeaveTxCnt.setStatus("current")
+_Opmen99810bMirroring_ObjectIdentity = ObjectIdentity
+opmen99810bMirroring = _Opmen99810bMirroring_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6)
+)
+
+
+class _Opmen99810bPortToMirrorOn_Type(Integer32):
+    """Custom type opmen99810bPortToMirrorOn based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10),
+    )
+
+
+_Opmen99810bPortToMirrorOn_Type.__name__ = "Integer32"
+_Opmen99810bPortToMirrorOn_Object = MibScalar
+opmen99810bPortToMirrorOn = _Opmen99810bPortToMirrorOn_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6, 1),
+    _Opmen99810bPortToMirrorOn_Type()
+)
+opmen99810bPortToMirrorOn.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortToMirrorOn.setStatus("current")
+_Opmen99810bMirrorTable_Object = MibTable
+opmen99810bMirrorTable = _Opmen99810bMirrorTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bMirrorTable.setStatus("current")
+_Opmen99810bMirrorEntry_Object = MibTableRow
+opmen99810bMirrorEntry = _Opmen99810bMirrorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6, 2, 1)
+)
+opmen99810bMirrorEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bMirrorPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bMirrorEntry.setStatus("current")
+
+
+class _Opmen99810bMirrorPort_Type(Integer32):
+    """Custom type opmen99810bMirrorPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bMirrorPort_Type.__name__ = "Integer32"
+_Opmen99810bMirrorPort_Object = MibTableColumn
+opmen99810bMirrorPort = _Opmen99810bMirrorPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6, 2, 1, 1),
+    _Opmen99810bMirrorPort_Type()
+)
+opmen99810bMirrorPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bMirrorPort.setStatus("current")
+
+
+class _Opmen99810bMirrorMode_Type(Integer32):
+    """Custom type opmen99810bMirrorMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1),
+          ("rxOnly", 2),
+          ("txOnly", 3))
+    )
+
+
+_Opmen99810bMirrorMode_Type.__name__ = "Integer32"
+_Opmen99810bMirrorMode_Object = MibTableColumn
+opmen99810bMirrorMode = _Opmen99810bMirrorMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 6, 2, 1, 2),
+    _Opmen99810bMirrorMode_Type()
+)
+opmen99810bMirrorMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bMirrorMode.setStatus("current")
+_Opmen99810bTrapEventSeverity_ObjectIdentity = ObjectIdentity
+opmen99810bTrapEventSeverity = _Opmen99810bTrapEventSeverity_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7)
+)
+
+
+class _Opmen99810bTrapEventSeverityACL_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityACL based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityACL_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityACL_Object = MibScalar
+opmen99810bTrapEventSeverityACL = _Opmen99810bTrapEventSeverityACL_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 1),
+    _Opmen99810bTrapEventSeverityACL_Type()
+)
+opmen99810bTrapEventSeverityACL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityACL.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityACLLog_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityACLLog based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityACLLog_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityACLLog_Object = MibScalar
+opmen99810bTrapEventSeverityACLLog = _Opmen99810bTrapEventSeverityACLLog_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 2),
+    _Opmen99810bTrapEventSeverityACLLog_Type()
+)
+opmen99810bTrapEventSeverityACLLog.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityACLLog.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityAccessMgmt_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityAccessMgmt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityAccessMgmt_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityAccessMgmt_Object = MibScalar
+opmen99810bTrapEventSeverityAccessMgmt = _Opmen99810bTrapEventSeverityAccessMgmt_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 3),
+    _Opmen99810bTrapEventSeverityAccessMgmt_Type()
+)
+opmen99810bTrapEventSeverityAccessMgmt.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityAccessMgmt.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityAuthFailed_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityAuthFailed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityAuthFailed_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityAuthFailed_Object = MibScalar
+opmen99810bTrapEventSeverityAuthFailed = _Opmen99810bTrapEventSeverityAuthFailed_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 4),
+    _Opmen99810bTrapEventSeverityAuthFailed_Type()
+)
+opmen99810bTrapEventSeverityAuthFailed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityAuthFailed.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityColdStart_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityColdStart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityColdStart_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityColdStart_Object = MibScalar
+opmen99810bTrapEventSeverityColdStart = _Opmen99810bTrapEventSeverityColdStart_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 5),
+    _Opmen99810bTrapEventSeverityColdStart_Type()
+)
+opmen99810bTrapEventSeverityColdStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityColdStart.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityConfigInfo_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityConfigInfo based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityConfigInfo_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityConfigInfo_Object = MibScalar
+opmen99810bTrapEventSeverityConfigInfo = _Opmen99810bTrapEventSeverityConfigInfo_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 6),
+    _Opmen99810bTrapEventSeverityConfigInfo_Type()
+)
+opmen99810bTrapEventSeverityConfigInfo.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityConfigInfo.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityFirmwareUpgrade_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityFirmwareUpgrade based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityFirmwareUpgrade_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityFirmwareUpgrade_Object = MibScalar
+opmen99810bTrapEventSeverityFirmwareUpgrade = _Opmen99810bTrapEventSeverityFirmwareUpgrade_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 7),
+    _Opmen99810bTrapEventSeverityFirmwareUpgrade_Type()
+)
+opmen99810bTrapEventSeverityFirmwareUpgrade.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityFirmwareUpgrade.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityImportExport_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityImportExport based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityImportExport_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityImportExport_Object = MibScalar
+opmen99810bTrapEventSeverityImportExport = _Opmen99810bTrapEventSeverityImportExport_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 8),
+    _Opmen99810bTrapEventSeverityImportExport_Type()
+)
+opmen99810bTrapEventSeverityImportExport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityImportExport.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityLACP_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityLACP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityLACP_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityLACP_Object = MibScalar
+opmen99810bTrapEventSeverityLACP = _Opmen99810bTrapEventSeverityLACP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 9),
+    _Opmen99810bTrapEventSeverityLACP_Type()
+)
+opmen99810bTrapEventSeverityLACP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityLACP.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityLinkStatus_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityLinkStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityLinkStatus_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityLinkStatus_Object = MibScalar
+opmen99810bTrapEventSeverityLinkStatus = _Opmen99810bTrapEventSeverityLinkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 10),
+    _Opmen99810bTrapEventSeverityLinkStatus_Type()
+)
+opmen99810bTrapEventSeverityLinkStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityLinkStatus.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityLogin_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityLogin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityLogin_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityLogin_Object = MibScalar
+opmen99810bTrapEventSeverityLogin = _Opmen99810bTrapEventSeverityLogin_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 11),
+    _Opmen99810bTrapEventSeverityLogin_Type()
+)
+opmen99810bTrapEventSeverityLogin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityLogin.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityLogout_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityLogout based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityLogout_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityLogout_Object = MibScalar
+opmen99810bTrapEventSeverityLogout = _Opmen99810bTrapEventSeverityLogout_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 12),
+    _Opmen99810bTrapEventSeverityLogout_Type()
+)
+opmen99810bTrapEventSeverityLogout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityLogout.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityLoopProtect_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityLoopProtect based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityLoopProtect_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityLoopProtect_Object = MibScalar
+opmen99810bTrapEventSeverityLoopProtect = _Opmen99810bTrapEventSeverityLoopProtect_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 13),
+    _Opmen99810bTrapEventSeverityLoopProtect_Type()
+)
+opmen99810bTrapEventSeverityLoopProtect.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityLoopProtect.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityMgmtIPChange_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityMgmtIPChange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityMgmtIPChange_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityMgmtIPChange_Object = MibScalar
+opmen99810bTrapEventSeverityMgmtIPChange = _Opmen99810bTrapEventSeverityMgmtIPChange_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 14),
+    _Opmen99810bTrapEventSeverityMgmtIPChange_Type()
+)
+opmen99810bTrapEventSeverityMgmtIPChange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityMgmtIPChange.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityModuleChange_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityModuleChange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityModuleChange_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityModuleChange_Object = MibScalar
+opmen99810bTrapEventSeverityModuleChange = _Opmen99810bTrapEventSeverityModuleChange_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 15),
+    _Opmen99810bTrapEventSeverityModuleChange_Type()
+)
+opmen99810bTrapEventSeverityModuleChange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityModuleChange.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityNAS_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityNAS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityNAS_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityNAS_Object = MibScalar
+opmen99810bTrapEventSeverityNAS = _Opmen99810bTrapEventSeverityNAS_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 16),
+    _Opmen99810bTrapEventSeverityNAS_Type()
+)
+opmen99810bTrapEventSeverityNAS.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityNAS.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityPasswordChange_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityPasswordChange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityPasswordChange_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityPasswordChange_Object = MibScalar
+opmen99810bTrapEventSeverityPasswordChange = _Opmen99810bTrapEventSeverityPasswordChange_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 17),
+    _Opmen99810bTrapEventSeverityPasswordChange_Type()
+)
+opmen99810bTrapEventSeverityPasswordChange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityPasswordChange.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityPortSecurity_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityPortSecurity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityPortSecurity_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityPortSecurity_Object = MibScalar
+opmen99810bTrapEventSeverityPortSecurity = _Opmen99810bTrapEventSeverityPortSecurity_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 18),
+    _Opmen99810bTrapEventSeverityPortSecurity_Type()
+)
+opmen99810bTrapEventSeverityPortSecurity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityPortSecurity.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityVLAN_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityVLAN based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityVLAN_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityVLAN_Object = MibScalar
+opmen99810bTrapEventSeverityVLAN = _Opmen99810bTrapEventSeverityVLAN_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 20),
+    _Opmen99810bTrapEventSeverityVLAN_Type()
+)
+opmen99810bTrapEventSeverityVLAN.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityVLAN.setStatus("current")
+
+
+class _Opmen99810bTrapEventSeverityWarmStart_Type(Integer32):
+    """Custom type opmen99810bTrapEventSeverityWarmStart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bTrapEventSeverityWarmStart_Type.__name__ = "Integer32"
+_Opmen99810bTrapEventSeverityWarmStart_Object = MibScalar
+opmen99810bTrapEventSeverityWarmStart = _Opmen99810bTrapEventSeverityWarmStart_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 7, 21),
+    _Opmen99810bTrapEventSeverityWarmStart_Type()
+)
+opmen99810bTrapEventSeverityWarmStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTrapEventSeverityWarmStart.setStatus("current")
+_Opmen99810bSMTP_ObjectIdentity = ObjectIdentity
+opmen99810bSMTP = _Opmen99810bSMTP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8)
+)
+_Opmen99810bSMTPMailServer_Type = DisplayString
+_Opmen99810bSMTPMailServer_Object = MibScalar
+opmen99810bSMTPMailServer = _Opmen99810bSMTPMailServer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 1),
+    _Opmen99810bSMTPMailServer_Type()
+)
+opmen99810bSMTPMailServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPMailServer.setStatus("current")
+_Opmen99810bSMTPUserName_Type = DisplayString
+_Opmen99810bSMTPUserName_Object = MibScalar
+opmen99810bSMTPUserName = _Opmen99810bSMTPUserName_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 2),
+    _Opmen99810bSMTPUserName_Type()
+)
+opmen99810bSMTPUserName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPUserName.setStatus("current")
+_Opmen99810bSMTPPassword_Type = DisplayString
+_Opmen99810bSMTPPassword_Object = MibScalar
+opmen99810bSMTPPassword = _Opmen99810bSMTPPassword_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 3),
+    _Opmen99810bSMTPPassword_Type()
+)
+opmen99810bSMTPPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPPassword.setStatus("current")
+
+
+class _Opmen99810bSMTPServeriryLevel_Type(Integer32):
+    """Custom type opmen99810bSMTPServeriryLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("emergency", 0),
+          ("alert", 1),
+          ("critical", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("notice", 5),
+          ("info", 6),
+          ("debug", 7))
+    )
+
+
+_Opmen99810bSMTPServeriryLevel_Type.__name__ = "Integer32"
+_Opmen99810bSMTPServeriryLevel_Object = MibScalar
+opmen99810bSMTPServeriryLevel = _Opmen99810bSMTPServeriryLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 4),
+    _Opmen99810bSMTPServeriryLevel_Type()
+)
+opmen99810bSMTPServeriryLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPServeriryLevel.setStatus("current")
+_Opmen99810bSMTPSender_Type = DisplayString
+_Opmen99810bSMTPSender_Object = MibScalar
+opmen99810bSMTPSender = _Opmen99810bSMTPSender_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 5),
+    _Opmen99810bSMTPSender_Type()
+)
+opmen99810bSMTPSender.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPSender.setStatus("current")
+_Opmen99810bSMTPReturnPath_Type = DisplayString
+_Opmen99810bSMTPReturnPath_Object = MibScalar
+opmen99810bSMTPReturnPath = _Opmen99810bSMTPReturnPath_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 6),
+    _Opmen99810bSMTPReturnPath_Type()
+)
+opmen99810bSMTPReturnPath.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPReturnPath.setStatus("current")
+
+
+class _Opmen99810bSMTPPort_Type(Integer32):
+    """Custom type opmen99810bSMTPPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Opmen99810bSMTPPort_Type.__name__ = "Integer32"
+_Opmen99810bSMTPPort_Object = MibScalar
+opmen99810bSMTPPort = _Opmen99810bSMTPPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 7),
+    _Opmen99810bSMTPPort_Type()
+)
+opmen99810bSMTPPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPPort.setStatus("current")
+_Opmen99810bSMTPEmailAddress1_Type = DisplayString
+_Opmen99810bSMTPEmailAddress1_Object = MibScalar
+opmen99810bSMTPEmailAddress1 = _Opmen99810bSMTPEmailAddress1_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 8),
+    _Opmen99810bSMTPEmailAddress1_Type()
+)
+opmen99810bSMTPEmailAddress1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPEmailAddress1.setStatus("current")
+_Opmen99810bSMTPEmailAddress2_Type = DisplayString
+_Opmen99810bSMTPEmailAddress2_Object = MibScalar
+opmen99810bSMTPEmailAddress2 = _Opmen99810bSMTPEmailAddress2_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 9),
+    _Opmen99810bSMTPEmailAddress2_Type()
+)
+opmen99810bSMTPEmailAddress2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPEmailAddress2.setStatus("current")
+_Opmen99810bSMTPEmailAddress3_Type = DisplayString
+_Opmen99810bSMTPEmailAddress3_Object = MibScalar
+opmen99810bSMTPEmailAddress3 = _Opmen99810bSMTPEmailAddress3_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 10),
+    _Opmen99810bSMTPEmailAddress3_Type()
+)
+opmen99810bSMTPEmailAddress3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPEmailAddress3.setStatus("current")
+_Opmen99810bSMTPEmailAddress4_Type = DisplayString
+_Opmen99810bSMTPEmailAddress4_Object = MibScalar
+opmen99810bSMTPEmailAddress4 = _Opmen99810bSMTPEmailAddress4_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 11),
+    _Opmen99810bSMTPEmailAddress4_Type()
+)
+opmen99810bSMTPEmailAddress4.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPEmailAddress4.setStatus("current")
+_Opmen99810bSMTPEmailAddress5_Type = DisplayString
+_Opmen99810bSMTPEmailAddress5_Object = MibScalar
+opmen99810bSMTPEmailAddress5 = _Opmen99810bSMTPEmailAddress5_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 12),
+    _Opmen99810bSMTPEmailAddress5_Type()
+)
+opmen99810bSMTPEmailAddress5.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPEmailAddress5.setStatus("current")
+_Opmen99810bSMTPEmailAddress6_Type = DisplayString
+_Opmen99810bSMTPEmailAddress6_Object = MibScalar
+opmen99810bSMTPEmailAddress6 = _Opmen99810bSMTPEmailAddress6_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 8, 13),
+    _Opmen99810bSMTPEmailAddress6_Type()
+)
+opmen99810bSMTPEmailAddress6.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSMTPEmailAddress6.setStatus("current")
+_Opmen99810bACL_ObjectIdentity = ObjectIdentity
+opmen99810bACL = _Opmen99810bACL_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9)
+)
+_Opmen99810bACLPortsConfTable_Object = MibTable
+opmen99810bACLPortsConfTable = _Opmen99810bACLPortsConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1)
+)
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfTable.setStatus("current")
+_Opmen99810bACLPortsConfEntry_Object = MibTableRow
+opmen99810bACLPortsConfEntry = _Opmen99810bACLPortsConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1)
+)
+opmen99810bACLPortsConfEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bACLPortsConfPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfEntry.setStatus("current")
+
+
+class _Opmen99810bACLPortsConfPort_Type(Integer32):
+    """Custom type opmen99810bACLPortsConfPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bACLPortsConfPort_Type.__name__ = "Integer32"
+_Opmen99810bACLPortsConfPort_Object = MibTableColumn
+opmen99810bACLPortsConfPort = _Opmen99810bACLPortsConfPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 1),
+    _Opmen99810bACLPortsConfPort_Type()
+)
+opmen99810bACLPortsConfPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfPort.setStatus("current")
+
+
+class _Opmen99810bACLPortsConfPolicyID_Type(Integer32):
+    """Custom type opmen99810bACLPortsConfPolicyID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_Opmen99810bACLPortsConfPolicyID_Type.__name__ = "Integer32"
+_Opmen99810bACLPortsConfPolicyID_Object = MibTableColumn
+opmen99810bACLPortsConfPolicyID = _Opmen99810bACLPortsConfPolicyID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 2),
+    _Opmen99810bACLPortsConfPolicyID_Type()
+)
+opmen99810bACLPortsConfPolicyID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfPolicyID.setStatus("current")
+
+
+class _Opmen99810bACLPortsConfAction_Type(Integer32):
+    """Custom type opmen99810bACLPortsConfAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 0),
+          ("permit", 1))
+    )
+
+
+_Opmen99810bACLPortsConfAction_Type.__name__ = "Integer32"
+_Opmen99810bACLPortsConfAction_Object = MibTableColumn
+opmen99810bACLPortsConfAction = _Opmen99810bACLPortsConfAction_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 3),
+    _Opmen99810bACLPortsConfAction_Type()
+)
+opmen99810bACLPortsConfAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfAction.setStatus("current")
+
+
+class _Opmen99810bACLPortsConfRateLimiterID_Type(Integer32):
+    """Custom type opmen99810bACLPortsConfRateLimiterID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 12),
+    )
+
+
+_Opmen99810bACLPortsConfRateLimiterID_Type.__name__ = "Integer32"
+_Opmen99810bACLPortsConfRateLimiterID_Object = MibTableColumn
+opmen99810bACLPortsConfRateLimiterID = _Opmen99810bACLPortsConfRateLimiterID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 4),
+    _Opmen99810bACLPortsConfRateLimiterID_Type()
+)
+opmen99810bACLPortsConfRateLimiterID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfRateLimiterID.setStatus("current")
+
+
+class _Opmen99810bACLPortsConfPortRedirect_Type(Integer32):
+    """Custom type opmen99810bACLPortsConfPortRedirect based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4095),
+    )
+
+
+_Opmen99810bACLPortsConfPortRedirect_Type.__name__ = "Integer32"
+_Opmen99810bACLPortsConfPortRedirect_Object = MibTableColumn
+opmen99810bACLPortsConfPortRedirect = _Opmen99810bACLPortsConfPortRedirect_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 5),
+    _Opmen99810bACLPortsConfPortRedirect_Type()
+)
+opmen99810bACLPortsConfPortRedirect.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfPortRedirect.setStatus("current")
+
+
+class _Opmen99810bACLPortsConfMirror_Type(Integer32):
+    """Custom type opmen99810bACLPortsConfMirror based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bACLPortsConfMirror_Type.__name__ = "Integer32"
+_Opmen99810bACLPortsConfMirror_Object = MibTableColumn
+opmen99810bACLPortsConfMirror = _Opmen99810bACLPortsConfMirror_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 6),
+    _Opmen99810bACLPortsConfMirror_Type()
+)
+opmen99810bACLPortsConfMirror.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfMirror.setStatus("current")
+
+
+class _Opmen99810bACLPortsConfLogging_Type(Integer32):
+    """Custom type opmen99810bACLPortsConfLogging based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bACLPortsConfLogging_Type.__name__ = "Integer32"
+_Opmen99810bACLPortsConfLogging_Object = MibTableColumn
+opmen99810bACLPortsConfLogging = _Opmen99810bACLPortsConfLogging_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 7),
+    _Opmen99810bACLPortsConfLogging_Type()
+)
+opmen99810bACLPortsConfLogging.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfLogging.setStatus("current")
+
+
+class _Opmen99810bACLPortsConfShutdown_Type(Integer32):
+    """Custom type opmen99810bACLPortsConfShutdown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bACLPortsConfShutdown_Type.__name__ = "Integer32"
+_Opmen99810bACLPortsConfShutdown_Object = MibTableColumn
+opmen99810bACLPortsConfShutdown = _Opmen99810bACLPortsConfShutdown_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 8),
+    _Opmen99810bACLPortsConfShutdown_Type()
+)
+opmen99810bACLPortsConfShutdown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfShutdown.setStatus("current")
+
+
+class _Opmen99810bACLPortsConfState_Type(Integer32):
+    """Custom type opmen99810bACLPortsConfState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bACLPortsConfState_Type.__name__ = "Integer32"
+_Opmen99810bACLPortsConfState_Object = MibTableColumn
+opmen99810bACLPortsConfState = _Opmen99810bACLPortsConfState_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 9),
+    _Opmen99810bACLPortsConfState_Type()
+)
+opmen99810bACLPortsConfState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfState.setStatus("current")
+_Opmen99810bACLPortsConfCounter_Type = Counter32
+_Opmen99810bACLPortsConfCounter_Object = MibTableColumn
+opmen99810bACLPortsConfCounter = _Opmen99810bACLPortsConfCounter_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 1, 1, 10),
+    _Opmen99810bACLPortsConfCounter_Type()
+)
+opmen99810bACLPortsConfCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLPortsConfCounter.setStatus("current")
+_Opmen99810bACLRateLimiterTable_Object = MibTable
+opmen99810bACLRateLimiterTable = _Opmen99810bACLRateLimiterTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bACLRateLimiterTable.setStatus("current")
+_Opmen99810bACLRateLimiterEntry_Object = MibTableRow
+opmen99810bACLRateLimiterEntry = _Opmen99810bACLRateLimiterEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 2, 1)
+)
+opmen99810bACLRateLimiterEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bACLRateLimiterID"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bACLRateLimiterEntry.setStatus("current")
+
+
+class _Opmen99810bACLRateLimiterID_Type(Integer32):
+    """Custom type opmen99810bACLRateLimiterID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 12),
+    )
+
+
+_Opmen99810bACLRateLimiterID_Type.__name__ = "Integer32"
+_Opmen99810bACLRateLimiterID_Object = MibTableColumn
+opmen99810bACLRateLimiterID = _Opmen99810bACLRateLimiterID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 2, 1, 1),
+    _Opmen99810bACLRateLimiterID_Type()
+)
+opmen99810bACLRateLimiterID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bACLRateLimiterID.setStatus("current")
+
+
+class _Opmen99810bACLRateLimiterUnit_Type(Integer32):
+    """Custom type opmen99810bACLRateLimiterUnit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pps", 0),
+          ("kbps", 1))
+    )
+
+
+_Opmen99810bACLRateLimiterUnit_Type.__name__ = "Integer32"
+_Opmen99810bACLRateLimiterUnit_Object = MibTableColumn
+opmen99810bACLRateLimiterUnit = _Opmen99810bACLRateLimiterUnit_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 2, 1, 2),
+    _Opmen99810bACLRateLimiterUnit_Type()
+)
+opmen99810bACLRateLimiterUnit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLRateLimiterUnit.setStatus("current")
+
+
+class _Opmen99810bACLRateLimiterRate_Type(Integer32):
+    """Custom type opmen99810bACLRateLimiterRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3276700),
+    )
+
+
+_Opmen99810bACLRateLimiterRate_Type.__name__ = "Integer32"
+_Opmen99810bACLRateLimiterRate_Object = MibTableColumn
+opmen99810bACLRateLimiterRate = _Opmen99810bACLRateLimiterRate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 2, 1, 3),
+    _Opmen99810bACLRateLimiterRate_Type()
+)
+opmen99810bACLRateLimiterRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLRateLimiterRate.setStatus("current")
+_Opmen99810bACLACE_ObjectIdentity = ObjectIdentity
+opmen99810bACLACE = _Opmen99810bACLACE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3)
+)
+
+
+class _Opmen99810bACLACECreate_Type(Integer32):
+    """Custom type opmen99810bACLACECreate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("create", 1))
+    )
+
+
+_Opmen99810bACLACECreate_Type.__name__ = "Integer32"
+_Opmen99810bACLACECreate_Object = MibScalar
+opmen99810bACLACECreate = _Opmen99810bACLACECreate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 1),
+    _Opmen99810bACLACECreate_Type()
+)
+opmen99810bACLACECreate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACECreate.setStatus("current")
+_Opmen99810bACLACETable_Object = MibTable
+opmen99810bACLACETable = _Opmen99810bACLACETable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bACLACETable.setStatus("current")
+_Opmen99810bACLACEEntry_Object = MibTableRow
+opmen99810bACLACEEntry = _Opmen99810bACLACEEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1)
+)
+opmen99810bACLACEEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bACLACEIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bACLACEEntry.setStatus("current")
+
+
+class _Opmen99810bACLACEIndex_Type(Integer32):
+    """Custom type opmen99810bACLACEIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 256),
+    )
+
+
+_Opmen99810bACLACEIndex_Type.__name__ = "Integer32"
+_Opmen99810bACLACEIndex_Object = MibTableColumn
+opmen99810bACLACEIndex = _Opmen99810bACLACEIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 1),
+    _Opmen99810bACLACEIndex_Type()
+)
+opmen99810bACLACEIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEIndex.setStatus("current")
+
+
+class _Opmen99810bACLACEID_Type(Integer32):
+    """Custom type opmen99810bACLACEID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 256),
+    )
+
+
+_Opmen99810bACLACEID_Type.__name__ = "Integer32"
+_Opmen99810bACLACEID_Object = MibTableColumn
+opmen99810bACLACEID = _Opmen99810bACLACEID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 2),
+    _Opmen99810bACLACEID_Type()
+)
+opmen99810bACLACEID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEID.setStatus("current")
+
+
+class _Opmen99810bACLACENextID_Type(Integer32):
+    """Custom type opmen99810bACLACENextID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 256),
+    )
+
+
+_Opmen99810bACLACENextID_Type.__name__ = "Integer32"
+_Opmen99810bACLACENextID_Object = MibTableColumn
+opmen99810bACLACENextID = _Opmen99810bACLACENextID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 3),
+    _Opmen99810bACLACENextID_Type()
+)
+opmen99810bACLACENextID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACENextID.setStatus("current")
+_Opmen99810bACLACEIngressPort_Type = DisplayString
+_Opmen99810bACLACEIngressPort_Object = MibTableColumn
+opmen99810bACLACEIngressPort = _Opmen99810bACLACEIngressPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 4),
+    _Opmen99810bACLACEIngressPort_Type()
+)
+opmen99810bACLACEIngressPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEIngressPort.setStatus("current")
+
+
+class _Opmen99810bACLACEPortPolicyNumber_Type(Integer32):
+    """Custom type opmen99810bACLACEPortPolicyNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_Opmen99810bACLACEPortPolicyNumber_Type.__name__ = "Integer32"
+_Opmen99810bACLACEPortPolicyNumber_Object = MibTableColumn
+opmen99810bACLACEPortPolicyNumber = _Opmen99810bACLACEPortPolicyNumber_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 5),
+    _Opmen99810bACLACEPortPolicyNumber_Type()
+)
+opmen99810bACLACEPortPolicyNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEPortPolicyNumber.setStatus("current")
+
+
+class _Opmen99810bACLACEPortPolicyBitmask_Type(Integer32):
+    """Custom type opmen99810bACLACEPortPolicyBitmask based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_Opmen99810bACLACEPortPolicyBitmask_Type.__name__ = "Integer32"
+_Opmen99810bACLACEPortPolicyBitmask_Object = MibTableColumn
+opmen99810bACLACEPortPolicyBitmask = _Opmen99810bACLACEPortPolicyBitmask_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 6),
+    _Opmen99810bACLACEPortPolicyBitmask_Type()
+)
+opmen99810bACLACEPortPolicyBitmask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEPortPolicyBitmask.setStatus("current")
+
+
+class _Opmen99810bACLACEFrameType_Type(Integer32):
+    """Custom type opmen99810bACLACEFrameType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 0),
+          ("arp", 1),
+          ("etype", 2),
+          ("icmp", 3),
+          ("ipv4", 4),
+          ("tcp", 5),
+          ("udp", 6))
+    )
+
+
+_Opmen99810bACLACEFrameType_Type.__name__ = "Integer32"
+_Opmen99810bACLACEFrameType_Object = MibTableColumn
+opmen99810bACLACEFrameType = _Opmen99810bACLACEFrameType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 7),
+    _Opmen99810bACLACEFrameType_Type()
+)
+opmen99810bACLACEFrameType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEFrameType.setStatus("current")
+
+
+class _Opmen99810bACLACEAction_Type(Integer32):
+    """Custom type opmen99810bACLACEAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 0),
+          ("permit", 1))
+    )
+
+
+_Opmen99810bACLACEAction_Type.__name__ = "Integer32"
+_Opmen99810bACLACEAction_Object = MibTableColumn
+opmen99810bACLACEAction = _Opmen99810bACLACEAction_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 8),
+    _Opmen99810bACLACEAction_Type()
+)
+opmen99810bACLACEAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEAction.setStatus("current")
+_Opmen99810bACLACEDenyPortRedirect_Type = DisplayString
+_Opmen99810bACLACEDenyPortRedirect_Object = MibTableColumn
+opmen99810bACLACEDenyPortRedirect = _Opmen99810bACLACEDenyPortRedirect_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 9),
+    _Opmen99810bACLACEDenyPortRedirect_Type()
+)
+opmen99810bACLACEDenyPortRedirect.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEDenyPortRedirect.setStatus("current")
+
+
+class _Opmen99810bACLACELogging_Type(Integer32):
+    """Custom type opmen99810bACLACELogging based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bACLACELogging_Type.__name__ = "Integer32"
+_Opmen99810bACLACELogging_Object = MibTableColumn
+opmen99810bACLACELogging = _Opmen99810bACLACELogging_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 10),
+    _Opmen99810bACLACELogging_Type()
+)
+opmen99810bACLACELogging.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACELogging.setStatus("current")
+
+
+class _Opmen99810bACLACEMirror_Type(Integer32):
+    """Custom type opmen99810bACLACEMirror based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bACLACEMirror_Type.__name__ = "Integer32"
+_Opmen99810bACLACEMirror_Object = MibTableColumn
+opmen99810bACLACEMirror = _Opmen99810bACLACEMirror_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 11),
+    _Opmen99810bACLACEMirror_Type()
+)
+opmen99810bACLACEMirror.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEMirror.setStatus("current")
+
+
+class _Opmen99810bACLACERateLimiter_Type(Integer32):
+    """Custom type opmen99810bACLACERateLimiter based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 12),
+    )
+
+
+_Opmen99810bACLACERateLimiter_Type.__name__ = "Integer32"
+_Opmen99810bACLACERateLimiter_Object = MibTableColumn
+opmen99810bACLACERateLimiter = _Opmen99810bACLACERateLimiter_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 12),
+    _Opmen99810bACLACERateLimiter_Type()
+)
+opmen99810bACLACERateLimiter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACERateLimiter.setStatus("current")
+
+
+class _Opmen99810bACLACEShutdown_Type(Integer32):
+    """Custom type opmen99810bACLACEShutdown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bACLACEShutdown_Type.__name__ = "Integer32"
+_Opmen99810bACLACEShutdown_Object = MibTableColumn
+opmen99810bACLACEShutdown = _Opmen99810bACLACEShutdown_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 13),
+    _Opmen99810bACLACEShutdown_Type()
+)
+opmen99810bACLACEShutdown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEShutdown.setStatus("current")
+
+
+class _Opmen99810bACLACEVLAN8021QTagged_Type(Integer32):
+    """Custom type opmen99810bACLACEVLAN8021QTagged based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1),
+          ("any", 2))
+    )
+
+
+_Opmen99810bACLACEVLAN8021QTagged_Type.__name__ = "Integer32"
+_Opmen99810bACLACEVLAN8021QTagged_Object = MibTableColumn
+opmen99810bACLACEVLAN8021QTagged = _Opmen99810bACLACEVLAN8021QTagged_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 14),
+    _Opmen99810bACLACEVLAN8021QTagged_Type()
+)
+opmen99810bACLACEVLAN8021QTagged.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEVLAN8021QTagged.setStatus("current")
+
+
+class _Opmen99810bACLACEVLANTagPriority_Type(Integer32):
+    """Custom type opmen99810bACLACEVLANTagPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 8),
+    )
+
+
+_Opmen99810bACLACEVLANTagPriority_Type.__name__ = "Integer32"
+_Opmen99810bACLACEVLANTagPriority_Object = MibTableColumn
+opmen99810bACLACEVLANTagPriority = _Opmen99810bACLACEVLANTagPriority_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 15),
+    _Opmen99810bACLACEVLANTagPriority_Type()
+)
+opmen99810bACLACEVLANTagPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEVLANTagPriority.setStatus("current")
+
+
+class _Opmen99810bACLACEVLANVID_Type(Integer32):
+    """Custom type opmen99810bACLACEVLANVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_Opmen99810bACLACEVLANVID_Type.__name__ = "Integer32"
+_Opmen99810bACLACEVLANVID_Object = MibTableColumn
+opmen99810bACLACEVLANVID = _Opmen99810bACLACEVLANVID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 16),
+    _Opmen99810bACLACEVLANVID_Type()
+)
+opmen99810bACLACEVLANVID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEVLANVID.setStatus("current")
+
+
+class _Opmen99810bACLACEEtherType_Type(Integer32):
+    """Custom type opmen99810bACLACEEtherType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Opmen99810bACLACEEtherType_Type.__name__ = "Integer32"
+_Opmen99810bACLACEEtherType_Object = MibTableColumn
+opmen99810bACLACEEtherType = _Opmen99810bACLACEEtherType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 17),
+    _Opmen99810bACLACEEtherType_Type()
+)
+opmen99810bACLACEEtherType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEEtherType.setStatus("current")
+_Opmen99810bACLACESMAC_Type = DisplayString
+_Opmen99810bACLACESMAC_Object = MibTableColumn
+opmen99810bACLACESMAC = _Opmen99810bACLACESMAC_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 18),
+    _Opmen99810bACLACESMAC_Type()
+)
+opmen99810bACLACESMAC.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACESMAC.setStatus("current")
+
+
+class _Opmen99810bACLACEDMACType_Type(Integer32):
+    """Custom type opmen99810bACLACEDMACType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 0),
+          ("broadcast", 1),
+          ("unicast", 2),
+          ("multicast", 3),
+          ("macAddress", 4))
+    )
+
+
+_Opmen99810bACLACEDMACType_Type.__name__ = "Integer32"
+_Opmen99810bACLACEDMACType_Object = MibTableColumn
+opmen99810bACLACEDMACType = _Opmen99810bACLACEDMACType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 19),
+    _Opmen99810bACLACEDMACType_Type()
+)
+opmen99810bACLACEDMACType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEDMACType.setStatus("current")
+_Opmen99810bACLACEDMAC_Type = DisplayString
+_Opmen99810bACLACEDMAC_Object = MibTableColumn
+opmen99810bACLACEDMAC = _Opmen99810bACLACEDMAC_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 20),
+    _Opmen99810bACLACEDMAC_Type()
+)
+opmen99810bACLACEDMAC.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEDMAC.setStatus("current")
+
+
+class _Opmen99810bACLACEArpOpcode_Type(Integer32):
+    """Custom type opmen99810bACLACEArpOpcode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 0),
+          ("arp", 1),
+          ("rarp", 2),
+          ("other", 3),
+          ("noData", 4))
+    )
+
+
+_Opmen99810bACLACEArpOpcode_Type.__name__ = "Integer32"
+_Opmen99810bACLACEArpOpcode_Object = MibTableColumn
+opmen99810bACLACEArpOpcode = _Opmen99810bACLACEArpOpcode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 21),
+    _Opmen99810bACLACEArpOpcode_Type()
+)
+opmen99810bACLACEArpOpcode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEArpOpcode.setStatus("current")
+
+
+class _Opmen99810bACLACEArpFlagsRequestReply_Type(Integer32):
+    """Custom type opmen99810bACLACEArpFlagsRequestReply based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("reply", 0),
+          ("request", 1),
+          ("any", 2),
+          ("noData", 3))
+    )
+
+
+_Opmen99810bACLACEArpFlagsRequestReply_Type.__name__ = "Integer32"
+_Opmen99810bACLACEArpFlagsRequestReply_Object = MibTableColumn
+opmen99810bACLACEArpFlagsRequestReply = _Opmen99810bACLACEArpFlagsRequestReply_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 22),
+    _Opmen99810bACLACEArpFlagsRequestReply_Type()
+)
+opmen99810bACLACEArpFlagsRequestReply.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEArpFlagsRequestReply.setStatus("current")
+
+
+class _Opmen99810bACLACEArpFlagsArpSmac_Type(Integer32):
+    """Custom type opmen99810bACLACEArpFlagsArpSmac based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notEqualSMAC", 0),
+          ("equalSMAC", 1),
+          ("any", 2),
+          ("noData", 3))
+    )
+
+
+_Opmen99810bACLACEArpFlagsArpSmac_Type.__name__ = "Integer32"
+_Opmen99810bACLACEArpFlagsArpSmac_Object = MibTableColumn
+opmen99810bACLACEArpFlagsArpSmac = _Opmen99810bACLACEArpFlagsArpSmac_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 23),
+    _Opmen99810bACLACEArpFlagsArpSmac_Type()
+)
+opmen99810bACLACEArpFlagsArpSmac.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEArpFlagsArpSmac.setStatus("current")
+
+
+class _Opmen99810bACLACEArpFlagsRarpDmac_Type(Integer32):
+    """Custom type opmen99810bACLACEArpFlagsRarpDmac based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notEqualDMAC", 0),
+          ("equalDMAC", 1),
+          ("any", 2),
+          ("noData", 3))
+    )
+
+
+_Opmen99810bACLACEArpFlagsRarpDmac_Type.__name__ = "Integer32"
+_Opmen99810bACLACEArpFlagsRarpDmac_Object = MibTableColumn
+opmen99810bACLACEArpFlagsRarpDmac = _Opmen99810bACLACEArpFlagsRarpDmac_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 24),
+    _Opmen99810bACLACEArpFlagsRarpDmac_Type()
+)
+opmen99810bACLACEArpFlagsRarpDmac.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEArpFlagsRarpDmac.setStatus("current")
+
+
+class _Opmen99810bACLACEArpFlagsLength_Type(Integer32):
+    """Custom type opmen99810bACLACEArpFlagsLength based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_Opmen99810bACLACEArpFlagsLength_Type.__name__ = "Integer32"
+_Opmen99810bACLACEArpFlagsLength_Object = MibTableColumn
+opmen99810bACLACEArpFlagsLength = _Opmen99810bACLACEArpFlagsLength_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 25),
+    _Opmen99810bACLACEArpFlagsLength_Type()
+)
+opmen99810bACLACEArpFlagsLength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEArpFlagsLength.setStatus("current")
+
+
+class _Opmen99810bACLACEArpFlagsIp_Type(Integer32):
+    """Custom type opmen99810bACLACEArpFlagsIp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_Opmen99810bACLACEArpFlagsIp_Type.__name__ = "Integer32"
+_Opmen99810bACLACEArpFlagsIp_Object = MibTableColumn
+opmen99810bACLACEArpFlagsIp = _Opmen99810bACLACEArpFlagsIp_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 26),
+    _Opmen99810bACLACEArpFlagsIp_Type()
+)
+opmen99810bACLACEArpFlagsIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEArpFlagsIp.setStatus("current")
+
+
+class _Opmen99810bACLACEArpFlagsEthernet_Type(Integer32):
+    """Custom type opmen99810bACLACEArpFlagsEthernet based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_Opmen99810bACLACEArpFlagsEthernet_Type.__name__ = "Integer32"
+_Opmen99810bACLACEArpFlagsEthernet_Object = MibTableColumn
+opmen99810bACLACEArpFlagsEthernet = _Opmen99810bACLACEArpFlagsEthernet_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 27),
+    _Opmen99810bACLACEArpFlagsEthernet_Type()
+)
+opmen99810bACLACEArpFlagsEthernet.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEArpFlagsEthernet.setStatus("current")
+
+
+class _Opmen99810bACLACESIPType_Type(Integer32):
+    """Custom type opmen99810bACLACESIPType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 0),
+          ("ip", 1),
+          ("noData", 2))
+    )
+
+
+_Opmen99810bACLACESIPType_Type.__name__ = "Integer32"
+_Opmen99810bACLACESIPType_Object = MibTableColumn
+opmen99810bACLACESIPType = _Opmen99810bACLACESIPType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 28),
+    _Opmen99810bACLACESIPType_Type()
+)
+opmen99810bACLACESIPType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACESIPType.setStatus("current")
+_Opmen99810bACLACESIPIPAddress_Type = IpAddress
+_Opmen99810bACLACESIPIPAddress_Object = MibTableColumn
+opmen99810bACLACESIPIPAddress = _Opmen99810bACLACESIPIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 29),
+    _Opmen99810bACLACESIPIPAddress_Type()
+)
+opmen99810bACLACESIPIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACESIPIPAddress.setStatus("current")
+
+
+class _Opmen99810bACLACESIPNetworkPrefix_Type(Integer32):
+    """Custom type opmen99810bACLACESIPNetworkPrefix based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32),
+    )
+
+
+_Opmen99810bACLACESIPNetworkPrefix_Type.__name__ = "Integer32"
+_Opmen99810bACLACESIPNetworkPrefix_Object = MibTableColumn
+opmen99810bACLACESIPNetworkPrefix = _Opmen99810bACLACESIPNetworkPrefix_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 30),
+    _Opmen99810bACLACESIPNetworkPrefix_Type()
+)
+opmen99810bACLACESIPNetworkPrefix.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACESIPNetworkPrefix.setStatus("current")
+
+
+class _Opmen99810bACLACEDIPType_Type(Integer32):
+    """Custom type opmen99810bACLACEDIPType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 0),
+          ("ip", 1),
+          ("noData", 2))
+    )
+
+
+_Opmen99810bACLACEDIPType_Type.__name__ = "Integer32"
+_Opmen99810bACLACEDIPType_Object = MibTableColumn
+opmen99810bACLACEDIPType = _Opmen99810bACLACEDIPType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 32),
+    _Opmen99810bACLACEDIPType_Type()
+)
+opmen99810bACLACEDIPType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEDIPType.setStatus("current")
+_Opmen99810bACLACEDIPIPAddress_Type = IpAddress
+_Opmen99810bACLACEDIPIPAddress_Object = MibTableColumn
+opmen99810bACLACEDIPIPAddress = _Opmen99810bACLACEDIPIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 33),
+    _Opmen99810bACLACEDIPIPAddress_Type()
+)
+opmen99810bACLACEDIPIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEDIPIPAddress.setStatus("current")
+
+
+class _Opmen99810bACLACEDIPNetworkPrefix_Type(Integer32):
+    """Custom type opmen99810bACLACEDIPNetworkPrefix based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32),
+    )
+
+
+_Opmen99810bACLACEDIPNetworkPrefix_Type.__name__ = "Integer32"
+_Opmen99810bACLACEDIPNetworkPrefix_Object = MibTableColumn
+opmen99810bACLACEDIPNetworkPrefix = _Opmen99810bACLACEDIPNetworkPrefix_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 34),
+    _Opmen99810bACLACEDIPNetworkPrefix_Type()
+)
+opmen99810bACLACEDIPNetworkPrefix.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEDIPNetworkPrefix.setStatus("current")
+
+
+class _Opmen99810bACLACEIPProtocol_Type(Integer32):
+    """Custom type opmen99810bACLACEIPProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 257),
+    )
+
+
+_Opmen99810bACLACEIPProtocol_Type.__name__ = "Integer32"
+_Opmen99810bACLACEIPProtocol_Object = MibTableColumn
+opmen99810bACLACEIPProtocol = _Opmen99810bACLACEIPProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 36),
+    _Opmen99810bACLACEIPProtocol_Type()
+)
+opmen99810bACLACEIPProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEIPProtocol.setStatus("current")
+
+
+class _Opmen99810bACLACEIPFlagsTTL_Type(Integer32):
+    """Custom type opmen99810bACLACEIPFlagsTTL based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_Opmen99810bACLACEIPFlagsTTL_Type.__name__ = "Integer32"
+_Opmen99810bACLACEIPFlagsTTL_Object = MibTableColumn
+opmen99810bACLACEIPFlagsTTL = _Opmen99810bACLACEIPFlagsTTL_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 37),
+    _Opmen99810bACLACEIPFlagsTTL_Type()
+)
+opmen99810bACLACEIPFlagsTTL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEIPFlagsTTL.setStatus("current")
+
+
+class _Opmen99810bACLACEIPFlagsOptions_Type(Integer32):
+    """Custom type opmen99810bACLACEIPFlagsOptions based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unset", 0),
+          ("set", 1),
+          ("any", 2),
+          ("noData", 3))
+    )
+
+
+_Opmen99810bACLACEIPFlagsOptions_Type.__name__ = "Integer32"
+_Opmen99810bACLACEIPFlagsOptions_Object = MibTableColumn
+opmen99810bACLACEIPFlagsOptions = _Opmen99810bACLACEIPFlagsOptions_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 38),
+    _Opmen99810bACLACEIPFlagsOptions_Type()
+)
+opmen99810bACLACEIPFlagsOptions.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEIPFlagsOptions.setStatus("current")
+
+
+class _Opmen99810bACLACEIPFlagsFragment_Type(Integer32):
+    """Custom type opmen99810bACLACEIPFlagsFragment based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_Opmen99810bACLACEIPFlagsFragment_Type.__name__ = "Integer32"
+_Opmen99810bACLACEIPFlagsFragment_Object = MibTableColumn
+opmen99810bACLACEIPFlagsFragment = _Opmen99810bACLACEIPFlagsFragment_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 39),
+    _Opmen99810bACLACEIPFlagsFragment_Type()
+)
+opmen99810bACLACEIPFlagsFragment.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEIPFlagsFragment.setStatus("current")
+
+
+class _Opmen99810bACLACEICMPType_Type(Integer32):
+    """Custom type opmen99810bACLACEICMPType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 257),
+    )
+
+
+_Opmen99810bACLACEICMPType_Type.__name__ = "Integer32"
+_Opmen99810bACLACEICMPType_Object = MibTableColumn
+opmen99810bACLACEICMPType = _Opmen99810bACLACEICMPType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 40),
+    _Opmen99810bACLACEICMPType_Type()
+)
+opmen99810bACLACEICMPType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEICMPType.setStatus("current")
+
+
+class _Opmen99810bACLACEICMPCode_Type(Integer32):
+    """Custom type opmen99810bACLACEICMPCode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 257),
+    )
+
+
+_Opmen99810bACLACEICMPCode_Type.__name__ = "Integer32"
+_Opmen99810bACLACEICMPCode_Object = MibTableColumn
+opmen99810bACLACEICMPCode = _Opmen99810bACLACEICMPCode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 41),
+    _Opmen99810bACLACEICMPCode_Type()
+)
+opmen99810bACLACEICMPCode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEICMPCode.setStatus("current")
+
+
+class _Opmen99810bACLACESourcePortMin_Type(Integer32):
+    """Custom type opmen99810bACLACESourcePortMin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65536),
+    )
+
+
+_Opmen99810bACLACESourcePortMin_Type.__name__ = "Integer32"
+_Opmen99810bACLACESourcePortMin_Object = MibTableColumn
+opmen99810bACLACESourcePortMin = _Opmen99810bACLACESourcePortMin_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 42),
+    _Opmen99810bACLACESourcePortMin_Type()
+)
+opmen99810bACLACESourcePortMin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACESourcePortMin.setStatus("current")
+
+
+class _Opmen99810bACLACESourcePortMax_Type(Integer32):
+    """Custom type opmen99810bACLACESourcePortMax based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65536),
+    )
+
+
+_Opmen99810bACLACESourcePortMax_Type.__name__ = "Integer32"
+_Opmen99810bACLACESourcePortMax_Object = MibTableColumn
+opmen99810bACLACESourcePortMax = _Opmen99810bACLACESourcePortMax_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 43),
+    _Opmen99810bACLACESourcePortMax_Type()
+)
+opmen99810bACLACESourcePortMax.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACESourcePortMax.setStatus("current")
+
+
+class _Opmen99810bACLACEDestPortMin_Type(Integer32):
+    """Custom type opmen99810bACLACEDestPortMin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65536),
+    )
+
+
+_Opmen99810bACLACEDestPortMin_Type.__name__ = "Integer32"
+_Opmen99810bACLACEDestPortMin_Object = MibTableColumn
+opmen99810bACLACEDestPortMin = _Opmen99810bACLACEDestPortMin_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 44),
+    _Opmen99810bACLACEDestPortMin_Type()
+)
+opmen99810bACLACEDestPortMin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEDestPortMin.setStatus("current")
+
+
+class _Opmen99810bACLACEDestPortMax_Type(Integer32):
+    """Custom type opmen99810bACLACEDestPortMax based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65536),
+    )
+
+
+_Opmen99810bACLACEDestPortMax_Type.__name__ = "Integer32"
+_Opmen99810bACLACEDestPortMax_Object = MibTableColumn
+opmen99810bACLACEDestPortMax = _Opmen99810bACLACEDestPortMax_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 45),
+    _Opmen99810bACLACEDestPortMax_Type()
+)
+opmen99810bACLACEDestPortMax.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEDestPortMax.setStatus("current")
+
+
+class _Opmen99810bACLACETCPFlagsFin_Type(Integer32):
+    """Custom type opmen99810bACLACETCPFlagsFin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unset", 0),
+          ("set", 1),
+          ("any", 2),
+          ("noData", 3))
+    )
+
+
+_Opmen99810bACLACETCPFlagsFin_Type.__name__ = "Integer32"
+_Opmen99810bACLACETCPFlagsFin_Object = MibTableColumn
+opmen99810bACLACETCPFlagsFin = _Opmen99810bACLACETCPFlagsFin_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 46),
+    _Opmen99810bACLACETCPFlagsFin_Type()
+)
+opmen99810bACLACETCPFlagsFin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACETCPFlagsFin.setStatus("current")
+
+
+class _Opmen99810bACLACETCPFlagsSyn_Type(Integer32):
+    """Custom type opmen99810bACLACETCPFlagsSyn based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unset", 0),
+          ("set", 1),
+          ("any", 2),
+          ("noData", 3))
+    )
+
+
+_Opmen99810bACLACETCPFlagsSyn_Type.__name__ = "Integer32"
+_Opmen99810bACLACETCPFlagsSyn_Object = MibTableColumn
+opmen99810bACLACETCPFlagsSyn = _Opmen99810bACLACETCPFlagsSyn_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 47),
+    _Opmen99810bACLACETCPFlagsSyn_Type()
+)
+opmen99810bACLACETCPFlagsSyn.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACETCPFlagsSyn.setStatus("current")
+
+
+class _Opmen99810bACLACETCPFlagsRst_Type(Integer32):
+    """Custom type opmen99810bACLACETCPFlagsRst based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unset", 0),
+          ("set", 1),
+          ("any", 2),
+          ("noData", 3))
+    )
+
+
+_Opmen99810bACLACETCPFlagsRst_Type.__name__ = "Integer32"
+_Opmen99810bACLACETCPFlagsRst_Object = MibTableColumn
+opmen99810bACLACETCPFlagsRst = _Opmen99810bACLACETCPFlagsRst_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 48),
+    _Opmen99810bACLACETCPFlagsRst_Type()
+)
+opmen99810bACLACETCPFlagsRst.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACETCPFlagsRst.setStatus("current")
+
+
+class _Opmen99810bACLACETCPFlagsPsh_Type(Integer32):
+    """Custom type opmen99810bACLACETCPFlagsPsh based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unset", 0),
+          ("set", 1),
+          ("any", 2),
+          ("noData", 3))
+    )
+
+
+_Opmen99810bACLACETCPFlagsPsh_Type.__name__ = "Integer32"
+_Opmen99810bACLACETCPFlagsPsh_Object = MibTableColumn
+opmen99810bACLACETCPFlagsPsh = _Opmen99810bACLACETCPFlagsPsh_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 49),
+    _Opmen99810bACLACETCPFlagsPsh_Type()
+)
+opmen99810bACLACETCPFlagsPsh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACETCPFlagsPsh.setStatus("current")
+
+
+class _Opmen99810bACLACETCPFlagsAck_Type(Integer32):
+    """Custom type opmen99810bACLACETCPFlagsAck based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unset", 0),
+          ("set", 1),
+          ("any", 2),
+          ("noData", 3))
+    )
+
+
+_Opmen99810bACLACETCPFlagsAck_Type.__name__ = "Integer32"
+_Opmen99810bACLACETCPFlagsAck_Object = MibTableColumn
+opmen99810bACLACETCPFlagsAck = _Opmen99810bACLACETCPFlagsAck_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 50),
+    _Opmen99810bACLACETCPFlagsAck_Type()
+)
+opmen99810bACLACETCPFlagsAck.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACETCPFlagsAck.setStatus("current")
+
+
+class _Opmen99810bACLACETCPFlagsUrg_Type(Integer32):
+    """Custom type opmen99810bACLACETCPFlagsUrg based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unset", 0),
+          ("set", 1),
+          ("any", 2),
+          ("noData", 3))
+    )
+
+
+_Opmen99810bACLACETCPFlagsUrg_Type.__name__ = "Integer32"
+_Opmen99810bACLACETCPFlagsUrg_Object = MibTableColumn
+opmen99810bACLACETCPFlagsUrg = _Opmen99810bACLACETCPFlagsUrg_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 51),
+    _Opmen99810bACLACETCPFlagsUrg_Type()
+)
+opmen99810bACLACETCPFlagsUrg.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACETCPFlagsUrg.setStatus("current")
+
+
+class _Opmen99810bACLACERowStatus_Type(Integer32):
+    """Custom type opmen99810bACLACERowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("notInservice", 2),
+          ("destroy", 4),
+          ("undo", 5))
+    )
+
+
+_Opmen99810bACLACERowStatus_Type.__name__ = "Integer32"
+_Opmen99810bACLACERowStatus_Object = MibTableColumn
+opmen99810bACLACERowStatus = _Opmen99810bACLACERowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 2, 1, 66),
+    _Opmen99810bACLACERowStatus_Type()
+)
+opmen99810bACLACERowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACERowStatus.setStatus("current")
+
+
+class _Opmen99810bACLACEClear_Type(Integer32):
+    """Custom type opmen99810bACLACEClear based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noAction", 0),
+          ("clear", 1))
+    )
+
+
+_Opmen99810bACLACEClear_Type.__name__ = "Integer32"
+_Opmen99810bACLACEClear_Object = MibScalar
+opmen99810bACLACEClear = _Opmen99810bACLACEClear_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 3),
+    _Opmen99810bACLACEClear_Type()
+)
+opmen99810bACLACEClear.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEClear.setStatus("current")
+
+
+class _Opmen99810bACLACEMoveACEID_Type(Integer32):
+    """Custom type opmen99810bACLACEMoveACEID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 256),
+    )
+
+
+_Opmen99810bACLACEMoveACEID_Type.__name__ = "Integer32"
+_Opmen99810bACLACEMoveACEID_Object = MibScalar
+opmen99810bACLACEMoveACEID = _Opmen99810bACLACEMoveACEID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 4),
+    _Opmen99810bACLACEMoveACEID_Type()
+)
+opmen99810bACLACEMoveACEID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEMoveACEID.setStatus("current")
+
+
+class _Opmen99810bACLACEMoveNextACEID_Type(Integer32):
+    """Custom type opmen99810bACLACEMoveNextACEID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 256),
+    )
+
+
+_Opmen99810bACLACEMoveNextACEID_Type.__name__ = "Integer32"
+_Opmen99810bACLACEMoveNextACEID_Object = MibScalar
+opmen99810bACLACEMoveNextACEID = _Opmen99810bACLACEMoveNextACEID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 5),
+    _Opmen99810bACLACEMoveNextACEID_Type()
+)
+opmen99810bACLACEMoveNextACEID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEMoveNextACEID.setStatus("current")
+_Opmen99810bACLACEStatusTable_Object = MibTable
+opmen99810bACLACEStatusTable = _Opmen99810bACLACEStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6)
+)
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusTable.setStatus("current")
+_Opmen99810bACLACEStatusEntry_Object = MibTableRow
+opmen99810bACLACEStatusEntry = _Opmen99810bACLACEStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1)
+)
+opmen99810bACLACEStatusEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bACLACEStatusIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusEntry.setStatus("current")
+
+
+class _Opmen99810bACLACEStatusIndex_Type(Integer32):
+    """Custom type opmen99810bACLACEStatusIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 256),
+    )
+
+
+_Opmen99810bACLACEStatusIndex_Type.__name__ = "Integer32"
+_Opmen99810bACLACEStatusIndex_Object = MibTableColumn
+opmen99810bACLACEStatusIndex = _Opmen99810bACLACEStatusIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 1),
+    _Opmen99810bACLACEStatusIndex_Type()
+)
+opmen99810bACLACEStatusIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusIndex.setStatus("current")
+_Opmen99810bACLACEStatusUser_Type = DisplayString
+_Opmen99810bACLACEStatusUser_Object = MibTableColumn
+opmen99810bACLACEStatusUser = _Opmen99810bACLACEStatusUser_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 2),
+    _Opmen99810bACLACEStatusUser_Type()
+)
+opmen99810bACLACEStatusUser.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusUser.setStatus("current")
+
+
+class _Opmen99810bACLACEStatusID_Type(Integer32):
+    """Custom type opmen99810bACLACEStatusID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 256),
+    )
+
+
+_Opmen99810bACLACEStatusID_Type.__name__ = "Integer32"
+_Opmen99810bACLACEStatusID_Object = MibTableColumn
+opmen99810bACLACEStatusID = _Opmen99810bACLACEStatusID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 3),
+    _Opmen99810bACLACEStatusID_Type()
+)
+opmen99810bACLACEStatusID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusID.setStatus("current")
+_Opmen99810bACLACEStatusIngressPort_Type = DisplayString
+_Opmen99810bACLACEStatusIngressPort_Object = MibTableColumn
+opmen99810bACLACEStatusIngressPort = _Opmen99810bACLACEStatusIngressPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 4),
+    _Opmen99810bACLACEStatusIngressPort_Type()
+)
+opmen99810bACLACEStatusIngressPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusIngressPort.setStatus("current")
+_Opmen99810bACLACEStatusFrameType_Type = DisplayString
+_Opmen99810bACLACEStatusFrameType_Object = MibTableColumn
+opmen99810bACLACEStatusFrameType = _Opmen99810bACLACEStatusFrameType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 5),
+    _Opmen99810bACLACEStatusFrameType_Type()
+)
+opmen99810bACLACEStatusFrameType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusFrameType.setStatus("current")
+_Opmen99810bACLACEStatusAction_Type = DisplayString
+_Opmen99810bACLACEStatusAction_Object = MibTableColumn
+opmen99810bACLACEStatusAction = _Opmen99810bACLACEStatusAction_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 6),
+    _Opmen99810bACLACEStatusAction_Type()
+)
+opmen99810bACLACEStatusAction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusAction.setStatus("current")
+_Opmen99810bACLACEStatusRateLimiter_Type = DisplayString
+_Opmen99810bACLACEStatusRateLimiter_Object = MibTableColumn
+opmen99810bACLACEStatusRateLimiter = _Opmen99810bACLACEStatusRateLimiter_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 7),
+    _Opmen99810bACLACEStatusRateLimiter_Type()
+)
+opmen99810bACLACEStatusRateLimiter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusRateLimiter.setStatus("current")
+_Opmen99810bACLACEStatusPortCopy_Type = DisplayString
+_Opmen99810bACLACEStatusPortCopy_Object = MibTableColumn
+opmen99810bACLACEStatusPortCopy = _Opmen99810bACLACEStatusPortCopy_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 8),
+    _Opmen99810bACLACEStatusPortCopy_Type()
+)
+opmen99810bACLACEStatusPortCopy.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusPortCopy.setStatus("current")
+_Opmen99810bACLACEStatusMirror_Type = DisplayString
+_Opmen99810bACLACEStatusMirror_Object = MibTableColumn
+opmen99810bACLACEStatusMirror = _Opmen99810bACLACEStatusMirror_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 9),
+    _Opmen99810bACLACEStatusMirror_Type()
+)
+opmen99810bACLACEStatusMirror.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusMirror.setStatus("current")
+_Opmen99810bACLACEStatusCPU_Type = DisplayString
+_Opmen99810bACLACEStatusCPU_Object = MibTableColumn
+opmen99810bACLACEStatusCPU = _Opmen99810bACLACEStatusCPU_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 10),
+    _Opmen99810bACLACEStatusCPU_Type()
+)
+opmen99810bACLACEStatusCPU.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusCPU.setStatus("current")
+_Opmen99810bACLACEStatusCounter_Type = Counter32
+_Opmen99810bACLACEStatusCounter_Object = MibTableColumn
+opmen99810bACLACEStatusCounter = _Opmen99810bACLACEStatusCounter_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 11),
+    _Opmen99810bACLACEStatusCounter_Type()
+)
+opmen99810bACLACEStatusCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusCounter.setStatus("current")
+_Opmen99810bACLACEStatusConflict_Type = DisplayString
+_Opmen99810bACLACEStatusConflict_Object = MibTableColumn
+opmen99810bACLACEStatusConflict = _Opmen99810bACLACEStatusConflict_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 9, 3, 6, 1, 12),
+    _Opmen99810bACLACEStatusConflict_Type()
+)
+opmen99810bACLACEStatusConflict.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bACLACEStatusConflict.setStatus("current")
+_Opmen99810bBroadcastStormProtection_ObjectIdentity = ObjectIdentity
+opmen99810bBroadcastStormProtection = _Opmen99810bBroadcastStormProtection_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11)
+)
+_Opmen99810bBroadcastStormProtectionConfigurationTable_Object = MibTable
+opmen99810bBroadcastStormProtectionConfigurationTable = _Opmen99810bBroadcastStormProtectionConfigurationTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1)
+)
+if mibBuilder.loadTexts:
+    opmen99810bBroadcastStormProtectionConfigurationTable.setStatus("current")
+_Opmen99810bBroadcastStormProtectionConfigurationEntry_Object = MibTableRow
+opmen99810bBroadcastStormProtectionConfigurationEntry = _Opmen99810bBroadcastStormProtectionConfigurationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1)
+)
+opmen99810bBroadcastStormProtectionConfigurationEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bBroadcastStormProtectionConfPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bBroadcastStormProtectionConfigurationEntry.setStatus("current")
+
+
+class _Opmen99810bBroadcastStormProtectionConfPort_Type(Integer32):
+    """Custom type opmen99810bBroadcastStormProtectionConfPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bBroadcastStormProtectionConfPort_Type.__name__ = "Integer32"
+_Opmen99810bBroadcastStormProtectionConfPort_Object = MibTableColumn
+opmen99810bBroadcastStormProtectionConfPort = _Opmen99810bBroadcastStormProtectionConfPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 1),
+    _Opmen99810bBroadcastStormProtectionConfPort_Type()
+)
+opmen99810bBroadcastStormProtectionConfPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bBroadcastStormProtectionConfPort.setStatus("current")
+
+
+class _Opmen99810bBroadcastStormProtectionConfMode_Type(Integer32):
+    """Custom type opmen99810bBroadcastStormProtectionConfMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bBroadcastStormProtectionConfMode_Type.__name__ = "Integer32"
+_Opmen99810bBroadcastStormProtectionConfMode_Object = MibTableColumn
+opmen99810bBroadcastStormProtectionConfMode = _Opmen99810bBroadcastStormProtectionConfMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 2),
+    _Opmen99810bBroadcastStormProtectionConfMode_Type()
+)
+opmen99810bBroadcastStormProtectionConfMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bBroadcastStormProtectionConfMode.setStatus("current")
+
+
+class _Opmen99810bBroadcastStormProtectionConfAction_Type(Integer32):
+    """Custom type opmen99810bBroadcastStormProtectionConfAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_Opmen99810bBroadcastStormProtectionConfAction_Type.__name__ = "Integer32"
+_Opmen99810bBroadcastStormProtectionConfAction_Object = MibTableColumn
+opmen99810bBroadcastStormProtectionConfAction = _Opmen99810bBroadcastStormProtectionConfAction_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 3),
+    _Opmen99810bBroadcastStormProtectionConfAction_Type()
+)
+opmen99810bBroadcastStormProtectionConfAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bBroadcastStormProtectionConfAction.setStatus("current")
+
+
+class _Opmen99810bBroadcastStormProtectionConfPPS_Type(Integer32):
+    """Custom type opmen99810bBroadcastStormProtectionConfPPS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000000),
+    )
+
+
+_Opmen99810bBroadcastStormProtectionConfPPS_Type.__name__ = "Integer32"
+_Opmen99810bBroadcastStormProtectionConfPPS_Object = MibTableColumn
+opmen99810bBroadcastStormProtectionConfPPS = _Opmen99810bBroadcastStormProtectionConfPPS_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 4),
+    _Opmen99810bBroadcastStormProtectionConfPPS_Type()
+)
+opmen99810bBroadcastStormProtectionConfPPS.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bBroadcastStormProtectionConfPPS.setStatus("current")
+
+
+class _Opmen99810bBroadcastStormProtectionConfTimer_Type(Integer32):
+    """Custom type opmen99810bBroadcastStormProtectionConfTimer based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Opmen99810bBroadcastStormProtectionConfTimer_Type.__name__ = "Integer32"
+_Opmen99810bBroadcastStormProtectionConfTimer_Object = MibTableColumn
+opmen99810bBroadcastStormProtectionConfTimer = _Opmen99810bBroadcastStormProtectionConfTimer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 5),
+    _Opmen99810bBroadcastStormProtectionConfTimer_Type()
+)
+opmen99810bBroadcastStormProtectionConfTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bBroadcastStormProtectionConfTimer.setStatus("current")
+_Opmen99810bBroadcastStormProtectionConfstatus_Type = DisplayString
+_Opmen99810bBroadcastStormProtectionConfstatus_Object = MibTableColumn
+opmen99810bBroadcastStormProtectionConfstatus = _Opmen99810bBroadcastStormProtectionConfstatus_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 11, 1, 1, 6),
+    _Opmen99810bBroadcastStormProtectionConfstatus_Type()
+)
+opmen99810bBroadcastStormProtectionConfstatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bBroadcastStormProtectionConfstatus.setStatus("current")
+_Opmen99810bLoopProtection_ObjectIdentity = ObjectIdentity
+opmen99810bLoopProtection = _Opmen99810bLoopProtection_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12)
+)
+_Opmen99810bLoopProtectionConfig_ObjectIdentity = ObjectIdentity
+opmen99810bLoopProtectionConfig = _Opmen99810bLoopProtectionConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1)
+)
+
+
+class _Opmen99810bLoopProtectionGlobalEnable_Type(Integer32):
+    """Custom type opmen99810bLoopProtectionGlobalEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bLoopProtectionGlobalEnable_Type.__name__ = "Integer32"
+_Opmen99810bLoopProtectionGlobalEnable_Object = MibScalar
+opmen99810bLoopProtectionGlobalEnable = _Opmen99810bLoopProtectionGlobalEnable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 1),
+    _Opmen99810bLoopProtectionGlobalEnable_Type()
+)
+opmen99810bLoopProtectionGlobalEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionGlobalEnable.setStatus("current")
+
+
+class _Opmen99810bLoopProtectionTranmisstionTime_Type(Integer32):
+    """Custom type opmen99810bLoopProtectionTranmisstionTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_Opmen99810bLoopProtectionTranmisstionTime_Type.__name__ = "Integer32"
+_Opmen99810bLoopProtectionTranmisstionTime_Object = MibScalar
+opmen99810bLoopProtectionTranmisstionTime = _Opmen99810bLoopProtectionTranmisstionTime_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 2),
+    _Opmen99810bLoopProtectionTranmisstionTime_Type()
+)
+opmen99810bLoopProtectionTranmisstionTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionTranmisstionTime.setStatus("current")
+
+
+class _Opmen99810bLoopProtectionShutdownTime_Type(Integer32):
+    """Custom type opmen99810bLoopProtectionShutdownTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 604800),
+    )
+
+
+_Opmen99810bLoopProtectionShutdownTime_Type.__name__ = "Integer32"
+_Opmen99810bLoopProtectionShutdownTime_Object = MibScalar
+opmen99810bLoopProtectionShutdownTime = _Opmen99810bLoopProtectionShutdownTime_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 3),
+    _Opmen99810bLoopProtectionShutdownTime_Type()
+)
+opmen99810bLoopProtectionShutdownTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionShutdownTime.setStatus("current")
+_Opmen99810bLoopProtectionConfigurationTable_Object = MibTable
+opmen99810bLoopProtectionConfigurationTable = _Opmen99810bLoopProtectionConfigurationTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4)
+)
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionConfigurationTable.setStatus("current")
+_Opmen99810bLoopProtectionConfigurationEntry_Object = MibTableRow
+opmen99810bLoopProtectionConfigurationEntry = _Opmen99810bLoopProtectionConfigurationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4, 1)
+)
+opmen99810bLoopProtectionConfigurationEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bLoopProtectionConfPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionConfigurationEntry.setStatus("current")
+
+
+class _Opmen99810bLoopProtectionConfPort_Type(Integer32):
+    """Custom type opmen99810bLoopProtectionConfPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bLoopProtectionConfPort_Type.__name__ = "Integer32"
+_Opmen99810bLoopProtectionConfPort_Object = MibTableColumn
+opmen99810bLoopProtectionConfPort = _Opmen99810bLoopProtectionConfPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4, 1, 1),
+    _Opmen99810bLoopProtectionConfPort_Type()
+)
+opmen99810bLoopProtectionConfPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionConfPort.setStatus("current")
+
+
+class _Opmen99810bLoopProtectionConfEnable_Type(Integer32):
+    """Custom type opmen99810bLoopProtectionConfEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bLoopProtectionConfEnable_Type.__name__ = "Integer32"
+_Opmen99810bLoopProtectionConfEnable_Object = MibTableColumn
+opmen99810bLoopProtectionConfEnable = _Opmen99810bLoopProtectionConfEnable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4, 1, 2),
+    _Opmen99810bLoopProtectionConfEnable_Type()
+)
+opmen99810bLoopProtectionConfEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionConfEnable.setStatus("current")
+
+
+class _Opmen99810bLoopProtectionConfAction_Type(Integer32):
+    """Custom type opmen99810bLoopProtectionConfAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("shutdown", 0),
+          ("shutdownLog", 1),
+          ("log", 2))
+    )
+
+
+_Opmen99810bLoopProtectionConfAction_Type.__name__ = "Integer32"
+_Opmen99810bLoopProtectionConfAction_Object = MibTableColumn
+opmen99810bLoopProtectionConfAction = _Opmen99810bLoopProtectionConfAction_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4, 1, 3),
+    _Opmen99810bLoopProtectionConfAction_Type()
+)
+opmen99810bLoopProtectionConfAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionConfAction.setStatus("current")
+
+
+class _Opmen99810bLoopProtectionConfTxmode_Type(Integer32):
+    """Custom type opmen99810bLoopProtectionConfTxmode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bLoopProtectionConfTxmode_Type.__name__ = "Integer32"
+_Opmen99810bLoopProtectionConfTxmode_Object = MibTableColumn
+opmen99810bLoopProtectionConfTxmode = _Opmen99810bLoopProtectionConfTxmode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 1, 4, 1, 4),
+    _Opmen99810bLoopProtectionConfTxmode_Type()
+)
+opmen99810bLoopProtectionConfTxmode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionConfTxmode.setStatus("current")
+_Opmen99810bLoopProtectionStatusTable_Object = MibTable
+opmen99810bLoopProtectionStatusTable = _Opmen99810bLoopProtectionStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionStatusTable.setStatus("current")
+_Opmen99810bLoopProtectionStatusEntry_Object = MibTableRow
+opmen99810bLoopProtectionStatusEntry = _Opmen99810bLoopProtectionStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1)
+)
+opmen99810bLoopProtectionStatusEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bLoopProtectionStatusPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionStatusEntry.setStatus("current")
+
+
+class _Opmen99810bLoopProtectionStatusPort_Type(Integer32):
+    """Custom type opmen99810bLoopProtectionStatusPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bLoopProtectionStatusPort_Type.__name__ = "Integer32"
+_Opmen99810bLoopProtectionStatusPort_Object = MibTableColumn
+opmen99810bLoopProtectionStatusPort = _Opmen99810bLoopProtectionStatusPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 1),
+    _Opmen99810bLoopProtectionStatusPort_Type()
+)
+opmen99810bLoopProtectionStatusPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionStatusPort.setStatus("current")
+_Opmen99810bLoopProtectionStatusAction_Type = DisplayString
+_Opmen99810bLoopProtectionStatusAction_Object = MibTableColumn
+opmen99810bLoopProtectionStatusAction = _Opmen99810bLoopProtectionStatusAction_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 2),
+    _Opmen99810bLoopProtectionStatusAction_Type()
+)
+opmen99810bLoopProtectionStatusAction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionStatusAction.setStatus("current")
+_Opmen99810bLoopProtectionStatusTransmit_Type = DisplayString
+_Opmen99810bLoopProtectionStatusTransmit_Object = MibTableColumn
+opmen99810bLoopProtectionStatusTransmit = _Opmen99810bLoopProtectionStatusTransmit_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 3),
+    _Opmen99810bLoopProtectionStatusTransmit_Type()
+)
+opmen99810bLoopProtectionStatusTransmit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionStatusTransmit.setStatus("current")
+
+
+class _Opmen99810bLoopProtectionStatusLoops_Type(Integer32):
+    """Custom type opmen99810bLoopProtectionStatusLoops based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000000),
+    )
+
+
+_Opmen99810bLoopProtectionStatusLoops_Type.__name__ = "Integer32"
+_Opmen99810bLoopProtectionStatusLoops_Object = MibTableColumn
+opmen99810bLoopProtectionStatusLoops = _Opmen99810bLoopProtectionStatusLoops_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 4),
+    _Opmen99810bLoopProtectionStatusLoops_Type()
+)
+opmen99810bLoopProtectionStatusLoops.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionStatusLoops.setStatus("current")
+_Opmen99810bLoopProtectionStatusStatus_Type = DisplayString
+_Opmen99810bLoopProtectionStatusStatus_Object = MibTableColumn
+opmen99810bLoopProtectionStatusStatus = _Opmen99810bLoopProtectionStatusStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 5),
+    _Opmen99810bLoopProtectionStatusStatus_Type()
+)
+opmen99810bLoopProtectionStatusStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionStatusStatus.setStatus("current")
+_Opmen99810bLoopProtectionStatusLoop_Type = DisplayString
+_Opmen99810bLoopProtectionStatusLoop_Object = MibTableColumn
+opmen99810bLoopProtectionStatusLoop = _Opmen99810bLoopProtectionStatusLoop_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 6),
+    _Opmen99810bLoopProtectionStatusLoop_Type()
+)
+opmen99810bLoopProtectionStatusLoop.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionStatusLoop.setStatus("current")
+_Opmen99810bLoopProtectionStatusTimeLastLoop_Type = DisplayString
+_Opmen99810bLoopProtectionStatusTimeLastLoop_Object = MibTableColumn
+opmen99810bLoopProtectionStatusTimeLastLoop = _Opmen99810bLoopProtectionStatusTimeLastLoop_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 12, 2, 1, 7),
+    _Opmen99810bLoopProtectionStatusTimeLastLoop_Type()
+)
+opmen99810bLoopProtectionStatusTimeLastLoop.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bLoopProtectionStatusTimeLastLoop.setStatus("current")
+_Opmen99810bQos_ObjectIdentity = ObjectIdentity
+opmen99810bQos = _Opmen99810bQos_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14)
+)
+_Opmen99810bQosPortClassification_ObjectIdentity = ObjectIdentity
+opmen99810bQosPortClassification = _Opmen99810bQosPortClassification_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1)
+)
+_Opmen99810bQosPortClassificationTable_Object = MibTable
+opmen99810bQosPortClassificationTable = _Opmen99810bQosPortClassificationTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortClassificationTable.setStatus("current")
+_Opmen99810bQosPortClassificationEntry_Object = MibTableRow
+opmen99810bQosPortClassificationEntry = _Opmen99810bQosPortClassificationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1)
+)
+opmen99810bQosPortClassificationEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosPortClassificationPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortClassificationEntry.setStatus("current")
+
+
+class _Opmen99810bQosPortClassificationPort_Type(Integer32):
+    """Custom type opmen99810bQosPortClassificationPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bQosPortClassificationPort_Type.__name__ = "Integer32"
+_Opmen99810bQosPortClassificationPort_Object = MibTableColumn
+opmen99810bQosPortClassificationPort = _Opmen99810bQosPortClassificationPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 1),
+    _Opmen99810bQosPortClassificationPort_Type()
+)
+opmen99810bQosPortClassificationPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortClassificationPort.setStatus("current")
+
+
+class _Opmen99810bQosPortClassificationQoSclass_Type(Integer32):
+    """Custom type opmen99810bQosPortClassificationQoSclass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Opmen99810bQosPortClassificationQoSclass_Type.__name__ = "Integer32"
+_Opmen99810bQosPortClassificationQoSclass_Object = MibTableColumn
+opmen99810bQosPortClassificationQoSclass = _Opmen99810bQosPortClassificationQoSclass_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 2),
+    _Opmen99810bQosPortClassificationQoSclass_Type()
+)
+opmen99810bQosPortClassificationQoSclass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortClassificationQoSclass.setStatus("current")
+
+
+class _Opmen99810bQosPortClassificationDPlevel_Type(Integer32):
+    """Custom type opmen99810bQosPortClassificationDPlevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_Opmen99810bQosPortClassificationDPlevel_Type.__name__ = "Integer32"
+_Opmen99810bQosPortClassificationDPlevel_Object = MibTableColumn
+opmen99810bQosPortClassificationDPlevel = _Opmen99810bQosPortClassificationDPlevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 3),
+    _Opmen99810bQosPortClassificationDPlevel_Type()
+)
+opmen99810bQosPortClassificationDPlevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortClassificationDPlevel.setStatus("current")
+
+
+class _Opmen99810bQosPortClassificationPCP_Type(Integer32):
+    """Custom type opmen99810bQosPortClassificationPCP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Opmen99810bQosPortClassificationPCP_Type.__name__ = "Integer32"
+_Opmen99810bQosPortClassificationPCP_Object = MibTableColumn
+opmen99810bQosPortClassificationPCP = _Opmen99810bQosPortClassificationPCP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 4),
+    _Opmen99810bQosPortClassificationPCP_Type()
+)
+opmen99810bQosPortClassificationPCP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortClassificationPCP.setStatus("current")
+
+
+class _Opmen99810bQosPortClassificationDEI_Type(Integer32):
+    """Custom type opmen99810bQosPortClassificationDEI based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosPortClassificationDEI_Type.__name__ = "Integer32"
+_Opmen99810bQosPortClassificationDEI_Object = MibTableColumn
+opmen99810bQosPortClassificationDEI = _Opmen99810bQosPortClassificationDEI_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 5),
+    _Opmen99810bQosPortClassificationDEI_Type()
+)
+opmen99810bQosPortClassificationDEI.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortClassificationDEI.setStatus("current")
+
+
+class _Opmen99810bQosPortClassificationTagClass_Type(Integer32):
+    """Custom type opmen99810bQosPortClassificationTagClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosPortClassificationTagClass_Type.__name__ = "Integer32"
+_Opmen99810bQosPortClassificationTagClass_Object = MibTableColumn
+opmen99810bQosPortClassificationTagClass = _Opmen99810bQosPortClassificationTagClass_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 6),
+    _Opmen99810bQosPortClassificationTagClass_Type()
+)
+opmen99810bQosPortClassificationTagClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortClassificationTagClass.setStatus("current")
+
+
+class _Opmen99810bQosPortClassificationDSCPBased_Type(Integer32):
+    """Custom type opmen99810bQosPortClassificationDSCPBased based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosPortClassificationDSCPBased_Type.__name__ = "Integer32"
+_Opmen99810bQosPortClassificationDSCPBased_Object = MibTableColumn
+opmen99810bQosPortClassificationDSCPBased = _Opmen99810bQosPortClassificationDSCPBased_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 1, 1, 7),
+    _Opmen99810bQosPortClassificationDSCPBased_Type()
+)
+opmen99810bQosPortClassificationDSCPBased.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortClassificationDSCPBased.setStatus("current")
+_Opmen99810bQoSIngressPortTagClassificationTable_Object = MibTable
+opmen99810bQoSIngressPortTagClassificationTable = _Opmen99810bQoSIngressPortTagClassificationTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQoSIngressPortTagClassificationTable.setStatus("current")
+_Opmen99810bQoSIngressPortTagClassificationEntry_Object = MibTableRow
+opmen99810bQoSIngressPortTagClassificationEntry = _Opmen99810bQoSIngressPortTagClassificationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1)
+)
+opmen99810bQoSIngressPortTagClassificationEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQoSIngressPortTagClassificationPort"),
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQoSIngressPortTagPCP"),
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQoSIngressPortTagDEI"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQoSIngressPortTagClassificationEntry.setStatus("current")
+
+
+class _Opmen99810bQoSIngressPortTagClassificationPort_Type(Integer32):
+    """Custom type opmen99810bQoSIngressPortTagClassificationPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bQoSIngressPortTagClassificationPort_Type.__name__ = "Integer32"
+_Opmen99810bQoSIngressPortTagClassificationPort_Object = MibTableColumn
+opmen99810bQoSIngressPortTagClassificationPort = _Opmen99810bQoSIngressPortTagClassificationPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1, 1),
+    _Opmen99810bQoSIngressPortTagClassificationPort_Type()
+)
+opmen99810bQoSIngressPortTagClassificationPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQoSIngressPortTagClassificationPort.setStatus("current")
+
+
+class _Opmen99810bQoSIngressPortTagPCP_Type(Integer32):
+    """Custom type opmen99810bQoSIngressPortTagPCP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pcp0", 1),
+          ("pcp1", 2),
+          ("pcp2", 3),
+          ("pcp3", 4),
+          ("pcp4", 5),
+          ("pcp5", 6),
+          ("pcp6", 7),
+          ("pcp7", 8))
+    )
+
+
+_Opmen99810bQoSIngressPortTagPCP_Type.__name__ = "Integer32"
+_Opmen99810bQoSIngressPortTagPCP_Object = MibTableColumn
+opmen99810bQoSIngressPortTagPCP = _Opmen99810bQoSIngressPortTagPCP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1, 2),
+    _Opmen99810bQoSIngressPortTagPCP_Type()
+)
+opmen99810bQoSIngressPortTagPCP.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQoSIngressPortTagPCP.setStatus("current")
+
+
+class _Opmen99810bQoSIngressPortTagDEI_Type(Integer32):
+    """Custom type opmen99810bQoSIngressPortTagDEI based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dei0", 1),
+          ("dei1", 2))
+    )
+
+
+_Opmen99810bQoSIngressPortTagDEI_Type.__name__ = "Integer32"
+_Opmen99810bQoSIngressPortTagDEI_Object = MibTableColumn
+opmen99810bQoSIngressPortTagDEI = _Opmen99810bQoSIngressPortTagDEI_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1, 3),
+    _Opmen99810bQoSIngressPortTagDEI_Type()
+)
+opmen99810bQoSIngressPortTagDEI.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQoSIngressPortTagDEI.setStatus("current")
+
+
+class _Opmen99810bQoSIngressPortTagQosClass_Type(Integer32):
+    """Custom type opmen99810bQoSIngressPortTagQosClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Opmen99810bQoSIngressPortTagQosClass_Type.__name__ = "Integer32"
+_Opmen99810bQoSIngressPortTagQosClass_Object = MibTableColumn
+opmen99810bQoSIngressPortTagQosClass = _Opmen99810bQoSIngressPortTagQosClass_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1, 4),
+    _Opmen99810bQoSIngressPortTagQosClass_Type()
+)
+opmen99810bQoSIngressPortTagQosClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQoSIngressPortTagQosClass.setStatus("current")
+
+
+class _Opmen99810bQoSIngressPortTagDPLevel_Type(Integer32):
+    """Custom type opmen99810bQoSIngressPortTagDPLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_Opmen99810bQoSIngressPortTagDPLevel_Type.__name__ = "Integer32"
+_Opmen99810bQoSIngressPortTagDPLevel_Object = MibTableColumn
+opmen99810bQoSIngressPortTagDPLevel = _Opmen99810bQoSIngressPortTagDPLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 1, 2, 1, 5),
+    _Opmen99810bQoSIngressPortTagDPLevel_Type()
+)
+opmen99810bQoSIngressPortTagDPLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQoSIngressPortTagDPLevel.setStatus("current")
+_Opmen99810bQosPortPolicingTable_Object = MibTable
+opmen99810bQosPortPolicingTable = _Opmen99810bQosPortPolicingTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortPolicingTable.setStatus("current")
+_Opmen99810bQosPortPolicingEntry_Object = MibTableRow
+opmen99810bQosPortPolicingEntry = _Opmen99810bQosPortPolicingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1)
+)
+opmen99810bQosPortPolicingEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosPortPolicingPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortPolicingEntry.setStatus("current")
+
+
+class _Opmen99810bQosPortPolicingPort_Type(Integer32):
+    """Custom type opmen99810bQosPortPolicingPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bQosPortPolicingPort_Type.__name__ = "Integer32"
+_Opmen99810bQosPortPolicingPort_Object = MibTableColumn
+opmen99810bQosPortPolicingPort = _Opmen99810bQosPortPolicingPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1, 1),
+    _Opmen99810bQosPortPolicingPort_Type()
+)
+opmen99810bQosPortPolicingPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortPolicingPort.setStatus("current")
+
+
+class _Opmen99810bQosPortPolicingMode_Type(Integer32):
+    """Custom type opmen99810bQosPortPolicingMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosPortPolicingMode_Type.__name__ = "Integer32"
+_Opmen99810bQosPortPolicingMode_Object = MibTableColumn
+opmen99810bQosPortPolicingMode = _Opmen99810bQosPortPolicingMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1, 2),
+    _Opmen99810bQosPortPolicingMode_Type()
+)
+opmen99810bQosPortPolicingMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortPolicingMode.setStatus("current")
+
+
+class _Opmen99810bQosPortPolicingRate_Type(Integer32):
+    """Custom type opmen99810bQosPortPolicingRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(100, 10000000),
+    )
+
+
+_Opmen99810bQosPortPolicingRate_Type.__name__ = "Integer32"
+_Opmen99810bQosPortPolicingRate_Object = MibTableColumn
+opmen99810bQosPortPolicingRate = _Opmen99810bQosPortPolicingRate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1, 3),
+    _Opmen99810bQosPortPolicingRate_Type()
+)
+opmen99810bQosPortPolicingRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortPolicingRate.setStatus("current")
+
+
+class _Opmen99810bQosPortPolicingUnit_Type(Integer32):
+    """Custom type opmen99810bQosPortPolicingUnit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("kbps", 0),
+          ("fps", 1))
+    )
+
+
+_Opmen99810bQosPortPolicingUnit_Type.__name__ = "Integer32"
+_Opmen99810bQosPortPolicingUnit_Object = MibTableColumn
+opmen99810bQosPortPolicingUnit = _Opmen99810bQosPortPolicingUnit_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1, 4),
+    _Opmen99810bQosPortPolicingUnit_Type()
+)
+opmen99810bQosPortPolicingUnit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortPolicingUnit.setStatus("current")
+
+
+class _Opmen99810bQosPortPolicingFlowControl_Type(Integer32):
+    """Custom type opmen99810bQosPortPolicingFlowControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosPortPolicingFlowControl_Type.__name__ = "Integer32"
+_Opmen99810bQosPortPolicingFlowControl_Object = MibTableColumn
+opmen99810bQosPortPolicingFlowControl = _Opmen99810bQosPortPolicingFlowControl_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 2, 1, 5),
+    _Opmen99810bQosPortPolicingFlowControl_Type()
+)
+opmen99810bQosPortPolicingFlowControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortPolicingFlowControl.setStatus("current")
+_Opmen99810bQosPortScheduler_ObjectIdentity = ObjectIdentity
+opmen99810bQosPortScheduler = _Opmen99810bQosPortScheduler_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3)
+)
+_Opmen99810bQosPortSchedulerModeTable_Object = MibTable
+opmen99810bQosPortSchedulerModeTable = _Opmen99810bQosPortSchedulerModeTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortSchedulerModeTable.setStatus("current")
+_Opmen99810bQosPortSchedulerModeEntry_Object = MibTableRow
+opmen99810bQosPortSchedulerModeEntry = _Opmen99810bQosPortSchedulerModeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1, 1)
+)
+opmen99810bQosPortSchedulerModeEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosSchedulerModePort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortSchedulerModeEntry.setStatus("current")
+
+
+class _Opmen99810bQosSchedulerModePort_Type(Integer32):
+    """Custom type opmen99810bQosSchedulerModePort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bQosSchedulerModePort_Type.__name__ = "Integer32"
+_Opmen99810bQosSchedulerModePort_Object = MibTableColumn
+opmen99810bQosSchedulerModePort = _Opmen99810bQosSchedulerModePort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1, 1, 1),
+    _Opmen99810bQosSchedulerModePort_Type()
+)
+opmen99810bQosSchedulerModePort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosSchedulerModePort.setStatus("current")
+
+
+class _Opmen99810bQosSchedulerMode_Type(Integer32):
+    """Custom type opmen99810bQosSchedulerMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("strictPriority", 0),
+          ("weighted", 1))
+    )
+
+
+_Opmen99810bQosSchedulerMode_Type.__name__ = "Integer32"
+_Opmen99810bQosSchedulerMode_Object = MibTableColumn
+opmen99810bQosSchedulerMode = _Opmen99810bQosSchedulerMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1, 1, 2),
+    _Opmen99810bQosSchedulerMode_Type()
+)
+opmen99810bQosSchedulerMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosSchedulerMode.setStatus("current")
+
+
+class _Opmen99810bQosSchedulerShaper_Type(Integer32):
+    """Custom type opmen99810bQosSchedulerShaper based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosSchedulerShaper_Type.__name__ = "Integer32"
+_Opmen99810bQosSchedulerShaper_Object = MibTableColumn
+opmen99810bQosSchedulerShaper = _Opmen99810bQosSchedulerShaper_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1, 1, 3),
+    _Opmen99810bQosSchedulerShaper_Type()
+)
+opmen99810bQosSchedulerShaper.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosSchedulerShaper.setStatus("current")
+
+
+class _Opmen99810bQosSchedulerShaperRate_Type(Integer32):
+    """Custom type opmen99810bQosSchedulerShaperRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(100, 1000000),
+    )
+
+
+_Opmen99810bQosSchedulerShaperRate_Type.__name__ = "Integer32"
+_Opmen99810bQosSchedulerShaperRate_Object = MibTableColumn
+opmen99810bQosSchedulerShaperRate = _Opmen99810bQosSchedulerShaperRate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 1, 1, 4),
+    _Opmen99810bQosSchedulerShaperRate_Type()
+)
+opmen99810bQosSchedulerShaperRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosSchedulerShaperRate.setStatus("current")
+_Opmen99810bQosPortSchedulerTable_Object = MibTable
+opmen99810bQosPortSchedulerTable = _Opmen99810bQosPortSchedulerTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortSchedulerTable.setStatus("current")
+_Opmen99810bQosPortSchedulerEntry_Object = MibTableRow
+opmen99810bQosPortSchedulerEntry = _Opmen99810bQosPortSchedulerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1)
+)
+opmen99810bQosPortSchedulerEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosSchedulerPort"),
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosSchedulerPortQueue"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortSchedulerEntry.setStatus("current")
+
+
+class _Opmen99810bQosSchedulerPort_Type(Integer32):
+    """Custom type opmen99810bQosSchedulerPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bQosSchedulerPort_Type.__name__ = "Integer32"
+_Opmen99810bQosSchedulerPort_Object = MibTableColumn
+opmen99810bQosSchedulerPort = _Opmen99810bQosSchedulerPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 1),
+    _Opmen99810bQosSchedulerPort_Type()
+)
+opmen99810bQosSchedulerPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosSchedulerPort.setStatus("current")
+
+
+class _Opmen99810bQosSchedulerPortQueue_Type(Integer32):
+    """Custom type opmen99810bQosSchedulerPortQueue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("q0", 1),
+          ("q1", 2),
+          ("q2", 3),
+          ("q3", 4),
+          ("q4", 5),
+          ("q5", 6),
+          ("q6", 7),
+          ("q7", 8))
+    )
+
+
+_Opmen99810bQosSchedulerPortQueue_Type.__name__ = "Integer32"
+_Opmen99810bQosSchedulerPortQueue_Object = MibTableColumn
+opmen99810bQosSchedulerPortQueue = _Opmen99810bQosSchedulerPortQueue_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 2),
+    _Opmen99810bQosSchedulerPortQueue_Type()
+)
+opmen99810bQosSchedulerPortQueue.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosSchedulerPortQueue.setStatus("current")
+
+
+class _Opmen99810bQosSchedulerPortQueueShaper_Type(Integer32):
+    """Custom type opmen99810bQosSchedulerPortQueueShaper based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosSchedulerPortQueueShaper_Type.__name__ = "Integer32"
+_Opmen99810bQosSchedulerPortQueueShaper_Object = MibTableColumn
+opmen99810bQosSchedulerPortQueueShaper = _Opmen99810bQosSchedulerPortQueueShaper_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 3),
+    _Opmen99810bQosSchedulerPortQueueShaper_Type()
+)
+opmen99810bQosSchedulerPortQueueShaper.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosSchedulerPortQueueShaper.setStatus("current")
+
+
+class _Opmen99810bQosSchedulerPortQueueShaperRate_Type(Integer32):
+    """Custom type opmen99810bQosSchedulerPortQueueShaperRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(100, 1000000),
+    )
+
+
+_Opmen99810bQosSchedulerPortQueueShaperRate_Type.__name__ = "Integer32"
+_Opmen99810bQosSchedulerPortQueueShaperRate_Object = MibTableColumn
+opmen99810bQosSchedulerPortQueueShaperRate = _Opmen99810bQosSchedulerPortQueueShaperRate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 4),
+    _Opmen99810bQosSchedulerPortQueueShaperRate_Type()
+)
+opmen99810bQosSchedulerPortQueueShaperRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosSchedulerPortQueueShaperRate.setStatus("current")
+
+
+class _Opmen99810bQosSchedulerPortQueueShaperExcess_Type(Integer32):
+    """Custom type opmen99810bQosSchedulerPortQueueShaperExcess based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosSchedulerPortQueueShaperExcess_Type.__name__ = "Integer32"
+_Opmen99810bQosSchedulerPortQueueShaperExcess_Object = MibTableColumn
+opmen99810bQosSchedulerPortQueueShaperExcess = _Opmen99810bQosSchedulerPortQueueShaperExcess_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 5),
+    _Opmen99810bQosSchedulerPortQueueShaperExcess_Type()
+)
+opmen99810bQosSchedulerPortQueueShaperExcess.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosSchedulerPortQueueShaperExcess.setStatus("current")
+
+
+class _Opmen99810bQosSchedulerPortQueueSchedulerWeight_Type(Integer32):
+    """Custom type opmen99810bQosSchedulerPortQueueSchedulerWeight based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_Opmen99810bQosSchedulerPortQueueSchedulerWeight_Type.__name__ = "Integer32"
+_Opmen99810bQosSchedulerPortQueueSchedulerWeight_Object = MibTableColumn
+opmen99810bQosSchedulerPortQueueSchedulerWeight = _Opmen99810bQosSchedulerPortQueueSchedulerWeight_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 6),
+    _Opmen99810bQosSchedulerPortQueueSchedulerWeight_Type()
+)
+opmen99810bQosSchedulerPortQueueSchedulerWeight.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosSchedulerPortQueueSchedulerWeight.setStatus("current")
+_Opmen99810bQosSchedulerPortQueueSchedulerPercent_Type = DisplayString
+_Opmen99810bQosSchedulerPortQueueSchedulerPercent_Object = MibTableColumn
+opmen99810bQosSchedulerPortQueueSchedulerPercent = _Opmen99810bQosSchedulerPortQueueSchedulerPercent_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 3, 2, 1, 7),
+    _Opmen99810bQosSchedulerPortQueueSchedulerPercent_Type()
+)
+opmen99810bQosSchedulerPortQueueSchedulerPercent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bQosSchedulerPortQueueSchedulerPercent.setStatus("current")
+_Opmen99810bQosPortEgressTagRemarking_ObjectIdentity = ObjectIdentity
+opmen99810bQosPortEgressTagRemarking = _Opmen99810bQosPortEgressTagRemarking_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4)
+)
+_Opmen99810bQosPortEgressTagRemarkingTable_Object = MibTable
+opmen99810bQosPortEgressTagRemarkingTable = _Opmen99810bQosPortEgressTagRemarkingTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 1)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortEgressTagRemarkingTable.setStatus("current")
+_Opmen99810bQosPortEgressTagRemarkingEntry_Object = MibTableRow
+opmen99810bQosPortEgressTagRemarkingEntry = _Opmen99810bQosPortEgressTagRemarkingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 1, 1)
+)
+opmen99810bQosPortEgressTagRemarkingEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosEgressTagRemarkingPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortEgressTagRemarkingEntry.setStatus("current")
+
+
+class _Opmen99810bQosEgressTagRemarkingPort_Type(Integer32):
+    """Custom type opmen99810bQosEgressTagRemarkingPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bQosEgressTagRemarkingPort_Type.__name__ = "Integer32"
+_Opmen99810bQosEgressTagRemarkingPort_Object = MibTableColumn
+opmen99810bQosEgressTagRemarkingPort = _Opmen99810bQosEgressTagRemarkingPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 1, 1, 1),
+    _Opmen99810bQosEgressTagRemarkingPort_Type()
+)
+opmen99810bQosEgressTagRemarkingPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosEgressTagRemarkingPort.setStatus("current")
+
+
+class _Opmen99810bQosEgressTagRemarkingMode_Type(Integer32):
+    """Custom type opmen99810bQosEgressTagRemarkingMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("classified", 0),
+          ("default", 1),
+          ("mapped", 2))
+    )
+
+
+_Opmen99810bQosEgressTagRemarkingMode_Type.__name__ = "Integer32"
+_Opmen99810bQosEgressTagRemarkingMode_Object = MibTableColumn
+opmen99810bQosEgressTagRemarkingMode = _Opmen99810bQosEgressTagRemarkingMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 1, 1, 2),
+    _Opmen99810bQosEgressTagRemarkingMode_Type()
+)
+opmen99810bQosEgressTagRemarkingMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosEgressTagRemarkingMode.setStatus("current")
+_Opmen99810bQosPortEgressTagRemarkingDefTable_Object = MibTable
+opmen99810bQosPortEgressTagRemarkingDefTable = _Opmen99810bQosPortEgressTagRemarkingDefTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortEgressTagRemarkingDefTable.setStatus("current")
+_Opmen99810bQosPortEgressTagRemarkingDefEntry_Object = MibTableRow
+opmen99810bQosPortEgressTagRemarkingDefEntry = _Opmen99810bQosPortEgressTagRemarkingDefEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 2, 1)
+)
+opmen99810bQosPortEgressTagRemarkingDefEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosEgressTagRemarkingDefPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortEgressTagRemarkingDefEntry.setStatus("current")
+
+
+class _Opmen99810bQosEgressTagRemarkingDefPort_Type(Integer32):
+    """Custom type opmen99810bQosEgressTagRemarkingDefPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bQosEgressTagRemarkingDefPort_Type.__name__ = "Integer32"
+_Opmen99810bQosEgressTagRemarkingDefPort_Object = MibTableColumn
+opmen99810bQosEgressTagRemarkingDefPort = _Opmen99810bQosEgressTagRemarkingDefPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 2, 1, 1),
+    _Opmen99810bQosEgressTagRemarkingDefPort_Type()
+)
+opmen99810bQosEgressTagRemarkingDefPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosEgressTagRemarkingDefPort.setStatus("current")
+
+
+class _Opmen99810bQosEgressTagRemarkingDefPCP_Type(Integer32):
+    """Custom type opmen99810bQosEgressTagRemarkingDefPCP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Opmen99810bQosEgressTagRemarkingDefPCP_Type.__name__ = "Integer32"
+_Opmen99810bQosEgressTagRemarkingDefPCP_Object = MibTableColumn
+opmen99810bQosEgressTagRemarkingDefPCP = _Opmen99810bQosEgressTagRemarkingDefPCP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 2, 1, 2),
+    _Opmen99810bQosEgressTagRemarkingDefPCP_Type()
+)
+opmen99810bQosEgressTagRemarkingDefPCP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosEgressTagRemarkingDefPCP.setStatus("current")
+
+
+class _Opmen99810bQosEgressTagRemarkingDefDEI_Type(Integer32):
+    """Custom type opmen99810bQosEgressTagRemarkingDefDEI based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosEgressTagRemarkingDefDEI_Type.__name__ = "Integer32"
+_Opmen99810bQosEgressTagRemarkingDefDEI_Object = MibTableColumn
+opmen99810bQosEgressTagRemarkingDefDEI = _Opmen99810bQosEgressTagRemarkingDefDEI_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 2, 1, 3),
+    _Opmen99810bQosEgressTagRemarkingDefDEI_Type()
+)
+opmen99810bQosEgressTagRemarkingDefDEI.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosEgressTagRemarkingDefDEI.setStatus("current")
+_Opmen99810bQosPortEgressTagRemarkingMapTable_Object = MibTable
+opmen99810bQosPortEgressTagRemarkingMapTable = _Opmen99810bQosPortEgressTagRemarkingMapTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortEgressTagRemarkingMapTable.setStatus("current")
+_Opmen99810bQosPortEgressTagRemarkingMapEntry_Object = MibTableRow
+opmen99810bQosPortEgressTagRemarkingMapEntry = _Opmen99810bQosPortEgressTagRemarkingMapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1)
+)
+opmen99810bQosPortEgressTagRemarkingMapEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosPortEgressTagRemarkingMapPort"),
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosTagRemarkingQoSClass"),
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosTagRemarkingDPLevel"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortEgressTagRemarkingMapEntry.setStatus("current")
+
+
+class _Opmen99810bQosPortEgressTagRemarkingMapPort_Type(Integer32):
+    """Custom type opmen99810bQosPortEgressTagRemarkingMapPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bQosPortEgressTagRemarkingMapPort_Type.__name__ = "Integer32"
+_Opmen99810bQosPortEgressTagRemarkingMapPort_Object = MibTableColumn
+opmen99810bQosPortEgressTagRemarkingMapPort = _Opmen99810bQosPortEgressTagRemarkingMapPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1, 1),
+    _Opmen99810bQosPortEgressTagRemarkingMapPort_Type()
+)
+opmen99810bQosPortEgressTagRemarkingMapPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortEgressTagRemarkingMapPort.setStatus("current")
+
+
+class _Opmen99810bQosTagRemarkingQoSClass_Type(Integer32):
+    """Custom type opmen99810bQosTagRemarkingQoSClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("class0", 1),
+          ("class1", 2),
+          ("class2", 3),
+          ("class3", 4),
+          ("class4", 5),
+          ("class5", 6),
+          ("class6", 7),
+          ("class7", 8))
+    )
+
+
+_Opmen99810bQosTagRemarkingQoSClass_Type.__name__ = "Integer32"
+_Opmen99810bQosTagRemarkingQoSClass_Object = MibTableColumn
+opmen99810bQosTagRemarkingQoSClass = _Opmen99810bQosTagRemarkingQoSClass_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1, 2),
+    _Opmen99810bQosTagRemarkingQoSClass_Type()
+)
+opmen99810bQosTagRemarkingQoSClass.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosTagRemarkingQoSClass.setStatus("current")
+
+
+class _Opmen99810bQosTagRemarkingDPLevel_Type(Integer32):
+    """Custom type opmen99810bQosTagRemarkingDPLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("level0", 1),
+          ("level1", 2))
+    )
+
+
+_Opmen99810bQosTagRemarkingDPLevel_Type.__name__ = "Integer32"
+_Opmen99810bQosTagRemarkingDPLevel_Object = MibTableColumn
+opmen99810bQosTagRemarkingDPLevel = _Opmen99810bQosTagRemarkingDPLevel_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1, 3),
+    _Opmen99810bQosTagRemarkingDPLevel_Type()
+)
+opmen99810bQosTagRemarkingDPLevel.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosTagRemarkingDPLevel.setStatus("current")
+
+
+class _Opmen99810bQosTagRemarkingPCP_Type(Integer32):
+    """Custom type opmen99810bQosTagRemarkingPCP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Opmen99810bQosTagRemarkingPCP_Type.__name__ = "Integer32"
+_Opmen99810bQosTagRemarkingPCP_Object = MibTableColumn
+opmen99810bQosTagRemarkingPCP = _Opmen99810bQosTagRemarkingPCP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1, 4),
+    _Opmen99810bQosTagRemarkingPCP_Type()
+)
+opmen99810bQosTagRemarkingPCP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosTagRemarkingPCP.setStatus("current")
+
+
+class _Opmen99810bQosTagRemarkingDEI_Type(Integer32):
+    """Custom type opmen99810bQosTagRemarkingDEI based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_Opmen99810bQosTagRemarkingDEI_Type.__name__ = "Integer32"
+_Opmen99810bQosTagRemarkingDEI_Object = MibTableColumn
+opmen99810bQosTagRemarkingDEI = _Opmen99810bQosTagRemarkingDEI_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 4, 4, 1, 5),
+    _Opmen99810bQosTagRemarkingDEI_Type()
+)
+opmen99810bQosTagRemarkingDEI.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosTagRemarkingDEI.setStatus("current")
+_Opmen99810bQosPortDSCPTable_Object = MibTable
+opmen99810bQosPortDSCPTable = _Opmen99810bQosPortDSCPTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortDSCPTable.setStatus("current")
+_Opmen99810bQosPortDSCPEntry_Object = MibTableRow
+opmen99810bQosPortDSCPEntry = _Opmen99810bQosPortDSCPEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5, 1)
+)
+opmen99810bQosPortDSCPEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosPortDSCPPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosPortDSCPEntry.setStatus("current")
+
+
+class _Opmen99810bQosPortDSCPPort_Type(Integer32):
+    """Custom type opmen99810bQosPortDSCPPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bQosPortDSCPPort_Type.__name__ = "Integer32"
+_Opmen99810bQosPortDSCPPort_Object = MibTableColumn
+opmen99810bQosPortDSCPPort = _Opmen99810bQosPortDSCPPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5, 1, 1),
+    _Opmen99810bQosPortDSCPPort_Type()
+)
+opmen99810bQosPortDSCPPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortDSCPPort.setStatus("current")
+
+
+class _Opmen99810bQosPortDSCPIngressTranslate_Type(Integer32):
+    """Custom type opmen99810bQosPortDSCPIngressTranslate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosPortDSCPIngressTranslate_Type.__name__ = "Integer32"
+_Opmen99810bQosPortDSCPIngressTranslate_Object = MibTableColumn
+opmen99810bQosPortDSCPIngressTranslate = _Opmen99810bQosPortDSCPIngressTranslate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5, 1, 2),
+    _Opmen99810bQosPortDSCPIngressTranslate_Type()
+)
+opmen99810bQosPortDSCPIngressTranslate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortDSCPIngressTranslate.setStatus("current")
+
+
+class _Opmen99810bQosPortDSCPIngressClassify_Type(Integer32):
+    """Custom type opmen99810bQosPortDSCPIngressClassify based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_Opmen99810bQosPortDSCPIngressClassify_Type.__name__ = "Integer32"
+_Opmen99810bQosPortDSCPIngressClassify_Object = MibTableColumn
+opmen99810bQosPortDSCPIngressClassify = _Opmen99810bQosPortDSCPIngressClassify_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5, 1, 3),
+    _Opmen99810bQosPortDSCPIngressClassify_Type()
+)
+opmen99810bQosPortDSCPIngressClassify.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortDSCPIngressClassify.setStatus("current")
+
+
+class _Opmen99810bQosPortDSCPEgressRewrite_Type(Integer32):
+    """Custom type opmen99810bQosPortDSCPEgressRewrite based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_Opmen99810bQosPortDSCPEgressRewrite_Type.__name__ = "Integer32"
+_Opmen99810bQosPortDSCPEgressRewrite_Object = MibTableColumn
+opmen99810bQosPortDSCPEgressRewrite = _Opmen99810bQosPortDSCPEgressRewrite_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 5, 1, 4),
+    _Opmen99810bQosPortDSCPEgressRewrite_Type()
+)
+opmen99810bQosPortDSCPEgressRewrite.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPortDSCPEgressRewrite.setStatus("current")
+_Opmen99810bQosDSCPTable_Object = MibTable
+opmen99810bQosDSCPTable = _Opmen99810bQosDSCPTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPTable.setStatus("current")
+_Opmen99810bQosDSCPEntry_Object = MibTableRow
+opmen99810bQosDSCPEntry = _Opmen99810bQosDSCPEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1)
+)
+opmen99810bQosDSCPEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosDSCPList"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPEntry.setStatus("current")
+
+
+class _Opmen99810bQosDSCPList_Type(Integer32):
+    """Custom type opmen99810bQosDSCPList based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 64),
+    )
+
+
+_Opmen99810bQosDSCPList_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPList_Object = MibTableColumn
+opmen99810bQosDSCPList = _Opmen99810bQosDSCPList_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1, 1),
+    _Opmen99810bQosDSCPList_Type()
+)
+opmen99810bQosDSCPList.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPList.setStatus("current")
+_Opmen99810bQosDSCP_Type = DisplayString
+_Opmen99810bQosDSCP_Object = MibTableColumn
+opmen99810bQosDSCP = _Opmen99810bQosDSCP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1, 2),
+    _Opmen99810bQosDSCP_Type()
+)
+opmen99810bQosDSCP.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCP.setStatus("current")
+
+
+class _Opmen99810bQosDSCPTrust_Type(Integer32):
+    """Custom type opmen99810bQosDSCPTrust based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosDSCPTrust_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPTrust_Object = MibTableColumn
+opmen99810bQosDSCPTrust = _Opmen99810bQosDSCPTrust_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1, 3),
+    _Opmen99810bQosDSCPTrust_Type()
+)
+opmen99810bQosDSCPTrust.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPTrust.setStatus("current")
+
+
+class _Opmen99810bQosDSCPQosClass_Type(Integer32):
+    """Custom type opmen99810bQosDSCPQosClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Opmen99810bQosDSCPQosClass_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPQosClass_Object = MibTableColumn
+opmen99810bQosDSCPQosClass = _Opmen99810bQosDSCPQosClass_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1, 4),
+    _Opmen99810bQosDSCPQosClass_Type()
+)
+opmen99810bQosDSCPQosClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPQosClass.setStatus("current")
+
+
+class _Opmen99810bQosDSCPDPL_Type(Integer32):
+    """Custom type opmen99810bQosDSCPDPL based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_Opmen99810bQosDSCPDPL_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPDPL_Object = MibTableColumn
+opmen99810bQosDSCPDPL = _Opmen99810bQosDSCPDPL_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 6, 1, 5),
+    _Opmen99810bQosDSCPDPL_Type()
+)
+opmen99810bQosDSCPDPL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPDPL.setStatus("current")
+_Opmen99810bQosDSCPTranslationTable_Object = MibTable
+opmen99810bQosDSCPTranslationTable = _Opmen99810bQosDSCPTranslationTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPTranslationTable.setStatus("current")
+_Opmen99810bQosDSCPTranslationEntry_Object = MibTableRow
+opmen99810bQosDSCPTranslationEntry = _Opmen99810bQosDSCPTranslationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1)
+)
+opmen99810bQosDSCPTranslationEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosDSCPTranslationList"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPTranslationEntry.setStatus("current")
+
+
+class _Opmen99810bQosDSCPTranslationList_Type(Integer32):
+    """Custom type opmen99810bQosDSCPTranslationList based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 64),
+    )
+
+
+_Opmen99810bQosDSCPTranslationList_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPTranslationList_Object = MibTableColumn
+opmen99810bQosDSCPTranslationList = _Opmen99810bQosDSCPTranslationList_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 1),
+    _Opmen99810bQosDSCPTranslationList_Type()
+)
+opmen99810bQosDSCPTranslationList.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPTranslationList.setStatus("current")
+_Opmen99810bQosDSCPTranslationDSCPBasedId_Type = DisplayString
+_Opmen99810bQosDSCPTranslationDSCPBasedId_Object = MibTableColumn
+opmen99810bQosDSCPTranslationDSCPBasedId = _Opmen99810bQosDSCPTranslationDSCPBasedId_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 2),
+    _Opmen99810bQosDSCPTranslationDSCPBasedId_Type()
+)
+opmen99810bQosDSCPTranslationDSCPBasedId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPTranslationDSCPBasedId.setStatus("current")
+
+
+class _Opmen99810bQosDSCPTranslationIngressTranslate_Type(Integer32):
+    """Custom type opmen99810bQosDSCPTranslationIngressTranslate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_Opmen99810bQosDSCPTranslationIngressTranslate_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPTranslationIngressTranslate_Object = MibTableColumn
+opmen99810bQosDSCPTranslationIngressTranslate = _Opmen99810bQosDSCPTranslationIngressTranslate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 3),
+    _Opmen99810bQosDSCPTranslationIngressTranslate_Type()
+)
+opmen99810bQosDSCPTranslationIngressTranslate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPTranslationIngressTranslate.setStatus("current")
+
+
+class _Opmen99810bQosDSCPTranslationIngressClassify_Type(Integer32):
+    """Custom type opmen99810bQosDSCPTranslationIngressClassify based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQosDSCPTranslationIngressClassify_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPTranslationIngressClassify_Object = MibTableColumn
+opmen99810bQosDSCPTranslationIngressClassify = _Opmen99810bQosDSCPTranslationIngressClassify_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 4),
+    _Opmen99810bQosDSCPTranslationIngressClassify_Type()
+)
+opmen99810bQosDSCPTranslationIngressClassify.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPTranslationIngressClassify.setStatus("current")
+
+
+class _Opmen99810bQosDSCPTranslationEgressRemapDP0_Type(Integer32):
+    """Custom type opmen99810bQosDSCPTranslationEgressRemapDP0 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_Opmen99810bQosDSCPTranslationEgressRemapDP0_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPTranslationEgressRemapDP0_Object = MibTableColumn
+opmen99810bQosDSCPTranslationEgressRemapDP0 = _Opmen99810bQosDSCPTranslationEgressRemapDP0_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 5),
+    _Opmen99810bQosDSCPTranslationEgressRemapDP0_Type()
+)
+opmen99810bQosDSCPTranslationEgressRemapDP0.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPTranslationEgressRemapDP0.setStatus("current")
+
+
+class _Opmen99810bQosDSCPTranslationEgressRemapDP1_Type(Integer32):
+    """Custom type opmen99810bQosDSCPTranslationEgressRemapDP1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_Opmen99810bQosDSCPTranslationEgressRemapDP1_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPTranslationEgressRemapDP1_Object = MibTableColumn
+opmen99810bQosDSCPTranslationEgressRemapDP1 = _Opmen99810bQosDSCPTranslationEgressRemapDP1_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 7, 1, 6),
+    _Opmen99810bQosDSCPTranslationEgressRemapDP1_Type()
+)
+opmen99810bQosDSCPTranslationEgressRemapDP1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPTranslationEgressRemapDP1.setStatus("current")
+_Opmen99810bQosDSCPClassificationTable_Object = MibTable
+opmen99810bQosDSCPClassificationTable = _Opmen99810bQosDSCPClassificationTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 8)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPClassificationTable.setStatus("current")
+_Opmen99810bQosDSCPClassificationEntry_Object = MibTableRow
+opmen99810bQosDSCPClassificationEntry = _Opmen99810bQosDSCPClassificationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 8, 1)
+)
+opmen99810bQosDSCPClassificationEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosDSCPClassificationQoSClass"),
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosDSCPClassificationDPL"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPClassificationEntry.setStatus("current")
+
+
+class _Opmen99810bQosDSCPClassificationQoSClass_Type(Integer32):
+    """Custom type opmen99810bQosDSCPClassificationQoSClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("class0", 1),
+          ("class1", 2),
+          ("class2", 3),
+          ("class3", 4),
+          ("class4", 5),
+          ("class5", 6),
+          ("class6", 7),
+          ("class7", 8))
+    )
+
+
+_Opmen99810bQosDSCPClassificationQoSClass_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPClassificationQoSClass_Object = MibTableColumn
+opmen99810bQosDSCPClassificationQoSClass = _Opmen99810bQosDSCPClassificationQoSClass_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 8, 1, 1),
+    _Opmen99810bQosDSCPClassificationQoSClass_Type()
+)
+opmen99810bQosDSCPClassificationQoSClass.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPClassificationQoSClass.setStatus("current")
+
+
+class _Opmen99810bQosDSCPClassificationDPL_Type(Integer32):
+    """Custom type opmen99810bQosDSCPClassificationDPL based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_Opmen99810bQosDSCPClassificationDPL_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPClassificationDPL_Object = MibTableColumn
+opmen99810bQosDSCPClassificationDPL = _Opmen99810bQosDSCPClassificationDPL_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 8, 1, 2),
+    _Opmen99810bQosDSCPClassificationDPL_Type()
+)
+opmen99810bQosDSCPClassificationDPL.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPClassificationDPL.setStatus("current")
+
+
+class _Opmen99810bQosDSCPClassificationDSCP_Type(Integer32):
+    """Custom type opmen99810bQosDSCPClassificationDSCP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_Opmen99810bQosDSCPClassificationDSCP_Type.__name__ = "Integer32"
+_Opmen99810bQosDSCPClassificationDSCP_Object = MibTableColumn
+opmen99810bQosDSCPClassificationDSCP = _Opmen99810bQosDSCPClassificationDSCP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 8, 1, 3),
+    _Opmen99810bQosDSCPClassificationDSCP_Type()
+)
+opmen99810bQosDSCPClassificationDSCP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosDSCPClassificationDSCP.setStatus("current")
+_Opmen99810bQosControlList_ObjectIdentity = ObjectIdentity
+opmen99810bQosControlList = _Opmen99810bQosControlList_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9)
+)
+
+
+class _Opmen99810bQosQceCreate_Type(Integer32):
+    """Custom type opmen99810bQosQceCreate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("create", 1))
+    )
+
+
+_Opmen99810bQosQceCreate_Type.__name__ = "Integer32"
+_Opmen99810bQosQceCreate_Object = MibScalar
+opmen99810bQosQceCreate = _Opmen99810bQosQceCreate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 1),
+    _Opmen99810bQosQceCreate_Type()
+)
+opmen99810bQosQceCreate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosQceCreate.setStatus("current")
+_Opmen99810bQosQceTable_Object = MibTable
+opmen99810bQosQceTable = _Opmen99810bQosQceTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosQceTable.setStatus("current")
+_Opmen99810bQosQceEntry_Object = MibTableRow
+opmen99810bQosQceEntry = _Opmen99810bQosQceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1)
+)
+opmen99810bQosQceEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosQceIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosQceEntry.setStatus("current")
+
+
+class _Opmen99810bQosQceIndex_Type(Integer32):
+    """Custom type opmen99810bQosQceIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 256),
+    )
+
+
+_Opmen99810bQosQceIndex_Type.__name__ = "Integer32"
+_Opmen99810bQosQceIndex_Object = MibTableColumn
+opmen99810bQosQceIndex = _Opmen99810bQosQceIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 1),
+    _Opmen99810bQosQceIndex_Type()
+)
+opmen99810bQosQceIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosQceIndex.setStatus("current")
+
+
+class _Opmen99810bQosQceID_Type(Integer32):
+    """Custom type opmen99810bQosQceID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 256),
+    )
+
+
+_Opmen99810bQosQceID_Type.__name__ = "Integer32"
+_Opmen99810bQosQceID_Object = MibTableColumn
+opmen99810bQosQceID = _Opmen99810bQosQceID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 2),
+    _Opmen99810bQosQceID_Type()
+)
+opmen99810bQosQceID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosQceID.setStatus("current")
+
+
+class _Opmen99810bQosQceNextID_Type(Integer32):
+    """Custom type opmen99810bQosQceNextID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 256),
+    )
+
+
+_Opmen99810bQosQceNextID_Type.__name__ = "Integer32"
+_Opmen99810bQosQceNextID_Object = MibTableColumn
+opmen99810bQosQceNextID = _Opmen99810bQosQceNextID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 3),
+    _Opmen99810bQosQceNextID_Type()
+)
+opmen99810bQosQceNextID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosQceNextID.setStatus("current")
+_Opmen99810bQosQcePortMembers_Type = DisplayString
+_Opmen99810bQosQcePortMembers_Object = MibTableColumn
+opmen99810bQosQcePortMembers = _Opmen99810bQosQcePortMembers_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 4),
+    _Opmen99810bQosQcePortMembers_Type()
+)
+opmen99810bQosQcePortMembers.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosQcePortMembers.setStatus("current")
+_Opmen99810bQosQceTag_Type = DisplayString
+_Opmen99810bQosQceTag_Object = MibTableColumn
+opmen99810bQosQceTag = _Opmen99810bQosQceTag_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 5),
+    _Opmen99810bQosQceTag_Type()
+)
+opmen99810bQosQceTag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosQceTag.setStatus("current")
+_Opmen99810bQosQceVID_Type = DisplayString
+_Opmen99810bQosQceVID_Object = MibTableColumn
+opmen99810bQosQceVID = _Opmen99810bQosQceVID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 6),
+    _Opmen99810bQosQceVID_Type()
+)
+opmen99810bQosQceVID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosQceVID.setStatus("current")
+_Opmen99810bQosPCP_Type = DisplayString
+_Opmen99810bQosPCP_Object = MibTableColumn
+opmen99810bQosPCP = _Opmen99810bQosPCP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 7),
+    _Opmen99810bQosPCP_Type()
+)
+opmen99810bQosPCP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosPCP.setStatus("current")
+_Opmen99810bQosDEI_Type = DisplayString
+_Opmen99810bQosDEI_Object = MibTableColumn
+opmen99810bQosDEI = _Opmen99810bQosDEI_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 8),
+    _Opmen99810bQosDEI_Type()
+)
+opmen99810bQosDEI.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosDEI.setStatus("current")
+_Opmen99810bQosSMAC_Type = DisplayString
+_Opmen99810bQosSMAC_Object = MibTableColumn
+opmen99810bQosSMAC = _Opmen99810bQosSMAC_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 9),
+    _Opmen99810bQosSMAC_Type()
+)
+opmen99810bQosSMAC.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosSMAC.setStatus("current")
+_Opmen99810bQosDMACType_Type = DisplayString
+_Opmen99810bQosDMACType_Object = MibTableColumn
+opmen99810bQosDMACType = _Opmen99810bQosDMACType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 10),
+    _Opmen99810bQosDMACType_Type()
+)
+opmen99810bQosDMACType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosDMACType.setStatus("current")
+
+
+class _Opmen99810bQosFrameType_Type(Integer32):
+    """Custom type opmen99810bQosFrameType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("ethernet", 2),
+          ("llc", 3),
+          ("snap", 4),
+          ("ipv4", 5),
+          ("ipv6", 6))
+    )
+
+
+_Opmen99810bQosFrameType_Type.__name__ = "Integer32"
+_Opmen99810bQosFrameType_Object = MibTableColumn
+opmen99810bQosFrameType = _Opmen99810bQosFrameType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 11),
+    _Opmen99810bQosFrameType_Type()
+)
+opmen99810bQosFrameType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosFrameType.setStatus("current")
+_Opmen99810bQosMacEtherType_Type = DisplayString
+_Opmen99810bQosMacEtherType_Object = MibTableColumn
+opmen99810bQosMacEtherType = _Opmen99810bQosMacEtherType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 12),
+    _Opmen99810bQosMacEtherType_Type()
+)
+opmen99810bQosMacEtherType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosMacEtherType.setStatus("current")
+_Opmen99810bQosLLCSSAPAddr_Type = DisplayString
+_Opmen99810bQosLLCSSAPAddr_Object = MibTableColumn
+opmen99810bQosLLCSSAPAddr = _Opmen99810bQosLLCSSAPAddr_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 13),
+    _Opmen99810bQosLLCSSAPAddr_Type()
+)
+opmen99810bQosLLCSSAPAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosLLCSSAPAddr.setStatus("current")
+_Opmen99810bQosLLCDSAPAddr_Type = DisplayString
+_Opmen99810bQosLLCDSAPAddr_Object = MibTableColumn
+opmen99810bQosLLCDSAPAddr = _Opmen99810bQosLLCDSAPAddr_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 14),
+    _Opmen99810bQosLLCDSAPAddr_Type()
+)
+opmen99810bQosLLCDSAPAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosLLCDSAPAddr.setStatus("current")
+_Opmen99810bQosLLCControl_Type = DisplayString
+_Opmen99810bQosLLCControl_Object = MibTableColumn
+opmen99810bQosLLCControl = _Opmen99810bQosLLCControl_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 15),
+    _Opmen99810bQosLLCControl_Type()
+)
+opmen99810bQosLLCControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosLLCControl.setStatus("current")
+_Opmen99810bQosSNAPPID_Type = DisplayString
+_Opmen99810bQosSNAPPID_Object = MibTableColumn
+opmen99810bQosSNAPPID = _Opmen99810bQosSNAPPID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 16),
+    _Opmen99810bQosSNAPPID_Type()
+)
+opmen99810bQosSNAPPID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosSNAPPID.setStatus("current")
+_Opmen99810bQosIpv4Protocol_Type = DisplayString
+_Opmen99810bQosIpv4Protocol_Object = MibTableColumn
+opmen99810bQosIpv4Protocol = _Opmen99810bQosIpv4Protocol_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 17),
+    _Opmen99810bQosIpv4Protocol_Type()
+)
+opmen99810bQosIpv4Protocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv4Protocol.setStatus("current")
+
+
+class _Opmen99810bQosIpv4ProtocolValue_Type(Integer32):
+    """Custom type opmen99810bQosIpv4ProtocolValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_Opmen99810bQosIpv4ProtocolValue_Type.__name__ = "Integer32"
+_Opmen99810bQosIpv4ProtocolValue_Object = MibTableColumn
+opmen99810bQosIpv4ProtocolValue = _Opmen99810bQosIpv4ProtocolValue_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 18),
+    _Opmen99810bQosIpv4ProtocolValue_Type()
+)
+opmen99810bQosIpv4ProtocolValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv4ProtocolValue.setStatus("current")
+_Opmen99810bQosIpv4ProtocolUDPSport_Type = DisplayString
+_Opmen99810bQosIpv4ProtocolUDPSport_Object = MibTableColumn
+opmen99810bQosIpv4ProtocolUDPSport = _Opmen99810bQosIpv4ProtocolUDPSport_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 19),
+    _Opmen99810bQosIpv4ProtocolUDPSport_Type()
+)
+opmen99810bQosIpv4ProtocolUDPSport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv4ProtocolUDPSport.setStatus("current")
+_Opmen99810bQosIpv4ProtocolUDPDport_Type = DisplayString
+_Opmen99810bQosIpv4ProtocolUDPDport_Object = MibTableColumn
+opmen99810bQosIpv4ProtocolUDPDport = _Opmen99810bQosIpv4ProtocolUDPDport_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 20),
+    _Opmen99810bQosIpv4ProtocolUDPDport_Type()
+)
+opmen99810bQosIpv4ProtocolUDPDport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv4ProtocolUDPDport.setStatus("current")
+_Opmen99810bQosIpv4ProtocolTCPSport_Type = DisplayString
+_Opmen99810bQosIpv4ProtocolTCPSport_Object = MibTableColumn
+opmen99810bQosIpv4ProtocolTCPSport = _Opmen99810bQosIpv4ProtocolTCPSport_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 21),
+    _Opmen99810bQosIpv4ProtocolTCPSport_Type()
+)
+opmen99810bQosIpv4ProtocolTCPSport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv4ProtocolTCPSport.setStatus("current")
+_Opmen99810bQosIpv4ProtocolTCPDport_Type = DisplayString
+_Opmen99810bQosIpv4ProtocolTCPDport_Object = MibTableColumn
+opmen99810bQosIpv4ProtocolTCPDport = _Opmen99810bQosIpv4ProtocolTCPDport_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 22),
+    _Opmen99810bQosIpv4ProtocolTCPDport_Type()
+)
+opmen99810bQosIpv4ProtocolTCPDport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv4ProtocolTCPDport.setStatus("current")
+_Opmen99810bQosIpv4SourceIp_Type = DisplayString
+_Opmen99810bQosIpv4SourceIp_Object = MibTableColumn
+opmen99810bQosIpv4SourceIp = _Opmen99810bQosIpv4SourceIp_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 23),
+    _Opmen99810bQosIpv4SourceIp_Type()
+)
+opmen99810bQosIpv4SourceIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv4SourceIp.setStatus("current")
+_Opmen99810bQosIpv4SourceMask_Type = DisplayString
+_Opmen99810bQosIpv4SourceMask_Object = MibTableColumn
+opmen99810bQosIpv4SourceMask = _Opmen99810bQosIpv4SourceMask_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 24),
+    _Opmen99810bQosIpv4SourceMask_Type()
+)
+opmen99810bQosIpv4SourceMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv4SourceMask.setStatus("current")
+
+
+class _Opmen99810bQosIpv4IPFragment_Type(Integer32):
+    """Custom type opmen99810bQosIpv4IPFragment based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 0),
+          ("no", 1),
+          ("yes", 2))
+    )
+
+
+_Opmen99810bQosIpv4IPFragment_Type.__name__ = "Integer32"
+_Opmen99810bQosIpv4IPFragment_Object = MibTableColumn
+opmen99810bQosIpv4IPFragment = _Opmen99810bQosIpv4IPFragment_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 25),
+    _Opmen99810bQosIpv4IPFragment_Type()
+)
+opmen99810bQosIpv4IPFragment.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv4IPFragment.setStatus("current")
+_Opmen99810bQosIpv4DSCP_Type = DisplayString
+_Opmen99810bQosIpv4DSCP_Object = MibTableColumn
+opmen99810bQosIpv4DSCP = _Opmen99810bQosIpv4DSCP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 26),
+    _Opmen99810bQosIpv4DSCP_Type()
+)
+opmen99810bQosIpv4DSCP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv4DSCP.setStatus("current")
+_Opmen99810bQosIpv6Protocol_Type = DisplayString
+_Opmen99810bQosIpv6Protocol_Object = MibTableColumn
+opmen99810bQosIpv6Protocol = _Opmen99810bQosIpv6Protocol_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 27),
+    _Opmen99810bQosIpv6Protocol_Type()
+)
+opmen99810bQosIpv6Protocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv6Protocol.setStatus("current")
+
+
+class _Opmen99810bQosIpv6ProtocolValue_Type(Integer32):
+    """Custom type opmen99810bQosIpv6ProtocolValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_Opmen99810bQosIpv6ProtocolValue_Type.__name__ = "Integer32"
+_Opmen99810bQosIpv6ProtocolValue_Object = MibTableColumn
+opmen99810bQosIpv6ProtocolValue = _Opmen99810bQosIpv6ProtocolValue_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 28),
+    _Opmen99810bQosIpv6ProtocolValue_Type()
+)
+opmen99810bQosIpv6ProtocolValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv6ProtocolValue.setStatus("current")
+_Opmen99810bQosIpv6ProtocolUDPSport_Type = DisplayString
+_Opmen99810bQosIpv6ProtocolUDPSport_Object = MibTableColumn
+opmen99810bQosIpv6ProtocolUDPSport = _Opmen99810bQosIpv6ProtocolUDPSport_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 29),
+    _Opmen99810bQosIpv6ProtocolUDPSport_Type()
+)
+opmen99810bQosIpv6ProtocolUDPSport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv6ProtocolUDPSport.setStatus("current")
+_Opmen99810bQosIpv6ProtocolUDPDport_Type = DisplayString
+_Opmen99810bQosIpv6ProtocolUDPDport_Object = MibTableColumn
+opmen99810bQosIpv6ProtocolUDPDport = _Opmen99810bQosIpv6ProtocolUDPDport_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 30),
+    _Opmen99810bQosIpv6ProtocolUDPDport_Type()
+)
+opmen99810bQosIpv6ProtocolUDPDport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv6ProtocolUDPDport.setStatus("current")
+_Opmen99810bQosIpv6ProtocolTCPSport_Type = DisplayString
+_Opmen99810bQosIpv6ProtocolTCPSport_Object = MibTableColumn
+opmen99810bQosIpv6ProtocolTCPSport = _Opmen99810bQosIpv6ProtocolTCPSport_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 31),
+    _Opmen99810bQosIpv6ProtocolTCPSport_Type()
+)
+opmen99810bQosIpv6ProtocolTCPSport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv6ProtocolTCPSport.setStatus("current")
+_Opmen99810bQosIpv6ProtocolTCPDport_Type = DisplayString
+_Opmen99810bQosIpv6ProtocolTCPDport_Object = MibTableColumn
+opmen99810bQosIpv6ProtocolTCPDport = _Opmen99810bQosIpv6ProtocolTCPDport_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 32),
+    _Opmen99810bQosIpv6ProtocolTCPDport_Type()
+)
+opmen99810bQosIpv6ProtocolTCPDport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv6ProtocolTCPDport.setStatus("current")
+_Opmen99810bQosIpv6SourceIp_Type = DisplayString
+_Opmen99810bQosIpv6SourceIp_Object = MibTableColumn
+opmen99810bQosIpv6SourceIp = _Opmen99810bQosIpv6SourceIp_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 33),
+    _Opmen99810bQosIpv6SourceIp_Type()
+)
+opmen99810bQosIpv6SourceIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv6SourceIp.setStatus("current")
+_Opmen99810bQosIpv6SourceMask_Type = DisplayString
+_Opmen99810bQosIpv6SourceMask_Object = MibTableColumn
+opmen99810bQosIpv6SourceMask = _Opmen99810bQosIpv6SourceMask_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 34),
+    _Opmen99810bQosIpv6SourceMask_Type()
+)
+opmen99810bQosIpv6SourceMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv6SourceMask.setStatus("current")
+_Opmen99810bQosIpv6DSCP_Type = DisplayString
+_Opmen99810bQosIpv6DSCP_Object = MibTableColumn
+opmen99810bQosIpv6DSCP = _Opmen99810bQosIpv6DSCP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 35),
+    _Opmen99810bQosIpv6DSCP_Type()
+)
+opmen99810bQosIpv6DSCP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosIpv6DSCP.setStatus("current")
+
+
+class _Opmen99810bQosActionClass_Type(Integer32):
+    """Custom type opmen99810bQosActionClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 8),
+    )
+
+
+_Opmen99810bQosActionClass_Type.__name__ = "Integer32"
+_Opmen99810bQosActionClass_Object = MibTableColumn
+opmen99810bQosActionClass = _Opmen99810bQosActionClass_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 36),
+    _Opmen99810bQosActionClass_Type()
+)
+opmen99810bQosActionClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosActionClass.setStatus("current")
+
+
+class _Opmen99810bQosActionDPL_Type(Integer32):
+    """Custom type opmen99810bQosActionDPL based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4),
+    )
+
+
+_Opmen99810bQosActionDPL_Type.__name__ = "Integer32"
+_Opmen99810bQosActionDPL_Object = MibTableColumn
+opmen99810bQosActionDPL = _Opmen99810bQosActionDPL_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 37),
+    _Opmen99810bQosActionDPL_Type()
+)
+opmen99810bQosActionDPL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosActionDPL.setStatus("current")
+
+
+class _Opmen99810bQosActionDSCP_Type(Integer32):
+    """Custom type opmen99810bQosActionDSCP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 64),
+    )
+
+
+_Opmen99810bQosActionDSCP_Type.__name__ = "Integer32"
+_Opmen99810bQosActionDSCP_Object = MibTableColumn
+opmen99810bQosActionDSCP = _Opmen99810bQosActionDSCP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 38),
+    _Opmen99810bQosActionDSCP_Type()
+)
+opmen99810bQosActionDSCP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosActionDSCP.setStatus("current")
+
+
+class _Opmen99810bQosQceRowStatus_Type(Integer32):
+    """Custom type opmen99810bQosQceRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("notInservice", 2),
+          ("destroy", 4))
+    )
+
+
+_Opmen99810bQosQceRowStatus_Type.__name__ = "Integer32"
+_Opmen99810bQosQceRowStatus_Object = MibTableColumn
+opmen99810bQosQceRowStatus = _Opmen99810bQosQceRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 2, 1, 39),
+    _Opmen99810bQosQceRowStatus_Type()
+)
+opmen99810bQosQceRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosQceRowStatus.setStatus("current")
+
+
+class _Opmen99810bQosQceMoveID_Type(Integer32):
+    """Custom type opmen99810bQosQceMoveID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 256),
+    )
+
+
+_Opmen99810bQosQceMoveID_Type.__name__ = "Integer32"
+_Opmen99810bQosQceMoveID_Object = MibScalar
+opmen99810bQosQceMoveID = _Opmen99810bQosQceMoveID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 3),
+    _Opmen99810bQosQceMoveID_Type()
+)
+opmen99810bQosQceMoveID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosQceMoveID.setStatus("current")
+
+
+class _Opmen99810bQosQceMoveNextID_Type(Integer32):
+    """Custom type opmen99810bQosQceMoveNextID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 256),
+    )
+
+
+_Opmen99810bQosQceMoveNextID_Type.__name__ = "Integer32"
+_Opmen99810bQosQceMoveNextID_Object = MibScalar
+opmen99810bQosQceMoveNextID = _Opmen99810bQosQceMoveNextID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 9, 4),
+    _Opmen99810bQosQceMoveNextID_Type()
+)
+opmen99810bQosQceMoveNextID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQosQceMoveNextID.setStatus("current")
+_Opmen99810bQosQCLStatusTable_Object = MibTable
+opmen99810bQosQCLStatusTable = _Opmen99810bQosQCLStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10)
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosQCLStatusTable.setStatus("current")
+_Opmen99810bQosQCLStatusEntry_Object = MibTableRow
+opmen99810bQosQCLStatusEntry = _Opmen99810bQosQCLStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1)
+)
+opmen99810bQosQCLStatusEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bQosQCLStatusList"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bQosQCLStatusEntry.setStatus("current")
+
+
+class _Opmen99810bQosQCLStatusList_Type(Integer32):
+    """Custom type opmen99810bQosQCLStatusList based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bQosQCLStatusList_Type.__name__ = "Integer32"
+_Opmen99810bQosQCLStatusList_Object = MibTableColumn
+opmen99810bQosQCLStatusList = _Opmen99810bQosQCLStatusList_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 1),
+    _Opmen99810bQosQCLStatusList_Type()
+)
+opmen99810bQosQCLStatusList.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bQosQCLStatusList.setStatus("current")
+_Opmen99810bQosQCLStatusUser_Type = DisplayString
+_Opmen99810bQosQCLStatusUser_Object = MibTableColumn
+opmen99810bQosQCLStatusUser = _Opmen99810bQosQCLStatusUser_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 2),
+    _Opmen99810bQosQCLStatusUser_Type()
+)
+opmen99810bQosQCLStatusUser.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bQosQCLStatusUser.setStatus("current")
+_Opmen99810bQosQCLStatusQCEId_Type = DisplayString
+_Opmen99810bQosQCLStatusQCEId_Object = MibTableColumn
+opmen99810bQosQCLStatusQCEId = _Opmen99810bQosQCLStatusQCEId_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 3),
+    _Opmen99810bQosQCLStatusQCEId_Type()
+)
+opmen99810bQosQCLStatusQCEId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bQosQCLStatusQCEId.setStatus("current")
+_Opmen99810bQosQCLStatusFrameType_Type = DisplayString
+_Opmen99810bQosQCLStatusFrameType_Object = MibTableColumn
+opmen99810bQosQCLStatusFrameType = _Opmen99810bQosQCLStatusFrameType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 4),
+    _Opmen99810bQosQCLStatusFrameType_Type()
+)
+opmen99810bQosQCLStatusFrameType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bQosQCLStatusFrameType.setStatus("current")
+_Opmen99810bQosQCLStatusPortlist_Type = DisplayString
+_Opmen99810bQosQCLStatusPortlist_Object = MibTableColumn
+opmen99810bQosQCLStatusPortlist = _Opmen99810bQosQCLStatusPortlist_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 5),
+    _Opmen99810bQosQCLStatusPortlist_Type()
+)
+opmen99810bQosQCLStatusPortlist.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bQosQCLStatusPortlist.setStatus("current")
+_Opmen99810bQosQCLStatusActionClass_Type = DisplayString
+_Opmen99810bQosQCLStatusActionClass_Object = MibTableColumn
+opmen99810bQosQCLStatusActionClass = _Opmen99810bQosQCLStatusActionClass_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 6),
+    _Opmen99810bQosQCLStatusActionClass_Type()
+)
+opmen99810bQosQCLStatusActionClass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bQosQCLStatusActionClass.setStatus("current")
+_Opmen99810bQosQCLStatusActionDPL_Type = DisplayString
+_Opmen99810bQosQCLStatusActionDPL_Object = MibTableColumn
+opmen99810bQosQCLStatusActionDPL = _Opmen99810bQosQCLStatusActionDPL_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 7),
+    _Opmen99810bQosQCLStatusActionDPL_Type()
+)
+opmen99810bQosQCLStatusActionDPL.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bQosQCLStatusActionDPL.setStatus("current")
+_Opmen99810bQosQCLStatusActionDSCP_Type = DisplayString
+_Opmen99810bQosQCLStatusActionDSCP_Object = MibTableColumn
+opmen99810bQosQCLStatusActionDSCP = _Opmen99810bQosQCLStatusActionDSCP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 8),
+    _Opmen99810bQosQCLStatusActionDSCP_Type()
+)
+opmen99810bQosQCLStatusActionDSCP.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bQosQCLStatusActionDSCP.setStatus("current")
+_Opmen99810bQosQCLStatusActionConflict_Type = DisplayString
+_Opmen99810bQosQCLStatusActionConflict_Object = MibTableColumn
+opmen99810bQosQCLStatusActionConflict = _Opmen99810bQosQCLStatusActionConflict_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 10, 1, 9),
+    _Opmen99810bQosQCLStatusActionConflict_Type()
+)
+opmen99810bQosQCLStatusActionConflict.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bQosQCLStatusActionConflict.setStatus("current")
+_Opmen99810bQosStormControl_ObjectIdentity = ObjectIdentity
+opmen99810bQosStormControl = _Opmen99810bQosStormControl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11)
+)
+
+
+class _Opmen99810bQoSStormControlUC_Type(Integer32):
+    """Custom type opmen99810bQoSStormControlUC based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQoSStormControlUC_Type.__name__ = "Integer32"
+_Opmen99810bQoSStormControlUC_Object = MibScalar
+opmen99810bQoSStormControlUC = _Opmen99810bQoSStormControlUC_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 2),
+    _Opmen99810bQoSStormControlUC_Type()
+)
+opmen99810bQoSStormControlUC.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQoSStormControlUC.setStatus("current")
+_Opmen99810bQoSStormControlUCRate_Type = DisplayString
+_Opmen99810bQoSStormControlUCRate_Object = MibScalar
+opmen99810bQoSStormControlUCRate = _Opmen99810bQoSStormControlUCRate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 3),
+    _Opmen99810bQoSStormControlUCRate_Type()
+)
+opmen99810bQoSStormControlUCRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQoSStormControlUCRate.setStatus("current")
+
+
+class _Opmen99810bQoSStormControlMC_Type(Integer32):
+    """Custom type opmen99810bQoSStormControlMC based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQoSStormControlMC_Type.__name__ = "Integer32"
+_Opmen99810bQoSStormControlMC_Object = MibScalar
+opmen99810bQoSStormControlMC = _Opmen99810bQoSStormControlMC_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 4),
+    _Opmen99810bQoSStormControlMC_Type()
+)
+opmen99810bQoSStormControlMC.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQoSStormControlMC.setStatus("current")
+_Opmen99810bQoSStormControlMCRate_Type = DisplayString
+_Opmen99810bQoSStormControlMCRate_Object = MibScalar
+opmen99810bQoSStormControlMCRate = _Opmen99810bQoSStormControlMCRate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 5),
+    _Opmen99810bQoSStormControlMCRate_Type()
+)
+opmen99810bQoSStormControlMCRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQoSStormControlMCRate.setStatus("current")
+
+
+class _Opmen99810bQoSStormControlBC_Type(Integer32):
+    """Custom type opmen99810bQoSStormControlBC based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bQoSStormControlBC_Type.__name__ = "Integer32"
+_Opmen99810bQoSStormControlBC_Object = MibScalar
+opmen99810bQoSStormControlBC = _Opmen99810bQoSStormControlBC_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 6),
+    _Opmen99810bQoSStormControlBC_Type()
+)
+opmen99810bQoSStormControlBC.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQoSStormControlBC.setStatus("current")
+_Opmen99810bQoSStormControlBCRate_Type = DisplayString
+_Opmen99810bQoSStormControlBCRate_Object = MibScalar
+opmen99810bQoSStormControlBCRate = _Opmen99810bQoSStormControlBCRate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 14, 11, 7),
+    _Opmen99810bQoSStormControlBCRate_Type()
+)
+opmen99810bQoSStormControlBCRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bQoSStormControlBCRate.setStatus("current")
+_Opmen99810bVlan_ObjectIdentity = ObjectIdentity
+opmen99810bVlan = _Opmen99810bVlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15)
+)
+_Opmen99810bVlanPorts_ObjectIdentity = ObjectIdentity
+opmen99810bVlanPorts = _Opmen99810bVlanPorts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1)
+)
+
+
+class _Opmen99810bVlanPortsTPIDforCustomSport_Type(OctetString):
+    """Custom type opmen99810bVlanPortsTPIDforCustomSport based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_Opmen99810bVlanPortsTPIDforCustomSport_Type.__name__ = "OctetString"
+_Opmen99810bVlanPortsTPIDforCustomSport_Object = MibScalar
+opmen99810bVlanPortsTPIDforCustomSport = _Opmen99810bVlanPortsTPIDforCustomSport_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 1),
+    _Opmen99810bVlanPortsTPIDforCustomSport_Type()
+)
+opmen99810bVlanPortsTPIDforCustomSport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVlanPortsTPIDforCustomSport.setStatus("current")
+_Opmen99810bVlanPortsTable_Object = MibTable
+opmen99810bVlanPortsTable = _Opmen99810bVlanPortsTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bVlanPortsTable.setStatus("current")
+_Opmen99810bVlanPortsEntry_Object = MibTableRow
+opmen99810bVlanPortsEntry = _Opmen99810bVlanPortsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1)
+)
+opmen99810bVlanPortsEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bVlanPortsPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bVlanPortsEntry.setStatus("current")
+
+
+class _Opmen99810bVlanPortsPort_Type(Integer32):
+    """Custom type opmen99810bVlanPortsPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_Opmen99810bVlanPortsPort_Type.__name__ = "Integer32"
+_Opmen99810bVlanPortsPort_Object = MibTableColumn
+opmen99810bVlanPortsPort = _Opmen99810bVlanPortsPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 1),
+    _Opmen99810bVlanPortsPort_Type()
+)
+opmen99810bVlanPortsPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bVlanPortsPort.setStatus("current")
+
+
+class _Opmen99810bVlanPortsPVID_Type(Integer32):
+    """Custom type opmen99810bVlanPortsPVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_Opmen99810bVlanPortsPVID_Type.__name__ = "Integer32"
+_Opmen99810bVlanPortsPVID_Object = MibTableColumn
+opmen99810bVlanPortsPVID = _Opmen99810bVlanPortsPVID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 2),
+    _Opmen99810bVlanPortsPVID_Type()
+)
+opmen99810bVlanPortsPVID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVlanPortsPVID.setStatus("current")
+
+
+class _Opmen99810bVlanPortsFrameType_Type(Integer32):
+    """Custom type opmen99810bVlanPortsFrameType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("all", 0),
+          ("tagged", 1),
+          ("untagged", 2))
+    )
+
+
+_Opmen99810bVlanPortsFrameType_Type.__name__ = "Integer32"
+_Opmen99810bVlanPortsFrameType_Object = MibTableColumn
+opmen99810bVlanPortsFrameType = _Opmen99810bVlanPortsFrameType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 3),
+    _Opmen99810bVlanPortsFrameType_Type()
+)
+opmen99810bVlanPortsFrameType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVlanPortsFrameType.setStatus("current")
+
+
+class _Opmen99810bVlanPortsIngressFilter_Type(Integer32):
+    """Custom type opmen99810bVlanPortsIngressFilter based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bVlanPortsIngressFilter_Type.__name__ = "Integer32"
+_Opmen99810bVlanPortsIngressFilter_Object = MibTableColumn
+opmen99810bVlanPortsIngressFilter = _Opmen99810bVlanPortsIngressFilter_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 4),
+    _Opmen99810bVlanPortsIngressFilter_Type()
+)
+opmen99810bVlanPortsIngressFilter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVlanPortsIngressFilter.setStatus("current")
+
+
+class _Opmen99810bVlanPortsEgressRule_Type(Integer32):
+    """Custom type opmen99810bVlanPortsEgressRule based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("access", 0),
+          ("hybrid", 1),
+          ("trunk", 2))
+    )
+
+
+_Opmen99810bVlanPortsEgressRule_Type.__name__ = "Integer32"
+_Opmen99810bVlanPortsEgressRule_Object = MibTableColumn
+opmen99810bVlanPortsEgressRule = _Opmen99810bVlanPortsEgressRule_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 5),
+    _Opmen99810bVlanPortsEgressRule_Type()
+)
+opmen99810bVlanPortsEgressRule.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVlanPortsEgressRule.setStatus("current")
+
+
+class _Opmen99810bVlanPortsPortType_Type(Integer32):
+    """Custom type opmen99810bVlanPortsPortType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cPort", 0),
+          ("sCustomPort", 1),
+          ("sPort", 2),
+          ("unaware", 3))
+    )
+
+
+_Opmen99810bVlanPortsPortType_Type.__name__ = "Integer32"
+_Opmen99810bVlanPortsPortType_Object = MibTableColumn
+opmen99810bVlanPortsPortType = _Opmen99810bVlanPortsPortType_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 2, 15, 1, 2, 1, 6),
+    _Opmen99810bVlanPortsPortType_Type()
+)
+opmen99810bVlanPortsPortType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bVlanPortsPortType.setStatus("current")
+_Opmen99810bSecurity_ObjectIdentity = ObjectIdentity
+opmen99810bSecurity = _Opmen99810bSecurity_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3)
+)
+_Opmen99810bIPSourceGuard_ObjectIdentity = ObjectIdentity
+opmen99810bIPSourceGuard = _Opmen99810bIPSourceGuard_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1)
+)
+_Opmen99810bIPSourceGuardConf_ObjectIdentity = ObjectIdentity
+opmen99810bIPSourceGuardConf = _Opmen99810bIPSourceGuardConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1)
+)
+
+
+class _Opmen99810bIPSourceGuardMode_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bIPSourceGuardMode_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardMode_Object = MibScalar
+opmen99810bIPSourceGuardMode = _Opmen99810bIPSourceGuardMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 1),
+    _Opmen99810bIPSourceGuardMode_Type()
+)
+opmen99810bIPSourceGuardMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardMode.setStatus("current")
+_Opmen99810bIPSourceGuardPortConfigTable_Object = MibTable
+opmen99810bIPSourceGuardPortConfigTable = _Opmen99810bIPSourceGuardPortConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardPortConfigTable.setStatus("current")
+_Opmen99810bIPSourceGuardPortConfigEntry_Object = MibTableRow
+opmen99810bIPSourceGuardPortConfigEntry = _Opmen99810bIPSourceGuardPortConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 2, 1)
+)
+opmen99810bIPSourceGuardPortConfigEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bIPSourceGuardPortConfigPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardPortConfigEntry.setStatus("current")
+
+
+class _Opmen99810bIPSourceGuardPortConfigPort_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardPortConfigPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bIPSourceGuardPortConfigPort_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardPortConfigPort_Object = MibTableColumn
+opmen99810bIPSourceGuardPortConfigPort = _Opmen99810bIPSourceGuardPortConfigPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 2, 1, 1),
+    _Opmen99810bIPSourceGuardPortConfigPort_Type()
+)
+opmen99810bIPSourceGuardPortConfigPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardPortConfigPort.setStatus("current")
+
+
+class _Opmen99810bIPSourceGuardPortConfigMode_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardPortConfigMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bIPSourceGuardPortConfigMode_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardPortConfigMode_Object = MibTableColumn
+opmen99810bIPSourceGuardPortConfigMode = _Opmen99810bIPSourceGuardPortConfigMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 2, 1, 2),
+    _Opmen99810bIPSourceGuardPortConfigMode_Type()
+)
+opmen99810bIPSourceGuardPortConfigMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardPortConfigMode.setStatus("current")
+
+
+class _Opmen99810bIPSourceGuardPortMaxDynamicClients_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardPortMaxDynamicClients based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+        ValueRangeConstraint(99, 99),
+    )
+
+
+_Opmen99810bIPSourceGuardPortMaxDynamicClients_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardPortMaxDynamicClients_Object = MibTableColumn
+opmen99810bIPSourceGuardPortMaxDynamicClients = _Opmen99810bIPSourceGuardPortMaxDynamicClients_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 1, 2, 1, 3),
+    _Opmen99810bIPSourceGuardPortMaxDynamicClients_Type()
+)
+opmen99810bIPSourceGuardPortMaxDynamicClients.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardPortMaxDynamicClients.setStatus("current")
+_Opmen99810bIPSourceGuardStatic_ObjectIdentity = ObjectIdentity
+opmen99810bIPSourceGuardStatic = _Opmen99810bIPSourceGuardStatic_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2)
+)
+
+
+class _Opmen99810bIPSourceGuardStaticCreate_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardStaticCreate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("create", 1))
+    )
+
+
+_Opmen99810bIPSourceGuardStaticCreate_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardStaticCreate_Object = MibScalar
+opmen99810bIPSourceGuardStaticCreate = _Opmen99810bIPSourceGuardStaticCreate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 1),
+    _Opmen99810bIPSourceGuardStaticCreate_Type()
+)
+opmen99810bIPSourceGuardStaticCreate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardStaticCreate.setStatus("current")
+_Opmen99810bIPSourceGuardStaticTable_Object = MibTable
+opmen99810bIPSourceGuardStaticTable = _Opmen99810bIPSourceGuardStaticTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardStaticTable.setStatus("current")
+_Opmen99810bIPSourceGuardStaticEntry_Object = MibTableRow
+opmen99810bIPSourceGuardStaticEntry = _Opmen99810bIPSourceGuardStaticEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1)
+)
+opmen99810bIPSourceGuardStaticEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bIPSourceGuardStaticIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardStaticEntry.setStatus("current")
+
+
+class _Opmen99810bIPSourceGuardStaticIndex_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardStaticIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 28),
+    )
+
+
+_Opmen99810bIPSourceGuardStaticIndex_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardStaticIndex_Object = MibTableColumn
+opmen99810bIPSourceGuardStaticIndex = _Opmen99810bIPSourceGuardStaticIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 1),
+    _Opmen99810bIPSourceGuardStaticIndex_Type()
+)
+opmen99810bIPSourceGuardStaticIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardStaticIndex.setStatus("current")
+
+
+class _Opmen99810bIPSourceGuardStaticPort_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardStaticPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bIPSourceGuardStaticPort_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardStaticPort_Object = MibTableColumn
+opmen99810bIPSourceGuardStaticPort = _Opmen99810bIPSourceGuardStaticPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 2),
+    _Opmen99810bIPSourceGuardStaticPort_Type()
+)
+opmen99810bIPSourceGuardStaticPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardStaticPort.setStatus("current")
+
+
+class _Opmen99810bIPSourceGuardStaticVLANId_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardStaticVLANId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_Opmen99810bIPSourceGuardStaticVLANId_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardStaticVLANId_Object = MibTableColumn
+opmen99810bIPSourceGuardStaticVLANId = _Opmen99810bIPSourceGuardStaticVLANId_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 3),
+    _Opmen99810bIPSourceGuardStaticVLANId_Type()
+)
+opmen99810bIPSourceGuardStaticVLANId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardStaticVLANId.setStatus("current")
+_Opmen99810bIPSourceGuardStaticIPAddress_Type = IpAddress
+_Opmen99810bIPSourceGuardStaticIPAddress_Object = MibTableColumn
+opmen99810bIPSourceGuardStaticIPAddress = _Opmen99810bIPSourceGuardStaticIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 4),
+    _Opmen99810bIPSourceGuardStaticIPAddress_Type()
+)
+opmen99810bIPSourceGuardStaticIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardStaticIPAddress.setStatus("current")
+_Opmen99810bIPSourceGuardStaticMACAddress_Type = MacAddress
+_Opmen99810bIPSourceGuardStaticMACAddress_Object = MibTableColumn
+opmen99810bIPSourceGuardStaticMACAddress = _Opmen99810bIPSourceGuardStaticMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 5),
+    _Opmen99810bIPSourceGuardStaticMACAddress_Type()
+)
+opmen99810bIPSourceGuardStaticMACAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardStaticMACAddress.setStatus("current")
+
+
+class _Opmen99810bIPSourceGuardStaticRowStatus_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardStaticRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("notInservice", 2),
+          ("edit", 3),
+          ("destroy", 4),
+          ("undo", 5))
+    )
+
+
+_Opmen99810bIPSourceGuardStaticRowStatus_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardStaticRowStatus_Object = MibTableColumn
+opmen99810bIPSourceGuardStaticRowStatus = _Opmen99810bIPSourceGuardStaticRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 2, 2, 1, 6),
+    _Opmen99810bIPSourceGuardStaticRowStatus_Type()
+)
+opmen99810bIPSourceGuardStaticRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardStaticRowStatus.setStatus("current")
+_Opmen99810bIPSourceGuardDynamicTable_Object = MibTable
+opmen99810bIPSourceGuardDynamicTable = _Opmen99810bIPSourceGuardDynamicTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3)
+)
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardDynamicTable.setStatus("current")
+_Opmen99810bIPSourceGuardDynamicEntry_Object = MibTableRow
+opmen99810bIPSourceGuardDynamicEntry = _Opmen99810bIPSourceGuardDynamicEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1)
+)
+opmen99810bIPSourceGuardDynamicEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bIPSourceGuardDynamicIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardDynamicEntry.setStatus("current")
+
+
+class _Opmen99810bIPSourceGuardDynamicIndex_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardDynamicIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bIPSourceGuardDynamicIndex_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardDynamicIndex_Object = MibTableColumn
+opmen99810bIPSourceGuardDynamicIndex = _Opmen99810bIPSourceGuardDynamicIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1, 1),
+    _Opmen99810bIPSourceGuardDynamicIndex_Type()
+)
+opmen99810bIPSourceGuardDynamicIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardDynamicIndex.setStatus("current")
+
+
+class _Opmen99810bIPSourceGuardDynamicPort_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardDynamicPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_Opmen99810bIPSourceGuardDynamicPort_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardDynamicPort_Object = MibTableColumn
+opmen99810bIPSourceGuardDynamicPort = _Opmen99810bIPSourceGuardDynamicPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1, 2),
+    _Opmen99810bIPSourceGuardDynamicPort_Type()
+)
+opmen99810bIPSourceGuardDynamicPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardDynamicPort.setStatus("current")
+
+
+class _Opmen99810bIPSourceGuardDynamicVLANId_Type(Integer32):
+    """Custom type opmen99810bIPSourceGuardDynamicVLANId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_Opmen99810bIPSourceGuardDynamicVLANId_Type.__name__ = "Integer32"
+_Opmen99810bIPSourceGuardDynamicVLANId_Object = MibTableColumn
+opmen99810bIPSourceGuardDynamicVLANId = _Opmen99810bIPSourceGuardDynamicVLANId_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1, 3),
+    _Opmen99810bIPSourceGuardDynamicVLANId_Type()
+)
+opmen99810bIPSourceGuardDynamicVLANId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardDynamicVLANId.setStatus("current")
+_Opmen99810bIPSourceGuardDynamicIPAddress_Type = IpAddress
+_Opmen99810bIPSourceGuardDynamicIPAddress_Object = MibTableColumn
+opmen99810bIPSourceGuardDynamicIPAddress = _Opmen99810bIPSourceGuardDynamicIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1, 4),
+    _Opmen99810bIPSourceGuardDynamicIPAddress_Type()
+)
+opmen99810bIPSourceGuardDynamicIPAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardDynamicIPAddress.setStatus("current")
+_Opmen99810bIPSourceGuardDynamicMACAddress_Type = MacAddress
+_Opmen99810bIPSourceGuardDynamicMACAddress_Object = MibTableColumn
+opmen99810bIPSourceGuardDynamicMACAddress = _Opmen99810bIPSourceGuardDynamicMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 1, 3, 1, 5),
+    _Opmen99810bIPSourceGuardDynamicMACAddress_Type()
+)
+opmen99810bIPSourceGuardDynamicMACAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bIPSourceGuardDynamicMACAddress.setStatus("current")
+_Opmen99810bARPInspection_ObjectIdentity = ObjectIdentity
+opmen99810bARPInspection = _Opmen99810bARPInspection_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2)
+)
+_Opmen99810bARPInspectionConf_ObjectIdentity = ObjectIdentity
+opmen99810bARPInspectionConf = _Opmen99810bARPInspectionConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1)
+)
+
+
+class _Opmen99810bARPInspectionConfMode_Type(Integer32):
+    """Custom type opmen99810bARPInspectionConfMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bARPInspectionConfMode_Type.__name__ = "Integer32"
+_Opmen99810bARPInspectionConfMode_Object = MibScalar
+opmen99810bARPInspectionConfMode = _Opmen99810bARPInspectionConfMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1, 1),
+    _Opmen99810bARPInspectionConfMode_Type()
+)
+opmen99810bARPInspectionConfMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionConfMode.setStatus("current")
+_Opmen99810bARPInspectionConfTable_Object = MibTable
+opmen99810bARPInspectionConfTable = _Opmen99810bARPInspectionConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionConfTable.setStatus("current")
+_Opmen99810bARPInspectionConfEntry_Object = MibTableRow
+opmen99810bARPInspectionConfEntry = _Opmen99810bARPInspectionConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1, 2, 1)
+)
+opmen99810bARPInspectionConfEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bARPInspectionConfPortIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionConfEntry.setStatus("current")
+
+
+class _Opmen99810bARPInspectionConfPortIndex_Type(Integer32):
+    """Custom type opmen99810bARPInspectionConfPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bARPInspectionConfPortIndex_Type.__name__ = "Integer32"
+_Opmen99810bARPInspectionConfPortIndex_Object = MibTableColumn
+opmen99810bARPInspectionConfPortIndex = _Opmen99810bARPInspectionConfPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1, 2, 1, 1),
+    _Opmen99810bARPInspectionConfPortIndex_Type()
+)
+opmen99810bARPInspectionConfPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionConfPortIndex.setStatus("current")
+
+
+class _Opmen99810bARPInspectionConfPortMode_Type(Integer32):
+    """Custom type opmen99810bARPInspectionConfPortMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bARPInspectionConfPortMode_Type.__name__ = "Integer32"
+_Opmen99810bARPInspectionConfPortMode_Object = MibTableColumn
+opmen99810bARPInspectionConfPortMode = _Opmen99810bARPInspectionConfPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 1, 2, 1, 2),
+    _Opmen99810bARPInspectionConfPortMode_Type()
+)
+opmen99810bARPInspectionConfPortMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionConfPortMode.setStatus("current")
+_Opmen99810bARPInspectionStatic_ObjectIdentity = ObjectIdentity
+opmen99810bARPInspectionStatic = _Opmen99810bARPInspectionStatic_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2)
+)
+
+
+class _Opmen99810bARPInspectionStaticCreate_Type(Integer32):
+    """Custom type opmen99810bARPInspectionStaticCreate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("create", 1))
+    )
+
+
+_Opmen99810bARPInspectionStaticCreate_Type.__name__ = "Integer32"
+_Opmen99810bARPInspectionStaticCreate_Object = MibScalar
+opmen99810bARPInspectionStaticCreate = _Opmen99810bARPInspectionStaticCreate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 1),
+    _Opmen99810bARPInspectionStaticCreate_Type()
+)
+opmen99810bARPInspectionStaticCreate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionStaticCreate.setStatus("current")
+_Opmen99810bARPInspectionStaticTable_Object = MibTable
+opmen99810bARPInspectionStaticTable = _Opmen99810bARPInspectionStaticTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionStaticTable.setStatus("current")
+_Opmen99810bARPInspectionStaticEntry_Object = MibTableRow
+opmen99810bARPInspectionStaticEntry = _Opmen99810bARPInspectionStaticEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1)
+)
+opmen99810bARPInspectionStaticEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bARPInspectionStaticIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionStaticEntry.setStatus("current")
+
+
+class _Opmen99810bARPInspectionStaticIndex_Type(Integer32):
+    """Custom type opmen99810bARPInspectionStaticIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bARPInspectionStaticIndex_Type.__name__ = "Integer32"
+_Opmen99810bARPInspectionStaticIndex_Object = MibTableColumn
+opmen99810bARPInspectionStaticIndex = _Opmen99810bARPInspectionStaticIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 1),
+    _Opmen99810bARPInspectionStaticIndex_Type()
+)
+opmen99810bARPInspectionStaticIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionStaticIndex.setStatus("current")
+
+
+class _Opmen99810bARPInspectionStaticPort_Type(Integer32):
+    """Custom type opmen99810bARPInspectionStaticPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bARPInspectionStaticPort_Type.__name__ = "Integer32"
+_Opmen99810bARPInspectionStaticPort_Object = MibTableColumn
+opmen99810bARPInspectionStaticPort = _Opmen99810bARPInspectionStaticPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 2),
+    _Opmen99810bARPInspectionStaticPort_Type()
+)
+opmen99810bARPInspectionStaticPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionStaticPort.setStatus("current")
+
+
+class _Opmen99810bARPInspectionStaticVLANId_Type(Integer32):
+    """Custom type opmen99810bARPInspectionStaticVLANId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_Opmen99810bARPInspectionStaticVLANId_Type.__name__ = "Integer32"
+_Opmen99810bARPInspectionStaticVLANId_Object = MibTableColumn
+opmen99810bARPInspectionStaticVLANId = _Opmen99810bARPInspectionStaticVLANId_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 3),
+    _Opmen99810bARPInspectionStaticVLANId_Type()
+)
+opmen99810bARPInspectionStaticVLANId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionStaticVLANId.setStatus("current")
+_Opmen99810bARPInspectionStaticIPAddress_Type = IpAddress
+_Opmen99810bARPInspectionStaticIPAddress_Object = MibTableColumn
+opmen99810bARPInspectionStaticIPAddress = _Opmen99810bARPInspectionStaticIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 4),
+    _Opmen99810bARPInspectionStaticIPAddress_Type()
+)
+opmen99810bARPInspectionStaticIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionStaticIPAddress.setStatus("current")
+_Opmen99810bARPInspectionStaticMACAddress_Type = MacAddress
+_Opmen99810bARPInspectionStaticMACAddress_Object = MibTableColumn
+opmen99810bARPInspectionStaticMACAddress = _Opmen99810bARPInspectionStaticMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 5),
+    _Opmen99810bARPInspectionStaticMACAddress_Type()
+)
+opmen99810bARPInspectionStaticMACAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionStaticMACAddress.setStatus("current")
+
+
+class _Opmen99810bARPInspectionStaticRowStatus_Type(Integer32):
+    """Custom type opmen99810bARPInspectionStaticRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("notInservice", 2),
+          ("edit", 3),
+          ("destroy", 4),
+          ("undo", 5))
+    )
+
+
+_Opmen99810bARPInspectionStaticRowStatus_Type.__name__ = "Integer32"
+_Opmen99810bARPInspectionStaticRowStatus_Object = MibTableColumn
+opmen99810bARPInspectionStaticRowStatus = _Opmen99810bARPInspectionStaticRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 2, 2, 1, 6),
+    _Opmen99810bARPInspectionStaticRowStatus_Type()
+)
+opmen99810bARPInspectionStaticRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionStaticRowStatus.setStatus("current")
+_Opmen99810bARPInspectionDynamicTable_Object = MibTable
+opmen99810bARPInspectionDynamicTable = _Opmen99810bARPInspectionDynamicTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3)
+)
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionDynamicTable.setStatus("current")
+_Opmen99810bARPInspectionDynamicEntry_Object = MibTableRow
+opmen99810bARPInspectionDynamicEntry = _Opmen99810bARPInspectionDynamicEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1)
+)
+opmen99810bARPInspectionDynamicEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bARPInspectionDynamicIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionDynamicEntry.setStatus("current")
+
+
+class _Opmen99810bARPInspectionDynamicIndex_Type(Integer32):
+    """Custom type opmen99810bARPInspectionDynamicIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bARPInspectionDynamicIndex_Type.__name__ = "Integer32"
+_Opmen99810bARPInspectionDynamicIndex_Object = MibTableColumn
+opmen99810bARPInspectionDynamicIndex = _Opmen99810bARPInspectionDynamicIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1, 1),
+    _Opmen99810bARPInspectionDynamicIndex_Type()
+)
+opmen99810bARPInspectionDynamicIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionDynamicIndex.setStatus("current")
+
+
+class _Opmen99810bARPInspectionDynamicPort_Type(Integer32):
+    """Custom type opmen99810bARPInspectionDynamicPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bARPInspectionDynamicPort_Type.__name__ = "Integer32"
+_Opmen99810bARPInspectionDynamicPort_Object = MibTableColumn
+opmen99810bARPInspectionDynamicPort = _Opmen99810bARPInspectionDynamicPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1, 2),
+    _Opmen99810bARPInspectionDynamicPort_Type()
+)
+opmen99810bARPInspectionDynamicPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionDynamicPort.setStatus("current")
+
+
+class _Opmen99810bARPInspectionDynamicVLANId_Type(Integer32):
+    """Custom type opmen99810bARPInspectionDynamicVLANId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_Opmen99810bARPInspectionDynamicVLANId_Type.__name__ = "Integer32"
+_Opmen99810bARPInspectionDynamicVLANId_Object = MibTableColumn
+opmen99810bARPInspectionDynamicVLANId = _Opmen99810bARPInspectionDynamicVLANId_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1, 3),
+    _Opmen99810bARPInspectionDynamicVLANId_Type()
+)
+opmen99810bARPInspectionDynamicVLANId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionDynamicVLANId.setStatus("current")
+_Opmen99810bARPInspectionDynamicIPAddress_Type = IpAddress
+_Opmen99810bARPInspectionDynamicIPAddress_Object = MibTableColumn
+opmen99810bARPInspectionDynamicIPAddress = _Opmen99810bARPInspectionDynamicIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1, 4),
+    _Opmen99810bARPInspectionDynamicIPAddress_Type()
+)
+opmen99810bARPInspectionDynamicIPAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionDynamicIPAddress.setStatus("current")
+_Opmen99810bARPInspectionDynamicMACAddress_Type = MacAddress
+_Opmen99810bARPInspectionDynamicMACAddress_Object = MibTableColumn
+opmen99810bARPInspectionDynamicMACAddress = _Opmen99810bARPInspectionDynamicMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 2, 3, 1, 5),
+    _Opmen99810bARPInspectionDynamicMACAddress_Type()
+)
+opmen99810bARPInspectionDynamicMACAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bARPInspectionDynamicMACAddress.setStatus("current")
+_Opmen99810bDHCPSnooping_ObjectIdentity = ObjectIdentity
+opmen99810bDHCPSnooping = _Opmen99810bDHCPSnooping_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3)
+)
+_Opmen99810bDHCPSnoopingConf_ObjectIdentity = ObjectIdentity
+opmen99810bDHCPSnoopingConf = _Opmen99810bDHCPSnoopingConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1)
+)
+
+
+class _Opmen99810bDHCPSnoopingMode_Type(Integer32):
+    """Custom type opmen99810bDHCPSnoopingMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bDHCPSnoopingMode_Type.__name__ = "Integer32"
+_Opmen99810bDHCPSnoopingMode_Object = MibScalar
+opmen99810bDHCPSnoopingMode = _Opmen99810bDHCPSnoopingMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1, 1),
+    _Opmen99810bDHCPSnoopingMode_Type()
+)
+opmen99810bDHCPSnoopingMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingMode.setStatus("current")
+_Opmen99810bDHCPSnoopingPortModeConfigurationTable_Object = MibTable
+opmen99810bDHCPSnoopingPortModeConfigurationTable = _Opmen99810bDHCPSnoopingPortModeConfigurationTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingPortModeConfigurationTable.setStatus("current")
+_Opmen99810bDHCPSnoopingPortModeConfigurationEntry_Object = MibTableRow
+opmen99810bDHCPSnoopingPortModeConfigurationEntry = _Opmen99810bDHCPSnoopingPortModeConfigurationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1, 2, 1)
+)
+opmen99810bDHCPSnoopingPortModeConfigurationEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bDHCPSnoopingPortModeConfigurationPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingPortModeConfigurationEntry.setStatus("current")
+
+
+class _Opmen99810bDHCPSnoopingPortModeConfigurationPort_Type(Integer32):
+    """Custom type opmen99810bDHCPSnoopingPortModeConfigurationPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bDHCPSnoopingPortModeConfigurationPort_Type.__name__ = "Integer32"
+_Opmen99810bDHCPSnoopingPortModeConfigurationPort_Object = MibTableColumn
+opmen99810bDHCPSnoopingPortModeConfigurationPort = _Opmen99810bDHCPSnoopingPortModeConfigurationPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1, 2, 1, 1),
+    _Opmen99810bDHCPSnoopingPortModeConfigurationPort_Type()
+)
+opmen99810bDHCPSnoopingPortModeConfigurationPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingPortModeConfigurationPort.setStatus("current")
+
+
+class _Opmen99810bDHCPSnoopingPortModeConfigurationMode_Type(Integer32):
+    """Custom type opmen99810bDHCPSnoopingPortModeConfigurationMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("trust", 0),
+          ("untrust", 1))
+    )
+
+
+_Opmen99810bDHCPSnoopingPortModeConfigurationMode_Type.__name__ = "Integer32"
+_Opmen99810bDHCPSnoopingPortModeConfigurationMode_Object = MibTableColumn
+opmen99810bDHCPSnoopingPortModeConfigurationMode = _Opmen99810bDHCPSnoopingPortModeConfigurationMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 1, 2, 1, 2),
+    _Opmen99810bDHCPSnoopingPortModeConfigurationMode_Type()
+)
+opmen99810bDHCPSnoopingPortModeConfigurationMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingPortModeConfigurationMode.setStatus("current")
+_Opmen99810bDHCPSnoopingStatisticsTable_Object = MibTable
+opmen99810bDHCPSnoopingStatisticsTable = _Opmen99810bDHCPSnoopingStatisticsTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingStatisticsTable.setStatus("current")
+_Opmen99810bDHCPSnoopingStatisticsEntry_Object = MibTableRow
+opmen99810bDHCPSnoopingStatisticsEntry = _Opmen99810bDHCPSnoopingStatisticsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1)
+)
+opmen99810bDHCPSnoopingStatisticsEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bDHCPSnoopingStatisticsPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingStatisticsEntry.setStatus("current")
+
+
+class _Opmen99810bDHCPSnoopingStatisticsPort_Type(Integer32):
+    """Custom type opmen99810bDHCPSnoopingStatisticsPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bDHCPSnoopingStatisticsPort_Type.__name__ = "Integer32"
+_Opmen99810bDHCPSnoopingStatisticsPort_Object = MibTableColumn
+opmen99810bDHCPSnoopingStatisticsPort = _Opmen99810bDHCPSnoopingStatisticsPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 1),
+    _Opmen99810bDHCPSnoopingStatisticsPort_Type()
+)
+opmen99810bDHCPSnoopingStatisticsPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingStatisticsPort.setStatus("current")
+
+
+class _Opmen99810bDHCPSnoopingStatisticsClear_Type(Integer32):
+    """Custom type opmen99810bDHCPSnoopingStatisticsClear based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("clear", 1))
+    )
+
+
+_Opmen99810bDHCPSnoopingStatisticsClear_Type.__name__ = "Integer32"
+_Opmen99810bDHCPSnoopingStatisticsClear_Object = MibTableColumn
+opmen99810bDHCPSnoopingStatisticsClear = _Opmen99810bDHCPSnoopingStatisticsClear_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 2),
+    _Opmen99810bDHCPSnoopingStatisticsClear_Type()
+)
+opmen99810bDHCPSnoopingStatisticsClear.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingStatisticsClear.setStatus("current")
+_Opmen99810bDHCPSnoopingRxDiscover_Type = Counter32
+_Opmen99810bDHCPSnoopingRxDiscover_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxDiscover = _Opmen99810bDHCPSnoopingRxDiscover_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 3),
+    _Opmen99810bDHCPSnoopingRxDiscover_Type()
+)
+opmen99810bDHCPSnoopingRxDiscover.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxDiscover.setStatus("current")
+_Opmen99810bDHCPSnoopingRxOffer_Type = Counter32
+_Opmen99810bDHCPSnoopingRxOffer_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxOffer = _Opmen99810bDHCPSnoopingRxOffer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 4),
+    _Opmen99810bDHCPSnoopingRxOffer_Type()
+)
+opmen99810bDHCPSnoopingRxOffer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxOffer.setStatus("current")
+_Opmen99810bDHCPSnoopingRxRequest_Type = Counter32
+_Opmen99810bDHCPSnoopingRxRequest_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxRequest = _Opmen99810bDHCPSnoopingRxRequest_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 5),
+    _Opmen99810bDHCPSnoopingRxRequest_Type()
+)
+opmen99810bDHCPSnoopingRxRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxRequest.setStatus("current")
+_Opmen99810bDHCPSnoopingRxDecline_Type = Counter32
+_Opmen99810bDHCPSnoopingRxDecline_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxDecline = _Opmen99810bDHCPSnoopingRxDecline_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 6),
+    _Opmen99810bDHCPSnoopingRxDecline_Type()
+)
+opmen99810bDHCPSnoopingRxDecline.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxDecline.setStatus("current")
+_Opmen99810bDHCPSnoopingRxACK_Type = Counter32
+_Opmen99810bDHCPSnoopingRxACK_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxACK = _Opmen99810bDHCPSnoopingRxACK_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 7),
+    _Opmen99810bDHCPSnoopingRxACK_Type()
+)
+opmen99810bDHCPSnoopingRxACK.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxACK.setStatus("current")
+_Opmen99810bDHCPSnoopingRxNAK_Type = Counter32
+_Opmen99810bDHCPSnoopingRxNAK_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxNAK = _Opmen99810bDHCPSnoopingRxNAK_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 8),
+    _Opmen99810bDHCPSnoopingRxNAK_Type()
+)
+opmen99810bDHCPSnoopingRxNAK.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxNAK.setStatus("current")
+_Opmen99810bDHCPSnoopingRxRelease_Type = Counter32
+_Opmen99810bDHCPSnoopingRxRelease_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxRelease = _Opmen99810bDHCPSnoopingRxRelease_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 9),
+    _Opmen99810bDHCPSnoopingRxRelease_Type()
+)
+opmen99810bDHCPSnoopingRxRelease.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxRelease.setStatus("current")
+_Opmen99810bDHCPSnoopingRxInform_Type = Counter32
+_Opmen99810bDHCPSnoopingRxInform_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxInform = _Opmen99810bDHCPSnoopingRxInform_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 10),
+    _Opmen99810bDHCPSnoopingRxInform_Type()
+)
+opmen99810bDHCPSnoopingRxInform.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxInform.setStatus("current")
+_Opmen99810bDHCPSnoopingRxLeaseQuery_Type = Counter32
+_Opmen99810bDHCPSnoopingRxLeaseQuery_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxLeaseQuery = _Opmen99810bDHCPSnoopingRxLeaseQuery_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 11),
+    _Opmen99810bDHCPSnoopingRxLeaseQuery_Type()
+)
+opmen99810bDHCPSnoopingRxLeaseQuery.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxLeaseQuery.setStatus("current")
+_Opmen99810bDHCPSnoopingRxLeaseUnassigned_Type = Counter32
+_Opmen99810bDHCPSnoopingRxLeaseUnassigned_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxLeaseUnassigned = _Opmen99810bDHCPSnoopingRxLeaseUnassigned_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 12),
+    _Opmen99810bDHCPSnoopingRxLeaseUnassigned_Type()
+)
+opmen99810bDHCPSnoopingRxLeaseUnassigned.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxLeaseUnassigned.setStatus("current")
+_Opmen99810bDHCPSnoopingRxLeaseUnknown_Type = Counter32
+_Opmen99810bDHCPSnoopingRxLeaseUnknown_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxLeaseUnknown = _Opmen99810bDHCPSnoopingRxLeaseUnknown_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 13),
+    _Opmen99810bDHCPSnoopingRxLeaseUnknown_Type()
+)
+opmen99810bDHCPSnoopingRxLeaseUnknown.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxLeaseUnknown.setStatus("current")
+_Opmen99810bDHCPSnoopingRxLeaseActive_Type = Counter32
+_Opmen99810bDHCPSnoopingRxLeaseActive_Object = MibTableColumn
+opmen99810bDHCPSnoopingRxLeaseActive = _Opmen99810bDHCPSnoopingRxLeaseActive_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 14),
+    _Opmen99810bDHCPSnoopingRxLeaseActive_Type()
+)
+opmen99810bDHCPSnoopingRxLeaseActive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingRxLeaseActive.setStatus("current")
+_Opmen99810bDHCPSnoopingTxDiscover_Type = Counter32
+_Opmen99810bDHCPSnoopingTxDiscover_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxDiscover = _Opmen99810bDHCPSnoopingTxDiscover_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 15),
+    _Opmen99810bDHCPSnoopingTxDiscover_Type()
+)
+opmen99810bDHCPSnoopingTxDiscover.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxDiscover.setStatus("current")
+_Opmen99810bDHCPSnoopingTxOffer_Type = Counter32
+_Opmen99810bDHCPSnoopingTxOffer_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxOffer = _Opmen99810bDHCPSnoopingTxOffer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 16),
+    _Opmen99810bDHCPSnoopingTxOffer_Type()
+)
+opmen99810bDHCPSnoopingTxOffer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxOffer.setStatus("current")
+_Opmen99810bDHCPSnoopingTxRequest_Type = Counter32
+_Opmen99810bDHCPSnoopingTxRequest_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxRequest = _Opmen99810bDHCPSnoopingTxRequest_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 17),
+    _Opmen99810bDHCPSnoopingTxRequest_Type()
+)
+opmen99810bDHCPSnoopingTxRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxRequest.setStatus("current")
+_Opmen99810bDHCPSnoopingTxDecline_Type = Counter32
+_Opmen99810bDHCPSnoopingTxDecline_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxDecline = _Opmen99810bDHCPSnoopingTxDecline_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 18),
+    _Opmen99810bDHCPSnoopingTxDecline_Type()
+)
+opmen99810bDHCPSnoopingTxDecline.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxDecline.setStatus("current")
+_Opmen99810bDHCPSnoopingTxACK_Type = Counter32
+_Opmen99810bDHCPSnoopingTxACK_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxACK = _Opmen99810bDHCPSnoopingTxACK_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 19),
+    _Opmen99810bDHCPSnoopingTxACK_Type()
+)
+opmen99810bDHCPSnoopingTxACK.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxACK.setStatus("current")
+_Opmen99810bDHCPSnoopingTxNAK_Type = Counter32
+_Opmen99810bDHCPSnoopingTxNAK_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxNAK = _Opmen99810bDHCPSnoopingTxNAK_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 20),
+    _Opmen99810bDHCPSnoopingTxNAK_Type()
+)
+opmen99810bDHCPSnoopingTxNAK.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxNAK.setStatus("current")
+_Opmen99810bDHCPSnoopingTxRelease_Type = Counter32
+_Opmen99810bDHCPSnoopingTxRelease_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxRelease = _Opmen99810bDHCPSnoopingTxRelease_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 21),
+    _Opmen99810bDHCPSnoopingTxRelease_Type()
+)
+opmen99810bDHCPSnoopingTxRelease.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxRelease.setStatus("current")
+_Opmen99810bDHCPSnoopingTxInform_Type = Counter32
+_Opmen99810bDHCPSnoopingTxInform_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxInform = _Opmen99810bDHCPSnoopingTxInform_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 22),
+    _Opmen99810bDHCPSnoopingTxInform_Type()
+)
+opmen99810bDHCPSnoopingTxInform.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxInform.setStatus("current")
+_Opmen99810bDHCPSnoopingTxLeaseQuery_Type = Counter32
+_Opmen99810bDHCPSnoopingTxLeaseQuery_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxLeaseQuery = _Opmen99810bDHCPSnoopingTxLeaseQuery_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 23),
+    _Opmen99810bDHCPSnoopingTxLeaseQuery_Type()
+)
+opmen99810bDHCPSnoopingTxLeaseQuery.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxLeaseQuery.setStatus("current")
+_Opmen99810bDHCPSnoopingTxLeaseUnassigned_Type = Counter32
+_Opmen99810bDHCPSnoopingTxLeaseUnassigned_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxLeaseUnassigned = _Opmen99810bDHCPSnoopingTxLeaseUnassigned_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 24),
+    _Opmen99810bDHCPSnoopingTxLeaseUnassigned_Type()
+)
+opmen99810bDHCPSnoopingTxLeaseUnassigned.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxLeaseUnassigned.setStatus("current")
+_Opmen99810bDHCPSnoopingTxLeaseUnknown_Type = Counter32
+_Opmen99810bDHCPSnoopingTxLeaseUnknown_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxLeaseUnknown = _Opmen99810bDHCPSnoopingTxLeaseUnknown_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 25),
+    _Opmen99810bDHCPSnoopingTxLeaseUnknown_Type()
+)
+opmen99810bDHCPSnoopingTxLeaseUnknown.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxLeaseUnknown.setStatus("current")
+_Opmen99810bDHCPSnoopingTxLeaseActive_Type = Counter32
+_Opmen99810bDHCPSnoopingTxLeaseActive_Object = MibTableColumn
+opmen99810bDHCPSnoopingTxLeaseActive = _Opmen99810bDHCPSnoopingTxLeaseActive_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 3, 2, 1, 26),
+    _Opmen99810bDHCPSnoopingTxLeaseActive_Type()
+)
+opmen99810bDHCPSnoopingTxLeaseActive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPSnoopingTxLeaseActive.setStatus("current")
+_Opmen99810bDHCPRelay_ObjectIdentity = ObjectIdentity
+opmen99810bDHCPRelay = _Opmen99810bDHCPRelay_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4)
+)
+_Opmen99810bDHCPRelayConfiguration_ObjectIdentity = ObjectIdentity
+opmen99810bDHCPRelayConfiguration = _Opmen99810bDHCPRelayConfiguration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 1)
+)
+
+
+class _Opmen99810bDHCPRelayMode_Type(Integer32):
+    """Custom type opmen99810bDHCPRelayMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bDHCPRelayMode_Type.__name__ = "Integer32"
+_Opmen99810bDHCPRelayMode_Object = MibScalar
+opmen99810bDHCPRelayMode = _Opmen99810bDHCPRelayMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 1, 1),
+    _Opmen99810bDHCPRelayMode_Type()
+)
+opmen99810bDHCPRelayMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPRelayMode.setStatus("current")
+_Opmen99810bDHCPRelayServer_Type = IpAddress
+_Opmen99810bDHCPRelayServer_Object = MibScalar
+opmen99810bDHCPRelayServer = _Opmen99810bDHCPRelayServer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 1, 2),
+    _Opmen99810bDHCPRelayServer_Type()
+)
+opmen99810bDHCPRelayServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPRelayServer.setStatus("current")
+
+
+class _Opmen99810bDHCPRelayInformationMode_Type(Integer32):
+    """Custom type opmen99810bDHCPRelayInformationMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bDHCPRelayInformationMode_Type.__name__ = "Integer32"
+_Opmen99810bDHCPRelayInformationMode_Object = MibScalar
+opmen99810bDHCPRelayInformationMode = _Opmen99810bDHCPRelayInformationMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 1, 3),
+    _Opmen99810bDHCPRelayInformationMode_Type()
+)
+opmen99810bDHCPRelayInformationMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPRelayInformationMode.setStatus("current")
+
+
+class _Opmen99810bDHCPRelayInformationPolicy_Type(Integer32):
+    """Custom type opmen99810bDHCPRelayInformationPolicy based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("replace", 0),
+          ("keep", 1),
+          ("drop", 2))
+    )
+
+
+_Opmen99810bDHCPRelayInformationPolicy_Type.__name__ = "Integer32"
+_Opmen99810bDHCPRelayInformationPolicy_Object = MibScalar
+opmen99810bDHCPRelayInformationPolicy = _Opmen99810bDHCPRelayInformationPolicy_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 1, 4),
+    _Opmen99810bDHCPRelayInformationPolicy_Type()
+)
+opmen99810bDHCPRelayInformationPolicy.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDHCPRelayInformationPolicy.setStatus("current")
+_Opmen99810bDHCPRelayStatistics_ObjectIdentity = ObjectIdentity
+opmen99810bDHCPRelayStatistics = _Opmen99810bDHCPRelayStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2)
+)
+_Opmen99810bDHCPRelayServerStatistics_ObjectIdentity = ObjectIdentity
+opmen99810bDHCPRelayServerStatistics = _Opmen99810bDHCPRelayServerStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1)
+)
+_Opmen99810bServerStatTransmitToServer_Type = Counter32
+_Opmen99810bServerStatTransmitToServer_Object = MibScalar
+opmen99810bServerStatTransmitToServer = _Opmen99810bServerStatTransmitToServer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 1),
+    _Opmen99810bServerStatTransmitToServer_Type()
+)
+opmen99810bServerStatTransmitToServer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bServerStatTransmitToServer.setStatus("current")
+_Opmen99810bServerStatTransmitError_Type = Counter32
+_Opmen99810bServerStatTransmitError_Object = MibScalar
+opmen99810bServerStatTransmitError = _Opmen99810bServerStatTransmitError_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 2),
+    _Opmen99810bServerStatTransmitError_Type()
+)
+opmen99810bServerStatTransmitError.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bServerStatTransmitError.setStatus("current")
+_Opmen99810bServerStatReceiveFromServer_Type = Counter32
+_Opmen99810bServerStatReceiveFromServer_Object = MibScalar
+opmen99810bServerStatReceiveFromServer = _Opmen99810bServerStatReceiveFromServer_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 3),
+    _Opmen99810bServerStatReceiveFromServer_Type()
+)
+opmen99810bServerStatReceiveFromServer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bServerStatReceiveFromServer.setStatus("current")
+_Opmen99810bServerStatReceiveMissingAgentOption_Type = Counter32
+_Opmen99810bServerStatReceiveMissingAgentOption_Object = MibScalar
+opmen99810bServerStatReceiveMissingAgentOption = _Opmen99810bServerStatReceiveMissingAgentOption_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 4),
+    _Opmen99810bServerStatReceiveMissingAgentOption_Type()
+)
+opmen99810bServerStatReceiveMissingAgentOption.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bServerStatReceiveMissingAgentOption.setStatus("current")
+_Opmen99810bServerStatReceiveMissingCircuitID_Type = Counter32
+_Opmen99810bServerStatReceiveMissingCircuitID_Object = MibScalar
+opmen99810bServerStatReceiveMissingCircuitID = _Opmen99810bServerStatReceiveMissingCircuitID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 5),
+    _Opmen99810bServerStatReceiveMissingCircuitID_Type()
+)
+opmen99810bServerStatReceiveMissingCircuitID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bServerStatReceiveMissingCircuitID.setStatus("current")
+_Opmen99810bServerStatReceiveMissingRemoteID_Type = Counter32
+_Opmen99810bServerStatReceiveMissingRemoteID_Object = MibScalar
+opmen99810bServerStatReceiveMissingRemoteID = _Opmen99810bServerStatReceiveMissingRemoteID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 6),
+    _Opmen99810bServerStatReceiveMissingRemoteID_Type()
+)
+opmen99810bServerStatReceiveMissingRemoteID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bServerStatReceiveMissingRemoteID.setStatus("current")
+_Opmen99810bServerStatReceiveBadCircuitID_Type = Counter32
+_Opmen99810bServerStatReceiveBadCircuitID_Object = MibScalar
+opmen99810bServerStatReceiveBadCircuitID = _Opmen99810bServerStatReceiveBadCircuitID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 7),
+    _Opmen99810bServerStatReceiveBadCircuitID_Type()
+)
+opmen99810bServerStatReceiveBadCircuitID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bServerStatReceiveBadCircuitID.setStatus("current")
+_Opmen99810bServerStatReceiveBadRemoteID_Type = Counter32
+_Opmen99810bServerStatReceiveBadRemoteID_Object = MibScalar
+opmen99810bServerStatReceiveBadRemoteID = _Opmen99810bServerStatReceiveBadRemoteID_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 1, 8),
+    _Opmen99810bServerStatReceiveBadRemoteID_Type()
+)
+opmen99810bServerStatReceiveBadRemoteID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bServerStatReceiveBadRemoteID.setStatus("current")
+_Opmen99810bDHCPRelayClientStatistics_ObjectIdentity = ObjectIdentity
+opmen99810bDHCPRelayClientStatistics = _Opmen99810bDHCPRelayClientStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2)
+)
+_Opmen99810bClientStatTransmitToClient_Type = Counter32
+_Opmen99810bClientStatTransmitToClient_Object = MibScalar
+opmen99810bClientStatTransmitToClient = _Opmen99810bClientStatTransmitToClient_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 1),
+    _Opmen99810bClientStatTransmitToClient_Type()
+)
+opmen99810bClientStatTransmitToClient.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bClientStatTransmitToClient.setStatus("current")
+_Opmen99810bClientStatTransmitError_Type = Counter32
+_Opmen99810bClientStatTransmitError_Object = MibScalar
+opmen99810bClientStatTransmitError = _Opmen99810bClientStatTransmitError_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 2),
+    _Opmen99810bClientStatTransmitError_Type()
+)
+opmen99810bClientStatTransmitError.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bClientStatTransmitError.setStatus("current")
+_Opmen99810bClientStatReceivefromClient_Type = Counter32
+_Opmen99810bClientStatReceivefromClient_Object = MibScalar
+opmen99810bClientStatReceivefromClient = _Opmen99810bClientStatReceivefromClient_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 3),
+    _Opmen99810bClientStatReceivefromClient_Type()
+)
+opmen99810bClientStatReceivefromClient.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bClientStatReceivefromClient.setStatus("current")
+_Opmen99810bClientStatReceiveAgentOption_Type = Counter32
+_Opmen99810bClientStatReceiveAgentOption_Object = MibScalar
+opmen99810bClientStatReceiveAgentOption = _Opmen99810bClientStatReceiveAgentOption_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 4),
+    _Opmen99810bClientStatReceiveAgentOption_Type()
+)
+opmen99810bClientStatReceiveAgentOption.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bClientStatReceiveAgentOption.setStatus("current")
+_Opmen99810bClientStatReplaceAgentOption_Type = Counter32
+_Opmen99810bClientStatReplaceAgentOption_Object = MibScalar
+opmen99810bClientStatReplaceAgentOption = _Opmen99810bClientStatReplaceAgentOption_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 5),
+    _Opmen99810bClientStatReplaceAgentOption_Type()
+)
+opmen99810bClientStatReplaceAgentOption.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bClientStatReplaceAgentOption.setStatus("current")
+_Opmen99810bClientStatKeepAgentOption_Type = Counter32
+_Opmen99810bClientStatKeepAgentOption_Object = MibScalar
+opmen99810bClientStatKeepAgentOption = _Opmen99810bClientStatKeepAgentOption_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 6),
+    _Opmen99810bClientStatKeepAgentOption_Type()
+)
+opmen99810bClientStatKeepAgentOption.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bClientStatKeepAgentOption.setStatus("current")
+_Opmen99810bClientStatDropAgentOption_Type = Counter32
+_Opmen99810bClientStatDropAgentOption_Object = MibScalar
+opmen99810bClientStatDropAgentOption = _Opmen99810bClientStatDropAgentOption_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 4, 2, 2, 7),
+    _Opmen99810bClientStatDropAgentOption_Type()
+)
+opmen99810bClientStatDropAgentOption.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bClientStatDropAgentOption.setStatus("current")
+_Opmen99810bPortSecurity_ObjectIdentity = ObjectIdentity
+opmen99810bPortSecurity = _Opmen99810bPortSecurity_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5)
+)
+_Opmen99810bPortSecLimitCtrl_ObjectIdentity = ObjectIdentity
+opmen99810bPortSecLimitCtrl = _Opmen99810bPortSecLimitCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1)
+)
+_Opmen99810bPortSecLimitCtrlSystemConf_ObjectIdentity = ObjectIdentity
+opmen99810bPortSecLimitCtrlSystemConf = _Opmen99810bPortSecLimitCtrlSystemConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 1)
+)
+
+
+class _Opmen99810bPortSecurityMode_Type(Integer32):
+    """Custom type opmen99810bPortSecurityMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortSecurityMode_Type.__name__ = "Integer32"
+_Opmen99810bPortSecurityMode_Object = MibScalar
+opmen99810bPortSecurityMode = _Opmen99810bPortSecurityMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 1, 1),
+    _Opmen99810bPortSecurityMode_Type()
+)
+opmen99810bPortSecurityMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecurityMode.setStatus("current")
+
+
+class _Opmen99810bPortSecurityAging_Type(Integer32):
+    """Custom type opmen99810bPortSecurityAging based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortSecurityAging_Type.__name__ = "Integer32"
+_Opmen99810bPortSecurityAging_Object = MibScalar
+opmen99810bPortSecurityAging = _Opmen99810bPortSecurityAging_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 1, 2),
+    _Opmen99810bPortSecurityAging_Type()
+)
+opmen99810bPortSecurityAging.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecurityAging.setStatus("current")
+
+
+class _Opmen99810bPortSecurityAgingPeriod_Type(Integer32):
+    """Custom type opmen99810bPortSecurityAgingPeriod based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 10000000),
+    )
+
+
+_Opmen99810bPortSecurityAgingPeriod_Type.__name__ = "Integer32"
+_Opmen99810bPortSecurityAgingPeriod_Object = MibScalar
+opmen99810bPortSecurityAgingPeriod = _Opmen99810bPortSecurityAgingPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 1, 3),
+    _Opmen99810bPortSecurityAgingPeriod_Type()
+)
+opmen99810bPortSecurityAgingPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecurityAgingPeriod.setStatus("current")
+_Opmen99810bPortSecLimitCtrlTable_Object = MibTable
+opmen99810bPortSecLimitCtrlTable = _Opmen99810bPortSecLimitCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortSecLimitCtrlTable.setStatus("current")
+_Opmen99810bPortSecLimitCtrlEntry_Object = MibTableRow
+opmen99810bPortSecLimitCtrlEntry = _Opmen99810bPortSecLimitCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1)
+)
+opmen99810bPortSecLimitCtrlEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortSecLimitCtrlPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortSecLimitCtrlEntry.setStatus("current")
+
+
+class _Opmen99810bPortSecLimitCtrlPort_Type(Integer32):
+    """Custom type opmen99810bPortSecLimitCtrlPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bPortSecLimitCtrlPort_Type.__name__ = "Integer32"
+_Opmen99810bPortSecLimitCtrlPort_Object = MibTableColumn
+opmen99810bPortSecLimitCtrlPort = _Opmen99810bPortSecLimitCtrlPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 1),
+    _Opmen99810bPortSecLimitCtrlPort_Type()
+)
+opmen99810bPortSecLimitCtrlPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecLimitCtrlPort.setStatus("current")
+
+
+class _Opmen99810bPortSecLimitCtrlPortMode_Type(Integer32):
+    """Custom type opmen99810bPortSecLimitCtrlPortMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bPortSecLimitCtrlPortMode_Type.__name__ = "Integer32"
+_Opmen99810bPortSecLimitCtrlPortMode_Object = MibTableColumn
+opmen99810bPortSecLimitCtrlPortMode = _Opmen99810bPortSecLimitCtrlPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 2),
+    _Opmen99810bPortSecLimitCtrlPortMode_Type()
+)
+opmen99810bPortSecLimitCtrlPortMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecLimitCtrlPortMode.setStatus("current")
+
+
+class _Opmen99810bPortSecLimitCtrlPortLimit_Type(Integer32):
+    """Custom type opmen99810bPortSecLimitCtrlPortLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_Opmen99810bPortSecLimitCtrlPortLimit_Type.__name__ = "Integer32"
+_Opmen99810bPortSecLimitCtrlPortLimit_Object = MibTableColumn
+opmen99810bPortSecLimitCtrlPortLimit = _Opmen99810bPortSecLimitCtrlPortLimit_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 3),
+    _Opmen99810bPortSecLimitCtrlPortLimit_Type()
+)
+opmen99810bPortSecLimitCtrlPortLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecLimitCtrlPortLimit.setStatus("current")
+
+
+class _Opmen99810bPortSecLimitCtrlPortAction_Type(Integer32):
+    """Custom type opmen99810bPortSecLimitCtrlPortAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("trap", 1),
+          ("shutdown", 2),
+          ("trapShutdown", 3))
+    )
+
+
+_Opmen99810bPortSecLimitCtrlPortAction_Type.__name__ = "Integer32"
+_Opmen99810bPortSecLimitCtrlPortAction_Object = MibTableColumn
+opmen99810bPortSecLimitCtrlPortAction = _Opmen99810bPortSecLimitCtrlPortAction_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 4),
+    _Opmen99810bPortSecLimitCtrlPortAction_Type()
+)
+opmen99810bPortSecLimitCtrlPortAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecLimitCtrlPortAction.setStatus("current")
+_Opmen99810bPortSecLimitCtrlPortState_Type = DisplayString
+_Opmen99810bPortSecLimitCtrlPortState_Object = MibTableColumn
+opmen99810bPortSecLimitCtrlPortState = _Opmen99810bPortSecLimitCtrlPortState_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 5),
+    _Opmen99810bPortSecLimitCtrlPortState_Type()
+)
+opmen99810bPortSecLimitCtrlPortState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecLimitCtrlPortState.setStatus("current")
+
+
+class _Opmen99810bPortSecLimitCtrlPortReOpen_Type(Integer32):
+    """Custom type opmen99810bPortSecLimitCtrlPortReOpen based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("reopen", 1))
+    )
+
+
+_Opmen99810bPortSecLimitCtrlPortReOpen_Type.__name__ = "Integer32"
+_Opmen99810bPortSecLimitCtrlPortReOpen_Object = MibTableColumn
+opmen99810bPortSecLimitCtrlPortReOpen = _Opmen99810bPortSecLimitCtrlPortReOpen_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 1, 2, 1, 6),
+    _Opmen99810bPortSecLimitCtrlPortReOpen_Type()
+)
+opmen99810bPortSecLimitCtrlPortReOpen.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecLimitCtrlPortReOpen.setStatus("current")
+_Opmen99810bPortSecSwitchStatusTable_Object = MibTable
+opmen99810bPortSecSwitchStatusTable = _Opmen99810bPortSecSwitchStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortSecSwitchStatusTable.setStatus("current")
+_Opmen99810bPortSecSwitchStatusEntry_Object = MibTableRow
+opmen99810bPortSecSwitchStatusEntry = _Opmen99810bPortSecSwitchStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1)
+)
+opmen99810bPortSecSwitchStatusEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortSecSwitchStatusPort"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortSecSwitchStatusEntry.setStatus("current")
+
+
+class _Opmen99810bPortSecSwitchStatusPort_Type(Integer32):
+    """Custom type opmen99810bPortSecSwitchStatusPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bPortSecSwitchStatusPort_Type.__name__ = "Integer32"
+_Opmen99810bPortSecSwitchStatusPort_Object = MibTableColumn
+opmen99810bPortSecSwitchStatusPort = _Opmen99810bPortSecSwitchStatusPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1, 1),
+    _Opmen99810bPortSecSwitchStatusPort_Type()
+)
+opmen99810bPortSecSwitchStatusPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecSwitchStatusPort.setStatus("current")
+_Opmen99810bPortSecSwitchStatusUsers_Type = DisplayString
+_Opmen99810bPortSecSwitchStatusUsers_Object = MibTableColumn
+opmen99810bPortSecSwitchStatusUsers = _Opmen99810bPortSecSwitchStatusUsers_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1, 2),
+    _Opmen99810bPortSecSwitchStatusUsers_Type()
+)
+opmen99810bPortSecSwitchStatusUsers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecSwitchStatusUsers.setStatus("current")
+_Opmen99810bPortSecSwitchStatusState_Type = DisplayString
+_Opmen99810bPortSecSwitchStatusState_Object = MibTableColumn
+opmen99810bPortSecSwitchStatusState = _Opmen99810bPortSecSwitchStatusState_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1, 3),
+    _Opmen99810bPortSecSwitchStatusState_Type()
+)
+opmen99810bPortSecSwitchStatusState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecSwitchStatusState.setStatus("current")
+
+
+class _Opmen99810bPortSecSwitchStatusMACCountCurrent_Type(Integer32):
+    """Custom type opmen99810bPortSecSwitchStatusMACCountCurrent based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bPortSecSwitchStatusMACCountCurrent_Type.__name__ = "Integer32"
+_Opmen99810bPortSecSwitchStatusMACCountCurrent_Object = MibTableColumn
+opmen99810bPortSecSwitchStatusMACCountCurrent = _Opmen99810bPortSecSwitchStatusMACCountCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1, 4),
+    _Opmen99810bPortSecSwitchStatusMACCountCurrent_Type()
+)
+opmen99810bPortSecSwitchStatusMACCountCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecSwitchStatusMACCountCurrent.setStatus("current")
+
+
+class _Opmen99810bPortSecSwitchStatusMACCountLimit_Type(Integer32):
+    """Custom type opmen99810bPortSecSwitchStatusMACCountLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bPortSecSwitchStatusMACCountLimit_Type.__name__ = "Integer32"
+_Opmen99810bPortSecSwitchStatusMACCountLimit_Object = MibTableColumn
+opmen99810bPortSecSwitchStatusMACCountLimit = _Opmen99810bPortSecSwitchStatusMACCountLimit_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 2, 1, 5),
+    _Opmen99810bPortSecSwitchStatusMACCountLimit_Type()
+)
+opmen99810bPortSecSwitchStatusMACCountLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecSwitchStatusMACCountLimit.setStatus("current")
+_Opmen99810bPortSecPortStatus_ObjectIdentity = ObjectIdentity
+opmen99810bPortSecPortStatus = _Opmen99810bPortSecPortStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3)
+)
+
+
+class _Opmen99810bPortSecPortStatusPort_Type(Integer32):
+    """Custom type opmen99810bPortSecPortStatusPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bPortSecPortStatusPort_Type.__name__ = "Integer32"
+_Opmen99810bPortSecPortStatusPort_Object = MibScalar
+opmen99810bPortSecPortStatusPort = _Opmen99810bPortSecPortStatusPort_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 1),
+    _Opmen99810bPortSecPortStatusPort_Type()
+)
+opmen99810bPortSecPortStatusPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecPortStatusPort.setStatus("current")
+_Opmen99810bPortSecPortStatusTable_Object = MibTable
+opmen99810bPortSecPortStatusTable = _Opmen99810bPortSecPortStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2)
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortSecPortStatusTable.setStatus("current")
+_Opmen99810bPortSecPortStatusEntry_Object = MibTableRow
+opmen99810bPortSecPortStatusEntry = _Opmen99810bPortSecPortStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1)
+)
+opmen99810bPortSecPortStatusEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bPortSecPortStatusIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bPortSecPortStatusEntry.setStatus("current")
+
+
+class _Opmen99810bPortSecPortStatusIndex_Type(Integer32):
+    """Custom type opmen99810bPortSecPortStatusIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_Opmen99810bPortSecPortStatusIndex_Type.__name__ = "Integer32"
+_Opmen99810bPortSecPortStatusIndex_Object = MibTableColumn
+opmen99810bPortSecPortStatusIndex = _Opmen99810bPortSecPortStatusIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 1),
+    _Opmen99810bPortSecPortStatusIndex_Type()
+)
+opmen99810bPortSecPortStatusIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecPortStatusIndex.setStatus("current")
+_Opmen99810bPortSecPortStatusMACAddress_Type = MacAddress
+_Opmen99810bPortSecPortStatusMACAddress_Object = MibTableColumn
+opmen99810bPortSecPortStatusMACAddress = _Opmen99810bPortSecPortStatusMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 2),
+    _Opmen99810bPortSecPortStatusMACAddress_Type()
+)
+opmen99810bPortSecPortStatusMACAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecPortStatusMACAddress.setStatus("current")
+
+
+class _Opmen99810bPortSecPortStatusVLANId_Type(Integer32):
+    """Custom type opmen99810bPortSecPortStatusVLANId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_Opmen99810bPortSecPortStatusVLANId_Type.__name__ = "Integer32"
+_Opmen99810bPortSecPortStatusVLANId_Object = MibTableColumn
+opmen99810bPortSecPortStatusVLANId = _Opmen99810bPortSecPortStatusVLANId_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 3),
+    _Opmen99810bPortSecPortStatusVLANId_Type()
+)
+opmen99810bPortSecPortStatusVLANId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecPortStatusVLANId.setStatus("current")
+_Opmen99810bPortSecPortStatusState_Type = DisplayString
+_Opmen99810bPortSecPortStatusState_Object = MibTableColumn
+opmen99810bPortSecPortStatusState = _Opmen99810bPortSecPortStatusState_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 4),
+    _Opmen99810bPortSecPortStatusState_Type()
+)
+opmen99810bPortSecPortStatusState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecPortStatusState.setStatus("current")
+_Opmen99810bPortSecPortStatusTimeOfAddition_Type = DisplayString
+_Opmen99810bPortSecPortStatusTimeOfAddition_Object = MibTableColumn
+opmen99810bPortSecPortStatusTimeOfAddition = _Opmen99810bPortSecPortStatusTimeOfAddition_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 5),
+    _Opmen99810bPortSecPortStatusTimeOfAddition_Type()
+)
+opmen99810bPortSecPortStatusTimeOfAddition.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecPortStatusTimeOfAddition.setStatus("current")
+_Opmen99810bPortSecPortStatusAgeAndHold_Type = DisplayString
+_Opmen99810bPortSecPortStatusAgeAndHold_Object = MibTableColumn
+opmen99810bPortSecPortStatusAgeAndHold = _Opmen99810bPortSecPortStatusAgeAndHold_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 5, 3, 2, 1, 6),
+    _Opmen99810bPortSecPortStatusAgeAndHold_Type()
+)
+opmen99810bPortSecPortStatusAgeAndHold.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPortSecPortStatusAgeAndHold.setStatus("current")
+_Opmen99810bAccessManagement_ObjectIdentity = ObjectIdentity
+opmen99810bAccessManagement = _Opmen99810bAccessManagement_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6)
+)
+_Opmen99810bAccessMgtConf_ObjectIdentity = ObjectIdentity
+opmen99810bAccessMgtConf = _Opmen99810bAccessMgtConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1)
+)
+
+
+class _Opmen99810bAccessMgtConfMode_Type(Integer32):
+    """Custom type opmen99810bAccessMgtConfMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bAccessMgtConfMode_Type.__name__ = "Integer32"
+_Opmen99810bAccessMgtConfMode_Object = MibScalar
+opmen99810bAccessMgtConfMode = _Opmen99810bAccessMgtConfMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 1),
+    _Opmen99810bAccessMgtConfMode_Type()
+)
+opmen99810bAccessMgtConfMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtConfMode.setStatus("current")
+
+
+class _Opmen99810bAccessMgtConfCreate_Type(Integer32):
+    """Custom type opmen99810bAccessMgtConfCreate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("create", 1))
+    )
+
+
+_Opmen99810bAccessMgtConfCreate_Type.__name__ = "Integer32"
+_Opmen99810bAccessMgtConfCreate_Object = MibScalar
+opmen99810bAccessMgtConfCreate = _Opmen99810bAccessMgtConfCreate_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 2),
+    _Opmen99810bAccessMgtConfCreate_Type()
+)
+opmen99810bAccessMgtConfCreate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtConfCreate.setStatus("current")
+_Opmen99810bAccessMgtConfTable_Object = MibTable
+opmen99810bAccessMgtConfTable = _Opmen99810bAccessMgtConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3)
+)
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtConfTable.setStatus("current")
+_Opmen99810bAccessMgtConfEntry_Object = MibTableRow
+opmen99810bAccessMgtConfEntry = _Opmen99810bAccessMgtConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1)
+)
+opmen99810bAccessMgtConfEntry.setIndexNames(
+    (0, "PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bAccessMgtIndex"),
+)
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtConfEntry.setStatus("current")
+
+
+class _Opmen99810bAccessMgtIndex_Type(Integer32):
+    """Custom type opmen99810bAccessMgtIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_Opmen99810bAccessMgtIndex_Type.__name__ = "Integer32"
+_Opmen99810bAccessMgtIndex_Object = MibTableColumn
+opmen99810bAccessMgtIndex = _Opmen99810bAccessMgtIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 1),
+    _Opmen99810bAccessMgtIndex_Type()
+)
+opmen99810bAccessMgtIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtIndex.setStatus("current")
+
+
+class _Opmen99810bAccessMgtAddresstype_Type(Integer32):
+    """Custom type opmen99810bAccessMgtAddresstype based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 0),
+          ("ipv6", 1))
+    )
+
+
+_Opmen99810bAccessMgtAddresstype_Type.__name__ = "Integer32"
+_Opmen99810bAccessMgtAddresstype_Object = MibTableColumn
+opmen99810bAccessMgtAddresstype = _Opmen99810bAccessMgtAddresstype_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 2),
+    _Opmen99810bAccessMgtAddresstype_Type()
+)
+opmen99810bAccessMgtAddresstype.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtAddresstype.setStatus("current")
+_Opmen99810bAccessMgtStartIpAddress_Type = DisplayString
+_Opmen99810bAccessMgtStartIpAddress_Object = MibTableColumn
+opmen99810bAccessMgtStartIpAddress = _Opmen99810bAccessMgtStartIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 3),
+    _Opmen99810bAccessMgtStartIpAddress_Type()
+)
+opmen99810bAccessMgtStartIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtStartIpAddress.setStatus("current")
+_Opmen99810bAccessMgtEndIpAddress_Type = DisplayString
+_Opmen99810bAccessMgtEndIpAddress_Object = MibTableColumn
+opmen99810bAccessMgtEndIpAddress = _Opmen99810bAccessMgtEndIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 4),
+    _Opmen99810bAccessMgtEndIpAddress_Type()
+)
+opmen99810bAccessMgtEndIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtEndIpAddress.setStatus("current")
+
+
+class _Opmen99810bAccessMgtHttpHttps_Type(Integer32):
+    """Custom type opmen99810bAccessMgtHttpHttps based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bAccessMgtHttpHttps_Type.__name__ = "Integer32"
+_Opmen99810bAccessMgtHttpHttps_Object = MibTableColumn
+opmen99810bAccessMgtHttpHttps = _Opmen99810bAccessMgtHttpHttps_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 5),
+    _Opmen99810bAccessMgtHttpHttps_Type()
+)
+opmen99810bAccessMgtHttpHttps.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtHttpHttps.setStatus("current")
+
+
+class _Opmen99810bAccessMgtSNMP_Type(Integer32):
+    """Custom type opmen99810bAccessMgtSNMP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bAccessMgtSNMP_Type.__name__ = "Integer32"
+_Opmen99810bAccessMgtSNMP_Object = MibTableColumn
+opmen99810bAccessMgtSNMP = _Opmen99810bAccessMgtSNMP_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 6),
+    _Opmen99810bAccessMgtSNMP_Type()
+)
+opmen99810bAccessMgtSNMP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtSNMP.setStatus("current")
+
+
+class _Opmen99810bAccessMgtTelnetSSH_Type(Integer32):
+    """Custom type opmen99810bAccessMgtTelnetSSH based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bAccessMgtTelnetSSH_Type.__name__ = "Integer32"
+_Opmen99810bAccessMgtTelnetSSH_Object = MibTableColumn
+opmen99810bAccessMgtTelnetSSH = _Opmen99810bAccessMgtTelnetSSH_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 7),
+    _Opmen99810bAccessMgtTelnetSSH_Type()
+)
+opmen99810bAccessMgtTelnetSSH.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtTelnetSSH.setStatus("current")
+
+
+class _Opmen99810bAccessMgtRowStatus_Type(Integer32):
+    """Custom type opmen99810bAccessMgtRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("notInservice", 2),
+          ("edit", 3),
+          ("destroy", 4),
+          ("undo", 5))
+    )
+
+
+_Opmen99810bAccessMgtRowStatus_Type.__name__ = "Integer32"
+_Opmen99810bAccessMgtRowStatus_Object = MibTableColumn
+opmen99810bAccessMgtRowStatus = _Opmen99810bAccessMgtRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 1, 3, 1, 8),
+    _Opmen99810bAccessMgtRowStatus_Type()
+)
+opmen99810bAccessMgtRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtRowStatus.setStatus("current")
+_Opmen99810bAccessMgtStatistics_ObjectIdentity = ObjectIdentity
+opmen99810bAccessMgtStatistics = _Opmen99810bAccessMgtStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2)
+)
+_Opmen99810bHttpReceivedPkts_Type = Counter32
+_Opmen99810bHttpReceivedPkts_Object = MibScalar
+opmen99810bHttpReceivedPkts = _Opmen99810bHttpReceivedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 1),
+    _Opmen99810bHttpReceivedPkts_Type()
+)
+opmen99810bHttpReceivedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bHttpReceivedPkts.setStatus("current")
+_Opmen99810bHttpAllowedPkts_Type = Counter32
+_Opmen99810bHttpAllowedPkts_Object = MibScalar
+opmen99810bHttpAllowedPkts = _Opmen99810bHttpAllowedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 2),
+    _Opmen99810bHttpAllowedPkts_Type()
+)
+opmen99810bHttpAllowedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bHttpAllowedPkts.setStatus("current")
+_Opmen99810bHttpDiscardedPkts_Type = Counter32
+_Opmen99810bHttpDiscardedPkts_Object = MibScalar
+opmen99810bHttpDiscardedPkts = _Opmen99810bHttpDiscardedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 3),
+    _Opmen99810bHttpDiscardedPkts_Type()
+)
+opmen99810bHttpDiscardedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bHttpDiscardedPkts.setStatus("current")
+_Opmen99810bHttpsReceivedPkts_Type = Counter32
+_Opmen99810bHttpsReceivedPkts_Object = MibScalar
+opmen99810bHttpsReceivedPkts = _Opmen99810bHttpsReceivedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 4),
+    _Opmen99810bHttpsReceivedPkts_Type()
+)
+opmen99810bHttpsReceivedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bHttpsReceivedPkts.setStatus("current")
+_Opmen99810bHttpsAllowedPkts_Type = Counter32
+_Opmen99810bHttpsAllowedPkts_Object = MibScalar
+opmen99810bHttpsAllowedPkts = _Opmen99810bHttpsAllowedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 5),
+    _Opmen99810bHttpsAllowedPkts_Type()
+)
+opmen99810bHttpsAllowedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bHttpsAllowedPkts.setStatus("current")
+_Opmen99810bHttpsDiscardedPkts_Type = Counter32
+_Opmen99810bHttpsDiscardedPkts_Object = MibScalar
+opmen99810bHttpsDiscardedPkts = _Opmen99810bHttpsDiscardedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 6),
+    _Opmen99810bHttpsDiscardedPkts_Type()
+)
+opmen99810bHttpsDiscardedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bHttpsDiscardedPkts.setStatus("current")
+_Opmen99810bSnmpReceivedPkts_Type = Counter32
+_Opmen99810bSnmpReceivedPkts_Object = MibScalar
+opmen99810bSnmpReceivedPkts = _Opmen99810bSnmpReceivedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 7),
+    _Opmen99810bSnmpReceivedPkts_Type()
+)
+opmen99810bSnmpReceivedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSnmpReceivedPkts.setStatus("current")
+_Opmen99810bSnmpAllowedPkts_Type = Counter32
+_Opmen99810bSnmpAllowedPkts_Object = MibScalar
+opmen99810bSnmpAllowedPkts = _Opmen99810bSnmpAllowedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 8),
+    _Opmen99810bSnmpAllowedPkts_Type()
+)
+opmen99810bSnmpAllowedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSnmpAllowedPkts.setStatus("current")
+_Opmen99810bSnmpDiscardedPkts_Type = Counter32
+_Opmen99810bSnmpDiscardedPkts_Object = MibScalar
+opmen99810bSnmpDiscardedPkts = _Opmen99810bSnmpDiscardedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 9),
+    _Opmen99810bSnmpDiscardedPkts_Type()
+)
+opmen99810bSnmpDiscardedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSnmpDiscardedPkts.setStatus("current")
+_Opmen99810bTelnetReceivedPkts_Type = Counter32
+_Opmen99810bTelnetReceivedPkts_Object = MibScalar
+opmen99810bTelnetReceivedPkts = _Opmen99810bTelnetReceivedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 10),
+    _Opmen99810bTelnetReceivedPkts_Type()
+)
+opmen99810bTelnetReceivedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bTelnetReceivedPkts.setStatus("current")
+_Opmen99810bTelnetAllowedPkts_Type = Counter32
+_Opmen99810bTelnetAllowedPkts_Object = MibScalar
+opmen99810bTelnetAllowedPkts = _Opmen99810bTelnetAllowedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 11),
+    _Opmen99810bTelnetAllowedPkts_Type()
+)
+opmen99810bTelnetAllowedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bTelnetAllowedPkts.setStatus("current")
+_Opmen99810bTelnetDiscardedPkts_Type = Counter32
+_Opmen99810bTelnetDiscardedPkts_Object = MibScalar
+opmen99810bTelnetDiscardedPkts = _Opmen99810bTelnetDiscardedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 12),
+    _Opmen99810bTelnetDiscardedPkts_Type()
+)
+opmen99810bTelnetDiscardedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bTelnetDiscardedPkts.setStatus("current")
+_Opmen99810bSSHReceivedPkts_Type = Counter32
+_Opmen99810bSSHReceivedPkts_Object = MibScalar
+opmen99810bSSHReceivedPkts = _Opmen99810bSSHReceivedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 13),
+    _Opmen99810bSSHReceivedPkts_Type()
+)
+opmen99810bSSHReceivedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSSHReceivedPkts.setStatus("current")
+_Opmen99810bSSHAllowedPkts_Type = Counter32
+_Opmen99810bSSHAllowedPkts_Object = MibScalar
+opmen99810bSSHAllowedPkts = _Opmen99810bSSHAllowedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 14),
+    _Opmen99810bSSHAllowedPkts_Type()
+)
+opmen99810bSSHAllowedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSSHAllowedPkts.setStatus("current")
+_Opmen99810bSSHDiscardedPkts_Type = Counter32
+_Opmen99810bSSHDiscardedPkts_Object = MibScalar
+opmen99810bSSHDiscardedPkts = _Opmen99810bSSHDiscardedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 15),
+    _Opmen99810bSSHDiscardedPkts_Type()
+)
+opmen99810bSSHDiscardedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bSSHDiscardedPkts.setStatus("current")
+
+
+class _Opmen99810bAccessMgtStatisticsClearAll_Type(Integer32):
+    """Custom type opmen99810bAccessMgtStatisticsClearAll based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("clear", 1))
+    )
+
+
+_Opmen99810bAccessMgtStatisticsClearAll_Type.__name__ = "Integer32"
+_Opmen99810bAccessMgtStatisticsClearAll_Object = MibScalar
+opmen99810bAccessMgtStatisticsClearAll = _Opmen99810bAccessMgtStatisticsClearAll_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 6, 2, 16),
+    _Opmen99810bAccessMgtStatisticsClearAll_Type()
+)
+opmen99810bAccessMgtStatisticsClearAll.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bAccessMgtStatisticsClearAll.setStatus("current")
+_Opmen99810bSSH_ObjectIdentity = ObjectIdentity
+opmen99810bSSH = _Opmen99810bSSH_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 7)
+)
+
+
+class _Opmen99810bSSHMode_Type(Integer32):
+    """Custom type opmen99810bSSHMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bSSHMode_Type.__name__ = "Integer32"
+_Opmen99810bSSHMode_Object = MibScalar
+opmen99810bSSHMode = _Opmen99810bSSHMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 7, 1),
+    _Opmen99810bSSHMode_Type()
+)
+opmen99810bSSHMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSSHMode.setStatus("current")
+_Opmen99810bHTTPS_ObjectIdentity = ObjectIdentity
+opmen99810bHTTPS = _Opmen99810bHTTPS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 8)
+)
+
+
+class _Opmen99810bHTTPSMode_Type(Integer32):
+    """Custom type opmen99810bHTTPSMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bHTTPSMode_Type.__name__ = "Integer32"
+_Opmen99810bHTTPSMode_Object = MibScalar
+opmen99810bHTTPSMode = _Opmen99810bHTTPSMode_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 8, 1),
+    _Opmen99810bHTTPSMode_Type()
+)
+opmen99810bHTTPSMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bHTTPSMode.setStatus("current")
+
+
+class _Opmen99810bHTTPSAutoRedirect_Type(Integer32):
+    """Custom type opmen99810bHTTPSAutoRedirect based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bHTTPSAutoRedirect_Type.__name__ = "Integer32"
+_Opmen99810bHTTPSAutoRedirect_Object = MibScalar
+opmen99810bHTTPSAutoRedirect = _Opmen99810bHTTPSAutoRedirect_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 8, 2),
+    _Opmen99810bHTTPSAutoRedirect_Type()
+)
+opmen99810bHTTPSAutoRedirect.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bHTTPSAutoRedirect.setStatus("current")
+_Opmen99810bAuthMethod_ObjectIdentity = ObjectIdentity
+opmen99810bAuthMethod = _Opmen99810bAuthMethod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9)
+)
+
+
+class _Opmen99810bConsoleAuthMethod_Type(Integer32):
+    """Custom type opmen99810bConsoleAuthMethod based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("local", 1),
+          ("radius", 2),
+          ("tacacsplus", 3))
+    )
+
+
+_Opmen99810bConsoleAuthMethod_Type.__name__ = "Integer32"
+_Opmen99810bConsoleAuthMethod_Object = MibScalar
+opmen99810bConsoleAuthMethod = _Opmen99810bConsoleAuthMethod_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 1),
+    _Opmen99810bConsoleAuthMethod_Type()
+)
+opmen99810bConsoleAuthMethod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bConsoleAuthMethod.setStatus("current")
+
+
+class _Opmen99810bConsoleFallback_Type(Integer32):
+    """Custom type opmen99810bConsoleFallback based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bConsoleFallback_Type.__name__ = "Integer32"
+_Opmen99810bConsoleFallback_Object = MibScalar
+opmen99810bConsoleFallback = _Opmen99810bConsoleFallback_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 2),
+    _Opmen99810bConsoleFallback_Type()
+)
+opmen99810bConsoleFallback.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bConsoleFallback.setStatus("current")
+
+
+class _Opmen99810bTelnetAuthMethod_Type(Integer32):
+    """Custom type opmen99810bTelnetAuthMethod based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("local", 1),
+          ("radius", 2),
+          ("tacacsplus", 3))
+    )
+
+
+_Opmen99810bTelnetAuthMethod_Type.__name__ = "Integer32"
+_Opmen99810bTelnetAuthMethod_Object = MibScalar
+opmen99810bTelnetAuthMethod = _Opmen99810bTelnetAuthMethod_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 3),
+    _Opmen99810bTelnetAuthMethod_Type()
+)
+opmen99810bTelnetAuthMethod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTelnetAuthMethod.setStatus("current")
+
+
+class _Opmen99810bTelnetFallback_Type(Integer32):
+    """Custom type opmen99810bTelnetFallback based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bTelnetFallback_Type.__name__ = "Integer32"
+_Opmen99810bTelnetFallback_Object = MibScalar
+opmen99810bTelnetFallback = _Opmen99810bTelnetFallback_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 4),
+    _Opmen99810bTelnetFallback_Type()
+)
+opmen99810bTelnetFallback.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bTelnetFallback.setStatus("current")
+
+
+class _Opmen99810bSshAuthMethod_Type(Integer32):
+    """Custom type opmen99810bSshAuthMethod based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("local", 1),
+          ("radius", 2),
+          ("tacacsplus", 3))
+    )
+
+
+_Opmen99810bSshAuthMethod_Type.__name__ = "Integer32"
+_Opmen99810bSshAuthMethod_Object = MibScalar
+opmen99810bSshAuthMethod = _Opmen99810bSshAuthMethod_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 5),
+    _Opmen99810bSshAuthMethod_Type()
+)
+opmen99810bSshAuthMethod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSshAuthMethod.setStatus("current")
+
+
+class _Opmen99810bSshFallback_Type(Integer32):
+    """Custom type opmen99810bSshFallback based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bSshFallback_Type.__name__ = "Integer32"
+_Opmen99810bSshFallback_Object = MibScalar
+opmen99810bSshFallback = _Opmen99810bSshFallback_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 6),
+    _Opmen99810bSshFallback_Type()
+)
+opmen99810bSshFallback.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSshFallback.setStatus("current")
+
+
+class _Opmen99810bWebAuthMethod_Type(Integer32):
+    """Custom type opmen99810bWebAuthMethod based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("local", 1),
+          ("radius", 2),
+          ("tacacsplus", 3))
+    )
+
+
+_Opmen99810bWebAuthMethod_Type.__name__ = "Integer32"
+_Opmen99810bWebAuthMethod_Object = MibScalar
+opmen99810bWebAuthMethod = _Opmen99810bWebAuthMethod_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 7),
+    _Opmen99810bWebAuthMethod_Type()
+)
+opmen99810bWebAuthMethod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bWebAuthMethod.setStatus("current")
+
+
+class _Opmen99810bWebFallback_Type(Integer32):
+    """Custom type opmen99810bWebFallback based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bWebFallback_Type.__name__ = "Integer32"
+_Opmen99810bWebFallback_Object = MibScalar
+opmen99810bWebFallback = _Opmen99810bWebFallback_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 3, 9, 8),
+    _Opmen99810bWebFallback_Type()
+)
+opmen99810bWebFallback.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bWebFallback.setStatus("current")
+_Opmen99810bMaintenance_ObjectIdentity = ObjectIdentity
+opmen99810bMaintenance = _Opmen99810bMaintenance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4)
+)
+
+
+class _Opmen99810bRestartDevice_Type(Integer32):
+    """Custom type opmen99810bRestartDevice based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_Opmen99810bRestartDevice_Type.__name__ = "Integer32"
+_Opmen99810bRestartDevice_Object = MibScalar
+opmen99810bRestartDevice = _Opmen99810bRestartDevice_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 1),
+    _Opmen99810bRestartDevice_Type()
+)
+opmen99810bRestartDevice.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bRestartDevice.setStatus("current")
+_Opmen99810bFirmware_ObjectIdentity = ObjectIdentity
+opmen99810bFirmware = _Opmen99810bFirmware_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 2)
+)
+_Opmen99810bFirmwareIpAddress_Type = IpAddress
+_Opmen99810bFirmwareIpAddress_Object = MibScalar
+opmen99810bFirmwareIpAddress = _Opmen99810bFirmwareIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 2, 1),
+    _Opmen99810bFirmwareIpAddress_Type()
+)
+opmen99810bFirmwareIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bFirmwareIpAddress.setStatus("current")
+_Opmen99810bFirmwareFileName_Type = DisplayString
+_Opmen99810bFirmwareFileName_Object = MibScalar
+opmen99810bFirmwareFileName = _Opmen99810bFirmwareFileName_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 2, 2),
+    _Opmen99810bFirmwareFileName_Type()
+)
+opmen99810bFirmwareFileName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bFirmwareFileName.setStatus("current")
+
+
+class _Opmen99810bDoFirmwareUpgrade_Type(Integer32):
+    """Custom type opmen99810bDoFirmwareUpgrade based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("doNothing", 0),
+          ("do", 1))
+    )
+
+
+_Opmen99810bDoFirmwareUpgrade_Type.__name__ = "Integer32"
+_Opmen99810bDoFirmwareUpgrade_Object = MibScalar
+opmen99810bDoFirmwareUpgrade = _Opmen99810bDoFirmwareUpgrade_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 2, 3),
+    _Opmen99810bDoFirmwareUpgrade_Type()
+)
+opmen99810bDoFirmwareUpgrade.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDoFirmwareUpgrade.setStatus("current")
+_Opmen99810bSaveOrRestore_ObjectIdentity = ObjectIdentity
+opmen99810bSaveOrRestore = _Opmen99810bSaveOrRestore_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 3)
+)
+
+
+class _Opmen99810bFactoryDefaults_Type(Integer32):
+    """Custom type opmen99810bFactoryDefaults based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("yes", 1))
+    )
+
+
+_Opmen99810bFactoryDefaults_Type.__name__ = "Integer32"
+_Opmen99810bFactoryDefaults_Object = MibScalar
+opmen99810bFactoryDefaults = _Opmen99810bFactoryDefaults_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 3, 1),
+    _Opmen99810bFactoryDefaults_Type()
+)
+opmen99810bFactoryDefaults.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bFactoryDefaults.setStatus("current")
+
+
+class _Opmen99810bSaveStart_Type(Integer32):
+    """Custom type opmen99810bSaveStart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("yes", 1))
+    )
+
+
+_Opmen99810bSaveStart_Type.__name__ = "Integer32"
+_Opmen99810bSaveStart_Object = MibScalar
+opmen99810bSaveStart = _Opmen99810bSaveStart_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 3, 2),
+    _Opmen99810bSaveStart_Type()
+)
+opmen99810bSaveStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSaveStart.setStatus("current")
+
+
+class _Opmen99810bSaveUser_Type(Integer32):
+    """Custom type opmen99810bSaveUser based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("yes", 1))
+    )
+
+
+_Opmen99810bSaveUser_Type.__name__ = "Integer32"
+_Opmen99810bSaveUser_Object = MibScalar
+opmen99810bSaveUser = _Opmen99810bSaveUser_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 3, 3),
+    _Opmen99810bSaveUser_Type()
+)
+opmen99810bSaveUser.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bSaveUser.setStatus("current")
+
+
+class _Opmen99810bRestoreUser_Type(Integer32):
+    """Custom type opmen99810bRestoreUser based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("yes", 1))
+    )
+
+
+_Opmen99810bRestoreUser_Type.__name__ = "Integer32"
+_Opmen99810bRestoreUser_Object = MibScalar
+opmen99810bRestoreUser = _Opmen99810bRestoreUser_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 3, 4),
+    _Opmen99810bRestoreUser_Type()
+)
+opmen99810bRestoreUser.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bRestoreUser.setStatus("current")
+_Opmen99810bExportOrImport_ObjectIdentity = ObjectIdentity
+opmen99810bExportOrImport = _Opmen99810bExportOrImport_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4)
+)
+_Opmen99810bExportIpAddress_Type = IpAddress
+_Opmen99810bExportIpAddress_Object = MibScalar
+opmen99810bExportIpAddress = _Opmen99810bExportIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 1),
+    _Opmen99810bExportIpAddress_Type()
+)
+opmen99810bExportIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bExportIpAddress.setStatus("current")
+_Opmen99810bExportConfigName_Type = DisplayString
+_Opmen99810bExportConfigName_Object = MibScalar
+opmen99810bExportConfigName = _Opmen99810bExportConfigName_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 2),
+    _Opmen99810bExportConfigName_Type()
+)
+opmen99810bExportConfigName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bExportConfigName.setStatus("current")
+
+
+class _Opmen99810bDoExportConfig_Type(Integer32):
+    """Custom type opmen99810bDoExportConfig based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("doNothing", 0),
+          ("do", 1))
+    )
+
+
+_Opmen99810bDoExportConfig_Type.__name__ = "Integer32"
+_Opmen99810bDoExportConfig_Object = MibScalar
+opmen99810bDoExportConfig = _Opmen99810bDoExportConfig_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 3),
+    _Opmen99810bDoExportConfig_Type()
+)
+opmen99810bDoExportConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDoExportConfig.setStatus("current")
+_Opmen99810bImportIpAddress_Type = IpAddress
+_Opmen99810bImportIpAddress_Object = MibScalar
+opmen99810bImportIpAddress = _Opmen99810bImportIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 4),
+    _Opmen99810bImportIpAddress_Type()
+)
+opmen99810bImportIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bImportIpAddress.setStatus("current")
+_Opmen99810bImportConfigName_Type = DisplayString
+_Opmen99810bImportConfigName_Object = MibScalar
+opmen99810bImportConfigName = _Opmen99810bImportConfigName_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 5),
+    _Opmen99810bImportConfigName_Type()
+)
+opmen99810bImportConfigName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bImportConfigName.setStatus("current")
+
+
+class _Opmen99810bDoImportConfig_Type(Integer32):
+    """Custom type opmen99810bDoImportConfig based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("doNothing", 0),
+          ("do", 1))
+    )
+
+
+_Opmen99810bDoImportConfig_Type.__name__ = "Integer32"
+_Opmen99810bDoImportConfig_Object = MibScalar
+opmen99810bDoImportConfig = _Opmen99810bDoImportConfig_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 4, 6),
+    _Opmen99810bDoImportConfig_Type()
+)
+opmen99810bDoImportConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDoImportConfig.setStatus("current")
+_Opmen99810bDiagnostics_ObjectIdentity = ObjectIdentity
+opmen99810bDiagnostics = _Opmen99810bDiagnostics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5)
+)
+_Opmen99810bPingIpAddress_Type = IpAddress
+_Opmen99810bPingIpAddress_Object = MibScalar
+opmen99810bPingIpAddress = _Opmen99810bPingIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 1),
+    _Opmen99810bPingIpAddress_Type()
+)
+opmen99810bPingIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPingIpAddress.setStatus("current")
+
+
+class _Opmen99810bPingSize_Type(Integer32):
+    """Custom type opmen99810bPingSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(60, 1400),
+    )
+
+
+_Opmen99810bPingSize_Type.__name__ = "Integer32"
+_Opmen99810bPingSize_Object = MibScalar
+opmen99810bPingSize = _Opmen99810bPingSize_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 2),
+    _Opmen99810bPingSize_Type()
+)
+opmen99810bPingSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPingSize.setStatus("current")
+
+
+class _Opmen99810bDoPingConfig_Type(Integer32):
+    """Custom type opmen99810bDoPingConfig based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("doNothing", 0),
+          ("do", 1))
+    )
+
+
+_Opmen99810bDoPingConfig_Type.__name__ = "Integer32"
+_Opmen99810bDoPingConfig_Object = MibScalar
+opmen99810bDoPingConfig = _Opmen99810bDoPingConfig_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 3),
+    _Opmen99810bDoPingConfig_Type()
+)
+opmen99810bDoPingConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDoPingConfig.setStatus("current")
+_Opmen99810bPingResult_Type = DisplayString
+_Opmen99810bPingResult_Object = MibScalar
+opmen99810bPingResult = _Opmen99810bPingResult_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 4),
+    _Opmen99810bPingResult_Type()
+)
+opmen99810bPingResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPingResult.setStatus("current")
+_Opmen99810bPing6IpAddress_Type = DisplayString
+_Opmen99810bPing6IpAddress_Object = MibScalar
+opmen99810bPing6IpAddress = _Opmen99810bPing6IpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 5),
+    _Opmen99810bPing6IpAddress_Type()
+)
+opmen99810bPing6IpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPing6IpAddress.setStatus("current")
+
+
+class _Opmen99810bPing6Size_Type(Integer32):
+    """Custom type opmen99810bPing6Size based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(60, 1400),
+    )
+
+
+_Opmen99810bPing6Size_Type.__name__ = "Integer32"
+_Opmen99810bPing6Size_Object = MibScalar
+opmen99810bPing6Size = _Opmen99810bPing6Size_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 6),
+    _Opmen99810bPing6Size_Type()
+)
+opmen99810bPing6Size.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bPing6Size.setStatus("current")
+
+
+class _Opmen99810bDoPing6Config_Type(Integer32):
+    """Custom type opmen99810bDoPing6Config based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("doNothing", 0),
+          ("do", 1))
+    )
+
+
+_Opmen99810bDoPing6Config_Type.__name__ = "Integer32"
+_Opmen99810bDoPing6Config_Object = MibScalar
+opmen99810bDoPing6Config = _Opmen99810bDoPing6Config_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 7),
+    _Opmen99810bDoPing6Config_Type()
+)
+opmen99810bDoPing6Config.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    opmen99810bDoPing6Config.setStatus("current")
+_Opmen99810bPing6Result_Type = DisplayString
+_Opmen99810bPing6Result_Object = MibScalar
+opmen99810bPing6Result = _Opmen99810bPing6Result_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 4, 5, 8),
+    _Opmen99810bPing6Result_Type()
+)
+opmen99810bPing6Result.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bPing6Result.setStatus("current")
+_Opmen99810bTrap_ObjectIdentity = ObjectIdentity
+opmen99810bTrap = _Opmen99810bTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5)
+)
+_Opmen99810bTrapEvent_ObjectIdentity = ObjectIdentity
+opmen99810bTrapEvent = _Opmen99810bTrapEvent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1)
+)
+_Opmen99810bTrapVariable_ObjectIdentity = ObjectIdentity
+opmen99810bTrapVariable = _Opmen99810bTrapVariable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 2)
+)
+_Opmen99810bInformation_Type = DisplayString
+_Opmen99810bInformation_Object = MibScalar
+opmen99810bInformation = _Opmen99810bInformation_Object(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 2, 1),
+    _Opmen99810bInformation_Type()
+)
+opmen99810bInformation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    opmen99810bInformation.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+opmen99810bEmergency = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 1)
+)
+opmen99810bEmergency.setObjects(
+    ("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation")
+)
+if mibBuilder.loadTexts:
+    opmen99810bEmergency.setStatus(
+        "current"
+    )
+
+opmen99810bAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 2)
+)
+opmen99810bAlert.setObjects(
+    ("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation")
+)
+if mibBuilder.loadTexts:
+    opmen99810bAlert.setStatus(
+        "current"
+    )
+
+opmen99810bCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 3)
+)
+opmen99810bCritical.setObjects(
+    ("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation")
+)
+if mibBuilder.loadTexts:
+    opmen99810bCritical.setStatus(
+        "current"
+    )
+
+opmen99810bError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 4)
+)
+opmen99810bError.setObjects(
+    ("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation")
+)
+if mibBuilder.loadTexts:
+    opmen99810bError.setStatus(
+        "current"
+    )
+
+opmen99810bWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 5)
+)
+opmen99810bWarning.setObjects(
+    ("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation")
+)
+if mibBuilder.loadTexts:
+    opmen99810bWarning.setStatus(
+        "current"
+    )
+
+opmen99810bNotice = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 6)
+)
+opmen99810bNotice.setObjects(
+    ("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation")
+)
+if mibBuilder.loadTexts:
+    opmen99810bNotice.setStatus(
+        "current"
+    )
+
+opmen99810bInformational = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 7)
+)
+opmen99810bInformational.setObjects(
+    ("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation")
+)
+if mibBuilder.loadTexts:
+    opmen99810bInformational.setStatus(
+        "current"
+    )
+
+opmen99810bDebug = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5205, 2, 94, 5, 1, 8)
+)
+opmen99810bDebug.setObjects(
+    ("PRIVATETECH-OP-MEN99810B-MIB", "opmen99810bInformation")
+)
+if mibBuilder.loadTexts:
+    opmen99810bDebug.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PRIVATETECH-OP-MEN99810B-MIB",
+    **{"privatetech": privatetech,
+       "switch": switch,
+       "opmen99810bProductId": opmen99810bProductId,
+       "opmen99810bSystem": opmen99810bSystem,
+       "opmen99810bSystemInformation": opmen99810bSystemInformation,
+       "opmen99810bModelName": opmen99810bModelName,
+       "opmen99810bBIOSVersion": opmen99810bBIOSVersion,
+       "opmen99810bFirmwareVersion": opmen99810bFirmwareVersion,
+       "opmen99810bHardwareMechanicalVersion": opmen99810bHardwareMechanicalVersion,
+       "opmen99810bSerialNumber": opmen99810bSerialNumber,
+       "opmen99810bHostMACAddress": opmen99810bHostMACAddress,
+       "opmen99810bConsoleBaudrate": opmen99810bConsoleBaudrate,
+       "opmen99810bRAMSize": opmen99810bRAMSize,
+       "opmen99810bFlashSize": opmen99810bFlashSize,
+       "opmen99810bBridgeFBDSize": opmen99810bBridgeFBDSize,
+       "opmen99810bTransmitQueue": opmen99810bTransmitQueue,
+       "opmen99810bMaximumFrameSize": opmen99810bMaximumFrameSize,
+       "opmen99810bCPULoad": opmen99810bCPULoad,
+       "opmen99810bPowerSource": opmen99810bPowerSource,
+       "opmen99810bSystemTime": opmen99810bSystemTime,
+       "opmen99810bSystemTimeManual": opmen99810bSystemTimeManual,
+       "opmen99810bSystemTimeManualClockSource": opmen99810bSystemTimeManualClockSource,
+       "opmen99810bSystemTimeManualLocaltime": opmen99810bSystemTimeManualLocaltime,
+       "opmen99810bSystemTimeManualTimeZoneOffset": opmen99810bSystemTimeManualTimeZoneOffset,
+       "opmen99810bSystemTimeManualDaylightSavings": opmen99810bSystemTimeManualDaylightSavings,
+       "opmen99810bSystemTimeManualTimeSetOffset": opmen99810bSystemTimeManualTimeSetOffset,
+       "opmen99810bSystemTimeManualDaylightSavingsType": opmen99810bSystemTimeManualDaylightSavingsType,
+       "opmen99810bSystemTimeManualDaylightSavingsBydatesFrom": opmen99810bSystemTimeManualDaylightSavingsBydatesFrom,
+       "opmen99810bSystemTimeManualDaylightSavingsBydatesTo": opmen99810bSystemTimeManualDaylightSavingsBydatesTo,
+       "opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom": opmen99810bSystemTimeManualDaylightSavingsRecurringDayFrom,
+       "opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom": opmen99810bSystemTimeManualDaylightSavingsRecurringWeekFrom,
+       "opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom": opmen99810bSystemTimeManualDaylightSavingsRecurringMonthFrom,
+       "opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom": opmen99810bSystemTimeManualDaylightSavingsRecurringTimeFrom,
+       "opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo": opmen99810bSystemTimeManualDaylightSavingsRecurringDayTo,
+       "opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo": opmen99810bSystemTimeManualDaylightSavingsRecurringWeekTo,
+       "opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo": opmen99810bSystemTimeManualDaylightSavingsRecurringMonthTo,
+       "opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo": opmen99810bSystemTimeManualDaylightSavingsRecurringTimeTo,
+       "opmen99810bSystemTimeNTP": opmen99810bSystemTimeNTP,
+       "opmen99810bSystemTimeNTPTable": opmen99810bSystemTimeNTPTable,
+       "opmen99810bSystemTimeNTPEntry": opmen99810bSystemTimeNTPEntry,
+       "opmen99810bSystemTimeNTPIndex": opmen99810bSystemTimeNTPIndex,
+       "opmen99810bSystemTimeNTPServerIPType": opmen99810bSystemTimeNTPServerIPType,
+       "opmen99810bSystemTimeNTPServer": opmen99810bSystemTimeNTPServer,
+       "opmen99810bSystemTimeNTPCurrentMode": opmen99810bSystemTimeNTPCurrentMode,
+       "opmen99810bSystemAccount": opmen99810bSystemAccount,
+       "opmen99810bSystemAccountUsers": opmen99810bSystemAccountUsers,
+       "opmen99810bSystemAccountUserCreate": opmen99810bSystemAccountUserCreate,
+       "opmen99810bSystemAccountUsersTable": opmen99810bSystemAccountUsersTable,
+       "opmen99810bSystemAccountUsersEntry": opmen99810bSystemAccountUsersEntry,
+       "opmen99810bUserIndex": opmen99810bUserIndex,
+       "opmen99810bUserName": opmen99810bUserName,
+       "opmen99810bPassword": opmen99810bPassword,
+       "opmen99810bUserPrivilegeLevel": opmen99810bUserPrivilegeLevel,
+       "opmen99810bAccountUserRowStatus": opmen99810bAccountUserRowStatus,
+       "opmen99810bSystemAccountPrivilegeLevel": opmen99810bSystemAccountPrivilegeLevel,
+       "opmen99810bAccountPrivilegeLevel": opmen99810bAccountPrivilegeLevel,
+       "opmen99810bAggregationPrivilegeLevel": opmen99810bAggregationPrivilegeLevel,
+       "opmen99810bDiagnosticsPrivilegeLevel": opmen99810bDiagnosticsPrivilegeLevel,
+       "opmen99810bEEEPrivilegeLevel": opmen99810bEEEPrivilegeLevel,
+       "opmen99810bEasyportPrivilegeLevel": opmen99810bEasyportPrivilegeLevel,
+       "opmen99810bGARPPrivilegeLevel": opmen99810bGARPPrivilegeLevel,
+       "opmen99810bGVRPPrivilegeLevel": opmen99810bGVRPPrivilegeLevel,
+       "opmen99810bIPPrivilegeLevel": opmen99810bIPPrivilegeLevel,
+       "opmen99810bIPMCSnoopingPrivilegeLevel": opmen99810bIPMCSnoopingPrivilegeLevel,
+       "opmen99810bLACPPrivilegeLevel": opmen99810bLACPPrivilegeLevel,
+       "opmen99810bLLDPPrivilegeLevel": opmen99810bLLDPPrivilegeLevel,
+       "opmen99810bLLDPMEDPrivilegeLevel": opmen99810bLLDPMEDPrivilegeLevel,
+       "opmen99810bLoopProtectPrivilegeLevel": opmen99810bLoopProtectPrivilegeLevel,
+       "opmen99810bMACTablePrivilegeLevel": opmen99810bMACTablePrivilegeLevel,
+       "opmen99810bMVRPrivilegeLevel": opmen99810bMVRPrivilegeLevel,
+       "opmen99810bMaintenancePrivilegeLevel": opmen99810bMaintenancePrivilegeLevel,
+       "opmen99810bMirroringPrivilegeLevel": opmen99810bMirroringPrivilegeLevel,
+       "opmen99810bPortsPrivilegeLevel": opmen99810bPortsPrivilegeLevel,
+       "opmen99810bPrivateVLANsPrivilegeLevel": opmen99810bPrivateVLANsPrivilegeLevel,
+       "opmen99810bQoSPrivilegeLevel": opmen99810bQoSPrivilegeLevel,
+       "opmen99810bSFlowPrivilegeLevel": opmen99810bSFlowPrivilegeLevel,
+       "opmen99810bSMTPPrivilegeLevel": opmen99810bSMTPPrivilegeLevel,
+       "opmen99810bSNMPPrivilegeLevel": opmen99810bSNMPPrivilegeLevel,
+       "opmen99810bSecurityPrivilegeLevel": opmen99810bSecurityPrivilegeLevel,
+       "opmen99810bSingleIPPrivilegeLevel": opmen99810bSingleIPPrivilegeLevel,
+       "opmen99810bSpanningTreePrivilegeLevel": opmen99810bSpanningTreePrivilegeLevel,
+       "opmen99810bSystemPrivilegeLevel": opmen99810bSystemPrivilegeLevel,
+       "opmen99810bTrapEventPrivilegeLevel": opmen99810bTrapEventPrivilegeLevel,
+       "opmen99810bUPnPPrivilegeLevel": opmen99810bUPnPPrivilegeLevel,
+       "opmen99810bVCLPrivilegeLevel": opmen99810bVCLPrivilegeLevel,
+       "opmen99810bVLANsPrivilegeLevel": opmen99810bVLANsPrivilegeLevel,
+       "opmen99810bVoiceVLANPrivilegeLevel": opmen99810bVoiceVLANPrivilegeLevel,
+       "opmen99810bIP": opmen99810bIP,
+       "opmen99810bIPv4": opmen99810bIPv4,
+       "opmen99810bIPv4Configured": opmen99810bIPv4Configured,
+       "opmen99810bIpv4DHCPClient": opmen99810bIpv4DHCPClient,
+       "opmen99810bIPv4Address": opmen99810bIPv4Address,
+       "opmen99810bIPv4Mask": opmen99810bIPv4Mask,
+       "opmen99810bIPv4Gateway": opmen99810bIPv4Gateway,
+       "opmen99810bIPv4VLANId": opmen99810bIPv4VLANId,
+       "opmen99810bIPv4DNSServer": opmen99810bIPv4DNSServer,
+       "opmen99810bIPv4DNSProxy": opmen99810bIPv4DNSProxy,
+       "opmen99810bIPv4Current": opmen99810bIPv4Current,
+       "opmen99810bIpv4CurrentDHCPClient": opmen99810bIpv4CurrentDHCPClient,
+       "opmen99810bIPv4CurrentAddress": opmen99810bIPv4CurrentAddress,
+       "opmen99810bIPv4CurrentMask": opmen99810bIPv4CurrentMask,
+       "opmen99810bIPv4CurrentGateway": opmen99810bIPv4CurrentGateway,
+       "opmen99810bIPv4CurrentVLANId": opmen99810bIPv4CurrentVLANId,
+       "opmen99810bIPv4CurrentDNSServer": opmen99810bIPv4CurrentDNSServer,
+       "opmen99810bIPv6": opmen99810bIPv6,
+       "opmen99810bIPv6Configured": opmen99810bIPv6Configured,
+       "opmen99810bIpv6AutoConfiguration": opmen99810bIpv6AutoConfiguration,
+       "opmen99810bIpv6Address": opmen99810bIpv6Address,
+       "opmen99810bIpv6Prefix": opmen99810bIpv6Prefix,
+       "opmen99810bIpv6Gateway": opmen99810bIpv6Gateway,
+       "opmen99810bIPv6Current": opmen99810bIPv6Current,
+       "opmen99810bIpv6CurrentAutoConfiguration": opmen99810bIpv6CurrentAutoConfiguration,
+       "opmen99810bIpv6CurrentAddress": opmen99810bIpv6CurrentAddress,
+       "opmen99810bIpv6CurrentLinkLocalAddress": opmen99810bIpv6CurrentLinkLocalAddress,
+       "opmen99810bIpv6CurrentPrefix": opmen99810bIpv6CurrentPrefix,
+       "opmen99810bIpv6CurrentGateway": opmen99810bIpv6CurrentGateway,
+       "opmen99810bSyslog": opmen99810bSyslog,
+       "opmen99810bSyslogConf": opmen99810bSyslogConf,
+       "opmen99810bServerMode": opmen99810bServerMode,
+       "opmen99810bServerAddress1": opmen99810bServerAddress1,
+       "opmen99810bServerAddress2": opmen99810bServerAddress2,
+       "opmen99810bSyslogLevel": opmen99810bSyslogLevel,
+       "opmen99810bSyslogDetailedInfo": opmen99810bSyslogDetailedInfo,
+       "opmen99810bSyslogDetailedInfoClear": opmen99810bSyslogDetailedInfoClear,
+       "opmen99810bSyslogDetailedInfoTable": opmen99810bSyslogDetailedInfoTable,
+       "opmen99810bSyslogDetailedInfoEntry": opmen99810bSyslogDetailedInfoEntry,
+       "opmen99810bSyslogDetailedInfoIndex": opmen99810bSyslogDetailedInfoIndex,
+       "opmen99810bSyslogDetailedInfoLevel": opmen99810bSyslogDetailedInfoLevel,
+       "opmen99810bSyslogDetailedInfoTime": opmen99810bSyslogDetailedInfoTime,
+       "opmen99810bSyslogDetailedInfoMessage": opmen99810bSyslogDetailedInfoMessage,
+       "opmen99810bSnmp": opmen99810bSnmp,
+       "opmen99810bSnmpConf": opmen99810bSnmpConf,
+       "opmen99810bGetCommunity": opmen99810bGetCommunity,
+       "opmen99810bSetCommunityMode": opmen99810bSetCommunityMode,
+       "opmen99810bSetCommunity": opmen99810bSetCommunity,
+       "opmen99810bTrapHostConfTable": opmen99810bTrapHostConfTable,
+       "opmen99810bTrapHostConfEntry": opmen99810bTrapHostConfEntry,
+       "opmen99810bTrapHostConfIndex": opmen99810bTrapHostConfIndex,
+       "opmen99810bTrapHostConfVersion": opmen99810bTrapHostConfVersion,
+       "opmen99810bTrapHostConfIPType": opmen99810bTrapHostConfIPType,
+       "opmen99810bTrapHostConfIP": opmen99810bTrapHostConfIP,
+       "opmen99810bTrapHostConfPort": opmen99810bTrapHostConfPort,
+       "opmen99810bTrapHostConfCommunity": opmen99810bTrapHostConfCommunity,
+       "opmen99810bTrapHostConfSeverityLevel": opmen99810bTrapHostConfSeverityLevel,
+       "opmen99810bTrapHostConfSecurityLevel": opmen99810bTrapHostConfSecurityLevel,
+       "opmen99810bTrapHostConfAuthPtc": opmen99810bTrapHostConfAuthPtc,
+       "opmen99810bTrapHostConfAuthPassword": opmen99810bTrapHostConfAuthPassword,
+       "opmen99810bTrapHostConfPrivPtc": opmen99810bTrapHostConfPrivPtc,
+       "opmen99810bTrapHostConfPrivPassword": opmen99810bTrapHostConfPrivPassword,
+       "opmen99810bTrapHostConfCurrentMode": opmen99810bTrapHostConfCurrentMode,
+       "opmen99810bConfiguration": opmen99810bConfiguration,
+       "opmen99810bPort": opmen99810bPort,
+       "opmen99810bPortConfigurationTable": opmen99810bPortConfigurationTable,
+       "opmen99810bPortConfigurationEntry": opmen99810bPortConfigurationEntry,
+       "opmen99810bPortConfPort": opmen99810bPortConfPort,
+       "opmen99810bPortConfPortMedia": opmen99810bPortConfPortMedia,
+       "opmen99810bPortConfLink": opmen99810bPortConfLink,
+       "opmen99810bPortConfCurrentSpeed": opmen99810bPortConfCurrentSpeed,
+       "opmen99810bPortConfSpeed": opmen99810bPortConfSpeed,
+       "opmen99810bPortConfCurrentFlowControlRx": opmen99810bPortConfCurrentFlowControlRx,
+       "opmen99810bPortConfCurrentFlowControlTx": opmen99810bPortConfCurrentFlowControlTx,
+       "opmen99810bPortConfFlowControl": opmen99810bPortConfFlowControl,
+       "opmen99810bPortConfMaxFrameSize": opmen99810bPortConfMaxFrameSize,
+       "opmen99810bPortConfExcessiveCollisionMode": opmen99810bPortConfExcessiveCollisionMode,
+       "opmen99810bPortConfPowerControl": opmen99810bPortConfPowerControl,
+       "opmen99810bPortConfDescription": opmen99810bPortConfDescription,
+       "opmen99810bPortTrafficStatisticsTable": opmen99810bPortTrafficStatisticsTable,
+       "opmen99810bPortTrafficStatisticsEntry": opmen99810bPortTrafficStatisticsEntry,
+       "opmen99810bPortTrafficStatisticsPort": opmen99810bPortTrafficStatisticsPort,
+       "opmen99810bPortTrafficStatisticsClear": opmen99810bPortTrafficStatisticsClear,
+       "opmen99810bPortTrafficRxPackets": opmen99810bPortTrafficRxPackets,
+       "opmen99810bPortTrafficRxOctets": opmen99810bPortTrafficRxOctets,
+       "opmen99810bPortTrafficRxUnicast": opmen99810bPortTrafficRxUnicast,
+       "opmen99810bPortTrafficRxMulticast": opmen99810bPortTrafficRxMulticast,
+       "opmen99810bPortTrafficRxBroadcast": opmen99810bPortTrafficRxBroadcast,
+       "opmen99810bPortTrafficRxPause": opmen99810bPortTrafficRxPause,
+       "opmen99810bPortTrafficRx64Bytes": opmen99810bPortTrafficRx64Bytes,
+       "opmen99810bPortTrafficRx65to127Bytes": opmen99810bPortTrafficRx65to127Bytes,
+       "opmen99810bPortTrafficRx128to255Bytes": opmen99810bPortTrafficRx128to255Bytes,
+       "opmen99810bPortTrafficRx256to511Bytes": opmen99810bPortTrafficRx256to511Bytes,
+       "opmen99810bPortTrafficRx512to1023Bytes": opmen99810bPortTrafficRx512to1023Bytes,
+       "opmen99810bPortTrafficRx1024to1526Bytes": opmen99810bPortTrafficRx1024to1526Bytes,
+       "opmen99810bPortTrafficRxExceecd1527Bytes": opmen99810bPortTrafficRxExceecd1527Bytes,
+       "opmen99810bPortTrafficRxQ0": opmen99810bPortTrafficRxQ0,
+       "opmen99810bPortTrafficRxQ1": opmen99810bPortTrafficRxQ1,
+       "opmen99810bPortTrafficRxQ2": opmen99810bPortTrafficRxQ2,
+       "opmen99810bPortTrafficRxQ3": opmen99810bPortTrafficRxQ3,
+       "opmen99810bPortTrafficRxQ4": opmen99810bPortTrafficRxQ4,
+       "opmen99810bPortTrafficRxQ5": opmen99810bPortTrafficRxQ5,
+       "opmen99810bPortTrafficRxQ6": opmen99810bPortTrafficRxQ6,
+       "opmen99810bPortTrafficRxQ7": opmen99810bPortTrafficRxQ7,
+       "opmen99810bPortTrafficRxDrops": opmen99810bPortTrafficRxDrops,
+       "opmen99810bPortTrafficRxCRCorAlignment": opmen99810bPortTrafficRxCRCorAlignment,
+       "opmen99810bPortTrafficRxUndersize": opmen99810bPortTrafficRxUndersize,
+       "opmen99810bPortTrafficRxOversize": opmen99810bPortTrafficRxOversize,
+       "opmen99810bPortTrafficRxFragments": opmen99810bPortTrafficRxFragments,
+       "opmen99810bPortTrafficRxJabber": opmen99810bPortTrafficRxJabber,
+       "opmen99810bPortTrafficRxFiltered": opmen99810bPortTrafficRxFiltered,
+       "opmen99810bPortTrafficTxPackets": opmen99810bPortTrafficTxPackets,
+       "opmen99810bPortTrafficTxOctets": opmen99810bPortTrafficTxOctets,
+       "opmen99810bPortTrafficTxUnicast": opmen99810bPortTrafficTxUnicast,
+       "opmen99810bPortTrafficTxMulticast": opmen99810bPortTrafficTxMulticast,
+       "opmen99810bPortTrafficTxBroadcast": opmen99810bPortTrafficTxBroadcast,
+       "opmen99810bPortTrafficTxPause": opmen99810bPortTrafficTxPause,
+       "opmen99810bPortTrafficTx64Bytes": opmen99810bPortTrafficTx64Bytes,
+       "opmen99810bPortTrafficTx65to127Bytes": opmen99810bPortTrafficTx65to127Bytes,
+       "opmen99810bPortTrafficTx128to255Bytes": opmen99810bPortTrafficTx128to255Bytes,
+       "opmen99810bPortTrafficTx256to511Bytes": opmen99810bPortTrafficTx256to511Bytes,
+       "opmen99810bPortTrafficTx512to1023Bytes": opmen99810bPortTrafficTx512to1023Bytes,
+       "opmen99810bPortTrafficTx1024to1526Bytes": opmen99810bPortTrafficTx1024to1526Bytes,
+       "opmen99810bPortTrafficTxExceecd1527Bytes": opmen99810bPortTrafficTxExceecd1527Bytes,
+       "opmen99810bPortTrafficTxQ0": opmen99810bPortTrafficTxQ0,
+       "opmen99810bPortTrafficTxQ1": opmen99810bPortTrafficTxQ1,
+       "opmen99810bPortTrafficTxQ2": opmen99810bPortTrafficTxQ2,
+       "opmen99810bPortTrafficTxQ3": opmen99810bPortTrafficTxQ3,
+       "opmen99810bPortTrafficTxQ4": opmen99810bPortTrafficTxQ4,
+       "opmen99810bPortTrafficTxQ5": opmen99810bPortTrafficTxQ5,
+       "opmen99810bPortTrafficTxQ6": opmen99810bPortTrafficTxQ6,
+       "opmen99810bPortTrafficTxQ7": opmen99810bPortTrafficTxQ7,
+       "opmen99810bPortTrafficTxDrops": opmen99810bPortTrafficTxDrops,
+       "opmen99810bPortTrafficTxLateOrExcColl": opmen99810bPortTrafficTxLateOrExcColl,
+       "opmen99810bPortQoSStatistics": opmen99810bPortQoSStatistics,
+       "opmen99810bPortQoSStatisticsClear": opmen99810bPortQoSStatisticsClear,
+       "opmen99810bPortQoSStatisticsTable": opmen99810bPortQoSStatisticsTable,
+       "opmen99810bPortQoSStatisticsEntry": opmen99810bPortQoSStatisticsEntry,
+       "opmen99810bPortQoSStatisticsPort": opmen99810bPortQoSStatisticsPort,
+       "opmen99810bPortQoSQ0Rx": opmen99810bPortQoSQ0Rx,
+       "opmen99810bPortQoSQ0Tx": opmen99810bPortQoSQ0Tx,
+       "opmen99810bPortQoSQ1Rx": opmen99810bPortQoSQ1Rx,
+       "opmen99810bPortQoSQ1Tx": opmen99810bPortQoSQ1Tx,
+       "opmen99810bPortQoSQ2Rx": opmen99810bPortQoSQ2Rx,
+       "opmen99810bPortQoSQ2Tx": opmen99810bPortQoSQ2Tx,
+       "opmen99810bPortQoSQ3Rx": opmen99810bPortQoSQ3Rx,
+       "opmen99810bPortQoSQ3Tx": opmen99810bPortQoSQ3Tx,
+       "opmen99810bPortQoSQ4Rx": opmen99810bPortQoSQ4Rx,
+       "opmen99810bPortQoSQ4Tx": opmen99810bPortQoSQ4Tx,
+       "opmen99810bPortQoSQ5Rx": opmen99810bPortQoSQ5Rx,
+       "opmen99810bPortQoSQ5Tx": opmen99810bPortQoSQ5Tx,
+       "opmen99810bPortQoSQ6Rx": opmen99810bPortQoSQ6Rx,
+       "opmen99810bPortQoSQ6Tx": opmen99810bPortQoSQ6Tx,
+       "opmen99810bPortQoSQ7Rx": opmen99810bPortQoSQ7Rx,
+       "opmen99810bPortQoSQ7Tx": opmen99810bPortQoSQ7Tx,
+       "opmen99810bSFPInfoTable": opmen99810bSFPInfoTable,
+       "opmen99810bSFPInfoEntry": opmen99810bSFPInfoEntry,
+       "opmen99810bSFPInfoIndex": opmen99810bSFPInfoIndex,
+       "opmen99810bSFPInfoPort": opmen99810bSFPInfoPort,
+       "opmen99810bSFPConnectorType": opmen99810bSFPConnectorType,
+       "opmen99810bSFPFiberType": opmen99810bSFPFiberType,
+       "opmen99810bSFPTxCentralWavelength": opmen99810bSFPTxCentralWavelength,
+       "opmen99810bSFPBaudRate": opmen99810bSFPBaudRate,
+       "opmen99810bSFPVendorOUI": opmen99810bSFPVendorOUI,
+       "opmen99810bSFPVendorName": opmen99810bSFPVendorName,
+       "opmen99810bSFPVendorPN": opmen99810bSFPVendorPN,
+       "opmen99810bSFPVendorRev": opmen99810bSFPVendorRev,
+       "opmen99810bSFPVendorSN": opmen99810bSFPVendorSN,
+       "opmen99810bSFPDateCode": opmen99810bSFPDateCode,
+       "opmen99810bSFPTemperature": opmen99810bSFPTemperature,
+       "opmen99810bSFPVcc": opmen99810bSFPVcc,
+       "opmen99810bSFPMon1Bias": opmen99810bSFPMon1Bias,
+       "opmen99810bSFPMon2TxPWR": opmen99810bSFPMon2TxPWR,
+       "opmen99810bSFPMon3RxPWR": opmen99810bSFPMon3RxPWR,
+       "opmen99810bPortEEETable": opmen99810bPortEEETable,
+       "opmen99810bPortEEEEntry": opmen99810bPortEEEEntry,
+       "opmen99810bPortEEEPort": opmen99810bPortEEEPort,
+       "opmen99810bPortEEEMode": opmen99810bPortEEEMode,
+       "opmen99810bPortEEEUrgentQueue1": opmen99810bPortEEEUrgentQueue1,
+       "opmen99810bPortEEEUrgentQueue2": opmen99810bPortEEEUrgentQueue2,
+       "opmen99810bPortEEEUrgentQueue3": opmen99810bPortEEEUrgentQueue3,
+       "opmen99810bPortEEEUrgentQueue4": opmen99810bPortEEEUrgentQueue4,
+       "opmen99810bPortEEEUrgentQueue5": opmen99810bPortEEEUrgentQueue5,
+       "opmen99810bPortEEEUrgentQueue6": opmen99810bPortEEEUrgentQueue6,
+       "opmen99810bPortEEEUrgentQueue7": opmen99810bPortEEEUrgentQueue7,
+       "opmen99810bPortEEEUrgentQueue8": opmen99810bPortEEEUrgentQueue8,
+       "opmen99810bVoiceVLAN": opmen99810bVoiceVLAN,
+       "opmen99810bVoiceVLANConf": opmen99810bVoiceVLANConf,
+       "opmen99810bVoiceVLANMode": opmen99810bVoiceVLANMode,
+       "opmen99810bVoiceVLANVLANId": opmen99810bVoiceVLANVLANId,
+       "opmen99810bVoiceVLANAgingTime": opmen99810bVoiceVLANAgingTime,
+       "opmen99810bVoiceVLANTrafficClass": opmen99810bVoiceVLANTrafficClass,
+       "opmen99810bVoiceVLANPortTable": opmen99810bVoiceVLANPortTable,
+       "opmen99810bVoiceVLANPortEntry": opmen99810bVoiceVLANPortEntry,
+       "opmen99810bVoiceVLANPort": opmen99810bVoiceVLANPort,
+       "opmen99810bVoiceVLANPortMode": opmen99810bVoiceVLANPortMode,
+       "opmen99810bVoiceVLANPortSecurity": opmen99810bVoiceVLANPortSecurity,
+       "opmen99810bVoiceVLANPortDiscoveryProtocol": opmen99810bVoiceVLANPortDiscoveryProtocol,
+       "opmen99810bVoiceVLANOUI": opmen99810bVoiceVLANOUI,
+       "opmen99810bVoiceVLANOUICreate": opmen99810bVoiceVLANOUICreate,
+       "opmen99810bVoiceVLANOUITable": opmen99810bVoiceVLANOUITable,
+       "opmen99810bVoiceVLANOUIEntry": opmen99810bVoiceVLANOUIEntry,
+       "opmen99810bVoiceVLANOUIIndex": opmen99810bVoiceVLANOUIIndex,
+       "opmen99810bVoiceVLANTelephonyOUI": opmen99810bVoiceVLANTelephonyOUI,
+       "opmen99810bVoiceVLANDescription": opmen99810bVoiceVLANDescription,
+       "opmen99810bVoiceVLANOUIRowStatus": opmen99810bVoiceVLANOUIRowStatus,
+       "opmen99810bGARP": opmen99810bGARP,
+       "opmen99810bGARPConfTable": opmen99810bGARPConfTable,
+       "opmen99810bGARPConfEntry": opmen99810bGARPConfEntry,
+       "opmen99810bGARPConfPort": opmen99810bGARPConfPort,
+       "opmen99810bGARPJoinTimer": opmen99810bGARPJoinTimer,
+       "opmen99810bGARPLeaveTimer": opmen99810bGARPLeaveTimer,
+       "opmen99810bGARPLeaveAllTimer": opmen99810bGARPLeaveAllTimer,
+       "opmen99810bGARPApplicantion": opmen99810bGARPApplicantion,
+       "opmen99810bGARPAttributeType": opmen99810bGARPAttributeType,
+       "opmen99810bGARPApplicant": opmen99810bGARPApplicant,
+       "opmen99810bGARPStatisticsTable": opmen99810bGARPStatisticsTable,
+       "opmen99810bGARPStatisticsEntry": opmen99810bGARPStatisticsEntry,
+       "opmen99810bGARPStatisticsPort": opmen99810bGARPStatisticsPort,
+       "opmen99810bGARPStatisticsPeerMAC": opmen99810bGARPStatisticsPeerMAC,
+       "opmen99810bGARPStatisticsFailedCount": opmen99810bGARPStatisticsFailedCount,
+       "opmen99810bGVRP": opmen99810bGVRP,
+       "opmen99810bGVRPConf": opmen99810bGVRPConf,
+       "opmen99810bGVRPMode": opmen99810bGVRPMode,
+       "opmen99810bGVRPConfTable": opmen99810bGVRPConfTable,
+       "opmen99810bGVRPConfEntry": opmen99810bGVRPConfEntry,
+       "opmen99810bGVRPConfPort": opmen99810bGVRPConfPort,
+       "opmen99810bGVRPConfPortMode": opmen99810bGVRPConfPortMode,
+       "opmen99810bGVRPConfPortRRole": opmen99810bGVRPConfPortRRole,
+       "opmen99810bGVRPStatisticsTable": opmen99810bGVRPStatisticsTable,
+       "opmen99810bGVRPStatisticsEntry": opmen99810bGVRPStatisticsEntry,
+       "opmen99810bGVRPStatisticsPort": opmen99810bGVRPStatisticsPort,
+       "opmen99810bGVRPStatisticsJoinTxCnt": opmen99810bGVRPStatisticsJoinTxCnt,
+       "opmen99810bGVRPStatisticsLeaveTxCnt": opmen99810bGVRPStatisticsLeaveTxCnt,
+       "opmen99810bMirroring": opmen99810bMirroring,
+       "opmen99810bPortToMirrorOn": opmen99810bPortToMirrorOn,
+       "opmen99810bMirrorTable": opmen99810bMirrorTable,
+       "opmen99810bMirrorEntry": opmen99810bMirrorEntry,
+       "opmen99810bMirrorPort": opmen99810bMirrorPort,
+       "opmen99810bMirrorMode": opmen99810bMirrorMode,
+       "opmen99810bTrapEventSeverity": opmen99810bTrapEventSeverity,
+       "opmen99810bTrapEventSeverityACL": opmen99810bTrapEventSeverityACL,
+       "opmen99810bTrapEventSeverityACLLog": opmen99810bTrapEventSeverityACLLog,
+       "opmen99810bTrapEventSeverityAccessMgmt": opmen99810bTrapEventSeverityAccessMgmt,
+       "opmen99810bTrapEventSeverityAuthFailed": opmen99810bTrapEventSeverityAuthFailed,
+       "opmen99810bTrapEventSeverityColdStart": opmen99810bTrapEventSeverityColdStart,
+       "opmen99810bTrapEventSeverityConfigInfo": opmen99810bTrapEventSeverityConfigInfo,
+       "opmen99810bTrapEventSeverityFirmwareUpgrade": opmen99810bTrapEventSeverityFirmwareUpgrade,
+       "opmen99810bTrapEventSeverityImportExport": opmen99810bTrapEventSeverityImportExport,
+       "opmen99810bTrapEventSeverityLACP": opmen99810bTrapEventSeverityLACP,
+       "opmen99810bTrapEventSeverityLinkStatus": opmen99810bTrapEventSeverityLinkStatus,
+       "opmen99810bTrapEventSeverityLogin": opmen99810bTrapEventSeverityLogin,
+       "opmen99810bTrapEventSeverityLogout": opmen99810bTrapEventSeverityLogout,
+       "opmen99810bTrapEventSeverityLoopProtect": opmen99810bTrapEventSeverityLoopProtect,
+       "opmen99810bTrapEventSeverityMgmtIPChange": opmen99810bTrapEventSeverityMgmtIPChange,
+       "opmen99810bTrapEventSeverityModuleChange": opmen99810bTrapEventSeverityModuleChange,
+       "opmen99810bTrapEventSeverityNAS": opmen99810bTrapEventSeverityNAS,
+       "opmen99810bTrapEventSeverityPasswordChange": opmen99810bTrapEventSeverityPasswordChange,
+       "opmen99810bTrapEventSeverityPortSecurity": opmen99810bTrapEventSeverityPortSecurity,
+       "opmen99810bTrapEventSeverityVLAN": opmen99810bTrapEventSeverityVLAN,
+       "opmen99810bTrapEventSeverityWarmStart": opmen99810bTrapEventSeverityWarmStart,
+       "opmen99810bSMTP": opmen99810bSMTP,
+       "opmen99810bSMTPMailServer": opmen99810bSMTPMailServer,
+       "opmen99810bSMTPUserName": opmen99810bSMTPUserName,
+       "opmen99810bSMTPPassword": opmen99810bSMTPPassword,
+       "opmen99810bSMTPServeriryLevel": opmen99810bSMTPServeriryLevel,
+       "opmen99810bSMTPSender": opmen99810bSMTPSender,
+       "opmen99810bSMTPReturnPath": opmen99810bSMTPReturnPath,
+       "opmen99810bSMTPPort": opmen99810bSMTPPort,
+       "opmen99810bSMTPEmailAddress1": opmen99810bSMTPEmailAddress1,
+       "opmen99810bSMTPEmailAddress2": opmen99810bSMTPEmailAddress2,
+       "opmen99810bSMTPEmailAddress3": opmen99810bSMTPEmailAddress3,
+       "opmen99810bSMTPEmailAddress4": opmen99810bSMTPEmailAddress4,
+       "opmen99810bSMTPEmailAddress5": opmen99810bSMTPEmailAddress5,
+       "opmen99810bSMTPEmailAddress6": opmen99810bSMTPEmailAddress6,
+       "opmen99810bACL": opmen99810bACL,
+       "opmen99810bACLPortsConfTable": opmen99810bACLPortsConfTable,
+       "opmen99810bACLPortsConfEntry": opmen99810bACLPortsConfEntry,
+       "opmen99810bACLPortsConfPort": opmen99810bACLPortsConfPort,
+       "opmen99810bACLPortsConfPolicyID": opmen99810bACLPortsConfPolicyID,
+       "opmen99810bACLPortsConfAction": opmen99810bACLPortsConfAction,
+       "opmen99810bACLPortsConfRateLimiterID": opmen99810bACLPortsConfRateLimiterID,
+       "opmen99810bACLPortsConfPortRedirect": opmen99810bACLPortsConfPortRedirect,
+       "opmen99810bACLPortsConfMirror": opmen99810bACLPortsConfMirror,
+       "opmen99810bACLPortsConfLogging": opmen99810bACLPortsConfLogging,
+       "opmen99810bACLPortsConfShutdown": opmen99810bACLPortsConfShutdown,
+       "opmen99810bACLPortsConfState": opmen99810bACLPortsConfState,
+       "opmen99810bACLPortsConfCounter": opmen99810bACLPortsConfCounter,
+       "opmen99810bACLRateLimiterTable": opmen99810bACLRateLimiterTable,
+       "opmen99810bACLRateLimiterEntry": opmen99810bACLRateLimiterEntry,
+       "opmen99810bACLRateLimiterID": opmen99810bACLRateLimiterID,
+       "opmen99810bACLRateLimiterUnit": opmen99810bACLRateLimiterUnit,
+       "opmen99810bACLRateLimiterRate": opmen99810bACLRateLimiterRate,
+       "opmen99810bACLACE": opmen99810bACLACE,
+       "opmen99810bACLACECreate": opmen99810bACLACECreate,
+       "opmen99810bACLACETable": opmen99810bACLACETable,
+       "opmen99810bACLACEEntry": opmen99810bACLACEEntry,
+       "opmen99810bACLACEIndex": opmen99810bACLACEIndex,
+       "opmen99810bACLACEID": opmen99810bACLACEID,
+       "opmen99810bACLACENextID": opmen99810bACLACENextID,
+       "opmen99810bACLACEIngressPort": opmen99810bACLACEIngressPort,
+       "opmen99810bACLACEPortPolicyNumber": opmen99810bACLACEPortPolicyNumber,
+       "opmen99810bACLACEPortPolicyBitmask": opmen99810bACLACEPortPolicyBitmask,
+       "opmen99810bACLACEFrameType": opmen99810bACLACEFrameType,
+       "opmen99810bACLACEAction": opmen99810bACLACEAction,
+       "opmen99810bACLACEDenyPortRedirect": opmen99810bACLACEDenyPortRedirect,
+       "opmen99810bACLACELogging": opmen99810bACLACELogging,
+       "opmen99810bACLACEMirror": opmen99810bACLACEMirror,
+       "opmen99810bACLACERateLimiter": opmen99810bACLACERateLimiter,
+       "opmen99810bACLACEShutdown": opmen99810bACLACEShutdown,
+       "opmen99810bACLACEVLAN8021QTagged": opmen99810bACLACEVLAN8021QTagged,
+       "opmen99810bACLACEVLANTagPriority": opmen99810bACLACEVLANTagPriority,
+       "opmen99810bACLACEVLANVID": opmen99810bACLACEVLANVID,
+       "opmen99810bACLACEEtherType": opmen99810bACLACEEtherType,
+       "opmen99810bACLACESMAC": opmen99810bACLACESMAC,
+       "opmen99810bACLACEDMACType": opmen99810bACLACEDMACType,
+       "opmen99810bACLACEDMAC": opmen99810bACLACEDMAC,
+       "opmen99810bACLACEArpOpcode": opmen99810bACLACEArpOpcode,
+       "opmen99810bACLACEArpFlagsRequestReply": opmen99810bACLACEArpFlagsRequestReply,
+       "opmen99810bACLACEArpFlagsArpSmac": opmen99810bACLACEArpFlagsArpSmac,
+       "opmen99810bACLACEArpFlagsRarpDmac": opmen99810bACLACEArpFlagsRarpDmac,
+       "opmen99810bACLACEArpFlagsLength": opmen99810bACLACEArpFlagsLength,
+       "opmen99810bACLACEArpFlagsIp": opmen99810bACLACEArpFlagsIp,
+       "opmen99810bACLACEArpFlagsEthernet": opmen99810bACLACEArpFlagsEthernet,
+       "opmen99810bACLACESIPType": opmen99810bACLACESIPType,
+       "opmen99810bACLACESIPIPAddress": opmen99810bACLACESIPIPAddress,
+       "opmen99810bACLACESIPNetworkPrefix": opmen99810bACLACESIPNetworkPrefix,
+       "opmen99810bACLACEDIPType": opmen99810bACLACEDIPType,
+       "opmen99810bACLACEDIPIPAddress": opmen99810bACLACEDIPIPAddress,
+       "opmen99810bACLACEDIPNetworkPrefix": opmen99810bACLACEDIPNetworkPrefix,
+       "opmen99810bACLACEIPProtocol": opmen99810bACLACEIPProtocol,
+       "opmen99810bACLACEIPFlagsTTL": opmen99810bACLACEIPFlagsTTL,
+       "opmen99810bACLACEIPFlagsOptions": opmen99810bACLACEIPFlagsOptions,
+       "opmen99810bACLACEIPFlagsFragment": opmen99810bACLACEIPFlagsFragment,
+       "opmen99810bACLACEICMPType": opmen99810bACLACEICMPType,
+       "opmen99810bACLACEICMPCode": opmen99810bACLACEICMPCode,
+       "opmen99810bACLACESourcePortMin": opmen99810bACLACESourcePortMin,
+       "opmen99810bACLACESourcePortMax": opmen99810bACLACESourcePortMax,
+       "opmen99810bACLACEDestPortMin": opmen99810bACLACEDestPortMin,
+       "opmen99810bACLACEDestPortMax": opmen99810bACLACEDestPortMax,
+       "opmen99810bACLACETCPFlagsFin": opmen99810bACLACETCPFlagsFin,
+       "opmen99810bACLACETCPFlagsSyn": opmen99810bACLACETCPFlagsSyn,
+       "opmen99810bACLACETCPFlagsRst": opmen99810bACLACETCPFlagsRst,
+       "opmen99810bACLACETCPFlagsPsh": opmen99810bACLACETCPFlagsPsh,
+       "opmen99810bACLACETCPFlagsAck": opmen99810bACLACETCPFlagsAck,
+       "opmen99810bACLACETCPFlagsUrg": opmen99810bACLACETCPFlagsUrg,
+       "opmen99810bACLACERowStatus": opmen99810bACLACERowStatus,
+       "opmen99810bACLACEClear": opmen99810bACLACEClear,
+       "opmen99810bACLACEMoveACEID": opmen99810bACLACEMoveACEID,
+       "opmen99810bACLACEMoveNextACEID": opmen99810bACLACEMoveNextACEID,
+       "opmen99810bACLACEStatusTable": opmen99810bACLACEStatusTable,
+       "opmen99810bACLACEStatusEntry": opmen99810bACLACEStatusEntry,
+       "opmen99810bACLACEStatusIndex": opmen99810bACLACEStatusIndex,
+       "opmen99810bACLACEStatusUser": opmen99810bACLACEStatusUser,
+       "opmen99810bACLACEStatusID": opmen99810bACLACEStatusID,
+       "opmen99810bACLACEStatusIngressPort": opmen99810bACLACEStatusIngressPort,
+       "opmen99810bACLACEStatusFrameType": opmen99810bACLACEStatusFrameType,
+       "opmen99810bACLACEStatusAction": opmen99810bACLACEStatusAction,
+       "opmen99810bACLACEStatusRateLimiter": opmen99810bACLACEStatusRateLimiter,
+       "opmen99810bACLACEStatusPortCopy": opmen99810bACLACEStatusPortCopy,
+       "opmen99810bACLACEStatusMirror": opmen99810bACLACEStatusMirror,
+       "opmen99810bACLACEStatusCPU": opmen99810bACLACEStatusCPU,
+       "opmen99810bACLACEStatusCounter": opmen99810bACLACEStatusCounter,
+       "opmen99810bACLACEStatusConflict": opmen99810bACLACEStatusConflict,
+       "opmen99810bBroadcastStormProtection": opmen99810bBroadcastStormProtection,
+       "opmen99810bBroadcastStormProtectionConfigurationTable": opmen99810bBroadcastStormProtectionConfigurationTable,
+       "opmen99810bBroadcastStormProtectionConfigurationEntry": opmen99810bBroadcastStormProtectionConfigurationEntry,
+       "opmen99810bBroadcastStormProtectionConfPort": opmen99810bBroadcastStormProtectionConfPort,
+       "opmen99810bBroadcastStormProtectionConfMode": opmen99810bBroadcastStormProtectionConfMode,
+       "opmen99810bBroadcastStormProtectionConfAction": opmen99810bBroadcastStormProtectionConfAction,
+       "opmen99810bBroadcastStormProtectionConfPPS": opmen99810bBroadcastStormProtectionConfPPS,
+       "opmen99810bBroadcastStormProtectionConfTimer": opmen99810bBroadcastStormProtectionConfTimer,
+       "opmen99810bBroadcastStormProtectionConfstatus": opmen99810bBroadcastStormProtectionConfstatus,
+       "opmen99810bLoopProtection": opmen99810bLoopProtection,
+       "opmen99810bLoopProtectionConfig": opmen99810bLoopProtectionConfig,
+       "opmen99810bLoopProtectionGlobalEnable": opmen99810bLoopProtectionGlobalEnable,
+       "opmen99810bLoopProtectionTranmisstionTime": opmen99810bLoopProtectionTranmisstionTime,
+       "opmen99810bLoopProtectionShutdownTime": opmen99810bLoopProtectionShutdownTime,
+       "opmen99810bLoopProtectionConfigurationTable": opmen99810bLoopProtectionConfigurationTable,
+       "opmen99810bLoopProtectionConfigurationEntry": opmen99810bLoopProtectionConfigurationEntry,
+       "opmen99810bLoopProtectionConfPort": opmen99810bLoopProtectionConfPort,
+       "opmen99810bLoopProtectionConfEnable": opmen99810bLoopProtectionConfEnable,
+       "opmen99810bLoopProtectionConfAction": opmen99810bLoopProtectionConfAction,
+       "opmen99810bLoopProtectionConfTxmode": opmen99810bLoopProtectionConfTxmode,
+       "opmen99810bLoopProtectionStatusTable": opmen99810bLoopProtectionStatusTable,
+       "opmen99810bLoopProtectionStatusEntry": opmen99810bLoopProtectionStatusEntry,
+       "opmen99810bLoopProtectionStatusPort": opmen99810bLoopProtectionStatusPort,
+       "opmen99810bLoopProtectionStatusAction": opmen99810bLoopProtectionStatusAction,
+       "opmen99810bLoopProtectionStatusTransmit": opmen99810bLoopProtectionStatusTransmit,
+       "opmen99810bLoopProtectionStatusLoops": opmen99810bLoopProtectionStatusLoops,
+       "opmen99810bLoopProtectionStatusStatus": opmen99810bLoopProtectionStatusStatus,
+       "opmen99810bLoopProtectionStatusLoop": opmen99810bLoopProtectionStatusLoop,
+       "opmen99810bLoopProtectionStatusTimeLastLoop": opmen99810bLoopProtectionStatusTimeLastLoop,
+       "opmen99810bQos": opmen99810bQos,
+       "opmen99810bQosPortClassification": opmen99810bQosPortClassification,
+       "opmen99810bQosPortClassificationTable": opmen99810bQosPortClassificationTable,
+       "opmen99810bQosPortClassificationEntry": opmen99810bQosPortClassificationEntry,
+       "opmen99810bQosPortClassificationPort": opmen99810bQosPortClassificationPort,
+       "opmen99810bQosPortClassificationQoSclass": opmen99810bQosPortClassificationQoSclass,
+       "opmen99810bQosPortClassificationDPlevel": opmen99810bQosPortClassificationDPlevel,
+       "opmen99810bQosPortClassificationPCP": opmen99810bQosPortClassificationPCP,
+       "opmen99810bQosPortClassificationDEI": opmen99810bQosPortClassificationDEI,
+       "opmen99810bQosPortClassificationTagClass": opmen99810bQosPortClassificationTagClass,
+       "opmen99810bQosPortClassificationDSCPBased": opmen99810bQosPortClassificationDSCPBased,
+       "opmen99810bQoSIngressPortTagClassificationTable": opmen99810bQoSIngressPortTagClassificationTable,
+       "opmen99810bQoSIngressPortTagClassificationEntry": opmen99810bQoSIngressPortTagClassificationEntry,
+       "opmen99810bQoSIngressPortTagClassificationPort": opmen99810bQoSIngressPortTagClassificationPort,
+       "opmen99810bQoSIngressPortTagPCP": opmen99810bQoSIngressPortTagPCP,
+       "opmen99810bQoSIngressPortTagDEI": opmen99810bQoSIngressPortTagDEI,
+       "opmen99810bQoSIngressPortTagQosClass": opmen99810bQoSIngressPortTagQosClass,
+       "opmen99810bQoSIngressPortTagDPLevel": opmen99810bQoSIngressPortTagDPLevel,
+       "opmen99810bQosPortPolicingTable": opmen99810bQosPortPolicingTable,
+       "opmen99810bQosPortPolicingEntry": opmen99810bQosPortPolicingEntry,
+       "opmen99810bQosPortPolicingPort": opmen99810bQosPortPolicingPort,
+       "opmen99810bQosPortPolicingMode": opmen99810bQosPortPolicingMode,
+       "opmen99810bQosPortPolicingRate": opmen99810bQosPortPolicingRate,
+       "opmen99810bQosPortPolicingUnit": opmen99810bQosPortPolicingUnit,
+       "opmen99810bQosPortPolicingFlowControl": opmen99810bQosPortPolicingFlowControl,
+       "opmen99810bQosPortScheduler": opmen99810bQosPortScheduler,
+       "opmen99810bQosPortSchedulerModeTable": opmen99810bQosPortSchedulerModeTable,
+       "opmen99810bQosPortSchedulerModeEntry": opmen99810bQosPortSchedulerModeEntry,
+       "opmen99810bQosSchedulerModePort": opmen99810bQosSchedulerModePort,
+       "opmen99810bQosSchedulerMode": opmen99810bQosSchedulerMode,
+       "opmen99810bQosSchedulerShaper": opmen99810bQosSchedulerShaper,
+       "opmen99810bQosSchedulerShaperRate": opmen99810bQosSchedulerShaperRate,
+       "opmen99810bQosPortSchedulerTable": opmen99810bQosPortSchedulerTable,
+       "opmen99810bQosPortSchedulerEntry": opmen99810bQosPortSchedulerEntry,
+       "opmen99810bQosSchedulerPort": opmen99810bQosSchedulerPort,
+       "opmen99810bQosSchedulerPortQueue": opmen99810bQosSchedulerPortQueue,
+       "opmen99810bQosSchedulerPortQueueShaper": opmen99810bQosSchedulerPortQueueShaper,
+       "opmen99810bQosSchedulerPortQueueShaperRate": opmen99810bQosSchedulerPortQueueShaperRate,
+       "opmen99810bQosSchedulerPortQueueShaperExcess": opmen99810bQosSchedulerPortQueueShaperExcess,
+       "opmen99810bQosSchedulerPortQueueSchedulerWeight": opmen99810bQosSchedulerPortQueueSchedulerWeight,
+       "opmen99810bQosSchedulerPortQueueSchedulerPercent": opmen99810bQosSchedulerPortQueueSchedulerPercent,
+       "opmen99810bQosPortEgressTagRemarking": opmen99810bQosPortEgressTagRemarking,
+       "opmen99810bQosPortEgressTagRemarkingTable": opmen99810bQosPortEgressTagRemarkingTable,
+       "opmen99810bQosPortEgressTagRemarkingEntry": opmen99810bQosPortEgressTagRemarkingEntry,
+       "opmen99810bQosEgressTagRemarkingPort": opmen99810bQosEgressTagRemarkingPort,
+       "opmen99810bQosEgressTagRemarkingMode": opmen99810bQosEgressTagRemarkingMode,
+       "opmen99810bQosPortEgressTagRemarkingDefTable": opmen99810bQosPortEgressTagRemarkingDefTable,
+       "opmen99810bQosPortEgressTagRemarkingDefEntry": opmen99810bQosPortEgressTagRemarkingDefEntry,
+       "opmen99810bQosEgressTagRemarkingDefPort": opmen99810bQosEgressTagRemarkingDefPort,
+       "opmen99810bQosEgressTagRemarkingDefPCP": opmen99810bQosEgressTagRemarkingDefPCP,
+       "opmen99810bQosEgressTagRemarkingDefDEI": opmen99810bQosEgressTagRemarkingDefDEI,
+       "opmen99810bQosPortEgressTagRemarkingMapTable": opmen99810bQosPortEgressTagRemarkingMapTable,
+       "opmen99810bQosPortEgressTagRemarkingMapEntry": opmen99810bQosPortEgressTagRemarkingMapEntry,
+       "opmen99810bQosPortEgressTagRemarkingMapPort": opmen99810bQosPortEgressTagRemarkingMapPort,
+       "opmen99810bQosTagRemarkingQoSClass": opmen99810bQosTagRemarkingQoSClass,
+       "opmen99810bQosTagRemarkingDPLevel": opmen99810bQosTagRemarkingDPLevel,
+       "opmen99810bQosTagRemarkingPCP": opmen99810bQosTagRemarkingPCP,
+       "opmen99810bQosTagRemarkingDEI": opmen99810bQosTagRemarkingDEI,
+       "opmen99810bQosPortDSCPTable": opmen99810bQosPortDSCPTable,
+       "opmen99810bQosPortDSCPEntry": opmen99810bQosPortDSCPEntry,
+       "opmen99810bQosPortDSCPPort": opmen99810bQosPortDSCPPort,
+       "opmen99810bQosPortDSCPIngressTranslate": opmen99810bQosPortDSCPIngressTranslate,
+       "opmen99810bQosPortDSCPIngressClassify": opmen99810bQosPortDSCPIngressClassify,
+       "opmen99810bQosPortDSCPEgressRewrite": opmen99810bQosPortDSCPEgressRewrite,
+       "opmen99810bQosDSCPTable": opmen99810bQosDSCPTable,
+       "opmen99810bQosDSCPEntry": opmen99810bQosDSCPEntry,
+       "opmen99810bQosDSCPList": opmen99810bQosDSCPList,
+       "opmen99810bQosDSCP": opmen99810bQosDSCP,
+       "opmen99810bQosDSCPTrust": opmen99810bQosDSCPTrust,
+       "opmen99810bQosDSCPQosClass": opmen99810bQosDSCPQosClass,
+       "opmen99810bQosDSCPDPL": opmen99810bQosDSCPDPL,
+       "opmen99810bQosDSCPTranslationTable": opmen99810bQosDSCPTranslationTable,
+       "opmen99810bQosDSCPTranslationEntry": opmen99810bQosDSCPTranslationEntry,
+       "opmen99810bQosDSCPTranslationList": opmen99810bQosDSCPTranslationList,
+       "opmen99810bQosDSCPTranslationDSCPBasedId": opmen99810bQosDSCPTranslationDSCPBasedId,
+       "opmen99810bQosDSCPTranslationIngressTranslate": opmen99810bQosDSCPTranslationIngressTranslate,
+       "opmen99810bQosDSCPTranslationIngressClassify": opmen99810bQosDSCPTranslationIngressClassify,
+       "opmen99810bQosDSCPTranslationEgressRemapDP0": opmen99810bQosDSCPTranslationEgressRemapDP0,
+       "opmen99810bQosDSCPTranslationEgressRemapDP1": opmen99810bQosDSCPTranslationEgressRemapDP1,
+       "opmen99810bQosDSCPClassificationTable": opmen99810bQosDSCPClassificationTable,
+       "opmen99810bQosDSCPClassificationEntry": opmen99810bQosDSCPClassificationEntry,
+       "opmen99810bQosDSCPClassificationQoSClass": opmen99810bQosDSCPClassificationQoSClass,
+       "opmen99810bQosDSCPClassificationDPL": opmen99810bQosDSCPClassificationDPL,
+       "opmen99810bQosDSCPClassificationDSCP": opmen99810bQosDSCPClassificationDSCP,
+       "opmen99810bQosControlList": opmen99810bQosControlList,
+       "opmen99810bQosQceCreate": opmen99810bQosQceCreate,
+       "opmen99810bQosQceTable": opmen99810bQosQceTable,
+       "opmen99810bQosQceEntry": opmen99810bQosQceEntry,
+       "opmen99810bQosQceIndex": opmen99810bQosQceIndex,
+       "opmen99810bQosQceID": opmen99810bQosQceID,
+       "opmen99810bQosQceNextID": opmen99810bQosQceNextID,
+       "opmen99810bQosQcePortMembers": opmen99810bQosQcePortMembers,
+       "opmen99810bQosQceTag": opmen99810bQosQceTag,
+       "opmen99810bQosQceVID": opmen99810bQosQceVID,
+       "opmen99810bQosPCP": opmen99810bQosPCP,
+       "opmen99810bQosDEI": opmen99810bQosDEI,
+       "opmen99810bQosSMAC": opmen99810bQosSMAC,
+       "opmen99810bQosDMACType": opmen99810bQosDMACType,
+       "opmen99810bQosFrameType": opmen99810bQosFrameType,
+       "opmen99810bQosMacEtherType": opmen99810bQosMacEtherType,
+       "opmen99810bQosLLCSSAPAddr": opmen99810bQosLLCSSAPAddr,
+       "opmen99810bQosLLCDSAPAddr": opmen99810bQosLLCDSAPAddr,
+       "opmen99810bQosLLCControl": opmen99810bQosLLCControl,
+       "opmen99810bQosSNAPPID": opmen99810bQosSNAPPID,
+       "opmen99810bQosIpv4Protocol": opmen99810bQosIpv4Protocol,
+       "opmen99810bQosIpv4ProtocolValue": opmen99810bQosIpv4ProtocolValue,
+       "opmen99810bQosIpv4ProtocolUDPSport": opmen99810bQosIpv4ProtocolUDPSport,
+       "opmen99810bQosIpv4ProtocolUDPDport": opmen99810bQosIpv4ProtocolUDPDport,
+       "opmen99810bQosIpv4ProtocolTCPSport": opmen99810bQosIpv4ProtocolTCPSport,
+       "opmen99810bQosIpv4ProtocolTCPDport": opmen99810bQosIpv4ProtocolTCPDport,
+       "opmen99810bQosIpv4SourceIp": opmen99810bQosIpv4SourceIp,
+       "opmen99810bQosIpv4SourceMask": opmen99810bQosIpv4SourceMask,
+       "opmen99810bQosIpv4IPFragment": opmen99810bQosIpv4IPFragment,
+       "opmen99810bQosIpv4DSCP": opmen99810bQosIpv4DSCP,
+       "opmen99810bQosIpv6Protocol": opmen99810bQosIpv6Protocol,
+       "opmen99810bQosIpv6ProtocolValue": opmen99810bQosIpv6ProtocolValue,
+       "opmen99810bQosIpv6ProtocolUDPSport": opmen99810bQosIpv6ProtocolUDPSport,
+       "opmen99810bQosIpv6ProtocolUDPDport": opmen99810bQosIpv6ProtocolUDPDport,
+       "opmen99810bQosIpv6ProtocolTCPSport": opmen99810bQosIpv6ProtocolTCPSport,
+       "opmen99810bQosIpv6ProtocolTCPDport": opmen99810bQosIpv6ProtocolTCPDport,
+       "opmen99810bQosIpv6SourceIp": opmen99810bQosIpv6SourceIp,
+       "opmen99810bQosIpv6SourceMask": opmen99810bQosIpv6SourceMask,
+       "opmen99810bQosIpv6DSCP": opmen99810bQosIpv6DSCP,
+       "opmen99810bQosActionClass": opmen99810bQosActionClass,
+       "opmen99810bQosActionDPL": opmen99810bQosActionDPL,
+       "opmen99810bQosActionDSCP": opmen99810bQosActionDSCP,
+       "opmen99810bQosQceRowStatus": opmen99810bQosQceRowStatus,
+       "opmen99810bQosQceMoveID": opmen99810bQosQceMoveID,
+       "opmen99810bQosQceMoveNextID": opmen99810bQosQceMoveNextID,
+       "opmen99810bQosQCLStatusTable": opmen99810bQosQCLStatusTable,
+       "opmen99810bQosQCLStatusEntry": opmen99810bQosQCLStatusEntry,
+       "opmen99810bQosQCLStatusList": opmen99810bQosQCLStatusList,
+       "opmen99810bQosQCLStatusUser": opmen99810bQosQCLStatusUser,
+       "opmen99810bQosQCLStatusQCEId": opmen99810bQosQCLStatusQCEId,
+       "opmen99810bQosQCLStatusFrameType": opmen99810bQosQCLStatusFrameType,
+       "opmen99810bQosQCLStatusPortlist": opmen99810bQosQCLStatusPortlist,
+       "opmen99810bQosQCLStatusActionClass": opmen99810bQosQCLStatusActionClass,
+       "opmen99810bQosQCLStatusActionDPL": opmen99810bQosQCLStatusActionDPL,
+       "opmen99810bQosQCLStatusActionDSCP": opmen99810bQosQCLStatusActionDSCP,
+       "opmen99810bQosQCLStatusActionConflict": opmen99810bQosQCLStatusActionConflict,
+       "opmen99810bQosStormControl": opmen99810bQosStormControl,
+       "opmen99810bQoSStormControlUC": opmen99810bQoSStormControlUC,
+       "opmen99810bQoSStormControlUCRate": opmen99810bQoSStormControlUCRate,
+       "opmen99810bQoSStormControlMC": opmen99810bQoSStormControlMC,
+       "opmen99810bQoSStormControlMCRate": opmen99810bQoSStormControlMCRate,
+       "opmen99810bQoSStormControlBC": opmen99810bQoSStormControlBC,
+       "opmen99810bQoSStormControlBCRate": opmen99810bQoSStormControlBCRate,
+       "opmen99810bVlan": opmen99810bVlan,
+       "opmen99810bVlanPorts": opmen99810bVlanPorts,
+       "opmen99810bVlanPortsTPIDforCustomSport": opmen99810bVlanPortsTPIDforCustomSport,
+       "opmen99810bVlanPortsTable": opmen99810bVlanPortsTable,
+       "opmen99810bVlanPortsEntry": opmen99810bVlanPortsEntry,
+       "opmen99810bVlanPortsPort": opmen99810bVlanPortsPort,
+       "opmen99810bVlanPortsPVID": opmen99810bVlanPortsPVID,
+       "opmen99810bVlanPortsFrameType": opmen99810bVlanPortsFrameType,
+       "opmen99810bVlanPortsIngressFilter": opmen99810bVlanPortsIngressFilter,
+       "opmen99810bVlanPortsEgressRule": opmen99810bVlanPortsEgressRule,
+       "opmen99810bVlanPortsPortType": opmen99810bVlanPortsPortType,
+       "opmen99810bSecurity": opmen99810bSecurity,
+       "opmen99810bIPSourceGuard": opmen99810bIPSourceGuard,
+       "opmen99810bIPSourceGuardConf": opmen99810bIPSourceGuardConf,
+       "opmen99810bIPSourceGuardMode": opmen99810bIPSourceGuardMode,
+       "opmen99810bIPSourceGuardPortConfigTable": opmen99810bIPSourceGuardPortConfigTable,
+       "opmen99810bIPSourceGuardPortConfigEntry": opmen99810bIPSourceGuardPortConfigEntry,
+       "opmen99810bIPSourceGuardPortConfigPort": opmen99810bIPSourceGuardPortConfigPort,
+       "opmen99810bIPSourceGuardPortConfigMode": opmen99810bIPSourceGuardPortConfigMode,
+       "opmen99810bIPSourceGuardPortMaxDynamicClients": opmen99810bIPSourceGuardPortMaxDynamicClients,
+       "opmen99810bIPSourceGuardStatic": opmen99810bIPSourceGuardStatic,
+       "opmen99810bIPSourceGuardStaticCreate": opmen99810bIPSourceGuardStaticCreate,
+       "opmen99810bIPSourceGuardStaticTable": opmen99810bIPSourceGuardStaticTable,
+       "opmen99810bIPSourceGuardStaticEntry": opmen99810bIPSourceGuardStaticEntry,
+       "opmen99810bIPSourceGuardStaticIndex": opmen99810bIPSourceGuardStaticIndex,
+       "opmen99810bIPSourceGuardStaticPort": opmen99810bIPSourceGuardStaticPort,
+       "opmen99810bIPSourceGuardStaticVLANId": opmen99810bIPSourceGuardStaticVLANId,
+       "opmen99810bIPSourceGuardStaticIPAddress": opmen99810bIPSourceGuardStaticIPAddress,
+       "opmen99810bIPSourceGuardStaticMACAddress": opmen99810bIPSourceGuardStaticMACAddress,
+       "opmen99810bIPSourceGuardStaticRowStatus": opmen99810bIPSourceGuardStaticRowStatus,
+       "opmen99810bIPSourceGuardDynamicTable": opmen99810bIPSourceGuardDynamicTable,
+       "opmen99810bIPSourceGuardDynamicEntry": opmen99810bIPSourceGuardDynamicEntry,
+       "opmen99810bIPSourceGuardDynamicIndex": opmen99810bIPSourceGuardDynamicIndex,
+       "opmen99810bIPSourceGuardDynamicPort": opmen99810bIPSourceGuardDynamicPort,
+       "opmen99810bIPSourceGuardDynamicVLANId": opmen99810bIPSourceGuardDynamicVLANId,
+       "opmen99810bIPSourceGuardDynamicIPAddress": opmen99810bIPSourceGuardDynamicIPAddress,
+       "opmen99810bIPSourceGuardDynamicMACAddress": opmen99810bIPSourceGuardDynamicMACAddress,
+       "opmen99810bARPInspection": opmen99810bARPInspection,
+       "opmen99810bARPInspectionConf": opmen99810bARPInspectionConf,
+       "opmen99810bARPInspectionConfMode": opmen99810bARPInspectionConfMode,
+       "opmen99810bARPInspectionConfTable": opmen99810bARPInspectionConfTable,
+       "opmen99810bARPInspectionConfEntry": opmen99810bARPInspectionConfEntry,
+       "opmen99810bARPInspectionConfPortIndex": opmen99810bARPInspectionConfPortIndex,
+       "opmen99810bARPInspectionConfPortMode": opmen99810bARPInspectionConfPortMode,
+       "opmen99810bARPInspectionStatic": opmen99810bARPInspectionStatic,
+       "opmen99810bARPInspectionStaticCreate": opmen99810bARPInspectionStaticCreate,
+       "opmen99810bARPInspectionStaticTable": opmen99810bARPInspectionStaticTable,
+       "opmen99810bARPInspectionStaticEntry": opmen99810bARPInspectionStaticEntry,
+       "opmen99810bARPInspectionStaticIndex": opmen99810bARPInspectionStaticIndex,
+       "opmen99810bARPInspectionStaticPort": opmen99810bARPInspectionStaticPort,
+       "opmen99810bARPInspectionStaticVLANId": opmen99810bARPInspectionStaticVLANId,
+       "opmen99810bARPInspectionStaticIPAddress": opmen99810bARPInspectionStaticIPAddress,
+       "opmen99810bARPInspectionStaticMACAddress": opmen99810bARPInspectionStaticMACAddress,
+       "opmen99810bARPInspectionStaticRowStatus": opmen99810bARPInspectionStaticRowStatus,
+       "opmen99810bARPInspectionDynamicTable": opmen99810bARPInspectionDynamicTable,
+       "opmen99810bARPInspectionDynamicEntry": opmen99810bARPInspectionDynamicEntry,
+       "opmen99810bARPInspectionDynamicIndex": opmen99810bARPInspectionDynamicIndex,
+       "opmen99810bARPInspectionDynamicPort": opmen99810bARPInspectionDynamicPort,
+       "opmen99810bARPInspectionDynamicVLANId": opmen99810bARPInspectionDynamicVLANId,
+       "opmen99810bARPInspectionDynamicIPAddress": opmen99810bARPInspectionDynamicIPAddress,
+       "opmen99810bARPInspectionDynamicMACAddress": opmen99810bARPInspectionDynamicMACAddress,
+       "opmen99810bDHCPSnooping": opmen99810bDHCPSnooping,
+       "opmen99810bDHCPSnoopingConf": opmen99810bDHCPSnoopingConf,
+       "opmen99810bDHCPSnoopingMode": opmen99810bDHCPSnoopingMode,
+       "opmen99810bDHCPSnoopingPortModeConfigurationTable": opmen99810bDHCPSnoopingPortModeConfigurationTable,
+       "opmen99810bDHCPSnoopingPortModeConfigurationEntry": opmen99810bDHCPSnoopingPortModeConfigurationEntry,
+       "opmen99810bDHCPSnoopingPortModeConfigurationPort": opmen99810bDHCPSnoopingPortModeConfigurationPort,
+       "opmen99810bDHCPSnoopingPortModeConfigurationMode": opmen99810bDHCPSnoopingPortModeConfigurationMode,
+       "opmen99810bDHCPSnoopingStatisticsTable": opmen99810bDHCPSnoopingStatisticsTable,
+       "opmen99810bDHCPSnoopingStatisticsEntry": opmen99810bDHCPSnoopingStatisticsEntry,
+       "opmen99810bDHCPSnoopingStatisticsPort": opmen99810bDHCPSnoopingStatisticsPort,
+       "opmen99810bDHCPSnoopingStatisticsClear": opmen99810bDHCPSnoopingStatisticsClear,
+       "opmen99810bDHCPSnoopingRxDiscover": opmen99810bDHCPSnoopingRxDiscover,
+       "opmen99810bDHCPSnoopingRxOffer": opmen99810bDHCPSnoopingRxOffer,
+       "opmen99810bDHCPSnoopingRxRequest": opmen99810bDHCPSnoopingRxRequest,
+       "opmen99810bDHCPSnoopingRxDecline": opmen99810bDHCPSnoopingRxDecline,
+       "opmen99810bDHCPSnoopingRxACK": opmen99810bDHCPSnoopingRxACK,
+       "opmen99810bDHCPSnoopingRxNAK": opmen99810bDHCPSnoopingRxNAK,
+       "opmen99810bDHCPSnoopingRxRelease": opmen99810bDHCPSnoopingRxRelease,
+       "opmen99810bDHCPSnoopingRxInform": opmen99810bDHCPSnoopingRxInform,
+       "opmen99810bDHCPSnoopingRxLeaseQuery": opmen99810bDHCPSnoopingRxLeaseQuery,
+       "opmen99810bDHCPSnoopingRxLeaseUnassigned": opmen99810bDHCPSnoopingRxLeaseUnassigned,
+       "opmen99810bDHCPSnoopingRxLeaseUnknown": opmen99810bDHCPSnoopingRxLeaseUnknown,
+       "opmen99810bDHCPSnoopingRxLeaseActive": opmen99810bDHCPSnoopingRxLeaseActive,
+       "opmen99810bDHCPSnoopingTxDiscover": opmen99810bDHCPSnoopingTxDiscover,
+       "opmen99810bDHCPSnoopingTxOffer": opmen99810bDHCPSnoopingTxOffer,
+       "opmen99810bDHCPSnoopingTxRequest": opmen99810bDHCPSnoopingTxRequest,
+       "opmen99810bDHCPSnoopingTxDecline": opmen99810bDHCPSnoopingTxDecline,
+       "opmen99810bDHCPSnoopingTxACK": opmen99810bDHCPSnoopingTxACK,
+       "opmen99810bDHCPSnoopingTxNAK": opmen99810bDHCPSnoopingTxNAK,
+       "opmen99810bDHCPSnoopingTxRelease": opmen99810bDHCPSnoopingTxRelease,
+       "opmen99810bDHCPSnoopingTxInform": opmen99810bDHCPSnoopingTxInform,
+       "opmen99810bDHCPSnoopingTxLeaseQuery": opmen99810bDHCPSnoopingTxLeaseQuery,
+       "opmen99810bDHCPSnoopingTxLeaseUnassigned": opmen99810bDHCPSnoopingTxLeaseUnassigned,
+       "opmen99810bDHCPSnoopingTxLeaseUnknown": opmen99810bDHCPSnoopingTxLeaseUnknown,
+       "opmen99810bDHCPSnoopingTxLeaseActive": opmen99810bDHCPSnoopingTxLeaseActive,
+       "opmen99810bDHCPRelay": opmen99810bDHCPRelay,
+       "opmen99810bDHCPRelayConfiguration": opmen99810bDHCPRelayConfiguration,
+       "opmen99810bDHCPRelayMode": opmen99810bDHCPRelayMode,
+       "opmen99810bDHCPRelayServer": opmen99810bDHCPRelayServer,
+       "opmen99810bDHCPRelayInformationMode": opmen99810bDHCPRelayInformationMode,
+       "opmen99810bDHCPRelayInformationPolicy": opmen99810bDHCPRelayInformationPolicy,
+       "opmen99810bDHCPRelayStatistics": opmen99810bDHCPRelayStatistics,
+       "opmen99810bDHCPRelayServerStatistics": opmen99810bDHCPRelayServerStatistics,
+       "opmen99810bServerStatTransmitToServer": opmen99810bServerStatTransmitToServer,
+       "opmen99810bServerStatTransmitError": opmen99810bServerStatTransmitError,
+       "opmen99810bServerStatReceiveFromServer": opmen99810bServerStatReceiveFromServer,
+       "opmen99810bServerStatReceiveMissingAgentOption": opmen99810bServerStatReceiveMissingAgentOption,
+       "opmen99810bServerStatReceiveMissingCircuitID": opmen99810bServerStatReceiveMissingCircuitID,
+       "opmen99810bServerStatReceiveMissingRemoteID": opmen99810bServerStatReceiveMissingRemoteID,
+       "opmen99810bServerStatReceiveBadCircuitID": opmen99810bServerStatReceiveBadCircuitID,
+       "opmen99810bServerStatReceiveBadRemoteID": opmen99810bServerStatReceiveBadRemoteID,
+       "opmen99810bDHCPRelayClientStatistics": opmen99810bDHCPRelayClientStatistics,
+       "opmen99810bClientStatTransmitToClient": opmen99810bClientStatTransmitToClient,
+       "opmen99810bClientStatTransmitError": opmen99810bClientStatTransmitError,
+       "opmen99810bClientStatReceivefromClient": opmen99810bClientStatReceivefromClient,
+       "opmen99810bClientStatReceiveAgentOption": opmen99810bClientStatReceiveAgentOption,
+       "opmen99810bClientStatReplaceAgentOption": opmen99810bClientStatReplaceAgentOption,
+       "opmen99810bClientStatKeepAgentOption": opmen99810bClientStatKeepAgentOption,
+       "opmen99810bClientStatDropAgentOption": opmen99810bClientStatDropAgentOption,
+       "opmen99810bPortSecurity": opmen99810bPortSecurity,
+       "opmen99810bPortSecLimitCtrl": opmen99810bPortSecLimitCtrl,
+       "opmen99810bPortSecLimitCtrlSystemConf": opmen99810bPortSecLimitCtrlSystemConf,
+       "opmen99810bPortSecurityMode": opmen99810bPortSecurityMode,
+       "opmen99810bPortSecurityAging": opmen99810bPortSecurityAging,
+       "opmen99810bPortSecurityAgingPeriod": opmen99810bPortSecurityAgingPeriod,
+       "opmen99810bPortSecLimitCtrlTable": opmen99810bPortSecLimitCtrlTable,
+       "opmen99810bPortSecLimitCtrlEntry": opmen99810bPortSecLimitCtrlEntry,
+       "opmen99810bPortSecLimitCtrlPort": opmen99810bPortSecLimitCtrlPort,
+       "opmen99810bPortSecLimitCtrlPortMode": opmen99810bPortSecLimitCtrlPortMode,
+       "opmen99810bPortSecLimitCtrlPortLimit": opmen99810bPortSecLimitCtrlPortLimit,
+       "opmen99810bPortSecLimitCtrlPortAction": opmen99810bPortSecLimitCtrlPortAction,
+       "opmen99810bPortSecLimitCtrlPortState": opmen99810bPortSecLimitCtrlPortState,
+       "opmen99810bPortSecLimitCtrlPortReOpen": opmen99810bPortSecLimitCtrlPortReOpen,
+       "opmen99810bPortSecSwitchStatusTable": opmen99810bPortSecSwitchStatusTable,
+       "opmen99810bPortSecSwitchStatusEntry": opmen99810bPortSecSwitchStatusEntry,
+       "opmen99810bPortSecSwitchStatusPort": opmen99810bPortSecSwitchStatusPort,
+       "opmen99810bPortSecSwitchStatusUsers": opmen99810bPortSecSwitchStatusUsers,
+       "opmen99810bPortSecSwitchStatusState": opmen99810bPortSecSwitchStatusState,
+       "opmen99810bPortSecSwitchStatusMACCountCurrent": opmen99810bPortSecSwitchStatusMACCountCurrent,
+       "opmen99810bPortSecSwitchStatusMACCountLimit": opmen99810bPortSecSwitchStatusMACCountLimit,
+       "opmen99810bPortSecPortStatus": opmen99810bPortSecPortStatus,
+       "opmen99810bPortSecPortStatusPort": opmen99810bPortSecPortStatusPort,
+       "opmen99810bPortSecPortStatusTable": opmen99810bPortSecPortStatusTable,
+       "opmen99810bPortSecPortStatusEntry": opmen99810bPortSecPortStatusEntry,
+       "opmen99810bPortSecPortStatusIndex": opmen99810bPortSecPortStatusIndex,
+       "opmen99810bPortSecPortStatusMACAddress": opmen99810bPortSecPortStatusMACAddress,
+       "opmen99810bPortSecPortStatusVLANId": opmen99810bPortSecPortStatusVLANId,
+       "opmen99810bPortSecPortStatusState": opmen99810bPortSecPortStatusState,
+       "opmen99810bPortSecPortStatusTimeOfAddition": opmen99810bPortSecPortStatusTimeOfAddition,
+       "opmen99810bPortSecPortStatusAgeAndHold": opmen99810bPortSecPortStatusAgeAndHold,
+       "opmen99810bAccessManagement": opmen99810bAccessManagement,
+       "opmen99810bAccessMgtConf": opmen99810bAccessMgtConf,
+       "opmen99810bAccessMgtConfMode": opmen99810bAccessMgtConfMode,
+       "opmen99810bAccessMgtConfCreate": opmen99810bAccessMgtConfCreate,
+       "opmen99810bAccessMgtConfTable": opmen99810bAccessMgtConfTable,
+       "opmen99810bAccessMgtConfEntry": opmen99810bAccessMgtConfEntry,
+       "opmen99810bAccessMgtIndex": opmen99810bAccessMgtIndex,
+       "opmen99810bAccessMgtAddresstype": opmen99810bAccessMgtAddresstype,
+       "opmen99810bAccessMgtStartIpAddress": opmen99810bAccessMgtStartIpAddress,
+       "opmen99810bAccessMgtEndIpAddress": opmen99810bAccessMgtEndIpAddress,
+       "opmen99810bAccessMgtHttpHttps": opmen99810bAccessMgtHttpHttps,
+       "opmen99810bAccessMgtSNMP": opmen99810bAccessMgtSNMP,
+       "opmen99810bAccessMgtTelnetSSH": opmen99810bAccessMgtTelnetSSH,
+       "opmen99810bAccessMgtRowStatus": opmen99810bAccessMgtRowStatus,
+       "opmen99810bAccessMgtStatistics": opmen99810bAccessMgtStatistics,
+       "opmen99810bHttpReceivedPkts": opmen99810bHttpReceivedPkts,
+       "opmen99810bHttpAllowedPkts": opmen99810bHttpAllowedPkts,
+       "opmen99810bHttpDiscardedPkts": opmen99810bHttpDiscardedPkts,
+       "opmen99810bHttpsReceivedPkts": opmen99810bHttpsReceivedPkts,
+       "opmen99810bHttpsAllowedPkts": opmen99810bHttpsAllowedPkts,
+       "opmen99810bHttpsDiscardedPkts": opmen99810bHttpsDiscardedPkts,
+       "opmen99810bSnmpReceivedPkts": opmen99810bSnmpReceivedPkts,
+       "opmen99810bSnmpAllowedPkts": opmen99810bSnmpAllowedPkts,
+       "opmen99810bSnmpDiscardedPkts": opmen99810bSnmpDiscardedPkts,
+       "opmen99810bTelnetReceivedPkts": opmen99810bTelnetReceivedPkts,
+       "opmen99810bTelnetAllowedPkts": opmen99810bTelnetAllowedPkts,
+       "opmen99810bTelnetDiscardedPkts": opmen99810bTelnetDiscardedPkts,
+       "opmen99810bSSHReceivedPkts": opmen99810bSSHReceivedPkts,
+       "opmen99810bSSHAllowedPkts": opmen99810bSSHAllowedPkts,
+       "opmen99810bSSHDiscardedPkts": opmen99810bSSHDiscardedPkts,
+       "opmen99810bAccessMgtStatisticsClearAll": opmen99810bAccessMgtStatisticsClearAll,
+       "opmen99810bSSH": opmen99810bSSH,
+       "opmen99810bSSHMode": opmen99810bSSHMode,
+       "opmen99810bHTTPS": opmen99810bHTTPS,
+       "opmen99810bHTTPSMode": opmen99810bHTTPSMode,
+       "opmen99810bHTTPSAutoRedirect": opmen99810bHTTPSAutoRedirect,
+       "opmen99810bAuthMethod": opmen99810bAuthMethod,
+       "opmen99810bConsoleAuthMethod": opmen99810bConsoleAuthMethod,
+       "opmen99810bConsoleFallback": opmen99810bConsoleFallback,
+       "opmen99810bTelnetAuthMethod": opmen99810bTelnetAuthMethod,
+       "opmen99810bTelnetFallback": opmen99810bTelnetFallback,
+       "opmen99810bSshAuthMethod": opmen99810bSshAuthMethod,
+       "opmen99810bSshFallback": opmen99810bSshFallback,
+       "opmen99810bWebAuthMethod": opmen99810bWebAuthMethod,
+       "opmen99810bWebFallback": opmen99810bWebFallback,
+       "opmen99810bMaintenance": opmen99810bMaintenance,
+       "opmen99810bRestartDevice": opmen99810bRestartDevice,
+       "opmen99810bFirmware": opmen99810bFirmware,
+       "opmen99810bFirmwareIpAddress": opmen99810bFirmwareIpAddress,
+       "opmen99810bFirmwareFileName": opmen99810bFirmwareFileName,
+       "opmen99810bDoFirmwareUpgrade": opmen99810bDoFirmwareUpgrade,
+       "opmen99810bSaveOrRestore": opmen99810bSaveOrRestore,
+       "opmen99810bFactoryDefaults": opmen99810bFactoryDefaults,
+       "opmen99810bSaveStart": opmen99810bSaveStart,
+       "opmen99810bSaveUser": opmen99810bSaveUser,
+       "opmen99810bRestoreUser": opmen99810bRestoreUser,
+       "opmen99810bExportOrImport": opmen99810bExportOrImport,
+       "opmen99810bExportIpAddress": opmen99810bExportIpAddress,
+       "opmen99810bExportConfigName": opmen99810bExportConfigName,
+       "opmen99810bDoExportConfig": opmen99810bDoExportConfig,
+       "opmen99810bImportIpAddress": opmen99810bImportIpAddress,
+       "opmen99810bImportConfigName": opmen99810bImportConfigName,
+       "opmen99810bDoImportConfig": opmen99810bDoImportConfig,
+       "opmen99810bDiagnostics": opmen99810bDiagnostics,
+       "opmen99810bPingIpAddress": opmen99810bPingIpAddress,
+       "opmen99810bPingSize": opmen99810bPingSize,
+       "opmen99810bDoPingConfig": opmen99810bDoPingConfig,
+       "opmen99810bPingResult": opmen99810bPingResult,
+       "opmen99810bPing6IpAddress": opmen99810bPing6IpAddress,
+       "opmen99810bPing6Size": opmen99810bPing6Size,
+       "opmen99810bDoPing6Config": opmen99810bDoPing6Config,
+       "opmen99810bPing6Result": opmen99810bPing6Result,
+       "opmen99810bTrap": opmen99810bTrap,
+       "opmen99810bTrapEvent": opmen99810bTrapEvent,
+       "opmen99810bEmergency": opmen99810bEmergency,
+       "opmen99810bAlert": opmen99810bAlert,
+       "opmen99810bCritical": opmen99810bCritical,
+       "opmen99810bError": opmen99810bError,
+       "opmen99810bWarning": opmen99810bWarning,
+       "opmen99810bNotice": opmen99810bNotice,
+       "opmen99810bInformational": opmen99810bInformational,
+       "opmen99810bDebug": opmen99810bDebug,
+       "opmen99810bTrapVariable": opmen99810bTrapVariable,
+       "opmen99810bInformation": opmen99810bInformation}
+)

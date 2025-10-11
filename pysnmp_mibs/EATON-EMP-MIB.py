@@ -1,56 +1,464 @@
+# SNMP MIB module (EATON-EMP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EATON-EMP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eaton/EATON-EMP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:35 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/eaton/EATON-EMP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:56:32 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-xupsEnvironment, = mibBuilder.importSymbols("EATON-OIDS", "xupsEnvironment")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-eatonEMPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 534, 1, 6, 0))
-eatonEMPMIB.setRevisions(('2007-03-12 00:00',))
-if mibBuilder.loadTexts: eatonEMPMIB.setLastUpdated('200703120000Z')
-if mibBuilder.loadTexts: eatonEMPMIB.setOrganization('Eaton Corporation')
-xupsEnvRemoteTemp = MibScalar((1, 3, 6, 1, 4, 1, 534, 1, 6, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100, 200))).setUnits('degrees Centigrade').setMaxAccess("readonly")
-if mibBuilder.loadTexts: xupsEnvRemoteTemp.setStatus('current')
-xupsEnvRemoteHumidity = MibScalar((1, 3, 6, 1, 4, 1, 534, 1, 6, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('percent').setMaxAccess("readonly")
-if mibBuilder.loadTexts: xupsEnvRemoteHumidity.setStatus('current')
-xupsEnvNumContacts = MibScalar((1, 3, 6, 1, 4, 1, 534, 1, 6, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xupsEnvNumContacts.setStatus('current')
-xupsContactSenseTable = MibTable((1, 3, 6, 1, 4, 1, 534, 1, 6, 8), )
-if mibBuilder.loadTexts: xupsContactSenseTable.setStatus('current')
-xupsContactsTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 534, 1, 6, 8, 1), ).setIndexNames((0, "EATON-EMP-MIB", "xupsContactIndex"))
-if mibBuilder.loadTexts: xupsContactsTableEntry.setStatus('current')
-xupsContactIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 534, 1, 6, 8, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xupsContactIndex.setStatus('current')
-xupsContactType = MibTableColumn((1, 3, 6, 1, 4, 1, 534, 1, 6, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("normallyOpen", 1), ("normallyClosed", 2), ("anyChange", 3), ("notUsed", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xupsContactType.setStatus('current')
-xupsContactState = MibTableColumn((1, 3, 6, 1, 4, 1, 534, 1, 6, 8, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("open", 1), ("closed", 2), ("openWithNotice", 3), ("closedWithNotice", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xupsContactState.setStatus('current')
-xupsContactDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 534, 1, 6, 8, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xupsContactDescr.setStatus('current')
-xupsEnvRemoteTempLowerLimit = MibScalar((1, 3, 6, 1, 4, 1, 534, 1, 6, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100, 200))).setUnits('degrees Centigrade').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xupsEnvRemoteTempLowerLimit.setStatus('current')
-xupsEnvRemoteTempUpperLimit = MibScalar((1, 3, 6, 1, 4, 1, 534, 1, 6, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100, 200))).setUnits('degrees Centigrade').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xupsEnvRemoteTempUpperLimit.setStatus('current')
-xupsEnvRemoteHumidityLowerLimit = MibScalar((1, 3, 6, 1, 4, 1, 534, 1, 6, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('percent').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xupsEnvRemoteHumidityLowerLimit.setStatus('current')
-xupsEnvRemoteHumidityUpperLimit = MibScalar((1, 3, 6, 1, 4, 1, 534, 1, 6, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('percent').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xupsEnvRemoteHumidityUpperLimit.setStatus('current')
-eatonEMPConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 534, 1, 6, 0, 2))
-eatonEMPGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 534, 1, 6, 0, 2, 1)).setObjects(("EATON-EMP-MIB", "xupsEnvRemoteTemp"), ("EATON-EMP-MIB", "xupsEnvRemoteHumidity"), ("EATON-EMP-MIB", "xupsEnvRemoteTempLowerLimit"), ("EATON-EMP-MIB", "xupsEnvRemoteTempUpperLimit"), ("EATON-EMP-MIB", "xupsEnvRemoteHumidityLowerLimit"), ("EATON-EMP-MIB", "xupsEnvRemoteHumidityUpperLimit"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    eatonEMPGroup = eatonEMPGroup.setStatus('current')
-eatonEMPTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 534, 1, 6, 0, 2, 2)).setObjects(("EATON-EMP-MIB", "xupsEnvNumContacts"), ("EATON-EMP-MIB", "xupsContactIndex"), ("EATON-EMP-MIB", "xupsContactType"), ("EATON-EMP-MIB", "xupsContactState"), ("EATON-EMP-MIB", "xupsContactDescr"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    eatonEMPTableGroup = eatonEMPTableGroup.setStatus('current')
-eatonEMPSimpleCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 534, 1, 6, 0, 2, 4)).setObjects(("EATON-EMP-MIB", "eatonEMPGroup"), ("EATON-EMP-MIB", "eatonEMPTableGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    eatonEMPSimpleCompliance = eatonEMPSimpleCompliance.setStatus('current')
-mibBuilder.exportSymbols("EATON-EMP-MIB", eatonEMPGroup=eatonEMPGroup, xupsContactSenseTable=xupsContactSenseTable, xupsEnvRemoteHumidity=xupsEnvRemoteHumidity, eatonEMPConformance=eatonEMPConformance, eatonEMPMIB=eatonEMPMIB, xupsEnvNumContacts=xupsEnvNumContacts, xupsEnvRemoteHumidityUpperLimit=xupsEnvRemoteHumidityUpperLimit, xupsContactState=xupsContactState, xupsContactIndex=xupsContactIndex, xupsContactType=xupsContactType, xupsEnvRemoteTemp=xupsEnvRemoteTemp, xupsEnvRemoteTempLowerLimit=xupsEnvRemoteTempLowerLimit, eatonEMPTableGroup=eatonEMPTableGroup, xupsEnvRemoteTempUpperLimit=xupsEnvRemoteTempUpperLimit, xupsContactDescr=xupsContactDescr, xupsContactsTableEntry=xupsContactsTableEntry, xupsEnvRemoteHumidityLowerLimit=xupsEnvRemoteHumidityLowerLimit, PYSNMP_MODULE_ID=eatonEMPMIB, eatonEMPSimpleCompliance=eatonEMPSimpleCompliance)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(xupsEnvironment,) = mibBuilder.importSymbols(
+    "EATON-OIDS",
+    "xupsEnvironment")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+eatonEMPMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 0)
+)
+if mibBuilder.loadTexts:
+    eatonEMPMIB.setRevisions(
+        ("2007-03-12 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EatonEMPConformance_ObjectIdentity = ObjectIdentity
+eatonEMPConformance = _EatonEMPConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 0, 2)
+)
+
+
+class _XupsEnvRemoteTemp_Type(Integer32):
+    """Custom type xupsEnvRemoteTemp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-100, 200),
+    )
+
+
+_XupsEnvRemoteTemp_Type.__name__ = "Integer32"
+_XupsEnvRemoteTemp_Object = MibScalar
+xupsEnvRemoteTemp = _XupsEnvRemoteTemp_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 5),
+    _XupsEnvRemoteTemp_Type()
+)
+xupsEnvRemoteTemp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteTemp.setStatus("current")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteTemp.setUnits("degrees Centigrade")
+
+
+class _XupsEnvRemoteHumidity_Type(Integer32):
+    """Custom type xupsEnvRemoteHumidity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_XupsEnvRemoteHumidity_Type.__name__ = "Integer32"
+_XupsEnvRemoteHumidity_Object = MibScalar
+xupsEnvRemoteHumidity = _XupsEnvRemoteHumidity_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 6),
+    _XupsEnvRemoteHumidity_Type()
+)
+xupsEnvRemoteHumidity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteHumidity.setStatus("current")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteHumidity.setUnits("percent")
+
+
+class _XupsEnvNumContacts_Type(Integer32):
+    """Custom type xupsEnvNumContacts based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_XupsEnvNumContacts_Type.__name__ = "Integer32"
+_XupsEnvNumContacts_Object = MibScalar
+xupsEnvNumContacts = _XupsEnvNumContacts_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 7),
+    _XupsEnvNumContacts_Type()
+)
+xupsEnvNumContacts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xupsEnvNumContacts.setStatus("current")
+_XupsContactSenseTable_Object = MibTable
+xupsContactSenseTable = _XupsContactSenseTable_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 8)
+)
+if mibBuilder.loadTexts:
+    xupsContactSenseTable.setStatus("current")
+_XupsContactsTableEntry_Object = MibTableRow
+xupsContactsTableEntry = _XupsContactsTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 8, 1)
+)
+xupsContactsTableEntry.setIndexNames(
+    (0, "EATON-EMP-MIB", "xupsContactIndex"),
+)
+if mibBuilder.loadTexts:
+    xupsContactsTableEntry.setStatus("current")
+
+
+class _XupsContactIndex_Type(Integer32):
+    """Custom type xupsContactIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_XupsContactIndex_Type.__name__ = "Integer32"
+_XupsContactIndex_Object = MibTableColumn
+xupsContactIndex = _XupsContactIndex_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 8, 1, 1),
+    _XupsContactIndex_Type()
+)
+xupsContactIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xupsContactIndex.setStatus("current")
+
+
+class _XupsContactType_Type(Integer32):
+    """Custom type xupsContactType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normallyOpen", 1),
+          ("normallyClosed", 2),
+          ("anyChange", 3),
+          ("notUsed", 4))
+    )
+
+
+_XupsContactType_Type.__name__ = "Integer32"
+_XupsContactType_Object = MibTableColumn
+xupsContactType = _XupsContactType_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 8, 1, 2),
+    _XupsContactType_Type()
+)
+xupsContactType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xupsContactType.setStatus("current")
+
+
+class _XupsContactState_Type(Integer32):
+    """Custom type xupsContactState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("open", 1),
+          ("closed", 2),
+          ("openWithNotice", 3),
+          ("closedWithNotice", 4))
+    )
+
+
+_XupsContactState_Type.__name__ = "Integer32"
+_XupsContactState_Object = MibTableColumn
+xupsContactState = _XupsContactState_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 8, 1, 3),
+    _XupsContactState_Type()
+)
+xupsContactState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xupsContactState.setStatus("current")
+
+
+class _XupsContactDescr_Type(DisplayString):
+    """Custom type xupsContactDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
+_XupsContactDescr_Type.__name__ = "DisplayString"
+_XupsContactDescr_Object = MibTableColumn
+xupsContactDescr = _XupsContactDescr_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 8, 1, 4),
+    _XupsContactDescr_Type()
+)
+xupsContactDescr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xupsContactDescr.setStatus("current")
+
+
+class _XupsEnvRemoteTempLowerLimit_Type(Integer32):
+    """Custom type xupsEnvRemoteTempLowerLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-100, 200),
+    )
+
+
+_XupsEnvRemoteTempLowerLimit_Type.__name__ = "Integer32"
+_XupsEnvRemoteTempLowerLimit_Object = MibScalar
+xupsEnvRemoteTempLowerLimit = _XupsEnvRemoteTempLowerLimit_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 9),
+    _XupsEnvRemoteTempLowerLimit_Type()
+)
+xupsEnvRemoteTempLowerLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteTempLowerLimit.setStatus("current")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteTempLowerLimit.setUnits("degrees Centigrade")
+
+
+class _XupsEnvRemoteTempUpperLimit_Type(Integer32):
+    """Custom type xupsEnvRemoteTempUpperLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-100, 200),
+    )
+
+
+_XupsEnvRemoteTempUpperLimit_Type.__name__ = "Integer32"
+_XupsEnvRemoteTempUpperLimit_Object = MibScalar
+xupsEnvRemoteTempUpperLimit = _XupsEnvRemoteTempUpperLimit_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 10),
+    _XupsEnvRemoteTempUpperLimit_Type()
+)
+xupsEnvRemoteTempUpperLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteTempUpperLimit.setStatus("current")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteTempUpperLimit.setUnits("degrees Centigrade")
+
+
+class _XupsEnvRemoteHumidityLowerLimit_Type(Integer32):
+    """Custom type xupsEnvRemoteHumidityLowerLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_XupsEnvRemoteHumidityLowerLimit_Type.__name__ = "Integer32"
+_XupsEnvRemoteHumidityLowerLimit_Object = MibScalar
+xupsEnvRemoteHumidityLowerLimit = _XupsEnvRemoteHumidityLowerLimit_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 11),
+    _XupsEnvRemoteHumidityLowerLimit_Type()
+)
+xupsEnvRemoteHumidityLowerLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteHumidityLowerLimit.setStatus("current")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteHumidityLowerLimit.setUnits("percent")
+
+
+class _XupsEnvRemoteHumidityUpperLimit_Type(Integer32):
+    """Custom type xupsEnvRemoteHumidityUpperLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_XupsEnvRemoteHumidityUpperLimit_Type.__name__ = "Integer32"
+_XupsEnvRemoteHumidityUpperLimit_Object = MibScalar
+xupsEnvRemoteHumidityUpperLimit = _XupsEnvRemoteHumidityUpperLimit_Object(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 12),
+    _XupsEnvRemoteHumidityUpperLimit_Type()
+)
+xupsEnvRemoteHumidityUpperLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteHumidityUpperLimit.setStatus("current")
+if mibBuilder.loadTexts:
+    xupsEnvRemoteHumidityUpperLimit.setUnits("percent")
+
+# Managed Objects groups
+
+eatonEMPGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 0, 2, 1)
+)
+eatonEMPGroup.setObjects(
+      *(("EATON-EMP-MIB", "xupsEnvRemoteTemp"),
+        ("EATON-EMP-MIB", "xupsEnvRemoteHumidity"),
+        ("EATON-EMP-MIB", "xupsEnvRemoteTempLowerLimit"),
+        ("EATON-EMP-MIB", "xupsEnvRemoteTempUpperLimit"),
+        ("EATON-EMP-MIB", "xupsEnvRemoteHumidityLowerLimit"),
+        ("EATON-EMP-MIB", "xupsEnvRemoteHumidityUpperLimit"))
+)
+if mibBuilder.loadTexts:
+    eatonEMPGroup.setStatus("current")
+
+eatonEMPTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 0, 2, 2)
+)
+eatonEMPTableGroup.setObjects(
+      *(("EATON-EMP-MIB", "xupsEnvNumContacts"),
+        ("EATON-EMP-MIB", "xupsContactIndex"),
+        ("EATON-EMP-MIB", "xupsContactType"),
+        ("EATON-EMP-MIB", "xupsContactState"),
+        ("EATON-EMP-MIB", "xupsContactDescr"))
+)
+if mibBuilder.loadTexts:
+    eatonEMPTableGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+eatonEMPSimpleCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 534, 1, 6, 0, 2, 4)
+)
+eatonEMPSimpleCompliance.setObjects(
+      *(("EATON-EMP-MIB", "eatonEMPGroup"),
+        ("EATON-EMP-MIB", "eatonEMPTableGroup"))
+)
+if mibBuilder.loadTexts:
+    eatonEMPSimpleCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EATON-EMP-MIB",
+    **{"eatonEMPMIB": eatonEMPMIB,
+       "eatonEMPConformance": eatonEMPConformance,
+       "eatonEMPGroup": eatonEMPGroup,
+       "eatonEMPTableGroup": eatonEMPTableGroup,
+       "eatonEMPSimpleCompliance": eatonEMPSimpleCompliance,
+       "xupsEnvRemoteTemp": xupsEnvRemoteTemp,
+       "xupsEnvRemoteHumidity": xupsEnvRemoteHumidity,
+       "xupsEnvNumContacts": xupsEnvNumContacts,
+       "xupsContactSenseTable": xupsContactSenseTable,
+       "xupsContactsTableEntry": xupsContactsTableEntry,
+       "xupsContactIndex": xupsContactIndex,
+       "xupsContactType": xupsContactType,
+       "xupsContactState": xupsContactState,
+       "xupsContactDescr": xupsContactDescr,
+       "xupsEnvRemoteTempLowerLimit": xupsEnvRemoteTempLowerLimit,
+       "xupsEnvRemoteTempUpperLimit": xupsEnvRemoteTempUpperLimit,
+       "xupsEnvRemoteHumidityLowerLimit": xupsEnvRemoteHumidityLowerLimit,
+       "xupsEnvRemoteHumidityUpperLimit": xupsEnvRemoteHumidityUpperLimit}
+)

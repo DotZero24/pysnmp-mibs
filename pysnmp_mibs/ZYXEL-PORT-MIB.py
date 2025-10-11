@@ -1,64 +1,538 @@
+# SNMP MIB module (ZYXEL-PORT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-PORT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-PORT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:30 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zyxel/ZYXEL-PORT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:01:33 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelPort = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61))
-if mibBuilder.loadTexts: zyxelPort.setLastUpdated('201207010000Z')
-if mibBuilder.loadTexts: zyxelPort.setOrganization('Enterprise Solution Zyxel')
-zyxelPortSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1))
-zyxelPortStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2))
-zyxelPortNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 3))
-zyxelPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1), )
-if mibBuilder.loadTexts: zyxelPortTable.setStatus('current')
-zyxelPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
-if mibBuilder.loadTexts: zyxelPortEntry.setStatus('current')
-zyPortSpeedDuplex = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("auto", 0), ("speed10Half", 1), ("speed10Full", 2), ("speed100Half", 3), ("speed100Full", 4), ("speed1000Full", 5), ("speed10GFull", 6), ("speed12GFull", 7), ("speed40GFull", 8), ("speedAuto1000", 9), ("speedAuto10G", 10), ("speed2500Full", 11), ("speed5GFull", 12), ("speed10an", 13), ("speed100an", 14)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPortSpeedDuplex.setStatus('current')
-zyPortFlowControlState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("tx-rx", 1), ("disable", 2), ("tx", 3), ("rx", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPortFlowControlState.setStatus('current')
-zyPortName = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPortName.setStatus('current')
-zyPortIntrusionLockState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 4), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPortIntrusionLockState.setStatus('current')
-zyPortCX4CableLength = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("halfMeters", 0), ("oneMeters", 1), ("threeMeters", 2), ("fiveMeters", 3), ("tenMeters", 4), ("fifteenMeters", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPortCX4CableLength.setStatus('current')
-zyPort10GMediaType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("sfpPlus", 0), ("dac10g", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPort10GMediaType.setStatus('current')
-zyPortExtendRangeState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 7), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPortExtendRangeState.setStatus('current')
-zyxelPortInfoTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1), )
-if mibBuilder.loadTexts: zyxelPortInfoTable.setStatus('current')
-zyxelPortInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
-if mibBuilder.loadTexts: zyxelPortInfoEntry.setStatus('current')
-zyPortModuleType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("fastEthernet", 0), ("gigabitEthernet", 1), ("xgEthernet10000", 2), ("x1Ethernet40000", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyPortModuleType.setStatus('current')
-zyPortLinkUpType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("down", 0), ("copper", 1), ("fiber", 2), ("xfp", 3), ("cx4", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyPortLinkUpType.setStatus('current')
-zyPortTestStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("underTesting", 1), ("success", 2), ("fail", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyPortTestStatus.setStatus('current')
-zyPortCounterReset = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 4), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPortCounterReset.setStatus('current')
-zyPortUtilizationRx = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyPortUtilizationRx.setStatus('current')
-zyPortUtilizationTx = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyPortUtilizationTx.setStatus('current')
-zyPortAutonegotiationFailed = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 3, 1)).setObjects(("IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: zyPortAutonegotiationFailed.setStatus('current')
-zyPortIntrusionLock = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 3, 2)).setObjects(("IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: zyPortIntrusionLock.setStatus('current')
-zyPortAutonegotiationFailedRecovered = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 3, 3)).setObjects(("IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: zyPortAutonegotiationFailedRecovered.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-PORT-MIB", zyxelPortSetup=zyxelPortSetup, zyPortAutonegotiationFailed=zyPortAutonegotiationFailed, zyPortTestStatus=zyPortTestStatus, zyxelPortNotifications=zyxelPortNotifications, zyPortUtilizationTx=zyPortUtilizationTx, zyPortExtendRangeState=zyPortExtendRangeState, zyPortIntrusionLock=zyPortIntrusionLock, zyPortModuleType=zyPortModuleType, zyxelPortTable=zyxelPortTable, zyPortFlowControlState=zyPortFlowControlState, zyPortLinkUpType=zyPortLinkUpType, zyPortUtilizationRx=zyPortUtilizationRx, zyxelPortStatus=zyxelPortStatus, zyPortAutonegotiationFailedRecovered=zyPortAutonegotiationFailedRecovered, zyPortIntrusionLockState=zyPortIntrusionLockState, zyPortSpeedDuplex=zyPortSpeedDuplex, zyxelPortInfoTable=zyxelPortInfoTable, PYSNMP_MODULE_ID=zyxelPort, zyPortName=zyPortName, zyxelPortInfoEntry=zyxelPortInfoEntry, zyPort10GMediaType=zyPort10GMediaType, zyPortCX4CableLength=zyPortCX4CableLength, zyxelPortEntry=zyxelPortEntry, zyxelPort=zyxelPort, zyPortCounterReset=zyPortCounterReset)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dot1dBasePort,) = mibBuilder.importSymbols(
+    "BRIDGE-MIB",
+    "dot1dBasePort")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelPort = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelPortSetup_ObjectIdentity = ObjectIdentity
+zyxelPortSetup = _ZyxelPortSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1)
+)
+_ZyxelPortTable_Object = MibTable
+zyxelPortTable = _ZyxelPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1)
+)
+if mibBuilder.loadTexts:
+    zyxelPortTable.setStatus("current")
+_ZyxelPortEntry_Object = MibTableRow
+zyxelPortEntry = _ZyxelPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1)
+)
+zyxelPortEntry.setIndexNames(
+    (0, "BRIDGE-MIB", "dot1dBasePort"),
+)
+if mibBuilder.loadTexts:
+    zyxelPortEntry.setStatus("current")
+
+
+class _ZyPortSpeedDuplex_Type(Integer32):
+    """Custom type zyPortSpeedDuplex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 0),
+          ("speed10Half", 1),
+          ("speed10Full", 2),
+          ("speed100Half", 3),
+          ("speed100Full", 4),
+          ("speed1000Full", 5),
+          ("speed10GFull", 6),
+          ("speed12GFull", 7),
+          ("speed40GFull", 8),
+          ("speedAuto1000", 9),
+          ("speedAuto10G", 10),
+          ("speed2500Full", 11),
+          ("speed5GFull", 12),
+          ("speed10an", 13),
+          ("speed100an", 14))
+    )
+
+
+_ZyPortSpeedDuplex_Type.__name__ = "Integer32"
+_ZyPortSpeedDuplex_Object = MibTableColumn
+zyPortSpeedDuplex = _ZyPortSpeedDuplex_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 1),
+    _ZyPortSpeedDuplex_Type()
+)
+zyPortSpeedDuplex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPortSpeedDuplex.setStatus("current")
+
+
+class _ZyPortFlowControlState_Type(Integer32):
+    """Custom type zyPortFlowControlState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("tx-rx", 1),
+          ("disable", 2),
+          ("tx", 3),
+          ("rx", 4))
+    )
+
+
+_ZyPortFlowControlState_Type.__name__ = "Integer32"
+_ZyPortFlowControlState_Object = MibTableColumn
+zyPortFlowControlState = _ZyPortFlowControlState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 2),
+    _ZyPortFlowControlState_Type()
+)
+zyPortFlowControlState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPortFlowControlState.setStatus("current")
+_ZyPortName_Type = DisplayString
+_ZyPortName_Object = MibTableColumn
+zyPortName = _ZyPortName_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 3),
+    _ZyPortName_Type()
+)
+zyPortName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPortName.setStatus("current")
+_ZyPortIntrusionLockState_Type = EnabledStatus
+_ZyPortIntrusionLockState_Object = MibTableColumn
+zyPortIntrusionLockState = _ZyPortIntrusionLockState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 4),
+    _ZyPortIntrusionLockState_Type()
+)
+zyPortIntrusionLockState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPortIntrusionLockState.setStatus("current")
+
+
+class _ZyPortCX4CableLength_Type(Integer32):
+    """Custom type zyPortCX4CableLength based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("halfMeters", 0),
+          ("oneMeters", 1),
+          ("threeMeters", 2),
+          ("fiveMeters", 3),
+          ("tenMeters", 4),
+          ("fifteenMeters", 5))
+    )
+
+
+_ZyPortCX4CableLength_Type.__name__ = "Integer32"
+_ZyPortCX4CableLength_Object = MibTableColumn
+zyPortCX4CableLength = _ZyPortCX4CableLength_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 5),
+    _ZyPortCX4CableLength_Type()
+)
+zyPortCX4CableLength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPortCX4CableLength.setStatus("current")
+
+
+class _ZyPort10GMediaType_Type(Integer32):
+    """Custom type zyPort10GMediaType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("sfpPlus", 0),
+          ("dac10g", 1))
+    )
+
+
+_ZyPort10GMediaType_Type.__name__ = "Integer32"
+_ZyPort10GMediaType_Object = MibTableColumn
+zyPort10GMediaType = _ZyPort10GMediaType_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 6),
+    _ZyPort10GMediaType_Type()
+)
+zyPort10GMediaType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPort10GMediaType.setStatus("current")
+_ZyPortExtendRangeState_Type = EnabledStatus
+_ZyPortExtendRangeState_Object = MibTableColumn
+zyPortExtendRangeState = _ZyPortExtendRangeState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 1, 1, 1, 7),
+    _ZyPortExtendRangeState_Type()
+)
+zyPortExtendRangeState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPortExtendRangeState.setStatus("current")
+_ZyxelPortStatus_ObjectIdentity = ObjectIdentity
+zyxelPortStatus = _ZyxelPortStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2)
+)
+_ZyxelPortInfoTable_Object = MibTable
+zyxelPortInfoTable = _ZyxelPortInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1)
+)
+if mibBuilder.loadTexts:
+    zyxelPortInfoTable.setStatus("current")
+_ZyxelPortInfoEntry_Object = MibTableRow
+zyxelPortInfoEntry = _ZyxelPortInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1)
+)
+zyxelPortInfoEntry.setIndexNames(
+    (0, "BRIDGE-MIB", "dot1dBasePort"),
+)
+if mibBuilder.loadTexts:
+    zyxelPortInfoEntry.setStatus("current")
+
+
+class _ZyPortModuleType_Type(Integer32):
+    """Custom type zyPortModuleType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fastEthernet", 0),
+          ("gigabitEthernet", 1),
+          ("xgEthernet10000", 2),
+          ("x1Ethernet40000", 3))
+    )
+
+
+_ZyPortModuleType_Type.__name__ = "Integer32"
+_ZyPortModuleType_Object = MibTableColumn
+zyPortModuleType = _ZyPortModuleType_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 1),
+    _ZyPortModuleType_Type()
+)
+zyPortModuleType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyPortModuleType.setStatus("current")
+
+
+class _ZyPortLinkUpType_Type(Integer32):
+    """Custom type zyPortLinkUpType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 0),
+          ("copper", 1),
+          ("fiber", 2),
+          ("xfp", 3),
+          ("cx4", 4))
+    )
+
+
+_ZyPortLinkUpType_Type.__name__ = "Integer32"
+_ZyPortLinkUpType_Object = MibTableColumn
+zyPortLinkUpType = _ZyPortLinkUpType_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 2),
+    _ZyPortLinkUpType_Type()
+)
+zyPortLinkUpType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyPortLinkUpType.setStatus("current")
+
+
+class _ZyPortTestStatus_Type(Integer32):
+    """Custom type zyPortTestStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("underTesting", 1),
+          ("success", 2),
+          ("fail", 3))
+    )
+
+
+_ZyPortTestStatus_Type.__name__ = "Integer32"
+_ZyPortTestStatus_Object = MibTableColumn
+zyPortTestStatus = _ZyPortTestStatus_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 3),
+    _ZyPortTestStatus_Type()
+)
+zyPortTestStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyPortTestStatus.setStatus("current")
+_ZyPortCounterReset_Type = EnabledStatus
+_ZyPortCounterReset_Object = MibTableColumn
+zyPortCounterReset = _ZyPortCounterReset_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 4),
+    _ZyPortCounterReset_Type()
+)
+zyPortCounterReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPortCounterReset.setStatus("current")
+_ZyPortUtilizationRx_Type = Integer32
+_ZyPortUtilizationRx_Object = MibTableColumn
+zyPortUtilizationRx = _ZyPortUtilizationRx_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 5),
+    _ZyPortUtilizationRx_Type()
+)
+zyPortUtilizationRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyPortUtilizationRx.setStatus("current")
+_ZyPortUtilizationTx_Type = Integer32
+_ZyPortUtilizationTx_Object = MibTableColumn
+zyPortUtilizationTx = _ZyPortUtilizationTx_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 2, 1, 1, 6),
+    _ZyPortUtilizationTx_Type()
+)
+zyPortUtilizationTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyPortUtilizationTx.setStatus("current")
+_ZyxelPortNotifications_ObjectIdentity = ObjectIdentity
+zyxelPortNotifications = _ZyxelPortNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+zyPortAutonegotiationFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 3, 1)
+)
+zyPortAutonegotiationFailed.setObjects(
+    ("IF-MIB", "ifIndex")
+)
+if mibBuilder.loadTexts:
+    zyPortAutonegotiationFailed.setStatus(
+        "current"
+    )
+
+zyPortIntrusionLock = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 3, 2)
+)
+zyPortIntrusionLock.setObjects(
+    ("IF-MIB", "ifIndex")
+)
+if mibBuilder.loadTexts:
+    zyPortIntrusionLock.setStatus(
+        "current"
+    )
+
+zyPortAutonegotiationFailedRecovered = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 61, 3, 3)
+)
+zyPortAutonegotiationFailedRecovered.setObjects(
+    ("IF-MIB", "ifIndex")
+)
+if mibBuilder.loadTexts:
+    zyPortAutonegotiationFailedRecovered.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-PORT-MIB",
+    **{"zyxelPort": zyxelPort,
+       "zyxelPortSetup": zyxelPortSetup,
+       "zyxelPortTable": zyxelPortTable,
+       "zyxelPortEntry": zyxelPortEntry,
+       "zyPortSpeedDuplex": zyPortSpeedDuplex,
+       "zyPortFlowControlState": zyPortFlowControlState,
+       "zyPortName": zyPortName,
+       "zyPortIntrusionLockState": zyPortIntrusionLockState,
+       "zyPortCX4CableLength": zyPortCX4CableLength,
+       "zyPort10GMediaType": zyPort10GMediaType,
+       "zyPortExtendRangeState": zyPortExtendRangeState,
+       "zyxelPortStatus": zyxelPortStatus,
+       "zyxelPortInfoTable": zyxelPortInfoTable,
+       "zyxelPortInfoEntry": zyxelPortInfoEntry,
+       "zyPortModuleType": zyPortModuleType,
+       "zyPortLinkUpType": zyPortLinkUpType,
+       "zyPortTestStatus": zyPortTestStatus,
+       "zyPortCounterReset": zyPortCounterReset,
+       "zyPortUtilizationRx": zyPortUtilizationRx,
+       "zyPortUtilizationTx": zyPortUtilizationTx,
+       "zyxelPortNotifications": zyxelPortNotifications,
+       "zyPortAutonegotiationFailed": zyPortAutonegotiationFailed,
+       "zyPortIntrusionLock": zyPortIntrusionLock,
+       "zyPortAutonegotiationFailedRecovered": zyPortAutonegotiationFailedRecovered}
+)

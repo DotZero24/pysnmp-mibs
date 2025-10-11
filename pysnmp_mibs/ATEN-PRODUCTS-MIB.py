@@ -1,50 +1,310 @@
+# SNMP MIB module (ATEN-PRODUCTS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ATEN-PRODUCTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aten/ATEN-PRODUCTS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:04 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/aten/ATEN-PRODUCTS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:54:01 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-atenProducts, = mibBuilder.importSymbols("ATEN-SMI", "atenProducts")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-public = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 1))
-software = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 2))
-overip = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3))
-kvm = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 4))
-video = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 5))
-usb = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 6))
-firewire = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 7))
-cc2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 2, 1))
-matrix = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 4, 1))
-kmxx32 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 4, 1, 1))
-kvmoverip = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1))
-poweroverip = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 2))
-serialoverip = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 3))
-vlsoverip = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 8))
-kl1516ai = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 1))
-kh1516ai = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 2))
-knTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 3))
-kh2516ai = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 4))
-cs1716i = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 5))
-cn8000 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 6))
-kn1001 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 7))
-ip8000 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 8))
-kn1000 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 9))
-kn9016_9008 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 10)).setLabel("kn9016-9008")
-kn1108v_1116v_trap = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 11)).setLabel("kn1108v-1116v-trap")
-cn8600_trap = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 12)).setLabel("cn8600-trap")
-knGeneric = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 13))
-pn9108 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 2, 1))
-pe = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 2, 2))
-pe2 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 2, 3))
-pn7320_7212_5320_5212 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 2, 30)).setLabel("pn7320-7212-5320-5212")
-pn5101 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 2, 35))
-sn0116a = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 3, 1))
-sn3101 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 3, 2))
-sn0148 = MibIdentifier((1, 3, 6, 1, 4, 1, 21317, 1, 3, 3, 3))
-mibBuilder.exportSymbols("ATEN-PRODUCTS-MIB", pe=pe, sn0148=sn0148, kl1516ai=kl1516ai, public=public, poweroverip=poweroverip, sn3101=sn3101, usb=usb, knGeneric=knGeneric, pn7320_7212_5320_5212=pn7320_7212_5320_5212, pe2=pe2, video=video, software=software, cs1716i=cs1716i, sn0116a=sn0116a, cc2000=cc2000, kn9016_9008=kn9016_9008, overip=overip, matrix=matrix, pn5101=pn5101, kmxx32=kmxx32, serialoverip=serialoverip, kvm=kvm, kh1516ai=kh1516ai, firewire=firewire, pn9108=pn9108, vlsoverip=vlsoverip, ip8000=ip8000, kh2516ai=kh2516ai, kn1108v_1116v_trap=kn1108v_1116v_trap, knTrap=knTrap, cn8600_trap=cn8600_trap, kn1000=kn1000, kvmoverip=kvmoverip, kn1001=kn1001, cn8000=cn8000)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(atenProducts,) = mibBuilder.importSymbols(
+    "ATEN-SMI",
+    "atenProducts")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Public_ObjectIdentity = ObjectIdentity
+public = _Public_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 1)
+)
+_Software_ObjectIdentity = ObjectIdentity
+software = _Software_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 2)
+)
+_Cc2000_ObjectIdentity = ObjectIdentity
+cc2000 = _Cc2000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 2, 1)
+)
+_Overip_ObjectIdentity = ObjectIdentity
+overip = _Overip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3)
+)
+_Kvmoverip_ObjectIdentity = ObjectIdentity
+kvmoverip = _Kvmoverip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1)
+)
+_Kl1516ai_ObjectIdentity = ObjectIdentity
+kl1516ai = _Kl1516ai_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 1)
+)
+_Kh1516ai_ObjectIdentity = ObjectIdentity
+kh1516ai = _Kh1516ai_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 2)
+)
+_KnTrap_ObjectIdentity = ObjectIdentity
+knTrap = _KnTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 3)
+)
+_Kh2516ai_ObjectIdentity = ObjectIdentity
+kh2516ai = _Kh2516ai_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 4)
+)
+_Cs1716i_ObjectIdentity = ObjectIdentity
+cs1716i = _Cs1716i_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 5)
+)
+_Cn8000_ObjectIdentity = ObjectIdentity
+cn8000 = _Cn8000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 6)
+)
+_Kn1001_ObjectIdentity = ObjectIdentity
+kn1001 = _Kn1001_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 7)
+)
+_Ip8000_ObjectIdentity = ObjectIdentity
+ip8000 = _Ip8000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 8)
+)
+_Kn1000_ObjectIdentity = ObjectIdentity
+kn1000 = _Kn1000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 9)
+)
+_Kn9016_9008_ObjectIdentity = ObjectIdentity
+kn9016_9008 = _Kn9016_9008_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 10)
+)
+_Kn1108v_1116v_trap_ObjectIdentity = ObjectIdentity
+kn1108v_1116v_trap = _Kn1108v_1116v_trap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 11)
+)
+_Cn8600_trap_ObjectIdentity = ObjectIdentity
+cn8600_trap = _Cn8600_trap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 12)
+)
+_KnGeneric_ObjectIdentity = ObjectIdentity
+knGeneric = _KnGeneric_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 1, 13)
+)
+_Poweroverip_ObjectIdentity = ObjectIdentity
+poweroverip = _Poweroverip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 2)
+)
+_Pn9108_ObjectIdentity = ObjectIdentity
+pn9108 = _Pn9108_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 2, 1)
+)
+_Pe_ObjectIdentity = ObjectIdentity
+pe = _Pe_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 2, 2)
+)
+_Pe2_ObjectIdentity = ObjectIdentity
+pe2 = _Pe2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 2, 3)
+)
+_Pn7320_7212_5320_5212_ObjectIdentity = ObjectIdentity
+pn7320_7212_5320_5212 = _Pn7320_7212_5320_5212_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 2, 30)
+)
+_Pn5101_ObjectIdentity = ObjectIdentity
+pn5101 = _Pn5101_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 2, 35)
+)
+_Serialoverip_ObjectIdentity = ObjectIdentity
+serialoverip = _Serialoverip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 3)
+)
+_Sn0116a_ObjectIdentity = ObjectIdentity
+sn0116a = _Sn0116a_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 3, 1)
+)
+_Sn3101_ObjectIdentity = ObjectIdentity
+sn3101 = _Sn3101_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 3, 2)
+)
+_Sn0148_ObjectIdentity = ObjectIdentity
+sn0148 = _Sn0148_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 3, 3)
+)
+_Vlsoverip_ObjectIdentity = ObjectIdentity
+vlsoverip = _Vlsoverip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 3, 8)
+)
+_Kvm_ObjectIdentity = ObjectIdentity
+kvm = _Kvm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 4)
+)
+_Matrix_ObjectIdentity = ObjectIdentity
+matrix = _Matrix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 4, 1)
+)
+_Kmxx32_ObjectIdentity = ObjectIdentity
+kmxx32 = _Kmxx32_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 4, 1, 1)
+)
+_Video_ObjectIdentity = ObjectIdentity
+video = _Video_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 5)
+)
+_Usb_ObjectIdentity = ObjectIdentity
+usb = _Usb_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 6)
+)
+_Firewire_ObjectIdentity = ObjectIdentity
+firewire = _Firewire_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21317, 1, 7)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ATEN-PRODUCTS-MIB",
+    **{"public": public,
+       "software": software,
+       "cc2000": cc2000,
+       "overip": overip,
+       "kvmoverip": kvmoverip,
+       "kl1516ai": kl1516ai,
+       "kh1516ai": kh1516ai,
+       "knTrap": knTrap,
+       "kh2516ai": kh2516ai,
+       "cs1716i": cs1716i,
+       "cn8000": cn8000,
+       "kn1001": kn1001,
+       "ip8000": ip8000,
+       "kn1000": kn1000,
+       "kn9016-9008": kn9016_9008,
+       "kn1108v-1116v-trap": kn1108v_1116v_trap,
+       "cn8600-trap": cn8600_trap,
+       "knGeneric": knGeneric,
+       "poweroverip": poweroverip,
+       "pn9108": pn9108,
+       "pe": pe,
+       "pe2": pe2,
+       "pn7320-7212-5320-5212": pn7320_7212_5320_5212,
+       "pn5101": pn5101,
+       "serialoverip": serialoverip,
+       "sn0116a": sn0116a,
+       "sn3101": sn3101,
+       "sn0148": sn0148,
+       "vlsoverip": vlsoverip,
+       "kvm": kvm,
+       "matrix": matrix,
+       "kmxx32": kmxx32,
+       "video": video,
+       "usb": usb,
+       "firewire": firewire}
+)

@@ -1,79 +1,487 @@
+# SNMP MIB module (DES7200-SNMP-AGENT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DES7200-SNMP-AGENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DES7200-SNMP-AGENT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:59:34 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/DES7200-SNMP-AGENT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:50:29 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-myMgmt, = mibBuilder.importSymbols("DES7200-SMI", "myMgmt")
-MyTrapType, ConfigStatus = mibBuilder.importSymbols("DES7200-TC", "MyTrapType", "ConfigStatus")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
-mySnmpAgentMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5))
-mySnmpAgentMIB.setRevisions(('2002-03-20 00:00',))
-if mibBuilder.loadTexts: mySnmpAgentMIB.setLastUpdated('200203200000Z')
-if mibBuilder.loadTexts: mySnmpAgentMIB.setOrganization('D-Link Crop.')
-mySnmpAgentMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1))
-mySnmpCommunityObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1))
-mySnmpTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(myMgmt,) = mibBuilder.importSymbols(
+    "DES7200-SMI",
+    "myMgmt")
+
+(ConfigStatus,
+ MyTrapType) = mibBuilder.importSymbols(
+    "DES7200-TC",
+    "ConfigStatus",
+    "MyTrapType")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+mySnmpAgentMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5)
+)
+if mibBuilder.loadTexts:
+    mySnmpAgentMIB.setRevisions(
+        ("2002-03-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class Community(DisplayString):
-    status = 'current'
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(1, 32)
+    status = "current"
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
 
-myCommunityMaxNum = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myCommunityMaxNum.setStatus('current')
-myCommunityTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2), )
-if mibBuilder.loadTexts: myCommunityTable.setStatus('current')
-myCommunityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1), ).setIndexNames((0, "DES7200-SNMP-AGENT-MIB", "myCommunityName"))
-if mibBuilder.loadTexts: myCommunityEntry.setStatus('current')
-myCommunityName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1, 1), Community()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myCommunityName.setStatus('current')
-myCommunityWritable = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("readonly", 1), ("writable", 2))).clone('readonly')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myCommunityWritable.setStatus('current')
-myCommunityUserIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myCommunityUserIpAddr.setStatus('current')
-myCommunityEnableIpAddrAuthen = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1, 4), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myCommunityEnableIpAddrAuthen.setStatus('current')
-myCommunityStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: myCommunityStatus.setStatus('current')
-myTrapDstMaxNumber = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myTrapDstMaxNumber.setStatus('current')
-myTrapDstTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2), )
-if mibBuilder.loadTexts: myTrapDstTable.setStatus('current')
-myTrapDstEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2, 1), ).setIndexNames((0, "DES7200-SNMP-AGENT-MIB", "myTrapDstAddr"))
-if mibBuilder.loadTexts: myTrapDstEntry.setStatus('current')
-myTrapDstAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myTrapDstAddr.setStatus('current')
-myTrapDstCommunity = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2, 1, 2), Community().clone('public')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myTrapDstCommunity.setStatus('current')
-myTrapDstSendTrapClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("snmpv1-Trap", 1), ("snmpv2c-Trap", 2))).clone('snmpv1-Trap')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myTrapDstSendTrapClass.setStatus('current')
-myTrapDstEntryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: myTrapDstEntryStatus.setStatus('current')
-myTrapActionTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 3), )
-if mibBuilder.loadTexts: myTrapActionTable.setStatus('current')
-myTrapActionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 3, 1), ).setIndexNames((0, "DES7200-SNMP-AGENT-MIB", "myTrapType"))
-if mibBuilder.loadTexts: myTrapActionEntry.setStatus('current')
-myTrapType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 3, 1, 1), MyTrapType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myTrapType.setStatus('current')
-myTrapAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("sendtrap", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myTrapAction.setStatus('current')
-mySnmpAgentMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2))
-mySnmpAgentMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2, 1))
-mySnmpAgentMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2, 2))
-mySnmpAgentMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2, 1, 1)).setObjects(("DES7200-SNMP-AGENT-MIB", "myCommunityMIBGroup"), ("DES7200-SNMP-AGENT-MIB", "mySnmpTrapMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    mySnmpAgentMIBCompliance = mySnmpAgentMIBCompliance.setStatus('current')
-myCommunityMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2, 2, 1)).setObjects(("DES7200-SNMP-AGENT-MIB", "myCommunityMaxNum"), ("DES7200-SNMP-AGENT-MIB", "myCommunityName"), ("DES7200-SNMP-AGENT-MIB", "myCommunityWritable"), ("DES7200-SNMP-AGENT-MIB", "myCommunityUserIpAddr"), ("DES7200-SNMP-AGENT-MIB", "myCommunityEnableIpAddrAuthen"), ("DES7200-SNMP-AGENT-MIB", "myCommunityStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    myCommunityMIBGroup = myCommunityMIBGroup.setStatus('current')
-mySnmpTrapMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2, 2, 2)).setObjects(("DES7200-SNMP-AGENT-MIB", "myTrapDstSendTrapClass"), ("DES7200-SNMP-AGENT-MIB", "myTrapDstMaxNumber"), ("DES7200-SNMP-AGENT-MIB", "myTrapDstAddr"), ("DES7200-SNMP-AGENT-MIB", "myTrapDstCommunity"), ("DES7200-SNMP-AGENT-MIB", "myTrapDstEntryStatus"), ("DES7200-SNMP-AGENT-MIB", "myTrapType"), ("DES7200-SNMP-AGENT-MIB", "myTrapAction"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    mySnmpTrapMIBGroup = mySnmpTrapMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("DES7200-SNMP-AGENT-MIB", myTrapDstAddr=myTrapDstAddr, mySnmpAgentMIBGroups=mySnmpAgentMIBGroups, myCommunityTable=myCommunityTable, myCommunityMaxNum=myCommunityMaxNum, myCommunityEntry=myCommunityEntry, mySnmpAgentMIB=mySnmpAgentMIB, myTrapDstMaxNumber=myTrapDstMaxNumber, myCommunityName=myCommunityName, myCommunityWritable=myCommunityWritable, mySnmpAgentMIBCompliances=mySnmpAgentMIBCompliances, myCommunityUserIpAddr=myCommunityUserIpAddr, mySnmpTrapObjects=mySnmpTrapObjects, myTrapDstSendTrapClass=myTrapDstSendTrapClass, myCommunityMIBGroup=myCommunityMIBGroup, myCommunityStatus=myCommunityStatus, myTrapDstEntryStatus=myTrapDstEntryStatus, myTrapDstCommunity=myTrapDstCommunity, myTrapActionEntry=myTrapActionEntry, myTrapActionTable=myTrapActionTable, PYSNMP_MODULE_ID=mySnmpAgentMIB, mySnmpAgentMIBConformance=mySnmpAgentMIBConformance, mySnmpTrapMIBGroup=mySnmpTrapMIBGroup, mySnmpCommunityObjects=mySnmpCommunityObjects, myTrapAction=myTrapAction, myTrapDstEntry=myTrapDstEntry, mySnmpAgentMIBObjects=mySnmpAgentMIBObjects, myTrapType=myTrapType, myTrapDstTable=myTrapDstTable, mySnmpAgentMIBCompliance=mySnmpAgentMIBCompliance, Community=Community, myCommunityEnableIpAddrAuthen=myCommunityEnableIpAddrAuthen)
+
+# MIB Managed Objects in the order of their OIDs
+
+_MySnmpAgentMIBObjects_ObjectIdentity = ObjectIdentity
+mySnmpAgentMIBObjects = _MySnmpAgentMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1)
+)
+_MySnmpCommunityObjects_ObjectIdentity = ObjectIdentity
+mySnmpCommunityObjects = _MySnmpCommunityObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1)
+)
+_MyCommunityMaxNum_Type = Integer32
+_MyCommunityMaxNum_Object = MibScalar
+myCommunityMaxNum = _MyCommunityMaxNum_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 1),
+    _MyCommunityMaxNum_Type()
+)
+myCommunityMaxNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myCommunityMaxNum.setStatus("current")
+_MyCommunityTable_Object = MibTable
+myCommunityTable = _MyCommunityTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    myCommunityTable.setStatus("current")
+_MyCommunityEntry_Object = MibTableRow
+myCommunityEntry = _MyCommunityEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1)
+)
+myCommunityEntry.setIndexNames(
+    (0, "DES7200-SNMP-AGENT-MIB", "myCommunityName"),
+)
+if mibBuilder.loadTexts:
+    myCommunityEntry.setStatus("current")
+_MyCommunityName_Type = Community
+_MyCommunityName_Object = MibTableColumn
+myCommunityName = _MyCommunityName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1, 1),
+    _MyCommunityName_Type()
+)
+myCommunityName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myCommunityName.setStatus("current")
+
+
+class _MyCommunityWritable_Type(Integer32):
+    """Custom type myCommunityWritable based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("readonly", 1),
+          ("writable", 2))
+    )
+
+
+_MyCommunityWritable_Type.__name__ = "Integer32"
+_MyCommunityWritable_Object = MibTableColumn
+myCommunityWritable = _MyCommunityWritable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1, 2),
+    _MyCommunityWritable_Type()
+)
+myCommunityWritable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myCommunityWritable.setStatus("current")
+_MyCommunityUserIpAddr_Type = IpAddress
+_MyCommunityUserIpAddr_Object = MibTableColumn
+myCommunityUserIpAddr = _MyCommunityUserIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1, 3),
+    _MyCommunityUserIpAddr_Type()
+)
+myCommunityUserIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myCommunityUserIpAddr.setStatus("current")
+_MyCommunityEnableIpAddrAuthen_Type = EnabledStatus
+_MyCommunityEnableIpAddrAuthen_Object = MibTableColumn
+myCommunityEnableIpAddrAuthen = _MyCommunityEnableIpAddrAuthen_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1, 4),
+    _MyCommunityEnableIpAddrAuthen_Type()
+)
+myCommunityEnableIpAddrAuthen.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myCommunityEnableIpAddrAuthen.setStatus("current")
+_MyCommunityStatus_Type = RowStatus
+_MyCommunityStatus_Object = MibTableColumn
+myCommunityStatus = _MyCommunityStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 1, 2, 1, 5),
+    _MyCommunityStatus_Type()
+)
+myCommunityStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    myCommunityStatus.setStatus("current")
+_MySnmpTrapObjects_ObjectIdentity = ObjectIdentity
+mySnmpTrapObjects = _MySnmpTrapObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2)
+)
+_MyTrapDstMaxNumber_Type = Integer32
+_MyTrapDstMaxNumber_Object = MibScalar
+myTrapDstMaxNumber = _MyTrapDstMaxNumber_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 1),
+    _MyTrapDstMaxNumber_Type()
+)
+myTrapDstMaxNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myTrapDstMaxNumber.setStatus("current")
+_MyTrapDstTable_Object = MibTable
+myTrapDstTable = _MyTrapDstTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    myTrapDstTable.setStatus("current")
+_MyTrapDstEntry_Object = MibTableRow
+myTrapDstEntry = _MyTrapDstEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2, 1)
+)
+myTrapDstEntry.setIndexNames(
+    (0, "DES7200-SNMP-AGENT-MIB", "myTrapDstAddr"),
+)
+if mibBuilder.loadTexts:
+    myTrapDstEntry.setStatus("current")
+_MyTrapDstAddr_Type = IpAddress
+_MyTrapDstAddr_Object = MibTableColumn
+myTrapDstAddr = _MyTrapDstAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2, 1, 1),
+    _MyTrapDstAddr_Type()
+)
+myTrapDstAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myTrapDstAddr.setStatus("current")
+
+
+class _MyTrapDstCommunity_Type(Community):
+    """Custom type myTrapDstCommunity based on Community"""
+    defaultValue = OctetString("public")
+
+
+_MyTrapDstCommunity_Type.__name__ = "Community"
+_MyTrapDstCommunity_Object = MibTableColumn
+myTrapDstCommunity = _MyTrapDstCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2, 1, 2),
+    _MyTrapDstCommunity_Type()
+)
+myTrapDstCommunity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myTrapDstCommunity.setStatus("current")
+
+
+class _MyTrapDstSendTrapClass_Type(Integer32):
+    """Custom type myTrapDstSendTrapClass based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("snmpv1-Trap", 1),
+          ("snmpv2c-Trap", 2))
+    )
+
+
+_MyTrapDstSendTrapClass_Type.__name__ = "Integer32"
+_MyTrapDstSendTrapClass_Object = MibTableColumn
+myTrapDstSendTrapClass = _MyTrapDstSendTrapClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2, 1, 3),
+    _MyTrapDstSendTrapClass_Type()
+)
+myTrapDstSendTrapClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myTrapDstSendTrapClass.setStatus("current")
+_MyTrapDstEntryStatus_Type = RowStatus
+_MyTrapDstEntryStatus_Object = MibTableColumn
+myTrapDstEntryStatus = _MyTrapDstEntryStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 2, 1, 4),
+    _MyTrapDstEntryStatus_Type()
+)
+myTrapDstEntryStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    myTrapDstEntryStatus.setStatus("current")
+_MyTrapActionTable_Object = MibTable
+myTrapActionTable = _MyTrapActionTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    myTrapActionTable.setStatus("current")
+_MyTrapActionEntry_Object = MibTableRow
+myTrapActionEntry = _MyTrapActionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 3, 1)
+)
+myTrapActionEntry.setIndexNames(
+    (0, "DES7200-SNMP-AGENT-MIB", "myTrapType"),
+)
+if mibBuilder.loadTexts:
+    myTrapActionEntry.setStatus("current")
+_MyTrapType_Type = MyTrapType
+_MyTrapType_Object = MibTableColumn
+myTrapType = _MyTrapType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 3, 1, 1),
+    _MyTrapType_Type()
+)
+myTrapType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myTrapType.setStatus("current")
+
+
+class _MyTrapAction_Type(Integer32):
+    """Custom type myTrapAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("sendtrap", 2))
+    )
+
+
+_MyTrapAction_Type.__name__ = "Integer32"
+_MyTrapAction_Object = MibTableColumn
+myTrapAction = _MyTrapAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 1, 2, 3, 1, 2),
+    _MyTrapAction_Type()
+)
+myTrapAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myTrapAction.setStatus("current")
+_MySnmpAgentMIBConformance_ObjectIdentity = ObjectIdentity
+mySnmpAgentMIBConformance = _MySnmpAgentMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2)
+)
+_MySnmpAgentMIBCompliances_ObjectIdentity = ObjectIdentity
+mySnmpAgentMIBCompliances = _MySnmpAgentMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2, 1)
+)
+_MySnmpAgentMIBGroups_ObjectIdentity = ObjectIdentity
+mySnmpAgentMIBGroups = _MySnmpAgentMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2, 2)
+)
+
+# Managed Objects groups
+
+myCommunityMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2, 2, 1)
+)
+myCommunityMIBGroup.setObjects(
+      *(("DES7200-SNMP-AGENT-MIB", "myCommunityMaxNum"),
+        ("DES7200-SNMP-AGENT-MIB", "myCommunityName"),
+        ("DES7200-SNMP-AGENT-MIB", "myCommunityWritable"),
+        ("DES7200-SNMP-AGENT-MIB", "myCommunityUserIpAddr"),
+        ("DES7200-SNMP-AGENT-MIB", "myCommunityEnableIpAddrAuthen"),
+        ("DES7200-SNMP-AGENT-MIB", "myCommunityStatus"))
+)
+if mibBuilder.loadTexts:
+    myCommunityMIBGroup.setStatus("current")
+
+mySnmpTrapMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2, 2, 2)
+)
+mySnmpTrapMIBGroup.setObjects(
+      *(("DES7200-SNMP-AGENT-MIB", "myTrapDstSendTrapClass"),
+        ("DES7200-SNMP-AGENT-MIB", "myTrapDstMaxNumber"),
+        ("DES7200-SNMP-AGENT-MIB", "myTrapDstAddr"),
+        ("DES7200-SNMP-AGENT-MIB", "myTrapDstCommunity"),
+        ("DES7200-SNMP-AGENT-MIB", "myTrapDstEntryStatus"),
+        ("DES7200-SNMP-AGENT-MIB", "myTrapType"),
+        ("DES7200-SNMP-AGENT-MIB", "myTrapAction"))
+)
+if mibBuilder.loadTexts:
+    mySnmpTrapMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+mySnmpAgentMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 5, 2, 1, 1)
+)
+mySnmpAgentMIBCompliance.setObjects(
+      *(("DES7200-SNMP-AGENT-MIB", "myCommunityMIBGroup"),
+        ("DES7200-SNMP-AGENT-MIB", "mySnmpTrapMIBGroup"))
+)
+if mibBuilder.loadTexts:
+    mySnmpAgentMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DES7200-SNMP-AGENT-MIB",
+    **{"Community": Community,
+       "mySnmpAgentMIB": mySnmpAgentMIB,
+       "mySnmpAgentMIBObjects": mySnmpAgentMIBObjects,
+       "mySnmpCommunityObjects": mySnmpCommunityObjects,
+       "myCommunityMaxNum": myCommunityMaxNum,
+       "myCommunityTable": myCommunityTable,
+       "myCommunityEntry": myCommunityEntry,
+       "myCommunityName": myCommunityName,
+       "myCommunityWritable": myCommunityWritable,
+       "myCommunityUserIpAddr": myCommunityUserIpAddr,
+       "myCommunityEnableIpAddrAuthen": myCommunityEnableIpAddrAuthen,
+       "myCommunityStatus": myCommunityStatus,
+       "mySnmpTrapObjects": mySnmpTrapObjects,
+       "myTrapDstMaxNumber": myTrapDstMaxNumber,
+       "myTrapDstTable": myTrapDstTable,
+       "myTrapDstEntry": myTrapDstEntry,
+       "myTrapDstAddr": myTrapDstAddr,
+       "myTrapDstCommunity": myTrapDstCommunity,
+       "myTrapDstSendTrapClass": myTrapDstSendTrapClass,
+       "myTrapDstEntryStatus": myTrapDstEntryStatus,
+       "myTrapActionTable": myTrapActionTable,
+       "myTrapActionEntry": myTrapActionEntry,
+       "myTrapType": myTrapType,
+       "myTrapAction": myTrapAction,
+       "mySnmpAgentMIBConformance": mySnmpAgentMIBConformance,
+       "mySnmpAgentMIBCompliances": mySnmpAgentMIBCompliances,
+       "mySnmpAgentMIBCompliance": mySnmpAgentMIBCompliance,
+       "mySnmpAgentMIBGroups": mySnmpAgentMIBGroups,
+       "myCommunityMIBGroup": myCommunityMIBGroup,
+       "mySnmpTrapMIBGroup": mySnmpTrapMIBGroup}
+)

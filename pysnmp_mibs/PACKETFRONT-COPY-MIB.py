@@ -1,35 +1,282 @@
+# SNMP MIB module (PACKETFRONT-COPY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PACKETFRONT-COPY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/packetfront/PACKETFRONT-COPY-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:50 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/packetfront/PACKETFRONT-COPY-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:07:36 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-pfExperiment, = mibBuilder.importSymbols("PACKETFRONT-SMI", "pfExperiment")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-pfCopy = ModuleIdentity((1, 3, 6, 1, 4, 1, 9303, 3, 2))
-pfCopy.setRevisions(('2011-01-11 17:35', '2009-03-23 11:17', '2008-09-10 15:38',))
-if mibBuilder.loadTexts: pfCopy.setLastUpdated('201101111735Z')
-if mibBuilder.loadTexts: pfCopy.setOrganization('PacketFront International AB')
-pfCopyNextState = MibScalar((1, 3, 6, 1, 4, 1, 9303, 3, 2, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pfCopyNextState.setStatus('current')
-pfCopyTable = MibTable((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2), )
-if mibBuilder.loadTexts: pfCopyTable.setStatus('current')
-pfCopyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1), ).setIndexNames((0, "PACKETFRONT-COPY-MIB", "pfCopyIndex"))
-if mibBuilder.loadTexts: pfCopyEntry.setStatus('current')
-pfCopyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pfCopyIndex.setStatus('current')
-pfCopySource = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pfCopySource.setStatus('current')
-pfCopyDestination = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pfCopyDestination.setStatus('current')
-pfCopyStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("notused", 0), ("start", 1), ("stop", 2), ("destroy", 3), ("init", 4), ("inprogress", 5), ("failed", 6), ("finished", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pfCopyStatus.setStatus('current')
-pfCopyError = MibTableColumn((1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pfCopyError.setStatus('current')
-mibBuilder.exportSymbols("PACKETFRONT-COPY-MIB", pfCopySource=pfCopySource, pfCopyNextState=pfCopyNextState, PYSNMP_MODULE_ID=pfCopy, pfCopyTable=pfCopyTable, pfCopyDestination=pfCopyDestination, pfCopyStatus=pfCopyStatus, pfCopyIndex=pfCopyIndex, pfCopy=pfCopy, pfCopyEntry=pfCopyEntry, pfCopyError=pfCopyError)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(pfExperiment,) = mibBuilder.importSymbols(
+    "PACKETFRONT-SMI",
+    "pfExperiment")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pfCopy = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9303, 3, 2)
+)
+if mibBuilder.loadTexts:
+    pfCopy.setRevisions(
+        ("2011-01-11 17:35",
+         "2009-03-23 11:17",
+         "2008-09-10 15:38")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PfCopyNextState_Type = Unsigned32
+_PfCopyNextState_Object = MibScalar
+pfCopyNextState = _PfCopyNextState_Object(
+    (1, 3, 6, 1, 4, 1, 9303, 3, 2, 1),
+    _PfCopyNextState_Type()
+)
+pfCopyNextState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pfCopyNextState.setStatus("current")
+_PfCopyTable_Object = MibTable
+pfCopyTable = _PfCopyTable_Object(
+    (1, 3, 6, 1, 4, 1, 9303, 3, 2, 2)
+)
+if mibBuilder.loadTexts:
+    pfCopyTable.setStatus("current")
+_PfCopyEntry_Object = MibTableRow
+pfCopyEntry = _PfCopyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1)
+)
+pfCopyEntry.setIndexNames(
+    (0, "PACKETFRONT-COPY-MIB", "pfCopyIndex"),
+)
+if mibBuilder.loadTexts:
+    pfCopyEntry.setStatus("current")
+_PfCopyIndex_Type = Unsigned32
+_PfCopyIndex_Object = MibTableColumn
+pfCopyIndex = _PfCopyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 1),
+    _PfCopyIndex_Type()
+)
+pfCopyIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pfCopyIndex.setStatus("current")
+
+
+class _PfCopySource_Type(DisplayString):
+    """Custom type pfCopySource based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_PfCopySource_Type.__name__ = "DisplayString"
+_PfCopySource_Object = MibTableColumn
+pfCopySource = _PfCopySource_Object(
+    (1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 2),
+    _PfCopySource_Type()
+)
+pfCopySource.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pfCopySource.setStatus("current")
+
+
+class _PfCopyDestination_Type(DisplayString):
+    """Custom type pfCopyDestination based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_PfCopyDestination_Type.__name__ = "DisplayString"
+_PfCopyDestination_Object = MibTableColumn
+pfCopyDestination = _PfCopyDestination_Object(
+    (1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 3),
+    _PfCopyDestination_Type()
+)
+pfCopyDestination.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pfCopyDestination.setStatus("current")
+
+
+class _PfCopyStatus_Type(Integer32):
+    """Custom type pfCopyStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notused", 0),
+          ("start", 1),
+          ("stop", 2),
+          ("destroy", 3),
+          ("init", 4),
+          ("inprogress", 5),
+          ("failed", 6),
+          ("finished", 7))
+    )
+
+
+_PfCopyStatus_Type.__name__ = "Integer32"
+_PfCopyStatus_Object = MibTableColumn
+pfCopyStatus = _PfCopyStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 4),
+    _PfCopyStatus_Type()
+)
+pfCopyStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pfCopyStatus.setStatus("current")
+
+
+class _PfCopyError_Type(DisplayString):
+    """Custom type pfCopyError based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_PfCopyError_Type.__name__ = "DisplayString"
+_PfCopyError_Object = MibTableColumn
+pfCopyError = _PfCopyError_Object(
+    (1, 3, 6, 1, 4, 1, 9303, 3, 2, 2, 1, 5),
+    _PfCopyError_Type()
+)
+pfCopyError.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pfCopyError.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PACKETFRONT-COPY-MIB",
+    **{"pfCopy": pfCopy,
+       "pfCopyNextState": pfCopyNextState,
+       "pfCopyTable": pfCopyTable,
+       "pfCopyEntry": pfCopyEntry,
+       "pfCopyIndex": pfCopyIndex,
+       "pfCopySource": pfCopySource,
+       "pfCopyDestination": pfCopyDestination,
+       "pfCopyStatus": pfCopyStatus,
+       "pfCopyError": pfCopyError}
+)

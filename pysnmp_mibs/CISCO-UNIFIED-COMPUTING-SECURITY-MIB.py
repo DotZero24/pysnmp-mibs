@@ -1,71 +1,431 @@
+# SNMP MIB module (CISCO-UNIFIED-COMPUTING-SECURITY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-UNIFIED-COMPUTING-SECURITY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-SECURITY-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:23:56 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-UNIFIED-COMPUTING-SECURITY-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:24:12 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoInetAddressMask, CiscoNetworkAddress, CiscoAlarmSeverity, TimeIntervalSec, Unsigned64 = mibBuilder.importSymbols("CISCO-TC", "CiscoInetAddressMask", "CiscoNetworkAddress", "CiscoAlarmSeverity", "TimeIntervalSec", "Unsigned64")
-CucsManagedObjectDn, ciscoUnifiedComputingMIBObjects, CucsManagedObjectId = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectDn", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectId")
-CucsEquipmentPowerState, CucsEquipmentSensorThresholdStatus, CucsEquipmentOperability, CucsEquipmentPresence, CucsSecurityUnitId = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-TC-MIB", "CucsEquipmentPowerState", "CucsEquipmentSensorThresholdStatus", "CucsEquipmentOperability", "CucsEquipmentPresence", "CucsSecurityUnitId")
-InetAddressIPv4, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressIPv6")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, TextualConvention, TimeInterval, MacAddress, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
-cucsSecurityObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88))
-if mibBuilder.loadTexts: cucsSecurityObjects.setLastUpdated('201807260000Z')
-if mibBuilder.loadTexts: cucsSecurityObjects.setOrganization('Cisco Systems Inc.')
-cucsSecurityUnitTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1), )
-if mibBuilder.loadTexts: cucsSecurityUnitTable.setStatus('current')
-cucsSecurityUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-SECURITY-MIB", "cucsSecurityUnitInstanceId"))
-if mibBuilder.loadTexts: cucsSecurityUnitEntry.setStatus('current')
-cucsSecurityUnitInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 1), CucsManagedObjectId())
-if mibBuilder.loadTexts: cucsSecurityUnitInstanceId.setStatus('current')
-cucsSecurityUnitDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitDn.setStatus('current')
-cucsSecurityUnitRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitRn.setStatus('current')
-cucsSecurityUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 4), CucsSecurityUnitId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitId.setStatus('current')
-cucsSecurityUnitLocationDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitLocationDn.setStatus('current')
-cucsSecurityUnitModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitModel.setStatus('current')
-cucsSecurityUnitOperQualifierReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitOperQualifierReason.setStatus('current')
-cucsSecurityUnitOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 8), CucsEquipmentOperability()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitOperState.setStatus('current')
-cucsSecurityUnitOperability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 9), CucsEquipmentOperability()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitOperability.setStatus('current')
-cucsSecurityUnitPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitPartNumber.setStatus('current')
-cucsSecurityUnitPciAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitPciAddr.setStatus('current')
-cucsSecurityUnitPciSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitPciSlot.setStatus('current')
-cucsSecurityUnitPerf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 13), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitPerf.setStatus('current')
-cucsSecurityUnitPower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 14), CucsEquipmentPowerState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitPower.setStatus('current')
-cucsSecurityUnitPresence = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 15), CucsEquipmentPresence()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitPresence.setStatus('current')
-cucsSecurityUnitRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 16), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitRevision.setStatus('current')
-cucsSecurityUnitSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 17), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitSerial.setStatus('current')
-cucsSecurityUnitThermal = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 18), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitThermal.setStatus('current')
-cucsSecurityUnitVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 19), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitVendor.setStatus('current')
-cucsSecurityUnitVid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 20), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitVid.setStatus('current')
-cucsSecurityUnitVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 21), CucsEquipmentSensorThresholdStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitVoltage.setStatus('current')
-cucsSecurityUnitAssetTag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 22), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSecurityUnitAssetTag.setStatus('current')
-mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-SECURITY-MIB", cucsSecurityUnitTable=cucsSecurityUnitTable, cucsSecurityUnitVendor=cucsSecurityUnitVendor, cucsSecurityUnitPciAddr=cucsSecurityUnitPciAddr, cucsSecurityUnitId=cucsSecurityUnitId, cucsSecurityUnitRevision=cucsSecurityUnitRevision, cucsSecurityUnitPresence=cucsSecurityUnitPresence, cucsSecurityUnitInstanceId=cucsSecurityUnitInstanceId, cucsSecurityUnitRn=cucsSecurityUnitRn, cucsSecurityUnitModel=cucsSecurityUnitModel, cucsSecurityUnitOperQualifierReason=cucsSecurityUnitOperQualifierReason, PYSNMP_MODULE_ID=cucsSecurityObjects, cucsSecurityUnitOperability=cucsSecurityUnitOperability, cucsSecurityUnitPower=cucsSecurityUnitPower, cucsSecurityUnitPartNumber=cucsSecurityUnitPartNumber, cucsSecurityObjects=cucsSecurityObjects, cucsSecurityUnitPerf=cucsSecurityUnitPerf, cucsSecurityUnitSerial=cucsSecurityUnitSerial, cucsSecurityUnitThermal=cucsSecurityUnitThermal, cucsSecurityUnitVoltage=cucsSecurityUnitVoltage, cucsSecurityUnitLocationDn=cucsSecurityUnitLocationDn, cucsSecurityUnitEntry=cucsSecurityUnitEntry, cucsSecurityUnitAssetTag=cucsSecurityUnitAssetTag, cucsSecurityUnitDn=cucsSecurityUnitDn, cucsSecurityUnitOperState=cucsSecurityUnitOperState, cucsSecurityUnitVid=cucsSecurityUnitVid, cucsSecurityUnitPciSlot=cucsSecurityUnitPciSlot)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CiscoAlarmSeverity,
+ CiscoInetAddressMask,
+ CiscoNetworkAddress,
+ TimeIntervalSec,
+ Unsigned64) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoAlarmSeverity",
+    "CiscoInetAddressMask",
+    "CiscoNetworkAddress",
+    "TimeIntervalSec",
+    "Unsigned64")
+
+(CucsManagedObjectDn,
+ CucsManagedObjectId,
+ ciscoUnifiedComputingMIBObjects) = mibBuilder.importSymbols(
+    "CISCO-UNIFIED-COMPUTING-MIB",
+    "CucsManagedObjectDn",
+    "CucsManagedObjectId",
+    "ciscoUnifiedComputingMIBObjects")
+
+(CucsEquipmentOperability,
+ CucsEquipmentPowerState,
+ CucsEquipmentPresence,
+ CucsEquipmentSensorThresholdStatus,
+ CucsSecurityUnitId) = mibBuilder.importSymbols(
+    "CISCO-UNIFIED-COMPUTING-TC-MIB",
+    "CucsEquipmentOperability",
+    "CucsEquipmentPowerState",
+    "CucsEquipmentPresence",
+    "CucsEquipmentSensorThresholdStatus",
+    "CucsSecurityUnitId")
+
+(InetAddressIPv4,
+ InetAddressIPv6) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv4",
+    "InetAddressIPv6")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cucsSecurityObjects = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CucsSecurityUnitTable_Object = MibTable
+cucsSecurityUnitTable = _CucsSecurityUnitTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1)
+)
+if mibBuilder.loadTexts:
+    cucsSecurityUnitTable.setStatus("current")
+_CucsSecurityUnitEntry_Object = MibTableRow
+cucsSecurityUnitEntry = _CucsSecurityUnitEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1)
+)
+cucsSecurityUnitEntry.setIndexNames(
+    (0, "CISCO-UNIFIED-COMPUTING-SECURITY-MIB", "cucsSecurityUnitInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cucsSecurityUnitEntry.setStatus("current")
+_CucsSecurityUnitInstanceId_Type = CucsManagedObjectId
+_CucsSecurityUnitInstanceId_Object = MibTableColumn
+cucsSecurityUnitInstanceId = _CucsSecurityUnitInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 1),
+    _CucsSecurityUnitInstanceId_Type()
+)
+cucsSecurityUnitInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitInstanceId.setStatus("current")
+_CucsSecurityUnitDn_Type = CucsManagedObjectDn
+_CucsSecurityUnitDn_Object = MibTableColumn
+cucsSecurityUnitDn = _CucsSecurityUnitDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 2),
+    _CucsSecurityUnitDn_Type()
+)
+cucsSecurityUnitDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitDn.setStatus("current")
+_CucsSecurityUnitRn_Type = SnmpAdminString
+_CucsSecurityUnitRn_Object = MibTableColumn
+cucsSecurityUnitRn = _CucsSecurityUnitRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 3),
+    _CucsSecurityUnitRn_Type()
+)
+cucsSecurityUnitRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitRn.setStatus("current")
+_CucsSecurityUnitId_Type = CucsSecurityUnitId
+_CucsSecurityUnitId_Object = MibTableColumn
+cucsSecurityUnitId = _CucsSecurityUnitId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 4),
+    _CucsSecurityUnitId_Type()
+)
+cucsSecurityUnitId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitId.setStatus("current")
+_CucsSecurityUnitLocationDn_Type = SnmpAdminString
+_CucsSecurityUnitLocationDn_Object = MibTableColumn
+cucsSecurityUnitLocationDn = _CucsSecurityUnitLocationDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 5),
+    _CucsSecurityUnitLocationDn_Type()
+)
+cucsSecurityUnitLocationDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitLocationDn.setStatus("current")
+_CucsSecurityUnitModel_Type = SnmpAdminString
+_CucsSecurityUnitModel_Object = MibTableColumn
+cucsSecurityUnitModel = _CucsSecurityUnitModel_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 6),
+    _CucsSecurityUnitModel_Type()
+)
+cucsSecurityUnitModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitModel.setStatus("current")
+_CucsSecurityUnitOperQualifierReason_Type = SnmpAdminString
+_CucsSecurityUnitOperQualifierReason_Object = MibTableColumn
+cucsSecurityUnitOperQualifierReason = _CucsSecurityUnitOperQualifierReason_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 7),
+    _CucsSecurityUnitOperQualifierReason_Type()
+)
+cucsSecurityUnitOperQualifierReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitOperQualifierReason.setStatus("current")
+_CucsSecurityUnitOperState_Type = CucsEquipmentOperability
+_CucsSecurityUnitOperState_Object = MibTableColumn
+cucsSecurityUnitOperState = _CucsSecurityUnitOperState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 8),
+    _CucsSecurityUnitOperState_Type()
+)
+cucsSecurityUnitOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitOperState.setStatus("current")
+_CucsSecurityUnitOperability_Type = CucsEquipmentOperability
+_CucsSecurityUnitOperability_Object = MibTableColumn
+cucsSecurityUnitOperability = _CucsSecurityUnitOperability_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 9),
+    _CucsSecurityUnitOperability_Type()
+)
+cucsSecurityUnitOperability.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitOperability.setStatus("current")
+_CucsSecurityUnitPartNumber_Type = SnmpAdminString
+_CucsSecurityUnitPartNumber_Object = MibTableColumn
+cucsSecurityUnitPartNumber = _CucsSecurityUnitPartNumber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 10),
+    _CucsSecurityUnitPartNumber_Type()
+)
+cucsSecurityUnitPartNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitPartNumber.setStatus("current")
+_CucsSecurityUnitPciAddr_Type = SnmpAdminString
+_CucsSecurityUnitPciAddr_Object = MibTableColumn
+cucsSecurityUnitPciAddr = _CucsSecurityUnitPciAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 11),
+    _CucsSecurityUnitPciAddr_Type()
+)
+cucsSecurityUnitPciAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitPciAddr.setStatus("current")
+_CucsSecurityUnitPciSlot_Type = SnmpAdminString
+_CucsSecurityUnitPciSlot_Object = MibTableColumn
+cucsSecurityUnitPciSlot = _CucsSecurityUnitPciSlot_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 12),
+    _CucsSecurityUnitPciSlot_Type()
+)
+cucsSecurityUnitPciSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitPciSlot.setStatus("current")
+_CucsSecurityUnitPerf_Type = CucsEquipmentSensorThresholdStatus
+_CucsSecurityUnitPerf_Object = MibTableColumn
+cucsSecurityUnitPerf = _CucsSecurityUnitPerf_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 13),
+    _CucsSecurityUnitPerf_Type()
+)
+cucsSecurityUnitPerf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitPerf.setStatus("current")
+_CucsSecurityUnitPower_Type = CucsEquipmentPowerState
+_CucsSecurityUnitPower_Object = MibTableColumn
+cucsSecurityUnitPower = _CucsSecurityUnitPower_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 14),
+    _CucsSecurityUnitPower_Type()
+)
+cucsSecurityUnitPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitPower.setStatus("current")
+_CucsSecurityUnitPresence_Type = CucsEquipmentPresence
+_CucsSecurityUnitPresence_Object = MibTableColumn
+cucsSecurityUnitPresence = _CucsSecurityUnitPresence_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 15),
+    _CucsSecurityUnitPresence_Type()
+)
+cucsSecurityUnitPresence.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitPresence.setStatus("current")
+_CucsSecurityUnitRevision_Type = SnmpAdminString
+_CucsSecurityUnitRevision_Object = MibTableColumn
+cucsSecurityUnitRevision = _CucsSecurityUnitRevision_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 16),
+    _CucsSecurityUnitRevision_Type()
+)
+cucsSecurityUnitRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitRevision.setStatus("current")
+_CucsSecurityUnitSerial_Type = SnmpAdminString
+_CucsSecurityUnitSerial_Object = MibTableColumn
+cucsSecurityUnitSerial = _CucsSecurityUnitSerial_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 17),
+    _CucsSecurityUnitSerial_Type()
+)
+cucsSecurityUnitSerial.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitSerial.setStatus("current")
+_CucsSecurityUnitThermal_Type = CucsEquipmentSensorThresholdStatus
+_CucsSecurityUnitThermal_Object = MibTableColumn
+cucsSecurityUnitThermal = _CucsSecurityUnitThermal_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 18),
+    _CucsSecurityUnitThermal_Type()
+)
+cucsSecurityUnitThermal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitThermal.setStatus("current")
+_CucsSecurityUnitVendor_Type = SnmpAdminString
+_CucsSecurityUnitVendor_Object = MibTableColumn
+cucsSecurityUnitVendor = _CucsSecurityUnitVendor_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 19),
+    _CucsSecurityUnitVendor_Type()
+)
+cucsSecurityUnitVendor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitVendor.setStatus("current")
+_CucsSecurityUnitVid_Type = SnmpAdminString
+_CucsSecurityUnitVid_Object = MibTableColumn
+cucsSecurityUnitVid = _CucsSecurityUnitVid_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 20),
+    _CucsSecurityUnitVid_Type()
+)
+cucsSecurityUnitVid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitVid.setStatus("current")
+_CucsSecurityUnitVoltage_Type = CucsEquipmentSensorThresholdStatus
+_CucsSecurityUnitVoltage_Object = MibTableColumn
+cucsSecurityUnitVoltage = _CucsSecurityUnitVoltage_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 21),
+    _CucsSecurityUnitVoltage_Type()
+)
+cucsSecurityUnitVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitVoltage.setStatus("current")
+_CucsSecurityUnitAssetTag_Type = SnmpAdminString
+_CucsSecurityUnitAssetTag_Object = MibTableColumn
+cucsSecurityUnitAssetTag = _CucsSecurityUnitAssetTag_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 88, 1, 1, 22),
+    _CucsSecurityUnitAssetTag_Type()
+)
+cucsSecurityUnitAssetTag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSecurityUnitAssetTag.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-UNIFIED-COMPUTING-SECURITY-MIB",
+    **{"cucsSecurityObjects": cucsSecurityObjects,
+       "cucsSecurityUnitTable": cucsSecurityUnitTable,
+       "cucsSecurityUnitEntry": cucsSecurityUnitEntry,
+       "cucsSecurityUnitInstanceId": cucsSecurityUnitInstanceId,
+       "cucsSecurityUnitDn": cucsSecurityUnitDn,
+       "cucsSecurityUnitRn": cucsSecurityUnitRn,
+       "cucsSecurityUnitId": cucsSecurityUnitId,
+       "cucsSecurityUnitLocationDn": cucsSecurityUnitLocationDn,
+       "cucsSecurityUnitModel": cucsSecurityUnitModel,
+       "cucsSecurityUnitOperQualifierReason": cucsSecurityUnitOperQualifierReason,
+       "cucsSecurityUnitOperState": cucsSecurityUnitOperState,
+       "cucsSecurityUnitOperability": cucsSecurityUnitOperability,
+       "cucsSecurityUnitPartNumber": cucsSecurityUnitPartNumber,
+       "cucsSecurityUnitPciAddr": cucsSecurityUnitPciAddr,
+       "cucsSecurityUnitPciSlot": cucsSecurityUnitPciSlot,
+       "cucsSecurityUnitPerf": cucsSecurityUnitPerf,
+       "cucsSecurityUnitPower": cucsSecurityUnitPower,
+       "cucsSecurityUnitPresence": cucsSecurityUnitPresence,
+       "cucsSecurityUnitRevision": cucsSecurityUnitRevision,
+       "cucsSecurityUnitSerial": cucsSecurityUnitSerial,
+       "cucsSecurityUnitThermal": cucsSecurityUnitThermal,
+       "cucsSecurityUnitVendor": cucsSecurityUnitVendor,
+       "cucsSecurityUnitVid": cucsSecurityUnitVid,
+       "cucsSecurityUnitVoltage": cucsSecurityUnitVoltage,
+       "cucsSecurityUnitAssetTag": cucsSecurityUnitAssetTag}
+)

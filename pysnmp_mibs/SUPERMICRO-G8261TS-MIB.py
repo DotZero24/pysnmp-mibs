@@ -1,51 +1,357 @@
+# SNMP MIB module (SUPERMICRO-G8261TS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SUPERMICRO-G8261TS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-G8261TS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:44 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/supermicro/SUPERMICRO-G8261TS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:03:05 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-fsG8261Ts = ModuleIdentity((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72))
-fsG8261Ts.setRevisions(('2012-09-05 00:00',))
-if mibBuilder.loadTexts: fsG8261Ts.setLastUpdated('201209050000Z')
-if mibBuilder.loadTexts: fsG8261Ts.setOrganization('Super Micro Computer Inc.')
-fsG8261TsSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 1))
-fsG8261TsParams = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2))
-fsG8261TsOutput = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 3))
-fsG8261TsModuleStatus = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsG8261TsModuleStatus.setStatus('current')
-fsG8261TsParamsTable = MibTable((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1), )
-if mibBuilder.loadTexts: fsG8261TsParamsTable.setStatus('current')
-fsG8261TsParamsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1), ).setIndexNames((0, "SUPERMICRO-G8261TS-MIB", "fsG8261TsDirection"))
-if mibBuilder.loadTexts: fsG8261TsParamsEntry.setStatus('current')
-fsG8261TsDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("forward", 1), ("reverse", 2))))
-if mibBuilder.loadTexts: fsG8261TsDirection.setStatus('current')
-fsG8261TsSwitchCount = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsG8261TsSwitchCount.setStatus('current')
-fsG8261TsPacketSize = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 3), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsG8261TsPacketSize.setStatus('current')
-fsG8261TsLoad = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 4), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsG8261TsLoad.setStatus('current')
-fsG8261TsNetworkDisturbance = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 5), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsG8261TsNetworkDisturbance.setStatus('current')
-fsG8261TsDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 6), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsG8261TsDuration.setStatus('current')
-fsG8261TsFlowVariationFactor = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("constant", 1), ("incremental", 2), ("decremental", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsG8261TsFlowVariationFactor.setStatus('current')
-fsG8261TsFlowInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 8), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsG8261TsFlowInterval.setStatus('current')
-fsG8261TsFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 9), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsG8261TsFrequency.setStatus('current')
-fsG8261TsMeanVariance = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 3, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsG8261TsMeanVariance.setStatus('current')
-fsG8261TsAccuracy = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 3, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsG8261TsAccuracy.setStatus('current')
-fsG8261TsDelay = MibScalar((1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 3, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsG8261TsDelay.setStatus('current')
-mibBuilder.exportSymbols("SUPERMICRO-G8261TS-MIB", fsG8261TsDelay=fsG8261TsDelay, fsG8261TsSystem=fsG8261TsSystem, fsG8261TsParamsTable=fsG8261TsParamsTable, fsG8261TsDirection=fsG8261TsDirection, fsG8261TsFrequency=fsG8261TsFrequency, fsG8261TsDuration=fsG8261TsDuration, fsG8261TsMeanVariance=fsG8261TsMeanVariance, fsG8261TsParamsEntry=fsG8261TsParamsEntry, fsG8261TsModuleStatus=fsG8261TsModuleStatus, fsG8261TsFlowInterval=fsG8261TsFlowInterval, fsG8261TsOutput=fsG8261TsOutput, fsG8261TsNetworkDisturbance=fsG8261TsNetworkDisturbance, fsG8261Ts=fsG8261Ts, fsG8261TsParams=fsG8261TsParams, fsG8261TsLoad=fsG8261TsLoad, fsG8261TsAccuracy=fsG8261TsAccuracy, fsG8261TsSwitchCount=fsG8261TsSwitchCount, fsG8261TsPacketSize=fsG8261TsPacketSize, PYSNMP_MODULE_ID=fsG8261Ts, fsG8261TsFlowVariationFactor=fsG8261TsFlowVariationFactor)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+fsG8261Ts = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72)
+)
+if mibBuilder.loadTexts:
+    fsG8261Ts.setRevisions(
+        ("2012-09-05 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_FsG8261TsSystem_ObjectIdentity = ObjectIdentity
+fsG8261TsSystem = _FsG8261TsSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 1)
+)
+
+
+class _FsG8261TsModuleStatus_Type(Integer32):
+    """Custom type fsG8261TsModuleStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_FsG8261TsModuleStatus_Type.__name__ = "Integer32"
+_FsG8261TsModuleStatus_Object = MibScalar
+fsG8261TsModuleStatus = _FsG8261TsModuleStatus_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 1, 1),
+    _FsG8261TsModuleStatus_Type()
+)
+fsG8261TsModuleStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsG8261TsModuleStatus.setStatus("current")
+_FsG8261TsParams_ObjectIdentity = ObjectIdentity
+fsG8261TsParams = _FsG8261TsParams_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2)
+)
+_FsG8261TsParamsTable_Object = MibTable
+fsG8261TsParamsTable = _FsG8261TsParamsTable_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1)
+)
+if mibBuilder.loadTexts:
+    fsG8261TsParamsTable.setStatus("current")
+_FsG8261TsParamsEntry_Object = MibTableRow
+fsG8261TsParamsEntry = _FsG8261TsParamsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1)
+)
+fsG8261TsParamsEntry.setIndexNames(
+    (0, "SUPERMICRO-G8261TS-MIB", "fsG8261TsDirection"),
+)
+if mibBuilder.loadTexts:
+    fsG8261TsParamsEntry.setStatus("current")
+
+
+class _FsG8261TsDirection_Type(Integer32):
+    """Custom type fsG8261TsDirection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("forward", 1),
+          ("reverse", 2))
+    )
+
+
+_FsG8261TsDirection_Type.__name__ = "Integer32"
+_FsG8261TsDirection_Object = MibTableColumn
+fsG8261TsDirection = _FsG8261TsDirection_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 1),
+    _FsG8261TsDirection_Type()
+)
+fsG8261TsDirection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    fsG8261TsDirection.setStatus("current")
+_FsG8261TsSwitchCount_Type = Unsigned32
+_FsG8261TsSwitchCount_Object = MibTableColumn
+fsG8261TsSwitchCount = _FsG8261TsSwitchCount_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 2),
+    _FsG8261TsSwitchCount_Type()
+)
+fsG8261TsSwitchCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsG8261TsSwitchCount.setStatus("current")
+_FsG8261TsPacketSize_Type = Unsigned32
+_FsG8261TsPacketSize_Object = MibTableColumn
+fsG8261TsPacketSize = _FsG8261TsPacketSize_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 3),
+    _FsG8261TsPacketSize_Type()
+)
+fsG8261TsPacketSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsG8261TsPacketSize.setStatus("current")
+_FsG8261TsLoad_Type = Unsigned32
+_FsG8261TsLoad_Object = MibTableColumn
+fsG8261TsLoad = _FsG8261TsLoad_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 4),
+    _FsG8261TsLoad_Type()
+)
+fsG8261TsLoad.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsG8261TsLoad.setStatus("current")
+_FsG8261TsNetworkDisturbance_Type = Unsigned32
+_FsG8261TsNetworkDisturbance_Object = MibTableColumn
+fsG8261TsNetworkDisturbance = _FsG8261TsNetworkDisturbance_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 5),
+    _FsG8261TsNetworkDisturbance_Type()
+)
+fsG8261TsNetworkDisturbance.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsG8261TsNetworkDisturbance.setStatus("current")
+_FsG8261TsDuration_Type = Unsigned32
+_FsG8261TsDuration_Object = MibTableColumn
+fsG8261TsDuration = _FsG8261TsDuration_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 6),
+    _FsG8261TsDuration_Type()
+)
+fsG8261TsDuration.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsG8261TsDuration.setStatus("current")
+
+
+class _FsG8261TsFlowVariationFactor_Type(Integer32):
+    """Custom type fsG8261TsFlowVariationFactor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("constant", 1),
+          ("incremental", 2),
+          ("decremental", 3))
+    )
+
+
+_FsG8261TsFlowVariationFactor_Type.__name__ = "Integer32"
+_FsG8261TsFlowVariationFactor_Object = MibTableColumn
+fsG8261TsFlowVariationFactor = _FsG8261TsFlowVariationFactor_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 7),
+    _FsG8261TsFlowVariationFactor_Type()
+)
+fsG8261TsFlowVariationFactor.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsG8261TsFlowVariationFactor.setStatus("current")
+_FsG8261TsFlowInterval_Type = Unsigned32
+_FsG8261TsFlowInterval_Object = MibTableColumn
+fsG8261TsFlowInterval = _FsG8261TsFlowInterval_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 8),
+    _FsG8261TsFlowInterval_Type()
+)
+fsG8261TsFlowInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsG8261TsFlowInterval.setStatus("current")
+_FsG8261TsFrequency_Type = Unsigned32
+_FsG8261TsFrequency_Object = MibTableColumn
+fsG8261TsFrequency = _FsG8261TsFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 2, 1, 1, 9),
+    _FsG8261TsFrequency_Type()
+)
+fsG8261TsFrequency.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsG8261TsFrequency.setStatus("current")
+_FsG8261TsOutput_ObjectIdentity = ObjectIdentity
+fsG8261TsOutput = _FsG8261TsOutput_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 3)
+)
+_FsG8261TsMeanVariance_Type = DisplayString
+_FsG8261TsMeanVariance_Object = MibScalar
+fsG8261TsMeanVariance = _FsG8261TsMeanVariance_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 3, 1),
+    _FsG8261TsMeanVariance_Type()
+)
+fsG8261TsMeanVariance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsG8261TsMeanVariance.setStatus("current")
+_FsG8261TsAccuracy_Type = Integer32
+_FsG8261TsAccuracy_Object = MibScalar
+fsG8261TsAccuracy = _FsG8261TsAccuracy_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 3, 2),
+    _FsG8261TsAccuracy_Type()
+)
+fsG8261TsAccuracy.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsG8261TsAccuracy.setStatus("current")
+_FsG8261TsDelay_Type = DisplayString
+_FsG8261TsDelay_Object = MibScalar
+fsG8261TsDelay = _FsG8261TsDelay_Object(
+    (1, 3, 6, 1, 4, 1, 10876, 101, 2, 72, 3, 3),
+    _FsG8261TsDelay_Type()
+)
+fsG8261TsDelay.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsG8261TsDelay.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SUPERMICRO-G8261TS-MIB",
+    **{"fsG8261Ts": fsG8261Ts,
+       "fsG8261TsSystem": fsG8261TsSystem,
+       "fsG8261TsModuleStatus": fsG8261TsModuleStatus,
+       "fsG8261TsParams": fsG8261TsParams,
+       "fsG8261TsParamsTable": fsG8261TsParamsTable,
+       "fsG8261TsParamsEntry": fsG8261TsParamsEntry,
+       "fsG8261TsDirection": fsG8261TsDirection,
+       "fsG8261TsSwitchCount": fsG8261TsSwitchCount,
+       "fsG8261TsPacketSize": fsG8261TsPacketSize,
+       "fsG8261TsLoad": fsG8261TsLoad,
+       "fsG8261TsNetworkDisturbance": fsG8261TsNetworkDisturbance,
+       "fsG8261TsDuration": fsG8261TsDuration,
+       "fsG8261TsFlowVariationFactor": fsG8261TsFlowVariationFactor,
+       "fsG8261TsFlowInterval": fsG8261TsFlowInterval,
+       "fsG8261TsFrequency": fsG8261TsFrequency,
+       "fsG8261TsOutput": fsG8261TsOutput,
+       "fsG8261TsMeanVariance": fsG8261TsMeanVariance,
+       "fsG8261TsAccuracy": fsG8261TsAccuracy,
+       "fsG8261TsDelay": fsG8261TsDelay}
+)

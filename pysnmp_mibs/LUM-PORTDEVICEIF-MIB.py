@@ -1,169 +1,1099 @@
+# SNMP MIB module (LUM-PORTDEVICEIF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module LUM-PORTDEVICEIF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/LUM-PORTDEVICEIF-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:20:51 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/infinera/LUM-PORTDEVICEIF-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:14:47 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-lumPortdeviceIfMIB, lumModules = mibBuilder.importSymbols("LUM-REG", "lumPortdeviceIfMIB", "lumModules")
-FaultStatus, LambdaFrequency, MgmtNameString, TrxMedia, OnOff, BoardOrInterfaceOperStatus, SlotNumber, SubrackNumber, AdminStatus = mibBuilder.importSymbols("LUM-TC", "FaultStatus", "LambdaFrequency", "MgmtNameString", "TrxMedia", "OnOff", "BoardOrInterfaceOperStatus", "SlotNumber", "SubrackNumber", "AdminStatus")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention")
-lumPortdeviceIfMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 8708, 1, 1, 58))
-lumPortdeviceIfMIBModule.setRevisions(('2017-06-15 00:00', '2013-05-31 00:00',))
-if mibBuilder.loadTexts: lumPortdeviceIfMIBModule.setLastUpdated('201706150000Z')
-if mibBuilder.loadTexts: lumPortdeviceIfMIBModule.setOrganization('Infinera Corporation')
-lumPortdeviceIfConfs = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 58, 1))
-lumPortdeviceIfGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 1))
-lumPortdeviceIfCompl = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 2))
-lumPortdeviceIfMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2))
-portDevIfGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 1))
-portDevIfL1List = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2))
-portDevIfL2List = MibIdentifier((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(lumModules,
+ lumPortdeviceIfMIB) = mibBuilder.importSymbols(
+    "LUM-REG",
+    "lumModules",
+    "lumPortdeviceIfMIB")
+
+(AdminStatus,
+ BoardOrInterfaceOperStatus,
+ FaultStatus,
+ LambdaFrequency,
+ MgmtNameString,
+ OnOff,
+ SlotNumber,
+ SubrackNumber,
+ TrxMedia) = mibBuilder.importSymbols(
+    "LUM-TC",
+    "AdminStatus",
+    "BoardOrInterfaceOperStatus",
+    "FaultStatus",
+    "LambdaFrequency",
+    "MgmtNameString",
+    "OnOff",
+    "SlotNumber",
+    "SubrackNumber",
+    "TrxMedia")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+lumPortdeviceIfMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 8708, 1, 1, 58)
+)
+if mibBuilder.loadTexts:
+    lumPortdeviceIfMIBModule.setRevisions(
+        ("2017-06-15 00:00",
+         "2013-05-31 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class LumPortDeviceDuplexMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 254, 255))
-    namedValues = NamedValues(("halfDuplex", 0), ("fullDuplex", 1), ("autoDuplex", 2), ("incomplete", 3), ("duplexNotAvailable", 254), ("duplexNotApplicable", 255))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              254,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("halfDuplex", 0),
+          ("fullDuplex", 1),
+          ("autoDuplex", 2),
+          ("incomplete", 3),
+          ("duplexNotAvailable", 254),
+          ("duplexNotApplicable", 255))
+    )
+
+
 
 class LumPortDeviceInterfaceSpeed(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("fastEthernet", 0), ("gbE", 1))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fastEthernet", 0),
+          ("gbE", 1))
+    )
+
+
 
 class LumPortDeviceMasterSlaveRole(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 254, 255))
-    namedValues = NamedValues(("msMaster", 0), ("msSlave", 1), ("msAuto", 2), ("msNotAvailable", 254), ("msNotApplicable", 255))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              254,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("msMaster", 0),
+          ("msSlave", 1),
+          ("msAuto", 2),
+          ("msNotAvailable", 254),
+          ("msNotApplicable", 255))
+    )
+
+
 
 class LumPortDeviceMdixMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 254, 255))
-    namedValues = NamedValues(("mdi", 0), ("mdix", 1), ("mdiNotAvailable", 254), ("mdiNotApplicable", 255))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              254,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mdi", 0),
+          ("mdix", 1),
+          ("mdiNotAvailable", 254),
+          ("mdiNotApplicable", 255))
+    )
+
+
 
 class LumPortDevicePauseMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 254, 255))
-    namedValues = NamedValues(("pauseDisabled", 0), ("pauseEnabled", 1), ("pauseTxEnabledRxDisabled", 2), ("pauseTxDisabledRxEnabled", 3), ("pauseAuto", 4), ("pauseNotAvailable", 254), ("pauseNotApplicable", 255))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              254,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pauseDisabled", 0),
+          ("pauseEnabled", 1),
+          ("pauseTxEnabledRxDisabled", 2),
+          ("pauseTxDisabledRxEnabled", 3),
+          ("pauseAuto", 4),
+          ("pauseNotAvailable", 254),
+          ("pauseNotApplicable", 255))
+    )
+
+
 
 class LumPortDeviceInterface(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
-    namedValues = NamedValues(("interfaceNone", 0), ("ifNif", 1), ("ifCifA", 2), ("ifCifB", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("interfaceNone", 0),
+          ("ifNif", 1),
+          ("ifCifA", 2),
+          ("ifCifB", 3))
+    )
 
-portDevIfGeneralLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 1, 1), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfGeneralLastChangeTime.setStatus('current')
-portDevIfGeneralStateLastChangeTime = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 1, 2), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfGeneralStateLastChangeTime.setStatus('current')
-portDevIfL1TableSize = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1TableSize.setStatus('current')
-portDevIfL2TableSize = MibScalar((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL2TableSize.setStatus('current')
-portDevIfL1Table = MibTable((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1), )
-if mibBuilder.loadTexts: portDevIfL1Table.setStatus('current')
-portDevIfL1Entry = MibTableRow((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1), ).setIndexNames((0, "LUM-PORTDEVICEIF-MIB", "portDevIfIndex"))
-if mibBuilder.loadTexts: portDevIfL1Entry.setStatus('current')
-portDevIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfIndex.setStatus('current')
-portDevIfL1Name = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 2), MgmtNameString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1Name.setStatus('current')
-portDevIfL1Descr = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDevIfL1Descr.setStatus('current')
-portDevIfL1AdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 4), AdminStatus().clone('up')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDevIfL1AdminStatus.setStatus('current')
-portDevIfL1OperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 5), BoardOrInterfaceOperStatus().clone('up')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1OperStatus.setStatus('current')
-portDevIfL1PortDevId = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL1PortDevId.setStatus('current')
-portDevIfL1Subrack = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 7), SubrackNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL1Subrack.setStatus('current')
-portDevIfL1Slot = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 8), SlotNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL1Slot.setStatus('current')
-portDevIfL1LocalPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL1LocalPort.setStatus('current')
-portDevIfL1VlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL1VlanId.setStatus('current')
-portDevIfL1NidPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 11), LumPortDeviceInterface()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL1NidPort.setStatus('current')
-portDevIfL1InternalReference = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL1InternalReference.setStatus('current')
-portDevIfL1LaserStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2))).clone('on')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1LaserStatus.setStatus('current')
-portDevIfL1LaserBias = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 14), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1LaserBias.setStatus('current')
-portDevIfL1LaserTempActual = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1LaserTempActual.setStatus('current')
-portDevIfL1TxFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 16), LambdaFrequency()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1TxFrequency.setStatus('current')
-portDevIfL1ExpectedTxFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 17), LambdaFrequency()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDevIfL1ExpectedTxFrequency.setStatus('current')
-portDevIfL1SignalFormat = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 18), LumPortDeviceInterfaceSpeed().clone('gbE')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDevIfL1SignalFormat.setStatus('current')
-portDevIfL1TrxMedia = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 19), TrxMedia().clone('optical')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL1TrxMedia.setStatus('current')
-portDevIfL1ReceiverSensitivity = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 20), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1ReceiverSensitivity.setStatus('current')
-portDevIfL1PowerLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 21), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1PowerLevel.setStatus('current')
-portDevIfL1PowerLevelLowRelativeThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-50, 100)).clone(30)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDevIfL1PowerLevelLowRelativeThreshold.setStatus('current')
-portDevIfL1TxPowerLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 23), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1TxPowerLevel.setStatus('current')
-portDevIfL1RxHighPower = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 24), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1RxHighPower.setStatus('current')
-portDevIfL1TrxClass = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 25), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1TrxClass.setStatus('current')
-portDevIfL1LossOfSignal = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 26), FaultStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1LossOfSignal.setStatus('current')
-portDevIfL1TrxMissing = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 27), FaultStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1TrxMissing.setStatus('current')
-portDevIfL1ReceivedPowerLow = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 28), FaultStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1ReceivedPowerLow.setStatus('current')
-portDevIfL1ReceivedPowerHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 29), FaultStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL1ReceivedPowerHigh.setStatus('current')
-portDevIfL2Table = MibTable((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1), )
-if mibBuilder.loadTexts: portDevIfL2Table.setStatus('current')
-portDevIfL2Entry = MibTableRow((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1), ).setIndexNames((0, "LUM-PORTDEVICEIF-MIB", "portDevIfL2Index"))
-if mibBuilder.loadTexts: portDevIfL2Entry.setStatus('current')
-portDevIfL2Index = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 1), InterfaceIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL2Index.setStatus('current')
-portDevIfL2Name = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 2), MgmtNameString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL2Name.setStatus('current')
-portDevIfL2Descr = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDevIfL2Descr.setStatus('current')
-portDevIfL2PortDevId = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL2PortDevId.setStatus('current')
-portDevIfL2Subrack = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 5), SubrackNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL2Subrack.setStatus('current')
-portDevIfL2Slot = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 6), SlotNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL2Slot.setStatus('current')
-portDevIfL2LocalPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL2LocalPort.setStatus('current')
-portDevIfL2VlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL2VlanId.setStatus('current')
-portDevIfL2NidPort = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 9), LumPortDeviceInterface()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL2NidPort.setStatus('current')
-portDevIfL2InternalReference = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: portDevIfL2InternalReference.setStatus('current')
-portDevIfL2AutoNegotiation = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 11), OnOff().clone('on')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portDevIfL2AutoNegotiation.setStatus('current')
-portDevIfL2AutoNegotiationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 12), LumPortDeviceDuplexMode().clone('incomplete')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portDevIfL2AutoNegotiationStatus.setStatus('current')
-portDevIfGeneralGroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 1, 1)).setObjects(("LUM-PORTDEVICEIF-MIB", "portDevIfGeneralLastChangeTime"), ("LUM-PORTDEVICEIF-MIB", "portDevIfGeneralStateLastChangeTime"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TableSize"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2TableSize"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    portDevIfGeneralGroupV1 = portDevIfGeneralGroupV1.setStatus('current')
-portDevIfL1GroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 1, 2)).setObjects(("LUM-PORTDEVICEIF-MIB", "portDevIfIndex"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1Name"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1Descr"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1AdminStatus"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1OperStatus"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1PortDevId"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1Subrack"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1Slot"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1LocalPort"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1VlanId"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1NidPort"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1InternalReference"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1LaserStatus"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1LaserBias"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1LaserTempActual"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TxFrequency"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1ExpectedTxFrequency"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1SignalFormat"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TrxMedia"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1ReceiverSensitivity"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1PowerLevel"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1PowerLevelLowRelativeThreshold"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TxPowerLevel"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1RxHighPower"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TrxClass"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1LossOfSignal"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TrxMissing"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1ReceivedPowerLow"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1ReceivedPowerHigh"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    portDevIfL1GroupV1 = portDevIfL1GroupV1.setStatus('current')
-portDevIfL2GroupV1 = ObjectGroup((1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 1, 3)).setObjects(("LUM-PORTDEVICEIF-MIB", "portDevIfL2Index"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2Name"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2Descr"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2PortDevId"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2Subrack"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2Slot"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2LocalPort"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2VlanId"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2NidPort"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2InternalReference"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2AutoNegotiation"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2AutoNegotiationStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    portDevIfL2GroupV1 = portDevIfL2GroupV1.setStatus('current')
-lumPortDeviceBasicComplV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 2, 1)).setObjects(("LUM-PORTDEVICEIF-MIB", "portDevIfGeneralGroupV1"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL1GroupV1"), ("LUM-PORTDEVICEIF-MIB", "portDevIfL2GroupV1"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    lumPortDeviceBasicComplV1 = lumPortDeviceBasicComplV1.setStatus('current')
-mibBuilder.exportSymbols("LUM-PORTDEVICEIF-MIB", lumPortDeviceBasicComplV1=lumPortDeviceBasicComplV1, portDevIfL1ExpectedTxFrequency=portDevIfL1ExpectedTxFrequency, portDevIfL1TrxMissing=portDevIfL1TrxMissing, portDevIfL1Slot=portDevIfL1Slot, portDevIfL1NidPort=portDevIfL1NidPort, portDevIfL1LaserTempActual=portDevIfL1LaserTempActual, portDevIfL1ReceivedPowerHigh=portDevIfL1ReceivedPowerHigh, portDevIfL2GroupV1=portDevIfL2GroupV1, portDevIfL1SignalFormat=portDevIfL1SignalFormat, lumPortdeviceIfCompl=lumPortdeviceIfCompl, portDevIfL1Entry=portDevIfL1Entry, portDevIfL1Descr=portDevIfL1Descr, portDevIfL1Name=portDevIfL1Name, lumPortdeviceIfMIBObjects=lumPortdeviceIfMIBObjects, portDevIfGeneralLastChangeTime=portDevIfGeneralLastChangeTime, portDevIfL2List=portDevIfL2List, lumPortdeviceIfConfs=lumPortdeviceIfConfs, portDevIfIndex=portDevIfIndex, portDevIfL1PortDevId=portDevIfL1PortDevId, portDevIfL1PowerLevel=portDevIfL1PowerLevel, portDevIfL1TxPowerLevel=portDevIfL1TxPowerLevel, LumPortDeviceMasterSlaveRole=LumPortDeviceMasterSlaveRole, portDevIfL1VlanId=portDevIfL1VlanId, portDevIfL2NidPort=portDevIfL2NidPort, portDevIfL1TrxMedia=portDevIfL1TrxMedia, portDevIfL2InternalReference=portDevIfL2InternalReference, portDevIfL1GroupV1=portDevIfL1GroupV1, portDevIfL1TableSize=portDevIfL1TableSize, portDevIfL2PortDevId=portDevIfL2PortDevId, portDevIfL1OperStatus=portDevIfL1OperStatus, portDevIfL1InternalReference=portDevIfL1InternalReference, LumPortDeviceInterface=LumPortDeviceInterface, portDevIfL2Descr=portDevIfL2Descr, portDevIfL1LossOfSignal=portDevIfL1LossOfSignal, portDevIfL1List=portDevIfL1List, lumPortdeviceIfMIBModule=lumPortdeviceIfMIBModule, portDevIfL2Name=portDevIfL2Name, portDevIfL1RxHighPower=portDevIfL1RxHighPower, portDevIfL1LaserStatus=portDevIfL1LaserStatus, portDevIfL2TableSize=portDevIfL2TableSize, portDevIfL1LaserBias=portDevIfL1LaserBias, portDevIfL1ReceivedPowerLow=portDevIfL1ReceivedPowerLow, portDevIfGeneralStateLastChangeTime=portDevIfGeneralStateLastChangeTime, portDevIfL2LocalPort=portDevIfL2LocalPort, portDevIfL2Table=portDevIfL2Table, portDevIfL1Subrack=portDevIfL1Subrack, portDevIfL1TxFrequency=portDevIfL1TxFrequency, LumPortDeviceInterfaceSpeed=LumPortDeviceInterfaceSpeed, portDevIfL1ReceiverSensitivity=portDevIfL1ReceiverSensitivity, lumPortdeviceIfGroups=lumPortdeviceIfGroups, LumPortDeviceDuplexMode=LumPortDeviceDuplexMode, portDevIfGeneralGroupV1=portDevIfGeneralGroupV1, portDevIfL2Index=portDevIfL2Index, PYSNMP_MODULE_ID=lumPortdeviceIfMIBModule, portDevIfL1AdminStatus=portDevIfL1AdminStatus, LumPortDevicePauseMode=LumPortDevicePauseMode, portDevIfL2VlanId=portDevIfL2VlanId, portDevIfL1Table=portDevIfL1Table, portDevIfL2Subrack=portDevIfL2Subrack, portDevIfL2AutoNegotiation=portDevIfL2AutoNegotiation, portDevIfL1LocalPort=portDevIfL1LocalPort, portDevIfL1PowerLevelLowRelativeThreshold=portDevIfL1PowerLevelLowRelativeThreshold, portDevIfL2Slot=portDevIfL2Slot, LumPortDeviceMdixMode=LumPortDeviceMdixMode, portDevIfL1TrxClass=portDevIfL1TrxClass, portDevIfGeneral=portDevIfGeneral, portDevIfL2AutoNegotiationStatus=portDevIfL2AutoNegotiationStatus, portDevIfL2Entry=portDevIfL2Entry)
+
+# MIB Managed Objects in the order of their OIDs
+
+_LumPortdeviceIfConfs_ObjectIdentity = ObjectIdentity
+lumPortdeviceIfConfs = _LumPortdeviceIfConfs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 1)
+)
+_LumPortdeviceIfGroups_ObjectIdentity = ObjectIdentity
+lumPortdeviceIfGroups = _LumPortdeviceIfGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 1)
+)
+_LumPortdeviceIfCompl_ObjectIdentity = ObjectIdentity
+lumPortdeviceIfCompl = _LumPortdeviceIfCompl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 2)
+)
+_LumPortdeviceIfMIBObjects_ObjectIdentity = ObjectIdentity
+lumPortdeviceIfMIBObjects = _LumPortdeviceIfMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2)
+)
+_PortDevIfGeneral_ObjectIdentity = ObjectIdentity
+portDevIfGeneral = _PortDevIfGeneral_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 1)
+)
+_PortDevIfGeneralLastChangeTime_Type = DateAndTime
+_PortDevIfGeneralLastChangeTime_Object = MibScalar
+portDevIfGeneralLastChangeTime = _PortDevIfGeneralLastChangeTime_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 1, 1),
+    _PortDevIfGeneralLastChangeTime_Type()
+)
+portDevIfGeneralLastChangeTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfGeneralLastChangeTime.setStatus("current")
+_PortDevIfGeneralStateLastChangeTime_Type = DateAndTime
+_PortDevIfGeneralStateLastChangeTime_Object = MibScalar
+portDevIfGeneralStateLastChangeTime = _PortDevIfGeneralStateLastChangeTime_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 1, 2),
+    _PortDevIfGeneralStateLastChangeTime_Type()
+)
+portDevIfGeneralStateLastChangeTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfGeneralStateLastChangeTime.setStatus("current")
+_PortDevIfL1TableSize_Type = Unsigned32
+_PortDevIfL1TableSize_Object = MibScalar
+portDevIfL1TableSize = _PortDevIfL1TableSize_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 1, 3),
+    _PortDevIfL1TableSize_Type()
+)
+portDevIfL1TableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1TableSize.setStatus("current")
+_PortDevIfL2TableSize_Type = Unsigned32
+_PortDevIfL2TableSize_Object = MibScalar
+portDevIfL2TableSize = _PortDevIfL2TableSize_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 1, 4),
+    _PortDevIfL2TableSize_Type()
+)
+portDevIfL2TableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL2TableSize.setStatus("current")
+_PortDevIfL1List_ObjectIdentity = ObjectIdentity
+portDevIfL1List = _PortDevIfL1List_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2)
+)
+_PortDevIfL1Table_Object = MibTable
+portDevIfL1Table = _PortDevIfL1Table_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    portDevIfL1Table.setStatus("current")
+_PortDevIfL1Entry_Object = MibTableRow
+portDevIfL1Entry = _PortDevIfL1Entry_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1)
+)
+portDevIfL1Entry.setIndexNames(
+    (0, "LUM-PORTDEVICEIF-MIB", "portDevIfIndex"),
+)
+if mibBuilder.loadTexts:
+    portDevIfL1Entry.setStatus("current")
+_PortDevIfIndex_Type = InterfaceIndex
+_PortDevIfIndex_Object = MibTableColumn
+portDevIfIndex = _PortDevIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 1),
+    _PortDevIfIndex_Type()
+)
+portDevIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfIndex.setStatus("current")
+_PortDevIfL1Name_Type = MgmtNameString
+_PortDevIfL1Name_Object = MibTableColumn
+portDevIfL1Name = _PortDevIfL1Name_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 2),
+    _PortDevIfL1Name_Type()
+)
+portDevIfL1Name.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1Name.setStatus("current")
+
+
+class _PortDevIfL1Descr_Type(DisplayString):
+    """Custom type portDevIfL1Descr based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_PortDevIfL1Descr_Type.__name__ = "DisplayString"
+_PortDevIfL1Descr_Object = MibTableColumn
+portDevIfL1Descr = _PortDevIfL1Descr_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 3),
+    _PortDevIfL1Descr_Type()
+)
+portDevIfL1Descr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDevIfL1Descr.setStatus("current")
+
+
+class _PortDevIfL1AdminStatus_Type(AdminStatus):
+    """Custom type portDevIfL1AdminStatus based on AdminStatus"""
+    defaultValue = 2
+
+
+_PortDevIfL1AdminStatus_Type.__name__ = "AdminStatus"
+_PortDevIfL1AdminStatus_Object = MibTableColumn
+portDevIfL1AdminStatus = _PortDevIfL1AdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 4),
+    _PortDevIfL1AdminStatus_Type()
+)
+portDevIfL1AdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDevIfL1AdminStatus.setStatus("current")
+
+
+class _PortDevIfL1OperStatus_Type(BoardOrInterfaceOperStatus):
+    """Custom type portDevIfL1OperStatus based on BoardOrInterfaceOperStatus"""
+    defaultValue = 3
+
+
+_PortDevIfL1OperStatus_Type.__name__ = "BoardOrInterfaceOperStatus"
+_PortDevIfL1OperStatus_Object = MibTableColumn
+portDevIfL1OperStatus = _PortDevIfL1OperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 5),
+    _PortDevIfL1OperStatus_Type()
+)
+portDevIfL1OperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1OperStatus.setStatus("current")
+
+
+class _PortDevIfL1PortDevId_Type(Unsigned32):
+    """Custom type portDevIfL1PortDevId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_PortDevIfL1PortDevId_Type.__name__ = "Unsigned32"
+_PortDevIfL1PortDevId_Object = MibTableColumn
+portDevIfL1PortDevId = _PortDevIfL1PortDevId_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 6),
+    _PortDevIfL1PortDevId_Type()
+)
+portDevIfL1PortDevId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL1PortDevId.setStatus("current")
+_PortDevIfL1Subrack_Type = SubrackNumber
+_PortDevIfL1Subrack_Object = MibTableColumn
+portDevIfL1Subrack = _PortDevIfL1Subrack_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 7),
+    _PortDevIfL1Subrack_Type()
+)
+portDevIfL1Subrack.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL1Subrack.setStatus("current")
+_PortDevIfL1Slot_Type = SlotNumber
+_PortDevIfL1Slot_Object = MibTableColumn
+portDevIfL1Slot = _PortDevIfL1Slot_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 8),
+    _PortDevIfL1Slot_Type()
+)
+portDevIfL1Slot.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL1Slot.setStatus("current")
+
+
+class _PortDevIfL1LocalPort_Type(Unsigned32):
+    """Custom type portDevIfL1LocalPort based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_PortDevIfL1LocalPort_Type.__name__ = "Unsigned32"
+_PortDevIfL1LocalPort_Object = MibTableColumn
+portDevIfL1LocalPort = _PortDevIfL1LocalPort_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 9),
+    _PortDevIfL1LocalPort_Type()
+)
+portDevIfL1LocalPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL1LocalPort.setStatus("current")
+
+
+class _PortDevIfL1VlanId_Type(Unsigned32):
+    """Custom type portDevIfL1VlanId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_PortDevIfL1VlanId_Type.__name__ = "Unsigned32"
+_PortDevIfL1VlanId_Object = MibTableColumn
+portDevIfL1VlanId = _PortDevIfL1VlanId_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 10),
+    _PortDevIfL1VlanId_Type()
+)
+portDevIfL1VlanId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL1VlanId.setStatus("current")
+_PortDevIfL1NidPort_Type = LumPortDeviceInterface
+_PortDevIfL1NidPort_Object = MibTableColumn
+portDevIfL1NidPort = _PortDevIfL1NidPort_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 11),
+    _PortDevIfL1NidPort_Type()
+)
+portDevIfL1NidPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL1NidPort.setStatus("current")
+
+
+class _PortDevIfL1InternalReference_Type(Unsigned32):
+    """Custom type portDevIfL1InternalReference based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_PortDevIfL1InternalReference_Type.__name__ = "Unsigned32"
+_PortDevIfL1InternalReference_Object = MibTableColumn
+portDevIfL1InternalReference = _PortDevIfL1InternalReference_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 12),
+    _PortDevIfL1InternalReference_Type()
+)
+portDevIfL1InternalReference.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL1InternalReference.setStatus("current")
+
+
+class _PortDevIfL1LaserStatus_Type(Integer32):
+    """Custom type portDevIfL1LaserStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_PortDevIfL1LaserStatus_Type.__name__ = "Integer32"
+_PortDevIfL1LaserStatus_Object = MibTableColumn
+portDevIfL1LaserStatus = _PortDevIfL1LaserStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 13),
+    _PortDevIfL1LaserStatus_Type()
+)
+portDevIfL1LaserStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1LaserStatus.setStatus("current")
+_PortDevIfL1LaserBias_Type = Unsigned32
+_PortDevIfL1LaserBias_Object = MibTableColumn
+portDevIfL1LaserBias = _PortDevIfL1LaserBias_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 14),
+    _PortDevIfL1LaserBias_Type()
+)
+portDevIfL1LaserBias.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1LaserBias.setStatus("current")
+_PortDevIfL1LaserTempActual_Type = Integer32
+_PortDevIfL1LaserTempActual_Object = MibTableColumn
+portDevIfL1LaserTempActual = _PortDevIfL1LaserTempActual_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 15),
+    _PortDevIfL1LaserTempActual_Type()
+)
+portDevIfL1LaserTempActual.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1LaserTempActual.setStatus("current")
+_PortDevIfL1TxFrequency_Type = LambdaFrequency
+_PortDevIfL1TxFrequency_Object = MibTableColumn
+portDevIfL1TxFrequency = _PortDevIfL1TxFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 16),
+    _PortDevIfL1TxFrequency_Type()
+)
+portDevIfL1TxFrequency.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1TxFrequency.setStatus("current")
+
+
+class _PortDevIfL1ExpectedTxFrequency_Type(LambdaFrequency):
+    """Custom type portDevIfL1ExpectedTxFrequency based on LambdaFrequency"""
+    defaultValue = 0
+
+
+_PortDevIfL1ExpectedTxFrequency_Type.__name__ = "LambdaFrequency"
+_PortDevIfL1ExpectedTxFrequency_Object = MibTableColumn
+portDevIfL1ExpectedTxFrequency = _PortDevIfL1ExpectedTxFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 17),
+    _PortDevIfL1ExpectedTxFrequency_Type()
+)
+portDevIfL1ExpectedTxFrequency.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDevIfL1ExpectedTxFrequency.setStatus("current")
+
+
+class _PortDevIfL1SignalFormat_Type(LumPortDeviceInterfaceSpeed):
+    """Custom type portDevIfL1SignalFormat based on LumPortDeviceInterfaceSpeed"""
+    defaultValue = 1
+
+
+_PortDevIfL1SignalFormat_Type.__name__ = "LumPortDeviceInterfaceSpeed"
+_PortDevIfL1SignalFormat_Object = MibTableColumn
+portDevIfL1SignalFormat = _PortDevIfL1SignalFormat_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 18),
+    _PortDevIfL1SignalFormat_Type()
+)
+portDevIfL1SignalFormat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDevIfL1SignalFormat.setStatus("current")
+
+
+class _PortDevIfL1TrxMedia_Type(TrxMedia):
+    """Custom type portDevIfL1TrxMedia based on TrxMedia"""
+    defaultValue = 1
+
+
+_PortDevIfL1TrxMedia_Type.__name__ = "TrxMedia"
+_PortDevIfL1TrxMedia_Object = MibTableColumn
+portDevIfL1TrxMedia = _PortDevIfL1TrxMedia_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 19),
+    _PortDevIfL1TrxMedia_Type()
+)
+portDevIfL1TrxMedia.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL1TrxMedia.setStatus("current")
+_PortDevIfL1ReceiverSensitivity_Type = Integer32
+_PortDevIfL1ReceiverSensitivity_Object = MibTableColumn
+portDevIfL1ReceiverSensitivity = _PortDevIfL1ReceiverSensitivity_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 20),
+    _PortDevIfL1ReceiverSensitivity_Type()
+)
+portDevIfL1ReceiverSensitivity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1ReceiverSensitivity.setStatus("current")
+_PortDevIfL1PowerLevel_Type = Integer32
+_PortDevIfL1PowerLevel_Object = MibTableColumn
+portDevIfL1PowerLevel = _PortDevIfL1PowerLevel_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 21),
+    _PortDevIfL1PowerLevel_Type()
+)
+portDevIfL1PowerLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1PowerLevel.setStatus("current")
+
+
+class _PortDevIfL1PowerLevelLowRelativeThreshold_Type(Integer32):
+    """Custom type portDevIfL1PowerLevelLowRelativeThreshold based on Integer32"""
+    defaultValue = 30
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-50, 100),
+    )
+
+
+_PortDevIfL1PowerLevelLowRelativeThreshold_Type.__name__ = "Integer32"
+_PortDevIfL1PowerLevelLowRelativeThreshold_Object = MibTableColumn
+portDevIfL1PowerLevelLowRelativeThreshold = _PortDevIfL1PowerLevelLowRelativeThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 22),
+    _PortDevIfL1PowerLevelLowRelativeThreshold_Type()
+)
+portDevIfL1PowerLevelLowRelativeThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDevIfL1PowerLevelLowRelativeThreshold.setStatus("current")
+_PortDevIfL1TxPowerLevel_Type = Integer32
+_PortDevIfL1TxPowerLevel_Object = MibTableColumn
+portDevIfL1TxPowerLevel = _PortDevIfL1TxPowerLevel_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 23),
+    _PortDevIfL1TxPowerLevel_Type()
+)
+portDevIfL1TxPowerLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1TxPowerLevel.setStatus("current")
+_PortDevIfL1RxHighPower_Type = Integer32
+_PortDevIfL1RxHighPower_Object = MibTableColumn
+portDevIfL1RxHighPower = _PortDevIfL1RxHighPower_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 24),
+    _PortDevIfL1RxHighPower_Type()
+)
+portDevIfL1RxHighPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1RxHighPower.setStatus("current")
+
+
+class _PortDevIfL1TrxClass_Type(DisplayString):
+    """Custom type portDevIfL1TrxClass based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_PortDevIfL1TrxClass_Type.__name__ = "DisplayString"
+_PortDevIfL1TrxClass_Object = MibTableColumn
+portDevIfL1TrxClass = _PortDevIfL1TrxClass_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 25),
+    _PortDevIfL1TrxClass_Type()
+)
+portDevIfL1TrxClass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1TrxClass.setStatus("current")
+_PortDevIfL1LossOfSignal_Type = FaultStatus
+_PortDevIfL1LossOfSignal_Object = MibTableColumn
+portDevIfL1LossOfSignal = _PortDevIfL1LossOfSignal_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 26),
+    _PortDevIfL1LossOfSignal_Type()
+)
+portDevIfL1LossOfSignal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1LossOfSignal.setStatus("current")
+_PortDevIfL1TrxMissing_Type = FaultStatus
+_PortDevIfL1TrxMissing_Object = MibTableColumn
+portDevIfL1TrxMissing = _PortDevIfL1TrxMissing_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 27),
+    _PortDevIfL1TrxMissing_Type()
+)
+portDevIfL1TrxMissing.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1TrxMissing.setStatus("current")
+_PortDevIfL1ReceivedPowerLow_Type = FaultStatus
+_PortDevIfL1ReceivedPowerLow_Object = MibTableColumn
+portDevIfL1ReceivedPowerLow = _PortDevIfL1ReceivedPowerLow_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 28),
+    _PortDevIfL1ReceivedPowerLow_Type()
+)
+portDevIfL1ReceivedPowerLow.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1ReceivedPowerLow.setStatus("current")
+_PortDevIfL1ReceivedPowerHigh_Type = FaultStatus
+_PortDevIfL1ReceivedPowerHigh_Object = MibTableColumn
+portDevIfL1ReceivedPowerHigh = _PortDevIfL1ReceivedPowerHigh_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 2, 1, 1, 29),
+    _PortDevIfL1ReceivedPowerHigh_Type()
+)
+portDevIfL1ReceivedPowerHigh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL1ReceivedPowerHigh.setStatus("current")
+_PortDevIfL2List_ObjectIdentity = ObjectIdentity
+portDevIfL2List = _PortDevIfL2List_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3)
+)
+_PortDevIfL2Table_Object = MibTable
+portDevIfL2Table = _PortDevIfL2Table_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1)
+)
+if mibBuilder.loadTexts:
+    portDevIfL2Table.setStatus("current")
+_PortDevIfL2Entry_Object = MibTableRow
+portDevIfL2Entry = _PortDevIfL2Entry_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1)
+)
+portDevIfL2Entry.setIndexNames(
+    (0, "LUM-PORTDEVICEIF-MIB", "portDevIfL2Index"),
+)
+if mibBuilder.loadTexts:
+    portDevIfL2Entry.setStatus("current")
+_PortDevIfL2Index_Type = InterfaceIndex
+_PortDevIfL2Index_Object = MibTableColumn
+portDevIfL2Index = _PortDevIfL2Index_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 1),
+    _PortDevIfL2Index_Type()
+)
+portDevIfL2Index.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL2Index.setStatus("current")
+_PortDevIfL2Name_Type = MgmtNameString
+_PortDevIfL2Name_Object = MibTableColumn
+portDevIfL2Name = _PortDevIfL2Name_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 2),
+    _PortDevIfL2Name_Type()
+)
+portDevIfL2Name.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL2Name.setStatus("current")
+
+
+class _PortDevIfL2Descr_Type(DisplayString):
+    """Custom type portDevIfL2Descr based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_PortDevIfL2Descr_Type.__name__ = "DisplayString"
+_PortDevIfL2Descr_Object = MibTableColumn
+portDevIfL2Descr = _PortDevIfL2Descr_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 3),
+    _PortDevIfL2Descr_Type()
+)
+portDevIfL2Descr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDevIfL2Descr.setStatus("current")
+
+
+class _PortDevIfL2PortDevId_Type(Unsigned32):
+    """Custom type portDevIfL2PortDevId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_PortDevIfL2PortDevId_Type.__name__ = "Unsigned32"
+_PortDevIfL2PortDevId_Object = MibTableColumn
+portDevIfL2PortDevId = _PortDevIfL2PortDevId_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 4),
+    _PortDevIfL2PortDevId_Type()
+)
+portDevIfL2PortDevId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL2PortDevId.setStatus("current")
+_PortDevIfL2Subrack_Type = SubrackNumber
+_PortDevIfL2Subrack_Object = MibTableColumn
+portDevIfL2Subrack = _PortDevIfL2Subrack_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 5),
+    _PortDevIfL2Subrack_Type()
+)
+portDevIfL2Subrack.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL2Subrack.setStatus("current")
+_PortDevIfL2Slot_Type = SlotNumber
+_PortDevIfL2Slot_Object = MibTableColumn
+portDevIfL2Slot = _PortDevIfL2Slot_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 6),
+    _PortDevIfL2Slot_Type()
+)
+portDevIfL2Slot.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL2Slot.setStatus("current")
+
+
+class _PortDevIfL2LocalPort_Type(Unsigned32):
+    """Custom type portDevIfL2LocalPort based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_PortDevIfL2LocalPort_Type.__name__ = "Unsigned32"
+_PortDevIfL2LocalPort_Object = MibTableColumn
+portDevIfL2LocalPort = _PortDevIfL2LocalPort_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 7),
+    _PortDevIfL2LocalPort_Type()
+)
+portDevIfL2LocalPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL2LocalPort.setStatus("current")
+
+
+class _PortDevIfL2VlanId_Type(Unsigned32):
+    """Custom type portDevIfL2VlanId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_PortDevIfL2VlanId_Type.__name__ = "Unsigned32"
+_PortDevIfL2VlanId_Object = MibTableColumn
+portDevIfL2VlanId = _PortDevIfL2VlanId_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 8),
+    _PortDevIfL2VlanId_Type()
+)
+portDevIfL2VlanId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL2VlanId.setStatus("current")
+_PortDevIfL2NidPort_Type = LumPortDeviceInterface
+_PortDevIfL2NidPort_Object = MibTableColumn
+portDevIfL2NidPort = _PortDevIfL2NidPort_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 9),
+    _PortDevIfL2NidPort_Type()
+)
+portDevIfL2NidPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL2NidPort.setStatus("current")
+
+
+class _PortDevIfL2InternalReference_Type(Unsigned32):
+    """Custom type portDevIfL2InternalReference based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_PortDevIfL2InternalReference_Type.__name__ = "Unsigned32"
+_PortDevIfL2InternalReference_Object = MibTableColumn
+portDevIfL2InternalReference = _PortDevIfL2InternalReference_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 10),
+    _PortDevIfL2InternalReference_Type()
+)
+portDevIfL2InternalReference.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    portDevIfL2InternalReference.setStatus("current")
+
+
+class _PortDevIfL2AutoNegotiation_Type(OnOff):
+    """Custom type portDevIfL2AutoNegotiation based on OnOff"""
+    defaultValue = 2
+
+
+_PortDevIfL2AutoNegotiation_Type.__name__ = "OnOff"
+_PortDevIfL2AutoNegotiation_Object = MibTableColumn
+portDevIfL2AutoNegotiation = _PortDevIfL2AutoNegotiation_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 11),
+    _PortDevIfL2AutoNegotiation_Type()
+)
+portDevIfL2AutoNegotiation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portDevIfL2AutoNegotiation.setStatus("current")
+
+
+class _PortDevIfL2AutoNegotiationStatus_Type(LumPortDeviceDuplexMode):
+    """Custom type portDevIfL2AutoNegotiationStatus based on LumPortDeviceDuplexMode"""
+    defaultValue = 3
+
+
+_PortDevIfL2AutoNegotiationStatus_Type.__name__ = "LumPortDeviceDuplexMode"
+_PortDevIfL2AutoNegotiationStatus_Object = MibTableColumn
+portDevIfL2AutoNegotiationStatus = _PortDevIfL2AutoNegotiationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 2, 3, 1, 1, 12),
+    _PortDevIfL2AutoNegotiationStatus_Type()
+)
+portDevIfL2AutoNegotiationStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portDevIfL2AutoNegotiationStatus.setStatus("current")
+
+# Managed Objects groups
+
+portDevIfGeneralGroupV1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 1, 1)
+)
+portDevIfGeneralGroupV1.setObjects(
+      *(("LUM-PORTDEVICEIF-MIB", "portDevIfGeneralLastChangeTime"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfGeneralStateLastChangeTime"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TableSize"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2TableSize"))
+)
+if mibBuilder.loadTexts:
+    portDevIfGeneralGroupV1.setStatus("current")
+
+portDevIfL1GroupV1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 1, 2)
+)
+portDevIfL1GroupV1.setObjects(
+      *(("LUM-PORTDEVICEIF-MIB", "portDevIfIndex"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1Name"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1Descr"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1AdminStatus"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1OperStatus"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1PortDevId"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1Subrack"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1Slot"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1LocalPort"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1VlanId"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1NidPort"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1InternalReference"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1LaserStatus"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1LaserBias"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1LaserTempActual"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TxFrequency"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1ExpectedTxFrequency"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1SignalFormat"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TrxMedia"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1ReceiverSensitivity"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1PowerLevel"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1PowerLevelLowRelativeThreshold"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TxPowerLevel"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1RxHighPower"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TrxClass"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1LossOfSignal"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1TrxMissing"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1ReceivedPowerLow"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1ReceivedPowerHigh"))
+)
+if mibBuilder.loadTexts:
+    portDevIfL1GroupV1.setStatus("current")
+
+portDevIfL2GroupV1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 1, 3)
+)
+portDevIfL2GroupV1.setObjects(
+      *(("LUM-PORTDEVICEIF-MIB", "portDevIfL2Index"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2Name"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2Descr"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2PortDevId"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2Subrack"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2Slot"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2LocalPort"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2VlanId"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2NidPort"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2InternalReference"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2AutoNegotiation"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2AutoNegotiationStatus"))
+)
+if mibBuilder.loadTexts:
+    portDevIfL2GroupV1.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+lumPortDeviceBasicComplV1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 8708, 2, 58, 1, 2, 1)
+)
+lumPortDeviceBasicComplV1.setObjects(
+      *(("LUM-PORTDEVICEIF-MIB", "portDevIfGeneralGroupV1"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL1GroupV1"),
+        ("LUM-PORTDEVICEIF-MIB", "portDevIfL2GroupV1"))
+)
+if mibBuilder.loadTexts:
+    lumPortDeviceBasicComplV1.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "LUM-PORTDEVICEIF-MIB",
+    **{"LumPortDeviceDuplexMode": LumPortDeviceDuplexMode,
+       "LumPortDeviceInterfaceSpeed": LumPortDeviceInterfaceSpeed,
+       "LumPortDeviceMasterSlaveRole": LumPortDeviceMasterSlaveRole,
+       "LumPortDeviceMdixMode": LumPortDeviceMdixMode,
+       "LumPortDevicePauseMode": LumPortDevicePauseMode,
+       "LumPortDeviceInterface": LumPortDeviceInterface,
+       "lumPortdeviceIfMIBModule": lumPortdeviceIfMIBModule,
+       "lumPortdeviceIfConfs": lumPortdeviceIfConfs,
+       "lumPortdeviceIfGroups": lumPortdeviceIfGroups,
+       "portDevIfGeneralGroupV1": portDevIfGeneralGroupV1,
+       "portDevIfL1GroupV1": portDevIfL1GroupV1,
+       "portDevIfL2GroupV1": portDevIfL2GroupV1,
+       "lumPortdeviceIfCompl": lumPortdeviceIfCompl,
+       "lumPortDeviceBasicComplV1": lumPortDeviceBasicComplV1,
+       "lumPortdeviceIfMIBObjects": lumPortdeviceIfMIBObjects,
+       "portDevIfGeneral": portDevIfGeneral,
+       "portDevIfGeneralLastChangeTime": portDevIfGeneralLastChangeTime,
+       "portDevIfGeneralStateLastChangeTime": portDevIfGeneralStateLastChangeTime,
+       "portDevIfL1TableSize": portDevIfL1TableSize,
+       "portDevIfL2TableSize": portDevIfL2TableSize,
+       "portDevIfL1List": portDevIfL1List,
+       "portDevIfL1Table": portDevIfL1Table,
+       "portDevIfL1Entry": portDevIfL1Entry,
+       "portDevIfIndex": portDevIfIndex,
+       "portDevIfL1Name": portDevIfL1Name,
+       "portDevIfL1Descr": portDevIfL1Descr,
+       "portDevIfL1AdminStatus": portDevIfL1AdminStatus,
+       "portDevIfL1OperStatus": portDevIfL1OperStatus,
+       "portDevIfL1PortDevId": portDevIfL1PortDevId,
+       "portDevIfL1Subrack": portDevIfL1Subrack,
+       "portDevIfL1Slot": portDevIfL1Slot,
+       "portDevIfL1LocalPort": portDevIfL1LocalPort,
+       "portDevIfL1VlanId": portDevIfL1VlanId,
+       "portDevIfL1NidPort": portDevIfL1NidPort,
+       "portDevIfL1InternalReference": portDevIfL1InternalReference,
+       "portDevIfL1LaserStatus": portDevIfL1LaserStatus,
+       "portDevIfL1LaserBias": portDevIfL1LaserBias,
+       "portDevIfL1LaserTempActual": portDevIfL1LaserTempActual,
+       "portDevIfL1TxFrequency": portDevIfL1TxFrequency,
+       "portDevIfL1ExpectedTxFrequency": portDevIfL1ExpectedTxFrequency,
+       "portDevIfL1SignalFormat": portDevIfL1SignalFormat,
+       "portDevIfL1TrxMedia": portDevIfL1TrxMedia,
+       "portDevIfL1ReceiverSensitivity": portDevIfL1ReceiverSensitivity,
+       "portDevIfL1PowerLevel": portDevIfL1PowerLevel,
+       "portDevIfL1PowerLevelLowRelativeThreshold": portDevIfL1PowerLevelLowRelativeThreshold,
+       "portDevIfL1TxPowerLevel": portDevIfL1TxPowerLevel,
+       "portDevIfL1RxHighPower": portDevIfL1RxHighPower,
+       "portDevIfL1TrxClass": portDevIfL1TrxClass,
+       "portDevIfL1LossOfSignal": portDevIfL1LossOfSignal,
+       "portDevIfL1TrxMissing": portDevIfL1TrxMissing,
+       "portDevIfL1ReceivedPowerLow": portDevIfL1ReceivedPowerLow,
+       "portDevIfL1ReceivedPowerHigh": portDevIfL1ReceivedPowerHigh,
+       "portDevIfL2List": portDevIfL2List,
+       "portDevIfL2Table": portDevIfL2Table,
+       "portDevIfL2Entry": portDevIfL2Entry,
+       "portDevIfL2Index": portDevIfL2Index,
+       "portDevIfL2Name": portDevIfL2Name,
+       "portDevIfL2Descr": portDevIfL2Descr,
+       "portDevIfL2PortDevId": portDevIfL2PortDevId,
+       "portDevIfL2Subrack": portDevIfL2Subrack,
+       "portDevIfL2Slot": portDevIfL2Slot,
+       "portDevIfL2LocalPort": portDevIfL2LocalPort,
+       "portDevIfL2VlanId": portDevIfL2VlanId,
+       "portDevIfL2NidPort": portDevIfL2NidPort,
+       "portDevIfL2InternalReference": portDevIfL2InternalReference,
+       "portDevIfL2AutoNegotiation": portDevIfL2AutoNegotiation,
+       "portDevIfL2AutoNegotiationStatus": portDevIfL2AutoNegotiationStatus}
+)

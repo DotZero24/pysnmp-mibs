@@ -1,47 +1,305 @@
+# SNMP MIB module (CISCO-FIREPOWER-CHANGE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-FIREPOWER-CHANGE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-FIREPOWER-CHANGE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:24:59 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-FIREPOWER-CHANGE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:27:00 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoFirepowerMIBObjects, CfprManagedObjectId, CfprManagedObjectDn = mibBuilder.importSymbols("CISCO-FIREPOWER-MIB", "ciscoFirepowerMIBObjects", "CfprManagedObjectId", "CfprManagedObjectDn")
-CfprMoMoClassId, CfprChangeStatus = mibBuilder.importSymbols("CISCO-FIREPOWER-TC-MIB", "CfprMoMoClassId", "CfprChangeStatus")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoInetAddressMask, CiscoNetworkAddress, CiscoAlarmSeverity, TimeIntervalSec, Unsigned64 = mibBuilder.importSymbols("CISCO-TC", "CiscoInetAddressMask", "CiscoNetworkAddress", "CiscoAlarmSeverity", "TimeIntervalSec", "Unsigned64")
-InetAddressIPv4, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressIPv6")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, TextualConvention, TimeInterval, MacAddress, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
-cfprChangeObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9))
-if mibBuilder.loadTexts: cfprChangeObjects.setLastUpdated('202003100000Z')
-if mibBuilder.loadTexts: cfprChangeObjects.setOrganization('Cisco Systems Inc.')
-cfprChangeChangedObjectRefTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1), )
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefTable.setStatus('current')
-cfprChangeChangedObjectRefEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1), ).setIndexNames((0, "CISCO-FIREPOWER-CHANGE-MIB", "cfprChangeChangedObjectRefInstanceId"))
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefEntry.setStatus('current')
-cfprChangeChangedObjectRefInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 1), CfprManagedObjectId())
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefInstanceId.setStatus('current')
-cfprChangeChangedObjectRefDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefDn.setStatus('current')
-cfprChangeChangedObjectRefRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefRn.setStatus('current')
-cfprChangeChangedObjectRefCentraleMoDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefCentraleMoDn.setStatus('current')
-cfprChangeChangedObjectRefChangedMoClassId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 5), CfprMoMoClassId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefChangedMoClassId.setStatus('current')
-cfprChangeChangedObjectRefGuid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefGuid.setStatus('current')
-cfprChangeChangedObjectRefId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefId.setStatus('current')
-cfprChangeChangedObjectRefOldCentraleMoDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefOldCentraleMoDn.setStatus('current')
-cfprChangeChangedObjectRefRefObjStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 9), CfprChangeStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefRefObjStatus.setStatus('current')
-cfprChangeChangedObjectRefFprmMoDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprChangeChangedObjectRefFprmMoDn.setStatus('current')
-mibBuilder.exportSymbols("CISCO-FIREPOWER-CHANGE-MIB", cfprChangeChangedObjectRefInstanceId=cfprChangeChangedObjectRefInstanceId, cfprChangeChangedObjectRefCentraleMoDn=cfprChangeChangedObjectRefCentraleMoDn, cfprChangeChangedObjectRefOldCentraleMoDn=cfprChangeChangedObjectRefOldCentraleMoDn, cfprChangeChangedObjectRefRefObjStatus=cfprChangeChangedObjectRefRefObjStatus, cfprChangeChangedObjectRefRn=cfprChangeChangedObjectRefRn, cfprChangeChangedObjectRefFprmMoDn=cfprChangeChangedObjectRefFprmMoDn, cfprChangeChangedObjectRefTable=cfprChangeChangedObjectRefTable, cfprChangeObjects=cfprChangeObjects, PYSNMP_MODULE_ID=cfprChangeObjects, cfprChangeChangedObjectRefId=cfprChangeChangedObjectRefId, cfprChangeChangedObjectRefChangedMoClassId=cfprChangeChangedObjectRefChangedMoClassId, cfprChangeChangedObjectRefGuid=cfprChangeChangedObjectRefGuid, cfprChangeChangedObjectRefDn=cfprChangeChangedObjectRefDn, cfprChangeChangedObjectRefEntry=cfprChangeChangedObjectRefEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(CfprManagedObjectDn,
+ CfprManagedObjectId,
+ ciscoFirepowerMIBObjects) = mibBuilder.importSymbols(
+    "CISCO-FIREPOWER-MIB",
+    "CfprManagedObjectDn",
+    "CfprManagedObjectId",
+    "ciscoFirepowerMIBObjects")
+
+(CfprChangeStatus,
+ CfprMoMoClassId) = mibBuilder.importSymbols(
+    "CISCO-FIREPOWER-TC-MIB",
+    "CfprChangeStatus",
+    "CfprMoMoClassId")
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CiscoAlarmSeverity,
+ CiscoInetAddressMask,
+ CiscoNetworkAddress,
+ TimeIntervalSec,
+ Unsigned64) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoAlarmSeverity",
+    "CiscoInetAddressMask",
+    "CiscoNetworkAddress",
+    "TimeIntervalSec",
+    "Unsigned64")
+
+(InetAddressIPv4,
+ InetAddressIPv6) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv4",
+    "InetAddressIPv6")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cfprChangeObjects = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CfprChangeChangedObjectRefTable_Object = MibTable
+cfprChangeChangedObjectRefTable = _CfprChangeChangedObjectRefTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1)
+)
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefTable.setStatus("current")
+_CfprChangeChangedObjectRefEntry_Object = MibTableRow
+cfprChangeChangedObjectRefEntry = _CfprChangeChangedObjectRefEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1)
+)
+cfprChangeChangedObjectRefEntry.setIndexNames(
+    (0, "CISCO-FIREPOWER-CHANGE-MIB", "cfprChangeChangedObjectRefInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefEntry.setStatus("current")
+_CfprChangeChangedObjectRefInstanceId_Type = CfprManagedObjectId
+_CfprChangeChangedObjectRefInstanceId_Object = MibTableColumn
+cfprChangeChangedObjectRefInstanceId = _CfprChangeChangedObjectRefInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 1),
+    _CfprChangeChangedObjectRefInstanceId_Type()
+)
+cfprChangeChangedObjectRefInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefInstanceId.setStatus("current")
+_CfprChangeChangedObjectRefDn_Type = CfprManagedObjectDn
+_CfprChangeChangedObjectRefDn_Object = MibTableColumn
+cfprChangeChangedObjectRefDn = _CfprChangeChangedObjectRefDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 2),
+    _CfprChangeChangedObjectRefDn_Type()
+)
+cfprChangeChangedObjectRefDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefDn.setStatus("current")
+_CfprChangeChangedObjectRefRn_Type = SnmpAdminString
+_CfprChangeChangedObjectRefRn_Object = MibTableColumn
+cfprChangeChangedObjectRefRn = _CfprChangeChangedObjectRefRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 3),
+    _CfprChangeChangedObjectRefRn_Type()
+)
+cfprChangeChangedObjectRefRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefRn.setStatus("current")
+_CfprChangeChangedObjectRefCentraleMoDn_Type = SnmpAdminString
+_CfprChangeChangedObjectRefCentraleMoDn_Object = MibTableColumn
+cfprChangeChangedObjectRefCentraleMoDn = _CfprChangeChangedObjectRefCentraleMoDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 4),
+    _CfprChangeChangedObjectRefCentraleMoDn_Type()
+)
+cfprChangeChangedObjectRefCentraleMoDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefCentraleMoDn.setStatus("current")
+_CfprChangeChangedObjectRefChangedMoClassId_Type = CfprMoMoClassId
+_CfprChangeChangedObjectRefChangedMoClassId_Object = MibTableColumn
+cfprChangeChangedObjectRefChangedMoClassId = _CfprChangeChangedObjectRefChangedMoClassId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 5),
+    _CfprChangeChangedObjectRefChangedMoClassId_Type()
+)
+cfprChangeChangedObjectRefChangedMoClassId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefChangedMoClassId.setStatus("current")
+_CfprChangeChangedObjectRefGuid_Type = SnmpAdminString
+_CfprChangeChangedObjectRefGuid_Object = MibTableColumn
+cfprChangeChangedObjectRefGuid = _CfprChangeChangedObjectRefGuid_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 6),
+    _CfprChangeChangedObjectRefGuid_Type()
+)
+cfprChangeChangedObjectRefGuid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefGuid.setStatus("current")
+_CfprChangeChangedObjectRefId_Type = Gauge32
+_CfprChangeChangedObjectRefId_Object = MibTableColumn
+cfprChangeChangedObjectRefId = _CfprChangeChangedObjectRefId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 7),
+    _CfprChangeChangedObjectRefId_Type()
+)
+cfprChangeChangedObjectRefId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefId.setStatus("current")
+_CfprChangeChangedObjectRefOldCentraleMoDn_Type = SnmpAdminString
+_CfprChangeChangedObjectRefOldCentraleMoDn_Object = MibTableColumn
+cfprChangeChangedObjectRefOldCentraleMoDn = _CfprChangeChangedObjectRefOldCentraleMoDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 8),
+    _CfprChangeChangedObjectRefOldCentraleMoDn_Type()
+)
+cfprChangeChangedObjectRefOldCentraleMoDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefOldCentraleMoDn.setStatus("current")
+_CfprChangeChangedObjectRefRefObjStatus_Type = CfprChangeStatus
+_CfprChangeChangedObjectRefRefObjStatus_Object = MibTableColumn
+cfprChangeChangedObjectRefRefObjStatus = _CfprChangeChangedObjectRefRefObjStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 9),
+    _CfprChangeChangedObjectRefRefObjStatus_Type()
+)
+cfprChangeChangedObjectRefRefObjStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefRefObjStatus.setStatus("current")
+_CfprChangeChangedObjectRefFprmMoDn_Type = SnmpAdminString
+_CfprChangeChangedObjectRefFprmMoDn_Object = MibTableColumn
+cfprChangeChangedObjectRefFprmMoDn = _CfprChangeChangedObjectRefFprmMoDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 9, 1, 1, 10),
+    _CfprChangeChangedObjectRefFprmMoDn_Type()
+)
+cfprChangeChangedObjectRefFprmMoDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprChangeChangedObjectRefFprmMoDn.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-FIREPOWER-CHANGE-MIB",
+    **{"cfprChangeObjects": cfprChangeObjects,
+       "cfprChangeChangedObjectRefTable": cfprChangeChangedObjectRefTable,
+       "cfprChangeChangedObjectRefEntry": cfprChangeChangedObjectRefEntry,
+       "cfprChangeChangedObjectRefInstanceId": cfprChangeChangedObjectRefInstanceId,
+       "cfprChangeChangedObjectRefDn": cfprChangeChangedObjectRefDn,
+       "cfprChangeChangedObjectRefRn": cfprChangeChangedObjectRefRn,
+       "cfprChangeChangedObjectRefCentraleMoDn": cfprChangeChangedObjectRefCentraleMoDn,
+       "cfprChangeChangedObjectRefChangedMoClassId": cfprChangeChangedObjectRefChangedMoClassId,
+       "cfprChangeChangedObjectRefGuid": cfprChangeChangedObjectRefGuid,
+       "cfprChangeChangedObjectRefId": cfprChangeChangedObjectRefId,
+       "cfprChangeChangedObjectRefOldCentraleMoDn": cfprChangeChangedObjectRefOldCentraleMoDn,
+       "cfprChangeChangedObjectRefRefObjStatus": cfprChangeChangedObjectRefRefObjStatus,
+       "cfprChangeChangedObjectRefFprmMoDn": cfprChangeChangedObjectRefFprmMoDn}
+)

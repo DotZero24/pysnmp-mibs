@@ -1,88 +1,645 @@
+# SNMP MIB module (H3C-MAC-INFORMATION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-MAC-INFORMATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-MAC-INFORMATION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:20 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/H3C-MAC-INFORMATION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:19:04 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention")
-h3cMACInformation = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87))
-h3cMACInformation.setRevisions(('2007-12-28 19:12',))
-if mibBuilder.loadTexts: h3cMACInformation.setLastUpdated('200712281912Z')
-if mibBuilder.loadTexts: h3cMACInformation.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
-class H3cMACInfoWorkMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("trap", 1), ("syslog", 2))
 
-h3cMACInformationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1))
-h3cMACInformationMibGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1))
-h3cMACInformationMIBTableTroop = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 2))
-h3cMACInformationMibTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3))
-h3cMACInformationMibTrapExt = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4))
-h3cMACInformationEnabled = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cMACInformationEnabled.setStatus('current')
-h3cMACInformationcSendInterval = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 20000)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cMACInformationcSendInterval.setStatus('current')
-h3cMACInformationLearntMACNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cMACInformationLearntMACNum.setStatus('current')
-h3cMACInformationRemovedMACNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cMACInformationRemovedMACNum.setStatus('current')
-h3cMACInformationTrapSendNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cMACInformationTrapSendNum.setStatus('current')
-h3cMACInformationSyslogSendNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cMACInformationSyslogSendNum.setStatus('current')
-h3cMACInformationCacheLen = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000)).clone(50)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cMACInformationCacheLen.setStatus('current')
-h3cMACInfomationWorkMode = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 8), H3cMACInfoWorkMode()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cMACInfomationWorkMode.setStatus('current')
-h3cMACInfomationIfTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 2, 1), )
-if mibBuilder.loadTexts: h3cMACInfomationIfTable.setStatus('current')
-h3cMACInfomationIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: h3cMACInfomationIfEntry.setStatus('current')
-h3cMACLearntEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cMACLearntEnable.setStatus('current')
-h3cMACRemovedEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cMACRemovedEnable.setStatus('current')
-h3cMACInformationTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 0))
-h3cMACInformationChangedTrap = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 0, 1)).setObjects(("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapIndex"), ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapCount"), ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsg"))
-if mibBuilder.loadTexts: h3cMACInformationChangedTrap.setStatus('current')
-h3cMACInformationTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 2))
-h3cMACInfoTrapIndex = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 2, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapIndex.setStatus('current')
-h3cMACInfoTrapCount = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 2, 2), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapCount.setStatus('current')
-h3cMACInfoTrapMsg = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 2, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 254))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapMsg.setStatus('current')
-h3cMACInformationTrapsExt = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 0))
-h3cMACInformationChangedTrapExt = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 0, 1)).setObjects(("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapVerExt"), ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapIndexExt"), ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapCountExt"), ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgExt"))
-if mibBuilder.loadTexts: h3cMACInformationChangedTrapExt.setStatus('current')
-h3cMACInformationMovedTrap = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 0, 2)).setObjects(("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgMovedAddress"), ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgMovedVlan"), ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgMovedFromIf"), ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgMovedToIf"), ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgMovedCount"))
-if mibBuilder.loadTexts: h3cMACInformationMovedTrap.setStatus('current')
-h3cMACInformationTrapObjectsExt = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2))
-h3cMACInfoTrapVerExt = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 1), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapVerExt.setStatus('current')
-h3cMACInfoTrapIndexExt = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapIndexExt.setStatus('current')
-h3cMACInfoTrapCountExt = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 3), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapCountExt.setStatus('current')
-h3cMACInfoTrapMsgExt = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 254))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapMsgExt.setStatus('current')
-h3cMACInfoTrapMsgMovedAddress = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 5), MacAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapMsgMovedAddress.setStatus('current')
-h3cMACInfoTrapMsgMovedVlan = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapMsgMovedVlan.setStatus('current')
-h3cMACInfoTrapMsgMovedFromIf = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapMsgMovedFromIf.setStatus('current')
-h3cMACInfoTrapMsgMovedToIf = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapMsgMovedToIf.setStatus('current')
-h3cMACInfoTrapMsgMovedCount = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 9), Counter32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cMACInfoTrapMsgMovedCount.setStatus('current')
-mibBuilder.exportSymbols("H3C-MAC-INFORMATION-MIB", h3cMACInfoTrapMsg=h3cMACInfoTrapMsg, h3cMACInfoTrapVerExt=h3cMACInfoTrapVerExt, h3cMACInfoTrapCount=h3cMACInfoTrapCount, h3cMACInformationChangedTrap=h3cMACInformationChangedTrap, h3cMACInfoTrapIndexExt=h3cMACInfoTrapIndexExt, h3cMACInformationChangedTrapExt=h3cMACInformationChangedTrapExt, h3cMACInformationCacheLen=h3cMACInformationCacheLen, h3cMACInfoTrapIndex=h3cMACInfoTrapIndex, h3cMACInformationEnabled=h3cMACInformationEnabled, h3cMACInformationTraps=h3cMACInformationTraps, h3cMACInfoTrapMsgMovedFromIf=h3cMACInfoTrapMsgMovedFromIf, h3cMACInformation=h3cMACInformation, h3cMACInformationTrapSendNum=h3cMACInformationTrapSendNum, h3cMACInfoTrapMsgMovedVlan=h3cMACInfoTrapMsgMovedVlan, h3cMACInformationSyslogSendNum=h3cMACInformationSyslogSendNum, h3cMACInformationMovedTrap=h3cMACInformationMovedTrap, h3cMACInformationMibTrap=h3cMACInformationMibTrap, h3cMACInfomationIfTable=h3cMACInfomationIfTable, PYSNMP_MODULE_ID=h3cMACInformation, h3cMACInformationRemovedMACNum=h3cMACInformationRemovedMACNum, h3cMACInformationTrapsExt=h3cMACInformationTrapsExt, H3cMACInfoWorkMode=H3cMACInfoWorkMode, h3cMACLearntEnable=h3cMACLearntEnable, h3cMACInformationObjects=h3cMACInformationObjects, h3cMACInformationcSendInterval=h3cMACInformationcSendInterval, h3cMACInformationMibGlobal=h3cMACInformationMibGlobal, h3cMACInformationTrapObjectsExt=h3cMACInformationTrapObjectsExt, h3cMACRemovedEnable=h3cMACRemovedEnable, h3cMACInformationLearntMACNum=h3cMACInformationLearntMACNum, h3cMACInfoTrapMsgMovedToIf=h3cMACInfoTrapMsgMovedToIf, h3cMACInfoTrapMsgMovedAddress=h3cMACInfoTrapMsgMovedAddress, h3cMACInfomationIfEntry=h3cMACInfomationIfEntry, h3cMACInformationTrapObjects=h3cMACInformationTrapObjects, h3cMACInfoTrapCountExt=h3cMACInfoTrapCountExt, h3cMACInfomationWorkMode=h3cMACInfomationWorkMode, h3cMACInfoTrapMsgExt=h3cMACInfoTrapMsgExt, h3cMACInformationMIBTableTroop=h3cMACInformationMIBTableTroop, h3cMACInformationMibTrapExt=h3cMACInformationMibTrapExt, h3cMACInfoTrapMsgMovedCount=h3cMACInfoTrapMsgMovedCount)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+h3cMACInformation = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87)
+)
+if mibBuilder.loadTexts:
+    h3cMACInformation.setRevisions(
+        ("2007-12-28 19:12",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class H3cMACInfoWorkMode(TextualConvention, Integer32):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("trap", 1),
+          ("syslog", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cMACInformationObjects_ObjectIdentity = ObjectIdentity
+h3cMACInformationObjects = _H3cMACInformationObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1)
+)
+_H3cMACInformationMibGlobal_ObjectIdentity = ObjectIdentity
+h3cMACInformationMibGlobal = _H3cMACInformationMibGlobal_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1)
+)
+
+
+class _H3cMACInformationEnabled_Type(Integer32):
+    """Custom type h3cMACInformationEnabled based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_H3cMACInformationEnabled_Type.__name__ = "Integer32"
+_H3cMACInformationEnabled_Object = MibScalar
+h3cMACInformationEnabled = _H3cMACInformationEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 1),
+    _H3cMACInformationEnabled_Type()
+)
+h3cMACInformationEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cMACInformationEnabled.setStatus("current")
+
+
+class _H3cMACInformationcSendInterval_Type(Unsigned32):
+    """Custom type h3cMACInformationcSendInterval based on Unsigned32"""
+    defaultValue = 1
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 20000),
+    )
+
+
+_H3cMACInformationcSendInterval_Type.__name__ = "Unsigned32"
+_H3cMACInformationcSendInterval_Object = MibScalar
+h3cMACInformationcSendInterval = _H3cMACInformationcSendInterval_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 2),
+    _H3cMACInformationcSendInterval_Type()
+)
+h3cMACInformationcSendInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cMACInformationcSendInterval.setStatus("current")
+_H3cMACInformationLearntMACNum_Type = Counter32
+_H3cMACInformationLearntMACNum_Object = MibScalar
+h3cMACInformationLearntMACNum = _H3cMACInformationLearntMACNum_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 3),
+    _H3cMACInformationLearntMACNum_Type()
+)
+h3cMACInformationLearntMACNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cMACInformationLearntMACNum.setStatus("current")
+_H3cMACInformationRemovedMACNum_Type = Counter32
+_H3cMACInformationRemovedMACNum_Object = MibScalar
+h3cMACInformationRemovedMACNum = _H3cMACInformationRemovedMACNum_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 4),
+    _H3cMACInformationRemovedMACNum_Type()
+)
+h3cMACInformationRemovedMACNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cMACInformationRemovedMACNum.setStatus("current")
+_H3cMACInformationTrapSendNum_Type = Counter32
+_H3cMACInformationTrapSendNum_Object = MibScalar
+h3cMACInformationTrapSendNum = _H3cMACInformationTrapSendNum_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 5),
+    _H3cMACInformationTrapSendNum_Type()
+)
+h3cMACInformationTrapSendNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cMACInformationTrapSendNum.setStatus("current")
+_H3cMACInformationSyslogSendNum_Type = Counter32
+_H3cMACInformationSyslogSendNum_Object = MibScalar
+h3cMACInformationSyslogSendNum = _H3cMACInformationSyslogSendNum_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 6),
+    _H3cMACInformationSyslogSendNum_Type()
+)
+h3cMACInformationSyslogSendNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cMACInformationSyslogSendNum.setStatus("current")
+
+
+class _H3cMACInformationCacheLen_Type(Unsigned32):
+    """Custom type h3cMACInformationCacheLen based on Unsigned32"""
+    defaultValue = 50
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_H3cMACInformationCacheLen_Type.__name__ = "Unsigned32"
+_H3cMACInformationCacheLen_Object = MibScalar
+h3cMACInformationCacheLen = _H3cMACInformationCacheLen_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 7),
+    _H3cMACInformationCacheLen_Type()
+)
+h3cMACInformationCacheLen.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cMACInformationCacheLen.setStatus("current")
+_H3cMACInfomationWorkMode_Type = H3cMACInfoWorkMode
+_H3cMACInfomationWorkMode_Object = MibScalar
+h3cMACInfomationWorkMode = _H3cMACInfomationWorkMode_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 1, 8),
+    _H3cMACInfomationWorkMode_Type()
+)
+h3cMACInfomationWorkMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cMACInfomationWorkMode.setStatus("current")
+_H3cMACInformationMIBTableTroop_ObjectIdentity = ObjectIdentity
+h3cMACInformationMIBTableTroop = _H3cMACInformationMIBTableTroop_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 2)
+)
+_H3cMACInfomationIfTable_Object = MibTable
+h3cMACInfomationIfTable = _H3cMACInfomationIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    h3cMACInfomationIfTable.setStatus("current")
+_H3cMACInfomationIfEntry_Object = MibTableRow
+h3cMACInfomationIfEntry = _H3cMACInfomationIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 2, 1, 1)
+)
+h3cMACInfomationIfEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cMACInfomationIfEntry.setStatus("current")
+
+
+class _H3cMACLearntEnable_Type(Integer32):
+    """Custom type h3cMACLearntEnable based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_H3cMACLearntEnable_Type.__name__ = "Integer32"
+_H3cMACLearntEnable_Object = MibTableColumn
+h3cMACLearntEnable = _H3cMACLearntEnable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 2, 1, 1, 1),
+    _H3cMACLearntEnable_Type()
+)
+h3cMACLearntEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cMACLearntEnable.setStatus("current")
+
+
+class _H3cMACRemovedEnable_Type(Integer32):
+    """Custom type h3cMACRemovedEnable based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_H3cMACRemovedEnable_Type.__name__ = "Integer32"
+_H3cMACRemovedEnable_Object = MibTableColumn
+h3cMACRemovedEnable = _H3cMACRemovedEnable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 2, 1, 1, 2),
+    _H3cMACRemovedEnable_Type()
+)
+h3cMACRemovedEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cMACRemovedEnable.setStatus("current")
+_H3cMACInformationMibTrap_ObjectIdentity = ObjectIdentity
+h3cMACInformationMibTrap = _H3cMACInformationMibTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3)
+)
+_H3cMACInformationTraps_ObjectIdentity = ObjectIdentity
+h3cMACInformationTraps = _H3cMACInformationTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 0)
+)
+_H3cMACInformationTrapObjects_ObjectIdentity = ObjectIdentity
+h3cMACInformationTrapObjects = _H3cMACInformationTrapObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 2)
+)
+
+
+class _H3cMACInfoTrapIndex_Type(Unsigned32):
+    """Custom type h3cMACInfoTrapIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_H3cMACInfoTrapIndex_Type.__name__ = "Unsigned32"
+_H3cMACInfoTrapIndex_Object = MibScalar
+h3cMACInfoTrapIndex = _H3cMACInfoTrapIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 2, 1),
+    _H3cMACInfoTrapIndex_Type()
+)
+h3cMACInfoTrapIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapIndex.setStatus("current")
+_H3cMACInfoTrapCount_Type = Unsigned32
+_H3cMACInfoTrapCount_Object = MibScalar
+h3cMACInfoTrapCount = _H3cMACInfoTrapCount_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 2, 2),
+    _H3cMACInfoTrapCount_Type()
+)
+h3cMACInfoTrapCount.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapCount.setStatus("current")
+
+
+class _H3cMACInfoTrapMsg_Type(OctetString):
+    """Custom type h3cMACInfoTrapMsg based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 254),
+    )
+
+
+_H3cMACInfoTrapMsg_Type.__name__ = "OctetString"
+_H3cMACInfoTrapMsg_Object = MibScalar
+h3cMACInfoTrapMsg = _H3cMACInfoTrapMsg_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 2, 3),
+    _H3cMACInfoTrapMsg_Type()
+)
+h3cMACInfoTrapMsg.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapMsg.setStatus("current")
+_H3cMACInformationMibTrapExt_ObjectIdentity = ObjectIdentity
+h3cMACInformationMibTrapExt = _H3cMACInformationMibTrapExt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4)
+)
+_H3cMACInformationTrapsExt_ObjectIdentity = ObjectIdentity
+h3cMACInformationTrapsExt = _H3cMACInformationTrapsExt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 0)
+)
+_H3cMACInformationTrapObjectsExt_ObjectIdentity = ObjectIdentity
+h3cMACInformationTrapObjectsExt = _H3cMACInformationTrapObjectsExt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2)
+)
+_H3cMACInfoTrapVerExt_Type = Unsigned32
+_H3cMACInfoTrapVerExt_Object = MibScalar
+h3cMACInfoTrapVerExt = _H3cMACInfoTrapVerExt_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 1),
+    _H3cMACInfoTrapVerExt_Type()
+)
+h3cMACInfoTrapVerExt.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapVerExt.setStatus("current")
+
+
+class _H3cMACInfoTrapIndexExt_Type(Unsigned32):
+    """Custom type h3cMACInfoTrapIndexExt based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_H3cMACInfoTrapIndexExt_Type.__name__ = "Unsigned32"
+_H3cMACInfoTrapIndexExt_Object = MibScalar
+h3cMACInfoTrapIndexExt = _H3cMACInfoTrapIndexExt_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 2),
+    _H3cMACInfoTrapIndexExt_Type()
+)
+h3cMACInfoTrapIndexExt.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapIndexExt.setStatus("current")
+_H3cMACInfoTrapCountExt_Type = Unsigned32
+_H3cMACInfoTrapCountExt_Object = MibScalar
+h3cMACInfoTrapCountExt = _H3cMACInfoTrapCountExt_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 3),
+    _H3cMACInfoTrapCountExt_Type()
+)
+h3cMACInfoTrapCountExt.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapCountExt.setStatus("current")
+
+
+class _H3cMACInfoTrapMsgExt_Type(OctetString):
+    """Custom type h3cMACInfoTrapMsgExt based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 254),
+    )
+
+
+_H3cMACInfoTrapMsgExt_Type.__name__ = "OctetString"
+_H3cMACInfoTrapMsgExt_Object = MibScalar
+h3cMACInfoTrapMsgExt = _H3cMACInfoTrapMsgExt_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 4),
+    _H3cMACInfoTrapMsgExt_Type()
+)
+h3cMACInfoTrapMsgExt.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapMsgExt.setStatus("current")
+_H3cMACInfoTrapMsgMovedAddress_Type = MacAddress
+_H3cMACInfoTrapMsgMovedAddress_Object = MibScalar
+h3cMACInfoTrapMsgMovedAddress = _H3cMACInfoTrapMsgMovedAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 5),
+    _H3cMACInfoTrapMsgMovedAddress_Type()
+)
+h3cMACInfoTrapMsgMovedAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapMsgMovedAddress.setStatus("current")
+
+
+class _H3cMACInfoTrapMsgMovedVlan_Type(Integer32):
+    """Custom type h3cMACInfoTrapMsgMovedVlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_H3cMACInfoTrapMsgMovedVlan_Type.__name__ = "Integer32"
+_H3cMACInfoTrapMsgMovedVlan_Object = MibScalar
+h3cMACInfoTrapMsgMovedVlan = _H3cMACInfoTrapMsgMovedVlan_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 6),
+    _H3cMACInfoTrapMsgMovedVlan_Type()
+)
+h3cMACInfoTrapMsgMovedVlan.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapMsgMovedVlan.setStatus("current")
+
+
+class _H3cMACInfoTrapMsgMovedFromIf_Type(Integer32):
+    """Custom type h3cMACInfoTrapMsgMovedFromIf based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cMACInfoTrapMsgMovedFromIf_Type.__name__ = "Integer32"
+_H3cMACInfoTrapMsgMovedFromIf_Object = MibScalar
+h3cMACInfoTrapMsgMovedFromIf = _H3cMACInfoTrapMsgMovedFromIf_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 7),
+    _H3cMACInfoTrapMsgMovedFromIf_Type()
+)
+h3cMACInfoTrapMsgMovedFromIf.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapMsgMovedFromIf.setStatus("current")
+
+
+class _H3cMACInfoTrapMsgMovedToIf_Type(Integer32):
+    """Custom type h3cMACInfoTrapMsgMovedToIf based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cMACInfoTrapMsgMovedToIf_Type.__name__ = "Integer32"
+_H3cMACInfoTrapMsgMovedToIf_Object = MibScalar
+h3cMACInfoTrapMsgMovedToIf = _H3cMACInfoTrapMsgMovedToIf_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 8),
+    _H3cMACInfoTrapMsgMovedToIf_Type()
+)
+h3cMACInfoTrapMsgMovedToIf.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapMsgMovedToIf.setStatus("current")
+_H3cMACInfoTrapMsgMovedCount_Type = Counter32
+_H3cMACInfoTrapMsgMovedCount_Object = MibScalar
+h3cMACInfoTrapMsgMovedCount = _H3cMACInfoTrapMsgMovedCount_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 2, 9),
+    _H3cMACInfoTrapMsgMovedCount_Type()
+)
+h3cMACInfoTrapMsgMovedCount.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cMACInfoTrapMsgMovedCount.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+h3cMACInformationChangedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 3, 0, 1)
+)
+h3cMACInformationChangedTrap.setObjects(
+      *(("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapIndex"),
+        ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapCount"),
+        ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsg"))
+)
+if mibBuilder.loadTexts:
+    h3cMACInformationChangedTrap.setStatus(
+        "current"
+    )
+
+h3cMACInformationChangedTrapExt = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 0, 1)
+)
+h3cMACInformationChangedTrapExt.setObjects(
+      *(("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapVerExt"),
+        ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapIndexExt"),
+        ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapCountExt"),
+        ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgExt"))
+)
+if mibBuilder.loadTexts:
+    h3cMACInformationChangedTrapExt.setStatus(
+        "current"
+    )
+
+h3cMACInformationMovedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 87, 1, 4, 0, 2)
+)
+h3cMACInformationMovedTrap.setObjects(
+      *(("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgMovedAddress"),
+        ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgMovedVlan"),
+        ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgMovedFromIf"),
+        ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgMovedToIf"),
+        ("H3C-MAC-INFORMATION-MIB", "h3cMACInfoTrapMsgMovedCount"))
+)
+if mibBuilder.loadTexts:
+    h3cMACInformationMovedTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-MAC-INFORMATION-MIB",
+    **{"H3cMACInfoWorkMode": H3cMACInfoWorkMode,
+       "h3cMACInformation": h3cMACInformation,
+       "h3cMACInformationObjects": h3cMACInformationObjects,
+       "h3cMACInformationMibGlobal": h3cMACInformationMibGlobal,
+       "h3cMACInformationEnabled": h3cMACInformationEnabled,
+       "h3cMACInformationcSendInterval": h3cMACInformationcSendInterval,
+       "h3cMACInformationLearntMACNum": h3cMACInformationLearntMACNum,
+       "h3cMACInformationRemovedMACNum": h3cMACInformationRemovedMACNum,
+       "h3cMACInformationTrapSendNum": h3cMACInformationTrapSendNum,
+       "h3cMACInformationSyslogSendNum": h3cMACInformationSyslogSendNum,
+       "h3cMACInformationCacheLen": h3cMACInformationCacheLen,
+       "h3cMACInfomationWorkMode": h3cMACInfomationWorkMode,
+       "h3cMACInformationMIBTableTroop": h3cMACInformationMIBTableTroop,
+       "h3cMACInfomationIfTable": h3cMACInfomationIfTable,
+       "h3cMACInfomationIfEntry": h3cMACInfomationIfEntry,
+       "h3cMACLearntEnable": h3cMACLearntEnable,
+       "h3cMACRemovedEnable": h3cMACRemovedEnable,
+       "h3cMACInformationMibTrap": h3cMACInformationMibTrap,
+       "h3cMACInformationTraps": h3cMACInformationTraps,
+       "h3cMACInformationChangedTrap": h3cMACInformationChangedTrap,
+       "h3cMACInformationTrapObjects": h3cMACInformationTrapObjects,
+       "h3cMACInfoTrapIndex": h3cMACInfoTrapIndex,
+       "h3cMACInfoTrapCount": h3cMACInfoTrapCount,
+       "h3cMACInfoTrapMsg": h3cMACInfoTrapMsg,
+       "h3cMACInformationMibTrapExt": h3cMACInformationMibTrapExt,
+       "h3cMACInformationTrapsExt": h3cMACInformationTrapsExt,
+       "h3cMACInformationChangedTrapExt": h3cMACInformationChangedTrapExt,
+       "h3cMACInformationMovedTrap": h3cMACInformationMovedTrap,
+       "h3cMACInformationTrapObjectsExt": h3cMACInformationTrapObjectsExt,
+       "h3cMACInfoTrapVerExt": h3cMACInfoTrapVerExt,
+       "h3cMACInfoTrapIndexExt": h3cMACInfoTrapIndexExt,
+       "h3cMACInfoTrapCountExt": h3cMACInfoTrapCountExt,
+       "h3cMACInfoTrapMsgExt": h3cMACInfoTrapMsgExt,
+       "h3cMACInfoTrapMsgMovedAddress": h3cMACInfoTrapMsgMovedAddress,
+       "h3cMACInfoTrapMsgMovedVlan": h3cMACInfoTrapMsgMovedVlan,
+       "h3cMACInfoTrapMsgMovedFromIf": h3cMACInfoTrapMsgMovedFromIf,
+       "h3cMACInfoTrapMsgMovedToIf": h3cMACInfoTrapMsgMovedToIf,
+       "h3cMACInfoTrapMsgMovedCount": h3cMACInfoTrapMsgMovedCount}
+)

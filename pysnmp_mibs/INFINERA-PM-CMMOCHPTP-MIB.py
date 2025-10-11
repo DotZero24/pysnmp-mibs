@@ -1,68 +1,395 @@
+# SNMP MIB module (INFINERA-PM-CMMOCHPTP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module INFINERA-PM-CMMOCHPTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-PM-CMMOCHPTP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:07 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/infinera/INFINERA-PM-CMMOCHPTP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:15:25 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-perfMon, = mibBuilder.importSymbols("INFINERA-REG-MIB", "perfMon")
-FloatHundredths, = mibBuilder.importSymbols("INFINERA-TC-MIB", "FloatHundredths")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-cmmOchPtpPmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26))
-cmmOchPtpPmMIB.setRevisions(('2008-10-20 00:00',))
-if mibBuilder.loadTexts: cmmOchPtpPmMIB.setLastUpdated('200810200000Z')
-if mibBuilder.loadTexts: cmmOchPtpPmMIB.setOrganization('Infinera')
-cmmOchPtpPmTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2), )
-if mibBuilder.loadTexts: cmmOchPtpPmTable.setStatus('current')
-cmmOchPtpPmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmSampleDuration"), (0, "INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmTimestamp"))
-if mibBuilder.loadTexts: cmmOchPtpPmEntry.setStatus('current')
-cmmOchPtpPmTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: cmmOchPtpPmTimestamp.setStatus('current')
-cmmOchPtpPmSampleDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("fifteenMinutes", 1), ("day", 2))))
-if mibBuilder.loadTexts: cmmOchPtpPmSampleDuration.setStatus('current')
-cmmOchPtpPmValidity = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmmOchPtpPmValidity.setStatus('current')
-cmmOchPtpPmCmmOchOptMin = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 4), FloatHundredths()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmmOchPtpPmCmmOchOptMin.setStatus('current')
-cmmOchPtpPmCmmOchOptMax = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 5), FloatHundredths()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmmOchPtpPmCmmOchOptMax.setStatus('current')
-cmmOchPtpPmCmmOchOptAve = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 6), FloatHundredths()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmmOchPtpPmCmmOchOptAve.setStatus('current')
-cmmOchPtpPmCmmOchOprMin = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 7), FloatHundredths()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmmOchPtpPmCmmOchOprMin.setStatus('current')
-cmmOchPtpPmCmmOchOprMax = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 8), FloatHundredths()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmmOchPtpPmCmmOchOprMax.setStatus('current')
-cmmOchPtpPmCmmOchOprAve = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 9), FloatHundredths()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmmOchPtpPmCmmOchOprAve.setStatus('current')
-cmmOchPtpPmRealTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 1), )
-if mibBuilder.loadTexts: cmmOchPtpPmRealTable.setStatus('current')
-cmmOchPtpPmRealEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: cmmOchPtpPmRealEntry.setStatus('current')
-cmmOchPtpPmRealCmmOchOpt = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 1, 1, 1), FloatHundredths()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmmOchPtpPmRealCmmOchOpt.setStatus('current')
-cmmOchPtpPmRealCmmOchOpr = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 1, 1, 2), FloatHundredths()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmmOchPtpPmRealCmmOchOpr.setStatus('current')
-cmmOchPtpPmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3))
-cmmOchPtpPmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 1))
-cmmOchPtpPmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 2))
-cmmOchPtpPmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 1, 1)).setObjects(("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmmOchPtpPmCompliance = cmmOchPtpPmCompliance.setStatus('current')
-cmmOchPtpPmRealCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 1, 2)).setObjects(("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmRealGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmmOchPtpPmRealCompliance = cmmOchPtpPmRealCompliance.setStatus('current')
-cmmOchPtpPmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 2, 1)).setObjects(("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmValidity"), ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOptMin"), ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOptMax"), ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOptAve"), ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOprMin"), ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOprMax"), ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOprAve"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmmOchPtpPmGroup = cmmOchPtpPmGroup.setStatus('current')
-cmmOchPtpPmRealGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 2, 2)).setObjects(("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmRealCmmOchOpt"), ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmRealCmmOchOpr"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmmOchPtpPmRealGroup = cmmOchPtpPmRealGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-PM-CMMOCHPTP-MIB", cmmOchPtpPmGroup=cmmOchPtpPmGroup, cmmOchPtpPmTable=cmmOchPtpPmTable, cmmOchPtpPmMIB=cmmOchPtpPmMIB, cmmOchPtpPmCmmOchOptAve=cmmOchPtpPmCmmOchOptAve, cmmOchPtpPmEntry=cmmOchPtpPmEntry, cmmOchPtpPmRealCompliance=cmmOchPtpPmRealCompliance, cmmOchPtpPmCmmOchOptMax=cmmOchPtpPmCmmOchOptMax, cmmOchPtpPmRealTable=cmmOchPtpPmRealTable, PYSNMP_MODULE_ID=cmmOchPtpPmMIB, cmmOchPtpPmRealCmmOchOpt=cmmOchPtpPmRealCmmOchOpt, cmmOchPtpPmCmmOchOprMax=cmmOchPtpPmCmmOchOprMax, cmmOchPtpPmSampleDuration=cmmOchPtpPmSampleDuration, cmmOchPtpPmCmmOchOprAve=cmmOchPtpPmCmmOchOprAve, cmmOchPtpPmConformance=cmmOchPtpPmConformance, cmmOchPtpPmRealEntry=cmmOchPtpPmRealEntry, cmmOchPtpPmTimestamp=cmmOchPtpPmTimestamp, cmmOchPtpPmCmmOchOprMin=cmmOchPtpPmCmmOchOprMin, cmmOchPtpPmCompliance=cmmOchPtpPmCompliance, cmmOchPtpPmRealGroup=cmmOchPtpPmRealGroup, cmmOchPtpPmValidity=cmmOchPtpPmValidity, cmmOchPtpPmCmmOchOptMin=cmmOchPtpPmCmmOchOptMin, cmmOchPtpPmGroups=cmmOchPtpPmGroups, cmmOchPtpPmRealCmmOchOpr=cmmOchPtpPmRealCmmOchOpr, cmmOchPtpPmCompliances=cmmOchPtpPmCompliances)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(perfMon,) = mibBuilder.importSymbols(
+    "INFINERA-REG-MIB",
+    "perfMon")
+
+(FloatHundredths,) = mibBuilder.importSymbols(
+    "INFINERA-TC-MIB",
+    "FloatHundredths")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cmmOchPtpPmMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26)
+)
+if mibBuilder.loadTexts:
+    cmmOchPtpPmMIB.setRevisions(
+        ("2008-10-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CmmOchPtpPmRealTable_Object = MibTable
+cmmOchPtpPmRealTable = _CmmOchPtpPmRealTable_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 1)
+)
+if mibBuilder.loadTexts:
+    cmmOchPtpPmRealTable.setStatus("current")
+_CmmOchPtpPmRealEntry_Object = MibTableRow
+cmmOchPtpPmRealEntry = _CmmOchPtpPmRealEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 1, 1)
+)
+cmmOchPtpPmRealEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    cmmOchPtpPmRealEntry.setStatus("current")
+_CmmOchPtpPmRealCmmOchOpt_Type = FloatHundredths
+_CmmOchPtpPmRealCmmOchOpt_Object = MibTableColumn
+cmmOchPtpPmRealCmmOchOpt = _CmmOchPtpPmRealCmmOchOpt_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 1, 1, 1),
+    _CmmOchPtpPmRealCmmOchOpt_Type()
+)
+cmmOchPtpPmRealCmmOchOpt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmmOchPtpPmRealCmmOchOpt.setStatus("current")
+_CmmOchPtpPmRealCmmOchOpr_Type = FloatHundredths
+_CmmOchPtpPmRealCmmOchOpr_Object = MibTableColumn
+cmmOchPtpPmRealCmmOchOpr = _CmmOchPtpPmRealCmmOchOpr_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 1, 1, 2),
+    _CmmOchPtpPmRealCmmOchOpr_Type()
+)
+cmmOchPtpPmRealCmmOchOpr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmmOchPtpPmRealCmmOchOpr.setStatus("current")
+_CmmOchPtpPmTable_Object = MibTable
+cmmOchPtpPmTable = _CmmOchPtpPmTable_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2)
+)
+if mibBuilder.loadTexts:
+    cmmOchPtpPmTable.setStatus("current")
+_CmmOchPtpPmEntry_Object = MibTableRow
+cmmOchPtpPmEntry = _CmmOchPtpPmEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1)
+)
+cmmOchPtpPmEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmSampleDuration"),
+    (0, "INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmTimestamp"),
+)
+if mibBuilder.loadTexts:
+    cmmOchPtpPmEntry.setStatus("current")
+
+
+class _CmmOchPtpPmTimestamp_Type(Integer32):
+    """Custom type cmmOchPtpPmTimestamp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_CmmOchPtpPmTimestamp_Type.__name__ = "Integer32"
+_CmmOchPtpPmTimestamp_Object = MibTableColumn
+cmmOchPtpPmTimestamp = _CmmOchPtpPmTimestamp_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 1),
+    _CmmOchPtpPmTimestamp_Type()
+)
+cmmOchPtpPmTimestamp.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cmmOchPtpPmTimestamp.setStatus("current")
+
+
+class _CmmOchPtpPmSampleDuration_Type(Integer32):
+    """Custom type cmmOchPtpPmSampleDuration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fifteenMinutes", 1),
+          ("day", 2))
+    )
+
+
+_CmmOchPtpPmSampleDuration_Type.__name__ = "Integer32"
+_CmmOchPtpPmSampleDuration_Object = MibTableColumn
+cmmOchPtpPmSampleDuration = _CmmOchPtpPmSampleDuration_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 2),
+    _CmmOchPtpPmSampleDuration_Type()
+)
+cmmOchPtpPmSampleDuration.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cmmOchPtpPmSampleDuration.setStatus("current")
+_CmmOchPtpPmValidity_Type = TruthValue
+_CmmOchPtpPmValidity_Object = MibTableColumn
+cmmOchPtpPmValidity = _CmmOchPtpPmValidity_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 3),
+    _CmmOchPtpPmValidity_Type()
+)
+cmmOchPtpPmValidity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmmOchPtpPmValidity.setStatus("current")
+_CmmOchPtpPmCmmOchOptMin_Type = FloatHundredths
+_CmmOchPtpPmCmmOchOptMin_Object = MibTableColumn
+cmmOchPtpPmCmmOchOptMin = _CmmOchPtpPmCmmOchOptMin_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 4),
+    _CmmOchPtpPmCmmOchOptMin_Type()
+)
+cmmOchPtpPmCmmOchOptMin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmmOchPtpPmCmmOchOptMin.setStatus("current")
+_CmmOchPtpPmCmmOchOptMax_Type = FloatHundredths
+_CmmOchPtpPmCmmOchOptMax_Object = MibTableColumn
+cmmOchPtpPmCmmOchOptMax = _CmmOchPtpPmCmmOchOptMax_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 5),
+    _CmmOchPtpPmCmmOchOptMax_Type()
+)
+cmmOchPtpPmCmmOchOptMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmmOchPtpPmCmmOchOptMax.setStatus("current")
+_CmmOchPtpPmCmmOchOptAve_Type = FloatHundredths
+_CmmOchPtpPmCmmOchOptAve_Object = MibTableColumn
+cmmOchPtpPmCmmOchOptAve = _CmmOchPtpPmCmmOchOptAve_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 6),
+    _CmmOchPtpPmCmmOchOptAve_Type()
+)
+cmmOchPtpPmCmmOchOptAve.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmmOchPtpPmCmmOchOptAve.setStatus("current")
+_CmmOchPtpPmCmmOchOprMin_Type = FloatHundredths
+_CmmOchPtpPmCmmOchOprMin_Object = MibTableColumn
+cmmOchPtpPmCmmOchOprMin = _CmmOchPtpPmCmmOchOprMin_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 7),
+    _CmmOchPtpPmCmmOchOprMin_Type()
+)
+cmmOchPtpPmCmmOchOprMin.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmmOchPtpPmCmmOchOprMin.setStatus("current")
+_CmmOchPtpPmCmmOchOprMax_Type = FloatHundredths
+_CmmOchPtpPmCmmOchOprMax_Object = MibTableColumn
+cmmOchPtpPmCmmOchOprMax = _CmmOchPtpPmCmmOchOprMax_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 8),
+    _CmmOchPtpPmCmmOchOprMax_Type()
+)
+cmmOchPtpPmCmmOchOprMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmmOchPtpPmCmmOchOprMax.setStatus("current")
+_CmmOchPtpPmCmmOchOprAve_Type = FloatHundredths
+_CmmOchPtpPmCmmOchOprAve_Object = MibTableColumn
+cmmOchPtpPmCmmOchOprAve = _CmmOchPtpPmCmmOchOprAve_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 2, 1, 9),
+    _CmmOchPtpPmCmmOchOprAve_Type()
+)
+cmmOchPtpPmCmmOchOprAve.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmmOchPtpPmCmmOchOprAve.setStatus("current")
+_CmmOchPtpPmConformance_ObjectIdentity = ObjectIdentity
+cmmOchPtpPmConformance = _CmmOchPtpPmConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3)
+)
+_CmmOchPtpPmCompliances_ObjectIdentity = ObjectIdentity
+cmmOchPtpPmCompliances = _CmmOchPtpPmCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 1)
+)
+_CmmOchPtpPmGroups_ObjectIdentity = ObjectIdentity
+cmmOchPtpPmGroups = _CmmOchPtpPmGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 2)
+)
+
+# Managed Objects groups
+
+cmmOchPtpPmGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 2, 1)
+)
+cmmOchPtpPmGroup.setObjects(
+      *(("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmValidity"),
+        ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOptMin"),
+        ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOptMax"),
+        ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOptAve"),
+        ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOprMin"),
+        ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOprMax"),
+        ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmCmmOchOprAve"))
+)
+if mibBuilder.loadTexts:
+    cmmOchPtpPmGroup.setStatus("current")
+
+cmmOchPtpPmRealGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 2, 2)
+)
+cmmOchPtpPmRealGroup.setObjects(
+      *(("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmRealCmmOchOpt"),
+        ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmRealCmmOchOpr"))
+)
+if mibBuilder.loadTexts:
+    cmmOchPtpPmRealGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cmmOchPtpPmCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 1, 1)
+)
+cmmOchPtpPmCompliance.setObjects(
+    ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmGroup")
+)
+if mibBuilder.loadTexts:
+    cmmOchPtpPmCompliance.setStatus(
+        "current"
+    )
+
+cmmOchPtpPmRealCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 3, 26, 3, 1, 2)
+)
+cmmOchPtpPmRealCompliance.setObjects(
+    ("INFINERA-PM-CMMOCHPTP-MIB", "cmmOchPtpPmRealGroup")
+)
+if mibBuilder.loadTexts:
+    cmmOchPtpPmRealCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "INFINERA-PM-CMMOCHPTP-MIB",
+    **{"cmmOchPtpPmMIB": cmmOchPtpPmMIB,
+       "cmmOchPtpPmRealTable": cmmOchPtpPmRealTable,
+       "cmmOchPtpPmRealEntry": cmmOchPtpPmRealEntry,
+       "cmmOchPtpPmRealCmmOchOpt": cmmOchPtpPmRealCmmOchOpt,
+       "cmmOchPtpPmRealCmmOchOpr": cmmOchPtpPmRealCmmOchOpr,
+       "cmmOchPtpPmTable": cmmOchPtpPmTable,
+       "cmmOchPtpPmEntry": cmmOchPtpPmEntry,
+       "cmmOchPtpPmTimestamp": cmmOchPtpPmTimestamp,
+       "cmmOchPtpPmSampleDuration": cmmOchPtpPmSampleDuration,
+       "cmmOchPtpPmValidity": cmmOchPtpPmValidity,
+       "cmmOchPtpPmCmmOchOptMin": cmmOchPtpPmCmmOchOptMin,
+       "cmmOchPtpPmCmmOchOptMax": cmmOchPtpPmCmmOchOptMax,
+       "cmmOchPtpPmCmmOchOptAve": cmmOchPtpPmCmmOchOptAve,
+       "cmmOchPtpPmCmmOchOprMin": cmmOchPtpPmCmmOchOprMin,
+       "cmmOchPtpPmCmmOchOprMax": cmmOchPtpPmCmmOchOprMax,
+       "cmmOchPtpPmCmmOchOprAve": cmmOchPtpPmCmmOchOprAve,
+       "cmmOchPtpPmConformance": cmmOchPtpPmConformance,
+       "cmmOchPtpPmCompliances": cmmOchPtpPmCompliances,
+       "cmmOchPtpPmCompliance": cmmOchPtpPmCompliance,
+       "cmmOchPtpPmRealCompliance": cmmOchPtpPmRealCompliance,
+       "cmmOchPtpPmGroups": cmmOchPtpPmGroups,
+       "cmmOchPtpPmGroup": cmmOchPtpPmGroup,
+       "cmmOchPtpPmRealGroup": cmmOchPtpPmRealGroup}
+)

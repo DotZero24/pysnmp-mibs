@@ -1,84 +1,558 @@
+# SNMP MIB module (TIMETRA-IPFIX-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TIMETRA-IPFIX-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TIMETRA-IPFIX-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:37:45 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TIMETRA-IPFIX-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:55:26 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "TimeStamp", "DisplayString")
-tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix, tmnxSRConfs = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix", "tmnxSRConfs")
-TmnxAdminState, TNamedItem, TItemDescription = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TmnxAdminState", "TNamedItem", "TItemDescription")
-vRtrID, = mibBuilder.importSymbols("TIMETRA-VRTR-MIB", "vRtrID")
-timetraIpfixMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 78))
-timetraIpfixMIBModule.setRevisions(('2012-02-28 00:00',))
-if mibBuilder.loadTexts: timetraIpfixMIBModule.setLastUpdated('201202280000Z')
-if mibBuilder.loadTexts: timetraIpfixMIBModule.setOrganization('Nokia')
-tmnxIpfix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78))
-tmnxIpfixObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1))
-tmnxIpfixExportObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1))
-tmnxIpfixExpPlcyTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1), )
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyTable.setStatus('current')
-tmnxIpfixExpPlcyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1), ).setIndexNames((1, "TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyName"))
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyEntry.setStatus('current')
-tmnxIpfixExpPlcyName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1, 1), TNamedItem())
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyName.setStatus('current')
-tmnxIpfixExpPlcyLastCh = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyLastCh.setStatus('current')
-tmnxIpfixExpPlcyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyRowStatus.setStatus('current')
-tmnxIpfixExpPlcyDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1, 4), TItemDescription()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyDescription.setStatus('current')
-tmnxIpfixExpPlcyTemplateFormat = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("format1", 1), ("format2", 2))).clone('format1')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyTemplateFormat.setStatus('current')
-tmnxIpfixExpPlcyColTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2), )
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColTable.setStatus('current')
-tmnxIpfixExpPlcyColEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1), ).setIndexNames((0, "TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyName"), (0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColAddrType"), (0, "TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColAddr"))
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColEntry.setStatus('current')
-tmnxIpfixExpPlcyColAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColAddrType.setStatus('current')
-tmnxIpfixExpPlcyColAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColAddr.setStatus('current')
-tmnxIpfixExpPlcyColRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColRowStatus.setStatus('current')
-tmnxIpfixExpPlcyColLastCh = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColLastCh.setStatus('current')
-tmnxIpfixExpPlcyColAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 5), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColAdminState.setStatus('current')
-tmnxIpfixExpPlcyColSrcAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 6), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColSrcAddrType.setStatus('current')
-tmnxIpfixExpPlcyColSrcAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 7), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColSrcAddr.setStatus('current')
-tmnxIpfixExpPlcyColMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(512, 9212)).clone(1500)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColMtu.setStatus('current')
-tmnxIpfixExpPlcyColTmplRefrshTo = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(240, 86400)).clone(600)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColTmplRefrshTo.setStatus('current')
-tmnxIpfixExpPlcyTableCh = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 100), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyTableCh.setStatus('current')
-tmnxIpfixExpPlcyColTableCh = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 101), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxIpfixExpPlcyColTableCh.setStatus('current')
-tmnxIpfixConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78))
-tmnxIpfixCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 1))
-tmnxIpfixCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 1, 1)).setObjects(("TIMETRA-IPFIX-MIB", "tmnxIpfixExportGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxIpfixCompliance = tmnxIpfixCompliance.setStatus('obsolete')
-tmnxIpfixV15v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 1, 2)).setObjects(("TIMETRA-IPFIX-MIB", "tmnxIpfixExportGroup"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExportGroupV15v0"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxIpfixV15v0Compliance = tmnxIpfixV15v0Compliance.setStatus('current')
-tmnxIpfixGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 2))
-tmnxIpfixExportGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 2, 1)).setObjects(("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyTableCh"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyLastCh"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyRowStatus"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyDescription"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColTableCh"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColRowStatus"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColLastCh"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColAdminState"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColSrcAddrType"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColSrcAddr"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColMtu"), ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColTmplRefrshTo"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxIpfixExportGroup = tmnxIpfixExportGroup.setStatus('current')
-tmnxIpfixExportGroupV15v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 2, 2)).setObjects(("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyTemplateFormat"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxIpfixExportGroupV15v0 = tmnxIpfixExportGroupV15v0.setStatus('current')
-tmnxIpfixNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 78))
-tmnxIpfixNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 78, 0))
-mibBuilder.exportSymbols("TIMETRA-IPFIX-MIB", tmnxIpfixExpPlcyColTableCh=tmnxIpfixExpPlcyColTableCh, tmnxIpfixExportObjs=tmnxIpfixExportObjs, tmnxIpfixObjs=tmnxIpfixObjs, tmnxIpfixExpPlcyName=tmnxIpfixExpPlcyName, tmnxIpfixExpPlcyColLastCh=tmnxIpfixExpPlcyColLastCh, tmnxIpfixExportGroup=tmnxIpfixExportGroup, tmnxIpfix=tmnxIpfix, tmnxIpfixExpPlcyColAddrType=tmnxIpfixExpPlcyColAddrType, tmnxIpfixConformance=tmnxIpfixConformance, tmnxIpfixExpPlcyColTable=tmnxIpfixExpPlcyColTable, tmnxIpfixExpPlcyColAddr=tmnxIpfixExpPlcyColAddr, tmnxIpfixExpPlcyLastCh=tmnxIpfixExpPlcyLastCh, tmnxIpfixExpPlcyTableCh=tmnxIpfixExpPlcyTableCh, tmnxIpfixNotifyPrefix=tmnxIpfixNotifyPrefix, tmnxIpfixExpPlcyEntry=tmnxIpfixExpPlcyEntry, tmnxIpfixExpPlcyDescription=tmnxIpfixExpPlcyDescription, tmnxIpfixExpPlcyColEntry=tmnxIpfixExpPlcyColEntry, tmnxIpfixNotifications=tmnxIpfixNotifications, tmnxIpfixExpPlcyColRowStatus=tmnxIpfixExpPlcyColRowStatus, tmnxIpfixExpPlcyColSrcAddr=tmnxIpfixExpPlcyColSrcAddr, tmnxIpfixExpPlcyTable=tmnxIpfixExpPlcyTable, tmnxIpfixExpPlcyColAdminState=tmnxIpfixExpPlcyColAdminState, PYSNMP_MODULE_ID=timetraIpfixMIBModule, tmnxIpfixExpPlcyTemplateFormat=tmnxIpfixExpPlcyTemplateFormat, timetraIpfixMIBModule=timetraIpfixMIBModule, tmnxIpfixCompliance=tmnxIpfixCompliance, tmnxIpfixExpPlcyColMtu=tmnxIpfixExpPlcyColMtu, tmnxIpfixExpPlcyColTmplRefrshTo=tmnxIpfixExpPlcyColTmplRefrshTo, tmnxIpfixGroups=tmnxIpfixGroups, tmnxIpfixV15v0Compliance=tmnxIpfixV15v0Compliance, tmnxIpfixExportGroupV15v0=tmnxIpfixExportGroupV15v0, tmnxIpfixExpPlcyRowStatus=tmnxIpfixExpPlcyRowStatus, tmnxIpfixExpPlcyColSrcAddrType=tmnxIpfixExpPlcyColSrcAddrType, tmnxIpfixCompliances=tmnxIpfixCompliances)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp")
+
+(timetraSRMIBModules,
+ tmnxSRConfs,
+ tmnxSRNotifyPrefix,
+ tmnxSRObjs) = mibBuilder.importSymbols(
+    "TIMETRA-GLOBAL-MIB",
+    "timetraSRMIBModules",
+    "tmnxSRConfs",
+    "tmnxSRNotifyPrefix",
+    "tmnxSRObjs")
+
+(TItemDescription,
+ TNamedItem,
+ TmnxAdminState) = mibBuilder.importSymbols(
+    "TIMETRA-TC-MIB",
+    "TItemDescription",
+    "TNamedItem",
+    "TmnxAdminState")
+
+(vRtrID,) = mibBuilder.importSymbols(
+    "TIMETRA-VRTR-MIB",
+    "vRtrID")
+
+
+# MODULE-IDENTITY
+
+timetraIpfixMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 78)
+)
+if mibBuilder.loadTexts:
+    timetraIpfixMIBModule.setRevisions(
+        ("2012-02-28 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TmnxIpfixConformance_ObjectIdentity = ObjectIdentity
+tmnxIpfixConformance = _TmnxIpfixConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78)
+)
+_TmnxIpfixCompliances_ObjectIdentity = ObjectIdentity
+tmnxIpfixCompliances = _TmnxIpfixCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 1)
+)
+_TmnxIpfixGroups_ObjectIdentity = ObjectIdentity
+tmnxIpfixGroups = _TmnxIpfixGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 2)
+)
+_TmnxIpfix_ObjectIdentity = ObjectIdentity
+tmnxIpfix = _TmnxIpfix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78)
+)
+_TmnxIpfixObjs_ObjectIdentity = ObjectIdentity
+tmnxIpfixObjs = _TmnxIpfixObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1)
+)
+_TmnxIpfixExportObjs_ObjectIdentity = ObjectIdentity
+tmnxIpfixExportObjs = _TmnxIpfixExportObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1)
+)
+_TmnxIpfixExpPlcyTable_Object = MibTable
+tmnxIpfixExpPlcyTable = _TmnxIpfixExpPlcyTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyTable.setStatus("current")
+_TmnxIpfixExpPlcyEntry_Object = MibTableRow
+tmnxIpfixExpPlcyEntry = _TmnxIpfixExpPlcyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1)
+)
+tmnxIpfixExpPlcyEntry.setIndexNames(
+    (1, "TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyName"),
+)
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyEntry.setStatus("current")
+_TmnxIpfixExpPlcyName_Type = TNamedItem
+_TmnxIpfixExpPlcyName_Object = MibTableColumn
+tmnxIpfixExpPlcyName = _TmnxIpfixExpPlcyName_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1, 1),
+    _TmnxIpfixExpPlcyName_Type()
+)
+tmnxIpfixExpPlcyName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyName.setStatus("current")
+_TmnxIpfixExpPlcyLastCh_Type = TimeStamp
+_TmnxIpfixExpPlcyLastCh_Object = MibTableColumn
+tmnxIpfixExpPlcyLastCh = _TmnxIpfixExpPlcyLastCh_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1, 2),
+    _TmnxIpfixExpPlcyLastCh_Type()
+)
+tmnxIpfixExpPlcyLastCh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyLastCh.setStatus("current")
+_TmnxIpfixExpPlcyRowStatus_Type = RowStatus
+_TmnxIpfixExpPlcyRowStatus_Object = MibTableColumn
+tmnxIpfixExpPlcyRowStatus = _TmnxIpfixExpPlcyRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1, 3),
+    _TmnxIpfixExpPlcyRowStatus_Type()
+)
+tmnxIpfixExpPlcyRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyRowStatus.setStatus("current")
+
+
+class _TmnxIpfixExpPlcyDescription_Type(TItemDescription):
+    """Custom type tmnxIpfixExpPlcyDescription based on TItemDescription"""
+    defaultValue = OctetString("")
+
+
+_TmnxIpfixExpPlcyDescription_Type.__name__ = "TItemDescription"
+_TmnxIpfixExpPlcyDescription_Object = MibTableColumn
+tmnxIpfixExpPlcyDescription = _TmnxIpfixExpPlcyDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1, 4),
+    _TmnxIpfixExpPlcyDescription_Type()
+)
+tmnxIpfixExpPlcyDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyDescription.setStatus("current")
+
+
+class _TmnxIpfixExpPlcyTemplateFormat_Type(Integer32):
+    """Custom type tmnxIpfixExpPlcyTemplateFormat based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("format1", 1),
+          ("format2", 2))
+    )
+
+
+_TmnxIpfixExpPlcyTemplateFormat_Type.__name__ = "Integer32"
+_TmnxIpfixExpPlcyTemplateFormat_Object = MibTableColumn
+tmnxIpfixExpPlcyTemplateFormat = _TmnxIpfixExpPlcyTemplateFormat_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 1, 1, 5),
+    _TmnxIpfixExpPlcyTemplateFormat_Type()
+)
+tmnxIpfixExpPlcyTemplateFormat.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyTemplateFormat.setStatus("current")
+_TmnxIpfixExpPlcyColTable_Object = MibTable
+tmnxIpfixExpPlcyColTable = _TmnxIpfixExpPlcyColTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColTable.setStatus("current")
+_TmnxIpfixExpPlcyColEntry_Object = MibTableRow
+tmnxIpfixExpPlcyColEntry = _TmnxIpfixExpPlcyColEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1)
+)
+tmnxIpfixExpPlcyColEntry.setIndexNames(
+    (0, "TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyName"),
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColAddrType"),
+    (0, "TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColAddr"),
+)
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColEntry.setStatus("current")
+_TmnxIpfixExpPlcyColAddrType_Type = InetAddressType
+_TmnxIpfixExpPlcyColAddrType_Object = MibTableColumn
+tmnxIpfixExpPlcyColAddrType = _TmnxIpfixExpPlcyColAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 1),
+    _TmnxIpfixExpPlcyColAddrType_Type()
+)
+tmnxIpfixExpPlcyColAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColAddrType.setStatus("current")
+
+
+class _TmnxIpfixExpPlcyColAddr_Type(InetAddress):
+    """Custom type tmnxIpfixExpPlcyColAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxIpfixExpPlcyColAddr_Type.__name__ = "InetAddress"
+_TmnxIpfixExpPlcyColAddr_Object = MibTableColumn
+tmnxIpfixExpPlcyColAddr = _TmnxIpfixExpPlcyColAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 2),
+    _TmnxIpfixExpPlcyColAddr_Type()
+)
+tmnxIpfixExpPlcyColAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColAddr.setStatus("current")
+_TmnxIpfixExpPlcyColRowStatus_Type = RowStatus
+_TmnxIpfixExpPlcyColRowStatus_Object = MibTableColumn
+tmnxIpfixExpPlcyColRowStatus = _TmnxIpfixExpPlcyColRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 3),
+    _TmnxIpfixExpPlcyColRowStatus_Type()
+)
+tmnxIpfixExpPlcyColRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColRowStatus.setStatus("current")
+_TmnxIpfixExpPlcyColLastCh_Type = TimeStamp
+_TmnxIpfixExpPlcyColLastCh_Object = MibTableColumn
+tmnxIpfixExpPlcyColLastCh = _TmnxIpfixExpPlcyColLastCh_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 4),
+    _TmnxIpfixExpPlcyColLastCh_Type()
+)
+tmnxIpfixExpPlcyColLastCh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColLastCh.setStatus("current")
+
+
+class _TmnxIpfixExpPlcyColAdminState_Type(TmnxAdminState):
+    """Custom type tmnxIpfixExpPlcyColAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_TmnxIpfixExpPlcyColAdminState_Type.__name__ = "TmnxAdminState"
+_TmnxIpfixExpPlcyColAdminState_Object = MibTableColumn
+tmnxIpfixExpPlcyColAdminState = _TmnxIpfixExpPlcyColAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 5),
+    _TmnxIpfixExpPlcyColAdminState_Type()
+)
+tmnxIpfixExpPlcyColAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColAdminState.setStatus("current")
+
+
+class _TmnxIpfixExpPlcyColSrcAddrType_Type(InetAddressType):
+    """Custom type tmnxIpfixExpPlcyColSrcAddrType based on InetAddressType"""
+    defaultValue = 0
+
+
+_TmnxIpfixExpPlcyColSrcAddrType_Type.__name__ = "InetAddressType"
+_TmnxIpfixExpPlcyColSrcAddrType_Object = MibTableColumn
+tmnxIpfixExpPlcyColSrcAddrType = _TmnxIpfixExpPlcyColSrcAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 6),
+    _TmnxIpfixExpPlcyColSrcAddrType_Type()
+)
+tmnxIpfixExpPlcyColSrcAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColSrcAddrType.setStatus("current")
+
+
+class _TmnxIpfixExpPlcyColSrcAddr_Type(InetAddress):
+    """Custom type tmnxIpfixExpPlcyColSrcAddr based on InetAddress"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxIpfixExpPlcyColSrcAddr_Type.__name__ = "InetAddress"
+_TmnxIpfixExpPlcyColSrcAddr_Object = MibTableColumn
+tmnxIpfixExpPlcyColSrcAddr = _TmnxIpfixExpPlcyColSrcAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 7),
+    _TmnxIpfixExpPlcyColSrcAddr_Type()
+)
+tmnxIpfixExpPlcyColSrcAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColSrcAddr.setStatus("current")
+
+
+class _TmnxIpfixExpPlcyColMtu_Type(Unsigned32):
+    """Custom type tmnxIpfixExpPlcyColMtu based on Unsigned32"""
+    defaultValue = 1500
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(512, 9212),
+    )
+
+
+_TmnxIpfixExpPlcyColMtu_Type.__name__ = "Unsigned32"
+_TmnxIpfixExpPlcyColMtu_Object = MibTableColumn
+tmnxIpfixExpPlcyColMtu = _TmnxIpfixExpPlcyColMtu_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 8),
+    _TmnxIpfixExpPlcyColMtu_Type()
+)
+tmnxIpfixExpPlcyColMtu.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColMtu.setStatus("current")
+
+
+class _TmnxIpfixExpPlcyColTmplRefrshTo_Type(Unsigned32):
+    """Custom type tmnxIpfixExpPlcyColTmplRefrshTo based on Unsigned32"""
+    defaultValue = 600
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(240, 86400),
+    )
+
+
+_TmnxIpfixExpPlcyColTmplRefrshTo_Type.__name__ = "Unsigned32"
+_TmnxIpfixExpPlcyColTmplRefrshTo_Object = MibTableColumn
+tmnxIpfixExpPlcyColTmplRefrshTo = _TmnxIpfixExpPlcyColTmplRefrshTo_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 1, 2, 1, 9),
+    _TmnxIpfixExpPlcyColTmplRefrshTo_Type()
+)
+tmnxIpfixExpPlcyColTmplRefrshTo.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColTmplRefrshTo.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColTmplRefrshTo.setUnits("seconds")
+_TmnxIpfixExpPlcyTableCh_Type = TimeStamp
+_TmnxIpfixExpPlcyTableCh_Object = MibScalar
+tmnxIpfixExpPlcyTableCh = _TmnxIpfixExpPlcyTableCh_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 100),
+    _TmnxIpfixExpPlcyTableCh_Type()
+)
+tmnxIpfixExpPlcyTableCh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyTableCh.setStatus("current")
+_TmnxIpfixExpPlcyColTableCh_Type = TimeStamp
+_TmnxIpfixExpPlcyColTableCh_Object = MibScalar
+tmnxIpfixExpPlcyColTableCh = _TmnxIpfixExpPlcyColTableCh_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 78, 1, 101),
+    _TmnxIpfixExpPlcyColTableCh_Type()
+)
+tmnxIpfixExpPlcyColTableCh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxIpfixExpPlcyColTableCh.setStatus("current")
+_TmnxIpfixNotifyPrefix_ObjectIdentity = ObjectIdentity
+tmnxIpfixNotifyPrefix = _TmnxIpfixNotifyPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 78)
+)
+_TmnxIpfixNotifications_ObjectIdentity = ObjectIdentity
+tmnxIpfixNotifications = _TmnxIpfixNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 78, 0)
+)
+
+# Managed Objects groups
+
+tmnxIpfixExportGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 2, 1)
+)
+tmnxIpfixExportGroup.setObjects(
+      *(("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyTableCh"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyLastCh"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyRowStatus"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyDescription"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColTableCh"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColRowStatus"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColLastCh"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColAdminState"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColSrcAddrType"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColSrcAddr"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColMtu"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyColTmplRefrshTo"))
+)
+if mibBuilder.loadTexts:
+    tmnxIpfixExportGroup.setStatus("current")
+
+tmnxIpfixExportGroupV15v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 2, 2)
+)
+tmnxIpfixExportGroupV15v0.setObjects(
+    ("TIMETRA-IPFIX-MIB", "tmnxIpfixExpPlcyTemplateFormat")
+)
+if mibBuilder.loadTexts:
+    tmnxIpfixExportGroupV15v0.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tmnxIpfixCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 1, 1)
+)
+tmnxIpfixCompliance.setObjects(
+    ("TIMETRA-IPFIX-MIB", "tmnxIpfixExportGroup")
+)
+if mibBuilder.loadTexts:
+    tmnxIpfixCompliance.setStatus(
+        "obsolete"
+    )
+
+tmnxIpfixV15v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 78, 1, 2)
+)
+tmnxIpfixV15v0Compliance.setObjects(
+      *(("TIMETRA-IPFIX-MIB", "tmnxIpfixExportGroup"),
+        ("TIMETRA-IPFIX-MIB", "tmnxIpfixExportGroupV15v0"))
+)
+if mibBuilder.loadTexts:
+    tmnxIpfixV15v0Compliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TIMETRA-IPFIX-MIB",
+    **{"timetraIpfixMIBModule": timetraIpfixMIBModule,
+       "tmnxIpfixConformance": tmnxIpfixConformance,
+       "tmnxIpfixCompliances": tmnxIpfixCompliances,
+       "tmnxIpfixCompliance": tmnxIpfixCompliance,
+       "tmnxIpfixV15v0Compliance": tmnxIpfixV15v0Compliance,
+       "tmnxIpfixGroups": tmnxIpfixGroups,
+       "tmnxIpfixExportGroup": tmnxIpfixExportGroup,
+       "tmnxIpfixExportGroupV15v0": tmnxIpfixExportGroupV15v0,
+       "tmnxIpfix": tmnxIpfix,
+       "tmnxIpfixObjs": tmnxIpfixObjs,
+       "tmnxIpfixExportObjs": tmnxIpfixExportObjs,
+       "tmnxIpfixExpPlcyTable": tmnxIpfixExpPlcyTable,
+       "tmnxIpfixExpPlcyEntry": tmnxIpfixExpPlcyEntry,
+       "tmnxIpfixExpPlcyName": tmnxIpfixExpPlcyName,
+       "tmnxIpfixExpPlcyLastCh": tmnxIpfixExpPlcyLastCh,
+       "tmnxIpfixExpPlcyRowStatus": tmnxIpfixExpPlcyRowStatus,
+       "tmnxIpfixExpPlcyDescription": tmnxIpfixExpPlcyDescription,
+       "tmnxIpfixExpPlcyTemplateFormat": tmnxIpfixExpPlcyTemplateFormat,
+       "tmnxIpfixExpPlcyColTable": tmnxIpfixExpPlcyColTable,
+       "tmnxIpfixExpPlcyColEntry": tmnxIpfixExpPlcyColEntry,
+       "tmnxIpfixExpPlcyColAddrType": tmnxIpfixExpPlcyColAddrType,
+       "tmnxIpfixExpPlcyColAddr": tmnxIpfixExpPlcyColAddr,
+       "tmnxIpfixExpPlcyColRowStatus": tmnxIpfixExpPlcyColRowStatus,
+       "tmnxIpfixExpPlcyColLastCh": tmnxIpfixExpPlcyColLastCh,
+       "tmnxIpfixExpPlcyColAdminState": tmnxIpfixExpPlcyColAdminState,
+       "tmnxIpfixExpPlcyColSrcAddrType": tmnxIpfixExpPlcyColSrcAddrType,
+       "tmnxIpfixExpPlcyColSrcAddr": tmnxIpfixExpPlcyColSrcAddr,
+       "tmnxIpfixExpPlcyColMtu": tmnxIpfixExpPlcyColMtu,
+       "tmnxIpfixExpPlcyColTmplRefrshTo": tmnxIpfixExpPlcyColTmplRefrshTo,
+       "tmnxIpfixExpPlcyTableCh": tmnxIpfixExpPlcyTableCh,
+       "tmnxIpfixExpPlcyColTableCh": tmnxIpfixExpPlcyColTableCh,
+       "tmnxIpfixNotifyPrefix": tmnxIpfixNotifyPrefix,
+       "tmnxIpfixNotifications": tmnxIpfixNotifications}
+)

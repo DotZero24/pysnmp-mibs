@@ -1,89 +1,658 @@
+# SNMP MIB module (ALCATEL-IND1-DOT1Q-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALCATEL-IND1-DOT1Q-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-DOT1Q-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:47 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alcatel/ALCATEL-IND1-DOT1Q-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:08:33 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-softentIND1Dot1Q, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "softentIND1Dot1Q")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-alcatelIND1Dot1QMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1))
-alcatelIND1Dot1QMIB.setRevisions(('2007-04-03 00:00',))
-if mibBuilder.loadTexts: alcatelIND1Dot1QMIB.setLastUpdated('200704030000Z')
-if mibBuilder.loadTexts: alcatelIND1Dot1QMIB.setOrganization('Alcatel-Lucent')
-alcatelIND1Dot1QMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1))
-if mibBuilder.loadTexts: alcatelIND1Dot1QMIBObjects.setStatus('current')
-alcatelIND1Dot1QMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2))
-if mibBuilder.loadTexts: alcatelIND1Dot1QMIBConformance.setStatus('current')
-alcatelIND1Dot1QMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 1))
-if mibBuilder.loadTexts: alcatelIND1Dot1QMIBGroups.setStatus('current')
-alcatelIND1Dot1QMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 2))
-if mibBuilder.loadTexts: alcatelIND1Dot1QMIBCompliances.setStatus('current')
-v8021Q = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1))
-qPortVlanTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1), )
-if mibBuilder.loadTexts: qPortVlanTable.setStatus('current')
-qPortVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1), ).setIndexNames((0, "ALCATEL-IND1-DOT1Q-MIB", "qPortVlanSlot"), (0, "ALCATEL-IND1-DOT1Q-MIB", "qPortVlanPort"), (0, "ALCATEL-IND1-DOT1Q-MIB", "qPortVlanTagValue"))
-if mibBuilder.loadTexts: qPortVlanEntry.setStatus('current')
-qPortVlanSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qPortVlanSlot.setStatus('current')
-qPortVlanPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qPortVlanPort.setStatus('current')
-qPortVlanTagValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qPortVlanTagValue.setStatus('current')
-qPortVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: qPortVlanStatus.setStatus('current')
-qPortVlanDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: qPortVlanDescription.setStatus('current')
-qPortVlanForceTagInternal = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1, 0))).clone(namedValues=NamedValues(("na", 2), ("on", 1), ("off", 0))).clone('na')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: qPortVlanForceTagInternal.setStatus('current')
-qAggregateVlanTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2), )
-if mibBuilder.loadTexts: qAggregateVlanTable.setStatus('current')
-qAggregateVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2, 1), ).setIndexNames((0, "ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanAggregateId"), (0, "ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanTagValue"))
-if mibBuilder.loadTexts: qAggregateVlanEntry.setStatus('current')
-qAggregateVlanAggregateId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qAggregateVlanAggregateId.setStatus('current')
-qAggregateVlanTagValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qAggregateVlanTagValue.setStatus('current')
-qAggregateVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: qAggregateVlanStatus.setStatus('current')
-qAggregateVlanDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: qAggregateVlanDescription.setStatus('current')
-qAtmIfIndexVpiVciTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3), )
-if mibBuilder.loadTexts: qAtmIfIndexVpiVciTable.setStatus('current')
-qAtmIfIndexVpiVciEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1), ).setIndexNames((0, "ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndex"), (0, "ALCATEL-IND1-DOT1Q-MIB", "qAtmVpiValue"), (0, "ALCATEL-IND1-DOT1Q-MIB", "qAtmVciValue"), (0, "ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciVlanTagValue"))
-if mibBuilder.loadTexts: qAtmIfIndexVpiVciEntry.setStatus('current')
-qAtmIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(4259841, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qAtmIfIndex.setStatus('current')
-qAtmVpiValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qAtmVpiValue.setStatus('current')
-qAtmVciValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qAtmVciValue.setStatus('current')
-qAtmIfIndexVpiVciVlanTagValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qAtmIfIndexVpiVciVlanTagValue.setStatus('current')
-qAtmIfIndexVpiVciVlanAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: qAtmIfIndexVpiVciVlanAction.setStatus('current')
-qAtmIfIndexVpiVciVlanDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: qAtmIfIndexVpiVciVlanDescription.setStatus('current')
-qAtmIfIndexVpiVciAcceptableFrameTypes = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("admitAll", 1), ("admitOnlyVlanTagged", 2))).clone('admitAll')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: qAtmIfIndexVpiVciAcceptableFrameTypes.setStatus('current')
-qAtmIfIndexVpiVciForceTagInternal = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 1, 0))).clone(namedValues=NamedValues(("na", 2), ("on", 1), ("off", 0))).clone('na')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: qAtmIfIndexVpiVciForceTagInternal.setStatus('current')
-alcatelIND1Dot1QMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 2, 1)).setObjects(("ALCATEL-IND1-DOT1Q-MIB", "dot1qPortGroup"), ("ALCATEL-IND1-DOT1Q-MIB", "dot1qAggregateGroup"), ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciEntryGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alcatelIND1Dot1QMIBCompliance = alcatelIND1Dot1QMIBCompliance.setStatus('current')
-dot1qPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanSlot"), ("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanPort"), ("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanTagValue"), ("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanStatus"), ("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanDescription"), ("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanForceTagInternal"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    dot1qPortGroup = dot1qPortGroup.setStatus('current')
-dot1qAggregateGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 1, 2)).setObjects(("ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanAggregateId"), ("ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanTagValue"), ("ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanStatus"), ("ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanDescription"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    dot1qAggregateGroup = dot1qAggregateGroup.setStatus('current')
-qAtmIfIndexVpiVciEntryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 1, 3)).setObjects(("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndex"), ("ALCATEL-IND1-DOT1Q-MIB", "qAtmVpiValue"), ("ALCATEL-IND1-DOT1Q-MIB", "qAtmVciValue"), ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciVlanTagValue"), ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciVlanAction"), ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciVlanDescription"), ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciAcceptableFrameTypes"), ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciForceTagInternal"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qAtmIfIndexVpiVciEntryGroup = qAtmIfIndexVpiVciEntryGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-IND1-DOT1Q-MIB", alcatelIND1Dot1QMIBObjects=alcatelIND1Dot1QMIBObjects, qAtmIfIndexVpiVciVlanDescription=qAtmIfIndexVpiVciVlanDescription, qAggregateVlanTagValue=qAggregateVlanTagValue, qAggregateVlanStatus=qAggregateVlanStatus, dot1qPortGroup=dot1qPortGroup, qPortVlanPort=qPortVlanPort, alcatelIND1Dot1QMIBConformance=alcatelIND1Dot1QMIBConformance, qPortVlanForceTagInternal=qPortVlanForceTagInternal, qPortVlanEntry=qPortVlanEntry, qAtmVciValue=qAtmVciValue, dot1qAggregateGroup=dot1qAggregateGroup, qAggregateVlanTable=qAggregateVlanTable, qAggregateVlanAggregateId=qAggregateVlanAggregateId, PYSNMP_MODULE_ID=alcatelIND1Dot1QMIB, qAtmIfIndexVpiVciEntry=qAtmIfIndexVpiVciEntry, alcatelIND1Dot1QMIB=alcatelIND1Dot1QMIB, qPortVlanDescription=qPortVlanDescription, qPortVlanSlot=qPortVlanSlot, qAtmVpiValue=qAtmVpiValue, qAtmIfIndexVpiVciForceTagInternal=qAtmIfIndexVpiVciForceTagInternal, qPortVlanTable=qPortVlanTable, qAggregateVlanEntry=qAggregateVlanEntry, qAtmIfIndexVpiVciVlanAction=qAtmIfIndexVpiVciVlanAction, qAtmIfIndex=qAtmIfIndex, qAtmIfIndexVpiVciVlanTagValue=qAtmIfIndexVpiVciVlanTagValue, alcatelIND1Dot1QMIBCompliance=alcatelIND1Dot1QMIBCompliance, qPortVlanStatus=qPortVlanStatus, alcatelIND1Dot1QMIBCompliances=alcatelIND1Dot1QMIBCompliances, v8021Q=v8021Q, qAtmIfIndexVpiVciAcceptableFrameTypes=qAtmIfIndexVpiVciAcceptableFrameTypes, qPortVlanTagValue=qPortVlanTagValue, qAtmIfIndexVpiVciEntryGroup=qAtmIfIndexVpiVciEntryGroup, qAtmIfIndexVpiVciTable=qAtmIfIndexVpiVciTable, alcatelIND1Dot1QMIBGroups=alcatelIND1Dot1QMIBGroups, qAggregateVlanDescription=qAggregateVlanDescription)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(softentIND1Dot1Q,) = mibBuilder.importSymbols(
+    "ALCATEL-IND1-BASE",
+    "softentIND1Dot1Q")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alcatelIND1Dot1QMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1Dot1QMIB.setRevisions(
+        ("2007-04-03 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlcatelIND1Dot1QMIBObjects_ObjectIdentity = ObjectIdentity
+alcatelIND1Dot1QMIBObjects = _AlcatelIND1Dot1QMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1Dot1QMIBObjects.setStatus("current")
+_V8021Q_ObjectIdentity = ObjectIdentity
+v8021Q = _V8021Q_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1)
+)
+_QPortVlanTable_Object = MibTable
+qPortVlanTable = _QPortVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    qPortVlanTable.setStatus("current")
+_QPortVlanEntry_Object = MibTableRow
+qPortVlanEntry = _QPortVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1)
+)
+qPortVlanEntry.setIndexNames(
+    (0, "ALCATEL-IND1-DOT1Q-MIB", "qPortVlanSlot"),
+    (0, "ALCATEL-IND1-DOT1Q-MIB", "qPortVlanPort"),
+    (0, "ALCATEL-IND1-DOT1Q-MIB", "qPortVlanTagValue"),
+)
+if mibBuilder.loadTexts:
+    qPortVlanEntry.setStatus("current")
+
+
+class _QPortVlanSlot_Type(Integer32):
+    """Custom type qPortVlanSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_QPortVlanSlot_Type.__name__ = "Integer32"
+_QPortVlanSlot_Object = MibTableColumn
+qPortVlanSlot = _QPortVlanSlot_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 1),
+    _QPortVlanSlot_Type()
+)
+qPortVlanSlot.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qPortVlanSlot.setStatus("current")
+
+
+class _QPortVlanPort_Type(Integer32):
+    """Custom type qPortVlanPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 64),
+    )
+
+
+_QPortVlanPort_Type.__name__ = "Integer32"
+_QPortVlanPort_Object = MibTableColumn
+qPortVlanPort = _QPortVlanPort_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 2),
+    _QPortVlanPort_Type()
+)
+qPortVlanPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qPortVlanPort.setStatus("current")
+
+
+class _QPortVlanTagValue_Type(Integer32):
+    """Custom type qPortVlanTagValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_QPortVlanTagValue_Type.__name__ = "Integer32"
+_QPortVlanTagValue_Object = MibTableColumn
+qPortVlanTagValue = _QPortVlanTagValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 3),
+    _QPortVlanTagValue_Type()
+)
+qPortVlanTagValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qPortVlanTagValue.setStatus("current")
+_QPortVlanStatus_Type = RowStatus
+_QPortVlanStatus_Object = MibTableColumn
+qPortVlanStatus = _QPortVlanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 4),
+    _QPortVlanStatus_Type()
+)
+qPortVlanStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    qPortVlanStatus.setStatus("current")
+
+
+class _QPortVlanDescription_Type(DisplayString):
+    """Custom type qPortVlanDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_QPortVlanDescription_Type.__name__ = "DisplayString"
+_QPortVlanDescription_Object = MibTableColumn
+qPortVlanDescription = _QPortVlanDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 5),
+    _QPortVlanDescription_Type()
+)
+qPortVlanDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    qPortVlanDescription.setStatus("current")
+
+
+class _QPortVlanForceTagInternal_Type(Integer32):
+    """Custom type qPortVlanForceTagInternal based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1),
+          ("na", 2))
+    )
+
+
+_QPortVlanForceTagInternal_Type.__name__ = "Integer32"
+_QPortVlanForceTagInternal_Object = MibTableColumn
+qPortVlanForceTagInternal = _QPortVlanForceTagInternal_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 1, 1, 6),
+    _QPortVlanForceTagInternal_Type()
+)
+qPortVlanForceTagInternal.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    qPortVlanForceTagInternal.setStatus("current")
+_QAggregateVlanTable_Object = MibTable
+qAggregateVlanTable = _QAggregateVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    qAggregateVlanTable.setStatus("current")
+_QAggregateVlanEntry_Object = MibTableRow
+qAggregateVlanEntry = _QAggregateVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2, 1)
+)
+qAggregateVlanEntry.setIndexNames(
+    (0, "ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanAggregateId"),
+    (0, "ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanTagValue"),
+)
+if mibBuilder.loadTexts:
+    qAggregateVlanEntry.setStatus("current")
+
+
+class _QAggregateVlanAggregateId_Type(Integer32):
+    """Custom type qAggregateVlanAggregateId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_QAggregateVlanAggregateId_Type.__name__ = "Integer32"
+_QAggregateVlanAggregateId_Object = MibTableColumn
+qAggregateVlanAggregateId = _QAggregateVlanAggregateId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2, 1, 1),
+    _QAggregateVlanAggregateId_Type()
+)
+qAggregateVlanAggregateId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qAggregateVlanAggregateId.setStatus("current")
+
+
+class _QAggregateVlanTagValue_Type(Integer32):
+    """Custom type qAggregateVlanTagValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_QAggregateVlanTagValue_Type.__name__ = "Integer32"
+_QAggregateVlanTagValue_Object = MibTableColumn
+qAggregateVlanTagValue = _QAggregateVlanTagValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2, 1, 2),
+    _QAggregateVlanTagValue_Type()
+)
+qAggregateVlanTagValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qAggregateVlanTagValue.setStatus("current")
+_QAggregateVlanStatus_Type = RowStatus
+_QAggregateVlanStatus_Object = MibTableColumn
+qAggregateVlanStatus = _QAggregateVlanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2, 1, 3),
+    _QAggregateVlanStatus_Type()
+)
+qAggregateVlanStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    qAggregateVlanStatus.setStatus("current")
+
+
+class _QAggregateVlanDescription_Type(DisplayString):
+    """Custom type qAggregateVlanDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_QAggregateVlanDescription_Type.__name__ = "DisplayString"
+_QAggregateVlanDescription_Object = MibTableColumn
+qAggregateVlanDescription = _QAggregateVlanDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 2, 1, 4),
+    _QAggregateVlanDescription_Type()
+)
+qAggregateVlanDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    qAggregateVlanDescription.setStatus("current")
+_QAtmIfIndexVpiVciTable_Object = MibTable
+qAtmIfIndexVpiVciTable = _QAtmIfIndexVpiVciTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    qAtmIfIndexVpiVciTable.setStatus("current")
+_QAtmIfIndexVpiVciEntry_Object = MibTableRow
+qAtmIfIndexVpiVciEntry = _QAtmIfIndexVpiVciEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1)
+)
+qAtmIfIndexVpiVciEntry.setIndexNames(
+    (0, "ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndex"),
+    (0, "ALCATEL-IND1-DOT1Q-MIB", "qAtmVpiValue"),
+    (0, "ALCATEL-IND1-DOT1Q-MIB", "qAtmVciValue"),
+    (0, "ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciVlanTagValue"),
+)
+if mibBuilder.loadTexts:
+    qAtmIfIndexVpiVciEntry.setStatus("current")
+
+
+class _QAtmIfIndex_Type(Integer32):
+    """Custom type qAtmIfIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(4259841, 2147483647),
+    )
+
+
+_QAtmIfIndex_Type.__name__ = "Integer32"
+_QAtmIfIndex_Object = MibTableColumn
+qAtmIfIndex = _QAtmIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 1),
+    _QAtmIfIndex_Type()
+)
+qAtmIfIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qAtmIfIndex.setStatus("current")
+
+
+class _QAtmVpiValue_Type(Integer32):
+    """Custom type qAtmVpiValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4095),
+    )
+
+
+_QAtmVpiValue_Type.__name__ = "Integer32"
+_QAtmVpiValue_Object = MibTableColumn
+qAtmVpiValue = _QAtmVpiValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 2),
+    _QAtmVpiValue_Type()
+)
+qAtmVpiValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qAtmVpiValue.setStatus("current")
+
+
+class _QAtmVciValue_Type(Integer32):
+    """Custom type qAtmVciValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_QAtmVciValue_Type.__name__ = "Integer32"
+_QAtmVciValue_Object = MibTableColumn
+qAtmVciValue = _QAtmVciValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 3),
+    _QAtmVciValue_Type()
+)
+qAtmVciValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qAtmVciValue.setStatus("current")
+
+
+class _QAtmIfIndexVpiVciVlanTagValue_Type(Integer32):
+    """Custom type qAtmIfIndexVpiVciVlanTagValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_QAtmIfIndexVpiVciVlanTagValue_Type.__name__ = "Integer32"
+_QAtmIfIndexVpiVciVlanTagValue_Object = MibTableColumn
+qAtmIfIndexVpiVciVlanTagValue = _QAtmIfIndexVpiVciVlanTagValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 4),
+    _QAtmIfIndexVpiVciVlanTagValue_Type()
+)
+qAtmIfIndexVpiVciVlanTagValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qAtmIfIndexVpiVciVlanTagValue.setStatus("current")
+_QAtmIfIndexVpiVciVlanAction_Type = RowStatus
+_QAtmIfIndexVpiVciVlanAction_Object = MibTableColumn
+qAtmIfIndexVpiVciVlanAction = _QAtmIfIndexVpiVciVlanAction_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 5),
+    _QAtmIfIndexVpiVciVlanAction_Type()
+)
+qAtmIfIndexVpiVciVlanAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    qAtmIfIndexVpiVciVlanAction.setStatus("current")
+
+
+class _QAtmIfIndexVpiVciVlanDescription_Type(DisplayString):
+    """Custom type qAtmIfIndexVpiVciVlanDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_QAtmIfIndexVpiVciVlanDescription_Type.__name__ = "DisplayString"
+_QAtmIfIndexVpiVciVlanDescription_Object = MibTableColumn
+qAtmIfIndexVpiVciVlanDescription = _QAtmIfIndexVpiVciVlanDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 6),
+    _QAtmIfIndexVpiVciVlanDescription_Type()
+)
+qAtmIfIndexVpiVciVlanDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    qAtmIfIndexVpiVciVlanDescription.setStatus("current")
+
+
+class _QAtmIfIndexVpiVciAcceptableFrameTypes_Type(Integer32):
+    """Custom type qAtmIfIndexVpiVciAcceptableFrameTypes based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("admitAll", 1),
+          ("admitOnlyVlanTagged", 2))
+    )
+
+
+_QAtmIfIndexVpiVciAcceptableFrameTypes_Type.__name__ = "Integer32"
+_QAtmIfIndexVpiVciAcceptableFrameTypes_Object = MibTableColumn
+qAtmIfIndexVpiVciAcceptableFrameTypes = _QAtmIfIndexVpiVciAcceptableFrameTypes_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 7),
+    _QAtmIfIndexVpiVciAcceptableFrameTypes_Type()
+)
+qAtmIfIndexVpiVciAcceptableFrameTypes.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    qAtmIfIndexVpiVciAcceptableFrameTypes.setStatus("current")
+
+
+class _QAtmIfIndexVpiVciForceTagInternal_Type(Integer32):
+    """Custom type qAtmIfIndexVpiVciForceTagInternal based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1),
+          ("na", 2))
+    )
+
+
+_QAtmIfIndexVpiVciForceTagInternal_Type.__name__ = "Integer32"
+_QAtmIfIndexVpiVciForceTagInternal_Object = MibTableColumn
+qAtmIfIndexVpiVciForceTagInternal = _QAtmIfIndexVpiVciForceTagInternal_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 1, 1, 3, 1, 8),
+    _QAtmIfIndexVpiVciForceTagInternal_Type()
+)
+qAtmIfIndexVpiVciForceTagInternal.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    qAtmIfIndexVpiVciForceTagInternal.setStatus("current")
+_AlcatelIND1Dot1QMIBConformance_ObjectIdentity = ObjectIdentity
+alcatelIND1Dot1QMIBConformance = _AlcatelIND1Dot1QMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1Dot1QMIBConformance.setStatus("current")
+_AlcatelIND1Dot1QMIBGroups_ObjectIdentity = ObjectIdentity
+alcatelIND1Dot1QMIBGroups = _AlcatelIND1Dot1QMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1Dot1QMIBGroups.setStatus("current")
+_AlcatelIND1Dot1QMIBCompliances_ObjectIdentity = ObjectIdentity
+alcatelIND1Dot1QMIBCompliances = _AlcatelIND1Dot1QMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1Dot1QMIBCompliances.setStatus("current")
+
+# Managed Objects groups
+
+dot1qPortGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 1, 1)
+)
+dot1qPortGroup.setObjects(
+      *(("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanSlot"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanPort"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanTagValue"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanStatus"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanDescription"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qPortVlanForceTagInternal"))
+)
+if mibBuilder.loadTexts:
+    dot1qPortGroup.setStatus("current")
+
+dot1qAggregateGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 1, 2)
+)
+dot1qAggregateGroup.setObjects(
+      *(("ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanAggregateId"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanTagValue"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanStatus"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qAggregateVlanDescription"))
+)
+if mibBuilder.loadTexts:
+    dot1qAggregateGroup.setStatus("current")
+
+qAtmIfIndexVpiVciEntryGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 1, 3)
+)
+qAtmIfIndexVpiVciEntryGroup.setObjects(
+      *(("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndex"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qAtmVpiValue"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qAtmVciValue"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciVlanTagValue"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciVlanAction"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciVlanDescription"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciAcceptableFrameTypes"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciForceTagInternal"))
+)
+if mibBuilder.loadTexts:
+    qAtmIfIndexVpiVciEntryGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alcatelIND1Dot1QMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 21, 1, 2, 2, 1)
+)
+alcatelIND1Dot1QMIBCompliance.setObjects(
+      *(("ALCATEL-IND1-DOT1Q-MIB", "dot1qPortGroup"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "dot1qAggregateGroup"),
+        ("ALCATEL-IND1-DOT1Q-MIB", "qAtmIfIndexVpiVciEntryGroup"))
+)
+if mibBuilder.loadTexts:
+    alcatelIND1Dot1QMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALCATEL-IND1-DOT1Q-MIB",
+    **{"alcatelIND1Dot1QMIB": alcatelIND1Dot1QMIB,
+       "alcatelIND1Dot1QMIBObjects": alcatelIND1Dot1QMIBObjects,
+       "v8021Q": v8021Q,
+       "qPortVlanTable": qPortVlanTable,
+       "qPortVlanEntry": qPortVlanEntry,
+       "qPortVlanSlot": qPortVlanSlot,
+       "qPortVlanPort": qPortVlanPort,
+       "qPortVlanTagValue": qPortVlanTagValue,
+       "qPortVlanStatus": qPortVlanStatus,
+       "qPortVlanDescription": qPortVlanDescription,
+       "qPortVlanForceTagInternal": qPortVlanForceTagInternal,
+       "qAggregateVlanTable": qAggregateVlanTable,
+       "qAggregateVlanEntry": qAggregateVlanEntry,
+       "qAggregateVlanAggregateId": qAggregateVlanAggregateId,
+       "qAggregateVlanTagValue": qAggregateVlanTagValue,
+       "qAggregateVlanStatus": qAggregateVlanStatus,
+       "qAggregateVlanDescription": qAggregateVlanDescription,
+       "qAtmIfIndexVpiVciTable": qAtmIfIndexVpiVciTable,
+       "qAtmIfIndexVpiVciEntry": qAtmIfIndexVpiVciEntry,
+       "qAtmIfIndex": qAtmIfIndex,
+       "qAtmVpiValue": qAtmVpiValue,
+       "qAtmVciValue": qAtmVciValue,
+       "qAtmIfIndexVpiVciVlanTagValue": qAtmIfIndexVpiVciVlanTagValue,
+       "qAtmIfIndexVpiVciVlanAction": qAtmIfIndexVpiVciVlanAction,
+       "qAtmIfIndexVpiVciVlanDescription": qAtmIfIndexVpiVciVlanDescription,
+       "qAtmIfIndexVpiVciAcceptableFrameTypes": qAtmIfIndexVpiVciAcceptableFrameTypes,
+       "qAtmIfIndexVpiVciForceTagInternal": qAtmIfIndexVpiVciForceTagInternal,
+       "alcatelIND1Dot1QMIBConformance": alcatelIND1Dot1QMIBConformance,
+       "alcatelIND1Dot1QMIBGroups": alcatelIND1Dot1QMIBGroups,
+       "dot1qPortGroup": dot1qPortGroup,
+       "dot1qAggregateGroup": dot1qAggregateGroup,
+       "qAtmIfIndexVpiVciEntryGroup": qAtmIfIndexVpiVciEntryGroup,
+       "alcatelIND1Dot1QMIBCompliances": alcatelIND1Dot1QMIBCompliances,
+       "alcatelIND1Dot1QMIBCompliance": alcatelIND1Dot1QMIBCompliance}
+)

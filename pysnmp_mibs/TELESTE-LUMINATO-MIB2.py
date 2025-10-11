@@ -1,404 +1,3251 @@
+# SNMP MIB module (TELESTE-LUMINATO-MIB2) expressed in pysnmp data model.
 #
-# PySNMP MIB module TELESTE-LUMINATO-MIB2 (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/teleste/TELESTE-LUMINATO-MIB2
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:36 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/teleste/TELESTE-LUMINATO-MIB2
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:56:39 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-luminato, = mibBuilder.importSymbols("TELESTE-ROOT-MIB", "luminato")
-notifications = MibIdentifier((1, 3, 6, 1, 4, 1, 3715, 17, 4))
-params = MibIdentifier((1, 3, 6, 1, 4, 1, 3715, 17, 4, 1))
-severity = MibScalar((1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("severityEmergency", 0), ("severityAlert", 1), ("severityCritical", 2), ("severityError", 3), ("severityWarning", 4), ("severityNotice", 5), ("severityInformational", 6), ("severityDebug", 7), ("severityNominal", 8)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: severity.setStatus('current')
-module = MibScalar((1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("moduleChassis", 0), ("moduleSlot1", 1), ("moduleSlot2", 2), ("moduleSlot3", 3), ("moduleSlot4", 4), ("moduleSlot5", 5), ("moduleSlot6", 6), ("modulePsu", 7)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: module.setStatus('current')
-description = MibScalar((1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 8), OctetString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: description.setStatus('current')
-reason = MibScalar((1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 10), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: reason.setStatus('current')
-paramTable = MibTable((1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 11), )
-if mibBuilder.loadTexts: paramTable.setStatus('optional')
-paramEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 11, 1), ).setMaxAccess("accessiblefornotify").setIndexNames((0, "TELESTE-LUMINATO-MIB2", "paramIdx"))
-if mibBuilder.loadTexts: paramEntry.setStatus('current')
-paramIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 11, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4)))
-if mibBuilder.loadTexts: paramIdx.setStatus('current')
-paramValue = MibTableColumn((1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 11, 1, 2), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: paramValue.setStatus('current')
-traps = MibIdentifier((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2))
-generic = MibIdentifier((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 1))
-extendedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 1, 1)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedAlarmEvent.setStatus('current')
-specific = MibIdentifier((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2))
-extendedPidMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 2)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedPidMissingAlarmEvent.setStatus('current')
-extendedServiceMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 3)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedServiceMissingAlarmEvent.setStatus('current')
-extendedPidConflictAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedPidConflictAlarmEvent.setStatus('current')
-extendedTemperatureTooHighAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 6)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedTemperatureTooHighAlarmEvent.setStatus('current')
-extendedTemperatureTooLowAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 7)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedTemperatureTooLowAlarmEvent.setStatus('current')
-extendedManualTableInsertionFailedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 8)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedManualTableInsertionFailedAlarmEvent.setStatus('current')
-extendedAlertMessageAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 10)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedAlertMessageAlarmEvent.setStatus('current')
-extendedServicesPassthroughAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 11)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedServicesPassthroughAlarmEvent.setStatus('current')
-extendedPsigTableInsertionFailedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 15)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedPsigTableInsertionFailedAlarmEvent.setStatus('current')
-extendedPsiTableCaptureFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 17)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedPsiTableCaptureFailureAlarmEvent.setStatus('current')
-extendedSignalMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 18)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedSignalMissingAlarmEvent.setStatus('current')
-extendedNoTsSyncAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 19)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedNoTsSyncAlarmEvent.setStatus('current')
-extendedTsRxErrorsAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 20)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedTsRxErrorsAlarmEvent.setStatus('current')
-extendedTsInputBufferOverflowAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 21)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedTsInputBufferOverflowAlarmEvent.setStatus('current')
-extendedAsiLinkDownAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 22)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedAsiLinkDownAlarmEvent.setStatus('current')
-extendedForbiddenNetworkAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 23)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedForbiddenNetworkAlarmEvent.setStatus('current')
-extendedSidConflictAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 24)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedSidConflictAlarmEvent.setStatus('current')
-extendedLinkMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 25)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedLinkMissingAlarmEvent.setStatus('current')
-extendedEcmMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 26)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEcmMissingAlarmEvent.setStatus('current')
-extendedScramblingConflictInSharedComponentAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 27)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedScramblingConflictInSharedComponentAlarmEvent.setStatus('current')
-extendedScrambledSharedComponentAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 28)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedScrambledSharedComponentAlarmEvent.setStatus('current')
-extendedUsedInputIsNotSptsAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 29)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUsedInputIsNotSptsAlarmEvent.setStatus('current')
-extendedDescramblingFailedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 31)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDescramblingFailedAlarmEvent.setStatus('current')
-extendedCwGroupConflictAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 32)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCwGroupConflictAlarmEvent.setStatus('current')
-extendedInvalidSdtTemplateAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 33)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedInvalidSdtTemplateAlarmEvent.setStatus('current')
-extendedCannotDescrambleDueToCamRoutingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 34)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCannotDescrambleDueToCamRoutingAlarmEvent.setStatus('current')
-extendedRedundancyActivatedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 35)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedRedundancyActivatedAlarmEvent.setStatus('current')
-extendedRtpInputPacketSequenceAnomaliesDetectedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 36)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedRtpInputPacketSequenceAnomaliesDetectedAlarmEvent.setStatus('current')
-extendedRtpInputErrorsDroppedPacketsAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 37)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedRtpInputErrorsDroppedPacketsAlarmEvent.setStatus('current')
-extendedFecHasCorrectedPacketsAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 38)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedFecHasCorrectedPacketsAlarmEvent.setStatus('current')
-extendedFecInputAnomaliesDetectedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 39)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedFecInputAnomaliesDetectedAlarmEvent.setStatus('current')
-extendedFecErrorCorrectionCapacityExceededAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 40)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedFecErrorCorrectionCapacityExceededAlarmEvent.setStatus('current')
-extendedTooManyServicesAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 42)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedTooManyServicesAlarmEvent.setStatus('current')
-extendedLowSignalLevelAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 43)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedLowSignalLevelAlarmEvent.setStatus('current')
-extendedSignalMutedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 44)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedSignalMutedAlarmEvent.setStatus('current')
-extendedProidiomScramblingDisabledAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 45)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedProidiomScramblingDisabledAlarmEvent.setStatus('current')
-extendedTsQueueCapacityExceededAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 48)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedTsQueueCapacityExceededAlarmEvent.setStatus('current')
-extendedLowSignalQualityAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 49)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedLowSignalQualityAlarmEvent.setStatus('current')
-extendedModuleOffAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4096)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedModuleOffAlarmEvent.setStatus('current')
-extendedPidCapacityExceededAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4104)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedPidCapacityExceededAlarmEvent.setStatus('current')
-extendedPsiSiCaptureCapacityExceededAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4105)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedPsiSiCaptureCapacityExceededAlarmEvent.setStatus('current')
-extendedOutOfServiceIdsAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4106)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedOutOfServiceIdsAlarmEvent.setStatus('current')
-extendedCaModuleMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4108)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCaModuleMissingAlarmEvent.setStatus('current')
-extendedPsiSiInsertCapacityExceededAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4109)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedPsiSiInsertCapacityExceededAlarmEvent.setStatus('current')
-extendedMultiplexOversubscriptionPacketsDiscardedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4110)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedMultiplexOversubscriptionPacketsDiscardedAlarmEvent.setStatus('current')
-extendedUnknownModuleAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4111)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUnknownModuleAlarmEvent.setStatus('current')
-extendedMainVoltageTooHighAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4112)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedMainVoltageTooHighAlarmEvent.setStatus('current')
-extendedMainVoltageTooLowAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4113)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedMainVoltageTooLowAlarmEvent.setStatus('current')
-extendedCurrentTooHighAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4114)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCurrentTooHighAlarmEvent.setStatus('current')
-extendedCurrentTooLowAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4115)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCurrentTooLowAlarmEvent.setStatus('current')
-extendedDaemonInitializationFailedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4127)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDaemonInitializationFailedAlarmEvent.setStatus('current')
-extendedDeviceDriverFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4129)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDeviceDriverFailureAlarmEvent.setStatus('current')
-extendedHardwareFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4130)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedHardwareFailureAlarmEvent.setStatus('current')
-extendedFanFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4131)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedFanFailureAlarmEvent.setStatus('current')
-extendedRunningOnBackupPowerAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4132)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedRunningOnBackupPowerAlarmEvent.setStatus('current')
-extendedPowerSupplyOverloadedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4133)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedPowerSupplyOverloadedAlarmEvent.setStatus('current')
-extendedBootingUpAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4134)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBootingUpAlarmEvent.setStatus('current')
-extendedBootFailedRetryingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4135)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBootFailedRetryingAlarmEvent.setStatus('current')
-extendedBootFailedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4136)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBootFailedAlarmEvent.setStatus('current')
-extendedShuttingDownAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4137)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedShuttingDownAlarmEvent.setStatus('current')
-extendedConnectionLostAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4138)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedConnectionLostAlarmEvent.setStatus('current')
-extendedIncompatibleModuleDisabledAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4139)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedIncompatibleModuleDisabledAlarmEvent.setStatus('current')
-extendedFailedToBootAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4141)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedFailedToBootAlarmEvent.setStatus('current')
-extendedUpcTooLowInputPowerAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4147)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUpcTooLowInputPowerAlarmEvent.setStatus('current')
-extendedUpcTooHighInputPowerAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4148)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUpcTooHighInputPowerAlarmEvent.setStatus('current')
-extendedCalibrationDataMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4149)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCalibrationDataMissingAlarmEvent.setStatus('current')
-extendedCalibrationCheckSkippedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4150)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCalibrationCheckSkippedAlarmEvent.setStatus('current')
-extendedDescramblingFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4151)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDescramblingFailureAlarmEvent.setStatus('current')
-extendedBackupSwitchedOverToBackupDeviceAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4153)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupSwitchedOverToBackupDeviceAlarmEvent.setStatus('current')
-extendedFailedToQuerySomeOfTheNitDataAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4157)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedFailedToQuerySomeOfTheNitDataAlarmEvent.setStatus('current')
-extendedNitWizardFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4158)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedNitWizardFailureAlarmEvent.setStatus('current')
-extendedDuplicateFrequencyInTwoOrMoreSelectedQamOutputsAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4159)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDuplicateFrequencyInTwoOrMoreSelectedQamOutputsAlarmEvent.setStatus('current')
-extendedCannotResolveTableVersionUsingDefaultAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4160)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCannotResolveTableVersionUsingDefaultAlarmEvent.setStatus('current')
-extendedUnsupportedConfigurationAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4175)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUnsupportedConfigurationAlarmEvent.setStatus('current')
-extendedFrequencyOutOfRangeAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4176)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedFrequencyOutOfRangeAlarmEvent.setStatus('current')
-extendedOutputPowerOutOfRangeAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4177)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedOutputPowerOutOfRangeAlarmEvent.setStatus('current')
-extendedSymbolrateOutOfRangeAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4178)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedSymbolrateOutOfRangeAlarmEvent.setStatus('current')
-extendedChannelDistanceTooNarrowAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4179)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedChannelDistanceTooNarrowAlarmEvent.setStatus('current')
-extendedInvalidLnbVoltageConfigurationAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4180)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedInvalidLnbVoltageConfigurationAlarmEvent.setStatus('current')
-extendedInvalidFecRateForSelectedModulationAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4181)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedInvalidFecRateForSelectedModulationAlarmEvent.setStatus('current')
-extendedLnbCurrentAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4182)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedLnbCurrentAlarmEvent.setStatus('current')
-extendedFrequencyOffsetAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4183)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedFrequencyOffsetAlarmEvent.setStatus('current')
-extendedRestartingDescramblingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4185)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedRestartingDescramblingAlarmEvent.setStatus('current')
-extendedRebootingCamAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4186)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedRebootingCamAlarmEvent.setStatus('current')
-extendedEcmgFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4187)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEcmgFailureAlarmEvent.setStatus('current')
-extendedEcmStreamFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4188)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEcmStreamFailureAlarmEvent.setStatus('current')
-extendedEmmFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4189)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEmmFailureAlarmEvent.setStatus('current')
-extendedEmmStreamFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4190)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEmmStreamFailureAlarmEvent.setStatus('current')
-extendedEcmgNotConnectedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4191)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEcmgNotConnectedAlarmEvent.setStatus('current')
-extendedEmmNotConnectedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4192)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEmmNotConnectedAlarmEvent.setStatus('current')
-extendedScsNotLicensedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4193)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedScsNotLicensedAlarmEvent.setStatus('current')
-extendedEcmgSwitchedToSpareServerAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4194)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEcmgSwitchedToSpareServerAlarmEvent.setStatus('current')
-extendedUpdatedBootLoaderAvailableAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4195)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUpdatedBootLoaderAvailableAlarmEvent.setStatus('current')
-extendedUpdatingStage1BootLoaderAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4196)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUpdatingStage1BootLoaderAlarmEvent.setStatus('current')
-extendedUpdatingStage2BootLoaderAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4197)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUpdatingStage2BootLoaderAlarmEvent.setStatus('current')
-extendedFailedToUpdateStage1BootLoaderAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4198)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedFailedToUpdateStage1BootLoaderAlarmEvent.setStatus('current')
-extendedFailedToUpdateStage2BootLoaderAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4199)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedFailedToUpdateStage2BootLoaderAlarmEvent.setStatus('current')
-extendedBackupActiveBackupAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4203)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupActiveBackupAlarmEvent.setStatus('current')
-extendedConfiguringModuleAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4205)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedConfiguringModuleAlarmEvent.setStatus('current')
-extendedNoModuleAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4206)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedNoModuleAlarmEvent.setStatus('current')
-extendedProcessStartedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4208)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedProcessStartedAlarmEvent.setStatus('current')
-extendedBackupLicenseMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4209)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupLicenseMissingAlarmEvent.setStatus('current')
-extendedMultiplexingLicenseMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4211)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedMultiplexingLicenseMissingAlarmEvent.setStatus('current')
-extendedDemultiplexingLicenseMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4212)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDemultiplexingLicenseMissingAlarmEvent.setStatus('current')
-extendedDvbProcessingLicenseMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4213)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDvbProcessingLicenseMissingAlarmEvent.setStatus('current')
-extendedMsdLicenseMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4214)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedMsdLicenseMissingAlarmEvent.setStatus('current')
-extendedDvbS2LicenseMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4215)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDvbS2LicenseMissingAlarmEvent.setStatus('current')
-extendedScramblingLicenseMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4216)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedScramblingLicenseMissingAlarmEvent.setStatus('current')
-extendedScsLicenseMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4217)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedScsLicenseMissingAlarmEvent.setStatus('current')
-extendedUserFromGroupAdminIsUsingCliAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4218)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUserFromGroupAdminIsUsingCliAlarmEvent.setStatus('current')
-extendedUserFromGroupInstallIsUsingCliAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4219)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUserFromGroupInstallIsUsingCliAlarmEvent.setStatus('current')
-extendedUserFromGroupOperIsUsingCliAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4220)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUserFromGroupOperIsUsingCliAlarmEvent.setStatus('current')
-extendedUserFromGroupMonitorIsUsingCliAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4221)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUserFromGroupMonitorIsUsingCliAlarmEvent.setStatus('current')
-extendedExtIoSignaledAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4223)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedExtIoSignaledAlarmEvent.setStatus('current')
-extendedExtIoBackupPowerSupplyFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4224)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedExtIoBackupPowerSupplyFailureAlarmEvent.setStatus('current')
-extendedExtIoIntrusionDetectedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4225)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedExtIoIntrusionDetectedAlarmEvent.setStatus('current')
-extendedRedundancyFailedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4227)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedRedundancyFailedAlarmEvent.setStatus('current')
-extendedMultiplexOversubscriptionPacketsDelayedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4228)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedMultiplexOversubscriptionPacketsDelayedAlarmEvent.setStatus('current')
-extendedCbrOutputOversubscriptionAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4229)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCbrOutputOversubscriptionAlarmEvent.setStatus('current')
-extendedBackupHwDoesNotSupportSelectedDeviceRoleAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4230)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupHwDoesNotSupportSelectedDeviceRoleAlarmEvent.setStatus('current')
-extendedSoftwareUpdateInProgressAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4231)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedSoftwareUpdateInProgressAlarmEvent.setStatus('current')
-extendedSoftwareUpdateReadyWaitingForRebootToCompleteAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4232)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedSoftwareUpdateReadyWaitingForRebootToCompleteAlarmEvent.setStatus('current')
-extendedSoftwareUpdateFailedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4233)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedSoftwareUpdateFailedAlarmEvent.setStatus('current')
-extendedBackupModuleHwDoesNotSupportSelectedOnePlusOneBackupRoleAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4234)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupModuleHwDoesNotSupportSelectedOnePlusOneBackupRoleAlarmEvent.setStatus('current')
-extendedEitProcessingLicenseMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4235)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEitProcessingLicenseMissingAlarmEvent.setStatus('current')
-extendedCbrOutputOversubscriptionPacketsDiscardedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4236)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCbrOutputOversubscriptionPacketsDiscardedAlarmEvent.setStatus('current')
-extendedIpInputCapacityExceededAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4238)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedIpInputCapacityExceededAlarmEvent.setStatus('current')
-extendedEitReinsertCapacityExceededAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4239)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEitReinsertCapacityExceededAlarmEvent.setStatus('current')
-extendedDvbTimeMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4243)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDvbTimeMissingAlarmEvent.setStatus('current')
-extendedDvbT2LicenseMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4244)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDvbT2LicenseMissingAlarmEvent.setStatus('current')
-extendedDcFeedCurrentAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4245)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDcFeedCurrentAlarmEvent.setStatus('current')
-extendedNotGeneratingTdtTotTableWaitingForCorrectSystemTimeAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4246)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedNotGeneratingTdtTotTableWaitingForCorrectSystemTimeAlarmEvent.setStatus('current')
-extendedDataPlpIdSelectionRequiredAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4247)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDataPlpIdSelectionRequiredAlarmEvent.setStatus('current')
-extendedDataPlpIdSelectionNotValidAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4248)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDataPlpIdSelectionNotValidAlarmEvent.setStatus('current')
-extendedHierarchyHpSelectedForNonAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4249)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedHierarchyHpSelectedForNonAlarmEvent.setStatus('current')
-extendedBackupVoltageTooHighAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4253)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupVoltageTooHighAlarmEvent.setStatus('current')
-extendedBackupVoltageTooLowAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4254)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupVoltageTooLowAlarmEvent.setStatus('current')
-extendedCamFailureActionTakenRestartingDescramblingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4256)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCamFailureActionTakenRestartingDescramblingAlarmEvent.setStatus('current')
-extendedCamFailureActionTakenRebootingCaModuleAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4257)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCamFailureActionTakenRebootingCaModuleAlarmEvent.setStatus('current')
-extendedCaMenuIsOpenAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4258)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedCaMenuIsOpenAlarmEvent.setStatus('current')
-extendedNitSidConflictAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4260)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedNitSidConflictAlarmEvent.setStatus('current')
-extendedNotGeneratingSttTableWaitingForCorrectSystemTimeAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4261)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedNotGeneratingSttTableWaitingForCorrectSystemTimeAlarmEvent.setStatus('current')
-extendedNumberOfFecLicensesExceededAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4262)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedNumberOfFecLicensesExceededAlarmEvent.setStatus('current')
-extendedErrorCorrectionOverloadTooManySimultaneousMissingPacketsAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4263)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedErrorCorrectionOverloadTooManySimultaneousMissingPacketsAlarmEvent.setStatus('current')
-extendedFecPacketsDiscardedModuleBitrateTooHighAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4264)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedFecPacketsDiscardedModuleBitrateTooHighAlarmEvent.setStatus('current')
-extendedMediaPacketsDiscardedModuleBitrateTooHighAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4265)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedMediaPacketsDiscardedModuleBitrateTooHighAlarmEvent.setStatus('current')
-extendedSfpLinkDownAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4269)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedSfpLinkDownAlarmEvent.setStatus('current')
-extendedBackupsyncTurnedOffAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4272)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncTurnedOffAlarmEvent.setStatus('current')
-extendedBackupsyncManualModeAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4273)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncManualModeAlarmEvent.setStatus('current')
-extendedBackupsyncAutomaticModeAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4274)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncAutomaticModeAlarmEvent.setStatus('current')
-extendedBackupsyncConfigurationWillBeSynchronizedAutomaticallyAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4275)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncConfigurationWillBeSynchronizedAutomaticallyAlarmEvent.setStatus('current')
-extendedBackupsyncSynchronizingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4276)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncSynchronizingAlarmEvent.setStatus('current')
-extendedBackupsyncSwCompatibilityCheckAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4278)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncSwCompatibilityCheckAlarmEvent.setStatus('current')
-extendedBackupsyncHwCompatibilityCheckAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4279)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncHwCompatibilityCheckAlarmEvent.setStatus('current')
-extendedBackupsyncConfigurationFaultAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4280)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncConfigurationFaultAlarmEvent.setStatus('current')
-extendedBackupsyncConnectionLostAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4281)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncConnectionLostAlarmEvent.setStatus('current')
-extendedBackupsyncAutosyncNotPossibleFromBackupToMainAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4283)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncAutosyncNotPossibleFromBackupToMainAlarmEvent.setStatus('current')
-extendedBackupsyncRebootingPairDeviceToNewConfigurationAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4284)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncRebootingPairDeviceToNewConfigurationAlarmEvent.setStatus('current')
-extendedBackupsyncCheckLicenseCompatibilityAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4285)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncCheckLicenseCompatibilityAlarmEvent.setStatus('current')
-extendedBackupsyncLicenseCompatibilityCheckAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4286)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedBackupsyncLicenseCompatibilityCheckAlarmEvent.setStatus('current')
-extendedDeviceFirstBootActionsAreInProgressAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4288)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDeviceFirstBootActionsAreInProgressAlarmEvent.setStatus('current')
-extendedDeviceConfigurationBackupInProgressAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4289)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDeviceConfigurationBackupInProgressAlarmEvent.setStatus('current')
-extendedDeviceConfigurationRestoreInProgressAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4290)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDeviceConfigurationRestoreInProgressAlarmEvent.setStatus('current')
-extendedDeviceOtherSoftwareActivationAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4291)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDeviceOtherSoftwareActivationAlarmEvent.setStatus('current')
-extendedTooManyOutputPidsConfiguredAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4292)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedTooManyOutputPidsConfiguredAlarmEvent.setStatus('current')
-extendedRebootRequestByUserAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4293)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedRebootRequestByUserAlarmEvent.setStatus('current')
-extendedRemovedFromTheChassisAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4294)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedRemovedFromTheChassisAlarmEvent.setStatus('current')
-extendedInsertedIntoTheChassisAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4295)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedInsertedIntoTheChassisAlarmEvent.setStatus('current')
-extendedPacketsDiscardedInIpMirrorOutputsAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4297)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedPacketsDiscardedInIpMirrorOutputsAlarmEvent.setStatus('current')
-extendedAesLicenseMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4298)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedAesLicenseMissingAlarmEvent.setStatus('current')
-extendedSymbolRateTooHighForSelectedModulationSelectHighSpeedModulationModeToAvoidErrorsAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4299)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedSymbolRateTooHighForSelectedModulationSelectHighSpeedModulationModeToAvoidErrorsAlarmEvent.setStatus('current')
-extendedEcmResponsesDelayedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4300)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEcmResponsesDelayedAlarmEvent.setStatus('current')
-extendedDisconnectedHostInMultichassisGroupAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4302)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDisconnectedHostInMultichassisGroupAlarmEvent.setStatus('current')
-extendedMultichassisConfigurationFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4303)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedMultichassisConfigurationFailureAlarmEvent.setStatus('current')
-extendedSwVersionDifferenceWithinMultichassisGroupAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4304)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedSwVersionDifferenceWithinMultichassisGroupAlarmEvent.setStatus('current')
-extendedSwVersionMismatchAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4305)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedSwVersionMismatchAlarmEvent.setStatus('current')
-extendedEmergencySignalActivatedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4307)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEmergencySignalActivatedAlarmEvent.setStatus('current')
-extendedEmergencySignalMissingAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4308)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEmergencySignalMissingAlarmEvent.setStatus('current')
-extendedUnableToAddEmergencySignalAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4309)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedUnableToAddEmergencySignalAlarmEvent.setStatus('current')
-extendedNetworkInformationTableNeedsToBeUpdatedAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4310)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedNetworkInformationTableNeedsToBeUpdatedAlarmEvent.setStatus('current')
-extendedNfsMountFailureAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4311)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedNfsMountFailureAlarmEvent.setStatus('current')
-extendedEthernetInputBufferOverflowAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4312)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedEthernetInputBufferOverflowAlarmEvent.setStatus('current')
-extendedDvbAlarmEvent = NotificationType((1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4313)).setObjects(("TELESTE-LUMINATO-MIB2", "severity"), ("TELESTE-LUMINATO-MIB2", "module"), ("TELESTE-LUMINATO-MIB2", "reason"), ("TELESTE-LUMINATO-MIB2", "description"), ("TELESTE-LUMINATO-MIB2", "paramTable"))
-if mibBuilder.loadTexts: extendedDvbAlarmEvent.setStatus('current')
-mibBuilder.exportSymbols("TELESTE-LUMINATO-MIB2", extendedMsdLicenseMissingAlarmEvent=extendedMsdLicenseMissingAlarmEvent, extendedTsRxErrorsAlarmEvent=extendedTsRxErrorsAlarmEvent, extendedBootFailedAlarmEvent=extendedBootFailedAlarmEvent, extendedNitSidConflictAlarmEvent=extendedNitSidConflictAlarmEvent, extendedSwVersionDifferenceWithinMultichassisGroupAlarmEvent=extendedSwVersionDifferenceWithinMultichassisGroupAlarmEvent, extendedEcmgNotConnectedAlarmEvent=extendedEcmgNotConnectedAlarmEvent, extendedRtpInputPacketSequenceAnomaliesDetectedAlarmEvent=extendedRtpInputPacketSequenceAnomaliesDetectedAlarmEvent, extendedBackupsyncLicenseCompatibilityCheckAlarmEvent=extendedBackupsyncLicenseCompatibilityCheckAlarmEvent, extendedConnectionLostAlarmEvent=extendedConnectionLostAlarmEvent, extendedNoTsSyncAlarmEvent=extendedNoTsSyncAlarmEvent, extendedUserFromGroupInstallIsUsingCliAlarmEvent=extendedUserFromGroupInstallIsUsingCliAlarmEvent, extendedBackupsyncRebootingPairDeviceToNewConfigurationAlarmEvent=extendedBackupsyncRebootingPairDeviceToNewConfigurationAlarmEvent, extendedFecPacketsDiscardedModuleBitrateTooHighAlarmEvent=extendedFecPacketsDiscardedModuleBitrateTooHighAlarmEvent, extendedDvbT2LicenseMissingAlarmEvent=extendedDvbT2LicenseMissingAlarmEvent, extendedRedundancyActivatedAlarmEvent=extendedRedundancyActivatedAlarmEvent, paramValue=paramValue, extendedDescramblingFailureAlarmEvent=extendedDescramblingFailureAlarmEvent, extendedServicesPassthroughAlarmEvent=extendedServicesPassthroughAlarmEvent, extendedCwGroupConflictAlarmEvent=extendedCwGroupConflictAlarmEvent, extendedDeviceConfigurationBackupInProgressAlarmEvent=extendedDeviceConfigurationBackupInProgressAlarmEvent, extendedCamFailureActionTakenRestartingDescramblingAlarmEvent=extendedCamFailureActionTakenRestartingDescramblingAlarmEvent, specific=specific, paramEntry=paramEntry, params=params, extendedScsNotLicensedAlarmEvent=extendedScsNotLicensedAlarmEvent, extendedFecHasCorrectedPacketsAlarmEvent=extendedFecHasCorrectedPacketsAlarmEvent, extendedBackupModuleHwDoesNotSupportSelectedOnePlusOneBackupRoleAlarmEvent=extendedBackupModuleHwDoesNotSupportSelectedOnePlusOneBackupRoleAlarmEvent, extendedSymbolRateTooHighForSelectedModulationSelectHighSpeedModulationModeToAvoidErrorsAlarmEvent=extendedSymbolRateTooHighForSelectedModulationSelectHighSpeedModulationModeToAvoidErrorsAlarmEvent, extendedChannelDistanceTooNarrowAlarmEvent=extendedChannelDistanceTooNarrowAlarmEvent, extendedInsertedIntoTheChassisAlarmEvent=extendedInsertedIntoTheChassisAlarmEvent, extendedUserFromGroupOperIsUsingCliAlarmEvent=extendedUserFromGroupOperIsUsingCliAlarmEvent, extendedEmmNotConnectedAlarmEvent=extendedEmmNotConnectedAlarmEvent, extendedEitProcessingLicenseMissingAlarmEvent=extendedEitProcessingLicenseMissingAlarmEvent, extendedFanFailureAlarmEvent=extendedFanFailureAlarmEvent, extendedMultiplexOversubscriptionPacketsDiscardedAlarmEvent=extendedMultiplexOversubscriptionPacketsDiscardedAlarmEvent, extendedUpdatedBootLoaderAvailableAlarmEvent=extendedUpdatedBootLoaderAvailableAlarmEvent, extendedDeviceConfigurationRestoreInProgressAlarmEvent=extendedDeviceConfigurationRestoreInProgressAlarmEvent, extendedInvalidFecRateForSelectedModulationAlarmEvent=extendedInvalidFecRateForSelectedModulationAlarmEvent, extendedBackupsyncConfigurationWillBeSynchronizedAutomaticallyAlarmEvent=extendedBackupsyncConfigurationWillBeSynchronizedAutomaticallyAlarmEvent, extendedUpdatingStage2BootLoaderAlarmEvent=extendedUpdatingStage2BootLoaderAlarmEvent, extendedBackupsyncConnectionLostAlarmEvent=extendedBackupsyncConnectionLostAlarmEvent, extendedBackupsyncHwCompatibilityCheckAlarmEvent=extendedBackupsyncHwCompatibilityCheckAlarmEvent, extendedAlertMessageAlarmEvent=extendedAlertMessageAlarmEvent, extendedUnsupportedConfigurationAlarmEvent=extendedUnsupportedConfigurationAlarmEvent, extendedBackupSwitchedOverToBackupDeviceAlarmEvent=extendedBackupSwitchedOverToBackupDeviceAlarmEvent, extendedUpdatingStage1BootLoaderAlarmEvent=extendedUpdatingStage1BootLoaderAlarmEvent, extendedFrequencyOutOfRangeAlarmEvent=extendedFrequencyOutOfRangeAlarmEvent, extendedSoftwareUpdateReadyWaitingForRebootToCompleteAlarmEvent=extendedSoftwareUpdateReadyWaitingForRebootToCompleteAlarmEvent, extendedDisconnectedHostInMultichassisGroupAlarmEvent=extendedDisconnectedHostInMultichassisGroupAlarmEvent, extendedDvbS2LicenseMissingAlarmEvent=extendedDvbS2LicenseMissingAlarmEvent, extendedScramblingConflictInSharedComponentAlarmEvent=extendedScramblingConflictInSharedComponentAlarmEvent, extendedNotGeneratingSttTableWaitingForCorrectSystemTimeAlarmEvent=extendedNotGeneratingSttTableWaitingForCorrectSystemTimeAlarmEvent, extendedBackupsyncAutomaticModeAlarmEvent=extendedBackupsyncAutomaticModeAlarmEvent, extendedHierarchyHpSelectedForNonAlarmEvent=extendedHierarchyHpSelectedForNonAlarmEvent, extendedTooManyOutputPidsConfiguredAlarmEvent=extendedTooManyOutputPidsConfiguredAlarmEvent, extendedExtIoBackupPowerSupplyFailureAlarmEvent=extendedExtIoBackupPowerSupplyFailureAlarmEvent, extendedCannotResolveTableVersionUsingDefaultAlarmEvent=extendedCannotResolveTableVersionUsingDefaultAlarmEvent, extendedRunningOnBackupPowerAlarmEvent=extendedRunningOnBackupPowerAlarmEvent, extendedLinkMissingAlarmEvent=extendedLinkMissingAlarmEvent, extendedLowSignalLevelAlarmEvent=extendedLowSignalLevelAlarmEvent, extendedBootFailedRetryingAlarmEvent=extendedBootFailedRetryingAlarmEvent, extendedEcmMissingAlarmEvent=extendedEcmMissingAlarmEvent, extendedCbrOutputOversubscriptionAlarmEvent=extendedCbrOutputOversubscriptionAlarmEvent, generic=generic, extendedErrorCorrectionOverloadTooManySimultaneousMissingPacketsAlarmEvent=extendedErrorCorrectionOverloadTooManySimultaneousMissingPacketsAlarmEvent, extendedDeviceDriverFailureAlarmEvent=extendedDeviceDriverFailureAlarmEvent, extendedPsiSiCaptureCapacityExceededAlarmEvent=extendedPsiSiCaptureCapacityExceededAlarmEvent, extendedMultiplexingLicenseMissingAlarmEvent=extendedMultiplexingLicenseMissingAlarmEvent, extendedDvbAlarmEvent=extendedDvbAlarmEvent, extendedCurrentTooLowAlarmEvent=extendedCurrentTooLowAlarmEvent, extendedMultichassisConfigurationFailureAlarmEvent=extendedMultichassisConfigurationFailureAlarmEvent, extendedFailedToQuerySomeOfTheNitDataAlarmEvent=extendedFailedToQuerySomeOfTheNitDataAlarmEvent, extendedModuleOffAlarmEvent=extendedModuleOffAlarmEvent, extendedScsLicenseMissingAlarmEvent=extendedScsLicenseMissingAlarmEvent, extendedNoModuleAlarmEvent=extendedNoModuleAlarmEvent, extendedInvalidSdtTemplateAlarmEvent=extendedInvalidSdtTemplateAlarmEvent, extendedEitReinsertCapacityExceededAlarmEvent=extendedEitReinsertCapacityExceededAlarmEvent, extendedBackupsyncCheckLicenseCompatibilityAlarmEvent=extendedBackupsyncCheckLicenseCompatibilityAlarmEvent, extendedMainVoltageTooLowAlarmEvent=extendedMainVoltageTooLowAlarmEvent, extendedCalibrationCheckSkippedAlarmEvent=extendedCalibrationCheckSkippedAlarmEvent, extendedSignalMissingAlarmEvent=extendedSignalMissingAlarmEvent, extendedEthernetInputBufferOverflowAlarmEvent=extendedEthernetInputBufferOverflowAlarmEvent, extendedRebootingCamAlarmEvent=extendedRebootingCamAlarmEvent, extendedCalibrationDataMissingAlarmEvent=extendedCalibrationDataMissingAlarmEvent, extendedEcmStreamFailureAlarmEvent=extendedEcmStreamFailureAlarmEvent, extendedEmmFailureAlarmEvent=extendedEmmFailureAlarmEvent, extendedPsiTableCaptureFailureAlarmEvent=extendedPsiTableCaptureFailureAlarmEvent, extendedCaModuleMissingAlarmEvent=extendedCaModuleMissingAlarmEvent, extendedBackupsyncSwCompatibilityCheckAlarmEvent=extendedBackupsyncSwCompatibilityCheckAlarmEvent, extendedFailedToBootAlarmEvent=extendedFailedToBootAlarmEvent, extendedOutOfServiceIdsAlarmEvent=extendedOutOfServiceIdsAlarmEvent, extendedEcmgSwitchedToSpareServerAlarmEvent=extendedEcmgSwitchedToSpareServerAlarmEvent, extendedEcmgFailureAlarmEvent=extendedEcmgFailureAlarmEvent, extendedBootingUpAlarmEvent=extendedBootingUpAlarmEvent, extendedUserFromGroupAdminIsUsingCliAlarmEvent=extendedUserFromGroupAdminIsUsingCliAlarmEvent, extendedSoftwareUpdateInProgressAlarmEvent=extendedSoftwareUpdateInProgressAlarmEvent, extendedSwVersionMismatchAlarmEvent=extendedSwVersionMismatchAlarmEvent, extendedExtIoSignaledAlarmEvent=extendedExtIoSignaledAlarmEvent, extendedFecErrorCorrectionCapacityExceededAlarmEvent=extendedFecErrorCorrectionCapacityExceededAlarmEvent, extendedIncompatibleModuleDisabledAlarmEvent=extendedIncompatibleModuleDisabledAlarmEvent, extendedLnbCurrentAlarmEvent=extendedLnbCurrentAlarmEvent, extendedDvbTimeMissingAlarmEvent=extendedDvbTimeMissingAlarmEvent, extendedAsiLinkDownAlarmEvent=extendedAsiLinkDownAlarmEvent, extendedDescramblingFailedAlarmEvent=extendedDescramblingFailedAlarmEvent, extendedFrequencyOffsetAlarmEvent=extendedFrequencyOffsetAlarmEvent, extendedPowerSupplyOverloadedAlarmEvent=extendedPowerSupplyOverloadedAlarmEvent, extendedDataPlpIdSelectionRequiredAlarmEvent=extendedDataPlpIdSelectionRequiredAlarmEvent, paramTable=paramTable, extendedNitWizardFailureAlarmEvent=extendedNitWizardFailureAlarmEvent, extendedUnableToAddEmergencySignalAlarmEvent=extendedUnableToAddEmergencySignalAlarmEvent, extendedNetworkInformationTableNeedsToBeUpdatedAlarmEvent=extendedNetworkInformationTableNeedsToBeUpdatedAlarmEvent, extendedBackupLicenseMissingAlarmEvent=extendedBackupLicenseMissingAlarmEvent, extendedUnknownModuleAlarmEvent=extendedUnknownModuleAlarmEvent, extendedUserFromGroupMonitorIsUsingCliAlarmEvent=extendedUserFromGroupMonitorIsUsingCliAlarmEvent, extendedCannotDescrambleDueToCamRoutingAlarmEvent=extendedCannotDescrambleDueToCamRoutingAlarmEvent, extendedBackupVoltageTooHighAlarmEvent=extendedBackupVoltageTooHighAlarmEvent, extendedTooManyServicesAlarmEvent=extendedTooManyServicesAlarmEvent, extendedBackupsyncManualModeAlarmEvent=extendedBackupsyncManualModeAlarmEvent, paramIdx=paramIdx, extendedDaemonInitializationFailedAlarmEvent=extendedDaemonInitializationFailedAlarmEvent, extendedOutputPowerOutOfRangeAlarmEvent=extendedOutputPowerOutOfRangeAlarmEvent, extendedDataPlpIdSelectionNotValidAlarmEvent=extendedDataPlpIdSelectionNotValidAlarmEvent, extendedRestartingDescramblingAlarmEvent=extendedRestartingDescramblingAlarmEvent, extendedBackupVoltageTooLowAlarmEvent=extendedBackupVoltageTooLowAlarmEvent, extendedDuplicateFrequencyInTwoOrMoreSelectedQamOutputsAlarmEvent=extendedDuplicateFrequencyInTwoOrMoreSelectedQamOutputsAlarmEvent, extendedSymbolrateOutOfRangeAlarmEvent=extendedSymbolrateOutOfRangeAlarmEvent, extendedPsiSiInsertCapacityExceededAlarmEvent=extendedPsiSiInsertCapacityExceededAlarmEvent, extendedForbiddenNetworkAlarmEvent=extendedForbiddenNetworkAlarmEvent, extendedBackupHwDoesNotSupportSelectedDeviceRoleAlarmEvent=extendedBackupHwDoesNotSupportSelectedDeviceRoleAlarmEvent, extendedCamFailureActionTakenRebootingCaModuleAlarmEvent=extendedCamFailureActionTakenRebootingCaModuleAlarmEvent, extendedBackupsyncConfigurationFaultAlarmEvent=extendedBackupsyncConfigurationFaultAlarmEvent, extendedMainVoltageTooHighAlarmEvent=extendedMainVoltageTooHighAlarmEvent, extendedRtpInputErrorsDroppedPacketsAlarmEvent=extendedRtpInputErrorsDroppedPacketsAlarmEvent, extendedFailedToUpdateStage1BootLoaderAlarmEvent=extendedFailedToUpdateStage1BootLoaderAlarmEvent, extendedSoftwareUpdateFailedAlarmEvent=extendedSoftwareUpdateFailedAlarmEvent, extendedNotGeneratingTdtTotTableWaitingForCorrectSystemTimeAlarmEvent=extendedNotGeneratingTdtTotTableWaitingForCorrectSystemTimeAlarmEvent, extendedIpInputCapacityExceededAlarmEvent=extendedIpInputCapacityExceededAlarmEvent, extendedRebootRequestByUserAlarmEvent=extendedRebootRequestByUserAlarmEvent, module=module, extendedExtIoIntrusionDetectedAlarmEvent=extendedExtIoIntrusionDetectedAlarmEvent, extendedAlarmEvent=extendedAlarmEvent, extendedRedundancyFailedAlarmEvent=extendedRedundancyFailedAlarmEvent, extendedTsQueueCapacityExceededAlarmEvent=extendedTsQueueCapacityExceededAlarmEvent, extendedEmergencySignalMissingAlarmEvent=extendedEmergencySignalMissingAlarmEvent, extendedDemultiplexingLicenseMissingAlarmEvent=extendedDemultiplexingLicenseMissingAlarmEvent, extendedTemperatureTooHighAlarmEvent=extendedTemperatureTooHighAlarmEvent, extendedUpcTooHighInputPowerAlarmEvent=extendedUpcTooHighInputPowerAlarmEvent, extendedScramblingLicenseMissingAlarmEvent=extendedScramblingLicenseMissingAlarmEvent, description=description, extendedDcFeedCurrentAlarmEvent=extendedDcFeedCurrentAlarmEvent, extendedTemperatureTooLowAlarmEvent=extendedTemperatureTooLowAlarmEvent, extendedRemovedFromTheChassisAlarmEvent=extendedRemovedFromTheChassisAlarmEvent, extendedCaMenuIsOpenAlarmEvent=extendedCaMenuIsOpenAlarmEvent, extendedConfiguringModuleAlarmEvent=extendedConfiguringModuleAlarmEvent, extendedDeviceFirstBootActionsAreInProgressAlarmEvent=extendedDeviceFirstBootActionsAreInProgressAlarmEvent, extendedMediaPacketsDiscardedModuleBitrateTooHighAlarmEvent=extendedMediaPacketsDiscardedModuleBitrateTooHighAlarmEvent, extendedUsedInputIsNotSptsAlarmEvent=extendedUsedInputIsNotSptsAlarmEvent, extendedServiceMissingAlarmEvent=extendedServiceMissingAlarmEvent, notifications=notifications, extendedPidMissingAlarmEvent=extendedPidMissingAlarmEvent, extendedLowSignalQualityAlarmEvent=extendedLowSignalQualityAlarmEvent, extendedDeviceOtherSoftwareActivationAlarmEvent=extendedDeviceOtherSoftwareActivationAlarmEvent, extendedEmergencySignalActivatedAlarmEvent=extendedEmergencySignalActivatedAlarmEvent, extendedBackupsyncSynchronizingAlarmEvent=extendedBackupsyncSynchronizingAlarmEvent, extendedMultiplexOversubscriptionPacketsDelayedAlarmEvent=extendedMultiplexOversubscriptionPacketsDelayedAlarmEvent, extendedUpcTooLowInputPowerAlarmEvent=extendedUpcTooLowInputPowerAlarmEvent, extendedProidiomScramblingDisabledAlarmEvent=extendedProidiomScramblingDisabledAlarmEvent, extendedInvalidLnbVoltageConfigurationAlarmEvent=extendedInvalidLnbVoltageConfigurationAlarmEvent, extendedBackupActiveBackupAlarmEvent=extendedBackupActiveBackupAlarmEvent, extendedScrambledSharedComponentAlarmEvent=extendedScrambledSharedComponentAlarmEvent, traps=traps, extendedNfsMountFailureAlarmEvent=extendedNfsMountFailureAlarmEvent, extendedDvbProcessingLicenseMissingAlarmEvent=extendedDvbProcessingLicenseMissingAlarmEvent, extendedNumberOfFecLicensesExceededAlarmEvent=extendedNumberOfFecLicensesExceededAlarmEvent, extendedPacketsDiscardedInIpMirrorOutputsAlarmEvent=extendedPacketsDiscardedInIpMirrorOutputsAlarmEvent, extendedPidCapacityExceededAlarmEvent=extendedPidCapacityExceededAlarmEvent, extendedHardwareFailureAlarmEvent=extendedHardwareFailureAlarmEvent, extendedEcmResponsesDelayedAlarmEvent=extendedEcmResponsesDelayedAlarmEvent, severity=severity, extendedTsInputBufferOverflowAlarmEvent=extendedTsInputBufferOverflowAlarmEvent, extendedManualTableInsertionFailedAlarmEvent=extendedManualTableInsertionFailedAlarmEvent, extendedFailedToUpdateStage2BootLoaderAlarmEvent=extendedFailedToUpdateStage2BootLoaderAlarmEvent, extendedPsigTableInsertionFailedAlarmEvent=extendedPsigTableInsertionFailedAlarmEvent, extendedSfpLinkDownAlarmEvent=extendedSfpLinkDownAlarmEvent, extendedSignalMutedAlarmEvent=extendedSignalMutedAlarmEvent, extendedAesLicenseMissingAlarmEvent=extendedAesLicenseMissingAlarmEvent, extendedFecInputAnomaliesDetectedAlarmEvent=extendedFecInputAnomaliesDetectedAlarmEvent, extendedProcessStartedAlarmEvent=extendedProcessStartedAlarmEvent, extendedCurrentTooHighAlarmEvent=extendedCurrentTooHighAlarmEvent, extendedEmmStreamFailureAlarmEvent=extendedEmmStreamFailureAlarmEvent, reason=reason, extendedBackupsyncTurnedOffAlarmEvent=extendedBackupsyncTurnedOffAlarmEvent, extendedPidConflictAlarmEvent=extendedPidConflictAlarmEvent, extendedCbrOutputOversubscriptionPacketsDiscardedAlarmEvent=extendedCbrOutputOversubscriptionPacketsDiscardedAlarmEvent, extendedSidConflictAlarmEvent=extendedSidConflictAlarmEvent, extendedShuttingDownAlarmEvent=extendedShuttingDownAlarmEvent, extendedBackupsyncAutosyncNotPossibleFromBackupToMainAlarmEvent=extendedBackupsyncAutosyncNotPossibleFromBackupToMainAlarmEvent)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(luminato,) = mibBuilder.importSymbols(
+    "TELESTE-ROOT-MIB",
+    "luminato")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Notifications_ObjectIdentity = ObjectIdentity
+notifications = _Notifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4)
+)
+_Params_ObjectIdentity = ObjectIdentity
+params = _Params_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 1)
+)
+
+
+class _Severity_Type(Integer32):
+    """Custom type severity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("severityEmergency", 0),
+          ("severityAlert", 1),
+          ("severityCritical", 2),
+          ("severityError", 3),
+          ("severityWarning", 4),
+          ("severityNotice", 5),
+          ("severityInformational", 6),
+          ("severityDebug", 7),
+          ("severityNominal", 8))
+    )
+
+
+_Severity_Type.__name__ = "Integer32"
+_Severity_Object = MibScalar
+severity = _Severity_Object(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 1),
+    _Severity_Type()
+)
+severity.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    severity.setStatus("current")
+
+
+class _Module_Type(Integer32):
+    """Custom type module based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("moduleChassis", 0),
+          ("moduleSlot1", 1),
+          ("moduleSlot2", 2),
+          ("moduleSlot3", 3),
+          ("moduleSlot4", 4),
+          ("moduleSlot5", 5),
+          ("moduleSlot6", 6),
+          ("modulePsu", 7))
+    )
+
+
+_Module_Type.__name__ = "Integer32"
+_Module_Object = MibScalar
+module = _Module_Object(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 2),
+    _Module_Type()
+)
+module.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    module.setStatus("current")
+_Description_Type = OctetString
+_Description_Object = MibScalar
+description = _Description_Object(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 8),
+    _Description_Type()
+)
+description.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    description.setStatus("current")
+_Reason_Type = Unsigned32
+_Reason_Object = MibScalar
+reason = _Reason_Object(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 10),
+    _Reason_Type()
+)
+reason.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    reason.setStatus("current")
+_ParamTable_Object = MibTable
+paramTable = _ParamTable_Object(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 11)
+)
+if mibBuilder.loadTexts:
+    paramTable.setStatus("optional")
+_ParamEntry_Object = MibTableRow
+paramEntry = _ParamEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 11, 1)
+)
+paramEntry.setIndexNames(
+    (0, "TELESTE-LUMINATO-MIB2", "paramIdx"),
+)
+if mibBuilder.loadTexts:
+    paramEntry.setStatus("current")
+
+
+class _ParamIdx_Type(Integer32):
+    """Custom type paramIdx based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4),
+    )
+
+
+_ParamIdx_Type.__name__ = "Integer32"
+_ParamIdx_Object = MibTableColumn
+paramIdx = _ParamIdx_Object(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 11, 1, 1),
+    _ParamIdx_Type()
+)
+paramIdx.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    paramIdx.setStatus("current")
+_ParamValue_Type = Unsigned32
+_ParamValue_Object = MibTableColumn
+paramValue = _ParamValue_Object(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 1, 11, 1, 2),
+    _ParamValue_Type()
+)
+paramValue.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    paramValue.setStatus("current")
+_Traps_ObjectIdentity = ObjectIdentity
+traps = _Traps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2)
+)
+_Generic_ObjectIdentity = ObjectIdentity
+generic = _Generic_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 1)
+)
+_Specific_ObjectIdentity = ObjectIdentity
+specific = _Specific_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+extendedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 1, 1)
+)
+extendedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedPidMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 2)
+)
+extendedPidMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedPidMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedServiceMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 3)
+)
+extendedServiceMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedServiceMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedPidConflictAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4)
+)
+extendedPidConflictAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedPidConflictAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedTemperatureTooHighAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 6)
+)
+extendedTemperatureTooHighAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedTemperatureTooHighAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedTemperatureTooLowAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 7)
+)
+extendedTemperatureTooLowAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedTemperatureTooLowAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedManualTableInsertionFailedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 8)
+)
+extendedManualTableInsertionFailedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedManualTableInsertionFailedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedAlertMessageAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 10)
+)
+extendedAlertMessageAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedAlertMessageAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedServicesPassthroughAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 11)
+)
+extendedServicesPassthroughAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedServicesPassthroughAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedPsigTableInsertionFailedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 15)
+)
+extendedPsigTableInsertionFailedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedPsigTableInsertionFailedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedPsiTableCaptureFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 17)
+)
+extendedPsiTableCaptureFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedPsiTableCaptureFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedSignalMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 18)
+)
+extendedSignalMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedSignalMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedNoTsSyncAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 19)
+)
+extendedNoTsSyncAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedNoTsSyncAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedTsRxErrorsAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 20)
+)
+extendedTsRxErrorsAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedTsRxErrorsAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedTsInputBufferOverflowAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 21)
+)
+extendedTsInputBufferOverflowAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedTsInputBufferOverflowAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedAsiLinkDownAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 22)
+)
+extendedAsiLinkDownAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedAsiLinkDownAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedForbiddenNetworkAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 23)
+)
+extendedForbiddenNetworkAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedForbiddenNetworkAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedSidConflictAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 24)
+)
+extendedSidConflictAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedSidConflictAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedLinkMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 25)
+)
+extendedLinkMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedLinkMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEcmMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 26)
+)
+extendedEcmMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEcmMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedScramblingConflictInSharedComponentAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 27)
+)
+extendedScramblingConflictInSharedComponentAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedScramblingConflictInSharedComponentAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedScrambledSharedComponentAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 28)
+)
+extendedScrambledSharedComponentAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedScrambledSharedComponentAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUsedInputIsNotSptsAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 29)
+)
+extendedUsedInputIsNotSptsAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUsedInputIsNotSptsAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDescramblingFailedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 31)
+)
+extendedDescramblingFailedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDescramblingFailedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCwGroupConflictAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 32)
+)
+extendedCwGroupConflictAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCwGroupConflictAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedInvalidSdtTemplateAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 33)
+)
+extendedInvalidSdtTemplateAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedInvalidSdtTemplateAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCannotDescrambleDueToCamRoutingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 34)
+)
+extendedCannotDescrambleDueToCamRoutingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCannotDescrambleDueToCamRoutingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedRedundancyActivatedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 35)
+)
+extendedRedundancyActivatedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedRedundancyActivatedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedRtpInputPacketSequenceAnomaliesDetectedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 36)
+)
+extendedRtpInputPacketSequenceAnomaliesDetectedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedRtpInputPacketSequenceAnomaliesDetectedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedRtpInputErrorsDroppedPacketsAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 37)
+)
+extendedRtpInputErrorsDroppedPacketsAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedRtpInputErrorsDroppedPacketsAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedFecHasCorrectedPacketsAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 38)
+)
+extendedFecHasCorrectedPacketsAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedFecHasCorrectedPacketsAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedFecInputAnomaliesDetectedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 39)
+)
+extendedFecInputAnomaliesDetectedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedFecInputAnomaliesDetectedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedFecErrorCorrectionCapacityExceededAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 40)
+)
+extendedFecErrorCorrectionCapacityExceededAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedFecErrorCorrectionCapacityExceededAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedTooManyServicesAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 42)
+)
+extendedTooManyServicesAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedTooManyServicesAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedLowSignalLevelAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 43)
+)
+extendedLowSignalLevelAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedLowSignalLevelAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedSignalMutedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 44)
+)
+extendedSignalMutedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedSignalMutedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedProidiomScramblingDisabledAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 45)
+)
+extendedProidiomScramblingDisabledAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedProidiomScramblingDisabledAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedTsQueueCapacityExceededAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 48)
+)
+extendedTsQueueCapacityExceededAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedTsQueueCapacityExceededAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedLowSignalQualityAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 49)
+)
+extendedLowSignalQualityAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedLowSignalQualityAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedModuleOffAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4096)
+)
+extendedModuleOffAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedModuleOffAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedPidCapacityExceededAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4104)
+)
+extendedPidCapacityExceededAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedPidCapacityExceededAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedPsiSiCaptureCapacityExceededAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4105)
+)
+extendedPsiSiCaptureCapacityExceededAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedPsiSiCaptureCapacityExceededAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedOutOfServiceIdsAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4106)
+)
+extendedOutOfServiceIdsAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedOutOfServiceIdsAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCaModuleMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4108)
+)
+extendedCaModuleMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCaModuleMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedPsiSiInsertCapacityExceededAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4109)
+)
+extendedPsiSiInsertCapacityExceededAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedPsiSiInsertCapacityExceededAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedMultiplexOversubscriptionPacketsDiscardedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4110)
+)
+extendedMultiplexOversubscriptionPacketsDiscardedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedMultiplexOversubscriptionPacketsDiscardedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUnknownModuleAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4111)
+)
+extendedUnknownModuleAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUnknownModuleAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedMainVoltageTooHighAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4112)
+)
+extendedMainVoltageTooHighAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedMainVoltageTooHighAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedMainVoltageTooLowAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4113)
+)
+extendedMainVoltageTooLowAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedMainVoltageTooLowAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCurrentTooHighAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4114)
+)
+extendedCurrentTooHighAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCurrentTooHighAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCurrentTooLowAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4115)
+)
+extendedCurrentTooLowAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCurrentTooLowAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDaemonInitializationFailedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4127)
+)
+extendedDaemonInitializationFailedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDaemonInitializationFailedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDeviceDriverFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4129)
+)
+extendedDeviceDriverFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDeviceDriverFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedHardwareFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4130)
+)
+extendedHardwareFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedHardwareFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedFanFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4131)
+)
+extendedFanFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedFanFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedRunningOnBackupPowerAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4132)
+)
+extendedRunningOnBackupPowerAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedRunningOnBackupPowerAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedPowerSupplyOverloadedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4133)
+)
+extendedPowerSupplyOverloadedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedPowerSupplyOverloadedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBootingUpAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4134)
+)
+extendedBootingUpAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBootingUpAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBootFailedRetryingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4135)
+)
+extendedBootFailedRetryingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBootFailedRetryingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBootFailedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4136)
+)
+extendedBootFailedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBootFailedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedShuttingDownAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4137)
+)
+extendedShuttingDownAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedShuttingDownAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedConnectionLostAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4138)
+)
+extendedConnectionLostAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedConnectionLostAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedIncompatibleModuleDisabledAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4139)
+)
+extendedIncompatibleModuleDisabledAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedIncompatibleModuleDisabledAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedFailedToBootAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4141)
+)
+extendedFailedToBootAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedFailedToBootAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUpcTooLowInputPowerAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4147)
+)
+extendedUpcTooLowInputPowerAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUpcTooLowInputPowerAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUpcTooHighInputPowerAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4148)
+)
+extendedUpcTooHighInputPowerAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUpcTooHighInputPowerAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCalibrationDataMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4149)
+)
+extendedCalibrationDataMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCalibrationDataMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCalibrationCheckSkippedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4150)
+)
+extendedCalibrationCheckSkippedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCalibrationCheckSkippedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDescramblingFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4151)
+)
+extendedDescramblingFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDescramblingFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupSwitchedOverToBackupDeviceAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4153)
+)
+extendedBackupSwitchedOverToBackupDeviceAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupSwitchedOverToBackupDeviceAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedFailedToQuerySomeOfTheNitDataAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4157)
+)
+extendedFailedToQuerySomeOfTheNitDataAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedFailedToQuerySomeOfTheNitDataAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedNitWizardFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4158)
+)
+extendedNitWizardFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedNitWizardFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDuplicateFrequencyInTwoOrMoreSelectedQamOutputsAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4159)
+)
+extendedDuplicateFrequencyInTwoOrMoreSelectedQamOutputsAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDuplicateFrequencyInTwoOrMoreSelectedQamOutputsAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCannotResolveTableVersionUsingDefaultAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4160)
+)
+extendedCannotResolveTableVersionUsingDefaultAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCannotResolveTableVersionUsingDefaultAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUnsupportedConfigurationAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4175)
+)
+extendedUnsupportedConfigurationAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUnsupportedConfigurationAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedFrequencyOutOfRangeAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4176)
+)
+extendedFrequencyOutOfRangeAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedFrequencyOutOfRangeAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedOutputPowerOutOfRangeAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4177)
+)
+extendedOutputPowerOutOfRangeAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedOutputPowerOutOfRangeAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedSymbolrateOutOfRangeAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4178)
+)
+extendedSymbolrateOutOfRangeAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedSymbolrateOutOfRangeAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedChannelDistanceTooNarrowAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4179)
+)
+extendedChannelDistanceTooNarrowAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedChannelDistanceTooNarrowAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedInvalidLnbVoltageConfigurationAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4180)
+)
+extendedInvalidLnbVoltageConfigurationAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedInvalidLnbVoltageConfigurationAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedInvalidFecRateForSelectedModulationAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4181)
+)
+extendedInvalidFecRateForSelectedModulationAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedInvalidFecRateForSelectedModulationAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedLnbCurrentAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4182)
+)
+extendedLnbCurrentAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedLnbCurrentAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedFrequencyOffsetAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4183)
+)
+extendedFrequencyOffsetAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedFrequencyOffsetAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedRestartingDescramblingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4185)
+)
+extendedRestartingDescramblingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedRestartingDescramblingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedRebootingCamAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4186)
+)
+extendedRebootingCamAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedRebootingCamAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEcmgFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4187)
+)
+extendedEcmgFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEcmgFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEcmStreamFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4188)
+)
+extendedEcmStreamFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEcmStreamFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEmmFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4189)
+)
+extendedEmmFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEmmFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEmmStreamFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4190)
+)
+extendedEmmStreamFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEmmStreamFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEcmgNotConnectedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4191)
+)
+extendedEcmgNotConnectedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEcmgNotConnectedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEmmNotConnectedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4192)
+)
+extendedEmmNotConnectedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEmmNotConnectedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedScsNotLicensedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4193)
+)
+extendedScsNotLicensedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedScsNotLicensedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEcmgSwitchedToSpareServerAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4194)
+)
+extendedEcmgSwitchedToSpareServerAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEcmgSwitchedToSpareServerAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUpdatedBootLoaderAvailableAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4195)
+)
+extendedUpdatedBootLoaderAvailableAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUpdatedBootLoaderAvailableAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUpdatingStage1BootLoaderAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4196)
+)
+extendedUpdatingStage1BootLoaderAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUpdatingStage1BootLoaderAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUpdatingStage2BootLoaderAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4197)
+)
+extendedUpdatingStage2BootLoaderAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUpdatingStage2BootLoaderAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedFailedToUpdateStage1BootLoaderAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4198)
+)
+extendedFailedToUpdateStage1BootLoaderAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedFailedToUpdateStage1BootLoaderAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedFailedToUpdateStage2BootLoaderAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4199)
+)
+extendedFailedToUpdateStage2BootLoaderAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedFailedToUpdateStage2BootLoaderAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupActiveBackupAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4203)
+)
+extendedBackupActiveBackupAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupActiveBackupAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedConfiguringModuleAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4205)
+)
+extendedConfiguringModuleAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedConfiguringModuleAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedNoModuleAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4206)
+)
+extendedNoModuleAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedNoModuleAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedProcessStartedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4208)
+)
+extendedProcessStartedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedProcessStartedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupLicenseMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4209)
+)
+extendedBackupLicenseMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupLicenseMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedMultiplexingLicenseMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4211)
+)
+extendedMultiplexingLicenseMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedMultiplexingLicenseMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDemultiplexingLicenseMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4212)
+)
+extendedDemultiplexingLicenseMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDemultiplexingLicenseMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDvbProcessingLicenseMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4213)
+)
+extendedDvbProcessingLicenseMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDvbProcessingLicenseMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedMsdLicenseMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4214)
+)
+extendedMsdLicenseMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedMsdLicenseMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDvbS2LicenseMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4215)
+)
+extendedDvbS2LicenseMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDvbS2LicenseMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedScramblingLicenseMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4216)
+)
+extendedScramblingLicenseMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedScramblingLicenseMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedScsLicenseMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4217)
+)
+extendedScsLicenseMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedScsLicenseMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUserFromGroupAdminIsUsingCliAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4218)
+)
+extendedUserFromGroupAdminIsUsingCliAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUserFromGroupAdminIsUsingCliAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUserFromGroupInstallIsUsingCliAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4219)
+)
+extendedUserFromGroupInstallIsUsingCliAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUserFromGroupInstallIsUsingCliAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUserFromGroupOperIsUsingCliAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4220)
+)
+extendedUserFromGroupOperIsUsingCliAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUserFromGroupOperIsUsingCliAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUserFromGroupMonitorIsUsingCliAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4221)
+)
+extendedUserFromGroupMonitorIsUsingCliAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUserFromGroupMonitorIsUsingCliAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedExtIoSignaledAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4223)
+)
+extendedExtIoSignaledAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedExtIoSignaledAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedExtIoBackupPowerSupplyFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4224)
+)
+extendedExtIoBackupPowerSupplyFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedExtIoBackupPowerSupplyFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedExtIoIntrusionDetectedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4225)
+)
+extendedExtIoIntrusionDetectedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedExtIoIntrusionDetectedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedRedundancyFailedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4227)
+)
+extendedRedundancyFailedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedRedundancyFailedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedMultiplexOversubscriptionPacketsDelayedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4228)
+)
+extendedMultiplexOversubscriptionPacketsDelayedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedMultiplexOversubscriptionPacketsDelayedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCbrOutputOversubscriptionAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4229)
+)
+extendedCbrOutputOversubscriptionAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCbrOutputOversubscriptionAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupHwDoesNotSupportSelectedDeviceRoleAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4230)
+)
+extendedBackupHwDoesNotSupportSelectedDeviceRoleAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupHwDoesNotSupportSelectedDeviceRoleAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedSoftwareUpdateInProgressAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4231)
+)
+extendedSoftwareUpdateInProgressAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedSoftwareUpdateInProgressAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedSoftwareUpdateReadyWaitingForRebootToCompleteAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4232)
+)
+extendedSoftwareUpdateReadyWaitingForRebootToCompleteAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedSoftwareUpdateReadyWaitingForRebootToCompleteAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedSoftwareUpdateFailedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4233)
+)
+extendedSoftwareUpdateFailedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedSoftwareUpdateFailedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupModuleHwDoesNotSupportSelectedOnePlusOneBackupRoleAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4234)
+)
+extendedBackupModuleHwDoesNotSupportSelectedOnePlusOneBackupRoleAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupModuleHwDoesNotSupportSelectedOnePlusOneBackupRoleAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEitProcessingLicenseMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4235)
+)
+extendedEitProcessingLicenseMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEitProcessingLicenseMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCbrOutputOversubscriptionPacketsDiscardedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4236)
+)
+extendedCbrOutputOversubscriptionPacketsDiscardedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCbrOutputOversubscriptionPacketsDiscardedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedIpInputCapacityExceededAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4238)
+)
+extendedIpInputCapacityExceededAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedIpInputCapacityExceededAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEitReinsertCapacityExceededAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4239)
+)
+extendedEitReinsertCapacityExceededAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEitReinsertCapacityExceededAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDvbTimeMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4243)
+)
+extendedDvbTimeMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDvbTimeMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDvbT2LicenseMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4244)
+)
+extendedDvbT2LicenseMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDvbT2LicenseMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDcFeedCurrentAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4245)
+)
+extendedDcFeedCurrentAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDcFeedCurrentAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedNotGeneratingTdtTotTableWaitingForCorrectSystemTimeAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4246)
+)
+extendedNotGeneratingTdtTotTableWaitingForCorrectSystemTimeAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedNotGeneratingTdtTotTableWaitingForCorrectSystemTimeAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDataPlpIdSelectionRequiredAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4247)
+)
+extendedDataPlpIdSelectionRequiredAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDataPlpIdSelectionRequiredAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDataPlpIdSelectionNotValidAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4248)
+)
+extendedDataPlpIdSelectionNotValidAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDataPlpIdSelectionNotValidAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedHierarchyHpSelectedForNonAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4249)
+)
+extendedHierarchyHpSelectedForNonAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedHierarchyHpSelectedForNonAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupVoltageTooHighAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4253)
+)
+extendedBackupVoltageTooHighAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupVoltageTooHighAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupVoltageTooLowAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4254)
+)
+extendedBackupVoltageTooLowAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupVoltageTooLowAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCamFailureActionTakenRestartingDescramblingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4256)
+)
+extendedCamFailureActionTakenRestartingDescramblingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCamFailureActionTakenRestartingDescramblingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCamFailureActionTakenRebootingCaModuleAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4257)
+)
+extendedCamFailureActionTakenRebootingCaModuleAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCamFailureActionTakenRebootingCaModuleAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedCaMenuIsOpenAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4258)
+)
+extendedCaMenuIsOpenAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedCaMenuIsOpenAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedNitSidConflictAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4260)
+)
+extendedNitSidConflictAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedNitSidConflictAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedNotGeneratingSttTableWaitingForCorrectSystemTimeAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4261)
+)
+extendedNotGeneratingSttTableWaitingForCorrectSystemTimeAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedNotGeneratingSttTableWaitingForCorrectSystemTimeAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedNumberOfFecLicensesExceededAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4262)
+)
+extendedNumberOfFecLicensesExceededAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedNumberOfFecLicensesExceededAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedErrorCorrectionOverloadTooManySimultaneousMissingPacketsAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4263)
+)
+extendedErrorCorrectionOverloadTooManySimultaneousMissingPacketsAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedErrorCorrectionOverloadTooManySimultaneousMissingPacketsAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedFecPacketsDiscardedModuleBitrateTooHighAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4264)
+)
+extendedFecPacketsDiscardedModuleBitrateTooHighAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedFecPacketsDiscardedModuleBitrateTooHighAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedMediaPacketsDiscardedModuleBitrateTooHighAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4265)
+)
+extendedMediaPacketsDiscardedModuleBitrateTooHighAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedMediaPacketsDiscardedModuleBitrateTooHighAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedSfpLinkDownAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4269)
+)
+extendedSfpLinkDownAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedSfpLinkDownAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncTurnedOffAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4272)
+)
+extendedBackupsyncTurnedOffAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncTurnedOffAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncManualModeAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4273)
+)
+extendedBackupsyncManualModeAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncManualModeAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncAutomaticModeAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4274)
+)
+extendedBackupsyncAutomaticModeAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncAutomaticModeAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncConfigurationWillBeSynchronizedAutomaticallyAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4275)
+)
+extendedBackupsyncConfigurationWillBeSynchronizedAutomaticallyAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncConfigurationWillBeSynchronizedAutomaticallyAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncSynchronizingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4276)
+)
+extendedBackupsyncSynchronizingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncSynchronizingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncSwCompatibilityCheckAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4278)
+)
+extendedBackupsyncSwCompatibilityCheckAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncSwCompatibilityCheckAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncHwCompatibilityCheckAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4279)
+)
+extendedBackupsyncHwCompatibilityCheckAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncHwCompatibilityCheckAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncConfigurationFaultAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4280)
+)
+extendedBackupsyncConfigurationFaultAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncConfigurationFaultAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncConnectionLostAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4281)
+)
+extendedBackupsyncConnectionLostAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncConnectionLostAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncAutosyncNotPossibleFromBackupToMainAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4283)
+)
+extendedBackupsyncAutosyncNotPossibleFromBackupToMainAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncAutosyncNotPossibleFromBackupToMainAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncRebootingPairDeviceToNewConfigurationAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4284)
+)
+extendedBackupsyncRebootingPairDeviceToNewConfigurationAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncRebootingPairDeviceToNewConfigurationAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncCheckLicenseCompatibilityAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4285)
+)
+extendedBackupsyncCheckLicenseCompatibilityAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncCheckLicenseCompatibilityAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedBackupsyncLicenseCompatibilityCheckAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4286)
+)
+extendedBackupsyncLicenseCompatibilityCheckAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedBackupsyncLicenseCompatibilityCheckAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDeviceFirstBootActionsAreInProgressAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4288)
+)
+extendedDeviceFirstBootActionsAreInProgressAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDeviceFirstBootActionsAreInProgressAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDeviceConfigurationBackupInProgressAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4289)
+)
+extendedDeviceConfigurationBackupInProgressAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDeviceConfigurationBackupInProgressAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDeviceConfigurationRestoreInProgressAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4290)
+)
+extendedDeviceConfigurationRestoreInProgressAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDeviceConfigurationRestoreInProgressAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDeviceOtherSoftwareActivationAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4291)
+)
+extendedDeviceOtherSoftwareActivationAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDeviceOtherSoftwareActivationAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedTooManyOutputPidsConfiguredAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4292)
+)
+extendedTooManyOutputPidsConfiguredAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedTooManyOutputPidsConfiguredAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedRebootRequestByUserAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4293)
+)
+extendedRebootRequestByUserAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedRebootRequestByUserAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedRemovedFromTheChassisAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4294)
+)
+extendedRemovedFromTheChassisAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedRemovedFromTheChassisAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedInsertedIntoTheChassisAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4295)
+)
+extendedInsertedIntoTheChassisAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedInsertedIntoTheChassisAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedPacketsDiscardedInIpMirrorOutputsAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4297)
+)
+extendedPacketsDiscardedInIpMirrorOutputsAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedPacketsDiscardedInIpMirrorOutputsAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedAesLicenseMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4298)
+)
+extendedAesLicenseMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedAesLicenseMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedSymbolRateTooHighForSelectedModulationSelectHighSpeedModulationModeToAvoidErrorsAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4299)
+)
+extendedSymbolRateTooHighForSelectedModulationSelectHighSpeedModulationModeToAvoidErrorsAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedSymbolRateTooHighForSelectedModulationSelectHighSpeedModulationModeToAvoidErrorsAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEcmResponsesDelayedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4300)
+)
+extendedEcmResponsesDelayedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEcmResponsesDelayedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDisconnectedHostInMultichassisGroupAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4302)
+)
+extendedDisconnectedHostInMultichassisGroupAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDisconnectedHostInMultichassisGroupAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedMultichassisConfigurationFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4303)
+)
+extendedMultichassisConfigurationFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedMultichassisConfigurationFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedSwVersionDifferenceWithinMultichassisGroupAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4304)
+)
+extendedSwVersionDifferenceWithinMultichassisGroupAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedSwVersionDifferenceWithinMultichassisGroupAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedSwVersionMismatchAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4305)
+)
+extendedSwVersionMismatchAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedSwVersionMismatchAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEmergencySignalActivatedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4307)
+)
+extendedEmergencySignalActivatedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEmergencySignalActivatedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEmergencySignalMissingAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4308)
+)
+extendedEmergencySignalMissingAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEmergencySignalMissingAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedUnableToAddEmergencySignalAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4309)
+)
+extendedUnableToAddEmergencySignalAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedUnableToAddEmergencySignalAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedNetworkInformationTableNeedsToBeUpdatedAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4310)
+)
+extendedNetworkInformationTableNeedsToBeUpdatedAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedNetworkInformationTableNeedsToBeUpdatedAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedNfsMountFailureAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4311)
+)
+extendedNfsMountFailureAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedNfsMountFailureAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedEthernetInputBufferOverflowAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4312)
+)
+extendedEthernetInputBufferOverflowAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedEthernetInputBufferOverflowAlarmEvent.setStatus(
+        "current"
+    )
+
+extendedDvbAlarmEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3715, 17, 4, 2, 2, 4313)
+)
+extendedDvbAlarmEvent.setObjects(
+      *(("TELESTE-LUMINATO-MIB2", "severity"),
+        ("TELESTE-LUMINATO-MIB2", "module"),
+        ("TELESTE-LUMINATO-MIB2", "reason"),
+        ("TELESTE-LUMINATO-MIB2", "description"),
+        ("TELESTE-LUMINATO-MIB2", "paramTable"))
+)
+if mibBuilder.loadTexts:
+    extendedDvbAlarmEvent.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TELESTE-LUMINATO-MIB2",
+    **{"notifications": notifications,
+       "params": params,
+       "severity": severity,
+       "module": module,
+       "description": description,
+       "reason": reason,
+       "paramTable": paramTable,
+       "paramEntry": paramEntry,
+       "paramIdx": paramIdx,
+       "paramValue": paramValue,
+       "traps": traps,
+       "generic": generic,
+       "extendedAlarmEvent": extendedAlarmEvent,
+       "specific": specific,
+       "extendedPidMissingAlarmEvent": extendedPidMissingAlarmEvent,
+       "extendedServiceMissingAlarmEvent": extendedServiceMissingAlarmEvent,
+       "extendedPidConflictAlarmEvent": extendedPidConflictAlarmEvent,
+       "extendedTemperatureTooHighAlarmEvent": extendedTemperatureTooHighAlarmEvent,
+       "extendedTemperatureTooLowAlarmEvent": extendedTemperatureTooLowAlarmEvent,
+       "extendedManualTableInsertionFailedAlarmEvent": extendedManualTableInsertionFailedAlarmEvent,
+       "extendedAlertMessageAlarmEvent": extendedAlertMessageAlarmEvent,
+       "extendedServicesPassthroughAlarmEvent": extendedServicesPassthroughAlarmEvent,
+       "extendedPsigTableInsertionFailedAlarmEvent": extendedPsigTableInsertionFailedAlarmEvent,
+       "extendedPsiTableCaptureFailureAlarmEvent": extendedPsiTableCaptureFailureAlarmEvent,
+       "extendedSignalMissingAlarmEvent": extendedSignalMissingAlarmEvent,
+       "extendedNoTsSyncAlarmEvent": extendedNoTsSyncAlarmEvent,
+       "extendedTsRxErrorsAlarmEvent": extendedTsRxErrorsAlarmEvent,
+       "extendedTsInputBufferOverflowAlarmEvent": extendedTsInputBufferOverflowAlarmEvent,
+       "extendedAsiLinkDownAlarmEvent": extendedAsiLinkDownAlarmEvent,
+       "extendedForbiddenNetworkAlarmEvent": extendedForbiddenNetworkAlarmEvent,
+       "extendedSidConflictAlarmEvent": extendedSidConflictAlarmEvent,
+       "extendedLinkMissingAlarmEvent": extendedLinkMissingAlarmEvent,
+       "extendedEcmMissingAlarmEvent": extendedEcmMissingAlarmEvent,
+       "extendedScramblingConflictInSharedComponentAlarmEvent": extendedScramblingConflictInSharedComponentAlarmEvent,
+       "extendedScrambledSharedComponentAlarmEvent": extendedScrambledSharedComponentAlarmEvent,
+       "extendedUsedInputIsNotSptsAlarmEvent": extendedUsedInputIsNotSptsAlarmEvent,
+       "extendedDescramblingFailedAlarmEvent": extendedDescramblingFailedAlarmEvent,
+       "extendedCwGroupConflictAlarmEvent": extendedCwGroupConflictAlarmEvent,
+       "extendedInvalidSdtTemplateAlarmEvent": extendedInvalidSdtTemplateAlarmEvent,
+       "extendedCannotDescrambleDueToCamRoutingAlarmEvent": extendedCannotDescrambleDueToCamRoutingAlarmEvent,
+       "extendedRedundancyActivatedAlarmEvent": extendedRedundancyActivatedAlarmEvent,
+       "extendedRtpInputPacketSequenceAnomaliesDetectedAlarmEvent": extendedRtpInputPacketSequenceAnomaliesDetectedAlarmEvent,
+       "extendedRtpInputErrorsDroppedPacketsAlarmEvent": extendedRtpInputErrorsDroppedPacketsAlarmEvent,
+       "extendedFecHasCorrectedPacketsAlarmEvent": extendedFecHasCorrectedPacketsAlarmEvent,
+       "extendedFecInputAnomaliesDetectedAlarmEvent": extendedFecInputAnomaliesDetectedAlarmEvent,
+       "extendedFecErrorCorrectionCapacityExceededAlarmEvent": extendedFecErrorCorrectionCapacityExceededAlarmEvent,
+       "extendedTooManyServicesAlarmEvent": extendedTooManyServicesAlarmEvent,
+       "extendedLowSignalLevelAlarmEvent": extendedLowSignalLevelAlarmEvent,
+       "extendedSignalMutedAlarmEvent": extendedSignalMutedAlarmEvent,
+       "extendedProidiomScramblingDisabledAlarmEvent": extendedProidiomScramblingDisabledAlarmEvent,
+       "extendedTsQueueCapacityExceededAlarmEvent": extendedTsQueueCapacityExceededAlarmEvent,
+       "extendedLowSignalQualityAlarmEvent": extendedLowSignalQualityAlarmEvent,
+       "extendedModuleOffAlarmEvent": extendedModuleOffAlarmEvent,
+       "extendedPidCapacityExceededAlarmEvent": extendedPidCapacityExceededAlarmEvent,
+       "extendedPsiSiCaptureCapacityExceededAlarmEvent": extendedPsiSiCaptureCapacityExceededAlarmEvent,
+       "extendedOutOfServiceIdsAlarmEvent": extendedOutOfServiceIdsAlarmEvent,
+       "extendedCaModuleMissingAlarmEvent": extendedCaModuleMissingAlarmEvent,
+       "extendedPsiSiInsertCapacityExceededAlarmEvent": extendedPsiSiInsertCapacityExceededAlarmEvent,
+       "extendedMultiplexOversubscriptionPacketsDiscardedAlarmEvent": extendedMultiplexOversubscriptionPacketsDiscardedAlarmEvent,
+       "extendedUnknownModuleAlarmEvent": extendedUnknownModuleAlarmEvent,
+       "extendedMainVoltageTooHighAlarmEvent": extendedMainVoltageTooHighAlarmEvent,
+       "extendedMainVoltageTooLowAlarmEvent": extendedMainVoltageTooLowAlarmEvent,
+       "extendedCurrentTooHighAlarmEvent": extendedCurrentTooHighAlarmEvent,
+       "extendedCurrentTooLowAlarmEvent": extendedCurrentTooLowAlarmEvent,
+       "extendedDaemonInitializationFailedAlarmEvent": extendedDaemonInitializationFailedAlarmEvent,
+       "extendedDeviceDriverFailureAlarmEvent": extendedDeviceDriverFailureAlarmEvent,
+       "extendedHardwareFailureAlarmEvent": extendedHardwareFailureAlarmEvent,
+       "extendedFanFailureAlarmEvent": extendedFanFailureAlarmEvent,
+       "extendedRunningOnBackupPowerAlarmEvent": extendedRunningOnBackupPowerAlarmEvent,
+       "extendedPowerSupplyOverloadedAlarmEvent": extendedPowerSupplyOverloadedAlarmEvent,
+       "extendedBootingUpAlarmEvent": extendedBootingUpAlarmEvent,
+       "extendedBootFailedRetryingAlarmEvent": extendedBootFailedRetryingAlarmEvent,
+       "extendedBootFailedAlarmEvent": extendedBootFailedAlarmEvent,
+       "extendedShuttingDownAlarmEvent": extendedShuttingDownAlarmEvent,
+       "extendedConnectionLostAlarmEvent": extendedConnectionLostAlarmEvent,
+       "extendedIncompatibleModuleDisabledAlarmEvent": extendedIncompatibleModuleDisabledAlarmEvent,
+       "extendedFailedToBootAlarmEvent": extendedFailedToBootAlarmEvent,
+       "extendedUpcTooLowInputPowerAlarmEvent": extendedUpcTooLowInputPowerAlarmEvent,
+       "extendedUpcTooHighInputPowerAlarmEvent": extendedUpcTooHighInputPowerAlarmEvent,
+       "extendedCalibrationDataMissingAlarmEvent": extendedCalibrationDataMissingAlarmEvent,
+       "extendedCalibrationCheckSkippedAlarmEvent": extendedCalibrationCheckSkippedAlarmEvent,
+       "extendedDescramblingFailureAlarmEvent": extendedDescramblingFailureAlarmEvent,
+       "extendedBackupSwitchedOverToBackupDeviceAlarmEvent": extendedBackupSwitchedOverToBackupDeviceAlarmEvent,
+       "extendedFailedToQuerySomeOfTheNitDataAlarmEvent": extendedFailedToQuerySomeOfTheNitDataAlarmEvent,
+       "extendedNitWizardFailureAlarmEvent": extendedNitWizardFailureAlarmEvent,
+       "extendedDuplicateFrequencyInTwoOrMoreSelectedQamOutputsAlarmEvent": extendedDuplicateFrequencyInTwoOrMoreSelectedQamOutputsAlarmEvent,
+       "extendedCannotResolveTableVersionUsingDefaultAlarmEvent": extendedCannotResolveTableVersionUsingDefaultAlarmEvent,
+       "extendedUnsupportedConfigurationAlarmEvent": extendedUnsupportedConfigurationAlarmEvent,
+       "extendedFrequencyOutOfRangeAlarmEvent": extendedFrequencyOutOfRangeAlarmEvent,
+       "extendedOutputPowerOutOfRangeAlarmEvent": extendedOutputPowerOutOfRangeAlarmEvent,
+       "extendedSymbolrateOutOfRangeAlarmEvent": extendedSymbolrateOutOfRangeAlarmEvent,
+       "extendedChannelDistanceTooNarrowAlarmEvent": extendedChannelDistanceTooNarrowAlarmEvent,
+       "extendedInvalidLnbVoltageConfigurationAlarmEvent": extendedInvalidLnbVoltageConfigurationAlarmEvent,
+       "extendedInvalidFecRateForSelectedModulationAlarmEvent": extendedInvalidFecRateForSelectedModulationAlarmEvent,
+       "extendedLnbCurrentAlarmEvent": extendedLnbCurrentAlarmEvent,
+       "extendedFrequencyOffsetAlarmEvent": extendedFrequencyOffsetAlarmEvent,
+       "extendedRestartingDescramblingAlarmEvent": extendedRestartingDescramblingAlarmEvent,
+       "extendedRebootingCamAlarmEvent": extendedRebootingCamAlarmEvent,
+       "extendedEcmgFailureAlarmEvent": extendedEcmgFailureAlarmEvent,
+       "extendedEcmStreamFailureAlarmEvent": extendedEcmStreamFailureAlarmEvent,
+       "extendedEmmFailureAlarmEvent": extendedEmmFailureAlarmEvent,
+       "extendedEmmStreamFailureAlarmEvent": extendedEmmStreamFailureAlarmEvent,
+       "extendedEcmgNotConnectedAlarmEvent": extendedEcmgNotConnectedAlarmEvent,
+       "extendedEmmNotConnectedAlarmEvent": extendedEmmNotConnectedAlarmEvent,
+       "extendedScsNotLicensedAlarmEvent": extendedScsNotLicensedAlarmEvent,
+       "extendedEcmgSwitchedToSpareServerAlarmEvent": extendedEcmgSwitchedToSpareServerAlarmEvent,
+       "extendedUpdatedBootLoaderAvailableAlarmEvent": extendedUpdatedBootLoaderAvailableAlarmEvent,
+       "extendedUpdatingStage1BootLoaderAlarmEvent": extendedUpdatingStage1BootLoaderAlarmEvent,
+       "extendedUpdatingStage2BootLoaderAlarmEvent": extendedUpdatingStage2BootLoaderAlarmEvent,
+       "extendedFailedToUpdateStage1BootLoaderAlarmEvent": extendedFailedToUpdateStage1BootLoaderAlarmEvent,
+       "extendedFailedToUpdateStage2BootLoaderAlarmEvent": extendedFailedToUpdateStage2BootLoaderAlarmEvent,
+       "extendedBackupActiveBackupAlarmEvent": extendedBackupActiveBackupAlarmEvent,
+       "extendedConfiguringModuleAlarmEvent": extendedConfiguringModuleAlarmEvent,
+       "extendedNoModuleAlarmEvent": extendedNoModuleAlarmEvent,
+       "extendedProcessStartedAlarmEvent": extendedProcessStartedAlarmEvent,
+       "extendedBackupLicenseMissingAlarmEvent": extendedBackupLicenseMissingAlarmEvent,
+       "extendedMultiplexingLicenseMissingAlarmEvent": extendedMultiplexingLicenseMissingAlarmEvent,
+       "extendedDemultiplexingLicenseMissingAlarmEvent": extendedDemultiplexingLicenseMissingAlarmEvent,
+       "extendedDvbProcessingLicenseMissingAlarmEvent": extendedDvbProcessingLicenseMissingAlarmEvent,
+       "extendedMsdLicenseMissingAlarmEvent": extendedMsdLicenseMissingAlarmEvent,
+       "extendedDvbS2LicenseMissingAlarmEvent": extendedDvbS2LicenseMissingAlarmEvent,
+       "extendedScramblingLicenseMissingAlarmEvent": extendedScramblingLicenseMissingAlarmEvent,
+       "extendedScsLicenseMissingAlarmEvent": extendedScsLicenseMissingAlarmEvent,
+       "extendedUserFromGroupAdminIsUsingCliAlarmEvent": extendedUserFromGroupAdminIsUsingCliAlarmEvent,
+       "extendedUserFromGroupInstallIsUsingCliAlarmEvent": extendedUserFromGroupInstallIsUsingCliAlarmEvent,
+       "extendedUserFromGroupOperIsUsingCliAlarmEvent": extendedUserFromGroupOperIsUsingCliAlarmEvent,
+       "extendedUserFromGroupMonitorIsUsingCliAlarmEvent": extendedUserFromGroupMonitorIsUsingCliAlarmEvent,
+       "extendedExtIoSignaledAlarmEvent": extendedExtIoSignaledAlarmEvent,
+       "extendedExtIoBackupPowerSupplyFailureAlarmEvent": extendedExtIoBackupPowerSupplyFailureAlarmEvent,
+       "extendedExtIoIntrusionDetectedAlarmEvent": extendedExtIoIntrusionDetectedAlarmEvent,
+       "extendedRedundancyFailedAlarmEvent": extendedRedundancyFailedAlarmEvent,
+       "extendedMultiplexOversubscriptionPacketsDelayedAlarmEvent": extendedMultiplexOversubscriptionPacketsDelayedAlarmEvent,
+       "extendedCbrOutputOversubscriptionAlarmEvent": extendedCbrOutputOversubscriptionAlarmEvent,
+       "extendedBackupHwDoesNotSupportSelectedDeviceRoleAlarmEvent": extendedBackupHwDoesNotSupportSelectedDeviceRoleAlarmEvent,
+       "extendedSoftwareUpdateInProgressAlarmEvent": extendedSoftwareUpdateInProgressAlarmEvent,
+       "extendedSoftwareUpdateReadyWaitingForRebootToCompleteAlarmEvent": extendedSoftwareUpdateReadyWaitingForRebootToCompleteAlarmEvent,
+       "extendedSoftwareUpdateFailedAlarmEvent": extendedSoftwareUpdateFailedAlarmEvent,
+       "extendedBackupModuleHwDoesNotSupportSelectedOnePlusOneBackupRoleAlarmEvent": extendedBackupModuleHwDoesNotSupportSelectedOnePlusOneBackupRoleAlarmEvent,
+       "extendedEitProcessingLicenseMissingAlarmEvent": extendedEitProcessingLicenseMissingAlarmEvent,
+       "extendedCbrOutputOversubscriptionPacketsDiscardedAlarmEvent": extendedCbrOutputOversubscriptionPacketsDiscardedAlarmEvent,
+       "extendedIpInputCapacityExceededAlarmEvent": extendedIpInputCapacityExceededAlarmEvent,
+       "extendedEitReinsertCapacityExceededAlarmEvent": extendedEitReinsertCapacityExceededAlarmEvent,
+       "extendedDvbTimeMissingAlarmEvent": extendedDvbTimeMissingAlarmEvent,
+       "extendedDvbT2LicenseMissingAlarmEvent": extendedDvbT2LicenseMissingAlarmEvent,
+       "extendedDcFeedCurrentAlarmEvent": extendedDcFeedCurrentAlarmEvent,
+       "extendedNotGeneratingTdtTotTableWaitingForCorrectSystemTimeAlarmEvent": extendedNotGeneratingTdtTotTableWaitingForCorrectSystemTimeAlarmEvent,
+       "extendedDataPlpIdSelectionRequiredAlarmEvent": extendedDataPlpIdSelectionRequiredAlarmEvent,
+       "extendedDataPlpIdSelectionNotValidAlarmEvent": extendedDataPlpIdSelectionNotValidAlarmEvent,
+       "extendedHierarchyHpSelectedForNonAlarmEvent": extendedHierarchyHpSelectedForNonAlarmEvent,
+       "extendedBackupVoltageTooHighAlarmEvent": extendedBackupVoltageTooHighAlarmEvent,
+       "extendedBackupVoltageTooLowAlarmEvent": extendedBackupVoltageTooLowAlarmEvent,
+       "extendedCamFailureActionTakenRestartingDescramblingAlarmEvent": extendedCamFailureActionTakenRestartingDescramblingAlarmEvent,
+       "extendedCamFailureActionTakenRebootingCaModuleAlarmEvent": extendedCamFailureActionTakenRebootingCaModuleAlarmEvent,
+       "extendedCaMenuIsOpenAlarmEvent": extendedCaMenuIsOpenAlarmEvent,
+       "extendedNitSidConflictAlarmEvent": extendedNitSidConflictAlarmEvent,
+       "extendedNotGeneratingSttTableWaitingForCorrectSystemTimeAlarmEvent": extendedNotGeneratingSttTableWaitingForCorrectSystemTimeAlarmEvent,
+       "extendedNumberOfFecLicensesExceededAlarmEvent": extendedNumberOfFecLicensesExceededAlarmEvent,
+       "extendedErrorCorrectionOverloadTooManySimultaneousMissingPacketsAlarmEvent": extendedErrorCorrectionOverloadTooManySimultaneousMissingPacketsAlarmEvent,
+       "extendedFecPacketsDiscardedModuleBitrateTooHighAlarmEvent": extendedFecPacketsDiscardedModuleBitrateTooHighAlarmEvent,
+       "extendedMediaPacketsDiscardedModuleBitrateTooHighAlarmEvent": extendedMediaPacketsDiscardedModuleBitrateTooHighAlarmEvent,
+       "extendedSfpLinkDownAlarmEvent": extendedSfpLinkDownAlarmEvent,
+       "extendedBackupsyncTurnedOffAlarmEvent": extendedBackupsyncTurnedOffAlarmEvent,
+       "extendedBackupsyncManualModeAlarmEvent": extendedBackupsyncManualModeAlarmEvent,
+       "extendedBackupsyncAutomaticModeAlarmEvent": extendedBackupsyncAutomaticModeAlarmEvent,
+       "extendedBackupsyncConfigurationWillBeSynchronizedAutomaticallyAlarmEvent": extendedBackupsyncConfigurationWillBeSynchronizedAutomaticallyAlarmEvent,
+       "extendedBackupsyncSynchronizingAlarmEvent": extendedBackupsyncSynchronizingAlarmEvent,
+       "extendedBackupsyncSwCompatibilityCheckAlarmEvent": extendedBackupsyncSwCompatibilityCheckAlarmEvent,
+       "extendedBackupsyncHwCompatibilityCheckAlarmEvent": extendedBackupsyncHwCompatibilityCheckAlarmEvent,
+       "extendedBackupsyncConfigurationFaultAlarmEvent": extendedBackupsyncConfigurationFaultAlarmEvent,
+       "extendedBackupsyncConnectionLostAlarmEvent": extendedBackupsyncConnectionLostAlarmEvent,
+       "extendedBackupsyncAutosyncNotPossibleFromBackupToMainAlarmEvent": extendedBackupsyncAutosyncNotPossibleFromBackupToMainAlarmEvent,
+       "extendedBackupsyncRebootingPairDeviceToNewConfigurationAlarmEvent": extendedBackupsyncRebootingPairDeviceToNewConfigurationAlarmEvent,
+       "extendedBackupsyncCheckLicenseCompatibilityAlarmEvent": extendedBackupsyncCheckLicenseCompatibilityAlarmEvent,
+       "extendedBackupsyncLicenseCompatibilityCheckAlarmEvent": extendedBackupsyncLicenseCompatibilityCheckAlarmEvent,
+       "extendedDeviceFirstBootActionsAreInProgressAlarmEvent": extendedDeviceFirstBootActionsAreInProgressAlarmEvent,
+       "extendedDeviceConfigurationBackupInProgressAlarmEvent": extendedDeviceConfigurationBackupInProgressAlarmEvent,
+       "extendedDeviceConfigurationRestoreInProgressAlarmEvent": extendedDeviceConfigurationRestoreInProgressAlarmEvent,
+       "extendedDeviceOtherSoftwareActivationAlarmEvent": extendedDeviceOtherSoftwareActivationAlarmEvent,
+       "extendedTooManyOutputPidsConfiguredAlarmEvent": extendedTooManyOutputPidsConfiguredAlarmEvent,
+       "extendedRebootRequestByUserAlarmEvent": extendedRebootRequestByUserAlarmEvent,
+       "extendedRemovedFromTheChassisAlarmEvent": extendedRemovedFromTheChassisAlarmEvent,
+       "extendedInsertedIntoTheChassisAlarmEvent": extendedInsertedIntoTheChassisAlarmEvent,
+       "extendedPacketsDiscardedInIpMirrorOutputsAlarmEvent": extendedPacketsDiscardedInIpMirrorOutputsAlarmEvent,
+       "extendedAesLicenseMissingAlarmEvent": extendedAesLicenseMissingAlarmEvent,
+       "extendedSymbolRateTooHighForSelectedModulationSelectHighSpeedModulationModeToAvoidErrorsAlarmEvent": extendedSymbolRateTooHighForSelectedModulationSelectHighSpeedModulationModeToAvoidErrorsAlarmEvent,
+       "extendedEcmResponsesDelayedAlarmEvent": extendedEcmResponsesDelayedAlarmEvent,
+       "extendedDisconnectedHostInMultichassisGroupAlarmEvent": extendedDisconnectedHostInMultichassisGroupAlarmEvent,
+       "extendedMultichassisConfigurationFailureAlarmEvent": extendedMultichassisConfigurationFailureAlarmEvent,
+       "extendedSwVersionDifferenceWithinMultichassisGroupAlarmEvent": extendedSwVersionDifferenceWithinMultichassisGroupAlarmEvent,
+       "extendedSwVersionMismatchAlarmEvent": extendedSwVersionMismatchAlarmEvent,
+       "extendedEmergencySignalActivatedAlarmEvent": extendedEmergencySignalActivatedAlarmEvent,
+       "extendedEmergencySignalMissingAlarmEvent": extendedEmergencySignalMissingAlarmEvent,
+       "extendedUnableToAddEmergencySignalAlarmEvent": extendedUnableToAddEmergencySignalAlarmEvent,
+       "extendedNetworkInformationTableNeedsToBeUpdatedAlarmEvent": extendedNetworkInformationTableNeedsToBeUpdatedAlarmEvent,
+       "extendedNfsMountFailureAlarmEvent": extendedNfsMountFailureAlarmEvent,
+       "extendedEthernetInputBufferOverflowAlarmEvent": extendedEthernetInputBufferOverflowAlarmEvent,
+       "extendedDvbAlarmEvent": extendedDvbAlarmEvent}
+)

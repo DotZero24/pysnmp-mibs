@@ -1,56 +1,326 @@
+# SNMP MIB module (CISCO-VLAN-GROUP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-VLAN-GROUP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-VLAN-GROUP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:24:54 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-VLAN-GROUP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:26:45 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-Cisco2KVlanList, = mibBuilder.importSymbols("CISCO-TC", "Cisco2KVlanList")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-StorageType, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "RowStatus", "TextualConvention", "DisplayString")
-ciscoVlanGroupMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 709))
-ciscoVlanGroupMIB.setRevisions(('2011-03-22 00:00', '2009-11-20 00:00',))
-if mibBuilder.loadTexts: ciscoVlanGroupMIB.setLastUpdated('201103220000Z')
-if mibBuilder.loadTexts: ciscoVlanGroupMIB.setOrganization('Cisco Systems, Inc.')
-ciscoVlanGroupMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 709, 0))
-ciscoVlanGroupMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 709, 1))
-ciscoVlanGroupMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 709, 2))
-cvgConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1), )
-if mibBuilder.loadTexts: cvgConfigTable.setStatus('current')
-cvgConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1), ).setIndexNames((0, "CISCO-VLAN-GROUP-MIB", "cvgConfigGroupName"))
-if mibBuilder.loadTexts: cvgConfigEntry.setStatus('current')
-cvgConfigGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
-if mibBuilder.loadTexts: cvgConfigGroupName.setStatus('current')
-cvgConfigVlansFirst2K = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1, 2), Cisco2KVlanList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cvgConfigVlansFirst2K.setStatus('current')
-cvgConfigVlansSecond2K = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1, 3), Cisco2KVlanList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cvgConfigVlansSecond2K.setStatus('current')
-cvgConfigStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1, 4), StorageType().clone('volatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cvgConfigStorageType.setStatus('current')
-cvgConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: cvgConfigRowStatus.setStatus('current')
-cvgConfigTableSize = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvgConfigTableSize.setStatus('current')
-ciscoVlanGroupMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 1))
-ciscoVlanGroupMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 2))
-ciscoVlanGroupMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 1, 1)).setObjects(("CISCO-VLAN-GROUP-MIB", "ciscoVlanGroupConfigGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoVlanGroupMIBCompliance = ciscoVlanGroupMIBCompliance.setStatus('deprecated')
-ciscoVlanGroupMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 1, 2)).setObjects(("CISCO-VLAN-GROUP-MIB", "ciscoVlanGroupConfigGroup"), ("CISCO-VLAN-GROUP-MIB", "cvgConfigTableSizeGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoVlanGroupMIBCompliance2 = ciscoVlanGroupMIBCompliance2.setStatus('current')
-ciscoVlanGroupConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 2, 1)).setObjects(("CISCO-VLAN-GROUP-MIB", "cvgConfigVlansFirst2K"), ("CISCO-VLAN-GROUP-MIB", "cvgConfigVlansSecond2K"), ("CISCO-VLAN-GROUP-MIB", "cvgConfigRowStatus"), ("CISCO-VLAN-GROUP-MIB", "cvgConfigStorageType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoVlanGroupConfigGroup = ciscoVlanGroupConfigGroup.setStatus('current')
-cvgConfigTableSizeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 2, 2)).setObjects(("CISCO-VLAN-GROUP-MIB", "cvgConfigTableSize"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvgConfigTableSizeGroup = cvgConfigTableSizeGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-VLAN-GROUP-MIB", ciscoVlanGroupMIBNotifs=ciscoVlanGroupMIBNotifs, ciscoVlanGroupMIBCompliance=ciscoVlanGroupMIBCompliance, ciscoVlanGroupMIBGroups=ciscoVlanGroupMIBGroups, cvgConfigRowStatus=cvgConfigRowStatus, cvgConfigStorageType=cvgConfigStorageType, cvgConfigTable=cvgConfigTable, cvgConfigEntry=cvgConfigEntry, cvgConfigTableSize=cvgConfigTableSize, ciscoVlanGroupMIBCompliance2=ciscoVlanGroupMIBCompliance2, cvgConfigGroupName=cvgConfigGroupName, PYSNMP_MODULE_ID=ciscoVlanGroupMIB, ciscoVlanGroupConfigGroup=ciscoVlanGroupConfigGroup, ciscoVlanGroupMIBCompliances=ciscoVlanGroupMIBCompliances, cvgConfigVlansFirst2K=cvgConfigVlansFirst2K, ciscoVlanGroupMIBObjects=ciscoVlanGroupMIBObjects, ciscoVlanGroupMIB=ciscoVlanGroupMIB, cvgConfigTableSizeGroup=cvgConfigTableSizeGroup, cvgConfigVlansSecond2K=cvgConfigVlansSecond2K, ciscoVlanGroupMIBConform=ciscoVlanGroupMIBConform)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(Cisco2KVlanList,) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "Cisco2KVlanList")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ StorageType,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoVlanGroupMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709)
+)
+if mibBuilder.loadTexts:
+    ciscoVlanGroupMIB.setRevisions(
+        ("2011-03-22 00:00",
+         "2009-11-20 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoVlanGroupMIBNotifs_ObjectIdentity = ObjectIdentity
+ciscoVlanGroupMIBNotifs = _CiscoVlanGroupMIBNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 0)
+)
+_CiscoVlanGroupMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoVlanGroupMIBObjects = _CiscoVlanGroupMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 1)
+)
+_CvgConfigTable_Object = MibTable
+cvgConfigTable = _CvgConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cvgConfigTable.setStatus("current")
+_CvgConfigEntry_Object = MibTableRow
+cvgConfigEntry = _CvgConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1)
+)
+cvgConfigEntry.setIndexNames(
+    (0, "CISCO-VLAN-GROUP-MIB", "cvgConfigGroupName"),
+)
+if mibBuilder.loadTexts:
+    cvgConfigEntry.setStatus("current")
+
+
+class _CvgConfigGroupName_Type(SnmpAdminString):
+    """Custom type cvgConfigGroupName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_CvgConfigGroupName_Type.__name__ = "SnmpAdminString"
+_CvgConfigGroupName_Object = MibTableColumn
+cvgConfigGroupName = _CvgConfigGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1, 1),
+    _CvgConfigGroupName_Type()
+)
+cvgConfigGroupName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cvgConfigGroupName.setStatus("current")
+_CvgConfigVlansFirst2K_Type = Cisco2KVlanList
+_CvgConfigVlansFirst2K_Object = MibTableColumn
+cvgConfigVlansFirst2K = _CvgConfigVlansFirst2K_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1, 2),
+    _CvgConfigVlansFirst2K_Type()
+)
+cvgConfigVlansFirst2K.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cvgConfigVlansFirst2K.setStatus("current")
+_CvgConfigVlansSecond2K_Type = Cisco2KVlanList
+_CvgConfigVlansSecond2K_Object = MibTableColumn
+cvgConfigVlansSecond2K = _CvgConfigVlansSecond2K_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1, 3),
+    _CvgConfigVlansSecond2K_Type()
+)
+cvgConfigVlansSecond2K.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cvgConfigVlansSecond2K.setStatus("current")
+
+
+class _CvgConfigStorageType_Type(StorageType):
+    """Custom type cvgConfigStorageType based on StorageType"""
+    defaultValue = 2
+
+
+_CvgConfigStorageType_Type.__name__ = "StorageType"
+_CvgConfigStorageType_Object = MibTableColumn
+cvgConfigStorageType = _CvgConfigStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1, 4),
+    _CvgConfigStorageType_Type()
+)
+cvgConfigStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cvgConfigStorageType.setStatus("current")
+_CvgConfigRowStatus_Type = RowStatus
+_CvgConfigRowStatus_Object = MibTableColumn
+cvgConfigRowStatus = _CvgConfigRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 1, 1, 5),
+    _CvgConfigRowStatus_Type()
+)
+cvgConfigRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    cvgConfigRowStatus.setStatus("current")
+_CvgConfigTableSize_Type = Unsigned32
+_CvgConfigTableSize_Object = MibScalar
+cvgConfigTableSize = _CvgConfigTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 1, 2),
+    _CvgConfigTableSize_Type()
+)
+cvgConfigTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvgConfigTableSize.setStatus("current")
+_CiscoVlanGroupMIBConform_ObjectIdentity = ObjectIdentity
+ciscoVlanGroupMIBConform = _CiscoVlanGroupMIBConform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 2)
+)
+_CiscoVlanGroupMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoVlanGroupMIBCompliances = _CiscoVlanGroupMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 1)
+)
+_CiscoVlanGroupMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoVlanGroupMIBGroups = _CiscoVlanGroupMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 2)
+)
+
+# Managed Objects groups
+
+ciscoVlanGroupConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 2, 1)
+)
+ciscoVlanGroupConfigGroup.setObjects(
+      *(("CISCO-VLAN-GROUP-MIB", "cvgConfigVlansFirst2K"),
+        ("CISCO-VLAN-GROUP-MIB", "cvgConfigVlansSecond2K"),
+        ("CISCO-VLAN-GROUP-MIB", "cvgConfigRowStatus"),
+        ("CISCO-VLAN-GROUP-MIB", "cvgConfigStorageType"))
+)
+if mibBuilder.loadTexts:
+    ciscoVlanGroupConfigGroup.setStatus("current")
+
+cvgConfigTableSizeGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 2, 2)
+)
+cvgConfigTableSizeGroup.setObjects(
+    ("CISCO-VLAN-GROUP-MIB", "cvgConfigTableSize")
+)
+if mibBuilder.loadTexts:
+    cvgConfigTableSizeGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoVlanGroupMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 1, 1)
+)
+ciscoVlanGroupMIBCompliance.setObjects(
+    ("CISCO-VLAN-GROUP-MIB", "ciscoVlanGroupConfigGroup")
+)
+if mibBuilder.loadTexts:
+    ciscoVlanGroupMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+ciscoVlanGroupMIBCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 709, 2, 1, 2)
+)
+ciscoVlanGroupMIBCompliance2.setObjects(
+      *(("CISCO-VLAN-GROUP-MIB", "ciscoVlanGroupConfigGroup"),
+        ("CISCO-VLAN-GROUP-MIB", "cvgConfigTableSizeGroup"))
+)
+if mibBuilder.loadTexts:
+    ciscoVlanGroupMIBCompliance2.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-VLAN-GROUP-MIB",
+    **{"ciscoVlanGroupMIB": ciscoVlanGroupMIB,
+       "ciscoVlanGroupMIBNotifs": ciscoVlanGroupMIBNotifs,
+       "ciscoVlanGroupMIBObjects": ciscoVlanGroupMIBObjects,
+       "cvgConfigTable": cvgConfigTable,
+       "cvgConfigEntry": cvgConfigEntry,
+       "cvgConfigGroupName": cvgConfigGroupName,
+       "cvgConfigVlansFirst2K": cvgConfigVlansFirst2K,
+       "cvgConfigVlansSecond2K": cvgConfigVlansSecond2K,
+       "cvgConfigStorageType": cvgConfigStorageType,
+       "cvgConfigRowStatus": cvgConfigRowStatus,
+       "cvgConfigTableSize": cvgConfigTableSize,
+       "ciscoVlanGroupMIBConform": ciscoVlanGroupMIBConform,
+       "ciscoVlanGroupMIBCompliances": ciscoVlanGroupMIBCompliances,
+       "ciscoVlanGroupMIBCompliance": ciscoVlanGroupMIBCompliance,
+       "ciscoVlanGroupMIBCompliance2": ciscoVlanGroupMIBCompliance2,
+       "ciscoVlanGroupMIBGroups": ciscoVlanGroupMIBGroups,
+       "ciscoVlanGroupConfigGroup": ciscoVlanGroupConfigGroup,
+       "cvgConfigTableSizeGroup": cvgConfigTableSizeGroup}
+)

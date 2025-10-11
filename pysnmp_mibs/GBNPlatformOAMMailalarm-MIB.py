@@ -1,42 +1,357 @@
+# SNMP MIB module (GBNPlatformOAMMailalarm-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module GBNPlatformOAMMailalarm-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/gcom/GBNPlatformOAMMailalarm-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:00:43 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/gcom/GBNPlatformOAMMailalarm-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:12:30 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-gbnPlatformOAM, = mibBuilder.importSymbols("GBNPlatformOAM-MIB", "gbnPlatformOAM")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-snmpTraps, = mibBuilder.importSymbols("SNMPv2-MIB", "snmpTraps")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
-gbnPlatformOAMMailalarm = ModuleIdentity((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12))
-gbnPlatformOAMMailalarm.setRevisions(('1905-07-25 00:00',))
-if mibBuilder.loadTexts: gbnPlatformOAMMailalarm.setLastUpdated('0507250000Z')
-if mibBuilder.loadTexts: gbnPlatformOAMMailalarm.setOrganization('Greentech')
-mailalarmState = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailalarmState.setStatus('current')
-mailalarmSrvAddr = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailalarmSrvAddr.setStatus('current')
-mailalarmRceiverAddr = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailalarmRceiverAddr.setStatus('current')
-mailalarmLogLevel = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailalarmLogLevel.setStatus('current')
-mailalarmSmtpAuthEnable = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailalarmSmtpAuthEnable.setStatus('current')
-mailalarmSmtpUsername = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailalarmSmtpUsername.setStatus('current')
-mailalarmSmtpPasswd = MibScalar((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailalarmSmtpPasswd.setStatus('current')
-mailalarmCcAddrTable = MibTable((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 8), )
-if mibBuilder.loadTexts: mailalarmCcAddrTable.setStatus('current')
-mailalarmCcAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 8, 1), ).setIndexNames((0, "GBNPlatformOAMMailalarm-MIB", "mailalarmCcAddrIdx"))
-if mibBuilder.loadTexts: mailalarmCcAddrEntry.setStatus('current')
-mailalarmCcAddrIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 8, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mailalarmCcAddrIdx.setStatus('current')
-mailalarmCcAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 8, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mailalarmCcAddr.setStatus('current')
-mibBuilder.exportSymbols("GBNPlatformOAMMailalarm-MIB", mailalarmCcAddrEntry=mailalarmCcAddrEntry, gbnPlatformOAMMailalarm=gbnPlatformOAMMailalarm, mailalarmState=mailalarmState, mailalarmLogLevel=mailalarmLogLevel, mailalarmSmtpAuthEnable=mailalarmSmtpAuthEnable, PYSNMP_MODULE_ID=gbnPlatformOAMMailalarm, mailalarmCcAddrTable=mailalarmCcAddrTable, mailalarmCcAddrIdx=mailalarmCcAddrIdx, mailalarmSmtpUsername=mailalarmSmtpUsername, mailalarmSmtpPasswd=mailalarmSmtpPasswd, mailalarmCcAddr=mailalarmCcAddr, mailalarmRceiverAddr=mailalarmRceiverAddr, mailalarmSrvAddr=mailalarmSrvAddr)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(gbnPlatformOAM,) = mibBuilder.importSymbols(
+    "GBNPlatformOAM-MIB",
+    "gbnPlatformOAM")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(snmpTraps,) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "snmpTraps")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+gbnPlatformOAMMailalarm = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12)
+)
+if mibBuilder.loadTexts:
+    gbnPlatformOAMMailalarm.setRevisions(
+        ("1905-07-25 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+
+class _MailalarmState_Type(Integer32):
+    """Custom type mailalarmState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_MailalarmState_Type.__name__ = "Integer32"
+_MailalarmState_Object = MibScalar
+mailalarmState = _MailalarmState_Object(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 1),
+    _MailalarmState_Type()
+)
+mailalarmState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailalarmState.setStatus("current")
+_MailalarmSrvAddr_Type = IpAddress
+_MailalarmSrvAddr_Object = MibScalar
+mailalarmSrvAddr = _MailalarmSrvAddr_Object(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 2),
+    _MailalarmSrvAddr_Type()
+)
+mailalarmSrvAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailalarmSrvAddr.setStatus("current")
+
+
+class _MailalarmRceiverAddr_Type(OctetString):
+    """Custom type mailalarmRceiverAddr based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+_MailalarmRceiverAddr_Type.__name__ = "OctetString"
+_MailalarmRceiverAddr_Object = MibScalar
+mailalarmRceiverAddr = _MailalarmRceiverAddr_Object(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 3),
+    _MailalarmRceiverAddr_Type()
+)
+mailalarmRceiverAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailalarmRceiverAddr.setStatus("current")
+
+
+class _MailalarmLogLevel_Type(Integer32):
+    """Custom type mailalarmLogLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_MailalarmLogLevel_Type.__name__ = "Integer32"
+_MailalarmLogLevel_Object = MibScalar
+mailalarmLogLevel = _MailalarmLogLevel_Object(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 4),
+    _MailalarmLogLevel_Type()
+)
+mailalarmLogLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailalarmLogLevel.setStatus("current")
+
+
+class _MailalarmSmtpAuthEnable_Type(Integer32):
+    """Custom type mailalarmSmtpAuthEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_MailalarmSmtpAuthEnable_Type.__name__ = "Integer32"
+_MailalarmSmtpAuthEnable_Object = MibScalar
+mailalarmSmtpAuthEnable = _MailalarmSmtpAuthEnable_Object(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 5),
+    _MailalarmSmtpAuthEnable_Type()
+)
+mailalarmSmtpAuthEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailalarmSmtpAuthEnable.setStatus("current")
+
+
+class _MailalarmSmtpUsername_Type(OctetString):
+    """Custom type mailalarmSmtpUsername based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_MailalarmSmtpUsername_Type.__name__ = "OctetString"
+_MailalarmSmtpUsername_Object = MibScalar
+mailalarmSmtpUsername = _MailalarmSmtpUsername_Object(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 6),
+    _MailalarmSmtpUsername_Type()
+)
+mailalarmSmtpUsername.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailalarmSmtpUsername.setStatus("current")
+
+
+class _MailalarmSmtpPasswd_Type(OctetString):
+    """Custom type mailalarmSmtpPasswd based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_MailalarmSmtpPasswd_Type.__name__ = "OctetString"
+_MailalarmSmtpPasswd_Object = MibScalar
+mailalarmSmtpPasswd = _MailalarmSmtpPasswd_Object(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 7),
+    _MailalarmSmtpPasswd_Type()
+)
+mailalarmSmtpPasswd.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailalarmSmtpPasswd.setStatus("current")
+_MailalarmCcAddrTable_Object = MibTable
+mailalarmCcAddrTable = _MailalarmCcAddrTable_Object(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 8)
+)
+if mibBuilder.loadTexts:
+    mailalarmCcAddrTable.setStatus("current")
+_MailalarmCcAddrEntry_Object = MibTableRow
+mailalarmCcAddrEntry = _MailalarmCcAddrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 8, 1)
+)
+mailalarmCcAddrEntry.setIndexNames(
+    (0, "GBNPlatformOAMMailalarm-MIB", "mailalarmCcAddrIdx"),
+)
+if mibBuilder.loadTexts:
+    mailalarmCcAddrEntry.setStatus("current")
+
+
+class _MailalarmCcAddrIdx_Type(Integer32):
+    """Custom type mailalarmCcAddrIdx based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_MailalarmCcAddrIdx_Type.__name__ = "Integer32"
+_MailalarmCcAddrIdx_Object = MibTableColumn
+mailalarmCcAddrIdx = _MailalarmCcAddrIdx_Object(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 8, 1, 1),
+    _MailalarmCcAddrIdx_Type()
+)
+mailalarmCcAddrIdx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mailalarmCcAddrIdx.setStatus("current")
+
+
+class _MailalarmCcAddr_Type(OctetString):
+    """Custom type mailalarmCcAddr based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+_MailalarmCcAddr_Type.__name__ = "OctetString"
+_MailalarmCcAddr_Object = MibTableColumn
+mailalarmCcAddr = _MailalarmCcAddr_Object(
+    (1, 3, 6, 1, 4, 1, 13464, 1, 2, 1, 1, 12, 8, 1, 2),
+    _MailalarmCcAddr_Type()
+)
+mailalarmCcAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mailalarmCcAddr.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "GBNPlatformOAMMailalarm-MIB",
+    **{"gbnPlatformOAMMailalarm": gbnPlatformOAMMailalarm,
+       "mailalarmState": mailalarmState,
+       "mailalarmSrvAddr": mailalarmSrvAddr,
+       "mailalarmRceiverAddr": mailalarmRceiverAddr,
+       "mailalarmLogLevel": mailalarmLogLevel,
+       "mailalarmSmtpAuthEnable": mailalarmSmtpAuthEnable,
+       "mailalarmSmtpUsername": mailalarmSmtpUsername,
+       "mailalarmSmtpPasswd": mailalarmSmtpPasswd,
+       "mailalarmCcAddrTable": mailalarmCcAddrTable,
+       "mailalarmCcAddrEntry": mailalarmCcAddrEntry,
+       "mailalarmCcAddrIdx": mailalarmCcAddrIdx,
+       "mailalarmCcAddr": mailalarmCcAddr}
+)

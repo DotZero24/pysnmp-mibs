@@ -1,53 +1,518 @@
+# SNMP MIB module (ENTERASYS-TLS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ENTERASYS-TLS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/enterasys/ENTERASYS-TLS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:34:02 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/enterasys/ENTERASYS-TLS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:47:47 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-etsysTlsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30))
-etsysTlsMIB.setRevisions(('2002-11-14 15:34', '2002-11-01 21:09',))
-if mibBuilder.loadTexts: etsysTlsMIB.setLastUpdated('200211141534Z')
-if mibBuilder.loadTexts: etsysTlsMIB.setOrganization('Enterasys Networks, Inc')
-etsysTlsObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1))
-etsysTlsGeneralBranch = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 1))
-etsysTlsNetworkBranch = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 2))
-etsysTlsServerKeyBranch = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 3))
-etsysTlsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2), ("reinitialize", 3))).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysTlsEnabled.setStatus('current')
-etsysTlsNumSoftConnects = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(30)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysTlsNumSoftConnects.setStatus('current')
-etsysTlsNumHardConnects = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(50)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysTlsNumHardConnects.setStatus('current')
-etsysTlsMaxHardConnects = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(50)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysTlsMaxHardConnects.setStatus('current')
-etsysTlsKeepOpenTimeout = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(30)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysTlsKeepOpenTimeout.setStatus('current')
-etsysTlsHttpsPort = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(443)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysTlsHttpsPort.setStatus('current')
-etsysTlsGenerateKeys = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("notInitiated", 1), ("completed", 2), ("failed", 3), ("generate", 4), ("completedPending", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysTlsGenerateKeys.setStatus('current')
-etsysTlsAdminKeyType = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("dsa512", 1), ("rsa512", 2), ("dsa768", 3), ("rsa768", 4), ("dsa1024", 5), ("rsa1024", 6), ("dsa2048", 7), ("rsa2048", 8), ("dsa3072", 9), ("rsa3072", 10))).clone('rsa512')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysTlsAdminKeyType.setStatus('current')
-etsysTlsOperKeyType = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 3, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 99))).clone(namedValues=NamedValues(("dsa512", 1), ("rsa512", 2), ("dsa768", 3), ("rsa768", 4), ("dsa1024", 5), ("rsa1024", 6), ("dsa2048", 7), ("rsa2048", 8), ("dsa3072", 9), ("rsa3072", 10), ("none", 99))).clone('rsa512')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysTlsOperKeyType.setStatus('current')
-etsysTlsSignatureType = MibScalar((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("dhAnon", 1), ("dsaSha1", 2), ("dsaSha", 3), ("rsaSha1", 4), ("rsaMd2", 5), ("rsaMd5", 6))).clone('dhAnon')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysTlsSignatureType.setStatus('current')
-etsysTlsConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 2))
-etsysTlsGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 2, 1))
-etsysTlsCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 2, 2))
-etsysTlsBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 2, 1, 1)).setObjects(("ENTERASYS-TLS-MIB", "etsysTlsEnabled"), ("ENTERASYS-TLS-MIB", "etsysTlsNumSoftConnects"), ("ENTERASYS-TLS-MIB", "etsysTlsNumHardConnects"), ("ENTERASYS-TLS-MIB", "etsysTlsMaxHardConnects"), ("ENTERASYS-TLS-MIB", "etsysTlsKeepOpenTimeout"), ("ENTERASYS-TLS-MIB", "etsysTlsHttpsPort"), ("ENTERASYS-TLS-MIB", "etsysTlsGenerateKeys"), ("ENTERASYS-TLS-MIB", "etsysTlsAdminKeyType"), ("ENTERASYS-TLS-MIB", "etsysTlsOperKeyType"), ("ENTERASYS-TLS-MIB", "etsysTlsSignatureType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysTlsBaseGroup = etsysTlsBaseGroup.setStatus('current')
-etsysTlsCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 2, 2, 1)).setObjects(("ENTERASYS-TLS-MIB", "etsysTlsBaseGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysTlsCompliance = etsysTlsCompliance.setStatus('current')
-mibBuilder.exportSymbols("ENTERASYS-TLS-MIB", etsysTlsGroups=etsysTlsGroups, etsysTlsServerKeyBranch=etsysTlsServerKeyBranch, etsysTlsObjects=etsysTlsObjects, etsysTlsKeepOpenTimeout=etsysTlsKeepOpenTimeout, etsysTlsAdminKeyType=etsysTlsAdminKeyType, etsysTlsCompliance=etsysTlsCompliance, etsysTlsBaseGroup=etsysTlsBaseGroup, etsysTlsSignatureType=etsysTlsSignatureType, PYSNMP_MODULE_ID=etsysTlsMIB, etsysTlsGeneralBranch=etsysTlsGeneralBranch, etsysTlsHttpsPort=etsysTlsHttpsPort, etsysTlsEnabled=etsysTlsEnabled, etsysTlsCompliances=etsysTlsCompliances, etsysTlsMaxHardConnects=etsysTlsMaxHardConnects, etsysTlsNumHardConnects=etsysTlsNumHardConnects, etsysTlsMIB=etsysTlsMIB, etsysTlsGenerateKeys=etsysTlsGenerateKeys, etsysTlsNumSoftConnects=etsysTlsNumSoftConnects, etsysTlsNetworkBranch=etsysTlsNetworkBranch, etsysTlsConformance=etsysTlsConformance, etsysTlsOperKeyType=etsysTlsOperKeyType)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(etsysModules,) = mibBuilder.importSymbols(
+    "ENTERASYS-MIB-NAMES",
+    "etsysModules")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+etsysTlsMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30)
+)
+if mibBuilder.loadTexts:
+    etsysTlsMIB.setRevisions(
+        ("2002-11-14 15:34",
+         "2002-11-01 21:09")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EtsysTlsObjects_ObjectIdentity = ObjectIdentity
+etsysTlsObjects = _EtsysTlsObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1)
+)
+_EtsysTlsGeneralBranch_ObjectIdentity = ObjectIdentity
+etsysTlsGeneralBranch = _EtsysTlsGeneralBranch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 1)
+)
+
+
+class _EtsysTlsEnabled_Type(Integer32):
+    """Custom type etsysTlsEnabled based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2),
+          ("reinitialize", 3))
+    )
+
+
+_EtsysTlsEnabled_Type.__name__ = "Integer32"
+_EtsysTlsEnabled_Object = MibScalar
+etsysTlsEnabled = _EtsysTlsEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 1, 1),
+    _EtsysTlsEnabled_Type()
+)
+etsysTlsEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysTlsEnabled.setStatus("current")
+
+
+class _EtsysTlsNumSoftConnects_Type(Integer32):
+    """Custom type etsysTlsNumSoftConnects based on Integer32"""
+    defaultValue = 30
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_EtsysTlsNumSoftConnects_Type.__name__ = "Integer32"
+_EtsysTlsNumSoftConnects_Object = MibScalar
+etsysTlsNumSoftConnects = _EtsysTlsNumSoftConnects_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 1, 2),
+    _EtsysTlsNumSoftConnects_Type()
+)
+etsysTlsNumSoftConnects.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysTlsNumSoftConnects.setStatus("current")
+
+
+class _EtsysTlsNumHardConnects_Type(Integer32):
+    """Custom type etsysTlsNumHardConnects based on Integer32"""
+    defaultValue = 50
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_EtsysTlsNumHardConnects_Type.__name__ = "Integer32"
+_EtsysTlsNumHardConnects_Object = MibScalar
+etsysTlsNumHardConnects = _EtsysTlsNumHardConnects_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 1, 3),
+    _EtsysTlsNumHardConnects_Type()
+)
+etsysTlsNumHardConnects.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysTlsNumHardConnects.setStatus("current")
+
+
+class _EtsysTlsMaxHardConnects_Type(Integer32):
+    """Custom type etsysTlsMaxHardConnects based on Integer32"""
+    defaultValue = 50
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_EtsysTlsMaxHardConnects_Type.__name__ = "Integer32"
+_EtsysTlsMaxHardConnects_Object = MibScalar
+etsysTlsMaxHardConnects = _EtsysTlsMaxHardConnects_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 1, 4),
+    _EtsysTlsMaxHardConnects_Type()
+)
+etsysTlsMaxHardConnects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysTlsMaxHardConnects.setStatus("current")
+_EtsysTlsNetworkBranch_ObjectIdentity = ObjectIdentity
+etsysTlsNetworkBranch = _EtsysTlsNetworkBranch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 2)
+)
+
+
+class _EtsysTlsKeepOpenTimeout_Type(Integer32):
+    """Custom type etsysTlsKeepOpenTimeout based on Integer32"""
+    defaultValue = 30
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_EtsysTlsKeepOpenTimeout_Type.__name__ = "Integer32"
+_EtsysTlsKeepOpenTimeout_Object = MibScalar
+etsysTlsKeepOpenTimeout = _EtsysTlsKeepOpenTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 2, 1),
+    _EtsysTlsKeepOpenTimeout_Type()
+)
+etsysTlsKeepOpenTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysTlsKeepOpenTimeout.setStatus("current")
+
+
+class _EtsysTlsHttpsPort_Type(Integer32):
+    """Custom type etsysTlsHttpsPort based on Integer32"""
+    defaultValue = 443
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_EtsysTlsHttpsPort_Type.__name__ = "Integer32"
+_EtsysTlsHttpsPort_Object = MibScalar
+etsysTlsHttpsPort = _EtsysTlsHttpsPort_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 2, 2),
+    _EtsysTlsHttpsPort_Type()
+)
+etsysTlsHttpsPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysTlsHttpsPort.setStatus("current")
+_EtsysTlsServerKeyBranch_ObjectIdentity = ObjectIdentity
+etsysTlsServerKeyBranch = _EtsysTlsServerKeyBranch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 3)
+)
+
+
+class _EtsysTlsGenerateKeys_Type(Integer32):
+    """Custom type etsysTlsGenerateKeys based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notInitiated", 1),
+          ("completed", 2),
+          ("failed", 3),
+          ("generate", 4),
+          ("completedPending", 5))
+    )
+
+
+_EtsysTlsGenerateKeys_Type.__name__ = "Integer32"
+_EtsysTlsGenerateKeys_Object = MibScalar
+etsysTlsGenerateKeys = _EtsysTlsGenerateKeys_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 3, 1),
+    _EtsysTlsGenerateKeys_Type()
+)
+etsysTlsGenerateKeys.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysTlsGenerateKeys.setStatus("current")
+
+
+class _EtsysTlsAdminKeyType_Type(Integer32):
+    """Custom type etsysTlsAdminKeyType based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dsa512", 1),
+          ("rsa512", 2),
+          ("dsa768", 3),
+          ("rsa768", 4),
+          ("dsa1024", 5),
+          ("rsa1024", 6),
+          ("dsa2048", 7),
+          ("rsa2048", 8),
+          ("dsa3072", 9),
+          ("rsa3072", 10))
+    )
+
+
+_EtsysTlsAdminKeyType_Type.__name__ = "Integer32"
+_EtsysTlsAdminKeyType_Object = MibScalar
+etsysTlsAdminKeyType = _EtsysTlsAdminKeyType_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 3, 2),
+    _EtsysTlsAdminKeyType_Type()
+)
+etsysTlsAdminKeyType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysTlsAdminKeyType.setStatus("current")
+
+
+class _EtsysTlsOperKeyType_Type(Integer32):
+    """Custom type etsysTlsOperKeyType based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              99)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dsa512", 1),
+          ("rsa512", 2),
+          ("dsa768", 3),
+          ("rsa768", 4),
+          ("dsa1024", 5),
+          ("rsa1024", 6),
+          ("dsa2048", 7),
+          ("rsa2048", 8),
+          ("dsa3072", 9),
+          ("rsa3072", 10),
+          ("none", 99))
+    )
+
+
+_EtsysTlsOperKeyType_Type.__name__ = "Integer32"
+_EtsysTlsOperKeyType_Object = MibScalar
+etsysTlsOperKeyType = _EtsysTlsOperKeyType_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 3, 3),
+    _EtsysTlsOperKeyType_Type()
+)
+etsysTlsOperKeyType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysTlsOperKeyType.setStatus("current")
+
+
+class _EtsysTlsSignatureType_Type(Integer32):
+    """Custom type etsysTlsSignatureType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dhAnon", 1),
+          ("dsaSha1", 2),
+          ("dsaSha", 3),
+          ("rsaSha1", 4),
+          ("rsaMd2", 5),
+          ("rsaMd5", 6))
+    )
+
+
+_EtsysTlsSignatureType_Type.__name__ = "Integer32"
+_EtsysTlsSignatureType_Object = MibScalar
+etsysTlsSignatureType = _EtsysTlsSignatureType_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 1, 3, 4),
+    _EtsysTlsSignatureType_Type()
+)
+etsysTlsSignatureType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysTlsSignatureType.setStatus("current")
+_EtsysTlsConformance_ObjectIdentity = ObjectIdentity
+etsysTlsConformance = _EtsysTlsConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 2)
+)
+_EtsysTlsGroups_ObjectIdentity = ObjectIdentity
+etsysTlsGroups = _EtsysTlsGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 2, 1)
+)
+_EtsysTlsCompliances_ObjectIdentity = ObjectIdentity
+etsysTlsCompliances = _EtsysTlsCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 2, 2)
+)
+
+# Managed Objects groups
+
+etsysTlsBaseGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 2, 1, 1)
+)
+etsysTlsBaseGroup.setObjects(
+      *(("ENTERASYS-TLS-MIB", "etsysTlsEnabled"),
+        ("ENTERASYS-TLS-MIB", "etsysTlsNumSoftConnects"),
+        ("ENTERASYS-TLS-MIB", "etsysTlsNumHardConnects"),
+        ("ENTERASYS-TLS-MIB", "etsysTlsMaxHardConnects"),
+        ("ENTERASYS-TLS-MIB", "etsysTlsKeepOpenTimeout"),
+        ("ENTERASYS-TLS-MIB", "etsysTlsHttpsPort"),
+        ("ENTERASYS-TLS-MIB", "etsysTlsGenerateKeys"),
+        ("ENTERASYS-TLS-MIB", "etsysTlsAdminKeyType"),
+        ("ENTERASYS-TLS-MIB", "etsysTlsOperKeyType"),
+        ("ENTERASYS-TLS-MIB", "etsysTlsSignatureType"))
+)
+if mibBuilder.loadTexts:
+    etsysTlsBaseGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+etsysTlsCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 30, 2, 2, 1)
+)
+etsysTlsCompliance.setObjects(
+    ("ENTERASYS-TLS-MIB", "etsysTlsBaseGroup")
+)
+if mibBuilder.loadTexts:
+    etsysTlsCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ENTERASYS-TLS-MIB",
+    **{"etsysTlsMIB": etsysTlsMIB,
+       "etsysTlsObjects": etsysTlsObjects,
+       "etsysTlsGeneralBranch": etsysTlsGeneralBranch,
+       "etsysTlsEnabled": etsysTlsEnabled,
+       "etsysTlsNumSoftConnects": etsysTlsNumSoftConnects,
+       "etsysTlsNumHardConnects": etsysTlsNumHardConnects,
+       "etsysTlsMaxHardConnects": etsysTlsMaxHardConnects,
+       "etsysTlsNetworkBranch": etsysTlsNetworkBranch,
+       "etsysTlsKeepOpenTimeout": etsysTlsKeepOpenTimeout,
+       "etsysTlsHttpsPort": etsysTlsHttpsPort,
+       "etsysTlsServerKeyBranch": etsysTlsServerKeyBranch,
+       "etsysTlsGenerateKeys": etsysTlsGenerateKeys,
+       "etsysTlsAdminKeyType": etsysTlsAdminKeyType,
+       "etsysTlsOperKeyType": etsysTlsOperKeyType,
+       "etsysTlsSignatureType": etsysTlsSignatureType,
+       "etsysTlsConformance": etsysTlsConformance,
+       "etsysTlsGroups": etsysTlsGroups,
+       "etsysTlsBaseGroup": etsysTlsBaseGroup,
+       "etsysTlsCompliances": etsysTlsCompliances,
+       "etsysTlsCompliance": etsysTlsCompliance}
+)

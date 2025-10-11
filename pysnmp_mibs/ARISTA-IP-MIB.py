@@ -1,68 +1,391 @@
+# SNMP MIB module (ARISTA-IP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ARISTA-IP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arista/ARISTA-IP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:43 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/arista/ARISTA-IP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:57:22 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-InetVersion, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetVersion")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString")
-aristaIpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 27))
-aristaIpMIB.setRevisions(('2018-12-12 00:00',))
-if mibBuilder.loadTexts: aristaIpMIB.setLastUpdated('201812120000Z')
-if mibBuilder.loadTexts: aristaIpMIB.setOrganization('Arista Networks, Inc.')
-aristaIpMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1))
-aristaIpMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 27, 2))
-aristaIpIfStatsTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1), )
-if mibBuilder.loadTexts: aristaIpIfStatsTable.setStatus('current')
-aristaIpIfStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1), ).setIndexNames((0, "ARISTA-IP-MIB", "aristaIpIfStatsIPVersion"), (0, "ARISTA-IP-MIB", "aristaIpIfStatsIfIndex"))
-if mibBuilder.loadTexts: aristaIpIfStatsEntry.setStatus('current')
-aristaIpIfStatsIPVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 1), InetVersion())
-if mibBuilder.loadTexts: aristaIpIfStatsIPVersion.setStatus('current')
-aristaIpIfStatsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: aristaIpIfStatsIfIndex.setStatus('current')
-aristaIpIfStatsInPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsInPkts.setStatus('current')
-aristaIpIfStatsInOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsInOctets.setStatus('current')
-aristaIpIfStatsOutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsOutPkts.setStatus('current')
-aristaIpIfStatsOutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsOutOctets.setStatus('current')
-aristaIpIfStatsInUcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsInUcastPkts.setStatus('current')
-aristaIpIfStatsInUcastOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsInUcastOctets.setStatus('current')
-aristaIpIfStatsOutUcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsOutUcastPkts.setStatus('current')
-aristaIpIfStatsOutUcastOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsOutUcastOctets.setStatus('current')
-aristaIpIfStatsInMcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsInMcastPkts.setStatus('current')
-aristaIpIfStatsInMcastOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsInMcastOctets.setStatus('current')
-aristaIpIfStatsOutMcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsOutMcastPkts.setStatus('current')
-aristaIpIfStatsOutMcastOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsOutMcastOctets.setStatus('current')
-aristaIpIfStatsDiscontinuityTime = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 15), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsDiscontinuityTime.setStatus('current')
-aristaIpIfStatsRefreshRate = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 16), Unsigned32()).setUnits('milli-seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaIpIfStatsRefreshRate.setStatus('current')
-aristaIpMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 27, 2, 1))
-aristaIpMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 27, 2, 2))
-aristaIpMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 27, 2, 1, 1)).setObjects(("ARISTA-IP-MIB", "aristaIpIfStatsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aristaIpMibCompliance = aristaIpMibCompliance.setStatus('current')
-aristaIpIfStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 27, 2, 2, 1)).setObjects(("ARISTA-IP-MIB", "aristaIpIfStatsInPkts"), ("ARISTA-IP-MIB", "aristaIpIfStatsInOctets"), ("ARISTA-IP-MIB", "aristaIpIfStatsOutPkts"), ("ARISTA-IP-MIB", "aristaIpIfStatsOutOctets"), ("ARISTA-IP-MIB", "aristaIpIfStatsInUcastPkts"), ("ARISTA-IP-MIB", "aristaIpIfStatsInUcastOctets"), ("ARISTA-IP-MIB", "aristaIpIfStatsOutUcastPkts"), ("ARISTA-IP-MIB", "aristaIpIfStatsOutUcastOctets"), ("ARISTA-IP-MIB", "aristaIpIfStatsInMcastPkts"), ("ARISTA-IP-MIB", "aristaIpIfStatsInMcastOctets"), ("ARISTA-IP-MIB", "aristaIpIfStatsOutMcastPkts"), ("ARISTA-IP-MIB", "aristaIpIfStatsOutMcastOctets"), ("ARISTA-IP-MIB", "aristaIpIfStatsDiscontinuityTime"), ("ARISTA-IP-MIB", "aristaIpIfStatsRefreshRate"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aristaIpIfStatsGroup = aristaIpIfStatsGroup.setStatus('current')
-mibBuilder.exportSymbols("ARISTA-IP-MIB", aristaIpIfStatsInMcastPkts=aristaIpIfStatsInMcastPkts, aristaIpIfStatsEntry=aristaIpIfStatsEntry, PYSNMP_MODULE_ID=aristaIpMIB, aristaIpIfStatsInMcastOctets=aristaIpIfStatsInMcastOctets, aristaIpIfStatsInUcastPkts=aristaIpIfStatsInUcastPkts, aristaIpIfStatsInPkts=aristaIpIfStatsInPkts, aristaIpIfStatsOutMcastOctets=aristaIpIfStatsOutMcastOctets, aristaIpMibObjects=aristaIpMibObjects, aristaIpMibConformance=aristaIpMibConformance, aristaIpIfStatsDiscontinuityTime=aristaIpIfStatsDiscontinuityTime, aristaIpIfStatsOutUcastPkts=aristaIpIfStatsOutUcastPkts, aristaIpIfStatsTable=aristaIpIfStatsTable, aristaIpIfStatsOutPkts=aristaIpIfStatsOutPkts, aristaIpIfStatsIPVersion=aristaIpIfStatsIPVersion, aristaIpIfStatsIfIndex=aristaIpIfStatsIfIndex, aristaIpMIB=aristaIpMIB, aristaIpIfStatsRefreshRate=aristaIpIfStatsRefreshRate, aristaIpIfStatsOutOctets=aristaIpIfStatsOutOctets, aristaIpMibCompliance=aristaIpMibCompliance, aristaIpMibGroups=aristaIpMibGroups, aristaIpIfStatsInOctets=aristaIpIfStatsInOctets, aristaIpIfStatsOutUcastOctets=aristaIpIfStatsOutUcastOctets, aristaIpMibCompliances=aristaIpMibCompliances, aristaIpIfStatsOutMcastPkts=aristaIpIfStatsOutMcastPkts, aristaIpIfStatsGroup=aristaIpIfStatsGroup, aristaIpIfStatsInUcastOctets=aristaIpIfStatsInUcastOctets)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(aristaMibs,) = mibBuilder.importSymbols(
+    "ARISTA-SMI-MIB",
+    "aristaMibs")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(InetVersion,) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetVersion")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TimeStamp) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TimeStamp")
+
+
+# MODULE-IDENTITY
+
+aristaIpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27)
+)
+if mibBuilder.loadTexts:
+    aristaIpMIB.setRevisions(
+        ("2018-12-12 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AristaIpMibObjects_ObjectIdentity = ObjectIdentity
+aristaIpMibObjects = _AristaIpMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1)
+)
+_AristaIpIfStatsTable_Object = MibTable
+aristaIpIfStatsTable = _AristaIpIfStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1)
+)
+if mibBuilder.loadTexts:
+    aristaIpIfStatsTable.setStatus("current")
+_AristaIpIfStatsEntry_Object = MibTableRow
+aristaIpIfStatsEntry = _AristaIpIfStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1)
+)
+aristaIpIfStatsEntry.setIndexNames(
+    (0, "ARISTA-IP-MIB", "aristaIpIfStatsIPVersion"),
+    (0, "ARISTA-IP-MIB", "aristaIpIfStatsIfIndex"),
+)
+if mibBuilder.loadTexts:
+    aristaIpIfStatsEntry.setStatus("current")
+_AristaIpIfStatsIPVersion_Type = InetVersion
+_AristaIpIfStatsIPVersion_Object = MibTableColumn
+aristaIpIfStatsIPVersion = _AristaIpIfStatsIPVersion_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 1),
+    _AristaIpIfStatsIPVersion_Type()
+)
+aristaIpIfStatsIPVersion.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsIPVersion.setStatus("current")
+_AristaIpIfStatsIfIndex_Type = InterfaceIndex
+_AristaIpIfStatsIfIndex_Object = MibTableColumn
+aristaIpIfStatsIfIndex = _AristaIpIfStatsIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 2),
+    _AristaIpIfStatsIfIndex_Type()
+)
+aristaIpIfStatsIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsIfIndex.setStatus("current")
+_AristaIpIfStatsInPkts_Type = Counter64
+_AristaIpIfStatsInPkts_Object = MibTableColumn
+aristaIpIfStatsInPkts = _AristaIpIfStatsInPkts_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 3),
+    _AristaIpIfStatsInPkts_Type()
+)
+aristaIpIfStatsInPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsInPkts.setStatus("current")
+_AristaIpIfStatsInOctets_Type = Counter64
+_AristaIpIfStatsInOctets_Object = MibTableColumn
+aristaIpIfStatsInOctets = _AristaIpIfStatsInOctets_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 4),
+    _AristaIpIfStatsInOctets_Type()
+)
+aristaIpIfStatsInOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsInOctets.setStatus("current")
+_AristaIpIfStatsOutPkts_Type = Counter64
+_AristaIpIfStatsOutPkts_Object = MibTableColumn
+aristaIpIfStatsOutPkts = _AristaIpIfStatsOutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 5),
+    _AristaIpIfStatsOutPkts_Type()
+)
+aristaIpIfStatsOutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsOutPkts.setStatus("current")
+_AristaIpIfStatsOutOctets_Type = Counter64
+_AristaIpIfStatsOutOctets_Object = MibTableColumn
+aristaIpIfStatsOutOctets = _AristaIpIfStatsOutOctets_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 6),
+    _AristaIpIfStatsOutOctets_Type()
+)
+aristaIpIfStatsOutOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsOutOctets.setStatus("current")
+_AristaIpIfStatsInUcastPkts_Type = Counter64
+_AristaIpIfStatsInUcastPkts_Object = MibTableColumn
+aristaIpIfStatsInUcastPkts = _AristaIpIfStatsInUcastPkts_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 7),
+    _AristaIpIfStatsInUcastPkts_Type()
+)
+aristaIpIfStatsInUcastPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsInUcastPkts.setStatus("current")
+_AristaIpIfStatsInUcastOctets_Type = Counter64
+_AristaIpIfStatsInUcastOctets_Object = MibTableColumn
+aristaIpIfStatsInUcastOctets = _AristaIpIfStatsInUcastOctets_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 8),
+    _AristaIpIfStatsInUcastOctets_Type()
+)
+aristaIpIfStatsInUcastOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsInUcastOctets.setStatus("current")
+_AristaIpIfStatsOutUcastPkts_Type = Counter64
+_AristaIpIfStatsOutUcastPkts_Object = MibTableColumn
+aristaIpIfStatsOutUcastPkts = _AristaIpIfStatsOutUcastPkts_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 9),
+    _AristaIpIfStatsOutUcastPkts_Type()
+)
+aristaIpIfStatsOutUcastPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsOutUcastPkts.setStatus("current")
+_AristaIpIfStatsOutUcastOctets_Type = Counter64
+_AristaIpIfStatsOutUcastOctets_Object = MibTableColumn
+aristaIpIfStatsOutUcastOctets = _AristaIpIfStatsOutUcastOctets_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 10),
+    _AristaIpIfStatsOutUcastOctets_Type()
+)
+aristaIpIfStatsOutUcastOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsOutUcastOctets.setStatus("current")
+_AristaIpIfStatsInMcastPkts_Type = Counter64
+_AristaIpIfStatsInMcastPkts_Object = MibTableColumn
+aristaIpIfStatsInMcastPkts = _AristaIpIfStatsInMcastPkts_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 11),
+    _AristaIpIfStatsInMcastPkts_Type()
+)
+aristaIpIfStatsInMcastPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsInMcastPkts.setStatus("current")
+_AristaIpIfStatsInMcastOctets_Type = Counter64
+_AristaIpIfStatsInMcastOctets_Object = MibTableColumn
+aristaIpIfStatsInMcastOctets = _AristaIpIfStatsInMcastOctets_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 12),
+    _AristaIpIfStatsInMcastOctets_Type()
+)
+aristaIpIfStatsInMcastOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsInMcastOctets.setStatus("current")
+_AristaIpIfStatsOutMcastPkts_Type = Counter64
+_AristaIpIfStatsOutMcastPkts_Object = MibTableColumn
+aristaIpIfStatsOutMcastPkts = _AristaIpIfStatsOutMcastPkts_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 13),
+    _AristaIpIfStatsOutMcastPkts_Type()
+)
+aristaIpIfStatsOutMcastPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsOutMcastPkts.setStatus("current")
+_AristaIpIfStatsOutMcastOctets_Type = Counter64
+_AristaIpIfStatsOutMcastOctets_Object = MibTableColumn
+aristaIpIfStatsOutMcastOctets = _AristaIpIfStatsOutMcastOctets_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 14),
+    _AristaIpIfStatsOutMcastOctets_Type()
+)
+aristaIpIfStatsOutMcastOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsOutMcastOctets.setStatus("current")
+_AristaIpIfStatsDiscontinuityTime_Type = TimeStamp
+_AristaIpIfStatsDiscontinuityTime_Object = MibTableColumn
+aristaIpIfStatsDiscontinuityTime = _AristaIpIfStatsDiscontinuityTime_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 15),
+    _AristaIpIfStatsDiscontinuityTime_Type()
+)
+aristaIpIfStatsDiscontinuityTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsDiscontinuityTime.setStatus("current")
+_AristaIpIfStatsRefreshRate_Type = Unsigned32
+_AristaIpIfStatsRefreshRate_Object = MibTableColumn
+aristaIpIfStatsRefreshRate = _AristaIpIfStatsRefreshRate_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 1, 1, 1, 16),
+    _AristaIpIfStatsRefreshRate_Type()
+)
+aristaIpIfStatsRefreshRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsRefreshRate.setStatus("current")
+if mibBuilder.loadTexts:
+    aristaIpIfStatsRefreshRate.setUnits("milli-seconds")
+_AristaIpMibConformance_ObjectIdentity = ObjectIdentity
+aristaIpMibConformance = _AristaIpMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 2)
+)
+_AristaIpMibCompliances_ObjectIdentity = ObjectIdentity
+aristaIpMibCompliances = _AristaIpMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 2, 1)
+)
+_AristaIpMibGroups_ObjectIdentity = ObjectIdentity
+aristaIpMibGroups = _AristaIpMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 2, 2)
+)
+
+# Managed Objects groups
+
+aristaIpIfStatsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 2, 2, 1)
+)
+aristaIpIfStatsGroup.setObjects(
+      *(("ARISTA-IP-MIB", "aristaIpIfStatsInPkts"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsInOctets"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsOutPkts"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsOutOctets"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsInUcastPkts"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsInUcastOctets"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsOutUcastPkts"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsOutUcastOctets"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsInMcastPkts"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsInMcastOctets"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsOutMcastPkts"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsOutMcastOctets"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsDiscontinuityTime"),
+        ("ARISTA-IP-MIB", "aristaIpIfStatsRefreshRate"))
+)
+if mibBuilder.loadTexts:
+    aristaIpIfStatsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+aristaIpMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 27, 2, 1, 1)
+)
+aristaIpMibCompliance.setObjects(
+    ("ARISTA-IP-MIB", "aristaIpIfStatsGroup")
+)
+if mibBuilder.loadTexts:
+    aristaIpMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ARISTA-IP-MIB",
+    **{"aristaIpMIB": aristaIpMIB,
+       "aristaIpMibObjects": aristaIpMibObjects,
+       "aristaIpIfStatsTable": aristaIpIfStatsTable,
+       "aristaIpIfStatsEntry": aristaIpIfStatsEntry,
+       "aristaIpIfStatsIPVersion": aristaIpIfStatsIPVersion,
+       "aristaIpIfStatsIfIndex": aristaIpIfStatsIfIndex,
+       "aristaIpIfStatsInPkts": aristaIpIfStatsInPkts,
+       "aristaIpIfStatsInOctets": aristaIpIfStatsInOctets,
+       "aristaIpIfStatsOutPkts": aristaIpIfStatsOutPkts,
+       "aristaIpIfStatsOutOctets": aristaIpIfStatsOutOctets,
+       "aristaIpIfStatsInUcastPkts": aristaIpIfStatsInUcastPkts,
+       "aristaIpIfStatsInUcastOctets": aristaIpIfStatsInUcastOctets,
+       "aristaIpIfStatsOutUcastPkts": aristaIpIfStatsOutUcastPkts,
+       "aristaIpIfStatsOutUcastOctets": aristaIpIfStatsOutUcastOctets,
+       "aristaIpIfStatsInMcastPkts": aristaIpIfStatsInMcastPkts,
+       "aristaIpIfStatsInMcastOctets": aristaIpIfStatsInMcastOctets,
+       "aristaIpIfStatsOutMcastPkts": aristaIpIfStatsOutMcastPkts,
+       "aristaIpIfStatsOutMcastOctets": aristaIpIfStatsOutMcastOctets,
+       "aristaIpIfStatsDiscontinuityTime": aristaIpIfStatsDiscontinuityTime,
+       "aristaIpIfStatsRefreshRate": aristaIpIfStatsRefreshRate,
+       "aristaIpMibConformance": aristaIpMibConformance,
+       "aristaIpMibCompliances": aristaIpMibCompliances,
+       "aristaIpMibCompliance": aristaIpMibCompliance,
+       "aristaIpMibGroups": aristaIpMibGroups,
+       "aristaIpIfStatsGroup": aristaIpIfStatsGroup}
+)

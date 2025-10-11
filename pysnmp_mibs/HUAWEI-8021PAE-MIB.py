@@ -1,68 +1,554 @@
+# SNMP MIB module (HUAWEI-8021PAE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HUAWEI-8021PAE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/HUAWEI-8021PAE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:46 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/HUAWEI-8021PAE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:20:40 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-huaweiMgmt, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "huaweiMgmt")
-dot1xPaePortNumber, = mibBuilder.importSymbols("IEEE8021-PAE-MIB", "dot1xPaePortNumber")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-hwpaeExtMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 5, 22))
-hwpaeExtMib.setRevisions(('2001-06-29 00:00',))
-if mibBuilder.loadTexts: hwpaeExtMib.setLastUpdated('200106290000Z')
-if mibBuilder.loadTexts: hwpaeExtMib.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
-hwpaeExtMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1))
-hwdot1xPaeSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1))
-hwdot1xPaeAuthenticator = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2))
-hwdot1xAuthQuietPeriod = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 1), Unsigned32().clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xAuthQuietPeriod.setStatus('current')
-hwdot1xAuthTxPeriod = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 2), Unsigned32().clone(30)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xAuthTxPeriod.setStatus('current')
-hwdot1xAuthSuppTimeout = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 3), Unsigned32().clone(30)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xAuthSuppTimeout.setStatus('current')
-hwdot1xAuthServerTimeout = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 4), Unsigned32().clone(100)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xAuthServerTimeout.setStatus('current')
-hwdot1xAuthMaxReq = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 5), Unsigned32().clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xAuthMaxReq.setStatus('current')
-hwdot1xAuthReAuthPeriod = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 6), Unsigned32().clone(3600)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xAuthReAuthPeriod.setStatus('current')
-hwdot1xAuthMethod = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("chap", 1), ("pap", 2), ("eap", 3))).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xAuthMethod.setStatus('current')
-hwdot1xAuthConfigExtTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1), )
-if mibBuilder.loadTexts: hwdot1xAuthConfigExtTable.setStatus('current')
-hwdot1xAuthConfigExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1), ).setIndexNames((0, "IEEE8021-PAE-MIB", "dot1xPaePortNumber"))
-if mibBuilder.loadTexts: hwdot1xAuthConfigExtEntry.setStatus('current')
-hwdot1xpaeportAuthAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xpaeportAuthAdminStatus.setStatus('current')
-hwdot1xpaeportControlledType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("port", 1), ("mac", 2))).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xpaeportControlledType.setStatus('current')
-hwdot1xpaeportMaxUserNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 3), Integer32().clone(256)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xpaeportMaxUserNum.setStatus('current')
-hwdot1xpaeportUserNumNow = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hwdot1xpaeportUserNumNow.setStatus('current')
-hwdot1xpaeportClearStatistics = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("clear", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xpaeportClearStatistics.setStatus('current')
-hwdot1xpaeportMcastTrigStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xpaeportMcastTrigStatus.setStatus('current')
-hwdot1xpaeportHandshakeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hwdot1xpaeportHandshakeStatus.setStatus('current')
-hwdot1xPaeTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0))
-supplicantproxycheck = NotificationType((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 1)).setObjects(("HUAWEI-8021PAE-MIB", "proxycheckVlanId"), ("HUAWEI-8021PAE-MIB", "proxycheckPortName"), ("HUAWEI-8021PAE-MIB", "proxycheckMacAddr"), ("HUAWEI-8021PAE-MIB", "proxycheckIpaddr"), ("HUAWEI-8021PAE-MIB", "proxycheckUsrName"))
-if mibBuilder.loadTexts: supplicantproxycheck.setStatus('current')
-proxycheckVlanId = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 2), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: proxycheckVlanId.setStatus('current')
-proxycheckPortName = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 3), OctetString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: proxycheckPortName.setStatus('current')
-proxycheckMacAddr = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 4), MacAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: proxycheckMacAddr.setStatus('current')
-proxycheckIpaddr = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 5), IpAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: proxycheckIpaddr.setStatus('current')
-proxycheckUsrName = MibScalar((1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 6), OctetString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: proxycheckUsrName.setStatus('current')
-mibBuilder.exportSymbols("HUAWEI-8021PAE-MIB", proxycheckVlanId=proxycheckVlanId, PYSNMP_MODULE_ID=hwpaeExtMib, proxycheckMacAddr=proxycheckMacAddr, hwdot1xAuthConfigExtEntry=hwdot1xAuthConfigExtEntry, hwdot1xAuthConfigExtTable=hwdot1xAuthConfigExtTable, hwdot1xPaeAuthenticator=hwdot1xPaeAuthenticator, proxycheckUsrName=proxycheckUsrName, hwdot1xAuthServerTimeout=hwdot1xAuthServerTimeout, hwdot1xpaeportControlledType=hwdot1xpaeportControlledType, hwdot1xpaeportMaxUserNum=hwdot1xpaeportMaxUserNum, hwdot1xAuthMethod=hwdot1xAuthMethod, hwdot1xAuthQuietPeriod=hwdot1xAuthQuietPeriod, hwdot1xpaeportMcastTrigStatus=hwdot1xpaeportMcastTrigStatus, supplicantproxycheck=supplicantproxycheck, hwdot1xpaeportUserNumNow=hwdot1xpaeportUserNumNow, hwdot1xPaeSystem=hwdot1xPaeSystem, hwdot1xAuthReAuthPeriod=hwdot1xAuthReAuthPeriod, proxycheckPortName=proxycheckPortName, hwpaeExtMib=hwpaeExtMib, proxycheckIpaddr=proxycheckIpaddr, hwdot1xpaeportAuthAdminStatus=hwdot1xpaeportAuthAdminStatus, hwdot1xpaeportClearStatistics=hwdot1xpaeportClearStatistics, hwdot1xPaeTraps=hwdot1xPaeTraps, hwpaeExtMibObjects=hwpaeExtMibObjects, hwdot1xpaeportHandshakeStatus=hwdot1xpaeportHandshakeStatus, hwdot1xAuthMaxReq=hwdot1xAuthMaxReq, hwdot1xAuthSuppTimeout=hwdot1xAuthSuppTimeout, hwdot1xAuthTxPeriod=hwdot1xAuthTxPeriod)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(huaweiMgmt,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "huaweiMgmt")
+
+(dot1xPaePortNumber,) = mibBuilder.importSymbols(
+    "IEEE8021-PAE-MIB",
+    "dot1xPaePortNumber")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hwpaeExtMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22)
+)
+if mibBuilder.loadTexts:
+    hwpaeExtMib.setRevisions(
+        ("2001-06-29 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HwpaeExtMibObjects_ObjectIdentity = ObjectIdentity
+hwpaeExtMibObjects = _HwpaeExtMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1)
+)
+_Hwdot1xPaeTraps_ObjectIdentity = ObjectIdentity
+hwdot1xPaeTraps = _Hwdot1xPaeTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0)
+)
+_ProxycheckVlanId_Type = Integer32
+_ProxycheckVlanId_Object = MibScalar
+proxycheckVlanId = _ProxycheckVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 2),
+    _ProxycheckVlanId_Type()
+)
+proxycheckVlanId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    proxycheckVlanId.setStatus("current")
+_ProxycheckPortName_Type = OctetString
+_ProxycheckPortName_Object = MibScalar
+proxycheckPortName = _ProxycheckPortName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 3),
+    _ProxycheckPortName_Type()
+)
+proxycheckPortName.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    proxycheckPortName.setStatus("current")
+_ProxycheckMacAddr_Type = MacAddress
+_ProxycheckMacAddr_Object = MibScalar
+proxycheckMacAddr = _ProxycheckMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 4),
+    _ProxycheckMacAddr_Type()
+)
+proxycheckMacAddr.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    proxycheckMacAddr.setStatus("current")
+_ProxycheckIpaddr_Type = IpAddress
+_ProxycheckIpaddr_Object = MibScalar
+proxycheckIpaddr = _ProxycheckIpaddr_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 5),
+    _ProxycheckIpaddr_Type()
+)
+proxycheckIpaddr.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    proxycheckIpaddr.setStatus("current")
+_ProxycheckUsrName_Type = OctetString
+_ProxycheckUsrName_Object = MibScalar
+proxycheckUsrName = _ProxycheckUsrName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 6),
+    _ProxycheckUsrName_Type()
+)
+proxycheckUsrName.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    proxycheckUsrName.setStatus("current")
+_Hwdot1xPaeSystem_ObjectIdentity = ObjectIdentity
+hwdot1xPaeSystem = _Hwdot1xPaeSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1)
+)
+
+
+class _Hwdot1xAuthQuietPeriod_Type(Unsigned32):
+    """Custom type hwdot1xAuthQuietPeriod based on Unsigned32"""
+    defaultValue = 60
+
+
+_Hwdot1xAuthQuietPeriod_Type.__name__ = "Unsigned32"
+_Hwdot1xAuthQuietPeriod_Object = MibScalar
+hwdot1xAuthQuietPeriod = _Hwdot1xAuthQuietPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 1),
+    _Hwdot1xAuthQuietPeriod_Type()
+)
+hwdot1xAuthQuietPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xAuthQuietPeriod.setStatus("current")
+
+
+class _Hwdot1xAuthTxPeriod_Type(Unsigned32):
+    """Custom type hwdot1xAuthTxPeriod based on Unsigned32"""
+    defaultValue = 30
+
+
+_Hwdot1xAuthTxPeriod_Type.__name__ = "Unsigned32"
+_Hwdot1xAuthTxPeriod_Object = MibScalar
+hwdot1xAuthTxPeriod = _Hwdot1xAuthTxPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 2),
+    _Hwdot1xAuthTxPeriod_Type()
+)
+hwdot1xAuthTxPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xAuthTxPeriod.setStatus("current")
+
+
+class _Hwdot1xAuthSuppTimeout_Type(Unsigned32):
+    """Custom type hwdot1xAuthSuppTimeout based on Unsigned32"""
+    defaultValue = 30
+
+
+_Hwdot1xAuthSuppTimeout_Type.__name__ = "Unsigned32"
+_Hwdot1xAuthSuppTimeout_Object = MibScalar
+hwdot1xAuthSuppTimeout = _Hwdot1xAuthSuppTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 3),
+    _Hwdot1xAuthSuppTimeout_Type()
+)
+hwdot1xAuthSuppTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xAuthSuppTimeout.setStatus("current")
+
+
+class _Hwdot1xAuthServerTimeout_Type(Unsigned32):
+    """Custom type hwdot1xAuthServerTimeout based on Unsigned32"""
+    defaultValue = 100
+
+
+_Hwdot1xAuthServerTimeout_Type.__name__ = "Unsigned32"
+_Hwdot1xAuthServerTimeout_Object = MibScalar
+hwdot1xAuthServerTimeout = _Hwdot1xAuthServerTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 4),
+    _Hwdot1xAuthServerTimeout_Type()
+)
+hwdot1xAuthServerTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xAuthServerTimeout.setStatus("current")
+
+
+class _Hwdot1xAuthMaxReq_Type(Unsigned32):
+    """Custom type hwdot1xAuthMaxReq based on Unsigned32"""
+    defaultValue = 2
+
+
+_Hwdot1xAuthMaxReq_Type.__name__ = "Unsigned32"
+_Hwdot1xAuthMaxReq_Object = MibScalar
+hwdot1xAuthMaxReq = _Hwdot1xAuthMaxReq_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 5),
+    _Hwdot1xAuthMaxReq_Type()
+)
+hwdot1xAuthMaxReq.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xAuthMaxReq.setStatus("current")
+
+
+class _Hwdot1xAuthReAuthPeriod_Type(Unsigned32):
+    """Custom type hwdot1xAuthReAuthPeriod based on Unsigned32"""
+    defaultValue = 3600
+
+
+_Hwdot1xAuthReAuthPeriod_Type.__name__ = "Unsigned32"
+_Hwdot1xAuthReAuthPeriod_Object = MibScalar
+hwdot1xAuthReAuthPeriod = _Hwdot1xAuthReAuthPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 6),
+    _Hwdot1xAuthReAuthPeriod_Type()
+)
+hwdot1xAuthReAuthPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xAuthReAuthPeriod.setStatus("current")
+
+
+class _Hwdot1xAuthMethod_Type(Integer32):
+    """Custom type hwdot1xAuthMethod based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("chap", 1),
+          ("pap", 2),
+          ("eap", 3))
+    )
+
+
+_Hwdot1xAuthMethod_Type.__name__ = "Integer32"
+_Hwdot1xAuthMethod_Object = MibScalar
+hwdot1xAuthMethod = _Hwdot1xAuthMethod_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 1, 7),
+    _Hwdot1xAuthMethod_Type()
+)
+hwdot1xAuthMethod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xAuthMethod.setStatus("current")
+_Hwdot1xPaeAuthenticator_ObjectIdentity = ObjectIdentity
+hwdot1xPaeAuthenticator = _Hwdot1xPaeAuthenticator_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2)
+)
+_Hwdot1xAuthConfigExtTable_Object = MibTable
+hwdot1xAuthConfigExtTable = _Hwdot1xAuthConfigExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hwdot1xAuthConfigExtTable.setStatus("current")
+_Hwdot1xAuthConfigExtEntry_Object = MibTableRow
+hwdot1xAuthConfigExtEntry = _Hwdot1xAuthConfigExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1)
+)
+hwdot1xAuthConfigExtEntry.setIndexNames(
+    (0, "IEEE8021-PAE-MIB", "dot1xPaePortNumber"),
+)
+if mibBuilder.loadTexts:
+    hwdot1xAuthConfigExtEntry.setStatus("current")
+
+
+class _Hwdot1xpaeportAuthAdminStatus_Type(Integer32):
+    """Custom type hwdot1xpaeportAuthAdminStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_Hwdot1xpaeportAuthAdminStatus_Type.__name__ = "Integer32"
+_Hwdot1xpaeportAuthAdminStatus_Object = MibTableColumn
+hwdot1xpaeportAuthAdminStatus = _Hwdot1xpaeportAuthAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 1),
+    _Hwdot1xpaeportAuthAdminStatus_Type()
+)
+hwdot1xpaeportAuthAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xpaeportAuthAdminStatus.setStatus("current")
+
+
+class _Hwdot1xpaeportControlledType_Type(Integer32):
+    """Custom type hwdot1xpaeportControlledType based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("port", 1),
+          ("mac", 2))
+    )
+
+
+_Hwdot1xpaeportControlledType_Type.__name__ = "Integer32"
+_Hwdot1xpaeportControlledType_Object = MibTableColumn
+hwdot1xpaeportControlledType = _Hwdot1xpaeportControlledType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 2),
+    _Hwdot1xpaeportControlledType_Type()
+)
+hwdot1xpaeportControlledType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xpaeportControlledType.setStatus("current")
+
+
+class _Hwdot1xpaeportMaxUserNum_Type(Integer32):
+    """Custom type hwdot1xpaeportMaxUserNum based on Integer32"""
+    defaultValue = 256
+
+
+_Hwdot1xpaeportMaxUserNum_Type.__name__ = "Integer32"
+_Hwdot1xpaeportMaxUserNum_Object = MibTableColumn
+hwdot1xpaeportMaxUserNum = _Hwdot1xpaeportMaxUserNum_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 3),
+    _Hwdot1xpaeportMaxUserNum_Type()
+)
+hwdot1xpaeportMaxUserNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xpaeportMaxUserNum.setStatus("current")
+_Hwdot1xpaeportUserNumNow_Type = Integer32
+_Hwdot1xpaeportUserNumNow_Object = MibTableColumn
+hwdot1xpaeportUserNumNow = _Hwdot1xpaeportUserNumNow_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 4),
+    _Hwdot1xpaeportUserNumNow_Type()
+)
+hwdot1xpaeportUserNumNow.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hwdot1xpaeportUserNumNow.setStatus("current")
+
+
+class _Hwdot1xpaeportClearStatistics_Type(Integer32):
+    """Custom type hwdot1xpaeportClearStatistics based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("clear", 1)
+    )
+
+
+_Hwdot1xpaeportClearStatistics_Type.__name__ = "Integer32"
+_Hwdot1xpaeportClearStatistics_Object = MibTableColumn
+hwdot1xpaeportClearStatistics = _Hwdot1xpaeportClearStatistics_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 5),
+    _Hwdot1xpaeportClearStatistics_Type()
+)
+hwdot1xpaeportClearStatistics.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xpaeportClearStatistics.setStatus("current")
+
+
+class _Hwdot1xpaeportMcastTrigStatus_Type(Integer32):
+    """Custom type hwdot1xpaeportMcastTrigStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_Hwdot1xpaeportMcastTrigStatus_Type.__name__ = "Integer32"
+_Hwdot1xpaeportMcastTrigStatus_Object = MibTableColumn
+hwdot1xpaeportMcastTrigStatus = _Hwdot1xpaeportMcastTrigStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 6),
+    _Hwdot1xpaeportMcastTrigStatus_Type()
+)
+hwdot1xpaeportMcastTrigStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xpaeportMcastTrigStatus.setStatus("current")
+
+
+class _Hwdot1xpaeportHandshakeStatus_Type(Integer32):
+    """Custom type hwdot1xpaeportHandshakeStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_Hwdot1xpaeportHandshakeStatus_Type.__name__ = "Integer32"
+_Hwdot1xpaeportHandshakeStatus_Object = MibTableColumn
+hwdot1xpaeportHandshakeStatus = _Hwdot1xpaeportHandshakeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 2, 1, 1, 7),
+    _Hwdot1xpaeportHandshakeStatus_Type()
+)
+hwdot1xpaeportHandshakeStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hwdot1xpaeportHandshakeStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+supplicantproxycheck = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 5, 22, 1, 0, 1)
+)
+supplicantproxycheck.setObjects(
+      *(("HUAWEI-8021PAE-MIB", "proxycheckVlanId"),
+        ("HUAWEI-8021PAE-MIB", "proxycheckPortName"),
+        ("HUAWEI-8021PAE-MIB", "proxycheckMacAddr"),
+        ("HUAWEI-8021PAE-MIB", "proxycheckIpaddr"),
+        ("HUAWEI-8021PAE-MIB", "proxycheckUsrName"))
+)
+if mibBuilder.loadTexts:
+    supplicantproxycheck.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HUAWEI-8021PAE-MIB",
+    **{"hwpaeExtMib": hwpaeExtMib,
+       "hwpaeExtMibObjects": hwpaeExtMibObjects,
+       "hwdot1xPaeTraps": hwdot1xPaeTraps,
+       "supplicantproxycheck": supplicantproxycheck,
+       "proxycheckVlanId": proxycheckVlanId,
+       "proxycheckPortName": proxycheckPortName,
+       "proxycheckMacAddr": proxycheckMacAddr,
+       "proxycheckIpaddr": proxycheckIpaddr,
+       "proxycheckUsrName": proxycheckUsrName,
+       "hwdot1xPaeSystem": hwdot1xPaeSystem,
+       "hwdot1xAuthQuietPeriod": hwdot1xAuthQuietPeriod,
+       "hwdot1xAuthTxPeriod": hwdot1xAuthTxPeriod,
+       "hwdot1xAuthSuppTimeout": hwdot1xAuthSuppTimeout,
+       "hwdot1xAuthServerTimeout": hwdot1xAuthServerTimeout,
+       "hwdot1xAuthMaxReq": hwdot1xAuthMaxReq,
+       "hwdot1xAuthReAuthPeriod": hwdot1xAuthReAuthPeriod,
+       "hwdot1xAuthMethod": hwdot1xAuthMethod,
+       "hwdot1xPaeAuthenticator": hwdot1xPaeAuthenticator,
+       "hwdot1xAuthConfigExtTable": hwdot1xAuthConfigExtTable,
+       "hwdot1xAuthConfigExtEntry": hwdot1xAuthConfigExtEntry,
+       "hwdot1xpaeportAuthAdminStatus": hwdot1xpaeportAuthAdminStatus,
+       "hwdot1xpaeportControlledType": hwdot1xpaeportControlledType,
+       "hwdot1xpaeportMaxUserNum": hwdot1xpaeportMaxUserNum,
+       "hwdot1xpaeportUserNumNow": hwdot1xpaeportUserNumNow,
+       "hwdot1xpaeportClearStatistics": hwdot1xpaeportClearStatistics,
+       "hwdot1xpaeportMcastTrigStatus": hwdot1xpaeportMcastTrigStatus,
+       "hwdot1xpaeportHandshakeStatus": hwdot1xpaeportHandshakeStatus}
+)

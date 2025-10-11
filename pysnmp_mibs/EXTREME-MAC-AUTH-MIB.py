@@ -1,30 +1,200 @@
+# SNMP MIB module (EXTREME-MAC-AUTH-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EXTREME-MAC-AUTH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/extreme/EXTREME-MAC-AUTH-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:00 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/extreme/EXTREME-MAC-AUTH-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:16:43 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-extremeAgent, = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
-extremeMacAuthMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1916, 1, 44))
-if mibBuilder.loadTexts: extremeMacAuthMIB.setLastUpdated('201403040000Z')
-if mibBuilder.loadTexts: extremeMacAuthMIB.setOrganization('Extreme Networks, Inc.')
-extremeMacAuthObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1916, 1, 44, 1))
-extremeMacAuthClientTable = MibTable((1, 3, 6, 1, 4, 1, 1916, 1, 44, 1, 1), )
-if mibBuilder.loadTexts: extremeMacAuthClientTable.setStatus('current')
-extremeMacAuthClientEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1916, 1, 44, 1, 1, 1), ).setIndexNames((0, "EXTREME-MAC-AUTH-MIB", "extremeMacAuthClientAddress"))
-if mibBuilder.loadTexts: extremeMacAuthClientEntry.setStatus('current')
-extremeMacAuthClientAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 44, 1, 1, 1, 1), MacAddress())
-if mibBuilder.loadTexts: extremeMacAuthClientAddress.setStatus('current')
-extremeMacAuthClientInitialize = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 44, 1, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: extremeMacAuthClientInitialize.setStatus('current')
-extremeMacAuthClientReauthenticate = MibTableColumn((1, 3, 6, 1, 4, 1, 1916, 1, 44, 1, 1, 1, 3), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: extremeMacAuthClientReauthenticate.setStatus('current')
-mibBuilder.exportSymbols("EXTREME-MAC-AUTH-MIB", PYSNMP_MODULE_ID=extremeMacAuthMIB, extremeMacAuthClientTable=extremeMacAuthClientTable, extremeMacAuthClientAddress=extremeMacAuthClientAddress, extremeMacAuthClientReauthenticate=extremeMacAuthClientReauthenticate, extremeMacAuthClientInitialize=extremeMacAuthClientInitialize, extremeMacAuthObjects=extremeMacAuthObjects, extremeMacAuthMIB=extremeMacAuthMIB, extremeMacAuthClientEntry=extremeMacAuthClientEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(extremeAgent,) = mibBuilder.importSymbols(
+    "EXTREME-BASE-MIB",
+    "extremeAgent")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+extremeMacAuthMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 44)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ExtremeMacAuthObjects_ObjectIdentity = ObjectIdentity
+extremeMacAuthObjects = _ExtremeMacAuthObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 44, 1)
+)
+_ExtremeMacAuthClientTable_Object = MibTable
+extremeMacAuthClientTable = _ExtremeMacAuthClientTable_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 44, 1, 1)
+)
+if mibBuilder.loadTexts:
+    extremeMacAuthClientTable.setStatus("current")
+_ExtremeMacAuthClientEntry_Object = MibTableRow
+extremeMacAuthClientEntry = _ExtremeMacAuthClientEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 44, 1, 1, 1)
+)
+extremeMacAuthClientEntry.setIndexNames(
+    (0, "EXTREME-MAC-AUTH-MIB", "extremeMacAuthClientAddress"),
+)
+if mibBuilder.loadTexts:
+    extremeMacAuthClientEntry.setStatus("current")
+_ExtremeMacAuthClientAddress_Type = MacAddress
+_ExtremeMacAuthClientAddress_Object = MibTableColumn
+extremeMacAuthClientAddress = _ExtremeMacAuthClientAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 44, 1, 1, 1, 1),
+    _ExtremeMacAuthClientAddress_Type()
+)
+extremeMacAuthClientAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    extremeMacAuthClientAddress.setStatus("current")
+_ExtremeMacAuthClientInitialize_Type = TruthValue
+_ExtremeMacAuthClientInitialize_Object = MibTableColumn
+extremeMacAuthClientInitialize = _ExtremeMacAuthClientInitialize_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 44, 1, 1, 1, 2),
+    _ExtremeMacAuthClientInitialize_Type()
+)
+extremeMacAuthClientInitialize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    extremeMacAuthClientInitialize.setStatus("current")
+_ExtremeMacAuthClientReauthenticate_Type = TruthValue
+_ExtremeMacAuthClientReauthenticate_Object = MibTableColumn
+extremeMacAuthClientReauthenticate = _ExtremeMacAuthClientReauthenticate_Object(
+    (1, 3, 6, 1, 4, 1, 1916, 1, 44, 1, 1, 1, 3),
+    _ExtremeMacAuthClientReauthenticate_Type()
+)
+extremeMacAuthClientReauthenticate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    extremeMacAuthClientReauthenticate.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EXTREME-MAC-AUTH-MIB",
+    **{"extremeMacAuthMIB": extremeMacAuthMIB,
+       "extremeMacAuthObjects": extremeMacAuthObjects,
+       "extremeMacAuthClientTable": extremeMacAuthClientTable,
+       "extremeMacAuthClientEntry": extremeMacAuthClientEntry,
+       "extremeMacAuthClientAddress": extremeMacAuthClientAddress,
+       "extremeMacAuthClientInitialize": extremeMacAuthClientInitialize,
+       "extremeMacAuthClientReauthenticate": extremeMacAuthClientReauthenticate}
+)

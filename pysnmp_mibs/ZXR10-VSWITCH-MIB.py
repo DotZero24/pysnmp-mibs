@@ -1,76 +1,429 @@
+# SNMP MIB module (ZXR10-VSWITCH-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZXR10-VSWITCH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zte/ZXR10-VSWITCH-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:19 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zte/ZXR10-VSWITCH-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:43:59 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-EntryStatus, = mibBuilder.importSymbols("RMON-MIB", "EntryStatus")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
-zxr10 = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 3))
-zxr10protocol = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 3, 101))
-zxr10vswitch = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4))
-if mibBuilder.loadTexts: zxr10vswitch.setLastUpdated('0408031136Z')
-if mibBuilder.loadTexts: zxr10vswitch.setOrganization('ZXR10 ROS OAM group')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(EntryStatus,) = mibBuilder.importSymbols(
+    "RMON-MIB",
+    "EntryStatus")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+zxr10vswitch = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4)
+)
+
+
+# Types definitions
+
+
+
 class DisplayString(OctetString):
-    pass
+    """Custom type DisplayString based on OctetString"""
+
+
+
 
 class VsiwtchTransMode(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("ip", 0), ("vlan", 1), ("mix", 2))
+    """Custom type VsiwtchTransMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ip", 0),
+          ("vlan", 1),
+          ("mix", 2))
+    )
+
+
+
+
 
 class VsiwtchVlanDirection(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("intoout", 0), ("both", 1))
+    """Custom type VsiwtchVlanDirection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("intoout", 0),
+          ("both", 1))
+    )
 
-zxr10vswitchIfTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1), )
-if mibBuilder.loadTexts: zxr10vswitchIfTable.setStatus('current')
-zxr10vswitchIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1), ).setIndexNames((0, "ZXR10-VSWITCH-MIB", "zxr10vsiwtchIfIndex"))
-if mibBuilder.loadTexts: zxr10vswitchIfEntry.setStatus('current')
-zxr10vsiwtchIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxr10vsiwtchIfIndex.setStatus('current')
-zxr10vswitchIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxr10vswitchIfType.setStatus('current')
-zxr10vswitchIfTransType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 3), VsiwtchTransMode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxr10vswitchIfTransType.setStatus('current')
-zxr10vswitchIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxr10vswitchIfStatus.setStatus('current')
-zxr10vswitchIfAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxr10vswitchIfAddr.setStatus('current')
-zxr10vswitchIfDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zxr10vswitchIfDesc.setStatus('current')
-zxr10vswitchIfTableLastchange = MibScalar((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxr10vswitchIfTableLastchange.setStatus('current')
-zxr10vswitchVlanTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3), )
-if mibBuilder.loadTexts: zxr10vswitchVlanTable.setStatus('current')
-zxr10vsiwtchVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1), ).setIndexNames((0, "ZXR10-VSWITCH-MIB", "zxr10vswitchVlanIngressIfIndex"), (0, "ZXR10-VSWITCH-MIB", "zxr10vswitchVlanIngressExtVlanid"))
-if mibBuilder.loadTexts: zxr10vsiwtchVlanEntry.setStatus('current')
-zxr10vswitchVlanIngressExtVlanid = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxr10vswitchVlanIngressExtVlanid.setStatus('current')
-zxr10vswitchVlanIngressIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxr10vswitchVlanIngressIfIndex.setStatus('current')
-zxr10vswitchVlanIngressIntVlanid = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxr10vswitchVlanIngressIntVlanid.setStatus('current')
-zxr10vswitchVlanEgressExtVlanid = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zxr10vswitchVlanEgressExtVlanid.setStatus('current')
-zxr10vswitchVlanEgressIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zxr10vswitchVlanEgressIfIndex.setStatus('current')
-zxr10vswitchVlanEgressIntVlanid = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxr10vswitchVlanEgressIntVlanid.setStatus('current')
-zxr10vswitchVlanVlanidRange = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zxr10vswitchVlanVlanidRange.setStatus('current')
-zxr10vswitchVlandDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 8), VsiwtchVlanDirection()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zxr10vswitchVlandDirection.setStatus('current')
-zxr10vswitchVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 9), EntryStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zxr10vswitchVlanRowStatus.setStatus('current')
-zxr10vswitchVlanDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 10), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zxr10vswitchVlanDesc.setStatus('current')
-zxr10vswitchVlanTableLastchange = MibScalar((1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxr10vswitchVlanTableLastchange.setStatus('current')
-mibBuilder.exportSymbols("ZXR10-VSWITCH-MIB", zxr10vswitchVlanIngressIntVlanid=zxr10vswitchVlanIngressIntVlanid, zxr10vswitchIfTableLastchange=zxr10vswitchIfTableLastchange, DisplayString=DisplayString, zxr10vswitchVlanEgressExtVlanid=zxr10vswitchVlanEgressExtVlanid, PYSNMP_MODULE_ID=zxr10vswitch, zxr10vswitchVlanIngressIfIndex=zxr10vswitchVlanIngressIfIndex, zxr10vsiwtchIfIndex=zxr10vsiwtchIfIndex, zxr10protocol=zxr10protocol, zxr10vswitchIfAddr=zxr10vswitchIfAddr, zxr10vswitchIfDesc=zxr10vswitchIfDesc, zxr10vswitchVlanIngressExtVlanid=zxr10vswitchVlanIngressExtVlanid, zxr10vswitchIfEntry=zxr10vswitchIfEntry, zxr10vswitchIfTable=zxr10vswitchIfTable, VsiwtchVlanDirection=VsiwtchVlanDirection, zxr10=zxr10, zxr10vswitchVlandDirection=zxr10vswitchVlandDirection, zxr10vswitchIfStatus=zxr10vswitchIfStatus, zxr10vswitchVlanTableLastchange=zxr10vswitchVlanTableLastchange, zxr10vswitch=zxr10vswitch, zte=zte, zxr10vswitchVlanEgressIfIndex=zxr10vswitchVlanEgressIfIndex, zxr10vswitchIfType=zxr10vswitchIfType, zxr10vswitchVlanRowStatus=zxr10vswitchVlanRowStatus, zxr10vswitchIfTransType=zxr10vswitchIfTransType, zxr10vswitchVlanDesc=zxr10vswitchVlanDesc, zxr10vswitchVlanVlanidRange=zxr10vswitchVlanVlanidRange, VsiwtchTransMode=VsiwtchTransMode, zxr10vsiwtchVlanEntry=zxr10vsiwtchVlanEntry, zxr10vswitchVlanTable=zxr10vswitchVlanTable, zxr10vswitchVlanEgressIntVlanid=zxr10vswitchVlanEgressIntVlanid)
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Zte_ObjectIdentity = ObjectIdentity
+zte = _Zte_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902)
+)
+_Zxr10_ObjectIdentity = ObjectIdentity
+zxr10 = _Zxr10_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 3)
+)
+_Zxr10protocol_ObjectIdentity = ObjectIdentity
+zxr10protocol = _Zxr10protocol_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101)
+)
+_Zxr10vswitchIfTable_Object = MibTable
+zxr10vswitchIfTable = _Zxr10vswitchIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1)
+)
+if mibBuilder.loadTexts:
+    zxr10vswitchIfTable.setStatus("current")
+_Zxr10vswitchIfEntry_Object = MibTableRow
+zxr10vswitchIfEntry = _Zxr10vswitchIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1)
+)
+zxr10vswitchIfEntry.setIndexNames(
+    (0, "ZXR10-VSWITCH-MIB", "zxr10vsiwtchIfIndex"),
+)
+if mibBuilder.loadTexts:
+    zxr10vswitchIfEntry.setStatus("current")
+_Zxr10vsiwtchIfIndex_Type = Integer32
+_Zxr10vsiwtchIfIndex_Object = MibTableColumn
+zxr10vsiwtchIfIndex = _Zxr10vsiwtchIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 1),
+    _Zxr10vsiwtchIfIndex_Type()
+)
+zxr10vsiwtchIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxr10vsiwtchIfIndex.setStatus("current")
+_Zxr10vswitchIfType_Type = Integer32
+_Zxr10vswitchIfType_Object = MibTableColumn
+zxr10vswitchIfType = _Zxr10vswitchIfType_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 2),
+    _Zxr10vswitchIfType_Type()
+)
+zxr10vswitchIfType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxr10vswitchIfType.setStatus("current")
+_Zxr10vswitchIfTransType_Type = VsiwtchTransMode
+_Zxr10vswitchIfTransType_Object = MibTableColumn
+zxr10vswitchIfTransType = _Zxr10vswitchIfTransType_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 3),
+    _Zxr10vswitchIfTransType_Type()
+)
+zxr10vswitchIfTransType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxr10vswitchIfTransType.setStatus("current")
+_Zxr10vswitchIfStatus_Type = Integer32
+_Zxr10vswitchIfStatus_Object = MibTableColumn
+zxr10vswitchIfStatus = _Zxr10vswitchIfStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 4),
+    _Zxr10vswitchIfStatus_Type()
+)
+zxr10vswitchIfStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxr10vswitchIfStatus.setStatus("current")
+_Zxr10vswitchIfAddr_Type = IpAddress
+_Zxr10vswitchIfAddr_Object = MibTableColumn
+zxr10vswitchIfAddr = _Zxr10vswitchIfAddr_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 5),
+    _Zxr10vswitchIfAddr_Type()
+)
+zxr10vswitchIfAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxr10vswitchIfAddr.setStatus("current")
+
+
+class _Zxr10vswitchIfDesc_Type(DisplayString):
+    """Custom type zxr10vswitchIfDesc based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_Zxr10vswitchIfDesc_Type.__name__ = "DisplayString"
+_Zxr10vswitchIfDesc_Object = MibTableColumn
+zxr10vswitchIfDesc = _Zxr10vswitchIfDesc_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 1, 1, 6),
+    _Zxr10vswitchIfDesc_Type()
+)
+zxr10vswitchIfDesc.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zxr10vswitchIfDesc.setStatus("current")
+_Zxr10vswitchIfTableLastchange_Type = TimeTicks
+_Zxr10vswitchIfTableLastchange_Object = MibScalar
+zxr10vswitchIfTableLastchange = _Zxr10vswitchIfTableLastchange_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 2),
+    _Zxr10vswitchIfTableLastchange_Type()
+)
+zxr10vswitchIfTableLastchange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxr10vswitchIfTableLastchange.setStatus("current")
+_Zxr10vswitchVlanTable_Object = MibTable
+zxr10vswitchVlanTable = _Zxr10vswitchVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3)
+)
+if mibBuilder.loadTexts:
+    zxr10vswitchVlanTable.setStatus("current")
+_Zxr10vsiwtchVlanEntry_Object = MibTableRow
+zxr10vsiwtchVlanEntry = _Zxr10vsiwtchVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1)
+)
+zxr10vsiwtchVlanEntry.setIndexNames(
+    (0, "ZXR10-VSWITCH-MIB", "zxr10vswitchVlanIngressIfIndex"),
+    (0, "ZXR10-VSWITCH-MIB", "zxr10vswitchVlanIngressExtVlanid"),
+)
+if mibBuilder.loadTexts:
+    zxr10vsiwtchVlanEntry.setStatus("current")
+_Zxr10vswitchVlanIngressExtVlanid_Type = Integer32
+_Zxr10vswitchVlanIngressExtVlanid_Object = MibTableColumn
+zxr10vswitchVlanIngressExtVlanid = _Zxr10vswitchVlanIngressExtVlanid_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 1),
+    _Zxr10vswitchVlanIngressExtVlanid_Type()
+)
+zxr10vswitchVlanIngressExtVlanid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxr10vswitchVlanIngressExtVlanid.setStatus("current")
+_Zxr10vswitchVlanIngressIfIndex_Type = Integer32
+_Zxr10vswitchVlanIngressIfIndex_Object = MibTableColumn
+zxr10vswitchVlanIngressIfIndex = _Zxr10vswitchVlanIngressIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 2),
+    _Zxr10vswitchVlanIngressIfIndex_Type()
+)
+zxr10vswitchVlanIngressIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxr10vswitchVlanIngressIfIndex.setStatus("current")
+_Zxr10vswitchVlanIngressIntVlanid_Type = Integer32
+_Zxr10vswitchVlanIngressIntVlanid_Object = MibTableColumn
+zxr10vswitchVlanIngressIntVlanid = _Zxr10vswitchVlanIngressIntVlanid_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 3),
+    _Zxr10vswitchVlanIngressIntVlanid_Type()
+)
+zxr10vswitchVlanIngressIntVlanid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxr10vswitchVlanIngressIntVlanid.setStatus("current")
+_Zxr10vswitchVlanEgressExtVlanid_Type = Integer32
+_Zxr10vswitchVlanEgressExtVlanid_Object = MibTableColumn
+zxr10vswitchVlanEgressExtVlanid = _Zxr10vswitchVlanEgressExtVlanid_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 4),
+    _Zxr10vswitchVlanEgressExtVlanid_Type()
+)
+zxr10vswitchVlanEgressExtVlanid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zxr10vswitchVlanEgressExtVlanid.setStatus("current")
+_Zxr10vswitchVlanEgressIfIndex_Type = Integer32
+_Zxr10vswitchVlanEgressIfIndex_Object = MibTableColumn
+zxr10vswitchVlanEgressIfIndex = _Zxr10vswitchVlanEgressIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 5),
+    _Zxr10vswitchVlanEgressIfIndex_Type()
+)
+zxr10vswitchVlanEgressIfIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zxr10vswitchVlanEgressIfIndex.setStatus("current")
+_Zxr10vswitchVlanEgressIntVlanid_Type = Integer32
+_Zxr10vswitchVlanEgressIntVlanid_Object = MibTableColumn
+zxr10vswitchVlanEgressIntVlanid = _Zxr10vswitchVlanEgressIntVlanid_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 6),
+    _Zxr10vswitchVlanEgressIntVlanid_Type()
+)
+zxr10vswitchVlanEgressIntVlanid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxr10vswitchVlanEgressIntVlanid.setStatus("current")
+_Zxr10vswitchVlanVlanidRange_Type = Integer32
+_Zxr10vswitchVlanVlanidRange_Object = MibTableColumn
+zxr10vswitchVlanVlanidRange = _Zxr10vswitchVlanVlanidRange_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 7),
+    _Zxr10vswitchVlanVlanidRange_Type()
+)
+zxr10vswitchVlanVlanidRange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zxr10vswitchVlanVlanidRange.setStatus("current")
+_Zxr10vswitchVlandDirection_Type = VsiwtchVlanDirection
+_Zxr10vswitchVlandDirection_Object = MibTableColumn
+zxr10vswitchVlandDirection = _Zxr10vswitchVlandDirection_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 8),
+    _Zxr10vswitchVlandDirection_Type()
+)
+zxr10vswitchVlandDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zxr10vswitchVlandDirection.setStatus("current")
+_Zxr10vswitchVlanRowStatus_Type = EntryStatus
+_Zxr10vswitchVlanRowStatus_Object = MibTableColumn
+zxr10vswitchVlanRowStatus = _Zxr10vswitchVlanRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 9),
+    _Zxr10vswitchVlanRowStatus_Type()
+)
+zxr10vswitchVlanRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zxr10vswitchVlanRowStatus.setStatus("current")
+_Zxr10vswitchVlanDesc_Type = DisplayString
+_Zxr10vswitchVlanDesc_Object = MibTableColumn
+zxr10vswitchVlanDesc = _Zxr10vswitchVlanDesc_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 3, 1, 10),
+    _Zxr10vswitchVlanDesc_Type()
+)
+zxr10vswitchVlanDesc.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zxr10vswitchVlanDesc.setStatus("current")
+_Zxr10vswitchVlanTableLastchange_Type = TimeTicks
+_Zxr10vswitchVlanTableLastchange_Object = MibScalar
+zxr10vswitchVlanTableLastchange = _Zxr10vswitchVlanTableLastchange_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 3, 101, 4, 4),
+    _Zxr10vswitchVlanTableLastchange_Type()
+)
+zxr10vswitchVlanTableLastchange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxr10vswitchVlanTableLastchange.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZXR10-VSWITCH-MIB",
+    **{"DisplayString": DisplayString,
+       "VsiwtchTransMode": VsiwtchTransMode,
+       "VsiwtchVlanDirection": VsiwtchVlanDirection,
+       "zte": zte,
+       "zxr10": zxr10,
+       "zxr10protocol": zxr10protocol,
+       "zxr10vswitch": zxr10vswitch,
+       "zxr10vswitchIfTable": zxr10vswitchIfTable,
+       "zxr10vswitchIfEntry": zxr10vswitchIfEntry,
+       "zxr10vsiwtchIfIndex": zxr10vsiwtchIfIndex,
+       "zxr10vswitchIfType": zxr10vswitchIfType,
+       "zxr10vswitchIfTransType": zxr10vswitchIfTransType,
+       "zxr10vswitchIfStatus": zxr10vswitchIfStatus,
+       "zxr10vswitchIfAddr": zxr10vswitchIfAddr,
+       "zxr10vswitchIfDesc": zxr10vswitchIfDesc,
+       "zxr10vswitchIfTableLastchange": zxr10vswitchIfTableLastchange,
+       "zxr10vswitchVlanTable": zxr10vswitchVlanTable,
+       "zxr10vsiwtchVlanEntry": zxr10vsiwtchVlanEntry,
+       "zxr10vswitchVlanIngressExtVlanid": zxr10vswitchVlanIngressExtVlanid,
+       "zxr10vswitchVlanIngressIfIndex": zxr10vswitchVlanIngressIfIndex,
+       "zxr10vswitchVlanIngressIntVlanid": zxr10vswitchVlanIngressIntVlanid,
+       "zxr10vswitchVlanEgressExtVlanid": zxr10vswitchVlanEgressExtVlanid,
+       "zxr10vswitchVlanEgressIfIndex": zxr10vswitchVlanEgressIfIndex,
+       "zxr10vswitchVlanEgressIntVlanid": zxr10vswitchVlanEgressIntVlanid,
+       "zxr10vswitchVlanVlanidRange": zxr10vswitchVlanVlanidRange,
+       "zxr10vswitchVlandDirection": zxr10vswitchVlandDirection,
+       "zxr10vswitchVlanRowStatus": zxr10vswitchVlanRowStatus,
+       "zxr10vswitchVlanDesc": zxr10vswitchVlanDesc,
+       "zxr10vswitchVlanTableLastchange": zxr10vswitchVlanTableLastchange}
+)

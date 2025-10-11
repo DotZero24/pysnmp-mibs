@@ -1,45 +1,313 @@
+# SNMP MIB module (UCD-DISKIO-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module UCD-DISKIO-MIB (http://snmplabs.com/pysmi)
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
 # ASN.1 source file:///usr/share/snmp/mibs/UCD-DISKIO-MIB.txt
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:56 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:05:26 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ucdExperimental, = mibBuilder.importSymbols("UCD-SNMP-MIB", "ucdExperimental")
-ucdDiskIOMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2021, 13, 15))
-ucdDiskIOMIB.setRevisions(('2005-04-20 00:00', '2002-02-13 00:00', '2000-01-26 00:00',))
-if mibBuilder.loadTexts: ucdDiskIOMIB.setLastUpdated('200504200000Z')
-if mibBuilder.loadTexts: ucdDiskIOMIB.setOrganization('University of California, Davis')
-diskIOTable = MibTable((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1), )
-if mibBuilder.loadTexts: diskIOTable.setStatus('current')
-diskIOEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1), ).setIndexNames((0, "UCD-DISKIO-MIB", "diskIOIndex"))
-if mibBuilder.loadTexts: diskIOEntry.setStatus('current')
-diskIOIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskIOIndex.setStatus('current')
-diskIODevice = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskIODevice.setStatus('current')
-diskIONRead = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskIONRead.setStatus('current')
-diskIONWritten = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskIONWritten.setStatus('current')
-diskIOReads = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskIOReads.setStatus('current')
-diskIOWrites = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskIOWrites.setStatus('current')
-diskIOLA1 = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskIOLA1.setStatus('current')
-diskIOLA5 = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskIOLA5.setStatus('current')
-diskIOLA15 = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskIOLA15.setStatus('current')
-diskIONReadX = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskIONReadX.setStatus('current')
-diskIONWrittenX = MibTableColumn((1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskIONWrittenX.setStatus('current')
-mibBuilder.exportSymbols("UCD-DISKIO-MIB", ucdDiskIOMIB=ucdDiskIOMIB, diskIONReadX=diskIONReadX, diskIOEntry=diskIOEntry, diskIONWritten=diskIONWritten, diskIONWrittenX=diskIONWrittenX, diskIOIndex=diskIOIndex, diskIOLA15=diskIOLA15, diskIONRead=diskIONRead, diskIOLA1=diskIOLA1, diskIOTable=diskIOTable, diskIOLA5=diskIOLA5, PYSNMP_MODULE_ID=ucdDiskIOMIB, diskIOReads=diskIOReads, diskIOWrites=diskIOWrites, diskIODevice=diskIODevice)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(ucdExperimental,) = mibBuilder.importSymbols(
+    "UCD-SNMP-MIB",
+    "ucdExperimental")
+
+
+# MODULE-IDENTITY
+
+ucdDiskIOMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15)
+)
+if mibBuilder.loadTexts:
+    ucdDiskIOMIB.setRevisions(
+        ("2005-04-20 00:00",
+         "2002-02-13 00:00",
+         "2000-01-26 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_DiskIOTable_Object = MibTable
+diskIOTable = _DiskIOTable_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1)
+)
+if mibBuilder.loadTexts:
+    diskIOTable.setStatus("current")
+_DiskIOEntry_Object = MibTableRow
+diskIOEntry = _DiskIOEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1)
+)
+diskIOEntry.setIndexNames(
+    (0, "UCD-DISKIO-MIB", "diskIOIndex"),
+)
+if mibBuilder.loadTexts:
+    diskIOEntry.setStatus("current")
+
+
+class _DiskIOIndex_Type(Integer32):
+    """Custom type diskIOIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_DiskIOIndex_Type.__name__ = "Integer32"
+_DiskIOIndex_Object = MibTableColumn
+diskIOIndex = _DiskIOIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 1),
+    _DiskIOIndex_Type()
+)
+diskIOIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskIOIndex.setStatus("current")
+_DiskIODevice_Type = DisplayString
+_DiskIODevice_Object = MibTableColumn
+diskIODevice = _DiskIODevice_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 2),
+    _DiskIODevice_Type()
+)
+diskIODevice.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskIODevice.setStatus("current")
+_DiskIONRead_Type = Counter32
+_DiskIONRead_Object = MibTableColumn
+diskIONRead = _DiskIONRead_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 3),
+    _DiskIONRead_Type()
+)
+diskIONRead.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskIONRead.setStatus("current")
+_DiskIONWritten_Type = Counter32
+_DiskIONWritten_Object = MibTableColumn
+diskIONWritten = _DiskIONWritten_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 4),
+    _DiskIONWritten_Type()
+)
+diskIONWritten.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskIONWritten.setStatus("current")
+_DiskIOReads_Type = Counter32
+_DiskIOReads_Object = MibTableColumn
+diskIOReads = _DiskIOReads_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 5),
+    _DiskIOReads_Type()
+)
+diskIOReads.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskIOReads.setStatus("current")
+_DiskIOWrites_Type = Counter32
+_DiskIOWrites_Object = MibTableColumn
+diskIOWrites = _DiskIOWrites_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 6),
+    _DiskIOWrites_Type()
+)
+diskIOWrites.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskIOWrites.setStatus("current")
+
+
+class _DiskIOLA1_Type(Integer32):
+    """Custom type diskIOLA1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_DiskIOLA1_Type.__name__ = "Integer32"
+_DiskIOLA1_Object = MibTableColumn
+diskIOLA1 = _DiskIOLA1_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 9),
+    _DiskIOLA1_Type()
+)
+diskIOLA1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskIOLA1.setStatus("current")
+
+
+class _DiskIOLA5_Type(Integer32):
+    """Custom type diskIOLA5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_DiskIOLA5_Type.__name__ = "Integer32"
+_DiskIOLA5_Object = MibTableColumn
+diskIOLA5 = _DiskIOLA5_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 10),
+    _DiskIOLA5_Type()
+)
+diskIOLA5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskIOLA5.setStatus("current")
+
+
+class _DiskIOLA15_Type(Integer32):
+    """Custom type diskIOLA15 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_DiskIOLA15_Type.__name__ = "Integer32"
+_DiskIOLA15_Object = MibTableColumn
+diskIOLA15 = _DiskIOLA15_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 11),
+    _DiskIOLA15_Type()
+)
+diskIOLA15.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskIOLA15.setStatus("current")
+_DiskIONReadX_Type = Counter64
+_DiskIONReadX_Object = MibTableColumn
+diskIONReadX = _DiskIONReadX_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 12),
+    _DiskIONReadX_Type()
+)
+diskIONReadX.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskIONReadX.setStatus("current")
+_DiskIONWrittenX_Type = Counter64
+_DiskIONWrittenX_Object = MibTableColumn
+diskIONWrittenX = _DiskIONWrittenX_Object(
+    (1, 3, 6, 1, 4, 1, 2021, 13, 15, 1, 1, 13),
+    _DiskIONWrittenX_Type()
+)
+diskIONWrittenX.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskIONWrittenX.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "UCD-DISKIO-MIB",
+    **{"ucdDiskIOMIB": ucdDiskIOMIB,
+       "diskIOTable": diskIOTable,
+       "diskIOEntry": diskIOEntry,
+       "diskIOIndex": diskIOIndex,
+       "diskIODevice": diskIODevice,
+       "diskIONRead": diskIONRead,
+       "diskIONWritten": diskIONWritten,
+       "diskIOReads": diskIOReads,
+       "diskIOWrites": diskIOWrites,
+       "diskIOLA1": diskIOLA1,
+       "diskIOLA5": diskIOLA5,
+       "diskIOLA15": diskIOLA15,
+       "diskIONReadX": diskIONReadX,
+       "diskIONWrittenX": diskIONWrittenX}
+)

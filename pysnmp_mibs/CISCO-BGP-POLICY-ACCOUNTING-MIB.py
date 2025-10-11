@@ -1,52 +1,299 @@
+# SNMP MIB module (CISCO-BGP-POLICY-ACCOUNTING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-BGP-POLICY-ACCOUNTING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-BGP-POLICY-ACCOUNTING-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:24:39 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-BGP-POLICY-ACCOUNTING-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:26:10 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoBgpPolAcctMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 148))
-ciscoBgpPolAcctMIB.setRevisions(('2002-07-26 00:00', '1999-12-17 00:00',))
-if mibBuilder.loadTexts: ciscoBgpPolAcctMIB.setLastUpdated('200207260000Z')
-if mibBuilder.loadTexts: ciscoBgpPolAcctMIB.setOrganization('Cisco Systems, Inc.')
-ciscoBgpPolAcctMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 148, 1))
-cbpAcctTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1), )
-if mibBuilder.loadTexts: cbpAcctTable.setStatus('current')
-cbpAcctEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctTrafficIndex"))
-if mibBuilder.loadTexts: cbpAcctEntry.setStatus('current')
-cbpAcctTrafficIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cbpAcctTrafficIndex.setStatus('current')
-cbpAcctInPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cbpAcctInPacketCount.setStatus('current')
-cbpAcctInOctetCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cbpAcctInOctetCount.setStatus('current')
-cbpAcctOutPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cbpAcctOutPacketCount.setStatus('current')
-cbpAcctOutOctetCount = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cbpAcctOutOctetCount.setStatus('current')
-ciscoBgpPolAcctMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 148, 3))
-ciscoBgpPolAcctMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 1))
-ciscoBgpPolAcctMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 2))
-ciscoBgpPolAcctMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 1, 1)).setObjects(("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctTableGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoBgpPolAcctMIBCompliance = ciscoBgpPolAcctMIBCompliance.setStatus('deprecated')
-ciscoBgpPolAcctMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 1, 2)).setObjects(("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctTableGroupRev1"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoBgpPolAcctMIBComplianceRev1 = ciscoBgpPolAcctMIBComplianceRev1.setStatus('current')
-cbpAcctTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 2, 1)).setObjects(("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctTrafficIndex"), ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctInPacketCount"), ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctInOctetCount"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cbpAcctTableGroup = cbpAcctTableGroup.setStatus('deprecated')
-cbpAcctTableGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 2, 2)).setObjects(("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctTrafficIndex"), ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctInPacketCount"), ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctInOctetCount"), ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctOutPacketCount"), ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctOutOctetCount"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cbpAcctTableGroupRev1 = cbpAcctTableGroupRev1.setStatus('current')
-mibBuilder.exportSymbols("CISCO-BGP-POLICY-ACCOUNTING-MIB", cbpAcctTableGroupRev1=cbpAcctTableGroupRev1, cbpAcctTable=cbpAcctTable, ciscoBgpPolAcctMIBObjects=ciscoBgpPolAcctMIBObjects, cbpAcctTrafficIndex=cbpAcctTrafficIndex, cbpAcctInOctetCount=cbpAcctInOctetCount, cbpAcctOutOctetCount=cbpAcctOutOctetCount, ciscoBgpPolAcctMIBComplianceRev1=ciscoBgpPolAcctMIBComplianceRev1, cbpAcctTableGroup=cbpAcctTableGroup, PYSNMP_MODULE_ID=ciscoBgpPolAcctMIB, cbpAcctEntry=cbpAcctEntry, ciscoBgpPolAcctMIBGroups=ciscoBgpPolAcctMIBGroups, ciscoBgpPolAcctMIBCompliance=ciscoBgpPolAcctMIBCompliance, ciscoBgpPolAcctMIBCompliances=ciscoBgpPolAcctMIBCompliances, cbpAcctInPacketCount=cbpAcctInPacketCount, cbpAcctOutPacketCount=cbpAcctOutPacketCount, ciscoBgpPolAcctMIBConformance=ciscoBgpPolAcctMIBConformance, ciscoBgpPolAcctMIB=ciscoBgpPolAcctMIB)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoBgpPolAcctMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148)
+)
+if mibBuilder.loadTexts:
+    ciscoBgpPolAcctMIB.setRevisions(
+        ("2002-07-26 00:00",
+         "1999-12-17 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoBgpPolAcctMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoBgpPolAcctMIBObjects = _CiscoBgpPolAcctMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 1)
+)
+_CbpAcctTable_Object = MibTable
+cbpAcctTable = _CbpAcctTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cbpAcctTable.setStatus("current")
+_CbpAcctEntry_Object = MibTableRow
+cbpAcctEntry = _CbpAcctEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1)
+)
+cbpAcctEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctTrafficIndex"),
+)
+if mibBuilder.loadTexts:
+    cbpAcctEntry.setStatus("current")
+
+
+class _CbpAcctTrafficIndex_Type(Integer32):
+    """Custom type cbpAcctTrafficIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_CbpAcctTrafficIndex_Type.__name__ = "Integer32"
+_CbpAcctTrafficIndex_Object = MibTableColumn
+cbpAcctTrafficIndex = _CbpAcctTrafficIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1, 1),
+    _CbpAcctTrafficIndex_Type()
+)
+cbpAcctTrafficIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cbpAcctTrafficIndex.setStatus("current")
+_CbpAcctInPacketCount_Type = Counter64
+_CbpAcctInPacketCount_Object = MibTableColumn
+cbpAcctInPacketCount = _CbpAcctInPacketCount_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1, 2),
+    _CbpAcctInPacketCount_Type()
+)
+cbpAcctInPacketCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cbpAcctInPacketCount.setStatus("current")
+_CbpAcctInOctetCount_Type = Counter64
+_CbpAcctInOctetCount_Object = MibTableColumn
+cbpAcctInOctetCount = _CbpAcctInOctetCount_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1, 3),
+    _CbpAcctInOctetCount_Type()
+)
+cbpAcctInOctetCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cbpAcctInOctetCount.setStatus("current")
+_CbpAcctOutPacketCount_Type = Counter64
+_CbpAcctOutPacketCount_Object = MibTableColumn
+cbpAcctOutPacketCount = _CbpAcctOutPacketCount_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1, 4),
+    _CbpAcctOutPacketCount_Type()
+)
+cbpAcctOutPacketCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cbpAcctOutPacketCount.setStatus("current")
+_CbpAcctOutOctetCount_Type = Counter64
+_CbpAcctOutOctetCount_Object = MibTableColumn
+cbpAcctOutOctetCount = _CbpAcctOutOctetCount_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 1, 1, 1, 5),
+    _CbpAcctOutOctetCount_Type()
+)
+cbpAcctOutOctetCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cbpAcctOutOctetCount.setStatus("current")
+_CiscoBgpPolAcctMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoBgpPolAcctMIBConformance = _CiscoBgpPolAcctMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 3)
+)
+_CiscoBgpPolAcctMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoBgpPolAcctMIBCompliances = _CiscoBgpPolAcctMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 1)
+)
+_CiscoBgpPolAcctMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoBgpPolAcctMIBGroups = _CiscoBgpPolAcctMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 2)
+)
+
+# Managed Objects groups
+
+cbpAcctTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 2, 1)
+)
+cbpAcctTableGroup.setObjects(
+      *(("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctTrafficIndex"),
+        ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctInPacketCount"),
+        ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctInOctetCount"))
+)
+if mibBuilder.loadTexts:
+    cbpAcctTableGroup.setStatus("deprecated")
+
+cbpAcctTableGroupRev1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 2, 2)
+)
+cbpAcctTableGroupRev1.setObjects(
+      *(("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctTrafficIndex"),
+        ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctInPacketCount"),
+        ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctInOctetCount"),
+        ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctOutPacketCount"),
+        ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctOutOctetCount"))
+)
+if mibBuilder.loadTexts:
+    cbpAcctTableGroupRev1.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoBgpPolAcctMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 1, 1)
+)
+ciscoBgpPolAcctMIBCompliance.setObjects(
+    ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctTableGroup")
+)
+if mibBuilder.loadTexts:
+    ciscoBgpPolAcctMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+ciscoBgpPolAcctMIBComplianceRev1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 148, 3, 1, 2)
+)
+ciscoBgpPolAcctMIBComplianceRev1.setObjects(
+    ("CISCO-BGP-POLICY-ACCOUNTING-MIB", "cbpAcctTableGroupRev1")
+)
+if mibBuilder.loadTexts:
+    ciscoBgpPolAcctMIBComplianceRev1.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-BGP-POLICY-ACCOUNTING-MIB",
+    **{"ciscoBgpPolAcctMIB": ciscoBgpPolAcctMIB,
+       "ciscoBgpPolAcctMIBObjects": ciscoBgpPolAcctMIBObjects,
+       "cbpAcctTable": cbpAcctTable,
+       "cbpAcctEntry": cbpAcctEntry,
+       "cbpAcctTrafficIndex": cbpAcctTrafficIndex,
+       "cbpAcctInPacketCount": cbpAcctInPacketCount,
+       "cbpAcctInOctetCount": cbpAcctInOctetCount,
+       "cbpAcctOutPacketCount": cbpAcctOutPacketCount,
+       "cbpAcctOutOctetCount": cbpAcctOutOctetCount,
+       "ciscoBgpPolAcctMIBConformance": ciscoBgpPolAcctMIBConformance,
+       "ciscoBgpPolAcctMIBCompliances": ciscoBgpPolAcctMIBCompliances,
+       "ciscoBgpPolAcctMIBCompliance": ciscoBgpPolAcctMIBCompliance,
+       "ciscoBgpPolAcctMIBComplianceRev1": ciscoBgpPolAcctMIBComplianceRev1,
+       "ciscoBgpPolAcctMIBGroups": ciscoBgpPolAcctMIBGroups,
+       "cbpAcctTableGroup": cbpAcctTableGroup,
+       "cbpAcctTableGroupRev1": cbpAcctTableGroupRev1}
+)

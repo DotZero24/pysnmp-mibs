@@ -1,74 +1,460 @@
+# SNMP MIB module (JUNIPER-CFGMGMT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module JUNIPER-CFGMGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/juniper/JUNIPER-CFGMGMT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:55:12 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/juniper/JUNIPER-CFGMGMT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:38:11 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-jnxCmNotifications, jnxMibs = mibBuilder.importSymbols("JUNIPER-SMI", "jnxCmNotifications", "jnxMibs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
-jnxCfgMgmt = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 18))
-jnxCfgMgmt.setRevisions(('2003-11-19 00:00', '2003-10-24 00:00', '2002-05-10 00:00',))
-if mibBuilder.loadTexts: jnxCfgMgmt.setLastUpdated('200310240000Z')
-if mibBuilder.loadTexts: jnxCfgMgmt.setOrganization('Juniper Networks, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(jnxCmNotifications,
+ jnxMibs) = mibBuilder.importSymbols(
+    "JUNIPER-SMI",
+    "jnxCmNotifications",
+    "jnxMibs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+jnxCfgMgmt = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18)
+)
+if mibBuilder.loadTexts:
+    jnxCfgMgmt.setRevisions(
+        ("2003-11-19 00:00",
+         "2003-10-24 00:00",
+         "2002-05-10 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class JnxCmCfChgSource(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("other", 1), ("cli", 2), ("junoscript", 3), ("synchronize", 4), ("snmp", 5), ("button", 6), ("autoinstall", 7), ("unknown", 8))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("cli", 2),
+          ("junoscript", 3),
+          ("synchronize", 4),
+          ("snmp", 5),
+          ("button", 6),
+          ("autoinstall", 7),
+          ("unknown", 8))
+    )
+
+
 
 class JnxCmRescueCfgState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("nonexistant", 1), ("updated", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nonexistant", 1),
+          ("updated", 2))
+    )
 
-jnxCmCfgChg = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1))
-jnxCmCfgChgLatestIndex = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmCfgChgLatestIndex.setStatus('current')
-jnxCmCfgChgLatestTime = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmCfgChgLatestTime.setStatus('current')
-jnxCmCfgChgLatestDate = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 3), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmCfgChgLatestDate.setStatus('current')
-jnxCmCfgChgLatestSource = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 4), JnxCmCfChgSource()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmCfgChgLatestSource.setStatus('current')
-jnxCmCfgChgLatestUser = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmCfgChgLatestUser.setStatus('current')
-jnxCmCfgChgMaxEventEntries = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmCfgChgMaxEventEntries.setStatus('current')
-jnxCmCfgChgEventTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7), )
-if mibBuilder.loadTexts: jnxCmCfgChgEventTable.setStatus('current')
-jnxCmCfgChgEventEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1), ).setIndexNames((0, "JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventIndex"))
-if mibBuilder.loadTexts: jnxCmCfgChgEventEntry.setStatus('current')
-jnxCmCfgChgEventIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: jnxCmCfgChgEventIndex.setStatus('current')
-jnxCmCfgChgEventTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmCfgChgEventTime.setStatus('current')
-jnxCmCfgChgEventDate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 3), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmCfgChgEventDate.setStatus('current')
-jnxCmCfgChgEventSource = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 4), JnxCmCfChgSource()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmCfgChgEventSource.setStatus('current')
-jnxCmCfgChgEventUser = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmCfgChgEventUser.setStatus('current')
-jnxCmCfgChgEventLog = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmCfgChgEventLog.setStatus('current')
-jnxCmRescueChg = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 18, 2))
-jnxCmRescueChgTime = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 18, 2, 1), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmRescueChgTime.setStatus('current')
-jnxCmRescueChgDate = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 18, 2, 2), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmRescueChgDate.setStatus('current')
-jnxCmRescueChgSource = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 18, 2, 3), JnxCmCfChgSource()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmRescueChgSource.setStatus('current')
-jnxCmRescueChgUser = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 18, 2, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmRescueChgUser.setStatus('current')
-jnxCmRescueChgState = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 18, 2, 5), JnxCmRescueCfgState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxCmRescueChgState.setStatus('current')
-jnxCmNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 4, 5, 0))
-jnxCmCfgChange = NotificationType((1, 3, 6, 1, 4, 1, 2636, 4, 5, 0, 1)).setObjects(("JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventTime"), ("JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventDate"), ("JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventSource"), ("JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventUser"), ("JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventLog"))
-if mibBuilder.loadTexts: jnxCmCfgChange.setStatus('current')
-jnxCmRescueChange = NotificationType((1, 3, 6, 1, 4, 1, 2636, 4, 5, 0, 2)).setObjects(("JUNIPER-CFGMGMT-MIB", "jnxCmRescueChgTime"), ("JUNIPER-CFGMGMT-MIB", "jnxCmRescueChgDate"), ("JUNIPER-CFGMGMT-MIB", "jnxCmRescueChgSource"), ("JUNIPER-CFGMGMT-MIB", "jnxCmRescueChgUser"), ("JUNIPER-CFGMGMT-MIB", "jnxCmRescueChgState"))
-if mibBuilder.loadTexts: jnxCmRescueChange.setStatus('current')
-mibBuilder.exportSymbols("JUNIPER-CFGMGMT-MIB", jnxCmCfgChgEventSource=jnxCmCfgChgEventSource, PYSNMP_MODULE_ID=jnxCfgMgmt, jnxCmCfgChgEventUser=jnxCmCfgChgEventUser, jnxCmCfgChgLatestUser=jnxCmCfgChgLatestUser, jnxCmCfgChgLatestDate=jnxCmCfgChgLatestDate, jnxCmCfgChgEventDate=jnxCmCfgChgEventDate, jnxCmCfgChgMaxEventEntries=jnxCmCfgChgMaxEventEntries, jnxCmCfgChgEventTable=jnxCmCfgChgEventTable, jnxCmCfgChg=jnxCmCfgChg, jnxCmNotificationsPrefix=jnxCmNotificationsPrefix, jnxCfgMgmt=jnxCfgMgmt, jnxCmCfgChange=jnxCmCfgChange, jnxCmRescueChange=jnxCmRescueChange, jnxCmCfgChgEventLog=jnxCmCfgChgEventLog, jnxCmRescueChgState=jnxCmRescueChgState, JnxCmRescueCfgState=JnxCmRescueCfgState, jnxCmRescueChgUser=jnxCmRescueChgUser, jnxCmCfgChgLatestSource=jnxCmCfgChgLatestSource, jnxCmRescueChgSource=jnxCmRescueChgSource, jnxCmRescueChg=jnxCmRescueChg, jnxCmRescueChgTime=jnxCmRescueChgTime, jnxCmCfgChgEventIndex=jnxCmCfgChgEventIndex, jnxCmCfgChgLatestTime=jnxCmCfgChgLatestTime, jnxCmCfgChgEventEntry=jnxCmCfgChgEventEntry, jnxCmCfgChgLatestIndex=jnxCmCfgChgLatestIndex, jnxCmCfgChgEventTime=jnxCmCfgChgEventTime, jnxCmRescueChgDate=jnxCmRescueChgDate, JnxCmCfChgSource=JnxCmCfChgSource)
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JnxCmCfgChg_ObjectIdentity = ObjectIdentity
+jnxCmCfgChg = _JnxCmCfgChg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1)
+)
+
+
+class _JnxCmCfgChgLatestIndex_Type(Integer32):
+    """Custom type jnxCmCfgChgLatestIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_JnxCmCfgChgLatestIndex_Type.__name__ = "Integer32"
+_JnxCmCfgChgLatestIndex_Object = MibScalar
+jnxCmCfgChgLatestIndex = _JnxCmCfgChgLatestIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 1),
+    _JnxCmCfgChgLatestIndex_Type()
+)
+jnxCmCfgChgLatestIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgLatestIndex.setStatus("current")
+_JnxCmCfgChgLatestTime_Type = TimeTicks
+_JnxCmCfgChgLatestTime_Object = MibScalar
+jnxCmCfgChgLatestTime = _JnxCmCfgChgLatestTime_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 2),
+    _JnxCmCfgChgLatestTime_Type()
+)
+jnxCmCfgChgLatestTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgLatestTime.setStatus("current")
+_JnxCmCfgChgLatestDate_Type = DateAndTime
+_JnxCmCfgChgLatestDate_Object = MibScalar
+jnxCmCfgChgLatestDate = _JnxCmCfgChgLatestDate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 3),
+    _JnxCmCfgChgLatestDate_Type()
+)
+jnxCmCfgChgLatestDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgLatestDate.setStatus("current")
+_JnxCmCfgChgLatestSource_Type = JnxCmCfChgSource
+_JnxCmCfgChgLatestSource_Object = MibScalar
+jnxCmCfgChgLatestSource = _JnxCmCfgChgLatestSource_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 4),
+    _JnxCmCfgChgLatestSource_Type()
+)
+jnxCmCfgChgLatestSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgLatestSource.setStatus("current")
+_JnxCmCfgChgLatestUser_Type = DisplayString
+_JnxCmCfgChgLatestUser_Object = MibScalar
+jnxCmCfgChgLatestUser = _JnxCmCfgChgLatestUser_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 5),
+    _JnxCmCfgChgLatestUser_Type()
+)
+jnxCmCfgChgLatestUser.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgLatestUser.setStatus("current")
+
+
+class _JnxCmCfgChgMaxEventEntries_Type(Integer32):
+    """Custom type jnxCmCfgChgMaxEventEntries based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_JnxCmCfgChgMaxEventEntries_Type.__name__ = "Integer32"
+_JnxCmCfgChgMaxEventEntries_Object = MibScalar
+jnxCmCfgChgMaxEventEntries = _JnxCmCfgChgMaxEventEntries_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 6),
+    _JnxCmCfgChgMaxEventEntries_Type()
+)
+jnxCmCfgChgMaxEventEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgMaxEventEntries.setStatus("current")
+_JnxCmCfgChgEventTable_Object = MibTable
+jnxCmCfgChgEventTable = _JnxCmCfgChgEventTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7)
+)
+if mibBuilder.loadTexts:
+    jnxCmCfgChgEventTable.setStatus("current")
+_JnxCmCfgChgEventEntry_Object = MibTableRow
+jnxCmCfgChgEventEntry = _JnxCmCfgChgEventEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1)
+)
+jnxCmCfgChgEventEntry.setIndexNames(
+    (0, "JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventIndex"),
+)
+if mibBuilder.loadTexts:
+    jnxCmCfgChgEventEntry.setStatus("current")
+
+
+class _JnxCmCfgChgEventIndex_Type(Integer32):
+    """Custom type jnxCmCfgChgEventIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_JnxCmCfgChgEventIndex_Type.__name__ = "Integer32"
+_JnxCmCfgChgEventIndex_Object = MibTableColumn
+jnxCmCfgChgEventIndex = _JnxCmCfgChgEventIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 1),
+    _JnxCmCfgChgEventIndex_Type()
+)
+jnxCmCfgChgEventIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgEventIndex.setStatus("current")
+_JnxCmCfgChgEventTime_Type = TimeTicks
+_JnxCmCfgChgEventTime_Object = MibTableColumn
+jnxCmCfgChgEventTime = _JnxCmCfgChgEventTime_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 2),
+    _JnxCmCfgChgEventTime_Type()
+)
+jnxCmCfgChgEventTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgEventTime.setStatus("current")
+_JnxCmCfgChgEventDate_Type = DateAndTime
+_JnxCmCfgChgEventDate_Object = MibTableColumn
+jnxCmCfgChgEventDate = _JnxCmCfgChgEventDate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 3),
+    _JnxCmCfgChgEventDate_Type()
+)
+jnxCmCfgChgEventDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgEventDate.setStatus("current")
+_JnxCmCfgChgEventSource_Type = JnxCmCfChgSource
+_JnxCmCfgChgEventSource_Object = MibTableColumn
+jnxCmCfgChgEventSource = _JnxCmCfgChgEventSource_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 4),
+    _JnxCmCfgChgEventSource_Type()
+)
+jnxCmCfgChgEventSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgEventSource.setStatus("current")
+_JnxCmCfgChgEventUser_Type = DisplayString
+_JnxCmCfgChgEventUser_Object = MibTableColumn
+jnxCmCfgChgEventUser = _JnxCmCfgChgEventUser_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 5),
+    _JnxCmCfgChgEventUser_Type()
+)
+jnxCmCfgChgEventUser.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgEventUser.setStatus("current")
+_JnxCmCfgChgEventLog_Type = DisplayString
+_JnxCmCfgChgEventLog_Object = MibTableColumn
+jnxCmCfgChgEventLog = _JnxCmCfgChgEventLog_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 1, 7, 1, 6),
+    _JnxCmCfgChgEventLog_Type()
+)
+jnxCmCfgChgEventLog.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmCfgChgEventLog.setStatus("current")
+_JnxCmRescueChg_ObjectIdentity = ObjectIdentity
+jnxCmRescueChg = _JnxCmRescueChg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 2)
+)
+_JnxCmRescueChgTime_Type = TimeTicks
+_JnxCmRescueChgTime_Object = MibScalar
+jnxCmRescueChgTime = _JnxCmRescueChgTime_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 2, 1),
+    _JnxCmRescueChgTime_Type()
+)
+jnxCmRescueChgTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmRescueChgTime.setStatus("current")
+_JnxCmRescueChgDate_Type = DateAndTime
+_JnxCmRescueChgDate_Object = MibScalar
+jnxCmRescueChgDate = _JnxCmRescueChgDate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 2, 2),
+    _JnxCmRescueChgDate_Type()
+)
+jnxCmRescueChgDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmRescueChgDate.setStatus("current")
+_JnxCmRescueChgSource_Type = JnxCmCfChgSource
+_JnxCmRescueChgSource_Object = MibScalar
+jnxCmRescueChgSource = _JnxCmRescueChgSource_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 2, 3),
+    _JnxCmRescueChgSource_Type()
+)
+jnxCmRescueChgSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmRescueChgSource.setStatus("current")
+_JnxCmRescueChgUser_Type = DisplayString
+_JnxCmRescueChgUser_Object = MibScalar
+jnxCmRescueChgUser = _JnxCmRescueChgUser_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 2, 4),
+    _JnxCmRescueChgUser_Type()
+)
+jnxCmRescueChgUser.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmRescueChgUser.setStatus("current")
+_JnxCmRescueChgState_Type = JnxCmRescueCfgState
+_JnxCmRescueChgState_Object = MibScalar
+jnxCmRescueChgState = _JnxCmRescueChgState_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 18, 2, 5),
+    _JnxCmRescueChgState_Type()
+)
+jnxCmRescueChgState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxCmRescueChgState.setStatus("current")
+_JnxCmNotificationsPrefix_ObjectIdentity = ObjectIdentity
+jnxCmNotificationsPrefix = _JnxCmNotificationsPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 4, 5, 0)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+jnxCmCfgChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 4, 5, 0, 1)
+)
+jnxCmCfgChange.setObjects(
+      *(("JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventTime"),
+        ("JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventDate"),
+        ("JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventSource"),
+        ("JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventUser"),
+        ("JUNIPER-CFGMGMT-MIB", "jnxCmCfgChgEventLog"))
+)
+if mibBuilder.loadTexts:
+    jnxCmCfgChange.setStatus(
+        "current"
+    )
+
+jnxCmRescueChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 4, 5, 0, 2)
+)
+jnxCmRescueChange.setObjects(
+      *(("JUNIPER-CFGMGMT-MIB", "jnxCmRescueChgTime"),
+        ("JUNIPER-CFGMGMT-MIB", "jnxCmRescueChgDate"),
+        ("JUNIPER-CFGMGMT-MIB", "jnxCmRescueChgSource"),
+        ("JUNIPER-CFGMGMT-MIB", "jnxCmRescueChgUser"),
+        ("JUNIPER-CFGMGMT-MIB", "jnxCmRescueChgState"))
+)
+if mibBuilder.loadTexts:
+    jnxCmRescueChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "JUNIPER-CFGMGMT-MIB",
+    **{"JnxCmCfChgSource": JnxCmCfChgSource,
+       "JnxCmRescueCfgState": JnxCmRescueCfgState,
+       "jnxCfgMgmt": jnxCfgMgmt,
+       "jnxCmCfgChg": jnxCmCfgChg,
+       "jnxCmCfgChgLatestIndex": jnxCmCfgChgLatestIndex,
+       "jnxCmCfgChgLatestTime": jnxCmCfgChgLatestTime,
+       "jnxCmCfgChgLatestDate": jnxCmCfgChgLatestDate,
+       "jnxCmCfgChgLatestSource": jnxCmCfgChgLatestSource,
+       "jnxCmCfgChgLatestUser": jnxCmCfgChgLatestUser,
+       "jnxCmCfgChgMaxEventEntries": jnxCmCfgChgMaxEventEntries,
+       "jnxCmCfgChgEventTable": jnxCmCfgChgEventTable,
+       "jnxCmCfgChgEventEntry": jnxCmCfgChgEventEntry,
+       "jnxCmCfgChgEventIndex": jnxCmCfgChgEventIndex,
+       "jnxCmCfgChgEventTime": jnxCmCfgChgEventTime,
+       "jnxCmCfgChgEventDate": jnxCmCfgChgEventDate,
+       "jnxCmCfgChgEventSource": jnxCmCfgChgEventSource,
+       "jnxCmCfgChgEventUser": jnxCmCfgChgEventUser,
+       "jnxCmCfgChgEventLog": jnxCmCfgChgEventLog,
+       "jnxCmRescueChg": jnxCmRescueChg,
+       "jnxCmRescueChgTime": jnxCmRescueChgTime,
+       "jnxCmRescueChgDate": jnxCmRescueChgDate,
+       "jnxCmRescueChgSource": jnxCmRescueChgSource,
+       "jnxCmRescueChgUser": jnxCmRescueChgUser,
+       "jnxCmRescueChgState": jnxCmRescueChgState,
+       "jnxCmNotificationsPrefix": jnxCmNotificationsPrefix,
+       "jnxCmCfgChange": jnxCmCfgChange,
+       "jnxCmRescueChange": jnxCmRescueChange}
+)

@@ -1,55 +1,482 @@
+# SNMP MIB module (MX-LQOS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MX-LQOS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/media5/MX-LQOS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:05:57 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/media5/MX-LQOS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:06:35 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-mediatrixServices, = mibBuilder.importSymbols("MX-SMI2", "mediatrixServices")
-MxActivationState, MxAdvancedIpPort, MxIpPort, MxDigitMap, MxEnableState, MxIpSubnetMask, MxIpHostName, MxIpAddress = mibBuilder.importSymbols("MX-TC", "MxActivationState", "MxAdvancedIpPort", "MxIpPort", "MxDigitMap", "MxEnableState", "MxIpSubnetMask", "MxIpHostName", "MxIpAddress")
-MxUrl, MxUInt64, MxIpAddr, MxIpAddrMask, MxUri, MxIpAddrPort, MxFloat32, MxIpHostNamePort = mibBuilder.importSymbols("MX-TC2", "MxUrl", "MxUInt64", "MxIpAddr", "MxIpAddrMask", "MxUri", "MxIpAddrPort", "MxFloat32", "MxIpHostNamePort")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-lQosMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500))
-if mibBuilder.loadTexts: lQosMIB.setLastUpdated('1910210000Z')
-if mibBuilder.loadTexts: lQosMIB.setOrganization(' Mediatrix Telecom, Inc. ')
-lQosMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1))
-defaultDiffServ = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 100), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(184)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: defaultDiffServ.setStatus('current')
-defaultTrafficClass = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 150), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: defaultTrafficClass.setStatus('current')
-ethernet8021QTaggingTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 200), )
-if mibBuilder.loadTexts: ethernet8021QTaggingTable.setStatus('current')
-ethernet8021QTaggingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 200, 1), ).setIndexNames((0, "MX-LQOS-MIB", "ethernet8021QTaggingInterfaceName"))
-if mibBuilder.loadTexts: ethernet8021QTaggingEntry.setStatus('current')
-ethernet8021QTaggingInterfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 200, 1, 100), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ethernet8021QTaggingInterfaceName.setStatus('current')
-ethernet8021QTaggingEnablePriorityTagging = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 200, 1, 200), MxEnableState().clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ethernet8021QTaggingEnablePriorityTagging.setStatus('current')
-ethernet8021QTaggingDefaultUserPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 200, 1, 300), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ethernet8021QTaggingDefaultUserPriority.setStatus('current')
-serviceClassesTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300), )
-if mibBuilder.loadTexts: serviceClassesTable.setStatus('current')
-serviceClassesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1), ).setIndexNames((0, "MX-LQOS-MIB", "serviceClassesId"))
-if mibBuilder.loadTexts: serviceClassesEntry.setStatus('current')
-serviceClassesId = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1, 100), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: serviceClassesId.setStatus('current')
-serviceClassesDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1, 200), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: serviceClassesDescription.setStatus('current')
-serviceClassesDiffServ = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1, 300), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(184)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: serviceClassesDiffServ.setStatus('current')
-serviceClassesTrafficClass = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1, 350), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: serviceClassesTrafficClass.setStatus('current')
-serviceClassesUserPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1, 400), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)).clone(6)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: serviceClassesUserPriority.setStatus('current')
-notificationsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 60010))
-minSeverity = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 60010, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100, 200, 300, 400, 500))).clone(namedValues=NamedValues(("disable", 0), ("debug", 100), ("info", 200), ("warning", 300), ("error", 400), ("critical", 500))).clone('warning')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: minSeverity.setStatus('current')
-configurationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 60020))
-needRestartInfo = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 60020, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100))).clone(namedValues=NamedValues(("no", 0), ("yes", 100)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: needRestartInfo.setStatus('current')
-mibBuilder.exportSymbols("MX-LQOS-MIB", PYSNMP_MODULE_ID=lQosMIB, ethernet8021QTaggingInterfaceName=ethernet8021QTaggingInterfaceName, serviceClassesDescription=serviceClassesDescription, lQosMIB=lQosMIB, ethernet8021QTaggingEnablePriorityTagging=ethernet8021QTaggingEnablePriorityTagging, serviceClassesUserPriority=serviceClassesUserPriority, serviceClassesTrafficClass=serviceClassesTrafficClass, ethernet8021QTaggingTable=ethernet8021QTaggingTable, defaultDiffServ=defaultDiffServ, ethernet8021QTaggingEntry=ethernet8021QTaggingEntry, defaultTrafficClass=defaultTrafficClass, ethernet8021QTaggingDefaultUserPriority=ethernet8021QTaggingDefaultUserPriority, lQosMIBObjects=lQosMIBObjects, serviceClassesTable=serviceClassesTable, notificationsGroup=notificationsGroup, configurationGroup=configurationGroup, needRestartInfo=needRestartInfo, serviceClassesDiffServ=serviceClassesDiffServ, minSeverity=minSeverity, serviceClassesId=serviceClassesId, serviceClassesEntry=serviceClassesEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(mediatrixServices,) = mibBuilder.importSymbols(
+    "MX-SMI2",
+    "mediatrixServices")
+
+(MxActivationState,
+ MxAdvancedIpPort,
+ MxDigitMap,
+ MxEnableState,
+ MxIpAddress,
+ MxIpHostName,
+ MxIpPort,
+ MxIpSubnetMask) = mibBuilder.importSymbols(
+    "MX-TC",
+    "MxActivationState",
+    "MxAdvancedIpPort",
+    "MxDigitMap",
+    "MxEnableState",
+    "MxIpAddress",
+    "MxIpHostName",
+    "MxIpPort",
+    "MxIpSubnetMask")
+
+(MxFloat32,
+ MxIpAddr,
+ MxIpAddrMask,
+ MxIpAddrPort,
+ MxIpHostNamePort,
+ MxUInt64,
+ MxUri,
+ MxUrl) = mibBuilder.importSymbols(
+    "MX-TC2",
+    "MxFloat32",
+    "MxIpAddr",
+    "MxIpAddrMask",
+    "MxIpAddrPort",
+    "MxIpHostNamePort",
+    "MxUInt64",
+    "MxUri",
+    "MxUrl")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+lQosMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_LQosMIBObjects_ObjectIdentity = ObjectIdentity
+lQosMIBObjects = _LQosMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1)
+)
+
+
+class _DefaultDiffServ_Type(Unsigned32):
+    """Custom type defaultDiffServ based on Unsigned32"""
+    defaultValue = 184
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_DefaultDiffServ_Type.__name__ = "Unsigned32"
+_DefaultDiffServ_Object = MibScalar
+defaultDiffServ = _DefaultDiffServ_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 100),
+    _DefaultDiffServ_Type()
+)
+defaultDiffServ.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    defaultDiffServ.setStatus("current")
+
+
+class _DefaultTrafficClass_Type(Unsigned32):
+    """Custom type defaultTrafficClass based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_DefaultTrafficClass_Type.__name__ = "Unsigned32"
+_DefaultTrafficClass_Object = MibScalar
+defaultTrafficClass = _DefaultTrafficClass_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 150),
+    _DefaultTrafficClass_Type()
+)
+defaultTrafficClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    defaultTrafficClass.setStatus("current")
+_Ethernet8021QTaggingTable_Object = MibTable
+ethernet8021QTaggingTable = _Ethernet8021QTaggingTable_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 200)
+)
+if mibBuilder.loadTexts:
+    ethernet8021QTaggingTable.setStatus("current")
+_Ethernet8021QTaggingEntry_Object = MibTableRow
+ethernet8021QTaggingEntry = _Ethernet8021QTaggingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 200, 1)
+)
+ethernet8021QTaggingEntry.setIndexNames(
+    (0, "MX-LQOS-MIB", "ethernet8021QTaggingInterfaceName"),
+)
+if mibBuilder.loadTexts:
+    ethernet8021QTaggingEntry.setStatus("current")
+_Ethernet8021QTaggingInterfaceName_Type = OctetString
+_Ethernet8021QTaggingInterfaceName_Object = MibTableColumn
+ethernet8021QTaggingInterfaceName = _Ethernet8021QTaggingInterfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 200, 1, 100),
+    _Ethernet8021QTaggingInterfaceName_Type()
+)
+ethernet8021QTaggingInterfaceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ethernet8021QTaggingInterfaceName.setStatus("current")
+
+
+class _Ethernet8021QTaggingEnablePriorityTagging_Type(MxEnableState):
+    """Custom type ethernet8021QTaggingEnablePriorityTagging based on MxEnableState"""
+    defaultValue = 0
+
+
+_Ethernet8021QTaggingEnablePriorityTagging_Type.__name__ = "MxEnableState"
+_Ethernet8021QTaggingEnablePriorityTagging_Object = MibTableColumn
+ethernet8021QTaggingEnablePriorityTagging = _Ethernet8021QTaggingEnablePriorityTagging_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 200, 1, 200),
+    _Ethernet8021QTaggingEnablePriorityTagging_Type()
+)
+ethernet8021QTaggingEnablePriorityTagging.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ethernet8021QTaggingEnablePriorityTagging.setStatus("current")
+
+
+class _Ethernet8021QTaggingDefaultUserPriority_Type(Unsigned32):
+    """Custom type ethernet8021QTaggingDefaultUserPriority based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Ethernet8021QTaggingDefaultUserPriority_Type.__name__ = "Unsigned32"
+_Ethernet8021QTaggingDefaultUserPriority_Object = MibTableColumn
+ethernet8021QTaggingDefaultUserPriority = _Ethernet8021QTaggingDefaultUserPriority_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 200, 1, 300),
+    _Ethernet8021QTaggingDefaultUserPriority_Type()
+)
+ethernet8021QTaggingDefaultUserPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ethernet8021QTaggingDefaultUserPriority.setStatus("current")
+_ServiceClassesTable_Object = MibTable
+serviceClassesTable = _ServiceClassesTable_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300)
+)
+if mibBuilder.loadTexts:
+    serviceClassesTable.setStatus("current")
+_ServiceClassesEntry_Object = MibTableRow
+serviceClassesEntry = _ServiceClassesEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1)
+)
+serviceClassesEntry.setIndexNames(
+    (0, "MX-LQOS-MIB", "serviceClassesId"),
+)
+if mibBuilder.loadTexts:
+    serviceClassesEntry.setStatus("current")
+_ServiceClassesId_Type = Unsigned32
+_ServiceClassesId_Object = MibTableColumn
+serviceClassesId = _ServiceClassesId_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1, 100),
+    _ServiceClassesId_Type()
+)
+serviceClassesId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    serviceClassesId.setStatus("current")
+
+
+class _ServiceClassesDescription_Type(OctetString):
+    """Custom type serviceClassesDescription based on OctetString"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+_ServiceClassesDescription_Type.__name__ = "OctetString"
+_ServiceClassesDescription_Object = MibTableColumn
+serviceClassesDescription = _ServiceClassesDescription_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1, 200),
+    _ServiceClassesDescription_Type()
+)
+serviceClassesDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    serviceClassesDescription.setStatus("current")
+
+
+class _ServiceClassesDiffServ_Type(Unsigned32):
+    """Custom type serviceClassesDiffServ based on Unsigned32"""
+    defaultValue = 184
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_ServiceClassesDiffServ_Type.__name__ = "Unsigned32"
+_ServiceClassesDiffServ_Object = MibTableColumn
+serviceClassesDiffServ = _ServiceClassesDiffServ_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1, 300),
+    _ServiceClassesDiffServ_Type()
+)
+serviceClassesDiffServ.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    serviceClassesDiffServ.setStatus("current")
+
+
+class _ServiceClassesTrafficClass_Type(Unsigned32):
+    """Custom type serviceClassesTrafficClass based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_ServiceClassesTrafficClass_Type.__name__ = "Unsigned32"
+_ServiceClassesTrafficClass_Object = MibTableColumn
+serviceClassesTrafficClass = _ServiceClassesTrafficClass_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1, 350),
+    _ServiceClassesTrafficClass_Type()
+)
+serviceClassesTrafficClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    serviceClassesTrafficClass.setStatus("current")
+
+
+class _ServiceClassesUserPriority_Type(Unsigned32):
+    """Custom type serviceClassesUserPriority based on Unsigned32"""
+    defaultValue = 6
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_ServiceClassesUserPriority_Type.__name__ = "Unsigned32"
+_ServiceClassesUserPriority_Object = MibTableColumn
+serviceClassesUserPriority = _ServiceClassesUserPriority_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 300, 1, 400),
+    _ServiceClassesUserPriority_Type()
+)
+serviceClassesUserPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    serviceClassesUserPriority.setStatus("current")
+_NotificationsGroup_ObjectIdentity = ObjectIdentity
+notificationsGroup = _NotificationsGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 60010)
+)
+
+
+class _MinSeverity_Type(Integer32):
+    """Custom type minSeverity based on Integer32"""
+    defaultValue = 300
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              100,
+              200,
+              300,
+              400,
+              500)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("debug", 100),
+          ("info", 200),
+          ("warning", 300),
+          ("error", 400),
+          ("critical", 500))
+    )
+
+
+_MinSeverity_Type.__name__ = "Integer32"
+_MinSeverity_Object = MibScalar
+minSeverity = _MinSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 60010, 100),
+    _MinSeverity_Type()
+)
+minSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    minSeverity.setStatus("current")
+_ConfigurationGroup_ObjectIdentity = ObjectIdentity
+configurationGroup = _ConfigurationGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 60020)
+)
+
+
+class _NeedRestartInfo_Type(Integer32):
+    """Custom type needRestartInfo based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              100)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 100))
+    )
+
+
+_NeedRestartInfo_Type.__name__ = "Integer32"
+_NeedRestartInfo_Object = MibScalar
+needRestartInfo = _NeedRestartInfo_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2500, 1, 60020, 100),
+    _NeedRestartInfo_Type()
+)
+needRestartInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    needRestartInfo.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MX-LQOS-MIB",
+    **{"lQosMIB": lQosMIB,
+       "lQosMIBObjects": lQosMIBObjects,
+       "defaultDiffServ": defaultDiffServ,
+       "defaultTrafficClass": defaultTrafficClass,
+       "ethernet8021QTaggingTable": ethernet8021QTaggingTable,
+       "ethernet8021QTaggingEntry": ethernet8021QTaggingEntry,
+       "ethernet8021QTaggingInterfaceName": ethernet8021QTaggingInterfaceName,
+       "ethernet8021QTaggingEnablePriorityTagging": ethernet8021QTaggingEnablePriorityTagging,
+       "ethernet8021QTaggingDefaultUserPriority": ethernet8021QTaggingDefaultUserPriority,
+       "serviceClassesTable": serviceClassesTable,
+       "serviceClassesEntry": serviceClassesEntry,
+       "serviceClassesId": serviceClassesId,
+       "serviceClassesDescription": serviceClassesDescription,
+       "serviceClassesDiffServ": serviceClassesDiffServ,
+       "serviceClassesTrafficClass": serviceClassesTrafficClass,
+       "serviceClassesUserPriority": serviceClassesUserPriority,
+       "notificationsGroup": notificationsGroup,
+       "minSeverity": minSeverity,
+       "configurationGroup": configurationGroup,
+       "needRestartInfo": needRestartInfo}
+)

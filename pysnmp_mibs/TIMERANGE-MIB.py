@@ -1,55 +1,394 @@
+# SNMP MIB module (TIMERANGE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TIMERANGE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/TIMERANGE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:26 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/TIMERANGE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:13:07 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "DisplayString")
-swTimeRangeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 50))
-if mibBuilder.loadTexts: swTimeRangeMIB.setLastUpdated('0811200000Z')
-if mibBuilder.loadTexts: swTimeRangeMIB.setOrganization('D-Link Corp.')
-swTimeRangeCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 50, 1))
-swTimeRangeInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 50, 2))
-swTimeRangeMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 50, 3))
-swTimeRangeMgmtTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1), )
-if mibBuilder.loadTexts: swTimeRangeMgmtTable.setStatus('current')
-swTimeRangeMgmtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1), ).setIndexNames((0, "TIMERANGE-MIB", "swTimeRangeMgmtRangeName"))
-if mibBuilder.loadTexts: swTimeRangeMgmtEntry.setStatus('current')
-swTimeRangeMgmtRangeName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swTimeRangeMgmtRangeName.setStatus('current')
-swTimeRangeMgmtSelectDays = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swTimeRangeMgmtSelectDays.setStatus('current')
-swTimeRangeMgmtStartTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swTimeRangeMgmtStartTime.setStatus('current')
-swTimeRangeMgmtEndTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swTimeRangeMgmtEndTime.setStatus('current')
-swTimeRangeMgmtStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swTimeRangeMgmtStatus.setStatus('current')
-swTimeRangeACLTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 2), )
-if mibBuilder.loadTexts: swTimeRangeACLTable.setStatus('current')
-swTimeRangeACLEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 2, 1), ).setIndexNames((0, "TIMERANGE-MIB", "swTimeRangeACLProfileID"), (0, "TIMERANGE-MIB", "swTimeRangeACLAccessID"))
-if mibBuilder.loadTexts: swTimeRangeACLEntry.setStatus('current')
-swTimeRangeACLProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swTimeRangeACLProfileID.setStatus('current')
-swTimeRangeACLAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swTimeRangeACLAccessID.setStatus('current')
-swTimeRangeACLTimeRangeName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swTimeRangeACLTimeRangeName.setStatus('current')
-swTimeRangeCPUACLTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 3), )
-if mibBuilder.loadTexts: swTimeRangeCPUACLTable.setStatus('current')
-swTimeRangeCPUACLEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 3, 1), ).setIndexNames((0, "TIMERANGE-MIB", "swTimeRangeCPUACLProfileID"), (0, "TIMERANGE-MIB", "swTimeRangeCPUACLAccessID"))
-if mibBuilder.loadTexts: swTimeRangeCPUACLEntry.setStatus('current')
-swTimeRangeCPUACLProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swTimeRangeCPUACLProfileID.setStatus('current')
-swTimeRangeCPUACLAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swTimeRangeCPUACLAccessID.setStatus('current')
-swTimeRangeCPUACLTimeRangeName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swTimeRangeCPUACLTimeRangeName.setStatus('current')
-mibBuilder.exportSymbols("TIMERANGE-MIB", swTimeRangeInfo=swTimeRangeInfo, swTimeRangeMgmtRangeName=swTimeRangeMgmtRangeName, swTimeRangeACLEntry=swTimeRangeACLEntry, swTimeRangeMgmtSelectDays=swTimeRangeMgmtSelectDays, swTimeRangeACLTimeRangeName=swTimeRangeACLTimeRangeName, swTimeRangeMgmtEndTime=swTimeRangeMgmtEndTime, swTimeRangeCtrl=swTimeRangeCtrl, swTimeRangeCPUACLEntry=swTimeRangeCPUACLEntry, swTimeRangeCPUACLTimeRangeName=swTimeRangeCPUACLTimeRangeName, swTimeRangeMgmtStartTime=swTimeRangeMgmtStartTime, swTimeRangeMgmtTable=swTimeRangeMgmtTable, swTimeRangeMIB=swTimeRangeMIB, swTimeRangeMgmtEntry=swTimeRangeMgmtEntry, swTimeRangeMgmtStatus=swTimeRangeMgmtStatus, swTimeRangeMgmt=swTimeRangeMgmt, PYSNMP_MODULE_ID=swTimeRangeMIB, swTimeRangeACLTable=swTimeRangeACLTable, swTimeRangeCPUACLProfileID=swTimeRangeCPUACLProfileID, swTimeRangeCPUACLAccessID=swTimeRangeCPUACLAccessID, swTimeRangeACLAccessID=swTimeRangeACLAccessID, swTimeRangeCPUACLTable=swTimeRangeCPUACLTable, swTimeRangeACLProfileID=swTimeRangeACLProfileID)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_common_mgmt,) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-common-mgmt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+swTimeRangeMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SwTimeRangeCtrl_ObjectIdentity = ObjectIdentity
+swTimeRangeCtrl = _SwTimeRangeCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 1)
+)
+_SwTimeRangeInfo_ObjectIdentity = ObjectIdentity
+swTimeRangeInfo = _SwTimeRangeInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 2)
+)
+_SwTimeRangeMgmt_ObjectIdentity = ObjectIdentity
+swTimeRangeMgmt = _SwTimeRangeMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3)
+)
+_SwTimeRangeMgmtTable_Object = MibTable
+swTimeRangeMgmtTable = _SwTimeRangeMgmtTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1)
+)
+if mibBuilder.loadTexts:
+    swTimeRangeMgmtTable.setStatus("current")
+_SwTimeRangeMgmtEntry_Object = MibTableRow
+swTimeRangeMgmtEntry = _SwTimeRangeMgmtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1)
+)
+swTimeRangeMgmtEntry.setIndexNames(
+    (0, "TIMERANGE-MIB", "swTimeRangeMgmtRangeName"),
+)
+if mibBuilder.loadTexts:
+    swTimeRangeMgmtEntry.setStatus("current")
+
+
+class _SwTimeRangeMgmtRangeName_Type(DisplayString):
+    """Custom type swTimeRangeMgmtRangeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwTimeRangeMgmtRangeName_Type.__name__ = "DisplayString"
+_SwTimeRangeMgmtRangeName_Object = MibTableColumn
+swTimeRangeMgmtRangeName = _SwTimeRangeMgmtRangeName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1, 1),
+    _SwTimeRangeMgmtRangeName_Type()
+)
+swTimeRangeMgmtRangeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swTimeRangeMgmtRangeName.setStatus("current")
+_SwTimeRangeMgmtSelectDays_Type = DisplayString
+_SwTimeRangeMgmtSelectDays_Object = MibTableColumn
+swTimeRangeMgmtSelectDays = _SwTimeRangeMgmtSelectDays_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1, 2),
+    _SwTimeRangeMgmtSelectDays_Type()
+)
+swTimeRangeMgmtSelectDays.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swTimeRangeMgmtSelectDays.setStatus("current")
+
+
+class _SwTimeRangeMgmtStartTime_Type(DisplayString):
+    """Custom type swTimeRangeMgmtStartTime based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_SwTimeRangeMgmtStartTime_Type.__name__ = "DisplayString"
+_SwTimeRangeMgmtStartTime_Object = MibTableColumn
+swTimeRangeMgmtStartTime = _SwTimeRangeMgmtStartTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1, 3),
+    _SwTimeRangeMgmtStartTime_Type()
+)
+swTimeRangeMgmtStartTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swTimeRangeMgmtStartTime.setStatus("current")
+
+
+class _SwTimeRangeMgmtEndTime_Type(DisplayString):
+    """Custom type swTimeRangeMgmtEndTime based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_SwTimeRangeMgmtEndTime_Type.__name__ = "DisplayString"
+_SwTimeRangeMgmtEndTime_Object = MibTableColumn
+swTimeRangeMgmtEndTime = _SwTimeRangeMgmtEndTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1, 4),
+    _SwTimeRangeMgmtEndTime_Type()
+)
+swTimeRangeMgmtEndTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swTimeRangeMgmtEndTime.setStatus("current")
+_SwTimeRangeMgmtStatus_Type = RowStatus
+_SwTimeRangeMgmtStatus_Object = MibTableColumn
+swTimeRangeMgmtStatus = _SwTimeRangeMgmtStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 1, 1, 5),
+    _SwTimeRangeMgmtStatus_Type()
+)
+swTimeRangeMgmtStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swTimeRangeMgmtStatus.setStatus("current")
+_SwTimeRangeACLTable_Object = MibTable
+swTimeRangeACLTable = _SwTimeRangeACLTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 2)
+)
+if mibBuilder.loadTexts:
+    swTimeRangeACLTable.setStatus("current")
+_SwTimeRangeACLEntry_Object = MibTableRow
+swTimeRangeACLEntry = _SwTimeRangeACLEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 2, 1)
+)
+swTimeRangeACLEntry.setIndexNames(
+    (0, "TIMERANGE-MIB", "swTimeRangeACLProfileID"),
+    (0, "TIMERANGE-MIB", "swTimeRangeACLAccessID"),
+)
+if mibBuilder.loadTexts:
+    swTimeRangeACLEntry.setStatus("current")
+_SwTimeRangeACLProfileID_Type = Integer32
+_SwTimeRangeACLProfileID_Object = MibTableColumn
+swTimeRangeACLProfileID = _SwTimeRangeACLProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 2, 1, 1),
+    _SwTimeRangeACLProfileID_Type()
+)
+swTimeRangeACLProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swTimeRangeACLProfileID.setStatus("current")
+
+
+class _SwTimeRangeACLAccessID_Type(Integer32):
+    """Custom type swTimeRangeACLAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwTimeRangeACLAccessID_Type.__name__ = "Integer32"
+_SwTimeRangeACLAccessID_Object = MibTableColumn
+swTimeRangeACLAccessID = _SwTimeRangeACLAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 2, 1, 2),
+    _SwTimeRangeACLAccessID_Type()
+)
+swTimeRangeACLAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swTimeRangeACLAccessID.setStatus("current")
+
+
+class _SwTimeRangeACLTimeRangeName_Type(DisplayString):
+    """Custom type swTimeRangeACLTimeRangeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SwTimeRangeACLTimeRangeName_Type.__name__ = "DisplayString"
+_SwTimeRangeACLTimeRangeName_Object = MibTableColumn
+swTimeRangeACLTimeRangeName = _SwTimeRangeACLTimeRangeName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 2, 1, 3),
+    _SwTimeRangeACLTimeRangeName_Type()
+)
+swTimeRangeACLTimeRangeName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swTimeRangeACLTimeRangeName.setStatus("current")
+_SwTimeRangeCPUACLTable_Object = MibTable
+swTimeRangeCPUACLTable = _SwTimeRangeCPUACLTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 3)
+)
+if mibBuilder.loadTexts:
+    swTimeRangeCPUACLTable.setStatus("current")
+_SwTimeRangeCPUACLEntry_Object = MibTableRow
+swTimeRangeCPUACLEntry = _SwTimeRangeCPUACLEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 3, 1)
+)
+swTimeRangeCPUACLEntry.setIndexNames(
+    (0, "TIMERANGE-MIB", "swTimeRangeCPUACLProfileID"),
+    (0, "TIMERANGE-MIB", "swTimeRangeCPUACLAccessID"),
+)
+if mibBuilder.loadTexts:
+    swTimeRangeCPUACLEntry.setStatus("current")
+_SwTimeRangeCPUACLProfileID_Type = Integer32
+_SwTimeRangeCPUACLProfileID_Object = MibTableColumn
+swTimeRangeCPUACLProfileID = _SwTimeRangeCPUACLProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 3, 1, 1),
+    _SwTimeRangeCPUACLProfileID_Type()
+)
+swTimeRangeCPUACLProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swTimeRangeCPUACLProfileID.setStatus("current")
+
+
+class _SwTimeRangeCPUACLAccessID_Type(Integer32):
+    """Custom type swTimeRangeCPUACLAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwTimeRangeCPUACLAccessID_Type.__name__ = "Integer32"
+_SwTimeRangeCPUACLAccessID_Object = MibTableColumn
+swTimeRangeCPUACLAccessID = _SwTimeRangeCPUACLAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 3, 1, 2),
+    _SwTimeRangeCPUACLAccessID_Type()
+)
+swTimeRangeCPUACLAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swTimeRangeCPUACLAccessID.setStatus("current")
+
+
+class _SwTimeRangeCPUACLTimeRangeName_Type(DisplayString):
+    """Custom type swTimeRangeCPUACLTimeRangeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SwTimeRangeCPUACLTimeRangeName_Type.__name__ = "DisplayString"
+_SwTimeRangeCPUACLTimeRangeName_Object = MibTableColumn
+swTimeRangeCPUACLTimeRangeName = _SwTimeRangeCPUACLTimeRangeName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 50, 3, 3, 1, 3),
+    _SwTimeRangeCPUACLTimeRangeName_Type()
+)
+swTimeRangeCPUACLTimeRangeName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swTimeRangeCPUACLTimeRangeName.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TIMERANGE-MIB",
+    **{"swTimeRangeMIB": swTimeRangeMIB,
+       "swTimeRangeCtrl": swTimeRangeCtrl,
+       "swTimeRangeInfo": swTimeRangeInfo,
+       "swTimeRangeMgmt": swTimeRangeMgmt,
+       "swTimeRangeMgmtTable": swTimeRangeMgmtTable,
+       "swTimeRangeMgmtEntry": swTimeRangeMgmtEntry,
+       "swTimeRangeMgmtRangeName": swTimeRangeMgmtRangeName,
+       "swTimeRangeMgmtSelectDays": swTimeRangeMgmtSelectDays,
+       "swTimeRangeMgmtStartTime": swTimeRangeMgmtStartTime,
+       "swTimeRangeMgmtEndTime": swTimeRangeMgmtEndTime,
+       "swTimeRangeMgmtStatus": swTimeRangeMgmtStatus,
+       "swTimeRangeACLTable": swTimeRangeACLTable,
+       "swTimeRangeACLEntry": swTimeRangeACLEntry,
+       "swTimeRangeACLProfileID": swTimeRangeACLProfileID,
+       "swTimeRangeACLAccessID": swTimeRangeACLAccessID,
+       "swTimeRangeACLTimeRangeName": swTimeRangeACLTimeRangeName,
+       "swTimeRangeCPUACLTable": swTimeRangeCPUACLTable,
+       "swTimeRangeCPUACLEntry": swTimeRangeCPUACLEntry,
+       "swTimeRangeCPUACLProfileID": swTimeRangeCPUACLProfileID,
+       "swTimeRangeCPUACLAccessID": swTimeRangeCPUACLAccessID,
+       "swTimeRangeCPUACLTimeRangeName": swTimeRangeCPUACLTimeRangeName}
+)

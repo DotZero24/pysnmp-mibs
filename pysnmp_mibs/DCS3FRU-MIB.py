@@ -1,68 +1,454 @@
+# SNMP MIB module (DCS3FRU-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DCS3FRU-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/dell/DCS3FRU-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:30 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/dell/DCS3FRU-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:09:50 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-dell = MibIdentifier((1, 3, 6, 1, 4, 1, 674))
-server3 = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10892))
-baseboardGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10892, 1))
-fruGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class DellObjectRange(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 128)
+    """Custom type DellObjectRange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+
+
 
 class DellUnsigned8BitRange(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 255)
+    """Custom type DellUnsigned8BitRange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+
+
 
 class DellUnsigned16BitRange(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
+    """Custom type DellUnsigned16BitRange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+
+
 
 class DellUnsigned32BitRange(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 4294967295)
+    """Custom type DellUnsigned32BitRange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+
+
 
 class DellDateName(DisplayString):
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(25, 25)
-    fixedLength = 25
+    """Custom type DellDateName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(25, 25),
+    )
+    fixed_length = 25
+
+
+
+
 
 class DellStatus(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("ok", 3), ("nonCritical", 4), ("critical", 5), ("nonRecoverable", 6))
+    """Custom type DellStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("unknown", 2),
+          ("ok", 3),
+          ("nonCritical", 4),
+          ("critical", 5),
+          ("nonRecoverable", 6))
+    )
+
+
+
+
 
 class DellFRUInformationState(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("ok", 1), ("notSupported", 2), ("notAvailable", 3), ("checksumInvalid", 4), ("corrupted", 5))
+    """Custom type DellFRUInformationState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 1),
+          ("notSupported", 2),
+          ("notAvailable", 3),
+          ("checksumInvalid", 4),
+          ("corrupted", 5))
+    )
 
-fruTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10), )
-if mibBuilder.loadTexts: fruTable.setStatus('mandatory')
-fruTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1), ).setIndexNames((0, "DCS3FRU-MIB", "fruChassisIndex"), (0, "DCS3FRU-MIB", "fruIndex"))
-if mibBuilder.loadTexts: fruTableEntry.setStatus('mandatory')
-fruChassisIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 1), DellObjectRange()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fruChassisIndex.setStatus('mandatory')
-fruIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 2), DellObjectRange()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fruIndex.setStatus('mandatory')
-fruInformationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 3), DellStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fruInformationStatus.setStatus('mandatory')
-fruInformationState = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 4), DellFRUInformationState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fruInformationState.setStatus('mandatory')
-fruDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fruDeviceName.setStatus('mandatory')
-fruManufacturerName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fruManufacturerName.setStatus('mandatory')
-fruSerialNumberName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fruSerialNumberName.setStatus('mandatory')
-fruPartNumberName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fruPartNumberName.setStatus('mandatory')
-fruRevisionName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fruRevisionName.setStatus('mandatory')
-fruManufacturingDateName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 10), DellDateName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fruManufacturingDateName.setStatus('mandatory')
-fruAssetTagName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fruAssetTagName.setStatus('mandatory')
-mibBuilder.exportSymbols("DCS3FRU-MIB", fruTable=fruTable, fruInformationState=fruInformationState, fruAssetTagName=fruAssetTagName, DellUnsigned8BitRange=DellUnsigned8BitRange, DellUnsigned32BitRange=DellUnsigned32BitRange, fruDeviceName=fruDeviceName, DellStatus=DellStatus, dell=dell, fruManufacturingDateName=fruManufacturingDateName, fruManufacturerName=fruManufacturerName, fruRevisionName=fruRevisionName, fruIndex=fruIndex, fruPartNumberName=fruPartNumberName, DellUnsigned16BitRange=DellUnsigned16BitRange, fruSerialNumberName=fruSerialNumberName, DellObjectRange=DellObjectRange, fruInformationStatus=fruInformationStatus, baseboardGroup=baseboardGroup, DellDateName=DellDateName, fruGroup=fruGroup, fruChassisIndex=fruChassisIndex, fruTableEntry=fruTableEntry, DellFRUInformationState=DellFRUInformationState, server3=server3)
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Dell_ObjectIdentity = ObjectIdentity
+dell = _Dell_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674)
+)
+_Server3_ObjectIdentity = ObjectIdentity
+server3 = _Server3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10892)
+)
+_BaseboardGroup_ObjectIdentity = ObjectIdentity
+baseboardGroup = _BaseboardGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1)
+)
+_FruGroup_ObjectIdentity = ObjectIdentity
+fruGroup = _FruGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000)
+)
+_FruTable_Object = MibTable
+fruTable = _FruTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10)
+)
+if mibBuilder.loadTexts:
+    fruTable.setStatus("mandatory")
+_FruTableEntry_Object = MibTableRow
+fruTableEntry = _FruTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1)
+)
+fruTableEntry.setIndexNames(
+    (0, "DCS3FRU-MIB", "fruChassisIndex"),
+    (0, "DCS3FRU-MIB", "fruIndex"),
+)
+if mibBuilder.loadTexts:
+    fruTableEntry.setStatus("mandatory")
+_FruChassisIndex_Type = DellObjectRange
+_FruChassisIndex_Object = MibTableColumn
+fruChassisIndex = _FruChassisIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 1),
+    _FruChassisIndex_Type()
+)
+fruChassisIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fruChassisIndex.setStatus("mandatory")
+_FruIndex_Type = DellObjectRange
+_FruIndex_Object = MibTableColumn
+fruIndex = _FruIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 2),
+    _FruIndex_Type()
+)
+fruIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fruIndex.setStatus("mandatory")
+_FruInformationStatus_Type = DellStatus
+_FruInformationStatus_Object = MibTableColumn
+fruInformationStatus = _FruInformationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 3),
+    _FruInformationStatus_Type()
+)
+fruInformationStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fruInformationStatus.setStatus("mandatory")
+_FruInformationState_Type = DellFRUInformationState
+_FruInformationState_Object = MibTableColumn
+fruInformationState = _FruInformationState_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 4),
+    _FruInformationState_Type()
+)
+fruInformationState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fruInformationState.setStatus("mandatory")
+
+
+class _FruDeviceName_Type(DisplayString):
+    """Custom type fruDeviceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_FruDeviceName_Type.__name__ = "DisplayString"
+_FruDeviceName_Object = MibTableColumn
+fruDeviceName = _FruDeviceName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 5),
+    _FruDeviceName_Type()
+)
+fruDeviceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fruDeviceName.setStatus("mandatory")
+
+
+class _FruManufacturerName_Type(DisplayString):
+    """Custom type fruManufacturerName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_FruManufacturerName_Type.__name__ = "DisplayString"
+_FruManufacturerName_Object = MibTableColumn
+fruManufacturerName = _FruManufacturerName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 6),
+    _FruManufacturerName_Type()
+)
+fruManufacturerName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fruManufacturerName.setStatus("mandatory")
+
+
+class _FruSerialNumberName_Type(DisplayString):
+    """Custom type fruSerialNumberName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_FruSerialNumberName_Type.__name__ = "DisplayString"
+_FruSerialNumberName_Object = MibTableColumn
+fruSerialNumberName = _FruSerialNumberName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 7),
+    _FruSerialNumberName_Type()
+)
+fruSerialNumberName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fruSerialNumberName.setStatus("mandatory")
+
+
+class _FruPartNumberName_Type(DisplayString):
+    """Custom type fruPartNumberName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_FruPartNumberName_Type.__name__ = "DisplayString"
+_FruPartNumberName_Object = MibTableColumn
+fruPartNumberName = _FruPartNumberName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 8),
+    _FruPartNumberName_Type()
+)
+fruPartNumberName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fruPartNumberName.setStatus("mandatory")
+
+
+class _FruRevisionName_Type(DisplayString):
+    """Custom type fruRevisionName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_FruRevisionName_Type.__name__ = "DisplayString"
+_FruRevisionName_Object = MibTableColumn
+fruRevisionName = _FruRevisionName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 9),
+    _FruRevisionName_Type()
+)
+fruRevisionName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fruRevisionName.setStatus("mandatory")
+_FruManufacturingDateName_Type = DellDateName
+_FruManufacturingDateName_Object = MibTableColumn
+fruManufacturingDateName = _FruManufacturingDateName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 10),
+    _FruManufacturingDateName_Type()
+)
+fruManufacturingDateName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fruManufacturingDateName.setStatus("mandatory")
+
+
+class _FruAssetTagName_Type(DisplayString):
+    """Custom type fruAssetTagName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_FruAssetTagName_Type.__name__ = "DisplayString"
+_FruAssetTagName_Object = MibTableColumn
+fruAssetTagName = _FruAssetTagName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10892, 1, 2000, 10, 1, 11),
+    _FruAssetTagName_Type()
+)
+fruAssetTagName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fruAssetTagName.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DCS3FRU-MIB",
+    **{"DellObjectRange": DellObjectRange,
+       "DellUnsigned8BitRange": DellUnsigned8BitRange,
+       "DellUnsigned16BitRange": DellUnsigned16BitRange,
+       "DellUnsigned32BitRange": DellUnsigned32BitRange,
+       "DellDateName": DellDateName,
+       "DellStatus": DellStatus,
+       "DellFRUInformationState": DellFRUInformationState,
+       "dell": dell,
+       "server3": server3,
+       "baseboardGroup": baseboardGroup,
+       "fruGroup": fruGroup,
+       "fruTable": fruTable,
+       "fruTableEntry": fruTableEntry,
+       "fruChassisIndex": fruChassisIndex,
+       "fruIndex": fruIndex,
+       "fruInformationStatus": fruInformationStatus,
+       "fruInformationState": fruInformationState,
+       "fruDeviceName": fruDeviceName,
+       "fruManufacturerName": fruManufacturerName,
+       "fruSerialNumberName": fruSerialNumberName,
+       "fruPartNumberName": fruPartNumberName,
+       "fruRevisionName": fruRevisionName,
+       "fruManufacturingDateName": fruManufacturingDateName,
+       "fruAssetTagName": fruAssetTagName}
+)

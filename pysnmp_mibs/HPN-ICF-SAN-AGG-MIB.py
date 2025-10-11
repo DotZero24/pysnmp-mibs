@@ -1,53 +1,330 @@
+# SNMP MIB module (HPN-ICF-SAN-AGG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-SAN-AGG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-SAN-AGG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:12 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HPN-ICF-SAN-AGG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:39:36 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hpnicfSan, = mibBuilder.importSymbols("HPN-ICF-VSAN-MIB", "hpnicfSan")
-ifDescr, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifDescr", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-hpnicfSanAgg = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2))
-hpnicfSanAgg.setRevisions(('2013-02-25 09:40',))
-if mibBuilder.loadTexts: hpnicfSanAgg.setLastUpdated('201302250940Z')
-if mibBuilder.loadTexts: hpnicfSanAgg.setOrganization('')
-class HpnicfMemberList(TextualConvention, OctetString):
-    status = 'current'
 
-hpnicfSanAggMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 1))
-hpnicfSanAggMaxMemberNumber = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfSanAggMaxMemberNumber.setStatus('current')
-hpnicfSanAggGroupTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2), )
-if mibBuilder.loadTexts: hpnicfSanAggGroupTable.setStatus('current')
-hpnicfSanAggGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1), ).setIndexNames((0, "HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupNumber"))
-if mibBuilder.loadTexts: hpnicfSanAggGroupEntry.setStatus('current')
-hpnicfSanAggGroupNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfSanAggGroupNumber.setStatus('current')
-hpnicfSanAggGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfSanAggGroupIndex.setStatus('current')
-hpnicfSanAggMemberList = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1, 3), HpnicfMemberList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfSanAggMemberList.setStatus('current')
-hpnicfSanAggMemberStateList = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1, 4), HpnicfMemberList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfSanAggMemberStateList.setStatus('current')
-hpnicfSanAggGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfSanAggGroupRowStatus.setStatus('current')
-hpnicfSanAggObjForNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 3))
-hpnicfSanAggGroupPreviousSpeed = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 3, 1), Integer32()).setUnits('gigabit bps').setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfSanAggGroupPreviousSpeed.setStatus('current')
-hpnicfSanAggGroupCurrentSpeed = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 3, 2), Integer32()).setUnits('gigabit bps').setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfSanAggGroupCurrentSpeed.setStatus('current')
-hpnicfSanAggNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 4))
-hpnicfSanAggNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 4, 0))
-hpnicfSanAggGroupSpeedChange = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 4, 0, 1)).setObjects(("HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupNumber"), ("HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupPreviousSpeed"), ("HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupCurrentSpeed"))
-if mibBuilder.loadTexts: hpnicfSanAggGroupSpeedChange.setStatus('current')
-hpnicfSanAggMemberInactive = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 4, 0, 2)).setObjects(("HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupNumber"), ("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
-if mibBuilder.loadTexts: hpnicfSanAggMemberInactive.setStatus('current')
-hpnicfSanAggMemberActive = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 4, 0, 3)).setObjects(("HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupNumber"), ("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
-if mibBuilder.loadTexts: hpnicfSanAggMemberActive.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-SAN-AGG-MIB", hpnicfSanAggGroupSpeedChange=hpnicfSanAggGroupSpeedChange, hpnicfSanAggGroupEntry=hpnicfSanAggGroupEntry, hpnicfSanAggNotificationPrefix=hpnicfSanAggNotificationPrefix, hpnicfSanAggMibObjects=hpnicfSanAggMibObjects, hpnicfSanAggNotifications=hpnicfSanAggNotifications, hpnicfSanAggGroupRowStatus=hpnicfSanAggGroupRowStatus, hpnicfSanAggMemberInactive=hpnicfSanAggMemberInactive, hpnicfSanAggGroupTable=hpnicfSanAggGroupTable, hpnicfSanAggGroupPreviousSpeed=hpnicfSanAggGroupPreviousSpeed, hpnicfSanAggObjForNotification=hpnicfSanAggObjForNotification, hpnicfSanAggMemberStateList=hpnicfSanAggMemberStateList, hpnicfSanAgg=hpnicfSanAgg, hpnicfSanAggMemberList=hpnicfSanAggMemberList, hpnicfSanAggGroupIndex=hpnicfSanAggGroupIndex, hpnicfSanAggMemberActive=hpnicfSanAggMemberActive, PYSNMP_MODULE_ID=hpnicfSanAgg, HpnicfMemberList=HpnicfMemberList, hpnicfSanAggGroupCurrentSpeed=hpnicfSanAggGroupCurrentSpeed, hpnicfSanAggMaxMemberNumber=hpnicfSanAggMaxMemberNumber, hpnicfSanAggGroupNumber=hpnicfSanAggGroupNumber)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpnicfSan,) = mibBuilder.importSymbols(
+    "HPN-ICF-VSAN-MIB",
+    "hpnicfSan")
+
+(ifDescr,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifDescr",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpnicfSanAgg = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2)
+)
+if mibBuilder.loadTexts:
+    hpnicfSanAgg.setRevisions(
+        ("2013-02-25 09:40",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class HpnicfMemberList(TextualConvention, OctetString):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfSanAggMibObjects_ObjectIdentity = ObjectIdentity
+hpnicfSanAggMibObjects = _HpnicfSanAggMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 1)
+)
+_HpnicfSanAggMaxMemberNumber_Type = Integer32
+_HpnicfSanAggMaxMemberNumber_Object = MibScalar
+hpnicfSanAggMaxMemberNumber = _HpnicfSanAggMaxMemberNumber_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 1, 1),
+    _HpnicfSanAggMaxMemberNumber_Type()
+)
+hpnicfSanAggMaxMemberNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfSanAggMaxMemberNumber.setStatus("current")
+_HpnicfSanAggGroupTable_Object = MibTable
+hpnicfSanAggGroupTable = _HpnicfSanAggGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2)
+)
+if mibBuilder.loadTexts:
+    hpnicfSanAggGroupTable.setStatus("current")
+_HpnicfSanAggGroupEntry_Object = MibTableRow
+hpnicfSanAggGroupEntry = _HpnicfSanAggGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1)
+)
+hpnicfSanAggGroupEntry.setIndexNames(
+    (0, "HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupNumber"),
+)
+if mibBuilder.loadTexts:
+    hpnicfSanAggGroupEntry.setStatus("current")
+
+
+class _HpnicfSanAggGroupNumber_Type(Integer32):
+    """Custom type hpnicfSanAggGroupNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpnicfSanAggGroupNumber_Type.__name__ = "Integer32"
+_HpnicfSanAggGroupNumber_Object = MibTableColumn
+hpnicfSanAggGroupNumber = _HpnicfSanAggGroupNumber_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1, 1),
+    _HpnicfSanAggGroupNumber_Type()
+)
+hpnicfSanAggGroupNumber.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfSanAggGroupNumber.setStatus("current")
+_HpnicfSanAggGroupIndex_Type = Integer32
+_HpnicfSanAggGroupIndex_Object = MibTableColumn
+hpnicfSanAggGroupIndex = _HpnicfSanAggGroupIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1, 2),
+    _HpnicfSanAggGroupIndex_Type()
+)
+hpnicfSanAggGroupIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfSanAggGroupIndex.setStatus("current")
+_HpnicfSanAggMemberList_Type = HpnicfMemberList
+_HpnicfSanAggMemberList_Object = MibTableColumn
+hpnicfSanAggMemberList = _HpnicfSanAggMemberList_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1, 3),
+    _HpnicfSanAggMemberList_Type()
+)
+hpnicfSanAggMemberList.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfSanAggMemberList.setStatus("current")
+_HpnicfSanAggMemberStateList_Type = HpnicfMemberList
+_HpnicfSanAggMemberStateList_Object = MibTableColumn
+hpnicfSanAggMemberStateList = _HpnicfSanAggMemberStateList_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1, 4),
+    _HpnicfSanAggMemberStateList_Type()
+)
+hpnicfSanAggMemberStateList.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfSanAggMemberStateList.setStatus("current")
+_HpnicfSanAggGroupRowStatus_Type = RowStatus
+_HpnicfSanAggGroupRowStatus_Object = MibTableColumn
+hpnicfSanAggGroupRowStatus = _HpnicfSanAggGroupRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 2, 1, 5),
+    _HpnicfSanAggGroupRowStatus_Type()
+)
+hpnicfSanAggGroupRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfSanAggGroupRowStatus.setStatus("current")
+_HpnicfSanAggObjForNotification_ObjectIdentity = ObjectIdentity
+hpnicfSanAggObjForNotification = _HpnicfSanAggObjForNotification_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 3)
+)
+_HpnicfSanAggGroupPreviousSpeed_Type = Integer32
+_HpnicfSanAggGroupPreviousSpeed_Object = MibScalar
+hpnicfSanAggGroupPreviousSpeed = _HpnicfSanAggGroupPreviousSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 3, 1),
+    _HpnicfSanAggGroupPreviousSpeed_Type()
+)
+hpnicfSanAggGroupPreviousSpeed.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfSanAggGroupPreviousSpeed.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfSanAggGroupPreviousSpeed.setUnits("gigabit bps")
+_HpnicfSanAggGroupCurrentSpeed_Type = Integer32
+_HpnicfSanAggGroupCurrentSpeed_Object = MibScalar
+hpnicfSanAggGroupCurrentSpeed = _HpnicfSanAggGroupCurrentSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 3, 2),
+    _HpnicfSanAggGroupCurrentSpeed_Type()
+)
+hpnicfSanAggGroupCurrentSpeed.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfSanAggGroupCurrentSpeed.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfSanAggGroupCurrentSpeed.setUnits("gigabit bps")
+_HpnicfSanAggNotifications_ObjectIdentity = ObjectIdentity
+hpnicfSanAggNotifications = _HpnicfSanAggNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 4)
+)
+_HpnicfSanAggNotificationPrefix_ObjectIdentity = ObjectIdentity
+hpnicfSanAggNotificationPrefix = _HpnicfSanAggNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 4, 0)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hpnicfSanAggGroupSpeedChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 4, 0, 1)
+)
+hpnicfSanAggGroupSpeedChange.setObjects(
+      *(("HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupNumber"),
+        ("HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupPreviousSpeed"),
+        ("HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupCurrentSpeed"))
+)
+if mibBuilder.loadTexts:
+    hpnicfSanAggGroupSpeedChange.setStatus(
+        "current"
+    )
+
+hpnicfSanAggMemberInactive = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 4, 0, 2)
+)
+hpnicfSanAggMemberInactive.setObjects(
+      *(("HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupNumber"),
+        ("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifDescr"))
+)
+if mibBuilder.loadTexts:
+    hpnicfSanAggMemberInactive.setStatus(
+        "current"
+    )
+
+hpnicfSanAggMemberActive = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 2, 4, 0, 3)
+)
+hpnicfSanAggMemberActive.setObjects(
+      *(("HPN-ICF-SAN-AGG-MIB", "hpnicfSanAggGroupNumber"),
+        ("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifDescr"))
+)
+if mibBuilder.loadTexts:
+    hpnicfSanAggMemberActive.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-SAN-AGG-MIB",
+    **{"HpnicfMemberList": HpnicfMemberList,
+       "hpnicfSanAgg": hpnicfSanAgg,
+       "hpnicfSanAggMibObjects": hpnicfSanAggMibObjects,
+       "hpnicfSanAggMaxMemberNumber": hpnicfSanAggMaxMemberNumber,
+       "hpnicfSanAggGroupTable": hpnicfSanAggGroupTable,
+       "hpnicfSanAggGroupEntry": hpnicfSanAggGroupEntry,
+       "hpnicfSanAggGroupNumber": hpnicfSanAggGroupNumber,
+       "hpnicfSanAggGroupIndex": hpnicfSanAggGroupIndex,
+       "hpnicfSanAggMemberList": hpnicfSanAggMemberList,
+       "hpnicfSanAggMemberStateList": hpnicfSanAggMemberStateList,
+       "hpnicfSanAggGroupRowStatus": hpnicfSanAggGroupRowStatus,
+       "hpnicfSanAggObjForNotification": hpnicfSanAggObjForNotification,
+       "hpnicfSanAggGroupPreviousSpeed": hpnicfSanAggGroupPreviousSpeed,
+       "hpnicfSanAggGroupCurrentSpeed": hpnicfSanAggGroupCurrentSpeed,
+       "hpnicfSanAggNotifications": hpnicfSanAggNotifications,
+       "hpnicfSanAggNotificationPrefix": hpnicfSanAggNotificationPrefix,
+       "hpnicfSanAggGroupSpeedChange": hpnicfSanAggGroupSpeedChange,
+       "hpnicfSanAggMemberInactive": hpnicfSanAggMemberInactive,
+       "hpnicfSanAggMemberActive": hpnicfSanAggMemberActive}
+)

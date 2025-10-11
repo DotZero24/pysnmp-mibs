@@ -1,24 +1,257 @@
+# SNMP MIB module (WAN-TRAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module WAN-TRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/extreme/WAN-TRAP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:01 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/extreme/WAN-TRAP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:16:47 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-extremeAgent, extremenetworks = mibBuilder.importSymbols("EXTREME-BASE-MIB", "extremeAgent", "extremenetworks")
-dsx1LineStatus, dsx1IfIndex, dsx1LineIndex = mibBuilder.importSymbols("RFC1406-MIB", "dsx1LineStatus", "dsx1IfIndex", "dsx1LineIndex")
-dsx3IfIndex, dsx3LineStatus, dsx3LineIndex = mibBuilder.importSymbols("RFC1407-MIB", "dsx3IfIndex", "dsx3LineStatus", "dsx3LineIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-sysDescr, sysUpTime = mibBuilder.importSymbols("SNMPv2-MIB", "sysDescr", "sysUpTime")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-wanDsx1LineStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,100)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1406-MIB", "dsx1LineIndex"), ("RFC1406-MIB", "dsx1IfIndex"), ("RFC1406-MIB", "dsx1LineStatus"))
-wanDsx1LossOfMasterClock = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,101)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1406-MIB", "dsx1LineIndex"), ("RFC1406-MIB", "dsx1IfIndex"), ("RFC1406-MIB", "dsx1LineStatus"))
-wanDsx1NoLossOfMasterClock = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,102)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1406-MIB", "dsx1LineIndex"), ("RFC1406-MIB", "dsx1IfIndex"), ("RFC1406-MIB", "dsx1LineStatus"))
-wanDsx3LineStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,103)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1407-MIB", "dsx3LineIndex"), ("RFC1407-MIB", "dsx3IfIndex"), ("RFC1407-MIB", "dsx3LineStatus"))
-wanDsx3LossOfMasterClock = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,104)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1407-MIB", "dsx3LineIndex"), ("RFC1407-MIB", "dsx3IfIndex"), ("RFC1407-MIB", "dsx3LineStatus"))
-wanDsx3NoLossOfMasterClock = NotificationType((1, 3, 6, 1, 4, 1, 1916) + (0,105)).setObjects(("SNMPv2-MIB", "sysUpTime"), ("SNMPv2-MIB", "sysDescr"), ("RFC1407-MIB", "dsx3LineIndex"), ("RFC1407-MIB", "dsx3IfIndex"), ("RFC1407-MIB", "dsx3LineStatus"))
-mibBuilder.exportSymbols("WAN-TRAP-MIB", wanDsx1LineStatusChange=wanDsx1LineStatusChange, wanDsx3LossOfMasterClock=wanDsx3LossOfMasterClock, wanDsx3NoLossOfMasterClock=wanDsx3NoLossOfMasterClock, wanDsx1LossOfMasterClock=wanDsx1LossOfMasterClock, wanDsx1NoLossOfMasterClock=wanDsx1NoLossOfMasterClock, wanDsx3LineStatusChange=wanDsx3LineStatusChange)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(extremeAgent,
+ extremenetworks) = mibBuilder.importSymbols(
+    "EXTREME-BASE-MIB",
+    "extremeAgent",
+    "extremenetworks")
+
+(dsx1IfIndex,
+ dsx1LineIndex,
+ dsx1LineStatus) = mibBuilder.importSymbols(
+    "RFC1406-MIB",
+    "dsx1IfIndex",
+    "dsx1LineIndex",
+    "dsx1LineStatus")
+
+(dsx3IfIndex,
+ dsx3LineIndex,
+ dsx3LineStatus) = mibBuilder.importSymbols(
+    "RFC1407-MIB",
+    "dsx3IfIndex",
+    "dsx3LineIndex",
+    "dsx3LineStatus")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(sysDescr,
+ sysUpTime) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "sysDescr",
+    "sysUpTime")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+wanDsx1LineStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1916, 0, 100)
+)
+wanDsx1LineStatusChange.setObjects(
+      *(("SNMPv2-MIB", "sysUpTime"),
+        ("SNMPv2-MIB", "sysDescr"),
+        ("RFC1406-MIB", "dsx1LineIndex"),
+        ("RFC1406-MIB", "dsx1IfIndex"),
+        ("RFC1406-MIB", "dsx1LineStatus"))
+)
+if mibBuilder.loadTexts:
+    wanDsx1LineStatusChange.setStatus(
+        ""
+    )
+
+wanDsx1LossOfMasterClock = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1916, 0, 101)
+)
+wanDsx1LossOfMasterClock.setObjects(
+      *(("SNMPv2-MIB", "sysUpTime"),
+        ("SNMPv2-MIB", "sysDescr"),
+        ("RFC1406-MIB", "dsx1LineIndex"),
+        ("RFC1406-MIB", "dsx1IfIndex"),
+        ("RFC1406-MIB", "dsx1LineStatus"))
+)
+if mibBuilder.loadTexts:
+    wanDsx1LossOfMasterClock.setStatus(
+        ""
+    )
+
+wanDsx1NoLossOfMasterClock = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1916, 0, 102)
+)
+wanDsx1NoLossOfMasterClock.setObjects(
+      *(("SNMPv2-MIB", "sysUpTime"),
+        ("SNMPv2-MIB", "sysDescr"),
+        ("RFC1406-MIB", "dsx1LineIndex"),
+        ("RFC1406-MIB", "dsx1IfIndex"),
+        ("RFC1406-MIB", "dsx1LineStatus"))
+)
+if mibBuilder.loadTexts:
+    wanDsx1NoLossOfMasterClock.setStatus(
+        ""
+    )
+
+wanDsx3LineStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1916, 0, 103)
+)
+wanDsx3LineStatusChange.setObjects(
+      *(("SNMPv2-MIB", "sysUpTime"),
+        ("SNMPv2-MIB", "sysDescr"),
+        ("RFC1407-MIB", "dsx3LineIndex"),
+        ("RFC1407-MIB", "dsx3IfIndex"),
+        ("RFC1407-MIB", "dsx3LineStatus"))
+)
+if mibBuilder.loadTexts:
+    wanDsx3LineStatusChange.setStatus(
+        ""
+    )
+
+wanDsx3LossOfMasterClock = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1916, 0, 104)
+)
+wanDsx3LossOfMasterClock.setObjects(
+      *(("SNMPv2-MIB", "sysUpTime"),
+        ("SNMPv2-MIB", "sysDescr"),
+        ("RFC1407-MIB", "dsx3LineIndex"),
+        ("RFC1407-MIB", "dsx3IfIndex"),
+        ("RFC1407-MIB", "dsx3LineStatus"))
+)
+if mibBuilder.loadTexts:
+    wanDsx3LossOfMasterClock.setStatus(
+        ""
+    )
+
+wanDsx3NoLossOfMasterClock = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1916, 0, 105)
+)
+wanDsx3NoLossOfMasterClock.setObjects(
+      *(("SNMPv2-MIB", "sysUpTime"),
+        ("SNMPv2-MIB", "sysDescr"),
+        ("RFC1407-MIB", "dsx3LineIndex"),
+        ("RFC1407-MIB", "dsx3IfIndex"),
+        ("RFC1407-MIB", "dsx3LineStatus"))
+)
+if mibBuilder.loadTexts:
+    wanDsx3NoLossOfMasterClock.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "WAN-TRAP-MIB",
+    **{"wanDsx1LineStatusChange": wanDsx1LineStatusChange,
+       "wanDsx1LossOfMasterClock": wanDsx1LossOfMasterClock,
+       "wanDsx1NoLossOfMasterClock": wanDsx1NoLossOfMasterClock,
+       "wanDsx3LineStatusChange": wanDsx3LineStatusChange,
+       "wanDsx3LossOfMasterClock": wanDsx3LossOfMasterClock,
+       "wanDsx3NoLossOfMasterClock": wanDsx3NoLossOfMasterClock}
+)

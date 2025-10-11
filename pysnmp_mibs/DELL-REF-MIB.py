@@ -1,97 +1,528 @@
+# SNMP MIB module (DELL-REF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DELL-REF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/dell/DELL-REF-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/dell/DELL-REF-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:10:34 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dellLanExtension, dellLan = mibBuilder.importSymbols("Dell-Vendor-MIB", "dellLanExtension", "dellLan")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-lvl7 = ModuleIdentity((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132))
-lvl7.setRevisions(('2018-12-27 00:00', '2013-04-12 00:00', '2013-03-27 00:00', '2011-04-14 00:00', '2003-11-21 00:00', '2003-02-06 12:00', '2013-07-08 00:00',))
-if mibBuilder.loadTexts: lvl7.setLastUpdated('201812270000Z')
-if mibBuilder.loadTexts: lvl7.setOrganization('Dell Inc.')
-lvl7Products = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1))
-dnOS = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1))
-dell6224Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3010))
-dell6248Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3011))
-dell6224PSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3012))
-dell6248PSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3013))
-dell6224FSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3014))
-dellM6220Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3015))
-dellM8024Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3022))
-dell8024Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3023))
-dell8024FSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3024))
-dellM6384Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3025))
-dell7024Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3034))
-dell7048Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3035))
-dell7024PSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3036))
-dell7048PSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3037))
-dell7024FSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3038))
-dell7048RSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3039))
-dell7048RRASwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3040))
-dellM8024KSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3041))
-dellN4032Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3042))
-dellN4032FSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3044))
-dellN4064Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3045))
-dellN4064FSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3046))
-dellN2024Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3053))
-dellN2048Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3054))
-dellN2024PSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3055))
-dellN2048PSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3056))
-dellN3024Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3057))
-dellN3048Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3058))
-dellN3024PSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3059))
-dellN3048PSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3060))
-dellN3024FSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3061))
-dellN3048EP_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3084)).setLabel("dellN3048EP-ONSwitch")
-dellN3048ET_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3085)).setLabel("dellN3048ET-ONSwitch")
-dellN3024EP_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3086)).setLabel("dellN3024EP-ONSwitch")
-dellN3024EF_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3087)).setLabel("dellN3024EF-ONSwitch")
-dellN3024ET_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3088)).setLabel("dellN3024ET-ONSwitch")
-dellN1608X_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3089)).setLabel("dellN1608X-ONSwitch")
-dellN1608PX_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3090)).setLabel("dellN1608PX-ONSwitch")
-dellN1616X_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3091)).setLabel("dellN1616X-ONSwitch")
-dellN1616PX_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3092)).setLabel("dellN1616PX-ONSwitch")
-dellN1624X_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3093)).setLabel("dellN1624X-ONSwitch")
-dellN1624PX_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3094)).setLabel("dellN1624PX-ONSwitch")
-dellN1648X_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3095)).setLabel("dellN1648X-ONSwitch")
-dellN1648PX_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3096)).setLabel("dellN1648PX-ONSwitch")
-dellN2224X_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3097)).setLabel("dellN2224X-ONSwitch")
-dellN2224PX_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3098)).setLabel("dellN2224PX-ONSwitch")
-dellN2248X_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3099)).setLabel("dellN2248X-ONSwitch")
-dellN2248PX_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3100)).setLabel("dellN2248PX-ONSwitch")
-dellN3248PXE_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3109)).setLabel("dellN3248PXE-ONSwitch")
-dellN3248TE_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3113)).setLabel("dellN3248TE-ONSwitch")
-dellN3224T_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3110)).setLabel("dellN3224T-ONSwitch")
-dellN3248X_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3107)).setLabel("dellN3248X-ONSwitch")
-dellN3224PX_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3106)).setLabel("dellN3224PX-ONSwitch")
-dellN3224X_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3105)).setLabel("dellN3224X-ONSwitch")
-dellN3248P_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3114)).setLabel("dellN3248P-ONSwitch")
-dellN3224P_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3112)).setLabel("dellN3224P-ONSwitch")
-dellN3224F_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3111)).setLabel("dellN3224F-ONSwitch")
-dellNN3208PX_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3104)).setLabel("dellNN3208PX-ONSwitch")
-dellN1524Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3063))
-dellN1524PSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3064))
-dellN1548Switch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3065))
-dellN1548PSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3066))
-dellN3132PXSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3076))
-dellN2128PXSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3077))
-dellN1108T_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3078)).setLabel("dellN1108T-ONSwitch")
-dellN1108P_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3079)).setLabel("dellN1108P-ONSwitch")
-dellN1124T_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3080)).setLabel("dellN1124T-ONSwitch")
-dellN1124P_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3081)).setLabel("dellN1124P-ONSwitch")
-dellN1148T_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3082)).setLabel("dellN1148T-ONSwitch")
-dellN1148P_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3083)).setLabel("dellN1148P-ONSwitch")
-dellN1108EP_ONSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 3115)).setLabel("dellN1108EP-ONSwitch")
-class AgentPortMask(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255x'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 255)
 
-mibBuilder.exportSymbols("DELL-REF-MIB", dellN1148T_ONSwitch=dellN1148T_ONSwitch, dellN1648X_ONSwitch=dellN1648X_ONSwitch, dellN3132PXSwitch=dellN3132PXSwitch, dellN2024Switch=dellN2024Switch, dellN1608X_ONSwitch=dellN1608X_ONSwitch, dellN4032Switch=dellN4032Switch, dellN2224PX_ONSwitch=dellN2224PX_ONSwitch, dellN1616X_ONSwitch=dellN1616X_ONSwitch, dellN3224X_ONSwitch=dellN3224X_ONSwitch, dellN3224PX_ONSwitch=dellN3224PX_ONSwitch, dellN3248TE_ONSwitch=dellN3248TE_ONSwitch, dell7024FSwitch=dell7024FSwitch, dellN1624X_ONSwitch=dellN1624X_ONSwitch, dellN1124T_ONSwitch=dellN1124T_ONSwitch, dellN2024PSwitch=dellN2024PSwitch, dellN3024FSwitch=dellN3024FSwitch, dellN4032FSwitch=dellN4032FSwitch, dellN3048ET_ONSwitch=dellN3048ET_ONSwitch, dellN2128PXSwitch=dellN2128PXSwitch, dellN2224X_ONSwitch=dellN2224X_ONSwitch, dellN1124P_ONSwitch=dellN1124P_ONSwitch, dell8024FSwitch=dell8024FSwitch, dellN1148P_ONSwitch=dellN1148P_ONSwitch, dellN2248PX_ONSwitch=dellN2248PX_ONSwitch, dell7048PSwitch=dell7048PSwitch, dellN3024Switch=dellN3024Switch, dellN4064FSwitch=dellN4064FSwitch, dell6224PSwitch=dell6224PSwitch, dellN3048EP_ONSwitch=dellN3048EP_ONSwitch, dellN4064Switch=dellN4064Switch, dellN3048PSwitch=dellN3048PSwitch, dellN3248X_ONSwitch=dellN3248X_ONSwitch, dell7024Switch=dell7024Switch, dellN1524Switch=dellN1524Switch, dell7024PSwitch=dell7024PSwitch, dell7048RSwitch=dell7048RSwitch, dellN3048Switch=dellN3048Switch, dellN3024EP_ONSwitch=dellN3024EP_ONSwitch, dellN1108EP_ONSwitch=dellN1108EP_ONSwitch, dellN1548Switch=dellN1548Switch, dellN2248X_ONSwitch=dellN2248X_ONSwitch, dellN3224T_ONSwitch=dellN3224T_ONSwitch, dellN3224F_ONSwitch=dellN3224F_ONSwitch, dellN1624PX_ONSwitch=dellN1624PX_ONSwitch, dellN1648PX_ONSwitch=dellN1648PX_ONSwitch, dellN3024EF_ONSwitch=dellN3024EF_ONSwitch, dell6248PSwitch=dell6248PSwitch, dellN1548PSwitch=dellN1548PSwitch, dell6224Switch=dell6224Switch, dellN2048PSwitch=dellN2048PSwitch, lvl7=lvl7, AgentPortMask=AgentPortMask, dellN1108T_ONSwitch=dellN1108T_ONSwitch, dell6248Switch=dell6248Switch, dell7048RRASwitch=dell7048RRASwitch, dellN3024ET_ONSwitch=dellN3024ET_ONSwitch, dell6224FSwitch=dell6224FSwitch, dellM8024Switch=dellM8024Switch, dellN1616PX_ONSwitch=dellN1616PX_ONSwitch, dellN3248PXE_ONSwitch=dellN3248PXE_ONSwitch, dellM8024KSwitch=dellM8024KSwitch, dell7048Switch=dell7048Switch, dellN1108P_ONSwitch=dellN1108P_ONSwitch, dellM6384Switch=dellM6384Switch, dellNN3208PX_ONSwitch=dellNN3208PX_ONSwitch, dell8024Switch=dell8024Switch, dellN3248P_ONSwitch=dellN3248P_ONSwitch, dellN3024PSwitch=dellN3024PSwitch, dellN1524PSwitch=dellN1524PSwitch, dellM6220Switch=dellM6220Switch, PYSNMP_MODULE_ID=lvl7, dellN2048Switch=dellN2048Switch, lvl7Products=lvl7Products, dellN1608PX_ONSwitch=dellN1608PX_ONSwitch, dellN3224P_ONSwitch=dellN3224P_ONSwitch, dnOS=dnOS)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dellLan,
+ dellLanExtension) = mibBuilder.importSymbols(
+    "Dell-Vendor-MIB",
+    "dellLan",
+    "dellLanExtension")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+lvl7 = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132)
+)
+if mibBuilder.loadTexts:
+    lvl7.setRevisions(
+        ("2018-12-27 00:00",
+         "2013-04-12 00:00",
+         "2013-03-27 00:00",
+         "2011-04-14 00:00",
+         "2003-11-21 00:00",
+         "2003-02-06 12:00",
+         "2013-07-08 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class AgentPortMask(TextualConvention, OctetString):
+    status = "current"
+    displayHint = "255x"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Dell6224Switch_ObjectIdentity = ObjectIdentity
+dell6224Switch = _Dell6224Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3010)
+)
+_Dell6248Switch_ObjectIdentity = ObjectIdentity
+dell6248Switch = _Dell6248Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3011)
+)
+_Dell6224PSwitch_ObjectIdentity = ObjectIdentity
+dell6224PSwitch = _Dell6224PSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3012)
+)
+_Dell6248PSwitch_ObjectIdentity = ObjectIdentity
+dell6248PSwitch = _Dell6248PSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3013)
+)
+_Dell6224FSwitch_ObjectIdentity = ObjectIdentity
+dell6224FSwitch = _Dell6224FSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3014)
+)
+_DellM6220Switch_ObjectIdentity = ObjectIdentity
+dellM6220Switch = _DellM6220Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3015)
+)
+_DellM8024Switch_ObjectIdentity = ObjectIdentity
+dellM8024Switch = _DellM8024Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3022)
+)
+_Dell8024Switch_ObjectIdentity = ObjectIdentity
+dell8024Switch = _Dell8024Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3023)
+)
+_Dell8024FSwitch_ObjectIdentity = ObjectIdentity
+dell8024FSwitch = _Dell8024FSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3024)
+)
+_DellM6384Switch_ObjectIdentity = ObjectIdentity
+dellM6384Switch = _DellM6384Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3025)
+)
+_Dell7024Switch_ObjectIdentity = ObjectIdentity
+dell7024Switch = _Dell7024Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3034)
+)
+_Dell7048Switch_ObjectIdentity = ObjectIdentity
+dell7048Switch = _Dell7048Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3035)
+)
+_Dell7024PSwitch_ObjectIdentity = ObjectIdentity
+dell7024PSwitch = _Dell7024PSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3036)
+)
+_Dell7048PSwitch_ObjectIdentity = ObjectIdentity
+dell7048PSwitch = _Dell7048PSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3037)
+)
+_Dell7024FSwitch_ObjectIdentity = ObjectIdentity
+dell7024FSwitch = _Dell7024FSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3038)
+)
+_Dell7048RSwitch_ObjectIdentity = ObjectIdentity
+dell7048RSwitch = _Dell7048RSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3039)
+)
+_Dell7048RRASwitch_ObjectIdentity = ObjectIdentity
+dell7048RRASwitch = _Dell7048RRASwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3040)
+)
+_DellM8024KSwitch_ObjectIdentity = ObjectIdentity
+dellM8024KSwitch = _DellM8024KSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3041)
+)
+_DellN4032Switch_ObjectIdentity = ObjectIdentity
+dellN4032Switch = _DellN4032Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3042)
+)
+_DellN4032FSwitch_ObjectIdentity = ObjectIdentity
+dellN4032FSwitch = _DellN4032FSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3044)
+)
+_DellN4064Switch_ObjectIdentity = ObjectIdentity
+dellN4064Switch = _DellN4064Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3045)
+)
+_DellN4064FSwitch_ObjectIdentity = ObjectIdentity
+dellN4064FSwitch = _DellN4064FSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3046)
+)
+_DellN2024Switch_ObjectIdentity = ObjectIdentity
+dellN2024Switch = _DellN2024Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3053)
+)
+_DellN2048Switch_ObjectIdentity = ObjectIdentity
+dellN2048Switch = _DellN2048Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3054)
+)
+_DellN2024PSwitch_ObjectIdentity = ObjectIdentity
+dellN2024PSwitch = _DellN2024PSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3055)
+)
+_DellN2048PSwitch_ObjectIdentity = ObjectIdentity
+dellN2048PSwitch = _DellN2048PSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3056)
+)
+_DellN3024Switch_ObjectIdentity = ObjectIdentity
+dellN3024Switch = _DellN3024Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3057)
+)
+_DellN3048Switch_ObjectIdentity = ObjectIdentity
+dellN3048Switch = _DellN3048Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3058)
+)
+_DellN3024PSwitch_ObjectIdentity = ObjectIdentity
+dellN3024PSwitch = _DellN3024PSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3059)
+)
+_DellN3048PSwitch_ObjectIdentity = ObjectIdentity
+dellN3048PSwitch = _DellN3048PSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3060)
+)
+_DellN3024FSwitch_ObjectIdentity = ObjectIdentity
+dellN3024FSwitch = _DellN3024FSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3061)
+)
+_DellN1524Switch_ObjectIdentity = ObjectIdentity
+dellN1524Switch = _DellN1524Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3063)
+)
+_DellN1524PSwitch_ObjectIdentity = ObjectIdentity
+dellN1524PSwitch = _DellN1524PSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3064)
+)
+_DellN1548Switch_ObjectIdentity = ObjectIdentity
+dellN1548Switch = _DellN1548Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3065)
+)
+_DellN1548PSwitch_ObjectIdentity = ObjectIdentity
+dellN1548PSwitch = _DellN1548PSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3066)
+)
+_DellN3132PXSwitch_ObjectIdentity = ObjectIdentity
+dellN3132PXSwitch = _DellN3132PXSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3076)
+)
+_DellN2128PXSwitch_ObjectIdentity = ObjectIdentity
+dellN2128PXSwitch = _DellN2128PXSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3077)
+)
+_DellN1108T_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1108T_ONSwitch = _DellN1108T_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3078)
+)
+_DellN1108P_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1108P_ONSwitch = _DellN1108P_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3079)
+)
+_DellN1124T_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1124T_ONSwitch = _DellN1124T_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3080)
+)
+_DellN1124P_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1124P_ONSwitch = _DellN1124P_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3081)
+)
+_DellN1148T_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1148T_ONSwitch = _DellN1148T_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3082)
+)
+_DellN1148P_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1148P_ONSwitch = _DellN1148P_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3083)
+)
+_DellN3048EP_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3048EP_ONSwitch = _DellN3048EP_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3084)
+)
+_DellN3048ET_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3048ET_ONSwitch = _DellN3048ET_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3085)
+)
+_DellN3024EP_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3024EP_ONSwitch = _DellN3024EP_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3086)
+)
+_DellN3024EF_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3024EF_ONSwitch = _DellN3024EF_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3087)
+)
+_DellN3024ET_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3024ET_ONSwitch = _DellN3024ET_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3088)
+)
+_DellN1608X_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1608X_ONSwitch = _DellN1608X_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3089)
+)
+_DellN1608PX_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1608PX_ONSwitch = _DellN1608PX_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3090)
+)
+_DellN1616X_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1616X_ONSwitch = _DellN1616X_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3091)
+)
+_DellN1616PX_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1616PX_ONSwitch = _DellN1616PX_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3092)
+)
+_DellN1624X_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1624X_ONSwitch = _DellN1624X_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3093)
+)
+_DellN1624PX_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1624PX_ONSwitch = _DellN1624PX_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3094)
+)
+_DellN1648X_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1648X_ONSwitch = _DellN1648X_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3095)
+)
+_DellN1648PX_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1648PX_ONSwitch = _DellN1648PX_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3096)
+)
+_DellN2224X_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN2224X_ONSwitch = _DellN2224X_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3097)
+)
+_DellN2224PX_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN2224PX_ONSwitch = _DellN2224PX_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3098)
+)
+_DellN2248X_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN2248X_ONSwitch = _DellN2248X_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3099)
+)
+_DellN2248PX_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN2248PX_ONSwitch = _DellN2248PX_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3100)
+)
+_DellNN3208PX_ONSwitch_ObjectIdentity = ObjectIdentity
+dellNN3208PX_ONSwitch = _DellNN3208PX_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3104)
+)
+_DellN3224X_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3224X_ONSwitch = _DellN3224X_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3105)
+)
+_DellN3224PX_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3224PX_ONSwitch = _DellN3224PX_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3106)
+)
+_DellN3248X_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3248X_ONSwitch = _DellN3248X_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3107)
+)
+_DellN3248PXE_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3248PXE_ONSwitch = _DellN3248PXE_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3109)
+)
+_DellN3224T_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3224T_ONSwitch = _DellN3224T_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3110)
+)
+_DellN3224F_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3224F_ONSwitch = _DellN3224F_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3111)
+)
+_DellN3224P_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3224P_ONSwitch = _DellN3224P_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3112)
+)
+_DellN3248TE_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3248TE_ONSwitch = _DellN3248TE_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3113)
+)
+_DellN3248P_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN3248P_ONSwitch = _DellN3248P_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3114)
+)
+_DellN1108EP_ONSwitch_ObjectIdentity = ObjectIdentity
+dellN1108EP_ONSwitch = _DellN1108EP_ONSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 3115)
+)
+_Lvl7Products_ObjectIdentity = ObjectIdentity
+lvl7Products = _Lvl7Products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1)
+)
+_DnOS_ObjectIdentity = ObjectIdentity
+dnOS = _DnOS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DELL-REF-MIB",
+    **{"AgentPortMask": AgentPortMask,
+       "dell6224Switch": dell6224Switch,
+       "dell6248Switch": dell6248Switch,
+       "dell6224PSwitch": dell6224PSwitch,
+       "dell6248PSwitch": dell6248PSwitch,
+       "dell6224FSwitch": dell6224FSwitch,
+       "dellM6220Switch": dellM6220Switch,
+       "dellM8024Switch": dellM8024Switch,
+       "dell8024Switch": dell8024Switch,
+       "dell8024FSwitch": dell8024FSwitch,
+       "dellM6384Switch": dellM6384Switch,
+       "dell7024Switch": dell7024Switch,
+       "dell7048Switch": dell7048Switch,
+       "dell7024PSwitch": dell7024PSwitch,
+       "dell7048PSwitch": dell7048PSwitch,
+       "dell7024FSwitch": dell7024FSwitch,
+       "dell7048RSwitch": dell7048RSwitch,
+       "dell7048RRASwitch": dell7048RRASwitch,
+       "dellM8024KSwitch": dellM8024KSwitch,
+       "dellN4032Switch": dellN4032Switch,
+       "dellN4032FSwitch": dellN4032FSwitch,
+       "dellN4064Switch": dellN4064Switch,
+       "dellN4064FSwitch": dellN4064FSwitch,
+       "dellN2024Switch": dellN2024Switch,
+       "dellN2048Switch": dellN2048Switch,
+       "dellN2024PSwitch": dellN2024PSwitch,
+       "dellN2048PSwitch": dellN2048PSwitch,
+       "dellN3024Switch": dellN3024Switch,
+       "dellN3048Switch": dellN3048Switch,
+       "dellN3024PSwitch": dellN3024PSwitch,
+       "dellN3048PSwitch": dellN3048PSwitch,
+       "dellN3024FSwitch": dellN3024FSwitch,
+       "dellN1524Switch": dellN1524Switch,
+       "dellN1524PSwitch": dellN1524PSwitch,
+       "dellN1548Switch": dellN1548Switch,
+       "dellN1548PSwitch": dellN1548PSwitch,
+       "dellN3132PXSwitch": dellN3132PXSwitch,
+       "dellN2128PXSwitch": dellN2128PXSwitch,
+       "dellN1108T-ONSwitch": dellN1108T_ONSwitch,
+       "dellN1108P-ONSwitch": dellN1108P_ONSwitch,
+       "dellN1124T-ONSwitch": dellN1124T_ONSwitch,
+       "dellN1124P-ONSwitch": dellN1124P_ONSwitch,
+       "dellN1148T-ONSwitch": dellN1148T_ONSwitch,
+       "dellN1148P-ONSwitch": dellN1148P_ONSwitch,
+       "dellN3048EP-ONSwitch": dellN3048EP_ONSwitch,
+       "dellN3048ET-ONSwitch": dellN3048ET_ONSwitch,
+       "dellN3024EP-ONSwitch": dellN3024EP_ONSwitch,
+       "dellN3024EF-ONSwitch": dellN3024EF_ONSwitch,
+       "dellN3024ET-ONSwitch": dellN3024ET_ONSwitch,
+       "dellN1608X-ONSwitch": dellN1608X_ONSwitch,
+       "dellN1608PX-ONSwitch": dellN1608PX_ONSwitch,
+       "dellN1616X-ONSwitch": dellN1616X_ONSwitch,
+       "dellN1616PX-ONSwitch": dellN1616PX_ONSwitch,
+       "dellN1624X-ONSwitch": dellN1624X_ONSwitch,
+       "dellN1624PX-ONSwitch": dellN1624PX_ONSwitch,
+       "dellN1648X-ONSwitch": dellN1648X_ONSwitch,
+       "dellN1648PX-ONSwitch": dellN1648PX_ONSwitch,
+       "dellN2224X-ONSwitch": dellN2224X_ONSwitch,
+       "dellN2224PX-ONSwitch": dellN2224PX_ONSwitch,
+       "dellN2248X-ONSwitch": dellN2248X_ONSwitch,
+       "dellN2248PX-ONSwitch": dellN2248PX_ONSwitch,
+       "dellNN3208PX-ONSwitch": dellNN3208PX_ONSwitch,
+       "dellN3224X-ONSwitch": dellN3224X_ONSwitch,
+       "dellN3224PX-ONSwitch": dellN3224PX_ONSwitch,
+       "dellN3248X-ONSwitch": dellN3248X_ONSwitch,
+       "dellN3248PXE-ONSwitch": dellN3248PXE_ONSwitch,
+       "dellN3224T-ONSwitch": dellN3224T_ONSwitch,
+       "dellN3224F-ONSwitch": dellN3224F_ONSwitch,
+       "dellN3224P-ONSwitch": dellN3224P_ONSwitch,
+       "dellN3248TE-ONSwitch": dellN3248TE_ONSwitch,
+       "dellN3248P-ONSwitch": dellN3248P_ONSwitch,
+       "dellN1108EP-ONSwitch": dellN1108EP_ONSwitch,
+       "lvl7": lvl7,
+       "lvl7Products": lvl7Products,
+       "dnOS": dnOS}
+)

@@ -1,61 +1,430 @@
+# SNMP MIB module (SM10-R3-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SM10-R3-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/netapp/SM10-R3-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:59:09 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/netapp/SM10-R3-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:07:34 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-sm10R3 = ModuleIdentity((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500))
-sm10R3.setRevisions(('2011-08-05 15:03',))
-if mibBuilder.loadTexts: sm10R3.setLastUpdated('201108051503Z')
-if mibBuilder.loadTexts: sm10R3.setOrganization('NetApp, Inc')
-netapp = MibIdentifier((1, 3, 6, 1, 4, 1, 789))
-eSeriesStorageSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 789, 1123))
-storageManager = MibIdentifier((1, 3, 6, 1, 4, 1, 789, 1123, 1))
-sm10R3TrapBase = MibIdentifier((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 0))
-storageServer = MibIdentifier((1, 3, 6, 1, 4, 1, 789, 1123, 2))
-smConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 789, 1123, 1, 8))
-smCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 789, 1123, 1, 8, 1))
-smGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 789, 1123, 1, 8, 2))
-infoTable = MibTable((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1), )
-if mibBuilder.loadTexts: infoTable.setStatus('current')
-infoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1), ).setIndexNames((0, "SM10-R3-MIB", "deviceHostIPType"))
-if mibBuilder.loadTexts: infoEntry.setStatus('current')
-deviceHostIPType = MibTableColumn((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 1), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceHostIPType.setStatus('current')
-deviceHostIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 2), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceHostIPAddr.setStatus('current')
-deviceHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceHostName.setStatus('current')
-deviceUserLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 29))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceUserLabel.setStatus('current')
-deviceErrorCode = MibTableColumn((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 19))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceErrorCode.setStatus('current')
-eventTime = MibTableColumn((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 39))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eventTime.setStatus('current')
-trapDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 69))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: trapDescription.setStatus('current')
-componentType = MibTableColumn((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 59))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: componentType.setStatus('current')
-componentLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 39))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: componentLocation.setStatus('current')
-storageArrayCritical = NotificationType((1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 0, 2)).setObjects(("SM10-R3-MIB", "deviceHostIPType"), ("SM10-R3-MIB", "deviceHostIPAddr"), ("SM10-R3-MIB", "deviceHostName"), ("SM10-R3-MIB", "deviceUserLabel"), ("SM10-R3-MIB", "deviceErrorCode"), ("SM10-R3-MIB", "eventTime"), ("SM10-R3-MIB", "trapDescription"), ("SM10-R3-MIB", "componentType"), ("SM10-R3-MIB", "componentLocation"))
-if mibBuilder.loadTexts: storageArrayCritical.setStatus('current')
-smObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 789, 1123, 1, 8, 2, 1)).setObjects(("SM10-R3-MIB", "deviceHostIPType"), ("SM10-R3-MIB", "deviceHostIPAddr"), ("SM10-R3-MIB", "deviceHostName"), ("SM10-R3-MIB", "deviceUserLabel"), ("SM10-R3-MIB", "deviceErrorCode"), ("SM10-R3-MIB", "eventTime"), ("SM10-R3-MIB", "trapDescription"), ("SM10-R3-MIB", "componentType"), ("SM10-R3-MIB", "componentLocation"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    smObjectGroup = smObjectGroup.setStatus('current')
-smNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 789, 1123, 1, 8, 2, 2)).setObjects(("SM10-R3-MIB", "storageArrayCritical"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    smNotificationGroup = smNotificationGroup.setStatus('current')
-smGrpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 789, 1123, 1, 8, 1, 1)).setObjects(("SM10-R3-MIB", "smObjectGroup"), ("SM10-R3-MIB", "smNotificationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    smGrpCompliance = smGrpCompliance.setStatus('current')
-mibBuilder.exportSymbols("SM10-R3-MIB", PYSNMP_MODULE_ID=sm10R3, storageManager=storageManager, smGroups=smGroups, infoTable=infoTable, deviceHostIPType=deviceHostIPType, deviceHostIPAddr=deviceHostIPAddr, smConformance=smConformance, storageArrayCritical=storageArrayCritical, smCompliance=smCompliance, sm10R3=sm10R3, infoEntry=infoEntry, componentLocation=componentLocation, smNotificationGroup=smNotificationGroup, netapp=netapp, storageServer=storageServer, deviceHostName=deviceHostName, componentType=componentType, eventTime=eventTime, trapDescription=trapDescription, smObjectGroup=smObjectGroup, deviceErrorCode=deviceErrorCode, eSeriesStorageSystem=eSeriesStorageSystem, smGrpCompliance=smGrpCompliance, sm10R3TrapBase=sm10R3TrapBase, deviceUserLabel=deviceUserLabel)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+sm10R3 = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500)
+)
+if mibBuilder.loadTexts:
+    sm10R3.setRevisions(
+        ("2011-08-05 15:03",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Netapp_ObjectIdentity = ObjectIdentity
+netapp = _Netapp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 789)
+)
+_ESeriesStorageSystem_ObjectIdentity = ObjectIdentity
+eSeriesStorageSystem = _ESeriesStorageSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 789, 1123)
+)
+_StorageManager_ObjectIdentity = ObjectIdentity
+storageManager = _StorageManager_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1)
+)
+_SmConformance_ObjectIdentity = ObjectIdentity
+smConformance = _SmConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 8)
+)
+_SmCompliance_ObjectIdentity = ObjectIdentity
+smCompliance = _SmCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 8, 1)
+)
+_SmGroups_ObjectIdentity = ObjectIdentity
+smGroups = _SmGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 8, 2)
+)
+_Sm10R3TrapBase_ObjectIdentity = ObjectIdentity
+sm10R3TrapBase = _Sm10R3TrapBase_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 0)
+)
+_InfoTable_Object = MibTable
+infoTable = _InfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1)
+)
+if mibBuilder.loadTexts:
+    infoTable.setStatus("current")
+_InfoEntry_Object = MibTableRow
+infoEntry = _InfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1)
+)
+infoEntry.setIndexNames(
+    (0, "SM10-R3-MIB", "deviceHostIPType"),
+)
+if mibBuilder.loadTexts:
+    infoEntry.setStatus("current")
+_DeviceHostIPType_Type = InetAddressType
+_DeviceHostIPType_Object = MibTableColumn
+deviceHostIPType = _DeviceHostIPType_Object(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 1),
+    _DeviceHostIPType_Type()
+)
+deviceHostIPType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceHostIPType.setStatus("current")
+_DeviceHostIPAddr_Type = InetAddress
+_DeviceHostIPAddr_Object = MibTableColumn
+deviceHostIPAddr = _DeviceHostIPAddr_Object(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 2),
+    _DeviceHostIPAddr_Type()
+)
+deviceHostIPAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceHostIPAddr.setStatus("current")
+
+
+class _DeviceHostName_Type(DisplayString):
+    """Custom type deviceHostName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 17),
+    )
+
+
+_DeviceHostName_Type.__name__ = "DisplayString"
+_DeviceHostName_Object = MibTableColumn
+deviceHostName = _DeviceHostName_Object(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 3),
+    _DeviceHostName_Type()
+)
+deviceHostName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceHostName.setStatus("current")
+
+
+class _DeviceUserLabel_Type(DisplayString):
+    """Custom type deviceUserLabel based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 29),
+    )
+
+
+_DeviceUserLabel_Type.__name__ = "DisplayString"
+_DeviceUserLabel_Object = MibTableColumn
+deviceUserLabel = _DeviceUserLabel_Object(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 4),
+    _DeviceUserLabel_Type()
+)
+deviceUserLabel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceUserLabel.setStatus("current")
+
+
+class _DeviceErrorCode_Type(DisplayString):
+    """Custom type deviceErrorCode based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 19),
+    )
+
+
+_DeviceErrorCode_Type.__name__ = "DisplayString"
+_DeviceErrorCode_Object = MibTableColumn
+deviceErrorCode = _DeviceErrorCode_Object(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 5),
+    _DeviceErrorCode_Type()
+)
+deviceErrorCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceErrorCode.setStatus("current")
+
+
+class _EventTime_Type(DisplayString):
+    """Custom type eventTime based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 39),
+    )
+
+
+_EventTime_Type.__name__ = "DisplayString"
+_EventTime_Object = MibTableColumn
+eventTime = _EventTime_Object(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 6),
+    _EventTime_Type()
+)
+eventTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eventTime.setStatus("current")
+
+
+class _TrapDescription_Type(DisplayString):
+    """Custom type trapDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 69),
+    )
+
+
+_TrapDescription_Type.__name__ = "DisplayString"
+_TrapDescription_Object = MibTableColumn
+trapDescription = _TrapDescription_Object(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 7),
+    _TrapDescription_Type()
+)
+trapDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    trapDescription.setStatus("current")
+
+
+class _ComponentType_Type(DisplayString):
+    """Custom type componentType based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 59),
+    )
+
+
+_ComponentType_Type.__name__ = "DisplayString"
+_ComponentType_Object = MibTableColumn
+componentType = _ComponentType_Object(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 8),
+    _ComponentType_Type()
+)
+componentType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    componentType.setStatus("current")
+
+
+class _ComponentLocation_Type(DisplayString):
+    """Custom type componentLocation based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 39),
+    )
+
+
+_ComponentLocation_Type.__name__ = "DisplayString"
+_ComponentLocation_Object = MibTableColumn
+componentLocation = _ComponentLocation_Object(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 1, 1, 9),
+    _ComponentLocation_Type()
+)
+componentLocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    componentLocation.setStatus("current")
+_StorageServer_ObjectIdentity = ObjectIdentity
+storageServer = _StorageServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 2)
+)
+
+# Managed Objects groups
+
+smObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 8, 2, 1)
+)
+smObjectGroup.setObjects(
+      *(("SM10-R3-MIB", "deviceHostIPType"),
+        ("SM10-R3-MIB", "deviceHostIPAddr"),
+        ("SM10-R3-MIB", "deviceHostName"),
+        ("SM10-R3-MIB", "deviceUserLabel"),
+        ("SM10-R3-MIB", "deviceErrorCode"),
+        ("SM10-R3-MIB", "eventTime"),
+        ("SM10-R3-MIB", "trapDescription"),
+        ("SM10-R3-MIB", "componentType"),
+        ("SM10-R3-MIB", "componentLocation"))
+)
+if mibBuilder.loadTexts:
+    smObjectGroup.setStatus("current")
+
+
+# Notification objects
+
+storageArrayCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 500, 0, 2)
+)
+storageArrayCritical.setObjects(
+      *(("SM10-R3-MIB", "deviceHostIPType"),
+        ("SM10-R3-MIB", "deviceHostIPAddr"),
+        ("SM10-R3-MIB", "deviceHostName"),
+        ("SM10-R3-MIB", "deviceUserLabel"),
+        ("SM10-R3-MIB", "deviceErrorCode"),
+        ("SM10-R3-MIB", "eventTime"),
+        ("SM10-R3-MIB", "trapDescription"),
+        ("SM10-R3-MIB", "componentType"),
+        ("SM10-R3-MIB", "componentLocation"))
+)
+if mibBuilder.loadTexts:
+    storageArrayCritical.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+smNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 8, 2, 2)
+)
+smNotificationGroup.setObjects(
+    ("SM10-R3-MIB", "storageArrayCritical")
+)
+if mibBuilder.loadTexts:
+    smNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+smGrpCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 789, 1123, 1, 8, 1, 1)
+)
+smGrpCompliance.setObjects(
+      *(("SM10-R3-MIB", "smObjectGroup"),
+        ("SM10-R3-MIB", "smNotificationGroup"))
+)
+if mibBuilder.loadTexts:
+    smGrpCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SM10-R3-MIB",
+    **{"netapp": netapp,
+       "eSeriesStorageSystem": eSeriesStorageSystem,
+       "storageManager": storageManager,
+       "smConformance": smConformance,
+       "smCompliance": smCompliance,
+       "smGrpCompliance": smGrpCompliance,
+       "smGroups": smGroups,
+       "smObjectGroup": smObjectGroup,
+       "smNotificationGroup": smNotificationGroup,
+       "sm10R3": sm10R3,
+       "sm10R3TrapBase": sm10R3TrapBase,
+       "storageArrayCritical": storageArrayCritical,
+       "infoTable": infoTable,
+       "infoEntry": infoEntry,
+       "deviceHostIPType": deviceHostIPType,
+       "deviceHostIPAddr": deviceHostIPAddr,
+       "deviceHostName": deviceHostName,
+       "deviceUserLabel": deviceUserLabel,
+       "deviceErrorCode": deviceErrorCode,
+       "eventTime": eventTime,
+       "trapDescription": trapDescription,
+       "componentType": componentType,
+       "componentLocation": componentLocation,
+       "storageServer": storageServer}
+)

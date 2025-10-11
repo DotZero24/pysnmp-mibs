@@ -1,27 +1,188 @@
+# SNMP MIB module (AT-UDLD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module AT-UDLD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/allied/AT-UDLD-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:12:44 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/allied/AT-UDLD-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:23:46 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-atUdld = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550))
-atUdld.setRevisions(('2011-11-22 00:00', '2011-05-15 00:00',))
-if mibBuilder.loadTexts: atUdld.setLastUpdated('201111220000Z')
-if mibBuilder.loadTexts: atUdld.setOrganization('Allied Telesis, Inc.')
-atUdldTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550, 0))
-atUdldPortDisabledTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550, 0, 1)).setObjects(("AT-UDLD-MIB", "atUdldIfIndex"))
-if mibBuilder.loadTexts: atUdldPortDisabledTrap.setStatus('current')
-atUdldPortRecoveredTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550, 0, 2)).setObjects(("AT-UDLD-MIB", "atUdldIfIndex"))
-if mibBuilder.loadTexts: atUdldPortRecoveredTrap.setStatus('current')
-atUdldIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atUdldIfIndex.setStatus('current')
-mibBuilder.exportSymbols("AT-UDLD-MIB", PYSNMP_MODULE_ID=atUdld, atUdldPortDisabledTrap=atUdldPortDisabledTrap, atUdldIfIndex=atUdldIfIndex, atUdldPortRecoveredTrap=atUdldPortRecoveredTrap, atUdld=atUdld, atUdldTrap=atUdldTrap)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(modules,) = mibBuilder.importSymbols(
+    "AT-SMI-MIB",
+    "modules")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+atUdld = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550)
+)
+if mibBuilder.loadTexts:
+    atUdld.setRevisions(
+        ("2011-11-22 00:00",
+         "2011-05-15 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AtUdldTrap_ObjectIdentity = ObjectIdentity
+atUdldTrap = _AtUdldTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550, 0)
+)
+_AtUdldIfIndex_Type = InterfaceIndex
+_AtUdldIfIndex_Object = MibScalar
+atUdldIfIndex = _AtUdldIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550, 1),
+    _AtUdldIfIndex_Type()
+)
+atUdldIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atUdldIfIndex.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+atUdldPortDisabledTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550, 0, 1)
+)
+atUdldPortDisabledTrap.setObjects(
+    ("AT-UDLD-MIB", "atUdldIfIndex")
+)
+if mibBuilder.loadTexts:
+    atUdldPortDisabledTrap.setStatus(
+        "current"
+    )
+
+atUdldPortRecoveredTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 550, 0, 2)
+)
+atUdldPortRecoveredTrap.setObjects(
+    ("AT-UDLD-MIB", "atUdldIfIndex")
+)
+if mibBuilder.loadTexts:
+    atUdldPortRecoveredTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "AT-UDLD-MIB",
+    **{"atUdld": atUdld,
+       "atUdldTrap": atUdldTrap,
+       "atUdldPortDisabledTrap": atUdldPortDisabledTrap,
+       "atUdldPortRecoveredTrap": atUdldPortRecoveredTrap,
+       "atUdldIfIndex": atUdldIfIndex}
+)

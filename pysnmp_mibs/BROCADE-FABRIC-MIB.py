@@ -1,42 +1,260 @@
+# SNMP MIB module (BROCADE-FABRIC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BROCADE-FABRIC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/BROCADE-FABRIC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:52 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/brocade/BROCADE-FABRIC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:02:56 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-snAgentBrdIndex, = mibBuilder.importSymbols("FOUNDRY-SN-AGENT-MIB", "snAgentBrdIndex")
-brcdFabric, = mibBuilder.importSymbols("FOUNDRY-SN-ROOT-MIB", "brcdFabric")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-brcdFabricMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1))
-brcdFabricMIB.setRevisions(('2012-05-27 00:00',))
-if mibBuilder.loadTexts: brcdFabricMIB.setLastUpdated('201205270000Z')
-if mibBuilder.loadTexts: brcdFabricMIB.setOrganization('Brocade Communications Systems, Inc.')
-brcdFabricNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 0))
-brcdFabricObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1))
-brcdFabricStatsTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1), )
-if mibBuilder.loadTexts: brcdFabricStatsTable.setStatus('current')
-brcdFabricStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1), ).setIndexNames((0, "BROCADE-FABRIC-MIB", "brcdFabricSfmId"), (0, "BROCADE-FABRIC-MIB", "brcdFabricSfmFeId"))
-if mibBuilder.loadTexts: brcdFabricStatsEntry.setStatus('current')
-brcdFabricSfmId = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: brcdFabricSfmId.setStatus('current')
-brcdFabricSfmFeId = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 2), Unsigned32())
-if mibBuilder.loadTexts: brcdFabricSfmFeId.setStatus('current')
-brcdFabricDropMAC0Count = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: brcdFabricDropMAC0Count.setStatus('current')
-brcdFabricDropMAC1Count = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: brcdFabricDropMAC1Count.setStatus('current')
-brcdFabricDropMAC2Count = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: brcdFabricDropMAC2Count.setStatus('current')
-brcdFabricDropMAC3Count = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: brcdFabricDropMAC3Count.setStatus('current')
-brcdFabricAutoSFMWalkInitiated = NotificationType((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 0, 1)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgentBrdIndex"))
-if mibBuilder.loadTexts: brcdFabricAutoSFMWalkInitiated.setStatus('current')
-brcdFabricSFMRemovedFromDatapath = NotificationType((1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 0, 2)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgentBrdIndex"))
-if mibBuilder.loadTexts: brcdFabricSFMRemovedFromDatapath.setStatus('current')
-mibBuilder.exportSymbols("BROCADE-FABRIC-MIB", brcdFabricAutoSFMWalkInitiated=brcdFabricAutoSFMWalkInitiated, brcdFabricSfmId=brcdFabricSfmId, brcdFabricSFMRemovedFromDatapath=brcdFabricSFMRemovedFromDatapath, brcdFabricMIB=brcdFabricMIB, PYSNMP_MODULE_ID=brcdFabricMIB, brcdFabricDropMAC1Count=brcdFabricDropMAC1Count, brcdFabricDropMAC2Count=brcdFabricDropMAC2Count, brcdFabricObjects=brcdFabricObjects, brcdFabricSfmFeId=brcdFabricSfmFeId, brcdFabricNotifications=brcdFabricNotifications, brcdFabricStatsEntry=brcdFabricStatsEntry, brcdFabricDropMAC0Count=brcdFabricDropMAC0Count, brcdFabricDropMAC3Count=brcdFabricDropMAC3Count, brcdFabricStatsTable=brcdFabricStatsTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(snAgentBrdIndex,) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-AGENT-MIB",
+    "snAgentBrdIndex")
+
+(brcdFabric,) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-ROOT-MIB",
+    "brcdFabric")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+brcdFabricMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1)
+)
+if mibBuilder.loadTexts:
+    brcdFabricMIB.setRevisions(
+        ("2012-05-27 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_BrcdFabricNotifications_ObjectIdentity = ObjectIdentity
+brcdFabricNotifications = _BrcdFabricNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 0)
+)
+_BrcdFabricObjects_ObjectIdentity = ObjectIdentity
+brcdFabricObjects = _BrcdFabricObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1)
+)
+_BrcdFabricStatsTable_Object = MibTable
+brcdFabricStatsTable = _BrcdFabricStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    brcdFabricStatsTable.setStatus("current")
+_BrcdFabricStatsEntry_Object = MibTableRow
+brcdFabricStatsEntry = _BrcdFabricStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1)
+)
+brcdFabricStatsEntry.setIndexNames(
+    (0, "BROCADE-FABRIC-MIB", "brcdFabricSfmId"),
+    (0, "BROCADE-FABRIC-MIB", "brcdFabricSfmFeId"),
+)
+if mibBuilder.loadTexts:
+    brcdFabricStatsEntry.setStatus("current")
+_BrcdFabricSfmId_Type = Unsigned32
+_BrcdFabricSfmId_Object = MibTableColumn
+brcdFabricSfmId = _BrcdFabricSfmId_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 1),
+    _BrcdFabricSfmId_Type()
+)
+brcdFabricSfmId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    brcdFabricSfmId.setStatus("current")
+_BrcdFabricSfmFeId_Type = Unsigned32
+_BrcdFabricSfmFeId_Object = MibTableColumn
+brcdFabricSfmFeId = _BrcdFabricSfmFeId_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 2),
+    _BrcdFabricSfmFeId_Type()
+)
+brcdFabricSfmFeId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    brcdFabricSfmFeId.setStatus("current")
+_BrcdFabricDropMAC0Count_Type = Counter32
+_BrcdFabricDropMAC0Count_Object = MibTableColumn
+brcdFabricDropMAC0Count = _BrcdFabricDropMAC0Count_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 3),
+    _BrcdFabricDropMAC0Count_Type()
+)
+brcdFabricDropMAC0Count.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    brcdFabricDropMAC0Count.setStatus("current")
+_BrcdFabricDropMAC1Count_Type = Counter32
+_BrcdFabricDropMAC1Count_Object = MibTableColumn
+brcdFabricDropMAC1Count = _BrcdFabricDropMAC1Count_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 4),
+    _BrcdFabricDropMAC1Count_Type()
+)
+brcdFabricDropMAC1Count.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    brcdFabricDropMAC1Count.setStatus("current")
+_BrcdFabricDropMAC2Count_Type = Counter32
+_BrcdFabricDropMAC2Count_Object = MibTableColumn
+brcdFabricDropMAC2Count = _BrcdFabricDropMAC2Count_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 5),
+    _BrcdFabricDropMAC2Count_Type()
+)
+brcdFabricDropMAC2Count.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    brcdFabricDropMAC2Count.setStatus("current")
+_BrcdFabricDropMAC3Count_Type = Counter32
+_BrcdFabricDropMAC3Count_Object = MibTableColumn
+brcdFabricDropMAC3Count = _BrcdFabricDropMAC3Count_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 1, 1, 1, 6),
+    _BrcdFabricDropMAC3Count_Type()
+)
+brcdFabricDropMAC3Count.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    brcdFabricDropMAC3Count.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+brcdFabricAutoSFMWalkInitiated = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 0, 1)
+)
+brcdFabricAutoSFMWalkInitiated.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgentBrdIndex")
+)
+if mibBuilder.loadTexts:
+    brcdFabricAutoSFMWalkInitiated.setStatus(
+        "current"
+    )
+
+brcdFabricSFMRemovedFromDatapath = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 13, 1, 0, 2)
+)
+brcdFabricSFMRemovedFromDatapath.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgentBrdIndex")
+)
+if mibBuilder.loadTexts:
+    brcdFabricSFMRemovedFromDatapath.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BROCADE-FABRIC-MIB",
+    **{"brcdFabricMIB": brcdFabricMIB,
+       "brcdFabricNotifications": brcdFabricNotifications,
+       "brcdFabricAutoSFMWalkInitiated": brcdFabricAutoSFMWalkInitiated,
+       "brcdFabricSFMRemovedFromDatapath": brcdFabricSFMRemovedFromDatapath,
+       "brcdFabricObjects": brcdFabricObjects,
+       "brcdFabricStatsTable": brcdFabricStatsTable,
+       "brcdFabricStatsEntry": brcdFabricStatsEntry,
+       "brcdFabricSfmId": brcdFabricSfmId,
+       "brcdFabricSfmFeId": brcdFabricSfmFeId,
+       "brcdFabricDropMAC0Count": brcdFabricDropMAC0Count,
+       "brcdFabricDropMAC1Count": brcdFabricDropMAC1Count,
+       "brcdFabricDropMAC2Count": brcdFabricDropMAC2Count,
+       "brcdFabricDropMAC3Count": brcdFabricDropMAC3Count}
+)

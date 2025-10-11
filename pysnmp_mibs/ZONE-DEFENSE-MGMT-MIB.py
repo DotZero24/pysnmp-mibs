@@ -1,51 +1,386 @@
+# SNMP MIB module (ZONE-DEFENSE-MGMT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZONE-DEFENSE-MGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/ZONE-DEFENSE-MGMT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:58:46 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/ZONE-DEFENSE-MGMT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:48:30 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
-swZoneDefenseMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 92))
-if mibBuilder.loadTexts: swZoneDefenseMIB.setLastUpdated('201308270000Z')
-if mibBuilder.loadTexts: swZoneDefenseMIB.setOrganization('D-Link Corp.')
-swZoneDefenseMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 92, 1))
-swZoneDefenseTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1), )
-if mibBuilder.loadTexts: swZoneDefenseTable.setStatus('current')
-swZoneDefenseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1, 1), ).setIndexNames((0, "ZONE-DEFENSE-MGMT-MIB", "swZoneDefenseAddress"))
-if mibBuilder.loadTexts: swZoneDefenseEntry.setStatus('current')
-swZoneDefenseAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1, 1, 1), IpAddress())
-if mibBuilder.loadTexts: swZoneDefenseAddress.setStatus('current')
-swZoneDefenseRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swZoneDefenseRowStatus.setStatus('current')
-swZoneDefenseProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("all", 1), ("icmp", 2), ("tcp", 3), ("udp", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swZoneDefenseProtocol.setStatus('current')
-swZoneDefenseDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 65535), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swZoneDefenseDstPort.setStatus('current')
-swZoneDefenseMacTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2), )
-if mibBuilder.loadTexts: swZoneDefenseMacTable.setStatus('current')
-swZoneDefenseMacEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2, 1), ).setIndexNames((0, "ZONE-DEFENSE-MGMT-MIB", "swZoneDefenseMacAddress"))
-if mibBuilder.loadTexts: swZoneDefenseMacEntry.setStatus('current')
-swZoneDefenseMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2, 1, 1), MacAddress())
-if mibBuilder.loadTexts: swZoneDefenseMacAddress.setStatus('current')
-swZoneDefenseMacRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swZoneDefenseMacRowStatus.setStatus('current')
-swZoneDefenseMacProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("all", 1), ("icmp", 2), ("tcp", 3), ("udp", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swZoneDefenseMacProtocol.setStatus('current')
-swZoneDefenseMacDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 65535), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swZoneDefenseMacDstPort.setStatus('current')
-swZoneDefenseStatus = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swZoneDefenseStatus.setStatus('current')
-swZoneDefenseRemains = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swZoneDefenseRemains.setStatus('current')
-swZoneDefenseIpRemains = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swZoneDefenseIpRemains.setStatus('current')
-swZoneDefenseMacRemains = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swZoneDefenseMacRemains.setStatus('current')
-mibBuilder.exportSymbols("ZONE-DEFENSE-MGMT-MIB", PYSNMP_MODULE_ID=swZoneDefenseMIB, swZoneDefenseMIBObjects=swZoneDefenseMIBObjects, swZoneDefenseMacEntry=swZoneDefenseMacEntry, swZoneDefenseStatus=swZoneDefenseStatus, swZoneDefenseDstPort=swZoneDefenseDstPort, swZoneDefenseIpRemains=swZoneDefenseIpRemains, swZoneDefenseMacRemains=swZoneDefenseMacRemains, swZoneDefenseMacDstPort=swZoneDefenseMacDstPort, swZoneDefenseRowStatus=swZoneDefenseRowStatus, swZoneDefenseMacRowStatus=swZoneDefenseMacRowStatus, swZoneDefenseMacProtocol=swZoneDefenseMacProtocol, swZoneDefenseMIB=swZoneDefenseMIB, swZoneDefenseEntry=swZoneDefenseEntry, swZoneDefenseRemains=swZoneDefenseRemains, swZoneDefenseTable=swZoneDefenseTable, swZoneDefenseMacAddress=swZoneDefenseMacAddress, swZoneDefenseProtocol=swZoneDefenseProtocol, swZoneDefenseMacTable=swZoneDefenseMacTable, swZoneDefenseAddress=swZoneDefenseAddress)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_common_mgmt,) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-common-mgmt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+swZoneDefenseMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SwZoneDefenseMIBObjects_ObjectIdentity = ObjectIdentity
+swZoneDefenseMIBObjects = _SwZoneDefenseMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1)
+)
+_SwZoneDefenseTable_Object = MibTable
+swZoneDefenseTable = _SwZoneDefenseTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1)
+)
+if mibBuilder.loadTexts:
+    swZoneDefenseTable.setStatus("current")
+_SwZoneDefenseEntry_Object = MibTableRow
+swZoneDefenseEntry = _SwZoneDefenseEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1, 1)
+)
+swZoneDefenseEntry.setIndexNames(
+    (0, "ZONE-DEFENSE-MGMT-MIB", "swZoneDefenseAddress"),
+)
+if mibBuilder.loadTexts:
+    swZoneDefenseEntry.setStatus("current")
+_SwZoneDefenseAddress_Type = IpAddress
+_SwZoneDefenseAddress_Object = MibTableColumn
+swZoneDefenseAddress = _SwZoneDefenseAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1, 1, 1),
+    _SwZoneDefenseAddress_Type()
+)
+swZoneDefenseAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    swZoneDefenseAddress.setStatus("current")
+_SwZoneDefenseRowStatus_Type = RowStatus
+_SwZoneDefenseRowStatus_Object = MibTableColumn
+swZoneDefenseRowStatus = _SwZoneDefenseRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1, 1, 2),
+    _SwZoneDefenseRowStatus_Type()
+)
+swZoneDefenseRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swZoneDefenseRowStatus.setStatus("current")
+
+
+class _SwZoneDefenseProtocol_Type(Integer32):
+    """Custom type swZoneDefenseProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("all", 1),
+          ("icmp", 2),
+          ("tcp", 3),
+          ("udp", 4))
+    )
+
+
+_SwZoneDefenseProtocol_Type.__name__ = "Integer32"
+_SwZoneDefenseProtocol_Object = MibTableColumn
+swZoneDefenseProtocol = _SwZoneDefenseProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1, 1, 3),
+    _SwZoneDefenseProtocol_Type()
+)
+swZoneDefenseProtocol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swZoneDefenseProtocol.setStatus("current")
+
+
+class _SwZoneDefenseDstPort_Type(Integer32):
+    """Custom type swZoneDefenseDstPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwZoneDefenseDstPort_Type.__name__ = "Integer32"
+_SwZoneDefenseDstPort_Object = MibTableColumn
+swZoneDefenseDstPort = _SwZoneDefenseDstPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 1, 1, 4),
+    _SwZoneDefenseDstPort_Type()
+)
+swZoneDefenseDstPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swZoneDefenseDstPort.setStatus("current")
+_SwZoneDefenseMacTable_Object = MibTable
+swZoneDefenseMacTable = _SwZoneDefenseMacTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2)
+)
+if mibBuilder.loadTexts:
+    swZoneDefenseMacTable.setStatus("current")
+_SwZoneDefenseMacEntry_Object = MibTableRow
+swZoneDefenseMacEntry = _SwZoneDefenseMacEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2, 1)
+)
+swZoneDefenseMacEntry.setIndexNames(
+    (0, "ZONE-DEFENSE-MGMT-MIB", "swZoneDefenseMacAddress"),
+)
+if mibBuilder.loadTexts:
+    swZoneDefenseMacEntry.setStatus("current")
+_SwZoneDefenseMacAddress_Type = MacAddress
+_SwZoneDefenseMacAddress_Object = MibTableColumn
+swZoneDefenseMacAddress = _SwZoneDefenseMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2, 1, 1),
+    _SwZoneDefenseMacAddress_Type()
+)
+swZoneDefenseMacAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    swZoneDefenseMacAddress.setStatus("current")
+_SwZoneDefenseMacRowStatus_Type = RowStatus
+_SwZoneDefenseMacRowStatus_Object = MibTableColumn
+swZoneDefenseMacRowStatus = _SwZoneDefenseMacRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2, 1, 2),
+    _SwZoneDefenseMacRowStatus_Type()
+)
+swZoneDefenseMacRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swZoneDefenseMacRowStatus.setStatus("current")
+
+
+class _SwZoneDefenseMacProtocol_Type(Integer32):
+    """Custom type swZoneDefenseMacProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("all", 1),
+          ("icmp", 2),
+          ("tcp", 3),
+          ("udp", 4))
+    )
+
+
+_SwZoneDefenseMacProtocol_Type.__name__ = "Integer32"
+_SwZoneDefenseMacProtocol_Object = MibTableColumn
+swZoneDefenseMacProtocol = _SwZoneDefenseMacProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2, 1, 3),
+    _SwZoneDefenseMacProtocol_Type()
+)
+swZoneDefenseMacProtocol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swZoneDefenseMacProtocol.setStatus("current")
+
+
+class _SwZoneDefenseMacDstPort_Type(Integer32):
+    """Custom type swZoneDefenseMacDstPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwZoneDefenseMacDstPort_Type.__name__ = "Integer32"
+_SwZoneDefenseMacDstPort_Object = MibTableColumn
+swZoneDefenseMacDstPort = _SwZoneDefenseMacDstPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 2, 1, 4),
+    _SwZoneDefenseMacDstPort_Type()
+)
+swZoneDefenseMacDstPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swZoneDefenseMacDstPort.setStatus("current")
+
+
+class _SwZoneDefenseStatus_Type(Integer32):
+    """Custom type swZoneDefenseStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwZoneDefenseStatus_Type.__name__ = "Integer32"
+_SwZoneDefenseStatus_Object = MibScalar
+swZoneDefenseStatus = _SwZoneDefenseStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 3),
+    _SwZoneDefenseStatus_Type()
+)
+swZoneDefenseStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swZoneDefenseStatus.setStatus("current")
+_SwZoneDefenseRemains_Type = Integer32
+_SwZoneDefenseRemains_Object = MibScalar
+swZoneDefenseRemains = _SwZoneDefenseRemains_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 4),
+    _SwZoneDefenseRemains_Type()
+)
+swZoneDefenseRemains.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swZoneDefenseRemains.setStatus("current")
+_SwZoneDefenseIpRemains_Type = Integer32
+_SwZoneDefenseIpRemains_Object = MibScalar
+swZoneDefenseIpRemains = _SwZoneDefenseIpRemains_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 5),
+    _SwZoneDefenseIpRemains_Type()
+)
+swZoneDefenseIpRemains.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swZoneDefenseIpRemains.setStatus("current")
+_SwZoneDefenseMacRemains_Type = Integer32
+_SwZoneDefenseMacRemains_Object = MibScalar
+swZoneDefenseMacRemains = _SwZoneDefenseMacRemains_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 92, 1, 6),
+    _SwZoneDefenseMacRemains_Type()
+)
+swZoneDefenseMacRemains.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swZoneDefenseMacRemains.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZONE-DEFENSE-MGMT-MIB",
+    **{"swZoneDefenseMIB": swZoneDefenseMIB,
+       "swZoneDefenseMIBObjects": swZoneDefenseMIBObjects,
+       "swZoneDefenseTable": swZoneDefenseTable,
+       "swZoneDefenseEntry": swZoneDefenseEntry,
+       "swZoneDefenseAddress": swZoneDefenseAddress,
+       "swZoneDefenseRowStatus": swZoneDefenseRowStatus,
+       "swZoneDefenseProtocol": swZoneDefenseProtocol,
+       "swZoneDefenseDstPort": swZoneDefenseDstPort,
+       "swZoneDefenseMacTable": swZoneDefenseMacTable,
+       "swZoneDefenseMacEntry": swZoneDefenseMacEntry,
+       "swZoneDefenseMacAddress": swZoneDefenseMacAddress,
+       "swZoneDefenseMacRowStatus": swZoneDefenseMacRowStatus,
+       "swZoneDefenseMacProtocol": swZoneDefenseMacProtocol,
+       "swZoneDefenseMacDstPort": swZoneDefenseMacDstPort,
+       "swZoneDefenseStatus": swZoneDefenseStatus,
+       "swZoneDefenseRemains": swZoneDefenseRemains,
+       "swZoneDefenseIpRemains": swZoneDefenseIpRemains,
+       "swZoneDefenseMacRemains": swZoneDefenseMacRemains}
+)

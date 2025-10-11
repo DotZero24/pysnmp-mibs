@@ -1,74 +1,408 @@
+# SNMP MIB module (RUCKUS-DHCPV6-SNOOPING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RUCKUS-DHCPV6-SNOOPING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/RUCKUS-DHCPV6-SNOOPING-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:18 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/brocade/RUCKUS-DHCPV6-SNOOPING-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:01:27 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-DisplayString, = mibBuilder.importSymbols("FOUNDRY-SN-AGENT-MIB", "DisplayString")
-snSwitch, = mibBuilder.importSymbols("FOUNDRY-SN-SWITCH-GROUP-MIB", "snSwitch")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
-VlanIndex, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex")
-NDType, NDState = mibBuilder.importSymbols("RUCKUS-NDI-MIB", "NDType", "NDState")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
-ruckusDhcpv6SnoopMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48))
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopMIB.setLastUpdated('202008040000Z')
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopMIB.setOrganization('Ruckus Wireless, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(DisplayString,) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-AGENT-MIB",
+    "DisplayString")
+
+(snSwitch,) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-SWITCH-GROUP-MIB",
+    "snSwitch")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(Ipv6Address,) = mibBuilder.importSymbols(
+    "IPV6-TC",
+    "Ipv6Address")
+
+(VlanIndex,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "VlanIndex")
+
+(NDState,
+ NDType) = mibBuilder.importSymbols(
+    "RUCKUS-NDI-MIB",
+    "NDState",
+    "NDType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ruckusDhcpv6SnoopMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class ClearAction(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("valid", 0), ("clear", 1))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("valid", 0),
+          ("clear", 1))
+    )
 
-ruckusDhcpv6SnoopNotify = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 0))
-ruckusDhcpv6SnoopObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1))
-ruckusDhcpv6SnoopConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 2))
-ruckusDhcpv6SnoopGlobalObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 1))
-ruckusDhcpv6SnoopVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 2))
-ruckusDhcpv6SnoopInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 3))
-ruckusDhcpv6SnoopBind = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4))
-ruckusDhcpv6SnoopGlobalClearOper = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 1, 1), ClearAction()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopGlobalClearOper.setStatus('current')
-ruckusDhcpv6SnoopVlanConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 2, 1), )
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopVlanConfigTable.setStatus('current')
-ruckusDhcpv6SnoopVlanConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 2, 1, 1), ).setIndexNames((0, "RUCKUS-DHCPV6-SNOOPING-MIB", "ruckusDhcpv6SnoopVlanConfigVLanId"))
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopVlanConfigEntry.setStatus('current')
-ruckusDhcpv6SnoopVlanConfigVLanId = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 2, 1, 1, 1), VlanIndex())
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopVlanConfigVLanId.setStatus('current')
-ruckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 2, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable.setStatus('current')
-ruckusDhcpv6SnoopIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 3, 1), )
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopIfConfigTable.setStatus('current')
-ruckusDhcpv6SnoopIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopIfConfigEntry.setStatus('current')
-ruckusDhcpv6SnoopIfConfigTrustValue = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 3, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopIfConfigTrustValue.setStatus('current')
-ruckusDhcpv6SnoopBindTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1), )
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopBindTable.setStatus('current')
-ruckusDhcpv6SnoopBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1), ).setIndexNames((0, "RUCKUS-DHCPV6-SNOOPING-MIB", "ruckusDhcpv6SnoopBindMacAddr"), (0, "RUCKUS-DHCPV6-SNOOPING-MIB", "ruckusDhcpv6SnoopBindVlanId"))
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopBindEntry.setStatus('current')
-ruckusDhcpv6SnoopBindMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 1), MacAddress())
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopBindMacAddr.setStatus('current')
-ruckusDhcpv6SnoopBindVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 2), VlanIndex())
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopBindVlanId.setStatus('current')
-ruckusDhcpv6SnoopBindIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 3), Ipv6Address()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopBindIpAddr.setStatus('current')
-ruckusDhcpv6SnoopBindType = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 4), NDType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopBindType.setStatus('current')
-ruckusDhcpv6SnoopBindState = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 5), NDState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopBindState.setStatus('current')
-ruckusDhcpv6SnoopBindPort = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopBindPort.setStatus('current')
-ruckusDhcpv6SnoopBindClearOper = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 7), ClearAction()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ruckusDhcpv6SnoopBindClearOper.setStatus('current')
-ruckusDhcpv6SnoopCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 2, 1))
-ruckusDhcpv6SnoopCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 2, 1)).setObjects()
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ruckusDhcpv6SnoopCompliance = ruckusDhcpv6SnoopCompliance.setStatus('current')
-mibBuilder.exportSymbols("RUCKUS-DHCPV6-SNOOPING-MIB", ruckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable=ruckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable, ruckusDhcpv6SnoopGlobalClearOper=ruckusDhcpv6SnoopGlobalClearOper, ruckusDhcpv6SnoopBindClearOper=ruckusDhcpv6SnoopBindClearOper, ruckusDhcpv6SnoopVlanConfigVLanId=ruckusDhcpv6SnoopVlanConfigVLanId, ruckusDhcpv6SnoopVlanConfigTable=ruckusDhcpv6SnoopVlanConfigTable, ruckusDhcpv6SnoopBind=ruckusDhcpv6SnoopBind, ruckusDhcpv6SnoopBindType=ruckusDhcpv6SnoopBindType, ruckusDhcpv6SnoopObjects=ruckusDhcpv6SnoopObjects, ruckusDhcpv6SnoopBindTable=ruckusDhcpv6SnoopBindTable, ruckusDhcpv6SnoopBindState=ruckusDhcpv6SnoopBindState, ruckusDhcpv6SnoopBindPort=ruckusDhcpv6SnoopBindPort, ruckusDhcpv6SnoopGlobalObjects=ruckusDhcpv6SnoopGlobalObjects, ruckusDhcpv6SnoopCompliance=ruckusDhcpv6SnoopCompliance, ruckusDhcpv6SnoopMIB=ruckusDhcpv6SnoopMIB, PYSNMP_MODULE_ID=ruckusDhcpv6SnoopMIB, ruckusDhcpv6SnoopCompliances=ruckusDhcpv6SnoopCompliances, ruckusDhcpv6SnoopInterface=ruckusDhcpv6SnoopInterface, ruckusDhcpv6SnoopBindEntry=ruckusDhcpv6SnoopBindEntry, ruckusDhcpv6SnoopConformance=ruckusDhcpv6SnoopConformance, ClearAction=ClearAction, ruckusDhcpv6SnoopIfConfigEntry=ruckusDhcpv6SnoopIfConfigEntry, ruckusDhcpv6SnoopBindIpAddr=ruckusDhcpv6SnoopBindIpAddr, ruckusDhcpv6SnoopVlan=ruckusDhcpv6SnoopVlan, ruckusDhcpv6SnoopIfConfigTable=ruckusDhcpv6SnoopIfConfigTable, ruckusDhcpv6SnoopBindVlanId=ruckusDhcpv6SnoopBindVlanId, ruckusDhcpv6SnoopIfConfigTrustValue=ruckusDhcpv6SnoopIfConfigTrustValue, ruckusDhcpv6SnoopBindMacAddr=ruckusDhcpv6SnoopBindMacAddr, ruckusDhcpv6SnoopNotify=ruckusDhcpv6SnoopNotify, ruckusDhcpv6SnoopVlanConfigEntry=ruckusDhcpv6SnoopVlanConfigEntry)
+
+# MIB Managed Objects in the order of their OIDs
+
+_RuckusDhcpv6SnoopNotify_ObjectIdentity = ObjectIdentity
+ruckusDhcpv6SnoopNotify = _RuckusDhcpv6SnoopNotify_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 0)
+)
+_RuckusDhcpv6SnoopObjects_ObjectIdentity = ObjectIdentity
+ruckusDhcpv6SnoopObjects = _RuckusDhcpv6SnoopObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1)
+)
+_RuckusDhcpv6SnoopGlobalObjects_ObjectIdentity = ObjectIdentity
+ruckusDhcpv6SnoopGlobalObjects = _RuckusDhcpv6SnoopGlobalObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 1)
+)
+_RuckusDhcpv6SnoopGlobalClearOper_Type = ClearAction
+_RuckusDhcpv6SnoopGlobalClearOper_Object = MibScalar
+ruckusDhcpv6SnoopGlobalClearOper = _RuckusDhcpv6SnoopGlobalClearOper_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 1, 1),
+    _RuckusDhcpv6SnoopGlobalClearOper_Type()
+)
+ruckusDhcpv6SnoopGlobalClearOper.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopGlobalClearOper.setStatus("current")
+_RuckusDhcpv6SnoopVlan_ObjectIdentity = ObjectIdentity
+ruckusDhcpv6SnoopVlan = _RuckusDhcpv6SnoopVlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 2)
+)
+_RuckusDhcpv6SnoopVlanConfigTable_Object = MibTable
+ruckusDhcpv6SnoopVlanConfigTable = _RuckusDhcpv6SnoopVlanConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopVlanConfigTable.setStatus("current")
+_RuckusDhcpv6SnoopVlanConfigEntry_Object = MibTableRow
+ruckusDhcpv6SnoopVlanConfigEntry = _RuckusDhcpv6SnoopVlanConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 2, 1, 1)
+)
+ruckusDhcpv6SnoopVlanConfigEntry.setIndexNames(
+    (0, "RUCKUS-DHCPV6-SNOOPING-MIB", "ruckusDhcpv6SnoopVlanConfigVLanId"),
+)
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopVlanConfigEntry.setStatus("current")
+_RuckusDhcpv6SnoopVlanConfigVLanId_Type = VlanIndex
+_RuckusDhcpv6SnoopVlanConfigVLanId_Object = MibTableColumn
+ruckusDhcpv6SnoopVlanConfigVLanId = _RuckusDhcpv6SnoopVlanConfigVLanId_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 2, 1, 1, 1),
+    _RuckusDhcpv6SnoopVlanConfigVLanId_Type()
+)
+ruckusDhcpv6SnoopVlanConfigVLanId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopVlanConfigVLanId.setStatus("current")
+
+
+class _RuckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable_Type(TruthValue):
+    """Custom type ruckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable based on TruthValue"""
+    defaultValue = 2
+
+
+_RuckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable_Type.__name__ = "TruthValue"
+_RuckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable_Object = MibTableColumn
+ruckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable = _RuckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 2, 1, 1, 2),
+    _RuckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable_Type()
+)
+ruckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable.setStatus("current")
+_RuckusDhcpv6SnoopInterface_ObjectIdentity = ObjectIdentity
+ruckusDhcpv6SnoopInterface = _RuckusDhcpv6SnoopInterface_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 3)
+)
+_RuckusDhcpv6SnoopIfConfigTable_Object = MibTable
+ruckusDhcpv6SnoopIfConfigTable = _RuckusDhcpv6SnoopIfConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopIfConfigTable.setStatus("current")
+_RuckusDhcpv6SnoopIfConfigEntry_Object = MibTableRow
+ruckusDhcpv6SnoopIfConfigEntry = _RuckusDhcpv6SnoopIfConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 3, 1, 1)
+)
+ruckusDhcpv6SnoopIfConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopIfConfigEntry.setStatus("current")
+
+
+class _RuckusDhcpv6SnoopIfConfigTrustValue_Type(TruthValue):
+    """Custom type ruckusDhcpv6SnoopIfConfigTrustValue based on TruthValue"""
+    defaultValue = 2
+
+
+_RuckusDhcpv6SnoopIfConfigTrustValue_Type.__name__ = "TruthValue"
+_RuckusDhcpv6SnoopIfConfigTrustValue_Object = MibTableColumn
+ruckusDhcpv6SnoopIfConfigTrustValue = _RuckusDhcpv6SnoopIfConfigTrustValue_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 3, 1, 1, 1),
+    _RuckusDhcpv6SnoopIfConfigTrustValue_Type()
+)
+ruckusDhcpv6SnoopIfConfigTrustValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopIfConfigTrustValue.setStatus("current")
+_RuckusDhcpv6SnoopBind_ObjectIdentity = ObjectIdentity
+ruckusDhcpv6SnoopBind = _RuckusDhcpv6SnoopBind_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4)
+)
+_RuckusDhcpv6SnoopBindTable_Object = MibTable
+ruckusDhcpv6SnoopBindTable = _RuckusDhcpv6SnoopBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopBindTable.setStatus("current")
+_RuckusDhcpv6SnoopBindEntry_Object = MibTableRow
+ruckusDhcpv6SnoopBindEntry = _RuckusDhcpv6SnoopBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1)
+)
+ruckusDhcpv6SnoopBindEntry.setIndexNames(
+    (0, "RUCKUS-DHCPV6-SNOOPING-MIB", "ruckusDhcpv6SnoopBindMacAddr"),
+    (0, "RUCKUS-DHCPV6-SNOOPING-MIB", "ruckusDhcpv6SnoopBindVlanId"),
+)
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopBindEntry.setStatus("current")
+_RuckusDhcpv6SnoopBindMacAddr_Type = MacAddress
+_RuckusDhcpv6SnoopBindMacAddr_Object = MibTableColumn
+ruckusDhcpv6SnoopBindMacAddr = _RuckusDhcpv6SnoopBindMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 1),
+    _RuckusDhcpv6SnoopBindMacAddr_Type()
+)
+ruckusDhcpv6SnoopBindMacAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopBindMacAddr.setStatus("current")
+_RuckusDhcpv6SnoopBindVlanId_Type = VlanIndex
+_RuckusDhcpv6SnoopBindVlanId_Object = MibTableColumn
+ruckusDhcpv6SnoopBindVlanId = _RuckusDhcpv6SnoopBindVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 2),
+    _RuckusDhcpv6SnoopBindVlanId_Type()
+)
+ruckusDhcpv6SnoopBindVlanId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopBindVlanId.setStatus("current")
+_RuckusDhcpv6SnoopBindIpAddr_Type = Ipv6Address
+_RuckusDhcpv6SnoopBindIpAddr_Object = MibTableColumn
+ruckusDhcpv6SnoopBindIpAddr = _RuckusDhcpv6SnoopBindIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 3),
+    _RuckusDhcpv6SnoopBindIpAddr_Type()
+)
+ruckusDhcpv6SnoopBindIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopBindIpAddr.setStatus("current")
+_RuckusDhcpv6SnoopBindType_Type = NDType
+_RuckusDhcpv6SnoopBindType_Object = MibTableColumn
+ruckusDhcpv6SnoopBindType = _RuckusDhcpv6SnoopBindType_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 4),
+    _RuckusDhcpv6SnoopBindType_Type()
+)
+ruckusDhcpv6SnoopBindType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopBindType.setStatus("current")
+_RuckusDhcpv6SnoopBindState_Type = NDState
+_RuckusDhcpv6SnoopBindState_Object = MibTableColumn
+ruckusDhcpv6SnoopBindState = _RuckusDhcpv6SnoopBindState_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 5),
+    _RuckusDhcpv6SnoopBindState_Type()
+)
+ruckusDhcpv6SnoopBindState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopBindState.setStatus("current")
+_RuckusDhcpv6SnoopBindPort_Type = Integer32
+_RuckusDhcpv6SnoopBindPort_Object = MibTableColumn
+ruckusDhcpv6SnoopBindPort = _RuckusDhcpv6SnoopBindPort_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 6),
+    _RuckusDhcpv6SnoopBindPort_Type()
+)
+ruckusDhcpv6SnoopBindPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopBindPort.setStatus("current")
+_RuckusDhcpv6SnoopBindClearOper_Type = ClearAction
+_RuckusDhcpv6SnoopBindClearOper_Object = MibTableColumn
+ruckusDhcpv6SnoopBindClearOper = _RuckusDhcpv6SnoopBindClearOper_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 1, 4, 1, 1, 7),
+    _RuckusDhcpv6SnoopBindClearOper_Type()
+)
+ruckusDhcpv6SnoopBindClearOper.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopBindClearOper.setStatus("current")
+_RuckusDhcpv6SnoopConformance_ObjectIdentity = ObjectIdentity
+ruckusDhcpv6SnoopConformance = _RuckusDhcpv6SnoopConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 2)
+)
+_RuckusDhcpv6SnoopCompliances_ObjectIdentity = ObjectIdentity
+ruckusDhcpv6SnoopCompliances = _RuckusDhcpv6SnoopCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 2, 1)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ruckusDhcpv6SnoopCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 48, 2, 1)
+)
+if mibBuilder.loadTexts:
+    ruckusDhcpv6SnoopCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RUCKUS-DHCPV6-SNOOPING-MIB",
+    **{"ClearAction": ClearAction,
+       "ruckusDhcpv6SnoopMIB": ruckusDhcpv6SnoopMIB,
+       "ruckusDhcpv6SnoopNotify": ruckusDhcpv6SnoopNotify,
+       "ruckusDhcpv6SnoopObjects": ruckusDhcpv6SnoopObjects,
+       "ruckusDhcpv6SnoopGlobalObjects": ruckusDhcpv6SnoopGlobalObjects,
+       "ruckusDhcpv6SnoopGlobalClearOper": ruckusDhcpv6SnoopGlobalClearOper,
+       "ruckusDhcpv6SnoopVlan": ruckusDhcpv6SnoopVlan,
+       "ruckusDhcpv6SnoopVlanConfigTable": ruckusDhcpv6SnoopVlanConfigTable,
+       "ruckusDhcpv6SnoopVlanConfigEntry": ruckusDhcpv6SnoopVlanConfigEntry,
+       "ruckusDhcpv6SnoopVlanConfigVLanId": ruckusDhcpv6SnoopVlanConfigVLanId,
+       "ruckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable": ruckusDhcpv6SnoopVlanConfigDhcpv6SnoopEnable,
+       "ruckusDhcpv6SnoopInterface": ruckusDhcpv6SnoopInterface,
+       "ruckusDhcpv6SnoopIfConfigTable": ruckusDhcpv6SnoopIfConfigTable,
+       "ruckusDhcpv6SnoopIfConfigEntry": ruckusDhcpv6SnoopIfConfigEntry,
+       "ruckusDhcpv6SnoopIfConfigTrustValue": ruckusDhcpv6SnoopIfConfigTrustValue,
+       "ruckusDhcpv6SnoopBind": ruckusDhcpv6SnoopBind,
+       "ruckusDhcpv6SnoopBindTable": ruckusDhcpv6SnoopBindTable,
+       "ruckusDhcpv6SnoopBindEntry": ruckusDhcpv6SnoopBindEntry,
+       "ruckusDhcpv6SnoopBindMacAddr": ruckusDhcpv6SnoopBindMacAddr,
+       "ruckusDhcpv6SnoopBindVlanId": ruckusDhcpv6SnoopBindVlanId,
+       "ruckusDhcpv6SnoopBindIpAddr": ruckusDhcpv6SnoopBindIpAddr,
+       "ruckusDhcpv6SnoopBindType": ruckusDhcpv6SnoopBindType,
+       "ruckusDhcpv6SnoopBindState": ruckusDhcpv6SnoopBindState,
+       "ruckusDhcpv6SnoopBindPort": ruckusDhcpv6SnoopBindPort,
+       "ruckusDhcpv6SnoopBindClearOper": ruckusDhcpv6SnoopBindClearOper,
+       "ruckusDhcpv6SnoopConformance": ruckusDhcpv6SnoopConformance,
+       "ruckusDhcpv6SnoopCompliances": ruckusDhcpv6SnoopCompliances,
+       "ruckusDhcpv6SnoopCompliance": ruckusDhcpv6SnoopCompliance}
+)

@@ -1,73 +1,432 @@
+# SNMP MIB module (CISCO-UNIFIED-COMPUTING-SES-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-UNIFIED-COMPUTING-SES-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-SES-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:29:18 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-UNIFIED-COMPUTING-SES-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:36:46 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoInetAddressMask, CiscoNetworkAddress, CiscoAlarmSeverity, TimeIntervalSec, Unsigned64 = mibBuilder.importSymbols("CISCO-TC", "CiscoInetAddressMask", "CiscoNetworkAddress", "CiscoAlarmSeverity", "TimeIntervalSec", "Unsigned64")
-CucsManagedObjectDn, ciscoUnifiedComputingMIBObjects, CucsManagedObjectId = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectDn", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectId")
-CucsFsmLifecycle, CucsSesScsiDriveStatus = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-TC-MIB", "CucsFsmLifecycle", "CucsSesScsiDriveStatus")
-InetAddressIPv4, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressIPv6")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, TextualConvention, TimeInterval, MacAddress, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
-cucsSesObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80))
-if mibBuilder.loadTexts: cucsSesObjects.setLastUpdated('201807260000Z')
-if mibBuilder.loadTexts: cucsSesObjects.setOrganization('Cisco Systems Inc.')
-cucsSesDiskSlotEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1), )
-if mibBuilder.loadTexts: cucsSesDiskSlotEpTable.setStatus('current')
-cucsSesDiskSlotEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-SES-MIB", "cucsSesDiskSlotEpInstanceId"))
-if mibBuilder.loadTexts: cucsSesDiskSlotEpEntry.setStatus('current')
-cucsSesDiskSlotEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 1), CucsManagedObjectId())
-if mibBuilder.loadTexts: cucsSesDiskSlotEpInstanceId.setStatus('current')
-cucsSesDiskSlotEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpDn.setStatus('current')
-cucsSesDiskSlotEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpRn.setStatus('current')
-cucsSesDiskSlotEpEncId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpEncId.setStatus('current')
-cucsSesDiskSlotEpId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 5), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpId.setStatus('current')
-cucsSesDiskSlotEpSlotDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpSlotDn.setStatus('current')
-cucsSesDiskSlotEpDiskDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpDiskDn.setStatus('current')
-cucsSesDiskSlotEpDiskPresent = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpDiskPresent.setStatus('current')
-cucsSesDiskSlotEpLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 9), CucsFsmLifecycle()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpLc.setStatus('current')
-cucsSesDiskSlotEpModel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpModel.setStatus('current')
-cucsSesDiskSlotEpRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpRevision.setStatus('current')
-cucsSesDiskSlotEpScsiDiskState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 12), CucsSesScsiDriveStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpScsiDiskState.setStatus('current')
-cucsSesDiskSlotEpSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpSerial.setStatus('current')
-cucsSesDiskSlotEpVendor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 14), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesDiskSlotEpVendor.setStatus('current')
-cucsSesEnclosureTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2), )
-if mibBuilder.loadTexts: cucsSesEnclosureTable.setStatus('current')
-cucsSesEnclosureEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-SES-MIB", "cucsSesEnclosureInstanceId"))
-if mibBuilder.loadTexts: cucsSesEnclosureEntry.setStatus('current')
-cucsSesEnclosureInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 1), CucsManagedObjectId())
-if mibBuilder.loadTexts: cucsSesEnclosureInstanceId.setStatus('current')
-cucsSesEnclosureDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesEnclosureDn.setStatus('current')
-cucsSesEnclosureRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesEnclosureRn.setStatus('current')
-cucsSesEnclosureDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesEnclosureDescr.setStatus('current')
-cucsSesEnclosureElid = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesEnclosureElid.setStatus('current')
-cucsSesEnclosureId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesEnclosureId.setStatus('current')
-cucsSesEnclosureLc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 7), CucsFsmLifecycle()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsSesEnclosureLc.setStatus('current')
-mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-SES-MIB", cucsSesEnclosureId=cucsSesEnclosureId, cucsSesEnclosureDescr=cucsSesEnclosureDescr, cucsSesDiskSlotEpDiskPresent=cucsSesDiskSlotEpDiskPresent, cucsSesDiskSlotEpEntry=cucsSesDiskSlotEpEntry, cucsSesEnclosureElid=cucsSesEnclosureElid, cucsSesDiskSlotEpLc=cucsSesDiskSlotEpLc, PYSNMP_MODULE_ID=cucsSesObjects, cucsSesDiskSlotEpScsiDiskState=cucsSesDiskSlotEpScsiDiskState, cucsSesDiskSlotEpModel=cucsSesDiskSlotEpModel, cucsSesObjects=cucsSesObjects, cucsSesEnclosureTable=cucsSesEnclosureTable, cucsSesDiskSlotEpTable=cucsSesDiskSlotEpTable, cucsSesDiskSlotEpEncId=cucsSesDiskSlotEpEncId, cucsSesEnclosureEntry=cucsSesEnclosureEntry, cucsSesDiskSlotEpVendor=cucsSesDiskSlotEpVendor, cucsSesDiskSlotEpSerial=cucsSesDiskSlotEpSerial, cucsSesDiskSlotEpId=cucsSesDiskSlotEpId, cucsSesEnclosureInstanceId=cucsSesEnclosureInstanceId, cucsSesEnclosureRn=cucsSesEnclosureRn, cucsSesDiskSlotEpRn=cucsSesDiskSlotEpRn, cucsSesDiskSlotEpRevision=cucsSesDiskSlotEpRevision, cucsSesEnclosureLc=cucsSesEnclosureLc, cucsSesEnclosureDn=cucsSesEnclosureDn, cucsSesDiskSlotEpDiskDn=cucsSesDiskSlotEpDiskDn, cucsSesDiskSlotEpInstanceId=cucsSesDiskSlotEpInstanceId, cucsSesDiskSlotEpDn=cucsSesDiskSlotEpDn, cucsSesDiskSlotEpSlotDn=cucsSesDiskSlotEpSlotDn)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CiscoAlarmSeverity,
+ CiscoInetAddressMask,
+ CiscoNetworkAddress,
+ TimeIntervalSec,
+ Unsigned64) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoAlarmSeverity",
+    "CiscoInetAddressMask",
+    "CiscoNetworkAddress",
+    "TimeIntervalSec",
+    "Unsigned64")
+
+(CucsManagedObjectDn,
+ CucsManagedObjectId,
+ ciscoUnifiedComputingMIBObjects) = mibBuilder.importSymbols(
+    "CISCO-UNIFIED-COMPUTING-MIB",
+    "CucsManagedObjectDn",
+    "CucsManagedObjectId",
+    "ciscoUnifiedComputingMIBObjects")
+
+(CucsFsmLifecycle,
+ CucsSesScsiDriveStatus) = mibBuilder.importSymbols(
+    "CISCO-UNIFIED-COMPUTING-TC-MIB",
+    "CucsFsmLifecycle",
+    "CucsSesScsiDriveStatus")
+
+(InetAddressIPv4,
+ InetAddressIPv6) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv4",
+    "InetAddressIPv6")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cucsSesObjects = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CucsSesDiskSlotEpTable_Object = MibTable
+cucsSesDiskSlotEpTable = _CucsSesDiskSlotEpTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1)
+)
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpTable.setStatus("current")
+_CucsSesDiskSlotEpEntry_Object = MibTableRow
+cucsSesDiskSlotEpEntry = _CucsSesDiskSlotEpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1)
+)
+cucsSesDiskSlotEpEntry.setIndexNames(
+    (0, "CISCO-UNIFIED-COMPUTING-SES-MIB", "cucsSesDiskSlotEpInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpEntry.setStatus("current")
+_CucsSesDiskSlotEpInstanceId_Type = CucsManagedObjectId
+_CucsSesDiskSlotEpInstanceId_Object = MibTableColumn
+cucsSesDiskSlotEpInstanceId = _CucsSesDiskSlotEpInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 1),
+    _CucsSesDiskSlotEpInstanceId_Type()
+)
+cucsSesDiskSlotEpInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpInstanceId.setStatus("current")
+_CucsSesDiskSlotEpDn_Type = CucsManagedObjectDn
+_CucsSesDiskSlotEpDn_Object = MibTableColumn
+cucsSesDiskSlotEpDn = _CucsSesDiskSlotEpDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 2),
+    _CucsSesDiskSlotEpDn_Type()
+)
+cucsSesDiskSlotEpDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpDn.setStatus("current")
+_CucsSesDiskSlotEpRn_Type = SnmpAdminString
+_CucsSesDiskSlotEpRn_Object = MibTableColumn
+cucsSesDiskSlotEpRn = _CucsSesDiskSlotEpRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 3),
+    _CucsSesDiskSlotEpRn_Type()
+)
+cucsSesDiskSlotEpRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpRn.setStatus("current")
+_CucsSesDiskSlotEpEncId_Type = Gauge32
+_CucsSesDiskSlotEpEncId_Object = MibTableColumn
+cucsSesDiskSlotEpEncId = _CucsSesDiskSlotEpEncId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 4),
+    _CucsSesDiskSlotEpEncId_Type()
+)
+cucsSesDiskSlotEpEncId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpEncId.setStatus("current")
+_CucsSesDiskSlotEpId_Type = Gauge32
+_CucsSesDiskSlotEpId_Object = MibTableColumn
+cucsSesDiskSlotEpId = _CucsSesDiskSlotEpId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 5),
+    _CucsSesDiskSlotEpId_Type()
+)
+cucsSesDiskSlotEpId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpId.setStatus("current")
+_CucsSesDiskSlotEpSlotDn_Type = SnmpAdminString
+_CucsSesDiskSlotEpSlotDn_Object = MibTableColumn
+cucsSesDiskSlotEpSlotDn = _CucsSesDiskSlotEpSlotDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 6),
+    _CucsSesDiskSlotEpSlotDn_Type()
+)
+cucsSesDiskSlotEpSlotDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpSlotDn.setStatus("current")
+_CucsSesDiskSlotEpDiskDn_Type = SnmpAdminString
+_CucsSesDiskSlotEpDiskDn_Object = MibTableColumn
+cucsSesDiskSlotEpDiskDn = _CucsSesDiskSlotEpDiskDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 7),
+    _CucsSesDiskSlotEpDiskDn_Type()
+)
+cucsSesDiskSlotEpDiskDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpDiskDn.setStatus("current")
+_CucsSesDiskSlotEpDiskPresent_Type = TruthValue
+_CucsSesDiskSlotEpDiskPresent_Object = MibTableColumn
+cucsSesDiskSlotEpDiskPresent = _CucsSesDiskSlotEpDiskPresent_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 8),
+    _CucsSesDiskSlotEpDiskPresent_Type()
+)
+cucsSesDiskSlotEpDiskPresent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpDiskPresent.setStatus("current")
+_CucsSesDiskSlotEpLc_Type = CucsFsmLifecycle
+_CucsSesDiskSlotEpLc_Object = MibTableColumn
+cucsSesDiskSlotEpLc = _CucsSesDiskSlotEpLc_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 9),
+    _CucsSesDiskSlotEpLc_Type()
+)
+cucsSesDiskSlotEpLc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpLc.setStatus("current")
+_CucsSesDiskSlotEpModel_Type = SnmpAdminString
+_CucsSesDiskSlotEpModel_Object = MibTableColumn
+cucsSesDiskSlotEpModel = _CucsSesDiskSlotEpModel_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 10),
+    _CucsSesDiskSlotEpModel_Type()
+)
+cucsSesDiskSlotEpModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpModel.setStatus("current")
+_CucsSesDiskSlotEpRevision_Type = SnmpAdminString
+_CucsSesDiskSlotEpRevision_Object = MibTableColumn
+cucsSesDiskSlotEpRevision = _CucsSesDiskSlotEpRevision_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 11),
+    _CucsSesDiskSlotEpRevision_Type()
+)
+cucsSesDiskSlotEpRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpRevision.setStatus("current")
+_CucsSesDiskSlotEpScsiDiskState_Type = CucsSesScsiDriveStatus
+_CucsSesDiskSlotEpScsiDiskState_Object = MibTableColumn
+cucsSesDiskSlotEpScsiDiskState = _CucsSesDiskSlotEpScsiDiskState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 12),
+    _CucsSesDiskSlotEpScsiDiskState_Type()
+)
+cucsSesDiskSlotEpScsiDiskState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpScsiDiskState.setStatus("current")
+_CucsSesDiskSlotEpSerial_Type = SnmpAdminString
+_CucsSesDiskSlotEpSerial_Object = MibTableColumn
+cucsSesDiskSlotEpSerial = _CucsSesDiskSlotEpSerial_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 13),
+    _CucsSesDiskSlotEpSerial_Type()
+)
+cucsSesDiskSlotEpSerial.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpSerial.setStatus("current")
+_CucsSesDiskSlotEpVendor_Type = SnmpAdminString
+_CucsSesDiskSlotEpVendor_Object = MibTableColumn
+cucsSesDiskSlotEpVendor = _CucsSesDiskSlotEpVendor_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 1, 1, 14),
+    _CucsSesDiskSlotEpVendor_Type()
+)
+cucsSesDiskSlotEpVendor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesDiskSlotEpVendor.setStatus("current")
+_CucsSesEnclosureTable_Object = MibTable
+cucsSesEnclosureTable = _CucsSesEnclosureTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2)
+)
+if mibBuilder.loadTexts:
+    cucsSesEnclosureTable.setStatus("current")
+_CucsSesEnclosureEntry_Object = MibTableRow
+cucsSesEnclosureEntry = _CucsSesEnclosureEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1)
+)
+cucsSesEnclosureEntry.setIndexNames(
+    (0, "CISCO-UNIFIED-COMPUTING-SES-MIB", "cucsSesEnclosureInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cucsSesEnclosureEntry.setStatus("current")
+_CucsSesEnclosureInstanceId_Type = CucsManagedObjectId
+_CucsSesEnclosureInstanceId_Object = MibTableColumn
+cucsSesEnclosureInstanceId = _CucsSesEnclosureInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 1),
+    _CucsSesEnclosureInstanceId_Type()
+)
+cucsSesEnclosureInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cucsSesEnclosureInstanceId.setStatus("current")
+_CucsSesEnclosureDn_Type = CucsManagedObjectDn
+_CucsSesEnclosureDn_Object = MibTableColumn
+cucsSesEnclosureDn = _CucsSesEnclosureDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 2),
+    _CucsSesEnclosureDn_Type()
+)
+cucsSesEnclosureDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesEnclosureDn.setStatus("current")
+_CucsSesEnclosureRn_Type = SnmpAdminString
+_CucsSesEnclosureRn_Object = MibTableColumn
+cucsSesEnclosureRn = _CucsSesEnclosureRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 3),
+    _CucsSesEnclosureRn_Type()
+)
+cucsSesEnclosureRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesEnclosureRn.setStatus("current")
+_CucsSesEnclosureDescr_Type = SnmpAdminString
+_CucsSesEnclosureDescr_Object = MibTableColumn
+cucsSesEnclosureDescr = _CucsSesEnclosureDescr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 4),
+    _CucsSesEnclosureDescr_Type()
+)
+cucsSesEnclosureDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesEnclosureDescr.setStatus("current")
+_CucsSesEnclosureElid_Type = SnmpAdminString
+_CucsSesEnclosureElid_Object = MibTableColumn
+cucsSesEnclosureElid = _CucsSesEnclosureElid_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 5),
+    _CucsSesEnclosureElid_Type()
+)
+cucsSesEnclosureElid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesEnclosureElid.setStatus("current")
+_CucsSesEnclosureId_Type = Gauge32
+_CucsSesEnclosureId_Object = MibTableColumn
+cucsSesEnclosureId = _CucsSesEnclosureId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 6),
+    _CucsSesEnclosureId_Type()
+)
+cucsSesEnclosureId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesEnclosureId.setStatus("current")
+_CucsSesEnclosureLc_Type = CucsFsmLifecycle
+_CucsSesEnclosureLc_Object = MibTableColumn
+cucsSesEnclosureLc = _CucsSesEnclosureLc_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 80, 2, 1, 7),
+    _CucsSesEnclosureLc_Type()
+)
+cucsSesEnclosureLc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsSesEnclosureLc.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-UNIFIED-COMPUTING-SES-MIB",
+    **{"cucsSesObjects": cucsSesObjects,
+       "cucsSesDiskSlotEpTable": cucsSesDiskSlotEpTable,
+       "cucsSesDiskSlotEpEntry": cucsSesDiskSlotEpEntry,
+       "cucsSesDiskSlotEpInstanceId": cucsSesDiskSlotEpInstanceId,
+       "cucsSesDiskSlotEpDn": cucsSesDiskSlotEpDn,
+       "cucsSesDiskSlotEpRn": cucsSesDiskSlotEpRn,
+       "cucsSesDiskSlotEpEncId": cucsSesDiskSlotEpEncId,
+       "cucsSesDiskSlotEpId": cucsSesDiskSlotEpId,
+       "cucsSesDiskSlotEpSlotDn": cucsSesDiskSlotEpSlotDn,
+       "cucsSesDiskSlotEpDiskDn": cucsSesDiskSlotEpDiskDn,
+       "cucsSesDiskSlotEpDiskPresent": cucsSesDiskSlotEpDiskPresent,
+       "cucsSesDiskSlotEpLc": cucsSesDiskSlotEpLc,
+       "cucsSesDiskSlotEpModel": cucsSesDiskSlotEpModel,
+       "cucsSesDiskSlotEpRevision": cucsSesDiskSlotEpRevision,
+       "cucsSesDiskSlotEpScsiDiskState": cucsSesDiskSlotEpScsiDiskState,
+       "cucsSesDiskSlotEpSerial": cucsSesDiskSlotEpSerial,
+       "cucsSesDiskSlotEpVendor": cucsSesDiskSlotEpVendor,
+       "cucsSesEnclosureTable": cucsSesEnclosureTable,
+       "cucsSesEnclosureEntry": cucsSesEnclosureEntry,
+       "cucsSesEnclosureInstanceId": cucsSesEnclosureInstanceId,
+       "cucsSesEnclosureDn": cucsSesEnclosureDn,
+       "cucsSesEnclosureRn": cucsSesEnclosureRn,
+       "cucsSesEnclosureDescr": cucsSesEnclosureDescr,
+       "cucsSesEnclosureElid": cucsSesEnclosureElid,
+       "cucsSesEnclosureId": cucsSesEnclosureId,
+       "cucsSesEnclosureLc": cucsSesEnclosureLc}
+)

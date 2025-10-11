@@ -1,1267 +1,12345 @@
+# SNMP MIB module (VMWARE-VRNI-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module VMWARE-VRNI-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/vmware/VMWARE-VRNI-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:12:38 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/vmware/VMWARE-VRNI-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:23:30 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "DisplayString", "TextualConvention")
-vmwNetworkInsight, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwNetworkInsight")
-VmwLongSnmpAdminString, = mibBuilder.importSymbols("VMWARE-TC-MIB", "VmwLongSnmpAdminString")
-vmwNetworkInsightMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 100, 1))
-vmwNetworkInsightMIB.setRevisions(('2023-08-07 00:00', '2023-04-20 00:00', '2022-09-07 00:00', '2022-03-30 00:00', '2021-10-01 00:00', '2021-05-24 00:00', '2020-05-20 00:00', '2019-08-19 00:00', '2019-06-06 00:00', '2019-03-22 00:00', '2018-11-27 00:00', '2018-09-12 00:00', '2017-09-05 00:00', '2017-06-01 00:00', '2017-02-20 00:00', '2016-10-26 00:00',))
-if mibBuilder.loadTexts: vmwNetworkInsightMIB.setLastUpdated('202308070000Z')
-if mibBuilder.loadTexts: vmwNetworkInsightMIB.setOrganization('VMware, Inc')
-vmwVRNIEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0))
-if mibBuilder.loadTexts: vmwVRNIEvents.setStatus('current')
-vmwVRNIData = ObjectIdentity((1, 3, 6, 1, 4, 1, 6876, 100, 1, 1))
-if mibBuilder.loadTexts: vmwVRNIData.setStatus('current')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(vmwNetworkInsight,) = mibBuilder.importSymbols(
+    "VMWARE-ROOT-MIB",
+    "vmwNetworkInsight")
+
+(VmwLongSnmpAdminString,) = mibBuilder.importSymbols(
+    "VMWARE-TC-MIB",
+    "VmwLongSnmpAdminString")
+
+
+# MODULE-IDENTITY
+
+vmwNetworkInsightMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1)
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIB.setRevisions(
+        ("2023-08-07 00:00",
+         "2023-04-20 00:00",
+         "2022-09-07 00:00",
+         "2022-03-30 00:00",
+         "2021-10-01 00:00",
+         "2021-05-24 00:00",
+         "2020-05-20 00:00",
+         "2019-08-19 00:00",
+         "2019-06-06 00:00",
+         "2019-03-22 00:00",
+         "2018-11-27 00:00",
+         "2018-09-12 00:00",
+         "2017-09-05 00:00",
+         "2017-06-01 00:00",
+         "2017-02-20 00:00",
+         "2016-10-26 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class VmwVrniSeverity(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255t'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+    status = "current"
+    displayHint = "255t"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
 
-vmwSnmpTrapsAreConfigured = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 101)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSnmpTrapsAreConfigured.setStatus('current')
-vmwSnmpTrapsAreDisabled = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 102)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSnmpTrapsAreDisabled.setStatus('current')
-vmwTestTrap = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 103)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwTestTrap.setStatus('current')
-vmwEntityDiscoveryChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEntityDiscoveryChangeEvent.setStatus('current')
-vmwEntityPropertiesChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20002)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEntityPropertiesChangeEvent.setStatus('current')
-vmwFirewallNotInstalledOnHostEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFirewallNotInstalledOnHostEvent.setStatus('current')
-vmwHostWithStaleFirewallRulesEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20004)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostWithStaleFirewallRulesEvent.setStatus('current')
-vmwIpAddressChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20005)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIpAddressChangeEvent.setStatus('current')
-vmwL2GatewayAnomalyEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20006)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwL2GatewayAnomalyEvent.setStatus('current')
-vmwL2NetworkAddressAnomalyEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20007)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwL2NetworkAddressAnomalyEvent.setStatus('current')
-vmwL2NetworkDiameterExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20008)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwL2NetworkDiameterExceededEvent.setStatus('current')
-vmwL2NetworkUplinkMissingEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20009)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwL2NetworkUplinkMissingEvent.setStatus('current')
-vmwL2NetworkWithNoVMsEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20010)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwL2NetworkWithNoVMsEvent.setStatus('current')
-vmwLayer2NetworkDiameterChangedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20011)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLayer2NetworkDiameterChangedEvent.setStatus('current')
-vmwMTUMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20012)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwMTUMismatchEvent.setStatus('current')
-vmwNetworkIsolationEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20013)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNetworkIsolationEvent.setStatus('current')
-vmwNoPathEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20014)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNoPathEvent.setStatus('current')
-vmwSpoofguardDisabledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20015)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSpoofguardDisabledEvent.setStatus('current')
-vmwVMotionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20018)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMotionEvent.setStatus('current')
-vmwVMWithDisconnectedVnicsEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20019)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMWithDisconnectedVnicsEvent.setStatus('current')
-vmwVMWithMulipleVnicsOnDifferentVxlansEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20020)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMWithMulipleVnicsOnDifferentVxlansEvent.setStatus('current')
-vmwVMWithMulipleVnicsOnSameL2Event = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20021)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMWithMulipleVnicsOnSameL2Event.setStatus('current')
-vmwVMWithNoIpAddressEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20022)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMWithNoIpAddressEvent.setStatus('current')
-vmwVTEPMissingEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20023)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVTEPMissingEvent.setStatus('current')
-vmwL2Event = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20024)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwL2Event.setStatus('current')
-vmwMembershipChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20025)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwMembershipChangeEvent.setStatus('current')
-vmwSecurityGroupMembershipChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20026)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSecurityGroupMembershipChangeEvent.setStatus('current')
-vmwFirewallRuleMembershipChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20027)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFirewallRuleMembershipChangeEvent.setStatus('current')
-vmwVlanMembershipChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20028)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVlanMembershipChangeEvent.setStatus('current')
-vmwVxlanMembershipChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20029)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVxlanMembershipChangeEvent.setStatus('current')
-vmwDeleteChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20030)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDeleteChangeEvent.setStatus('current')
-vmwVtepFailedPingEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20031)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVtepFailedPingEvent.setStatus('current')
-vmwEmptySearchStreamChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20034)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEmptySearchStreamChangeEvent.setStatus('current')
-vmwSearchStreamMembershipChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20035)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSearchStreamMembershipChangeEvent.setStatus('current')
-vmwEmptySearchStreamProblemEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20036)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEmptySearchStreamProblemEvent.setStatus('current')
-vmwSearchStreamMembershipProblemEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20037)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSearchStreamMembershipProblemEvent.setStatus('current')
-vmwOspfConfigurationMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20038)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwOspfConfigurationMismatchEvent.setStatus('current')
-vmwServiceVMNotHealthyEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20039)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwServiceVMNotHealthyEvent.setStatus('current')
-vmwServiceVMNotPoweredOnEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20040)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwServiceVMNotPoweredOnEvent.setStatus('current')
-vmwServiceVMHighCPUUsageEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20041)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwServiceVMHighCPUUsageEvent.setStatus('current')
-vmwServiceVMHighMemoryUsageEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20042)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwServiceVMHighMemoryUsageEvent.setStatus('current')
-vmwServiceVMHighDiskUsageEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20043)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwServiceVMHighDiskUsageEvent.setStatus('current')
-vmwIPSetPropertiesChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20050)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIPSetPropertiesChangeEvent.setStatus('current')
-vmwFirewallRulePropertiesChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20051)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFirewallRulePropertiesChangeEvent.setStatus('current')
-vmwSecurityGroupPropertiesChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20052)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSecurityGroupPropertiesChangeEvent.setStatus('current')
-vmwIPSetMembershipChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20053)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIPSetMembershipChangeEvent.setStatus('current')
-vmwFirewallRuleMaskEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20054)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFirewallRuleMaskEvent.setStatus('current')
-vmwSecurityMembershipChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20056)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSecurityMembershipChangeEvent.setStatus('current')
-vmwSecurityTagPropertiesChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20057)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSecurityTagPropertiesChangeEvent.setStatus('current')
-vmwSecurityTagMembershipChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20058)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSecurityTagMembershipChangeEvent.setStatus('current')
-vmwHostDatastoreChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20059)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostDatastoreChangeEvent.setStatus('current')
-vmwVMDatastoreChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20060)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMDatastoreChangeEvent.setStatus('current')
-vmwVMSnapshotChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20061)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMSnapshotChangeEvent.setStatus('current')
-vmwVMVirtualDiskChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20062)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMVirtualDiskChangeEvent.setStatus('current')
-vmwIPSetDefinitionMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20063)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIPSetDefinitionMismatchEvent.setStatus('current')
-vmwSegmentMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20064)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSegmentMismatchEvent.setStatus('current')
-vmwVtepEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20065)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVtepEvent.setStatus('current')
-vmwVtepConfigurationFaultEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20066)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVtepConfigurationFaultEvent.setStatus('current')
-vmwVtepSubnetMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20068)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVtepSubnetMismatchEvent.setStatus('current')
-vmwVtepCountMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20069)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVtepCountMismatchEvent.setStatus('current')
-vmwDLRNetworksNotReachableEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20067)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDLRNetworksNotReachableEvent.setStatus('current')
-vmwEdgeNetworksNotReachableEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20070)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEdgeNetworksNotReachableEvent.setStatus('current')
-vmwNiInfraChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20089)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNiInfraChangeEvent.setStatus('current')
-vmwDataSourceEnabledChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20090)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDataSourceEnabledChangeEvent.setStatus('current')
-vmwDataSourceDisabledChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20091)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDataSourceDisabledChangeEvent.setStatus('current')
-vmwDataSourceCreatedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20092)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDataSourceCreatedEvent.setStatus('current')
-vmwPlatformCpuCoreChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20093)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPlatformCpuCoreChangeEvent.setStatus('current')
-vmwPlatformDiskChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20094)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPlatformDiskChangeEvent.setStatus('current')
-vmwPlatformMemoryChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20095)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPlatformMemoryChangeEvent.setStatus('current')
-vmwPlatformRebootedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20096)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPlatformRebootedEvent.setStatus('current')
-vmwProxyCpuCoreChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20097)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwProxyCpuCoreChangeEvent.setStatus('current')
-vmwProxyDiskChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20098)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwProxyDiskChangeEvent.setStatus('current')
-vmwProxyMemoryChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20099)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwProxyMemoryChangeEvent.setStatus('current')
-vmwProxyRebootedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20100)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwProxyRebootedEvent.setStatus('current')
-vmwNIClusterChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20101)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNIClusterChangeEvent.setStatus('current')
-vmwNISystemProxyChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20102)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNISystemProxyChangeEvent.setStatus('current')
-vmwNIClusterCreateEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20103)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNIClusterCreateEvent.setStatus('current')
-vmwThresholdExceededEventCpuReady = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventCpuReady.setStatus('current')
-vmwThresholdExceededEventCpuCoStop = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30002)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventCpuCoStop.setStatus('current')
-vmwThresholdExceededEventDiskCommandAbortRule = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventDiskCommandAbortRule.setStatus('current')
-vmwThresholdExceededEventIODeviceLatencyRule = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30004)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventIODeviceLatencyRule.setStatus('current')
-vmwThresholdExceededEventIOKernelLatencyRule = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30005)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventIOKernelLatencyRule.setStatus('current')
-vmwThresholdExceededEventMemorySwapInRule = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30006)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventMemorySwapInRule.setStatus('current')
-vmwThresholdExceededEventMemorySwapOutRule = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30007)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventMemorySwapOutRule.setStatus('current')
-vmwThresholdExceededEventNetworkRxDropRule = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30008)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventNetworkRxDropRule.setStatus('current')
-vmwThresholdExceededEventNetworkTxDropRule = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30009)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventNetworkTxDropRule.setStatus('current')
-vmwAWSRegionSGLimitEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30010)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAWSRegionSGLimitEvent.setStatus('current')
-vmwAWSVPCSGLimitEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30011)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAWSVPCSGLimitEvent.setStatus('current')
-vmwAWSSGInboundRuleLimitEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30012)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAWSSGInboundRuleLimitEvent.setStatus('current')
-vmwAWSSGOutboundRuleLimitEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30013)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAWSSGOutboundRuleLimitEvent.setStatus('current')
-vmwAWSInterfaceSGLimitEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30014)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAWSInterfaceSGLimitEvent.setStatus('current')
-vmwPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30100)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPacketDropEvent.setStatus('current')
-vmwSwitchPortPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30101)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSwitchPortPacketDropEvent.setStatus('current')
-vmwRouterInterfacePacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30102)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwRouterInterfacePacketDropEvent.setStatus('current')
-vmwVnicPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30103)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVnicPacketDropEvent.setStatus('current')
-vmwVTEPUnderlayPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30104)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVTEPUnderlayPacketDropEvent.setStatus('current')
-vmwPnicUnderlyingSwitchPortPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30105)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPnicUnderlyingSwitchPortPacketDropEvent.setStatus('current')
-vmwDevicePacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30106)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDevicePacketDropEvent.setStatus('current')
-vmwThresholdExceededEventDatastoreFreeSpaceWarning = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30203)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventDatastoreFreeSpaceWarning.setStatus('current')
-vmwThresholdExceededEventDatastoreFreeSpaceCritical = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30204)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventDatastoreFreeSpaceCritical.setStatus('current')
-vmwThresholdExceededEventDatastoreReadLatency = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30205)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventDatastoreReadLatency.setStatus('current')
-vmwThresholdExceededEventDatastoreWriteLatency = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30206)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventDatastoreWriteLatency.setStatus('current')
-vmwDistributedFirewallApplyHostEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDistributedFirewallApplyHostEvent.setStatus('current')
-vmwDistributedFirewallApplyVMEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35002)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDistributedFirewallApplyVMEvent.setStatus('current')
-vmwNsxEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxEvent.setStatus('current')
-vmwFeatureImpactedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35004)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFeatureImpactedEvent.setStatus('current')
-vmwClusterFeatureVersionMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36022)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwClusterFeatureVersionMismatchEvent.setStatus('current')
-vmwHostFeatureVersionMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36023)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostFeatureVersionMismatchEvent.setStatus('current')
-vmwFeatureVersionMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36024)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFeatureVersionMismatchEvent.setStatus('current')
-vmwHostFeatureEnabledMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36025)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostFeatureEnabledMismatchEvent.setStatus('current')
-vmwHostFeatureInstalledMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36026)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostFeatureInstalledMismatchEvent.setStatus('current')
-vmwHostVtepNotFoundEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36027)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostVtepNotFoundEvent.setStatus('current')
-vmwHostVtepDisconnectedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36028)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostVtepDisconnectedEvent.setStatus('current')
-vmwHostVtepEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36029)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostVtepEvent.setStatus('current')
-vmwClusterHostsVtepMTUMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36030)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwClusterHostsVtepMTUMismatchEvent.setStatus('current')
-vmwFeatureUnhealthyEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36031)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFeatureUnhealthyEvent.setStatus('current')
-vmwEdgeHANotConfiguredEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36032)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEdgeHANotConfiguredEvent.setStatus('current')
-vmwEdgeInterfacesDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36033)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEdgeInterfacesDownEvent.setStatus('current')
-vmwModuleUnhealthyEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36041)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwModuleUnhealthyEvent.setStatus('current')
-vmwModuleNotLoadedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36042)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwModuleNotLoadedEvent.setStatus('current')
-vmwModuleNetworkConnectionFailureEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36043)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwModuleNetworkConnectionFailureEvent.setStatus('current')
-vmwHostNetworkControlPlaneMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36044)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostNetworkControlPlaneMismatchEvent.setStatus('current')
-vmwHostNetworkControlPlaneConnectionFailureEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36045)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostNetworkControlPlaneConnectionFailureEvent.setStatus('current')
-vmwHostNetworkControlPlaneNotSyncedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36046)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostNetworkControlPlaneNotSyncedEvent.setStatus('current')
-vmwNSXControllerClusterMajorityEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36047)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXControllerClusterMajorityEvent.setStatus('current')
-vmwNSXControllersVMOnSameHostEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36048)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXControllersVMOnSameHostEvent.setStatus('current')
-vmwVxLanRangeExhaustEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36049)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVxLanRangeExhaustEvent.setStatus('current')
-vmwNSXFirewallDefaultAllowAllRulesEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36050)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXFirewallDefaultAllowAllRulesEvent.setStatus('current')
-vmwLogicalRouterNoUplinkEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36051)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLogicalRouterNoUplinkEvent.setStatus('current')
-vmwEdgeNotHAEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36052)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEdgeNotHAEvent.setStatus('current')
-vmwEdgeNotDeployedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36053)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEdgeNotDeployedEvent.setStatus('current')
-vmwEcmpIsEnabledAndStatefulServicesAreUpEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36054)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEcmpIsEnabledAndStatefulServicesAreUpEvent.setStatus('current')
-vmwLogicalRouterDeployedOnEcmpEdgeHostEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36055)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLogicalRouterDeployedOnEcmpEdgeHostEvent.setStatus('current')
-vmwEdgeMissingInterfaceOSPFAreaMappingEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36056)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEdgeMissingInterfaceOSPFAreaMappingEvent.setStatus('current')
-vmwOspfInsecureAuthRouterEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36057)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwOspfInsecureAuthRouterEvent.setStatus('current')
-vmwNSXControllersDeployedCountEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36058)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXControllersDeployedCountEvent.setStatus('current')
-vmwNSXControllerNotActiveCountEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36059)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXControllerNotActiveCountEvent.setStatus('current')
-vmwNSXControllerEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36060)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXControllerEvent.setStatus('current')
-vmwNSXEcmpEdgeDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36061)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXEcmpEdgeDownEvent.setStatus('current')
-vmwNSXMajorityEcmpEdgesDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36062)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXMajorityEcmpEdgesDownEvent.setStatus('current')
-vmwNSXAllEcmpEdgesDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36063)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXAllEcmpEdgesDownEvent.setStatus('current')
-vmwNSXEdgeMtuMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36064)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXEdgeMtuMismatchEvent.setStatus('current')
-vmwNSXEdgeSplitBrainEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36065)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXEdgeSplitBrainEvent.setStatus('current')
-vmwVirtualDistributedRoutingEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36066)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVirtualDistributedRoutingEvent.setStatus('current')
-vmwNSXComponentEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35221)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXComponentEvent.setStatus('current')
-vmwNSXBackupEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35222)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXBackupEvent.setStatus('current')
-vmwNSXBackupAuditLogExcludedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35223)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXBackupAuditLogExcludedEvent.setStatus('current')
-vmwNSXUnsecureBackupEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35224)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXUnsecureBackupEvent.setStatus('current')
-vmwNSXBackupSystemEventsExcludedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35225)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXBackupSystemEventsExcludedEvent.setStatus('current')
-vmwNSXBackupNotScheduledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35226)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXBackupNotScheduledEvent.setStatus('current')
-vmwNSXBackupNotRecordedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35227)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXBackupNotRecordedEvent.setStatus('current')
-vmwNSXNtpServerEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35228)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXNtpServerEvent.setStatus('current')
-vmwNSXSysLogServerEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35229)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXSysLogServerEvent.setStatus('current')
-vmwControllerSysLogServerEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35230)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwControllerSysLogServerEvent.setStatus('current')
-vmwNSXIpV6EnabledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35231)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXIpV6EnabledEvent.setStatus('current')
-vmwNSXOspfNeighborDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35232)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXOspfNeighborDownEvent.setStatus('current')
-vmwGenericNSXSystemEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70000)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwGenericNSXSystemEvent.setStatus('current')
-vmwOtherCriticalNSXEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 71000)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwOtherCriticalNSXEvent.setStatus('current')
-vmwFilterConfigApplyOnHostFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFilterConfigApplyOnHostFailedEvent.setStatus('current')
-vmwRulesetLoadOnHostFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70002)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwRulesetLoadOnHostFailedEvent.setStatus('current')
-vmwConfigUpdateOnHostFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwConfigUpdateOnHostFailedEvent.setStatus('current')
-vmwSpoofguardConfigUpdateOnHostFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70004)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSpoofguardConfigUpdateOnHostFailedEvent.setStatus('current')
-vmwApplyRuleToVnicFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70005)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwApplyRuleToVnicFailedEvent.setStatus('current')
-vmwContainerConfigUpdateOnVnicFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70006)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwContainerConfigUpdateOnVnicFailedEvent.setStatus('current')
-vmwSpoofguardApplyToVnicFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70007)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSpoofguardApplyToVnicFailedEvent.setStatus('current')
-vmwHostMessagingConfigurationFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70008)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostMessagingConfigurationFailedEvent.setStatus('current')
-vmwHostMessagingConnectionReconfigurationFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70009)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostMessagingConnectionReconfigurationFailedEvent.setStatus('current')
-vmwHostMessagingConfigurationFailedNotificationSkippedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70010)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostMessagingConfigurationFailedNotificationSkippedEvent.setStatus('current')
-vmwHostMessagingInfrastructureDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70011)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostMessagingInfrastructureDownEvent.setStatus('current')
-vmwEdgeVMNotRespondingEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70012)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEdgeVMNotRespondingEvent.setStatus('current')
-vmwEdgeUnhealthyEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70013)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEdgeUnhealthyEvent.setStatus('current')
-vmwEdgeVMCommunicationFailureEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70014)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEdgeVMCommunicationFailureEvent.setStatus('current')
-vmwNSXEdgeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70015)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXEdgeEvent.setStatus('current')
-vmwPanEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80000)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPanEvent.setStatus('current')
-vmwPanNsxNotInRegisteredStateEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPanNsxNotInRegisteredStateEvent.setStatus('current')
-vmwPanNsxDynamicUpdateDelayedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80002)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPanNsxDynamicUpdateDelayedEvent.setStatus('current')
-vmwPanDeviceInDisconnectedStateEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPanDeviceInDisconnectedStateEvent.setStatus('current')
-vmwPanNsxServiceApplianceViewMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80004)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPanNsxServiceApplianceViewMismatchEvent.setStatus('current')
-vmwPanNsxFabricAgentNotFoundOnHostEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80005)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPanNsxFabricAgentNotFoundOnHostEvent.setStatus('current')
-vmwPanNsxServiceVMNotFoundOnHostEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80006)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPanNsxServiceVMNotFoundOnHostEvent.setStatus('current')
-vmwCheckpointEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80100)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwCheckpointEvent.setStatus('current')
-vmwCheckpointNsxFabricAgentNotFoundOnHostEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80102)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwCheckpointNsxFabricAgentNotFoundOnHostEvent.setStatus('current')
-vmwCheckpointNsxServiceVMNotFoundOnHostEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80103)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwCheckpointNsxServiceVMNotFoundOnHostEvent.setStatus('current')
-vmwCheckpointGatewaySicStatusNotCommunicatingEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80104)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwCheckpointGatewaySicStatusNotCommunicatingEvent.setStatus('current')
-vmwCheckpointNsxServiceApplianceViewMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80105)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwCheckpointNsxServiceApplianceViewMismatchEvent.setStatus('current')
-vmwCriticalHostNotAccessibleEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwCriticalHostNotAccessibleEvent.setStatus('current')
-vmwIndexerLagEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80501)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIndexerLagEvent.setStatus('current')
-vmwIPFIXFlowDPPausedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80502)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIPFIXFlowDPPausedEvent.setStatus('current')
-vmwGridProcessingStoppedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80503)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwGridProcessingStoppedEvent.setStatus('current')
-vmwUnableToSendEmailsEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80504)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnableToSendEmailsEvent.setStatus('current')
-vmwSMTPNotConfiguredEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80505)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSMTPNotConfiguredEvent.setStatus('current')
-vmwSNMPNotConfiguredEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80506)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSNMPNotConfiguredEvent.setStatus('current')
-vmwReindexingInProgressEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80507)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwReindexingInProgressEvent.setStatus('current')
-vmwNodesVersionMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80508)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNodesVersionMismatchEvent.setStatus('current')
-vmwNotAllServicesRunningEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80509)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNotAllServicesRunningEvent.setStatus('current')
-vmwNotAllServicesHealthyEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80510)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNotAllServicesHealthyEvent.setStatus('current')
-vmwExpandPartitionFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80511)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwExpandPartitionFailedEvent.setStatus('current')
-vmwDiskCleanupFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80512)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDiskCleanupFailedEvent.setStatus('current')
-vmwVacuumFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80513)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVacuumFailedEvent.setStatus('current')
-vmwConfigStoreCleanupFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80514)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwConfigStoreCleanupFailedEvent.setStatus('current')
-vmwHBaseRetentionToolFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80515)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHBaseRetentionToolFailedEvent.setStatus('current')
-vmwMetricStoreUpdaterFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80516)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwMetricStoreUpdaterFailedEvent.setStatus('current')
-vmwCollectorLagEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80517)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwCollectorLagEvent.setStatus('current')
-vmwCollectionLagEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80518)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwCollectionLagEvent.setStatus('current')
-vmwGridProcessingLagEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80519)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwGridProcessingLagEvent.setStatus('current')
-vmwConnectionErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80520)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwConnectionErrorEvent.setStatus('current')
-vmwNodeNotActiveEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80521)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNodeNotActiveEvent.setStatus('current')
-vmwHighDiskUtilizationEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80522)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHighDiskUtilizationEvent.setStatus('current')
-vmwIndexingAbortedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80523)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIndexingAbortedEvent.setStatus('current')
-vmwUpgradeFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80524)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUpgradeFailedEvent.setStatus('current')
-vmwFlowProcessingSuspendedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80525)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFlowProcessingSuspendedEvent.setStatus('current')
-vmwVCNotOnSameProxyEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80643)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVCNotOnSameProxyEvent.setStatus('current')
-vmwNoDVSAvailableEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80642)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNoDVSAvailableEvent.setStatus('current')
-vmwUnknownInfobloxVersionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80641)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnknownInfobloxVersionEvent.setStatus('current')
-vmwUnsupportedInfobloxVersionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80640)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnsupportedInfobloxVersionEvent.setStatus('current')
-vmwIncorrectInfobloxCredentialEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80639)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIncorrectInfobloxCredentialEvent.setStatus('current')
-vmwInfobloxRecordLimitExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80638)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwInfobloxRecordLimitExceededEvent.setStatus('current')
-vmwWebhookNotRunningEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80637)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwWebhookNotRunningEvent.setStatus('current')
-vmwIncorrectWebhookConfiguredOnAlertEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80636)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIncorrectWebhookConfiguredOnAlertEvent.setStatus('current')
-vmwWebhookNotEnabledOnAlertEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80635)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwWebhookNotEnabledOnAlertEvent.setStatus('current')
-vmwVRNIContentPackNotInstalledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80634)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVRNIContentPackNotInstalledEvent.setStatus('current')
-vmwUnsupportedVRNIContentPackVersionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80633)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnsupportedVRNIContentPackVersionEvent.setStatus('current')
-vmwUnsupportedLogInsightVersionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80632)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnsupportedLogInsightVersionEvent.setStatus('current')
-vmwComputeManagersNotAddedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80631)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwComputeManagersNotAddedEvent.setStatus('current')
-vmwComputeManagersNotFoundEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80630)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwComputeManagersNotFoundEvent.setStatus('current')
-vmwUnsupportedNSXTVersionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80629)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnsupportedNSXTVersionEvent.setStatus('current')
-vmwNotEmptyNodeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80628)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNotEmptyNodeEvent.setStatus('current')
-vmwFlowPhysicalNodeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80627)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFlowPhysicalNodeEvent.setStatus('current')
-vmwFlowCollectionErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 8061313)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFlowCollectionErrorEvent.setStatus('current')
-vmwAWSThrottlingExceptionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 8061314)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAWSThrottlingExceptionEvent.setStatus('current')
-vmwAWSFlowLogAccessDeniedExceptionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 8061315)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAWSFlowLogAccessDeniedExceptionEvent.setStatus('current')
-vmwNSXIPFIXStatusMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80626)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXIPFIXStatusMismatchEvent.setStatus('current')
-vmwNumVMsOrHostsNotFoundEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80625)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNumVMsOrHostsNotFoundEvent.setStatus('current')
-vmwUnsupportedNSXVersionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 806100018)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnsupportedNSXVersionEvent.setStatus('current')
-vmwPwdAuthModeDisabledAristaEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 806100012)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPwdAuthModeDisabledAristaEvent.setStatus('current')
-vmwHostnameResolutionErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80624)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostnameResolutionErrorEvent.setStatus('current')
-vmwPrimaryNSXNotAddedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80623)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPrimaryNSXNotAddedEvent.setStatus('current')
-vmwDataProviderNotRunningEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80622)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDataProviderNotRunningEvent.setStatus('current')
-vmwInvalidResponseFromDatasourceEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80621)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwInvalidResponseFromDatasourceEvent.setStatus('current')
-vmwHostNotReachableEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80620)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostNotReachableEvent.setStatus('current')
-vmwNSXControllerNotFoundEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80619)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXControllerNotFoundEvent.setStatus('current')
-vmwUnexpectedDSTypeOrVersionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80618)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnexpectedDSTypeOrVersionEvent.setStatus('current')
-vmwWarnConfigEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80617)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwWarnConfigEvent.setStatus('current')
-vmwInvalidConfigEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80616)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwInvalidConfigEvent.setStatus('current')
-vmwNotFoundEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80614)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNotFoundEvent.setStatus('current')
-vmwInsufficientPrivilegesEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80613)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwInsufficientPrivilegesEvent.setStatus('current')
-vmwPwdAuthModeDisabledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80612)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPwdAuthModeDisabledEvent.setStatus('current')
-vmwFailedCredsEncryptEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80611)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFailedCredsEncryptEvent.setStatus('current')
-vmwSNMPConnectionInvalidEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80609)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSNMPConnectionInvalidEvent.setStatus('current')
-vmwUnknownHostEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80608)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnknownHostEvent.setStatus('current')
-vmwInvalidCredentialsEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80606)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwInvalidCredentialsEvent.setStatus('current')
-vmwIncorrectConnectionStringEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80605)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIncorrectConnectionStringEvent.setStatus('current')
-vmwConnectionRefusedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80603)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwConnectionRefusedEvent.setStatus('current')
-vmwTimeoutEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80602)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwTimeoutEvent.setStatus('current')
-vmwFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80601)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFailedEvent.setStatus('current')
-vmwNSXTEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80200)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEvent.setStatus('current')
-vmwNSXTVcNotAddedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80201)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTVcNotAddedEvent.setStatus('current')
-vmwNSXTStandaloneHostsEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80202)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTStandaloneHostsEvent.setStatus('current')
-vmwLargeSdmsDroppedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80526)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLargeSdmsDroppedEvent.setStatus('current')
-vmwNSXTIPFixDFWStatusNotEnabledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80650)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTIPFixDFWStatusNotEnabledEvent.setStatus('current')
-vmwNSXTIPFixPortIncorrectEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80649)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTIPFixPortIncorrectEvent.setStatus('current')
-vmwNSXTIPFixCollectorAndIPFixProfileMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80648)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTIPFixCollectorAndIPFixProfileMismatchEvent.setStatus('current')
-vmwNSXTIPFixIPFixProfilePriorityNotZeroEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80647)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTIPFixIPFixProfilePriorityNotZeroEvent.setStatus('current')
-vmwNSXTIPFixNoIPFixProfileEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80646)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTIPFixNoIPFixProfileEvent.setStatus('current')
-vmwNSXTIPFixNoNewCollectorProfileCanBeAddedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80645)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTIPFixNoNewCollectorProfileCanBeAddedEvent.setStatus('current')
-vmwNSXTIPFixNoCollectorProfileEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80644)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTIPFixNoCollectorProfileEvent.setStatus('current')
-vmwNSXTSystemEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80203)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTSystemEvent.setStatus('current')
-vmwNSXTNoUplinkConnectivityEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80205)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTNoUplinkConnectivityEvent.setStatus('current')
-vmwNSXTRoutingAdvertisementEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80206)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTRoutingAdvertisementEvent.setStatus('current')
-vmwNSXTManagerConnectivityDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80207)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTManagerConnectivityDownEvent.setStatus('current')
-vmwNSXTControllerConnectivityDegradedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80208)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTControllerConnectivityDegradedEvent.setStatus('current')
-vmwNSXTControllerConnectivityDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80209)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTControllerConnectivityDownEvent.setStatus('current')
-vmwNSXTMtuMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80210)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMtuMismatchEvent.setStatus('current')
-vmwNSXEdgeBGPNeighbourDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36067)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXEdgeBGPNeighbourDownEvent.setStatus('current')
-vmwAnalyticsEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAnalyticsEvent.setStatus('current')
-vmwAnalyticsOutlierEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37002)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAnalyticsOutlierEvent.setStatus('current')
-vmwAnalyticsThresholdEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAnalyticsThresholdEvent.setStatus('current')
-vmwVMCEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 38001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMCEvent.setStatus('current')
-vmwPolicyManagerVrniDfwIPFixCollectorAbsent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80652)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPolicyManagerVrniDfwIPFixCollectorAbsent.setStatus('current')
-vmwPolicyManagerNoDfwIPFixProfile = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80651)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPolicyManagerNoDfwIPFixProfile.setStatus('current')
-vmwNSXTExcludedVmFlowEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80211)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTExcludedVmFlowEvent.setStatus('current')
-vmwNSXTDoubleVlanTaggingEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80212)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTDoubleVlanTaggingEvent.setStatus('current')
-vmwNSXTNoTzAttachedOnTnEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80213)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTNoTzAttachedOnTnEvent.setStatus('current')
-vmwNSXTVtepDeleteEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80214)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTVtepDeleteEvent.setStatus('current')
-vmwDuplicateL3SwitchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80215)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDuplicateL3SwitchEvent.setStatus('current')
-vmwLBPoolMemberDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80216)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLBPoolMemberDownEvent.setStatus('current')
-vmwLBPoolDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80217)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLBPoolDownEvent.setStatus('current')
-vmwLBPoolEmptyEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80218)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLBPoolEmptyEvent.setStatus('current')
-vmwLBPoolMemberVMDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80219)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLBPoolMemberVMDownEvent.setStatus('current')
-vmwLBVirtualServerDisableEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80220)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLBVirtualServerDisableEvent.setStatus('current')
-vmwLBServiceNodeIPNotFoundEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80221)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLBServiceNodeIPNotFoundEvent.setStatus('current')
-vmwLBServiceNodeMultipleNicFoundEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80222)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLBServiceNodeMultipleNicFoundEvent.setStatus('current')
-vmwKubernetesInsufficientPrivilegesEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80655)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwKubernetesInsufficientPrivilegesEvent.setStatus('current')
-vmwPKSKubernetesUnknownHostEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80654)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPKSKubernetesUnknownHostEvent.setStatus('current')
-vmwDatasourceIdentificationChangedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80653)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDatasourceIdentificationChangedEvent.setStatus('current')
-vmwArkinApplicationMemberLimitEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 568)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwArkinApplicationMemberLimitEvent.setStatus('current')
-vmwNSXTSwitchIpfixEnabledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80223)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTSwitchIpfixEnabledEvent.setStatus('current')
-vmwUANIFileNotProvidedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80657)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUANIFileNotProvidedEvent.setStatus('current')
-vmwUANIFileDoesNotExistEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80658)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUANIFileDoesNotExistEvent.setStatus('current')
-vmwNSXTStandaloneHostsWithoutVcEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80224)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTStandaloneHostsWithoutVcEvent.setStatus('current')
-vmwApplianceNotConfiguredEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80527)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwApplianceNotConfiguredEvent.setStatus('current')
-vmwSwitchPortOperationalDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30111)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSwitchPortOperationalDownEvent.setStatus('current')
-vmwRouterInterfaceOperationalDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30112)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwRouterInterfaceOperationalDownEvent.setStatus('current')
-vmwUnderlayDeviceGenericEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30114)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnderlayDeviceGenericEvent.setStatus('current')
-vmwUnderlayDeviceFexOfflineEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30115)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnderlayDeviceFexOfflineEvent.setStatus('current')
-vmwUnderlayDeviceFanMalFunctionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30116)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnderlayDeviceFanMalFunctionEvent.setStatus('current')
-vmwUnderlayDeviceTemperatureThresholdExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30117)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnderlayDeviceTemperatureThresholdExceededEvent.setStatus('current')
-vmwUnderlayDeviceFexFanMalFunctionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30118)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnderlayDeviceFexFanMalFunctionEvent.setStatus('current')
-vmwUnderlayDeviceFexPsMalFunctionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30119)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnderlayDeviceFexPsMalFunctionEvent.setStatus('current')
-vmwUnderlayDeviceModuleMalFunctionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30120)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnderlayDeviceModuleMalFunctionEvent.setStatus('current')
-vmwUnderlayDevicePsMalFunctionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30121)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnderlayDevicePsMalFunctionEvent.setStatus('current')
-vmwUnderlayDeviceBfdSessionRemovedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30122)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnderlayDeviceBfdSessionRemovedEvent.setStatus('current')
-vmwUnderlayDeviceLldpNeighbourRemovedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30123)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnderlayDeviceLldpNeighbourRemovedEvent.setStatus('current')
-vmwThresholdExceededEventDataSourceCpuUsage = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30198)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventDataSourceCpuUsage.setStatus('current')
-vmwThresholdExceededEventDataSourceMemoryUsage = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30199)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventDataSourceMemoryUsage.setStatus('current')
-vmwThresholdExceededEventDataSourceTemperature = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30200)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwThresholdExceededEventDataSourceTemperature.setStatus('current')
-vmwDeploymentDefMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80532)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDeploymentDefMismatchEvent.setStatus('current')
-vmwNsxtLatencyServiceConfigMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80669)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxtLatencyServiceConfigMismatchEvent.setStatus('current')
-vmwNsxtLatencyNodeGroupMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80668)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxtLatencyNodeGroupMismatchEvent.setStatus('current')
-vmwNsxtLatencyStatProfileMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80667)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxtLatencyStatProfileMismatchEvent.setStatus('current')
-vmwHybridConnectBgpStatusDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 1279)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHybridConnectBgpStatusDownEvent.setStatus('current')
-vmwNSXTClusterBackUpDisabledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80256)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTClusterBackUpDisabledEvent.setStatus('current')
-vmwNSXTDFWFirewallDisabledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80257)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTDFWFirewallDisabledEvent.setStatus('current')
-vmwNSXTComputeManagerConnectionStatusNotUpEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80255)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTComputeManagerConnectionStatusNotUpEvent.setStatus('current')
-vmwNSXTLogicalSwitchAdminStatusDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80252)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTLogicalSwitchAdminStatusDownEvent.setStatus('current')
-vmwNSXTLogicalPortOperationalStatusDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80253)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTLogicalPortOperationalStatusDownEvent.setStatus('current')
-vmwNSXTLogicalPortOperationalStatusUnknownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80254)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTLogicalPortOperationalStatusUnknownEvent.setStatus('current')
-vmwNSXTLogicalPortReceivedPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80258)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTLogicalPortReceivedPacketDropEvent.setStatus('current')
-vmwNSXTLogicalPortTransmittedPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80259)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTLogicalPortTransmittedPacketDropEvent.setStatus('current')
-vmwNSXTLogicalSwitchReceivedPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80260)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTLogicalSwitchReceivedPacketDropEvent.setStatus('current')
-vmwNSXTLogicalSwitchTransmittedPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80261)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTLogicalSwitchTransmittedPacketDropEvent.setStatus('current')
-vmwNSXTRxPacketDropOnMPNicEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80262)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTRxPacketDropOnMPNicEvent.setStatus('current')
-vmwNSXTRxPacketDropOnEdgeTnNicEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80263)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTRxPacketDropOnEdgeTnNicEvent.setStatus('current')
-vmwNSXTRxPacketDropOnHostTnNicEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80264)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTRxPacketDropOnHostTnNicEvent.setStatus('current')
-vmwNSXTTxPacketDropOnMPNicEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80265)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTTxPacketDropOnMPNicEvent.setStatus('current')
-vmwNSXTTxPacketDropOnEdgeTnNicEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80266)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTTxPacketDropOnEdgeTnNicEvent.setStatus('current')
-vmwNSXTTxPacketDropOnHostTnNicEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80267)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTTxPacketDropOnHostTnNicEvent.setStatus('current')
-vmwNSXTMPNodeServiceClusterManagerStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80424)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceClusterManagerStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceCmInventoryStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80402)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceCmInventoryStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceControllerStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80403)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceControllerStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceDataStoreStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80404)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceDataStoreStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceHttpStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80405)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceHttpStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceInstallUpgradeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80406)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceInstallUpgradeEvent.setStatus('current')
-vmwNSXTMPNodeServiceLiagentStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80407)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceLiagentStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceManagerStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80408)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceManagerStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceMgmtPlaneBusStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80409)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceMgmtPlaneBusStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceMigrationCoordinatorStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80410)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceMigrationCoordinatorStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceNodeMgmtStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80411)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceNodeMgmtStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceNodeStatsStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80412)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceNodeStatsStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceNSXMessageBusStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80413)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceNSXMessageBusStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceNSXPlatformClientStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80414)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceNSXPlatformClientStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceNSXUpgradeAgentStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80415)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceNSXUpgradeAgentStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceNTPStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80416)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceNTPStatusEvent.setStatus('current')
-vmwNSXTMPNodeServicePolicyStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80417)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServicePolicyStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceSearchStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80418)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceSearchStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceSNMPStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80419)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceSNMPStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceSSHStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80420)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceSSHStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceSyslogStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80421)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceSyslogStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceTelemetryStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80422)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceTelemetryStatusEvent.setStatus('current')
-vmwNSXTMPNodeServiceUIServiceStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80423)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeServiceUIServiceStatusEvent.setStatus('current')
-vmwVMCHostPerClusterLimitExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100053)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMCHostPerClusterLimitExceededEvent.setStatus('current')
-vmwVMCVMPerHostLimitExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100054)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMCVMPerHostLimitExceededEvent.setStatus('current')
-vmwVMCClusterLimitExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100055)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMCClusterLimitExceededEvent.setStatus('current')
-vmwProtectionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100061)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwProtectionEvent.setStatus('current')
-vmwSwitchPortUptimeThresholdRecededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30110)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSwitchPortUptimeThresholdRecededEvent.setStatus('current')
-vmwFdbConfigStoreCleanupFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80531)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFdbConfigStoreCleanupFailedEvent.setStatus('current')
-vmwDiskAllocationInsufficientEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80528)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDiskAllocationInsufficientEvent.setStatus('current')
-vmwNSXTControllerNodeToControlClusterConnectivityEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80225)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTControllerNodeToControlClusterConnectivityEvent.setStatus('current')
-vmwNSXTControllerNodeToMgmtPlaneConnectivityEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80226)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTControllerNodeToMgmtPlaneConnectivityEvent.setStatus('current')
-vmwNSXTMPNodeToMgmtClusterConnectivityEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80227)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTMPNodeToMgmtClusterConnectivityEvent.setStatus('current')
-vmwBigIpInsufficientShellAccessEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80663)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwBigIpInsufficientShellAccessEvent.setStatus('current')
-vmwBigIpInsufficientPartitionAccessEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80664)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwBigIpInsufficientPartitionAccessEvent.setStatus('current')
-vmwBigIpInsufficientRoleEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80665)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwBigIpInsufficientRoleEvent.setStatus('current')
-vmwNSXTLatencyCollectorMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80662)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTLatencyCollectorMismatchEvent.setStatus('current')
-vmwNSXTLatencyNoBFDProfileEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80661)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTLatencyNoBFDProfileEvent.setStatus('current')
-vmwNSXTLatencyNotEnabledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80659)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTLatencyNotEnabledEvent.setStatus('current')
-vmwHardwareVTEPMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80301)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHardwareVTEPMismatchEvent.setStatus('current')
-vmwHardwareVTEPPortDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80302)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHardwareVTEPPortDownEvent.setStatus('current')
-vmwNSXVLatencyNoDataEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXVLatencyNoDataEvent.setStatus('current')
-vmwKubernetesBaseEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 1510)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwKubernetesBaseEvent.setStatus('current')
-vmwVMCVMLimitExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100051)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMCVMLimitExceededEvent.setStatus('current')
-vmwVMCHostLimitExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100052)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMCHostLimitExceededEvent.setStatus('current')
-vmwVeloCloudEdgeDegradedTransQoeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90012)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudEdgeDegradedTransQoeEvent.setStatus('current')
-vmwVeloCloudEdgeDegradedVideoQoeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90011)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudEdgeDegradedVideoQoeEvent.setStatus('current')
-vmwVeloCloudEdgeDegradedVoiceQoeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90010)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudEdgeDegradedVoiceQoeEvent.setStatus('current')
-vmwVeloCloudEdgeDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudEdgeDownEvent.setStatus('current')
-vmwVeloCloudLinkLostPacketEventRx = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90013)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudLinkLostPacketEventRx.setStatus('current')
-vmwVeloCloudLinkDegradedTransQoeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90009)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudLinkDegradedTransQoeEvent.setStatus('current')
-vmwVeloCloudLinkLostPacketEventTx = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90005)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudLinkLostPacketEventTx.setStatus('current')
-vmwVeloCloudLinkDegradedVideoQoeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90008)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudLinkDegradedVideoQoeEvent.setStatus('current')
-vmwVeloCloudLinkDegradedVoiceQoeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90007)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudLinkDegradedVoiceQoeEvent.setStatus('current')
-vmwVeloCloudLinkDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90002)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudLinkDownEvent.setStatus('current')
-vmwNSXTHostNodeMgmtConnectivityStatusDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80246)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodeMgmtConnectivityStatusDownEvent.setStatus('current')
-vmwNSXTEdgeNodeCtlrConnectivityStatusUnknownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80247)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeNodeCtlrConnectivityStatusUnknownEvent.setStatus('current')
-vmwNSXTHostNodeCtlrConnectivityStatusDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80248)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodeCtlrConnectivityStatusDownEvent.setStatus('current')
-vmwNSXTHostNodeCtlrConnectivityStatusDegradedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80249)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodeCtlrConnectivityStatusDegradedEvent.setStatus('current')
-vmwNSXTHostNodeCtlrConnectivityStatusUnknownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80250)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodeCtlrConnectivityStatusUnknownEvent.setStatus('current')
-vmwNSXTHostNodePnicStatusDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80228)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodePnicStatusDownEvent.setStatus('current')
-vmwNSXTHostNodePnicStatusDegradedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80229)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodePnicStatusDegradedEvent.setStatus('current')
-vmwNSXTHostNodePnicStatusUnknownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80230)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodePnicStatusUnknownEvent.setStatus('current')
-vmwNSXTEdgeNodePnicStatusDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80237)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeNodePnicStatusDownEvent.setStatus('current')
-vmwNSXTEdgeNodePnicStatusDegradedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80238)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeNodePnicStatusDegradedEvent.setStatus('current')
-vmwNSXTEdgeNodePnicStatusUnknownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80239)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeNodePnicStatusUnknownEvent.setStatus('current')
-vmwNSXTHostNodeTunnelStatusDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80231)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodeTunnelStatusDownEvent.setStatus('current')
-vmwNSXTHostNodeTunnelStatusDegradedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80232)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodeTunnelStatusDegradedEvent.setStatus('current')
-vmwNSXTHostNodeTunnelStatusUnknownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80233)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodeTunnelStatusUnknownEvent.setStatus('current')
-vmwNSXTEdgeNodeTunnelStatusDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80240)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeNodeTunnelStatusDownEvent.setStatus('current')
-vmwNSXTEdgeNodeTunnelStatusDegradedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80241)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeNodeTunnelStatusDegradedEvent.setStatus('current')
-vmwNSXTEdgeNodeTunnelStatusUnknownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80242)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeNodeTunnelStatusUnknownEvent.setStatus('current')
-vmwNSXTHostNodeStatusDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80234)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodeStatusDownEvent.setStatus('current')
-vmwNSXTHostNodeStatusDegradedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80235)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodeStatusDegradedEvent.setStatus('current')
-vmwNSXTHostNodeStatusUnknownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80236)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodeStatusUnknownEvent.setStatus('current')
-vmwNSXTEdgeNodeStatusDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80243)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeNodeStatusDownEvent.setStatus('current')
-vmwNSXTEdgeNodeStatusDegradedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80244)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeNodeStatusDegradedEvent.setStatus('current')
-vmwNSXTEdgeNodeStatusUnknownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80245)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeNodeStatusUnknownEvent.setStatus('current')
-vmwNsxiApplianceAvailableEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 974)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxiApplianceAvailableEvent.setStatus('current')
-vmwNsxiSubscriptionCreateFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 975)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxiSubscriptionCreateFailedEvent.setStatus('current')
-vmwNsxiSubscriptionDeleteFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 976)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxiSubscriptionDeleteFailedEvent.setStatus('current')
-vmwNsxiSubscriptionUpdateFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 977)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxiSubscriptionUpdateFailedEvent.setStatus('current')
-vmwNsxiSslHandshakeFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 978)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxiSslHandshakeFailedEvent.setStatus('current')
-vmwAnalyticsThresholdCompositeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37004)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAnalyticsThresholdCompositeEvent.setStatus('current')
-vmwAnalyticsThresholdCompositeProblemEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37006)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAnalyticsThresholdCompositeProblemEvent.setStatus('current')
-vmwLicenseExpiredEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80537)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLicenseExpiredEvent.setStatus('current')
-vmwInGracePeriodEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80538)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwInGracePeriodEvent.setStatus('current')
-vmwFailedDatasourceOperationEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80672)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwFailedDatasourceOperationEvent.setStatus('current')
-vmwNsxtNotificationWebhookDisabledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80670)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxtNotificationWebhookDisabledEvent.setStatus('current')
-vmwNatRuleLargeSubnetEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80270)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNatRuleLargeSubnetEvent.setStatus('current')
-vmwNSXTHostNodeMaintenanceModeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80272)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTHostNodeMaintenanceModeEvent.setStatus('current')
-vmwNSXTEdgeNodeMaintenanceModeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80271)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeNodeMaintenanceModeEvent.setStatus('current')
-vmwSDWanLinkTrafficThresholdEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90017)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSDWanLinkTrafficThresholdEvent.setStatus('current')
-vmwVMCCapacityThresholdBreachEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100056)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMCCapacityThresholdBreachEvent.setStatus('current')
-vmwNativeVlanMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110011)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNativeVlanMismatchEvent.setStatus('current')
-vmwNativeVlanTaggingMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110012)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNativeVlanTaggingMismatchEvent.setStatus('current')
-vmwSnapshotNotBuildingEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110013)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSnapshotNotBuildingEvent.setStatus('current')
-vmwProtectionActiveEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110015)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwProtectionActiveEvent.setStatus('current')
-vmwUnableToSendSNMPTrapsEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80539)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnableToSendSNMPTrapsEvent.setStatus('current')
-vmwStreamProcessingFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80540)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwStreamProcessingFailedEvent.setStatus('current')
-vmwSNOWMandatoryPrivilegeMissingEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80604)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSNOWMandatoryPrivilegeMissingEvent.setStatus('current')
-vmwVMCSDDCTGWConnectivityFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 38003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVMCSDDCTGWConnectivityFailedEvent.setStatus('current')
-vmwNSXTEdgeDVPGsIPFIXDisabledEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80273)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTEdgeDVPGsIPFIXDisabledEvent.setStatus('current')
-vmwUnsupportedNsxAlbVersionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80700)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnsupportedNsxAlbVersionEvent.setStatus('current')
-vmwIpfixFlowLagEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80541)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIpfixFlowLagEvent.setStatus('current')
-vmwNSXALBSystemEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 3558)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXALBSystemEvent.setStatus('current')
-vmwTkgiKubernetesNotReachableEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80800)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwTkgiKubernetesNotReachableEvent.setStatus('current')
-vmwTkgiClustersInsufficientPrivilegesEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80801)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwTkgiClustersInsufficientPrivilegesEvent.setStatus('current')
-vmwNSXTRouterInterfaceRPFPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80274)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTRouterInterfaceRPFPacketDropEvent.setStatus('current')
-vmwChangeEventsDroppedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80542)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwChangeEventsDroppedEvent.setStatus('current')
-vmwHcxIXServiceStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90501)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxIXServiceStatusEvent.setStatus('current')
-vmwHcxNEServiceStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90503)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxNEServiceStatusEvent.setStatus('current')
-vmwHcxBMServiceStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90512)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxBMServiceStatusEvent.setStatus('current')
-vmwHcxVMotionServiceStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90513)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxVMotionServiceStatusEvent.setStatus('current')
-vmwHcxIXApplianceEncryptionTunnelStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90502)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxIXApplianceEncryptionTunnelStatusEvent.setStatus('current')
-vmwHcxNEApplianceEncryptionTunnelStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90504)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxNEApplianceEncryptionTunnelStatusEvent.setStatus('current')
-vmwHcxIXApplianceServicePipelineStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90505)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxIXApplianceServicePipelineStatusEvent.setStatus('current')
-vmwHcxNEApplianceServicePipelineStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90506)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxNEApplianceServicePipelineStatusEvent.setStatus('current')
-vmwHcxIXApplianceServiceTransportStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90507)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxIXApplianceServiceTransportStatusEvent.setStatus('current')
-vmwHcxNEApplianceServiceTransportStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90508)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxNEApplianceServiceTransportStatusEvent.setStatus('current')
-vmwHcxIXApplianceServiceSystemStateEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90509)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxIXApplianceServiceSystemStateEvent.setStatus('current')
-vmwHcxNEApplianceServiceSystemStateEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90510)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxNEApplianceServiceSystemStateEvent.setStatus('current')
-vmwHcxIXServiceNotRunningEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90514)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxIXServiceNotRunningEvent.setStatus('current')
-vmwHcxNEServiceNotRunningEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90515)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxNEServiceNotRunningEvent.setStatus('current')
-vmwHcxWanOptServiceNotRunningEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90516)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxWanOptServiceNotRunningEvent.setStatus('current')
-vmwPanLogInsightDroppedFlowEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80050)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPanLogInsightDroppedFlowEvent.setStatus('current')
-vmwHcxConnectionRuleViolationEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90518)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxConnectionRuleViolationEvent.setStatus('current')
-vmwHcxApplianceAllTunnelDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90517)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxApplianceAllTunnelDownEvent.setStatus('current')
-vmwHcxMtuMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90519)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxMtuMismatchEvent.setStatus('current')
-vmwSwitchPortRPFPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30124)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSwitchPortRPFPacketDropEvent.setStatus('current')
-vmwCPLogInsightDroppedFlowEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80051)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwCPLogInsightDroppedFlowEvent.setStatus('current')
-vmwSNMPTrapEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110017)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSNMPTrapEvent.setStatus('current')
-vmwServiceRestartCountExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80544)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwServiceRestartCountExceededEvent.setStatus('current')
-vmwHcxWanOptServiceStatusEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90511)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxWanOptServiceStatusEvent.setStatus('current')
-vmwNsxtIpfixMultipleCollectorConfigurationEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80275)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxtIpfixMultipleCollectorConfigurationEvent.setStatus('current')
-vmwHcxApplianceUnhealthyTunnelsEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90520)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxApplianceUnhealthyTunnelsEvent.setStatus('current')
-vmwHcxManagerVersionMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90521)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxManagerVersionMismatchEvent.setStatus('current')
-vmwHcxApplianceVersionMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90522)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxApplianceVersionMismatchEvent.setStatus('current')
-vmwIntentAlert = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 400)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwIntentAlert.setStatus('current')
-vmwKubernetesEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 1509)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwKubernetesEvent.setStatus('current')
-vmwSwitchPortBufferThresholdExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30107)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSwitchPortBufferThresholdExceededEvent.setStatus('current')
-vmwRouterInterfaceBufferThresholdExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30108)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwRouterInterfaceBufferThresholdExceededEvent.setStatus('current')
-vmwBufferThresholdExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30109)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwBufferThresholdExceededEvent.setStatus('current')
-vmwPortOperationalDownEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30113)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPortOperationalDownEvent.setStatus('current')
-vmwSwitchPortRxNetworkUsageThresholdExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40000)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSwitchPortRxNetworkUsageThresholdExceededEvent.setStatus('current')
-vmwSwitchPortTxNetworkUsageThresholdExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40002)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSwitchPortTxNetworkUsageThresholdExceededEvent.setStatus('current')
-vmwSwitchPortRxNetworkUsageThresholdExceededCriticalEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSwitchPortRxNetworkUsageThresholdExceededCriticalEvent.setStatus('current')
-vmwSwitchPortTxNetworkUsageThresholdExceededCriticalEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40004)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSwitchPortTxNetworkUsageThresholdExceededCriticalEvent.setStatus('current')
-vmwManagementHostHighCPUUsageEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40005)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwManagementHostHighCPUUsageEvent.setStatus('current')
-vmwManagementHostHighCPUUsageCriticalEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40006)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwManagementHostHighCPUUsageCriticalEvent.setStatus('current')
-vmwHostUnHealthyEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40007)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHostUnHealthyEvent.setStatus('current')
-vmwNSXControllerFSAvailableThresholdRecededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40008)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXControllerFSAvailableThresholdRecededEvent.setStatus('current')
-vmwEdgeVmVnicRxPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40011)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEdgeVmVnicRxPacketDropEvent.setStatus('current')
-vmwEdgeVmVnicTxPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40012)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwEdgeVmVnicTxPacketDropEvent.setStatus('current')
-vmwManagementHostPnicRxPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40013)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwManagementHostPnicRxPacketDropEvent.setStatus('current')
-vmwManagementHostPnicTxPacketDropEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40014)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwManagementHostPnicTxPacketDropEvent.setStatus('current')
-vmwManagementHostConnectionStateDisconnectedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40015)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwManagementHostConnectionStateDisconnectedEvent.setStatus('current')
-vmwAllThresholdEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37005)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAllThresholdEvent.setStatus('current')
-vmwVTGWDuplicateRoutesEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 38004)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVTGWDuplicateRoutesEvent.setStatus('current')
-vmwApplianceNotRegisteredEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80529)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwApplianceNotRegisteredEvent.setStatus('current')
-vmwRegCertExpiredEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80530)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwRegCertExpiredEvent.setStatus('current')
-vmwBackupFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80533)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwBackupFailedEvent.setStatus('current')
-vmwAdditionalResourcesRequiredEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80534)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAdditionalResourcesRequiredEvent.setStatus('current')
-vmwCapacityReconfigurationRequiredEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80535)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwCapacityReconfigurationRequiredEvent.setStatus('current')
-vmwCapacityReconfigurationFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80536)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwCapacityReconfigurationFailedEvent.setStatus('current')
-vmwHighDiskIoUtilizationEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80543)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHighDiskIoUtilizationEvent.setStatus('current')
-vmwNsxtSystemEventApiEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80666)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNsxtSystemEventApiEvent.setStatus('current')
-vmwServiceNowAppLimitExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80656)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwServiceNowAppLimitExceededEvent.setStatus('current')
-vmwAzureFlowCollectionErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 8061316)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAzureFlowCollectionErrorEvent.setStatus('current')
-vmwAzureNetworkWatcherStorageErrorEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 8061317)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAzureNetworkWatcherStorageErrorEvent.setStatus('current')
-vmwAnalyticsMemoryLimitsExceededEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80600)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwAnalyticsMemoryLimitsExceededEvent.setStatus('current')
-vmwHybridConnectAdvertisedSubnetsFailedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 1277)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHybridConnectAdvertisedSubnetsFailedEvent.setStatus('current')
-vmwNSXTRxPacketDropOnNicEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80268)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTRxPacketDropOnNicEvent.setStatus('current')
-vmwNSXTTxPacketDropOnNicEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80269)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTTxPacketDropOnNicEvent.setStatus('current')
-vmwNSXTBGPNeighbourStateEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80251)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwNSXTBGPNeighbourStateEvent.setStatus('current')
-vmwVeloCloudEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90000)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudEvent.setStatus('current')
-vmwVeloCloudEdgeL7ApplicationLostPacketEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudEdgeL7ApplicationLostPacketEvent.setStatus('current')
-vmwVeloCloudEdgeL7ApplicationRetransmittedPacketEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90004)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudEdgeL7ApplicationRetransmittedPacketEvent.setStatus('current')
-vmwVeloCloudEdgeLocationNotSetEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90006)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudEdgeLocationNotSetEvent.setStatus('current')
-vmwVeloCloudTunnelDegradedVoiceQoeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90014)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudTunnelDegradedVoiceQoeEvent.setStatus('current')
-vmwVeloCloudTunnelDegradedVideoQoeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90015)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudTunnelDegradedVideoQoeEvent.setStatus('current')
-vmwVeloCloudTunnelDegradedTransQoeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90016)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudTunnelDegradedTransQoeEvent.setStatus('current')
-vmwVeloCloudQoeEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90018)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwVeloCloudQoeEvent.setStatus('current')
-vmwHcxEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90500)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHcxEvent.setStatus('current')
-vmwLatencyNoDataEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100000)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLatencyNoDataEvent.setStatus('current')
-vmwLinkMtuMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110000)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLinkMtuMismatchEvent.setStatus('current')
-vmwPortModeMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPortModeMismatchEvent.setStatus('current')
-vmwPortTrunkMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110002)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPortTrunkMismatchEvent.setStatus('current')
-vmwPortChannelMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPortChannelMismatchEvent.setStatus('current')
-vmwDuplexMismatchEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110004)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDuplexMismatchEvent.setStatus('current')
-vmwDuplicateMacAddressEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110007)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDuplicateMacAddressEvent.setStatus('current')
-vmwDuplicateIPAddressEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110008)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwDuplicateIPAddressEvent.setStatus('current')
-vmwSTPPathCostMethodInconsistencyEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110009)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSTPPathCostMethodInconsistencyEvent.setStatus('current')
-vmwHSRPSTPColocationEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110010)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHSRPSTPColocationEvent.setStatus('current')
-vmwStigAccountPasswdEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwStigAccountPasswdEvent.setStatus('current')
-vmwStigConsolePasswdEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111002)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwStigConsolePasswdEvent.setStatus('current')
-vmwStigDefaultPasswdEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwStigDefaultPasswdEvent.setStatus('current')
-vmwStigMgmtPasswdEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111004)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwStigMgmtPasswdEvent.setStatus('current')
-vmwStigPlaintextPasswdEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111005)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwStigPlaintextPasswdEvent.setStatus('current')
-vmwHSRPConfigurationEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110014)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwHSRPConfigurationEvent.setStatus('current')
-vmwLoopDetectionEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 115001)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwLoopDetectionEvent.setStatus('current')
-vmwReachabilityEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 115002)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwReachabilityEvent.setStatus('current')
-vmwSegmentationEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 115003)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSegmentationEvent.setStatus('current')
-vmwUnderlayProblem = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110005)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwUnderlayProblem.setStatus('current')
-vmwSwitchPortProblem = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110006)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwSwitchPortProblem.setStatus('current')
-vmwPathProblem = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110016)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPathProblem.setStatus('current')
-vmwInvalidIntentEvent = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111000)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwInvalidIntentEvent.setStatus('current')
-vmwPassthroughEvents = NotificationType((1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 2503)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if mibBuilder.loadTexts: vmwPassthroughEvents.setStatus('current')
-vmwAffectedObject = MibScalar((1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 102), SnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: vmwAffectedObject.setStatus('current')
-vmwEventSeverity = MibScalar((1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 103), VmwVrniSeverity()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: vmwEventSeverity.setStatus('current')
-vmwVrniUrl = MibScalar((1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 104), SnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: vmwVrniUrl.setStatus('current')
-vmwTimestamp = MibScalar((1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 105), DateAndTime()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: vmwTimestamp.setStatus('current')
-vmwOperatorDesc = MibScalar((1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 106), VmwLongSnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: vmwOperatorDesc.setStatus('current')
-vmwEventName = MibScalar((1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 107), VmwLongSnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: vmwEventName.setStatus('current')
-vmwAffectedObjectManager = MibScalar((1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 108), VmwLongSnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: vmwAffectedObjectManager.setStatus('current')
-vmwAffectedObjectParent = MibScalar((1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 109), VmwLongSnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: vmwAffectedObjectParent.setStatus('current')
-vmwPlatformIP = MibScalar((1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 110), VmwLongSnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: vmwPlatformIP.setStatus('current')
-vmwNetworkInsightMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99))
-vmwNetworkInsightMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1))
-vmwNetworkInsightMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2))
-vmwNetworkInsightMIBBasicCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 3)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance = vmwNetworkInsightMIBBasicCompliance.setStatus('deprecated')
-vmwNetworkInsightNotificationInfoGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 2)).setObjects(("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwEventName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationInfoGroup1 = vmwNetworkInsightNotificationInfoGroup1.setStatus('current')
-vmwNetworkInsightNotificationGroup1 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 3)).setObjects(("VMWARE-VRNI-MIB", "vmwSnmpTrapsAreConfigured"), ("VMWARE-VRNI-MIB", "vmwSnmpTrapsAreDisabled"), ("VMWARE-VRNI-MIB", "vmwTestTrap"), ("VMWARE-VRNI-MIB", "vmwEntityDiscoveryChangeEvent"), ("VMWARE-VRNI-MIB", "vmwEntityPropertiesChangeEvent"), ("VMWARE-VRNI-MIB", "vmwFirewallNotInstalledOnHostEvent"), ("VMWARE-VRNI-MIB", "vmwHostWithStaleFirewallRulesEvent"), ("VMWARE-VRNI-MIB", "vmwIpAddressChangeEvent"), ("VMWARE-VRNI-MIB", "vmwL2GatewayAnomalyEvent"), ("VMWARE-VRNI-MIB", "vmwL2NetworkAddressAnomalyEvent"), ("VMWARE-VRNI-MIB", "vmwL2NetworkDiameterExceededEvent"), ("VMWARE-VRNI-MIB", "vmwL2NetworkUplinkMissingEvent"), ("VMWARE-VRNI-MIB", "vmwL2NetworkWithNoVMsEvent"), ("VMWARE-VRNI-MIB", "vmwLayer2NetworkDiameterChangedEvent"), ("VMWARE-VRNI-MIB", "vmwMTUMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwNetworkIsolationEvent"), ("VMWARE-VRNI-MIB", "vmwNoPathEvent"), ("VMWARE-VRNI-MIB", "vmwSpoofguardDisabledEvent"), ("VMWARE-VRNI-MIB", "vmwVMotionEvent"), ("VMWARE-VRNI-MIB", "vmwVMWithDisconnectedVnicsEvent"), ("VMWARE-VRNI-MIB", "vmwVMWithMulipleVnicsOnDifferentVxlansEvent"), ("VMWARE-VRNI-MIB", "vmwVMWithMulipleVnicsOnSameL2Event"), ("VMWARE-VRNI-MIB", "vmwVMWithNoIpAddressEvent"), ("VMWARE-VRNI-MIB", "vmwVTEPMissingEvent"), ("VMWARE-VRNI-MIB", "vmwL2Event"), ("VMWARE-VRNI-MIB", "vmwMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwSecurityGroupMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwFirewallRuleMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwVlanMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwVxlanMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwDeleteChangeEvent"), ("VMWARE-VRNI-MIB", "vmwVtepFailedPingEvent"), ("VMWARE-VRNI-MIB", "vmwEmptySearchStreamChangeEvent"), ("VMWARE-VRNI-MIB", "vmwSearchStreamMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwEmptySearchStreamProblemEvent"), ("VMWARE-VRNI-MIB", "vmwSearchStreamMembershipProblemEvent"), ("VMWARE-VRNI-MIB", "vmwOspfConfigurationMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwServiceVMNotHealthyEvent"), ("VMWARE-VRNI-MIB", "vmwServiceVMNotPoweredOnEvent"), ("VMWARE-VRNI-MIB", "vmwServiceVMHighCPUUsageEvent"), ("VMWARE-VRNI-MIB", "vmwServiceVMHighMemoryUsageEvent"), ("VMWARE-VRNI-MIB", "vmwServiceVMHighDiskUsageEvent"), ("VMWARE-VRNI-MIB", "vmwIPSetPropertiesChangeEvent"), ("VMWARE-VRNI-MIB", "vmwFirewallRulePropertiesChangeEvent"), ("VMWARE-VRNI-MIB", "vmwSecurityGroupPropertiesChangeEvent"), ("VMWARE-VRNI-MIB", "vmwIPSetMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwFirewallRuleMaskEvent"), ("VMWARE-VRNI-MIB", "vmwSecurityMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwSecurityTagPropertiesChangeEvent"), ("VMWARE-VRNI-MIB", "vmwSecurityTagMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwHostDatastoreChangeEvent"), ("VMWARE-VRNI-MIB", "vmwVMDatastoreChangeEvent"), ("VMWARE-VRNI-MIB", "vmwVMSnapshotChangeEvent"), ("VMWARE-VRNI-MIB", "vmwVMVirtualDiskChangeEvent"), ("VMWARE-VRNI-MIB", "vmwIPSetDefinitionMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwSegmentMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwVtepEvent"), ("VMWARE-VRNI-MIB", "vmwVtepConfigurationFaultEvent"), ("VMWARE-VRNI-MIB", "vmwVtepSubnetMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwVtepCountMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwDLRNetworksNotReachableEvent"), ("VMWARE-VRNI-MIB", "vmwEdgeNetworksNotReachableEvent"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventCpuReady"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventCpuCoStop"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDiskCommandAbortRule"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventIODeviceLatencyRule"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventIOKernelLatencyRule"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventMemorySwapInRule"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventMemorySwapOutRule"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventNetworkRxDropRule"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventNetworkTxDropRule"), ("VMWARE-VRNI-MIB", "vmwPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwSwitchPortPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwRouterInterfacePacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwVnicPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwVTEPUnderlayPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwPnicUnderlyingSwitchPortPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwDevicePacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDatastoreFreeSpaceWarning"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDatastoreFreeSpaceCritical"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDatastoreReadLatency"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDatastoreWriteLatency"), ("VMWARE-VRNI-MIB", "vmwDistributedFirewallApplyHostEvent"), ("VMWARE-VRNI-MIB", "vmwDistributedFirewallApplyVMEvent"), ("VMWARE-VRNI-MIB", "vmwNsxEvent"), ("VMWARE-VRNI-MIB", "vmwFeatureImpactedEvent"), ("VMWARE-VRNI-MIB", "vmwClusterFeatureVersionMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwHostFeatureVersionMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwFeatureVersionMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwHostFeatureEnabledMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwHostFeatureInstalledMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwHostVtepNotFoundEvent"), ("VMWARE-VRNI-MIB", "vmwHostVtepDisconnectedEvent"), ("VMWARE-VRNI-MIB", "vmwHostVtepEvent"), ("VMWARE-VRNI-MIB", "vmwClusterHostsVtepMTUMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwFeatureUnhealthyEvent"), ("VMWARE-VRNI-MIB", "vmwEdgeHANotConfiguredEvent"), ("VMWARE-VRNI-MIB", "vmwEdgeInterfacesDownEvent"), ("VMWARE-VRNI-MIB", "vmwModuleUnhealthyEvent"), ("VMWARE-VRNI-MIB", "vmwModuleNotLoadedEvent"), ("VMWARE-VRNI-MIB", "vmwModuleNetworkConnectionFailureEvent"), ("VMWARE-VRNI-MIB", "vmwHostNetworkControlPlaneMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwHostNetworkControlPlaneConnectionFailureEvent"), ("VMWARE-VRNI-MIB", "vmwHostNetworkControlPlaneNotSyncedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXControllerClusterMajorityEvent"), ("VMWARE-VRNI-MIB", "vmwNSXControllersVMOnSameHostEvent"), ("VMWARE-VRNI-MIB", "vmwVxLanRangeExhaustEvent"), ("VMWARE-VRNI-MIB", "vmwNSXFirewallDefaultAllowAllRulesEvent"), ("VMWARE-VRNI-MIB", "vmwEdgeNotHAEvent"), ("VMWARE-VRNI-MIB", "vmwEdgeNotDeployedEvent"), ("VMWARE-VRNI-MIB", "vmwEcmpIsEnabledAndStatefulServicesAreUpEvent"), ("VMWARE-VRNI-MIB", "vmwLogicalRouterDeployedOnEcmpEdgeHostEvent"), ("VMWARE-VRNI-MIB", "vmwEdgeMissingInterfaceOSPFAreaMappingEvent"), ("VMWARE-VRNI-MIB", "vmwOspfInsecureAuthRouterEvent"), ("VMWARE-VRNI-MIB", "vmwNSXControllersDeployedCountEvent"), ("VMWARE-VRNI-MIB", "vmwNSXControllerNotActiveCountEvent"), ("VMWARE-VRNI-MIB", "vmwNSXControllerEvent"), ("VMWARE-VRNI-MIB", "vmwNSXBackupEvent"), ("VMWARE-VRNI-MIB", "vmwNSXUnsecureBackupEvent"), ("VMWARE-VRNI-MIB", "vmwNSXBackupSystemEventsExcludedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXBackupNotScheduledEvent"), ("VMWARE-VRNI-MIB", "vmwNSXBackupNotRecordedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXNtpServerEvent"), ("VMWARE-VRNI-MIB", "vmwNSXSysLogServerEvent"), ("VMWARE-VRNI-MIB", "vmwControllerSysLogServerEvent"), ("VMWARE-VRNI-MIB", "vmwGenericNSXSystemEvent"), ("VMWARE-VRNI-MIB", "vmwOtherCriticalNSXEvent"), ("VMWARE-VRNI-MIB", "vmwFilterConfigApplyOnHostFailedEvent"), ("VMWARE-VRNI-MIB", "vmwRulesetLoadOnHostFailedEvent"), ("VMWARE-VRNI-MIB", "vmwConfigUpdateOnHostFailedEvent"), ("VMWARE-VRNI-MIB", "vmwSpoofguardConfigUpdateOnHostFailedEvent"), ("VMWARE-VRNI-MIB", "vmwApplyRuleToVnicFailedEvent"), ("VMWARE-VRNI-MIB", "vmwContainerConfigUpdateOnVnicFailedEvent"), ("VMWARE-VRNI-MIB", "vmwSpoofguardApplyToVnicFailedEvent"), ("VMWARE-VRNI-MIB", "vmwHostMessagingConfigurationFailedEvent"), ("VMWARE-VRNI-MIB", "vmwHostMessagingConnectionReconfigurationFailedEvent"), ("VMWARE-VRNI-MIB", "vmwHostMessagingConfigurationFailedNotificationSkippedEvent"), ("VMWARE-VRNI-MIB", "vmwHostMessagingInfrastructureDownEvent"), ("VMWARE-VRNI-MIB", "vmwEdgeVMNotRespondingEvent"), ("VMWARE-VRNI-MIB", "vmwEdgeUnhealthyEvent"), ("VMWARE-VRNI-MIB", "vmwEdgeVMCommunicationFailureEvent"), ("VMWARE-VRNI-MIB", "vmwNSXEdgeEvent"), ("VMWARE-VRNI-MIB", "vmwPanEvent"), ("VMWARE-VRNI-MIB", "vmwPanNsxNotInRegisteredStateEvent"), ("VMWARE-VRNI-MIB", "vmwPanNsxDynamicUpdateDelayedEvent"), ("VMWARE-VRNI-MIB", "vmwPanDeviceInDisconnectedStateEvent"), ("VMWARE-VRNI-MIB", "vmwPanNsxServiceApplianceViewMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwPanNsxFabricAgentNotFoundOnHostEvent"), ("VMWARE-VRNI-MIB", "vmwPanNsxServiceVMNotFoundOnHostEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup1 = vmwNetworkInsightNotificationGroup1.setStatus('current')
-vmwNetworkInsightMIBBasicCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 30)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance2 = vmwNetworkInsightMIBBasicCompliance2.setStatus('deprecated')
-vmwNetworkInsightNotificationInfoGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 20)).setObjects(("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwEventName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationInfoGroup2 = vmwNetworkInsightNotificationInfoGroup2.setStatus('deprecated')
-vmwNetworkInsightNotificationGroup2 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 30)).setObjects(("VMWARE-VRNI-MIB", "vmwLogicalRouterNoUplinkEvent"), ("VMWARE-VRNI-MIB", "vmwNSXComponentEvent"), ("VMWARE-VRNI-MIB", "vmwNSXBackupEvent"), ("VMWARE-VRNI-MIB", "vmwNSXBackupAuditLogExcludedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXUnsecureBackupEvent"), ("VMWARE-VRNI-MIB", "vmwNSXBackupSystemEventsExcludedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXBackupNotScheduledEvent"), ("VMWARE-VRNI-MIB", "vmwNSXBackupNotRecordedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXNtpServerEvent"), ("VMWARE-VRNI-MIB", "vmwNSXSysLogServerEvent"), ("VMWARE-VRNI-MIB", "vmwControllerSysLogServerEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup2 = vmwNetworkInsightNotificationGroup2.setStatus('current')
-vmwNetworkInsightMIBBasicCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 35)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"))
+# MIB Managed Objects in the order of their OIDs
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance3 = vmwNetworkInsightMIBBasicCompliance3.setStatus('deprecated')
-vmwNetworkInsightNotificationGroup3 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 40)).setObjects(("VMWARE-VRNI-MIB", "vmwMTUMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwVMWithMulipleVnicsOnSameL2Event"), ("VMWARE-VRNI-MIB", "vmwMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwSecurityGroupMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwFirewallRuleMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwVlanMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwVxlanMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwSearchStreamMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwIPSetMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwSecurityMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwVtepEvent"), ("VMWARE-VRNI-MIB", "vmwPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwSwitchPortPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwRouterInterfacePacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwVnicPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwVTEPUnderlayPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwPnicUnderlyingSwitchPortPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwHostFeatureVersionMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwSpoofguardConfigUpdateOnHostFailedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXEcmpEdgeDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXMajorityEcmpEdgesDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXAllEcmpEdgesDownEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup3 = vmwNetworkInsightNotificationGroup3.setStatus('current')
-vmwNetworkInsightMIBBasicCompliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 45)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"))
+_VmwVRNIEvents_ObjectIdentity = ObjectIdentity
+vmwVRNIEvents = _VmwVRNIEvents_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIEvents.setStatus("current")
+_VmwVRNIData_ObjectIdentity = ObjectIdentity
+vmwVRNIData = _VmwVRNIData_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 1)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIData.setStatus("current")
+_VmwAffectedObject_Type = SnmpAdminString
+_VmwAffectedObject_Object = MibScalar
+vmwAffectedObject = _VmwAffectedObject_Object(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 102),
+    _VmwAffectedObject_Type()
+)
+vmwAffectedObject.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    vmwAffectedObject.setStatus("current")
+_VmwEventSeverity_Type = VmwVrniSeverity
+_VmwEventSeverity_Object = MibScalar
+vmwEventSeverity = _VmwEventSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 103),
+    _VmwEventSeverity_Type()
+)
+vmwEventSeverity.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    vmwEventSeverity.setStatus("current")
+_VmwVrniUrl_Type = SnmpAdminString
+_VmwVrniUrl_Object = MibScalar
+vmwVrniUrl = _VmwVrniUrl_Object(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 104),
+    _VmwVrniUrl_Type()
+)
+vmwVrniUrl.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    vmwVrniUrl.setStatus("current")
+_VmwTimestamp_Type = DateAndTime
+_VmwTimestamp_Object = MibScalar
+vmwTimestamp = _VmwTimestamp_Object(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 105),
+    _VmwTimestamp_Type()
+)
+vmwTimestamp.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    vmwTimestamp.setStatus("current")
+_VmwOperatorDesc_Type = VmwLongSnmpAdminString
+_VmwOperatorDesc_Object = MibScalar
+vmwOperatorDesc = _VmwOperatorDesc_Object(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 106),
+    _VmwOperatorDesc_Type()
+)
+vmwOperatorDesc.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    vmwOperatorDesc.setStatus("current")
+_VmwEventName_Type = VmwLongSnmpAdminString
+_VmwEventName_Object = MibScalar
+vmwEventName = _VmwEventName_Object(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 107),
+    _VmwEventName_Type()
+)
+vmwEventName.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    vmwEventName.setStatus("current")
+_VmwAffectedObjectManager_Type = VmwLongSnmpAdminString
+_VmwAffectedObjectManager_Object = MibScalar
+vmwAffectedObjectManager = _VmwAffectedObjectManager_Object(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 108),
+    _VmwAffectedObjectManager_Type()
+)
+vmwAffectedObjectManager.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    vmwAffectedObjectManager.setStatus("current")
+_VmwAffectedObjectParent_Type = VmwLongSnmpAdminString
+_VmwAffectedObjectParent_Object = MibScalar
+vmwAffectedObjectParent = _VmwAffectedObjectParent_Object(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 109),
+    _VmwAffectedObjectParent_Type()
+)
+vmwAffectedObjectParent.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    vmwAffectedObjectParent.setStatus("current")
+_VmwPlatformIP_Type = VmwLongSnmpAdminString
+_VmwPlatformIP_Object = MibScalar
+vmwPlatformIP = _VmwPlatformIP_Object(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 1, 110),
+    _VmwPlatformIP_Type()
+)
+vmwPlatformIP.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    vmwPlatformIP.setStatus("current")
+_VmwNetworkInsightMIBConformance_ObjectIdentity = ObjectIdentity
+vmwNetworkInsightMIBConformance = _VmwNetworkInsightMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99)
+)
+_VmwNetworkInsightMIBCompliances_ObjectIdentity = ObjectIdentity
+vmwNetworkInsightMIBCompliances = _VmwNetworkInsightMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1)
+)
+_VmwNetworkInsightMIBGroups_ObjectIdentity = ObjectIdentity
+vmwNetworkInsightMIBGroups = _VmwNetworkInsightMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2)
+)
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance4 = vmwNetworkInsightMIBBasicCompliance4.setStatus('deprecated')
-vmwNetworkInsightNotificationGroup4 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 50)).setObjects(("VMWARE-VRNI-MIB", "vmwNSXEdgeSplitBrainEvent"), ("VMWARE-VRNI-MIB", "vmwNSXIpV6EnabledEvent"), ("VMWARE-VRNI-MIB", "vmwNSXOspfNeighborDownEvent"), ("VMWARE-VRNI-MIB", "vmwCheckpointEvent"), ("VMWARE-VRNI-MIB", "vmwNSXEdgeMtuMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwCheckpointNsxFabricAgentNotFoundOnHostEvent"), ("VMWARE-VRNI-MIB", "vmwCheckpointNsxServiceVMNotFoundOnHostEvent"), ("VMWARE-VRNI-MIB", "vmwCheckpointGatewaySicStatusNotCommunicatingEvent"), ("VMWARE-VRNI-MIB", "vmwCheckpointNsxServiceApplianceViewMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwCriticalHostNotAccessibleEvent"), ("VMWARE-VRNI-MIB", "vmwVlanMembershipChangeEvent"), ("VMWARE-VRNI-MIB", "vmwClusterFeatureVersionMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwHostFeatureVersionMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwConfigUpdateOnHostFailedEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup4 = vmwNetworkInsightNotificationGroup4.setStatus('current')
-vmwNetworkInsightNotificationInfoGroup3 = ObjectGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 55)).setObjects(("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationInfoGroup3 = vmwNetworkInsightNotificationInfoGroup3.setStatus('current')
-vmwNetworkInsightMIBBasicCompliance5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 60)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"))
+# Managed Objects groups
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance5 = vmwNetworkInsightMIBBasicCompliance5.setStatus('deprecated')
-vmwNetworkInsightMIBBasicCompliance6 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 70)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"))
+vmwNetworkInsightNotificationInfoGroup1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 2)
+)
+vmwNetworkInsightNotificationInfoGroup1.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationInfoGroup1.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance6 = vmwNetworkInsightMIBBasicCompliance6.setStatus('deprecated')
-vmwNetworkInsightMIBBasicCompliance7 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 80)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"))
+vmwNetworkInsightNotificationInfoGroup2 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 20)
+)
+vmwNetworkInsightNotificationInfoGroup2.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationInfoGroup2.setStatus("deprecated")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance7 = vmwNetworkInsightMIBBasicCompliance7.setStatus('deprecated')
-vmwNetworkInsightMIBBasicCompliance8 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 90)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"))
+vmwNetworkInsightNotificationInfoGroup3 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 55)
+)
+vmwNetworkInsightNotificationInfoGroup3.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationInfoGroup3.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance8 = vmwNetworkInsightMIBBasicCompliance8.setStatus('deprecated')
-vmwNetworkInsightMIBBasicCompliance9 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 100)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"))
+vmwNetworkInsightNotificationInfoGroup4 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 170)
+)
+vmwNetworkInsightNotificationInfoGroup4.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationInfoGroup4.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance9 = vmwNetworkInsightMIBBasicCompliance9.setStatus('deprecated')
-vmwNetworkInsightMIBBasicCompliance10 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 110)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance10 = vmwNetworkInsightMIBBasicCompliance10.setStatus('deprecated')
-vmwNetworkInsightMIBBasicCompliance11 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 120)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"))
+# Notification objects
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance11 = vmwNetworkInsightMIBBasicCompliance11.setStatus('deprecated')
-vmwNetworkInsightMIBBasicCompliance12 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 130)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup12"))
+vmwSnmpTrapsAreConfigured = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 101)
+)
+vmwSnmpTrapsAreConfigured.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSnmpTrapsAreConfigured.setStatus(
+        "current"
+    )
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance12 = vmwNetworkInsightMIBBasicCompliance12.setStatus('deprecated')
-vmwNetworkInsightMIBBasicCompliance13 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 140)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup12"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup13"))
+vmwSnmpTrapsAreDisabled = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 102)
+)
+vmwSnmpTrapsAreDisabled.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSnmpTrapsAreDisabled.setStatus(
+        "current"
+    )
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance13 = vmwNetworkInsightMIBBasicCompliance13.setStatus('deprecated')
-vmwNetworkInsightMIBBasicCompliance14 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 150)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup12"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup13"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup14"))
+vmwTestTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 103)
+)
+vmwTestTrap.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwTestTrap.setStatus(
+        "current"
+    )
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance14 = vmwNetworkInsightMIBBasicCompliance14.setStatus('deprecated')
-vmwNetworkInsightMIBBasicCompliance15 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 160)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup12"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup13"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup14"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup15"))
+vmwIntentAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 400)
+)
+vmwIntentAlert.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIntentAlert.setStatus(
+        "current"
+    )
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance15 = vmwNetworkInsightMIBBasicCompliance15.setStatus('deprecated')
-vmwNetworkInsightNotificationInfoGroup4 = ObjectGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 170)).setObjects(("VMWARE-VRNI-MIB", "vmwPlatformIP"), ("VMWARE-VRNI-MIB", "vmwEventSeverity"), ("VMWARE-VRNI-MIB", "vmwAffectedObject"), ("VMWARE-VRNI-MIB", "vmwOperatorDesc"), ("VMWARE-VRNI-MIB", "vmwVrniUrl"), ("VMWARE-VRNI-MIB", "vmwTimestamp"), ("VMWARE-VRNI-MIB", "vmwEventName"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"), ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationInfoGroup4 = vmwNetworkInsightNotificationInfoGroup4.setStatus('current')
-vmwNetworkInsightMIBBasicCompliance16 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 175)).setObjects(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup12"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup13"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup14"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup15"), ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup16"))
+vmwArkinApplicationMemberLimitEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 568)
+)
+vmwArkinApplicationMemberLimitEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwArkinApplicationMemberLimitEvent.setStatus(
+        "current"
+    )
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightMIBBasicCompliance16 = vmwNetworkInsightMIBBasicCompliance16.setStatus('current')
-vmwNetworkInsightNotificationGroup5 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 65)).setObjects(("VMWARE-VRNI-MIB", "vmwNiInfraChangeEvent"), ("VMWARE-VRNI-MIB", "vmwDataSourceEnabledChangeEvent"), ("VMWARE-VRNI-MIB", "vmwDataSourceDisabledChangeEvent"), ("VMWARE-VRNI-MIB", "vmwDataSourceCreatedEvent"), ("VMWARE-VRNI-MIB", "vmwPlatformCpuCoreChangeEvent"), ("VMWARE-VRNI-MIB", "vmwPlatformDiskChangeEvent"), ("VMWARE-VRNI-MIB", "vmwPlatformMemoryChangeEvent"), ("VMWARE-VRNI-MIB", "vmwPlatformRebootedEvent"), ("VMWARE-VRNI-MIB", "vmwProxyCpuCoreChangeEvent"), ("VMWARE-VRNI-MIB", "vmwProxyDiskChangeEvent"), ("VMWARE-VRNI-MIB", "vmwProxyMemoryChangeEvent"), ("VMWARE-VRNI-MIB", "vmwProxyRebootedEvent"), ("VMWARE-VRNI-MIB", "vmwNIClusterChangeEvent"), ("VMWARE-VRNI-MIB", "vmwNISystemProxyChangeEvent"), ("VMWARE-VRNI-MIB", "vmwNIClusterCreateEvent"), ("VMWARE-VRNI-MIB", "vmwAWSRegionSGLimitEvent"), ("VMWARE-VRNI-MIB", "vmwAWSVPCSGLimitEvent"), ("VMWARE-VRNI-MIB", "vmwAWSSGInboundRuleLimitEvent"), ("VMWARE-VRNI-MIB", "vmwAWSSGOutboundRuleLimitEvent"), ("VMWARE-VRNI-MIB", "vmwAWSInterfaceSGLimitEvent"), ("VMWARE-VRNI-MIB", "vmwVirtualDistributedRoutingEvent"), ("VMWARE-VRNI-MIB", "vmwIndexerLagEvent"), ("VMWARE-VRNI-MIB", "vmwIPFIXFlowDPPausedEvent"), ("VMWARE-VRNI-MIB", "vmwGridProcessingStoppedEvent"), ("VMWARE-VRNI-MIB", "vmwUnableToSendEmailsEvent"), ("VMWARE-VRNI-MIB", "vmwSMTPNotConfiguredEvent"), ("VMWARE-VRNI-MIB", "vmwSNMPNotConfiguredEvent"), ("VMWARE-VRNI-MIB", "vmwReindexingInProgressEvent"), ("VMWARE-VRNI-MIB", "vmwNodesVersionMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwNotAllServicesRunningEvent"), ("VMWARE-VRNI-MIB", "vmwNotAllServicesHealthyEvent"), ("VMWARE-VRNI-MIB", "vmwExpandPartitionFailedEvent"), ("VMWARE-VRNI-MIB", "vmwDiskCleanupFailedEvent"), ("VMWARE-VRNI-MIB", "vmwVacuumFailedEvent"), ("VMWARE-VRNI-MIB", "vmwConfigStoreCleanupFailedEvent"), ("VMWARE-VRNI-MIB", "vmwHBaseRetentionToolFailedEvent"), ("VMWARE-VRNI-MIB", "vmwMetricStoreUpdaterFailedEvent"), ("VMWARE-VRNI-MIB", "vmwCollectorLagEvent"), ("VMWARE-VRNI-MIB", "vmwCollectionLagEvent"), ("VMWARE-VRNI-MIB", "vmwGridProcessingLagEvent"), ("VMWARE-VRNI-MIB", "vmwConnectionErrorEvent"), ("VMWARE-VRNI-MIB", "vmwNodeNotActiveEvent"), ("VMWARE-VRNI-MIB", "vmwHighDiskUtilizationEvent"), ("VMWARE-VRNI-MIB", "vmwIndexingAbortedEvent"), ("VMWARE-VRNI-MIB", "vmwUpgradeFailedEvent"), ("VMWARE-VRNI-MIB", "vmwFlowProcessingSuspendedEvent"), ("VMWARE-VRNI-MIB", "vmwVCNotOnSameProxyEvent"), ("VMWARE-VRNI-MIB", "vmwNoDVSAvailableEvent"), ("VMWARE-VRNI-MIB", "vmwUnknownInfobloxVersionEvent"), ("VMWARE-VRNI-MIB", "vmwUnsupportedInfobloxVersionEvent"), ("VMWARE-VRNI-MIB", "vmwIncorrectInfobloxCredentialEvent"), ("VMWARE-VRNI-MIB", "vmwInfobloxRecordLimitExceededEvent"), ("VMWARE-VRNI-MIB", "vmwWebhookNotRunningEvent"), ("VMWARE-VRNI-MIB", "vmwIncorrectWebhookConfiguredOnAlertEvent"), ("VMWARE-VRNI-MIB", "vmwWebhookNotEnabledOnAlertEvent"), ("VMWARE-VRNI-MIB", "vmwVRNIContentPackNotInstalledEvent"), ("VMWARE-VRNI-MIB", "vmwUnsupportedVRNIContentPackVersionEvent"), ("VMWARE-VRNI-MIB", "vmwUnsupportedLogInsightVersionEvent"), ("VMWARE-VRNI-MIB", "vmwComputeManagersNotAddedEvent"), ("VMWARE-VRNI-MIB", "vmwComputeManagersNotFoundEvent"), ("VMWARE-VRNI-MIB", "vmwUnsupportedNSXTVersionEvent"), ("VMWARE-VRNI-MIB", "vmwNotEmptyNodeEvent"), ("VMWARE-VRNI-MIB", "vmwFlowPhysicalNodeEvent"), ("VMWARE-VRNI-MIB", "vmwFlowCollectionErrorEvent"), ("VMWARE-VRNI-MIB", "vmwAWSThrottlingExceptionEvent"), ("VMWARE-VRNI-MIB", "vmwAWSFlowLogAccessDeniedExceptionEvent"), ("VMWARE-VRNI-MIB", "vmwNSXIPFIXStatusMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwNumVMsOrHostsNotFoundEvent"), ("VMWARE-VRNI-MIB", "vmwUnsupportedNSXVersionEvent"), ("VMWARE-VRNI-MIB", "vmwPwdAuthModeDisabledAristaEvent"), ("VMWARE-VRNI-MIB", "vmwHostnameResolutionErrorEvent"), ("VMWARE-VRNI-MIB", "vmwPrimaryNSXNotAddedEvent"), ("VMWARE-VRNI-MIB", "vmwDataProviderNotRunningEvent"), ("VMWARE-VRNI-MIB", "vmwInvalidResponseFromDatasourceEvent"), ("VMWARE-VRNI-MIB", "vmwHostNotReachableEvent"), ("VMWARE-VRNI-MIB", "vmwNSXControllerNotFoundEvent"), ("VMWARE-VRNI-MIB", "vmwUnexpectedDSTypeOrVersionEvent"), ("VMWARE-VRNI-MIB", "vmwWarnConfigEvent"), ("VMWARE-VRNI-MIB", "vmwInvalidConfigEvent"), ("VMWARE-VRNI-MIB", "vmwNotFoundEvent"), ("VMWARE-VRNI-MIB", "vmwInsufficientPrivilegesEvent"), ("VMWARE-VRNI-MIB", "vmwPwdAuthModeDisabledEvent"), ("VMWARE-VRNI-MIB", "vmwFailedCredsEncryptEvent"), ("VMWARE-VRNI-MIB", "vmwSNMPConnectionInvalidEvent"), ("VMWARE-VRNI-MIB", "vmwUnknownHostEvent"), ("VMWARE-VRNI-MIB", "vmwInvalidCredentialsEvent"), ("VMWARE-VRNI-MIB", "vmwIncorrectConnectionStringEvent"), ("VMWARE-VRNI-MIB", "vmwConnectionRefusedEvent"), ("VMWARE-VRNI-MIB", "vmwTimeoutEvent"), ("VMWARE-VRNI-MIB", "vmwFailedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTVcNotAddedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTStandaloneHostsEvent"), ("VMWARE-VRNI-MIB", "vmwLargeSdmsDroppedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTIPFixDFWStatusNotEnabledEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTIPFixPortIncorrectEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTIPFixCollectorAndIPFixProfileMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTIPFixIPFixProfilePriorityNotZeroEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTIPFixNoIPFixProfileEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTIPFixNoNewCollectorProfileCanBeAddedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTIPFixNoCollectorProfileEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup5 = vmwNetworkInsightNotificationGroup5.setStatus('current')
-vmwNetworkInsightNotificationGroup6 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 75)).setObjects(("VMWARE-VRNI-MIB", "vmwNSXTSystemEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTNoUplinkConnectivityEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTRoutingAdvertisementEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTManagerConnectivityDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTControllerConnectivityDegradedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTControllerConnectivityDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMtuMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwNSXEdgeBGPNeighbourDownEvent"), ("VMWARE-VRNI-MIB", "vmwAnalyticsEvent"), ("VMWARE-VRNI-MIB", "vmwAnalyticsOutlierEvent"), ("VMWARE-VRNI-MIB", "vmwAnalyticsThresholdEvent"), ("VMWARE-VRNI-MIB", "vmwVMCEvent"), ("VMWARE-VRNI-MIB", "vmwPolicyManagerVrniDfwIPFixCollectorAbsent"), ("VMWARE-VRNI-MIB", "vmwPolicyManagerNoDfwIPFixProfile"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup6 = vmwNetworkInsightNotificationGroup6.setStatus('current')
-vmwNetworkInsightNotificationGroup7 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 85)).setObjects(("VMWARE-VRNI-MIB", "vmwNSXTDoubleVlanTaggingEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTVtepDeleteEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTNoTzAttachedOnTnEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTExcludedVmFlowEvent"), ("VMWARE-VRNI-MIB", "vmwKubernetesInsufficientPrivilegesEvent"), ("VMWARE-VRNI-MIB", "vmwPKSKubernetesUnknownHostEvent"), ("VMWARE-VRNI-MIB", "vmwDatasourceIdentificationChangedEvent"), ("VMWARE-VRNI-MIB", "vmwLBPoolMemberDownEvent"), ("VMWARE-VRNI-MIB", "vmwLBPoolDownEvent"), ("VMWARE-VRNI-MIB", "vmwLBPoolMemberVMDownEvent"), ("VMWARE-VRNI-MIB", "vmwLBServiceNodeIPNotFoundEvent"), ("VMWARE-VRNI-MIB", "vmwLBServiceNodeMultipleNicFoundEvent"), ("VMWARE-VRNI-MIB", "vmwLBVirtualServerDisableEvent"), ("VMWARE-VRNI-MIB", "vmwLBPoolEmptyEvent"), ("VMWARE-VRNI-MIB", "vmwDuplicateL3SwitchEvent"), ("VMWARE-VRNI-MIB", "vmwArkinApplicationMemberLimitEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTSwitchIpfixEnabledEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup7 = vmwNetworkInsightNotificationGroup7.setStatus('current')
-vmwNetworkInsightNotificationGroup8 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 95)).setObjects(("VMWARE-VRNI-MIB", "vmwUANIFileNotProvidedEvent"), ("VMWARE-VRNI-MIB", "vmwUANIFileDoesNotExistEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup8 = vmwNetworkInsightNotificationGroup8.setStatus('current')
-vmwNetworkInsightNotificationGroup9 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 105)).setObjects(("VMWARE-VRNI-MIB", "vmwNSXTStandaloneHostsWithoutVcEvent"), ("VMWARE-VRNI-MIB", "vmwApplianceNotConfiguredEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup9 = vmwNetworkInsightNotificationGroup9.setStatus('current')
-vmwNetworkInsightNotificationGroup10 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 115)).setObjects(("VMWARE-VRNI-MIB", "vmwSwitchPortUptimeThresholdRecededEvent"), ("VMWARE-VRNI-MIB", "vmwFdbConfigStoreCleanupFailedEvent"), ("VMWARE-VRNI-MIB", "vmwDiskAllocationInsufficientEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTControllerNodeToControlClusterConnectivityEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTControllerNodeToMgmtPlaneConnectivityEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeToMgmtClusterConnectivityEvent"), ("VMWARE-VRNI-MIB", "vmwBigIpInsufficientShellAccessEvent"), ("VMWARE-VRNI-MIB", "vmwBigIpInsufficientPartitionAccessEvent"), ("VMWARE-VRNI-MIB", "vmwBigIpInsufficientRoleEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTLatencyCollectorMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTLatencyNoBFDProfileEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTLatencyNotEnabledEvent"), ("VMWARE-VRNI-MIB", "vmwHardwareVTEPMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwHardwareVTEPPortDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXVLatencyNoDataEvent"), ("VMWARE-VRNI-MIB", "vmwKubernetesBaseEvent"), ("VMWARE-VRNI-MIB", "vmwVMCVMLimitExceededEvent"), ("VMWARE-VRNI-MIB", "vmwVMCHostLimitExceededEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeDegradedTransQoeEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeDegradedVideoQoeEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeDegradedVoiceQoeEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeDownEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkLostPacketEventRx"), ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkDegradedTransQoeEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkLostPacketEventTx"), ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkDegradedVideoQoeEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkDegradedVoiceQoeEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeMgmtConnectivityStatusDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeCtlrConnectivityStatusUnknownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeCtlrConnectivityStatusDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeCtlrConnectivityStatusDegradedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeCtlrConnectivityStatusUnknownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodePnicStatusDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodePnicStatusDegradedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodePnicStatusUnknownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodePnicStatusDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodePnicStatusDegradedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodePnicStatusUnknownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeTunnelStatusDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeTunnelStatusDegradedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeTunnelStatusUnknownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeTunnelStatusDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeTunnelStatusDegradedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeTunnelStatusUnknownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeStatusDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeStatusDegradedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeStatusUnknownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeStatusDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeStatusDegradedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeStatusUnknownEvent"), ("VMWARE-VRNI-MIB", "vmwSwitchPortOperationalDownEvent"), ("VMWARE-VRNI-MIB", "vmwRouterInterfaceOperationalDownEvent"), ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceGenericEvent"), ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceFexOfflineEvent"), ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceFanMalFunctionEvent"), ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceTemperatureThresholdExceededEvent"), ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceFexFanMalFunctionEvent"), ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceFexPsMalFunctionEvent"), ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceModuleMalFunctionEvent"), ("VMWARE-VRNI-MIB", "vmwUnderlayDevicePsMalFunctionEvent"), ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceBfdSessionRemovedEvent"), ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceLldpNeighbourRemovedEvent"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDataSourceCpuUsage"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDataSourceMemoryUsage"), ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDataSourceTemperature"), ("VMWARE-VRNI-MIB", "vmwDeploymentDefMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwNsxtLatencyServiceConfigMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwNsxtLatencyNodeGroupMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwNsxtLatencyStatProfileMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwHybridConnectBgpStatusDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTClusterBackUpDisabledEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTDFWFirewallDisabledEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTComputeManagerConnectionStatusNotUpEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTLogicalSwitchAdminStatusDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTLogicalPortOperationalStatusDownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTLogicalPortOperationalStatusUnknownEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTLogicalPortReceivedPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTLogicalPortTransmittedPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTLogicalSwitchReceivedPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTLogicalSwitchTransmittedPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTRxPacketDropOnMPNicEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTRxPacketDropOnEdgeTnNicEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTRxPacketDropOnHostTnNicEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTTxPacketDropOnMPNicEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTTxPacketDropOnEdgeTnNicEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTTxPacketDropOnHostTnNicEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceClusterManagerStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceCmInventoryStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceControllerStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceDataStoreStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceHttpStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceInstallUpgradeEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceLiagentStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceManagerStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceMgmtPlaneBusStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceMigrationCoordinatorStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNodeMgmtStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNodeStatsStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNSXMessageBusStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNSXPlatformClientStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNSXUpgradeAgentStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNTPStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServicePolicyStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceSearchStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceSNMPStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceSSHStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceSyslogStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceTelemetryStatusEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceUIServiceStatusEvent"), ("VMWARE-VRNI-MIB", "vmwVMCHostPerClusterLimitExceededEvent"), ("VMWARE-VRNI-MIB", "vmwVMCVMPerHostLimitExceededEvent"), ("VMWARE-VRNI-MIB", "vmwVMCClusterLimitExceededEvent"), ("VMWARE-VRNI-MIB", "vmwProtectionEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup10 = vmwNetworkInsightNotificationGroup10.setStatus('current')
-vmwNetworkInsightNotificationGroup11 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 125)).setObjects(("VMWARE-VRNI-MIB", "vmwNsxiApplianceAvailableEvent"), ("VMWARE-VRNI-MIB", "vmwNsxiSubscriptionCreateFailedEvent"), ("VMWARE-VRNI-MIB", "vmwNsxiSubscriptionDeleteFailedEvent"), ("VMWARE-VRNI-MIB", "vmwNsxiSubscriptionUpdateFailedEvent"), ("VMWARE-VRNI-MIB", "vmwNsxiSslHandshakeFailedEvent"), ("VMWARE-VRNI-MIB", "vmwAnalyticsThresholdCompositeEvent"), ("VMWARE-VRNI-MIB", "vmwAnalyticsThresholdCompositeProblemEvent"), ("VMWARE-VRNI-MIB", "vmwLicenseExpiredEvent"), ("VMWARE-VRNI-MIB", "vmwInGracePeriodEvent"), ("VMWARE-VRNI-MIB", "vmwFailedDatasourceOperationEvent"), ("VMWARE-VRNI-MIB", "vmwNsxtNotificationWebhookDisabledEvent"), ("VMWARE-VRNI-MIB", "vmwNatRuleLargeSubnetEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeMaintenanceModeEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeMaintenanceModeEvent"), ("VMWARE-VRNI-MIB", "vmwSDWanLinkTrafficThresholdEvent"), ("VMWARE-VRNI-MIB", "vmwVMCCapacityThresholdBreachEvent"), ("VMWARE-VRNI-MIB", "vmwNativeVlanMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwNativeVlanTaggingMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwSnapshotNotBuildingEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup11 = vmwNetworkInsightNotificationGroup11.setStatus('current')
-vmwNetworkInsightNotificationGroup12 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 135)).setObjects(("VMWARE-VRNI-MIB", "vmwProtectionActiveEvent"), ("VMWARE-VRNI-MIB", "vmwUnableToSendSNMPTrapsEvent"), ("VMWARE-VRNI-MIB", "vmwStreamProcessingFailedEvent"), ("VMWARE-VRNI-MIB", "vmwSNOWMandatoryPrivilegeMissingEvent"), ("VMWARE-VRNI-MIB", "vmwVMCSDDCTGWConnectivityFailedEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup12 = vmwNetworkInsightNotificationGroup12.setStatus('current')
-vmwNetworkInsightNotificationGroup13 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 145)).setObjects(("VMWARE-VRNI-MIB", "vmwNSXTEdgeDVPGsIPFIXDisabledEvent"), ("VMWARE-VRNI-MIB", "vmwUnsupportedNsxAlbVersionEvent"), ("VMWARE-VRNI-MIB", "vmwIpfixFlowLagEvent"), ("VMWARE-VRNI-MIB", "vmwNSXALBSystemEvent"), ("VMWARE-VRNI-MIB", "vmwTkgiKubernetesNotReachableEvent"), ("VMWARE-VRNI-MIB", "vmwTkgiClustersInsufficientPrivilegesEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTRouterInterfaceRPFPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwChangeEventsDroppedEvent"), ("VMWARE-VRNI-MIB", "vmwHcxIXServiceStatusEvent"), ("VMWARE-VRNI-MIB", "vmwHcxNEServiceStatusEvent"), ("VMWARE-VRNI-MIB", "vmwHcxBMServiceStatusEvent"), ("VMWARE-VRNI-MIB", "vmwHcxVMotionServiceStatusEvent"), ("VMWARE-VRNI-MIB", "vmwHcxIXApplianceEncryptionTunnelStatusEvent"), ("VMWARE-VRNI-MIB", "vmwHcxNEApplianceEncryptionTunnelStatusEvent"), ("VMWARE-VRNI-MIB", "vmwHcxIXApplianceServicePipelineStatusEvent"), ("VMWARE-VRNI-MIB", "vmwHcxNEApplianceServicePipelineStatusEvent"), ("VMWARE-VRNI-MIB", "vmwHcxIXApplianceServiceTransportStatusEvent"), ("VMWARE-VRNI-MIB", "vmwHcxNEApplianceServiceTransportStatusEvent"), ("VMWARE-VRNI-MIB", "vmwHcxIXApplianceServiceSystemStateEvent"), ("VMWARE-VRNI-MIB", "vmwHcxNEApplianceServiceSystemStateEvent"), ("VMWARE-VRNI-MIB", "vmwHcxIXServiceNotRunningEvent"), ("VMWARE-VRNI-MIB", "vmwHcxNEServiceNotRunningEvent"), ("VMWARE-VRNI-MIB", "vmwHcxWanOptServiceNotRunningEvent"), ("VMWARE-VRNI-MIB", "vmwPanLogInsightDroppedFlowEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup13 = vmwNetworkInsightNotificationGroup13.setStatus('current')
-vmwNetworkInsightNotificationGroup14 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 155)).setObjects(("VMWARE-VRNI-MIB", "vmwHcxConnectionRuleViolationEvent"), ("VMWARE-VRNI-MIB", "vmwHcxApplianceAllTunnelDownEvent"), ("VMWARE-VRNI-MIB", "vmwHcxMtuMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwSwitchPortRPFPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwCPLogInsightDroppedFlowEvent"), ("VMWARE-VRNI-MIB", "vmwSNMPTrapEvent"), ("VMWARE-VRNI-MIB", "vmwServiceRestartCountExceededEvent"), ("VMWARE-VRNI-MIB", "vmwHcxWanOptServiceStatusEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup14 = vmwNetworkInsightNotificationGroup14.setStatus('current')
-vmwNetworkInsightNotificationGroup15 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 165)).setObjects(("VMWARE-VRNI-MIB", "vmwNsxtIpfixMultipleCollectorConfigurationEvent"), ("VMWARE-VRNI-MIB", "vmwHcxApplianceUnhealthyTunnelsEvent"), ("VMWARE-VRNI-MIB", "vmwHcxManagerVersionMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwHcxApplianceVersionMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwIntentAlert"), ("VMWARE-VRNI-MIB", "vmwKubernetesEvent"), ("VMWARE-VRNI-MIB", "vmwSwitchPortBufferThresholdExceededEvent"), ("VMWARE-VRNI-MIB", "vmwRouterInterfaceBufferThresholdExceededEvent"), ("VMWARE-VRNI-MIB", "vmwBufferThresholdExceededEvent"), ("VMWARE-VRNI-MIB", "vmwPortOperationalDownEvent"), ("VMWARE-VRNI-MIB", "vmwSwitchPortRxNetworkUsageThresholdExceededEvent"), ("VMWARE-VRNI-MIB", "vmwSwitchPortTxNetworkUsageThresholdExceededEvent"), ("VMWARE-VRNI-MIB", "vmwSwitchPortRxNetworkUsageThresholdExceededCriticalEvent"), ("VMWARE-VRNI-MIB", "vmwSwitchPortTxNetworkUsageThresholdExceededCriticalEvent"), ("VMWARE-VRNI-MIB", "vmwManagementHostHighCPUUsageEvent"), ("VMWARE-VRNI-MIB", "vmwManagementHostHighCPUUsageCriticalEvent"), ("VMWARE-VRNI-MIB", "vmwHostUnHealthyEvent"), ("VMWARE-VRNI-MIB", "vmwNSXControllerFSAvailableThresholdRecededEvent"), ("VMWARE-VRNI-MIB", "vmwEdgeVmVnicRxPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwEdgeVmVnicTxPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwManagementHostPnicRxPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwManagementHostPnicTxPacketDropEvent"), ("VMWARE-VRNI-MIB", "vmwManagementHostConnectionStateDisconnectedEvent"), ("VMWARE-VRNI-MIB", "vmwAllThresholdEvent"), ("VMWARE-VRNI-MIB", "vmwVTGWDuplicateRoutesEvent"), ("VMWARE-VRNI-MIB", "vmwApplianceNotRegisteredEvent"), ("VMWARE-VRNI-MIB", "vmwRegCertExpiredEvent"), ("VMWARE-VRNI-MIB", "vmwBackupFailedEvent"), ("VMWARE-VRNI-MIB", "vmwAdditionalResourcesRequiredEvent"), ("VMWARE-VRNI-MIB", "vmwCapacityReconfigurationRequiredEvent"), ("VMWARE-VRNI-MIB", "vmwCapacityReconfigurationFailedEvent"), ("VMWARE-VRNI-MIB", "vmwHighDiskIoUtilizationEvent"), ("VMWARE-VRNI-MIB", "vmwNsxtSystemEventApiEvent"), ("VMWARE-VRNI-MIB", "vmwServiceNowAppLimitExceededEvent"), ("VMWARE-VRNI-MIB", "vmwAzureFlowCollectionErrorEvent"), ("VMWARE-VRNI-MIB", "vmwAzureNetworkWatcherStorageErrorEvent"), ("VMWARE-VRNI-MIB", "vmwAnalyticsMemoryLimitsExceededEvent"), ("VMWARE-VRNI-MIB", "vmwHybridConnectAdvertisedSubnetsFailedEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTRxPacketDropOnNicEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTTxPacketDropOnNicEvent"), ("VMWARE-VRNI-MIB", "vmwNSXTBGPNeighbourStateEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeL7ApplicationLostPacketEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeL7ApplicationRetransmittedPacketEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeLocationNotSetEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudTunnelDegradedVoiceQoeEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudTunnelDegradedVideoQoeEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudTunnelDegradedTransQoeEvent"), ("VMWARE-VRNI-MIB", "vmwVeloCloudQoeEvent"), ("VMWARE-VRNI-MIB", "vmwHcxEvent"), ("VMWARE-VRNI-MIB", "vmwLatencyNoDataEvent"), ("VMWARE-VRNI-MIB", "vmwLinkMtuMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwPortModeMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwPortTrunkMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwPortChannelMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwDuplexMismatchEvent"), ("VMWARE-VRNI-MIB", "vmwDuplicateMacAddressEvent"), ("VMWARE-VRNI-MIB", "vmwDuplicateIPAddressEvent"), ("VMWARE-VRNI-MIB", "vmwSTPPathCostMethodInconsistencyEvent"), ("VMWARE-VRNI-MIB", "vmwHSRPSTPColocationEvent"), ("VMWARE-VRNI-MIB", "vmwStigAccountPasswdEvent"), ("VMWARE-VRNI-MIB", "vmwStigConsolePasswdEvent"), ("VMWARE-VRNI-MIB", "vmwStigDefaultPasswdEvent"), ("VMWARE-VRNI-MIB", "vmwStigMgmtPasswdEvent"), ("VMWARE-VRNI-MIB", "vmwStigPlaintextPasswdEvent"), ("VMWARE-VRNI-MIB", "vmwHSRPConfigurationEvent"), ("VMWARE-VRNI-MIB", "vmwLoopDetectionEvent"), ("VMWARE-VRNI-MIB", "vmwReachabilityEvent"), ("VMWARE-VRNI-MIB", "vmwSegmentationEvent"), ("VMWARE-VRNI-MIB", "vmwUnderlayProblem"), ("VMWARE-VRNI-MIB", "vmwSwitchPortProblem"), ("VMWARE-VRNI-MIB", "vmwPathProblem"), ("VMWARE-VRNI-MIB", "vmwInvalidIntentEvent"), ("VMWARE-VRNI-MIB", "vmwPassthroughEvents"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup15 = vmwNetworkInsightNotificationGroup15.setStatus('current')
-vmwNetworkInsightNotificationGroup16 = NotificationGroup((1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 180)).setObjects(("VMWARE-VRNI-MIB", "vmwPassthroughEvents"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwNetworkInsightNotificationGroup16 = vmwNetworkInsightNotificationGroup16.setStatus('current')
-mibBuilder.exportSymbols("VMWARE-VRNI-MIB", vmwThresholdExceededEventMemorySwapInRule=vmwThresholdExceededEventMemorySwapInRule, vmwLargeSdmsDroppedEvent=vmwLargeSdmsDroppedEvent, vmwDiskCleanupFailedEvent=vmwDiskCleanupFailedEvent, vmwNSXTMPNodeServiceNSXMessageBusStatusEvent=vmwNSXTMPNodeServiceNSXMessageBusStatusEvent, vmwStigConsolePasswdEvent=vmwStigConsolePasswdEvent, vmwIncorrectInfobloxCredentialEvent=vmwIncorrectInfobloxCredentialEvent, vmwPanNsxServiceVMNotFoundOnHostEvent=vmwPanNsxServiceVMNotFoundOnHostEvent, vmwNetworkInsightMIBConformance=vmwNetworkInsightMIBConformance, vmwEdgeVMNotRespondingEvent=vmwEdgeVMNotRespondingEvent, vmwPanNsxNotInRegisteredStateEvent=vmwPanNsxNotInRegisteredStateEvent, vmwCheckpointGatewaySicStatusNotCommunicatingEvent=vmwCheckpointGatewaySicStatusNotCommunicatingEvent, vmwUnsupportedInfobloxVersionEvent=vmwUnsupportedInfobloxVersionEvent, vmwNoPathEvent=vmwNoPathEvent, vmwNSXTEdgeNodeTunnelStatusDownEvent=vmwNSXTEdgeNodeTunnelStatusDownEvent, vmwPolicyManagerNoDfwIPFixProfile=vmwPolicyManagerNoDfwIPFixProfile, vmwNSXTMPNodeServiceNSXUpgradeAgentStatusEvent=vmwNSXTMPNodeServiceNSXUpgradeAgentStatusEvent, vmwVeloCloudEdgeDegradedVideoQoeEvent=vmwVeloCloudEdgeDegradedVideoQoeEvent, vmwNSXTHostNodePnicStatusUnknownEvent=vmwNSXTHostNodePnicStatusUnknownEvent, vmwHcxIXApplianceEncryptionTunnelStatusEvent=vmwHcxIXApplianceEncryptionTunnelStatusEvent, vmwHcxNEApplianceEncryptionTunnelStatusEvent=vmwHcxNEApplianceEncryptionTunnelStatusEvent, vmwHostNetworkControlPlaneConnectionFailureEvent=vmwHostNetworkControlPlaneConnectionFailureEvent, vmwNSXTMPNodeServiceMigrationCoordinatorStatusEvent=vmwNSXTMPNodeServiceMigrationCoordinatorStatusEvent, vmwSwitchPortTxNetworkUsageThresholdExceededEvent=vmwSwitchPortTxNetworkUsageThresholdExceededEvent, vmwVMWithMulipleVnicsOnDifferentVxlansEvent=vmwVMWithMulipleVnicsOnDifferentVxlansEvent, vmwServiceNowAppLimitExceededEvent=vmwServiceNowAppLimitExceededEvent, vmwMetricStoreUpdaterFailedEvent=vmwMetricStoreUpdaterFailedEvent, vmwNSXTEdgeNodePnicStatusDownEvent=vmwNSXTEdgeNodePnicStatusDownEvent, vmwUnableToSendSNMPTrapsEvent=vmwUnableToSendSNMPTrapsEvent, vmwNSXTRxPacketDropOnMPNicEvent=vmwNSXTRxPacketDropOnMPNicEvent, vmwNSXTMPNodeServicePolicyStatusEvent=vmwNSXTMPNodeServicePolicyStatusEvent, vmwReindexingInProgressEvent=vmwReindexingInProgressEvent, vmwNSXTMPNodeServiceSNMPStatusEvent=vmwNSXTMPNodeServiceSNMPStatusEvent, vmwInsufficientPrivilegesEvent=vmwInsufficientPrivilegesEvent, vmwNSXTIPFixNoNewCollectorProfileCanBeAddedEvent=vmwNSXTIPFixNoNewCollectorProfileCanBeAddedEvent, vmwFlowProcessingSuspendedEvent=vmwFlowProcessingSuspendedEvent, vmwUnsupportedVRNIContentPackVersionEvent=vmwUnsupportedVRNIContentPackVersionEvent, vmwHSRPConfigurationEvent=vmwHSRPConfigurationEvent, vmwStigMgmtPasswdEvent=vmwStigMgmtPasswdEvent, vmwInvalidConfigEvent=vmwInvalidConfigEvent, vmwNetworkInsightNotificationGroup8=vmwNetworkInsightNotificationGroup8, vmwNativeVlanTaggingMismatchEvent=vmwNativeVlanTaggingMismatchEvent, vmwHostFeatureVersionMismatchEvent=vmwHostFeatureVersionMismatchEvent, vmwCheckpointNsxFabricAgentNotFoundOnHostEvent=vmwCheckpointNsxFabricAgentNotFoundOnHostEvent, vmwNetworkInsightMIBBasicCompliance6=vmwNetworkInsightMIBBasicCompliance6, vmwHostNetworkControlPlaneMismatchEvent=vmwHostNetworkControlPlaneMismatchEvent, vmwServiceVMNotHealthyEvent=vmwServiceVMNotHealthyEvent, vmwKubernetesBaseEvent=vmwKubernetesBaseEvent, vmwIPSetDefinitionMismatchEvent=vmwIPSetDefinitionMismatchEvent, vmwNIClusterCreateEvent=vmwNIClusterCreateEvent, vmwNetworkInsightMIBCompliances=vmwNetworkInsightMIBCompliances, vmwComputeManagersNotAddedEvent=vmwComputeManagersNotAddedEvent, vmwVxlanMembershipChangeEvent=vmwVxlanMembershipChangeEvent, vmwPanNsxServiceApplianceViewMismatchEvent=vmwPanNsxServiceApplianceViewMismatchEvent, vmwFilterConfigApplyOnHostFailedEvent=vmwFilterConfigApplyOnHostFailedEvent, vmwNSXTLogicalSwitchReceivedPacketDropEvent=vmwNSXTLogicalSwitchReceivedPacketDropEvent, vmwDevicePacketDropEvent=vmwDevicePacketDropEvent, vmwNSXTIPFixCollectorAndIPFixProfileMismatchEvent=vmwNSXTIPFixCollectorAndIPFixProfileMismatchEvent, vmwUnderlayDeviceGenericEvent=vmwUnderlayDeviceGenericEvent, vmwVxLanRangeExhaustEvent=vmwVxLanRangeExhaustEvent, vmwEventName=vmwEventName, vmwIncorrectWebhookConfiguredOnAlertEvent=vmwIncorrectWebhookConfiguredOnAlertEvent, vmwSwitchPortUptimeThresholdRecededEvent=vmwSwitchPortUptimeThresholdRecededEvent, vmwNSXTRouterInterfaceRPFPacketDropEvent=vmwNSXTRouterInterfaceRPFPacketDropEvent, vmwCapacityReconfigurationRequiredEvent=vmwCapacityReconfigurationRequiredEvent, vmwDataSourceDisabledChangeEvent=vmwDataSourceDisabledChangeEvent, vmwNSXBackupNotRecordedEvent=vmwNSXBackupNotRecordedEvent, vmwComputeManagersNotFoundEvent=vmwComputeManagersNotFoundEvent, vmwHostMessagingConnectionReconfigurationFailedEvent=vmwHostMessagingConnectionReconfigurationFailedEvent, vmwAnalyticsThresholdEvent=vmwAnalyticsThresholdEvent, vmwNsxiSubscriptionUpdateFailedEvent=vmwNsxiSubscriptionUpdateFailedEvent, vmwRouterInterfacePacketDropEvent=vmwRouterInterfacePacketDropEvent, vmwChangeEventsDroppedEvent=vmwChangeEventsDroppedEvent, vmwNSXTMPNodeServiceMgmtPlaneBusStatusEvent=vmwNSXTMPNodeServiceMgmtPlaneBusStatusEvent, vmwPlatformIP=vmwPlatformIP, vmwUnderlayDeviceFexPsMalFunctionEvent=vmwUnderlayDeviceFexPsMalFunctionEvent, vmwOspfConfigurationMismatchEvent=vmwOspfConfigurationMismatchEvent, vmwNSXTMPNodeServiceNodeMgmtStatusEvent=vmwNSXTMPNodeServiceNodeMgmtStatusEvent, vmwSNMPTrapEvent=vmwSNMPTrapEvent, vmwVeloCloudTunnelDegradedVideoQoeEvent=vmwVeloCloudTunnelDegradedVideoQoeEvent, vmwNSXTMPNodeServiceControllerStatusEvent=vmwNSXTMPNodeServiceControllerStatusEvent, vmwConnectionRefusedEvent=vmwConnectionRefusedEvent, vmwVtepEvent=vmwVtepEvent, vmwCollectorLagEvent=vmwCollectorLagEvent, vmwServiceRestartCountExceededEvent=vmwServiceRestartCountExceededEvent, vmwCollectionLagEvent=vmwCollectionLagEvent, vmwNetworkInsightMIBBasicCompliance13=vmwNetworkInsightMIBBasicCompliance13, vmwNSXTMPNodeServiceSSHStatusEvent=vmwNSXTMPNodeServiceSSHStatusEvent, vmwL2NetworkAddressAnomalyEvent=vmwL2NetworkAddressAnomalyEvent, vmwAdditionalResourcesRequiredEvent=vmwAdditionalResourcesRequiredEvent, vmwHostVtepDisconnectedEvent=vmwHostVtepDisconnectedEvent, vmwNSXTMPNodeServiceSyslogStatusEvent=vmwNSXTMPNodeServiceSyslogStatusEvent, vmwNSXTHostNodeMaintenanceModeEvent=vmwNSXTHostNodeMaintenanceModeEvent, vmwSearchStreamMembershipProblemEvent=vmwSearchStreamMembershipProblemEvent, vmwThresholdExceededEventDataSourceCpuUsage=vmwThresholdExceededEventDataSourceCpuUsage, vmwSwitchPortTxNetworkUsageThresholdExceededCriticalEvent=vmwSwitchPortTxNetworkUsageThresholdExceededCriticalEvent, vmwNSXTIPFixIPFixProfilePriorityNotZeroEvent=vmwNSXTIPFixIPFixProfilePriorityNotZeroEvent, vmwProxyRebootedEvent=vmwProxyRebootedEvent, vmwServiceVMHighMemoryUsageEvent=vmwServiceVMHighMemoryUsageEvent, vmwNSXTLogicalPortTransmittedPacketDropEvent=vmwNSXTLogicalPortTransmittedPacketDropEvent, vmwLBPoolEmptyEvent=vmwLBPoolEmptyEvent, vmwIpAddressChangeEvent=vmwIpAddressChangeEvent, vmwTimeoutEvent=vmwTimeoutEvent, vmwVCNotOnSameProxyEvent=vmwVCNotOnSameProxyEvent, vmwSNMPNotConfiguredEvent=vmwSNMPNotConfiguredEvent, vmwUnsupportedNSXTVersionEvent=vmwUnsupportedNSXTVersionEvent, vmwNSXTHostNodeMgmtConnectivityStatusDownEvent=vmwNSXTHostNodeMgmtConnectivityStatusDownEvent, vmwUnexpectedDSTypeOrVersionEvent=vmwUnexpectedDSTypeOrVersionEvent, vmwVMotionEvent=vmwVMotionEvent, vmwVRNIEvents=vmwVRNIEvents, vmwPlatformCpuCoreChangeEvent=vmwPlatformCpuCoreChangeEvent, vmwOtherCriticalNSXEvent=vmwOtherCriticalNSXEvent, vmwPwdAuthModeDisabledAristaEvent=vmwPwdAuthModeDisabledAristaEvent, vmwFeatureUnhealthyEvent=vmwFeatureUnhealthyEvent, vmwHybridConnectBgpStatusDownEvent=vmwHybridConnectBgpStatusDownEvent, vmwEdgeHANotConfiguredEvent=vmwEdgeHANotConfiguredEvent, vmwThresholdExceededEventMemorySwapOutRule=vmwThresholdExceededEventMemorySwapOutRule, vmwNSXTHostNodeTunnelStatusDownEvent=vmwNSXTHostNodeTunnelStatusDownEvent, vmwNetworkInsightNotificationGroup1=vmwNetworkInsightNotificationGroup1, vmwSnapshotNotBuildingEvent=vmwSnapshotNotBuildingEvent, vmwNSXTLogicalSwitchAdminStatusDownEvent=vmwNSXTLogicalSwitchAdminStatusDownEvent, vmwNSXNtpServerEvent=vmwNSXNtpServerEvent, vmwRegCertExpiredEvent=vmwRegCertExpiredEvent, vmwFirewallRuleMaskEvent=vmwFirewallRuleMaskEvent, vmwNSXTDoubleVlanTaggingEvent=vmwNSXTDoubleVlanTaggingEvent, vmwNodeNotActiveEvent=vmwNodeNotActiveEvent, vmwPanEvent=vmwPanEvent, vmwVeloCloudLinkDegradedTransQoeEvent=vmwVeloCloudLinkDegradedTransQoeEvent, vmwNSXTMPNodeServiceUIServiceStatusEvent=vmwNSXTMPNodeServiceUIServiceStatusEvent, vmwEdgeMissingInterfaceOSPFAreaMappingEvent=vmwEdgeMissingInterfaceOSPFAreaMappingEvent, vmwLBPoolMemberVMDownEvent=vmwLBPoolMemberVMDownEvent, vmwUnsupportedLogInsightVersionEvent=vmwUnsupportedLogInsightVersionEvent, vmwVnicPacketDropEvent=vmwVnicPacketDropEvent, vmwNSXEcmpEdgeDownEvent=vmwNSXEcmpEdgeDownEvent, vmwNSXTEdgeNodeTunnelStatusUnknownEvent=vmwNSXTEdgeNodeTunnelStatusUnknownEvent, vmwNetworkInsightMIBBasicCompliance8=vmwNetworkInsightMIBBasicCompliance8, vmwInvalidResponseFromDatasourceEvent=vmwInvalidResponseFromDatasourceEvent, vmwVMCCapacityThresholdBreachEvent=vmwVMCCapacityThresholdBreachEvent, vmwHSRPSTPColocationEvent=vmwHSRPSTPColocationEvent, vmwSecurityTagPropertiesChangeEvent=vmwSecurityTagPropertiesChangeEvent, vmwThresholdExceededEventDatastoreReadLatency=vmwThresholdExceededEventDatastoreReadLatency, vmwWebhookNotRunningEvent=vmwWebhookNotRunningEvent, vmwVeloCloudEdgeDownEvent=vmwVeloCloudEdgeDownEvent, vmwEdgeNetworksNotReachableEvent=vmwEdgeNetworksNotReachableEvent, vmwStigDefaultPasswdEvent=vmwStigDefaultPasswdEvent, vmwNSXTHostNodeCtlrConnectivityStatusDegradedEvent=vmwNSXTHostNodeCtlrConnectivityStatusDegradedEvent, vmwHardwareVTEPPortDownEvent=vmwHardwareVTEPPortDownEvent, vmwPassthroughEvents=vmwPassthroughEvents, vmwNISystemProxyChangeEvent=vmwNISystemProxyChangeEvent, vmwSNMPConnectionInvalidEvent=vmwSNMPConnectionInvalidEvent, vmwLoopDetectionEvent=vmwLoopDetectionEvent, vmwNSXTHostNodeCtlrConnectivityStatusDownEvent=vmwNSXTHostNodeCtlrConnectivityStatusDownEvent, vmwNSXTMPNodeServiceNTPStatusEvent=vmwNSXTMPNodeServiceNTPStatusEvent, vmwNetworkInsightNotificationInfoGroup1=vmwNetworkInsightNotificationInfoGroup1, vmwNSXTEdgeNodePnicStatusUnknownEvent=vmwNSXTEdgeNodePnicStatusUnknownEvent, vmwNSXTEdgeNodePnicStatusDegradedEvent=vmwNSXTEdgeNodePnicStatusDegradedEvent, vmwVeloCloudTunnelDegradedVoiceQoeEvent=vmwVeloCloudTunnelDegradedVoiceQoeEvent, vmwNSXBackupEvent=vmwNSXBackupEvent, vmwEntityPropertiesChangeEvent=vmwEntityPropertiesChangeEvent, vmwThresholdExceededEventIOKernelLatencyRule=vmwThresholdExceededEventIOKernelLatencyRule, vmwLBServiceNodeMultipleNicFoundEvent=vmwLBServiceNodeMultipleNicFoundEvent, vmwUnderlayDeviceBfdSessionRemovedEvent=vmwUnderlayDeviceBfdSessionRemovedEvent, vmwBigIpInsufficientShellAccessEvent=vmwBigIpInsufficientShellAccessEvent, vmwGenericNSXSystemEvent=vmwGenericNSXSystemEvent, vmwNSXTBGPNeighbourStateEvent=vmwNSXTBGPNeighbourStateEvent, vmwNSXControllersVMOnSameHostEvent=vmwNSXControllersVMOnSameHostEvent, vmwFailedDatasourceOperationEvent=vmwFailedDatasourceOperationEvent, vmwNSXTControllerNodeToMgmtPlaneConnectivityEvent=vmwNSXTControllerNodeToMgmtPlaneConnectivityEvent, vmwDataSourceCreatedEvent=vmwDataSourceCreatedEvent, vmwSwitchPortRPFPacketDropEvent=vmwSwitchPortRPFPacketDropEvent, vmwNSXTLatencyCollectorMismatchEvent=vmwNSXTLatencyCollectorMismatchEvent, vmwEcmpIsEnabledAndStatefulServicesAreUpEvent=vmwEcmpIsEnabledAndStatefulServicesAreUpEvent, vmwNSXControllerClusterMajorityEvent=vmwNSXControllerClusterMajorityEvent, vmwLBVirtualServerDisableEvent=vmwLBVirtualServerDisableEvent, vmwNsxiApplianceAvailableEvent=vmwNsxiApplianceAvailableEvent, vmwIPSetPropertiesChangeEvent=vmwIPSetPropertiesChangeEvent, vmwPlatformDiskChangeEvent=vmwPlatformDiskChangeEvent, vmwDiskAllocationInsufficientEvent=vmwDiskAllocationInsufficientEvent, vmwPortChannelMismatchEvent=vmwPortChannelMismatchEvent, vmwVTEPUnderlayPacketDropEvent=vmwVTEPUnderlayPacketDropEvent, vmwDeploymentDefMismatchEvent=vmwDeploymentDefMismatchEvent, vmwSnmpTrapsAreConfigured=vmwSnmpTrapsAreConfigured, vmwBackupFailedEvent=vmwBackupFailedEvent, vmwPlatformRebootedEvent=vmwPlatformRebootedEvent, vmwNSXTHostNodeStatusUnknownEvent=vmwNSXTHostNodeStatusUnknownEvent, vmwSMTPNotConfiguredEvent=vmwSMTPNotConfiguredEvent, vmwAnalyticsEvent=vmwAnalyticsEvent, vmwPortModeMismatchEvent=vmwPortModeMismatchEvent, vmwInfobloxRecordLimitExceededEvent=vmwInfobloxRecordLimitExceededEvent, vmwNSXTMPNodeServiceCmInventoryStatusEvent=vmwNSXTMPNodeServiceCmInventoryStatusEvent, vmwHostMessagingConfigurationFailedEvent=vmwHostMessagingConfigurationFailedEvent, vmwBigIpInsufficientPartitionAccessEvent=vmwBigIpInsufficientPartitionAccessEvent, vmwNSXTMPNodeServiceClusterManagerStatusEvent=vmwNSXTMPNodeServiceClusterManagerStatusEvent, vmwFirewallNotInstalledOnHostEvent=vmwFirewallNotInstalledOnHostEvent, vmwSpoofguardDisabledEvent=vmwSpoofguardDisabledEvent, vmwNSXTControllerNodeToControlClusterConnectivityEvent=vmwNSXTControllerNodeToControlClusterConnectivityEvent, vmwVeloCloudLinkDownEvent=vmwVeloCloudLinkDownEvent, vmwAWSRegionSGLimitEvent=vmwAWSRegionSGLimitEvent, vmwVeloCloudLinkLostPacketEventTx=vmwVeloCloudLinkLostPacketEventTx, vmwVacuumFailedEvent=vmwVacuumFailedEvent, vmwIntentAlert=vmwIntentAlert, vmwNetworkInsightNotificationInfoGroup2=vmwNetworkInsightNotificationInfoGroup2, vmwNSXBackupAuditLogExcludedEvent=vmwNSXBackupAuditLogExcludedEvent, vmwEdgeVMCommunicationFailureEvent=vmwEdgeVMCommunicationFailureEvent, vmwHcxNEServiceStatusEvent=vmwHcxNEServiceStatusEvent, vmwL2GatewayAnomalyEvent=vmwL2GatewayAnomalyEvent, vmwNSXTMPNodeServiceTelemetryStatusEvent=vmwNSXTMPNodeServiceTelemetryStatusEvent, vmwVeloCloudEdgeDegradedVoiceQoeEvent=vmwVeloCloudEdgeDegradedVoiceQoeEvent, vmwTkgiClustersInsufficientPrivilegesEvent=vmwTkgiClustersInsufficientPrivilegesEvent, vmwNetworkInsightMIBBasicCompliance10=vmwNetworkInsightMIBBasicCompliance10, vmwVMSnapshotChangeEvent=vmwVMSnapshotChangeEvent, vmwUnderlayDeviceLldpNeighbourRemovedEvent=vmwUnderlayDeviceLldpNeighbourRemovedEvent, vmwVeloCloudLinkLostPacketEventRx=vmwVeloCloudLinkLostPacketEventRx, vmwNsxtLatencyStatProfileMismatchEvent=vmwNsxtLatencyStatProfileMismatchEvent, vmwNSXTEdgeNodeStatusUnknownEvent=vmwNSXTEdgeNodeStatusUnknownEvent, vmwVtepSubnetMismatchEvent=vmwVtepSubnetMismatchEvent, vmwSecurityMembershipChangeEvent=vmwSecurityMembershipChangeEvent, vmwIncorrectConnectionStringEvent=vmwIncorrectConnectionStringEvent, vmwUnderlayDevicePsMalFunctionEvent=vmwUnderlayDevicePsMalFunctionEvent, vmwVMCVMLimitExceededEvent=vmwVMCVMLimitExceededEvent, vmwVTGWDuplicateRoutesEvent=vmwVTGWDuplicateRoutesEvent, vmwVeloCloudEdgeL7ApplicationLostPacketEvent=vmwVeloCloudEdgeL7ApplicationLostPacketEvent, vmwFirewallRuleMembershipChangeEvent=vmwFirewallRuleMembershipChangeEvent, vmwHcxNEServiceNotRunningEvent=vmwHcxNEServiceNotRunningEvent, vmwInGracePeriodEvent=vmwInGracePeriodEvent, vmwLogicalRouterNoUplinkEvent=vmwLogicalRouterNoUplinkEvent, vmwNSXTRoutingAdvertisementEvent=vmwNSXTRoutingAdvertisementEvent, vmwNSXVLatencyNoDataEvent=vmwNSXVLatencyNoDataEvent, vmwPanNsxDynamicUpdateDelayedEvent=vmwPanNsxDynamicUpdateDelayedEvent, vmwPnicUnderlyingSwitchPortPacketDropEvent=vmwPnicUnderlyingSwitchPortPacketDropEvent, vmwRulesetLoadOnHostFailedEvent=vmwRulesetLoadOnHostFailedEvent, vmwAllThresholdEvent=vmwAllThresholdEvent, PYSNMP_MODULE_ID=vmwNetworkInsightMIB, vmwThresholdExceededEventNetworkRxDropRule=vmwThresholdExceededEventNetworkRxDropRule, vmwNetworkInsightNotificationGroup12=vmwNetworkInsightNotificationGroup12, vmwEventSeverity=vmwEventSeverity, vmwNetworkInsightNotificationGroup16=vmwNetworkInsightNotificationGroup16, vmwModuleUnhealthyEvent=vmwModuleUnhealthyEvent, vmwApplyRuleToVnicFailedEvent=vmwApplyRuleToVnicFailedEvent, vmwNetworkInsightMIBBasicCompliance14=vmwNetworkInsightMIBBasicCompliance14, vmwHcxEvent=vmwHcxEvent, vmwCPLogInsightDroppedFlowEvent=vmwCPLogInsightDroppedFlowEvent, vmwHostVtepEvent=vmwHostVtepEvent, vmwNetworkInsightMIBBasicCompliance2=vmwNetworkInsightMIBBasicCompliance2, vmwGridProcessingLagEvent=vmwGridProcessingLagEvent, vmwNSXTMPNodeToMgmtClusterConnectivityEvent=vmwNSXTMPNodeToMgmtClusterConnectivityEvent, vmwHcxIXApplianceServicePipelineStatusEvent=vmwHcxIXApplianceServicePipelineStatusEvent, vmwNSXTMPNodeServiceDataStoreStatusEvent=vmwNSXTMPNodeServiceDataStoreStatusEvent, vmwVeloCloudLinkDegradedVoiceQoeEvent=vmwVeloCloudLinkDegradedVoiceQoeEvent, vmwNetworkInsightMIBBasicCompliance3=vmwNetworkInsightMIBBasicCompliance3, vmwNetworkInsightNotificationGroup4=vmwNetworkInsightNotificationGroup4, vmwTimestamp=vmwTimestamp, vmwNSXTEdgeDVPGsIPFIXDisabledEvent=vmwNSXTEdgeDVPGsIPFIXDisabledEvent, vmwThresholdExceededEventDatastoreFreeSpaceWarning=vmwThresholdExceededEventDatastoreFreeSpaceWarning, vmwAWSSGInboundRuleLimitEvent=vmwAWSSGInboundRuleLimitEvent)
-mibBuilder.exportSymbols("VMWARE-VRNI-MIB", vmwAWSThrottlingExceptionEvent=vmwAWSThrottlingExceptionEvent, vmwHybridConnectAdvertisedSubnetsFailedEvent=vmwHybridConnectAdvertisedSubnetsFailedEvent, vmwNSXTHostNodePnicStatusDownEvent=vmwNSXTHostNodePnicStatusDownEvent, vmwNsxEvent=vmwNsxEvent, vmwNSXSysLogServerEvent=vmwNSXSysLogServerEvent, vmwProtectionEvent=vmwProtectionEvent, vmwVeloCloudEdgeL7ApplicationRetransmittedPacketEvent=vmwVeloCloudEdgeL7ApplicationRetransmittedPacketEvent, vmwDataProviderNotRunningEvent=vmwDataProviderNotRunningEvent, vmwHcxApplianceAllTunnelDownEvent=vmwHcxApplianceAllTunnelDownEvent, vmwVirtualDistributedRoutingEvent=vmwVirtualDistributedRoutingEvent, vmwLatencyNoDataEvent=vmwLatencyNoDataEvent, vmwVtepConfigurationFaultEvent=vmwVtepConfigurationFaultEvent, vmwFirewallRulePropertiesChangeEvent=vmwFirewallRulePropertiesChangeEvent, vmwVMWithMulipleVnicsOnSameL2Event=vmwVMWithMulipleVnicsOnSameL2Event, vmwAnalyticsMemoryLimitsExceededEvent=vmwAnalyticsMemoryLimitsExceededEvent, vmwNSXTEdgeNodeStatusDownEvent=vmwNSXTEdgeNodeStatusDownEvent, vmwHcxNEApplianceServiceTransportStatusEvent=vmwHcxNEApplianceServiceTransportStatusEvent, vmwNetworkInsightNotificationInfoGroup3=vmwNetworkInsightNotificationInfoGroup3, vmwLinkMtuMismatchEvent=vmwLinkMtuMismatchEvent, vmwUnableToSendEmailsEvent=vmwUnableToSendEmailsEvent, vmwNSXTSwitchIpfixEnabledEvent=vmwNSXTSwitchIpfixEnabledEvent, vmwHcxApplianceVersionMismatchEvent=vmwHcxApplianceVersionMismatchEvent, vmwKubernetesEvent=vmwKubernetesEvent, vmwNetworkInsightNotificationGroup13=vmwNetworkInsightNotificationGroup13, vmwNSXTStandaloneHostsEvent=vmwNSXTStandaloneHostsEvent, vmwVtepCountMismatchEvent=vmwVtepCountMismatchEvent, vmwNsxiSslHandshakeFailedEvent=vmwNsxiSslHandshakeFailedEvent, vmwNSXTLogicalPortOperationalStatusUnknownEvent=vmwNSXTLogicalPortOperationalStatusUnknownEvent, vmwNSXIpV6EnabledEvent=vmwNSXIpV6EnabledEvent, vmwVMDatastoreChangeEvent=vmwVMDatastoreChangeEvent, vmwIPSetMembershipChangeEvent=vmwIPSetMembershipChangeEvent, vmwVRNIData=vmwVRNIData, vmwHostMessagingInfrastructureDownEvent=vmwHostMessagingInfrastructureDownEvent, vmwNetworkInsightNotificationGroup10=vmwNetworkInsightNotificationGroup10, vmwVlanMembershipChangeEvent=vmwVlanMembershipChangeEvent, vmwHcxManagerVersionMismatchEvent=vmwHcxManagerVersionMismatchEvent, vmwUnderlayDeviceModuleMalFunctionEvent=vmwUnderlayDeviceModuleMalFunctionEvent, vmwNiInfraChangeEvent=vmwNiInfraChangeEvent, vmwNSXTIPFixNoCollectorProfileEvent=vmwNSXTIPFixNoCollectorProfileEvent, vmwSegmentMismatchEvent=vmwSegmentMismatchEvent, vmwNetworkInsightMIBBasicCompliance16=vmwNetworkInsightMIBBasicCompliance16, vmwNSXTManagerConnectivityDownEvent=vmwNSXTManagerConnectivityDownEvent, vmwIndexerLagEvent=vmwIndexerLagEvent, vmwNSXOspfNeighborDownEvent=vmwNSXOspfNeighborDownEvent, vmwHardwareVTEPMismatchEvent=vmwHardwareVTEPMismatchEvent, vmwStigAccountPasswdEvent=vmwStigAccountPasswdEvent, vmwNumVMsOrHostsNotFoundEvent=vmwNumVMsOrHostsNotFoundEvent, vmwAnalyticsOutlierEvent=vmwAnalyticsOutlierEvent, vmwNSXTClusterBackUpDisabledEvent=vmwNSXTClusterBackUpDisabledEvent, vmwOperatorDesc=vmwOperatorDesc, vmwDistributedFirewallApplyHostEvent=vmwDistributedFirewallApplyHostEvent, vmwDuplexMismatchEvent=vmwDuplexMismatchEvent, vmwFailedEvent=vmwFailedEvent, vmwBufferThresholdExceededEvent=vmwBufferThresholdExceededEvent, vmwUnderlayProblem=vmwUnderlayProblem, vmwNsxtLatencyNodeGroupMismatchEvent=vmwNsxtLatencyNodeGroupMismatchEvent, vmwNSXTStandaloneHostsWithoutVcEvent=vmwNSXTStandaloneHostsWithoutVcEvent, vmwSwitchPortBufferThresholdExceededEvent=vmwSwitchPortBufferThresholdExceededEvent, vmwNetworkInsightNotificationGroup15=vmwNetworkInsightNotificationGroup15, vmwTestTrap=vmwTestTrap, vmwPacketDropEvent=vmwPacketDropEvent, vmwThresholdExceededEventDatastoreWriteLatency=vmwThresholdExceededEventDatastoreWriteLatency, vmwVMCClusterLimitExceededEvent=vmwVMCClusterLimitExceededEvent, vmwVrniUrl=vmwVrniUrl, vmwOspfInsecureAuthRouterEvent=vmwOspfInsecureAuthRouterEvent, vmwVeloCloudEdgeLocationNotSetEvent=vmwVeloCloudEdgeLocationNotSetEvent, vmwNSXTEvent=vmwNSXTEvent, vmwLBServiceNodeIPNotFoundEvent=vmwLBServiceNodeIPNotFoundEvent, vmwHostWithStaleFirewallRulesEvent=vmwHostWithStaleFirewallRulesEvent, vmwDeleteChangeEvent=vmwDeleteChangeEvent, vmwHostNetworkControlPlaneNotSyncedEvent=vmwHostNetworkControlPlaneNotSyncedEvent, vmwUnderlayDeviceFanMalFunctionEvent=vmwUnderlayDeviceFanMalFunctionEvent, vmwNSXBackupNotScheduledEvent=vmwNSXBackupNotScheduledEvent, vmwUnsupportedNSXVersionEvent=vmwUnsupportedNSXVersionEvent, vmwThresholdExceededEventDiskCommandAbortRule=vmwThresholdExceededEventDiskCommandAbortRule, vmwVeloCloudLinkDegradedVideoQoeEvent=vmwVeloCloudLinkDegradedVideoQoeEvent, vmwReachabilityEvent=vmwReachabilityEvent, vmwSnmpTrapsAreDisabled=vmwSnmpTrapsAreDisabled, vmwNSXTTxPacketDropOnNicEvent=vmwNSXTTxPacketDropOnNicEvent, vmwModuleNetworkConnectionFailureEvent=vmwModuleNetworkConnectionFailureEvent, vmwVeloCloudEdgeDegradedTransQoeEvent=vmwVeloCloudEdgeDegradedTransQoeEvent, vmwNodesVersionMismatchEvent=vmwNodesVersionMismatchEvent, vmwHcxConnectionRuleViolationEvent=vmwHcxConnectionRuleViolationEvent, vmwAnalyticsThresholdCompositeProblemEvent=vmwAnalyticsThresholdCompositeProblemEvent, vmwNSXTRxPacketDropOnEdgeTnNicEvent=vmwNSXTRxPacketDropOnEdgeTnNicEvent, vmwSpoofguardApplyToVnicFailedEvent=vmwSpoofguardApplyToVnicFailedEvent, vmwConnectionErrorEvent=vmwConnectionErrorEvent, vmwNSXTSystemEvent=vmwNSXTSystemEvent, vmwNativeVlanMismatchEvent=vmwNativeVlanMismatchEvent, vmwPlatformMemoryChangeEvent=vmwPlatformMemoryChangeEvent, vmwNSXTControllerConnectivityDegradedEvent=vmwNSXTControllerConnectivityDegradedEvent, vmwNSXALBSystemEvent=vmwNSXALBSystemEvent, vmwConfigStoreCleanupFailedEvent=vmwConfigStoreCleanupFailedEvent, vmwUnknownHostEvent=vmwUnknownHostEvent, vmwNSXTMPNodeServiceLiagentStatusEvent=vmwNSXTMPNodeServiceLiagentStatusEvent, vmwNSXTHostNodeStatusDownEvent=vmwNSXTHostNodeStatusDownEvent, vmwNetworkInsightMIBBasicCompliance11=vmwNetworkInsightMIBBasicCompliance11, vmwAWSSGOutboundRuleLimitEvent=vmwAWSSGOutboundRuleLimitEvent, vmwDLRNetworksNotReachableEvent=vmwDLRNetworksNotReachableEvent, vmwNotAllServicesRunningEvent=vmwNotAllServicesRunningEvent, vmwManagementHostPnicTxPacketDropEvent=vmwManagementHostPnicTxPacketDropEvent, vmwDuplicateL3SwitchEvent=vmwDuplicateL3SwitchEvent, vmwBigIpInsufficientRoleEvent=vmwBigIpInsufficientRoleEvent, vmwEmptySearchStreamChangeEvent=vmwEmptySearchStreamChangeEvent, vmwNSXControllerNotActiveCountEvent=vmwNSXControllerNotActiveCountEvent, vmwSTPPathCostMethodInconsistencyEvent=vmwSTPPathCostMethodInconsistencyEvent, vmwThresholdExceededEventCpuCoStop=vmwThresholdExceededEventCpuCoStop, vmwNetworkInsightNotificationGroup9=vmwNetworkInsightNotificationGroup9, vmwNSXTLogicalSwitchTransmittedPacketDropEvent=vmwNSXTLogicalSwitchTransmittedPacketDropEvent, vmwNIClusterChangeEvent=vmwNIClusterChangeEvent, vmwNSXTNoUplinkConnectivityEvent=vmwNSXTNoUplinkConnectivityEvent, vmwHcxVMotionServiceStatusEvent=vmwHcxVMotionServiceStatusEvent, vmwIpfixFlowLagEvent=vmwIpfixFlowLagEvent, vmwHcxIXServiceNotRunningEvent=vmwHcxIXServiceNotRunningEvent, vmwNSXBackupSystemEventsExcludedEvent=vmwNSXBackupSystemEventsExcludedEvent, vmwDatasourceIdentificationChangedEvent=vmwDatasourceIdentificationChangedEvent, vmwUnsupportedNsxAlbVersionEvent=vmwUnsupportedNsxAlbVersionEvent, vmwEdgeUnhealthyEvent=vmwEdgeUnhealthyEvent, vmwDistributedFirewallApplyVMEvent=vmwDistributedFirewallApplyVMEvent, vmwNetworkInsightNotificationGroup6=vmwNetworkInsightNotificationGroup6, vmwPortOperationalDownEvent=vmwPortOperationalDownEvent, vmwServiceVMNotPoweredOnEvent=vmwServiceVMNotPoweredOnEvent, vmwHcxIXApplianceServiceTransportStatusEvent=vmwHcxIXApplianceServiceTransportStatusEvent, vmwNetworkIsolationEvent=vmwNetworkIsolationEvent, vmwNSXTControllerConnectivityDownEvent=vmwNSXTControllerConnectivityDownEvent, vmwHcxNEApplianceServiceSystemStateEvent=vmwHcxNEApplianceServiceSystemStateEvent, vmwNetworkInsightNotificationGroup2=vmwNetworkInsightNotificationGroup2, vmwNsxiSubscriptionCreateFailedEvent=vmwNsxiSubscriptionCreateFailedEvent, vmwNSXEdgeEvent=vmwNSXEdgeEvent, vmwLBPoolDownEvent=vmwLBPoolDownEvent, vmwNSXTComputeManagerConnectionStatusNotUpEvent=vmwNSXTComputeManagerConnectionStatusNotUpEvent, vmwHcxIXServiceStatusEvent=vmwHcxIXServiceStatusEvent, vmwNSXTMPNodeServiceNSXPlatformClientStatusEvent=vmwNSXTMPNodeServiceNSXPlatformClientStatusEvent, vmwClusterHostsVtepMTUMismatchEvent=vmwClusterHostsVtepMTUMismatchEvent, vmwNSXTIPFixNoIPFixProfileEvent=vmwNSXTIPFixNoIPFixProfileEvent, vmwVeloCloudEvent=vmwVeloCloudEvent, vmwPwdAuthModeDisabledEvent=vmwPwdAuthModeDisabledEvent, vmwAffectedObjectParent=vmwAffectedObjectParent, vmwNetworkInsightMIBBasicCompliance9=vmwNetworkInsightMIBBasicCompliance9, vmwNSXEdgeSplitBrainEvent=vmwNSXEdgeSplitBrainEvent, vmwFdbConfigStoreCleanupFailedEvent=vmwFdbConfigStoreCleanupFailedEvent, vmwCheckpointNsxServiceApplianceViewMismatchEvent=vmwCheckpointNsxServiceApplianceViewMismatchEvent, vmwNSXTDFWFirewallDisabledEvent=vmwNSXTDFWFirewallDisabledEvent, vmwProxyDiskChangeEvent=vmwProxyDiskChangeEvent, vmwPortTrunkMismatchEvent=vmwPortTrunkMismatchEvent, vmwNotEmptyNodeEvent=vmwNotEmptyNodeEvent, vmwNSXTVtepDeleteEvent=vmwNSXTVtepDeleteEvent, vmwNetworkInsightNotificationGroup5=vmwNetworkInsightNotificationGroup5, vmwUnknownInfobloxVersionEvent=vmwUnknownInfobloxVersionEvent, vmwAWSVPCSGLimitEvent=vmwAWSVPCSGLimitEvent, vmwFeatureVersionMismatchEvent=vmwFeatureVersionMismatchEvent, vmwServiceVMHighDiskUsageEvent=vmwServiceVMHighDiskUsageEvent, vmwNotFoundEvent=vmwNotFoundEvent, vmwInvalidCredentialsEvent=vmwInvalidCredentialsEvent, vmwNSXTTxPacketDropOnHostTnNicEvent=vmwNSXTTxPacketDropOnHostTnNicEvent, vmwHostNotReachableEvent=vmwHostNotReachableEvent, vmwVMCSDDCTGWConnectivityFailedEvent=vmwVMCSDDCTGWConnectivityFailedEvent, vmwThresholdExceededEventDatastoreFreeSpaceCritical=vmwThresholdExceededEventDatastoreFreeSpaceCritical, vmwNSXControllersDeployedCountEvent=vmwNSXControllersDeployedCountEvent, vmwKubernetesInsufficientPrivilegesEvent=vmwKubernetesInsufficientPrivilegesEvent, vmwManagementHostPnicRxPacketDropEvent=vmwManagementHostPnicRxPacketDropEvent, vmwSwitchPortRxNetworkUsageThresholdExceededCriticalEvent=vmwSwitchPortRxNetworkUsageThresholdExceededCriticalEvent, vmwClusterFeatureVersionMismatchEvent=vmwClusterFeatureVersionMismatchEvent, vmwSNOWMandatoryPrivilegeMissingEvent=vmwSNOWMandatoryPrivilegeMissingEvent, vmwProxyCpuCoreChangeEvent=vmwProxyCpuCoreChangeEvent, vmwUnderlayDeviceFexOfflineEvent=vmwUnderlayDeviceFexOfflineEvent, vmwEdgeVmVnicRxPacketDropEvent=vmwEdgeVmVnicRxPacketDropEvent, vmwNSXTEdgeNodeStatusDegradedEvent=vmwNSXTEdgeNodeStatusDegradedEvent, vmwNsxtNotificationWebhookDisabledEvent=vmwNsxtNotificationWebhookDisabledEvent, vmwNSXControllerEvent=vmwNSXControllerEvent, vmwAWSFlowLogAccessDeniedExceptionEvent=vmwAWSFlowLogAccessDeniedExceptionEvent, vmwRouterInterfaceBufferThresholdExceededEvent=vmwRouterInterfaceBufferThresholdExceededEvent, vmwWarnConfigEvent=vmwWarnConfigEvent, vmwNSXTExcludedVmFlowEvent=vmwNSXTExcludedVmFlowEvent, vmwNSXTEdgeNodeTunnelStatusDegradedEvent=vmwNSXTEdgeNodeTunnelStatusDegradedEvent, vmwHostVtepNotFoundEvent=vmwHostVtepNotFoundEvent, vmwNSXTHostNodeStatusDegradedEvent=vmwNSXTHostNodeStatusDegradedEvent, vmwNSXTHostNodeTunnelStatusUnknownEvent=vmwNSXTHostNodeTunnelStatusUnknownEvent, vmwDataSourceEnabledChangeEvent=vmwDataSourceEnabledChangeEvent, vmwEmptySearchStreamProblemEvent=vmwEmptySearchStreamProblemEvent, vmwNetworkInsightMIBBasicCompliance12=vmwNetworkInsightMIBBasicCompliance12, vmwPanLogInsightDroppedFlowEvent=vmwPanLogInsightDroppedFlowEvent, vmwNoDVSAvailableEvent=vmwNoDVSAvailableEvent, vmwEdgeVmVnicTxPacketDropEvent=vmwEdgeVmVnicTxPacketDropEvent, vmwVMCEvent=vmwVMCEvent, vmwNSXTHostNodePnicStatusDegradedEvent=vmwNSXTHostNodePnicStatusDegradedEvent, vmwHcxNEApplianceServicePipelineStatusEvent=vmwHcxNEApplianceServicePipelineStatusEvent, vmwNSXTIPFixDFWStatusNotEnabledEvent=vmwNSXTIPFixDFWStatusNotEnabledEvent, vmwInvalidIntentEvent=vmwInvalidIntentEvent, vmwManagementHostHighCPUUsageEvent=vmwManagementHostHighCPUUsageEvent, vmwNSXTTxPacketDropOnEdgeTnNicEvent=vmwNSXTTxPacketDropOnEdgeTnNicEvent, vmwAWSInterfaceSGLimitEvent=vmwAWSInterfaceSGLimitEvent, vmwVMWithNoIpAddressEvent=vmwVMWithNoIpAddressEvent, vmwHcxIXApplianceServiceSystemStateEvent=vmwHcxIXApplianceServiceSystemStateEvent, vmwNSXEdgeBGPNeighbourDownEvent=vmwNSXEdgeBGPNeighbourDownEvent, vmwNSXComponentEvent=vmwNSXComponentEvent, vmwNetworkInsightMIBBasicCompliance4=vmwNetworkInsightMIBBasicCompliance4, vmwHostnameResolutionErrorEvent=vmwHostnameResolutionErrorEvent, vmwFeatureImpactedEvent=vmwFeatureImpactedEvent, vmwNSXTMPNodeServiceHttpStatusEvent=vmwNSXTMPNodeServiceHttpStatusEvent, vmwThresholdExceededEventCpuReady=vmwThresholdExceededEventCpuReady, vmwNetworkInsightNotificationGroup3=vmwNetworkInsightNotificationGroup3, vmwHcxApplianceUnhealthyTunnelsEvent=vmwHcxApplianceUnhealthyTunnelsEvent, vmwPanDeviceInDisconnectedStateEvent=vmwPanDeviceInDisconnectedStateEvent, vmwVRNIContentPackNotInstalledEvent=vmwVRNIContentPackNotInstalledEvent, vmwNotAllServicesHealthyEvent=vmwNotAllServicesHealthyEvent, vmwUANIFileNotProvidedEvent=vmwUANIFileNotProvidedEvent, vmwNSXTLogicalPortReceivedPacketDropEvent=vmwNSXTLogicalPortReceivedPacketDropEvent, vmwNsxiSubscriptionDeleteFailedEvent=vmwNsxiSubscriptionDeleteFailedEvent, vmwNSXMajorityEcmpEdgesDownEvent=vmwNSXMajorityEcmpEdgesDownEvent, vmwLayer2NetworkDiameterChangedEvent=vmwLayer2NetworkDiameterChangedEvent, vmwApplianceNotRegisteredEvent=vmwApplianceNotRegisteredEvent, vmwModuleNotLoadedEvent=vmwModuleNotLoadedEvent, vmwSecurityTagMembershipChangeEvent=vmwSecurityTagMembershipChangeEvent, vmwUpgradeFailedEvent=vmwUpgradeFailedEvent, vmwSwitchPortOperationalDownEvent=vmwSwitchPortOperationalDownEvent, vmwNetworkInsightMIBGroups=vmwNetworkInsightMIBGroups, vmwCapacityReconfigurationFailedEvent=vmwCapacityReconfigurationFailedEvent, vmwHostFeatureEnabledMismatchEvent=vmwHostFeatureEnabledMismatchEvent, vmwFailedCredsEncryptEvent=vmwFailedCredsEncryptEvent, vmwNetworkInsightMIBBasicCompliance=vmwNetworkInsightMIBBasicCompliance, vmwNSXTHostNodeTunnelStatusDegradedEvent=vmwNSXTHostNodeTunnelStatusDegradedEvent, vmwHcxMtuMismatchEvent=vmwHcxMtuMismatchEvent, vmwHighDiskUtilizationEvent=vmwHighDiskUtilizationEvent, vmwNSXTMPNodeServiceManagerStatusEvent=vmwNSXTMPNodeServiceManagerStatusEvent, vmwProxyMemoryChangeEvent=vmwProxyMemoryChangeEvent, vmwNSXTEdgeNodeMaintenanceModeEvent=vmwNSXTEdgeNodeMaintenanceModeEvent, vmwMembershipChangeEvent=vmwMembershipChangeEvent, vmwRouterInterfaceOperationalDownEvent=vmwRouterInterfaceOperationalDownEvent, vmwSwitchPortRxNetworkUsageThresholdExceededEvent=vmwSwitchPortRxNetworkUsageThresholdExceededEvent, vmwNSXTMPNodeServiceInstallUpgradeEvent=vmwNSXTMPNodeServiceInstallUpgradeEvent, vmwPKSKubernetesUnknownHostEvent=vmwPKSKubernetesUnknownHostEvent, vmwFlowPhysicalNodeEvent=vmwFlowPhysicalNodeEvent, vmwEntityDiscoveryChangeEvent=vmwEntityDiscoveryChangeEvent, vmwVTEPMissingEvent=vmwVTEPMissingEvent, vmwNSXTLogicalPortOperationalStatusDownEvent=vmwNSXTLogicalPortOperationalStatusDownEvent, vmwSegmentationEvent=vmwSegmentationEvent, vmwPanNsxFabricAgentNotFoundOnHostEvent=vmwPanNsxFabricAgentNotFoundOnHostEvent, vmwSearchStreamMembershipChangeEvent=vmwSearchStreamMembershipChangeEvent, vmwIPFIXFlowDPPausedEvent=vmwIPFIXFlowDPPausedEvent, vmwL2NetworkDiameterExceededEvent=vmwL2NetworkDiameterExceededEvent, vmwNSXTRxPacketDropOnNicEvent=vmwNSXTRxPacketDropOnNicEvent, vmwVeloCloudTunnelDegradedTransQoeEvent=vmwVeloCloudTunnelDegradedTransQoeEvent, vmwThresholdExceededEventNetworkTxDropRule=vmwThresholdExceededEventNetworkTxDropRule, vmwHBaseRetentionToolFailedEvent=vmwHBaseRetentionToolFailedEvent, vmwNsxtSystemEventApiEvent=vmwNsxtSystemEventApiEvent, vmwL2NetworkUplinkMissingEvent=vmwL2NetworkUplinkMissingEvent, vmwSwitchPortPacketDropEvent=vmwSwitchPortPacketDropEvent, vmwL2NetworkWithNoVMsEvent=vmwL2NetworkWithNoVMsEvent, vmwNSXUnsecureBackupEvent=vmwNSXUnsecureBackupEvent, vmwCriticalHostNotAccessibleEvent=vmwCriticalHostNotAccessibleEvent, vmwNSXControllerFSAvailableThresholdRecededEvent=vmwNSXControllerFSAvailableThresholdRecededEvent, vmwAffectedObjectManager=vmwAffectedObjectManager, vmwVtepFailedPingEvent=vmwVtepFailedPingEvent)
-mibBuilder.exportSymbols("VMWARE-VRNI-MIB", vmwNetworkInsightMIBBasicCompliance5=vmwNetworkInsightMIBBasicCompliance5, vmwHostMessagingConfigurationFailedNotificationSkippedEvent=vmwHostMessagingConfigurationFailedNotificationSkippedEvent, vmwHighDiskIoUtilizationEvent=vmwHighDiskIoUtilizationEvent, vmwNSXTTxPacketDropOnMPNicEvent=vmwNSXTTxPacketDropOnMPNicEvent, vmwVMVirtualDiskChangeEvent=vmwVMVirtualDiskChangeEvent, vmwPolicyManagerVrniDfwIPFixCollectorAbsent=vmwPolicyManagerVrniDfwIPFixCollectorAbsent, vmwCheckpointNsxServiceVMNotFoundOnHostEvent=vmwCheckpointNsxServiceVMNotFoundOnHostEvent, vmwNSXAllEcmpEdgesDownEvent=vmwNSXAllEcmpEdgesDownEvent, vmwSecurityGroupMembershipChangeEvent=vmwSecurityGroupMembershipChangeEvent, vmwNSXTRxPacketDropOnHostTnNicEvent=vmwNSXTRxPacketDropOnHostTnNicEvent, vmwNSXTNoTzAttachedOnTnEvent=vmwNSXTNoTzAttachedOnTnEvent, vmwSDWanLinkTrafficThresholdEvent=vmwSDWanLinkTrafficThresholdEvent, vmwHostDatastoreChangeEvent=vmwHostDatastoreChangeEvent, vmwNSXTHostNodeCtlrConnectivityStatusUnknownEvent=vmwNSXTHostNodeCtlrConnectivityStatusUnknownEvent, vmwHcxWanOptServiceNotRunningEvent=vmwHcxWanOptServiceNotRunningEvent, vmwNetworkInsightNotificationGroup14=vmwNetworkInsightNotificationGroup14, vmwSecurityGroupPropertiesChangeEvent=vmwSecurityGroupPropertiesChangeEvent, vmwAnalyticsThresholdCompositeEvent=vmwAnalyticsThresholdCompositeEvent, vmwHostFeatureInstalledMismatchEvent=vmwHostFeatureInstalledMismatchEvent, vmwNetworkInsightNotificationGroup7=vmwNetworkInsightNotificationGroup7, vmwProtectionActiveEvent=vmwProtectionActiveEvent, vmwFlowCollectionErrorEvent=vmwFlowCollectionErrorEvent, vmwNSXTLatencyNoBFDProfileEvent=vmwNSXTLatencyNoBFDProfileEvent, vmwDuplicateIPAddressEvent=vmwDuplicateIPAddressEvent, vmwLicenseExpiredEvent=vmwLicenseExpiredEvent, vmwNetworkInsightMIBBasicCompliance15=vmwNetworkInsightMIBBasicCompliance15, vmwThresholdExceededEventDataSourceMemoryUsage=vmwThresholdExceededEventDataSourceMemoryUsage, vmwIndexingAbortedEvent=vmwIndexingAbortedEvent, vmwGridProcessingStoppedEvent=vmwGridProcessingStoppedEvent, vmwAzureNetworkWatcherStorageErrorEvent=vmwAzureNetworkWatcherStorageErrorEvent, vmwHcxBMServiceStatusEvent=vmwHcxBMServiceStatusEvent, vmwSwitchPortProblem=vmwSwitchPortProblem, vmwVMCHostLimitExceededEvent=vmwVMCHostLimitExceededEvent, vmwEdgeNotHAEvent=vmwEdgeNotHAEvent, vmwAffectedObject=vmwAffectedObject, vmwPrimaryNSXNotAddedEvent=vmwPrimaryNSXNotAddedEvent, vmwThresholdExceededEventDataSourceTemperature=vmwThresholdExceededEventDataSourceTemperature, vmwNSXTVcNotAddedEvent=vmwNSXTVcNotAddedEvent, vmwMTUMismatchEvent=vmwMTUMismatchEvent, vmwNsxtIpfixMultipleCollectorConfigurationEvent=vmwNsxtIpfixMultipleCollectorConfigurationEvent, vmwUANIFileDoesNotExistEvent=vmwUANIFileDoesNotExistEvent, vmwNatRuleLargeSubnetEvent=vmwNatRuleLargeSubnetEvent, vmwNSXTEdgeNodeCtlrConnectivityStatusUnknownEvent=vmwNSXTEdgeNodeCtlrConnectivityStatusUnknownEvent, vmwSpoofguardConfigUpdateOnHostFailedEvent=vmwSpoofguardConfigUpdateOnHostFailedEvent, vmwNSXFirewallDefaultAllowAllRulesEvent=vmwNSXFirewallDefaultAllowAllRulesEvent, vmwCheckpointEvent=vmwCheckpointEvent, vmwStigPlaintextPasswdEvent=vmwStigPlaintextPasswdEvent, vmwThresholdExceededEventIODeviceLatencyRule=vmwThresholdExceededEventIODeviceLatencyRule, vmwHostUnHealthyEvent=vmwHostUnHealthyEvent, vmwLBPoolMemberDownEvent=vmwLBPoolMemberDownEvent, vmwUnderlayDeviceTemperatureThresholdExceededEvent=vmwUnderlayDeviceTemperatureThresholdExceededEvent, vmwNetworkInsightNotificationGroup11=vmwNetworkInsightNotificationGroup11, vmwServiceVMHighCPUUsageEvent=vmwServiceVMHighCPUUsageEvent, vmwStreamProcessingFailedEvent=vmwStreamProcessingFailedEvent, vmwEdgeInterfacesDownEvent=vmwEdgeInterfacesDownEvent, vmwLogicalRouterDeployedOnEcmpEdgeHostEvent=vmwLogicalRouterDeployedOnEcmpEdgeHostEvent, vmwExpandPartitionFailedEvent=vmwExpandPartitionFailedEvent, vmwVeloCloudQoeEvent=vmwVeloCloudQoeEvent, vmwNSXTMPNodeServiceSearchStatusEvent=vmwNSXTMPNodeServiceSearchStatusEvent, vmwManagementHostHighCPUUsageCriticalEvent=vmwManagementHostHighCPUUsageCriticalEvent, vmwNetworkInsightMIBBasicCompliance7=vmwNetworkInsightMIBBasicCompliance7, vmwNSXTLatencyNotEnabledEvent=vmwNSXTLatencyNotEnabledEvent, vmwPathProblem=vmwPathProblem, vmwEdgeNotDeployedEvent=vmwEdgeNotDeployedEvent, vmwConfigUpdateOnHostFailedEvent=vmwConfigUpdateOnHostFailedEvent, VmwVrniSeverity=VmwVrniSeverity, vmwVMWithDisconnectedVnicsEvent=vmwVMWithDisconnectedVnicsEvent, vmwNSXEdgeMtuMismatchEvent=vmwNSXEdgeMtuMismatchEvent, vmwWebhookNotEnabledOnAlertEvent=vmwWebhookNotEnabledOnAlertEvent, vmwNSXTMtuMismatchEvent=vmwNSXTMtuMismatchEvent, vmwHcxWanOptServiceStatusEvent=vmwHcxWanOptServiceStatusEvent, vmwAzureFlowCollectionErrorEvent=vmwAzureFlowCollectionErrorEvent, vmwDuplicateMacAddressEvent=vmwDuplicateMacAddressEvent, vmwUnderlayDeviceFexFanMalFunctionEvent=vmwUnderlayDeviceFexFanMalFunctionEvent, vmwNetworkInsightMIB=vmwNetworkInsightMIB, vmwL2Event=vmwL2Event, vmwVMCHostPerClusterLimitExceededEvent=vmwVMCHostPerClusterLimitExceededEvent, vmwApplianceNotConfiguredEvent=vmwApplianceNotConfiguredEvent, vmwNSXControllerNotFoundEvent=vmwNSXControllerNotFoundEvent, vmwNSXTIPFixPortIncorrectEvent=vmwNSXTIPFixPortIncorrectEvent, vmwManagementHostConnectionStateDisconnectedEvent=vmwManagementHostConnectionStateDisconnectedEvent, vmwVMCVMPerHostLimitExceededEvent=vmwVMCVMPerHostLimitExceededEvent, vmwArkinApplicationMemberLimitEvent=vmwArkinApplicationMemberLimitEvent, vmwNSXTMPNodeServiceNodeStatsStatusEvent=vmwNSXTMPNodeServiceNodeStatsStatusEvent, vmwTkgiKubernetesNotReachableEvent=vmwTkgiKubernetesNotReachableEvent, vmwNetworkInsightNotificationInfoGroup4=vmwNetworkInsightNotificationInfoGroup4, vmwControllerSysLogServerEvent=vmwControllerSysLogServerEvent, vmwNsxtLatencyServiceConfigMismatchEvent=vmwNsxtLatencyServiceConfigMismatchEvent, vmwNSXIPFIXStatusMismatchEvent=vmwNSXIPFIXStatusMismatchEvent, vmwContainerConfigUpdateOnVnicFailedEvent=vmwContainerConfigUpdateOnVnicFailedEvent)
+vmwNsxiApplianceAvailableEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 974)
+)
+vmwNsxiApplianceAvailableEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxiApplianceAvailableEvent.setStatus(
+        "current"
+    )
+
+vmwNsxiSubscriptionCreateFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 975)
+)
+vmwNsxiSubscriptionCreateFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxiSubscriptionCreateFailedEvent.setStatus(
+        "current"
+    )
+
+vmwNsxiSubscriptionDeleteFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 976)
+)
+vmwNsxiSubscriptionDeleteFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxiSubscriptionDeleteFailedEvent.setStatus(
+        "current"
+    )
+
+vmwNsxiSubscriptionUpdateFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 977)
+)
+vmwNsxiSubscriptionUpdateFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxiSubscriptionUpdateFailedEvent.setStatus(
+        "current"
+    )
+
+vmwNsxiSslHandshakeFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 978)
+)
+vmwNsxiSslHandshakeFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxiSslHandshakeFailedEvent.setStatus(
+        "current"
+    )
+
+vmwHybridConnectAdvertisedSubnetsFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 1277)
+)
+vmwHybridConnectAdvertisedSubnetsFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHybridConnectAdvertisedSubnetsFailedEvent.setStatus(
+        "current"
+    )
+
+vmwHybridConnectBgpStatusDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 1279)
+)
+vmwHybridConnectBgpStatusDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHybridConnectBgpStatusDownEvent.setStatus(
+        "current"
+    )
+
+vmwKubernetesEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 1509)
+)
+vmwKubernetesEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwKubernetesEvent.setStatus(
+        "current"
+    )
+
+vmwKubernetesBaseEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 1510)
+)
+vmwKubernetesBaseEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwKubernetesBaseEvent.setStatus(
+        "current"
+    )
+
+vmwPassthroughEvents = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 2503)
+)
+vmwPassthroughEvents.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPassthroughEvents.setStatus(
+        "current"
+    )
+
+vmwNSXALBSystemEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 3558)
+)
+vmwNSXALBSystemEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXALBSystemEvent.setStatus(
+        "current"
+    )
+
+vmwEntityDiscoveryChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20001)
+)
+vmwEntityDiscoveryChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEntityDiscoveryChangeEvent.setStatus(
+        "current"
+    )
+
+vmwEntityPropertiesChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20002)
+)
+vmwEntityPropertiesChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEntityPropertiesChangeEvent.setStatus(
+        "current"
+    )
+
+vmwFirewallNotInstalledOnHostEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20003)
+)
+vmwFirewallNotInstalledOnHostEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFirewallNotInstalledOnHostEvent.setStatus(
+        "current"
+    )
+
+vmwHostWithStaleFirewallRulesEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20004)
+)
+vmwHostWithStaleFirewallRulesEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostWithStaleFirewallRulesEvent.setStatus(
+        "current"
+    )
+
+vmwIpAddressChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20005)
+)
+vmwIpAddressChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIpAddressChangeEvent.setStatus(
+        "current"
+    )
+
+vmwL2GatewayAnomalyEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20006)
+)
+vmwL2GatewayAnomalyEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwL2GatewayAnomalyEvent.setStatus(
+        "current"
+    )
+
+vmwL2NetworkAddressAnomalyEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20007)
+)
+vmwL2NetworkAddressAnomalyEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwL2NetworkAddressAnomalyEvent.setStatus(
+        "current"
+    )
+
+vmwL2NetworkDiameterExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20008)
+)
+vmwL2NetworkDiameterExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwL2NetworkDiameterExceededEvent.setStatus(
+        "current"
+    )
+
+vmwL2NetworkUplinkMissingEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20009)
+)
+vmwL2NetworkUplinkMissingEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwL2NetworkUplinkMissingEvent.setStatus(
+        "current"
+    )
+
+vmwL2NetworkWithNoVMsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20010)
+)
+vmwL2NetworkWithNoVMsEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwL2NetworkWithNoVMsEvent.setStatus(
+        "current"
+    )
+
+vmwLayer2NetworkDiameterChangedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20011)
+)
+vmwLayer2NetworkDiameterChangedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLayer2NetworkDiameterChangedEvent.setStatus(
+        "current"
+    )
+
+vmwMTUMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20012)
+)
+vmwMTUMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwMTUMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwNetworkIsolationEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20013)
+)
+vmwNetworkIsolationEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkIsolationEvent.setStatus(
+        "current"
+    )
+
+vmwNoPathEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20014)
+)
+vmwNoPathEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNoPathEvent.setStatus(
+        "current"
+    )
+
+vmwSpoofguardDisabledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20015)
+)
+vmwSpoofguardDisabledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSpoofguardDisabledEvent.setStatus(
+        "current"
+    )
+
+vmwVMotionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20018)
+)
+vmwVMotionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMotionEvent.setStatus(
+        "current"
+    )
+
+vmwVMWithDisconnectedVnicsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20019)
+)
+vmwVMWithDisconnectedVnicsEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMWithDisconnectedVnicsEvent.setStatus(
+        "current"
+    )
+
+vmwVMWithMulipleVnicsOnDifferentVxlansEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20020)
+)
+vmwVMWithMulipleVnicsOnDifferentVxlansEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMWithMulipleVnicsOnDifferentVxlansEvent.setStatus(
+        "current"
+    )
+
+vmwVMWithMulipleVnicsOnSameL2Event = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20021)
+)
+vmwVMWithMulipleVnicsOnSameL2Event.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMWithMulipleVnicsOnSameL2Event.setStatus(
+        "current"
+    )
+
+vmwVMWithNoIpAddressEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20022)
+)
+vmwVMWithNoIpAddressEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMWithNoIpAddressEvent.setStatus(
+        "current"
+    )
+
+vmwVTEPMissingEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20023)
+)
+vmwVTEPMissingEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVTEPMissingEvent.setStatus(
+        "current"
+    )
+
+vmwL2Event = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20024)
+)
+vmwL2Event.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwL2Event.setStatus(
+        "current"
+    )
+
+vmwMembershipChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20025)
+)
+vmwMembershipChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwMembershipChangeEvent.setStatus(
+        "current"
+    )
+
+vmwSecurityGroupMembershipChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20026)
+)
+vmwSecurityGroupMembershipChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSecurityGroupMembershipChangeEvent.setStatus(
+        "current"
+    )
+
+vmwFirewallRuleMembershipChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20027)
+)
+vmwFirewallRuleMembershipChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFirewallRuleMembershipChangeEvent.setStatus(
+        "current"
+    )
+
+vmwVlanMembershipChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20028)
+)
+vmwVlanMembershipChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVlanMembershipChangeEvent.setStatus(
+        "current"
+    )
+
+vmwVxlanMembershipChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20029)
+)
+vmwVxlanMembershipChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVxlanMembershipChangeEvent.setStatus(
+        "current"
+    )
+
+vmwDeleteChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20030)
+)
+vmwDeleteChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDeleteChangeEvent.setStatus(
+        "current"
+    )
+
+vmwVtepFailedPingEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20031)
+)
+vmwVtepFailedPingEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVtepFailedPingEvent.setStatus(
+        "current"
+    )
+
+vmwEmptySearchStreamChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20034)
+)
+vmwEmptySearchStreamChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEmptySearchStreamChangeEvent.setStatus(
+        "current"
+    )
+
+vmwSearchStreamMembershipChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20035)
+)
+vmwSearchStreamMembershipChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSearchStreamMembershipChangeEvent.setStatus(
+        "current"
+    )
+
+vmwEmptySearchStreamProblemEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20036)
+)
+vmwEmptySearchStreamProblemEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEmptySearchStreamProblemEvent.setStatus(
+        "current"
+    )
+
+vmwSearchStreamMembershipProblemEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20037)
+)
+vmwSearchStreamMembershipProblemEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSearchStreamMembershipProblemEvent.setStatus(
+        "current"
+    )
+
+vmwOspfConfigurationMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20038)
+)
+vmwOspfConfigurationMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwOspfConfigurationMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwServiceVMNotHealthyEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20039)
+)
+vmwServiceVMNotHealthyEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwServiceVMNotHealthyEvent.setStatus(
+        "current"
+    )
+
+vmwServiceVMNotPoweredOnEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20040)
+)
+vmwServiceVMNotPoweredOnEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwServiceVMNotPoweredOnEvent.setStatus(
+        "current"
+    )
+
+vmwServiceVMHighCPUUsageEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20041)
+)
+vmwServiceVMHighCPUUsageEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwServiceVMHighCPUUsageEvent.setStatus(
+        "current"
+    )
+
+vmwServiceVMHighMemoryUsageEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20042)
+)
+vmwServiceVMHighMemoryUsageEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwServiceVMHighMemoryUsageEvent.setStatus(
+        "current"
+    )
+
+vmwServiceVMHighDiskUsageEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20043)
+)
+vmwServiceVMHighDiskUsageEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwServiceVMHighDiskUsageEvent.setStatus(
+        "current"
+    )
+
+vmwIPSetPropertiesChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20050)
+)
+vmwIPSetPropertiesChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIPSetPropertiesChangeEvent.setStatus(
+        "current"
+    )
+
+vmwFirewallRulePropertiesChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20051)
+)
+vmwFirewallRulePropertiesChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFirewallRulePropertiesChangeEvent.setStatus(
+        "current"
+    )
+
+vmwSecurityGroupPropertiesChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20052)
+)
+vmwSecurityGroupPropertiesChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSecurityGroupPropertiesChangeEvent.setStatus(
+        "current"
+    )
+
+vmwIPSetMembershipChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20053)
+)
+vmwIPSetMembershipChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIPSetMembershipChangeEvent.setStatus(
+        "current"
+    )
+
+vmwFirewallRuleMaskEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20054)
+)
+vmwFirewallRuleMaskEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFirewallRuleMaskEvent.setStatus(
+        "current"
+    )
+
+vmwSecurityMembershipChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20056)
+)
+vmwSecurityMembershipChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSecurityMembershipChangeEvent.setStatus(
+        "current"
+    )
+
+vmwSecurityTagPropertiesChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20057)
+)
+vmwSecurityTagPropertiesChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSecurityTagPropertiesChangeEvent.setStatus(
+        "current"
+    )
+
+vmwSecurityTagMembershipChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20058)
+)
+vmwSecurityTagMembershipChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSecurityTagMembershipChangeEvent.setStatus(
+        "current"
+    )
+
+vmwHostDatastoreChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20059)
+)
+vmwHostDatastoreChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostDatastoreChangeEvent.setStatus(
+        "current"
+    )
+
+vmwVMDatastoreChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20060)
+)
+vmwVMDatastoreChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMDatastoreChangeEvent.setStatus(
+        "current"
+    )
+
+vmwVMSnapshotChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20061)
+)
+vmwVMSnapshotChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMSnapshotChangeEvent.setStatus(
+        "current"
+    )
+
+vmwVMVirtualDiskChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20062)
+)
+vmwVMVirtualDiskChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMVirtualDiskChangeEvent.setStatus(
+        "current"
+    )
+
+vmwIPSetDefinitionMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20063)
+)
+vmwIPSetDefinitionMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIPSetDefinitionMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwSegmentMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20064)
+)
+vmwSegmentMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSegmentMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwVtepEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20065)
+)
+vmwVtepEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVtepEvent.setStatus(
+        "current"
+    )
+
+vmwVtepConfigurationFaultEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20066)
+)
+vmwVtepConfigurationFaultEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVtepConfigurationFaultEvent.setStatus(
+        "current"
+    )
+
+vmwDLRNetworksNotReachableEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20067)
+)
+vmwDLRNetworksNotReachableEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDLRNetworksNotReachableEvent.setStatus(
+        "current"
+    )
+
+vmwVtepSubnetMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20068)
+)
+vmwVtepSubnetMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVtepSubnetMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwVtepCountMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20069)
+)
+vmwVtepCountMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVtepCountMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwEdgeNetworksNotReachableEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20070)
+)
+vmwEdgeNetworksNotReachableEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEdgeNetworksNotReachableEvent.setStatus(
+        "current"
+    )
+
+vmwNiInfraChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20089)
+)
+vmwNiInfraChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNiInfraChangeEvent.setStatus(
+        "current"
+    )
+
+vmwDataSourceEnabledChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20090)
+)
+vmwDataSourceEnabledChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDataSourceEnabledChangeEvent.setStatus(
+        "current"
+    )
+
+vmwDataSourceDisabledChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20091)
+)
+vmwDataSourceDisabledChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDataSourceDisabledChangeEvent.setStatus(
+        "current"
+    )
+
+vmwDataSourceCreatedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20092)
+)
+vmwDataSourceCreatedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDataSourceCreatedEvent.setStatus(
+        "current"
+    )
+
+vmwPlatformCpuCoreChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20093)
+)
+vmwPlatformCpuCoreChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPlatformCpuCoreChangeEvent.setStatus(
+        "current"
+    )
+
+vmwPlatformDiskChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20094)
+)
+vmwPlatformDiskChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPlatformDiskChangeEvent.setStatus(
+        "current"
+    )
+
+vmwPlatformMemoryChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20095)
+)
+vmwPlatformMemoryChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPlatformMemoryChangeEvent.setStatus(
+        "current"
+    )
+
+vmwPlatformRebootedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20096)
+)
+vmwPlatformRebootedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPlatformRebootedEvent.setStatus(
+        "current"
+    )
+
+vmwProxyCpuCoreChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20097)
+)
+vmwProxyCpuCoreChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwProxyCpuCoreChangeEvent.setStatus(
+        "current"
+    )
+
+vmwProxyDiskChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20098)
+)
+vmwProxyDiskChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwProxyDiskChangeEvent.setStatus(
+        "current"
+    )
+
+vmwProxyMemoryChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20099)
+)
+vmwProxyMemoryChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwProxyMemoryChangeEvent.setStatus(
+        "current"
+    )
+
+vmwProxyRebootedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20100)
+)
+vmwProxyRebootedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwProxyRebootedEvent.setStatus(
+        "current"
+    )
+
+vmwNIClusterChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20101)
+)
+vmwNIClusterChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNIClusterChangeEvent.setStatus(
+        "current"
+    )
+
+vmwNISystemProxyChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20102)
+)
+vmwNISystemProxyChangeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNISystemProxyChangeEvent.setStatus(
+        "current"
+    )
+
+vmwNIClusterCreateEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 20103)
+)
+vmwNIClusterCreateEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNIClusterCreateEvent.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventCpuReady = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30001)
+)
+vmwThresholdExceededEventCpuReady.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventCpuReady.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventCpuCoStop = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30002)
+)
+vmwThresholdExceededEventCpuCoStop.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventCpuCoStop.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventDiskCommandAbortRule = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30003)
+)
+vmwThresholdExceededEventDiskCommandAbortRule.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventDiskCommandAbortRule.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventIODeviceLatencyRule = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30004)
+)
+vmwThresholdExceededEventIODeviceLatencyRule.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventIODeviceLatencyRule.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventIOKernelLatencyRule = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30005)
+)
+vmwThresholdExceededEventIOKernelLatencyRule.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventIOKernelLatencyRule.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventMemorySwapInRule = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30006)
+)
+vmwThresholdExceededEventMemorySwapInRule.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventMemorySwapInRule.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventMemorySwapOutRule = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30007)
+)
+vmwThresholdExceededEventMemorySwapOutRule.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventMemorySwapOutRule.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventNetworkRxDropRule = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30008)
+)
+vmwThresholdExceededEventNetworkRxDropRule.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventNetworkRxDropRule.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventNetworkTxDropRule = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30009)
+)
+vmwThresholdExceededEventNetworkTxDropRule.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventNetworkTxDropRule.setStatus(
+        "current"
+    )
+
+vmwAWSRegionSGLimitEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30010)
+)
+vmwAWSRegionSGLimitEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAWSRegionSGLimitEvent.setStatus(
+        "current"
+    )
+
+vmwAWSVPCSGLimitEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30011)
+)
+vmwAWSVPCSGLimitEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAWSVPCSGLimitEvent.setStatus(
+        "current"
+    )
+
+vmwAWSSGInboundRuleLimitEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30012)
+)
+vmwAWSSGInboundRuleLimitEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAWSSGInboundRuleLimitEvent.setStatus(
+        "current"
+    )
+
+vmwAWSSGOutboundRuleLimitEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30013)
+)
+vmwAWSSGOutboundRuleLimitEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAWSSGOutboundRuleLimitEvent.setStatus(
+        "current"
+    )
+
+vmwAWSInterfaceSGLimitEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30014)
+)
+vmwAWSInterfaceSGLimitEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAWSInterfaceSGLimitEvent.setStatus(
+        "current"
+    )
+
+vmwPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30100)
+)
+vmwPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwSwitchPortPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30101)
+)
+vmwSwitchPortPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSwitchPortPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwRouterInterfacePacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30102)
+)
+vmwRouterInterfacePacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwRouterInterfacePacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwVnicPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30103)
+)
+vmwVnicPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVnicPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwVTEPUnderlayPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30104)
+)
+vmwVTEPUnderlayPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVTEPUnderlayPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwPnicUnderlyingSwitchPortPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30105)
+)
+vmwPnicUnderlyingSwitchPortPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPnicUnderlyingSwitchPortPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwDevicePacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30106)
+)
+vmwDevicePacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDevicePacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwSwitchPortBufferThresholdExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30107)
+)
+vmwSwitchPortBufferThresholdExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSwitchPortBufferThresholdExceededEvent.setStatus(
+        "current"
+    )
+
+vmwRouterInterfaceBufferThresholdExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30108)
+)
+vmwRouterInterfaceBufferThresholdExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwRouterInterfaceBufferThresholdExceededEvent.setStatus(
+        "current"
+    )
+
+vmwBufferThresholdExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30109)
+)
+vmwBufferThresholdExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwBufferThresholdExceededEvent.setStatus(
+        "current"
+    )
+
+vmwSwitchPortUptimeThresholdRecededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30110)
+)
+vmwSwitchPortUptimeThresholdRecededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSwitchPortUptimeThresholdRecededEvent.setStatus(
+        "current"
+    )
+
+vmwSwitchPortOperationalDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30111)
+)
+vmwSwitchPortOperationalDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSwitchPortOperationalDownEvent.setStatus(
+        "current"
+    )
+
+vmwRouterInterfaceOperationalDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30112)
+)
+vmwRouterInterfaceOperationalDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwRouterInterfaceOperationalDownEvent.setStatus(
+        "current"
+    )
+
+vmwPortOperationalDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30113)
+)
+vmwPortOperationalDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPortOperationalDownEvent.setStatus(
+        "current"
+    )
+
+vmwUnderlayDeviceGenericEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30114)
+)
+vmwUnderlayDeviceGenericEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnderlayDeviceGenericEvent.setStatus(
+        "current"
+    )
+
+vmwUnderlayDeviceFexOfflineEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30115)
+)
+vmwUnderlayDeviceFexOfflineEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnderlayDeviceFexOfflineEvent.setStatus(
+        "current"
+    )
+
+vmwUnderlayDeviceFanMalFunctionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30116)
+)
+vmwUnderlayDeviceFanMalFunctionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnderlayDeviceFanMalFunctionEvent.setStatus(
+        "current"
+    )
+
+vmwUnderlayDeviceTemperatureThresholdExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30117)
+)
+vmwUnderlayDeviceTemperatureThresholdExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnderlayDeviceTemperatureThresholdExceededEvent.setStatus(
+        "current"
+    )
+
+vmwUnderlayDeviceFexFanMalFunctionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30118)
+)
+vmwUnderlayDeviceFexFanMalFunctionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnderlayDeviceFexFanMalFunctionEvent.setStatus(
+        "current"
+    )
+
+vmwUnderlayDeviceFexPsMalFunctionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30119)
+)
+vmwUnderlayDeviceFexPsMalFunctionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnderlayDeviceFexPsMalFunctionEvent.setStatus(
+        "current"
+    )
+
+vmwUnderlayDeviceModuleMalFunctionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30120)
+)
+vmwUnderlayDeviceModuleMalFunctionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnderlayDeviceModuleMalFunctionEvent.setStatus(
+        "current"
+    )
+
+vmwUnderlayDevicePsMalFunctionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30121)
+)
+vmwUnderlayDevicePsMalFunctionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnderlayDevicePsMalFunctionEvent.setStatus(
+        "current"
+    )
+
+vmwUnderlayDeviceBfdSessionRemovedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30122)
+)
+vmwUnderlayDeviceBfdSessionRemovedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnderlayDeviceBfdSessionRemovedEvent.setStatus(
+        "current"
+    )
+
+vmwUnderlayDeviceLldpNeighbourRemovedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30123)
+)
+vmwUnderlayDeviceLldpNeighbourRemovedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnderlayDeviceLldpNeighbourRemovedEvent.setStatus(
+        "current"
+    )
+
+vmwSwitchPortRPFPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30124)
+)
+vmwSwitchPortRPFPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSwitchPortRPFPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventDataSourceCpuUsage = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30198)
+)
+vmwThresholdExceededEventDataSourceCpuUsage.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventDataSourceCpuUsage.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventDataSourceMemoryUsage = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30199)
+)
+vmwThresholdExceededEventDataSourceMemoryUsage.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventDataSourceMemoryUsage.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventDataSourceTemperature = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30200)
+)
+vmwThresholdExceededEventDataSourceTemperature.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventDataSourceTemperature.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventDatastoreFreeSpaceWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30203)
+)
+vmwThresholdExceededEventDatastoreFreeSpaceWarning.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventDatastoreFreeSpaceWarning.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventDatastoreFreeSpaceCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30204)
+)
+vmwThresholdExceededEventDatastoreFreeSpaceCritical.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventDatastoreFreeSpaceCritical.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventDatastoreReadLatency = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30205)
+)
+vmwThresholdExceededEventDatastoreReadLatency.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventDatastoreReadLatency.setStatus(
+        "current"
+    )
+
+vmwThresholdExceededEventDatastoreWriteLatency = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 30206)
+)
+vmwThresholdExceededEventDatastoreWriteLatency.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwThresholdExceededEventDatastoreWriteLatency.setStatus(
+        "current"
+    )
+
+vmwDistributedFirewallApplyHostEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35001)
+)
+vmwDistributedFirewallApplyHostEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDistributedFirewallApplyHostEvent.setStatus(
+        "current"
+    )
+
+vmwDistributedFirewallApplyVMEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35002)
+)
+vmwDistributedFirewallApplyVMEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDistributedFirewallApplyVMEvent.setStatus(
+        "current"
+    )
+
+vmwNsxEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35003)
+)
+vmwNsxEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxEvent.setStatus(
+        "current"
+    )
+
+vmwFeatureImpactedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35004)
+)
+vmwFeatureImpactedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFeatureImpactedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXComponentEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35221)
+)
+vmwNSXComponentEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXComponentEvent.setStatus(
+        "current"
+    )
+
+vmwNSXBackupEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35222)
+)
+vmwNSXBackupEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXBackupEvent.setStatus(
+        "current"
+    )
+
+vmwNSXBackupAuditLogExcludedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35223)
+)
+vmwNSXBackupAuditLogExcludedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXBackupAuditLogExcludedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXUnsecureBackupEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35224)
+)
+vmwNSXUnsecureBackupEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXUnsecureBackupEvent.setStatus(
+        "current"
+    )
+
+vmwNSXBackupSystemEventsExcludedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35225)
+)
+vmwNSXBackupSystemEventsExcludedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXBackupSystemEventsExcludedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXBackupNotScheduledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35226)
+)
+vmwNSXBackupNotScheduledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXBackupNotScheduledEvent.setStatus(
+        "current"
+    )
+
+vmwNSXBackupNotRecordedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35227)
+)
+vmwNSXBackupNotRecordedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXBackupNotRecordedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXNtpServerEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35228)
+)
+vmwNSXNtpServerEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXNtpServerEvent.setStatus(
+        "current"
+    )
+
+vmwNSXSysLogServerEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35229)
+)
+vmwNSXSysLogServerEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXSysLogServerEvent.setStatus(
+        "current"
+    )
+
+vmwControllerSysLogServerEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35230)
+)
+vmwControllerSysLogServerEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwControllerSysLogServerEvent.setStatus(
+        "current"
+    )
+
+vmwNSXIpV6EnabledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35231)
+)
+vmwNSXIpV6EnabledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXIpV6EnabledEvent.setStatus(
+        "current"
+    )
+
+vmwNSXOspfNeighborDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 35232)
+)
+vmwNSXOspfNeighborDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXOspfNeighborDownEvent.setStatus(
+        "current"
+    )
+
+vmwClusterFeatureVersionMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36022)
+)
+vmwClusterFeatureVersionMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwClusterFeatureVersionMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwHostFeatureVersionMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36023)
+)
+vmwHostFeatureVersionMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostFeatureVersionMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwFeatureVersionMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36024)
+)
+vmwFeatureVersionMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFeatureVersionMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwHostFeatureEnabledMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36025)
+)
+vmwHostFeatureEnabledMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostFeatureEnabledMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwHostFeatureInstalledMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36026)
+)
+vmwHostFeatureInstalledMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostFeatureInstalledMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwHostVtepNotFoundEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36027)
+)
+vmwHostVtepNotFoundEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostVtepNotFoundEvent.setStatus(
+        "current"
+    )
+
+vmwHostVtepDisconnectedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36028)
+)
+vmwHostVtepDisconnectedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostVtepDisconnectedEvent.setStatus(
+        "current"
+    )
+
+vmwHostVtepEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36029)
+)
+vmwHostVtepEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostVtepEvent.setStatus(
+        "current"
+    )
+
+vmwClusterHostsVtepMTUMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36030)
+)
+vmwClusterHostsVtepMTUMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwClusterHostsVtepMTUMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwFeatureUnhealthyEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36031)
+)
+vmwFeatureUnhealthyEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFeatureUnhealthyEvent.setStatus(
+        "current"
+    )
+
+vmwEdgeHANotConfiguredEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36032)
+)
+vmwEdgeHANotConfiguredEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEdgeHANotConfiguredEvent.setStatus(
+        "current"
+    )
+
+vmwEdgeInterfacesDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36033)
+)
+vmwEdgeInterfacesDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEdgeInterfacesDownEvent.setStatus(
+        "current"
+    )
+
+vmwModuleUnhealthyEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36041)
+)
+vmwModuleUnhealthyEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwModuleUnhealthyEvent.setStatus(
+        "current"
+    )
+
+vmwModuleNotLoadedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36042)
+)
+vmwModuleNotLoadedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwModuleNotLoadedEvent.setStatus(
+        "current"
+    )
+
+vmwModuleNetworkConnectionFailureEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36043)
+)
+vmwModuleNetworkConnectionFailureEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwModuleNetworkConnectionFailureEvent.setStatus(
+        "current"
+    )
+
+vmwHostNetworkControlPlaneMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36044)
+)
+vmwHostNetworkControlPlaneMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostNetworkControlPlaneMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwHostNetworkControlPlaneConnectionFailureEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36045)
+)
+vmwHostNetworkControlPlaneConnectionFailureEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostNetworkControlPlaneConnectionFailureEvent.setStatus(
+        "current"
+    )
+
+vmwHostNetworkControlPlaneNotSyncedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36046)
+)
+vmwHostNetworkControlPlaneNotSyncedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostNetworkControlPlaneNotSyncedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXControllerClusterMajorityEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36047)
+)
+vmwNSXControllerClusterMajorityEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXControllerClusterMajorityEvent.setStatus(
+        "current"
+    )
+
+vmwNSXControllersVMOnSameHostEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36048)
+)
+vmwNSXControllersVMOnSameHostEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXControllersVMOnSameHostEvent.setStatus(
+        "current"
+    )
+
+vmwVxLanRangeExhaustEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36049)
+)
+vmwVxLanRangeExhaustEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVxLanRangeExhaustEvent.setStatus(
+        "current"
+    )
+
+vmwNSXFirewallDefaultAllowAllRulesEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36050)
+)
+vmwNSXFirewallDefaultAllowAllRulesEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXFirewallDefaultAllowAllRulesEvent.setStatus(
+        "current"
+    )
+
+vmwLogicalRouterNoUplinkEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36051)
+)
+vmwLogicalRouterNoUplinkEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLogicalRouterNoUplinkEvent.setStatus(
+        "current"
+    )
+
+vmwEdgeNotHAEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36052)
+)
+vmwEdgeNotHAEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEdgeNotHAEvent.setStatus(
+        "current"
+    )
+
+vmwEdgeNotDeployedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36053)
+)
+vmwEdgeNotDeployedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEdgeNotDeployedEvent.setStatus(
+        "current"
+    )
+
+vmwEcmpIsEnabledAndStatefulServicesAreUpEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36054)
+)
+vmwEcmpIsEnabledAndStatefulServicesAreUpEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEcmpIsEnabledAndStatefulServicesAreUpEvent.setStatus(
+        "current"
+    )
+
+vmwLogicalRouterDeployedOnEcmpEdgeHostEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36055)
+)
+vmwLogicalRouterDeployedOnEcmpEdgeHostEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLogicalRouterDeployedOnEcmpEdgeHostEvent.setStatus(
+        "current"
+    )
+
+vmwEdgeMissingInterfaceOSPFAreaMappingEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36056)
+)
+vmwEdgeMissingInterfaceOSPFAreaMappingEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEdgeMissingInterfaceOSPFAreaMappingEvent.setStatus(
+        "current"
+    )
+
+vmwOspfInsecureAuthRouterEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36057)
+)
+vmwOspfInsecureAuthRouterEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwOspfInsecureAuthRouterEvent.setStatus(
+        "current"
+    )
+
+vmwNSXControllersDeployedCountEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36058)
+)
+vmwNSXControllersDeployedCountEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXControllersDeployedCountEvent.setStatus(
+        "current"
+    )
+
+vmwNSXControllerNotActiveCountEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36059)
+)
+vmwNSXControllerNotActiveCountEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXControllerNotActiveCountEvent.setStatus(
+        "current"
+    )
+
+vmwNSXControllerEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36060)
+)
+vmwNSXControllerEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXControllerEvent.setStatus(
+        "current"
+    )
+
+vmwNSXEcmpEdgeDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36061)
+)
+vmwNSXEcmpEdgeDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXEcmpEdgeDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXMajorityEcmpEdgesDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36062)
+)
+vmwNSXMajorityEcmpEdgesDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXMajorityEcmpEdgesDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXAllEcmpEdgesDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36063)
+)
+vmwNSXAllEcmpEdgesDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXAllEcmpEdgesDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXEdgeMtuMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36064)
+)
+vmwNSXEdgeMtuMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXEdgeMtuMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwNSXEdgeSplitBrainEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36065)
+)
+vmwNSXEdgeSplitBrainEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXEdgeSplitBrainEvent.setStatus(
+        "current"
+    )
+
+vmwVirtualDistributedRoutingEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36066)
+)
+vmwVirtualDistributedRoutingEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVirtualDistributedRoutingEvent.setStatus(
+        "current"
+    )
+
+vmwNSXEdgeBGPNeighbourDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 36067)
+)
+vmwNSXEdgeBGPNeighbourDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXEdgeBGPNeighbourDownEvent.setStatus(
+        "current"
+    )
+
+vmwAnalyticsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37001)
+)
+vmwAnalyticsEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAnalyticsEvent.setStatus(
+        "current"
+    )
+
+vmwAnalyticsOutlierEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37002)
+)
+vmwAnalyticsOutlierEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAnalyticsOutlierEvent.setStatus(
+        "current"
+    )
+
+vmwAnalyticsThresholdEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37003)
+)
+vmwAnalyticsThresholdEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAnalyticsThresholdEvent.setStatus(
+        "current"
+    )
+
+vmwAnalyticsThresholdCompositeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37004)
+)
+vmwAnalyticsThresholdCompositeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAnalyticsThresholdCompositeEvent.setStatus(
+        "current"
+    )
+
+vmwAllThresholdEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37005)
+)
+vmwAllThresholdEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAllThresholdEvent.setStatus(
+        "current"
+    )
+
+vmwAnalyticsThresholdCompositeProblemEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 37006)
+)
+vmwAnalyticsThresholdCompositeProblemEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAnalyticsThresholdCompositeProblemEvent.setStatus(
+        "current"
+    )
+
+vmwVMCEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 38001)
+)
+vmwVMCEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMCEvent.setStatus(
+        "current"
+    )
+
+vmwVMCSDDCTGWConnectivityFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 38003)
+)
+vmwVMCSDDCTGWConnectivityFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMCSDDCTGWConnectivityFailedEvent.setStatus(
+        "current"
+    )
+
+vmwVTGWDuplicateRoutesEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 38004)
+)
+vmwVTGWDuplicateRoutesEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVTGWDuplicateRoutesEvent.setStatus(
+        "current"
+    )
+
+vmwSwitchPortRxNetworkUsageThresholdExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40000)
+)
+vmwSwitchPortRxNetworkUsageThresholdExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSwitchPortRxNetworkUsageThresholdExceededEvent.setStatus(
+        "current"
+    )
+
+vmwCriticalHostNotAccessibleEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40001)
+)
+vmwCriticalHostNotAccessibleEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwCriticalHostNotAccessibleEvent.setStatus(
+        "current"
+    )
+
+vmwSwitchPortTxNetworkUsageThresholdExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40002)
+)
+vmwSwitchPortTxNetworkUsageThresholdExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSwitchPortTxNetworkUsageThresholdExceededEvent.setStatus(
+        "current"
+    )
+
+vmwSwitchPortRxNetworkUsageThresholdExceededCriticalEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40003)
+)
+vmwSwitchPortRxNetworkUsageThresholdExceededCriticalEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSwitchPortRxNetworkUsageThresholdExceededCriticalEvent.setStatus(
+        "current"
+    )
+
+vmwSwitchPortTxNetworkUsageThresholdExceededCriticalEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40004)
+)
+vmwSwitchPortTxNetworkUsageThresholdExceededCriticalEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSwitchPortTxNetworkUsageThresholdExceededCriticalEvent.setStatus(
+        "current"
+    )
+
+vmwManagementHostHighCPUUsageEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40005)
+)
+vmwManagementHostHighCPUUsageEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwManagementHostHighCPUUsageEvent.setStatus(
+        "current"
+    )
+
+vmwManagementHostHighCPUUsageCriticalEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40006)
+)
+vmwManagementHostHighCPUUsageCriticalEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwManagementHostHighCPUUsageCriticalEvent.setStatus(
+        "current"
+    )
+
+vmwHostUnHealthyEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40007)
+)
+vmwHostUnHealthyEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostUnHealthyEvent.setStatus(
+        "current"
+    )
+
+vmwNSXControllerFSAvailableThresholdRecededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40008)
+)
+vmwNSXControllerFSAvailableThresholdRecededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXControllerFSAvailableThresholdRecededEvent.setStatus(
+        "current"
+    )
+
+vmwEdgeVmVnicRxPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40011)
+)
+vmwEdgeVmVnicRxPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEdgeVmVnicRxPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwEdgeVmVnicTxPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40012)
+)
+vmwEdgeVmVnicTxPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEdgeVmVnicTxPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwManagementHostPnicRxPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40013)
+)
+vmwManagementHostPnicRxPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwManagementHostPnicRxPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwManagementHostPnicTxPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40014)
+)
+vmwManagementHostPnicTxPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwManagementHostPnicTxPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwManagementHostConnectionStateDisconnectedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 40015)
+)
+vmwManagementHostConnectionStateDisconnectedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwManagementHostConnectionStateDisconnectedEvent.setStatus(
+        "current"
+    )
+
+vmwGenericNSXSystemEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70000)
+)
+vmwGenericNSXSystemEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwGenericNSXSystemEvent.setStatus(
+        "current"
+    )
+
+vmwFilterConfigApplyOnHostFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70001)
+)
+vmwFilterConfigApplyOnHostFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFilterConfigApplyOnHostFailedEvent.setStatus(
+        "current"
+    )
+
+vmwRulesetLoadOnHostFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70002)
+)
+vmwRulesetLoadOnHostFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwRulesetLoadOnHostFailedEvent.setStatus(
+        "current"
+    )
+
+vmwConfigUpdateOnHostFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70003)
+)
+vmwConfigUpdateOnHostFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwConfigUpdateOnHostFailedEvent.setStatus(
+        "current"
+    )
+
+vmwSpoofguardConfigUpdateOnHostFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70004)
+)
+vmwSpoofguardConfigUpdateOnHostFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSpoofguardConfigUpdateOnHostFailedEvent.setStatus(
+        "current"
+    )
+
+vmwApplyRuleToVnicFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70005)
+)
+vmwApplyRuleToVnicFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwApplyRuleToVnicFailedEvent.setStatus(
+        "current"
+    )
+
+vmwContainerConfigUpdateOnVnicFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70006)
+)
+vmwContainerConfigUpdateOnVnicFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwContainerConfigUpdateOnVnicFailedEvent.setStatus(
+        "current"
+    )
+
+vmwSpoofguardApplyToVnicFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70007)
+)
+vmwSpoofguardApplyToVnicFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSpoofguardApplyToVnicFailedEvent.setStatus(
+        "current"
+    )
+
+vmwHostMessagingConfigurationFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70008)
+)
+vmwHostMessagingConfigurationFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostMessagingConfigurationFailedEvent.setStatus(
+        "current"
+    )
+
+vmwHostMessagingConnectionReconfigurationFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70009)
+)
+vmwHostMessagingConnectionReconfigurationFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostMessagingConnectionReconfigurationFailedEvent.setStatus(
+        "current"
+    )
+
+vmwHostMessagingConfigurationFailedNotificationSkippedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70010)
+)
+vmwHostMessagingConfigurationFailedNotificationSkippedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostMessagingConfigurationFailedNotificationSkippedEvent.setStatus(
+        "current"
+    )
+
+vmwHostMessagingInfrastructureDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70011)
+)
+vmwHostMessagingInfrastructureDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostMessagingInfrastructureDownEvent.setStatus(
+        "current"
+    )
+
+vmwEdgeVMNotRespondingEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70012)
+)
+vmwEdgeVMNotRespondingEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEdgeVMNotRespondingEvent.setStatus(
+        "current"
+    )
+
+vmwEdgeUnhealthyEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70013)
+)
+vmwEdgeUnhealthyEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEdgeUnhealthyEvent.setStatus(
+        "current"
+    )
+
+vmwEdgeVMCommunicationFailureEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70014)
+)
+vmwEdgeVMCommunicationFailureEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwEdgeVMCommunicationFailureEvent.setStatus(
+        "current"
+    )
+
+vmwNSXEdgeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 70015)
+)
+vmwNSXEdgeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXEdgeEvent.setStatus(
+        "current"
+    )
+
+vmwOtherCriticalNSXEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 71000)
+)
+vmwOtherCriticalNSXEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwOtherCriticalNSXEvent.setStatus(
+        "current"
+    )
+
+vmwPanEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80000)
+)
+vmwPanEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPanEvent.setStatus(
+        "current"
+    )
+
+vmwPanNsxNotInRegisteredStateEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80001)
+)
+vmwPanNsxNotInRegisteredStateEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPanNsxNotInRegisteredStateEvent.setStatus(
+        "current"
+    )
+
+vmwPanNsxDynamicUpdateDelayedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80002)
+)
+vmwPanNsxDynamicUpdateDelayedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPanNsxDynamicUpdateDelayedEvent.setStatus(
+        "current"
+    )
+
+vmwPanDeviceInDisconnectedStateEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80003)
+)
+vmwPanDeviceInDisconnectedStateEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPanDeviceInDisconnectedStateEvent.setStatus(
+        "current"
+    )
+
+vmwPanNsxServiceApplianceViewMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80004)
+)
+vmwPanNsxServiceApplianceViewMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPanNsxServiceApplianceViewMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwPanNsxFabricAgentNotFoundOnHostEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80005)
+)
+vmwPanNsxFabricAgentNotFoundOnHostEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPanNsxFabricAgentNotFoundOnHostEvent.setStatus(
+        "current"
+    )
+
+vmwPanNsxServiceVMNotFoundOnHostEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80006)
+)
+vmwPanNsxServiceVMNotFoundOnHostEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPanNsxServiceVMNotFoundOnHostEvent.setStatus(
+        "current"
+    )
+
+vmwPanLogInsightDroppedFlowEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80050)
+)
+vmwPanLogInsightDroppedFlowEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPanLogInsightDroppedFlowEvent.setStatus(
+        "current"
+    )
+
+vmwCPLogInsightDroppedFlowEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80051)
+)
+vmwCPLogInsightDroppedFlowEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwCPLogInsightDroppedFlowEvent.setStatus(
+        "current"
+    )
+
+vmwCheckpointEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80100)
+)
+vmwCheckpointEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwCheckpointEvent.setStatus(
+        "current"
+    )
+
+vmwCheckpointNsxFabricAgentNotFoundOnHostEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80102)
+)
+vmwCheckpointNsxFabricAgentNotFoundOnHostEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwCheckpointNsxFabricAgentNotFoundOnHostEvent.setStatus(
+        "current"
+    )
+
+vmwCheckpointNsxServiceVMNotFoundOnHostEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80103)
+)
+vmwCheckpointNsxServiceVMNotFoundOnHostEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwCheckpointNsxServiceVMNotFoundOnHostEvent.setStatus(
+        "current"
+    )
+
+vmwCheckpointGatewaySicStatusNotCommunicatingEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80104)
+)
+vmwCheckpointGatewaySicStatusNotCommunicatingEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwCheckpointGatewaySicStatusNotCommunicatingEvent.setStatus(
+        "current"
+    )
+
+vmwCheckpointNsxServiceApplianceViewMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80105)
+)
+vmwCheckpointNsxServiceApplianceViewMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwCheckpointNsxServiceApplianceViewMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80200)
+)
+vmwNSXTEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTVcNotAddedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80201)
+)
+vmwNSXTVcNotAddedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTVcNotAddedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTStandaloneHostsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80202)
+)
+vmwNSXTStandaloneHostsEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTStandaloneHostsEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTSystemEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80203)
+)
+vmwNSXTSystemEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTSystemEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTNoUplinkConnectivityEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80205)
+)
+vmwNSXTNoUplinkConnectivityEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTNoUplinkConnectivityEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTRoutingAdvertisementEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80206)
+)
+vmwNSXTRoutingAdvertisementEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTRoutingAdvertisementEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTManagerConnectivityDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80207)
+)
+vmwNSXTManagerConnectivityDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTManagerConnectivityDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTControllerConnectivityDegradedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80208)
+)
+vmwNSXTControllerConnectivityDegradedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTControllerConnectivityDegradedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTControllerConnectivityDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80209)
+)
+vmwNSXTControllerConnectivityDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTControllerConnectivityDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMtuMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80210)
+)
+vmwNSXTMtuMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMtuMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTExcludedVmFlowEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80211)
+)
+vmwNSXTExcludedVmFlowEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTExcludedVmFlowEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTDoubleVlanTaggingEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80212)
+)
+vmwNSXTDoubleVlanTaggingEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTDoubleVlanTaggingEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTNoTzAttachedOnTnEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80213)
+)
+vmwNSXTNoTzAttachedOnTnEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTNoTzAttachedOnTnEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTVtepDeleteEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80214)
+)
+vmwNSXTVtepDeleteEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTVtepDeleteEvent.setStatus(
+        "current"
+    )
+
+vmwDuplicateL3SwitchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80215)
+)
+vmwDuplicateL3SwitchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDuplicateL3SwitchEvent.setStatus(
+        "current"
+    )
+
+vmwLBPoolMemberDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80216)
+)
+vmwLBPoolMemberDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLBPoolMemberDownEvent.setStatus(
+        "current"
+    )
+
+vmwLBPoolDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80217)
+)
+vmwLBPoolDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLBPoolDownEvent.setStatus(
+        "current"
+    )
+
+vmwLBPoolEmptyEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80218)
+)
+vmwLBPoolEmptyEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLBPoolEmptyEvent.setStatus(
+        "current"
+    )
+
+vmwLBPoolMemberVMDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80219)
+)
+vmwLBPoolMemberVMDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLBPoolMemberVMDownEvent.setStatus(
+        "current"
+    )
+
+vmwLBVirtualServerDisableEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80220)
+)
+vmwLBVirtualServerDisableEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLBVirtualServerDisableEvent.setStatus(
+        "current"
+    )
+
+vmwLBServiceNodeIPNotFoundEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80221)
+)
+vmwLBServiceNodeIPNotFoundEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLBServiceNodeIPNotFoundEvent.setStatus(
+        "current"
+    )
+
+vmwLBServiceNodeMultipleNicFoundEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80222)
+)
+vmwLBServiceNodeMultipleNicFoundEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLBServiceNodeMultipleNicFoundEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTSwitchIpfixEnabledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80223)
+)
+vmwNSXTSwitchIpfixEnabledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTSwitchIpfixEnabledEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTStandaloneHostsWithoutVcEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80224)
+)
+vmwNSXTStandaloneHostsWithoutVcEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTStandaloneHostsWithoutVcEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTControllerNodeToControlClusterConnectivityEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80225)
+)
+vmwNSXTControllerNodeToControlClusterConnectivityEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTControllerNodeToControlClusterConnectivityEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTControllerNodeToMgmtPlaneConnectivityEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80226)
+)
+vmwNSXTControllerNodeToMgmtPlaneConnectivityEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTControllerNodeToMgmtPlaneConnectivityEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeToMgmtClusterConnectivityEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80227)
+)
+vmwNSXTMPNodeToMgmtClusterConnectivityEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeToMgmtClusterConnectivityEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodePnicStatusDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80228)
+)
+vmwNSXTHostNodePnicStatusDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodePnicStatusDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodePnicStatusDegradedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80229)
+)
+vmwNSXTHostNodePnicStatusDegradedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodePnicStatusDegradedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodePnicStatusUnknownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80230)
+)
+vmwNSXTHostNodePnicStatusUnknownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodePnicStatusUnknownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodeTunnelStatusDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80231)
+)
+vmwNSXTHostNodeTunnelStatusDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodeTunnelStatusDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodeTunnelStatusDegradedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80232)
+)
+vmwNSXTHostNodeTunnelStatusDegradedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodeTunnelStatusDegradedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodeTunnelStatusUnknownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80233)
+)
+vmwNSXTHostNodeTunnelStatusUnknownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodeTunnelStatusUnknownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodeStatusDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80234)
+)
+vmwNSXTHostNodeStatusDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodeStatusDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodeStatusDegradedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80235)
+)
+vmwNSXTHostNodeStatusDegradedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodeStatusDegradedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodeStatusUnknownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80236)
+)
+vmwNSXTHostNodeStatusUnknownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodeStatusUnknownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeNodePnicStatusDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80237)
+)
+vmwNSXTEdgeNodePnicStatusDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeNodePnicStatusDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeNodePnicStatusDegradedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80238)
+)
+vmwNSXTEdgeNodePnicStatusDegradedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeNodePnicStatusDegradedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeNodePnicStatusUnknownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80239)
+)
+vmwNSXTEdgeNodePnicStatusUnknownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeNodePnicStatusUnknownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeNodeTunnelStatusDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80240)
+)
+vmwNSXTEdgeNodeTunnelStatusDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeNodeTunnelStatusDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeNodeTunnelStatusDegradedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80241)
+)
+vmwNSXTEdgeNodeTunnelStatusDegradedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeNodeTunnelStatusDegradedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeNodeTunnelStatusUnknownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80242)
+)
+vmwNSXTEdgeNodeTunnelStatusUnknownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeNodeTunnelStatusUnknownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeNodeStatusDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80243)
+)
+vmwNSXTEdgeNodeStatusDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeNodeStatusDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeNodeStatusDegradedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80244)
+)
+vmwNSXTEdgeNodeStatusDegradedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeNodeStatusDegradedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeNodeStatusUnknownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80245)
+)
+vmwNSXTEdgeNodeStatusUnknownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeNodeStatusUnknownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodeMgmtConnectivityStatusDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80246)
+)
+vmwNSXTHostNodeMgmtConnectivityStatusDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodeMgmtConnectivityStatusDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeNodeCtlrConnectivityStatusUnknownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80247)
+)
+vmwNSXTEdgeNodeCtlrConnectivityStatusUnknownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeNodeCtlrConnectivityStatusUnknownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodeCtlrConnectivityStatusDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80248)
+)
+vmwNSXTHostNodeCtlrConnectivityStatusDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodeCtlrConnectivityStatusDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodeCtlrConnectivityStatusDegradedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80249)
+)
+vmwNSXTHostNodeCtlrConnectivityStatusDegradedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodeCtlrConnectivityStatusDegradedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodeCtlrConnectivityStatusUnknownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80250)
+)
+vmwNSXTHostNodeCtlrConnectivityStatusUnknownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodeCtlrConnectivityStatusUnknownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTBGPNeighbourStateEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80251)
+)
+vmwNSXTBGPNeighbourStateEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTBGPNeighbourStateEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTLogicalSwitchAdminStatusDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80252)
+)
+vmwNSXTLogicalSwitchAdminStatusDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTLogicalSwitchAdminStatusDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTLogicalPortOperationalStatusDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80253)
+)
+vmwNSXTLogicalPortOperationalStatusDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTLogicalPortOperationalStatusDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTLogicalPortOperationalStatusUnknownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80254)
+)
+vmwNSXTLogicalPortOperationalStatusUnknownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTLogicalPortOperationalStatusUnknownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTComputeManagerConnectionStatusNotUpEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80255)
+)
+vmwNSXTComputeManagerConnectionStatusNotUpEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTComputeManagerConnectionStatusNotUpEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTClusterBackUpDisabledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80256)
+)
+vmwNSXTClusterBackUpDisabledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTClusterBackUpDisabledEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTDFWFirewallDisabledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80257)
+)
+vmwNSXTDFWFirewallDisabledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTDFWFirewallDisabledEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTLogicalPortReceivedPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80258)
+)
+vmwNSXTLogicalPortReceivedPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTLogicalPortReceivedPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTLogicalPortTransmittedPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80259)
+)
+vmwNSXTLogicalPortTransmittedPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTLogicalPortTransmittedPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTLogicalSwitchReceivedPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80260)
+)
+vmwNSXTLogicalSwitchReceivedPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTLogicalSwitchReceivedPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTLogicalSwitchTransmittedPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80261)
+)
+vmwNSXTLogicalSwitchTransmittedPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTLogicalSwitchTransmittedPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTRxPacketDropOnMPNicEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80262)
+)
+vmwNSXTRxPacketDropOnMPNicEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTRxPacketDropOnMPNicEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTRxPacketDropOnEdgeTnNicEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80263)
+)
+vmwNSXTRxPacketDropOnEdgeTnNicEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTRxPacketDropOnEdgeTnNicEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTRxPacketDropOnHostTnNicEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80264)
+)
+vmwNSXTRxPacketDropOnHostTnNicEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTRxPacketDropOnHostTnNicEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTTxPacketDropOnMPNicEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80265)
+)
+vmwNSXTTxPacketDropOnMPNicEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTTxPacketDropOnMPNicEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTTxPacketDropOnEdgeTnNicEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80266)
+)
+vmwNSXTTxPacketDropOnEdgeTnNicEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTTxPacketDropOnEdgeTnNicEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTTxPacketDropOnHostTnNicEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80267)
+)
+vmwNSXTTxPacketDropOnHostTnNicEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTTxPacketDropOnHostTnNicEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTRxPacketDropOnNicEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80268)
+)
+vmwNSXTRxPacketDropOnNicEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTRxPacketDropOnNicEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTTxPacketDropOnNicEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80269)
+)
+vmwNSXTTxPacketDropOnNicEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTTxPacketDropOnNicEvent.setStatus(
+        "current"
+    )
+
+vmwNatRuleLargeSubnetEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80270)
+)
+vmwNatRuleLargeSubnetEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNatRuleLargeSubnetEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeNodeMaintenanceModeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80271)
+)
+vmwNSXTEdgeNodeMaintenanceModeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeNodeMaintenanceModeEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTHostNodeMaintenanceModeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80272)
+)
+vmwNSXTHostNodeMaintenanceModeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTHostNodeMaintenanceModeEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTEdgeDVPGsIPFIXDisabledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80273)
+)
+vmwNSXTEdgeDVPGsIPFIXDisabledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTEdgeDVPGsIPFIXDisabledEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTRouterInterfaceRPFPacketDropEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80274)
+)
+vmwNSXTRouterInterfaceRPFPacketDropEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTRouterInterfaceRPFPacketDropEvent.setStatus(
+        "current"
+    )
+
+vmwNsxtIpfixMultipleCollectorConfigurationEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80275)
+)
+vmwNsxtIpfixMultipleCollectorConfigurationEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxtIpfixMultipleCollectorConfigurationEvent.setStatus(
+        "current"
+    )
+
+vmwHardwareVTEPMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80301)
+)
+vmwHardwareVTEPMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHardwareVTEPMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwHardwareVTEPPortDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80302)
+)
+vmwHardwareVTEPPortDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHardwareVTEPPortDownEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceCmInventoryStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80402)
+)
+vmwNSXTMPNodeServiceCmInventoryStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceCmInventoryStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceControllerStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80403)
+)
+vmwNSXTMPNodeServiceControllerStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceControllerStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceDataStoreStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80404)
+)
+vmwNSXTMPNodeServiceDataStoreStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceDataStoreStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceHttpStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80405)
+)
+vmwNSXTMPNodeServiceHttpStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceHttpStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceInstallUpgradeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80406)
+)
+vmwNSXTMPNodeServiceInstallUpgradeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceInstallUpgradeEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceLiagentStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80407)
+)
+vmwNSXTMPNodeServiceLiagentStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceLiagentStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceManagerStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80408)
+)
+vmwNSXTMPNodeServiceManagerStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceManagerStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceMgmtPlaneBusStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80409)
+)
+vmwNSXTMPNodeServiceMgmtPlaneBusStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceMgmtPlaneBusStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceMigrationCoordinatorStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80410)
+)
+vmwNSXTMPNodeServiceMigrationCoordinatorStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceMigrationCoordinatorStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceNodeMgmtStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80411)
+)
+vmwNSXTMPNodeServiceNodeMgmtStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceNodeMgmtStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceNodeStatsStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80412)
+)
+vmwNSXTMPNodeServiceNodeStatsStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceNodeStatsStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceNSXMessageBusStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80413)
+)
+vmwNSXTMPNodeServiceNSXMessageBusStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceNSXMessageBusStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceNSXPlatformClientStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80414)
+)
+vmwNSXTMPNodeServiceNSXPlatformClientStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceNSXPlatformClientStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceNSXUpgradeAgentStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80415)
+)
+vmwNSXTMPNodeServiceNSXUpgradeAgentStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceNSXUpgradeAgentStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceNTPStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80416)
+)
+vmwNSXTMPNodeServiceNTPStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceNTPStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServicePolicyStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80417)
+)
+vmwNSXTMPNodeServicePolicyStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServicePolicyStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceSearchStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80418)
+)
+vmwNSXTMPNodeServiceSearchStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceSearchStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceSNMPStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80419)
+)
+vmwNSXTMPNodeServiceSNMPStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceSNMPStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceSSHStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80420)
+)
+vmwNSXTMPNodeServiceSSHStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceSSHStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceSyslogStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80421)
+)
+vmwNSXTMPNodeServiceSyslogStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceSyslogStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceTelemetryStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80422)
+)
+vmwNSXTMPNodeServiceTelemetryStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceTelemetryStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceUIServiceStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80423)
+)
+vmwNSXTMPNodeServiceUIServiceStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceUIServiceStatusEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTMPNodeServiceClusterManagerStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80424)
+)
+vmwNSXTMPNodeServiceClusterManagerStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTMPNodeServiceClusterManagerStatusEvent.setStatus(
+        "current"
+    )
+
+vmwIndexerLagEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80501)
+)
+vmwIndexerLagEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIndexerLagEvent.setStatus(
+        "current"
+    )
+
+vmwIPFIXFlowDPPausedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80502)
+)
+vmwIPFIXFlowDPPausedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIPFIXFlowDPPausedEvent.setStatus(
+        "current"
+    )
+
+vmwGridProcessingStoppedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80503)
+)
+vmwGridProcessingStoppedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwGridProcessingStoppedEvent.setStatus(
+        "current"
+    )
+
+vmwUnableToSendEmailsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80504)
+)
+vmwUnableToSendEmailsEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnableToSendEmailsEvent.setStatus(
+        "current"
+    )
+
+vmwSMTPNotConfiguredEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80505)
+)
+vmwSMTPNotConfiguredEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSMTPNotConfiguredEvent.setStatus(
+        "current"
+    )
+
+vmwSNMPNotConfiguredEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80506)
+)
+vmwSNMPNotConfiguredEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSNMPNotConfiguredEvent.setStatus(
+        "current"
+    )
+
+vmwReindexingInProgressEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80507)
+)
+vmwReindexingInProgressEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwReindexingInProgressEvent.setStatus(
+        "current"
+    )
+
+vmwNodesVersionMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80508)
+)
+vmwNodesVersionMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNodesVersionMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwNotAllServicesRunningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80509)
+)
+vmwNotAllServicesRunningEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNotAllServicesRunningEvent.setStatus(
+        "current"
+    )
+
+vmwNotAllServicesHealthyEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80510)
+)
+vmwNotAllServicesHealthyEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNotAllServicesHealthyEvent.setStatus(
+        "current"
+    )
+
+vmwExpandPartitionFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80511)
+)
+vmwExpandPartitionFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwExpandPartitionFailedEvent.setStatus(
+        "current"
+    )
+
+vmwDiskCleanupFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80512)
+)
+vmwDiskCleanupFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDiskCleanupFailedEvent.setStatus(
+        "current"
+    )
+
+vmwVacuumFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80513)
+)
+vmwVacuumFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVacuumFailedEvent.setStatus(
+        "current"
+    )
+
+vmwConfigStoreCleanupFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80514)
+)
+vmwConfigStoreCleanupFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwConfigStoreCleanupFailedEvent.setStatus(
+        "current"
+    )
+
+vmwHBaseRetentionToolFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80515)
+)
+vmwHBaseRetentionToolFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHBaseRetentionToolFailedEvent.setStatus(
+        "current"
+    )
+
+vmwMetricStoreUpdaterFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80516)
+)
+vmwMetricStoreUpdaterFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwMetricStoreUpdaterFailedEvent.setStatus(
+        "current"
+    )
+
+vmwCollectorLagEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80517)
+)
+vmwCollectorLagEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwCollectorLagEvent.setStatus(
+        "current"
+    )
+
+vmwCollectionLagEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80518)
+)
+vmwCollectionLagEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwCollectionLagEvent.setStatus(
+        "current"
+    )
+
+vmwGridProcessingLagEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80519)
+)
+vmwGridProcessingLagEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwGridProcessingLagEvent.setStatus(
+        "current"
+    )
+
+vmwConnectionErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80520)
+)
+vmwConnectionErrorEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwConnectionErrorEvent.setStatus(
+        "current"
+    )
+
+vmwNodeNotActiveEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80521)
+)
+vmwNodeNotActiveEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNodeNotActiveEvent.setStatus(
+        "current"
+    )
+
+vmwHighDiskUtilizationEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80522)
+)
+vmwHighDiskUtilizationEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHighDiskUtilizationEvent.setStatus(
+        "current"
+    )
+
+vmwIndexingAbortedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80523)
+)
+vmwIndexingAbortedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIndexingAbortedEvent.setStatus(
+        "current"
+    )
+
+vmwUpgradeFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80524)
+)
+vmwUpgradeFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUpgradeFailedEvent.setStatus(
+        "current"
+    )
+
+vmwFlowProcessingSuspendedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80525)
+)
+vmwFlowProcessingSuspendedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFlowProcessingSuspendedEvent.setStatus(
+        "current"
+    )
+
+vmwLargeSdmsDroppedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80526)
+)
+vmwLargeSdmsDroppedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLargeSdmsDroppedEvent.setStatus(
+        "current"
+    )
+
+vmwApplianceNotConfiguredEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80527)
+)
+vmwApplianceNotConfiguredEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwApplianceNotConfiguredEvent.setStatus(
+        "current"
+    )
+
+vmwDiskAllocationInsufficientEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80528)
+)
+vmwDiskAllocationInsufficientEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDiskAllocationInsufficientEvent.setStatus(
+        "current"
+    )
+
+vmwApplianceNotRegisteredEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80529)
+)
+vmwApplianceNotRegisteredEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwApplianceNotRegisteredEvent.setStatus(
+        "current"
+    )
+
+vmwRegCertExpiredEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80530)
+)
+vmwRegCertExpiredEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwRegCertExpiredEvent.setStatus(
+        "current"
+    )
+
+vmwFdbConfigStoreCleanupFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80531)
+)
+vmwFdbConfigStoreCleanupFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFdbConfigStoreCleanupFailedEvent.setStatus(
+        "current"
+    )
+
+vmwDeploymentDefMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80532)
+)
+vmwDeploymentDefMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDeploymentDefMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwBackupFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80533)
+)
+vmwBackupFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwBackupFailedEvent.setStatus(
+        "current"
+    )
+
+vmwAdditionalResourcesRequiredEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80534)
+)
+vmwAdditionalResourcesRequiredEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAdditionalResourcesRequiredEvent.setStatus(
+        "current"
+    )
+
+vmwCapacityReconfigurationRequiredEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80535)
+)
+vmwCapacityReconfigurationRequiredEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwCapacityReconfigurationRequiredEvent.setStatus(
+        "current"
+    )
+
+vmwCapacityReconfigurationFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80536)
+)
+vmwCapacityReconfigurationFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwCapacityReconfigurationFailedEvent.setStatus(
+        "current"
+    )
+
+vmwLicenseExpiredEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80537)
+)
+vmwLicenseExpiredEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLicenseExpiredEvent.setStatus(
+        "current"
+    )
+
+vmwInGracePeriodEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80538)
+)
+vmwInGracePeriodEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwInGracePeriodEvent.setStatus(
+        "current"
+    )
+
+vmwUnableToSendSNMPTrapsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80539)
+)
+vmwUnableToSendSNMPTrapsEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnableToSendSNMPTrapsEvent.setStatus(
+        "current"
+    )
+
+vmwStreamProcessingFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80540)
+)
+vmwStreamProcessingFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwStreamProcessingFailedEvent.setStatus(
+        "current"
+    )
+
+vmwIpfixFlowLagEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80541)
+)
+vmwIpfixFlowLagEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIpfixFlowLagEvent.setStatus(
+        "current"
+    )
+
+vmwChangeEventsDroppedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80542)
+)
+vmwChangeEventsDroppedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwChangeEventsDroppedEvent.setStatus(
+        "current"
+    )
+
+vmwHighDiskIoUtilizationEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80543)
+)
+vmwHighDiskIoUtilizationEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHighDiskIoUtilizationEvent.setStatus(
+        "current"
+    )
+
+vmwServiceRestartCountExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80544)
+)
+vmwServiceRestartCountExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwServiceRestartCountExceededEvent.setStatus(
+        "current"
+    )
+
+vmwAnalyticsMemoryLimitsExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80600)
+)
+vmwAnalyticsMemoryLimitsExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAnalyticsMemoryLimitsExceededEvent.setStatus(
+        "current"
+    )
+
+vmwFailedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80601)
+)
+vmwFailedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFailedEvent.setStatus(
+        "current"
+    )
+
+vmwTimeoutEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80602)
+)
+vmwTimeoutEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwTimeoutEvent.setStatus(
+        "current"
+    )
+
+vmwConnectionRefusedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80603)
+)
+vmwConnectionRefusedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwConnectionRefusedEvent.setStatus(
+        "current"
+    )
+
+vmwSNOWMandatoryPrivilegeMissingEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80604)
+)
+vmwSNOWMandatoryPrivilegeMissingEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSNOWMandatoryPrivilegeMissingEvent.setStatus(
+        "current"
+    )
+
+vmwIncorrectConnectionStringEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80605)
+)
+vmwIncorrectConnectionStringEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIncorrectConnectionStringEvent.setStatus(
+        "current"
+    )
+
+vmwInvalidCredentialsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80606)
+)
+vmwInvalidCredentialsEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwInvalidCredentialsEvent.setStatus(
+        "current"
+    )
+
+vmwUnknownHostEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80608)
+)
+vmwUnknownHostEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnknownHostEvent.setStatus(
+        "current"
+    )
+
+vmwSNMPConnectionInvalidEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80609)
+)
+vmwSNMPConnectionInvalidEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSNMPConnectionInvalidEvent.setStatus(
+        "current"
+    )
+
+vmwFailedCredsEncryptEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80611)
+)
+vmwFailedCredsEncryptEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFailedCredsEncryptEvent.setStatus(
+        "current"
+    )
+
+vmwPwdAuthModeDisabledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80612)
+)
+vmwPwdAuthModeDisabledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPwdAuthModeDisabledEvent.setStatus(
+        "current"
+    )
+
+vmwInsufficientPrivilegesEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80613)
+)
+vmwInsufficientPrivilegesEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwInsufficientPrivilegesEvent.setStatus(
+        "current"
+    )
+
+vmwNotFoundEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80614)
+)
+vmwNotFoundEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNotFoundEvent.setStatus(
+        "current"
+    )
+
+vmwInvalidConfigEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80616)
+)
+vmwInvalidConfigEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwInvalidConfigEvent.setStatus(
+        "current"
+    )
+
+vmwWarnConfigEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80617)
+)
+vmwWarnConfigEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwWarnConfigEvent.setStatus(
+        "current"
+    )
+
+vmwUnexpectedDSTypeOrVersionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80618)
+)
+vmwUnexpectedDSTypeOrVersionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnexpectedDSTypeOrVersionEvent.setStatus(
+        "current"
+    )
+
+vmwNSXControllerNotFoundEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80619)
+)
+vmwNSXControllerNotFoundEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXControllerNotFoundEvent.setStatus(
+        "current"
+    )
+
+vmwHostNotReachableEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80620)
+)
+vmwHostNotReachableEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostNotReachableEvent.setStatus(
+        "current"
+    )
+
+vmwInvalidResponseFromDatasourceEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80621)
+)
+vmwInvalidResponseFromDatasourceEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwInvalidResponseFromDatasourceEvent.setStatus(
+        "current"
+    )
+
+vmwDataProviderNotRunningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80622)
+)
+vmwDataProviderNotRunningEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDataProviderNotRunningEvent.setStatus(
+        "current"
+    )
+
+vmwPrimaryNSXNotAddedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80623)
+)
+vmwPrimaryNSXNotAddedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPrimaryNSXNotAddedEvent.setStatus(
+        "current"
+    )
+
+vmwHostnameResolutionErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80624)
+)
+vmwHostnameResolutionErrorEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHostnameResolutionErrorEvent.setStatus(
+        "current"
+    )
+
+vmwNumVMsOrHostsNotFoundEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80625)
+)
+vmwNumVMsOrHostsNotFoundEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNumVMsOrHostsNotFoundEvent.setStatus(
+        "current"
+    )
+
+vmwNSXIPFIXStatusMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80626)
+)
+vmwNSXIPFIXStatusMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXIPFIXStatusMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwFlowPhysicalNodeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80627)
+)
+vmwFlowPhysicalNodeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFlowPhysicalNodeEvent.setStatus(
+        "current"
+    )
+
+vmwNotEmptyNodeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80628)
+)
+vmwNotEmptyNodeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNotEmptyNodeEvent.setStatus(
+        "current"
+    )
+
+vmwUnsupportedNSXTVersionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80629)
+)
+vmwUnsupportedNSXTVersionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnsupportedNSXTVersionEvent.setStatus(
+        "current"
+    )
+
+vmwComputeManagersNotFoundEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80630)
+)
+vmwComputeManagersNotFoundEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwComputeManagersNotFoundEvent.setStatus(
+        "current"
+    )
+
+vmwComputeManagersNotAddedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80631)
+)
+vmwComputeManagersNotAddedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwComputeManagersNotAddedEvent.setStatus(
+        "current"
+    )
+
+vmwUnsupportedLogInsightVersionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80632)
+)
+vmwUnsupportedLogInsightVersionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnsupportedLogInsightVersionEvent.setStatus(
+        "current"
+    )
+
+vmwUnsupportedVRNIContentPackVersionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80633)
+)
+vmwUnsupportedVRNIContentPackVersionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnsupportedVRNIContentPackVersionEvent.setStatus(
+        "current"
+    )
+
+vmwVRNIContentPackNotInstalledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80634)
+)
+vmwVRNIContentPackNotInstalledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVRNIContentPackNotInstalledEvent.setStatus(
+        "current"
+    )
+
+vmwWebhookNotEnabledOnAlertEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80635)
+)
+vmwWebhookNotEnabledOnAlertEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwWebhookNotEnabledOnAlertEvent.setStatus(
+        "current"
+    )
+
+vmwIncorrectWebhookConfiguredOnAlertEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80636)
+)
+vmwIncorrectWebhookConfiguredOnAlertEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIncorrectWebhookConfiguredOnAlertEvent.setStatus(
+        "current"
+    )
+
+vmwWebhookNotRunningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80637)
+)
+vmwWebhookNotRunningEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwWebhookNotRunningEvent.setStatus(
+        "current"
+    )
+
+vmwInfobloxRecordLimitExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80638)
+)
+vmwInfobloxRecordLimitExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwInfobloxRecordLimitExceededEvent.setStatus(
+        "current"
+    )
+
+vmwIncorrectInfobloxCredentialEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80639)
+)
+vmwIncorrectInfobloxCredentialEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwIncorrectInfobloxCredentialEvent.setStatus(
+        "current"
+    )
+
+vmwUnsupportedInfobloxVersionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80640)
+)
+vmwUnsupportedInfobloxVersionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnsupportedInfobloxVersionEvent.setStatus(
+        "current"
+    )
+
+vmwUnknownInfobloxVersionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80641)
+)
+vmwUnknownInfobloxVersionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnknownInfobloxVersionEvent.setStatus(
+        "current"
+    )
+
+vmwNoDVSAvailableEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80642)
+)
+vmwNoDVSAvailableEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNoDVSAvailableEvent.setStatus(
+        "current"
+    )
+
+vmwVCNotOnSameProxyEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80643)
+)
+vmwVCNotOnSameProxyEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVCNotOnSameProxyEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTIPFixNoCollectorProfileEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80644)
+)
+vmwNSXTIPFixNoCollectorProfileEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTIPFixNoCollectorProfileEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTIPFixNoNewCollectorProfileCanBeAddedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80645)
+)
+vmwNSXTIPFixNoNewCollectorProfileCanBeAddedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTIPFixNoNewCollectorProfileCanBeAddedEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTIPFixNoIPFixProfileEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80646)
+)
+vmwNSXTIPFixNoIPFixProfileEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTIPFixNoIPFixProfileEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTIPFixIPFixProfilePriorityNotZeroEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80647)
+)
+vmwNSXTIPFixIPFixProfilePriorityNotZeroEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTIPFixIPFixProfilePriorityNotZeroEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTIPFixCollectorAndIPFixProfileMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80648)
+)
+vmwNSXTIPFixCollectorAndIPFixProfileMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTIPFixCollectorAndIPFixProfileMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTIPFixPortIncorrectEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80649)
+)
+vmwNSXTIPFixPortIncorrectEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTIPFixPortIncorrectEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTIPFixDFWStatusNotEnabledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80650)
+)
+vmwNSXTIPFixDFWStatusNotEnabledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTIPFixDFWStatusNotEnabledEvent.setStatus(
+        "current"
+    )
+
+vmwPolicyManagerNoDfwIPFixProfile = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80651)
+)
+vmwPolicyManagerNoDfwIPFixProfile.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPolicyManagerNoDfwIPFixProfile.setStatus(
+        "current"
+    )
+
+vmwPolicyManagerVrniDfwIPFixCollectorAbsent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80652)
+)
+vmwPolicyManagerVrniDfwIPFixCollectorAbsent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPolicyManagerVrniDfwIPFixCollectorAbsent.setStatus(
+        "current"
+    )
+
+vmwDatasourceIdentificationChangedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80653)
+)
+vmwDatasourceIdentificationChangedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDatasourceIdentificationChangedEvent.setStatus(
+        "current"
+    )
+
+vmwPKSKubernetesUnknownHostEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80654)
+)
+vmwPKSKubernetesUnknownHostEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPKSKubernetesUnknownHostEvent.setStatus(
+        "current"
+    )
+
+vmwKubernetesInsufficientPrivilegesEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80655)
+)
+vmwKubernetesInsufficientPrivilegesEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwKubernetesInsufficientPrivilegesEvent.setStatus(
+        "current"
+    )
+
+vmwServiceNowAppLimitExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80656)
+)
+vmwServiceNowAppLimitExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwServiceNowAppLimitExceededEvent.setStatus(
+        "current"
+    )
+
+vmwUANIFileNotProvidedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80657)
+)
+vmwUANIFileNotProvidedEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUANIFileNotProvidedEvent.setStatus(
+        "current"
+    )
+
+vmwUANIFileDoesNotExistEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80658)
+)
+vmwUANIFileDoesNotExistEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUANIFileDoesNotExistEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTLatencyNotEnabledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80659)
+)
+vmwNSXTLatencyNotEnabledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTLatencyNotEnabledEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTLatencyNoBFDProfileEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80661)
+)
+vmwNSXTLatencyNoBFDProfileEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTLatencyNoBFDProfileEvent.setStatus(
+        "current"
+    )
+
+vmwNSXTLatencyCollectorMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80662)
+)
+vmwNSXTLatencyCollectorMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXTLatencyCollectorMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwBigIpInsufficientShellAccessEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80663)
+)
+vmwBigIpInsufficientShellAccessEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwBigIpInsufficientShellAccessEvent.setStatus(
+        "current"
+    )
+
+vmwBigIpInsufficientPartitionAccessEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80664)
+)
+vmwBigIpInsufficientPartitionAccessEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwBigIpInsufficientPartitionAccessEvent.setStatus(
+        "current"
+    )
+
+vmwBigIpInsufficientRoleEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80665)
+)
+vmwBigIpInsufficientRoleEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwBigIpInsufficientRoleEvent.setStatus(
+        "current"
+    )
+
+vmwNsxtSystemEventApiEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80666)
+)
+vmwNsxtSystemEventApiEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxtSystemEventApiEvent.setStatus(
+        "current"
+    )
+
+vmwNsxtLatencyStatProfileMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80667)
+)
+vmwNsxtLatencyStatProfileMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxtLatencyStatProfileMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwNsxtLatencyNodeGroupMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80668)
+)
+vmwNsxtLatencyNodeGroupMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxtLatencyNodeGroupMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwNsxtLatencyServiceConfigMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80669)
+)
+vmwNsxtLatencyServiceConfigMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxtLatencyServiceConfigMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwNsxtNotificationWebhookDisabledEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80670)
+)
+vmwNsxtNotificationWebhookDisabledEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNsxtNotificationWebhookDisabledEvent.setStatus(
+        "current"
+    )
+
+vmwFailedDatasourceOperationEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80672)
+)
+vmwFailedDatasourceOperationEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFailedDatasourceOperationEvent.setStatus(
+        "current"
+    )
+
+vmwUnsupportedNsxAlbVersionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80700)
+)
+vmwUnsupportedNsxAlbVersionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnsupportedNsxAlbVersionEvent.setStatus(
+        "current"
+    )
+
+vmwTkgiKubernetesNotReachableEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80800)
+)
+vmwTkgiKubernetesNotReachableEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwTkgiKubernetesNotReachableEvent.setStatus(
+        "current"
+    )
+
+vmwTkgiClustersInsufficientPrivilegesEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 80801)
+)
+vmwTkgiClustersInsufficientPrivilegesEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwTkgiClustersInsufficientPrivilegesEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90000)
+)
+vmwVeloCloudEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudEdgeDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90001)
+)
+vmwVeloCloudEdgeDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudEdgeDownEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudLinkDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90002)
+)
+vmwVeloCloudLinkDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudLinkDownEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudEdgeL7ApplicationLostPacketEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90003)
+)
+vmwVeloCloudEdgeL7ApplicationLostPacketEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudEdgeL7ApplicationLostPacketEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudEdgeL7ApplicationRetransmittedPacketEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90004)
+)
+vmwVeloCloudEdgeL7ApplicationRetransmittedPacketEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudEdgeL7ApplicationRetransmittedPacketEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudLinkLostPacketEventTx = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90005)
+)
+vmwVeloCloudLinkLostPacketEventTx.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudLinkLostPacketEventTx.setStatus(
+        "current"
+    )
+
+vmwVeloCloudEdgeLocationNotSetEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90006)
+)
+vmwVeloCloudEdgeLocationNotSetEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudEdgeLocationNotSetEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudLinkDegradedVoiceQoeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90007)
+)
+vmwVeloCloudLinkDegradedVoiceQoeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudLinkDegradedVoiceQoeEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudLinkDegradedVideoQoeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90008)
+)
+vmwVeloCloudLinkDegradedVideoQoeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudLinkDegradedVideoQoeEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudLinkDegradedTransQoeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90009)
+)
+vmwVeloCloudLinkDegradedTransQoeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudLinkDegradedTransQoeEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudEdgeDegradedVoiceQoeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90010)
+)
+vmwVeloCloudEdgeDegradedVoiceQoeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudEdgeDegradedVoiceQoeEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudEdgeDegradedVideoQoeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90011)
+)
+vmwVeloCloudEdgeDegradedVideoQoeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudEdgeDegradedVideoQoeEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudEdgeDegradedTransQoeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90012)
+)
+vmwVeloCloudEdgeDegradedTransQoeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudEdgeDegradedTransQoeEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudLinkLostPacketEventRx = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90013)
+)
+vmwVeloCloudLinkLostPacketEventRx.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudLinkLostPacketEventRx.setStatus(
+        "current"
+    )
+
+vmwVeloCloudTunnelDegradedVoiceQoeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90014)
+)
+vmwVeloCloudTunnelDegradedVoiceQoeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudTunnelDegradedVoiceQoeEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudTunnelDegradedVideoQoeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90015)
+)
+vmwVeloCloudTunnelDegradedVideoQoeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudTunnelDegradedVideoQoeEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudTunnelDegradedTransQoeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90016)
+)
+vmwVeloCloudTunnelDegradedTransQoeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudTunnelDegradedTransQoeEvent.setStatus(
+        "current"
+    )
+
+vmwSDWanLinkTrafficThresholdEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90017)
+)
+vmwSDWanLinkTrafficThresholdEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSDWanLinkTrafficThresholdEvent.setStatus(
+        "current"
+    )
+
+vmwVeloCloudQoeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90018)
+)
+vmwVeloCloudQoeEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVeloCloudQoeEvent.setStatus(
+        "current"
+    )
+
+vmwHcxEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90500)
+)
+vmwHcxEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxEvent.setStatus(
+        "current"
+    )
+
+vmwHcxIXServiceStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90501)
+)
+vmwHcxIXServiceStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxIXServiceStatusEvent.setStatus(
+        "current"
+    )
+
+vmwHcxIXApplianceEncryptionTunnelStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90502)
+)
+vmwHcxIXApplianceEncryptionTunnelStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxIXApplianceEncryptionTunnelStatusEvent.setStatus(
+        "current"
+    )
+
+vmwHcxNEServiceStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90503)
+)
+vmwHcxNEServiceStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxNEServiceStatusEvent.setStatus(
+        "current"
+    )
+
+vmwHcxNEApplianceEncryptionTunnelStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90504)
+)
+vmwHcxNEApplianceEncryptionTunnelStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxNEApplianceEncryptionTunnelStatusEvent.setStatus(
+        "current"
+    )
+
+vmwHcxIXApplianceServicePipelineStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90505)
+)
+vmwHcxIXApplianceServicePipelineStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxIXApplianceServicePipelineStatusEvent.setStatus(
+        "current"
+    )
+
+vmwHcxNEApplianceServicePipelineStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90506)
+)
+vmwHcxNEApplianceServicePipelineStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxNEApplianceServicePipelineStatusEvent.setStatus(
+        "current"
+    )
+
+vmwHcxIXApplianceServiceTransportStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90507)
+)
+vmwHcxIXApplianceServiceTransportStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxIXApplianceServiceTransportStatusEvent.setStatus(
+        "current"
+    )
+
+vmwHcxNEApplianceServiceTransportStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90508)
+)
+vmwHcxNEApplianceServiceTransportStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxNEApplianceServiceTransportStatusEvent.setStatus(
+        "current"
+    )
+
+vmwHcxIXApplianceServiceSystemStateEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90509)
+)
+vmwHcxIXApplianceServiceSystemStateEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxIXApplianceServiceSystemStateEvent.setStatus(
+        "current"
+    )
+
+vmwHcxNEApplianceServiceSystemStateEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90510)
+)
+vmwHcxNEApplianceServiceSystemStateEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxNEApplianceServiceSystemStateEvent.setStatus(
+        "current"
+    )
+
+vmwHcxWanOptServiceStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90511)
+)
+vmwHcxWanOptServiceStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxWanOptServiceStatusEvent.setStatus(
+        "current"
+    )
+
+vmwHcxBMServiceStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90512)
+)
+vmwHcxBMServiceStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxBMServiceStatusEvent.setStatus(
+        "current"
+    )
+
+vmwHcxVMotionServiceStatusEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90513)
+)
+vmwHcxVMotionServiceStatusEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxVMotionServiceStatusEvent.setStatus(
+        "current"
+    )
+
+vmwHcxIXServiceNotRunningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90514)
+)
+vmwHcxIXServiceNotRunningEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxIXServiceNotRunningEvent.setStatus(
+        "current"
+    )
+
+vmwHcxNEServiceNotRunningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90515)
+)
+vmwHcxNEServiceNotRunningEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxNEServiceNotRunningEvent.setStatus(
+        "current"
+    )
+
+vmwHcxWanOptServiceNotRunningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90516)
+)
+vmwHcxWanOptServiceNotRunningEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxWanOptServiceNotRunningEvent.setStatus(
+        "current"
+    )
+
+vmwHcxApplianceAllTunnelDownEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90517)
+)
+vmwHcxApplianceAllTunnelDownEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxApplianceAllTunnelDownEvent.setStatus(
+        "current"
+    )
+
+vmwHcxConnectionRuleViolationEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90518)
+)
+vmwHcxConnectionRuleViolationEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxConnectionRuleViolationEvent.setStatus(
+        "current"
+    )
+
+vmwHcxMtuMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90519)
+)
+vmwHcxMtuMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxMtuMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwHcxApplianceUnhealthyTunnelsEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90520)
+)
+vmwHcxApplianceUnhealthyTunnelsEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxApplianceUnhealthyTunnelsEvent.setStatus(
+        "current"
+    )
+
+vmwHcxManagerVersionMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90521)
+)
+vmwHcxManagerVersionMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxManagerVersionMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwHcxApplianceVersionMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 90522)
+)
+vmwHcxApplianceVersionMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHcxApplianceVersionMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwLatencyNoDataEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100000)
+)
+vmwLatencyNoDataEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLatencyNoDataEvent.setStatus(
+        "current"
+    )
+
+vmwNSXVLatencyNoDataEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100001)
+)
+vmwNSXVLatencyNoDataEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNSXVLatencyNoDataEvent.setStatus(
+        "current"
+    )
+
+vmwVMCVMLimitExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100051)
+)
+vmwVMCVMLimitExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMCVMLimitExceededEvent.setStatus(
+        "current"
+    )
+
+vmwVMCHostLimitExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100052)
+)
+vmwVMCHostLimitExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMCHostLimitExceededEvent.setStatus(
+        "current"
+    )
+
+vmwVMCHostPerClusterLimitExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100053)
+)
+vmwVMCHostPerClusterLimitExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMCHostPerClusterLimitExceededEvent.setStatus(
+        "current"
+    )
+
+vmwVMCVMPerHostLimitExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100054)
+)
+vmwVMCVMPerHostLimitExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMCVMPerHostLimitExceededEvent.setStatus(
+        "current"
+    )
+
+vmwVMCClusterLimitExceededEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100055)
+)
+vmwVMCClusterLimitExceededEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMCClusterLimitExceededEvent.setStatus(
+        "current"
+    )
+
+vmwVMCCapacityThresholdBreachEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100056)
+)
+vmwVMCCapacityThresholdBreachEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwVMCCapacityThresholdBreachEvent.setStatus(
+        "current"
+    )
+
+vmwProtectionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 100061)
+)
+vmwProtectionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwProtectionEvent.setStatus(
+        "current"
+    )
+
+vmwLinkMtuMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110000)
+)
+vmwLinkMtuMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLinkMtuMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwPortModeMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110001)
+)
+vmwPortModeMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPortModeMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwPortTrunkMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110002)
+)
+vmwPortTrunkMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPortTrunkMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwPortChannelMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110003)
+)
+vmwPortChannelMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPortChannelMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwDuplexMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110004)
+)
+vmwDuplexMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDuplexMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwUnderlayProblem = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110005)
+)
+vmwUnderlayProblem.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnderlayProblem.setStatus(
+        "current"
+    )
+
+vmwSwitchPortProblem = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110006)
+)
+vmwSwitchPortProblem.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSwitchPortProblem.setStatus(
+        "current"
+    )
+
+vmwDuplicateMacAddressEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110007)
+)
+vmwDuplicateMacAddressEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDuplicateMacAddressEvent.setStatus(
+        "current"
+    )
+
+vmwDuplicateIPAddressEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110008)
+)
+vmwDuplicateIPAddressEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwDuplicateIPAddressEvent.setStatus(
+        "current"
+    )
+
+vmwSTPPathCostMethodInconsistencyEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110009)
+)
+vmwSTPPathCostMethodInconsistencyEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSTPPathCostMethodInconsistencyEvent.setStatus(
+        "current"
+    )
+
+vmwHSRPSTPColocationEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110010)
+)
+vmwHSRPSTPColocationEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHSRPSTPColocationEvent.setStatus(
+        "current"
+    )
+
+vmwNativeVlanMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110011)
+)
+vmwNativeVlanMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNativeVlanMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwNativeVlanTaggingMismatchEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110012)
+)
+vmwNativeVlanTaggingMismatchEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwNativeVlanTaggingMismatchEvent.setStatus(
+        "current"
+    )
+
+vmwSnapshotNotBuildingEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110013)
+)
+vmwSnapshotNotBuildingEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSnapshotNotBuildingEvent.setStatus(
+        "current"
+    )
+
+vmwHSRPConfigurationEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110014)
+)
+vmwHSRPConfigurationEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwHSRPConfigurationEvent.setStatus(
+        "current"
+    )
+
+vmwProtectionActiveEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110015)
+)
+vmwProtectionActiveEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwProtectionActiveEvent.setStatus(
+        "current"
+    )
+
+vmwPathProblem = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110016)
+)
+vmwPathProblem.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPathProblem.setStatus(
+        "current"
+    )
+
+vmwSNMPTrapEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 110017)
+)
+vmwSNMPTrapEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSNMPTrapEvent.setStatus(
+        "current"
+    )
+
+vmwInvalidIntentEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111000)
+)
+vmwInvalidIntentEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwInvalidIntentEvent.setStatus(
+        "current"
+    )
+
+vmwStigAccountPasswdEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111001)
+)
+vmwStigAccountPasswdEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwStigAccountPasswdEvent.setStatus(
+        "current"
+    )
+
+vmwStigConsolePasswdEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111002)
+)
+vmwStigConsolePasswdEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwStigConsolePasswdEvent.setStatus(
+        "current"
+    )
+
+vmwStigDefaultPasswdEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111003)
+)
+vmwStigDefaultPasswdEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwStigDefaultPasswdEvent.setStatus(
+        "current"
+    )
+
+vmwStigMgmtPasswdEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111004)
+)
+vmwStigMgmtPasswdEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwStigMgmtPasswdEvent.setStatus(
+        "current"
+    )
+
+vmwStigPlaintextPasswdEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 111005)
+)
+vmwStigPlaintextPasswdEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwStigPlaintextPasswdEvent.setStatus(
+        "current"
+    )
+
+vmwLoopDetectionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 115001)
+)
+vmwLoopDetectionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwLoopDetectionEvent.setStatus(
+        "current"
+    )
+
+vmwReachabilityEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 115002)
+)
+vmwReachabilityEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwReachabilityEvent.setStatus(
+        "current"
+    )
+
+vmwSegmentationEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 115003)
+)
+vmwSegmentationEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwSegmentationEvent.setStatus(
+        "current"
+    )
+
+vmwFlowCollectionErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 8061313)
+)
+vmwFlowCollectionErrorEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwFlowCollectionErrorEvent.setStatus(
+        "current"
+    )
+
+vmwAWSThrottlingExceptionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 8061314)
+)
+vmwAWSThrottlingExceptionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAWSThrottlingExceptionEvent.setStatus(
+        "current"
+    )
+
+vmwAWSFlowLogAccessDeniedExceptionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 8061315)
+)
+vmwAWSFlowLogAccessDeniedExceptionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAWSFlowLogAccessDeniedExceptionEvent.setStatus(
+        "current"
+    )
+
+vmwAzureFlowCollectionErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 8061316)
+)
+vmwAzureFlowCollectionErrorEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAzureFlowCollectionErrorEvent.setStatus(
+        "current"
+    )
+
+vmwAzureNetworkWatcherStorageErrorEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 8061317)
+)
+vmwAzureNetworkWatcherStorageErrorEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwAzureNetworkWatcherStorageErrorEvent.setStatus(
+        "current"
+    )
+
+vmwPwdAuthModeDisabledAristaEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 806100012)
+)
+vmwPwdAuthModeDisabledAristaEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwPwdAuthModeDisabledAristaEvent.setStatus(
+        "current"
+    )
+
+vmwUnsupportedNSXVersionEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 0, 806100018)
+)
+vmwUnsupportedNSXVersionEvent.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwPlatformIP"),
+        ("VMWARE-VRNI-MIB", "vmwEventSeverity"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObject"),
+        ("VMWARE-VRNI-MIB", "vmwOperatorDesc"),
+        ("VMWARE-VRNI-MIB", "vmwVrniUrl"),
+        ("VMWARE-VRNI-MIB", "vmwTimestamp"),
+        ("VMWARE-VRNI-MIB", "vmwEventName"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectManager"),
+        ("VMWARE-VRNI-MIB", "vmwAffectedObjectParent"))
+)
+if mibBuilder.loadTexts:
+    vmwUnsupportedNSXVersionEvent.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+vmwNetworkInsightNotificationGroup1 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 3)
+)
+vmwNetworkInsightNotificationGroup1.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwSnmpTrapsAreConfigured"),
+        ("VMWARE-VRNI-MIB", "vmwSnmpTrapsAreDisabled"),
+        ("VMWARE-VRNI-MIB", "vmwTestTrap"),
+        ("VMWARE-VRNI-MIB", "vmwEntityDiscoveryChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEntityPropertiesChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFirewallNotInstalledOnHostEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostWithStaleFirewallRulesEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIpAddressChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwL2GatewayAnomalyEvent"),
+        ("VMWARE-VRNI-MIB", "vmwL2NetworkAddressAnomalyEvent"),
+        ("VMWARE-VRNI-MIB", "vmwL2NetworkDiameterExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwL2NetworkUplinkMissingEvent"),
+        ("VMWARE-VRNI-MIB", "vmwL2NetworkWithNoVMsEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLayer2NetworkDiameterChangedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwMTUMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkIsolationEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNoPathEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSpoofguardDisabledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMotionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMWithDisconnectedVnicsEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMWithMulipleVnicsOnDifferentVxlansEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMWithMulipleVnicsOnSameL2Event"),
+        ("VMWARE-VRNI-MIB", "vmwVMWithNoIpAddressEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVTEPMissingEvent"),
+        ("VMWARE-VRNI-MIB", "vmwL2Event"),
+        ("VMWARE-VRNI-MIB", "vmwMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSecurityGroupMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFirewallRuleMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVlanMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVxlanMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDeleteChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVtepFailedPingEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEmptySearchStreamChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSearchStreamMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEmptySearchStreamProblemEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSearchStreamMembershipProblemEvent"),
+        ("VMWARE-VRNI-MIB", "vmwOspfConfigurationMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwServiceVMNotHealthyEvent"),
+        ("VMWARE-VRNI-MIB", "vmwServiceVMNotPoweredOnEvent"),
+        ("VMWARE-VRNI-MIB", "vmwServiceVMHighCPUUsageEvent"),
+        ("VMWARE-VRNI-MIB", "vmwServiceVMHighMemoryUsageEvent"),
+        ("VMWARE-VRNI-MIB", "vmwServiceVMHighDiskUsageEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIPSetPropertiesChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFirewallRulePropertiesChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSecurityGroupPropertiesChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIPSetMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFirewallRuleMaskEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSecurityMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSecurityTagPropertiesChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSecurityTagMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostDatastoreChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMDatastoreChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMSnapshotChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMVirtualDiskChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIPSetDefinitionMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSegmentMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVtepEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVtepConfigurationFaultEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVtepSubnetMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVtepCountMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDLRNetworksNotReachableEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEdgeNetworksNotReachableEvent"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventCpuReady"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventCpuCoStop"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDiskCommandAbortRule"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventIODeviceLatencyRule"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventIOKernelLatencyRule"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventMemorySwapInRule"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventMemorySwapOutRule"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventNetworkRxDropRule"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventNetworkTxDropRule"),
+        ("VMWARE-VRNI-MIB", "vmwPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSwitchPortPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwRouterInterfacePacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVnicPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVTEPUnderlayPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPnicUnderlyingSwitchPortPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDevicePacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDatastoreFreeSpaceWarning"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDatastoreFreeSpaceCritical"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDatastoreReadLatency"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDatastoreWriteLatency"),
+        ("VMWARE-VRNI-MIB", "vmwDistributedFirewallApplyHostEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDistributedFirewallApplyVMEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNsxEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFeatureImpactedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwClusterFeatureVersionMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostFeatureVersionMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFeatureVersionMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostFeatureEnabledMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostFeatureInstalledMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostVtepNotFoundEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostVtepDisconnectedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostVtepEvent"),
+        ("VMWARE-VRNI-MIB", "vmwClusterHostsVtepMTUMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFeatureUnhealthyEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEdgeHANotConfiguredEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEdgeInterfacesDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwModuleUnhealthyEvent"),
+        ("VMWARE-VRNI-MIB", "vmwModuleNotLoadedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwModuleNetworkConnectionFailureEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostNetworkControlPlaneMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostNetworkControlPlaneConnectionFailureEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostNetworkControlPlaneNotSyncedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXControllerClusterMajorityEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXControllersVMOnSameHostEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVxLanRangeExhaustEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXFirewallDefaultAllowAllRulesEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEdgeNotHAEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEdgeNotDeployedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEcmpIsEnabledAndStatefulServicesAreUpEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLogicalRouterDeployedOnEcmpEdgeHostEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEdgeMissingInterfaceOSPFAreaMappingEvent"),
+        ("VMWARE-VRNI-MIB", "vmwOspfInsecureAuthRouterEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXControllersDeployedCountEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXControllerNotActiveCountEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXControllerEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXBackupEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXUnsecureBackupEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXBackupSystemEventsExcludedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXBackupNotScheduledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXBackupNotRecordedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXNtpServerEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXSysLogServerEvent"),
+        ("VMWARE-VRNI-MIB", "vmwControllerSysLogServerEvent"),
+        ("VMWARE-VRNI-MIB", "vmwGenericNSXSystemEvent"),
+        ("VMWARE-VRNI-MIB", "vmwOtherCriticalNSXEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFilterConfigApplyOnHostFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwRulesetLoadOnHostFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwConfigUpdateOnHostFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSpoofguardConfigUpdateOnHostFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwApplyRuleToVnicFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwContainerConfigUpdateOnVnicFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSpoofguardApplyToVnicFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostMessagingConfigurationFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostMessagingConnectionReconfigurationFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostMessagingConfigurationFailedNotificationSkippedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostMessagingInfrastructureDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEdgeVMNotRespondingEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEdgeUnhealthyEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEdgeVMCommunicationFailureEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXEdgeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPanEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPanNsxNotInRegisteredStateEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPanNsxDynamicUpdateDelayedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPanDeviceInDisconnectedStateEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPanNsxServiceApplianceViewMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPanNsxFabricAgentNotFoundOnHostEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPanNsxServiceVMNotFoundOnHostEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup1.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup2 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 30)
+)
+vmwNetworkInsightNotificationGroup2.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwLogicalRouterNoUplinkEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXComponentEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXBackupEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXBackupAuditLogExcludedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXUnsecureBackupEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXBackupSystemEventsExcludedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXBackupNotScheduledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXBackupNotRecordedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXNtpServerEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXSysLogServerEvent"),
+        ("VMWARE-VRNI-MIB", "vmwControllerSysLogServerEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup2.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup3 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 40)
+)
+vmwNetworkInsightNotificationGroup3.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwMTUMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMWithMulipleVnicsOnSameL2Event"),
+        ("VMWARE-VRNI-MIB", "vmwMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSecurityGroupMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFirewallRuleMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVlanMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVxlanMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSearchStreamMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIPSetMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSecurityMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVtepEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSwitchPortPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwRouterInterfacePacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVnicPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVTEPUnderlayPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPnicUnderlyingSwitchPortPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostFeatureVersionMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSpoofguardConfigUpdateOnHostFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXEcmpEdgeDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXMajorityEcmpEdgesDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXAllEcmpEdgesDownEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup3.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup4 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 50)
+)
+vmwNetworkInsightNotificationGroup4.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNSXEdgeSplitBrainEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXIpV6EnabledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXOspfNeighborDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwCheckpointEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXEdgeMtuMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwCheckpointNsxFabricAgentNotFoundOnHostEvent"),
+        ("VMWARE-VRNI-MIB", "vmwCheckpointNsxServiceVMNotFoundOnHostEvent"),
+        ("VMWARE-VRNI-MIB", "vmwCheckpointGatewaySicStatusNotCommunicatingEvent"),
+        ("VMWARE-VRNI-MIB", "vmwCheckpointNsxServiceApplianceViewMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwCriticalHostNotAccessibleEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVlanMembershipChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwClusterFeatureVersionMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostFeatureVersionMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwConfigUpdateOnHostFailedEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup4.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup5 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 65)
+)
+vmwNetworkInsightNotificationGroup5.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNiInfraChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDataSourceEnabledChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDataSourceDisabledChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDataSourceCreatedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPlatformCpuCoreChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPlatformDiskChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPlatformMemoryChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPlatformRebootedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwProxyCpuCoreChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwProxyDiskChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwProxyMemoryChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwProxyRebootedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNIClusterChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNISystemProxyChangeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNIClusterCreateEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAWSRegionSGLimitEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAWSVPCSGLimitEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAWSSGInboundRuleLimitEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAWSSGOutboundRuleLimitEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAWSInterfaceSGLimitEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVirtualDistributedRoutingEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIndexerLagEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIPFIXFlowDPPausedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwGridProcessingStoppedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnableToSendEmailsEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSMTPNotConfiguredEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSNMPNotConfiguredEvent"),
+        ("VMWARE-VRNI-MIB", "vmwReindexingInProgressEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNodesVersionMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNotAllServicesRunningEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNotAllServicesHealthyEvent"),
+        ("VMWARE-VRNI-MIB", "vmwExpandPartitionFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDiskCleanupFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVacuumFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwConfigStoreCleanupFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHBaseRetentionToolFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwMetricStoreUpdaterFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwCollectorLagEvent"),
+        ("VMWARE-VRNI-MIB", "vmwCollectionLagEvent"),
+        ("VMWARE-VRNI-MIB", "vmwGridProcessingLagEvent"),
+        ("VMWARE-VRNI-MIB", "vmwConnectionErrorEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNodeNotActiveEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHighDiskUtilizationEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIndexingAbortedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUpgradeFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFlowProcessingSuspendedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVCNotOnSameProxyEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNoDVSAvailableEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnknownInfobloxVersionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnsupportedInfobloxVersionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIncorrectInfobloxCredentialEvent"),
+        ("VMWARE-VRNI-MIB", "vmwInfobloxRecordLimitExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwWebhookNotRunningEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIncorrectWebhookConfiguredOnAlertEvent"),
+        ("VMWARE-VRNI-MIB", "vmwWebhookNotEnabledOnAlertEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVRNIContentPackNotInstalledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnsupportedVRNIContentPackVersionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnsupportedLogInsightVersionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwComputeManagersNotAddedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwComputeManagersNotFoundEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnsupportedNSXTVersionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNotEmptyNodeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFlowPhysicalNodeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFlowCollectionErrorEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAWSThrottlingExceptionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAWSFlowLogAccessDeniedExceptionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXIPFIXStatusMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNumVMsOrHostsNotFoundEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnsupportedNSXVersionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPwdAuthModeDisabledAristaEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostnameResolutionErrorEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPrimaryNSXNotAddedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDataProviderNotRunningEvent"),
+        ("VMWARE-VRNI-MIB", "vmwInvalidResponseFromDatasourceEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostNotReachableEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXControllerNotFoundEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnexpectedDSTypeOrVersionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwWarnConfigEvent"),
+        ("VMWARE-VRNI-MIB", "vmwInvalidConfigEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNotFoundEvent"),
+        ("VMWARE-VRNI-MIB", "vmwInsufficientPrivilegesEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPwdAuthModeDisabledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFailedCredsEncryptEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSNMPConnectionInvalidEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnknownHostEvent"),
+        ("VMWARE-VRNI-MIB", "vmwInvalidCredentialsEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIncorrectConnectionStringEvent"),
+        ("VMWARE-VRNI-MIB", "vmwConnectionRefusedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwTimeoutEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTVcNotAddedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTStandaloneHostsEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLargeSdmsDroppedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTIPFixDFWStatusNotEnabledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTIPFixPortIncorrectEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTIPFixCollectorAndIPFixProfileMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTIPFixIPFixProfilePriorityNotZeroEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTIPFixNoIPFixProfileEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTIPFixNoNewCollectorProfileCanBeAddedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTIPFixNoCollectorProfileEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup5.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup6 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 75)
+)
+vmwNetworkInsightNotificationGroup6.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNSXTSystemEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTNoUplinkConnectivityEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTRoutingAdvertisementEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTManagerConnectivityDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTControllerConnectivityDegradedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTControllerConnectivityDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMtuMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXEdgeBGPNeighbourDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAnalyticsEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAnalyticsOutlierEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAnalyticsThresholdEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMCEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPolicyManagerVrniDfwIPFixCollectorAbsent"),
+        ("VMWARE-VRNI-MIB", "vmwPolicyManagerNoDfwIPFixProfile"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup6.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup7 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 85)
+)
+vmwNetworkInsightNotificationGroup7.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNSXTDoubleVlanTaggingEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTVtepDeleteEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTNoTzAttachedOnTnEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTExcludedVmFlowEvent"),
+        ("VMWARE-VRNI-MIB", "vmwKubernetesInsufficientPrivilegesEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPKSKubernetesUnknownHostEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDatasourceIdentificationChangedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLBPoolMemberDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLBPoolDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLBPoolMemberVMDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLBServiceNodeIPNotFoundEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLBServiceNodeMultipleNicFoundEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLBVirtualServerDisableEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLBPoolEmptyEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDuplicateL3SwitchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwArkinApplicationMemberLimitEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTSwitchIpfixEnabledEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup7.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup8 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 95)
+)
+vmwNetworkInsightNotificationGroup8.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwUANIFileNotProvidedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUANIFileDoesNotExistEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup8.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup9 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 105)
+)
+vmwNetworkInsightNotificationGroup9.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNSXTStandaloneHostsWithoutVcEvent"),
+        ("VMWARE-VRNI-MIB", "vmwApplianceNotConfiguredEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup9.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup10 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 115)
+)
+vmwNetworkInsightNotificationGroup10.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwSwitchPortUptimeThresholdRecededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFdbConfigStoreCleanupFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDiskAllocationInsufficientEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTControllerNodeToControlClusterConnectivityEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTControllerNodeToMgmtPlaneConnectivityEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeToMgmtClusterConnectivityEvent"),
+        ("VMWARE-VRNI-MIB", "vmwBigIpInsufficientShellAccessEvent"),
+        ("VMWARE-VRNI-MIB", "vmwBigIpInsufficientPartitionAccessEvent"),
+        ("VMWARE-VRNI-MIB", "vmwBigIpInsufficientRoleEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTLatencyCollectorMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTLatencyNoBFDProfileEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTLatencyNotEnabledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHardwareVTEPMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHardwareVTEPPortDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXVLatencyNoDataEvent"),
+        ("VMWARE-VRNI-MIB", "vmwKubernetesBaseEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMCVMLimitExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMCHostLimitExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeDegradedTransQoeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeDegradedVideoQoeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeDegradedVoiceQoeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkLostPacketEventRx"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkDegradedTransQoeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkLostPacketEventTx"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkDegradedVideoQoeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkDegradedVoiceQoeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudLinkDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeMgmtConnectivityStatusDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeCtlrConnectivityStatusUnknownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeCtlrConnectivityStatusDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeCtlrConnectivityStatusDegradedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeCtlrConnectivityStatusUnknownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodePnicStatusDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodePnicStatusDegradedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodePnicStatusUnknownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodePnicStatusDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodePnicStatusDegradedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodePnicStatusUnknownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeTunnelStatusDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeTunnelStatusDegradedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeTunnelStatusUnknownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeTunnelStatusDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeTunnelStatusDegradedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeTunnelStatusUnknownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeStatusDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeStatusDegradedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeStatusUnknownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeStatusDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeStatusDegradedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeStatusUnknownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSwitchPortOperationalDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwRouterInterfaceOperationalDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceGenericEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceFexOfflineEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceFanMalFunctionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceTemperatureThresholdExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceFexFanMalFunctionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceFexPsMalFunctionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceModuleMalFunctionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnderlayDevicePsMalFunctionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceBfdSessionRemovedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnderlayDeviceLldpNeighbourRemovedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDataSourceCpuUsage"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDataSourceMemoryUsage"),
+        ("VMWARE-VRNI-MIB", "vmwThresholdExceededEventDataSourceTemperature"),
+        ("VMWARE-VRNI-MIB", "vmwDeploymentDefMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNsxtLatencyServiceConfigMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNsxtLatencyNodeGroupMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNsxtLatencyStatProfileMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHybridConnectBgpStatusDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTClusterBackUpDisabledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTDFWFirewallDisabledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTComputeManagerConnectionStatusNotUpEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTLogicalSwitchAdminStatusDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTLogicalPortOperationalStatusDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTLogicalPortOperationalStatusUnknownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTLogicalPortReceivedPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTLogicalPortTransmittedPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTLogicalSwitchReceivedPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTLogicalSwitchTransmittedPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTRxPacketDropOnMPNicEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTRxPacketDropOnEdgeTnNicEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTRxPacketDropOnHostTnNicEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTTxPacketDropOnMPNicEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTTxPacketDropOnEdgeTnNicEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTTxPacketDropOnHostTnNicEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceClusterManagerStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceCmInventoryStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceControllerStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceDataStoreStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceHttpStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceInstallUpgradeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceLiagentStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceManagerStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceMgmtPlaneBusStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceMigrationCoordinatorStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNodeMgmtStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNodeStatsStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNSXMessageBusStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNSXPlatformClientStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNSXUpgradeAgentStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceNTPStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServicePolicyStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceSearchStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceSNMPStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceSSHStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceSyslogStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceTelemetryStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTMPNodeServiceUIServiceStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMCHostPerClusterLimitExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMCVMPerHostLimitExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMCClusterLimitExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwProtectionEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup10.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup11 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 125)
+)
+vmwNetworkInsightNotificationGroup11.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNsxiApplianceAvailableEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNsxiSubscriptionCreateFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNsxiSubscriptionDeleteFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNsxiSubscriptionUpdateFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNsxiSslHandshakeFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAnalyticsThresholdCompositeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAnalyticsThresholdCompositeProblemEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLicenseExpiredEvent"),
+        ("VMWARE-VRNI-MIB", "vmwInGracePeriodEvent"),
+        ("VMWARE-VRNI-MIB", "vmwFailedDatasourceOperationEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNsxtNotificationWebhookDisabledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNatRuleLargeSubnetEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTHostNodeMaintenanceModeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTEdgeNodeMaintenanceModeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSDWanLinkTrafficThresholdEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMCCapacityThresholdBreachEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNativeVlanMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNativeVlanTaggingMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSnapshotNotBuildingEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup11.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup12 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 135)
+)
+vmwNetworkInsightNotificationGroup12.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwProtectionActiveEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnableToSendSNMPTrapsEvent"),
+        ("VMWARE-VRNI-MIB", "vmwStreamProcessingFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSNOWMandatoryPrivilegeMissingEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVMCSDDCTGWConnectivityFailedEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup12.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup13 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 145)
+)
+vmwNetworkInsightNotificationGroup13.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNSXTEdgeDVPGsIPFIXDisabledEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnsupportedNsxAlbVersionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIpfixFlowLagEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXALBSystemEvent"),
+        ("VMWARE-VRNI-MIB", "vmwTkgiKubernetesNotReachableEvent"),
+        ("VMWARE-VRNI-MIB", "vmwTkgiClustersInsufficientPrivilegesEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTRouterInterfaceRPFPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwChangeEventsDroppedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxIXServiceStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxNEServiceStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxBMServiceStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxVMotionServiceStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxIXApplianceEncryptionTunnelStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxNEApplianceEncryptionTunnelStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxIXApplianceServicePipelineStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxNEApplianceServicePipelineStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxIXApplianceServiceTransportStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxNEApplianceServiceTransportStatusEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxIXApplianceServiceSystemStateEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxNEApplianceServiceSystemStateEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxIXServiceNotRunningEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxNEServiceNotRunningEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxWanOptServiceNotRunningEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPanLogInsightDroppedFlowEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup13.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup14 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 155)
+)
+vmwNetworkInsightNotificationGroup14.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwHcxConnectionRuleViolationEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxApplianceAllTunnelDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxMtuMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSwitchPortRPFPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwCPLogInsightDroppedFlowEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSNMPTrapEvent"),
+        ("VMWARE-VRNI-MIB", "vmwServiceRestartCountExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxWanOptServiceStatusEvent"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup14.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup15 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 165)
+)
+vmwNetworkInsightNotificationGroup15.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNsxtIpfixMultipleCollectorConfigurationEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxApplianceUnhealthyTunnelsEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxManagerVersionMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxApplianceVersionMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwIntentAlert"),
+        ("VMWARE-VRNI-MIB", "vmwKubernetesEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSwitchPortBufferThresholdExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwRouterInterfaceBufferThresholdExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwBufferThresholdExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPortOperationalDownEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSwitchPortRxNetworkUsageThresholdExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSwitchPortTxNetworkUsageThresholdExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSwitchPortRxNetworkUsageThresholdExceededCriticalEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSwitchPortTxNetworkUsageThresholdExceededCriticalEvent"),
+        ("VMWARE-VRNI-MIB", "vmwManagementHostHighCPUUsageEvent"),
+        ("VMWARE-VRNI-MIB", "vmwManagementHostHighCPUUsageCriticalEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHostUnHealthyEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXControllerFSAvailableThresholdRecededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEdgeVmVnicRxPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwEdgeVmVnicTxPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwManagementHostPnicRxPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwManagementHostPnicTxPacketDropEvent"),
+        ("VMWARE-VRNI-MIB", "vmwManagementHostConnectionStateDisconnectedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAllThresholdEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVTGWDuplicateRoutesEvent"),
+        ("VMWARE-VRNI-MIB", "vmwApplianceNotRegisteredEvent"),
+        ("VMWARE-VRNI-MIB", "vmwRegCertExpiredEvent"),
+        ("VMWARE-VRNI-MIB", "vmwBackupFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAdditionalResourcesRequiredEvent"),
+        ("VMWARE-VRNI-MIB", "vmwCapacityReconfigurationRequiredEvent"),
+        ("VMWARE-VRNI-MIB", "vmwCapacityReconfigurationFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHighDiskIoUtilizationEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNsxtSystemEventApiEvent"),
+        ("VMWARE-VRNI-MIB", "vmwServiceNowAppLimitExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAzureFlowCollectionErrorEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAzureNetworkWatcherStorageErrorEvent"),
+        ("VMWARE-VRNI-MIB", "vmwAnalyticsMemoryLimitsExceededEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHybridConnectAdvertisedSubnetsFailedEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTRxPacketDropOnNicEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTTxPacketDropOnNicEvent"),
+        ("VMWARE-VRNI-MIB", "vmwNSXTBGPNeighbourStateEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeL7ApplicationLostPacketEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeL7ApplicationRetransmittedPacketEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudEdgeLocationNotSetEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudTunnelDegradedVoiceQoeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudTunnelDegradedVideoQoeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudTunnelDegradedTransQoeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwVeloCloudQoeEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHcxEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLatencyNoDataEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLinkMtuMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPortModeMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPortTrunkMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPortChannelMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDuplexMismatchEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDuplicateMacAddressEvent"),
+        ("VMWARE-VRNI-MIB", "vmwDuplicateIPAddressEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSTPPathCostMethodInconsistencyEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHSRPSTPColocationEvent"),
+        ("VMWARE-VRNI-MIB", "vmwStigAccountPasswdEvent"),
+        ("VMWARE-VRNI-MIB", "vmwStigConsolePasswdEvent"),
+        ("VMWARE-VRNI-MIB", "vmwStigDefaultPasswdEvent"),
+        ("VMWARE-VRNI-MIB", "vmwStigMgmtPasswdEvent"),
+        ("VMWARE-VRNI-MIB", "vmwStigPlaintextPasswdEvent"),
+        ("VMWARE-VRNI-MIB", "vmwHSRPConfigurationEvent"),
+        ("VMWARE-VRNI-MIB", "vmwLoopDetectionEvent"),
+        ("VMWARE-VRNI-MIB", "vmwReachabilityEvent"),
+        ("VMWARE-VRNI-MIB", "vmwSegmentationEvent"),
+        ("VMWARE-VRNI-MIB", "vmwUnderlayProblem"),
+        ("VMWARE-VRNI-MIB", "vmwSwitchPortProblem"),
+        ("VMWARE-VRNI-MIB", "vmwPathProblem"),
+        ("VMWARE-VRNI-MIB", "vmwInvalidIntentEvent"),
+        ("VMWARE-VRNI-MIB", "vmwPassthroughEvents"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup15.setStatus(
+        "current"
+    )
+
+vmwNetworkInsightNotificationGroup16 = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 2, 180)
+)
+vmwNetworkInsightNotificationGroup16.setObjects(
+    ("VMWARE-VRNI-MIB", "vmwPassthroughEvents")
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightNotificationGroup16.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+vmwNetworkInsightMIBBasicCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 3)
+)
+vmwNetworkInsightMIBBasicCompliance.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 30)
+)
+vmwNetworkInsightMIBBasicCompliance2.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance2.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance3 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 35)
+)
+vmwNetworkInsightMIBBasicCompliance3.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance3.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance4 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 45)
+)
+vmwNetworkInsightMIBBasicCompliance4.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance4.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance5 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 60)
+)
+vmwNetworkInsightMIBBasicCompliance5.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance5.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance6 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 70)
+)
+vmwNetworkInsightMIBBasicCompliance6.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance6.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance7 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 80)
+)
+vmwNetworkInsightMIBBasicCompliance7.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance7.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance8 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 90)
+)
+vmwNetworkInsightMIBBasicCompliance8.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance8.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance9 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 100)
+)
+vmwNetworkInsightMIBBasicCompliance9.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance9.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance10 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 110)
+)
+vmwNetworkInsightMIBBasicCompliance10.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance10.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance11 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 120)
+)
+vmwNetworkInsightMIBBasicCompliance11.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance11.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance12 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 130)
+)
+vmwNetworkInsightMIBBasicCompliance12.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup12"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance12.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance13 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 140)
+)
+vmwNetworkInsightMIBBasicCompliance13.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup12"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup13"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance13.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance14 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 150)
+)
+vmwNetworkInsightMIBBasicCompliance14.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup12"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup13"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup14"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance14.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance15 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 160)
+)
+vmwNetworkInsightMIBBasicCompliance15.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup12"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup13"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup14"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup15"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance15.setStatus(
+        "deprecated"
+    )
+
+vmwNetworkInsightMIBBasicCompliance16 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6876, 100, 1, 99, 1, 175)
+)
+vmwNetworkInsightMIBBasicCompliance16.setObjects(
+      *(("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationInfoGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup1"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup2"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup3"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup4"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup5"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup6"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup7"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup8"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup9"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup10"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup11"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup12"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup13"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup14"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup15"),
+        ("VMWARE-VRNI-MIB", "vmwNetworkInsightNotificationGroup16"))
+)
+if mibBuilder.loadTexts:
+    vmwNetworkInsightMIBBasicCompliance16.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "VMWARE-VRNI-MIB",
+    **{"VmwVrniSeverity": VmwVrniSeverity,
+       "vmwNetworkInsightMIB": vmwNetworkInsightMIB,
+       "vmwVRNIEvents": vmwVRNIEvents,
+       "vmwSnmpTrapsAreConfigured": vmwSnmpTrapsAreConfigured,
+       "vmwSnmpTrapsAreDisabled": vmwSnmpTrapsAreDisabled,
+       "vmwTestTrap": vmwTestTrap,
+       "vmwIntentAlert": vmwIntentAlert,
+       "vmwArkinApplicationMemberLimitEvent": vmwArkinApplicationMemberLimitEvent,
+       "vmwNsxiApplianceAvailableEvent": vmwNsxiApplianceAvailableEvent,
+       "vmwNsxiSubscriptionCreateFailedEvent": vmwNsxiSubscriptionCreateFailedEvent,
+       "vmwNsxiSubscriptionDeleteFailedEvent": vmwNsxiSubscriptionDeleteFailedEvent,
+       "vmwNsxiSubscriptionUpdateFailedEvent": vmwNsxiSubscriptionUpdateFailedEvent,
+       "vmwNsxiSslHandshakeFailedEvent": vmwNsxiSslHandshakeFailedEvent,
+       "vmwHybridConnectAdvertisedSubnetsFailedEvent": vmwHybridConnectAdvertisedSubnetsFailedEvent,
+       "vmwHybridConnectBgpStatusDownEvent": vmwHybridConnectBgpStatusDownEvent,
+       "vmwKubernetesEvent": vmwKubernetesEvent,
+       "vmwKubernetesBaseEvent": vmwKubernetesBaseEvent,
+       "vmwPassthroughEvents": vmwPassthroughEvents,
+       "vmwNSXALBSystemEvent": vmwNSXALBSystemEvent,
+       "vmwEntityDiscoveryChangeEvent": vmwEntityDiscoveryChangeEvent,
+       "vmwEntityPropertiesChangeEvent": vmwEntityPropertiesChangeEvent,
+       "vmwFirewallNotInstalledOnHostEvent": vmwFirewallNotInstalledOnHostEvent,
+       "vmwHostWithStaleFirewallRulesEvent": vmwHostWithStaleFirewallRulesEvent,
+       "vmwIpAddressChangeEvent": vmwIpAddressChangeEvent,
+       "vmwL2GatewayAnomalyEvent": vmwL2GatewayAnomalyEvent,
+       "vmwL2NetworkAddressAnomalyEvent": vmwL2NetworkAddressAnomalyEvent,
+       "vmwL2NetworkDiameterExceededEvent": vmwL2NetworkDiameterExceededEvent,
+       "vmwL2NetworkUplinkMissingEvent": vmwL2NetworkUplinkMissingEvent,
+       "vmwL2NetworkWithNoVMsEvent": vmwL2NetworkWithNoVMsEvent,
+       "vmwLayer2NetworkDiameterChangedEvent": vmwLayer2NetworkDiameterChangedEvent,
+       "vmwMTUMismatchEvent": vmwMTUMismatchEvent,
+       "vmwNetworkIsolationEvent": vmwNetworkIsolationEvent,
+       "vmwNoPathEvent": vmwNoPathEvent,
+       "vmwSpoofguardDisabledEvent": vmwSpoofguardDisabledEvent,
+       "vmwVMotionEvent": vmwVMotionEvent,
+       "vmwVMWithDisconnectedVnicsEvent": vmwVMWithDisconnectedVnicsEvent,
+       "vmwVMWithMulipleVnicsOnDifferentVxlansEvent": vmwVMWithMulipleVnicsOnDifferentVxlansEvent,
+       "vmwVMWithMulipleVnicsOnSameL2Event": vmwVMWithMulipleVnicsOnSameL2Event,
+       "vmwVMWithNoIpAddressEvent": vmwVMWithNoIpAddressEvent,
+       "vmwVTEPMissingEvent": vmwVTEPMissingEvent,
+       "vmwL2Event": vmwL2Event,
+       "vmwMembershipChangeEvent": vmwMembershipChangeEvent,
+       "vmwSecurityGroupMembershipChangeEvent": vmwSecurityGroupMembershipChangeEvent,
+       "vmwFirewallRuleMembershipChangeEvent": vmwFirewallRuleMembershipChangeEvent,
+       "vmwVlanMembershipChangeEvent": vmwVlanMembershipChangeEvent,
+       "vmwVxlanMembershipChangeEvent": vmwVxlanMembershipChangeEvent,
+       "vmwDeleteChangeEvent": vmwDeleteChangeEvent,
+       "vmwVtepFailedPingEvent": vmwVtepFailedPingEvent,
+       "vmwEmptySearchStreamChangeEvent": vmwEmptySearchStreamChangeEvent,
+       "vmwSearchStreamMembershipChangeEvent": vmwSearchStreamMembershipChangeEvent,
+       "vmwEmptySearchStreamProblemEvent": vmwEmptySearchStreamProblemEvent,
+       "vmwSearchStreamMembershipProblemEvent": vmwSearchStreamMembershipProblemEvent,
+       "vmwOspfConfigurationMismatchEvent": vmwOspfConfigurationMismatchEvent,
+       "vmwServiceVMNotHealthyEvent": vmwServiceVMNotHealthyEvent,
+       "vmwServiceVMNotPoweredOnEvent": vmwServiceVMNotPoweredOnEvent,
+       "vmwServiceVMHighCPUUsageEvent": vmwServiceVMHighCPUUsageEvent,
+       "vmwServiceVMHighMemoryUsageEvent": vmwServiceVMHighMemoryUsageEvent,
+       "vmwServiceVMHighDiskUsageEvent": vmwServiceVMHighDiskUsageEvent,
+       "vmwIPSetPropertiesChangeEvent": vmwIPSetPropertiesChangeEvent,
+       "vmwFirewallRulePropertiesChangeEvent": vmwFirewallRulePropertiesChangeEvent,
+       "vmwSecurityGroupPropertiesChangeEvent": vmwSecurityGroupPropertiesChangeEvent,
+       "vmwIPSetMembershipChangeEvent": vmwIPSetMembershipChangeEvent,
+       "vmwFirewallRuleMaskEvent": vmwFirewallRuleMaskEvent,
+       "vmwSecurityMembershipChangeEvent": vmwSecurityMembershipChangeEvent,
+       "vmwSecurityTagPropertiesChangeEvent": vmwSecurityTagPropertiesChangeEvent,
+       "vmwSecurityTagMembershipChangeEvent": vmwSecurityTagMembershipChangeEvent,
+       "vmwHostDatastoreChangeEvent": vmwHostDatastoreChangeEvent,
+       "vmwVMDatastoreChangeEvent": vmwVMDatastoreChangeEvent,
+       "vmwVMSnapshotChangeEvent": vmwVMSnapshotChangeEvent,
+       "vmwVMVirtualDiskChangeEvent": vmwVMVirtualDiskChangeEvent,
+       "vmwIPSetDefinitionMismatchEvent": vmwIPSetDefinitionMismatchEvent,
+       "vmwSegmentMismatchEvent": vmwSegmentMismatchEvent,
+       "vmwVtepEvent": vmwVtepEvent,
+       "vmwVtepConfigurationFaultEvent": vmwVtepConfigurationFaultEvent,
+       "vmwDLRNetworksNotReachableEvent": vmwDLRNetworksNotReachableEvent,
+       "vmwVtepSubnetMismatchEvent": vmwVtepSubnetMismatchEvent,
+       "vmwVtepCountMismatchEvent": vmwVtepCountMismatchEvent,
+       "vmwEdgeNetworksNotReachableEvent": vmwEdgeNetworksNotReachableEvent,
+       "vmwNiInfraChangeEvent": vmwNiInfraChangeEvent,
+       "vmwDataSourceEnabledChangeEvent": vmwDataSourceEnabledChangeEvent,
+       "vmwDataSourceDisabledChangeEvent": vmwDataSourceDisabledChangeEvent,
+       "vmwDataSourceCreatedEvent": vmwDataSourceCreatedEvent,
+       "vmwPlatformCpuCoreChangeEvent": vmwPlatformCpuCoreChangeEvent,
+       "vmwPlatformDiskChangeEvent": vmwPlatformDiskChangeEvent,
+       "vmwPlatformMemoryChangeEvent": vmwPlatformMemoryChangeEvent,
+       "vmwPlatformRebootedEvent": vmwPlatformRebootedEvent,
+       "vmwProxyCpuCoreChangeEvent": vmwProxyCpuCoreChangeEvent,
+       "vmwProxyDiskChangeEvent": vmwProxyDiskChangeEvent,
+       "vmwProxyMemoryChangeEvent": vmwProxyMemoryChangeEvent,
+       "vmwProxyRebootedEvent": vmwProxyRebootedEvent,
+       "vmwNIClusterChangeEvent": vmwNIClusterChangeEvent,
+       "vmwNISystemProxyChangeEvent": vmwNISystemProxyChangeEvent,
+       "vmwNIClusterCreateEvent": vmwNIClusterCreateEvent,
+       "vmwThresholdExceededEventCpuReady": vmwThresholdExceededEventCpuReady,
+       "vmwThresholdExceededEventCpuCoStop": vmwThresholdExceededEventCpuCoStop,
+       "vmwThresholdExceededEventDiskCommandAbortRule": vmwThresholdExceededEventDiskCommandAbortRule,
+       "vmwThresholdExceededEventIODeviceLatencyRule": vmwThresholdExceededEventIODeviceLatencyRule,
+       "vmwThresholdExceededEventIOKernelLatencyRule": vmwThresholdExceededEventIOKernelLatencyRule,
+       "vmwThresholdExceededEventMemorySwapInRule": vmwThresholdExceededEventMemorySwapInRule,
+       "vmwThresholdExceededEventMemorySwapOutRule": vmwThresholdExceededEventMemorySwapOutRule,
+       "vmwThresholdExceededEventNetworkRxDropRule": vmwThresholdExceededEventNetworkRxDropRule,
+       "vmwThresholdExceededEventNetworkTxDropRule": vmwThresholdExceededEventNetworkTxDropRule,
+       "vmwAWSRegionSGLimitEvent": vmwAWSRegionSGLimitEvent,
+       "vmwAWSVPCSGLimitEvent": vmwAWSVPCSGLimitEvent,
+       "vmwAWSSGInboundRuleLimitEvent": vmwAWSSGInboundRuleLimitEvent,
+       "vmwAWSSGOutboundRuleLimitEvent": vmwAWSSGOutboundRuleLimitEvent,
+       "vmwAWSInterfaceSGLimitEvent": vmwAWSInterfaceSGLimitEvent,
+       "vmwPacketDropEvent": vmwPacketDropEvent,
+       "vmwSwitchPortPacketDropEvent": vmwSwitchPortPacketDropEvent,
+       "vmwRouterInterfacePacketDropEvent": vmwRouterInterfacePacketDropEvent,
+       "vmwVnicPacketDropEvent": vmwVnicPacketDropEvent,
+       "vmwVTEPUnderlayPacketDropEvent": vmwVTEPUnderlayPacketDropEvent,
+       "vmwPnicUnderlyingSwitchPortPacketDropEvent": vmwPnicUnderlyingSwitchPortPacketDropEvent,
+       "vmwDevicePacketDropEvent": vmwDevicePacketDropEvent,
+       "vmwSwitchPortBufferThresholdExceededEvent": vmwSwitchPortBufferThresholdExceededEvent,
+       "vmwRouterInterfaceBufferThresholdExceededEvent": vmwRouterInterfaceBufferThresholdExceededEvent,
+       "vmwBufferThresholdExceededEvent": vmwBufferThresholdExceededEvent,
+       "vmwSwitchPortUptimeThresholdRecededEvent": vmwSwitchPortUptimeThresholdRecededEvent,
+       "vmwSwitchPortOperationalDownEvent": vmwSwitchPortOperationalDownEvent,
+       "vmwRouterInterfaceOperationalDownEvent": vmwRouterInterfaceOperationalDownEvent,
+       "vmwPortOperationalDownEvent": vmwPortOperationalDownEvent,
+       "vmwUnderlayDeviceGenericEvent": vmwUnderlayDeviceGenericEvent,
+       "vmwUnderlayDeviceFexOfflineEvent": vmwUnderlayDeviceFexOfflineEvent,
+       "vmwUnderlayDeviceFanMalFunctionEvent": vmwUnderlayDeviceFanMalFunctionEvent,
+       "vmwUnderlayDeviceTemperatureThresholdExceededEvent": vmwUnderlayDeviceTemperatureThresholdExceededEvent,
+       "vmwUnderlayDeviceFexFanMalFunctionEvent": vmwUnderlayDeviceFexFanMalFunctionEvent,
+       "vmwUnderlayDeviceFexPsMalFunctionEvent": vmwUnderlayDeviceFexPsMalFunctionEvent,
+       "vmwUnderlayDeviceModuleMalFunctionEvent": vmwUnderlayDeviceModuleMalFunctionEvent,
+       "vmwUnderlayDevicePsMalFunctionEvent": vmwUnderlayDevicePsMalFunctionEvent,
+       "vmwUnderlayDeviceBfdSessionRemovedEvent": vmwUnderlayDeviceBfdSessionRemovedEvent,
+       "vmwUnderlayDeviceLldpNeighbourRemovedEvent": vmwUnderlayDeviceLldpNeighbourRemovedEvent,
+       "vmwSwitchPortRPFPacketDropEvent": vmwSwitchPortRPFPacketDropEvent,
+       "vmwThresholdExceededEventDataSourceCpuUsage": vmwThresholdExceededEventDataSourceCpuUsage,
+       "vmwThresholdExceededEventDataSourceMemoryUsage": vmwThresholdExceededEventDataSourceMemoryUsage,
+       "vmwThresholdExceededEventDataSourceTemperature": vmwThresholdExceededEventDataSourceTemperature,
+       "vmwThresholdExceededEventDatastoreFreeSpaceWarning": vmwThresholdExceededEventDatastoreFreeSpaceWarning,
+       "vmwThresholdExceededEventDatastoreFreeSpaceCritical": vmwThresholdExceededEventDatastoreFreeSpaceCritical,
+       "vmwThresholdExceededEventDatastoreReadLatency": vmwThresholdExceededEventDatastoreReadLatency,
+       "vmwThresholdExceededEventDatastoreWriteLatency": vmwThresholdExceededEventDatastoreWriteLatency,
+       "vmwDistributedFirewallApplyHostEvent": vmwDistributedFirewallApplyHostEvent,
+       "vmwDistributedFirewallApplyVMEvent": vmwDistributedFirewallApplyVMEvent,
+       "vmwNsxEvent": vmwNsxEvent,
+       "vmwFeatureImpactedEvent": vmwFeatureImpactedEvent,
+       "vmwNSXComponentEvent": vmwNSXComponentEvent,
+       "vmwNSXBackupEvent": vmwNSXBackupEvent,
+       "vmwNSXBackupAuditLogExcludedEvent": vmwNSXBackupAuditLogExcludedEvent,
+       "vmwNSXUnsecureBackupEvent": vmwNSXUnsecureBackupEvent,
+       "vmwNSXBackupSystemEventsExcludedEvent": vmwNSXBackupSystemEventsExcludedEvent,
+       "vmwNSXBackupNotScheduledEvent": vmwNSXBackupNotScheduledEvent,
+       "vmwNSXBackupNotRecordedEvent": vmwNSXBackupNotRecordedEvent,
+       "vmwNSXNtpServerEvent": vmwNSXNtpServerEvent,
+       "vmwNSXSysLogServerEvent": vmwNSXSysLogServerEvent,
+       "vmwControllerSysLogServerEvent": vmwControllerSysLogServerEvent,
+       "vmwNSXIpV6EnabledEvent": vmwNSXIpV6EnabledEvent,
+       "vmwNSXOspfNeighborDownEvent": vmwNSXOspfNeighborDownEvent,
+       "vmwClusterFeatureVersionMismatchEvent": vmwClusterFeatureVersionMismatchEvent,
+       "vmwHostFeatureVersionMismatchEvent": vmwHostFeatureVersionMismatchEvent,
+       "vmwFeatureVersionMismatchEvent": vmwFeatureVersionMismatchEvent,
+       "vmwHostFeatureEnabledMismatchEvent": vmwHostFeatureEnabledMismatchEvent,
+       "vmwHostFeatureInstalledMismatchEvent": vmwHostFeatureInstalledMismatchEvent,
+       "vmwHostVtepNotFoundEvent": vmwHostVtepNotFoundEvent,
+       "vmwHostVtepDisconnectedEvent": vmwHostVtepDisconnectedEvent,
+       "vmwHostVtepEvent": vmwHostVtepEvent,
+       "vmwClusterHostsVtepMTUMismatchEvent": vmwClusterHostsVtepMTUMismatchEvent,
+       "vmwFeatureUnhealthyEvent": vmwFeatureUnhealthyEvent,
+       "vmwEdgeHANotConfiguredEvent": vmwEdgeHANotConfiguredEvent,
+       "vmwEdgeInterfacesDownEvent": vmwEdgeInterfacesDownEvent,
+       "vmwModuleUnhealthyEvent": vmwModuleUnhealthyEvent,
+       "vmwModuleNotLoadedEvent": vmwModuleNotLoadedEvent,
+       "vmwModuleNetworkConnectionFailureEvent": vmwModuleNetworkConnectionFailureEvent,
+       "vmwHostNetworkControlPlaneMismatchEvent": vmwHostNetworkControlPlaneMismatchEvent,
+       "vmwHostNetworkControlPlaneConnectionFailureEvent": vmwHostNetworkControlPlaneConnectionFailureEvent,
+       "vmwHostNetworkControlPlaneNotSyncedEvent": vmwHostNetworkControlPlaneNotSyncedEvent,
+       "vmwNSXControllerClusterMajorityEvent": vmwNSXControllerClusterMajorityEvent,
+       "vmwNSXControllersVMOnSameHostEvent": vmwNSXControllersVMOnSameHostEvent,
+       "vmwVxLanRangeExhaustEvent": vmwVxLanRangeExhaustEvent,
+       "vmwNSXFirewallDefaultAllowAllRulesEvent": vmwNSXFirewallDefaultAllowAllRulesEvent,
+       "vmwLogicalRouterNoUplinkEvent": vmwLogicalRouterNoUplinkEvent,
+       "vmwEdgeNotHAEvent": vmwEdgeNotHAEvent,
+       "vmwEdgeNotDeployedEvent": vmwEdgeNotDeployedEvent,
+       "vmwEcmpIsEnabledAndStatefulServicesAreUpEvent": vmwEcmpIsEnabledAndStatefulServicesAreUpEvent,
+       "vmwLogicalRouterDeployedOnEcmpEdgeHostEvent": vmwLogicalRouterDeployedOnEcmpEdgeHostEvent,
+       "vmwEdgeMissingInterfaceOSPFAreaMappingEvent": vmwEdgeMissingInterfaceOSPFAreaMappingEvent,
+       "vmwOspfInsecureAuthRouterEvent": vmwOspfInsecureAuthRouterEvent,
+       "vmwNSXControllersDeployedCountEvent": vmwNSXControllersDeployedCountEvent,
+       "vmwNSXControllerNotActiveCountEvent": vmwNSXControllerNotActiveCountEvent,
+       "vmwNSXControllerEvent": vmwNSXControllerEvent,
+       "vmwNSXEcmpEdgeDownEvent": vmwNSXEcmpEdgeDownEvent,
+       "vmwNSXMajorityEcmpEdgesDownEvent": vmwNSXMajorityEcmpEdgesDownEvent,
+       "vmwNSXAllEcmpEdgesDownEvent": vmwNSXAllEcmpEdgesDownEvent,
+       "vmwNSXEdgeMtuMismatchEvent": vmwNSXEdgeMtuMismatchEvent,
+       "vmwNSXEdgeSplitBrainEvent": vmwNSXEdgeSplitBrainEvent,
+       "vmwVirtualDistributedRoutingEvent": vmwVirtualDistributedRoutingEvent,
+       "vmwNSXEdgeBGPNeighbourDownEvent": vmwNSXEdgeBGPNeighbourDownEvent,
+       "vmwAnalyticsEvent": vmwAnalyticsEvent,
+       "vmwAnalyticsOutlierEvent": vmwAnalyticsOutlierEvent,
+       "vmwAnalyticsThresholdEvent": vmwAnalyticsThresholdEvent,
+       "vmwAnalyticsThresholdCompositeEvent": vmwAnalyticsThresholdCompositeEvent,
+       "vmwAllThresholdEvent": vmwAllThresholdEvent,
+       "vmwAnalyticsThresholdCompositeProblemEvent": vmwAnalyticsThresholdCompositeProblemEvent,
+       "vmwVMCEvent": vmwVMCEvent,
+       "vmwVMCSDDCTGWConnectivityFailedEvent": vmwVMCSDDCTGWConnectivityFailedEvent,
+       "vmwVTGWDuplicateRoutesEvent": vmwVTGWDuplicateRoutesEvent,
+       "vmwSwitchPortRxNetworkUsageThresholdExceededEvent": vmwSwitchPortRxNetworkUsageThresholdExceededEvent,
+       "vmwCriticalHostNotAccessibleEvent": vmwCriticalHostNotAccessibleEvent,
+       "vmwSwitchPortTxNetworkUsageThresholdExceededEvent": vmwSwitchPortTxNetworkUsageThresholdExceededEvent,
+       "vmwSwitchPortRxNetworkUsageThresholdExceededCriticalEvent": vmwSwitchPortRxNetworkUsageThresholdExceededCriticalEvent,
+       "vmwSwitchPortTxNetworkUsageThresholdExceededCriticalEvent": vmwSwitchPortTxNetworkUsageThresholdExceededCriticalEvent,
+       "vmwManagementHostHighCPUUsageEvent": vmwManagementHostHighCPUUsageEvent,
+       "vmwManagementHostHighCPUUsageCriticalEvent": vmwManagementHostHighCPUUsageCriticalEvent,
+       "vmwHostUnHealthyEvent": vmwHostUnHealthyEvent,
+       "vmwNSXControllerFSAvailableThresholdRecededEvent": vmwNSXControllerFSAvailableThresholdRecededEvent,
+       "vmwEdgeVmVnicRxPacketDropEvent": vmwEdgeVmVnicRxPacketDropEvent,
+       "vmwEdgeVmVnicTxPacketDropEvent": vmwEdgeVmVnicTxPacketDropEvent,
+       "vmwManagementHostPnicRxPacketDropEvent": vmwManagementHostPnicRxPacketDropEvent,
+       "vmwManagementHostPnicTxPacketDropEvent": vmwManagementHostPnicTxPacketDropEvent,
+       "vmwManagementHostConnectionStateDisconnectedEvent": vmwManagementHostConnectionStateDisconnectedEvent,
+       "vmwGenericNSXSystemEvent": vmwGenericNSXSystemEvent,
+       "vmwFilterConfigApplyOnHostFailedEvent": vmwFilterConfigApplyOnHostFailedEvent,
+       "vmwRulesetLoadOnHostFailedEvent": vmwRulesetLoadOnHostFailedEvent,
+       "vmwConfigUpdateOnHostFailedEvent": vmwConfigUpdateOnHostFailedEvent,
+       "vmwSpoofguardConfigUpdateOnHostFailedEvent": vmwSpoofguardConfigUpdateOnHostFailedEvent,
+       "vmwApplyRuleToVnicFailedEvent": vmwApplyRuleToVnicFailedEvent,
+       "vmwContainerConfigUpdateOnVnicFailedEvent": vmwContainerConfigUpdateOnVnicFailedEvent,
+       "vmwSpoofguardApplyToVnicFailedEvent": vmwSpoofguardApplyToVnicFailedEvent,
+       "vmwHostMessagingConfigurationFailedEvent": vmwHostMessagingConfigurationFailedEvent,
+       "vmwHostMessagingConnectionReconfigurationFailedEvent": vmwHostMessagingConnectionReconfigurationFailedEvent,
+       "vmwHostMessagingConfigurationFailedNotificationSkippedEvent": vmwHostMessagingConfigurationFailedNotificationSkippedEvent,
+       "vmwHostMessagingInfrastructureDownEvent": vmwHostMessagingInfrastructureDownEvent,
+       "vmwEdgeVMNotRespondingEvent": vmwEdgeVMNotRespondingEvent,
+       "vmwEdgeUnhealthyEvent": vmwEdgeUnhealthyEvent,
+       "vmwEdgeVMCommunicationFailureEvent": vmwEdgeVMCommunicationFailureEvent,
+       "vmwNSXEdgeEvent": vmwNSXEdgeEvent,
+       "vmwOtherCriticalNSXEvent": vmwOtherCriticalNSXEvent,
+       "vmwPanEvent": vmwPanEvent,
+       "vmwPanNsxNotInRegisteredStateEvent": vmwPanNsxNotInRegisteredStateEvent,
+       "vmwPanNsxDynamicUpdateDelayedEvent": vmwPanNsxDynamicUpdateDelayedEvent,
+       "vmwPanDeviceInDisconnectedStateEvent": vmwPanDeviceInDisconnectedStateEvent,
+       "vmwPanNsxServiceApplianceViewMismatchEvent": vmwPanNsxServiceApplianceViewMismatchEvent,
+       "vmwPanNsxFabricAgentNotFoundOnHostEvent": vmwPanNsxFabricAgentNotFoundOnHostEvent,
+       "vmwPanNsxServiceVMNotFoundOnHostEvent": vmwPanNsxServiceVMNotFoundOnHostEvent,
+       "vmwPanLogInsightDroppedFlowEvent": vmwPanLogInsightDroppedFlowEvent,
+       "vmwCPLogInsightDroppedFlowEvent": vmwCPLogInsightDroppedFlowEvent,
+       "vmwCheckpointEvent": vmwCheckpointEvent,
+       "vmwCheckpointNsxFabricAgentNotFoundOnHostEvent": vmwCheckpointNsxFabricAgentNotFoundOnHostEvent,
+       "vmwCheckpointNsxServiceVMNotFoundOnHostEvent": vmwCheckpointNsxServiceVMNotFoundOnHostEvent,
+       "vmwCheckpointGatewaySicStatusNotCommunicatingEvent": vmwCheckpointGatewaySicStatusNotCommunicatingEvent,
+       "vmwCheckpointNsxServiceApplianceViewMismatchEvent": vmwCheckpointNsxServiceApplianceViewMismatchEvent,
+       "vmwNSXTEvent": vmwNSXTEvent,
+       "vmwNSXTVcNotAddedEvent": vmwNSXTVcNotAddedEvent,
+       "vmwNSXTStandaloneHostsEvent": vmwNSXTStandaloneHostsEvent,
+       "vmwNSXTSystemEvent": vmwNSXTSystemEvent,
+       "vmwNSXTNoUplinkConnectivityEvent": vmwNSXTNoUplinkConnectivityEvent,
+       "vmwNSXTRoutingAdvertisementEvent": vmwNSXTRoutingAdvertisementEvent,
+       "vmwNSXTManagerConnectivityDownEvent": vmwNSXTManagerConnectivityDownEvent,
+       "vmwNSXTControllerConnectivityDegradedEvent": vmwNSXTControllerConnectivityDegradedEvent,
+       "vmwNSXTControllerConnectivityDownEvent": vmwNSXTControllerConnectivityDownEvent,
+       "vmwNSXTMtuMismatchEvent": vmwNSXTMtuMismatchEvent,
+       "vmwNSXTExcludedVmFlowEvent": vmwNSXTExcludedVmFlowEvent,
+       "vmwNSXTDoubleVlanTaggingEvent": vmwNSXTDoubleVlanTaggingEvent,
+       "vmwNSXTNoTzAttachedOnTnEvent": vmwNSXTNoTzAttachedOnTnEvent,
+       "vmwNSXTVtepDeleteEvent": vmwNSXTVtepDeleteEvent,
+       "vmwDuplicateL3SwitchEvent": vmwDuplicateL3SwitchEvent,
+       "vmwLBPoolMemberDownEvent": vmwLBPoolMemberDownEvent,
+       "vmwLBPoolDownEvent": vmwLBPoolDownEvent,
+       "vmwLBPoolEmptyEvent": vmwLBPoolEmptyEvent,
+       "vmwLBPoolMemberVMDownEvent": vmwLBPoolMemberVMDownEvent,
+       "vmwLBVirtualServerDisableEvent": vmwLBVirtualServerDisableEvent,
+       "vmwLBServiceNodeIPNotFoundEvent": vmwLBServiceNodeIPNotFoundEvent,
+       "vmwLBServiceNodeMultipleNicFoundEvent": vmwLBServiceNodeMultipleNicFoundEvent,
+       "vmwNSXTSwitchIpfixEnabledEvent": vmwNSXTSwitchIpfixEnabledEvent,
+       "vmwNSXTStandaloneHostsWithoutVcEvent": vmwNSXTStandaloneHostsWithoutVcEvent,
+       "vmwNSXTControllerNodeToControlClusterConnectivityEvent": vmwNSXTControllerNodeToControlClusterConnectivityEvent,
+       "vmwNSXTControllerNodeToMgmtPlaneConnectivityEvent": vmwNSXTControllerNodeToMgmtPlaneConnectivityEvent,
+       "vmwNSXTMPNodeToMgmtClusterConnectivityEvent": vmwNSXTMPNodeToMgmtClusterConnectivityEvent,
+       "vmwNSXTHostNodePnicStatusDownEvent": vmwNSXTHostNodePnicStatusDownEvent,
+       "vmwNSXTHostNodePnicStatusDegradedEvent": vmwNSXTHostNodePnicStatusDegradedEvent,
+       "vmwNSXTHostNodePnicStatusUnknownEvent": vmwNSXTHostNodePnicStatusUnknownEvent,
+       "vmwNSXTHostNodeTunnelStatusDownEvent": vmwNSXTHostNodeTunnelStatusDownEvent,
+       "vmwNSXTHostNodeTunnelStatusDegradedEvent": vmwNSXTHostNodeTunnelStatusDegradedEvent,
+       "vmwNSXTHostNodeTunnelStatusUnknownEvent": vmwNSXTHostNodeTunnelStatusUnknownEvent,
+       "vmwNSXTHostNodeStatusDownEvent": vmwNSXTHostNodeStatusDownEvent,
+       "vmwNSXTHostNodeStatusDegradedEvent": vmwNSXTHostNodeStatusDegradedEvent,
+       "vmwNSXTHostNodeStatusUnknownEvent": vmwNSXTHostNodeStatusUnknownEvent,
+       "vmwNSXTEdgeNodePnicStatusDownEvent": vmwNSXTEdgeNodePnicStatusDownEvent,
+       "vmwNSXTEdgeNodePnicStatusDegradedEvent": vmwNSXTEdgeNodePnicStatusDegradedEvent,
+       "vmwNSXTEdgeNodePnicStatusUnknownEvent": vmwNSXTEdgeNodePnicStatusUnknownEvent,
+       "vmwNSXTEdgeNodeTunnelStatusDownEvent": vmwNSXTEdgeNodeTunnelStatusDownEvent,
+       "vmwNSXTEdgeNodeTunnelStatusDegradedEvent": vmwNSXTEdgeNodeTunnelStatusDegradedEvent,
+       "vmwNSXTEdgeNodeTunnelStatusUnknownEvent": vmwNSXTEdgeNodeTunnelStatusUnknownEvent,
+       "vmwNSXTEdgeNodeStatusDownEvent": vmwNSXTEdgeNodeStatusDownEvent,
+       "vmwNSXTEdgeNodeStatusDegradedEvent": vmwNSXTEdgeNodeStatusDegradedEvent,
+       "vmwNSXTEdgeNodeStatusUnknownEvent": vmwNSXTEdgeNodeStatusUnknownEvent,
+       "vmwNSXTHostNodeMgmtConnectivityStatusDownEvent": vmwNSXTHostNodeMgmtConnectivityStatusDownEvent,
+       "vmwNSXTEdgeNodeCtlrConnectivityStatusUnknownEvent": vmwNSXTEdgeNodeCtlrConnectivityStatusUnknownEvent,
+       "vmwNSXTHostNodeCtlrConnectivityStatusDownEvent": vmwNSXTHostNodeCtlrConnectivityStatusDownEvent,
+       "vmwNSXTHostNodeCtlrConnectivityStatusDegradedEvent": vmwNSXTHostNodeCtlrConnectivityStatusDegradedEvent,
+       "vmwNSXTHostNodeCtlrConnectivityStatusUnknownEvent": vmwNSXTHostNodeCtlrConnectivityStatusUnknownEvent,
+       "vmwNSXTBGPNeighbourStateEvent": vmwNSXTBGPNeighbourStateEvent,
+       "vmwNSXTLogicalSwitchAdminStatusDownEvent": vmwNSXTLogicalSwitchAdminStatusDownEvent,
+       "vmwNSXTLogicalPortOperationalStatusDownEvent": vmwNSXTLogicalPortOperationalStatusDownEvent,
+       "vmwNSXTLogicalPortOperationalStatusUnknownEvent": vmwNSXTLogicalPortOperationalStatusUnknownEvent,
+       "vmwNSXTComputeManagerConnectionStatusNotUpEvent": vmwNSXTComputeManagerConnectionStatusNotUpEvent,
+       "vmwNSXTClusterBackUpDisabledEvent": vmwNSXTClusterBackUpDisabledEvent,
+       "vmwNSXTDFWFirewallDisabledEvent": vmwNSXTDFWFirewallDisabledEvent,
+       "vmwNSXTLogicalPortReceivedPacketDropEvent": vmwNSXTLogicalPortReceivedPacketDropEvent,
+       "vmwNSXTLogicalPortTransmittedPacketDropEvent": vmwNSXTLogicalPortTransmittedPacketDropEvent,
+       "vmwNSXTLogicalSwitchReceivedPacketDropEvent": vmwNSXTLogicalSwitchReceivedPacketDropEvent,
+       "vmwNSXTLogicalSwitchTransmittedPacketDropEvent": vmwNSXTLogicalSwitchTransmittedPacketDropEvent,
+       "vmwNSXTRxPacketDropOnMPNicEvent": vmwNSXTRxPacketDropOnMPNicEvent,
+       "vmwNSXTRxPacketDropOnEdgeTnNicEvent": vmwNSXTRxPacketDropOnEdgeTnNicEvent,
+       "vmwNSXTRxPacketDropOnHostTnNicEvent": vmwNSXTRxPacketDropOnHostTnNicEvent,
+       "vmwNSXTTxPacketDropOnMPNicEvent": vmwNSXTTxPacketDropOnMPNicEvent,
+       "vmwNSXTTxPacketDropOnEdgeTnNicEvent": vmwNSXTTxPacketDropOnEdgeTnNicEvent,
+       "vmwNSXTTxPacketDropOnHostTnNicEvent": vmwNSXTTxPacketDropOnHostTnNicEvent,
+       "vmwNSXTRxPacketDropOnNicEvent": vmwNSXTRxPacketDropOnNicEvent,
+       "vmwNSXTTxPacketDropOnNicEvent": vmwNSXTTxPacketDropOnNicEvent,
+       "vmwNatRuleLargeSubnetEvent": vmwNatRuleLargeSubnetEvent,
+       "vmwNSXTEdgeNodeMaintenanceModeEvent": vmwNSXTEdgeNodeMaintenanceModeEvent,
+       "vmwNSXTHostNodeMaintenanceModeEvent": vmwNSXTHostNodeMaintenanceModeEvent,
+       "vmwNSXTEdgeDVPGsIPFIXDisabledEvent": vmwNSXTEdgeDVPGsIPFIXDisabledEvent,
+       "vmwNSXTRouterInterfaceRPFPacketDropEvent": vmwNSXTRouterInterfaceRPFPacketDropEvent,
+       "vmwNsxtIpfixMultipleCollectorConfigurationEvent": vmwNsxtIpfixMultipleCollectorConfigurationEvent,
+       "vmwHardwareVTEPMismatchEvent": vmwHardwareVTEPMismatchEvent,
+       "vmwHardwareVTEPPortDownEvent": vmwHardwareVTEPPortDownEvent,
+       "vmwNSXTMPNodeServiceCmInventoryStatusEvent": vmwNSXTMPNodeServiceCmInventoryStatusEvent,
+       "vmwNSXTMPNodeServiceControllerStatusEvent": vmwNSXTMPNodeServiceControllerStatusEvent,
+       "vmwNSXTMPNodeServiceDataStoreStatusEvent": vmwNSXTMPNodeServiceDataStoreStatusEvent,
+       "vmwNSXTMPNodeServiceHttpStatusEvent": vmwNSXTMPNodeServiceHttpStatusEvent,
+       "vmwNSXTMPNodeServiceInstallUpgradeEvent": vmwNSXTMPNodeServiceInstallUpgradeEvent,
+       "vmwNSXTMPNodeServiceLiagentStatusEvent": vmwNSXTMPNodeServiceLiagentStatusEvent,
+       "vmwNSXTMPNodeServiceManagerStatusEvent": vmwNSXTMPNodeServiceManagerStatusEvent,
+       "vmwNSXTMPNodeServiceMgmtPlaneBusStatusEvent": vmwNSXTMPNodeServiceMgmtPlaneBusStatusEvent,
+       "vmwNSXTMPNodeServiceMigrationCoordinatorStatusEvent": vmwNSXTMPNodeServiceMigrationCoordinatorStatusEvent,
+       "vmwNSXTMPNodeServiceNodeMgmtStatusEvent": vmwNSXTMPNodeServiceNodeMgmtStatusEvent,
+       "vmwNSXTMPNodeServiceNodeStatsStatusEvent": vmwNSXTMPNodeServiceNodeStatsStatusEvent,
+       "vmwNSXTMPNodeServiceNSXMessageBusStatusEvent": vmwNSXTMPNodeServiceNSXMessageBusStatusEvent,
+       "vmwNSXTMPNodeServiceNSXPlatformClientStatusEvent": vmwNSXTMPNodeServiceNSXPlatformClientStatusEvent,
+       "vmwNSXTMPNodeServiceNSXUpgradeAgentStatusEvent": vmwNSXTMPNodeServiceNSXUpgradeAgentStatusEvent,
+       "vmwNSXTMPNodeServiceNTPStatusEvent": vmwNSXTMPNodeServiceNTPStatusEvent,
+       "vmwNSXTMPNodeServicePolicyStatusEvent": vmwNSXTMPNodeServicePolicyStatusEvent,
+       "vmwNSXTMPNodeServiceSearchStatusEvent": vmwNSXTMPNodeServiceSearchStatusEvent,
+       "vmwNSXTMPNodeServiceSNMPStatusEvent": vmwNSXTMPNodeServiceSNMPStatusEvent,
+       "vmwNSXTMPNodeServiceSSHStatusEvent": vmwNSXTMPNodeServiceSSHStatusEvent,
+       "vmwNSXTMPNodeServiceSyslogStatusEvent": vmwNSXTMPNodeServiceSyslogStatusEvent,
+       "vmwNSXTMPNodeServiceTelemetryStatusEvent": vmwNSXTMPNodeServiceTelemetryStatusEvent,
+       "vmwNSXTMPNodeServiceUIServiceStatusEvent": vmwNSXTMPNodeServiceUIServiceStatusEvent,
+       "vmwNSXTMPNodeServiceClusterManagerStatusEvent": vmwNSXTMPNodeServiceClusterManagerStatusEvent,
+       "vmwIndexerLagEvent": vmwIndexerLagEvent,
+       "vmwIPFIXFlowDPPausedEvent": vmwIPFIXFlowDPPausedEvent,
+       "vmwGridProcessingStoppedEvent": vmwGridProcessingStoppedEvent,
+       "vmwUnableToSendEmailsEvent": vmwUnableToSendEmailsEvent,
+       "vmwSMTPNotConfiguredEvent": vmwSMTPNotConfiguredEvent,
+       "vmwSNMPNotConfiguredEvent": vmwSNMPNotConfiguredEvent,
+       "vmwReindexingInProgressEvent": vmwReindexingInProgressEvent,
+       "vmwNodesVersionMismatchEvent": vmwNodesVersionMismatchEvent,
+       "vmwNotAllServicesRunningEvent": vmwNotAllServicesRunningEvent,
+       "vmwNotAllServicesHealthyEvent": vmwNotAllServicesHealthyEvent,
+       "vmwExpandPartitionFailedEvent": vmwExpandPartitionFailedEvent,
+       "vmwDiskCleanupFailedEvent": vmwDiskCleanupFailedEvent,
+       "vmwVacuumFailedEvent": vmwVacuumFailedEvent,
+       "vmwConfigStoreCleanupFailedEvent": vmwConfigStoreCleanupFailedEvent,
+       "vmwHBaseRetentionToolFailedEvent": vmwHBaseRetentionToolFailedEvent,
+       "vmwMetricStoreUpdaterFailedEvent": vmwMetricStoreUpdaterFailedEvent,
+       "vmwCollectorLagEvent": vmwCollectorLagEvent,
+       "vmwCollectionLagEvent": vmwCollectionLagEvent,
+       "vmwGridProcessingLagEvent": vmwGridProcessingLagEvent,
+       "vmwConnectionErrorEvent": vmwConnectionErrorEvent,
+       "vmwNodeNotActiveEvent": vmwNodeNotActiveEvent,
+       "vmwHighDiskUtilizationEvent": vmwHighDiskUtilizationEvent,
+       "vmwIndexingAbortedEvent": vmwIndexingAbortedEvent,
+       "vmwUpgradeFailedEvent": vmwUpgradeFailedEvent,
+       "vmwFlowProcessingSuspendedEvent": vmwFlowProcessingSuspendedEvent,
+       "vmwLargeSdmsDroppedEvent": vmwLargeSdmsDroppedEvent,
+       "vmwApplianceNotConfiguredEvent": vmwApplianceNotConfiguredEvent,
+       "vmwDiskAllocationInsufficientEvent": vmwDiskAllocationInsufficientEvent,
+       "vmwApplianceNotRegisteredEvent": vmwApplianceNotRegisteredEvent,
+       "vmwRegCertExpiredEvent": vmwRegCertExpiredEvent,
+       "vmwFdbConfigStoreCleanupFailedEvent": vmwFdbConfigStoreCleanupFailedEvent,
+       "vmwDeploymentDefMismatchEvent": vmwDeploymentDefMismatchEvent,
+       "vmwBackupFailedEvent": vmwBackupFailedEvent,
+       "vmwAdditionalResourcesRequiredEvent": vmwAdditionalResourcesRequiredEvent,
+       "vmwCapacityReconfigurationRequiredEvent": vmwCapacityReconfigurationRequiredEvent,
+       "vmwCapacityReconfigurationFailedEvent": vmwCapacityReconfigurationFailedEvent,
+       "vmwLicenseExpiredEvent": vmwLicenseExpiredEvent,
+       "vmwInGracePeriodEvent": vmwInGracePeriodEvent,
+       "vmwUnableToSendSNMPTrapsEvent": vmwUnableToSendSNMPTrapsEvent,
+       "vmwStreamProcessingFailedEvent": vmwStreamProcessingFailedEvent,
+       "vmwIpfixFlowLagEvent": vmwIpfixFlowLagEvent,
+       "vmwChangeEventsDroppedEvent": vmwChangeEventsDroppedEvent,
+       "vmwHighDiskIoUtilizationEvent": vmwHighDiskIoUtilizationEvent,
+       "vmwServiceRestartCountExceededEvent": vmwServiceRestartCountExceededEvent,
+       "vmwAnalyticsMemoryLimitsExceededEvent": vmwAnalyticsMemoryLimitsExceededEvent,
+       "vmwFailedEvent": vmwFailedEvent,
+       "vmwTimeoutEvent": vmwTimeoutEvent,
+       "vmwConnectionRefusedEvent": vmwConnectionRefusedEvent,
+       "vmwSNOWMandatoryPrivilegeMissingEvent": vmwSNOWMandatoryPrivilegeMissingEvent,
+       "vmwIncorrectConnectionStringEvent": vmwIncorrectConnectionStringEvent,
+       "vmwInvalidCredentialsEvent": vmwInvalidCredentialsEvent,
+       "vmwUnknownHostEvent": vmwUnknownHostEvent,
+       "vmwSNMPConnectionInvalidEvent": vmwSNMPConnectionInvalidEvent,
+       "vmwFailedCredsEncryptEvent": vmwFailedCredsEncryptEvent,
+       "vmwPwdAuthModeDisabledEvent": vmwPwdAuthModeDisabledEvent,
+       "vmwInsufficientPrivilegesEvent": vmwInsufficientPrivilegesEvent,
+       "vmwNotFoundEvent": vmwNotFoundEvent,
+       "vmwInvalidConfigEvent": vmwInvalidConfigEvent,
+       "vmwWarnConfigEvent": vmwWarnConfigEvent,
+       "vmwUnexpectedDSTypeOrVersionEvent": vmwUnexpectedDSTypeOrVersionEvent,
+       "vmwNSXControllerNotFoundEvent": vmwNSXControllerNotFoundEvent,
+       "vmwHostNotReachableEvent": vmwHostNotReachableEvent,
+       "vmwInvalidResponseFromDatasourceEvent": vmwInvalidResponseFromDatasourceEvent,
+       "vmwDataProviderNotRunningEvent": vmwDataProviderNotRunningEvent,
+       "vmwPrimaryNSXNotAddedEvent": vmwPrimaryNSXNotAddedEvent,
+       "vmwHostnameResolutionErrorEvent": vmwHostnameResolutionErrorEvent,
+       "vmwNumVMsOrHostsNotFoundEvent": vmwNumVMsOrHostsNotFoundEvent,
+       "vmwNSXIPFIXStatusMismatchEvent": vmwNSXIPFIXStatusMismatchEvent,
+       "vmwFlowPhysicalNodeEvent": vmwFlowPhysicalNodeEvent,
+       "vmwNotEmptyNodeEvent": vmwNotEmptyNodeEvent,
+       "vmwUnsupportedNSXTVersionEvent": vmwUnsupportedNSXTVersionEvent,
+       "vmwComputeManagersNotFoundEvent": vmwComputeManagersNotFoundEvent,
+       "vmwComputeManagersNotAddedEvent": vmwComputeManagersNotAddedEvent,
+       "vmwUnsupportedLogInsightVersionEvent": vmwUnsupportedLogInsightVersionEvent,
+       "vmwUnsupportedVRNIContentPackVersionEvent": vmwUnsupportedVRNIContentPackVersionEvent,
+       "vmwVRNIContentPackNotInstalledEvent": vmwVRNIContentPackNotInstalledEvent,
+       "vmwWebhookNotEnabledOnAlertEvent": vmwWebhookNotEnabledOnAlertEvent,
+       "vmwIncorrectWebhookConfiguredOnAlertEvent": vmwIncorrectWebhookConfiguredOnAlertEvent,
+       "vmwWebhookNotRunningEvent": vmwWebhookNotRunningEvent,
+       "vmwInfobloxRecordLimitExceededEvent": vmwInfobloxRecordLimitExceededEvent,
+       "vmwIncorrectInfobloxCredentialEvent": vmwIncorrectInfobloxCredentialEvent,
+       "vmwUnsupportedInfobloxVersionEvent": vmwUnsupportedInfobloxVersionEvent,
+       "vmwUnknownInfobloxVersionEvent": vmwUnknownInfobloxVersionEvent,
+       "vmwNoDVSAvailableEvent": vmwNoDVSAvailableEvent,
+       "vmwVCNotOnSameProxyEvent": vmwVCNotOnSameProxyEvent,
+       "vmwNSXTIPFixNoCollectorProfileEvent": vmwNSXTIPFixNoCollectorProfileEvent,
+       "vmwNSXTIPFixNoNewCollectorProfileCanBeAddedEvent": vmwNSXTIPFixNoNewCollectorProfileCanBeAddedEvent,
+       "vmwNSXTIPFixNoIPFixProfileEvent": vmwNSXTIPFixNoIPFixProfileEvent,
+       "vmwNSXTIPFixIPFixProfilePriorityNotZeroEvent": vmwNSXTIPFixIPFixProfilePriorityNotZeroEvent,
+       "vmwNSXTIPFixCollectorAndIPFixProfileMismatchEvent": vmwNSXTIPFixCollectorAndIPFixProfileMismatchEvent,
+       "vmwNSXTIPFixPortIncorrectEvent": vmwNSXTIPFixPortIncorrectEvent,
+       "vmwNSXTIPFixDFWStatusNotEnabledEvent": vmwNSXTIPFixDFWStatusNotEnabledEvent,
+       "vmwPolicyManagerNoDfwIPFixProfile": vmwPolicyManagerNoDfwIPFixProfile,
+       "vmwPolicyManagerVrniDfwIPFixCollectorAbsent": vmwPolicyManagerVrniDfwIPFixCollectorAbsent,
+       "vmwDatasourceIdentificationChangedEvent": vmwDatasourceIdentificationChangedEvent,
+       "vmwPKSKubernetesUnknownHostEvent": vmwPKSKubernetesUnknownHostEvent,
+       "vmwKubernetesInsufficientPrivilegesEvent": vmwKubernetesInsufficientPrivilegesEvent,
+       "vmwServiceNowAppLimitExceededEvent": vmwServiceNowAppLimitExceededEvent,
+       "vmwUANIFileNotProvidedEvent": vmwUANIFileNotProvidedEvent,
+       "vmwUANIFileDoesNotExistEvent": vmwUANIFileDoesNotExistEvent,
+       "vmwNSXTLatencyNotEnabledEvent": vmwNSXTLatencyNotEnabledEvent,
+       "vmwNSXTLatencyNoBFDProfileEvent": vmwNSXTLatencyNoBFDProfileEvent,
+       "vmwNSXTLatencyCollectorMismatchEvent": vmwNSXTLatencyCollectorMismatchEvent,
+       "vmwBigIpInsufficientShellAccessEvent": vmwBigIpInsufficientShellAccessEvent,
+       "vmwBigIpInsufficientPartitionAccessEvent": vmwBigIpInsufficientPartitionAccessEvent,
+       "vmwBigIpInsufficientRoleEvent": vmwBigIpInsufficientRoleEvent,
+       "vmwNsxtSystemEventApiEvent": vmwNsxtSystemEventApiEvent,
+       "vmwNsxtLatencyStatProfileMismatchEvent": vmwNsxtLatencyStatProfileMismatchEvent,
+       "vmwNsxtLatencyNodeGroupMismatchEvent": vmwNsxtLatencyNodeGroupMismatchEvent,
+       "vmwNsxtLatencyServiceConfigMismatchEvent": vmwNsxtLatencyServiceConfigMismatchEvent,
+       "vmwNsxtNotificationWebhookDisabledEvent": vmwNsxtNotificationWebhookDisabledEvent,
+       "vmwFailedDatasourceOperationEvent": vmwFailedDatasourceOperationEvent,
+       "vmwUnsupportedNsxAlbVersionEvent": vmwUnsupportedNsxAlbVersionEvent,
+       "vmwTkgiKubernetesNotReachableEvent": vmwTkgiKubernetesNotReachableEvent,
+       "vmwTkgiClustersInsufficientPrivilegesEvent": vmwTkgiClustersInsufficientPrivilegesEvent,
+       "vmwVeloCloudEvent": vmwVeloCloudEvent,
+       "vmwVeloCloudEdgeDownEvent": vmwVeloCloudEdgeDownEvent,
+       "vmwVeloCloudLinkDownEvent": vmwVeloCloudLinkDownEvent,
+       "vmwVeloCloudEdgeL7ApplicationLostPacketEvent": vmwVeloCloudEdgeL7ApplicationLostPacketEvent,
+       "vmwVeloCloudEdgeL7ApplicationRetransmittedPacketEvent": vmwVeloCloudEdgeL7ApplicationRetransmittedPacketEvent,
+       "vmwVeloCloudLinkLostPacketEventTx": vmwVeloCloudLinkLostPacketEventTx,
+       "vmwVeloCloudEdgeLocationNotSetEvent": vmwVeloCloudEdgeLocationNotSetEvent,
+       "vmwVeloCloudLinkDegradedVoiceQoeEvent": vmwVeloCloudLinkDegradedVoiceQoeEvent,
+       "vmwVeloCloudLinkDegradedVideoQoeEvent": vmwVeloCloudLinkDegradedVideoQoeEvent,
+       "vmwVeloCloudLinkDegradedTransQoeEvent": vmwVeloCloudLinkDegradedTransQoeEvent,
+       "vmwVeloCloudEdgeDegradedVoiceQoeEvent": vmwVeloCloudEdgeDegradedVoiceQoeEvent,
+       "vmwVeloCloudEdgeDegradedVideoQoeEvent": vmwVeloCloudEdgeDegradedVideoQoeEvent,
+       "vmwVeloCloudEdgeDegradedTransQoeEvent": vmwVeloCloudEdgeDegradedTransQoeEvent,
+       "vmwVeloCloudLinkLostPacketEventRx": vmwVeloCloudLinkLostPacketEventRx,
+       "vmwVeloCloudTunnelDegradedVoiceQoeEvent": vmwVeloCloudTunnelDegradedVoiceQoeEvent,
+       "vmwVeloCloudTunnelDegradedVideoQoeEvent": vmwVeloCloudTunnelDegradedVideoQoeEvent,
+       "vmwVeloCloudTunnelDegradedTransQoeEvent": vmwVeloCloudTunnelDegradedTransQoeEvent,
+       "vmwSDWanLinkTrafficThresholdEvent": vmwSDWanLinkTrafficThresholdEvent,
+       "vmwVeloCloudQoeEvent": vmwVeloCloudQoeEvent,
+       "vmwHcxEvent": vmwHcxEvent,
+       "vmwHcxIXServiceStatusEvent": vmwHcxIXServiceStatusEvent,
+       "vmwHcxIXApplianceEncryptionTunnelStatusEvent": vmwHcxIXApplianceEncryptionTunnelStatusEvent,
+       "vmwHcxNEServiceStatusEvent": vmwHcxNEServiceStatusEvent,
+       "vmwHcxNEApplianceEncryptionTunnelStatusEvent": vmwHcxNEApplianceEncryptionTunnelStatusEvent,
+       "vmwHcxIXApplianceServicePipelineStatusEvent": vmwHcxIXApplianceServicePipelineStatusEvent,
+       "vmwHcxNEApplianceServicePipelineStatusEvent": vmwHcxNEApplianceServicePipelineStatusEvent,
+       "vmwHcxIXApplianceServiceTransportStatusEvent": vmwHcxIXApplianceServiceTransportStatusEvent,
+       "vmwHcxNEApplianceServiceTransportStatusEvent": vmwHcxNEApplianceServiceTransportStatusEvent,
+       "vmwHcxIXApplianceServiceSystemStateEvent": vmwHcxIXApplianceServiceSystemStateEvent,
+       "vmwHcxNEApplianceServiceSystemStateEvent": vmwHcxNEApplianceServiceSystemStateEvent,
+       "vmwHcxWanOptServiceStatusEvent": vmwHcxWanOptServiceStatusEvent,
+       "vmwHcxBMServiceStatusEvent": vmwHcxBMServiceStatusEvent,
+       "vmwHcxVMotionServiceStatusEvent": vmwHcxVMotionServiceStatusEvent,
+       "vmwHcxIXServiceNotRunningEvent": vmwHcxIXServiceNotRunningEvent,
+       "vmwHcxNEServiceNotRunningEvent": vmwHcxNEServiceNotRunningEvent,
+       "vmwHcxWanOptServiceNotRunningEvent": vmwHcxWanOptServiceNotRunningEvent,
+       "vmwHcxApplianceAllTunnelDownEvent": vmwHcxApplianceAllTunnelDownEvent,
+       "vmwHcxConnectionRuleViolationEvent": vmwHcxConnectionRuleViolationEvent,
+       "vmwHcxMtuMismatchEvent": vmwHcxMtuMismatchEvent,
+       "vmwHcxApplianceUnhealthyTunnelsEvent": vmwHcxApplianceUnhealthyTunnelsEvent,
+       "vmwHcxManagerVersionMismatchEvent": vmwHcxManagerVersionMismatchEvent,
+       "vmwHcxApplianceVersionMismatchEvent": vmwHcxApplianceVersionMismatchEvent,
+       "vmwLatencyNoDataEvent": vmwLatencyNoDataEvent,
+       "vmwNSXVLatencyNoDataEvent": vmwNSXVLatencyNoDataEvent,
+       "vmwVMCVMLimitExceededEvent": vmwVMCVMLimitExceededEvent,
+       "vmwVMCHostLimitExceededEvent": vmwVMCHostLimitExceededEvent,
+       "vmwVMCHostPerClusterLimitExceededEvent": vmwVMCHostPerClusterLimitExceededEvent,
+       "vmwVMCVMPerHostLimitExceededEvent": vmwVMCVMPerHostLimitExceededEvent,
+       "vmwVMCClusterLimitExceededEvent": vmwVMCClusterLimitExceededEvent,
+       "vmwVMCCapacityThresholdBreachEvent": vmwVMCCapacityThresholdBreachEvent,
+       "vmwProtectionEvent": vmwProtectionEvent,
+       "vmwLinkMtuMismatchEvent": vmwLinkMtuMismatchEvent,
+       "vmwPortModeMismatchEvent": vmwPortModeMismatchEvent,
+       "vmwPortTrunkMismatchEvent": vmwPortTrunkMismatchEvent,
+       "vmwPortChannelMismatchEvent": vmwPortChannelMismatchEvent,
+       "vmwDuplexMismatchEvent": vmwDuplexMismatchEvent,
+       "vmwUnderlayProblem": vmwUnderlayProblem,
+       "vmwSwitchPortProblem": vmwSwitchPortProblem,
+       "vmwDuplicateMacAddressEvent": vmwDuplicateMacAddressEvent,
+       "vmwDuplicateIPAddressEvent": vmwDuplicateIPAddressEvent,
+       "vmwSTPPathCostMethodInconsistencyEvent": vmwSTPPathCostMethodInconsistencyEvent,
+       "vmwHSRPSTPColocationEvent": vmwHSRPSTPColocationEvent,
+       "vmwNativeVlanMismatchEvent": vmwNativeVlanMismatchEvent,
+       "vmwNativeVlanTaggingMismatchEvent": vmwNativeVlanTaggingMismatchEvent,
+       "vmwSnapshotNotBuildingEvent": vmwSnapshotNotBuildingEvent,
+       "vmwHSRPConfigurationEvent": vmwHSRPConfigurationEvent,
+       "vmwProtectionActiveEvent": vmwProtectionActiveEvent,
+       "vmwPathProblem": vmwPathProblem,
+       "vmwSNMPTrapEvent": vmwSNMPTrapEvent,
+       "vmwInvalidIntentEvent": vmwInvalidIntentEvent,
+       "vmwStigAccountPasswdEvent": vmwStigAccountPasswdEvent,
+       "vmwStigConsolePasswdEvent": vmwStigConsolePasswdEvent,
+       "vmwStigDefaultPasswdEvent": vmwStigDefaultPasswdEvent,
+       "vmwStigMgmtPasswdEvent": vmwStigMgmtPasswdEvent,
+       "vmwStigPlaintextPasswdEvent": vmwStigPlaintextPasswdEvent,
+       "vmwLoopDetectionEvent": vmwLoopDetectionEvent,
+       "vmwReachabilityEvent": vmwReachabilityEvent,
+       "vmwSegmentationEvent": vmwSegmentationEvent,
+       "vmwFlowCollectionErrorEvent": vmwFlowCollectionErrorEvent,
+       "vmwAWSThrottlingExceptionEvent": vmwAWSThrottlingExceptionEvent,
+       "vmwAWSFlowLogAccessDeniedExceptionEvent": vmwAWSFlowLogAccessDeniedExceptionEvent,
+       "vmwAzureFlowCollectionErrorEvent": vmwAzureFlowCollectionErrorEvent,
+       "vmwAzureNetworkWatcherStorageErrorEvent": vmwAzureNetworkWatcherStorageErrorEvent,
+       "vmwPwdAuthModeDisabledAristaEvent": vmwPwdAuthModeDisabledAristaEvent,
+       "vmwUnsupportedNSXVersionEvent": vmwUnsupportedNSXVersionEvent,
+       "vmwVRNIData": vmwVRNIData,
+       "vmwAffectedObject": vmwAffectedObject,
+       "vmwEventSeverity": vmwEventSeverity,
+       "vmwVrniUrl": vmwVrniUrl,
+       "vmwTimestamp": vmwTimestamp,
+       "vmwOperatorDesc": vmwOperatorDesc,
+       "vmwEventName": vmwEventName,
+       "vmwAffectedObjectManager": vmwAffectedObjectManager,
+       "vmwAffectedObjectParent": vmwAffectedObjectParent,
+       "vmwPlatformIP": vmwPlatformIP,
+       "vmwNetworkInsightMIBConformance": vmwNetworkInsightMIBConformance,
+       "vmwNetworkInsightMIBCompliances": vmwNetworkInsightMIBCompliances,
+       "vmwNetworkInsightMIBBasicCompliance": vmwNetworkInsightMIBBasicCompliance,
+       "vmwNetworkInsightMIBBasicCompliance2": vmwNetworkInsightMIBBasicCompliance2,
+       "vmwNetworkInsightMIBBasicCompliance3": vmwNetworkInsightMIBBasicCompliance3,
+       "vmwNetworkInsightMIBBasicCompliance4": vmwNetworkInsightMIBBasicCompliance4,
+       "vmwNetworkInsightMIBBasicCompliance5": vmwNetworkInsightMIBBasicCompliance5,
+       "vmwNetworkInsightMIBBasicCompliance6": vmwNetworkInsightMIBBasicCompliance6,
+       "vmwNetworkInsightMIBBasicCompliance7": vmwNetworkInsightMIBBasicCompliance7,
+       "vmwNetworkInsightMIBBasicCompliance8": vmwNetworkInsightMIBBasicCompliance8,
+       "vmwNetworkInsightMIBBasicCompliance9": vmwNetworkInsightMIBBasicCompliance9,
+       "vmwNetworkInsightMIBBasicCompliance10": vmwNetworkInsightMIBBasicCompliance10,
+       "vmwNetworkInsightMIBBasicCompliance11": vmwNetworkInsightMIBBasicCompliance11,
+       "vmwNetworkInsightMIBBasicCompliance12": vmwNetworkInsightMIBBasicCompliance12,
+       "vmwNetworkInsightMIBBasicCompliance13": vmwNetworkInsightMIBBasicCompliance13,
+       "vmwNetworkInsightMIBBasicCompliance14": vmwNetworkInsightMIBBasicCompliance14,
+       "vmwNetworkInsightMIBBasicCompliance15": vmwNetworkInsightMIBBasicCompliance15,
+       "vmwNetworkInsightMIBBasicCompliance16": vmwNetworkInsightMIBBasicCompliance16,
+       "vmwNetworkInsightMIBGroups": vmwNetworkInsightMIBGroups,
+       "vmwNetworkInsightNotificationInfoGroup1": vmwNetworkInsightNotificationInfoGroup1,
+       "vmwNetworkInsightNotificationGroup1": vmwNetworkInsightNotificationGroup1,
+       "vmwNetworkInsightNotificationInfoGroup2": vmwNetworkInsightNotificationInfoGroup2,
+       "vmwNetworkInsightNotificationGroup2": vmwNetworkInsightNotificationGroup2,
+       "vmwNetworkInsightNotificationGroup3": vmwNetworkInsightNotificationGroup3,
+       "vmwNetworkInsightNotificationGroup4": vmwNetworkInsightNotificationGroup4,
+       "vmwNetworkInsightNotificationInfoGroup3": vmwNetworkInsightNotificationInfoGroup3,
+       "vmwNetworkInsightNotificationGroup5": vmwNetworkInsightNotificationGroup5,
+       "vmwNetworkInsightNotificationGroup6": vmwNetworkInsightNotificationGroup6,
+       "vmwNetworkInsightNotificationGroup7": vmwNetworkInsightNotificationGroup7,
+       "vmwNetworkInsightNotificationGroup8": vmwNetworkInsightNotificationGroup8,
+       "vmwNetworkInsightNotificationGroup9": vmwNetworkInsightNotificationGroup9,
+       "vmwNetworkInsightNotificationGroup10": vmwNetworkInsightNotificationGroup10,
+       "vmwNetworkInsightNotificationGroup11": vmwNetworkInsightNotificationGroup11,
+       "vmwNetworkInsightNotificationGroup12": vmwNetworkInsightNotificationGroup12,
+       "vmwNetworkInsightNotificationGroup13": vmwNetworkInsightNotificationGroup13,
+       "vmwNetworkInsightNotificationGroup14": vmwNetworkInsightNotificationGroup14,
+       "vmwNetworkInsightNotificationGroup15": vmwNetworkInsightNotificationGroup15,
+       "vmwNetworkInsightNotificationInfoGroup4": vmwNetworkInsightNotificationInfoGroup4,
+       "vmwNetworkInsightNotificationGroup16": vmwNetworkInsightNotificationGroup16}
+)

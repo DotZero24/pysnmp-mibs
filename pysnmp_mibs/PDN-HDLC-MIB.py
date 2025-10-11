@@ -1,58 +1,332 @@
+# SNMP MIB module (PDN-HDLC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PDN-HDLC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/paradyne/PDN-HDLC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:17 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/paradyne/PDN-HDLC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:00:41 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-pdn_interfaces, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-interfaces")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-pdnHdlcMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26))
-pdnHdlcMIB.setRevisions(('2004-09-10 00:00',))
-if mibBuilder.loadTexts: pdnHdlcMIB.setLastUpdated('200409100000Z')
-if mibBuilder.loadTexts: pdnHdlcMIB.setOrganization('Paradyne Networks MIB Working Group Other information about group editing the MIB')
-pdnHdlcNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 0))
-pdnHdlcObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1))
-pdnHdlcAFNs = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 2))
-pdnHdlcConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3))
-pdnHdlcStatsTotalTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1), )
-if mibBuilder.loadTexts: pdnHdlcStatsTotalTable.setStatus('current')
-pdnHdlcStatsTotalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: pdnHdlcStatsTotalEntry.setStatus('current')
-pdnHdlcStatsTotalRxGood = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnHdlcStatsTotalRxGood.setStatus('current')
-pdnHdlcStatsTotalRxCRCErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnHdlcStatsTotalRxCRCErrors.setStatus('current')
-pdnHdlcStatsTotalRxAborts = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnHdlcStatsTotalRxAborts.setStatus('current')
-pdnHdlcStatsTotalRxBadAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnHdlcStatsTotalRxBadAddress.setStatus('current')
-pdnHdlcStatsTotalRxNoBufAvail = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnHdlcStatsTotalRxNoBufAvail.setStatus('current')
-pdnHdlcStatsTotalReceiverOverrun = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnHdlcStatsTotalReceiverOverrun.setStatus('current')
-pdnHdlcStatsTotalRxMaxSizeExceeded = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnHdlcStatsTotalRxMaxSizeExceeded.setStatus('current')
-pdnHdlcStatsTotalTx = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnHdlcStatsTotalTx.setStatus('current')
-pdnHdlcStatsTotalTxBufUnderrun = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnHdlcStatsTotalTxBufUnderrun.setStatus('current')
-pdnHdlcCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 1))
-pdnHdlcGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2))
-pdnHdlcCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 1, 1)).setObjects(("PDN-HDLC-MIB", "pdnHdlcStatsTotalGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnHdlcCompliance = pdnHdlcCompliance.setStatus('current')
-pdnHdlcObjGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2, 1))
-pdnHdlcAfnGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2, 2))
-pdnHdlcNtfyGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2, 3))
-pdnHdlcStatsTotalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2, 1, 1)).setObjects(("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxGood"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxCRCErrors"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxAborts"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxBadAddress"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxNoBufAvail"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalReceiverOverrun"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxMaxSizeExceeded"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalTx"), ("PDN-HDLC-MIB", "pdnHdlcStatsTotalTxBufUnderrun"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnHdlcStatsTotalGroup = pdnHdlcStatsTotalGroup.setStatus('current')
-mibBuilder.exportSymbols("PDN-HDLC-MIB", pdnHdlcStatsTotalTx=pdnHdlcStatsTotalTx, pdnHdlcObjects=pdnHdlcObjects, pdnHdlcAFNs=pdnHdlcAFNs, pdnHdlcStatsTotalTable=pdnHdlcStatsTotalTable, pdnHdlcStatsTotalRxBadAddress=pdnHdlcStatsTotalRxBadAddress, PYSNMP_MODULE_ID=pdnHdlcMIB, pdnHdlcCompliances=pdnHdlcCompliances, pdnHdlcConformance=pdnHdlcConformance, pdnHdlcGroups=pdnHdlcGroups, pdnHdlcStatsTotalReceiverOverrun=pdnHdlcStatsTotalReceiverOverrun, pdnHdlcNotifications=pdnHdlcNotifications, pdnHdlcStatsTotalRxGood=pdnHdlcStatsTotalRxGood, pdnHdlcStatsTotalRxAborts=pdnHdlcStatsTotalRxAborts, pdnHdlcStatsTotalRxMaxSizeExceeded=pdnHdlcStatsTotalRxMaxSizeExceeded, pdnHdlcStatsTotalGroup=pdnHdlcStatsTotalGroup, pdnHdlcStatsTotalRxCRCErrors=pdnHdlcStatsTotalRxCRCErrors, pdnHdlcStatsTotalTxBufUnderrun=pdnHdlcStatsTotalTxBufUnderrun, pdnHdlcMIB=pdnHdlcMIB, pdnHdlcStatsTotalRxNoBufAvail=pdnHdlcStatsTotalRxNoBufAvail, pdnHdlcStatsTotalEntry=pdnHdlcStatsTotalEntry, pdnHdlcObjGroups=pdnHdlcObjGroups, pdnHdlcCompliance=pdnHdlcCompliance, pdnHdlcAfnGroups=pdnHdlcAfnGroups, pdnHdlcNtfyGroups=pdnHdlcNtfyGroups)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(pdn_interfaces,) = mibBuilder.importSymbols(
+    "PDN-HEADER-MIB",
+    "pdn-interfaces")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pdnHdlcMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26)
+)
+if mibBuilder.loadTexts:
+    pdnHdlcMIB.setRevisions(
+        ("2004-09-10 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PdnHdlcNotifications_ObjectIdentity = ObjectIdentity
+pdnHdlcNotifications = _PdnHdlcNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 0)
+)
+_PdnHdlcObjects_ObjectIdentity = ObjectIdentity
+pdnHdlcObjects = _PdnHdlcObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1)
+)
+_PdnHdlcStatsTotalTable_Object = MibTable
+pdnHdlcStatsTotalTable = _PdnHdlcStatsTotalTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1)
+)
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalTable.setStatus("current")
+_PdnHdlcStatsTotalEntry_Object = MibTableRow
+pdnHdlcStatsTotalEntry = _PdnHdlcStatsTotalEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1)
+)
+pdnHdlcStatsTotalEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalEntry.setStatus("current")
+_PdnHdlcStatsTotalRxGood_Type = Counter32
+_PdnHdlcStatsTotalRxGood_Object = MibTableColumn
+pdnHdlcStatsTotalRxGood = _PdnHdlcStatsTotalRxGood_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 1),
+    _PdnHdlcStatsTotalRxGood_Type()
+)
+pdnHdlcStatsTotalRxGood.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalRxGood.setStatus("current")
+_PdnHdlcStatsTotalRxCRCErrors_Type = Counter32
+_PdnHdlcStatsTotalRxCRCErrors_Object = MibTableColumn
+pdnHdlcStatsTotalRxCRCErrors = _PdnHdlcStatsTotalRxCRCErrors_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 2),
+    _PdnHdlcStatsTotalRxCRCErrors_Type()
+)
+pdnHdlcStatsTotalRxCRCErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalRxCRCErrors.setStatus("current")
+_PdnHdlcStatsTotalRxAborts_Type = Counter32
+_PdnHdlcStatsTotalRxAborts_Object = MibTableColumn
+pdnHdlcStatsTotalRxAborts = _PdnHdlcStatsTotalRxAborts_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 3),
+    _PdnHdlcStatsTotalRxAborts_Type()
+)
+pdnHdlcStatsTotalRxAborts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalRxAborts.setStatus("current")
+_PdnHdlcStatsTotalRxBadAddress_Type = Counter32
+_PdnHdlcStatsTotalRxBadAddress_Object = MibTableColumn
+pdnHdlcStatsTotalRxBadAddress = _PdnHdlcStatsTotalRxBadAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 4),
+    _PdnHdlcStatsTotalRxBadAddress_Type()
+)
+pdnHdlcStatsTotalRxBadAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalRxBadAddress.setStatus("current")
+_PdnHdlcStatsTotalRxNoBufAvail_Type = Counter32
+_PdnHdlcStatsTotalRxNoBufAvail_Object = MibTableColumn
+pdnHdlcStatsTotalRxNoBufAvail = _PdnHdlcStatsTotalRxNoBufAvail_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 5),
+    _PdnHdlcStatsTotalRxNoBufAvail_Type()
+)
+pdnHdlcStatsTotalRxNoBufAvail.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalRxNoBufAvail.setStatus("current")
+_PdnHdlcStatsTotalReceiverOverrun_Type = Counter32
+_PdnHdlcStatsTotalReceiverOverrun_Object = MibTableColumn
+pdnHdlcStatsTotalReceiverOverrun = _PdnHdlcStatsTotalReceiverOverrun_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 6),
+    _PdnHdlcStatsTotalReceiverOverrun_Type()
+)
+pdnHdlcStatsTotalReceiverOverrun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalReceiverOverrun.setStatus("current")
+_PdnHdlcStatsTotalRxMaxSizeExceeded_Type = Counter32
+_PdnHdlcStatsTotalRxMaxSizeExceeded_Object = MibTableColumn
+pdnHdlcStatsTotalRxMaxSizeExceeded = _PdnHdlcStatsTotalRxMaxSizeExceeded_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 7),
+    _PdnHdlcStatsTotalRxMaxSizeExceeded_Type()
+)
+pdnHdlcStatsTotalRxMaxSizeExceeded.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalRxMaxSizeExceeded.setStatus("current")
+_PdnHdlcStatsTotalTx_Type = Counter32
+_PdnHdlcStatsTotalTx_Object = MibTableColumn
+pdnHdlcStatsTotalTx = _PdnHdlcStatsTotalTx_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 8),
+    _PdnHdlcStatsTotalTx_Type()
+)
+pdnHdlcStatsTotalTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalTx.setStatus("current")
+_PdnHdlcStatsTotalTxBufUnderrun_Type = Counter32
+_PdnHdlcStatsTotalTxBufUnderrun_Object = MibTableColumn
+pdnHdlcStatsTotalTxBufUnderrun = _PdnHdlcStatsTotalTxBufUnderrun_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 1, 1, 1, 9),
+    _PdnHdlcStatsTotalTxBufUnderrun_Type()
+)
+pdnHdlcStatsTotalTxBufUnderrun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalTxBufUnderrun.setStatus("current")
+_PdnHdlcAFNs_ObjectIdentity = ObjectIdentity
+pdnHdlcAFNs = _PdnHdlcAFNs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 2)
+)
+_PdnHdlcConformance_ObjectIdentity = ObjectIdentity
+pdnHdlcConformance = _PdnHdlcConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3)
+)
+_PdnHdlcCompliances_ObjectIdentity = ObjectIdentity
+pdnHdlcCompliances = _PdnHdlcCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 1)
+)
+_PdnHdlcGroups_ObjectIdentity = ObjectIdentity
+pdnHdlcGroups = _PdnHdlcGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2)
+)
+_PdnHdlcObjGroups_ObjectIdentity = ObjectIdentity
+pdnHdlcObjGroups = _PdnHdlcObjGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2, 1)
+)
+_PdnHdlcAfnGroups_ObjectIdentity = ObjectIdentity
+pdnHdlcAfnGroups = _PdnHdlcAfnGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2, 2)
+)
+_PdnHdlcNtfyGroups_ObjectIdentity = ObjectIdentity
+pdnHdlcNtfyGroups = _PdnHdlcNtfyGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2, 3)
+)
+
+# Managed Objects groups
+
+pdnHdlcStatsTotalGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 2, 1, 1)
+)
+pdnHdlcStatsTotalGroup.setObjects(
+      *(("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxGood"),
+        ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxCRCErrors"),
+        ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxAborts"),
+        ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxBadAddress"),
+        ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxNoBufAvail"),
+        ("PDN-HDLC-MIB", "pdnHdlcStatsTotalReceiverOverrun"),
+        ("PDN-HDLC-MIB", "pdnHdlcStatsTotalRxMaxSizeExceeded"),
+        ("PDN-HDLC-MIB", "pdnHdlcStatsTotalTx"),
+        ("PDN-HDLC-MIB", "pdnHdlcStatsTotalTxBufUnderrun"))
+)
+if mibBuilder.loadTexts:
+    pdnHdlcStatsTotalGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+pdnHdlcCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 26, 3, 1, 1)
+)
+pdnHdlcCompliance.setObjects(
+    ("PDN-HDLC-MIB", "pdnHdlcStatsTotalGroup")
+)
+if mibBuilder.loadTexts:
+    pdnHdlcCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PDN-HDLC-MIB",
+    **{"pdnHdlcMIB": pdnHdlcMIB,
+       "pdnHdlcNotifications": pdnHdlcNotifications,
+       "pdnHdlcObjects": pdnHdlcObjects,
+       "pdnHdlcStatsTotalTable": pdnHdlcStatsTotalTable,
+       "pdnHdlcStatsTotalEntry": pdnHdlcStatsTotalEntry,
+       "pdnHdlcStatsTotalRxGood": pdnHdlcStatsTotalRxGood,
+       "pdnHdlcStatsTotalRxCRCErrors": pdnHdlcStatsTotalRxCRCErrors,
+       "pdnHdlcStatsTotalRxAborts": pdnHdlcStatsTotalRxAborts,
+       "pdnHdlcStatsTotalRxBadAddress": pdnHdlcStatsTotalRxBadAddress,
+       "pdnHdlcStatsTotalRxNoBufAvail": pdnHdlcStatsTotalRxNoBufAvail,
+       "pdnHdlcStatsTotalReceiverOverrun": pdnHdlcStatsTotalReceiverOverrun,
+       "pdnHdlcStatsTotalRxMaxSizeExceeded": pdnHdlcStatsTotalRxMaxSizeExceeded,
+       "pdnHdlcStatsTotalTx": pdnHdlcStatsTotalTx,
+       "pdnHdlcStatsTotalTxBufUnderrun": pdnHdlcStatsTotalTxBufUnderrun,
+       "pdnHdlcAFNs": pdnHdlcAFNs,
+       "pdnHdlcConformance": pdnHdlcConformance,
+       "pdnHdlcCompliances": pdnHdlcCompliances,
+       "pdnHdlcCompliance": pdnHdlcCompliance,
+       "pdnHdlcGroups": pdnHdlcGroups,
+       "pdnHdlcObjGroups": pdnHdlcObjGroups,
+       "pdnHdlcStatsTotalGroup": pdnHdlcStatsTotalGroup,
+       "pdnHdlcAfnGroups": pdnHdlcAfnGroups,
+       "pdnHdlcNtfyGroups": pdnHdlcNtfyGroups}
+)

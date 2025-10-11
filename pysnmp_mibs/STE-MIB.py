@@ -1,89 +1,491 @@
+# SNMP MIB module (STE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module STE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hwgroup/STE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:58 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hwgroup/STE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:21:19 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class PositiveInteger(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 2147483647)
+    """Custom type PositiveInteger based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+
+
 
 class UnitType(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
-    namedValues = NamedValues(("none", 0), ("celsius", 1), ("fahrenheit", 2), ("kelvin", 3), ("percent", 4))
+    """Custom type UnitType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("celsius", 1),
+          ("fahrenheit", 2),
+          ("kelvin", 3),
+          ("percent", 4))
+    )
+
+
+
+
 
 class OnOff(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("off", 0), ("on", 1))
+    """Custom type OnOff based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+
+
 
 class InputAlarmState(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("normal", 0), ("alarm", 1))
+    """Custom type InputAlarmState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 0),
+          ("alarm", 1))
+    )
+
+
+
+
 
 class IOName(DisplayString):
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 16)
+    """Custom type IOName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+
+
 
 class SensorState(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
-    namedValues = NamedValues(("invalid", 0), ("normal", 1), ("outofrangelo", 2), ("outofrangehi", 3), ("alarmlo", 4), ("alarmhi", 5))
+    """Custom type SensorState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 0),
+          ("normal", 1),
+          ("outofrangelo", 2),
+          ("outofrangehi", 3),
+          ("alarmlo", 4),
+          ("alarmhi", 5))
+    )
+
+
+
+
 
 class SensorSN(DisplayString):
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 16)
+    """Custom type SensorSN based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+
+
 
 class SensorName(DisplayString):
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 16)
+    """Custom type SensorName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+
+
 
 class SensorValue(Integer32):
-    pass
+    """Custom type SensorValue based on Integer32"""
+
+
+
 
 class SensorID(Integer32):
-    pass
+    """Custom type SensorID based on Integer32"""
+
+
+
 
 class SensorString(DisplayString):
-    subtypeSpec = DisplayString.subtypeSpec + ValueSizeConstraint(0, 10)
+    """Custom type SensorString based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 10),
+    )
 
-hwgroup = MibIdentifier((1, 3, 6, 1, 4, 1, 21796))
-x390 = MibIdentifier((1, 3, 6, 1, 4, 1, 21796, 4))
-ste = MibIdentifier((1, 3, 6, 1, 4, 1, 21796, 4, 1))
-info = MibIdentifier((1, 3, 6, 1, 4, 1, 21796, 4, 1, 70))
-infoAddressMAC = MibScalar((1, 3, 6, 1, 4, 1, 21796, 4, 1, 70, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 17))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infoAddressMAC.setStatus('mandatory')
-inpTable = MibTable((1, 3, 6, 1, 4, 1, 21796, 4, 1, 1), )
-if mibBuilder.loadTexts: inpTable.setStatus('mandatory')
-inpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21796, 4, 1, 1, 1), ).setIndexNames((0, "STE-MIB", "inpIndex"))
-if mibBuilder.loadTexts: inpEntry.setStatus('mandatory')
-inpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 1, 1, 1), PositiveInteger())
-if mibBuilder.loadTexts: inpIndex.setStatus('mandatory')
-inpValue = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 1, 1, 2), OnOff()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: inpValue.setStatus('mandatory')
-inpName = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 1, 1, 3), IOName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: inpName.setStatus('mandatory')
-inpAlarmState = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 1, 1, 4), InputAlarmState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: inpAlarmState.setStatus('mandatory')
-sensTable = MibTable((1, 3, 6, 1, 4, 1, 21796, 4, 1, 3), )
-if mibBuilder.loadTexts: sensTable.setStatus('mandatory')
-sensEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1), ).setIndexNames((0, "STE-MIB", "sensIndex"))
-if mibBuilder.loadTexts: sensEntry.setStatus('mandatory')
-sensIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 1), PositiveInteger())
-if mibBuilder.loadTexts: sensIndex.setStatus('mandatory')
-sensName = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 2), SensorName()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensName.setStatus('mandatory')
-sensState = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 3), SensorState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensState.setStatus('mandatory')
-sensString = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 4), SensorString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensString.setStatus('mandatory')
-sensValue = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 5), SensorValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensValue.setStatus('mandatory')
-sensSN = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 6), SensorSN()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensSN.setStatus('mandatory')
-sensUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 7), UnitType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensUnit.setStatus('mandatory')
-sensID = MibTableColumn((1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 8), UnitType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensID.setStatus('mandatory')
-mibBuilder.exportSymbols("STE-MIB", sensString=sensString, sensEntry=sensEntry, inpEntry=inpEntry, SensorID=SensorID, sensState=sensState, PositiveInteger=PositiveInteger, sensID=sensID, sensSN=sensSN, x390=x390, SensorString=SensorString, inpAlarmState=inpAlarmState, infoAddressMAC=infoAddressMAC, hwgroup=hwgroup, sensName=sensName, SensorSN=SensorSN, sensIndex=sensIndex, inpValue=inpValue, sensTable=sensTable, SensorName=SensorName, SensorState=SensorState, sensValue=sensValue, IOName=IOName, UnitType=UnitType, inpName=inpName, InputAlarmState=InputAlarmState, inpIndex=inpIndex, SensorValue=SensorValue, info=info, sensUnit=sensUnit, OnOff=OnOff, inpTable=inpTable, ste=ste)
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hwgroup_ObjectIdentity = ObjectIdentity
+hwgroup = _Hwgroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21796)
+)
+_X390_ObjectIdentity = ObjectIdentity
+x390 = _X390_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21796, 4)
+)
+_Ste_ObjectIdentity = ObjectIdentity
+ste = _Ste_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1)
+)
+_InpTable_Object = MibTable
+inpTable = _InpTable_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 1)
+)
+if mibBuilder.loadTexts:
+    inpTable.setStatus("mandatory")
+_InpEntry_Object = MibTableRow
+inpEntry = _InpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 1, 1)
+)
+inpEntry.setIndexNames(
+    (0, "STE-MIB", "inpIndex"),
+)
+if mibBuilder.loadTexts:
+    inpEntry.setStatus("mandatory")
+_InpIndex_Type = PositiveInteger
+_InpIndex_Object = MibTableColumn
+inpIndex = _InpIndex_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 1, 1, 1),
+    _InpIndex_Type()
+)
+inpIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    inpIndex.setStatus("mandatory")
+_InpValue_Type = OnOff
+_InpValue_Object = MibTableColumn
+inpValue = _InpValue_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 1, 1, 2),
+    _InpValue_Type()
+)
+inpValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    inpValue.setStatus("mandatory")
+_InpName_Type = IOName
+_InpName_Object = MibTableColumn
+inpName = _InpName_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 1, 1, 3),
+    _InpName_Type()
+)
+inpName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    inpName.setStatus("mandatory")
+_InpAlarmState_Type = InputAlarmState
+_InpAlarmState_Object = MibTableColumn
+inpAlarmState = _InpAlarmState_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 1, 1, 4),
+    _InpAlarmState_Type()
+)
+inpAlarmState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    inpAlarmState.setStatus("mandatory")
+_SensTable_Object = MibTable
+sensTable = _SensTable_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 3)
+)
+if mibBuilder.loadTexts:
+    sensTable.setStatus("mandatory")
+_SensEntry_Object = MibTableRow
+sensEntry = _SensEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1)
+)
+sensEntry.setIndexNames(
+    (0, "STE-MIB", "sensIndex"),
+)
+if mibBuilder.loadTexts:
+    sensEntry.setStatus("mandatory")
+_SensIndex_Type = PositiveInteger
+_SensIndex_Object = MibTableColumn
+sensIndex = _SensIndex_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 1),
+    _SensIndex_Type()
+)
+sensIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    sensIndex.setStatus("mandatory")
+_SensName_Type = SensorName
+_SensName_Object = MibTableColumn
+sensName = _SensName_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 2),
+    _SensName_Type()
+)
+sensName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensName.setStatus("mandatory")
+_SensState_Type = SensorState
+_SensState_Object = MibTableColumn
+sensState = _SensState_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 3),
+    _SensState_Type()
+)
+sensState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensState.setStatus("mandatory")
+_SensString_Type = SensorString
+_SensString_Object = MibTableColumn
+sensString = _SensString_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 4),
+    _SensString_Type()
+)
+sensString.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensString.setStatus("mandatory")
+_SensValue_Type = SensorValue
+_SensValue_Object = MibTableColumn
+sensValue = _SensValue_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 5),
+    _SensValue_Type()
+)
+sensValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensValue.setStatus("mandatory")
+_SensSN_Type = SensorSN
+_SensSN_Object = MibTableColumn
+sensSN = _SensSN_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 6),
+    _SensSN_Type()
+)
+sensSN.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensSN.setStatus("mandatory")
+_SensUnit_Type = UnitType
+_SensUnit_Object = MibTableColumn
+sensUnit = _SensUnit_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 7),
+    _SensUnit_Type()
+)
+sensUnit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensUnit.setStatus("mandatory")
+_SensID_Type = UnitType
+_SensID_Object = MibTableColumn
+sensID = _SensID_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 3, 1, 8),
+    _SensID_Type()
+)
+sensID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensID.setStatus("mandatory")
+_Info_ObjectIdentity = ObjectIdentity
+info = _Info_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 70)
+)
+
+
+class _InfoAddressMAC_Type(DisplayString):
+    """Custom type infoAddressMAC based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 17),
+    )
+
+
+_InfoAddressMAC_Type.__name__ = "DisplayString"
+_InfoAddressMAC_Object = MibScalar
+infoAddressMAC = _InfoAddressMAC_Object(
+    (1, 3, 6, 1, 4, 1, 21796, 4, 1, 70, 1),
+    _InfoAddressMAC_Type()
+)
+infoAddressMAC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infoAddressMAC.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "STE-MIB",
+    **{"PositiveInteger": PositiveInteger,
+       "UnitType": UnitType,
+       "OnOff": OnOff,
+       "InputAlarmState": InputAlarmState,
+       "IOName": IOName,
+       "SensorState": SensorState,
+       "SensorSN": SensorSN,
+       "SensorName": SensorName,
+       "SensorValue": SensorValue,
+       "SensorID": SensorID,
+       "SensorString": SensorString,
+       "hwgroup": hwgroup,
+       "x390": x390,
+       "ste": ste,
+       "inpTable": inpTable,
+       "inpEntry": inpEntry,
+       "inpIndex": inpIndex,
+       "inpValue": inpValue,
+       "inpName": inpName,
+       "inpAlarmState": inpAlarmState,
+       "sensTable": sensTable,
+       "sensEntry": sensEntry,
+       "sensIndex": sensIndex,
+       "sensName": sensName,
+       "sensState": sensState,
+       "sensString": sensString,
+       "sensValue": sensValue,
+       "sensSN": sensSN,
+       "sensUnit": sensUnit,
+       "sensID": sensID,
+       "info": info,
+       "infoAddressMAC": infoAddressMAC}
+)

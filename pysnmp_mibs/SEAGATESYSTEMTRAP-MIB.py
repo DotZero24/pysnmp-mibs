@@ -1,21 +1,218 @@
+# SNMP MIB module (SEAGATESYSTEMTRAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SEAGATESYSTEMTRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/seagate/SEAGATESYSTEMTRAP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:34:21 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/seagate/SEAGATESYSTEMTRAP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:48:38 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-connUnitEventDescr, connUnitEventType, connUnitEventId = mibBuilder.importSymbols("FCMGMT-MIB", "connUnitEventDescr", "connUnitEventType", "connUnitEventId")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-seagateSystems = MibIdentifier((1, 3, 6, 1, 4, 1, 347))
-seagateEventInfoTrap = NotificationType((1, 3, 6, 1, 4, 1, 347) + (0,1)).setObjects(("FCMGMT-MIB", "connUnitEventId"), ("FCMGMT-MIB", "connUnitEventType"), ("FCMGMT-MIB", "connUnitEventDescr"))
-seagateEventWarningTrap = NotificationType((1, 3, 6, 1, 4, 1, 347) + (0,2)).setObjects(("FCMGMT-MIB", "connUnitEventId"), ("FCMGMT-MIB", "connUnitEventType"), ("FCMGMT-MIB", "connUnitEventDescr"))
-seagateEventErrorTrap = NotificationType((1, 3, 6, 1, 4, 1, 347) + (0,3)).setObjects(("FCMGMT-MIB", "connUnitEventId"), ("FCMGMT-MIB", "connUnitEventType"), ("FCMGMT-MIB", "connUnitEventDescr"))
-seagateEventCriticalTrap = NotificationType((1, 3, 6, 1, 4, 1, 347) + (0,4)).setObjects(("FCMGMT-MIB", "connUnitEventId"), ("FCMGMT-MIB", "connUnitEventType"), ("FCMGMT-MIB", "connUnitEventDescr"))
-seagateEventResolvedTrap = NotificationType((1, 3, 6, 1, 4, 1, 347) + (0,5)).setObjects(("FCMGMT-MIB", "connUnitEventId"), ("FCMGMT-MIB", "connUnitEventType"), ("FCMGMT-MIB", "connUnitEventDescr"))
-mibBuilder.exportSymbols("SEAGATESYSTEMTRAP-MIB", seagateEventInfoTrap=seagateEventInfoTrap, seagateEventCriticalTrap=seagateEventCriticalTrap, seagateEventResolvedTrap=seagateEventResolvedTrap, seagateEventErrorTrap=seagateEventErrorTrap, seagateSystems=seagateSystems, seagateEventWarningTrap=seagateEventWarningTrap)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(connUnitEventDescr,
+ connUnitEventId,
+ connUnitEventType) = mibBuilder.importSymbols(
+    "FCMGMT-MIB",
+    "connUnitEventDescr",
+    "connUnitEventId",
+    "connUnitEventType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SeagateSystems_ObjectIdentity = ObjectIdentity
+seagateSystems = _SeagateSystems_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 347)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+seagateEventInfoTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 347, 0, 1)
+)
+seagateEventInfoTrap.setObjects(
+      *(("FCMGMT-MIB", "connUnitEventId"),
+        ("FCMGMT-MIB", "connUnitEventType"),
+        ("FCMGMT-MIB", "connUnitEventDescr"))
+)
+if mibBuilder.loadTexts:
+    seagateEventInfoTrap.setStatus(
+        ""
+    )
+
+seagateEventWarningTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 347, 0, 2)
+)
+seagateEventWarningTrap.setObjects(
+      *(("FCMGMT-MIB", "connUnitEventId"),
+        ("FCMGMT-MIB", "connUnitEventType"),
+        ("FCMGMT-MIB", "connUnitEventDescr"))
+)
+if mibBuilder.loadTexts:
+    seagateEventWarningTrap.setStatus(
+        ""
+    )
+
+seagateEventErrorTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 347, 0, 3)
+)
+seagateEventErrorTrap.setObjects(
+      *(("FCMGMT-MIB", "connUnitEventId"),
+        ("FCMGMT-MIB", "connUnitEventType"),
+        ("FCMGMT-MIB", "connUnitEventDescr"))
+)
+if mibBuilder.loadTexts:
+    seagateEventErrorTrap.setStatus(
+        ""
+    )
+
+seagateEventCriticalTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 347, 0, 4)
+)
+seagateEventCriticalTrap.setObjects(
+      *(("FCMGMT-MIB", "connUnitEventId"),
+        ("FCMGMT-MIB", "connUnitEventType"),
+        ("FCMGMT-MIB", "connUnitEventDescr"))
+)
+if mibBuilder.loadTexts:
+    seagateEventCriticalTrap.setStatus(
+        ""
+    )
+
+seagateEventResolvedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 347, 0, 5)
+)
+seagateEventResolvedTrap.setObjects(
+      *(("FCMGMT-MIB", "connUnitEventId"),
+        ("FCMGMT-MIB", "connUnitEventType"),
+        ("FCMGMT-MIB", "connUnitEventDescr"))
+)
+if mibBuilder.loadTexts:
+    seagateEventResolvedTrap.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SEAGATESYSTEMTRAP-MIB",
+    **{"seagateSystems": seagateSystems,
+       "seagateEventInfoTrap": seagateEventInfoTrap,
+       "seagateEventWarningTrap": seagateEventWarningTrap,
+       "seagateEventErrorTrap": seagateEventErrorTrap,
+       "seagateEventCriticalTrap": seagateEventCriticalTrap,
+       "seagateEventResolvedTrap": seagateEventResolvedTrap}
+)

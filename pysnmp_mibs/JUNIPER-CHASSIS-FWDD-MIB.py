@@ -1,29 +1,197 @@
+# SNMP MIB module (JUNIPER-CHASSIS-FWDD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module JUNIPER-CHASSIS-FWDD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/juniper/JUNIPER-CHASSIS-FWDD-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:55:31 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/juniper/JUNIPER-CHASSIS-FWDD-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:38:56 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-jnxMibs, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-jnxFwdd = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 34))
-if mibBuilder.loadTexts: jnxFwdd.setLastUpdated('200602162158Z')
-if mibBuilder.loadTexts: jnxFwdd.setOrganization('Juniper Networks, Inc.')
-jnxFwddProcess = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 34, 1))
-jnxFwddMicroKernelCPUUsage = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 34, 1, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxFwddMicroKernelCPUUsage.setStatus('current')
-jnxFwddRtThreadsCPUUsage = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 34, 1, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxFwddRtThreadsCPUUsage.setStatus('current')
-jnxFwddHeapUsage = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 34, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxFwddHeapUsage.setStatus('current')
-jnxFwddDmaMemUsage = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 34, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxFwddDmaMemUsage.setStatus('current')
-jnxFwddUpTime = MibScalar((1, 3, 6, 1, 4, 1, 2636, 3, 34, 1, 5), Integer32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxFwddUpTime.setStatus('current')
-mibBuilder.exportSymbols("JUNIPER-CHASSIS-FWDD-MIB", PYSNMP_MODULE_ID=jnxFwdd, jnxFwddDmaMemUsage=jnxFwddDmaMemUsage, jnxFwdd=jnxFwdd, jnxFwddUpTime=jnxFwddUpTime, jnxFwddProcess=jnxFwddProcess, jnxFwddHeapUsage=jnxFwddHeapUsage, jnxFwddMicroKernelCPUUsage=jnxFwddMicroKernelCPUUsage, jnxFwddRtThreadsCPUUsage=jnxFwddRtThreadsCPUUsage)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(jnxMibs,) = mibBuilder.importSymbols(
+    "JUNIPER-SMI",
+    "jnxMibs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+jnxFwdd = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 34)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JnxFwddProcess_ObjectIdentity = ObjectIdentity
+jnxFwddProcess = _JnxFwddProcess_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 34, 1)
+)
+_JnxFwddMicroKernelCPUUsage_Type = Gauge32
+_JnxFwddMicroKernelCPUUsage_Object = MibScalar
+jnxFwddMicroKernelCPUUsage = _JnxFwddMicroKernelCPUUsage_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 34, 1, 1),
+    _JnxFwddMicroKernelCPUUsage_Type()
+)
+jnxFwddMicroKernelCPUUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxFwddMicroKernelCPUUsage.setStatus("current")
+_JnxFwddRtThreadsCPUUsage_Type = Gauge32
+_JnxFwddRtThreadsCPUUsage_Object = MibScalar
+jnxFwddRtThreadsCPUUsage = _JnxFwddRtThreadsCPUUsage_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 34, 1, 2),
+    _JnxFwddRtThreadsCPUUsage_Type()
+)
+jnxFwddRtThreadsCPUUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxFwddRtThreadsCPUUsage.setStatus("current")
+_JnxFwddHeapUsage_Type = Gauge32
+_JnxFwddHeapUsage_Object = MibScalar
+jnxFwddHeapUsage = _JnxFwddHeapUsage_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 34, 1, 3),
+    _JnxFwddHeapUsage_Type()
+)
+jnxFwddHeapUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxFwddHeapUsage.setStatus("current")
+_JnxFwddDmaMemUsage_Type = Gauge32
+_JnxFwddDmaMemUsage_Object = MibScalar
+jnxFwddDmaMemUsage = _JnxFwddDmaMemUsage_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 34, 1, 4),
+    _JnxFwddDmaMemUsage_Type()
+)
+jnxFwddDmaMemUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxFwddDmaMemUsage.setStatus("current")
+_JnxFwddUpTime_Type = Integer32
+_JnxFwddUpTime_Object = MibScalar
+jnxFwddUpTime = _JnxFwddUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 34, 1, 5),
+    _JnxFwddUpTime_Type()
+)
+jnxFwddUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxFwddUpTime.setStatus("current")
+if mibBuilder.loadTexts:
+    jnxFwddUpTime.setUnits("seconds")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "JUNIPER-CHASSIS-FWDD-MIB",
+    **{"jnxFwdd": jnxFwdd,
+       "jnxFwddProcess": jnxFwddProcess,
+       "jnxFwddMicroKernelCPUUsage": jnxFwddMicroKernelCPUUsage,
+       "jnxFwddRtThreadsCPUUsage": jnxFwddRtThreadsCPUUsage,
+       "jnxFwddHeapUsage": jnxFwddHeapUsage,
+       "jnxFwddDmaMemUsage": jnxFwddDmaMemUsage,
+       "jnxFwddUpTime": jnxFwddUpTime}
+)

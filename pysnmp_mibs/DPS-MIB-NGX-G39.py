@@ -1,417 +1,8157 @@
+# SNMP MIB module (DPS-MIB-NGX-G39) expressed in pysnmp data model.
 #
-# PySNMP MIB module DPS-MIB-NGX-G39 (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/dps/DPS-MIB-NGX-G39
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:49 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/dps/DPS-MIB-NGX-G39
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:10:54 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dpsRTU, dpsRTUDateTime, dpsRTUAPntDesc, dpsRTUAPoint, dpsRTUAPort, dpsRTUADisplay, dpsRTUCAddress, dpsRTUAState = mibBuilder.importSymbols("DPS-MIB-V38", "dpsRTU", "dpsRTUDateTime", "dpsRTUAPntDesc", "dpsRTUAPoint", "dpsRTUAPort", "dpsRTUADisplay", "dpsRTUCAddress", "dpsRTUAState")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-sysDescr, sysLocation = mibBuilder.importSymbols("SNMPv2-MIB", "sysDescr", "sysLocation")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-dpsRTUp6001Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6001)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7001Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7001)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6002Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6002)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7002Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7002)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6003Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6003)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7003Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7003)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6004Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6004)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7004Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7004)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6005Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6005)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7005Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7005)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6006Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6006)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7006Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7006)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6007Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6007)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7007Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7007)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6008Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6008)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7008Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7008)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6009Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6009)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7009Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7009)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6010Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6010)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7010Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7010)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6011Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6011)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7011Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7011)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6012Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6012)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7012Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7012)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6013Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6013)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7013Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7013)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6014Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6014)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7014Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7014)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6015Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6015)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7015Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7015)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6016Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6016)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7016Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7016)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6017Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6017)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7017Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7017)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6018Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6018)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7018Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7018)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6019Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6019)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7019Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7019)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6020Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6020)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7020Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7020)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6021Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6021)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7021Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7021)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6022Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6022)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7022Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7022)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6023Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6023)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7023Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7023)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6024Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6024)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7024Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7024)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6025Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6025)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7025Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7025)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6026Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6026)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7026Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7026)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6027Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6027)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7027Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7027)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6028Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6028)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7028Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7028)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6029Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6029)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7029Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7029)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6030Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6030)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7030Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7030)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6031Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6031)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7031Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7031)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6032Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6032)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7032Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7032)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6033Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6033)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7033Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7033)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6034Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6034)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7034Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7034)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6035Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6035)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7035Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7035)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6036Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6036)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7036Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7036)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6037Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6037)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7037Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7037)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6038Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6038)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7038Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7038)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6039Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6039)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7039Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7039)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6040Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6040)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7040Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7040)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6041Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6041)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7041Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7041)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6042Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6042)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7042Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7042)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6043Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6043)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7043Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7043)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6044Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6044)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7044Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7044)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6045Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6045)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7045Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7045)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6046Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6046)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7046Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7046)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6047Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6047)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7047Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7047)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6048Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6048)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7048Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7048)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6049Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6049)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7049Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7049)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6050Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6050)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7050Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7050)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6051Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6051)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7051Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7051)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6052Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6052)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7052Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7052)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6053Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6053)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7053Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7053)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6054Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6054)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7054Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7054)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6055Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6055)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7055Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7055)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6056Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6056)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7056Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7056)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6057Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6057)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7057Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7057)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6058Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6058)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7058Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7058)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6059Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6059)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7059Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7059)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6060Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6060)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7060Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7060)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6061Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6061)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7061Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7061)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6062Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6062)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7062Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7062)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6063Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6063)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7063Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7063)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6064Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6064)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7064Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7064)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6129Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6129)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7129Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7129)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6130Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6130)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7130Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7130)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6131Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6131)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7131Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7131)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6132Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6132)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7132Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7132)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6133Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6133)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7133Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7133)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6134Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6134)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7134Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7134)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6135Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6135)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7135Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7135)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6136Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6136)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7136Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7136)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6137Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6137)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7137Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7137)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6138Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6138)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7138Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7138)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6139Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6139)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7139Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7139)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6140Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6140)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7140Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7140)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6141Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6141)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7141Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7141)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6142Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6142)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7142Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7142)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6143Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6143)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7143Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7143)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6144Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6144)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7144Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7144)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6145Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6145)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7145Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7145)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6146Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6146)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7146Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7146)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6147Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6147)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7147Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7147)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6148Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6148)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7148Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7148)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6149Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6149)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7149Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7149)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6150Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6150)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7150Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7150)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6151Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6151)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7151Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7151)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6152Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6152)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7152Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7152)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6153Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6153)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7153Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7153)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6154Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6154)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7154Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7154)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6155Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6155)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7155Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7155)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6156Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6156)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7156Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7156)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6157Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6157)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7157Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7157)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6158Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6158)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7158Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7158)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6159Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6159)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7159Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7159)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6160Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6160)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7160Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7160)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6161Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6161)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7161Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7161)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6162Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6162)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7162Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7162)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6163Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6163)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7163Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7163)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6164Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6164)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7164Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7164)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6165Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6165)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7165Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7165)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6166Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6166)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7166Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7166)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6167Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6167)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7167Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7167)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6168Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6168)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7168Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7168)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6169Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6169)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7169Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7169)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6170Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6170)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7170Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7170)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6171Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6171)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7171Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7171)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6172Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6172)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7172Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7172)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6173Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6173)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7173Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7173)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6174Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6174)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7174Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7174)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6175Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6175)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7175Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7175)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6176Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6176)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7176Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7176)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6257Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6257)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7257Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7257)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6258Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6258)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7258Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7258)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6259Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6259)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7259Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7259)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6260Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6260)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7260Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7260)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6261Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6261)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7261Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7261)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6262Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6262)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7262Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7262)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6263Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6263)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7263Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7263)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6264Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6264)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7264Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7264)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6265Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6265)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7265Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7265)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6266Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6266)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7266Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7266)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6267Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6267)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7267Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7267)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6268Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6268)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7268Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7268)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6269Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6269)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7269Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7269)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6270Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6270)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7270Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7270)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6271Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6271)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7271Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7271)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6272Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6272)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7272Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7272)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6273Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6273)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7273Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7273)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6274Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6274)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7274Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7274)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6275Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6275)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7275Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7275)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6276Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6276)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7276Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7276)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6277Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6277)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7277Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7277)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6278Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6278)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7278Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7278)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6279Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6279)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7279Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7279)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6280Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6280)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7280Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7280)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6281Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6281)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7281Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7281)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6282Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6282)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7282Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7282)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6283Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6283)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7283Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7283)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6284Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6284)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7284Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7284)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6285Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6285)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7285Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7285)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6286Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6286)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7286Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7286)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6287Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6287)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7287Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7287)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6288Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6288)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7288Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7288)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6289Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6289)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7289Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7289)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6290Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6290)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7290Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7290)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6291Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6291)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7291Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7291)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6292Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6292)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7292Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7292)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6293Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6293)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7293Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7293)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6294Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6294)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7294Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7294)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6295Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6295)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7295Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7295)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6296Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6296)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7296Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7296)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6297Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6297)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7297Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7297)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6298Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6298)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7298Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7298)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6299Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6299)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7299Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7299)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6300Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6300)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7300Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7300)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6301Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6301)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7301Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7301)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6302Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6302)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7302Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7302)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6303Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6303)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7303Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7303)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6304Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6304)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7304Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7304)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6065Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6065)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7065Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7065)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6066Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6066)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7066Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7066)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6067Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6067)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7067Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7067)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6068Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6068)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7068Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7068)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6069Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6069)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7069Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7069)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6070Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6070)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7070Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7070)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6071Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6071)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7071Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7071)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6072Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6072)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7072Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7072)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6081Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6081)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7081Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7081)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6082Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6082)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7082Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7082)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6083Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6083)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7083Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7083)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6084Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6084)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7084Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7084)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6085Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6085)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7085Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7085)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6086Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6086)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7086Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7086)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6087Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6087)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7087Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7087)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6088Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6088)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7088Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7088)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6089Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6089)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7089Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7089)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6090Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6090)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7090Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7090)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6091Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6091)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7091Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7091)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6092Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6092)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7092Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7092)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6093Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6093)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7093Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7093)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6094Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6094)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7094Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7094)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6095Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6095)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7095Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7095)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6096Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6096)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7096Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7096)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6193Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6193)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7193Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7193)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6194Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6194)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7194Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7194)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6195Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6195)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7195Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7195)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6196Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6196)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7196Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7196)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6197Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6197)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7197Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7197)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6198Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6198)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7198Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7198)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6199Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6199)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7199Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7199)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6200Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6200)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7200Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7200)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6321Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6321)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7321Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7321)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6322Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6322)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7322Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7322)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6323Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6323)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7323Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7323)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6324Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6324)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7324Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7324)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6325Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6325)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7325Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7325)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6326Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6326)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7326Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7326)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6327Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6327)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7327Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7327)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp6328Set = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,6328)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-dpsRTUp7328Clr = NotificationType((1, 3, 6, 1, 4, 1, 2682, 1, 2) + (0,7328)).setObjects(("SNMPv2-MIB", "sysDescr"), ("SNMPv2-MIB", "sysLocation"), ("DPS-MIB-V38", "dpsRTUDateTime"), ("DPS-MIB-V38", "dpsRTUAPort"), ("DPS-MIB-V38", "dpsRTUCAddress"), ("DPS-MIB-V38", "dpsRTUADisplay"), ("DPS-MIB-V38", "dpsRTUAPoint"), ("DPS-MIB-V38", "dpsRTUAPntDesc"), ("DPS-MIB-V38", "dpsRTUAState"))
-mibBuilder.exportSymbols("DPS-MIB-NGX-G39", dpsRTUp6007Set=dpsRTUp6007Set, dpsRTUp7168Clr=dpsRTUp7168Clr, dpsRTUp6257Set=dpsRTUp6257Set, dpsRTUp7022Clr=dpsRTUp7022Clr, dpsRTUp7068Clr=dpsRTUp7068Clr, dpsRTUp7165Clr=dpsRTUp7165Clr, dpsRTUp6008Set=dpsRTUp6008Set, dpsRTUp7058Clr=dpsRTUp7058Clr, dpsRTUp7161Clr=dpsRTUp7161Clr, dpsRTUp7198Clr=dpsRTUp7198Clr, dpsRTUp6062Set=dpsRTUp6062Set, dpsRTUp6093Set=dpsRTUp6093Set, dpsRTUp6092Set=dpsRTUp6092Set, dpsRTUp6197Set=dpsRTUp6197Set, dpsRTUp6140Set=dpsRTUp6140Set, dpsRTUp6158Set=dpsRTUp6158Set, dpsRTUp6162Set=dpsRTUp6162Set, dpsRTUp6280Set=dpsRTUp6280Set, dpsRTUp7006Clr=dpsRTUp7006Clr, dpsRTUp7027Clr=dpsRTUp7027Clr, dpsRTUp7292Clr=dpsRTUp7292Clr, dpsRTUp6296Set=dpsRTUp6296Set, dpsRTUp7304Clr=dpsRTUp7304Clr, dpsRTUp7038Clr=dpsRTUp7038Clr, dpsRTUp6058Set=dpsRTUp6058Set, dpsRTUp7153Clr=dpsRTUp7153Clr, dpsRTUp7140Clr=dpsRTUp7140Clr, dpsRTUp7262Clr=dpsRTUp7262Clr, dpsRTUp6034Set=dpsRTUp6034Set, dpsRTUp7169Clr=dpsRTUp7169Clr, dpsRTUp6096Set=dpsRTUp6096Set, dpsRTUp6048Set=dpsRTUp6048Set, dpsRTUp7152Clr=dpsRTUp7152Clr, dpsRTUp6141Set=dpsRTUp6141Set, dpsRTUp6328Set=dpsRTUp6328Set, dpsRTUp7065Clr=dpsRTUp7065Clr, dpsRTUp6194Set=dpsRTUp6194Set, dpsRTUp6172Set=dpsRTUp6172Set, dpsRTUp7275Clr=dpsRTUp7275Clr, dpsRTUp7302Clr=dpsRTUp7302Clr, dpsRTUp6042Set=dpsRTUp6042Set, dpsRTUp6037Set=dpsRTUp6037Set, dpsRTUp7324Clr=dpsRTUp7324Clr, dpsRTUp6089Set=dpsRTUp6089Set, dpsRTUp7086Clr=dpsRTUp7086Clr, dpsRTUp7149Clr=dpsRTUp7149Clr, dpsRTUp7015Clr=dpsRTUp7015Clr, dpsRTUp7155Clr=dpsRTUp7155Clr, dpsRTUp6171Set=dpsRTUp6171Set, dpsRTUp6175Set=dpsRTUp6175Set, dpsRTUp7071Clr=dpsRTUp7071Clr, dpsRTUp6163Set=dpsRTUp6163Set, dpsRTUp6095Set=dpsRTUp6095Set, dpsRTUp6018Set=dpsRTUp6018Set, dpsRTUp6067Set=dpsRTUp6067Set, dpsRTUp6009Set=dpsRTUp6009Set, dpsRTUp7039Clr=dpsRTUp7039Clr, dpsRTUp6133Set=dpsRTUp6133Set, dpsRTUp6138Set=dpsRTUp6138Set, dpsRTUp6153Set=dpsRTUp6153Set, dpsRTUp7325Clr=dpsRTUp7325Clr, dpsRTUp7026Clr=dpsRTUp7026Clr, dpsRTUp7133Clr=dpsRTUp7133Clr, dpsRTUp7053Clr=dpsRTUp7053Clr, dpsRTUp6283Set=dpsRTUp6283Set, dpsRTUp7035Clr=dpsRTUp7035Clr, dpsRTUp7265Clr=dpsRTUp7265Clr, dpsRTUp7323Clr=dpsRTUp7323Clr, dpsRTUp7293Clr=dpsRTUp7293Clr, dpsRTUp6002Set=dpsRTUp6002Set, dpsRTUp7197Clr=dpsRTUp7197Clr, dpsRTUp6068Set=dpsRTUp6068Set, dpsRTUp7049Clr=dpsRTUp7049Clr, dpsRTUp7171Clr=dpsRTUp7171Clr, dpsRTUp7280Clr=dpsRTUp7280Clr, dpsRTUp7303Clr=dpsRTUp7303Clr, dpsRTUp7055Clr=dpsRTUp7055Clr, dpsRTUp7269Clr=dpsRTUp7269Clr, dpsRTUp6059Set=dpsRTUp6059Set, dpsRTUp7279Clr=dpsRTUp7279Clr, dpsRTUp6052Set=dpsRTUp6052Set, dpsRTUp7069Clr=dpsRTUp7069Clr, dpsRTUp6094Set=dpsRTUp6094Set, dpsRTUp7046Clr=dpsRTUp7046Clr, dpsRTUp6139Set=dpsRTUp6139Set, dpsRTUp6267Set=dpsRTUp6267Set, dpsRTUp7042Clr=dpsRTUp7042Clr, dpsRTUp7004Clr=dpsRTUp7004Clr, dpsRTUp7157Clr=dpsRTUp7157Clr, dpsRTUp6066Set=dpsRTUp6066Set, dpsRTUp7014Clr=dpsRTUp7014Clr, dpsRTUp7048Clr=dpsRTUp7048Clr, dpsRTUp6278Set=dpsRTUp6278Set, dpsRTUp6272Set=dpsRTUp6272Set, dpsRTUp6292Set=dpsRTUp6292Set, dpsRTUp6274Set=dpsRTUp6274Set, dpsRTUp6146Set=dpsRTUp6146Set, dpsRTUp6273Set=dpsRTUp6273Set, dpsRTUp6022Set=dpsRTUp6022Set, dpsRTUp6142Set=dpsRTUp6142Set, dpsRTUp6145Set=dpsRTUp6145Set, dpsRTUp6020Set=dpsRTUp6020Set, dpsRTUp7021Clr=dpsRTUp7021Clr, dpsRTUp6031Set=dpsRTUp6031Set, dpsRTUp6143Set=dpsRTUp6143Set, dpsRTUp7261Clr=dpsRTUp7261Clr, dpsRTUp7176Clr=dpsRTUp7176Clr, dpsRTUp7129Clr=dpsRTUp7129Clr, dpsRTUp6160Set=dpsRTUp6160Set, dpsRTUp6164Set=dpsRTUp6164Set, dpsRTUp7170Clr=dpsRTUp7170Clr, dpsRTUp6028Set=dpsRTUp6028Set, dpsRTUp7283Clr=dpsRTUp7283Clr, dpsRTUp6012Set=dpsRTUp6012Set, dpsRTUp7276Clr=dpsRTUp7276Clr, dpsRTUp6155Set=dpsRTUp6155Set, dpsRTUp7174Clr=dpsRTUp7174Clr, dpsRTUp7278Clr=dpsRTUp7278Clr, dpsRTUp6289Set=dpsRTUp6289Set, dpsRTUp7032Clr=dpsRTUp7032Clr, dpsRTUp7033Clr=dpsRTUp7033Clr, dpsRTUp6090Set=dpsRTUp6090Set, dpsRTUp6260Set=dpsRTUp6260Set, dpsRTUp6169Set=dpsRTUp6169Set, dpsRTUp7056Clr=dpsRTUp7056Clr, dpsRTUp6323Set=dpsRTUp6323Set, dpsRTUp7322Clr=dpsRTUp7322Clr, dpsRTUp6071Set=dpsRTUp6071Set, dpsRTUp6136Set=dpsRTUp6136Set, dpsRTUp6258Set=dpsRTUp6258Set, dpsRTUp6269Set=dpsRTUp6269Set, dpsRTUp6156Set=dpsRTUp6156Set, dpsRTUp6065Set=dpsRTUp6065Set, dpsRTUp6322Set=dpsRTUp6322Set, dpsRTUp7052Clr=dpsRTUp7052Clr, dpsRTUp7143Clr=dpsRTUp7143Clr, dpsRTUp7162Clr=dpsRTUp7162Clr, dpsRTUp7050Clr=dpsRTUp7050Clr, dpsRTUp7301Clr=dpsRTUp7301Clr, dpsRTUp7287Clr=dpsRTUp7287Clr, dpsRTUp7093Clr=dpsRTUp7093Clr, dpsRTUp6263Set=dpsRTUp6263Set, dpsRTUp6144Set=dpsRTUp6144Set, dpsRTUp7142Clr=dpsRTUp7142Clr, dpsRTUp7088Clr=dpsRTUp7088Clr, dpsRTUp7300Clr=dpsRTUp7300Clr, dpsRTUp7172Clr=dpsRTUp7172Clr, dpsRTUp6013Set=dpsRTUp6013Set, dpsRTUp6051Set=dpsRTUp6051Set, dpsRTUp6019Set=dpsRTUp6019Set, dpsRTUp7072Clr=dpsRTUp7072Clr, dpsRTUp7200Clr=dpsRTUp7200Clr, dpsRTUp6167Set=dpsRTUp6167Set, dpsRTUp7095Clr=dpsRTUp7095Clr, dpsRTUp7150Clr=dpsRTUp7150Clr, dpsRTUp7167Clr=dpsRTUp7167Clr, dpsRTUp6200Set=dpsRTUp6200Set, dpsRTUp7011Clr=dpsRTUp7011Clr, dpsRTUp7145Clr=dpsRTUp7145Clr, dpsRTUp6154Set=dpsRTUp6154Set, dpsRTUp7031Clr=dpsRTUp7031Clr, dpsRTUp6295Set=dpsRTUp6295Set, dpsRTUp6281Set=dpsRTUp6281Set, dpsRTUp6327Set=dpsRTUp6327Set, dpsRTUp7043Clr=dpsRTUp7043Clr, dpsRTUp7281Clr=dpsRTUp7281Clr, dpsRTUp7089Clr=dpsRTUp7089Clr, dpsRTUp7054Clr=dpsRTUp7054Clr, dpsRTUp7070Clr=dpsRTUp7070Clr, dpsRTUp7020Clr=dpsRTUp7020Clr, dpsRTUp7144Clr=dpsRTUp7144Clr, dpsRTUp6069Set=dpsRTUp6069Set, dpsRTUp6132Set=dpsRTUp6132Set, dpsRTUp7326Clr=dpsRTUp7326Clr, dpsRTUp6030Set=dpsRTUp6030Set, dpsRTUp7175Clr=dpsRTUp7175Clr, dpsRTUp6300Set=dpsRTUp6300Set, dpsRTUp7321Clr=dpsRTUp7321Clr, dpsRTUp7057Clr=dpsRTUp7057Clr, dpsRTUp6085Set=dpsRTUp6085Set, dpsRTUp6082Set=dpsRTUp6082Set, dpsRTUp7258Clr=dpsRTUp7258Clr, dpsRTUp7045Clr=dpsRTUp7045Clr, dpsRTUp7290Clr=dpsRTUp7290Clr, dpsRTUp7156Clr=dpsRTUp7156Clr, dpsRTUp6277Set=dpsRTUp6277Set, dpsRTUp7277Clr=dpsRTUp7277Clr, dpsRTUp7007Clr=dpsRTUp7007Clr, dpsRTUp6173Set=dpsRTUp6173Set, dpsRTUp7067Clr=dpsRTUp7067Clr, dpsRTUp7151Clr=dpsRTUp7151Clr, dpsRTUp7082Clr=dpsRTUp7082Clr, dpsRTUp7009Clr=dpsRTUp7009Clr, dpsRTUp7087Clr=dpsRTUp7087Clr, dpsRTUp6033Set=dpsRTUp6033Set, dpsRTUp6064Set=dpsRTUp6064Set, dpsRTUp7160Clr=dpsRTUp7160Clr, dpsRTUp6302Set=dpsRTUp6302Set, dpsRTUp7047Clr=dpsRTUp7047Clr, dpsRTUp6326Set=dpsRTUp6326Set, dpsRTUp7024Clr=dpsRTUp7024Clr, dpsRTUp7158Clr=dpsRTUp7158Clr, dpsRTUp6044Set=dpsRTUp6044Set, dpsRTUp7081Clr=dpsRTUp7081Clr, dpsRTUp6152Set=dpsRTUp6152Set, dpsRTUp7023Clr=dpsRTUp7023Clr, dpsRTUp6014Set=dpsRTUp6014Set, dpsRTUp7164Clr=dpsRTUp7164Clr, dpsRTUp7091Clr=dpsRTUp7091Clr, dpsRTUp6161Set=dpsRTUp6161Set, dpsRTUp7064Clr=dpsRTUp7064Clr, dpsRTUp7194Clr=dpsRTUp7194Clr, dpsRTUp6049Set=dpsRTUp6049Set, dpsRTUp7013Clr=dpsRTUp7013Clr, dpsRTUp6054Set=dpsRTUp6054Set, dpsRTUp7268Clr=dpsRTUp7268Clr, dpsRTUp6271Set=dpsRTUp6271Set, dpsRTUp6325Set=dpsRTUp6325Set, dpsRTUp6137Set=dpsRTUp6137Set, dpsRTUp6321Set=dpsRTUp6321Set, dpsRTUp6303Set=dpsRTUp6303Set, dpsRTUp7173Clr=dpsRTUp7173Clr, dpsRTUp6087Set=dpsRTUp6087Set, dpsRTUp7094Clr=dpsRTUp7094Clr, dpsRTUp6055Set=dpsRTUp6055Set, dpsRTUp6290Set=dpsRTUp6290Set, dpsRTUp6299Set=dpsRTUp6299Set, dpsRTUp7051Clr=dpsRTUp7051Clr, dpsRTUp7136Clr=dpsRTUp7136Clr, dpsRTUp7270Clr=dpsRTUp7270Clr, dpsRTUp7296Clr=dpsRTUp7296Clr, dpsRTUp6266Set=dpsRTUp6266Set, dpsRTUp6021Set=dpsRTUp6021Set, dpsRTUp6131Set=dpsRTUp6131Set, dpsRTUp6285Set=dpsRTUp6285Set, dpsRTUp7141Clr=dpsRTUp7141Clr, dpsRTUp7260Clr=dpsRTUp7260Clr, dpsRTUp6134Set=dpsRTUp6134Set, dpsRTUp6262Set=dpsRTUp6262Set, dpsRTUp7135Clr=dpsRTUp7135Clr, dpsRTUp7016Clr=dpsRTUp7016Clr, dpsRTUp7037Clr=dpsRTUp7037Clr, dpsRTUp7030Clr=dpsRTUp7030Clr, dpsRTUp6023Set=dpsRTUp6023Set, dpsRTUp6027Set=dpsRTUp6027Set, dpsRTUp6147Set=dpsRTUp6147Set, dpsRTUp7328Clr=dpsRTUp7328Clr, dpsRTUp7148Clr=dpsRTUp7148Clr, dpsRTUp6010Set=dpsRTUp6010Set, dpsRTUp7147Clr=dpsRTUp7147Clr, dpsRTUp7282Clr=dpsRTUp7282Clr, dpsRTUp6294Set=dpsRTUp6294Set, dpsRTUp7327Clr=dpsRTUp7327Clr, dpsRTUp7063Clr=dpsRTUp7063Clr)
-mibBuilder.exportSymbols("DPS-MIB-NGX-G39", dpsRTUp6291Set=dpsRTUp6291Set, dpsRTUp6004Set=dpsRTUp6004Set, dpsRTUp7040Clr=dpsRTUp7040Clr, dpsRTUp6016Set=dpsRTUp6016Set, dpsRTUp6063Set=dpsRTUp6063Set, dpsRTUp6159Set=dpsRTUp6159Set, dpsRTUp7195Clr=dpsRTUp7195Clr, dpsRTUp7146Clr=dpsRTUp7146Clr, dpsRTUp7060Clr=dpsRTUp7060Clr, dpsRTUp7138Clr=dpsRTUp7138Clr, dpsRTUp7285Clr=dpsRTUp7285Clr, dpsRTUp7034Clr=dpsRTUp7034Clr, dpsRTUp6088Set=dpsRTUp6088Set, dpsRTUp7272Clr=dpsRTUp7272Clr, dpsRTUp7289Clr=dpsRTUp7289Clr, dpsRTUp6176Set=dpsRTUp6176Set, dpsRTUp7083Clr=dpsRTUp7083Clr, dpsRTUp6149Set=dpsRTUp6149Set, dpsRTUp7066Clr=dpsRTUp7066Clr, dpsRTUp6279Set=dpsRTUp6279Set, dpsRTUp7288Clr=dpsRTUp7288Clr, dpsRTUp7005Clr=dpsRTUp7005Clr, dpsRTUp7029Clr=dpsRTUp7029Clr, dpsRTUp7271Clr=dpsRTUp7271Clr, dpsRTUp6276Set=dpsRTUp6276Set, dpsRTUp7257Clr=dpsRTUp7257Clr, dpsRTUp7295Clr=dpsRTUp7295Clr, dpsRTUp6047Set=dpsRTUp6047Set, dpsRTUp6032Set=dpsRTUp6032Set, dpsRTUp6150Set=dpsRTUp6150Set, dpsRTUp6196Set=dpsRTUp6196Set, dpsRTUp6045Set=dpsRTUp6045Set, dpsRTUp6046Set=dpsRTUp6046Set, dpsRTUp6168Set=dpsRTUp6168Set, dpsRTUp6195Set=dpsRTUp6195Set, dpsRTUp7130Clr=dpsRTUp7130Clr, dpsRTUp7263Clr=dpsRTUp7263Clr, dpsRTUp7297Clr=dpsRTUp7297Clr, dpsRTUp6024Set=dpsRTUp6024Set, dpsRTUp7294Clr=dpsRTUp7294Clr, dpsRTUp6199Set=dpsRTUp6199Set, dpsRTUp7028Clr=dpsRTUp7028Clr, dpsRTUp7001Clr=dpsRTUp7001Clr, dpsRTUp7012Clr=dpsRTUp7012Clr, dpsRTUp6036Set=dpsRTUp6036Set, dpsRTUp7154Clr=dpsRTUp7154Clr, dpsRTUp6259Set=dpsRTUp6259Set, dpsRTUp7018Clr=dpsRTUp7018Clr, dpsRTUp6083Set=dpsRTUp6083Set, dpsRTUp6268Set=dpsRTUp6268Set, dpsRTUp7044Clr=dpsRTUp7044Clr, dpsRTUp6264Set=dpsRTUp6264Set, dpsRTUp7199Clr=dpsRTUp7199Clr, dpsRTUp7085Clr=dpsRTUp7085Clr, dpsRTUp7019Clr=dpsRTUp7019Clr, dpsRTUp7090Clr=dpsRTUp7090Clr, dpsRTUp6301Set=dpsRTUp6301Set, dpsRTUp7193Clr=dpsRTUp7193Clr, dpsRTUp6166Set=dpsRTUp6166Set, dpsRTUp6057Set=dpsRTUp6057Set, dpsRTUp7273Clr=dpsRTUp7273Clr, dpsRTUp6056Set=dpsRTUp6056Set, dpsRTUp7266Clr=dpsRTUp7266Clr, dpsRTUp6170Set=dpsRTUp6170Set, dpsRTUp6282Set=dpsRTUp6282Set, dpsRTUp6286Set=dpsRTUp6286Set, dpsRTUp6081Set=dpsRTUp6081Set, dpsRTUp7096Clr=dpsRTUp7096Clr, dpsRTUp6284Set=dpsRTUp6284Set, dpsRTUp7166Clr=dpsRTUp7166Clr, dpsRTUp6297Set=dpsRTUp6297Set, dpsRTUp6041Set=dpsRTUp6041Set, dpsRTUp7291Clr=dpsRTUp7291Clr, dpsRTUp6003Set=dpsRTUp6003Set, dpsRTUp6026Set=dpsRTUp6026Set, dpsRTUp6174Set=dpsRTUp6174Set, dpsRTUp6265Set=dpsRTUp6265Set, dpsRTUp6053Set=dpsRTUp6053Set, dpsRTUp6129Set=dpsRTUp6129Set, dpsRTUp6298Set=dpsRTUp6298Set, dpsRTUp7163Clr=dpsRTUp7163Clr, dpsRTUp6193Set=dpsRTUp6193Set, dpsRTUp6293Set=dpsRTUp6293Set, dpsRTUp6029Set=dpsRTUp6029Set, dpsRTUp7061Clr=dpsRTUp7061Clr, dpsRTUp7092Clr=dpsRTUp7092Clr, dpsRTUp7084Clr=dpsRTUp7084Clr, dpsRTUp6091Set=dpsRTUp6091Set, dpsRTUp7002Clr=dpsRTUp7002Clr, dpsRTUp6006Set=dpsRTUp6006Set, dpsRTUp6324Set=dpsRTUp6324Set, dpsRTUp7134Clr=dpsRTUp7134Clr, dpsRTUp6288Set=dpsRTUp6288Set, dpsRTUp6130Set=dpsRTUp6130Set, dpsRTUp6148Set=dpsRTUp6148Set, dpsRTUp6015Set=dpsRTUp6015Set, dpsRTUp6043Set=dpsRTUp6043Set, dpsRTUp6025Set=dpsRTUp6025Set, dpsRTUp6198Set=dpsRTUp6198Set, dpsRTUp6038Set=dpsRTUp6038Set, dpsRTUp6165Set=dpsRTUp6165Set, dpsRTUp6287Set=dpsRTUp6287Set, dpsRTUp7139Clr=dpsRTUp7139Clr, dpsRTUp7137Clr=dpsRTUp7137Clr, dpsRTUp6060Set=dpsRTUp6060Set, dpsRTUp7259Clr=dpsRTUp7259Clr, dpsRTUp6084Set=dpsRTUp6084Set, dpsRTUp6011Set=dpsRTUp6011Set, dpsRTUp6061Set=dpsRTUp6061Set, dpsRTUp7131Clr=dpsRTUp7131Clr, dpsRTUp7298Clr=dpsRTUp7298Clr, dpsRTUp7267Clr=dpsRTUp7267Clr, dpsRTUp6261Set=dpsRTUp6261Set, dpsRTUp7284Clr=dpsRTUp7284Clr, dpsRTUp6039Set=dpsRTUp6039Set, dpsRTUp7062Clr=dpsRTUp7062Clr, dpsRTUp7286Clr=dpsRTUp7286Clr, dpsRTUp7008Clr=dpsRTUp7008Clr, dpsRTUp6086Set=dpsRTUp6086Set, dpsRTUp6035Set=dpsRTUp6035Set, dpsRTUp7010Clr=dpsRTUp7010Clr, dpsRTUp7132Clr=dpsRTUp7132Clr, dpsRTUp6005Set=dpsRTUp6005Set, dpsRTUp7159Clr=dpsRTUp7159Clr, dpsRTUp7003Clr=dpsRTUp7003Clr, dpsRTUp6072Set=dpsRTUp6072Set, dpsRTUp6304Set=dpsRTUp6304Set, dpsRTUp7299Clr=dpsRTUp7299Clr, dpsRTUp7196Clr=dpsRTUp7196Clr, dpsRTUp6070Set=dpsRTUp6070Set, dpsRTUp6275Set=dpsRTUp6275Set, dpsRTUp6151Set=dpsRTUp6151Set, dpsRTUp6017Set=dpsRTUp6017Set, dpsRTUp7264Clr=dpsRTUp7264Clr, dpsRTUp6001Set=dpsRTUp6001Set, dpsRTUp7017Clr=dpsRTUp7017Clr, dpsRTUp7041Clr=dpsRTUp7041Clr, dpsRTUp7025Clr=dpsRTUp7025Clr, dpsRTUp6135Set=dpsRTUp6135Set, dpsRTUp7036Clr=dpsRTUp7036Clr, dpsRTUp6040Set=dpsRTUp6040Set, dpsRTUp7059Clr=dpsRTUp7059Clr, dpsRTUp6157Set=dpsRTUp6157Set, dpsRTUp6050Set=dpsRTUp6050Set, dpsRTUp6270Set=dpsRTUp6270Set, dpsRTUp7274Clr=dpsRTUp7274Clr)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dpsRTU,
+ dpsRTUADisplay,
+ dpsRTUAPntDesc,
+ dpsRTUAPoint,
+ dpsRTUAPort,
+ dpsRTUAState,
+ dpsRTUCAddress,
+ dpsRTUDateTime) = mibBuilder.importSymbols(
+    "DPS-MIB-V38",
+    "dpsRTU",
+    "dpsRTUADisplay",
+    "dpsRTUAPntDesc",
+    "dpsRTUAPoint",
+    "dpsRTUAPort",
+    "dpsRTUAState",
+    "dpsRTUCAddress",
+    "dpsRTUDateTime")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(sysDescr,
+ sysLocation) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "sysDescr",
+    "sysLocation")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+dpsRTUp6001Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6001)
+)
+dpsRTUp6001Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6001Set.setStatus(
+        ""
+    )
+
+dpsRTUp6002Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6002)
+)
+dpsRTUp6002Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6002Set.setStatus(
+        ""
+    )
+
+dpsRTUp6003Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6003)
+)
+dpsRTUp6003Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6003Set.setStatus(
+        ""
+    )
+
+dpsRTUp6004Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6004)
+)
+dpsRTUp6004Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6004Set.setStatus(
+        ""
+    )
+
+dpsRTUp6005Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6005)
+)
+dpsRTUp6005Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6005Set.setStatus(
+        ""
+    )
+
+dpsRTUp6006Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6006)
+)
+dpsRTUp6006Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6006Set.setStatus(
+        ""
+    )
+
+dpsRTUp6007Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6007)
+)
+dpsRTUp6007Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6007Set.setStatus(
+        ""
+    )
+
+dpsRTUp6008Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6008)
+)
+dpsRTUp6008Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6008Set.setStatus(
+        ""
+    )
+
+dpsRTUp6009Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6009)
+)
+dpsRTUp6009Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6009Set.setStatus(
+        ""
+    )
+
+dpsRTUp6010Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6010)
+)
+dpsRTUp6010Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6010Set.setStatus(
+        ""
+    )
+
+dpsRTUp6011Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6011)
+)
+dpsRTUp6011Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6011Set.setStatus(
+        ""
+    )
+
+dpsRTUp6012Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6012)
+)
+dpsRTUp6012Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6012Set.setStatus(
+        ""
+    )
+
+dpsRTUp6013Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6013)
+)
+dpsRTUp6013Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6013Set.setStatus(
+        ""
+    )
+
+dpsRTUp6014Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6014)
+)
+dpsRTUp6014Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6014Set.setStatus(
+        ""
+    )
+
+dpsRTUp6015Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6015)
+)
+dpsRTUp6015Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6015Set.setStatus(
+        ""
+    )
+
+dpsRTUp6016Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6016)
+)
+dpsRTUp6016Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6016Set.setStatus(
+        ""
+    )
+
+dpsRTUp6017Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6017)
+)
+dpsRTUp6017Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6017Set.setStatus(
+        ""
+    )
+
+dpsRTUp6018Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6018)
+)
+dpsRTUp6018Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6018Set.setStatus(
+        ""
+    )
+
+dpsRTUp6019Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6019)
+)
+dpsRTUp6019Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6019Set.setStatus(
+        ""
+    )
+
+dpsRTUp6020Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6020)
+)
+dpsRTUp6020Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6020Set.setStatus(
+        ""
+    )
+
+dpsRTUp6021Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6021)
+)
+dpsRTUp6021Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6021Set.setStatus(
+        ""
+    )
+
+dpsRTUp6022Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6022)
+)
+dpsRTUp6022Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6022Set.setStatus(
+        ""
+    )
+
+dpsRTUp6023Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6023)
+)
+dpsRTUp6023Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6023Set.setStatus(
+        ""
+    )
+
+dpsRTUp6024Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6024)
+)
+dpsRTUp6024Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6024Set.setStatus(
+        ""
+    )
+
+dpsRTUp6025Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6025)
+)
+dpsRTUp6025Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6025Set.setStatus(
+        ""
+    )
+
+dpsRTUp6026Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6026)
+)
+dpsRTUp6026Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6026Set.setStatus(
+        ""
+    )
+
+dpsRTUp6027Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6027)
+)
+dpsRTUp6027Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6027Set.setStatus(
+        ""
+    )
+
+dpsRTUp6028Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6028)
+)
+dpsRTUp6028Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6028Set.setStatus(
+        ""
+    )
+
+dpsRTUp6029Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6029)
+)
+dpsRTUp6029Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6029Set.setStatus(
+        ""
+    )
+
+dpsRTUp6030Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6030)
+)
+dpsRTUp6030Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6030Set.setStatus(
+        ""
+    )
+
+dpsRTUp6031Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6031)
+)
+dpsRTUp6031Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6031Set.setStatus(
+        ""
+    )
+
+dpsRTUp6032Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6032)
+)
+dpsRTUp6032Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6032Set.setStatus(
+        ""
+    )
+
+dpsRTUp6033Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6033)
+)
+dpsRTUp6033Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6033Set.setStatus(
+        ""
+    )
+
+dpsRTUp6034Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6034)
+)
+dpsRTUp6034Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6034Set.setStatus(
+        ""
+    )
+
+dpsRTUp6035Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6035)
+)
+dpsRTUp6035Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6035Set.setStatus(
+        ""
+    )
+
+dpsRTUp6036Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6036)
+)
+dpsRTUp6036Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6036Set.setStatus(
+        ""
+    )
+
+dpsRTUp6037Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6037)
+)
+dpsRTUp6037Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6037Set.setStatus(
+        ""
+    )
+
+dpsRTUp6038Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6038)
+)
+dpsRTUp6038Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6038Set.setStatus(
+        ""
+    )
+
+dpsRTUp6039Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6039)
+)
+dpsRTUp6039Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6039Set.setStatus(
+        ""
+    )
+
+dpsRTUp6040Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6040)
+)
+dpsRTUp6040Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6040Set.setStatus(
+        ""
+    )
+
+dpsRTUp6041Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6041)
+)
+dpsRTUp6041Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6041Set.setStatus(
+        ""
+    )
+
+dpsRTUp6042Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6042)
+)
+dpsRTUp6042Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6042Set.setStatus(
+        ""
+    )
+
+dpsRTUp6043Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6043)
+)
+dpsRTUp6043Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6043Set.setStatus(
+        ""
+    )
+
+dpsRTUp6044Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6044)
+)
+dpsRTUp6044Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6044Set.setStatus(
+        ""
+    )
+
+dpsRTUp6045Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6045)
+)
+dpsRTUp6045Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6045Set.setStatus(
+        ""
+    )
+
+dpsRTUp6046Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6046)
+)
+dpsRTUp6046Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6046Set.setStatus(
+        ""
+    )
+
+dpsRTUp6047Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6047)
+)
+dpsRTUp6047Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6047Set.setStatus(
+        ""
+    )
+
+dpsRTUp6048Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6048)
+)
+dpsRTUp6048Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6048Set.setStatus(
+        ""
+    )
+
+dpsRTUp6049Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6049)
+)
+dpsRTUp6049Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6049Set.setStatus(
+        ""
+    )
+
+dpsRTUp6050Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6050)
+)
+dpsRTUp6050Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6050Set.setStatus(
+        ""
+    )
+
+dpsRTUp6051Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6051)
+)
+dpsRTUp6051Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6051Set.setStatus(
+        ""
+    )
+
+dpsRTUp6052Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6052)
+)
+dpsRTUp6052Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6052Set.setStatus(
+        ""
+    )
+
+dpsRTUp6053Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6053)
+)
+dpsRTUp6053Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6053Set.setStatus(
+        ""
+    )
+
+dpsRTUp6054Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6054)
+)
+dpsRTUp6054Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6054Set.setStatus(
+        ""
+    )
+
+dpsRTUp6055Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6055)
+)
+dpsRTUp6055Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6055Set.setStatus(
+        ""
+    )
+
+dpsRTUp6056Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6056)
+)
+dpsRTUp6056Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6056Set.setStatus(
+        ""
+    )
+
+dpsRTUp6057Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6057)
+)
+dpsRTUp6057Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6057Set.setStatus(
+        ""
+    )
+
+dpsRTUp6058Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6058)
+)
+dpsRTUp6058Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6058Set.setStatus(
+        ""
+    )
+
+dpsRTUp6059Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6059)
+)
+dpsRTUp6059Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6059Set.setStatus(
+        ""
+    )
+
+dpsRTUp6060Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6060)
+)
+dpsRTUp6060Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6060Set.setStatus(
+        ""
+    )
+
+dpsRTUp6061Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6061)
+)
+dpsRTUp6061Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6061Set.setStatus(
+        ""
+    )
+
+dpsRTUp6062Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6062)
+)
+dpsRTUp6062Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6062Set.setStatus(
+        ""
+    )
+
+dpsRTUp6063Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6063)
+)
+dpsRTUp6063Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6063Set.setStatus(
+        ""
+    )
+
+dpsRTUp6064Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6064)
+)
+dpsRTUp6064Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6064Set.setStatus(
+        ""
+    )
+
+dpsRTUp6065Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6065)
+)
+dpsRTUp6065Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6065Set.setStatus(
+        ""
+    )
+
+dpsRTUp6066Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6066)
+)
+dpsRTUp6066Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6066Set.setStatus(
+        ""
+    )
+
+dpsRTUp6067Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6067)
+)
+dpsRTUp6067Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6067Set.setStatus(
+        ""
+    )
+
+dpsRTUp6068Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6068)
+)
+dpsRTUp6068Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6068Set.setStatus(
+        ""
+    )
+
+dpsRTUp6069Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6069)
+)
+dpsRTUp6069Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6069Set.setStatus(
+        ""
+    )
+
+dpsRTUp6070Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6070)
+)
+dpsRTUp6070Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6070Set.setStatus(
+        ""
+    )
+
+dpsRTUp6071Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6071)
+)
+dpsRTUp6071Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6071Set.setStatus(
+        ""
+    )
+
+dpsRTUp6072Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6072)
+)
+dpsRTUp6072Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6072Set.setStatus(
+        ""
+    )
+
+dpsRTUp6081Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6081)
+)
+dpsRTUp6081Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6081Set.setStatus(
+        ""
+    )
+
+dpsRTUp6082Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6082)
+)
+dpsRTUp6082Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6082Set.setStatus(
+        ""
+    )
+
+dpsRTUp6083Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6083)
+)
+dpsRTUp6083Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6083Set.setStatus(
+        ""
+    )
+
+dpsRTUp6084Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6084)
+)
+dpsRTUp6084Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6084Set.setStatus(
+        ""
+    )
+
+dpsRTUp6085Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6085)
+)
+dpsRTUp6085Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6085Set.setStatus(
+        ""
+    )
+
+dpsRTUp6086Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6086)
+)
+dpsRTUp6086Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6086Set.setStatus(
+        ""
+    )
+
+dpsRTUp6087Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6087)
+)
+dpsRTUp6087Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6087Set.setStatus(
+        ""
+    )
+
+dpsRTUp6088Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6088)
+)
+dpsRTUp6088Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6088Set.setStatus(
+        ""
+    )
+
+dpsRTUp6089Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6089)
+)
+dpsRTUp6089Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6089Set.setStatus(
+        ""
+    )
+
+dpsRTUp6090Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6090)
+)
+dpsRTUp6090Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6090Set.setStatus(
+        ""
+    )
+
+dpsRTUp6091Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6091)
+)
+dpsRTUp6091Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6091Set.setStatus(
+        ""
+    )
+
+dpsRTUp6092Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6092)
+)
+dpsRTUp6092Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6092Set.setStatus(
+        ""
+    )
+
+dpsRTUp6093Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6093)
+)
+dpsRTUp6093Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6093Set.setStatus(
+        ""
+    )
+
+dpsRTUp6094Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6094)
+)
+dpsRTUp6094Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6094Set.setStatus(
+        ""
+    )
+
+dpsRTUp6095Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6095)
+)
+dpsRTUp6095Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6095Set.setStatus(
+        ""
+    )
+
+dpsRTUp6096Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6096)
+)
+dpsRTUp6096Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6096Set.setStatus(
+        ""
+    )
+
+dpsRTUp6129Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6129)
+)
+dpsRTUp6129Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6129Set.setStatus(
+        ""
+    )
+
+dpsRTUp6130Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6130)
+)
+dpsRTUp6130Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6130Set.setStatus(
+        ""
+    )
+
+dpsRTUp6131Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6131)
+)
+dpsRTUp6131Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6131Set.setStatus(
+        ""
+    )
+
+dpsRTUp6132Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6132)
+)
+dpsRTUp6132Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6132Set.setStatus(
+        ""
+    )
+
+dpsRTUp6133Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6133)
+)
+dpsRTUp6133Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6133Set.setStatus(
+        ""
+    )
+
+dpsRTUp6134Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6134)
+)
+dpsRTUp6134Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6134Set.setStatus(
+        ""
+    )
+
+dpsRTUp6135Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6135)
+)
+dpsRTUp6135Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6135Set.setStatus(
+        ""
+    )
+
+dpsRTUp6136Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6136)
+)
+dpsRTUp6136Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6136Set.setStatus(
+        ""
+    )
+
+dpsRTUp6137Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6137)
+)
+dpsRTUp6137Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6137Set.setStatus(
+        ""
+    )
+
+dpsRTUp6138Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6138)
+)
+dpsRTUp6138Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6138Set.setStatus(
+        ""
+    )
+
+dpsRTUp6139Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6139)
+)
+dpsRTUp6139Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6139Set.setStatus(
+        ""
+    )
+
+dpsRTUp6140Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6140)
+)
+dpsRTUp6140Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6140Set.setStatus(
+        ""
+    )
+
+dpsRTUp6141Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6141)
+)
+dpsRTUp6141Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6141Set.setStatus(
+        ""
+    )
+
+dpsRTUp6142Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6142)
+)
+dpsRTUp6142Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6142Set.setStatus(
+        ""
+    )
+
+dpsRTUp6143Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6143)
+)
+dpsRTUp6143Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6143Set.setStatus(
+        ""
+    )
+
+dpsRTUp6144Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6144)
+)
+dpsRTUp6144Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6144Set.setStatus(
+        ""
+    )
+
+dpsRTUp6145Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6145)
+)
+dpsRTUp6145Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6145Set.setStatus(
+        ""
+    )
+
+dpsRTUp6146Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6146)
+)
+dpsRTUp6146Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6146Set.setStatus(
+        ""
+    )
+
+dpsRTUp6147Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6147)
+)
+dpsRTUp6147Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6147Set.setStatus(
+        ""
+    )
+
+dpsRTUp6148Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6148)
+)
+dpsRTUp6148Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6148Set.setStatus(
+        ""
+    )
+
+dpsRTUp6149Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6149)
+)
+dpsRTUp6149Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6149Set.setStatus(
+        ""
+    )
+
+dpsRTUp6150Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6150)
+)
+dpsRTUp6150Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6150Set.setStatus(
+        ""
+    )
+
+dpsRTUp6151Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6151)
+)
+dpsRTUp6151Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6151Set.setStatus(
+        ""
+    )
+
+dpsRTUp6152Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6152)
+)
+dpsRTUp6152Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6152Set.setStatus(
+        ""
+    )
+
+dpsRTUp6153Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6153)
+)
+dpsRTUp6153Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6153Set.setStatus(
+        ""
+    )
+
+dpsRTUp6154Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6154)
+)
+dpsRTUp6154Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6154Set.setStatus(
+        ""
+    )
+
+dpsRTUp6155Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6155)
+)
+dpsRTUp6155Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6155Set.setStatus(
+        ""
+    )
+
+dpsRTUp6156Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6156)
+)
+dpsRTUp6156Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6156Set.setStatus(
+        ""
+    )
+
+dpsRTUp6157Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6157)
+)
+dpsRTUp6157Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6157Set.setStatus(
+        ""
+    )
+
+dpsRTUp6158Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6158)
+)
+dpsRTUp6158Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6158Set.setStatus(
+        ""
+    )
+
+dpsRTUp6159Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6159)
+)
+dpsRTUp6159Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6159Set.setStatus(
+        ""
+    )
+
+dpsRTUp6160Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6160)
+)
+dpsRTUp6160Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6160Set.setStatus(
+        ""
+    )
+
+dpsRTUp6161Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6161)
+)
+dpsRTUp6161Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6161Set.setStatus(
+        ""
+    )
+
+dpsRTUp6162Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6162)
+)
+dpsRTUp6162Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6162Set.setStatus(
+        ""
+    )
+
+dpsRTUp6163Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6163)
+)
+dpsRTUp6163Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6163Set.setStatus(
+        ""
+    )
+
+dpsRTUp6164Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6164)
+)
+dpsRTUp6164Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6164Set.setStatus(
+        ""
+    )
+
+dpsRTUp6165Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6165)
+)
+dpsRTUp6165Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6165Set.setStatus(
+        ""
+    )
+
+dpsRTUp6166Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6166)
+)
+dpsRTUp6166Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6166Set.setStatus(
+        ""
+    )
+
+dpsRTUp6167Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6167)
+)
+dpsRTUp6167Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6167Set.setStatus(
+        ""
+    )
+
+dpsRTUp6168Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6168)
+)
+dpsRTUp6168Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6168Set.setStatus(
+        ""
+    )
+
+dpsRTUp6169Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6169)
+)
+dpsRTUp6169Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6169Set.setStatus(
+        ""
+    )
+
+dpsRTUp6170Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6170)
+)
+dpsRTUp6170Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6170Set.setStatus(
+        ""
+    )
+
+dpsRTUp6171Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6171)
+)
+dpsRTUp6171Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6171Set.setStatus(
+        ""
+    )
+
+dpsRTUp6172Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6172)
+)
+dpsRTUp6172Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6172Set.setStatus(
+        ""
+    )
+
+dpsRTUp6173Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6173)
+)
+dpsRTUp6173Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6173Set.setStatus(
+        ""
+    )
+
+dpsRTUp6174Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6174)
+)
+dpsRTUp6174Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6174Set.setStatus(
+        ""
+    )
+
+dpsRTUp6175Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6175)
+)
+dpsRTUp6175Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6175Set.setStatus(
+        ""
+    )
+
+dpsRTUp6176Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6176)
+)
+dpsRTUp6176Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6176Set.setStatus(
+        ""
+    )
+
+dpsRTUp6193Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6193)
+)
+dpsRTUp6193Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6193Set.setStatus(
+        ""
+    )
+
+dpsRTUp6194Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6194)
+)
+dpsRTUp6194Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6194Set.setStatus(
+        ""
+    )
+
+dpsRTUp6195Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6195)
+)
+dpsRTUp6195Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6195Set.setStatus(
+        ""
+    )
+
+dpsRTUp6196Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6196)
+)
+dpsRTUp6196Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6196Set.setStatus(
+        ""
+    )
+
+dpsRTUp6197Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6197)
+)
+dpsRTUp6197Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6197Set.setStatus(
+        ""
+    )
+
+dpsRTUp6198Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6198)
+)
+dpsRTUp6198Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6198Set.setStatus(
+        ""
+    )
+
+dpsRTUp6199Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6199)
+)
+dpsRTUp6199Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6199Set.setStatus(
+        ""
+    )
+
+dpsRTUp6200Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6200)
+)
+dpsRTUp6200Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6200Set.setStatus(
+        ""
+    )
+
+dpsRTUp6257Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6257)
+)
+dpsRTUp6257Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6257Set.setStatus(
+        ""
+    )
+
+dpsRTUp6258Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6258)
+)
+dpsRTUp6258Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6258Set.setStatus(
+        ""
+    )
+
+dpsRTUp6259Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6259)
+)
+dpsRTUp6259Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6259Set.setStatus(
+        ""
+    )
+
+dpsRTUp6260Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6260)
+)
+dpsRTUp6260Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6260Set.setStatus(
+        ""
+    )
+
+dpsRTUp6261Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6261)
+)
+dpsRTUp6261Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6261Set.setStatus(
+        ""
+    )
+
+dpsRTUp6262Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6262)
+)
+dpsRTUp6262Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6262Set.setStatus(
+        ""
+    )
+
+dpsRTUp6263Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6263)
+)
+dpsRTUp6263Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6263Set.setStatus(
+        ""
+    )
+
+dpsRTUp6264Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6264)
+)
+dpsRTUp6264Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6264Set.setStatus(
+        ""
+    )
+
+dpsRTUp6265Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6265)
+)
+dpsRTUp6265Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6265Set.setStatus(
+        ""
+    )
+
+dpsRTUp6266Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6266)
+)
+dpsRTUp6266Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6266Set.setStatus(
+        ""
+    )
+
+dpsRTUp6267Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6267)
+)
+dpsRTUp6267Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6267Set.setStatus(
+        ""
+    )
+
+dpsRTUp6268Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6268)
+)
+dpsRTUp6268Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6268Set.setStatus(
+        ""
+    )
+
+dpsRTUp6269Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6269)
+)
+dpsRTUp6269Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6269Set.setStatus(
+        ""
+    )
+
+dpsRTUp6270Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6270)
+)
+dpsRTUp6270Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6270Set.setStatus(
+        ""
+    )
+
+dpsRTUp6271Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6271)
+)
+dpsRTUp6271Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6271Set.setStatus(
+        ""
+    )
+
+dpsRTUp6272Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6272)
+)
+dpsRTUp6272Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6272Set.setStatus(
+        ""
+    )
+
+dpsRTUp6273Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6273)
+)
+dpsRTUp6273Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6273Set.setStatus(
+        ""
+    )
+
+dpsRTUp6274Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6274)
+)
+dpsRTUp6274Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6274Set.setStatus(
+        ""
+    )
+
+dpsRTUp6275Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6275)
+)
+dpsRTUp6275Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6275Set.setStatus(
+        ""
+    )
+
+dpsRTUp6276Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6276)
+)
+dpsRTUp6276Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6276Set.setStatus(
+        ""
+    )
+
+dpsRTUp6277Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6277)
+)
+dpsRTUp6277Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6277Set.setStatus(
+        ""
+    )
+
+dpsRTUp6278Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6278)
+)
+dpsRTUp6278Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6278Set.setStatus(
+        ""
+    )
+
+dpsRTUp6279Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6279)
+)
+dpsRTUp6279Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6279Set.setStatus(
+        ""
+    )
+
+dpsRTUp6280Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6280)
+)
+dpsRTUp6280Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6280Set.setStatus(
+        ""
+    )
+
+dpsRTUp6281Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6281)
+)
+dpsRTUp6281Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6281Set.setStatus(
+        ""
+    )
+
+dpsRTUp6282Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6282)
+)
+dpsRTUp6282Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6282Set.setStatus(
+        ""
+    )
+
+dpsRTUp6283Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6283)
+)
+dpsRTUp6283Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6283Set.setStatus(
+        ""
+    )
+
+dpsRTUp6284Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6284)
+)
+dpsRTUp6284Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6284Set.setStatus(
+        ""
+    )
+
+dpsRTUp6285Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6285)
+)
+dpsRTUp6285Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6285Set.setStatus(
+        ""
+    )
+
+dpsRTUp6286Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6286)
+)
+dpsRTUp6286Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6286Set.setStatus(
+        ""
+    )
+
+dpsRTUp6287Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6287)
+)
+dpsRTUp6287Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6287Set.setStatus(
+        ""
+    )
+
+dpsRTUp6288Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6288)
+)
+dpsRTUp6288Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6288Set.setStatus(
+        ""
+    )
+
+dpsRTUp6289Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6289)
+)
+dpsRTUp6289Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6289Set.setStatus(
+        ""
+    )
+
+dpsRTUp6290Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6290)
+)
+dpsRTUp6290Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6290Set.setStatus(
+        ""
+    )
+
+dpsRTUp6291Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6291)
+)
+dpsRTUp6291Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6291Set.setStatus(
+        ""
+    )
+
+dpsRTUp6292Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6292)
+)
+dpsRTUp6292Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6292Set.setStatus(
+        ""
+    )
+
+dpsRTUp6293Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6293)
+)
+dpsRTUp6293Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6293Set.setStatus(
+        ""
+    )
+
+dpsRTUp6294Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6294)
+)
+dpsRTUp6294Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6294Set.setStatus(
+        ""
+    )
+
+dpsRTUp6295Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6295)
+)
+dpsRTUp6295Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6295Set.setStatus(
+        ""
+    )
+
+dpsRTUp6296Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6296)
+)
+dpsRTUp6296Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6296Set.setStatus(
+        ""
+    )
+
+dpsRTUp6297Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6297)
+)
+dpsRTUp6297Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6297Set.setStatus(
+        ""
+    )
+
+dpsRTUp6298Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6298)
+)
+dpsRTUp6298Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6298Set.setStatus(
+        ""
+    )
+
+dpsRTUp6299Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6299)
+)
+dpsRTUp6299Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6299Set.setStatus(
+        ""
+    )
+
+dpsRTUp6300Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6300)
+)
+dpsRTUp6300Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6300Set.setStatus(
+        ""
+    )
+
+dpsRTUp6301Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6301)
+)
+dpsRTUp6301Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6301Set.setStatus(
+        ""
+    )
+
+dpsRTUp6302Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6302)
+)
+dpsRTUp6302Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6302Set.setStatus(
+        ""
+    )
+
+dpsRTUp6303Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6303)
+)
+dpsRTUp6303Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6303Set.setStatus(
+        ""
+    )
+
+dpsRTUp6304Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6304)
+)
+dpsRTUp6304Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6304Set.setStatus(
+        ""
+    )
+
+dpsRTUp6321Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6321)
+)
+dpsRTUp6321Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6321Set.setStatus(
+        ""
+    )
+
+dpsRTUp6322Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6322)
+)
+dpsRTUp6322Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6322Set.setStatus(
+        ""
+    )
+
+dpsRTUp6323Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6323)
+)
+dpsRTUp6323Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6323Set.setStatus(
+        ""
+    )
+
+dpsRTUp6324Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6324)
+)
+dpsRTUp6324Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6324Set.setStatus(
+        ""
+    )
+
+dpsRTUp6325Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6325)
+)
+dpsRTUp6325Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6325Set.setStatus(
+        ""
+    )
+
+dpsRTUp6326Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6326)
+)
+dpsRTUp6326Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6326Set.setStatus(
+        ""
+    )
+
+dpsRTUp6327Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6327)
+)
+dpsRTUp6327Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6327Set.setStatus(
+        ""
+    )
+
+dpsRTUp6328Set = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 6328)
+)
+dpsRTUp6328Set.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp6328Set.setStatus(
+        ""
+    )
+
+dpsRTUp7001Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7001)
+)
+dpsRTUp7001Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7001Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7002Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7002)
+)
+dpsRTUp7002Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7002Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7003Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7003)
+)
+dpsRTUp7003Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7003Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7004Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7004)
+)
+dpsRTUp7004Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7004Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7005Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7005)
+)
+dpsRTUp7005Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7005Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7006Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7006)
+)
+dpsRTUp7006Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7006Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7007Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7007)
+)
+dpsRTUp7007Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7007Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7008Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7008)
+)
+dpsRTUp7008Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7008Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7009Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7009)
+)
+dpsRTUp7009Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7009Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7010Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7010)
+)
+dpsRTUp7010Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7010Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7011Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7011)
+)
+dpsRTUp7011Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7011Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7012Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7012)
+)
+dpsRTUp7012Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7012Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7013Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7013)
+)
+dpsRTUp7013Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7013Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7014Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7014)
+)
+dpsRTUp7014Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7014Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7015Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7015)
+)
+dpsRTUp7015Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7015Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7016Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7016)
+)
+dpsRTUp7016Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7016Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7017Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7017)
+)
+dpsRTUp7017Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7017Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7018Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7018)
+)
+dpsRTUp7018Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7018Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7019Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7019)
+)
+dpsRTUp7019Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7019Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7020Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7020)
+)
+dpsRTUp7020Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7020Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7021Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7021)
+)
+dpsRTUp7021Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7021Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7022Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7022)
+)
+dpsRTUp7022Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7022Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7023Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7023)
+)
+dpsRTUp7023Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7023Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7024Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7024)
+)
+dpsRTUp7024Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7024Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7025Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7025)
+)
+dpsRTUp7025Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7025Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7026Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7026)
+)
+dpsRTUp7026Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7026Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7027Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7027)
+)
+dpsRTUp7027Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7027Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7028Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7028)
+)
+dpsRTUp7028Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7028Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7029Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7029)
+)
+dpsRTUp7029Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7029Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7030Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7030)
+)
+dpsRTUp7030Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7030Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7031Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7031)
+)
+dpsRTUp7031Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7031Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7032Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7032)
+)
+dpsRTUp7032Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7032Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7033Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7033)
+)
+dpsRTUp7033Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7033Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7034Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7034)
+)
+dpsRTUp7034Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7034Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7035Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7035)
+)
+dpsRTUp7035Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7035Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7036Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7036)
+)
+dpsRTUp7036Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7036Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7037Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7037)
+)
+dpsRTUp7037Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7037Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7038Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7038)
+)
+dpsRTUp7038Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7038Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7039Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7039)
+)
+dpsRTUp7039Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7039Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7040Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7040)
+)
+dpsRTUp7040Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7040Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7041Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7041)
+)
+dpsRTUp7041Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7041Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7042Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7042)
+)
+dpsRTUp7042Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7042Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7043Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7043)
+)
+dpsRTUp7043Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7043Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7044Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7044)
+)
+dpsRTUp7044Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7044Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7045Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7045)
+)
+dpsRTUp7045Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7045Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7046Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7046)
+)
+dpsRTUp7046Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7046Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7047Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7047)
+)
+dpsRTUp7047Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7047Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7048Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7048)
+)
+dpsRTUp7048Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7048Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7049Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7049)
+)
+dpsRTUp7049Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7049Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7050Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7050)
+)
+dpsRTUp7050Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7050Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7051Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7051)
+)
+dpsRTUp7051Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7051Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7052Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7052)
+)
+dpsRTUp7052Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7052Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7053Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7053)
+)
+dpsRTUp7053Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7053Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7054Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7054)
+)
+dpsRTUp7054Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7054Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7055Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7055)
+)
+dpsRTUp7055Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7055Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7056Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7056)
+)
+dpsRTUp7056Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7056Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7057Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7057)
+)
+dpsRTUp7057Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7057Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7058Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7058)
+)
+dpsRTUp7058Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7058Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7059Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7059)
+)
+dpsRTUp7059Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7059Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7060Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7060)
+)
+dpsRTUp7060Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7060Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7061Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7061)
+)
+dpsRTUp7061Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7061Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7062Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7062)
+)
+dpsRTUp7062Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7062Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7063Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7063)
+)
+dpsRTUp7063Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7063Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7064Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7064)
+)
+dpsRTUp7064Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7064Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7065Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7065)
+)
+dpsRTUp7065Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7065Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7066Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7066)
+)
+dpsRTUp7066Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7066Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7067Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7067)
+)
+dpsRTUp7067Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7067Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7068Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7068)
+)
+dpsRTUp7068Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7068Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7069Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7069)
+)
+dpsRTUp7069Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7069Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7070Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7070)
+)
+dpsRTUp7070Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7070Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7071Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7071)
+)
+dpsRTUp7071Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7071Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7072Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7072)
+)
+dpsRTUp7072Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7072Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7081Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7081)
+)
+dpsRTUp7081Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7081Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7082Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7082)
+)
+dpsRTUp7082Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7082Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7083Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7083)
+)
+dpsRTUp7083Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7083Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7084Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7084)
+)
+dpsRTUp7084Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7084Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7085Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7085)
+)
+dpsRTUp7085Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7085Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7086Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7086)
+)
+dpsRTUp7086Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7086Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7087Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7087)
+)
+dpsRTUp7087Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7087Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7088Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7088)
+)
+dpsRTUp7088Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7088Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7089Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7089)
+)
+dpsRTUp7089Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7089Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7090Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7090)
+)
+dpsRTUp7090Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7090Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7091Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7091)
+)
+dpsRTUp7091Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7091Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7092Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7092)
+)
+dpsRTUp7092Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7092Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7093Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7093)
+)
+dpsRTUp7093Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7093Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7094Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7094)
+)
+dpsRTUp7094Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7094Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7095Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7095)
+)
+dpsRTUp7095Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7095Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7096Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7096)
+)
+dpsRTUp7096Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7096Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7129Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7129)
+)
+dpsRTUp7129Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7129Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7130Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7130)
+)
+dpsRTUp7130Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7130Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7131Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7131)
+)
+dpsRTUp7131Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7131Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7132Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7132)
+)
+dpsRTUp7132Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7132Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7133Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7133)
+)
+dpsRTUp7133Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7133Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7134Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7134)
+)
+dpsRTUp7134Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7134Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7135Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7135)
+)
+dpsRTUp7135Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7135Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7136Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7136)
+)
+dpsRTUp7136Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7136Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7137Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7137)
+)
+dpsRTUp7137Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7137Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7138Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7138)
+)
+dpsRTUp7138Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7138Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7139Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7139)
+)
+dpsRTUp7139Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7139Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7140Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7140)
+)
+dpsRTUp7140Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7140Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7141Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7141)
+)
+dpsRTUp7141Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7141Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7142Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7142)
+)
+dpsRTUp7142Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7142Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7143Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7143)
+)
+dpsRTUp7143Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7143Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7144Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7144)
+)
+dpsRTUp7144Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7144Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7145Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7145)
+)
+dpsRTUp7145Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7145Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7146Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7146)
+)
+dpsRTUp7146Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7146Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7147Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7147)
+)
+dpsRTUp7147Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7147Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7148Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7148)
+)
+dpsRTUp7148Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7148Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7149Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7149)
+)
+dpsRTUp7149Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7149Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7150Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7150)
+)
+dpsRTUp7150Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7150Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7151Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7151)
+)
+dpsRTUp7151Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7151Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7152Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7152)
+)
+dpsRTUp7152Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7152Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7153Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7153)
+)
+dpsRTUp7153Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7153Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7154Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7154)
+)
+dpsRTUp7154Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7154Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7155Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7155)
+)
+dpsRTUp7155Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7155Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7156Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7156)
+)
+dpsRTUp7156Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7156Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7157Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7157)
+)
+dpsRTUp7157Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7157Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7158Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7158)
+)
+dpsRTUp7158Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7158Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7159Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7159)
+)
+dpsRTUp7159Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7159Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7160Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7160)
+)
+dpsRTUp7160Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7160Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7161Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7161)
+)
+dpsRTUp7161Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7161Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7162Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7162)
+)
+dpsRTUp7162Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7162Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7163Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7163)
+)
+dpsRTUp7163Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7163Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7164Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7164)
+)
+dpsRTUp7164Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7164Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7165Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7165)
+)
+dpsRTUp7165Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7165Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7166Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7166)
+)
+dpsRTUp7166Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7166Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7167Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7167)
+)
+dpsRTUp7167Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7167Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7168Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7168)
+)
+dpsRTUp7168Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7168Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7169Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7169)
+)
+dpsRTUp7169Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7169Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7170Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7170)
+)
+dpsRTUp7170Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7170Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7171Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7171)
+)
+dpsRTUp7171Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7171Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7172Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7172)
+)
+dpsRTUp7172Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7172Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7173Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7173)
+)
+dpsRTUp7173Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7173Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7174Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7174)
+)
+dpsRTUp7174Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7174Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7175Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7175)
+)
+dpsRTUp7175Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7175Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7176Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7176)
+)
+dpsRTUp7176Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7176Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7193Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7193)
+)
+dpsRTUp7193Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7193Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7194Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7194)
+)
+dpsRTUp7194Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7194Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7195Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7195)
+)
+dpsRTUp7195Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7195Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7196Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7196)
+)
+dpsRTUp7196Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7196Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7197Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7197)
+)
+dpsRTUp7197Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7197Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7198Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7198)
+)
+dpsRTUp7198Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7198Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7199Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7199)
+)
+dpsRTUp7199Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7199Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7200Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7200)
+)
+dpsRTUp7200Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7200Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7257Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7257)
+)
+dpsRTUp7257Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7257Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7258Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7258)
+)
+dpsRTUp7258Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7258Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7259Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7259)
+)
+dpsRTUp7259Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7259Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7260Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7260)
+)
+dpsRTUp7260Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7260Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7261Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7261)
+)
+dpsRTUp7261Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7261Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7262Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7262)
+)
+dpsRTUp7262Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7262Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7263Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7263)
+)
+dpsRTUp7263Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7263Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7264Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7264)
+)
+dpsRTUp7264Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7264Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7265Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7265)
+)
+dpsRTUp7265Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7265Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7266Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7266)
+)
+dpsRTUp7266Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7266Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7267Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7267)
+)
+dpsRTUp7267Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7267Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7268Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7268)
+)
+dpsRTUp7268Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7268Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7269Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7269)
+)
+dpsRTUp7269Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7269Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7270Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7270)
+)
+dpsRTUp7270Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7270Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7271Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7271)
+)
+dpsRTUp7271Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7271Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7272Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7272)
+)
+dpsRTUp7272Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7272Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7273Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7273)
+)
+dpsRTUp7273Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7273Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7274Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7274)
+)
+dpsRTUp7274Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7274Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7275Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7275)
+)
+dpsRTUp7275Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7275Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7276Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7276)
+)
+dpsRTUp7276Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7276Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7277Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7277)
+)
+dpsRTUp7277Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7277Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7278Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7278)
+)
+dpsRTUp7278Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7278Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7279Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7279)
+)
+dpsRTUp7279Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7279Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7280Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7280)
+)
+dpsRTUp7280Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7280Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7281Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7281)
+)
+dpsRTUp7281Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7281Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7282Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7282)
+)
+dpsRTUp7282Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7282Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7283Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7283)
+)
+dpsRTUp7283Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7283Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7284Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7284)
+)
+dpsRTUp7284Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7284Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7285Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7285)
+)
+dpsRTUp7285Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7285Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7286Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7286)
+)
+dpsRTUp7286Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7286Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7287Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7287)
+)
+dpsRTUp7287Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7287Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7288Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7288)
+)
+dpsRTUp7288Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7288Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7289Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7289)
+)
+dpsRTUp7289Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7289Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7290Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7290)
+)
+dpsRTUp7290Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7290Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7291Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7291)
+)
+dpsRTUp7291Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7291Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7292Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7292)
+)
+dpsRTUp7292Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7292Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7293Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7293)
+)
+dpsRTUp7293Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7293Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7294Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7294)
+)
+dpsRTUp7294Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7294Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7295Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7295)
+)
+dpsRTUp7295Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7295Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7296Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7296)
+)
+dpsRTUp7296Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7296Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7297Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7297)
+)
+dpsRTUp7297Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7297Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7298Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7298)
+)
+dpsRTUp7298Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7298Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7299Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7299)
+)
+dpsRTUp7299Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7299Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7300Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7300)
+)
+dpsRTUp7300Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7300Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7301Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7301)
+)
+dpsRTUp7301Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7301Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7302Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7302)
+)
+dpsRTUp7302Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7302Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7303Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7303)
+)
+dpsRTUp7303Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7303Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7304Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7304)
+)
+dpsRTUp7304Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7304Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7321Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7321)
+)
+dpsRTUp7321Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7321Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7322Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7322)
+)
+dpsRTUp7322Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7322Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7323Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7323)
+)
+dpsRTUp7323Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7323Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7324Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7324)
+)
+dpsRTUp7324Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7324Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7325Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7325)
+)
+dpsRTUp7325Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7325Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7326Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7326)
+)
+dpsRTUp7326Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7326Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7327Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7327)
+)
+dpsRTUp7327Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7327Clr.setStatus(
+        ""
+    )
+
+dpsRTUp7328Clr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2682, 1, 2, 0, 7328)
+)
+dpsRTUp7328Clr.setObjects(
+      *(("SNMPv2-MIB", "sysDescr"),
+        ("SNMPv2-MIB", "sysLocation"),
+        ("DPS-MIB-V38", "dpsRTUDateTime"),
+        ("DPS-MIB-V38", "dpsRTUAPort"),
+        ("DPS-MIB-V38", "dpsRTUCAddress"),
+        ("DPS-MIB-V38", "dpsRTUADisplay"),
+        ("DPS-MIB-V38", "dpsRTUAPoint"),
+        ("DPS-MIB-V38", "dpsRTUAPntDesc"),
+        ("DPS-MIB-V38", "dpsRTUAState"))
+)
+if mibBuilder.loadTexts:
+    dpsRTUp7328Clr.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DPS-MIB-NGX-G39",
+    **{"dpsRTUp6001Set": dpsRTUp6001Set,
+       "dpsRTUp6002Set": dpsRTUp6002Set,
+       "dpsRTUp6003Set": dpsRTUp6003Set,
+       "dpsRTUp6004Set": dpsRTUp6004Set,
+       "dpsRTUp6005Set": dpsRTUp6005Set,
+       "dpsRTUp6006Set": dpsRTUp6006Set,
+       "dpsRTUp6007Set": dpsRTUp6007Set,
+       "dpsRTUp6008Set": dpsRTUp6008Set,
+       "dpsRTUp6009Set": dpsRTUp6009Set,
+       "dpsRTUp6010Set": dpsRTUp6010Set,
+       "dpsRTUp6011Set": dpsRTUp6011Set,
+       "dpsRTUp6012Set": dpsRTUp6012Set,
+       "dpsRTUp6013Set": dpsRTUp6013Set,
+       "dpsRTUp6014Set": dpsRTUp6014Set,
+       "dpsRTUp6015Set": dpsRTUp6015Set,
+       "dpsRTUp6016Set": dpsRTUp6016Set,
+       "dpsRTUp6017Set": dpsRTUp6017Set,
+       "dpsRTUp6018Set": dpsRTUp6018Set,
+       "dpsRTUp6019Set": dpsRTUp6019Set,
+       "dpsRTUp6020Set": dpsRTUp6020Set,
+       "dpsRTUp6021Set": dpsRTUp6021Set,
+       "dpsRTUp6022Set": dpsRTUp6022Set,
+       "dpsRTUp6023Set": dpsRTUp6023Set,
+       "dpsRTUp6024Set": dpsRTUp6024Set,
+       "dpsRTUp6025Set": dpsRTUp6025Set,
+       "dpsRTUp6026Set": dpsRTUp6026Set,
+       "dpsRTUp6027Set": dpsRTUp6027Set,
+       "dpsRTUp6028Set": dpsRTUp6028Set,
+       "dpsRTUp6029Set": dpsRTUp6029Set,
+       "dpsRTUp6030Set": dpsRTUp6030Set,
+       "dpsRTUp6031Set": dpsRTUp6031Set,
+       "dpsRTUp6032Set": dpsRTUp6032Set,
+       "dpsRTUp6033Set": dpsRTUp6033Set,
+       "dpsRTUp6034Set": dpsRTUp6034Set,
+       "dpsRTUp6035Set": dpsRTUp6035Set,
+       "dpsRTUp6036Set": dpsRTUp6036Set,
+       "dpsRTUp6037Set": dpsRTUp6037Set,
+       "dpsRTUp6038Set": dpsRTUp6038Set,
+       "dpsRTUp6039Set": dpsRTUp6039Set,
+       "dpsRTUp6040Set": dpsRTUp6040Set,
+       "dpsRTUp6041Set": dpsRTUp6041Set,
+       "dpsRTUp6042Set": dpsRTUp6042Set,
+       "dpsRTUp6043Set": dpsRTUp6043Set,
+       "dpsRTUp6044Set": dpsRTUp6044Set,
+       "dpsRTUp6045Set": dpsRTUp6045Set,
+       "dpsRTUp6046Set": dpsRTUp6046Set,
+       "dpsRTUp6047Set": dpsRTUp6047Set,
+       "dpsRTUp6048Set": dpsRTUp6048Set,
+       "dpsRTUp6049Set": dpsRTUp6049Set,
+       "dpsRTUp6050Set": dpsRTUp6050Set,
+       "dpsRTUp6051Set": dpsRTUp6051Set,
+       "dpsRTUp6052Set": dpsRTUp6052Set,
+       "dpsRTUp6053Set": dpsRTUp6053Set,
+       "dpsRTUp6054Set": dpsRTUp6054Set,
+       "dpsRTUp6055Set": dpsRTUp6055Set,
+       "dpsRTUp6056Set": dpsRTUp6056Set,
+       "dpsRTUp6057Set": dpsRTUp6057Set,
+       "dpsRTUp6058Set": dpsRTUp6058Set,
+       "dpsRTUp6059Set": dpsRTUp6059Set,
+       "dpsRTUp6060Set": dpsRTUp6060Set,
+       "dpsRTUp6061Set": dpsRTUp6061Set,
+       "dpsRTUp6062Set": dpsRTUp6062Set,
+       "dpsRTUp6063Set": dpsRTUp6063Set,
+       "dpsRTUp6064Set": dpsRTUp6064Set,
+       "dpsRTUp6065Set": dpsRTUp6065Set,
+       "dpsRTUp6066Set": dpsRTUp6066Set,
+       "dpsRTUp6067Set": dpsRTUp6067Set,
+       "dpsRTUp6068Set": dpsRTUp6068Set,
+       "dpsRTUp6069Set": dpsRTUp6069Set,
+       "dpsRTUp6070Set": dpsRTUp6070Set,
+       "dpsRTUp6071Set": dpsRTUp6071Set,
+       "dpsRTUp6072Set": dpsRTUp6072Set,
+       "dpsRTUp6081Set": dpsRTUp6081Set,
+       "dpsRTUp6082Set": dpsRTUp6082Set,
+       "dpsRTUp6083Set": dpsRTUp6083Set,
+       "dpsRTUp6084Set": dpsRTUp6084Set,
+       "dpsRTUp6085Set": dpsRTUp6085Set,
+       "dpsRTUp6086Set": dpsRTUp6086Set,
+       "dpsRTUp6087Set": dpsRTUp6087Set,
+       "dpsRTUp6088Set": dpsRTUp6088Set,
+       "dpsRTUp6089Set": dpsRTUp6089Set,
+       "dpsRTUp6090Set": dpsRTUp6090Set,
+       "dpsRTUp6091Set": dpsRTUp6091Set,
+       "dpsRTUp6092Set": dpsRTUp6092Set,
+       "dpsRTUp6093Set": dpsRTUp6093Set,
+       "dpsRTUp6094Set": dpsRTUp6094Set,
+       "dpsRTUp6095Set": dpsRTUp6095Set,
+       "dpsRTUp6096Set": dpsRTUp6096Set,
+       "dpsRTUp6129Set": dpsRTUp6129Set,
+       "dpsRTUp6130Set": dpsRTUp6130Set,
+       "dpsRTUp6131Set": dpsRTUp6131Set,
+       "dpsRTUp6132Set": dpsRTUp6132Set,
+       "dpsRTUp6133Set": dpsRTUp6133Set,
+       "dpsRTUp6134Set": dpsRTUp6134Set,
+       "dpsRTUp6135Set": dpsRTUp6135Set,
+       "dpsRTUp6136Set": dpsRTUp6136Set,
+       "dpsRTUp6137Set": dpsRTUp6137Set,
+       "dpsRTUp6138Set": dpsRTUp6138Set,
+       "dpsRTUp6139Set": dpsRTUp6139Set,
+       "dpsRTUp6140Set": dpsRTUp6140Set,
+       "dpsRTUp6141Set": dpsRTUp6141Set,
+       "dpsRTUp6142Set": dpsRTUp6142Set,
+       "dpsRTUp6143Set": dpsRTUp6143Set,
+       "dpsRTUp6144Set": dpsRTUp6144Set,
+       "dpsRTUp6145Set": dpsRTUp6145Set,
+       "dpsRTUp6146Set": dpsRTUp6146Set,
+       "dpsRTUp6147Set": dpsRTUp6147Set,
+       "dpsRTUp6148Set": dpsRTUp6148Set,
+       "dpsRTUp6149Set": dpsRTUp6149Set,
+       "dpsRTUp6150Set": dpsRTUp6150Set,
+       "dpsRTUp6151Set": dpsRTUp6151Set,
+       "dpsRTUp6152Set": dpsRTUp6152Set,
+       "dpsRTUp6153Set": dpsRTUp6153Set,
+       "dpsRTUp6154Set": dpsRTUp6154Set,
+       "dpsRTUp6155Set": dpsRTUp6155Set,
+       "dpsRTUp6156Set": dpsRTUp6156Set,
+       "dpsRTUp6157Set": dpsRTUp6157Set,
+       "dpsRTUp6158Set": dpsRTUp6158Set,
+       "dpsRTUp6159Set": dpsRTUp6159Set,
+       "dpsRTUp6160Set": dpsRTUp6160Set,
+       "dpsRTUp6161Set": dpsRTUp6161Set,
+       "dpsRTUp6162Set": dpsRTUp6162Set,
+       "dpsRTUp6163Set": dpsRTUp6163Set,
+       "dpsRTUp6164Set": dpsRTUp6164Set,
+       "dpsRTUp6165Set": dpsRTUp6165Set,
+       "dpsRTUp6166Set": dpsRTUp6166Set,
+       "dpsRTUp6167Set": dpsRTUp6167Set,
+       "dpsRTUp6168Set": dpsRTUp6168Set,
+       "dpsRTUp6169Set": dpsRTUp6169Set,
+       "dpsRTUp6170Set": dpsRTUp6170Set,
+       "dpsRTUp6171Set": dpsRTUp6171Set,
+       "dpsRTUp6172Set": dpsRTUp6172Set,
+       "dpsRTUp6173Set": dpsRTUp6173Set,
+       "dpsRTUp6174Set": dpsRTUp6174Set,
+       "dpsRTUp6175Set": dpsRTUp6175Set,
+       "dpsRTUp6176Set": dpsRTUp6176Set,
+       "dpsRTUp6193Set": dpsRTUp6193Set,
+       "dpsRTUp6194Set": dpsRTUp6194Set,
+       "dpsRTUp6195Set": dpsRTUp6195Set,
+       "dpsRTUp6196Set": dpsRTUp6196Set,
+       "dpsRTUp6197Set": dpsRTUp6197Set,
+       "dpsRTUp6198Set": dpsRTUp6198Set,
+       "dpsRTUp6199Set": dpsRTUp6199Set,
+       "dpsRTUp6200Set": dpsRTUp6200Set,
+       "dpsRTUp6257Set": dpsRTUp6257Set,
+       "dpsRTUp6258Set": dpsRTUp6258Set,
+       "dpsRTUp6259Set": dpsRTUp6259Set,
+       "dpsRTUp6260Set": dpsRTUp6260Set,
+       "dpsRTUp6261Set": dpsRTUp6261Set,
+       "dpsRTUp6262Set": dpsRTUp6262Set,
+       "dpsRTUp6263Set": dpsRTUp6263Set,
+       "dpsRTUp6264Set": dpsRTUp6264Set,
+       "dpsRTUp6265Set": dpsRTUp6265Set,
+       "dpsRTUp6266Set": dpsRTUp6266Set,
+       "dpsRTUp6267Set": dpsRTUp6267Set,
+       "dpsRTUp6268Set": dpsRTUp6268Set,
+       "dpsRTUp6269Set": dpsRTUp6269Set,
+       "dpsRTUp6270Set": dpsRTUp6270Set,
+       "dpsRTUp6271Set": dpsRTUp6271Set,
+       "dpsRTUp6272Set": dpsRTUp6272Set,
+       "dpsRTUp6273Set": dpsRTUp6273Set,
+       "dpsRTUp6274Set": dpsRTUp6274Set,
+       "dpsRTUp6275Set": dpsRTUp6275Set,
+       "dpsRTUp6276Set": dpsRTUp6276Set,
+       "dpsRTUp6277Set": dpsRTUp6277Set,
+       "dpsRTUp6278Set": dpsRTUp6278Set,
+       "dpsRTUp6279Set": dpsRTUp6279Set,
+       "dpsRTUp6280Set": dpsRTUp6280Set,
+       "dpsRTUp6281Set": dpsRTUp6281Set,
+       "dpsRTUp6282Set": dpsRTUp6282Set,
+       "dpsRTUp6283Set": dpsRTUp6283Set,
+       "dpsRTUp6284Set": dpsRTUp6284Set,
+       "dpsRTUp6285Set": dpsRTUp6285Set,
+       "dpsRTUp6286Set": dpsRTUp6286Set,
+       "dpsRTUp6287Set": dpsRTUp6287Set,
+       "dpsRTUp6288Set": dpsRTUp6288Set,
+       "dpsRTUp6289Set": dpsRTUp6289Set,
+       "dpsRTUp6290Set": dpsRTUp6290Set,
+       "dpsRTUp6291Set": dpsRTUp6291Set,
+       "dpsRTUp6292Set": dpsRTUp6292Set,
+       "dpsRTUp6293Set": dpsRTUp6293Set,
+       "dpsRTUp6294Set": dpsRTUp6294Set,
+       "dpsRTUp6295Set": dpsRTUp6295Set,
+       "dpsRTUp6296Set": dpsRTUp6296Set,
+       "dpsRTUp6297Set": dpsRTUp6297Set,
+       "dpsRTUp6298Set": dpsRTUp6298Set,
+       "dpsRTUp6299Set": dpsRTUp6299Set,
+       "dpsRTUp6300Set": dpsRTUp6300Set,
+       "dpsRTUp6301Set": dpsRTUp6301Set,
+       "dpsRTUp6302Set": dpsRTUp6302Set,
+       "dpsRTUp6303Set": dpsRTUp6303Set,
+       "dpsRTUp6304Set": dpsRTUp6304Set,
+       "dpsRTUp6321Set": dpsRTUp6321Set,
+       "dpsRTUp6322Set": dpsRTUp6322Set,
+       "dpsRTUp6323Set": dpsRTUp6323Set,
+       "dpsRTUp6324Set": dpsRTUp6324Set,
+       "dpsRTUp6325Set": dpsRTUp6325Set,
+       "dpsRTUp6326Set": dpsRTUp6326Set,
+       "dpsRTUp6327Set": dpsRTUp6327Set,
+       "dpsRTUp6328Set": dpsRTUp6328Set,
+       "dpsRTUp7001Clr": dpsRTUp7001Clr,
+       "dpsRTUp7002Clr": dpsRTUp7002Clr,
+       "dpsRTUp7003Clr": dpsRTUp7003Clr,
+       "dpsRTUp7004Clr": dpsRTUp7004Clr,
+       "dpsRTUp7005Clr": dpsRTUp7005Clr,
+       "dpsRTUp7006Clr": dpsRTUp7006Clr,
+       "dpsRTUp7007Clr": dpsRTUp7007Clr,
+       "dpsRTUp7008Clr": dpsRTUp7008Clr,
+       "dpsRTUp7009Clr": dpsRTUp7009Clr,
+       "dpsRTUp7010Clr": dpsRTUp7010Clr,
+       "dpsRTUp7011Clr": dpsRTUp7011Clr,
+       "dpsRTUp7012Clr": dpsRTUp7012Clr,
+       "dpsRTUp7013Clr": dpsRTUp7013Clr,
+       "dpsRTUp7014Clr": dpsRTUp7014Clr,
+       "dpsRTUp7015Clr": dpsRTUp7015Clr,
+       "dpsRTUp7016Clr": dpsRTUp7016Clr,
+       "dpsRTUp7017Clr": dpsRTUp7017Clr,
+       "dpsRTUp7018Clr": dpsRTUp7018Clr,
+       "dpsRTUp7019Clr": dpsRTUp7019Clr,
+       "dpsRTUp7020Clr": dpsRTUp7020Clr,
+       "dpsRTUp7021Clr": dpsRTUp7021Clr,
+       "dpsRTUp7022Clr": dpsRTUp7022Clr,
+       "dpsRTUp7023Clr": dpsRTUp7023Clr,
+       "dpsRTUp7024Clr": dpsRTUp7024Clr,
+       "dpsRTUp7025Clr": dpsRTUp7025Clr,
+       "dpsRTUp7026Clr": dpsRTUp7026Clr,
+       "dpsRTUp7027Clr": dpsRTUp7027Clr,
+       "dpsRTUp7028Clr": dpsRTUp7028Clr,
+       "dpsRTUp7029Clr": dpsRTUp7029Clr,
+       "dpsRTUp7030Clr": dpsRTUp7030Clr,
+       "dpsRTUp7031Clr": dpsRTUp7031Clr,
+       "dpsRTUp7032Clr": dpsRTUp7032Clr,
+       "dpsRTUp7033Clr": dpsRTUp7033Clr,
+       "dpsRTUp7034Clr": dpsRTUp7034Clr,
+       "dpsRTUp7035Clr": dpsRTUp7035Clr,
+       "dpsRTUp7036Clr": dpsRTUp7036Clr,
+       "dpsRTUp7037Clr": dpsRTUp7037Clr,
+       "dpsRTUp7038Clr": dpsRTUp7038Clr,
+       "dpsRTUp7039Clr": dpsRTUp7039Clr,
+       "dpsRTUp7040Clr": dpsRTUp7040Clr,
+       "dpsRTUp7041Clr": dpsRTUp7041Clr,
+       "dpsRTUp7042Clr": dpsRTUp7042Clr,
+       "dpsRTUp7043Clr": dpsRTUp7043Clr,
+       "dpsRTUp7044Clr": dpsRTUp7044Clr,
+       "dpsRTUp7045Clr": dpsRTUp7045Clr,
+       "dpsRTUp7046Clr": dpsRTUp7046Clr,
+       "dpsRTUp7047Clr": dpsRTUp7047Clr,
+       "dpsRTUp7048Clr": dpsRTUp7048Clr,
+       "dpsRTUp7049Clr": dpsRTUp7049Clr,
+       "dpsRTUp7050Clr": dpsRTUp7050Clr,
+       "dpsRTUp7051Clr": dpsRTUp7051Clr,
+       "dpsRTUp7052Clr": dpsRTUp7052Clr,
+       "dpsRTUp7053Clr": dpsRTUp7053Clr,
+       "dpsRTUp7054Clr": dpsRTUp7054Clr,
+       "dpsRTUp7055Clr": dpsRTUp7055Clr,
+       "dpsRTUp7056Clr": dpsRTUp7056Clr,
+       "dpsRTUp7057Clr": dpsRTUp7057Clr,
+       "dpsRTUp7058Clr": dpsRTUp7058Clr,
+       "dpsRTUp7059Clr": dpsRTUp7059Clr,
+       "dpsRTUp7060Clr": dpsRTUp7060Clr,
+       "dpsRTUp7061Clr": dpsRTUp7061Clr,
+       "dpsRTUp7062Clr": dpsRTUp7062Clr,
+       "dpsRTUp7063Clr": dpsRTUp7063Clr,
+       "dpsRTUp7064Clr": dpsRTUp7064Clr,
+       "dpsRTUp7065Clr": dpsRTUp7065Clr,
+       "dpsRTUp7066Clr": dpsRTUp7066Clr,
+       "dpsRTUp7067Clr": dpsRTUp7067Clr,
+       "dpsRTUp7068Clr": dpsRTUp7068Clr,
+       "dpsRTUp7069Clr": dpsRTUp7069Clr,
+       "dpsRTUp7070Clr": dpsRTUp7070Clr,
+       "dpsRTUp7071Clr": dpsRTUp7071Clr,
+       "dpsRTUp7072Clr": dpsRTUp7072Clr,
+       "dpsRTUp7081Clr": dpsRTUp7081Clr,
+       "dpsRTUp7082Clr": dpsRTUp7082Clr,
+       "dpsRTUp7083Clr": dpsRTUp7083Clr,
+       "dpsRTUp7084Clr": dpsRTUp7084Clr,
+       "dpsRTUp7085Clr": dpsRTUp7085Clr,
+       "dpsRTUp7086Clr": dpsRTUp7086Clr,
+       "dpsRTUp7087Clr": dpsRTUp7087Clr,
+       "dpsRTUp7088Clr": dpsRTUp7088Clr,
+       "dpsRTUp7089Clr": dpsRTUp7089Clr,
+       "dpsRTUp7090Clr": dpsRTUp7090Clr,
+       "dpsRTUp7091Clr": dpsRTUp7091Clr,
+       "dpsRTUp7092Clr": dpsRTUp7092Clr,
+       "dpsRTUp7093Clr": dpsRTUp7093Clr,
+       "dpsRTUp7094Clr": dpsRTUp7094Clr,
+       "dpsRTUp7095Clr": dpsRTUp7095Clr,
+       "dpsRTUp7096Clr": dpsRTUp7096Clr,
+       "dpsRTUp7129Clr": dpsRTUp7129Clr,
+       "dpsRTUp7130Clr": dpsRTUp7130Clr,
+       "dpsRTUp7131Clr": dpsRTUp7131Clr,
+       "dpsRTUp7132Clr": dpsRTUp7132Clr,
+       "dpsRTUp7133Clr": dpsRTUp7133Clr,
+       "dpsRTUp7134Clr": dpsRTUp7134Clr,
+       "dpsRTUp7135Clr": dpsRTUp7135Clr,
+       "dpsRTUp7136Clr": dpsRTUp7136Clr,
+       "dpsRTUp7137Clr": dpsRTUp7137Clr,
+       "dpsRTUp7138Clr": dpsRTUp7138Clr,
+       "dpsRTUp7139Clr": dpsRTUp7139Clr,
+       "dpsRTUp7140Clr": dpsRTUp7140Clr,
+       "dpsRTUp7141Clr": dpsRTUp7141Clr,
+       "dpsRTUp7142Clr": dpsRTUp7142Clr,
+       "dpsRTUp7143Clr": dpsRTUp7143Clr,
+       "dpsRTUp7144Clr": dpsRTUp7144Clr,
+       "dpsRTUp7145Clr": dpsRTUp7145Clr,
+       "dpsRTUp7146Clr": dpsRTUp7146Clr,
+       "dpsRTUp7147Clr": dpsRTUp7147Clr,
+       "dpsRTUp7148Clr": dpsRTUp7148Clr,
+       "dpsRTUp7149Clr": dpsRTUp7149Clr,
+       "dpsRTUp7150Clr": dpsRTUp7150Clr,
+       "dpsRTUp7151Clr": dpsRTUp7151Clr,
+       "dpsRTUp7152Clr": dpsRTUp7152Clr,
+       "dpsRTUp7153Clr": dpsRTUp7153Clr,
+       "dpsRTUp7154Clr": dpsRTUp7154Clr,
+       "dpsRTUp7155Clr": dpsRTUp7155Clr,
+       "dpsRTUp7156Clr": dpsRTUp7156Clr,
+       "dpsRTUp7157Clr": dpsRTUp7157Clr,
+       "dpsRTUp7158Clr": dpsRTUp7158Clr,
+       "dpsRTUp7159Clr": dpsRTUp7159Clr,
+       "dpsRTUp7160Clr": dpsRTUp7160Clr,
+       "dpsRTUp7161Clr": dpsRTUp7161Clr,
+       "dpsRTUp7162Clr": dpsRTUp7162Clr,
+       "dpsRTUp7163Clr": dpsRTUp7163Clr,
+       "dpsRTUp7164Clr": dpsRTUp7164Clr,
+       "dpsRTUp7165Clr": dpsRTUp7165Clr,
+       "dpsRTUp7166Clr": dpsRTUp7166Clr,
+       "dpsRTUp7167Clr": dpsRTUp7167Clr,
+       "dpsRTUp7168Clr": dpsRTUp7168Clr,
+       "dpsRTUp7169Clr": dpsRTUp7169Clr,
+       "dpsRTUp7170Clr": dpsRTUp7170Clr,
+       "dpsRTUp7171Clr": dpsRTUp7171Clr,
+       "dpsRTUp7172Clr": dpsRTUp7172Clr,
+       "dpsRTUp7173Clr": dpsRTUp7173Clr,
+       "dpsRTUp7174Clr": dpsRTUp7174Clr,
+       "dpsRTUp7175Clr": dpsRTUp7175Clr,
+       "dpsRTUp7176Clr": dpsRTUp7176Clr,
+       "dpsRTUp7193Clr": dpsRTUp7193Clr,
+       "dpsRTUp7194Clr": dpsRTUp7194Clr,
+       "dpsRTUp7195Clr": dpsRTUp7195Clr,
+       "dpsRTUp7196Clr": dpsRTUp7196Clr,
+       "dpsRTUp7197Clr": dpsRTUp7197Clr,
+       "dpsRTUp7198Clr": dpsRTUp7198Clr,
+       "dpsRTUp7199Clr": dpsRTUp7199Clr,
+       "dpsRTUp7200Clr": dpsRTUp7200Clr,
+       "dpsRTUp7257Clr": dpsRTUp7257Clr,
+       "dpsRTUp7258Clr": dpsRTUp7258Clr,
+       "dpsRTUp7259Clr": dpsRTUp7259Clr,
+       "dpsRTUp7260Clr": dpsRTUp7260Clr,
+       "dpsRTUp7261Clr": dpsRTUp7261Clr,
+       "dpsRTUp7262Clr": dpsRTUp7262Clr,
+       "dpsRTUp7263Clr": dpsRTUp7263Clr,
+       "dpsRTUp7264Clr": dpsRTUp7264Clr,
+       "dpsRTUp7265Clr": dpsRTUp7265Clr,
+       "dpsRTUp7266Clr": dpsRTUp7266Clr,
+       "dpsRTUp7267Clr": dpsRTUp7267Clr,
+       "dpsRTUp7268Clr": dpsRTUp7268Clr,
+       "dpsRTUp7269Clr": dpsRTUp7269Clr,
+       "dpsRTUp7270Clr": dpsRTUp7270Clr,
+       "dpsRTUp7271Clr": dpsRTUp7271Clr,
+       "dpsRTUp7272Clr": dpsRTUp7272Clr,
+       "dpsRTUp7273Clr": dpsRTUp7273Clr,
+       "dpsRTUp7274Clr": dpsRTUp7274Clr,
+       "dpsRTUp7275Clr": dpsRTUp7275Clr,
+       "dpsRTUp7276Clr": dpsRTUp7276Clr,
+       "dpsRTUp7277Clr": dpsRTUp7277Clr,
+       "dpsRTUp7278Clr": dpsRTUp7278Clr,
+       "dpsRTUp7279Clr": dpsRTUp7279Clr,
+       "dpsRTUp7280Clr": dpsRTUp7280Clr,
+       "dpsRTUp7281Clr": dpsRTUp7281Clr,
+       "dpsRTUp7282Clr": dpsRTUp7282Clr,
+       "dpsRTUp7283Clr": dpsRTUp7283Clr,
+       "dpsRTUp7284Clr": dpsRTUp7284Clr,
+       "dpsRTUp7285Clr": dpsRTUp7285Clr,
+       "dpsRTUp7286Clr": dpsRTUp7286Clr,
+       "dpsRTUp7287Clr": dpsRTUp7287Clr,
+       "dpsRTUp7288Clr": dpsRTUp7288Clr,
+       "dpsRTUp7289Clr": dpsRTUp7289Clr,
+       "dpsRTUp7290Clr": dpsRTUp7290Clr,
+       "dpsRTUp7291Clr": dpsRTUp7291Clr,
+       "dpsRTUp7292Clr": dpsRTUp7292Clr,
+       "dpsRTUp7293Clr": dpsRTUp7293Clr,
+       "dpsRTUp7294Clr": dpsRTUp7294Clr,
+       "dpsRTUp7295Clr": dpsRTUp7295Clr,
+       "dpsRTUp7296Clr": dpsRTUp7296Clr,
+       "dpsRTUp7297Clr": dpsRTUp7297Clr,
+       "dpsRTUp7298Clr": dpsRTUp7298Clr,
+       "dpsRTUp7299Clr": dpsRTUp7299Clr,
+       "dpsRTUp7300Clr": dpsRTUp7300Clr,
+       "dpsRTUp7301Clr": dpsRTUp7301Clr,
+       "dpsRTUp7302Clr": dpsRTUp7302Clr,
+       "dpsRTUp7303Clr": dpsRTUp7303Clr,
+       "dpsRTUp7304Clr": dpsRTUp7304Clr,
+       "dpsRTUp7321Clr": dpsRTUp7321Clr,
+       "dpsRTUp7322Clr": dpsRTUp7322Clr,
+       "dpsRTUp7323Clr": dpsRTUp7323Clr,
+       "dpsRTUp7324Clr": dpsRTUp7324Clr,
+       "dpsRTUp7325Clr": dpsRTUp7325Clr,
+       "dpsRTUp7326Clr": dpsRTUp7326Clr,
+       "dpsRTUp7327Clr": dpsRTUp7327Clr,
+       "dpsRTUp7328Clr": dpsRTUp7328Clr}
+)

@@ -1,38 +1,252 @@
+# SNMP MIB module (TPT-SFLOW-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPT-SFLOW-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/trendmicro/TPT-SFLOW-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:29 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/trendmicro/TPT-SFLOW-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:06:08 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-tpt_tpa_objs, = mibBuilder.importSymbols("TPT-TPAMIBS-MIB", "tpt-tpa-objs")
-tpt_sflow_objs = ModuleIdentity((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18)).setLabel("tpt-sflow-objs")
-tpt_sflow_objs.setRevisions(('2016-05-25 18:54',))
-if mibBuilder.loadTexts: tpt_sflow_objs.setLastUpdated('201605251854Z')
-if mibBuilder.loadTexts: tpt_sflow_objs.setOrganization('Trend Micro, Inc.')
-class SflowStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
-    namedValues = NamedValues(("disable", 0), ("enable", 1), ("error", 2), ("not-applicable", 3))
 
-sFlowCollectorTable = MibTable((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1), )
-if mibBuilder.loadTexts: sFlowCollectorTable.setStatus('current')
-sFlowCollectorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1, 1), ).setIndexNames((0, "TPT-SFLOW-MIB", "collectorIndex"))
-if mibBuilder.loadTexts: sFlowCollectorEntry.setStatus('current')
-collectorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: collectorIndex.setStatus('current')
-collectorAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: collectorAddr.setStatus('current')
-udpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: udpPort.setStatus('current')
-collectorAddrV6 = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 60))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: collectorAddrV6.setStatus('current')
-sFlowStatus = MibScalar((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 2), SflowStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sFlowStatus.setStatus('current')
-mibBuilder.exportSymbols("TPT-SFLOW-MIB", udpPort=udpPort, tpt_sflow_objs=tpt_sflow_objs, sFlowStatus=sFlowStatus, SflowStatus=SflowStatus, sFlowCollectorEntry=sFlowCollectorEntry, sFlowCollectorTable=sFlowCollectorTable, collectorAddrV6=collectorAddrV6, collectorAddr=collectorAddr, PYSNMP_MODULE_ID=tpt_sflow_objs, collectorIndex=collectorIndex)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(tpt_tpa_objs,) = mibBuilder.importSymbols(
+    "TPT-TPAMIBS-MIB",
+    "tpt-tpa-objs")
+
+
+# MODULE-IDENTITY
+
+tpt_sflow_objs = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18)
+)
+if mibBuilder.loadTexts:
+    tpt_sflow_objs.setRevisions(
+        ("2016-05-25 18:54",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class SflowStatus(TextualConvention, Integer32):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1),
+          ("error", 2),
+          ("not-applicable", 3))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SFlowCollectorTable_Object = MibTable
+sFlowCollectorTable = _SFlowCollectorTable_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1)
+)
+if mibBuilder.loadTexts:
+    sFlowCollectorTable.setStatus("current")
+_SFlowCollectorEntry_Object = MibTableRow
+sFlowCollectorEntry = _SFlowCollectorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1, 1)
+)
+sFlowCollectorEntry.setIndexNames(
+    (0, "TPT-SFLOW-MIB", "collectorIndex"),
+)
+if mibBuilder.loadTexts:
+    sFlowCollectorEntry.setStatus("current")
+_CollectorIndex_Type = Unsigned32
+_CollectorIndex_Object = MibTableColumn
+collectorIndex = _CollectorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1, 1, 1),
+    _CollectorIndex_Type()
+)
+collectorIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    collectorIndex.setStatus("current")
+
+
+class _CollectorAddr_Type(OctetString):
+    """Custom type collectorAddr based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_CollectorAddr_Type.__name__ = "OctetString"
+_CollectorAddr_Object = MibTableColumn
+collectorAddr = _CollectorAddr_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1, 1, 2),
+    _CollectorAddr_Type()
+)
+collectorAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    collectorAddr.setStatus("current")
+_UdpPort_Type = Unsigned32
+_UdpPort_Object = MibTableColumn
+udpPort = _UdpPort_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1, 1, 3),
+    _UdpPort_Type()
+)
+udpPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    udpPort.setStatus("current")
+
+
+class _CollectorAddrV6_Type(OctetString):
+    """Custom type collectorAddrV6 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 60),
+    )
+
+
+_CollectorAddrV6_Type.__name__ = "OctetString"
+_CollectorAddrV6_Object = MibTableColumn
+collectorAddrV6 = _CollectorAddrV6_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 1, 1, 4),
+    _CollectorAddrV6_Type()
+)
+collectorAddrV6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    collectorAddrV6.setStatus("current")
+_SFlowStatus_Type = SflowStatus
+_SFlowStatus_Object = MibScalar
+sFlowStatus = _SFlowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 18, 2),
+    _SFlowStatus_Type()
+)
+sFlowStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sFlowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPT-SFLOW-MIB",
+    **{"SflowStatus": SflowStatus,
+       "tpt-sflow-objs": tpt_sflow_objs,
+       "sFlowCollectorTable": sFlowCollectorTable,
+       "sFlowCollectorEntry": sFlowCollectorEntry,
+       "collectorIndex": collectorIndex,
+       "collectorAddr": collectorAddr,
+       "udpPort": udpPort,
+       "collectorAddrV6": collectorAddrV6,
+       "sFlowStatus": sFlowStatus}
+)

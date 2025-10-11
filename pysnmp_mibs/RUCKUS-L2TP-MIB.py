@@ -1,40 +1,289 @@
+# SNMP MIB module (RUCKUS-L2TP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RUCKUS-L2TP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ruckus/RUCKUS-L2TP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:40 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ruckus/RUCKUS-L2TP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:13:53 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ruckusCommonL2TPModule, = mibBuilder.importSymbols("RUCKUS-ROOT-MIB", "ruckusCommonL2TPModule")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-ruckusL2TPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1))
-if mibBuilder.loadTexts: ruckusL2TPMIB.setLastUpdated('201010150800Z')
-if mibBuilder.loadTexts: ruckusL2TPMIB.setOrganization('Ruckus Wireless, Inc')
-ruckusL2TPObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1))
-ruckusL2TPInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1))
-ruckusL2TPEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 2))
-ruckusL2TPServiceStatus = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusL2TPServiceStatus.setStatus('current')
-ruckusL2TPConnectionStatus = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("connected", 1), ("disconnected", 2), ("disabled", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusL2TPConnectionStatus.setStatus('current')
-ruckusL2TPServerIP = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusL2TPServerIP.setStatus('current')
-ruckusL2TPSharedSecret = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusL2TPSharedSecret.setStatus('current')
-ruckusL2TPUserName = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusL2TPUserName.setStatus('current')
-ruckusL2TPPassword = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusL2TPPassword.setStatus('current')
-ruckusL2TPIfIPAddr = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 7), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusL2TPIfIPAddr.setStatus('current')
-ruckusL2TPIfNetMask = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 8), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusL2TPIfNetMask.setStatus('current')
-ruckusL2TPIfGateway = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 9), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusL2TPIfGateway.setStatus('current')
-mibBuilder.exportSymbols("RUCKUS-L2TP-MIB", ruckusL2TPSharedSecret=ruckusL2TPSharedSecret, ruckusL2TPIfNetMask=ruckusL2TPIfNetMask, ruckusL2TPPassword=ruckusL2TPPassword, ruckusL2TPConnectionStatus=ruckusL2TPConnectionStatus, ruckusL2TPUserName=ruckusL2TPUserName, ruckusL2TPObjects=ruckusL2TPObjects, ruckusL2TPIfGateway=ruckusL2TPIfGateway, ruckusL2TPIfIPAddr=ruckusL2TPIfIPAddr, ruckusL2TPEvents=ruckusL2TPEvents, ruckusL2TPServiceStatus=ruckusL2TPServiceStatus, ruckusL2TPMIB=ruckusL2TPMIB, ruckusL2TPInfo=ruckusL2TPInfo, ruckusL2TPServerIP=ruckusL2TPServerIP, PYSNMP_MODULE_ID=ruckusL2TPMIB)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ruckusCommonL2TPModule,) = mibBuilder.importSymbols(
+    "RUCKUS-ROOT-MIB",
+    "ruckusCommonL2TPModule")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ruckusL2TPMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RuckusL2TPObjects_ObjectIdentity = ObjectIdentity
+ruckusL2TPObjects = _RuckusL2TPObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1)
+)
+_RuckusL2TPInfo_ObjectIdentity = ObjectIdentity
+ruckusL2TPInfo = _RuckusL2TPInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1)
+)
+
+
+class _RuckusL2TPServiceStatus_Type(Integer32):
+    """Custom type ruckusL2TPServiceStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_RuckusL2TPServiceStatus_Type.__name__ = "Integer32"
+_RuckusL2TPServiceStatus_Object = MibScalar
+ruckusL2TPServiceStatus = _RuckusL2TPServiceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 1),
+    _RuckusL2TPServiceStatus_Type()
+)
+ruckusL2TPServiceStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusL2TPServiceStatus.setStatus("current")
+
+
+class _RuckusL2TPConnectionStatus_Type(Integer32):
+    """Custom type ruckusL2TPConnectionStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("connected", 1),
+          ("disconnected", 2),
+          ("disabled", 3))
+    )
+
+
+_RuckusL2TPConnectionStatus_Type.__name__ = "Integer32"
+_RuckusL2TPConnectionStatus_Object = MibScalar
+ruckusL2TPConnectionStatus = _RuckusL2TPConnectionStatus_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 2),
+    _RuckusL2TPConnectionStatus_Type()
+)
+ruckusL2TPConnectionStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusL2TPConnectionStatus.setStatus("current")
+_RuckusL2TPServerIP_Type = IpAddress
+_RuckusL2TPServerIP_Object = MibScalar
+ruckusL2TPServerIP = _RuckusL2TPServerIP_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 3),
+    _RuckusL2TPServerIP_Type()
+)
+ruckusL2TPServerIP.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusL2TPServerIP.setStatus("current")
+_RuckusL2TPSharedSecret_Type = DisplayString
+_RuckusL2TPSharedSecret_Object = MibScalar
+ruckusL2TPSharedSecret = _RuckusL2TPSharedSecret_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 4),
+    _RuckusL2TPSharedSecret_Type()
+)
+ruckusL2TPSharedSecret.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusL2TPSharedSecret.setStatus("current")
+_RuckusL2TPUserName_Type = DisplayString
+_RuckusL2TPUserName_Object = MibScalar
+ruckusL2TPUserName = _RuckusL2TPUserName_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 5),
+    _RuckusL2TPUserName_Type()
+)
+ruckusL2TPUserName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusL2TPUserName.setStatus("current")
+_RuckusL2TPPassword_Type = DisplayString
+_RuckusL2TPPassword_Object = MibScalar
+ruckusL2TPPassword = _RuckusL2TPPassword_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 6),
+    _RuckusL2TPPassword_Type()
+)
+ruckusL2TPPassword.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusL2TPPassword.setStatus("current")
+_RuckusL2TPIfIPAddr_Type = IpAddress
+_RuckusL2TPIfIPAddr_Object = MibScalar
+ruckusL2TPIfIPAddr = _RuckusL2TPIfIPAddr_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 7),
+    _RuckusL2TPIfIPAddr_Type()
+)
+ruckusL2TPIfIPAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusL2TPIfIPAddr.setStatus("current")
+_RuckusL2TPIfNetMask_Type = IpAddress
+_RuckusL2TPIfNetMask_Object = MibScalar
+ruckusL2TPIfNetMask = _RuckusL2TPIfNetMask_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 8),
+    _RuckusL2TPIfNetMask_Type()
+)
+ruckusL2TPIfNetMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusL2TPIfNetMask.setStatus("current")
+_RuckusL2TPIfGateway_Type = IpAddress
+_RuckusL2TPIfGateway_Object = MibScalar
+ruckusL2TPIfGateway = _RuckusL2TPIfGateway_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 1, 1, 9),
+    _RuckusL2TPIfGateway_Type()
+)
+ruckusL2TPIfGateway.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusL2TPIfGateway.setStatus("current")
+_RuckusL2TPEvents_ObjectIdentity = ObjectIdentity
+ruckusL2TPEvents = _RuckusL2TPEvents_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 14, 1, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RUCKUS-L2TP-MIB",
+    **{"ruckusL2TPMIB": ruckusL2TPMIB,
+       "ruckusL2TPObjects": ruckusL2TPObjects,
+       "ruckusL2TPInfo": ruckusL2TPInfo,
+       "ruckusL2TPServiceStatus": ruckusL2TPServiceStatus,
+       "ruckusL2TPConnectionStatus": ruckusL2TPConnectionStatus,
+       "ruckusL2TPServerIP": ruckusL2TPServerIP,
+       "ruckusL2TPSharedSecret": ruckusL2TPSharedSecret,
+       "ruckusL2TPUserName": ruckusL2TPUserName,
+       "ruckusL2TPPassword": ruckusL2TPPassword,
+       "ruckusL2TPIfIPAddr": ruckusL2TPIfIPAddr,
+       "ruckusL2TPIfNetMask": ruckusL2TPIfNetMask,
+       "ruckusL2TPIfGateway": ruckusL2TPIfGateway,
+       "ruckusL2TPEvents": ruckusL2TPEvents}
+)

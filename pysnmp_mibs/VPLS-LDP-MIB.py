@@ -1,53 +1,319 @@
+# SNMP MIB module (VPLS-LDP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module VPLS-LDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rfc/VPLS-LDP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:50:06 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/rfc/VPLS-LDP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:24:18 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-pwID, pwIndex = mibBuilder.importSymbols("PW-STD-MIB", "pwID", "pwIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-transmission, MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "transmission", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-vplsConfigName, vplsConfigIndex = mibBuilder.importSymbols("VPLS-GENERIC-MIB", "vplsConfigName", "vplsConfigIndex")
-vplsLdpMIB = ModuleIdentity((1, 3, 6, 1, 2, 1, 10, 275))
-vplsLdpMIB.setRevisions(('2014-05-19 12:00',))
-if mibBuilder.loadTexts: vplsLdpMIB.setLastUpdated('201405191200Z')
-if mibBuilder.loadTexts: vplsLdpMIB.setOrganization('Layer 2 Virtual Private Networks (L2VPN) Working Group')
-vplsLdpNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 275, 0))
-vplsLdpObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 275, 1))
-vplsLdpConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 275, 2))
-vplsLdpConfigTable = MibTable((1, 3, 6, 1, 2, 1, 10, 275, 1, 1), )
-if mibBuilder.loadTexts: vplsLdpConfigTable.setStatus('current')
-vplsLdpConfigEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 275, 1, 1, 1), ).setIndexNames((0, "VPLS-GENERIC-MIB", "vplsConfigIndex"))
-if mibBuilder.loadTexts: vplsLdpConfigEntry.setStatus('current')
-vplsLdpConfigMacAddrWithdraw = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 275, 1, 1, 1, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vplsLdpConfigMacAddrWithdraw.setStatus('current')
-vplsLdpPwBindTable = MibTable((1, 3, 6, 1, 2, 1, 10, 275, 1, 2), )
-if mibBuilder.loadTexts: vplsLdpPwBindTable.setStatus('current')
-vplsLdpPwBindEntry = MibTableRow((1, 3, 6, 1, 2, 1, 10, 275, 1, 2, 1), ).setIndexNames((0, "VPLS-GENERIC-MIB", "vplsConfigIndex"), (0, "PW-STD-MIB", "pwIndex"))
-if mibBuilder.loadTexts: vplsLdpPwBindEntry.setStatus('current')
-vplsLdpPwBindMacAddressLimit = MibTableColumn((1, 3, 6, 1, 2, 1, 10, 275, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vplsLdpPwBindMacAddressLimit.setStatus('current')
-vplsLdpPwBindMacTableFull = NotificationType((1, 3, 6, 1, 2, 1, 10, 275, 0, 1)).setObjects(("VPLS-GENERIC-MIB", "vplsConfigName"), ("PW-STD-MIB", "pwID"))
-if mibBuilder.loadTexts: vplsLdpPwBindMacTableFull.setStatus('current')
-vplsLdpCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 275, 2, 1))
-vplsLdpModuleFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 275, 2, 1, 1)).setObjects(("VPLS-LDP-MIB", "vplsLdpGroup"), ("VPLS-LDP-MIB", "vplsLdpNotificationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vplsLdpModuleFullCompliance = vplsLdpModuleFullCompliance.setStatus('current')
-vplsLdpModuleReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 10, 275, 2, 1, 2)).setObjects(("VPLS-LDP-MIB", "vplsLdpGroup"), ("VPLS-LDP-MIB", "vplsLdpNotificationGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vplsLdpModuleReadOnlyCompliance = vplsLdpModuleReadOnlyCompliance.setStatus('current')
-vplsLdpGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 10, 275, 2, 2))
-vplsLdpGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 10, 275, 2, 2, 1)).setObjects(("VPLS-LDP-MIB", "vplsLdpConfigMacAddrWithdraw"), ("VPLS-LDP-MIB", "vplsLdpPwBindMacAddressLimit"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vplsLdpGroup = vplsLdpGroup.setStatus('current')
-vplsLdpNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 10, 275, 2, 2, 2)).setObjects(("VPLS-LDP-MIB", "vplsLdpPwBindMacTableFull"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vplsLdpNotificationGroup = vplsLdpNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("VPLS-LDP-MIB", vplsLdpModuleReadOnlyCompliance=vplsLdpModuleReadOnlyCompliance, vplsLdpNotificationGroup=vplsLdpNotificationGroup, vplsLdpPwBindMacAddressLimit=vplsLdpPwBindMacAddressLimit, vplsLdpConfigMacAddrWithdraw=vplsLdpConfigMacAddrWithdraw, vplsLdpCompliances=vplsLdpCompliances, vplsLdpGroup=vplsLdpGroup, vplsLdpObjects=vplsLdpObjects, vplsLdpNotifications=vplsLdpNotifications, vplsLdpMIB=vplsLdpMIB, vplsLdpConformance=vplsLdpConformance, PYSNMP_MODULE_ID=vplsLdpMIB, vplsLdpGroups=vplsLdpGroups, vplsLdpModuleFullCompliance=vplsLdpModuleFullCompliance, vplsLdpConfigTable=vplsLdpConfigTable, vplsLdpPwBindTable=vplsLdpPwBindTable, vplsLdpConfigEntry=vplsLdpConfigEntry, vplsLdpPwBindMacTableFull=vplsLdpPwBindMacTableFull, vplsLdpPwBindEntry=vplsLdpPwBindEntry)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(pwID,
+ pwIndex) = mibBuilder.importSymbols(
+    "PW-STD-MIB",
+    "pwID",
+    "pwIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ transmission) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "transmission")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+(vplsConfigIndex,
+ vplsConfigName) = mibBuilder.importSymbols(
+    "VPLS-GENERIC-MIB",
+    "vplsConfigIndex",
+    "vplsConfigName")
+
+
+# MODULE-IDENTITY
+
+vplsLdpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 275)
+)
+if mibBuilder.loadTexts:
+    vplsLdpMIB.setRevisions(
+        ("2014-05-19 12:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_VplsLdpNotifications_ObjectIdentity = ObjectIdentity
+vplsLdpNotifications = _VplsLdpNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 275, 0)
+)
+_VplsLdpObjects_ObjectIdentity = ObjectIdentity
+vplsLdpObjects = _VplsLdpObjects_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 275, 1)
+)
+_VplsLdpConfigTable_Object = MibTable
+vplsLdpConfigTable = _VplsLdpConfigTable_Object(
+    (1, 3, 6, 1, 2, 1, 10, 275, 1, 1)
+)
+if mibBuilder.loadTexts:
+    vplsLdpConfigTable.setStatus("current")
+_VplsLdpConfigEntry_Object = MibTableRow
+vplsLdpConfigEntry = _VplsLdpConfigEntry_Object(
+    (1, 3, 6, 1, 2, 1, 10, 275, 1, 1, 1)
+)
+vplsLdpConfigEntry.setIndexNames(
+    (0, "VPLS-GENERIC-MIB", "vplsConfigIndex"),
+)
+if mibBuilder.loadTexts:
+    vplsLdpConfigEntry.setStatus("current")
+
+
+class _VplsLdpConfigMacAddrWithdraw_Type(TruthValue):
+    """Custom type vplsLdpConfigMacAddrWithdraw based on TruthValue"""
+    defaultValue = 1
+
+
+_VplsLdpConfigMacAddrWithdraw_Type.__name__ = "TruthValue"
+_VplsLdpConfigMacAddrWithdraw_Object = MibTableColumn
+vplsLdpConfigMacAddrWithdraw = _VplsLdpConfigMacAddrWithdraw_Object(
+    (1, 3, 6, 1, 2, 1, 10, 275, 1, 1, 1, 1),
+    _VplsLdpConfigMacAddrWithdraw_Type()
+)
+vplsLdpConfigMacAddrWithdraw.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vplsLdpConfigMacAddrWithdraw.setStatus("current")
+_VplsLdpPwBindTable_Object = MibTable
+vplsLdpPwBindTable = _VplsLdpPwBindTable_Object(
+    (1, 3, 6, 1, 2, 1, 10, 275, 1, 2)
+)
+if mibBuilder.loadTexts:
+    vplsLdpPwBindTable.setStatus("current")
+_VplsLdpPwBindEntry_Object = MibTableRow
+vplsLdpPwBindEntry = _VplsLdpPwBindEntry_Object(
+    (1, 3, 6, 1, 2, 1, 10, 275, 1, 2, 1)
+)
+vplsLdpPwBindEntry.setIndexNames(
+    (0, "VPLS-GENERIC-MIB", "vplsConfigIndex"),
+    (0, "PW-STD-MIB", "pwIndex"),
+)
+if mibBuilder.loadTexts:
+    vplsLdpPwBindEntry.setStatus("current")
+
+
+class _VplsLdpPwBindMacAddressLimit_Type(Unsigned32):
+    """Custom type vplsLdpPwBindMacAddressLimit based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_VplsLdpPwBindMacAddressLimit_Type.__name__ = "Unsigned32"
+_VplsLdpPwBindMacAddressLimit_Object = MibTableColumn
+vplsLdpPwBindMacAddressLimit = _VplsLdpPwBindMacAddressLimit_Object(
+    (1, 3, 6, 1, 2, 1, 10, 275, 1, 2, 1, 1),
+    _VplsLdpPwBindMacAddressLimit_Type()
+)
+vplsLdpPwBindMacAddressLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vplsLdpPwBindMacAddressLimit.setStatus("current")
+_VplsLdpConformance_ObjectIdentity = ObjectIdentity
+vplsLdpConformance = _VplsLdpConformance_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 275, 2)
+)
+_VplsLdpCompliances_ObjectIdentity = ObjectIdentity
+vplsLdpCompliances = _VplsLdpCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 275, 2, 1)
+)
+_VplsLdpGroups_ObjectIdentity = ObjectIdentity
+vplsLdpGroups = _VplsLdpGroups_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 10, 275, 2, 2)
+)
+
+# Managed Objects groups
+
+vplsLdpGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 10, 275, 2, 2, 1)
+)
+vplsLdpGroup.setObjects(
+      *(("VPLS-LDP-MIB", "vplsLdpConfigMacAddrWithdraw"),
+        ("VPLS-LDP-MIB", "vplsLdpPwBindMacAddressLimit"))
+)
+if mibBuilder.loadTexts:
+    vplsLdpGroup.setStatus("current")
+
+
+# Notification objects
+
+vplsLdpPwBindMacTableFull = NotificationType(
+    (1, 3, 6, 1, 2, 1, 10, 275, 0, 1)
+)
+vplsLdpPwBindMacTableFull.setObjects(
+      *(("VPLS-GENERIC-MIB", "vplsConfigName"),
+        ("PW-STD-MIB", "pwID"))
+)
+if mibBuilder.loadTexts:
+    vplsLdpPwBindMacTableFull.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+vplsLdpNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 2, 1, 10, 275, 2, 2, 2)
+)
+vplsLdpNotificationGroup.setObjects(
+    ("VPLS-LDP-MIB", "vplsLdpPwBindMacTableFull")
+)
+if mibBuilder.loadTexts:
+    vplsLdpNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+vplsLdpModuleFullCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 10, 275, 2, 1, 1)
+)
+vplsLdpModuleFullCompliance.setObjects(
+      *(("VPLS-LDP-MIB", "vplsLdpGroup"),
+        ("VPLS-LDP-MIB", "vplsLdpNotificationGroup"))
+)
+if mibBuilder.loadTexts:
+    vplsLdpModuleFullCompliance.setStatus(
+        "current"
+    )
+
+vplsLdpModuleReadOnlyCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 10, 275, 2, 1, 2)
+)
+vplsLdpModuleReadOnlyCompliance.setObjects(
+      *(("VPLS-LDP-MIB", "vplsLdpGroup"),
+        ("VPLS-LDP-MIB", "vplsLdpNotificationGroup"))
+)
+if mibBuilder.loadTexts:
+    vplsLdpModuleReadOnlyCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "VPLS-LDP-MIB",
+    **{"vplsLdpMIB": vplsLdpMIB,
+       "vplsLdpNotifications": vplsLdpNotifications,
+       "vplsLdpPwBindMacTableFull": vplsLdpPwBindMacTableFull,
+       "vplsLdpObjects": vplsLdpObjects,
+       "vplsLdpConfigTable": vplsLdpConfigTable,
+       "vplsLdpConfigEntry": vplsLdpConfigEntry,
+       "vplsLdpConfigMacAddrWithdraw": vplsLdpConfigMacAddrWithdraw,
+       "vplsLdpPwBindTable": vplsLdpPwBindTable,
+       "vplsLdpPwBindEntry": vplsLdpPwBindEntry,
+       "vplsLdpPwBindMacAddressLimit": vplsLdpPwBindMacAddressLimit,
+       "vplsLdpConformance": vplsLdpConformance,
+       "vplsLdpCompliances": vplsLdpCompliances,
+       "vplsLdpModuleFullCompliance": vplsLdpModuleFullCompliance,
+       "vplsLdpModuleReadOnlyCompliance": vplsLdpModuleReadOnlyCompliance,
+       "vplsLdpGroups": vplsLdpGroups,
+       "vplsLdpGroup": vplsLdpGroup,
+       "vplsLdpNotificationGroup": vplsLdpNotificationGroup}
+)

@@ -1,117 +1,490 @@
+# SNMP MIB module (CISCO-WIRELESS-TC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-WIRELESS-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-WIRELESS-TC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:32:28 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-WIRELESS-TC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:43:13 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ciscoWirelessTextualConventions = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 137))
-ciscoWirelessTextualConventions.setRevisions(('2000-04-03 00:00',))
-if mibBuilder.loadTexts: ciscoWirelessTextualConventions.setLastUpdated('200004030000Z')
-if mibBuilder.loadTexts: ciscoWirelessTextualConventions.setOrganization('Cisco Systems, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoWirelessTextualConventions = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 137)
+)
+if mibBuilder.loadTexts:
+    ciscoWirelessTextualConventions.setRevisions(
+        ("2000-04-03 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class CwrRFZeroIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
 
 class CwrCwErrorFreeSecond(TextualConvention, Gauge32):
-    status = 'current'
+    status = "current"
+
 
 class CwrCwErroredSecond(TextualConvention, Gauge32):
-    status = 'current'
+    status = "current"
+
 
 class CwrCwSeverelyErroredSecond(TextualConvention, Gauge32):
-    status = 'current'
+    status = "current"
+
 
 class CwrCwConsecutiveSevErrSecond(TextualConvention, Gauge32):
-    status = 'current'
+    status = "current"
+
 
 class CwrCwDegradedSecond(TextualConvention, Gauge32):
-    status = 'current'
+    status = "current"
+
 
 class CwrCwDegradedMinute(TextualConvention, Gauge32):
-    status = 'current'
+    status = "current"
+
 
 class CwrCollectionAction(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("actionStop", 1), ("actionStart", 2), ("actionClear", 3), ("actionRestart", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("actionStop", 1),
+          ("actionStart", 2),
+          ("actionClear", 3),
+          ("actionRestart", 4))
+    )
+
+
 
 class CwrCollectionStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("statusIdle", 1), ("statusInProgress", 2), ("statusStopped", 3), ("statusCaptured", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("statusIdle", 1),
+          ("statusInProgress", 2),
+          ("statusStopped", 3),
+          ("statusCaptured", 4))
+    )
+
+
 
 class CwrdBm(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-80, 33)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-80, 33),
+    )
+
+
 
 class CwrdB(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 16)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16),
+    )
+
+
 
 class CwrThreshLimitType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("upChange", 1), ("downChange", 2), ("highThresh", 3), ("lowThresh", 4), ("upLimit", 5), ("lowLimit", 6))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("upChange", 1),
+          ("downChange", 2),
+          ("highThresh", 3),
+          ("lowThresh", 4),
+          ("upLimit", 5),
+          ("lowLimit", 6))
+    )
+
+
 
 class CwrRadioSignalAttribute(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
-    namedValues = NamedValues(("rsaIN", 1), ("rsaINR", 2), ("rsaConstellationVariance", 3), ("rsaTimingOffset", 4), ("rsaReceivedPower", 5), ("rsaGainSettingsIF", 6), ("rsaGainSettingsRF", 7), ("rsaFreqOffset", 8), ("rsaTotalGain", 9), ("rsaSyncStatus", 10))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("rsaIN", 1),
+          ("rsaINR", 2),
+          ("rsaConstellationVariance", 3),
+          ("rsaTimingOffset", 4),
+          ("rsaReceivedPower", 5),
+          ("rsaGainSettingsIF", 6),
+          ("rsaGainSettingsRF", 7),
+          ("rsaFreqOffset", 8),
+          ("rsaTotalGain", 9),
+          ("rsaSyncStatus", 10))
+    )
+
+
 
 class CwrOscState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("oscillatorOk", 1), ("osccillatorBad", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("oscillatorOk", 1),
+          ("osccillatorBad", 2))
+    )
+
+
 
 class P2mpRadioSignalAttribute(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))
-    namedValues = NamedValues(("none", 0), ("rsaSinrMainAnt", 1), ("rsaSinrDiversityAnt", 2), ("rsaSinrRatio", 3), ("rsaTimingOffset", 4), ("rsaRxPowerMainAnt", 5), ("rsaRxPowerDiversityAnt", 6), ("rsaChDelaySpreadMainAnt", 7), ("rsaChDelaySpreadDiversityAnt", 8), ("rsaHeAmbientNoise", 9), ("rsaSuRxPowerDeltaMainAnt", 10), ("rsaSuRxPowerDeltaDiversityAnt", 11), ("rsaSuTotalTxPower", 12))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("rsaSinrMainAnt", 1),
+          ("rsaSinrDiversityAnt", 2),
+          ("rsaSinrRatio", 3),
+          ("rsaTimingOffset", 4),
+          ("rsaRxPowerMainAnt", 5),
+          ("rsaRxPowerDiversityAnt", 6),
+          ("rsaChDelaySpreadMainAnt", 7),
+          ("rsaChDelaySpreadDiversityAnt", 8),
+          ("rsaHeAmbientNoise", 9),
+          ("rsaSuRxPowerDeltaMainAnt", 10),
+          ("rsaSuRxPowerDeltaDiversityAnt", 11),
+          ("rsaSuTotalTxPower", 12))
+    )
+
+
 
 class CwrRfType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("main", 0), ("diversity", 1))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("main", 0),
+          ("diversity", 1))
+    )
+
+
 
 class CwrFixedPointScale(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17))
-    namedValues = NamedValues(("yocto", 1), ("zepto", 2), ("atto", 3), ("femto", 4), ("pico", 5), ("nano", 6), ("micro", 7), ("milli", 8), ("units", 9), ("kilo", 10), ("mega", 11), ("giga", 12), ("tera", 13), ("exa", 14), ("peta", 15), ("zetta", 16), ("yotta", 17))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17)
+        )
+    )
+    namedValues = NamedValues(
+        *(("yocto", 1),
+          ("zepto", 2),
+          ("atto", 3),
+          ("femto", 4),
+          ("pico", 5),
+          ("nano", 6),
+          ("micro", 7),
+          ("milli", 8),
+          ("units", 9),
+          ("kilo", 10),
+          ("mega", 11),
+          ("giga", 12),
+          ("tera", 13),
+          ("exa", 14),
+          ("peta", 15),
+          ("zetta", 16),
+          ("yotta", 17))
+    )
+
+
 
 class CwrFixedPointPrecision(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 9)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 9),
+    )
+
+
 
 class CwrFixedPointValue(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-2147483648, 2147483647)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-2147483648, 2147483647),
+    )
+
+
 
 class P2mpSnapshotAttribute(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 1)
-    fixedLength = 1
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+    fixed_length = 1
+
+
 
 class CwrPercentageValue(TextualConvention, Gauge32):
-    status = 'current'
-    subtypeSpec = Gauge32.subtypeSpec + ValueRangeConstraint(0, 10000000)
+    status = "current"
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000000),
+    )
+
+
 
 class CwrUpdateTime(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
 
 class CwrRfFreqRange(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 60000000)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60000000),
+    )
+
+
 
 class WirelessGauge64(TextualConvention, Counter64):
-    status = 'current'
+    status = "current"
 
-mibBuilder.exportSymbols("CISCO-WIRELESS-TC-MIB", CwrFixedPointScale=CwrFixedPointScale, CwrRfType=CwrRfType, CwrRFZeroIndex=CwrRFZeroIndex, P2mpRadioSignalAttribute=P2mpRadioSignalAttribute, CwrRadioSignalAttribute=CwrRadioSignalAttribute, ciscoWirelessTextualConventions=ciscoWirelessTextualConventions, CwrCollectionStatus=CwrCollectionStatus, P2mpSnapshotAttribute=P2mpSnapshotAttribute, CwrCwDegradedMinute=CwrCwDegradedMinute, CwrFixedPointPrecision=CwrFixedPointPrecision, CwrdB=CwrdB, CwrCollectionAction=CwrCollectionAction, CwrUpdateTime=CwrUpdateTime, CwrPercentageValue=CwrPercentageValue, WirelessGauge64=WirelessGauge64, PYSNMP_MODULE_ID=ciscoWirelessTextualConventions, CwrCwDegradedSecond=CwrCwDegradedSecond, CwrFixedPointValue=CwrFixedPointValue, CwrCwErrorFreeSecond=CwrCwErrorFreeSecond, CwrCwErroredSecond=CwrCwErroredSecond, CwrOscState=CwrOscState, CwrRfFreqRange=CwrRfFreqRange, CwrCwConsecutiveSevErrSecond=CwrCwConsecutiveSevErrSecond, CwrThreshLimitType=CwrThreshLimitType, CwrdBm=CwrdBm, CwrCwSeverelyErroredSecond=CwrCwSeverelyErroredSecond)
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-WIRELESS-TC-MIB",
+    **{"CwrRFZeroIndex": CwrRFZeroIndex,
+       "CwrCwErrorFreeSecond": CwrCwErrorFreeSecond,
+       "CwrCwErroredSecond": CwrCwErroredSecond,
+       "CwrCwSeverelyErroredSecond": CwrCwSeverelyErroredSecond,
+       "CwrCwConsecutiveSevErrSecond": CwrCwConsecutiveSevErrSecond,
+       "CwrCwDegradedSecond": CwrCwDegradedSecond,
+       "CwrCwDegradedMinute": CwrCwDegradedMinute,
+       "CwrCollectionAction": CwrCollectionAction,
+       "CwrCollectionStatus": CwrCollectionStatus,
+       "CwrdBm": CwrdBm,
+       "CwrdB": CwrdB,
+       "CwrThreshLimitType": CwrThreshLimitType,
+       "CwrRadioSignalAttribute": CwrRadioSignalAttribute,
+       "CwrOscState": CwrOscState,
+       "P2mpRadioSignalAttribute": P2mpRadioSignalAttribute,
+       "CwrRfType": CwrRfType,
+       "CwrFixedPointScale": CwrFixedPointScale,
+       "CwrFixedPointPrecision": CwrFixedPointPrecision,
+       "CwrFixedPointValue": CwrFixedPointValue,
+       "P2mpSnapshotAttribute": P2mpSnapshotAttribute,
+       "CwrPercentageValue": CwrPercentageValue,
+       "CwrUpdateTime": CwrUpdateTime,
+       "CwrRfFreqRange": CwrRfFreqRange,
+       "WirelessGauge64": WirelessGauge64,
+       "ciscoWirelessTextualConventions": ciscoWirelessTextualConventions}
+)

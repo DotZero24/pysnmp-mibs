@@ -1,74 +1,478 @@
+# SNMP MIB module (PDN-DOT1QEXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PDN-DOT1QEXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/paradyne/PDN-DOT1QEXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:12 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/paradyne/PDN-DOT1QEXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:00:07 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-pdn_dot1q, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-dot1q")
-TblCmd, = mibBuilder.importSymbols("PDN-TC", "TblCmd")
-dot1qVlanStaticEntry, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "dot1qVlanStaticEntry")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-pdnDot1qExt = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1))
-pdnDot1qExt.setRevisions(('2005-07-26 00:00', '2003-11-12 00:00', '2002-11-30 00:00',))
-if mibBuilder.loadTexts: pdnDot1qExt.setLastUpdated('200507260000Z')
-if mibBuilder.loadTexts: pdnDot1qExt.setOrganization('Paradyne Corp MIB Working Group')
-pdnDot1qExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1))
-pdnDot1qVlanStaticExtTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1), )
-if mibBuilder.loadTexts: pdnDot1qVlanStaticExtTable.setStatus('current')
-pdnDot1qVlanStaticExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1), )
-dot1qVlanStaticEntry.registerAugmentions(("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticExtEntry"))
-pdnDot1qVlanStaticExtEntry.setIndexNames(*dot1qVlanStaticEntry.getIndexNames())
-if mibBuilder.loadTexts: pdnDot1qVlanStaticExtEntry.setStatus('current')
-pdnDot1qVlanStaticSecureModeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdnDot1qVlanStaticSecureModeStatus.setStatus('current')
-pdnDot1qVlanStaticProxyArpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdnDot1qVlanStaticProxyArpStatus.setStatus('current')
-pdnDot1qVlanStaticUplink = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdnDot1qVlanStaticUplink.setStatus('current')
-pdnDot1qVlanStaticDefaultNHR = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdnDot1qVlanStaticDefaultNHR.setStatus('current')
-pdnDot1qVlanStaticOuterTag = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdnDot1qVlanStaticOuterTag.setStatus('current')
-pdnDot1qVlanStaticOuterDefaultPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdnDot1qVlanStaticOuterDefaultPriority.setStatus('current')
-pdnDot1qVlanStaticOuterEthertype = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(33024)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdnDot1qVlanStaticOuterEthertype.setStatus('current')
-pdnDot1BasePortPIWGTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 2), )
-if mibBuilder.loadTexts: pdnDot1BasePortPIWGTable.setStatus('current')
-pdnDot1BasePortPIWGEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "PDN-DOT1QEXT-MIB", "pdnDot1BasePort"))
-if mibBuilder.loadTexts: pdnDot1BasePortPIWGEntry.setStatus('current')
-pdnDot1BasePort = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: pdnDot1BasePort.setStatus('current')
-pdnDot1BasePortPIWGId = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnDot1BasePortPIWGId.setStatus('current')
-pdnDot1BasePortPIWGCircuit = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 2, 1, 3), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnDot1BasePortPIWGCircuit.setStatus('current')
-pdnDot1TpFdbClear = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 3), TblCmd()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdnDot1TpFdbClear.setStatus('current')
-pdnDot1qExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2))
-pdnDot1qExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 1))
-pdnDot1qExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 2))
-pdnDot1qExtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 2, 1)).setObjects(("PDN-DOT1QEXT-MIB", "pdnDot1qVlanExtGroup"), ("PDN-DOT1QEXT-MIB", "pdnDot1BasePortPIWGGroup"), ("PDN-DOT1QEXT-MIB", "pdnDot1GeneralGroup"), ("PDN-DOT1QEXT-MIB", "pdnDot1dVlanStackingGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnDot1qExtCompliance = pdnDot1qExtCompliance.setStatus('current')
-pdnDot1qVlanExtGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 1, 1)).setObjects(("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticSecureModeStatus"), ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticProxyArpStatus"), ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticUplink"), ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticDefaultNHR"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnDot1qVlanExtGroup = pdnDot1qVlanExtGroup.setStatus('current')
-pdnDot1BasePortPIWGGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 1, 2)).setObjects(("PDN-DOT1QEXT-MIB", "pdnDot1BasePortPIWGId"), ("PDN-DOT1QEXT-MIB", "pdnDot1BasePortPIWGCircuit"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnDot1BasePortPIWGGroup = pdnDot1BasePortPIWGGroup.setStatus('current')
-pdnDot1GeneralGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 1, 3)).setObjects(("PDN-DOT1QEXT-MIB", "pdnDot1TpFdbClear"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnDot1GeneralGroup = pdnDot1GeneralGroup.setStatus('current')
-pdnDot1dVlanStackingGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 1, 4)).setObjects(("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticOuterTag"), ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticOuterDefaultPriority"), ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticOuterEthertype"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnDot1dVlanStackingGroup = pdnDot1dVlanStackingGroup.setStatus('current')
-mibBuilder.exportSymbols("PDN-DOT1QEXT-MIB", pdnDot1qExtConformance=pdnDot1qExtConformance, pdnDot1dVlanStackingGroup=pdnDot1dVlanStackingGroup, pdnDot1qExtObjects=pdnDot1qExtObjects, pdnDot1qExtCompliance=pdnDot1qExtCompliance, pdnDot1qVlanStaticExtTable=pdnDot1qVlanStaticExtTable, pdnDot1qExt=pdnDot1qExt, pdnDot1qVlanStaticExtEntry=pdnDot1qVlanStaticExtEntry, pdnDot1qVlanStaticUplink=pdnDot1qVlanStaticUplink, pdnDot1BasePortPIWGGroup=pdnDot1BasePortPIWGGroup, pdnDot1qVlanStaticSecureModeStatus=pdnDot1qVlanStaticSecureModeStatus, pdnDot1BasePortPIWGId=pdnDot1BasePortPIWGId, pdnDot1qVlanStaticOuterDefaultPriority=pdnDot1qVlanStaticOuterDefaultPriority, pdnDot1qVlanStaticDefaultNHR=pdnDot1qVlanStaticDefaultNHR, pdnDot1BasePortPIWGTable=pdnDot1BasePortPIWGTable, pdnDot1BasePort=pdnDot1BasePort, pdnDot1TpFdbClear=pdnDot1TpFdbClear, pdnDot1qExtCompliances=pdnDot1qExtCompliances, pdnDot1GeneralGroup=pdnDot1GeneralGroup, PYSNMP_MODULE_ID=pdnDot1qExt, pdnDot1BasePortPIWGCircuit=pdnDot1BasePortPIWGCircuit, pdnDot1qExtGroups=pdnDot1qExtGroups, pdnDot1qVlanStaticOuterTag=pdnDot1qVlanStaticOuterTag, pdnDot1qVlanStaticOuterEthertype=pdnDot1qVlanStaticOuterEthertype, pdnDot1qVlanExtGroup=pdnDot1qVlanExtGroup, pdnDot1BasePortPIWGEntry=pdnDot1BasePortPIWGEntry, pdnDot1qVlanStaticProxyArpStatus=pdnDot1qVlanStaticProxyArpStatus)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(pdn_dot1q,) = mibBuilder.importSymbols(
+    "PDN-HEADER-MIB",
+    "pdn-dot1q")
+
+(TblCmd,) = mibBuilder.importSymbols(
+    "PDN-TC",
+    "TblCmd")
+
+(dot1qVlanStaticEntry,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "dot1qVlanStaticEntry")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pdnDot1qExt = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1)
+)
+if mibBuilder.loadTexts:
+    pdnDot1qExt.setRevisions(
+        ("2005-07-26 00:00",
+         "2003-11-12 00:00",
+         "2002-11-30 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PdnDot1qExtObjects_ObjectIdentity = ObjectIdentity
+pdnDot1qExtObjects = _PdnDot1qExtObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1)
+)
+_PdnDot1qVlanStaticExtTable_Object = MibTable
+pdnDot1qVlanStaticExtTable = _PdnDot1qVlanStaticExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    pdnDot1qVlanStaticExtTable.setStatus("current")
+_PdnDot1qVlanStaticExtEntry_Object = MibTableRow
+pdnDot1qVlanStaticExtEntry = _PdnDot1qVlanStaticExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    pdnDot1qVlanStaticExtEntry.setStatus("current")
+
+
+class _PdnDot1qVlanStaticSecureModeStatus_Type(Integer32):
+    """Custom type pdnDot1qVlanStaticSecureModeStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_PdnDot1qVlanStaticSecureModeStatus_Type.__name__ = "Integer32"
+_PdnDot1qVlanStaticSecureModeStatus_Object = MibTableColumn
+pdnDot1qVlanStaticSecureModeStatus = _PdnDot1qVlanStaticSecureModeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 1),
+    _PdnDot1qVlanStaticSecureModeStatus_Type()
+)
+pdnDot1qVlanStaticSecureModeStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdnDot1qVlanStaticSecureModeStatus.setStatus("current")
+
+
+class _PdnDot1qVlanStaticProxyArpStatus_Type(Integer32):
+    """Custom type pdnDot1qVlanStaticProxyArpStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_PdnDot1qVlanStaticProxyArpStatus_Type.__name__ = "Integer32"
+_PdnDot1qVlanStaticProxyArpStatus_Object = MibTableColumn
+pdnDot1qVlanStaticProxyArpStatus = _PdnDot1qVlanStaticProxyArpStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 2),
+    _PdnDot1qVlanStaticProxyArpStatus_Type()
+)
+pdnDot1qVlanStaticProxyArpStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdnDot1qVlanStaticProxyArpStatus.setStatus("current")
+_PdnDot1qVlanStaticUplink_Type = Integer32
+_PdnDot1qVlanStaticUplink_Object = MibTableColumn
+pdnDot1qVlanStaticUplink = _PdnDot1qVlanStaticUplink_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 3),
+    _PdnDot1qVlanStaticUplink_Type()
+)
+pdnDot1qVlanStaticUplink.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdnDot1qVlanStaticUplink.setStatus("current")
+_PdnDot1qVlanStaticDefaultNHR_Type = IpAddress
+_PdnDot1qVlanStaticDefaultNHR_Object = MibTableColumn
+pdnDot1qVlanStaticDefaultNHR = _PdnDot1qVlanStaticDefaultNHR_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 4),
+    _PdnDot1qVlanStaticDefaultNHR_Type()
+)
+pdnDot1qVlanStaticDefaultNHR.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdnDot1qVlanStaticDefaultNHR.setStatus("current")
+
+
+class _PdnDot1qVlanStaticOuterTag_Type(Integer32):
+    """Custom type pdnDot1qVlanStaticOuterTag based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_PdnDot1qVlanStaticOuterTag_Type.__name__ = "Integer32"
+_PdnDot1qVlanStaticOuterTag_Object = MibTableColumn
+pdnDot1qVlanStaticOuterTag = _PdnDot1qVlanStaticOuterTag_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 5),
+    _PdnDot1qVlanStaticOuterTag_Type()
+)
+pdnDot1qVlanStaticOuterTag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdnDot1qVlanStaticOuterTag.setStatus("current")
+
+
+class _PdnDot1qVlanStaticOuterDefaultPriority_Type(Integer32):
+    """Custom type pdnDot1qVlanStaticOuterDefaultPriority based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_PdnDot1qVlanStaticOuterDefaultPriority_Type.__name__ = "Integer32"
+_PdnDot1qVlanStaticOuterDefaultPriority_Object = MibTableColumn
+pdnDot1qVlanStaticOuterDefaultPriority = _PdnDot1qVlanStaticOuterDefaultPriority_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 6),
+    _PdnDot1qVlanStaticOuterDefaultPriority_Type()
+)
+pdnDot1qVlanStaticOuterDefaultPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdnDot1qVlanStaticOuterDefaultPriority.setStatus("current")
+
+
+class _PdnDot1qVlanStaticOuterEthertype_Type(Integer32):
+    """Custom type pdnDot1qVlanStaticOuterEthertype based on Integer32"""
+    defaultValue = 33024
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PdnDot1qVlanStaticOuterEthertype_Type.__name__ = "Integer32"
+_PdnDot1qVlanStaticOuterEthertype_Object = MibTableColumn
+pdnDot1qVlanStaticOuterEthertype = _PdnDot1qVlanStaticOuterEthertype_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 1, 1, 7),
+    _PdnDot1qVlanStaticOuterEthertype_Type()
+)
+pdnDot1qVlanStaticOuterEthertype.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdnDot1qVlanStaticOuterEthertype.setStatus("current")
+_PdnDot1BasePortPIWGTable_Object = MibTable
+pdnDot1BasePortPIWGTable = _PdnDot1BasePortPIWGTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    pdnDot1BasePortPIWGTable.setStatus("current")
+_PdnDot1BasePortPIWGEntry_Object = MibTableRow
+pdnDot1BasePortPIWGEntry = _PdnDot1BasePortPIWGEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 2, 1)
+)
+pdnDot1BasePortPIWGEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "PDN-DOT1QEXT-MIB", "pdnDot1BasePort"),
+)
+if mibBuilder.loadTexts:
+    pdnDot1BasePortPIWGEntry.setStatus("current")
+
+
+class _PdnDot1BasePort_Type(Unsigned32):
+    """Custom type pdnDot1BasePort based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_PdnDot1BasePort_Type.__name__ = "Unsigned32"
+_PdnDot1BasePort_Object = MibTableColumn
+pdnDot1BasePort = _PdnDot1BasePort_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 2, 1, 1),
+    _PdnDot1BasePort_Type()
+)
+pdnDot1BasePort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pdnDot1BasePort.setStatus("current")
+
+
+class _PdnDot1BasePortPIWGId_Type(Unsigned32):
+    """Custom type pdnDot1BasePortPIWGId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_PdnDot1BasePortPIWGId_Type.__name__ = "Unsigned32"
+_PdnDot1BasePortPIWGId_Object = MibTableColumn
+pdnDot1BasePortPIWGId = _PdnDot1BasePortPIWGId_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 2, 1, 2),
+    _PdnDot1BasePortPIWGId_Type()
+)
+pdnDot1BasePortPIWGId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnDot1BasePortPIWGId.setStatus("current")
+_PdnDot1BasePortPIWGCircuit_Type = ObjectIdentifier
+_PdnDot1BasePortPIWGCircuit_Object = MibTableColumn
+pdnDot1BasePortPIWGCircuit = _PdnDot1BasePortPIWGCircuit_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 2, 1, 3),
+    _PdnDot1BasePortPIWGCircuit_Type()
+)
+pdnDot1BasePortPIWGCircuit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnDot1BasePortPIWGCircuit.setStatus("current")
+_PdnDot1TpFdbClear_Type = TblCmd
+_PdnDot1TpFdbClear_Object = MibScalar
+pdnDot1TpFdbClear = _PdnDot1TpFdbClear_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 1, 3),
+    _PdnDot1TpFdbClear_Type()
+)
+pdnDot1TpFdbClear.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdnDot1TpFdbClear.setStatus("current")
+_PdnDot1qExtConformance_ObjectIdentity = ObjectIdentity
+pdnDot1qExtConformance = _PdnDot1qExtConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2)
+)
+_PdnDot1qExtGroups_ObjectIdentity = ObjectIdentity
+pdnDot1qExtGroups = _PdnDot1qExtGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 1)
+)
+_PdnDot1qExtCompliances_ObjectIdentity = ObjectIdentity
+pdnDot1qExtCompliances = _PdnDot1qExtCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 2)
+)
+dot1qVlanStaticEntry.registerAugmentions(
+    ("PDN-DOT1QEXT-MIB",
+     "pdnDot1qVlanStaticExtEntry")
+)
+pdnDot1qVlanStaticExtEntry.setIndexNames(*dot1qVlanStaticEntry.getIndexNames())
+
+# Managed Objects groups
+
+pdnDot1qVlanExtGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 1, 1)
+)
+pdnDot1qVlanExtGroup.setObjects(
+      *(("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticSecureModeStatus"),
+        ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticProxyArpStatus"),
+        ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticUplink"),
+        ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticDefaultNHR"))
+)
+if mibBuilder.loadTexts:
+    pdnDot1qVlanExtGroup.setStatus("current")
+
+pdnDot1BasePortPIWGGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 1, 2)
+)
+pdnDot1BasePortPIWGGroup.setObjects(
+      *(("PDN-DOT1QEXT-MIB", "pdnDot1BasePortPIWGId"),
+        ("PDN-DOT1QEXT-MIB", "pdnDot1BasePortPIWGCircuit"))
+)
+if mibBuilder.loadTexts:
+    pdnDot1BasePortPIWGGroup.setStatus("current")
+
+pdnDot1GeneralGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 1, 3)
+)
+pdnDot1GeneralGroup.setObjects(
+    ("PDN-DOT1QEXT-MIB", "pdnDot1TpFdbClear")
+)
+if mibBuilder.loadTexts:
+    pdnDot1GeneralGroup.setStatus("current")
+
+pdnDot1dVlanStackingGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 1, 4)
+)
+pdnDot1dVlanStackingGroup.setObjects(
+      *(("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticOuterTag"),
+        ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticOuterDefaultPriority"),
+        ("PDN-DOT1QEXT-MIB", "pdnDot1qVlanStaticOuterEthertype"))
+)
+if mibBuilder.loadTexts:
+    pdnDot1dVlanStackingGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+pdnDot1qExtCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 39, 1, 2, 2, 1)
+)
+pdnDot1qExtCompliance.setObjects(
+      *(("PDN-DOT1QEXT-MIB", "pdnDot1qVlanExtGroup"),
+        ("PDN-DOT1QEXT-MIB", "pdnDot1BasePortPIWGGroup"),
+        ("PDN-DOT1QEXT-MIB", "pdnDot1GeneralGroup"),
+        ("PDN-DOT1QEXT-MIB", "pdnDot1dVlanStackingGroup"))
+)
+if mibBuilder.loadTexts:
+    pdnDot1qExtCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PDN-DOT1QEXT-MIB",
+    **{"pdnDot1qExt": pdnDot1qExt,
+       "pdnDot1qExtObjects": pdnDot1qExtObjects,
+       "pdnDot1qVlanStaticExtTable": pdnDot1qVlanStaticExtTable,
+       "pdnDot1qVlanStaticExtEntry": pdnDot1qVlanStaticExtEntry,
+       "pdnDot1qVlanStaticSecureModeStatus": pdnDot1qVlanStaticSecureModeStatus,
+       "pdnDot1qVlanStaticProxyArpStatus": pdnDot1qVlanStaticProxyArpStatus,
+       "pdnDot1qVlanStaticUplink": pdnDot1qVlanStaticUplink,
+       "pdnDot1qVlanStaticDefaultNHR": pdnDot1qVlanStaticDefaultNHR,
+       "pdnDot1qVlanStaticOuterTag": pdnDot1qVlanStaticOuterTag,
+       "pdnDot1qVlanStaticOuterDefaultPriority": pdnDot1qVlanStaticOuterDefaultPriority,
+       "pdnDot1qVlanStaticOuterEthertype": pdnDot1qVlanStaticOuterEthertype,
+       "pdnDot1BasePortPIWGTable": pdnDot1BasePortPIWGTable,
+       "pdnDot1BasePortPIWGEntry": pdnDot1BasePortPIWGEntry,
+       "pdnDot1BasePort": pdnDot1BasePort,
+       "pdnDot1BasePortPIWGId": pdnDot1BasePortPIWGId,
+       "pdnDot1BasePortPIWGCircuit": pdnDot1BasePortPIWGCircuit,
+       "pdnDot1TpFdbClear": pdnDot1TpFdbClear,
+       "pdnDot1qExtConformance": pdnDot1qExtConformance,
+       "pdnDot1qExtGroups": pdnDot1qExtGroups,
+       "pdnDot1qVlanExtGroup": pdnDot1qVlanExtGroup,
+       "pdnDot1BasePortPIWGGroup": pdnDot1BasePortPIWGGroup,
+       "pdnDot1GeneralGroup": pdnDot1GeneralGroup,
+       "pdnDot1dVlanStackingGroup": pdnDot1dVlanStackingGroup,
+       "pdnDot1qExtCompliances": pdnDot1qExtCompliances,
+       "pdnDot1qExtCompliance": pdnDot1qExtCompliance}
+)

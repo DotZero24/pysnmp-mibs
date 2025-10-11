@@ -1,29 +1,252 @@
+# SNMP MIB module (DEVEVENT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DEVEVENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aperto/DEVEVENT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:20 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/aperto/DEVEVENT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:06:23 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-device, = mibBuilder.importSymbols("ANIROOT-MIB", "device")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-aniDevEvent = ModuleIdentity((1, 3, 6, 1, 4, 1, 4325, 2, 6))
-if mibBuilder.loadTexts: aniDevEvent.setLastUpdated('0012111753Z')
-if mibBuilder.loadTexts: aniDevEvent.setOrganization('Aperto Networks')
-aniDevEvNotify = MibIdentifier((1, 3, 6, 1, 4, 1, 4325, 2, 6, 2))
-aniDevEmailSending = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 6, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevEmailSending.setStatus('current')
-aniDevEmailSender = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 6, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevEmailSender.setStatus('current')
-aniDevDomainName = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 6, 2, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevDomainName.setStatus('current')
-aniDevEmailReceiver1 = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 6, 2, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevEmailReceiver1.setStatus('current')
-aniDevEmailReceiver2 = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 6, 2, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevEmailReceiver2.setStatus('current')
-mibBuilder.exportSymbols("DEVEVENT-MIB", aniDevEmailSender=aniDevEmailSender, aniDevEmailReceiver2=aniDevEmailReceiver2, aniDevDomainName=aniDevDomainName, aniDevEmailReceiver1=aniDevEmailReceiver1, aniDevEvNotify=aniDevEvNotify, aniDevEmailSending=aniDevEmailSending, PYSNMP_MODULE_ID=aniDevEvent, aniDevEvent=aniDevEvent)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(device,) = mibBuilder.importSymbols(
+    "ANIROOT-MIB",
+    "device")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aniDevEvent = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 6)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AniDevEvNotify_ObjectIdentity = ObjectIdentity
+aniDevEvNotify = _AniDevEvNotify_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 6, 2)
+)
+
+
+class _AniDevEmailSending_Type(Integer32):
+    """Custom type aniDevEmailSending based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AniDevEmailSending_Type.__name__ = "Integer32"
+_AniDevEmailSending_Object = MibScalar
+aniDevEmailSending = _AniDevEmailSending_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 6, 2, 1),
+    _AniDevEmailSending_Type()
+)
+aniDevEmailSending.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevEmailSending.setStatus("current")
+
+
+class _AniDevEmailSender_Type(DisplayString):
+    """Custom type aniDevEmailSender based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_AniDevEmailSender_Type.__name__ = "DisplayString"
+_AniDevEmailSender_Object = MibScalar
+aniDevEmailSender = _AniDevEmailSender_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 6, 2, 2),
+    _AniDevEmailSender_Type()
+)
+aniDevEmailSender.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevEmailSender.setStatus("current")
+
+
+class _AniDevDomainName_Type(DisplayString):
+    """Custom type aniDevDomainName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_AniDevDomainName_Type.__name__ = "DisplayString"
+_AniDevDomainName_Object = MibScalar
+aniDevDomainName = _AniDevDomainName_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 6, 2, 3),
+    _AniDevDomainName_Type()
+)
+aniDevDomainName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevDomainName.setStatus("current")
+
+
+class _AniDevEmailReceiver1_Type(DisplayString):
+    """Custom type aniDevEmailReceiver1 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_AniDevEmailReceiver1_Type.__name__ = "DisplayString"
+_AniDevEmailReceiver1_Object = MibScalar
+aniDevEmailReceiver1 = _AniDevEmailReceiver1_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 6, 2, 4),
+    _AniDevEmailReceiver1_Type()
+)
+aniDevEmailReceiver1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevEmailReceiver1.setStatus("current")
+
+
+class _AniDevEmailReceiver2_Type(DisplayString):
+    """Custom type aniDevEmailReceiver2 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_AniDevEmailReceiver2_Type.__name__ = "DisplayString"
+_AniDevEmailReceiver2_Object = MibScalar
+aniDevEmailReceiver2 = _AniDevEmailReceiver2_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 6, 2, 5),
+    _AniDevEmailReceiver2_Type()
+)
+aniDevEmailReceiver2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevEmailReceiver2.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DEVEVENT-MIB",
+    **{"aniDevEvent": aniDevEvent,
+       "aniDevEvNotify": aniDevEvNotify,
+       "aniDevEmailSending": aniDevEmailSending,
+       "aniDevEmailSender": aniDevEmailSender,
+       "aniDevDomainName": aniDevDomainName,
+       "aniDevEmailReceiver1": aniDevEmailReceiver1,
+       "aniDevEmailReceiver2": aniDevEmailReceiver2}
+)

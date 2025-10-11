@@ -1,244 +1,1791 @@
+# SNMP MIB module (DNOS-DHCPSERVER-PRIVATE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DNOS-DHCPSERVER-PRIVATE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/dell/DNOS-DHCPSERVER-PRIVATE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:43:53 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/dell/DNOS-DHCPSERVER-PRIVATE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:08:25 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dnOS, = mibBuilder.importSymbols("DELL-REF-MIB", "dnOS")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, MacAddress, StorageType, PhysAddress, RowPointer, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "StorageType", "PhysAddress", "RowPointer", "TruthValue", "DisplayString")
-fastPathDHCPServerPrivate = ModuleIdentity((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12))
-fastPathDHCPServerPrivate.setRevisions(('2021-03-03 00:00', '2011-01-26 00:00', '2007-05-23 00:00',))
-if mibBuilder.loadTexts: fastPathDHCPServerPrivate.setLastUpdated('202103030000Z')
-if mibBuilder.loadTexts: fastPathDHCPServerPrivate.setOrganization('Dell')
-agentDhcpServerGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1))
-agentDhcpServerAdminMode = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerAdminMode.setStatus('current')
-agentDhcpServerPingPktNos = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(2, 10), )).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPingPktNos.setStatus('current')
-agentDhcpServerAutomaticBindingsNos = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerAutomaticBindingsNos.setStatus('current')
-agentDhcpServerExpiredBindingsNos = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerExpiredBindingsNos.setStatus('current')
-agentDhcpServerMalformedMessagesReceived = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerMalformedMessagesReceived.setStatus('current')
-agentDhcpServerDISCOVERMessagesReceived = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerDISCOVERMessagesReceived.setStatus('current')
-agentDhcpServerREQUESTMessagesReceived = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerREQUESTMessagesReceived.setStatus('current')
-agentDhcpServerDECLINEMessagesReceived = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerDECLINEMessagesReceived.setStatus('current')
-agentDhcpServerRELEASEMessagesReceived = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerRELEASEMessagesReceived.setStatus('current')
-agentDhcpServerINFORMMessagesReceived = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerINFORMMessagesReceived.setStatus('current')
-agentDhcpServerOFFERMessagesSent = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerOFFERMessagesSent.setStatus('current')
-agentDhcpServerACKMessagesSent = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerACKMessagesSent.setStatus('current')
-agentDhcpServerNAKMessagesSent = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerNAKMessagesSent.setStatus('current')
-agentDhcpServerClearStatistics = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerClearStatistics.setStatus('current')
-agentDhcpServerBootpAutomatic = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerBootpAutomatic.setStatus('current')
-agentDhcpServerDISCOVERMessagesDiscarded = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerDISCOVERMessagesDiscarded.setStatus('current')
-agentDhcpServerPoolConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2))
-agentDhcpServerPoolNameCreate = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 1), DisplayString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(1, 31), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolNameCreate.setStatus('current')
-agentDhcpServerPoolConfigTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2), )
-if mibBuilder.loadTexts: agentDhcpServerPoolConfigTable.setStatus('current')
-agentDhcpServerPoolConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1), ).setIndexNames((0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerPoolIndex"))
-if mibBuilder.loadTexts: agentDhcpServerPoolConfigEntry.setStatus('current')
-agentDhcpServerPoolIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 512))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerPoolIndex.setStatus('current')
-agentDhcpServerPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerPoolName.setStatus('current')
-agentDhcpServerPoolDefRouter = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolDefRouter.setStatus('current')
-agentDhcpServerPoolDNSServer = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolDNSServer.setStatus('current')
-agentDhcpServerPoolLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 86400))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolLeaseTime.setStatus('current')
-agentDhcpServerPoolType = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("un-allocated", 0), ("dynamic", 1), ("manual", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerPoolType.setStatus('current')
-agentDhcpServerPoolNetbiosNameServer = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 7), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolNetbiosNameServer.setStatus('current')
-agentDhcpServerPoolNetbiosNodeType = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 4, 8))).clone(namedValues=NamedValues(("none", 0), ("b-node", 1), ("p-node", 2), ("m-node", 4), ("h-node", 8)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolNetbiosNodeType.setStatus('current')
-agentDhcpServerPoolSNTPServer = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 9), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolSNTPServer.setStatus('current')
-agentDhcpServerPoolNextServer = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 10), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolNextServer.setStatus('current')
-agentDhcpServerPoolDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolDomainName.setStatus('current')
-agentDhcpServerPoolBootfile = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolBootfile.setStatus('current')
-agentDhcpServerPoolRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 13), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolRowStatus.setStatus('current')
-agentDhcpServerPoolAllocationTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3), )
-if mibBuilder.loadTexts: agentDhcpServerPoolAllocationTable.setStatus('current')
-agentDhcpServerPoolAllocationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1), )
-agentDhcpServerPoolConfigEntry.registerAugmentions(("DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerPoolAllocationEntry"))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dnOS,) = mibBuilder.importSymbols(
+    "DELL-REF-MIB",
+    "dnOS")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ RowStatus,
+ StorageType,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+fastPathDHCPServerPrivate = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12)
+)
+if mibBuilder.loadTexts:
+    fastPathDHCPServerPrivate.setRevisions(
+        ("2021-03-03 00:00",
+         "2011-01-26 00:00",
+         "2007-05-23 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AgentDhcpServerGroup_ObjectIdentity = ObjectIdentity
+agentDhcpServerGroup = _AgentDhcpServerGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1)
+)
+
+
+class _AgentDhcpServerAdminMode_Type(Integer32):
+    """Custom type agentDhcpServerAdminMode based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AgentDhcpServerAdminMode_Type.__name__ = "Integer32"
+_AgentDhcpServerAdminMode_Object = MibScalar
+agentDhcpServerAdminMode = _AgentDhcpServerAdminMode_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 1),
+    _AgentDhcpServerAdminMode_Type()
+)
+agentDhcpServerAdminMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerAdminMode.setStatus("current")
+
+
+class _AgentDhcpServerPingPktNos_Type(Integer32):
+    """Custom type agentDhcpServerPingPktNos based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(2, 10),
+    )
+
+
+_AgentDhcpServerPingPktNos_Type.__name__ = "Integer32"
+_AgentDhcpServerPingPktNos_Object = MibScalar
+agentDhcpServerPingPktNos = _AgentDhcpServerPingPktNos_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 2),
+    _AgentDhcpServerPingPktNos_Type()
+)
+agentDhcpServerPingPktNos.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPingPktNos.setStatus("current")
+_AgentDhcpServerAutomaticBindingsNos_Type = Counter32
+_AgentDhcpServerAutomaticBindingsNos_Object = MibScalar
+agentDhcpServerAutomaticBindingsNos = _AgentDhcpServerAutomaticBindingsNos_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 3),
+    _AgentDhcpServerAutomaticBindingsNos_Type()
+)
+agentDhcpServerAutomaticBindingsNos.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerAutomaticBindingsNos.setStatus("current")
+_AgentDhcpServerExpiredBindingsNos_Type = Counter32
+_AgentDhcpServerExpiredBindingsNos_Object = MibScalar
+agentDhcpServerExpiredBindingsNos = _AgentDhcpServerExpiredBindingsNos_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 4),
+    _AgentDhcpServerExpiredBindingsNos_Type()
+)
+agentDhcpServerExpiredBindingsNos.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerExpiredBindingsNos.setStatus("current")
+_AgentDhcpServerMalformedMessagesReceived_Type = Counter32
+_AgentDhcpServerMalformedMessagesReceived_Object = MibScalar
+agentDhcpServerMalformedMessagesReceived = _AgentDhcpServerMalformedMessagesReceived_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 5),
+    _AgentDhcpServerMalformedMessagesReceived_Type()
+)
+agentDhcpServerMalformedMessagesReceived.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerMalformedMessagesReceived.setStatus("current")
+_AgentDhcpServerDISCOVERMessagesReceived_Type = Counter32
+_AgentDhcpServerDISCOVERMessagesReceived_Object = MibScalar
+agentDhcpServerDISCOVERMessagesReceived = _AgentDhcpServerDISCOVERMessagesReceived_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 6),
+    _AgentDhcpServerDISCOVERMessagesReceived_Type()
+)
+agentDhcpServerDISCOVERMessagesReceived.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerDISCOVERMessagesReceived.setStatus("current")
+_AgentDhcpServerREQUESTMessagesReceived_Type = Counter32
+_AgentDhcpServerREQUESTMessagesReceived_Object = MibScalar
+agentDhcpServerREQUESTMessagesReceived = _AgentDhcpServerREQUESTMessagesReceived_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 7),
+    _AgentDhcpServerREQUESTMessagesReceived_Type()
+)
+agentDhcpServerREQUESTMessagesReceived.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerREQUESTMessagesReceived.setStatus("current")
+_AgentDhcpServerDECLINEMessagesReceived_Type = Counter32
+_AgentDhcpServerDECLINEMessagesReceived_Object = MibScalar
+agentDhcpServerDECLINEMessagesReceived = _AgentDhcpServerDECLINEMessagesReceived_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 8),
+    _AgentDhcpServerDECLINEMessagesReceived_Type()
+)
+agentDhcpServerDECLINEMessagesReceived.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerDECLINEMessagesReceived.setStatus("current")
+_AgentDhcpServerRELEASEMessagesReceived_Type = Counter32
+_AgentDhcpServerRELEASEMessagesReceived_Object = MibScalar
+agentDhcpServerRELEASEMessagesReceived = _AgentDhcpServerRELEASEMessagesReceived_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 9),
+    _AgentDhcpServerRELEASEMessagesReceived_Type()
+)
+agentDhcpServerRELEASEMessagesReceived.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerRELEASEMessagesReceived.setStatus("current")
+_AgentDhcpServerINFORMMessagesReceived_Type = Counter32
+_AgentDhcpServerINFORMMessagesReceived_Object = MibScalar
+agentDhcpServerINFORMMessagesReceived = _AgentDhcpServerINFORMMessagesReceived_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 10),
+    _AgentDhcpServerINFORMMessagesReceived_Type()
+)
+agentDhcpServerINFORMMessagesReceived.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerINFORMMessagesReceived.setStatus("current")
+_AgentDhcpServerOFFERMessagesSent_Type = Counter32
+_AgentDhcpServerOFFERMessagesSent_Object = MibScalar
+agentDhcpServerOFFERMessagesSent = _AgentDhcpServerOFFERMessagesSent_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 11),
+    _AgentDhcpServerOFFERMessagesSent_Type()
+)
+agentDhcpServerOFFERMessagesSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerOFFERMessagesSent.setStatus("current")
+_AgentDhcpServerACKMessagesSent_Type = Counter32
+_AgentDhcpServerACKMessagesSent_Object = MibScalar
+agentDhcpServerACKMessagesSent = _AgentDhcpServerACKMessagesSent_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 12),
+    _AgentDhcpServerACKMessagesSent_Type()
+)
+agentDhcpServerACKMessagesSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerACKMessagesSent.setStatus("current")
+_AgentDhcpServerNAKMessagesSent_Type = Counter32
+_AgentDhcpServerNAKMessagesSent_Object = MibScalar
+agentDhcpServerNAKMessagesSent = _AgentDhcpServerNAKMessagesSent_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 13),
+    _AgentDhcpServerNAKMessagesSent_Type()
+)
+agentDhcpServerNAKMessagesSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerNAKMessagesSent.setStatus("current")
+
+
+class _AgentDhcpServerClearStatistics_Type(Integer32):
+    """Custom type agentDhcpServerClearStatistics based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AgentDhcpServerClearStatistics_Type.__name__ = "Integer32"
+_AgentDhcpServerClearStatistics_Object = MibScalar
+agentDhcpServerClearStatistics = _AgentDhcpServerClearStatistics_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 14),
+    _AgentDhcpServerClearStatistics_Type()
+)
+agentDhcpServerClearStatistics.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerClearStatistics.setStatus("current")
+
+
+class _AgentDhcpServerBootpAutomatic_Type(Integer32):
+    """Custom type agentDhcpServerBootpAutomatic based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AgentDhcpServerBootpAutomatic_Type.__name__ = "Integer32"
+_AgentDhcpServerBootpAutomatic_Object = MibScalar
+agentDhcpServerBootpAutomatic = _AgentDhcpServerBootpAutomatic_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 15),
+    _AgentDhcpServerBootpAutomatic_Type()
+)
+agentDhcpServerBootpAutomatic.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerBootpAutomatic.setStatus("current")
+_AgentDhcpServerDISCOVERMessagesDiscarded_Type = Counter32
+_AgentDhcpServerDISCOVERMessagesDiscarded_Object = MibScalar
+agentDhcpServerDISCOVERMessagesDiscarded = _AgentDhcpServerDISCOVERMessagesDiscarded_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 1, 16),
+    _AgentDhcpServerDISCOVERMessagesDiscarded_Type()
+)
+agentDhcpServerDISCOVERMessagesDiscarded.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerDISCOVERMessagesDiscarded.setStatus("current")
+_AgentDhcpServerPoolConfigGroup_ObjectIdentity = ObjectIdentity
+agentDhcpServerPoolConfigGroup = _AgentDhcpServerPoolConfigGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2)
+)
+
+
+class _AgentDhcpServerPoolNameCreate_Type(DisplayString):
+    """Custom type agentDhcpServerPoolNameCreate based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDhcpServerPoolNameCreate_Type.__name__ = "DisplayString"
+_AgentDhcpServerPoolNameCreate_Object = MibScalar
+agentDhcpServerPoolNameCreate = _AgentDhcpServerPoolNameCreate_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 1),
+    _AgentDhcpServerPoolNameCreate_Type()
+)
+agentDhcpServerPoolNameCreate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolNameCreate.setStatus("current")
+_AgentDhcpServerPoolConfigTable_Object = MibTable
+agentDhcpServerPoolConfigTable = _AgentDhcpServerPoolConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2)
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolConfigTable.setStatus("current")
+_AgentDhcpServerPoolConfigEntry_Object = MibTableRow
+agentDhcpServerPoolConfigEntry = _AgentDhcpServerPoolConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1)
+)
+agentDhcpServerPoolConfigEntry.setIndexNames(
+    (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerPoolIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolConfigEntry.setStatus("current")
+
+
+class _AgentDhcpServerPoolIndex_Type(Unsigned32):
+    """Custom type agentDhcpServerPoolIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 512),
+    )
+
+
+_AgentDhcpServerPoolIndex_Type.__name__ = "Unsigned32"
+_AgentDhcpServerPoolIndex_Object = MibTableColumn
+agentDhcpServerPoolIndex = _AgentDhcpServerPoolIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 1),
+    _AgentDhcpServerPoolIndex_Type()
+)
+agentDhcpServerPoolIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolIndex.setStatus("current")
+
+
+class _AgentDhcpServerPoolName_Type(DisplayString):
+    """Custom type agentDhcpServerPoolName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDhcpServerPoolName_Type.__name__ = "DisplayString"
+_AgentDhcpServerPoolName_Object = MibTableColumn
+agentDhcpServerPoolName = _AgentDhcpServerPoolName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 2),
+    _AgentDhcpServerPoolName_Type()
+)
+agentDhcpServerPoolName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolName.setStatus("current")
+_AgentDhcpServerPoolDefRouter_Type = DisplayString
+_AgentDhcpServerPoolDefRouter_Object = MibTableColumn
+agentDhcpServerPoolDefRouter = _AgentDhcpServerPoolDefRouter_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 3),
+    _AgentDhcpServerPoolDefRouter_Type()
+)
+agentDhcpServerPoolDefRouter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolDefRouter.setStatus("current")
+_AgentDhcpServerPoolDNSServer_Type = DisplayString
+_AgentDhcpServerPoolDNSServer_Object = MibTableColumn
+agentDhcpServerPoolDNSServer = _AgentDhcpServerPoolDNSServer_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 4),
+    _AgentDhcpServerPoolDNSServer_Type()
+)
+agentDhcpServerPoolDNSServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolDNSServer.setStatus("current")
+
+
+class _AgentDhcpServerPoolLeaseTime_Type(Integer32):
+    """Custom type agentDhcpServerPoolLeaseTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 86400),
+    )
+
+
+_AgentDhcpServerPoolLeaseTime_Type.__name__ = "Integer32"
+_AgentDhcpServerPoolLeaseTime_Object = MibTableColumn
+agentDhcpServerPoolLeaseTime = _AgentDhcpServerPoolLeaseTime_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 5),
+    _AgentDhcpServerPoolLeaseTime_Type()
+)
+agentDhcpServerPoolLeaseTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolLeaseTime.setStatus("current")
+
+
+class _AgentDhcpServerPoolType_Type(Integer32):
+    """Custom type agentDhcpServerPoolType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("un-allocated", 0),
+          ("dynamic", 1),
+          ("manual", 2))
+    )
+
+
+_AgentDhcpServerPoolType_Type.__name__ = "Integer32"
+_AgentDhcpServerPoolType_Object = MibTableColumn
+agentDhcpServerPoolType = _AgentDhcpServerPoolType_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 6),
+    _AgentDhcpServerPoolType_Type()
+)
+agentDhcpServerPoolType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolType.setStatus("current")
+_AgentDhcpServerPoolNetbiosNameServer_Type = DisplayString
+_AgentDhcpServerPoolNetbiosNameServer_Object = MibTableColumn
+agentDhcpServerPoolNetbiosNameServer = _AgentDhcpServerPoolNetbiosNameServer_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 7),
+    _AgentDhcpServerPoolNetbiosNameServer_Type()
+)
+agentDhcpServerPoolNetbiosNameServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolNetbiosNameServer.setStatus("current")
+
+
+class _AgentDhcpServerPoolNetbiosNodeType_Type(Integer32):
+    """Custom type agentDhcpServerPoolNetbiosNodeType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              4,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("b-node", 1),
+          ("p-node", 2),
+          ("m-node", 4),
+          ("h-node", 8))
+    )
+
+
+_AgentDhcpServerPoolNetbiosNodeType_Type.__name__ = "Integer32"
+_AgentDhcpServerPoolNetbiosNodeType_Object = MibTableColumn
+agentDhcpServerPoolNetbiosNodeType = _AgentDhcpServerPoolNetbiosNodeType_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 8),
+    _AgentDhcpServerPoolNetbiosNodeType_Type()
+)
+agentDhcpServerPoolNetbiosNodeType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolNetbiosNodeType.setStatus("current")
+_AgentDhcpServerPoolSNTPServer_Type = DisplayString
+_AgentDhcpServerPoolSNTPServer_Object = MibTableColumn
+agentDhcpServerPoolSNTPServer = _AgentDhcpServerPoolSNTPServer_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 9),
+    _AgentDhcpServerPoolSNTPServer_Type()
+)
+agentDhcpServerPoolSNTPServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolSNTPServer.setStatus("current")
+_AgentDhcpServerPoolNextServer_Type = IpAddress
+_AgentDhcpServerPoolNextServer_Object = MibTableColumn
+agentDhcpServerPoolNextServer = _AgentDhcpServerPoolNextServer_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 10),
+    _AgentDhcpServerPoolNextServer_Type()
+)
+agentDhcpServerPoolNextServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolNextServer.setStatus("current")
+
+
+class _AgentDhcpServerPoolDomainName_Type(DisplayString):
+    """Custom type agentDhcpServerPoolDomainName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+_AgentDhcpServerPoolDomainName_Type.__name__ = "DisplayString"
+_AgentDhcpServerPoolDomainName_Object = MibTableColumn
+agentDhcpServerPoolDomainName = _AgentDhcpServerPoolDomainName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 11),
+    _AgentDhcpServerPoolDomainName_Type()
+)
+agentDhcpServerPoolDomainName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolDomainName.setStatus("current")
+
+
+class _AgentDhcpServerPoolBootfile_Type(DisplayString):
+    """Custom type agentDhcpServerPoolBootfile based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 128),
+    )
+
+
+_AgentDhcpServerPoolBootfile_Type.__name__ = "DisplayString"
+_AgentDhcpServerPoolBootfile_Object = MibTableColumn
+agentDhcpServerPoolBootfile = _AgentDhcpServerPoolBootfile_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 12),
+    _AgentDhcpServerPoolBootfile_Type()
+)
+agentDhcpServerPoolBootfile.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolBootfile.setStatus("current")
+_AgentDhcpServerPoolRowStatus_Type = RowStatus
+_AgentDhcpServerPoolRowStatus_Object = MibTableColumn
+agentDhcpServerPoolRowStatus = _AgentDhcpServerPoolRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 2, 1, 13),
+    _AgentDhcpServerPoolRowStatus_Type()
+)
+agentDhcpServerPoolRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolRowStatus.setStatus("current")
+_AgentDhcpServerPoolAllocationTable_Object = MibTable
+agentDhcpServerPoolAllocationTable = _AgentDhcpServerPoolAllocationTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3)
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolAllocationTable.setStatus("current")
+_AgentDhcpServerPoolAllocationEntry_Object = MibTableRow
+agentDhcpServerPoolAllocationEntry = _AgentDhcpServerPoolAllocationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1)
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolAllocationEntry.setStatus("current")
+
+
+class _AgentDhcpServerPoolAllocationName_Type(DisplayString):
+    """Custom type agentDhcpServerPoolAllocationName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 30),
+    )
+
+
+_AgentDhcpServerPoolAllocationName_Type.__name__ = "DisplayString"
+_AgentDhcpServerPoolAllocationName_Object = MibTableColumn
+agentDhcpServerPoolAllocationName = _AgentDhcpServerPoolAllocationName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 1),
+    _AgentDhcpServerPoolAllocationName_Type()
+)
+agentDhcpServerPoolAllocationName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolAllocationName.setStatus("current")
+_AgentDhcpServerDynamicPoolIpAddress_Type = IpAddress
+_AgentDhcpServerDynamicPoolIpAddress_Object = MibTableColumn
+agentDhcpServerDynamicPoolIpAddress = _AgentDhcpServerDynamicPoolIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 2),
+    _AgentDhcpServerDynamicPoolIpAddress_Type()
+)
+agentDhcpServerDynamicPoolIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerDynamicPoolIpAddress.setStatus("current")
+_AgentDhcpServerDynamicPoolIpMask_Type = IpAddress
+_AgentDhcpServerDynamicPoolIpMask_Object = MibTableColumn
+agentDhcpServerDynamicPoolIpMask = _AgentDhcpServerDynamicPoolIpMask_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 3),
+    _AgentDhcpServerDynamicPoolIpMask_Type()
+)
+agentDhcpServerDynamicPoolIpMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerDynamicPoolIpMask.setStatus("current")
+_AgentDhcpServerDynamicPoolIpPrefixLength_Type = Unsigned32
+_AgentDhcpServerDynamicPoolIpPrefixLength_Object = MibTableColumn
+agentDhcpServerDynamicPoolIpPrefixLength = _AgentDhcpServerDynamicPoolIpPrefixLength_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 4),
+    _AgentDhcpServerDynamicPoolIpPrefixLength_Type()
+)
+agentDhcpServerDynamicPoolIpPrefixLength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerDynamicPoolIpPrefixLength.setStatus("current")
+
+
+class _AgentDhcpServerPoolAllocationType_Type(Integer32):
+    """Custom type agentDhcpServerPoolAllocationType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("un-allocated", 0),
+          ("dynamic", 1),
+          ("manual", 2))
+    )
+
+
+_AgentDhcpServerPoolAllocationType_Type.__name__ = "Integer32"
+_AgentDhcpServerPoolAllocationType_Object = MibTableColumn
+agentDhcpServerPoolAllocationType = _AgentDhcpServerPoolAllocationType_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 5),
+    _AgentDhcpServerPoolAllocationType_Type()
+)
+agentDhcpServerPoolAllocationType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolAllocationType.setStatus("current")
+_AgentDhcpServerManualPoolClientIdentifier_Type = DisplayString
+_AgentDhcpServerManualPoolClientIdentifier_Object = MibTableColumn
+agentDhcpServerManualPoolClientIdentifier = _AgentDhcpServerManualPoolClientIdentifier_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 6),
+    _AgentDhcpServerManualPoolClientIdentifier_Type()
+)
+agentDhcpServerManualPoolClientIdentifier.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerManualPoolClientIdentifier.setStatus("current")
+
+
+class _AgentDhcpServerManualPoolClientName_Type(DisplayString):
+    """Custom type agentDhcpServerManualPoolClientName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 30),
+    )
+
+
+_AgentDhcpServerManualPoolClientName_Type.__name__ = "DisplayString"
+_AgentDhcpServerManualPoolClientName_Object = MibTableColumn
+agentDhcpServerManualPoolClientName = _AgentDhcpServerManualPoolClientName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 7),
+    _AgentDhcpServerManualPoolClientName_Type()
+)
+agentDhcpServerManualPoolClientName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerManualPoolClientName.setStatus("current")
+_AgentDhcpServerManualPoolClientHWAddr_Type = DisplayString
+_AgentDhcpServerManualPoolClientHWAddr_Object = MibTableColumn
+agentDhcpServerManualPoolClientHWAddr = _AgentDhcpServerManualPoolClientHWAddr_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 8),
+    _AgentDhcpServerManualPoolClientHWAddr_Type()
+)
+agentDhcpServerManualPoolClientHWAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerManualPoolClientHWAddr.setStatus("current")
+
+
+class _AgentDhcpServerManualPoolClientHWType_Type(Integer32):
+    """Custom type agentDhcpServerManualPoolClientHWType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ethernet", 1),
+          ("ieee802", 6))
+    )
+
+
+_AgentDhcpServerManualPoolClientHWType_Type.__name__ = "Integer32"
+_AgentDhcpServerManualPoolClientHWType_Object = MibTableColumn
+agentDhcpServerManualPoolClientHWType = _AgentDhcpServerManualPoolClientHWType_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 9),
+    _AgentDhcpServerManualPoolClientHWType_Type()
+)
+agentDhcpServerManualPoolClientHWType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerManualPoolClientHWType.setStatus("current")
+_AgentDhcpServerManualPoolIpAddress_Type = IpAddress
+_AgentDhcpServerManualPoolIpAddress_Object = MibTableColumn
+agentDhcpServerManualPoolIpAddress = _AgentDhcpServerManualPoolIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 10),
+    _AgentDhcpServerManualPoolIpAddress_Type()
+)
+agentDhcpServerManualPoolIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerManualPoolIpAddress.setStatus("current")
+_AgentDhcpServerManualPoolIpMask_Type = IpAddress
+_AgentDhcpServerManualPoolIpMask_Object = MibTableColumn
+agentDhcpServerManualPoolIpMask = _AgentDhcpServerManualPoolIpMask_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 11),
+    _AgentDhcpServerManualPoolIpMask_Type()
+)
+agentDhcpServerManualPoolIpMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerManualPoolIpMask.setStatus("current")
+_AgentDhcpServerManualPoolIpPrefixLength_Type = Unsigned32
+_AgentDhcpServerManualPoolIpPrefixLength_Object = MibTableColumn
+agentDhcpServerManualPoolIpPrefixLength = _AgentDhcpServerManualPoolIpPrefixLength_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 12),
+    _AgentDhcpServerManualPoolIpPrefixLength_Type()
+)
+agentDhcpServerManualPoolIpPrefixLength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerManualPoolIpPrefixLength.setStatus("current")
+
+
+class _AgentDhcpServerPoolVrfName_Type(DisplayString):
+    """Custom type agentDhcpServerPoolVrfName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 15),
+    )
+
+
+_AgentDhcpServerPoolVrfName_Type.__name__ = "DisplayString"
+_AgentDhcpServerPoolVrfName_Object = MibTableColumn
+agentDhcpServerPoolVrfName = _AgentDhcpServerPoolVrfName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 13),
+    _AgentDhcpServerPoolVrfName_Type()
+)
+agentDhcpServerPoolVrfName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolVrfName.setStatus("current")
+_AgentDhcpServerExcludedAddressRangeCreate_Type = DisplayString
+_AgentDhcpServerExcludedAddressRangeCreate_Object = MibScalar
+agentDhcpServerExcludedAddressRangeCreate = _AgentDhcpServerExcludedAddressRangeCreate_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 4),
+    _AgentDhcpServerExcludedAddressRangeCreate_Type()
+)
+agentDhcpServerExcludedAddressRangeCreate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerExcludedAddressRangeCreate.setStatus("current")
+_AgentDhcpServerExcludedAddressRangeTable_Object = MibTable
+agentDhcpServerExcludedAddressRangeTable = _AgentDhcpServerExcludedAddressRangeTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5)
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerExcludedAddressRangeTable.setStatus("current")
+_AgentDhcpServerExcludedAddressRangeEntry_Object = MibTableRow
+agentDhcpServerExcludedAddressRangeEntry = _AgentDhcpServerExcludedAddressRangeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1)
+)
+agentDhcpServerExcludedAddressRangeEntry.setIndexNames(
+    (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerExcludedRangeIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerExcludedAddressRangeEntry.setStatus("current")
+
+
+class _AgentDhcpServerExcludedRangeIndex_Type(Unsigned32):
+    """Custom type agentDhcpServerExcludedRangeIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 256),
+    )
+
+
+_AgentDhcpServerExcludedRangeIndex_Type.__name__ = "Unsigned32"
+_AgentDhcpServerExcludedRangeIndex_Object = MibTableColumn
+agentDhcpServerExcludedRangeIndex = _AgentDhcpServerExcludedRangeIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1, 1),
+    _AgentDhcpServerExcludedRangeIndex_Type()
+)
+agentDhcpServerExcludedRangeIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerExcludedRangeIndex.setStatus("current")
+_AgentDhcpServerExcludedStartIpAddress_Type = IpAddress
+_AgentDhcpServerExcludedStartIpAddress_Object = MibTableColumn
+agentDhcpServerExcludedStartIpAddress = _AgentDhcpServerExcludedStartIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1, 2),
+    _AgentDhcpServerExcludedStartIpAddress_Type()
+)
+agentDhcpServerExcludedStartIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerExcludedStartIpAddress.setStatus("current")
+_AgentDhcpServerExcludedEndIpAddress_Type = IpAddress
+_AgentDhcpServerExcludedEndIpAddress_Object = MibTableColumn
+agentDhcpServerExcludedEndIpAddress = _AgentDhcpServerExcludedEndIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1, 3),
+    _AgentDhcpServerExcludedEndIpAddress_Type()
+)
+agentDhcpServerExcludedEndIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerExcludedEndIpAddress.setStatus("current")
+_AgentDhcpServerExcludedAddressRangeStatus_Type = RowStatus
+_AgentDhcpServerExcludedAddressRangeStatus_Object = MibTableColumn
+agentDhcpServerExcludedAddressRangeStatus = _AgentDhcpServerExcludedAddressRangeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1, 4),
+    _AgentDhcpServerExcludedAddressRangeStatus_Type()
+)
+agentDhcpServerExcludedAddressRangeStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerExcludedAddressRangeStatus.setStatus("current")
+
+
+class _AgentDhcpServerExcludedVrfName_Type(DisplayString):
+    """Custom type agentDhcpServerExcludedVrfName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_AgentDhcpServerExcludedVrfName_Type.__name__ = "DisplayString"
+_AgentDhcpServerExcludedVrfName_Object = MibTableColumn
+agentDhcpServerExcludedVrfName = _AgentDhcpServerExcludedVrfName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1, 5),
+    _AgentDhcpServerExcludedVrfName_Type()
+)
+agentDhcpServerExcludedVrfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerExcludedVrfName.setStatus("current")
+_AgentDhcpServerPoolOptionCreate_Type = DisplayString
+_AgentDhcpServerPoolOptionCreate_Object = MibScalar
+agentDhcpServerPoolOptionCreate = _AgentDhcpServerPoolOptionCreate_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 6),
+    _AgentDhcpServerPoolOptionCreate_Type()
+)
+agentDhcpServerPoolOptionCreate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolOptionCreate.setStatus("current")
+_AgentDhcpServerPoolOptionTable_Object = MibTable
+agentDhcpServerPoolOptionTable = _AgentDhcpServerPoolOptionTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7)
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolOptionTable.setStatus("current")
+_AgentDhcpServerPoolOptionEntry_Object = MibTableRow
+agentDhcpServerPoolOptionEntry = _AgentDhcpServerPoolOptionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1)
+)
+agentDhcpServerPoolOptionEntry.setIndexNames(
+    (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerPoolOptionIndex"),
+    (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerPoolOptionCode"),
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolOptionEntry.setStatus("current")
+
+
+class _AgentDhcpServerPoolOptionIndex_Type(Unsigned32):
+    """Custom type agentDhcpServerPoolOptionIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 512),
+    )
+
+
+_AgentDhcpServerPoolOptionIndex_Type.__name__ = "Unsigned32"
+_AgentDhcpServerPoolOptionIndex_Object = MibTableColumn
+agentDhcpServerPoolOptionIndex = _AgentDhcpServerPoolOptionIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 1),
+    _AgentDhcpServerPoolOptionIndex_Type()
+)
+agentDhcpServerPoolOptionIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolOptionIndex.setStatus("current")
+
+
+class _AgentDhcpServerPoolOptionCode_Type(Unsigned32):
+    """Custom type agentDhcpServerPoolOptionCode based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 254),
+    )
+
+
+_AgentDhcpServerPoolOptionCode_Type.__name__ = "Unsigned32"
+_AgentDhcpServerPoolOptionCode_Object = MibTableColumn
+agentDhcpServerPoolOptionCode = _AgentDhcpServerPoolOptionCode_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 2),
+    _AgentDhcpServerPoolOptionCode_Type()
+)
+agentDhcpServerPoolOptionCode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolOptionCode.setStatus("current")
+
+
+class _AgentDhcpServerOptionPoolName_Type(DisplayString):
+    """Custom type agentDhcpServerOptionPoolName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDhcpServerOptionPoolName_Type.__name__ = "DisplayString"
+_AgentDhcpServerOptionPoolName_Object = MibTableColumn
+agentDhcpServerOptionPoolName = _AgentDhcpServerOptionPoolName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 3),
+    _AgentDhcpServerOptionPoolName_Type()
+)
+agentDhcpServerOptionPoolName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerOptionPoolName.setStatus("current")
+
+
+class _AgentDhcpServerPoolOptionAsciiData_Type(DisplayString):
+    """Custom type agentDhcpServerPoolOptionAsciiData based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 441),
+    )
+
+
+_AgentDhcpServerPoolOptionAsciiData_Type.__name__ = "DisplayString"
+_AgentDhcpServerPoolOptionAsciiData_Object = MibTableColumn
+agentDhcpServerPoolOptionAsciiData = _AgentDhcpServerPoolOptionAsciiData_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 4),
+    _AgentDhcpServerPoolOptionAsciiData_Type()
+)
+agentDhcpServerPoolOptionAsciiData.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolOptionAsciiData.setStatus("current")
+
+
+class _AgentDhcpServerPoolOptionHexData_Type(DisplayString):
+    """Custom type agentDhcpServerPoolOptionHexData based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1324),
+    )
+
+
+_AgentDhcpServerPoolOptionHexData_Type.__name__ = "DisplayString"
+_AgentDhcpServerPoolOptionHexData_Object = MibTableColumn
+agentDhcpServerPoolOptionHexData = _AgentDhcpServerPoolOptionHexData_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 5),
+    _AgentDhcpServerPoolOptionHexData_Type()
+)
+agentDhcpServerPoolOptionHexData.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolOptionHexData.setStatus("current")
+_AgentDhcpServerPoolOptionIpAddressData_Type = DisplayString
+_AgentDhcpServerPoolOptionIpAddressData_Object = MibTableColumn
+agentDhcpServerPoolOptionIpAddressData = _AgentDhcpServerPoolOptionIpAddressData_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 6),
+    _AgentDhcpServerPoolOptionIpAddressData_Type()
+)
+agentDhcpServerPoolOptionIpAddressData.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolOptionIpAddressData.setStatus("current")
+_AgentDhcpServerPoolOptionStatus_Type = RowStatus
+_AgentDhcpServerPoolOptionStatus_Object = MibTableColumn
+agentDhcpServerPoolOptionStatus = _AgentDhcpServerPoolOptionStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 7),
+    _AgentDhcpServerPoolOptionStatus_Type()
+)
+agentDhcpServerPoolOptionStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolOptionStatus.setStatus("current")
+_AgentDhcpServerPoolClassTable_Object = MibTable
+agentDhcpServerPoolClassTable = _AgentDhcpServerPoolClassTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8)
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolClassTable.setStatus("current")
+_AgentDhcpServerPoolClassEntry_Object = MibTableRow
+agentDhcpServerPoolClassEntry = _AgentDhcpServerPoolClassEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1)
+)
+agentDhcpServerPoolClassEntry.setIndexNames(
+    (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerPoolNameIndex"),
+    (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerPoolClassNameIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolClassEntry.setStatus("current")
+
+
+class _AgentDhcpServerPoolNameIndex_Type(Unsigned32):
+    """Custom type agentDhcpServerPoolNameIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_AgentDhcpServerPoolNameIndex_Type.__name__ = "Unsigned32"
+_AgentDhcpServerPoolNameIndex_Object = MibTableColumn
+agentDhcpServerPoolNameIndex = _AgentDhcpServerPoolNameIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 1),
+    _AgentDhcpServerPoolNameIndex_Type()
+)
+agentDhcpServerPoolNameIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolNameIndex.setStatus("current")
+
+
+class _AgentDhcpServerPoolClassNameIndex_Type(Unsigned32):
+    """Custom type agentDhcpServerPoolClassNameIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1024),
+    )
+
+
+_AgentDhcpServerPoolClassNameIndex_Type.__name__ = "Unsigned32"
+_AgentDhcpServerPoolClassNameIndex_Object = MibTableColumn
+agentDhcpServerPoolClassNameIndex = _AgentDhcpServerPoolClassNameIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 2),
+    _AgentDhcpServerPoolClassNameIndex_Type()
+)
+agentDhcpServerPoolClassNameIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolClassNameIndex.setStatus("current")
+
+
+class _AgentDhcpServerPoolNameForClass_Type(DisplayString):
+    """Custom type agentDhcpServerPoolNameForClass based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDhcpServerPoolNameForClass_Type.__name__ = "DisplayString"
+_AgentDhcpServerPoolNameForClass_Object = MibTableColumn
+agentDhcpServerPoolNameForClass = _AgentDhcpServerPoolNameForClass_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 3),
+    _AgentDhcpServerPoolNameForClass_Type()
+)
+agentDhcpServerPoolNameForClass.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolNameForClass.setStatus("current")
+
+
+class _AgentDhcpServerPoolClassName_Type(DisplayString):
+    """Custom type agentDhcpServerPoolClassName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDhcpServerPoolClassName_Type.__name__ = "DisplayString"
+_AgentDhcpServerPoolClassName_Object = MibTableColumn
+agentDhcpServerPoolClassName = _AgentDhcpServerPoolClassName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 4),
+    _AgentDhcpServerPoolClassName_Type()
+)
+agentDhcpServerPoolClassName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolClassName.setStatus("current")
+_AgentDhcpServerPoolClassStartIpAddress_Type = IpAddress
+_AgentDhcpServerPoolClassStartIpAddress_Object = MibTableColumn
+agentDhcpServerPoolClassStartIpAddress = _AgentDhcpServerPoolClassStartIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 5),
+    _AgentDhcpServerPoolClassStartIpAddress_Type()
+)
+agentDhcpServerPoolClassStartIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolClassStartIpAddress.setStatus("current")
+_AgentDhcpServerPoolClassEndIpAddress_Type = IpAddress
+_AgentDhcpServerPoolClassEndIpAddress_Object = MibTableColumn
+agentDhcpServerPoolClassEndIpAddress = _AgentDhcpServerPoolClassEndIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 6),
+    _AgentDhcpServerPoolClassEndIpAddress_Type()
+)
+agentDhcpServerPoolClassEndIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolClassEndIpAddress.setStatus("current")
+_AgentDhcpServerPoolClassAddressRangeStatus_Type = RowStatus
+_AgentDhcpServerPoolClassAddressRangeStatus_Object = MibTableColumn
+agentDhcpServerPoolClassAddressRangeStatus = _AgentDhcpServerPoolClassAddressRangeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 7),
+    _AgentDhcpServerPoolClassAddressRangeStatus_Type()
+)
+agentDhcpServerPoolClassAddressRangeStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerPoolClassAddressRangeStatus.setStatus("current")
+_AgentDhcpServerLeaseGroup_ObjectIdentity = ObjectIdentity
+agentDhcpServerLeaseGroup = _AgentDhcpServerLeaseGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3)
+)
+
+
+class _AgentDhcpServerLeaseClearAllBindings_Type(Integer32):
+    """Custom type agentDhcpServerLeaseClearAllBindings based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AgentDhcpServerLeaseClearAllBindings_Type.__name__ = "Integer32"
+_AgentDhcpServerLeaseClearAllBindings_Object = MibScalar
+agentDhcpServerLeaseClearAllBindings = _AgentDhcpServerLeaseClearAllBindings_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 1),
+    _AgentDhcpServerLeaseClearAllBindings_Type()
+)
+agentDhcpServerLeaseClearAllBindings.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseClearAllBindings.setStatus("current")
+_AgentDhcpServerLeaseTable_Object = MibTable
+agentDhcpServerLeaseTable = _AgentDhcpServerLeaseTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2)
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseTable.setStatus("current")
+_AgentDhcpServerLeaseEntry_Object = MibTableRow
+agentDhcpServerLeaseEntry = _AgentDhcpServerLeaseEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1)
+)
+agentDhcpServerLeaseEntry.setIndexNames(
+    (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerLeaseLeaseIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseEntry.setStatus("current")
+_AgentDhcpServerLeaseIPAddress_Type = IpAddress
+_AgentDhcpServerLeaseIPAddress_Object = MibTableColumn
+agentDhcpServerLeaseIPAddress = _AgentDhcpServerLeaseIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 1),
+    _AgentDhcpServerLeaseIPAddress_Type()
+)
+agentDhcpServerLeaseIPAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseIPAddress.setStatus("current")
+_AgentDhcpServerLeaseIPMask_Type = IpAddress
+_AgentDhcpServerLeaseIPMask_Object = MibTableColumn
+agentDhcpServerLeaseIPMask = _AgentDhcpServerLeaseIPMask_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 2),
+    _AgentDhcpServerLeaseIPMask_Type()
+)
+agentDhcpServerLeaseIPMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseIPMask.setStatus("current")
+_AgentDhcpServerLeaseHWAddress_Type = MacAddress
+_AgentDhcpServerLeaseHWAddress_Object = MibTableColumn
+agentDhcpServerLeaseHWAddress = _AgentDhcpServerLeaseHWAddress_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 3),
+    _AgentDhcpServerLeaseHWAddress_Type()
+)
+agentDhcpServerLeaseHWAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseHWAddress.setStatus("current")
+_AgentDhcpServerLeaseRemainingTime_Type = TimeTicks
+_AgentDhcpServerLeaseRemainingTime_Object = MibTableColumn
+agentDhcpServerLeaseRemainingTime = _AgentDhcpServerLeaseRemainingTime_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 4),
+    _AgentDhcpServerLeaseRemainingTime_Type()
+)
+agentDhcpServerLeaseRemainingTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseRemainingTime.setStatus("current")
+
+
+class _AgentDhcpServerLeaseType_Type(Integer32):
+    """Custom type agentDhcpServerLeaseType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("automatic", 1),
+          ("manual", 2))
+    )
+
+
+_AgentDhcpServerLeaseType_Type.__name__ = "Integer32"
+_AgentDhcpServerLeaseType_Object = MibTableColumn
+agentDhcpServerLeaseType = _AgentDhcpServerLeaseType_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 5),
+    _AgentDhcpServerLeaseType_Type()
+)
+agentDhcpServerLeaseType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseType.setStatus("current")
+_AgentDhcpServerLeaseStatus_Type = RowStatus
+_AgentDhcpServerLeaseStatus_Object = MibTableColumn
+agentDhcpServerLeaseStatus = _AgentDhcpServerLeaseStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 6),
+    _AgentDhcpServerLeaseStatus_Type()
+)
+agentDhcpServerLeaseStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseStatus.setStatus("current")
+
+
+class _AgentDhcpServerLeasePoolName_Type(DisplayString):
+    """Custom type agentDhcpServerLeasePoolName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDhcpServerLeasePoolName_Type.__name__ = "DisplayString"
+_AgentDhcpServerLeasePoolName_Object = MibTableColumn
+agentDhcpServerLeasePoolName = _AgentDhcpServerLeasePoolName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 7),
+    _AgentDhcpServerLeasePoolName_Type()
+)
+agentDhcpServerLeasePoolName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeasePoolName.setStatus("current")
+
+
+class _AgentDhcpServerLeaseVrfName_Type(DisplayString):
+    """Custom type agentDhcpServerLeaseVrfName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_AgentDhcpServerLeaseVrfName_Type.__name__ = "DisplayString"
+_AgentDhcpServerLeaseVrfName_Object = MibTableColumn
+agentDhcpServerLeaseVrfName = _AgentDhcpServerLeaseVrfName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 8),
+    _AgentDhcpServerLeaseVrfName_Type()
+)
+agentDhcpServerLeaseVrfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseVrfName.setStatus("current")
+
+
+class _AgentDhcpServerLeaseLeaseIndex_Type(Unsigned32):
+    """Custom type agentDhcpServerLeaseLeaseIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4096),
+    )
+
+
+_AgentDhcpServerLeaseLeaseIndex_Type.__name__ = "Unsigned32"
+_AgentDhcpServerLeaseLeaseIndex_Object = MibTableColumn
+agentDhcpServerLeaseLeaseIndex = _AgentDhcpServerLeaseLeaseIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 9),
+    _AgentDhcpServerLeaseLeaseIndex_Type()
+)
+agentDhcpServerLeaseLeaseIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseLeaseIndex.setStatus("current")
+_AgentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings_Type = DisplayString
+_AgentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings_Object = MibScalar
+agentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings = _AgentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 3),
+    _AgentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings_Type()
+)
+agentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings.setStatus("current")
+_AgentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings_Type = DisplayString
+_AgentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings_Object = MibScalar
+agentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings = _AgentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 4),
+    _AgentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings_Type()
+)
+agentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings.setStatus("current")
+_AgentDhcpServerAddressConflictGroup_ObjectIdentity = ObjectIdentity
+agentDhcpServerAddressConflictGroup = _AgentDhcpServerAddressConflictGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4)
+)
+
+
+class _AgentDhcpServerClearAllAddressConflicts_Type(Integer32):
+    """Custom type agentDhcpServerClearAllAddressConflicts based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AgentDhcpServerClearAllAddressConflicts_Type.__name__ = "Integer32"
+_AgentDhcpServerClearAllAddressConflicts_Object = MibScalar
+agentDhcpServerClearAllAddressConflicts = _AgentDhcpServerClearAllAddressConflicts_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 1),
+    _AgentDhcpServerClearAllAddressConflicts_Type()
+)
+agentDhcpServerClearAllAddressConflicts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerClearAllAddressConflicts.setStatus("current")
+
+
+class _AgentDhcpServerAddressConflictLogging_Type(Integer32):
+    """Custom type agentDhcpServerAddressConflictLogging based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AgentDhcpServerAddressConflictLogging_Type.__name__ = "Integer32"
+_AgentDhcpServerAddressConflictLogging_Object = MibScalar
+agentDhcpServerAddressConflictLogging = _AgentDhcpServerAddressConflictLogging_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 2),
+    _AgentDhcpServerAddressConflictLogging_Type()
+)
+agentDhcpServerAddressConflictLogging.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerAddressConflictLogging.setStatus("current")
+_AgentDhcpServerAddressConflictTable_Object = MibTable
+agentDhcpServerAddressConflictTable = _AgentDhcpServerAddressConflictTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3)
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerAddressConflictTable.setStatus("current")
+_AgentDhcpServerAddressConflictEntry_Object = MibTableRow
+agentDhcpServerAddressConflictEntry = _AgentDhcpServerAddressConflictEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3, 1)
+)
+agentDhcpServerAddressConflictEntry.setIndexNames(
+    (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerAddressConflictIP"),
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerAddressConflictEntry.setStatus("current")
+_AgentDhcpServerAddressConflictIP_Type = IpAddress
+_AgentDhcpServerAddressConflictIP_Object = MibTableColumn
+agentDhcpServerAddressConflictIP = _AgentDhcpServerAddressConflictIP_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3, 1, 1),
+    _AgentDhcpServerAddressConflictIP_Type()
+)
+agentDhcpServerAddressConflictIP.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerAddressConflictIP.setStatus("current")
+
+
+class _AgentDhcpServerAddressConflictDetectionType_Type(Integer32):
+    """Custom type agentDhcpServerAddressConflictDetectionType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ping", 1),
+          ("gratuitousArp", 2))
+    )
+
+
+_AgentDhcpServerAddressConflictDetectionType_Type.__name__ = "Integer32"
+_AgentDhcpServerAddressConflictDetectionType_Object = MibTableColumn
+agentDhcpServerAddressConflictDetectionType = _AgentDhcpServerAddressConflictDetectionType_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3, 1, 2),
+    _AgentDhcpServerAddressConflictDetectionType_Type()
+)
+agentDhcpServerAddressConflictDetectionType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerAddressConflictDetectionType.setStatus("current")
+_AgentDhcpServerAddressConflictDetectionTime_Type = TimeTicks
+_AgentDhcpServerAddressConflictDetectionTime_Object = MibTableColumn
+agentDhcpServerAddressConflictDetectionTime = _AgentDhcpServerAddressConflictDetectionTime_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3, 1, 3),
+    _AgentDhcpServerAddressConflictDetectionTime_Type()
+)
+agentDhcpServerAddressConflictDetectionTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerAddressConflictDetectionTime.setStatus("current")
+_AgentDhcpServerAddressConflictStatus_Type = RowStatus
+_AgentDhcpServerAddressConflictStatus_Object = MibTableColumn
+agentDhcpServerAddressConflictStatus = _AgentDhcpServerAddressConflictStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3, 1, 4),
+    _AgentDhcpServerAddressConflictStatus_Type()
+)
+agentDhcpServerAddressConflictStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerAddressConflictStatus.setStatus("current")
+_AgentDhcpServerClassConfigGroup_ObjectIdentity = ObjectIdentity
+agentDhcpServerClassConfigGroup = _AgentDhcpServerClassConfigGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5)
+)
+_AgentDhcpServerClassTable_Object = MibTable
+agentDhcpServerClassTable = _AgentDhcpServerClassTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 1)
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerClassTable.setStatus("current")
+_AgentDhcpServerClassEntry_Object = MibTableRow
+agentDhcpServerClassEntry = _AgentDhcpServerClassEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 1, 1)
+)
+agentDhcpServerClassEntry.setIndexNames(
+    (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerClassIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerClassEntry.setStatus("current")
+
+
+class _AgentDhcpServerClassIndex_Type(Unsigned32):
+    """Custom type agentDhcpServerClassIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_AgentDhcpServerClassIndex_Type.__name__ = "Unsigned32"
+_AgentDhcpServerClassIndex_Object = MibTableColumn
+agentDhcpServerClassIndex = _AgentDhcpServerClassIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 1, 1, 1),
+    _AgentDhcpServerClassIndex_Type()
+)
+agentDhcpServerClassIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerClassIndex.setStatus("current")
+
+
+class _AgentDhcpServerClassName_Type(DisplayString):
+    """Custom type agentDhcpServerClassName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDhcpServerClassName_Type.__name__ = "DisplayString"
+_AgentDhcpServerClassName_Object = MibTableColumn
+agentDhcpServerClassName = _AgentDhcpServerClassName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 1, 1, 2),
+    _AgentDhcpServerClassName_Type()
+)
+agentDhcpServerClassName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerClassName.setStatus("current")
+_AgentDhcpServerClassRowStatus_Type = RowStatus
+_AgentDhcpServerClassRowStatus_Object = MibTableColumn
+agentDhcpServerClassRowStatus = _AgentDhcpServerClassRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 1, 1, 3),
+    _AgentDhcpServerClassRowStatus_Type()
+)
+agentDhcpServerClassRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerClassRowStatus.setStatus("current")
+_AgentDhcpServerClassConfigTable_Object = MibTable
+agentDhcpServerClassConfigTable = _AgentDhcpServerClassConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2)
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerClassConfigTable.setStatus("current")
+_AgentDhcpServerClassConfigEntry_Object = MibTableRow
+agentDhcpServerClassConfigEntry = _AgentDhcpServerClassConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1)
+)
+agentDhcpServerClassConfigEntry.setIndexNames(
+    (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerClassConfigIndex"),
+    (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerClassEntryIndex"),
+)
+if mibBuilder.loadTexts:
+    agentDhcpServerClassConfigEntry.setStatus("current")
+
+
+class _AgentDhcpServerClassConfigIndex_Type(Unsigned32):
+    """Custom type agentDhcpServerClassConfigIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_AgentDhcpServerClassConfigIndex_Type.__name__ = "Unsigned32"
+_AgentDhcpServerClassConfigIndex_Object = MibTableColumn
+agentDhcpServerClassConfigIndex = _AgentDhcpServerClassConfigIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 1),
+    _AgentDhcpServerClassConfigIndex_Type()
+)
+agentDhcpServerClassConfigIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerClassConfigIndex.setStatus("current")
+
+
+class _AgentDhcpServerClassEntryIndex_Type(Unsigned32):
+    """Custom type agentDhcpServerClassEntryIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 32),
+    )
+
+
+_AgentDhcpServerClassEntryIndex_Type.__name__ = "Unsigned32"
+_AgentDhcpServerClassEntryIndex_Object = MibTableColumn
+agentDhcpServerClassEntryIndex = _AgentDhcpServerClassEntryIndex_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 2),
+    _AgentDhcpServerClassEntryIndex_Type()
+)
+agentDhcpServerClassEntryIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentDhcpServerClassEntryIndex.setStatus("current")
+
+
+class _AgentDhcpServerClassConfigName_Type(DisplayString):
+    """Custom type agentDhcpServerClassConfigName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDhcpServerClassConfigName_Type.__name__ = "DisplayString"
+_AgentDhcpServerClassConfigName_Object = MibTableColumn
+agentDhcpServerClassConfigName = _AgentDhcpServerClassConfigName_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 3),
+    _AgentDhcpServerClassConfigName_Type()
+)
+agentDhcpServerClassConfigName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerClassConfigName.setStatus("current")
+
+
+class _AgentDhcpServerClassConfigRemoteId_Type(DisplayString):
+    """Custom type agentDhcpServerClassConfigRemoteId based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDhcpServerClassConfigRemoteId_Type.__name__ = "DisplayString"
+_AgentDhcpServerClassConfigRemoteId_Object = MibTableColumn
+agentDhcpServerClassConfigRemoteId = _AgentDhcpServerClassConfigRemoteId_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 4),
+    _AgentDhcpServerClassConfigRemoteId_Type()
+)
+agentDhcpServerClassConfigRemoteId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerClassConfigRemoteId.setStatus("current")
+
+
+class _AgentDhcpServerClassConfigCircuitId_Type(DisplayString):
+    """Custom type agentDhcpServerClassConfigCircuitId based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AgentDhcpServerClassConfigCircuitId_Type.__name__ = "DisplayString"
+_AgentDhcpServerClassConfigCircuitId_Object = MibTableColumn
+agentDhcpServerClassConfigCircuitId = _AgentDhcpServerClassConfigCircuitId_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 5),
+    _AgentDhcpServerClassConfigCircuitId_Type()
+)
+agentDhcpServerClassConfigCircuitId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerClassConfigCircuitId.setStatus("current")
+_AgentDhcpServerClassConfigRowStatus_Type = RowStatus
+_AgentDhcpServerClassConfigRowStatus_Object = MibTableColumn
+agentDhcpServerClassConfigRowStatus = _AgentDhcpServerClassConfigRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 6),
+    _AgentDhcpServerClassConfigRowStatus_Type()
+)
+agentDhcpServerClassConfigRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentDhcpServerClassConfigRowStatus.setStatus("current")
+agentDhcpServerPoolConfigEntry.registerAugmentions(
+    ("DNOS-DHCPSERVER-PRIVATE-MIB",
+     "agentDhcpServerPoolAllocationEntry")
+)
 agentDhcpServerPoolAllocationEntry.setIndexNames(*agentDhcpServerPoolConfigEntry.getIndexNames())
-if mibBuilder.loadTexts: agentDhcpServerPoolAllocationEntry.setStatus('current')
-agentDhcpServerPoolAllocationName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerPoolAllocationName.setStatus('current')
-agentDhcpServerDynamicPoolIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerDynamicPoolIpAddress.setStatus('current')
-agentDhcpServerDynamicPoolIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerDynamicPoolIpMask.setStatus('current')
-agentDhcpServerDynamicPoolIpPrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 4), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerDynamicPoolIpPrefixLength.setStatus('current')
-agentDhcpServerPoolAllocationType = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("un-allocated", 0), ("dynamic", 1), ("manual", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerPoolAllocationType.setStatus('current')
-agentDhcpServerManualPoolClientIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerManualPoolClientIdentifier.setStatus('current')
-agentDhcpServerManualPoolClientName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerManualPoolClientName.setStatus('current')
-agentDhcpServerManualPoolClientHWAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerManualPoolClientHWAddr.setStatus('current')
-agentDhcpServerManualPoolClientHWType = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 6))).clone(namedValues=NamedValues(("ethernet", 1), ("ieee802", 6))).clone('ethernet')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerManualPoolClientHWType.setStatus('current')
-agentDhcpServerManualPoolIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 10), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerManualPoolIpAddress.setStatus('current')
-agentDhcpServerManualPoolIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 11), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerManualPoolIpMask.setStatus('current')
-agentDhcpServerManualPoolIpPrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 12), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerManualPoolIpPrefixLength.setStatus('current')
-agentDhcpServerPoolVrfName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 3, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolVrfName.setStatus('current')
-agentDhcpServerExcludedAddressRangeCreate = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerExcludedAddressRangeCreate.setStatus('current')
-agentDhcpServerExcludedAddressRangeTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5), )
-if mibBuilder.loadTexts: agentDhcpServerExcludedAddressRangeTable.setStatus('current')
-agentDhcpServerExcludedAddressRangeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1), ).setIndexNames((0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerExcludedRangeIndex"))
-if mibBuilder.loadTexts: agentDhcpServerExcludedAddressRangeEntry.setStatus('current')
-agentDhcpServerExcludedRangeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 256))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerExcludedRangeIndex.setStatus('current')
-agentDhcpServerExcludedStartIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerExcludedStartIpAddress.setStatus('current')
-agentDhcpServerExcludedEndIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerExcludedEndIpAddress.setStatus('current')
-agentDhcpServerExcludedAddressRangeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1, 4), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerExcludedAddressRangeStatus.setStatus('current')
-agentDhcpServerExcludedVrfName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 5, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerExcludedVrfName.setStatus('current')
-agentDhcpServerPoolOptionCreate = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolOptionCreate.setStatus('current')
-agentDhcpServerPoolOptionTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7), )
-if mibBuilder.loadTexts: agentDhcpServerPoolOptionTable.setStatus('current')
-agentDhcpServerPoolOptionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1), ).setIndexNames((0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerPoolOptionIndex"), (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerPoolOptionCode"))
-if mibBuilder.loadTexts: agentDhcpServerPoolOptionEntry.setStatus('current')
-agentDhcpServerPoolOptionIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 512))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerPoolOptionIndex.setStatus('current')
-agentDhcpServerPoolOptionCode = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 254))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolOptionCode.setStatus('current')
-agentDhcpServerOptionPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerOptionPoolName.setStatus('current')
-agentDhcpServerPoolOptionAsciiData = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 441))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolOptionAsciiData.setStatus('current')
-agentDhcpServerPoolOptionHexData = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 1324))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolOptionHexData.setStatus('current')
-agentDhcpServerPoolOptionIpAddressData = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolOptionIpAddressData.setStatus('current')
-agentDhcpServerPoolOptionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 7, 1, 7), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolOptionStatus.setStatus('current')
-agentDhcpServerPoolClassTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8), )
-if mibBuilder.loadTexts: agentDhcpServerPoolClassTable.setStatus('current')
-agentDhcpServerPoolClassEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1), ).setIndexNames((0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerPoolNameIndex"), (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerPoolClassNameIndex"))
-if mibBuilder.loadTexts: agentDhcpServerPoolClassEntry.setStatus('current')
-agentDhcpServerPoolNameIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerPoolNameIndex.setStatus('current')
-agentDhcpServerPoolClassNameIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerPoolClassNameIndex.setStatus('current')
-agentDhcpServerPoolNameForClass = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolNameForClass.setStatus('current')
-agentDhcpServerPoolClassName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolClassName.setStatus('current')
-agentDhcpServerPoolClassStartIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 5), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolClassStartIpAddress.setStatus('current')
-agentDhcpServerPoolClassEndIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 6), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolClassEndIpAddress.setStatus('current')
-agentDhcpServerPoolClassAddressRangeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 2, 8, 1, 7), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerPoolClassAddressRangeStatus.setStatus('current')
-agentDhcpServerLeaseGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3))
-agentDhcpServerLeaseClearAllBindings = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerLeaseClearAllBindings.setStatus('current')
-agentDhcpServerLeaseTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2), )
-if mibBuilder.loadTexts: agentDhcpServerLeaseTable.setStatus('current')
-agentDhcpServerLeaseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1), ).setIndexNames((0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerLeaseLeaseIndex"))
-if mibBuilder.loadTexts: agentDhcpServerLeaseEntry.setStatus('current')
-agentDhcpServerLeaseIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerLeaseIPAddress.setStatus('current')
-agentDhcpServerLeaseIPMask = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerLeaseIPMask.setStatus('current')
-agentDhcpServerLeaseHWAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerLeaseHWAddress.setStatus('current')
-agentDhcpServerLeaseRemainingTime = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerLeaseRemainingTime.setStatus('current')
-agentDhcpServerLeaseType = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("automatic", 1), ("manual", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerLeaseType.setStatus('current')
-agentDhcpServerLeaseStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 6), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerLeaseStatus.setStatus('current')
-agentDhcpServerLeasePoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerLeasePoolName.setStatus('current')
-agentDhcpServerLeaseVrfName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerLeaseVrfName.setStatus('current')
-agentDhcpServerLeaseLeaseIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 2, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4096))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerLeaseLeaseIndex.setStatus('current')
-agentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings.setStatus('current')
-agentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 3, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings.setStatus('current')
-agentDhcpServerAddressConflictGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4))
-agentDhcpServerClearAllAddressConflicts = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerClearAllAddressConflicts.setStatus('current')
-agentDhcpServerAddressConflictLogging = MibScalar((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerAddressConflictLogging.setStatus('current')
-agentDhcpServerAddressConflictTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3), )
-if mibBuilder.loadTexts: agentDhcpServerAddressConflictTable.setStatus('current')
-agentDhcpServerAddressConflictEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3, 1), ).setIndexNames((0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerAddressConflictIP"))
-if mibBuilder.loadTexts: agentDhcpServerAddressConflictEntry.setStatus('current')
-agentDhcpServerAddressConflictIP = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerAddressConflictIP.setStatus('current')
-agentDhcpServerAddressConflictDetectionType = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ping", 1), ("gratuitousArp", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerAddressConflictDetectionType.setStatus('current')
-agentDhcpServerAddressConflictDetectionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3, 1, 3), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerAddressConflictDetectionTime.setStatus('current')
-agentDhcpServerAddressConflictStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 4, 3, 1, 4), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerAddressConflictStatus.setStatus('current')
-agentDhcpServerClassConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5))
-agentDhcpServerClassTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 1), )
-if mibBuilder.loadTexts: agentDhcpServerClassTable.setStatus('current')
-agentDhcpServerClassEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 1, 1), ).setIndexNames((0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerClassIndex"))
-if mibBuilder.loadTexts: agentDhcpServerClassEntry.setStatus('current')
-agentDhcpServerClassIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerClassIndex.setStatus('current')
-agentDhcpServerClassName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerClassName.setStatus('current')
-agentDhcpServerClassRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 1, 1, 3), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerClassRowStatus.setStatus('current')
-agentDhcpServerClassConfigTable = MibTable((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2), )
-if mibBuilder.loadTexts: agentDhcpServerClassConfigTable.setStatus('current')
-agentDhcpServerClassConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1), ).setIndexNames((0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerClassConfigIndex"), (0, "DNOS-DHCPSERVER-PRIVATE-MIB", "agentDhcpServerClassEntryIndex"))
-if mibBuilder.loadTexts: agentDhcpServerClassConfigEntry.setStatus('current')
-agentDhcpServerClassConfigIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerClassConfigIndex.setStatus('current')
-agentDhcpServerClassEntryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentDhcpServerClassEntryIndex.setStatus('current')
-agentDhcpServerClassConfigName = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerClassConfigName.setStatus('current')
-agentDhcpServerClassConfigRemoteId = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerClassConfigRemoteId.setStatus('current')
-agentDhcpServerClassConfigCircuitId = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerClassConfigCircuitId.setStatus('current')
-agentDhcpServerClassConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 674, 10895, 5000, 2, 6132, 1, 1, 12, 5, 2, 1, 6), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentDhcpServerClassConfigRowStatus.setStatus('current')
-mibBuilder.exportSymbols("DNOS-DHCPSERVER-PRIVATE-MIB", agentDhcpServerMalformedMessagesReceived=agentDhcpServerMalformedMessagesReceived, agentDhcpServerPoolSNTPServer=agentDhcpServerPoolSNTPServer, agentDhcpServerPoolOptionStatus=agentDhcpServerPoolOptionStatus, agentDhcpServerClassConfigTable=agentDhcpServerClassConfigTable, agentDhcpServerINFORMMessagesReceived=agentDhcpServerINFORMMessagesReceived, agentDhcpServerPoolOptionCreate=agentDhcpServerPoolOptionCreate, agentDhcpServerGroup=agentDhcpServerGroup, agentDhcpServerDynamicPoolIpPrefixLength=agentDhcpServerDynamicPoolIpPrefixLength, agentDhcpServerExcludedVrfName=agentDhcpServerExcludedVrfName, PYSNMP_MODULE_ID=fastPathDHCPServerPrivate, agentDhcpServerPoolOptionIpAddressData=agentDhcpServerPoolOptionIpAddressData, agentDhcpServerClassName=agentDhcpServerClassName, agentDhcpServerPoolAllocationEntry=agentDhcpServerPoolAllocationEntry, agentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings=agentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings, agentDhcpServerBootpAutomatic=agentDhcpServerBootpAutomatic, agentDhcpServerLeaseType=agentDhcpServerLeaseType, agentDhcpServerPoolName=agentDhcpServerPoolName, agentDhcpServerClassConfigGroup=agentDhcpServerClassConfigGroup, agentDhcpServerPoolNextServer=agentDhcpServerPoolNextServer, agentDhcpServerLeaseStatus=agentDhcpServerLeaseStatus, agentDhcpServerDISCOVERMessagesDiscarded=agentDhcpServerDISCOVERMessagesDiscarded, agentDhcpServerManualPoolClientIdentifier=agentDhcpServerManualPoolClientIdentifier, agentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings=agentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings, agentDhcpServerManualPoolIpMask=agentDhcpServerManualPoolIpMask, agentDhcpServerExcludedRangeIndex=agentDhcpServerExcludedRangeIndex, agentDhcpServerPoolNameForClass=agentDhcpServerPoolNameForClass, agentDhcpServerRELEASEMessagesReceived=agentDhcpServerRELEASEMessagesReceived, agentDhcpServerClassConfigIndex=agentDhcpServerClassConfigIndex, agentDhcpServerAdminMode=agentDhcpServerAdminMode, agentDhcpServerPoolAllocationType=agentDhcpServerPoolAllocationType, agentDhcpServerManualPoolClientHWAddr=agentDhcpServerManualPoolClientHWAddr, agentDhcpServerPoolClassStartIpAddress=agentDhcpServerPoolClassStartIpAddress, agentDhcpServerDISCOVERMessagesReceived=agentDhcpServerDISCOVERMessagesReceived, agentDhcpServerLeaseRemainingTime=agentDhcpServerLeaseRemainingTime, agentDhcpServerClassEntry=agentDhcpServerClassEntry, fastPathDHCPServerPrivate=fastPathDHCPServerPrivate, agentDhcpServerPingPktNos=agentDhcpServerPingPktNos, agentDhcpServerLeaseClearAllBindings=agentDhcpServerLeaseClearAllBindings, agentDhcpServerExcludedAddressRangeCreate=agentDhcpServerExcludedAddressRangeCreate, agentDhcpServerNAKMessagesSent=agentDhcpServerNAKMessagesSent, agentDhcpServerLeaseEntry=agentDhcpServerLeaseEntry, agentDhcpServerPoolIndex=agentDhcpServerPoolIndex, agentDhcpServerPoolConfigTable=agentDhcpServerPoolConfigTable, agentDhcpServerDynamicPoolIpAddress=agentDhcpServerDynamicPoolIpAddress, agentDhcpServerPoolAllocationTable=agentDhcpServerPoolAllocationTable, agentDhcpServerLeaseTable=agentDhcpServerLeaseTable, agentDhcpServerPoolDefRouter=agentDhcpServerPoolDefRouter, agentDhcpServerPoolNetbiosNodeType=agentDhcpServerPoolNetbiosNodeType, agentDhcpServerClearStatistics=agentDhcpServerClearStatistics, agentDhcpServerAddressConflictDetectionType=agentDhcpServerAddressConflictDetectionType, agentDhcpServerPoolOptionHexData=agentDhcpServerPoolOptionHexData, agentDhcpServerLeaseVrfName=agentDhcpServerLeaseVrfName, agentDhcpServerClassConfigCircuitId=agentDhcpServerClassConfigCircuitId, agentDhcpServerPoolDNSServer=agentDhcpServerPoolDNSServer, agentDhcpServerPoolClassEntry=agentDhcpServerPoolClassEntry, agentDhcpServerLeaseLeaseIndex=agentDhcpServerLeaseLeaseIndex, agentDhcpServerOptionPoolName=agentDhcpServerOptionPoolName, agentDhcpServerPoolClassAddressRangeStatus=agentDhcpServerPoolClassAddressRangeStatus, agentDhcpServerPoolOptionIndex=agentDhcpServerPoolOptionIndex, agentDhcpServerExcludedAddressRangeTable=agentDhcpServerExcludedAddressRangeTable, agentDhcpServerPoolBootfile=agentDhcpServerPoolBootfile, agentDhcpServerClassEntryIndex=agentDhcpServerClassEntryIndex, agentDhcpServerExcludedEndIpAddress=agentDhcpServerExcludedEndIpAddress, agentDhcpServerPoolDomainName=agentDhcpServerPoolDomainName, agentDhcpServerAddressConflictLogging=agentDhcpServerAddressConflictLogging, agentDhcpServerClassConfigRowStatus=agentDhcpServerClassConfigRowStatus, agentDhcpServerPoolType=agentDhcpServerPoolType, agentDhcpServerClassIndex=agentDhcpServerClassIndex, agentDhcpServerAddressConflictIP=agentDhcpServerAddressConflictIP, agentDhcpServerPoolOptionEntry=agentDhcpServerPoolOptionEntry, agentDhcpServerManualPoolClientHWType=agentDhcpServerManualPoolClientHWType, agentDhcpServerAddressConflictDetectionTime=agentDhcpServerAddressConflictDetectionTime, agentDhcpServerClassConfigName=agentDhcpServerClassConfigName, agentDhcpServerManualPoolIpAddress=agentDhcpServerManualPoolIpAddress, agentDhcpServerAddressConflictStatus=agentDhcpServerAddressConflictStatus, agentDhcpServerPoolRowStatus=agentDhcpServerPoolRowStatus, agentDhcpServerDECLINEMessagesReceived=agentDhcpServerDECLINEMessagesReceived, agentDhcpServerLeaseIPAddress=agentDhcpServerLeaseIPAddress, agentDhcpServerPoolNetbiosNameServer=agentDhcpServerPoolNetbiosNameServer, agentDhcpServerExcludedAddressRangeEntry=agentDhcpServerExcludedAddressRangeEntry, agentDhcpServerExpiredBindingsNos=agentDhcpServerExpiredBindingsNos, agentDhcpServerLeaseIPMask=agentDhcpServerLeaseIPMask, agentDhcpServerManualPoolIpPrefixLength=agentDhcpServerManualPoolIpPrefixLength, agentDhcpServerPoolAllocationName=agentDhcpServerPoolAllocationName, agentDhcpServerLeaseGroup=agentDhcpServerLeaseGroup, agentDhcpServerREQUESTMessagesReceived=agentDhcpServerREQUESTMessagesReceived, agentDhcpServerACKMessagesSent=agentDhcpServerACKMessagesSent, agentDhcpServerLeasePoolName=agentDhcpServerLeasePoolName, agentDhcpServerPoolLeaseTime=agentDhcpServerPoolLeaseTime, agentDhcpServerClassConfigEntry=agentDhcpServerClassConfigEntry, agentDhcpServerExcludedAddressRangeStatus=agentDhcpServerExcludedAddressRangeStatus, agentDhcpServerExcludedStartIpAddress=agentDhcpServerExcludedStartIpAddress, agentDhcpServerPoolClassEndIpAddress=agentDhcpServerPoolClassEndIpAddress, agentDhcpServerAddressConflictEntry=agentDhcpServerAddressConflictEntry, agentDhcpServerDynamicPoolIpMask=agentDhcpServerDynamicPoolIpMask, agentDhcpServerClearAllAddressConflicts=agentDhcpServerClearAllAddressConflicts, agentDhcpServerPoolNameCreate=agentDhcpServerPoolNameCreate, agentDhcpServerOFFERMessagesSent=agentDhcpServerOFFERMessagesSent, agentDhcpServerPoolClassTable=agentDhcpServerPoolClassTable, agentDhcpServerLeaseHWAddress=agentDhcpServerLeaseHWAddress, agentDhcpServerClassConfigRemoteId=agentDhcpServerClassConfigRemoteId, agentDhcpServerPoolNameIndex=agentDhcpServerPoolNameIndex, agentDhcpServerPoolVrfName=agentDhcpServerPoolVrfName, agentDhcpServerClassTable=agentDhcpServerClassTable, agentDhcpServerAddressConflictTable=agentDhcpServerAddressConflictTable, agentDhcpServerPoolClassNameIndex=agentDhcpServerPoolClassNameIndex, agentDhcpServerPoolOptionTable=agentDhcpServerPoolOptionTable, agentDhcpServerManualPoolClientName=agentDhcpServerManualPoolClientName, agentDhcpServerPoolOptionAsciiData=agentDhcpServerPoolOptionAsciiData, agentDhcpServerPoolConfigEntry=agentDhcpServerPoolConfigEntry, agentDhcpServerAddressConflictGroup=agentDhcpServerAddressConflictGroup, agentDhcpServerPoolConfigGroup=agentDhcpServerPoolConfigGroup, agentDhcpServerPoolClassName=agentDhcpServerPoolClassName, agentDhcpServerAutomaticBindingsNos=agentDhcpServerAutomaticBindingsNos, agentDhcpServerPoolOptionCode=agentDhcpServerPoolOptionCode, agentDhcpServerClassRowStatus=agentDhcpServerClassRowStatus)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DNOS-DHCPSERVER-PRIVATE-MIB",
+    **{"fastPathDHCPServerPrivate": fastPathDHCPServerPrivate,
+       "agentDhcpServerGroup": agentDhcpServerGroup,
+       "agentDhcpServerAdminMode": agentDhcpServerAdminMode,
+       "agentDhcpServerPingPktNos": agentDhcpServerPingPktNos,
+       "agentDhcpServerAutomaticBindingsNos": agentDhcpServerAutomaticBindingsNos,
+       "agentDhcpServerExpiredBindingsNos": agentDhcpServerExpiredBindingsNos,
+       "agentDhcpServerMalformedMessagesReceived": agentDhcpServerMalformedMessagesReceived,
+       "agentDhcpServerDISCOVERMessagesReceived": agentDhcpServerDISCOVERMessagesReceived,
+       "agentDhcpServerREQUESTMessagesReceived": agentDhcpServerREQUESTMessagesReceived,
+       "agentDhcpServerDECLINEMessagesReceived": agentDhcpServerDECLINEMessagesReceived,
+       "agentDhcpServerRELEASEMessagesReceived": agentDhcpServerRELEASEMessagesReceived,
+       "agentDhcpServerINFORMMessagesReceived": agentDhcpServerINFORMMessagesReceived,
+       "agentDhcpServerOFFERMessagesSent": agentDhcpServerOFFERMessagesSent,
+       "agentDhcpServerACKMessagesSent": agentDhcpServerACKMessagesSent,
+       "agentDhcpServerNAKMessagesSent": agentDhcpServerNAKMessagesSent,
+       "agentDhcpServerClearStatistics": agentDhcpServerClearStatistics,
+       "agentDhcpServerBootpAutomatic": agentDhcpServerBootpAutomatic,
+       "agentDhcpServerDISCOVERMessagesDiscarded": agentDhcpServerDISCOVERMessagesDiscarded,
+       "agentDhcpServerPoolConfigGroup": agentDhcpServerPoolConfigGroup,
+       "agentDhcpServerPoolNameCreate": agentDhcpServerPoolNameCreate,
+       "agentDhcpServerPoolConfigTable": agentDhcpServerPoolConfigTable,
+       "agentDhcpServerPoolConfigEntry": agentDhcpServerPoolConfigEntry,
+       "agentDhcpServerPoolIndex": agentDhcpServerPoolIndex,
+       "agentDhcpServerPoolName": agentDhcpServerPoolName,
+       "agentDhcpServerPoolDefRouter": agentDhcpServerPoolDefRouter,
+       "agentDhcpServerPoolDNSServer": agentDhcpServerPoolDNSServer,
+       "agentDhcpServerPoolLeaseTime": agentDhcpServerPoolLeaseTime,
+       "agentDhcpServerPoolType": agentDhcpServerPoolType,
+       "agentDhcpServerPoolNetbiosNameServer": agentDhcpServerPoolNetbiosNameServer,
+       "agentDhcpServerPoolNetbiosNodeType": agentDhcpServerPoolNetbiosNodeType,
+       "agentDhcpServerPoolSNTPServer": agentDhcpServerPoolSNTPServer,
+       "agentDhcpServerPoolNextServer": agentDhcpServerPoolNextServer,
+       "agentDhcpServerPoolDomainName": agentDhcpServerPoolDomainName,
+       "agentDhcpServerPoolBootfile": agentDhcpServerPoolBootfile,
+       "agentDhcpServerPoolRowStatus": agentDhcpServerPoolRowStatus,
+       "agentDhcpServerPoolAllocationTable": agentDhcpServerPoolAllocationTable,
+       "agentDhcpServerPoolAllocationEntry": agentDhcpServerPoolAllocationEntry,
+       "agentDhcpServerPoolAllocationName": agentDhcpServerPoolAllocationName,
+       "agentDhcpServerDynamicPoolIpAddress": agentDhcpServerDynamicPoolIpAddress,
+       "agentDhcpServerDynamicPoolIpMask": agentDhcpServerDynamicPoolIpMask,
+       "agentDhcpServerDynamicPoolIpPrefixLength": agentDhcpServerDynamicPoolIpPrefixLength,
+       "agentDhcpServerPoolAllocationType": agentDhcpServerPoolAllocationType,
+       "agentDhcpServerManualPoolClientIdentifier": agentDhcpServerManualPoolClientIdentifier,
+       "agentDhcpServerManualPoolClientName": agentDhcpServerManualPoolClientName,
+       "agentDhcpServerManualPoolClientHWAddr": agentDhcpServerManualPoolClientHWAddr,
+       "agentDhcpServerManualPoolClientHWType": agentDhcpServerManualPoolClientHWType,
+       "agentDhcpServerManualPoolIpAddress": agentDhcpServerManualPoolIpAddress,
+       "agentDhcpServerManualPoolIpMask": agentDhcpServerManualPoolIpMask,
+       "agentDhcpServerManualPoolIpPrefixLength": agentDhcpServerManualPoolIpPrefixLength,
+       "agentDhcpServerPoolVrfName": agentDhcpServerPoolVrfName,
+       "agentDhcpServerExcludedAddressRangeCreate": agentDhcpServerExcludedAddressRangeCreate,
+       "agentDhcpServerExcludedAddressRangeTable": agentDhcpServerExcludedAddressRangeTable,
+       "agentDhcpServerExcludedAddressRangeEntry": agentDhcpServerExcludedAddressRangeEntry,
+       "agentDhcpServerExcludedRangeIndex": agentDhcpServerExcludedRangeIndex,
+       "agentDhcpServerExcludedStartIpAddress": agentDhcpServerExcludedStartIpAddress,
+       "agentDhcpServerExcludedEndIpAddress": agentDhcpServerExcludedEndIpAddress,
+       "agentDhcpServerExcludedAddressRangeStatus": agentDhcpServerExcludedAddressRangeStatus,
+       "agentDhcpServerExcludedVrfName": agentDhcpServerExcludedVrfName,
+       "agentDhcpServerPoolOptionCreate": agentDhcpServerPoolOptionCreate,
+       "agentDhcpServerPoolOptionTable": agentDhcpServerPoolOptionTable,
+       "agentDhcpServerPoolOptionEntry": agentDhcpServerPoolOptionEntry,
+       "agentDhcpServerPoolOptionIndex": agentDhcpServerPoolOptionIndex,
+       "agentDhcpServerPoolOptionCode": agentDhcpServerPoolOptionCode,
+       "agentDhcpServerOptionPoolName": agentDhcpServerOptionPoolName,
+       "agentDhcpServerPoolOptionAsciiData": agentDhcpServerPoolOptionAsciiData,
+       "agentDhcpServerPoolOptionHexData": agentDhcpServerPoolOptionHexData,
+       "agentDhcpServerPoolOptionIpAddressData": agentDhcpServerPoolOptionIpAddressData,
+       "agentDhcpServerPoolOptionStatus": agentDhcpServerPoolOptionStatus,
+       "agentDhcpServerPoolClassTable": agentDhcpServerPoolClassTable,
+       "agentDhcpServerPoolClassEntry": agentDhcpServerPoolClassEntry,
+       "agentDhcpServerPoolNameIndex": agentDhcpServerPoolNameIndex,
+       "agentDhcpServerPoolClassNameIndex": agentDhcpServerPoolClassNameIndex,
+       "agentDhcpServerPoolNameForClass": agentDhcpServerPoolNameForClass,
+       "agentDhcpServerPoolClassName": agentDhcpServerPoolClassName,
+       "agentDhcpServerPoolClassStartIpAddress": agentDhcpServerPoolClassStartIpAddress,
+       "agentDhcpServerPoolClassEndIpAddress": agentDhcpServerPoolClassEndIpAddress,
+       "agentDhcpServerPoolClassAddressRangeStatus": agentDhcpServerPoolClassAddressRangeStatus,
+       "agentDhcpServerLeaseGroup": agentDhcpServerLeaseGroup,
+       "agentDhcpServerLeaseClearAllBindings": agentDhcpServerLeaseClearAllBindings,
+       "agentDhcpServerLeaseTable": agentDhcpServerLeaseTable,
+       "agentDhcpServerLeaseEntry": agentDhcpServerLeaseEntry,
+       "agentDhcpServerLeaseIPAddress": agentDhcpServerLeaseIPAddress,
+       "agentDhcpServerLeaseIPMask": agentDhcpServerLeaseIPMask,
+       "agentDhcpServerLeaseHWAddress": agentDhcpServerLeaseHWAddress,
+       "agentDhcpServerLeaseRemainingTime": agentDhcpServerLeaseRemainingTime,
+       "agentDhcpServerLeaseType": agentDhcpServerLeaseType,
+       "agentDhcpServerLeaseStatus": agentDhcpServerLeaseStatus,
+       "agentDhcpServerLeasePoolName": agentDhcpServerLeasePoolName,
+       "agentDhcpServerLeaseVrfName": agentDhcpServerLeaseVrfName,
+       "agentDhcpServerLeaseLeaseIndex": agentDhcpServerLeaseLeaseIndex,
+       "agentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings": agentDhcpServerLeaseClearVrfAndIPaddrSpecificBindings,
+       "agentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings": agentDhcpServerLeaseClearPoolAndIPaddrSpecificBindings,
+       "agentDhcpServerAddressConflictGroup": agentDhcpServerAddressConflictGroup,
+       "agentDhcpServerClearAllAddressConflicts": agentDhcpServerClearAllAddressConflicts,
+       "agentDhcpServerAddressConflictLogging": agentDhcpServerAddressConflictLogging,
+       "agentDhcpServerAddressConflictTable": agentDhcpServerAddressConflictTable,
+       "agentDhcpServerAddressConflictEntry": agentDhcpServerAddressConflictEntry,
+       "agentDhcpServerAddressConflictIP": agentDhcpServerAddressConflictIP,
+       "agentDhcpServerAddressConflictDetectionType": agentDhcpServerAddressConflictDetectionType,
+       "agentDhcpServerAddressConflictDetectionTime": agentDhcpServerAddressConflictDetectionTime,
+       "agentDhcpServerAddressConflictStatus": agentDhcpServerAddressConflictStatus,
+       "agentDhcpServerClassConfigGroup": agentDhcpServerClassConfigGroup,
+       "agentDhcpServerClassTable": agentDhcpServerClassTable,
+       "agentDhcpServerClassEntry": agentDhcpServerClassEntry,
+       "agentDhcpServerClassIndex": agentDhcpServerClassIndex,
+       "agentDhcpServerClassName": agentDhcpServerClassName,
+       "agentDhcpServerClassRowStatus": agentDhcpServerClassRowStatus,
+       "agentDhcpServerClassConfigTable": agentDhcpServerClassConfigTable,
+       "agentDhcpServerClassConfigEntry": agentDhcpServerClassConfigEntry,
+       "agentDhcpServerClassConfigIndex": agentDhcpServerClassConfigIndex,
+       "agentDhcpServerClassEntryIndex": agentDhcpServerClassEntryIndex,
+       "agentDhcpServerClassConfigName": agentDhcpServerClassConfigName,
+       "agentDhcpServerClassConfigRemoteId": agentDhcpServerClassConfigRemoteId,
+       "agentDhcpServerClassConfigCircuitId": agentDhcpServerClassConfigCircuitId,
+       "agentDhcpServerClassConfigRowStatus": agentDhcpServerClassConfigRowStatus}
+)

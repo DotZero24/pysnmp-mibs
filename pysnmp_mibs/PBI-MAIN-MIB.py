@@ -1,24 +1,170 @@
+# SNMP MIB module (PBI-MAIN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PBI-MAIN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/pbi/PBI-MAIN-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:07:09 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/pbi/PBI-MAIN-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:09:29 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-pbi = ModuleIdentity((1, 3, 6, 1, 4, 1, 1070))
-pbi.setRevisions(('2006-09-13 10:23',))
-if mibBuilder.loadTexts: pbi.setLastUpdated('200609131023Z')
-if mibBuilder.loadTexts: pbi.setOrganization('PBI')
-org = MibIdentifier((1, 3))
-dod = MibIdentifier((1, 3, 6))
-internet = MibIdentifier((1, 3, 6, 1))
-private = MibIdentifier((1, 3, 6, 1, 4))
-enterprises = MibIdentifier((1, 3, 6, 1, 4, 1))
-mg = MibIdentifier((1, 3, 6, 1, 4, 1, 1070, 3))
-mibBuilder.exportSymbols("PBI-MAIN-MIB", internet=internet, PYSNMP_MODULE_ID=pbi, org=org, private=private, mg=mg, enterprises=enterprises, pbi=pbi, dod=dod)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pbi = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1070)
+)
+if mibBuilder.loadTexts:
+    pbi.setRevisions(
+        ("2006-09-13 10:23",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Org_ObjectIdentity = ObjectIdentity
+org = _Org_ObjectIdentity(
+    (1, 3)
+)
+_Dod_ObjectIdentity = ObjectIdentity
+dod = _Dod_ObjectIdentity(
+    (1, 3, 6)
+)
+_Internet_ObjectIdentity = ObjectIdentity
+internet = _Internet_ObjectIdentity(
+    (1, 3, 6, 1)
+)
+_Private_ObjectIdentity = ObjectIdentity
+private = _Private_ObjectIdentity(
+    (1, 3, 6, 1, 4)
+)
+_Enterprises_ObjectIdentity = ObjectIdentity
+enterprises = _Enterprises_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1)
+)
+_Mg_ObjectIdentity = ObjectIdentity
+mg = _Mg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1070, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PBI-MAIN-MIB",
+    **{"org": org,
+       "dod": dod,
+       "internet": internet,
+       "private": private,
+       "enterprises": enterprises,
+       "pbi": pbi,
+       "mg": mg}
+)

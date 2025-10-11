@@ -1,150 +1,1318 @@
+# SNMP MIB module (SIAE-USER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SIAE-USER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/siaemic/SIAE-USER-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:09 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/siaemic/SIAE-USER-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:14:20 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-StorageType, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "StorageType", "RowStatus", "TextualConvention", "DisplayString")
-accessControl = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 5))
-accessControl.setRevisions(('2019-06-10 00:00', '2019-05-08 00:00', '2016-09-17 00:00', '2014-04-08 00:00', '2014-02-03 00:00', '2013-04-16 00:00',))
-if mibBuilder.loadTexts: accessControl.setLastUpdated('201906100000Z')
-if mibBuilder.loadTexts: accessControl.setOrganization('SIAE MICROELETTRONICA spa')
-accessControlMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 1), Integer32().clone(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlMibVersion.setStatus('current')
-accessControlGroupTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2), )
-if mibBuilder.loadTexts: accessControlGroupTable.setStatus('current')
-accessControlGroupRecord = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1), ).setIndexNames((0, "SIAE-USER-MIB", "accessControlGroupName"))
-if mibBuilder.loadTexts: accessControlGroupRecord.setStatus('current')
-accessControlGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlGroupName.setStatus('current')
-accessControlGroupProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("admin", 1), ("readwrite", 2), ("maintenance", 3), ("readonly", 4), ("networkMngr", 5)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlGroupProfile.setStatus('current')
-accessControlGroupHttp = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("allow", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlGroupHttp.setStatus('current')
-accessControlGroupHttps = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("allow", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlGroupHttps.setStatus('current')
-accessControlGroupSnmp = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("deny", 1), ("allowV1", 2), ("allowV2c", 3), ("allowV3", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlGroupSnmp.setStatus('current')
-accessControlGroupFtp = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("allow", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlGroupFtp.setStatus('current')
-accessControlGroupSftp = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("allow", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlGroupSftp.setStatus('current')
-accessControlGroupSsh = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("allow", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlGroupSsh.setStatus('current')
-accessControlGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlGroupRowStatus.setStatus('current')
-accessControlGroupCli = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("allow", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlGroupCli.setStatus('current')
-accessControlUserTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3), )
-if mibBuilder.loadTexts: accessControlUserTable.setStatus('current')
-accessControlUserRecord = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1), ).setIndexNames((0, "SIAE-USER-MIB", "accessControlUserName"))
-if mibBuilder.loadTexts: accessControlUserRecord.setStatus('current')
-accessControlUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserName.setStatus('current')
-accessControlUserGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserGroupName.setStatus('current')
-accessControlUserPwd = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserPwd.setStatus('current')
-accessControlUserSnmpAuthProt = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noAuth", 1), ("md5", 2), ("sha", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserSnmpAuthProt.setStatus('current')
-accessControlUserSnmpAuthKey = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 5), OctetString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserSnmpAuthKey.setStatus('current')
-accessControlUserSnmpPrivProt = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noPriv", 1), ("des", 2), ("aes", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserSnmpPrivProt.setStatus('current')
-accessControlUserSnmpPrivKey = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserSnmpPrivKey.setStatus('current')
-accessControlUserTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600)).clone(300)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserTimeout.setStatus('current')
-accessControlUserRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserRowStatus.setStatus('current')
-accessControlLoginTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4), )
-if mibBuilder.loadTexts: accessControlLoginTable.setStatus('current')
-accessControlLoginRecord = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1), ).setIndexNames((0, "SIAE-USER-MIB", "accessControlLoginIpAddress"), (0, "SIAE-USER-MIB", "accessControlLoginUserName"), (0, "SIAE-USER-MIB", "accessControlLoginType"))
-if mibBuilder.loadTexts: accessControlLoginRecord.setStatus('current')
-accessControlLoginUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlLoginUserName.setStatus('current')
-accessControlLoginIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlLoginIpAddress.setStatus('current')
-accessControlLoginRequest = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noAction", 1), ("logout", 2), ("forcelogout", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: accessControlLoginRequest.setStatus('current')
-accessControlLoginTrapEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: accessControlLoginTrapEnable.setStatus('current')
-accessControlLoginType = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("web", 1), ("snmp", 2), ("cli", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlLoginType.setStatus('current')
-accessControlLoginPwd = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: accessControlLoginPwd.setStatus('current')
-accessControlLoginPolling = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("polling", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlLoginPolling.setStatus('current')
-accessControlClientTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5), )
-if mibBuilder.loadTexts: accessControlClientTable.setStatus('current')
-accessControlClientRecord = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1), ).setIndexNames((0, "SIAE-USER-MIB", "accessControlClientService"))
-if mibBuilder.loadTexts: accessControlClientRecord.setStatus('current')
-accessControlClientService = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ftp", 1), ("sftp", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlClientService.setStatus('current')
-accessControlClientServiceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlClientServiceStatus.setStatus('current')
-accessControlClientName = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlClientName.setStatus('current')
-accessControlClientPwd = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlClientPwd.setStatus('current')
-accessControlClientStorageType = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 5), StorageType().clone('nonVolatile')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlClientStorageType.setStatus('current')
-accessControlClientRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlClientRowStatus.setStatus('current')
-accessControlExtLoginTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 6), )
-if mibBuilder.loadTexts: accessControlExtLoginTable.setStatus('current')
-accessControlExtLoginRecord = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 6, 1), )
-accessControlLoginRecord.registerAugmentions(("SIAE-USER-MIB", "accessControlExtLoginRecord"))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(siaeMib,) = mibBuilder.importSymbols(
+    "SIAE-TREE-MIB",
+    "siaeMib")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ StorageType,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+accessControl = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5)
+)
+if mibBuilder.loadTexts:
+    accessControl.setRevisions(
+        ("2019-06-10 00:00",
+         "2019-05-08 00:00",
+         "2016-09-17 00:00",
+         "2014-04-08 00:00",
+         "2014-02-03 00:00",
+         "2013-04-16 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+
+class _AccessControlMibVersion_Type(Integer32):
+    """Custom type accessControlMibVersion based on Integer32"""
+    defaultValue = 1
+
+
+_AccessControlMibVersion_Type.__name__ = "Integer32"
+_AccessControlMibVersion_Object = MibScalar
+accessControlMibVersion = _AccessControlMibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 1),
+    _AccessControlMibVersion_Type()
+)
+accessControlMibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlMibVersion.setStatus("current")
+_AccessControlGroupTable_Object = MibTable
+accessControlGroupTable = _AccessControlGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2)
+)
+if mibBuilder.loadTexts:
+    accessControlGroupTable.setStatus("current")
+_AccessControlGroupRecord_Object = MibTableRow
+accessControlGroupRecord = _AccessControlGroupRecord_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1)
+)
+accessControlGroupRecord.setIndexNames(
+    (0, "SIAE-USER-MIB", "accessControlGroupName"),
+)
+if mibBuilder.loadTexts:
+    accessControlGroupRecord.setStatus("current")
+
+
+class _AccessControlGroupName_Type(SnmpAdminString):
+    """Custom type accessControlGroupName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AccessControlGroupName_Type.__name__ = "SnmpAdminString"
+_AccessControlGroupName_Object = MibTableColumn
+accessControlGroupName = _AccessControlGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 1),
+    _AccessControlGroupName_Type()
+)
+accessControlGroupName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlGroupName.setStatus("current")
+
+
+class _AccessControlGroupProfile_Type(Integer32):
+    """Custom type accessControlGroupProfile based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("admin", 1),
+          ("readwrite", 2),
+          ("maintenance", 3),
+          ("readonly", 4),
+          ("networkMngr", 5))
+    )
+
+
+_AccessControlGroupProfile_Type.__name__ = "Integer32"
+_AccessControlGroupProfile_Object = MibTableColumn
+accessControlGroupProfile = _AccessControlGroupProfile_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 2),
+    _AccessControlGroupProfile_Type()
+)
+accessControlGroupProfile.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlGroupProfile.setStatus("current")
+
+
+class _AccessControlGroupHttp_Type(Integer32):
+    """Custom type accessControlGroupHttp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("allow", 2))
+    )
+
+
+_AccessControlGroupHttp_Type.__name__ = "Integer32"
+_AccessControlGroupHttp_Object = MibTableColumn
+accessControlGroupHttp = _AccessControlGroupHttp_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 3),
+    _AccessControlGroupHttp_Type()
+)
+accessControlGroupHttp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlGroupHttp.setStatus("current")
+
+
+class _AccessControlGroupHttps_Type(Integer32):
+    """Custom type accessControlGroupHttps based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("allow", 2))
+    )
+
+
+_AccessControlGroupHttps_Type.__name__ = "Integer32"
+_AccessControlGroupHttps_Object = MibTableColumn
+accessControlGroupHttps = _AccessControlGroupHttps_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 4),
+    _AccessControlGroupHttps_Type()
+)
+accessControlGroupHttps.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlGroupHttps.setStatus("current")
+
+
+class _AccessControlGroupSnmp_Type(Integer32):
+    """Custom type accessControlGroupSnmp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("allowV1", 2),
+          ("allowV2c", 3),
+          ("allowV3", 4))
+    )
+
+
+_AccessControlGroupSnmp_Type.__name__ = "Integer32"
+_AccessControlGroupSnmp_Object = MibTableColumn
+accessControlGroupSnmp = _AccessControlGroupSnmp_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 5),
+    _AccessControlGroupSnmp_Type()
+)
+accessControlGroupSnmp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlGroupSnmp.setStatus("current")
+
+
+class _AccessControlGroupFtp_Type(Integer32):
+    """Custom type accessControlGroupFtp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("allow", 2))
+    )
+
+
+_AccessControlGroupFtp_Type.__name__ = "Integer32"
+_AccessControlGroupFtp_Object = MibTableColumn
+accessControlGroupFtp = _AccessControlGroupFtp_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 6),
+    _AccessControlGroupFtp_Type()
+)
+accessControlGroupFtp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlGroupFtp.setStatus("current")
+
+
+class _AccessControlGroupSftp_Type(Integer32):
+    """Custom type accessControlGroupSftp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("allow", 2))
+    )
+
+
+_AccessControlGroupSftp_Type.__name__ = "Integer32"
+_AccessControlGroupSftp_Object = MibTableColumn
+accessControlGroupSftp = _AccessControlGroupSftp_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 7),
+    _AccessControlGroupSftp_Type()
+)
+accessControlGroupSftp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlGroupSftp.setStatus("current")
+
+
+class _AccessControlGroupSsh_Type(Integer32):
+    """Custom type accessControlGroupSsh based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("allow", 2))
+    )
+
+
+_AccessControlGroupSsh_Type.__name__ = "Integer32"
+_AccessControlGroupSsh_Object = MibTableColumn
+accessControlGroupSsh = _AccessControlGroupSsh_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 8),
+    _AccessControlGroupSsh_Type()
+)
+accessControlGroupSsh.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlGroupSsh.setStatus("current")
+_AccessControlGroupRowStatus_Type = RowStatus
+_AccessControlGroupRowStatus_Object = MibTableColumn
+accessControlGroupRowStatus = _AccessControlGroupRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 9),
+    _AccessControlGroupRowStatus_Type()
+)
+accessControlGroupRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlGroupRowStatus.setStatus("current")
+
+
+class _AccessControlGroupCli_Type(Integer32):
+    """Custom type accessControlGroupCli based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("allow", 2))
+    )
+
+
+_AccessControlGroupCli_Type.__name__ = "Integer32"
+_AccessControlGroupCli_Object = MibTableColumn
+accessControlGroupCli = _AccessControlGroupCli_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 2, 1, 10),
+    _AccessControlGroupCli_Type()
+)
+accessControlGroupCli.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlGroupCli.setStatus("current")
+_AccessControlUserTable_Object = MibTable
+accessControlUserTable = _AccessControlUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3)
+)
+if mibBuilder.loadTexts:
+    accessControlUserTable.setStatus("current")
+_AccessControlUserRecord_Object = MibTableRow
+accessControlUserRecord = _AccessControlUserRecord_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1)
+)
+accessControlUserRecord.setIndexNames(
+    (0, "SIAE-USER-MIB", "accessControlUserName"),
+)
+if mibBuilder.loadTexts:
+    accessControlUserRecord.setStatus("current")
+
+
+class _AccessControlUserName_Type(SnmpAdminString):
+    """Custom type accessControlUserName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AccessControlUserName_Type.__name__ = "SnmpAdminString"
+_AccessControlUserName_Object = MibTableColumn
+accessControlUserName = _AccessControlUserName_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 1),
+    _AccessControlUserName_Type()
+)
+accessControlUserName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserName.setStatus("current")
+
+
+class _AccessControlUserGroupName_Type(SnmpAdminString):
+    """Custom type accessControlUserGroupName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AccessControlUserGroupName_Type.__name__ = "SnmpAdminString"
+_AccessControlUserGroupName_Object = MibTableColumn
+accessControlUserGroupName = _AccessControlUserGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 2),
+    _AccessControlUserGroupName_Type()
+)
+accessControlUserGroupName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserGroupName.setStatus("current")
+
+
+class _AccessControlUserPwd_Type(DisplayString):
+    """Custom type accessControlUserPwd based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AccessControlUserPwd_Type.__name__ = "DisplayString"
+_AccessControlUserPwd_Object = MibTableColumn
+accessControlUserPwd = _AccessControlUserPwd_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 3),
+    _AccessControlUserPwd_Type()
+)
+accessControlUserPwd.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserPwd.setStatus("current")
+
+
+class _AccessControlUserSnmpAuthProt_Type(Integer32):
+    """Custom type accessControlUserSnmpAuthProt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noAuth", 1),
+          ("md5", 2),
+          ("sha", 3))
+    )
+
+
+_AccessControlUserSnmpAuthProt_Type.__name__ = "Integer32"
+_AccessControlUserSnmpAuthProt_Object = MibTableColumn
+accessControlUserSnmpAuthProt = _AccessControlUserSnmpAuthProt_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 4),
+    _AccessControlUserSnmpAuthProt_Type()
+)
+accessControlUserSnmpAuthProt.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserSnmpAuthProt.setStatus("current")
+_AccessControlUserSnmpAuthKey_Type = OctetString
+_AccessControlUserSnmpAuthKey_Object = MibTableColumn
+accessControlUserSnmpAuthKey = _AccessControlUserSnmpAuthKey_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 5),
+    _AccessControlUserSnmpAuthKey_Type()
+)
+accessControlUserSnmpAuthKey.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserSnmpAuthKey.setStatus("current")
+
+
+class _AccessControlUserSnmpPrivProt_Type(Integer32):
+    """Custom type accessControlUserSnmpPrivProt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noPriv", 1),
+          ("des", 2),
+          ("aes", 3))
+    )
+
+
+_AccessControlUserSnmpPrivProt_Type.__name__ = "Integer32"
+_AccessControlUserSnmpPrivProt_Object = MibTableColumn
+accessControlUserSnmpPrivProt = _AccessControlUserSnmpPrivProt_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 6),
+    _AccessControlUserSnmpPrivProt_Type()
+)
+accessControlUserSnmpPrivProt.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserSnmpPrivProt.setStatus("current")
+
+
+class _AccessControlUserSnmpPrivKey_Type(OctetString):
+    """Custom type accessControlUserSnmpPrivKey based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+_AccessControlUserSnmpPrivKey_Type.__name__ = "OctetString"
+_AccessControlUserSnmpPrivKey_Object = MibTableColumn
+accessControlUserSnmpPrivKey = _AccessControlUserSnmpPrivKey_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 7),
+    _AccessControlUserSnmpPrivKey_Type()
+)
+accessControlUserSnmpPrivKey.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserSnmpPrivKey.setStatus("current")
+
+
+class _AccessControlUserTimeout_Type(Integer32):
+    """Custom type accessControlUserTimeout based on Integer32"""
+    defaultValue = 300
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3600),
+    )
+
+
+_AccessControlUserTimeout_Type.__name__ = "Integer32"
+_AccessControlUserTimeout_Object = MibTableColumn
+accessControlUserTimeout = _AccessControlUserTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 8),
+    _AccessControlUserTimeout_Type()
+)
+accessControlUserTimeout.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserTimeout.setStatus("current")
+_AccessControlUserRowStatus_Type = RowStatus
+_AccessControlUserRowStatus_Object = MibTableColumn
+accessControlUserRowStatus = _AccessControlUserRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 3, 1, 9),
+    _AccessControlUserRowStatus_Type()
+)
+accessControlUserRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserRowStatus.setStatus("current")
+_AccessControlLoginTable_Object = MibTable
+accessControlLoginTable = _AccessControlLoginTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4)
+)
+if mibBuilder.loadTexts:
+    accessControlLoginTable.setStatus("current")
+_AccessControlLoginRecord_Object = MibTableRow
+accessControlLoginRecord = _AccessControlLoginRecord_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1)
+)
+accessControlLoginRecord.setIndexNames(
+    (0, "SIAE-USER-MIB", "accessControlLoginIpAddress"),
+    (0, "SIAE-USER-MIB", "accessControlLoginUserName"),
+    (0, "SIAE-USER-MIB", "accessControlLoginType"),
+)
+if mibBuilder.loadTexts:
+    accessControlLoginRecord.setStatus("current")
+
+
+class _AccessControlLoginUserName_Type(SnmpAdminString):
+    """Custom type accessControlLoginUserName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AccessControlLoginUserName_Type.__name__ = "SnmpAdminString"
+_AccessControlLoginUserName_Object = MibTableColumn
+accessControlLoginUserName = _AccessControlLoginUserName_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 1),
+    _AccessControlLoginUserName_Type()
+)
+accessControlLoginUserName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlLoginUserName.setStatus("current")
+_AccessControlLoginIpAddress_Type = IpAddress
+_AccessControlLoginIpAddress_Object = MibTableColumn
+accessControlLoginIpAddress = _AccessControlLoginIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 2),
+    _AccessControlLoginIpAddress_Type()
+)
+accessControlLoginIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlLoginIpAddress.setStatus("current")
+
+
+class _AccessControlLoginRequest_Type(Integer32):
+    """Custom type accessControlLoginRequest based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noAction", 1),
+          ("logout", 2),
+          ("forcelogout", 3))
+    )
+
+
+_AccessControlLoginRequest_Type.__name__ = "Integer32"
+_AccessControlLoginRequest_Object = MibTableColumn
+accessControlLoginRequest = _AccessControlLoginRequest_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 3),
+    _AccessControlLoginRequest_Type()
+)
+accessControlLoginRequest.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    accessControlLoginRequest.setStatus("current")
+
+
+class _AccessControlLoginTrapEnable_Type(Integer32):
+    """Custom type accessControlLoginTrapEnable based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 2))
+    )
+
+
+_AccessControlLoginTrapEnable_Type.__name__ = "Integer32"
+_AccessControlLoginTrapEnable_Object = MibTableColumn
+accessControlLoginTrapEnable = _AccessControlLoginTrapEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 4),
+    _AccessControlLoginTrapEnable_Type()
+)
+accessControlLoginTrapEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    accessControlLoginTrapEnable.setStatus("current")
+
+
+class _AccessControlLoginType_Type(Integer32):
+    """Custom type accessControlLoginType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("web", 1),
+          ("snmp", 2),
+          ("cli", 3))
+    )
+
+
+_AccessControlLoginType_Type.__name__ = "Integer32"
+_AccessControlLoginType_Object = MibTableColumn
+accessControlLoginType = _AccessControlLoginType_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 5),
+    _AccessControlLoginType_Type()
+)
+accessControlLoginType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlLoginType.setStatus("current")
+
+
+class _AccessControlLoginPwd_Type(OctetString):
+    """Custom type accessControlLoginPwd based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AccessControlLoginPwd_Type.__name__ = "OctetString"
+_AccessControlLoginPwd_Object = MibTableColumn
+accessControlLoginPwd = _AccessControlLoginPwd_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 6),
+    _AccessControlLoginPwd_Type()
+)
+accessControlLoginPwd.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    accessControlLoginPwd.setStatus("current")
+
+
+class _AccessControlLoginPolling_Type(Integer32):
+    """Custom type accessControlLoginPolling based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("polling", 1)
+    )
+
+
+_AccessControlLoginPolling_Type.__name__ = "Integer32"
+_AccessControlLoginPolling_Object = MibTableColumn
+accessControlLoginPolling = _AccessControlLoginPolling_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 4, 1, 7),
+    _AccessControlLoginPolling_Type()
+)
+accessControlLoginPolling.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlLoginPolling.setStatus("current")
+_AccessControlClientTable_Object = MibTable
+accessControlClientTable = _AccessControlClientTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5)
+)
+if mibBuilder.loadTexts:
+    accessControlClientTable.setStatus("current")
+_AccessControlClientRecord_Object = MibTableRow
+accessControlClientRecord = _AccessControlClientRecord_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1)
+)
+accessControlClientRecord.setIndexNames(
+    (0, "SIAE-USER-MIB", "accessControlClientService"),
+)
+if mibBuilder.loadTexts:
+    accessControlClientRecord.setStatus("current")
+
+
+class _AccessControlClientService_Type(Integer32):
+    """Custom type accessControlClientService based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ftp", 1),
+          ("sftp", 2))
+    )
+
+
+_AccessControlClientService_Type.__name__ = "Integer32"
+_AccessControlClientService_Object = MibTableColumn
+accessControlClientService = _AccessControlClientService_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 1),
+    _AccessControlClientService_Type()
+)
+accessControlClientService.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlClientService.setStatus("current")
+
+
+class _AccessControlClientServiceStatus_Type(Integer32):
+    """Custom type accessControlClientServiceStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 2))
+    )
+
+
+_AccessControlClientServiceStatus_Type.__name__ = "Integer32"
+_AccessControlClientServiceStatus_Object = MibTableColumn
+accessControlClientServiceStatus = _AccessControlClientServiceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 2),
+    _AccessControlClientServiceStatus_Type()
+)
+accessControlClientServiceStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlClientServiceStatus.setStatus("current")
+
+
+class _AccessControlClientName_Type(SnmpAdminString):
+    """Custom type accessControlClientName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AccessControlClientName_Type.__name__ = "SnmpAdminString"
+_AccessControlClientName_Object = MibTableColumn
+accessControlClientName = _AccessControlClientName_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 3),
+    _AccessControlClientName_Type()
+)
+accessControlClientName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlClientName.setStatus("current")
+
+
+class _AccessControlClientPwd_Type(SnmpAdminString):
+    """Custom type accessControlClientPwd based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AccessControlClientPwd_Type.__name__ = "SnmpAdminString"
+_AccessControlClientPwd_Object = MibTableColumn
+accessControlClientPwd = _AccessControlClientPwd_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 4),
+    _AccessControlClientPwd_Type()
+)
+accessControlClientPwd.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlClientPwd.setStatus("current")
+
+
+class _AccessControlClientStorageType_Type(StorageType):
+    """Custom type accessControlClientStorageType based on StorageType"""
+    defaultValue = 3
+
+
+_AccessControlClientStorageType_Type.__name__ = "StorageType"
+_AccessControlClientStorageType_Object = MibTableColumn
+accessControlClientStorageType = _AccessControlClientStorageType_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 5),
+    _AccessControlClientStorageType_Type()
+)
+accessControlClientStorageType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlClientStorageType.setStatus("current")
+_AccessControlClientRowStatus_Type = RowStatus
+_AccessControlClientRowStatus_Object = MibTableColumn
+accessControlClientRowStatus = _AccessControlClientRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 5, 1, 6),
+    _AccessControlClientRowStatus_Type()
+)
+accessControlClientRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlClientRowStatus.setStatus("current")
+_AccessControlExtLoginTable_Object = MibTable
+accessControlExtLoginTable = _AccessControlExtLoginTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 6)
+)
+if mibBuilder.loadTexts:
+    accessControlExtLoginTable.setStatus("current")
+_AccessControlExtLoginRecord_Object = MibTableRow
+accessControlExtLoginRecord = _AccessControlExtLoginRecord_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 6, 1)
+)
+if mibBuilder.loadTexts:
+    accessControlExtLoginRecord.setStatus("current")
+
+
+class _AccessControlExtLoginProfile_Type(Integer32):
+    """Custom type accessControlExtLoginProfile based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("admin", 1),
+          ("readwrite", 2),
+          ("maintenance", 3),
+          ("readonly", 4))
+    )
+
+
+_AccessControlExtLoginProfile_Type.__name__ = "Integer32"
+_AccessControlExtLoginProfile_Object = MibTableColumn
+accessControlExtLoginProfile = _AccessControlExtLoginProfile_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 6, 1, 1),
+    _AccessControlExtLoginProfile_Type()
+)
+accessControlExtLoginProfile.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlExtLoginProfile.setStatus("current")
+
+
+class _AccessControlExtLoginAuthMode_Type(Integer32):
+    """Custom type accessControlExtLoginAuthMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("local", 1),
+          ("remote", 2))
+    )
+
+
+_AccessControlExtLoginAuthMode_Type.__name__ = "Integer32"
+_AccessControlExtLoginAuthMode_Object = MibTableColumn
+accessControlExtLoginAuthMode = _AccessControlExtLoginAuthMode_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 6, 1, 2),
+    _AccessControlExtLoginAuthMode_Type()
+)
+accessControlExtLoginAuthMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlExtLoginAuthMode.setStatus("current")
+_AccessControlSecurityEnhTable_Object = MibTable
+accessControlSecurityEnhTable = _AccessControlSecurityEnhTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7)
+)
+if mibBuilder.loadTexts:
+    accessControlSecurityEnhTable.setStatus("current")
+_AccessControlSecurityEnhEntry_Object = MibTableRow
+accessControlSecurityEnhEntry = _AccessControlSecurityEnhEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7, 1)
+)
+accessControlSecurityEnhEntry.setIndexNames(
+    (0, "SIAE-USER-MIB", "accessControlSecurityEnhIndex"),
+)
+if mibBuilder.loadTexts:
+    accessControlSecurityEnhEntry.setStatus("current")
+_AccessControlSecurityEnhIndex_Type = Integer32
+_AccessControlSecurityEnhIndex_Object = MibTableColumn
+accessControlSecurityEnhIndex = _AccessControlSecurityEnhIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7, 1, 1),
+    _AccessControlSecurityEnhIndex_Type()
+)
+accessControlSecurityEnhIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlSecurityEnhIndex.setStatus("current")
+
+
+class _AccessControlSecurityEnhName_Type(DisplayString):
+    """Custom type accessControlSecurityEnhName based on DisplayString"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_AccessControlSecurityEnhName_Type.__name__ = "DisplayString"
+_AccessControlSecurityEnhName_Object = MibTableColumn
+accessControlSecurityEnhName = _AccessControlSecurityEnhName_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7, 1, 2),
+    _AccessControlSecurityEnhName_Type()
+)
+accessControlSecurityEnhName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlSecurityEnhName.setStatus("current")
+
+
+class _AccessControlSecurityEnhAdminStatus_Type(Integer32):
+    """Custom type accessControlSecurityEnhAdminStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 2))
+    )
+
+
+_AccessControlSecurityEnhAdminStatus_Type.__name__ = "Integer32"
+_AccessControlSecurityEnhAdminStatus_Object = MibTableColumn
+accessControlSecurityEnhAdminStatus = _AccessControlSecurityEnhAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7, 1, 3),
+    _AccessControlSecurityEnhAdminStatus_Type()
+)
+accessControlSecurityEnhAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlSecurityEnhAdminStatus.setStatus("current")
+_AccessControlSecurityEnhRowStatus_Type = RowStatus
+_AccessControlSecurityEnhRowStatus_Object = MibTableColumn
+accessControlSecurityEnhRowStatus = _AccessControlSecurityEnhRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7, 1, 4),
+    _AccessControlSecurityEnhRowStatus_Type()
+)
+accessControlSecurityEnhRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlSecurityEnhRowStatus.setStatus("current")
+_AccessControlSecurityEnhConfTable_Object = MibTable
+accessControlSecurityEnhConfTable = _AccessControlSecurityEnhConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8)
+)
+if mibBuilder.loadTexts:
+    accessControlSecurityEnhConfTable.setStatus("current")
+_AccessControlSecurityEnhConfEntry_Object = MibTableRow
+accessControlSecurityEnhConfEntry = _AccessControlSecurityEnhConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1)
+)
+accessControlSecurityEnhConfEntry.setIndexNames(
+    (0, "SIAE-USER-MIB", "accessControlSecurityEnhConfIndex"),
+)
+if mibBuilder.loadTexts:
+    accessControlSecurityEnhConfEntry.setStatus("current")
+_AccessControlSecurityEnhConfIndex_Type = Integer32
+_AccessControlSecurityEnhConfIndex_Object = MibTableColumn
+accessControlSecurityEnhConfIndex = _AccessControlSecurityEnhConfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 1),
+    _AccessControlSecurityEnhConfIndex_Type()
+)
+accessControlSecurityEnhConfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlSecurityEnhConfIndex.setStatus("current")
+
+
+class _AccessControlUserLockoutTime_Type(Integer32):
+    """Custom type accessControlUserLockoutTime based on Integer32"""
+    defaultValue = 30
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 60),
+    )
+
+
+_AccessControlUserLockoutTime_Type.__name__ = "Integer32"
+_AccessControlUserLockoutTime_Object = MibTableColumn
+accessControlUserLockoutTime = _AccessControlUserLockoutTime_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 2),
+    _AccessControlUserLockoutTime_Type()
+)
+accessControlUserLockoutTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserLockoutTime.setStatus("current")
+if mibBuilder.loadTexts:
+    accessControlUserLockoutTime.setUnits("min")
+
+
+class _AccessControlUserLockoutMaxRetries_Type(Integer32):
+    """Custom type accessControlUserLockoutMaxRetries based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_AccessControlUserLockoutMaxRetries_Type.__name__ = "Integer32"
+_AccessControlUserLockoutMaxRetries_Object = MibTableColumn
+accessControlUserLockoutMaxRetries = _AccessControlUserLockoutMaxRetries_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 3),
+    _AccessControlUserLockoutMaxRetries_Type()
+)
+accessControlUserLockoutMaxRetries.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserLockoutMaxRetries.setStatus("current")
+
+
+class _AccessControlUserPwdExpirationTimeout_Type(Integer32):
+    """Custom type accessControlUserPwdExpirationTimeout based on Integer32"""
+    defaultValue = 105
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 105),
+    )
+
+
+_AccessControlUserPwdExpirationTimeout_Type.__name__ = "Integer32"
+_AccessControlUserPwdExpirationTimeout_Object = MibTableColumn
+accessControlUserPwdExpirationTimeout = _AccessControlUserPwdExpirationTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 4),
+    _AccessControlUserPwdExpirationTimeout_Type()
+)
+accessControlUserPwdExpirationTimeout.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserPwdExpirationTimeout.setStatus("current")
+
+
+class _AccessControlUserAdminPwdMinimalLength_Type(Integer32):
+    """Custom type accessControlUserAdminPwdMinimalLength based on Integer32"""
+    defaultValue = 8
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(8, 15),
+    )
+
+
+_AccessControlUserAdminPwdMinimalLength_Type.__name__ = "Integer32"
+_AccessControlUserAdminPwdMinimalLength_Object = MibTableColumn
+accessControlUserAdminPwdMinimalLength = _AccessControlUserAdminPwdMinimalLength_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 5),
+    _AccessControlUserAdminPwdMinimalLength_Type()
+)
+accessControlUserAdminPwdMinimalLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserAdminPwdMinimalLength.setStatus("current")
+
+
+class _AccessControlUserOthersPwdMinimalLength_Type(Integer32):
+    """Custom type accessControlUserOthersPwdMinimalLength based on Integer32"""
+    defaultValue = 8
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(8, 15),
+    )
+
+
+_AccessControlUserOthersPwdMinimalLength_Type.__name__ = "Integer32"
+_AccessControlUserOthersPwdMinimalLength_Object = MibTableColumn
+accessControlUserOthersPwdMinimalLength = _AccessControlUserOthersPwdMinimalLength_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 6),
+    _AccessControlUserOthersPwdMinimalLength_Type()
+)
+accessControlUserOthersPwdMinimalLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlUserOthersPwdMinimalLength.setStatus("current")
+_AccessControlSecurityEnhConfRowStatus_Type = RowStatus
+_AccessControlSecurityEnhConfRowStatus_Object = MibTableColumn
+accessControlSecurityEnhConfRowStatus = _AccessControlSecurityEnhConfRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 7),
+    _AccessControlSecurityEnhConfRowStatus_Type()
+)
+accessControlSecurityEnhConfRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    accessControlSecurityEnhConfRowStatus.setStatus("current")
+_AccessControlExtUserTable_Object = MibTable
+accessControlExtUserTable = _AccessControlExtUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 9)
+)
+if mibBuilder.loadTexts:
+    accessControlExtUserTable.setStatus("current")
+_AccessControlExtUserRecord_Object = MibTableRow
+accessControlExtUserRecord = _AccessControlExtUserRecord_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 9, 1)
+)
+if mibBuilder.loadTexts:
+    accessControlExtUserRecord.setStatus("current")
+
+
+class _AccessControlUserLoginStatus_Type(Bits):
+    """Custom type accessControlUserLoginStatus based on Bits"""
+    namedValues = NamedValues(
+        *(("accessControlUserLockedOut", 0),
+          ("accessControlUserPasswordExpired", 1),
+          ("accessControlUserSnmpLogin", 2),
+          ("accessControlUserWebLogin", 3),
+          ("accessControlUserCliLogin", 4))
+    )
+
+_AccessControlUserLoginStatus_Type.__name__ = "Bits"
+_AccessControlUserLoginStatus_Object = MibTableColumn
+accessControlUserLoginStatus = _AccessControlUserLoginStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 5, 9, 1, 1),
+    _AccessControlUserLoginStatus_Type()
+)
+accessControlUserLoginStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    accessControlUserLoginStatus.setStatus("current")
+accessControlLoginRecord.registerAugmentions(
+    ("SIAE-USER-MIB",
+     "accessControlExtLoginRecord")
+)
 accessControlExtLoginRecord.setIndexNames(*accessControlLoginRecord.getIndexNames())
-if mibBuilder.loadTexts: accessControlExtLoginRecord.setStatus('current')
-accessControlExtLoginProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 6, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("admin", 1), ("readwrite", 2), ("maintenance", 3), ("readonly", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlExtLoginProfile.setStatus('current')
-accessControlExtLoginAuthMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("local", 1), ("remote", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlExtLoginAuthMode.setStatus('current')
-accessControlSecurityEnhTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7), )
-if mibBuilder.loadTexts: accessControlSecurityEnhTable.setStatus('current')
-accessControlSecurityEnhEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7, 1), ).setIndexNames((0, "SIAE-USER-MIB", "accessControlSecurityEnhIndex"))
-if mibBuilder.loadTexts: accessControlSecurityEnhEntry.setStatus('current')
-accessControlSecurityEnhIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlSecurityEnhIndex.setStatus('current')
-accessControlSecurityEnhName = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlSecurityEnhName.setStatus('current')
-accessControlSecurityEnhAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2))).clone('disable')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlSecurityEnhAdminStatus.setStatus('current')
-accessControlSecurityEnhRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 7, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlSecurityEnhRowStatus.setStatus('current')
-accessControlSecurityEnhConfTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8), )
-if mibBuilder.loadTexts: accessControlSecurityEnhConfTable.setStatus('current')
-accessControlSecurityEnhConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1), ).setIndexNames((0, "SIAE-USER-MIB", "accessControlSecurityEnhConfIndex"))
-if mibBuilder.loadTexts: accessControlSecurityEnhConfEntry.setStatus('current')
-accessControlSecurityEnhConfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlSecurityEnhConfIndex.setStatus('current')
-accessControlUserLockoutTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 60)).clone(30)).setUnits('min').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserLockoutTime.setStatus('current')
-accessControlUserLockoutMaxRetries = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(3)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserLockoutMaxRetries.setStatus('current')
-accessControlUserPwdExpirationTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 105)).clone(105)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserPwdExpirationTimeout.setStatus('current')
-accessControlUserAdminPwdMinimalLength = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(8, 15)).clone(8)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserAdminPwdMinimalLength.setStatus('current')
-accessControlUserOthersPwdMinimalLength = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(8, 15)).clone(8)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlUserOthersPwdMinimalLength.setStatus('current')
-accessControlSecurityEnhConfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 8, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: accessControlSecurityEnhConfRowStatus.setStatus('current')
-accessControlExtUserTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 9), )
-if mibBuilder.loadTexts: accessControlExtUserTable.setStatus('current')
-accessControlExtUserRecord = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 9, 1), )
-accessControlUserRecord.registerAugmentions(("SIAE-USER-MIB", "accessControlExtUserRecord"))
+accessControlUserRecord.registerAugmentions(
+    ("SIAE-USER-MIB",
+     "accessControlExtUserRecord")
+)
 accessControlExtUserRecord.setIndexNames(*accessControlUserRecord.getIndexNames())
-if mibBuilder.loadTexts: accessControlExtUserRecord.setStatus('current')
-accessControlUserLoginStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 5, 9, 1, 1), Bits().clone(namedValues=NamedValues(("accessControlUserLockedOut", 0), ("accessControlUserPasswordExpired", 1), ("accessControlUserSnmpLogin", 2), ("accessControlUserWebLogin", 3), ("accessControlUserCliLogin", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: accessControlUserLoginStatus.setStatus('current')
-mibBuilder.exportSymbols("SIAE-USER-MIB", accessControlGroupSnmp=accessControlGroupSnmp, accessControlUserSnmpAuthProt=accessControlUserSnmpAuthProt, accessControlExtUserRecord=accessControlExtUserRecord, accessControlUserPwd=accessControlUserPwd, accessControlLoginPolling=accessControlLoginPolling, accessControlGroupRowStatus=accessControlGroupRowStatus, accessControlLoginUserName=accessControlLoginUserName, accessControlClientStorageType=accessControlClientStorageType, accessControlSecurityEnhIndex=accessControlSecurityEnhIndex, accessControlSecurityEnhName=accessControlSecurityEnhName, accessControlClientName=accessControlClientName, accessControlUserName=accessControlUserName, accessControlClientRecord=accessControlClientRecord, accessControlSecurityEnhAdminStatus=accessControlSecurityEnhAdminStatus, accessControlSecurityEnhTable=accessControlSecurityEnhTable, accessControlGroupName=accessControlGroupName, accessControlGroupRecord=accessControlGroupRecord, accessControlUserSnmpPrivKey=accessControlUserSnmpPrivKey, accessControlLoginTrapEnable=accessControlLoginTrapEnable, accessControlLoginType=accessControlLoginType, accessControlUserSnmpAuthKey=accessControlUserSnmpAuthKey, accessControlSecurityEnhConfIndex=accessControlSecurityEnhConfIndex, accessControlSecurityEnhConfRowStatus=accessControlSecurityEnhConfRowStatus, accessControlUserTimeout=accessControlUserTimeout, accessControlExtLoginAuthMode=accessControlExtLoginAuthMode, accessControlLoginRecord=accessControlLoginRecord, PYSNMP_MODULE_ID=accessControl, accessControlGroupFtp=accessControlGroupFtp, accessControlUserSnmpPrivProt=accessControlUserSnmpPrivProt, accessControlExtLoginProfile=accessControlExtLoginProfile, accessControlUserLockoutMaxRetries=accessControlUserLockoutMaxRetries, accessControl=accessControl, accessControlLoginRequest=accessControlLoginRequest, accessControlLoginPwd=accessControlLoginPwd, accessControlExtLoginTable=accessControlExtLoginTable, accessControlClientService=accessControlClientService, accessControlSecurityEnhConfTable=accessControlSecurityEnhConfTable, accessControlClientServiceStatus=accessControlClientServiceStatus, accessControlUserGroupName=accessControlUserGroupName, accessControlLoginIpAddress=accessControlLoginIpAddress, accessControlGroupHttp=accessControlGroupHttp, accessControlExtLoginRecord=accessControlExtLoginRecord, accessControlSecurityEnhRowStatus=accessControlSecurityEnhRowStatus, accessControlGroupTable=accessControlGroupTable, accessControlGroupHttps=accessControlGroupHttps, accessControlUserLockoutTime=accessControlUserLockoutTime, accessControlGroupSsh=accessControlGroupSsh, accessControlUserAdminPwdMinimalLength=accessControlUserAdminPwdMinimalLength, accessControlClientPwd=accessControlClientPwd, accessControlGroupProfile=accessControlGroupProfile, accessControlLoginTable=accessControlLoginTable, accessControlUserRowStatus=accessControlUserRowStatus, accessControlClientTable=accessControlClientTable, accessControlUserRecord=accessControlUserRecord, accessControlSecurityEnhConfEntry=accessControlSecurityEnhConfEntry, accessControlExtUserTable=accessControlExtUserTable, accessControlUserLoginStatus=accessControlUserLoginStatus, accessControlSecurityEnhEntry=accessControlSecurityEnhEntry, accessControlUserOthersPwdMinimalLength=accessControlUserOthersPwdMinimalLength, accessControlGroupCli=accessControlGroupCli, accessControlClientRowStatus=accessControlClientRowStatus, accessControlUserTable=accessControlUserTable, accessControlMibVersion=accessControlMibVersion, accessControlGroupSftp=accessControlGroupSftp, accessControlUserPwdExpirationTimeout=accessControlUserPwdExpirationTimeout)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SIAE-USER-MIB",
+    **{"accessControl": accessControl,
+       "accessControlMibVersion": accessControlMibVersion,
+       "accessControlGroupTable": accessControlGroupTable,
+       "accessControlGroupRecord": accessControlGroupRecord,
+       "accessControlGroupName": accessControlGroupName,
+       "accessControlGroupProfile": accessControlGroupProfile,
+       "accessControlGroupHttp": accessControlGroupHttp,
+       "accessControlGroupHttps": accessControlGroupHttps,
+       "accessControlGroupSnmp": accessControlGroupSnmp,
+       "accessControlGroupFtp": accessControlGroupFtp,
+       "accessControlGroupSftp": accessControlGroupSftp,
+       "accessControlGroupSsh": accessControlGroupSsh,
+       "accessControlGroupRowStatus": accessControlGroupRowStatus,
+       "accessControlGroupCli": accessControlGroupCli,
+       "accessControlUserTable": accessControlUserTable,
+       "accessControlUserRecord": accessControlUserRecord,
+       "accessControlUserName": accessControlUserName,
+       "accessControlUserGroupName": accessControlUserGroupName,
+       "accessControlUserPwd": accessControlUserPwd,
+       "accessControlUserSnmpAuthProt": accessControlUserSnmpAuthProt,
+       "accessControlUserSnmpAuthKey": accessControlUserSnmpAuthKey,
+       "accessControlUserSnmpPrivProt": accessControlUserSnmpPrivProt,
+       "accessControlUserSnmpPrivKey": accessControlUserSnmpPrivKey,
+       "accessControlUserTimeout": accessControlUserTimeout,
+       "accessControlUserRowStatus": accessControlUserRowStatus,
+       "accessControlLoginTable": accessControlLoginTable,
+       "accessControlLoginRecord": accessControlLoginRecord,
+       "accessControlLoginUserName": accessControlLoginUserName,
+       "accessControlLoginIpAddress": accessControlLoginIpAddress,
+       "accessControlLoginRequest": accessControlLoginRequest,
+       "accessControlLoginTrapEnable": accessControlLoginTrapEnable,
+       "accessControlLoginType": accessControlLoginType,
+       "accessControlLoginPwd": accessControlLoginPwd,
+       "accessControlLoginPolling": accessControlLoginPolling,
+       "accessControlClientTable": accessControlClientTable,
+       "accessControlClientRecord": accessControlClientRecord,
+       "accessControlClientService": accessControlClientService,
+       "accessControlClientServiceStatus": accessControlClientServiceStatus,
+       "accessControlClientName": accessControlClientName,
+       "accessControlClientPwd": accessControlClientPwd,
+       "accessControlClientStorageType": accessControlClientStorageType,
+       "accessControlClientRowStatus": accessControlClientRowStatus,
+       "accessControlExtLoginTable": accessControlExtLoginTable,
+       "accessControlExtLoginRecord": accessControlExtLoginRecord,
+       "accessControlExtLoginProfile": accessControlExtLoginProfile,
+       "accessControlExtLoginAuthMode": accessControlExtLoginAuthMode,
+       "accessControlSecurityEnhTable": accessControlSecurityEnhTable,
+       "accessControlSecurityEnhEntry": accessControlSecurityEnhEntry,
+       "accessControlSecurityEnhIndex": accessControlSecurityEnhIndex,
+       "accessControlSecurityEnhName": accessControlSecurityEnhName,
+       "accessControlSecurityEnhAdminStatus": accessControlSecurityEnhAdminStatus,
+       "accessControlSecurityEnhRowStatus": accessControlSecurityEnhRowStatus,
+       "accessControlSecurityEnhConfTable": accessControlSecurityEnhConfTable,
+       "accessControlSecurityEnhConfEntry": accessControlSecurityEnhConfEntry,
+       "accessControlSecurityEnhConfIndex": accessControlSecurityEnhConfIndex,
+       "accessControlUserLockoutTime": accessControlUserLockoutTime,
+       "accessControlUserLockoutMaxRetries": accessControlUserLockoutMaxRetries,
+       "accessControlUserPwdExpirationTimeout": accessControlUserPwdExpirationTimeout,
+       "accessControlUserAdminPwdMinimalLength": accessControlUserAdminPwdMinimalLength,
+       "accessControlUserOthersPwdMinimalLength": accessControlUserOthersPwdMinimalLength,
+       "accessControlSecurityEnhConfRowStatus": accessControlSecurityEnhConfRowStatus,
+       "accessControlExtUserTable": accessControlExtUserTable,
+       "accessControlExtUserRecord": accessControlExtUserRecord,
+       "accessControlUserLoginStatus": accessControlUserLoginStatus}
+)

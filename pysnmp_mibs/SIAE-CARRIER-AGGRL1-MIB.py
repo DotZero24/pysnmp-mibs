@@ -1,60 +1,474 @@
+# SNMP MIB module (SIAE-CARRIER-AGGRL1-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SIAE-CARRIER-AGGRL1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/siaemic/SIAE-CARRIER-AGGRL1-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:00 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/siaemic/SIAE-CARRIER-AGGRL1-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:13:53 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-carrierAggr = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 104))
-carrierAggr.setRevisions(('2016-08-23 00:00',))
-if mibBuilder.loadTexts: carrierAggr.setLastUpdated('201608230000Z')
-if mibBuilder.loadTexts: carrierAggr.setOrganization('SIAE MICROELETTRONICA spa')
-carrierAggrMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: carrierAggrMibVersion.setStatus('current')
-carrierAggrSensorTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2), )
-if mibBuilder.loadTexts: carrierAggrSensorTable.setStatus('current')
-carrierAggrSensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1), ).setIndexNames((0, "SIAE-CARRIER-AGGRL1-MIB", "carrierAggrSensorIndex"))
-if mibBuilder.loadTexts: carrierAggrSensorEntry.setStatus('current')
-carrierAggrSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: carrierAggrSensorIndex.setStatus('current')
-carrierAggrSensorRowstatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: carrierAggrSensorRowstatus.setStatus('current')
-carrierAggrSensorAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("down", 1), ("up", 2))).clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: carrierAggrSensorAdminStatus.setStatus('current')
-carrierAggrSensorIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 4), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: carrierAggrSensorIfIndex.setStatus('current')
-carrierAggrSensorHitlessCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 5), Bits().clone(namedValues=NamedValues(("hitlessAvailable", 0)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: carrierAggrSensorHitlessCapability.setStatus('current')
-carrierAggrSensorHitlessBehaviour = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2))).clone('disable')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: carrierAggrSensorHitlessBehaviour.setStatus('current')
-carrierAggrSensorHitlessMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("auto", 1), ("manual", 2))).clone('auto')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: carrierAggrSensorHitlessMode.setStatus('current')
-carrierAggrSensorHitlessProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 8), Integer32().clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: carrierAggrSensorHitlessProfile.setStatus('current')
-carrierAggrSensorHitlessStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("goodZone", 1), ("hitlessZone", 2), ("badZone", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: carrierAggrSensorHitlessStatus.setStatus('current')
-carrierAggrActuatorTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3), )
-if mibBuilder.loadTexts: carrierAggrActuatorTable.setStatus('current')
-carrierAggrActuatorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1), ).setIndexNames((0, "SIAE-CARRIER-AGGRL1-MIB", "carrierAggrActuatorIndex"))
-if mibBuilder.loadTexts: carrierAggrActuatorEntry.setStatus('current')
-carrierAggrActuatorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: carrierAggrActuatorIndex.setStatus('current')
-carrierAggrActuatorRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: carrierAggrActuatorRowStatus.setStatus('current')
-carrierAggrActuatorAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("down", 1), ("up", 2))).clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: carrierAggrActuatorAdminStatus.setStatus('current')
-carrierAggrActuatorIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 4), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: carrierAggrActuatorIfIndex.setStatus('current')
-carrierAggrActuatorSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: carrierAggrActuatorSensorIndex.setStatus('current')
-carrierAggrActuatorConcIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 6), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: carrierAggrActuatorConcIpAddr.setStatus('current')
-mibBuilder.exportSymbols("SIAE-CARRIER-AGGRL1-MIB", carrierAggrSensorHitlessProfile=carrierAggrSensorHitlessProfile, carrierAggrSensorIfIndex=carrierAggrSensorIfIndex, carrierAggr=carrierAggr, carrierAggrSensorTable=carrierAggrSensorTable, carrierAggrActuatorRowStatus=carrierAggrActuatorRowStatus, carrierAggrSensorIndex=carrierAggrSensorIndex, carrierAggrSensorHitlessCapability=carrierAggrSensorHitlessCapability, carrierAggrActuatorTable=carrierAggrActuatorTable, carrierAggrActuatorAdminStatus=carrierAggrActuatorAdminStatus, carrierAggrMibVersion=carrierAggrMibVersion, carrierAggrSensorHitlessMode=carrierAggrSensorHitlessMode, carrierAggrActuatorEntry=carrierAggrActuatorEntry, PYSNMP_MODULE_ID=carrierAggr, carrierAggrActuatorIfIndex=carrierAggrActuatorIfIndex, carrierAggrSensorHitlessBehaviour=carrierAggrSensorHitlessBehaviour, carrierAggrSensorHitlessStatus=carrierAggrSensorHitlessStatus, carrierAggrActuatorIndex=carrierAggrActuatorIndex, carrierAggrActuatorConcIpAddr=carrierAggrActuatorConcIpAddr, carrierAggrSensorEntry=carrierAggrSensorEntry, carrierAggrSensorRowstatus=carrierAggrSensorRowstatus, carrierAggrActuatorSensorIndex=carrierAggrActuatorSensorIndex, carrierAggrSensorAdminStatus=carrierAggrSensorAdminStatus)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(siaeMib,) = mibBuilder.importSymbols(
+    "SIAE-TREE-MIB",
+    "siaeMib")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+carrierAggr = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104)
+)
+if mibBuilder.loadTexts:
+    carrierAggr.setRevisions(
+        ("2016-08-23 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CarrierAggrMibVersion_Type = Integer32
+_CarrierAggrMibVersion_Object = MibScalar
+carrierAggrMibVersion = _CarrierAggrMibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 1),
+    _CarrierAggrMibVersion_Type()
+)
+carrierAggrMibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    carrierAggrMibVersion.setStatus("current")
+_CarrierAggrSensorTable_Object = MibTable
+carrierAggrSensorTable = _CarrierAggrSensorTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2)
+)
+if mibBuilder.loadTexts:
+    carrierAggrSensorTable.setStatus("current")
+_CarrierAggrSensorEntry_Object = MibTableRow
+carrierAggrSensorEntry = _CarrierAggrSensorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1)
+)
+carrierAggrSensorEntry.setIndexNames(
+    (0, "SIAE-CARRIER-AGGRL1-MIB", "carrierAggrSensorIndex"),
+)
+if mibBuilder.loadTexts:
+    carrierAggrSensorEntry.setStatus("current")
+
+
+class _CarrierAggrSensorIndex_Type(Integer32):
+    """Custom type carrierAggrSensorIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_CarrierAggrSensorIndex_Type.__name__ = "Integer32"
+_CarrierAggrSensorIndex_Object = MibTableColumn
+carrierAggrSensorIndex = _CarrierAggrSensorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 1),
+    _CarrierAggrSensorIndex_Type()
+)
+carrierAggrSensorIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    carrierAggrSensorIndex.setStatus("current")
+_CarrierAggrSensorRowstatus_Type = RowStatus
+_CarrierAggrSensorRowstatus_Object = MibTableColumn
+carrierAggrSensorRowstatus = _CarrierAggrSensorRowstatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 2),
+    _CarrierAggrSensorRowstatus_Type()
+)
+carrierAggrSensorRowstatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    carrierAggrSensorRowstatus.setStatus("current")
+
+
+class _CarrierAggrSensorAdminStatus_Type(Integer32):
+    """Custom type carrierAggrSensorAdminStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("up", 2))
+    )
+
+
+_CarrierAggrSensorAdminStatus_Type.__name__ = "Integer32"
+_CarrierAggrSensorAdminStatus_Object = MibTableColumn
+carrierAggrSensorAdminStatus = _CarrierAggrSensorAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 3),
+    _CarrierAggrSensorAdminStatus_Type()
+)
+carrierAggrSensorAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    carrierAggrSensorAdminStatus.setStatus("current")
+_CarrierAggrSensorIfIndex_Type = InterfaceIndexOrZero
+_CarrierAggrSensorIfIndex_Object = MibTableColumn
+carrierAggrSensorIfIndex = _CarrierAggrSensorIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 4),
+    _CarrierAggrSensorIfIndex_Type()
+)
+carrierAggrSensorIfIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    carrierAggrSensorIfIndex.setStatus("current")
+
+
+class _CarrierAggrSensorHitlessCapability_Type(Bits):
+    """Custom type carrierAggrSensorHitlessCapability based on Bits"""
+    namedValues = NamedValues(
+        ("hitlessAvailable", 0)
+    )
+
+_CarrierAggrSensorHitlessCapability_Type.__name__ = "Bits"
+_CarrierAggrSensorHitlessCapability_Object = MibTableColumn
+carrierAggrSensorHitlessCapability = _CarrierAggrSensorHitlessCapability_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 5),
+    _CarrierAggrSensorHitlessCapability_Type()
+)
+carrierAggrSensorHitlessCapability.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    carrierAggrSensorHitlessCapability.setStatus("current")
+
+
+class _CarrierAggrSensorHitlessBehaviour_Type(Integer32):
+    """Custom type carrierAggrSensorHitlessBehaviour based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 2))
+    )
+
+
+_CarrierAggrSensorHitlessBehaviour_Type.__name__ = "Integer32"
+_CarrierAggrSensorHitlessBehaviour_Object = MibTableColumn
+carrierAggrSensorHitlessBehaviour = _CarrierAggrSensorHitlessBehaviour_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 6),
+    _CarrierAggrSensorHitlessBehaviour_Type()
+)
+carrierAggrSensorHitlessBehaviour.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    carrierAggrSensorHitlessBehaviour.setStatus("current")
+
+
+class _CarrierAggrSensorHitlessMode_Type(Integer32):
+    """Custom type carrierAggrSensorHitlessMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 1),
+          ("manual", 2))
+    )
+
+
+_CarrierAggrSensorHitlessMode_Type.__name__ = "Integer32"
+_CarrierAggrSensorHitlessMode_Object = MibTableColumn
+carrierAggrSensorHitlessMode = _CarrierAggrSensorHitlessMode_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 7),
+    _CarrierAggrSensorHitlessMode_Type()
+)
+carrierAggrSensorHitlessMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    carrierAggrSensorHitlessMode.setStatus("current")
+
+
+class _CarrierAggrSensorHitlessProfile_Type(Integer32):
+    """Custom type carrierAggrSensorHitlessProfile based on Integer32"""
+    defaultValue = 1
+
+
+_CarrierAggrSensorHitlessProfile_Type.__name__ = "Integer32"
+_CarrierAggrSensorHitlessProfile_Object = MibTableColumn
+carrierAggrSensorHitlessProfile = _CarrierAggrSensorHitlessProfile_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 8),
+    _CarrierAggrSensorHitlessProfile_Type()
+)
+carrierAggrSensorHitlessProfile.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    carrierAggrSensorHitlessProfile.setStatus("current")
+
+
+class _CarrierAggrSensorHitlessStatus_Type(Integer32):
+    """Custom type carrierAggrSensorHitlessStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("goodZone", 1),
+          ("hitlessZone", 2),
+          ("badZone", 3))
+    )
+
+
+_CarrierAggrSensorHitlessStatus_Type.__name__ = "Integer32"
+_CarrierAggrSensorHitlessStatus_Object = MibTableColumn
+carrierAggrSensorHitlessStatus = _CarrierAggrSensorHitlessStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 2, 1, 9),
+    _CarrierAggrSensorHitlessStatus_Type()
+)
+carrierAggrSensorHitlessStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    carrierAggrSensorHitlessStatus.setStatus("current")
+_CarrierAggrActuatorTable_Object = MibTable
+carrierAggrActuatorTable = _CarrierAggrActuatorTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3)
+)
+if mibBuilder.loadTexts:
+    carrierAggrActuatorTable.setStatus("current")
+_CarrierAggrActuatorEntry_Object = MibTableRow
+carrierAggrActuatorEntry = _CarrierAggrActuatorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1)
+)
+carrierAggrActuatorEntry.setIndexNames(
+    (0, "SIAE-CARRIER-AGGRL1-MIB", "carrierAggrActuatorIndex"),
+)
+if mibBuilder.loadTexts:
+    carrierAggrActuatorEntry.setStatus("current")
+
+
+class _CarrierAggrActuatorIndex_Type(Integer32):
+    """Custom type carrierAggrActuatorIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_CarrierAggrActuatorIndex_Type.__name__ = "Integer32"
+_CarrierAggrActuatorIndex_Object = MibTableColumn
+carrierAggrActuatorIndex = _CarrierAggrActuatorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 1),
+    _CarrierAggrActuatorIndex_Type()
+)
+carrierAggrActuatorIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    carrierAggrActuatorIndex.setStatus("current")
+_CarrierAggrActuatorRowStatus_Type = RowStatus
+_CarrierAggrActuatorRowStatus_Object = MibTableColumn
+carrierAggrActuatorRowStatus = _CarrierAggrActuatorRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 2),
+    _CarrierAggrActuatorRowStatus_Type()
+)
+carrierAggrActuatorRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    carrierAggrActuatorRowStatus.setStatus("current")
+
+
+class _CarrierAggrActuatorAdminStatus_Type(Integer32):
+    """Custom type carrierAggrActuatorAdminStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("up", 2))
+    )
+
+
+_CarrierAggrActuatorAdminStatus_Type.__name__ = "Integer32"
+_CarrierAggrActuatorAdminStatus_Object = MibTableColumn
+carrierAggrActuatorAdminStatus = _CarrierAggrActuatorAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 3),
+    _CarrierAggrActuatorAdminStatus_Type()
+)
+carrierAggrActuatorAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    carrierAggrActuatorAdminStatus.setStatus("current")
+_CarrierAggrActuatorIfIndex_Type = InterfaceIndexOrZero
+_CarrierAggrActuatorIfIndex_Object = MibTableColumn
+carrierAggrActuatorIfIndex = _CarrierAggrActuatorIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 4),
+    _CarrierAggrActuatorIfIndex_Type()
+)
+carrierAggrActuatorIfIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    carrierAggrActuatorIfIndex.setStatus("current")
+_CarrierAggrActuatorSensorIndex_Type = Integer32
+_CarrierAggrActuatorSensorIndex_Object = MibTableColumn
+carrierAggrActuatorSensorIndex = _CarrierAggrActuatorSensorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 5),
+    _CarrierAggrActuatorSensorIndex_Type()
+)
+carrierAggrActuatorSensorIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    carrierAggrActuatorSensorIndex.setStatus("current")
+_CarrierAggrActuatorConcIpAddr_Type = IpAddress
+_CarrierAggrActuatorConcIpAddr_Object = MibTableColumn
+carrierAggrActuatorConcIpAddr = _CarrierAggrActuatorConcIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 104, 3, 1, 6),
+    _CarrierAggrActuatorConcIpAddr_Type()
+)
+carrierAggrActuatorConcIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    carrierAggrActuatorConcIpAddr.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SIAE-CARRIER-AGGRL1-MIB",
+    **{"carrierAggr": carrierAggr,
+       "carrierAggrMibVersion": carrierAggrMibVersion,
+       "carrierAggrSensorTable": carrierAggrSensorTable,
+       "carrierAggrSensorEntry": carrierAggrSensorEntry,
+       "carrierAggrSensorIndex": carrierAggrSensorIndex,
+       "carrierAggrSensorRowstatus": carrierAggrSensorRowstatus,
+       "carrierAggrSensorAdminStatus": carrierAggrSensorAdminStatus,
+       "carrierAggrSensorIfIndex": carrierAggrSensorIfIndex,
+       "carrierAggrSensorHitlessCapability": carrierAggrSensorHitlessCapability,
+       "carrierAggrSensorHitlessBehaviour": carrierAggrSensorHitlessBehaviour,
+       "carrierAggrSensorHitlessMode": carrierAggrSensorHitlessMode,
+       "carrierAggrSensorHitlessProfile": carrierAggrSensorHitlessProfile,
+       "carrierAggrSensorHitlessStatus": carrierAggrSensorHitlessStatus,
+       "carrierAggrActuatorTable": carrierAggrActuatorTable,
+       "carrierAggrActuatorEntry": carrierAggrActuatorEntry,
+       "carrierAggrActuatorIndex": carrierAggrActuatorIndex,
+       "carrierAggrActuatorRowStatus": carrierAggrActuatorRowStatus,
+       "carrierAggrActuatorAdminStatus": carrierAggrActuatorAdminStatus,
+       "carrierAggrActuatorIfIndex": carrierAggrActuatorIfIndex,
+       "carrierAggrActuatorSensorIndex": carrierAggrActuatorSensorIndex,
+       "carrierAggrActuatorConcIpAddr": carrierAggrActuatorConcIpAddr}
+)

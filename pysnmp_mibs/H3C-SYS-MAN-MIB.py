@@ -1,313 +1,2653 @@
+# SNMP MIB module (H3C-SYS-MAN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-SYS-MAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-SYS-MAN-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:40 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/H3C-SYS-MAN-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:20:19 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-SnmpTagList, SnmpTagValue = mibBuilder.importSymbols("SNMP-TARGET-MIB", "SnmpTagList", "SnmpTagValue")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DateAndTime, TextualConvention, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "TruthValue", "DisplayString")
-h3cSystemMan = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3))
-h3cSystemMan.setRevisions(('2018-01-10 00:00', '2017-06-12 00:00', '2015-07-27 00:00', '2004-04-08 13:45',))
-if mibBuilder.loadTexts: h3cSystemMan.setLastUpdated('201801100000Z')
-if mibBuilder.loadTexts: h3cSystemMan.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
-h3cSystemManMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1))
-h3cSysClock = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1))
-h3cSysLocalClock = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 1), DateAndTime()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysLocalClock.setStatus('current')
-h3cSysSummerTime = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2))
-h3cSysSummerTimeEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysSummerTimeEnable.setStatus('current')
-h3cSysSummerTimeZone = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysSummerTimeZone.setStatus('current')
-h3cSysSummerTimeMethod = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("oneOff", 1), ("repeating", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysSummerTimeMethod.setStatus('current')
-h3cSysSummerTimeStart = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 4), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysSummerTimeStart.setStatus('current')
-h3cSysSummerTimeEnd = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 5), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysSummerTimeEnd.setStatus('current')
-h3cSysSummerTimeOffset = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 86399))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysSummerTimeOffset.setStatus('current')
-h3cSysLocalClockString = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 24))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysLocalClockString.setStatus('current')
-h3cSysClockProtocolGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 4))
-h3cSysLocalClockString2 = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(14, 19))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysLocalClockString2.setStatus('current')
-h3cSysClockProtocol = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("ntp", 2), ("ptp", 3), ("interface", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysClockProtocol.setStatus('current')
-h3cSysClockProtocolSrcMdc = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 4, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysClockProtocolSrcMdc.setStatus('current')
-h3cSysClockProtocolSrcContext = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 4, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysClockProtocolSrcContext.setStatus('current')
-h3cSysCurrent = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2))
-h3cSysCurTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1), )
-if mibBuilder.loadTexts: h3cSysCurTable.setStatus('current')
-h3cSysCurEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysCurEntPhysicalIndex"))
-if mibBuilder.loadTexts: h3cSysCurEntry.setStatus('current')
-h3cSysCurEntPhysicalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: h3cSysCurEntPhysicalIndex.setStatus('current')
-h3cSysCurCFGFileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysCurCFGFileIndex.setStatus('current')
-h3cSysCurImageIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysCurImageIndex.setStatus('current')
-h3cSysCurBtmFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysCurBtmFileName.setStatus('current')
-h3cSysCurUpdateBtmFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysCurUpdateBtmFileName.setStatus('current')
-h3cSysReload = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3))
-h3cSysReloadSchedule = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysReloadSchedule.setStatus('current')
-h3cSysReloadAction = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("reloadUnavailable", 1), ("reloadOnSchedule", 2), ("reloadAtOnce", 3), ("reloadCancel", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysReloadAction.setStatus('current')
-h3cSysReloadScheduleTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3), )
-if mibBuilder.loadTexts: h3cSysReloadScheduleTable.setStatus('current')
-h3cSysReloadScheduleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysReloadScheduleIndex"))
-if mibBuilder.loadTexts: h3cSysReloadScheduleEntry.setStatus('current')
-h3cSysReloadScheduleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: h3cSysReloadScheduleIndex.setStatus('current')
-h3cSysReloadEntity = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysReloadEntity.setStatus('current')
-h3cSysReloadCfgFile = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysReloadCfgFile.setStatus('current')
-h3cSysReloadImage = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysReloadImage.setStatus('current')
-h3cSysReloadReason = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysReloadReason.setStatus('current')
-h3cSysReloadScheduleTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 6), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysReloadScheduleTime.setStatus('current')
-h3cSysReloadRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysReloadRowStatus.setStatus('current')
-h3cSysReloadScheduleTagList = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 8), SnmpTagList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysReloadScheduleTagList.setStatus('current')
-h3cSysReloadTag = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 4), SnmpTagValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysReloadTag.setStatus('current')
-h3cSysImage = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4))
-h3cSysImageNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysImageNum.setStatus('current')
-h3cSysImageTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2), )
-if mibBuilder.loadTexts: h3cSysImageTable.setStatus('current')
-h3cSysImageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysImageIndex"))
-if mibBuilder.loadTexts: h3cSysImageEntry.setStatus('current')
-h3cSysImageIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: h3cSysImageIndex.setStatus('current')
-h3cSysImageName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysImageName.setStatus('current')
-h3cSysImageSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysImageSize.setStatus('current')
-h3cSysImageLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysImageLocation.setStatus('current')
-h3cSysImageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("main", 1), ("backup", 2), ("none", 3), ("secure", 4), ("main-backup", 5), ("main-secure", 6), ("backup-secure", 7), ("main-backup-secure", 8)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysImageType.setStatus('current')
-h3cSysCFGFile = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5))
-h3cSysCFGFileNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysCFGFileNum.setStatus('current')
-h3cSysCFGFileTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2), )
-if mibBuilder.loadTexts: h3cSysCFGFileTable.setStatus('current')
-h3cSysCFGFileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysCFGFileIndex"))
-if mibBuilder.loadTexts: h3cSysCFGFileEntry.setStatus('current')
-h3cSysCFGFileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: h3cSysCFGFileIndex.setStatus('current')
-h3cSysCFGFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysCFGFileName.setStatus('current')
-h3cSysCFGFileSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysCFGFileSize.setStatus('current')
-h3cSysCFGFileLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysCFGFileLocation.setStatus('current')
-h3cSysBtmFile = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6))
-h3cSysBtmFileLoad = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 1))
-h3cSysBtmLoadMaxNumber = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysBtmLoadMaxNumber.setStatus('current')
-h3cSysBtmLoadTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2), )
-if mibBuilder.loadTexts: h3cSysBtmLoadTable.setStatus('current')
-h3cSysBtmLoadEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysBtmLoadIndex"))
-if mibBuilder.loadTexts: h3cSysBtmLoadEntry.setStatus('current')
-h3cSysBtmLoadIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: h3cSysBtmLoadIndex.setStatus('current')
-h3cSysBtmFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysBtmFileName.setStatus('current')
-h3cSysBtmFileType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("main", 1), ("none", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysBtmFileType.setStatus('current')
-h3cSysBtmRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysBtmRowStatus.setStatus('current')
-h3cSysBtmErrorStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("invalidFile", 1), ("inProgress", 2), ("success", 3), ("failed", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysBtmErrorStatus.setStatus('current')
-h3cSysBtmLoadTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysBtmLoadTime.setStatus('current')
-h3cSysPackage = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7))
-h3cSysPackageNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysPackageNum.setStatus('current')
-h3cSysPackageTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2), )
-if mibBuilder.loadTexts: h3cSysPackageTable.setStatus('current')
-h3cSysPackageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysPackageIndex"))
-if mibBuilder.loadTexts: h3cSysPackageEntry.setStatus('current')
-h3cSysPackageIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: h3cSysPackageIndex.setStatus('current')
-h3cSysPackageName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysPackageName.setStatus('current')
-h3cSysPackageSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysPackageSize.setStatus('current')
-h3cSysPackageLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysPackageLocation.setStatus('current')
-h3cSysPackageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("boot", 1), ("system", 2), ("feature", 3), ("patch", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysPackageType.setStatus('current')
-h3cSysPackageAttribute = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("primary", 2), ("secondary", 3), ("primarySecondary", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysPackageAttribute.setStatus('current')
-h3cSysPackageStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysPackageStatus.setStatus('current')
-h3cSysPackageDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysPackageDescription.setStatus('current')
-h3cSysPackageFeature = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysPackageFeature.setStatus('current')
-h3cSysPackageVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysPackageVersion.setStatus('current')
-h3cSysPackageLoadAttribute = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("primary", 2), ("secondary", 3), ("primarySecondary", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysPackageLoadAttribute.setStatus('current')
-h3cSysPackageModel = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysPackageModel.setStatus('current')
-h3cSysPackageOperateEntryLimit = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysPackageOperateEntryLimit.setStatus('current')
-h3cSysPackageOperateTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4), )
-if mibBuilder.loadTexts: h3cSysPackageOperateTable.setStatus('current')
-h3cSysPackageOperateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysPackageOperateIndex"))
-if mibBuilder.loadTexts: h3cSysPackageOperateEntry.setStatus('current')
-h3cSysPackageOperateIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: h3cSysPackageOperateIndex.setStatus('current')
-h3cSysPackageOperatePackIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysPackageOperatePackIndex.setStatus('current')
-h3cSysPackageOperateStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysPackageOperateStatus.setStatus('current')
-h3cSysPackageOperateRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysPackageOperateRowStatus.setStatus('current')
-h3cSysPackageOperateResult = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("opInProgress", 1), ("opSuccess", 2), ("opUnknownFailure", 3), ("opInvalidFile", 4), ("opNotSupport", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysPackageOperateResult.setStatus('current')
-h3cSysIpeFile = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8))
-h3cSysIpeFileNum = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpeFileNum.setStatus('current')
-h3cSysIpeFileTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2), )
-if mibBuilder.loadTexts: h3cSysIpeFileTable.setStatus('current')
-h3cSysIpeFileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysIpeFileIndex"))
-if mibBuilder.loadTexts: h3cSysIpeFileEntry.setStatus('current')
-h3cSysIpeFileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: h3cSysIpeFileIndex.setStatus('current')
-h3cSysIpeFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpeFileName.setStatus('current')
-h3cSysIpeFileSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpeFileSize.setStatus('current')
-h3cSysIpeFileLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpeFileLocation.setStatus('current')
-h3cSysIpeFileModel = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1, 5), SnmpTagList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpeFileModel.setStatus('current')
-h3cSysIpePackageTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3), )
-if mibBuilder.loadTexts: h3cSysIpePackageTable.setStatus('current')
-h3cSysIpePackageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysIpeFileIndex"), (0, "H3C-SYS-MAN-MIB", "h3cSysIpePackageIndex"))
-if mibBuilder.loadTexts: h3cSysIpePackageEntry.setStatus('current')
-h3cSysIpePackageIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: h3cSysIpePackageIndex.setStatus('current')
-h3cSysIpePackageName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpePackageName.setStatus('current')
-h3cSysIpePackageSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpePackageSize.setStatus('current')
-h3cSysIpePackageType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("boot", 1), ("system", 2), ("feature", 3), ("patch", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpePackageType.setStatus('current')
-h3cSysIpePackageDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpePackageDescription.setStatus('current')
-h3cSysIpePackageFeature = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpePackageFeature.setStatus('current')
-h3cSysIpePackageVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpePackageVersion.setStatus('current')
-h3cSysIpePackageModel = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpePackageModel.setStatus('current')
-h3cSysIpeFileOperateTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4), )
-if mibBuilder.loadTexts: h3cSysIpeFileOperateTable.setStatus('current')
-h3cSysIpeFileOperateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysIpeFileOperateIndex"))
-if mibBuilder.loadTexts: h3cSysIpeFileOperateEntry.setStatus('current')
-h3cSysIpeFileOperateIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: h3cSysIpeFileOperateIndex.setStatus('current')
-h3cSysIpeFileOperateFileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysIpeFileOperateFileIndex.setStatus('current')
-h3cSysIpeFileOperateAttribute = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("primary", 2), ("secondary", 3), ("primarySecondary", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysIpeFileOperateAttribute.setStatus('current')
-h3cSysIpeFileOperateRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysIpeFileOperateRowStatus.setStatus('current')
-h3cSysIpeFileOperateResult = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("opInProgress", 1), ("opSuccess", 2), ("opUnknownFailure", 3), ("opInvalidFile", 4), ("opDeviceFull", 5), ("opFileOpenError", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysIpeFileOperateResult.setStatus('current')
-h3cSysSetBootImage = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9))
-h3cSysSetBootImageOp = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1))
-h3cSysSetBootImageAction = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("none", 1), ("done", 2), ("bootLoadPrimary", 3), ("bootLoadSecondary", 4), ("bootLoadPrimarySecondary", 5), ("bootPrimary", 6), ("bootSecondary", 7), ("bootPrimarySecondary", 8), ("loadPrimary", 9), ("loadSecondary", 10), ("loadPrimarySecondary", 11)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysSetBootImageAction.setStatus('current')
-h3cSysSetBootImageFileOverWrite = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysSetBootImageFileOverWrite.setStatus('current')
-h3cSysSetBootImageRemoveIpeFile = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSysSetBootImageRemoveIpeFile.setStatus('current')
-h3cSysSetBootImageStatus = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("doing", 2), ("success", 3), ("failed", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysSetBootImageStatus.setStatus('current')
-h3cSysSetBootImageFailedReason = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysSetBootImageFailedReason.setStatus('current')
-h3cSysBootPackageTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 2), )
-if mibBuilder.loadTexts: h3cSysBootPackageTable.setStatus('current')
-h3cSysBootPackageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 2, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysBootPackageIndex"))
-if mibBuilder.loadTexts: h3cSysBootPackageEntry.setStatus('current')
-h3cSysBootPackageIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: h3cSysBootPackageIndex.setStatus('current')
-h3cSysBootPackageRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysBootPackageRowStatus.setStatus('current')
-h3cSysBootIpeTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 3), )
-if mibBuilder.loadTexts: h3cSysBootIpeTable.setStatus('current')
-h3cSysBootIpeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 3, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysBootIpeIndex"))
-if mibBuilder.loadTexts: h3cSysBootIpeEntry.setStatus('current')
-h3cSysBootIpeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: h3cSysBootIpeIndex.setStatus('current')
-h3cSysBootIpeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSysBootIpeRowStatus.setStatus('current')
-h3cSysSetBootImageResultTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 4), )
-if mibBuilder.loadTexts: h3cSysSetBootImageResultTable.setStatus('current')
-h3cSysSetBootImageResultEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 4, 1), ).setIndexNames((0, "H3C-SYS-MAN-MIB", "h3cSysSetBootImageResultIndex"))
-if mibBuilder.loadTexts: h3cSysSetBootImageResultEntry.setStatus('current')
-h3cSysSetBootImageResultIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: h3cSysSetBootImageResultIndex.setStatus('current')
-h3cSysSetBootImageResultStatusOfEachCard = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("doing", 2), ("success", 3), ("failed", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysSetBootImageResultStatusOfEachCard.setStatus('current')
-h3cSysSetBootImageFailedReasonOfEachCard = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSysSetBootImageFailedReasonOfEachCard.setStatus('current')
-h3cSystemManMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 2))
-h3cSysClockChangedNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 2, 1)).setObjects(("H3C-SYS-MAN-MIB", "h3cSysLocalClock"))
-if mibBuilder.loadTexts: h3cSysClockChangedNotification.setStatus('current')
-h3cSysReloadNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 2, 2)).setObjects(("H3C-SYS-MAN-MIB", "h3cSysReloadImage"), ("H3C-SYS-MAN-MIB", "h3cSysReloadCfgFile"), ("H3C-SYS-MAN-MIB", "h3cSysReloadReason"), ("H3C-SYS-MAN-MIB", "h3cSysReloadScheduleTime"), ("H3C-SYS-MAN-MIB", "h3cSysReloadAction"))
-if mibBuilder.loadTexts: h3cSysReloadNotification.setStatus('current')
-h3cSysStartUpNotification = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 2, 3)).setObjects(("H3C-SYS-MAN-MIB", "h3cSysImageType"))
-if mibBuilder.loadTexts: h3cSysStartUpNotification.setStatus('current')
-h3cSystemManMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3))
-h3cSystemManMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 1))
-h3cSystemManMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 1, 1)).setObjects(("H3C-SYS-MAN-MIB", "h3cSysClockGroup"), ("H3C-SYS-MAN-MIB", "h3cSysReloadGroup"), ("H3C-SYS-MAN-MIB", "h3cSysImageGroup"), ("H3C-SYS-MAN-MIB", "h3cSysCFGFileGroup"), ("H3C-SYS-MAN-MIB", "h3cSystemManNotificationGroup"), ("H3C-SYS-MAN-MIB", "h3cSysCurGroup"), ("H3C-SYS-MAN-MIB", "h3cSystemBtmLoadGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    h3cSystemManMIBCompliance = h3cSystemManMIBCompliance.setStatus('current')
-h3cSystemManMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2))
-h3cSysClockGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 1)).setObjects(("H3C-SYS-MAN-MIB", "h3cSysLocalClock"), ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeEnable"), ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeZone"), ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeMethod"), ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeStart"), ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeEnd"), ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeOffset"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    h3cSysClockGroup = h3cSysClockGroup.setStatus('current')
-h3cSysReloadGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 2)).setObjects(("H3C-SYS-MAN-MIB", "h3cSysReloadSchedule"), ("H3C-SYS-MAN-MIB", "h3cSysReloadAction"), ("H3C-SYS-MAN-MIB", "h3cSysReloadImage"), ("H3C-SYS-MAN-MIB", "h3cSysReloadCfgFile"), ("H3C-SYS-MAN-MIB", "h3cSysReloadReason"), ("H3C-SYS-MAN-MIB", "h3cSysReloadScheduleTagList"), ("H3C-SYS-MAN-MIB", "h3cSysReloadTag"), ("H3C-SYS-MAN-MIB", "h3cSysReloadScheduleTime"), ("H3C-SYS-MAN-MIB", "h3cSysReloadEntity"), ("H3C-SYS-MAN-MIB", "h3cSysReloadRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    h3cSysReloadGroup = h3cSysReloadGroup.setStatus('current')
-h3cSysImageGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 3)).setObjects(("H3C-SYS-MAN-MIB", "h3cSysImageNum"), ("H3C-SYS-MAN-MIB", "h3cSysImageName"), ("H3C-SYS-MAN-MIB", "h3cSysImageSize"), ("H3C-SYS-MAN-MIB", "h3cSysImageLocation"), ("H3C-SYS-MAN-MIB", "h3cSysImageType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    h3cSysImageGroup = h3cSysImageGroup.setStatus('current')
-h3cSysCFGFileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 4)).setObjects(("H3C-SYS-MAN-MIB", "h3cSysCFGFileNum"), ("H3C-SYS-MAN-MIB", "h3cSysCFGFileName"), ("H3C-SYS-MAN-MIB", "h3cSysCFGFileSize"), ("H3C-SYS-MAN-MIB", "h3cSysCFGFileLocation"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    h3cSysCFGFileGroup = h3cSysCFGFileGroup.setStatus('current')
-h3cSysCurGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 5)).setObjects(("H3C-SYS-MAN-MIB", "h3cSysCurCFGFileIndex"), ("H3C-SYS-MAN-MIB", "h3cSysCurImageIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    h3cSysCurGroup = h3cSysCurGroup.setStatus('current')
-h3cSystemManNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 6)).setObjects(("H3C-SYS-MAN-MIB", "h3cSysClockChangedNotification"), ("H3C-SYS-MAN-MIB", "h3cSysReloadNotification"), ("H3C-SYS-MAN-MIB", "h3cSysStartUpNotification"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    h3cSystemManNotificationGroup = h3cSystemManNotificationGroup.setStatus('current')
-h3cSystemBtmLoadGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 7)).setObjects(("H3C-SYS-MAN-MIB", "h3cSysCurBtmFileName"), ("H3C-SYS-MAN-MIB", "h3cSysCurUpdateBtmFileName"), ("H3C-SYS-MAN-MIB", "h3cSysBtmLoadMaxNumber"), ("H3C-SYS-MAN-MIB", "h3cSysBtmFileName"), ("H3C-SYS-MAN-MIB", "h3cSysBtmFileType"), ("H3C-SYS-MAN-MIB", "h3cSysBtmRowStatus"), ("H3C-SYS-MAN-MIB", "h3cSysBtmErrorStatus"), ("H3C-SYS-MAN-MIB", "h3cSysBtmLoadTime"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    h3cSystemBtmLoadGroup = h3cSystemBtmLoadGroup.setStatus('current')
-mibBuilder.exportSymbols("H3C-SYS-MAN-MIB", h3cSysReload=h3cSysReload, h3cSystemManMIBNotifications=h3cSystemManMIBNotifications, h3cSysSetBootImageFailedReason=h3cSysSetBootImageFailedReason, h3cSysCurGroup=h3cSysCurGroup, h3cSysIpePackageFeature=h3cSysIpePackageFeature, h3cSysIpeFileOperateTable=h3cSysIpeFileOperateTable, h3cSysBootPackageTable=h3cSysBootPackageTable, h3cSysCurTable=h3cSysCurTable, h3cSysPackageSize=h3cSysPackageSize, h3cSysPackageAttribute=h3cSysPackageAttribute, h3cSysIpeFileOperateResult=h3cSysIpeFileOperateResult, h3cSysIpeFileSize=h3cSysIpeFileSize, h3cSysSetBootImageRemoveIpeFile=h3cSysSetBootImageRemoveIpeFile, h3cSysIpeFileLocation=h3cSysIpeFileLocation, h3cSysPackageOperatePackIndex=h3cSysPackageOperatePackIndex, h3cSysPackageLoadAttribute=h3cSysPackageLoadAttribute, h3cSysCurEntPhysicalIndex=h3cSysCurEntPhysicalIndex, h3cSysPackageName=h3cSysPackageName, h3cSysPackageIndex=h3cSysPackageIndex, h3cSysIpeFileName=h3cSysIpeFileName, h3cSysBtmLoadTable=h3cSysBtmLoadTable, h3cSysCFGFileLocation=h3cSysCFGFileLocation, h3cSysReloadNotification=h3cSysReloadNotification, h3cSystemMan=h3cSystemMan, h3cSysCurImageIndex=h3cSysCurImageIndex, h3cSysPackageOperateRowStatus=h3cSysPackageOperateRowStatus, h3cSysBtmFileLoad=h3cSysBtmFileLoad, h3cSysStartUpNotification=h3cSysStartUpNotification, h3cSysReloadEntity=h3cSysReloadEntity, h3cSysImageEntry=h3cSysImageEntry, h3cSysBtmLoadEntry=h3cSysBtmLoadEntry, h3cSysImageGroup=h3cSysImageGroup, h3cSysIpeFileOperateIndex=h3cSysIpeFileOperateIndex, PYSNMP_MODULE_ID=h3cSystemMan, h3cSysPackageNum=h3cSysPackageNum, h3cSysPackageDescription=h3cSysPackageDescription, h3cSystemBtmLoadGroup=h3cSystemBtmLoadGroup, h3cSysImage=h3cSysImage, h3cSysIpeFileModel=h3cSysIpeFileModel, h3cSysCFGFileEntry=h3cSysCFGFileEntry, h3cSysReloadScheduleTable=h3cSysReloadScheduleTable, h3cSysLocalClockString=h3cSysLocalClockString, h3cSysIpeFileOperateFileIndex=h3cSysIpeFileOperateFileIndex, h3cSysBootIpeTable=h3cSysBootIpeTable, h3cSysImageLocation=h3cSysImageLocation, h3cSysSummerTimeMethod=h3cSysSummerTimeMethod, h3cSysClockProtocolSrcContext=h3cSysClockProtocolSrcContext, h3cSysReloadScheduleTime=h3cSysReloadScheduleTime, h3cSysBootIpeIndex=h3cSysBootIpeIndex, h3cSysReloadCfgFile=h3cSysReloadCfgFile, h3cSysPackageOperateStatus=h3cSysPackageOperateStatus, h3cSysPackageEntry=h3cSysPackageEntry, h3cSysClockProtocolSrcMdc=h3cSysClockProtocolSrcMdc, h3cSysPackageOperateEntryLimit=h3cSysPackageOperateEntryLimit, h3cSysSummerTime=h3cSysSummerTime, h3cSysCurCFGFileIndex=h3cSysCurCFGFileIndex, h3cSysBtmLoadIndex=h3cSysBtmLoadIndex, h3cSysImageSize=h3cSysImageSize, h3cSysPackageTable=h3cSysPackageTable, h3cSysPackageOperateResult=h3cSysPackageOperateResult, h3cSysReloadRowStatus=h3cSysReloadRowStatus, h3cSysReloadSchedule=h3cSysReloadSchedule, h3cSysPackageLocation=h3cSysPackageLocation, h3cSysIpePackageDescription=h3cSysIpePackageDescription, h3cSysIpeFileOperateEntry=h3cSysIpeFileOperateEntry, h3cSysPackageVersion=h3cSysPackageVersion, h3cSysIpeFileTable=h3cSysIpeFileTable, h3cSysBtmFileName=h3cSysBtmFileName, h3cSysIpeFileOperateAttribute=h3cSysIpeFileOperateAttribute, h3cSysCurBtmFileName=h3cSysCurBtmFileName, h3cSysSetBootImageAction=h3cSysSetBootImageAction, h3cSysLocalClock=h3cSysLocalClock, h3cSysReloadAction=h3cSysReloadAction, h3cSysPackageType=h3cSysPackageType, h3cSysIpePackageSize=h3cSysIpePackageSize, h3cSysSetBootImageStatus=h3cSysSetBootImageStatus, h3cSystemManMIBGroups=h3cSystemManMIBGroups, h3cSysClock=h3cSysClock, h3cSysSetBootImageResultTable=h3cSysSetBootImageResultTable, h3cSysSummerTimeOffset=h3cSysSummerTimeOffset, h3cSysSetBootImage=h3cSysSetBootImage, h3cSysSummerTimeEnable=h3cSysSummerTimeEnable, h3cSysBootPackageIndex=h3cSysBootPackageIndex, h3cSysIpePackageIndex=h3cSysIpePackageIndex, h3cSysPackageModel=h3cSysPackageModel, h3cSysReloadImage=h3cSysReloadImage, h3cSysImageIndex=h3cSysImageIndex, h3cSysIpePackageVersion=h3cSysIpePackageVersion, h3cSysReloadScheduleIndex=h3cSysReloadScheduleIndex, h3cSystemManMIBConformance=h3cSystemManMIBConformance, h3cSysCFGFileGroup=h3cSysCFGFileGroup, h3cSysImageName=h3cSysImageName, h3cSysClockProtocol=h3cSysClockProtocol, h3cSysBootPackageEntry=h3cSysBootPackageEntry, h3cSysBootPackageRowStatus=h3cSysBootPackageRowStatus, h3cSysSetBootImageResultEntry=h3cSysSetBootImageResultEntry, h3cSysPackageOperateTable=h3cSysPackageOperateTable, h3cSysSummerTimeZone=h3cSysSummerTimeZone, h3cSysSetBootImageFailedReasonOfEachCard=h3cSysSetBootImageFailedReasonOfEachCard, h3cSysIpeFileOperateRowStatus=h3cSysIpeFileOperateRowStatus, h3cSysSetBootImageResultStatusOfEachCard=h3cSysSetBootImageResultStatusOfEachCard, h3cSysReloadReason=h3cSysReloadReason, h3cSysPackageOperateEntry=h3cSysPackageOperateEntry, h3cSysCurEntry=h3cSysCurEntry, h3cSysIpePackageName=h3cSysIpePackageName, h3cSysLocalClockString2=h3cSysLocalClockString2, h3cSysReloadScheduleEntry=h3cSysReloadScheduleEntry, h3cSysBtmLoadTime=h3cSysBtmLoadTime, h3cSysIpeFileEntry=h3cSysIpeFileEntry, h3cSysClockProtocolGroup=h3cSysClockProtocolGroup, h3cSysClockGroup=h3cSysClockGroup, h3cSysImageType=h3cSysImageType, h3cSysCFGFileNum=h3cSysCFGFileNum, h3cSystemManMIBObjects=h3cSystemManMIBObjects, h3cSysCFGFileSize=h3cSysCFGFileSize, h3cSysBtmFile=h3cSysBtmFile, h3cSysCFGFileIndex=h3cSysCFGFileIndex, h3cSysIpeFileNum=h3cSysIpeFileNum, h3cSysImageNum=h3cSysImageNum, h3cSysIpePackageEntry=h3cSysIpePackageEntry, h3cSysCFGFileName=h3cSysCFGFileName, h3cSysReloadGroup=h3cSysReloadGroup, h3cSysIpePackageModel=h3cSysIpePackageModel, h3cSysSetBootImageResultIndex=h3cSysSetBootImageResultIndex, h3cSysCFGFileTable=h3cSysCFGFileTable, h3cSysBtmFileType=h3cSysBtmFileType, h3cSysIpePackageTable=h3cSysIpePackageTable, h3cSysPackageFeature=h3cSysPackageFeature, h3cSysIpeFile=h3cSysIpeFile, h3cSysCurUpdateBtmFileName=h3cSysCurUpdateBtmFileName, h3cSysBtmRowStatus=h3cSysBtmRowStatus, h3cSysBootIpeRowStatus=h3cSysBootIpeRowStatus, h3cSysPackageOperateIndex=h3cSysPackageOperateIndex, h3cSysCurrent=h3cSysCurrent, h3cSysIpeFileIndex=h3cSysIpeFileIndex, h3cSysSetBootImageOp=h3cSysSetBootImageOp, h3cSystemManNotificationGroup=h3cSystemManNotificationGroup, h3cSysSummerTimeStart=h3cSysSummerTimeStart, h3cSysCFGFile=h3cSysCFGFile, h3cSysSummerTimeEnd=h3cSysSummerTimeEnd, h3cSysPackage=h3cSysPackage, h3cSysBootIpeEntry=h3cSysBootIpeEntry, h3cSysBtmErrorStatus=h3cSysBtmErrorStatus, h3cSystemManMIBCompliances=h3cSystemManMIBCompliances, h3cSysImageTable=h3cSysImageTable, h3cSysSetBootImageFileOverWrite=h3cSysSetBootImageFileOverWrite, h3cSysReloadTag=h3cSysReloadTag, h3cSysIpePackageType=h3cSysIpePackageType, h3cSysClockChangedNotification=h3cSysClockChangedNotification, h3cSysPackageStatus=h3cSysPackageStatus, h3cSysBtmLoadMaxNumber=h3cSysBtmLoadMaxNumber, h3cSystemManMIBCompliance=h3cSystemManMIBCompliance, h3cSysReloadScheduleTagList=h3cSysReloadScheduleTagList)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(SnmpTagList,
+ SnmpTagValue) = mibBuilder.importSymbols(
+    "SNMP-TARGET-MIB",
+    "SnmpTagList",
+    "SnmpTagValue")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+h3cSystemMan = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3)
+)
+if mibBuilder.loadTexts:
+    h3cSystemMan.setRevisions(
+        ("2018-01-10 00:00",
+         "2017-06-12 00:00",
+         "2015-07-27 00:00",
+         "2004-04-08 13:45")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cSystemManMIBObjects_ObjectIdentity = ObjectIdentity
+h3cSystemManMIBObjects = _H3cSystemManMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1)
+)
+_H3cSysClock_ObjectIdentity = ObjectIdentity
+h3cSysClock = _H3cSysClock_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1)
+)
+_H3cSysLocalClock_Type = DateAndTime
+_H3cSysLocalClock_Object = MibScalar
+h3cSysLocalClock = _H3cSysLocalClock_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 1),
+    _H3cSysLocalClock_Type()
+)
+h3cSysLocalClock.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysLocalClock.setStatus("current")
+_H3cSysSummerTime_ObjectIdentity = ObjectIdentity
+h3cSysSummerTime = _H3cSysSummerTime_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2)
+)
+
+
+class _H3cSysSummerTimeEnable_Type(Integer32):
+    """Custom type h3cSysSummerTimeEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_H3cSysSummerTimeEnable_Type.__name__ = "Integer32"
+_H3cSysSummerTimeEnable_Object = MibScalar
+h3cSysSummerTimeEnable = _H3cSysSummerTimeEnable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 1),
+    _H3cSysSummerTimeEnable_Type()
+)
+h3cSysSummerTimeEnable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysSummerTimeEnable.setStatus("current")
+
+
+class _H3cSysSummerTimeZone_Type(DisplayString):
+    """Custom type h3cSysSummerTimeZone based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysSummerTimeZone_Type.__name__ = "DisplayString"
+_H3cSysSummerTimeZone_Object = MibScalar
+h3cSysSummerTimeZone = _H3cSysSummerTimeZone_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 2),
+    _H3cSysSummerTimeZone_Type()
+)
+h3cSysSummerTimeZone.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysSummerTimeZone.setStatus("current")
+
+
+class _H3cSysSummerTimeMethod_Type(Integer32):
+    """Custom type h3cSysSummerTimeMethod based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("oneOff", 1),
+          ("repeating", 2))
+    )
+
+
+_H3cSysSummerTimeMethod_Type.__name__ = "Integer32"
+_H3cSysSummerTimeMethod_Object = MibScalar
+h3cSysSummerTimeMethod = _H3cSysSummerTimeMethod_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 3),
+    _H3cSysSummerTimeMethod_Type()
+)
+h3cSysSummerTimeMethod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysSummerTimeMethod.setStatus("current")
+
+
+class _H3cSysSummerTimeStart_Type(DateAndTime):
+    """Custom type h3cSysSummerTimeStart based on DateAndTime"""
+    subtypeSpec = DateAndTime.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_H3cSysSummerTimeStart_Type.__name__ = "DateAndTime"
+_H3cSysSummerTimeStart_Object = MibScalar
+h3cSysSummerTimeStart = _H3cSysSummerTimeStart_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 4),
+    _H3cSysSummerTimeStart_Type()
+)
+h3cSysSummerTimeStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysSummerTimeStart.setStatus("current")
+
+
+class _H3cSysSummerTimeEnd_Type(DateAndTime):
+    """Custom type h3cSysSummerTimeEnd based on DateAndTime"""
+    subtypeSpec = DateAndTime.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_H3cSysSummerTimeEnd_Type.__name__ = "DateAndTime"
+_H3cSysSummerTimeEnd_Object = MibScalar
+h3cSysSummerTimeEnd = _H3cSysSummerTimeEnd_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 5),
+    _H3cSysSummerTimeEnd_Type()
+)
+h3cSysSummerTimeEnd.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysSummerTimeEnd.setStatus("current")
+
+
+class _H3cSysSummerTimeOffset_Type(Integer32):
+    """Custom type h3cSysSummerTimeOffset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 86399),
+    )
+
+
+_H3cSysSummerTimeOffset_Type.__name__ = "Integer32"
+_H3cSysSummerTimeOffset_Object = MibScalar
+h3cSysSummerTimeOffset = _H3cSysSummerTimeOffset_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 2, 6),
+    _H3cSysSummerTimeOffset_Type()
+)
+h3cSysSummerTimeOffset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysSummerTimeOffset.setStatus("current")
+
+
+class _H3cSysLocalClockString_Type(OctetString):
+    """Custom type h3cSysLocalClockString based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 24),
+    )
+
+
+_H3cSysLocalClockString_Type.__name__ = "OctetString"
+_H3cSysLocalClockString_Object = MibScalar
+h3cSysLocalClockString = _H3cSysLocalClockString_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 3),
+    _H3cSysLocalClockString_Type()
+)
+h3cSysLocalClockString.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysLocalClockString.setStatus("current")
+_H3cSysClockProtocolGroup_ObjectIdentity = ObjectIdentity
+h3cSysClockProtocolGroup = _H3cSysClockProtocolGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 4)
+)
+
+
+class _H3cSysClockProtocol_Type(Integer32):
+    """Custom type h3cSysClockProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("ntp", 2),
+          ("ptp", 3),
+          ("interface", 4))
+    )
+
+
+_H3cSysClockProtocol_Type.__name__ = "Integer32"
+_H3cSysClockProtocol_Object = MibScalar
+h3cSysClockProtocol = _H3cSysClockProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 4, 1),
+    _H3cSysClockProtocol_Type()
+)
+h3cSysClockProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysClockProtocol.setStatus("current")
+
+
+class _H3cSysClockProtocolSrcMdc_Type(Integer32):
+    """Custom type h3cSysClockProtocolSrcMdc based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysClockProtocolSrcMdc_Type.__name__ = "Integer32"
+_H3cSysClockProtocolSrcMdc_Object = MibScalar
+h3cSysClockProtocolSrcMdc = _H3cSysClockProtocolSrcMdc_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 4, 2),
+    _H3cSysClockProtocolSrcMdc_Type()
+)
+h3cSysClockProtocolSrcMdc.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysClockProtocolSrcMdc.setStatus("current")
+
+
+class _H3cSysClockProtocolSrcContext_Type(Integer32):
+    """Custom type h3cSysClockProtocolSrcContext based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysClockProtocolSrcContext_Type.__name__ = "Integer32"
+_H3cSysClockProtocolSrcContext_Object = MibScalar
+h3cSysClockProtocolSrcContext = _H3cSysClockProtocolSrcContext_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 4, 3),
+    _H3cSysClockProtocolSrcContext_Type()
+)
+h3cSysClockProtocolSrcContext.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysClockProtocolSrcContext.setStatus("current")
+
+
+class _H3cSysLocalClockString2_Type(OctetString):
+    """Custom type h3cSysLocalClockString2 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(14, 19),
+    )
+
+
+_H3cSysLocalClockString2_Type.__name__ = "OctetString"
+_H3cSysLocalClockString2_Object = MibScalar
+h3cSysLocalClockString2 = _H3cSysLocalClockString2_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 1, 5),
+    _H3cSysLocalClockString2_Type()
+)
+h3cSysLocalClockString2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysLocalClockString2.setStatus("current")
+_H3cSysCurrent_ObjectIdentity = ObjectIdentity
+h3cSysCurrent = _H3cSysCurrent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2)
+)
+_H3cSysCurTable_Object = MibTable
+h3cSysCurTable = _H3cSysCurTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    h3cSysCurTable.setStatus("current")
+_H3cSysCurEntry_Object = MibTableRow
+h3cSysCurEntry = _H3cSysCurEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1)
+)
+h3cSysCurEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysCurEntPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysCurEntry.setStatus("current")
+
+
+class _H3cSysCurEntPhysicalIndex_Type(Integer32):
+    """Custom type h3cSysCurEntPhysicalIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysCurEntPhysicalIndex_Type.__name__ = "Integer32"
+_H3cSysCurEntPhysicalIndex_Object = MibTableColumn
+h3cSysCurEntPhysicalIndex = _H3cSysCurEntPhysicalIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1, 1),
+    _H3cSysCurEntPhysicalIndex_Type()
+)
+h3cSysCurEntPhysicalIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysCurEntPhysicalIndex.setStatus("current")
+
+
+class _H3cSysCurCFGFileIndex_Type(Integer32):
+    """Custom type h3cSysCurCFGFileIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysCurCFGFileIndex_Type.__name__ = "Integer32"
+_H3cSysCurCFGFileIndex_Object = MibTableColumn
+h3cSysCurCFGFileIndex = _H3cSysCurCFGFileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1, 2),
+    _H3cSysCurCFGFileIndex_Type()
+)
+h3cSysCurCFGFileIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysCurCFGFileIndex.setStatus("current")
+
+
+class _H3cSysCurImageIndex_Type(Integer32):
+    """Custom type h3cSysCurImageIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysCurImageIndex_Type.__name__ = "Integer32"
+_H3cSysCurImageIndex_Object = MibTableColumn
+h3cSysCurImageIndex = _H3cSysCurImageIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1, 3),
+    _H3cSysCurImageIndex_Type()
+)
+h3cSysCurImageIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysCurImageIndex.setStatus("current")
+
+
+class _H3cSysCurBtmFileName_Type(OctetString):
+    """Custom type h3cSysCurBtmFileName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_H3cSysCurBtmFileName_Type.__name__ = "OctetString"
+_H3cSysCurBtmFileName_Object = MibTableColumn
+h3cSysCurBtmFileName = _H3cSysCurBtmFileName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1, 4),
+    _H3cSysCurBtmFileName_Type()
+)
+h3cSysCurBtmFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysCurBtmFileName.setStatus("current")
+
+
+class _H3cSysCurUpdateBtmFileName_Type(OctetString):
+    """Custom type h3cSysCurUpdateBtmFileName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_H3cSysCurUpdateBtmFileName_Type.__name__ = "OctetString"
+_H3cSysCurUpdateBtmFileName_Object = MibTableColumn
+h3cSysCurUpdateBtmFileName = _H3cSysCurUpdateBtmFileName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 2, 1, 1, 5),
+    _H3cSysCurUpdateBtmFileName_Type()
+)
+h3cSysCurUpdateBtmFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysCurUpdateBtmFileName.setStatus("current")
+_H3cSysReload_ObjectIdentity = ObjectIdentity
+h3cSysReload = _H3cSysReload_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3)
+)
+
+
+class _H3cSysReloadSchedule_Type(Integer32):
+    """Custom type h3cSysReloadSchedule based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysReloadSchedule_Type.__name__ = "Integer32"
+_H3cSysReloadSchedule_Object = MibScalar
+h3cSysReloadSchedule = _H3cSysReloadSchedule_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 1),
+    _H3cSysReloadSchedule_Type()
+)
+h3cSysReloadSchedule.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysReloadSchedule.setStatus("current")
+
+
+class _H3cSysReloadAction_Type(Integer32):
+    """Custom type h3cSysReloadAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("reloadUnavailable", 1),
+          ("reloadOnSchedule", 2),
+          ("reloadAtOnce", 3),
+          ("reloadCancel", 4))
+    )
+
+
+_H3cSysReloadAction_Type.__name__ = "Integer32"
+_H3cSysReloadAction_Object = MibScalar
+h3cSysReloadAction = _H3cSysReloadAction_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 2),
+    _H3cSysReloadAction_Type()
+)
+h3cSysReloadAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysReloadAction.setStatus("current")
+_H3cSysReloadScheduleTable_Object = MibTable
+h3cSysReloadScheduleTable = _H3cSysReloadScheduleTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3)
+)
+if mibBuilder.loadTexts:
+    h3cSysReloadScheduleTable.setStatus("current")
+_H3cSysReloadScheduleEntry_Object = MibTableRow
+h3cSysReloadScheduleEntry = _H3cSysReloadScheduleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1)
+)
+h3cSysReloadScheduleEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysReloadScheduleIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysReloadScheduleEntry.setStatus("current")
+
+
+class _H3cSysReloadScheduleIndex_Type(Integer32):
+    """Custom type h3cSysReloadScheduleIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysReloadScheduleIndex_Type.__name__ = "Integer32"
+_H3cSysReloadScheduleIndex_Object = MibTableColumn
+h3cSysReloadScheduleIndex = _H3cSysReloadScheduleIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 1),
+    _H3cSysReloadScheduleIndex_Type()
+)
+h3cSysReloadScheduleIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysReloadScheduleIndex.setStatus("current")
+
+
+class _H3cSysReloadEntity_Type(Integer32):
+    """Custom type h3cSysReloadEntity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysReloadEntity_Type.__name__ = "Integer32"
+_H3cSysReloadEntity_Object = MibTableColumn
+h3cSysReloadEntity = _H3cSysReloadEntity_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 2),
+    _H3cSysReloadEntity_Type()
+)
+h3cSysReloadEntity.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysReloadEntity.setStatus("current")
+
+
+class _H3cSysReloadCfgFile_Type(Integer32):
+    """Custom type h3cSysReloadCfgFile based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysReloadCfgFile_Type.__name__ = "Integer32"
+_H3cSysReloadCfgFile_Object = MibTableColumn
+h3cSysReloadCfgFile = _H3cSysReloadCfgFile_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 3),
+    _H3cSysReloadCfgFile_Type()
+)
+h3cSysReloadCfgFile.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysReloadCfgFile.setStatus("current")
+
+
+class _H3cSysReloadImage_Type(Integer32):
+    """Custom type h3cSysReloadImage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysReloadImage_Type.__name__ = "Integer32"
+_H3cSysReloadImage_Object = MibTableColumn
+h3cSysReloadImage = _H3cSysReloadImage_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 4),
+    _H3cSysReloadImage_Type()
+)
+h3cSysReloadImage.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysReloadImage.setStatus("current")
+
+
+class _H3cSysReloadReason_Type(DisplayString):
+    """Custom type h3cSysReloadReason based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysReloadReason_Type.__name__ = "DisplayString"
+_H3cSysReloadReason_Object = MibTableColumn
+h3cSysReloadReason = _H3cSysReloadReason_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 5),
+    _H3cSysReloadReason_Type()
+)
+h3cSysReloadReason.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysReloadReason.setStatus("current")
+
+
+class _H3cSysReloadScheduleTime_Type(DateAndTime):
+    """Custom type h3cSysReloadScheduleTime based on DateAndTime"""
+    subtypeSpec = DateAndTime.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_H3cSysReloadScheduleTime_Type.__name__ = "DateAndTime"
+_H3cSysReloadScheduleTime_Object = MibTableColumn
+h3cSysReloadScheduleTime = _H3cSysReloadScheduleTime_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 6),
+    _H3cSysReloadScheduleTime_Type()
+)
+h3cSysReloadScheduleTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysReloadScheduleTime.setStatus("current")
+_H3cSysReloadRowStatus_Type = RowStatus
+_H3cSysReloadRowStatus_Object = MibTableColumn
+h3cSysReloadRowStatus = _H3cSysReloadRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 7),
+    _H3cSysReloadRowStatus_Type()
+)
+h3cSysReloadRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysReloadRowStatus.setStatus("current")
+_H3cSysReloadScheduleTagList_Type = SnmpTagList
+_H3cSysReloadScheduleTagList_Object = MibTableColumn
+h3cSysReloadScheduleTagList = _H3cSysReloadScheduleTagList_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 3, 1, 8),
+    _H3cSysReloadScheduleTagList_Type()
+)
+h3cSysReloadScheduleTagList.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysReloadScheduleTagList.setStatus("current")
+_H3cSysReloadTag_Type = SnmpTagValue
+_H3cSysReloadTag_Object = MibScalar
+h3cSysReloadTag = _H3cSysReloadTag_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 3, 4),
+    _H3cSysReloadTag_Type()
+)
+h3cSysReloadTag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysReloadTag.setStatus("current")
+_H3cSysImage_ObjectIdentity = ObjectIdentity
+h3cSysImage = _H3cSysImage_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4)
+)
+
+
+class _H3cSysImageNum_Type(Integer32):
+    """Custom type h3cSysImageNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysImageNum_Type.__name__ = "Integer32"
+_H3cSysImageNum_Object = MibScalar
+h3cSysImageNum = _H3cSysImageNum_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 1),
+    _H3cSysImageNum_Type()
+)
+h3cSysImageNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysImageNum.setStatus("current")
+_H3cSysImageTable_Object = MibTable
+h3cSysImageTable = _H3cSysImageTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2)
+)
+if mibBuilder.loadTexts:
+    h3cSysImageTable.setStatus("current")
+_H3cSysImageEntry_Object = MibTableRow
+h3cSysImageEntry = _H3cSysImageEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1)
+)
+h3cSysImageEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysImageIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysImageEntry.setStatus("current")
+
+
+class _H3cSysImageIndex_Type(Integer32):
+    """Custom type h3cSysImageIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysImageIndex_Type.__name__ = "Integer32"
+_H3cSysImageIndex_Object = MibTableColumn
+h3cSysImageIndex = _H3cSysImageIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1, 1),
+    _H3cSysImageIndex_Type()
+)
+h3cSysImageIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysImageIndex.setStatus("current")
+
+
+class _H3cSysImageName_Type(DisplayString):
+    """Custom type h3cSysImageName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysImageName_Type.__name__ = "DisplayString"
+_H3cSysImageName_Object = MibTableColumn
+h3cSysImageName = _H3cSysImageName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1, 2),
+    _H3cSysImageName_Type()
+)
+h3cSysImageName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysImageName.setStatus("current")
+
+
+class _H3cSysImageSize_Type(Integer32):
+    """Custom type h3cSysImageSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysImageSize_Type.__name__ = "Integer32"
+_H3cSysImageSize_Object = MibTableColumn
+h3cSysImageSize = _H3cSysImageSize_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1, 3),
+    _H3cSysImageSize_Type()
+)
+h3cSysImageSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysImageSize.setStatus("current")
+
+
+class _H3cSysImageLocation_Type(DisplayString):
+    """Custom type h3cSysImageLocation based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysImageLocation_Type.__name__ = "DisplayString"
+_H3cSysImageLocation_Object = MibTableColumn
+h3cSysImageLocation = _H3cSysImageLocation_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1, 4),
+    _H3cSysImageLocation_Type()
+)
+h3cSysImageLocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysImageLocation.setStatus("current")
+
+
+class _H3cSysImageType_Type(Integer32):
+    """Custom type h3cSysImageType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("main", 1),
+          ("backup", 2),
+          ("none", 3),
+          ("secure", 4),
+          ("main-backup", 5),
+          ("main-secure", 6),
+          ("backup-secure", 7),
+          ("main-backup-secure", 8))
+    )
+
+
+_H3cSysImageType_Type.__name__ = "Integer32"
+_H3cSysImageType_Object = MibTableColumn
+h3cSysImageType = _H3cSysImageType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 4, 2, 1, 5),
+    _H3cSysImageType_Type()
+)
+h3cSysImageType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysImageType.setStatus("current")
+_H3cSysCFGFile_ObjectIdentity = ObjectIdentity
+h3cSysCFGFile = _H3cSysCFGFile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5)
+)
+
+
+class _H3cSysCFGFileNum_Type(Integer32):
+    """Custom type h3cSysCFGFileNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysCFGFileNum_Type.__name__ = "Integer32"
+_H3cSysCFGFileNum_Object = MibScalar
+h3cSysCFGFileNum = _H3cSysCFGFileNum_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 1),
+    _H3cSysCFGFileNum_Type()
+)
+h3cSysCFGFileNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysCFGFileNum.setStatus("current")
+_H3cSysCFGFileTable_Object = MibTable
+h3cSysCFGFileTable = _H3cSysCFGFileTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2)
+)
+if mibBuilder.loadTexts:
+    h3cSysCFGFileTable.setStatus("current")
+_H3cSysCFGFileEntry_Object = MibTableRow
+h3cSysCFGFileEntry = _H3cSysCFGFileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2, 1)
+)
+h3cSysCFGFileEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysCFGFileIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysCFGFileEntry.setStatus("current")
+
+
+class _H3cSysCFGFileIndex_Type(Integer32):
+    """Custom type h3cSysCFGFileIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysCFGFileIndex_Type.__name__ = "Integer32"
+_H3cSysCFGFileIndex_Object = MibTableColumn
+h3cSysCFGFileIndex = _H3cSysCFGFileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2, 1, 1),
+    _H3cSysCFGFileIndex_Type()
+)
+h3cSysCFGFileIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysCFGFileIndex.setStatus("current")
+
+
+class _H3cSysCFGFileName_Type(DisplayString):
+    """Custom type h3cSysCFGFileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysCFGFileName_Type.__name__ = "DisplayString"
+_H3cSysCFGFileName_Object = MibTableColumn
+h3cSysCFGFileName = _H3cSysCFGFileName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2, 1, 2),
+    _H3cSysCFGFileName_Type()
+)
+h3cSysCFGFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysCFGFileName.setStatus("current")
+
+
+class _H3cSysCFGFileSize_Type(Integer32):
+    """Custom type h3cSysCFGFileSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysCFGFileSize_Type.__name__ = "Integer32"
+_H3cSysCFGFileSize_Object = MibTableColumn
+h3cSysCFGFileSize = _H3cSysCFGFileSize_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2, 1, 3),
+    _H3cSysCFGFileSize_Type()
+)
+h3cSysCFGFileSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysCFGFileSize.setStatus("current")
+
+
+class _H3cSysCFGFileLocation_Type(DisplayString):
+    """Custom type h3cSysCFGFileLocation based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysCFGFileLocation_Type.__name__ = "DisplayString"
+_H3cSysCFGFileLocation_Object = MibTableColumn
+h3cSysCFGFileLocation = _H3cSysCFGFileLocation_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 5, 2, 1, 4),
+    _H3cSysCFGFileLocation_Type()
+)
+h3cSysCFGFileLocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysCFGFileLocation.setStatus("current")
+_H3cSysBtmFile_ObjectIdentity = ObjectIdentity
+h3cSysBtmFile = _H3cSysBtmFile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6)
+)
+_H3cSysBtmFileLoad_ObjectIdentity = ObjectIdentity
+h3cSysBtmFileLoad = _H3cSysBtmFileLoad_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 1)
+)
+_H3cSysBtmLoadMaxNumber_Type = Integer32
+_H3cSysBtmLoadMaxNumber_Object = MibScalar
+h3cSysBtmLoadMaxNumber = _H3cSysBtmLoadMaxNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 1, 1),
+    _H3cSysBtmLoadMaxNumber_Type()
+)
+h3cSysBtmLoadMaxNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysBtmLoadMaxNumber.setStatus("current")
+_H3cSysBtmLoadTable_Object = MibTable
+h3cSysBtmLoadTable = _H3cSysBtmLoadTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2)
+)
+if mibBuilder.loadTexts:
+    h3cSysBtmLoadTable.setStatus("current")
+_H3cSysBtmLoadEntry_Object = MibTableRow
+h3cSysBtmLoadEntry = _H3cSysBtmLoadEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1)
+)
+h3cSysBtmLoadEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysBtmLoadIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysBtmLoadEntry.setStatus("current")
+
+
+class _H3cSysBtmLoadIndex_Type(Integer32):
+    """Custom type h3cSysBtmLoadIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysBtmLoadIndex_Type.__name__ = "Integer32"
+_H3cSysBtmLoadIndex_Object = MibTableColumn
+h3cSysBtmLoadIndex = _H3cSysBtmLoadIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 1),
+    _H3cSysBtmLoadIndex_Type()
+)
+h3cSysBtmLoadIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysBtmLoadIndex.setStatus("current")
+
+
+class _H3cSysBtmFileName_Type(OctetString):
+    """Custom type h3cSysBtmFileName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_H3cSysBtmFileName_Type.__name__ = "OctetString"
+_H3cSysBtmFileName_Object = MibTableColumn
+h3cSysBtmFileName = _H3cSysBtmFileName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 2),
+    _H3cSysBtmFileName_Type()
+)
+h3cSysBtmFileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysBtmFileName.setStatus("current")
+
+
+class _H3cSysBtmFileType_Type(Integer32):
+    """Custom type h3cSysBtmFileType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("main", 1),
+          ("none", 2))
+    )
+
+
+_H3cSysBtmFileType_Type.__name__ = "Integer32"
+_H3cSysBtmFileType_Object = MibTableColumn
+h3cSysBtmFileType = _H3cSysBtmFileType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 3),
+    _H3cSysBtmFileType_Type()
+)
+h3cSysBtmFileType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysBtmFileType.setStatus("current")
+_H3cSysBtmRowStatus_Type = RowStatus
+_H3cSysBtmRowStatus_Object = MibTableColumn
+h3cSysBtmRowStatus = _H3cSysBtmRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 4),
+    _H3cSysBtmRowStatus_Type()
+)
+h3cSysBtmRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysBtmRowStatus.setStatus("current")
+
+
+class _H3cSysBtmErrorStatus_Type(Integer32):
+    """Custom type h3cSysBtmErrorStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalidFile", 1),
+          ("inProgress", 2),
+          ("success", 3),
+          ("failed", 4))
+    )
+
+
+_H3cSysBtmErrorStatus_Type.__name__ = "Integer32"
+_H3cSysBtmErrorStatus_Object = MibTableColumn
+h3cSysBtmErrorStatus = _H3cSysBtmErrorStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 5),
+    _H3cSysBtmErrorStatus_Type()
+)
+h3cSysBtmErrorStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysBtmErrorStatus.setStatus("current")
+_H3cSysBtmLoadTime_Type = TimeTicks
+_H3cSysBtmLoadTime_Object = MibTableColumn
+h3cSysBtmLoadTime = _H3cSysBtmLoadTime_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 6, 2, 1, 6),
+    _H3cSysBtmLoadTime_Type()
+)
+h3cSysBtmLoadTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysBtmLoadTime.setStatus("current")
+_H3cSysPackage_ObjectIdentity = ObjectIdentity
+h3cSysPackage = _H3cSysPackage_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7)
+)
+
+
+class _H3cSysPackageNum_Type(Integer32):
+    """Custom type h3cSysPackageNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysPackageNum_Type.__name__ = "Integer32"
+_H3cSysPackageNum_Object = MibScalar
+h3cSysPackageNum = _H3cSysPackageNum_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 1),
+    _H3cSysPackageNum_Type()
+)
+h3cSysPackageNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysPackageNum.setStatus("current")
+_H3cSysPackageTable_Object = MibTable
+h3cSysPackageTable = _H3cSysPackageTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2)
+)
+if mibBuilder.loadTexts:
+    h3cSysPackageTable.setStatus("current")
+_H3cSysPackageEntry_Object = MibTableRow
+h3cSysPackageEntry = _H3cSysPackageEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1)
+)
+h3cSysPackageEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysPackageIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysPackageEntry.setStatus("current")
+
+
+class _H3cSysPackageIndex_Type(Integer32):
+    """Custom type h3cSysPackageIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysPackageIndex_Type.__name__ = "Integer32"
+_H3cSysPackageIndex_Object = MibTableColumn
+h3cSysPackageIndex = _H3cSysPackageIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 1),
+    _H3cSysPackageIndex_Type()
+)
+h3cSysPackageIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysPackageIndex.setStatus("current")
+
+
+class _H3cSysPackageName_Type(DisplayString):
+    """Custom type h3cSysPackageName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysPackageName_Type.__name__ = "DisplayString"
+_H3cSysPackageName_Object = MibTableColumn
+h3cSysPackageName = _H3cSysPackageName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 2),
+    _H3cSysPackageName_Type()
+)
+h3cSysPackageName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysPackageName.setStatus("current")
+
+
+class _H3cSysPackageSize_Type(Unsigned32):
+    """Custom type h3cSysPackageSize based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_H3cSysPackageSize_Type.__name__ = "Unsigned32"
+_H3cSysPackageSize_Object = MibTableColumn
+h3cSysPackageSize = _H3cSysPackageSize_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 3),
+    _H3cSysPackageSize_Type()
+)
+h3cSysPackageSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysPackageSize.setStatus("current")
+
+
+class _H3cSysPackageLocation_Type(DisplayString):
+    """Custom type h3cSysPackageLocation based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysPackageLocation_Type.__name__ = "DisplayString"
+_H3cSysPackageLocation_Object = MibTableColumn
+h3cSysPackageLocation = _H3cSysPackageLocation_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 4),
+    _H3cSysPackageLocation_Type()
+)
+h3cSysPackageLocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysPackageLocation.setStatus("current")
+
+
+class _H3cSysPackageType_Type(Integer32):
+    """Custom type h3cSysPackageType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("boot", 1),
+          ("system", 2),
+          ("feature", 3),
+          ("patch", 4))
+    )
+
+
+_H3cSysPackageType_Type.__name__ = "Integer32"
+_H3cSysPackageType_Object = MibTableColumn
+h3cSysPackageType = _H3cSysPackageType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 5),
+    _H3cSysPackageType_Type()
+)
+h3cSysPackageType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysPackageType.setStatus("current")
+
+
+class _H3cSysPackageAttribute_Type(Integer32):
+    """Custom type h3cSysPackageAttribute based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("primary", 2),
+          ("secondary", 3),
+          ("primarySecondary", 4))
+    )
+
+
+_H3cSysPackageAttribute_Type.__name__ = "Integer32"
+_H3cSysPackageAttribute_Object = MibTableColumn
+h3cSysPackageAttribute = _H3cSysPackageAttribute_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 6),
+    _H3cSysPackageAttribute_Type()
+)
+h3cSysPackageAttribute.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysPackageAttribute.setStatus("current")
+
+
+class _H3cSysPackageStatus_Type(Integer32):
+    """Custom type h3cSysPackageStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2))
+    )
+
+
+_H3cSysPackageStatus_Type.__name__ = "Integer32"
+_H3cSysPackageStatus_Object = MibTableColumn
+h3cSysPackageStatus = _H3cSysPackageStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 7),
+    _H3cSysPackageStatus_Type()
+)
+h3cSysPackageStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysPackageStatus.setStatus("current")
+
+
+class _H3cSysPackageDescription_Type(DisplayString):
+    """Custom type h3cSysPackageDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysPackageDescription_Type.__name__ = "DisplayString"
+_H3cSysPackageDescription_Object = MibTableColumn
+h3cSysPackageDescription = _H3cSysPackageDescription_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 8),
+    _H3cSysPackageDescription_Type()
+)
+h3cSysPackageDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysPackageDescription.setStatus("current")
+
+
+class _H3cSysPackageFeature_Type(DisplayString):
+    """Custom type h3cSysPackageFeature based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysPackageFeature_Type.__name__ = "DisplayString"
+_H3cSysPackageFeature_Object = MibTableColumn
+h3cSysPackageFeature = _H3cSysPackageFeature_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 9),
+    _H3cSysPackageFeature_Type()
+)
+h3cSysPackageFeature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysPackageFeature.setStatus("current")
+
+
+class _H3cSysPackageVersion_Type(DisplayString):
+    """Custom type h3cSysPackageVersion based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysPackageVersion_Type.__name__ = "DisplayString"
+_H3cSysPackageVersion_Object = MibTableColumn
+h3cSysPackageVersion = _H3cSysPackageVersion_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 10),
+    _H3cSysPackageVersion_Type()
+)
+h3cSysPackageVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysPackageVersion.setStatus("current")
+
+
+class _H3cSysPackageLoadAttribute_Type(Integer32):
+    """Custom type h3cSysPackageLoadAttribute based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("primary", 2),
+          ("secondary", 3),
+          ("primarySecondary", 4))
+    )
+
+
+_H3cSysPackageLoadAttribute_Type.__name__ = "Integer32"
+_H3cSysPackageLoadAttribute_Object = MibTableColumn
+h3cSysPackageLoadAttribute = _H3cSysPackageLoadAttribute_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 11),
+    _H3cSysPackageLoadAttribute_Type()
+)
+h3cSysPackageLoadAttribute.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysPackageLoadAttribute.setStatus("current")
+
+
+class _H3cSysPackageModel_Type(DisplayString):
+    """Custom type h3cSysPackageModel based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
+_H3cSysPackageModel_Type.__name__ = "DisplayString"
+_H3cSysPackageModel_Object = MibTableColumn
+h3cSysPackageModel = _H3cSysPackageModel_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 2, 1, 12),
+    _H3cSysPackageModel_Type()
+)
+h3cSysPackageModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysPackageModel.setStatus("current")
+
+
+class _H3cSysPackageOperateEntryLimit_Type(Integer32):
+    """Custom type h3cSysPackageOperateEntryLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysPackageOperateEntryLimit_Type.__name__ = "Integer32"
+_H3cSysPackageOperateEntryLimit_Object = MibScalar
+h3cSysPackageOperateEntryLimit = _H3cSysPackageOperateEntryLimit_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 3),
+    _H3cSysPackageOperateEntryLimit_Type()
+)
+h3cSysPackageOperateEntryLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysPackageOperateEntryLimit.setStatus("current")
+_H3cSysPackageOperateTable_Object = MibTable
+h3cSysPackageOperateTable = _H3cSysPackageOperateTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4)
+)
+if mibBuilder.loadTexts:
+    h3cSysPackageOperateTable.setStatus("current")
+_H3cSysPackageOperateEntry_Object = MibTableRow
+h3cSysPackageOperateEntry = _H3cSysPackageOperateEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1)
+)
+h3cSysPackageOperateEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysPackageOperateIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysPackageOperateEntry.setStatus("current")
+
+
+class _H3cSysPackageOperateIndex_Type(Integer32):
+    """Custom type h3cSysPackageOperateIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysPackageOperateIndex_Type.__name__ = "Integer32"
+_H3cSysPackageOperateIndex_Object = MibTableColumn
+h3cSysPackageOperateIndex = _H3cSysPackageOperateIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1, 1),
+    _H3cSysPackageOperateIndex_Type()
+)
+h3cSysPackageOperateIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysPackageOperateIndex.setStatus("current")
+
+
+class _H3cSysPackageOperatePackIndex_Type(Integer32):
+    """Custom type h3cSysPackageOperatePackIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysPackageOperatePackIndex_Type.__name__ = "Integer32"
+_H3cSysPackageOperatePackIndex_Object = MibTableColumn
+h3cSysPackageOperatePackIndex = _H3cSysPackageOperatePackIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1, 2),
+    _H3cSysPackageOperatePackIndex_Type()
+)
+h3cSysPackageOperatePackIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysPackageOperatePackIndex.setStatus("current")
+
+
+class _H3cSysPackageOperateStatus_Type(Integer32):
+    """Custom type h3cSysPackageOperateStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2))
+    )
+
+
+_H3cSysPackageOperateStatus_Type.__name__ = "Integer32"
+_H3cSysPackageOperateStatus_Object = MibTableColumn
+h3cSysPackageOperateStatus = _H3cSysPackageOperateStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1, 3),
+    _H3cSysPackageOperateStatus_Type()
+)
+h3cSysPackageOperateStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysPackageOperateStatus.setStatus("current")
+_H3cSysPackageOperateRowStatus_Type = RowStatus
+_H3cSysPackageOperateRowStatus_Object = MibTableColumn
+h3cSysPackageOperateRowStatus = _H3cSysPackageOperateRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1, 4),
+    _H3cSysPackageOperateRowStatus_Type()
+)
+h3cSysPackageOperateRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysPackageOperateRowStatus.setStatus("current")
+
+
+class _H3cSysPackageOperateResult_Type(Integer32):
+    """Custom type h3cSysPackageOperateResult based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("opInProgress", 1),
+          ("opSuccess", 2),
+          ("opUnknownFailure", 3),
+          ("opInvalidFile", 4),
+          ("opNotSupport", 5))
+    )
+
+
+_H3cSysPackageOperateResult_Type.__name__ = "Integer32"
+_H3cSysPackageOperateResult_Object = MibTableColumn
+h3cSysPackageOperateResult = _H3cSysPackageOperateResult_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 7, 4, 1, 5),
+    _H3cSysPackageOperateResult_Type()
+)
+h3cSysPackageOperateResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysPackageOperateResult.setStatus("current")
+_H3cSysIpeFile_ObjectIdentity = ObjectIdentity
+h3cSysIpeFile = _H3cSysIpeFile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8)
+)
+
+
+class _H3cSysIpeFileNum_Type(Integer32):
+    """Custom type h3cSysIpeFileNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cSysIpeFileNum_Type.__name__ = "Integer32"
+_H3cSysIpeFileNum_Object = MibScalar
+h3cSysIpeFileNum = _H3cSysIpeFileNum_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 1),
+    _H3cSysIpeFileNum_Type()
+)
+h3cSysIpeFileNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpeFileNum.setStatus("current")
+_H3cSysIpeFileTable_Object = MibTable
+h3cSysIpeFileTable = _H3cSysIpeFileTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2)
+)
+if mibBuilder.loadTexts:
+    h3cSysIpeFileTable.setStatus("current")
+_H3cSysIpeFileEntry_Object = MibTableRow
+h3cSysIpeFileEntry = _H3cSysIpeFileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1)
+)
+h3cSysIpeFileEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysIpeFileIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysIpeFileEntry.setStatus("current")
+
+
+class _H3cSysIpeFileIndex_Type(Integer32):
+    """Custom type h3cSysIpeFileIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysIpeFileIndex_Type.__name__ = "Integer32"
+_H3cSysIpeFileIndex_Object = MibTableColumn
+h3cSysIpeFileIndex = _H3cSysIpeFileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1, 1),
+    _H3cSysIpeFileIndex_Type()
+)
+h3cSysIpeFileIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysIpeFileIndex.setStatus("current")
+
+
+class _H3cSysIpeFileName_Type(DisplayString):
+    """Custom type h3cSysIpeFileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysIpeFileName_Type.__name__ = "DisplayString"
+_H3cSysIpeFileName_Object = MibTableColumn
+h3cSysIpeFileName = _H3cSysIpeFileName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1, 2),
+    _H3cSysIpeFileName_Type()
+)
+h3cSysIpeFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpeFileName.setStatus("current")
+
+
+class _H3cSysIpeFileSize_Type(Unsigned32):
+    """Custom type h3cSysIpeFileSize based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_H3cSysIpeFileSize_Type.__name__ = "Unsigned32"
+_H3cSysIpeFileSize_Object = MibTableColumn
+h3cSysIpeFileSize = _H3cSysIpeFileSize_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1, 3),
+    _H3cSysIpeFileSize_Type()
+)
+h3cSysIpeFileSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpeFileSize.setStatus("current")
+
+
+class _H3cSysIpeFileLocation_Type(DisplayString):
+    """Custom type h3cSysIpeFileLocation based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysIpeFileLocation_Type.__name__ = "DisplayString"
+_H3cSysIpeFileLocation_Object = MibTableColumn
+h3cSysIpeFileLocation = _H3cSysIpeFileLocation_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1, 4),
+    _H3cSysIpeFileLocation_Type()
+)
+h3cSysIpeFileLocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpeFileLocation.setStatus("current")
+_H3cSysIpeFileModel_Type = SnmpTagList
+_H3cSysIpeFileModel_Object = MibTableColumn
+h3cSysIpeFileModel = _H3cSysIpeFileModel_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 2, 1, 5),
+    _H3cSysIpeFileModel_Type()
+)
+h3cSysIpeFileModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpeFileModel.setStatus("current")
+_H3cSysIpePackageTable_Object = MibTable
+h3cSysIpePackageTable = _H3cSysIpePackageTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3)
+)
+if mibBuilder.loadTexts:
+    h3cSysIpePackageTable.setStatus("current")
+_H3cSysIpePackageEntry_Object = MibTableRow
+h3cSysIpePackageEntry = _H3cSysIpePackageEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1)
+)
+h3cSysIpePackageEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysIpeFileIndex"),
+    (0, "H3C-SYS-MAN-MIB", "h3cSysIpePackageIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysIpePackageEntry.setStatus("current")
+
+
+class _H3cSysIpePackageIndex_Type(Integer32):
+    """Custom type h3cSysIpePackageIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysIpePackageIndex_Type.__name__ = "Integer32"
+_H3cSysIpePackageIndex_Object = MibTableColumn
+h3cSysIpePackageIndex = _H3cSysIpePackageIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 1),
+    _H3cSysIpePackageIndex_Type()
+)
+h3cSysIpePackageIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysIpePackageIndex.setStatus("current")
+
+
+class _H3cSysIpePackageName_Type(DisplayString):
+    """Custom type h3cSysIpePackageName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysIpePackageName_Type.__name__ = "DisplayString"
+_H3cSysIpePackageName_Object = MibTableColumn
+h3cSysIpePackageName = _H3cSysIpePackageName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 2),
+    _H3cSysIpePackageName_Type()
+)
+h3cSysIpePackageName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpePackageName.setStatus("current")
+
+
+class _H3cSysIpePackageSize_Type(Unsigned32):
+    """Custom type h3cSysIpePackageSize based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_H3cSysIpePackageSize_Type.__name__ = "Unsigned32"
+_H3cSysIpePackageSize_Object = MibTableColumn
+h3cSysIpePackageSize = _H3cSysIpePackageSize_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 3),
+    _H3cSysIpePackageSize_Type()
+)
+h3cSysIpePackageSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpePackageSize.setStatus("current")
+
+
+class _H3cSysIpePackageType_Type(Integer32):
+    """Custom type h3cSysIpePackageType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("boot", 1),
+          ("system", 2),
+          ("feature", 3),
+          ("patch", 4))
+    )
+
+
+_H3cSysIpePackageType_Type.__name__ = "Integer32"
+_H3cSysIpePackageType_Object = MibTableColumn
+h3cSysIpePackageType = _H3cSysIpePackageType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 4),
+    _H3cSysIpePackageType_Type()
+)
+h3cSysIpePackageType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpePackageType.setStatus("current")
+
+
+class _H3cSysIpePackageDescription_Type(DisplayString):
+    """Custom type h3cSysIpePackageDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysIpePackageDescription_Type.__name__ = "DisplayString"
+_H3cSysIpePackageDescription_Object = MibTableColumn
+h3cSysIpePackageDescription = _H3cSysIpePackageDescription_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 5),
+    _H3cSysIpePackageDescription_Type()
+)
+h3cSysIpePackageDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpePackageDescription.setStatus("current")
+
+
+class _H3cSysIpePackageFeature_Type(DisplayString):
+    """Custom type h3cSysIpePackageFeature based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysIpePackageFeature_Type.__name__ = "DisplayString"
+_H3cSysIpePackageFeature_Object = MibTableColumn
+h3cSysIpePackageFeature = _H3cSysIpePackageFeature_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 6),
+    _H3cSysIpePackageFeature_Type()
+)
+h3cSysIpePackageFeature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpePackageFeature.setStatus("current")
+
+
+class _H3cSysIpePackageVersion_Type(DisplayString):
+    """Custom type h3cSysIpePackageVersion based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysIpePackageVersion_Type.__name__ = "DisplayString"
+_H3cSysIpePackageVersion_Object = MibTableColumn
+h3cSysIpePackageVersion = _H3cSysIpePackageVersion_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 7),
+    _H3cSysIpePackageVersion_Type()
+)
+h3cSysIpePackageVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpePackageVersion.setStatus("current")
+
+
+class _H3cSysIpePackageModel_Type(DisplayString):
+    """Custom type h3cSysIpePackageModel based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
+_H3cSysIpePackageModel_Type.__name__ = "DisplayString"
+_H3cSysIpePackageModel_Object = MibTableColumn
+h3cSysIpePackageModel = _H3cSysIpePackageModel_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 3, 1, 8),
+    _H3cSysIpePackageModel_Type()
+)
+h3cSysIpePackageModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpePackageModel.setStatus("current")
+_H3cSysIpeFileOperateTable_Object = MibTable
+h3cSysIpeFileOperateTable = _H3cSysIpeFileOperateTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4)
+)
+if mibBuilder.loadTexts:
+    h3cSysIpeFileOperateTable.setStatus("current")
+_H3cSysIpeFileOperateEntry_Object = MibTableRow
+h3cSysIpeFileOperateEntry = _H3cSysIpeFileOperateEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1)
+)
+h3cSysIpeFileOperateEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysIpeFileOperateIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysIpeFileOperateEntry.setStatus("current")
+
+
+class _H3cSysIpeFileOperateIndex_Type(Integer32):
+    """Custom type h3cSysIpeFileOperateIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysIpeFileOperateIndex_Type.__name__ = "Integer32"
+_H3cSysIpeFileOperateIndex_Object = MibTableColumn
+h3cSysIpeFileOperateIndex = _H3cSysIpeFileOperateIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1, 1),
+    _H3cSysIpeFileOperateIndex_Type()
+)
+h3cSysIpeFileOperateIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysIpeFileOperateIndex.setStatus("current")
+
+
+class _H3cSysIpeFileOperateFileIndex_Type(Integer32):
+    """Custom type h3cSysIpeFileOperateFileIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysIpeFileOperateFileIndex_Type.__name__ = "Integer32"
+_H3cSysIpeFileOperateFileIndex_Object = MibTableColumn
+h3cSysIpeFileOperateFileIndex = _H3cSysIpeFileOperateFileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1, 2),
+    _H3cSysIpeFileOperateFileIndex_Type()
+)
+h3cSysIpeFileOperateFileIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysIpeFileOperateFileIndex.setStatus("current")
+
+
+class _H3cSysIpeFileOperateAttribute_Type(Integer32):
+    """Custom type h3cSysIpeFileOperateAttribute based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("primary", 2),
+          ("secondary", 3),
+          ("primarySecondary", 4))
+    )
+
+
+_H3cSysIpeFileOperateAttribute_Type.__name__ = "Integer32"
+_H3cSysIpeFileOperateAttribute_Object = MibTableColumn
+h3cSysIpeFileOperateAttribute = _H3cSysIpeFileOperateAttribute_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1, 3),
+    _H3cSysIpeFileOperateAttribute_Type()
+)
+h3cSysIpeFileOperateAttribute.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysIpeFileOperateAttribute.setStatus("current")
+_H3cSysIpeFileOperateRowStatus_Type = RowStatus
+_H3cSysIpeFileOperateRowStatus_Object = MibTableColumn
+h3cSysIpeFileOperateRowStatus = _H3cSysIpeFileOperateRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1, 4),
+    _H3cSysIpeFileOperateRowStatus_Type()
+)
+h3cSysIpeFileOperateRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysIpeFileOperateRowStatus.setStatus("current")
+
+
+class _H3cSysIpeFileOperateResult_Type(Integer32):
+    """Custom type h3cSysIpeFileOperateResult based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("opInProgress", 1),
+          ("opSuccess", 2),
+          ("opUnknownFailure", 3),
+          ("opInvalidFile", 4),
+          ("opDeviceFull", 5),
+          ("opFileOpenError", 6))
+    )
+
+
+_H3cSysIpeFileOperateResult_Type.__name__ = "Integer32"
+_H3cSysIpeFileOperateResult_Object = MibTableColumn
+h3cSysIpeFileOperateResult = _H3cSysIpeFileOperateResult_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 8, 4, 1, 5),
+    _H3cSysIpeFileOperateResult_Type()
+)
+h3cSysIpeFileOperateResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysIpeFileOperateResult.setStatus("current")
+_H3cSysSetBootImage_ObjectIdentity = ObjectIdentity
+h3cSysSetBootImage = _H3cSysSetBootImage_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9)
+)
+_H3cSysSetBootImageOp_ObjectIdentity = ObjectIdentity
+h3cSysSetBootImageOp = _H3cSysSetBootImageOp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1)
+)
+
+
+class _H3cSysSetBootImageAction_Type(Integer32):
+    """Custom type h3cSysSetBootImageAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("done", 2),
+          ("bootLoadPrimary", 3),
+          ("bootLoadSecondary", 4),
+          ("bootLoadPrimarySecondary", 5),
+          ("bootPrimary", 6),
+          ("bootSecondary", 7),
+          ("bootPrimarySecondary", 8),
+          ("loadPrimary", 9),
+          ("loadSecondary", 10),
+          ("loadPrimarySecondary", 11))
+    )
+
+
+_H3cSysSetBootImageAction_Type.__name__ = "Integer32"
+_H3cSysSetBootImageAction_Object = MibScalar
+h3cSysSetBootImageAction = _H3cSysSetBootImageAction_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1, 1),
+    _H3cSysSetBootImageAction_Type()
+)
+h3cSysSetBootImageAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysSetBootImageAction.setStatus("current")
+
+
+class _H3cSysSetBootImageFileOverWrite_Type(TruthValue):
+    """Custom type h3cSysSetBootImageFileOverWrite based on TruthValue"""
+    defaultValue = 2
+
+
+_H3cSysSetBootImageFileOverWrite_Type.__name__ = "TruthValue"
+_H3cSysSetBootImageFileOverWrite_Object = MibScalar
+h3cSysSetBootImageFileOverWrite = _H3cSysSetBootImageFileOverWrite_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1, 2),
+    _H3cSysSetBootImageFileOverWrite_Type()
+)
+h3cSysSetBootImageFileOverWrite.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysSetBootImageFileOverWrite.setStatus("current")
+
+
+class _H3cSysSetBootImageRemoveIpeFile_Type(TruthValue):
+    """Custom type h3cSysSetBootImageRemoveIpeFile based on TruthValue"""
+    defaultValue = 2
+
+
+_H3cSysSetBootImageRemoveIpeFile_Type.__name__ = "TruthValue"
+_H3cSysSetBootImageRemoveIpeFile_Object = MibScalar
+h3cSysSetBootImageRemoveIpeFile = _H3cSysSetBootImageRemoveIpeFile_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1, 3),
+    _H3cSysSetBootImageRemoveIpeFile_Type()
+)
+h3cSysSetBootImageRemoveIpeFile.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSysSetBootImageRemoveIpeFile.setStatus("current")
+
+
+class _H3cSysSetBootImageStatus_Type(Integer32):
+    """Custom type h3cSysSetBootImageStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("doing", 2),
+          ("success", 3),
+          ("failed", 4))
+    )
+
+
+_H3cSysSetBootImageStatus_Type.__name__ = "Integer32"
+_H3cSysSetBootImageStatus_Object = MibScalar
+h3cSysSetBootImageStatus = _H3cSysSetBootImageStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1, 4),
+    _H3cSysSetBootImageStatus_Type()
+)
+h3cSysSetBootImageStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysSetBootImageStatus.setStatus("current")
+
+
+class _H3cSysSetBootImageFailedReason_Type(DisplayString):
+    """Custom type h3cSysSetBootImageFailedReason based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysSetBootImageFailedReason_Type.__name__ = "DisplayString"
+_H3cSysSetBootImageFailedReason_Object = MibScalar
+h3cSysSetBootImageFailedReason = _H3cSysSetBootImageFailedReason_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 1, 5),
+    _H3cSysSetBootImageFailedReason_Type()
+)
+h3cSysSetBootImageFailedReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysSetBootImageFailedReason.setStatus("current")
+_H3cSysBootPackageTable_Object = MibTable
+h3cSysBootPackageTable = _H3cSysBootPackageTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 2)
+)
+if mibBuilder.loadTexts:
+    h3cSysBootPackageTable.setStatus("current")
+_H3cSysBootPackageEntry_Object = MibTableRow
+h3cSysBootPackageEntry = _H3cSysBootPackageEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 2, 1)
+)
+h3cSysBootPackageEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysBootPackageIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysBootPackageEntry.setStatus("current")
+
+
+class _H3cSysBootPackageIndex_Type(Integer32):
+    """Custom type h3cSysBootPackageIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysBootPackageIndex_Type.__name__ = "Integer32"
+_H3cSysBootPackageIndex_Object = MibTableColumn
+h3cSysBootPackageIndex = _H3cSysBootPackageIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 2, 1, 1),
+    _H3cSysBootPackageIndex_Type()
+)
+h3cSysBootPackageIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysBootPackageIndex.setStatus("current")
+_H3cSysBootPackageRowStatus_Type = RowStatus
+_H3cSysBootPackageRowStatus_Object = MibTableColumn
+h3cSysBootPackageRowStatus = _H3cSysBootPackageRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 2, 1, 2),
+    _H3cSysBootPackageRowStatus_Type()
+)
+h3cSysBootPackageRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysBootPackageRowStatus.setStatus("current")
+_H3cSysBootIpeTable_Object = MibTable
+h3cSysBootIpeTable = _H3cSysBootIpeTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 3)
+)
+if mibBuilder.loadTexts:
+    h3cSysBootIpeTable.setStatus("current")
+_H3cSysBootIpeEntry_Object = MibTableRow
+h3cSysBootIpeEntry = _H3cSysBootIpeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 3, 1)
+)
+h3cSysBootIpeEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysBootIpeIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysBootIpeEntry.setStatus("current")
+
+
+class _H3cSysBootIpeIndex_Type(Integer32):
+    """Custom type h3cSysBootIpeIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_H3cSysBootIpeIndex_Type.__name__ = "Integer32"
+_H3cSysBootIpeIndex_Object = MibTableColumn
+h3cSysBootIpeIndex = _H3cSysBootIpeIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 3, 1, 1),
+    _H3cSysBootIpeIndex_Type()
+)
+h3cSysBootIpeIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysBootIpeIndex.setStatus("current")
+_H3cSysBootIpeRowStatus_Type = RowStatus
+_H3cSysBootIpeRowStatus_Object = MibTableColumn
+h3cSysBootIpeRowStatus = _H3cSysBootIpeRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 3, 1, 2),
+    _H3cSysBootIpeRowStatus_Type()
+)
+h3cSysBootIpeRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSysBootIpeRowStatus.setStatus("current")
+_H3cSysSetBootImageResultTable_Object = MibTable
+h3cSysSetBootImageResultTable = _H3cSysSetBootImageResultTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 4)
+)
+if mibBuilder.loadTexts:
+    h3cSysSetBootImageResultTable.setStatus("current")
+_H3cSysSetBootImageResultEntry_Object = MibTableRow
+h3cSysSetBootImageResultEntry = _H3cSysSetBootImageResultEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 4, 1)
+)
+h3cSysSetBootImageResultEntry.setIndexNames(
+    (0, "H3C-SYS-MAN-MIB", "h3cSysSetBootImageResultIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cSysSetBootImageResultEntry.setStatus("current")
+
+
+class _H3cSysSetBootImageResultIndex_Type(Integer32):
+    """Custom type h3cSysSetBootImageResultIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_H3cSysSetBootImageResultIndex_Type.__name__ = "Integer32"
+_H3cSysSetBootImageResultIndex_Object = MibTableColumn
+h3cSysSetBootImageResultIndex = _H3cSysSetBootImageResultIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 4, 1, 1),
+    _H3cSysSetBootImageResultIndex_Type()
+)
+h3cSysSetBootImageResultIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSysSetBootImageResultIndex.setStatus("current")
+
+
+class _H3cSysSetBootImageResultStatusOfEachCard_Type(Integer32):
+    """Custom type h3cSysSetBootImageResultStatusOfEachCard based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("doing", 2),
+          ("success", 3),
+          ("failed", 4))
+    )
+
+
+_H3cSysSetBootImageResultStatusOfEachCard_Type.__name__ = "Integer32"
+_H3cSysSetBootImageResultStatusOfEachCard_Object = MibTableColumn
+h3cSysSetBootImageResultStatusOfEachCard = _H3cSysSetBootImageResultStatusOfEachCard_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 4, 1, 2),
+    _H3cSysSetBootImageResultStatusOfEachCard_Type()
+)
+h3cSysSetBootImageResultStatusOfEachCard.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysSetBootImageResultStatusOfEachCard.setStatus("current")
+
+
+class _H3cSysSetBootImageFailedReasonOfEachCard_Type(DisplayString):
+    """Custom type h3cSysSetBootImageFailedReasonOfEachCard based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_H3cSysSetBootImageFailedReasonOfEachCard_Type.__name__ = "DisplayString"
+_H3cSysSetBootImageFailedReasonOfEachCard_Object = MibTableColumn
+h3cSysSetBootImageFailedReasonOfEachCard = _H3cSysSetBootImageFailedReasonOfEachCard_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 1, 9, 4, 1, 3),
+    _H3cSysSetBootImageFailedReasonOfEachCard_Type()
+)
+h3cSysSetBootImageFailedReasonOfEachCard.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSysSetBootImageFailedReasonOfEachCard.setStatus("current")
+_H3cSystemManMIBNotifications_ObjectIdentity = ObjectIdentity
+h3cSystemManMIBNotifications = _H3cSystemManMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 2)
+)
+_H3cSystemManMIBConformance_ObjectIdentity = ObjectIdentity
+h3cSystemManMIBConformance = _H3cSystemManMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3)
+)
+_H3cSystemManMIBCompliances_ObjectIdentity = ObjectIdentity
+h3cSystemManMIBCompliances = _H3cSystemManMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 1)
+)
+_H3cSystemManMIBGroups_ObjectIdentity = ObjectIdentity
+h3cSystemManMIBGroups = _H3cSystemManMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2)
+)
+
+# Managed Objects groups
+
+h3cSysClockGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 1)
+)
+h3cSysClockGroup.setObjects(
+      *(("H3C-SYS-MAN-MIB", "h3cSysLocalClock"),
+        ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeEnable"),
+        ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeZone"),
+        ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeMethod"),
+        ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeStart"),
+        ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeEnd"),
+        ("H3C-SYS-MAN-MIB", "h3cSysSummerTimeOffset"))
+)
+if mibBuilder.loadTexts:
+    h3cSysClockGroup.setStatus("current")
+
+h3cSysReloadGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 2)
+)
+h3cSysReloadGroup.setObjects(
+      *(("H3C-SYS-MAN-MIB", "h3cSysReloadSchedule"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadAction"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadImage"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadCfgFile"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadReason"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadScheduleTagList"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadTag"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadScheduleTime"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadEntity"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadRowStatus"))
+)
+if mibBuilder.loadTexts:
+    h3cSysReloadGroup.setStatus("current")
+
+h3cSysImageGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 3)
+)
+h3cSysImageGroup.setObjects(
+      *(("H3C-SYS-MAN-MIB", "h3cSysImageNum"),
+        ("H3C-SYS-MAN-MIB", "h3cSysImageName"),
+        ("H3C-SYS-MAN-MIB", "h3cSysImageSize"),
+        ("H3C-SYS-MAN-MIB", "h3cSysImageLocation"),
+        ("H3C-SYS-MAN-MIB", "h3cSysImageType"))
+)
+if mibBuilder.loadTexts:
+    h3cSysImageGroup.setStatus("current")
+
+h3cSysCFGFileGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 4)
+)
+h3cSysCFGFileGroup.setObjects(
+      *(("H3C-SYS-MAN-MIB", "h3cSysCFGFileNum"),
+        ("H3C-SYS-MAN-MIB", "h3cSysCFGFileName"),
+        ("H3C-SYS-MAN-MIB", "h3cSysCFGFileSize"),
+        ("H3C-SYS-MAN-MIB", "h3cSysCFGFileLocation"))
+)
+if mibBuilder.loadTexts:
+    h3cSysCFGFileGroup.setStatus("current")
+
+h3cSysCurGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 5)
+)
+h3cSysCurGroup.setObjects(
+      *(("H3C-SYS-MAN-MIB", "h3cSysCurCFGFileIndex"),
+        ("H3C-SYS-MAN-MIB", "h3cSysCurImageIndex"))
+)
+if mibBuilder.loadTexts:
+    h3cSysCurGroup.setStatus("current")
+
+h3cSystemBtmLoadGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 7)
+)
+h3cSystemBtmLoadGroup.setObjects(
+      *(("H3C-SYS-MAN-MIB", "h3cSysCurBtmFileName"),
+        ("H3C-SYS-MAN-MIB", "h3cSysCurUpdateBtmFileName"),
+        ("H3C-SYS-MAN-MIB", "h3cSysBtmLoadMaxNumber"),
+        ("H3C-SYS-MAN-MIB", "h3cSysBtmFileName"),
+        ("H3C-SYS-MAN-MIB", "h3cSysBtmFileType"),
+        ("H3C-SYS-MAN-MIB", "h3cSysBtmRowStatus"),
+        ("H3C-SYS-MAN-MIB", "h3cSysBtmErrorStatus"),
+        ("H3C-SYS-MAN-MIB", "h3cSysBtmLoadTime"))
+)
+if mibBuilder.loadTexts:
+    h3cSystemBtmLoadGroup.setStatus("current")
+
+
+# Notification objects
+
+h3cSysClockChangedNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 2, 1)
+)
+h3cSysClockChangedNotification.setObjects(
+    ("H3C-SYS-MAN-MIB", "h3cSysLocalClock")
+)
+if mibBuilder.loadTexts:
+    h3cSysClockChangedNotification.setStatus(
+        "current"
+    )
+
+h3cSysReloadNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 2, 2)
+)
+h3cSysReloadNotification.setObjects(
+      *(("H3C-SYS-MAN-MIB", "h3cSysReloadImage"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadCfgFile"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadReason"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadScheduleTime"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadAction"))
+)
+if mibBuilder.loadTexts:
+    h3cSysReloadNotification.setStatus(
+        "current"
+    )
+
+h3cSysStartUpNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 2, 3)
+)
+h3cSysStartUpNotification.setObjects(
+    ("H3C-SYS-MAN-MIB", "h3cSysImageType")
+)
+if mibBuilder.loadTexts:
+    h3cSysStartUpNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+h3cSystemManNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 2, 6)
+)
+h3cSystemManNotificationGroup.setObjects(
+      *(("H3C-SYS-MAN-MIB", "h3cSysClockChangedNotification"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadNotification"),
+        ("H3C-SYS-MAN-MIB", "h3cSysStartUpNotification"))
+)
+if mibBuilder.loadTexts:
+    h3cSystemManNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+h3cSystemManMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 3, 3, 1, 1)
+)
+h3cSystemManMIBCompliance.setObjects(
+      *(("H3C-SYS-MAN-MIB", "h3cSysClockGroup"),
+        ("H3C-SYS-MAN-MIB", "h3cSysReloadGroup"),
+        ("H3C-SYS-MAN-MIB", "h3cSysImageGroup"),
+        ("H3C-SYS-MAN-MIB", "h3cSysCFGFileGroup"),
+        ("H3C-SYS-MAN-MIB", "h3cSystemManNotificationGroup"),
+        ("H3C-SYS-MAN-MIB", "h3cSysCurGroup"),
+        ("H3C-SYS-MAN-MIB", "h3cSystemBtmLoadGroup"))
+)
+if mibBuilder.loadTexts:
+    h3cSystemManMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-SYS-MAN-MIB",
+    **{"h3cSystemMan": h3cSystemMan,
+       "h3cSystemManMIBObjects": h3cSystemManMIBObjects,
+       "h3cSysClock": h3cSysClock,
+       "h3cSysLocalClock": h3cSysLocalClock,
+       "h3cSysSummerTime": h3cSysSummerTime,
+       "h3cSysSummerTimeEnable": h3cSysSummerTimeEnable,
+       "h3cSysSummerTimeZone": h3cSysSummerTimeZone,
+       "h3cSysSummerTimeMethod": h3cSysSummerTimeMethod,
+       "h3cSysSummerTimeStart": h3cSysSummerTimeStart,
+       "h3cSysSummerTimeEnd": h3cSysSummerTimeEnd,
+       "h3cSysSummerTimeOffset": h3cSysSummerTimeOffset,
+       "h3cSysLocalClockString": h3cSysLocalClockString,
+       "h3cSysClockProtocolGroup": h3cSysClockProtocolGroup,
+       "h3cSysClockProtocol": h3cSysClockProtocol,
+       "h3cSysClockProtocolSrcMdc": h3cSysClockProtocolSrcMdc,
+       "h3cSysClockProtocolSrcContext": h3cSysClockProtocolSrcContext,
+       "h3cSysLocalClockString2": h3cSysLocalClockString2,
+       "h3cSysCurrent": h3cSysCurrent,
+       "h3cSysCurTable": h3cSysCurTable,
+       "h3cSysCurEntry": h3cSysCurEntry,
+       "h3cSysCurEntPhysicalIndex": h3cSysCurEntPhysicalIndex,
+       "h3cSysCurCFGFileIndex": h3cSysCurCFGFileIndex,
+       "h3cSysCurImageIndex": h3cSysCurImageIndex,
+       "h3cSysCurBtmFileName": h3cSysCurBtmFileName,
+       "h3cSysCurUpdateBtmFileName": h3cSysCurUpdateBtmFileName,
+       "h3cSysReload": h3cSysReload,
+       "h3cSysReloadSchedule": h3cSysReloadSchedule,
+       "h3cSysReloadAction": h3cSysReloadAction,
+       "h3cSysReloadScheduleTable": h3cSysReloadScheduleTable,
+       "h3cSysReloadScheduleEntry": h3cSysReloadScheduleEntry,
+       "h3cSysReloadScheduleIndex": h3cSysReloadScheduleIndex,
+       "h3cSysReloadEntity": h3cSysReloadEntity,
+       "h3cSysReloadCfgFile": h3cSysReloadCfgFile,
+       "h3cSysReloadImage": h3cSysReloadImage,
+       "h3cSysReloadReason": h3cSysReloadReason,
+       "h3cSysReloadScheduleTime": h3cSysReloadScheduleTime,
+       "h3cSysReloadRowStatus": h3cSysReloadRowStatus,
+       "h3cSysReloadScheduleTagList": h3cSysReloadScheduleTagList,
+       "h3cSysReloadTag": h3cSysReloadTag,
+       "h3cSysImage": h3cSysImage,
+       "h3cSysImageNum": h3cSysImageNum,
+       "h3cSysImageTable": h3cSysImageTable,
+       "h3cSysImageEntry": h3cSysImageEntry,
+       "h3cSysImageIndex": h3cSysImageIndex,
+       "h3cSysImageName": h3cSysImageName,
+       "h3cSysImageSize": h3cSysImageSize,
+       "h3cSysImageLocation": h3cSysImageLocation,
+       "h3cSysImageType": h3cSysImageType,
+       "h3cSysCFGFile": h3cSysCFGFile,
+       "h3cSysCFGFileNum": h3cSysCFGFileNum,
+       "h3cSysCFGFileTable": h3cSysCFGFileTable,
+       "h3cSysCFGFileEntry": h3cSysCFGFileEntry,
+       "h3cSysCFGFileIndex": h3cSysCFGFileIndex,
+       "h3cSysCFGFileName": h3cSysCFGFileName,
+       "h3cSysCFGFileSize": h3cSysCFGFileSize,
+       "h3cSysCFGFileLocation": h3cSysCFGFileLocation,
+       "h3cSysBtmFile": h3cSysBtmFile,
+       "h3cSysBtmFileLoad": h3cSysBtmFileLoad,
+       "h3cSysBtmLoadMaxNumber": h3cSysBtmLoadMaxNumber,
+       "h3cSysBtmLoadTable": h3cSysBtmLoadTable,
+       "h3cSysBtmLoadEntry": h3cSysBtmLoadEntry,
+       "h3cSysBtmLoadIndex": h3cSysBtmLoadIndex,
+       "h3cSysBtmFileName": h3cSysBtmFileName,
+       "h3cSysBtmFileType": h3cSysBtmFileType,
+       "h3cSysBtmRowStatus": h3cSysBtmRowStatus,
+       "h3cSysBtmErrorStatus": h3cSysBtmErrorStatus,
+       "h3cSysBtmLoadTime": h3cSysBtmLoadTime,
+       "h3cSysPackage": h3cSysPackage,
+       "h3cSysPackageNum": h3cSysPackageNum,
+       "h3cSysPackageTable": h3cSysPackageTable,
+       "h3cSysPackageEntry": h3cSysPackageEntry,
+       "h3cSysPackageIndex": h3cSysPackageIndex,
+       "h3cSysPackageName": h3cSysPackageName,
+       "h3cSysPackageSize": h3cSysPackageSize,
+       "h3cSysPackageLocation": h3cSysPackageLocation,
+       "h3cSysPackageType": h3cSysPackageType,
+       "h3cSysPackageAttribute": h3cSysPackageAttribute,
+       "h3cSysPackageStatus": h3cSysPackageStatus,
+       "h3cSysPackageDescription": h3cSysPackageDescription,
+       "h3cSysPackageFeature": h3cSysPackageFeature,
+       "h3cSysPackageVersion": h3cSysPackageVersion,
+       "h3cSysPackageLoadAttribute": h3cSysPackageLoadAttribute,
+       "h3cSysPackageModel": h3cSysPackageModel,
+       "h3cSysPackageOperateEntryLimit": h3cSysPackageOperateEntryLimit,
+       "h3cSysPackageOperateTable": h3cSysPackageOperateTable,
+       "h3cSysPackageOperateEntry": h3cSysPackageOperateEntry,
+       "h3cSysPackageOperateIndex": h3cSysPackageOperateIndex,
+       "h3cSysPackageOperatePackIndex": h3cSysPackageOperatePackIndex,
+       "h3cSysPackageOperateStatus": h3cSysPackageOperateStatus,
+       "h3cSysPackageOperateRowStatus": h3cSysPackageOperateRowStatus,
+       "h3cSysPackageOperateResult": h3cSysPackageOperateResult,
+       "h3cSysIpeFile": h3cSysIpeFile,
+       "h3cSysIpeFileNum": h3cSysIpeFileNum,
+       "h3cSysIpeFileTable": h3cSysIpeFileTable,
+       "h3cSysIpeFileEntry": h3cSysIpeFileEntry,
+       "h3cSysIpeFileIndex": h3cSysIpeFileIndex,
+       "h3cSysIpeFileName": h3cSysIpeFileName,
+       "h3cSysIpeFileSize": h3cSysIpeFileSize,
+       "h3cSysIpeFileLocation": h3cSysIpeFileLocation,
+       "h3cSysIpeFileModel": h3cSysIpeFileModel,
+       "h3cSysIpePackageTable": h3cSysIpePackageTable,
+       "h3cSysIpePackageEntry": h3cSysIpePackageEntry,
+       "h3cSysIpePackageIndex": h3cSysIpePackageIndex,
+       "h3cSysIpePackageName": h3cSysIpePackageName,
+       "h3cSysIpePackageSize": h3cSysIpePackageSize,
+       "h3cSysIpePackageType": h3cSysIpePackageType,
+       "h3cSysIpePackageDescription": h3cSysIpePackageDescription,
+       "h3cSysIpePackageFeature": h3cSysIpePackageFeature,
+       "h3cSysIpePackageVersion": h3cSysIpePackageVersion,
+       "h3cSysIpePackageModel": h3cSysIpePackageModel,
+       "h3cSysIpeFileOperateTable": h3cSysIpeFileOperateTable,
+       "h3cSysIpeFileOperateEntry": h3cSysIpeFileOperateEntry,
+       "h3cSysIpeFileOperateIndex": h3cSysIpeFileOperateIndex,
+       "h3cSysIpeFileOperateFileIndex": h3cSysIpeFileOperateFileIndex,
+       "h3cSysIpeFileOperateAttribute": h3cSysIpeFileOperateAttribute,
+       "h3cSysIpeFileOperateRowStatus": h3cSysIpeFileOperateRowStatus,
+       "h3cSysIpeFileOperateResult": h3cSysIpeFileOperateResult,
+       "h3cSysSetBootImage": h3cSysSetBootImage,
+       "h3cSysSetBootImageOp": h3cSysSetBootImageOp,
+       "h3cSysSetBootImageAction": h3cSysSetBootImageAction,
+       "h3cSysSetBootImageFileOverWrite": h3cSysSetBootImageFileOverWrite,
+       "h3cSysSetBootImageRemoveIpeFile": h3cSysSetBootImageRemoveIpeFile,
+       "h3cSysSetBootImageStatus": h3cSysSetBootImageStatus,
+       "h3cSysSetBootImageFailedReason": h3cSysSetBootImageFailedReason,
+       "h3cSysBootPackageTable": h3cSysBootPackageTable,
+       "h3cSysBootPackageEntry": h3cSysBootPackageEntry,
+       "h3cSysBootPackageIndex": h3cSysBootPackageIndex,
+       "h3cSysBootPackageRowStatus": h3cSysBootPackageRowStatus,
+       "h3cSysBootIpeTable": h3cSysBootIpeTable,
+       "h3cSysBootIpeEntry": h3cSysBootIpeEntry,
+       "h3cSysBootIpeIndex": h3cSysBootIpeIndex,
+       "h3cSysBootIpeRowStatus": h3cSysBootIpeRowStatus,
+       "h3cSysSetBootImageResultTable": h3cSysSetBootImageResultTable,
+       "h3cSysSetBootImageResultEntry": h3cSysSetBootImageResultEntry,
+       "h3cSysSetBootImageResultIndex": h3cSysSetBootImageResultIndex,
+       "h3cSysSetBootImageResultStatusOfEachCard": h3cSysSetBootImageResultStatusOfEachCard,
+       "h3cSysSetBootImageFailedReasonOfEachCard": h3cSysSetBootImageFailedReasonOfEachCard,
+       "h3cSystemManMIBNotifications": h3cSystemManMIBNotifications,
+       "h3cSysClockChangedNotification": h3cSysClockChangedNotification,
+       "h3cSysReloadNotification": h3cSysReloadNotification,
+       "h3cSysStartUpNotification": h3cSysStartUpNotification,
+       "h3cSystemManMIBConformance": h3cSystemManMIBConformance,
+       "h3cSystemManMIBCompliances": h3cSystemManMIBCompliances,
+       "h3cSystemManMIBCompliance": h3cSystemManMIBCompliance,
+       "h3cSystemManMIBGroups": h3cSystemManMIBGroups,
+       "h3cSysClockGroup": h3cSysClockGroup,
+       "h3cSysReloadGroup": h3cSysReloadGroup,
+       "h3cSysImageGroup": h3cSysImageGroup,
+       "h3cSysCFGFileGroup": h3cSysCFGFileGroup,
+       "h3cSysCurGroup": h3cSysCurGroup,
+       "h3cSystemManNotificationGroup": h3cSystemManNotificationGroup,
+       "h3cSystemBtmLoadGroup": h3cSystemBtmLoadGroup}
+)

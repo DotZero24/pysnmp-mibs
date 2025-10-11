@@ -1,35 +1,265 @@
+# SNMP MIB module (NBS-VLAN-TAGS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NBS-VLAN-TAGS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/NBS-VLAN-TAGS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:45 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/mrv/NBS-VLAN-TAGS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:05:00 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nbsVlanTagsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 219))
-if mibBuilder.loadTexts: nbsVlanTagsMib.setLastUpdated('201604291200Z')
-if mibBuilder.loadTexts: nbsVlanTagsMib.setOrganization('NBS')
-nbsVlanTagsPortGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 219, 1))
-if mibBuilder.loadTexts: nbsVlanTagsPortGrp.setStatus('current')
-nbsVlanTagsPortTableSize = MibScalar((1, 3, 6, 1, 4, 1, 629, 219, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsVlanTagsPortTableSize.setStatus('current')
-nbsVlanTagsPortTable = MibTable((1, 3, 6, 1, 4, 1, 629, 219, 1, 2), )
-if mibBuilder.loadTexts: nbsVlanTagsPortTable.setStatus('current')
-nbsVlanTagsPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 219, 1, 2, 1), ).setIndexNames((0, "NBS-VLAN-TAGS-MIB", "nbsVlanTagsPortIfIndex"))
-if mibBuilder.loadTexts: nbsVlanTagsPortEntry.setStatus('current')
-nbsVlanTagsPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 219, 1, 2, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsVlanTagsPortIfIndex.setStatus('current')
-nbsVlanTagsPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 219, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("notSupported", 1), ("add", 2), ("strip", 3), ("ignore", 4))).clone('ignore')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsVlanTagsPortAction.setStatus('current')
-nbsVlanTagsPortVid = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 219, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsVlanTagsPortVid.setStatus('current')
-nbsVlanTagsPortPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 219, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsVlanTagsPortPriority.setStatus('current')
-mibBuilder.exportSymbols("NBS-VLAN-TAGS-MIB", nbsVlanTagsPortEntry=nbsVlanTagsPortEntry, nbsVlanTagsPortAction=nbsVlanTagsPortAction, nbsVlanTagsPortGrp=nbsVlanTagsPortGrp, nbsVlanTagsPortVid=nbsVlanTagsPortVid, PYSNMP_MODULE_ID=nbsVlanTagsMib, nbsVlanTagsMib=nbsVlanTagsMib, nbsVlanTagsPortPriority=nbsVlanTagsPortPriority, nbsVlanTagsPortTable=nbsVlanTagsPortTable, nbsVlanTagsPortIfIndex=nbsVlanTagsPortIfIndex, nbsVlanTagsPortTableSize=nbsVlanTagsPortTableSize)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(nbs,) = mibBuilder.importSymbols(
+    "NBS-MIB",
+    "nbs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+nbsVlanTagsMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 219)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NbsVlanTagsPortGrp_ObjectIdentity = ObjectIdentity
+nbsVlanTagsPortGrp = _NbsVlanTagsPortGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 219, 1)
+)
+if mibBuilder.loadTexts:
+    nbsVlanTagsPortGrp.setStatus("current")
+_NbsVlanTagsPortTableSize_Type = Unsigned32
+_NbsVlanTagsPortTableSize_Object = MibScalar
+nbsVlanTagsPortTableSize = _NbsVlanTagsPortTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 629, 219, 1, 1),
+    _NbsVlanTagsPortTableSize_Type()
+)
+nbsVlanTagsPortTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsVlanTagsPortTableSize.setStatus("current")
+_NbsVlanTagsPortTable_Object = MibTable
+nbsVlanTagsPortTable = _NbsVlanTagsPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 219, 1, 2)
+)
+if mibBuilder.loadTexts:
+    nbsVlanTagsPortTable.setStatus("current")
+_NbsVlanTagsPortEntry_Object = MibTableRow
+nbsVlanTagsPortEntry = _NbsVlanTagsPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 629, 219, 1, 2, 1)
+)
+nbsVlanTagsPortEntry.setIndexNames(
+    (0, "NBS-VLAN-TAGS-MIB", "nbsVlanTagsPortIfIndex"),
+)
+if mibBuilder.loadTexts:
+    nbsVlanTagsPortEntry.setStatus("current")
+_NbsVlanTagsPortIfIndex_Type = InterfaceIndex
+_NbsVlanTagsPortIfIndex_Object = MibTableColumn
+nbsVlanTagsPortIfIndex = _NbsVlanTagsPortIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 219, 1, 2, 1, 1),
+    _NbsVlanTagsPortIfIndex_Type()
+)
+nbsVlanTagsPortIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsVlanTagsPortIfIndex.setStatus("current")
+
+
+class _NbsVlanTagsPortAction_Type(Integer32):
+    """Custom type nbsVlanTagsPortAction based on Integer32"""
+    defaultValue = 4
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notSupported", 1),
+          ("add", 2),
+          ("strip", 3),
+          ("ignore", 4))
+    )
+
+
+_NbsVlanTagsPortAction_Type.__name__ = "Integer32"
+_NbsVlanTagsPortAction_Object = MibTableColumn
+nbsVlanTagsPortAction = _NbsVlanTagsPortAction_Object(
+    (1, 3, 6, 1, 4, 1, 629, 219, 1, 2, 1, 2),
+    _NbsVlanTagsPortAction_Type()
+)
+nbsVlanTagsPortAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsVlanTagsPortAction.setStatus("current")
+
+
+class _NbsVlanTagsPortVid_Type(Integer32):
+    """Custom type nbsVlanTagsPortVid based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_NbsVlanTagsPortVid_Type.__name__ = "Integer32"
+_NbsVlanTagsPortVid_Object = MibTableColumn
+nbsVlanTagsPortVid = _NbsVlanTagsPortVid_Object(
+    (1, 3, 6, 1, 4, 1, 629, 219, 1, 2, 1, 3),
+    _NbsVlanTagsPortVid_Type()
+)
+nbsVlanTagsPortVid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsVlanTagsPortVid.setStatus("current")
+
+
+class _NbsVlanTagsPortPriority_Type(Integer32):
+    """Custom type nbsVlanTagsPortPriority based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_NbsVlanTagsPortPriority_Type.__name__ = "Integer32"
+_NbsVlanTagsPortPriority_Object = MibTableColumn
+nbsVlanTagsPortPriority = _NbsVlanTagsPortPriority_Object(
+    (1, 3, 6, 1, 4, 1, 629, 219, 1, 2, 1, 4),
+    _NbsVlanTagsPortPriority_Type()
+)
+nbsVlanTagsPortPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsVlanTagsPortPriority.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NBS-VLAN-TAGS-MIB",
+    **{"nbsVlanTagsMib": nbsVlanTagsMib,
+       "nbsVlanTagsPortGrp": nbsVlanTagsPortGrp,
+       "nbsVlanTagsPortTableSize": nbsVlanTagsPortTableSize,
+       "nbsVlanTagsPortTable": nbsVlanTagsPortTable,
+       "nbsVlanTagsPortEntry": nbsVlanTagsPortEntry,
+       "nbsVlanTagsPortIfIndex": nbsVlanTagsPortIfIndex,
+       "nbsVlanTagsPortAction": nbsVlanTagsPortAction,
+       "nbsVlanTagsPortVid": nbsVlanTagsPortVid,
+       "nbsVlanTagsPortPriority": nbsVlanTagsPortPriority}
+)

@@ -1,42 +1,273 @@
+# SNMP MIB module (BIANCA-BRICK-OSPF-STAT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BIANCA-BRICK-OSPF-STAT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/bintec/BIANCA-BRICK-OSPF-STAT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:56 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/bintec/BIANCA-BRICK-OSPF-STAT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:07:08 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-bintec = MibIdentifier((1, 3, 6, 1, 4, 1, 272))
-bibo = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4))
-biboip = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 5))
-ospfStat = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 5, 10))
-ospfStatHelloRecv = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatHelloRecv.setStatus('mandatory')
-ospfStatHelloSent = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatHelloSent.setStatus('mandatory')
-ospfStatDdRecv = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatDdRecv.setStatus('mandatory')
-ospfStatDdSent = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatDdSent.setStatus('mandatory')
-ospfStatLsackRecv = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatLsackRecv.setStatus('mandatory')
-ospfStatLsackSent = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatLsackSent.setStatus('mandatory')
-ospfStatLsreqRecv = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatLsreqRecv.setStatus('mandatory')
-ospfStatLsreqSent = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatLsreqSent.setStatus('mandatory')
-ospfStatLsupdRecv = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatLsupdRecv.setStatus('mandatory')
-ospfStatLsupdSent = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatLsupdSent.setStatus('mandatory')
-ospfStatSummaryIncUpd = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatSummaryIncUpd.setStatus('mandatory')
-ospfStatExternalIncUpd = MibScalar((1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ospfStatExternalIncUpd.setStatus('mandatory')
-mibBuilder.exportSymbols("BIANCA-BRICK-OSPF-STAT-MIB", ospfStat=ospfStat, ospfStatLsreqSent=ospfStatLsreqSent, ospfStatLsupdSent=ospfStatLsupdSent, bintec=bintec, ospfStatDdRecv=ospfStatDdRecv, ospfStatLsackSent=ospfStatLsackSent, ospfStatLsupdRecv=ospfStatLsupdRecv, ospfStatExternalIncUpd=ospfStatExternalIncUpd, ospfStatDdSent=ospfStatDdSent, ospfStatLsreqRecv=ospfStatLsreqRecv, ospfStatSummaryIncUpd=ospfStatSummaryIncUpd, ospfStatHelloRecv=ospfStatHelloRecv, bibo=bibo, ospfStatHelloSent=ospfStatHelloSent, biboip=biboip, ospfStatLsackRecv=ospfStatLsackRecv)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Bintec_ObjectIdentity = ObjectIdentity
+bintec = _Bintec_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272)
+)
+_Bibo_ObjectIdentity = ObjectIdentity
+bibo = _Bibo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272, 4)
+)
+_Biboip_ObjectIdentity = ObjectIdentity
+biboip = _Biboip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5)
+)
+_OspfStat_ObjectIdentity = ObjectIdentity
+ospfStat = _OspfStat_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10)
+)
+_OspfStatHelloRecv_Type = Counter32
+_OspfStatHelloRecv_Object = MibScalar
+ospfStatHelloRecv = _OspfStatHelloRecv_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 1),
+    _OspfStatHelloRecv_Type()
+)
+ospfStatHelloRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatHelloRecv.setStatus("mandatory")
+_OspfStatHelloSent_Type = Counter32
+_OspfStatHelloSent_Object = MibScalar
+ospfStatHelloSent = _OspfStatHelloSent_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 2),
+    _OspfStatHelloSent_Type()
+)
+ospfStatHelloSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatHelloSent.setStatus("mandatory")
+_OspfStatDdRecv_Type = Counter32
+_OspfStatDdRecv_Object = MibScalar
+ospfStatDdRecv = _OspfStatDdRecv_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 3),
+    _OspfStatDdRecv_Type()
+)
+ospfStatDdRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatDdRecv.setStatus("mandatory")
+_OspfStatDdSent_Type = Counter32
+_OspfStatDdSent_Object = MibScalar
+ospfStatDdSent = _OspfStatDdSent_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 4),
+    _OspfStatDdSent_Type()
+)
+ospfStatDdSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatDdSent.setStatus("mandatory")
+_OspfStatLsackRecv_Type = Counter32
+_OspfStatLsackRecv_Object = MibScalar
+ospfStatLsackRecv = _OspfStatLsackRecv_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 5),
+    _OspfStatLsackRecv_Type()
+)
+ospfStatLsackRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatLsackRecv.setStatus("mandatory")
+_OspfStatLsackSent_Type = Counter32
+_OspfStatLsackSent_Object = MibScalar
+ospfStatLsackSent = _OspfStatLsackSent_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 6),
+    _OspfStatLsackSent_Type()
+)
+ospfStatLsackSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatLsackSent.setStatus("mandatory")
+_OspfStatLsreqRecv_Type = Counter32
+_OspfStatLsreqRecv_Object = MibScalar
+ospfStatLsreqRecv = _OspfStatLsreqRecv_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 7),
+    _OspfStatLsreqRecv_Type()
+)
+ospfStatLsreqRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatLsreqRecv.setStatus("mandatory")
+_OspfStatLsreqSent_Type = Counter32
+_OspfStatLsreqSent_Object = MibScalar
+ospfStatLsreqSent = _OspfStatLsreqSent_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 8),
+    _OspfStatLsreqSent_Type()
+)
+ospfStatLsreqSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatLsreqSent.setStatus("mandatory")
+_OspfStatLsupdRecv_Type = Counter32
+_OspfStatLsupdRecv_Object = MibScalar
+ospfStatLsupdRecv = _OspfStatLsupdRecv_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 9),
+    _OspfStatLsupdRecv_Type()
+)
+ospfStatLsupdRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatLsupdRecv.setStatus("mandatory")
+_OspfStatLsupdSent_Type = Counter32
+_OspfStatLsupdSent_Object = MibScalar
+ospfStatLsupdSent = _OspfStatLsupdSent_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 10),
+    _OspfStatLsupdSent_Type()
+)
+ospfStatLsupdSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatLsupdSent.setStatus("mandatory")
+_OspfStatSummaryIncUpd_Type = Counter32
+_OspfStatSummaryIncUpd_Object = MibScalar
+ospfStatSummaryIncUpd = _OspfStatSummaryIncUpd_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 11),
+    _OspfStatSummaryIncUpd_Type()
+)
+ospfStatSummaryIncUpd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatSummaryIncUpd.setStatus("mandatory")
+_OspfStatExternalIncUpd_Type = Counter32
+_OspfStatExternalIncUpd_Object = MibScalar
+ospfStatExternalIncUpd = _OspfStatExternalIncUpd_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 10, 12),
+    _OspfStatExternalIncUpd_Type()
+)
+ospfStatExternalIncUpd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ospfStatExternalIncUpd.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BIANCA-BRICK-OSPF-STAT-MIB",
+    **{"bintec": bintec,
+       "bibo": bibo,
+       "biboip": biboip,
+       "ospfStat": ospfStat,
+       "ospfStatHelloRecv": ospfStatHelloRecv,
+       "ospfStatHelloSent": ospfStatHelloSent,
+       "ospfStatDdRecv": ospfStatDdRecv,
+       "ospfStatDdSent": ospfStatDdSent,
+       "ospfStatLsackRecv": ospfStatLsackRecv,
+       "ospfStatLsackSent": ospfStatLsackSent,
+       "ospfStatLsreqRecv": ospfStatLsreqRecv,
+       "ospfStatLsreqSent": ospfStatLsreqSent,
+       "ospfStatLsupdRecv": ospfStatLsupdRecv,
+       "ospfStatLsupdSent": ospfStatLsupdSent,
+       "ospfStatSummaryIncUpd": ospfStatSummaryIncUpd,
+       "ospfStatExternalIncUpd": ospfStatExternalIncUpd}
+)

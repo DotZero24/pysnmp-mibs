@@ -1,607 +1,3365 @@
+# SNMP MIB module (ALU-PTPV2-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALU-PTPV2-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/ALU-PTPV2-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:37:39 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/ALU-PTPV2-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:55:15 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-aluSARObjs, aluSARConfs, aluSARNotifyPrefix, aluSARMIBModules = mibBuilder.importSymbols("ALU-SAR-GLOBAL-MIB", "aluSARObjs", "aluSARConfs", "aluSARNotifyPrefix", "aluSARMIBModules")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
-TmnxHwIndexOrZero, tmnxChassisIndex, TmnxSETSRefSource, TmnxChassisIndex, TmnxPortAdminStatus = mibBuilder.importSymbols("TIMETRA-CHASSIS-MIB", "TmnxHwIndexOrZero", "tmnxChassisIndex", "TmnxSETSRefSource", "TmnxChassisIndex", "TmnxPortAdminStatus")
-TNamedItemOrEmpty, TItemDescription, TmnxAdminState = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TNamedItemOrEmpty", "TItemDescription", "TmnxAdminState")
-aluPtpV2Module = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 1, 3, 12))
-aluPtpV2Module.setRevisions(('2018-03-20 00:00', '1914-02-20 00:00', '1911-08-18 00:00', '1910-08-13 00:00',))
-if mibBuilder.loadTexts: aluPtpV2Module.setLastUpdated('201803200000Z')
-if mibBuilder.loadTexts: aluPtpV2Module.setOrganization('Nokia')
-aluPtpObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12))
-aluPtpClock = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1))
-aluPtpPort = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2))
-aluPtpPeer = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3))
-aluPtpNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 4))
-aluPtpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12))
-aluPtpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1))
-aluPtpNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8))
-aluPtpNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(aluSARConfs,
+ aluSARMIBModules,
+ aluSARNotifyPrefix,
+ aluSARObjs) = mibBuilder.importSymbols(
+    "ALU-SAR-GLOBAL-MIB",
+    "aluSARConfs",
+    "aluSARMIBModules",
+    "aluSARNotifyPrefix",
+    "aluSARObjs")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowPointer,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowPointer",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+(TmnxChassisIndex,
+ TmnxHwIndexOrZero,
+ TmnxPortAdminStatus,
+ TmnxSETSRefSource,
+ tmnxChassisIndex) = mibBuilder.importSymbols(
+    "TIMETRA-CHASSIS-MIB",
+    "TmnxChassisIndex",
+    "TmnxHwIndexOrZero",
+    "TmnxPortAdminStatus",
+    "TmnxSETSRefSource",
+    "tmnxChassisIndex")
+
+(TItemDescription,
+ TNamedItemOrEmpty,
+ TmnxAdminState) = mibBuilder.importSymbols(
+    "TIMETRA-TC-MIB",
+    "TItemDescription",
+    "TNamedItemOrEmpty",
+    "TmnxAdminState")
+
+
+# MODULE-IDENTITY
+
+aluPtpV2Module = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 1, 1, 3, 12)
+)
+if mibBuilder.loadTexts:
+    aluPtpV2Module.setRevisions(
+        ("2018-03-20 00:00",
+         "1914-02-20 00:00",
+         "1911-08-18 00:00",
+         "1910-08-13 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class Alu1588PtpClockId(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 8)
-    fixedLength = 8
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
 
 class Alu1588PtpClockIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 32)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 32),
+    )
+
+
 
 class Alu1588PtpPortIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 50)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 50),
+    )
+
+
 
 class Alu1588PtpMasterIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 50)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 50),
+    )
+
+
 
 class Alu1588PtpProfile(TextualConvention, Integer32):
-    reference = 'IEEE Std 1588-2008, ITU-T G.8265.1, ITU-T G.8275.1 and ITU-T G.8275.2'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
-    namedValues = NamedValues(("unknown", 0), ("ituTelecomFreq", 1), ("ieee1588-2008", 2), ("g8275dot1-2014", 3), ("g8275dot2-2016", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("ituTelecomFreq", 1),
+          ("ieee1588-2008", 2),
+          ("g8275dot1-2014", 3),
+          ("g8275dot2-2016", 4))
+    )
+
+
 
 class Alu1588PtpClockStepType(TextualConvention, Integer32):
-    reference = 'IEEE Std 1588-2008 Sections 3.1.21 and 3.1.47'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("unknown", 0), ("oneStep", 1), ("twoStep", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("oneStep", 1),
+          ("twoStep", 2))
+    )
+
+
 
 class Alu1588PtpClockType(TextualConvention, Integer32):
-    reference = 'IEEE Std 1588-2008 Section 6.5'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
-    namedValues = NamedValues(("unknown", 0), ("boundary", 1), ("ordinary", 2), ("endToEndTransparent", 3), ("peerToPeerTransparent", 4), ("managementNode", 5))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("boundary", 1),
+          ("ordinary", 2),
+          ("endToEndTransparent", 3),
+          ("peerToPeerTransparent", 4),
+          ("managementNode", 5))
+    )
+
+
 
 class Alu1588PtpLogInterval(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-7, 4)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-7, 4),
+    )
+
+
 
 class Alu1588PtpClockRecoveryState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
-    namedValues = NamedValues(("unknown", 0), ("freeRun", 1), ("acquiring", 2), ("phase-tracking", 3), ("holdover", 4), ("locked", 5))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("freeRun", 1),
+          ("acquiring", 2),
+          ("phase-tracking", 3),
+          ("holdover", 4),
+          ("locked", 5))
+    )
+
+
 
 class Alu1588PtpPortState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
-    namedValues = NamedValues(("unknown", 0), ("initializing", 1), ("faulty", 2), ("disabled", 3), ("listening", 4), ("pre-master", 5), ("master", 6), ("passive", 7), ("uncalibrated", 8), ("slave", 9))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("initializing", 1),
+          ("faulty", 2),
+          ("disabled", 3),
+          ("listening", 4),
+          ("pre-master", 5),
+          ("master", 6),
+          ("passive", 7),
+          ("uncalibrated", 8),
+          ("slave", 9))
+    )
+
+
 
 class AluPtpTimeSource(TextualConvention, Integer32):
-    reference = 'IEEE Std 1588-2008 Section 7.6.2.6'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(16, 32, 48, 64, 80, 96, 144, 160, 255))
-    namedValues = NamedValues(("atomic-clock", 16), ("gps", 32), ("terrestrial-radio", 48), ("ptp", 64), ("ntp", 80), ("hand-set", 96), ("other", 144), ("internal-osc", 160), ("reserved", 255))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(16,
+              32,
+              48,
+              64,
+              80,
+              96,
+              144,
+              160,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("atomic-clock", 16),
+          ("gps", 32),
+          ("terrestrial-radio", 48),
+          ("ptp", 64),
+          ("ntp", 80),
+          ("hand-set", 96),
+          ("other", 144),
+          ("internal-osc", 160),
+          ("reserved", 255))
+    )
+
+
 
 class Alu1588PtpFreqSource(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("unknown", 0), ("ptp", 1), ("ssu", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("ptp", 1),
+          ("ssu", 2))
+    )
+
+
 
 class Alu1588PtpSyncCertaintyState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("unknown", 0), ("certain", 1), ("uncertain", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("certain", 1),
+          ("uncertain", 2))
+    )
+
+
 
 class Alu1588ActivePtpPortIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 50)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 50),
+    )
+
+
 
 class Alu1588ActivePtpMasterIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 50)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 50),
+    )
+
+
 
 class AluPtpPortNumber(TextualConvention, Unsigned32):
-    reference = 'IEEE 1588-2008, Section 3.1.35, 7.5.2.3'
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65534)
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65534),
+    )
+
+
 
 class AluPtpPriority(TextualConvention, Unsigned32):
-    reference = 'IEEE Std 1588-2008 Section 7.6.2.2 and 7.6.2.3'
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
 
-aluPtpClockMaxNumber = MibScalar((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockMaxNumber.setStatus('current')
-aluPtpClockTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2), )
-if mibBuilder.loadTexts: aluPtpClockTable.setStatus('current')
-aluPtpClockEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1), ).setIndexNames((0, "ALU-PTPV2-MIB", "aluPtpClockIndex"))
-if mibBuilder.loadTexts: aluPtpClockEntry.setStatus('current')
-aluPtpClockIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 1), Alu1588PtpClockIndex())
-if mibBuilder.loadTexts: aluPtpClockIndex.setStatus('current')
-aluPtpClockRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockRowStatus.setStatus('current')
-aluPtpClockIpInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 3), TNamedItemOrEmpty().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockIpInterface.setStatus('current')
-aluPtpClockHw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 4), TmnxHwIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockHw.setStatus('current')
-aluPtpClockProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 5), Alu1588PtpProfile().clone('ieee1588-2008')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockProfile.setStatus('current')
-aluPtpClockAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 6), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockAdminState.setStatus('current')
-aluPtpClockDynamicPeers = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 7), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockDynamicPeers.setStatus('current')
-aluPtpClockForwardWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 100), )).clone(-1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockForwardWeight.setStatus('current')
-aluPtpClockRecoveryState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 9), Alu1588PtpClockRecoveryState().clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockRecoveryState.setStatus('current')
-aluPtpClockTimeRefPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockTimeRefPriority.setStatus('current')
-aluPtpClockAdminFreqSource = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 11), Alu1588PtpFreqSource().clone('ptp')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockAdminFreqSource.setStatus('current')
-aluPtpClockOperFreqSource = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 12), Alu1588PtpFreqSource()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockOperFreqSource.setStatus('current')
-aluPtpClockUseNodeTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 13), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockUseNodeTime.setStatus('current')
-aluPtpClockSyncCertaintyState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 14), Alu1588PtpSyncCertaintyState().clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockSyncCertaintyState.setStatus('current')
-aluPtpClockTxWhileUncertain = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 15), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockTxWhileUncertain.setStatus('current')
-aluPtpClockDefaultDSTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3), )
-if mibBuilder.loadTexts: aluPtpClockDefaultDSTable.setStatus('current')
-aluPtpClockDefaultDSEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1), )
-aluPtpClockEntry.registerAugmentions(("ALU-PTPV2-MIB", "aluPtpClockDefaultDSEntry"))
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AluPtpMIBConformance_ObjectIdentity = ObjectIdentity
+aluPtpMIBConformance = _AluPtpMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12)
+)
+_AluPtpConformance_ObjectIdentity = ObjectIdentity
+aluPtpConformance = _AluPtpConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1)
+)
+_AluPtpCompliances_ObjectIdentity = ObjectIdentity
+aluPtpCompliances = _AluPtpCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1)
+)
+_AluPtpComp7705_ObjectIdentity = ObjectIdentity
+aluPtpComp7705 = _AluPtpComp7705_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1)
+)
+_AluPtpGroups_ObjectIdentity = ObjectIdentity
+aluPtpGroups = _AluPtpGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2)
+)
+_AluPtpV8v0Groups_ObjectIdentity = ObjectIdentity
+aluPtpV8v0Groups = _AluPtpV8v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 11)
+)
+_AluPtpV9v0Groups_ObjectIdentity = ObjectIdentity
+aluPtpV9v0Groups = _AluPtpV9v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 12)
+)
+_AluPtpObjs_ObjectIdentity = ObjectIdentity
+aluPtpObjs = _AluPtpObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12)
+)
+_AluPtpClock_ObjectIdentity = ObjectIdentity
+aluPtpClock = _AluPtpClock_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1)
+)
+
+
+class _AluPtpClockMaxNumber_Type(Integer32):
+    """Custom type aluPtpClockMaxNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 32),
+    )
+
+
+_AluPtpClockMaxNumber_Type.__name__ = "Integer32"
+_AluPtpClockMaxNumber_Object = MibScalar
+aluPtpClockMaxNumber = _AluPtpClockMaxNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 1),
+    _AluPtpClockMaxNumber_Type()
+)
+aluPtpClockMaxNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockMaxNumber.setStatus("current")
+_AluPtpClockTable_Object = MibTable
+aluPtpClockTable = _AluPtpClockTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2)
+)
+if mibBuilder.loadTexts:
+    aluPtpClockTable.setStatus("current")
+_AluPtpClockEntry_Object = MibTableRow
+aluPtpClockEntry = _AluPtpClockEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1)
+)
+aluPtpClockEntry.setIndexNames(
+    (0, "ALU-PTPV2-MIB", "aluPtpClockIndex"),
+)
+if mibBuilder.loadTexts:
+    aluPtpClockEntry.setStatus("current")
+_AluPtpClockIndex_Type = Alu1588PtpClockIndex
+_AluPtpClockIndex_Object = MibTableColumn
+aluPtpClockIndex = _AluPtpClockIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 1),
+    _AluPtpClockIndex_Type()
+)
+aluPtpClockIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aluPtpClockIndex.setStatus("current")
+_AluPtpClockRowStatus_Type = RowStatus
+_AluPtpClockRowStatus_Object = MibTableColumn
+aluPtpClockRowStatus = _AluPtpClockRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 2),
+    _AluPtpClockRowStatus_Type()
+)
+aluPtpClockRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockRowStatus.setStatus("current")
+
+
+class _AluPtpClockIpInterface_Type(TNamedItemOrEmpty):
+    """Custom type aluPtpClockIpInterface based on TNamedItemOrEmpty"""
+    defaultHexValue = ""
+
+
+_AluPtpClockIpInterface_Type.__name__ = "TNamedItemOrEmpty"
+_AluPtpClockIpInterface_Object = MibTableColumn
+aluPtpClockIpInterface = _AluPtpClockIpInterface_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 3),
+    _AluPtpClockIpInterface_Type()
+)
+aluPtpClockIpInterface.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockIpInterface.setStatus("current")
+
+
+class _AluPtpClockHw_Type(TmnxHwIndexOrZero):
+    """Custom type aluPtpClockHw based on TmnxHwIndexOrZero"""
+    defaultValue = 0
+
+
+_AluPtpClockHw_Type.__name__ = "TmnxHwIndexOrZero"
+_AluPtpClockHw_Object = MibTableColumn
+aluPtpClockHw = _AluPtpClockHw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 4),
+    _AluPtpClockHw_Type()
+)
+aluPtpClockHw.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockHw.setStatus("current")
+
+
+class _AluPtpClockProfile_Type(Alu1588PtpProfile):
+    """Custom type aluPtpClockProfile based on Alu1588PtpProfile"""
+    defaultValue = 2
+
+
+_AluPtpClockProfile_Type.__name__ = "Alu1588PtpProfile"
+_AluPtpClockProfile_Object = MibTableColumn
+aluPtpClockProfile = _AluPtpClockProfile_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 5),
+    _AluPtpClockProfile_Type()
+)
+aluPtpClockProfile.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockProfile.setStatus("current")
+
+
+class _AluPtpClockAdminState_Type(TmnxAdminState):
+    """Custom type aluPtpClockAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_AluPtpClockAdminState_Type.__name__ = "TmnxAdminState"
+_AluPtpClockAdminState_Object = MibTableColumn
+aluPtpClockAdminState = _AluPtpClockAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 6),
+    _AluPtpClockAdminState_Type()
+)
+aluPtpClockAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockAdminState.setStatus("current")
+
+
+class _AluPtpClockDynamicPeers_Type(TruthValue):
+    """Custom type aluPtpClockDynamicPeers based on TruthValue"""
+    defaultValue = 2
+
+
+_AluPtpClockDynamicPeers_Type.__name__ = "TruthValue"
+_AluPtpClockDynamicPeers_Object = MibTableColumn
+aluPtpClockDynamicPeers = _AluPtpClockDynamicPeers_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 7),
+    _AluPtpClockDynamicPeers_Type()
+)
+aluPtpClockDynamicPeers.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockDynamicPeers.setStatus("current")
+
+
+class _AluPtpClockForwardWeight_Type(Integer32):
+    """Custom type aluPtpClockForwardWeight based on Integer32"""
+    defaultValue = -1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_AluPtpClockForwardWeight_Type.__name__ = "Integer32"
+_AluPtpClockForwardWeight_Object = MibTableColumn
+aluPtpClockForwardWeight = _AluPtpClockForwardWeight_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 8),
+    _AluPtpClockForwardWeight_Type()
+)
+aluPtpClockForwardWeight.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockForwardWeight.setStatus("current")
+
+
+class _AluPtpClockRecoveryState_Type(Alu1588PtpClockRecoveryState):
+    """Custom type aluPtpClockRecoveryState based on Alu1588PtpClockRecoveryState"""
+    defaultValue = 0
+
+
+_AluPtpClockRecoveryState_Type.__name__ = "Alu1588PtpClockRecoveryState"
+_AluPtpClockRecoveryState_Object = MibTableColumn
+aluPtpClockRecoveryState = _AluPtpClockRecoveryState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 9),
+    _AluPtpClockRecoveryState_Type()
+)
+aluPtpClockRecoveryState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockRecoveryState.setStatus("current")
+
+
+class _AluPtpClockTimeRefPriority_Type(Integer32):
+    """Custom type aluPtpClockTimeRefPriority based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32),
+    )
+
+
+_AluPtpClockTimeRefPriority_Type.__name__ = "Integer32"
+_AluPtpClockTimeRefPriority_Object = MibTableColumn
+aluPtpClockTimeRefPriority = _AluPtpClockTimeRefPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 10),
+    _AluPtpClockTimeRefPriority_Type()
+)
+aluPtpClockTimeRefPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockTimeRefPriority.setStatus("current")
+
+
+class _AluPtpClockAdminFreqSource_Type(Alu1588PtpFreqSource):
+    """Custom type aluPtpClockAdminFreqSource based on Alu1588PtpFreqSource"""
+    defaultValue = 1
+
+
+_AluPtpClockAdminFreqSource_Type.__name__ = "Alu1588PtpFreqSource"
+_AluPtpClockAdminFreqSource_Object = MibTableColumn
+aluPtpClockAdminFreqSource = _AluPtpClockAdminFreqSource_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 11),
+    _AluPtpClockAdminFreqSource_Type()
+)
+aluPtpClockAdminFreqSource.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockAdminFreqSource.setStatus("current")
+_AluPtpClockOperFreqSource_Type = Alu1588PtpFreqSource
+_AluPtpClockOperFreqSource_Object = MibTableColumn
+aluPtpClockOperFreqSource = _AluPtpClockOperFreqSource_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 12),
+    _AluPtpClockOperFreqSource_Type()
+)
+aluPtpClockOperFreqSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockOperFreqSource.setStatus("current")
+
+
+class _AluPtpClockUseNodeTime_Type(TruthValue):
+    """Custom type aluPtpClockUseNodeTime based on TruthValue"""
+    defaultValue = 2
+
+
+_AluPtpClockUseNodeTime_Type.__name__ = "TruthValue"
+_AluPtpClockUseNodeTime_Object = MibTableColumn
+aluPtpClockUseNodeTime = _AluPtpClockUseNodeTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 13),
+    _AluPtpClockUseNodeTime_Type()
+)
+aluPtpClockUseNodeTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockUseNodeTime.setStatus("current")
+
+
+class _AluPtpClockSyncCertaintyState_Type(Alu1588PtpSyncCertaintyState):
+    """Custom type aluPtpClockSyncCertaintyState based on Alu1588PtpSyncCertaintyState"""
+    defaultValue = 0
+
+
+_AluPtpClockSyncCertaintyState_Type.__name__ = "Alu1588PtpSyncCertaintyState"
+_AluPtpClockSyncCertaintyState_Object = MibTableColumn
+aluPtpClockSyncCertaintyState = _AluPtpClockSyncCertaintyState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 14),
+    _AluPtpClockSyncCertaintyState_Type()
+)
+aluPtpClockSyncCertaintyState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockSyncCertaintyState.setStatus("current")
+
+
+class _AluPtpClockTxWhileUncertain_Type(TruthValue):
+    """Custom type aluPtpClockTxWhileUncertain based on TruthValue"""
+    defaultValue = 1
+
+
+_AluPtpClockTxWhileUncertain_Type.__name__ = "TruthValue"
+_AluPtpClockTxWhileUncertain_Object = MibTableColumn
+aluPtpClockTxWhileUncertain = _AluPtpClockTxWhileUncertain_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 2, 1, 15),
+    _AluPtpClockTxWhileUncertain_Type()
+)
+aluPtpClockTxWhileUncertain.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockTxWhileUncertain.setStatus("current")
+_AluPtpClockDefaultDSTable_Object = MibTable
+aluPtpClockDefaultDSTable = _AluPtpClockDefaultDSTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3)
+)
+if mibBuilder.loadTexts:
+    aluPtpClockDefaultDSTable.setStatus("current")
+_AluPtpClockDefaultDSEntry_Object = MibTableRow
+aluPtpClockDefaultDSEntry = _AluPtpClockDefaultDSEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    aluPtpClockDefaultDSEntry.setStatus("current")
+_AluPtpClockId_Type = Alu1588PtpClockId
+_AluPtpClockId_Object = MibTableColumn
+aluPtpClockId = _AluPtpClockId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 1),
+    _AluPtpClockId_Type()
+)
+aluPtpClockId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockId.setStatus("current")
+
+
+class _AluPtpClockType_Type(Alu1588PtpClockType):
+    """Custom type aluPtpClockType based on Alu1588PtpClockType"""
+    defaultValue = 2
+
+
+_AluPtpClockType_Type.__name__ = "Alu1588PtpClockType"
+_AluPtpClockType_Object = MibTableColumn
+aluPtpClockType = _AluPtpClockType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 2),
+    _AluPtpClockType_Type()
+)
+aluPtpClockType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockType.setStatus("current")
+
+
+class _AluPtpClockSlaveOnly_Type(TruthValue):
+    """Custom type aluPtpClockSlaveOnly based on TruthValue"""
+    defaultValue = 1
+
+
+_AluPtpClockSlaveOnly_Type.__name__ = "TruthValue"
+_AluPtpClockSlaveOnly_Object = MibTableColumn
+aluPtpClockSlaveOnly = _AluPtpClockSlaveOnly_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 3),
+    _AluPtpClockSlaveOnly_Type()
+)
+aluPtpClockSlaveOnly.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockSlaveOnly.setStatus("current")
+
+
+class _AluPtpClockDomain_Type(Unsigned32):
+    """Custom type aluPtpClockDomain based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_AluPtpClockDomain_Type.__name__ = "Unsigned32"
+_AluPtpClockDomain_Object = MibTableColumn
+aluPtpClockDomain = _AluPtpClockDomain_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 4),
+    _AluPtpClockDomain_Type()
+)
+aluPtpClockDomain.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockDomain.setStatus("current")
+
+
+class _AluPtpClockNumberPorts_Type(Unsigned32):
+    """Custom type aluPtpClockNumberPorts based on Unsigned32"""
+    defaultValue = 1
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 50),
+    )
+
+
+_AluPtpClockNumberPorts_Type.__name__ = "Unsigned32"
+_AluPtpClockNumberPorts_Object = MibTableColumn
+aluPtpClockNumberPorts = _AluPtpClockNumberPorts_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 5),
+    _AluPtpClockNumberPorts_Type()
+)
+aluPtpClockNumberPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockNumberPorts.setStatus("current")
+
+
+class _AluPtpClockClass_Type(Unsigned32):
+    """Custom type aluPtpClockClass based on Unsigned32"""
+    defaultValue = 255
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_AluPtpClockClass_Type.__name__ = "Unsigned32"
+_AluPtpClockClass_Object = MibTableColumn
+aluPtpClockClass = _AluPtpClockClass_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 6),
+    _AluPtpClockClass_Type()
+)
+aluPtpClockClass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockClass.setStatus("current")
+
+
+class _AluPtpClockAccuracy_Type(Unsigned32):
+    """Custom type aluPtpClockAccuracy based on Unsigned32"""
+    defaultValue = 254
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_AluPtpClockAccuracy_Type.__name__ = "Unsigned32"
+_AluPtpClockAccuracy_Object = MibTableColumn
+aluPtpClockAccuracy = _AluPtpClockAccuracy_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 7),
+    _AluPtpClockAccuracy_Type()
+)
+aluPtpClockAccuracy.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockAccuracy.setStatus("current")
+
+
+class _AluPtpClockVariance_Type(Integer32):
+    """Custom type aluPtpClockVariance based on Integer32"""
+    defaultValue = 65535
+
+
+_AluPtpClockVariance_Type.__name__ = "Integer32"
+_AluPtpClockVariance_Object = MibTableColumn
+aluPtpClockVariance = _AluPtpClockVariance_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 8),
+    _AluPtpClockVariance_Type()
+)
+aluPtpClockVariance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockVariance.setStatus("current")
+
+
+class _AluPtpClockPriority1_Type(AluPtpPriority):
+    """Custom type aluPtpClockPriority1 based on AluPtpPriority"""
+    defaultValue = 128
+
+
+_AluPtpClockPriority1_Type.__name__ = "AluPtpPriority"
+_AluPtpClockPriority1_Object = MibTableColumn
+aluPtpClockPriority1 = _AluPtpClockPriority1_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 9),
+    _AluPtpClockPriority1_Type()
+)
+aluPtpClockPriority1.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockPriority1.setStatus("current")
+_AluPtpClockPriority2_Type = AluPtpPriority
+_AluPtpClockPriority2_Object = MibTableColumn
+aluPtpClockPriority2 = _AluPtpClockPriority2_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 10),
+    _AluPtpClockPriority2_Type()
+)
+aluPtpClockPriority2.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockPriority2.setStatus("current")
+_AluPtpClockTwoStepFlag_Type = Alu1588PtpClockStepType
+_AluPtpClockTwoStepFlag_Object = MibTableColumn
+aluPtpClockTwoStepFlag = _AluPtpClockTwoStepFlag_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 11),
+    _AluPtpClockTwoStepFlag_Type()
+)
+aluPtpClockTwoStepFlag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockTwoStepFlag.setStatus("deprecated")
+
+
+class _AluPtpClockLocalPriority_Type(AluPtpPriority):
+    """Custom type aluPtpClockLocalPriority based on AluPtpPriority"""
+    defaultValue = 128
+
+
+_AluPtpClockLocalPriority_Type.__name__ = "AluPtpPriority"
+_AluPtpClockLocalPriority_Object = MibTableColumn
+aluPtpClockLocalPriority = _AluPtpClockLocalPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 12),
+    _AluPtpClockLocalPriority_Type()
+)
+aluPtpClockLocalPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpClockLocalPriority.setStatus("current")
+_AluPtpClockCurrentDSTable_Object = MibTable
+aluPtpClockCurrentDSTable = _AluPtpClockCurrentDSTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 4)
+)
+if mibBuilder.loadTexts:
+    aluPtpClockCurrentDSTable.setStatus("current")
+_AluPtpClockCurrentDSEntry_Object = MibTableRow
+aluPtpClockCurrentDSEntry = _AluPtpClockCurrentDSEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    aluPtpClockCurrentDSEntry.setStatus("current")
+
+
+class _AluPtpClockStepsRemoved_Type(Unsigned32):
+    """Custom type aluPtpClockStepsRemoved based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_AluPtpClockStepsRemoved_Type.__name__ = "Unsigned32"
+_AluPtpClockStepsRemoved_Object = MibTableColumn
+aluPtpClockStepsRemoved = _AluPtpClockStepsRemoved_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 4, 1, 2),
+    _AluPtpClockStepsRemoved_Type()
+)
+aluPtpClockStepsRemoved.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockStepsRemoved.setStatus("current")
+_AluPtpClockParentDSTable_Object = MibTable
+aluPtpClockParentDSTable = _AluPtpClockParentDSTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5)
+)
+if mibBuilder.loadTexts:
+    aluPtpClockParentDSTable.setStatus("current")
+_AluPtpClockParentDSEntry_Object = MibTableRow
+aluPtpClockParentDSEntry = _AluPtpClockParentDSEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    aluPtpClockParentDSEntry.setStatus("current")
+_AluPtpClockParentId_Type = Alu1588PtpClockId
+_AluPtpClockParentId_Object = MibTableColumn
+aluPtpClockParentId = _AluPtpClockParentId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 1),
+    _AluPtpClockParentId_Type()
+)
+aluPtpClockParentId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockParentId.setStatus("current")
+_AluPtpClockParentPortNum_Type = AluPtpPortNumber
+_AluPtpClockParentPortNum_Object = MibTableColumn
+aluPtpClockParentPortNum = _AluPtpClockParentPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 2),
+    _AluPtpClockParentPortNum_Type()
+)
+aluPtpClockParentPortNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockParentPortNum.setStatus("current")
+_AluPtpClockParentStats_Type = TruthValue
+_AluPtpClockParentStats_Object = MibTableColumn
+aluPtpClockParentStats = _AluPtpClockParentStats_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 3),
+    _AluPtpClockParentStats_Type()
+)
+aluPtpClockParentStats.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockParentStats.setStatus("current")
+_AluPtpClockParentVariance_Type = Integer32
+_AluPtpClockParentVariance_Object = MibTableColumn
+aluPtpClockParentVariance = _AluPtpClockParentVariance_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 4),
+    _AluPtpClockParentVariance_Type()
+)
+aluPtpClockParentVariance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockParentVariance.setStatus("current")
+_AluPtpClockGMClockId_Type = Alu1588PtpClockId
+_AluPtpClockGMClockId_Object = MibTableColumn
+aluPtpClockGMClockId = _AluPtpClockGMClockId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 6),
+    _AluPtpClockGMClockId_Type()
+)
+aluPtpClockGMClockId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockGMClockId.setStatus("current")
+
+
+class _AluPtpClockGMClass_Type(Unsigned32):
+    """Custom type aluPtpClockGMClass based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_AluPtpClockGMClass_Type.__name__ = "Unsigned32"
+_AluPtpClockGMClass_Object = MibTableColumn
+aluPtpClockGMClass = _AluPtpClockGMClass_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 7),
+    _AluPtpClockGMClass_Type()
+)
+aluPtpClockGMClass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockGMClass.setStatus("current")
+
+
+class _AluPtpClockGMAccuracy_Type(Unsigned32):
+    """Custom type aluPtpClockGMAccuracy based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_AluPtpClockGMAccuracy_Type.__name__ = "Unsigned32"
+_AluPtpClockGMAccuracy_Object = MibTableColumn
+aluPtpClockGMAccuracy = _AluPtpClockGMAccuracy_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 8),
+    _AluPtpClockGMAccuracy_Type()
+)
+aluPtpClockGMAccuracy.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockGMAccuracy.setStatus("current")
+_AluPtpClockGMVariance_Type = Unsigned32
+_AluPtpClockGMVariance_Object = MibTableColumn
+aluPtpClockGMVariance = _AluPtpClockGMVariance_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 9),
+    _AluPtpClockGMVariance_Type()
+)
+aluPtpClockGMVariance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockGMVariance.setStatus("current")
+_AluPtpClockGMPriority1_Type = AluPtpPriority
+_AluPtpClockGMPriority1_Object = MibTableColumn
+aluPtpClockGMPriority1 = _AluPtpClockGMPriority1_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 10),
+    _AluPtpClockGMPriority1_Type()
+)
+aluPtpClockGMPriority1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockGMPriority1.setStatus("current")
+_AluPtpClockGMPriority2_Type = AluPtpPriority
+_AluPtpClockGMPriority2_Object = MibTableColumn
+aluPtpClockGMPriority2 = _AluPtpClockGMPriority2_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 11),
+    _AluPtpClockGMPriority2_Type()
+)
+aluPtpClockGMPriority2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockGMPriority2.setStatus("current")
+_AluPtpLocalPtpPortIndex_Type = Alu1588ActivePtpPortIndex
+_AluPtpLocalPtpPortIndex_Object = MibTableColumn
+aluPtpLocalPtpPortIndex = _AluPtpLocalPtpPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 12),
+    _AluPtpLocalPtpPortIndex_Type()
+)
+aluPtpLocalPtpPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpLocalPtpPortIndex.setStatus("current")
+_AluPtpLocalPtpPeerIndex_Type = Alu1588ActivePtpMasterIndex
+_AluPtpLocalPtpPeerIndex_Object = MibTableColumn
+aluPtpLocalPtpPeerIndex = _AluPtpLocalPtpPeerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 13),
+    _AluPtpLocalPtpPeerIndex_Type()
+)
+aluPtpLocalPtpPeerIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpLocalPtpPeerIndex.setStatus("current")
+
+
+class _AluPtpParentSyncCertaintyState_Type(Alu1588PtpSyncCertaintyState):
+    """Custom type aluPtpParentSyncCertaintyState based on Alu1588PtpSyncCertaintyState"""
+    defaultValue = 0
+
+
+_AluPtpParentSyncCertaintyState_Type.__name__ = "Alu1588PtpSyncCertaintyState"
+_AluPtpParentSyncCertaintyState_Object = MibTableColumn
+aluPtpParentSyncCertaintyState = _AluPtpParentSyncCertaintyState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 14),
+    _AluPtpParentSyncCertaintyState_Type()
+)
+aluPtpParentSyncCertaintyState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpParentSyncCertaintyState.setStatus("current")
+_AluPtpClockTimePropertyDSTable_Object = MibTable
+aluPtpClockTimePropertyDSTable = _AluPtpClockTimePropertyDSTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6)
+)
+if mibBuilder.loadTexts:
+    aluPtpClockTimePropertyDSTable.setStatus("current")
+_AluPtpClockTimePropertyDSEntry_Object = MibTableRow
+aluPtpClockTimePropertyDSEntry = _AluPtpClockTimePropertyDSEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1)
+)
+if mibBuilder.loadTexts:
+    aluPtpClockTimePropertyDSEntry.setStatus("current")
+
+
+class _AluPtpClockCurUtcOffset_Type(Integer32):
+    """Custom type aluPtpClockCurUtcOffset based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-65536, 65535),
+    )
+
+
+_AluPtpClockCurUtcOffset_Type.__name__ = "Integer32"
+_AluPtpClockCurUtcOffset_Object = MibTableColumn
+aluPtpClockCurUtcOffset = _AluPtpClockCurUtcOffset_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 1),
+    _AluPtpClockCurUtcOffset_Type()
+)
+aluPtpClockCurUtcOffset.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockCurUtcOffset.setStatus("current")
+_AluPtpClockCurUtcOffsetValid_Type = TruthValue
+_AluPtpClockCurUtcOffsetValid_Object = MibTableColumn
+aluPtpClockCurUtcOffsetValid = _AluPtpClockCurUtcOffsetValid_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 2),
+    _AluPtpClockCurUtcOffsetValid_Type()
+)
+aluPtpClockCurUtcOffsetValid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockCurUtcOffsetValid.setStatus("current")
+_AluPtpClockLeap59_Type = TruthValue
+_AluPtpClockLeap59_Object = MibTableColumn
+aluPtpClockLeap59 = _AluPtpClockLeap59_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 3),
+    _AluPtpClockLeap59_Type()
+)
+aluPtpClockLeap59.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockLeap59.setStatus("current")
+_AluPtpClockLeap61_Type = TruthValue
+_AluPtpClockLeap61_Object = MibTableColumn
+aluPtpClockLeap61 = _AluPtpClockLeap61_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 4),
+    _AluPtpClockLeap61_Type()
+)
+aluPtpClockLeap61.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockLeap61.setStatus("current")
+_AluPtpClockTimeTraceable_Type = TruthValue
+_AluPtpClockTimeTraceable_Object = MibTableColumn
+aluPtpClockTimeTraceable = _AluPtpClockTimeTraceable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 6),
+    _AluPtpClockTimeTraceable_Type()
+)
+aluPtpClockTimeTraceable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockTimeTraceable.setStatus("current")
+_AluPtpClockFreqTraceable_Type = TruthValue
+_AluPtpClockFreqTraceable_Object = MibTableColumn
+aluPtpClockFreqTraceable = _AluPtpClockFreqTraceable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 7),
+    _AluPtpClockFreqTraceable_Type()
+)
+aluPtpClockFreqTraceable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockFreqTraceable.setStatus("current")
+_AluPtpClockPtpTimescale_Type = TruthValue
+_AluPtpClockPtpTimescale_Object = MibTableColumn
+aluPtpClockPtpTimescale = _AluPtpClockPtpTimescale_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 8),
+    _AluPtpClockPtpTimescale_Type()
+)
+aluPtpClockPtpTimescale.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockPtpTimescale.setStatus("current")
+_AluPtpClockTimeSource_Type = AluPtpTimeSource
+_AluPtpClockTimeSource_Object = MibTableColumn
+aluPtpClockTimeSource = _AluPtpClockTimeSource_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 9),
+    _AluPtpClockTimeSource_Type()
+)
+aluPtpClockTimeSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpClockTimeSource.setStatus("current")
+_AluPtpPort_ObjectIdentity = ObjectIdentity
+aluPtpPort = _AluPtpPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2)
+)
+_AluPtpPortTable_Object = MibTable
+aluPtpPortTable = _AluPtpPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1)
+)
+if mibBuilder.loadTexts:
+    aluPtpPortTable.setStatus("current")
+_AluPtpPortEntry_Object = MibTableRow
+aluPtpPortEntry = _AluPtpPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1)
+)
+aluPtpPortEntry.setIndexNames(
+    (0, "ALU-PTPV2-MIB", "aluPtpPortClockIndex"),
+    (0, "ALU-PTPV2-MIB", "aluPtpPortIndex"),
+)
+if mibBuilder.loadTexts:
+    aluPtpPortEntry.setStatus("current")
+_AluPtpPortClockIndex_Type = Alu1588PtpClockIndex
+_AluPtpPortClockIndex_Object = MibTableColumn
+aluPtpPortClockIndex = _AluPtpPortClockIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1, 1),
+    _AluPtpPortClockIndex_Type()
+)
+aluPtpPortClockIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aluPtpPortClockIndex.setStatus("current")
+_AluPtpPortIndex_Type = Alu1588PtpPortIndex
+_AluPtpPortIndex_Object = MibTableColumn
+aluPtpPortIndex = _AluPtpPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1, 2),
+    _AluPtpPortIndex_Type()
+)
+aluPtpPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aluPtpPortIndex.setStatus("current")
+
+
+class _AluPtpPortAdminState_Type(TmnxAdminState):
+    """Custom type aluPtpPortAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_AluPtpPortAdminState_Type.__name__ = "TmnxAdminState"
+_AluPtpPortAdminState_Object = MibTableColumn
+aluPtpPortAdminState = _AluPtpPortAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1, 3),
+    _AluPtpPortAdminState_Type()
+)
+aluPtpPortAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpPortAdminState.setStatus("current")
+
+
+class _AluPtpPortUcNegotiate_Type(TruthValue):
+    """Custom type aluPtpPortUcNegotiate based on TruthValue"""
+    defaultValue = 1
+
+
+_AluPtpPortUcNegotiate_Type.__name__ = "TruthValue"
+_AluPtpPortUcNegotiate_Object = MibTableColumn
+aluPtpPortUcNegotiate = _AluPtpPortUcNegotiate_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1, 4),
+    _AluPtpPortUcNegotiate_Type()
+)
+aluPtpPortUcNegotiate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpPortUcNegotiate.setStatus("current")
+
+
+class _AluPtpPortNumPeers_Type(Unsigned32):
+    """Custom type aluPtpPortNumPeers based on Unsigned32"""
+    defaultValue = 2
+
+
+_AluPtpPortNumPeers_Type.__name__ = "Unsigned32"
+_AluPtpPortNumPeers_Object = MibTableColumn
+aluPtpPortNumPeers = _AluPtpPortNumPeers_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1, 5),
+    _AluPtpPortNumPeers_Type()
+)
+aluPtpPortNumPeers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPortNumPeers.setStatus("current")
+_AluPtpPortDSTable_Object = MibTable
+aluPtpPortDSTable = _AluPtpPortDSTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2)
+)
+if mibBuilder.loadTexts:
+    aluPtpPortDSTable.setStatus("current")
+_AluPtpPortDSEntry_Object = MibTableRow
+aluPtpPortDSEntry = _AluPtpPortDSEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    aluPtpPortDSEntry.setStatus("current")
+_AluPtpPortDSPortNum_Type = AluPtpPortNumber
+_AluPtpPortDSPortNum_Object = MibTableColumn
+aluPtpPortDSPortNum = _AluPtpPortDSPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 1),
+    _AluPtpPortDSPortNum_Type()
+)
+aluPtpPortDSPortNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPortDSPortNum.setStatus("current")
+
+
+class _AluPtpPortDSAnnoRxTimeout_Type(Unsigned32):
+    """Custom type aluPtpPortDSAnnoRxTimeout based on Unsigned32"""
+    defaultValue = 3
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 10),
+    )
+
+
+_AluPtpPortDSAnnoRxTimeout_Type.__name__ = "Unsigned32"
+_AluPtpPortDSAnnoRxTimeout_Object = MibTableColumn
+aluPtpPortDSAnnoRxTimeout = _AluPtpPortDSAnnoRxTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 2),
+    _AluPtpPortDSAnnoRxTimeout_Type()
+)
+aluPtpPortDSAnnoRxTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aluPtpPortDSAnnoRxTimeout.setStatus("current")
+
+
+class _AluPtpPortDSLogAnnoInterval_Type(Integer32):
+    """Custom type aluPtpPortDSLogAnnoInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-3, 4),
+    )
+
+
+_AluPtpPortDSLogAnnoInterval_Type.__name__ = "Integer32"
+_AluPtpPortDSLogAnnoInterval_Object = MibTableColumn
+aluPtpPortDSLogAnnoInterval = _AluPtpPortDSLogAnnoInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 3),
+    _AluPtpPortDSLogAnnoInterval_Type()
+)
+aluPtpPortDSLogAnnoInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aluPtpPortDSLogAnnoInterval.setStatus("current")
+
+
+class _AluPtpPortDSLogSyncInterval_Type(Integer32):
+    """Custom type aluPtpPortDSLogSyncInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-7, -4),
+    )
+
+
+_AluPtpPortDSLogSyncInterval_Type.__name__ = "Integer32"
+_AluPtpPortDSLogSyncInterval_Object = MibTableColumn
+aluPtpPortDSLogSyncInterval = _AluPtpPortDSLogSyncInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 4),
+    _AluPtpPortDSLogSyncInterval_Type()
+)
+aluPtpPortDSLogSyncInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aluPtpPortDSLogSyncInterval.setStatus("current")
+
+
+class _AluPtpPortDSPortState_Type(Alu1588PtpPortState):
+    """Custom type aluPtpPortDSPortState based on Alu1588PtpPortState"""
+    defaultValue = 1
+
+
+_AluPtpPortDSPortState_Type.__name__ = "Alu1588PtpPortState"
+_AluPtpPortDSPortState_Object = MibTableColumn
+aluPtpPortDSPortState = _AluPtpPortDSPortState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 5),
+    _AluPtpPortDSPortState_Type()
+)
+aluPtpPortDSPortState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPortDSPortState.setStatus("current")
+
+
+class _AluPtpPortDSDelayMechanism_Type(Integer32):
+    """Custom type aluPtpPortDSDelayMechanism based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              254)
+        )
+    )
+    namedValues = NamedValues(
+        *(("e2e", 1),
+          ("p2p", 2),
+          ("disabled", 254))
+    )
+
+
+_AluPtpPortDSDelayMechanism_Type.__name__ = "Integer32"
+_AluPtpPortDSDelayMechanism_Object = MibTableColumn
+aluPtpPortDSDelayMechanism = _AluPtpPortDSDelayMechanism_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 6),
+    _AluPtpPortDSDelayMechanism_Type()
+)
+aluPtpPortDSDelayMechanism.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPortDSDelayMechanism.setStatus("current")
+
+
+class _AluPtpPortDSVersionNumber_Type(Integer32):
+    """Custom type aluPtpPortDSVersionNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            2
+        )
+    )
+    namedValues = NamedValues(
+        ("v2", 2)
+    )
+
+
+_AluPtpPortDSVersionNumber_Type.__name__ = "Integer32"
+_AluPtpPortDSVersionNumber_Object = MibTableColumn
+aluPtpPortDSVersionNumber = _AluPtpPortDSVersionNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 7),
+    _AluPtpPortDSVersionNumber_Type()
+)
+aluPtpPortDSVersionNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPortDSVersionNumber.setStatus("current")
+_AluPtpPortDSMasterOnly_Type = TruthValue
+_AluPtpPortDSMasterOnly_Object = MibTableColumn
+aluPtpPortDSMasterOnly = _AluPtpPortDSMasterOnly_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 8),
+    _AluPtpPortDSMasterOnly_Type()
+)
+aluPtpPortDSMasterOnly.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aluPtpPortDSMasterOnly.setStatus("current")
+
+
+class _AluPtpPortDSLocalPriority_Type(AluPtpPriority):
+    """Custom type aluPtpPortDSLocalPriority based on AluPtpPriority"""
+    defaultValue = 128
+
+
+_AluPtpPortDSLocalPriority_Type.__name__ = "AluPtpPriority"
+_AluPtpPortDSLocalPriority_Object = MibTableColumn
+aluPtpPortDSLocalPriority = _AluPtpPortDSLocalPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 9),
+    _AluPtpPortDSLocalPriority_Type()
+)
+aluPtpPortDSLocalPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aluPtpPortDSLocalPriority.setStatus("current")
+_AluPtpPeer_ObjectIdentity = ObjectIdentity
+aluPtpPeer = _AluPtpPeer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3)
+)
+_AluPtpUcMasterTable_Object = MibTable
+aluPtpUcMasterTable = _AluPtpUcMasterTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1)
+)
+if mibBuilder.loadTexts:
+    aluPtpUcMasterTable.setStatus("current")
+_AluPtpUcMasterEntry_Object = MibTableRow
+aluPtpUcMasterEntry = _AluPtpUcMasterEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1)
+)
+aluPtpUcMasterEntry.setIndexNames(
+    (0, "ALU-PTPV2-MIB", "aluPtpPeerClockIndex"),
+    (0, "ALU-PTPV2-MIB", "aluPtpPeerPortIndex"),
+    (0, "ALU-PTPV2-MIB", "aluPtpPeerIndex"),
+)
+if mibBuilder.loadTexts:
+    aluPtpUcMasterEntry.setStatus("current")
+_AluPtpPeerClockIndex_Type = Alu1588PtpClockIndex
+_AluPtpPeerClockIndex_Object = MibTableColumn
+aluPtpPeerClockIndex = _AluPtpPeerClockIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 1),
+    _AluPtpPeerClockIndex_Type()
+)
+aluPtpPeerClockIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aluPtpPeerClockIndex.setStatus("current")
+_AluPtpPeerPortIndex_Type = Alu1588PtpPortIndex
+_AluPtpPeerPortIndex_Object = MibTableColumn
+aluPtpPeerPortIndex = _AluPtpPeerPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 2),
+    _AluPtpPeerPortIndex_Type()
+)
+aluPtpPeerPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aluPtpPeerPortIndex.setStatus("current")
+_AluPtpPeerIndex_Type = Alu1588PtpMasterIndex
+_AluPtpPeerIndex_Object = MibTableColumn
+aluPtpPeerIndex = _AluPtpPeerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 3),
+    _AluPtpPeerIndex_Type()
+)
+aluPtpPeerIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aluPtpPeerIndex.setStatus("current")
+
+
+class _AluPtpPeerIpAddrType_Type(InetAddressType):
+    """Custom type aluPtpPeerIpAddrType based on InetAddressType"""
+    defaultValue = 0
+
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("ipv4", 1),
+          ("ipv6", 2))
+    )
+
+
+_AluPtpPeerIpAddrType_Type.__name__ = "InetAddressType"
+_AluPtpPeerIpAddrType_Object = MibTableColumn
+aluPtpPeerIpAddrType = _AluPtpPeerIpAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 4),
+    _AluPtpPeerIpAddrType_Type()
+)
+aluPtpPeerIpAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpPeerIpAddrType.setStatus("current")
+
+
+class _AluPtpPeerIpAddr_Type(InetAddress):
+    """Custom type aluPtpPeerIpAddr based on InetAddress"""
+    defaultHexValue = ""
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AluPtpPeerIpAddr_Type.__name__ = "InetAddress"
+_AluPtpPeerIpAddr_Object = MibTableColumn
+aluPtpPeerIpAddr = _AluPtpPeerIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 5),
+    _AluPtpPeerIpAddr_Type()
+)
+aluPtpPeerIpAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpPeerIpAddr.setStatus("current")
+_AluPtpPeerLastChanged_Type = TimeStamp
+_AluPtpPeerLastChanged_Object = MibTableColumn
+aluPtpPeerLastChanged = _AluPtpPeerLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 6),
+    _AluPtpPeerLastChanged_Type()
+)
+aluPtpPeerLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerLastChanged.setStatus("current")
+
+
+class _AluPtpPeerDescription_Type(TItemDescription):
+    """Custom type aluPtpPeerDescription based on TItemDescription"""
+    defaultHexValue = ""
+
+
+_AluPtpPeerDescription_Type.__name__ = "TItemDescription"
+_AluPtpPeerDescription_Object = MibTableColumn
+aluPtpPeerDescription = _AluPtpPeerDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 7),
+    _AluPtpPeerDescription_Type()
+)
+aluPtpPeerDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aluPtpPeerDescription.setStatus("current")
+
+
+class _AluPtpPeerDiscovered_Type(TruthValue):
+    """Custom type aluPtpPeerDiscovered based on TruthValue"""
+    defaultValue = 2
+
+
+_AluPtpPeerDiscovered_Type.__name__ = "TruthValue"
+_AluPtpPeerDiscovered_Object = MibTableColumn
+aluPtpPeerDiscovered = _AluPtpPeerDiscovered_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 8),
+    _AluPtpPeerDiscovered_Type()
+)
+aluPtpPeerDiscovered.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerDiscovered.setStatus("current")
+_AluPtpPeerSyncCertainty_Type = Alu1588PtpSyncCertaintyState
+_AluPtpPeerSyncCertainty_Object = MibTableColumn
+aluPtpPeerSyncCertainty = _AluPtpPeerSyncCertainty_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 9),
+    _AluPtpPeerSyncCertainty_Type()
+)
+aluPtpPeerSyncCertainty.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerSyncCertainty.setStatus("current")
+_AluPtpPeerPacketStatsTable_Object = MibTable
+aluPtpPeerPacketStatsTable = _AluPtpPeerPacketStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2)
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerPacketStatsTable.setStatus("current")
+_AluPtpPeerPacketStatsEntry_Object = MibTableRow
+aluPtpPeerPacketStatsEntry = _AluPtpPeerPacketStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1)
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerPacketStatsEntry.setStatus("current")
+_AluPtpPeerPacketLastUpdateTime_Type = TimeStamp
+_AluPtpPeerPacketLastUpdateTime_Object = MibTableColumn
+aluPtpPeerPacketLastUpdateTime = _AluPtpPeerPacketLastUpdateTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 1),
+    _AluPtpPeerPacketLastUpdateTime_Type()
+)
+aluPtpPeerPacketLastUpdateTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerPacketLastUpdateTime.setStatus("current")
+_AluPtpPeerBadVersionDisc_Type = Counter64
+_AluPtpPeerBadVersionDisc_Object = MibTableColumn
+aluPtpPeerBadVersionDisc = _AluPtpPeerBadVersionDisc_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 2),
+    _AluPtpPeerBadVersionDisc_Type()
+)
+aluPtpPeerBadVersionDisc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerBadVersionDisc.setStatus("current")
+_AluPtpPeerBadDomainDisc_Type = Counter64
+_AluPtpPeerBadDomainDisc_Object = MibTableColumn
+aluPtpPeerBadDomainDisc = _AluPtpPeerBadDomainDisc_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 3),
+    _AluPtpPeerBadDomainDisc_Type()
+)
+aluPtpPeerBadDomainDisc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerBadDomainDisc.setStatus("current")
+_AluPtpPeerAlternateMasterDisc_Type = Counter64
+_AluPtpPeerAlternateMasterDisc_Object = MibTableColumn
+aluPtpPeerAlternateMasterDisc = _AluPtpPeerAlternateMasterDisc_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 4),
+    _AluPtpPeerAlternateMasterDisc_Type()
+)
+aluPtpPeerAlternateMasterDisc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerAlternateMasterDisc.setStatus("current")
+_AluPtpPeerStepRemovedGreaterThan255Disc_Type = Counter64
+_AluPtpPeerStepRemovedGreaterThan255Disc_Object = MibTableColumn
+aluPtpPeerStepRemovedGreaterThan255Disc = _AluPtpPeerStepRemovedGreaterThan255Disc_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 5),
+    _AluPtpPeerStepRemovedGreaterThan255Disc_Type()
+)
+aluPtpPeerStepRemovedGreaterThan255Disc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerStepRemovedGreaterThan255Disc.setStatus("current")
+_AluPtpPeerAnnounceMsgTx_Type = Counter64
+_AluPtpPeerAnnounceMsgTx_Object = MibTableColumn
+aluPtpPeerAnnounceMsgTx = _AluPtpPeerAnnounceMsgTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 6),
+    _AluPtpPeerAnnounceMsgTx_Type()
+)
+aluPtpPeerAnnounceMsgTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerAnnounceMsgTx.setStatus("current")
+_AluPtpPeerAnnounceMsgRx_Type = Counter64
+_AluPtpPeerAnnounceMsgRx_Object = MibTableColumn
+aluPtpPeerAnnounceMsgRx = _AluPtpPeerAnnounceMsgRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 7),
+    _AluPtpPeerAnnounceMsgRx_Type()
+)
+aluPtpPeerAnnounceMsgRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerAnnounceMsgRx.setStatus("current")
+_AluPtpPeerSyncMsgTx_Type = Counter64
+_AluPtpPeerSyncMsgTx_Object = MibTableColumn
+aluPtpPeerSyncMsgTx = _AluPtpPeerSyncMsgTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 8),
+    _AluPtpPeerSyncMsgTx_Type()
+)
+aluPtpPeerSyncMsgTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerSyncMsgTx.setStatus("current")
+_AluPtpPeerSyncMsgRx_Type = Counter64
+_AluPtpPeerSyncMsgRx_Object = MibTableColumn
+aluPtpPeerSyncMsgRx = _AluPtpPeerSyncMsgRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 9),
+    _AluPtpPeerSyncMsgRx_Type()
+)
+aluPtpPeerSyncMsgRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerSyncMsgRx.setStatus("current")
+_AluPtpPeerSignalingMsgTx_Type = Counter64
+_AluPtpPeerSignalingMsgTx_Object = MibTableColumn
+aluPtpPeerSignalingMsgTx = _AluPtpPeerSignalingMsgTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 10),
+    _AluPtpPeerSignalingMsgTx_Type()
+)
+aluPtpPeerSignalingMsgTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerSignalingMsgTx.setStatus("current")
+_AluPtpPeerSignalingMsgRx_Type = Counter64
+_AluPtpPeerSignalingMsgRx_Object = MibTableColumn
+aluPtpPeerSignalingMsgRx = _AluPtpPeerSignalingMsgRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 11),
+    _AluPtpPeerSignalingMsgRx_Type()
+)
+aluPtpPeerSignalingMsgRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerSignalingMsgRx.setStatus("current")
+_AluPtpPeerTotalUdpGeneralMsgTx_Type = Counter64
+_AluPtpPeerTotalUdpGeneralMsgTx_Object = MibTableColumn
+aluPtpPeerTotalUdpGeneralMsgTx = _AluPtpPeerTotalUdpGeneralMsgTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 12),
+    _AluPtpPeerTotalUdpGeneralMsgTx_Type()
+)
+aluPtpPeerTotalUdpGeneralMsgTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerTotalUdpGeneralMsgTx.setStatus("current")
+_AluPtpPeerTotalUdpGeneralMsgRx_Type = Counter64
+_AluPtpPeerTotalUdpGeneralMsgRx_Object = MibTableColumn
+aluPtpPeerTotalUdpGeneralMsgRx = _AluPtpPeerTotalUdpGeneralMsgRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 13),
+    _AluPtpPeerTotalUdpGeneralMsgRx_Type()
+)
+aluPtpPeerTotalUdpGeneralMsgRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerTotalUdpGeneralMsgRx.setStatus("current")
+_AluPtpPeerTotalUdpEventMsgTx_Type = Counter64
+_AluPtpPeerTotalUdpEventMsgTx_Object = MibTableColumn
+aluPtpPeerTotalUdpEventMsgTx = _AluPtpPeerTotalUdpEventMsgTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 14),
+    _AluPtpPeerTotalUdpEventMsgTx_Type()
+)
+aluPtpPeerTotalUdpEventMsgTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerTotalUdpEventMsgTx.setStatus("current")
+_AluPtpPeerTotalUdpEventMsgRx_Type = Counter64
+_AluPtpPeerTotalUdpEventMsgRx_Object = MibTableColumn
+aluPtpPeerTotalUdpEventMsgRx = _AluPtpPeerTotalUdpEventMsgRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 15),
+    _AluPtpPeerTotalUdpEventMsgRx_Type()
+)
+aluPtpPeerTotalUdpEventMsgRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerTotalUdpEventMsgRx.setStatus("current")
+_AluPtpPeerUcReqAnnoTx_Type = Counter64
+_AluPtpPeerUcReqAnnoTx_Object = MibTableColumn
+aluPtpPeerUcReqAnnoTx = _AluPtpPeerUcReqAnnoTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 16),
+    _AluPtpPeerUcReqAnnoTx_Type()
+)
+aluPtpPeerUcReqAnnoTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqAnnoTx.setStatus("current")
+_AluPtpPeerUcReqAnnoRx_Type = Counter64
+_AluPtpPeerUcReqAnnoRx_Object = MibTableColumn
+aluPtpPeerUcReqAnnoRx = _AluPtpPeerUcReqAnnoRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 17),
+    _AluPtpPeerUcReqAnnoRx_Type()
+)
+aluPtpPeerUcReqAnnoRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqAnnoRx.setStatus("current")
+_AluPtpPeerUcGrantAnnoTx_Type = Counter64
+_AluPtpPeerUcGrantAnnoTx_Object = MibTableColumn
+aluPtpPeerUcGrantAnnoTx = _AluPtpPeerUcGrantAnnoTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 18),
+    _AluPtpPeerUcGrantAnnoTx_Type()
+)
+aluPtpPeerUcGrantAnnoTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantAnnoTx.setStatus("current")
+_AluPtpPeerUcGrantAnnoRx_Type = Counter64
+_AluPtpPeerUcGrantAnnoRx_Object = MibTableColumn
+aluPtpPeerUcGrantAnnoRx = _AluPtpPeerUcGrantAnnoRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 19),
+    _AluPtpPeerUcGrantAnnoRx_Type()
+)
+aluPtpPeerUcGrantAnnoRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantAnnoRx.setStatus("current")
+_AluPtpPeerUcReqSyncTx_Type = Counter64
+_AluPtpPeerUcReqSyncTx_Object = MibTableColumn
+aluPtpPeerUcReqSyncTx = _AluPtpPeerUcReqSyncTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 20),
+    _AluPtpPeerUcReqSyncTx_Type()
+)
+aluPtpPeerUcReqSyncTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqSyncTx.setStatus("current")
+_AluPtpPeerUcReqSyncRx_Type = Counter64
+_AluPtpPeerUcReqSyncRx_Object = MibTableColumn
+aluPtpPeerUcReqSyncRx = _AluPtpPeerUcReqSyncRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 21),
+    _AluPtpPeerUcReqSyncRx_Type()
+)
+aluPtpPeerUcReqSyncRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqSyncRx.setStatus("current")
+_AluPtpPeerUcGrantSyncTx_Type = Counter64
+_AluPtpPeerUcGrantSyncTx_Object = MibTableColumn
+aluPtpPeerUcGrantSyncTx = _AluPtpPeerUcGrantSyncTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 22),
+    _AluPtpPeerUcGrantSyncTx_Type()
+)
+aluPtpPeerUcGrantSyncTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantSyncTx.setStatus("current")
+_AluPtpPeerUcGrantSyncRx_Type = Counter64
+_AluPtpPeerUcGrantSyncRx_Object = MibTableColumn
+aluPtpPeerUcGrantSyncRx = _AluPtpPeerUcGrantSyncRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 23),
+    _AluPtpPeerUcGrantSyncRx_Type()
+)
+aluPtpPeerUcGrantSyncRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantSyncRx.setStatus("current")
+_AluPtpPeerUcCancelAnnoTx_Type = Counter64
+_AluPtpPeerUcCancelAnnoTx_Object = MibTableColumn
+aluPtpPeerUcCancelAnnoTx = _AluPtpPeerUcCancelAnnoTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 24),
+    _AluPtpPeerUcCancelAnnoTx_Type()
+)
+aluPtpPeerUcCancelAnnoTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelAnnoTx.setStatus("current")
+_AluPtpPeerUcCancelAnnoRx_Type = Counter64
+_AluPtpPeerUcCancelAnnoRx_Object = MibTableColumn
+aluPtpPeerUcCancelAnnoRx = _AluPtpPeerUcCancelAnnoRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 25),
+    _AluPtpPeerUcCancelAnnoRx_Type()
+)
+aluPtpPeerUcCancelAnnoRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelAnnoRx.setStatus("current")
+_AluPtpPeerUcCancelSyncTx_Type = Counter64
+_AluPtpPeerUcCancelSyncTx_Object = MibTableColumn
+aluPtpPeerUcCancelSyncTx = _AluPtpPeerUcCancelSyncTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 26),
+    _AluPtpPeerUcCancelSyncTx_Type()
+)
+aluPtpPeerUcCancelSyncTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelSyncTx.setStatus("current")
+_AluPtpPeerUcCancelSyncRx_Type = Counter64
+_AluPtpPeerUcCancelSyncRx_Object = MibTableColumn
+aluPtpPeerUcCancelSyncRx = _AluPtpPeerUcCancelSyncRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 27),
+    _AluPtpPeerUcCancelSyncRx_Type()
+)
+aluPtpPeerUcCancelSyncRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelSyncRx.setStatus("current")
+_AluPtpPeerUcCancelAckAnnoTx_Type = Counter64
+_AluPtpPeerUcCancelAckAnnoTx_Object = MibTableColumn
+aluPtpPeerUcCancelAckAnnoTx = _AluPtpPeerUcCancelAckAnnoTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 28),
+    _AluPtpPeerUcCancelAckAnnoTx_Type()
+)
+aluPtpPeerUcCancelAckAnnoTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelAckAnnoTx.setStatus("current")
+_AluPtpPeerUcCancelAckAnnoRx_Type = Counter64
+_AluPtpPeerUcCancelAckAnnoRx_Object = MibTableColumn
+aluPtpPeerUcCancelAckAnnoRx = _AluPtpPeerUcCancelAckAnnoRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 29),
+    _AluPtpPeerUcCancelAckAnnoRx_Type()
+)
+aluPtpPeerUcCancelAckAnnoRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelAckAnnoRx.setStatus("current")
+_AluPtpPeerUcCancelAckSyncTx_Type = Counter64
+_AluPtpPeerUcCancelAckSyncTx_Object = MibTableColumn
+aluPtpPeerUcCancelAckSyncTx = _AluPtpPeerUcCancelAckSyncTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 30),
+    _AluPtpPeerUcCancelAckSyncTx_Type()
+)
+aluPtpPeerUcCancelAckSyncTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelAckSyncTx.setStatus("current")
+_AluPtpPeerUcCancelAckSyncRx_Type = Counter64
+_AluPtpPeerUcCancelAckSyncRx_Object = MibTableColumn
+aluPtpPeerUcCancelAckSyncRx = _AluPtpPeerUcCancelAckSyncRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 31),
+    _AluPtpPeerUcCancelAckSyncRx_Type()
+)
+aluPtpPeerUcCancelAckSyncRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelAckSyncRx.setStatus("current")
+_AluPtpPeerUcNegRejectsAnno_Type = Counter64
+_AluPtpPeerUcNegRejectsAnno_Object = MibTableColumn
+aluPtpPeerUcNegRejectsAnno = _AluPtpPeerUcNegRejectsAnno_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 32),
+    _AluPtpPeerUcNegRejectsAnno_Type()
+)
+aluPtpPeerUcNegRejectsAnno.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcNegRejectsAnno.setStatus("current")
+_AluPtpPeerUcNegRejectsSync_Type = Counter64
+_AluPtpPeerUcNegRejectsSync_Object = MibTableColumn
+aluPtpPeerUcNegRejectsSync = _AluPtpPeerUcNegRejectsSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 33),
+    _AluPtpPeerUcNegRejectsSync_Type()
+)
+aluPtpPeerUcNegRejectsSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcNegRejectsSync.setStatus("current")
+_AluPtpPeerOutOfOrderSyncPktRx_Type = Counter64
+_AluPtpPeerOutOfOrderSyncPktRx_Object = MibTableColumn
+aluPtpPeerOutOfOrderSyncPktRx = _AluPtpPeerOutOfOrderSyncPktRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 34),
+    _AluPtpPeerOutOfOrderSyncPktRx_Type()
+)
+aluPtpPeerOutOfOrderSyncPktRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerOutOfOrderSyncPktRx.setStatus("current")
+_AluPtpPeerDuplicateMsgDisc_Type = Counter64
+_AluPtpPeerDuplicateMsgDisc_Object = MibTableColumn
+aluPtpPeerDuplicateMsgDisc = _AluPtpPeerDuplicateMsgDisc_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 35),
+    _AluPtpPeerDuplicateMsgDisc_Type()
+)
+aluPtpPeerDuplicateMsgDisc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerDuplicateMsgDisc.setStatus("current")
+_AluPtpPeerUcReqAnnoTxTimeout_Type = Counter64
+_AluPtpPeerUcReqAnnoTxTimeout_Object = MibTableColumn
+aluPtpPeerUcReqAnnoTxTimeout = _AluPtpPeerUcReqAnnoTxTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 36),
+    _AluPtpPeerUcReqAnnoTxTimeout_Type()
+)
+aluPtpPeerUcReqAnnoTxTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqAnnoTxTimeout.setStatus("current")
+_AluPtpPeerUcReqSyncTxTimeout_Type = Counter64
+_AluPtpPeerUcReqSyncTxTimeout_Object = MibTableColumn
+aluPtpPeerUcReqSyncTxTimeout = _AluPtpPeerUcReqSyncTxTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 37),
+    _AluPtpPeerUcReqSyncTxTimeout_Type()
+)
+aluPtpPeerUcReqSyncTxTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqSyncTxTimeout.setStatus("current")
+_AluPtpPeerUcGrantAnnoRejected_Type = Counter64
+_AluPtpPeerUcGrantAnnoRejected_Object = MibTableColumn
+aluPtpPeerUcGrantAnnoRejected = _AluPtpPeerUcGrantAnnoRejected_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 38),
+    _AluPtpPeerUcGrantAnnoRejected_Type()
+)
+aluPtpPeerUcGrantAnnoRejected.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantAnnoRejected.setStatus("current")
+_AluPtpPeerUcGrantSyncRejected_Type = Counter64
+_AluPtpPeerUcGrantSyncRejected_Object = MibTableColumn
+aluPtpPeerUcGrantSyncRejected = _AluPtpPeerUcGrantSyncRejected_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 39),
+    _AluPtpPeerUcGrantSyncRejected_Type()
+)
+aluPtpPeerUcGrantSyncRejected.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantSyncRejected.setStatus("current")
+_AluPtpPeerDelayRespMsgTx_Type = Counter64
+_AluPtpPeerDelayRespMsgTx_Object = MibTableColumn
+aluPtpPeerDelayRespMsgTx = _AluPtpPeerDelayRespMsgTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 40),
+    _AluPtpPeerDelayRespMsgTx_Type()
+)
+aluPtpPeerDelayRespMsgTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerDelayRespMsgTx.setStatus("current")
+_AluPtpPeerDelayRespMsgRx_Type = Counter64
+_AluPtpPeerDelayRespMsgRx_Object = MibTableColumn
+aluPtpPeerDelayRespMsgRx = _AluPtpPeerDelayRespMsgRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 41),
+    _AluPtpPeerDelayRespMsgRx_Type()
+)
+aluPtpPeerDelayRespMsgRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerDelayRespMsgRx.setStatus("current")
+_AluPtpPeerUcReqDelayRespTx_Type = Counter64
+_AluPtpPeerUcReqDelayRespTx_Object = MibTableColumn
+aluPtpPeerUcReqDelayRespTx = _AluPtpPeerUcReqDelayRespTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 42),
+    _AluPtpPeerUcReqDelayRespTx_Type()
+)
+aluPtpPeerUcReqDelayRespTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqDelayRespTx.setStatus("current")
+_AluPtpPeerUcReqDelayRespRx_Type = Counter64
+_AluPtpPeerUcReqDelayRespRx_Object = MibTableColumn
+aluPtpPeerUcReqDelayRespRx = _AluPtpPeerUcReqDelayRespRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 43),
+    _AluPtpPeerUcReqDelayRespRx_Type()
+)
+aluPtpPeerUcReqDelayRespRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqDelayRespRx.setStatus("current")
+_AluPtpPeerUcGrantDelayRespTx_Type = Counter64
+_AluPtpPeerUcGrantDelayRespTx_Object = MibTableColumn
+aluPtpPeerUcGrantDelayRespTx = _AluPtpPeerUcGrantDelayRespTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 44),
+    _AluPtpPeerUcGrantDelayRespTx_Type()
+)
+aluPtpPeerUcGrantDelayRespTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantDelayRespTx.setStatus("current")
+_AluPtpPeerUcGrantDelayRespRx_Type = Counter64
+_AluPtpPeerUcGrantDelayRespRx_Object = MibTableColumn
+aluPtpPeerUcGrantDelayRespRx = _AluPtpPeerUcGrantDelayRespRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 45),
+    _AluPtpPeerUcGrantDelayRespRx_Type()
+)
+aluPtpPeerUcGrantDelayRespRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantDelayRespRx.setStatus("current")
+_AluPtpPeerUcCancelDelayRespTx_Type = Counter64
+_AluPtpPeerUcCancelDelayRespTx_Object = MibTableColumn
+aluPtpPeerUcCancelDelayRespTx = _AluPtpPeerUcCancelDelayRespTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 46),
+    _AluPtpPeerUcCancelDelayRespTx_Type()
+)
+aluPtpPeerUcCancelDelayRespTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelDelayRespTx.setStatus("current")
+_AluPtpPeerUcCancelDelayRespRx_Type = Counter64
+_AluPtpPeerUcCancelDelayRespRx_Object = MibTableColumn
+aluPtpPeerUcCancelDelayRespRx = _AluPtpPeerUcCancelDelayRespRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 47),
+    _AluPtpPeerUcCancelDelayRespRx_Type()
+)
+aluPtpPeerUcCancelDelayRespRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelDelayRespRx.setStatus("current")
+_AluPtpPeerUcCancelAckDelayRespTx_Type = Counter64
+_AluPtpPeerUcCancelAckDelayRespTx_Object = MibTableColumn
+aluPtpPeerUcCancelAckDelayRespTx = _AluPtpPeerUcCancelAckDelayRespTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 48),
+    _AluPtpPeerUcCancelAckDelayRespTx_Type()
+)
+aluPtpPeerUcCancelAckDelayRespTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelAckDelayRespTx.setStatus("current")
+_AluPtpPeerUcCancelAckDelayRespRx_Type = Counter64
+_AluPtpPeerUcCancelAckDelayRespRx_Object = MibTableColumn
+aluPtpPeerUcCancelAckDelayRespRx = _AluPtpPeerUcCancelAckDelayRespRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 49),
+    _AluPtpPeerUcCancelAckDelayRespRx_Type()
+)
+aluPtpPeerUcCancelAckDelayRespRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcCancelAckDelayRespRx.setStatus("current")
+_AluPtpPeerUcReqDelayRespTxTimeout_Type = Counter64
+_AluPtpPeerUcReqDelayRespTxTimeout_Object = MibTableColumn
+aluPtpPeerUcReqDelayRespTxTimeout = _AluPtpPeerUcReqDelayRespTxTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 50),
+    _AluPtpPeerUcReqDelayRespTxTimeout_Type()
+)
+aluPtpPeerUcReqDelayRespTxTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqDelayRespTxTimeout.setStatus("current")
+_AluPtpPeerUcNegRejectsDelayResp_Type = Counter64
+_AluPtpPeerUcNegRejectsDelayResp_Object = MibTableColumn
+aluPtpPeerUcNegRejectsDelayResp = _AluPtpPeerUcNegRejectsDelayResp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 51),
+    _AluPtpPeerUcNegRejectsDelayResp_Type()
+)
+aluPtpPeerUcNegRejectsDelayResp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcNegRejectsDelayResp.setStatus("current")
+_AluPtpPeerUcGrantDelayRespRejected_Type = Counter64
+_AluPtpPeerUcGrantDelayRespRejected_Object = MibTableColumn
+aluPtpPeerUcGrantDelayRespRejected = _AluPtpPeerUcGrantDelayRespRejected_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 52),
+    _AluPtpPeerUcGrantDelayRespRejected_Type()
+)
+aluPtpPeerUcGrantDelayRespRejected.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantDelayRespRejected.setStatus("current")
+_AluPtpPeerDelayReqMsgTx_Type = Counter64
+_AluPtpPeerDelayReqMsgTx_Object = MibTableColumn
+aluPtpPeerDelayReqMsgTx = _AluPtpPeerDelayReqMsgTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 53),
+    _AluPtpPeerDelayReqMsgTx_Type()
+)
+aluPtpPeerDelayReqMsgTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerDelayReqMsgTx.setStatus("current")
+_AluPtpPeerDelayReqMsgRx_Type = Counter64
+_AluPtpPeerDelayReqMsgRx_Object = MibTableColumn
+aluPtpPeerDelayReqMsgRx = _AluPtpPeerDelayReqMsgRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 54),
+    _AluPtpPeerDelayReqMsgRx_Type()
+)
+aluPtpPeerDelayReqMsgRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerDelayReqMsgRx.setStatus("current")
+_AluPtpPeerUcGrantDenyAnnoTx_Type = Counter64
+_AluPtpPeerUcGrantDenyAnnoTx_Object = MibTableColumn
+aluPtpPeerUcGrantDenyAnnoTx = _AluPtpPeerUcGrantDenyAnnoTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 55),
+    _AluPtpPeerUcGrantDenyAnnoTx_Type()
+)
+aluPtpPeerUcGrantDenyAnnoTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantDenyAnnoTx.setStatus("current")
+_AluPtpPeerUcGrantDenySyncTx_Type = Counter64
+_AluPtpPeerUcGrantDenySyncTx_Object = MibTableColumn
+aluPtpPeerUcGrantDenySyncTx = _AluPtpPeerUcGrantDenySyncTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 56),
+    _AluPtpPeerUcGrantDenySyncTx_Type()
+)
+aluPtpPeerUcGrantDenySyncTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantDenySyncTx.setStatus("current")
+_AluPtpPeerUcGrantDenyDelayRespTx_Type = Counter64
+_AluPtpPeerUcGrantDenyDelayRespTx_Object = MibTableColumn
+aluPtpPeerUcGrantDenyDelayRespTx = _AluPtpPeerUcGrantDenyDelayRespTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 58),
+    _AluPtpPeerUcGrantDenyDelayRespTx_Type()
+)
+aluPtpPeerUcGrantDenyDelayRespTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcGrantDenyDelayRespTx.setStatus("current")
+_AluPtpPeerUcReqAnnoRxTimeout_Type = Counter64
+_AluPtpPeerUcReqAnnoRxTimeout_Object = MibTableColumn
+aluPtpPeerUcReqAnnoRxTimeout = _AluPtpPeerUcReqAnnoRxTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 59),
+    _AluPtpPeerUcReqAnnoRxTimeout_Type()
+)
+aluPtpPeerUcReqAnnoRxTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqAnnoRxTimeout.setStatus("current")
+_AluPtpPeerUcReqSyncRxTimeout_Type = Counter64
+_AluPtpPeerUcReqSyncRxTimeout_Object = MibTableColumn
+aluPtpPeerUcReqSyncRxTimeout = _AluPtpPeerUcReqSyncRxTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 60),
+    _AluPtpPeerUcReqSyncRxTimeout_Type()
+)
+aluPtpPeerUcReqSyncRxTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqSyncRxTimeout.setStatus("current")
+_AluPtpPeerUcReqDelayRespRxTimeout_Type = Counter64
+_AluPtpPeerUcReqDelayRespRxTimeout_Object = MibTableColumn
+aluPtpPeerUcReqDelayRespRxTimeout = _AluPtpPeerUcReqDelayRespRxTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 61),
+    _AluPtpPeerUcReqDelayRespRxTimeout_Type()
+)
+aluPtpPeerUcReqDelayRespRxTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerUcReqDelayRespRxTimeout.setStatus("current")
+_AluPtpPeerFollowUpMsgTx_Type = Counter64
+_AluPtpPeerFollowUpMsgTx_Object = MibTableColumn
+aluPtpPeerFollowUpMsgTx = _AluPtpPeerFollowUpMsgTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 62),
+    _AluPtpPeerFollowUpMsgTx_Type()
+)
+aluPtpPeerFollowUpMsgTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerFollowUpMsgTx.setStatus("current")
+_AluPtpPeerFollowUpMsgRx_Type = Counter64
+_AluPtpPeerFollowUpMsgRx_Object = MibTableColumn
+aluPtpPeerFollowUpMsgRx = _AluPtpPeerFollowUpMsgRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 63),
+    _AluPtpPeerFollowUpMsgRx_Type()
+)
+aluPtpPeerFollowUpMsgRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerFollowUpMsgRx.setStatus("current")
+_AluPtpPeerRecClkStatsTable_Object = MibTable
+aluPtpPeerRecClkStatsTable = _AluPtpPeerRecClkStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3)
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerRecClkStatsTable.setStatus("current")
+_AluPtpPeerRecClkStatsEntry_Object = MibTableRow
+aluPtpPeerRecClkStatsEntry = _AluPtpPeerRecClkStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1)
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerRecClkStatsEntry.setStatus("current")
+_AluPtpPeerRecLastUpdateTime_Type = TimeStamp
+_AluPtpPeerRecLastUpdateTime_Object = MibTableColumn
+aluPtpPeerRecLastUpdateTime = _AluPtpPeerRecLastUpdateTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 1),
+    _AluPtpPeerRecLastUpdateTime_Type()
+)
+aluPtpPeerRecLastUpdateTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerRecLastUpdateTime.setStatus("current")
+_AluPtpPeerTotalMinutesIn24Hour_Type = Unsigned32
+_AluPtpPeerTotalMinutesIn24Hour_Object = MibTableColumn
+aluPtpPeerTotalMinutesIn24Hour = _AluPtpPeerTotalMinutesIn24Hour_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 2),
+    _AluPtpPeerTotalMinutesIn24Hour_Type()
+)
+aluPtpPeerTotalMinutesIn24Hour.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerTotalMinutesIn24Hour.setStatus("current")
+_AluPtpPeerCurrent24HourFreqOffsetMeanPpb_Type = Integer32
+_AluPtpPeerCurrent24HourFreqOffsetMeanPpb_Object = MibTableColumn
+aluPtpPeerCurrent24HourFreqOffsetMeanPpb = _AluPtpPeerCurrent24HourFreqOffsetMeanPpb_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 3),
+    _AluPtpPeerCurrent24HourFreqOffsetMeanPpb_Type()
+)
+aluPtpPeerCurrent24HourFreqOffsetMeanPpb.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerCurrent24HourFreqOffsetMeanPpb.setStatus("current")
+_AluPtpPeerCurrent24HourFreqOffsetStdDevPpb_Type = Unsigned32
+_AluPtpPeerCurrent24HourFreqOffsetStdDevPpb_Object = MibTableColumn
+aluPtpPeerCurrent24HourFreqOffsetStdDevPpb = _AluPtpPeerCurrent24HourFreqOffsetStdDevPpb_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 4),
+    _AluPtpPeerCurrent24HourFreqOffsetStdDevPpb_Type()
+)
+aluPtpPeerCurrent24HourFreqOffsetStdDevPpb.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerCurrent24HourFreqOffsetStdDevPpb.setStatus("current")
+_AluPtpPeerMaxShortIntvlMinutes_Type = Unsigned32
+_AluPtpPeerMaxShortIntvlMinutes_Object = MibTableColumn
+aluPtpPeerMaxShortIntvlMinutes = _AluPtpPeerMaxShortIntvlMinutes_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 5),
+    _AluPtpPeerMaxShortIntvlMinutes_Type()
+)
+aluPtpPeerMaxShortIntvlMinutes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerMaxShortIntvlMinutes.setStatus("current")
+_AluPtpPeerTotalShortIntvlMinutes_Type = Unsigned32
+_AluPtpPeerTotalShortIntvlMinutes_Object = MibTableColumn
+aluPtpPeerTotalShortIntvlMinutes = _AluPtpPeerTotalShortIntvlMinutes_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 6),
+    _AluPtpPeerTotalShortIntvlMinutes_Type()
+)
+aluPtpPeerTotalShortIntvlMinutes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerTotalShortIntvlMinutes.setStatus("current")
+_AluPtpPeerCurrent1MinValidData_Type = TruthValue
+_AluPtpPeerCurrent1MinValidData_Object = MibTableColumn
+aluPtpPeerCurrent1MinValidData = _AluPtpPeerCurrent1MinValidData_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 7),
+    _AluPtpPeerCurrent1MinValidData_Type()
+)
+aluPtpPeerCurrent1MinValidData.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerCurrent1MinValidData.setStatus("current")
+_AluPtpPeerCurrent1MinPhaseErrorMeanPpb_Type = Integer32
+_AluPtpPeerCurrent1MinPhaseErrorMeanPpb_Object = MibTableColumn
+aluPtpPeerCurrent1MinPhaseErrorMeanPpb = _AluPtpPeerCurrent1MinPhaseErrorMeanPpb_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 8),
+    _AluPtpPeerCurrent1MinPhaseErrorMeanPpb_Type()
+)
+aluPtpPeerCurrent1MinPhaseErrorMeanPpb.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerCurrent1MinPhaseErrorMeanPpb.setStatus("current")
+_AluPtpPeerCurrent1MinPhaseErrorStdDevNs_Type = Unsigned32
+_AluPtpPeerCurrent1MinPhaseErrorStdDevNs_Object = MibTableColumn
+aluPtpPeerCurrent1MinPhaseErrorStdDevNs = _AluPtpPeerCurrent1MinPhaseErrorStdDevNs_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 9),
+    _AluPtpPeerCurrent1MinPhaseErrorStdDevNs_Type()
+)
+aluPtpPeerCurrent1MinPhaseErrorStdDevNs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerCurrent1MinPhaseErrorStdDevNs.setStatus("current")
+_AluPtpPeerCurrent1MinPhaseErrorMeanNs_Type = Integer32
+_AluPtpPeerCurrent1MinPhaseErrorMeanNs_Object = MibTableColumn
+aluPtpPeerCurrent1MinPhaseErrorMeanNs = _AluPtpPeerCurrent1MinPhaseErrorMeanNs_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 10),
+    _AluPtpPeerCurrent1MinPhaseErrorMeanNs_Type()
+)
+aluPtpPeerCurrent1MinPhaseErrorMeanNs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerCurrent1MinPhaseErrorMeanNs.setStatus("current")
+_AluPtpPeerCurrent1MinFreqOffsetMeanPpb_Type = Integer32
+_AluPtpPeerCurrent1MinFreqOffsetMeanPpb_Object = MibTableColumn
+aluPtpPeerCurrent1MinFreqOffsetMeanPpb = _AluPtpPeerCurrent1MinFreqOffsetMeanPpb_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 11),
+    _AluPtpPeerCurrent1MinFreqOffsetMeanPpb_Type()
+)
+aluPtpPeerCurrent1MinFreqOffsetMeanPpb.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerCurrent1MinFreqOffsetMeanPpb.setStatus("current")
+_AluPtpPeerCurrent1MinFreqOffsetStdDevPpb_Type = Unsigned32
+_AluPtpPeerCurrent1MinFreqOffsetStdDevPpb_Object = MibTableColumn
+aluPtpPeerCurrent1MinFreqOffsetStdDevPpb = _AluPtpPeerCurrent1MinFreqOffsetStdDevPpb_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 12),
+    _AluPtpPeerCurrent1MinFreqOffsetStdDevPpb_Type()
+)
+aluPtpPeerCurrent1MinFreqOffsetStdDevPpb.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerCurrent1MinFreqOffsetStdDevPpb.setStatus("current")
+_AluPtpPeerRecClkStatsShortIntvlTable_Object = MibTable
+aluPtpPeerRecClkStatsShortIntvlTable = _AluPtpPeerRecClkStatsShortIntvlTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4)
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerRecClkStatsShortIntvlTable.setStatus("current")
+_AluPtpPeerRecClkStatsShortIntvlEntry_Object = MibTableRow
+aluPtpPeerRecClkStatsShortIntvlEntry = _AluPtpPeerRecClkStatsShortIntvlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1)
+)
+aluPtpPeerRecClkStatsShortIntvlEntry.setIndexNames(
+    (0, "ALU-PTPV2-MIB", "aluPtpPeerIntvlClockIndex"),
+    (0, "ALU-PTPV2-MIB", "aluPtpPeerIntvlPortIndex"),
+    (0, "ALU-PTPV2-MIB", "aluPtpPeerIntvlIndex"),
+    (0, "ALU-PTPV2-MIB", "aluPtpPeerIntvlNumber"),
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerRecClkStatsShortIntvlEntry.setStatus("current")
+_AluPtpPeerIntvlClockIndex_Type = Alu1588PtpClockIndex
+_AluPtpPeerIntvlClockIndex_Object = MibTableColumn
+aluPtpPeerIntvlClockIndex = _AluPtpPeerIntvlClockIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 1),
+    _AluPtpPeerIntvlClockIndex_Type()
+)
+aluPtpPeerIntvlClockIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aluPtpPeerIntvlClockIndex.setStatus("current")
+_AluPtpPeerIntvlPortIndex_Type = Alu1588PtpPortIndex
+_AluPtpPeerIntvlPortIndex_Object = MibTableColumn
+aluPtpPeerIntvlPortIndex = _AluPtpPeerIntvlPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 2),
+    _AluPtpPeerIntvlPortIndex_Type()
+)
+aluPtpPeerIntvlPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aluPtpPeerIntvlPortIndex.setStatus("current")
+_AluPtpPeerIntvlIndex_Type = Alu1588PtpMasterIndex
+_AluPtpPeerIntvlIndex_Object = MibTableColumn
+aluPtpPeerIntvlIndex = _AluPtpPeerIntvlIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 3),
+    _AluPtpPeerIntvlIndex_Type()
+)
+aluPtpPeerIntvlIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aluPtpPeerIntvlIndex.setStatus("current")
+
+
+class _AluPtpPeerIntvlNumber_Type(Integer32):
+    """Custom type aluPtpPeerIntvlNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_AluPtpPeerIntvlNumber_Type.__name__ = "Integer32"
+_AluPtpPeerIntvlNumber_Object = MibTableColumn
+aluPtpPeerIntvlNumber = _AluPtpPeerIntvlNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 4),
+    _AluPtpPeerIntvlNumber_Type()
+)
+aluPtpPeerIntvlNumber.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aluPtpPeerIntvlNumber.setStatus("current")
+_AluPtpPeerIntvlValidData_Type = TruthValue
+_AluPtpPeerIntvlValidData_Object = MibTableColumn
+aluPtpPeerIntvlValidData = _AluPtpPeerIntvlValidData_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 5),
+    _AluPtpPeerIntvlValidData_Type()
+)
+aluPtpPeerIntvlValidData.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerIntvlValidData.setStatus("current")
+_AluPtpPeerIntvlUpdateTime_Type = TimeStamp
+_AluPtpPeerIntvlUpdateTime_Object = MibTableColumn
+aluPtpPeerIntvlUpdateTime = _AluPtpPeerIntvlUpdateTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 6),
+    _AluPtpPeerIntvlUpdateTime_Type()
+)
+aluPtpPeerIntvlUpdateTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerIntvlUpdateTime.setStatus("current")
+_AluPtpPeerIntvlPhaseErrorMeanPpb_Type = Integer32
+_AluPtpPeerIntvlPhaseErrorMeanPpb_Object = MibTableColumn
+aluPtpPeerIntvlPhaseErrorMeanPpb = _AluPtpPeerIntvlPhaseErrorMeanPpb_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 7),
+    _AluPtpPeerIntvlPhaseErrorMeanPpb_Type()
+)
+aluPtpPeerIntvlPhaseErrorMeanPpb.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerIntvlPhaseErrorMeanPpb.setStatus("current")
+_AluPtpPeerIntvlPhaseErrorStdDevNs_Type = Unsigned32
+_AluPtpPeerIntvlPhaseErrorStdDevNs_Object = MibTableColumn
+aluPtpPeerIntvlPhaseErrorStdDevNs = _AluPtpPeerIntvlPhaseErrorStdDevNs_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 8),
+    _AluPtpPeerIntvlPhaseErrorStdDevNs_Type()
+)
+aluPtpPeerIntvlPhaseErrorStdDevNs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerIntvlPhaseErrorStdDevNs.setStatus("current")
+_AluPtpPeerIntvlPhaseErrorMeanNs_Type = Integer32
+_AluPtpPeerIntvlPhaseErrorMeanNs_Object = MibTableColumn
+aluPtpPeerIntvlPhaseErrorMeanNs = _AluPtpPeerIntvlPhaseErrorMeanNs_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 9),
+    _AluPtpPeerIntvlPhaseErrorMeanNs_Type()
+)
+aluPtpPeerIntvlPhaseErrorMeanNs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpPeerIntvlPhaseErrorMeanNs.setStatus("current")
+_AluPtpPeerClkRecAlgTable_Object = MibTable
+aluPtpPeerClkRecAlgTable = _AluPtpPeerClkRecAlgTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5)
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerClkRecAlgTable.setStatus("current")
+_AluPtpPeerClkRecAlgEntry_Object = MibTableRow
+aluPtpPeerClkRecAlgEntry = _AluPtpPeerClkRecAlgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1)
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerClkRecAlgEntry.setStatus("current")
+_AluPtpFreqRecFreeRunCount_Type = Unsigned32
+_AluPtpFreqRecFreeRunCount_Object = MibTableColumn
+aluPtpFreqRecFreeRunCount = _AluPtpFreqRecFreeRunCount_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 1),
+    _AluPtpFreqRecFreeRunCount_Type()
+)
+aluPtpFreqRecFreeRunCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecFreeRunCount.setStatus("current")
+_AluPtpFreqRecAcquiringCount_Type = Unsigned32
+_AluPtpFreqRecAcquiringCount_Object = MibTableColumn
+aluPtpFreqRecAcquiringCount = _AluPtpFreqRecAcquiringCount_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 2),
+    _AluPtpFreqRecAcquiringCount_Type()
+)
+aluPtpFreqRecAcquiringCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecAcquiringCount.setStatus("current")
+_AluPtpFreqRecPhaseTrackCount_Type = Unsigned32
+_AluPtpFreqRecPhaseTrackCount_Object = MibTableColumn
+aluPtpFreqRecPhaseTrackCount = _AluPtpFreqRecPhaseTrackCount_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 3),
+    _AluPtpFreqRecPhaseTrackCount_Type()
+)
+aluPtpFreqRecPhaseTrackCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecPhaseTrackCount.setStatus("current")
+_AluPtpFreqRecHoldOverCount_Type = Unsigned32
+_AluPtpFreqRecHoldOverCount_Object = MibTableColumn
+aluPtpFreqRecHoldOverCount = _AluPtpFreqRecHoldOverCount_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 4),
+    _AluPtpFreqRecHoldOverCount_Type()
+)
+aluPtpFreqRecHoldOverCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecHoldOverCount.setStatus("current")
+_AluPtpFreqRecLockedCount_Type = Unsigned32
+_AluPtpFreqRecLockedCount_Object = MibTableColumn
+aluPtpFreqRecLockedCount = _AluPtpFreqRecLockedCount_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 5),
+    _AluPtpFreqRecLockedCount_Type()
+)
+aluPtpFreqRecLockedCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecLockedCount.setStatus("current")
+_AluPtpFreqRecExcessFreqErrCnt_Type = Unsigned32
+_AluPtpFreqRecExcessFreqErrCnt_Object = MibTableColumn
+aluPtpFreqRecExcessFreqErrCnt = _AluPtpFreqRecExcessFreqErrCnt_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 6),
+    _AluPtpFreqRecExcessFreqErrCnt_Type()
+)
+aluPtpFreqRecExcessFreqErrCnt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecExcessFreqErrCnt.setStatus("current")
+_AluPtpFreqRecPacketLossCnt_Type = Unsigned32
+_AluPtpFreqRecPacketLossCnt_Object = MibTableColumn
+aluPtpFreqRecPacketLossCnt = _AluPtpFreqRecPacketLossCnt_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 7),
+    _AluPtpFreqRecPacketLossCnt_Type()
+)
+aluPtpFreqRecPacketLossCnt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecPacketLossCnt.setStatus("current")
+_AluPtpFreqRecLossResetCnt_Type = Unsigned32
+_AluPtpFreqRecLossResetCnt_Object = MibTableColumn
+aluPtpFreqRecLossResetCnt = _AluPtpFreqRecLossResetCnt_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 8),
+    _AluPtpFreqRecLossResetCnt_Type()
+)
+aluPtpFreqRecLossResetCnt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecLossResetCnt.setStatus("current")
+_AluPtpFreqRecTripCnt_Type = Unsigned32
+_AluPtpFreqRecTripCnt_Object = MibTableColumn
+aluPtpFreqRecTripCnt = _AluPtpFreqRecTripCnt_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 9),
+    _AluPtpFreqRecTripCnt_Type()
+)
+aluPtpFreqRecTripCnt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecTripCnt.setStatus("current")
+_AluPtpFreqRecVarTooHighCnt_Type = Unsigned32
+_AluPtpFreqRecVarTooHighCnt_Object = MibTableColumn
+aluPtpFreqRecVarTooHighCnt = _AluPtpFreqRecVarTooHighCnt_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 10),
+    _AluPtpFreqRecVarTooHighCnt_Type()
+)
+aluPtpFreqRecVarTooHighCnt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecVarTooHighCnt.setStatus("current")
+_AluPtpFreqRecPdvStepCnt_Type = Unsigned32
+_AluPtpFreqRecPdvStepCnt_Object = MibTableColumn
+aluPtpFreqRecPdvStepCnt = _AluPtpFreqRecPdvStepCnt_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 11),
+    _AluPtpFreqRecPdvStepCnt_Type()
+)
+aluPtpFreqRecPdvStepCnt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecPdvStepCnt.setStatus("current")
+_AluPtpFreqRecGapResetCnt_Type = Unsigned32
+_AluPtpFreqRecGapResetCnt_Object = MibTableColumn
+aluPtpFreqRecGapResetCnt = _AluPtpFreqRecGapResetCnt_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 12),
+    _AluPtpFreqRecGapResetCnt_Type()
+)
+aluPtpFreqRecGapResetCnt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aluPtpFreqRecGapResetCnt.setStatus("current")
+_AluPtpNotificationObjects_ObjectIdentity = ObjectIdentity
+aluPtpNotificationObjects = _AluPtpNotificationObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 4)
+)
+_AluPtpNotifyPrefix_ObjectIdentity = ObjectIdentity
+aluPtpNotifyPrefix = _AluPtpNotifyPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8)
+)
+_AluPtpNotification_ObjectIdentity = ObjectIdentity
+aluPtpNotification = _AluPtpNotification_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0)
+)
+_AluPtpClockNotifyIndex_Type = Alu1588PtpClockIndex
+_AluPtpClockNotifyIndex_Object = MibScalar
+aluPtpClockNotifyIndex = _AluPtpClockNotifyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 1),
+    _AluPtpClockNotifyIndex_Type()
+)
+aluPtpClockNotifyIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aluPtpClockNotifyIndex.setStatus("current")
+_AluPtpPortNotifyIndex_Type = Alu1588PtpClockIndex
+_AluPtpPortNotifyIndex_Object = MibScalar
+aluPtpPortNotifyIndex = _AluPtpPortNotifyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 2),
+    _AluPtpPortNotifyIndex_Type()
+)
+aluPtpPortNotifyIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aluPtpPortNotifyIndex.setStatus("current")
+_AluPtpPeerNotifyIndex_Type = Alu1588PtpClockIndex
+_AluPtpPeerNotifyIndex_Object = MibScalar
+aluPtpPeerNotifyIndex = _AluPtpPeerNotifyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 3),
+    _AluPtpPeerNotifyIndex_Type()
+)
+aluPtpPeerNotifyIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aluPtpPeerNotifyIndex.setStatus("current")
+_AluPtpNotifyRowPointer_Type = RowPointer
+_AluPtpNotifyRowPointer_Object = MibScalar
+aluPtpNotifyRowPointer = _AluPtpNotifyRowPointer_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 9),
+    _AluPtpNotifyRowPointer_Type()
+)
+aluPtpNotifyRowPointer.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aluPtpNotifyRowPointer.setStatus("current")
+_AluPtpNotifyRowDescription_Type = TItemDescription
+_AluPtpNotifyRowDescription_Object = MibScalar
+aluPtpNotifyRowDescription = _AluPtpNotifyRowDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 10),
+    _AluPtpNotifyRowDescription_Type()
+)
+aluPtpNotifyRowDescription.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aluPtpNotifyRowDescription.setStatus("current")
+aluPtpClockEntry.registerAugmentions(
+    ("ALU-PTPV2-MIB",
+     "aluPtpClockDefaultDSEntry")
+)
 aluPtpClockDefaultDSEntry.setIndexNames(*aluPtpClockEntry.getIndexNames())
-if mibBuilder.loadTexts: aluPtpClockDefaultDSEntry.setStatus('current')
-aluPtpClockId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 1), Alu1588PtpClockId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockId.setStatus('current')
-aluPtpClockType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 2), Alu1588PtpClockType().clone('ordinary')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockType.setStatus('current')
-aluPtpClockSlaveOnly = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 3), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockSlaveOnly.setStatus('current')
-aluPtpClockDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockDomain.setStatus('current')
-aluPtpClockNumberPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 50)).clone(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockNumberPorts.setStatus('current')
-aluPtpClockClass = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(255)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockClass.setStatus('current')
-aluPtpClockAccuracy = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(254)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockAccuracy.setStatus('current')
-aluPtpClockVariance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 8), Integer32().clone(65535)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockVariance.setStatus('current')
-aluPtpClockPriority1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 9), AluPtpPriority().clone(128)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockPriority1.setStatus('current')
-aluPtpClockPriority2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 10), AluPtpPriority()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockPriority2.setStatus('current')
-aluPtpClockTwoStepFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 11), Alu1588PtpClockStepType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockTwoStepFlag.setStatus('deprecated')
-aluPtpClockLocalPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 3, 1, 12), AluPtpPriority().clone(128)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpClockLocalPriority.setStatus('current')
-aluPtpClockCurrentDSTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 4), )
-if mibBuilder.loadTexts: aluPtpClockCurrentDSTable.setStatus('current')
-aluPtpClockCurrentDSEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 4, 1), )
-aluPtpClockEntry.registerAugmentions(("ALU-PTPV2-MIB", "aluPtpClockCurrentDSEntry"))
+aluPtpClockEntry.registerAugmentions(
+    ("ALU-PTPV2-MIB",
+     "aluPtpClockCurrentDSEntry")
+)
 aluPtpClockCurrentDSEntry.setIndexNames(*aluPtpClockEntry.getIndexNames())
-if mibBuilder.loadTexts: aluPtpClockCurrentDSEntry.setStatus('current')
-aluPtpClockStepsRemoved = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 4, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockStepsRemoved.setStatus('current')
-aluPtpClockParentDSTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5), )
-if mibBuilder.loadTexts: aluPtpClockParentDSTable.setStatus('current')
-aluPtpClockParentDSEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1), )
-aluPtpClockEntry.registerAugmentions(("ALU-PTPV2-MIB", "aluPtpClockParentDSEntry"))
+aluPtpClockEntry.registerAugmentions(
+    ("ALU-PTPV2-MIB",
+     "aluPtpClockParentDSEntry")
+)
 aluPtpClockParentDSEntry.setIndexNames(*aluPtpClockEntry.getIndexNames())
-if mibBuilder.loadTexts: aluPtpClockParentDSEntry.setStatus('current')
-aluPtpClockParentId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 1), Alu1588PtpClockId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockParentId.setStatus('current')
-aluPtpClockParentPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 2), AluPtpPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockParentPortNum.setStatus('current')
-aluPtpClockParentStats = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockParentStats.setStatus('current')
-aluPtpClockParentVariance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockParentVariance.setStatus('current')
-aluPtpClockGMClockId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 6), Alu1588PtpClockId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockGMClockId.setStatus('current')
-aluPtpClockGMClass = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockGMClass.setStatus('current')
-aluPtpClockGMAccuracy = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockGMAccuracy.setStatus('current')
-aluPtpClockGMVariance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockGMVariance.setStatus('current')
-aluPtpClockGMPriority1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 10), AluPtpPriority()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockGMPriority1.setStatus('current')
-aluPtpClockGMPriority2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 11), AluPtpPriority()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockGMPriority2.setStatus('current')
-aluPtpLocalPtpPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 12), Alu1588ActivePtpPortIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpLocalPtpPortIndex.setStatus('current')
-aluPtpLocalPtpPeerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 13), Alu1588ActivePtpMasterIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpLocalPtpPeerIndex.setStatus('current')
-aluPtpParentSyncCertaintyState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 5, 1, 14), Alu1588PtpSyncCertaintyState().clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpParentSyncCertaintyState.setStatus('current')
-aluPtpClockTimePropertyDSTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6), )
-if mibBuilder.loadTexts: aluPtpClockTimePropertyDSTable.setStatus('current')
-aluPtpClockTimePropertyDSEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1), )
-aluPtpClockEntry.registerAugmentions(("ALU-PTPV2-MIB", "aluPtpClockTimePropertyDSEntry"))
+aluPtpClockEntry.registerAugmentions(
+    ("ALU-PTPV2-MIB",
+     "aluPtpClockTimePropertyDSEntry")
+)
 aluPtpClockTimePropertyDSEntry.setIndexNames(*aluPtpClockEntry.getIndexNames())
-if mibBuilder.loadTexts: aluPtpClockTimePropertyDSEntry.setStatus('current')
-aluPtpClockCurUtcOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-65536, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockCurUtcOffset.setStatus('current')
-aluPtpClockCurUtcOffsetValid = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockCurUtcOffsetValid.setStatus('current')
-aluPtpClockLeap59 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockLeap59.setStatus('current')
-aluPtpClockLeap61 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockLeap61.setStatus('current')
-aluPtpClockTimeTraceable = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 6), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockTimeTraceable.setStatus('current')
-aluPtpClockFreqTraceable = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 7), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockFreqTraceable.setStatus('current')
-aluPtpClockPtpTimescale = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockPtpTimescale.setStatus('current')
-aluPtpClockTimeSource = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 1, 6, 1, 9), AluPtpTimeSource()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpClockTimeSource.setStatus('current')
-aluPtpPortTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1), )
-if mibBuilder.loadTexts: aluPtpPortTable.setStatus('current')
-aluPtpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1), ).setIndexNames((0, "ALU-PTPV2-MIB", "aluPtpPortClockIndex"), (0, "ALU-PTPV2-MIB", "aluPtpPortIndex"))
-if mibBuilder.loadTexts: aluPtpPortEntry.setStatus('current')
-aluPtpPortClockIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1, 1), Alu1588PtpClockIndex())
-if mibBuilder.loadTexts: aluPtpPortClockIndex.setStatus('current')
-aluPtpPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1, 2), Alu1588PtpPortIndex())
-if mibBuilder.loadTexts: aluPtpPortIndex.setStatus('current')
-aluPtpPortAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1, 3), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpPortAdminState.setStatus('current')
-aluPtpPortUcNegotiate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1, 4), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpPortUcNegotiate.setStatus('current')
-aluPtpPortNumPeers = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 1, 1, 5), Unsigned32().clone(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPortNumPeers.setStatus('current')
-aluPtpPortDSTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2), )
-if mibBuilder.loadTexts: aluPtpPortDSTable.setStatus('current')
-aluPtpPortDSEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1), )
-aluPtpPortEntry.registerAugmentions(("ALU-PTPV2-MIB", "aluPtpPortDSEntry"))
+aluPtpPortEntry.registerAugmentions(
+    ("ALU-PTPV2-MIB",
+     "aluPtpPortDSEntry")
+)
 aluPtpPortDSEntry.setIndexNames(*aluPtpPortEntry.getIndexNames())
-if mibBuilder.loadTexts: aluPtpPortDSEntry.setStatus('current')
-aluPtpPortDSPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 1), AluPtpPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPortDSPortNum.setStatus('current')
-aluPtpPortDSAnnoRxTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(2, 10)).clone(3)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aluPtpPortDSAnnoRxTimeout.setStatus('current')
-aluPtpPortDSLogAnnoInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-3, 4))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aluPtpPortDSLogAnnoInterval.setStatus('current')
-aluPtpPortDSLogSyncInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-7, -4))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aluPtpPortDSLogSyncInterval.setStatus('current')
-aluPtpPortDSPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 5), Alu1588PtpPortState().clone('initializing')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPortDSPortState.setStatus('current')
-aluPtpPortDSDelayMechanism = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 254))).clone(namedValues=NamedValues(("e2e", 1), ("p2p", 2), ("disabled", 254))).clone('e2e')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPortDSDelayMechanism.setStatus('current')
-aluPtpPortDSVersionNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2))).clone(namedValues=NamedValues(("v2", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPortDSVersionNumber.setStatus('current')
-aluPtpPortDSMasterOnly = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 8), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aluPtpPortDSMasterOnly.setStatus('current')
-aluPtpPortDSLocalPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 2, 2, 1, 9), AluPtpPriority().clone(128)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aluPtpPortDSLocalPriority.setStatus('current')
-aluPtpUcMasterTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1), )
-if mibBuilder.loadTexts: aluPtpUcMasterTable.setStatus('current')
-aluPtpUcMasterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1), ).setIndexNames((0, "ALU-PTPV2-MIB", "aluPtpPeerClockIndex"), (0, "ALU-PTPV2-MIB", "aluPtpPeerPortIndex"), (0, "ALU-PTPV2-MIB", "aluPtpPeerIndex"))
-if mibBuilder.loadTexts: aluPtpUcMasterEntry.setStatus('current')
-aluPtpPeerClockIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 1), Alu1588PtpClockIndex())
-if mibBuilder.loadTexts: aluPtpPeerClockIndex.setStatus('current')
-aluPtpPeerPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 2), Alu1588PtpPortIndex())
-if mibBuilder.loadTexts: aluPtpPeerPortIndex.setStatus('current')
-aluPtpPeerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 3), Alu1588PtpMasterIndex())
-if mibBuilder.loadTexts: aluPtpPeerIndex.setStatus('current')
-aluPtpPeerIpAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 4), InetAddressType().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("unknown", 0), ("ipv4", 1), ("ipv6", 2))).clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpPeerIpAddrType.setStatus('current')
-aluPtpPeerIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 5), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )).clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpPeerIpAddr.setStatus('current')
-aluPtpPeerLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerLastChanged.setStatus('current')
-aluPtpPeerDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 7), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aluPtpPeerDescription.setStatus('current')
-aluPtpPeerDiscovered = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 8), TruthValue().clone('false')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerDiscovered.setStatus('current')
-aluPtpPeerSyncCertainty = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 1, 1, 9), Alu1588PtpSyncCertaintyState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerSyncCertainty.setStatus('current')
-aluPtpPeerPacketStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2), )
-if mibBuilder.loadTexts: aluPtpPeerPacketStatsTable.setStatus('current')
-aluPtpPeerPacketStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1), )
-aluPtpUcMasterEntry.registerAugmentions(("ALU-PTPV2-MIB", "aluPtpPeerPacketStatsEntry"))
+aluPtpUcMasterEntry.registerAugmentions(
+    ("ALU-PTPV2-MIB",
+     "aluPtpPeerPacketStatsEntry")
+)
 aluPtpPeerPacketStatsEntry.setIndexNames(*aluPtpUcMasterEntry.getIndexNames())
-if mibBuilder.loadTexts: aluPtpPeerPacketStatsEntry.setStatus('current')
-aluPtpPeerPacketLastUpdateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerPacketLastUpdateTime.setStatus('current')
-aluPtpPeerBadVersionDisc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerBadVersionDisc.setStatus('current')
-aluPtpPeerBadDomainDisc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerBadDomainDisc.setStatus('current')
-aluPtpPeerAlternateMasterDisc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerAlternateMasterDisc.setStatus('current')
-aluPtpPeerStepRemovedGreaterThan255Disc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerStepRemovedGreaterThan255Disc.setStatus('current')
-aluPtpPeerAnnounceMsgTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerAnnounceMsgTx.setStatus('current')
-aluPtpPeerAnnounceMsgRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerAnnounceMsgRx.setStatus('current')
-aluPtpPeerSyncMsgTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerSyncMsgTx.setStatus('current')
-aluPtpPeerSyncMsgRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerSyncMsgRx.setStatus('current')
-aluPtpPeerSignalingMsgTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerSignalingMsgTx.setStatus('current')
-aluPtpPeerSignalingMsgRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerSignalingMsgRx.setStatus('current')
-aluPtpPeerTotalUdpGeneralMsgTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerTotalUdpGeneralMsgTx.setStatus('current')
-aluPtpPeerTotalUdpGeneralMsgRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerTotalUdpGeneralMsgRx.setStatus('current')
-aluPtpPeerTotalUdpEventMsgTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerTotalUdpEventMsgTx.setStatus('current')
-aluPtpPeerTotalUdpEventMsgRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerTotalUdpEventMsgRx.setStatus('current')
-aluPtpPeerUcReqAnnoTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqAnnoTx.setStatus('current')
-aluPtpPeerUcReqAnnoRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 17), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqAnnoRx.setStatus('current')
-aluPtpPeerUcGrantAnnoTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 18), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantAnnoTx.setStatus('current')
-aluPtpPeerUcGrantAnnoRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 19), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantAnnoRx.setStatus('current')
-aluPtpPeerUcReqSyncTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 20), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqSyncTx.setStatus('current')
-aluPtpPeerUcReqSyncRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 21), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqSyncRx.setStatus('current')
-aluPtpPeerUcGrantSyncTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 22), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantSyncTx.setStatus('current')
-aluPtpPeerUcGrantSyncRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 23), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantSyncRx.setStatus('current')
-aluPtpPeerUcCancelAnnoTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 24), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelAnnoTx.setStatus('current')
-aluPtpPeerUcCancelAnnoRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 25), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelAnnoRx.setStatus('current')
-aluPtpPeerUcCancelSyncTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 26), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelSyncTx.setStatus('current')
-aluPtpPeerUcCancelSyncRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 27), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelSyncRx.setStatus('current')
-aluPtpPeerUcCancelAckAnnoTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 28), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelAckAnnoTx.setStatus('current')
-aluPtpPeerUcCancelAckAnnoRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 29), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelAckAnnoRx.setStatus('current')
-aluPtpPeerUcCancelAckSyncTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 30), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelAckSyncTx.setStatus('current')
-aluPtpPeerUcCancelAckSyncRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 31), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelAckSyncRx.setStatus('current')
-aluPtpPeerUcNegRejectsAnno = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 32), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcNegRejectsAnno.setStatus('current')
-aluPtpPeerUcNegRejectsSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 33), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcNegRejectsSync.setStatus('current')
-aluPtpPeerOutOfOrderSyncPktRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 34), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerOutOfOrderSyncPktRx.setStatus('current')
-aluPtpPeerDuplicateMsgDisc = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 35), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerDuplicateMsgDisc.setStatus('current')
-aluPtpPeerUcReqAnnoTxTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 36), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqAnnoTxTimeout.setStatus('current')
-aluPtpPeerUcReqSyncTxTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 37), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqSyncTxTimeout.setStatus('current')
-aluPtpPeerUcGrantAnnoRejected = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 38), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantAnnoRejected.setStatus('current')
-aluPtpPeerUcGrantSyncRejected = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 39), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantSyncRejected.setStatus('current')
-aluPtpPeerDelayRespMsgTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 40), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerDelayRespMsgTx.setStatus('current')
-aluPtpPeerDelayRespMsgRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 41), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerDelayRespMsgRx.setStatus('current')
-aluPtpPeerUcReqDelayRespTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 42), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqDelayRespTx.setStatus('current')
-aluPtpPeerUcReqDelayRespRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 43), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqDelayRespRx.setStatus('current')
-aluPtpPeerUcGrantDelayRespTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 44), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantDelayRespTx.setStatus('current')
-aluPtpPeerUcGrantDelayRespRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 45), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantDelayRespRx.setStatus('current')
-aluPtpPeerUcCancelDelayRespTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 46), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelDelayRespTx.setStatus('current')
-aluPtpPeerUcCancelDelayRespRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 47), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelDelayRespRx.setStatus('current')
-aluPtpPeerUcCancelAckDelayRespTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 48), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelAckDelayRespTx.setStatus('current')
-aluPtpPeerUcCancelAckDelayRespRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 49), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcCancelAckDelayRespRx.setStatus('current')
-aluPtpPeerUcReqDelayRespTxTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 50), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqDelayRespTxTimeout.setStatus('current')
-aluPtpPeerUcNegRejectsDelayResp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 51), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcNegRejectsDelayResp.setStatus('current')
-aluPtpPeerUcGrantDelayRespRejected = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 52), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantDelayRespRejected.setStatus('current')
-aluPtpPeerDelayReqMsgTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 53), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerDelayReqMsgTx.setStatus('current')
-aluPtpPeerDelayReqMsgRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 54), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerDelayReqMsgRx.setStatus('current')
-aluPtpPeerUcGrantDenyAnnoTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 55), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantDenyAnnoTx.setStatus('current')
-aluPtpPeerUcGrantDenySyncTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 56), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantDenySyncTx.setStatus('current')
-aluPtpPeerUcGrantDenyDelayRespTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 58), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcGrantDenyDelayRespTx.setStatus('current')
-aluPtpPeerUcReqAnnoRxTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 59), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqAnnoRxTimeout.setStatus('current')
-aluPtpPeerUcReqSyncRxTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 60), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqSyncRxTimeout.setStatus('current')
-aluPtpPeerUcReqDelayRespRxTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 61), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerUcReqDelayRespRxTimeout.setStatus('current')
-aluPtpPeerFollowUpMsgTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 62), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerFollowUpMsgTx.setStatus('current')
-aluPtpPeerFollowUpMsgRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 2, 1, 63), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerFollowUpMsgRx.setStatus('current')
-aluPtpPeerRecClkStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3), )
-if mibBuilder.loadTexts: aluPtpPeerRecClkStatsTable.setStatus('current')
-aluPtpPeerRecClkStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1), )
-aluPtpUcMasterEntry.registerAugmentions(("ALU-PTPV2-MIB", "aluPtpPeerRecClkStatsEntry"))
+aluPtpUcMasterEntry.registerAugmentions(
+    ("ALU-PTPV2-MIB",
+     "aluPtpPeerRecClkStatsEntry")
+)
 aluPtpPeerRecClkStatsEntry.setIndexNames(*aluPtpUcMasterEntry.getIndexNames())
-if mibBuilder.loadTexts: aluPtpPeerRecClkStatsEntry.setStatus('current')
-aluPtpPeerRecLastUpdateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerRecLastUpdateTime.setStatus('current')
-aluPtpPeerTotalMinutesIn24Hour = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerTotalMinutesIn24Hour.setStatus('current')
-aluPtpPeerCurrent24HourFreqOffsetMeanPpb = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerCurrent24HourFreqOffsetMeanPpb.setStatus('current')
-aluPtpPeerCurrent24HourFreqOffsetStdDevPpb = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerCurrent24HourFreqOffsetStdDevPpb.setStatus('current')
-aluPtpPeerMaxShortIntvlMinutes = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerMaxShortIntvlMinutes.setStatus('current')
-aluPtpPeerTotalShortIntvlMinutes = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerTotalShortIntvlMinutes.setStatus('current')
-aluPtpPeerCurrent1MinValidData = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 7), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerCurrent1MinValidData.setStatus('current')
-aluPtpPeerCurrent1MinPhaseErrorMeanPpb = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerCurrent1MinPhaseErrorMeanPpb.setStatus('current')
-aluPtpPeerCurrent1MinPhaseErrorStdDevNs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerCurrent1MinPhaseErrorStdDevNs.setStatus('current')
-aluPtpPeerCurrent1MinPhaseErrorMeanNs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerCurrent1MinPhaseErrorMeanNs.setStatus('current')
-aluPtpPeerCurrent1MinFreqOffsetMeanPpb = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerCurrent1MinFreqOffsetMeanPpb.setStatus('current')
-aluPtpPeerCurrent1MinFreqOffsetStdDevPpb = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 3, 1, 12), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerCurrent1MinFreqOffsetStdDevPpb.setStatus('current')
-aluPtpPeerRecClkStatsShortIntvlTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4), )
-if mibBuilder.loadTexts: aluPtpPeerRecClkStatsShortIntvlTable.setStatus('current')
-aluPtpPeerRecClkStatsShortIntvlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1), ).setIndexNames((0, "ALU-PTPV2-MIB", "aluPtpPeerIntvlClockIndex"), (0, "ALU-PTPV2-MIB", "aluPtpPeerIntvlPortIndex"), (0, "ALU-PTPV2-MIB", "aluPtpPeerIntvlIndex"), (0, "ALU-PTPV2-MIB", "aluPtpPeerIntvlNumber"))
-if mibBuilder.loadTexts: aluPtpPeerRecClkStatsShortIntvlEntry.setStatus('current')
-aluPtpPeerIntvlClockIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 1), Alu1588PtpClockIndex())
-if mibBuilder.loadTexts: aluPtpPeerIntvlClockIndex.setStatus('current')
-aluPtpPeerIntvlPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 2), Alu1588PtpPortIndex())
-if mibBuilder.loadTexts: aluPtpPeerIntvlPortIndex.setStatus('current')
-aluPtpPeerIntvlIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 3), Alu1588PtpMasterIndex())
-if mibBuilder.loadTexts: aluPtpPeerIntvlIndex.setStatus('current')
-aluPtpPeerIntvlNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15)))
-if mibBuilder.loadTexts: aluPtpPeerIntvlNumber.setStatus('current')
-aluPtpPeerIntvlValidData = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 5), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerIntvlValidData.setStatus('current')
-aluPtpPeerIntvlUpdateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerIntvlUpdateTime.setStatus('current')
-aluPtpPeerIntvlPhaseErrorMeanPpb = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerIntvlPhaseErrorMeanPpb.setStatus('current')
-aluPtpPeerIntvlPhaseErrorStdDevNs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerIntvlPhaseErrorStdDevNs.setStatus('current')
-aluPtpPeerIntvlPhaseErrorMeanNs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 4, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpPeerIntvlPhaseErrorMeanNs.setStatus('current')
-aluPtpPeerClkRecAlgTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5), )
-if mibBuilder.loadTexts: aluPtpPeerClkRecAlgTable.setStatus('current')
-aluPtpPeerClkRecAlgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1), )
-aluPtpUcMasterEntry.registerAugmentions(("ALU-PTPV2-MIB", "aluPtpPeerClkRecAlgEntry"))
+aluPtpUcMasterEntry.registerAugmentions(
+    ("ALU-PTPV2-MIB",
+     "aluPtpPeerClkRecAlgEntry")
+)
 aluPtpPeerClkRecAlgEntry.setIndexNames(*aluPtpUcMasterEntry.getIndexNames())
-if mibBuilder.loadTexts: aluPtpPeerClkRecAlgEntry.setStatus('current')
-aluPtpFreqRecFreeRunCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecFreeRunCount.setStatus('current')
-aluPtpFreqRecAcquiringCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecAcquiringCount.setStatus('current')
-aluPtpFreqRecPhaseTrackCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecPhaseTrackCount.setStatus('current')
-aluPtpFreqRecHoldOverCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecHoldOverCount.setStatus('current')
-aluPtpFreqRecLockedCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecLockedCount.setStatus('current')
-aluPtpFreqRecExcessFreqErrCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecExcessFreqErrCnt.setStatus('current')
-aluPtpFreqRecPacketLossCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecPacketLossCnt.setStatus('current')
-aluPtpFreqRecLossResetCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecLossResetCnt.setStatus('current')
-aluPtpFreqRecTripCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecTripCnt.setStatus('current')
-aluPtpFreqRecVarTooHighCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 10), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecVarTooHighCnt.setStatus('current')
-aluPtpFreqRecPdvStepCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 11), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecPdvStepCnt.setStatus('current')
-aluPtpFreqRecGapResetCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 2, 12, 3, 5, 1, 12), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aluPtpFreqRecGapResetCnt.setStatus('current')
-aluPtpClockNotifyIndex = MibScalar((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 1), Alu1588PtpClockIndex()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aluPtpClockNotifyIndex.setStatus('current')
-aluPtpPortNotifyIndex = MibScalar((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 2), Alu1588PtpClockIndex()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aluPtpPortNotifyIndex.setStatus('current')
-aluPtpPeerNotifyIndex = MibScalar((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 3), Alu1588PtpClockIndex()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aluPtpPeerNotifyIndex.setStatus('current')
-aluPtpMasterChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 4)).setObjects(("ALU-PTPV2-MIB", "aluPtpPeerIpAddrType"), ("ALU-PTPV2-MIB", "aluPtpPeerIpAddr"), ("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"), ("ALU-PTPV2-MIB", "aluPtpPortNotifyIndex"), ("ALU-PTPV2-MIB", "aluPtpPeerNotifyIndex"))
-if mibBuilder.loadTexts: aluPtpMasterChange.setStatus('current')
-aluPtpClockNoMaster = NotificationType((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 5)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"))
-if mibBuilder.loadTexts: aluPtpClockNoMaster.setStatus('current')
-aluPtpPortStateChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 6)).setObjects(("ALU-PTPV2-MIB", "aluPtpPortDSPortState"), ("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"), ("ALU-PTPV2-MIB", "aluPtpPortNotifyIndex"))
-if mibBuilder.loadTexts: aluPtpPortStateChange.setStatus('current')
-aluPtpClockRecovClkChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 7)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockRecoveryState"), ("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"))
-if mibBuilder.loadTexts: aluPtpClockRecovClkChange.setStatus('current')
-aluPtpPeerDiscoveryChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 8)).setObjects(("ALU-PTPV2-MIB", "aluPtpPeerDiscovered"), ("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"), ("ALU-PTPV2-MIB", "aluPtpPortNotifyIndex"), ("ALU-PTPV2-MIB", "aluPtpPeerNotifyIndex"))
-if mibBuilder.loadTexts: aluPtpPeerDiscoveryChange.setStatus('current')
-aluPtpNotifyRowPointer = MibScalar((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 9), RowPointer()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aluPtpNotifyRowPointer.setStatus('current')
-aluPtpNotifyRowDescription = MibScalar((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 10), TItemDescription()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aluPtpNotifyRowDescription.setStatus('current')
-aluPtpClockDynamicChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 11)).setObjects(("ALU-PTPV2-MIB", "aluPtpNotifyRowPointer"), ("ALU-PTPV2-MIB", "aluPtpNotifyRowDescription"))
-if mibBuilder.loadTexts: aluPtpClockDynamicChange.setStatus('current')
-aluPtpClockSyncCertaintyChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 12)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"), ("ALU-PTPV2-MIB", "aluPtpClockSyncCertaintyState"))
-if mibBuilder.loadTexts: aluPtpClockSyncCertaintyChange.setStatus('current')
-aluPtpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1))
-aluPtpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2))
-aluPtpComp7705 = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1))
-aluPtpComp7705V4v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1, 1)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockV4v0Group"), ("ALU-PTPV2-MIB", "aluPtpPortV4v0Group"), ("ALU-PTPV2-MIB", "aluPtpPeerV4v0Group"), ("ALU-PTPV2-MIB", "aluPtpNotificationV4v0Group"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpComp7705V4v0 = aluPtpComp7705V4v0.setStatus('obsolete')
-aluPtpComp7705V6v1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1, 3)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockV4v0Group"), ("ALU-PTPV2-MIB", "aluPtpPortV4v0Group"), ("ALU-PTPV2-MIB", "aluPtpPeerV4v0Group"), ("ALU-PTPV2-MIB", "aluPtpNotificationV4v0Group"), ("ALU-PTPV2-MIB", "aluPtpClockV5v0Group"), ("ALU-PTPV2-MIB", "aluPtpClockRecoveryV6v0Group"), ("ALU-PTPV2-MIB", "aluPtpClockV6v1Group"))
+# Managed Objects groups
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpComp7705V6v1 = aluPtpComp7705V6v1.setStatus('current')
-aluPtpComp7705V7v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1, 4)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockV7v0Group"))
+aluPtpClockV4v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 1)
+)
+aluPtpClockV4v0Group.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpClockMaxNumber"),
+        ("ALU-PTPV2-MIB", "aluPtpClockRowStatus"),
+        ("ALU-PTPV2-MIB", "aluPtpClockIpInterface"),
+        ("ALU-PTPV2-MIB", "aluPtpClockHw"),
+        ("ALU-PTPV2-MIB", "aluPtpClockProfile"),
+        ("ALU-PTPV2-MIB", "aluPtpClockAdminState"),
+        ("ALU-PTPV2-MIB", "aluPtpClockDynamicPeers"),
+        ("ALU-PTPV2-MIB", "aluPtpClockId"),
+        ("ALU-PTPV2-MIB", "aluPtpClockDomain"),
+        ("ALU-PTPV2-MIB", "aluPtpClockType"),
+        ("ALU-PTPV2-MIB", "aluPtpClockNumberPorts"),
+        ("ALU-PTPV2-MIB", "aluPtpClockClass"),
+        ("ALU-PTPV2-MIB", "aluPtpClockAccuracy"),
+        ("ALU-PTPV2-MIB", "aluPtpClockVariance"),
+        ("ALU-PTPV2-MIB", "aluPtpClockPriority1"),
+        ("ALU-PTPV2-MIB", "aluPtpClockPriority2"),
+        ("ALU-PTPV2-MIB", "aluPtpClockSlaveOnly"),
+        ("ALU-PTPV2-MIB", "aluPtpClockStepsRemoved"),
+        ("ALU-PTPV2-MIB", "aluPtpClockParentId"),
+        ("ALU-PTPV2-MIB", "aluPtpClockParentPortNum"),
+        ("ALU-PTPV2-MIB", "aluPtpClockParentStats"),
+        ("ALU-PTPV2-MIB", "aluPtpClockParentVariance"),
+        ("ALU-PTPV2-MIB", "aluPtpClockGMClockId"),
+        ("ALU-PTPV2-MIB", "aluPtpClockGMClass"),
+        ("ALU-PTPV2-MIB", "aluPtpClockGMAccuracy"),
+        ("ALU-PTPV2-MIB", "aluPtpClockGMVariance"),
+        ("ALU-PTPV2-MIB", "aluPtpClockGMPriority1"),
+        ("ALU-PTPV2-MIB", "aluPtpClockGMPriority2"),
+        ("ALU-PTPV2-MIB", "aluPtpClockForwardWeight"),
+        ("ALU-PTPV2-MIB", "aluPtpClockRecoveryState"))
+)
+if mibBuilder.loadTexts:
+    aluPtpClockV4v0Group.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpComp7705V7v0 = aluPtpComp7705V7v0.setStatus('current')
-aluPtpComp7705V8v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1, 5)).setObjects(("ALU-PTPV2-MIB", "aluPtpSyncCertaintyGroup"), ("ALU-PTPV2-MIB", "aluPtpSyncCertNotifObjsGroup"))
+aluPtpPortV4v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 2)
+)
+aluPtpPortV4v0Group.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpPortAdminState"),
+        ("ALU-PTPV2-MIB", "aluPtpPortUcNegotiate"),
+        ("ALU-PTPV2-MIB", "aluPtpPortNumPeers"),
+        ("ALU-PTPV2-MIB", "aluPtpPortDSPortNum"),
+        ("ALU-PTPV2-MIB", "aluPtpPortDSAnnoRxTimeout"),
+        ("ALU-PTPV2-MIB", "aluPtpPortDSLogAnnoInterval"),
+        ("ALU-PTPV2-MIB", "aluPtpPortDSLogSyncInterval"),
+        ("ALU-PTPV2-MIB", "aluPtpPortDSPortState"),
+        ("ALU-PTPV2-MIB", "aluPtpPortDSDelayMechanism"),
+        ("ALU-PTPV2-MIB", "aluPtpPortDSVersionNumber"))
+)
+if mibBuilder.loadTexts:
+    aluPtpPortV4v0Group.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpComp7705V8v0 = aluPtpComp7705V8v0.setStatus('current')
-aluPtpComp7705V9v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1, 6)).setObjects(("ALU-PTPV2-MIB", "aluPtpLocalPriorityGroup"), ("ALU-PTPV2-MIB", "aluPtpPeerStatsV9v0Group"))
+aluPtpPeerV4v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 3)
+)
+aluPtpPeerV4v0Group.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpPeerIpAddrType"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerIpAddr"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerLastChanged"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerDescription"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerDiscovered"))
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerV4v0Group.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpComp7705V9v0 = aluPtpComp7705V9v0.setStatus('current')
-aluPtpClockV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 1)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockMaxNumber"), ("ALU-PTPV2-MIB", "aluPtpClockRowStatus"), ("ALU-PTPV2-MIB", "aluPtpClockIpInterface"), ("ALU-PTPV2-MIB", "aluPtpClockHw"), ("ALU-PTPV2-MIB", "aluPtpClockProfile"), ("ALU-PTPV2-MIB", "aluPtpClockAdminState"), ("ALU-PTPV2-MIB", "aluPtpClockDynamicPeers"), ("ALU-PTPV2-MIB", "aluPtpClockId"), ("ALU-PTPV2-MIB", "aluPtpClockDomain"), ("ALU-PTPV2-MIB", "aluPtpClockType"), ("ALU-PTPV2-MIB", "aluPtpClockNumberPorts"), ("ALU-PTPV2-MIB", "aluPtpClockClass"), ("ALU-PTPV2-MIB", "aluPtpClockAccuracy"), ("ALU-PTPV2-MIB", "aluPtpClockVariance"), ("ALU-PTPV2-MIB", "aluPtpClockPriority1"), ("ALU-PTPV2-MIB", "aluPtpClockPriority2"), ("ALU-PTPV2-MIB", "aluPtpClockSlaveOnly"), ("ALU-PTPV2-MIB", "aluPtpClockStepsRemoved"), ("ALU-PTPV2-MIB", "aluPtpClockParentId"), ("ALU-PTPV2-MIB", "aluPtpClockParentPortNum"), ("ALU-PTPV2-MIB", "aluPtpClockParentStats"), ("ALU-PTPV2-MIB", "aluPtpClockParentVariance"), ("ALU-PTPV2-MIB", "aluPtpClockGMClockId"), ("ALU-PTPV2-MIB", "aluPtpClockGMClass"), ("ALU-PTPV2-MIB", "aluPtpClockGMAccuracy"), ("ALU-PTPV2-MIB", "aluPtpClockGMVariance"), ("ALU-PTPV2-MIB", "aluPtpClockGMPriority1"), ("ALU-PTPV2-MIB", "aluPtpClockGMPriority2"), ("ALU-PTPV2-MIB", "aluPtpClockForwardWeight"), ("ALU-PTPV2-MIB", "aluPtpClockRecoveryState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpClockV4v0Group = aluPtpClockV4v0Group.setStatus('current')
-aluPtpPortV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 2)).setObjects(("ALU-PTPV2-MIB", "aluPtpPortAdminState"), ("ALU-PTPV2-MIB", "aluPtpPortUcNegotiate"), ("ALU-PTPV2-MIB", "aluPtpPortNumPeers"), ("ALU-PTPV2-MIB", "aluPtpPortDSPortNum"), ("ALU-PTPV2-MIB", "aluPtpPortDSAnnoRxTimeout"), ("ALU-PTPV2-MIB", "aluPtpPortDSLogAnnoInterval"), ("ALU-PTPV2-MIB", "aluPtpPortDSLogSyncInterval"), ("ALU-PTPV2-MIB", "aluPtpPortDSPortState"), ("ALU-PTPV2-MIB", "aluPtpPortDSDelayMechanism"), ("ALU-PTPV2-MIB", "aluPtpPortDSVersionNumber"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpPortV4v0Group = aluPtpPortV4v0Group.setStatus('current')
-aluPtpPeerV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 3)).setObjects(("ALU-PTPV2-MIB", "aluPtpPeerIpAddrType"), ("ALU-PTPV2-MIB", "aluPtpPeerIpAddr"), ("ALU-PTPV2-MIB", "aluPtpPeerLastChanged"), ("ALU-PTPV2-MIB", "aluPtpPeerDescription"), ("ALU-PTPV2-MIB", "aluPtpPeerDiscovered"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpPeerV4v0Group = aluPtpPeerV4v0Group.setStatus('current')
-aluPtpPeerStatsV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 4)).setObjects(("ALU-PTPV2-MIB", "aluPtpPeerBadVersionDisc"), ("ALU-PTPV2-MIB", "aluPtpPeerBadDomainDisc"), ("ALU-PTPV2-MIB", "aluPtpPeerAlternateMasterDisc"), ("ALU-PTPV2-MIB", "aluPtpPeerDuplicateMsgDisc"), ("ALU-PTPV2-MIB", "aluPtpPeerStepRemovedGreaterThan255Disc"), ("ALU-PTPV2-MIB", "aluPtpPeerAnnounceMsgTx"), ("ALU-PTPV2-MIB", "aluPtpPeerAnnounceMsgRx"), ("ALU-PTPV2-MIB", "aluPtpPeerSyncMsgTx"), ("ALU-PTPV2-MIB", "aluPtpPeerSyncMsgRx"), ("ALU-PTPV2-MIB", "aluPtpPeerSignalingMsgTx"), ("ALU-PTPV2-MIB", "aluPtpPeerSignalingMsgRx"), ("ALU-PTPV2-MIB", "aluPtpPeerTotalUdpGeneralMsgTx"), ("ALU-PTPV2-MIB", "aluPtpPeerTotalUdpGeneralMsgRx"), ("ALU-PTPV2-MIB", "aluPtpPeerTotalUdpEventMsgTx"), ("ALU-PTPV2-MIB", "aluPtpPeerTotalUdpEventMsgRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqAnnoTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqAnnoRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantAnnoTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantAnnoRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqSyncTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqSyncRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantSyncTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantSyncRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAnnoTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAnnoRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelSyncTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelSyncRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckAnnoTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckAnnoRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckSyncTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckSyncRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcNegRejectsAnno"), ("ALU-PTPV2-MIB", "aluPtpPeerUcNegRejectsSync"), ("ALU-PTPV2-MIB", "aluPtpPeerOutOfOrderSyncPktRx"), ("ALU-PTPV2-MIB", "aluPtpPeerRecLastUpdateTime"), ("ALU-PTPV2-MIB", "aluPtpPeerTotalMinutesIn24Hour"), ("ALU-PTPV2-MIB", "aluPtpPeerCurrent24HourFreqOffsetMeanPpb"), ("ALU-PTPV2-MIB", "aluPtpPeerCurrent24HourFreqOffsetStdDevPpb"), ("ALU-PTPV2-MIB", "aluPtpPeerMaxShortIntvlMinutes"), ("ALU-PTPV2-MIB", "aluPtpPeerTotalShortIntvlMinutes"), ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinValidData"), ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinPhaseErrorMeanPpb"), ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinPhaseErrorStdDevNs"), ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinPhaseErrorMeanNs"), ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinFreqOffsetMeanPpb"), ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinFreqOffsetStdDevPpb"), ("ALU-PTPV2-MIB", "aluPtpPeerIntvlValidData"), ("ALU-PTPV2-MIB", "aluPtpPeerIntvlUpdateTime"), ("ALU-PTPV2-MIB", "aluPtpPeerIntvlPhaseErrorMeanPpb"), ("ALU-PTPV2-MIB", "aluPtpPeerIntvlPhaseErrorStdDevNs"), ("ALU-PTPV2-MIB", "aluPtpPeerIntvlPhaseErrorMeanNs"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqAnnoTxTimeout"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqSyncTxTimeout"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantAnnoRejected"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantSyncRejected"), ("ALU-PTPV2-MIB", "aluPtpPeerDelayRespMsgTx"), ("ALU-PTPV2-MIB", "aluPtpPeerDelayRespMsgRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqDelayRespTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqDelayRespRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDelayRespTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDelayRespRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelDelayRespTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelDelayRespRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckDelayRespTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckDelayRespRx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqDelayRespTxTimeout"), ("ALU-PTPV2-MIB", "aluPtpPeerUcNegRejectsDelayResp"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDelayRespRejected"), ("ALU-PTPV2-MIB", "aluPtpPeerDelayReqMsgTx"), ("ALU-PTPV2-MIB", "aluPtpPeerDelayReqMsgRx"), ("ALU-PTPV2-MIB", "aluPtpPeerPacketLastUpdateTime"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDenyAnnoTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDenySyncTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDenyDelayRespTx"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqAnnoRxTimeout"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqSyncRxTimeout"), ("ALU-PTPV2-MIB", "aluPtpPeerUcReqDelayRespRxTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpPeerStatsV4v0Group = aluPtpPeerStatsV4v0Group.setStatus('current')
-aluPtpNotifyObjsV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 5)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"), ("ALU-PTPV2-MIB", "aluPtpPortNotifyIndex"), ("ALU-PTPV2-MIB", "aluPtpPeerNotifyIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpNotifyObjsV4v0Group = aluPtpNotifyObjsV4v0Group.setStatus('current')
-aluPtpNotificationV4v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 6)).setObjects(("ALU-PTPV2-MIB", "aluPtpMasterChange"), ("ALU-PTPV2-MIB", "aluPtpClockNoMaster"), ("ALU-PTPV2-MIB", "aluPtpPortStateChange"), ("ALU-PTPV2-MIB", "aluPtpClockRecovClkChange"), ("ALU-PTPV2-MIB", "aluPtpPeerDiscoveryChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpNotificationV4v0Group = aluPtpNotificationV4v0Group.setStatus('current')
-aluPtpClockV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 7)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockTimeRefPriority"), ("ALU-PTPV2-MIB", "aluPtpClockCurUtcOffset"), ("ALU-PTPV2-MIB", "aluPtpClockCurUtcOffsetValid"), ("ALU-PTPV2-MIB", "aluPtpClockLeap59"), ("ALU-PTPV2-MIB", "aluPtpClockLeap61"), ("ALU-PTPV2-MIB", "aluPtpClockTimeTraceable"), ("ALU-PTPV2-MIB", "aluPtpClockFreqTraceable"), ("ALU-PTPV2-MIB", "aluPtpClockPtpTimescale"), ("ALU-PTPV2-MIB", "aluPtpClockTimeSource"), ("ALU-PTPV2-MIB", "aluPtpClockAdminFreqSource"), ("ALU-PTPV2-MIB", "aluPtpClockOperFreqSource"), ("ALU-PTPV2-MIB", "aluPtpLocalPtpPortIndex"), ("ALU-PTPV2-MIB", "aluPtpLocalPtpPeerIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpClockV5v0Group = aluPtpClockV5v0Group.setStatus('current')
-aluPtpClockRecoveryV6v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 8)).setObjects(("ALU-PTPV2-MIB", "aluPtpFreqRecFreeRunCount"), ("ALU-PTPV2-MIB", "aluPtpFreqRecAcquiringCount"), ("ALU-PTPV2-MIB", "aluPtpFreqRecPhaseTrackCount"), ("ALU-PTPV2-MIB", "aluPtpFreqRecHoldOverCount"), ("ALU-PTPV2-MIB", "aluPtpFreqRecLockedCount"), ("ALU-PTPV2-MIB", "aluPtpFreqRecExcessFreqErrCnt"), ("ALU-PTPV2-MIB", "aluPtpFreqRecPacketLossCnt"), ("ALU-PTPV2-MIB", "aluPtpFreqRecLossResetCnt"), ("ALU-PTPV2-MIB", "aluPtpFreqRecTripCnt"), ("ALU-PTPV2-MIB", "aluPtpFreqRecVarTooHighCnt"), ("ALU-PTPV2-MIB", "aluPtpFreqRecPdvStepCnt"), ("ALU-PTPV2-MIB", "aluPtpFreqRecGapResetCnt"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpClockRecoveryV6v0Group = aluPtpClockRecoveryV6v0Group.setStatus('current')
-aluPtpClockV6v1Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 9)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockUseNodeTime"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpClockV6v1Group = aluPtpClockV6v1Group.setStatus('current')
-aluPtpClockV7v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 10)).setObjects(("ALU-PTPV2-MIB", "aluPtpPortDSMasterOnly"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpClockV7v0Group = aluPtpClockV7v0Group.setStatus('current')
-aluPtpV8v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 11))
-aluPtpSyncCertaintyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 11, 1)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockSyncCertaintyState"), ("ALU-PTPV2-MIB", "aluPtpClockTxWhileUncertain"), ("ALU-PTPV2-MIB", "aluPtpParentSyncCertaintyState"), ("ALU-PTPV2-MIB", "aluPtpPeerSyncCertainty"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpSyncCertaintyGroup = aluPtpSyncCertaintyGroup.setStatus('current')
-aluPtpSyncCertNotifObjsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 11, 2)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockDynamicChange"), ("ALU-PTPV2-MIB", "aluPtpClockSyncCertaintyChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpSyncCertNotifObjsGroup = aluPtpSyncCertNotifObjsGroup.setStatus('current')
-aluPtpV9v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 12))
-aluPtpLocalPriorityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 12, 1)).setObjects(("ALU-PTPV2-MIB", "aluPtpClockLocalPriority"), ("ALU-PTPV2-MIB", "aluPtpPortDSLocalPriority"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpLocalPriorityGroup = aluPtpLocalPriorityGroup.setStatus('current')
-aluPtpPeerStatsV9v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 12, 3)).setObjects(("ALU-PTPV2-MIB", "aluPtpPeerFollowUpMsgTx"), ("ALU-PTPV2-MIB", "aluPtpPeerFollowUpMsgRx"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aluPtpPeerStatsV9v0Group = aluPtpPeerStatsV9v0Group.setStatus('current')
-mibBuilder.exportSymbols("ALU-PTPV2-MIB", aluPtpGroups=aluPtpGroups, aluPtpMasterChange=aluPtpMasterChange, aluPtpClockTimePropertyDSTable=aluPtpClockTimePropertyDSTable, aluPtpClockId=aluPtpClockId, aluPtpClockRowStatus=aluPtpClockRowStatus, aluPtpPeerIntvlNumber=aluPtpPeerIntvlNumber, aluPtpPeerClkRecAlgTable=aluPtpPeerClkRecAlgTable, aluPtpPeerCurrent24HourFreqOffsetStdDevPpb=aluPtpPeerCurrent24HourFreqOffsetStdDevPpb, aluPtpPeerAnnounceMsgRx=aluPtpPeerAnnounceMsgRx, aluPtpClockParentId=aluPtpClockParentId, aluPtpClockVariance=aluPtpClockVariance, aluPtpPeerRecClkStatsShortIntvlTable=aluPtpPeerRecClkStatsShortIntvlTable, aluPtpFreqRecFreeRunCount=aluPtpFreqRecFreeRunCount, aluPtpUcMasterTable=aluPtpUcMasterTable, aluPtpUcMasterEntry=aluPtpUcMasterEntry, aluPtpPeerStatsV4v0Group=aluPtpPeerStatsV4v0Group, aluPtpPeerUcReqSyncTxTimeout=aluPtpPeerUcReqSyncTxTimeout, aluPtpPeerLastChanged=aluPtpPeerLastChanged, aluPtpPortDSPortNum=aluPtpPortDSPortNum, aluPtpPeerPacketStatsTable=aluPtpPeerPacketStatsTable, aluPtpPeerUcCancelDelayRespRx=aluPtpPeerUcCancelDelayRespRx, aluPtpPeerCurrent1MinPhaseErrorMeanNs=aluPtpPeerCurrent1MinPhaseErrorMeanNs, aluPtpClockStepsRemoved=aluPtpClockStepsRemoved, aluPtpPortIndex=aluPtpPortIndex, aluPtpPeerStepRemovedGreaterThan255Disc=aluPtpPeerStepRemovedGreaterThan255Disc, aluPtpNotificationV4v0Group=aluPtpNotificationV4v0Group, aluPtpPeerFollowUpMsgRx=aluPtpPeerFollowUpMsgRx, aluPtpClockParentStats=aluPtpClockParentStats, aluPtpPortDSVersionNumber=aluPtpPortDSVersionNumber, aluPtpPeerCurrent1MinValidData=aluPtpPeerCurrent1MinValidData, aluPtpClockLocalPriority=aluPtpClockLocalPriority, aluPtpPeerUcNegRejectsSync=aluPtpPeerUcNegRejectsSync, aluPtpPeerUcGrantDelayRespRx=aluPtpPeerUcGrantDelayRespRx, aluPtpClockNoMaster=aluPtpClockNoMaster, aluPtpClockLeap61=aluPtpClockLeap61, aluPtpPeerClockIndex=aluPtpPeerClockIndex, aluPtpPeerUcCancelAckAnnoRx=aluPtpPeerUcCancelAckAnnoRx, aluPtpPeerUcGrantDelayRespTx=aluPtpPeerUcGrantDelayRespTx, aluPtpClockClass=aluPtpClockClass, aluPtpClockGMAccuracy=aluPtpClockGMAccuracy, aluPtpPeerIntvlIndex=aluPtpPeerIntvlIndex, Alu1588PtpPortIndex=Alu1588PtpPortIndex, Alu1588PtpClockStepType=Alu1588PtpClockStepType, aluPtpPeerRecClkStatsTable=aluPtpPeerRecClkStatsTable, aluPtpClockNumberPorts=aluPtpClockNumberPorts, aluPtpPeerDelayRespMsgTx=aluPtpPeerDelayRespMsgTx, aluPtpPeerIntvlPhaseErrorMeanPpb=aluPtpPeerIntvlPhaseErrorMeanPpb, Alu1588PtpClockType=Alu1588PtpClockType, aluPtpPeerUcReqDelayRespRxTimeout=aluPtpPeerUcReqDelayRespRxTimeout, aluPtpClockDomain=aluPtpClockDomain, aluPtpPeer=aluPtpPeer, Alu1588PtpLogInterval=Alu1588PtpLogInterval, aluPtpClockSyncCertaintyState=aluPtpClockSyncCertaintyState, aluPtpComp7705V7v0=aluPtpComp7705V7v0, Alu1588PtpMasterIndex=Alu1588PtpMasterIndex, aluPtpFreqRecPhaseTrackCount=aluPtpFreqRecPhaseTrackCount, aluPtpClockAccuracy=aluPtpClockAccuracy, aluPtpClock=aluPtpClock, aluPtpClockLeap59=aluPtpClockLeap59, aluPtpPeerTotalUdpGeneralMsgRx=aluPtpPeerTotalUdpGeneralMsgRx, aluPtpComp7705V4v0=aluPtpComp7705V4v0, aluPtpNotifyRowPointer=aluPtpNotifyRowPointer, aluPtpClockIpInterface=aluPtpClockIpInterface, aluPtpClockDefaultDSEntry=aluPtpClockDefaultDSEntry, aluPtpPeerSyncMsgRx=aluPtpPeerSyncMsgRx, aluPtpPortDSAnnoRxTimeout=aluPtpPortDSAnnoRxTimeout, aluPtpClockGMPriority2=aluPtpClockGMPriority2, aluPtpPeerSignalingMsgRx=aluPtpPeerSignalingMsgRx, aluPtpClockTxWhileUncertain=aluPtpClockTxWhileUncertain, aluPtpPeerUcReqSyncRx=aluPtpPeerUcReqSyncRx, aluPtpPeerUcGrantDenyAnnoTx=aluPtpPeerUcGrantDenyAnnoTx, aluPtpClockDefaultDSTable=aluPtpClockDefaultDSTable, aluPtpLocalPtpPortIndex=aluPtpLocalPtpPortIndex, aluPtpPortDSLogAnnoInterval=aluPtpPortDSLogAnnoInterval, aluPtpClockIndex=aluPtpClockIndex, aluPtpPortAdminState=aluPtpPortAdminState, aluPtpPeerUcReqAnnoTxTimeout=aluPtpPeerUcReqAnnoTxTimeout, aluPtpPeerIpAddrType=aluPtpPeerIpAddrType, aluPtpClockPtpTimescale=aluPtpClockPtpTimescale, aluPtpPeerUcReqDelayRespTxTimeout=aluPtpPeerUcReqDelayRespTxTimeout, aluPtpPeerUcGrantDenySyncTx=aluPtpPeerUcGrantDenySyncTx, aluPtpPeerIntvlClockIndex=aluPtpPeerIntvlClockIndex, aluPtpNotifyPrefix=aluPtpNotifyPrefix, Alu1588ActivePtpMasterIndex=Alu1588ActivePtpMasterIndex, aluPtpClockFreqTraceable=aluPtpClockFreqTraceable, aluPtpPeerUcGrantDelayRespRejected=aluPtpPeerUcGrantDelayRespRejected, aluPtpFreqRecVarTooHighCnt=aluPtpFreqRecVarTooHighCnt, aluPtpClockTimePropertyDSEntry=aluPtpClockTimePropertyDSEntry, aluPtpPeerUcCancelAckDelayRespTx=aluPtpPeerUcCancelAckDelayRespTx, aluPtpPeerTotalUdpGeneralMsgTx=aluPtpPeerTotalUdpGeneralMsgTx, aluPtpPeerUcReqDelayRespRx=aluPtpPeerUcReqDelayRespRx, aluPtpLocalPriorityGroup=aluPtpLocalPriorityGroup, aluPtpPortUcNegotiate=aluPtpPortUcNegotiate, aluPtpPeerUcCancelAckSyncTx=aluPtpPeerUcCancelAckSyncTx, aluPtpPeerCurrent1MinPhaseErrorStdDevNs=aluPtpPeerCurrent1MinPhaseErrorStdDevNs, aluPtpPeerUcNegRejectsDelayResp=aluPtpPeerUcNegRejectsDelayResp, aluPtpPeerUcCancelDelayRespTx=aluPtpPeerUcCancelDelayRespTx, Alu1588PtpSyncCertaintyState=Alu1588PtpSyncCertaintyState, aluPtpClockGMVariance=aluPtpClockGMVariance, aluPtpPeerIntvlPortIndex=aluPtpPeerIntvlPortIndex, aluPtpPortDSMasterOnly=aluPtpPortDSMasterOnly, aluPtpPeerUcCancelSyncTx=aluPtpPeerUcCancelSyncTx, aluPtpPortDSLogSyncInterval=aluPtpPortDSLogSyncInterval, aluPtpFreqRecPacketLossCnt=aluPtpFreqRecPacketLossCnt, aluPtpV8v0Groups=aluPtpV8v0Groups, aluPtpPortDSPortState=aluPtpPortDSPortState, aluPtpPeerUcCancelAckSyncRx=aluPtpPeerUcCancelAckSyncRx, aluPtpClockPriority2=aluPtpClockPriority2, aluPtpPeerRecClkStatsShortIntvlEntry=aluPtpPeerRecClkStatsShortIntvlEntry, aluPtpPeerIntvlUpdateTime=aluPtpPeerIntvlUpdateTime, aluPtpPeerUcReqAnnoRxTimeout=aluPtpPeerUcReqAnnoRxTimeout, aluPtpPortDSLocalPriority=aluPtpPortDSLocalPriority, aluPtpPortDSDelayMechanism=aluPtpPortDSDelayMechanism, aluPtpCompliances=aluPtpCompliances, aluPtpNotifyRowDescription=aluPtpNotifyRowDescription, Alu1588PtpFreqSource=Alu1588PtpFreqSource, aluPtpPeerPortIndex=aluPtpPeerPortIndex, aluPtpPeerBadDomainDisc=aluPtpPeerBadDomainDisc, aluPtpClockGMPriority1=aluPtpClockGMPriority1, aluPtpClockCurUtcOffset=aluPtpClockCurUtcOffset, aluPtpPeerAlternateMasterDisc=aluPtpPeerAlternateMasterDisc, aluPtpClockSlaveOnly=aluPtpClockSlaveOnly, aluPtpClockPriority1=aluPtpClockPriority1, aluPtpFreqRecTripCnt=aluPtpFreqRecTripCnt, aluPtpPeerUcCancelAnnoTx=aluPtpPeerUcCancelAnnoTx, aluPtpMIBConformance=aluPtpMIBConformance, aluPtpClockNotifyIndex=aluPtpClockNotifyIndex, aluPtpPeerCurrent24HourFreqOffsetMeanPpb=aluPtpPeerCurrent24HourFreqOffsetMeanPpb, aluPtpPeerUcGrantDenyDelayRespTx=aluPtpPeerUcGrantDenyDelayRespTx, aluPtpPeerTotalShortIntvlMinutes=aluPtpPeerTotalShortIntvlMinutes, aluPtpNotifyObjsV4v0Group=aluPtpNotifyObjsV4v0Group, aluPtpPeerUcReqAnnoTx=aluPtpPeerUcReqAnnoTx, aluPtpV2Module=aluPtpV2Module, Alu1588PtpClockIndex=Alu1588PtpClockIndex, aluPtpClockType=aluPtpClockType, aluPtpPeerCurrent1MinPhaseErrorMeanPpb=aluPtpPeerCurrent1MinPhaseErrorMeanPpb, aluPtpPeerSyncCertainty=aluPtpPeerSyncCertainty, aluPtpClockAdminFreqSource=aluPtpClockAdminFreqSource, aluPtpPeerAnnounceMsgTx=aluPtpPeerAnnounceMsgTx, aluPtpPeerSyncMsgTx=aluPtpPeerSyncMsgTx, aluPtpPeerUcReqDelayRespTx=aluPtpPeerUcReqDelayRespTx, aluPtpPeerDelayReqMsgRx=aluPtpPeerDelayReqMsgRx, aluPtpComp7705V8v0=aluPtpComp7705V8v0, aluPtpPeerUcReqSyncRxTimeout=aluPtpPeerUcReqSyncRxTimeout, aluPtpClockTwoStepFlag=aluPtpClockTwoStepFlag, aluPtpSyncCertNotifObjsGroup=aluPtpSyncCertNotifObjsGroup, aluPtpPeerUcCancelAckDelayRespRx=aluPtpPeerUcCancelAckDelayRespRx, aluPtpPortStateChange=aluPtpPortStateChange, AluPtpPriority=AluPtpPriority, aluPtpClockOperFreqSource=aluPtpClockOperFreqSource, aluPtpPeerTotalMinutesIn24Hour=aluPtpPeerTotalMinutesIn24Hour, aluPtpComp7705V6v1=aluPtpComp7705V6v1, aluPtpPortDSEntry=aluPtpPortDSEntry, aluPtpPeerIpAddr=aluPtpPeerIpAddr, aluPtpPeerUcGrantAnnoRx=aluPtpPeerUcGrantAnnoRx, aluPtpClockCurrentDSTable=aluPtpClockCurrentDSTable, aluPtpLocalPtpPeerIndex=aluPtpLocalPtpPeerIndex, aluPtpClockParentDSEntry=aluPtpClockParentDSEntry, aluPtpClockParentDSTable=aluPtpClockParentDSTable, aluPtpPeerUcGrantSyncRx=aluPtpPeerUcGrantSyncRx, aluPtpPeerUcGrantAnnoRejected=aluPtpPeerUcGrantAnnoRejected, aluPtpClockAdminState=aluPtpClockAdminState, aluPtpClockGMClockId=aluPtpClockGMClockId, aluPtpClockSyncCertaintyChange=aluPtpClockSyncCertaintyChange, aluPtpPeerDuplicateMsgDisc=aluPtpPeerDuplicateMsgDisc, aluPtpPortNotifyIndex=aluPtpPortNotifyIndex, aluPtpPeerDiscoveryChange=aluPtpPeerDiscoveryChange, aluPtpPeerV4v0Group=aluPtpPeerV4v0Group, aluPtpClockForwardWeight=aluPtpClockForwardWeight, aluPtpPeerSignalingMsgTx=aluPtpPeerSignalingMsgTx, aluPtpPeerNotifyIndex=aluPtpPeerNotifyIndex, aluPtpClockEntry=aluPtpClockEntry, aluPtpPeerPacketStatsEntry=aluPtpPeerPacketStatsEntry, AluPtpTimeSource=AluPtpTimeSource, aluPtpClockProfile=aluPtpClockProfile, Alu1588PtpProfile=Alu1588PtpProfile, aluPtpSyncCertaintyGroup=aluPtpSyncCertaintyGroup, aluPtpPeerIndex=aluPtpPeerIndex, aluPtpClockCurrentDSEntry=aluPtpClockCurrentDSEntry, aluPtpPeerUcCancelAckAnnoTx=aluPtpPeerUcCancelAckAnnoTx, aluPtpPeerDelayRespMsgRx=aluPtpPeerDelayRespMsgRx, aluPtpPeerUcGrantSyncRejected=aluPtpPeerUcGrantSyncRejected, aluPtpObjs=aluPtpObjs, Alu1588ActivePtpPortIndex=Alu1588ActivePtpPortIndex, aluPtpPeerClkRecAlgEntry=aluPtpPeerClkRecAlgEntry, aluPtpPortNumPeers=aluPtpPortNumPeers, aluPtpClockUseNodeTime=aluPtpClockUseNodeTime, aluPtpFreqRecAcquiringCount=aluPtpFreqRecAcquiringCount, aluPtpNotification=aluPtpNotification, aluPtpPeerMaxShortIntvlMinutes=aluPtpPeerMaxShortIntvlMinutes, aluPtpClockTimeTraceable=aluPtpClockTimeTraceable, aluPtpPortV4v0Group=aluPtpPortV4v0Group, aluPtpV9v0Groups=aluPtpV9v0Groups, aluPtpClockHw=aluPtpClockHw, aluPtpPeerOutOfOrderSyncPktRx=aluPtpPeerOutOfOrderSyncPktRx, aluPtpClockRecoveryV6v0Group=aluPtpClockRecoveryV6v0Group, aluPtpPeerDiscovered=aluPtpPeerDiscovered, aluPtpPeerUcGrantSyncTx=aluPtpPeerUcGrantSyncTx, aluPtpPeerTotalUdpEventMsgRx=aluPtpPeerTotalUdpEventMsgRx, aluPtpClockParentVariance=aluPtpClockParentVariance, aluPtpFreqRecHoldOverCount=aluPtpFreqRecHoldOverCount, aluPtpPeerCurrent1MinFreqOffsetMeanPpb=aluPtpPeerCurrent1MinFreqOffsetMeanPpb, aluPtpFreqRecLockedCount=aluPtpFreqRecLockedCount, aluPtpClockMaxNumber=aluPtpClockMaxNumber, aluPtpPortEntry=aluPtpPortEntry, aluPtpPeerPacketLastUpdateTime=aluPtpPeerPacketLastUpdateTime, aluPtpPeerCurrent1MinFreqOffsetStdDevPpb=aluPtpPeerCurrent1MinFreqOffsetStdDevPpb, aluPtpPeerStatsV9v0Group=aluPtpPeerStatsV9v0Group, Alu1588PtpClockId=Alu1588PtpClockId, aluPtpPeerUcNegRejectsAnno=aluPtpPeerUcNegRejectsAnno, aluPtpClockParentPortNum=aluPtpClockParentPortNum, aluPtpClockV5v0Group=aluPtpClockV5v0Group, aluPtpClockDynamicPeers=aluPtpClockDynamicPeers, Alu1588PtpClockRecoveryState=Alu1588PtpClockRecoveryState, aluPtpClockTable=aluPtpClockTable, aluPtpClockTimeSource=aluPtpClockTimeSource, aluPtpPortDSTable=aluPtpPortDSTable, aluPtpFreqRecLossResetCnt=aluPtpFreqRecLossResetCnt, aluPtpClockCurUtcOffsetValid=aluPtpClockCurUtcOffsetValid, aluPtpPeerIntvlPhaseErrorMeanNs=aluPtpPeerIntvlPhaseErrorMeanNs, aluPtpPeerTotalUdpEventMsgTx=aluPtpPeerTotalUdpEventMsgTx, aluPtpPort=aluPtpPort, aluPtpNotificationObjects=aluPtpNotificationObjects, aluPtpFreqRecPdvStepCnt=aluPtpFreqRecPdvStepCnt, aluPtpClockRecoveryState=aluPtpClockRecoveryState, aluPtpClockGMClass=aluPtpClockGMClass, aluPtpPeerUcReqSyncTx=aluPtpPeerUcReqSyncTx, aluPtpPeerDelayReqMsgTx=aluPtpPeerDelayReqMsgTx, aluPtpClockDynamicChange=aluPtpClockDynamicChange, aluPtpClockTimeRefPriority=aluPtpClockTimeRefPriority, aluPtpPortClockIndex=aluPtpPortClockIndex, aluPtpClockRecovClkChange=aluPtpClockRecovClkChange, aluPtpPeerUcReqAnnoRx=aluPtpPeerUcReqAnnoRx, aluPtpPeerRecLastUpdateTime=aluPtpPeerRecLastUpdateTime, aluPtpPeerIntvlValidData=aluPtpPeerIntvlValidData, aluPtpPeerUcCancelAnnoRx=aluPtpPeerUcCancelAnnoRx, aluPtpParentSyncCertaintyState=aluPtpParentSyncCertaintyState, aluPtpPeerBadVersionDisc=aluPtpPeerBadVersionDisc, aluPtpPeerDescription=aluPtpPeerDescription, aluPtpComp7705=aluPtpComp7705, aluPtpPeerIntvlPhaseErrorStdDevNs=aluPtpPeerIntvlPhaseErrorStdDevNs, aluPtpComp7705V9v0=aluPtpComp7705V9v0, aluPtpClockV6v1Group=aluPtpClockV6v1Group, aluPtpPeerUcCancelSyncRx=aluPtpPeerUcCancelSyncRx, Alu1588PtpPortState=Alu1588PtpPortState, aluPtpClockV7v0Group=aluPtpClockV7v0Group, aluPtpPeerRecClkStatsEntry=aluPtpPeerRecClkStatsEntry, aluPtpPeerUcGrantAnnoTx=aluPtpPeerUcGrantAnnoTx, aluPtpPortTable=aluPtpPortTable, aluPtpConformance=aluPtpConformance, PYSNMP_MODULE_ID=aluPtpV2Module, aluPtpFreqRecGapResetCnt=aluPtpFreqRecGapResetCnt, aluPtpPeerFollowUpMsgTx=aluPtpPeerFollowUpMsgTx, AluPtpPortNumber=AluPtpPortNumber)
-mibBuilder.exportSymbols("ALU-PTPV2-MIB", aluPtpClockV4v0Group=aluPtpClockV4v0Group, aluPtpFreqRecExcessFreqErrCnt=aluPtpFreqRecExcessFreqErrCnt)
+aluPtpPeerStatsV4v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 4)
+)
+aluPtpPeerStatsV4v0Group.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpPeerBadVersionDisc"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerBadDomainDisc"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerAlternateMasterDisc"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerDuplicateMsgDisc"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerStepRemovedGreaterThan255Disc"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerAnnounceMsgTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerAnnounceMsgRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerSyncMsgTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerSyncMsgRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerSignalingMsgTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerSignalingMsgRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerTotalUdpGeneralMsgTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerTotalUdpGeneralMsgRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerTotalUdpEventMsgTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerTotalUdpEventMsgRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqAnnoTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqAnnoRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantAnnoTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantAnnoRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqSyncTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqSyncRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantSyncTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantSyncRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAnnoTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAnnoRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelSyncTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelSyncRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckAnnoTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckAnnoRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckSyncTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckSyncRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcNegRejectsAnno"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcNegRejectsSync"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerOutOfOrderSyncPktRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerRecLastUpdateTime"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerTotalMinutesIn24Hour"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerCurrent24HourFreqOffsetMeanPpb"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerCurrent24HourFreqOffsetStdDevPpb"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerMaxShortIntvlMinutes"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerTotalShortIntvlMinutes"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinValidData"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinPhaseErrorMeanPpb"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinPhaseErrorStdDevNs"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinPhaseErrorMeanNs"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinFreqOffsetMeanPpb"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerCurrent1MinFreqOffsetStdDevPpb"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerIntvlValidData"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerIntvlUpdateTime"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerIntvlPhaseErrorMeanPpb"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerIntvlPhaseErrorStdDevNs"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerIntvlPhaseErrorMeanNs"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqAnnoTxTimeout"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqSyncTxTimeout"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantAnnoRejected"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantSyncRejected"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerDelayRespMsgTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerDelayRespMsgRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqDelayRespTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqDelayRespRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDelayRespTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDelayRespRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelDelayRespTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelDelayRespRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckDelayRespTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcCancelAckDelayRespRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqDelayRespTxTimeout"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcNegRejectsDelayResp"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDelayRespRejected"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerDelayReqMsgTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerDelayReqMsgRx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerPacketLastUpdateTime"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDenyAnnoTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDenySyncTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcGrantDenyDelayRespTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqAnnoRxTimeout"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqSyncRxTimeout"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerUcReqDelayRespRxTimeout"))
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerStatsV4v0Group.setStatus("current")
+
+aluPtpNotifyObjsV4v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 5)
+)
+aluPtpNotifyObjsV4v0Group.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"),
+        ("ALU-PTPV2-MIB", "aluPtpPortNotifyIndex"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerNotifyIndex"))
+)
+if mibBuilder.loadTexts:
+    aluPtpNotifyObjsV4v0Group.setStatus("current")
+
+aluPtpClockV5v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 7)
+)
+aluPtpClockV5v0Group.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpClockTimeRefPriority"),
+        ("ALU-PTPV2-MIB", "aluPtpClockCurUtcOffset"),
+        ("ALU-PTPV2-MIB", "aluPtpClockCurUtcOffsetValid"),
+        ("ALU-PTPV2-MIB", "aluPtpClockLeap59"),
+        ("ALU-PTPV2-MIB", "aluPtpClockLeap61"),
+        ("ALU-PTPV2-MIB", "aluPtpClockTimeTraceable"),
+        ("ALU-PTPV2-MIB", "aluPtpClockFreqTraceable"),
+        ("ALU-PTPV2-MIB", "aluPtpClockPtpTimescale"),
+        ("ALU-PTPV2-MIB", "aluPtpClockTimeSource"),
+        ("ALU-PTPV2-MIB", "aluPtpClockAdminFreqSource"),
+        ("ALU-PTPV2-MIB", "aluPtpClockOperFreqSource"),
+        ("ALU-PTPV2-MIB", "aluPtpLocalPtpPortIndex"),
+        ("ALU-PTPV2-MIB", "aluPtpLocalPtpPeerIndex"))
+)
+if mibBuilder.loadTexts:
+    aluPtpClockV5v0Group.setStatus("current")
+
+aluPtpClockRecoveryV6v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 8)
+)
+aluPtpClockRecoveryV6v0Group.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpFreqRecFreeRunCount"),
+        ("ALU-PTPV2-MIB", "aluPtpFreqRecAcquiringCount"),
+        ("ALU-PTPV2-MIB", "aluPtpFreqRecPhaseTrackCount"),
+        ("ALU-PTPV2-MIB", "aluPtpFreqRecHoldOverCount"),
+        ("ALU-PTPV2-MIB", "aluPtpFreqRecLockedCount"),
+        ("ALU-PTPV2-MIB", "aluPtpFreqRecExcessFreqErrCnt"),
+        ("ALU-PTPV2-MIB", "aluPtpFreqRecPacketLossCnt"),
+        ("ALU-PTPV2-MIB", "aluPtpFreqRecLossResetCnt"),
+        ("ALU-PTPV2-MIB", "aluPtpFreqRecTripCnt"),
+        ("ALU-PTPV2-MIB", "aluPtpFreqRecVarTooHighCnt"),
+        ("ALU-PTPV2-MIB", "aluPtpFreqRecPdvStepCnt"),
+        ("ALU-PTPV2-MIB", "aluPtpFreqRecGapResetCnt"))
+)
+if mibBuilder.loadTexts:
+    aluPtpClockRecoveryV6v0Group.setStatus("current")
+
+aluPtpClockV6v1Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 9)
+)
+aluPtpClockV6v1Group.setObjects(
+    ("ALU-PTPV2-MIB", "aluPtpClockUseNodeTime")
+)
+if mibBuilder.loadTexts:
+    aluPtpClockV6v1Group.setStatus("current")
+
+aluPtpClockV7v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 10)
+)
+aluPtpClockV7v0Group.setObjects(
+    ("ALU-PTPV2-MIB", "aluPtpPortDSMasterOnly")
+)
+if mibBuilder.loadTexts:
+    aluPtpClockV7v0Group.setStatus("current")
+
+aluPtpSyncCertaintyGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 11, 1)
+)
+aluPtpSyncCertaintyGroup.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpClockSyncCertaintyState"),
+        ("ALU-PTPV2-MIB", "aluPtpClockTxWhileUncertain"),
+        ("ALU-PTPV2-MIB", "aluPtpParentSyncCertaintyState"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerSyncCertainty"))
+)
+if mibBuilder.loadTexts:
+    aluPtpSyncCertaintyGroup.setStatus("current")
+
+aluPtpLocalPriorityGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 12, 1)
+)
+aluPtpLocalPriorityGroup.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpClockLocalPriority"),
+        ("ALU-PTPV2-MIB", "aluPtpPortDSLocalPriority"))
+)
+if mibBuilder.loadTexts:
+    aluPtpLocalPriorityGroup.setStatus("current")
+
+aluPtpPeerStatsV9v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 12, 3)
+)
+aluPtpPeerStatsV9v0Group.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpPeerFollowUpMsgTx"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerFollowUpMsgRx"))
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerStatsV9v0Group.setStatus("current")
+
+
+# Notification objects
+
+aluPtpMasterChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 4)
+)
+aluPtpMasterChange.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpPeerIpAddrType"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerIpAddr"),
+        ("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"),
+        ("ALU-PTPV2-MIB", "aluPtpPortNotifyIndex"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerNotifyIndex"))
+)
+if mibBuilder.loadTexts:
+    aluPtpMasterChange.setStatus(
+        "current"
+    )
+
+aluPtpClockNoMaster = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 5)
+)
+aluPtpClockNoMaster.setObjects(
+    ("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex")
+)
+if mibBuilder.loadTexts:
+    aluPtpClockNoMaster.setStatus(
+        "current"
+    )
+
+aluPtpPortStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 6)
+)
+aluPtpPortStateChange.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpPortDSPortState"),
+        ("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"),
+        ("ALU-PTPV2-MIB", "aluPtpPortNotifyIndex"))
+)
+if mibBuilder.loadTexts:
+    aluPtpPortStateChange.setStatus(
+        "current"
+    )
+
+aluPtpClockRecovClkChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 7)
+)
+aluPtpClockRecovClkChange.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpClockRecoveryState"),
+        ("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"))
+)
+if mibBuilder.loadTexts:
+    aluPtpClockRecovClkChange.setStatus(
+        "current"
+    )
+
+aluPtpPeerDiscoveryChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 8)
+)
+aluPtpPeerDiscoveryChange.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpPeerDiscovered"),
+        ("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"),
+        ("ALU-PTPV2-MIB", "aluPtpPortNotifyIndex"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerNotifyIndex"))
+)
+if mibBuilder.loadTexts:
+    aluPtpPeerDiscoveryChange.setStatus(
+        "current"
+    )
+
+aluPtpClockDynamicChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 11)
+)
+aluPtpClockDynamicChange.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpNotifyRowPointer"),
+        ("ALU-PTPV2-MIB", "aluPtpNotifyRowDescription"))
+)
+if mibBuilder.loadTexts:
+    aluPtpClockDynamicChange.setStatus(
+        "current"
+    )
+
+aluPtpClockSyncCertaintyChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 3, 8, 0, 12)
+)
+aluPtpClockSyncCertaintyChange.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpClockNotifyIndex"),
+        ("ALU-PTPV2-MIB", "aluPtpClockSyncCertaintyState"))
+)
+if mibBuilder.loadTexts:
+    aluPtpClockSyncCertaintyChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+aluPtpNotificationV4v0Group = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 6)
+)
+aluPtpNotificationV4v0Group.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpMasterChange"),
+        ("ALU-PTPV2-MIB", "aluPtpClockNoMaster"),
+        ("ALU-PTPV2-MIB", "aluPtpPortStateChange"),
+        ("ALU-PTPV2-MIB", "aluPtpClockRecovClkChange"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerDiscoveryChange"))
+)
+if mibBuilder.loadTexts:
+    aluPtpNotificationV4v0Group.setStatus(
+        "current"
+    )
+
+aluPtpSyncCertNotifObjsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 2, 11, 2)
+)
+aluPtpSyncCertNotifObjsGroup.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpClockDynamicChange"),
+        ("ALU-PTPV2-MIB", "aluPtpClockSyncCertaintyChange"))
+)
+if mibBuilder.loadTexts:
+    aluPtpSyncCertNotifObjsGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+aluPtpComp7705V4v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1, 1)
+)
+aluPtpComp7705V4v0.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpClockV4v0Group"),
+        ("ALU-PTPV2-MIB", "aluPtpPortV4v0Group"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerV4v0Group"),
+        ("ALU-PTPV2-MIB", "aluPtpNotificationV4v0Group"))
+)
+if mibBuilder.loadTexts:
+    aluPtpComp7705V4v0.setStatus(
+        "obsolete"
+    )
+
+aluPtpComp7705V6v1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1, 3)
+)
+aluPtpComp7705V6v1.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpClockV4v0Group"),
+        ("ALU-PTPV2-MIB", "aluPtpPortV4v0Group"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerV4v0Group"),
+        ("ALU-PTPV2-MIB", "aluPtpNotificationV4v0Group"),
+        ("ALU-PTPV2-MIB", "aluPtpClockV5v0Group"),
+        ("ALU-PTPV2-MIB", "aluPtpClockRecoveryV6v0Group"),
+        ("ALU-PTPV2-MIB", "aluPtpClockV6v1Group"))
+)
+if mibBuilder.loadTexts:
+    aluPtpComp7705V6v1.setStatus(
+        "current"
+    )
+
+aluPtpComp7705V7v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1, 4)
+)
+aluPtpComp7705V7v0.setObjects(
+    ("ALU-PTPV2-MIB", "aluPtpClockV7v0Group")
+)
+if mibBuilder.loadTexts:
+    aluPtpComp7705V7v0.setStatus(
+        "current"
+    )
+
+aluPtpComp7705V8v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1, 5)
+)
+aluPtpComp7705V8v0.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpSyncCertaintyGroup"),
+        ("ALU-PTPV2-MIB", "aluPtpSyncCertNotifObjsGroup"))
+)
+if mibBuilder.loadTexts:
+    aluPtpComp7705V8v0.setStatus(
+        "current"
+    )
+
+aluPtpComp7705V9v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 1, 2, 1, 12, 1, 1, 1, 6)
+)
+aluPtpComp7705V9v0.setObjects(
+      *(("ALU-PTPV2-MIB", "aluPtpLocalPriorityGroup"),
+        ("ALU-PTPV2-MIB", "aluPtpPeerStatsV9v0Group"))
+)
+if mibBuilder.loadTexts:
+    aluPtpComp7705V9v0.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALU-PTPV2-MIB",
+    **{"Alu1588PtpClockId": Alu1588PtpClockId,
+       "Alu1588PtpClockIndex": Alu1588PtpClockIndex,
+       "Alu1588PtpPortIndex": Alu1588PtpPortIndex,
+       "Alu1588PtpMasterIndex": Alu1588PtpMasterIndex,
+       "Alu1588PtpProfile": Alu1588PtpProfile,
+       "Alu1588PtpClockStepType": Alu1588PtpClockStepType,
+       "Alu1588PtpClockType": Alu1588PtpClockType,
+       "Alu1588PtpLogInterval": Alu1588PtpLogInterval,
+       "Alu1588PtpClockRecoveryState": Alu1588PtpClockRecoveryState,
+       "Alu1588PtpPortState": Alu1588PtpPortState,
+       "AluPtpTimeSource": AluPtpTimeSource,
+       "Alu1588PtpFreqSource": Alu1588PtpFreqSource,
+       "Alu1588PtpSyncCertaintyState": Alu1588PtpSyncCertaintyState,
+       "Alu1588ActivePtpPortIndex": Alu1588ActivePtpPortIndex,
+       "Alu1588ActivePtpMasterIndex": Alu1588ActivePtpMasterIndex,
+       "AluPtpPortNumber": AluPtpPortNumber,
+       "AluPtpPriority": AluPtpPriority,
+       "aluPtpV2Module": aluPtpV2Module,
+       "aluPtpMIBConformance": aluPtpMIBConformance,
+       "aluPtpConformance": aluPtpConformance,
+       "aluPtpCompliances": aluPtpCompliances,
+       "aluPtpComp7705": aluPtpComp7705,
+       "aluPtpComp7705V4v0": aluPtpComp7705V4v0,
+       "aluPtpComp7705V6v1": aluPtpComp7705V6v1,
+       "aluPtpComp7705V7v0": aluPtpComp7705V7v0,
+       "aluPtpComp7705V8v0": aluPtpComp7705V8v0,
+       "aluPtpComp7705V9v0": aluPtpComp7705V9v0,
+       "aluPtpGroups": aluPtpGroups,
+       "aluPtpClockV4v0Group": aluPtpClockV4v0Group,
+       "aluPtpPortV4v0Group": aluPtpPortV4v0Group,
+       "aluPtpPeerV4v0Group": aluPtpPeerV4v0Group,
+       "aluPtpPeerStatsV4v0Group": aluPtpPeerStatsV4v0Group,
+       "aluPtpNotifyObjsV4v0Group": aluPtpNotifyObjsV4v0Group,
+       "aluPtpNotificationV4v0Group": aluPtpNotificationV4v0Group,
+       "aluPtpClockV5v0Group": aluPtpClockV5v0Group,
+       "aluPtpClockRecoveryV6v0Group": aluPtpClockRecoveryV6v0Group,
+       "aluPtpClockV6v1Group": aluPtpClockV6v1Group,
+       "aluPtpClockV7v0Group": aluPtpClockV7v0Group,
+       "aluPtpV8v0Groups": aluPtpV8v0Groups,
+       "aluPtpSyncCertaintyGroup": aluPtpSyncCertaintyGroup,
+       "aluPtpSyncCertNotifObjsGroup": aluPtpSyncCertNotifObjsGroup,
+       "aluPtpV9v0Groups": aluPtpV9v0Groups,
+       "aluPtpLocalPriorityGroup": aluPtpLocalPriorityGroup,
+       "aluPtpPeerStatsV9v0Group": aluPtpPeerStatsV9v0Group,
+       "aluPtpObjs": aluPtpObjs,
+       "aluPtpClock": aluPtpClock,
+       "aluPtpClockMaxNumber": aluPtpClockMaxNumber,
+       "aluPtpClockTable": aluPtpClockTable,
+       "aluPtpClockEntry": aluPtpClockEntry,
+       "aluPtpClockIndex": aluPtpClockIndex,
+       "aluPtpClockRowStatus": aluPtpClockRowStatus,
+       "aluPtpClockIpInterface": aluPtpClockIpInterface,
+       "aluPtpClockHw": aluPtpClockHw,
+       "aluPtpClockProfile": aluPtpClockProfile,
+       "aluPtpClockAdminState": aluPtpClockAdminState,
+       "aluPtpClockDynamicPeers": aluPtpClockDynamicPeers,
+       "aluPtpClockForwardWeight": aluPtpClockForwardWeight,
+       "aluPtpClockRecoveryState": aluPtpClockRecoveryState,
+       "aluPtpClockTimeRefPriority": aluPtpClockTimeRefPriority,
+       "aluPtpClockAdminFreqSource": aluPtpClockAdminFreqSource,
+       "aluPtpClockOperFreqSource": aluPtpClockOperFreqSource,
+       "aluPtpClockUseNodeTime": aluPtpClockUseNodeTime,
+       "aluPtpClockSyncCertaintyState": aluPtpClockSyncCertaintyState,
+       "aluPtpClockTxWhileUncertain": aluPtpClockTxWhileUncertain,
+       "aluPtpClockDefaultDSTable": aluPtpClockDefaultDSTable,
+       "aluPtpClockDefaultDSEntry": aluPtpClockDefaultDSEntry,
+       "aluPtpClockId": aluPtpClockId,
+       "aluPtpClockType": aluPtpClockType,
+       "aluPtpClockSlaveOnly": aluPtpClockSlaveOnly,
+       "aluPtpClockDomain": aluPtpClockDomain,
+       "aluPtpClockNumberPorts": aluPtpClockNumberPorts,
+       "aluPtpClockClass": aluPtpClockClass,
+       "aluPtpClockAccuracy": aluPtpClockAccuracy,
+       "aluPtpClockVariance": aluPtpClockVariance,
+       "aluPtpClockPriority1": aluPtpClockPriority1,
+       "aluPtpClockPriority2": aluPtpClockPriority2,
+       "aluPtpClockTwoStepFlag": aluPtpClockTwoStepFlag,
+       "aluPtpClockLocalPriority": aluPtpClockLocalPriority,
+       "aluPtpClockCurrentDSTable": aluPtpClockCurrentDSTable,
+       "aluPtpClockCurrentDSEntry": aluPtpClockCurrentDSEntry,
+       "aluPtpClockStepsRemoved": aluPtpClockStepsRemoved,
+       "aluPtpClockParentDSTable": aluPtpClockParentDSTable,
+       "aluPtpClockParentDSEntry": aluPtpClockParentDSEntry,
+       "aluPtpClockParentId": aluPtpClockParentId,
+       "aluPtpClockParentPortNum": aluPtpClockParentPortNum,
+       "aluPtpClockParentStats": aluPtpClockParentStats,
+       "aluPtpClockParentVariance": aluPtpClockParentVariance,
+       "aluPtpClockGMClockId": aluPtpClockGMClockId,
+       "aluPtpClockGMClass": aluPtpClockGMClass,
+       "aluPtpClockGMAccuracy": aluPtpClockGMAccuracy,
+       "aluPtpClockGMVariance": aluPtpClockGMVariance,
+       "aluPtpClockGMPriority1": aluPtpClockGMPriority1,
+       "aluPtpClockGMPriority2": aluPtpClockGMPriority2,
+       "aluPtpLocalPtpPortIndex": aluPtpLocalPtpPortIndex,
+       "aluPtpLocalPtpPeerIndex": aluPtpLocalPtpPeerIndex,
+       "aluPtpParentSyncCertaintyState": aluPtpParentSyncCertaintyState,
+       "aluPtpClockTimePropertyDSTable": aluPtpClockTimePropertyDSTable,
+       "aluPtpClockTimePropertyDSEntry": aluPtpClockTimePropertyDSEntry,
+       "aluPtpClockCurUtcOffset": aluPtpClockCurUtcOffset,
+       "aluPtpClockCurUtcOffsetValid": aluPtpClockCurUtcOffsetValid,
+       "aluPtpClockLeap59": aluPtpClockLeap59,
+       "aluPtpClockLeap61": aluPtpClockLeap61,
+       "aluPtpClockTimeTraceable": aluPtpClockTimeTraceable,
+       "aluPtpClockFreqTraceable": aluPtpClockFreqTraceable,
+       "aluPtpClockPtpTimescale": aluPtpClockPtpTimescale,
+       "aluPtpClockTimeSource": aluPtpClockTimeSource,
+       "aluPtpPort": aluPtpPort,
+       "aluPtpPortTable": aluPtpPortTable,
+       "aluPtpPortEntry": aluPtpPortEntry,
+       "aluPtpPortClockIndex": aluPtpPortClockIndex,
+       "aluPtpPortIndex": aluPtpPortIndex,
+       "aluPtpPortAdminState": aluPtpPortAdminState,
+       "aluPtpPortUcNegotiate": aluPtpPortUcNegotiate,
+       "aluPtpPortNumPeers": aluPtpPortNumPeers,
+       "aluPtpPortDSTable": aluPtpPortDSTable,
+       "aluPtpPortDSEntry": aluPtpPortDSEntry,
+       "aluPtpPortDSPortNum": aluPtpPortDSPortNum,
+       "aluPtpPortDSAnnoRxTimeout": aluPtpPortDSAnnoRxTimeout,
+       "aluPtpPortDSLogAnnoInterval": aluPtpPortDSLogAnnoInterval,
+       "aluPtpPortDSLogSyncInterval": aluPtpPortDSLogSyncInterval,
+       "aluPtpPortDSPortState": aluPtpPortDSPortState,
+       "aluPtpPortDSDelayMechanism": aluPtpPortDSDelayMechanism,
+       "aluPtpPortDSVersionNumber": aluPtpPortDSVersionNumber,
+       "aluPtpPortDSMasterOnly": aluPtpPortDSMasterOnly,
+       "aluPtpPortDSLocalPriority": aluPtpPortDSLocalPriority,
+       "aluPtpPeer": aluPtpPeer,
+       "aluPtpUcMasterTable": aluPtpUcMasterTable,
+       "aluPtpUcMasterEntry": aluPtpUcMasterEntry,
+       "aluPtpPeerClockIndex": aluPtpPeerClockIndex,
+       "aluPtpPeerPortIndex": aluPtpPeerPortIndex,
+       "aluPtpPeerIndex": aluPtpPeerIndex,
+       "aluPtpPeerIpAddrType": aluPtpPeerIpAddrType,
+       "aluPtpPeerIpAddr": aluPtpPeerIpAddr,
+       "aluPtpPeerLastChanged": aluPtpPeerLastChanged,
+       "aluPtpPeerDescription": aluPtpPeerDescription,
+       "aluPtpPeerDiscovered": aluPtpPeerDiscovered,
+       "aluPtpPeerSyncCertainty": aluPtpPeerSyncCertainty,
+       "aluPtpPeerPacketStatsTable": aluPtpPeerPacketStatsTable,
+       "aluPtpPeerPacketStatsEntry": aluPtpPeerPacketStatsEntry,
+       "aluPtpPeerPacketLastUpdateTime": aluPtpPeerPacketLastUpdateTime,
+       "aluPtpPeerBadVersionDisc": aluPtpPeerBadVersionDisc,
+       "aluPtpPeerBadDomainDisc": aluPtpPeerBadDomainDisc,
+       "aluPtpPeerAlternateMasterDisc": aluPtpPeerAlternateMasterDisc,
+       "aluPtpPeerStepRemovedGreaterThan255Disc": aluPtpPeerStepRemovedGreaterThan255Disc,
+       "aluPtpPeerAnnounceMsgTx": aluPtpPeerAnnounceMsgTx,
+       "aluPtpPeerAnnounceMsgRx": aluPtpPeerAnnounceMsgRx,
+       "aluPtpPeerSyncMsgTx": aluPtpPeerSyncMsgTx,
+       "aluPtpPeerSyncMsgRx": aluPtpPeerSyncMsgRx,
+       "aluPtpPeerSignalingMsgTx": aluPtpPeerSignalingMsgTx,
+       "aluPtpPeerSignalingMsgRx": aluPtpPeerSignalingMsgRx,
+       "aluPtpPeerTotalUdpGeneralMsgTx": aluPtpPeerTotalUdpGeneralMsgTx,
+       "aluPtpPeerTotalUdpGeneralMsgRx": aluPtpPeerTotalUdpGeneralMsgRx,
+       "aluPtpPeerTotalUdpEventMsgTx": aluPtpPeerTotalUdpEventMsgTx,
+       "aluPtpPeerTotalUdpEventMsgRx": aluPtpPeerTotalUdpEventMsgRx,
+       "aluPtpPeerUcReqAnnoTx": aluPtpPeerUcReqAnnoTx,
+       "aluPtpPeerUcReqAnnoRx": aluPtpPeerUcReqAnnoRx,
+       "aluPtpPeerUcGrantAnnoTx": aluPtpPeerUcGrantAnnoTx,
+       "aluPtpPeerUcGrantAnnoRx": aluPtpPeerUcGrantAnnoRx,
+       "aluPtpPeerUcReqSyncTx": aluPtpPeerUcReqSyncTx,
+       "aluPtpPeerUcReqSyncRx": aluPtpPeerUcReqSyncRx,
+       "aluPtpPeerUcGrantSyncTx": aluPtpPeerUcGrantSyncTx,
+       "aluPtpPeerUcGrantSyncRx": aluPtpPeerUcGrantSyncRx,
+       "aluPtpPeerUcCancelAnnoTx": aluPtpPeerUcCancelAnnoTx,
+       "aluPtpPeerUcCancelAnnoRx": aluPtpPeerUcCancelAnnoRx,
+       "aluPtpPeerUcCancelSyncTx": aluPtpPeerUcCancelSyncTx,
+       "aluPtpPeerUcCancelSyncRx": aluPtpPeerUcCancelSyncRx,
+       "aluPtpPeerUcCancelAckAnnoTx": aluPtpPeerUcCancelAckAnnoTx,
+       "aluPtpPeerUcCancelAckAnnoRx": aluPtpPeerUcCancelAckAnnoRx,
+       "aluPtpPeerUcCancelAckSyncTx": aluPtpPeerUcCancelAckSyncTx,
+       "aluPtpPeerUcCancelAckSyncRx": aluPtpPeerUcCancelAckSyncRx,
+       "aluPtpPeerUcNegRejectsAnno": aluPtpPeerUcNegRejectsAnno,
+       "aluPtpPeerUcNegRejectsSync": aluPtpPeerUcNegRejectsSync,
+       "aluPtpPeerOutOfOrderSyncPktRx": aluPtpPeerOutOfOrderSyncPktRx,
+       "aluPtpPeerDuplicateMsgDisc": aluPtpPeerDuplicateMsgDisc,
+       "aluPtpPeerUcReqAnnoTxTimeout": aluPtpPeerUcReqAnnoTxTimeout,
+       "aluPtpPeerUcReqSyncTxTimeout": aluPtpPeerUcReqSyncTxTimeout,
+       "aluPtpPeerUcGrantAnnoRejected": aluPtpPeerUcGrantAnnoRejected,
+       "aluPtpPeerUcGrantSyncRejected": aluPtpPeerUcGrantSyncRejected,
+       "aluPtpPeerDelayRespMsgTx": aluPtpPeerDelayRespMsgTx,
+       "aluPtpPeerDelayRespMsgRx": aluPtpPeerDelayRespMsgRx,
+       "aluPtpPeerUcReqDelayRespTx": aluPtpPeerUcReqDelayRespTx,
+       "aluPtpPeerUcReqDelayRespRx": aluPtpPeerUcReqDelayRespRx,
+       "aluPtpPeerUcGrantDelayRespTx": aluPtpPeerUcGrantDelayRespTx,
+       "aluPtpPeerUcGrantDelayRespRx": aluPtpPeerUcGrantDelayRespRx,
+       "aluPtpPeerUcCancelDelayRespTx": aluPtpPeerUcCancelDelayRespTx,
+       "aluPtpPeerUcCancelDelayRespRx": aluPtpPeerUcCancelDelayRespRx,
+       "aluPtpPeerUcCancelAckDelayRespTx": aluPtpPeerUcCancelAckDelayRespTx,
+       "aluPtpPeerUcCancelAckDelayRespRx": aluPtpPeerUcCancelAckDelayRespRx,
+       "aluPtpPeerUcReqDelayRespTxTimeout": aluPtpPeerUcReqDelayRespTxTimeout,
+       "aluPtpPeerUcNegRejectsDelayResp": aluPtpPeerUcNegRejectsDelayResp,
+       "aluPtpPeerUcGrantDelayRespRejected": aluPtpPeerUcGrantDelayRespRejected,
+       "aluPtpPeerDelayReqMsgTx": aluPtpPeerDelayReqMsgTx,
+       "aluPtpPeerDelayReqMsgRx": aluPtpPeerDelayReqMsgRx,
+       "aluPtpPeerUcGrantDenyAnnoTx": aluPtpPeerUcGrantDenyAnnoTx,
+       "aluPtpPeerUcGrantDenySyncTx": aluPtpPeerUcGrantDenySyncTx,
+       "aluPtpPeerUcGrantDenyDelayRespTx": aluPtpPeerUcGrantDenyDelayRespTx,
+       "aluPtpPeerUcReqAnnoRxTimeout": aluPtpPeerUcReqAnnoRxTimeout,
+       "aluPtpPeerUcReqSyncRxTimeout": aluPtpPeerUcReqSyncRxTimeout,
+       "aluPtpPeerUcReqDelayRespRxTimeout": aluPtpPeerUcReqDelayRespRxTimeout,
+       "aluPtpPeerFollowUpMsgTx": aluPtpPeerFollowUpMsgTx,
+       "aluPtpPeerFollowUpMsgRx": aluPtpPeerFollowUpMsgRx,
+       "aluPtpPeerRecClkStatsTable": aluPtpPeerRecClkStatsTable,
+       "aluPtpPeerRecClkStatsEntry": aluPtpPeerRecClkStatsEntry,
+       "aluPtpPeerRecLastUpdateTime": aluPtpPeerRecLastUpdateTime,
+       "aluPtpPeerTotalMinutesIn24Hour": aluPtpPeerTotalMinutesIn24Hour,
+       "aluPtpPeerCurrent24HourFreqOffsetMeanPpb": aluPtpPeerCurrent24HourFreqOffsetMeanPpb,
+       "aluPtpPeerCurrent24HourFreqOffsetStdDevPpb": aluPtpPeerCurrent24HourFreqOffsetStdDevPpb,
+       "aluPtpPeerMaxShortIntvlMinutes": aluPtpPeerMaxShortIntvlMinutes,
+       "aluPtpPeerTotalShortIntvlMinutes": aluPtpPeerTotalShortIntvlMinutes,
+       "aluPtpPeerCurrent1MinValidData": aluPtpPeerCurrent1MinValidData,
+       "aluPtpPeerCurrent1MinPhaseErrorMeanPpb": aluPtpPeerCurrent1MinPhaseErrorMeanPpb,
+       "aluPtpPeerCurrent1MinPhaseErrorStdDevNs": aluPtpPeerCurrent1MinPhaseErrorStdDevNs,
+       "aluPtpPeerCurrent1MinPhaseErrorMeanNs": aluPtpPeerCurrent1MinPhaseErrorMeanNs,
+       "aluPtpPeerCurrent1MinFreqOffsetMeanPpb": aluPtpPeerCurrent1MinFreqOffsetMeanPpb,
+       "aluPtpPeerCurrent1MinFreqOffsetStdDevPpb": aluPtpPeerCurrent1MinFreqOffsetStdDevPpb,
+       "aluPtpPeerRecClkStatsShortIntvlTable": aluPtpPeerRecClkStatsShortIntvlTable,
+       "aluPtpPeerRecClkStatsShortIntvlEntry": aluPtpPeerRecClkStatsShortIntvlEntry,
+       "aluPtpPeerIntvlClockIndex": aluPtpPeerIntvlClockIndex,
+       "aluPtpPeerIntvlPortIndex": aluPtpPeerIntvlPortIndex,
+       "aluPtpPeerIntvlIndex": aluPtpPeerIntvlIndex,
+       "aluPtpPeerIntvlNumber": aluPtpPeerIntvlNumber,
+       "aluPtpPeerIntvlValidData": aluPtpPeerIntvlValidData,
+       "aluPtpPeerIntvlUpdateTime": aluPtpPeerIntvlUpdateTime,
+       "aluPtpPeerIntvlPhaseErrorMeanPpb": aluPtpPeerIntvlPhaseErrorMeanPpb,
+       "aluPtpPeerIntvlPhaseErrorStdDevNs": aluPtpPeerIntvlPhaseErrorStdDevNs,
+       "aluPtpPeerIntvlPhaseErrorMeanNs": aluPtpPeerIntvlPhaseErrorMeanNs,
+       "aluPtpPeerClkRecAlgTable": aluPtpPeerClkRecAlgTable,
+       "aluPtpPeerClkRecAlgEntry": aluPtpPeerClkRecAlgEntry,
+       "aluPtpFreqRecFreeRunCount": aluPtpFreqRecFreeRunCount,
+       "aluPtpFreqRecAcquiringCount": aluPtpFreqRecAcquiringCount,
+       "aluPtpFreqRecPhaseTrackCount": aluPtpFreqRecPhaseTrackCount,
+       "aluPtpFreqRecHoldOverCount": aluPtpFreqRecHoldOverCount,
+       "aluPtpFreqRecLockedCount": aluPtpFreqRecLockedCount,
+       "aluPtpFreqRecExcessFreqErrCnt": aluPtpFreqRecExcessFreqErrCnt,
+       "aluPtpFreqRecPacketLossCnt": aluPtpFreqRecPacketLossCnt,
+       "aluPtpFreqRecLossResetCnt": aluPtpFreqRecLossResetCnt,
+       "aluPtpFreqRecTripCnt": aluPtpFreqRecTripCnt,
+       "aluPtpFreqRecVarTooHighCnt": aluPtpFreqRecVarTooHighCnt,
+       "aluPtpFreqRecPdvStepCnt": aluPtpFreqRecPdvStepCnt,
+       "aluPtpFreqRecGapResetCnt": aluPtpFreqRecGapResetCnt,
+       "aluPtpNotificationObjects": aluPtpNotificationObjects,
+       "aluPtpNotifyPrefix": aluPtpNotifyPrefix,
+       "aluPtpNotification": aluPtpNotification,
+       "aluPtpClockNotifyIndex": aluPtpClockNotifyIndex,
+       "aluPtpPortNotifyIndex": aluPtpPortNotifyIndex,
+       "aluPtpPeerNotifyIndex": aluPtpPeerNotifyIndex,
+       "aluPtpMasterChange": aluPtpMasterChange,
+       "aluPtpClockNoMaster": aluPtpClockNoMaster,
+       "aluPtpPortStateChange": aluPtpPortStateChange,
+       "aluPtpClockRecovClkChange": aluPtpClockRecovClkChange,
+       "aluPtpPeerDiscoveryChange": aluPtpPeerDiscoveryChange,
+       "aluPtpNotifyRowPointer": aluPtpNotifyRowPointer,
+       "aluPtpNotifyRowDescription": aluPtpNotifyRowDescription,
+       "aluPtpClockDynamicChange": aluPtpClockDynamicChange,
+       "aluPtpClockSyncCertaintyChange": aluPtpClockSyncCertaintyChange}
+)

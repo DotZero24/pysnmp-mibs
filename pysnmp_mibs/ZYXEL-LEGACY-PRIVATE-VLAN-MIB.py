@@ -1,34 +1,228 @@
+# SNMP MIB module (ZYXEL-LEGACY-PRIVATE-VLAN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-LEGACY-PRIVATE-VLAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-LEGACY-PRIVATE-VLAN-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:19 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zyxel/ZYXEL-LEGACY-PRIVATE-VLAN-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:01:04 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelLegacyPrivateVlan = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41))
-if mibBuilder.loadTexts: zyxelLegacyPrivateVlan.setLastUpdated('201207010000Z')
-if mibBuilder.loadTexts: zyxelLegacyPrivateVlan.setOrganization('Enterprise Solution ZyXEL')
-zyxelLegacyPrivateVlanSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1))
-zyLegacyPrivateVlanMaxNumberOfVlans = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyLegacyPrivateVlanMaxNumberOfVlans.setStatus('current')
-zyxelLegacyPrivateVlanTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2), )
-if mibBuilder.loadTexts: zyxelLegacyPrivateVlanTable.setStatus('current')
-zyxelLegacyPrivateVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2, 1), ).setIndexNames((0, "ZYXEL-LEGACY-PRIVATE-VLAN-MIB", "zyLegacyPrivateVlanVid"))
-if mibBuilder.loadTexts: zyxelLegacyPrivateVlanEntry.setStatus('current')
-zyLegacyPrivateVlanVid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
-if mibBuilder.loadTexts: zyLegacyPrivateVlanVid.setStatus('current')
-zyLegacyPrivateVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyLegacyPrivateVlanName.setStatus('current')
-zyLegacyPrivateVlanPromiscuousPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyLegacyPrivateVlanPromiscuousPorts.setStatus('current')
-zyLegacyPrivateVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zyLegacyPrivateVlanRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-LEGACY-PRIVATE-VLAN-MIB", zyLegacyPrivateVlanName=zyLegacyPrivateVlanName, zyLegacyPrivateVlanRowStatus=zyLegacyPrivateVlanRowStatus, zyLegacyPrivateVlanPromiscuousPorts=zyLegacyPrivateVlanPromiscuousPorts, zyLegacyPrivateVlanMaxNumberOfVlans=zyLegacyPrivateVlanMaxNumberOfVlans, PYSNMP_MODULE_ID=zyxelLegacyPrivateVlan, zyxelLegacyPrivateVlanTable=zyxelLegacyPrivateVlanTable, zyLegacyPrivateVlanVid=zyLegacyPrivateVlanVid, zyxelLegacyPrivateVlanSetup=zyxelLegacyPrivateVlanSetup, zyxelLegacyPrivateVlan=zyxelLegacyPrivateVlan, zyxelLegacyPrivateVlanEntry=zyxelLegacyPrivateVlanEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(PortList,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "PortList")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelLegacyPrivateVlan = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelLegacyPrivateVlanSetup_ObjectIdentity = ObjectIdentity
+zyxelLegacyPrivateVlanSetup = _ZyxelLegacyPrivateVlanSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1)
+)
+_ZyLegacyPrivateVlanMaxNumberOfVlans_Type = Integer32
+_ZyLegacyPrivateVlanMaxNumberOfVlans_Object = MibScalar
+zyLegacyPrivateVlanMaxNumberOfVlans = _ZyLegacyPrivateVlanMaxNumberOfVlans_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 1),
+    _ZyLegacyPrivateVlanMaxNumberOfVlans_Type()
+)
+zyLegacyPrivateVlanMaxNumberOfVlans.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyLegacyPrivateVlanMaxNumberOfVlans.setStatus("current")
+_ZyxelLegacyPrivateVlanTable_Object = MibTable
+zyxelLegacyPrivateVlanTable = _ZyxelLegacyPrivateVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2)
+)
+if mibBuilder.loadTexts:
+    zyxelLegacyPrivateVlanTable.setStatus("current")
+_ZyxelLegacyPrivateVlanEntry_Object = MibTableRow
+zyxelLegacyPrivateVlanEntry = _ZyxelLegacyPrivateVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2, 1)
+)
+zyxelLegacyPrivateVlanEntry.setIndexNames(
+    (0, "ZYXEL-LEGACY-PRIVATE-VLAN-MIB", "zyLegacyPrivateVlanVid"),
+)
+if mibBuilder.loadTexts:
+    zyxelLegacyPrivateVlanEntry.setStatus("current")
+
+
+class _ZyLegacyPrivateVlanVid_Type(Integer32):
+    """Custom type zyLegacyPrivateVlanVid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_ZyLegacyPrivateVlanVid_Type.__name__ = "Integer32"
+_ZyLegacyPrivateVlanVid_Object = MibTableColumn
+zyLegacyPrivateVlanVid = _ZyLegacyPrivateVlanVid_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2, 1, 1),
+    _ZyLegacyPrivateVlanVid_Type()
+)
+zyLegacyPrivateVlanVid.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyLegacyPrivateVlanVid.setStatus("current")
+_ZyLegacyPrivateVlanName_Type = DisplayString
+_ZyLegacyPrivateVlanName_Object = MibTableColumn
+zyLegacyPrivateVlanName = _ZyLegacyPrivateVlanName_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2, 1, 2),
+    _ZyLegacyPrivateVlanName_Type()
+)
+zyLegacyPrivateVlanName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyLegacyPrivateVlanName.setStatus("current")
+_ZyLegacyPrivateVlanPromiscuousPorts_Type = PortList
+_ZyLegacyPrivateVlanPromiscuousPorts_Object = MibTableColumn
+zyLegacyPrivateVlanPromiscuousPorts = _ZyLegacyPrivateVlanPromiscuousPorts_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2, 1, 3),
+    _ZyLegacyPrivateVlanPromiscuousPorts_Type()
+)
+zyLegacyPrivateVlanPromiscuousPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyLegacyPrivateVlanPromiscuousPorts.setStatus("current")
+_ZyLegacyPrivateVlanRowStatus_Type = RowStatus
+_ZyLegacyPrivateVlanRowStatus_Object = MibTableColumn
+zyLegacyPrivateVlanRowStatus = _ZyLegacyPrivateVlanRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 41, 1, 2, 1, 4),
+    _ZyLegacyPrivateVlanRowStatus_Type()
+)
+zyLegacyPrivateVlanRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zyLegacyPrivateVlanRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-LEGACY-PRIVATE-VLAN-MIB",
+    **{"zyxelLegacyPrivateVlan": zyxelLegacyPrivateVlan,
+       "zyxelLegacyPrivateVlanSetup": zyxelLegacyPrivateVlanSetup,
+       "zyLegacyPrivateVlanMaxNumberOfVlans": zyLegacyPrivateVlanMaxNumberOfVlans,
+       "zyxelLegacyPrivateVlanTable": zyxelLegacyPrivateVlanTable,
+       "zyxelLegacyPrivateVlanEntry": zyxelLegacyPrivateVlanEntry,
+       "zyLegacyPrivateVlanVid": zyLegacyPrivateVlanVid,
+       "zyLegacyPrivateVlanName": zyLegacyPrivateVlanName,
+       "zyLegacyPrivateVlanPromiscuousPorts": zyLegacyPrivateVlanPromiscuousPorts,
+       "zyLegacyPrivateVlanRowStatus": zyLegacyPrivateVlanRowStatus}
+)

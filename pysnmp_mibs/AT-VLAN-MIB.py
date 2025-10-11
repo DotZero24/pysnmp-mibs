@@ -1,38 +1,240 @@
+# SNMP MIB module (AT-VLAN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module AT-VLAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/allied/AT-VLAN-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:12:48 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/allied/AT-VLAN-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:23:56 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-sysinfo, = mibBuilder.importSymbols("AT-SMI-MIB", "sysinfo")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-atVlanInfo = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16))
-atVlanInfo.setRevisions(('2010-09-07 00:00', '2010-06-15 00:15', '2009-06-30 00:00',))
-if mibBuilder.loadTexts: atVlanInfo.setLastUpdated('201009070000Z')
-if mibBuilder.loadTexts: atVlanInfo.setOrganization('Allied Telesis Labs New Zealand')
-atVlanStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1))
-atVlanStatNumCollections = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atVlanStatNumCollections.setStatus('current')
-atVlanStatCollectionTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2), )
-if mibBuilder.loadTexts: atVlanStatCollectionTable.setStatus('current')
-atVlanStatCollectionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1), ).setIndexNames((0, "AT-VLAN-MIB", "atVlanStatCollectionName"))
-if mibBuilder.loadTexts: atVlanStatCollectionEntry.setStatus('current')
-atVlanStatCollectionName = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atVlanStatCollectionName.setStatus('current')
-atVlanStatCollectionVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atVlanStatCollectionVlanId.setStatus('current')
-atVlanStatCollectionPortMap = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atVlanStatCollectionPortMap.setStatus('current')
-atVlanStatCollectionIngressPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atVlanStatCollectionIngressPkts.setStatus('current')
-atVlanStatCollectionIngressOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atVlanStatCollectionIngressOctets.setStatus('current')
-atVlanStatCollectionResetStats = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 6), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atVlanStatCollectionResetStats.setStatus('current')
-mibBuilder.exportSymbols("AT-VLAN-MIB", atVlanStatCollectionName=atVlanStatCollectionName, atVlanStatCollectionIngressPkts=atVlanStatCollectionIngressPkts, atVlanStatCollectionPortMap=atVlanStatCollectionPortMap, atVlanStatCollectionVlanId=atVlanStatCollectionVlanId, atVlanStatistics=atVlanStatistics, atVlanInfo=atVlanInfo, atVlanStatCollectionTable=atVlanStatCollectionTable, atVlanStatCollectionResetStats=atVlanStatCollectionResetStats, atVlanStatCollectionEntry=atVlanStatCollectionEntry, PYSNMP_MODULE_ID=atVlanInfo, atVlanStatCollectionIngressOctets=atVlanStatCollectionIngressOctets, atVlanStatNumCollections=atVlanStatNumCollections)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(sysinfo,) = mibBuilder.importSymbols(
+    "AT-SMI-MIB",
+    "sysinfo")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+atVlanInfo = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16)
+)
+if mibBuilder.loadTexts:
+    atVlanInfo.setRevisions(
+        ("2010-09-07 00:00",
+         "2010-06-15 00:15",
+         "2009-06-30 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AtVlanStatistics_ObjectIdentity = ObjectIdentity
+atVlanStatistics = _AtVlanStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1)
+)
+_AtVlanStatNumCollections_Type = Integer32
+_AtVlanStatNumCollections_Object = MibScalar
+atVlanStatNumCollections = _AtVlanStatNumCollections_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 1),
+    _AtVlanStatNumCollections_Type()
+)
+atVlanStatNumCollections.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atVlanStatNumCollections.setStatus("current")
+_AtVlanStatCollectionTable_Object = MibTable
+atVlanStatCollectionTable = _AtVlanStatCollectionTable_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2)
+)
+if mibBuilder.loadTexts:
+    atVlanStatCollectionTable.setStatus("current")
+_AtVlanStatCollectionEntry_Object = MibTableRow
+atVlanStatCollectionEntry = _AtVlanStatCollectionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1)
+)
+atVlanStatCollectionEntry.setIndexNames(
+    (0, "AT-VLAN-MIB", "atVlanStatCollectionName"),
+)
+if mibBuilder.loadTexts:
+    atVlanStatCollectionEntry.setStatus("current")
+_AtVlanStatCollectionName_Type = DisplayString
+_AtVlanStatCollectionName_Object = MibTableColumn
+atVlanStatCollectionName = _AtVlanStatCollectionName_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 1),
+    _AtVlanStatCollectionName_Type()
+)
+atVlanStatCollectionName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atVlanStatCollectionName.setStatus("current")
+_AtVlanStatCollectionVlanId_Type = Gauge32
+_AtVlanStatCollectionVlanId_Object = MibTableColumn
+atVlanStatCollectionVlanId = _AtVlanStatCollectionVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 2),
+    _AtVlanStatCollectionVlanId_Type()
+)
+atVlanStatCollectionVlanId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atVlanStatCollectionVlanId.setStatus("current")
+_AtVlanStatCollectionPortMap_Type = OctetString
+_AtVlanStatCollectionPortMap_Object = MibTableColumn
+atVlanStatCollectionPortMap = _AtVlanStatCollectionPortMap_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 3),
+    _AtVlanStatCollectionPortMap_Type()
+)
+atVlanStatCollectionPortMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atVlanStatCollectionPortMap.setStatus("current")
+_AtVlanStatCollectionIngressPkts_Type = Counter64
+_AtVlanStatCollectionIngressPkts_Object = MibTableColumn
+atVlanStatCollectionIngressPkts = _AtVlanStatCollectionIngressPkts_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 4),
+    _AtVlanStatCollectionIngressPkts_Type()
+)
+atVlanStatCollectionIngressPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atVlanStatCollectionIngressPkts.setStatus("current")
+_AtVlanStatCollectionIngressOctets_Type = Counter64
+_AtVlanStatCollectionIngressOctets_Object = MibTableColumn
+atVlanStatCollectionIngressOctets = _AtVlanStatCollectionIngressOctets_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 5),
+    _AtVlanStatCollectionIngressOctets_Type()
+)
+atVlanStatCollectionIngressOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atVlanStatCollectionIngressOctets.setStatus("current")
+_AtVlanStatCollectionResetStats_Type = TruthValue
+_AtVlanStatCollectionResetStats_Object = MibTableColumn
+atVlanStatCollectionResetStats = _AtVlanStatCollectionResetStats_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 3, 16, 1, 2, 1, 6),
+    _AtVlanStatCollectionResetStats_Type()
+)
+atVlanStatCollectionResetStats.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atVlanStatCollectionResetStats.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "AT-VLAN-MIB",
+    **{"atVlanInfo": atVlanInfo,
+       "atVlanStatistics": atVlanStatistics,
+       "atVlanStatNumCollections": atVlanStatNumCollections,
+       "atVlanStatCollectionTable": atVlanStatCollectionTable,
+       "atVlanStatCollectionEntry": atVlanStatCollectionEntry,
+       "atVlanStatCollectionName": atVlanStatCollectionName,
+       "atVlanStatCollectionVlanId": atVlanStatCollectionVlanId,
+       "atVlanStatCollectionPortMap": atVlanStatCollectionPortMap,
+       "atVlanStatCollectionIngressPkts": atVlanStatCollectionIngressPkts,
+       "atVlanStatCollectionIngressOctets": atVlanStatCollectionIngressOctets,
+       "atVlanStatCollectionResetStats": atVlanStatCollectionResetStats}
+)

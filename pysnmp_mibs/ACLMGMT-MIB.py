@@ -1,951 +1,8705 @@
+# SNMP MIB module (ACLMGMT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ACLMGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/ACLMGMT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:58:53 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/ACLMGMT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:48:46 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
-swAclMgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 9))
-if mibBuilder.loadTexts: swAclMgmtMIB.setLastUpdated('0903180000Z')
-if mibBuilder.loadTexts: swAclMgmtMIB.setOrganization('D-Link Corp.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_common_mgmt,) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-common-mgmt")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+swAclMgmtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9)
+)
+
+
+# Types definitions
+
+
+
 class PortList(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 127)
+    """Custom type PortList based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
 
-swAclCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 9, 1))
-swAclMaskMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 9, 2))
-swAclRuleMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 9, 3))
-swCpuAclMaskMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 9, 4))
-swCpuAclRuleMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 9, 5))
-swAclMeteringMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 9, 6))
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class Ipv6Address(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '2x:'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(16, 16)
-    fixedLength = 16
+    status = "current"
+    displayHint = "2x:"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
 
-swCpuInterfacefilterState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 9, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swCpuInterfacefilterState.setStatus('current')
-swACLTotalUsedRuleEntries = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 9, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLTotalUsedRuleEntries.setStatus('current')
-swACLTotalUnusedRuleEntries = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 9, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLTotalUnusedRuleEntries.setStatus('current')
-swACLEthernetTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1), )
-if mibBuilder.loadTexts: swACLEthernetTable.setStatus('current')
-swACLEthernetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLEthernetProfileID"))
-if mibBuilder.loadTexts: swACLEthernetEntry.setStatus('current')
-swACLEthernetProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLEthernetProfileID.setStatus('current')
-swACLEthernetUsevlan = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEthernetUsevlan.setStatus('current')
-swACLEthernetMacAddrMaskState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-mac-addr", 2), ("src-mac-addr", 3), ("dst-src-mac-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEthernetMacAddrMaskState.setStatus('current')
-swACLEthernetSrcMacAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 4), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEthernetSrcMacAddrMask.setStatus('current')
-swACLEthernetDstMacAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 5), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEthernetDstMacAddrMask.setStatus('current')
-swACLEthernetUse8021p = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEthernetUse8021p.setStatus('current')
-swACLEthernetUseEthernetType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEthernetUseEthernetType.setStatus('current')
-swACLEthernetRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEthernetRowStatus.setStatus('current')
-swACLEthernetOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLEthernetOwner.setStatus('current')
-swACLEthernetUnusedRuleEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLEthernetUnusedRuleEntries.setStatus('current')
-swACLEthernetProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEthernetProfileName.setStatus('current')
-swACLEthernetVlanMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEthernetVlanMask.setStatus('current')
-swACLIpTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2), )
-if mibBuilder.loadTexts: swACLIpTable.setStatus('current')
-swACLIpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLIpProfileID"))
-if mibBuilder.loadTexts: swACLIpEntry.setStatus('current')
-swACLIpProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpProfileID.setStatus('current')
-swACLIpUsevlan = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpUsevlan.setStatus('current')
-swACLIpIpAddrMaskState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-ip-addr", 2), ("src-ip-addr", 3), ("dst-src-ip-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpIpAddrMaskState.setStatus('current')
-swACLIpSrcIpAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 4), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpSrcIpAddrMask.setStatus('current')
-swACLIpDstIpAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 5), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpDstIpAddrMask.setStatus('current')
-swACLIpUseDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpUseDSCP.setStatus('current')
-swACLIpUseProtoType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("icmp", 2), ("igmp", 3), ("tcp", 4), ("udp", 5), ("protocolId", 6)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpUseProtoType.setStatus('current')
-swACLIpIcmpOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("type", 2), ("code", 3), ("type-code", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpIcmpOption.setStatus('current')
-swACLIpIgmpOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpIgmpOption.setStatus('current')
-swACLIpTcpOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-addr", 2), ("src-addr", 3), ("dst-src-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpTcpOption.setStatus('current')
-swACLIpUdpOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-addr", 2), ("src-addr", 3), ("dst-src-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpUdpOption.setStatus('current')
-swACLIpTCPorUDPSrcPortMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpTCPorUDPSrcPortMask.setStatus('current')
-swACLIpTCPorUDPDstPortMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 13), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpTCPorUDPDstPortMask.setStatus('current')
-swACLIpTCPFlagBit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpTCPFlagBit.setStatus('current')
-swACLIpTCPFlagBitMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpTCPFlagBitMask.setStatus('current')
-swACLIpProtoIDOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpProtoIDOption.setStatus('current')
-swACLIpProtoID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpProtoID.setStatus('current')
-swACLIpProtoIDMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 18), OctetString().subtype(subtypeSpec=ValueSizeConstraint(20, 20)).setFixedLength(20)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpProtoIDMask.setStatus('current')
-swACLIpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 19), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRowStatus.setStatus('current')
-swACLIpOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpOwner.setStatus('current')
-swACLIpSrcMacAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 21), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpSrcMacAddrMask.setStatus('current')
-swACLIpUnusedRuleEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 22), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpUnusedRuleEntries.setStatus('current')
-swACLIpProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 23), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpProfileName.setStatus('current')
-swACLIpVlanMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 24), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpVlanMask.setStatus('current')
-swACLPktContMaskTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3), )
-if mibBuilder.loadTexts: swACLPktContMaskTable.setStatus('current')
-swACLPktContMaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLPktContMaskProfileID"))
-if mibBuilder.loadTexts: swACLPktContMaskEntry.setStatus('current')
-swACLPktContMaskProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContMaskProfileID.setStatus('current')
-swACLPktContMaskOffset0to15 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffset0to15.setStatus('current')
-swACLPktContMaskOffset16to31 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffset16to31.setStatus('current')
-swACLPktContMaskOffset32to47 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffset32to47.setStatus('current')
-swACLPktContMaskOffset48to63 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffset48to63.setStatus('current')
-swACLPktContMaskOffset64to79 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffset64to79.setStatus('current')
-swACLPktContMaskRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskRowStatus.setStatus('current')
-swACLPktContMaskOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContMaskOwner.setStatus('current')
-swACLPktContMaskUnusedRuleEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContMaskUnusedRuleEntries.setStatus('current')
-swACLPktContMaskProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskProfileName.setStatus('current')
-swACLIpv6MaskTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4), )
-if mibBuilder.loadTexts: swACLIpv6MaskTable.setStatus('current')
-swACLIpv6MaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLIpv6MaskProfileID"))
-if mibBuilder.loadTexts: swACLIpv6MaskEntry.setStatus('current')
-swACLIpv6MaskProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpv6MaskProfileID.setStatus('current')
-swACLIpv6MaskClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6MaskClass.setStatus('current')
-swACLIpv6MaskFlowlabel = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6MaskFlowlabel.setStatus('current')
-swACLIpv6IpAddrMaskState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-ipv6-addr", 2), ("src-ipv6-addr", 3), ("dst-src-ipv6-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6IpAddrMaskState.setStatus('current')
-swACLIpv6MaskSrcIpv6Mask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 5), Ipv6Address()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6MaskSrcIpv6Mask.setStatus('current')
-swACLIpv6MaskDstIpv6Mask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 6), Ipv6Address()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6MaskDstIpv6Mask.setStatus('current')
-swACLIpv6MaskRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6MaskRowStatus.setStatus('current')
-swACLIpv6MaskOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpv6MaskOwner.setStatus('current')
-swACLIpv6MaskUnusedRuleEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpv6MaskUnusedRuleEntries.setStatus('current')
-swACLIpv6MaskProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6MaskProfileName.setStatus('current')
-swACLIpv6MaskUseProtoType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("tcp", 2), ("udp", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6MaskUseProtoType.setStatus('current')
-swACLIpv6MaskTcpOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-addr", 2), ("src-addr", 3), ("dst-src-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6MaskTcpOption.setStatus('current')
-swACLIpv6MaskUdpOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-addr", 2), ("src-addr", 3), ("dst-src-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6MaskUdpOption.setStatus('current')
-swACLIpv6MaskTCPorUDPSrcPortMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 14), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6MaskTCPorUDPSrcPortMask.setStatus('current')
-swACLIpv6MaskTCPorUDPDstPortMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 15), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6MaskTCPorUDPDstPortMask.setStatus('current')
-swACLMaskDelAllState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swACLMaskDelAllState.setStatus('current')
-swIBPACLEthernetTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 6), )
-if mibBuilder.loadTexts: swIBPACLEthernetTable.setStatus('obsolete')
-swIBPACLEthernetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 6, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swIBPACLEthernetProfileID"))
-if mibBuilder.loadTexts: swIBPACLEthernetEntry.setStatus('obsolete')
-swIBPACLEthernetProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 6, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLEthernetProfileID.setStatus('obsolete')
-swIBPACLEthernetUseEthernetType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLEthernetUseEthernetType.setStatus('obsolete')
-swIBPACLIpTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 7), )
-if mibBuilder.loadTexts: swIBPACLIpTable.setStatus('obsolete')
-swIBPACLIpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 7, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swIBPACLIpProfileID"))
-if mibBuilder.loadTexts: swIBPACLIpEntry.setStatus('obsolete')
-swIBPACLIpProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 7, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLIpProfileID.setStatus('obsolete')
-swIBPACLIpSrcMacAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 7, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLIpSrcMacAddrMask.setStatus('obsolete')
-swIBPACLIpSrcIpAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 7, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLIpSrcIpAddrMask.setStatus('obsolete')
-swACLPktContMaskOptionTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8), )
-if mibBuilder.loadTexts: swACLPktContMaskOptionTable.setStatus('current')
-swACLPktContMaskOptionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLPktContMaskOptionProfileID"))
-if mibBuilder.loadTexts: swACLPktContMaskOptionEntry.setStatus('current')
-swACLPktContMaskOptionProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContMaskOptionProfileID.setStatus('current')
-swACLPktContMaskOffsetChunk1State = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk1State.setStatus('current')
-swACLPktContMaskOffsetChunk1OffsetValue = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk1OffsetValue.setStatus('current')
-swACLPktContMaskOffsetChunk1Mask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk1Mask.setStatus('current')
-swACLPktContMaskOffsetChunk2State = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk2State.setStatus('current')
-swACLPktContMaskOffsetChunk2OffsetValue = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk2OffsetValue.setStatus('current')
-swACLPktContMaskOffsetChunk2Mask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk2Mask.setStatus('current')
-swACLPktContMaskOffsetChunk3State = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk3State.setStatus('current')
-swACLPktContMaskOffsetChunk3OffsetValue = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk3OffsetValue.setStatus('current')
-swACLPktContMaskOffsetChunk3Mask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk3Mask.setStatus('current')
-swACLPktContMaskOffsetChunk4State = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk4State.setStatus('current')
-swACLPktContMaskOffsetChunk4OffsetValue = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk4OffsetValue.setStatus('current')
-swACLPktContMaskOffsetChunk4Mask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 13), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOffsetChunk4Mask.setStatus('current')
-swACLPktContMaskOptionRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 14), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOptionRowStatus.setStatus('current')
-swACLPktContMaskOptionOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContMaskOptionOwner.setStatus('current')
-swACLPktContMaskOptionUnusedRuleEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 16), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContMaskOptionUnusedRuleEntries.setStatus('current')
-swACLPktContMaskOptionProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOptionProfileName.setStatus('current')
-swACLPktContMaskOption2 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10))
-swACLPktContMaskOption2Table = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1), )
-if mibBuilder.loadTexts: swACLPktContMaskOption2Table.setStatus('current')
-swACLPktContMaskOption2Entry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLPktContMaskOption2ProfileID"))
-if mibBuilder.loadTexts: swACLPktContMaskOption2Entry.setStatus('current')
-swACLPktContMaskOption2ProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContMaskOption2ProfileID.setStatus('current')
-swACLPktContMaskOption2SrcMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 2), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOption2SrcMac.setStatus('current')
-swACLPktContMaskOption2DstMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 3), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOption2DstMac.setStatus('current')
-swACLPktContMaskOption2CTag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOption2CTag.setStatus('current')
-swACLPktContMaskOption2STag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOption2STag.setStatus('current')
-swACLPktContMaskOption2Owner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContMaskOption2Owner.setStatus('current')
-swACLPktContMaskOption2UnusedRuleEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContMaskOption2UnusedRuleEntries.setStatus('current')
-swACLPktContMaskOption2ProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOption2ProfileName.setStatus('current')
-swACLPktContMaskOption2RowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOption2RowStatus.setStatus('current')
-swACLPktContMaskOption2OffsetsTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2), )
-if mibBuilder.loadTexts: swACLPktContMaskOption2OffsetsTable.setStatus('current')
-swACLPktContMaskOption2OffsetsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLPktContMaskOption2OffsetsProfileID"), (0, "ACLMGMT-MIB", "swACLPktContMaskOption2OffsetsNum"))
-if mibBuilder.loadTexts: swACLPktContMaskOption2OffsetsEntry.setStatus('current')
-swACLPktContMaskOption2OffsetsProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContMaskOption2OffsetsProfileID.setStatus('current')
-swACLPktContMaskOption2OffsetsNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 11))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContMaskOption2OffsetsNum.setStatus('current')
-swACLPktContMaskOption2OffsetsReference = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("l2", 1), ("l3", 2), ("l4", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOption2OffsetsReference.setStatus('current')
-swACLPktContMaskOption2OffsetsValue = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 4), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOption2OffsetsValue.setStatus('current')
-swACLPktContMaskOption2OffsetsMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOption2OffsetsMask.setStatus('current')
-swACLPktContMaskOption2OffsetsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContMaskOption2OffsetsRowStatus.setStatus('current')
-swACLEtherRuleTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1), )
-if mibBuilder.loadTexts: swACLEtherRuleTable.setStatus('current')
-swACLEtherRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLEtherRuleProfileID"), (0, "ACLMGMT-MIB", "swACLEtherRuleAccessID"))
-if mibBuilder.loadTexts: swACLEtherRuleEntry.setStatus('current')
-swACLEtherRuleProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLEtherRuleProfileID.setStatus('current')
-swACLEtherRuleAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLEtherRuleAccessID.setStatus('current')
-swACLEtherRuleVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleVlan.setStatus('current')
-swACLEtherRuleSrcMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 4), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleSrcMacAddress.setStatus('current')
-swACLEtherRuleDstMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 5), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleDstMacAddress.setStatus('current')
-swACLEtherRule8021P = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRule8021P.setStatus('current')
-swACLEtherRuleEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleEtherType.setStatus('current')
-swACLEtherRuleEnablePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleEnablePriority.setStatus('current')
-swACLEtherRulePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRulePriority.setStatus('current')
-swACLEtherRuleReplacePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleReplacePriority.setStatus('current')
-swACLEtherRuleEnableReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleEnableReplaceDscp.setStatus('current')
-swACLEtherRuleRepDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleRepDscp.setStatus('current')
-swACLEtherRulePermit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 5))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2), ("mirror", 3), ("set-drop-precedence", 5)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRulePermit.setStatus('current')
-swACLEtherRulePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 14), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRulePort.setStatus('current')
-swACLEtherRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 15), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleRowStatus.setStatus('current')
-swACLEtherRuleOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLEtherRuleOwner.setStatus('current')
-swACLEtherRuleRxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 17), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleRxRate.setStatus('current')
-swACLEtherRuleEnableReplaceTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleEnableReplaceTosPrecedence.setStatus('current')
-swACLEtherRuleRepTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleRepTosPrecedence.setStatus('current')
-swACLEtherRuleVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleVID.setStatus('current')
-swACLEtherRuleMatchVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleMatchVID.setStatus('current')
-swACLEtherRuleMaskVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 22), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleMaskVlan.setStatus('current')
-swACLEtherRuleMaskSrcMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 23), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleMaskSrcMacAddress.setStatus('current')
-swACLEtherRuleMaskDstMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 24), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLEtherRuleMaskDstMacAddress.setStatus('current')
-swACLIpRuleTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2), )
-if mibBuilder.loadTexts: swACLIpRuleTable.setStatus('current')
-swACLIpRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLIpRuleProfileID"), (0, "ACLMGMT-MIB", "swACLIpRuleAccessID"))
-if mibBuilder.loadTexts: swACLIpRuleEntry.setStatus('current')
-swACLIpRuleProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpRuleProfileID.setStatus('current')
-swACLIpRuleAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpRuleAccessID.setStatus('current')
-swACLIpRuleVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleVlan.setStatus('current')
-swACLIpRuleSrcIpaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 4), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleSrcIpaddress.setStatus('current')
-swACLIpRuleDstIpaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 5), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleDstIpaddress.setStatus('current')
-swACLIpRuleDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleDscp.setStatus('current')
-swACLIpRuleProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("icmp", 2), ("igmp", 3), ("tcp", 4), ("udp", 5), ("protocolId", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swACLIpRuleProtocol.setStatus('current')
-swACLIpRuleType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleType.setStatus('current')
-swACLIpRuleCode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleCode.setStatus('current')
-swACLIpRuleSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleSrcPort.setStatus('current')
-swACLIpRuleDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleDstPort.setStatus('current')
-swACLIpRuleFlagBits = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleFlagBits.setStatus('current')
-swACLIpRuleProtoID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleProtoID.setStatus('current')
-swACLIpRuleUserMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 14), OctetString().subtype(subtypeSpec=ValueSizeConstraint(20, 20)).setFixedLength(20)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleUserMask.setStatus('current')
-swACLIpRuleEnablePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleEnablePriority.setStatus('current')
-swACLIpRulePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRulePriority.setStatus('current')
-swACLIpRuleReplacePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleReplacePriority.setStatus('current')
-swACLIpRuleEnableReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleEnableReplaceDscp.setStatus('current')
-swACLIpRuleRepDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleRepDscp.setStatus('current')
-swACLIpRulePermit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 5))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2), ("mirror", 3), ("set-drop-precedence", 5)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRulePermit.setStatus('current')
-swACLIpRulePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 21), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRulePort.setStatus('current')
-swACLIpRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 22), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleRowStatus.setStatus('current')
-swACLIpRuleOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpRuleOwner.setStatus('current')
-swACLIpRuleRxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 24), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleRxRate.setStatus('current')
-swACLIpRuleSrcMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 25), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpRuleSrcMacAddress.setStatus('current')
-swACLIpRuleEnableReplaceTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleEnableReplaceTosPrecedence.setStatus('current')
-swACLIpRuleRepTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleRepTosPrecedence.setStatus('current')
-swACLIpRuleVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleVID.setStatus('current')
-swACLIpRuleMatchVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 29), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleMatchVID.setStatus('current')
-swACLIpRuleMaskVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 30), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleMaskVlan.setStatus('current')
-swACLIpRuleMaskSrcIpaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 31), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleMaskSrcIpaddress.setStatus('current')
-swACLIpRuleMaskDstIpaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 32), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleMaskDstIpaddress.setStatus('current')
-swACLIpRuleMaskSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 33), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleMaskSrcPort.setStatus('current')
-swACLIpRuleMaskDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 34), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpRuleMaskDstPort.setStatus('current')
-swACLPktContRuleTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3), )
-if mibBuilder.loadTexts: swACLPktContRuleTable.setStatus('current')
-swACLPktContRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLPktContRuleProfileID"), (0, "ACLMGMT-MIB", "swACLPktContRuleAccessID"))
-if mibBuilder.loadTexts: swACLPktContRuleEntry.setStatus('current')
-swACLPktContRuleProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleProfileID.setStatus('current')
-swACLPktContRuleAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleAccessID.setStatus('current')
-swACLPktContRuleOffset0to15 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOffset0to15.setStatus('current')
-swACLPktContRuleOffset16to31 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOffset16to31.setStatus('current')
-swACLPktContRuleOffset32to47 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOffset32to47.setStatus('current')
-swACLPktContRuleOffset48to63 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOffset48to63.setStatus('current')
-swACLPktContRuleOffset64to79 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOffset64to79.setStatus('current')
-swACLPktContRuleEnablePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleEnablePriority.setStatus('current')
-swACLPktContRulePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRulePriority.setStatus('current')
-swACLPktContRuleReplacePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleReplacePriority.setStatus('current')
-swACLPktContRuleEnableReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleEnableReplaceDscp.setStatus('current')
-swACLPktContRuleRepDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleRepDscp.setStatus('current')
-swACLPktContRulePermit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2), ("mirror", 3), ("lease-renew", 4), ("set-drop-precedence", 5)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRulePermit.setStatus('current')
-swACLPktContRulePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 14), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRulePort.setStatus('current')
-swACLPktContRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 15), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleRowStatus.setStatus('current')
-swACLPktContRuleOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOwner.setStatus('current')
-swACLPktContRuleRxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 17), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleRxRate.setStatus('current')
-swACLPktContRuleEnableReplaceTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleEnableReplaceTosPrecedence.setStatus('current')
-swACLPktContRuleRepTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleRepTosPrecedence.setStatus('current')
-swACLPktContRuleVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleVID.setStatus('current')
-swACLIpv6RuleTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4), )
-if mibBuilder.loadTexts: swACLIpv6RuleTable.setStatus('current')
-swACLIpv6RuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLIpv6RuleProfileID"), (0, "ACLMGMT-MIB", "swACLIpv6RuleAccessID"))
-if mibBuilder.loadTexts: swACLIpv6RuleEntry.setStatus('current')
-swACLIpv6RuleProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpv6RuleProfileID.setStatus('current')
-swACLIpv6RuleAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpv6RuleAccessID.setStatus('current')
-swACLIpv6RuleClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleClass.setStatus('current')
-swACLIpv6RuleFlowlabel = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleFlowlabel.setStatus('current')
-swACLIpv6RuleSrcIpv6Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 5), Ipv6Address()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleSrcIpv6Addr.setStatus('current')
-swACLIpv6RuleDstIpv6Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 6), Ipv6Address()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleDstIpv6Addr.setStatus('current')
-swACLIpv6RuleEnablePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleEnablePriority.setStatus('current')
-swACLIpv6RulePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RulePriority.setStatus('current')
-swACLIpv6RuleReplacePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleReplacePriority.setStatus('current')
-swACLIpv6RulePermit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 5))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2), ("mirror", 3), ("set-drop-precedence", 5)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RulePermit.setStatus('current')
-swACLIpv6RulePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 11), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RulePort.setStatus('current')
-swACLIpv6RuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleRowStatus.setStatus('current')
-swACLIpv6RuleOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLIpv6RuleOwner.setStatus('current')
-swACLIpv6RuleRxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 14), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleRxRate.setStatus('current')
-swACLIpv6RuleEnableReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleEnableReplaceDscp.setStatus('current')
-swACLIpv6RuleRepDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleRepDscp.setStatus('current')
-swACLIpv6RuleEnableReplaceTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleEnableReplaceTosPrecedence.setStatus('current')
-swACLIpv6RuleRepTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleRepTosPrecedence.setStatus('current')
-swACLIpv6RuleVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleVID.setStatus('current')
-swACLIpv6RuleProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("tcp", 2), ("udp", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleProtocol.setStatus('current')
-swACLIpv6RuleSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleSrcPort.setStatus('current')
-swACLIpv6RuleDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleDstPort.setStatus('current')
-swACLIpv6RuleMaskSrcIpv6Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 23), Ipv6Address()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleMaskSrcIpv6Addr.setStatus('current')
-swACLIpv6RuleMaskDstIpv6Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 24), Ipv6Address()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleMaskDstIpv6Addr.setStatus('current')
-swACLIpv6RuleMaskSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 25), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleMaskSrcPort.setStatus('current')
-swACLIpv6RuleMaskDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 26), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLIpv6RuleMaskDstPort.setStatus('current')
-swIBPACLEtherRuleTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5), )
-if mibBuilder.loadTexts: swIBPACLEtherRuleTable.setStatus('obsolete')
-swIBPACLEtherRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swIBPACLEtherRuleProfileID"), (0, "ACLMGMT-MIB", "swIBPACLEtherRuleAccessID"))
-if mibBuilder.loadTexts: swIBPACLEtherRuleEntry.setStatus('obsolete')
-swIBPACLEtherRuleProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLEtherRuleProfileID.setStatus('obsolete')
-swIBPACLEtherRuleAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLEtherRuleAccessID.setStatus('obsolete')
-swIBPACLEtherRuleEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLEtherRuleEtherType.setStatus('obsolete')
-swIBPACLEtherRulePermit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLEtherRulePermit.setStatus('obsolete')
-swIBPACLEtherRulePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1, 5), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLEtherRulePort.setStatus('obsolete')
-swIBPACLIpRuleTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6), )
-if mibBuilder.loadTexts: swIBPACLIpRuleTable.setStatus('obsolete')
-swIBPACLIpRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swIBPACLIpRuleProfileID"), (0, "ACLMGMT-MIB", "swIBPACLIpRuleAccessID"))
-if mibBuilder.loadTexts: swIBPACLIpRuleEntry.setStatus('obsolete')
-swIBPACLIpRuleProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLIpRuleProfileID.setStatus('obsolete')
-swIBPACLIpRuleAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLIpRuleAccessID.setStatus('obsolete')
-swIBPACLIpRuleSrcMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLIpRuleSrcMacAddress.setStatus('obsolete')
-swIBPACLIpRuleSrcIpaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLIpRuleSrcIpaddress.setStatus('obsolete')
-swIBPACLIpRulePermit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLIpRulePermit.setStatus('obsolete')
-swIBPACLIpRulePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 6), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIBPACLIpRulePort.setStatus('obsolete')
-swACLPktContRuleOptionTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7), )
-if mibBuilder.loadTexts: swACLPktContRuleOptionTable.setStatus('current')
-swACLPktContRuleOptionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLPktContRuleOptionProfileID"), (0, "ACLMGMT-MIB", "swACLPktContRuleOptionAccessID"))
-if mibBuilder.loadTexts: swACLPktContRuleOptionEntry.setStatus('current')
-swACLPktContRuleOptionProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOptionProfileID.setStatus('current')
-swACLPktContRuleOptionAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOptionAccessID.setStatus('current')
-swACLPktContRuleOffsetChunk1OffsetValue = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOffsetChunk1OffsetValue.setStatus('current')
-swACLPktContRuleOffsetChunk1Content = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOffsetChunk1Content.setStatus('current')
-swACLPktContRuleOffsetChunk2OffsetValue = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOffsetChunk2OffsetValue.setStatus('current')
-swACLPktContRuleOffsetChunk2Content = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOffsetChunk2Content.setStatus('current')
-swACLPktContRuleOffsetChunk3OffsetValue = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOffsetChunk3OffsetValue.setStatus('current')
-swACLPktContRuleOffsetChunk3Content = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOffsetChunk3Content.setStatus('current')
-swACLPktContRuleOffsetChunk4OffsetValue = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOffsetChunk4OffsetValue.setStatus('current')
-swACLPktContRuleOffsetChunk4Content = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOffsetChunk4Content.setStatus('current')
-swACLPktContRuleOptionEnablePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionEnablePriority.setStatus('current')
-swACLPktContRuleOptionPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionPriority.setStatus('current')
-swACLPktContRuleOptionReplacePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionReplacePriority.setStatus('current')
-swACLPktContRuleOptionEnableReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionEnableReplaceDscp.setStatus('current')
-swACLPktContRuleOptionRepDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionRepDscp.setStatus('current')
-swACLPktContRuleOptionPermit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2), ("mirror", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionPermit.setStatus('current')
-swACLPktContRuleOptionPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 17), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionPort.setStatus('current')
-swACLPktContRuleOptionRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 18), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionRowStatus.setStatus('current')
-swACLPktContRuleOptionOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOptionOwner.setStatus('current')
-swACLPktContRuleOptionRxRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 20), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionRxRate.setStatus('current')
-swACLPktContRuleOptionEnableReplaceTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionEnableReplaceTosPrecedence.setStatus('current')
-swACLPktContRuleOptionRepTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionRepTosPrecedence.setStatus('current')
-swACLPktContRuleOptionVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOptionVID.setStatus('current')
-swACLCounterTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8), )
-if mibBuilder.loadTexts: swACLCounterTable.setStatus('current')
-swACLCounterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLCounterProfileID"), (0, "ACLMGMT-MIB", "swACLCounterAccessID"))
-if mibBuilder.loadTexts: swACLCounterEntry.setStatus('current')
-swACLCounterProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLCounterProfileID.setStatus('current')
-swACLCounterAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLCounterAccessID.setStatus('current')
-swACLCounterState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swACLCounterState.setStatus('current')
-swACLCounterTotalCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLCounterTotalCounter.setStatus('current')
-swACLCounterGreenCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLCounterGreenCounter.setStatus('current')
-swACLCounterYellowCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLCounterYellowCounter.setStatus('current')
-swACLCounterRedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLCounterRedCounter.setStatus('current')
-swACLPktContRuleOption2 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10))
-swACLPktContRuleOption2Table = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1), )
-if mibBuilder.loadTexts: swACLPktContRuleOption2Table.setStatus('current')
-swACLPktContRuleOption2Entry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLPktContRuleOption2ProfileID"), (0, "ACLMGMT-MIB", "swACLPktContRuleOption2AccessID"))
-if mibBuilder.loadTexts: swACLPktContRuleOption2Entry.setStatus('current')
-swACLPktContRuleOption2ProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOption2ProfileID.setStatus('current')
-swACLPktContRuleOption2AccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOption2AccessID.setStatus('current')
-swACLPktContRuleOption2SrcMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 3), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2SrcMac.setStatus('current')
-swACLPktContRuleOption2DstMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 4), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2DstMac.setStatus('current')
-swACLPktContRuleOption2CTag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2CTag.setStatus('current')
-swACLPktContRuleOption2STag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2STag.setStatus('current')
-swACLPktContRuleOption2EnablePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2EnablePriority.setStatus('current')
-swACLPktContRuleOption2Priority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2Priority.setStatus('current')
-swACLPktContRuleOption2ReplacePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2ReplacePriority.setStatus('current')
-swACLPktContRuleOption2EnableReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2EnableReplaceDscp.setStatus('current')
-swACLPktContRuleOption2RepDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2RepDscp.setStatus('current')
-swACLPktContRuleOption2Permit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2), ("mirror", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2Permit.setStatus('current')
-swACLPktContRuleOption2Port = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 13), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2Port.setStatus('current')
-swACLPktContRuleOption2Owner = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("any", 1), ("acl", 2), ("ipbind", 3), ("other", 4), ("dhcp", 5), ("netbios", 6), ("ext-netbios", 7), ("ismvlan", 8), ("dhcp-relay", 9), ("pppoe", 10), ("arp-spoofing", 11), ("bpdu-tunnel", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOption2Owner.setStatus('current')
-swACLPktContRuleOption2EnableReplaceTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2EnableReplaceTosPrecedence.setStatus('current')
-swACLPktContRuleOption2RepTosPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2RepTosPrecedence.setStatus('current')
-swACLPktContRuleOption2VID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2VID.setStatus('current')
-swACLPktContRuleOption2RowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 21), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2RowStatus.setStatus('current')
-swACLPktContRuleOption2MaskSrcMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 22), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2MaskSrcMac.setStatus('current')
-swACLPktContRuleOption2MaskDstMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 23), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2MaskDstMac.setStatus('current')
-swACLPktContRuleOption2MaskCTag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 24), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2MaskCTag.setStatus('current')
-swACLPktContRuleOption2MaskSTag = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 25), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2MaskSTag.setStatus('current')
-swACLPktContRuleOption2OffsetsTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2), )
-if mibBuilder.loadTexts: swACLPktContRuleOption2OffsetsTable.setStatus('current')
-swACLPktContRuleOption2OffsetsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swACLPktContRuleOption2OffsetsProfileID"), (0, "ACLMGMT-MIB", "swACLPktContRuleOption2OffsetsAccessID"), (0, "ACLMGMT-MIB", "swACLPktContRuleOption2OffsetsNum"))
-if mibBuilder.loadTexts: swACLPktContRuleOption2OffsetsEntry.setStatus('current')
-swACLPktContRuleOption2OffsetsProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOption2OffsetsProfileID.setStatus('current')
-swACLPktContRuleOption2OffsetsAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOption2OffsetsAccessID.setStatus('current')
-swACLPktContRuleOption2OffsetsNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 11))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swACLPktContRuleOption2OffsetsNum.setStatus('current')
-swACLPktContRuleOption2OffsetsData = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2OffsetsData.setStatus('current')
-swACLPktContRuleOption2OffsetsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2OffsetsRowStatus.setStatus('current')
-swACLPktContRuleOption2OffsetsMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swACLPktContRuleOption2OffsetsMask.setStatus('current')
-swCpuAclEthernetTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1), )
-if mibBuilder.loadTexts: swCpuAclEthernetTable.setStatus('current')
-swCpuAclEthernetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swCpuAclEthernetProfileID"))
-if mibBuilder.loadTexts: swCpuAclEthernetEntry.setStatus('current')
-swCpuAclEthernetProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclEthernetProfileID.setStatus('current')
-swCpuAclEthernetUsevlan = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEthernetUsevlan.setStatus('current')
-swCpuAclEthernetMacAddrMaskState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-mac-addr", 2), ("src-mac-addr", 3), ("dst-src-mac-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEthernetMacAddrMaskState.setStatus('current')
-swCpuAclEthernetSrcMacAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 4), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEthernetSrcMacAddrMask.setStatus('current')
-swCpuAclEthernetDstMacAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 5), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEthernetDstMacAddrMask.setStatus('current')
-swCpuAclEthernetUse8021p = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEthernetUse8021p.setStatus('current')
-swCpuAclEthernetUseEthernetType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEthernetUseEthernetType.setStatus('current')
-swCpuAclEthernetRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEthernetRowStatus.setStatus('current')
-swCpuAclIpTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2), )
-if mibBuilder.loadTexts: swCpuAclIpTable.setStatus('current')
-swCpuAclIpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swCpuAclIpProfileID"))
-if mibBuilder.loadTexts: swCpuAclIpEntry.setStatus('current')
-swCpuAclIpProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclIpProfileID.setStatus('current')
-swCpuAclIpUsevlan = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpUsevlan.setStatus('current')
-swCpuAclIpIpAddrMaskState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-ip-addr", 2), ("src-ip-addr", 3), ("dst-src-ip-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpIpAddrMaskState.setStatus('current')
-swCpuAclIpSrcIpAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 4), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpSrcIpAddrMask.setStatus('current')
-swCpuAclIpDstIpAddrMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 5), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpDstIpAddrMask.setStatus('current')
-swCpuAclIpUseDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpUseDSCP.setStatus('current')
-swCpuAclIpUseProtoType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("icmp", 2), ("igmp", 3), ("tcp", 4), ("udp", 5), ("protocolId", 6)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpUseProtoType.setStatus('current')
-swCpuAclIpIcmpOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("type", 2), ("code", 3), ("type-code", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpIcmpOption.setStatus('current')
-swCpuAclIpIgmpOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpIgmpOption.setStatus('current')
-swCpuAclIpTcpOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-addr", 2), ("src-addr", 3), ("dst-src-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpTcpOption.setStatus('current')
-swCpuAclIpUdpOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-addr", 2), ("src-addr", 3), ("dst-src-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpUdpOption.setStatus('current')
-swCpuAclIpTCPorUDPSrcPortMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 12), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpTCPorUDPSrcPortMask.setStatus('current')
-swCpuAclIpTCPorUDPDstPortMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 13), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpTCPorUDPDstPortMask.setStatus('current')
-swCpuAclIpTCPFlagBit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpTCPFlagBit.setStatus('current')
-swCpuAclIpTCPFlagBitMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpTCPFlagBitMask.setStatus('current')
-swCpuAclIpProtoIDOption = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpProtoIDOption.setStatus('current')
-swCpuAclIpProtoID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpProtoID.setStatus('current')
-swCpuAclIpProtoIDMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 18), OctetString().subtype(subtypeSpec=ValueSizeConstraint(20, 20)).setFixedLength(20)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpProtoIDMask.setStatus('current')
-swCpuAclIpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 19), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRowStatus.setStatus('current')
-swCpuAclPktContMaskTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3), )
-if mibBuilder.loadTexts: swCpuAclPktContMaskTable.setStatus('current')
-swCpuAclPktContMaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swCpuAclPktContMaskProfileID"))
-if mibBuilder.loadTexts: swCpuAclPktContMaskEntry.setStatus('current')
-swCpuAclPktContMaskProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclPktContMaskProfileID.setStatus('current')
-swCpuAclPktContMaskOffset0to15 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContMaskOffset0to15.setStatus('current')
-swCpuAclPktContMaskOffset16to31 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContMaskOffset16to31.setStatus('current')
-swCpuAclPktContMaskOffset32to47 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContMaskOffset32to47.setStatus('current')
-swCpuAclPktContMaskOffset48to63 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContMaskOffset48to63.setStatus('current')
-swCpuAclPktContMaskOffset64to79 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContMaskOffset64to79.setStatus('current')
-swCpuAclPktContMaskRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContMaskRowStatus.setStatus('current')
-swCpuAclIpv6MaskTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4), )
-if mibBuilder.loadTexts: swCpuAclIpv6MaskTable.setStatus('current')
-swCpuAclIpv6MaskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swCpuAclIpv6MaskProfileID"))
-if mibBuilder.loadTexts: swCpuAclIpv6MaskEntry.setStatus('current')
-swCpuAclIpv6MaskProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclIpv6MaskProfileID.setStatus('current')
-swCpuAclIpv6MaskClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6MaskClass.setStatus('current')
-swCpuAclIpv6MaskFlowlabel = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6MaskFlowlabel.setStatus('current')
-swCpuAclIpv6IpAddrMaskState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("dst-ipv6-addr", 2), ("src-ipv6-addr", 3), ("dst-src-ipv6-addr", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6IpAddrMaskState.setStatus('current')
-swCpuAclIpv6MaskSrcIpv6Mask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 5), Ipv6Address()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6MaskSrcIpv6Mask.setStatus('current')
-swCpuAclIpv6MaskDstIpv6Mask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 6), Ipv6Address()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6MaskDstIpv6Mask.setStatus('current')
-swCpuAclIpv6MaskRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6MaskRowStatus.setStatus('current')
-swCpuACLMaskDelAllState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swCpuACLMaskDelAllState.setStatus('current')
-swCpuAclEtherRuleTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1), )
-if mibBuilder.loadTexts: swCpuAclEtherRuleTable.setStatus('current')
-swCpuAclEtherRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swCpuAclEtherRuleProfileID"), (0, "ACLMGMT-MIB", "swCpuAclEtherRuleAccessID"))
-if mibBuilder.loadTexts: swCpuAclEtherRuleEntry.setStatus('current')
-swCpuAclEtherRuleProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclEtherRuleProfileID.setStatus('current')
-swCpuAclEtherRuleAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclEtherRuleAccessID.setStatus('current')
-swCpuAclEtherRuleVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEtherRuleVlan.setStatus('current')
-swCpuAclEtherRuleSrcMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 4), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEtherRuleSrcMacAddress.setStatus('current')
-swCpuAclEtherRuleDstMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 5), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEtherRuleDstMacAddress.setStatus('current')
-swCpuAclEtherRule8021P = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEtherRule8021P.setStatus('current')
-swCpuAclEtherRuleEtherType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEtherRuleEtherType.setStatus('current')
-swCpuAclEtherRulePermit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEtherRulePermit.setStatus('current')
-swCpuAclEtherRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEtherRuleRowStatus.setStatus('current')
-swCpuAclEtherRulePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 10), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEtherRulePort.setStatus('current')
-swCpuAclEtherRuleMatchVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclEtherRuleMatchVID.setStatus('current')
-swCpuAclIpRuleTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2), )
-if mibBuilder.loadTexts: swCpuAclIpRuleTable.setStatus('current')
-swCpuAclIpRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swCpuAclIpRuleProfileID"), (0, "ACLMGMT-MIB", "swCpuAclIpRuleAccessID"))
-if mibBuilder.loadTexts: swCpuAclIpRuleEntry.setStatus('current')
-swCpuAclIpRuleProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclIpRuleProfileID.setStatus('current')
-swCpuAclIpRuleAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclIpRuleAccessID.setStatus('current')
-swCpuAclIpRuleVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleVlan.setStatus('current')
-swCpuAclIpRuleSrcIpaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 4), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleSrcIpaddress.setStatus('current')
-swCpuAclIpRuleDstIpaddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 5), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleDstIpaddress.setStatus('current')
-swCpuAclIpRuleDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleDscp.setStatus('current')
-swCpuAclIpRuleProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 1), ("icmp", 2), ("igmp", 3), ("tcp", 4), ("udp", 5), ("protocolId", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclIpRuleProtocol.setStatus('current')
-swCpuAclIpRuleType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleType.setStatus('current')
-swCpuAclIpRuleCode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleCode.setStatus('current')
-swCpuAclIpRuleSrcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleSrcPort.setStatus('current')
-swCpuAclIpRuleDstPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleDstPort.setStatus('current')
-swCpuAclIpRuleFlagBits = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleFlagBits.setStatus('current')
-swCpuAclIpRuleProtoID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleProtoID.setStatus('current')
-swCpuAclIpRuleUserMask = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 14), OctetString().subtype(subtypeSpec=ValueSizeConstraint(20, 20)).setFixedLength(20)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleUserMask.setStatus('current')
-swCpuAclIpRulePermit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRulePermit.setStatus('current')
-swCpuAclIpRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 16), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleRowStatus.setStatus('current')
-swCpuAclIpRulePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 17), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRulePort.setStatus('current')
-swCpuAclIpRuleMatchVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpRuleMatchVID.setStatus('current')
-swCpuAclPktContRuleTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3), )
-if mibBuilder.loadTexts: swCpuAclPktContRuleTable.setStatus('current')
-swCpuAclPktContRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swCpuAclPktContRuleProfileID"), (0, "ACLMGMT-MIB", "swCpuAclPktContRuleAccessID"))
-if mibBuilder.loadTexts: swCpuAclPktContRuleEntry.setStatus('current')
-swCpuAclPktContRuleProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclPktContRuleProfileID.setStatus('current')
-swCpuAclPktContRuleAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclPktContRuleAccessID.setStatus('current')
-swCpuAclPktContRuleOffset0to15 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContRuleOffset0to15.setStatus('current')
-swCpuAclPktContRuleOffset16to31 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContRuleOffset16to31.setStatus('current')
-swCpuAclPktContRuleOffset32to47 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContRuleOffset32to47.setStatus('current')
-swCpuAclPktContRuleOffset48to63 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContRuleOffset48to63.setStatus('current')
-swCpuAclPktContRuleOffset64to79 = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContRuleOffset64to79.setStatus('current')
-swCpuAclPktContRulePermit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContRulePermit.setStatus('current')
-swCpuAclPktContRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContRuleRowStatus.setStatus('current')
-swCpuAclPktContRulePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 10), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclPktContRulePort.setStatus('current')
-swCpuAclIpv6RuleTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4), )
-if mibBuilder.loadTexts: swCpuAclIpv6RuleTable.setStatus('current')
-swCpuAclIpv6RuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swCpuAclIpv6RuleProfileID"), (0, "ACLMGMT-MIB", "swCpuAclIpv6RuleAccessID"))
-if mibBuilder.loadTexts: swCpuAclIpv6RuleEntry.setStatus('current')
-swCpuAclIpv6RuleProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclIpv6RuleProfileID.setStatus('current')
-swCpuAclIpv6RuleAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swCpuAclIpv6RuleAccessID.setStatus('current')
-swCpuAclIpv6RuleClass = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6RuleClass.setStatus('current')
-swCpuAclIpv6RuleFlowlabel = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6RuleFlowlabel.setStatus('current')
-swCpuAclIpv6RuleSrcIpv6Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 5), Ipv6Address()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6RuleSrcIpv6Addr.setStatus('current')
-swCpuAclIpv6RuleDstIpv6Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 6), Ipv6Address()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6RuleDstIpv6Addr.setStatus('current')
-swCpuAclIpv6RulePermit = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6RulePermit.setStatus('current')
-swCpuAclIpv6RuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6RuleRowStatus.setStatus('current')
-swCpuAclIpv6RulePort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 9), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swCpuAclIpv6RulePort.setStatus('current')
-swAclMeterTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1), )
-if mibBuilder.loadTexts: swAclMeterTable.setStatus('current')
-swAclMeterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1), ).setIndexNames((0, "ACLMGMT-MIB", "swAclMeterProfileID"), (0, "ACLMGMT-MIB", "swAclMeterAccessID"))
-if mibBuilder.loadTexts: swAclMeterEntry.setStatus('current')
-swAclMeterProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swAclMeterProfileID.setStatus('current')
-swAclMeterAccessID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swAclMeterAccessID.setStatus('current')
-swAclMeterRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterRate.setStatus('current')
-swAclMeterActionForRateExceed = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("drop-packet", 2), ("set-drop-precedence", 3), ("remark-dscp", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterActionForRateExceed.setStatus('current')
-swAclMeterRemarkDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterRemarkDscp.setStatus('current')
-swAclMeterBurstSize = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterBurstSize.setStatus('current')
-swAclMeterMode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("tr-tcm", 2), ("sr-tcm", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterMode.setStatus('current')
-swAclMeterTrtcmCir = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 156249))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmCir.setStatus('current')
-swAclMeterTrtcmCbs = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16384))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmCbs.setStatus('current')
-swAclMeterTrtcmPir = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 156249))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmPir.setStatus('current')
-swAclMeterTrtcmPbs = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16384))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmPbs.setStatus('current')
-swAclMeterTrtcmColorMode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("color-blind", 1), ("color-aware", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmColorMode.setStatus('current')
-swAclMeterTrtcmConformState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("permit", 2), ("replace-dscp", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmConformState.setStatus('current')
-swAclMeterTrtcmConformReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmConformReplaceDscp.setStatus('current')
-swAclMeterTrtcmConformCounterState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmConformCounterState.setStatus('current')
-swAclMeterTrtcmExceedState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("permit", 2), ("replace-dscp", 3), ("drop", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmExceedState.setStatus('current')
-swAclMeterTrtcmExceedReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmExceedReplaceDscp.setStatus('current')
-swAclMeterTrtcmExceedCounterState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmExceedCounterState.setStatus('current')
-swAclMeterTrtcmViolateState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("permit", 2), ("replace-dscp", 3), ("drop", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmViolateState.setStatus('current')
-swAclMeterTrtcmViolateReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmViolateReplaceDscp.setStatus('current')
-swAclMeterTrtcmViolateCounterState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterTrtcmViolateCounterState.setStatus('current')
-swAclMeterSrtcmCir = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 156249))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmCir.setStatus('current')
-swAclMeterSrtcmCbs = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16384))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmCbs.setStatus('current')
-swAclMeterSrtcmEbs = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16384))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmEbs.setStatus('current')
-swAclMeterSrtcmColorMode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("color-blind", 1), ("color-aware", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmColorMode.setStatus('current')
-swAclMeterSrtcmConformState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("permit", 2), ("replace-dscp", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmConformState.setStatus('current')
-swAclMeterSrtcmConformReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmConformReplaceDscp.setStatus('current')
-swAclMeterSrtcmConformCounterState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmConformCounterState.setStatus('current')
-swAclMeterSrtcmExceedState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 29), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("permit", 2), ("replace-dscp", 3), ("drop", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmExceedState.setStatus('current')
-swAclMeterSrtcmExceedReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 30), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmExceedReplaceDscp.setStatus('current')
-swAclMeterSrtcmExceedCounterState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 31), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmExceedCounterState.setStatus('current')
-swAclMeterSrtcmViolateState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 32), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("permit", 2), ("replace-dscp", 3), ("drop", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmViolateState.setStatus('current')
-swAclMeterSrtcmViolateReplaceDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 33), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmViolateReplaceDscp.setStatus('current')
-swAclMeterSrtcmViolateCounterState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 34), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterSrtcmViolateCounterState.setStatus('current')
-swAclMeterRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 35), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swAclMeterRowStatus.setStatus('current')
-swAclMeteringNumOfEntryInUse = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swAclMeteringNumOfEntryInUse.setStatus('current')
-mibBuilder.exportSymbols("ACLMGMT-MIB", swACLIpv6RuleEnablePriority=swACLIpv6RuleEnablePriority, swAclMeterBurstSize=swAclMeterBurstSize, swACLPktContMaskOffsetChunk4Mask=swACLPktContMaskOffsetChunk4Mask, swACLPktContMaskOptionProfileID=swACLPktContMaskOptionProfileID, swAclMeterSrtcmExceedCounterState=swAclMeterSrtcmExceedCounterState, swACLEtherRuleMatchVID=swACLEtherRuleMatchVID, swACLIpRuleSrcPort=swACLIpRuleSrcPort, swACLPktContRuleOption2OffsetsData=swACLPktContRuleOption2OffsetsData, swACLPktContRuleOption2Priority=swACLPktContRuleOption2Priority, swACLEthernetUsevlan=swACLEthernetUsevlan, swIBPACLIpRuleAccessID=swIBPACLIpRuleAccessID, swACLPktContMaskTable=swACLPktContMaskTable, swIBPACLEtherRuleEtherType=swIBPACLEtherRuleEtherType, swCpuAclIpv6MaskTable=swCpuAclIpv6MaskTable, swCpuAclPktContRuleProfileID=swCpuAclPktContRuleProfileID, swACLCounterYellowCounter=swACLCounterYellowCounter, swACLPktContRulePort=swACLPktContRulePort, swACLPktContRuleVID=swACLPktContRuleVID, swACLIpRuleAccessID=swACLIpRuleAccessID, swCpuAclIpTCPFlagBitMask=swCpuAclIpTCPFlagBitMask, swACLEthernetProfileName=swACLEthernetProfileName, swACLPktContRuleOption2RowStatus=swACLPktContRuleOption2RowStatus, swACLEtherRuleEnableReplaceDscp=swACLEtherRuleEnableReplaceDscp, swACLPktContMaskOffset48to63=swACLPktContMaskOffset48to63, swCpuAclEthernetDstMacAddrMask=swCpuAclEthernetDstMacAddrMask, swACLEtherRuleAccessID=swACLEtherRuleAccessID, swACLIpProfileName=swACLIpProfileName, swIBPACLEtherRulePort=swIBPACLEtherRulePort, swACLPktContRuleOffsetChunk1Content=swACLPktContRuleOffsetChunk1Content, swACLPktContRuleOption2CTag=swACLPktContRuleOption2CTag, swCpuAclIpProtoIDMask=swCpuAclIpProtoIDMask, swACLIpRuleSrcIpaddress=swACLIpRuleSrcIpaddress, swACLIpRuleVlan=swACLIpRuleVlan, swACLPktContMaskOption2Owner=swACLPktContMaskOption2Owner, swACLIpSrcIpAddrMask=swACLIpSrcIpAddrMask, swACLPktContRuleOptionEnablePriority=swACLPktContRuleOptionEnablePriority, swACLIpRuleMaskSrcPort=swACLIpRuleMaskSrcPort, swACLPktContRuleOption2OffsetsEntry=swACLPktContRuleOption2OffsetsEntry, swACLPktContRuleOptionVID=swACLPktContRuleOptionVID, swCpuAclPktContRuleTable=swCpuAclPktContRuleTable, swCpuAclPktContRuleOffset48to63=swCpuAclPktContRuleOffset48to63, swAclMeterEntry=swAclMeterEntry, swAclMeterRemarkDscp=swAclMeterRemarkDscp, swACLPktContRuleOption2=swACLPktContRuleOption2, swAclMeterTrtcmCbs=swAclMeterTrtcmCbs, swAclMeterTrtcmConformCounterState=swAclMeterTrtcmConformCounterState, swACLIpv6MaskSrcIpv6Mask=swACLIpv6MaskSrcIpv6Mask, swACLPktContMaskOptionProfileName=swACLPktContMaskOptionProfileName, swACLPktContMaskOptionTable=swACLPktContMaskOptionTable, swCpuAclIpTCPFlagBit=swCpuAclIpTCPFlagBit, swACLEtherRuleVlan=swACLEtherRuleVlan, swACLIpRuleCode=swACLIpRuleCode, swCpuAclEthernetUseEthernetType=swCpuAclEthernetUseEthernetType, swAclMeterSrtcmExceedState=swAclMeterSrtcmExceedState, swACLIpRulePort=swACLIpRulePort, swACLIpv6RuleVID=swACLIpv6RuleVID, swIBPACLIpRulePort=swIBPACLIpRulePort, swACLIpRuleFlagBits=swACLIpRuleFlagBits, swCpuInterfacefilterState=swCpuInterfacefilterState, swIBPACLIpRuleTable=swIBPACLIpRuleTable, swCpuAclIpUdpOption=swCpuAclIpUdpOption, swCpuAclIpUseProtoType=swCpuAclIpUseProtoType, swACLPktContRuleOptionProfileID=swACLPktContRuleOptionProfileID, swAclMeteringMgmt=swAclMeteringMgmt, swACLEtherRuleRowStatus=swACLEtherRuleRowStatus, swCpuAclIpv6RuleDstIpv6Addr=swCpuAclIpv6RuleDstIpv6Addr, swACLIpRuleTable=swACLIpRuleTable, swACLPktContMaskOffsetChunk2OffsetValue=swACLPktContMaskOffsetChunk2OffsetValue, swACLPktContMaskRowStatus=swACLPktContMaskRowStatus, swCpuAclIpUseDSCP=swCpuAclIpUseDSCP, swCpuAclEtherRuleVlan=swCpuAclEtherRuleVlan, swCpuAclPktContRulePort=swCpuAclPktContRulePort, swACLIpUnusedRuleEntries=swACLIpUnusedRuleEntries, swCpuAclIpRuleProfileID=swCpuAclIpRuleProfileID, swCpuAclPktContRulePermit=swCpuAclPktContRulePermit, swACLPktContRuleOption2Table=swACLPktContRuleOption2Table, swACLEtherRulePermit=swACLEtherRulePermit, swACLIpv6MaskTCPorUDPSrcPortMask=swACLIpv6MaskTCPorUDPSrcPortMask, swACLPktContRuleOption2RepDscp=swACLPktContRuleOption2RepDscp, swACLIpRulePermit=swACLIpRulePermit, swCpuAclPktContRuleAccessID=swCpuAclPktContRuleAccessID, swACLIpv6MaskRowStatus=swACLIpv6MaskRowStatus, swCpuAclPktContRuleOffset16to31=swCpuAclPktContRuleOffset16to31, swACLEtherRuleProfileID=swACLEtherRuleProfileID, swACLIpIgmpOption=swACLIpIgmpOption, swACLIpRuleMaskDstIpaddress=swACLIpRuleMaskDstIpaddress, swACLPktContRuleOptionReplacePriority=swACLPktContRuleOptionReplacePriority, swACLPktContMaskOption2=swACLPktContMaskOption2, swACLIpv6MaskTcpOption=swACLIpv6MaskTcpOption, swACLPktContMaskOffset32to47=swACLPktContMaskOffset32to47, swACLPktContMaskOption2OffsetsProfileID=swACLPktContMaskOption2OffsetsProfileID, swACLIpRuleRxRate=swACLIpRuleRxRate, swAclMeterTrtcmExceedCounterState=swAclMeterTrtcmExceedCounterState, swACLPktContMaskOptionEntry=swACLPktContMaskOptionEntry, swACLIpRuleMatchVID=swACLIpRuleMatchVID, swCpuAclIpv6MaskDstIpv6Mask=swCpuAclIpv6MaskDstIpv6Mask, swAclMeterRate=swAclMeterRate, swACLEthernetVlanMask=swACLEthernetVlanMask, swACLPktContMaskOption2SrcMac=swACLPktContMaskOption2SrcMac, swACLPktContMaskOption2CTag=swACLPktContMaskOption2CTag, swCpuAclPktContMaskOffset48to63=swCpuAclPktContMaskOffset48to63, swIBPACLIpTable=swIBPACLIpTable, swACLPktContRuleOffsetChunk2Content=swACLPktContRuleOffsetChunk2Content, swACLIpRuleOwner=swACLIpRuleOwner, swACLPktContRuleOption2OffsetsTable=swACLPktContRuleOption2OffsetsTable, swACLEtherRule8021P=swACLEtherRule8021P, swCpuAclIpRuleType=swCpuAclIpRuleType, swCpuAclIpv6RuleRowStatus=swCpuAclIpv6RuleRowStatus, swACLPktContMaskOffsetChunk1Mask=swACLPktContMaskOffsetChunk1Mask, swCpuAclIpv6RulePermit=swCpuAclIpv6RulePermit, swACLIpv6MaskUseProtoType=swACLIpv6MaskUseProtoType, swCpuAclIpRuleFlagBits=swCpuAclIpRuleFlagBits, swACLPktContRuleOptionEntry=swACLPktContRuleOptionEntry, swACLPktContRuleOption2STag=swACLPktContRuleOption2STag, swAclMeterSrtcmViolateCounterState=swAclMeterSrtcmViolateCounterState, swAclMeterMode=swAclMeterMode, swCpuAclPktContRuleOffset32to47=swCpuAclPktContRuleOffset32to47, swACLIpRuleMaskDstPort=swACLIpRuleMaskDstPort, swACLEtherRuleVID=swACLEtherRuleVID, swACLEtherRuleMaskVlan=swACLEtherRuleMaskVlan, swACLIpv6MaskDstIpv6Mask=swACLIpv6MaskDstIpv6Mask, swACLPktContMaskOffset16to31=swACLPktContMaskOffset16to31, Ipv6Address=Ipv6Address, swACLPktContMaskOption2OffsetsValue=swACLPktContMaskOption2OffsetsValue, swACLIpv6RuleClass=swACLIpv6RuleClass, swAclMeterTrtcmPir=swAclMeterTrtcmPir, swACLCounterEntry=swACLCounterEntry, swCpuAclIpTcpOption=swCpuAclIpTcpOption, swACLPktContRuleOption2OffsetsAccessID=swACLPktContRuleOption2OffsetsAccessID, swCpuAclIpProfileID=swCpuAclIpProfileID, swACLPktContRuleReplacePriority=swACLPktContRuleReplacePriority, swACLPktContRuleOption2AccessID=swACLPktContRuleOption2AccessID, swACLPktContRuleOption2Entry=swACLPktContRuleOption2Entry, swACLPktContRuleOption2OffsetsNum=swACLPktContRuleOption2OffsetsNum, swACLPktContRuleOffsetChunk3Content=swACLPktContRuleOffsetChunk3Content, swACLIpProtoID=swACLIpProtoID, swACLMaskDelAllState=swACLMaskDelAllState, swAclMeterProfileID=swAclMeterProfileID, swAclRuleMgmt=swAclRuleMgmt, swACLIpTCPorUDPDstPortMask=swACLIpTCPorUDPDstPortMask, swAclMeterTrtcmConformReplaceDscp=swAclMeterTrtcmConformReplaceDscp, swACLPktContRuleAccessID=swACLPktContRuleAccessID, swACLPktContMaskOption2ProfileID=swACLPktContMaskOption2ProfileID, swACLEthernetUse8021p=swACLEthernetUse8021p, swACLIpVlanMask=swACLIpVlanMask, swACLIpRuleEnableReplaceTosPrecedence=swACLIpRuleEnableReplaceTosPrecedence, swACLIpv6RuleProfileID=swACLIpv6RuleProfileID, swACLPktContMaskOptionUnusedRuleEntries=swACLPktContMaskOptionUnusedRuleEntries, swCpuAclIpDstIpAddrMask=swCpuAclIpDstIpAddrMask, swCpuAclEtherRuleSrcMacAddress=swCpuAclEtherRuleSrcMacAddress, swCpuAclIpRuleDstPort=swCpuAclIpRuleDstPort, swACLPktContRuleOption2Permit=swACLPktContRuleOption2Permit, swCpuAclEthernetUsevlan=swCpuAclEthernetUsevlan, swAclMeterSrtcmColorMode=swAclMeterSrtcmColorMode, swAclMeterTrtcmViolateReplaceDscp=swAclMeterTrtcmViolateReplaceDscp, swACLIpRuleProtocol=swACLIpRuleProtocol, swCpuAclEtherRuleEtherType=swCpuAclEtherRuleEtherType, swCpuAclIpv6MaskSrcIpv6Mask=swCpuAclIpv6MaskSrcIpv6Mask, swACLIpv6RuleMaskSrcIpv6Addr=swACLIpv6RuleMaskSrcIpv6Addr, swCpuAclIpEntry=swCpuAclIpEntry, swACLPktContMaskUnusedRuleEntries=swACLPktContMaskUnusedRuleEntries, swIBPACLIpRuleSrcIpaddress=swIBPACLIpRuleSrcIpaddress, swCpuAclEthernetMacAddrMaskState=swCpuAclEthernetMacAddrMaskState, swACLPktContRuleOptionAccessID=swACLPktContRuleOptionAccessID, swCpuAclPktContMaskTable=swCpuAclPktContMaskTable, swACLIpRuleEnablePriority=swACLIpRuleEnablePriority, swACLIpTable=swACLIpTable, swACLPktContRulePermit=swACLPktContRulePermit, swACLEtherRuleMaskSrcMacAddress=swACLEtherRuleMaskSrcMacAddress, swIBPACLIpProfileID=swIBPACLIpProfileID, swACLIpOwner=swACLIpOwner, swIBPACLIpRuleEntry=swIBPACLIpRuleEntry, swAclMeterSrtcmCbs=swAclMeterSrtcmCbs, swACLIpv6MaskUnusedRuleEntries=swACLIpv6MaskUnusedRuleEntries, swACLPktContRuleProfileID=swACLPktContRuleProfileID, swACLPktContMaskOffsetChunk1OffsetValue=swACLPktContMaskOffsetChunk1OffsetValue, swACLIpUsevlan=swACLIpUsevlan, swACLIpv6MaskProfileName=swACLIpv6MaskProfileName, swACLPktContRuleRxRate=swACLPktContRuleRxRate, swCpuAclEtherRule8021P=swCpuAclEtherRule8021P, PYSNMP_MODULE_ID=swAclMgmtMIB, swACLIpRuleType=swACLIpRuleType, swCpuAclPktContMaskOffset32to47=swCpuAclPktContMaskOffset32to47, swCpuAclEtherRuleRowStatus=swCpuAclEtherRuleRowStatus, swACLIpRuleVID=swACLIpRuleVID, swCpuAclPktContRuleOffset64to79=swCpuAclPktContRuleOffset64to79, swIBPACLIpSrcIpAddrMask=swIBPACLIpSrcIpAddrMask, swCpuAclIpRulePort=swCpuAclIpRulePort, swACLEtherRuleOwner=swACLEtherRuleOwner, swACLPktContRuleOffset32to47=swACLPktContRuleOffset32to47, swACLPktContRuleOffsetChunk4OffsetValue=swACLPktContRuleOffsetChunk4OffsetValue, swACLEtherRuleEnableReplaceTosPrecedence=swACLEtherRuleEnableReplaceTosPrecedence, swACLPktContRuleOption2Port=swACLPktContRuleOption2Port, swACLEthernetProfileID=swACLEthernetProfileID, swACLPktContRuleOwner=swACLPktContRuleOwner, swACLPktContMaskOffsetChunk3OffsetValue=swACLPktContMaskOffsetChunk3OffsetValue, swACLEtherRulePriority=swACLEtherRulePriority, swCpuAclIpRuleAccessID=swCpuAclIpRuleAccessID, swACLIpv6RuleDstIpv6Addr=swACLIpv6RuleDstIpv6Addr, swIBPACLIpRulePermit=swIBPACLIpRulePermit, swACLEtherRuleRepTosPrecedence=swACLEtherRuleRepTosPrecedence, swACLCounterTable=swACLCounterTable, swACLPktContRuleOption2ReplacePriority=swACLPktContRuleOption2ReplacePriority, swACLEtherRuleRxRate=swACLEtherRuleRxRate, swAclMeterTrtcmViolateCounterState=swAclMeterTrtcmViolateCounterState, swACLIpRuleDstIpaddress=swACLIpRuleDstIpaddress, swCpuAclIpRuleSrcIpaddress=swCpuAclIpRuleSrcIpaddress, swIBPACLIpRuleProfileID=swIBPACLIpRuleProfileID, swACLPktContRuleOption2SrcMac=swACLPktContRuleOption2SrcMac, swACLEthernetUseEthernetType=swACLEthernetUseEthernetType, swAclMeterTrtcmExceedReplaceDscp=swAclMeterTrtcmExceedReplaceDscp, swACLEthernetMacAddrMaskState=swACLEthernetMacAddrMaskState, swACLIpRuleMaskSrcIpaddress=swACLIpRuleMaskSrcIpaddress, swACLIpEntry=swACLIpEntry, swACLIpRuleReplacePriority=swACLIpRuleReplacePriority, swAclMeterTable=swAclMeterTable, swACLPktContRuleOptionPriority=swACLPktContRuleOptionPriority, swAclMeterTrtcmConformState=swAclMeterTrtcmConformState, swACLIpUseDSCP=swACLIpUseDSCP, swCpuAclIpRuleVlan=swCpuAclIpRuleVlan, swACLIpRowStatus=swACLIpRowStatus, swCpuAclPktContMaskOffset64to79=swCpuAclPktContMaskOffset64to79, swACLPktContRuleOffsetChunk2OffsetValue=swACLPktContRuleOffsetChunk2OffsetValue, swACLPktContRuleOptionEnableReplaceTosPrecedence=swACLPktContRuleOptionEnableReplaceTosPrecedence, swACLPktContRuleOption2OffsetsRowStatus=swACLPktContRuleOption2OffsetsRowStatus, swACLPktContMaskOption2Table=swACLPktContMaskOption2Table, swACLIpProtoIDMask=swACLIpProtoIDMask, swACLPktContMaskEntry=swACLPktContMaskEntry, swACLIpDstIpAddrMask=swACLIpDstIpAddrMask, swCpuAclIpv6RulePort=swCpuAclIpv6RulePort, swACLPktContRuleOptionPermit=swACLPktContRuleOptionPermit, swIBPACLEthernetUseEthernetType=swIBPACLEthernetUseEthernetType, swACLPktContRuleOffset0to15=swACLPktContRuleOffset0to15, swACLIpv6RuleEnableReplaceDscp=swACLIpv6RuleEnableReplaceDscp, swCpuAclPktContRuleOffset0to15=swCpuAclPktContRuleOffset0to15, swIBPACLEthernetTable=swIBPACLEthernetTable, swCpuAclIpv6MaskRowStatus=swCpuAclIpv6MaskRowStatus, swACLPktContRuleOption2MaskDstMac=swACLPktContRuleOption2MaskDstMac, swIBPACLIpEntry=swIBPACLIpEntry, swACLPktContMaskOptionRowStatus=swACLPktContMaskOptionRowStatus, swACLPktContMaskOffsetChunk2Mask=swACLPktContMaskOffsetChunk2Mask, swAclMgmtMIB=swAclMgmtMIB, swCpuAclIpIcmpOption=swCpuAclIpIcmpOption, swCpuAclIpRuleDscp=swCpuAclIpRuleDscp, swACLCounterState=swACLCounterState, swACLIpRuleMaskVlan=swACLIpRuleMaskVlan, swACLPktContMaskOptionOwner=swACLPktContMaskOptionOwner, swCpuAclEtherRulePermit=swCpuAclEtherRulePermit, swACLIpRuleProtoID=swACLIpRuleProtoID, swACLIpRuleRepDscp=swACLIpRuleRepDscp, swACLPktContRuleOptionRepDscp=swACLPktContRuleOptionRepDscp, swIBPACLIpSrcMacAddrMask=swIBPACLIpSrcMacAddrMask, swACLPktContRulePriority=swACLPktContRulePriority, swACLIpTCPFlagBit=swACLIpTCPFlagBit)
-mibBuilder.exportSymbols("ACLMGMT-MIB", swACLIpv6MaskFlowlabel=swACLIpv6MaskFlowlabel, swACLPktContMaskOffsetChunk3State=swACLPktContMaskOffsetChunk3State, swCpuAclIpRuleTable=swCpuAclIpRuleTable, swACLIpv6RuleFlowlabel=swACLIpv6RuleFlowlabel, swACLPktContRuleRepDscp=swACLPktContRuleRepDscp, swACLPktContRuleOffsetChunk1OffsetValue=swACLPktContRuleOffsetChunk1OffsetValue, swACLPktContRuleOptionOwner=swACLPktContRuleOptionOwner, swACLEtherRuleSrcMacAddress=swACLEtherRuleSrcMacAddress, swCpuAclIpRuleProtocol=swCpuAclIpRuleProtocol, swAclMeteringNumOfEntryInUse=swAclMeteringNumOfEntryInUse, swCpuAclIpv6RuleTable=swCpuAclIpv6RuleTable, swCpuAclIpv6MaskProfileID=swCpuAclIpv6MaskProfileID, swACLIpv6RuleRepDscp=swACLIpv6RuleRepDscp, swACLEthernetEntry=swACLEthernetEntry, swACLPktContRuleOption2RepTosPrecedence=swACLPktContRuleOption2RepTosPrecedence, swACLIpRuleRepTosPrecedence=swACLIpRuleRepTosPrecedence, swACLEthernetRowStatus=swACLEthernetRowStatus, swACLEtherRuleEtherType=swACLEtherRuleEtherType, swCpuAclIpRulePermit=swCpuAclIpRulePermit, swAclMeterSrtcmCir=swAclMeterSrtcmCir, swCpuAclIpRuleEntry=swCpuAclIpRuleEntry, swACLIpRuleDscp=swACLIpRuleDscp, swCpuAclIpRuleUserMask=swCpuAclIpRuleUserMask, swACLEtherRulePort=swACLEtherRulePort, swACLIpIcmpOption=swACLIpIcmpOption, swAclMeterActionForRateExceed=swAclMeterActionForRateExceed, swACLPktContRuleOffsetChunk3OffsetValue=swACLPktContRuleOffsetChunk3OffsetValue, swACLIpv6MaskProfileID=swACLIpv6MaskProfileID, swACLEtherRuleMaskDstMacAddress=swACLEtherRuleMaskDstMacAddress, swCpuAclIpv6RuleFlowlabel=swCpuAclIpv6RuleFlowlabel, swACLIpSrcMacAddrMask=swACLIpSrcMacAddrMask, swCpuAclPktContMaskOffset16to31=swCpuAclPktContMaskOffset16to31, swACLPktContMaskOption2OffsetsMask=swACLPktContMaskOption2OffsetsMask, swACLPktContRuleOption2MaskSrcMac=swACLPktContRuleOption2MaskSrcMac, swACLIpTCPFlagBitMask=swACLIpTCPFlagBitMask, swACLIpv6MaskOwner=swACLIpv6MaskOwner, swCpuAclIpRowStatus=swCpuAclIpRowStatus, swAclMeterSrtcmConformState=swAclMeterSrtcmConformState, swCpuAclEtherRuleAccessID=swCpuAclEtherRuleAccessID, swACLPktContRuleOffset16to31=swACLPktContRuleOffset16to31, swACLPktContMaskOffset64to79=swACLPktContMaskOffset64to79, swACLPktContMaskOffset0to15=swACLPktContMaskOffset0to15, swACLEtherRuleDstMacAddress=swACLEtherRuleDstMacAddress, swACLPktContRuleOption2OffsetsMask=swACLPktContRuleOption2OffsetsMask, swACLIpv6RuleMaskSrcPort=swACLIpv6RuleMaskSrcPort, swCpuAclPktContMaskEntry=swCpuAclPktContMaskEntry, swAclMeterSrtcmConformReplaceDscp=swAclMeterSrtcmConformReplaceDscp, swACLPktContRuleOption2EnableReplaceTosPrecedence=swACLPktContRuleOption2EnableReplaceTosPrecedence, swACLPktContRuleEnableReplaceTosPrecedence=swACLPktContRuleEnableReplaceTosPrecedence, swACLIpRuleDstPort=swACLIpRuleDstPort, swACLPktContRuleRowStatus=swACLPktContRuleRowStatus, swAclMeterTrtcmExceedState=swAclMeterTrtcmExceedState, swACLPktContRuleEnablePriority=swACLPktContRuleEnablePriority, swACLEtherRuleReplacePriority=swACLEtherRuleReplacePriority, PortList=PortList, swACLIpv6RulePriority=swACLIpv6RulePriority, swACLPktContMaskOption2OffsetsTable=swACLPktContMaskOption2OffsetsTable, swAclMeterTrtcmViolateState=swAclMeterTrtcmViolateState, swACLPktContRuleEnableReplaceDscp=swACLPktContRuleEnableReplaceDscp, swCpuAclIpRuleMatchVID=swCpuAclIpRuleMatchVID, swCpuAclIpRuleRowStatus=swCpuAclIpRuleRowStatus, swACLIpv6RuleMaskDstPort=swACLIpv6RuleMaskDstPort, swACLIpTCPorUDPSrcPortMask=swACLIpTCPorUDPSrcPortMask, swCpuAclIpTable=swCpuAclIpTable, swACLPktContMaskOption2DstMac=swACLPktContMaskOption2DstMac, swCpuAclEtherRuleMatchVID=swCpuAclEtherRuleMatchVID, swAclMeterSrtcmViolateReplaceDscp=swAclMeterSrtcmViolateReplaceDscp, swACLPktContRuleOption2MaskCTag=swACLPktContRuleOption2MaskCTag, swACLPktContMaskOffsetChunk4State=swACLPktContMaskOffsetChunk4State, swACLCounterTotalCounter=swACLCounterTotalCounter, swCpuAclIpSrcIpAddrMask=swCpuAclIpSrcIpAddrMask, swCpuAclEthernetProfileID=swCpuAclEthernetProfileID, swACLIpv6MaskTable=swACLIpv6MaskTable, swACLIpUseProtoType=swACLIpUseProtoType, swACLEthernetOwner=swACLEthernetOwner, swACLIpv6RuleDstPort=swACLIpv6RuleDstPort, swCpuAclIpv6RuleProfileID=swCpuAclIpv6RuleProfileID, swACLPktContRuleOptionTable=swACLPktContRuleOptionTable, swCpuAclMaskMgmt=swCpuAclMaskMgmt, swACLPktContMaskProfileID=swACLPktContMaskProfileID, swACLPktContRuleOption2ProfileID=swACLPktContRuleOption2ProfileID, swCpuAclRuleMgmt=swCpuAclRuleMgmt, swACLPktContRuleOption2DstMac=swACLPktContRuleOption2DstMac, swACLIpv6RulePort=swACLIpv6RulePort, swCpuAclEthernetUse8021p=swCpuAclEthernetUse8021p, swCpuAclIpv6IpAddrMaskState=swCpuAclIpv6IpAddrMaskState, swAclMeterTrtcmPbs=swAclMeterTrtcmPbs, swACLIpv6RuleEnableReplaceTosPrecedence=swACLIpv6RuleEnableReplaceTosPrecedence, swACLTotalUnusedRuleEntries=swACLTotalUnusedRuleEntries, swACLEtherRuleRepDscp=swACLEtherRuleRepDscp, swCpuAclIpRuleSrcPort=swCpuAclIpRuleSrcPort, swAclMeterSrtcmEbs=swAclMeterSrtcmEbs, swCpuAclEthernetTable=swCpuAclEthernetTable, swAclMeterSrtcmViolateState=swAclMeterSrtcmViolateState, swACLPktContMaskOption2OffsetsRowStatus=swACLPktContMaskOption2OffsetsRowStatus, swACLPktContRuleOption2VID=swACLPktContRuleOption2VID, swCpuAclIpRuleProtoID=swCpuAclIpRuleProtoID, swACLIpv6RuleOwner=swACLIpv6RuleOwner, swCpuAclEtherRuleEntry=swCpuAclEtherRuleEntry, swIBPACLEtherRuleProfileID=swIBPACLEtherRuleProfileID, swCpuAclEtherRuleProfileID=swCpuAclEtherRuleProfileID, swACLIpv6RuleSrcPort=swACLIpv6RuleSrcPort, swACLIpv6IpAddrMaskState=swACLIpv6IpAddrMaskState, swACLEtherRuleEnablePriority=swACLEtherRuleEnablePriority, swIBPACLEtherRuleTable=swIBPACLEtherRuleTable, swACLEthernetUnusedRuleEntries=swACLEthernetUnusedRuleEntries, swACLPktContMaskOption2OffsetsEntry=swACLPktContMaskOption2OffsetsEntry, swCpuAclIpRuleDstIpaddress=swCpuAclIpRuleDstIpaddress, swCpuAclEthernetSrcMacAddrMask=swCpuAclEthernetSrcMacAddrMask, swCpuAclIpTCPorUDPSrcPortMask=swCpuAclIpTCPorUDPSrcPortMask, swCpuAclEtherRuleDstMacAddress=swCpuAclEtherRuleDstMacAddress, swACLIpProtoIDOption=swACLIpProtoIDOption, swACLPktContRuleRepTosPrecedence=swACLPktContRuleRepTosPrecedence, swACLIpRuleSrcMacAddress=swACLIpRuleSrcMacAddress, swACLIpv6RuleRxRate=swACLIpv6RuleRxRate, swACLEthernetDstMacAddrMask=swACLEthernetDstMacAddrMask, swACLPktContMaskOption2ProfileName=swACLPktContMaskOption2ProfileName, swACLPktContRuleOptionPort=swACLPktContRuleOptionPort, swACLPktContMaskOffsetChunk1State=swACLPktContMaskOffsetChunk1State, swCpuAclIpProtoIDOption=swCpuAclIpProtoIDOption, swCpuACLMaskDelAllState=swCpuACLMaskDelAllState, swAclMeterSrtcmExceedReplaceDscp=swAclMeterSrtcmExceedReplaceDscp, swCpuAclIpv6RuleClass=swCpuAclIpv6RuleClass, swACLEthernetSrcMacAddrMask=swACLEthernetSrcMacAddrMask, swACLPktContMaskOffsetChunk4OffsetValue=swACLPktContMaskOffsetChunk4OffsetValue, swACLCounterAccessID=swACLCounterAccessID, swACLCounterRedCounter=swACLCounterRedCounter, swCpuAclEthernetRowStatus=swCpuAclEthernetRowStatus, swACLIpv6RuleAccessID=swACLIpv6RuleAccessID, swACLIpRuleProfileID=swACLIpRuleProfileID, swACLPktContMaskOption2RowStatus=swACLPktContMaskOption2RowStatus, swCpuAclIpTCPorUDPDstPortMask=swCpuAclIpTCPorUDPDstPortMask, swAclMaskMgmt=swAclMaskMgmt, swACLPktContMaskOption2OffsetsNum=swACLPktContMaskOption2OffsetsNum, swCpuAclIpv6RuleSrcIpv6Addr=swCpuAclIpv6RuleSrcIpv6Addr, swACLPktContMaskOption2STag=swACLPktContMaskOption2STag, swAclMeterAccessID=swAclMeterAccessID, swACLIpv6RuleSrcIpv6Addr=swACLIpv6RuleSrcIpv6Addr, swIBPACLIpRuleSrcMacAddress=swIBPACLIpRuleSrcMacAddress, swIBPACLEtherRuleAccessID=swIBPACLEtherRuleAccessID, swACLIpv6MaskEntry=swACLIpv6MaskEntry, swCpuAclEtherRulePort=swCpuAclEtherRulePort, swCpuAclIpv6MaskFlowlabel=swCpuAclIpv6MaskFlowlabel, swACLEthernetTable=swACLEthernetTable, swAclMeterSrtcmConformCounterState=swAclMeterSrtcmConformCounterState, swACLCounterGreenCounter=swACLCounterGreenCounter, swACLIpTcpOption=swACLIpTcpOption, swACLEtherRuleEntry=swACLEtherRuleEntry, swCpuAclIpIpAddrMaskState=swCpuAclIpIpAddrMaskState, swACLPktContRuleOptionRepTosPrecedence=swACLPktContRuleOptionRepTosPrecedence, swCpuAclPktContMaskProfileID=swCpuAclPktContMaskProfileID, swCpuAclIpUsevlan=swCpuAclIpUsevlan, swACLPktContMaskOption2OffsetsReference=swACLPktContMaskOption2OffsetsReference, swACLIpRuleRowStatus=swACLIpRuleRowStatus, swAclMeterTrtcmColorMode=swAclMeterTrtcmColorMode, swACLPktContRuleEntry=swACLPktContRuleEntry, swCpuAclEthernetEntry=swCpuAclEthernetEntry, swACLPktContRuleOption2MaskSTag=swACLPktContRuleOption2MaskSTag, swACLEtherRuleTable=swACLEtherRuleTable, swACLPktContRuleOffsetChunk4Content=swACLPktContRuleOffsetChunk4Content, swCpuAclIpv6RuleEntry=swCpuAclIpv6RuleEntry, swACLPktContRuleOptionRxRate=swACLPktContRuleOptionRxRate, swACLIpv6RuleReplacePriority=swACLIpv6RuleReplacePriority, swACLIpv6MaskClass=swACLIpv6MaskClass, swACLPktContRuleTable=swACLPktContRuleTable, swCpuAclIpv6MaskClass=swCpuAclIpv6MaskClass, swACLPktContMaskProfileName=swACLPktContMaskProfileName, swACLPktContRuleOptionEnableReplaceDscp=swACLPktContRuleOptionEnableReplaceDscp, swACLIpRuleEntry=swACLIpRuleEntry, swACLIpProfileID=swACLIpProfileID, swACLPktContRuleOptionRowStatus=swACLPktContRuleOptionRowStatus, swACLPktContRuleOption2EnableReplaceDscp=swACLPktContRuleOption2EnableReplaceDscp, swCpuAclPktContRuleEntry=swCpuAclPktContRuleEntry, swACLIpRulePriority=swACLIpRulePriority, swCpuAclIpIgmpOption=swCpuAclIpIgmpOption, swACLIpRuleUserMask=swACLIpRuleUserMask, swACLIpv6MaskUdpOption=swACLIpv6MaskUdpOption, swACLIpv6RuleTable=swACLIpv6RuleTable, swCpuAclEtherRuleTable=swCpuAclEtherRuleTable, swCpuAclPktContMaskRowStatus=swCpuAclPktContMaskRowStatus, swACLPktContMaskOffsetChunk3Mask=swACLPktContMaskOffsetChunk3Mask, swACLCounterProfileID=swACLCounterProfileID, swACLPktContMaskOption2UnusedRuleEntries=swACLPktContMaskOption2UnusedRuleEntries, swCpuAclPktContRuleRowStatus=swCpuAclPktContRuleRowStatus, swACLIpRuleEnableReplaceDscp=swACLIpRuleEnableReplaceDscp, swCpuAclIpRuleCode=swCpuAclIpRuleCode, swACLIpv6RuleMaskDstIpv6Addr=swACLIpv6RuleMaskDstIpv6Addr, swACLTotalUsedRuleEntries=swACLTotalUsedRuleEntries, swIBPACLEtherRuleEntry=swIBPACLEtherRuleEntry, swACLPktContMaskOwner=swACLPktContMaskOwner, swACLPktContRuleOption2EnablePriority=swACLPktContRuleOption2EnablePriority, swCpuAclIpProtoID=swCpuAclIpProtoID, swCpuAclPktContMaskOffset0to15=swCpuAclPktContMaskOffset0to15, swIBPACLEthernetProfileID=swIBPACLEthernetProfileID, swACLIpv6RuleRepTosPrecedence=swACLIpv6RuleRepTosPrecedence, swACLPktContRuleOffset64to79=swACLPktContRuleOffset64to79, swIBPACLEtherRulePermit=swIBPACLEtherRulePermit, swAclMeterRowStatus=swAclMeterRowStatus, swACLPktContMaskOption2Entry=swACLPktContMaskOption2Entry, swACLIpv6RulePermit=swACLIpv6RulePermit, swACLIpUdpOption=swACLIpUdpOption, swAclCtrl=swAclCtrl, swACLIpv6RuleProtocol=swACLIpv6RuleProtocol, swACLIpv6MaskTCPorUDPDstPortMask=swACLIpv6MaskTCPorUDPDstPortMask, swACLPktContRuleOption2OffsetsProfileID=swACLPktContRuleOption2OffsetsProfileID, swAclMeterTrtcmCir=swAclMeterTrtcmCir, swACLPktContRuleOption2Owner=swACLPktContRuleOption2Owner, swIBPACLEthernetEntry=swIBPACLEthernetEntry, swACLIpv6RuleEntry=swACLIpv6RuleEntry, swACLIpv6RuleRowStatus=swACLIpv6RuleRowStatus, swCpuAclIpv6MaskEntry=swCpuAclIpv6MaskEntry, swACLPktContRuleOffset48to63=swACLPktContRuleOffset48to63, swCpuAclIpv6RuleAccessID=swCpuAclIpv6RuleAccessID, swACLPktContMaskOffsetChunk2State=swACLPktContMaskOffsetChunk2State, swACLIpIpAddrMaskState=swACLIpIpAddrMaskState)
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SwAclCtrl_ObjectIdentity = ObjectIdentity
+swAclCtrl = _SwAclCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 1)
+)
+
+
+class _SwCpuInterfacefilterState_Type(Integer32):
+    """Custom type swCpuInterfacefilterState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_SwCpuInterfacefilterState_Type.__name__ = "Integer32"
+_SwCpuInterfacefilterState_Object = MibScalar
+swCpuInterfacefilterState = _SwCpuInterfacefilterState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 1, 1),
+    _SwCpuInterfacefilterState_Type()
+)
+swCpuInterfacefilterState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swCpuInterfacefilterState.setStatus("current")
+_SwACLTotalUsedRuleEntries_Type = Integer32
+_SwACLTotalUsedRuleEntries_Object = MibScalar
+swACLTotalUsedRuleEntries = _SwACLTotalUsedRuleEntries_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 1, 2),
+    _SwACLTotalUsedRuleEntries_Type()
+)
+swACLTotalUsedRuleEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLTotalUsedRuleEntries.setStatus("current")
+_SwACLTotalUnusedRuleEntries_Type = Integer32
+_SwACLTotalUnusedRuleEntries_Object = MibScalar
+swACLTotalUnusedRuleEntries = _SwACLTotalUnusedRuleEntries_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 1, 3),
+    _SwACLTotalUnusedRuleEntries_Type()
+)
+swACLTotalUnusedRuleEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLTotalUnusedRuleEntries.setStatus("current")
+_SwAclMaskMgmt_ObjectIdentity = ObjectIdentity
+swAclMaskMgmt = _SwAclMaskMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2)
+)
+_SwACLEthernetTable_Object = MibTable
+swACLEthernetTable = _SwACLEthernetTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1)
+)
+if mibBuilder.loadTexts:
+    swACLEthernetTable.setStatus("current")
+_SwACLEthernetEntry_Object = MibTableRow
+swACLEthernetEntry = _SwACLEthernetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1)
+)
+swACLEthernetEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLEthernetProfileID"),
+)
+if mibBuilder.loadTexts:
+    swACLEthernetEntry.setStatus("current")
+_SwACLEthernetProfileID_Type = Integer32
+_SwACLEthernetProfileID_Object = MibTableColumn
+swACLEthernetProfileID = _SwACLEthernetProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 1),
+    _SwACLEthernetProfileID_Type()
+)
+swACLEthernetProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLEthernetProfileID.setStatus("current")
+
+
+class _SwACLEthernetUsevlan_Type(Integer32):
+    """Custom type swACLEthernetUsevlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLEthernetUsevlan_Type.__name__ = "Integer32"
+_SwACLEthernetUsevlan_Object = MibTableColumn
+swACLEthernetUsevlan = _SwACLEthernetUsevlan_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 2),
+    _SwACLEthernetUsevlan_Type()
+)
+swACLEthernetUsevlan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEthernetUsevlan.setStatus("current")
+
+
+class _SwACLEthernetMacAddrMaskState_Type(Integer32):
+    """Custom type swACLEthernetMacAddrMaskState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-mac-addr", 2),
+          ("src-mac-addr", 3),
+          ("dst-src-mac-addr", 4))
+    )
+
+
+_SwACLEthernetMacAddrMaskState_Type.__name__ = "Integer32"
+_SwACLEthernetMacAddrMaskState_Object = MibTableColumn
+swACLEthernetMacAddrMaskState = _SwACLEthernetMacAddrMaskState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 3),
+    _SwACLEthernetMacAddrMaskState_Type()
+)
+swACLEthernetMacAddrMaskState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEthernetMacAddrMaskState.setStatus("current")
+_SwACLEthernetSrcMacAddrMask_Type = MacAddress
+_SwACLEthernetSrcMacAddrMask_Object = MibTableColumn
+swACLEthernetSrcMacAddrMask = _SwACLEthernetSrcMacAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 4),
+    _SwACLEthernetSrcMacAddrMask_Type()
+)
+swACLEthernetSrcMacAddrMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEthernetSrcMacAddrMask.setStatus("current")
+_SwACLEthernetDstMacAddrMask_Type = MacAddress
+_SwACLEthernetDstMacAddrMask_Object = MibTableColumn
+swACLEthernetDstMacAddrMask = _SwACLEthernetDstMacAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 5),
+    _SwACLEthernetDstMacAddrMask_Type()
+)
+swACLEthernetDstMacAddrMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEthernetDstMacAddrMask.setStatus("current")
+
+
+class _SwACLEthernetUse8021p_Type(Integer32):
+    """Custom type swACLEthernetUse8021p based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLEthernetUse8021p_Type.__name__ = "Integer32"
+_SwACLEthernetUse8021p_Object = MibTableColumn
+swACLEthernetUse8021p = _SwACLEthernetUse8021p_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 6),
+    _SwACLEthernetUse8021p_Type()
+)
+swACLEthernetUse8021p.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEthernetUse8021p.setStatus("current")
+
+
+class _SwACLEthernetUseEthernetType_Type(Integer32):
+    """Custom type swACLEthernetUseEthernetType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLEthernetUseEthernetType_Type.__name__ = "Integer32"
+_SwACLEthernetUseEthernetType_Object = MibTableColumn
+swACLEthernetUseEthernetType = _SwACLEthernetUseEthernetType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 7),
+    _SwACLEthernetUseEthernetType_Type()
+)
+swACLEthernetUseEthernetType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEthernetUseEthernetType.setStatus("current")
+_SwACLEthernetRowStatus_Type = RowStatus
+_SwACLEthernetRowStatus_Object = MibTableColumn
+swACLEthernetRowStatus = _SwACLEthernetRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 8),
+    _SwACLEthernetRowStatus_Type()
+)
+swACLEthernetRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEthernetRowStatus.setStatus("current")
+
+
+class _SwACLEthernetOwner_Type(Integer32):
+    """Custom type swACLEthernetOwner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLEthernetOwner_Type.__name__ = "Integer32"
+_SwACLEthernetOwner_Object = MibTableColumn
+swACLEthernetOwner = _SwACLEthernetOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 9),
+    _SwACLEthernetOwner_Type()
+)
+swACLEthernetOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLEthernetOwner.setStatus("current")
+_SwACLEthernetUnusedRuleEntries_Type = Integer32
+_SwACLEthernetUnusedRuleEntries_Object = MibTableColumn
+swACLEthernetUnusedRuleEntries = _SwACLEthernetUnusedRuleEntries_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 10),
+    _SwACLEthernetUnusedRuleEntries_Type()
+)
+swACLEthernetUnusedRuleEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLEthernetUnusedRuleEntries.setStatus("current")
+
+
+class _SwACLEthernetProfileName_Type(DisplayString):
+    """Custom type swACLEthernetProfileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwACLEthernetProfileName_Type.__name__ = "DisplayString"
+_SwACLEthernetProfileName_Object = MibTableColumn
+swACLEthernetProfileName = _SwACLEthernetProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 11),
+    _SwACLEthernetProfileName_Type()
+)
+swACLEthernetProfileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEthernetProfileName.setStatus("current")
+
+
+class _SwACLEthernetVlanMask_Type(OctetString):
+    """Custom type swACLEthernetVlanMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLEthernetVlanMask_Type.__name__ = "OctetString"
+_SwACLEthernetVlanMask_Object = MibTableColumn
+swACLEthernetVlanMask = _SwACLEthernetVlanMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 1, 1, 12),
+    _SwACLEthernetVlanMask_Type()
+)
+swACLEthernetVlanMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEthernetVlanMask.setStatus("current")
+_SwACLIpTable_Object = MibTable
+swACLIpTable = _SwACLIpTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2)
+)
+if mibBuilder.loadTexts:
+    swACLIpTable.setStatus("current")
+_SwACLIpEntry_Object = MibTableRow
+swACLIpEntry = _SwACLIpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1)
+)
+swACLIpEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLIpProfileID"),
+)
+if mibBuilder.loadTexts:
+    swACLIpEntry.setStatus("current")
+_SwACLIpProfileID_Type = Integer32
+_SwACLIpProfileID_Object = MibTableColumn
+swACLIpProfileID = _SwACLIpProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 1),
+    _SwACLIpProfileID_Type()
+)
+swACLIpProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpProfileID.setStatus("current")
+
+
+class _SwACLIpUsevlan_Type(Integer32):
+    """Custom type swACLIpUsevlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLIpUsevlan_Type.__name__ = "Integer32"
+_SwACLIpUsevlan_Object = MibTableColumn
+swACLIpUsevlan = _SwACLIpUsevlan_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 2),
+    _SwACLIpUsevlan_Type()
+)
+swACLIpUsevlan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpUsevlan.setStatus("current")
+
+
+class _SwACLIpIpAddrMaskState_Type(Integer32):
+    """Custom type swACLIpIpAddrMaskState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-ip-addr", 2),
+          ("src-ip-addr", 3),
+          ("dst-src-ip-addr", 4))
+    )
+
+
+_SwACLIpIpAddrMaskState_Type.__name__ = "Integer32"
+_SwACLIpIpAddrMaskState_Object = MibTableColumn
+swACLIpIpAddrMaskState = _SwACLIpIpAddrMaskState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 3),
+    _SwACLIpIpAddrMaskState_Type()
+)
+swACLIpIpAddrMaskState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpIpAddrMaskState.setStatus("current")
+_SwACLIpSrcIpAddrMask_Type = IpAddress
+_SwACLIpSrcIpAddrMask_Object = MibTableColumn
+swACLIpSrcIpAddrMask = _SwACLIpSrcIpAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 4),
+    _SwACLIpSrcIpAddrMask_Type()
+)
+swACLIpSrcIpAddrMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpSrcIpAddrMask.setStatus("current")
+_SwACLIpDstIpAddrMask_Type = IpAddress
+_SwACLIpDstIpAddrMask_Object = MibTableColumn
+swACLIpDstIpAddrMask = _SwACLIpDstIpAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 5),
+    _SwACLIpDstIpAddrMask_Type()
+)
+swACLIpDstIpAddrMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpDstIpAddrMask.setStatus("current")
+
+
+class _SwACLIpUseDSCP_Type(Integer32):
+    """Custom type swACLIpUseDSCP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLIpUseDSCP_Type.__name__ = "Integer32"
+_SwACLIpUseDSCP_Object = MibTableColumn
+swACLIpUseDSCP = _SwACLIpUseDSCP_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 6),
+    _SwACLIpUseDSCP_Type()
+)
+swACLIpUseDSCP.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpUseDSCP.setStatus("current")
+
+
+class _SwACLIpUseProtoType_Type(Integer32):
+    """Custom type swACLIpUseProtoType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("icmp", 2),
+          ("igmp", 3),
+          ("tcp", 4),
+          ("udp", 5),
+          ("protocolId", 6))
+    )
+
+
+_SwACLIpUseProtoType_Type.__name__ = "Integer32"
+_SwACLIpUseProtoType_Object = MibTableColumn
+swACLIpUseProtoType = _SwACLIpUseProtoType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 7),
+    _SwACLIpUseProtoType_Type()
+)
+swACLIpUseProtoType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpUseProtoType.setStatus("current")
+
+
+class _SwACLIpIcmpOption_Type(Integer32):
+    """Custom type swACLIpIcmpOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("type", 2),
+          ("code", 3),
+          ("type-code", 4))
+    )
+
+
+_SwACLIpIcmpOption_Type.__name__ = "Integer32"
+_SwACLIpIcmpOption_Object = MibTableColumn
+swACLIpIcmpOption = _SwACLIpIcmpOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 8),
+    _SwACLIpIcmpOption_Type()
+)
+swACLIpIcmpOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpIcmpOption.setStatus("current")
+
+
+class _SwACLIpIgmpOption_Type(Integer32):
+    """Custom type swACLIpIgmpOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_SwACLIpIgmpOption_Type.__name__ = "Integer32"
+_SwACLIpIgmpOption_Object = MibTableColumn
+swACLIpIgmpOption = _SwACLIpIgmpOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 9),
+    _SwACLIpIgmpOption_Type()
+)
+swACLIpIgmpOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpIgmpOption.setStatus("current")
+
+
+class _SwACLIpTcpOption_Type(Integer32):
+    """Custom type swACLIpTcpOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-addr", 2),
+          ("src-addr", 3),
+          ("dst-src-addr", 4))
+    )
+
+
+_SwACLIpTcpOption_Type.__name__ = "Integer32"
+_SwACLIpTcpOption_Object = MibTableColumn
+swACLIpTcpOption = _SwACLIpTcpOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 10),
+    _SwACLIpTcpOption_Type()
+)
+swACLIpTcpOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpTcpOption.setStatus("current")
+
+
+class _SwACLIpUdpOption_Type(Integer32):
+    """Custom type swACLIpUdpOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-addr", 2),
+          ("src-addr", 3),
+          ("dst-src-addr", 4))
+    )
+
+
+_SwACLIpUdpOption_Type.__name__ = "Integer32"
+_SwACLIpUdpOption_Object = MibTableColumn
+swACLIpUdpOption = _SwACLIpUdpOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 11),
+    _SwACLIpUdpOption_Type()
+)
+swACLIpUdpOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpUdpOption.setStatus("current")
+
+
+class _SwACLIpTCPorUDPSrcPortMask_Type(OctetString):
+    """Custom type swACLIpTCPorUDPSrcPortMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLIpTCPorUDPSrcPortMask_Type.__name__ = "OctetString"
+_SwACLIpTCPorUDPSrcPortMask_Object = MibTableColumn
+swACLIpTCPorUDPSrcPortMask = _SwACLIpTCPorUDPSrcPortMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 12),
+    _SwACLIpTCPorUDPSrcPortMask_Type()
+)
+swACLIpTCPorUDPSrcPortMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpTCPorUDPSrcPortMask.setStatus("current")
+
+
+class _SwACLIpTCPorUDPDstPortMask_Type(OctetString):
+    """Custom type swACLIpTCPorUDPDstPortMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLIpTCPorUDPDstPortMask_Type.__name__ = "OctetString"
+_SwACLIpTCPorUDPDstPortMask_Object = MibTableColumn
+swACLIpTCPorUDPDstPortMask = _SwACLIpTCPorUDPDstPortMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 13),
+    _SwACLIpTCPorUDPDstPortMask_Type()
+)
+swACLIpTCPorUDPDstPortMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpTCPorUDPDstPortMask.setStatus("current")
+
+
+class _SwACLIpTCPFlagBit_Type(Integer32):
+    """Custom type swACLIpTCPFlagBit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_SwACLIpTCPFlagBit_Type.__name__ = "Integer32"
+_SwACLIpTCPFlagBit_Object = MibTableColumn
+swACLIpTCPFlagBit = _SwACLIpTCPFlagBit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 14),
+    _SwACLIpTCPFlagBit_Type()
+)
+swACLIpTCPFlagBit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpTCPFlagBit.setStatus("current")
+
+
+class _SwACLIpTCPFlagBitMask_Type(Integer32):
+    """Custom type swACLIpTCPFlagBitMask based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwACLIpTCPFlagBitMask_Type.__name__ = "Integer32"
+_SwACLIpTCPFlagBitMask_Object = MibTableColumn
+swACLIpTCPFlagBitMask = _SwACLIpTCPFlagBitMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 15),
+    _SwACLIpTCPFlagBitMask_Type()
+)
+swACLIpTCPFlagBitMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpTCPFlagBitMask.setStatus("current")
+
+
+class _SwACLIpProtoIDOption_Type(Integer32):
+    """Custom type swACLIpProtoIDOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_SwACLIpProtoIDOption_Type.__name__ = "Integer32"
+_SwACLIpProtoIDOption_Object = MibTableColumn
+swACLIpProtoIDOption = _SwACLIpProtoIDOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 16),
+    _SwACLIpProtoIDOption_Type()
+)
+swACLIpProtoIDOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpProtoIDOption.setStatus("current")
+
+
+class _SwACLIpProtoID_Type(Integer32):
+    """Custom type swACLIpProtoID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SwACLIpProtoID_Type.__name__ = "Integer32"
+_SwACLIpProtoID_Object = MibTableColumn
+swACLIpProtoID = _SwACLIpProtoID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 17),
+    _SwACLIpProtoID_Type()
+)
+swACLIpProtoID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpProtoID.setStatus("current")
+
+
+class _SwACLIpProtoIDMask_Type(OctetString):
+    """Custom type swACLIpProtoIDMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(20, 20),
+    )
+    fixed_length = 20
+
+
+_SwACLIpProtoIDMask_Type.__name__ = "OctetString"
+_SwACLIpProtoIDMask_Object = MibTableColumn
+swACLIpProtoIDMask = _SwACLIpProtoIDMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 18),
+    _SwACLIpProtoIDMask_Type()
+)
+swACLIpProtoIDMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpProtoIDMask.setStatus("current")
+_SwACLIpRowStatus_Type = RowStatus
+_SwACLIpRowStatus_Object = MibTableColumn
+swACLIpRowStatus = _SwACLIpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 19),
+    _SwACLIpRowStatus_Type()
+)
+swACLIpRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRowStatus.setStatus("current")
+
+
+class _SwACLIpOwner_Type(Integer32):
+    """Custom type swACLIpOwner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLIpOwner_Type.__name__ = "Integer32"
+_SwACLIpOwner_Object = MibTableColumn
+swACLIpOwner = _SwACLIpOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 20),
+    _SwACLIpOwner_Type()
+)
+swACLIpOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpOwner.setStatus("current")
+_SwACLIpSrcMacAddrMask_Type = MacAddress
+_SwACLIpSrcMacAddrMask_Object = MibTableColumn
+swACLIpSrcMacAddrMask = _SwACLIpSrcMacAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 21),
+    _SwACLIpSrcMacAddrMask_Type()
+)
+swACLIpSrcMacAddrMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpSrcMacAddrMask.setStatus("current")
+_SwACLIpUnusedRuleEntries_Type = Integer32
+_SwACLIpUnusedRuleEntries_Object = MibTableColumn
+swACLIpUnusedRuleEntries = _SwACLIpUnusedRuleEntries_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 22),
+    _SwACLIpUnusedRuleEntries_Type()
+)
+swACLIpUnusedRuleEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpUnusedRuleEntries.setStatus("current")
+
+
+class _SwACLIpProfileName_Type(DisplayString):
+    """Custom type swACLIpProfileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwACLIpProfileName_Type.__name__ = "DisplayString"
+_SwACLIpProfileName_Object = MibTableColumn
+swACLIpProfileName = _SwACLIpProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 23),
+    _SwACLIpProfileName_Type()
+)
+swACLIpProfileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpProfileName.setStatus("current")
+
+
+class _SwACLIpVlanMask_Type(OctetString):
+    """Custom type swACLIpVlanMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLIpVlanMask_Type.__name__ = "OctetString"
+_SwACLIpVlanMask_Object = MibTableColumn
+swACLIpVlanMask = _SwACLIpVlanMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 2, 1, 24),
+    _SwACLIpVlanMask_Type()
+)
+swACLIpVlanMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpVlanMask.setStatus("current")
+_SwACLPktContMaskTable_Object = MibTable
+swACLPktContMaskTable = _SwACLPktContMaskTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3)
+)
+if mibBuilder.loadTexts:
+    swACLPktContMaskTable.setStatus("current")
+_SwACLPktContMaskEntry_Object = MibTableRow
+swACLPktContMaskEntry = _SwACLPktContMaskEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1)
+)
+swACLPktContMaskEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLPktContMaskProfileID"),
+)
+if mibBuilder.loadTexts:
+    swACLPktContMaskEntry.setStatus("current")
+_SwACLPktContMaskProfileID_Type = Integer32
+_SwACLPktContMaskProfileID_Object = MibTableColumn
+swACLPktContMaskProfileID = _SwACLPktContMaskProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 1),
+    _SwACLPktContMaskProfileID_Type()
+)
+swACLPktContMaskProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContMaskProfileID.setStatus("current")
+
+
+class _SwACLPktContMaskOffset0to15_Type(OctetString):
+    """Custom type swACLPktContMaskOffset0to15 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwACLPktContMaskOffset0to15_Type.__name__ = "OctetString"
+_SwACLPktContMaskOffset0to15_Object = MibTableColumn
+swACLPktContMaskOffset0to15 = _SwACLPktContMaskOffset0to15_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 2),
+    _SwACLPktContMaskOffset0to15_Type()
+)
+swACLPktContMaskOffset0to15.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffset0to15.setStatus("current")
+
+
+class _SwACLPktContMaskOffset16to31_Type(OctetString):
+    """Custom type swACLPktContMaskOffset16to31 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwACLPktContMaskOffset16to31_Type.__name__ = "OctetString"
+_SwACLPktContMaskOffset16to31_Object = MibTableColumn
+swACLPktContMaskOffset16to31 = _SwACLPktContMaskOffset16to31_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 3),
+    _SwACLPktContMaskOffset16to31_Type()
+)
+swACLPktContMaskOffset16to31.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffset16to31.setStatus("current")
+
+
+class _SwACLPktContMaskOffset32to47_Type(OctetString):
+    """Custom type swACLPktContMaskOffset32to47 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwACLPktContMaskOffset32to47_Type.__name__ = "OctetString"
+_SwACLPktContMaskOffset32to47_Object = MibTableColumn
+swACLPktContMaskOffset32to47 = _SwACLPktContMaskOffset32to47_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 4),
+    _SwACLPktContMaskOffset32to47_Type()
+)
+swACLPktContMaskOffset32to47.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffset32to47.setStatus("current")
+
+
+class _SwACLPktContMaskOffset48to63_Type(OctetString):
+    """Custom type swACLPktContMaskOffset48to63 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwACLPktContMaskOffset48to63_Type.__name__ = "OctetString"
+_SwACLPktContMaskOffset48to63_Object = MibTableColumn
+swACLPktContMaskOffset48to63 = _SwACLPktContMaskOffset48to63_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 5),
+    _SwACLPktContMaskOffset48to63_Type()
+)
+swACLPktContMaskOffset48to63.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffset48to63.setStatus("current")
+
+
+class _SwACLPktContMaskOffset64to79_Type(OctetString):
+    """Custom type swACLPktContMaskOffset64to79 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwACLPktContMaskOffset64to79_Type.__name__ = "OctetString"
+_SwACLPktContMaskOffset64to79_Object = MibTableColumn
+swACLPktContMaskOffset64to79 = _SwACLPktContMaskOffset64to79_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 6),
+    _SwACLPktContMaskOffset64to79_Type()
+)
+swACLPktContMaskOffset64to79.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffset64to79.setStatus("current")
+_SwACLPktContMaskRowStatus_Type = RowStatus
+_SwACLPktContMaskRowStatus_Object = MibTableColumn
+swACLPktContMaskRowStatus = _SwACLPktContMaskRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 7),
+    _SwACLPktContMaskRowStatus_Type()
+)
+swACLPktContMaskRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskRowStatus.setStatus("current")
+
+
+class _SwACLPktContMaskOwner_Type(Integer32):
+    """Custom type swACLPktContMaskOwner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLPktContMaskOwner_Type.__name__ = "Integer32"
+_SwACLPktContMaskOwner_Object = MibTableColumn
+swACLPktContMaskOwner = _SwACLPktContMaskOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 8),
+    _SwACLPktContMaskOwner_Type()
+)
+swACLPktContMaskOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOwner.setStatus("current")
+_SwACLPktContMaskUnusedRuleEntries_Type = Integer32
+_SwACLPktContMaskUnusedRuleEntries_Object = MibTableColumn
+swACLPktContMaskUnusedRuleEntries = _SwACLPktContMaskUnusedRuleEntries_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 9),
+    _SwACLPktContMaskUnusedRuleEntries_Type()
+)
+swACLPktContMaskUnusedRuleEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContMaskUnusedRuleEntries.setStatus("current")
+
+
+class _SwACLPktContMaskProfileName_Type(DisplayString):
+    """Custom type swACLPktContMaskProfileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwACLPktContMaskProfileName_Type.__name__ = "DisplayString"
+_SwACLPktContMaskProfileName_Object = MibTableColumn
+swACLPktContMaskProfileName = _SwACLPktContMaskProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 3, 1, 10),
+    _SwACLPktContMaskProfileName_Type()
+)
+swACLPktContMaskProfileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskProfileName.setStatus("current")
+_SwACLIpv6MaskTable_Object = MibTable
+swACLIpv6MaskTable = _SwACLIpv6MaskTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4)
+)
+if mibBuilder.loadTexts:
+    swACLIpv6MaskTable.setStatus("current")
+_SwACLIpv6MaskEntry_Object = MibTableRow
+swACLIpv6MaskEntry = _SwACLIpv6MaskEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1)
+)
+swACLIpv6MaskEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLIpv6MaskProfileID"),
+)
+if mibBuilder.loadTexts:
+    swACLIpv6MaskEntry.setStatus("current")
+_SwACLIpv6MaskProfileID_Type = Integer32
+_SwACLIpv6MaskProfileID_Object = MibTableColumn
+swACLIpv6MaskProfileID = _SwACLIpv6MaskProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 1),
+    _SwACLIpv6MaskProfileID_Type()
+)
+swACLIpv6MaskProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskProfileID.setStatus("current")
+
+
+class _SwACLIpv6MaskClass_Type(Integer32):
+    """Custom type swACLIpv6MaskClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_SwACLIpv6MaskClass_Type.__name__ = "Integer32"
+_SwACLIpv6MaskClass_Object = MibTableColumn
+swACLIpv6MaskClass = _SwACLIpv6MaskClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 2),
+    _SwACLIpv6MaskClass_Type()
+)
+swACLIpv6MaskClass.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskClass.setStatus("current")
+
+
+class _SwACLIpv6MaskFlowlabel_Type(Integer32):
+    """Custom type swACLIpv6MaskFlowlabel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_SwACLIpv6MaskFlowlabel_Type.__name__ = "Integer32"
+_SwACLIpv6MaskFlowlabel_Object = MibTableColumn
+swACLIpv6MaskFlowlabel = _SwACLIpv6MaskFlowlabel_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 3),
+    _SwACLIpv6MaskFlowlabel_Type()
+)
+swACLIpv6MaskFlowlabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskFlowlabel.setStatus("current")
+
+
+class _SwACLIpv6IpAddrMaskState_Type(Integer32):
+    """Custom type swACLIpv6IpAddrMaskState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-ipv6-addr", 2),
+          ("src-ipv6-addr", 3),
+          ("dst-src-ipv6-addr", 4))
+    )
+
+
+_SwACLIpv6IpAddrMaskState_Type.__name__ = "Integer32"
+_SwACLIpv6IpAddrMaskState_Object = MibTableColumn
+swACLIpv6IpAddrMaskState = _SwACLIpv6IpAddrMaskState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 4),
+    _SwACLIpv6IpAddrMaskState_Type()
+)
+swACLIpv6IpAddrMaskState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6IpAddrMaskState.setStatus("current")
+_SwACLIpv6MaskSrcIpv6Mask_Type = Ipv6Address
+_SwACLIpv6MaskSrcIpv6Mask_Object = MibTableColumn
+swACLIpv6MaskSrcIpv6Mask = _SwACLIpv6MaskSrcIpv6Mask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 5),
+    _SwACLIpv6MaskSrcIpv6Mask_Type()
+)
+swACLIpv6MaskSrcIpv6Mask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskSrcIpv6Mask.setStatus("current")
+_SwACLIpv6MaskDstIpv6Mask_Type = Ipv6Address
+_SwACLIpv6MaskDstIpv6Mask_Object = MibTableColumn
+swACLIpv6MaskDstIpv6Mask = _SwACLIpv6MaskDstIpv6Mask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 6),
+    _SwACLIpv6MaskDstIpv6Mask_Type()
+)
+swACLIpv6MaskDstIpv6Mask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskDstIpv6Mask.setStatus("current")
+_SwACLIpv6MaskRowStatus_Type = RowStatus
+_SwACLIpv6MaskRowStatus_Object = MibTableColumn
+swACLIpv6MaskRowStatus = _SwACLIpv6MaskRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 7),
+    _SwACLIpv6MaskRowStatus_Type()
+)
+swACLIpv6MaskRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskRowStatus.setStatus("current")
+
+
+class _SwACLIpv6MaskOwner_Type(Integer32):
+    """Custom type swACLIpv6MaskOwner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLIpv6MaskOwner_Type.__name__ = "Integer32"
+_SwACLIpv6MaskOwner_Object = MibTableColumn
+swACLIpv6MaskOwner = _SwACLIpv6MaskOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 8),
+    _SwACLIpv6MaskOwner_Type()
+)
+swACLIpv6MaskOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskOwner.setStatus("current")
+_SwACLIpv6MaskUnusedRuleEntries_Type = Integer32
+_SwACLIpv6MaskUnusedRuleEntries_Object = MibTableColumn
+swACLIpv6MaskUnusedRuleEntries = _SwACLIpv6MaskUnusedRuleEntries_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 9),
+    _SwACLIpv6MaskUnusedRuleEntries_Type()
+)
+swACLIpv6MaskUnusedRuleEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskUnusedRuleEntries.setStatus("current")
+
+
+class _SwACLIpv6MaskProfileName_Type(DisplayString):
+    """Custom type swACLIpv6MaskProfileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwACLIpv6MaskProfileName_Type.__name__ = "DisplayString"
+_SwACLIpv6MaskProfileName_Object = MibTableColumn
+swACLIpv6MaskProfileName = _SwACLIpv6MaskProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 10),
+    _SwACLIpv6MaskProfileName_Type()
+)
+swACLIpv6MaskProfileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskProfileName.setStatus("current")
+
+
+class _SwACLIpv6MaskUseProtoType_Type(Integer32):
+    """Custom type swACLIpv6MaskUseProtoType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("tcp", 2),
+          ("udp", 3))
+    )
+
+
+_SwACLIpv6MaskUseProtoType_Type.__name__ = "Integer32"
+_SwACLIpv6MaskUseProtoType_Object = MibTableColumn
+swACLIpv6MaskUseProtoType = _SwACLIpv6MaskUseProtoType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 11),
+    _SwACLIpv6MaskUseProtoType_Type()
+)
+swACLIpv6MaskUseProtoType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskUseProtoType.setStatus("current")
+
+
+class _SwACLIpv6MaskTcpOption_Type(Integer32):
+    """Custom type swACLIpv6MaskTcpOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-addr", 2),
+          ("src-addr", 3),
+          ("dst-src-addr", 4))
+    )
+
+
+_SwACLIpv6MaskTcpOption_Type.__name__ = "Integer32"
+_SwACLIpv6MaskTcpOption_Object = MibTableColumn
+swACLIpv6MaskTcpOption = _SwACLIpv6MaskTcpOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 12),
+    _SwACLIpv6MaskTcpOption_Type()
+)
+swACLIpv6MaskTcpOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskTcpOption.setStatus("current")
+
+
+class _SwACLIpv6MaskUdpOption_Type(Integer32):
+    """Custom type swACLIpv6MaskUdpOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-addr", 2),
+          ("src-addr", 3),
+          ("dst-src-addr", 4))
+    )
+
+
+_SwACLIpv6MaskUdpOption_Type.__name__ = "Integer32"
+_SwACLIpv6MaskUdpOption_Object = MibTableColumn
+swACLIpv6MaskUdpOption = _SwACLIpv6MaskUdpOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 13),
+    _SwACLIpv6MaskUdpOption_Type()
+)
+swACLIpv6MaskUdpOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskUdpOption.setStatus("current")
+
+
+class _SwACLIpv6MaskTCPorUDPSrcPortMask_Type(OctetString):
+    """Custom type swACLIpv6MaskTCPorUDPSrcPortMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLIpv6MaskTCPorUDPSrcPortMask_Type.__name__ = "OctetString"
+_SwACLIpv6MaskTCPorUDPSrcPortMask_Object = MibTableColumn
+swACLIpv6MaskTCPorUDPSrcPortMask = _SwACLIpv6MaskTCPorUDPSrcPortMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 14),
+    _SwACLIpv6MaskTCPorUDPSrcPortMask_Type()
+)
+swACLIpv6MaskTCPorUDPSrcPortMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskTCPorUDPSrcPortMask.setStatus("current")
+
+
+class _SwACLIpv6MaskTCPorUDPDstPortMask_Type(OctetString):
+    """Custom type swACLIpv6MaskTCPorUDPDstPortMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLIpv6MaskTCPorUDPDstPortMask_Type.__name__ = "OctetString"
+_SwACLIpv6MaskTCPorUDPDstPortMask_Object = MibTableColumn
+swACLIpv6MaskTCPorUDPDstPortMask = _SwACLIpv6MaskTCPorUDPDstPortMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 4, 1, 15),
+    _SwACLIpv6MaskTCPorUDPDstPortMask_Type()
+)
+swACLIpv6MaskTCPorUDPDstPortMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6MaskTCPorUDPDstPortMask.setStatus("current")
+
+
+class _SwACLMaskDelAllState_Type(Integer32):
+    """Custom type swACLMaskDelAllState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("start", 2))
+    )
+
+
+_SwACLMaskDelAllState_Type.__name__ = "Integer32"
+_SwACLMaskDelAllState_Object = MibScalar
+swACLMaskDelAllState = _SwACLMaskDelAllState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 5),
+    _SwACLMaskDelAllState_Type()
+)
+swACLMaskDelAllState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swACLMaskDelAllState.setStatus("current")
+_SwIBPACLEthernetTable_Object = MibTable
+swIBPACLEthernetTable = _SwIBPACLEthernetTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 6)
+)
+if mibBuilder.loadTexts:
+    swIBPACLEthernetTable.setStatus("obsolete")
+_SwIBPACLEthernetEntry_Object = MibTableRow
+swIBPACLEthernetEntry = _SwIBPACLEthernetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 6, 1)
+)
+swIBPACLEthernetEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swIBPACLEthernetProfileID"),
+)
+if mibBuilder.loadTexts:
+    swIBPACLEthernetEntry.setStatus("obsolete")
+_SwIBPACLEthernetProfileID_Type = Integer32
+_SwIBPACLEthernetProfileID_Object = MibTableColumn
+swIBPACLEthernetProfileID = _SwIBPACLEthernetProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 6, 1, 1),
+    _SwIBPACLEthernetProfileID_Type()
+)
+swIBPACLEthernetProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLEthernetProfileID.setStatus("obsolete")
+
+
+class _SwIBPACLEthernetUseEthernetType_Type(Integer32):
+    """Custom type swIBPACLEthernetUseEthernetType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwIBPACLEthernetUseEthernetType_Type.__name__ = "Integer32"
+_SwIBPACLEthernetUseEthernetType_Object = MibTableColumn
+swIBPACLEthernetUseEthernetType = _SwIBPACLEthernetUseEthernetType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 6, 1, 2),
+    _SwIBPACLEthernetUseEthernetType_Type()
+)
+swIBPACLEthernetUseEthernetType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLEthernetUseEthernetType.setStatus("obsolete")
+_SwIBPACLIpTable_Object = MibTable
+swIBPACLIpTable = _SwIBPACLIpTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 7)
+)
+if mibBuilder.loadTexts:
+    swIBPACLIpTable.setStatus("obsolete")
+_SwIBPACLIpEntry_Object = MibTableRow
+swIBPACLIpEntry = _SwIBPACLIpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 7, 1)
+)
+swIBPACLIpEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swIBPACLIpProfileID"),
+)
+if mibBuilder.loadTexts:
+    swIBPACLIpEntry.setStatus("obsolete")
+_SwIBPACLIpProfileID_Type = Integer32
+_SwIBPACLIpProfileID_Object = MibTableColumn
+swIBPACLIpProfileID = _SwIBPACLIpProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 7, 1, 1),
+    _SwIBPACLIpProfileID_Type()
+)
+swIBPACLIpProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLIpProfileID.setStatus("obsolete")
+_SwIBPACLIpSrcMacAddrMask_Type = MacAddress
+_SwIBPACLIpSrcMacAddrMask_Object = MibTableColumn
+swIBPACLIpSrcMacAddrMask = _SwIBPACLIpSrcMacAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 7, 1, 2),
+    _SwIBPACLIpSrcMacAddrMask_Type()
+)
+swIBPACLIpSrcMacAddrMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLIpSrcMacAddrMask.setStatus("obsolete")
+_SwIBPACLIpSrcIpAddrMask_Type = IpAddress
+_SwIBPACLIpSrcIpAddrMask_Object = MibTableColumn
+swIBPACLIpSrcIpAddrMask = _SwIBPACLIpSrcIpAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 7, 1, 3),
+    _SwIBPACLIpSrcIpAddrMask_Type()
+)
+swIBPACLIpSrcIpAddrMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLIpSrcIpAddrMask.setStatus("obsolete")
+_SwACLPktContMaskOptionTable_Object = MibTable
+swACLPktContMaskOptionTable = _SwACLPktContMaskOptionTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8)
+)
+if mibBuilder.loadTexts:
+    swACLPktContMaskOptionTable.setStatus("current")
+_SwACLPktContMaskOptionEntry_Object = MibTableRow
+swACLPktContMaskOptionEntry = _SwACLPktContMaskOptionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1)
+)
+swACLPktContMaskOptionEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLPktContMaskOptionProfileID"),
+)
+if mibBuilder.loadTexts:
+    swACLPktContMaskOptionEntry.setStatus("current")
+_SwACLPktContMaskOptionProfileID_Type = Integer32
+_SwACLPktContMaskOptionProfileID_Object = MibTableColumn
+swACLPktContMaskOptionProfileID = _SwACLPktContMaskOptionProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 1),
+    _SwACLPktContMaskOptionProfileID_Type()
+)
+swACLPktContMaskOptionProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOptionProfileID.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk1State_Type(Integer32):
+    """Custom type swACLPktContMaskOffsetChunk1State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContMaskOffsetChunk1State_Type.__name__ = "Integer32"
+_SwACLPktContMaskOffsetChunk1State_Object = MibTableColumn
+swACLPktContMaskOffsetChunk1State = _SwACLPktContMaskOffsetChunk1State_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 2),
+    _SwACLPktContMaskOffsetChunk1State_Type()
+)
+swACLPktContMaskOffsetChunk1State.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk1State.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk1OffsetValue_Type(Integer32):
+    """Custom type swACLPktContMaskOffsetChunk1OffsetValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_SwACLPktContMaskOffsetChunk1OffsetValue_Type.__name__ = "Integer32"
+_SwACLPktContMaskOffsetChunk1OffsetValue_Object = MibTableColumn
+swACLPktContMaskOffsetChunk1OffsetValue = _SwACLPktContMaskOffsetChunk1OffsetValue_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 3),
+    _SwACLPktContMaskOffsetChunk1OffsetValue_Type()
+)
+swACLPktContMaskOffsetChunk1OffsetValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk1OffsetValue.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk1Mask_Type(OctetString):
+    """Custom type swACLPktContMaskOffsetChunk1Mask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_SwACLPktContMaskOffsetChunk1Mask_Type.__name__ = "OctetString"
+_SwACLPktContMaskOffsetChunk1Mask_Object = MibTableColumn
+swACLPktContMaskOffsetChunk1Mask = _SwACLPktContMaskOffsetChunk1Mask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 4),
+    _SwACLPktContMaskOffsetChunk1Mask_Type()
+)
+swACLPktContMaskOffsetChunk1Mask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk1Mask.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk2State_Type(Integer32):
+    """Custom type swACLPktContMaskOffsetChunk2State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContMaskOffsetChunk2State_Type.__name__ = "Integer32"
+_SwACLPktContMaskOffsetChunk2State_Object = MibTableColumn
+swACLPktContMaskOffsetChunk2State = _SwACLPktContMaskOffsetChunk2State_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 5),
+    _SwACLPktContMaskOffsetChunk2State_Type()
+)
+swACLPktContMaskOffsetChunk2State.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk2State.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk2OffsetValue_Type(Integer32):
+    """Custom type swACLPktContMaskOffsetChunk2OffsetValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_SwACLPktContMaskOffsetChunk2OffsetValue_Type.__name__ = "Integer32"
+_SwACLPktContMaskOffsetChunk2OffsetValue_Object = MibTableColumn
+swACLPktContMaskOffsetChunk2OffsetValue = _SwACLPktContMaskOffsetChunk2OffsetValue_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 6),
+    _SwACLPktContMaskOffsetChunk2OffsetValue_Type()
+)
+swACLPktContMaskOffsetChunk2OffsetValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk2OffsetValue.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk2Mask_Type(OctetString):
+    """Custom type swACLPktContMaskOffsetChunk2Mask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_SwACLPktContMaskOffsetChunk2Mask_Type.__name__ = "OctetString"
+_SwACLPktContMaskOffsetChunk2Mask_Object = MibTableColumn
+swACLPktContMaskOffsetChunk2Mask = _SwACLPktContMaskOffsetChunk2Mask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 7),
+    _SwACLPktContMaskOffsetChunk2Mask_Type()
+)
+swACLPktContMaskOffsetChunk2Mask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk2Mask.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk3State_Type(Integer32):
+    """Custom type swACLPktContMaskOffsetChunk3State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContMaskOffsetChunk3State_Type.__name__ = "Integer32"
+_SwACLPktContMaskOffsetChunk3State_Object = MibTableColumn
+swACLPktContMaskOffsetChunk3State = _SwACLPktContMaskOffsetChunk3State_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 8),
+    _SwACLPktContMaskOffsetChunk3State_Type()
+)
+swACLPktContMaskOffsetChunk3State.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk3State.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk3OffsetValue_Type(Integer32):
+    """Custom type swACLPktContMaskOffsetChunk3OffsetValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_SwACLPktContMaskOffsetChunk3OffsetValue_Type.__name__ = "Integer32"
+_SwACLPktContMaskOffsetChunk3OffsetValue_Object = MibTableColumn
+swACLPktContMaskOffsetChunk3OffsetValue = _SwACLPktContMaskOffsetChunk3OffsetValue_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 9),
+    _SwACLPktContMaskOffsetChunk3OffsetValue_Type()
+)
+swACLPktContMaskOffsetChunk3OffsetValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk3OffsetValue.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk3Mask_Type(OctetString):
+    """Custom type swACLPktContMaskOffsetChunk3Mask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_SwACLPktContMaskOffsetChunk3Mask_Type.__name__ = "OctetString"
+_SwACLPktContMaskOffsetChunk3Mask_Object = MibTableColumn
+swACLPktContMaskOffsetChunk3Mask = _SwACLPktContMaskOffsetChunk3Mask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 10),
+    _SwACLPktContMaskOffsetChunk3Mask_Type()
+)
+swACLPktContMaskOffsetChunk3Mask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk3Mask.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk4State_Type(Integer32):
+    """Custom type swACLPktContMaskOffsetChunk4State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContMaskOffsetChunk4State_Type.__name__ = "Integer32"
+_SwACLPktContMaskOffsetChunk4State_Object = MibTableColumn
+swACLPktContMaskOffsetChunk4State = _SwACLPktContMaskOffsetChunk4State_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 11),
+    _SwACLPktContMaskOffsetChunk4State_Type()
+)
+swACLPktContMaskOffsetChunk4State.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk4State.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk4OffsetValue_Type(Integer32):
+    """Custom type swACLPktContMaskOffsetChunk4OffsetValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_SwACLPktContMaskOffsetChunk4OffsetValue_Type.__name__ = "Integer32"
+_SwACLPktContMaskOffsetChunk4OffsetValue_Object = MibTableColumn
+swACLPktContMaskOffsetChunk4OffsetValue = _SwACLPktContMaskOffsetChunk4OffsetValue_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 12),
+    _SwACLPktContMaskOffsetChunk4OffsetValue_Type()
+)
+swACLPktContMaskOffsetChunk4OffsetValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk4OffsetValue.setStatus("current")
+
+
+class _SwACLPktContMaskOffsetChunk4Mask_Type(OctetString):
+    """Custom type swACLPktContMaskOffsetChunk4Mask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_SwACLPktContMaskOffsetChunk4Mask_Type.__name__ = "OctetString"
+_SwACLPktContMaskOffsetChunk4Mask_Object = MibTableColumn
+swACLPktContMaskOffsetChunk4Mask = _SwACLPktContMaskOffsetChunk4Mask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 13),
+    _SwACLPktContMaskOffsetChunk4Mask_Type()
+)
+swACLPktContMaskOffsetChunk4Mask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOffsetChunk4Mask.setStatus("current")
+_SwACLPktContMaskOptionRowStatus_Type = RowStatus
+_SwACLPktContMaskOptionRowStatus_Object = MibTableColumn
+swACLPktContMaskOptionRowStatus = _SwACLPktContMaskOptionRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 14),
+    _SwACLPktContMaskOptionRowStatus_Type()
+)
+swACLPktContMaskOptionRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOptionRowStatus.setStatus("current")
+
+
+class _SwACLPktContMaskOptionOwner_Type(Integer32):
+    """Custom type swACLPktContMaskOptionOwner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLPktContMaskOptionOwner_Type.__name__ = "Integer32"
+_SwACLPktContMaskOptionOwner_Object = MibTableColumn
+swACLPktContMaskOptionOwner = _SwACLPktContMaskOptionOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 15),
+    _SwACLPktContMaskOptionOwner_Type()
+)
+swACLPktContMaskOptionOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOptionOwner.setStatus("current")
+_SwACLPktContMaskOptionUnusedRuleEntries_Type = Integer32
+_SwACLPktContMaskOptionUnusedRuleEntries_Object = MibTableColumn
+swACLPktContMaskOptionUnusedRuleEntries = _SwACLPktContMaskOptionUnusedRuleEntries_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 16),
+    _SwACLPktContMaskOptionUnusedRuleEntries_Type()
+)
+swACLPktContMaskOptionUnusedRuleEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOptionUnusedRuleEntries.setStatus("current")
+
+
+class _SwACLPktContMaskOptionProfileName_Type(DisplayString):
+    """Custom type swACLPktContMaskOptionProfileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwACLPktContMaskOptionProfileName_Type.__name__ = "DisplayString"
+_SwACLPktContMaskOptionProfileName_Object = MibTableColumn
+swACLPktContMaskOptionProfileName = _SwACLPktContMaskOptionProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 8, 1, 17),
+    _SwACLPktContMaskOptionProfileName_Type()
+)
+swACLPktContMaskOptionProfileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOptionProfileName.setStatus("current")
+_SwACLPktContMaskOption2_ObjectIdentity = ObjectIdentity
+swACLPktContMaskOption2 = _SwACLPktContMaskOption2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10)
+)
+_SwACLPktContMaskOption2Table_Object = MibTable
+swACLPktContMaskOption2Table = _SwACLPktContMaskOption2Table_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1)
+)
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2Table.setStatus("current")
+_SwACLPktContMaskOption2Entry_Object = MibTableRow
+swACLPktContMaskOption2Entry = _SwACLPktContMaskOption2Entry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1)
+)
+swACLPktContMaskOption2Entry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLPktContMaskOption2ProfileID"),
+)
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2Entry.setStatus("current")
+_SwACLPktContMaskOption2ProfileID_Type = Integer32
+_SwACLPktContMaskOption2ProfileID_Object = MibTableColumn
+swACLPktContMaskOption2ProfileID = _SwACLPktContMaskOption2ProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 1),
+    _SwACLPktContMaskOption2ProfileID_Type()
+)
+swACLPktContMaskOption2ProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2ProfileID.setStatus("current")
+_SwACLPktContMaskOption2SrcMac_Type = MacAddress
+_SwACLPktContMaskOption2SrcMac_Object = MibTableColumn
+swACLPktContMaskOption2SrcMac = _SwACLPktContMaskOption2SrcMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 2),
+    _SwACLPktContMaskOption2SrcMac_Type()
+)
+swACLPktContMaskOption2SrcMac.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2SrcMac.setStatus("current")
+_SwACLPktContMaskOption2DstMac_Type = MacAddress
+_SwACLPktContMaskOption2DstMac_Object = MibTableColumn
+swACLPktContMaskOption2DstMac = _SwACLPktContMaskOption2DstMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 3),
+    _SwACLPktContMaskOption2DstMac_Type()
+)
+swACLPktContMaskOption2DstMac.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2DstMac.setStatus("current")
+
+
+class _SwACLPktContMaskOption2CTag_Type(OctetString):
+    """Custom type swACLPktContMaskOption2CTag based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLPktContMaskOption2CTag_Type.__name__ = "OctetString"
+_SwACLPktContMaskOption2CTag_Object = MibTableColumn
+swACLPktContMaskOption2CTag = _SwACLPktContMaskOption2CTag_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 4),
+    _SwACLPktContMaskOption2CTag_Type()
+)
+swACLPktContMaskOption2CTag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2CTag.setStatus("current")
+
+
+class _SwACLPktContMaskOption2STag_Type(OctetString):
+    """Custom type swACLPktContMaskOption2STag based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLPktContMaskOption2STag_Type.__name__ = "OctetString"
+_SwACLPktContMaskOption2STag_Object = MibTableColumn
+swACLPktContMaskOption2STag = _SwACLPktContMaskOption2STag_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 5),
+    _SwACLPktContMaskOption2STag_Type()
+)
+swACLPktContMaskOption2STag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2STag.setStatus("current")
+
+
+class _SwACLPktContMaskOption2Owner_Type(Integer32):
+    """Custom type swACLPktContMaskOption2Owner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLPktContMaskOption2Owner_Type.__name__ = "Integer32"
+_SwACLPktContMaskOption2Owner_Object = MibTableColumn
+swACLPktContMaskOption2Owner = _SwACLPktContMaskOption2Owner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 6),
+    _SwACLPktContMaskOption2Owner_Type()
+)
+swACLPktContMaskOption2Owner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2Owner.setStatus("current")
+_SwACLPktContMaskOption2UnusedRuleEntries_Type = Integer32
+_SwACLPktContMaskOption2UnusedRuleEntries_Object = MibTableColumn
+swACLPktContMaskOption2UnusedRuleEntries = _SwACLPktContMaskOption2UnusedRuleEntries_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 7),
+    _SwACLPktContMaskOption2UnusedRuleEntries_Type()
+)
+swACLPktContMaskOption2UnusedRuleEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2UnusedRuleEntries.setStatus("current")
+
+
+class _SwACLPktContMaskOption2ProfileName_Type(DisplayString):
+    """Custom type swACLPktContMaskOption2ProfileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwACLPktContMaskOption2ProfileName_Type.__name__ = "DisplayString"
+_SwACLPktContMaskOption2ProfileName_Object = MibTableColumn
+swACLPktContMaskOption2ProfileName = _SwACLPktContMaskOption2ProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 8),
+    _SwACLPktContMaskOption2ProfileName_Type()
+)
+swACLPktContMaskOption2ProfileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2ProfileName.setStatus("current")
+_SwACLPktContMaskOption2RowStatus_Type = RowStatus
+_SwACLPktContMaskOption2RowStatus_Object = MibTableColumn
+swACLPktContMaskOption2RowStatus = _SwACLPktContMaskOption2RowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 1, 1, 9),
+    _SwACLPktContMaskOption2RowStatus_Type()
+)
+swACLPktContMaskOption2RowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2RowStatus.setStatus("current")
+_SwACLPktContMaskOption2OffsetsTable_Object = MibTable
+swACLPktContMaskOption2OffsetsTable = _SwACLPktContMaskOption2OffsetsTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2)
+)
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2OffsetsTable.setStatus("current")
+_SwACLPktContMaskOption2OffsetsEntry_Object = MibTableRow
+swACLPktContMaskOption2OffsetsEntry = _SwACLPktContMaskOption2OffsetsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1)
+)
+swACLPktContMaskOption2OffsetsEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLPktContMaskOption2OffsetsProfileID"),
+    (0, "ACLMGMT-MIB", "swACLPktContMaskOption2OffsetsNum"),
+)
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2OffsetsEntry.setStatus("current")
+_SwACLPktContMaskOption2OffsetsProfileID_Type = Integer32
+_SwACLPktContMaskOption2OffsetsProfileID_Object = MibTableColumn
+swACLPktContMaskOption2OffsetsProfileID = _SwACLPktContMaskOption2OffsetsProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 1),
+    _SwACLPktContMaskOption2OffsetsProfileID_Type()
+)
+swACLPktContMaskOption2OffsetsProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2OffsetsProfileID.setStatus("current")
+
+
+class _SwACLPktContMaskOption2OffsetsNum_Type(Integer32):
+    """Custom type swACLPktContMaskOption2OffsetsNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 11),
+    )
+
+
+_SwACLPktContMaskOption2OffsetsNum_Type.__name__ = "Integer32"
+_SwACLPktContMaskOption2OffsetsNum_Object = MibTableColumn
+swACLPktContMaskOption2OffsetsNum = _SwACLPktContMaskOption2OffsetsNum_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 2),
+    _SwACLPktContMaskOption2OffsetsNum_Type()
+)
+swACLPktContMaskOption2OffsetsNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2OffsetsNum.setStatus("current")
+
+
+class _SwACLPktContMaskOption2OffsetsReference_Type(Integer32):
+    """Custom type swACLPktContMaskOption2OffsetsReference based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("l2", 1),
+          ("l3", 2),
+          ("l4", 3))
+    )
+
+
+_SwACLPktContMaskOption2OffsetsReference_Type.__name__ = "Integer32"
+_SwACLPktContMaskOption2OffsetsReference_Object = MibTableColumn
+swACLPktContMaskOption2OffsetsReference = _SwACLPktContMaskOption2OffsetsReference_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 3),
+    _SwACLPktContMaskOption2OffsetsReference_Type()
+)
+swACLPktContMaskOption2OffsetsReference.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2OffsetsReference.setStatus("current")
+_SwACLPktContMaskOption2OffsetsValue_Type = Integer32
+_SwACLPktContMaskOption2OffsetsValue_Object = MibTableColumn
+swACLPktContMaskOption2OffsetsValue = _SwACLPktContMaskOption2OffsetsValue_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 4),
+    _SwACLPktContMaskOption2OffsetsValue_Type()
+)
+swACLPktContMaskOption2OffsetsValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2OffsetsValue.setStatus("current")
+
+
+class _SwACLPktContMaskOption2OffsetsMask_Type(OctetString):
+    """Custom type swACLPktContMaskOption2OffsetsMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLPktContMaskOption2OffsetsMask_Type.__name__ = "OctetString"
+_SwACLPktContMaskOption2OffsetsMask_Object = MibTableColumn
+swACLPktContMaskOption2OffsetsMask = _SwACLPktContMaskOption2OffsetsMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 5),
+    _SwACLPktContMaskOption2OffsetsMask_Type()
+)
+swACLPktContMaskOption2OffsetsMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2OffsetsMask.setStatus("current")
+_SwACLPktContMaskOption2OffsetsRowStatus_Type = RowStatus
+_SwACLPktContMaskOption2OffsetsRowStatus_Object = MibTableColumn
+swACLPktContMaskOption2OffsetsRowStatus = _SwACLPktContMaskOption2OffsetsRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 2, 10, 2, 1, 6),
+    _SwACLPktContMaskOption2OffsetsRowStatus_Type()
+)
+swACLPktContMaskOption2OffsetsRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContMaskOption2OffsetsRowStatus.setStatus("current")
+_SwAclRuleMgmt_ObjectIdentity = ObjectIdentity
+swAclRuleMgmt = _SwAclRuleMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3)
+)
+_SwACLEtherRuleTable_Object = MibTable
+swACLEtherRuleTable = _SwACLEtherRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1)
+)
+if mibBuilder.loadTexts:
+    swACLEtherRuleTable.setStatus("current")
+_SwACLEtherRuleEntry_Object = MibTableRow
+swACLEtherRuleEntry = _SwACLEtherRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1)
+)
+swACLEtherRuleEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLEtherRuleProfileID"),
+    (0, "ACLMGMT-MIB", "swACLEtherRuleAccessID"),
+)
+if mibBuilder.loadTexts:
+    swACLEtherRuleEntry.setStatus("current")
+_SwACLEtherRuleProfileID_Type = Integer32
+_SwACLEtherRuleProfileID_Object = MibTableColumn
+swACLEtherRuleProfileID = _SwACLEtherRuleProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 1),
+    _SwACLEtherRuleProfileID_Type()
+)
+swACLEtherRuleProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLEtherRuleProfileID.setStatus("current")
+
+
+class _SwACLEtherRuleAccessID_Type(Integer32):
+    """Custom type swACLEtherRuleAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwACLEtherRuleAccessID_Type.__name__ = "Integer32"
+_SwACLEtherRuleAccessID_Object = MibTableColumn
+swACLEtherRuleAccessID = _SwACLEtherRuleAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 2),
+    _SwACLEtherRuleAccessID_Type()
+)
+swACLEtherRuleAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLEtherRuleAccessID.setStatus("current")
+
+
+class _SwACLEtherRuleVlan_Type(SnmpAdminString):
+    """Custom type swACLEtherRuleVlan based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwACLEtherRuleVlan_Type.__name__ = "SnmpAdminString"
+_SwACLEtherRuleVlan_Object = MibTableColumn
+swACLEtherRuleVlan = _SwACLEtherRuleVlan_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 3),
+    _SwACLEtherRuleVlan_Type()
+)
+swACLEtherRuleVlan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleVlan.setStatus("current")
+_SwACLEtherRuleSrcMacAddress_Type = MacAddress
+_SwACLEtherRuleSrcMacAddress_Object = MibTableColumn
+swACLEtherRuleSrcMacAddress = _SwACLEtherRuleSrcMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 4),
+    _SwACLEtherRuleSrcMacAddress_Type()
+)
+swACLEtherRuleSrcMacAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleSrcMacAddress.setStatus("current")
+_SwACLEtherRuleDstMacAddress_Type = MacAddress
+_SwACLEtherRuleDstMacAddress_Object = MibTableColumn
+swACLEtherRuleDstMacAddress = _SwACLEtherRuleDstMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 5),
+    _SwACLEtherRuleDstMacAddress_Type()
+)
+swACLEtherRuleDstMacAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleDstMacAddress.setStatus("current")
+
+
+class _SwACLEtherRule8021P_Type(Integer32):
+    """Custom type swACLEtherRule8021P based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 7),
+    )
+
+
+_SwACLEtherRule8021P_Type.__name__ = "Integer32"
+_SwACLEtherRule8021P_Object = MibTableColumn
+swACLEtherRule8021P = _SwACLEtherRule8021P_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 6),
+    _SwACLEtherRule8021P_Type()
+)
+swACLEtherRule8021P.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRule8021P.setStatus("current")
+
+
+class _SwACLEtherRuleEtherType_Type(OctetString):
+    """Custom type swACLEtherRuleEtherType based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLEtherRuleEtherType_Type.__name__ = "OctetString"
+_SwACLEtherRuleEtherType_Object = MibTableColumn
+swACLEtherRuleEtherType = _SwACLEtherRuleEtherType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 7),
+    _SwACLEtherRuleEtherType_Type()
+)
+swACLEtherRuleEtherType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleEtherType.setStatus("current")
+
+
+class _SwACLEtherRuleEnablePriority_Type(Integer32):
+    """Custom type swACLEtherRuleEnablePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLEtherRuleEnablePriority_Type.__name__ = "Integer32"
+_SwACLEtherRuleEnablePriority_Object = MibTableColumn
+swACLEtherRuleEnablePriority = _SwACLEtherRuleEnablePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 8),
+    _SwACLEtherRuleEnablePriority_Type()
+)
+swACLEtherRuleEnablePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleEnablePriority.setStatus("current")
+
+
+class _SwACLEtherRulePriority_Type(Integer32):
+    """Custom type swACLEtherRulePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLEtherRulePriority_Type.__name__ = "Integer32"
+_SwACLEtherRulePriority_Object = MibTableColumn
+swACLEtherRulePriority = _SwACLEtherRulePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 9),
+    _SwACLEtherRulePriority_Type()
+)
+swACLEtherRulePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRulePriority.setStatus("current")
+
+
+class _SwACLEtherRuleReplacePriority_Type(Integer32):
+    """Custom type swACLEtherRuleReplacePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLEtherRuleReplacePriority_Type.__name__ = "Integer32"
+_SwACLEtherRuleReplacePriority_Object = MibTableColumn
+swACLEtherRuleReplacePriority = _SwACLEtherRuleReplacePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 10),
+    _SwACLEtherRuleReplacePriority_Type()
+)
+swACLEtherRuleReplacePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleReplacePriority.setStatus("current")
+
+
+class _SwACLEtherRuleEnableReplaceDscp_Type(Integer32):
+    """Custom type swACLEtherRuleEnableReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLEtherRuleEnableReplaceDscp_Type.__name__ = "Integer32"
+_SwACLEtherRuleEnableReplaceDscp_Object = MibTableColumn
+swACLEtherRuleEnableReplaceDscp = _SwACLEtherRuleEnableReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 11),
+    _SwACLEtherRuleEnableReplaceDscp_Type()
+)
+swACLEtherRuleEnableReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleEnableReplaceDscp.setStatus("current")
+
+
+class _SwACLEtherRuleRepDscp_Type(Integer32):
+    """Custom type swACLEtherRuleRepDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwACLEtherRuleRepDscp_Type.__name__ = "Integer32"
+_SwACLEtherRuleRepDscp_Object = MibTableColumn
+swACLEtherRuleRepDscp = _SwACLEtherRuleRepDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 12),
+    _SwACLEtherRuleRepDscp_Type()
+)
+swACLEtherRuleRepDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleRepDscp.setStatus("current")
+
+
+class _SwACLEtherRulePermit_Type(Integer32):
+    """Custom type swACLEtherRulePermit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2),
+          ("mirror", 3),
+          ("set-drop-precedence", 5))
+    )
+
+
+_SwACLEtherRulePermit_Type.__name__ = "Integer32"
+_SwACLEtherRulePermit_Object = MibTableColumn
+swACLEtherRulePermit = _SwACLEtherRulePermit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 13),
+    _SwACLEtherRulePermit_Type()
+)
+swACLEtherRulePermit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRulePermit.setStatus("current")
+_SwACLEtherRulePort_Type = PortList
+_SwACLEtherRulePort_Object = MibTableColumn
+swACLEtherRulePort = _SwACLEtherRulePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 14),
+    _SwACLEtherRulePort_Type()
+)
+swACLEtherRulePort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRulePort.setStatus("current")
+_SwACLEtherRuleRowStatus_Type = RowStatus
+_SwACLEtherRuleRowStatus_Object = MibTableColumn
+swACLEtherRuleRowStatus = _SwACLEtherRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 15),
+    _SwACLEtherRuleRowStatus_Type()
+)
+swACLEtherRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleRowStatus.setStatus("current")
+
+
+class _SwACLEtherRuleOwner_Type(Integer32):
+    """Custom type swACLEtherRuleOwner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLEtherRuleOwner_Type.__name__ = "Integer32"
+_SwACLEtherRuleOwner_Object = MibTableColumn
+swACLEtherRuleOwner = _SwACLEtherRuleOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 16),
+    _SwACLEtherRuleOwner_Type()
+)
+swACLEtherRuleOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLEtherRuleOwner.setStatus("current")
+_SwACLEtherRuleRxRate_Type = Integer32
+_SwACLEtherRuleRxRate_Object = MibTableColumn
+swACLEtherRuleRxRate = _SwACLEtherRuleRxRate_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 17),
+    _SwACLEtherRuleRxRate_Type()
+)
+swACLEtherRuleRxRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleRxRate.setStatus("current")
+
+
+class _SwACLEtherRuleEnableReplaceTosPrecedence_Type(Integer32):
+    """Custom type swACLEtherRuleEnableReplaceTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLEtherRuleEnableReplaceTosPrecedence_Type.__name__ = "Integer32"
+_SwACLEtherRuleEnableReplaceTosPrecedence_Object = MibTableColumn
+swACLEtherRuleEnableReplaceTosPrecedence = _SwACLEtherRuleEnableReplaceTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 18),
+    _SwACLEtherRuleEnableReplaceTosPrecedence_Type()
+)
+swACLEtherRuleEnableReplaceTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleEnableReplaceTosPrecedence.setStatus("current")
+
+
+class _SwACLEtherRuleRepTosPrecedence_Type(Integer32):
+    """Custom type swACLEtherRuleRepTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLEtherRuleRepTosPrecedence_Type.__name__ = "Integer32"
+_SwACLEtherRuleRepTosPrecedence_Object = MibTableColumn
+swACLEtherRuleRepTosPrecedence = _SwACLEtherRuleRepTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 19),
+    _SwACLEtherRuleRepTosPrecedence_Type()
+)
+swACLEtherRuleRepTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleRepTosPrecedence.setStatus("current")
+
+
+class _SwACLEtherRuleVID_Type(Integer32):
+    """Custom type swACLEtherRuleVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_SwACLEtherRuleVID_Type.__name__ = "Integer32"
+_SwACLEtherRuleVID_Object = MibTableColumn
+swACLEtherRuleVID = _SwACLEtherRuleVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 20),
+    _SwACLEtherRuleVID_Type()
+)
+swACLEtherRuleVID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleVID.setStatus("current")
+
+
+class _SwACLEtherRuleMatchVID_Type(Integer32):
+    """Custom type swACLEtherRuleMatchVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_SwACLEtherRuleMatchVID_Type.__name__ = "Integer32"
+_SwACLEtherRuleMatchVID_Object = MibTableColumn
+swACLEtherRuleMatchVID = _SwACLEtherRuleMatchVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 21),
+    _SwACLEtherRuleMatchVID_Type()
+)
+swACLEtherRuleMatchVID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleMatchVID.setStatus("current")
+
+
+class _SwACLEtherRuleMaskVlan_Type(OctetString):
+    """Custom type swACLEtherRuleMaskVlan based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLEtherRuleMaskVlan_Type.__name__ = "OctetString"
+_SwACLEtherRuleMaskVlan_Object = MibTableColumn
+swACLEtherRuleMaskVlan = _SwACLEtherRuleMaskVlan_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 22),
+    _SwACLEtherRuleMaskVlan_Type()
+)
+swACLEtherRuleMaskVlan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleMaskVlan.setStatus("current")
+_SwACLEtherRuleMaskSrcMacAddress_Type = MacAddress
+_SwACLEtherRuleMaskSrcMacAddress_Object = MibTableColumn
+swACLEtherRuleMaskSrcMacAddress = _SwACLEtherRuleMaskSrcMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 23),
+    _SwACLEtherRuleMaskSrcMacAddress_Type()
+)
+swACLEtherRuleMaskSrcMacAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleMaskSrcMacAddress.setStatus("current")
+_SwACLEtherRuleMaskDstMacAddress_Type = MacAddress
+_SwACLEtherRuleMaskDstMacAddress_Object = MibTableColumn
+swACLEtherRuleMaskDstMacAddress = _SwACLEtherRuleMaskDstMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 1, 1, 24),
+    _SwACLEtherRuleMaskDstMacAddress_Type()
+)
+swACLEtherRuleMaskDstMacAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLEtherRuleMaskDstMacAddress.setStatus("current")
+_SwACLIpRuleTable_Object = MibTable
+swACLIpRuleTable = _SwACLIpRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2)
+)
+if mibBuilder.loadTexts:
+    swACLIpRuleTable.setStatus("current")
+_SwACLIpRuleEntry_Object = MibTableRow
+swACLIpRuleEntry = _SwACLIpRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1)
+)
+swACLIpRuleEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLIpRuleProfileID"),
+    (0, "ACLMGMT-MIB", "swACLIpRuleAccessID"),
+)
+if mibBuilder.loadTexts:
+    swACLIpRuleEntry.setStatus("current")
+_SwACLIpRuleProfileID_Type = Integer32
+_SwACLIpRuleProfileID_Object = MibTableColumn
+swACLIpRuleProfileID = _SwACLIpRuleProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 1),
+    _SwACLIpRuleProfileID_Type()
+)
+swACLIpRuleProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpRuleProfileID.setStatus("current")
+
+
+class _SwACLIpRuleAccessID_Type(Integer32):
+    """Custom type swACLIpRuleAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwACLIpRuleAccessID_Type.__name__ = "Integer32"
+_SwACLIpRuleAccessID_Object = MibTableColumn
+swACLIpRuleAccessID = _SwACLIpRuleAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 2),
+    _SwACLIpRuleAccessID_Type()
+)
+swACLIpRuleAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpRuleAccessID.setStatus("current")
+
+
+class _SwACLIpRuleVlan_Type(SnmpAdminString):
+    """Custom type swACLIpRuleVlan based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwACLIpRuleVlan_Type.__name__ = "SnmpAdminString"
+_SwACLIpRuleVlan_Object = MibTableColumn
+swACLIpRuleVlan = _SwACLIpRuleVlan_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 3),
+    _SwACLIpRuleVlan_Type()
+)
+swACLIpRuleVlan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleVlan.setStatus("current")
+_SwACLIpRuleSrcIpaddress_Type = IpAddress
+_SwACLIpRuleSrcIpaddress_Object = MibTableColumn
+swACLIpRuleSrcIpaddress = _SwACLIpRuleSrcIpaddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 4),
+    _SwACLIpRuleSrcIpaddress_Type()
+)
+swACLIpRuleSrcIpaddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleSrcIpaddress.setStatus("current")
+_SwACLIpRuleDstIpaddress_Type = IpAddress
+_SwACLIpRuleDstIpaddress_Object = MibTableColumn
+swACLIpRuleDstIpaddress = _SwACLIpRuleDstIpaddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 5),
+    _SwACLIpRuleDstIpaddress_Type()
+)
+swACLIpRuleDstIpaddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleDstIpaddress.setStatus("current")
+
+
+class _SwACLIpRuleDscp_Type(Integer32):
+    """Custom type swACLIpRuleDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 63),
+    )
+
+
+_SwACLIpRuleDscp_Type.__name__ = "Integer32"
+_SwACLIpRuleDscp_Object = MibTableColumn
+swACLIpRuleDscp = _SwACLIpRuleDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 6),
+    _SwACLIpRuleDscp_Type()
+)
+swACLIpRuleDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleDscp.setStatus("current")
+
+
+class _SwACLIpRuleProtocol_Type(Integer32):
+    """Custom type swACLIpRuleProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("icmp", 2),
+          ("igmp", 3),
+          ("tcp", 4),
+          ("udp", 5),
+          ("protocolId", 6))
+    )
+
+
+_SwACLIpRuleProtocol_Type.__name__ = "Integer32"
+_SwACLIpRuleProtocol_Object = MibTableColumn
+swACLIpRuleProtocol = _SwACLIpRuleProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 7),
+    _SwACLIpRuleProtocol_Type()
+)
+swACLIpRuleProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swACLIpRuleProtocol.setStatus("current")
+
+
+class _SwACLIpRuleType_Type(Integer32):
+    """Custom type swACLIpRuleType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 255),
+    )
+
+
+_SwACLIpRuleType_Type.__name__ = "Integer32"
+_SwACLIpRuleType_Object = MibTableColumn
+swACLIpRuleType = _SwACLIpRuleType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 8),
+    _SwACLIpRuleType_Type()
+)
+swACLIpRuleType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleType.setStatus("current")
+
+
+class _SwACLIpRuleCode_Type(Integer32):
+    """Custom type swACLIpRuleCode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 255),
+    )
+
+
+_SwACLIpRuleCode_Type.__name__ = "Integer32"
+_SwACLIpRuleCode_Object = MibTableColumn
+swACLIpRuleCode = _SwACLIpRuleCode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 9),
+    _SwACLIpRuleCode_Type()
+)
+swACLIpRuleCode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleCode.setStatus("current")
+
+
+class _SwACLIpRuleSrcPort_Type(Integer32):
+    """Custom type swACLIpRuleSrcPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 65535),
+    )
+
+
+_SwACLIpRuleSrcPort_Type.__name__ = "Integer32"
+_SwACLIpRuleSrcPort_Object = MibTableColumn
+swACLIpRuleSrcPort = _SwACLIpRuleSrcPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 10),
+    _SwACLIpRuleSrcPort_Type()
+)
+swACLIpRuleSrcPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleSrcPort.setStatus("current")
+
+
+class _SwACLIpRuleDstPort_Type(Integer32):
+    """Custom type swACLIpRuleDstPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 65535),
+    )
+
+
+_SwACLIpRuleDstPort_Type.__name__ = "Integer32"
+_SwACLIpRuleDstPort_Object = MibTableColumn
+swACLIpRuleDstPort = _SwACLIpRuleDstPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 11),
+    _SwACLIpRuleDstPort_Type()
+)
+swACLIpRuleDstPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleDstPort.setStatus("current")
+
+
+class _SwACLIpRuleFlagBits_Type(Integer32):
+    """Custom type swACLIpRuleFlagBits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwACLIpRuleFlagBits_Type.__name__ = "Integer32"
+_SwACLIpRuleFlagBits_Object = MibTableColumn
+swACLIpRuleFlagBits = _SwACLIpRuleFlagBits_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 12),
+    _SwACLIpRuleFlagBits_Type()
+)
+swACLIpRuleFlagBits.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleFlagBits.setStatus("current")
+
+
+class _SwACLIpRuleProtoID_Type(Integer32):
+    """Custom type swACLIpRuleProtoID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 255),
+    )
+
+
+_SwACLIpRuleProtoID_Type.__name__ = "Integer32"
+_SwACLIpRuleProtoID_Object = MibTableColumn
+swACLIpRuleProtoID = _SwACLIpRuleProtoID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 13),
+    _SwACLIpRuleProtoID_Type()
+)
+swACLIpRuleProtoID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleProtoID.setStatus("current")
+
+
+class _SwACLIpRuleUserMask_Type(OctetString):
+    """Custom type swACLIpRuleUserMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(20, 20),
+    )
+    fixed_length = 20
+
+
+_SwACLIpRuleUserMask_Type.__name__ = "OctetString"
+_SwACLIpRuleUserMask_Object = MibTableColumn
+swACLIpRuleUserMask = _SwACLIpRuleUserMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 14),
+    _SwACLIpRuleUserMask_Type()
+)
+swACLIpRuleUserMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleUserMask.setStatus("current")
+
+
+class _SwACLIpRuleEnablePriority_Type(Integer32):
+    """Custom type swACLIpRuleEnablePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLIpRuleEnablePriority_Type.__name__ = "Integer32"
+_SwACLIpRuleEnablePriority_Object = MibTableColumn
+swACLIpRuleEnablePriority = _SwACLIpRuleEnablePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 15),
+    _SwACLIpRuleEnablePriority_Type()
+)
+swACLIpRuleEnablePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleEnablePriority.setStatus("current")
+
+
+class _SwACLIpRulePriority_Type(Integer32):
+    """Custom type swACLIpRulePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLIpRulePriority_Type.__name__ = "Integer32"
+_SwACLIpRulePriority_Object = MibTableColumn
+swACLIpRulePriority = _SwACLIpRulePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 16),
+    _SwACLIpRulePriority_Type()
+)
+swACLIpRulePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRulePriority.setStatus("current")
+
+
+class _SwACLIpRuleReplacePriority_Type(Integer32):
+    """Custom type swACLIpRuleReplacePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLIpRuleReplacePriority_Type.__name__ = "Integer32"
+_SwACLIpRuleReplacePriority_Object = MibTableColumn
+swACLIpRuleReplacePriority = _SwACLIpRuleReplacePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 17),
+    _SwACLIpRuleReplacePriority_Type()
+)
+swACLIpRuleReplacePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleReplacePriority.setStatus("current")
+
+
+class _SwACLIpRuleEnableReplaceDscp_Type(Integer32):
+    """Custom type swACLIpRuleEnableReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLIpRuleEnableReplaceDscp_Type.__name__ = "Integer32"
+_SwACLIpRuleEnableReplaceDscp_Object = MibTableColumn
+swACLIpRuleEnableReplaceDscp = _SwACLIpRuleEnableReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 18),
+    _SwACLIpRuleEnableReplaceDscp_Type()
+)
+swACLIpRuleEnableReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleEnableReplaceDscp.setStatus("current")
+
+
+class _SwACLIpRuleRepDscp_Type(Integer32):
+    """Custom type swACLIpRuleRepDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwACLIpRuleRepDscp_Type.__name__ = "Integer32"
+_SwACLIpRuleRepDscp_Object = MibTableColumn
+swACLIpRuleRepDscp = _SwACLIpRuleRepDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 19),
+    _SwACLIpRuleRepDscp_Type()
+)
+swACLIpRuleRepDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleRepDscp.setStatus("current")
+
+
+class _SwACLIpRulePermit_Type(Integer32):
+    """Custom type swACLIpRulePermit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2),
+          ("mirror", 3),
+          ("set-drop-precedence", 5))
+    )
+
+
+_SwACLIpRulePermit_Type.__name__ = "Integer32"
+_SwACLIpRulePermit_Object = MibTableColumn
+swACLIpRulePermit = _SwACLIpRulePermit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 20),
+    _SwACLIpRulePermit_Type()
+)
+swACLIpRulePermit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRulePermit.setStatus("current")
+_SwACLIpRulePort_Type = PortList
+_SwACLIpRulePort_Object = MibTableColumn
+swACLIpRulePort = _SwACLIpRulePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 21),
+    _SwACLIpRulePort_Type()
+)
+swACLIpRulePort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRulePort.setStatus("current")
+_SwACLIpRuleRowStatus_Type = RowStatus
+_SwACLIpRuleRowStatus_Object = MibTableColumn
+swACLIpRuleRowStatus = _SwACLIpRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 22),
+    _SwACLIpRuleRowStatus_Type()
+)
+swACLIpRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleRowStatus.setStatus("current")
+
+
+class _SwACLIpRuleOwner_Type(Integer32):
+    """Custom type swACLIpRuleOwner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLIpRuleOwner_Type.__name__ = "Integer32"
+_SwACLIpRuleOwner_Object = MibTableColumn
+swACLIpRuleOwner = _SwACLIpRuleOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 23),
+    _SwACLIpRuleOwner_Type()
+)
+swACLIpRuleOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpRuleOwner.setStatus("current")
+_SwACLIpRuleRxRate_Type = Integer32
+_SwACLIpRuleRxRate_Object = MibTableColumn
+swACLIpRuleRxRate = _SwACLIpRuleRxRate_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 24),
+    _SwACLIpRuleRxRate_Type()
+)
+swACLIpRuleRxRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleRxRate.setStatus("current")
+_SwACLIpRuleSrcMacAddress_Type = MacAddress
+_SwACLIpRuleSrcMacAddress_Object = MibTableColumn
+swACLIpRuleSrcMacAddress = _SwACLIpRuleSrcMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 25),
+    _SwACLIpRuleSrcMacAddress_Type()
+)
+swACLIpRuleSrcMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpRuleSrcMacAddress.setStatus("current")
+
+
+class _SwACLIpRuleEnableReplaceTosPrecedence_Type(Integer32):
+    """Custom type swACLIpRuleEnableReplaceTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLIpRuleEnableReplaceTosPrecedence_Type.__name__ = "Integer32"
+_SwACLIpRuleEnableReplaceTosPrecedence_Object = MibTableColumn
+swACLIpRuleEnableReplaceTosPrecedence = _SwACLIpRuleEnableReplaceTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 26),
+    _SwACLIpRuleEnableReplaceTosPrecedence_Type()
+)
+swACLIpRuleEnableReplaceTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleEnableReplaceTosPrecedence.setStatus("current")
+
+
+class _SwACLIpRuleRepTosPrecedence_Type(Integer32):
+    """Custom type swACLIpRuleRepTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLIpRuleRepTosPrecedence_Type.__name__ = "Integer32"
+_SwACLIpRuleRepTosPrecedence_Object = MibTableColumn
+swACLIpRuleRepTosPrecedence = _SwACLIpRuleRepTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 27),
+    _SwACLIpRuleRepTosPrecedence_Type()
+)
+swACLIpRuleRepTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleRepTosPrecedence.setStatus("current")
+
+
+class _SwACLIpRuleVID_Type(Integer32):
+    """Custom type swACLIpRuleVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_SwACLIpRuleVID_Type.__name__ = "Integer32"
+_SwACLIpRuleVID_Object = MibTableColumn
+swACLIpRuleVID = _SwACLIpRuleVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 28),
+    _SwACLIpRuleVID_Type()
+)
+swACLIpRuleVID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleVID.setStatus("current")
+
+
+class _SwACLIpRuleMatchVID_Type(Integer32):
+    """Custom type swACLIpRuleMatchVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_SwACLIpRuleMatchVID_Type.__name__ = "Integer32"
+_SwACLIpRuleMatchVID_Object = MibTableColumn
+swACLIpRuleMatchVID = _SwACLIpRuleMatchVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 29),
+    _SwACLIpRuleMatchVID_Type()
+)
+swACLIpRuleMatchVID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleMatchVID.setStatus("current")
+
+
+class _SwACLIpRuleMaskVlan_Type(OctetString):
+    """Custom type swACLIpRuleMaskVlan based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLIpRuleMaskVlan_Type.__name__ = "OctetString"
+_SwACLIpRuleMaskVlan_Object = MibTableColumn
+swACLIpRuleMaskVlan = _SwACLIpRuleMaskVlan_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 30),
+    _SwACLIpRuleMaskVlan_Type()
+)
+swACLIpRuleMaskVlan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleMaskVlan.setStatus("current")
+_SwACLIpRuleMaskSrcIpaddress_Type = IpAddress
+_SwACLIpRuleMaskSrcIpaddress_Object = MibTableColumn
+swACLIpRuleMaskSrcIpaddress = _SwACLIpRuleMaskSrcIpaddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 31),
+    _SwACLIpRuleMaskSrcIpaddress_Type()
+)
+swACLIpRuleMaskSrcIpaddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleMaskSrcIpaddress.setStatus("current")
+_SwACLIpRuleMaskDstIpaddress_Type = IpAddress
+_SwACLIpRuleMaskDstIpaddress_Object = MibTableColumn
+swACLIpRuleMaskDstIpaddress = _SwACLIpRuleMaskDstIpaddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 32),
+    _SwACLIpRuleMaskDstIpaddress_Type()
+)
+swACLIpRuleMaskDstIpaddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleMaskDstIpaddress.setStatus("current")
+
+
+class _SwACLIpRuleMaskSrcPort_Type(OctetString):
+    """Custom type swACLIpRuleMaskSrcPort based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLIpRuleMaskSrcPort_Type.__name__ = "OctetString"
+_SwACLIpRuleMaskSrcPort_Object = MibTableColumn
+swACLIpRuleMaskSrcPort = _SwACLIpRuleMaskSrcPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 33),
+    _SwACLIpRuleMaskSrcPort_Type()
+)
+swACLIpRuleMaskSrcPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleMaskSrcPort.setStatus("current")
+
+
+class _SwACLIpRuleMaskDstPort_Type(OctetString):
+    """Custom type swACLIpRuleMaskDstPort based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLIpRuleMaskDstPort_Type.__name__ = "OctetString"
+_SwACLIpRuleMaskDstPort_Object = MibTableColumn
+swACLIpRuleMaskDstPort = _SwACLIpRuleMaskDstPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 2, 1, 34),
+    _SwACLIpRuleMaskDstPort_Type()
+)
+swACLIpRuleMaskDstPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpRuleMaskDstPort.setStatus("current")
+_SwACLPktContRuleTable_Object = MibTable
+swACLPktContRuleTable = _SwACLPktContRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3)
+)
+if mibBuilder.loadTexts:
+    swACLPktContRuleTable.setStatus("current")
+_SwACLPktContRuleEntry_Object = MibTableRow
+swACLPktContRuleEntry = _SwACLPktContRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1)
+)
+swACLPktContRuleEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLPktContRuleProfileID"),
+    (0, "ACLMGMT-MIB", "swACLPktContRuleAccessID"),
+)
+if mibBuilder.loadTexts:
+    swACLPktContRuleEntry.setStatus("current")
+_SwACLPktContRuleProfileID_Type = Integer32
+_SwACLPktContRuleProfileID_Object = MibTableColumn
+swACLPktContRuleProfileID = _SwACLPktContRuleProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 1),
+    _SwACLPktContRuleProfileID_Type()
+)
+swACLPktContRuleProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleProfileID.setStatus("current")
+
+
+class _SwACLPktContRuleAccessID_Type(Integer32):
+    """Custom type swACLPktContRuleAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwACLPktContRuleAccessID_Type.__name__ = "Integer32"
+_SwACLPktContRuleAccessID_Object = MibTableColumn
+swACLPktContRuleAccessID = _SwACLPktContRuleAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 2),
+    _SwACLPktContRuleAccessID_Type()
+)
+swACLPktContRuleAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleAccessID.setStatus("current")
+
+
+class _SwACLPktContRuleOffset0to15_Type(OctetString):
+    """Custom type swACLPktContRuleOffset0to15 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwACLPktContRuleOffset0to15_Type.__name__ = "OctetString"
+_SwACLPktContRuleOffset0to15_Object = MibTableColumn
+swACLPktContRuleOffset0to15 = _SwACLPktContRuleOffset0to15_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 3),
+    _SwACLPktContRuleOffset0to15_Type()
+)
+swACLPktContRuleOffset0to15.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffset0to15.setStatus("current")
+
+
+class _SwACLPktContRuleOffset16to31_Type(OctetString):
+    """Custom type swACLPktContRuleOffset16to31 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwACLPktContRuleOffset16to31_Type.__name__ = "OctetString"
+_SwACLPktContRuleOffset16to31_Object = MibTableColumn
+swACLPktContRuleOffset16to31 = _SwACLPktContRuleOffset16to31_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 4),
+    _SwACLPktContRuleOffset16to31_Type()
+)
+swACLPktContRuleOffset16to31.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffset16to31.setStatus("current")
+
+
+class _SwACLPktContRuleOffset32to47_Type(OctetString):
+    """Custom type swACLPktContRuleOffset32to47 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwACLPktContRuleOffset32to47_Type.__name__ = "OctetString"
+_SwACLPktContRuleOffset32to47_Object = MibTableColumn
+swACLPktContRuleOffset32to47 = _SwACLPktContRuleOffset32to47_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 5),
+    _SwACLPktContRuleOffset32to47_Type()
+)
+swACLPktContRuleOffset32to47.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffset32to47.setStatus("current")
+
+
+class _SwACLPktContRuleOffset48to63_Type(OctetString):
+    """Custom type swACLPktContRuleOffset48to63 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwACLPktContRuleOffset48to63_Type.__name__ = "OctetString"
+_SwACLPktContRuleOffset48to63_Object = MibTableColumn
+swACLPktContRuleOffset48to63 = _SwACLPktContRuleOffset48to63_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 6),
+    _SwACLPktContRuleOffset48to63_Type()
+)
+swACLPktContRuleOffset48to63.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffset48to63.setStatus("current")
+
+
+class _SwACLPktContRuleOffset64to79_Type(OctetString):
+    """Custom type swACLPktContRuleOffset64to79 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwACLPktContRuleOffset64to79_Type.__name__ = "OctetString"
+_SwACLPktContRuleOffset64to79_Object = MibTableColumn
+swACLPktContRuleOffset64to79 = _SwACLPktContRuleOffset64to79_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 7),
+    _SwACLPktContRuleOffset64to79_Type()
+)
+swACLPktContRuleOffset64to79.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffset64to79.setStatus("current")
+
+
+class _SwACLPktContRuleEnablePriority_Type(Integer32):
+    """Custom type swACLPktContRuleEnablePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleEnablePriority_Type.__name__ = "Integer32"
+_SwACLPktContRuleEnablePriority_Object = MibTableColumn
+swACLPktContRuleEnablePriority = _SwACLPktContRuleEnablePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 8),
+    _SwACLPktContRuleEnablePriority_Type()
+)
+swACLPktContRuleEnablePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleEnablePriority.setStatus("current")
+
+
+class _SwACLPktContRulePriority_Type(Integer32):
+    """Custom type swACLPktContRulePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLPktContRulePriority_Type.__name__ = "Integer32"
+_SwACLPktContRulePriority_Object = MibTableColumn
+swACLPktContRulePriority = _SwACLPktContRulePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 9),
+    _SwACLPktContRulePriority_Type()
+)
+swACLPktContRulePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRulePriority.setStatus("current")
+
+
+class _SwACLPktContRuleReplacePriority_Type(Integer32):
+    """Custom type swACLPktContRuleReplacePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleReplacePriority_Type.__name__ = "Integer32"
+_SwACLPktContRuleReplacePriority_Object = MibTableColumn
+swACLPktContRuleReplacePriority = _SwACLPktContRuleReplacePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 10),
+    _SwACLPktContRuleReplacePriority_Type()
+)
+swACLPktContRuleReplacePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleReplacePriority.setStatus("current")
+
+
+class _SwACLPktContRuleEnableReplaceDscp_Type(Integer32):
+    """Custom type swACLPktContRuleEnableReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleEnableReplaceDscp_Type.__name__ = "Integer32"
+_SwACLPktContRuleEnableReplaceDscp_Object = MibTableColumn
+swACLPktContRuleEnableReplaceDscp = _SwACLPktContRuleEnableReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 11),
+    _SwACLPktContRuleEnableReplaceDscp_Type()
+)
+swACLPktContRuleEnableReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleEnableReplaceDscp.setStatus("current")
+
+
+class _SwACLPktContRuleRepDscp_Type(Integer32):
+    """Custom type swACLPktContRuleRepDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwACLPktContRuleRepDscp_Type.__name__ = "Integer32"
+_SwACLPktContRuleRepDscp_Object = MibTableColumn
+swACLPktContRuleRepDscp = _SwACLPktContRuleRepDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 12),
+    _SwACLPktContRuleRepDscp_Type()
+)
+swACLPktContRuleRepDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleRepDscp.setStatus("current")
+
+
+class _SwACLPktContRulePermit_Type(Integer32):
+    """Custom type swACLPktContRulePermit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2),
+          ("mirror", 3),
+          ("lease-renew", 4),
+          ("set-drop-precedence", 5))
+    )
+
+
+_SwACLPktContRulePermit_Type.__name__ = "Integer32"
+_SwACLPktContRulePermit_Object = MibTableColumn
+swACLPktContRulePermit = _SwACLPktContRulePermit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 13),
+    _SwACLPktContRulePermit_Type()
+)
+swACLPktContRulePermit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRulePermit.setStatus("current")
+_SwACLPktContRulePort_Type = PortList
+_SwACLPktContRulePort_Object = MibTableColumn
+swACLPktContRulePort = _SwACLPktContRulePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 14),
+    _SwACLPktContRulePort_Type()
+)
+swACLPktContRulePort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRulePort.setStatus("current")
+_SwACLPktContRuleRowStatus_Type = RowStatus
+_SwACLPktContRuleRowStatus_Object = MibTableColumn
+swACLPktContRuleRowStatus = _SwACLPktContRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 15),
+    _SwACLPktContRuleRowStatus_Type()
+)
+swACLPktContRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleRowStatus.setStatus("current")
+
+
+class _SwACLPktContRuleOwner_Type(Integer32):
+    """Custom type swACLPktContRuleOwner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLPktContRuleOwner_Type.__name__ = "Integer32"
+_SwACLPktContRuleOwner_Object = MibTableColumn
+swACLPktContRuleOwner = _SwACLPktContRuleOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 16),
+    _SwACLPktContRuleOwner_Type()
+)
+swACLPktContRuleOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOwner.setStatus("current")
+_SwACLPktContRuleRxRate_Type = Integer32
+_SwACLPktContRuleRxRate_Object = MibTableColumn
+swACLPktContRuleRxRate = _SwACLPktContRuleRxRate_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 17),
+    _SwACLPktContRuleRxRate_Type()
+)
+swACLPktContRuleRxRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleRxRate.setStatus("current")
+
+
+class _SwACLPktContRuleEnableReplaceTosPrecedence_Type(Integer32):
+    """Custom type swACLPktContRuleEnableReplaceTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleEnableReplaceTosPrecedence_Type.__name__ = "Integer32"
+_SwACLPktContRuleEnableReplaceTosPrecedence_Object = MibTableColumn
+swACLPktContRuleEnableReplaceTosPrecedence = _SwACLPktContRuleEnableReplaceTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 18),
+    _SwACLPktContRuleEnableReplaceTosPrecedence_Type()
+)
+swACLPktContRuleEnableReplaceTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleEnableReplaceTosPrecedence.setStatus("current")
+
+
+class _SwACLPktContRuleRepTosPrecedence_Type(Integer32):
+    """Custom type swACLPktContRuleRepTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLPktContRuleRepTosPrecedence_Type.__name__ = "Integer32"
+_SwACLPktContRuleRepTosPrecedence_Object = MibTableColumn
+swACLPktContRuleRepTosPrecedence = _SwACLPktContRuleRepTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 19),
+    _SwACLPktContRuleRepTosPrecedence_Type()
+)
+swACLPktContRuleRepTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleRepTosPrecedence.setStatus("current")
+
+
+class _SwACLPktContRuleVID_Type(Integer32):
+    """Custom type swACLPktContRuleVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_SwACLPktContRuleVID_Type.__name__ = "Integer32"
+_SwACLPktContRuleVID_Object = MibTableColumn
+swACLPktContRuleVID = _SwACLPktContRuleVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 3, 1, 20),
+    _SwACLPktContRuleVID_Type()
+)
+swACLPktContRuleVID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleVID.setStatus("current")
+_SwACLIpv6RuleTable_Object = MibTable
+swACLIpv6RuleTable = _SwACLIpv6RuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4)
+)
+if mibBuilder.loadTexts:
+    swACLIpv6RuleTable.setStatus("current")
+_SwACLIpv6RuleEntry_Object = MibTableRow
+swACLIpv6RuleEntry = _SwACLIpv6RuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1)
+)
+swACLIpv6RuleEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLIpv6RuleProfileID"),
+    (0, "ACLMGMT-MIB", "swACLIpv6RuleAccessID"),
+)
+if mibBuilder.loadTexts:
+    swACLIpv6RuleEntry.setStatus("current")
+_SwACLIpv6RuleProfileID_Type = Integer32
+_SwACLIpv6RuleProfileID_Object = MibTableColumn
+swACLIpv6RuleProfileID = _SwACLIpv6RuleProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 1),
+    _SwACLIpv6RuleProfileID_Type()
+)
+swACLIpv6RuleProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleProfileID.setStatus("current")
+
+
+class _SwACLIpv6RuleAccessID_Type(Integer32):
+    """Custom type swACLIpv6RuleAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwACLIpv6RuleAccessID_Type.__name__ = "Integer32"
+_SwACLIpv6RuleAccessID_Object = MibTableColumn
+swACLIpv6RuleAccessID = _SwACLIpv6RuleAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 2),
+    _SwACLIpv6RuleAccessID_Type()
+)
+swACLIpv6RuleAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleAccessID.setStatus("current")
+
+
+class _SwACLIpv6RuleClass_Type(Integer32):
+    """Custom type swACLIpv6RuleClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SwACLIpv6RuleClass_Type.__name__ = "Integer32"
+_SwACLIpv6RuleClass_Object = MibTableColumn
+swACLIpv6RuleClass = _SwACLIpv6RuleClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 3),
+    _SwACLIpv6RuleClass_Type()
+)
+swACLIpv6RuleClass.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleClass.setStatus("current")
+
+
+class _SwACLIpv6RuleFlowlabel_Type(OctetString):
+    """Custom type swACLIpv6RuleFlowlabel based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_SwACLIpv6RuleFlowlabel_Type.__name__ = "OctetString"
+_SwACLIpv6RuleFlowlabel_Object = MibTableColumn
+swACLIpv6RuleFlowlabel = _SwACLIpv6RuleFlowlabel_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 4),
+    _SwACLIpv6RuleFlowlabel_Type()
+)
+swACLIpv6RuleFlowlabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleFlowlabel.setStatus("current")
+_SwACLIpv6RuleSrcIpv6Addr_Type = Ipv6Address
+_SwACLIpv6RuleSrcIpv6Addr_Object = MibTableColumn
+swACLIpv6RuleSrcIpv6Addr = _SwACLIpv6RuleSrcIpv6Addr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 5),
+    _SwACLIpv6RuleSrcIpv6Addr_Type()
+)
+swACLIpv6RuleSrcIpv6Addr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleSrcIpv6Addr.setStatus("current")
+_SwACLIpv6RuleDstIpv6Addr_Type = Ipv6Address
+_SwACLIpv6RuleDstIpv6Addr_Object = MibTableColumn
+swACLIpv6RuleDstIpv6Addr = _SwACLIpv6RuleDstIpv6Addr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 6),
+    _SwACLIpv6RuleDstIpv6Addr_Type()
+)
+swACLIpv6RuleDstIpv6Addr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleDstIpv6Addr.setStatus("current")
+
+
+class _SwACLIpv6RuleEnablePriority_Type(Integer32):
+    """Custom type swACLIpv6RuleEnablePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLIpv6RuleEnablePriority_Type.__name__ = "Integer32"
+_SwACLIpv6RuleEnablePriority_Object = MibTableColumn
+swACLIpv6RuleEnablePriority = _SwACLIpv6RuleEnablePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 7),
+    _SwACLIpv6RuleEnablePriority_Type()
+)
+swACLIpv6RuleEnablePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleEnablePriority.setStatus("current")
+
+
+class _SwACLIpv6RulePriority_Type(Integer32):
+    """Custom type swACLIpv6RulePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLIpv6RulePriority_Type.__name__ = "Integer32"
+_SwACLIpv6RulePriority_Object = MibTableColumn
+swACLIpv6RulePriority = _SwACLIpv6RulePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 8),
+    _SwACLIpv6RulePriority_Type()
+)
+swACLIpv6RulePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RulePriority.setStatus("current")
+
+
+class _SwACLIpv6RuleReplacePriority_Type(Integer32):
+    """Custom type swACLIpv6RuleReplacePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLIpv6RuleReplacePriority_Type.__name__ = "Integer32"
+_SwACLIpv6RuleReplacePriority_Object = MibTableColumn
+swACLIpv6RuleReplacePriority = _SwACLIpv6RuleReplacePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 9),
+    _SwACLIpv6RuleReplacePriority_Type()
+)
+swACLIpv6RuleReplacePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleReplacePriority.setStatus("current")
+
+
+class _SwACLIpv6RulePermit_Type(Integer32):
+    """Custom type swACLIpv6RulePermit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2),
+          ("mirror", 3),
+          ("set-drop-precedence", 5))
+    )
+
+
+_SwACLIpv6RulePermit_Type.__name__ = "Integer32"
+_SwACLIpv6RulePermit_Object = MibTableColumn
+swACLIpv6RulePermit = _SwACLIpv6RulePermit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 10),
+    _SwACLIpv6RulePermit_Type()
+)
+swACLIpv6RulePermit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RulePermit.setStatus("current")
+_SwACLIpv6RulePort_Type = PortList
+_SwACLIpv6RulePort_Object = MibTableColumn
+swACLIpv6RulePort = _SwACLIpv6RulePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 11),
+    _SwACLIpv6RulePort_Type()
+)
+swACLIpv6RulePort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RulePort.setStatus("current")
+_SwACLIpv6RuleRowStatus_Type = RowStatus
+_SwACLIpv6RuleRowStatus_Object = MibTableColumn
+swACLIpv6RuleRowStatus = _SwACLIpv6RuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 12),
+    _SwACLIpv6RuleRowStatus_Type()
+)
+swACLIpv6RuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleRowStatus.setStatus("current")
+
+
+class _SwACLIpv6RuleOwner_Type(Integer32):
+    """Custom type swACLIpv6RuleOwner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLIpv6RuleOwner_Type.__name__ = "Integer32"
+_SwACLIpv6RuleOwner_Object = MibTableColumn
+swACLIpv6RuleOwner = _SwACLIpv6RuleOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 13),
+    _SwACLIpv6RuleOwner_Type()
+)
+swACLIpv6RuleOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleOwner.setStatus("current")
+_SwACLIpv6RuleRxRate_Type = Integer32
+_SwACLIpv6RuleRxRate_Object = MibTableColumn
+swACLIpv6RuleRxRate = _SwACLIpv6RuleRxRate_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 14),
+    _SwACLIpv6RuleRxRate_Type()
+)
+swACLIpv6RuleRxRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleRxRate.setStatus("current")
+
+
+class _SwACLIpv6RuleEnableReplaceDscp_Type(Integer32):
+    """Custom type swACLIpv6RuleEnableReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLIpv6RuleEnableReplaceDscp_Type.__name__ = "Integer32"
+_SwACLIpv6RuleEnableReplaceDscp_Object = MibTableColumn
+swACLIpv6RuleEnableReplaceDscp = _SwACLIpv6RuleEnableReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 15),
+    _SwACLIpv6RuleEnableReplaceDscp_Type()
+)
+swACLIpv6RuleEnableReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleEnableReplaceDscp.setStatus("current")
+
+
+class _SwACLIpv6RuleRepDscp_Type(Integer32):
+    """Custom type swACLIpv6RuleRepDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwACLIpv6RuleRepDscp_Type.__name__ = "Integer32"
+_SwACLIpv6RuleRepDscp_Object = MibTableColumn
+swACLIpv6RuleRepDscp = _SwACLIpv6RuleRepDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 16),
+    _SwACLIpv6RuleRepDscp_Type()
+)
+swACLIpv6RuleRepDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleRepDscp.setStatus("current")
+
+
+class _SwACLIpv6RuleEnableReplaceTosPrecedence_Type(Integer32):
+    """Custom type swACLIpv6RuleEnableReplaceTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLIpv6RuleEnableReplaceTosPrecedence_Type.__name__ = "Integer32"
+_SwACLIpv6RuleEnableReplaceTosPrecedence_Object = MibTableColumn
+swACLIpv6RuleEnableReplaceTosPrecedence = _SwACLIpv6RuleEnableReplaceTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 17),
+    _SwACLIpv6RuleEnableReplaceTosPrecedence_Type()
+)
+swACLIpv6RuleEnableReplaceTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleEnableReplaceTosPrecedence.setStatus("current")
+
+
+class _SwACLIpv6RuleRepTosPrecedence_Type(Integer32):
+    """Custom type swACLIpv6RuleRepTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLIpv6RuleRepTosPrecedence_Type.__name__ = "Integer32"
+_SwACLIpv6RuleRepTosPrecedence_Object = MibTableColumn
+swACLIpv6RuleRepTosPrecedence = _SwACLIpv6RuleRepTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 18),
+    _SwACLIpv6RuleRepTosPrecedence_Type()
+)
+swACLIpv6RuleRepTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleRepTosPrecedence.setStatus("current")
+
+
+class _SwACLIpv6RuleVID_Type(Integer32):
+    """Custom type swACLIpv6RuleVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_SwACLIpv6RuleVID_Type.__name__ = "Integer32"
+_SwACLIpv6RuleVID_Object = MibTableColumn
+swACLIpv6RuleVID = _SwACLIpv6RuleVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 19),
+    _SwACLIpv6RuleVID_Type()
+)
+swACLIpv6RuleVID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleVID.setStatus("current")
+
+
+class _SwACLIpv6RuleProtocol_Type(Integer32):
+    """Custom type swACLIpv6RuleProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("tcp", 2),
+          ("udp", 3))
+    )
+
+
+_SwACLIpv6RuleProtocol_Type.__name__ = "Integer32"
+_SwACLIpv6RuleProtocol_Object = MibTableColumn
+swACLIpv6RuleProtocol = _SwACLIpv6RuleProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 20),
+    _SwACLIpv6RuleProtocol_Type()
+)
+swACLIpv6RuleProtocol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleProtocol.setStatus("current")
+
+
+class _SwACLIpv6RuleSrcPort_Type(Integer32):
+    """Custom type swACLIpv6RuleSrcPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwACLIpv6RuleSrcPort_Type.__name__ = "Integer32"
+_SwACLIpv6RuleSrcPort_Object = MibTableColumn
+swACLIpv6RuleSrcPort = _SwACLIpv6RuleSrcPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 21),
+    _SwACLIpv6RuleSrcPort_Type()
+)
+swACLIpv6RuleSrcPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleSrcPort.setStatus("current")
+
+
+class _SwACLIpv6RuleDstPort_Type(Integer32):
+    """Custom type swACLIpv6RuleDstPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwACLIpv6RuleDstPort_Type.__name__ = "Integer32"
+_SwACLIpv6RuleDstPort_Object = MibTableColumn
+swACLIpv6RuleDstPort = _SwACLIpv6RuleDstPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 22),
+    _SwACLIpv6RuleDstPort_Type()
+)
+swACLIpv6RuleDstPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleDstPort.setStatus("current")
+_SwACLIpv6RuleMaskSrcIpv6Addr_Type = Ipv6Address
+_SwACLIpv6RuleMaskSrcIpv6Addr_Object = MibTableColumn
+swACLIpv6RuleMaskSrcIpv6Addr = _SwACLIpv6RuleMaskSrcIpv6Addr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 23),
+    _SwACLIpv6RuleMaskSrcIpv6Addr_Type()
+)
+swACLIpv6RuleMaskSrcIpv6Addr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleMaskSrcIpv6Addr.setStatus("current")
+_SwACLIpv6RuleMaskDstIpv6Addr_Type = Ipv6Address
+_SwACLIpv6RuleMaskDstIpv6Addr_Object = MibTableColumn
+swACLIpv6RuleMaskDstIpv6Addr = _SwACLIpv6RuleMaskDstIpv6Addr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 24),
+    _SwACLIpv6RuleMaskDstIpv6Addr_Type()
+)
+swACLIpv6RuleMaskDstIpv6Addr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleMaskDstIpv6Addr.setStatus("current")
+
+
+class _SwACLIpv6RuleMaskSrcPort_Type(OctetString):
+    """Custom type swACLIpv6RuleMaskSrcPort based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLIpv6RuleMaskSrcPort_Type.__name__ = "OctetString"
+_SwACLIpv6RuleMaskSrcPort_Object = MibTableColumn
+swACLIpv6RuleMaskSrcPort = _SwACLIpv6RuleMaskSrcPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 25),
+    _SwACLIpv6RuleMaskSrcPort_Type()
+)
+swACLIpv6RuleMaskSrcPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleMaskSrcPort.setStatus("current")
+
+
+class _SwACLIpv6RuleMaskDstPort_Type(OctetString):
+    """Custom type swACLIpv6RuleMaskDstPort based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLIpv6RuleMaskDstPort_Type.__name__ = "OctetString"
+_SwACLIpv6RuleMaskDstPort_Object = MibTableColumn
+swACLIpv6RuleMaskDstPort = _SwACLIpv6RuleMaskDstPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 4, 1, 26),
+    _SwACLIpv6RuleMaskDstPort_Type()
+)
+swACLIpv6RuleMaskDstPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLIpv6RuleMaskDstPort.setStatus("current")
+_SwIBPACLEtherRuleTable_Object = MibTable
+swIBPACLEtherRuleTable = _SwIBPACLEtherRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5)
+)
+if mibBuilder.loadTexts:
+    swIBPACLEtherRuleTable.setStatus("obsolete")
+_SwIBPACLEtherRuleEntry_Object = MibTableRow
+swIBPACLEtherRuleEntry = _SwIBPACLEtherRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1)
+)
+swIBPACLEtherRuleEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swIBPACLEtherRuleProfileID"),
+    (0, "ACLMGMT-MIB", "swIBPACLEtherRuleAccessID"),
+)
+if mibBuilder.loadTexts:
+    swIBPACLEtherRuleEntry.setStatus("obsolete")
+_SwIBPACLEtherRuleProfileID_Type = Integer32
+_SwIBPACLEtherRuleProfileID_Object = MibTableColumn
+swIBPACLEtherRuleProfileID = _SwIBPACLEtherRuleProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1, 1),
+    _SwIBPACLEtherRuleProfileID_Type()
+)
+swIBPACLEtherRuleProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLEtherRuleProfileID.setStatus("obsolete")
+
+
+class _SwIBPACLEtherRuleAccessID_Type(Integer32):
+    """Custom type swIBPACLEtherRuleAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwIBPACLEtherRuleAccessID_Type.__name__ = "Integer32"
+_SwIBPACLEtherRuleAccessID_Object = MibTableColumn
+swIBPACLEtherRuleAccessID = _SwIBPACLEtherRuleAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1, 2),
+    _SwIBPACLEtherRuleAccessID_Type()
+)
+swIBPACLEtherRuleAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLEtherRuleAccessID.setStatus("obsolete")
+
+
+class _SwIBPACLEtherRuleEtherType_Type(OctetString):
+    """Custom type swIBPACLEtherRuleEtherType based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwIBPACLEtherRuleEtherType_Type.__name__ = "OctetString"
+_SwIBPACLEtherRuleEtherType_Object = MibTableColumn
+swIBPACLEtherRuleEtherType = _SwIBPACLEtherRuleEtherType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1, 3),
+    _SwIBPACLEtherRuleEtherType_Type()
+)
+swIBPACLEtherRuleEtherType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLEtherRuleEtherType.setStatus("obsolete")
+
+
+class _SwIBPACLEtherRulePermit_Type(Integer32):
+    """Custom type swIBPACLEtherRulePermit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2))
+    )
+
+
+_SwIBPACLEtherRulePermit_Type.__name__ = "Integer32"
+_SwIBPACLEtherRulePermit_Object = MibTableColumn
+swIBPACLEtherRulePermit = _SwIBPACLEtherRulePermit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1, 4),
+    _SwIBPACLEtherRulePermit_Type()
+)
+swIBPACLEtherRulePermit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLEtherRulePermit.setStatus("obsolete")
+_SwIBPACLEtherRulePort_Type = PortList
+_SwIBPACLEtherRulePort_Object = MibTableColumn
+swIBPACLEtherRulePort = _SwIBPACLEtherRulePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 5, 1, 5),
+    _SwIBPACLEtherRulePort_Type()
+)
+swIBPACLEtherRulePort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLEtherRulePort.setStatus("obsolete")
+_SwIBPACLIpRuleTable_Object = MibTable
+swIBPACLIpRuleTable = _SwIBPACLIpRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6)
+)
+if mibBuilder.loadTexts:
+    swIBPACLIpRuleTable.setStatus("obsolete")
+_SwIBPACLIpRuleEntry_Object = MibTableRow
+swIBPACLIpRuleEntry = _SwIBPACLIpRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1)
+)
+swIBPACLIpRuleEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swIBPACLIpRuleProfileID"),
+    (0, "ACLMGMT-MIB", "swIBPACLIpRuleAccessID"),
+)
+if mibBuilder.loadTexts:
+    swIBPACLIpRuleEntry.setStatus("obsolete")
+_SwIBPACLIpRuleProfileID_Type = Integer32
+_SwIBPACLIpRuleProfileID_Object = MibTableColumn
+swIBPACLIpRuleProfileID = _SwIBPACLIpRuleProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 1),
+    _SwIBPACLIpRuleProfileID_Type()
+)
+swIBPACLIpRuleProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLIpRuleProfileID.setStatus("obsolete")
+
+
+class _SwIBPACLIpRuleAccessID_Type(Integer32):
+    """Custom type swIBPACLIpRuleAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwIBPACLIpRuleAccessID_Type.__name__ = "Integer32"
+_SwIBPACLIpRuleAccessID_Object = MibTableColumn
+swIBPACLIpRuleAccessID = _SwIBPACLIpRuleAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 2),
+    _SwIBPACLIpRuleAccessID_Type()
+)
+swIBPACLIpRuleAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLIpRuleAccessID.setStatus("obsolete")
+_SwIBPACLIpRuleSrcMacAddress_Type = MacAddress
+_SwIBPACLIpRuleSrcMacAddress_Object = MibTableColumn
+swIBPACLIpRuleSrcMacAddress = _SwIBPACLIpRuleSrcMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 3),
+    _SwIBPACLIpRuleSrcMacAddress_Type()
+)
+swIBPACLIpRuleSrcMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLIpRuleSrcMacAddress.setStatus("obsolete")
+_SwIBPACLIpRuleSrcIpaddress_Type = IpAddress
+_SwIBPACLIpRuleSrcIpaddress_Object = MibTableColumn
+swIBPACLIpRuleSrcIpaddress = _SwIBPACLIpRuleSrcIpaddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 4),
+    _SwIBPACLIpRuleSrcIpaddress_Type()
+)
+swIBPACLIpRuleSrcIpaddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLIpRuleSrcIpaddress.setStatus("obsolete")
+
+
+class _SwIBPACLIpRulePermit_Type(Integer32):
+    """Custom type swIBPACLIpRulePermit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2))
+    )
+
+
+_SwIBPACLIpRulePermit_Type.__name__ = "Integer32"
+_SwIBPACLIpRulePermit_Object = MibTableColumn
+swIBPACLIpRulePermit = _SwIBPACLIpRulePermit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 5),
+    _SwIBPACLIpRulePermit_Type()
+)
+swIBPACLIpRulePermit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLIpRulePermit.setStatus("obsolete")
+_SwIBPACLIpRulePort_Type = PortList
+_SwIBPACLIpRulePort_Object = MibTableColumn
+swIBPACLIpRulePort = _SwIBPACLIpRulePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 6, 1, 6),
+    _SwIBPACLIpRulePort_Type()
+)
+swIBPACLIpRulePort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIBPACLIpRulePort.setStatus("obsolete")
+_SwACLPktContRuleOptionTable_Object = MibTable
+swACLPktContRuleOptionTable = _SwACLPktContRuleOptionTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7)
+)
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionTable.setStatus("current")
+_SwACLPktContRuleOptionEntry_Object = MibTableRow
+swACLPktContRuleOptionEntry = _SwACLPktContRuleOptionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1)
+)
+swACLPktContRuleOptionEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLPktContRuleOptionProfileID"),
+    (0, "ACLMGMT-MIB", "swACLPktContRuleOptionAccessID"),
+)
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionEntry.setStatus("current")
+_SwACLPktContRuleOptionProfileID_Type = Integer32
+_SwACLPktContRuleOptionProfileID_Object = MibTableColumn
+swACLPktContRuleOptionProfileID = _SwACLPktContRuleOptionProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 1),
+    _SwACLPktContRuleOptionProfileID_Type()
+)
+swACLPktContRuleOptionProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionProfileID.setStatus("current")
+
+
+class _SwACLPktContRuleOptionAccessID_Type(Integer32):
+    """Custom type swACLPktContRuleOptionAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwACLPktContRuleOptionAccessID_Type.__name__ = "Integer32"
+_SwACLPktContRuleOptionAccessID_Object = MibTableColumn
+swACLPktContRuleOptionAccessID = _SwACLPktContRuleOptionAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 2),
+    _SwACLPktContRuleOptionAccessID_Type()
+)
+swACLPktContRuleOptionAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionAccessID.setStatus("current")
+
+
+class _SwACLPktContRuleOffsetChunk1OffsetValue_Type(Integer32):
+    """Custom type swACLPktContRuleOffsetChunk1OffsetValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_SwACLPktContRuleOffsetChunk1OffsetValue_Type.__name__ = "Integer32"
+_SwACLPktContRuleOffsetChunk1OffsetValue_Object = MibTableColumn
+swACLPktContRuleOffsetChunk1OffsetValue = _SwACLPktContRuleOffsetChunk1OffsetValue_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 3),
+    _SwACLPktContRuleOffsetChunk1OffsetValue_Type()
+)
+swACLPktContRuleOffsetChunk1OffsetValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffsetChunk1OffsetValue.setStatus("current")
+
+
+class _SwACLPktContRuleOffsetChunk1Content_Type(OctetString):
+    """Custom type swACLPktContRuleOffsetChunk1Content based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_SwACLPktContRuleOffsetChunk1Content_Type.__name__ = "OctetString"
+_SwACLPktContRuleOffsetChunk1Content_Object = MibTableColumn
+swACLPktContRuleOffsetChunk1Content = _SwACLPktContRuleOffsetChunk1Content_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 4),
+    _SwACLPktContRuleOffsetChunk1Content_Type()
+)
+swACLPktContRuleOffsetChunk1Content.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffsetChunk1Content.setStatus("current")
+
+
+class _SwACLPktContRuleOffsetChunk2OffsetValue_Type(Integer32):
+    """Custom type swACLPktContRuleOffsetChunk2OffsetValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_SwACLPktContRuleOffsetChunk2OffsetValue_Type.__name__ = "Integer32"
+_SwACLPktContRuleOffsetChunk2OffsetValue_Object = MibTableColumn
+swACLPktContRuleOffsetChunk2OffsetValue = _SwACLPktContRuleOffsetChunk2OffsetValue_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 5),
+    _SwACLPktContRuleOffsetChunk2OffsetValue_Type()
+)
+swACLPktContRuleOffsetChunk2OffsetValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffsetChunk2OffsetValue.setStatus("current")
+
+
+class _SwACLPktContRuleOffsetChunk2Content_Type(OctetString):
+    """Custom type swACLPktContRuleOffsetChunk2Content based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_SwACLPktContRuleOffsetChunk2Content_Type.__name__ = "OctetString"
+_SwACLPktContRuleOffsetChunk2Content_Object = MibTableColumn
+swACLPktContRuleOffsetChunk2Content = _SwACLPktContRuleOffsetChunk2Content_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 6),
+    _SwACLPktContRuleOffsetChunk2Content_Type()
+)
+swACLPktContRuleOffsetChunk2Content.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffsetChunk2Content.setStatus("current")
+
+
+class _SwACLPktContRuleOffsetChunk3OffsetValue_Type(Integer32):
+    """Custom type swACLPktContRuleOffsetChunk3OffsetValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_SwACLPktContRuleOffsetChunk3OffsetValue_Type.__name__ = "Integer32"
+_SwACLPktContRuleOffsetChunk3OffsetValue_Object = MibTableColumn
+swACLPktContRuleOffsetChunk3OffsetValue = _SwACLPktContRuleOffsetChunk3OffsetValue_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 7),
+    _SwACLPktContRuleOffsetChunk3OffsetValue_Type()
+)
+swACLPktContRuleOffsetChunk3OffsetValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffsetChunk3OffsetValue.setStatus("current")
+
+
+class _SwACLPktContRuleOffsetChunk3Content_Type(OctetString):
+    """Custom type swACLPktContRuleOffsetChunk3Content based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_SwACLPktContRuleOffsetChunk3Content_Type.__name__ = "OctetString"
+_SwACLPktContRuleOffsetChunk3Content_Object = MibTableColumn
+swACLPktContRuleOffsetChunk3Content = _SwACLPktContRuleOffsetChunk3Content_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 8),
+    _SwACLPktContRuleOffsetChunk3Content_Type()
+)
+swACLPktContRuleOffsetChunk3Content.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffsetChunk3Content.setStatus("current")
+
+
+class _SwACLPktContRuleOffsetChunk4OffsetValue_Type(Integer32):
+    """Custom type swACLPktContRuleOffsetChunk4OffsetValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_SwACLPktContRuleOffsetChunk4OffsetValue_Type.__name__ = "Integer32"
+_SwACLPktContRuleOffsetChunk4OffsetValue_Object = MibTableColumn
+swACLPktContRuleOffsetChunk4OffsetValue = _SwACLPktContRuleOffsetChunk4OffsetValue_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 9),
+    _SwACLPktContRuleOffsetChunk4OffsetValue_Type()
+)
+swACLPktContRuleOffsetChunk4OffsetValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffsetChunk4OffsetValue.setStatus("current")
+
+
+class _SwACLPktContRuleOffsetChunk4Content_Type(OctetString):
+    """Custom type swACLPktContRuleOffsetChunk4Content based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_SwACLPktContRuleOffsetChunk4Content_Type.__name__ = "OctetString"
+_SwACLPktContRuleOffsetChunk4Content_Object = MibTableColumn
+swACLPktContRuleOffsetChunk4Content = _SwACLPktContRuleOffsetChunk4Content_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 10),
+    _SwACLPktContRuleOffsetChunk4Content_Type()
+)
+swACLPktContRuleOffsetChunk4Content.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOffsetChunk4Content.setStatus("current")
+
+
+class _SwACLPktContRuleOptionEnablePriority_Type(Integer32):
+    """Custom type swACLPktContRuleOptionEnablePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleOptionEnablePriority_Type.__name__ = "Integer32"
+_SwACLPktContRuleOptionEnablePriority_Object = MibTableColumn
+swACLPktContRuleOptionEnablePriority = _SwACLPktContRuleOptionEnablePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 11),
+    _SwACLPktContRuleOptionEnablePriority_Type()
+)
+swACLPktContRuleOptionEnablePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionEnablePriority.setStatus("current")
+
+
+class _SwACLPktContRuleOptionPriority_Type(Integer32):
+    """Custom type swACLPktContRuleOptionPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLPktContRuleOptionPriority_Type.__name__ = "Integer32"
+_SwACLPktContRuleOptionPriority_Object = MibTableColumn
+swACLPktContRuleOptionPriority = _SwACLPktContRuleOptionPriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 12),
+    _SwACLPktContRuleOptionPriority_Type()
+)
+swACLPktContRuleOptionPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionPriority.setStatus("current")
+
+
+class _SwACLPktContRuleOptionReplacePriority_Type(Integer32):
+    """Custom type swACLPktContRuleOptionReplacePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleOptionReplacePriority_Type.__name__ = "Integer32"
+_SwACLPktContRuleOptionReplacePriority_Object = MibTableColumn
+swACLPktContRuleOptionReplacePriority = _SwACLPktContRuleOptionReplacePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 13),
+    _SwACLPktContRuleOptionReplacePriority_Type()
+)
+swACLPktContRuleOptionReplacePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionReplacePriority.setStatus("current")
+
+
+class _SwACLPktContRuleOptionEnableReplaceDscp_Type(Integer32):
+    """Custom type swACLPktContRuleOptionEnableReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleOptionEnableReplaceDscp_Type.__name__ = "Integer32"
+_SwACLPktContRuleOptionEnableReplaceDscp_Object = MibTableColumn
+swACLPktContRuleOptionEnableReplaceDscp = _SwACLPktContRuleOptionEnableReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 14),
+    _SwACLPktContRuleOptionEnableReplaceDscp_Type()
+)
+swACLPktContRuleOptionEnableReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionEnableReplaceDscp.setStatus("current")
+
+
+class _SwACLPktContRuleOptionRepDscp_Type(Integer32):
+    """Custom type swACLPktContRuleOptionRepDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwACLPktContRuleOptionRepDscp_Type.__name__ = "Integer32"
+_SwACLPktContRuleOptionRepDscp_Object = MibTableColumn
+swACLPktContRuleOptionRepDscp = _SwACLPktContRuleOptionRepDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 15),
+    _SwACLPktContRuleOptionRepDscp_Type()
+)
+swACLPktContRuleOptionRepDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionRepDscp.setStatus("current")
+
+
+class _SwACLPktContRuleOptionPermit_Type(Integer32):
+    """Custom type swACLPktContRuleOptionPermit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2),
+          ("mirror", 3))
+    )
+
+
+_SwACLPktContRuleOptionPermit_Type.__name__ = "Integer32"
+_SwACLPktContRuleOptionPermit_Object = MibTableColumn
+swACLPktContRuleOptionPermit = _SwACLPktContRuleOptionPermit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 16),
+    _SwACLPktContRuleOptionPermit_Type()
+)
+swACLPktContRuleOptionPermit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionPermit.setStatus("current")
+_SwACLPktContRuleOptionPort_Type = PortList
+_SwACLPktContRuleOptionPort_Object = MibTableColumn
+swACLPktContRuleOptionPort = _SwACLPktContRuleOptionPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 17),
+    _SwACLPktContRuleOptionPort_Type()
+)
+swACLPktContRuleOptionPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionPort.setStatus("current")
+_SwACLPktContRuleOptionRowStatus_Type = RowStatus
+_SwACLPktContRuleOptionRowStatus_Object = MibTableColumn
+swACLPktContRuleOptionRowStatus = _SwACLPktContRuleOptionRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 18),
+    _SwACLPktContRuleOptionRowStatus_Type()
+)
+swACLPktContRuleOptionRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionRowStatus.setStatus("current")
+
+
+class _SwACLPktContRuleOptionOwner_Type(Integer32):
+    """Custom type swACLPktContRuleOptionOwner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLPktContRuleOptionOwner_Type.__name__ = "Integer32"
+_SwACLPktContRuleOptionOwner_Object = MibTableColumn
+swACLPktContRuleOptionOwner = _SwACLPktContRuleOptionOwner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 19),
+    _SwACLPktContRuleOptionOwner_Type()
+)
+swACLPktContRuleOptionOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionOwner.setStatus("current")
+_SwACLPktContRuleOptionRxRate_Type = Integer32
+_SwACLPktContRuleOptionRxRate_Object = MibTableColumn
+swACLPktContRuleOptionRxRate = _SwACLPktContRuleOptionRxRate_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 20),
+    _SwACLPktContRuleOptionRxRate_Type()
+)
+swACLPktContRuleOptionRxRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionRxRate.setStatus("current")
+
+
+class _SwACLPktContRuleOptionEnableReplaceTosPrecedence_Type(Integer32):
+    """Custom type swACLPktContRuleOptionEnableReplaceTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleOptionEnableReplaceTosPrecedence_Type.__name__ = "Integer32"
+_SwACLPktContRuleOptionEnableReplaceTosPrecedence_Object = MibTableColumn
+swACLPktContRuleOptionEnableReplaceTosPrecedence = _SwACLPktContRuleOptionEnableReplaceTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 21),
+    _SwACLPktContRuleOptionEnableReplaceTosPrecedence_Type()
+)
+swACLPktContRuleOptionEnableReplaceTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionEnableReplaceTosPrecedence.setStatus("current")
+
+
+class _SwACLPktContRuleOptionRepTosPrecedence_Type(Integer32):
+    """Custom type swACLPktContRuleOptionRepTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLPktContRuleOptionRepTosPrecedence_Type.__name__ = "Integer32"
+_SwACLPktContRuleOptionRepTosPrecedence_Object = MibTableColumn
+swACLPktContRuleOptionRepTosPrecedence = _SwACLPktContRuleOptionRepTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 22),
+    _SwACLPktContRuleOptionRepTosPrecedence_Type()
+)
+swACLPktContRuleOptionRepTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionRepTosPrecedence.setStatus("current")
+
+
+class _SwACLPktContRuleOptionVID_Type(Integer32):
+    """Custom type swACLPktContRuleOptionVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_SwACLPktContRuleOptionVID_Type.__name__ = "Integer32"
+_SwACLPktContRuleOptionVID_Object = MibTableColumn
+swACLPktContRuleOptionVID = _SwACLPktContRuleOptionVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 7, 1, 23),
+    _SwACLPktContRuleOptionVID_Type()
+)
+swACLPktContRuleOptionVID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOptionVID.setStatus("current")
+_SwACLCounterTable_Object = MibTable
+swACLCounterTable = _SwACLCounterTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8)
+)
+if mibBuilder.loadTexts:
+    swACLCounterTable.setStatus("current")
+_SwACLCounterEntry_Object = MibTableRow
+swACLCounterEntry = _SwACLCounterEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1)
+)
+swACLCounterEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLCounterProfileID"),
+    (0, "ACLMGMT-MIB", "swACLCounterAccessID"),
+)
+if mibBuilder.loadTexts:
+    swACLCounterEntry.setStatus("current")
+_SwACLCounterProfileID_Type = Integer32
+_SwACLCounterProfileID_Object = MibTableColumn
+swACLCounterProfileID = _SwACLCounterProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 1),
+    _SwACLCounterProfileID_Type()
+)
+swACLCounterProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLCounterProfileID.setStatus("current")
+
+
+class _SwACLCounterAccessID_Type(Integer32):
+    """Custom type swACLCounterAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwACLCounterAccessID_Type.__name__ = "Integer32"
+_SwACLCounterAccessID_Object = MibTableColumn
+swACLCounterAccessID = _SwACLCounterAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 2),
+    _SwACLCounterAccessID_Type()
+)
+swACLCounterAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLCounterAccessID.setStatus("current")
+
+
+class _SwACLCounterState_Type(Integer32):
+    """Custom type swACLCounterState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLCounterState_Type.__name__ = "Integer32"
+_SwACLCounterState_Object = MibTableColumn
+swACLCounterState = _SwACLCounterState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 3),
+    _SwACLCounterState_Type()
+)
+swACLCounterState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swACLCounterState.setStatus("current")
+_SwACLCounterTotalCounter_Type = Counter64
+_SwACLCounterTotalCounter_Object = MibTableColumn
+swACLCounterTotalCounter = _SwACLCounterTotalCounter_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 4),
+    _SwACLCounterTotalCounter_Type()
+)
+swACLCounterTotalCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLCounterTotalCounter.setStatus("current")
+_SwACLCounterGreenCounter_Type = Counter64
+_SwACLCounterGreenCounter_Object = MibTableColumn
+swACLCounterGreenCounter = _SwACLCounterGreenCounter_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 5),
+    _SwACLCounterGreenCounter_Type()
+)
+swACLCounterGreenCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLCounterGreenCounter.setStatus("current")
+_SwACLCounterYellowCounter_Type = Counter64
+_SwACLCounterYellowCounter_Object = MibTableColumn
+swACLCounterYellowCounter = _SwACLCounterYellowCounter_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 6),
+    _SwACLCounterYellowCounter_Type()
+)
+swACLCounterYellowCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLCounterYellowCounter.setStatus("current")
+_SwACLCounterRedCounter_Type = Counter64
+_SwACLCounterRedCounter_Object = MibTableColumn
+swACLCounterRedCounter = _SwACLCounterRedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 8, 1, 7),
+    _SwACLCounterRedCounter_Type()
+)
+swACLCounterRedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLCounterRedCounter.setStatus("current")
+_SwACLPktContRuleOption2_ObjectIdentity = ObjectIdentity
+swACLPktContRuleOption2 = _SwACLPktContRuleOption2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10)
+)
+_SwACLPktContRuleOption2Table_Object = MibTable
+swACLPktContRuleOption2Table = _SwACLPktContRuleOption2Table_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1)
+)
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2Table.setStatus("current")
+_SwACLPktContRuleOption2Entry_Object = MibTableRow
+swACLPktContRuleOption2Entry = _SwACLPktContRuleOption2Entry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1)
+)
+swACLPktContRuleOption2Entry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLPktContRuleOption2ProfileID"),
+    (0, "ACLMGMT-MIB", "swACLPktContRuleOption2AccessID"),
+)
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2Entry.setStatus("current")
+_SwACLPktContRuleOption2ProfileID_Type = Integer32
+_SwACLPktContRuleOption2ProfileID_Object = MibTableColumn
+swACLPktContRuleOption2ProfileID = _SwACLPktContRuleOption2ProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 1),
+    _SwACLPktContRuleOption2ProfileID_Type()
+)
+swACLPktContRuleOption2ProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2ProfileID.setStatus("current")
+
+
+class _SwACLPktContRuleOption2AccessID_Type(Integer32):
+    """Custom type swACLPktContRuleOption2AccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwACLPktContRuleOption2AccessID_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2AccessID_Object = MibTableColumn
+swACLPktContRuleOption2AccessID = _SwACLPktContRuleOption2AccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 2),
+    _SwACLPktContRuleOption2AccessID_Type()
+)
+swACLPktContRuleOption2AccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2AccessID.setStatus("current")
+_SwACLPktContRuleOption2SrcMac_Type = MacAddress
+_SwACLPktContRuleOption2SrcMac_Object = MibTableColumn
+swACLPktContRuleOption2SrcMac = _SwACLPktContRuleOption2SrcMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 3),
+    _SwACLPktContRuleOption2SrcMac_Type()
+)
+swACLPktContRuleOption2SrcMac.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2SrcMac.setStatus("current")
+_SwACLPktContRuleOption2DstMac_Type = MacAddress
+_SwACLPktContRuleOption2DstMac_Object = MibTableColumn
+swACLPktContRuleOption2DstMac = _SwACLPktContRuleOption2DstMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 4),
+    _SwACLPktContRuleOption2DstMac_Type()
+)
+swACLPktContRuleOption2DstMac.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2DstMac.setStatus("current")
+
+
+class _SwACLPktContRuleOption2CTag_Type(OctetString):
+    """Custom type swACLPktContRuleOption2CTag based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLPktContRuleOption2CTag_Type.__name__ = "OctetString"
+_SwACLPktContRuleOption2CTag_Object = MibTableColumn
+swACLPktContRuleOption2CTag = _SwACLPktContRuleOption2CTag_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 5),
+    _SwACLPktContRuleOption2CTag_Type()
+)
+swACLPktContRuleOption2CTag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2CTag.setStatus("current")
+
+
+class _SwACLPktContRuleOption2STag_Type(OctetString):
+    """Custom type swACLPktContRuleOption2STag based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLPktContRuleOption2STag_Type.__name__ = "OctetString"
+_SwACLPktContRuleOption2STag_Object = MibTableColumn
+swACLPktContRuleOption2STag = _SwACLPktContRuleOption2STag_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 6),
+    _SwACLPktContRuleOption2STag_Type()
+)
+swACLPktContRuleOption2STag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2STag.setStatus("current")
+
+
+class _SwACLPktContRuleOption2EnablePriority_Type(Integer32):
+    """Custom type swACLPktContRuleOption2EnablePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleOption2EnablePriority_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2EnablePriority_Object = MibTableColumn
+swACLPktContRuleOption2EnablePriority = _SwACLPktContRuleOption2EnablePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 7),
+    _SwACLPktContRuleOption2EnablePriority_Type()
+)
+swACLPktContRuleOption2EnablePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2EnablePriority.setStatus("current")
+
+
+class _SwACLPktContRuleOption2Priority_Type(Integer32):
+    """Custom type swACLPktContRuleOption2Priority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLPktContRuleOption2Priority_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2Priority_Object = MibTableColumn
+swACLPktContRuleOption2Priority = _SwACLPktContRuleOption2Priority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 8),
+    _SwACLPktContRuleOption2Priority_Type()
+)
+swACLPktContRuleOption2Priority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2Priority.setStatus("current")
+
+
+class _SwACLPktContRuleOption2ReplacePriority_Type(Integer32):
+    """Custom type swACLPktContRuleOption2ReplacePriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleOption2ReplacePriority_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2ReplacePriority_Object = MibTableColumn
+swACLPktContRuleOption2ReplacePriority = _SwACLPktContRuleOption2ReplacePriority_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 9),
+    _SwACLPktContRuleOption2ReplacePriority_Type()
+)
+swACLPktContRuleOption2ReplacePriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2ReplacePriority.setStatus("current")
+
+
+class _SwACLPktContRuleOption2EnableReplaceDscp_Type(Integer32):
+    """Custom type swACLPktContRuleOption2EnableReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleOption2EnableReplaceDscp_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2EnableReplaceDscp_Object = MibTableColumn
+swACLPktContRuleOption2EnableReplaceDscp = _SwACLPktContRuleOption2EnableReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 10),
+    _SwACLPktContRuleOption2EnableReplaceDscp_Type()
+)
+swACLPktContRuleOption2EnableReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2EnableReplaceDscp.setStatus("current")
+
+
+class _SwACLPktContRuleOption2RepDscp_Type(Integer32):
+    """Custom type swACLPktContRuleOption2RepDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwACLPktContRuleOption2RepDscp_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2RepDscp_Object = MibTableColumn
+swACLPktContRuleOption2RepDscp = _SwACLPktContRuleOption2RepDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 11),
+    _SwACLPktContRuleOption2RepDscp_Type()
+)
+swACLPktContRuleOption2RepDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2RepDscp.setStatus("current")
+
+
+class _SwACLPktContRuleOption2Permit_Type(Integer32):
+    """Custom type swACLPktContRuleOption2Permit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2),
+          ("mirror", 3))
+    )
+
+
+_SwACLPktContRuleOption2Permit_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2Permit_Object = MibTableColumn
+swACLPktContRuleOption2Permit = _SwACLPktContRuleOption2Permit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 12),
+    _SwACLPktContRuleOption2Permit_Type()
+)
+swACLPktContRuleOption2Permit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2Permit.setStatus("current")
+_SwACLPktContRuleOption2Port_Type = PortList
+_SwACLPktContRuleOption2Port_Object = MibTableColumn
+swACLPktContRuleOption2Port = _SwACLPktContRuleOption2Port_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 13),
+    _SwACLPktContRuleOption2Port_Type()
+)
+swACLPktContRuleOption2Port.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2Port.setStatus("current")
+
+
+class _SwACLPktContRuleOption2Owner_Type(Integer32):
+    """Custom type swACLPktContRuleOption2Owner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("any", 1),
+          ("acl", 2),
+          ("ipbind", 3),
+          ("other", 4),
+          ("dhcp", 5),
+          ("netbios", 6),
+          ("ext-netbios", 7),
+          ("ismvlan", 8),
+          ("dhcp-relay", 9),
+          ("pppoe", 10),
+          ("arp-spoofing", 11),
+          ("bpdu-tunnel", 12))
+    )
+
+
+_SwACLPktContRuleOption2Owner_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2Owner_Object = MibTableColumn
+swACLPktContRuleOption2Owner = _SwACLPktContRuleOption2Owner_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 17),
+    _SwACLPktContRuleOption2Owner_Type()
+)
+swACLPktContRuleOption2Owner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2Owner.setStatus("current")
+
+
+class _SwACLPktContRuleOption2EnableReplaceTosPrecedence_Type(Integer32):
+    """Custom type swACLPktContRuleOption2EnableReplaceTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwACLPktContRuleOption2EnableReplaceTosPrecedence_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2EnableReplaceTosPrecedence_Object = MibTableColumn
+swACLPktContRuleOption2EnableReplaceTosPrecedence = _SwACLPktContRuleOption2EnableReplaceTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 18),
+    _SwACLPktContRuleOption2EnableReplaceTosPrecedence_Type()
+)
+swACLPktContRuleOption2EnableReplaceTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2EnableReplaceTosPrecedence.setStatus("current")
+
+
+class _SwACLPktContRuleOption2RepTosPrecedence_Type(Integer32):
+    """Custom type swACLPktContRuleOption2RepTosPrecedence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwACLPktContRuleOption2RepTosPrecedence_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2RepTosPrecedence_Object = MibTableColumn
+swACLPktContRuleOption2RepTosPrecedence = _SwACLPktContRuleOption2RepTosPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 19),
+    _SwACLPktContRuleOption2RepTosPrecedence_Type()
+)
+swACLPktContRuleOption2RepTosPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2RepTosPrecedence.setStatus("current")
+
+
+class _SwACLPktContRuleOption2VID_Type(Integer32):
+    """Custom type swACLPktContRuleOption2VID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_SwACLPktContRuleOption2VID_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2VID_Object = MibTableColumn
+swACLPktContRuleOption2VID = _SwACLPktContRuleOption2VID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 20),
+    _SwACLPktContRuleOption2VID_Type()
+)
+swACLPktContRuleOption2VID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2VID.setStatus("current")
+_SwACLPktContRuleOption2RowStatus_Type = RowStatus
+_SwACLPktContRuleOption2RowStatus_Object = MibTableColumn
+swACLPktContRuleOption2RowStatus = _SwACLPktContRuleOption2RowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 21),
+    _SwACLPktContRuleOption2RowStatus_Type()
+)
+swACLPktContRuleOption2RowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2RowStatus.setStatus("current")
+_SwACLPktContRuleOption2MaskSrcMac_Type = MacAddress
+_SwACLPktContRuleOption2MaskSrcMac_Object = MibTableColumn
+swACLPktContRuleOption2MaskSrcMac = _SwACLPktContRuleOption2MaskSrcMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 22),
+    _SwACLPktContRuleOption2MaskSrcMac_Type()
+)
+swACLPktContRuleOption2MaskSrcMac.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2MaskSrcMac.setStatus("current")
+_SwACLPktContRuleOption2MaskDstMac_Type = MacAddress
+_SwACLPktContRuleOption2MaskDstMac_Object = MibTableColumn
+swACLPktContRuleOption2MaskDstMac = _SwACLPktContRuleOption2MaskDstMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 23),
+    _SwACLPktContRuleOption2MaskDstMac_Type()
+)
+swACLPktContRuleOption2MaskDstMac.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2MaskDstMac.setStatus("current")
+
+
+class _SwACLPktContRuleOption2MaskCTag_Type(OctetString):
+    """Custom type swACLPktContRuleOption2MaskCTag based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLPktContRuleOption2MaskCTag_Type.__name__ = "OctetString"
+_SwACLPktContRuleOption2MaskCTag_Object = MibTableColumn
+swACLPktContRuleOption2MaskCTag = _SwACLPktContRuleOption2MaskCTag_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 24),
+    _SwACLPktContRuleOption2MaskCTag_Type()
+)
+swACLPktContRuleOption2MaskCTag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2MaskCTag.setStatus("current")
+
+
+class _SwACLPktContRuleOption2MaskSTag_Type(OctetString):
+    """Custom type swACLPktContRuleOption2MaskSTag based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLPktContRuleOption2MaskSTag_Type.__name__ = "OctetString"
+_SwACLPktContRuleOption2MaskSTag_Object = MibTableColumn
+swACLPktContRuleOption2MaskSTag = _SwACLPktContRuleOption2MaskSTag_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 1, 1, 25),
+    _SwACLPktContRuleOption2MaskSTag_Type()
+)
+swACLPktContRuleOption2MaskSTag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2MaskSTag.setStatus("current")
+_SwACLPktContRuleOption2OffsetsTable_Object = MibTable
+swACLPktContRuleOption2OffsetsTable = _SwACLPktContRuleOption2OffsetsTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2)
+)
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2OffsetsTable.setStatus("current")
+_SwACLPktContRuleOption2OffsetsEntry_Object = MibTableRow
+swACLPktContRuleOption2OffsetsEntry = _SwACLPktContRuleOption2OffsetsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1)
+)
+swACLPktContRuleOption2OffsetsEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swACLPktContRuleOption2OffsetsProfileID"),
+    (0, "ACLMGMT-MIB", "swACLPktContRuleOption2OffsetsAccessID"),
+    (0, "ACLMGMT-MIB", "swACLPktContRuleOption2OffsetsNum"),
+)
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2OffsetsEntry.setStatus("current")
+_SwACLPktContRuleOption2OffsetsProfileID_Type = Integer32
+_SwACLPktContRuleOption2OffsetsProfileID_Object = MibTableColumn
+swACLPktContRuleOption2OffsetsProfileID = _SwACLPktContRuleOption2OffsetsProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 1),
+    _SwACLPktContRuleOption2OffsetsProfileID_Type()
+)
+swACLPktContRuleOption2OffsetsProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2OffsetsProfileID.setStatus("current")
+
+
+class _SwACLPktContRuleOption2OffsetsAccessID_Type(Integer32):
+    """Custom type swACLPktContRuleOption2OffsetsAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwACLPktContRuleOption2OffsetsAccessID_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2OffsetsAccessID_Object = MibTableColumn
+swACLPktContRuleOption2OffsetsAccessID = _SwACLPktContRuleOption2OffsetsAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 2),
+    _SwACLPktContRuleOption2OffsetsAccessID_Type()
+)
+swACLPktContRuleOption2OffsetsAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2OffsetsAccessID.setStatus("current")
+
+
+class _SwACLPktContRuleOption2OffsetsNum_Type(Integer32):
+    """Custom type swACLPktContRuleOption2OffsetsNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 11),
+    )
+
+
+_SwACLPktContRuleOption2OffsetsNum_Type.__name__ = "Integer32"
+_SwACLPktContRuleOption2OffsetsNum_Object = MibTableColumn
+swACLPktContRuleOption2OffsetsNum = _SwACLPktContRuleOption2OffsetsNum_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 3),
+    _SwACLPktContRuleOption2OffsetsNum_Type()
+)
+swACLPktContRuleOption2OffsetsNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2OffsetsNum.setStatus("current")
+
+
+class _SwACLPktContRuleOption2OffsetsData_Type(OctetString):
+    """Custom type swACLPktContRuleOption2OffsetsData based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLPktContRuleOption2OffsetsData_Type.__name__ = "OctetString"
+_SwACLPktContRuleOption2OffsetsData_Object = MibTableColumn
+swACLPktContRuleOption2OffsetsData = _SwACLPktContRuleOption2OffsetsData_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 4),
+    _SwACLPktContRuleOption2OffsetsData_Type()
+)
+swACLPktContRuleOption2OffsetsData.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2OffsetsData.setStatus("current")
+_SwACLPktContRuleOption2OffsetsRowStatus_Type = RowStatus
+_SwACLPktContRuleOption2OffsetsRowStatus_Object = MibTableColumn
+swACLPktContRuleOption2OffsetsRowStatus = _SwACLPktContRuleOption2OffsetsRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 5),
+    _SwACLPktContRuleOption2OffsetsRowStatus_Type()
+)
+swACLPktContRuleOption2OffsetsRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2OffsetsRowStatus.setStatus("current")
+
+
+class _SwACLPktContRuleOption2OffsetsMask_Type(OctetString):
+    """Custom type swACLPktContRuleOption2OffsetsMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwACLPktContRuleOption2OffsetsMask_Type.__name__ = "OctetString"
+_SwACLPktContRuleOption2OffsetsMask_Object = MibTableColumn
+swACLPktContRuleOption2OffsetsMask = _SwACLPktContRuleOption2OffsetsMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 3, 10, 2, 1, 6),
+    _SwACLPktContRuleOption2OffsetsMask_Type()
+)
+swACLPktContRuleOption2OffsetsMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swACLPktContRuleOption2OffsetsMask.setStatus("current")
+_SwCpuAclMaskMgmt_ObjectIdentity = ObjectIdentity
+swCpuAclMaskMgmt = _SwCpuAclMaskMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4)
+)
+_SwCpuAclEthernetTable_Object = MibTable
+swCpuAclEthernetTable = _SwCpuAclEthernetTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1)
+)
+if mibBuilder.loadTexts:
+    swCpuAclEthernetTable.setStatus("current")
+_SwCpuAclEthernetEntry_Object = MibTableRow
+swCpuAclEthernetEntry = _SwCpuAclEthernetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1)
+)
+swCpuAclEthernetEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swCpuAclEthernetProfileID"),
+)
+if mibBuilder.loadTexts:
+    swCpuAclEthernetEntry.setStatus("current")
+_SwCpuAclEthernetProfileID_Type = Integer32
+_SwCpuAclEthernetProfileID_Object = MibTableColumn
+swCpuAclEthernetProfileID = _SwCpuAclEthernetProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 1),
+    _SwCpuAclEthernetProfileID_Type()
+)
+swCpuAclEthernetProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclEthernetProfileID.setStatus("current")
+
+
+class _SwCpuAclEthernetUsevlan_Type(Integer32):
+    """Custom type swCpuAclEthernetUsevlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwCpuAclEthernetUsevlan_Type.__name__ = "Integer32"
+_SwCpuAclEthernetUsevlan_Object = MibTableColumn
+swCpuAclEthernetUsevlan = _SwCpuAclEthernetUsevlan_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 2),
+    _SwCpuAclEthernetUsevlan_Type()
+)
+swCpuAclEthernetUsevlan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEthernetUsevlan.setStatus("current")
+
+
+class _SwCpuAclEthernetMacAddrMaskState_Type(Integer32):
+    """Custom type swCpuAclEthernetMacAddrMaskState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-mac-addr", 2),
+          ("src-mac-addr", 3),
+          ("dst-src-mac-addr", 4))
+    )
+
+
+_SwCpuAclEthernetMacAddrMaskState_Type.__name__ = "Integer32"
+_SwCpuAclEthernetMacAddrMaskState_Object = MibTableColumn
+swCpuAclEthernetMacAddrMaskState = _SwCpuAclEthernetMacAddrMaskState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 3),
+    _SwCpuAclEthernetMacAddrMaskState_Type()
+)
+swCpuAclEthernetMacAddrMaskState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEthernetMacAddrMaskState.setStatus("current")
+_SwCpuAclEthernetSrcMacAddrMask_Type = MacAddress
+_SwCpuAclEthernetSrcMacAddrMask_Object = MibTableColumn
+swCpuAclEthernetSrcMacAddrMask = _SwCpuAclEthernetSrcMacAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 4),
+    _SwCpuAclEthernetSrcMacAddrMask_Type()
+)
+swCpuAclEthernetSrcMacAddrMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEthernetSrcMacAddrMask.setStatus("current")
+_SwCpuAclEthernetDstMacAddrMask_Type = MacAddress
+_SwCpuAclEthernetDstMacAddrMask_Object = MibTableColumn
+swCpuAclEthernetDstMacAddrMask = _SwCpuAclEthernetDstMacAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 5),
+    _SwCpuAclEthernetDstMacAddrMask_Type()
+)
+swCpuAclEthernetDstMacAddrMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEthernetDstMacAddrMask.setStatus("current")
+
+
+class _SwCpuAclEthernetUse8021p_Type(Integer32):
+    """Custom type swCpuAclEthernetUse8021p based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwCpuAclEthernetUse8021p_Type.__name__ = "Integer32"
+_SwCpuAclEthernetUse8021p_Object = MibTableColumn
+swCpuAclEthernetUse8021p = _SwCpuAclEthernetUse8021p_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 6),
+    _SwCpuAclEthernetUse8021p_Type()
+)
+swCpuAclEthernetUse8021p.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEthernetUse8021p.setStatus("current")
+
+
+class _SwCpuAclEthernetUseEthernetType_Type(Integer32):
+    """Custom type swCpuAclEthernetUseEthernetType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwCpuAclEthernetUseEthernetType_Type.__name__ = "Integer32"
+_SwCpuAclEthernetUseEthernetType_Object = MibTableColumn
+swCpuAclEthernetUseEthernetType = _SwCpuAclEthernetUseEthernetType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 7),
+    _SwCpuAclEthernetUseEthernetType_Type()
+)
+swCpuAclEthernetUseEthernetType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEthernetUseEthernetType.setStatus("current")
+_SwCpuAclEthernetRowStatus_Type = RowStatus
+_SwCpuAclEthernetRowStatus_Object = MibTableColumn
+swCpuAclEthernetRowStatus = _SwCpuAclEthernetRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 1, 1, 8),
+    _SwCpuAclEthernetRowStatus_Type()
+)
+swCpuAclEthernetRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEthernetRowStatus.setStatus("current")
+_SwCpuAclIpTable_Object = MibTable
+swCpuAclIpTable = _SwCpuAclIpTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2)
+)
+if mibBuilder.loadTexts:
+    swCpuAclIpTable.setStatus("current")
+_SwCpuAclIpEntry_Object = MibTableRow
+swCpuAclIpEntry = _SwCpuAclIpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1)
+)
+swCpuAclIpEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swCpuAclIpProfileID"),
+)
+if mibBuilder.loadTexts:
+    swCpuAclIpEntry.setStatus("current")
+_SwCpuAclIpProfileID_Type = Integer32
+_SwCpuAclIpProfileID_Object = MibTableColumn
+swCpuAclIpProfileID = _SwCpuAclIpProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 1),
+    _SwCpuAclIpProfileID_Type()
+)
+swCpuAclIpProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclIpProfileID.setStatus("current")
+
+
+class _SwCpuAclIpUsevlan_Type(Integer32):
+    """Custom type swCpuAclIpUsevlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwCpuAclIpUsevlan_Type.__name__ = "Integer32"
+_SwCpuAclIpUsevlan_Object = MibTableColumn
+swCpuAclIpUsevlan = _SwCpuAclIpUsevlan_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 2),
+    _SwCpuAclIpUsevlan_Type()
+)
+swCpuAclIpUsevlan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpUsevlan.setStatus("current")
+
+
+class _SwCpuAclIpIpAddrMaskState_Type(Integer32):
+    """Custom type swCpuAclIpIpAddrMaskState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-ip-addr", 2),
+          ("src-ip-addr", 3),
+          ("dst-src-ip-addr", 4))
+    )
+
+
+_SwCpuAclIpIpAddrMaskState_Type.__name__ = "Integer32"
+_SwCpuAclIpIpAddrMaskState_Object = MibTableColumn
+swCpuAclIpIpAddrMaskState = _SwCpuAclIpIpAddrMaskState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 3),
+    _SwCpuAclIpIpAddrMaskState_Type()
+)
+swCpuAclIpIpAddrMaskState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpIpAddrMaskState.setStatus("current")
+_SwCpuAclIpSrcIpAddrMask_Type = IpAddress
+_SwCpuAclIpSrcIpAddrMask_Object = MibTableColumn
+swCpuAclIpSrcIpAddrMask = _SwCpuAclIpSrcIpAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 4),
+    _SwCpuAclIpSrcIpAddrMask_Type()
+)
+swCpuAclIpSrcIpAddrMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpSrcIpAddrMask.setStatus("current")
+_SwCpuAclIpDstIpAddrMask_Type = IpAddress
+_SwCpuAclIpDstIpAddrMask_Object = MibTableColumn
+swCpuAclIpDstIpAddrMask = _SwCpuAclIpDstIpAddrMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 5),
+    _SwCpuAclIpDstIpAddrMask_Type()
+)
+swCpuAclIpDstIpAddrMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpDstIpAddrMask.setStatus("current")
+
+
+class _SwCpuAclIpUseDSCP_Type(Integer32):
+    """Custom type swCpuAclIpUseDSCP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwCpuAclIpUseDSCP_Type.__name__ = "Integer32"
+_SwCpuAclIpUseDSCP_Object = MibTableColumn
+swCpuAclIpUseDSCP = _SwCpuAclIpUseDSCP_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 6),
+    _SwCpuAclIpUseDSCP_Type()
+)
+swCpuAclIpUseDSCP.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpUseDSCP.setStatus("current")
+
+
+class _SwCpuAclIpUseProtoType_Type(Integer32):
+    """Custom type swCpuAclIpUseProtoType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("icmp", 2),
+          ("igmp", 3),
+          ("tcp", 4),
+          ("udp", 5),
+          ("protocolId", 6))
+    )
+
+
+_SwCpuAclIpUseProtoType_Type.__name__ = "Integer32"
+_SwCpuAclIpUseProtoType_Object = MibTableColumn
+swCpuAclIpUseProtoType = _SwCpuAclIpUseProtoType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 7),
+    _SwCpuAclIpUseProtoType_Type()
+)
+swCpuAclIpUseProtoType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpUseProtoType.setStatus("current")
+
+
+class _SwCpuAclIpIcmpOption_Type(Integer32):
+    """Custom type swCpuAclIpIcmpOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("type", 2),
+          ("code", 3),
+          ("type-code", 4))
+    )
+
+
+_SwCpuAclIpIcmpOption_Type.__name__ = "Integer32"
+_SwCpuAclIpIcmpOption_Object = MibTableColumn
+swCpuAclIpIcmpOption = _SwCpuAclIpIcmpOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 8),
+    _SwCpuAclIpIcmpOption_Type()
+)
+swCpuAclIpIcmpOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpIcmpOption.setStatus("current")
+
+
+class _SwCpuAclIpIgmpOption_Type(Integer32):
+    """Custom type swCpuAclIpIgmpOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_SwCpuAclIpIgmpOption_Type.__name__ = "Integer32"
+_SwCpuAclIpIgmpOption_Object = MibTableColumn
+swCpuAclIpIgmpOption = _SwCpuAclIpIgmpOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 9),
+    _SwCpuAclIpIgmpOption_Type()
+)
+swCpuAclIpIgmpOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpIgmpOption.setStatus("current")
+
+
+class _SwCpuAclIpTcpOption_Type(Integer32):
+    """Custom type swCpuAclIpTcpOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-addr", 2),
+          ("src-addr", 3),
+          ("dst-src-addr", 4))
+    )
+
+
+_SwCpuAclIpTcpOption_Type.__name__ = "Integer32"
+_SwCpuAclIpTcpOption_Object = MibTableColumn
+swCpuAclIpTcpOption = _SwCpuAclIpTcpOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 10),
+    _SwCpuAclIpTcpOption_Type()
+)
+swCpuAclIpTcpOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpTcpOption.setStatus("current")
+
+
+class _SwCpuAclIpUdpOption_Type(Integer32):
+    """Custom type swCpuAclIpUdpOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-addr", 2),
+          ("src-addr", 3),
+          ("dst-src-addr", 4))
+    )
+
+
+_SwCpuAclIpUdpOption_Type.__name__ = "Integer32"
+_SwCpuAclIpUdpOption_Object = MibTableColumn
+swCpuAclIpUdpOption = _SwCpuAclIpUdpOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 11),
+    _SwCpuAclIpUdpOption_Type()
+)
+swCpuAclIpUdpOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpUdpOption.setStatus("current")
+
+
+class _SwCpuAclIpTCPorUDPSrcPortMask_Type(OctetString):
+    """Custom type swCpuAclIpTCPorUDPSrcPortMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwCpuAclIpTCPorUDPSrcPortMask_Type.__name__ = "OctetString"
+_SwCpuAclIpTCPorUDPSrcPortMask_Object = MibTableColumn
+swCpuAclIpTCPorUDPSrcPortMask = _SwCpuAclIpTCPorUDPSrcPortMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 12),
+    _SwCpuAclIpTCPorUDPSrcPortMask_Type()
+)
+swCpuAclIpTCPorUDPSrcPortMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpTCPorUDPSrcPortMask.setStatus("current")
+
+
+class _SwCpuAclIpTCPorUDPDstPortMask_Type(OctetString):
+    """Custom type swCpuAclIpTCPorUDPDstPortMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwCpuAclIpTCPorUDPDstPortMask_Type.__name__ = "OctetString"
+_SwCpuAclIpTCPorUDPDstPortMask_Object = MibTableColumn
+swCpuAclIpTCPorUDPDstPortMask = _SwCpuAclIpTCPorUDPDstPortMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 13),
+    _SwCpuAclIpTCPorUDPDstPortMask_Type()
+)
+swCpuAclIpTCPorUDPDstPortMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpTCPorUDPDstPortMask.setStatus("current")
+
+
+class _SwCpuAclIpTCPFlagBit_Type(Integer32):
+    """Custom type swCpuAclIpTCPFlagBit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_SwCpuAclIpTCPFlagBit_Type.__name__ = "Integer32"
+_SwCpuAclIpTCPFlagBit_Object = MibTableColumn
+swCpuAclIpTCPFlagBit = _SwCpuAclIpTCPFlagBit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 14),
+    _SwCpuAclIpTCPFlagBit_Type()
+)
+swCpuAclIpTCPFlagBit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpTCPFlagBit.setStatus("current")
+
+
+class _SwCpuAclIpTCPFlagBitMask_Type(Integer32):
+    """Custom type swCpuAclIpTCPFlagBitMask based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwCpuAclIpTCPFlagBitMask_Type.__name__ = "Integer32"
+_SwCpuAclIpTCPFlagBitMask_Object = MibTableColumn
+swCpuAclIpTCPFlagBitMask = _SwCpuAclIpTCPFlagBitMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 15),
+    _SwCpuAclIpTCPFlagBitMask_Type()
+)
+swCpuAclIpTCPFlagBitMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpTCPFlagBitMask.setStatus("current")
+
+
+class _SwCpuAclIpProtoIDOption_Type(Integer32):
+    """Custom type swCpuAclIpProtoIDOption based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_SwCpuAclIpProtoIDOption_Type.__name__ = "Integer32"
+_SwCpuAclIpProtoIDOption_Object = MibTableColumn
+swCpuAclIpProtoIDOption = _SwCpuAclIpProtoIDOption_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 16),
+    _SwCpuAclIpProtoIDOption_Type()
+)
+swCpuAclIpProtoIDOption.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpProtoIDOption.setStatus("current")
+
+
+class _SwCpuAclIpProtoID_Type(Integer32):
+    """Custom type swCpuAclIpProtoID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SwCpuAclIpProtoID_Type.__name__ = "Integer32"
+_SwCpuAclIpProtoID_Object = MibTableColumn
+swCpuAclIpProtoID = _SwCpuAclIpProtoID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 17),
+    _SwCpuAclIpProtoID_Type()
+)
+swCpuAclIpProtoID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpProtoID.setStatus("current")
+
+
+class _SwCpuAclIpProtoIDMask_Type(OctetString):
+    """Custom type swCpuAclIpProtoIDMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(20, 20),
+    )
+    fixed_length = 20
+
+
+_SwCpuAclIpProtoIDMask_Type.__name__ = "OctetString"
+_SwCpuAclIpProtoIDMask_Object = MibTableColumn
+swCpuAclIpProtoIDMask = _SwCpuAclIpProtoIDMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 18),
+    _SwCpuAclIpProtoIDMask_Type()
+)
+swCpuAclIpProtoIDMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpProtoIDMask.setStatus("current")
+_SwCpuAclIpRowStatus_Type = RowStatus
+_SwCpuAclIpRowStatus_Object = MibTableColumn
+swCpuAclIpRowStatus = _SwCpuAclIpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 2, 1, 19),
+    _SwCpuAclIpRowStatus_Type()
+)
+swCpuAclIpRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRowStatus.setStatus("current")
+_SwCpuAclPktContMaskTable_Object = MibTable
+swCpuAclPktContMaskTable = _SwCpuAclPktContMaskTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3)
+)
+if mibBuilder.loadTexts:
+    swCpuAclPktContMaskTable.setStatus("current")
+_SwCpuAclPktContMaskEntry_Object = MibTableRow
+swCpuAclPktContMaskEntry = _SwCpuAclPktContMaskEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1)
+)
+swCpuAclPktContMaskEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swCpuAclPktContMaskProfileID"),
+)
+if mibBuilder.loadTexts:
+    swCpuAclPktContMaskEntry.setStatus("current")
+_SwCpuAclPktContMaskProfileID_Type = Integer32
+_SwCpuAclPktContMaskProfileID_Object = MibTableColumn
+swCpuAclPktContMaskProfileID = _SwCpuAclPktContMaskProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 1),
+    _SwCpuAclPktContMaskProfileID_Type()
+)
+swCpuAclPktContMaskProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclPktContMaskProfileID.setStatus("current")
+
+
+class _SwCpuAclPktContMaskOffset0to15_Type(OctetString):
+    """Custom type swCpuAclPktContMaskOffset0to15 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwCpuAclPktContMaskOffset0to15_Type.__name__ = "OctetString"
+_SwCpuAclPktContMaskOffset0to15_Object = MibTableColumn
+swCpuAclPktContMaskOffset0to15 = _SwCpuAclPktContMaskOffset0to15_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 2),
+    _SwCpuAclPktContMaskOffset0to15_Type()
+)
+swCpuAclPktContMaskOffset0to15.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContMaskOffset0to15.setStatus("current")
+
+
+class _SwCpuAclPktContMaskOffset16to31_Type(OctetString):
+    """Custom type swCpuAclPktContMaskOffset16to31 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwCpuAclPktContMaskOffset16to31_Type.__name__ = "OctetString"
+_SwCpuAclPktContMaskOffset16to31_Object = MibTableColumn
+swCpuAclPktContMaskOffset16to31 = _SwCpuAclPktContMaskOffset16to31_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 3),
+    _SwCpuAclPktContMaskOffset16to31_Type()
+)
+swCpuAclPktContMaskOffset16to31.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContMaskOffset16to31.setStatus("current")
+
+
+class _SwCpuAclPktContMaskOffset32to47_Type(OctetString):
+    """Custom type swCpuAclPktContMaskOffset32to47 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwCpuAclPktContMaskOffset32to47_Type.__name__ = "OctetString"
+_SwCpuAclPktContMaskOffset32to47_Object = MibTableColumn
+swCpuAclPktContMaskOffset32to47 = _SwCpuAclPktContMaskOffset32to47_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 4),
+    _SwCpuAclPktContMaskOffset32to47_Type()
+)
+swCpuAclPktContMaskOffset32to47.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContMaskOffset32to47.setStatus("current")
+
+
+class _SwCpuAclPktContMaskOffset48to63_Type(OctetString):
+    """Custom type swCpuAclPktContMaskOffset48to63 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwCpuAclPktContMaskOffset48to63_Type.__name__ = "OctetString"
+_SwCpuAclPktContMaskOffset48to63_Object = MibTableColumn
+swCpuAclPktContMaskOffset48to63 = _SwCpuAclPktContMaskOffset48to63_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 5),
+    _SwCpuAclPktContMaskOffset48to63_Type()
+)
+swCpuAclPktContMaskOffset48to63.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContMaskOffset48to63.setStatus("current")
+
+
+class _SwCpuAclPktContMaskOffset64to79_Type(OctetString):
+    """Custom type swCpuAclPktContMaskOffset64to79 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwCpuAclPktContMaskOffset64to79_Type.__name__ = "OctetString"
+_SwCpuAclPktContMaskOffset64to79_Object = MibTableColumn
+swCpuAclPktContMaskOffset64to79 = _SwCpuAclPktContMaskOffset64to79_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 6),
+    _SwCpuAclPktContMaskOffset64to79_Type()
+)
+swCpuAclPktContMaskOffset64to79.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContMaskOffset64to79.setStatus("current")
+_SwCpuAclPktContMaskRowStatus_Type = RowStatus
+_SwCpuAclPktContMaskRowStatus_Object = MibTableColumn
+swCpuAclPktContMaskRowStatus = _SwCpuAclPktContMaskRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 3, 1, 7),
+    _SwCpuAclPktContMaskRowStatus_Type()
+)
+swCpuAclPktContMaskRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContMaskRowStatus.setStatus("current")
+_SwCpuAclIpv6MaskTable_Object = MibTable
+swCpuAclIpv6MaskTable = _SwCpuAclIpv6MaskTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4)
+)
+if mibBuilder.loadTexts:
+    swCpuAclIpv6MaskTable.setStatus("current")
+_SwCpuAclIpv6MaskEntry_Object = MibTableRow
+swCpuAclIpv6MaskEntry = _SwCpuAclIpv6MaskEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1)
+)
+swCpuAclIpv6MaskEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swCpuAclIpv6MaskProfileID"),
+)
+if mibBuilder.loadTexts:
+    swCpuAclIpv6MaskEntry.setStatus("current")
+_SwCpuAclIpv6MaskProfileID_Type = Integer32
+_SwCpuAclIpv6MaskProfileID_Object = MibTableColumn
+swCpuAclIpv6MaskProfileID = _SwCpuAclIpv6MaskProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 1),
+    _SwCpuAclIpv6MaskProfileID_Type()
+)
+swCpuAclIpv6MaskProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6MaskProfileID.setStatus("current")
+
+
+class _SwCpuAclIpv6MaskClass_Type(Integer32):
+    """Custom type swCpuAclIpv6MaskClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_SwCpuAclIpv6MaskClass_Type.__name__ = "Integer32"
+_SwCpuAclIpv6MaskClass_Object = MibTableColumn
+swCpuAclIpv6MaskClass = _SwCpuAclIpv6MaskClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 2),
+    _SwCpuAclIpv6MaskClass_Type()
+)
+swCpuAclIpv6MaskClass.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6MaskClass.setStatus("current")
+
+
+class _SwCpuAclIpv6MaskFlowlabel_Type(Integer32):
+    """Custom type swCpuAclIpv6MaskFlowlabel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_SwCpuAclIpv6MaskFlowlabel_Type.__name__ = "Integer32"
+_SwCpuAclIpv6MaskFlowlabel_Object = MibTableColumn
+swCpuAclIpv6MaskFlowlabel = _SwCpuAclIpv6MaskFlowlabel_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 3),
+    _SwCpuAclIpv6MaskFlowlabel_Type()
+)
+swCpuAclIpv6MaskFlowlabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6MaskFlowlabel.setStatus("current")
+
+
+class _SwCpuAclIpv6IpAddrMaskState_Type(Integer32):
+    """Custom type swCpuAclIpv6IpAddrMaskState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("dst-ipv6-addr", 2),
+          ("src-ipv6-addr", 3),
+          ("dst-src-ipv6-addr", 4))
+    )
+
+
+_SwCpuAclIpv6IpAddrMaskState_Type.__name__ = "Integer32"
+_SwCpuAclIpv6IpAddrMaskState_Object = MibTableColumn
+swCpuAclIpv6IpAddrMaskState = _SwCpuAclIpv6IpAddrMaskState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 4),
+    _SwCpuAclIpv6IpAddrMaskState_Type()
+)
+swCpuAclIpv6IpAddrMaskState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6IpAddrMaskState.setStatus("current")
+_SwCpuAclIpv6MaskSrcIpv6Mask_Type = Ipv6Address
+_SwCpuAclIpv6MaskSrcIpv6Mask_Object = MibTableColumn
+swCpuAclIpv6MaskSrcIpv6Mask = _SwCpuAclIpv6MaskSrcIpv6Mask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 5),
+    _SwCpuAclIpv6MaskSrcIpv6Mask_Type()
+)
+swCpuAclIpv6MaskSrcIpv6Mask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6MaskSrcIpv6Mask.setStatus("current")
+_SwCpuAclIpv6MaskDstIpv6Mask_Type = Ipv6Address
+_SwCpuAclIpv6MaskDstIpv6Mask_Object = MibTableColumn
+swCpuAclIpv6MaskDstIpv6Mask = _SwCpuAclIpv6MaskDstIpv6Mask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 6),
+    _SwCpuAclIpv6MaskDstIpv6Mask_Type()
+)
+swCpuAclIpv6MaskDstIpv6Mask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6MaskDstIpv6Mask.setStatus("current")
+_SwCpuAclIpv6MaskRowStatus_Type = RowStatus
+_SwCpuAclIpv6MaskRowStatus_Object = MibTableColumn
+swCpuAclIpv6MaskRowStatus = _SwCpuAclIpv6MaskRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 4, 1, 7),
+    _SwCpuAclIpv6MaskRowStatus_Type()
+)
+swCpuAclIpv6MaskRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6MaskRowStatus.setStatus("current")
+
+
+class _SwCpuACLMaskDelAllState_Type(Integer32):
+    """Custom type swCpuACLMaskDelAllState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("start", 2))
+    )
+
+
+_SwCpuACLMaskDelAllState_Type.__name__ = "Integer32"
+_SwCpuACLMaskDelAllState_Object = MibScalar
+swCpuACLMaskDelAllState = _SwCpuACLMaskDelAllState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 4, 5),
+    _SwCpuACLMaskDelAllState_Type()
+)
+swCpuACLMaskDelAllState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swCpuACLMaskDelAllState.setStatus("current")
+_SwCpuAclRuleMgmt_ObjectIdentity = ObjectIdentity
+swCpuAclRuleMgmt = _SwCpuAclRuleMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5)
+)
+_SwCpuAclEtherRuleTable_Object = MibTable
+swCpuAclEtherRuleTable = _SwCpuAclEtherRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1)
+)
+if mibBuilder.loadTexts:
+    swCpuAclEtherRuleTable.setStatus("current")
+_SwCpuAclEtherRuleEntry_Object = MibTableRow
+swCpuAclEtherRuleEntry = _SwCpuAclEtherRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1)
+)
+swCpuAclEtherRuleEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swCpuAclEtherRuleProfileID"),
+    (0, "ACLMGMT-MIB", "swCpuAclEtherRuleAccessID"),
+)
+if mibBuilder.loadTexts:
+    swCpuAclEtherRuleEntry.setStatus("current")
+_SwCpuAclEtherRuleProfileID_Type = Integer32
+_SwCpuAclEtherRuleProfileID_Object = MibTableColumn
+swCpuAclEtherRuleProfileID = _SwCpuAclEtherRuleProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 1),
+    _SwCpuAclEtherRuleProfileID_Type()
+)
+swCpuAclEtherRuleProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclEtherRuleProfileID.setStatus("current")
+
+
+class _SwCpuAclEtherRuleAccessID_Type(Integer32):
+    """Custom type swCpuAclEtherRuleAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwCpuAclEtherRuleAccessID_Type.__name__ = "Integer32"
+_SwCpuAclEtherRuleAccessID_Object = MibTableColumn
+swCpuAclEtherRuleAccessID = _SwCpuAclEtherRuleAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 2),
+    _SwCpuAclEtherRuleAccessID_Type()
+)
+swCpuAclEtherRuleAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclEtherRuleAccessID.setStatus("current")
+
+
+class _SwCpuAclEtherRuleVlan_Type(SnmpAdminString):
+    """Custom type swCpuAclEtherRuleVlan based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwCpuAclEtherRuleVlan_Type.__name__ = "SnmpAdminString"
+_SwCpuAclEtherRuleVlan_Object = MibTableColumn
+swCpuAclEtherRuleVlan = _SwCpuAclEtherRuleVlan_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 3),
+    _SwCpuAclEtherRuleVlan_Type()
+)
+swCpuAclEtherRuleVlan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEtherRuleVlan.setStatus("current")
+_SwCpuAclEtherRuleSrcMacAddress_Type = MacAddress
+_SwCpuAclEtherRuleSrcMacAddress_Object = MibTableColumn
+swCpuAclEtherRuleSrcMacAddress = _SwCpuAclEtherRuleSrcMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 4),
+    _SwCpuAclEtherRuleSrcMacAddress_Type()
+)
+swCpuAclEtherRuleSrcMacAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEtherRuleSrcMacAddress.setStatus("current")
+_SwCpuAclEtherRuleDstMacAddress_Type = MacAddress
+_SwCpuAclEtherRuleDstMacAddress_Object = MibTableColumn
+swCpuAclEtherRuleDstMacAddress = _SwCpuAclEtherRuleDstMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 5),
+    _SwCpuAclEtherRuleDstMacAddress_Type()
+)
+swCpuAclEtherRuleDstMacAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEtherRuleDstMacAddress.setStatus("current")
+
+
+class _SwCpuAclEtherRule8021P_Type(Integer32):
+    """Custom type swCpuAclEtherRule8021P based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 7),
+    )
+
+
+_SwCpuAclEtherRule8021P_Type.__name__ = "Integer32"
+_SwCpuAclEtherRule8021P_Object = MibTableColumn
+swCpuAclEtherRule8021P = _SwCpuAclEtherRule8021P_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 6),
+    _SwCpuAclEtherRule8021P_Type()
+)
+swCpuAclEtherRule8021P.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEtherRule8021P.setStatus("current")
+
+
+class _SwCpuAclEtherRuleEtherType_Type(OctetString):
+    """Custom type swCpuAclEtherRuleEtherType based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_SwCpuAclEtherRuleEtherType_Type.__name__ = "OctetString"
+_SwCpuAclEtherRuleEtherType_Object = MibTableColumn
+swCpuAclEtherRuleEtherType = _SwCpuAclEtherRuleEtherType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 7),
+    _SwCpuAclEtherRuleEtherType_Type()
+)
+swCpuAclEtherRuleEtherType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEtherRuleEtherType.setStatus("current")
+
+
+class _SwCpuAclEtherRulePermit_Type(Integer32):
+    """Custom type swCpuAclEtherRulePermit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2))
+    )
+
+
+_SwCpuAclEtherRulePermit_Type.__name__ = "Integer32"
+_SwCpuAclEtherRulePermit_Object = MibTableColumn
+swCpuAclEtherRulePermit = _SwCpuAclEtherRulePermit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 8),
+    _SwCpuAclEtherRulePermit_Type()
+)
+swCpuAclEtherRulePermit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEtherRulePermit.setStatus("current")
+_SwCpuAclEtherRuleRowStatus_Type = RowStatus
+_SwCpuAclEtherRuleRowStatus_Object = MibTableColumn
+swCpuAclEtherRuleRowStatus = _SwCpuAclEtherRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 9),
+    _SwCpuAclEtherRuleRowStatus_Type()
+)
+swCpuAclEtherRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEtherRuleRowStatus.setStatus("current")
+_SwCpuAclEtherRulePort_Type = PortList
+_SwCpuAclEtherRulePort_Object = MibTableColumn
+swCpuAclEtherRulePort = _SwCpuAclEtherRulePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 10),
+    _SwCpuAclEtherRulePort_Type()
+)
+swCpuAclEtherRulePort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEtherRulePort.setStatus("current")
+
+
+class _SwCpuAclEtherRuleMatchVID_Type(Integer32):
+    """Custom type swCpuAclEtherRuleMatchVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_SwCpuAclEtherRuleMatchVID_Type.__name__ = "Integer32"
+_SwCpuAclEtherRuleMatchVID_Object = MibTableColumn
+swCpuAclEtherRuleMatchVID = _SwCpuAclEtherRuleMatchVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 1, 1, 11),
+    _SwCpuAclEtherRuleMatchVID_Type()
+)
+swCpuAclEtherRuleMatchVID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclEtherRuleMatchVID.setStatus("current")
+_SwCpuAclIpRuleTable_Object = MibTable
+swCpuAclIpRuleTable = _SwCpuAclIpRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2)
+)
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleTable.setStatus("current")
+_SwCpuAclIpRuleEntry_Object = MibTableRow
+swCpuAclIpRuleEntry = _SwCpuAclIpRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1)
+)
+swCpuAclIpRuleEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swCpuAclIpRuleProfileID"),
+    (0, "ACLMGMT-MIB", "swCpuAclIpRuleAccessID"),
+)
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleEntry.setStatus("current")
+_SwCpuAclIpRuleProfileID_Type = Integer32
+_SwCpuAclIpRuleProfileID_Object = MibTableColumn
+swCpuAclIpRuleProfileID = _SwCpuAclIpRuleProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 1),
+    _SwCpuAclIpRuleProfileID_Type()
+)
+swCpuAclIpRuleProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleProfileID.setStatus("current")
+
+
+class _SwCpuAclIpRuleAccessID_Type(Integer32):
+    """Custom type swCpuAclIpRuleAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwCpuAclIpRuleAccessID_Type.__name__ = "Integer32"
+_SwCpuAclIpRuleAccessID_Object = MibTableColumn
+swCpuAclIpRuleAccessID = _SwCpuAclIpRuleAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 2),
+    _SwCpuAclIpRuleAccessID_Type()
+)
+swCpuAclIpRuleAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleAccessID.setStatus("current")
+
+
+class _SwCpuAclIpRuleVlan_Type(SnmpAdminString):
+    """Custom type swCpuAclIpRuleVlan based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SwCpuAclIpRuleVlan_Type.__name__ = "SnmpAdminString"
+_SwCpuAclIpRuleVlan_Object = MibTableColumn
+swCpuAclIpRuleVlan = _SwCpuAclIpRuleVlan_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 3),
+    _SwCpuAclIpRuleVlan_Type()
+)
+swCpuAclIpRuleVlan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleVlan.setStatus("current")
+_SwCpuAclIpRuleSrcIpaddress_Type = IpAddress
+_SwCpuAclIpRuleSrcIpaddress_Object = MibTableColumn
+swCpuAclIpRuleSrcIpaddress = _SwCpuAclIpRuleSrcIpaddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 4),
+    _SwCpuAclIpRuleSrcIpaddress_Type()
+)
+swCpuAclIpRuleSrcIpaddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleSrcIpaddress.setStatus("current")
+_SwCpuAclIpRuleDstIpaddress_Type = IpAddress
+_SwCpuAclIpRuleDstIpaddress_Object = MibTableColumn
+swCpuAclIpRuleDstIpaddress = _SwCpuAclIpRuleDstIpaddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 5),
+    _SwCpuAclIpRuleDstIpaddress_Type()
+)
+swCpuAclIpRuleDstIpaddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleDstIpaddress.setStatus("current")
+
+
+class _SwCpuAclIpRuleDscp_Type(Integer32):
+    """Custom type swCpuAclIpRuleDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 63),
+    )
+
+
+_SwCpuAclIpRuleDscp_Type.__name__ = "Integer32"
+_SwCpuAclIpRuleDscp_Object = MibTableColumn
+swCpuAclIpRuleDscp = _SwCpuAclIpRuleDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 6),
+    _SwCpuAclIpRuleDscp_Type()
+)
+swCpuAclIpRuleDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleDscp.setStatus("current")
+
+
+class _SwCpuAclIpRuleProtocol_Type(Integer32):
+    """Custom type swCpuAclIpRuleProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("icmp", 2),
+          ("igmp", 3),
+          ("tcp", 4),
+          ("udp", 5),
+          ("protocolId", 6))
+    )
+
+
+_SwCpuAclIpRuleProtocol_Type.__name__ = "Integer32"
+_SwCpuAclIpRuleProtocol_Object = MibTableColumn
+swCpuAclIpRuleProtocol = _SwCpuAclIpRuleProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 7),
+    _SwCpuAclIpRuleProtocol_Type()
+)
+swCpuAclIpRuleProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleProtocol.setStatus("current")
+
+
+class _SwCpuAclIpRuleType_Type(Integer32):
+    """Custom type swCpuAclIpRuleType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 255),
+    )
+
+
+_SwCpuAclIpRuleType_Type.__name__ = "Integer32"
+_SwCpuAclIpRuleType_Object = MibTableColumn
+swCpuAclIpRuleType = _SwCpuAclIpRuleType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 8),
+    _SwCpuAclIpRuleType_Type()
+)
+swCpuAclIpRuleType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleType.setStatus("current")
+
+
+class _SwCpuAclIpRuleCode_Type(Integer32):
+    """Custom type swCpuAclIpRuleCode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 255),
+    )
+
+
+_SwCpuAclIpRuleCode_Type.__name__ = "Integer32"
+_SwCpuAclIpRuleCode_Object = MibTableColumn
+swCpuAclIpRuleCode = _SwCpuAclIpRuleCode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 9),
+    _SwCpuAclIpRuleCode_Type()
+)
+swCpuAclIpRuleCode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleCode.setStatus("current")
+
+
+class _SwCpuAclIpRuleSrcPort_Type(Integer32):
+    """Custom type swCpuAclIpRuleSrcPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 65535),
+    )
+
+
+_SwCpuAclIpRuleSrcPort_Type.__name__ = "Integer32"
+_SwCpuAclIpRuleSrcPort_Object = MibTableColumn
+swCpuAclIpRuleSrcPort = _SwCpuAclIpRuleSrcPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 10),
+    _SwCpuAclIpRuleSrcPort_Type()
+)
+swCpuAclIpRuleSrcPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleSrcPort.setStatus("current")
+
+
+class _SwCpuAclIpRuleDstPort_Type(Integer32):
+    """Custom type swCpuAclIpRuleDstPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 65535),
+    )
+
+
+_SwCpuAclIpRuleDstPort_Type.__name__ = "Integer32"
+_SwCpuAclIpRuleDstPort_Object = MibTableColumn
+swCpuAclIpRuleDstPort = _SwCpuAclIpRuleDstPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 11),
+    _SwCpuAclIpRuleDstPort_Type()
+)
+swCpuAclIpRuleDstPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleDstPort.setStatus("current")
+
+
+class _SwCpuAclIpRuleFlagBits_Type(Integer32):
+    """Custom type swCpuAclIpRuleFlagBits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwCpuAclIpRuleFlagBits_Type.__name__ = "Integer32"
+_SwCpuAclIpRuleFlagBits_Object = MibTableColumn
+swCpuAclIpRuleFlagBits = _SwCpuAclIpRuleFlagBits_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 12),
+    _SwCpuAclIpRuleFlagBits_Type()
+)
+swCpuAclIpRuleFlagBits.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleFlagBits.setStatus("current")
+
+
+class _SwCpuAclIpRuleProtoID_Type(Integer32):
+    """Custom type swCpuAclIpRuleProtoID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 255),
+    )
+
+
+_SwCpuAclIpRuleProtoID_Type.__name__ = "Integer32"
+_SwCpuAclIpRuleProtoID_Object = MibTableColumn
+swCpuAclIpRuleProtoID = _SwCpuAclIpRuleProtoID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 13),
+    _SwCpuAclIpRuleProtoID_Type()
+)
+swCpuAclIpRuleProtoID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleProtoID.setStatus("current")
+
+
+class _SwCpuAclIpRuleUserMask_Type(OctetString):
+    """Custom type swCpuAclIpRuleUserMask based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(20, 20),
+    )
+    fixed_length = 20
+
+
+_SwCpuAclIpRuleUserMask_Type.__name__ = "OctetString"
+_SwCpuAclIpRuleUserMask_Object = MibTableColumn
+swCpuAclIpRuleUserMask = _SwCpuAclIpRuleUserMask_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 14),
+    _SwCpuAclIpRuleUserMask_Type()
+)
+swCpuAclIpRuleUserMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleUserMask.setStatus("current")
+
+
+class _SwCpuAclIpRulePermit_Type(Integer32):
+    """Custom type swCpuAclIpRulePermit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2))
+    )
+
+
+_SwCpuAclIpRulePermit_Type.__name__ = "Integer32"
+_SwCpuAclIpRulePermit_Object = MibTableColumn
+swCpuAclIpRulePermit = _SwCpuAclIpRulePermit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 15),
+    _SwCpuAclIpRulePermit_Type()
+)
+swCpuAclIpRulePermit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRulePermit.setStatus("current")
+_SwCpuAclIpRuleRowStatus_Type = RowStatus
+_SwCpuAclIpRuleRowStatus_Object = MibTableColumn
+swCpuAclIpRuleRowStatus = _SwCpuAclIpRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 16),
+    _SwCpuAclIpRuleRowStatus_Type()
+)
+swCpuAclIpRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleRowStatus.setStatus("current")
+_SwCpuAclIpRulePort_Type = PortList
+_SwCpuAclIpRulePort_Object = MibTableColumn
+swCpuAclIpRulePort = _SwCpuAclIpRulePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 17),
+    _SwCpuAclIpRulePort_Type()
+)
+swCpuAclIpRulePort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRulePort.setStatus("current")
+
+
+class _SwCpuAclIpRuleMatchVID_Type(Integer32):
+    """Custom type swCpuAclIpRuleMatchVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_SwCpuAclIpRuleMatchVID_Type.__name__ = "Integer32"
+_SwCpuAclIpRuleMatchVID_Object = MibTableColumn
+swCpuAclIpRuleMatchVID = _SwCpuAclIpRuleMatchVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 2, 1, 18),
+    _SwCpuAclIpRuleMatchVID_Type()
+)
+swCpuAclIpRuleMatchVID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpRuleMatchVID.setStatus("current")
+_SwCpuAclPktContRuleTable_Object = MibTable
+swCpuAclPktContRuleTable = _SwCpuAclPktContRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3)
+)
+if mibBuilder.loadTexts:
+    swCpuAclPktContRuleTable.setStatus("current")
+_SwCpuAclPktContRuleEntry_Object = MibTableRow
+swCpuAclPktContRuleEntry = _SwCpuAclPktContRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1)
+)
+swCpuAclPktContRuleEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swCpuAclPktContRuleProfileID"),
+    (0, "ACLMGMT-MIB", "swCpuAclPktContRuleAccessID"),
+)
+if mibBuilder.loadTexts:
+    swCpuAclPktContRuleEntry.setStatus("current")
+_SwCpuAclPktContRuleProfileID_Type = Integer32
+_SwCpuAclPktContRuleProfileID_Object = MibTableColumn
+swCpuAclPktContRuleProfileID = _SwCpuAclPktContRuleProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 1),
+    _SwCpuAclPktContRuleProfileID_Type()
+)
+swCpuAclPktContRuleProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclPktContRuleProfileID.setStatus("current")
+
+
+class _SwCpuAclPktContRuleAccessID_Type(Integer32):
+    """Custom type swCpuAclPktContRuleAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwCpuAclPktContRuleAccessID_Type.__name__ = "Integer32"
+_SwCpuAclPktContRuleAccessID_Object = MibTableColumn
+swCpuAclPktContRuleAccessID = _SwCpuAclPktContRuleAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 2),
+    _SwCpuAclPktContRuleAccessID_Type()
+)
+swCpuAclPktContRuleAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclPktContRuleAccessID.setStatus("current")
+
+
+class _SwCpuAclPktContRuleOffset0to15_Type(OctetString):
+    """Custom type swCpuAclPktContRuleOffset0to15 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwCpuAclPktContRuleOffset0to15_Type.__name__ = "OctetString"
+_SwCpuAclPktContRuleOffset0to15_Object = MibTableColumn
+swCpuAclPktContRuleOffset0to15 = _SwCpuAclPktContRuleOffset0to15_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 3),
+    _SwCpuAclPktContRuleOffset0to15_Type()
+)
+swCpuAclPktContRuleOffset0to15.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContRuleOffset0to15.setStatus("current")
+
+
+class _SwCpuAclPktContRuleOffset16to31_Type(OctetString):
+    """Custom type swCpuAclPktContRuleOffset16to31 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwCpuAclPktContRuleOffset16to31_Type.__name__ = "OctetString"
+_SwCpuAclPktContRuleOffset16to31_Object = MibTableColumn
+swCpuAclPktContRuleOffset16to31 = _SwCpuAclPktContRuleOffset16to31_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 4),
+    _SwCpuAclPktContRuleOffset16to31_Type()
+)
+swCpuAclPktContRuleOffset16to31.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContRuleOffset16to31.setStatus("current")
+
+
+class _SwCpuAclPktContRuleOffset32to47_Type(OctetString):
+    """Custom type swCpuAclPktContRuleOffset32to47 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwCpuAclPktContRuleOffset32to47_Type.__name__ = "OctetString"
+_SwCpuAclPktContRuleOffset32to47_Object = MibTableColumn
+swCpuAclPktContRuleOffset32to47 = _SwCpuAclPktContRuleOffset32to47_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 5),
+    _SwCpuAclPktContRuleOffset32to47_Type()
+)
+swCpuAclPktContRuleOffset32to47.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContRuleOffset32to47.setStatus("current")
+
+
+class _SwCpuAclPktContRuleOffset48to63_Type(OctetString):
+    """Custom type swCpuAclPktContRuleOffset48to63 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwCpuAclPktContRuleOffset48to63_Type.__name__ = "OctetString"
+_SwCpuAclPktContRuleOffset48to63_Object = MibTableColumn
+swCpuAclPktContRuleOffset48to63 = _SwCpuAclPktContRuleOffset48to63_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 6),
+    _SwCpuAclPktContRuleOffset48to63_Type()
+)
+swCpuAclPktContRuleOffset48to63.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContRuleOffset48to63.setStatus("current")
+
+
+class _SwCpuAclPktContRuleOffset64to79_Type(OctetString):
+    """Custom type swCpuAclPktContRuleOffset64to79 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_SwCpuAclPktContRuleOffset64to79_Type.__name__ = "OctetString"
+_SwCpuAclPktContRuleOffset64to79_Object = MibTableColumn
+swCpuAclPktContRuleOffset64to79 = _SwCpuAclPktContRuleOffset64to79_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 7),
+    _SwCpuAclPktContRuleOffset64to79_Type()
+)
+swCpuAclPktContRuleOffset64to79.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContRuleOffset64to79.setStatus("current")
+
+
+class _SwCpuAclPktContRulePermit_Type(Integer32):
+    """Custom type swCpuAclPktContRulePermit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2))
+    )
+
+
+_SwCpuAclPktContRulePermit_Type.__name__ = "Integer32"
+_SwCpuAclPktContRulePermit_Object = MibTableColumn
+swCpuAclPktContRulePermit = _SwCpuAclPktContRulePermit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 8),
+    _SwCpuAclPktContRulePermit_Type()
+)
+swCpuAclPktContRulePermit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContRulePermit.setStatus("current")
+_SwCpuAclPktContRuleRowStatus_Type = RowStatus
+_SwCpuAclPktContRuleRowStatus_Object = MibTableColumn
+swCpuAclPktContRuleRowStatus = _SwCpuAclPktContRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 9),
+    _SwCpuAclPktContRuleRowStatus_Type()
+)
+swCpuAclPktContRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContRuleRowStatus.setStatus("current")
+_SwCpuAclPktContRulePort_Type = PortList
+_SwCpuAclPktContRulePort_Object = MibTableColumn
+swCpuAclPktContRulePort = _SwCpuAclPktContRulePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 3, 1, 10),
+    _SwCpuAclPktContRulePort_Type()
+)
+swCpuAclPktContRulePort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclPktContRulePort.setStatus("current")
+_SwCpuAclIpv6RuleTable_Object = MibTable
+swCpuAclIpv6RuleTable = _SwCpuAclIpv6RuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4)
+)
+if mibBuilder.loadTexts:
+    swCpuAclIpv6RuleTable.setStatus("current")
+_SwCpuAclIpv6RuleEntry_Object = MibTableRow
+swCpuAclIpv6RuleEntry = _SwCpuAclIpv6RuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1)
+)
+swCpuAclIpv6RuleEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swCpuAclIpv6RuleProfileID"),
+    (0, "ACLMGMT-MIB", "swCpuAclIpv6RuleAccessID"),
+)
+if mibBuilder.loadTexts:
+    swCpuAclIpv6RuleEntry.setStatus("current")
+_SwCpuAclIpv6RuleProfileID_Type = Integer32
+_SwCpuAclIpv6RuleProfileID_Object = MibTableColumn
+swCpuAclIpv6RuleProfileID = _SwCpuAclIpv6RuleProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 1),
+    _SwCpuAclIpv6RuleProfileID_Type()
+)
+swCpuAclIpv6RuleProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6RuleProfileID.setStatus("current")
+
+
+class _SwCpuAclIpv6RuleAccessID_Type(Integer32):
+    """Custom type swCpuAclIpv6RuleAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwCpuAclIpv6RuleAccessID_Type.__name__ = "Integer32"
+_SwCpuAclIpv6RuleAccessID_Object = MibTableColumn
+swCpuAclIpv6RuleAccessID = _SwCpuAclIpv6RuleAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 2),
+    _SwCpuAclIpv6RuleAccessID_Type()
+)
+swCpuAclIpv6RuleAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6RuleAccessID.setStatus("current")
+
+
+class _SwCpuAclIpv6RuleClass_Type(Integer32):
+    """Custom type swCpuAclIpv6RuleClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SwCpuAclIpv6RuleClass_Type.__name__ = "Integer32"
+_SwCpuAclIpv6RuleClass_Object = MibTableColumn
+swCpuAclIpv6RuleClass = _SwCpuAclIpv6RuleClass_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 3),
+    _SwCpuAclIpv6RuleClass_Type()
+)
+swCpuAclIpv6RuleClass.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6RuleClass.setStatus("current")
+
+
+class _SwCpuAclIpv6RuleFlowlabel_Type(OctetString):
+    """Custom type swCpuAclIpv6RuleFlowlabel based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_SwCpuAclIpv6RuleFlowlabel_Type.__name__ = "OctetString"
+_SwCpuAclIpv6RuleFlowlabel_Object = MibTableColumn
+swCpuAclIpv6RuleFlowlabel = _SwCpuAclIpv6RuleFlowlabel_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 4),
+    _SwCpuAclIpv6RuleFlowlabel_Type()
+)
+swCpuAclIpv6RuleFlowlabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6RuleFlowlabel.setStatus("current")
+_SwCpuAclIpv6RuleSrcIpv6Addr_Type = Ipv6Address
+_SwCpuAclIpv6RuleSrcIpv6Addr_Object = MibTableColumn
+swCpuAclIpv6RuleSrcIpv6Addr = _SwCpuAclIpv6RuleSrcIpv6Addr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 5),
+    _SwCpuAclIpv6RuleSrcIpv6Addr_Type()
+)
+swCpuAclIpv6RuleSrcIpv6Addr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6RuleSrcIpv6Addr.setStatus("current")
+_SwCpuAclIpv6RuleDstIpv6Addr_Type = Ipv6Address
+_SwCpuAclIpv6RuleDstIpv6Addr_Object = MibTableColumn
+swCpuAclIpv6RuleDstIpv6Addr = _SwCpuAclIpv6RuleDstIpv6Addr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 6),
+    _SwCpuAclIpv6RuleDstIpv6Addr_Type()
+)
+swCpuAclIpv6RuleDstIpv6Addr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6RuleDstIpv6Addr.setStatus("current")
+
+
+class _SwCpuAclIpv6RulePermit_Type(Integer32):
+    """Custom type swCpuAclIpv6RulePermit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2))
+    )
+
+
+_SwCpuAclIpv6RulePermit_Type.__name__ = "Integer32"
+_SwCpuAclIpv6RulePermit_Object = MibTableColumn
+swCpuAclIpv6RulePermit = _SwCpuAclIpv6RulePermit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 7),
+    _SwCpuAclIpv6RulePermit_Type()
+)
+swCpuAclIpv6RulePermit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6RulePermit.setStatus("current")
+_SwCpuAclIpv6RuleRowStatus_Type = RowStatus
+_SwCpuAclIpv6RuleRowStatus_Object = MibTableColumn
+swCpuAclIpv6RuleRowStatus = _SwCpuAclIpv6RuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 8),
+    _SwCpuAclIpv6RuleRowStatus_Type()
+)
+swCpuAclIpv6RuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6RuleRowStatus.setStatus("current")
+_SwCpuAclIpv6RulePort_Type = PortList
+_SwCpuAclIpv6RulePort_Object = MibTableColumn
+swCpuAclIpv6RulePort = _SwCpuAclIpv6RulePort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 5, 4, 1, 9),
+    _SwCpuAclIpv6RulePort_Type()
+)
+swCpuAclIpv6RulePort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swCpuAclIpv6RulePort.setStatus("current")
+_SwAclMeteringMgmt_ObjectIdentity = ObjectIdentity
+swAclMeteringMgmt = _SwAclMeteringMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6)
+)
+_SwAclMeterTable_Object = MibTable
+swAclMeterTable = _SwAclMeterTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1)
+)
+if mibBuilder.loadTexts:
+    swAclMeterTable.setStatus("current")
+_SwAclMeterEntry_Object = MibTableRow
+swAclMeterEntry = _SwAclMeterEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1)
+)
+swAclMeterEntry.setIndexNames(
+    (0, "ACLMGMT-MIB", "swAclMeterProfileID"),
+    (0, "ACLMGMT-MIB", "swAclMeterAccessID"),
+)
+if mibBuilder.loadTexts:
+    swAclMeterEntry.setStatus("current")
+_SwAclMeterProfileID_Type = Integer32
+_SwAclMeterProfileID_Object = MibTableColumn
+swAclMeterProfileID = _SwAclMeterProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 1),
+    _SwAclMeterProfileID_Type()
+)
+swAclMeterProfileID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swAclMeterProfileID.setStatus("current")
+
+
+class _SwAclMeterAccessID_Type(Integer32):
+    """Custom type swAclMeterAccessID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwAclMeterAccessID_Type.__name__ = "Integer32"
+_SwAclMeterAccessID_Object = MibTableColumn
+swAclMeterAccessID = _SwAclMeterAccessID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 2),
+    _SwAclMeterAccessID_Type()
+)
+swAclMeterAccessID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swAclMeterAccessID.setStatus("current")
+_SwAclMeterRate_Type = Integer32
+_SwAclMeterRate_Object = MibTableColumn
+swAclMeterRate = _SwAclMeterRate_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 3),
+    _SwAclMeterRate_Type()
+)
+swAclMeterRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterRate.setStatus("current")
+
+
+class _SwAclMeterActionForRateExceed_Type(Integer32):
+    """Custom type swAclMeterActionForRateExceed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("drop-packet", 2),
+          ("set-drop-precedence", 3),
+          ("remark-dscp", 4))
+    )
+
+
+_SwAclMeterActionForRateExceed_Type.__name__ = "Integer32"
+_SwAclMeterActionForRateExceed_Object = MibTableColumn
+swAclMeterActionForRateExceed = _SwAclMeterActionForRateExceed_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 4),
+    _SwAclMeterActionForRateExceed_Type()
+)
+swAclMeterActionForRateExceed.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterActionForRateExceed.setStatus("current")
+
+
+class _SwAclMeterRemarkDscp_Type(Integer32):
+    """Custom type swAclMeterRemarkDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwAclMeterRemarkDscp_Type.__name__ = "Integer32"
+_SwAclMeterRemarkDscp_Object = MibTableColumn
+swAclMeterRemarkDscp = _SwAclMeterRemarkDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 5),
+    _SwAclMeterRemarkDscp_Type()
+)
+swAclMeterRemarkDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterRemarkDscp.setStatus("current")
+_SwAclMeterBurstSize_Type = Integer32
+_SwAclMeterBurstSize_Object = MibTableColumn
+swAclMeterBurstSize = _SwAclMeterBurstSize_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 6),
+    _SwAclMeterBurstSize_Type()
+)
+swAclMeterBurstSize.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterBurstSize.setStatus("current")
+
+
+class _SwAclMeterMode_Type(Integer32):
+    """Custom type swAclMeterMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("tr-tcm", 2),
+          ("sr-tcm", 3))
+    )
+
+
+_SwAclMeterMode_Type.__name__ = "Integer32"
+_SwAclMeterMode_Object = MibTableColumn
+swAclMeterMode = _SwAclMeterMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 7),
+    _SwAclMeterMode_Type()
+)
+swAclMeterMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterMode.setStatus("current")
+
+
+class _SwAclMeterTrtcmCir_Type(Integer32):
+    """Custom type swAclMeterTrtcmCir based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 156249),
+    )
+
+
+_SwAclMeterTrtcmCir_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmCir_Object = MibTableColumn
+swAclMeterTrtcmCir = _SwAclMeterTrtcmCir_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 8),
+    _SwAclMeterTrtcmCir_Type()
+)
+swAclMeterTrtcmCir.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmCir.setStatus("current")
+
+
+class _SwAclMeterTrtcmCbs_Type(Integer32):
+    """Custom type swAclMeterTrtcmCbs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16384),
+    )
+
+
+_SwAclMeterTrtcmCbs_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmCbs_Object = MibTableColumn
+swAclMeterTrtcmCbs = _SwAclMeterTrtcmCbs_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 9),
+    _SwAclMeterTrtcmCbs_Type()
+)
+swAclMeterTrtcmCbs.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmCbs.setStatus("current")
+
+
+class _SwAclMeterTrtcmPir_Type(Integer32):
+    """Custom type swAclMeterTrtcmPir based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 156249),
+    )
+
+
+_SwAclMeterTrtcmPir_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmPir_Object = MibTableColumn
+swAclMeterTrtcmPir = _SwAclMeterTrtcmPir_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 10),
+    _SwAclMeterTrtcmPir_Type()
+)
+swAclMeterTrtcmPir.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmPir.setStatus("current")
+
+
+class _SwAclMeterTrtcmPbs_Type(Integer32):
+    """Custom type swAclMeterTrtcmPbs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16384),
+    )
+
+
+_SwAclMeterTrtcmPbs_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmPbs_Object = MibTableColumn
+swAclMeterTrtcmPbs = _SwAclMeterTrtcmPbs_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 11),
+    _SwAclMeterTrtcmPbs_Type()
+)
+swAclMeterTrtcmPbs.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmPbs.setStatus("current")
+
+
+class _SwAclMeterTrtcmColorMode_Type(Integer32):
+    """Custom type swAclMeterTrtcmColorMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("color-blind", 1),
+          ("color-aware", 2))
+    )
+
+
+_SwAclMeterTrtcmColorMode_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmColorMode_Object = MibTableColumn
+swAclMeterTrtcmColorMode = _SwAclMeterTrtcmColorMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 12),
+    _SwAclMeterTrtcmColorMode_Type()
+)
+swAclMeterTrtcmColorMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmColorMode.setStatus("current")
+
+
+class _SwAclMeterTrtcmConformState_Type(Integer32):
+    """Custom type swAclMeterTrtcmConformState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("permit", 2),
+          ("replace-dscp", 3))
+    )
+
+
+_SwAclMeterTrtcmConformState_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmConformState_Object = MibTableColumn
+swAclMeterTrtcmConformState = _SwAclMeterTrtcmConformState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 13),
+    _SwAclMeterTrtcmConformState_Type()
+)
+swAclMeterTrtcmConformState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmConformState.setStatus("current")
+
+
+class _SwAclMeterTrtcmConformReplaceDscp_Type(Integer32):
+    """Custom type swAclMeterTrtcmConformReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwAclMeterTrtcmConformReplaceDscp_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmConformReplaceDscp_Object = MibTableColumn
+swAclMeterTrtcmConformReplaceDscp = _SwAclMeterTrtcmConformReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 14),
+    _SwAclMeterTrtcmConformReplaceDscp_Type()
+)
+swAclMeterTrtcmConformReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmConformReplaceDscp.setStatus("current")
+
+
+class _SwAclMeterTrtcmConformCounterState_Type(Integer32):
+    """Custom type swAclMeterTrtcmConformCounterState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwAclMeterTrtcmConformCounterState_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmConformCounterState_Object = MibTableColumn
+swAclMeterTrtcmConformCounterState = _SwAclMeterTrtcmConformCounterState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 15),
+    _SwAclMeterTrtcmConformCounterState_Type()
+)
+swAclMeterTrtcmConformCounterState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmConformCounterState.setStatus("current")
+
+
+class _SwAclMeterTrtcmExceedState_Type(Integer32):
+    """Custom type swAclMeterTrtcmExceedState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("permit", 2),
+          ("replace-dscp", 3),
+          ("drop", 4))
+    )
+
+
+_SwAclMeterTrtcmExceedState_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmExceedState_Object = MibTableColumn
+swAclMeterTrtcmExceedState = _SwAclMeterTrtcmExceedState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 16),
+    _SwAclMeterTrtcmExceedState_Type()
+)
+swAclMeterTrtcmExceedState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmExceedState.setStatus("current")
+
+
+class _SwAclMeterTrtcmExceedReplaceDscp_Type(Integer32):
+    """Custom type swAclMeterTrtcmExceedReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwAclMeterTrtcmExceedReplaceDscp_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmExceedReplaceDscp_Object = MibTableColumn
+swAclMeterTrtcmExceedReplaceDscp = _SwAclMeterTrtcmExceedReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 17),
+    _SwAclMeterTrtcmExceedReplaceDscp_Type()
+)
+swAclMeterTrtcmExceedReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmExceedReplaceDscp.setStatus("current")
+
+
+class _SwAclMeterTrtcmExceedCounterState_Type(Integer32):
+    """Custom type swAclMeterTrtcmExceedCounterState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwAclMeterTrtcmExceedCounterState_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmExceedCounterState_Object = MibTableColumn
+swAclMeterTrtcmExceedCounterState = _SwAclMeterTrtcmExceedCounterState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 18),
+    _SwAclMeterTrtcmExceedCounterState_Type()
+)
+swAclMeterTrtcmExceedCounterState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmExceedCounterState.setStatus("current")
+
+
+class _SwAclMeterTrtcmViolateState_Type(Integer32):
+    """Custom type swAclMeterTrtcmViolateState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("permit", 2),
+          ("replace-dscp", 3),
+          ("drop", 4))
+    )
+
+
+_SwAclMeterTrtcmViolateState_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmViolateState_Object = MibTableColumn
+swAclMeterTrtcmViolateState = _SwAclMeterTrtcmViolateState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 19),
+    _SwAclMeterTrtcmViolateState_Type()
+)
+swAclMeterTrtcmViolateState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmViolateState.setStatus("current")
+
+
+class _SwAclMeterTrtcmViolateReplaceDscp_Type(Integer32):
+    """Custom type swAclMeterTrtcmViolateReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwAclMeterTrtcmViolateReplaceDscp_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmViolateReplaceDscp_Object = MibTableColumn
+swAclMeterTrtcmViolateReplaceDscp = _SwAclMeterTrtcmViolateReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 20),
+    _SwAclMeterTrtcmViolateReplaceDscp_Type()
+)
+swAclMeterTrtcmViolateReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmViolateReplaceDscp.setStatus("current")
+
+
+class _SwAclMeterTrtcmViolateCounterState_Type(Integer32):
+    """Custom type swAclMeterTrtcmViolateCounterState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwAclMeterTrtcmViolateCounterState_Type.__name__ = "Integer32"
+_SwAclMeterTrtcmViolateCounterState_Object = MibTableColumn
+swAclMeterTrtcmViolateCounterState = _SwAclMeterTrtcmViolateCounterState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 21),
+    _SwAclMeterTrtcmViolateCounterState_Type()
+)
+swAclMeterTrtcmViolateCounterState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterTrtcmViolateCounterState.setStatus("current")
+
+
+class _SwAclMeterSrtcmCir_Type(Integer32):
+    """Custom type swAclMeterSrtcmCir based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 156249),
+    )
+
+
+_SwAclMeterSrtcmCir_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmCir_Object = MibTableColumn
+swAclMeterSrtcmCir = _SwAclMeterSrtcmCir_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 22),
+    _SwAclMeterSrtcmCir_Type()
+)
+swAclMeterSrtcmCir.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmCir.setStatus("current")
+
+
+class _SwAclMeterSrtcmCbs_Type(Integer32):
+    """Custom type swAclMeterSrtcmCbs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16384),
+    )
+
+
+_SwAclMeterSrtcmCbs_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmCbs_Object = MibTableColumn
+swAclMeterSrtcmCbs = _SwAclMeterSrtcmCbs_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 23),
+    _SwAclMeterSrtcmCbs_Type()
+)
+swAclMeterSrtcmCbs.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmCbs.setStatus("current")
+
+
+class _SwAclMeterSrtcmEbs_Type(Integer32):
+    """Custom type swAclMeterSrtcmEbs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16384),
+    )
+
+
+_SwAclMeterSrtcmEbs_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmEbs_Object = MibTableColumn
+swAclMeterSrtcmEbs = _SwAclMeterSrtcmEbs_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 24),
+    _SwAclMeterSrtcmEbs_Type()
+)
+swAclMeterSrtcmEbs.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmEbs.setStatus("current")
+
+
+class _SwAclMeterSrtcmColorMode_Type(Integer32):
+    """Custom type swAclMeterSrtcmColorMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("color-blind", 1),
+          ("color-aware", 2))
+    )
+
+
+_SwAclMeterSrtcmColorMode_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmColorMode_Object = MibTableColumn
+swAclMeterSrtcmColorMode = _SwAclMeterSrtcmColorMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 25),
+    _SwAclMeterSrtcmColorMode_Type()
+)
+swAclMeterSrtcmColorMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmColorMode.setStatus("current")
+
+
+class _SwAclMeterSrtcmConformState_Type(Integer32):
+    """Custom type swAclMeterSrtcmConformState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("permit", 2),
+          ("replace-dscp", 3))
+    )
+
+
+_SwAclMeterSrtcmConformState_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmConformState_Object = MibTableColumn
+swAclMeterSrtcmConformState = _SwAclMeterSrtcmConformState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 26),
+    _SwAclMeterSrtcmConformState_Type()
+)
+swAclMeterSrtcmConformState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmConformState.setStatus("current")
+
+
+class _SwAclMeterSrtcmConformReplaceDscp_Type(Integer32):
+    """Custom type swAclMeterSrtcmConformReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwAclMeterSrtcmConformReplaceDscp_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmConformReplaceDscp_Object = MibTableColumn
+swAclMeterSrtcmConformReplaceDscp = _SwAclMeterSrtcmConformReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 27),
+    _SwAclMeterSrtcmConformReplaceDscp_Type()
+)
+swAclMeterSrtcmConformReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmConformReplaceDscp.setStatus("current")
+
+
+class _SwAclMeterSrtcmConformCounterState_Type(Integer32):
+    """Custom type swAclMeterSrtcmConformCounterState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwAclMeterSrtcmConformCounterState_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmConformCounterState_Object = MibTableColumn
+swAclMeterSrtcmConformCounterState = _SwAclMeterSrtcmConformCounterState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 28),
+    _SwAclMeterSrtcmConformCounterState_Type()
+)
+swAclMeterSrtcmConformCounterState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmConformCounterState.setStatus("current")
+
+
+class _SwAclMeterSrtcmExceedState_Type(Integer32):
+    """Custom type swAclMeterSrtcmExceedState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("permit", 2),
+          ("replace-dscp", 3),
+          ("drop", 4))
+    )
+
+
+_SwAclMeterSrtcmExceedState_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmExceedState_Object = MibTableColumn
+swAclMeterSrtcmExceedState = _SwAclMeterSrtcmExceedState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 29),
+    _SwAclMeterSrtcmExceedState_Type()
+)
+swAclMeterSrtcmExceedState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmExceedState.setStatus("current")
+
+
+class _SwAclMeterSrtcmExceedReplaceDscp_Type(Integer32):
+    """Custom type swAclMeterSrtcmExceedReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwAclMeterSrtcmExceedReplaceDscp_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmExceedReplaceDscp_Object = MibTableColumn
+swAclMeterSrtcmExceedReplaceDscp = _SwAclMeterSrtcmExceedReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 30),
+    _SwAclMeterSrtcmExceedReplaceDscp_Type()
+)
+swAclMeterSrtcmExceedReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmExceedReplaceDscp.setStatus("current")
+
+
+class _SwAclMeterSrtcmExceedCounterState_Type(Integer32):
+    """Custom type swAclMeterSrtcmExceedCounterState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwAclMeterSrtcmExceedCounterState_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmExceedCounterState_Object = MibTableColumn
+swAclMeterSrtcmExceedCounterState = _SwAclMeterSrtcmExceedCounterState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 31),
+    _SwAclMeterSrtcmExceedCounterState_Type()
+)
+swAclMeterSrtcmExceedCounterState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmExceedCounterState.setStatus("current")
+
+
+class _SwAclMeterSrtcmViolateState_Type(Integer32):
+    """Custom type swAclMeterSrtcmViolateState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("permit", 2),
+          ("replace-dscp", 3),
+          ("drop", 4))
+    )
+
+
+_SwAclMeterSrtcmViolateState_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmViolateState_Object = MibTableColumn
+swAclMeterSrtcmViolateState = _SwAclMeterSrtcmViolateState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 32),
+    _SwAclMeterSrtcmViolateState_Type()
+)
+swAclMeterSrtcmViolateState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmViolateState.setStatus("current")
+
+
+class _SwAclMeterSrtcmViolateReplaceDscp_Type(Integer32):
+    """Custom type swAclMeterSrtcmViolateReplaceDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_SwAclMeterSrtcmViolateReplaceDscp_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmViolateReplaceDscp_Object = MibTableColumn
+swAclMeterSrtcmViolateReplaceDscp = _SwAclMeterSrtcmViolateReplaceDscp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 33),
+    _SwAclMeterSrtcmViolateReplaceDscp_Type()
+)
+swAclMeterSrtcmViolateReplaceDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmViolateReplaceDscp.setStatus("current")
+
+
+class _SwAclMeterSrtcmViolateCounterState_Type(Integer32):
+    """Custom type swAclMeterSrtcmViolateCounterState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwAclMeterSrtcmViolateCounterState_Type.__name__ = "Integer32"
+_SwAclMeterSrtcmViolateCounterState_Object = MibTableColumn
+swAclMeterSrtcmViolateCounterState = _SwAclMeterSrtcmViolateCounterState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 34),
+    _SwAclMeterSrtcmViolateCounterState_Type()
+)
+swAclMeterSrtcmViolateCounterState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterSrtcmViolateCounterState.setStatus("current")
+_SwAclMeterRowStatus_Type = RowStatus
+_SwAclMeterRowStatus_Object = MibTableColumn
+swAclMeterRowStatus = _SwAclMeterRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 1, 1, 35),
+    _SwAclMeterRowStatus_Type()
+)
+swAclMeterRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swAclMeterRowStatus.setStatus("current")
+_SwAclMeteringNumOfEntryInUse_Type = Integer32
+_SwAclMeteringNumOfEntryInUse_Object = MibScalar
+swAclMeteringNumOfEntryInUse = _SwAclMeteringNumOfEntryInUse_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 9, 6, 2),
+    _SwAclMeteringNumOfEntryInUse_Type()
+)
+swAclMeteringNumOfEntryInUse.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swAclMeteringNumOfEntryInUse.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ACLMGMT-MIB",
+    **{"PortList": PortList,
+       "Ipv6Address": Ipv6Address,
+       "swAclMgmtMIB": swAclMgmtMIB,
+       "swAclCtrl": swAclCtrl,
+       "swCpuInterfacefilterState": swCpuInterfacefilterState,
+       "swACLTotalUsedRuleEntries": swACLTotalUsedRuleEntries,
+       "swACLTotalUnusedRuleEntries": swACLTotalUnusedRuleEntries,
+       "swAclMaskMgmt": swAclMaskMgmt,
+       "swACLEthernetTable": swACLEthernetTable,
+       "swACLEthernetEntry": swACLEthernetEntry,
+       "swACLEthernetProfileID": swACLEthernetProfileID,
+       "swACLEthernetUsevlan": swACLEthernetUsevlan,
+       "swACLEthernetMacAddrMaskState": swACLEthernetMacAddrMaskState,
+       "swACLEthernetSrcMacAddrMask": swACLEthernetSrcMacAddrMask,
+       "swACLEthernetDstMacAddrMask": swACLEthernetDstMacAddrMask,
+       "swACLEthernetUse8021p": swACLEthernetUse8021p,
+       "swACLEthernetUseEthernetType": swACLEthernetUseEthernetType,
+       "swACLEthernetRowStatus": swACLEthernetRowStatus,
+       "swACLEthernetOwner": swACLEthernetOwner,
+       "swACLEthernetUnusedRuleEntries": swACLEthernetUnusedRuleEntries,
+       "swACLEthernetProfileName": swACLEthernetProfileName,
+       "swACLEthernetVlanMask": swACLEthernetVlanMask,
+       "swACLIpTable": swACLIpTable,
+       "swACLIpEntry": swACLIpEntry,
+       "swACLIpProfileID": swACLIpProfileID,
+       "swACLIpUsevlan": swACLIpUsevlan,
+       "swACLIpIpAddrMaskState": swACLIpIpAddrMaskState,
+       "swACLIpSrcIpAddrMask": swACLIpSrcIpAddrMask,
+       "swACLIpDstIpAddrMask": swACLIpDstIpAddrMask,
+       "swACLIpUseDSCP": swACLIpUseDSCP,
+       "swACLIpUseProtoType": swACLIpUseProtoType,
+       "swACLIpIcmpOption": swACLIpIcmpOption,
+       "swACLIpIgmpOption": swACLIpIgmpOption,
+       "swACLIpTcpOption": swACLIpTcpOption,
+       "swACLIpUdpOption": swACLIpUdpOption,
+       "swACLIpTCPorUDPSrcPortMask": swACLIpTCPorUDPSrcPortMask,
+       "swACLIpTCPorUDPDstPortMask": swACLIpTCPorUDPDstPortMask,
+       "swACLIpTCPFlagBit": swACLIpTCPFlagBit,
+       "swACLIpTCPFlagBitMask": swACLIpTCPFlagBitMask,
+       "swACLIpProtoIDOption": swACLIpProtoIDOption,
+       "swACLIpProtoID": swACLIpProtoID,
+       "swACLIpProtoIDMask": swACLIpProtoIDMask,
+       "swACLIpRowStatus": swACLIpRowStatus,
+       "swACLIpOwner": swACLIpOwner,
+       "swACLIpSrcMacAddrMask": swACLIpSrcMacAddrMask,
+       "swACLIpUnusedRuleEntries": swACLIpUnusedRuleEntries,
+       "swACLIpProfileName": swACLIpProfileName,
+       "swACLIpVlanMask": swACLIpVlanMask,
+       "swACLPktContMaskTable": swACLPktContMaskTable,
+       "swACLPktContMaskEntry": swACLPktContMaskEntry,
+       "swACLPktContMaskProfileID": swACLPktContMaskProfileID,
+       "swACLPktContMaskOffset0to15": swACLPktContMaskOffset0to15,
+       "swACLPktContMaskOffset16to31": swACLPktContMaskOffset16to31,
+       "swACLPktContMaskOffset32to47": swACLPktContMaskOffset32to47,
+       "swACLPktContMaskOffset48to63": swACLPktContMaskOffset48to63,
+       "swACLPktContMaskOffset64to79": swACLPktContMaskOffset64to79,
+       "swACLPktContMaskRowStatus": swACLPktContMaskRowStatus,
+       "swACLPktContMaskOwner": swACLPktContMaskOwner,
+       "swACLPktContMaskUnusedRuleEntries": swACLPktContMaskUnusedRuleEntries,
+       "swACLPktContMaskProfileName": swACLPktContMaskProfileName,
+       "swACLIpv6MaskTable": swACLIpv6MaskTable,
+       "swACLIpv6MaskEntry": swACLIpv6MaskEntry,
+       "swACLIpv6MaskProfileID": swACLIpv6MaskProfileID,
+       "swACLIpv6MaskClass": swACLIpv6MaskClass,
+       "swACLIpv6MaskFlowlabel": swACLIpv6MaskFlowlabel,
+       "swACLIpv6IpAddrMaskState": swACLIpv6IpAddrMaskState,
+       "swACLIpv6MaskSrcIpv6Mask": swACLIpv6MaskSrcIpv6Mask,
+       "swACLIpv6MaskDstIpv6Mask": swACLIpv6MaskDstIpv6Mask,
+       "swACLIpv6MaskRowStatus": swACLIpv6MaskRowStatus,
+       "swACLIpv6MaskOwner": swACLIpv6MaskOwner,
+       "swACLIpv6MaskUnusedRuleEntries": swACLIpv6MaskUnusedRuleEntries,
+       "swACLIpv6MaskProfileName": swACLIpv6MaskProfileName,
+       "swACLIpv6MaskUseProtoType": swACLIpv6MaskUseProtoType,
+       "swACLIpv6MaskTcpOption": swACLIpv6MaskTcpOption,
+       "swACLIpv6MaskUdpOption": swACLIpv6MaskUdpOption,
+       "swACLIpv6MaskTCPorUDPSrcPortMask": swACLIpv6MaskTCPorUDPSrcPortMask,
+       "swACLIpv6MaskTCPorUDPDstPortMask": swACLIpv6MaskTCPorUDPDstPortMask,
+       "swACLMaskDelAllState": swACLMaskDelAllState,
+       "swIBPACLEthernetTable": swIBPACLEthernetTable,
+       "swIBPACLEthernetEntry": swIBPACLEthernetEntry,
+       "swIBPACLEthernetProfileID": swIBPACLEthernetProfileID,
+       "swIBPACLEthernetUseEthernetType": swIBPACLEthernetUseEthernetType,
+       "swIBPACLIpTable": swIBPACLIpTable,
+       "swIBPACLIpEntry": swIBPACLIpEntry,
+       "swIBPACLIpProfileID": swIBPACLIpProfileID,
+       "swIBPACLIpSrcMacAddrMask": swIBPACLIpSrcMacAddrMask,
+       "swIBPACLIpSrcIpAddrMask": swIBPACLIpSrcIpAddrMask,
+       "swACLPktContMaskOptionTable": swACLPktContMaskOptionTable,
+       "swACLPktContMaskOptionEntry": swACLPktContMaskOptionEntry,
+       "swACLPktContMaskOptionProfileID": swACLPktContMaskOptionProfileID,
+       "swACLPktContMaskOffsetChunk1State": swACLPktContMaskOffsetChunk1State,
+       "swACLPktContMaskOffsetChunk1OffsetValue": swACLPktContMaskOffsetChunk1OffsetValue,
+       "swACLPktContMaskOffsetChunk1Mask": swACLPktContMaskOffsetChunk1Mask,
+       "swACLPktContMaskOffsetChunk2State": swACLPktContMaskOffsetChunk2State,
+       "swACLPktContMaskOffsetChunk2OffsetValue": swACLPktContMaskOffsetChunk2OffsetValue,
+       "swACLPktContMaskOffsetChunk2Mask": swACLPktContMaskOffsetChunk2Mask,
+       "swACLPktContMaskOffsetChunk3State": swACLPktContMaskOffsetChunk3State,
+       "swACLPktContMaskOffsetChunk3OffsetValue": swACLPktContMaskOffsetChunk3OffsetValue,
+       "swACLPktContMaskOffsetChunk3Mask": swACLPktContMaskOffsetChunk3Mask,
+       "swACLPktContMaskOffsetChunk4State": swACLPktContMaskOffsetChunk4State,
+       "swACLPktContMaskOffsetChunk4OffsetValue": swACLPktContMaskOffsetChunk4OffsetValue,
+       "swACLPktContMaskOffsetChunk4Mask": swACLPktContMaskOffsetChunk4Mask,
+       "swACLPktContMaskOptionRowStatus": swACLPktContMaskOptionRowStatus,
+       "swACLPktContMaskOptionOwner": swACLPktContMaskOptionOwner,
+       "swACLPktContMaskOptionUnusedRuleEntries": swACLPktContMaskOptionUnusedRuleEntries,
+       "swACLPktContMaskOptionProfileName": swACLPktContMaskOptionProfileName,
+       "swACLPktContMaskOption2": swACLPktContMaskOption2,
+       "swACLPktContMaskOption2Table": swACLPktContMaskOption2Table,
+       "swACLPktContMaskOption2Entry": swACLPktContMaskOption2Entry,
+       "swACLPktContMaskOption2ProfileID": swACLPktContMaskOption2ProfileID,
+       "swACLPktContMaskOption2SrcMac": swACLPktContMaskOption2SrcMac,
+       "swACLPktContMaskOption2DstMac": swACLPktContMaskOption2DstMac,
+       "swACLPktContMaskOption2CTag": swACLPktContMaskOption2CTag,
+       "swACLPktContMaskOption2STag": swACLPktContMaskOption2STag,
+       "swACLPktContMaskOption2Owner": swACLPktContMaskOption2Owner,
+       "swACLPktContMaskOption2UnusedRuleEntries": swACLPktContMaskOption2UnusedRuleEntries,
+       "swACLPktContMaskOption2ProfileName": swACLPktContMaskOption2ProfileName,
+       "swACLPktContMaskOption2RowStatus": swACLPktContMaskOption2RowStatus,
+       "swACLPktContMaskOption2OffsetsTable": swACLPktContMaskOption2OffsetsTable,
+       "swACLPktContMaskOption2OffsetsEntry": swACLPktContMaskOption2OffsetsEntry,
+       "swACLPktContMaskOption2OffsetsProfileID": swACLPktContMaskOption2OffsetsProfileID,
+       "swACLPktContMaskOption2OffsetsNum": swACLPktContMaskOption2OffsetsNum,
+       "swACLPktContMaskOption2OffsetsReference": swACLPktContMaskOption2OffsetsReference,
+       "swACLPktContMaskOption2OffsetsValue": swACLPktContMaskOption2OffsetsValue,
+       "swACLPktContMaskOption2OffsetsMask": swACLPktContMaskOption2OffsetsMask,
+       "swACLPktContMaskOption2OffsetsRowStatus": swACLPktContMaskOption2OffsetsRowStatus,
+       "swAclRuleMgmt": swAclRuleMgmt,
+       "swACLEtherRuleTable": swACLEtherRuleTable,
+       "swACLEtherRuleEntry": swACLEtherRuleEntry,
+       "swACLEtherRuleProfileID": swACLEtherRuleProfileID,
+       "swACLEtherRuleAccessID": swACLEtherRuleAccessID,
+       "swACLEtherRuleVlan": swACLEtherRuleVlan,
+       "swACLEtherRuleSrcMacAddress": swACLEtherRuleSrcMacAddress,
+       "swACLEtherRuleDstMacAddress": swACLEtherRuleDstMacAddress,
+       "swACLEtherRule8021P": swACLEtherRule8021P,
+       "swACLEtherRuleEtherType": swACLEtherRuleEtherType,
+       "swACLEtherRuleEnablePriority": swACLEtherRuleEnablePriority,
+       "swACLEtherRulePriority": swACLEtherRulePriority,
+       "swACLEtherRuleReplacePriority": swACLEtherRuleReplacePriority,
+       "swACLEtherRuleEnableReplaceDscp": swACLEtherRuleEnableReplaceDscp,
+       "swACLEtherRuleRepDscp": swACLEtherRuleRepDscp,
+       "swACLEtherRulePermit": swACLEtherRulePermit,
+       "swACLEtherRulePort": swACLEtherRulePort,
+       "swACLEtherRuleRowStatus": swACLEtherRuleRowStatus,
+       "swACLEtherRuleOwner": swACLEtherRuleOwner,
+       "swACLEtherRuleRxRate": swACLEtherRuleRxRate,
+       "swACLEtherRuleEnableReplaceTosPrecedence": swACLEtherRuleEnableReplaceTosPrecedence,
+       "swACLEtherRuleRepTosPrecedence": swACLEtherRuleRepTosPrecedence,
+       "swACLEtherRuleVID": swACLEtherRuleVID,
+       "swACLEtherRuleMatchVID": swACLEtherRuleMatchVID,
+       "swACLEtherRuleMaskVlan": swACLEtherRuleMaskVlan,
+       "swACLEtherRuleMaskSrcMacAddress": swACLEtherRuleMaskSrcMacAddress,
+       "swACLEtherRuleMaskDstMacAddress": swACLEtherRuleMaskDstMacAddress,
+       "swACLIpRuleTable": swACLIpRuleTable,
+       "swACLIpRuleEntry": swACLIpRuleEntry,
+       "swACLIpRuleProfileID": swACLIpRuleProfileID,
+       "swACLIpRuleAccessID": swACLIpRuleAccessID,
+       "swACLIpRuleVlan": swACLIpRuleVlan,
+       "swACLIpRuleSrcIpaddress": swACLIpRuleSrcIpaddress,
+       "swACLIpRuleDstIpaddress": swACLIpRuleDstIpaddress,
+       "swACLIpRuleDscp": swACLIpRuleDscp,
+       "swACLIpRuleProtocol": swACLIpRuleProtocol,
+       "swACLIpRuleType": swACLIpRuleType,
+       "swACLIpRuleCode": swACLIpRuleCode,
+       "swACLIpRuleSrcPort": swACLIpRuleSrcPort,
+       "swACLIpRuleDstPort": swACLIpRuleDstPort,
+       "swACLIpRuleFlagBits": swACLIpRuleFlagBits,
+       "swACLIpRuleProtoID": swACLIpRuleProtoID,
+       "swACLIpRuleUserMask": swACLIpRuleUserMask,
+       "swACLIpRuleEnablePriority": swACLIpRuleEnablePriority,
+       "swACLIpRulePriority": swACLIpRulePriority,
+       "swACLIpRuleReplacePriority": swACLIpRuleReplacePriority,
+       "swACLIpRuleEnableReplaceDscp": swACLIpRuleEnableReplaceDscp,
+       "swACLIpRuleRepDscp": swACLIpRuleRepDscp,
+       "swACLIpRulePermit": swACLIpRulePermit,
+       "swACLIpRulePort": swACLIpRulePort,
+       "swACLIpRuleRowStatus": swACLIpRuleRowStatus,
+       "swACLIpRuleOwner": swACLIpRuleOwner,
+       "swACLIpRuleRxRate": swACLIpRuleRxRate,
+       "swACLIpRuleSrcMacAddress": swACLIpRuleSrcMacAddress,
+       "swACLIpRuleEnableReplaceTosPrecedence": swACLIpRuleEnableReplaceTosPrecedence,
+       "swACLIpRuleRepTosPrecedence": swACLIpRuleRepTosPrecedence,
+       "swACLIpRuleVID": swACLIpRuleVID,
+       "swACLIpRuleMatchVID": swACLIpRuleMatchVID,
+       "swACLIpRuleMaskVlan": swACLIpRuleMaskVlan,
+       "swACLIpRuleMaskSrcIpaddress": swACLIpRuleMaskSrcIpaddress,
+       "swACLIpRuleMaskDstIpaddress": swACLIpRuleMaskDstIpaddress,
+       "swACLIpRuleMaskSrcPort": swACLIpRuleMaskSrcPort,
+       "swACLIpRuleMaskDstPort": swACLIpRuleMaskDstPort,
+       "swACLPktContRuleTable": swACLPktContRuleTable,
+       "swACLPktContRuleEntry": swACLPktContRuleEntry,
+       "swACLPktContRuleProfileID": swACLPktContRuleProfileID,
+       "swACLPktContRuleAccessID": swACLPktContRuleAccessID,
+       "swACLPktContRuleOffset0to15": swACLPktContRuleOffset0to15,
+       "swACLPktContRuleOffset16to31": swACLPktContRuleOffset16to31,
+       "swACLPktContRuleOffset32to47": swACLPktContRuleOffset32to47,
+       "swACLPktContRuleOffset48to63": swACLPktContRuleOffset48to63,
+       "swACLPktContRuleOffset64to79": swACLPktContRuleOffset64to79,
+       "swACLPktContRuleEnablePriority": swACLPktContRuleEnablePriority,
+       "swACLPktContRulePriority": swACLPktContRulePriority,
+       "swACLPktContRuleReplacePriority": swACLPktContRuleReplacePriority,
+       "swACLPktContRuleEnableReplaceDscp": swACLPktContRuleEnableReplaceDscp,
+       "swACLPktContRuleRepDscp": swACLPktContRuleRepDscp,
+       "swACLPktContRulePermit": swACLPktContRulePermit,
+       "swACLPktContRulePort": swACLPktContRulePort,
+       "swACLPktContRuleRowStatus": swACLPktContRuleRowStatus,
+       "swACLPktContRuleOwner": swACLPktContRuleOwner,
+       "swACLPktContRuleRxRate": swACLPktContRuleRxRate,
+       "swACLPktContRuleEnableReplaceTosPrecedence": swACLPktContRuleEnableReplaceTosPrecedence,
+       "swACLPktContRuleRepTosPrecedence": swACLPktContRuleRepTosPrecedence,
+       "swACLPktContRuleVID": swACLPktContRuleVID,
+       "swACLIpv6RuleTable": swACLIpv6RuleTable,
+       "swACLIpv6RuleEntry": swACLIpv6RuleEntry,
+       "swACLIpv6RuleProfileID": swACLIpv6RuleProfileID,
+       "swACLIpv6RuleAccessID": swACLIpv6RuleAccessID,
+       "swACLIpv6RuleClass": swACLIpv6RuleClass,
+       "swACLIpv6RuleFlowlabel": swACLIpv6RuleFlowlabel,
+       "swACLIpv6RuleSrcIpv6Addr": swACLIpv6RuleSrcIpv6Addr,
+       "swACLIpv6RuleDstIpv6Addr": swACLIpv6RuleDstIpv6Addr,
+       "swACLIpv6RuleEnablePriority": swACLIpv6RuleEnablePriority,
+       "swACLIpv6RulePriority": swACLIpv6RulePriority,
+       "swACLIpv6RuleReplacePriority": swACLIpv6RuleReplacePriority,
+       "swACLIpv6RulePermit": swACLIpv6RulePermit,
+       "swACLIpv6RulePort": swACLIpv6RulePort,
+       "swACLIpv6RuleRowStatus": swACLIpv6RuleRowStatus,
+       "swACLIpv6RuleOwner": swACLIpv6RuleOwner,
+       "swACLIpv6RuleRxRate": swACLIpv6RuleRxRate,
+       "swACLIpv6RuleEnableReplaceDscp": swACLIpv6RuleEnableReplaceDscp,
+       "swACLIpv6RuleRepDscp": swACLIpv6RuleRepDscp,
+       "swACLIpv6RuleEnableReplaceTosPrecedence": swACLIpv6RuleEnableReplaceTosPrecedence,
+       "swACLIpv6RuleRepTosPrecedence": swACLIpv6RuleRepTosPrecedence,
+       "swACLIpv6RuleVID": swACLIpv6RuleVID,
+       "swACLIpv6RuleProtocol": swACLIpv6RuleProtocol,
+       "swACLIpv6RuleSrcPort": swACLIpv6RuleSrcPort,
+       "swACLIpv6RuleDstPort": swACLIpv6RuleDstPort,
+       "swACLIpv6RuleMaskSrcIpv6Addr": swACLIpv6RuleMaskSrcIpv6Addr,
+       "swACLIpv6RuleMaskDstIpv6Addr": swACLIpv6RuleMaskDstIpv6Addr,
+       "swACLIpv6RuleMaskSrcPort": swACLIpv6RuleMaskSrcPort,
+       "swACLIpv6RuleMaskDstPort": swACLIpv6RuleMaskDstPort,
+       "swIBPACLEtherRuleTable": swIBPACLEtherRuleTable,
+       "swIBPACLEtherRuleEntry": swIBPACLEtherRuleEntry,
+       "swIBPACLEtherRuleProfileID": swIBPACLEtherRuleProfileID,
+       "swIBPACLEtherRuleAccessID": swIBPACLEtherRuleAccessID,
+       "swIBPACLEtherRuleEtherType": swIBPACLEtherRuleEtherType,
+       "swIBPACLEtherRulePermit": swIBPACLEtherRulePermit,
+       "swIBPACLEtherRulePort": swIBPACLEtherRulePort,
+       "swIBPACLIpRuleTable": swIBPACLIpRuleTable,
+       "swIBPACLIpRuleEntry": swIBPACLIpRuleEntry,
+       "swIBPACLIpRuleProfileID": swIBPACLIpRuleProfileID,
+       "swIBPACLIpRuleAccessID": swIBPACLIpRuleAccessID,
+       "swIBPACLIpRuleSrcMacAddress": swIBPACLIpRuleSrcMacAddress,
+       "swIBPACLIpRuleSrcIpaddress": swIBPACLIpRuleSrcIpaddress,
+       "swIBPACLIpRulePermit": swIBPACLIpRulePermit,
+       "swIBPACLIpRulePort": swIBPACLIpRulePort,
+       "swACLPktContRuleOptionTable": swACLPktContRuleOptionTable,
+       "swACLPktContRuleOptionEntry": swACLPktContRuleOptionEntry,
+       "swACLPktContRuleOptionProfileID": swACLPktContRuleOptionProfileID,
+       "swACLPktContRuleOptionAccessID": swACLPktContRuleOptionAccessID,
+       "swACLPktContRuleOffsetChunk1OffsetValue": swACLPktContRuleOffsetChunk1OffsetValue,
+       "swACLPktContRuleOffsetChunk1Content": swACLPktContRuleOffsetChunk1Content,
+       "swACLPktContRuleOffsetChunk2OffsetValue": swACLPktContRuleOffsetChunk2OffsetValue,
+       "swACLPktContRuleOffsetChunk2Content": swACLPktContRuleOffsetChunk2Content,
+       "swACLPktContRuleOffsetChunk3OffsetValue": swACLPktContRuleOffsetChunk3OffsetValue,
+       "swACLPktContRuleOffsetChunk3Content": swACLPktContRuleOffsetChunk3Content,
+       "swACLPktContRuleOffsetChunk4OffsetValue": swACLPktContRuleOffsetChunk4OffsetValue,
+       "swACLPktContRuleOffsetChunk4Content": swACLPktContRuleOffsetChunk4Content,
+       "swACLPktContRuleOptionEnablePriority": swACLPktContRuleOptionEnablePriority,
+       "swACLPktContRuleOptionPriority": swACLPktContRuleOptionPriority,
+       "swACLPktContRuleOptionReplacePriority": swACLPktContRuleOptionReplacePriority,
+       "swACLPktContRuleOptionEnableReplaceDscp": swACLPktContRuleOptionEnableReplaceDscp,
+       "swACLPktContRuleOptionRepDscp": swACLPktContRuleOptionRepDscp,
+       "swACLPktContRuleOptionPermit": swACLPktContRuleOptionPermit,
+       "swACLPktContRuleOptionPort": swACLPktContRuleOptionPort,
+       "swACLPktContRuleOptionRowStatus": swACLPktContRuleOptionRowStatus,
+       "swACLPktContRuleOptionOwner": swACLPktContRuleOptionOwner,
+       "swACLPktContRuleOptionRxRate": swACLPktContRuleOptionRxRate,
+       "swACLPktContRuleOptionEnableReplaceTosPrecedence": swACLPktContRuleOptionEnableReplaceTosPrecedence,
+       "swACLPktContRuleOptionRepTosPrecedence": swACLPktContRuleOptionRepTosPrecedence,
+       "swACLPktContRuleOptionVID": swACLPktContRuleOptionVID,
+       "swACLCounterTable": swACLCounterTable,
+       "swACLCounterEntry": swACLCounterEntry,
+       "swACLCounterProfileID": swACLCounterProfileID,
+       "swACLCounterAccessID": swACLCounterAccessID,
+       "swACLCounterState": swACLCounterState,
+       "swACLCounterTotalCounter": swACLCounterTotalCounter,
+       "swACLCounterGreenCounter": swACLCounterGreenCounter,
+       "swACLCounterYellowCounter": swACLCounterYellowCounter,
+       "swACLCounterRedCounter": swACLCounterRedCounter,
+       "swACLPktContRuleOption2": swACLPktContRuleOption2,
+       "swACLPktContRuleOption2Table": swACLPktContRuleOption2Table,
+       "swACLPktContRuleOption2Entry": swACLPktContRuleOption2Entry,
+       "swACLPktContRuleOption2ProfileID": swACLPktContRuleOption2ProfileID,
+       "swACLPktContRuleOption2AccessID": swACLPktContRuleOption2AccessID,
+       "swACLPktContRuleOption2SrcMac": swACLPktContRuleOption2SrcMac,
+       "swACLPktContRuleOption2DstMac": swACLPktContRuleOption2DstMac,
+       "swACLPktContRuleOption2CTag": swACLPktContRuleOption2CTag,
+       "swACLPktContRuleOption2STag": swACLPktContRuleOption2STag,
+       "swACLPktContRuleOption2EnablePriority": swACLPktContRuleOption2EnablePriority,
+       "swACLPktContRuleOption2Priority": swACLPktContRuleOption2Priority,
+       "swACLPktContRuleOption2ReplacePriority": swACLPktContRuleOption2ReplacePriority,
+       "swACLPktContRuleOption2EnableReplaceDscp": swACLPktContRuleOption2EnableReplaceDscp,
+       "swACLPktContRuleOption2RepDscp": swACLPktContRuleOption2RepDscp,
+       "swACLPktContRuleOption2Permit": swACLPktContRuleOption2Permit,
+       "swACLPktContRuleOption2Port": swACLPktContRuleOption2Port,
+       "swACLPktContRuleOption2Owner": swACLPktContRuleOption2Owner,
+       "swACLPktContRuleOption2EnableReplaceTosPrecedence": swACLPktContRuleOption2EnableReplaceTosPrecedence,
+       "swACLPktContRuleOption2RepTosPrecedence": swACLPktContRuleOption2RepTosPrecedence,
+       "swACLPktContRuleOption2VID": swACLPktContRuleOption2VID,
+       "swACLPktContRuleOption2RowStatus": swACLPktContRuleOption2RowStatus,
+       "swACLPktContRuleOption2MaskSrcMac": swACLPktContRuleOption2MaskSrcMac,
+       "swACLPktContRuleOption2MaskDstMac": swACLPktContRuleOption2MaskDstMac,
+       "swACLPktContRuleOption2MaskCTag": swACLPktContRuleOption2MaskCTag,
+       "swACLPktContRuleOption2MaskSTag": swACLPktContRuleOption2MaskSTag,
+       "swACLPktContRuleOption2OffsetsTable": swACLPktContRuleOption2OffsetsTable,
+       "swACLPktContRuleOption2OffsetsEntry": swACLPktContRuleOption2OffsetsEntry,
+       "swACLPktContRuleOption2OffsetsProfileID": swACLPktContRuleOption2OffsetsProfileID,
+       "swACLPktContRuleOption2OffsetsAccessID": swACLPktContRuleOption2OffsetsAccessID,
+       "swACLPktContRuleOption2OffsetsNum": swACLPktContRuleOption2OffsetsNum,
+       "swACLPktContRuleOption2OffsetsData": swACLPktContRuleOption2OffsetsData,
+       "swACLPktContRuleOption2OffsetsRowStatus": swACLPktContRuleOption2OffsetsRowStatus,
+       "swACLPktContRuleOption2OffsetsMask": swACLPktContRuleOption2OffsetsMask,
+       "swCpuAclMaskMgmt": swCpuAclMaskMgmt,
+       "swCpuAclEthernetTable": swCpuAclEthernetTable,
+       "swCpuAclEthernetEntry": swCpuAclEthernetEntry,
+       "swCpuAclEthernetProfileID": swCpuAclEthernetProfileID,
+       "swCpuAclEthernetUsevlan": swCpuAclEthernetUsevlan,
+       "swCpuAclEthernetMacAddrMaskState": swCpuAclEthernetMacAddrMaskState,
+       "swCpuAclEthernetSrcMacAddrMask": swCpuAclEthernetSrcMacAddrMask,
+       "swCpuAclEthernetDstMacAddrMask": swCpuAclEthernetDstMacAddrMask,
+       "swCpuAclEthernetUse8021p": swCpuAclEthernetUse8021p,
+       "swCpuAclEthernetUseEthernetType": swCpuAclEthernetUseEthernetType,
+       "swCpuAclEthernetRowStatus": swCpuAclEthernetRowStatus,
+       "swCpuAclIpTable": swCpuAclIpTable,
+       "swCpuAclIpEntry": swCpuAclIpEntry,
+       "swCpuAclIpProfileID": swCpuAclIpProfileID,
+       "swCpuAclIpUsevlan": swCpuAclIpUsevlan,
+       "swCpuAclIpIpAddrMaskState": swCpuAclIpIpAddrMaskState,
+       "swCpuAclIpSrcIpAddrMask": swCpuAclIpSrcIpAddrMask,
+       "swCpuAclIpDstIpAddrMask": swCpuAclIpDstIpAddrMask,
+       "swCpuAclIpUseDSCP": swCpuAclIpUseDSCP,
+       "swCpuAclIpUseProtoType": swCpuAclIpUseProtoType,
+       "swCpuAclIpIcmpOption": swCpuAclIpIcmpOption,
+       "swCpuAclIpIgmpOption": swCpuAclIpIgmpOption,
+       "swCpuAclIpTcpOption": swCpuAclIpTcpOption,
+       "swCpuAclIpUdpOption": swCpuAclIpUdpOption,
+       "swCpuAclIpTCPorUDPSrcPortMask": swCpuAclIpTCPorUDPSrcPortMask,
+       "swCpuAclIpTCPorUDPDstPortMask": swCpuAclIpTCPorUDPDstPortMask,
+       "swCpuAclIpTCPFlagBit": swCpuAclIpTCPFlagBit,
+       "swCpuAclIpTCPFlagBitMask": swCpuAclIpTCPFlagBitMask,
+       "swCpuAclIpProtoIDOption": swCpuAclIpProtoIDOption,
+       "swCpuAclIpProtoID": swCpuAclIpProtoID,
+       "swCpuAclIpProtoIDMask": swCpuAclIpProtoIDMask,
+       "swCpuAclIpRowStatus": swCpuAclIpRowStatus,
+       "swCpuAclPktContMaskTable": swCpuAclPktContMaskTable,
+       "swCpuAclPktContMaskEntry": swCpuAclPktContMaskEntry,
+       "swCpuAclPktContMaskProfileID": swCpuAclPktContMaskProfileID,
+       "swCpuAclPktContMaskOffset0to15": swCpuAclPktContMaskOffset0to15,
+       "swCpuAclPktContMaskOffset16to31": swCpuAclPktContMaskOffset16to31,
+       "swCpuAclPktContMaskOffset32to47": swCpuAclPktContMaskOffset32to47,
+       "swCpuAclPktContMaskOffset48to63": swCpuAclPktContMaskOffset48to63,
+       "swCpuAclPktContMaskOffset64to79": swCpuAclPktContMaskOffset64to79,
+       "swCpuAclPktContMaskRowStatus": swCpuAclPktContMaskRowStatus,
+       "swCpuAclIpv6MaskTable": swCpuAclIpv6MaskTable,
+       "swCpuAclIpv6MaskEntry": swCpuAclIpv6MaskEntry,
+       "swCpuAclIpv6MaskProfileID": swCpuAclIpv6MaskProfileID,
+       "swCpuAclIpv6MaskClass": swCpuAclIpv6MaskClass,
+       "swCpuAclIpv6MaskFlowlabel": swCpuAclIpv6MaskFlowlabel,
+       "swCpuAclIpv6IpAddrMaskState": swCpuAclIpv6IpAddrMaskState,
+       "swCpuAclIpv6MaskSrcIpv6Mask": swCpuAclIpv6MaskSrcIpv6Mask,
+       "swCpuAclIpv6MaskDstIpv6Mask": swCpuAclIpv6MaskDstIpv6Mask,
+       "swCpuAclIpv6MaskRowStatus": swCpuAclIpv6MaskRowStatus,
+       "swCpuACLMaskDelAllState": swCpuACLMaskDelAllState,
+       "swCpuAclRuleMgmt": swCpuAclRuleMgmt,
+       "swCpuAclEtherRuleTable": swCpuAclEtherRuleTable,
+       "swCpuAclEtherRuleEntry": swCpuAclEtherRuleEntry,
+       "swCpuAclEtherRuleProfileID": swCpuAclEtherRuleProfileID,
+       "swCpuAclEtherRuleAccessID": swCpuAclEtherRuleAccessID,
+       "swCpuAclEtherRuleVlan": swCpuAclEtherRuleVlan,
+       "swCpuAclEtherRuleSrcMacAddress": swCpuAclEtherRuleSrcMacAddress,
+       "swCpuAclEtherRuleDstMacAddress": swCpuAclEtherRuleDstMacAddress,
+       "swCpuAclEtherRule8021P": swCpuAclEtherRule8021P,
+       "swCpuAclEtherRuleEtherType": swCpuAclEtherRuleEtherType,
+       "swCpuAclEtherRulePermit": swCpuAclEtherRulePermit,
+       "swCpuAclEtherRuleRowStatus": swCpuAclEtherRuleRowStatus,
+       "swCpuAclEtherRulePort": swCpuAclEtherRulePort,
+       "swCpuAclEtherRuleMatchVID": swCpuAclEtherRuleMatchVID,
+       "swCpuAclIpRuleTable": swCpuAclIpRuleTable,
+       "swCpuAclIpRuleEntry": swCpuAclIpRuleEntry,
+       "swCpuAclIpRuleProfileID": swCpuAclIpRuleProfileID,
+       "swCpuAclIpRuleAccessID": swCpuAclIpRuleAccessID,
+       "swCpuAclIpRuleVlan": swCpuAclIpRuleVlan,
+       "swCpuAclIpRuleSrcIpaddress": swCpuAclIpRuleSrcIpaddress,
+       "swCpuAclIpRuleDstIpaddress": swCpuAclIpRuleDstIpaddress,
+       "swCpuAclIpRuleDscp": swCpuAclIpRuleDscp,
+       "swCpuAclIpRuleProtocol": swCpuAclIpRuleProtocol,
+       "swCpuAclIpRuleType": swCpuAclIpRuleType,
+       "swCpuAclIpRuleCode": swCpuAclIpRuleCode,
+       "swCpuAclIpRuleSrcPort": swCpuAclIpRuleSrcPort,
+       "swCpuAclIpRuleDstPort": swCpuAclIpRuleDstPort,
+       "swCpuAclIpRuleFlagBits": swCpuAclIpRuleFlagBits,
+       "swCpuAclIpRuleProtoID": swCpuAclIpRuleProtoID,
+       "swCpuAclIpRuleUserMask": swCpuAclIpRuleUserMask,
+       "swCpuAclIpRulePermit": swCpuAclIpRulePermit,
+       "swCpuAclIpRuleRowStatus": swCpuAclIpRuleRowStatus,
+       "swCpuAclIpRulePort": swCpuAclIpRulePort,
+       "swCpuAclIpRuleMatchVID": swCpuAclIpRuleMatchVID,
+       "swCpuAclPktContRuleTable": swCpuAclPktContRuleTable,
+       "swCpuAclPktContRuleEntry": swCpuAclPktContRuleEntry,
+       "swCpuAclPktContRuleProfileID": swCpuAclPktContRuleProfileID,
+       "swCpuAclPktContRuleAccessID": swCpuAclPktContRuleAccessID,
+       "swCpuAclPktContRuleOffset0to15": swCpuAclPktContRuleOffset0to15,
+       "swCpuAclPktContRuleOffset16to31": swCpuAclPktContRuleOffset16to31,
+       "swCpuAclPktContRuleOffset32to47": swCpuAclPktContRuleOffset32to47,
+       "swCpuAclPktContRuleOffset48to63": swCpuAclPktContRuleOffset48to63,
+       "swCpuAclPktContRuleOffset64to79": swCpuAclPktContRuleOffset64to79,
+       "swCpuAclPktContRulePermit": swCpuAclPktContRulePermit,
+       "swCpuAclPktContRuleRowStatus": swCpuAclPktContRuleRowStatus,
+       "swCpuAclPktContRulePort": swCpuAclPktContRulePort,
+       "swCpuAclIpv6RuleTable": swCpuAclIpv6RuleTable,
+       "swCpuAclIpv6RuleEntry": swCpuAclIpv6RuleEntry,
+       "swCpuAclIpv6RuleProfileID": swCpuAclIpv6RuleProfileID,
+       "swCpuAclIpv6RuleAccessID": swCpuAclIpv6RuleAccessID,
+       "swCpuAclIpv6RuleClass": swCpuAclIpv6RuleClass,
+       "swCpuAclIpv6RuleFlowlabel": swCpuAclIpv6RuleFlowlabel,
+       "swCpuAclIpv6RuleSrcIpv6Addr": swCpuAclIpv6RuleSrcIpv6Addr,
+       "swCpuAclIpv6RuleDstIpv6Addr": swCpuAclIpv6RuleDstIpv6Addr,
+       "swCpuAclIpv6RulePermit": swCpuAclIpv6RulePermit,
+       "swCpuAclIpv6RuleRowStatus": swCpuAclIpv6RuleRowStatus,
+       "swCpuAclIpv6RulePort": swCpuAclIpv6RulePort,
+       "swAclMeteringMgmt": swAclMeteringMgmt,
+       "swAclMeterTable": swAclMeterTable,
+       "swAclMeterEntry": swAclMeterEntry,
+       "swAclMeterProfileID": swAclMeterProfileID,
+       "swAclMeterAccessID": swAclMeterAccessID,
+       "swAclMeterRate": swAclMeterRate,
+       "swAclMeterActionForRateExceed": swAclMeterActionForRateExceed,
+       "swAclMeterRemarkDscp": swAclMeterRemarkDscp,
+       "swAclMeterBurstSize": swAclMeterBurstSize,
+       "swAclMeterMode": swAclMeterMode,
+       "swAclMeterTrtcmCir": swAclMeterTrtcmCir,
+       "swAclMeterTrtcmCbs": swAclMeterTrtcmCbs,
+       "swAclMeterTrtcmPir": swAclMeterTrtcmPir,
+       "swAclMeterTrtcmPbs": swAclMeterTrtcmPbs,
+       "swAclMeterTrtcmColorMode": swAclMeterTrtcmColorMode,
+       "swAclMeterTrtcmConformState": swAclMeterTrtcmConformState,
+       "swAclMeterTrtcmConformReplaceDscp": swAclMeterTrtcmConformReplaceDscp,
+       "swAclMeterTrtcmConformCounterState": swAclMeterTrtcmConformCounterState,
+       "swAclMeterTrtcmExceedState": swAclMeterTrtcmExceedState,
+       "swAclMeterTrtcmExceedReplaceDscp": swAclMeterTrtcmExceedReplaceDscp,
+       "swAclMeterTrtcmExceedCounterState": swAclMeterTrtcmExceedCounterState,
+       "swAclMeterTrtcmViolateState": swAclMeterTrtcmViolateState,
+       "swAclMeterTrtcmViolateReplaceDscp": swAclMeterTrtcmViolateReplaceDscp,
+       "swAclMeterTrtcmViolateCounterState": swAclMeterTrtcmViolateCounterState,
+       "swAclMeterSrtcmCir": swAclMeterSrtcmCir,
+       "swAclMeterSrtcmCbs": swAclMeterSrtcmCbs,
+       "swAclMeterSrtcmEbs": swAclMeterSrtcmEbs,
+       "swAclMeterSrtcmColorMode": swAclMeterSrtcmColorMode,
+       "swAclMeterSrtcmConformState": swAclMeterSrtcmConformState,
+       "swAclMeterSrtcmConformReplaceDscp": swAclMeterSrtcmConformReplaceDscp,
+       "swAclMeterSrtcmConformCounterState": swAclMeterSrtcmConformCounterState,
+       "swAclMeterSrtcmExceedState": swAclMeterSrtcmExceedState,
+       "swAclMeterSrtcmExceedReplaceDscp": swAclMeterSrtcmExceedReplaceDscp,
+       "swAclMeterSrtcmExceedCounterState": swAclMeterSrtcmExceedCounterState,
+       "swAclMeterSrtcmViolateState": swAclMeterSrtcmViolateState,
+       "swAclMeterSrtcmViolateReplaceDscp": swAclMeterSrtcmViolateReplaceDscp,
+       "swAclMeterSrtcmViolateCounterState": swAclMeterSrtcmViolateCounterState,
+       "swAclMeterRowStatus": swAclMeterRowStatus,
+       "swAclMeteringNumOfEntryInUse": swAclMeteringNumOfEntryInUse}
+)

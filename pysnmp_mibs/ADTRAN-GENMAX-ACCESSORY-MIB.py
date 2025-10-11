@@ -1,94 +1,628 @@
+# SNMP MIB module (ADTRAN-GENMAX-ACCESSORY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ADTRAN-GENMAX-ACCESSORY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-GENMAX-ACCESSORY-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:38 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/adtran/ADTRAN-GENMAX-ACCESSORY-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:33:36 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-adTrapInformSeqNum, = mibBuilder.importSymbols("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum")
-adShared, = mibBuilder.importSymbols("ADTRAN-MIB", "adShared")
-AdProductIdentifier, AdPresence = mibBuilder.importSymbols("ADTRAN-TC", "AdProductIdentifier", "AdPresence")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "PhysAddress", "TextualConvention", "DisplayString")
-adGenAccessory = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 5, 54))
-adGenAccessory.setRevisions(('2010-02-24 13:00',))
-if mibBuilder.loadTexts: adGenAccessory.setLastUpdated('201002241300Z')
-if mibBuilder.loadTexts: adGenAccessory.setOrganization('Adtran, Inc.')
-adGenAccessoryCount = MibScalar((1, 3, 6, 1, 4, 1, 664, 5, 54, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryCount.setStatus('current')
-adGenAccessoryStartIndex = MibScalar((1, 3, 6, 1, 4, 1, 664, 5, 54, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryStartIndex.setStatus('current')
-adGenAccessoryModuleCount = MibScalar((1, 3, 6, 1, 4, 1, 664, 5, 54, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryModuleCount.setStatus('current')
-adGenAccessoryTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 54, 6), )
-if mibBuilder.loadTexts: adGenAccessoryTable.setStatus('current')
-adGenAccessoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1), ).setIndexNames((0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryIndex"), (0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryModuleIndex"))
-if mibBuilder.loadTexts: adGenAccessoryEntry.setStatus('current')
-adGenAccessoryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryIndex.setStatus('current')
-adGenAccessoryModuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryModuleIndex.setStatus('current')
-adGenAccessoryState = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 3), AdPresence()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryState.setStatus('current')
-adGenAccessoryProduct = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 4), AdProductIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryProduct.setStatus('current')
-adGenAccessoryTrapEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enableTraps", 1), ("disableTraps", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: adGenAccessoryTrapEnable.setStatus('current')
-adGenAccessoryAlarmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 6), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryAlarmStatus.setStatus('current')
-adGenAccessoryFaceplate = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 7), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryFaceplate.setStatus('current')
-adGenAccessoryStatServiceState = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 5, 8, 9, 10))).clone(namedValues=NamedValues(("is", 1), ("oosUas", 2), ("oosMA", 3), ("fault", 5), ("isStbyHot", 8), ("isActLock", 9), ("isStbyLock", 10)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: adGenAccessoryStatServiceState.setStatus('current')
-adGenAccessoryPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryPortNumber.setStatus('current')
-adGenAccessoryProvVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryProvVersion.setStatus('current')
-adGenAccessoryTFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 13), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: adGenAccessoryTFileName.setStatus('current')
-adGenAccessoryUpdateSoftware = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("initiate", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: adGenAccessoryUpdateSoftware.setStatus('current')
-adGenAccessoryUpdateStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 16), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryUpdateStatus.setStatus('current')
-adGenAccessoryUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 17), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryUpTime.setStatus('current')
-adGenAccessoryProdTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 54, 7), )
-if mibBuilder.loadTexts: adGenAccessoryProdTable.setStatus('current')
-adGenAccessoryProdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1), ).setIndexNames((0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryIndex"), (0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryModuleIndex"))
-if mibBuilder.loadTexts: adGenAccessoryProdEntry.setStatus('current')
-adGenAccessoryProdName = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryProdName.setStatus('current')
-adGenAccessoryProdPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryProdPartNumber.setStatus('current')
-adGenAccessoryProdCLEIcode = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryProdCLEIcode.setStatus('current')
-adGenAccessoryProdSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryProdSerialNumber.setStatus('current')
-adGenAccessoryProdRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryProdRevision.setStatus('current')
-adGenAccessoryProdSwVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryProdSwVersion.setStatus('current')
-adGenAccessoryProdPhysAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 8), PhysAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryProdPhysAddress.setStatus('current')
-adGenAccessoryProdProductID = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 9), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryProdProductID.setStatus('current')
-adGenAccessoryProdTransType = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 10), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAccessoryProdTransType.setStatus('current')
-adGenAccessoryConfigTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 54, 9), )
-if mibBuilder.loadTexts: adGenAccessoryConfigTable.setStatus('current')
-adGenAccessoryConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 54, 9, 1), ).setIndexNames((0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryIndex"), (0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryModuleIndex"))
-if mibBuilder.loadTexts: adGenAccessoryConfigEntry.setStatus('current')
-adGenAccessoryStateConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 54, 9, 1, 1), AdPresence()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: adGenAccessoryStateConfig.setStatus('current')
-adGenAccessoryNotificationEvents = ObjectIdentity((1, 3, 6, 1, 4, 1, 664, 5, 54, 0))
-if mibBuilder.loadTexts: adGenAccessoryNotificationEvents.setStatus('current')
-adTAAccessoryModuleInserted = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 54, 0, 1005402)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryIndex"), ("ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryModuleIndex"))
-if mibBuilder.loadTexts: adTAAccessoryModuleInserted.setStatus('current')
-adTAAccessoryModuleRemoved = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 54, 0, 1005403)).setObjects(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"), ("SNMPv2-MIB", "sysName"), ("ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryIndex"), ("ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryModuleIndex"))
-if mibBuilder.loadTexts: adTAAccessoryModuleRemoved.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-GENMAX-ACCESSORY-MIB", adGenAccessoryUpTime=adGenAccessoryUpTime, adGenAccessoryUpdateStatus=adGenAccessoryUpdateStatus, adGenAccessoryProdProductID=adGenAccessoryProdProductID, adGenAccessoryPortNumber=adGenAccessoryPortNumber, adGenAccessoryNotificationEvents=adGenAccessoryNotificationEvents, adGenAccessoryAlarmStatus=adGenAccessoryAlarmStatus, adGenAccessoryProdTransType=adGenAccessoryProdTransType, adGenAccessoryState=adGenAccessoryState, adGenAccessoryProdSwVersion=adGenAccessoryProdSwVersion, adGenAccessoryConfigEntry=adGenAccessoryConfigEntry, adGenAccessoryProdEntry=adGenAccessoryProdEntry, adTAAccessoryModuleRemoved=adTAAccessoryModuleRemoved, adGenAccessoryProdTable=adGenAccessoryProdTable, adGenAccessoryEntry=adGenAccessoryEntry, adGenAccessoryStartIndex=adGenAccessoryStartIndex, adGenAccessoryTable=adGenAccessoryTable, adGenAccessoryProdName=adGenAccessoryProdName, adGenAccessoryTFileName=adGenAccessoryTFileName, adGenAccessoryProdSerialNumber=adGenAccessoryProdSerialNumber, adGenAccessoryTrapEnable=adGenAccessoryTrapEnable, adGenAccessoryProdRevision=adGenAccessoryProdRevision, adGenAccessoryStatServiceState=adGenAccessoryStatServiceState, adTAAccessoryModuleInserted=adTAAccessoryModuleInserted, adGenAccessoryProvVersion=adGenAccessoryProvVersion, adGenAccessory=adGenAccessory, adGenAccessoryFaceplate=adGenAccessoryFaceplate, adGenAccessoryProdPartNumber=adGenAccessoryProdPartNumber, adGenAccessoryModuleCount=adGenAccessoryModuleCount, adGenAccessoryProduct=adGenAccessoryProduct, PYSNMP_MODULE_ID=adGenAccessory, adGenAccessoryProdCLEIcode=adGenAccessoryProdCLEIcode, adGenAccessoryProdPhysAddress=adGenAccessoryProdPhysAddress, adGenAccessoryIndex=adGenAccessoryIndex, adGenAccessoryUpdateSoftware=adGenAccessoryUpdateSoftware, adGenAccessoryCount=adGenAccessoryCount, adGenAccessoryModuleIndex=adGenAccessoryModuleIndex, adGenAccessoryConfigTable=adGenAccessoryConfigTable, adGenAccessoryStateConfig=adGenAccessoryStateConfig)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(adTrapInformSeqNum,) = mibBuilder.importSymbols(
+    "ADTRAN-GENTRAPINFORM-MIB",
+    "adTrapInformSeqNum")
+
+(adShared,) = mibBuilder.importSymbols(
+    "ADTRAN-MIB",
+    "adShared")
+
+(AdPresence,
+ AdProductIdentifier) = mibBuilder.importSymbols(
+    "ADTRAN-TC",
+    "AdPresence",
+    "AdProductIdentifier")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(sysName,) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "sysName")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+adGenAccessory = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54)
+)
+if mibBuilder.loadTexts:
+    adGenAccessory.setRevisions(
+        ("2010-02-24 13:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AdGenAccessoryNotificationEvents_ObjectIdentity = ObjectIdentity
+adGenAccessoryNotificationEvents = _AdGenAccessoryNotificationEvents_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 0)
+)
+if mibBuilder.loadTexts:
+    adGenAccessoryNotificationEvents.setStatus("current")
+
+
+class _AdGenAccessoryCount_Type(Integer32):
+    """Custom type adGenAccessoryCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AdGenAccessoryCount_Type.__name__ = "Integer32"
+_AdGenAccessoryCount_Object = MibScalar
+adGenAccessoryCount = _AdGenAccessoryCount_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 1),
+    _AdGenAccessoryCount_Type()
+)
+adGenAccessoryCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryCount.setStatus("current")
+
+
+class _AdGenAccessoryStartIndex_Type(Integer32):
+    """Custom type adGenAccessoryStartIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AdGenAccessoryStartIndex_Type.__name__ = "Integer32"
+_AdGenAccessoryStartIndex_Object = MibScalar
+adGenAccessoryStartIndex = _AdGenAccessoryStartIndex_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 2),
+    _AdGenAccessoryStartIndex_Type()
+)
+adGenAccessoryStartIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryStartIndex.setStatus("current")
+
+
+class _AdGenAccessoryModuleCount_Type(Integer32):
+    """Custom type adGenAccessoryModuleCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AdGenAccessoryModuleCount_Type.__name__ = "Integer32"
+_AdGenAccessoryModuleCount_Object = MibScalar
+adGenAccessoryModuleCount = _AdGenAccessoryModuleCount_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 3),
+    _AdGenAccessoryModuleCount_Type()
+)
+adGenAccessoryModuleCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryModuleCount.setStatus("current")
+_AdGenAccessoryTable_Object = MibTable
+adGenAccessoryTable = _AdGenAccessoryTable_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6)
+)
+if mibBuilder.loadTexts:
+    adGenAccessoryTable.setStatus("current")
+_AdGenAccessoryEntry_Object = MibTableRow
+adGenAccessoryEntry = _AdGenAccessoryEntry_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1)
+)
+adGenAccessoryEntry.setIndexNames(
+    (0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryIndex"),
+    (0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryModuleIndex"),
+)
+if mibBuilder.loadTexts:
+    adGenAccessoryEntry.setStatus("current")
+
+
+class _AdGenAccessoryIndex_Type(Integer32):
+    """Custom type adGenAccessoryIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AdGenAccessoryIndex_Type.__name__ = "Integer32"
+_AdGenAccessoryIndex_Object = MibTableColumn
+adGenAccessoryIndex = _AdGenAccessoryIndex_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 1),
+    _AdGenAccessoryIndex_Type()
+)
+adGenAccessoryIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryIndex.setStatus("current")
+
+
+class _AdGenAccessoryModuleIndex_Type(Integer32):
+    """Custom type adGenAccessoryModuleIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AdGenAccessoryModuleIndex_Type.__name__ = "Integer32"
+_AdGenAccessoryModuleIndex_Object = MibTableColumn
+adGenAccessoryModuleIndex = _AdGenAccessoryModuleIndex_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 2),
+    _AdGenAccessoryModuleIndex_Type()
+)
+adGenAccessoryModuleIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryModuleIndex.setStatus("current")
+_AdGenAccessoryState_Type = AdPresence
+_AdGenAccessoryState_Object = MibTableColumn
+adGenAccessoryState = _AdGenAccessoryState_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 3),
+    _AdGenAccessoryState_Type()
+)
+adGenAccessoryState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryState.setStatus("current")
+_AdGenAccessoryProduct_Type = AdProductIdentifier
+_AdGenAccessoryProduct_Object = MibTableColumn
+adGenAccessoryProduct = _AdGenAccessoryProduct_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 4),
+    _AdGenAccessoryProduct_Type()
+)
+adGenAccessoryProduct.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryProduct.setStatus("current")
+
+
+class _AdGenAccessoryTrapEnable_Type(Integer32):
+    """Custom type adGenAccessoryTrapEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enableTraps", 1),
+          ("disableTraps", 2))
+    )
+
+
+_AdGenAccessoryTrapEnable_Type.__name__ = "Integer32"
+_AdGenAccessoryTrapEnable_Object = MibTableColumn
+adGenAccessoryTrapEnable = _AdGenAccessoryTrapEnable_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 5),
+    _AdGenAccessoryTrapEnable_Type()
+)
+adGenAccessoryTrapEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    adGenAccessoryTrapEnable.setStatus("current")
+_AdGenAccessoryAlarmStatus_Type = OctetString
+_AdGenAccessoryAlarmStatus_Object = MibTableColumn
+adGenAccessoryAlarmStatus = _AdGenAccessoryAlarmStatus_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 6),
+    _AdGenAccessoryAlarmStatus_Type()
+)
+adGenAccessoryAlarmStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryAlarmStatus.setStatus("current")
+_AdGenAccessoryFaceplate_Type = OctetString
+_AdGenAccessoryFaceplate_Object = MibTableColumn
+adGenAccessoryFaceplate = _AdGenAccessoryFaceplate_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 7),
+    _AdGenAccessoryFaceplate_Type()
+)
+adGenAccessoryFaceplate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryFaceplate.setStatus("current")
+
+
+class _AdGenAccessoryStatServiceState_Type(Integer32):
+    """Custom type adGenAccessoryStatServiceState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              5,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("is", 1),
+          ("oosUas", 2),
+          ("oosMA", 3),
+          ("fault", 5),
+          ("isStbyHot", 8),
+          ("isActLock", 9),
+          ("isStbyLock", 10))
+    )
+
+
+_AdGenAccessoryStatServiceState_Type.__name__ = "Integer32"
+_AdGenAccessoryStatServiceState_Object = MibTableColumn
+adGenAccessoryStatServiceState = _AdGenAccessoryStatServiceState_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 8),
+    _AdGenAccessoryStatServiceState_Type()
+)
+adGenAccessoryStatServiceState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    adGenAccessoryStatServiceState.setStatus("current")
+_AdGenAccessoryPortNumber_Type = Integer32
+_AdGenAccessoryPortNumber_Object = MibTableColumn
+adGenAccessoryPortNumber = _AdGenAccessoryPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 9),
+    _AdGenAccessoryPortNumber_Type()
+)
+adGenAccessoryPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryPortNumber.setStatus("current")
+_AdGenAccessoryProvVersion_Type = Integer32
+_AdGenAccessoryProvVersion_Object = MibTableColumn
+adGenAccessoryProvVersion = _AdGenAccessoryProvVersion_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 10),
+    _AdGenAccessoryProvVersion_Type()
+)
+adGenAccessoryProvVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryProvVersion.setStatus("current")
+_AdGenAccessoryTFileName_Type = DisplayString
+_AdGenAccessoryTFileName_Object = MibTableColumn
+adGenAccessoryTFileName = _AdGenAccessoryTFileName_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 13),
+    _AdGenAccessoryTFileName_Type()
+)
+adGenAccessoryTFileName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    adGenAccessoryTFileName.setStatus("current")
+
+
+class _AdGenAccessoryUpdateSoftware_Type(Integer32):
+    """Custom type adGenAccessoryUpdateSoftware based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("initiate", 1)
+    )
+
+
+_AdGenAccessoryUpdateSoftware_Type.__name__ = "Integer32"
+_AdGenAccessoryUpdateSoftware_Object = MibTableColumn
+adGenAccessoryUpdateSoftware = _AdGenAccessoryUpdateSoftware_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 15),
+    _AdGenAccessoryUpdateSoftware_Type()
+)
+adGenAccessoryUpdateSoftware.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    adGenAccessoryUpdateSoftware.setStatus("current")
+_AdGenAccessoryUpdateStatus_Type = DisplayString
+_AdGenAccessoryUpdateStatus_Object = MibTableColumn
+adGenAccessoryUpdateStatus = _AdGenAccessoryUpdateStatus_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 16),
+    _AdGenAccessoryUpdateStatus_Type()
+)
+adGenAccessoryUpdateStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryUpdateStatus.setStatus("current")
+_AdGenAccessoryUpTime_Type = TimeTicks
+_AdGenAccessoryUpTime_Object = MibTableColumn
+adGenAccessoryUpTime = _AdGenAccessoryUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 6, 1, 17),
+    _AdGenAccessoryUpTime_Type()
+)
+adGenAccessoryUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryUpTime.setStatus("current")
+_AdGenAccessoryProdTable_Object = MibTable
+adGenAccessoryProdTable = _AdGenAccessoryProdTable_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 7)
+)
+if mibBuilder.loadTexts:
+    adGenAccessoryProdTable.setStatus("current")
+_AdGenAccessoryProdEntry_Object = MibTableRow
+adGenAccessoryProdEntry = _AdGenAccessoryProdEntry_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1)
+)
+adGenAccessoryProdEntry.setIndexNames(
+    (0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryIndex"),
+    (0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryModuleIndex"),
+)
+if mibBuilder.loadTexts:
+    adGenAccessoryProdEntry.setStatus("current")
+_AdGenAccessoryProdName_Type = DisplayString
+_AdGenAccessoryProdName_Object = MibTableColumn
+adGenAccessoryProdName = _AdGenAccessoryProdName_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 2),
+    _AdGenAccessoryProdName_Type()
+)
+adGenAccessoryProdName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryProdName.setStatus("current")
+_AdGenAccessoryProdPartNumber_Type = DisplayString
+_AdGenAccessoryProdPartNumber_Object = MibTableColumn
+adGenAccessoryProdPartNumber = _AdGenAccessoryProdPartNumber_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 3),
+    _AdGenAccessoryProdPartNumber_Type()
+)
+adGenAccessoryProdPartNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryProdPartNumber.setStatus("current")
+_AdGenAccessoryProdCLEIcode_Type = DisplayString
+_AdGenAccessoryProdCLEIcode_Object = MibTableColumn
+adGenAccessoryProdCLEIcode = _AdGenAccessoryProdCLEIcode_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 4),
+    _AdGenAccessoryProdCLEIcode_Type()
+)
+adGenAccessoryProdCLEIcode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryProdCLEIcode.setStatus("current")
+_AdGenAccessoryProdSerialNumber_Type = DisplayString
+_AdGenAccessoryProdSerialNumber_Object = MibTableColumn
+adGenAccessoryProdSerialNumber = _AdGenAccessoryProdSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 5),
+    _AdGenAccessoryProdSerialNumber_Type()
+)
+adGenAccessoryProdSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryProdSerialNumber.setStatus("current")
+_AdGenAccessoryProdRevision_Type = DisplayString
+_AdGenAccessoryProdRevision_Object = MibTableColumn
+adGenAccessoryProdRevision = _AdGenAccessoryProdRevision_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 6),
+    _AdGenAccessoryProdRevision_Type()
+)
+adGenAccessoryProdRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryProdRevision.setStatus("current")
+_AdGenAccessoryProdSwVersion_Type = DisplayString
+_AdGenAccessoryProdSwVersion_Object = MibTableColumn
+adGenAccessoryProdSwVersion = _AdGenAccessoryProdSwVersion_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 7),
+    _AdGenAccessoryProdSwVersion_Type()
+)
+adGenAccessoryProdSwVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryProdSwVersion.setStatus("current")
+_AdGenAccessoryProdPhysAddress_Type = PhysAddress
+_AdGenAccessoryProdPhysAddress_Object = MibTableColumn
+adGenAccessoryProdPhysAddress = _AdGenAccessoryProdPhysAddress_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 8),
+    _AdGenAccessoryProdPhysAddress_Type()
+)
+adGenAccessoryProdPhysAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryProdPhysAddress.setStatus("current")
+_AdGenAccessoryProdProductID_Type = ObjectIdentifier
+_AdGenAccessoryProdProductID_Object = MibTableColumn
+adGenAccessoryProdProductID = _AdGenAccessoryProdProductID_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 9),
+    _AdGenAccessoryProdProductID_Type()
+)
+adGenAccessoryProdProductID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryProdProductID.setStatus("current")
+_AdGenAccessoryProdTransType_Type = DisplayString
+_AdGenAccessoryProdTransType_Object = MibTableColumn
+adGenAccessoryProdTransType = _AdGenAccessoryProdTransType_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 7, 1, 10),
+    _AdGenAccessoryProdTransType_Type()
+)
+adGenAccessoryProdTransType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAccessoryProdTransType.setStatus("current")
+_AdGenAccessoryConfigTable_Object = MibTable
+adGenAccessoryConfigTable = _AdGenAccessoryConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 9)
+)
+if mibBuilder.loadTexts:
+    adGenAccessoryConfigTable.setStatus("current")
+_AdGenAccessoryConfigEntry_Object = MibTableRow
+adGenAccessoryConfigEntry = _AdGenAccessoryConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 9, 1)
+)
+adGenAccessoryConfigEntry.setIndexNames(
+    (0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryIndex"),
+    (0, "ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryModuleIndex"),
+)
+if mibBuilder.loadTexts:
+    adGenAccessoryConfigEntry.setStatus("current")
+_AdGenAccessoryStateConfig_Type = AdPresence
+_AdGenAccessoryStateConfig_Object = MibTableColumn
+adGenAccessoryStateConfig = _AdGenAccessoryStateConfig_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 9, 1, 1),
+    _AdGenAccessoryStateConfig_Type()
+)
+adGenAccessoryStateConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    adGenAccessoryStateConfig.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+adTAAccessoryModuleInserted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 0, 1005402)
+)
+adTAAccessoryModuleInserted.setObjects(
+      *(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"),
+        ("SNMPv2-MIB", "sysName"),
+        ("ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryIndex"),
+        ("ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryModuleIndex"))
+)
+if mibBuilder.loadTexts:
+    adTAAccessoryModuleInserted.setStatus(
+        "current"
+    )
+
+adTAAccessoryModuleRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 54, 0, 1005403)
+)
+adTAAccessoryModuleRemoved.setObjects(
+      *(("ADTRAN-GENTRAPINFORM-MIB", "adTrapInformSeqNum"),
+        ("SNMPv2-MIB", "sysName"),
+        ("ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryIndex"),
+        ("ADTRAN-GENMAX-ACCESSORY-MIB", "adGenAccessoryModuleIndex"))
+)
+if mibBuilder.loadTexts:
+    adTAAccessoryModuleRemoved.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ADTRAN-GENMAX-ACCESSORY-MIB",
+    **{"adGenAccessory": adGenAccessory,
+       "adGenAccessoryNotificationEvents": adGenAccessoryNotificationEvents,
+       "adTAAccessoryModuleInserted": adTAAccessoryModuleInserted,
+       "adTAAccessoryModuleRemoved": adTAAccessoryModuleRemoved,
+       "adGenAccessoryCount": adGenAccessoryCount,
+       "adGenAccessoryStartIndex": adGenAccessoryStartIndex,
+       "adGenAccessoryModuleCount": adGenAccessoryModuleCount,
+       "adGenAccessoryTable": adGenAccessoryTable,
+       "adGenAccessoryEntry": adGenAccessoryEntry,
+       "adGenAccessoryIndex": adGenAccessoryIndex,
+       "adGenAccessoryModuleIndex": adGenAccessoryModuleIndex,
+       "adGenAccessoryState": adGenAccessoryState,
+       "adGenAccessoryProduct": adGenAccessoryProduct,
+       "adGenAccessoryTrapEnable": adGenAccessoryTrapEnable,
+       "adGenAccessoryAlarmStatus": adGenAccessoryAlarmStatus,
+       "adGenAccessoryFaceplate": adGenAccessoryFaceplate,
+       "adGenAccessoryStatServiceState": adGenAccessoryStatServiceState,
+       "adGenAccessoryPortNumber": adGenAccessoryPortNumber,
+       "adGenAccessoryProvVersion": adGenAccessoryProvVersion,
+       "adGenAccessoryTFileName": adGenAccessoryTFileName,
+       "adGenAccessoryUpdateSoftware": adGenAccessoryUpdateSoftware,
+       "adGenAccessoryUpdateStatus": adGenAccessoryUpdateStatus,
+       "adGenAccessoryUpTime": adGenAccessoryUpTime,
+       "adGenAccessoryProdTable": adGenAccessoryProdTable,
+       "adGenAccessoryProdEntry": adGenAccessoryProdEntry,
+       "adGenAccessoryProdName": adGenAccessoryProdName,
+       "adGenAccessoryProdPartNumber": adGenAccessoryProdPartNumber,
+       "adGenAccessoryProdCLEIcode": adGenAccessoryProdCLEIcode,
+       "adGenAccessoryProdSerialNumber": adGenAccessoryProdSerialNumber,
+       "adGenAccessoryProdRevision": adGenAccessoryProdRevision,
+       "adGenAccessoryProdSwVersion": adGenAccessoryProdSwVersion,
+       "adGenAccessoryProdPhysAddress": adGenAccessoryProdPhysAddress,
+       "adGenAccessoryProdProductID": adGenAccessoryProdProductID,
+       "adGenAccessoryProdTransType": adGenAccessoryProdTransType,
+       "adGenAccessoryConfigTable": adGenAccessoryConfigTable,
+       "adGenAccessoryConfigEntry": adGenAccessoryConfigEntry,
+       "adGenAccessoryStateConfig": adGenAccessoryStateConfig}
+)

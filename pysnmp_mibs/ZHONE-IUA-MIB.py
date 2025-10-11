@@ -1,35 +1,231 @@
+# SNMP MIB module (ZHONE-IUA-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZHONE-IUA-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zhone/ZHONE-IUA-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:35 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zhone/ZHONE-IUA-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:11:43 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddress, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddress")
-applIndex, = mibBuilder.importSymbols("NETWORK-SERVICES-MIB", "applIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-zhoneIua, = mibBuilder.importSymbols("Zhone", "zhoneIua")
-ZhoneRowStatus, = mibBuilder.importSymbols("Zhone-TC", "ZhoneRowStatus")
-zhoneIuaModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 5504, 4, 15, 1))
-zhoneIuaModule.setRevisions(('2009-05-25 23:16',))
-if mibBuilder.loadTexts: zhoneIuaModule.setLastUpdated('200905270656Z')
-if mibBuilder.loadTexts: zhoneIuaModule.setOrganization('Zhone Technologies.')
-zhoneIuaServerCfg = MibIdentifier((1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1))
-zhoneIuaServerTable = MibTable((1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1), )
-if mibBuilder.loadTexts: zhoneIuaServerTable.setStatus('current')
-zhoneIuaServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1, 1), ).setIndexNames((0, "NETWORK-SERVICES-MIB", "applIndex"), (0, "ZHONE-IUA-MIB", "zhoneIuaServerAddressIndex"))
-if mibBuilder.loadTexts: zhoneIuaServerEntry.setStatus('current')
-zhoneIuaServerAddressIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: zhoneIuaServerAddressIndex.setStatus('current')
-zhoneIuaServerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1, 1, 2), ZhoneRowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zhoneIuaServerRowStatus.setStatus('current')
-zhoneIuaServerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1, 1, 3), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zhoneIuaServerAddress.setStatus('current')
-zhoneIuaServerPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(9900)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zhoneIuaServerPortNumber.setStatus('current')
-mibBuilder.exportSymbols("ZHONE-IUA-MIB", PYSNMP_MODULE_ID=zhoneIuaModule, zhoneIuaModule=zhoneIuaModule, zhoneIuaServerAddressIndex=zhoneIuaServerAddressIndex, zhoneIuaServerCfg=zhoneIuaServerCfg, zhoneIuaServerTable=zhoneIuaServerTable, zhoneIuaServerAddress=zhoneIuaServerAddress, zhoneIuaServerEntry=zhoneIuaServerEntry, zhoneIuaServerPortNumber=zhoneIuaServerPortNumber, zhoneIuaServerRowStatus=zhoneIuaServerRowStatus)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress")
+
+(applIndex,) = mibBuilder.importSymbols(
+    "NETWORK-SERVICES-MIB",
+    "applIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(zhoneIua,) = mibBuilder.importSymbols(
+    "Zhone",
+    "zhoneIua")
+
+(ZhoneRowStatus,) = mibBuilder.importSymbols(
+    "Zhone-TC",
+    "ZhoneRowStatus")
+
+
+# MODULE-IDENTITY
+
+zhoneIuaModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5504, 4, 15, 1)
+)
+if mibBuilder.loadTexts:
+    zhoneIuaModule.setRevisions(
+        ("2009-05-25 23:16",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZhoneIuaServerCfg_ObjectIdentity = ObjectIdentity
+zhoneIuaServerCfg = _ZhoneIuaServerCfg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1)
+)
+_ZhoneIuaServerTable_Object = MibTable
+zhoneIuaServerTable = _ZhoneIuaServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    zhoneIuaServerTable.setStatus("current")
+_ZhoneIuaServerEntry_Object = MibTableRow
+zhoneIuaServerEntry = _ZhoneIuaServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1, 1)
+)
+zhoneIuaServerEntry.setIndexNames(
+    (0, "NETWORK-SERVICES-MIB", "applIndex"),
+    (0, "ZHONE-IUA-MIB", "zhoneIuaServerAddressIndex"),
+)
+if mibBuilder.loadTexts:
+    zhoneIuaServerEntry.setStatus("current")
+_ZhoneIuaServerAddressIndex_Type = Unsigned32
+_ZhoneIuaServerAddressIndex_Object = MibTableColumn
+zhoneIuaServerAddressIndex = _ZhoneIuaServerAddressIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1, 1, 1),
+    _ZhoneIuaServerAddressIndex_Type()
+)
+zhoneIuaServerAddressIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zhoneIuaServerAddressIndex.setStatus("current")
+_ZhoneIuaServerRowStatus_Type = ZhoneRowStatus
+_ZhoneIuaServerRowStatus_Object = MibTableColumn
+zhoneIuaServerRowStatus = _ZhoneIuaServerRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1, 1, 2),
+    _ZhoneIuaServerRowStatus_Type()
+)
+zhoneIuaServerRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zhoneIuaServerRowStatus.setStatus("current")
+_ZhoneIuaServerAddress_Type = InetAddress
+_ZhoneIuaServerAddress_Object = MibTableColumn
+zhoneIuaServerAddress = _ZhoneIuaServerAddress_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1, 1, 3),
+    _ZhoneIuaServerAddress_Type()
+)
+zhoneIuaServerAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zhoneIuaServerAddress.setStatus("current")
+
+
+class _ZhoneIuaServerPortNumber_Type(Integer32):
+    """Custom type zhoneIuaServerPortNumber based on Integer32"""
+    defaultValue = 9900
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_ZhoneIuaServerPortNumber_Type.__name__ = "Integer32"
+_ZhoneIuaServerPortNumber_Object = MibTableColumn
+zhoneIuaServerPortNumber = _ZhoneIuaServerPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 4, 15, 1, 1, 1, 1, 4),
+    _ZhoneIuaServerPortNumber_Type()
+)
+zhoneIuaServerPortNumber.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zhoneIuaServerPortNumber.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZHONE-IUA-MIB",
+    **{"zhoneIuaModule": zhoneIuaModule,
+       "zhoneIuaServerCfg": zhoneIuaServerCfg,
+       "zhoneIuaServerTable": zhoneIuaServerTable,
+       "zhoneIuaServerEntry": zhoneIuaServerEntry,
+       "zhoneIuaServerAddressIndex": zhoneIuaServerAddressIndex,
+       "zhoneIuaServerRowStatus": zhoneIuaServerRowStatus,
+       "zhoneIuaServerAddress": zhoneIuaServerAddress,
+       "zhoneIuaServerPortNumber": zhoneIuaServerPortNumber}
+)

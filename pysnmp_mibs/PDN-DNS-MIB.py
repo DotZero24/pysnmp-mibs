@@ -1,44 +1,287 @@
+# SNMP MIB module (PDN-DNS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PDN-DNS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/paradyne/PDN-DNS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:08 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/paradyne/PDN-DNS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:59:42 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-pdn_dns, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-dns")
-DNSServerType, DomainName = mibBuilder.importSymbols("PDN-TC", "DNSServerType", "DomainName")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-pdnDNSMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1))
-pdnDNSMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 2))
-devDNSDefaultDomainName = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 1), DomainName()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: devDNSDefaultDomainName.setStatus('mandatory')
-devDNSRetryTimeout = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: devDNSRetryTimeout.setStatus('mandatory')
-devDNSMaxRetries = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: devDNSMaxRetries.setStatus('mandatory')
-devDNSServerTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 4), )
-if mibBuilder.loadTexts: devDNSServerTable.setStatus('mandatory')
-devDNSServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 4, 1), ).setIndexNames((0, "PDN-DNS-MIB", "devDNSServerIP"))
-if mibBuilder.loadTexts: devDNSServerEntry.setStatus('mandatory')
-devDNSServerIP = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 4, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devDNSServerIP.setStatus('mandatory')
-devDNSServerType = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 4, 1, 2), DNSServerType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: devDNSServerType.setStatus('mandatory')
-devDNSRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 4, 1, 3), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: devDNSRowStatus.setStatus('mandatory')
-devHostMappingTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 5), )
-if mibBuilder.loadTexts: devHostMappingTable.setStatus('mandatory')
-devHostMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 5, 1), ).setIndexNames((0, "PDN-DNS-MIB", "devHostMappingIpAddress"))
-if mibBuilder.loadTexts: devHostMappingEntry.setStatus('mandatory')
-devHostMappingIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 5, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devHostMappingIpAddress.setStatus('mandatory')
-devHostMappingHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 5, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: devHostMappingHostName.setStatus('mandatory')
-devHostMappingRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 5, 1, 3), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: devHostMappingRowStatus.setStatus('mandatory')
-mibBuilder.exportSymbols("PDN-DNS-MIB", devDNSServerIP=devDNSServerIP, devDNSRetryTimeout=devDNSRetryTimeout, devDNSMaxRetries=devDNSMaxRetries, devHostMappingEntry=devHostMappingEntry, devHostMappingRowStatus=devHostMappingRowStatus, devHostMappingIpAddress=devHostMappingIpAddress, devHostMappingHostName=devHostMappingHostName, pdnDNSMIBObjects=pdnDNSMIBObjects, devDNSDefaultDomainName=devDNSDefaultDomainName, devHostMappingTable=devHostMappingTable, devDNSServerEntry=devDNSServerEntry, devDNSServerType=devDNSServerType, devDNSRowStatus=devDNSRowStatus, devDNSServerTable=devDNSServerTable, pdnDNSMIBTraps=pdnDNSMIBTraps)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(pdn_dns,) = mibBuilder.importSymbols(
+    "PDN-HEADER-MIB",
+    "pdn-dns")
+
+(DNSServerType,
+ DomainName) = mibBuilder.importSymbols(
+    "PDN-TC",
+    "DNSServerType",
+    "DomainName")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PdnDNSMIBObjects_ObjectIdentity = ObjectIdentity
+pdnDNSMIBObjects = _PdnDNSMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1)
+)
+_DevDNSDefaultDomainName_Type = DomainName
+_DevDNSDefaultDomainName_Object = MibScalar
+devDNSDefaultDomainName = _DevDNSDefaultDomainName_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 1),
+    _DevDNSDefaultDomainName_Type()
+)
+devDNSDefaultDomainName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    devDNSDefaultDomainName.setStatus("mandatory")
+_DevDNSRetryTimeout_Type = Integer32
+_DevDNSRetryTimeout_Object = MibScalar
+devDNSRetryTimeout = _DevDNSRetryTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 2),
+    _DevDNSRetryTimeout_Type()
+)
+devDNSRetryTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    devDNSRetryTimeout.setStatus("mandatory")
+_DevDNSMaxRetries_Type = Integer32
+_DevDNSMaxRetries_Object = MibScalar
+devDNSMaxRetries = _DevDNSMaxRetries_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 3),
+    _DevDNSMaxRetries_Type()
+)
+devDNSMaxRetries.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    devDNSMaxRetries.setStatus("mandatory")
+_DevDNSServerTable_Object = MibTable
+devDNSServerTable = _DevDNSServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 4)
+)
+if mibBuilder.loadTexts:
+    devDNSServerTable.setStatus("mandatory")
+_DevDNSServerEntry_Object = MibTableRow
+devDNSServerEntry = _DevDNSServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 4, 1)
+)
+devDNSServerEntry.setIndexNames(
+    (0, "PDN-DNS-MIB", "devDNSServerIP"),
+)
+if mibBuilder.loadTexts:
+    devDNSServerEntry.setStatus("mandatory")
+_DevDNSServerIP_Type = IpAddress
+_DevDNSServerIP_Object = MibTableColumn
+devDNSServerIP = _DevDNSServerIP_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 4, 1, 1),
+    _DevDNSServerIP_Type()
+)
+devDNSServerIP.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devDNSServerIP.setStatus("mandatory")
+_DevDNSServerType_Type = DNSServerType
+_DevDNSServerType_Object = MibTableColumn
+devDNSServerType = _DevDNSServerType_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 4, 1, 2),
+    _DevDNSServerType_Type()
+)
+devDNSServerType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    devDNSServerType.setStatus("mandatory")
+_DevDNSRowStatus_Type = RowStatus
+_DevDNSRowStatus_Object = MibTableColumn
+devDNSRowStatus = _DevDNSRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 4, 1, 3),
+    _DevDNSRowStatus_Type()
+)
+devDNSRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    devDNSRowStatus.setStatus("mandatory")
+_DevHostMappingTable_Object = MibTable
+devHostMappingTable = _DevHostMappingTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 5)
+)
+if mibBuilder.loadTexts:
+    devHostMappingTable.setStatus("mandatory")
+_DevHostMappingEntry_Object = MibTableRow
+devHostMappingEntry = _DevHostMappingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 5, 1)
+)
+devHostMappingEntry.setIndexNames(
+    (0, "PDN-DNS-MIB", "devHostMappingIpAddress"),
+)
+if mibBuilder.loadTexts:
+    devHostMappingEntry.setStatus("mandatory")
+_DevHostMappingIpAddress_Type = IpAddress
+_DevHostMappingIpAddress_Object = MibTableColumn
+devHostMappingIpAddress = _DevHostMappingIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 5, 1, 1),
+    _DevHostMappingIpAddress_Type()
+)
+devHostMappingIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devHostMappingIpAddress.setStatus("mandatory")
+
+
+class _DevHostMappingHostName_Type(DisplayString):
+    """Custom type devHostMappingHostName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_DevHostMappingHostName_Type.__name__ = "DisplayString"
+_DevHostMappingHostName_Object = MibTableColumn
+devHostMappingHostName = _DevHostMappingHostName_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 5, 1, 2),
+    _DevHostMappingHostName_Type()
+)
+devHostMappingHostName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    devHostMappingHostName.setStatus("mandatory")
+_DevHostMappingRowStatus_Type = RowStatus
+_DevHostMappingRowStatus_Object = MibTableColumn
+devHostMappingRowStatus = _DevHostMappingRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 1, 5, 1, 3),
+    _DevHostMappingRowStatus_Type()
+)
+devHostMappingRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    devHostMappingRowStatus.setStatus("mandatory")
+_PdnDNSMIBTraps_ObjectIdentity = ObjectIdentity
+pdnDNSMIBTraps = _PdnDNSMIBTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 17, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PDN-DNS-MIB",
+    **{"pdnDNSMIBObjects": pdnDNSMIBObjects,
+       "devDNSDefaultDomainName": devDNSDefaultDomainName,
+       "devDNSRetryTimeout": devDNSRetryTimeout,
+       "devDNSMaxRetries": devDNSMaxRetries,
+       "devDNSServerTable": devDNSServerTable,
+       "devDNSServerEntry": devDNSServerEntry,
+       "devDNSServerIP": devDNSServerIP,
+       "devDNSServerType": devDNSServerType,
+       "devDNSRowStatus": devDNSRowStatus,
+       "devHostMappingTable": devHostMappingTable,
+       "devHostMappingEntry": devHostMappingEntry,
+       "devHostMappingIpAddress": devHostMappingIpAddress,
+       "devHostMappingHostName": devHostMappingHostName,
+       "devHostMappingRowStatus": devHostMappingRowStatus,
+       "pdnDNSMIBTraps": pdnDNSMIBTraps}
+)

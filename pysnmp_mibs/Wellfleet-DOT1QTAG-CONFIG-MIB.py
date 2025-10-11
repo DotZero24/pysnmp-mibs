@@ -1,36 +1,325 @@
+# SNMP MIB module (Wellfleet-DOT1QTAG-CONFIG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Wellfleet-DOT1QTAG-CONFIG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/Wellfleet-DOT1QTAG-CONFIG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:03:16 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nortel/Wellfleet-DOT1QTAG-CONFIG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:21:35 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-wfDot1qTagConfigGroup, = mibBuilder.importSymbols("Wellfleet-COMMON-MIB", "wfDot1qTagConfigGroup")
-wfDot1qTagConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1))
-wfDot1qTagConfigTable = MibTable((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1), )
-if mibBuilder.loadTexts: wfDot1qTagConfigTable.setStatus('mandatory')
-wfDot1qTagConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1), ).setIndexNames((0, "Wellfleet-DOT1QTAG-CONFIG-MIB", "wfDot1qTagCfgPhysicalPortId"), (0, "Wellfleet-DOT1QTAG-CONFIG-MIB", "wfDot1qTagCfgLocalVlanId"))
-if mibBuilder.loadTexts: wfDot1qTagConfigEntry.setStatus('mandatory')
-wfDot1qTagCfgDelete = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("create", 1), ("delete", 2))).clone('create')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfDot1qTagCfgDelete.setStatus('mandatory')
-wfDot1qTagCfgDisable = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfDot1qTagCfgDisable.setStatus('mandatory')
-wfDot1qTagCfgVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfDot1qTagCfgVlanName.setStatus('mandatory')
-wfDot1qTagCfgLocalVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1023))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfDot1qTagCfgLocalVlanId.setStatus('mandatory')
-wfDot1qTagCfgGlobalVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfDot1qTagCfgGlobalVlanId.setStatus('mandatory')
-wfDot1qTagCfgVirtualPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("tagged", 1))).clone('tagged')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfDot1qTagCfgVirtualPortType.setStatus('mandatory')
-wfDot1qTagCfgPhysicalPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wfDot1qTagCfgPhysicalPortId.setStatus('mandatory')
-wfDot1qTagCfgProtocolType = MibTableColumn((1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1514, 65535)).clone(33024)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wfDot1qTagCfgProtocolType.setStatus('mandatory')
-mibBuilder.exportSymbols("Wellfleet-DOT1QTAG-CONFIG-MIB", wfDot1qTagCfgPhysicalPortId=wfDot1qTagCfgPhysicalPortId, wfDot1qTagCfgVirtualPortType=wfDot1qTagCfgVirtualPortType, wfDot1qTagCfgGlobalVlanId=wfDot1qTagCfgGlobalVlanId, wfDot1qTagCfgProtocolType=wfDot1qTagCfgProtocolType, wfDot1qTagConfig=wfDot1qTagConfig, wfDot1qTagCfgLocalVlanId=wfDot1qTagCfgLocalVlanId, wfDot1qTagCfgDelete=wfDot1qTagCfgDelete, wfDot1qTagConfigEntry=wfDot1qTagConfigEntry, wfDot1qTagCfgDisable=wfDot1qTagCfgDisable, wfDot1qTagConfigTable=wfDot1qTagConfigTable, wfDot1qTagCfgVlanName=wfDot1qTagCfgVlanName)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(wfDot1qTagConfigGroup,) = mibBuilder.importSymbols(
+    "Wellfleet-COMMON-MIB",
+    "wfDot1qTagConfigGroup")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_WfDot1qTagConfig_ObjectIdentity = ObjectIdentity
+wfDot1qTagConfig = _WfDot1qTagConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1)
+)
+_WfDot1qTagConfigTable_Object = MibTable
+wfDot1qTagConfigTable = _WfDot1qTagConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1)
+)
+if mibBuilder.loadTexts:
+    wfDot1qTagConfigTable.setStatus("mandatory")
+_WfDot1qTagConfigEntry_Object = MibTableRow
+wfDot1qTagConfigEntry = _WfDot1qTagConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1)
+)
+wfDot1qTagConfigEntry.setIndexNames(
+    (0, "Wellfleet-DOT1QTAG-CONFIG-MIB", "wfDot1qTagCfgPhysicalPortId"),
+    (0, "Wellfleet-DOT1QTAG-CONFIG-MIB", "wfDot1qTagCfgLocalVlanId"),
+)
+if mibBuilder.loadTexts:
+    wfDot1qTagConfigEntry.setStatus("mandatory")
+
+
+class _WfDot1qTagCfgDelete_Type(Integer32):
+    """Custom type wfDot1qTagCfgDelete based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("create", 1),
+          ("delete", 2))
+    )
+
+
+_WfDot1qTagCfgDelete_Type.__name__ = "Integer32"
+_WfDot1qTagCfgDelete_Object = MibTableColumn
+wfDot1qTagCfgDelete = _WfDot1qTagCfgDelete_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 1),
+    _WfDot1qTagCfgDelete_Type()
+)
+wfDot1qTagCfgDelete.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfDot1qTagCfgDelete.setStatus("mandatory")
+
+
+class _WfDot1qTagCfgDisable_Type(Integer32):
+    """Custom type wfDot1qTagCfgDisable based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_WfDot1qTagCfgDisable_Type.__name__ = "Integer32"
+_WfDot1qTagCfgDisable_Object = MibTableColumn
+wfDot1qTagCfgDisable = _WfDot1qTagCfgDisable_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 2),
+    _WfDot1qTagCfgDisable_Type()
+)
+wfDot1qTagCfgDisable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfDot1qTagCfgDisable.setStatus("mandatory")
+_WfDot1qTagCfgVlanName_Type = DisplayString
+_WfDot1qTagCfgVlanName_Object = MibTableColumn
+wfDot1qTagCfgVlanName = _WfDot1qTagCfgVlanName_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 3),
+    _WfDot1qTagCfgVlanName_Type()
+)
+wfDot1qTagCfgVlanName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfDot1qTagCfgVlanName.setStatus("mandatory")
+
+
+class _WfDot1qTagCfgLocalVlanId_Type(Integer32):
+    """Custom type wfDot1qTagCfgLocalVlanId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1023),
+    )
+
+
+_WfDot1qTagCfgLocalVlanId_Type.__name__ = "Integer32"
+_WfDot1qTagCfgLocalVlanId_Object = MibTableColumn
+wfDot1qTagCfgLocalVlanId = _WfDot1qTagCfgLocalVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 4),
+    _WfDot1qTagCfgLocalVlanId_Type()
+)
+wfDot1qTagCfgLocalVlanId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfDot1qTagCfgLocalVlanId.setStatus("mandatory")
+
+
+class _WfDot1qTagCfgGlobalVlanId_Type(Integer32):
+    """Custom type wfDot1qTagCfgGlobalVlanId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4095),
+    )
+
+
+_WfDot1qTagCfgGlobalVlanId_Type.__name__ = "Integer32"
+_WfDot1qTagCfgGlobalVlanId_Object = MibTableColumn
+wfDot1qTagCfgGlobalVlanId = _WfDot1qTagCfgGlobalVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 5),
+    _WfDot1qTagCfgGlobalVlanId_Type()
+)
+wfDot1qTagCfgGlobalVlanId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfDot1qTagCfgGlobalVlanId.setStatus("mandatory")
+
+
+class _WfDot1qTagCfgVirtualPortType_Type(Integer32):
+    """Custom type wfDot1qTagCfgVirtualPortType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("tagged", 1)
+    )
+
+
+_WfDot1qTagCfgVirtualPortType_Type.__name__ = "Integer32"
+_WfDot1qTagCfgVirtualPortType_Object = MibTableColumn
+wfDot1qTagCfgVirtualPortType = _WfDot1qTagCfgVirtualPortType_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 6),
+    _WfDot1qTagCfgVirtualPortType_Type()
+)
+wfDot1qTagCfgVirtualPortType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfDot1qTagCfgVirtualPortType.setStatus("mandatory")
+_WfDot1qTagCfgPhysicalPortId_Type = Integer32
+_WfDot1qTagCfgPhysicalPortId_Object = MibTableColumn
+wfDot1qTagCfgPhysicalPortId = _WfDot1qTagCfgPhysicalPortId_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 7),
+    _WfDot1qTagCfgPhysicalPortId_Type()
+)
+wfDot1qTagCfgPhysicalPortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wfDot1qTagCfgPhysicalPortId.setStatus("mandatory")
+
+
+class _WfDot1qTagCfgProtocolType_Type(Integer32):
+    """Custom type wfDot1qTagCfgProtocolType based on Integer32"""
+    defaultValue = 33024
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1514, 65535),
+    )
+
+
+_WfDot1qTagCfgProtocolType_Type.__name__ = "Integer32"
+_WfDot1qTagCfgProtocolType_Object = MibTableColumn
+wfDot1qTagCfgProtocolType = _WfDot1qTagCfgProtocolType_Object(
+    (1, 3, 6, 1, 4, 1, 18, 3, 5, 1, 12, 6, 1, 1, 1, 8),
+    _WfDot1qTagCfgProtocolType_Type()
+)
+wfDot1qTagCfgProtocolType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wfDot1qTagCfgProtocolType.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Wellfleet-DOT1QTAG-CONFIG-MIB",
+    **{"wfDot1qTagConfig": wfDot1qTagConfig,
+       "wfDot1qTagConfigTable": wfDot1qTagConfigTable,
+       "wfDot1qTagConfigEntry": wfDot1qTagConfigEntry,
+       "wfDot1qTagCfgDelete": wfDot1qTagCfgDelete,
+       "wfDot1qTagCfgDisable": wfDot1qTagCfgDisable,
+       "wfDot1qTagCfgVlanName": wfDot1qTagCfgVlanName,
+       "wfDot1qTagCfgLocalVlanId": wfDot1qTagCfgLocalVlanId,
+       "wfDot1qTagCfgGlobalVlanId": wfDot1qTagCfgGlobalVlanId,
+       "wfDot1qTagCfgVirtualPortType": wfDot1qTagCfgVirtualPortType,
+       "wfDot1qTagCfgPhysicalPortId": wfDot1qTagCfgPhysicalPortId,
+       "wfDot1qTagCfgProtocolType": wfDot1qTagCfgProtocolType}
+)

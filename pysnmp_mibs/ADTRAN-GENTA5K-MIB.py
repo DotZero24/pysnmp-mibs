@@ -1,98 +1,545 @@
+# SNMP MIB module (ADTRAN-GENTA5K-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ADTRAN-GENTA5K-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-GENTA5K-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:33 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/adtran/ADTRAN-GENTA5K-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:33:24 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-adShared, adIdentityShared = mibBuilder.importSymbols("ADTRAN-MIB", "adShared", "adIdentityShared")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-adGenTa5kModuleIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67))
-adGenTa5kModuleIdentity.setRevisions(('2015-03-06 00:00', '2013-02-28 00:00', '2012-12-10 00:00', '2011-12-08 00:00', '2011-11-14 00:00',))
-if mibBuilder.loadTexts: adGenTa5kModuleIdentity.setLastUpdated('201302280000Z')
-if mibBuilder.loadTexts: adGenTa5kModuleIdentity.setOrganization('ADTRAN, Inc.')
-adGenTa5k = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67))
-adGenTa5kMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1))
-adGenTa5kID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1))
-adGenTa5kRedundancy = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 1))
-adGenTa5kRedundancyID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 1))
-adGenTa5kPseudowire = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 2))
-adGenTa5kPseudowireID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 2))
-adGenTa5kTiming = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 3))
-adGenTa5kTimingID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 3))
-adGenTa5kAtpCli = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 4))
-adGenTa5kAtpCliID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 4))
-adGenTa5kTlv = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 5))
-adGenTa5kTlvID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 5))
-adGenTa5kCommonDs1Prov = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 6))
-adGenTa5kCommonDs1ProvID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 6))
-adGenTa5kHk = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 7))
-adGenTa5kHkID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 7))
-adGenTa5kSlot = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 8))
-adGenTa5kSlotID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 8))
-adGenTa5kErrorOid = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 9))
-adGenTa5kSErrorOidID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 9))
-adGenTa5kBandwidth = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 10))
-adGenTa5kBandwidthID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 10))
-adGenTa5kRprExt = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 11))
-adGenTa5kRprExtID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 11))
-adGenTa5kTr08 = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 12))
-adGenTa5kTr08ID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 12))
-adGenTa5kOc3 = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 13))
-adGenTa5kOc3ID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 13))
-adGenTa5kAtmLM = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 14))
-adGenTa5kAtmLMID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 14))
-adGenEthernet = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 15))
-adGenEthernetID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 15))
-adGenBridge = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 16))
-adGenBridgeID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 16))
-adTA5kEfm32Shdsl = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 17))
-adTA5kEfm32ShdslID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 17))
-adGenTa5kBulkPM = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 18))
-adGenTa5kBulkPMID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 18))
-adGenGr909 = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 19))
-adGenGr909ID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 19))
-adGenTa5kOam = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20))
-adGenTa5kOamID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 20))
-adGenTa5kDs3 = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 21))
-adGenTa5kDs3ID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 21))
-adTa5kFdl = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 22))
-adTa5kFdlID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 22))
-adGenTa5kPseudowireMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 23))
-adGenTa5kPseudowireMgmtID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 23))
-adGenTa5kDs3PMThreshold = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 24))
-adGenTa5kDs3PMThresholdID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 24))
-adGenIma = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 25))
-adGenImaID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 25))
-adGenQueue = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 27))
-adGenQueueID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 27))
-adGenQueueAdmin = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 28))
-adGenQueueAdminID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 28))
-adGenNWModeMisc = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 29))
-adGenNWModeMiscID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 29))
-adGenArp = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 30))
-adGenArpID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 30))
-adGenPpp = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 31))
-adGenPppID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 31))
-adTa5kTreeNetworking = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 32))
-adTa5kTreeNetworkingID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 32))
-adTa5kLinkAggregation = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 33))
-adTa5kLinkAggregationID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 33))
-adGenMultiAppMode = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 34))
-adGenMultiAppModeID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 34))
-adTa5kFxsFac = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 35))
-adTa5kFxsFacID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 35))
-adTa5kFxoFac = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 36))
-adTa5kFxoFacID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 36))
-adGenAcsServerProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 37))
-adGenAcsServerProfileID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 37))
-adTa5kPbitRemapping = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 38))
-adTa5kPbitRemappingID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 38))
-adTa5kThermalManagement = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 39))
-adTa5kThermalManagementID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 39))
-mibBuilder.exportSymbols("ADTRAN-GENTA5K-MIB", adTA5kEfm32ShdslID=adTA5kEfm32ShdslID, adGenTa5kPseudowireID=adGenTa5kPseudowireID, adGenTa5kOamID=adGenTa5kOamID, adGenTa5kID=adGenTa5kID, adGenTa5kTiming=adGenTa5kTiming, adGenArp=adGenArp, adTa5kThermalManagement=adTa5kThermalManagement, adGenTa5kAtmLM=adGenTa5kAtmLM, PYSNMP_MODULE_ID=adGenTa5kModuleIdentity, adGenTa5kCommonDs1Prov=adGenTa5kCommonDs1Prov, adGenTa5kDs3=adGenTa5kDs3, adGenTa5kBandwidth=adGenTa5kBandwidth, adGenQueue=adGenQueue, adTa5kTreeNetworking=adTa5kTreeNetworking, adTA5kEfm32Shdsl=adTA5kEfm32Shdsl, adGenPpp=adGenPpp, adGenQueueAdminID=adGenQueueAdminID, adGenTa5kBandwidthID=adGenTa5kBandwidthID, adGenTa5kRedundancy=adGenTa5kRedundancy, adGenGr909ID=adGenGr909ID, adGenNWModeMisc=adGenNWModeMisc, adGenTa5kDs3PMThreshold=adGenTa5kDs3PMThreshold, adGenTa5kRprExt=adGenTa5kRprExt, adTa5kFxsFac=adTa5kFxsFac, adTa5kPbitRemapping=adTa5kPbitRemapping, adTa5kFxoFac=adTa5kFxoFac, adTa5kThermalManagementID=adTa5kThermalManagementID, adTa5kPbitRemappingID=adTa5kPbitRemappingID, adGenAcsServerProfileID=adGenAcsServerProfileID, adTa5kFdl=adTa5kFdl, adGenMultiAppModeID=adGenMultiAppModeID, adGenTa5kTr08=adGenTa5kTr08, adGenTa5kSlotID=adGenTa5kSlotID, adGenImaID=adGenImaID, adGenMultiAppMode=adGenMultiAppMode, adGenTa5kTlv=adGenTa5kTlv, adGenQueueAdmin=adGenQueueAdmin, adGenTa5kCommonDs1ProvID=adGenTa5kCommonDs1ProvID, adGenTa5kOc3=adGenTa5kOc3, adTa5kLinkAggregation=adTa5kLinkAggregation, adGenAcsServerProfile=adGenAcsServerProfile, adGenTa5kAtpCliID=adGenTa5kAtpCliID, adGenTa5kDs3ID=adGenTa5kDs3ID, adGenTa5kModuleIdentity=adGenTa5kModuleIdentity, adTa5kLinkAggregationID=adTa5kLinkAggregationID, adGenGr909=adGenGr909, adTa5kFdlID=adTa5kFdlID, adTa5kTreeNetworkingID=adTa5kTreeNetworkingID, adGenTa5kSErrorOidID=adGenTa5kSErrorOidID, adGenTa5kOc3ID=adGenTa5kOc3ID, adGenTa5kRprExtID=adGenTa5kRprExtID, adGenEthernetID=adGenEthernetID, adGenNWModeMiscID=adGenNWModeMiscID, adGenTa5kHkID=adGenTa5kHkID, adGenArpID=adGenArpID, adGenTa5kAtpCli=adGenTa5kAtpCli, adGenTa5kBulkPM=adGenTa5kBulkPM, adGenBridge=adGenBridge, adGenTa5kRedundancyID=adGenTa5kRedundancyID, adGenTa5kHk=adGenTa5kHk, adGenTa5k=adGenTa5k, adGenPppID=adGenPppID, adGenTa5kBulkPMID=adGenTa5kBulkPMID, adGenQueueID=adGenQueueID, adGenEthernet=adGenEthernet, adGenTa5kErrorOid=adGenTa5kErrorOid, adGenIma=adGenIma, adGenTa5kTlvID=adGenTa5kTlvID, adGenTa5kOam=adGenTa5kOam, adGenTa5kMgmt=adGenTa5kMgmt, adTa5kFxsFacID=adTa5kFxsFacID, adGenTa5kPseudowire=adGenTa5kPseudowire, adGenTa5kDs3PMThresholdID=adGenTa5kDs3PMThresholdID, adGenBridgeID=adGenBridgeID, adGenTa5kPseudowireMgmt=adGenTa5kPseudowireMgmt, adGenTa5kAtmLMID=adGenTa5kAtmLMID, adGenTa5kPseudowireMgmtID=adGenTa5kPseudowireMgmtID, adTa5kFxoFacID=adTa5kFxoFacID, adGenTa5kTr08ID=adGenTa5kTr08ID, adGenTa5kSlot=adGenTa5kSlot, adGenTa5kTimingID=adGenTa5kTimingID)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(adIdentityShared,
+ adShared) = mibBuilder.importSymbols(
+    "ADTRAN-MIB",
+    "adIdentityShared",
+    "adShared")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+adGenTa5kModuleIdentity = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67)
+)
+if mibBuilder.loadTexts:
+    adGenTa5kModuleIdentity.setRevisions(
+        ("2015-03-06 00:00",
+         "2013-02-28 00:00",
+         "2012-12-10 00:00",
+         "2011-12-08 00:00",
+         "2011-11-14 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AdGenTa5k_ObjectIdentity = ObjectIdentity
+adGenTa5k = _AdGenTa5k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67)
+)
+_AdGenTa5kMgmt_ObjectIdentity = ObjectIdentity
+adGenTa5kMgmt = _AdGenTa5kMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1)
+)
+_AdGenTa5kRedundancy_ObjectIdentity = ObjectIdentity
+adGenTa5kRedundancy = _AdGenTa5kRedundancy_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 1)
+)
+_AdGenTa5kPseudowire_ObjectIdentity = ObjectIdentity
+adGenTa5kPseudowire = _AdGenTa5kPseudowire_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 2)
+)
+_AdGenTa5kTiming_ObjectIdentity = ObjectIdentity
+adGenTa5kTiming = _AdGenTa5kTiming_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 3)
+)
+_AdGenTa5kAtpCli_ObjectIdentity = ObjectIdentity
+adGenTa5kAtpCli = _AdGenTa5kAtpCli_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 4)
+)
+_AdGenTa5kTlv_ObjectIdentity = ObjectIdentity
+adGenTa5kTlv = _AdGenTa5kTlv_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 5)
+)
+_AdGenTa5kCommonDs1Prov_ObjectIdentity = ObjectIdentity
+adGenTa5kCommonDs1Prov = _AdGenTa5kCommonDs1Prov_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 6)
+)
+_AdGenTa5kHk_ObjectIdentity = ObjectIdentity
+adGenTa5kHk = _AdGenTa5kHk_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 7)
+)
+_AdGenTa5kSlot_ObjectIdentity = ObjectIdentity
+adGenTa5kSlot = _AdGenTa5kSlot_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 8)
+)
+_AdGenTa5kErrorOid_ObjectIdentity = ObjectIdentity
+adGenTa5kErrorOid = _AdGenTa5kErrorOid_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 9)
+)
+_AdGenTa5kBandwidth_ObjectIdentity = ObjectIdentity
+adGenTa5kBandwidth = _AdGenTa5kBandwidth_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 10)
+)
+_AdGenTa5kRprExt_ObjectIdentity = ObjectIdentity
+adGenTa5kRprExt = _AdGenTa5kRprExt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 11)
+)
+_AdGenTa5kTr08_ObjectIdentity = ObjectIdentity
+adGenTa5kTr08 = _AdGenTa5kTr08_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 12)
+)
+_AdGenTa5kOc3_ObjectIdentity = ObjectIdentity
+adGenTa5kOc3 = _AdGenTa5kOc3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 13)
+)
+_AdGenTa5kAtmLM_ObjectIdentity = ObjectIdentity
+adGenTa5kAtmLM = _AdGenTa5kAtmLM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 14)
+)
+_AdGenEthernet_ObjectIdentity = ObjectIdentity
+adGenEthernet = _AdGenEthernet_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 15)
+)
+_AdGenBridge_ObjectIdentity = ObjectIdentity
+adGenBridge = _AdGenBridge_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 16)
+)
+_AdTA5kEfm32Shdsl_ObjectIdentity = ObjectIdentity
+adTA5kEfm32Shdsl = _AdTA5kEfm32Shdsl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 17)
+)
+_AdGenTa5kBulkPM_ObjectIdentity = ObjectIdentity
+adGenTa5kBulkPM = _AdGenTa5kBulkPM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 18)
+)
+_AdGenGr909_ObjectIdentity = ObjectIdentity
+adGenGr909 = _AdGenGr909_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 19)
+)
+_AdGenTa5kOam_ObjectIdentity = ObjectIdentity
+adGenTa5kOam = _AdGenTa5kOam_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 20)
+)
+_AdGenTa5kDs3_ObjectIdentity = ObjectIdentity
+adGenTa5kDs3 = _AdGenTa5kDs3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 21)
+)
+_AdTa5kFdl_ObjectIdentity = ObjectIdentity
+adTa5kFdl = _AdTa5kFdl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 22)
+)
+_AdGenTa5kPseudowireMgmt_ObjectIdentity = ObjectIdentity
+adGenTa5kPseudowireMgmt = _AdGenTa5kPseudowireMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 23)
+)
+_AdGenTa5kDs3PMThreshold_ObjectIdentity = ObjectIdentity
+adGenTa5kDs3PMThreshold = _AdGenTa5kDs3PMThreshold_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 24)
+)
+_AdGenIma_ObjectIdentity = ObjectIdentity
+adGenIma = _AdGenIma_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 25)
+)
+_AdGenQueue_ObjectIdentity = ObjectIdentity
+adGenQueue = _AdGenQueue_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 27)
+)
+_AdGenQueueAdmin_ObjectIdentity = ObjectIdentity
+adGenQueueAdmin = _AdGenQueueAdmin_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 28)
+)
+_AdGenNWModeMisc_ObjectIdentity = ObjectIdentity
+adGenNWModeMisc = _AdGenNWModeMisc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 29)
+)
+_AdGenArp_ObjectIdentity = ObjectIdentity
+adGenArp = _AdGenArp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 30)
+)
+_AdGenPpp_ObjectIdentity = ObjectIdentity
+adGenPpp = _AdGenPpp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 31)
+)
+_AdTa5kTreeNetworking_ObjectIdentity = ObjectIdentity
+adTa5kTreeNetworking = _AdTa5kTreeNetworking_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 32)
+)
+_AdTa5kLinkAggregation_ObjectIdentity = ObjectIdentity
+adTa5kLinkAggregation = _AdTa5kLinkAggregation_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 33)
+)
+_AdGenMultiAppMode_ObjectIdentity = ObjectIdentity
+adGenMultiAppMode = _AdGenMultiAppMode_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 34)
+)
+_AdTa5kFxsFac_ObjectIdentity = ObjectIdentity
+adTa5kFxsFac = _AdTa5kFxsFac_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 35)
+)
+_AdTa5kFxoFac_ObjectIdentity = ObjectIdentity
+adTa5kFxoFac = _AdTa5kFxoFac_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 36)
+)
+_AdGenAcsServerProfile_ObjectIdentity = ObjectIdentity
+adGenAcsServerProfile = _AdGenAcsServerProfile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 37)
+)
+_AdTa5kPbitRemapping_ObjectIdentity = ObjectIdentity
+adTa5kPbitRemapping = _AdTa5kPbitRemapping_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 38)
+)
+_AdTa5kThermalManagement_ObjectIdentity = ObjectIdentity
+adTa5kThermalManagement = _AdTa5kThermalManagement_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 67, 1, 39)
+)
+_AdGenTa5kID_ObjectIdentity = ObjectIdentity
+adGenTa5kID = _AdGenTa5kID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1)
+)
+_AdGenTa5kRedundancyID_ObjectIdentity = ObjectIdentity
+adGenTa5kRedundancyID = _AdGenTa5kRedundancyID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 1)
+)
+_AdGenTa5kPseudowireID_ObjectIdentity = ObjectIdentity
+adGenTa5kPseudowireID = _AdGenTa5kPseudowireID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 2)
+)
+_AdGenTa5kTimingID_ObjectIdentity = ObjectIdentity
+adGenTa5kTimingID = _AdGenTa5kTimingID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 3)
+)
+_AdGenTa5kAtpCliID_ObjectIdentity = ObjectIdentity
+adGenTa5kAtpCliID = _AdGenTa5kAtpCliID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 4)
+)
+_AdGenTa5kTlvID_ObjectIdentity = ObjectIdentity
+adGenTa5kTlvID = _AdGenTa5kTlvID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 5)
+)
+_AdGenTa5kCommonDs1ProvID_ObjectIdentity = ObjectIdentity
+adGenTa5kCommonDs1ProvID = _AdGenTa5kCommonDs1ProvID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 6)
+)
+_AdGenTa5kHkID_ObjectIdentity = ObjectIdentity
+adGenTa5kHkID = _AdGenTa5kHkID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 7)
+)
+_AdGenTa5kSlotID_ObjectIdentity = ObjectIdentity
+adGenTa5kSlotID = _AdGenTa5kSlotID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 8)
+)
+_AdGenTa5kSErrorOidID_ObjectIdentity = ObjectIdentity
+adGenTa5kSErrorOidID = _AdGenTa5kSErrorOidID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 9)
+)
+_AdGenTa5kBandwidthID_ObjectIdentity = ObjectIdentity
+adGenTa5kBandwidthID = _AdGenTa5kBandwidthID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 10)
+)
+_AdGenTa5kRprExtID_ObjectIdentity = ObjectIdentity
+adGenTa5kRprExtID = _AdGenTa5kRprExtID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 11)
+)
+_AdGenTa5kTr08ID_ObjectIdentity = ObjectIdentity
+adGenTa5kTr08ID = _AdGenTa5kTr08ID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 12)
+)
+_AdGenTa5kOc3ID_ObjectIdentity = ObjectIdentity
+adGenTa5kOc3ID = _AdGenTa5kOc3ID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 13)
+)
+_AdGenTa5kAtmLMID_ObjectIdentity = ObjectIdentity
+adGenTa5kAtmLMID = _AdGenTa5kAtmLMID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 14)
+)
+_AdGenEthernetID_ObjectIdentity = ObjectIdentity
+adGenEthernetID = _AdGenEthernetID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 15)
+)
+_AdGenBridgeID_ObjectIdentity = ObjectIdentity
+adGenBridgeID = _AdGenBridgeID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 16)
+)
+_AdTA5kEfm32ShdslID_ObjectIdentity = ObjectIdentity
+adTA5kEfm32ShdslID = _AdTA5kEfm32ShdslID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 17)
+)
+_AdGenTa5kBulkPMID_ObjectIdentity = ObjectIdentity
+adGenTa5kBulkPMID = _AdGenTa5kBulkPMID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 18)
+)
+_AdGenGr909ID_ObjectIdentity = ObjectIdentity
+adGenGr909ID = _AdGenGr909ID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 19)
+)
+_AdGenTa5kOamID_ObjectIdentity = ObjectIdentity
+adGenTa5kOamID = _AdGenTa5kOamID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 20)
+)
+_AdGenTa5kDs3ID_ObjectIdentity = ObjectIdentity
+adGenTa5kDs3ID = _AdGenTa5kDs3ID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 21)
+)
+_AdTa5kFdlID_ObjectIdentity = ObjectIdentity
+adTa5kFdlID = _AdTa5kFdlID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 22)
+)
+_AdGenTa5kPseudowireMgmtID_ObjectIdentity = ObjectIdentity
+adGenTa5kPseudowireMgmtID = _AdGenTa5kPseudowireMgmtID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 23)
+)
+_AdGenTa5kDs3PMThresholdID_ObjectIdentity = ObjectIdentity
+adGenTa5kDs3PMThresholdID = _AdGenTa5kDs3PMThresholdID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 24)
+)
+_AdGenImaID_ObjectIdentity = ObjectIdentity
+adGenImaID = _AdGenImaID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 25)
+)
+_AdGenQueueID_ObjectIdentity = ObjectIdentity
+adGenQueueID = _AdGenQueueID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 27)
+)
+_AdGenQueueAdminID_ObjectIdentity = ObjectIdentity
+adGenQueueAdminID = _AdGenQueueAdminID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 28)
+)
+_AdGenNWModeMiscID_ObjectIdentity = ObjectIdentity
+adGenNWModeMiscID = _AdGenNWModeMiscID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 29)
+)
+_AdGenArpID_ObjectIdentity = ObjectIdentity
+adGenArpID = _AdGenArpID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 30)
+)
+_AdGenPppID_ObjectIdentity = ObjectIdentity
+adGenPppID = _AdGenPppID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 31)
+)
+_AdTa5kTreeNetworkingID_ObjectIdentity = ObjectIdentity
+adTa5kTreeNetworkingID = _AdTa5kTreeNetworkingID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 32)
+)
+_AdTa5kLinkAggregationID_ObjectIdentity = ObjectIdentity
+adTa5kLinkAggregationID = _AdTa5kLinkAggregationID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 33)
+)
+_AdGenMultiAppModeID_ObjectIdentity = ObjectIdentity
+adGenMultiAppModeID = _AdGenMultiAppModeID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 34)
+)
+_AdTa5kFxsFacID_ObjectIdentity = ObjectIdentity
+adTa5kFxsFacID = _AdTa5kFxsFacID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 35)
+)
+_AdTa5kFxoFacID_ObjectIdentity = ObjectIdentity
+adTa5kFxoFacID = _AdTa5kFxoFacID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 36)
+)
+_AdGenAcsServerProfileID_ObjectIdentity = ObjectIdentity
+adGenAcsServerProfileID = _AdGenAcsServerProfileID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 37)
+)
+_AdTa5kPbitRemappingID_ObjectIdentity = ObjectIdentity
+adTa5kPbitRemappingID = _AdTa5kPbitRemappingID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 38)
+)
+_AdTa5kThermalManagementID_ObjectIdentity = ObjectIdentity
+adTa5kThermalManagementID = _AdTa5kThermalManagementID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 67, 1, 39)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ADTRAN-GENTA5K-MIB",
+    **{"adGenTa5k": adGenTa5k,
+       "adGenTa5kMgmt": adGenTa5kMgmt,
+       "adGenTa5kRedundancy": adGenTa5kRedundancy,
+       "adGenTa5kPseudowire": adGenTa5kPseudowire,
+       "adGenTa5kTiming": adGenTa5kTiming,
+       "adGenTa5kAtpCli": adGenTa5kAtpCli,
+       "adGenTa5kTlv": adGenTa5kTlv,
+       "adGenTa5kCommonDs1Prov": adGenTa5kCommonDs1Prov,
+       "adGenTa5kHk": adGenTa5kHk,
+       "adGenTa5kSlot": adGenTa5kSlot,
+       "adGenTa5kErrorOid": adGenTa5kErrorOid,
+       "adGenTa5kBandwidth": adGenTa5kBandwidth,
+       "adGenTa5kRprExt": adGenTa5kRprExt,
+       "adGenTa5kTr08": adGenTa5kTr08,
+       "adGenTa5kOc3": adGenTa5kOc3,
+       "adGenTa5kAtmLM": adGenTa5kAtmLM,
+       "adGenEthernet": adGenEthernet,
+       "adGenBridge": adGenBridge,
+       "adTA5kEfm32Shdsl": adTA5kEfm32Shdsl,
+       "adGenTa5kBulkPM": adGenTa5kBulkPM,
+       "adGenGr909": adGenGr909,
+       "adGenTa5kOam": adGenTa5kOam,
+       "adGenTa5kDs3": adGenTa5kDs3,
+       "adTa5kFdl": adTa5kFdl,
+       "adGenTa5kPseudowireMgmt": adGenTa5kPseudowireMgmt,
+       "adGenTa5kDs3PMThreshold": adGenTa5kDs3PMThreshold,
+       "adGenIma": adGenIma,
+       "adGenQueue": adGenQueue,
+       "adGenQueueAdmin": adGenQueueAdmin,
+       "adGenNWModeMisc": adGenNWModeMisc,
+       "adGenArp": adGenArp,
+       "adGenPpp": adGenPpp,
+       "adTa5kTreeNetworking": adTa5kTreeNetworking,
+       "adTa5kLinkAggregation": adTa5kLinkAggregation,
+       "adGenMultiAppMode": adGenMultiAppMode,
+       "adTa5kFxsFac": adTa5kFxsFac,
+       "adTa5kFxoFac": adTa5kFxoFac,
+       "adGenAcsServerProfile": adGenAcsServerProfile,
+       "adTa5kPbitRemapping": adTa5kPbitRemapping,
+       "adTa5kThermalManagement": adTa5kThermalManagement,
+       "adGenTa5kModuleIdentity": adGenTa5kModuleIdentity,
+       "adGenTa5kID": adGenTa5kID,
+       "adGenTa5kRedundancyID": adGenTa5kRedundancyID,
+       "adGenTa5kPseudowireID": adGenTa5kPseudowireID,
+       "adGenTa5kTimingID": adGenTa5kTimingID,
+       "adGenTa5kAtpCliID": adGenTa5kAtpCliID,
+       "adGenTa5kTlvID": adGenTa5kTlvID,
+       "adGenTa5kCommonDs1ProvID": adGenTa5kCommonDs1ProvID,
+       "adGenTa5kHkID": adGenTa5kHkID,
+       "adGenTa5kSlotID": adGenTa5kSlotID,
+       "adGenTa5kSErrorOidID": adGenTa5kSErrorOidID,
+       "adGenTa5kBandwidthID": adGenTa5kBandwidthID,
+       "adGenTa5kRprExtID": adGenTa5kRprExtID,
+       "adGenTa5kTr08ID": adGenTa5kTr08ID,
+       "adGenTa5kOc3ID": adGenTa5kOc3ID,
+       "adGenTa5kAtmLMID": adGenTa5kAtmLMID,
+       "adGenEthernetID": adGenEthernetID,
+       "adGenBridgeID": adGenBridgeID,
+       "adTA5kEfm32ShdslID": adTA5kEfm32ShdslID,
+       "adGenTa5kBulkPMID": adGenTa5kBulkPMID,
+       "adGenGr909ID": adGenGr909ID,
+       "adGenTa5kOamID": adGenTa5kOamID,
+       "adGenTa5kDs3ID": adGenTa5kDs3ID,
+       "adTa5kFdlID": adTa5kFdlID,
+       "adGenTa5kPseudowireMgmtID": adGenTa5kPseudowireMgmtID,
+       "adGenTa5kDs3PMThresholdID": adGenTa5kDs3PMThresholdID,
+       "adGenImaID": adGenImaID,
+       "adGenQueueID": adGenQueueID,
+       "adGenQueueAdminID": adGenQueueAdminID,
+       "adGenNWModeMiscID": adGenNWModeMiscID,
+       "adGenArpID": adGenArpID,
+       "adGenPppID": adGenPppID,
+       "adTa5kTreeNetworkingID": adTa5kTreeNetworkingID,
+       "adTa5kLinkAggregationID": adTa5kLinkAggregationID,
+       "adGenMultiAppModeID": adGenMultiAppModeID,
+       "adTa5kFxsFacID": adTa5kFxsFacID,
+       "adTa5kFxoFacID": adTa5kFxoFacID,
+       "adGenAcsServerProfileID": adGenAcsServerProfileID,
+       "adTa5kPbitRemappingID": adTa5kPbitRemappingID,
+       "adTa5kThermalManagementID": adTa5kThermalManagementID}
+)

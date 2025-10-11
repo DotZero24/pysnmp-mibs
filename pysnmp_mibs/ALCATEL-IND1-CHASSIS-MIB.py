@@ -1,529 +1,4176 @@
+# SNMP MIB module (ALCATEL-IND1-CHASSIS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALCATEL-IND1-CHASSIS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-CHASSIS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:55 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alcatel/ALCATEL-IND1-CHASSIS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:08:53 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-hardentIND1Physical, hardentIND1Chassis, chassisTraps = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "hardentIND1Physical", "hardentIND1Chassis", "chassisTraps")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-entPhysicalIndex, PhysicalIndex = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex", "PhysicalIndex")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-alcatelIND1ChassisMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1))
-alcatelIND1ChassisMIB.setRevisions(('2009-06-09 00:00', '2009-06-26 00:00', '2007-06-18 00:00',))
-if mibBuilder.loadTexts: alcatelIND1ChassisMIB.setLastUpdated('200706180000Z')
-if mibBuilder.loadTexts: alcatelIND1ChassisMIB.setOrganization('Alcatel-Lucent, Enterprise Solutions Division')
-alcatelIND1ChassisMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1))
-if mibBuilder.loadTexts: alcatelIND1ChassisMIBObjects.setStatus('current')
-alcatelIND1ChassisMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2))
-if mibBuilder.loadTexts: alcatelIND1ChassisMIBConformance.setStatus('current')
-alcatelIND1ChassisMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1))
-if mibBuilder.loadTexts: alcatelIND1ChassisMIBGroups.setStatus('current')
-alcatelIND1ChassisMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 2))
-if mibBuilder.loadTexts: alcatelIND1ChassisMIBCompliances.setStatus('current')
-alcatelIND1ChassisPhysMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1))
-if mibBuilder.loadTexts: alcatelIND1ChassisPhysMIBObjects.setStatus('current')
-alcatelIND1ChassisPhysMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2))
-if mibBuilder.loadTexts: alcatelIND1ChassisPhysMIBConformance.setStatus('current')
-alcatelIND1ChassisPhysMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1))
-if mibBuilder.loadTexts: alcatelIND1ChassisPhysMIBGroups.setStatus('current')
-alcatelIND1ChassisPhysMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 2))
-if mibBuilder.loadTexts: alcatelIND1ChassisPhysMIBCompliances.setStatus('current')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(chassisTraps,
+ hardentIND1Chassis,
+ hardentIND1Physical) = mibBuilder.importSymbols(
+    "ALCATEL-IND1-BASE",
+    "chassisTraps",
+    "hardentIND1Chassis",
+    "hardentIND1Physical")
+
+(PhysicalIndex,
+ entPhysicalIndex) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "PhysicalIndex",
+    "entPhysicalIndex")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alcatelIND1ChassisMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisMIB.setRevisions(
+        ("2009-06-09 00:00",
+         "2009-06-26 00:00",
+         "2007-06-18 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class ChasTrapsBPSPowerSupply(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
-    namedValues = NamedValues(("notApplicable", 0), ("bpsSyspower1", 1), ("bpsSyspower2", 2), ("bpsPoepower1", 3), ("bpsPoepower2", 4), ("bpsPoepower3", 5))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 0),
+          ("bpsSyspower1", 1),
+          ("bpsSyspower2", 2),
+          ("bpsPoepower1", 3),
+          ("bpsPoepower2", 4),
+          ("bpsPoepower3", 5))
+    )
+
+
 
 class ChasTrapsBPSFetState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("notApplicable", 0), ("on", 1), ("off", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 0),
+          ("on", 1),
+          ("off", 2))
+    )
+
+
 
 class ChasTrapsBPSEventAlert(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("notApplicable", 0), ("bpsPsPlugged", 1), ("bpsPsUnPlugged", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 0),
+          ("bpsPsPlugged", 1),
+          ("bpsPsUnPlugged", 2))
+    )
 
-chasControlModuleTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1), )
-if mibBuilder.loadTexts: chasControlModuleTable.setStatus('current')
-chasControlModuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: chasControlModuleEntry.setStatus('current')
-chasControlRunningVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("working", 2), ("certified", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasControlRunningVersion.setStatus('current')
-chasControlActivateTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 900))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: chasControlActivateTimeout.setStatus('current')
-chasControlVersionMngt = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("notSignificant", 1), ("certifySynchro", 2), ("certifyNoSynchro", 3), ("flashSynchro", 4), ("restore", 5), ("activate", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: chasControlVersionMngt.setStatus('current')
-chasControlDelayedActivateTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 31622400))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: chasControlDelayedActivateTimer.setStatus('current')
-chasControlCertifyStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("needCertify", 2), ("certified", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasControlCertifyStatus.setStatus('current')
-chasControlSynchronizationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("monoControlModule", 2), ("notSynchronized", 3), ("synchronized", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasControlSynchronizationStatus.setStatus('current')
-chasControlAcrossCmmWorkingSynchroStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("monoCMM", 2), ("no", 3), ("yes", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasControlAcrossCmmWorkingSynchroStatus.setStatus('current')
-chasControlAcrossCmmCertifiedSynchroStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("monoCMM", 2), ("no", 3), ("yes", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasControlAcrossCmmCertifiedSynchroStatus.setStatus('current')
-chasControlRedundantTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 2), )
-if mibBuilder.loadTexts: chasControlRedundantTable.setStatus('current')
-chasControlRedundantEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: chasControlRedundantEntry.setStatus('current')
-chasControlNumberOfTakeover = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 2, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasControlNumberOfTakeover.setStatus('current')
-chasControlDelayedRebootTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 31622400))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: chasControlDelayedRebootTimer.setStatus('current')
-chasChassisTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3), )
-if mibBuilder.loadTexts: chasChassisTable.setStatus('current')
-chasChassisEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: chasChassisEntry.setStatus('current')
-chasFreeSlots = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 18))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasFreeSlots.setStatus('current')
-chasPowerLeft = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100000, 100000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasPowerLeft.setStatus('current')
-chasNumberOfResets = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasNumberOfResets.setStatus('current')
-chasHardwareBoardTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 200))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasHardwareBoardTemp.setStatus('current')
-chasHardwareCpuTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 200))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasHardwareCpuTemp.setStatus('current')
-chasTempRange = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("notPresent", 2), ("underThreshold", 3), ("overFirstThreshold", 4), ("overDangerThreshold", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasTempRange.setStatus('current')
-chasTempThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 150))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: chasTempThreshold.setStatus('current')
-chasDangerTempThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(30, 150))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasDangerTempThreshold.setStatus('current')
-chasPrimaryPhysicalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasPrimaryPhysicalIndex.setStatus('current')
-chasEntPhysicalTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1), )
-if mibBuilder.loadTexts: chasEntPhysicalTable.setStatus('current')
-chasEntPhysicalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: chasEntPhysicalEntry.setStatus('current')
+
+
 class ChasEntPhysLed(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
-    namedValues = NamedValues(("notApplicable", 0), ("off", 1), ("greenOn", 2), ("greenBlink", 3), ("amberOn", 4), ("amberBlink", 5))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 0),
+          ("off", 1),
+          ("greenOn", 2),
+          ("greenBlink", 3),
+          ("amberOn", 4),
+          ("amberBlink", 5))
+    )
+
+
 
 class ChasEntPhysPowerType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("notApplicable", 0), ("ac", 1), ("dc", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 0),
+          ("ac", 1),
+          ("dc", 2))
+    )
 
-chasEntPhysAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("unknown", 1), ("powerOff", 2), ("powerOn", 3), ("reset", 4), ("takeover", 5), ("resetAll", 6), ("standby", 7), ("resetWithFabric", 8), ("takeoverWithFabrc", 9)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: chasEntPhysAdminStatus.setStatus('current')
-chasEntPhysOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3), ("unknown", 4), ("secondary", 5), ("notPresent", 6), ("unpowered", 7), ("master", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysOperStatus.setStatus('current')
-chasEntPhysLedStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 3), Bits().clone(namedValues=NamedValues(("ok1GreenLSBit", 0), ("ok1GreenMSBit", 1), ("ok1AmberLSBit", 2), ("ok1AmberMSBit", 3), ("ok2GreenLSBit", 4), ("ok2GreenMSBit", 5), ("ok2AmberLSBit", 6), ("ok2AmberMSBit", 7), ("controlGreenLSBit", 8), ("controlGreenMSBit", 9), ("controlAmberLSBIt", 10), ("controlAmberMSBIt", 11), ("fabricGreenLSBit", 12), ("fabricGreenMSBit", 13), ("fabricAmberLSBit", 14), ("fabricAmberMSBit", 15), ("tempGreenLSBit", 16), ("tempGreenMSBit", 17), ("tempAmberLSBit", 18), ("tempAmberMSBit", 19), ("fanGreenLSBit", 20), ("fanGreenMSBit", 21), ("fanAmberLSBit", 22), ("fanAmberMSBit", 23), ("powerSupGreenLSBit", 24), ("powerSupGreenMSBit", 25), ("powerSupAmberLSBit", 26), ("powerSupAmberMSBit", 27), ("backupPowerSupGreenLSBit", 28), ("backupPowerSupGreenMSBit", 29), ("backupPowerSupAmberLSBit", 30), ("backupPowerSupAmberMSBit", 31)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatus.setStatus('deprecated')
-chasEntPhysPower = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysPower.setStatus('current')
-chasEntPhysModuleType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysModuleType.setStatus('current')
-chasEntPhysMfgDate = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 11))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysMfgDate.setStatus('current')
-chasEntPhysPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 7), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysPartNumber.setStatus('current')
-chasEntPhysLedStatusOk1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 8), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusOk1.setStatus('current')
-chasEntPhysLedStatusOk2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 9), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusOk2.setStatus('current')
-chasEntPhysLedStatusPrimaryCMM = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 10), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusPrimaryCMM.setStatus('current')
-chasEntPhysLedStatusSecondaryCMM = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 11), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusSecondaryCMM.setStatus('current')
-chasEntPhysLedStatusTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 12), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusTemperature.setStatus('current')
-chasEntPhysLedStatusFan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 13), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusFan.setStatus('current')
-chasEntPhysLedStatusFan1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 14), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusFan1.setStatus('current')
-chasEntPhysLedStatusFan2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 15), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusFan2.setStatus('current')
-chasEntPhysLedStatusFan3 = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 16), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusFan3.setStatus('current')
-chasEntPhysLedStatusBackupPS = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 17), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusBackupPS.setStatus('current')
-chasEntPhysLedStatusInternalPS = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 18), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusInternalPS.setStatus('current')
-chasEntPhysLedStatusControl = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 19), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusControl.setStatus('current')
-chasEntPhysLedStatusFabric = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 20), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusFabric.setStatus('current')
-chasEntPhysLedStatusPSU = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 21), ChasEntPhysLed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysLedStatusPSU.setStatus('current')
-chasEntPhysAsicRev = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 22), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysAsicRev.setStatus('current')
-chasEntPhysCpldRev = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 23), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysCpldRev.setStatus('current')
-chasEntPhysDefaultMinibootRev = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 24), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysDefaultMinibootRev.setStatus('current')
-chasEntPhysBackUpMinibootRev = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 25), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysBackUpMinibootRev.setStatus('current')
-chasEntPhysBootromRev = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 26), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysBootromRev.setStatus('current')
-chasEntPhysNiNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysNiNum.setStatus('current')
-chasEntPhysGbicNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysGbicNum.setStatus('current')
-chasEntPhysWaveLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 29), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysWaveLen.setStatus('current')
-chasEntPhysUbootRev = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 30), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysUbootRev.setStatus('current')
-chasEntPhysUbootMinibootRev = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 31), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysUbootMinibootRev.setStatus('current')
-chasEntPhysMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 32), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysMacAddress.setStatus('current')
-chasEntPhysPoeSwVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 33), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysPoeSwVersion.setStatus('current')
-chasEntPhysC20LFailCont = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 34), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysC20LFailCont.setStatus('current')
-chasEntPhysCpuModel = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 35), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysCpuModel.setStatus('current')
-chasEntPhysPowerType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 36), ChasEntPhysPowerType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysPowerType.setStatus('current')
-chasEntPhysPowerControlChecksum = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 37), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysPowerControlChecksum.setStatus('current')
-chasEntPhysDdmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 38), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasEntPhysDdmStatus.setStatus('current')
-chasSupervisionRfsLsTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4), )
-if mibBuilder.loadTexts: chasSupervisionRfsLsTable.setStatus('current')
-chasSupervisionRfsLsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1), ).setIndexNames((0, "ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileIndex"))
-if mibBuilder.loadTexts: chasSupervisionRfsLsEntry.setStatus('current')
-chasSupervisionRfsLsFileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsLsFileIndex.setStatus('current')
-chasSupervisionRfsLsSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsLsSlot.setStatus('current')
-chasSupervisionRfsLsDirName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)).clone('/flash')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsLsDirName.setStatus('current')
-chasSupervisionRfsLsFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 33))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsLsFileName.setStatus('current')
-chasSupervisionRfsLsFileType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("file", 1), ("directory", 2), ("undefined", 3), ("tarArchive", 4))).clone('undefined')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsLsFileType.setStatus('current')
-chasSupervisionRfsLsFileSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsLsFileSize.setStatus('current')
-chasSupervisionRfsLsFileAttr = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("undefined", 1), ("readOnly", 2), ("readWrite", 3), ("writeOnly", 4))).clone('undefined')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsLsFileAttr.setStatus('current')
-chasSupervisionRfsLsFileDateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsLsFileDateTime.setStatus('current')
-chasSupervisionRfsDfTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 8), )
-if mibBuilder.loadTexts: chasSupervisionRfsDfTable.setStatus('current')
-chasSupervisionRfsDfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 8, 1), ).setIndexNames((0, "ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsDfSlot"))
-if mibBuilder.loadTexts: chasSupervisionRfsDfEntry.setStatus('current')
-chasSupervisionRfsDfSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 8, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32))).clone(namedValues=NamedValues(("slot1Flash", 1), ("slot2Flash", 2), ("slot3Flash", 3), ("slot4Flash", 4), ("slot5Flash", 5), ("slot6Flash", 6), ("slot7Flash", 7), ("slot8Flash", 8), ("slot9Flash", 9), ("slot10Flash", 10), ("slot11Flash", 11), ("slot12Flash", 12), ("slot13Flash", 13), ("slot14Flash", 14), ("slot15Flash", 15), ("slot16Flash", 16), ("slot1Uflash", 17), ("slot2Uflash", 18), ("slot3Uflash", 19), ("slot4Uflash", 20), ("slot5Uflash", 21), ("slot6Uflash", 22), ("slot7Uflash", 23), ("slot8Uflash", 24), ("slot9Uflash", 25), ("slot10Uflash", 26), ("slot11Uflash", 27), ("slot12Uflash", 28), ("slot13Uflash", 29), ("slot14Uflash", 30), ("slot15Uflash", 31), ("slot16Uflash", 32))))
-if mibBuilder.loadTexts: chasSupervisionRfsDfSlot.setStatus('current')
-chasSupervisionRfsDfFlashFree = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 8, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsDfFlashFree.setStatus('current')
-chasSupervisionRfsDfFlashSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 8, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsDfFlashSize.setStatus('current')
-chasSupervisionFlashMemTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9), )
-if mibBuilder.loadTexts: chasSupervisionFlashMemTable.setStatus('current')
-chasSupervisionFlashMemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9, 1), ).setIndexNames((0, "ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionSlot"))
-if mibBuilder.loadTexts: chasSupervisionFlashMemEntry.setStatus('current')
-chasSupervisionSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
-if mibBuilder.loadTexts: chasSupervisionSlot.setStatus('current')
-chasSupervisionFlashSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionFlashSize.setStatus('current')
-chasSupervisionFlashFree = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionFlashFree.setStatus('current')
-chasSupervisionFlashUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionFlashUsed.setStatus('current')
-chasSupervisionCmmCertifiedTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 10), )
-if mibBuilder.loadTexts: chasSupervisionCmmCertifiedTable.setStatus('current')
-chasSupervisionCmmCertifiedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 10, 1), ).setIndexNames((0, "ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionCmmNum"))
-if mibBuilder.loadTexts: chasSupervisionCmmCertifiedEntry.setStatus('current')
-chasSupervisionCmmNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 10, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
-if mibBuilder.loadTexts: chasSupervisionCmmNum.setStatus('current')
-chasSupervisionCmmCertifiedStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notPresent", 0), ("yes", 1), ("no", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionCmmCertifiedStatus.setStatus('current')
-alaChasEntPhysFanTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 11), )
-if mibBuilder.loadTexts: alaChasEntPhysFanTable.setStatus('current')
-alaChasEntPhysFanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 11, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "ALCATEL-IND1-CHASSIS-MIB", "alaChasEntPhysFanLocalIndex"))
-if mibBuilder.loadTexts: alaChasEntPhysFanEntry.setStatus('current')
-alaChasEntPhysFanLocalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 11, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: alaChasEntPhysFanLocalIndex.setStatus('current')
-alaChasEntPhysFanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 11, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("noStatus", 0), ("notRunning", 1), ("running", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasEntPhysFanStatus.setStatus('current')
-alaChasFdbHashMode = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("xor", 1), ("crc", 2))).clone('xor')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaChasFdbHashMode.setStatus('current')
-alaChasHashMode = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("brief", 1), ("extended", 2))).clone('extended')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaChasHashMode.setStatus('current')
-alaChasNonUCHashMode = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("brief", 1), ("normal", 2), ("extended", 3))).clone('normal')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaChasNonUCHashMode.setStatus('current')
-alaChasUdpTcpPortMode = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaChasUdpTcpPortMode.setStatus('current')
-alaChasNonUCHashControl = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaChasNonUCHashControl.setStatus('current')
-alaChasIssuForStackablesStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("in-progress", 1), ("disabled", 2), ("aborted", 3), ("successful", 4))).clone('disabled')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasIssuForStackablesStatus.setStatus('current')
-alaChasIssuForStackablesSlotsUpgraded = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31)).clone('None')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasIssuForStackablesSlotsUpgraded.setStatus('current')
-alaChasIssuForStackablesSlotInProgress = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasIssuForStackablesSlotInProgress.setStatus('current')
-alaChasIssuForStackablesSlotsLeft = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31)).clone('None')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasIssuForStackablesSlotsLeft.setStatus('current')
-alaChasBpsUpdateFirmware = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaChasBpsUpdateFirmware.setStatus('current')
-alaChasBpsMode = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notApplicable", 0), ("single", 1), ("full", 2))).clone('notApplicable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaChasBpsMode.setStatus('current')
-alaChasBpsSystemTotalAvailablePower = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 900))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsSystemTotalAvailablePower.setStatus('current')
-alaChasBpsSystemTotalAllocation = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 900))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsSystemTotalAllocation.setStatus('current')
-alaChasBpsPoeTotalAvailablePower = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 26), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 6000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsPoeTotalAvailablePower.setStatus('current')
-alaChasBpsPoeTotalAllocation = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 6000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsPoeTotalAllocation.setStatus('current')
-alaChasBpsCpldRev = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 28), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsCpldRev.setStatus('current')
-alaChasBpsMmcuRev = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 29), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsMmcuRev.setStatus('current')
-alaChasBpsCmcuRev = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 30), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsCmcuRev.setStatus('current')
-alaChasBpsTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 31), )
-if mibBuilder.loadTexts: alaChasBpsTable.setStatus('current')
-alaChasBpsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 31, 1), ).setIndexNames((0, "ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsNiNum"))
-if mibBuilder.loadTexts: alaChasBpsEntry.setStatus('current')
-alaChasBpsNiNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 31, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
-if mibBuilder.loadTexts: alaChasBpsNiNum.setStatus('current')
-alaChasBpsConnectorPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 31, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaChasBpsConnectorPriority.setStatus('current')
-alaChasBpsConnectorNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 31, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 14))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsConnectorNum.setStatus('current')
-alaChasBpsPowerSupplyTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32), )
-if mibBuilder.loadTexts: alaChasBpsPowerSupplyTable.setStatus('current')
-alaChasBpsPowerSupplyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1), ).setIndexNames((0, "ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyIndex"))
-if mibBuilder.loadTexts: alaChasBpsPowerSupplyEntry.setStatus('current')
-alaChasBpsPowerSupplyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 5)))
-if mibBuilder.loadTexts: alaChasBpsPowerSupplyIndex.setStatus('current')
-alaChasBpsPowerSupplyName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsPowerSupplyName.setStatus('current')
-alaChasBpsPowerSupplyDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsPowerSupplyDescr.setStatus('current')
-alaChasBpsPowerSupplyModuleType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsPowerSupplyModuleType.setStatus('current')
-alaChasBpsPowerSupplyPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 5), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsPowerSupplyPartNumber.setStatus('current')
-alaChasBpsPowerSupplyHardwareRev = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsPowerSupplyHardwareRev.setStatus('current')
-alaChasBpsPowerSupplySerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 7), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaChasBpsPowerSupplySerialNum.setStatus('current')
-alaChasBpsPowerSupplyMfgDate = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 8), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 11))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsPowerSupplyMfgDate.setStatus('current')
-alaChasBpsPowerSupplyOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("unknown", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsPowerSupplyOperStatus.setStatus('current')
-alaChasBpsPowerSupplyPowerProv = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaChasBpsPowerSupplyPowerProv.setStatus('current')
-alcatelIND1ChassisSupervisionRfsCommands = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5))
-if mibBuilder.loadTexts: alcatelIND1ChassisSupervisionRfsCommands.setStatus('current')
-chasSupervisionRfsCommandsSlot = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 1), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: chasSupervisionRfsCommandsSlot.setStatus('current')
-chasSupervisionRfsCommandsCommand = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("notSignificant", 0), ("rrm", 1), ("rcp", 2), ("rls", 3), ("rdf", 4), ("reserved", 5)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: chasSupervisionRfsCommandsCommand.setStatus('current')
-chasSupervisionRfsCommandsSrcFileName = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: chasSupervisionRfsCommandsSrcFileName.setStatus('current')
-chasSupervisionRfsCommandsDestFileName = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: chasSupervisionRfsCommandsDestFileName.setStatus('current')
-chasSupervisionRfsCommandsRlsDirName = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255)).clone('/flash')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: chasSupervisionRfsCommandsRlsDirName.setStatus('current')
-chasSupervisionRfsCommandsRlsFileName = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 33))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: chasSupervisionRfsCommandsRlsFileName.setStatus('current')
-chasSupervisionRfsCommandsProcessingState = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inProgress", 1), ("ready", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsCommandsProcessingState.setStatus('current')
-chasSupervisionRfsCommandsStatusCode = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("success", 1), ("slotIsPrimary", 2), ("slotNotExist", 3), ("directoryNotExist", 4), ("fileNotExist", 5), ("maximumFilesExceed", 6), ("noDiskSpace", 7), ("systemBusy", 8), ("systemError", 9), ("directoryNotAllowToRemove", 10)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasSupervisionRfsCommandsStatusCode.setStatus('current')
-chasControlReloadStatusTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 6), )
-if mibBuilder.loadTexts: chasControlReloadStatusTable.setStatus('current')
-chasControlReloadEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 6, 1), ).setIndexNames((0, "ALCATEL-IND1-CHASSIS-MIB", "chasControlReloadIndex"))
-if mibBuilder.loadTexts: chasControlReloadEntry.setStatus('current')
-chasControlReloadIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: chasControlReloadIndex.setStatus('current')
-chasControlReloadStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("reloadEnabled", 1), ("reloadDisabled", 2), ("noInterface", 3), ("unknown", 4))).clone('reloadDisabled')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasControlReloadStatus.setStatus('current')
-chasGlobalControl = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 7))
-chasGlobalControlDelayedResetAll = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 7, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-1, 65535)).clone(-1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: chasGlobalControlDelayedResetAll.setStatus('current')
-chasGlobalControlLongCommand = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 7, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("certifySynchro", 2), ("certifyNoSynchro", 3), ("flashSynchro", 4), ("restore", 5))).clone('none')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasGlobalControlLongCommand.setStatus('current')
-chasGlobalControlLongCommandStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 7, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("inProgress", 2), ("completeSuccess", 3), ("completeFailure", 4))).clone('none')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasGlobalControlLongCommandStatus.setStatus('current')
-chassisTrapsDesc = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1))
-chassisTrapsObj = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2))
+
+
 class ChassisTrapsStrLevel(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("strNotFatal", 1), ("strApplicationFatal", 2), ("strFatal", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("strNotFatal", 1),
+          ("strApplicationFatal", 2),
+          ("strFatal", 3))
+    )
+
+
 
 class ChassisTrapsStrAppID(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
 
 class ChassisTrapsStrSnapID(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
 
 class ChassisTrapsStrfileLineNb(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 65535)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
 
 class ChassisTrapsStrErrorNb(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
 
 class ChassisTrapsStrdataInfo(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 63)
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
 
 class ChassisTrapsObjectType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("chassis", 1), ("ni", 2), ("powerSuply", 3), ("fan", 4), ("cmm", 5), ("fabric", 6), ("gbic", 7))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("chassis", 1),
+          ("ni", 2),
+          ("powerSuply", 3),
+          ("fan", 4),
+          ("cmm", 5),
+          ("fabric", 6),
+          ("gbic", 7))
+    )
+
+
 
 class ChassisTrapsObjectNumber(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
 
 class ChassisTrapsAlertNumber(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57))
-    namedValues = NamedValues(("runningWorking", 1), ("runningCertified", 2), ("certifyStarted", 3), ("certifyFlashSyncStarted", 4), ("certifyCompleted", 5), ("certifyFailed", 6), ("synchroStarted", 7), ("synchroCompleted", 8), ("synchroFailed", 9), ("restoreStarted", 10), ("restoreCompleted", 11), ("restoreFailed", 12), ("takeoverStarted", 13), ("takeoverDeferred", 14), ("takeoverCompleted", 15), ("macAllocFailed", 16), ("macRangeFailed", 17), ("fanFailed", 18), ("fanOk", 19), ("fansOk", 20), ("tempOverThreshold", 21), ("tempUnderThreshold", 22), ("tempOverDangerThreshold", 23), ("powerMissing", 24), ("psNotOperational", 25), ("psOperational", 26), ("psAllOperational", 27), ("redundancyNotSupported", 28), ("redundancyDisabledCertifyNeeded", 29), ("cmmStartingAsPrimary", 30), ("cmmStartingAsSecondary", 31), ("cmmStartupCompleted", 32), ("cmmAPlugged", 33), ("cmmBPlugged", 34), ("cmmAUnPlugged", 35), ("cmmBUnPlugged", 36), ("lowNvramBattery", 37), ("notEnoughFabricsOperational", 38), ("simplexNoSynchro", 39), ("secAutoActivate", 40), ("secAutoCertifyStarted", 41), ("secAutoCertifyCompleted", 42), ("secInactiveReset", 43), ("activateScheduled", 44), ("activateStarted", 45), ("getAfileCompleted", 46), ("getAfileFailed", 47), ("sysUpdateStart", 48), ("sysUpdateInProgress", 49), ("sysUpdateError", 50), ("sysUpdateEnd", 51), ("reloadInProgress", 52), ("c20UpgradeOk", 53), ("c20UpgradeFailed", 54), ("c20RestoreOk", 55), ("c20RestoreFailed", 56), ("c20NiFailed", 57))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57)
+        )
+    )
+    namedValues = NamedValues(
+        *(("runningWorking", 1),
+          ("runningCertified", 2),
+          ("certifyStarted", 3),
+          ("certifyFlashSyncStarted", 4),
+          ("certifyCompleted", 5),
+          ("certifyFailed", 6),
+          ("synchroStarted", 7),
+          ("synchroCompleted", 8),
+          ("synchroFailed", 9),
+          ("restoreStarted", 10),
+          ("restoreCompleted", 11),
+          ("restoreFailed", 12),
+          ("takeoverStarted", 13),
+          ("takeoverDeferred", 14),
+          ("takeoverCompleted", 15),
+          ("macAllocFailed", 16),
+          ("macRangeFailed", 17),
+          ("fanFailed", 18),
+          ("fanOk", 19),
+          ("fansOk", 20),
+          ("tempOverThreshold", 21),
+          ("tempUnderThreshold", 22),
+          ("tempOverDangerThreshold", 23),
+          ("powerMissing", 24),
+          ("psNotOperational", 25),
+          ("psOperational", 26),
+          ("psAllOperational", 27),
+          ("redundancyNotSupported", 28),
+          ("redundancyDisabledCertifyNeeded", 29),
+          ("cmmStartingAsPrimary", 30),
+          ("cmmStartingAsSecondary", 31),
+          ("cmmStartupCompleted", 32),
+          ("cmmAPlugged", 33),
+          ("cmmBPlugged", 34),
+          ("cmmAUnPlugged", 35),
+          ("cmmBUnPlugged", 36),
+          ("lowNvramBattery", 37),
+          ("notEnoughFabricsOperational", 38),
+          ("simplexNoSynchro", 39),
+          ("secAutoActivate", 40),
+          ("secAutoCertifyStarted", 41),
+          ("secAutoCertifyCompleted", 42),
+          ("secInactiveReset", 43),
+          ("activateScheduled", 44),
+          ("activateStarted", 45),
+          ("getAfileCompleted", 46),
+          ("getAfileFailed", 47),
+          ("sysUpdateStart", 48),
+          ("sysUpdateInProgress", 49),
+          ("sysUpdateError", 50),
+          ("sysUpdateEnd", 51),
+          ("reloadInProgress", 52),
+          ("c20UpgradeOk", 53),
+          ("c20UpgradeFailed", 54),
+          ("c20RestoreOk", 55),
+          ("c20RestoreFailed", 56),
+          ("c20NiFailed", 57))
+    )
 
-chassisTrapsStr = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 1)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrLevel"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrAppID"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrSnapID"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrfileName"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrfileLineNb"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrErrorNb"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrcomments"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrdataInfo"))
-if mibBuilder.loadTexts: chassisTrapsStr.setStatus('current')
-chassisTrapsAlert = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 2)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectType"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectNumber"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlertNumber"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlertDescr"))
-if mibBuilder.loadTexts: chassisTrapsAlert.setStatus('current')
-chassisTrapsStateChange = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 3)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectType"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectNumber"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysOperStatus"))
-if mibBuilder.loadTexts: chassisTrapsStateChange.setStatus('current')
-poePowerBudgetChange = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 6)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "poePowerBudgetChangeSlot"), ("ALCATEL-IND1-CHASSIS-MIB", "poePowerBudgetOld"), ("ALCATEL-IND1-CHASSIS-MIB", "poePowerBudgetNew"), ("ALCATEL-IND1-CHASSIS-MIB", "poePowerBudgetChangeReason"))
-if mibBuilder.loadTexts: poePowerBudgetChange.setStatus('current')
-chassisTrapsLowFlashSpace = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 7)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisFreeFlashSpace"))
-if mibBuilder.loadTexts: chassisTrapsLowFlashSpace.setStatus('current')
-chassisTrapNiBPSLessAllocatedSytemPower = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 8)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"), ("ALCATEL-IND1-CHASSIS-MIB", "chasNiRequestedBpsSystemPower"), ("ALCATEL-IND1-CHASSIS-MIB", "chasNiGrantedBpsSystemPower"))
-if mibBuilder.loadTexts: chassisTrapNiBPSLessAllocatedSytemPower.setStatus('current')
-chassisTrapsBPSStateChange = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 9)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasTrapsBPSPowerSupply"), ("ALCATEL-IND1-CHASSIS-MIB", "chasTrapsBPSEventAlert"))
-if mibBuilder.loadTexts: chassisTrapsBPSStateChange.setStatus('current')
-chassisTrapsNiBPSFETStateChange = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 10)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"), ("ALCATEL-IND1-CHASSIS-MIB", "chasTrapsBPSSystemFETChange"), ("ALCATEL-IND1-CHASSIS-MIB", "chasTrapsBPSPoeFETChange"))
-if mibBuilder.loadTexts: chassisTrapsNiBPSFETStateChange.setStatus('current')
-chassisTrapsStrLevel = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 1), ChassisTrapsStrLevel()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsStrLevel.setStatus('current')
-chassisTrapsStrAppID = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 2), ChassisTrapsStrAppID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsStrAppID.setStatus('current')
-chassisTrapsStrSnapID = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 3), ChassisTrapsStrSnapID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsStrSnapID.setStatus('current')
-chassisTrapsStrfileName = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 19))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsStrfileName.setStatus('current')
-chassisTrapsStrfileLineNb = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 5), ChassisTrapsStrfileLineNb()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsStrfileLineNb.setStatus('current')
-chassisTrapsStrErrorNb = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 6), ChassisTrapsStrErrorNb()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsStrErrorNb.setStatus('current')
-chassisTrapsStrcomments = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 7), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 63))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsStrcomments.setStatus('current')
-chassisTrapsStrdataInfo = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 8), ChassisTrapsStrdataInfo()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsStrdataInfo.setStatus('current')
-chassisTrapsObjectType = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 9), ChassisTrapsObjectType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsObjectType.setStatus('current')
-chassisTrapsObjectNumber = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 10), ChassisTrapsObjectNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsObjectNumber.setStatus('current')
-chassisTrapsAlertNumber = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 11), ChassisTrapsAlertNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsAlertNumber.setStatus('current')
-chassisTrapsAlertDescr = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 12), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisTrapsAlertDescr.setStatus('current')
-physicalIndex = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 13), PhysicalIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: physicalIndex.setStatus('current')
-poePowerBudgetChangeSlot = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: poePowerBudgetChangeSlot.setStatus('current')
-poePowerBudgetOld = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 900))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: poePowerBudgetOld.setStatus('current')
-poePowerBudgetNew = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 900))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: poePowerBudgetNew.setStatus('current')
-poePowerBudgetChangeReason = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("userConfigured", 1), ("tempThresholdCrossed", 2), ("tempThresholdNormal", 3), ("powerSupplyChanged", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: poePowerBudgetChangeReason.setStatus('current')
-chassisFreeFlashSpace = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 20), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chassisFreeFlashSpace.setStatus('current')
-chasNiRequestedBpsSystemPower = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 21), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 126))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasNiRequestedBpsSystemPower.setStatus('current')
-chasNiGrantedBpsSystemPower = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 22), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 126))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasNiGrantedBpsSystemPower.setStatus('current')
-chasTrapsBPSPowerSupply = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 23), ChasTrapsBPSPowerSupply()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasTrapsBPSPowerSupply.setStatus('current')
-chasTrapsBPSEventAlert = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 24), ChasTrapsBPSEventAlert()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasTrapsBPSEventAlert.setStatus('current')
-chasTrapsBPSSystemFETChange = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 25), ChasTrapsBPSFetState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasTrapsBPSSystemFETChange.setStatus('current')
-chasTrapsBPSPoeFETChange = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 26), ChasTrapsBPSFetState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: chasTrapsBPSPoeFETChange.setStatus('current')
-alcatelIND1ChassisMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 2, 1)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasControlModuleGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "chasControlRedundantGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "chasChassisGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "chasControlReloadStatusGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "chasGlobalControlGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisNotificationGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasEntPhysFanGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasHashControlGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasNonUCHashControlGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionCmmCertifiedStatusGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasHashModeGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsGlobalGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsConnPriorityGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alcatelIND1ChassisMIBCompliance = alcatelIND1ChassisMIBCompliance.setStatus('current')
-alcatelIND1ChassisPhysMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 2, 1)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysicalGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisPhysNotificationGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionFlashMemGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "alcatelIND1ChassisSupervisionRfsGroup"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsDfGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alcatelIND1ChassisPhysMIBCompliance = alcatelIND1ChassisPhysMIBCompliance.setStatus('current')
-chasControlModuleGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasControlRunningVersion"), ("ALCATEL-IND1-CHASSIS-MIB", "chasControlActivateTimeout"), ("ALCATEL-IND1-CHASSIS-MIB", "chasControlVersionMngt"), ("ALCATEL-IND1-CHASSIS-MIB", "chasControlDelayedActivateTimer"), ("ALCATEL-IND1-CHASSIS-MIB", "chasControlCertifyStatus"), ("ALCATEL-IND1-CHASSIS-MIB", "chasControlSynchronizationStatus"), ("ALCATEL-IND1-CHASSIS-MIB", "chasControlAcrossCmmWorkingSynchroStatus"), ("ALCATEL-IND1-CHASSIS-MIB", "chasControlAcrossCmmCertifiedSynchroStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    chasControlModuleGroup = chasControlModuleGroup.setStatus('current')
-chasControlRedundantGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 2)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasControlNumberOfTakeover"), ("ALCATEL-IND1-CHASSIS-MIB", "chasControlDelayedRebootTimer"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    chasControlRedundantGroup = chasControlRedundantGroup.setStatus('current')
-chasChassisGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 3)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasFreeSlots"), ("ALCATEL-IND1-CHASSIS-MIB", "chasPowerLeft"), ("ALCATEL-IND1-CHASSIS-MIB", "chasNumberOfResets"), ("ALCATEL-IND1-CHASSIS-MIB", "chasHardwareBoardTemp"), ("ALCATEL-IND1-CHASSIS-MIB", "chasHardwareCpuTemp"), ("ALCATEL-IND1-CHASSIS-MIB", "chasTempRange"), ("ALCATEL-IND1-CHASSIS-MIB", "chasTempThreshold"), ("ALCATEL-IND1-CHASSIS-MIB", "chasDangerTempThreshold"), ("ALCATEL-IND1-CHASSIS-MIB", "chasPrimaryPhysicalIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    chasChassisGroup = chasChassisGroup.setStatus('current')
-chasControlReloadStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 4)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasControlReloadStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    chasControlReloadStatusGroup = chasControlReloadStatusGroup.setStatus('current')
-chasGlobalControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 5)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasGlobalControlDelayedResetAll"), ("ALCATEL-IND1-CHASSIS-MIB", "chasGlobalControlLongCommand"), ("ALCATEL-IND1-CHASSIS-MIB", "chasGlobalControlLongCommandStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    chasGlobalControlGroup = chasGlobalControlGroup.setStatus('current')
-chassisNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 6)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStr"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlert"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    chassisNotificationGroup = chassisNotificationGroup.setStatus('current')
-alaChasEntPhysFanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 7)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "alaChasEntPhysFanStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaChasEntPhysFanGroup = alaChasEntPhysFanGroup.setStatus('current')
-alaChasHashControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 8)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "alaChasHashMode"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasUdpTcpPortMode"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaChasHashControlGroup = alaChasHashControlGroup.setStatus('current')
-alaChasNonUCHashControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 9)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "alaChasNonUCHashControl"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaChasNonUCHashControlGroup = alaChasNonUCHashControlGroup.setStatus('current')
-chasSupervisionCmmCertifiedStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 10)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionCmmCertifiedStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    chasSupervisionCmmCertifiedStatusGroup = chasSupervisionCmmCertifiedStatusGroup.setStatus('current')
-alaChasNotificationObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 11)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrLevel"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrAppID"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrSnapID"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrfileName"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrfileLineNb"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrErrorNb"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrcomments"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrdataInfo"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectType"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectNumber"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlertNumber"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlertDescr"), ("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaChasNotificationObjectGroup = alaChasNotificationObjectGroup.setStatus('current')
-alaChasHashModeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 12)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "alaChasFdbHashMode"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaChasHashModeGroup = alaChasHashModeGroup.setStatus('current')
-alaIpArpConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 33))
-alaIpArpLimitConfig = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 33, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 2))).clone(namedValues=NamedValues(("default", 0), ("extend", 2))).clone('default')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpArpLimitConfig.setStatus('current')
-alaChasBpsGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 13)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsUpdateFirmware"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsMode"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsSystemTotalAvailablePower"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsSystemTotalAllocation"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPoeTotalAvailablePower"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPoeTotalAllocation"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsCpldRev"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsMmcuRev"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsCmcuRev"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaChasBpsGlobalGroup = alaChasBpsGlobalGroup.setStatus('current')
-alaChasBpsConnPriorityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 14)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsConnectorPriority"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaChasBpsConnPriorityGroup = alaChasBpsConnPriorityGroup.setStatus('current')
-alaChasBpsPowerSupplyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 15)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyName"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyDescr"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyModuleType"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyPartNumber"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyHardwareRev"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplySerialNum"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyMfgDate"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyOperStatus"), ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyPowerProv"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaChasBpsPowerSupplyGroup = alaChasBpsPowerSupplyGroup.setStatus('current')
-chasEntPhysicalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysAdminStatus"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysOperStatus"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatus"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysPower"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysModuleType"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysMfgDate"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysPartNumber"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusOk1"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusOk2"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusPrimaryCMM"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusSecondaryCMM"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusTemperature"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusFan"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusFan1"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusFan2"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusFan3"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusBackupPS"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusInternalPS"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusControl"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusFabric"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusPSU"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysPowerType"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysPowerControlChecksum"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysAsicRev"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysCpldRev"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysDefaultMinibootRev"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysBackUpMinibootRev"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysBootromRev"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysNiNum"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysGbicNum"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysWaveLen"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysUbootRev"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysUbootMinibootRev"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysMacAddress"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysPoeSwVersion"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysC20LFailCont"), ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysCpuModel"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    chasEntPhysicalGroup = chasEntPhysicalGroup.setStatus('current')
-chassisPhysNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1, 2)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStr"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlert"), ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStateChange"), ("ALCATEL-IND1-CHASSIS-MIB", "poePowerBudgetChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    chassisPhysNotificationGroup = chassisPhysNotificationGroup.setStatus('current')
-chasSupervisionFlashMemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1, 3)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionFlashSize"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionFlashFree"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionFlashUsed"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    chasSupervisionFlashMemGroup = chasSupervisionFlashMemGroup.setStatus('current')
-alcatelIND1ChassisSupervisionRfsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1, 4)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsSlot"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsCommand"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsDestFileName"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsRlsDirName"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsRlsFileName"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsProcessingState"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsStatusCode"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsSrcFileName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alcatelIND1ChassisSupervisionRfsGroup = alcatelIND1ChassisSupervisionRfsGroup.setStatus('current')
-chasSupervisionRfsDfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1, 5)).setObjects(("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsDfFlashFree"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsDfFlashSize"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsSlot"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsDirName"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileName"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileType"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileSize"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileAttr"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileDateTime"), ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    chasSupervisionRfsDfGroup = chasSupervisionRfsDfGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-IND1-CHASSIS-MIB", chasGlobalControlLongCommand=chasGlobalControlLongCommand, alcatelIND1ChassisPhysMIBCompliances=alcatelIND1ChassisPhysMIBCompliances, alaChasBpsPowerSupplyPowerProv=alaChasBpsPowerSupplyPowerProv, chasControlDelayedActivateTimer=chasControlDelayedActivateTimer, chasSupervisionRfsLsFileAttr=chasSupervisionRfsLsFileAttr, chasTrapsBPSEventAlert=chasTrapsBPSEventAlert, chasNiGrantedBpsSystemPower=chasNiGrantedBpsSystemPower, alaChasBpsMmcuRev=alaChasBpsMmcuRev, alaChasNotificationObjectGroup=alaChasNotificationObjectGroup, chasControlVersionMngt=chasControlVersionMngt, chassisTrapsStrfileName=chassisTrapsStrfileName, alaChasEntPhysFanGroup=alaChasEntPhysFanGroup, chasSupervisionFlashFree=chasSupervisionFlashFree, chassisTrapsStrdataInfo=chassisTrapsStrdataInfo, alaChasBpsConnectorPriority=alaChasBpsConnectorPriority, chasControlRedundantTable=chasControlRedundantTable, chassisFreeFlashSpace=chassisFreeFlashSpace, chasTrapsBPSSystemFETChange=chasTrapsBPSSystemFETChange, chasSupervisionSlot=chasSupervisionSlot, physicalIndex=physicalIndex, chasControlNumberOfTakeover=chasControlNumberOfTakeover, alaChasIssuForStackablesStatus=alaChasIssuForStackablesStatus, chasEntPhysLedStatusPrimaryCMM=chasEntPhysLedStatusPrimaryCMM, chasPrimaryPhysicalIndex=chasPrimaryPhysicalIndex, chasControlAcrossCmmCertifiedSynchroStatus=chasControlAcrossCmmCertifiedSynchroStatus, poePowerBudgetChangeReason=poePowerBudgetChangeReason, chasChassisTable=chasChassisTable, alaChasBpsGlobalGroup=alaChasBpsGlobalGroup, chasControlReloadStatusTable=chasControlReloadStatusTable, chasSupervisionRfsCommandsRlsDirName=chasSupervisionRfsCommandsRlsDirName, chasTempThreshold=chasTempThreshold, chasNumberOfResets=chasNumberOfResets, chasTempRange=chasTempRange, alaChasBpsEntry=alaChasBpsEntry, chassisTrapsBPSStateChange=chassisTrapsBPSStateChange, chasControlReloadIndex=chasControlReloadIndex, chassisTrapsNiBPSFETStateChange=chassisTrapsNiBPSFETStateChange, chasEntPhysLedStatusFan1=chasEntPhysLedStatusFan1, chasSupervisionRfsLsFileIndex=chasSupervisionRfsLsFileIndex, alcatelIND1ChassisSupervisionRfsCommands=alcatelIND1ChassisSupervisionRfsCommands, chasSupervisionRfsDfFlashFree=chasSupervisionRfsDfFlashFree, chasEntPhysLedStatusOk2=chasEntPhysLedStatusOk2, alaChasBpsPowerSupplyIndex=alaChasBpsPowerSupplyIndex, alaChasBpsPowerSupplyOperStatus=alaChasBpsPowerSupplyOperStatus, chasEntPhysLedStatusPSU=chasEntPhysLedStatusPSU, chasEntPhysModuleType=chasEntPhysModuleType, chasEntPhysCpldRev=chasEntPhysCpldRev, chasEntPhysLedStatusControl=chasEntPhysLedStatusControl, chasSupervisionRfsLsFileDateTime=chasSupervisionRfsLsFileDateTime, alaChasBpsUpdateFirmware=alaChasBpsUpdateFirmware, chasEntPhysLedStatusTemperature=chasEntPhysLedStatusTemperature, chasGlobalControlLongCommandStatus=chasGlobalControlLongCommandStatus, chassisTrapsObjectNumber=chassisTrapsObjectNumber, chasChassisGroup=chasChassisGroup, alaChasIssuForStackablesSlotsUpgraded=alaChasIssuForStackablesSlotsUpgraded, chassisTrapsStrfileLineNb=chassisTrapsStrfileLineNb, chassisTrapsStrErrorNb=chassisTrapsStrErrorNb, alcatelIND1ChassisMIBObjects=alcatelIND1ChassisMIBObjects, chasEntPhysLedStatusFabric=chasEntPhysLedStatusFabric, chasEntPhysicalEntry=chasEntPhysicalEntry, chasEntPhysBootromRev=chasEntPhysBootromRev, chasTrapsBPSPoeFETChange=chasTrapsBPSPoeFETChange, alaChasBpsPowerSupplyHardwareRev=alaChasBpsPowerSupplyHardwareRev, chasEntPhysicalGroup=chasEntPhysicalGroup, chasSupervisionFlashMemEntry=chasSupervisionFlashMemEntry, alaChasIssuForStackablesSlotInProgress=alaChasIssuForStackablesSlotInProgress, alcatelIND1ChassisMIBConformance=alcatelIND1ChassisMIBConformance, chasControlReloadStatusGroup=chasControlReloadStatusGroup, alaChasBpsConnPriorityGroup=alaChasBpsConnPriorityGroup, alaIpArpLimitConfig=alaIpArpLimitConfig, chasControlDelayedRebootTimer=chasControlDelayedRebootTimer, chasSupervisionRfsLsFileSize=chasSupervisionRfsLsFileSize, alaChasBpsTable=alaChasBpsTable, ChassisTrapsObjectNumber=ChassisTrapsObjectNumber, ChassisTrapsStrdataInfo=ChassisTrapsStrdataInfo, chasControlModuleEntry=chasControlModuleEntry, alcatelIND1ChassisMIBCompliances=alcatelIND1ChassisMIBCompliances, chasControlAcrossCmmWorkingSynchroStatus=chasControlAcrossCmmWorkingSynchroStatus, alaChasBpsPowerSupplyEntry=alaChasBpsPowerSupplyEntry, alaChasBpsPowerSupplySerialNum=alaChasBpsPowerSupplySerialNum, chasNiRequestedBpsSystemPower=chasNiRequestedBpsSystemPower, alaChasBpsPowerSupplyTable=alaChasBpsPowerSupplyTable, chasSupervisionCmmCertifiedStatusGroup=chasSupervisionCmmCertifiedStatusGroup, chasDangerTempThreshold=chasDangerTempThreshold, chasControlActivateTimeout=chasControlActivateTimeout, chasEntPhysLedStatusOk1=chasEntPhysLedStatusOk1, chassisTrapsStrSnapID=chassisTrapsStrSnapID, chasSupervisionFlashMemTable=chasSupervisionFlashMemTable, chassisTrapsStrAppID=chassisTrapsStrAppID, chasEntPhysMfgDate=chasEntPhysMfgDate, chasSupervisionRfsCommandsCommand=chasSupervisionRfsCommandsCommand, chasEntPhysLedStatus=chasEntPhysLedStatus, chasEntPhysPoeSwVersion=chasEntPhysPoeSwVersion, alcatelIND1ChassisPhysMIBCompliance=alcatelIND1ChassisPhysMIBCompliance, chasSupervisionRfsCommandsSlot=chasSupervisionRfsCommandsSlot, chasHardwareCpuTemp=chasHardwareCpuTemp, chasEntPhysDdmStatus=chasEntPhysDdmStatus, chasEntPhysGbicNum=chasEntPhysGbicNum, chassisTrapsAlert=chassisTrapsAlert, chasTrapsBPSPowerSupply=chasTrapsBPSPowerSupply, chasControlModuleGroup=chasControlModuleGroup, chassisTrapsStrcomments=chassisTrapsStrcomments, alaChasBpsCmcuRev=alaChasBpsCmcuRev, chasEntPhysPartNumber=chasEntPhysPartNumber, chasGlobalControlGroup=chasGlobalControlGroup, chasSupervisionRfsCommandsStatusCode=chasSupervisionRfsCommandsStatusCode, chasEntPhysLedStatusFan3=chasEntPhysLedStatusFan3, chasControlReloadEntry=chasControlReloadEntry, ChasEntPhysLed=ChasEntPhysLed, chasControlRunningVersion=chasControlRunningVersion, chasHardwareBoardTemp=chasHardwareBoardTemp, chasEntPhysAsicRev=chasEntPhysAsicRev, chasSupervisionCmmCertifiedStatus=chasSupervisionCmmCertifiedStatus, alaChasFdbHashMode=alaChasFdbHashMode, alaChasBpsPowerSupplyModuleType=alaChasBpsPowerSupplyModuleType, chasEntPhysNiNum=chasEntPhysNiNum, chasSupervisionRfsDfEntry=chasSupervisionRfsDfEntry, poePowerBudgetChangeSlot=poePowerBudgetChangeSlot, chasControlCertifyStatus=chasControlCertifyStatus, ChasTrapsBPSEventAlert=ChasTrapsBPSEventAlert, chasControlModuleTable=chasControlModuleTable, chasSupervisionRfsLsTable=chasSupervisionRfsLsTable, chasSupervisionRfsDfSlot=chasSupervisionRfsDfSlot, chasSupervisionRfsLsDirName=chasSupervisionRfsLsDirName, chasGlobalControl=chasGlobalControl, chassisTrapsStateChange=chassisTrapsStateChange, alaChasBpsConnectorNum=alaChasBpsConnectorNum, chasControlSynchronizationStatus=chasControlSynchronizationStatus, alaChasHashControlGroup=alaChasHashControlGroup, alaChasBpsPowerSupplyName=alaChasBpsPowerSupplyName, chasEntPhysUbootRev=chasEntPhysUbootRev, chassisPhysNotificationGroup=chassisPhysNotificationGroup, alaChasHashModeGroup=alaChasHashModeGroup, alaChasNonUCHashMode=alaChasNonUCHashMode, chasEntPhysPower=chasEntPhysPower, PYSNMP_MODULE_ID=alcatelIND1ChassisMIB, chassisTrapsStrLevel=chassisTrapsStrLevel, chasControlReloadStatus=chasControlReloadStatus, chassisTrapsObjectType=chassisTrapsObjectType, chassisTrapsAlertNumber=chassisTrapsAlertNumber, alaChasHashMode=alaChasHashMode, alaChasBpsPoeTotalAvailablePower=alaChasBpsPoeTotalAvailablePower, chassisTrapsObj=chassisTrapsObj, chasControlRedundantEntry=chasControlRedundantEntry, chasEntPhysLedStatusFan=chasEntPhysLedStatusFan, chasSupervisionRfsCommandsSrcFileName=chasSupervisionRfsCommandsSrcFileName, alaIpArpConfig=alaIpArpConfig, ChassisTrapsStrLevel=ChassisTrapsStrLevel, chasEntPhysPowerType=chasEntPhysPowerType, chasEntPhysicalTable=chasEntPhysicalTable, alaChasEntPhysFanEntry=alaChasEntPhysFanEntry, alcatelIND1ChassisMIBCompliance=alcatelIND1ChassisMIBCompliance, poePowerBudgetNew=poePowerBudgetNew, alaChasBpsSystemTotalAvailablePower=alaChasBpsSystemTotalAvailablePower, ChassisTrapsAlertNumber=ChassisTrapsAlertNumber, alaChasUdpTcpPortMode=alaChasUdpTcpPortMode, alcatelIND1ChassisMIBGroups=alcatelIND1ChassisMIBGroups, alaChasNonUCHashControlGroup=alaChasNonUCHashControlGroup, chasGlobalControlDelayedResetAll=chasGlobalControlDelayedResetAll, poePowerBudgetChange=poePowerBudgetChange, alcatelIND1ChassisSupervisionRfsGroup=alcatelIND1ChassisSupervisionRfsGroup, ChassisTrapsStrAppID=ChassisTrapsStrAppID, alaChasNonUCHashControl=alaChasNonUCHashControl, chasSupervisionCmmCertifiedTable=chasSupervisionCmmCertifiedTable, alcatelIND1ChassisPhysMIBConformance=alcatelIND1ChassisPhysMIBConformance, chasSupervisionRfsCommandsRlsFileName=chasSupervisionRfsCommandsRlsFileName, chasEntPhysBackUpMinibootRev=chasEntPhysBackUpMinibootRev, chasEntPhysWaveLen=chasEntPhysWaveLen, chasEntPhysCpuModel=chasEntPhysCpuModel, ChassisTrapsObjectType=ChassisTrapsObjectType, chasEntPhysLedStatusBackupPS=chasEntPhysLedStatusBackupPS, chasSupervisionRfsCommandsProcessingState=chasSupervisionRfsCommandsProcessingState, alaChasIssuForStackablesSlotsLeft=alaChasIssuForStackablesSlotsLeft, chasEntPhysDefaultMinibootRev=chasEntPhysDefaultMinibootRev, alaChasEntPhysFanTable=alaChasEntPhysFanTable, alaChasBpsPowerSupplyDescr=alaChasBpsPowerSupplyDescr, chasSupervisionRfsDfTable=chasSupervisionRfsDfTable, alaChasBpsSystemTotalAllocation=alaChasBpsSystemTotalAllocation, chasSupervisionRfsLsFileType=chasSupervisionRfsLsFileType, chasSupervisionCmmCertifiedEntry=chasSupervisionCmmCertifiedEntry, alaChasBpsNiNum=alaChasBpsNiNum, chasSupervisionRfsLsEntry=chasSupervisionRfsLsEntry, alaChasBpsPoeTotalAllocation=alaChasBpsPoeTotalAllocation, alaChasBpsPowerSupplyPartNumber=alaChasBpsPowerSupplyPartNumber, alcatelIND1ChassisMIB=alcatelIND1ChassisMIB, chasEntPhysMacAddress=chasEntPhysMacAddress, chasSupervisionRfsLsFileName=chasSupervisionRfsLsFileName, chasEntPhysLedStatusSecondaryCMM=chasEntPhysLedStatusSecondaryCMM, chasSupervisionRfsDfFlashSize=chasSupervisionRfsDfFlashSize, chasEntPhysOperStatus=chasEntPhysOperStatus, chasSupervisionFlashUsed=chasSupervisionFlashUsed, ChasTrapsBPSPowerSupply=ChasTrapsBPSPowerSupply, alaChasBpsPowerSupplyGroup=alaChasBpsPowerSupplyGroup, chasFreeSlots=chasFreeSlots, ChasEntPhysPowerType=ChasEntPhysPowerType, chassisNotificationGroup=chassisNotificationGroup, chassisTrapsStr=chassisTrapsStr, chasSupervisionFlashMemGroup=chasSupervisionFlashMemGroup, ChassisTrapsStrErrorNb=ChassisTrapsStrErrorNb, chasEntPhysAdminStatus=chasEntPhysAdminStatus, chassisTrapsLowFlashSpace=chassisTrapsLowFlashSpace, chasEntPhysLedStatusFan2=chasEntPhysLedStatusFan2, alcatelIND1ChassisPhysMIBObjects=alcatelIND1ChassisPhysMIBObjects, chasEntPhysLedStatusInternalPS=chasEntPhysLedStatusInternalPS, ChasTrapsBPSFetState=ChasTrapsBPSFetState, chasEntPhysUbootMinibootRev=chasEntPhysUbootMinibootRev, ChassisTrapsStrSnapID=ChassisTrapsStrSnapID, chassisTrapsAlertDescr=chassisTrapsAlertDescr, poePowerBudgetOld=poePowerBudgetOld, chassisTrapNiBPSLessAllocatedSytemPower=chassisTrapNiBPSLessAllocatedSytemPower, alaChasEntPhysFanStatus=alaChasEntPhysFanStatus, alaChasBpsPowerSupplyMfgDate=alaChasBpsPowerSupplyMfgDate, chasPowerLeft=chasPowerLeft, ChassisTrapsStrfileLineNb=ChassisTrapsStrfileLineNb, alaChasBpsCpldRev=alaChasBpsCpldRev, alcatelIND1ChassisPhysMIBGroups=alcatelIND1ChassisPhysMIBGroups, chasControlRedundantGroup=chasControlRedundantGroup, chasChassisEntry=chasChassisEntry, alaChasEntPhysFanLocalIndex=alaChasEntPhysFanLocalIndex, chasSupervisionRfsLsSlot=chasSupervisionRfsLsSlot, chasSupervisionRfsCommandsDestFileName=chasSupervisionRfsCommandsDestFileName, chasEntPhysPowerControlChecksum=chasEntPhysPowerControlChecksum, chasEntPhysC20LFailCont=chasEntPhysC20LFailCont, chasSupervisionRfsDfGroup=chasSupervisionRfsDfGroup, chasSupervisionCmmNum=chasSupervisionCmmNum, alaChasBpsMode=alaChasBpsMode, chassisTrapsDesc=chassisTrapsDesc, chasSupervisionFlashSize=chasSupervisionFlashSize)
+# MIB Managed Objects in the order of their OIDs
+
+_AlcatelIND1ChassisPhysMIBObjects_ObjectIdentity = ObjectIdentity
+alcatelIND1ChassisPhysMIBObjects = _AlcatelIND1ChassisPhysMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisPhysMIBObjects.setStatus("current")
+_ChasEntPhysicalTable_Object = MibTable
+chasEntPhysicalTable = _ChasEntPhysicalTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    chasEntPhysicalTable.setStatus("current")
+_ChasEntPhysicalEntry_Object = MibTableRow
+chasEntPhysicalEntry = _ChasEntPhysicalEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1)
+)
+chasEntPhysicalEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    chasEntPhysicalEntry.setStatus("current")
+
+
+class _ChasEntPhysAdminStatus_Type(Integer32):
+    """Custom type chasEntPhysAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("powerOff", 2),
+          ("powerOn", 3),
+          ("reset", 4),
+          ("takeover", 5),
+          ("resetAll", 6),
+          ("standby", 7),
+          ("resetWithFabric", 8),
+          ("takeoverWithFabrc", 9))
+    )
+
+
+_ChasEntPhysAdminStatus_Type.__name__ = "Integer32"
+_ChasEntPhysAdminStatus_Object = MibTableColumn
+chasEntPhysAdminStatus = _ChasEntPhysAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 1),
+    _ChasEntPhysAdminStatus_Type()
+)
+chasEntPhysAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    chasEntPhysAdminStatus.setStatus("current")
+
+
+class _ChasEntPhysOperStatus_Type(Integer32):
+    """Custom type chasEntPhysOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2),
+          ("testing", 3),
+          ("unknown", 4),
+          ("secondary", 5),
+          ("notPresent", 6),
+          ("unpowered", 7),
+          ("master", 8))
+    )
+
+
+_ChasEntPhysOperStatus_Type.__name__ = "Integer32"
+_ChasEntPhysOperStatus_Object = MibTableColumn
+chasEntPhysOperStatus = _ChasEntPhysOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 2),
+    _ChasEntPhysOperStatus_Type()
+)
+chasEntPhysOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysOperStatus.setStatus("current")
+
+
+class _ChasEntPhysLedStatus_Type(Bits):
+    """Custom type chasEntPhysLedStatus based on Bits"""
+    namedValues = NamedValues(
+        *(("ok1GreenLSBit", 0),
+          ("ok1GreenMSBit", 1),
+          ("ok1AmberLSBit", 2),
+          ("ok1AmberMSBit", 3),
+          ("ok2GreenLSBit", 4),
+          ("ok2GreenMSBit", 5),
+          ("ok2AmberLSBit", 6),
+          ("ok2AmberMSBit", 7),
+          ("controlGreenLSBit", 8),
+          ("controlGreenMSBit", 9),
+          ("controlAmberLSBIt", 10),
+          ("controlAmberMSBIt", 11),
+          ("fabricGreenLSBit", 12),
+          ("fabricGreenMSBit", 13),
+          ("fabricAmberLSBit", 14),
+          ("fabricAmberMSBit", 15),
+          ("tempGreenLSBit", 16),
+          ("tempGreenMSBit", 17),
+          ("tempAmberLSBit", 18),
+          ("tempAmberMSBit", 19),
+          ("fanGreenLSBit", 20),
+          ("fanGreenMSBit", 21),
+          ("fanAmberLSBit", 22),
+          ("fanAmberMSBit", 23),
+          ("powerSupGreenLSBit", 24),
+          ("powerSupGreenMSBit", 25),
+          ("powerSupAmberLSBit", 26),
+          ("powerSupAmberMSBit", 27),
+          ("backupPowerSupGreenLSBit", 28),
+          ("backupPowerSupGreenMSBit", 29),
+          ("backupPowerSupAmberLSBit", 30),
+          ("backupPowerSupAmberMSBit", 31))
+    )
+
+_ChasEntPhysLedStatus_Type.__name__ = "Bits"
+_ChasEntPhysLedStatus_Object = MibTableColumn
+chasEntPhysLedStatus = _ChasEntPhysLedStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 3),
+    _ChasEntPhysLedStatus_Type()
+)
+chasEntPhysLedStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatus.setStatus("deprecated")
+
+
+class _ChasEntPhysPower_Type(Integer32):
+    """Custom type chasEntPhysPower based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ChasEntPhysPower_Type.__name__ = "Integer32"
+_ChasEntPhysPower_Object = MibTableColumn
+chasEntPhysPower = _ChasEntPhysPower_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 4),
+    _ChasEntPhysPower_Type()
+)
+chasEntPhysPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysPower.setStatus("current")
+_ChasEntPhysModuleType_Type = SnmpAdminString
+_ChasEntPhysModuleType_Object = MibTableColumn
+chasEntPhysModuleType = _ChasEntPhysModuleType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 5),
+    _ChasEntPhysModuleType_Type()
+)
+chasEntPhysModuleType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysModuleType.setStatus("current")
+
+
+class _ChasEntPhysMfgDate_Type(SnmpAdminString):
+    """Custom type chasEntPhysMfgDate based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 11),
+    )
+
+
+_ChasEntPhysMfgDate_Type.__name__ = "SnmpAdminString"
+_ChasEntPhysMfgDate_Object = MibTableColumn
+chasEntPhysMfgDate = _ChasEntPhysMfgDate_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 6),
+    _ChasEntPhysMfgDate_Type()
+)
+chasEntPhysMfgDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysMfgDate.setStatus("current")
+
+
+class _ChasEntPhysPartNumber_Type(SnmpAdminString):
+    """Custom type chasEntPhysPartNumber based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_ChasEntPhysPartNumber_Type.__name__ = "SnmpAdminString"
+_ChasEntPhysPartNumber_Object = MibTableColumn
+chasEntPhysPartNumber = _ChasEntPhysPartNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 7),
+    _ChasEntPhysPartNumber_Type()
+)
+chasEntPhysPartNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysPartNumber.setStatus("current")
+_ChasEntPhysLedStatusOk1_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusOk1_Object = MibTableColumn
+chasEntPhysLedStatusOk1 = _ChasEntPhysLedStatusOk1_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 8),
+    _ChasEntPhysLedStatusOk1_Type()
+)
+chasEntPhysLedStatusOk1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusOk1.setStatus("current")
+_ChasEntPhysLedStatusOk2_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusOk2_Object = MibTableColumn
+chasEntPhysLedStatusOk2 = _ChasEntPhysLedStatusOk2_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 9),
+    _ChasEntPhysLedStatusOk2_Type()
+)
+chasEntPhysLedStatusOk2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusOk2.setStatus("current")
+_ChasEntPhysLedStatusPrimaryCMM_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusPrimaryCMM_Object = MibTableColumn
+chasEntPhysLedStatusPrimaryCMM = _ChasEntPhysLedStatusPrimaryCMM_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 10),
+    _ChasEntPhysLedStatusPrimaryCMM_Type()
+)
+chasEntPhysLedStatusPrimaryCMM.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusPrimaryCMM.setStatus("current")
+_ChasEntPhysLedStatusSecondaryCMM_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusSecondaryCMM_Object = MibTableColumn
+chasEntPhysLedStatusSecondaryCMM = _ChasEntPhysLedStatusSecondaryCMM_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 11),
+    _ChasEntPhysLedStatusSecondaryCMM_Type()
+)
+chasEntPhysLedStatusSecondaryCMM.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusSecondaryCMM.setStatus("current")
+_ChasEntPhysLedStatusTemperature_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusTemperature_Object = MibTableColumn
+chasEntPhysLedStatusTemperature = _ChasEntPhysLedStatusTemperature_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 12),
+    _ChasEntPhysLedStatusTemperature_Type()
+)
+chasEntPhysLedStatusTemperature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusTemperature.setStatus("current")
+_ChasEntPhysLedStatusFan_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusFan_Object = MibTableColumn
+chasEntPhysLedStatusFan = _ChasEntPhysLedStatusFan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 13),
+    _ChasEntPhysLedStatusFan_Type()
+)
+chasEntPhysLedStatusFan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusFan.setStatus("current")
+_ChasEntPhysLedStatusFan1_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusFan1_Object = MibTableColumn
+chasEntPhysLedStatusFan1 = _ChasEntPhysLedStatusFan1_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 14),
+    _ChasEntPhysLedStatusFan1_Type()
+)
+chasEntPhysLedStatusFan1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusFan1.setStatus("current")
+_ChasEntPhysLedStatusFan2_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusFan2_Object = MibTableColumn
+chasEntPhysLedStatusFan2 = _ChasEntPhysLedStatusFan2_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 15),
+    _ChasEntPhysLedStatusFan2_Type()
+)
+chasEntPhysLedStatusFan2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusFan2.setStatus("current")
+_ChasEntPhysLedStatusFan3_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusFan3_Object = MibTableColumn
+chasEntPhysLedStatusFan3 = _ChasEntPhysLedStatusFan3_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 16),
+    _ChasEntPhysLedStatusFan3_Type()
+)
+chasEntPhysLedStatusFan3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusFan3.setStatus("current")
+_ChasEntPhysLedStatusBackupPS_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusBackupPS_Object = MibTableColumn
+chasEntPhysLedStatusBackupPS = _ChasEntPhysLedStatusBackupPS_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 17),
+    _ChasEntPhysLedStatusBackupPS_Type()
+)
+chasEntPhysLedStatusBackupPS.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusBackupPS.setStatus("current")
+_ChasEntPhysLedStatusInternalPS_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusInternalPS_Object = MibTableColumn
+chasEntPhysLedStatusInternalPS = _ChasEntPhysLedStatusInternalPS_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 18),
+    _ChasEntPhysLedStatusInternalPS_Type()
+)
+chasEntPhysLedStatusInternalPS.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusInternalPS.setStatus("current")
+_ChasEntPhysLedStatusControl_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusControl_Object = MibTableColumn
+chasEntPhysLedStatusControl = _ChasEntPhysLedStatusControl_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 19),
+    _ChasEntPhysLedStatusControl_Type()
+)
+chasEntPhysLedStatusControl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusControl.setStatus("current")
+_ChasEntPhysLedStatusFabric_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusFabric_Object = MibTableColumn
+chasEntPhysLedStatusFabric = _ChasEntPhysLedStatusFabric_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 20),
+    _ChasEntPhysLedStatusFabric_Type()
+)
+chasEntPhysLedStatusFabric.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusFabric.setStatus("current")
+_ChasEntPhysLedStatusPSU_Type = ChasEntPhysLed
+_ChasEntPhysLedStatusPSU_Object = MibTableColumn
+chasEntPhysLedStatusPSU = _ChasEntPhysLedStatusPSU_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 21),
+    _ChasEntPhysLedStatusPSU_Type()
+)
+chasEntPhysLedStatusPSU.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysLedStatusPSU.setStatus("current")
+
+
+class _ChasEntPhysAsicRev_Type(SnmpAdminString):
+    """Custom type chasEntPhysAsicRev based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_ChasEntPhysAsicRev_Type.__name__ = "SnmpAdminString"
+_ChasEntPhysAsicRev_Object = MibTableColumn
+chasEntPhysAsicRev = _ChasEntPhysAsicRev_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 22),
+    _ChasEntPhysAsicRev_Type()
+)
+chasEntPhysAsicRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysAsicRev.setStatus("current")
+
+
+class _ChasEntPhysCpldRev_Type(SnmpAdminString):
+    """Custom type chasEntPhysCpldRev based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_ChasEntPhysCpldRev_Type.__name__ = "SnmpAdminString"
+_ChasEntPhysCpldRev_Object = MibTableColumn
+chasEntPhysCpldRev = _ChasEntPhysCpldRev_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 23),
+    _ChasEntPhysCpldRev_Type()
+)
+chasEntPhysCpldRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysCpldRev.setStatus("current")
+
+
+class _ChasEntPhysDefaultMinibootRev_Type(SnmpAdminString):
+    """Custom type chasEntPhysDefaultMinibootRev based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_ChasEntPhysDefaultMinibootRev_Type.__name__ = "SnmpAdminString"
+_ChasEntPhysDefaultMinibootRev_Object = MibTableColumn
+chasEntPhysDefaultMinibootRev = _ChasEntPhysDefaultMinibootRev_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 24),
+    _ChasEntPhysDefaultMinibootRev_Type()
+)
+chasEntPhysDefaultMinibootRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysDefaultMinibootRev.setStatus("current")
+
+
+class _ChasEntPhysBackUpMinibootRev_Type(SnmpAdminString):
+    """Custom type chasEntPhysBackUpMinibootRev based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_ChasEntPhysBackUpMinibootRev_Type.__name__ = "SnmpAdminString"
+_ChasEntPhysBackUpMinibootRev_Object = MibTableColumn
+chasEntPhysBackUpMinibootRev = _ChasEntPhysBackUpMinibootRev_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 25),
+    _ChasEntPhysBackUpMinibootRev_Type()
+)
+chasEntPhysBackUpMinibootRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysBackUpMinibootRev.setStatus("current")
+
+
+class _ChasEntPhysBootromRev_Type(SnmpAdminString):
+    """Custom type chasEntPhysBootromRev based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_ChasEntPhysBootromRev_Type.__name__ = "SnmpAdminString"
+_ChasEntPhysBootromRev_Object = MibTableColumn
+chasEntPhysBootromRev = _ChasEntPhysBootromRev_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 26),
+    _ChasEntPhysBootromRev_Type()
+)
+chasEntPhysBootromRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysBootromRev.setStatus("current")
+
+
+class _ChasEntPhysNiNum_Type(Integer32):
+    """Custom type chasEntPhysNiNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ChasEntPhysNiNum_Type.__name__ = "Integer32"
+_ChasEntPhysNiNum_Object = MibTableColumn
+chasEntPhysNiNum = _ChasEntPhysNiNum_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 27),
+    _ChasEntPhysNiNum_Type()
+)
+chasEntPhysNiNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysNiNum.setStatus("current")
+
+
+class _ChasEntPhysGbicNum_Type(Integer32):
+    """Custom type chasEntPhysGbicNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ChasEntPhysGbicNum_Type.__name__ = "Integer32"
+_ChasEntPhysGbicNum_Object = MibTableColumn
+chasEntPhysGbicNum = _ChasEntPhysGbicNum_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 28),
+    _ChasEntPhysGbicNum_Type()
+)
+chasEntPhysGbicNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysGbicNum.setStatus("current")
+
+
+class _ChasEntPhysWaveLen_Type(Integer32):
+    """Custom type chasEntPhysWaveLen based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ChasEntPhysWaveLen_Type.__name__ = "Integer32"
+_ChasEntPhysWaveLen_Object = MibTableColumn
+chasEntPhysWaveLen = _ChasEntPhysWaveLen_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 29),
+    _ChasEntPhysWaveLen_Type()
+)
+chasEntPhysWaveLen.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysWaveLen.setStatus("current")
+
+
+class _ChasEntPhysUbootRev_Type(SnmpAdminString):
+    """Custom type chasEntPhysUbootRev based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_ChasEntPhysUbootRev_Type.__name__ = "SnmpAdminString"
+_ChasEntPhysUbootRev_Object = MibTableColumn
+chasEntPhysUbootRev = _ChasEntPhysUbootRev_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 30),
+    _ChasEntPhysUbootRev_Type()
+)
+chasEntPhysUbootRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysUbootRev.setStatus("current")
+
+
+class _ChasEntPhysUbootMinibootRev_Type(SnmpAdminString):
+    """Custom type chasEntPhysUbootMinibootRev based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_ChasEntPhysUbootMinibootRev_Type.__name__ = "SnmpAdminString"
+_ChasEntPhysUbootMinibootRev_Object = MibTableColumn
+chasEntPhysUbootMinibootRev = _ChasEntPhysUbootMinibootRev_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 31),
+    _ChasEntPhysUbootMinibootRev_Type()
+)
+chasEntPhysUbootMinibootRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysUbootMinibootRev.setStatus("current")
+_ChasEntPhysMacAddress_Type = MacAddress
+_ChasEntPhysMacAddress_Object = MibTableColumn
+chasEntPhysMacAddress = _ChasEntPhysMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 32),
+    _ChasEntPhysMacAddress_Type()
+)
+chasEntPhysMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysMacAddress.setStatus("current")
+
+
+class _ChasEntPhysPoeSwVersion_Type(SnmpAdminString):
+    """Custom type chasEntPhysPoeSwVersion based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_ChasEntPhysPoeSwVersion_Type.__name__ = "SnmpAdminString"
+_ChasEntPhysPoeSwVersion_Object = MibTableColumn
+chasEntPhysPoeSwVersion = _ChasEntPhysPoeSwVersion_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 33),
+    _ChasEntPhysPoeSwVersion_Type()
+)
+chasEntPhysPoeSwVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysPoeSwVersion.setStatus("current")
+
+
+class _ChasEntPhysC20LFailCont_Type(Integer32):
+    """Custom type chasEntPhysC20LFailCont based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ChasEntPhysC20LFailCont_Type.__name__ = "Integer32"
+_ChasEntPhysC20LFailCont_Object = MibTableColumn
+chasEntPhysC20LFailCont = _ChasEntPhysC20LFailCont_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 34),
+    _ChasEntPhysC20LFailCont_Type()
+)
+chasEntPhysC20LFailCont.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysC20LFailCont.setStatus("current")
+
+
+class _ChasEntPhysCpuModel_Type(SnmpAdminString):
+    """Custom type chasEntPhysCpuModel based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_ChasEntPhysCpuModel_Type.__name__ = "SnmpAdminString"
+_ChasEntPhysCpuModel_Object = MibTableColumn
+chasEntPhysCpuModel = _ChasEntPhysCpuModel_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 35),
+    _ChasEntPhysCpuModel_Type()
+)
+chasEntPhysCpuModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysCpuModel.setStatus("current")
+_ChasEntPhysPowerType_Type = ChasEntPhysPowerType
+_ChasEntPhysPowerType_Object = MibTableColumn
+chasEntPhysPowerType = _ChasEntPhysPowerType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 36),
+    _ChasEntPhysPowerType_Type()
+)
+chasEntPhysPowerType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysPowerType.setStatus("current")
+_ChasEntPhysPowerControlChecksum_Type = SnmpAdminString
+_ChasEntPhysPowerControlChecksum_Object = MibTableColumn
+chasEntPhysPowerControlChecksum = _ChasEntPhysPowerControlChecksum_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 37),
+    _ChasEntPhysPowerControlChecksum_Type()
+)
+chasEntPhysPowerControlChecksum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysPowerControlChecksum.setStatus("current")
+
+
+class _ChasEntPhysDdmStatus_Type(Integer32):
+    """Custom type chasEntPhysDdmStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_ChasEntPhysDdmStatus_Type.__name__ = "Integer32"
+_ChasEntPhysDdmStatus_Object = MibTableColumn
+chasEntPhysDdmStatus = _ChasEntPhysDdmStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 1, 1, 1, 38),
+    _ChasEntPhysDdmStatus_Type()
+)
+chasEntPhysDdmStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasEntPhysDdmStatus.setStatus("current")
+_AlcatelIND1ChassisPhysMIBConformance_ObjectIdentity = ObjectIdentity
+alcatelIND1ChassisPhysMIBConformance = _AlcatelIND1ChassisPhysMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisPhysMIBConformance.setStatus("current")
+_AlcatelIND1ChassisPhysMIBGroups_ObjectIdentity = ObjectIdentity
+alcatelIND1ChassisPhysMIBGroups = _AlcatelIND1ChassisPhysMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisPhysMIBGroups.setStatus("current")
+_AlcatelIND1ChassisPhysMIBCompliances_ObjectIdentity = ObjectIdentity
+alcatelIND1ChassisPhysMIBCompliances = _AlcatelIND1ChassisPhysMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisPhysMIBCompliances.setStatus("current")
+_AlcatelIND1ChassisMIBObjects_ObjectIdentity = ObjectIdentity
+alcatelIND1ChassisMIBObjects = _AlcatelIND1ChassisMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisMIBObjects.setStatus("current")
+_ChasControlModuleTable_Object = MibTable
+chasControlModuleTable = _ChasControlModuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    chasControlModuleTable.setStatus("current")
+_ChasControlModuleEntry_Object = MibTableRow
+chasControlModuleEntry = _ChasControlModuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1)
+)
+chasControlModuleEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    chasControlModuleEntry.setStatus("current")
+
+
+class _ChasControlRunningVersion_Type(Integer32):
+    """Custom type chasControlRunningVersion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("working", 2),
+          ("certified", 3))
+    )
+
+
+_ChasControlRunningVersion_Type.__name__ = "Integer32"
+_ChasControlRunningVersion_Object = MibTableColumn
+chasControlRunningVersion = _ChasControlRunningVersion_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 1),
+    _ChasControlRunningVersion_Type()
+)
+chasControlRunningVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasControlRunningVersion.setStatus("current")
+
+
+class _ChasControlActivateTimeout_Type(Integer32):
+    """Custom type chasControlActivateTimeout based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 900),
+    )
+
+
+_ChasControlActivateTimeout_Type.__name__ = "Integer32"
+_ChasControlActivateTimeout_Object = MibTableColumn
+chasControlActivateTimeout = _ChasControlActivateTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 2),
+    _ChasControlActivateTimeout_Type()
+)
+chasControlActivateTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    chasControlActivateTimeout.setStatus("current")
+
+
+class _ChasControlVersionMngt_Type(Integer32):
+    """Custom type chasControlVersionMngt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notSignificant", 1),
+          ("certifySynchro", 2),
+          ("certifyNoSynchro", 3),
+          ("flashSynchro", 4),
+          ("restore", 5),
+          ("activate", 6))
+    )
+
+
+_ChasControlVersionMngt_Type.__name__ = "Integer32"
+_ChasControlVersionMngt_Object = MibTableColumn
+chasControlVersionMngt = _ChasControlVersionMngt_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 3),
+    _ChasControlVersionMngt_Type()
+)
+chasControlVersionMngt.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    chasControlVersionMngt.setStatus("current")
+
+
+class _ChasControlDelayedActivateTimer_Type(Unsigned32):
+    """Custom type chasControlDelayedActivateTimer based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31622400),
+    )
+
+
+_ChasControlDelayedActivateTimer_Type.__name__ = "Unsigned32"
+_ChasControlDelayedActivateTimer_Object = MibTableColumn
+chasControlDelayedActivateTimer = _ChasControlDelayedActivateTimer_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 4),
+    _ChasControlDelayedActivateTimer_Type()
+)
+chasControlDelayedActivateTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    chasControlDelayedActivateTimer.setStatus("current")
+
+
+class _ChasControlCertifyStatus_Type(Integer32):
+    """Custom type chasControlCertifyStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("needCertify", 2),
+          ("certified", 3))
+    )
+
+
+_ChasControlCertifyStatus_Type.__name__ = "Integer32"
+_ChasControlCertifyStatus_Object = MibTableColumn
+chasControlCertifyStatus = _ChasControlCertifyStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 5),
+    _ChasControlCertifyStatus_Type()
+)
+chasControlCertifyStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasControlCertifyStatus.setStatus("current")
+
+
+class _ChasControlSynchronizationStatus_Type(Integer32):
+    """Custom type chasControlSynchronizationStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("monoControlModule", 2),
+          ("notSynchronized", 3),
+          ("synchronized", 4))
+    )
+
+
+_ChasControlSynchronizationStatus_Type.__name__ = "Integer32"
+_ChasControlSynchronizationStatus_Object = MibTableColumn
+chasControlSynchronizationStatus = _ChasControlSynchronizationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 6),
+    _ChasControlSynchronizationStatus_Type()
+)
+chasControlSynchronizationStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasControlSynchronizationStatus.setStatus("current")
+
+
+class _ChasControlAcrossCmmWorkingSynchroStatus_Type(Integer32):
+    """Custom type chasControlAcrossCmmWorkingSynchroStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("monoCMM", 2),
+          ("no", 3),
+          ("yes", 4))
+    )
+
+
+_ChasControlAcrossCmmWorkingSynchroStatus_Type.__name__ = "Integer32"
+_ChasControlAcrossCmmWorkingSynchroStatus_Object = MibTableColumn
+chasControlAcrossCmmWorkingSynchroStatus = _ChasControlAcrossCmmWorkingSynchroStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 7),
+    _ChasControlAcrossCmmWorkingSynchroStatus_Type()
+)
+chasControlAcrossCmmWorkingSynchroStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasControlAcrossCmmWorkingSynchroStatus.setStatus("current")
+
+
+class _ChasControlAcrossCmmCertifiedSynchroStatus_Type(Integer32):
+    """Custom type chasControlAcrossCmmCertifiedSynchroStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("monoCMM", 2),
+          ("no", 3),
+          ("yes", 4))
+    )
+
+
+_ChasControlAcrossCmmCertifiedSynchroStatus_Type.__name__ = "Integer32"
+_ChasControlAcrossCmmCertifiedSynchroStatus_Object = MibTableColumn
+chasControlAcrossCmmCertifiedSynchroStatus = _ChasControlAcrossCmmCertifiedSynchroStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 1, 1, 8),
+    _ChasControlAcrossCmmCertifiedSynchroStatus_Type()
+)
+chasControlAcrossCmmCertifiedSynchroStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasControlAcrossCmmCertifiedSynchroStatus.setStatus("current")
+_ChasControlRedundantTable_Object = MibTable
+chasControlRedundantTable = _ChasControlRedundantTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    chasControlRedundantTable.setStatus("current")
+_ChasControlRedundantEntry_Object = MibTableRow
+chasControlRedundantEntry = _ChasControlRedundantEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 2, 1)
+)
+chasControlRedundantEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    chasControlRedundantEntry.setStatus("current")
+_ChasControlNumberOfTakeover_Type = Counter32
+_ChasControlNumberOfTakeover_Object = MibTableColumn
+chasControlNumberOfTakeover = _ChasControlNumberOfTakeover_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 2, 1, 1),
+    _ChasControlNumberOfTakeover_Type()
+)
+chasControlNumberOfTakeover.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasControlNumberOfTakeover.setStatus("current")
+
+
+class _ChasControlDelayedRebootTimer_Type(Unsigned32):
+    """Custom type chasControlDelayedRebootTimer based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31622400),
+    )
+
+
+_ChasControlDelayedRebootTimer_Type.__name__ = "Unsigned32"
+_ChasControlDelayedRebootTimer_Object = MibTableColumn
+chasControlDelayedRebootTimer = _ChasControlDelayedRebootTimer_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 2, 1, 2),
+    _ChasControlDelayedRebootTimer_Type()
+)
+chasControlDelayedRebootTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    chasControlDelayedRebootTimer.setStatus("current")
+_ChasChassisTable_Object = MibTable
+chasChassisTable = _ChasChassisTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    chasChassisTable.setStatus("current")
+_ChasChassisEntry_Object = MibTableRow
+chasChassisEntry = _ChasChassisEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1)
+)
+chasChassisEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    chasChassisEntry.setStatus("current")
+
+
+class _ChasFreeSlots_Type(Unsigned32):
+    """Custom type chasFreeSlots based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 18),
+    )
+
+
+_ChasFreeSlots_Type.__name__ = "Unsigned32"
+_ChasFreeSlots_Object = MibTableColumn
+chasFreeSlots = _ChasFreeSlots_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 1),
+    _ChasFreeSlots_Type()
+)
+chasFreeSlots.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasFreeSlots.setStatus("current")
+
+
+class _ChasPowerLeft_Type(Integer32):
+    """Custom type chasPowerLeft based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-100000, 100000),
+    )
+
+
+_ChasPowerLeft_Type.__name__ = "Integer32"
+_ChasPowerLeft_Object = MibTableColumn
+chasPowerLeft = _ChasPowerLeft_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 2),
+    _ChasPowerLeft_Type()
+)
+chasPowerLeft.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasPowerLeft.setStatus("current")
+_ChasNumberOfResets_Type = Counter32
+_ChasNumberOfResets_Object = MibTableColumn
+chasNumberOfResets = _ChasNumberOfResets_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 3),
+    _ChasNumberOfResets_Type()
+)
+chasNumberOfResets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasNumberOfResets.setStatus("current")
+
+
+class _ChasHardwareBoardTemp_Type(Integer32):
+    """Custom type chasHardwareBoardTemp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 200),
+    )
+
+
+_ChasHardwareBoardTemp_Type.__name__ = "Integer32"
+_ChasHardwareBoardTemp_Object = MibTableColumn
+chasHardwareBoardTemp = _ChasHardwareBoardTemp_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 4),
+    _ChasHardwareBoardTemp_Type()
+)
+chasHardwareBoardTemp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasHardwareBoardTemp.setStatus("current")
+
+
+class _ChasHardwareCpuTemp_Type(Integer32):
+    """Custom type chasHardwareCpuTemp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 200),
+    )
+
+
+_ChasHardwareCpuTemp_Type.__name__ = "Integer32"
+_ChasHardwareCpuTemp_Object = MibTableColumn
+chasHardwareCpuTemp = _ChasHardwareCpuTemp_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 5),
+    _ChasHardwareCpuTemp_Type()
+)
+chasHardwareCpuTemp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasHardwareCpuTemp.setStatus("current")
+
+
+class _ChasTempRange_Type(Integer32):
+    """Custom type chasTempRange based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("notPresent", 2),
+          ("underThreshold", 3),
+          ("overFirstThreshold", 4),
+          ("overDangerThreshold", 5))
+    )
+
+
+_ChasTempRange_Type.__name__ = "Integer32"
+_ChasTempRange_Object = MibTableColumn
+chasTempRange = _ChasTempRange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 6),
+    _ChasTempRange_Type()
+)
+chasTempRange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasTempRange.setStatus("current")
+
+
+class _ChasTempThreshold_Type(Integer32):
+    """Custom type chasTempThreshold based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 150),
+    )
+
+
+_ChasTempThreshold_Type.__name__ = "Integer32"
+_ChasTempThreshold_Object = MibTableColumn
+chasTempThreshold = _ChasTempThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 7),
+    _ChasTempThreshold_Type()
+)
+chasTempThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    chasTempThreshold.setStatus("current")
+
+
+class _ChasDangerTempThreshold_Type(Integer32):
+    """Custom type chasDangerTempThreshold based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(30, 150),
+    )
+
+
+_ChasDangerTempThreshold_Type.__name__ = "Integer32"
+_ChasDangerTempThreshold_Object = MibTableColumn
+chasDangerTempThreshold = _ChasDangerTempThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 8),
+    _ChasDangerTempThreshold_Type()
+)
+chasDangerTempThreshold.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasDangerTempThreshold.setStatus("current")
+
+
+class _ChasPrimaryPhysicalIndex_Type(Integer32):
+    """Custom type chasPrimaryPhysicalIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_ChasPrimaryPhysicalIndex_Type.__name__ = "Integer32"
+_ChasPrimaryPhysicalIndex_Object = MibTableColumn
+chasPrimaryPhysicalIndex = _ChasPrimaryPhysicalIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 3, 1, 9),
+    _ChasPrimaryPhysicalIndex_Type()
+)
+chasPrimaryPhysicalIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasPrimaryPhysicalIndex.setStatus("current")
+_ChasSupervisionRfsLsTable_Object = MibTable
+chasSupervisionRfsLsTable = _ChasSupervisionRfsLsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    chasSupervisionRfsLsTable.setStatus("current")
+_ChasSupervisionRfsLsEntry_Object = MibTableRow
+chasSupervisionRfsLsEntry = _ChasSupervisionRfsLsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1)
+)
+chasSupervisionRfsLsEntry.setIndexNames(
+    (0, "ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileIndex"),
+)
+if mibBuilder.loadTexts:
+    chasSupervisionRfsLsEntry.setStatus("current")
+
+
+class _ChasSupervisionRfsLsFileIndex_Type(Integer32):
+    """Custom type chasSupervisionRfsLsFileIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 100),
+    )
+
+
+_ChasSupervisionRfsLsFileIndex_Type.__name__ = "Integer32"
+_ChasSupervisionRfsLsFileIndex_Object = MibTableColumn
+chasSupervisionRfsLsFileIndex = _ChasSupervisionRfsLsFileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 1),
+    _ChasSupervisionRfsLsFileIndex_Type()
+)
+chasSupervisionRfsLsFileIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsLsFileIndex.setStatus("current")
+_ChasSupervisionRfsLsSlot_Type = Unsigned32
+_ChasSupervisionRfsLsSlot_Object = MibTableColumn
+chasSupervisionRfsLsSlot = _ChasSupervisionRfsLsSlot_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 2),
+    _ChasSupervisionRfsLsSlot_Type()
+)
+chasSupervisionRfsLsSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsLsSlot.setStatus("current")
+
+
+class _ChasSupervisionRfsLsDirName_Type(DisplayString):
+    """Custom type chasSupervisionRfsLsDirName based on DisplayString"""
+    defaultValue = OctetString("/flash")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_ChasSupervisionRfsLsDirName_Type.__name__ = "DisplayString"
+_ChasSupervisionRfsLsDirName_Object = MibTableColumn
+chasSupervisionRfsLsDirName = _ChasSupervisionRfsLsDirName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 3),
+    _ChasSupervisionRfsLsDirName_Type()
+)
+chasSupervisionRfsLsDirName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsLsDirName.setStatus("current")
+
+
+class _ChasSupervisionRfsLsFileName_Type(DisplayString):
+    """Custom type chasSupervisionRfsLsFileName based on DisplayString"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 33),
+    )
+
+
+_ChasSupervisionRfsLsFileName_Type.__name__ = "DisplayString"
+_ChasSupervisionRfsLsFileName_Object = MibTableColumn
+chasSupervisionRfsLsFileName = _ChasSupervisionRfsLsFileName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 4),
+    _ChasSupervisionRfsLsFileName_Type()
+)
+chasSupervisionRfsLsFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsLsFileName.setStatus("current")
+
+
+class _ChasSupervisionRfsLsFileType_Type(Integer32):
+    """Custom type chasSupervisionRfsLsFileType based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("file", 1),
+          ("directory", 2),
+          ("undefined", 3),
+          ("tarArchive", 4))
+    )
+
+
+_ChasSupervisionRfsLsFileType_Type.__name__ = "Integer32"
+_ChasSupervisionRfsLsFileType_Object = MibTableColumn
+chasSupervisionRfsLsFileType = _ChasSupervisionRfsLsFileType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 5),
+    _ChasSupervisionRfsLsFileType_Type()
+)
+chasSupervisionRfsLsFileType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsLsFileType.setStatus("current")
+
+
+class _ChasSupervisionRfsLsFileSize_Type(Unsigned32):
+    """Custom type chasSupervisionRfsLsFileSize based on Unsigned32"""
+    defaultValue = 0
+
+
+_ChasSupervisionRfsLsFileSize_Type.__name__ = "Unsigned32"
+_ChasSupervisionRfsLsFileSize_Object = MibTableColumn
+chasSupervisionRfsLsFileSize = _ChasSupervisionRfsLsFileSize_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 6),
+    _ChasSupervisionRfsLsFileSize_Type()
+)
+chasSupervisionRfsLsFileSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsLsFileSize.setStatus("current")
+
+
+class _ChasSupervisionRfsLsFileAttr_Type(Integer32):
+    """Custom type chasSupervisionRfsLsFileAttr based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("undefined", 1),
+          ("readOnly", 2),
+          ("readWrite", 3),
+          ("writeOnly", 4))
+    )
+
+
+_ChasSupervisionRfsLsFileAttr_Type.__name__ = "Integer32"
+_ChasSupervisionRfsLsFileAttr_Object = MibTableColumn
+chasSupervisionRfsLsFileAttr = _ChasSupervisionRfsLsFileAttr_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 7),
+    _ChasSupervisionRfsLsFileAttr_Type()
+)
+chasSupervisionRfsLsFileAttr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsLsFileAttr.setStatus("current")
+
+
+class _ChasSupervisionRfsLsFileDateTime_Type(DisplayString):
+    """Custom type chasSupervisionRfsLsFileDateTime based on DisplayString"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_ChasSupervisionRfsLsFileDateTime_Type.__name__ = "DisplayString"
+_ChasSupervisionRfsLsFileDateTime_Object = MibTableColumn
+chasSupervisionRfsLsFileDateTime = _ChasSupervisionRfsLsFileDateTime_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 4, 1, 8),
+    _ChasSupervisionRfsLsFileDateTime_Type()
+)
+chasSupervisionRfsLsFileDateTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsLsFileDateTime.setStatus("current")
+_AlcatelIND1ChassisSupervisionRfsCommands_ObjectIdentity = ObjectIdentity
+alcatelIND1ChassisSupervisionRfsCommands = _AlcatelIND1ChassisSupervisionRfsCommands_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisSupervisionRfsCommands.setStatus("current")
+_ChasSupervisionRfsCommandsSlot_Type = Unsigned32
+_ChasSupervisionRfsCommandsSlot_Object = MibScalar
+chasSupervisionRfsCommandsSlot = _ChasSupervisionRfsCommandsSlot_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 1),
+    _ChasSupervisionRfsCommandsSlot_Type()
+)
+chasSupervisionRfsCommandsSlot.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsCommandsSlot.setStatus("current")
+
+
+class _ChasSupervisionRfsCommandsCommand_Type(Integer32):
+    """Custom type chasSupervisionRfsCommandsCommand based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notSignificant", 0),
+          ("rrm", 1),
+          ("rcp", 2),
+          ("rls", 3),
+          ("rdf", 4),
+          ("reserved", 5))
+    )
+
+
+_ChasSupervisionRfsCommandsCommand_Type.__name__ = "Integer32"
+_ChasSupervisionRfsCommandsCommand_Object = MibScalar
+chasSupervisionRfsCommandsCommand = _ChasSupervisionRfsCommandsCommand_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 2),
+    _ChasSupervisionRfsCommandsCommand_Type()
+)
+chasSupervisionRfsCommandsCommand.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsCommandsCommand.setStatus("current")
+
+
+class _ChasSupervisionRfsCommandsSrcFileName_Type(DisplayString):
+    """Custom type chasSupervisionRfsCommandsSrcFileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_ChasSupervisionRfsCommandsSrcFileName_Type.__name__ = "DisplayString"
+_ChasSupervisionRfsCommandsSrcFileName_Object = MibScalar
+chasSupervisionRfsCommandsSrcFileName = _ChasSupervisionRfsCommandsSrcFileName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 3),
+    _ChasSupervisionRfsCommandsSrcFileName_Type()
+)
+chasSupervisionRfsCommandsSrcFileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsCommandsSrcFileName.setStatus("current")
+
+
+class _ChasSupervisionRfsCommandsDestFileName_Type(DisplayString):
+    """Custom type chasSupervisionRfsCommandsDestFileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_ChasSupervisionRfsCommandsDestFileName_Type.__name__ = "DisplayString"
+_ChasSupervisionRfsCommandsDestFileName_Object = MibScalar
+chasSupervisionRfsCommandsDestFileName = _ChasSupervisionRfsCommandsDestFileName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 4),
+    _ChasSupervisionRfsCommandsDestFileName_Type()
+)
+chasSupervisionRfsCommandsDestFileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsCommandsDestFileName.setStatus("current")
+
+
+class _ChasSupervisionRfsCommandsRlsDirName_Type(DisplayString):
+    """Custom type chasSupervisionRfsCommandsRlsDirName based on DisplayString"""
+    defaultValue = OctetString("/flash")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_ChasSupervisionRfsCommandsRlsDirName_Type.__name__ = "DisplayString"
+_ChasSupervisionRfsCommandsRlsDirName_Object = MibScalar
+chasSupervisionRfsCommandsRlsDirName = _ChasSupervisionRfsCommandsRlsDirName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 5),
+    _ChasSupervisionRfsCommandsRlsDirName_Type()
+)
+chasSupervisionRfsCommandsRlsDirName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsCommandsRlsDirName.setStatus("current")
+
+
+class _ChasSupervisionRfsCommandsRlsFileName_Type(DisplayString):
+    """Custom type chasSupervisionRfsCommandsRlsFileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 33),
+    )
+
+
+_ChasSupervisionRfsCommandsRlsFileName_Type.__name__ = "DisplayString"
+_ChasSupervisionRfsCommandsRlsFileName_Object = MibScalar
+chasSupervisionRfsCommandsRlsFileName = _ChasSupervisionRfsCommandsRlsFileName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 6),
+    _ChasSupervisionRfsCommandsRlsFileName_Type()
+)
+chasSupervisionRfsCommandsRlsFileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsCommandsRlsFileName.setStatus("current")
+
+
+class _ChasSupervisionRfsCommandsProcessingState_Type(Integer32):
+    """Custom type chasSupervisionRfsCommandsProcessingState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inProgress", 1),
+          ("ready", 2))
+    )
+
+
+_ChasSupervisionRfsCommandsProcessingState_Type.__name__ = "Integer32"
+_ChasSupervisionRfsCommandsProcessingState_Object = MibScalar
+chasSupervisionRfsCommandsProcessingState = _ChasSupervisionRfsCommandsProcessingState_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 7),
+    _ChasSupervisionRfsCommandsProcessingState_Type()
+)
+chasSupervisionRfsCommandsProcessingState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsCommandsProcessingState.setStatus("current")
+
+
+class _ChasSupervisionRfsCommandsStatusCode_Type(Integer32):
+    """Custom type chasSupervisionRfsCommandsStatusCode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("success", 1),
+          ("slotIsPrimary", 2),
+          ("slotNotExist", 3),
+          ("directoryNotExist", 4),
+          ("fileNotExist", 5),
+          ("maximumFilesExceed", 6),
+          ("noDiskSpace", 7),
+          ("systemBusy", 8),
+          ("systemError", 9),
+          ("directoryNotAllowToRemove", 10))
+    )
+
+
+_ChasSupervisionRfsCommandsStatusCode_Type.__name__ = "Integer32"
+_ChasSupervisionRfsCommandsStatusCode_Object = MibScalar
+chasSupervisionRfsCommandsStatusCode = _ChasSupervisionRfsCommandsStatusCode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 5, 8),
+    _ChasSupervisionRfsCommandsStatusCode_Type()
+)
+chasSupervisionRfsCommandsStatusCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsCommandsStatusCode.setStatus("current")
+_ChasControlReloadStatusTable_Object = MibTable
+chasControlReloadStatusTable = _ChasControlReloadStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 6)
+)
+if mibBuilder.loadTexts:
+    chasControlReloadStatusTable.setStatus("current")
+_ChasControlReloadEntry_Object = MibTableRow
+chasControlReloadEntry = _ChasControlReloadEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 6, 1)
+)
+chasControlReloadEntry.setIndexNames(
+    (0, "ALCATEL-IND1-CHASSIS-MIB", "chasControlReloadIndex"),
+)
+if mibBuilder.loadTexts:
+    chasControlReloadEntry.setStatus("current")
+
+
+class _ChasControlReloadIndex_Type(Integer32):
+    """Custom type chasControlReloadIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_ChasControlReloadIndex_Type.__name__ = "Integer32"
+_ChasControlReloadIndex_Object = MibTableColumn
+chasControlReloadIndex = _ChasControlReloadIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 6, 1, 1),
+    _ChasControlReloadIndex_Type()
+)
+chasControlReloadIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    chasControlReloadIndex.setStatus("current")
+
+
+class _ChasControlReloadStatus_Type(Integer32):
+    """Custom type chasControlReloadStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("reloadEnabled", 1),
+          ("reloadDisabled", 2),
+          ("noInterface", 3),
+          ("unknown", 4))
+    )
+
+
+_ChasControlReloadStatus_Type.__name__ = "Integer32"
+_ChasControlReloadStatus_Object = MibTableColumn
+chasControlReloadStatus = _ChasControlReloadStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 6, 1, 2),
+    _ChasControlReloadStatus_Type()
+)
+chasControlReloadStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasControlReloadStatus.setStatus("current")
+_ChasGlobalControl_ObjectIdentity = ObjectIdentity
+chasGlobalControl = _ChasGlobalControl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 7)
+)
+
+
+class _ChasGlobalControlDelayedResetAll_Type(Integer32):
+    """Custom type chasGlobalControlDelayedResetAll based on Integer32"""
+    defaultValue = -1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, 65535),
+    )
+
+
+_ChasGlobalControlDelayedResetAll_Type.__name__ = "Integer32"
+_ChasGlobalControlDelayedResetAll_Object = MibScalar
+chasGlobalControlDelayedResetAll = _ChasGlobalControlDelayedResetAll_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 7, 1),
+    _ChasGlobalControlDelayedResetAll_Type()
+)
+chasGlobalControlDelayedResetAll.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    chasGlobalControlDelayedResetAll.setStatus("current")
+
+
+class _ChasGlobalControlLongCommand_Type(Integer32):
+    """Custom type chasGlobalControlLongCommand based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("certifySynchro", 2),
+          ("certifyNoSynchro", 3),
+          ("flashSynchro", 4),
+          ("restore", 5))
+    )
+
+
+_ChasGlobalControlLongCommand_Type.__name__ = "Integer32"
+_ChasGlobalControlLongCommand_Object = MibScalar
+chasGlobalControlLongCommand = _ChasGlobalControlLongCommand_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 7, 2),
+    _ChasGlobalControlLongCommand_Type()
+)
+chasGlobalControlLongCommand.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasGlobalControlLongCommand.setStatus("current")
+
+
+class _ChasGlobalControlLongCommandStatus_Type(Integer32):
+    """Custom type chasGlobalControlLongCommandStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("inProgress", 2),
+          ("completeSuccess", 3),
+          ("completeFailure", 4))
+    )
+
+
+_ChasGlobalControlLongCommandStatus_Type.__name__ = "Integer32"
+_ChasGlobalControlLongCommandStatus_Object = MibScalar
+chasGlobalControlLongCommandStatus = _ChasGlobalControlLongCommandStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 7, 3),
+    _ChasGlobalControlLongCommandStatus_Type()
+)
+chasGlobalControlLongCommandStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasGlobalControlLongCommandStatus.setStatus("current")
+_ChasSupervisionRfsDfTable_Object = MibTable
+chasSupervisionRfsDfTable = _ChasSupervisionRfsDfTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 8)
+)
+if mibBuilder.loadTexts:
+    chasSupervisionRfsDfTable.setStatus("current")
+_ChasSupervisionRfsDfEntry_Object = MibTableRow
+chasSupervisionRfsDfEntry = _ChasSupervisionRfsDfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 8, 1)
+)
+chasSupervisionRfsDfEntry.setIndexNames(
+    (0, "ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsDfSlot"),
+)
+if mibBuilder.loadTexts:
+    chasSupervisionRfsDfEntry.setStatus("current")
+
+
+class _ChasSupervisionRfsDfSlot_Type(Integer32):
+    """Custom type chasSupervisionRfsDfSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32)
+        )
+    )
+    namedValues = NamedValues(
+        *(("slot1Flash", 1),
+          ("slot2Flash", 2),
+          ("slot3Flash", 3),
+          ("slot4Flash", 4),
+          ("slot5Flash", 5),
+          ("slot6Flash", 6),
+          ("slot7Flash", 7),
+          ("slot8Flash", 8),
+          ("slot9Flash", 9),
+          ("slot10Flash", 10),
+          ("slot11Flash", 11),
+          ("slot12Flash", 12),
+          ("slot13Flash", 13),
+          ("slot14Flash", 14),
+          ("slot15Flash", 15),
+          ("slot16Flash", 16),
+          ("slot1Uflash", 17),
+          ("slot2Uflash", 18),
+          ("slot3Uflash", 19),
+          ("slot4Uflash", 20),
+          ("slot5Uflash", 21),
+          ("slot6Uflash", 22),
+          ("slot7Uflash", 23),
+          ("slot8Uflash", 24),
+          ("slot9Uflash", 25),
+          ("slot10Uflash", 26),
+          ("slot11Uflash", 27),
+          ("slot12Uflash", 28),
+          ("slot13Uflash", 29),
+          ("slot14Uflash", 30),
+          ("slot15Uflash", 31),
+          ("slot16Uflash", 32))
+    )
+
+
+_ChasSupervisionRfsDfSlot_Type.__name__ = "Integer32"
+_ChasSupervisionRfsDfSlot_Object = MibTableColumn
+chasSupervisionRfsDfSlot = _ChasSupervisionRfsDfSlot_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 8, 1, 1),
+    _ChasSupervisionRfsDfSlot_Type()
+)
+chasSupervisionRfsDfSlot.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsDfSlot.setStatus("current")
+_ChasSupervisionRfsDfFlashFree_Type = Unsigned32
+_ChasSupervisionRfsDfFlashFree_Object = MibTableColumn
+chasSupervisionRfsDfFlashFree = _ChasSupervisionRfsDfFlashFree_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 8, 1, 2),
+    _ChasSupervisionRfsDfFlashFree_Type()
+)
+chasSupervisionRfsDfFlashFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsDfFlashFree.setStatus("current")
+_ChasSupervisionRfsDfFlashSize_Type = Unsigned32
+_ChasSupervisionRfsDfFlashSize_Object = MibTableColumn
+chasSupervisionRfsDfFlashSize = _ChasSupervisionRfsDfFlashSize_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 8, 1, 3),
+    _ChasSupervisionRfsDfFlashSize_Type()
+)
+chasSupervisionRfsDfFlashSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionRfsDfFlashSize.setStatus("current")
+_ChasSupervisionFlashMemTable_Object = MibTable
+chasSupervisionFlashMemTable = _ChasSupervisionFlashMemTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9)
+)
+if mibBuilder.loadTexts:
+    chasSupervisionFlashMemTable.setStatus("current")
+_ChasSupervisionFlashMemEntry_Object = MibTableRow
+chasSupervisionFlashMemEntry = _ChasSupervisionFlashMemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9, 1)
+)
+chasSupervisionFlashMemEntry.setIndexNames(
+    (0, "ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionSlot"),
+)
+if mibBuilder.loadTexts:
+    chasSupervisionFlashMemEntry.setStatus("current")
+
+
+class _ChasSupervisionSlot_Type(Integer32):
+    """Custom type chasSupervisionSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_ChasSupervisionSlot_Type.__name__ = "Integer32"
+_ChasSupervisionSlot_Object = MibTableColumn
+chasSupervisionSlot = _ChasSupervisionSlot_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9, 1, 1),
+    _ChasSupervisionSlot_Type()
+)
+chasSupervisionSlot.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    chasSupervisionSlot.setStatus("current")
+_ChasSupervisionFlashSize_Type = Unsigned32
+_ChasSupervisionFlashSize_Object = MibTableColumn
+chasSupervisionFlashSize = _ChasSupervisionFlashSize_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9, 1, 2),
+    _ChasSupervisionFlashSize_Type()
+)
+chasSupervisionFlashSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionFlashSize.setStatus("current")
+_ChasSupervisionFlashFree_Type = Unsigned32
+_ChasSupervisionFlashFree_Object = MibTableColumn
+chasSupervisionFlashFree = _ChasSupervisionFlashFree_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9, 1, 3),
+    _ChasSupervisionFlashFree_Type()
+)
+chasSupervisionFlashFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionFlashFree.setStatus("current")
+
+
+class _ChasSupervisionFlashUsed_Type(Integer32):
+    """Custom type chasSupervisionFlashUsed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_ChasSupervisionFlashUsed_Type.__name__ = "Integer32"
+_ChasSupervisionFlashUsed_Object = MibTableColumn
+chasSupervisionFlashUsed = _ChasSupervisionFlashUsed_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 9, 1, 4),
+    _ChasSupervisionFlashUsed_Type()
+)
+chasSupervisionFlashUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionFlashUsed.setStatus("current")
+_ChasSupervisionCmmCertifiedTable_Object = MibTable
+chasSupervisionCmmCertifiedTable = _ChasSupervisionCmmCertifiedTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 10)
+)
+if mibBuilder.loadTexts:
+    chasSupervisionCmmCertifiedTable.setStatus("current")
+_ChasSupervisionCmmCertifiedEntry_Object = MibTableRow
+chasSupervisionCmmCertifiedEntry = _ChasSupervisionCmmCertifiedEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 10, 1)
+)
+chasSupervisionCmmCertifiedEntry.setIndexNames(
+    (0, "ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionCmmNum"),
+)
+if mibBuilder.loadTexts:
+    chasSupervisionCmmCertifiedEntry.setStatus("current")
+
+
+class _ChasSupervisionCmmNum_Type(Integer32):
+    """Custom type chasSupervisionCmmNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_ChasSupervisionCmmNum_Type.__name__ = "Integer32"
+_ChasSupervisionCmmNum_Object = MibTableColumn
+chasSupervisionCmmNum = _ChasSupervisionCmmNum_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 10, 1, 1),
+    _ChasSupervisionCmmNum_Type()
+)
+chasSupervisionCmmNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    chasSupervisionCmmNum.setStatus("current")
+
+
+class _ChasSupervisionCmmCertifiedStatus_Type(Integer32):
+    """Custom type chasSupervisionCmmCertifiedStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notPresent", 0),
+          ("yes", 1),
+          ("no", 2))
+    )
+
+
+_ChasSupervisionCmmCertifiedStatus_Type.__name__ = "Integer32"
+_ChasSupervisionCmmCertifiedStatus_Object = MibTableColumn
+chasSupervisionCmmCertifiedStatus = _ChasSupervisionCmmCertifiedStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 10, 1, 2),
+    _ChasSupervisionCmmCertifiedStatus_Type()
+)
+chasSupervisionCmmCertifiedStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasSupervisionCmmCertifiedStatus.setStatus("current")
+_AlaChasEntPhysFanTable_Object = MibTable
+alaChasEntPhysFanTable = _AlaChasEntPhysFanTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 11)
+)
+if mibBuilder.loadTexts:
+    alaChasEntPhysFanTable.setStatus("current")
+_AlaChasEntPhysFanEntry_Object = MibTableRow
+alaChasEntPhysFanEntry = _AlaChasEntPhysFanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 11, 1)
+)
+alaChasEntPhysFanEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+    (0, "ALCATEL-IND1-CHASSIS-MIB", "alaChasEntPhysFanLocalIndex"),
+)
+if mibBuilder.loadTexts:
+    alaChasEntPhysFanEntry.setStatus("current")
+
+
+class _AlaChasEntPhysFanLocalIndex_Type(Integer32):
+    """Custom type alaChasEntPhysFanLocalIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_AlaChasEntPhysFanLocalIndex_Type.__name__ = "Integer32"
+_AlaChasEntPhysFanLocalIndex_Object = MibTableColumn
+alaChasEntPhysFanLocalIndex = _AlaChasEntPhysFanLocalIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 11, 1, 1),
+    _AlaChasEntPhysFanLocalIndex_Type()
+)
+alaChasEntPhysFanLocalIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaChasEntPhysFanLocalIndex.setStatus("current")
+
+
+class _AlaChasEntPhysFanStatus_Type(Integer32):
+    """Custom type alaChasEntPhysFanStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noStatus", 0),
+          ("notRunning", 1),
+          ("running", 2))
+    )
+
+
+_AlaChasEntPhysFanStatus_Type.__name__ = "Integer32"
+_AlaChasEntPhysFanStatus_Object = MibTableColumn
+alaChasEntPhysFanStatus = _AlaChasEntPhysFanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 11, 1, 2),
+    _AlaChasEntPhysFanStatus_Type()
+)
+alaChasEntPhysFanStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasEntPhysFanStatus.setStatus("current")
+
+
+class _AlaChasHashMode_Type(Integer32):
+    """Custom type alaChasHashMode based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("brief", 1),
+          ("extended", 2))
+    )
+
+
+_AlaChasHashMode_Type.__name__ = "Integer32"
+_AlaChasHashMode_Object = MibScalar
+alaChasHashMode = _AlaChasHashMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 12),
+    _AlaChasHashMode_Type()
+)
+alaChasHashMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaChasHashMode.setStatus("current")
+
+
+class _AlaChasUdpTcpPortMode_Type(Integer32):
+    """Custom type alaChasUdpTcpPortMode based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_AlaChasUdpTcpPortMode_Type.__name__ = "Integer32"
+_AlaChasUdpTcpPortMode_Object = MibScalar
+alaChasUdpTcpPortMode = _AlaChasUdpTcpPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 13),
+    _AlaChasUdpTcpPortMode_Type()
+)
+alaChasUdpTcpPortMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaChasUdpTcpPortMode.setStatus("current")
+
+
+class _AlaChasNonUCHashControl_Type(Integer32):
+    """Custom type alaChasNonUCHashControl based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_AlaChasNonUCHashControl_Type.__name__ = "Integer32"
+_AlaChasNonUCHashControl_Object = MibScalar
+alaChasNonUCHashControl = _AlaChasNonUCHashControl_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 14),
+    _AlaChasNonUCHashControl_Type()
+)
+alaChasNonUCHashControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaChasNonUCHashControl.setStatus("current")
+
+
+class _AlaChasIssuForStackablesStatus_Type(Integer32):
+    """Custom type alaChasIssuForStackablesStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("in-progress", 1),
+          ("disabled", 2),
+          ("aborted", 3),
+          ("successful", 4))
+    )
+
+
+_AlaChasIssuForStackablesStatus_Type.__name__ = "Integer32"
+_AlaChasIssuForStackablesStatus_Object = MibScalar
+alaChasIssuForStackablesStatus = _AlaChasIssuForStackablesStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 15),
+    _AlaChasIssuForStackablesStatus_Type()
+)
+alaChasIssuForStackablesStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasIssuForStackablesStatus.setStatus("current")
+
+
+class _AlaChasIssuForStackablesSlotsUpgraded_Type(DisplayString):
+    """Custom type alaChasIssuForStackablesSlotsUpgraded based on DisplayString"""
+    defaultValue = OctetString("None")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_AlaChasIssuForStackablesSlotsUpgraded_Type.__name__ = "DisplayString"
+_AlaChasIssuForStackablesSlotsUpgraded_Object = MibScalar
+alaChasIssuForStackablesSlotsUpgraded = _AlaChasIssuForStackablesSlotsUpgraded_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 16),
+    _AlaChasIssuForStackablesSlotsUpgraded_Type()
+)
+alaChasIssuForStackablesSlotsUpgraded.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasIssuForStackablesSlotsUpgraded.setStatus("current")
+
+
+class _AlaChasIssuForStackablesSlotInProgress_Type(Integer32):
+    """Custom type alaChasIssuForStackablesSlotInProgress based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_AlaChasIssuForStackablesSlotInProgress_Type.__name__ = "Integer32"
+_AlaChasIssuForStackablesSlotInProgress_Object = MibScalar
+alaChasIssuForStackablesSlotInProgress = _AlaChasIssuForStackablesSlotInProgress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 17),
+    _AlaChasIssuForStackablesSlotInProgress_Type()
+)
+alaChasIssuForStackablesSlotInProgress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasIssuForStackablesSlotInProgress.setStatus("current")
+
+
+class _AlaChasIssuForStackablesSlotsLeft_Type(DisplayString):
+    """Custom type alaChasIssuForStackablesSlotsLeft based on DisplayString"""
+    defaultValue = OctetString("None")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_AlaChasIssuForStackablesSlotsLeft_Type.__name__ = "DisplayString"
+_AlaChasIssuForStackablesSlotsLeft_Object = MibScalar
+alaChasIssuForStackablesSlotsLeft = _AlaChasIssuForStackablesSlotsLeft_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 18),
+    _AlaChasIssuForStackablesSlotsLeft_Type()
+)
+alaChasIssuForStackablesSlotsLeft.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasIssuForStackablesSlotsLeft.setStatus("current")
+
+
+class _AlaChasFdbHashMode_Type(Integer32):
+    """Custom type alaChasFdbHashMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("xor", 1),
+          ("crc", 2))
+    )
+
+
+_AlaChasFdbHashMode_Type.__name__ = "Integer32"
+_AlaChasFdbHashMode_Object = MibScalar
+alaChasFdbHashMode = _AlaChasFdbHashMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 19),
+    _AlaChasFdbHashMode_Type()
+)
+alaChasFdbHashMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaChasFdbHashMode.setStatus("current")
+
+
+class _AlaChasNonUCHashMode_Type(Integer32):
+    """Custom type alaChasNonUCHashMode based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("brief", 1),
+          ("normal", 2),
+          ("extended", 3))
+    )
+
+
+_AlaChasNonUCHashMode_Type.__name__ = "Integer32"
+_AlaChasNonUCHashMode_Object = MibScalar
+alaChasNonUCHashMode = _AlaChasNonUCHashMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 21),
+    _AlaChasNonUCHashMode_Type()
+)
+alaChasNonUCHashMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaChasNonUCHashMode.setStatus("current")
+
+
+class _AlaChasBpsUpdateFirmware_Type(Integer32):
+    """Custom type alaChasBpsUpdateFirmware based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("enabled", 2))
+    )
+
+
+_AlaChasBpsUpdateFirmware_Type.__name__ = "Integer32"
+_AlaChasBpsUpdateFirmware_Object = MibScalar
+alaChasBpsUpdateFirmware = _AlaChasBpsUpdateFirmware_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 22),
+    _AlaChasBpsUpdateFirmware_Type()
+)
+alaChasBpsUpdateFirmware.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaChasBpsUpdateFirmware.setStatus("current")
+
+
+class _AlaChasBpsMode_Type(Integer32):
+    """Custom type alaChasBpsMode based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 0),
+          ("single", 1),
+          ("full", 2))
+    )
+
+
+_AlaChasBpsMode_Type.__name__ = "Integer32"
+_AlaChasBpsMode_Object = MibScalar
+alaChasBpsMode = _AlaChasBpsMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 23),
+    _AlaChasBpsMode_Type()
+)
+alaChasBpsMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaChasBpsMode.setStatus("current")
+
+
+class _AlaChasBpsSystemTotalAvailablePower_Type(Integer32):
+    """Custom type alaChasBpsSystemTotalAvailablePower based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 900),
+    )
+
+
+_AlaChasBpsSystemTotalAvailablePower_Type.__name__ = "Integer32"
+_AlaChasBpsSystemTotalAvailablePower_Object = MibScalar
+alaChasBpsSystemTotalAvailablePower = _AlaChasBpsSystemTotalAvailablePower_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 24),
+    _AlaChasBpsSystemTotalAvailablePower_Type()
+)
+alaChasBpsSystemTotalAvailablePower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsSystemTotalAvailablePower.setStatus("current")
+
+
+class _AlaChasBpsSystemTotalAllocation_Type(Integer32):
+    """Custom type alaChasBpsSystemTotalAllocation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 900),
+    )
+
+
+_AlaChasBpsSystemTotalAllocation_Type.__name__ = "Integer32"
+_AlaChasBpsSystemTotalAllocation_Object = MibScalar
+alaChasBpsSystemTotalAllocation = _AlaChasBpsSystemTotalAllocation_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 25),
+    _AlaChasBpsSystemTotalAllocation_Type()
+)
+alaChasBpsSystemTotalAllocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsSystemTotalAllocation.setStatus("current")
+
+
+class _AlaChasBpsPoeTotalAvailablePower_Type(Integer32):
+    """Custom type alaChasBpsPoeTotalAvailablePower based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 6000),
+    )
+
+
+_AlaChasBpsPoeTotalAvailablePower_Type.__name__ = "Integer32"
+_AlaChasBpsPoeTotalAvailablePower_Object = MibScalar
+alaChasBpsPoeTotalAvailablePower = _AlaChasBpsPoeTotalAvailablePower_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 26),
+    _AlaChasBpsPoeTotalAvailablePower_Type()
+)
+alaChasBpsPoeTotalAvailablePower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsPoeTotalAvailablePower.setStatus("current")
+
+
+class _AlaChasBpsPoeTotalAllocation_Type(Integer32):
+    """Custom type alaChasBpsPoeTotalAllocation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 6000),
+    )
+
+
+_AlaChasBpsPoeTotalAllocation_Type.__name__ = "Integer32"
+_AlaChasBpsPoeTotalAllocation_Object = MibScalar
+alaChasBpsPoeTotalAllocation = _AlaChasBpsPoeTotalAllocation_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 27),
+    _AlaChasBpsPoeTotalAllocation_Type()
+)
+alaChasBpsPoeTotalAllocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsPoeTotalAllocation.setStatus("current")
+
+
+class _AlaChasBpsCpldRev_Type(SnmpAdminString):
+    """Custom type alaChasBpsCpldRev based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_AlaChasBpsCpldRev_Type.__name__ = "SnmpAdminString"
+_AlaChasBpsCpldRev_Object = MibScalar
+alaChasBpsCpldRev = _AlaChasBpsCpldRev_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 28),
+    _AlaChasBpsCpldRev_Type()
+)
+alaChasBpsCpldRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsCpldRev.setStatus("current")
+
+
+class _AlaChasBpsMmcuRev_Type(SnmpAdminString):
+    """Custom type alaChasBpsMmcuRev based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_AlaChasBpsMmcuRev_Type.__name__ = "SnmpAdminString"
+_AlaChasBpsMmcuRev_Object = MibScalar
+alaChasBpsMmcuRev = _AlaChasBpsMmcuRev_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 29),
+    _AlaChasBpsMmcuRev_Type()
+)
+alaChasBpsMmcuRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsMmcuRev.setStatus("current")
+
+
+class _AlaChasBpsCmcuRev_Type(SnmpAdminString):
+    """Custom type alaChasBpsCmcuRev based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_AlaChasBpsCmcuRev_Type.__name__ = "SnmpAdminString"
+_AlaChasBpsCmcuRev_Object = MibScalar
+alaChasBpsCmcuRev = _AlaChasBpsCmcuRev_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 30),
+    _AlaChasBpsCmcuRev_Type()
+)
+alaChasBpsCmcuRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsCmcuRev.setStatus("current")
+_AlaChasBpsTable_Object = MibTable
+alaChasBpsTable = _AlaChasBpsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 31)
+)
+if mibBuilder.loadTexts:
+    alaChasBpsTable.setStatus("current")
+_AlaChasBpsEntry_Object = MibTableRow
+alaChasBpsEntry = _AlaChasBpsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 31, 1)
+)
+alaChasBpsEntry.setIndexNames(
+    (0, "ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsNiNum"),
+)
+if mibBuilder.loadTexts:
+    alaChasBpsEntry.setStatus("current")
+
+
+class _AlaChasBpsNiNum_Type(Unsigned32):
+    """Custom type alaChasBpsNiNum based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_AlaChasBpsNiNum_Type.__name__ = "Unsigned32"
+_AlaChasBpsNiNum_Object = MibTableColumn
+alaChasBpsNiNum = _AlaChasBpsNiNum_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 31, 1, 1),
+    _AlaChasBpsNiNum_Type()
+)
+alaChasBpsNiNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaChasBpsNiNum.setStatus("current")
+
+
+class _AlaChasBpsConnectorPriority_Type(Unsigned32):
+    """Custom type alaChasBpsConnectorPriority based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_AlaChasBpsConnectorPriority_Type.__name__ = "Unsigned32"
+_AlaChasBpsConnectorPriority_Object = MibTableColumn
+alaChasBpsConnectorPriority = _AlaChasBpsConnectorPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 31, 1, 2),
+    _AlaChasBpsConnectorPriority_Type()
+)
+alaChasBpsConnectorPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaChasBpsConnectorPriority.setStatus("current")
+
+
+class _AlaChasBpsConnectorNum_Type(SnmpAdminString):
+    """Custom type alaChasBpsConnectorNum based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 14),
+    )
+
+
+_AlaChasBpsConnectorNum_Type.__name__ = "SnmpAdminString"
+_AlaChasBpsConnectorNum_Object = MibTableColumn
+alaChasBpsConnectorNum = _AlaChasBpsConnectorNum_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 31, 1, 3),
+    _AlaChasBpsConnectorNum_Type()
+)
+alaChasBpsConnectorNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsConnectorNum.setStatus("current")
+_AlaChasBpsPowerSupplyTable_Object = MibTable
+alaChasBpsPowerSupplyTable = _AlaChasBpsPowerSupplyTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32)
+)
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyTable.setStatus("current")
+_AlaChasBpsPowerSupplyEntry_Object = MibTableRow
+alaChasBpsPowerSupplyEntry = _AlaChasBpsPowerSupplyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1)
+)
+alaChasBpsPowerSupplyEntry.setIndexNames(
+    (0, "ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyIndex"),
+)
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyEntry.setStatus("current")
+
+
+class _AlaChasBpsPowerSupplyIndex_Type(Unsigned32):
+    """Custom type alaChasBpsPowerSupplyIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_AlaChasBpsPowerSupplyIndex_Type.__name__ = "Unsigned32"
+_AlaChasBpsPowerSupplyIndex_Object = MibTableColumn
+alaChasBpsPowerSupplyIndex = _AlaChasBpsPowerSupplyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 1),
+    _AlaChasBpsPowerSupplyIndex_Type()
+)
+alaChasBpsPowerSupplyIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyIndex.setStatus("current")
+_AlaChasBpsPowerSupplyName_Type = SnmpAdminString
+_AlaChasBpsPowerSupplyName_Object = MibTableColumn
+alaChasBpsPowerSupplyName = _AlaChasBpsPowerSupplyName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 2),
+    _AlaChasBpsPowerSupplyName_Type()
+)
+alaChasBpsPowerSupplyName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyName.setStatus("current")
+_AlaChasBpsPowerSupplyDescr_Type = SnmpAdminString
+_AlaChasBpsPowerSupplyDescr_Object = MibTableColumn
+alaChasBpsPowerSupplyDescr = _AlaChasBpsPowerSupplyDescr_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 3),
+    _AlaChasBpsPowerSupplyDescr_Type()
+)
+alaChasBpsPowerSupplyDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyDescr.setStatus("current")
+_AlaChasBpsPowerSupplyModuleType_Type = SnmpAdminString
+_AlaChasBpsPowerSupplyModuleType_Object = MibTableColumn
+alaChasBpsPowerSupplyModuleType = _AlaChasBpsPowerSupplyModuleType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 4),
+    _AlaChasBpsPowerSupplyModuleType_Type()
+)
+alaChasBpsPowerSupplyModuleType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyModuleType.setStatus("current")
+
+
+class _AlaChasBpsPowerSupplyPartNumber_Type(SnmpAdminString):
+    """Custom type alaChasBpsPowerSupplyPartNumber based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_AlaChasBpsPowerSupplyPartNumber_Type.__name__ = "SnmpAdminString"
+_AlaChasBpsPowerSupplyPartNumber_Object = MibTableColumn
+alaChasBpsPowerSupplyPartNumber = _AlaChasBpsPowerSupplyPartNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 5),
+    _AlaChasBpsPowerSupplyPartNumber_Type()
+)
+alaChasBpsPowerSupplyPartNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyPartNumber.setStatus("current")
+_AlaChasBpsPowerSupplyHardwareRev_Type = SnmpAdminString
+_AlaChasBpsPowerSupplyHardwareRev_Object = MibTableColumn
+alaChasBpsPowerSupplyHardwareRev = _AlaChasBpsPowerSupplyHardwareRev_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 6),
+    _AlaChasBpsPowerSupplyHardwareRev_Type()
+)
+alaChasBpsPowerSupplyHardwareRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyHardwareRev.setStatus("current")
+
+
+class _AlaChasBpsPowerSupplySerialNum_Type(SnmpAdminString):
+    """Custom type alaChasBpsPowerSupplySerialNum based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_AlaChasBpsPowerSupplySerialNum_Type.__name__ = "SnmpAdminString"
+_AlaChasBpsPowerSupplySerialNum_Object = MibTableColumn
+alaChasBpsPowerSupplySerialNum = _AlaChasBpsPowerSupplySerialNum_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 7),
+    _AlaChasBpsPowerSupplySerialNum_Type()
+)
+alaChasBpsPowerSupplySerialNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplySerialNum.setStatus("current")
+
+
+class _AlaChasBpsPowerSupplyMfgDate_Type(SnmpAdminString):
+    """Custom type alaChasBpsPowerSupplyMfgDate based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 11),
+    )
+
+
+_AlaChasBpsPowerSupplyMfgDate_Type.__name__ = "SnmpAdminString"
+_AlaChasBpsPowerSupplyMfgDate_Object = MibTableColumn
+alaChasBpsPowerSupplyMfgDate = _AlaChasBpsPowerSupplyMfgDate_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 8),
+    _AlaChasBpsPowerSupplyMfgDate_Type()
+)
+alaChasBpsPowerSupplyMfgDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyMfgDate.setStatus("current")
+
+
+class _AlaChasBpsPowerSupplyOperStatus_Type(Integer32):
+    """Custom type alaChasBpsPowerSupplyOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2),
+          ("unknown", 3))
+    )
+
+
+_AlaChasBpsPowerSupplyOperStatus_Type.__name__ = "Integer32"
+_AlaChasBpsPowerSupplyOperStatus_Object = MibTableColumn
+alaChasBpsPowerSupplyOperStatus = _AlaChasBpsPowerSupplyOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 9),
+    _AlaChasBpsPowerSupplyOperStatus_Type()
+)
+alaChasBpsPowerSupplyOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyOperStatus.setStatus("current")
+
+
+class _AlaChasBpsPowerSupplyPowerProv_Type(Integer32):
+    """Custom type alaChasBpsPowerSupplyPowerProv based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2000),
+    )
+
+
+_AlaChasBpsPowerSupplyPowerProv_Type.__name__ = "Integer32"
+_AlaChasBpsPowerSupplyPowerProv_Object = MibTableColumn
+alaChasBpsPowerSupplyPowerProv = _AlaChasBpsPowerSupplyPowerProv_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 1, 32, 1, 10),
+    _AlaChasBpsPowerSupplyPowerProv_Type()
+)
+alaChasBpsPowerSupplyPowerProv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyPowerProv.setStatus("current")
+_AlcatelIND1ChassisMIBConformance_ObjectIdentity = ObjectIdentity
+alcatelIND1ChassisMIBConformance = _AlcatelIND1ChassisMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisMIBConformance.setStatus("current")
+_AlcatelIND1ChassisMIBGroups_ObjectIdentity = ObjectIdentity
+alcatelIND1ChassisMIBGroups = _AlcatelIND1ChassisMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisMIBGroups.setStatus("current")
+_AlaIpArpConfig_ObjectIdentity = ObjectIdentity
+alaIpArpConfig = _AlaIpArpConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 33)
+)
+
+
+class _AlaIpArpLimitConfig_Type(Integer32):
+    """Custom type alaIpArpLimitConfig based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("default", 0),
+          ("extend", 2))
+    )
+
+
+_AlaIpArpLimitConfig_Type.__name__ = "Integer32"
+_AlaIpArpLimitConfig_Object = MibScalar
+alaIpArpLimitConfig = _AlaIpArpLimitConfig_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 33, 1),
+    _AlaIpArpLimitConfig_Type()
+)
+alaIpArpLimitConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpArpLimitConfig.setStatus("current")
+_AlcatelIND1ChassisMIBCompliances_ObjectIdentity = ObjectIdentity
+alcatelIND1ChassisMIBCompliances = _AlcatelIND1ChassisMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisMIBCompliances.setStatus("current")
+_ChassisTrapsDesc_ObjectIdentity = ObjectIdentity
+chassisTrapsDesc = _ChassisTrapsDesc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1)
+)
+_ChassisTrapsObj_ObjectIdentity = ObjectIdentity
+chassisTrapsObj = _ChassisTrapsObj_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2)
+)
+_ChassisTrapsStrLevel_Type = ChassisTrapsStrLevel
+_ChassisTrapsStrLevel_Object = MibScalar
+chassisTrapsStrLevel = _ChassisTrapsStrLevel_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 1),
+    _ChassisTrapsStrLevel_Type()
+)
+chassisTrapsStrLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsStrLevel.setStatus("current")
+_ChassisTrapsStrAppID_Type = ChassisTrapsStrAppID
+_ChassisTrapsStrAppID_Object = MibScalar
+chassisTrapsStrAppID = _ChassisTrapsStrAppID_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 2),
+    _ChassisTrapsStrAppID_Type()
+)
+chassisTrapsStrAppID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsStrAppID.setStatus("current")
+_ChassisTrapsStrSnapID_Type = ChassisTrapsStrSnapID
+_ChassisTrapsStrSnapID_Object = MibScalar
+chassisTrapsStrSnapID = _ChassisTrapsStrSnapID_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 3),
+    _ChassisTrapsStrSnapID_Type()
+)
+chassisTrapsStrSnapID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsStrSnapID.setStatus("current")
+
+
+class _ChassisTrapsStrfileName_Type(SnmpAdminString):
+    """Custom type chassisTrapsStrfileName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 19),
+    )
+
+
+_ChassisTrapsStrfileName_Type.__name__ = "SnmpAdminString"
+_ChassisTrapsStrfileName_Object = MibScalar
+chassisTrapsStrfileName = _ChassisTrapsStrfileName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 4),
+    _ChassisTrapsStrfileName_Type()
+)
+chassisTrapsStrfileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsStrfileName.setStatus("current")
+_ChassisTrapsStrfileLineNb_Type = ChassisTrapsStrfileLineNb
+_ChassisTrapsStrfileLineNb_Object = MibScalar
+chassisTrapsStrfileLineNb = _ChassisTrapsStrfileLineNb_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 5),
+    _ChassisTrapsStrfileLineNb_Type()
+)
+chassisTrapsStrfileLineNb.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsStrfileLineNb.setStatus("current")
+_ChassisTrapsStrErrorNb_Type = ChassisTrapsStrErrorNb
+_ChassisTrapsStrErrorNb_Object = MibScalar
+chassisTrapsStrErrorNb = _ChassisTrapsStrErrorNb_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 6),
+    _ChassisTrapsStrErrorNb_Type()
+)
+chassisTrapsStrErrorNb.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsStrErrorNb.setStatus("current")
+
+
+class _ChassisTrapsStrcomments_Type(SnmpAdminString):
+    """Custom type chassisTrapsStrcomments based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 63),
+    )
+
+
+_ChassisTrapsStrcomments_Type.__name__ = "SnmpAdminString"
+_ChassisTrapsStrcomments_Object = MibScalar
+chassisTrapsStrcomments = _ChassisTrapsStrcomments_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 7),
+    _ChassisTrapsStrcomments_Type()
+)
+chassisTrapsStrcomments.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsStrcomments.setStatus("current")
+_ChassisTrapsStrdataInfo_Type = ChassisTrapsStrdataInfo
+_ChassisTrapsStrdataInfo_Object = MibScalar
+chassisTrapsStrdataInfo = _ChassisTrapsStrdataInfo_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 8),
+    _ChassisTrapsStrdataInfo_Type()
+)
+chassisTrapsStrdataInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsStrdataInfo.setStatus("current")
+_ChassisTrapsObjectType_Type = ChassisTrapsObjectType
+_ChassisTrapsObjectType_Object = MibScalar
+chassisTrapsObjectType = _ChassisTrapsObjectType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 9),
+    _ChassisTrapsObjectType_Type()
+)
+chassisTrapsObjectType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsObjectType.setStatus("current")
+_ChassisTrapsObjectNumber_Type = ChassisTrapsObjectNumber
+_ChassisTrapsObjectNumber_Object = MibScalar
+chassisTrapsObjectNumber = _ChassisTrapsObjectNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 10),
+    _ChassisTrapsObjectNumber_Type()
+)
+chassisTrapsObjectNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsObjectNumber.setStatus("current")
+_ChassisTrapsAlertNumber_Type = ChassisTrapsAlertNumber
+_ChassisTrapsAlertNumber_Object = MibScalar
+chassisTrapsAlertNumber = _ChassisTrapsAlertNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 11),
+    _ChassisTrapsAlertNumber_Type()
+)
+chassisTrapsAlertNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsAlertNumber.setStatus("current")
+
+
+class _ChassisTrapsAlertDescr_Type(SnmpAdminString):
+    """Custom type chassisTrapsAlertDescr based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+_ChassisTrapsAlertDescr_Type.__name__ = "SnmpAdminString"
+_ChassisTrapsAlertDescr_Object = MibScalar
+chassisTrapsAlertDescr = _ChassisTrapsAlertDescr_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 12),
+    _ChassisTrapsAlertDescr_Type()
+)
+chassisTrapsAlertDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisTrapsAlertDescr.setStatus("current")
+_PhysicalIndex_Type = PhysicalIndex
+_PhysicalIndex_Object = MibScalar
+physicalIndex = _PhysicalIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 13),
+    _PhysicalIndex_Type()
+)
+physicalIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    physicalIndex.setStatus("current")
+
+
+class _PoePowerBudgetChangeSlot_Type(Integer32):
+    """Custom type poePowerBudgetChangeSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 64),
+    )
+
+
+_PoePowerBudgetChangeSlot_Type.__name__ = "Integer32"
+_PoePowerBudgetChangeSlot_Object = MibScalar
+poePowerBudgetChangeSlot = _PoePowerBudgetChangeSlot_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 16),
+    _PoePowerBudgetChangeSlot_Type()
+)
+poePowerBudgetChangeSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    poePowerBudgetChangeSlot.setStatus("current")
+
+
+class _PoePowerBudgetOld_Type(Integer32):
+    """Custom type poePowerBudgetOld based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 900),
+    )
+
+
+_PoePowerBudgetOld_Type.__name__ = "Integer32"
+_PoePowerBudgetOld_Object = MibScalar
+poePowerBudgetOld = _PoePowerBudgetOld_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 17),
+    _PoePowerBudgetOld_Type()
+)
+poePowerBudgetOld.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    poePowerBudgetOld.setStatus("current")
+
+
+class _PoePowerBudgetNew_Type(Integer32):
+    """Custom type poePowerBudgetNew based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 900),
+    )
+
+
+_PoePowerBudgetNew_Type.__name__ = "Integer32"
+_PoePowerBudgetNew_Object = MibScalar
+poePowerBudgetNew = _PoePowerBudgetNew_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 18),
+    _PoePowerBudgetNew_Type()
+)
+poePowerBudgetNew.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    poePowerBudgetNew.setStatus("current")
+
+
+class _PoePowerBudgetChangeReason_Type(Integer32):
+    """Custom type poePowerBudgetChangeReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("userConfigured", 1),
+          ("tempThresholdCrossed", 2),
+          ("tempThresholdNormal", 3),
+          ("powerSupplyChanged", 4))
+    )
+
+
+_PoePowerBudgetChangeReason_Type.__name__ = "Integer32"
+_PoePowerBudgetChangeReason_Object = MibScalar
+poePowerBudgetChangeReason = _PoePowerBudgetChangeReason_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 19),
+    _PoePowerBudgetChangeReason_Type()
+)
+poePowerBudgetChangeReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    poePowerBudgetChangeReason.setStatus("current")
+_ChassisFreeFlashSpace_Type = Unsigned32
+_ChassisFreeFlashSpace_Object = MibScalar
+chassisFreeFlashSpace = _ChassisFreeFlashSpace_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 20),
+    _ChassisFreeFlashSpace_Type()
+)
+chassisFreeFlashSpace.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chassisFreeFlashSpace.setStatus("current")
+
+
+class _ChasNiRequestedBpsSystemPower_Type(Unsigned32):
+    """Custom type chasNiRequestedBpsSystemPower based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 126),
+    )
+
+
+_ChasNiRequestedBpsSystemPower_Type.__name__ = "Unsigned32"
+_ChasNiRequestedBpsSystemPower_Object = MibScalar
+chasNiRequestedBpsSystemPower = _ChasNiRequestedBpsSystemPower_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 21),
+    _ChasNiRequestedBpsSystemPower_Type()
+)
+chasNiRequestedBpsSystemPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasNiRequestedBpsSystemPower.setStatus("current")
+
+
+class _ChasNiGrantedBpsSystemPower_Type(Unsigned32):
+    """Custom type chasNiGrantedBpsSystemPower based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 126),
+    )
+
+
+_ChasNiGrantedBpsSystemPower_Type.__name__ = "Unsigned32"
+_ChasNiGrantedBpsSystemPower_Object = MibScalar
+chasNiGrantedBpsSystemPower = _ChasNiGrantedBpsSystemPower_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 22),
+    _ChasNiGrantedBpsSystemPower_Type()
+)
+chasNiGrantedBpsSystemPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasNiGrantedBpsSystemPower.setStatus("current")
+_ChasTrapsBPSPowerSupply_Type = ChasTrapsBPSPowerSupply
+_ChasTrapsBPSPowerSupply_Object = MibScalar
+chasTrapsBPSPowerSupply = _ChasTrapsBPSPowerSupply_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 23),
+    _ChasTrapsBPSPowerSupply_Type()
+)
+chasTrapsBPSPowerSupply.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasTrapsBPSPowerSupply.setStatus("current")
+_ChasTrapsBPSEventAlert_Type = ChasTrapsBPSEventAlert
+_ChasTrapsBPSEventAlert_Object = MibScalar
+chasTrapsBPSEventAlert = _ChasTrapsBPSEventAlert_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 24),
+    _ChasTrapsBPSEventAlert_Type()
+)
+chasTrapsBPSEventAlert.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasTrapsBPSEventAlert.setStatus("current")
+_ChasTrapsBPSSystemFETChange_Type = ChasTrapsBPSFetState
+_ChasTrapsBPSSystemFETChange_Object = MibScalar
+chasTrapsBPSSystemFETChange = _ChasTrapsBPSSystemFETChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 25),
+    _ChasTrapsBPSSystemFETChange_Type()
+)
+chasTrapsBPSSystemFETChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasTrapsBPSSystemFETChange.setStatus("current")
+_ChasTrapsBPSPoeFETChange_Type = ChasTrapsBPSFetState
+_ChasTrapsBPSPoeFETChange_Object = MibScalar
+chasTrapsBPSPoeFETChange = _ChasTrapsBPSPoeFETChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 2, 26),
+    _ChasTrapsBPSPoeFETChange_Type()
+)
+chasTrapsBPSPoeFETChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    chasTrapsBPSPoeFETChange.setStatus("current")
+
+# Managed Objects groups
+
+chasEntPhysicalGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1, 1)
+)
+chasEntPhysicalGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysAdminStatus"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysOperStatus"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatus"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysPower"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysModuleType"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysMfgDate"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysPartNumber"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusOk1"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusOk2"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusPrimaryCMM"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusSecondaryCMM"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusTemperature"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusFan"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusFan1"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusFan2"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusFan3"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusBackupPS"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusInternalPS"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusControl"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusFabric"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysLedStatusPSU"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysPowerType"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysPowerControlChecksum"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysAsicRev"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysCpldRev"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysDefaultMinibootRev"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysBackUpMinibootRev"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysBootromRev"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysNiNum"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysGbicNum"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysWaveLen"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysUbootRev"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysUbootMinibootRev"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysMacAddress"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysPoeSwVersion"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysC20LFailCont"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysCpuModel"))
+)
+if mibBuilder.loadTexts:
+    chasEntPhysicalGroup.setStatus("current")
+
+chasSupervisionFlashMemGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1, 3)
+)
+chasSupervisionFlashMemGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionFlashSize"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionFlashFree"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionFlashUsed"))
+)
+if mibBuilder.loadTexts:
+    chasSupervisionFlashMemGroup.setStatus("current")
+
+alcatelIND1ChassisSupervisionRfsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1, 4)
+)
+alcatelIND1ChassisSupervisionRfsGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsSlot"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsCommand"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsDestFileName"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsRlsDirName"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsRlsFileName"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsProcessingState"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsStatusCode"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsCommandsSrcFileName"))
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisSupervisionRfsGroup.setStatus("current")
+
+chasSupervisionRfsDfGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1, 5)
+)
+chasSupervisionRfsDfGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsDfFlashFree"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsDfFlashSize"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsSlot"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsDirName"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileName"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileType"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileSize"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileAttr"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileDateTime"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsLsFileIndex"))
+)
+if mibBuilder.loadTexts:
+    chasSupervisionRfsDfGroup.setStatus("current")
+
+chasControlModuleGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 1)
+)
+chasControlModuleGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chasControlRunningVersion"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasControlActivateTimeout"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasControlVersionMngt"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasControlDelayedActivateTimer"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasControlCertifyStatus"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasControlSynchronizationStatus"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasControlAcrossCmmWorkingSynchroStatus"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasControlAcrossCmmCertifiedSynchroStatus"))
+)
+if mibBuilder.loadTexts:
+    chasControlModuleGroup.setStatus("current")
+
+chasControlRedundantGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 2)
+)
+chasControlRedundantGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chasControlNumberOfTakeover"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasControlDelayedRebootTimer"))
+)
+if mibBuilder.loadTexts:
+    chasControlRedundantGroup.setStatus("current")
+
+chasChassisGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 3)
+)
+chasChassisGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chasFreeSlots"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasPowerLeft"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasNumberOfResets"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasHardwareBoardTemp"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasHardwareCpuTemp"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasTempRange"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasTempThreshold"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasDangerTempThreshold"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasPrimaryPhysicalIndex"))
+)
+if mibBuilder.loadTexts:
+    chasChassisGroup.setStatus("current")
+
+chasControlReloadStatusGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 4)
+)
+chasControlReloadStatusGroup.setObjects(
+    ("ALCATEL-IND1-CHASSIS-MIB", "chasControlReloadStatus")
+)
+if mibBuilder.loadTexts:
+    chasControlReloadStatusGroup.setStatus("current")
+
+chasGlobalControlGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 5)
+)
+chasGlobalControlGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chasGlobalControlDelayedResetAll"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasGlobalControlLongCommand"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasGlobalControlLongCommandStatus"))
+)
+if mibBuilder.loadTexts:
+    chasGlobalControlGroup.setStatus("current")
+
+alaChasEntPhysFanGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 7)
+)
+alaChasEntPhysFanGroup.setObjects(
+    ("ALCATEL-IND1-CHASSIS-MIB", "alaChasEntPhysFanStatus")
+)
+if mibBuilder.loadTexts:
+    alaChasEntPhysFanGroup.setStatus("current")
+
+alaChasHashControlGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 8)
+)
+alaChasHashControlGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "alaChasHashMode"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasUdpTcpPortMode"))
+)
+if mibBuilder.loadTexts:
+    alaChasHashControlGroup.setStatus("current")
+
+alaChasNonUCHashControlGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 9)
+)
+alaChasNonUCHashControlGroup.setObjects(
+    ("ALCATEL-IND1-CHASSIS-MIB", "alaChasNonUCHashControl")
+)
+if mibBuilder.loadTexts:
+    alaChasNonUCHashControlGroup.setStatus("current")
+
+chasSupervisionCmmCertifiedStatusGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 10)
+)
+chasSupervisionCmmCertifiedStatusGroup.setObjects(
+    ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionCmmCertifiedStatus")
+)
+if mibBuilder.loadTexts:
+    chasSupervisionCmmCertifiedStatusGroup.setStatus("current")
+
+alaChasNotificationObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 11)
+)
+alaChasNotificationObjectGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrLevel"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrAppID"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrSnapID"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrfileName"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrfileLineNb"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrErrorNb"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrcomments"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrdataInfo"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectType"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectNumber"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlertNumber"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlertDescr"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"))
+)
+if mibBuilder.loadTexts:
+    alaChasNotificationObjectGroup.setStatus("current")
+
+alaChasHashModeGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 12)
+)
+alaChasHashModeGroup.setObjects(
+    ("ALCATEL-IND1-CHASSIS-MIB", "alaChasFdbHashMode")
+)
+if mibBuilder.loadTexts:
+    alaChasHashModeGroup.setStatus("current")
+
+alaChasBpsGlobalGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 13)
+)
+alaChasBpsGlobalGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsUpdateFirmware"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsMode"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsSystemTotalAvailablePower"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsSystemTotalAllocation"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPoeTotalAvailablePower"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPoeTotalAllocation"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsCpldRev"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsMmcuRev"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsCmcuRev"))
+)
+if mibBuilder.loadTexts:
+    alaChasBpsGlobalGroup.setStatus("current")
+
+alaChasBpsConnPriorityGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 14)
+)
+alaChasBpsConnPriorityGroup.setObjects(
+    ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsConnectorPriority")
+)
+if mibBuilder.loadTexts:
+    alaChasBpsConnPriorityGroup.setStatus("current")
+
+alaChasBpsPowerSupplyGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 15)
+)
+alaChasBpsPowerSupplyGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyName"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyDescr"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyModuleType"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyPartNumber"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyHardwareRev"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplySerialNum"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyMfgDate"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyOperStatus"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyPowerProv"))
+)
+if mibBuilder.loadTexts:
+    alaChasBpsPowerSupplyGroup.setStatus("current")
+
+
+# Notification objects
+
+chassisTrapsStr = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 1)
+)
+chassisTrapsStr.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrLevel"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrAppID"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrSnapID"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrfileName"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrfileLineNb"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrErrorNb"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrcomments"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStrdataInfo"))
+)
+if mibBuilder.loadTexts:
+    chassisTrapsStr.setStatus(
+        "current"
+    )
+
+chassisTrapsAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 2)
+)
+chassisTrapsAlert.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectType"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectNumber"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlertNumber"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlertDescr"))
+)
+if mibBuilder.loadTexts:
+    chassisTrapsAlert.setStatus(
+        "current"
+    )
+
+chassisTrapsStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 3)
+)
+chassisTrapsStateChange.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectType"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsObjectNumber"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysOperStatus"))
+)
+if mibBuilder.loadTexts:
+    chassisTrapsStateChange.setStatus(
+        "current"
+    )
+
+poePowerBudgetChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 6)
+)
+poePowerBudgetChange.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "poePowerBudgetChangeSlot"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "poePowerBudgetOld"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "poePowerBudgetNew"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "poePowerBudgetChangeReason"))
+)
+if mibBuilder.loadTexts:
+    poePowerBudgetChange.setStatus(
+        "current"
+    )
+
+chassisTrapsLowFlashSpace = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 7)
+)
+chassisTrapsLowFlashSpace.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisFreeFlashSpace"))
+)
+if mibBuilder.loadTexts:
+    chassisTrapsLowFlashSpace.setStatus(
+        "current"
+    )
+
+chassisTrapNiBPSLessAllocatedSytemPower = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 8)
+)
+chassisTrapNiBPSLessAllocatedSytemPower.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasNiRequestedBpsSystemPower"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasNiGrantedBpsSystemPower"))
+)
+if mibBuilder.loadTexts:
+    chassisTrapNiBPSLessAllocatedSytemPower.setStatus(
+        "current"
+    )
+
+chassisTrapsBPSStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 9)
+)
+chassisTrapsBPSStateChange.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chasTrapsBPSPowerSupply"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasTrapsBPSEventAlert"))
+)
+if mibBuilder.loadTexts:
+    chassisTrapsBPSStateChange.setStatus(
+        "current"
+    )
+
+chassisTrapsNiBPSFETStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 3, 2, 4, 1, 0, 10)
+)
+chassisTrapsNiBPSFETStateChange.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "physicalIndex"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasTrapsBPSSystemFETChange"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasTrapsBPSPoeFETChange"))
+)
+if mibBuilder.loadTexts:
+    chassisTrapsNiBPSFETStateChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+chassisPhysNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 1, 2)
+)
+chassisPhysNotificationGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStr"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlert"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStateChange"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "poePowerBudgetChange"))
+)
+if mibBuilder.loadTexts:
+    chassisPhysNotificationGroup.setStatus(
+        "current"
+    )
+
+chassisNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 1, 6)
+)
+chassisNotificationGroup.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsStr"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisTrapsAlert"))
+)
+if mibBuilder.loadTexts:
+    chassisNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alcatelIND1ChassisPhysMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 1, 2, 2, 1)
+)
+alcatelIND1ChassisPhysMIBCompliance.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chasEntPhysicalGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisPhysNotificationGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionFlashMemGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alcatelIND1ChassisSupervisionRfsGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionRfsDfGroup"))
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisPhysMIBCompliance.setStatus(
+        "current"
+    )
+
+alcatelIND1ChassisMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 1, 1, 3, 1, 2, 2, 1)
+)
+alcatelIND1ChassisMIBCompliance.setObjects(
+      *(("ALCATEL-IND1-CHASSIS-MIB", "chasControlModuleGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasControlRedundantGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasChassisGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasControlReloadStatusGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasGlobalControlGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chassisNotificationGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasEntPhysFanGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasHashControlGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasNonUCHashControlGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "chasSupervisionCmmCertifiedStatusGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasHashModeGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsGlobalGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsConnPriorityGroup"),
+        ("ALCATEL-IND1-CHASSIS-MIB", "alaChasBpsPowerSupplyGroup"))
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ChassisMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALCATEL-IND1-CHASSIS-MIB",
+    **{"ChasTrapsBPSPowerSupply": ChasTrapsBPSPowerSupply,
+       "ChasTrapsBPSFetState": ChasTrapsBPSFetState,
+       "ChasTrapsBPSEventAlert": ChasTrapsBPSEventAlert,
+       "ChasEntPhysLed": ChasEntPhysLed,
+       "ChasEntPhysPowerType": ChasEntPhysPowerType,
+       "ChassisTrapsStrLevel": ChassisTrapsStrLevel,
+       "ChassisTrapsStrAppID": ChassisTrapsStrAppID,
+       "ChassisTrapsStrSnapID": ChassisTrapsStrSnapID,
+       "ChassisTrapsStrfileLineNb": ChassisTrapsStrfileLineNb,
+       "ChassisTrapsStrErrorNb": ChassisTrapsStrErrorNb,
+       "ChassisTrapsStrdataInfo": ChassisTrapsStrdataInfo,
+       "ChassisTrapsObjectType": ChassisTrapsObjectType,
+       "ChassisTrapsObjectNumber": ChassisTrapsObjectNumber,
+       "ChassisTrapsAlertNumber": ChassisTrapsAlertNumber,
+       "alcatelIND1ChassisPhysMIBObjects": alcatelIND1ChassisPhysMIBObjects,
+       "chasEntPhysicalTable": chasEntPhysicalTable,
+       "chasEntPhysicalEntry": chasEntPhysicalEntry,
+       "chasEntPhysAdminStatus": chasEntPhysAdminStatus,
+       "chasEntPhysOperStatus": chasEntPhysOperStatus,
+       "chasEntPhysLedStatus": chasEntPhysLedStatus,
+       "chasEntPhysPower": chasEntPhysPower,
+       "chasEntPhysModuleType": chasEntPhysModuleType,
+       "chasEntPhysMfgDate": chasEntPhysMfgDate,
+       "chasEntPhysPartNumber": chasEntPhysPartNumber,
+       "chasEntPhysLedStatusOk1": chasEntPhysLedStatusOk1,
+       "chasEntPhysLedStatusOk2": chasEntPhysLedStatusOk2,
+       "chasEntPhysLedStatusPrimaryCMM": chasEntPhysLedStatusPrimaryCMM,
+       "chasEntPhysLedStatusSecondaryCMM": chasEntPhysLedStatusSecondaryCMM,
+       "chasEntPhysLedStatusTemperature": chasEntPhysLedStatusTemperature,
+       "chasEntPhysLedStatusFan": chasEntPhysLedStatusFan,
+       "chasEntPhysLedStatusFan1": chasEntPhysLedStatusFan1,
+       "chasEntPhysLedStatusFan2": chasEntPhysLedStatusFan2,
+       "chasEntPhysLedStatusFan3": chasEntPhysLedStatusFan3,
+       "chasEntPhysLedStatusBackupPS": chasEntPhysLedStatusBackupPS,
+       "chasEntPhysLedStatusInternalPS": chasEntPhysLedStatusInternalPS,
+       "chasEntPhysLedStatusControl": chasEntPhysLedStatusControl,
+       "chasEntPhysLedStatusFabric": chasEntPhysLedStatusFabric,
+       "chasEntPhysLedStatusPSU": chasEntPhysLedStatusPSU,
+       "chasEntPhysAsicRev": chasEntPhysAsicRev,
+       "chasEntPhysCpldRev": chasEntPhysCpldRev,
+       "chasEntPhysDefaultMinibootRev": chasEntPhysDefaultMinibootRev,
+       "chasEntPhysBackUpMinibootRev": chasEntPhysBackUpMinibootRev,
+       "chasEntPhysBootromRev": chasEntPhysBootromRev,
+       "chasEntPhysNiNum": chasEntPhysNiNum,
+       "chasEntPhysGbicNum": chasEntPhysGbicNum,
+       "chasEntPhysWaveLen": chasEntPhysWaveLen,
+       "chasEntPhysUbootRev": chasEntPhysUbootRev,
+       "chasEntPhysUbootMinibootRev": chasEntPhysUbootMinibootRev,
+       "chasEntPhysMacAddress": chasEntPhysMacAddress,
+       "chasEntPhysPoeSwVersion": chasEntPhysPoeSwVersion,
+       "chasEntPhysC20LFailCont": chasEntPhysC20LFailCont,
+       "chasEntPhysCpuModel": chasEntPhysCpuModel,
+       "chasEntPhysPowerType": chasEntPhysPowerType,
+       "chasEntPhysPowerControlChecksum": chasEntPhysPowerControlChecksum,
+       "chasEntPhysDdmStatus": chasEntPhysDdmStatus,
+       "alcatelIND1ChassisPhysMIBConformance": alcatelIND1ChassisPhysMIBConformance,
+       "alcatelIND1ChassisPhysMIBGroups": alcatelIND1ChassisPhysMIBGroups,
+       "chasEntPhysicalGroup": chasEntPhysicalGroup,
+       "chassisPhysNotificationGroup": chassisPhysNotificationGroup,
+       "chasSupervisionFlashMemGroup": chasSupervisionFlashMemGroup,
+       "alcatelIND1ChassisSupervisionRfsGroup": alcatelIND1ChassisSupervisionRfsGroup,
+       "chasSupervisionRfsDfGroup": chasSupervisionRfsDfGroup,
+       "alcatelIND1ChassisPhysMIBCompliances": alcatelIND1ChassisPhysMIBCompliances,
+       "alcatelIND1ChassisPhysMIBCompliance": alcatelIND1ChassisPhysMIBCompliance,
+       "alcatelIND1ChassisMIB": alcatelIND1ChassisMIB,
+       "alcatelIND1ChassisMIBObjects": alcatelIND1ChassisMIBObjects,
+       "chasControlModuleTable": chasControlModuleTable,
+       "chasControlModuleEntry": chasControlModuleEntry,
+       "chasControlRunningVersion": chasControlRunningVersion,
+       "chasControlActivateTimeout": chasControlActivateTimeout,
+       "chasControlVersionMngt": chasControlVersionMngt,
+       "chasControlDelayedActivateTimer": chasControlDelayedActivateTimer,
+       "chasControlCertifyStatus": chasControlCertifyStatus,
+       "chasControlSynchronizationStatus": chasControlSynchronizationStatus,
+       "chasControlAcrossCmmWorkingSynchroStatus": chasControlAcrossCmmWorkingSynchroStatus,
+       "chasControlAcrossCmmCertifiedSynchroStatus": chasControlAcrossCmmCertifiedSynchroStatus,
+       "chasControlRedundantTable": chasControlRedundantTable,
+       "chasControlRedundantEntry": chasControlRedundantEntry,
+       "chasControlNumberOfTakeover": chasControlNumberOfTakeover,
+       "chasControlDelayedRebootTimer": chasControlDelayedRebootTimer,
+       "chasChassisTable": chasChassisTable,
+       "chasChassisEntry": chasChassisEntry,
+       "chasFreeSlots": chasFreeSlots,
+       "chasPowerLeft": chasPowerLeft,
+       "chasNumberOfResets": chasNumberOfResets,
+       "chasHardwareBoardTemp": chasHardwareBoardTemp,
+       "chasHardwareCpuTemp": chasHardwareCpuTemp,
+       "chasTempRange": chasTempRange,
+       "chasTempThreshold": chasTempThreshold,
+       "chasDangerTempThreshold": chasDangerTempThreshold,
+       "chasPrimaryPhysicalIndex": chasPrimaryPhysicalIndex,
+       "chasSupervisionRfsLsTable": chasSupervisionRfsLsTable,
+       "chasSupervisionRfsLsEntry": chasSupervisionRfsLsEntry,
+       "chasSupervisionRfsLsFileIndex": chasSupervisionRfsLsFileIndex,
+       "chasSupervisionRfsLsSlot": chasSupervisionRfsLsSlot,
+       "chasSupervisionRfsLsDirName": chasSupervisionRfsLsDirName,
+       "chasSupervisionRfsLsFileName": chasSupervisionRfsLsFileName,
+       "chasSupervisionRfsLsFileType": chasSupervisionRfsLsFileType,
+       "chasSupervisionRfsLsFileSize": chasSupervisionRfsLsFileSize,
+       "chasSupervisionRfsLsFileAttr": chasSupervisionRfsLsFileAttr,
+       "chasSupervisionRfsLsFileDateTime": chasSupervisionRfsLsFileDateTime,
+       "alcatelIND1ChassisSupervisionRfsCommands": alcatelIND1ChassisSupervisionRfsCommands,
+       "chasSupervisionRfsCommandsSlot": chasSupervisionRfsCommandsSlot,
+       "chasSupervisionRfsCommandsCommand": chasSupervisionRfsCommandsCommand,
+       "chasSupervisionRfsCommandsSrcFileName": chasSupervisionRfsCommandsSrcFileName,
+       "chasSupervisionRfsCommandsDestFileName": chasSupervisionRfsCommandsDestFileName,
+       "chasSupervisionRfsCommandsRlsDirName": chasSupervisionRfsCommandsRlsDirName,
+       "chasSupervisionRfsCommandsRlsFileName": chasSupervisionRfsCommandsRlsFileName,
+       "chasSupervisionRfsCommandsProcessingState": chasSupervisionRfsCommandsProcessingState,
+       "chasSupervisionRfsCommandsStatusCode": chasSupervisionRfsCommandsStatusCode,
+       "chasControlReloadStatusTable": chasControlReloadStatusTable,
+       "chasControlReloadEntry": chasControlReloadEntry,
+       "chasControlReloadIndex": chasControlReloadIndex,
+       "chasControlReloadStatus": chasControlReloadStatus,
+       "chasGlobalControl": chasGlobalControl,
+       "chasGlobalControlDelayedResetAll": chasGlobalControlDelayedResetAll,
+       "chasGlobalControlLongCommand": chasGlobalControlLongCommand,
+       "chasGlobalControlLongCommandStatus": chasGlobalControlLongCommandStatus,
+       "chasSupervisionRfsDfTable": chasSupervisionRfsDfTable,
+       "chasSupervisionRfsDfEntry": chasSupervisionRfsDfEntry,
+       "chasSupervisionRfsDfSlot": chasSupervisionRfsDfSlot,
+       "chasSupervisionRfsDfFlashFree": chasSupervisionRfsDfFlashFree,
+       "chasSupervisionRfsDfFlashSize": chasSupervisionRfsDfFlashSize,
+       "chasSupervisionFlashMemTable": chasSupervisionFlashMemTable,
+       "chasSupervisionFlashMemEntry": chasSupervisionFlashMemEntry,
+       "chasSupervisionSlot": chasSupervisionSlot,
+       "chasSupervisionFlashSize": chasSupervisionFlashSize,
+       "chasSupervisionFlashFree": chasSupervisionFlashFree,
+       "chasSupervisionFlashUsed": chasSupervisionFlashUsed,
+       "chasSupervisionCmmCertifiedTable": chasSupervisionCmmCertifiedTable,
+       "chasSupervisionCmmCertifiedEntry": chasSupervisionCmmCertifiedEntry,
+       "chasSupervisionCmmNum": chasSupervisionCmmNum,
+       "chasSupervisionCmmCertifiedStatus": chasSupervisionCmmCertifiedStatus,
+       "alaChasEntPhysFanTable": alaChasEntPhysFanTable,
+       "alaChasEntPhysFanEntry": alaChasEntPhysFanEntry,
+       "alaChasEntPhysFanLocalIndex": alaChasEntPhysFanLocalIndex,
+       "alaChasEntPhysFanStatus": alaChasEntPhysFanStatus,
+       "alaChasHashMode": alaChasHashMode,
+       "alaChasUdpTcpPortMode": alaChasUdpTcpPortMode,
+       "alaChasNonUCHashControl": alaChasNonUCHashControl,
+       "alaChasIssuForStackablesStatus": alaChasIssuForStackablesStatus,
+       "alaChasIssuForStackablesSlotsUpgraded": alaChasIssuForStackablesSlotsUpgraded,
+       "alaChasIssuForStackablesSlotInProgress": alaChasIssuForStackablesSlotInProgress,
+       "alaChasIssuForStackablesSlotsLeft": alaChasIssuForStackablesSlotsLeft,
+       "alaChasFdbHashMode": alaChasFdbHashMode,
+       "alaChasNonUCHashMode": alaChasNonUCHashMode,
+       "alaChasBpsUpdateFirmware": alaChasBpsUpdateFirmware,
+       "alaChasBpsMode": alaChasBpsMode,
+       "alaChasBpsSystemTotalAvailablePower": alaChasBpsSystemTotalAvailablePower,
+       "alaChasBpsSystemTotalAllocation": alaChasBpsSystemTotalAllocation,
+       "alaChasBpsPoeTotalAvailablePower": alaChasBpsPoeTotalAvailablePower,
+       "alaChasBpsPoeTotalAllocation": alaChasBpsPoeTotalAllocation,
+       "alaChasBpsCpldRev": alaChasBpsCpldRev,
+       "alaChasBpsMmcuRev": alaChasBpsMmcuRev,
+       "alaChasBpsCmcuRev": alaChasBpsCmcuRev,
+       "alaChasBpsTable": alaChasBpsTable,
+       "alaChasBpsEntry": alaChasBpsEntry,
+       "alaChasBpsNiNum": alaChasBpsNiNum,
+       "alaChasBpsConnectorPriority": alaChasBpsConnectorPriority,
+       "alaChasBpsConnectorNum": alaChasBpsConnectorNum,
+       "alaChasBpsPowerSupplyTable": alaChasBpsPowerSupplyTable,
+       "alaChasBpsPowerSupplyEntry": alaChasBpsPowerSupplyEntry,
+       "alaChasBpsPowerSupplyIndex": alaChasBpsPowerSupplyIndex,
+       "alaChasBpsPowerSupplyName": alaChasBpsPowerSupplyName,
+       "alaChasBpsPowerSupplyDescr": alaChasBpsPowerSupplyDescr,
+       "alaChasBpsPowerSupplyModuleType": alaChasBpsPowerSupplyModuleType,
+       "alaChasBpsPowerSupplyPartNumber": alaChasBpsPowerSupplyPartNumber,
+       "alaChasBpsPowerSupplyHardwareRev": alaChasBpsPowerSupplyHardwareRev,
+       "alaChasBpsPowerSupplySerialNum": alaChasBpsPowerSupplySerialNum,
+       "alaChasBpsPowerSupplyMfgDate": alaChasBpsPowerSupplyMfgDate,
+       "alaChasBpsPowerSupplyOperStatus": alaChasBpsPowerSupplyOperStatus,
+       "alaChasBpsPowerSupplyPowerProv": alaChasBpsPowerSupplyPowerProv,
+       "alcatelIND1ChassisMIBConformance": alcatelIND1ChassisMIBConformance,
+       "alcatelIND1ChassisMIBGroups": alcatelIND1ChassisMIBGroups,
+       "chasControlModuleGroup": chasControlModuleGroup,
+       "chasControlRedundantGroup": chasControlRedundantGroup,
+       "chasChassisGroup": chasChassisGroup,
+       "chasControlReloadStatusGroup": chasControlReloadStatusGroup,
+       "chasGlobalControlGroup": chasGlobalControlGroup,
+       "chassisNotificationGroup": chassisNotificationGroup,
+       "alaChasEntPhysFanGroup": alaChasEntPhysFanGroup,
+       "alaChasHashControlGroup": alaChasHashControlGroup,
+       "alaChasNonUCHashControlGroup": alaChasNonUCHashControlGroup,
+       "chasSupervisionCmmCertifiedStatusGroup": chasSupervisionCmmCertifiedStatusGroup,
+       "alaChasNotificationObjectGroup": alaChasNotificationObjectGroup,
+       "alaChasHashModeGroup": alaChasHashModeGroup,
+       "alaChasBpsGlobalGroup": alaChasBpsGlobalGroup,
+       "alaChasBpsConnPriorityGroup": alaChasBpsConnPriorityGroup,
+       "alaChasBpsPowerSupplyGroup": alaChasBpsPowerSupplyGroup,
+       "alaIpArpConfig": alaIpArpConfig,
+       "alaIpArpLimitConfig": alaIpArpLimitConfig,
+       "alcatelIND1ChassisMIBCompliances": alcatelIND1ChassisMIBCompliances,
+       "alcatelIND1ChassisMIBCompliance": alcatelIND1ChassisMIBCompliance,
+       "chassisTrapsDesc": chassisTrapsDesc,
+       "chassisTrapsStr": chassisTrapsStr,
+       "chassisTrapsAlert": chassisTrapsAlert,
+       "chassisTrapsStateChange": chassisTrapsStateChange,
+       "poePowerBudgetChange": poePowerBudgetChange,
+       "chassisTrapsLowFlashSpace": chassisTrapsLowFlashSpace,
+       "chassisTrapNiBPSLessAllocatedSytemPower": chassisTrapNiBPSLessAllocatedSytemPower,
+       "chassisTrapsBPSStateChange": chassisTrapsBPSStateChange,
+       "chassisTrapsNiBPSFETStateChange": chassisTrapsNiBPSFETStateChange,
+       "chassisTrapsObj": chassisTrapsObj,
+       "chassisTrapsStrLevel": chassisTrapsStrLevel,
+       "chassisTrapsStrAppID": chassisTrapsStrAppID,
+       "chassisTrapsStrSnapID": chassisTrapsStrSnapID,
+       "chassisTrapsStrfileName": chassisTrapsStrfileName,
+       "chassisTrapsStrfileLineNb": chassisTrapsStrfileLineNb,
+       "chassisTrapsStrErrorNb": chassisTrapsStrErrorNb,
+       "chassisTrapsStrcomments": chassisTrapsStrcomments,
+       "chassisTrapsStrdataInfo": chassisTrapsStrdataInfo,
+       "chassisTrapsObjectType": chassisTrapsObjectType,
+       "chassisTrapsObjectNumber": chassisTrapsObjectNumber,
+       "chassisTrapsAlertNumber": chassisTrapsAlertNumber,
+       "chassisTrapsAlertDescr": chassisTrapsAlertDescr,
+       "physicalIndex": physicalIndex,
+       "poePowerBudgetChangeSlot": poePowerBudgetChangeSlot,
+       "poePowerBudgetOld": poePowerBudgetOld,
+       "poePowerBudgetNew": poePowerBudgetNew,
+       "poePowerBudgetChangeReason": poePowerBudgetChangeReason,
+       "chassisFreeFlashSpace": chassisFreeFlashSpace,
+       "chasNiRequestedBpsSystemPower": chasNiRequestedBpsSystemPower,
+       "chasNiGrantedBpsSystemPower": chasNiGrantedBpsSystemPower,
+       "chasTrapsBPSPowerSupply": chasTrapsBPSPowerSupply,
+       "chasTrapsBPSEventAlert": chasTrapsBPSEventAlert,
+       "chasTrapsBPSSystemFETChange": chasTrapsBPSSystemFETChange,
+       "chasTrapsBPSPoeFETChange": chasTrapsBPSPoeFETChange}
+)

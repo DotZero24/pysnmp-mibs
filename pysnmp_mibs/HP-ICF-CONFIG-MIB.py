@@ -1,58 +1,410 @@
+# SNMP MIB module (HP-ICF-CONFIG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HP-ICF-CONFIG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HP-ICF-CONFIG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:08:20 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HP-ICF-CONFIG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:35:38 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
-hpicfConfig = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136))
-hpicfConfig.setRevisions(('2017-10-07 00:00', '2017-04-19 00:00', '2017-03-08 00:00',))
-if mibBuilder.loadTexts: hpicfConfig.setLastUpdated('201710070000Z')
-if mibBuilder.loadTexts: hpicfConfig.setOrganization('HP Networking')
-hpicfConfigNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 0))
-hpicfConfigScalar = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 1))
-hpicfConfigGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 2))
-hpicfConfigConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3))
-hpicfConfigConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4))
-hpicfConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1))
-hpicfConfigRestoreFileName = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfConfigRestoreFileName.setStatus('current')
-hpicfConfigRunningConfigSHA = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpicfConfigRunningConfigSHA.setStatus('current')
-hpicfConfigStartupConfigSHA = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpicfConfigStartupConfigSHA.setStatus('current')
-hpicfConfigRestoreStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("notYetRun", 1), ("inProgress", 2), ("success", 3), ("failed", 4))).clone('notYetRun')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpicfConfigRestoreStatus.setStatus('current')
-hpicfConfigRecoveryMode = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfConfigRecoveryMode.setStatus('current')
-hpicfConfigFilesObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2))
-hpicfConfigFilesTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2, 1), )
-if mibBuilder.loadTexts: hpicfConfigFilesTable.setStatus('current')
-hpicfConfigFilesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2, 1, 1), ).setIndexNames((0, "HP-ICF-CONFIG-MIB", "hpicfConfigFilePos"))
-if mibBuilder.loadTexts: hpicfConfigFilesEntry.setStatus('current')
-hpicfConfigFilePos = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: hpicfConfigFilePos.setStatus('current')
-hpicfConfigFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpicfConfigFileName.setStatus('current')
-hpicfConfigTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2, 1, 1, 3), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpicfConfigTimestamp.setStatus('current')
-hpicfConfigGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3, 1))
-hpicfConfigMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3, 2))
-hpicfConfigMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3, 2, 1)).setObjects(("HP-ICF-CONFIG-MIB", "hpicfConfigScalarsGroup"), ("HP-ICF-CONFIG-MIB", "hpicfConfigFilesGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfConfigMIBCompliance = hpicfConfigMIBCompliance.setStatus('current')
-hpicfConfigScalarsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3, 1, 1)).setObjects(("HP-ICF-CONFIG-MIB", "hpicfConfigRestoreFileName"), ("HP-ICF-CONFIG-MIB", "hpicfConfigRunningConfigSHA"), ("HP-ICF-CONFIG-MIB", "hpicfConfigStartupConfigSHA"), ("HP-ICF-CONFIG-MIB", "hpicfConfigRestoreStatus"), ("HP-ICF-CONFIG-MIB", "hpicfConfigRecoveryMode"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfConfigScalarsGroup = hpicfConfigScalarsGroup.setStatus('current')
-hpicfConfigFilesGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3, 1, 2)).setObjects(("HP-ICF-CONFIG-MIB", "hpicfConfigFileName"), ("HP-ICF-CONFIG-MIB", "hpicfConfigTimestamp"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfConfigFilesGroup = hpicfConfigFilesGroup.setStatus('current')
-mibBuilder.exportSymbols("HP-ICF-CONFIG-MIB", hpicfConfigMIBCompliance=hpicfConfigMIBCompliance, hpicfConfigScalar=hpicfConfigScalar, hpicfConfigGlobals=hpicfConfigGlobals, hpicfConfigScalarsGroup=hpicfConfigScalarsGroup, hpicfConfigStartupConfigSHA=hpicfConfigStartupConfigSHA, hpicfConfigFileName=hpicfConfigFileName, hpicfConfigFilesTable=hpicfConfigFilesTable, hpicfConfigNotifications=hpicfConfigNotifications, hpicfConfigObjects=hpicfConfigObjects, hpicfConfigConfig=hpicfConfigConfig, hpicfConfig=hpicfConfig, hpicfConfigRestoreStatus=hpicfConfigRestoreStatus, hpicfConfigMIBCompliances=hpicfConfigMIBCompliances, hpicfConfigRunningConfigSHA=hpicfConfigRunningConfigSHA, hpicfConfigRestoreFileName=hpicfConfigRestoreFileName, hpicfConfigConformance=hpicfConfigConformance, PYSNMP_MODULE_ID=hpicfConfig, hpicfConfigFilesEntry=hpicfConfigFilesEntry, hpicfConfigRecoveryMode=hpicfConfigRecoveryMode, hpicfConfigFilePos=hpicfConfigFilePos, hpicfConfigFilesObjects=hpicfConfigFilesObjects, hpicfConfigFilesGroup=hpicfConfigFilesGroup, hpicfConfigTimestamp=hpicfConfigTimestamp, hpicfConfigGroups=hpicfConfigGroups)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpSwitch,) = mibBuilder.importSymbols(
+    "HP-ICF-OID",
+    "hpSwitch")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpicfConfig = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136)
+)
+if mibBuilder.loadTexts:
+    hpicfConfig.setRevisions(
+        ("2017-10-07 00:00",
+         "2017-04-19 00:00",
+         "2017-03-08 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpicfConfigNotifications_ObjectIdentity = ObjectIdentity
+hpicfConfigNotifications = _HpicfConfigNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 0)
+)
+_HpicfConfigScalar_ObjectIdentity = ObjectIdentity
+hpicfConfigScalar = _HpicfConfigScalar_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 1)
+)
+_HpicfConfigGlobals_ObjectIdentity = ObjectIdentity
+hpicfConfigGlobals = _HpicfConfigGlobals_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 2)
+)
+_HpicfConfigConformance_ObjectIdentity = ObjectIdentity
+hpicfConfigConformance = _HpicfConfigConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3)
+)
+_HpicfConfigGroups_ObjectIdentity = ObjectIdentity
+hpicfConfigGroups = _HpicfConfigGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3, 1)
+)
+_HpicfConfigMIBCompliances_ObjectIdentity = ObjectIdentity
+hpicfConfigMIBCompliances = _HpicfConfigMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3, 2)
+)
+_HpicfConfigConfig_ObjectIdentity = ObjectIdentity
+hpicfConfigConfig = _HpicfConfigConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4)
+)
+_HpicfConfigObjects_ObjectIdentity = ObjectIdentity
+hpicfConfigObjects = _HpicfConfigObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1)
+)
+
+
+class _HpicfConfigRestoreFileName_Type(OctetString):
+    """Custom type hpicfConfigRestoreFileName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_HpicfConfigRestoreFileName_Type.__name__ = "OctetString"
+_HpicfConfigRestoreFileName_Object = MibScalar
+hpicfConfigRestoreFileName = _HpicfConfigRestoreFileName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1, 1),
+    _HpicfConfigRestoreFileName_Type()
+)
+hpicfConfigRestoreFileName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfConfigRestoreFileName.setStatus("current")
+
+
+class _HpicfConfigRunningConfigSHA_Type(OctetString):
+    """Custom type hpicfConfigRunningConfigSHA based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_HpicfConfigRunningConfigSHA_Type.__name__ = "OctetString"
+_HpicfConfigRunningConfigSHA_Object = MibScalar
+hpicfConfigRunningConfigSHA = _HpicfConfigRunningConfigSHA_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1, 2),
+    _HpicfConfigRunningConfigSHA_Type()
+)
+hpicfConfigRunningConfigSHA.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpicfConfigRunningConfigSHA.setStatus("current")
+
+
+class _HpicfConfigStartupConfigSHA_Type(OctetString):
+    """Custom type hpicfConfigStartupConfigSHA based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_HpicfConfigStartupConfigSHA_Type.__name__ = "OctetString"
+_HpicfConfigStartupConfigSHA_Object = MibScalar
+hpicfConfigStartupConfigSHA = _HpicfConfigStartupConfigSHA_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1, 3),
+    _HpicfConfigStartupConfigSHA_Type()
+)
+hpicfConfigStartupConfigSHA.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpicfConfigStartupConfigSHA.setStatus("current")
+
+
+class _HpicfConfigRestoreStatus_Type(Integer32):
+    """Custom type hpicfConfigRestoreStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notYetRun", 1),
+          ("inProgress", 2),
+          ("success", 3),
+          ("failed", 4))
+    )
+
+
+_HpicfConfigRestoreStatus_Type.__name__ = "Integer32"
+_HpicfConfigRestoreStatus_Object = MibScalar
+hpicfConfigRestoreStatus = _HpicfConfigRestoreStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1, 4),
+    _HpicfConfigRestoreStatus_Type()
+)
+hpicfConfigRestoreStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpicfConfigRestoreStatus.setStatus("current")
+
+
+class _HpicfConfigRecoveryMode_Type(Integer32):
+    """Custom type hpicfConfigRecoveryMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_HpicfConfigRecoveryMode_Type.__name__ = "Integer32"
+_HpicfConfigRecoveryMode_Object = MibScalar
+hpicfConfigRecoveryMode = _HpicfConfigRecoveryMode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 1, 5),
+    _HpicfConfigRecoveryMode_Type()
+)
+hpicfConfigRecoveryMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfConfigRecoveryMode.setStatus("current")
+_HpicfConfigFilesObjects_ObjectIdentity = ObjectIdentity
+hpicfConfigFilesObjects = _HpicfConfigFilesObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2)
+)
+_HpicfConfigFilesTable_Object = MibTable
+hpicfConfigFilesTable = _HpicfConfigFilesTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hpicfConfigFilesTable.setStatus("current")
+_HpicfConfigFilesEntry_Object = MibTableRow
+hpicfConfigFilesEntry = _HpicfConfigFilesEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2, 1, 1)
+)
+hpicfConfigFilesEntry.setIndexNames(
+    (0, "HP-ICF-CONFIG-MIB", "hpicfConfigFilePos"),
+)
+if mibBuilder.loadTexts:
+    hpicfConfigFilesEntry.setStatus("current")
+_HpicfConfigFilePos_Type = Unsigned32
+_HpicfConfigFilePos_Object = MibTableColumn
+hpicfConfigFilePos = _HpicfConfigFilePos_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2, 1, 1, 1),
+    _HpicfConfigFilePos_Type()
+)
+hpicfConfigFilePos.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpicfConfigFilePos.setStatus("current")
+
+
+class _HpicfConfigFileName_Type(OctetString):
+    """Custom type hpicfConfigFileName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_HpicfConfigFileName_Type.__name__ = "OctetString"
+_HpicfConfigFileName_Object = MibTableColumn
+hpicfConfigFileName = _HpicfConfigFileName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2, 1, 1, 2),
+    _HpicfConfigFileName_Type()
+)
+hpicfConfigFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpicfConfigFileName.setStatus("current")
+_HpicfConfigTimestamp_Type = DateAndTime
+_HpicfConfigTimestamp_Object = MibTableColumn
+hpicfConfigTimestamp = _HpicfConfigTimestamp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 4, 2, 1, 1, 3),
+    _HpicfConfigTimestamp_Type()
+)
+hpicfConfigTimestamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpicfConfigTimestamp.setStatus("current")
+
+# Managed Objects groups
+
+hpicfConfigScalarsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3, 1, 1)
+)
+hpicfConfigScalarsGroup.setObjects(
+      *(("HP-ICF-CONFIG-MIB", "hpicfConfigRestoreFileName"),
+        ("HP-ICF-CONFIG-MIB", "hpicfConfigRunningConfigSHA"),
+        ("HP-ICF-CONFIG-MIB", "hpicfConfigStartupConfigSHA"),
+        ("HP-ICF-CONFIG-MIB", "hpicfConfigRestoreStatus"),
+        ("HP-ICF-CONFIG-MIB", "hpicfConfigRecoveryMode"))
+)
+if mibBuilder.loadTexts:
+    hpicfConfigScalarsGroup.setStatus("current")
+
+hpicfConfigFilesGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3, 1, 2)
+)
+hpicfConfigFilesGroup.setObjects(
+      *(("HP-ICF-CONFIG-MIB", "hpicfConfigFileName"),
+        ("HP-ICF-CONFIG-MIB", "hpicfConfigTimestamp"))
+)
+if mibBuilder.loadTexts:
+    hpicfConfigFilesGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+hpicfConfigMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 136, 3, 2, 1)
+)
+hpicfConfigMIBCompliance.setObjects(
+      *(("HP-ICF-CONFIG-MIB", "hpicfConfigScalarsGroup"),
+        ("HP-ICF-CONFIG-MIB", "hpicfConfigFilesGroup"))
+)
+if mibBuilder.loadTexts:
+    hpicfConfigMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HP-ICF-CONFIG-MIB",
+    **{"hpicfConfig": hpicfConfig,
+       "hpicfConfigNotifications": hpicfConfigNotifications,
+       "hpicfConfigScalar": hpicfConfigScalar,
+       "hpicfConfigGlobals": hpicfConfigGlobals,
+       "hpicfConfigConformance": hpicfConfigConformance,
+       "hpicfConfigGroups": hpicfConfigGroups,
+       "hpicfConfigScalarsGroup": hpicfConfigScalarsGroup,
+       "hpicfConfigFilesGroup": hpicfConfigFilesGroup,
+       "hpicfConfigMIBCompliances": hpicfConfigMIBCompliances,
+       "hpicfConfigMIBCompliance": hpicfConfigMIBCompliance,
+       "hpicfConfigConfig": hpicfConfigConfig,
+       "hpicfConfigObjects": hpicfConfigObjects,
+       "hpicfConfigRestoreFileName": hpicfConfigRestoreFileName,
+       "hpicfConfigRunningConfigSHA": hpicfConfigRunningConfigSHA,
+       "hpicfConfigStartupConfigSHA": hpicfConfigStartupConfigSHA,
+       "hpicfConfigRestoreStatus": hpicfConfigRestoreStatus,
+       "hpicfConfigRecoveryMode": hpicfConfigRecoveryMode,
+       "hpicfConfigFilesObjects": hpicfConfigFilesObjects,
+       "hpicfConfigFilesTable": hpicfConfigFilesTable,
+       "hpicfConfigFilesEntry": hpicfConfigFilesEntry,
+       "hpicfConfigFilePos": hpicfConfigFilePos,
+       "hpicfConfigFileName": hpicfConfigFileName,
+       "hpicfConfigTimestamp": hpicfConfigTimestamp}
+)

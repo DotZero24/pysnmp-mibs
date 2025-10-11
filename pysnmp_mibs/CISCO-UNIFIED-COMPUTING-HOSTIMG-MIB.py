@@ -1,69 +1,418 @@
+# SNMP MIB module (CISCO-UNIFIED-COMPUTING-HOSTIMG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-UNIFIED-COMPUTING-HOSTIMG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-HOSTIMG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:27:47 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-UNIFIED-COMPUTING-HOSTIMG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:34:07 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoInetAddressMask, CiscoNetworkAddress, CiscoAlarmSeverity, TimeIntervalSec, Unsigned64 = mibBuilder.importSymbols("CISCO-TC", "CiscoInetAddressMask", "CiscoNetworkAddress", "CiscoAlarmSeverity", "TimeIntervalSec", "Unsigned64")
-CucsManagedObjectDn, ciscoUnifiedComputingMIBObjects, CucsManagedObjectId = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectDn", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectId")
-CucsHostimgComposition, CucsHostimgImgType, CucsHostimgDistribution, CucsPolicyPolicyOwner, CucsHostimgType = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-TC-MIB", "CucsHostimgComposition", "CucsHostimgImgType", "CucsHostimgDistribution", "CucsPolicyPolicyOwner", "CucsHostimgType")
-InetAddressIPv4, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressIPv6")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, TextualConvention, TimeInterval, MacAddress, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
-cucsHostimgObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54))
-if mibBuilder.loadTexts: cucsHostimgObjects.setLastUpdated('201807260000Z')
-if mibBuilder.loadTexts: cucsHostimgObjects.setOrganization('Cisco Systems Inc.')
-cucsHostimgPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1), )
-if mibBuilder.loadTexts: cucsHostimgPolicyTable.setStatus('current')
-cucsHostimgPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-HOSTIMG-MIB", "cucsHostimgPolicyInstanceId"))
-if mibBuilder.loadTexts: cucsHostimgPolicyEntry.setStatus('current')
-cucsHostimgPolicyInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 1), CucsManagedObjectId())
-if mibBuilder.loadTexts: cucsHostimgPolicyInstanceId.setStatus('current')
-cucsHostimgPolicyDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgPolicyDn.setStatus('current')
-cucsHostimgPolicyRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgPolicyRn.setStatus('current')
-cucsHostimgPolicyComp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 4), CucsHostimgComposition()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgPolicyComp.setStatus('current')
-cucsHostimgPolicyDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgPolicyDescr.setStatus('current')
-cucsHostimgPolicyIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgPolicyIntId.setStatus('current')
-cucsHostimgPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgPolicyName.setStatus('current')
-cucsHostimgPolicyConf = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgPolicyConf.setStatus('current')
-cucsHostimgPolicyDistro = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 9), CucsHostimgDistribution()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgPolicyDistro.setStatus('current')
-cucsHostimgPolicyType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 10), CucsHostimgImgType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgPolicyType.setStatus('current')
-cucsHostimgPolicyPolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 11), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgPolicyPolicyLevel.setStatus('current')
-cucsHostimgPolicyPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 12), CucsPolicyPolicyOwner()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgPolicyPolicyOwner.setStatus('current')
-cucsHostimgTargetTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2), )
-if mibBuilder.loadTexts: cucsHostimgTargetTable.setStatus('current')
-cucsHostimgTargetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-HOSTIMG-MIB", "cucsHostimgTargetInstanceId"))
-if mibBuilder.loadTexts: cucsHostimgTargetEntry.setStatus('current')
-cucsHostimgTargetInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 1), CucsManagedObjectId())
-if mibBuilder.loadTexts: cucsHostimgTargetInstanceId.setStatus('current')
-cucsHostimgTargetDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgTargetDn.setStatus('current')
-cucsHostimgTargetRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgTargetRn.setStatus('current')
-cucsHostimgTargetName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgTargetName.setStatus('current')
-cucsHostimgTargetType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 5), CucsHostimgType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgTargetType.setStatus('current')
-cucsHostimgTargetUri = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgTargetUri.setStatus('current')
-cucsHostimgTargetOrder = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsHostimgTargetOrder.setStatus('current')
-mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-HOSTIMG-MIB", cucsHostimgPolicyPolicyLevel=cucsHostimgPolicyPolicyLevel, PYSNMP_MODULE_ID=cucsHostimgObjects, cucsHostimgPolicyDescr=cucsHostimgPolicyDescr, cucsHostimgPolicyConf=cucsHostimgPolicyConf, cucsHostimgPolicyDn=cucsHostimgPolicyDn, cucsHostimgPolicyTable=cucsHostimgPolicyTable, cucsHostimgPolicyComp=cucsHostimgPolicyComp, cucsHostimgTargetEntry=cucsHostimgTargetEntry, cucsHostimgTargetInstanceId=cucsHostimgTargetInstanceId, cucsHostimgPolicyEntry=cucsHostimgPolicyEntry, cucsHostimgPolicyPolicyOwner=cucsHostimgPolicyPolicyOwner, cucsHostimgPolicyRn=cucsHostimgPolicyRn, cucsHostimgTargetRn=cucsHostimgTargetRn, cucsHostimgTargetOrder=cucsHostimgTargetOrder, cucsHostimgTargetType=cucsHostimgTargetType, cucsHostimgTargetUri=cucsHostimgTargetUri, cucsHostimgTargetName=cucsHostimgTargetName, cucsHostimgTargetTable=cucsHostimgTargetTable, cucsHostimgPolicyType=cucsHostimgPolicyType, cucsHostimgPolicyDistro=cucsHostimgPolicyDistro, cucsHostimgPolicyIntId=cucsHostimgPolicyIntId, cucsHostimgObjects=cucsHostimgObjects, cucsHostimgPolicyName=cucsHostimgPolicyName, cucsHostimgPolicyInstanceId=cucsHostimgPolicyInstanceId, cucsHostimgTargetDn=cucsHostimgTargetDn)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CiscoAlarmSeverity,
+ CiscoInetAddressMask,
+ CiscoNetworkAddress,
+ TimeIntervalSec,
+ Unsigned64) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoAlarmSeverity",
+    "CiscoInetAddressMask",
+    "CiscoNetworkAddress",
+    "TimeIntervalSec",
+    "Unsigned64")
+
+(CucsManagedObjectDn,
+ CucsManagedObjectId,
+ ciscoUnifiedComputingMIBObjects) = mibBuilder.importSymbols(
+    "CISCO-UNIFIED-COMPUTING-MIB",
+    "CucsManagedObjectDn",
+    "CucsManagedObjectId",
+    "ciscoUnifiedComputingMIBObjects")
+
+(CucsHostimgComposition,
+ CucsHostimgDistribution,
+ CucsHostimgImgType,
+ CucsHostimgType,
+ CucsPolicyPolicyOwner) = mibBuilder.importSymbols(
+    "CISCO-UNIFIED-COMPUTING-TC-MIB",
+    "CucsHostimgComposition",
+    "CucsHostimgDistribution",
+    "CucsHostimgImgType",
+    "CucsHostimgType",
+    "CucsPolicyPolicyOwner")
+
+(InetAddressIPv4,
+ InetAddressIPv6) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv4",
+    "InetAddressIPv6")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cucsHostimgObjects = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CucsHostimgPolicyTable_Object = MibTable
+cucsHostimgPolicyTable = _CucsHostimgPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1)
+)
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyTable.setStatus("current")
+_CucsHostimgPolicyEntry_Object = MibTableRow
+cucsHostimgPolicyEntry = _CucsHostimgPolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1)
+)
+cucsHostimgPolicyEntry.setIndexNames(
+    (0, "CISCO-UNIFIED-COMPUTING-HOSTIMG-MIB", "cucsHostimgPolicyInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyEntry.setStatus("current")
+_CucsHostimgPolicyInstanceId_Type = CucsManagedObjectId
+_CucsHostimgPolicyInstanceId_Object = MibTableColumn
+cucsHostimgPolicyInstanceId = _CucsHostimgPolicyInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 1),
+    _CucsHostimgPolicyInstanceId_Type()
+)
+cucsHostimgPolicyInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyInstanceId.setStatus("current")
+_CucsHostimgPolicyDn_Type = CucsManagedObjectDn
+_CucsHostimgPolicyDn_Object = MibTableColumn
+cucsHostimgPolicyDn = _CucsHostimgPolicyDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 2),
+    _CucsHostimgPolicyDn_Type()
+)
+cucsHostimgPolicyDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyDn.setStatus("current")
+_CucsHostimgPolicyRn_Type = SnmpAdminString
+_CucsHostimgPolicyRn_Object = MibTableColumn
+cucsHostimgPolicyRn = _CucsHostimgPolicyRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 3),
+    _CucsHostimgPolicyRn_Type()
+)
+cucsHostimgPolicyRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyRn.setStatus("current")
+_CucsHostimgPolicyComp_Type = CucsHostimgComposition
+_CucsHostimgPolicyComp_Object = MibTableColumn
+cucsHostimgPolicyComp = _CucsHostimgPolicyComp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 4),
+    _CucsHostimgPolicyComp_Type()
+)
+cucsHostimgPolicyComp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyComp.setStatus("current")
+_CucsHostimgPolicyDescr_Type = SnmpAdminString
+_CucsHostimgPolicyDescr_Object = MibTableColumn
+cucsHostimgPolicyDescr = _CucsHostimgPolicyDescr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 5),
+    _CucsHostimgPolicyDescr_Type()
+)
+cucsHostimgPolicyDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyDescr.setStatus("current")
+_CucsHostimgPolicyIntId_Type = SnmpAdminString
+_CucsHostimgPolicyIntId_Object = MibTableColumn
+cucsHostimgPolicyIntId = _CucsHostimgPolicyIntId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 6),
+    _CucsHostimgPolicyIntId_Type()
+)
+cucsHostimgPolicyIntId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyIntId.setStatus("current")
+_CucsHostimgPolicyName_Type = SnmpAdminString
+_CucsHostimgPolicyName_Object = MibTableColumn
+cucsHostimgPolicyName = _CucsHostimgPolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 7),
+    _CucsHostimgPolicyName_Type()
+)
+cucsHostimgPolicyName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyName.setStatus("current")
+_CucsHostimgPolicyConf_Type = SnmpAdminString
+_CucsHostimgPolicyConf_Object = MibTableColumn
+cucsHostimgPolicyConf = _CucsHostimgPolicyConf_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 8),
+    _CucsHostimgPolicyConf_Type()
+)
+cucsHostimgPolicyConf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyConf.setStatus("current")
+_CucsHostimgPolicyDistro_Type = CucsHostimgDistribution
+_CucsHostimgPolicyDistro_Object = MibTableColumn
+cucsHostimgPolicyDistro = _CucsHostimgPolicyDistro_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 9),
+    _CucsHostimgPolicyDistro_Type()
+)
+cucsHostimgPolicyDistro.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyDistro.setStatus("current")
+_CucsHostimgPolicyType_Type = CucsHostimgImgType
+_CucsHostimgPolicyType_Object = MibTableColumn
+cucsHostimgPolicyType = _CucsHostimgPolicyType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 10),
+    _CucsHostimgPolicyType_Type()
+)
+cucsHostimgPolicyType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyType.setStatus("current")
+_CucsHostimgPolicyPolicyLevel_Type = Gauge32
+_CucsHostimgPolicyPolicyLevel_Object = MibTableColumn
+cucsHostimgPolicyPolicyLevel = _CucsHostimgPolicyPolicyLevel_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 11),
+    _CucsHostimgPolicyPolicyLevel_Type()
+)
+cucsHostimgPolicyPolicyLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyPolicyLevel.setStatus("current")
+_CucsHostimgPolicyPolicyOwner_Type = CucsPolicyPolicyOwner
+_CucsHostimgPolicyPolicyOwner_Object = MibTableColumn
+cucsHostimgPolicyPolicyOwner = _CucsHostimgPolicyPolicyOwner_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 1, 1, 12),
+    _CucsHostimgPolicyPolicyOwner_Type()
+)
+cucsHostimgPolicyPolicyOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgPolicyPolicyOwner.setStatus("current")
+_CucsHostimgTargetTable_Object = MibTable
+cucsHostimgTargetTable = _CucsHostimgTargetTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2)
+)
+if mibBuilder.loadTexts:
+    cucsHostimgTargetTable.setStatus("current")
+_CucsHostimgTargetEntry_Object = MibTableRow
+cucsHostimgTargetEntry = _CucsHostimgTargetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1)
+)
+cucsHostimgTargetEntry.setIndexNames(
+    (0, "CISCO-UNIFIED-COMPUTING-HOSTIMG-MIB", "cucsHostimgTargetInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cucsHostimgTargetEntry.setStatus("current")
+_CucsHostimgTargetInstanceId_Type = CucsManagedObjectId
+_CucsHostimgTargetInstanceId_Object = MibTableColumn
+cucsHostimgTargetInstanceId = _CucsHostimgTargetInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 1),
+    _CucsHostimgTargetInstanceId_Type()
+)
+cucsHostimgTargetInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cucsHostimgTargetInstanceId.setStatus("current")
+_CucsHostimgTargetDn_Type = CucsManagedObjectDn
+_CucsHostimgTargetDn_Object = MibTableColumn
+cucsHostimgTargetDn = _CucsHostimgTargetDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 2),
+    _CucsHostimgTargetDn_Type()
+)
+cucsHostimgTargetDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgTargetDn.setStatus("current")
+_CucsHostimgTargetRn_Type = SnmpAdminString
+_CucsHostimgTargetRn_Object = MibTableColumn
+cucsHostimgTargetRn = _CucsHostimgTargetRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 3),
+    _CucsHostimgTargetRn_Type()
+)
+cucsHostimgTargetRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgTargetRn.setStatus("current")
+_CucsHostimgTargetName_Type = SnmpAdminString
+_CucsHostimgTargetName_Object = MibTableColumn
+cucsHostimgTargetName = _CucsHostimgTargetName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 4),
+    _CucsHostimgTargetName_Type()
+)
+cucsHostimgTargetName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgTargetName.setStatus("current")
+_CucsHostimgTargetType_Type = CucsHostimgType
+_CucsHostimgTargetType_Object = MibTableColumn
+cucsHostimgTargetType = _CucsHostimgTargetType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 5),
+    _CucsHostimgTargetType_Type()
+)
+cucsHostimgTargetType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgTargetType.setStatus("current")
+_CucsHostimgTargetUri_Type = SnmpAdminString
+_CucsHostimgTargetUri_Object = MibTableColumn
+cucsHostimgTargetUri = _CucsHostimgTargetUri_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 6),
+    _CucsHostimgTargetUri_Type()
+)
+cucsHostimgTargetUri.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgTargetUri.setStatus("current")
+_CucsHostimgTargetOrder_Type = Gauge32
+_CucsHostimgTargetOrder_Object = MibTableColumn
+cucsHostimgTargetOrder = _CucsHostimgTargetOrder_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 54, 2, 1, 7),
+    _CucsHostimgTargetOrder_Type()
+)
+cucsHostimgTargetOrder.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsHostimgTargetOrder.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-UNIFIED-COMPUTING-HOSTIMG-MIB",
+    **{"cucsHostimgObjects": cucsHostimgObjects,
+       "cucsHostimgPolicyTable": cucsHostimgPolicyTable,
+       "cucsHostimgPolicyEntry": cucsHostimgPolicyEntry,
+       "cucsHostimgPolicyInstanceId": cucsHostimgPolicyInstanceId,
+       "cucsHostimgPolicyDn": cucsHostimgPolicyDn,
+       "cucsHostimgPolicyRn": cucsHostimgPolicyRn,
+       "cucsHostimgPolicyComp": cucsHostimgPolicyComp,
+       "cucsHostimgPolicyDescr": cucsHostimgPolicyDescr,
+       "cucsHostimgPolicyIntId": cucsHostimgPolicyIntId,
+       "cucsHostimgPolicyName": cucsHostimgPolicyName,
+       "cucsHostimgPolicyConf": cucsHostimgPolicyConf,
+       "cucsHostimgPolicyDistro": cucsHostimgPolicyDistro,
+       "cucsHostimgPolicyType": cucsHostimgPolicyType,
+       "cucsHostimgPolicyPolicyLevel": cucsHostimgPolicyPolicyLevel,
+       "cucsHostimgPolicyPolicyOwner": cucsHostimgPolicyPolicyOwner,
+       "cucsHostimgTargetTable": cucsHostimgTargetTable,
+       "cucsHostimgTargetEntry": cucsHostimgTargetEntry,
+       "cucsHostimgTargetInstanceId": cucsHostimgTargetInstanceId,
+       "cucsHostimgTargetDn": cucsHostimgTargetDn,
+       "cucsHostimgTargetRn": cucsHostimgTargetRn,
+       "cucsHostimgTargetName": cucsHostimgTargetName,
+       "cucsHostimgTargetType": cucsHostimgTargetType,
+       "cucsHostimgTargetUri": cucsHostimgTargetUri,
+       "cucsHostimgTargetOrder": cucsHostimgTargetOrder}
+)

@@ -1,87 +1,639 @@
+# SNMP MIB module (Juniper-IPV6-PROFILE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Juniper-IPV6-PROFILE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/junose/Juniper-IPV6-PROFILE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:42:57 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/junose/Juniper-IPV6-PROFILE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:06:39 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddressIPv6, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6")
-Ipv6AddressPrefix, = mibBuilder.importSymbols("IPV6-TC", "Ipv6AddressPrefix")
-juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
-JuniEnable, JuniName, JuniSetMap = mibBuilder.importSymbols("Juniper-TC", "JuniEnable", "JuniName", "JuniSetMap")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-juniIpv6ProfileMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68))
-juniIpv6ProfileMIB.setRevisions(('2007-07-19 18:19', '2003-09-29 17:58',))
-if mibBuilder.loadTexts: juniIpv6ProfileMIB.setLastUpdated('200707191819Z')
-if mibBuilder.loadTexts: juniIpv6ProfileMIB.setOrganization('Juniper Networks')
-juniIpv6ProfileObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1))
-juniIpv6Profile = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1))
-juniIpv6ProfileTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1), )
-if mibBuilder.loadTexts: juniIpv6ProfileTable.setStatus('current')
-juniIpv6ProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1), ).setIndexNames((0, "Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileId"))
-if mibBuilder.loadTexts: juniIpv6ProfileEntry.setStatus('current')
-juniIpv6ProfileId = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: juniIpv6ProfileId.setStatus('current')
-juniIpv6ProfileSetMap = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 2), JuniSetMap()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileSetMap.setStatus('current')
-juniIpv6ProfileRouterName = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 3), JuniName()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileRouterName.setStatus('current')
-juniIpv6ProfileIpv6Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 4), InetAddressIPv6().clone(hexValue="00000000000000000000000000000000")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileIpv6Addr.setStatus('current')
-juniIpv6ProfileIpv6MaskLen = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileIpv6MaskLen.setStatus('current')
-juniIpv6ProfileMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1280, 10240), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileMtu.setStatus('current')
-juniIpv6ProfileSrcAddrValidEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 7), JuniEnable().clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileSrcAddrValidEnable.setStatus('current')
-juniIpv6ProfileInheritNumString = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileInheritNumString.setStatus('current')
-juniIpv6ProfileNdEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 9), JuniEnable().clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdEnabled.setStatus('current')
-juniIpv6ProfileNdManagedConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 10), JuniEnable().clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdManagedConfig.setStatus('current')
-juniIpv6ProfileNdOtherConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 11), JuniEnable().clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdOtherConfig.setStatus('current')
-juniIpv6ProfileNdSuppressRa = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 12), JuniEnable().clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdSuppressRa.setStatus('current')
-juniIpv6ProfileNdRaInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 1800)).clone(200)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdRaInterval.setStatus('current')
-juniIpv6ProfileNdRaLifeTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1800)).clone(1800)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdRaLifeTime.setStatus('current')
-juniIpv6ProfileNdReachableTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 15), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdReachableTime.setStatus('current')
-juniIpv6ProfileNdPrefix = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 16), Ipv6AddressPrefix()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdPrefix.setStatus('current')
-juniIpv6ProfileNdPrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdPrefixLength.setStatus('current')
-juniIpv6ProfileNdPrefixOnLinkFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 18), JuniEnable().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdPrefixOnLinkFlag.setStatus('current')
-juniIpv6ProfileNdPrefixAutonomousFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 19), JuniEnable().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdPrefixAutonomousFlag.setStatus('current')
-juniIpv6ProfileNdPrefixPreferredLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 20), Integer32().clone(604800)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdPrefixPreferredLifetime.setStatus('current')
-juniIpv6ProfileNdPrefixValidLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 21), Integer32().clone(2592000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: juniIpv6ProfileNdPrefixValidLifetime.setStatus('current')
-juniIpv6ProfileMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4))
-juniIpv6ProfileMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 1))
-juniIpv6ProfileMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 2))
-juniIpv6ProfileCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 1, 1)).setObjects(("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniIpv6ProfileCompliance = juniIpv6ProfileCompliance.setStatus('obsolete')
-juniIpv6ProfileCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 1, 2)).setObjects(("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileGroup1"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniIpv6ProfileCompliance1 = juniIpv6ProfileCompliance1.setStatus('current')
-juniIpv6ProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 2, 1)).setObjects(("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileSetMap"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileRouterName"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileIpv6Addr"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileIpv6MaskLen"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileMtu"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileSrcAddrValidEnable"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileInheritNumString"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniIpv6ProfileGroup = juniIpv6ProfileGroup.setStatus('obsolete')
-juniIpv6ProfileGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 2, 2)).setObjects(("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileSetMap"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileRouterName"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileIpv6Addr"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileIpv6MaskLen"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileMtu"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileSrcAddrValidEnable"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileInheritNumString"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdEnabled"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdManagedConfig"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdOtherConfig"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdSuppressRa"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdRaInterval"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdRaLifeTime"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdReachableTime"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefix"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefixLength"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefixOnLinkFlag"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefixAutonomousFlag"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefixPreferredLifetime"), ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefixValidLifetime"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniIpv6ProfileGroup1 = juniIpv6ProfileGroup1.setStatus('current')
-mibBuilder.exportSymbols("Juniper-IPV6-PROFILE-MIB", juniIpv6ProfileMIB=juniIpv6ProfileMIB, juniIpv6ProfileIpv6Addr=juniIpv6ProfileIpv6Addr, juniIpv6ProfileMtu=juniIpv6ProfileMtu, juniIpv6ProfileMIBCompliances=juniIpv6ProfileMIBCompliances, juniIpv6Profile=juniIpv6Profile, juniIpv6ProfileNdPrefixOnLinkFlag=juniIpv6ProfileNdPrefixOnLinkFlag, juniIpv6ProfileCompliance1=juniIpv6ProfileCompliance1, juniIpv6ProfileNdOtherConfig=juniIpv6ProfileNdOtherConfig, juniIpv6ProfileNdPrefixValidLifetime=juniIpv6ProfileNdPrefixValidLifetime, juniIpv6ProfileRouterName=juniIpv6ProfileRouterName, juniIpv6ProfileObjects=juniIpv6ProfileObjects, juniIpv6ProfileMIBGroups=juniIpv6ProfileMIBGroups, juniIpv6ProfileNdReachableTime=juniIpv6ProfileNdReachableTime, juniIpv6ProfileSrcAddrValidEnable=juniIpv6ProfileSrcAddrValidEnable, juniIpv6ProfileNdRaInterval=juniIpv6ProfileNdRaInterval, juniIpv6ProfileIpv6MaskLen=juniIpv6ProfileIpv6MaskLen, juniIpv6ProfileGroup=juniIpv6ProfileGroup, juniIpv6ProfileId=juniIpv6ProfileId, juniIpv6ProfileInheritNumString=juniIpv6ProfileInheritNumString, juniIpv6ProfileNdPrefixLength=juniIpv6ProfileNdPrefixLength, juniIpv6ProfileNdEnabled=juniIpv6ProfileNdEnabled, juniIpv6ProfileMIBConformance=juniIpv6ProfileMIBConformance, juniIpv6ProfileNdRaLifeTime=juniIpv6ProfileNdRaLifeTime, juniIpv6ProfileNdSuppressRa=juniIpv6ProfileNdSuppressRa, juniIpv6ProfileNdPrefix=juniIpv6ProfileNdPrefix, juniIpv6ProfileGroup1=juniIpv6ProfileGroup1, juniIpv6ProfileEntry=juniIpv6ProfileEntry, juniIpv6ProfileNdManagedConfig=juniIpv6ProfileNdManagedConfig, juniIpv6ProfileCompliance=juniIpv6ProfileCompliance, PYSNMP_MODULE_ID=juniIpv6ProfileMIB, juniIpv6ProfileNdPrefixAutonomousFlag=juniIpv6ProfileNdPrefixAutonomousFlag, juniIpv6ProfileSetMap=juniIpv6ProfileSetMap, juniIpv6ProfileTable=juniIpv6ProfileTable, juniIpv6ProfileNdPrefixPreferredLifetime=juniIpv6ProfileNdPrefixPreferredLifetime)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddressIPv6,) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv6")
+
+(Ipv6AddressPrefix,) = mibBuilder.importSymbols(
+    "IPV6-TC",
+    "Ipv6AddressPrefix")
+
+(juniMibs,) = mibBuilder.importSymbols(
+    "Juniper-MIBs",
+    "juniMibs")
+
+(JuniEnable,
+ JuniName,
+ JuniSetMap) = mibBuilder.importSymbols(
+    "Juniper-TC",
+    "JuniEnable",
+    "JuniName",
+    "JuniSetMap")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+juniIpv6ProfileMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68)
+)
+if mibBuilder.loadTexts:
+    juniIpv6ProfileMIB.setRevisions(
+        ("2007-07-19 18:19",
+         "2003-09-29 17:58")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JuniIpv6ProfileObjects_ObjectIdentity = ObjectIdentity
+juniIpv6ProfileObjects = _JuniIpv6ProfileObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1)
+)
+_JuniIpv6Profile_ObjectIdentity = ObjectIdentity
+juniIpv6Profile = _JuniIpv6Profile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1)
+)
+_JuniIpv6ProfileTable_Object = MibTable
+juniIpv6ProfileTable = _JuniIpv6ProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    juniIpv6ProfileTable.setStatus("current")
+_JuniIpv6ProfileEntry_Object = MibTableRow
+juniIpv6ProfileEntry = _JuniIpv6ProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1)
+)
+juniIpv6ProfileEntry.setIndexNames(
+    (0, "Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileId"),
+)
+if mibBuilder.loadTexts:
+    juniIpv6ProfileEntry.setStatus("current")
+_JuniIpv6ProfileId_Type = Unsigned32
+_JuniIpv6ProfileId_Object = MibTableColumn
+juniIpv6ProfileId = _JuniIpv6ProfileId_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 1),
+    _JuniIpv6ProfileId_Type()
+)
+juniIpv6ProfileId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileId.setStatus("current")
+_JuniIpv6ProfileSetMap_Type = JuniSetMap
+_JuniIpv6ProfileSetMap_Object = MibTableColumn
+juniIpv6ProfileSetMap = _JuniIpv6ProfileSetMap_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 2),
+    _JuniIpv6ProfileSetMap_Type()
+)
+juniIpv6ProfileSetMap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileSetMap.setStatus("current")
+
+
+class _JuniIpv6ProfileRouterName_Type(JuniName):
+    """Custom type juniIpv6ProfileRouterName based on JuniName"""
+    defaultValue = OctetString("")
+
+
+_JuniIpv6ProfileRouterName_Type.__name__ = "JuniName"
+_JuniIpv6ProfileRouterName_Object = MibTableColumn
+juniIpv6ProfileRouterName = _JuniIpv6ProfileRouterName_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 3),
+    _JuniIpv6ProfileRouterName_Type()
+)
+juniIpv6ProfileRouterName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileRouterName.setStatus("current")
+
+
+class _JuniIpv6ProfileIpv6Addr_Type(InetAddressIPv6):
+    """Custom type juniIpv6ProfileIpv6Addr based on InetAddressIPv6"""
+    defaultHexValue = "00000000000000000000000000000000"
+
+
+_JuniIpv6ProfileIpv6Addr_Type.__name__ = "InetAddressIPv6"
+_JuniIpv6ProfileIpv6Addr_Object = MibTableColumn
+juniIpv6ProfileIpv6Addr = _JuniIpv6ProfileIpv6Addr_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 4),
+    _JuniIpv6ProfileIpv6Addr_Type()
+)
+juniIpv6ProfileIpv6Addr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileIpv6Addr.setStatus("current")
+
+
+class _JuniIpv6ProfileIpv6MaskLen_Type(Integer32):
+    """Custom type juniIpv6ProfileIpv6MaskLen based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 128),
+    )
+
+
+_JuniIpv6ProfileIpv6MaskLen_Type.__name__ = "Integer32"
+_JuniIpv6ProfileIpv6MaskLen_Object = MibTableColumn
+juniIpv6ProfileIpv6MaskLen = _JuniIpv6ProfileIpv6MaskLen_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 5),
+    _JuniIpv6ProfileIpv6MaskLen_Type()
+)
+juniIpv6ProfileIpv6MaskLen.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileIpv6MaskLen.setStatus("current")
+
+
+class _JuniIpv6ProfileMtu_Type(Integer32):
+    """Custom type juniIpv6ProfileMtu based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1280, 10240),
+    )
+
+
+_JuniIpv6ProfileMtu_Type.__name__ = "Integer32"
+_JuniIpv6ProfileMtu_Object = MibTableColumn
+juniIpv6ProfileMtu = _JuniIpv6ProfileMtu_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 6),
+    _JuniIpv6ProfileMtu_Type()
+)
+juniIpv6ProfileMtu.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileMtu.setStatus("current")
+
+
+class _JuniIpv6ProfileSrcAddrValidEnable_Type(JuniEnable):
+    """Custom type juniIpv6ProfileSrcAddrValidEnable based on JuniEnable"""
+    defaultValue = 0
+
+
+_JuniIpv6ProfileSrcAddrValidEnable_Type.__name__ = "JuniEnable"
+_JuniIpv6ProfileSrcAddrValidEnable_Object = MibTableColumn
+juniIpv6ProfileSrcAddrValidEnable = _JuniIpv6ProfileSrcAddrValidEnable_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 7),
+    _JuniIpv6ProfileSrcAddrValidEnable_Type()
+)
+juniIpv6ProfileSrcAddrValidEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileSrcAddrValidEnable.setStatus("current")
+
+
+class _JuniIpv6ProfileInheritNumString_Type(DisplayString):
+    """Custom type juniIpv6ProfileInheritNumString based on DisplayString"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_JuniIpv6ProfileInheritNumString_Type.__name__ = "DisplayString"
+_JuniIpv6ProfileInheritNumString_Object = MibTableColumn
+juniIpv6ProfileInheritNumString = _JuniIpv6ProfileInheritNumString_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 8),
+    _JuniIpv6ProfileInheritNumString_Type()
+)
+juniIpv6ProfileInheritNumString.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileInheritNumString.setStatus("current")
+
+
+class _JuniIpv6ProfileNdEnabled_Type(JuniEnable):
+    """Custom type juniIpv6ProfileNdEnabled based on JuniEnable"""
+    defaultValue = 0
+
+
+_JuniIpv6ProfileNdEnabled_Type.__name__ = "JuniEnable"
+_JuniIpv6ProfileNdEnabled_Object = MibTableColumn
+juniIpv6ProfileNdEnabled = _JuniIpv6ProfileNdEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 9),
+    _JuniIpv6ProfileNdEnabled_Type()
+)
+juniIpv6ProfileNdEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdEnabled.setStatus("current")
+
+
+class _JuniIpv6ProfileNdManagedConfig_Type(JuniEnable):
+    """Custom type juniIpv6ProfileNdManagedConfig based on JuniEnable"""
+    defaultValue = 0
+
+
+_JuniIpv6ProfileNdManagedConfig_Type.__name__ = "JuniEnable"
+_JuniIpv6ProfileNdManagedConfig_Object = MibTableColumn
+juniIpv6ProfileNdManagedConfig = _JuniIpv6ProfileNdManagedConfig_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 10),
+    _JuniIpv6ProfileNdManagedConfig_Type()
+)
+juniIpv6ProfileNdManagedConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdManagedConfig.setStatus("current")
+
+
+class _JuniIpv6ProfileNdOtherConfig_Type(JuniEnable):
+    """Custom type juniIpv6ProfileNdOtherConfig based on JuniEnable"""
+    defaultValue = 0
+
+
+_JuniIpv6ProfileNdOtherConfig_Type.__name__ = "JuniEnable"
+_JuniIpv6ProfileNdOtherConfig_Object = MibTableColumn
+juniIpv6ProfileNdOtherConfig = _JuniIpv6ProfileNdOtherConfig_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 11),
+    _JuniIpv6ProfileNdOtherConfig_Type()
+)
+juniIpv6ProfileNdOtherConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdOtherConfig.setStatus("current")
+
+
+class _JuniIpv6ProfileNdSuppressRa_Type(JuniEnable):
+    """Custom type juniIpv6ProfileNdSuppressRa based on JuniEnable"""
+    defaultValue = 0
+
+
+_JuniIpv6ProfileNdSuppressRa_Type.__name__ = "JuniEnable"
+_JuniIpv6ProfileNdSuppressRa_Object = MibTableColumn
+juniIpv6ProfileNdSuppressRa = _JuniIpv6ProfileNdSuppressRa_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 12),
+    _JuniIpv6ProfileNdSuppressRa_Type()
+)
+juniIpv6ProfileNdSuppressRa.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdSuppressRa.setStatus("current")
+
+
+class _JuniIpv6ProfileNdRaInterval_Type(Integer32):
+    """Custom type juniIpv6ProfileNdRaInterval based on Integer32"""
+    defaultValue = 200
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(3, 1800),
+    )
+
+
+_JuniIpv6ProfileNdRaInterval_Type.__name__ = "Integer32"
+_JuniIpv6ProfileNdRaInterval_Object = MibTableColumn
+juniIpv6ProfileNdRaInterval = _JuniIpv6ProfileNdRaInterval_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 13),
+    _JuniIpv6ProfileNdRaInterval_Type()
+)
+juniIpv6ProfileNdRaInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdRaInterval.setStatus("current")
+
+
+class _JuniIpv6ProfileNdRaLifeTime_Type(Integer32):
+    """Custom type juniIpv6ProfileNdRaLifeTime based on Integer32"""
+    defaultValue = 1800
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1800),
+    )
+
+
+_JuniIpv6ProfileNdRaLifeTime_Type.__name__ = "Integer32"
+_JuniIpv6ProfileNdRaLifeTime_Object = MibTableColumn
+juniIpv6ProfileNdRaLifeTime = _JuniIpv6ProfileNdRaLifeTime_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 14),
+    _JuniIpv6ProfileNdRaLifeTime_Type()
+)
+juniIpv6ProfileNdRaLifeTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdRaLifeTime.setStatus("current")
+
+
+class _JuniIpv6ProfileNdReachableTime_Type(Integer32):
+    """Custom type juniIpv6ProfileNdReachableTime based on Integer32"""
+    defaultValue = 0
+
+
+_JuniIpv6ProfileNdReachableTime_Type.__name__ = "Integer32"
+_JuniIpv6ProfileNdReachableTime_Object = MibTableColumn
+juniIpv6ProfileNdReachableTime = _JuniIpv6ProfileNdReachableTime_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 15),
+    _JuniIpv6ProfileNdReachableTime_Type()
+)
+juniIpv6ProfileNdReachableTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdReachableTime.setStatus("current")
+_JuniIpv6ProfileNdPrefix_Type = Ipv6AddressPrefix
+_JuniIpv6ProfileNdPrefix_Object = MibTableColumn
+juniIpv6ProfileNdPrefix = _JuniIpv6ProfileNdPrefix_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 16),
+    _JuniIpv6ProfileNdPrefix_Type()
+)
+juniIpv6ProfileNdPrefix.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdPrefix.setStatus("current")
+
+
+class _JuniIpv6ProfileNdPrefixLength_Type(Integer32):
+    """Custom type juniIpv6ProfileNdPrefixLength based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+_JuniIpv6ProfileNdPrefixLength_Type.__name__ = "Integer32"
+_JuniIpv6ProfileNdPrefixLength_Object = MibTableColumn
+juniIpv6ProfileNdPrefixLength = _JuniIpv6ProfileNdPrefixLength_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 17),
+    _JuniIpv6ProfileNdPrefixLength_Type()
+)
+juniIpv6ProfileNdPrefixLength.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdPrefixLength.setStatus("current")
+
+
+class _JuniIpv6ProfileNdPrefixOnLinkFlag_Type(JuniEnable):
+    """Custom type juniIpv6ProfileNdPrefixOnLinkFlag based on JuniEnable"""
+    defaultValue = 1
+
+
+_JuniIpv6ProfileNdPrefixOnLinkFlag_Type.__name__ = "JuniEnable"
+_JuniIpv6ProfileNdPrefixOnLinkFlag_Object = MibTableColumn
+juniIpv6ProfileNdPrefixOnLinkFlag = _JuniIpv6ProfileNdPrefixOnLinkFlag_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 18),
+    _JuniIpv6ProfileNdPrefixOnLinkFlag_Type()
+)
+juniIpv6ProfileNdPrefixOnLinkFlag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdPrefixOnLinkFlag.setStatus("current")
+
+
+class _JuniIpv6ProfileNdPrefixAutonomousFlag_Type(JuniEnable):
+    """Custom type juniIpv6ProfileNdPrefixAutonomousFlag based on JuniEnable"""
+    defaultValue = 1
+
+
+_JuniIpv6ProfileNdPrefixAutonomousFlag_Type.__name__ = "JuniEnable"
+_JuniIpv6ProfileNdPrefixAutonomousFlag_Object = MibTableColumn
+juniIpv6ProfileNdPrefixAutonomousFlag = _JuniIpv6ProfileNdPrefixAutonomousFlag_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 19),
+    _JuniIpv6ProfileNdPrefixAutonomousFlag_Type()
+)
+juniIpv6ProfileNdPrefixAutonomousFlag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdPrefixAutonomousFlag.setStatus("current")
+
+
+class _JuniIpv6ProfileNdPrefixPreferredLifetime_Type(Integer32):
+    """Custom type juniIpv6ProfileNdPrefixPreferredLifetime based on Integer32"""
+    defaultValue = 604800
+
+
+_JuniIpv6ProfileNdPrefixPreferredLifetime_Type.__name__ = "Integer32"
+_JuniIpv6ProfileNdPrefixPreferredLifetime_Object = MibTableColumn
+juniIpv6ProfileNdPrefixPreferredLifetime = _JuniIpv6ProfileNdPrefixPreferredLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 20),
+    _JuniIpv6ProfileNdPrefixPreferredLifetime_Type()
+)
+juniIpv6ProfileNdPrefixPreferredLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdPrefixPreferredLifetime.setStatus("current")
+
+
+class _JuniIpv6ProfileNdPrefixValidLifetime_Type(Integer32):
+    """Custom type juniIpv6ProfileNdPrefixValidLifetime based on Integer32"""
+    defaultValue = 2592000
+
+
+_JuniIpv6ProfileNdPrefixValidLifetime_Type.__name__ = "Integer32"
+_JuniIpv6ProfileNdPrefixValidLifetime_Object = MibTableColumn
+juniIpv6ProfileNdPrefixValidLifetime = _JuniIpv6ProfileNdPrefixValidLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 1, 1, 1, 1, 21),
+    _JuniIpv6ProfileNdPrefixValidLifetime_Type()
+)
+juniIpv6ProfileNdPrefixValidLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    juniIpv6ProfileNdPrefixValidLifetime.setStatus("current")
+_JuniIpv6ProfileMIBConformance_ObjectIdentity = ObjectIdentity
+juniIpv6ProfileMIBConformance = _JuniIpv6ProfileMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4)
+)
+_JuniIpv6ProfileMIBCompliances_ObjectIdentity = ObjectIdentity
+juniIpv6ProfileMIBCompliances = _JuniIpv6ProfileMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 1)
+)
+_JuniIpv6ProfileMIBGroups_ObjectIdentity = ObjectIdentity
+juniIpv6ProfileMIBGroups = _JuniIpv6ProfileMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 2)
+)
+
+# Managed Objects groups
+
+juniIpv6ProfileGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 2, 1)
+)
+juniIpv6ProfileGroup.setObjects(
+      *(("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileSetMap"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileRouterName"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileIpv6Addr"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileIpv6MaskLen"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileMtu"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileSrcAddrValidEnable"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileInheritNumString"))
+)
+if mibBuilder.loadTexts:
+    juniIpv6ProfileGroup.setStatus("obsolete")
+
+juniIpv6ProfileGroup1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 2, 2)
+)
+juniIpv6ProfileGroup1.setObjects(
+      *(("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileSetMap"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileRouterName"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileIpv6Addr"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileIpv6MaskLen"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileMtu"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileSrcAddrValidEnable"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileInheritNumString"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdEnabled"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdManagedConfig"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdOtherConfig"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdSuppressRa"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdRaInterval"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdRaLifeTime"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdReachableTime"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefix"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefixLength"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefixOnLinkFlag"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefixAutonomousFlag"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefixPreferredLifetime"),
+        ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileNdPrefixValidLifetime"))
+)
+if mibBuilder.loadTexts:
+    juniIpv6ProfileGroup1.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+juniIpv6ProfileCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 1, 1)
+)
+juniIpv6ProfileCompliance.setObjects(
+    ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileGroup")
+)
+if mibBuilder.loadTexts:
+    juniIpv6ProfileCompliance.setStatus(
+        "obsolete"
+    )
+
+juniIpv6ProfileCompliance1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 68, 4, 1, 2)
+)
+juniIpv6ProfileCompliance1.setObjects(
+    ("Juniper-IPV6-PROFILE-MIB", "juniIpv6ProfileGroup1")
+)
+if mibBuilder.loadTexts:
+    juniIpv6ProfileCompliance1.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Juniper-IPV6-PROFILE-MIB",
+    **{"juniIpv6ProfileMIB": juniIpv6ProfileMIB,
+       "juniIpv6ProfileObjects": juniIpv6ProfileObjects,
+       "juniIpv6Profile": juniIpv6Profile,
+       "juniIpv6ProfileTable": juniIpv6ProfileTable,
+       "juniIpv6ProfileEntry": juniIpv6ProfileEntry,
+       "juniIpv6ProfileId": juniIpv6ProfileId,
+       "juniIpv6ProfileSetMap": juniIpv6ProfileSetMap,
+       "juniIpv6ProfileRouterName": juniIpv6ProfileRouterName,
+       "juniIpv6ProfileIpv6Addr": juniIpv6ProfileIpv6Addr,
+       "juniIpv6ProfileIpv6MaskLen": juniIpv6ProfileIpv6MaskLen,
+       "juniIpv6ProfileMtu": juniIpv6ProfileMtu,
+       "juniIpv6ProfileSrcAddrValidEnable": juniIpv6ProfileSrcAddrValidEnable,
+       "juniIpv6ProfileInheritNumString": juniIpv6ProfileInheritNumString,
+       "juniIpv6ProfileNdEnabled": juniIpv6ProfileNdEnabled,
+       "juniIpv6ProfileNdManagedConfig": juniIpv6ProfileNdManagedConfig,
+       "juniIpv6ProfileNdOtherConfig": juniIpv6ProfileNdOtherConfig,
+       "juniIpv6ProfileNdSuppressRa": juniIpv6ProfileNdSuppressRa,
+       "juniIpv6ProfileNdRaInterval": juniIpv6ProfileNdRaInterval,
+       "juniIpv6ProfileNdRaLifeTime": juniIpv6ProfileNdRaLifeTime,
+       "juniIpv6ProfileNdReachableTime": juniIpv6ProfileNdReachableTime,
+       "juniIpv6ProfileNdPrefix": juniIpv6ProfileNdPrefix,
+       "juniIpv6ProfileNdPrefixLength": juniIpv6ProfileNdPrefixLength,
+       "juniIpv6ProfileNdPrefixOnLinkFlag": juniIpv6ProfileNdPrefixOnLinkFlag,
+       "juniIpv6ProfileNdPrefixAutonomousFlag": juniIpv6ProfileNdPrefixAutonomousFlag,
+       "juniIpv6ProfileNdPrefixPreferredLifetime": juniIpv6ProfileNdPrefixPreferredLifetime,
+       "juniIpv6ProfileNdPrefixValidLifetime": juniIpv6ProfileNdPrefixValidLifetime,
+       "juniIpv6ProfileMIBConformance": juniIpv6ProfileMIBConformance,
+       "juniIpv6ProfileMIBCompliances": juniIpv6ProfileMIBCompliances,
+       "juniIpv6ProfileCompliance": juniIpv6ProfileCompliance,
+       "juniIpv6ProfileCompliance1": juniIpv6ProfileCompliance1,
+       "juniIpv6ProfileMIBGroups": juniIpv6ProfileMIBGroups,
+       "juniIpv6ProfileGroup": juniIpv6ProfileGroup,
+       "juniIpv6ProfileGroup1": juniIpv6ProfileGroup1}
+)

@@ -1,28 +1,187 @@
-_D='eltArpInterfaceEntry'
-_C='ELTEX-ARP-INTERFACE-TABLE-MIB'
-_B='Integer32'
-_A='current'
-if'mibBuilder'not in globals():import sys;sys.stderr.write(__doc__);sys.exit(1)
-Integer,OctetString,ObjectIdentifier=mibBuilder.importSymbols('ASN1','Integer','OctetString','ObjectIdentifier')
-NamedValues,=mibBuilder.importSymbols('ASN1-ENUMERATION','NamedValues')
-ConstraintsIntersection,ConstraintsUnion,SingleValueConstraint,ValueRangeConstraint,ValueSizeConstraint=mibBuilder.importSymbols('ASN1-REFINEMENT','ConstraintsIntersection','ConstraintsUnion','SingleValueConstraint','ValueRangeConstraint','ValueSizeConstraint')
-eltMesArpSpec,=mibBuilder.importSymbols('ELTEX-MES-IP','eltMesArpSpec')
-rsArpInterfaceEntry,=mibBuilder.importSymbols('RADLAN-IP','rsArpInterfaceEntry')
-ModuleCompliance,NotificationGroup=mibBuilder.importSymbols('SNMPv2-CONF','ModuleCompliance','NotificationGroup')
-Bits,Counter32,Counter64,Gauge32,Integer32,IpAddress,ModuleIdentity,MibIdentifier,NotificationType,ObjectIdentity,MibScalar,MibTable,MibTableRow,MibTableColumn,TimeTicks,Unsigned32,iso=mibBuilder.importSymbols('SNMPv2-SMI','Bits','Counter32','Counter64','Gauge32',_B,'IpAddress','ModuleIdentity','MibIdentifier','NotificationType','ObjectIdentity','MibScalar','MibTable','MibTableRow','MibTableColumn','TimeTicks','Unsigned32','iso')
-DisplayString,PhysAddress,TextualConvention=mibBuilder.importSymbols('SNMPv2-TC','DisplayString','PhysAddress','TextualConvention')
-_EltArpInterfaceTable_Object=MibTable
-eltArpInterfaceTable=_EltArpInterfaceTable_Object((1,3,6,1,4,1,35265,1,23,91,3,1))
-if mibBuilder.loadTexts:eltArpInterfaceTable.setStatus(_A)
-_EltArpInterfaceEntry_Object=MibTableRow
-eltArpInterfaceEntry=_EltArpInterfaceEntry_Object((1,3,6,1,4,1,35265,1,23,91,3,1,1))
-if mibBuilder.loadTexts:eltArpInterfaceEntry.setStatus(_A)
-class _EltArpInterfaceArpLocalProxy_Type(Integer32):defaultValue=2;subtypeSpec=Integer32.subtypeSpec;subtypeSpec+=ConstraintsUnion(SingleValueConstraint(*(1,2)));namedValues=NamedValues(*(('enable',1),('disable',2)))
-_EltArpInterfaceArpLocalProxy_Type.__name__=_B
-_EltArpInterfaceArpLocalProxy_Object=MibTableColumn
-eltArpInterfaceArpLocalProxy=_EltArpInterfaceArpLocalProxy_Object((1,3,6,1,4,1,35265,1,23,91,3,1,1,1),_EltArpInterfaceArpLocalProxy_Type())
-eltArpInterfaceArpLocalProxy.setMaxAccess('read-write')
-if mibBuilder.loadTexts:eltArpInterfaceArpLocalProxy.setStatus(_A)
-rsArpInterfaceEntry.registerAugmentions((_C,_D))
+# SNMP MIB module (ELTEX-ARP-INTERFACE-TABLE-MIB) expressed in pysnmp data model.
+#
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/eltex/ELTEX-ARP-INTERFACE-TABLE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:49:54 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
+# Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(eltMesArpSpec,) = mibBuilder.importSymbols(
+    "ELTEX-MES-IP",
+    "eltMesArpSpec")
+
+(rsArpInterfaceEntry,) = mibBuilder.importSymbols(
+    "RADLAN-IP",
+    "rsArpInterfaceEntry")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EltArpInterfaceTable_Object = MibTable
+eltArpInterfaceTable = _EltArpInterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 3, 1)
+)
+if mibBuilder.loadTexts:
+    eltArpInterfaceTable.setStatus("current")
+_EltArpInterfaceEntry_Object = MibTableRow
+eltArpInterfaceEntry = _EltArpInterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    eltArpInterfaceEntry.setStatus("current")
+
+
+class _EltArpInterfaceArpLocalProxy_Type(Integer32):
+    """Custom type eltArpInterfaceArpLocalProxy based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_EltArpInterfaceArpLocalProxy_Type.__name__ = "Integer32"
+_EltArpInterfaceArpLocalProxy_Object = MibTableColumn
+eltArpInterfaceArpLocalProxy = _EltArpInterfaceArpLocalProxy_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 91, 3, 1, 1, 1),
+    _EltArpInterfaceArpLocalProxy_Type()
+)
+eltArpInterfaceArpLocalProxy.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltArpInterfaceArpLocalProxy.setStatus("current")
+rsArpInterfaceEntry.registerAugmentions(
+    ("ELTEX-ARP-INTERFACE-TABLE-MIB",
+     "eltArpInterfaceEntry")
+)
 eltArpInterfaceEntry.setIndexNames(*rsArpInterfaceEntry.getIndexNames())
-mibBuilder.exportSymbols(_C,**{'eltArpInterfaceTable':eltArpInterfaceTable,_D:eltArpInterfaceEntry,'eltArpInterfaceArpLocalProxy':eltArpInterfaceArpLocalProxy})
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ELTEX-ARP-INTERFACE-TABLE-MIB",
+    **{"eltArpInterfaceTable": eltArpInterfaceTable,
+       "eltArpInterfaceEntry": eltArpInterfaceEntry,
+       "eltArpInterfaceArpLocalProxy": eltArpInterfaceArpLocalProxy}
+)

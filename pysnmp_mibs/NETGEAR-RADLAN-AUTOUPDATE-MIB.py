@@ -1,30 +1,202 @@
+# SNMP MIB module (NETGEAR-RADLAN-AUTOUPDATE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NETGEAR-RADLAN-AUTOUPDATE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/netgear/NETGEAR-RADLAN-AUTOUPDATE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:50:30 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/netgear/NETGEAR-RADLAN-AUTOUPDATE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:25:22 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rnd, = mibBuilder.importSymbols("NETGEAR-RADLAN-MIB", "rnd")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-rlAutoUpdate = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 17, 123))
-if mibBuilder.loadTexts: rlAutoUpdate.setLastUpdated('2007010600Z')
-if mibBuilder.loadTexts: rlAutoUpdate.setOrganization('Radlan Computer Communications Ltd.')
-rlAutoUpdateEnable = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlAutoUpdateEnable.setStatus('current')
-rlAutoUpdateFilesBoot = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlAutoUpdateFilesBoot.setStatus('current')
-rlAutoUpdateFilesImage = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 3), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlAutoUpdateFilesImage.setStatus('current')
-rlAutoUpdateFilesConf = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 4), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlAutoUpdateFilesConf.setStatus('current')
-rlAutoUpdateCopyEnable = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 5), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlAutoUpdateCopyEnable.setStatus('current')
-rlAutoUpdatePreserveIP = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 123, 6), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlAutoUpdatePreserveIP.setStatus('current')
-mibBuilder.exportSymbols("NETGEAR-RADLAN-AUTOUPDATE-MIB", rlAutoUpdateFilesConf=rlAutoUpdateFilesConf, rlAutoUpdateEnable=rlAutoUpdateEnable, rlAutoUpdateCopyEnable=rlAutoUpdateCopyEnable, rlAutoUpdate=rlAutoUpdate, rlAutoUpdateFilesBoot=rlAutoUpdateFilesBoot, rlAutoUpdateFilesImage=rlAutoUpdateFilesImage, PYSNMP_MODULE_ID=rlAutoUpdate, rlAutoUpdatePreserveIP=rlAutoUpdatePreserveIP)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rnd,) = mibBuilder.importSymbols(
+    "NETGEAR-RADLAN-MIB",
+    "rnd")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rlAutoUpdate = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 123)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlAutoUpdateEnable_Type = TruthValue
+_RlAutoUpdateEnable_Object = MibScalar
+rlAutoUpdateEnable = _RlAutoUpdateEnable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 123, 1),
+    _RlAutoUpdateEnable_Type()
+)
+rlAutoUpdateEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlAutoUpdateEnable.setStatus("current")
+_RlAutoUpdateFilesBoot_Type = TruthValue
+_RlAutoUpdateFilesBoot_Object = MibScalar
+rlAutoUpdateFilesBoot = _RlAutoUpdateFilesBoot_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 123, 2),
+    _RlAutoUpdateFilesBoot_Type()
+)
+rlAutoUpdateFilesBoot.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlAutoUpdateFilesBoot.setStatus("current")
+_RlAutoUpdateFilesImage_Type = TruthValue
+_RlAutoUpdateFilesImage_Object = MibScalar
+rlAutoUpdateFilesImage = _RlAutoUpdateFilesImage_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 123, 3),
+    _RlAutoUpdateFilesImage_Type()
+)
+rlAutoUpdateFilesImage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlAutoUpdateFilesImage.setStatus("current")
+_RlAutoUpdateFilesConf_Type = TruthValue
+_RlAutoUpdateFilesConf_Object = MibScalar
+rlAutoUpdateFilesConf = _RlAutoUpdateFilesConf_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 123, 4),
+    _RlAutoUpdateFilesConf_Type()
+)
+rlAutoUpdateFilesConf.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlAutoUpdateFilesConf.setStatus("current")
+_RlAutoUpdateCopyEnable_Type = TruthValue
+_RlAutoUpdateCopyEnable_Object = MibScalar
+rlAutoUpdateCopyEnable = _RlAutoUpdateCopyEnable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 123, 5),
+    _RlAutoUpdateCopyEnable_Type()
+)
+rlAutoUpdateCopyEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlAutoUpdateCopyEnable.setStatus("current")
+_RlAutoUpdatePreserveIP_Type = TruthValue
+_RlAutoUpdatePreserveIP_Object = MibScalar
+rlAutoUpdatePreserveIP = _RlAutoUpdatePreserveIP_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 123, 6),
+    _RlAutoUpdatePreserveIP_Type()
+)
+rlAutoUpdatePreserveIP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlAutoUpdatePreserveIP.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NETGEAR-RADLAN-AUTOUPDATE-MIB",
+    **{"rlAutoUpdate": rlAutoUpdate,
+       "rlAutoUpdateEnable": rlAutoUpdateEnable,
+       "rlAutoUpdateFilesBoot": rlAutoUpdateFilesBoot,
+       "rlAutoUpdateFilesImage": rlAutoUpdateFilesImage,
+       "rlAutoUpdateFilesConf": rlAutoUpdateFilesConf,
+       "rlAutoUpdateCopyEnable": rlAutoUpdateCopyEnable,
+       "rlAutoUpdatePreserveIP": rlAutoUpdatePreserveIP}
+)

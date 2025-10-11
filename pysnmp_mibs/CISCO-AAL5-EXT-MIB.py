@@ -1,54 +1,319 @@
+# SNMP MIB module (CISCO-AAL5-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-AAL5-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-AAL5-EXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:37 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-AAL5-EXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:28:44 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-aal5VccEntry, = mibBuilder.importSymbols("ATM-MIB", "aal5VccEntry")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoAal5ExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 9999))
-ciscoAal5ExtMIB.setRevisions(('2001-11-05 00:00',))
-if mibBuilder.loadTexts: ciscoAal5ExtMIB.setLastUpdated('200111050000Z')
-if mibBuilder.loadTexts: ciscoAal5ExtMIB.setOrganization('Cisco Systems, Inc.')
-ciscoAal5ExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1))
-cAal5ExtConnections = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1))
-cAal5ExtVccTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1), )
-if mibBuilder.loadTexts: cAal5ExtVccTable.setStatus('current')
-cAal5ExtVccEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1), )
-aal5VccEntry.registerAugmentions(("CISCO-AAL5-EXT-MIB", "cAal5ExtVccEntry"))
-cAal5ExtVccEntry.setIndexNames(*aal5VccEntry.getIndexNames())
-if mibBuilder.loadTexts: cAal5ExtVccEntry.setStatus('current')
-cAal5VccInDroppedPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 1), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cAal5VccInDroppedPkts.setStatus('current')
-cAal5VccOutDroppedPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 2), Counter32()).setUnits('packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cAal5VccOutDroppedPkts.setStatus('current')
-cAal5VccInDroppedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 3), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cAal5VccInDroppedOctets.setStatus('current')
-cAal5VccOutDroppedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 4), Counter32()).setUnits('octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cAal5VccOutDroppedOctets.setStatus('current')
-cAal5VccInCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 5), Counter32()).setUnits('cells').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cAal5VccInCells.setStatus('current')
-cAal5VccOutCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 6), Counter32()).setUnits('cells').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cAal5VccOutCells.setStatus('current')
-cAal5VccInDroppedCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 7), Counter32()).setUnits('cells').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cAal5VccInDroppedCells.setStatus('current')
-cAal5VccOutDroppedCells = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 8), Counter32()).setUnits('cells').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cAal5VccOutDroppedCells.setStatus('current')
-ciscoAAL5ExtMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9999, 2))
-ciscoAAL5ExtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9999, 2, 1))
-ciscoAAL5ExtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 9999, 2, 2))
-ciscoAAL5ExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 9999, 2, 1, 1)).setObjects(("CISCO-AAL5-EXT-MIB", "ciscoAal5ExtMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoAAL5ExtMIBCompliance = ciscoAAL5ExtMIBCompliance.setStatus('current')
-ciscoAal5ExtMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 9999, 2, 2, 1)).setObjects(("CISCO-AAL5-EXT-MIB", "cAal5VccInDroppedPkts"), ("CISCO-AAL5-EXT-MIB", "cAal5VccOutDroppedPkts"), ("CISCO-AAL5-EXT-MIB", "cAal5VccInDroppedOctets"), ("CISCO-AAL5-EXT-MIB", "cAal5VccOutDroppedOctets"), ("CISCO-AAL5-EXT-MIB", "cAal5VccInCells"), ("CISCO-AAL5-EXT-MIB", "cAal5VccOutCells"), ("CISCO-AAL5-EXT-MIB", "cAal5VccInDroppedCells"), ("CISCO-AAL5-EXT-MIB", "cAal5VccOutDroppedCells"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoAal5ExtMIBGroup = ciscoAal5ExtMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-AAL5-EXT-MIB", cAal5ExtVccEntry=cAal5ExtVccEntry, cAal5VccInDroppedCells=cAal5VccInDroppedCells, PYSNMP_MODULE_ID=ciscoAal5ExtMIB, cAal5VccInDroppedPkts=cAal5VccInDroppedPkts, ciscoAAL5ExtMIBCompliance=ciscoAAL5ExtMIBCompliance, cAal5VccOutDroppedPkts=cAal5VccOutDroppedPkts, cAal5VccOutCells=cAal5VccOutCells, ciscoAAL5ExtMIBConformance=ciscoAAL5ExtMIBConformance, ciscoAAL5ExtMIBGroups=ciscoAAL5ExtMIBGroups, cAal5VccOutDroppedCells=cAal5VccOutDroppedCells, ciscoAAL5ExtMIBCompliances=ciscoAAL5ExtMIBCompliances, cAal5VccInDroppedOctets=cAal5VccInDroppedOctets, ciscoAal5ExtMIB=ciscoAal5ExtMIB, cAal5VccOutDroppedOctets=cAal5VccOutDroppedOctets, cAal5VccInCells=cAal5VccInCells, ciscoAal5ExtMIBGroup=ciscoAal5ExtMIBGroup, ciscoAal5ExtMIBObjects=ciscoAal5ExtMIBObjects, cAal5ExtConnections=cAal5ExtConnections, cAal5ExtVccTable=cAal5ExtVccTable)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(aal5VccEntry,) = mibBuilder.importSymbols(
+    "ATM-MIB",
+    "aal5VccEntry")
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoAal5ExtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999)
+)
+if mibBuilder.loadTexts:
+    ciscoAal5ExtMIB.setRevisions(
+        ("2001-11-05 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoAal5ExtMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoAal5ExtMIBObjects = _CiscoAal5ExtMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1)
+)
+_CAal5ExtConnections_ObjectIdentity = ObjectIdentity
+cAal5ExtConnections = _CAal5ExtConnections_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1)
+)
+_CAal5ExtVccTable_Object = MibTable
+cAal5ExtVccTable = _CAal5ExtVccTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cAal5ExtVccTable.setStatus("current")
+_CAal5ExtVccEntry_Object = MibTableRow
+cAal5ExtVccEntry = _CAal5ExtVccEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cAal5ExtVccEntry.setStatus("current")
+_CAal5VccInDroppedPkts_Type = Counter32
+_CAal5VccInDroppedPkts_Object = MibTableColumn
+cAal5VccInDroppedPkts = _CAal5VccInDroppedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 1),
+    _CAal5VccInDroppedPkts_Type()
+)
+cAal5VccInDroppedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cAal5VccInDroppedPkts.setStatus("current")
+if mibBuilder.loadTexts:
+    cAal5VccInDroppedPkts.setUnits("packets")
+_CAal5VccOutDroppedPkts_Type = Counter32
+_CAal5VccOutDroppedPkts_Object = MibTableColumn
+cAal5VccOutDroppedPkts = _CAal5VccOutDroppedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 2),
+    _CAal5VccOutDroppedPkts_Type()
+)
+cAal5VccOutDroppedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cAal5VccOutDroppedPkts.setStatus("current")
+if mibBuilder.loadTexts:
+    cAal5VccOutDroppedPkts.setUnits("packets")
+_CAal5VccInDroppedOctets_Type = Counter32
+_CAal5VccInDroppedOctets_Object = MibTableColumn
+cAal5VccInDroppedOctets = _CAal5VccInDroppedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 3),
+    _CAal5VccInDroppedOctets_Type()
+)
+cAal5VccInDroppedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cAal5VccInDroppedOctets.setStatus("current")
+if mibBuilder.loadTexts:
+    cAal5VccInDroppedOctets.setUnits("octets")
+_CAal5VccOutDroppedOctets_Type = Counter32
+_CAal5VccOutDroppedOctets_Object = MibTableColumn
+cAal5VccOutDroppedOctets = _CAal5VccOutDroppedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 4),
+    _CAal5VccOutDroppedOctets_Type()
+)
+cAal5VccOutDroppedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cAal5VccOutDroppedOctets.setStatus("current")
+if mibBuilder.loadTexts:
+    cAal5VccOutDroppedOctets.setUnits("octets")
+_CAal5VccInCells_Type = Counter32
+_CAal5VccInCells_Object = MibTableColumn
+cAal5VccInCells = _CAal5VccInCells_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 5),
+    _CAal5VccInCells_Type()
+)
+cAal5VccInCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cAal5VccInCells.setStatus("current")
+if mibBuilder.loadTexts:
+    cAal5VccInCells.setUnits("cells")
+_CAal5VccOutCells_Type = Counter32
+_CAal5VccOutCells_Object = MibTableColumn
+cAal5VccOutCells = _CAal5VccOutCells_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 6),
+    _CAal5VccOutCells_Type()
+)
+cAal5VccOutCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cAal5VccOutCells.setStatus("current")
+if mibBuilder.loadTexts:
+    cAal5VccOutCells.setUnits("cells")
+_CAal5VccInDroppedCells_Type = Counter32
+_CAal5VccInDroppedCells_Object = MibTableColumn
+cAal5VccInDroppedCells = _CAal5VccInDroppedCells_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 7),
+    _CAal5VccInDroppedCells_Type()
+)
+cAal5VccInDroppedCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cAal5VccInDroppedCells.setStatus("current")
+if mibBuilder.loadTexts:
+    cAal5VccInDroppedCells.setUnits("cells")
+_CAal5VccOutDroppedCells_Type = Counter32
+_CAal5VccOutDroppedCells_Object = MibTableColumn
+cAal5VccOutDroppedCells = _CAal5VccOutDroppedCells_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 1, 1, 1, 1, 8),
+    _CAal5VccOutDroppedCells_Type()
+)
+cAal5VccOutDroppedCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cAal5VccOutDroppedCells.setStatus("current")
+if mibBuilder.loadTexts:
+    cAal5VccOutDroppedCells.setUnits("cells")
+_CiscoAAL5ExtMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoAAL5ExtMIBConformance = _CiscoAAL5ExtMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 2)
+)
+_CiscoAAL5ExtMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoAAL5ExtMIBCompliances = _CiscoAAL5ExtMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 2, 1)
+)
+_CiscoAAL5ExtMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoAAL5ExtMIBGroups = _CiscoAAL5ExtMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 2, 2)
+)
+aal5VccEntry.registerAugmentions(
+    ("CISCO-AAL5-EXT-MIB",
+     "cAal5ExtVccEntry")
+)
+cAal5ExtVccEntry.setIndexNames(*aal5VccEntry.getIndexNames())
+
+# Managed Objects groups
+
+ciscoAal5ExtMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 2, 2, 1)
+)
+ciscoAal5ExtMIBGroup.setObjects(
+      *(("CISCO-AAL5-EXT-MIB", "cAal5VccInDroppedPkts"),
+        ("CISCO-AAL5-EXT-MIB", "cAal5VccOutDroppedPkts"),
+        ("CISCO-AAL5-EXT-MIB", "cAal5VccInDroppedOctets"),
+        ("CISCO-AAL5-EXT-MIB", "cAal5VccOutDroppedOctets"),
+        ("CISCO-AAL5-EXT-MIB", "cAal5VccInCells"),
+        ("CISCO-AAL5-EXT-MIB", "cAal5VccOutCells"),
+        ("CISCO-AAL5-EXT-MIB", "cAal5VccInDroppedCells"),
+        ("CISCO-AAL5-EXT-MIB", "cAal5VccOutDroppedCells"))
+)
+if mibBuilder.loadTexts:
+    ciscoAal5ExtMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoAAL5ExtMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 9999, 2, 1, 1)
+)
+ciscoAAL5ExtMIBCompliance.setObjects(
+    ("CISCO-AAL5-EXT-MIB", "ciscoAal5ExtMIBGroup")
+)
+if mibBuilder.loadTexts:
+    ciscoAAL5ExtMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-AAL5-EXT-MIB",
+    **{"ciscoAal5ExtMIB": ciscoAal5ExtMIB,
+       "ciscoAal5ExtMIBObjects": ciscoAal5ExtMIBObjects,
+       "cAal5ExtConnections": cAal5ExtConnections,
+       "cAal5ExtVccTable": cAal5ExtVccTable,
+       "cAal5ExtVccEntry": cAal5ExtVccEntry,
+       "cAal5VccInDroppedPkts": cAal5VccInDroppedPkts,
+       "cAal5VccOutDroppedPkts": cAal5VccOutDroppedPkts,
+       "cAal5VccInDroppedOctets": cAal5VccInDroppedOctets,
+       "cAal5VccOutDroppedOctets": cAal5VccOutDroppedOctets,
+       "cAal5VccInCells": cAal5VccInCells,
+       "cAal5VccOutCells": cAal5VccOutCells,
+       "cAal5VccInDroppedCells": cAal5VccInDroppedCells,
+       "cAal5VccOutDroppedCells": cAal5VccOutDroppedCells,
+       "ciscoAAL5ExtMIBConformance": ciscoAAL5ExtMIBConformance,
+       "ciscoAAL5ExtMIBCompliances": ciscoAAL5ExtMIBCompliances,
+       "ciscoAAL5ExtMIBCompliance": ciscoAAL5ExtMIBCompliance,
+       "ciscoAAL5ExtMIBGroups": ciscoAAL5ExtMIBGroups,
+       "ciscoAal5ExtMIBGroup": ciscoAal5ExtMIBGroup}
+)

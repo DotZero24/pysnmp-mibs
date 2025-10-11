@@ -1,118 +1,1356 @@
+# SNMP MIB module (FOUNDRY-SN-TRAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module FOUNDRY-SN-TRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/FOUNDRY-SN-TRAP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:46 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/brocade/FOUNDRY-SN-TRAP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:02:41 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-snChasPwrSupplyIndex, snAgGblTrapMessage, snChasFanIndex, snAgentBrdIndex, snChasFanDescription, snChasPwrSupplyDescription = mibBuilder.importSymbols("FOUNDRY-SN-AGENT-MIB", "snChasPwrSupplyIndex", "snAgGblTrapMessage", "snChasFanIndex", "snAgentBrdIndex", "snChasFanDescription", "snChasPwrSupplyDescription")
-foundry, = mibBuilder.importSymbols("FOUNDRY-SN-ROOT-MIB", "foundry")
-snL4TrapRealServerCurConnections, snL4TcpSynLimit, snL4TrapRealServerIP, snL4MaxSessionLimit, snL4LinkVirtualInterface, snL4TrapRealServerName, snL4TrapLinkName, snL4TrapRealServerPort = mibBuilder.importSymbols("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerCurConnections", "snL4TcpSynLimit", "snL4TrapRealServerIP", "snL4MaxSessionLimit", "snL4LinkVirtualInterface", "snL4TrapRealServerName", "snL4TrapLinkName", "snL4TrapRealServerPort")
-wgPnPStatus, wgPnPMacAddress, wgPnPIfIndex = mibBuilder.importSymbols("FOUNDRY-SN-WIRELESS-GROUP-MIB", "wgPnPStatus", "wgPnPMacAddress", "wgPnPIfIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-snTrapL4MaxSessionLimitReached = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,19)).setObjects(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4MaxSessionLimit"))
-snTrapL4TcpSynLimitReached = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,20)).setObjects(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TcpSynLimit"))
-snTrapL4RealServerUp = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,21)).setObjects(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerIP"), ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerName"))
-snTrapL4RealServerDown = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,22)).setObjects(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerIP"), ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerName"))
-snTrapL4RealServerPortUp = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,23)).setObjects(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerIP"), ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerName"), ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerPort"))
-snTrapL4RealServerPortDown = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,24)).setObjects(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerIP"), ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerName"), ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerPort"))
-snTrapL4RealServerMaxConnectionLimitReached = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,25)).setObjects(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerIP"), ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerName"), ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerCurConnections"))
-snTrapL4BecomeStandby = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,26))
-snTrapL4BecomeActive = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,27))
-snTrapModuleInserted = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,28)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgentBrdIndex"))
-snTrapModuleRemoved = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,29)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgentBrdIndex"))
-snTrapChasPwrSupplyFailed = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,30)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snChasPwrSupplyIndex"), ("FOUNDRY-SN-AGENT-MIB", "snChasPwrSupplyDescription"))
-snTrapChasFanFailed = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,31)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snChasFanIndex"), ("FOUNDRY-SN-AGENT-MIB", "snChasFanDescription"))
-snTrapLockedAddressViolation2 = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,32)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapFsrpIfStateChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,33)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapVrrpIfStateChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,34)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapMgmtModuleRedunStateChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,35)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapTemperatureWarning = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,36)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapAccessListDeny = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,37)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapMacFilterDeny = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,38)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4GslbRemoteUp = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,39)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4GslbRemoteDown = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,40)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4GslbRemoteControllerUp = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,41)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4GslbRemoteControllerDown = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,42)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4GslbHealthCheckIpUp = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,43)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4GslbHealthCheckIpDown = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,44)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4GslbHealthCheckIpPortUp = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,45)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4GslbHealthCheckIpPortDown = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,46)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4FirewallBecomeStandby = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,47))
-snTrapL4FirewallBecomeActive = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,48))
-snTrapL4FirewallPathUp = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,49))
-snTrapL4FirewallPathDown = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,50))
-snTrapIcmpLocalExceedBurst = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,51)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapIcmpTransitExceedBurst = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,52)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapTcpLocalExceedBurst = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,53)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapTcpTransitExceedBurst = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,54)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4ContentVerification = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,55))
-snTrapDuplicateIp = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,56))
-snTrapMplsProblem = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,57))
-snTrapMplsException = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,58))
-snTrapMplsAudit = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,59))
-snTrapMplsDeveloper = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,60))
-snTrapNoBmFreeQueue = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,61)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapSmcDmaDrop = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,62)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapSmcBpDrop = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,63)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapBmWriteSeqDrop = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,64)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapBgpPeerUp = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,65)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapBgpPeerDown = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,66)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4RealServerResponseTimeLowerLimit = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,67)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4RealServerResponseTimeUpperLimit = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,68)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4TcpAttackRateExceedMax = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,69)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4TcpAttackRateExceedThreshold = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,70)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4ConnectionRateExceedMax = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,71)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4ConnectionRateExceedThreshold = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,72)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapRunningConfigChanged = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,73)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapStartupConfigChanged = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,74)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapUserLogin = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,75)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapUserLogout = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,76)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapPortSecurityViolation = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,77)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapPortSecurityShutdown = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,78)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapMrpStateChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,79)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapMrpCamError = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,80)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapChasPwrSupplyOK = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,81)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snChasPwrSupplyIndex"), ("FOUNDRY-SN-AGENT-MIB", "snChasPwrSupplyDescription"))
-snTrapVrrpeIfStateChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,82)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapVsrpIfStateChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,83)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapSrcIpAddressViolation = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,84)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapMacAuthEnable = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,85)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapMacAuthDisable = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,86)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapMacAuthMACAccepted = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,87)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapMacAuthMACRejected = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,88)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapMacAuthPortDisabled = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,89)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapClientLoginReject = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,110)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapLocalUserConfigChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,111)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapVlanConfigChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,112)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapAclConfigChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,113)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapMacFilterConfigChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,114)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapSNMPConfigChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,115)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapSyslogConfigChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,116)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapPasswordConfigChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,117)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapServerStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,118)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4RealServerPortMaxConnectionLimitReached = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,119)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapL4LinkDown = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,120)).setObjects(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapLinkName"), ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4LinkVirtualInterface"))
-snTrapL4LinkUp = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,121)).setObjects(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapLinkName"), ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4LinkVirtualInterface"))
-snTrapPortPriorityChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,122)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapAutoPortDisableTrigger = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,123)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapAutoPortDisableRelease = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,124)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapPnPStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,125)).setObjects(("FOUNDRY-SN-WIRELESS-GROUP-MIB", "wgPnPStatus"), ("FOUNDRY-SN-WIRELESS-GROUP-MIB", "wgPnPStatus"), ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapWirelessIsrpPeerStateChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,126)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapWirelessStationStateChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,127)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapWirelessStationRoamingEventTriggered = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,128)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapWirelessSappStateChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,129)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapExternalPowerConnectionStatus = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,130)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapDot1xSecurityViolation = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,131)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapDot1xPortLinkChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,132)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapDot1xPortControlChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,133)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapDot1xVlanIdChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,134)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapDot1xFilterSetupFailure = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,135)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapDot1xError = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,136)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapPortConfigChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,137)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-snTrapMacAuthVlanIdChange = NotificationType((1, 3, 6, 1, 4, 1, 1991) + (0,138)).setObjects(("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
-mibBuilder.exportSymbols("FOUNDRY-SN-TRAP-MIB", snTrapL4RealServerDown=snTrapL4RealServerDown, snTrapPnPStatusChange=snTrapPnPStatusChange, snTrapDuplicateIp=snTrapDuplicateIp, snTrapBgpPeerUp=snTrapBgpPeerUp, snTrapTcpTransitExceedBurst=snTrapTcpTransitExceedBurst, snTrapFsrpIfStateChange=snTrapFsrpIfStateChange, snTrapL4RealServerPortDown=snTrapL4RealServerPortDown, snTrapMgmtModuleRedunStateChange=snTrapMgmtModuleRedunStateChange, snTrapUserLogin=snTrapUserLogin, snTrapMplsAudit=snTrapMplsAudit, snTrapMacAuthVlanIdChange=snTrapMacAuthVlanIdChange, snTrapSNMPConfigChange=snTrapSNMPConfigChange, snTrapIcmpLocalExceedBurst=snTrapIcmpLocalExceedBurst, snTrapTemperatureWarning=snTrapTemperatureWarning, snTrapDot1xSecurityViolation=snTrapDot1xSecurityViolation, snTrapL4BecomeStandby=snTrapL4BecomeStandby, snTrapDot1xPortControlChange=snTrapDot1xPortControlChange, snTrapLocalUserConfigChange=snTrapLocalUserConfigChange, snTrapL4LinkDown=snTrapL4LinkDown, snTrapL4ConnectionRateExceedThreshold=snTrapL4ConnectionRateExceedThreshold, snTrapL4LinkUp=snTrapL4LinkUp, snTrapSmcDmaDrop=snTrapSmcDmaDrop, snTrapWirelessIsrpPeerStateChange=snTrapWirelessIsrpPeerStateChange, snTrapVlanConfigChange=snTrapVlanConfigChange, snTrapL4ConnectionRateExceedMax=snTrapL4ConnectionRateExceedMax, snTrapVrrpIfStateChange=snTrapVrrpIfStateChange, snTrapPortPriorityChange=snTrapPortPriorityChange, snTrapDot1xPortLinkChange=snTrapDot1xPortLinkChange, snTrapMacFilterDeny=snTrapMacFilterDeny, snTrapMplsDeveloper=snTrapMplsDeveloper, snTrapWirelessStationStateChange=snTrapWirelessStationStateChange, snTrapL4GslbHealthCheckIpPortUp=snTrapL4GslbHealthCheckIpPortUp, snTrapMacAuthMACAccepted=snTrapMacAuthMACAccepted, snTrapL4GslbHealthCheckIpUp=snTrapL4GslbHealthCheckIpUp, snTrapChasPwrSupplyOK=snTrapChasPwrSupplyOK, snTrapDot1xFilterSetupFailure=snTrapDot1xFilterSetupFailure, snTrapIcmpTransitExceedBurst=snTrapIcmpTransitExceedBurst, snTrapClientLoginReject=snTrapClientLoginReject, snTrapL4FirewallBecomeStandby=snTrapL4FirewallBecomeStandby, snTrapL4RealServerResponseTimeLowerLimit=snTrapL4RealServerResponseTimeLowerLimit, snTrapMrpStateChange=snTrapMrpStateChange, snTrapChasPwrSupplyFailed=snTrapChasPwrSupplyFailed, snTrapMplsProblem=snTrapMplsProblem, snTrapLockedAddressViolation2=snTrapLockedAddressViolation2, snTrapBgpPeerDown=snTrapBgpPeerDown, snTrapNoBmFreeQueue=snTrapNoBmFreeQueue, snTrapL4GslbHealthCheckIpPortDown=snTrapL4GslbHealthCheckIpPortDown, snTrapL4RealServerPortUp=snTrapL4RealServerPortUp, snTrapRunningConfigChanged=snTrapRunningConfigChanged, snTrapSyslogConfigChange=snTrapSyslogConfigChange, snTrapModuleInserted=snTrapModuleInserted, snTrapL4FirewallBecomeActive=snTrapL4FirewallBecomeActive, snTrapExternalPowerConnectionStatus=snTrapExternalPowerConnectionStatus, snTrapL4RealServerResponseTimeUpperLimit=snTrapL4RealServerResponseTimeUpperLimit, snTrapMacAuthMACRejected=snTrapMacAuthMACRejected, snTrapL4MaxSessionLimitReached=snTrapL4MaxSessionLimitReached, snTrapUserLogout=snTrapUserLogout, snTrapL4TcpAttackRateExceedThreshold=snTrapL4TcpAttackRateExceedThreshold, snTrapL4RealServerMaxConnectionLimitReached=snTrapL4RealServerMaxConnectionLimitReached, snTrapL4GslbRemoteUp=snTrapL4GslbRemoteUp, snTrapTcpLocalExceedBurst=snTrapTcpLocalExceedBurst, snTrapMacFilterConfigChange=snTrapMacFilterConfigChange, snTrapVsrpIfStateChange=snTrapVsrpIfStateChange, snTrapPortSecurityShutdown=snTrapPortSecurityShutdown, snTrapL4RealServerUp=snTrapL4RealServerUp, snTrapVrrpeIfStateChange=snTrapVrrpeIfStateChange, snTrapAutoPortDisableTrigger=snTrapAutoPortDisableTrigger, snTrapStartupConfigChanged=snTrapStartupConfigChanged, snTrapL4GslbRemoteControllerUp=snTrapL4GslbRemoteControllerUp, snTrapMacAuthEnable=snTrapMacAuthEnable, snTrapL4GslbRemoteDown=snTrapL4GslbRemoteDown, snTrapL4TcpAttackRateExceedMax=snTrapL4TcpAttackRateExceedMax, snTrapL4ContentVerification=snTrapL4ContentVerification, snTrapPortConfigChange=snTrapPortConfigChange, snTrapAclConfigChange=snTrapAclConfigChange, snTrapDot1xError=snTrapDot1xError, snTrapMrpCamError=snTrapMrpCamError, snTrapAccessListDeny=snTrapAccessListDeny, snTrapL4GslbHealthCheckIpDown=snTrapL4GslbHealthCheckIpDown, snTrapSrcIpAddressViolation=snTrapSrcIpAddressViolation, snTrapL4TcpSynLimitReached=snTrapL4TcpSynLimitReached, snTrapPasswordConfigChange=snTrapPasswordConfigChange, snTrapMacAuthPortDisabled=snTrapMacAuthPortDisabled, snTrapWirelessSappStateChange=snTrapWirelessSappStateChange, snTrapSmcBpDrop=snTrapSmcBpDrop, snTrapWirelessStationRoamingEventTriggered=snTrapWirelessStationRoamingEventTriggered, snTrapPortSecurityViolation=snTrapPortSecurityViolation, snTrapL4BecomeActive=snTrapL4BecomeActive, snTrapModuleRemoved=snTrapModuleRemoved, snTrapServerStatusChange=snTrapServerStatusChange, snTrapMacAuthDisable=snTrapMacAuthDisable, snTrapL4RealServerPortMaxConnectionLimitReached=snTrapL4RealServerPortMaxConnectionLimitReached, snTrapBmWriteSeqDrop=snTrapBmWriteSeqDrop, snTrapMplsException=snTrapMplsException, snTrapChasFanFailed=snTrapChasFanFailed, snTrapL4FirewallPathDown=snTrapL4FirewallPathDown, snTrapAutoPortDisableRelease=snTrapAutoPortDisableRelease, snTrapL4FirewallPathUp=snTrapL4FirewallPathUp, snTrapL4GslbRemoteControllerDown=snTrapL4GslbRemoteControllerDown, snTrapDot1xVlanIdChange=snTrapDot1xVlanIdChange)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(snAgGblTrapMessage,
+ snAgentBrdIndex,
+ snChasFanDescription,
+ snChasFanIndex,
+ snChasPwrSupplyDescription,
+ snChasPwrSupplyIndex) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-AGENT-MIB",
+    "snAgGblTrapMessage",
+    "snAgentBrdIndex",
+    "snChasFanDescription",
+    "snChasFanIndex",
+    "snChasPwrSupplyDescription",
+    "snChasPwrSupplyIndex")
+
+(foundry,) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-ROOT-MIB",
+    "foundry")
+
+(snL4LinkVirtualInterface,
+ snL4MaxSessionLimit,
+ snL4TcpSynLimit,
+ snL4TrapLinkName,
+ snL4TrapRealServerCurConnections,
+ snL4TrapRealServerIP,
+ snL4TrapRealServerName,
+ snL4TrapRealServerPort) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB",
+    "snL4LinkVirtualInterface",
+    "snL4MaxSessionLimit",
+    "snL4TcpSynLimit",
+    "snL4TrapLinkName",
+    "snL4TrapRealServerCurConnections",
+    "snL4TrapRealServerIP",
+    "snL4TrapRealServerName",
+    "snL4TrapRealServerPort")
+
+(wgPnPIfIndex,
+ wgPnPMacAddress,
+ wgPnPStatus) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-WIRELESS-GROUP-MIB",
+    "wgPnPIfIndex",
+    "wgPnPMacAddress",
+    "wgPnPStatus")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+snTrapL4MaxSessionLimitReached = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 19)
+)
+snTrapL4MaxSessionLimitReached.setObjects(
+    ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4MaxSessionLimit")
+)
+if mibBuilder.loadTexts:
+    snTrapL4MaxSessionLimitReached.setStatus(
+        ""
+    )
+
+snTrapL4TcpSynLimitReached = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 20)
+)
+snTrapL4TcpSynLimitReached.setObjects(
+    ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TcpSynLimit")
+)
+if mibBuilder.loadTexts:
+    snTrapL4TcpSynLimitReached.setStatus(
+        ""
+    )
+
+snTrapL4RealServerUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 21)
+)
+snTrapL4RealServerUp.setObjects(
+      *(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerIP"),
+        ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerName"))
+)
+if mibBuilder.loadTexts:
+    snTrapL4RealServerUp.setStatus(
+        ""
+    )
+
+snTrapL4RealServerDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 22)
+)
+snTrapL4RealServerDown.setObjects(
+      *(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerIP"),
+        ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerName"))
+)
+if mibBuilder.loadTexts:
+    snTrapL4RealServerDown.setStatus(
+        ""
+    )
+
+snTrapL4RealServerPortUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 23)
+)
+snTrapL4RealServerPortUp.setObjects(
+      *(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerIP"),
+        ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerName"),
+        ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerPort"))
+)
+if mibBuilder.loadTexts:
+    snTrapL4RealServerPortUp.setStatus(
+        ""
+    )
+
+snTrapL4RealServerPortDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 24)
+)
+snTrapL4RealServerPortDown.setObjects(
+      *(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerIP"),
+        ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerName"),
+        ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerPort"))
+)
+if mibBuilder.loadTexts:
+    snTrapL4RealServerPortDown.setStatus(
+        ""
+    )
+
+snTrapL4RealServerMaxConnectionLimitReached = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 25)
+)
+snTrapL4RealServerMaxConnectionLimitReached.setObjects(
+      *(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerIP"),
+        ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerName"),
+        ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapRealServerCurConnections"))
+)
+if mibBuilder.loadTexts:
+    snTrapL4RealServerMaxConnectionLimitReached.setStatus(
+        ""
+    )
+
+snTrapL4BecomeStandby = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 26)
+)
+if mibBuilder.loadTexts:
+    snTrapL4BecomeStandby.setStatus(
+        ""
+    )
+
+snTrapL4BecomeActive = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 27)
+)
+if mibBuilder.loadTexts:
+    snTrapL4BecomeActive.setStatus(
+        ""
+    )
+
+snTrapModuleInserted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 28)
+)
+snTrapModuleInserted.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgentBrdIndex")
+)
+if mibBuilder.loadTexts:
+    snTrapModuleInserted.setStatus(
+        ""
+    )
+
+snTrapModuleRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 29)
+)
+snTrapModuleRemoved.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgentBrdIndex")
+)
+if mibBuilder.loadTexts:
+    snTrapModuleRemoved.setStatus(
+        ""
+    )
+
+snTrapChasPwrSupplyFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 30)
+)
+snTrapChasPwrSupplyFailed.setObjects(
+      *(("FOUNDRY-SN-AGENT-MIB", "snChasPwrSupplyIndex"),
+        ("FOUNDRY-SN-AGENT-MIB", "snChasPwrSupplyDescription"))
+)
+if mibBuilder.loadTexts:
+    snTrapChasPwrSupplyFailed.setStatus(
+        ""
+    )
+
+snTrapChasFanFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 31)
+)
+snTrapChasFanFailed.setObjects(
+      *(("FOUNDRY-SN-AGENT-MIB", "snChasFanIndex"),
+        ("FOUNDRY-SN-AGENT-MIB", "snChasFanDescription"))
+)
+if mibBuilder.loadTexts:
+    snTrapChasFanFailed.setStatus(
+        ""
+    )
+
+snTrapLockedAddressViolation2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 32)
+)
+snTrapLockedAddressViolation2.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapLockedAddressViolation2.setStatus(
+        ""
+    )
+
+snTrapFsrpIfStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 33)
+)
+snTrapFsrpIfStateChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapFsrpIfStateChange.setStatus(
+        ""
+    )
+
+snTrapVrrpIfStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 34)
+)
+snTrapVrrpIfStateChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapVrrpIfStateChange.setStatus(
+        ""
+    )
+
+snTrapMgmtModuleRedunStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 35)
+)
+snTrapMgmtModuleRedunStateChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapMgmtModuleRedunStateChange.setStatus(
+        ""
+    )
+
+snTrapTemperatureWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 36)
+)
+snTrapTemperatureWarning.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapTemperatureWarning.setStatus(
+        ""
+    )
+
+snTrapAccessListDeny = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 37)
+)
+snTrapAccessListDeny.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapAccessListDeny.setStatus(
+        ""
+    )
+
+snTrapMacFilterDeny = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 38)
+)
+snTrapMacFilterDeny.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapMacFilterDeny.setStatus(
+        ""
+    )
+
+snTrapL4GslbRemoteUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 39)
+)
+snTrapL4GslbRemoteUp.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4GslbRemoteUp.setStatus(
+        ""
+    )
+
+snTrapL4GslbRemoteDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 40)
+)
+snTrapL4GslbRemoteDown.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4GslbRemoteDown.setStatus(
+        ""
+    )
+
+snTrapL4GslbRemoteControllerUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 41)
+)
+snTrapL4GslbRemoteControllerUp.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4GslbRemoteControllerUp.setStatus(
+        ""
+    )
+
+snTrapL4GslbRemoteControllerDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 42)
+)
+snTrapL4GslbRemoteControllerDown.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4GslbRemoteControllerDown.setStatus(
+        ""
+    )
+
+snTrapL4GslbHealthCheckIpUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 43)
+)
+snTrapL4GslbHealthCheckIpUp.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4GslbHealthCheckIpUp.setStatus(
+        ""
+    )
+
+snTrapL4GslbHealthCheckIpDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 44)
+)
+snTrapL4GslbHealthCheckIpDown.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4GslbHealthCheckIpDown.setStatus(
+        ""
+    )
+
+snTrapL4GslbHealthCheckIpPortUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 45)
+)
+snTrapL4GslbHealthCheckIpPortUp.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4GslbHealthCheckIpPortUp.setStatus(
+        ""
+    )
+
+snTrapL4GslbHealthCheckIpPortDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 46)
+)
+snTrapL4GslbHealthCheckIpPortDown.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4GslbHealthCheckIpPortDown.setStatus(
+        ""
+    )
+
+snTrapL4FirewallBecomeStandby = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 47)
+)
+if mibBuilder.loadTexts:
+    snTrapL4FirewallBecomeStandby.setStatus(
+        ""
+    )
+
+snTrapL4FirewallBecomeActive = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 48)
+)
+if mibBuilder.loadTexts:
+    snTrapL4FirewallBecomeActive.setStatus(
+        ""
+    )
+
+snTrapL4FirewallPathUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 49)
+)
+if mibBuilder.loadTexts:
+    snTrapL4FirewallPathUp.setStatus(
+        ""
+    )
+
+snTrapL4FirewallPathDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 50)
+)
+if mibBuilder.loadTexts:
+    snTrapL4FirewallPathDown.setStatus(
+        ""
+    )
+
+snTrapIcmpLocalExceedBurst = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 51)
+)
+snTrapIcmpLocalExceedBurst.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapIcmpLocalExceedBurst.setStatus(
+        ""
+    )
+
+snTrapIcmpTransitExceedBurst = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 52)
+)
+snTrapIcmpTransitExceedBurst.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapIcmpTransitExceedBurst.setStatus(
+        ""
+    )
+
+snTrapTcpLocalExceedBurst = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 53)
+)
+snTrapTcpLocalExceedBurst.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapTcpLocalExceedBurst.setStatus(
+        ""
+    )
+
+snTrapTcpTransitExceedBurst = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 54)
+)
+snTrapTcpTransitExceedBurst.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapTcpTransitExceedBurst.setStatus(
+        ""
+    )
+
+snTrapL4ContentVerification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 55)
+)
+if mibBuilder.loadTexts:
+    snTrapL4ContentVerification.setStatus(
+        ""
+    )
+
+snTrapDuplicateIp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 56)
+)
+if mibBuilder.loadTexts:
+    snTrapDuplicateIp.setStatus(
+        ""
+    )
+
+snTrapMplsProblem = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 57)
+)
+if mibBuilder.loadTexts:
+    snTrapMplsProblem.setStatus(
+        ""
+    )
+
+snTrapMplsException = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 58)
+)
+if mibBuilder.loadTexts:
+    snTrapMplsException.setStatus(
+        ""
+    )
+
+snTrapMplsAudit = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 59)
+)
+if mibBuilder.loadTexts:
+    snTrapMplsAudit.setStatus(
+        ""
+    )
+
+snTrapMplsDeveloper = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 60)
+)
+if mibBuilder.loadTexts:
+    snTrapMplsDeveloper.setStatus(
+        ""
+    )
+
+snTrapNoBmFreeQueue = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 61)
+)
+snTrapNoBmFreeQueue.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapNoBmFreeQueue.setStatus(
+        ""
+    )
+
+snTrapSmcDmaDrop = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 62)
+)
+snTrapSmcDmaDrop.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapSmcDmaDrop.setStatus(
+        ""
+    )
+
+snTrapSmcBpDrop = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 63)
+)
+snTrapSmcBpDrop.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapSmcBpDrop.setStatus(
+        ""
+    )
+
+snTrapBmWriteSeqDrop = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 64)
+)
+snTrapBmWriteSeqDrop.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapBmWriteSeqDrop.setStatus(
+        ""
+    )
+
+snTrapBgpPeerUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 65)
+)
+snTrapBgpPeerUp.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapBgpPeerUp.setStatus(
+        ""
+    )
+
+snTrapBgpPeerDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 66)
+)
+snTrapBgpPeerDown.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapBgpPeerDown.setStatus(
+        ""
+    )
+
+snTrapL4RealServerResponseTimeLowerLimit = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 67)
+)
+snTrapL4RealServerResponseTimeLowerLimit.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4RealServerResponseTimeLowerLimit.setStatus(
+        ""
+    )
+
+snTrapL4RealServerResponseTimeUpperLimit = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 68)
+)
+snTrapL4RealServerResponseTimeUpperLimit.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4RealServerResponseTimeUpperLimit.setStatus(
+        ""
+    )
+
+snTrapL4TcpAttackRateExceedMax = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 69)
+)
+snTrapL4TcpAttackRateExceedMax.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4TcpAttackRateExceedMax.setStatus(
+        ""
+    )
+
+snTrapL4TcpAttackRateExceedThreshold = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 70)
+)
+snTrapL4TcpAttackRateExceedThreshold.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4TcpAttackRateExceedThreshold.setStatus(
+        ""
+    )
+
+snTrapL4ConnectionRateExceedMax = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 71)
+)
+snTrapL4ConnectionRateExceedMax.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4ConnectionRateExceedMax.setStatus(
+        ""
+    )
+
+snTrapL4ConnectionRateExceedThreshold = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 72)
+)
+snTrapL4ConnectionRateExceedThreshold.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4ConnectionRateExceedThreshold.setStatus(
+        ""
+    )
+
+snTrapRunningConfigChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 73)
+)
+snTrapRunningConfigChanged.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapRunningConfigChanged.setStatus(
+        ""
+    )
+
+snTrapStartupConfigChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 74)
+)
+snTrapStartupConfigChanged.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapStartupConfigChanged.setStatus(
+        ""
+    )
+
+snTrapUserLogin = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 75)
+)
+snTrapUserLogin.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapUserLogin.setStatus(
+        ""
+    )
+
+snTrapUserLogout = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 76)
+)
+snTrapUserLogout.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapUserLogout.setStatus(
+        ""
+    )
+
+snTrapPortSecurityViolation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 77)
+)
+snTrapPortSecurityViolation.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapPortSecurityViolation.setStatus(
+        ""
+    )
+
+snTrapPortSecurityShutdown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 78)
+)
+snTrapPortSecurityShutdown.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapPortSecurityShutdown.setStatus(
+        ""
+    )
+
+snTrapMrpStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 79)
+)
+snTrapMrpStateChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapMrpStateChange.setStatus(
+        ""
+    )
+
+snTrapMrpCamError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 80)
+)
+snTrapMrpCamError.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapMrpCamError.setStatus(
+        ""
+    )
+
+snTrapChasPwrSupplyOK = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 81)
+)
+snTrapChasPwrSupplyOK.setObjects(
+      *(("FOUNDRY-SN-AGENT-MIB", "snChasPwrSupplyIndex"),
+        ("FOUNDRY-SN-AGENT-MIB", "snChasPwrSupplyDescription"))
+)
+if mibBuilder.loadTexts:
+    snTrapChasPwrSupplyOK.setStatus(
+        ""
+    )
+
+snTrapVrrpeIfStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 82)
+)
+snTrapVrrpeIfStateChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapVrrpeIfStateChange.setStatus(
+        ""
+    )
+
+snTrapVsrpIfStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 83)
+)
+snTrapVsrpIfStateChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapVsrpIfStateChange.setStatus(
+        ""
+    )
+
+snTrapSrcIpAddressViolation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 84)
+)
+snTrapSrcIpAddressViolation.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapSrcIpAddressViolation.setStatus(
+        ""
+    )
+
+snTrapMacAuthEnable = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 85)
+)
+snTrapMacAuthEnable.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapMacAuthEnable.setStatus(
+        ""
+    )
+
+snTrapMacAuthDisable = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 86)
+)
+snTrapMacAuthDisable.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapMacAuthDisable.setStatus(
+        ""
+    )
+
+snTrapMacAuthMACAccepted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 87)
+)
+snTrapMacAuthMACAccepted.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapMacAuthMACAccepted.setStatus(
+        ""
+    )
+
+snTrapMacAuthMACRejected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 88)
+)
+snTrapMacAuthMACRejected.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapMacAuthMACRejected.setStatus(
+        ""
+    )
+
+snTrapMacAuthPortDisabled = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 89)
+)
+snTrapMacAuthPortDisabled.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapMacAuthPortDisabled.setStatus(
+        ""
+    )
+
+snTrapClientLoginReject = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 110)
+)
+snTrapClientLoginReject.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapClientLoginReject.setStatus(
+        ""
+    )
+
+snTrapLocalUserConfigChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 111)
+)
+snTrapLocalUserConfigChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapLocalUserConfigChange.setStatus(
+        ""
+    )
+
+snTrapVlanConfigChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 112)
+)
+snTrapVlanConfigChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapVlanConfigChange.setStatus(
+        ""
+    )
+
+snTrapAclConfigChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 113)
+)
+snTrapAclConfigChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapAclConfigChange.setStatus(
+        ""
+    )
+
+snTrapMacFilterConfigChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 114)
+)
+snTrapMacFilterConfigChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapMacFilterConfigChange.setStatus(
+        ""
+    )
+
+snTrapSNMPConfigChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 115)
+)
+snTrapSNMPConfigChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapSNMPConfigChange.setStatus(
+        ""
+    )
+
+snTrapSyslogConfigChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 116)
+)
+snTrapSyslogConfigChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapSyslogConfigChange.setStatus(
+        ""
+    )
+
+snTrapPasswordConfigChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 117)
+)
+snTrapPasswordConfigChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapPasswordConfigChange.setStatus(
+        ""
+    )
+
+snTrapServerStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 118)
+)
+snTrapServerStatusChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapServerStatusChange.setStatus(
+        ""
+    )
+
+snTrapL4RealServerPortMaxConnectionLimitReached = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 119)
+)
+snTrapL4RealServerPortMaxConnectionLimitReached.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapL4RealServerPortMaxConnectionLimitReached.setStatus(
+        ""
+    )
+
+snTrapL4LinkDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 120)
+)
+snTrapL4LinkDown.setObjects(
+      *(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapLinkName"),
+        ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4LinkVirtualInterface"))
+)
+if mibBuilder.loadTexts:
+    snTrapL4LinkDown.setStatus(
+        ""
+    )
+
+snTrapL4LinkUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 121)
+)
+snTrapL4LinkUp.setObjects(
+      *(("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4TrapLinkName"),
+        ("FOUNDRY-SN-SW-L4-SWITCH-GROUP-MIB", "snL4LinkVirtualInterface"))
+)
+if mibBuilder.loadTexts:
+    snTrapL4LinkUp.setStatus(
+        ""
+    )
+
+snTrapPortPriorityChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 122)
+)
+snTrapPortPriorityChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapPortPriorityChange.setStatus(
+        ""
+    )
+
+snTrapAutoPortDisableTrigger = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 123)
+)
+snTrapAutoPortDisableTrigger.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapAutoPortDisableTrigger.setStatus(
+        ""
+    )
+
+snTrapAutoPortDisableRelease = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 124)
+)
+snTrapAutoPortDisableRelease.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapAutoPortDisableRelease.setStatus(
+        ""
+    )
+
+snTrapPnPStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 125)
+)
+snTrapPnPStatusChange.setObjects(
+      *(("FOUNDRY-SN-WIRELESS-GROUP-MIB", "wgPnPStatus"),
+        ("FOUNDRY-SN-WIRELESS-GROUP-MIB", "wgPnPStatus"),
+        ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage"))
+)
+if mibBuilder.loadTexts:
+    snTrapPnPStatusChange.setStatus(
+        ""
+    )
+
+snTrapWirelessIsrpPeerStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 126)
+)
+snTrapWirelessIsrpPeerStateChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapWirelessIsrpPeerStateChange.setStatus(
+        ""
+    )
+
+snTrapWirelessStationStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 127)
+)
+snTrapWirelessStationStateChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapWirelessStationStateChange.setStatus(
+        ""
+    )
+
+snTrapWirelessStationRoamingEventTriggered = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 128)
+)
+snTrapWirelessStationRoamingEventTriggered.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapWirelessStationRoamingEventTriggered.setStatus(
+        ""
+    )
+
+snTrapWirelessSappStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 129)
+)
+snTrapWirelessSappStateChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapWirelessSappStateChange.setStatus(
+        ""
+    )
+
+snTrapExternalPowerConnectionStatus = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 130)
+)
+snTrapExternalPowerConnectionStatus.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapExternalPowerConnectionStatus.setStatus(
+        ""
+    )
+
+snTrapDot1xSecurityViolation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 131)
+)
+snTrapDot1xSecurityViolation.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapDot1xSecurityViolation.setStatus(
+        ""
+    )
+
+snTrapDot1xPortLinkChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 132)
+)
+snTrapDot1xPortLinkChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapDot1xPortLinkChange.setStatus(
+        ""
+    )
+
+snTrapDot1xPortControlChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 133)
+)
+snTrapDot1xPortControlChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapDot1xPortControlChange.setStatus(
+        ""
+    )
+
+snTrapDot1xVlanIdChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 134)
+)
+snTrapDot1xVlanIdChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapDot1xVlanIdChange.setStatus(
+        ""
+    )
+
+snTrapDot1xFilterSetupFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 135)
+)
+snTrapDot1xFilterSetupFailure.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapDot1xFilterSetupFailure.setStatus(
+        ""
+    )
+
+snTrapDot1xError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 136)
+)
+snTrapDot1xError.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapDot1xError.setStatus(
+        ""
+    )
+
+snTrapPortConfigChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 137)
+)
+snTrapPortConfigChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapPortConfigChange.setStatus(
+        ""
+    )
+
+snTrapMacAuthVlanIdChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1991, 0, 138)
+)
+snTrapMacAuthVlanIdChange.setObjects(
+    ("FOUNDRY-SN-AGENT-MIB", "snAgGblTrapMessage")
+)
+if mibBuilder.loadTexts:
+    snTrapMacAuthVlanIdChange.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "FOUNDRY-SN-TRAP-MIB",
+    **{"snTrapL4MaxSessionLimitReached": snTrapL4MaxSessionLimitReached,
+       "snTrapL4TcpSynLimitReached": snTrapL4TcpSynLimitReached,
+       "snTrapL4RealServerUp": snTrapL4RealServerUp,
+       "snTrapL4RealServerDown": snTrapL4RealServerDown,
+       "snTrapL4RealServerPortUp": snTrapL4RealServerPortUp,
+       "snTrapL4RealServerPortDown": snTrapL4RealServerPortDown,
+       "snTrapL4RealServerMaxConnectionLimitReached": snTrapL4RealServerMaxConnectionLimitReached,
+       "snTrapL4BecomeStandby": snTrapL4BecomeStandby,
+       "snTrapL4BecomeActive": snTrapL4BecomeActive,
+       "snTrapModuleInserted": snTrapModuleInserted,
+       "snTrapModuleRemoved": snTrapModuleRemoved,
+       "snTrapChasPwrSupplyFailed": snTrapChasPwrSupplyFailed,
+       "snTrapChasFanFailed": snTrapChasFanFailed,
+       "snTrapLockedAddressViolation2": snTrapLockedAddressViolation2,
+       "snTrapFsrpIfStateChange": snTrapFsrpIfStateChange,
+       "snTrapVrrpIfStateChange": snTrapVrrpIfStateChange,
+       "snTrapMgmtModuleRedunStateChange": snTrapMgmtModuleRedunStateChange,
+       "snTrapTemperatureWarning": snTrapTemperatureWarning,
+       "snTrapAccessListDeny": snTrapAccessListDeny,
+       "snTrapMacFilterDeny": snTrapMacFilterDeny,
+       "snTrapL4GslbRemoteUp": snTrapL4GslbRemoteUp,
+       "snTrapL4GslbRemoteDown": snTrapL4GslbRemoteDown,
+       "snTrapL4GslbRemoteControllerUp": snTrapL4GslbRemoteControllerUp,
+       "snTrapL4GslbRemoteControllerDown": snTrapL4GslbRemoteControllerDown,
+       "snTrapL4GslbHealthCheckIpUp": snTrapL4GslbHealthCheckIpUp,
+       "snTrapL4GslbHealthCheckIpDown": snTrapL4GslbHealthCheckIpDown,
+       "snTrapL4GslbHealthCheckIpPortUp": snTrapL4GslbHealthCheckIpPortUp,
+       "snTrapL4GslbHealthCheckIpPortDown": snTrapL4GslbHealthCheckIpPortDown,
+       "snTrapL4FirewallBecomeStandby": snTrapL4FirewallBecomeStandby,
+       "snTrapL4FirewallBecomeActive": snTrapL4FirewallBecomeActive,
+       "snTrapL4FirewallPathUp": snTrapL4FirewallPathUp,
+       "snTrapL4FirewallPathDown": snTrapL4FirewallPathDown,
+       "snTrapIcmpLocalExceedBurst": snTrapIcmpLocalExceedBurst,
+       "snTrapIcmpTransitExceedBurst": snTrapIcmpTransitExceedBurst,
+       "snTrapTcpLocalExceedBurst": snTrapTcpLocalExceedBurst,
+       "snTrapTcpTransitExceedBurst": snTrapTcpTransitExceedBurst,
+       "snTrapL4ContentVerification": snTrapL4ContentVerification,
+       "snTrapDuplicateIp": snTrapDuplicateIp,
+       "snTrapMplsProblem": snTrapMplsProblem,
+       "snTrapMplsException": snTrapMplsException,
+       "snTrapMplsAudit": snTrapMplsAudit,
+       "snTrapMplsDeveloper": snTrapMplsDeveloper,
+       "snTrapNoBmFreeQueue": snTrapNoBmFreeQueue,
+       "snTrapSmcDmaDrop": snTrapSmcDmaDrop,
+       "snTrapSmcBpDrop": snTrapSmcBpDrop,
+       "snTrapBmWriteSeqDrop": snTrapBmWriteSeqDrop,
+       "snTrapBgpPeerUp": snTrapBgpPeerUp,
+       "snTrapBgpPeerDown": snTrapBgpPeerDown,
+       "snTrapL4RealServerResponseTimeLowerLimit": snTrapL4RealServerResponseTimeLowerLimit,
+       "snTrapL4RealServerResponseTimeUpperLimit": snTrapL4RealServerResponseTimeUpperLimit,
+       "snTrapL4TcpAttackRateExceedMax": snTrapL4TcpAttackRateExceedMax,
+       "snTrapL4TcpAttackRateExceedThreshold": snTrapL4TcpAttackRateExceedThreshold,
+       "snTrapL4ConnectionRateExceedMax": snTrapL4ConnectionRateExceedMax,
+       "snTrapL4ConnectionRateExceedThreshold": snTrapL4ConnectionRateExceedThreshold,
+       "snTrapRunningConfigChanged": snTrapRunningConfigChanged,
+       "snTrapStartupConfigChanged": snTrapStartupConfigChanged,
+       "snTrapUserLogin": snTrapUserLogin,
+       "snTrapUserLogout": snTrapUserLogout,
+       "snTrapPortSecurityViolation": snTrapPortSecurityViolation,
+       "snTrapPortSecurityShutdown": snTrapPortSecurityShutdown,
+       "snTrapMrpStateChange": snTrapMrpStateChange,
+       "snTrapMrpCamError": snTrapMrpCamError,
+       "snTrapChasPwrSupplyOK": snTrapChasPwrSupplyOK,
+       "snTrapVrrpeIfStateChange": snTrapVrrpeIfStateChange,
+       "snTrapVsrpIfStateChange": snTrapVsrpIfStateChange,
+       "snTrapSrcIpAddressViolation": snTrapSrcIpAddressViolation,
+       "snTrapMacAuthEnable": snTrapMacAuthEnable,
+       "snTrapMacAuthDisable": snTrapMacAuthDisable,
+       "snTrapMacAuthMACAccepted": snTrapMacAuthMACAccepted,
+       "snTrapMacAuthMACRejected": snTrapMacAuthMACRejected,
+       "snTrapMacAuthPortDisabled": snTrapMacAuthPortDisabled,
+       "snTrapClientLoginReject": snTrapClientLoginReject,
+       "snTrapLocalUserConfigChange": snTrapLocalUserConfigChange,
+       "snTrapVlanConfigChange": snTrapVlanConfigChange,
+       "snTrapAclConfigChange": snTrapAclConfigChange,
+       "snTrapMacFilterConfigChange": snTrapMacFilterConfigChange,
+       "snTrapSNMPConfigChange": snTrapSNMPConfigChange,
+       "snTrapSyslogConfigChange": snTrapSyslogConfigChange,
+       "snTrapPasswordConfigChange": snTrapPasswordConfigChange,
+       "snTrapServerStatusChange": snTrapServerStatusChange,
+       "snTrapL4RealServerPortMaxConnectionLimitReached": snTrapL4RealServerPortMaxConnectionLimitReached,
+       "snTrapL4LinkDown": snTrapL4LinkDown,
+       "snTrapL4LinkUp": snTrapL4LinkUp,
+       "snTrapPortPriorityChange": snTrapPortPriorityChange,
+       "snTrapAutoPortDisableTrigger": snTrapAutoPortDisableTrigger,
+       "snTrapAutoPortDisableRelease": snTrapAutoPortDisableRelease,
+       "snTrapPnPStatusChange": snTrapPnPStatusChange,
+       "snTrapWirelessIsrpPeerStateChange": snTrapWirelessIsrpPeerStateChange,
+       "snTrapWirelessStationStateChange": snTrapWirelessStationStateChange,
+       "snTrapWirelessStationRoamingEventTriggered": snTrapWirelessStationRoamingEventTriggered,
+       "snTrapWirelessSappStateChange": snTrapWirelessSappStateChange,
+       "snTrapExternalPowerConnectionStatus": snTrapExternalPowerConnectionStatus,
+       "snTrapDot1xSecurityViolation": snTrapDot1xSecurityViolation,
+       "snTrapDot1xPortLinkChange": snTrapDot1xPortLinkChange,
+       "snTrapDot1xPortControlChange": snTrapDot1xPortControlChange,
+       "snTrapDot1xVlanIdChange": snTrapDot1xVlanIdChange,
+       "snTrapDot1xFilterSetupFailure": snTrapDot1xFilterSetupFailure,
+       "snTrapDot1xError": snTrapDot1xError,
+       "snTrapPortConfigChange": snTrapPortConfigChange,
+       "snTrapMacAuthVlanIdChange": snTrapMacAuthVlanIdChange}
+)

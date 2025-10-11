@@ -1,65 +1,384 @@
+# SNMP MIB module (ARISTA-CONFIG-COPY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ARISTA-CONFIG-COPY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arista/ARISTA-CONFIG-COPY-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:45 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/arista/ARISTA-CONFIG-COPY-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:57:29 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DateAndTime, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "DisplayString", "TextualConvention")
-aristaConfigCopyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 7))
-aristaConfigCopyMIB.setRevisions(('2021-09-08 00:00', '2014-08-15 00:00', '2013-02-14 00:00',))
-if mibBuilder.loadTexts: aristaConfigCopyMIB.setLastUpdated('202109080000Z')
-if mibBuilder.loadTexts: aristaConfigCopyMIB.setOrganization('Arista Networks, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(aristaMibs,) = mibBuilder.importSymbols(
+    "ARISTA-SMI-MIB",
+    "aristaMibs")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aristaConfigCopyMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7)
+)
+if mibBuilder.loadTexts:
+    aristaConfigCopyMIB.setRevisions(
+        ("2021-09-08 00:00",
+         "2014-08-15 00:00",
+         "2013-02-14 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class ConfigCopyState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
-    namedValues = NamedValues(("inactive", 0), ("scheduled", 1), ("running", 2), ("completed", 3), ("failed", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 0),
+          ("scheduled", 1),
+          ("running", 2),
+          ("completed", 3),
+          ("failed", 4))
+    )
+
+
 
 class ConfigCopyFailureCause(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("none", 0), ("unknown", 1), ("timeout", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("unknown", 1),
+          ("timeout", 2))
+    )
 
-aristaConfigCopyCommandTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1), )
-if mibBuilder.loadTexts: aristaConfigCopyCommandTable.setStatus('current')
-aristaConfigCopyCommandEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1), ).setIndexNames((0, "ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyName"), (0, "ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyId"))
-if mibBuilder.loadTexts: aristaConfigCopyCommandEntry.setStatus('current')
-aristaConfigCopyName = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 114)))
-if mibBuilder.loadTexts: aristaConfigCopyName.setStatus('current')
-aristaConfigCopyId = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 2), Unsigned32())
-if mibBuilder.loadTexts: aristaConfigCopyId.setStatus('current')
-aristaConfigCopySourceUri = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 3), OctetString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aristaConfigCopySourceUri.setStatus('current')
-aristaConfigCopyDestUri = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 4), OctetString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aristaConfigCopyDestUri.setStatus('current')
-aristaConfigCopyState = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 5), ConfigCopyState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaConfigCopyState.setStatus('current')
-aristaConfigCopyTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 6), Unsigned32().clone(60)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aristaConfigCopyTimeout.setStatus('current')
-aristaConfigCopyTimeStarted = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 7), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaConfigCopyTimeStarted.setStatus('current')
-aristaConfigCopyTimeCompleted = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 8), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaConfigCopyTimeCompleted.setStatus('current')
-aristaConfigCopyFailureCause = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 9), ConfigCopyFailureCause()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaConfigCopyFailureCause.setStatus('current')
-aristaConfigCopyFailureMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 10), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaConfigCopyFailureMessage.setStatus('current')
-aristaConfigCopyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aristaConfigCopyRowStatus.setStatus('current')
-aristaConfigCopyConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 7, 2))
-aristaConfigCopyCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 7, 2, 1))
-aristaConfigCopyGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 7, 2, 2))
-aristaConfigCopyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 7, 2, 1, 1)).setObjects(("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyObjectsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aristaConfigCopyCompliance = aristaConfigCopyCompliance.setStatus('current')
-aristaConfigCopyObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 7, 2, 2, 1)).setObjects(("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopySourceUri"), ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyDestUri"), ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyState"), ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyTimeout"), ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyTimeStarted"), ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyTimeCompleted"), ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyFailureCause"), ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyFailureMessage"), ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aristaConfigCopyObjectsGroup = aristaConfigCopyObjectsGroup.setStatus('current')
-mibBuilder.exportSymbols("ARISTA-CONFIG-COPY-MIB", aristaConfigCopyState=aristaConfigCopyState, aristaConfigCopyId=aristaConfigCopyId, aristaConfigCopyConformance=aristaConfigCopyConformance, aristaConfigCopyTimeout=aristaConfigCopyTimeout, aristaConfigCopyDestUri=aristaConfigCopyDestUri, aristaConfigCopyCompliance=aristaConfigCopyCompliance, aristaConfigCopyName=aristaConfigCopyName, aristaConfigCopySourceUri=aristaConfigCopySourceUri, aristaConfigCopyFailureCause=aristaConfigCopyFailureCause, aristaConfigCopyRowStatus=aristaConfigCopyRowStatus, aristaConfigCopyObjectsGroup=aristaConfigCopyObjectsGroup, aristaConfigCopyCompliances=aristaConfigCopyCompliances, aristaConfigCopyCommandEntry=aristaConfigCopyCommandEntry, aristaConfigCopyTimeStarted=aristaConfigCopyTimeStarted, aristaConfigCopyMIB=aristaConfigCopyMIB, aristaConfigCopyTimeCompleted=aristaConfigCopyTimeCompleted, aristaConfigCopyFailureMessage=aristaConfigCopyFailureMessage, ConfigCopyFailureCause=ConfigCopyFailureCause, aristaConfigCopyGroups=aristaConfigCopyGroups, ConfigCopyState=ConfigCopyState, PYSNMP_MODULE_ID=aristaConfigCopyMIB, aristaConfigCopyCommandTable=aristaConfigCopyCommandTable)
+
+# MIB Managed Objects in the order of their OIDs
+
+_AristaConfigCopyCommandTable_Object = MibTable
+aristaConfigCopyCommandTable = _AristaConfigCopyCommandTable_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1)
+)
+if mibBuilder.loadTexts:
+    aristaConfigCopyCommandTable.setStatus("current")
+_AristaConfigCopyCommandEntry_Object = MibTableRow
+aristaConfigCopyCommandEntry = _AristaConfigCopyCommandEntry_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1)
+)
+aristaConfigCopyCommandEntry.setIndexNames(
+    (0, "ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyName"),
+    (0, "ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyId"),
+)
+if mibBuilder.loadTexts:
+    aristaConfigCopyCommandEntry.setStatus("current")
+
+
+class _AristaConfigCopyName_Type(OctetString):
+    """Custom type aristaConfigCopyName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 114),
+    )
+
+
+_AristaConfigCopyName_Type.__name__ = "OctetString"
+_AristaConfigCopyName_Object = MibTableColumn
+aristaConfigCopyName = _AristaConfigCopyName_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 1),
+    _AristaConfigCopyName_Type()
+)
+aristaConfigCopyName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aristaConfigCopyName.setStatus("current")
+_AristaConfigCopyId_Type = Unsigned32
+_AristaConfigCopyId_Object = MibTableColumn
+aristaConfigCopyId = _AristaConfigCopyId_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 2),
+    _AristaConfigCopyId_Type()
+)
+aristaConfigCopyId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aristaConfigCopyId.setStatus("current")
+_AristaConfigCopySourceUri_Type = OctetString
+_AristaConfigCopySourceUri_Object = MibTableColumn
+aristaConfigCopySourceUri = _AristaConfigCopySourceUri_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 3),
+    _AristaConfigCopySourceUri_Type()
+)
+aristaConfigCopySourceUri.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aristaConfigCopySourceUri.setStatus("current")
+_AristaConfigCopyDestUri_Type = OctetString
+_AristaConfigCopyDestUri_Object = MibTableColumn
+aristaConfigCopyDestUri = _AristaConfigCopyDestUri_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 4),
+    _AristaConfigCopyDestUri_Type()
+)
+aristaConfigCopyDestUri.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aristaConfigCopyDestUri.setStatus("current")
+_AristaConfigCopyState_Type = ConfigCopyState
+_AristaConfigCopyState_Object = MibTableColumn
+aristaConfigCopyState = _AristaConfigCopyState_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 5),
+    _AristaConfigCopyState_Type()
+)
+aristaConfigCopyState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaConfigCopyState.setStatus("current")
+
+
+class _AristaConfigCopyTimeout_Type(Unsigned32):
+    """Custom type aristaConfigCopyTimeout based on Unsigned32"""
+    defaultValue = 60
+
+
+_AristaConfigCopyTimeout_Type.__name__ = "Unsigned32"
+_AristaConfigCopyTimeout_Object = MibTableColumn
+aristaConfigCopyTimeout = _AristaConfigCopyTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 6),
+    _AristaConfigCopyTimeout_Type()
+)
+aristaConfigCopyTimeout.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aristaConfigCopyTimeout.setStatus("current")
+_AristaConfigCopyTimeStarted_Type = DateAndTime
+_AristaConfigCopyTimeStarted_Object = MibTableColumn
+aristaConfigCopyTimeStarted = _AristaConfigCopyTimeStarted_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 7),
+    _AristaConfigCopyTimeStarted_Type()
+)
+aristaConfigCopyTimeStarted.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaConfigCopyTimeStarted.setStatus("current")
+_AristaConfigCopyTimeCompleted_Type = DateAndTime
+_AristaConfigCopyTimeCompleted_Object = MibTableColumn
+aristaConfigCopyTimeCompleted = _AristaConfigCopyTimeCompleted_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 8),
+    _AristaConfigCopyTimeCompleted_Type()
+)
+aristaConfigCopyTimeCompleted.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaConfigCopyTimeCompleted.setStatus("current")
+_AristaConfigCopyFailureCause_Type = ConfigCopyFailureCause
+_AristaConfigCopyFailureCause_Object = MibTableColumn
+aristaConfigCopyFailureCause = _AristaConfigCopyFailureCause_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 9),
+    _AristaConfigCopyFailureCause_Type()
+)
+aristaConfigCopyFailureCause.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaConfigCopyFailureCause.setStatus("current")
+_AristaConfigCopyFailureMessage_Type = OctetString
+_AristaConfigCopyFailureMessage_Object = MibTableColumn
+aristaConfigCopyFailureMessage = _AristaConfigCopyFailureMessage_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 10),
+    _AristaConfigCopyFailureMessage_Type()
+)
+aristaConfigCopyFailureMessage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaConfigCopyFailureMessage.setStatus("current")
+_AristaConfigCopyRowStatus_Type = RowStatus
+_AristaConfigCopyRowStatus_Object = MibTableColumn
+aristaConfigCopyRowStatus = _AristaConfigCopyRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 1, 1, 11),
+    _AristaConfigCopyRowStatus_Type()
+)
+aristaConfigCopyRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aristaConfigCopyRowStatus.setStatus("current")
+_AristaConfigCopyConformance_ObjectIdentity = ObjectIdentity
+aristaConfigCopyConformance = _AristaConfigCopyConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 2)
+)
+_AristaConfigCopyCompliances_ObjectIdentity = ObjectIdentity
+aristaConfigCopyCompliances = _AristaConfigCopyCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 2, 1)
+)
+_AristaConfigCopyGroups_ObjectIdentity = ObjectIdentity
+aristaConfigCopyGroups = _AristaConfigCopyGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 2, 2)
+)
+
+# Managed Objects groups
+
+aristaConfigCopyObjectsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 2, 2, 1)
+)
+aristaConfigCopyObjectsGroup.setObjects(
+      *(("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopySourceUri"),
+        ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyDestUri"),
+        ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyState"),
+        ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyTimeout"),
+        ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyTimeStarted"),
+        ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyTimeCompleted"),
+        ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyFailureCause"),
+        ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyFailureMessage"),
+        ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyRowStatus"))
+)
+if mibBuilder.loadTexts:
+    aristaConfigCopyObjectsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+aristaConfigCopyCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 7, 2, 1, 1)
+)
+aristaConfigCopyCompliance.setObjects(
+    ("ARISTA-CONFIG-COPY-MIB", "aristaConfigCopyObjectsGroup")
+)
+if mibBuilder.loadTexts:
+    aristaConfigCopyCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ARISTA-CONFIG-COPY-MIB",
+    **{"ConfigCopyState": ConfigCopyState,
+       "ConfigCopyFailureCause": ConfigCopyFailureCause,
+       "aristaConfigCopyMIB": aristaConfigCopyMIB,
+       "aristaConfigCopyCommandTable": aristaConfigCopyCommandTable,
+       "aristaConfigCopyCommandEntry": aristaConfigCopyCommandEntry,
+       "aristaConfigCopyName": aristaConfigCopyName,
+       "aristaConfigCopyId": aristaConfigCopyId,
+       "aristaConfigCopySourceUri": aristaConfigCopySourceUri,
+       "aristaConfigCopyDestUri": aristaConfigCopyDestUri,
+       "aristaConfigCopyState": aristaConfigCopyState,
+       "aristaConfigCopyTimeout": aristaConfigCopyTimeout,
+       "aristaConfigCopyTimeStarted": aristaConfigCopyTimeStarted,
+       "aristaConfigCopyTimeCompleted": aristaConfigCopyTimeCompleted,
+       "aristaConfigCopyFailureCause": aristaConfigCopyFailureCause,
+       "aristaConfigCopyFailureMessage": aristaConfigCopyFailureMessage,
+       "aristaConfigCopyRowStatus": aristaConfigCopyRowStatus,
+       "aristaConfigCopyConformance": aristaConfigCopyConformance,
+       "aristaConfigCopyCompliances": aristaConfigCopyCompliances,
+       "aristaConfigCopyCompliance": aristaConfigCopyCompliance,
+       "aristaConfigCopyGroups": aristaConfigCopyGroups,
+       "aristaConfigCopyObjectsGroup": aristaConfigCopyObjectsGroup}
+)

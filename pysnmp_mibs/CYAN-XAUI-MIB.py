@@ -1,50 +1,307 @@
+# SNMP MIB module (CYAN-XAUI-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CYAN-XAUI-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cyan/CYAN-XAUI-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:59 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cyan/CYAN-XAUI-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:03:15 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-cyanEntityModules, = mibBuilder.importSymbols("CYAN-MIB", "cyanEntityModules")
-CyanAdminStateTc, CyanOpStateQualTc, CyanSecServiceStateTc, CyanOpStateTc = mibBuilder.importSymbols("CYAN-TC-MIB", "CyanAdminStateTc", "CyanOpStateQualTc", "CyanSecServiceStateTc", "CyanOpStateTc")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-cyanXauiModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170))
-cyanXauiModule.setRevisions(('2014-12-07 05:45',))
-if mibBuilder.loadTexts: cyanXauiModule.setLastUpdated('201412070545Z')
-if mibBuilder.loadTexts: cyanXauiModule.setOrganization('Cyan, Inc.')
-cyanXauiMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1))
-cyanXauiTable = MibTable((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1), )
-if mibBuilder.loadTexts: cyanXauiTable.setStatus('current')
-cyanXauiEntry = MibTableRow((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1), ).setIndexNames((0, "CYAN-XAUI-MIB", "cyanXauiShelfId"), (0, "CYAN-XAUI-MIB", "cyanXauiModuleId"), (0, "CYAN-XAUI-MIB", "cyanXauiXauiId"))
-if mibBuilder.loadTexts: cyanXauiEntry.setStatus('current')
-cyanXauiShelfId = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
-if mibBuilder.loadTexts: cyanXauiShelfId.setStatus('current')
-cyanXauiModuleId = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 2), Unsigned32())
-if mibBuilder.loadTexts: cyanXauiModuleId.setStatus('current')
-cyanXauiXauiId = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 3), Unsigned32())
-if mibBuilder.loadTexts: cyanXauiXauiId.setStatus('current')
-cyanXauiAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 4), CyanAdminStateTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanXauiAdminState.setStatus('current')
-cyanXauiAutoinserviceSoakTimeSec = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanXauiAutoinserviceSoakTimeSec.setStatus('current')
-cyanXauiOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 6), CyanOpStateTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanXauiOperState.setStatus('current')
-cyanXauiOperStateQual = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 7), CyanOpStateQualTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanXauiOperStateQual.setStatus('current')
-cyanXauiPortSpeedMbps = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanXauiPortSpeedMbps.setStatus('current')
-cyanXauiSecServState = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 9), CyanSecServiceStateTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanXauiSecServState.setStatus('current')
-cyanXauiObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 20)).setObjects(("CYAN-XAUI-MIB", "cyanXauiAdminState"), ("CYAN-XAUI-MIB", "cyanXauiAutoinserviceSoakTimeSec"), ("CYAN-XAUI-MIB", "cyanXauiOperState"), ("CYAN-XAUI-MIB", "cyanXauiOperStateQual"), ("CYAN-XAUI-MIB", "cyanXauiPortSpeedMbps"), ("CYAN-XAUI-MIB", "cyanXauiSecServState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cyanXauiObjectGroup = cyanXauiObjectGroup.setStatus('current')
-cyanXauiCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 30)).setObjects(("CYAN-XAUI-MIB", "cyanXauiObjectGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cyanXauiCompliance = cyanXauiCompliance.setStatus('current')
-mibBuilder.exportSymbols("CYAN-XAUI-MIB", cyanXauiOperState=cyanXauiOperState, PYSNMP_MODULE_ID=cyanXauiModule, cyanXauiAutoinserviceSoakTimeSec=cyanXauiAutoinserviceSoakTimeSec, cyanXauiXauiId=cyanXauiXauiId, cyanXauiEntry=cyanXauiEntry, cyanXauiPortSpeedMbps=cyanXauiPortSpeedMbps, cyanXauiOperStateQual=cyanXauiOperStateQual, cyanXauiShelfId=cyanXauiShelfId, cyanXauiModuleId=cyanXauiModuleId, cyanXauiObjectGroup=cyanXauiObjectGroup, cyanXauiCompliance=cyanXauiCompliance, cyanXauiTable=cyanXauiTable, cyanXauiAdminState=cyanXauiAdminState, cyanXauiSecServState=cyanXauiSecServState, cyanXauiModule=cyanXauiModule, cyanXauiMibObjects=cyanXauiMibObjects)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cyanEntityModules,) = mibBuilder.importSymbols(
+    "CYAN-MIB",
+    "cyanEntityModules")
+
+(CyanAdminStateTc,
+ CyanOpStateQualTc,
+ CyanOpStateTc,
+ CyanSecServiceStateTc) = mibBuilder.importSymbols(
+    "CYAN-TC-MIB",
+    "CyanAdminStateTc",
+    "CyanOpStateQualTc",
+    "CyanOpStateTc",
+    "CyanSecServiceStateTc")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+cyanXauiModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170)
+)
+if mibBuilder.loadTexts:
+    cyanXauiModule.setRevisions(
+        ("2014-12-07 05:45",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CyanXauiMibObjects_ObjectIdentity = ObjectIdentity
+cyanXauiMibObjects = _CyanXauiMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1)
+)
+_CyanXauiTable_Object = MibTable
+cyanXauiTable = _CyanXauiTable_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cyanXauiTable.setStatus("current")
+_CyanXauiEntry_Object = MibTableRow
+cyanXauiEntry = _CyanXauiEntry_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1)
+)
+cyanXauiEntry.setIndexNames(
+    (0, "CYAN-XAUI-MIB", "cyanXauiShelfId"),
+    (0, "CYAN-XAUI-MIB", "cyanXauiModuleId"),
+    (0, "CYAN-XAUI-MIB", "cyanXauiXauiId"),
+)
+if mibBuilder.loadTexts:
+    cyanXauiEntry.setStatus("current")
+
+
+class _CyanXauiShelfId_Type(Unsigned32):
+    """Custom type cyanXauiShelfId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_CyanXauiShelfId_Type.__name__ = "Unsigned32"
+_CyanXauiShelfId_Object = MibTableColumn
+cyanXauiShelfId = _CyanXauiShelfId_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 1),
+    _CyanXauiShelfId_Type()
+)
+cyanXauiShelfId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cyanXauiShelfId.setStatus("current")
+_CyanXauiModuleId_Type = Unsigned32
+_CyanXauiModuleId_Object = MibTableColumn
+cyanXauiModuleId = _CyanXauiModuleId_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 2),
+    _CyanXauiModuleId_Type()
+)
+cyanXauiModuleId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cyanXauiModuleId.setStatus("current")
+_CyanXauiXauiId_Type = Unsigned32
+_CyanXauiXauiId_Object = MibTableColumn
+cyanXauiXauiId = _CyanXauiXauiId_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 3),
+    _CyanXauiXauiId_Type()
+)
+cyanXauiXauiId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cyanXauiXauiId.setStatus("current")
+_CyanXauiAdminState_Type = CyanAdminStateTc
+_CyanXauiAdminState_Object = MibTableColumn
+cyanXauiAdminState = _CyanXauiAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 4),
+    _CyanXauiAdminState_Type()
+)
+cyanXauiAdminState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanXauiAdminState.setStatus("current")
+_CyanXauiAutoinserviceSoakTimeSec_Type = Integer32
+_CyanXauiAutoinserviceSoakTimeSec_Object = MibTableColumn
+cyanXauiAutoinserviceSoakTimeSec = _CyanXauiAutoinserviceSoakTimeSec_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 5),
+    _CyanXauiAutoinserviceSoakTimeSec_Type()
+)
+cyanXauiAutoinserviceSoakTimeSec.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanXauiAutoinserviceSoakTimeSec.setStatus("current")
+_CyanXauiOperState_Type = CyanOpStateTc
+_CyanXauiOperState_Object = MibTableColumn
+cyanXauiOperState = _CyanXauiOperState_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 6),
+    _CyanXauiOperState_Type()
+)
+cyanXauiOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanXauiOperState.setStatus("current")
+_CyanXauiOperStateQual_Type = CyanOpStateQualTc
+_CyanXauiOperStateQual_Object = MibTableColumn
+cyanXauiOperStateQual = _CyanXauiOperStateQual_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 7),
+    _CyanXauiOperStateQual_Type()
+)
+cyanXauiOperStateQual.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanXauiOperStateQual.setStatus("current")
+_CyanXauiPortSpeedMbps_Type = Unsigned32
+_CyanXauiPortSpeedMbps_Object = MibTableColumn
+cyanXauiPortSpeedMbps = _CyanXauiPortSpeedMbps_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 8),
+    _CyanXauiPortSpeedMbps_Type()
+)
+cyanXauiPortSpeedMbps.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanXauiPortSpeedMbps.setStatus("current")
+_CyanXauiSecServState_Type = CyanSecServiceStateTc
+_CyanXauiSecServState_Object = MibTableColumn
+cyanXauiSecServState = _CyanXauiSecServState_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 1, 1, 1, 9),
+    _CyanXauiSecServState_Type()
+)
+cyanXauiSecServState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanXauiSecServState.setStatus("current")
+
+# Managed Objects groups
+
+cyanXauiObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 20)
+)
+cyanXauiObjectGroup.setObjects(
+      *(("CYAN-XAUI-MIB", "cyanXauiAdminState"),
+        ("CYAN-XAUI-MIB", "cyanXauiAutoinserviceSoakTimeSec"),
+        ("CYAN-XAUI-MIB", "cyanXauiOperState"),
+        ("CYAN-XAUI-MIB", "cyanXauiOperStateQual"),
+        ("CYAN-XAUI-MIB", "cyanXauiPortSpeedMbps"),
+        ("CYAN-XAUI-MIB", "cyanXauiSecServState"))
+)
+if mibBuilder.loadTexts:
+    cyanXauiObjectGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cyanXauiCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 170, 30)
+)
+cyanXauiCompliance.setObjects(
+    ("CYAN-XAUI-MIB", "cyanXauiObjectGroup")
+)
+if mibBuilder.loadTexts:
+    cyanXauiCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CYAN-XAUI-MIB",
+    **{"cyanXauiModule": cyanXauiModule,
+       "cyanXauiMibObjects": cyanXauiMibObjects,
+       "cyanXauiTable": cyanXauiTable,
+       "cyanXauiEntry": cyanXauiEntry,
+       "cyanXauiShelfId": cyanXauiShelfId,
+       "cyanXauiModuleId": cyanXauiModuleId,
+       "cyanXauiXauiId": cyanXauiXauiId,
+       "cyanXauiAdminState": cyanXauiAdminState,
+       "cyanXauiAutoinserviceSoakTimeSec": cyanXauiAutoinserviceSoakTimeSec,
+       "cyanXauiOperState": cyanXauiOperState,
+       "cyanXauiOperStateQual": cyanXauiOperStateQual,
+       "cyanXauiPortSpeedMbps": cyanXauiPortSpeedMbps,
+       "cyanXauiSecServState": cyanXauiSecServState,
+       "cyanXauiObjectGroup": cyanXauiObjectGroup,
+       "cyanXauiCompliance": cyanXauiCompliance}
+)

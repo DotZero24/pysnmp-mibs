@@ -1,19 +1,159 @@
+# SNMP MIB module (WESTERMO-WEOS-TECHPREVIEW-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module WESTERMO-WEOS-TECHPREVIEW-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/westermo/WESTERMO-WEOS-TECHPREVIEW-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:12 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/westermo/WESTERMO-WEOS-TECHPREVIEW-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:54:23 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-otherNotificationPrefix, = mibBuilder.importSymbols("WESTERMO-WEOS-MIB", "otherNotificationPrefix")
-remoteTriggerSet = NotificationType((1, 3, 6, 1, 4, 1, 16177, 2, 1, 6, 7, 0, 1)).setObjects(("WESTERMO-WEOS-TECHPREVIEW-MIB", "remoteTriggerStatus"))
-if mibBuilder.loadTexts: remoteTriggerSet.setStatus('current')
-remoteTriggerTimeout = NotificationType((1, 3, 6, 1, 4, 1, 16177, 2, 1, 6, 7, 0, 2)).setObjects(("WESTERMO-WEOS-TECHPREVIEW-MIB", "remoteTriggerStatus"))
-if mibBuilder.loadTexts: remoteTriggerTimeout.setStatus('current')
-mibBuilder.exportSymbols("WESTERMO-WEOS-TECHPREVIEW-MIB", remoteTriggerTimeout=remoteTriggerTimeout, remoteTriggerSet=remoteTriggerSet)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(otherNotificationPrefix,) = mibBuilder.importSymbols(
+    "WESTERMO-WEOS-MIB",
+    "otherNotificationPrefix")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+remoteTriggerSet = NotificationType(
+    (1, 3, 6, 1, 4, 1, 16177, 2, 1, 6, 7, 0, 1)
+)
+remoteTriggerSet.setObjects(
+    ("WESTERMO-WEOS-TECHPREVIEW-MIB", "remoteTriggerStatus")
+)
+if mibBuilder.loadTexts:
+    remoteTriggerSet.setStatus(
+        "current"
+    )
+
+remoteTriggerTimeout = NotificationType(
+    (1, 3, 6, 1, 4, 1, 16177, 2, 1, 6, 7, 0, 2)
+)
+remoteTriggerTimeout.setObjects(
+    ("WESTERMO-WEOS-TECHPREVIEW-MIB", "remoteTriggerStatus")
+)
+if mibBuilder.loadTexts:
+    remoteTriggerTimeout.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "WESTERMO-WEOS-TECHPREVIEW-MIB",
+    **{"remoteTriggerSet": remoteTriggerSet,
+       "remoteTriggerTimeout": remoteTriggerTimeout}
+)

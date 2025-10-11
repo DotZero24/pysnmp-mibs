@@ -1,62 +1,393 @@
+# SNMP MIB module (HM2-PLATFORM-MMRP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HM2-PLATFORM-MMRP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HM2-PLATFORM-MMRP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:55:51 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hirschmann/HM2-PLATFORM-MMRP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:52:39 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hm2AgentDot1qMrpMxrp, = mibBuilder.importSymbols("HM2-PLATFORM-MRP-MIB", "hm2AgentDot1qMrpMxrp")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hm2PlatformMMRP = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1))
-hm2PlatformMMRP.setRevisions(('2013-04-10 00:00',))
-if mibBuilder.loadTexts: hm2PlatformMMRP.setLastUpdated('201304100000Z')
-if mibBuilder.loadTexts: hm2PlatformMMRP.setOrganization('Hirschmann Automation and Control GmbH')
-hm2AgentDot1qMmrp = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1))
-hm2AgentDot1qMrpMmrpStats = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2))
-hm2AgentDot1qPortMmrpTable = MibTable((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 1), )
-if mibBuilder.loadTexts: hm2AgentDot1qPortMmrpTable.setStatus('current')
-hm2AgentDot1qPortMmrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 1, 1), ).setIndexNames((0, "HM2-PLATFORM-MMRP-MIB", "hm2AgentDot1qMmrpPort"))
-if mibBuilder.loadTexts: hm2AgentDot1qPortMmrpEntry.setStatus('current')
-hm2AgentDot1qMmrpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: hm2AgentDot1qMmrpPort.setStatus('current')
-hm2AgentDot1qPortMmrpMode = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 1, 1, 2), EnabledStatus().clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hm2AgentDot1qPortMmrpMode.setStatus('current')
-hm2AgentDot1qBridgeMmrpMode = MibScalar((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 2), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hm2AgentDot1qBridgeMmrpMode.setStatus('current')
-hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp = MibScalar((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 3), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp.setStatus('current')
-hm2AgentDot1qMrpMmrpPktTx = MibScalar((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpPktTx.setStatus('current')
-hm2AgentDot1qMrpMmrpPktRx = MibScalar((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpPktRx.setStatus('current')
-hm2AgentDot1qMrpMmrpPktRxBadHeader = MibScalar((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpPktRxBadHeader.setStatus('current')
-hm2AgentDot1qMrpMmrpPktRxBadFormat = MibScalar((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpPktRxBadFormat.setStatus('current')
-hm2AgentDot1qMrpMmrpPktTxFailure = MibScalar((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpPktTxFailure.setStatus('current')
-hm2AgentDot1qMrpMmrpStatsTable = MibTable((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6), )
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpStatsTable.setStatus('current')
-hm2AgentDot1qMrpMmrpStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1), ).setIndexNames((0, "HM2-PLATFORM-MMRP-MIB", "hm2AgentDot1qMrpMmrpIntf"))
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpStatsEntry.setStatus('current')
-hm2AgentDot1qMrpMmrpIntf = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpIntf.setStatus('current')
-hm2AgentDot1qMrpMmrpPortPktTx = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpPortPktTx.setStatus('current')
-hm2AgentDot1qMrpMmrpPortPktRx = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpPortPktRx.setStatus('current')
-hm2AgentDot1qMrpMmrpPortPktRxBadHeader = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpPortPktRxBadHeader.setStatus('current')
-hm2AgentDot1qMrpMmrpPortPktRxBadFormat = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpPortPktRxBadFormat.setStatus('current')
-hm2AgentDot1qMrpMmrpPortPktTxFailure = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpPortPktTxFailure.setStatus('current')
-hm2AgentDot1qMrpMmrpDynamicAddrCount = MibScalar((1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 248), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentDot1qMrpMmrpDynamicAddrCount.setStatus('current')
-mibBuilder.exportSymbols("HM2-PLATFORM-MMRP-MIB", hm2AgentDot1qMmrp=hm2AgentDot1qMmrp, hm2AgentDot1qPortMmrpEntry=hm2AgentDot1qPortMmrpEntry, hm2AgentDot1qMrpMmrpStats=hm2AgentDot1qMrpMmrpStats, hm2AgentDot1qMrpMmrpPortPktRxBadFormat=hm2AgentDot1qMrpMmrpPortPktRxBadFormat, hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp=hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp, hm2AgentDot1qMmrpPort=hm2AgentDot1qMmrpPort, hm2AgentDot1qMrpMmrpPortPktTxFailure=hm2AgentDot1qMrpMmrpPortPktTxFailure, hm2AgentDot1qMrpMmrpPortPktRxBadHeader=hm2AgentDot1qMrpMmrpPortPktRxBadHeader, hm2AgentDot1qMrpMmrpPortPktTx=hm2AgentDot1qMrpMmrpPortPktTx, hm2AgentDot1qMrpMmrpIntf=hm2AgentDot1qMrpMmrpIntf, hm2AgentDot1qPortMmrpTable=hm2AgentDot1qPortMmrpTable, hm2PlatformMMRP=hm2PlatformMMRP, hm2AgentDot1qMrpMmrpPktRxBadHeader=hm2AgentDot1qMrpMmrpPktRxBadHeader, hm2AgentDot1qMrpMmrpPortPktRx=hm2AgentDot1qMrpMmrpPortPktRx, hm2AgentDot1qMrpMmrpPktRx=hm2AgentDot1qMrpMmrpPktRx, hm2AgentDot1qMrpMmrpStatsTable=hm2AgentDot1qMrpMmrpStatsTable, hm2AgentDot1qPortMmrpMode=hm2AgentDot1qPortMmrpMode, hm2AgentDot1qMrpMmrpPktTxFailure=hm2AgentDot1qMrpMmrpPktTxFailure, hm2AgentDot1qMrpMmrpDynamicAddrCount=hm2AgentDot1qMrpMmrpDynamicAddrCount, hm2AgentDot1qMrpMmrpPktTx=hm2AgentDot1qMrpMmrpPktTx, hm2AgentDot1qBridgeMmrpMode=hm2AgentDot1qBridgeMmrpMode, hm2AgentDot1qMrpMmrpPktRxBadFormat=hm2AgentDot1qMrpMmrpPktRxBadFormat, PYSNMP_MODULE_ID=hm2PlatformMMRP, hm2AgentDot1qMrpMmrpStatsEntry=hm2AgentDot1qMrpMmrpStatsEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hm2AgentDot1qMrpMxrp,) = mibBuilder.importSymbols(
+    "HM2-PLATFORM-MRP-MIB",
+    "hm2AgentDot1qMrpMxrp")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hm2PlatformMMRP = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hm2PlatformMMRP.setRevisions(
+        ("2013-04-10 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hm2AgentDot1qMmrp_ObjectIdentity = ObjectIdentity
+hm2AgentDot1qMmrp = _Hm2AgentDot1qMmrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1)
+)
+_Hm2AgentDot1qPortMmrpTable_Object = MibTable
+hm2AgentDot1qPortMmrpTable = _Hm2AgentDot1qPortMmrpTable_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hm2AgentDot1qPortMmrpTable.setStatus("current")
+_Hm2AgentDot1qPortMmrpEntry_Object = MibTableRow
+hm2AgentDot1qPortMmrpEntry = _Hm2AgentDot1qPortMmrpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 1, 1)
+)
+hm2AgentDot1qPortMmrpEntry.setIndexNames(
+    (0, "HM2-PLATFORM-MMRP-MIB", "hm2AgentDot1qMmrpPort"),
+)
+if mibBuilder.loadTexts:
+    hm2AgentDot1qPortMmrpEntry.setStatus("current")
+
+
+class _Hm2AgentDot1qMmrpPort_Type(Integer32):
+    """Custom type hm2AgentDot1qMmrpPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Hm2AgentDot1qMmrpPort_Type.__name__ = "Integer32"
+_Hm2AgentDot1qMmrpPort_Object = MibTableColumn
+hm2AgentDot1qMmrpPort = _Hm2AgentDot1qMmrpPort_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 1, 1, 1),
+    _Hm2AgentDot1qMmrpPort_Type()
+)
+hm2AgentDot1qMmrpPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMmrpPort.setStatus("current")
+
+
+class _Hm2AgentDot1qPortMmrpMode_Type(EnabledStatus):
+    """Custom type hm2AgentDot1qPortMmrpMode based on EnabledStatus"""
+    defaultValue = 1
+
+
+_Hm2AgentDot1qPortMmrpMode_Type.__name__ = "EnabledStatus"
+_Hm2AgentDot1qPortMmrpMode_Object = MibTableColumn
+hm2AgentDot1qPortMmrpMode = _Hm2AgentDot1qPortMmrpMode_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 1, 1, 2),
+    _Hm2AgentDot1qPortMmrpMode_Type()
+)
+hm2AgentDot1qPortMmrpMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qPortMmrpMode.setStatus("current")
+
+
+class _Hm2AgentDot1qBridgeMmrpMode_Type(EnabledStatus):
+    """Custom type hm2AgentDot1qBridgeMmrpMode based on EnabledStatus"""
+    defaultValue = 2
+
+
+_Hm2AgentDot1qBridgeMmrpMode_Type.__name__ = "EnabledStatus"
+_Hm2AgentDot1qBridgeMmrpMode_Object = MibScalar
+hm2AgentDot1qBridgeMmrpMode = _Hm2AgentDot1qBridgeMmrpMode_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 2),
+    _Hm2AgentDot1qBridgeMmrpMode_Type()
+)
+hm2AgentDot1qBridgeMmrpMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qBridgeMmrpMode.setStatus("current")
+
+
+class _Hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp_Type(EnabledStatus):
+    """Custom type hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp based on EnabledStatus"""
+    defaultValue = 2
+
+
+_Hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp_Type.__name__ = "EnabledStatus"
+_Hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp_Object = MibScalar
+hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp = _Hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 1, 3),
+    _Hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp_Type()
+)
+hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp.setStatus("current")
+_Hm2AgentDot1qMrpMmrpStats_ObjectIdentity = ObjectIdentity
+hm2AgentDot1qMrpMmrpStats = _Hm2AgentDot1qMrpMmrpStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2)
+)
+_Hm2AgentDot1qMrpMmrpPktTx_Type = Counter32
+_Hm2AgentDot1qMrpMmrpPktTx_Object = MibScalar
+hm2AgentDot1qMrpMmrpPktTx = _Hm2AgentDot1qMrpMmrpPktTx_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 1),
+    _Hm2AgentDot1qMrpMmrpPktTx_Type()
+)
+hm2AgentDot1qMrpMmrpPktTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpPktTx.setStatus("current")
+_Hm2AgentDot1qMrpMmrpPktRx_Type = Counter32
+_Hm2AgentDot1qMrpMmrpPktRx_Object = MibScalar
+hm2AgentDot1qMrpMmrpPktRx = _Hm2AgentDot1qMrpMmrpPktRx_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 2),
+    _Hm2AgentDot1qMrpMmrpPktRx_Type()
+)
+hm2AgentDot1qMrpMmrpPktRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpPktRx.setStatus("current")
+_Hm2AgentDot1qMrpMmrpPktRxBadHeader_Type = Counter32
+_Hm2AgentDot1qMrpMmrpPktRxBadHeader_Object = MibScalar
+hm2AgentDot1qMrpMmrpPktRxBadHeader = _Hm2AgentDot1qMrpMmrpPktRxBadHeader_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 3),
+    _Hm2AgentDot1qMrpMmrpPktRxBadHeader_Type()
+)
+hm2AgentDot1qMrpMmrpPktRxBadHeader.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpPktRxBadHeader.setStatus("current")
+_Hm2AgentDot1qMrpMmrpPktRxBadFormat_Type = Counter32
+_Hm2AgentDot1qMrpMmrpPktRxBadFormat_Object = MibScalar
+hm2AgentDot1qMrpMmrpPktRxBadFormat = _Hm2AgentDot1qMrpMmrpPktRxBadFormat_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 4),
+    _Hm2AgentDot1qMrpMmrpPktRxBadFormat_Type()
+)
+hm2AgentDot1qMrpMmrpPktRxBadFormat.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpPktRxBadFormat.setStatus("current")
+_Hm2AgentDot1qMrpMmrpPktTxFailure_Type = Counter32
+_Hm2AgentDot1qMrpMmrpPktTxFailure_Object = MibScalar
+hm2AgentDot1qMrpMmrpPktTxFailure = _Hm2AgentDot1qMrpMmrpPktTxFailure_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 5),
+    _Hm2AgentDot1qMrpMmrpPktTxFailure_Type()
+)
+hm2AgentDot1qMrpMmrpPktTxFailure.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpPktTxFailure.setStatus("current")
+_Hm2AgentDot1qMrpMmrpStatsTable_Object = MibTable
+hm2AgentDot1qMrpMmrpStatsTable = _Hm2AgentDot1qMrpMmrpStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6)
+)
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpStatsTable.setStatus("current")
+_Hm2AgentDot1qMrpMmrpStatsEntry_Object = MibTableRow
+hm2AgentDot1qMrpMmrpStatsEntry = _Hm2AgentDot1qMrpMmrpStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1)
+)
+hm2AgentDot1qMrpMmrpStatsEntry.setIndexNames(
+    (0, "HM2-PLATFORM-MMRP-MIB", "hm2AgentDot1qMrpMmrpIntf"),
+)
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpStatsEntry.setStatus("current")
+
+
+class _Hm2AgentDot1qMrpMmrpIntf_Type(Integer32):
+    """Custom type hm2AgentDot1qMrpMmrpIntf based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Hm2AgentDot1qMrpMmrpIntf_Type.__name__ = "Integer32"
+_Hm2AgentDot1qMrpMmrpIntf_Object = MibTableColumn
+hm2AgentDot1qMrpMmrpIntf = _Hm2AgentDot1qMrpMmrpIntf_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 1),
+    _Hm2AgentDot1qMrpMmrpIntf_Type()
+)
+hm2AgentDot1qMrpMmrpIntf.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpIntf.setStatus("current")
+_Hm2AgentDot1qMrpMmrpPortPktTx_Type = Counter32
+_Hm2AgentDot1qMrpMmrpPortPktTx_Object = MibTableColumn
+hm2AgentDot1qMrpMmrpPortPktTx = _Hm2AgentDot1qMrpMmrpPortPktTx_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 2),
+    _Hm2AgentDot1qMrpMmrpPortPktTx_Type()
+)
+hm2AgentDot1qMrpMmrpPortPktTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpPortPktTx.setStatus("current")
+_Hm2AgentDot1qMrpMmrpPortPktRx_Type = Counter32
+_Hm2AgentDot1qMrpMmrpPortPktRx_Object = MibTableColumn
+hm2AgentDot1qMrpMmrpPortPktRx = _Hm2AgentDot1qMrpMmrpPortPktRx_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 3),
+    _Hm2AgentDot1qMrpMmrpPortPktRx_Type()
+)
+hm2AgentDot1qMrpMmrpPortPktRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpPortPktRx.setStatus("current")
+_Hm2AgentDot1qMrpMmrpPortPktRxBadHeader_Type = Counter32
+_Hm2AgentDot1qMrpMmrpPortPktRxBadHeader_Object = MibTableColumn
+hm2AgentDot1qMrpMmrpPortPktRxBadHeader = _Hm2AgentDot1qMrpMmrpPortPktRxBadHeader_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 4),
+    _Hm2AgentDot1qMrpMmrpPortPktRxBadHeader_Type()
+)
+hm2AgentDot1qMrpMmrpPortPktRxBadHeader.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpPortPktRxBadHeader.setStatus("current")
+_Hm2AgentDot1qMrpMmrpPortPktRxBadFormat_Type = Counter32
+_Hm2AgentDot1qMrpMmrpPortPktRxBadFormat_Object = MibTableColumn
+hm2AgentDot1qMrpMmrpPortPktRxBadFormat = _Hm2AgentDot1qMrpMmrpPortPktRxBadFormat_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 5),
+    _Hm2AgentDot1qMrpMmrpPortPktRxBadFormat_Type()
+)
+hm2AgentDot1qMrpMmrpPortPktRxBadFormat.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpPortPktRxBadFormat.setStatus("current")
+_Hm2AgentDot1qMrpMmrpPortPktTxFailure_Type = Counter32
+_Hm2AgentDot1qMrpMmrpPortPktTxFailure_Object = MibTableColumn
+hm2AgentDot1qMrpMmrpPortPktTxFailure = _Hm2AgentDot1qMrpMmrpPortPktTxFailure_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 6, 1, 6),
+    _Hm2AgentDot1qMrpMmrpPortPktTxFailure_Type()
+)
+hm2AgentDot1qMrpMmrpPortPktTxFailure.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpPortPktTxFailure.setStatus("current")
+_Hm2AgentDot1qMrpMmrpDynamicAddrCount_Type = Counter32
+_Hm2AgentDot1qMrpMmrpDynamicAddrCount_Object = MibScalar
+hm2AgentDot1qMrpMmrpDynamicAddrCount = _Hm2AgentDot1qMrpMmrpDynamicAddrCount_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2, 1, 2, 248),
+    _Hm2AgentDot1qMrpMmrpDynamicAddrCount_Type()
+)
+hm2AgentDot1qMrpMmrpDynamicAddrCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpMmrpDynamicAddrCount.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HM2-PLATFORM-MMRP-MIB",
+    **{"hm2PlatformMMRP": hm2PlatformMMRP,
+       "hm2AgentDot1qMmrp": hm2AgentDot1qMmrp,
+       "hm2AgentDot1qPortMmrpTable": hm2AgentDot1qPortMmrpTable,
+       "hm2AgentDot1qPortMmrpEntry": hm2AgentDot1qPortMmrpEntry,
+       "hm2AgentDot1qMmrpPort": hm2AgentDot1qMmrpPort,
+       "hm2AgentDot1qPortMmrpMode": hm2AgentDot1qPortMmrpMode,
+       "hm2AgentDot1qBridgeMmrpMode": hm2AgentDot1qBridgeMmrpMode,
+       "hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp": hm2AgentDot1qBridgeMrpPeriodicStateMachineForMmrp,
+       "hm2AgentDot1qMrpMmrpStats": hm2AgentDot1qMrpMmrpStats,
+       "hm2AgentDot1qMrpMmrpPktTx": hm2AgentDot1qMrpMmrpPktTx,
+       "hm2AgentDot1qMrpMmrpPktRx": hm2AgentDot1qMrpMmrpPktRx,
+       "hm2AgentDot1qMrpMmrpPktRxBadHeader": hm2AgentDot1qMrpMmrpPktRxBadHeader,
+       "hm2AgentDot1qMrpMmrpPktRxBadFormat": hm2AgentDot1qMrpMmrpPktRxBadFormat,
+       "hm2AgentDot1qMrpMmrpPktTxFailure": hm2AgentDot1qMrpMmrpPktTxFailure,
+       "hm2AgentDot1qMrpMmrpStatsTable": hm2AgentDot1qMrpMmrpStatsTable,
+       "hm2AgentDot1qMrpMmrpStatsEntry": hm2AgentDot1qMrpMmrpStatsEntry,
+       "hm2AgentDot1qMrpMmrpIntf": hm2AgentDot1qMrpMmrpIntf,
+       "hm2AgentDot1qMrpMmrpPortPktTx": hm2AgentDot1qMrpMmrpPortPktTx,
+       "hm2AgentDot1qMrpMmrpPortPktRx": hm2AgentDot1qMrpMmrpPortPktRx,
+       "hm2AgentDot1qMrpMmrpPortPktRxBadHeader": hm2AgentDot1qMrpMmrpPortPktRxBadHeader,
+       "hm2AgentDot1qMrpMmrpPortPktRxBadFormat": hm2AgentDot1qMrpMmrpPortPktRxBadFormat,
+       "hm2AgentDot1qMrpMmrpPortPktTxFailure": hm2AgentDot1qMrpMmrpPortPktTxFailure,
+       "hm2AgentDot1qMrpMmrpDynamicAddrCount": hm2AgentDot1qMrpMmrpDynamicAddrCount}
+)

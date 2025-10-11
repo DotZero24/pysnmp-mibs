@@ -1,117 +1,867 @@
+# SNMP MIB module (ALCATEL-IND1-UDLD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALCATEL-IND1-UDLD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-UDLD-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:50 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alcatel/ALCATEL-IND1-UDLD-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:08:40 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-softentIND1Udld, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "softentIND1Udld")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-alcatelIND1UDLDMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1))
-alcatelIND1UDLDMIB.setRevisions(('2007-02-14 00:00',))
-if mibBuilder.loadTexts: alcatelIND1UDLDMIB.setLastUpdated('200702140000Z')
-if mibBuilder.loadTexts: alcatelIND1UDLDMIB.setOrganization('Alcatel - Architects Of An Internet World')
-alcatelIND1UDLDMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1))
-if mibBuilder.loadTexts: alcatelIND1UDLDMIBObjects.setStatus('current')
-alcatelIND1UDLDMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2))
-if mibBuilder.loadTexts: alcatelIND1UDLDMIBConformance.setStatus('current')
-alcatelIND1UDLDMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1))
-if mibBuilder.loadTexts: alcatelIND1UDLDMIBGroups.setStatus('current')
-alcatelIND1UDLDMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 2))
-if mibBuilder.loadTexts: alcatelIND1UDLDMIBCompliances.setStatus('current')
-alaUdldGlobalStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaUdldGlobalStatus.setStatus('current')
-alaUdldGlobalClearStats = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("default", 0), ("reset", 1))).clone('default')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaUdldGlobalClearStats.setStatus('current')
-alaUdldGlobalConfigUdldMode = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("aggressive", 2))).clone('normal')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaUdldGlobalConfigUdldMode.setStatus('current')
-alaUdldGlobalConfigUdldProbeIntervalTimer = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(7, 90)).clone(15)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaUdldGlobalConfigUdldProbeIntervalTimer.setStatus('current')
-alaUdldGlobalConfigUdldDetectionPeriodTimer = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(4, 15)).clone(8)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaUdldGlobalConfigUdldDetectionPeriodTimer.setStatus('current')
-udldPortConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6))
-alaUdldPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1), )
-if mibBuilder.loadTexts: alaUdldPortConfigTable.setStatus('current')
-alaUdldPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1), ).setIndexNames((0, "ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigIfIndex"))
-if mibBuilder.loadTexts: alaUdldPortConfigEntry.setStatus('current')
-alaUdldPortConfigIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: alaUdldPortConfigIfIndex.setStatus('current')
-alaUdldPortConfigUdldStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaUdldPortConfigUdldStatus.setStatus('current')
-alaUdldPortConfigUdldMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("aggressive", 2))).clone('normal')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaUdldPortConfigUdldMode.setStatus('current')
-alaUdldPortConfigUdldProbeIntervalTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(7, 90)).clone(15)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaUdldPortConfigUdldProbeIntervalTimer.setStatus('current')
-alaUdldPortConfigUdldDetectionPeriodTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(4, 15)).clone(8)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaUdldPortConfigUdldDetectionPeriodTimer.setStatus('current')
-alaUdldPortConfigUdldOperationalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("notapplicable", 0), ("shutdown", 1), ("undetermined", 2), ("bidirectional", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaUdldPortConfigUdldOperationalStatus.setStatus('current')
-udldPortStats = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7))
-alaUdldPortStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1), )
-if mibBuilder.loadTexts: alaUdldPortStatsTable.setStatus('current')
-alaUdldPortStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1), ).setIndexNames((0, "ALCATEL-IND1-UDLD-MIB", "alaUdldPortStatsIfIndex"))
-if mibBuilder.loadTexts: alaUdldPortStatsEntry.setStatus('current')
-alaUdldPortStatsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: alaUdldPortStatsIfIndex.setStatus('current')
-alaUdldNumUDLDNeighbors = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaUdldNumUDLDNeighbors.setStatus('current')
-alaUdldPortStatsClear = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("default", 0), ("reset", 1))).clone('default')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaUdldPortStatsClear.setStatus('current')
-alaUdldPortNumProbeSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaUdldPortNumProbeSent.setStatus('current')
-alaUdldPortNumEchoSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaUdldPortNumEchoSent.setStatus('current')
-alaUdldPortNumInvalidRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaUdldPortNumInvalidRcvd.setStatus('current')
-alaUdldPortNumFlushRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaUdldPortNumFlushRcvd.setStatus('current')
-udldPortNeighborStats = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8))
-alaUdldPortNeighborStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1), )
-if mibBuilder.loadTexts: alaUdldPortNeighborStatsTable.setStatus('current')
-alaUdldPortNeighborStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1), ).setIndexNames((0, "ALCATEL-IND1-UDLD-MIB", "alaUdldPortNeighborStatsIfIndex"), (0, "ALCATEL-IND1-UDLD-MIB", "alaUdldNeighborIfIndex"))
-if mibBuilder.loadTexts: alaUdldPortNeighborStatsEntry.setStatus('current')
-alaUdldPortNeighborStatsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: alaUdldPortNeighborStatsIfIndex.setStatus('current')
-alaUdldNeighborIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1, 2), MacAddress())
-if mibBuilder.loadTexts: alaUdldNeighborIfIndex.setStatus('current')
-alaUdldNeighborName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaUdldNeighborName.setStatus('current')
-alaUdldNumHelloRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaUdldNumHelloRcvd.setStatus('current')
-alaUdldNumEchoRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaUdldNumEchoRcvd.setStatus('current')
-alaUdldPrevState = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("notapplicable", 0), ("shutdown", 1), ("undetermined", 2), ("bidirectional", 3)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alaUdldPrevState.setStatus('current')
-alaUdldCurrentState = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("notapplicable", 0), ("shutdown", 1), ("undetermined", 2), ("bidirectional", 3)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alaUdldCurrentState.setStatus('current')
-alaUdldPortIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 11), InterfaceIndex()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alaUdldPortIfIndex.setStatus('current')
-alaUdldEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 3))
-udldStateChange = NotificationType((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 3, 0, 1)).setObjects(("ALCATEL-IND1-UDLD-MIB", "alaUdldPortIfIndex"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPrevState"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldCurrentState"))
-if mibBuilder.loadTexts: udldStateChange.setStatus('current')
-udldPortBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-UDLD-MIB", "alaUdldGlobalStatus"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldGlobalClearStats"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPrevState"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldCurrentState"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortIfIndex"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldGlobalConfigUdldDetectionPeriodTimer"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldGlobalConfigUdldMode"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldGlobalConfigUdldProbeIntervalTimer"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    udldPortBaseGroup = udldPortBaseGroup.setStatus('current')
-udldPortConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1, 2)).setObjects(("ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigUdldStatus"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigUdldMode"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigUdldProbeIntervalTimer"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigUdldDetectionPeriodTimer"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigUdldOperationalStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    udldPortConfigGroup = udldPortConfigGroup.setStatus('current')
-udldPortStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1, 3)).setObjects(("ALCATEL-IND1-UDLD-MIB", "alaUdldNumUDLDNeighbors"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortStatsClear"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortNumProbeSent"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortNumEchoSent"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortNumInvalidRcvd"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortNumFlushRcvd"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    udldPortStatsGroup = udldPortStatsGroup.setStatus('current')
-udldPortNeighborStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1, 4)).setObjects(("ALCATEL-IND1-UDLD-MIB", "alaUdldNeighborName"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldNumHelloRcvd"), ("ALCATEL-IND1-UDLD-MIB", "alaUdldNumEchoRcvd"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    udldPortNeighborStatsGroup = udldPortNeighborStatsGroup.setStatus('current')
-udldPortTrapGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1, 5)).setObjects(("ALCATEL-IND1-UDLD-MIB", "udldStateChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    udldPortTrapGroup = udldPortTrapGroup.setStatus('current')
-alcatelIND1UDLDMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 2, 1)).setObjects(("ALCATEL-IND1-UDLD-MIB", "udldPortBaseGroup"), ("ALCATEL-IND1-UDLD-MIB", "udldPortConfigGroup"), ("ALCATEL-IND1-UDLD-MIB", "udldPortStatsGroup"), ("ALCATEL-IND1-UDLD-MIB", "udldPortNeighborStatsGroup"), ("ALCATEL-IND1-UDLD-MIB", "udldPortTrapGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alcatelIND1UDLDMIBCompliance = alcatelIND1UDLDMIBCompliance.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-IND1-UDLD-MIB", alaUdldGlobalConfigUdldProbeIntervalTimer=alaUdldGlobalConfigUdldProbeIntervalTimer, alaUdldPortConfigIfIndex=alaUdldPortConfigIfIndex, alaUdldPortNeighborStatsEntry=alaUdldPortNeighborStatsEntry, udldPortBaseGroup=udldPortBaseGroup, udldPortNeighborStatsGroup=udldPortNeighborStatsGroup, alaUdldGlobalClearStats=alaUdldGlobalClearStats, alcatelIND1UDLDMIBGroups=alcatelIND1UDLDMIBGroups, alaUdldPortNeighborStatsTable=alaUdldPortNeighborStatsTable, udldPortTrapGroup=udldPortTrapGroup, alaUdldPortStatsTable=alaUdldPortStatsTable, alaUdldNumHelloRcvd=alaUdldNumHelloRcvd, alaUdldPortConfigTable=alaUdldPortConfigTable, alaUdldPortConfigUdldMode=alaUdldPortConfigUdldMode, alaUdldPortStatsEntry=alaUdldPortStatsEntry, alaUdldNumEchoRcvd=alaUdldNumEchoRcvd, PYSNMP_MODULE_ID=alcatelIND1UDLDMIB, alaUdldGlobalStatus=alaUdldGlobalStatus, alaUdldPortConfigUdldProbeIntervalTimer=alaUdldPortConfigUdldProbeIntervalTimer, alaUdldPortNumEchoSent=alaUdldPortNumEchoSent, alaUdldPortStatsClear=alaUdldPortStatsClear, udldPortStats=udldPortStats, alaUdldPortNumFlushRcvd=alaUdldPortNumFlushRcvd, alaUdldPortConfigUdldDetectionPeriodTimer=alaUdldPortConfigUdldDetectionPeriodTimer, alaUdldPortConfigUdldOperationalStatus=alaUdldPortConfigUdldOperationalStatus, alaUdldCurrentState=alaUdldCurrentState, alaUdldPortConfigUdldStatus=alaUdldPortConfigUdldStatus, alaUdldGlobalConfigUdldDetectionPeriodTimer=alaUdldGlobalConfigUdldDetectionPeriodTimer, alaUdldNumUDLDNeighbors=alaUdldNumUDLDNeighbors, alaUdldPortStatsIfIndex=alaUdldPortStatsIfIndex, alaUdldPortNumInvalidRcvd=alaUdldPortNumInvalidRcvd, alaUdldNeighborIfIndex=alaUdldNeighborIfIndex, alcatelIND1UDLDMIB=alcatelIND1UDLDMIB, alaUdldNeighborName=alaUdldNeighborName, udldPortStatsGroup=udldPortStatsGroup, alaUdldPortIfIndex=alaUdldPortIfIndex, alaUdldPortNeighborStatsIfIndex=alaUdldPortNeighborStatsIfIndex, alcatelIND1UDLDMIBConformance=alcatelIND1UDLDMIBConformance, alaUdldPrevState=alaUdldPrevState, alaUdldPortConfigEntry=alaUdldPortConfigEntry, alaUdldPortNumProbeSent=alaUdldPortNumProbeSent, alcatelIND1UDLDMIBCompliances=alcatelIND1UDLDMIBCompliances, udldStateChange=udldStateChange, udldPortConfigGroup=udldPortConfigGroup, alcatelIND1UDLDMIBObjects=alcatelIND1UDLDMIBObjects, alaUdldGlobalConfigUdldMode=alaUdldGlobalConfigUdldMode, alcatelIND1UDLDMIBCompliance=alcatelIND1UDLDMIBCompliance, udldPortNeighborStats=udldPortNeighborStats, udldPortConfig=udldPortConfig, alaUdldEvents=alaUdldEvents)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(softentIND1Udld,) = mibBuilder.importSymbols(
+    "ALCATEL-IND1-BASE",
+    "softentIND1Udld")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alcatelIND1UDLDMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1UDLDMIB.setRevisions(
+        ("2007-02-14 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlcatelIND1UDLDMIBObjects_ObjectIdentity = ObjectIdentity
+alcatelIND1UDLDMIBObjects = _AlcatelIND1UDLDMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1UDLDMIBObjects.setStatus("current")
+
+
+class _AlaUdldGlobalStatus_Type(Integer32):
+    """Custom type alaUdldGlobalStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaUdldGlobalStatus_Type.__name__ = "Integer32"
+_AlaUdldGlobalStatus_Object = MibScalar
+alaUdldGlobalStatus = _AlaUdldGlobalStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 1),
+    _AlaUdldGlobalStatus_Type()
+)
+alaUdldGlobalStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaUdldGlobalStatus.setStatus("current")
+
+
+class _AlaUdldGlobalClearStats_Type(Integer32):
+    """Custom type alaUdldGlobalClearStats based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("default", 0),
+          ("reset", 1))
+    )
+
+
+_AlaUdldGlobalClearStats_Type.__name__ = "Integer32"
+_AlaUdldGlobalClearStats_Object = MibScalar
+alaUdldGlobalClearStats = _AlaUdldGlobalClearStats_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 2),
+    _AlaUdldGlobalClearStats_Type()
+)
+alaUdldGlobalClearStats.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaUdldGlobalClearStats.setStatus("current")
+
+
+class _AlaUdldGlobalConfigUdldMode_Type(Integer32):
+    """Custom type alaUdldGlobalConfigUdldMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 1),
+          ("aggressive", 2))
+    )
+
+
+_AlaUdldGlobalConfigUdldMode_Type.__name__ = "Integer32"
+_AlaUdldGlobalConfigUdldMode_Object = MibScalar
+alaUdldGlobalConfigUdldMode = _AlaUdldGlobalConfigUdldMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 3),
+    _AlaUdldGlobalConfigUdldMode_Type()
+)
+alaUdldGlobalConfigUdldMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaUdldGlobalConfigUdldMode.setStatus("current")
+
+
+class _AlaUdldGlobalConfigUdldProbeIntervalTimer_Type(Unsigned32):
+    """Custom type alaUdldGlobalConfigUdldProbeIntervalTimer based on Unsigned32"""
+    defaultValue = 15
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(7, 90),
+    )
+
+
+_AlaUdldGlobalConfigUdldProbeIntervalTimer_Type.__name__ = "Unsigned32"
+_AlaUdldGlobalConfigUdldProbeIntervalTimer_Object = MibScalar
+alaUdldGlobalConfigUdldProbeIntervalTimer = _AlaUdldGlobalConfigUdldProbeIntervalTimer_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 4),
+    _AlaUdldGlobalConfigUdldProbeIntervalTimer_Type()
+)
+alaUdldGlobalConfigUdldProbeIntervalTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaUdldGlobalConfigUdldProbeIntervalTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    alaUdldGlobalConfigUdldProbeIntervalTimer.setUnits("seconds")
+
+
+class _AlaUdldGlobalConfigUdldDetectionPeriodTimer_Type(Unsigned32):
+    """Custom type alaUdldGlobalConfigUdldDetectionPeriodTimer based on Unsigned32"""
+    defaultValue = 8
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(4, 15),
+    )
+
+
+_AlaUdldGlobalConfigUdldDetectionPeriodTimer_Type.__name__ = "Unsigned32"
+_AlaUdldGlobalConfigUdldDetectionPeriodTimer_Object = MibScalar
+alaUdldGlobalConfigUdldDetectionPeriodTimer = _AlaUdldGlobalConfigUdldDetectionPeriodTimer_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 5),
+    _AlaUdldGlobalConfigUdldDetectionPeriodTimer_Type()
+)
+alaUdldGlobalConfigUdldDetectionPeriodTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaUdldGlobalConfigUdldDetectionPeriodTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    alaUdldGlobalConfigUdldDetectionPeriodTimer.setUnits("seconds")
+_UdldPortConfig_ObjectIdentity = ObjectIdentity
+udldPortConfig = _UdldPortConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6)
+)
+_AlaUdldPortConfigTable_Object = MibTable
+alaUdldPortConfigTable = _AlaUdldPortConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1)
+)
+if mibBuilder.loadTexts:
+    alaUdldPortConfigTable.setStatus("current")
+_AlaUdldPortConfigEntry_Object = MibTableRow
+alaUdldPortConfigEntry = _AlaUdldPortConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1)
+)
+alaUdldPortConfigEntry.setIndexNames(
+    (0, "ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigIfIndex"),
+)
+if mibBuilder.loadTexts:
+    alaUdldPortConfigEntry.setStatus("current")
+_AlaUdldPortConfigIfIndex_Type = InterfaceIndex
+_AlaUdldPortConfigIfIndex_Object = MibTableColumn
+alaUdldPortConfigIfIndex = _AlaUdldPortConfigIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 1),
+    _AlaUdldPortConfigIfIndex_Type()
+)
+alaUdldPortConfigIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaUdldPortConfigIfIndex.setStatus("current")
+
+
+class _AlaUdldPortConfigUdldStatus_Type(Integer32):
+    """Custom type alaUdldPortConfigUdldStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaUdldPortConfigUdldStatus_Type.__name__ = "Integer32"
+_AlaUdldPortConfigUdldStatus_Object = MibTableColumn
+alaUdldPortConfigUdldStatus = _AlaUdldPortConfigUdldStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 2),
+    _AlaUdldPortConfigUdldStatus_Type()
+)
+alaUdldPortConfigUdldStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaUdldPortConfigUdldStatus.setStatus("current")
+
+
+class _AlaUdldPortConfigUdldMode_Type(Integer32):
+    """Custom type alaUdldPortConfigUdldMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 1),
+          ("aggressive", 2))
+    )
+
+
+_AlaUdldPortConfigUdldMode_Type.__name__ = "Integer32"
+_AlaUdldPortConfigUdldMode_Object = MibTableColumn
+alaUdldPortConfigUdldMode = _AlaUdldPortConfigUdldMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 3),
+    _AlaUdldPortConfigUdldMode_Type()
+)
+alaUdldPortConfigUdldMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaUdldPortConfigUdldMode.setStatus("current")
+
+
+class _AlaUdldPortConfigUdldProbeIntervalTimer_Type(Unsigned32):
+    """Custom type alaUdldPortConfigUdldProbeIntervalTimer based on Unsigned32"""
+    defaultValue = 15
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(7, 90),
+    )
+
+
+_AlaUdldPortConfigUdldProbeIntervalTimer_Type.__name__ = "Unsigned32"
+_AlaUdldPortConfigUdldProbeIntervalTimer_Object = MibTableColumn
+alaUdldPortConfigUdldProbeIntervalTimer = _AlaUdldPortConfigUdldProbeIntervalTimer_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 4),
+    _AlaUdldPortConfigUdldProbeIntervalTimer_Type()
+)
+alaUdldPortConfigUdldProbeIntervalTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaUdldPortConfigUdldProbeIntervalTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    alaUdldPortConfigUdldProbeIntervalTimer.setUnits("seconds")
+
+
+class _AlaUdldPortConfigUdldDetectionPeriodTimer_Type(Unsigned32):
+    """Custom type alaUdldPortConfigUdldDetectionPeriodTimer based on Unsigned32"""
+    defaultValue = 8
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(4, 15),
+    )
+
+
+_AlaUdldPortConfigUdldDetectionPeriodTimer_Type.__name__ = "Unsigned32"
+_AlaUdldPortConfigUdldDetectionPeriodTimer_Object = MibTableColumn
+alaUdldPortConfigUdldDetectionPeriodTimer = _AlaUdldPortConfigUdldDetectionPeriodTimer_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 5),
+    _AlaUdldPortConfigUdldDetectionPeriodTimer_Type()
+)
+alaUdldPortConfigUdldDetectionPeriodTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaUdldPortConfigUdldDetectionPeriodTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    alaUdldPortConfigUdldDetectionPeriodTimer.setUnits("seconds")
+
+
+class _AlaUdldPortConfigUdldOperationalStatus_Type(Integer32):
+    """Custom type alaUdldPortConfigUdldOperationalStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notapplicable", 0),
+          ("shutdown", 1),
+          ("undetermined", 2),
+          ("bidirectional", 3))
+    )
+
+
+_AlaUdldPortConfigUdldOperationalStatus_Type.__name__ = "Integer32"
+_AlaUdldPortConfigUdldOperationalStatus_Object = MibTableColumn
+alaUdldPortConfigUdldOperationalStatus = _AlaUdldPortConfigUdldOperationalStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 6, 1, 1, 6),
+    _AlaUdldPortConfigUdldOperationalStatus_Type()
+)
+alaUdldPortConfigUdldOperationalStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaUdldPortConfigUdldOperationalStatus.setStatus("current")
+_UdldPortStats_ObjectIdentity = ObjectIdentity
+udldPortStats = _UdldPortStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7)
+)
+_AlaUdldPortStatsTable_Object = MibTable
+alaUdldPortStatsTable = _AlaUdldPortStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1)
+)
+if mibBuilder.loadTexts:
+    alaUdldPortStatsTable.setStatus("current")
+_AlaUdldPortStatsEntry_Object = MibTableRow
+alaUdldPortStatsEntry = _AlaUdldPortStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1)
+)
+alaUdldPortStatsEntry.setIndexNames(
+    (0, "ALCATEL-IND1-UDLD-MIB", "alaUdldPortStatsIfIndex"),
+)
+if mibBuilder.loadTexts:
+    alaUdldPortStatsEntry.setStatus("current")
+_AlaUdldPortStatsIfIndex_Type = InterfaceIndex
+_AlaUdldPortStatsIfIndex_Object = MibTableColumn
+alaUdldPortStatsIfIndex = _AlaUdldPortStatsIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 1),
+    _AlaUdldPortStatsIfIndex_Type()
+)
+alaUdldPortStatsIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaUdldPortStatsIfIndex.setStatus("current")
+
+
+class _AlaUdldNumUDLDNeighbors_Type(Unsigned32):
+    """Custom type alaUdldNumUDLDNeighbors based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 128),
+    )
+
+
+_AlaUdldNumUDLDNeighbors_Type.__name__ = "Unsigned32"
+_AlaUdldNumUDLDNeighbors_Object = MibTableColumn
+alaUdldNumUDLDNeighbors = _AlaUdldNumUDLDNeighbors_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 2),
+    _AlaUdldNumUDLDNeighbors_Type()
+)
+alaUdldNumUDLDNeighbors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaUdldNumUDLDNeighbors.setStatus("current")
+
+
+class _AlaUdldPortStatsClear_Type(Integer32):
+    """Custom type alaUdldPortStatsClear based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("default", 0),
+          ("reset", 1))
+    )
+
+
+_AlaUdldPortStatsClear_Type.__name__ = "Integer32"
+_AlaUdldPortStatsClear_Object = MibTableColumn
+alaUdldPortStatsClear = _AlaUdldPortStatsClear_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 3),
+    _AlaUdldPortStatsClear_Type()
+)
+alaUdldPortStatsClear.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaUdldPortStatsClear.setStatus("current")
+_AlaUdldPortNumProbeSent_Type = Counter32
+_AlaUdldPortNumProbeSent_Object = MibTableColumn
+alaUdldPortNumProbeSent = _AlaUdldPortNumProbeSent_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 4),
+    _AlaUdldPortNumProbeSent_Type()
+)
+alaUdldPortNumProbeSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaUdldPortNumProbeSent.setStatus("current")
+_AlaUdldPortNumEchoSent_Type = Counter32
+_AlaUdldPortNumEchoSent_Object = MibTableColumn
+alaUdldPortNumEchoSent = _AlaUdldPortNumEchoSent_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 5),
+    _AlaUdldPortNumEchoSent_Type()
+)
+alaUdldPortNumEchoSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaUdldPortNumEchoSent.setStatus("current")
+_AlaUdldPortNumInvalidRcvd_Type = Counter32
+_AlaUdldPortNumInvalidRcvd_Object = MibTableColumn
+alaUdldPortNumInvalidRcvd = _AlaUdldPortNumInvalidRcvd_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 6),
+    _AlaUdldPortNumInvalidRcvd_Type()
+)
+alaUdldPortNumInvalidRcvd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaUdldPortNumInvalidRcvd.setStatus("current")
+_AlaUdldPortNumFlushRcvd_Type = Counter32
+_AlaUdldPortNumFlushRcvd_Object = MibTableColumn
+alaUdldPortNumFlushRcvd = _AlaUdldPortNumFlushRcvd_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 7, 1, 1, 7),
+    _AlaUdldPortNumFlushRcvd_Type()
+)
+alaUdldPortNumFlushRcvd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaUdldPortNumFlushRcvd.setStatus("current")
+_UdldPortNeighborStats_ObjectIdentity = ObjectIdentity
+udldPortNeighborStats = _UdldPortNeighborStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8)
+)
+_AlaUdldPortNeighborStatsTable_Object = MibTable
+alaUdldPortNeighborStatsTable = _AlaUdldPortNeighborStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1)
+)
+if mibBuilder.loadTexts:
+    alaUdldPortNeighborStatsTable.setStatus("current")
+_AlaUdldPortNeighborStatsEntry_Object = MibTableRow
+alaUdldPortNeighborStatsEntry = _AlaUdldPortNeighborStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1)
+)
+alaUdldPortNeighborStatsEntry.setIndexNames(
+    (0, "ALCATEL-IND1-UDLD-MIB", "alaUdldPortNeighborStatsIfIndex"),
+    (0, "ALCATEL-IND1-UDLD-MIB", "alaUdldNeighborIfIndex"),
+)
+if mibBuilder.loadTexts:
+    alaUdldPortNeighborStatsEntry.setStatus("current")
+_AlaUdldPortNeighborStatsIfIndex_Type = InterfaceIndex
+_AlaUdldPortNeighborStatsIfIndex_Object = MibTableColumn
+alaUdldPortNeighborStatsIfIndex = _AlaUdldPortNeighborStatsIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1, 1),
+    _AlaUdldPortNeighborStatsIfIndex_Type()
+)
+alaUdldPortNeighborStatsIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaUdldPortNeighborStatsIfIndex.setStatus("current")
+_AlaUdldNeighborIfIndex_Type = MacAddress
+_AlaUdldNeighborIfIndex_Object = MibTableColumn
+alaUdldNeighborIfIndex = _AlaUdldNeighborIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1, 2),
+    _AlaUdldNeighborIfIndex_Type()
+)
+alaUdldNeighborIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaUdldNeighborIfIndex.setStatus("current")
+
+
+class _AlaUdldNeighborName_Type(DisplayString):
+    """Custom type alaUdldNeighborName based on DisplayString"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_AlaUdldNeighborName_Type.__name__ = "DisplayString"
+_AlaUdldNeighborName_Object = MibTableColumn
+alaUdldNeighborName = _AlaUdldNeighborName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1, 3),
+    _AlaUdldNeighborName_Type()
+)
+alaUdldNeighborName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaUdldNeighborName.setStatus("current")
+_AlaUdldNumHelloRcvd_Type = Counter32
+_AlaUdldNumHelloRcvd_Object = MibTableColumn
+alaUdldNumHelloRcvd = _AlaUdldNumHelloRcvd_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1, 4),
+    _AlaUdldNumHelloRcvd_Type()
+)
+alaUdldNumHelloRcvd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaUdldNumHelloRcvd.setStatus("current")
+_AlaUdldNumEchoRcvd_Type = Counter32
+_AlaUdldNumEchoRcvd_Object = MibTableColumn
+alaUdldNumEchoRcvd = _AlaUdldNumEchoRcvd_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 8, 1, 1, 5),
+    _AlaUdldNumEchoRcvd_Type()
+)
+alaUdldNumEchoRcvd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaUdldNumEchoRcvd.setStatus("current")
+
+
+class _AlaUdldPrevState_Type(Integer32):
+    """Custom type alaUdldPrevState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notapplicable", 0),
+          ("shutdown", 1),
+          ("undetermined", 2),
+          ("bidirectional", 3))
+    )
+
+
+_AlaUdldPrevState_Type.__name__ = "Integer32"
+_AlaUdldPrevState_Object = MibScalar
+alaUdldPrevState = _AlaUdldPrevState_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 9),
+    _AlaUdldPrevState_Type()
+)
+alaUdldPrevState.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alaUdldPrevState.setStatus("current")
+
+
+class _AlaUdldCurrentState_Type(Integer32):
+    """Custom type alaUdldCurrentState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notapplicable", 0),
+          ("shutdown", 1),
+          ("undetermined", 2),
+          ("bidirectional", 3))
+    )
+
+
+_AlaUdldCurrentState_Type.__name__ = "Integer32"
+_AlaUdldCurrentState_Object = MibScalar
+alaUdldCurrentState = _AlaUdldCurrentState_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 10),
+    _AlaUdldCurrentState_Type()
+)
+alaUdldCurrentState.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alaUdldCurrentState.setStatus("current")
+_AlaUdldPortIfIndex_Type = InterfaceIndex
+_AlaUdldPortIfIndex_Object = MibScalar
+alaUdldPortIfIndex = _AlaUdldPortIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 1, 11),
+    _AlaUdldPortIfIndex_Type()
+)
+alaUdldPortIfIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alaUdldPortIfIndex.setStatus("current")
+_AlcatelIND1UDLDMIBConformance_ObjectIdentity = ObjectIdentity
+alcatelIND1UDLDMIBConformance = _AlcatelIND1UDLDMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1UDLDMIBConformance.setStatus("current")
+_AlcatelIND1UDLDMIBGroups_ObjectIdentity = ObjectIdentity
+alcatelIND1UDLDMIBGroups = _AlcatelIND1UDLDMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1UDLDMIBGroups.setStatus("current")
+_AlcatelIND1UDLDMIBCompliances_ObjectIdentity = ObjectIdentity
+alcatelIND1UDLDMIBCompliances = _AlcatelIND1UDLDMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1UDLDMIBCompliances.setStatus("current")
+_AlaUdldEvents_ObjectIdentity = ObjectIdentity
+alaUdldEvents = _AlaUdldEvents_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 3)
+)
+
+# Managed Objects groups
+
+udldPortBaseGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1, 1)
+)
+udldPortBaseGroup.setObjects(
+      *(("ALCATEL-IND1-UDLD-MIB", "alaUdldGlobalStatus"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldGlobalClearStats"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPrevState"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldCurrentState"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortIfIndex"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldGlobalConfigUdldDetectionPeriodTimer"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldGlobalConfigUdldMode"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldGlobalConfigUdldProbeIntervalTimer"))
+)
+if mibBuilder.loadTexts:
+    udldPortBaseGroup.setStatus("current")
+
+udldPortConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1, 2)
+)
+udldPortConfigGroup.setObjects(
+      *(("ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigUdldStatus"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigUdldMode"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigUdldProbeIntervalTimer"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigUdldDetectionPeriodTimer"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortConfigUdldOperationalStatus"))
+)
+if mibBuilder.loadTexts:
+    udldPortConfigGroup.setStatus("current")
+
+udldPortStatsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1, 3)
+)
+udldPortStatsGroup.setObjects(
+      *(("ALCATEL-IND1-UDLD-MIB", "alaUdldNumUDLDNeighbors"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortStatsClear"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortNumProbeSent"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortNumEchoSent"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortNumInvalidRcvd"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPortNumFlushRcvd"))
+)
+if mibBuilder.loadTexts:
+    udldPortStatsGroup.setStatus("current")
+
+udldPortNeighborStatsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1, 4)
+)
+udldPortNeighborStatsGroup.setObjects(
+      *(("ALCATEL-IND1-UDLD-MIB", "alaUdldNeighborName"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldNumHelloRcvd"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldNumEchoRcvd"))
+)
+if mibBuilder.loadTexts:
+    udldPortNeighborStatsGroup.setStatus("current")
+
+
+# Notification objects
+
+udldStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 3, 0, 1)
+)
+udldStateChange.setObjects(
+      *(("ALCATEL-IND1-UDLD-MIB", "alaUdldPortIfIndex"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldPrevState"),
+        ("ALCATEL-IND1-UDLD-MIB", "alaUdldCurrentState"))
+)
+if mibBuilder.loadTexts:
+    udldStateChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+udldPortTrapGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 1, 5)
+)
+udldPortTrapGroup.setObjects(
+    ("ALCATEL-IND1-UDLD-MIB", "udldStateChange")
+)
+if mibBuilder.loadTexts:
+    udldPortTrapGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alcatelIND1UDLDMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 44, 1, 2, 2, 1)
+)
+alcatelIND1UDLDMIBCompliance.setObjects(
+      *(("ALCATEL-IND1-UDLD-MIB", "udldPortBaseGroup"),
+        ("ALCATEL-IND1-UDLD-MIB", "udldPortConfigGroup"),
+        ("ALCATEL-IND1-UDLD-MIB", "udldPortStatsGroup"),
+        ("ALCATEL-IND1-UDLD-MIB", "udldPortNeighborStatsGroup"),
+        ("ALCATEL-IND1-UDLD-MIB", "udldPortTrapGroup"))
+)
+if mibBuilder.loadTexts:
+    alcatelIND1UDLDMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALCATEL-IND1-UDLD-MIB",
+    **{"alcatelIND1UDLDMIB": alcatelIND1UDLDMIB,
+       "alcatelIND1UDLDMIBObjects": alcatelIND1UDLDMIBObjects,
+       "alaUdldGlobalStatus": alaUdldGlobalStatus,
+       "alaUdldGlobalClearStats": alaUdldGlobalClearStats,
+       "alaUdldGlobalConfigUdldMode": alaUdldGlobalConfigUdldMode,
+       "alaUdldGlobalConfigUdldProbeIntervalTimer": alaUdldGlobalConfigUdldProbeIntervalTimer,
+       "alaUdldGlobalConfigUdldDetectionPeriodTimer": alaUdldGlobalConfigUdldDetectionPeriodTimer,
+       "udldPortConfig": udldPortConfig,
+       "alaUdldPortConfigTable": alaUdldPortConfigTable,
+       "alaUdldPortConfigEntry": alaUdldPortConfigEntry,
+       "alaUdldPortConfigIfIndex": alaUdldPortConfigIfIndex,
+       "alaUdldPortConfigUdldStatus": alaUdldPortConfigUdldStatus,
+       "alaUdldPortConfigUdldMode": alaUdldPortConfigUdldMode,
+       "alaUdldPortConfigUdldProbeIntervalTimer": alaUdldPortConfigUdldProbeIntervalTimer,
+       "alaUdldPortConfigUdldDetectionPeriodTimer": alaUdldPortConfigUdldDetectionPeriodTimer,
+       "alaUdldPortConfigUdldOperationalStatus": alaUdldPortConfigUdldOperationalStatus,
+       "udldPortStats": udldPortStats,
+       "alaUdldPortStatsTable": alaUdldPortStatsTable,
+       "alaUdldPortStatsEntry": alaUdldPortStatsEntry,
+       "alaUdldPortStatsIfIndex": alaUdldPortStatsIfIndex,
+       "alaUdldNumUDLDNeighbors": alaUdldNumUDLDNeighbors,
+       "alaUdldPortStatsClear": alaUdldPortStatsClear,
+       "alaUdldPortNumProbeSent": alaUdldPortNumProbeSent,
+       "alaUdldPortNumEchoSent": alaUdldPortNumEchoSent,
+       "alaUdldPortNumInvalidRcvd": alaUdldPortNumInvalidRcvd,
+       "alaUdldPortNumFlushRcvd": alaUdldPortNumFlushRcvd,
+       "udldPortNeighborStats": udldPortNeighborStats,
+       "alaUdldPortNeighborStatsTable": alaUdldPortNeighborStatsTable,
+       "alaUdldPortNeighborStatsEntry": alaUdldPortNeighborStatsEntry,
+       "alaUdldPortNeighborStatsIfIndex": alaUdldPortNeighborStatsIfIndex,
+       "alaUdldNeighborIfIndex": alaUdldNeighborIfIndex,
+       "alaUdldNeighborName": alaUdldNeighborName,
+       "alaUdldNumHelloRcvd": alaUdldNumHelloRcvd,
+       "alaUdldNumEchoRcvd": alaUdldNumEchoRcvd,
+       "alaUdldPrevState": alaUdldPrevState,
+       "alaUdldCurrentState": alaUdldCurrentState,
+       "alaUdldPortIfIndex": alaUdldPortIfIndex,
+       "alcatelIND1UDLDMIBConformance": alcatelIND1UDLDMIBConformance,
+       "alcatelIND1UDLDMIBGroups": alcatelIND1UDLDMIBGroups,
+       "udldPortBaseGroup": udldPortBaseGroup,
+       "udldPortConfigGroup": udldPortConfigGroup,
+       "udldPortStatsGroup": udldPortStatsGroup,
+       "udldPortNeighborStatsGroup": udldPortNeighborStatsGroup,
+       "udldPortTrapGroup": udldPortTrapGroup,
+       "alcatelIND1UDLDMIBCompliances": alcatelIND1UDLDMIBCompliances,
+       "alcatelIND1UDLDMIBCompliance": alcatelIND1UDLDMIBCompliance,
+       "alaUdldEvents": alaUdldEvents,
+       "udldStateChange": udldStateChange}
+)

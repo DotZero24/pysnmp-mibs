@@ -1,35 +1,280 @@
+# SNMP MIB module (EDGECORE-SOCKET-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EDGECORE-SOCKET-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/edgecore/EDGECORE-SOCKET-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:43 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/edgecore/EDGECORE-SOCKET-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:52:49 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rnd, = mibBuilder.importSymbols("EDGECORE-MIB", "rnd")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-rlSocket = ModuleIdentity((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85))
-rlSocket.setRevisions(('2007-01-02 00:00',))
-if mibBuilder.loadTexts: rlSocket.setLastUpdated('200701020000Z')
-if mibBuilder.loadTexts: rlSocket.setOrganization('Radlan - a MARVELL company. Marvell Semiconductor, Inc.')
-rlSocketMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlSocketMibVersion.setStatus('current')
-rlSocketTable = MibTable((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2), )
-if mibBuilder.loadTexts: rlSocketTable.setStatus('current')
-rlSocketEntry = MibTableRow((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1), ).setIndexNames((0, "EDGECORE-SOCKET-MIB", "rlSocketId"))
-if mibBuilder.loadTexts: rlSocketEntry.setStatus('current')
-rlSocketId = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlSocketId.setStatus('current')
-rlSocketType = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("stream", 1), ("dgram", 2), ("raw", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlSocketType.setStatus('current')
-rlSocketState = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("connected", 1), ("notConnected", 2), ("recvClosed", 3), ("sendClosed", 4), ("closed", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlSocketState.setStatus('current')
-rlSocketBlockMode = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("blocking", 1), ("nonBlocking", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlSocketBlockMode.setStatus('current')
-rlSocketUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlSocketUpTime.setStatus('current')
-mibBuilder.exportSymbols("EDGECORE-SOCKET-MIB", rlSocket=rlSocket, rlSocketBlockMode=rlSocketBlockMode, rlSocketId=rlSocketId, rlSocketTable=rlSocketTable, rlSocketEntry=rlSocketEntry, rlSocketType=rlSocketType, rlSocketUpTime=rlSocketUpTime, rlSocketState=rlSocketState, PYSNMP_MODULE_ID=rlSocket, rlSocketMibVersion=rlSocketMibVersion)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rnd,) = mibBuilder.importSymbols(
+    "EDGECORE-MIB",
+    "rnd")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+rlSocket = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85)
+)
+if mibBuilder.loadTexts:
+    rlSocket.setRevisions(
+        ("2007-01-02 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlSocketMibVersion_Type = Integer32
+_RlSocketMibVersion_Object = MibScalar
+rlSocketMibVersion = _RlSocketMibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 1),
+    _RlSocketMibVersion_Type()
+)
+rlSocketMibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlSocketMibVersion.setStatus("current")
+_RlSocketTable_Object = MibTable
+rlSocketTable = _RlSocketTable_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2)
+)
+if mibBuilder.loadTexts:
+    rlSocketTable.setStatus("current")
+_RlSocketEntry_Object = MibTableRow
+rlSocketEntry = _RlSocketEntry_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1)
+)
+rlSocketEntry.setIndexNames(
+    (0, "EDGECORE-SOCKET-MIB", "rlSocketId"),
+)
+if mibBuilder.loadTexts:
+    rlSocketEntry.setStatus("current")
+_RlSocketId_Type = Integer32
+_RlSocketId_Object = MibTableColumn
+rlSocketId = _RlSocketId_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1, 1),
+    _RlSocketId_Type()
+)
+rlSocketId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlSocketId.setStatus("current")
+
+
+class _RlSocketType_Type(Integer32):
+    """Custom type rlSocketType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("stream", 1),
+          ("dgram", 2),
+          ("raw", 3))
+    )
+
+
+_RlSocketType_Type.__name__ = "Integer32"
+_RlSocketType_Object = MibTableColumn
+rlSocketType = _RlSocketType_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1, 2),
+    _RlSocketType_Type()
+)
+rlSocketType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlSocketType.setStatus("current")
+
+
+class _RlSocketState_Type(Integer32):
+    """Custom type rlSocketState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("connected", 1),
+          ("notConnected", 2),
+          ("recvClosed", 3),
+          ("sendClosed", 4),
+          ("closed", 5))
+    )
+
+
+_RlSocketState_Type.__name__ = "Integer32"
+_RlSocketState_Object = MibTableColumn
+rlSocketState = _RlSocketState_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1, 3),
+    _RlSocketState_Type()
+)
+rlSocketState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlSocketState.setStatus("current")
+
+
+class _RlSocketBlockMode_Type(Integer32):
+    """Custom type rlSocketBlockMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("blocking", 1),
+          ("nonBlocking", 2))
+    )
+
+
+_RlSocketBlockMode_Type.__name__ = "Integer32"
+_RlSocketBlockMode_Object = MibTableColumn
+rlSocketBlockMode = _RlSocketBlockMode_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1, 4),
+    _RlSocketBlockMode_Type()
+)
+rlSocketBlockMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlSocketBlockMode.setStatus("current")
+_RlSocketUpTime_Type = TimeTicks
+_RlSocketUpTime_Object = MibTableColumn
+rlSocketUpTime = _RlSocketUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 85, 2, 1, 5),
+    _RlSocketUpTime_Type()
+)
+rlSocketUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlSocketUpTime.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EDGECORE-SOCKET-MIB",
+    **{"rlSocket": rlSocket,
+       "rlSocketMibVersion": rlSocketMibVersion,
+       "rlSocketTable": rlSocketTable,
+       "rlSocketEntry": rlSocketEntry,
+       "rlSocketId": rlSocketId,
+       "rlSocketType": rlSocketType,
+       "rlSocketState": rlSocketState,
+       "rlSocketBlockMode": rlSocketBlockMode,
+       "rlSocketUpTime": rlSocketUpTime}
+)

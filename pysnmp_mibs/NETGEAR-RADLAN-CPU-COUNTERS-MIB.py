@@ -1,45 +1,302 @@
+# SNMP MIB module (NETGEAR-RADLAN-CPU-COUNTERS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NETGEAR-RADLAN-CPU-COUNTERS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/netgear/NETGEAR-RADLAN-CPU-COUNTERS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:51:11 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/netgear/NETGEAR-RADLAN-CPU-COUNTERS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:27:08 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rnd, = mibBuilder.importSymbols("NETGEAR-RADLAN-MIB", "rnd")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-rlCpuCounters = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 17, 124))
-rlCpuCounters.setRevisions(('2007-05-15 00:00',))
-if mibBuilder.loadTexts: rlCpuCounters.setLastUpdated('2007010600Z')
-if mibBuilder.loadTexts: rlCpuCounters.setOrganization('Radlan Computer Communications Ltd.')
-rlCpuCountersTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 124, 1), )
-if mibBuilder.loadTexts: rlCpuCountersTable.setStatus('current')
-rlCpuCountersEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1), ).setIndexNames((0, "NETGEAR-RADLAN-CPU-COUNTERS-MIB", "rlCpuCountersTarget"))
-if mibBuilder.loadTexts: rlCpuCountersEntry.setStatus('current')
-rlCpuCountersTarget = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0))).clone(namedValues=NamedValues(("cpuCounters", 0))))
-if mibBuilder.loadTexts: rlCpuCountersTarget.setStatus('current')
-rlCpuCountersTxBC = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlCpuCountersTxBC.setStatus('current')
-rlCpuCountersTxMC = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlCpuCountersTxMC.setStatus('current')
-rlCpuCountersTxUC = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlCpuCountersTxUC.setStatus('current')
-rlCpuCountersTxOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlCpuCountersTxOctets.setStatus('current')
-rlCpuCountersRxBC = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlCpuCountersRxBC.setStatus('current')
-rlCpuCountersRxMC = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlCpuCountersRxMC.setStatus('current')
-rlCpuCountersRxUC = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlCpuCountersRxUC.setStatus('current')
-rlCpuCountersRxOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlCpuCountersRxOctets.setStatus('current')
-rlCpuCountersReset = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 124, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlCpuCountersReset.setStatus('current')
-rlCpuCountersEnabled = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 124, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlCpuCountersEnabled.setStatus('current')
-mibBuilder.exportSymbols("NETGEAR-RADLAN-CPU-COUNTERS-MIB", rlCpuCounters=rlCpuCounters, rlCpuCountersRxUC=rlCpuCountersRxUC, rlCpuCountersEntry=rlCpuCountersEntry, PYSNMP_MODULE_ID=rlCpuCounters, rlCpuCountersReset=rlCpuCountersReset, rlCpuCountersTarget=rlCpuCountersTarget, rlCpuCountersRxMC=rlCpuCountersRxMC, rlCpuCountersTable=rlCpuCountersTable, rlCpuCountersEnabled=rlCpuCountersEnabled, rlCpuCountersRxBC=rlCpuCountersRxBC, rlCpuCountersTxBC=rlCpuCountersTxBC, rlCpuCountersTxUC=rlCpuCountersTxUC, rlCpuCountersTxMC=rlCpuCountersTxMC, rlCpuCountersTxOctets=rlCpuCountersTxOctets, rlCpuCountersRxOctets=rlCpuCountersRxOctets)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rnd,) = mibBuilder.importSymbols(
+    "NETGEAR-RADLAN-MIB",
+    "rnd")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rlCpuCounters = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124)
+)
+if mibBuilder.loadTexts:
+    rlCpuCounters.setRevisions(
+        ("2007-05-15 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlCpuCountersTable_Object = MibTable
+rlCpuCountersTable = _RlCpuCountersTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 1)
+)
+if mibBuilder.loadTexts:
+    rlCpuCountersTable.setStatus("current")
+_RlCpuCountersEntry_Object = MibTableRow
+rlCpuCountersEntry = _RlCpuCountersEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1)
+)
+rlCpuCountersEntry.setIndexNames(
+    (0, "NETGEAR-RADLAN-CPU-COUNTERS-MIB", "rlCpuCountersTarget"),
+)
+if mibBuilder.loadTexts:
+    rlCpuCountersEntry.setStatus("current")
+
+
+class _RlCpuCountersTarget_Type(Integer32):
+    """Custom type rlCpuCountersTarget based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            0
+        )
+    )
+    namedValues = NamedValues(
+        ("cpuCounters", 0)
+    )
+
+
+_RlCpuCountersTarget_Type.__name__ = "Integer32"
+_RlCpuCountersTarget_Object = MibTableColumn
+rlCpuCountersTarget = _RlCpuCountersTarget_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 1),
+    _RlCpuCountersTarget_Type()
+)
+rlCpuCountersTarget.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlCpuCountersTarget.setStatus("current")
+_RlCpuCountersTxBC_Type = Counter32
+_RlCpuCountersTxBC_Object = MibTableColumn
+rlCpuCountersTxBC = _RlCpuCountersTxBC_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 2),
+    _RlCpuCountersTxBC_Type()
+)
+rlCpuCountersTxBC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlCpuCountersTxBC.setStatus("current")
+_RlCpuCountersTxMC_Type = Counter32
+_RlCpuCountersTxMC_Object = MibTableColumn
+rlCpuCountersTxMC = _RlCpuCountersTxMC_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 3),
+    _RlCpuCountersTxMC_Type()
+)
+rlCpuCountersTxMC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlCpuCountersTxMC.setStatus("current")
+_RlCpuCountersTxUC_Type = Counter32
+_RlCpuCountersTxUC_Object = MibTableColumn
+rlCpuCountersTxUC = _RlCpuCountersTxUC_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 4),
+    _RlCpuCountersTxUC_Type()
+)
+rlCpuCountersTxUC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlCpuCountersTxUC.setStatus("current")
+_RlCpuCountersTxOctets_Type = Counter32
+_RlCpuCountersTxOctets_Object = MibTableColumn
+rlCpuCountersTxOctets = _RlCpuCountersTxOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 5),
+    _RlCpuCountersTxOctets_Type()
+)
+rlCpuCountersTxOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlCpuCountersTxOctets.setStatus("current")
+_RlCpuCountersRxBC_Type = Counter32
+_RlCpuCountersRxBC_Object = MibTableColumn
+rlCpuCountersRxBC = _RlCpuCountersRxBC_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 6),
+    _RlCpuCountersRxBC_Type()
+)
+rlCpuCountersRxBC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlCpuCountersRxBC.setStatus("current")
+_RlCpuCountersRxMC_Type = Counter32
+_RlCpuCountersRxMC_Object = MibTableColumn
+rlCpuCountersRxMC = _RlCpuCountersRxMC_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 7),
+    _RlCpuCountersRxMC_Type()
+)
+rlCpuCountersRxMC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlCpuCountersRxMC.setStatus("current")
+_RlCpuCountersRxUC_Type = Counter32
+_RlCpuCountersRxUC_Object = MibTableColumn
+rlCpuCountersRxUC = _RlCpuCountersRxUC_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 8),
+    _RlCpuCountersRxUC_Type()
+)
+rlCpuCountersRxUC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlCpuCountersRxUC.setStatus("current")
+_RlCpuCountersRxOctets_Type = Counter32
+_RlCpuCountersRxOctets_Object = MibTableColumn
+rlCpuCountersRxOctets = _RlCpuCountersRxOctets_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 1, 1, 9),
+    _RlCpuCountersRxOctets_Type()
+)
+rlCpuCountersRxOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlCpuCountersRxOctets.setStatus("current")
+
+
+class _RlCpuCountersReset_Type(TruthValue):
+    """Custom type rlCpuCountersReset based on TruthValue"""
+    defaultValue = 2
+
+
+_RlCpuCountersReset_Type.__name__ = "TruthValue"
+_RlCpuCountersReset_Object = MibScalar
+rlCpuCountersReset = _RlCpuCountersReset_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 2),
+    _RlCpuCountersReset_Type()
+)
+rlCpuCountersReset.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlCpuCountersReset.setStatus("current")
+
+
+class _RlCpuCountersEnabled_Type(TruthValue):
+    """Custom type rlCpuCountersEnabled based on TruthValue"""
+    defaultValue = 2
+
+
+_RlCpuCountersEnabled_Type.__name__ = "TruthValue"
+_RlCpuCountersEnabled_Object = MibScalar
+rlCpuCountersEnabled = _RlCpuCountersEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 124, 3),
+    _RlCpuCountersEnabled_Type()
+)
+rlCpuCountersEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlCpuCountersEnabled.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NETGEAR-RADLAN-CPU-COUNTERS-MIB",
+    **{"rlCpuCounters": rlCpuCounters,
+       "rlCpuCountersTable": rlCpuCountersTable,
+       "rlCpuCountersEntry": rlCpuCountersEntry,
+       "rlCpuCountersTarget": rlCpuCountersTarget,
+       "rlCpuCountersTxBC": rlCpuCountersTxBC,
+       "rlCpuCountersTxMC": rlCpuCountersTxMC,
+       "rlCpuCountersTxUC": rlCpuCountersTxUC,
+       "rlCpuCountersTxOctets": rlCpuCountersTxOctets,
+       "rlCpuCountersRxBC": rlCpuCountersRxBC,
+       "rlCpuCountersRxMC": rlCpuCountersRxMC,
+       "rlCpuCountersRxUC": rlCpuCountersRxUC,
+       "rlCpuCountersRxOctets": rlCpuCountersRxOctets,
+       "rlCpuCountersReset": rlCpuCountersReset,
+       "rlCpuCountersEnabled": rlCpuCountersEnabled}
+)

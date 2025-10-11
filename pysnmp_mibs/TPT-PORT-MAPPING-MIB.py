@@ -1,40 +1,267 @@
+# SNMP MIB module (TPT-PORT-MAPPING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPT-PORT-MAPPING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/trendmicro/TPT-PORT-MAPPING-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:29 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/trendmicro/TPT-PORT-MAPPING-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:06:10 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-tpt_tpa_objs, = mibBuilder.importSymbols("TPT-TPAMIBS-MIB", "tpt-tpa-objs")
-tpt_port_mapping_objs = ModuleIdentity((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16)).setLabel("tpt-port-mapping-objs")
-tpt_port_mapping_objs.setRevisions(('2016-10-03 12:00', '2016-05-25 18:54',))
-if mibBuilder.loadTexts: tpt_port_mapping_objs.setLastUpdated('201610031200Z')
-if mibBuilder.loadTexts: tpt_port_mapping_objs.setOrganization('Trend Micro, Inc.')
-portMappingTable = MibTable((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1), )
-if mibBuilder.loadTexts: portMappingTable.setStatus('current')
-portMappingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1), ).setIndexNames((0, "TPT-PORT-MAPPING-MIB", "portMappingLogicalSlot"), (0, "TPT-PORT-MAPPING-MIB", "portMappingLogicalPort"))
-if mibBuilder.loadTexts: portMappingEntry.setStatus('current')
-portMappingLogicalSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portMappingLogicalSlot.setStatus('current')
-portMappingLogicalPort = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portMappingLogicalPort.setStatus('current')
-portMappingLogicalIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 3), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portMappingLogicalIfIndex.setStatus('current')
-portMappingPhysicalSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portMappingPhysicalSlot.setStatus('current')
-portMappingPhysicalPort = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portMappingPhysicalPort.setStatus('current')
-portMappingPhysicalIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 6), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portMappingPhysicalIfIndex.setStatus('current')
-portMappingSegmentName = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portMappingSegmentName.setStatus('obsolete')
-portMappingPhysicalVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portMappingPhysicalVlanId.setStatus('current')
-mibBuilder.exportSymbols("TPT-PORT-MAPPING-MIB", tpt_port_mapping_objs=tpt_port_mapping_objs, portMappingLogicalIfIndex=portMappingLogicalIfIndex, portMappingLogicalSlot=portMappingLogicalSlot, portMappingPhysicalPort=portMappingPhysicalPort, PYSNMP_MODULE_ID=tpt_port_mapping_objs, portMappingPhysicalVlanId=portMappingPhysicalVlanId, portMappingPhysicalSlot=portMappingPhysicalSlot, portMappingPhysicalIfIndex=portMappingPhysicalIfIndex, portMappingEntry=portMappingEntry, portMappingSegmentName=portMappingSegmentName, portMappingLogicalPort=portMappingLogicalPort, portMappingTable=portMappingTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(tpt_tpa_objs,) = mibBuilder.importSymbols(
+    "TPT-TPAMIBS-MIB",
+    "tpt-tpa-objs")
+
+
+# MODULE-IDENTITY
+
+tpt_port_mapping_objs = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16)
+)
+if mibBuilder.loadTexts:
+    tpt_port_mapping_objs.setRevisions(
+        ("2016-10-03 12:00",
+         "2016-05-25 18:54")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PortMappingTable_Object = MibTable
+portMappingTable = _PortMappingTable_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1)
+)
+if mibBuilder.loadTexts:
+    portMappingTable.setStatus("current")
+_PortMappingEntry_Object = MibTableRow
+portMappingEntry = _PortMappingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1)
+)
+portMappingEntry.setIndexNames(
+    (0, "TPT-PORT-MAPPING-MIB", "portMappingLogicalSlot"),
+    (0, "TPT-PORT-MAPPING-MIB", "portMappingLogicalPort"),
+)
+if mibBuilder.loadTexts:
+    portMappingEntry.setStatus("current")
+_PortMappingLogicalSlot_Type = Unsigned32
+_PortMappingLogicalSlot_Object = MibTableColumn
+portMappingLogicalSlot = _PortMappingLogicalSlot_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 1),
+    _PortMappingLogicalSlot_Type()
+)
+portMappingLogicalSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portMappingLogicalSlot.setStatus("current")
+_PortMappingLogicalPort_Type = Unsigned32
+_PortMappingLogicalPort_Object = MibTableColumn
+portMappingLogicalPort = _PortMappingLogicalPort_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 2),
+    _PortMappingLogicalPort_Type()
+)
+portMappingLogicalPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portMappingLogicalPort.setStatus("current")
+_PortMappingLogicalIfIndex_Type = InterfaceIndex
+_PortMappingLogicalIfIndex_Object = MibTableColumn
+portMappingLogicalIfIndex = _PortMappingLogicalIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 3),
+    _PortMappingLogicalIfIndex_Type()
+)
+portMappingLogicalIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portMappingLogicalIfIndex.setStatus("current")
+_PortMappingPhysicalSlot_Type = Unsigned32
+_PortMappingPhysicalSlot_Object = MibTableColumn
+portMappingPhysicalSlot = _PortMappingPhysicalSlot_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 4),
+    _PortMappingPhysicalSlot_Type()
+)
+portMappingPhysicalSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portMappingPhysicalSlot.setStatus("current")
+_PortMappingPhysicalPort_Type = Unsigned32
+_PortMappingPhysicalPort_Object = MibTableColumn
+portMappingPhysicalPort = _PortMappingPhysicalPort_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 5),
+    _PortMappingPhysicalPort_Type()
+)
+portMappingPhysicalPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portMappingPhysicalPort.setStatus("current")
+_PortMappingPhysicalIfIndex_Type = InterfaceIndex
+_PortMappingPhysicalIfIndex_Object = MibTableColumn
+portMappingPhysicalIfIndex = _PortMappingPhysicalIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 6),
+    _PortMappingPhysicalIfIndex_Type()
+)
+portMappingPhysicalIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portMappingPhysicalIfIndex.setStatus("current")
+
+
+class _PortMappingSegmentName_Type(OctetString):
+    """Custom type portMappingSegmentName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_PortMappingSegmentName_Type.__name__ = "OctetString"
+_PortMappingSegmentName_Object = MibTableColumn
+portMappingSegmentName = _PortMappingSegmentName_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 7),
+    _PortMappingSegmentName_Type()
+)
+portMappingSegmentName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portMappingSegmentName.setStatus("obsolete")
+
+
+class _PortMappingPhysicalVlanId_Type(Integer32):
+    """Custom type portMappingPhysicalVlanId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_PortMappingPhysicalVlanId_Type.__name__ = "Integer32"
+_PortMappingPhysicalVlanId_Object = MibTableColumn
+portMappingPhysicalVlanId = _PortMappingPhysicalVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 10734, 3, 3, 2, 16, 1, 1, 8),
+    _PortMappingPhysicalVlanId_Type()
+)
+portMappingPhysicalVlanId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portMappingPhysicalVlanId.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPT-PORT-MAPPING-MIB",
+    **{"tpt-port-mapping-objs": tpt_port_mapping_objs,
+       "portMappingTable": portMappingTable,
+       "portMappingEntry": portMappingEntry,
+       "portMappingLogicalSlot": portMappingLogicalSlot,
+       "portMappingLogicalPort": portMappingLogicalPort,
+       "portMappingLogicalIfIndex": portMappingLogicalIfIndex,
+       "portMappingPhysicalSlot": portMappingPhysicalSlot,
+       "portMappingPhysicalPort": portMappingPhysicalPort,
+       "portMappingPhysicalIfIndex": portMappingPhysicalIfIndex,
+       "portMappingSegmentName": portMappingSegmentName,
+       "portMappingPhysicalVlanId": portMappingPhysicalVlanId}
+)

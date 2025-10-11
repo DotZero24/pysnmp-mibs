@@ -1,35 +1,284 @@
+# SNMP MIB module (CADANT-CMTS-BPI2-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CADANT-CMTS-BPI2-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arris/CADANT-CMTS-BPI2-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:18:28 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/arris/CADANT-CMTS-BPI2-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:09:22 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-cadSystem, = mibBuilder.importSymbols("CADANT-PRODUCTS-MIB", "cadSystem")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-cadBpi2Mib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5))
-cadBpi2Mib.setRevisions(('2014-07-30 00:00', '2006-12-18 00:00',))
-if mibBuilder.loadTexts: cadBpi2Mib.setLastUpdated('201407300000Z')
-if mibBuilder.loadTexts: cadBpi2Mib.setOrganization('Cadant Inc')
-cadBpi2CmtsBaseTable = MibTable((1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1), )
-if mibBuilder.loadTexts: cadBpi2CmtsBaseTable.setStatus('current')
-cadBpi2CmtsBaseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: cadBpi2CmtsBaseEntry.setStatus('current')
-cadBpi2CmtsDefaultAuthLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 6048000)).clone(604800)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadBpi2CmtsDefaultAuthLifetime.setStatus('current')
-cadBpi2CmtsDefaultTEKLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 604800)).clone(43200)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadBpi2CmtsDefaultTEKLifetime.setStatus('current')
-cadBpi2CmtsDefaultSelfSignedManufCertTrust = MibTableColumn((1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("trusted", 1), ("untrusted", 2))).clone('untrusted')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadBpi2CmtsDefaultSelfSignedManufCertTrust.setStatus('current')
-cadBpi2CmtsCheckCertValidityPeriods = MibTableColumn((1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadBpi2CmtsCheckCertValidityPeriods.setStatus('current')
-cadBpi2CmtsConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 2))
-cadBpi2CmtsAES128Enable = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 2, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadBpi2CmtsAES128Enable.setStatus('current')
-mibBuilder.exportSymbols("CADANT-CMTS-BPI2-MIB", cadBpi2Mib=cadBpi2Mib, PYSNMP_MODULE_ID=cadBpi2Mib, cadBpi2CmtsCheckCertValidityPeriods=cadBpi2CmtsCheckCertValidityPeriods, cadBpi2CmtsBaseTable=cadBpi2CmtsBaseTable, cadBpi2CmtsDefaultAuthLifetime=cadBpi2CmtsDefaultAuthLifetime, cadBpi2CmtsAES128Enable=cadBpi2CmtsAES128Enable, cadBpi2CmtsBaseEntry=cadBpi2CmtsBaseEntry, cadBpi2CmtsConfig=cadBpi2CmtsConfig, cadBpi2CmtsDefaultSelfSignedManufCertTrust=cadBpi2CmtsDefaultSelfSignedManufCertTrust, cadBpi2CmtsDefaultTEKLifetime=cadBpi2CmtsDefaultTEKLifetime)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cadSystem,) = mibBuilder.importSymbols(
+    "CADANT-PRODUCTS-MIB",
+    "cadSystem")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cadBpi2Mib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5)
+)
+if mibBuilder.loadTexts:
+    cadBpi2Mib.setRevisions(
+        ("2014-07-30 00:00",
+         "2006-12-18 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CadBpi2CmtsBaseTable_Object = MibTable
+cadBpi2CmtsBaseTable = _CadBpi2CmtsBaseTable_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1)
+)
+if mibBuilder.loadTexts:
+    cadBpi2CmtsBaseTable.setStatus("current")
+_CadBpi2CmtsBaseEntry_Object = MibTableRow
+cadBpi2CmtsBaseEntry = _CadBpi2CmtsBaseEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1, 1)
+)
+cadBpi2CmtsBaseEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    cadBpi2CmtsBaseEntry.setStatus("current")
+
+
+class _CadBpi2CmtsDefaultAuthLifetime_Type(Integer32):
+    """Custom type cadBpi2CmtsDefaultAuthLifetime based on Integer32"""
+    defaultValue = 604800
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 6048000),
+    )
+
+
+_CadBpi2CmtsDefaultAuthLifetime_Type.__name__ = "Integer32"
+_CadBpi2CmtsDefaultAuthLifetime_Object = MibTableColumn
+cadBpi2CmtsDefaultAuthLifetime = _CadBpi2CmtsDefaultAuthLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1, 1, 1),
+    _CadBpi2CmtsDefaultAuthLifetime_Type()
+)
+cadBpi2CmtsDefaultAuthLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadBpi2CmtsDefaultAuthLifetime.setStatus("current")
+if mibBuilder.loadTexts:
+    cadBpi2CmtsDefaultAuthLifetime.setUnits("seconds")
+
+
+class _CadBpi2CmtsDefaultTEKLifetime_Type(Integer32):
+    """Custom type cadBpi2CmtsDefaultTEKLifetime based on Integer32"""
+    defaultValue = 43200
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 604800),
+    )
+
+
+_CadBpi2CmtsDefaultTEKLifetime_Type.__name__ = "Integer32"
+_CadBpi2CmtsDefaultTEKLifetime_Object = MibTableColumn
+cadBpi2CmtsDefaultTEKLifetime = _CadBpi2CmtsDefaultTEKLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1, 1, 2),
+    _CadBpi2CmtsDefaultTEKLifetime_Type()
+)
+cadBpi2CmtsDefaultTEKLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadBpi2CmtsDefaultTEKLifetime.setStatus("current")
+if mibBuilder.loadTexts:
+    cadBpi2CmtsDefaultTEKLifetime.setUnits("seconds")
+
+
+class _CadBpi2CmtsDefaultSelfSignedManufCertTrust_Type(Integer32):
+    """Custom type cadBpi2CmtsDefaultSelfSignedManufCertTrust based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("trusted", 1),
+          ("untrusted", 2))
+    )
+
+
+_CadBpi2CmtsDefaultSelfSignedManufCertTrust_Type.__name__ = "Integer32"
+_CadBpi2CmtsDefaultSelfSignedManufCertTrust_Object = MibTableColumn
+cadBpi2CmtsDefaultSelfSignedManufCertTrust = _CadBpi2CmtsDefaultSelfSignedManufCertTrust_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1, 1, 3),
+    _CadBpi2CmtsDefaultSelfSignedManufCertTrust_Type()
+)
+cadBpi2CmtsDefaultSelfSignedManufCertTrust.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadBpi2CmtsDefaultSelfSignedManufCertTrust.setStatus("current")
+
+
+class _CadBpi2CmtsCheckCertValidityPeriods_Type(TruthValue):
+    """Custom type cadBpi2CmtsCheckCertValidityPeriods based on TruthValue"""
+    defaultValue = 2
+
+
+_CadBpi2CmtsCheckCertValidityPeriods_Type.__name__ = "TruthValue"
+_CadBpi2CmtsCheckCertValidityPeriods_Object = MibTableColumn
+cadBpi2CmtsCheckCertValidityPeriods = _CadBpi2CmtsCheckCertValidityPeriods_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 1, 1, 4),
+    _CadBpi2CmtsCheckCertValidityPeriods_Type()
+)
+cadBpi2CmtsCheckCertValidityPeriods.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadBpi2CmtsCheckCertValidityPeriods.setStatus("current")
+_CadBpi2CmtsConfig_ObjectIdentity = ObjectIdentity
+cadBpi2CmtsConfig = _CadBpi2CmtsConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 2)
+)
+
+
+class _CadBpi2CmtsAES128Enable_Type(TruthValue):
+    """Custom type cadBpi2CmtsAES128Enable based on TruthValue"""
+    defaultValue = 2
+
+
+_CadBpi2CmtsAES128Enable_Type.__name__ = "TruthValue"
+_CadBpi2CmtsAES128Enable_Object = MibScalar
+cadBpi2CmtsAES128Enable = _CadBpi2CmtsAES128Enable_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 5, 5, 2, 1),
+    _CadBpi2CmtsAES128Enable_Type()
+)
+cadBpi2CmtsAES128Enable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadBpi2CmtsAES128Enable.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CADANT-CMTS-BPI2-MIB",
+    **{"cadBpi2Mib": cadBpi2Mib,
+       "cadBpi2CmtsBaseTable": cadBpi2CmtsBaseTable,
+       "cadBpi2CmtsBaseEntry": cadBpi2CmtsBaseEntry,
+       "cadBpi2CmtsDefaultAuthLifetime": cadBpi2CmtsDefaultAuthLifetime,
+       "cadBpi2CmtsDefaultTEKLifetime": cadBpi2CmtsDefaultTEKLifetime,
+       "cadBpi2CmtsDefaultSelfSignedManufCertTrust": cadBpi2CmtsDefaultSelfSignedManufCertTrust,
+       "cadBpi2CmtsCheckCertValidityPeriods": cadBpi2CmtsCheckCertValidityPeriods,
+       "cadBpi2CmtsConfig": cadBpi2CmtsConfig,
+       "cadBpi2CmtsAES128Enable": cadBpi2CmtsAES128Enable}
+)

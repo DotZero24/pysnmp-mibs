@@ -1,171 +1,1039 @@
+# SNMP MIB module (TIMETRA-CHASSIS-INTERCONNECT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TIMETRA-CHASSIS-INTERCONNECT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TIMETRA-CHASSIS-INTERCONNECT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:35:02 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TIMETRA-CHASSIS-INTERCONNECT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:49:56 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "TruthValue", "TimeStamp", "DisplayString")
-tmnxCpmCardSlotNum, tmnxFabricSlotNum, tmnxChassisNotifyCpmCardSlotNum, tmnxChassisIndex, tmnxHwClass, tmnxChassisNotifyFabricSlotNum = mibBuilder.importSymbols("TIMETRA-CHASSIS-MIB", "tmnxCpmCardSlotNum", "tmnxFabricSlotNum", "tmnxChassisNotifyCpmCardSlotNum", "tmnxChassisIndex", "tmnxHwClass", "tmnxChassisNotifyFabricSlotNum")
-tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix, tmnxSRConfs = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix", "tmnxSRConfs")
-tmnxDDMFailedObject, TmnxSFFStatus, tmnxDDMLaneIdOrModule = mibBuilder.importSymbols("TIMETRA-PORT-MIB", "tmnxDDMFailedObject", "TmnxSFFStatus", "tmnxDDMLaneIdOrModule")
-TmnxAdminState, TmnxPortID = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TmnxAdminState", "TmnxPortID")
-timetraChassisInterconMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 94))
-timetraChassisInterconMIBModule.setRevisions(('2013-10-31 00:00',))
-if mibBuilder.loadTexts: timetraChassisInterconMIBModule.setLastUpdated('201310310000Z')
-if mibBuilder.loadTexts: timetraChassisInterconMIBModule.setOrganization('Nokia')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+(tmnxChassisIndex,
+ tmnxChassisNotifyCpmCardSlotNum,
+ tmnxChassisNotifyFabricSlotNum,
+ tmnxCpmCardSlotNum,
+ tmnxFabricSlotNum,
+ tmnxHwClass) = mibBuilder.importSymbols(
+    "TIMETRA-CHASSIS-MIB",
+    "tmnxChassisIndex",
+    "tmnxChassisNotifyCpmCardSlotNum",
+    "tmnxChassisNotifyFabricSlotNum",
+    "tmnxCpmCardSlotNum",
+    "tmnxFabricSlotNum",
+    "tmnxHwClass")
+
+(timetraSRMIBModules,
+ tmnxSRConfs,
+ tmnxSRNotifyPrefix,
+ tmnxSRObjs) = mibBuilder.importSymbols(
+    "TIMETRA-GLOBAL-MIB",
+    "timetraSRMIBModules",
+    "tmnxSRConfs",
+    "tmnxSRNotifyPrefix",
+    "tmnxSRObjs")
+
+(TmnxSFFStatus,
+ tmnxDDMFailedObject,
+ tmnxDDMLaneIdOrModule) = mibBuilder.importSymbols(
+    "TIMETRA-PORT-MIB",
+    "TmnxSFFStatus",
+    "tmnxDDMFailedObject",
+    "tmnxDDMLaneIdOrModule")
+
+(TmnxAdminState,
+ TmnxPortID) = mibBuilder.importSymbols(
+    "TIMETRA-TC-MIB",
+    "TmnxAdminState",
+    "TmnxPortID")
+
+
+# MODULE-IDENTITY
+
+timetraChassisInterconMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 94)
+)
+if mibBuilder.loadTexts:
+    timetraChassisInterconMIBModule.setRevisions(
+        ("2013-10-31 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class TmnxIcPortState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("up", 1), ("invalidConnection", 2), ("noLink", 3), ("indeterminate", 4), ("unsupportedSff", 5))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("invalidConnection", 2),
+          ("noLink", 3),
+          ("indeterminate", 4),
+          ("unsupportedSff", 5))
+    )
+
+
 
 class TmnxICLState(TextualConvention, Integer32):
-    status = 'obsolete'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("up", 1), ("invalidConnection", 2), ("noLink", 3), ("indeterminate", 4))
+    status = "obsolete"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("invalidConnection", 2),
+          ("noLink", 3),
+          ("indeterminate", 4))
+    )
 
-tmnxChassisInterconObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94))
-tmnxIcPortObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1))
-tmnxCpmIcPortTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1), )
-if mibBuilder.loadTexts: tmnxCpmIcPortTable.setStatus('current')
-tmnxCpmIcPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"), (0, "TIMETRA-CHASSIS-MIB", "tmnxCpmCardSlotNum"), (0, "TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortNum"))
-if mibBuilder.loadTexts: tmnxCpmIcPortEntry.setStatus('current')
-tmnxCpmIcPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)))
-if mibBuilder.loadTexts: tmnxCpmIcPortNum.setStatus('current')
-tmnxCpmIcPortOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1, 1, 2), TmnxIcPortState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCpmIcPortOperState.setStatus('current')
-tmnxCpmIcPortSFFEquipped = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCpmIcPortSFFEquipped.setStatus('current')
-tmnxCpmIcPortSFFStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1, 1, 4), TmnxSFFStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCpmIcPortSFFStatus.setStatus('current')
-tmnxSfmIcPortTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2), )
-if mibBuilder.loadTexts: tmnxSfmIcPortTable.setStatus('current')
-tmnxSfmIcPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"), (0, "TIMETRA-CHASSIS-MIB", "tmnxFabricSlotNum"), (0, "TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortNum"))
-if mibBuilder.loadTexts: tmnxSfmIcPortEntry.setStatus('current')
-tmnxSfmIcPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 14)))
-if mibBuilder.loadTexts: tmnxSfmIcPortNum.setStatus('current')
-tmnxSfmIcPortOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 2), TmnxIcPortState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxSfmIcPortOperState.setStatus('current')
-tmnxSfmIcPortSFFEquipped = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxSfmIcPortSFFEquipped.setStatus('current')
-tmnxSfmIcPortSFFStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 4), TmnxSFFStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxSfmIcPortSFFStatus.setStatus('current')
-tmnxSfmIcPortDegradeState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("degraded", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxSfmIcPortDegradeState.setStatus('current')
-tmnxSfmIcPortMisconSfm = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxSfmIcPortMisconSfm.setStatus('current')
-tmnxSfmIcPortMisconSfmIcPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxSfmIcPortMisconSfmIcPort.setStatus('current')
-tmnxChassIcNotifObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 2))
-tmnxNotifyIcPortNum = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 2, 1), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxNotifyIcPortNum.setStatus('current')
-tmnxInterChassisLinkObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3))
-tmnxICLTableLastChange = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxICLTableLastChange.setStatus('obsolete')
-tmnxICLTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2), )
-if mibBuilder.loadTexts: tmnxICLTable.setStatus('obsolete')
-tmnxICLEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLNum"))
-if mibBuilder.loadTexts: tmnxICLEntry.setStatus('obsolete')
-tmnxICLNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
-if mibBuilder.loadTexts: tmnxICLNum.setStatus('obsolete')
-tmnxICLRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxICLRowStatus.setStatus('obsolete')
-tmnxICLLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxICLLastChanged.setStatus('obsolete')
-tmnxICLAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 4), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxICLAdminState.setStatus('obsolete')
-tmnxICLPrimaryChassisPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 5), TmnxPortID().clone(503316480)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxICLPrimaryChassisPortId.setStatus('obsolete')
-tmnxICLSecondaryChassisPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 6), TmnxPortID().clone(503316480)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxICLSecondaryChassisPortId.setStatus('obsolete')
-tmnxICLOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 7), TmnxICLState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxICLOperState.setStatus('obsolete')
-tmnxChassisInterconConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94))
-tmnxChassisInterconCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 1))
-tmnxChassisInterconCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 1, 1)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxChassIcNotifV12v0Group"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxChassIcNotifyObjsV12v0Group"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortV12v0Group"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortNotifV12v0Group"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortV12v0Group"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortNotifV12v0Group"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxChassisInterconCompliance = tmnxChassisInterconCompliance.setStatus('current')
-tmnxChassInterconComplianceV16v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 1, 2)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxInterChassisLinkV16v0Group"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxChassInterconComplianceV16v0 = tmnxChassInterconComplianceV16v0.setStatus('obsolete')
-tmnxChassisInterconGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2))
-tmnxChassIcV12v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1))
-tmnxChassIcNotifV12v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 1)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxInterChassisCommsDown"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxInterChassisCommsUp"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxChassIcNotifV12v0Group = tmnxChassIcNotifV12v0Group.setStatus('current')
-tmnxChassIcNotifyObjsV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 2)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxNotifyIcPortNum"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxChassIcNotifyObjsV12v0Group = tmnxChassIcNotifyObjsV12v0Group.setStatus('current')
-tmnxCpmIcPortV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 3)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortOperState"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFEquipped"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCpmIcPortV12v0Group = tmnxCpmIcPortV12v0Group.setStatus('current')
-tmnxCpmIcPortNotifV12v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 4)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortDown"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortUp"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFInserted"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFRemoved"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmNoLocalIcPort"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmLocalIcPortAvail"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFStatusFailure"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortDDMFailure"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortDDMClear"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCpmIcPortNotifV12v0Group = tmnxCpmIcPortNotifV12v0Group.setStatus('current')
-tmnxSfmIcPortV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 5)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortOperState"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFEquipped"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFStatus"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDegradeState"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortMisconSfm"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortMisconSfmIcPort"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxSfmIcPortV12v0Group = tmnxSfmIcPortV12v0Group.setStatus('current')
-tmnxSfmIcPortNotifV12v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 6)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDown"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortUp"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFInserted"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFRemoved"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFStatusFailure"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDDMFailure"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDDMClear"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDegraded"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDegradedClear"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxSfmIcPortNotifV12v0Group = tmnxSfmIcPortNotifV12v0Group.setStatus('current')
-tmnxChassIcV16v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 2))
-tmnxInterChassisLinkV16v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 2, 1)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLTableLastChange"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLRowStatus"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLLastChanged"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLAdminState"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLPrimaryChassisPortId"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLSecondaryChassisPortId"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLOperState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxInterChassisLinkV16v0Group = tmnxInterChassisLinkV16v0Group.setStatus('obsolete')
-tmnxChassIcV20v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 3))
-tmnxICLv20v0ObsoleteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 3, 1)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLTableLastChange"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLRowStatus"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLLastChanged"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLAdminState"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLPrimaryChassisPortId"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLSecondaryChassisPortId"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLOperState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxICLv20v0ObsoleteGroup = tmnxICLv20v0ObsoleteGroup.setStatus('current')
-tmnxChassisInterconNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94))
-tmnxChassisInterconNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0))
-tmnxInterChassisNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 1))
-tmnxInterChassisCommsDown = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 1, 1)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"))
-if mibBuilder.loadTexts: tmnxInterChassisCommsDown.setStatus('current')
-tmnxInterChassisCommsUp = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 1, 2)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"))
-if mibBuilder.loadTexts: tmnxInterChassisCommsUp.setStatus('current')
-tmnxCpmIcPortNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2))
-tmnxCpmIcPortDown = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 1)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortOperState"))
-if mibBuilder.loadTexts: tmnxCpmIcPortDown.setStatus('current')
-tmnxCpmIcPortUp = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 2)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortOperState"))
-if mibBuilder.loadTexts: tmnxCpmIcPortUp.setStatus('current')
-tmnxCpmIcPortSFFInserted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 3)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFEquipped"))
-if mibBuilder.loadTexts: tmnxCpmIcPortSFFInserted.setStatus('current')
-tmnxCpmIcPortSFFRemoved = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 4)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFEquipped"))
-if mibBuilder.loadTexts: tmnxCpmIcPortSFFRemoved.setStatus('current')
-tmnxCpmNoLocalIcPort = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 5)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"), ("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyCpmCardSlotNum"))
-if mibBuilder.loadTexts: tmnxCpmNoLocalIcPort.setStatus('current')
-tmnxCpmLocalIcPortAvail = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 6)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"), ("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyCpmCardSlotNum"))
-if mibBuilder.loadTexts: tmnxCpmLocalIcPortAvail.setStatus('current')
-tmnxCpmIcPortSFFStatusFailure = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 7)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFStatus"))
-if mibBuilder.loadTexts: tmnxCpmIcPortSFFStatusFailure.setStatus('current')
-tmnxCpmIcPortDDMFailure = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 8)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyCpmCardSlotNum"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxNotifyIcPortNum"), ("TIMETRA-PORT-MIB", "tmnxDDMFailedObject"), ("TIMETRA-PORT-MIB", "tmnxDDMLaneIdOrModule"))
-if mibBuilder.loadTexts: tmnxCpmIcPortDDMFailure.setStatus('current')
-tmnxCpmIcPortDDMClear = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 9)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyCpmCardSlotNum"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxNotifyIcPortNum"), ("TIMETRA-PORT-MIB", "tmnxDDMFailedObject"), ("TIMETRA-PORT-MIB", "tmnxDDMLaneIdOrModule"))
-if mibBuilder.loadTexts: tmnxCpmIcPortDDMClear.setStatus('current')
-tmnxSfmIcPortNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3))
-tmnxSfmIcPortDown = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 1)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortOperState"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortMisconSfm"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortMisconSfmIcPort"))
-if mibBuilder.loadTexts: tmnxSfmIcPortDown.setStatus('current')
-tmnxSfmIcPortUp = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 2)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortOperState"))
-if mibBuilder.loadTexts: tmnxSfmIcPortUp.setStatus('current')
-tmnxSfmIcPortSFFInserted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 3)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFEquipped"))
-if mibBuilder.loadTexts: tmnxSfmIcPortSFFInserted.setStatus('current')
-tmnxSfmIcPortSFFRemoved = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 4)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFEquipped"))
-if mibBuilder.loadTexts: tmnxSfmIcPortSFFRemoved.setStatus('current')
-tmnxSfmIcPortSFFStatusFailure = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 5)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFStatus"))
-if mibBuilder.loadTexts: tmnxSfmIcPortSFFStatusFailure.setStatus('current')
-tmnxSfmIcPortDDMFailure = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 6)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyFabricSlotNum"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxNotifyIcPortNum"), ("TIMETRA-PORT-MIB", "tmnxDDMFailedObject"), ("TIMETRA-PORT-MIB", "tmnxDDMLaneIdOrModule"))
-if mibBuilder.loadTexts: tmnxSfmIcPortDDMFailure.setStatus('current')
-tmnxSfmIcPortDDMClear = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 7)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyFabricSlotNum"), ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxNotifyIcPortNum"), ("TIMETRA-PORT-MIB", "tmnxDDMFailedObject"), ("TIMETRA-PORT-MIB", "tmnxDDMLaneIdOrModule"))
-if mibBuilder.loadTexts: tmnxSfmIcPortDDMClear.setStatus('current')
-tmnxSfmIcPortDegraded = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 8)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDegradeState"))
-if mibBuilder.loadTexts: tmnxSfmIcPortDegraded.setStatus('current')
-tmnxSfmIcPortDegradedClear = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 9)).setObjects(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDegradeState"))
-if mibBuilder.loadTexts: tmnxSfmIcPortDegradedClear.setStatus('current')
-mibBuilder.exportSymbols("TIMETRA-CHASSIS-INTERCONNECT-MIB", tmnxChassIcV12v0Groups=tmnxChassIcV12v0Groups, tmnxICLEntry=tmnxICLEntry, tmnxSfmIcPortSFFStatusFailure=tmnxSfmIcPortSFFStatusFailure, tmnxSfmIcPortV12v0Group=tmnxSfmIcPortV12v0Group, tmnxCpmIcPortDDMClear=tmnxCpmIcPortDDMClear, tmnxSfmIcPortSFFInserted=tmnxSfmIcPortSFFInserted, tmnxCpmIcPortDDMFailure=tmnxCpmIcPortDDMFailure, tmnxICLTable=tmnxICLTable, tmnxSfmIcPortSFFRemoved=tmnxSfmIcPortSFFRemoved, tmnxSfmIcPortNum=tmnxSfmIcPortNum, tmnxCpmIcPortNotifications=tmnxCpmIcPortNotifications, timetraChassisInterconMIBModule=timetraChassisInterconMIBModule, tmnxChassIcNotifV12v0Group=tmnxChassIcNotifV12v0Group, tmnxSfmIcPortEntry=tmnxSfmIcPortEntry, tmnxChassisInterconConformance=tmnxChassisInterconConformance, tmnxCpmNoLocalIcPort=tmnxCpmNoLocalIcPort, tmnxCpmIcPortSFFStatusFailure=tmnxCpmIcPortSFFStatusFailure, tmnxSfmIcPortSFFStatus=tmnxSfmIcPortSFFStatus, tmnxIcPortObjs=tmnxIcPortObjs, tmnxCpmIcPortSFFEquipped=tmnxCpmIcPortSFFEquipped, tmnxICLTableLastChange=tmnxICLTableLastChange, tmnxChassisInterconGroups=tmnxChassisInterconGroups, tmnxInterChassisLinkV16v0Group=tmnxInterChassisLinkV16v0Group, tmnxSfmIcPortDown=tmnxSfmIcPortDown, tmnxChassIcNotifyObjsV12v0Group=tmnxChassIcNotifyObjsV12v0Group, tmnxSfmIcPortDegraded=tmnxSfmIcPortDegraded, tmnxSfmIcPortNotifications=tmnxSfmIcPortNotifications, tmnxChassisInterconNotifyPrefix=tmnxChassisInterconNotifyPrefix, tmnxCpmIcPortSFFRemoved=tmnxCpmIcPortSFFRemoved, tmnxCpmIcPortEntry=tmnxCpmIcPortEntry, tmnxChassisInterconCompliance=tmnxChassisInterconCompliance, tmnxChassisInterconNotification=tmnxChassisInterconNotification, tmnxCpmIcPortDown=tmnxCpmIcPortDown, tmnxCpmIcPortSFFInserted=tmnxCpmIcPortSFFInserted, tmnxICLSecondaryChassisPortId=tmnxICLSecondaryChassisPortId, tmnxInterChassisLinkObjs=tmnxInterChassisLinkObjs, tmnxInterChassisCommsUp=tmnxInterChassisCommsUp, tmnxChassIcV16v0Groups=tmnxChassIcV16v0Groups, TmnxICLState=TmnxICLState, tmnxICLNum=tmnxICLNum, tmnxICLPrimaryChassisPortId=tmnxICLPrimaryChassisPortId, tmnxICLv20v0ObsoleteGroup=tmnxICLv20v0ObsoleteGroup, tmnxICLLastChanged=tmnxICLLastChanged, tmnxICLOperState=tmnxICLOperState, tmnxChassisInterconCompliances=tmnxChassisInterconCompliances, tmnxSfmIcPortNotifV12v0Group=tmnxSfmIcPortNotifV12v0Group, tmnxCpmIcPortV12v0Group=tmnxCpmIcPortV12v0Group, tmnxSfmIcPortMisconSfmIcPort=tmnxSfmIcPortMisconSfmIcPort, tmnxICLRowStatus=tmnxICLRowStatus, tmnxInterChassisCommsDown=tmnxInterChassisCommsDown, tmnxChassIcNotifObjs=tmnxChassIcNotifObjs, tmnxSfmIcPortDegradeState=tmnxSfmIcPortDegradeState, tmnxCpmIcPortUp=tmnxCpmIcPortUp, tmnxSfmIcPortMisconSfm=tmnxSfmIcPortMisconSfm, tmnxSfmIcPortUp=tmnxSfmIcPortUp, tmnxChassInterconComplianceV16v0=tmnxChassInterconComplianceV16v0, tmnxSfmIcPortDDMFailure=tmnxSfmIcPortDDMFailure, tmnxInterChassisNotifications=tmnxInterChassisNotifications, tmnxCpmIcPortNum=tmnxCpmIcPortNum, tmnxSfmIcPortTable=tmnxSfmIcPortTable, tmnxSfmIcPortSFFEquipped=tmnxSfmIcPortSFFEquipped, tmnxCpmIcPortOperState=tmnxCpmIcPortOperState, tmnxCpmIcPortSFFStatus=tmnxCpmIcPortSFFStatus, tmnxICLAdminState=tmnxICLAdminState, PYSNMP_MODULE_ID=timetraChassisInterconMIBModule, tmnxChassisInterconObjs=tmnxChassisInterconObjs, tmnxCpmIcPortTable=tmnxCpmIcPortTable, tmnxCpmIcPortNotifV12v0Group=tmnxCpmIcPortNotifV12v0Group, tmnxCpmLocalIcPortAvail=tmnxCpmLocalIcPortAvail, TmnxIcPortState=TmnxIcPortState, tmnxSfmIcPortDegradedClear=tmnxSfmIcPortDegradedClear, tmnxSfmIcPortOperState=tmnxSfmIcPortOperState, tmnxChassIcV20v0Groups=tmnxChassIcV20v0Groups, tmnxNotifyIcPortNum=tmnxNotifyIcPortNum, tmnxSfmIcPortDDMClear=tmnxSfmIcPortDDMClear)
+# MIB Managed Objects in the order of their OIDs
+
+_TmnxChassisInterconConformance_ObjectIdentity = ObjectIdentity
+tmnxChassisInterconConformance = _TmnxChassisInterconConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94)
+)
+_TmnxChassisInterconCompliances_ObjectIdentity = ObjectIdentity
+tmnxChassisInterconCompliances = _TmnxChassisInterconCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 1)
+)
+_TmnxChassisInterconGroups_ObjectIdentity = ObjectIdentity
+tmnxChassisInterconGroups = _TmnxChassisInterconGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2)
+)
+_TmnxChassIcV12v0Groups_ObjectIdentity = ObjectIdentity
+tmnxChassIcV12v0Groups = _TmnxChassIcV12v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1)
+)
+_TmnxChassIcV16v0Groups_ObjectIdentity = ObjectIdentity
+tmnxChassIcV16v0Groups = _TmnxChassIcV16v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 2)
+)
+_TmnxChassIcV20v0Groups_ObjectIdentity = ObjectIdentity
+tmnxChassIcV20v0Groups = _TmnxChassIcV20v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 3)
+)
+_TmnxChassisInterconObjs_ObjectIdentity = ObjectIdentity
+tmnxChassisInterconObjs = _TmnxChassisInterconObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94)
+)
+_TmnxIcPortObjs_ObjectIdentity = ObjectIdentity
+tmnxIcPortObjs = _TmnxIcPortObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1)
+)
+_TmnxCpmIcPortTable_Object = MibTable
+tmnxCpmIcPortTable = _TmnxCpmIcPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1)
+)
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortTable.setStatus("current")
+_TmnxCpmIcPortEntry_Object = MibTableRow
+tmnxCpmIcPortEntry = _TmnxCpmIcPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1, 1)
+)
+tmnxCpmIcPortEntry.setIndexNames(
+    (0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"),
+    (0, "TIMETRA-CHASSIS-MIB", "tmnxCpmCardSlotNum"),
+    (0, "TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortNum"),
+)
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortEntry.setStatus("current")
+
+
+class _TmnxCpmIcPortNum_Type(Unsigned32):
+    """Custom type tmnxCpmIcPortNum based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_TmnxCpmIcPortNum_Type.__name__ = "Unsigned32"
+_TmnxCpmIcPortNum_Object = MibTableColumn
+tmnxCpmIcPortNum = _TmnxCpmIcPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1, 1, 1),
+    _TmnxCpmIcPortNum_Type()
+)
+tmnxCpmIcPortNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortNum.setStatus("current")
+_TmnxCpmIcPortOperState_Type = TmnxIcPortState
+_TmnxCpmIcPortOperState_Object = MibTableColumn
+tmnxCpmIcPortOperState = _TmnxCpmIcPortOperState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1, 1, 2),
+    _TmnxCpmIcPortOperState_Type()
+)
+tmnxCpmIcPortOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortOperState.setStatus("current")
+_TmnxCpmIcPortSFFEquipped_Type = TruthValue
+_TmnxCpmIcPortSFFEquipped_Object = MibTableColumn
+tmnxCpmIcPortSFFEquipped = _TmnxCpmIcPortSFFEquipped_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1, 1, 3),
+    _TmnxCpmIcPortSFFEquipped_Type()
+)
+tmnxCpmIcPortSFFEquipped.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortSFFEquipped.setStatus("current")
+_TmnxCpmIcPortSFFStatus_Type = TmnxSFFStatus
+_TmnxCpmIcPortSFFStatus_Object = MibTableColumn
+tmnxCpmIcPortSFFStatus = _TmnxCpmIcPortSFFStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 1, 1, 4),
+    _TmnxCpmIcPortSFFStatus_Type()
+)
+tmnxCpmIcPortSFFStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortSFFStatus.setStatus("current")
+_TmnxSfmIcPortTable_Object = MibTable
+tmnxSfmIcPortTable = _TmnxSfmIcPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortTable.setStatus("current")
+_TmnxSfmIcPortEntry_Object = MibTableRow
+tmnxSfmIcPortEntry = _TmnxSfmIcPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1)
+)
+tmnxSfmIcPortEntry.setIndexNames(
+    (0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"),
+    (0, "TIMETRA-CHASSIS-MIB", "tmnxFabricSlotNum"),
+    (0, "TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortNum"),
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortEntry.setStatus("current")
+
+
+class _TmnxSfmIcPortNum_Type(Unsigned32):
+    """Custom type tmnxSfmIcPortNum based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 14),
+    )
+
+
+_TmnxSfmIcPortNum_Type.__name__ = "Unsigned32"
+_TmnxSfmIcPortNum_Object = MibTableColumn
+tmnxSfmIcPortNum = _TmnxSfmIcPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 1),
+    _TmnxSfmIcPortNum_Type()
+)
+tmnxSfmIcPortNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortNum.setStatus("current")
+_TmnxSfmIcPortOperState_Type = TmnxIcPortState
+_TmnxSfmIcPortOperState_Object = MibTableColumn
+tmnxSfmIcPortOperState = _TmnxSfmIcPortOperState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 2),
+    _TmnxSfmIcPortOperState_Type()
+)
+tmnxSfmIcPortOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortOperState.setStatus("current")
+_TmnxSfmIcPortSFFEquipped_Type = TruthValue
+_TmnxSfmIcPortSFFEquipped_Object = MibTableColumn
+tmnxSfmIcPortSFFEquipped = _TmnxSfmIcPortSFFEquipped_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 3),
+    _TmnxSfmIcPortSFFEquipped_Type()
+)
+tmnxSfmIcPortSFFEquipped.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortSFFEquipped.setStatus("current")
+_TmnxSfmIcPortSFFStatus_Type = TmnxSFFStatus
+_TmnxSfmIcPortSFFStatus_Object = MibTableColumn
+tmnxSfmIcPortSFFStatus = _TmnxSfmIcPortSFFStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 4),
+    _TmnxSfmIcPortSFFStatus_Type()
+)
+tmnxSfmIcPortSFFStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortSFFStatus.setStatus("current")
+
+
+class _TmnxSfmIcPortDegradeState_Type(Integer32):
+    """Custom type tmnxSfmIcPortDegradeState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("degraded", 2))
+    )
+
+
+_TmnxSfmIcPortDegradeState_Type.__name__ = "Integer32"
+_TmnxSfmIcPortDegradeState_Object = MibTableColumn
+tmnxSfmIcPortDegradeState = _TmnxSfmIcPortDegradeState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 5),
+    _TmnxSfmIcPortDegradeState_Type()
+)
+tmnxSfmIcPortDegradeState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortDegradeState.setStatus("current")
+_TmnxSfmIcPortMisconSfm_Type = Unsigned32
+_TmnxSfmIcPortMisconSfm_Object = MibTableColumn
+tmnxSfmIcPortMisconSfm = _TmnxSfmIcPortMisconSfm_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 6),
+    _TmnxSfmIcPortMisconSfm_Type()
+)
+tmnxSfmIcPortMisconSfm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortMisconSfm.setStatus("current")
+_TmnxSfmIcPortMisconSfmIcPort_Type = Unsigned32
+_TmnxSfmIcPortMisconSfmIcPort_Object = MibTableColumn
+tmnxSfmIcPortMisconSfmIcPort = _TmnxSfmIcPortMisconSfmIcPort_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 1, 2, 1, 7),
+    _TmnxSfmIcPortMisconSfmIcPort_Type()
+)
+tmnxSfmIcPortMisconSfmIcPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortMisconSfmIcPort.setStatus("current")
+_TmnxChassIcNotifObjs_ObjectIdentity = ObjectIdentity
+tmnxChassIcNotifObjs = _TmnxChassIcNotifObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 2)
+)
+_TmnxNotifyIcPortNum_Type = Unsigned32
+_TmnxNotifyIcPortNum_Object = MibScalar
+tmnxNotifyIcPortNum = _TmnxNotifyIcPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 2, 1),
+    _TmnxNotifyIcPortNum_Type()
+)
+tmnxNotifyIcPortNum.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxNotifyIcPortNum.setStatus("current")
+_TmnxInterChassisLinkObjs_ObjectIdentity = ObjectIdentity
+tmnxInterChassisLinkObjs = _TmnxInterChassisLinkObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3)
+)
+_TmnxICLTableLastChange_Type = TimeStamp
+_TmnxICLTableLastChange_Object = MibScalar
+tmnxICLTableLastChange = _TmnxICLTableLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 1),
+    _TmnxICLTableLastChange_Type()
+)
+tmnxICLTableLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxICLTableLastChange.setStatus("obsolete")
+_TmnxICLTable_Object = MibTable
+tmnxICLTable = _TmnxICLTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxICLTable.setStatus("obsolete")
+_TmnxICLEntry_Object = MibTableRow
+tmnxICLEntry = _TmnxICLEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1)
+)
+tmnxICLEntry.setIndexNames(
+    (0, "TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLNum"),
+)
+if mibBuilder.loadTexts:
+    tmnxICLEntry.setStatus("obsolete")
+
+
+class _TmnxICLNum_Type(Unsigned32):
+    """Custom type tmnxICLNum based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_TmnxICLNum_Type.__name__ = "Unsigned32"
+_TmnxICLNum_Object = MibTableColumn
+tmnxICLNum = _TmnxICLNum_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 1),
+    _TmnxICLNum_Type()
+)
+tmnxICLNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxICLNum.setStatus("obsolete")
+_TmnxICLRowStatus_Type = RowStatus
+_TmnxICLRowStatus_Object = MibTableColumn
+tmnxICLRowStatus = _TmnxICLRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 2),
+    _TmnxICLRowStatus_Type()
+)
+tmnxICLRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxICLRowStatus.setStatus("obsolete")
+_TmnxICLLastChanged_Type = TimeStamp
+_TmnxICLLastChanged_Object = MibTableColumn
+tmnxICLLastChanged = _TmnxICLLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 3),
+    _TmnxICLLastChanged_Type()
+)
+tmnxICLLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxICLLastChanged.setStatus("obsolete")
+
+
+class _TmnxICLAdminState_Type(TmnxAdminState):
+    """Custom type tmnxICLAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_TmnxICLAdminState_Type.__name__ = "TmnxAdminState"
+_TmnxICLAdminState_Object = MibTableColumn
+tmnxICLAdminState = _TmnxICLAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 4),
+    _TmnxICLAdminState_Type()
+)
+tmnxICLAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxICLAdminState.setStatus("obsolete")
+
+
+class _TmnxICLPrimaryChassisPortId_Type(TmnxPortID):
+    """Custom type tmnxICLPrimaryChassisPortId based on TmnxPortID"""
+    defaultValue = 503316480
+
+
+_TmnxICLPrimaryChassisPortId_Type.__name__ = "TmnxPortID"
+_TmnxICLPrimaryChassisPortId_Object = MibTableColumn
+tmnxICLPrimaryChassisPortId = _TmnxICLPrimaryChassisPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 5),
+    _TmnxICLPrimaryChassisPortId_Type()
+)
+tmnxICLPrimaryChassisPortId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxICLPrimaryChassisPortId.setStatus("obsolete")
+
+
+class _TmnxICLSecondaryChassisPortId_Type(TmnxPortID):
+    """Custom type tmnxICLSecondaryChassisPortId based on TmnxPortID"""
+    defaultValue = 503316480
+
+
+_TmnxICLSecondaryChassisPortId_Type.__name__ = "TmnxPortID"
+_TmnxICLSecondaryChassisPortId_Object = MibTableColumn
+tmnxICLSecondaryChassisPortId = _TmnxICLSecondaryChassisPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 6),
+    _TmnxICLSecondaryChassisPortId_Type()
+)
+tmnxICLSecondaryChassisPortId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxICLSecondaryChassisPortId.setStatus("obsolete")
+_TmnxICLOperState_Type = TmnxICLState
+_TmnxICLOperState_Object = MibTableColumn
+tmnxICLOperState = _TmnxICLOperState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 94, 3, 2, 1, 7),
+    _TmnxICLOperState_Type()
+)
+tmnxICLOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxICLOperState.setStatus("obsolete")
+_TmnxChassisInterconNotifyPrefix_ObjectIdentity = ObjectIdentity
+tmnxChassisInterconNotifyPrefix = _TmnxChassisInterconNotifyPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94)
+)
+_TmnxChassisInterconNotification_ObjectIdentity = ObjectIdentity
+tmnxChassisInterconNotification = _TmnxChassisInterconNotification_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0)
+)
+_TmnxInterChassisNotifications_ObjectIdentity = ObjectIdentity
+tmnxInterChassisNotifications = _TmnxInterChassisNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 1)
+)
+_TmnxCpmIcPortNotifications_ObjectIdentity = ObjectIdentity
+tmnxCpmIcPortNotifications = _TmnxCpmIcPortNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2)
+)
+_TmnxSfmIcPortNotifications_ObjectIdentity = ObjectIdentity
+tmnxSfmIcPortNotifications = _TmnxSfmIcPortNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3)
+)
+
+# Managed Objects groups
+
+tmnxChassIcNotifyObjsV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 2)
+)
+tmnxChassIcNotifyObjsV12v0Group.setObjects(
+    ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxNotifyIcPortNum")
+)
+if mibBuilder.loadTexts:
+    tmnxChassIcNotifyObjsV12v0Group.setStatus("current")
+
+tmnxCpmIcPortV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 3)
+)
+tmnxCpmIcPortV12v0Group.setObjects(
+      *(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortOperState"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFEquipped"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFStatus"))
+)
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortV12v0Group.setStatus("current")
+
+tmnxSfmIcPortV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 5)
+)
+tmnxSfmIcPortV12v0Group.setObjects(
+      *(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortOperState"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFEquipped"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFStatus"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDegradeState"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortMisconSfm"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortMisconSfmIcPort"))
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortV12v0Group.setStatus("current")
+
+tmnxInterChassisLinkV16v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 2, 1)
+)
+tmnxInterChassisLinkV16v0Group.setObjects(
+      *(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLTableLastChange"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLRowStatus"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLLastChanged"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLAdminState"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLPrimaryChassisPortId"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLSecondaryChassisPortId"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLOperState"))
+)
+if mibBuilder.loadTexts:
+    tmnxInterChassisLinkV16v0Group.setStatus("obsolete")
+
+tmnxICLv20v0ObsoleteGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 3, 1)
+)
+tmnxICLv20v0ObsoleteGroup.setObjects(
+      *(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLTableLastChange"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLRowStatus"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLLastChanged"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLAdminState"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLPrimaryChassisPortId"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLSecondaryChassisPortId"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxICLOperState"))
+)
+if mibBuilder.loadTexts:
+    tmnxICLv20v0ObsoleteGroup.setStatus("current")
+
+
+# Notification objects
+
+tmnxInterChassisCommsDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 1, 1)
+)
+tmnxInterChassisCommsDown.setObjects(
+    ("TIMETRA-CHASSIS-MIB", "tmnxHwClass")
+)
+if mibBuilder.loadTexts:
+    tmnxInterChassisCommsDown.setStatus(
+        "current"
+    )
+
+tmnxInterChassisCommsUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 1, 2)
+)
+tmnxInterChassisCommsUp.setObjects(
+    ("TIMETRA-CHASSIS-MIB", "tmnxHwClass")
+)
+if mibBuilder.loadTexts:
+    tmnxInterChassisCommsUp.setStatus(
+        "current"
+    )
+
+tmnxCpmIcPortDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 1)
+)
+tmnxCpmIcPortDown.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortOperState"))
+)
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortDown.setStatus(
+        "current"
+    )
+
+tmnxCpmIcPortUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 2)
+)
+tmnxCpmIcPortUp.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortOperState"))
+)
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortUp.setStatus(
+        "current"
+    )
+
+tmnxCpmIcPortSFFInserted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 3)
+)
+tmnxCpmIcPortSFFInserted.setObjects(
+    ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFEquipped")
+)
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortSFFInserted.setStatus(
+        "current"
+    )
+
+tmnxCpmIcPortSFFRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 4)
+)
+tmnxCpmIcPortSFFRemoved.setObjects(
+    ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFEquipped")
+)
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortSFFRemoved.setStatus(
+        "current"
+    )
+
+tmnxCpmNoLocalIcPort = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 5)
+)
+tmnxCpmNoLocalIcPort.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"),
+        ("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyCpmCardSlotNum"))
+)
+if mibBuilder.loadTexts:
+    tmnxCpmNoLocalIcPort.setStatus(
+        "current"
+    )
+
+tmnxCpmLocalIcPortAvail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 6)
+)
+tmnxCpmLocalIcPortAvail.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"),
+        ("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyCpmCardSlotNum"))
+)
+if mibBuilder.loadTexts:
+    tmnxCpmLocalIcPortAvail.setStatus(
+        "current"
+    )
+
+tmnxCpmIcPortSFFStatusFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 7)
+)
+tmnxCpmIcPortSFFStatusFailure.setObjects(
+    ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFStatus")
+)
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortSFFStatusFailure.setStatus(
+        "current"
+    )
+
+tmnxCpmIcPortDDMFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 8)
+)
+tmnxCpmIcPortDDMFailure.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyCpmCardSlotNum"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxNotifyIcPortNum"),
+        ("TIMETRA-PORT-MIB", "tmnxDDMFailedObject"),
+        ("TIMETRA-PORT-MIB", "tmnxDDMLaneIdOrModule"))
+)
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortDDMFailure.setStatus(
+        "current"
+    )
+
+tmnxCpmIcPortDDMClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 2, 9)
+)
+tmnxCpmIcPortDDMClear.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyCpmCardSlotNum"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxNotifyIcPortNum"),
+        ("TIMETRA-PORT-MIB", "tmnxDDMFailedObject"),
+        ("TIMETRA-PORT-MIB", "tmnxDDMLaneIdOrModule"))
+)
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortDDMClear.setStatus(
+        "current"
+    )
+
+tmnxSfmIcPortDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 1)
+)
+tmnxSfmIcPortDown.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortOperState"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortMisconSfm"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortMisconSfmIcPort"))
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortDown.setStatus(
+        "current"
+    )
+
+tmnxSfmIcPortUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 2)
+)
+tmnxSfmIcPortUp.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxHwClass"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortOperState"))
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortUp.setStatus(
+        "current"
+    )
+
+tmnxSfmIcPortSFFInserted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 3)
+)
+tmnxSfmIcPortSFFInserted.setObjects(
+    ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFEquipped")
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortSFFInserted.setStatus(
+        "current"
+    )
+
+tmnxSfmIcPortSFFRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 4)
+)
+tmnxSfmIcPortSFFRemoved.setObjects(
+    ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFEquipped")
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortSFFRemoved.setStatus(
+        "current"
+    )
+
+tmnxSfmIcPortSFFStatusFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 5)
+)
+tmnxSfmIcPortSFFStatusFailure.setObjects(
+    ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFStatus")
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortSFFStatusFailure.setStatus(
+        "current"
+    )
+
+tmnxSfmIcPortDDMFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 6)
+)
+tmnxSfmIcPortDDMFailure.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyFabricSlotNum"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxNotifyIcPortNum"),
+        ("TIMETRA-PORT-MIB", "tmnxDDMFailedObject"),
+        ("TIMETRA-PORT-MIB", "tmnxDDMLaneIdOrModule"))
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortDDMFailure.setStatus(
+        "current"
+    )
+
+tmnxSfmIcPortDDMClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 7)
+)
+tmnxSfmIcPortDDMClear.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyFabricSlotNum"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxNotifyIcPortNum"),
+        ("TIMETRA-PORT-MIB", "tmnxDDMFailedObject"),
+        ("TIMETRA-PORT-MIB", "tmnxDDMLaneIdOrModule"))
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortDDMClear.setStatus(
+        "current"
+    )
+
+tmnxSfmIcPortDegraded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 8)
+)
+tmnxSfmIcPortDegraded.setObjects(
+    ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDegradeState")
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortDegraded.setStatus(
+        "current"
+    )
+
+tmnxSfmIcPortDegradedClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 94, 0, 3, 9)
+)
+tmnxSfmIcPortDegradedClear.setObjects(
+    ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDegradeState")
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortDegradedClear.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+tmnxChassIcNotifV12v0Group = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 1)
+)
+tmnxChassIcNotifV12v0Group.setObjects(
+      *(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxInterChassisCommsDown"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxInterChassisCommsUp"))
+)
+if mibBuilder.loadTexts:
+    tmnxChassIcNotifV12v0Group.setStatus(
+        "current"
+    )
+
+tmnxCpmIcPortNotifV12v0Group = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 4)
+)
+tmnxCpmIcPortNotifV12v0Group.setObjects(
+      *(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortDown"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortUp"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFInserted"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFRemoved"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmNoLocalIcPort"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmLocalIcPortAvail"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortSFFStatusFailure"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortDDMFailure"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortDDMClear"))
+)
+if mibBuilder.loadTexts:
+    tmnxCpmIcPortNotifV12v0Group.setStatus(
+        "current"
+    )
+
+tmnxSfmIcPortNotifV12v0Group = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 2, 1, 6)
+)
+tmnxSfmIcPortNotifV12v0Group.setObjects(
+      *(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDown"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortUp"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFInserted"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFRemoved"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortSFFStatusFailure"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDDMFailure"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDDMClear"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDegraded"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortDegradedClear"))
+)
+if mibBuilder.loadTexts:
+    tmnxSfmIcPortNotifV12v0Group.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tmnxChassisInterconCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 1, 1)
+)
+tmnxChassisInterconCompliance.setObjects(
+      *(("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxChassIcNotifV12v0Group"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxChassIcNotifyObjsV12v0Group"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortV12v0Group"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxCpmIcPortNotifV12v0Group"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortV12v0Group"),
+        ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxSfmIcPortNotifV12v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxChassisInterconCompliance.setStatus(
+        "current"
+    )
+
+tmnxChassInterconComplianceV16v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 94, 1, 2)
+)
+tmnxChassInterconComplianceV16v0.setObjects(
+    ("TIMETRA-CHASSIS-INTERCONNECT-MIB", "tmnxInterChassisLinkV16v0Group")
+)
+if mibBuilder.loadTexts:
+    tmnxChassInterconComplianceV16v0.setStatus(
+        "obsolete"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TIMETRA-CHASSIS-INTERCONNECT-MIB",
+    **{"TmnxIcPortState": TmnxIcPortState,
+       "TmnxICLState": TmnxICLState,
+       "timetraChassisInterconMIBModule": timetraChassisInterconMIBModule,
+       "tmnxChassisInterconConformance": tmnxChassisInterconConformance,
+       "tmnxChassisInterconCompliances": tmnxChassisInterconCompliances,
+       "tmnxChassisInterconCompliance": tmnxChassisInterconCompliance,
+       "tmnxChassInterconComplianceV16v0": tmnxChassInterconComplianceV16v0,
+       "tmnxChassisInterconGroups": tmnxChassisInterconGroups,
+       "tmnxChassIcV12v0Groups": tmnxChassIcV12v0Groups,
+       "tmnxChassIcNotifV12v0Group": tmnxChassIcNotifV12v0Group,
+       "tmnxChassIcNotifyObjsV12v0Group": tmnxChassIcNotifyObjsV12v0Group,
+       "tmnxCpmIcPortV12v0Group": tmnxCpmIcPortV12v0Group,
+       "tmnxCpmIcPortNotifV12v0Group": tmnxCpmIcPortNotifV12v0Group,
+       "tmnxSfmIcPortV12v0Group": tmnxSfmIcPortV12v0Group,
+       "tmnxSfmIcPortNotifV12v0Group": tmnxSfmIcPortNotifV12v0Group,
+       "tmnxChassIcV16v0Groups": tmnxChassIcV16v0Groups,
+       "tmnxInterChassisLinkV16v0Group": tmnxInterChassisLinkV16v0Group,
+       "tmnxChassIcV20v0Groups": tmnxChassIcV20v0Groups,
+       "tmnxICLv20v0ObsoleteGroup": tmnxICLv20v0ObsoleteGroup,
+       "tmnxChassisInterconObjs": tmnxChassisInterconObjs,
+       "tmnxIcPortObjs": tmnxIcPortObjs,
+       "tmnxCpmIcPortTable": tmnxCpmIcPortTable,
+       "tmnxCpmIcPortEntry": tmnxCpmIcPortEntry,
+       "tmnxCpmIcPortNum": tmnxCpmIcPortNum,
+       "tmnxCpmIcPortOperState": tmnxCpmIcPortOperState,
+       "tmnxCpmIcPortSFFEquipped": tmnxCpmIcPortSFFEquipped,
+       "tmnxCpmIcPortSFFStatus": tmnxCpmIcPortSFFStatus,
+       "tmnxSfmIcPortTable": tmnxSfmIcPortTable,
+       "tmnxSfmIcPortEntry": tmnxSfmIcPortEntry,
+       "tmnxSfmIcPortNum": tmnxSfmIcPortNum,
+       "tmnxSfmIcPortOperState": tmnxSfmIcPortOperState,
+       "tmnxSfmIcPortSFFEquipped": tmnxSfmIcPortSFFEquipped,
+       "tmnxSfmIcPortSFFStatus": tmnxSfmIcPortSFFStatus,
+       "tmnxSfmIcPortDegradeState": tmnxSfmIcPortDegradeState,
+       "tmnxSfmIcPortMisconSfm": tmnxSfmIcPortMisconSfm,
+       "tmnxSfmIcPortMisconSfmIcPort": tmnxSfmIcPortMisconSfmIcPort,
+       "tmnxChassIcNotifObjs": tmnxChassIcNotifObjs,
+       "tmnxNotifyIcPortNum": tmnxNotifyIcPortNum,
+       "tmnxInterChassisLinkObjs": tmnxInterChassisLinkObjs,
+       "tmnxICLTableLastChange": tmnxICLTableLastChange,
+       "tmnxICLTable": tmnxICLTable,
+       "tmnxICLEntry": tmnxICLEntry,
+       "tmnxICLNum": tmnxICLNum,
+       "tmnxICLRowStatus": tmnxICLRowStatus,
+       "tmnxICLLastChanged": tmnxICLLastChanged,
+       "tmnxICLAdminState": tmnxICLAdminState,
+       "tmnxICLPrimaryChassisPortId": tmnxICLPrimaryChassisPortId,
+       "tmnxICLSecondaryChassisPortId": tmnxICLSecondaryChassisPortId,
+       "tmnxICLOperState": tmnxICLOperState,
+       "tmnxChassisInterconNotifyPrefix": tmnxChassisInterconNotifyPrefix,
+       "tmnxChassisInterconNotification": tmnxChassisInterconNotification,
+       "tmnxInterChassisNotifications": tmnxInterChassisNotifications,
+       "tmnxInterChassisCommsDown": tmnxInterChassisCommsDown,
+       "tmnxInterChassisCommsUp": tmnxInterChassisCommsUp,
+       "tmnxCpmIcPortNotifications": tmnxCpmIcPortNotifications,
+       "tmnxCpmIcPortDown": tmnxCpmIcPortDown,
+       "tmnxCpmIcPortUp": tmnxCpmIcPortUp,
+       "tmnxCpmIcPortSFFInserted": tmnxCpmIcPortSFFInserted,
+       "tmnxCpmIcPortSFFRemoved": tmnxCpmIcPortSFFRemoved,
+       "tmnxCpmNoLocalIcPort": tmnxCpmNoLocalIcPort,
+       "tmnxCpmLocalIcPortAvail": tmnxCpmLocalIcPortAvail,
+       "tmnxCpmIcPortSFFStatusFailure": tmnxCpmIcPortSFFStatusFailure,
+       "tmnxCpmIcPortDDMFailure": tmnxCpmIcPortDDMFailure,
+       "tmnxCpmIcPortDDMClear": tmnxCpmIcPortDDMClear,
+       "tmnxSfmIcPortNotifications": tmnxSfmIcPortNotifications,
+       "tmnxSfmIcPortDown": tmnxSfmIcPortDown,
+       "tmnxSfmIcPortUp": tmnxSfmIcPortUp,
+       "tmnxSfmIcPortSFFInserted": tmnxSfmIcPortSFFInserted,
+       "tmnxSfmIcPortSFFRemoved": tmnxSfmIcPortSFFRemoved,
+       "tmnxSfmIcPortSFFStatusFailure": tmnxSfmIcPortSFFStatusFailure,
+       "tmnxSfmIcPortDDMFailure": tmnxSfmIcPortDDMFailure,
+       "tmnxSfmIcPortDDMClear": tmnxSfmIcPortDDMClear,
+       "tmnxSfmIcPortDegraded": tmnxSfmIcPortDegraded,
+       "tmnxSfmIcPortDegradedClear": tmnxSfmIcPortDegradedClear}
+)

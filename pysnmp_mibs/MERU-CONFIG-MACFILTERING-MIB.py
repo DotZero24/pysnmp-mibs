@@ -1,46 +1,307 @@
+# SNMP MIB module (MERU-CONFIG-MACFILTERING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MERU-CONFIG-MACFILTERING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/meru/MERU-CONFIG-MACFILTERING-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:31 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/meru/MERU-CONFIG-MACFILTERING-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:13:24 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
-mwConfiguration, = mibBuilder.importSymbols("MERU-SMI", "mwConfiguration")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-RowStatus, DateAndTime, TextualConvention, TimeInterval, MacAddress, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "TruthValue", "TimeStamp", "DisplayString")
-mwConfigMacFiltering = ModuleIdentity((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6))
-if mibBuilder.loadTexts: mwConfigMacFiltering.setLastUpdated('200506050000Z')
-if mibBuilder.loadTexts: mwConfigMacFiltering.setOrganization('Meru Networks')
-mwAcl = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 1))
-mwAclCachingTimeout = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 1, 4), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwAclCachingTimeout.setStatus('current')
-mwAclAccessAllowTable = MibTable((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2), )
-if mibBuilder.loadTexts: mwAclAccessAllowTable.setStatus('current')
-mwAclAccessAllowEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2, 1), ).setIndexNames((0, "MERU-CONFIG-MACFILTERING-MIB", "mwAclAccessAllowTableIndex"))
-if mibBuilder.loadTexts: mwAclAccessAllowEntry.setStatus('current')
-mwAclAccessAllowTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: mwAclAccessAllowTableIndex.setStatus('current')
-mwAclAccessAllowMac = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2, 1, 2), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwAclAccessAllowMac.setStatus('current')
-mwAclAccessAllowDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwAclAccessAllowDescr.setStatus('current')
-mwAclAccessAllowRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwAclAccessAllowRowStatus.setStatus('current')
-mwAclAccessDenyTable = MibTable((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3), )
-if mibBuilder.loadTexts: mwAclAccessDenyTable.setStatus('current')
-mwAclAccessDenyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3, 1), ).setIndexNames((0, "MERU-CONFIG-MACFILTERING-MIB", "mwAclAccessDenyTableIndex"))
-if mibBuilder.loadTexts: mwAclAccessDenyEntry.setStatus('current')
-mwAclAccessDenyTableIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3, 1, 1), Integer32())
-if mibBuilder.loadTexts: mwAclAccessDenyTableIndex.setStatus('current')
-mwAclAccessDenyMac = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3, 1, 2), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwAclAccessDenyMac.setStatus('current')
-mwAclAccessDenyDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwAclAccessDenyDescr.setStatus('current')
-mwAclAccessDenyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mwAclAccessDenyRowStatus.setStatus('current')
-mibBuilder.exportSymbols("MERU-CONFIG-MACFILTERING-MIB", mwAcl=mwAcl, mwAclAccessAllowRowStatus=mwAclAccessAllowRowStatus, mwAclAccessAllowDescr=mwAclAccessAllowDescr, mwAclAccessAllowTable=mwAclAccessAllowTable, PYSNMP_MODULE_ID=mwConfigMacFiltering, mwConfigMacFiltering=mwConfigMacFiltering, mwAclAccessAllowMac=mwAclAccessAllowMac, mwAclAccessAllowTableIndex=mwAclAccessAllowTableIndex, mwAclAccessDenyEntry=mwAclAccessDenyEntry, mwAclAccessDenyTableIndex=mwAclAccessDenyTableIndex, mwAclAccessDenyMac=mwAclAccessDenyMac, mwAclAccessAllowEntry=mwAclAccessAllowEntry, mwAclAccessDenyTable=mwAclAccessDenyTable, mwAclAccessDenyDescr=mwAclAccessDenyDescr, mwAclAccessDenyRowStatus=mwAclAccessDenyRowStatus, mwAclCachingTimeout=mwAclCachingTimeout)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(Ipv6Address,) = mibBuilder.importSymbols(
+    "IPV6-TC",
+    "Ipv6Address")
+
+(mwConfiguration,) = mibBuilder.importSymbols(
+    "MERU-SMI",
+    "mwConfiguration")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+mwConfigMacFiltering = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MwAcl_ObjectIdentity = ObjectIdentity
+mwAcl = _MwAcl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 1)
+)
+_MwAclCachingTimeout_Type = Unsigned32
+_MwAclCachingTimeout_Object = MibScalar
+mwAclCachingTimeout = _MwAclCachingTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 1, 4),
+    _MwAclCachingTimeout_Type()
+)
+mwAclCachingTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwAclCachingTimeout.setStatus("current")
+_MwAclAccessAllowTable_Object = MibTable
+mwAclAccessAllowTable = _MwAclAccessAllowTable_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2)
+)
+if mibBuilder.loadTexts:
+    mwAclAccessAllowTable.setStatus("current")
+_MwAclAccessAllowEntry_Object = MibTableRow
+mwAclAccessAllowEntry = _MwAclAccessAllowEntry_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2, 1)
+)
+mwAclAccessAllowEntry.setIndexNames(
+    (0, "MERU-CONFIG-MACFILTERING-MIB", "mwAclAccessAllowTableIndex"),
+)
+if mibBuilder.loadTexts:
+    mwAclAccessAllowEntry.setStatus("current")
+_MwAclAccessAllowTableIndex_Type = Integer32
+_MwAclAccessAllowTableIndex_Object = MibTableColumn
+mwAclAccessAllowTableIndex = _MwAclAccessAllowTableIndex_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2, 1, 1),
+    _MwAclAccessAllowTableIndex_Type()
+)
+mwAclAccessAllowTableIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mwAclAccessAllowTableIndex.setStatus("current")
+_MwAclAccessAllowMac_Type = MacAddress
+_MwAclAccessAllowMac_Object = MibTableColumn
+mwAclAccessAllowMac = _MwAclAccessAllowMac_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2, 1, 2),
+    _MwAclAccessAllowMac_Type()
+)
+mwAclAccessAllowMac.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwAclAccessAllowMac.setStatus("current")
+
+
+class _MwAclAccessAllowDescr_Type(DisplayString):
+    """Custom type mwAclAccessAllowDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 40),
+    )
+
+
+_MwAclAccessAllowDescr_Type.__name__ = "DisplayString"
+_MwAclAccessAllowDescr_Object = MibTableColumn
+mwAclAccessAllowDescr = _MwAclAccessAllowDescr_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2, 1, 3),
+    _MwAclAccessAllowDescr_Type()
+)
+mwAclAccessAllowDescr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwAclAccessAllowDescr.setStatus("current")
+_MwAclAccessAllowRowStatus_Type = RowStatus
+_MwAclAccessAllowRowStatus_Object = MibTableColumn
+mwAclAccessAllowRowStatus = _MwAclAccessAllowRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 2, 1, 5),
+    _MwAclAccessAllowRowStatus_Type()
+)
+mwAclAccessAllowRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwAclAccessAllowRowStatus.setStatus("current")
+_MwAclAccessDenyTable_Object = MibTable
+mwAclAccessDenyTable = _MwAclAccessDenyTable_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3)
+)
+if mibBuilder.loadTexts:
+    mwAclAccessDenyTable.setStatus("current")
+_MwAclAccessDenyEntry_Object = MibTableRow
+mwAclAccessDenyEntry = _MwAclAccessDenyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3, 1)
+)
+mwAclAccessDenyEntry.setIndexNames(
+    (0, "MERU-CONFIG-MACFILTERING-MIB", "mwAclAccessDenyTableIndex"),
+)
+if mibBuilder.loadTexts:
+    mwAclAccessDenyEntry.setStatus("current")
+_MwAclAccessDenyTableIndex_Type = Integer32
+_MwAclAccessDenyTableIndex_Object = MibTableColumn
+mwAclAccessDenyTableIndex = _MwAclAccessDenyTableIndex_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3, 1, 1),
+    _MwAclAccessDenyTableIndex_Type()
+)
+mwAclAccessDenyTableIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    mwAclAccessDenyTableIndex.setStatus("current")
+_MwAclAccessDenyMac_Type = MacAddress
+_MwAclAccessDenyMac_Object = MibTableColumn
+mwAclAccessDenyMac = _MwAclAccessDenyMac_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3, 1, 2),
+    _MwAclAccessDenyMac_Type()
+)
+mwAclAccessDenyMac.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwAclAccessDenyMac.setStatus("current")
+
+
+class _MwAclAccessDenyDescr_Type(DisplayString):
+    """Custom type mwAclAccessDenyDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 40),
+    )
+
+
+_MwAclAccessDenyDescr_Type.__name__ = "DisplayString"
+_MwAclAccessDenyDescr_Object = MibTableColumn
+mwAclAccessDenyDescr = _MwAclAccessDenyDescr_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3, 1, 3),
+    _MwAclAccessDenyDescr_Type()
+)
+mwAclAccessDenyDescr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwAclAccessDenyDescr.setStatus("current")
+_MwAclAccessDenyRowStatus_Type = RowStatus
+_MwAclAccessDenyRowStatus_Object = MibTableColumn
+mwAclAccessDenyRowStatus = _MwAclAccessDenyRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 6, 3, 1, 5),
+    _MwAclAccessDenyRowStatus_Type()
+)
+mwAclAccessDenyRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mwAclAccessDenyRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MERU-CONFIG-MACFILTERING-MIB",
+    **{"mwConfigMacFiltering": mwConfigMacFiltering,
+       "mwAcl": mwAcl,
+       "mwAclCachingTimeout": mwAclCachingTimeout,
+       "mwAclAccessAllowTable": mwAclAccessAllowTable,
+       "mwAclAccessAllowEntry": mwAclAccessAllowEntry,
+       "mwAclAccessAllowTableIndex": mwAclAccessAllowTableIndex,
+       "mwAclAccessAllowMac": mwAclAccessAllowMac,
+       "mwAclAccessAllowDescr": mwAclAccessAllowDescr,
+       "mwAclAccessAllowRowStatus": mwAclAccessAllowRowStatus,
+       "mwAclAccessDenyTable": mwAclAccessDenyTable,
+       "mwAclAccessDenyEntry": mwAclAccessDenyEntry,
+       "mwAclAccessDenyTableIndex": mwAclAccessDenyTableIndex,
+       "mwAclAccessDenyMac": mwAclAccessDenyMac,
+       "mwAclAccessDenyDescr": mwAclAccessDenyDescr,
+       "mwAclAccessDenyRowStatus": mwAclAccessDenyRowStatus}
+)

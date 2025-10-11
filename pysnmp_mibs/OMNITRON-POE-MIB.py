@@ -1,67 +1,637 @@
+# SNMP MIB module (OMNITRON-POE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module OMNITRON-POE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/omnitron/OMNITRON-POE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:43:13 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/omnitron/OMNITRON-POE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:07:10 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-OstFloatValue, omnitron, OstPortSingleIndex = mibBuilder.importSymbols("OMNITRON-TC-MIB", "OstFloatValue", "omnitron", "OstPortSingleIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-omnitronPoeMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 7342, 15))
-omnitronPoeMib.setRevisions(('2015-01-19 12:00',))
-if mibBuilder.loadTexts: omnitronPoeMib.setLastUpdated('201501191200Z')
-if mibBuilder.loadTexts: omnitronPoeMib.setOrganization('Omnitron Systems Technology, Inc.')
-ostPoeGlobalCfgTable = MibIdentifier((1, 3, 6, 1, 4, 1, 7342, 15, 1))
-ostPoeGlobalCfgPwrLimitationEnable = MibScalar((1, 3, 6, 1, 4, 1, 7342, 15, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ostPoeGlobalCfgPwrLimitationEnable.setStatus('current')
-ostPoeGlobalCfgTotalPwr = MibScalar((1, 3, 6, 1, 4, 1, 7342, 15, 1, 2), OstFloatValue().clone('0.0')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ostPoeGlobalCfgTotalPwr.setStatus('current')
-ostPoePortCfgTable = MibTable((1, 3, 6, 1, 4, 1, 7342, 15, 2), )
-if mibBuilder.loadTexts: ostPoePortCfgTable.setStatus('current')
-ostPoePortCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1), ).setIndexNames((0, "OMNITRON-POE-MIB", "ostPoePortCfgIndex"))
-if mibBuilder.loadTexts: ostPoePortCfgEntry.setStatus('current')
-ostPoePortCfgIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 1), OstPortSingleIndex())
-if mibBuilder.loadTexts: ostPoePortCfgIndex.setStatus('current')
-ostPoePortPseEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("pseDisabled", 1), ("pseEnabled", 2))).clone('pseEnabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ostPoePortPseEnable.setStatus('current')
-ostPoePortPse60wMode = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("pse60wNotAvail", 0), ("pse60wAuto", 1), ("pse60wForce", 2))).clone('pse60wAuto')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ostPoePortPse60wMode.setStatus('current')
-ostPoePortPdMode = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("pdModeNotDetected", 1), ("pdModeNotClassified", 2), ("pdModeFailure", 3), ("pdModeClass0", 4), ("pdModeClass1", 5), ("pdModeClass2", 6), ("pdModeClass3", 7), ("pdModeClass4", 8), ("pdMode60W", 9))).clone('pdModeNotDetected')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ostPoePortPdMode.setStatus('current')
-ostPoePortPseVoltageSupplied = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 5), OstFloatValue().clone('0.0')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ostPoePortPseVoltageSupplied.setStatus('current')
-ostPoePortPseCurrentSupplied = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 6), OstFloatValue().clone('0.0')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ostPoePortPseCurrentSupplied.setStatus('current')
-ostPoePortPseStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("notApplicable", 1), ("pdNormal", 2), ("pdOverCurrent", 3), ("pdBrownOut", 4), ("pdInsufficientPower", 5))).clone('notApplicable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ostPoePortPseStatus.setStatus('current')
-ostPoePortHeartbeatEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("heartbeatDisabled", 1), ("heartbeatEnabled", 2))).clone('heartbeatDisabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ostPoePortHeartbeatEnable.setStatus('current')
-ostPoePortHeartbeatIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 9), IpAddress().clone(hexValue="00000000")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ostPoePortHeartbeatIpAddress.setStatus('current')
-ostPoePortHeartbeatInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 300)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ostPoePortHeartbeatInterval.setStatus('current')
-ostPoePortHeartbeatErrorDetection = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(3)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ostPoePortHeartbeatErrorDetection.setStatus('current')
-ostPoePortHeartbeatErrorAction = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("errorLostIgnored", 1), ("errorRestart", 2), ("errorShutdown", 3))).clone('errorLostIgnored')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ostPoePortHeartbeatErrorAction.setStatus('current')
-ostPoePortHeartbeatNumberRestarts = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 16384))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ostPoePortHeartbeatNumberRestarts.setStatus('current')
-ostPoEPortHeartbeatStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("heartbeatDisabled", 1), ("heartbeatAvailable", 2), ("heartbeatErrored", 3), ("heartbeatRestart", 4), ("heartbeatShutdown", 5))).clone('heartbeatDisabled')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ostPoEPortHeartbeatStatus.setStatus('current')
-ostPoEPortHeartbeatDeferTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 300)).clone(5)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ostPoEPortHeartbeatDeferTime.setStatus('current')
-ostPoeCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 7342, 15, 3))
-ostPoeGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 7342, 15, 4))
-ostPoeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7342, 15, 4, 1)).setObjects(("OMNITRON-POE-MIB", "ostPoeGlobalCfgPwrLimitationEnable"), ("OMNITRON-POE-MIB", "ostPoeGlobalCfgTotalPwr"), ("OMNITRON-POE-MIB", "ostPoePortPseEnable"), ("OMNITRON-POE-MIB", "ostPoePortPse60wMode"), ("OMNITRON-POE-MIB", "ostPoePortPdMode"), ("OMNITRON-POE-MIB", "ostPoePortPseVoltageSupplied"), ("OMNITRON-POE-MIB", "ostPoePortPseCurrentSupplied"), ("OMNITRON-POE-MIB", "ostPoePortPseStatus"), ("OMNITRON-POE-MIB", "ostPoePortHeartbeatEnable"), ("OMNITRON-POE-MIB", "ostPoePortHeartbeatIpAddress"), ("OMNITRON-POE-MIB", "ostPoePortHeartbeatInterval"), ("OMNITRON-POE-MIB", "ostPoePortHeartbeatErrorDetection"), ("OMNITRON-POE-MIB", "ostPoePortHeartbeatErrorAction"), ("OMNITRON-POE-MIB", "ostPoePortHeartbeatNumberRestarts"), ("OMNITRON-POE-MIB", "ostPoEPortHeartbeatStatus"), ("OMNITRON-POE-MIB", "ostPoEPortHeartbeatDeferTime"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ostPoeGroup = ostPoeGroup.setStatus('current')
-ostPoeCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7342, 15, 3, 2)).setObjects(("OMNITRON-POE-MIB", "ostPoeGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ostPoeCompliance = ostPoeCompliance.setStatus('current')
-mibBuilder.exportSymbols("OMNITRON-POE-MIB", ostPoePortPseEnable=ostPoePortPseEnable, ostPoeCompliances=ostPoeCompliances, ostPoEPortHeartbeatDeferTime=ostPoEPortHeartbeatDeferTime, ostPoePortHeartbeatErrorAction=ostPoePortHeartbeatErrorAction, ostPoeGlobalCfgTotalPwr=ostPoeGlobalCfgTotalPwr, ostPoePortCfgTable=ostPoePortCfgTable, ostPoePortPdMode=ostPoePortPdMode, ostPoePortHeartbeatEnable=ostPoePortHeartbeatEnable, ostPoePortPseCurrentSupplied=ostPoePortPseCurrentSupplied, ostPoePortPse60wMode=ostPoePortPse60wMode, ostPoePortHeartbeatInterval=ostPoePortHeartbeatInterval, ostPoeGlobalCfgPwrLimitationEnable=ostPoeGlobalCfgPwrLimitationEnable, ostPoePortHeartbeatErrorDetection=ostPoePortHeartbeatErrorDetection, ostPoEPortHeartbeatStatus=ostPoEPortHeartbeatStatus, ostPoePortCfgEntry=ostPoePortCfgEntry, ostPoePortPseVoltageSupplied=ostPoePortPseVoltageSupplied, ostPoePortHeartbeatNumberRestarts=ostPoePortHeartbeatNumberRestarts, ostPoePortPseStatus=ostPoePortPseStatus, ostPoePortHeartbeatIpAddress=ostPoePortHeartbeatIpAddress, ostPoeGlobalCfgTable=ostPoeGlobalCfgTable, PYSNMP_MODULE_ID=omnitronPoeMib, ostPoeGroups=ostPoeGroups, ostPoeCompliance=ostPoeCompliance, ostPoeGroup=ostPoeGroup, ostPoePortCfgIndex=ostPoePortCfgIndex, omnitronPoeMib=omnitronPoeMib)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(OstFloatValue,
+ OstPortSingleIndex,
+ omnitron) = mibBuilder.importSymbols(
+    "OMNITRON-TC-MIB",
+    "OstFloatValue",
+    "OstPortSingleIndex",
+    "omnitron")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+omnitronPoeMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 7342, 15)
+)
+if mibBuilder.loadTexts:
+    omnitronPoeMib.setRevisions(
+        ("2015-01-19 12:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_OstPoeGlobalCfgTable_ObjectIdentity = ObjectIdentity
+ostPoeGlobalCfgTable = _OstPoeGlobalCfgTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 1)
+)
+
+
+class _OstPoeGlobalCfgPwrLimitationEnable_Type(TruthValue):
+    """Custom type ostPoeGlobalCfgPwrLimitationEnable based on TruthValue"""
+    defaultValue = 2
+
+
+_OstPoeGlobalCfgPwrLimitationEnable_Type.__name__ = "TruthValue"
+_OstPoeGlobalCfgPwrLimitationEnable_Object = MibScalar
+ostPoeGlobalCfgPwrLimitationEnable = _OstPoeGlobalCfgPwrLimitationEnable_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 1, 1),
+    _OstPoeGlobalCfgPwrLimitationEnable_Type()
+)
+ostPoeGlobalCfgPwrLimitationEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ostPoeGlobalCfgPwrLimitationEnable.setStatus("current")
+
+
+class _OstPoeGlobalCfgTotalPwr_Type(OstFloatValue):
+    """Custom type ostPoeGlobalCfgTotalPwr based on OstFloatValue"""
+    defaultValue = OctetString("0.0")
+
+
+_OstPoeGlobalCfgTotalPwr_Type.__name__ = "OstFloatValue"
+_OstPoeGlobalCfgTotalPwr_Object = MibScalar
+ostPoeGlobalCfgTotalPwr = _OstPoeGlobalCfgTotalPwr_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 1, 2),
+    _OstPoeGlobalCfgTotalPwr_Type()
+)
+ostPoeGlobalCfgTotalPwr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ostPoeGlobalCfgTotalPwr.setStatus("current")
+_OstPoePortCfgTable_Object = MibTable
+ostPoePortCfgTable = _OstPoePortCfgTable_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2)
+)
+if mibBuilder.loadTexts:
+    ostPoePortCfgTable.setStatus("current")
+_OstPoePortCfgEntry_Object = MibTableRow
+ostPoePortCfgEntry = _OstPoePortCfgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1)
+)
+ostPoePortCfgEntry.setIndexNames(
+    (0, "OMNITRON-POE-MIB", "ostPoePortCfgIndex"),
+)
+if mibBuilder.loadTexts:
+    ostPoePortCfgEntry.setStatus("current")
+_OstPoePortCfgIndex_Type = OstPortSingleIndex
+_OstPoePortCfgIndex_Object = MibTableColumn
+ostPoePortCfgIndex = _OstPoePortCfgIndex_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 1),
+    _OstPoePortCfgIndex_Type()
+)
+ostPoePortCfgIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ostPoePortCfgIndex.setStatus("current")
+
+
+class _OstPoePortPseEnable_Type(Integer32):
+    """Custom type ostPoePortPseEnable based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pseDisabled", 1),
+          ("pseEnabled", 2))
+    )
+
+
+_OstPoePortPseEnable_Type.__name__ = "Integer32"
+_OstPoePortPseEnable_Object = MibTableColumn
+ostPoePortPseEnable = _OstPoePortPseEnable_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 2),
+    _OstPoePortPseEnable_Type()
+)
+ostPoePortPseEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ostPoePortPseEnable.setStatus("current")
+
+
+class _OstPoePortPse60wMode_Type(Integer32):
+    """Custom type ostPoePortPse60wMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pse60wNotAvail", 0),
+          ("pse60wAuto", 1),
+          ("pse60wForce", 2))
+    )
+
+
+_OstPoePortPse60wMode_Type.__name__ = "Integer32"
+_OstPoePortPse60wMode_Object = MibTableColumn
+ostPoePortPse60wMode = _OstPoePortPse60wMode_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 3),
+    _OstPoePortPse60wMode_Type()
+)
+ostPoePortPse60wMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ostPoePortPse60wMode.setStatus("current")
+
+
+class _OstPoePortPdMode_Type(Integer32):
+    """Custom type ostPoePortPdMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pdModeNotDetected", 1),
+          ("pdModeNotClassified", 2),
+          ("pdModeFailure", 3),
+          ("pdModeClass0", 4),
+          ("pdModeClass1", 5),
+          ("pdModeClass2", 6),
+          ("pdModeClass3", 7),
+          ("pdModeClass4", 8),
+          ("pdMode60W", 9))
+    )
+
+
+_OstPoePortPdMode_Type.__name__ = "Integer32"
+_OstPoePortPdMode_Object = MibTableColumn
+ostPoePortPdMode = _OstPoePortPdMode_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 4),
+    _OstPoePortPdMode_Type()
+)
+ostPoePortPdMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ostPoePortPdMode.setStatus("current")
+
+
+class _OstPoePortPseVoltageSupplied_Type(OstFloatValue):
+    """Custom type ostPoePortPseVoltageSupplied based on OstFloatValue"""
+    defaultValue = OctetString("0.0")
+
+
+_OstPoePortPseVoltageSupplied_Type.__name__ = "OstFloatValue"
+_OstPoePortPseVoltageSupplied_Object = MibTableColumn
+ostPoePortPseVoltageSupplied = _OstPoePortPseVoltageSupplied_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 5),
+    _OstPoePortPseVoltageSupplied_Type()
+)
+ostPoePortPseVoltageSupplied.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ostPoePortPseVoltageSupplied.setStatus("current")
+
+
+class _OstPoePortPseCurrentSupplied_Type(OstFloatValue):
+    """Custom type ostPoePortPseCurrentSupplied based on OstFloatValue"""
+    defaultValue = OctetString("0.0")
+
+
+_OstPoePortPseCurrentSupplied_Type.__name__ = "OstFloatValue"
+_OstPoePortPseCurrentSupplied_Object = MibTableColumn
+ostPoePortPseCurrentSupplied = _OstPoePortPseCurrentSupplied_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 6),
+    _OstPoePortPseCurrentSupplied_Type()
+)
+ostPoePortPseCurrentSupplied.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ostPoePortPseCurrentSupplied.setStatus("current")
+
+
+class _OstPoePortPseStatus_Type(Integer32):
+    """Custom type ostPoePortPseStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 1),
+          ("pdNormal", 2),
+          ("pdOverCurrent", 3),
+          ("pdBrownOut", 4),
+          ("pdInsufficientPower", 5))
+    )
+
+
+_OstPoePortPseStatus_Type.__name__ = "Integer32"
+_OstPoePortPseStatus_Object = MibTableColumn
+ostPoePortPseStatus = _OstPoePortPseStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 7),
+    _OstPoePortPseStatus_Type()
+)
+ostPoePortPseStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ostPoePortPseStatus.setStatus("current")
+
+
+class _OstPoePortHeartbeatEnable_Type(Integer32):
+    """Custom type ostPoePortHeartbeatEnable based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("heartbeatDisabled", 1),
+          ("heartbeatEnabled", 2))
+    )
+
+
+_OstPoePortHeartbeatEnable_Type.__name__ = "Integer32"
+_OstPoePortHeartbeatEnable_Object = MibTableColumn
+ostPoePortHeartbeatEnable = _OstPoePortHeartbeatEnable_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 8),
+    _OstPoePortHeartbeatEnable_Type()
+)
+ostPoePortHeartbeatEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ostPoePortHeartbeatEnable.setStatus("current")
+
+
+class _OstPoePortHeartbeatIpAddress_Type(IpAddress):
+    """Custom type ostPoePortHeartbeatIpAddress based on IpAddress"""
+    defaultHexValue = "00000000"
+
+
+_OstPoePortHeartbeatIpAddress_Type.__name__ = "IpAddress"
+_OstPoePortHeartbeatIpAddress_Object = MibTableColumn
+ostPoePortHeartbeatIpAddress = _OstPoePortHeartbeatIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 9),
+    _OstPoePortHeartbeatIpAddress_Type()
+)
+ostPoePortHeartbeatIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ostPoePortHeartbeatIpAddress.setStatus("current")
+
+
+class _OstPoePortHeartbeatInterval_Type(Unsigned32):
+    """Custom type ostPoePortHeartbeatInterval based on Unsigned32"""
+    defaultValue = 1
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 300),
+    )
+
+
+_OstPoePortHeartbeatInterval_Type.__name__ = "Unsigned32"
+_OstPoePortHeartbeatInterval_Object = MibTableColumn
+ostPoePortHeartbeatInterval = _OstPoePortHeartbeatInterval_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 10),
+    _OstPoePortHeartbeatInterval_Type()
+)
+ostPoePortHeartbeatInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ostPoePortHeartbeatInterval.setStatus("current")
+
+
+class _OstPoePortHeartbeatErrorDetection_Type(Unsigned32):
+    """Custom type ostPoePortHeartbeatErrorDetection based on Unsigned32"""
+    defaultValue = 3
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 100),
+    )
+
+
+_OstPoePortHeartbeatErrorDetection_Type.__name__ = "Unsigned32"
+_OstPoePortHeartbeatErrorDetection_Object = MibTableColumn
+ostPoePortHeartbeatErrorDetection = _OstPoePortHeartbeatErrorDetection_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 11),
+    _OstPoePortHeartbeatErrorDetection_Type()
+)
+ostPoePortHeartbeatErrorDetection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ostPoePortHeartbeatErrorDetection.setStatus("current")
+
+
+class _OstPoePortHeartbeatErrorAction_Type(Integer32):
+    """Custom type ostPoePortHeartbeatErrorAction based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("errorLostIgnored", 1),
+          ("errorRestart", 2),
+          ("errorShutdown", 3))
+    )
+
+
+_OstPoePortHeartbeatErrorAction_Type.__name__ = "Integer32"
+_OstPoePortHeartbeatErrorAction_Object = MibTableColumn
+ostPoePortHeartbeatErrorAction = _OstPoePortHeartbeatErrorAction_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 12),
+    _OstPoePortHeartbeatErrorAction_Type()
+)
+ostPoePortHeartbeatErrorAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ostPoePortHeartbeatErrorAction.setStatus("current")
+
+
+class _OstPoePortHeartbeatNumberRestarts_Type(Unsigned32):
+    """Custom type ostPoePortHeartbeatNumberRestarts based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16384),
+    )
+
+
+_OstPoePortHeartbeatNumberRestarts_Type.__name__ = "Unsigned32"
+_OstPoePortHeartbeatNumberRestarts_Object = MibTableColumn
+ostPoePortHeartbeatNumberRestarts = _OstPoePortHeartbeatNumberRestarts_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 13),
+    _OstPoePortHeartbeatNumberRestarts_Type()
+)
+ostPoePortHeartbeatNumberRestarts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ostPoePortHeartbeatNumberRestarts.setStatus("current")
+
+
+class _OstPoEPortHeartbeatStatus_Type(Integer32):
+    """Custom type ostPoEPortHeartbeatStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("heartbeatDisabled", 1),
+          ("heartbeatAvailable", 2),
+          ("heartbeatErrored", 3),
+          ("heartbeatRestart", 4),
+          ("heartbeatShutdown", 5))
+    )
+
+
+_OstPoEPortHeartbeatStatus_Type.__name__ = "Integer32"
+_OstPoEPortHeartbeatStatus_Object = MibTableColumn
+ostPoEPortHeartbeatStatus = _OstPoEPortHeartbeatStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 14),
+    _OstPoEPortHeartbeatStatus_Type()
+)
+ostPoEPortHeartbeatStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ostPoEPortHeartbeatStatus.setStatus("current")
+
+
+class _OstPoEPortHeartbeatDeferTime_Type(Unsigned32):
+    """Custom type ostPoEPortHeartbeatDeferTime based on Unsigned32"""
+    defaultValue = 5
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 300),
+    )
+
+
+_OstPoEPortHeartbeatDeferTime_Type.__name__ = "Unsigned32"
+_OstPoEPortHeartbeatDeferTime_Object = MibTableColumn
+ostPoEPortHeartbeatDeferTime = _OstPoEPortHeartbeatDeferTime_Object(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 2, 1, 15),
+    _OstPoEPortHeartbeatDeferTime_Type()
+)
+ostPoEPortHeartbeatDeferTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ostPoEPortHeartbeatDeferTime.setStatus("current")
+_OstPoeCompliances_ObjectIdentity = ObjectIdentity
+ostPoeCompliances = _OstPoeCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 3)
+)
+_OstPoeGroups_ObjectIdentity = ObjectIdentity
+ostPoeGroups = _OstPoeGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 4)
+)
+
+# Managed Objects groups
+
+ostPoeGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 4, 1)
+)
+ostPoeGroup.setObjects(
+      *(("OMNITRON-POE-MIB", "ostPoeGlobalCfgPwrLimitationEnable"),
+        ("OMNITRON-POE-MIB", "ostPoeGlobalCfgTotalPwr"),
+        ("OMNITRON-POE-MIB", "ostPoePortPseEnable"),
+        ("OMNITRON-POE-MIB", "ostPoePortPse60wMode"),
+        ("OMNITRON-POE-MIB", "ostPoePortPdMode"),
+        ("OMNITRON-POE-MIB", "ostPoePortPseVoltageSupplied"),
+        ("OMNITRON-POE-MIB", "ostPoePortPseCurrentSupplied"),
+        ("OMNITRON-POE-MIB", "ostPoePortPseStatus"),
+        ("OMNITRON-POE-MIB", "ostPoePortHeartbeatEnable"),
+        ("OMNITRON-POE-MIB", "ostPoePortHeartbeatIpAddress"),
+        ("OMNITRON-POE-MIB", "ostPoePortHeartbeatInterval"),
+        ("OMNITRON-POE-MIB", "ostPoePortHeartbeatErrorDetection"),
+        ("OMNITRON-POE-MIB", "ostPoePortHeartbeatErrorAction"),
+        ("OMNITRON-POE-MIB", "ostPoePortHeartbeatNumberRestarts"),
+        ("OMNITRON-POE-MIB", "ostPoEPortHeartbeatStatus"),
+        ("OMNITRON-POE-MIB", "ostPoEPortHeartbeatDeferTime"))
+)
+if mibBuilder.loadTexts:
+    ostPoeGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ostPoeCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 7342, 15, 3, 2)
+)
+ostPoeCompliance.setObjects(
+    ("OMNITRON-POE-MIB", "ostPoeGroup")
+)
+if mibBuilder.loadTexts:
+    ostPoeCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "OMNITRON-POE-MIB",
+    **{"omnitronPoeMib": omnitronPoeMib,
+       "ostPoeGlobalCfgTable": ostPoeGlobalCfgTable,
+       "ostPoeGlobalCfgPwrLimitationEnable": ostPoeGlobalCfgPwrLimitationEnable,
+       "ostPoeGlobalCfgTotalPwr": ostPoeGlobalCfgTotalPwr,
+       "ostPoePortCfgTable": ostPoePortCfgTable,
+       "ostPoePortCfgEntry": ostPoePortCfgEntry,
+       "ostPoePortCfgIndex": ostPoePortCfgIndex,
+       "ostPoePortPseEnable": ostPoePortPseEnable,
+       "ostPoePortPse60wMode": ostPoePortPse60wMode,
+       "ostPoePortPdMode": ostPoePortPdMode,
+       "ostPoePortPseVoltageSupplied": ostPoePortPseVoltageSupplied,
+       "ostPoePortPseCurrentSupplied": ostPoePortPseCurrentSupplied,
+       "ostPoePortPseStatus": ostPoePortPseStatus,
+       "ostPoePortHeartbeatEnable": ostPoePortHeartbeatEnable,
+       "ostPoePortHeartbeatIpAddress": ostPoePortHeartbeatIpAddress,
+       "ostPoePortHeartbeatInterval": ostPoePortHeartbeatInterval,
+       "ostPoePortHeartbeatErrorDetection": ostPoePortHeartbeatErrorDetection,
+       "ostPoePortHeartbeatErrorAction": ostPoePortHeartbeatErrorAction,
+       "ostPoePortHeartbeatNumberRestarts": ostPoePortHeartbeatNumberRestarts,
+       "ostPoEPortHeartbeatStatus": ostPoEPortHeartbeatStatus,
+       "ostPoEPortHeartbeatDeferTime": ostPoEPortHeartbeatDeferTime,
+       "ostPoeCompliances": ostPoeCompliances,
+       "ostPoeCompliance": ostPoeCompliance,
+       "ostPoeGroups": ostPoeGroups,
+       "ostPoeGroup": ostPoeGroup}
+)

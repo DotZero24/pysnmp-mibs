@@ -1,719 +1,3925 @@
+# SNMP MIB module (TIMETRA-PTP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TIMETRA-PTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TIMETRA-PTP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:38:21 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TIMETRA-PTP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:56:49 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DateAndTime, TextualConvention, MacAddress, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "MacAddress", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
-tmnxChassisNotifyChassisId, tmnxCpmCardEntry, tmnxChassisIndex, tmnxCpmCardOscillatorType, tmnxChassisNotifyHwIndex = mibBuilder.importSymbols("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyChassisId", "tmnxCpmCardEntry", "tmnxChassisIndex", "tmnxCpmCardOscillatorType", "tmnxChassisNotifyHwIndex")
-tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix, tmnxSRConfs = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix", "tmnxSRConfs")
-TmnxPortEncapType, tmnxPortPortID = mibBuilder.importSymbols("TIMETRA-PORT-MIB", "TmnxPortEncapType", "tmnxPortPortID")
-TmnxAdminState, TmnxPortID, TItemDescription, TmnxOperState, TmnxEncapVal = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TmnxAdminState", "TmnxPortID", "TItemDescription", "TmnxOperState", "TmnxEncapVal")
-vRtrIfEntry, vRtrID = mibBuilder.importSymbols("TIMETRA-VRTR-MIB", "vRtrIfEntry", "vRtrID")
-timetraPtpMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 74))
-timetraPtpMIBModule.setRevisions(('2020-01-01 00:00', '2016-01-01 00:00', '2015-01-01 00:00', '2014-01-01 00:00', '2011-02-01 00:00',))
-if mibBuilder.loadTexts: timetraPtpMIBModule.setLastUpdated('202001010000Z')
-if mibBuilder.loadTexts: timetraPtpMIBModule.setOrganization('Nokia')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+(tmnxChassisIndex,
+ tmnxChassisNotifyChassisId,
+ tmnxChassisNotifyHwIndex,
+ tmnxCpmCardEntry,
+ tmnxCpmCardOscillatorType) = mibBuilder.importSymbols(
+    "TIMETRA-CHASSIS-MIB",
+    "tmnxChassisIndex",
+    "tmnxChassisNotifyChassisId",
+    "tmnxChassisNotifyHwIndex",
+    "tmnxCpmCardEntry",
+    "tmnxCpmCardOscillatorType")
+
+(timetraSRMIBModules,
+ tmnxSRConfs,
+ tmnxSRNotifyPrefix,
+ tmnxSRObjs) = mibBuilder.importSymbols(
+    "TIMETRA-GLOBAL-MIB",
+    "timetraSRMIBModules",
+    "tmnxSRConfs",
+    "tmnxSRNotifyPrefix",
+    "tmnxSRObjs")
+
+(TmnxPortEncapType,
+ tmnxPortPortID) = mibBuilder.importSymbols(
+    "TIMETRA-PORT-MIB",
+    "TmnxPortEncapType",
+    "tmnxPortPortID")
+
+(TItemDescription,
+ TmnxAdminState,
+ TmnxEncapVal,
+ TmnxOperState,
+ TmnxPortID) = mibBuilder.importSymbols(
+    "TIMETRA-TC-MIB",
+    "TItemDescription",
+    "TmnxAdminState",
+    "TmnxEncapVal",
+    "TmnxOperState",
+    "TmnxPortID")
+
+(vRtrID,
+ vRtrIfEntry) = mibBuilder.importSymbols(
+    "TIMETRA-VRTR-MIB",
+    "vRtrID",
+    "vRtrIfEntry")
+
+
+# MODULE-IDENTITY
+
+timetraPtpMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 74)
+)
+if mibBuilder.loadTexts:
+    timetraPtpMIBModule.setRevisions(
+        ("2020-01-01 00:00",
+         "2016-01-01 00:00",
+         "2015-01-01 00:00",
+         "2014-01-01 00:00",
+         "2011-02-01 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class TmnxPtpClockType(TextualConvention, Integer32):
-    reference = 'IEEE Std 1588-2008 Section 6.5'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("ordinarySlave", 1), ("ordinaryMaster", 2), ("boundary", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ordinarySlave", 1),
+          ("ordinaryMaster", 2),
+          ("boundary", 3))
+    )
+
+
 
 class TmnxPtpClockIdentity(TextualConvention, OctetString):
-    reference = 'IEEE Std 1588-2008 Section 7.5.2.2'
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 8)
-    fixedLength = 8
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
 
 class TmnxPtpClockClass(TextualConvention, Unsigned32):
-    reference = 'IEEE Std 1588-2008 Section 7.6.2.4'
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
 
 class TmnxPtpDomain(TextualConvention, Unsigned32):
-    reference = 'IEEE Std 1588-2008 Section 7.1, ITU-T G.8265.1, draft V0.3, section 6.7.2, and ITU-T G.8275.1, section 6.7.2.'
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
 
 class TmnxPtpPriority(TextualConvention, Unsigned32):
-    reference = 'IEEE Std 1588-2008 Section 7.6.2.2 and 7.6.2.3'
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
 
 class TmnxPtpProfile(TextualConvention, Integer32):
-    reference = 'IEEE Std 1588-2008, ITU-T G.8265.1, and ITU-T G.8275.1'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("g8265dot1-2010", 1), ("ieee1588-2008", 2), ("g8275dot1-2014", 3), ("reserved4", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("g8265dot1-2010", 1),
+          ("ieee1588-2008", 2),
+          ("g8275dot1-2014", 3),
+          ("reserved4", 4))
+    )
+
+
 
 class TmnxPtpDirection(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("rx", 1), ("tx", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("rx", 1),
+          ("tx", 2))
+    )
+
+
 
 class TmnxPtpLogInterval(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-128, 127)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-128, 127),
+    )
+
+
 
 class TmnxPtpClockStepType(TextualConvention, Integer32):
-    reference = 'IEEE Std 1588-2008 Sections 3.1.21 and 3.1.47'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("unknown", 0), ("oneStep", 1), ("twoStep", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("oneStep", 1),
+          ("twoStep", 2))
+    )
+
+
 
 class TmnxPtpClockAccuracy(TextualConvention, Unsigned32):
-    reference = 'IEEE Std 1588-2008 Section 7.6.2.5'
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
 
 class TmnxPtpClockVariance(TextualConvention, Unsigned32):
-    reference = 'IEEE Std 1588-2008 Section 7.6.3'
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65535)
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
 
 class TmnxPtpPortState(TextualConvention, Integer32):
-    reference = 'IEEE Std 1588-2008 Section 9.2.5'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
-    namedValues = NamedValues(("notApplicable", 0), ("initializing", 1), ("faulty", 2), ("disabled", 3), ("listening", 4), ("preMaster", 5), ("master", 6), ("passive", 7), ("uncalibrated", 8), ("slave", 9))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 0),
+          ("initializing", 1),
+          ("faulty", 2),
+          ("disabled", 3),
+          ("listening", 4),
+          ("preMaster", 5),
+          ("master", 6),
+          ("passive", 7),
+          ("uncalibrated", 8),
+          ("slave", 9))
+    )
+
+
 
 class TmnxPtpPortNumber(TextualConvention, Unsigned32):
-    reference = 'IEEE 1588-2008, Section 3.1.35, 7.5.2.3'
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 65534)
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65534),
+    )
+
+
 
 class TmnxPtpTimeStampReferencePoint(TextualConvention, Integer32):
-    reference = 'IEEE Std 1588-2008 Section 6.6.5'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("unknown", 0), ("port", 1), ("cpm", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("port", 1),
+          ("cpm", 2))
+    )
+
+
 
 class TmnxPtpTransportType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("none", 1), ("udpIp", 2), ("ethernet", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("udpIp", 2),
+          ("ethernet", 3))
+    )
 
-tmnxPtp1588Objs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74))
-tmnxPtp1588ConfigTimeStamps = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 1))
-tmnxPtpPeerConfigTblLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 1, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerConfigTblLastChanged.setStatus('current')
-tmnxPtpVRtrIfTableLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpVRtrIfTableLastChanged.setStatus('current')
-tmnxPtpVRtrTableLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpVRtrTableLastChanged.setStatus('current')
-tmnxPtpPortTableLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortTableLastChanged.setStatus('current')
-tmnxPtp1588Configurations = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2))
-tmnxPtpClockConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1))
-tmnxPtpClockAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 1), TmnxAdminState().clone('outOfService')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPtpClockAdminState.setStatus('current')
-tmnxPtpClockClockType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 2), TmnxPtpClockType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPtpClockClockType.setStatus('current')
-tmnxPtpClockProfile = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 3), TmnxPtpProfile()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPtpClockProfile.setStatus('current')
-tmnxPtpClockDomain = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 4), TmnxPtpDomain()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPtpClockDomain.setStatus('current')
-tmnxPtpClockAnnounceInterval = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 5), TmnxPtpLogInterval().subtype(subtypeSpec=ValueRangeConstraint(-3, 4))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPtpClockAnnounceInterval.setStatus('current')
-tmnxPtpClockPriority1 = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 6), TmnxPtpPriority().clone(128)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPtpClockPriority1.setStatus('current')
-tmnxPtpClockPriority2 = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 7), TmnxPtpPriority().clone(128)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPtpClockPriority2.setStatus('current')
-tmnxPtpClockNetworkType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("sonet", 1), ("sdh", 2))).clone('sdh')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPtpClockNetworkType.setStatus('current')
-tmnxPtpClockAnnoRxTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(2, 10)).clone(3)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPtpClockAnnoRxTimeout.setStatus('current')
-tmnxPtpClockLocalPriority = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 11), TmnxPtpPriority().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(128)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpClockLocalPriority.setStatus('current')
-tmnxPtpPeerConfigTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3), )
-if mibBuilder.loadTexts: tmnxPtpPeerConfigTable.setStatus('current')
-tmnxPtpPeerConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddrType"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddress"))
-if mibBuilder.loadTexts: tmnxPtpPeerConfigEntry.setStatus('current')
-tmnxPtpPeerIpAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: tmnxPtpPeerIpAddrType.setStatus('current')
-tmnxPtpPeerIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), )))
-if mibBuilder.loadTexts: tmnxPtpPeerIpAddress.setStatus('current')
-tmnxPtpPeerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPeerRowStatus.setStatus('current')
-tmnxPtpPeerLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerLastChanged.setStatus('current')
-tmnxPtpPeerAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 5), TmnxAdminState().clone('inService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPeerAdminState.setStatus('current')
-tmnxPtpPeerPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 6), TmnxPtpPortState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPortState.setStatus('current')
-tmnxPtpPeerLocalPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 7), TmnxPtpPriority().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(128)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPeerLocalPriority.setStatus('current')
-tmnxPtpPeerRemoteMaster = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 8), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPeerRemoteMaster.setStatus('current')
-tmnxPtpPeerRemoteSlave = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerRemoteSlave.setStatus('current')
-tmnxPtpPeerClockId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 10), TmnxPtpClockIdentity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerClockId.setStatus('current')
-tmnxPtpPeerLocalPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 11), TmnxPtpPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerLocalPortNumber.setStatus('current')
-tmnxPtpPeerRemotePortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 12), TmnxPtpPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerRemotePortNumber.setStatus('current')
-tmnxPtpPeerTxTimeStampPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 13), TmnxPtpTimeStampReferencePoint()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerTxTimeStampPoint.setStatus('current')
-tmnxPtpPeerLastTxPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 14), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerLastTxPortId.setStatus('current')
-tmnxPtpPeerLastTxPortEncapType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 15), TmnxPortEncapType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerLastTxPortEncapType.setStatus('current')
-tmnxPtpPeerLastTxPortEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 16), TmnxEncapVal()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerLastTxPortEncapValue.setStatus('current')
-tmnxPtpPeerRxTimeStampPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 17), TmnxPtpTimeStampReferencePoint()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerRxTimeStampPoint.setStatus('current')
-tmnxPtpPeerLastRxPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 18), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerLastRxPortId.setStatus('current')
-tmnxPtpPeerLastRxPortEncapType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 19), TmnxPortEncapType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerLastRxPortEncapType.setStatus('current')
-tmnxPtpPeerLastRxPortEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 20), TmnxEncapVal()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerLastRxPortEncapValue.setStatus('current')
-tmnxPtpPeerSyncInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 21), TmnxPtpLogInterval().subtype(subtypeSpec=ValueRangeConstraint(-6, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPeerSyncInterval.setStatus('current')
-tmnxPtpVRtrIfTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 4), )
-if mibBuilder.loadTexts: tmnxPtpVRtrIfTable.setStatus('current')
-tmnxPtpVRtrIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 4, 1), )
-vRtrIfEntry.registerAugmentions(("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfEntry"))
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TmnxPtp1588Conformance_ObjectIdentity = ObjectIdentity
+tmnxPtp1588Conformance = _TmnxPtp1588Conformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74)
+)
+_TmnxPtp1588Compliances_ObjectIdentity = ObjectIdentity
+tmnxPtp1588Compliances = _TmnxPtp1588Compliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1)
+)
+_TmnxPtp1588Groups_ObjectIdentity = ObjectIdentity
+tmnxPtp1588Groups = _TmnxPtp1588Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2)
+)
+_TmnxPtpV9v0Groups_ObjectIdentity = ObjectIdentity
+tmnxPtpV9v0Groups = _TmnxPtpV9v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1)
+)
+_TmnxPtpV10v0Groups_ObjectIdentity = ObjectIdentity
+tmnxPtpV10v0Groups = _TmnxPtpV10v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2)
+)
+_TmnxPtpV11v0Groups_ObjectIdentity = ObjectIdentity
+tmnxPtpV11v0Groups = _TmnxPtpV11v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 3)
+)
+_TmnxPtpV12v0Groups_ObjectIdentity = ObjectIdentity
+tmnxPtpV12v0Groups = _TmnxPtpV12v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4)
+)
+_TmnxPtpV13v0Groups_ObjectIdentity = ObjectIdentity
+tmnxPtpV13v0Groups = _TmnxPtpV13v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 5)
+)
+_TmnxPtp1588Objs_ObjectIdentity = ObjectIdentity
+tmnxPtp1588Objs = _TmnxPtp1588Objs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74)
+)
+_TmnxPtp1588ConfigTimeStamps_ObjectIdentity = ObjectIdentity
+tmnxPtp1588ConfigTimeStamps = _TmnxPtp1588ConfigTimeStamps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 1)
+)
+_TmnxPtpPeerConfigTblLastChanged_Type = TimeStamp
+_TmnxPtpPeerConfigTblLastChanged_Object = MibScalar
+tmnxPtpPeerConfigTblLastChanged = _TmnxPtpPeerConfigTblLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 1, 1),
+    _TmnxPtpPeerConfigTblLastChanged_Type()
+)
+tmnxPtpPeerConfigTblLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerConfigTblLastChanged.setStatus("current")
+_TmnxPtpVRtrIfTableLastChanged_Type = TimeStamp
+_TmnxPtpVRtrIfTableLastChanged_Object = MibScalar
+tmnxPtpVRtrIfTableLastChanged = _TmnxPtpVRtrIfTableLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 1, 2),
+    _TmnxPtpVRtrIfTableLastChanged_Type()
+)
+tmnxPtpVRtrIfTableLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrIfTableLastChanged.setStatus("current")
+_TmnxPtpVRtrTableLastChanged_Type = TimeStamp
+_TmnxPtpVRtrTableLastChanged_Object = MibScalar
+tmnxPtpVRtrTableLastChanged = _TmnxPtpVRtrTableLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 1, 3),
+    _TmnxPtpVRtrTableLastChanged_Type()
+)
+tmnxPtpVRtrTableLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrTableLastChanged.setStatus("current")
+_TmnxPtpPortTableLastChanged_Type = TimeStamp
+_TmnxPtpPortTableLastChanged_Object = MibScalar
+tmnxPtpPortTableLastChanged = _TmnxPtpPortTableLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 1, 4),
+    _TmnxPtpPortTableLastChanged_Type()
+)
+tmnxPtpPortTableLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortTableLastChanged.setStatus("current")
+_TmnxPtp1588Configurations_ObjectIdentity = ObjectIdentity
+tmnxPtp1588Configurations = _TmnxPtp1588Configurations_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2)
+)
+_TmnxPtpClockConfig_ObjectIdentity = ObjectIdentity
+tmnxPtpClockConfig = _TmnxPtpClockConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1)
+)
+
+
+class _TmnxPtpClockAdminState_Type(TmnxAdminState):
+    """Custom type tmnxPtpClockAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_TmnxPtpClockAdminState_Type.__name__ = "TmnxAdminState"
+_TmnxPtpClockAdminState_Object = MibScalar
+tmnxPtpClockAdminState = _TmnxPtpClockAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 1),
+    _TmnxPtpClockAdminState_Type()
+)
+tmnxPtpClockAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPtpClockAdminState.setStatus("current")
+_TmnxPtpClockClockType_Type = TmnxPtpClockType
+_TmnxPtpClockClockType_Object = MibScalar
+tmnxPtpClockClockType = _TmnxPtpClockClockType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 2),
+    _TmnxPtpClockClockType_Type()
+)
+tmnxPtpClockClockType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPtpClockClockType.setStatus("current")
+_TmnxPtpClockProfile_Type = TmnxPtpProfile
+_TmnxPtpClockProfile_Object = MibScalar
+tmnxPtpClockProfile = _TmnxPtpClockProfile_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 3),
+    _TmnxPtpClockProfile_Type()
+)
+tmnxPtpClockProfile.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPtpClockProfile.setStatus("current")
+_TmnxPtpClockDomain_Type = TmnxPtpDomain
+_TmnxPtpClockDomain_Object = MibScalar
+tmnxPtpClockDomain = _TmnxPtpClockDomain_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 4),
+    _TmnxPtpClockDomain_Type()
+)
+tmnxPtpClockDomain.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPtpClockDomain.setStatus("current")
+
+
+class _TmnxPtpClockAnnounceInterval_Type(TmnxPtpLogInterval):
+    """Custom type tmnxPtpClockAnnounceInterval based on TmnxPtpLogInterval"""
+    subtypeSpec = TmnxPtpLogInterval.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-3, 4),
+    )
+
+
+_TmnxPtpClockAnnounceInterval_Type.__name__ = "TmnxPtpLogInterval"
+_TmnxPtpClockAnnounceInterval_Object = MibScalar
+tmnxPtpClockAnnounceInterval = _TmnxPtpClockAnnounceInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 5),
+    _TmnxPtpClockAnnounceInterval_Type()
+)
+tmnxPtpClockAnnounceInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPtpClockAnnounceInterval.setStatus("current")
+
+
+class _TmnxPtpClockPriority1_Type(TmnxPtpPriority):
+    """Custom type tmnxPtpClockPriority1 based on TmnxPtpPriority"""
+    defaultValue = 128
+
+
+_TmnxPtpClockPriority1_Type.__name__ = "TmnxPtpPriority"
+_TmnxPtpClockPriority1_Object = MibScalar
+tmnxPtpClockPriority1 = _TmnxPtpClockPriority1_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 6),
+    _TmnxPtpClockPriority1_Type()
+)
+tmnxPtpClockPriority1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPtpClockPriority1.setStatus("current")
+
+
+class _TmnxPtpClockPriority2_Type(TmnxPtpPriority):
+    """Custom type tmnxPtpClockPriority2 based on TmnxPtpPriority"""
+    defaultValue = 128
+
+
+_TmnxPtpClockPriority2_Type.__name__ = "TmnxPtpPriority"
+_TmnxPtpClockPriority2_Object = MibScalar
+tmnxPtpClockPriority2 = _TmnxPtpClockPriority2_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 7),
+    _TmnxPtpClockPriority2_Type()
+)
+tmnxPtpClockPriority2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPtpClockPriority2.setStatus("current")
+
+
+class _TmnxPtpClockNetworkType_Type(Integer32):
+    """Custom type tmnxPtpClockNetworkType based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("sonet", 1),
+          ("sdh", 2))
+    )
+
+
+_TmnxPtpClockNetworkType_Type.__name__ = "Integer32"
+_TmnxPtpClockNetworkType_Object = MibScalar
+tmnxPtpClockNetworkType = _TmnxPtpClockNetworkType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 9),
+    _TmnxPtpClockNetworkType_Type()
+)
+tmnxPtpClockNetworkType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPtpClockNetworkType.setStatus("current")
+
+
+class _TmnxPtpClockAnnoRxTimeout_Type(Unsigned32):
+    """Custom type tmnxPtpClockAnnoRxTimeout based on Unsigned32"""
+    defaultValue = 3
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 10),
+    )
+
+
+_TmnxPtpClockAnnoRxTimeout_Type.__name__ = "Unsigned32"
+_TmnxPtpClockAnnoRxTimeout_Object = MibScalar
+tmnxPtpClockAnnoRxTimeout = _TmnxPtpClockAnnoRxTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 10),
+    _TmnxPtpClockAnnoRxTimeout_Type()
+)
+tmnxPtpClockAnnoRxTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPtpClockAnnoRxTimeout.setStatus("current")
+
+
+class _TmnxPtpClockLocalPriority_Type(TmnxPtpPriority):
+    """Custom type tmnxPtpClockLocalPriority based on TmnxPtpPriority"""
+    defaultValue = 128
+
+    subtypeSpec = TmnxPtpPriority.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_TmnxPtpClockLocalPriority_Type.__name__ = "TmnxPtpPriority"
+_TmnxPtpClockLocalPriority_Object = MibScalar
+tmnxPtpClockLocalPriority = _TmnxPtpClockLocalPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 1, 11),
+    _TmnxPtpClockLocalPriority_Type()
+)
+tmnxPtpClockLocalPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpClockLocalPriority.setStatus("current")
+_TmnxPtpPeerConfigTable_Object = MibTable
+tmnxPtpPeerConfigTable = _TmnxPtpPeerConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerConfigTable.setStatus("current")
+_TmnxPtpPeerConfigEntry_Object = MibTableRow
+tmnxPtpPeerConfigEntry = _TmnxPtpPeerConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1)
+)
+tmnxPtpPeerConfigEntry.setIndexNames(
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddrType"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddress"),
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerConfigEntry.setStatus("current")
+_TmnxPtpPeerIpAddrType_Type = InetAddressType
+_TmnxPtpPeerIpAddrType_Object = MibTableColumn
+tmnxPtpPeerIpAddrType = _TmnxPtpPeerIpAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 1),
+    _TmnxPtpPeerIpAddrType_Type()
+)
+tmnxPtpPeerIpAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerIpAddrType.setStatus("current")
+
+
+class _TmnxPtpPeerIpAddress_Type(InetAddress):
+    """Custom type tmnxPtpPeerIpAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+    )
+
+
+_TmnxPtpPeerIpAddress_Type.__name__ = "InetAddress"
+_TmnxPtpPeerIpAddress_Object = MibTableColumn
+tmnxPtpPeerIpAddress = _TmnxPtpPeerIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 2),
+    _TmnxPtpPeerIpAddress_Type()
+)
+tmnxPtpPeerIpAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerIpAddress.setStatus("current")
+_TmnxPtpPeerRowStatus_Type = RowStatus
+_TmnxPtpPeerRowStatus_Object = MibTableColumn
+tmnxPtpPeerRowStatus = _TmnxPtpPeerRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 3),
+    _TmnxPtpPeerRowStatus_Type()
+)
+tmnxPtpPeerRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerRowStatus.setStatus("current")
+_TmnxPtpPeerLastChanged_Type = TimeStamp
+_TmnxPtpPeerLastChanged_Object = MibTableColumn
+tmnxPtpPeerLastChanged = _TmnxPtpPeerLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 4),
+    _TmnxPtpPeerLastChanged_Type()
+)
+tmnxPtpPeerLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerLastChanged.setStatus("current")
+
+
+class _TmnxPtpPeerAdminState_Type(TmnxAdminState):
+    """Custom type tmnxPtpPeerAdminState based on TmnxAdminState"""
+    defaultValue = 2
+
+
+_TmnxPtpPeerAdminState_Type.__name__ = "TmnxAdminState"
+_TmnxPtpPeerAdminState_Object = MibTableColumn
+tmnxPtpPeerAdminState = _TmnxPtpPeerAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 5),
+    _TmnxPtpPeerAdminState_Type()
+)
+tmnxPtpPeerAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerAdminState.setStatus("current")
+_TmnxPtpPeerPortState_Type = TmnxPtpPortState
+_TmnxPtpPeerPortState_Object = MibTableColumn
+tmnxPtpPeerPortState = _TmnxPtpPeerPortState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 6),
+    _TmnxPtpPeerPortState_Type()
+)
+tmnxPtpPeerPortState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPortState.setStatus("current")
+
+
+class _TmnxPtpPeerLocalPriority_Type(TmnxPtpPriority):
+    """Custom type tmnxPtpPeerLocalPriority based on TmnxPtpPriority"""
+    defaultValue = 128
+
+    subtypeSpec = TmnxPtpPriority.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_TmnxPtpPeerLocalPriority_Type.__name__ = "TmnxPtpPriority"
+_TmnxPtpPeerLocalPriority_Object = MibTableColumn
+tmnxPtpPeerLocalPriority = _TmnxPtpPeerLocalPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 7),
+    _TmnxPtpPeerLocalPriority_Type()
+)
+tmnxPtpPeerLocalPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerLocalPriority.setStatus("current")
+_TmnxPtpPeerRemoteMaster_Type = TruthValue
+_TmnxPtpPeerRemoteMaster_Object = MibTableColumn
+tmnxPtpPeerRemoteMaster = _TmnxPtpPeerRemoteMaster_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 8),
+    _TmnxPtpPeerRemoteMaster_Type()
+)
+tmnxPtpPeerRemoteMaster.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerRemoteMaster.setStatus("current")
+_TmnxPtpPeerRemoteSlave_Type = TruthValue
+_TmnxPtpPeerRemoteSlave_Object = MibTableColumn
+tmnxPtpPeerRemoteSlave = _TmnxPtpPeerRemoteSlave_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 9),
+    _TmnxPtpPeerRemoteSlave_Type()
+)
+tmnxPtpPeerRemoteSlave.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerRemoteSlave.setStatus("current")
+_TmnxPtpPeerClockId_Type = TmnxPtpClockIdentity
+_TmnxPtpPeerClockId_Object = MibTableColumn
+tmnxPtpPeerClockId = _TmnxPtpPeerClockId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 10),
+    _TmnxPtpPeerClockId_Type()
+)
+tmnxPtpPeerClockId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerClockId.setStatus("current")
+_TmnxPtpPeerLocalPortNumber_Type = TmnxPtpPortNumber
+_TmnxPtpPeerLocalPortNumber_Object = MibTableColumn
+tmnxPtpPeerLocalPortNumber = _TmnxPtpPeerLocalPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 11),
+    _TmnxPtpPeerLocalPortNumber_Type()
+)
+tmnxPtpPeerLocalPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerLocalPortNumber.setStatus("current")
+_TmnxPtpPeerRemotePortNumber_Type = TmnxPtpPortNumber
+_TmnxPtpPeerRemotePortNumber_Object = MibTableColumn
+tmnxPtpPeerRemotePortNumber = _TmnxPtpPeerRemotePortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 12),
+    _TmnxPtpPeerRemotePortNumber_Type()
+)
+tmnxPtpPeerRemotePortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerRemotePortNumber.setStatus("current")
+_TmnxPtpPeerTxTimeStampPoint_Type = TmnxPtpTimeStampReferencePoint
+_TmnxPtpPeerTxTimeStampPoint_Object = MibTableColumn
+tmnxPtpPeerTxTimeStampPoint = _TmnxPtpPeerTxTimeStampPoint_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 13),
+    _TmnxPtpPeerTxTimeStampPoint_Type()
+)
+tmnxPtpPeerTxTimeStampPoint.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerTxTimeStampPoint.setStatus("current")
+_TmnxPtpPeerLastTxPortId_Type = TmnxPortID
+_TmnxPtpPeerLastTxPortId_Object = MibTableColumn
+tmnxPtpPeerLastTxPortId = _TmnxPtpPeerLastTxPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 14),
+    _TmnxPtpPeerLastTxPortId_Type()
+)
+tmnxPtpPeerLastTxPortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerLastTxPortId.setStatus("current")
+_TmnxPtpPeerLastTxPortEncapType_Type = TmnxPortEncapType
+_TmnxPtpPeerLastTxPortEncapType_Object = MibTableColumn
+tmnxPtpPeerLastTxPortEncapType = _TmnxPtpPeerLastTxPortEncapType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 15),
+    _TmnxPtpPeerLastTxPortEncapType_Type()
+)
+tmnxPtpPeerLastTxPortEncapType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerLastTxPortEncapType.setStatus("current")
+_TmnxPtpPeerLastTxPortEncapValue_Type = TmnxEncapVal
+_TmnxPtpPeerLastTxPortEncapValue_Object = MibTableColumn
+tmnxPtpPeerLastTxPortEncapValue = _TmnxPtpPeerLastTxPortEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 16),
+    _TmnxPtpPeerLastTxPortEncapValue_Type()
+)
+tmnxPtpPeerLastTxPortEncapValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerLastTxPortEncapValue.setStatus("current")
+_TmnxPtpPeerRxTimeStampPoint_Type = TmnxPtpTimeStampReferencePoint
+_TmnxPtpPeerRxTimeStampPoint_Object = MibTableColumn
+tmnxPtpPeerRxTimeStampPoint = _TmnxPtpPeerRxTimeStampPoint_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 17),
+    _TmnxPtpPeerRxTimeStampPoint_Type()
+)
+tmnxPtpPeerRxTimeStampPoint.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerRxTimeStampPoint.setStatus("current")
+_TmnxPtpPeerLastRxPortId_Type = TmnxPortID
+_TmnxPtpPeerLastRxPortId_Object = MibTableColumn
+tmnxPtpPeerLastRxPortId = _TmnxPtpPeerLastRxPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 18),
+    _TmnxPtpPeerLastRxPortId_Type()
+)
+tmnxPtpPeerLastRxPortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerLastRxPortId.setStatus("current")
+_TmnxPtpPeerLastRxPortEncapType_Type = TmnxPortEncapType
+_TmnxPtpPeerLastRxPortEncapType_Object = MibTableColumn
+tmnxPtpPeerLastRxPortEncapType = _TmnxPtpPeerLastRxPortEncapType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 19),
+    _TmnxPtpPeerLastRxPortEncapType_Type()
+)
+tmnxPtpPeerLastRxPortEncapType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerLastRxPortEncapType.setStatus("current")
+_TmnxPtpPeerLastRxPortEncapValue_Type = TmnxEncapVal
+_TmnxPtpPeerLastRxPortEncapValue_Object = MibTableColumn
+tmnxPtpPeerLastRxPortEncapValue = _TmnxPtpPeerLastRxPortEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 20),
+    _TmnxPtpPeerLastRxPortEncapValue_Type()
+)
+tmnxPtpPeerLastRxPortEncapValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerLastRxPortEncapValue.setStatus("current")
+
+
+class _TmnxPtpPeerSyncInterval_Type(TmnxPtpLogInterval):
+    """Custom type tmnxPtpPeerSyncInterval based on TmnxPtpLogInterval"""
+    subtypeSpec = TmnxPtpLogInterval.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-6, 0),
+    )
+
+
+_TmnxPtpPeerSyncInterval_Type.__name__ = "TmnxPtpLogInterval"
+_TmnxPtpPeerSyncInterval_Object = MibTableColumn
+tmnxPtpPeerSyncInterval = _TmnxPtpPeerSyncInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 3, 1, 21),
+    _TmnxPtpPeerSyncInterval_Type()
+)
+tmnxPtpPeerSyncInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerSyncInterval.setStatus("current")
+_TmnxPtpVRtrIfTable_Object = MibTable
+tmnxPtpVRtrIfTable = _TmnxPtpVRtrIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 4)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrIfTable.setStatus("current")
+_TmnxPtpVRtrIfEntry_Object = MibTableRow
+tmnxPtpVRtrIfEntry = _TmnxPtpVRtrIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 4, 1)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrIfEntry.setStatus("current")
+_TmnxPtpVRtrIfAdminState_Type = TmnxAdminState
+_TmnxPtpVRtrIfAdminState_Object = MibTableColumn
+tmnxPtpVRtrIfAdminState = _TmnxPtpVRtrIfAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 4, 1, 1),
+    _TmnxPtpVRtrIfAdminState_Type()
+)
+tmnxPtpVRtrIfAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrIfAdminState.setStatus("current")
+_TmnxPtpVRtrTable_Object = MibTable
+tmnxPtpVRtrTable = _TmnxPtpVRtrTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrTable.setStatus("current")
+_TmnxPtpVRtrEntry_Object = MibTableRow
+tmnxPtpVRtrEntry = _TmnxPtpVRtrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1)
+)
+tmnxPtpVRtrEntry.setIndexNames(
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+)
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrEntry.setStatus("current")
+_TmnxPtpVRtrRowStatus_Type = RowStatus
+_TmnxPtpVRtrRowStatus_Object = MibTableColumn
+tmnxPtpVRtrRowStatus = _TmnxPtpVRtrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1, 1),
+    _TmnxPtpVRtrRowStatus_Type()
+)
+tmnxPtpVRtrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrRowStatus.setStatus("current")
+_TmnxPtpVRtrLastChanged_Type = TimeStamp
+_TmnxPtpVRtrLastChanged_Object = MibTableColumn
+tmnxPtpVRtrLastChanged = _TmnxPtpVRtrLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1, 2),
+    _TmnxPtpVRtrLastChanged_Type()
+)
+tmnxPtpVRtrLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrLastChanged.setStatus("current")
+
+
+class _TmnxPtpVRtrAdminState_Type(TmnxAdminState):
+    """Custom type tmnxPtpVRtrAdminState based on TmnxAdminState"""
+    defaultValue = 2
+
+
+_TmnxPtpVRtrAdminState_Type.__name__ = "TmnxAdminState"
+_TmnxPtpVRtrAdminState_Object = MibTableColumn
+tmnxPtpVRtrAdminState = _TmnxPtpVRtrAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1, 3),
+    _TmnxPtpVRtrAdminState_Type()
+)
+tmnxPtpVRtrAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrAdminState.setStatus("current")
+_TmnxPtpVRtrOperState_Type = TmnxOperState
+_TmnxPtpVRtrOperState_Object = MibTableColumn
+tmnxPtpVRtrOperState = _TmnxPtpVRtrOperState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1, 4),
+    _TmnxPtpVRtrOperState_Type()
+)
+tmnxPtpVRtrOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrOperState.setStatus("current")
+
+
+class _TmnxPtpVRtrPeerLimit_Type(Integer32):
+    """Custom type tmnxPtpVRtrPeerLimit based on Integer32"""
+    defaultValue = -1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(0, 512),
+    )
+
+
+_TmnxPtpVRtrPeerLimit_Type.__name__ = "Integer32"
+_TmnxPtpVRtrPeerLimit_Object = MibTableColumn
+tmnxPtpVRtrPeerLimit = _TmnxPtpVRtrPeerLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1, 5),
+    _TmnxPtpVRtrPeerLimit_Type()
+)
+tmnxPtpVRtrPeerLimit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrPeerLimit.setStatus("current")
+_TmnxPtpPortTable_Object = MibTable
+tmnxPtpPortTable = _TmnxPtpPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPortTable.setStatus("current")
+_TmnxPtpPortEntry_Object = MibTableRow
+tmnxPtpPortEntry = _TmnxPtpPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1)
+)
+tmnxPtpPortEntry.setIndexNames(
+    (0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"),
+    (0, "TIMETRA-PORT-MIB", "tmnxPortPortID"),
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPortEntry.setStatus("current")
+_TmnxPtpPortRowStatus_Type = RowStatus
+_TmnxPtpPortRowStatus_Object = MibTableColumn
+tmnxPtpPortRowStatus = _TmnxPtpPortRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 1),
+    _TmnxPtpPortRowStatus_Type()
+)
+tmnxPtpPortRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPortRowStatus.setStatus("current")
+_TmnxPtpPortLastChanged_Type = TimeStamp
+_TmnxPtpPortLastChanged_Object = MibTableColumn
+tmnxPtpPortLastChanged = _TmnxPtpPortLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 2),
+    _TmnxPtpPortLastChanged_Type()
+)
+tmnxPtpPortLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortLastChanged.setStatus("current")
+
+
+class _TmnxPtpPortAdminState_Type(TmnxAdminState):
+    """Custom type tmnxPtpPortAdminState based on TmnxAdminState"""
+    defaultValue = 2
+
+
+_TmnxPtpPortAdminState_Type.__name__ = "TmnxAdminState"
+_TmnxPtpPortAdminState_Object = MibTableColumn
+tmnxPtpPortAdminState = _TmnxPtpPortAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 3),
+    _TmnxPtpPortAdminState_Type()
+)
+tmnxPtpPortAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPortAdminState.setStatus("current")
+
+
+class _TmnxPtpPortSyncInterval_Type(TmnxPtpLogInterval):
+    """Custom type tmnxPtpPortSyncInterval based on TmnxPtpLogInterval"""
+    subtypeSpec = TmnxPtpLogInterval.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-6, 0),
+    )
+
+
+_TmnxPtpPortSyncInterval_Type.__name__ = "TmnxPtpLogInterval"
+_TmnxPtpPortSyncInterval_Object = MibTableColumn
+tmnxPtpPortSyncInterval = _TmnxPtpPortSyncInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 4),
+    _TmnxPtpPortSyncInterval_Type()
+)
+tmnxPtpPortSyncInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPortSyncInterval.setStatus("current")
+
+
+class _TmnxPtpPortDelayInterval_Type(TmnxPtpLogInterval):
+    """Custom type tmnxPtpPortDelayInterval based on TmnxPtpLogInterval"""
+    subtypeSpec = TmnxPtpLogInterval.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-6, 0),
+    )
+
+
+_TmnxPtpPortDelayInterval_Type.__name__ = "TmnxPtpLogInterval"
+_TmnxPtpPortDelayInterval_Object = MibTableColumn
+tmnxPtpPortDelayInterval = _TmnxPtpPortDelayInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 5),
+    _TmnxPtpPortDelayInterval_Type()
+)
+tmnxPtpPortDelayInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPortDelayInterval.setStatus("current")
+
+
+class _TmnxPtpPortMulticastAddress_Type(MacAddress):
+    """Custom type tmnxPtpPortMulticastAddress based on MacAddress"""
+    defaultHexValue = "011B19000000"
+
+
+_TmnxPtpPortMulticastAddress_Type.__name__ = "MacAddress"
+_TmnxPtpPortMulticastAddress_Object = MibTableColumn
+tmnxPtpPortMulticastAddress = _TmnxPtpPortMulticastAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 6),
+    _TmnxPtpPortMulticastAddress_Type()
+)
+tmnxPtpPortMulticastAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPortMulticastAddress.setStatus("current")
+
+
+class _TmnxPtpPortLocalPriority_Type(TmnxPtpPriority):
+    """Custom type tmnxPtpPortLocalPriority based on TmnxPtpPriority"""
+    defaultValue = 128
+
+    subtypeSpec = TmnxPtpPriority.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_TmnxPtpPortLocalPriority_Type.__name__ = "TmnxPtpPriority"
+_TmnxPtpPortLocalPriority_Object = MibTableColumn
+tmnxPtpPortLocalPriority = _TmnxPtpPortLocalPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 7),
+    _TmnxPtpPortLocalPriority_Type()
+)
+tmnxPtpPortLocalPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPortLocalPriority.setStatus("current")
+_TmnxPtpPortMasterOnly_Type = TruthValue
+_TmnxPtpPortMasterOnly_Object = MibTableColumn
+tmnxPtpPortMasterOnly = _TmnxPtpPortMasterOnly_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 8),
+    _TmnxPtpPortMasterOnly_Type()
+)
+tmnxPtpPortMasterOnly.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPtpPortMasterOnly.setStatus("current")
+_TmnxPtp1588Status_ObjectIdentity = ObjectIdentity
+tmnxPtp1588Status = _TmnxPtp1588Status_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3)
+)
+_TmnxPtpClockOperTable_Object = MibTable
+tmnxPtpClockOperTable = _TmnxPtpClockOperTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpClockOperTable.setStatus("current")
+_TmnxPtpClockOperEntry_Object = MibTableRow
+tmnxPtpClockOperEntry = _TmnxPtpClockOperEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpClockOperEntry.setStatus("current")
+_TmnxPtpClockIdentity_Type = TmnxPtpClockIdentity
+_TmnxPtpClockIdentity_Object = MibTableColumn
+tmnxPtpClockIdentity = _TmnxPtpClockIdentity_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 1),
+    _TmnxPtpClockIdentity_Type()
+)
+tmnxPtpClockIdentity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockIdentity.setStatus("current")
+_TmnxPtpClockOperState_Type = TmnxOperState
+_TmnxPtpClockOperState_Object = MibTableColumn
+tmnxPtpClockOperState = _TmnxPtpClockOperState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 2),
+    _TmnxPtpClockOperState_Type()
+)
+tmnxPtpClockOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockOperState.setStatus("current")
+_TmnxPtpClockStepType_Type = TmnxPtpClockStepType
+_TmnxPtpClockStepType_Object = MibTableColumn
+tmnxPtpClockStepType = _TmnxPtpClockStepType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 3),
+    _TmnxPtpClockStepType_Type()
+)
+tmnxPtpClockStepType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockStepType.setStatus("current")
+_TmnxPtpClockClass_Type = TmnxPtpClockClass
+_TmnxPtpClockClass_Object = MibTableColumn
+tmnxPtpClockClass = _TmnxPtpClockClass_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 4),
+    _TmnxPtpClockClass_Type()
+)
+tmnxPtpClockClass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockClass.setStatus("current")
+_TmnxPtpClockAccuracy_Type = TmnxPtpClockAccuracy
+_TmnxPtpClockAccuracy_Object = MibTableColumn
+tmnxPtpClockAccuracy = _TmnxPtpClockAccuracy_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 5),
+    _TmnxPtpClockAccuracy_Type()
+)
+tmnxPtpClockAccuracy.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockAccuracy.setStatus("current")
+_TmnxPtpClockVariance_Type = TmnxPtpClockVariance
+_TmnxPtpClockVariance_Object = MibTableColumn
+tmnxPtpClockVariance = _TmnxPtpClockVariance_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 6),
+    _TmnxPtpClockVariance_Type()
+)
+tmnxPtpClockVariance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockVariance.setStatus("current")
+_TmnxPtpClockPortState_Type = TmnxPtpPortState
+_TmnxPtpClockPortState_Object = MibTableColumn
+tmnxPtpClockPortState = _TmnxPtpClockPortState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 7),
+    _TmnxPtpClockPortState_Type()
+)
+tmnxPtpClockPortState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockPortState.setStatus("current")
+_TmnxPtpClockPortStateLastChanged_Type = TimeStamp
+_TmnxPtpClockPortStateLastChanged_Object = MibTableColumn
+tmnxPtpClockPortStateLastChanged = _TmnxPtpClockPortStateLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 8),
+    _TmnxPtpClockPortStateLastChanged_Type()
+)
+tmnxPtpClockPortStateLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockPortStateLastChanged.setStatus("current")
+
+
+class _TmnxPtpClockRecoveryState_Type(Integer32):
+    """Custom type tmnxPtpClockRecoveryState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 0),
+          ("initial", 1),
+          ("acquiring", 2),
+          ("phaseTracking", 3),
+          ("holdover", 4),
+          ("locked", 5))
+    )
+
+
+_TmnxPtpClockRecoveryState_Type.__name__ = "Integer32"
+_TmnxPtpClockRecoveryState_Object = MibTableColumn
+tmnxPtpClockRecoveryState = _TmnxPtpClockRecoveryState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 9),
+    _TmnxPtpClockRecoveryState_Type()
+)
+tmnxPtpClockRecoveryState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecoveryState.setStatus("current")
+_TmnxPtpClockRecoveryStateLastChg_Type = TimeStamp
+_TmnxPtpClockRecoveryStateLastChg_Object = MibTableColumn
+tmnxPtpClockRecoveryStateLastChg = _TmnxPtpClockRecoveryStateLastChg_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 10),
+    _TmnxPtpClockRecoveryStateLastChg_Type()
+)
+tmnxPtpClockRecoveryStateLastChg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecoveryStateLastChg.setStatus("current")
+_TmnxPtpClockFrequencyOffset_Type = Integer32
+_TmnxPtpClockFrequencyOffset_Object = MibTableColumn
+tmnxPtpClockFrequencyOffset = _TmnxPtpClockFrequencyOffset_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 11),
+    _TmnxPtpClockFrequencyOffset_Type()
+)
+tmnxPtpClockFrequencyOffset.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockFrequencyOffset.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpClockFrequencyOffset.setUnits("parts per trillion")
+_TmnxPtpMasterClockOper_ObjectIdentity = ObjectIdentity
+tmnxPtpMasterClockOper = _TmnxPtpMasterClockOper_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2)
+)
+_TmnxPtpMasterClockAddressType_Type = InetAddressType
+_TmnxPtpMasterClockAddressType_Object = MibScalar
+tmnxPtpMasterClockAddressType = _TmnxPtpMasterClockAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 1),
+    _TmnxPtpMasterClockAddressType_Type()
+)
+tmnxPtpMasterClockAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockAddressType.setStatus("current")
+
+
+class _TmnxPtpMasterClockAddress_Type(InetAddress):
+    """Custom type tmnxPtpMasterClockAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+    )
+
+
+_TmnxPtpMasterClockAddress_Type.__name__ = "InetAddress"
+_TmnxPtpMasterClockAddress_Object = MibScalar
+tmnxPtpMasterClockAddress = _TmnxPtpMasterClockAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 2),
+    _TmnxPtpMasterClockAddress_Type()
+)
+tmnxPtpMasterClockAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockAddress.setStatus("current")
+_TmnxPtpMasterClockGMClockId_Type = TmnxPtpClockIdentity
+_TmnxPtpMasterClockGMClockId_Object = MibScalar
+tmnxPtpMasterClockGMClockId = _TmnxPtpMasterClockGMClockId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 3),
+    _TmnxPtpMasterClockGMClockId_Type()
+)
+tmnxPtpMasterClockGMClockId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockGMClockId.setStatus("current")
+_TmnxPtpMasterClockGMClockPrio1_Type = TmnxPtpPriority
+_TmnxPtpMasterClockGMClockPrio1_Object = MibScalar
+tmnxPtpMasterClockGMClockPrio1 = _TmnxPtpMasterClockGMClockPrio1_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 4),
+    _TmnxPtpMasterClockGMClockPrio1_Type()
+)
+tmnxPtpMasterClockGMClockPrio1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockGMClockPrio1.setStatus("current")
+_TmnxPtpMasterClockGMClockPrio2_Type = TmnxPtpPriority
+_TmnxPtpMasterClockGMClockPrio2_Object = MibScalar
+tmnxPtpMasterClockGMClockPrio2 = _TmnxPtpMasterClockGMClockPrio2_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 5),
+    _TmnxPtpMasterClockGMClockPrio2_Type()
+)
+tmnxPtpMasterClockGMClockPrio2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockGMClockPrio2.setStatus("current")
+_TmnxPtpMasterClockGMClockClass_Type = TmnxPtpClockClass
+_TmnxPtpMasterClockGMClockClass_Object = MibScalar
+tmnxPtpMasterClockGMClockClass = _TmnxPtpMasterClockGMClockClass_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 6),
+    _TmnxPtpMasterClockGMClockClass_Type()
+)
+tmnxPtpMasterClockGMClockClass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockGMClockClass.setStatus("current")
+_TmnxPtpMasterClockGMAccuracy_Type = TmnxPtpClockAccuracy
+_TmnxPtpMasterClockGMAccuracy_Object = MibScalar
+tmnxPtpMasterClockGMAccuracy = _TmnxPtpMasterClockGMAccuracy_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 7),
+    _TmnxPtpMasterClockGMAccuracy_Type()
+)
+tmnxPtpMasterClockGMAccuracy.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockGMAccuracy.setStatus("current")
+_TmnxPtpMasterClockGMVariance_Type = TmnxPtpClockVariance
+_TmnxPtpMasterClockGMVariance_Object = MibScalar
+tmnxPtpMasterClockGMVariance = _TmnxPtpMasterClockGMVariance_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 8),
+    _TmnxPtpMasterClockGMVariance_Type()
+)
+tmnxPtpMasterClockGMVariance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockGMVariance.setStatus("current")
+_TmnxPtpMasterClockParentClockId_Type = TmnxPtpClockIdentity
+_TmnxPtpMasterClockParentClockId_Object = MibScalar
+tmnxPtpMasterClockParentClockId = _TmnxPtpMasterClockParentClockId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 9),
+    _TmnxPtpMasterClockParentClockId_Type()
+)
+tmnxPtpMasterClockParentClockId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockParentClockId.setStatus("current")
+_TmnxPtpMasterClockParentPortNum_Type = TmnxPtpPortNumber
+_TmnxPtpMasterClockParentPortNum_Object = MibScalar
+tmnxPtpMasterClockParentPortNum = _TmnxPtpMasterClockParentPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 10),
+    _TmnxPtpMasterClockParentPortNum_Type()
+)
+tmnxPtpMasterClockParentPortNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockParentPortNum.setStatus("current")
+_TmnxPtpMasterClockTransportType_Type = TmnxPtpTransportType
+_TmnxPtpMasterClockTransportType_Object = MibScalar
+tmnxPtpMasterClockTransportType = _TmnxPtpMasterClockTransportType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 11),
+    _TmnxPtpMasterClockTransportType_Type()
+)
+tmnxPtpMasterClockTransportType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockTransportType.setStatus("current")
+_TmnxPtpMasterClockEthernetPort_Type = TmnxPortID
+_TmnxPtpMasterClockEthernetPort_Object = MibScalar
+tmnxPtpMasterClockEthernetPort = _TmnxPtpMasterClockEthernetPort_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 12),
+    _TmnxPtpMasterClockEthernetPort_Type()
+)
+tmnxPtpMasterClockEthernetPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockEthernetPort.setStatus("current")
+_TmnxPtpMasterClockMacAddress_Type = MacAddress
+_TmnxPtpMasterClockMacAddress_Object = MibScalar
+tmnxPtpMasterClockMacAddress = _TmnxPtpMasterClockMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 13),
+    _TmnxPtpMasterClockMacAddress_Type()
+)
+tmnxPtpMasterClockMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockMacAddress.setStatus("current")
+_TmnxPtpPeerMasterStatusTable_Object = MibTable
+tmnxPtpPeerMasterStatusTable = _TmnxPtpPeerMasterStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterStatusTable.setStatus("current")
+_TmnxPtpPeerMasterStatusEntry_Object = MibTableRow
+tmnxPtpPeerMasterStatusEntry = _TmnxPtpPeerMasterStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1)
+)
+tmnxPtpPeerMasterStatusEntry.setIndexNames(
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddrType"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddress"),
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterStatusEntry.setStatus("current")
+_TmnxPtpPeerMasterCurrentMaster_Type = TruthValue
+_TmnxPtpPeerMasterCurrentMaster_Object = MibTableColumn
+tmnxPtpPeerMasterCurrentMaster = _TmnxPtpPeerMasterCurrentMaster_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 1),
+    _TmnxPtpPeerMasterCurrentMaster_Type()
+)
+tmnxPtpPeerMasterCurrentMaster.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterCurrentMaster.setStatus("current")
+_TmnxPtpPeerMasterClockStepType_Type = TmnxPtpClockStepType
+_TmnxPtpPeerMasterClockStepType_Object = MibTableColumn
+tmnxPtpPeerMasterClockStepType = _TmnxPtpPeerMasterClockStepType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 2),
+    _TmnxPtpPeerMasterClockStepType_Type()
+)
+tmnxPtpPeerMasterClockStepType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterClockStepType.setStatus("current")
+_TmnxPtpPeerMasterClockStepsRemvd_Type = Unsigned32
+_TmnxPtpPeerMasterClockStepsRemvd_Object = MibTableColumn
+tmnxPtpPeerMasterClockStepsRemvd = _TmnxPtpPeerMasterClockStepsRemvd_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 3),
+    _TmnxPtpPeerMasterClockStepsRemvd_Type()
+)
+tmnxPtpPeerMasterClockStepsRemvd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterClockStepsRemvd.setStatus("current")
+_TmnxPtpPeerMasterGMClockId_Type = TmnxPtpClockIdentity
+_TmnxPtpPeerMasterGMClockId_Object = MibTableColumn
+tmnxPtpPeerMasterGMClockId = _TmnxPtpPeerMasterGMClockId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 4),
+    _TmnxPtpPeerMasterGMClockId_Type()
+)
+tmnxPtpPeerMasterGMClockId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterGMClockId.setStatus("current")
+_TmnxPtpPeerMasterGMClockPrio1_Type = TmnxPtpPriority
+_TmnxPtpPeerMasterGMClockPrio1_Object = MibTableColumn
+tmnxPtpPeerMasterGMClockPrio1 = _TmnxPtpPeerMasterGMClockPrio1_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 5),
+    _TmnxPtpPeerMasterGMClockPrio1_Type()
+)
+tmnxPtpPeerMasterGMClockPrio1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterGMClockPrio1.setStatus("current")
+_TmnxPtpPeerMasterGMClockPrio2_Type = TmnxPtpPriority
+_TmnxPtpPeerMasterGMClockPrio2_Object = MibTableColumn
+tmnxPtpPeerMasterGMClockPrio2 = _TmnxPtpPeerMasterGMClockPrio2_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 6),
+    _TmnxPtpPeerMasterGMClockPrio2_Type()
+)
+tmnxPtpPeerMasterGMClockPrio2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterGMClockPrio2.setStatus("current")
+_TmnxPtpPeerMasterGMClockClass_Type = TmnxPtpClockClass
+_TmnxPtpPeerMasterGMClockClass_Object = MibTableColumn
+tmnxPtpPeerMasterGMClockClass = _TmnxPtpPeerMasterGMClockClass_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 7),
+    _TmnxPtpPeerMasterGMClockClass_Type()
+)
+tmnxPtpPeerMasterGMClockClass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterGMClockClass.setStatus("current")
+_TmnxPtpPeerMasterGMClockAccuracy_Type = TmnxPtpClockAccuracy
+_TmnxPtpPeerMasterGMClockAccuracy_Object = MibTableColumn
+tmnxPtpPeerMasterGMClockAccuracy = _TmnxPtpPeerMasterGMClockAccuracy_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 8),
+    _TmnxPtpPeerMasterGMClockAccuracy_Type()
+)
+tmnxPtpPeerMasterGMClockAccuracy.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterGMClockAccuracy.setStatus("current")
+_TmnxPtpPeerMasterGMClockVariance_Type = TmnxPtpClockVariance
+_TmnxPtpPeerMasterGMClockVariance_Object = MibTableColumn
+tmnxPtpPeerMasterGMClockVariance = _TmnxPtpPeerMasterGMClockVariance_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 9),
+    _TmnxPtpPeerMasterGMClockVariance_Type()
+)
+tmnxPtpPeerMasterGMClockVariance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterGMClockVariance.setStatus("current")
+
+
+class _TmnxPtpPeerMasterAlarm_Type(Bits):
+    """Custom type tmnxPtpPeerMasterAlarm based on Bits"""
+    namedValues = NamedValues(
+        *(("ptsfLossAnnounce", 0),
+          ("ptsfLossSync", 1))
+    )
+
+_TmnxPtpPeerMasterAlarm_Type.__name__ = "Bits"
+_TmnxPtpPeerMasterAlarm_Object = MibTableColumn
+tmnxPtpPeerMasterAlarm = _TmnxPtpPeerMasterAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 11),
+    _TmnxPtpPeerMasterAlarm_Type()
+)
+tmnxPtpPeerMasterAlarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterAlarm.setStatus("current")
+_TmnxPtpPeerUnicastTable_Object = MibTable
+tmnxPtpPeerUnicastTable = _TmnxPtpPeerUnicastTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerUnicastTable.setStatus("current")
+_TmnxPtpPeerUnicastEntry_Object = MibTableRow
+tmnxPtpPeerUnicastEntry = _TmnxPtpPeerUnicastEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1)
+)
+tmnxPtpPeerUnicastEntry.setIndexNames(
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddrType"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddress"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastDirection"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastPktType"),
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerUnicastEntry.setStatus("current")
+_TmnxPtpPeerUnicastDirection_Type = TmnxPtpDirection
+_TmnxPtpPeerUnicastDirection_Object = MibTableColumn
+tmnxPtpPeerUnicastDirection = _TmnxPtpPeerUnicastDirection_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 1),
+    _TmnxPtpPeerUnicastDirection_Type()
+)
+tmnxPtpPeerUnicastDirection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerUnicastDirection.setStatus("current")
+
+
+class _TmnxPtpPeerUnicastPktType_Type(Integer32):
+    """Custom type tmnxPtpPeerUnicastPktType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("announce", 1),
+          ("sync", 2),
+          ("delayResponse", 3))
+    )
+
+
+_TmnxPtpPeerUnicastPktType_Type.__name__ = "Integer32"
+_TmnxPtpPeerUnicastPktType_Object = MibTableColumn
+tmnxPtpPeerUnicastPktType = _TmnxPtpPeerUnicastPktType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 2),
+    _TmnxPtpPeerUnicastPktType_Type()
+)
+tmnxPtpPeerUnicastPktType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerUnicastPktType.setStatus("current")
+
+
+class _TmnxPtpPeerUnicastStatus_Type(Integer32):
+    """Custom type tmnxPtpPeerUnicastStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pending", 1),
+          ("granted", 2),
+          ("denied", 3),
+          ("expired", 4),
+          ("canceled", 5))
+    )
+
+
+_TmnxPtpPeerUnicastStatus_Type.__name__ = "Integer32"
+_TmnxPtpPeerUnicastStatus_Object = MibTableColumn
+tmnxPtpPeerUnicastStatus = _TmnxPtpPeerUnicastStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 3),
+    _TmnxPtpPeerUnicastStatus_Type()
+)
+tmnxPtpPeerUnicastStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerUnicastStatus.setStatus("current")
+_TmnxPtpPeerUnicastRate_Type = TmnxPtpLogInterval
+_TmnxPtpPeerUnicastRate_Object = MibTableColumn
+tmnxPtpPeerUnicastRate = _TmnxPtpPeerUnicastRate_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 4),
+    _TmnxPtpPeerUnicastRate_Type()
+)
+tmnxPtpPeerUnicastRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerUnicastRate.setStatus("current")
+_TmnxPtpPeerUnicastDuration_Type = Unsigned32
+_TmnxPtpPeerUnicastDuration_Object = MibTableColumn
+tmnxPtpPeerUnicastDuration = _TmnxPtpPeerUnicastDuration_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 5),
+    _TmnxPtpPeerUnicastDuration_Type()
+)
+tmnxPtpPeerUnicastDuration.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerUnicastDuration.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerUnicastDuration.setUnits("seconds")
+_TmnxPtpPeerUnicastEventTime_Type = TimeStamp
+_TmnxPtpPeerUnicastEventTime_Object = MibTableColumn
+tmnxPtpPeerUnicastEventTime = _TmnxPtpPeerUnicastEventTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 6),
+    _TmnxPtpPeerUnicastEventTime_Type()
+)
+tmnxPtpPeerUnicastEventTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerUnicastEventTime.setStatus("current")
+_TmnxPtpTimeInformation_ObjectIdentity = ObjectIdentity
+tmnxPtpTimeInformation = _TmnxPtpTimeInformation_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5)
+)
+
+
+class _TmnxPtpTimeInfoTimescale_Type(Integer32):
+    """Custom type tmnxPtpTimeInfoTimescale based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ptp", 1),
+          ("arbitrary", 2))
+    )
+
+
+_TmnxPtpTimeInfoTimescale_Type.__name__ = "Integer32"
+_TmnxPtpTimeInfoTimescale_Object = MibScalar
+tmnxPtpTimeInfoTimescale = _TmnxPtpTimeInfoTimescale_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5, 1),
+    _TmnxPtpTimeInfoTimescale_Type()
+)
+tmnxPtpTimeInfoTimescale.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpTimeInfoTimescale.setStatus("current")
+
+
+class _TmnxPtpTimeInfoCurrentTime_Type(DateAndTime):
+    """Custom type tmnxPtpTimeInfoCurrentTime based on DateAndTime"""
+    subtypeSpec = DateAndTime.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_TmnxPtpTimeInfoCurrentTime_Type.__name__ = "DateAndTime"
+_TmnxPtpTimeInfoCurrentTime_Object = MibScalar
+tmnxPtpTimeInfoCurrentTime = _TmnxPtpTimeInfoCurrentTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5, 2),
+    _TmnxPtpTimeInfoCurrentTime_Type()
+)
+tmnxPtpTimeInfoCurrentTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpTimeInfoCurrentTime.setStatus("current")
+_TmnxPtpTimeInfoFreqTraceable_Type = TruthValue
+_TmnxPtpTimeInfoFreqTraceable_Object = MibScalar
+tmnxPtpTimeInfoFreqTraceable = _TmnxPtpTimeInfoFreqTraceable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5, 3),
+    _TmnxPtpTimeInfoFreqTraceable_Type()
+)
+tmnxPtpTimeInfoFreqTraceable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpTimeInfoFreqTraceable.setStatus("current")
+_TmnxPtpTimeInfoTimeTraceable_Type = TruthValue
+_TmnxPtpTimeInfoTimeTraceable_Object = MibScalar
+tmnxPtpTimeInfoTimeTraceable = _TmnxPtpTimeInfoTimeTraceable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5, 4),
+    _TmnxPtpTimeInfoTimeTraceable_Type()
+)
+tmnxPtpTimeInfoTimeTraceable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpTimeInfoTimeTraceable.setStatus("current")
+
+
+class _TmnxPtpTimeInfoTimeSource_Type(Integer32):
+    """Custom type tmnxPtpTimeInfoTimeSource based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(16,
+              32,
+              48,
+              64,
+              80,
+              96,
+              144,
+              160,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("atomicClock", 16),
+          ("gps", 32),
+          ("terrestrialRadio", 48),
+          ("ptp", 64),
+          ("ntp", 80),
+          ("handSet", 96),
+          ("other", 144),
+          ("internalOscillator", 160),
+          ("reserved", 255))
+    )
+
+
+_TmnxPtpTimeInfoTimeSource_Type.__name__ = "Integer32"
+_TmnxPtpTimeInfoTimeSource_Object = MibScalar
+tmnxPtpTimeInfoTimeSource = _TmnxPtpTimeInfoTimeSource_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5, 5),
+    _TmnxPtpTimeInfoTimeSource_Type()
+)
+tmnxPtpTimeInfoTimeSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpTimeInfoTimeSource.setStatus("current")
+_TmnxPtpPortStatusTable_Object = MibTable
+tmnxPtpPortStatusTable = _TmnxPtpPortStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatusTable.setStatus("current")
+_TmnxPtpPortStatusEntry_Object = MibTableRow
+tmnxPtpPortStatusEntry = _TmnxPtpPortStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatusEntry.setStatus("current")
+_TmnxPtpPortLocalPortNumber_Type = TmnxPtpPortNumber
+_TmnxPtpPortLocalPortNumber_Object = MibTableColumn
+tmnxPtpPortLocalPortNumber = _TmnxPtpPortLocalPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 1),
+    _TmnxPtpPortLocalPortNumber_Type()
+)
+tmnxPtpPortLocalPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortLocalPortNumber.setStatus("current")
+_TmnxPtpPortOperState_Type = TmnxOperState
+_TmnxPtpPortOperState_Object = MibTableColumn
+tmnxPtpPortOperState = _TmnxPtpPortOperState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 2),
+    _TmnxPtpPortOperState_Type()
+)
+tmnxPtpPortOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortOperState.setStatus("current")
+_TmnxPtpPortState_Type = TmnxPtpPortState
+_TmnxPtpPortState_Object = MibTableColumn
+tmnxPtpPortState = _TmnxPtpPortState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 3),
+    _TmnxPtpPortState_Type()
+)
+tmnxPtpPortState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortState.setStatus("current")
+_TmnxPtpPortTimeStampRefPoint_Type = TmnxPtpTimeStampReferencePoint
+_TmnxPtpPortTimeStampRefPoint_Object = MibTableColumn
+tmnxPtpPortTimeStampRefPoint = _TmnxPtpPortTimeStampRefPoint_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 4),
+    _TmnxPtpPortTimeStampRefPoint_Type()
+)
+tmnxPtpPortTimeStampRefPoint.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortTimeStampRefPoint.setStatus("current")
+_TmnxPtpPortNeighbors_Type = Unsigned32
+_TmnxPtpPortNeighbors_Object = MibTableColumn
+tmnxPtpPortNeighbors = _TmnxPtpPortNeighbors_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 5),
+    _TmnxPtpPortNeighbors_Type()
+)
+tmnxPtpPortNeighbors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortNeighbors.setStatus("current")
+_TmnxPtpPortTxPacketRate_Type = Unsigned32
+_TmnxPtpPortTxPacketRate_Object = MibTableColumn
+tmnxPtpPortTxPacketRate = _TmnxPtpPortTxPacketRate_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 6),
+    _TmnxPtpPortTxPacketRate_Type()
+)
+tmnxPtpPortTxPacketRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortTxPacketRate.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpPortTxPacketRate.setUnits("packets per second")
+_TmnxPtpPortRxPacketRate_Type = Unsigned32
+_TmnxPtpPortRxPacketRate_Object = MibTableColumn
+tmnxPtpPortRxPacketRate = _TmnxPtpPortRxPacketRate_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 7),
+    _TmnxPtpPortRxPacketRate_Type()
+)
+tmnxPtpPortRxPacketRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortRxPacketRate.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpPortRxPacketRate.setUnits("packets per second")
+_TmnxPtpPortSrcMacAddr_Type = MacAddress
+_TmnxPtpPortSrcMacAddr_Object = MibTableColumn
+tmnxPtpPortSrcMacAddr = _TmnxPtpPortSrcMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 8),
+    _TmnxPtpPortSrcMacAddr_Type()
+)
+tmnxPtpPortSrcMacAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortSrcMacAddr.setStatus("current")
+_TmnxPtpPortNeighborTable_Object = MibTable
+tmnxPtpPortNeighborTable = _TmnxPtpPortNeighborTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPortNeighborTable.setStatus("current")
+_TmnxPtpPortNeighborEntry_Object = MibTableRow
+tmnxPtpPortNeighborEntry = _TmnxPtpPortNeighborEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7, 1)
+)
+tmnxPtpPortNeighborEntry.setIndexNames(
+    (0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"),
+    (0, "TIMETRA-PORT-MIB", "tmnxPortPortID"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPortNeighborMacAddress"),
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPortNeighborEntry.setStatus("current")
+_TmnxPtpPortNeighborMacAddress_Type = MacAddress
+_TmnxPtpPortNeighborMacAddress_Object = MibTableColumn
+tmnxPtpPortNeighborMacAddress = _TmnxPtpPortNeighborMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7, 1, 1),
+    _TmnxPtpPortNeighborMacAddress_Type()
+)
+tmnxPtpPortNeighborMacAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPtpPortNeighborMacAddress.setStatus("current")
+_TmnxPtpPortNeighborClockId_Type = TmnxPtpClockIdentity
+_TmnxPtpPortNeighborClockId_Object = MibTableColumn
+tmnxPtpPortNeighborClockId = _TmnxPtpPortNeighborClockId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7, 1, 2),
+    _TmnxPtpPortNeighborClockId_Type()
+)
+tmnxPtpPortNeighborClockId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortNeighborClockId.setStatus("current")
+_TmnxPtpPortNeighborPtpPortNumber_Type = TmnxPtpPortNumber
+_TmnxPtpPortNeighborPtpPortNumber_Object = MibTableColumn
+tmnxPtpPortNeighborPtpPortNumber = _TmnxPtpPortNeighborPtpPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7, 1, 3),
+    _TmnxPtpPortNeighborPtpPortNumber_Type()
+)
+tmnxPtpPortNeighborPtpPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortNeighborPtpPortNumber.setStatus("current")
+_TmnxPtpPortNeighborRxPacketRate_Type = Unsigned32
+_TmnxPtpPortNeighborRxPacketRate_Object = MibTableColumn
+tmnxPtpPortNeighborRxPacketRate = _TmnxPtpPortNeighborRxPacketRate_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7, 1, 4),
+    _TmnxPtpPortNeighborRxPacketRate_Type()
+)
+tmnxPtpPortNeighborRxPacketRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortNeighborRxPacketRate.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpPortNeighborRxPacketRate.setUnits("packets per second")
+_TmnxPtp1588Statistics_ObjectIdentity = ObjectIdentity
+tmnxPtp1588Statistics = _TmnxPtp1588Statistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5)
+)
+_TmnxPtpClockPacketStatsTable_Object = MibTable
+tmnxPtpClockPacketStatsTable = _TmnxPtpClockPacketStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpClockPacketStatsTable.setStatus("current")
+_TmnxPtpClockPacketStatsEntry_Object = MibTableRow
+tmnxPtpClockPacketStatsEntry = _TmnxPtpClockPacketStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1)
+)
+tmnxPtpClockPacketStatsEntry.setIndexNames(
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDirection"),
+)
+if mibBuilder.loadTexts:
+    tmnxPtpClockPacketStatsEntry.setStatus("current")
+_TmnxPtpClkPktStatsDirection_Type = TmnxPtpDirection
+_TmnxPtpClkPktStatsDirection_Object = MibTableColumn
+tmnxPtpClkPktStatsDirection = _TmnxPtpClkPktStatsDirection_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 1),
+    _TmnxPtpClkPktStatsDirection_Type()
+)
+tmnxPtpClkPktStatsDirection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsDirection.setStatus("current")
+_TmnxPtpClkPktStatsAnnounce_Type = Counter32
+_TmnxPtpClkPktStatsAnnounce_Object = MibTableColumn
+tmnxPtpClkPktStatsAnnounce = _TmnxPtpClkPktStatsAnnounce_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 2),
+    _TmnxPtpClkPktStatsAnnounce_Type()
+)
+tmnxPtpClkPktStatsAnnounce.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsAnnounce.setStatus("current")
+_TmnxPtpClkPktStatsSync_Type = Counter32
+_TmnxPtpClkPktStatsSync_Object = MibTableColumn
+tmnxPtpClkPktStatsSync = _TmnxPtpClkPktStatsSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 3),
+    _TmnxPtpClkPktStatsSync_Type()
+)
+tmnxPtpClkPktStatsSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsSync.setStatus("current")
+_TmnxPtpClkPktStatsFollowUp_Type = Counter32
+_TmnxPtpClkPktStatsFollowUp_Object = MibTableColumn
+tmnxPtpClkPktStatsFollowUp = _TmnxPtpClkPktStatsFollowUp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 4),
+    _TmnxPtpClkPktStatsFollowUp_Type()
+)
+tmnxPtpClkPktStatsFollowUp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsFollowUp.setStatus("current")
+_TmnxPtpClkPktStatsDelayRequest_Type = Counter32
+_TmnxPtpClkPktStatsDelayRequest_Object = MibTableColumn
+tmnxPtpClkPktStatsDelayRequest = _TmnxPtpClkPktStatsDelayRequest_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 5),
+    _TmnxPtpClkPktStatsDelayRequest_Type()
+)
+tmnxPtpClkPktStatsDelayRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsDelayRequest.setStatus("current")
+_TmnxPtpClkPktStatsDelayResp_Type = Counter32
+_TmnxPtpClkPktStatsDelayResp_Object = MibTableColumn
+tmnxPtpClkPktStatsDelayResp = _TmnxPtpClkPktStatsDelayResp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 6),
+    _TmnxPtpClkPktStatsDelayResp_Type()
+)
+tmnxPtpClkPktStatsDelayResp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsDelayResp.setStatus("current")
+_TmnxPtpClkPktStatsSignaling_Type = Counter32
+_TmnxPtpClkPktStatsSignaling_Object = MibTableColumn
+tmnxPtpClkPktStatsSignaling = _TmnxPtpClkPktStatsSignaling_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 7),
+    _TmnxPtpClkPktStatsSignaling_Type()
+)
+tmnxPtpClkPktStatsSignaling.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsSignaling.setStatus("current")
+_TmnxPtpClkPktStatsOther_Type = Counter32
+_TmnxPtpClkPktStatsOther_Object = MibTableColumn
+tmnxPtpClkPktStatsOther = _TmnxPtpClkPktStatsOther_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 8),
+    _TmnxPtpClkPktStatsOther_Type()
+)
+tmnxPtpClkPktStatsOther.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsOther.setStatus("current")
+_TmnxPtpClkPktStatsUniReqAnno_Type = Counter32
+_TmnxPtpClkPktStatsUniReqAnno_Object = MibTableColumn
+tmnxPtpClkPktStatsUniReqAnno = _TmnxPtpClkPktStatsUniReqAnno_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 9),
+    _TmnxPtpClkPktStatsUniReqAnno_Type()
+)
+tmnxPtpClkPktStatsUniReqAnno.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniReqAnno.setStatus("current")
+_TmnxPtpClkPktStatsUniReqSync_Type = Counter32
+_TmnxPtpClkPktStatsUniReqSync_Object = MibTableColumn
+tmnxPtpClkPktStatsUniReqSync = _TmnxPtpClkPktStatsUniReqSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 10),
+    _TmnxPtpClkPktStatsUniReqSync_Type()
+)
+tmnxPtpClkPktStatsUniReqSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniReqSync.setStatus("current")
+_TmnxPtpClkPktStatsUniReqDelayRsp_Type = Counter32
+_TmnxPtpClkPktStatsUniReqDelayRsp_Object = MibTableColumn
+tmnxPtpClkPktStatsUniReqDelayRsp = _TmnxPtpClkPktStatsUniReqDelayRsp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 11),
+    _TmnxPtpClkPktStatsUniReqDelayRsp_Type()
+)
+tmnxPtpClkPktStatsUniReqDelayRsp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniReqDelayRsp.setStatus("current")
+_TmnxPtpClkPktStatsUniGrantAnno_Type = Counter32
+_TmnxPtpClkPktStatsUniGrantAnno_Object = MibTableColumn
+tmnxPtpClkPktStatsUniGrantAnno = _TmnxPtpClkPktStatsUniGrantAnno_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 12),
+    _TmnxPtpClkPktStatsUniGrantAnno_Type()
+)
+tmnxPtpClkPktStatsUniGrantAnno.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniGrantAnno.setStatus("current")
+_TmnxPtpClkPktStatsUniGrantSync_Type = Counter32
+_TmnxPtpClkPktStatsUniGrantSync_Object = MibTableColumn
+tmnxPtpClkPktStatsUniGrantSync = _TmnxPtpClkPktStatsUniGrantSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 13),
+    _TmnxPtpClkPktStatsUniGrantSync_Type()
+)
+tmnxPtpClkPktStatsUniGrantSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniGrantSync.setStatus("current")
+_TmnxPtpClkPktStatsUniGrantDelRsp_Type = Counter32
+_TmnxPtpClkPktStatsUniGrantDelRsp_Object = MibTableColumn
+tmnxPtpClkPktStatsUniGrantDelRsp = _TmnxPtpClkPktStatsUniGrantDelRsp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 14),
+    _TmnxPtpClkPktStatsUniGrantDelRsp_Type()
+)
+tmnxPtpClkPktStatsUniGrantDelRsp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniGrantDelRsp.setStatus("current")
+_TmnxPtpClkPktStatsUniDenyAnno_Type = Counter32
+_TmnxPtpClkPktStatsUniDenyAnno_Object = MibTableColumn
+tmnxPtpClkPktStatsUniDenyAnno = _TmnxPtpClkPktStatsUniDenyAnno_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 15),
+    _TmnxPtpClkPktStatsUniDenyAnno_Type()
+)
+tmnxPtpClkPktStatsUniDenyAnno.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniDenyAnno.setStatus("current")
+_TmnxPtpClkPktStatsUniDenySync_Type = Counter32
+_TmnxPtpClkPktStatsUniDenySync_Object = MibTableColumn
+tmnxPtpClkPktStatsUniDenySync = _TmnxPtpClkPktStatsUniDenySync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 16),
+    _TmnxPtpClkPktStatsUniDenySync_Type()
+)
+tmnxPtpClkPktStatsUniDenySync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniDenySync.setStatus("current")
+_TmnxPtpClkPktStatsUniDenyDelRsp_Type = Counter32
+_TmnxPtpClkPktStatsUniDenyDelRsp_Object = MibTableColumn
+tmnxPtpClkPktStatsUniDenyDelRsp = _TmnxPtpClkPktStatsUniDenyDelRsp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 17),
+    _TmnxPtpClkPktStatsUniDenyDelRsp_Type()
+)
+tmnxPtpClkPktStatsUniDenyDelRsp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniDenyDelRsp.setStatus("current")
+_TmnxPtpClkPktStatsUniCancelAnno_Type = Counter32
+_TmnxPtpClkPktStatsUniCancelAnno_Object = MibTableColumn
+tmnxPtpClkPktStatsUniCancelAnno = _TmnxPtpClkPktStatsUniCancelAnno_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 18),
+    _TmnxPtpClkPktStatsUniCancelAnno_Type()
+)
+tmnxPtpClkPktStatsUniCancelAnno.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniCancelAnno.setStatus("current")
+_TmnxPtpClkPktStatsUniCancelSync_Type = Counter32
+_TmnxPtpClkPktStatsUniCancelSync_Object = MibTableColumn
+tmnxPtpClkPktStatsUniCancelSync = _TmnxPtpClkPktStatsUniCancelSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 19),
+    _TmnxPtpClkPktStatsUniCancelSync_Type()
+)
+tmnxPtpClkPktStatsUniCancelSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniCancelSync.setStatus("current")
+_TmnxPtpClkPktStatsUniCancelDelay_Type = Counter32
+_TmnxPtpClkPktStatsUniCancelDelay_Object = MibTableColumn
+tmnxPtpClkPktStatsUniCancelDelay = _TmnxPtpClkPktStatsUniCancelDelay_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 20),
+    _TmnxPtpClkPktStatsUniCancelDelay_Type()
+)
+tmnxPtpClkPktStatsUniCancelDelay.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniCancelDelay.setStatus("current")
+_TmnxPtpClkPktStatsUniAckCnclAnno_Type = Counter32
+_TmnxPtpClkPktStatsUniAckCnclAnno_Object = MibTableColumn
+tmnxPtpClkPktStatsUniAckCnclAnno = _TmnxPtpClkPktStatsUniAckCnclAnno_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 21),
+    _TmnxPtpClkPktStatsUniAckCnclAnno_Type()
+)
+tmnxPtpClkPktStatsUniAckCnclAnno.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniAckCnclAnno.setStatus("current")
+_TmnxPtpClkPktStatsUniAckCnclSync_Type = Counter32
+_TmnxPtpClkPktStatsUniAckCnclSync_Object = MibTableColumn
+tmnxPtpClkPktStatsUniAckCnclSync = _TmnxPtpClkPktStatsUniAckCnclSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 22),
+    _TmnxPtpClkPktStatsUniAckCnclSync_Type()
+)
+tmnxPtpClkPktStatsUniAckCnclSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniAckCnclSync.setStatus("current")
+_TmnxPtpClkPktStatsUniAckCnclDly_Type = Counter32
+_TmnxPtpClkPktStatsUniAckCnclDly_Object = MibTableColumn
+tmnxPtpClkPktStatsUniAckCnclDly = _TmnxPtpClkPktStatsUniAckCnclDly_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 23),
+    _TmnxPtpClkPktStatsUniAckCnclDly_Type()
+)
+tmnxPtpClkPktStatsUniAckCnclDly.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsUniAckCnclDly.setStatus("current")
+_TmnxPtpClkPktStatsOtherTLVs_Type = Counter32
+_TmnxPtpClkPktStatsOtherTLVs_Object = MibTableColumn
+tmnxPtpClkPktStatsOtherTLVs = _TmnxPtpClkPktStatsOtherTLVs_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 24),
+    _TmnxPtpClkPktStatsOtherTLVs_Type()
+)
+tmnxPtpClkPktStatsOtherTLVs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsOtherTLVs.setStatus("current")
+_TmnxPtpClkPktStatsDropBadDomain_Type = Counter32
+_TmnxPtpClkPktStatsDropBadDomain_Object = MibTableColumn
+tmnxPtpClkPktStatsDropBadDomain = _TmnxPtpClkPktStatsDropBadDomain_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 25),
+    _TmnxPtpClkPktStatsDropBadDomain_Type()
+)
+tmnxPtpClkPktStatsDropBadDomain.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsDropBadDomain.setStatus("current")
+_TmnxPtpClkPktStatsDropAltMaster_Type = Counter32
+_TmnxPtpClkPktStatsDropAltMaster_Object = MibTableColumn
+tmnxPtpClkPktStatsDropAltMaster = _TmnxPtpClkPktStatsDropAltMaster_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 26),
+    _TmnxPtpClkPktStatsDropAltMaster_Type()
+)
+tmnxPtpClkPktStatsDropAltMaster.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsDropAltMaster.setStatus("current")
+_TmnxPtpClkPktStatsDropOther_Type = Counter32
+_TmnxPtpClkPktStatsDropOther_Object = MibTableColumn
+tmnxPtpClkPktStatsDropOther = _TmnxPtpClkPktStatsDropOther_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 27),
+    _TmnxPtpClkPktStatsDropOther_Type()
+)
+tmnxPtpClkPktStatsDropOther.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsDropOther.setStatus("current")
+_TmnxPtpClkPktStatsTimeStampPort_Type = Counter32
+_TmnxPtpClkPktStatsTimeStampPort_Object = MibTableColumn
+tmnxPtpClkPktStatsTimeStampPort = _TmnxPtpClkPktStatsTimeStampPort_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 28),
+    _TmnxPtpClkPktStatsTimeStampPort_Type()
+)
+tmnxPtpClkPktStatsTimeStampPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsTimeStampPort.setStatus("current")
+_TmnxPtpClkPktStatsTimeStampCpm_Type = Counter32
+_TmnxPtpClkPktStatsTimeStampCpm_Object = MibTableColumn
+tmnxPtpClkPktStatsTimeStampCpm = _TmnxPtpClkPktStatsTimeStampCpm_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 29),
+    _TmnxPtpClkPktStatsTimeStampCpm_Type()
+)
+tmnxPtpClkPktStatsTimeStampCpm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsTimeStampCpm.setStatus("current")
+_TmnxPtpClkPktStatsDropOutOfSeq_Type = Counter32
+_TmnxPtpClkPktStatsDropOutOfSeq_Object = MibTableColumn
+tmnxPtpClkPktStatsDropOutOfSeq = _TmnxPtpClkPktStatsDropOutOfSeq_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 30),
+    _TmnxPtpClkPktStatsDropOutOfSeq_Type()
+)
+tmnxPtpClkPktStatsDropOutOfSeq.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsDropOutOfSeq.setStatus("current")
+_TmnxPtpClkPktStatsDropPeerShut_Type = Counter32
+_TmnxPtpClkPktStatsDropPeerShut_Object = MibTableColumn
+tmnxPtpClkPktStatsDropPeerShut = _TmnxPtpClkPktStatsDropPeerShut_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 31),
+    _TmnxPtpClkPktStatsDropPeerShut_Type()
+)
+tmnxPtpClkPktStatsDropPeerShut.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClkPktStatsDropPeerShut.setStatus("current")
+_TmnxPtpPeerPacketStatsTable_Object = MibTable
+tmnxPtpPeerPacketStatsTable = _TmnxPtpPeerPacketStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPacketStatsTable.setStatus("current")
+_TmnxPtpPeerPacketStatsEntry_Object = MibTableRow
+tmnxPtpPeerPacketStatsEntry = _TmnxPtpPeerPacketStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1)
+)
+tmnxPtpPeerPacketStatsEntry.setIndexNames(
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddrType"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddress"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDirection"),
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPacketStatsEntry.setStatus("current")
+_TmnxPtpPeerPktStatDirection_Type = TmnxPtpDirection
+_TmnxPtpPeerPktStatDirection_Object = MibTableColumn
+tmnxPtpPeerPktStatDirection = _TmnxPtpPeerPktStatDirection_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 1),
+    _TmnxPtpPeerPktStatDirection_Type()
+)
+tmnxPtpPeerPktStatDirection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatDirection.setStatus("current")
+_TmnxPtpPeerPktStatAnnounce_Type = Counter32
+_TmnxPtpPeerPktStatAnnounce_Object = MibTableColumn
+tmnxPtpPeerPktStatAnnounce = _TmnxPtpPeerPktStatAnnounce_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 2),
+    _TmnxPtpPeerPktStatAnnounce_Type()
+)
+tmnxPtpPeerPktStatAnnounce.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatAnnounce.setStatus("current")
+_TmnxPtpPeerPktStatSync_Type = Counter32
+_TmnxPtpPeerPktStatSync_Object = MibTableColumn
+tmnxPtpPeerPktStatSync = _TmnxPtpPeerPktStatSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 3),
+    _TmnxPtpPeerPktStatSync_Type()
+)
+tmnxPtpPeerPktStatSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatSync.setStatus("current")
+_TmnxPtpPeerPktStatFollowUp_Type = Counter32
+_TmnxPtpPeerPktStatFollowUp_Object = MibTableColumn
+tmnxPtpPeerPktStatFollowUp = _TmnxPtpPeerPktStatFollowUp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 4),
+    _TmnxPtpPeerPktStatFollowUp_Type()
+)
+tmnxPtpPeerPktStatFollowUp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatFollowUp.setStatus("current")
+_TmnxPtpPeerPktStatDelayRequest_Type = Counter32
+_TmnxPtpPeerPktStatDelayRequest_Object = MibTableColumn
+tmnxPtpPeerPktStatDelayRequest = _TmnxPtpPeerPktStatDelayRequest_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 5),
+    _TmnxPtpPeerPktStatDelayRequest_Type()
+)
+tmnxPtpPeerPktStatDelayRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatDelayRequest.setStatus("current")
+_TmnxPtpPeerPktStatDelayResp_Type = Counter32
+_TmnxPtpPeerPktStatDelayResp_Object = MibTableColumn
+tmnxPtpPeerPktStatDelayResp = _TmnxPtpPeerPktStatDelayResp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 6),
+    _TmnxPtpPeerPktStatDelayResp_Type()
+)
+tmnxPtpPeerPktStatDelayResp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatDelayResp.setStatus("current")
+_TmnxPtpPeerPktStatSignaling_Type = Counter32
+_TmnxPtpPeerPktStatSignaling_Object = MibTableColumn
+tmnxPtpPeerPktStatSignaling = _TmnxPtpPeerPktStatSignaling_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 7),
+    _TmnxPtpPeerPktStatSignaling_Type()
+)
+tmnxPtpPeerPktStatSignaling.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatSignaling.setStatus("current")
+_TmnxPtpPeerPktStatOther_Type = Counter32
+_TmnxPtpPeerPktStatOther_Object = MibTableColumn
+tmnxPtpPeerPktStatOther = _TmnxPtpPeerPktStatOther_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 8),
+    _TmnxPtpPeerPktStatOther_Type()
+)
+tmnxPtpPeerPktStatOther.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatOther.setStatus("current")
+_TmnxPtpPeerPktStatUniReqAnno_Type = Counter32
+_TmnxPtpPeerPktStatUniReqAnno_Object = MibTableColumn
+tmnxPtpPeerPktStatUniReqAnno = _TmnxPtpPeerPktStatUniReqAnno_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 9),
+    _TmnxPtpPeerPktStatUniReqAnno_Type()
+)
+tmnxPtpPeerPktStatUniReqAnno.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniReqAnno.setStatus("current")
+_TmnxPtpPeerPktStatUniReqSync_Type = Counter32
+_TmnxPtpPeerPktStatUniReqSync_Object = MibTableColumn
+tmnxPtpPeerPktStatUniReqSync = _TmnxPtpPeerPktStatUniReqSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 10),
+    _TmnxPtpPeerPktStatUniReqSync_Type()
+)
+tmnxPtpPeerPktStatUniReqSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniReqSync.setStatus("current")
+_TmnxPtpPeerPktStatUniReqDelayRsp_Type = Counter32
+_TmnxPtpPeerPktStatUniReqDelayRsp_Object = MibTableColumn
+tmnxPtpPeerPktStatUniReqDelayRsp = _TmnxPtpPeerPktStatUniReqDelayRsp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 11),
+    _TmnxPtpPeerPktStatUniReqDelayRsp_Type()
+)
+tmnxPtpPeerPktStatUniReqDelayRsp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniReqDelayRsp.setStatus("current")
+_TmnxPtpPeerPktStatUniGrantAnno_Type = Counter32
+_TmnxPtpPeerPktStatUniGrantAnno_Object = MibTableColumn
+tmnxPtpPeerPktStatUniGrantAnno = _TmnxPtpPeerPktStatUniGrantAnno_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 12),
+    _TmnxPtpPeerPktStatUniGrantAnno_Type()
+)
+tmnxPtpPeerPktStatUniGrantAnno.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniGrantAnno.setStatus("current")
+_TmnxPtpPeerPktStatUniGrantSync_Type = Counter32
+_TmnxPtpPeerPktStatUniGrantSync_Object = MibTableColumn
+tmnxPtpPeerPktStatUniGrantSync = _TmnxPtpPeerPktStatUniGrantSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 13),
+    _TmnxPtpPeerPktStatUniGrantSync_Type()
+)
+tmnxPtpPeerPktStatUniGrantSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniGrantSync.setStatus("current")
+_TmnxPtpPeerPktStatUniGrantDelRsp_Type = Counter32
+_TmnxPtpPeerPktStatUniGrantDelRsp_Object = MibTableColumn
+tmnxPtpPeerPktStatUniGrantDelRsp = _TmnxPtpPeerPktStatUniGrantDelRsp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 14),
+    _TmnxPtpPeerPktStatUniGrantDelRsp_Type()
+)
+tmnxPtpPeerPktStatUniGrantDelRsp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniGrantDelRsp.setStatus("current")
+_TmnxPtpPeerPktStatUniDenyAnno_Type = Counter32
+_TmnxPtpPeerPktStatUniDenyAnno_Object = MibTableColumn
+tmnxPtpPeerPktStatUniDenyAnno = _TmnxPtpPeerPktStatUniDenyAnno_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 15),
+    _TmnxPtpPeerPktStatUniDenyAnno_Type()
+)
+tmnxPtpPeerPktStatUniDenyAnno.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniDenyAnno.setStatus("current")
+_TmnxPtpPeerPktStatUniDenySync_Type = Counter32
+_TmnxPtpPeerPktStatUniDenySync_Object = MibTableColumn
+tmnxPtpPeerPktStatUniDenySync = _TmnxPtpPeerPktStatUniDenySync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 16),
+    _TmnxPtpPeerPktStatUniDenySync_Type()
+)
+tmnxPtpPeerPktStatUniDenySync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniDenySync.setStatus("current")
+_TmnxPtpPeerPktStatUniDenyDelRsp_Type = Counter32
+_TmnxPtpPeerPktStatUniDenyDelRsp_Object = MibTableColumn
+tmnxPtpPeerPktStatUniDenyDelRsp = _TmnxPtpPeerPktStatUniDenyDelRsp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 17),
+    _TmnxPtpPeerPktStatUniDenyDelRsp_Type()
+)
+tmnxPtpPeerPktStatUniDenyDelRsp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniDenyDelRsp.setStatus("current")
+_TmnxPtpPeerPktStatUniCancelAnno_Type = Counter32
+_TmnxPtpPeerPktStatUniCancelAnno_Object = MibTableColumn
+tmnxPtpPeerPktStatUniCancelAnno = _TmnxPtpPeerPktStatUniCancelAnno_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 18),
+    _TmnxPtpPeerPktStatUniCancelAnno_Type()
+)
+tmnxPtpPeerPktStatUniCancelAnno.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniCancelAnno.setStatus("current")
+_TmnxPtpPeerPktStatUniCancelSync_Type = Counter32
+_TmnxPtpPeerPktStatUniCancelSync_Object = MibTableColumn
+tmnxPtpPeerPktStatUniCancelSync = _TmnxPtpPeerPktStatUniCancelSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 19),
+    _TmnxPtpPeerPktStatUniCancelSync_Type()
+)
+tmnxPtpPeerPktStatUniCancelSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniCancelSync.setStatus("current")
+_TmnxPtpPeerPktStatUniCancelDelay_Type = Counter32
+_TmnxPtpPeerPktStatUniCancelDelay_Object = MibTableColumn
+tmnxPtpPeerPktStatUniCancelDelay = _TmnxPtpPeerPktStatUniCancelDelay_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 20),
+    _TmnxPtpPeerPktStatUniCancelDelay_Type()
+)
+tmnxPtpPeerPktStatUniCancelDelay.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniCancelDelay.setStatus("current")
+_TmnxPtpPeerPktStatUniAckCnclAnno_Type = Counter32
+_TmnxPtpPeerPktStatUniAckCnclAnno_Object = MibTableColumn
+tmnxPtpPeerPktStatUniAckCnclAnno = _TmnxPtpPeerPktStatUniAckCnclAnno_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 21),
+    _TmnxPtpPeerPktStatUniAckCnclAnno_Type()
+)
+tmnxPtpPeerPktStatUniAckCnclAnno.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniAckCnclAnno.setStatus("current")
+_TmnxPtpPeerPktStatUniAckCnclSync_Type = Counter32
+_TmnxPtpPeerPktStatUniAckCnclSync_Object = MibTableColumn
+tmnxPtpPeerPktStatUniAckCnclSync = _TmnxPtpPeerPktStatUniAckCnclSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 22),
+    _TmnxPtpPeerPktStatUniAckCnclSync_Type()
+)
+tmnxPtpPeerPktStatUniAckCnclSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniAckCnclSync.setStatus("current")
+_TmnxPtpPeerPktStatUniAckCnclDly_Type = Counter32
+_TmnxPtpPeerPktStatUniAckCnclDly_Object = MibTableColumn
+tmnxPtpPeerPktStatUniAckCnclDly = _TmnxPtpPeerPktStatUniAckCnclDly_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 23),
+    _TmnxPtpPeerPktStatUniAckCnclDly_Type()
+)
+tmnxPtpPeerPktStatUniAckCnclDly.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatUniAckCnclDly.setStatus("current")
+_TmnxPtpPeerPktStatOtherTLVs_Type = Counter32
+_TmnxPtpPeerPktStatOtherTLVs_Object = MibTableColumn
+tmnxPtpPeerPktStatOtherTLVs = _TmnxPtpPeerPktStatOtherTLVs_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 24),
+    _TmnxPtpPeerPktStatOtherTLVs_Type()
+)
+tmnxPtpPeerPktStatOtherTLVs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatOtherTLVs.setStatus("current")
+_TmnxPtpPeerPktStatDropBadDomain_Type = Counter32
+_TmnxPtpPeerPktStatDropBadDomain_Object = MibTableColumn
+tmnxPtpPeerPktStatDropBadDomain = _TmnxPtpPeerPktStatDropBadDomain_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 25),
+    _TmnxPtpPeerPktStatDropBadDomain_Type()
+)
+tmnxPtpPeerPktStatDropBadDomain.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatDropBadDomain.setStatus("current")
+_TmnxPtpPeerPktStatDropAltMaster_Type = Counter32
+_TmnxPtpPeerPktStatDropAltMaster_Object = MibTableColumn
+tmnxPtpPeerPktStatDropAltMaster = _TmnxPtpPeerPktStatDropAltMaster_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 26),
+    _TmnxPtpPeerPktStatDropAltMaster_Type()
+)
+tmnxPtpPeerPktStatDropAltMaster.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatDropAltMaster.setStatus("current")
+_TmnxPtpPeerPktStatDropOther_Type = Counter32
+_TmnxPtpPeerPktStatDropOther_Object = MibTableColumn
+tmnxPtpPeerPktStatDropOther = _TmnxPtpPeerPktStatDropOther_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 27),
+    _TmnxPtpPeerPktStatDropOther_Type()
+)
+tmnxPtpPeerPktStatDropOther.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatDropOther.setStatus("current")
+_TmnxPtpPeerPktStatTimeStampPort_Type = Counter32
+_TmnxPtpPeerPktStatTimeStampPort_Object = MibTableColumn
+tmnxPtpPeerPktStatTimeStampPort = _TmnxPtpPeerPktStatTimeStampPort_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 28),
+    _TmnxPtpPeerPktStatTimeStampPort_Type()
+)
+tmnxPtpPeerPktStatTimeStampPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatTimeStampPort.setStatus("current")
+_TmnxPtpPeerPktStatTimeStampCpm_Type = Counter32
+_TmnxPtpPeerPktStatTimeStampCpm_Object = MibTableColumn
+tmnxPtpPeerPktStatTimeStampCpm = _TmnxPtpPeerPktStatTimeStampCpm_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 29),
+    _TmnxPtpPeerPktStatTimeStampCpm_Type()
+)
+tmnxPtpPeerPktStatTimeStampCpm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatTimeStampCpm.setStatus("current")
+_TmnxPtpPeerPktStatDropOutOfSeq_Type = Counter32
+_TmnxPtpPeerPktStatDropOutOfSeq_Object = MibTableColumn
+tmnxPtpPeerPktStatDropOutOfSeq = _TmnxPtpPeerPktStatDropOutOfSeq_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 30),
+    _TmnxPtpPeerPktStatDropOutOfSeq_Type()
+)
+tmnxPtpPeerPktStatDropOutOfSeq.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatDropOutOfSeq.setStatus("current")
+_TmnxPtpPeerPktStatDropPeerShut_Type = Counter32
+_TmnxPtpPeerPktStatDropPeerShut_Object = MibTableColumn
+tmnxPtpPeerPktStatDropPeerShut = _TmnxPtpPeerPktStatDropPeerShut_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 31),
+    _TmnxPtpPeerPktStatDropPeerShut_Type()
+)
+tmnxPtpPeerPktStatDropPeerShut.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPeerPktStatDropPeerShut.setStatus("current")
+_TmnxPtpClockRecoveryStatistics_ObjectIdentity = ObjectIdentity
+tmnxPtpClockRecoveryStatistics = _TmnxPtpClockRecoveryStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3)
+)
+_TmnxPtpClockRecStatsInitial_Type = Unsigned32
+_TmnxPtpClockRecStatsInitial_Object = MibScalar
+tmnxPtpClockRecStatsInitial = _TmnxPtpClockRecStatsInitial_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 1),
+    _TmnxPtpClockRecStatsInitial_Type()
+)
+tmnxPtpClockRecStatsInitial.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsInitial.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsInitial.setUnits("seconds")
+_TmnxPtpClockRecStatsAcquiring_Type = Unsigned32
+_TmnxPtpClockRecStatsAcquiring_Object = MibScalar
+tmnxPtpClockRecStatsAcquiring = _TmnxPtpClockRecStatsAcquiring_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 2),
+    _TmnxPtpClockRecStatsAcquiring_Type()
+)
+tmnxPtpClockRecStatsAcquiring.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsAcquiring.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsAcquiring.setUnits("seconds")
+_TmnxPtpClockRecStatsPhaseTrack_Type = Unsigned32
+_TmnxPtpClockRecStatsPhaseTrack_Object = MibScalar
+tmnxPtpClockRecStatsPhaseTrack = _TmnxPtpClockRecStatsPhaseTrack_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 3),
+    _TmnxPtpClockRecStatsPhaseTrack_Type()
+)
+tmnxPtpClockRecStatsPhaseTrack.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsPhaseTrack.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsPhaseTrack.setUnits("seconds")
+_TmnxPtpClockRecStatsLocked_Type = Unsigned32
+_TmnxPtpClockRecStatsLocked_Object = MibScalar
+tmnxPtpClockRecStatsLocked = _TmnxPtpClockRecStatsLocked_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 4),
+    _TmnxPtpClockRecStatsLocked_Type()
+)
+tmnxPtpClockRecStatsLocked.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsLocked.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsLocked.setUnits("seconds")
+_TmnxPtpClockRecStatsHoldover_Type = Unsigned32
+_TmnxPtpClockRecStatsHoldover_Object = MibScalar
+tmnxPtpClockRecStatsHoldover = _TmnxPtpClockRecStatsHoldover_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 5),
+    _TmnxPtpClockRecStatsHoldover_Type()
+)
+tmnxPtpClockRecStatsHoldover.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsHoldover.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsHoldover.setUnits("seconds")
+_TmnxPtpClockRecStatsSyncPktLoss_Type = Counter32
+_TmnxPtpClockRecStatsSyncPktLoss_Object = MibScalar
+tmnxPtpClockRecStatsSyncPktLoss = _TmnxPtpClockRecStatsSyncPktLoss_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 6),
+    _TmnxPtpClockRecStatsSyncPktLoss_Type()
+)
+tmnxPtpClockRecStatsSyncPktLoss.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsSyncPktLoss.setStatus("current")
+_TmnxPtpClockRecStatsSyncHiPktLss_Type = Counter32
+_TmnxPtpClockRecStatsSyncHiPktLss_Object = MibScalar
+tmnxPtpClockRecStatsSyncHiPktLss = _TmnxPtpClockRecStatsSyncHiPktLss_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 7),
+    _TmnxPtpClockRecStatsSyncHiPktLss_Type()
+)
+tmnxPtpClockRecStatsSyncHiPktLss.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsSyncHiPktLss.setStatus("current")
+_TmnxPtpClockRecStatsSyncStep_Type = Counter32
+_TmnxPtpClockRecStatsSyncStep_Object = MibScalar
+tmnxPtpClockRecStatsSyncStep = _TmnxPtpClockRecStatsSyncStep_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 8),
+    _TmnxPtpClockRecStatsSyncStep_Type()
+)
+tmnxPtpClockRecStatsSyncStep.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsSyncStep.setStatus("current")
+_TmnxPtpClockRecStatsSyncHighPDV_Type = Counter32
+_TmnxPtpClockRecStatsSyncHighPDV_Object = MibScalar
+tmnxPtpClockRecStatsSyncHighPDV = _TmnxPtpClockRecStatsSyncHighPDV_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 9),
+    _TmnxPtpClockRecStatsSyncHighPDV_Type()
+)
+tmnxPtpClockRecStatsSyncHighPDV.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsSyncHighPDV.setStatus("current")
+_TmnxPtpClockRecStatsDlyPktLoss_Type = Counter32
+_TmnxPtpClockRecStatsDlyPktLoss_Object = MibScalar
+tmnxPtpClockRecStatsDlyPktLoss = _TmnxPtpClockRecStatsDlyPktLoss_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 10),
+    _TmnxPtpClockRecStatsDlyPktLoss_Type()
+)
+tmnxPtpClockRecStatsDlyPktLoss.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsDlyPktLoss.setStatus("current")
+_TmnxPtpClockRecStatsDlyHiPktLss_Type = Counter32
+_TmnxPtpClockRecStatsDlyHiPktLss_Object = MibScalar
+tmnxPtpClockRecStatsDlyHiPktLss = _TmnxPtpClockRecStatsDlyHiPktLss_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 11),
+    _TmnxPtpClockRecStatsDlyHiPktLss_Type()
+)
+tmnxPtpClockRecStatsDlyHiPktLss.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsDlyHiPktLss.setStatus("current")
+_TmnxPtpClockRecStatsDlyStep_Type = Counter32
+_TmnxPtpClockRecStatsDlyStep_Object = MibScalar
+tmnxPtpClockRecStatsDlyStep = _TmnxPtpClockRecStatsDlyStep_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 12),
+    _TmnxPtpClockRecStatsDlyStep_Type()
+)
+tmnxPtpClockRecStatsDlyStep.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsDlyStep.setStatus("current")
+_TmnxPtpClockRecStatsDlyHighPDV_Type = Counter32
+_TmnxPtpClockRecStatsDlyHighPDV_Object = MibScalar
+tmnxPtpClockRecStatsDlyHighPDV = _TmnxPtpClockRecStatsDlyHighPDV_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 13),
+    _TmnxPtpClockRecStatsDlyHighPDV_Type()
+)
+tmnxPtpClockRecStatsDlyHighPDV.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecStatsDlyHighPDV.setStatus("current")
+_TmnxPtpPortStatsTable_Object = MibTable
+tmnxPtpPortStatsTable = _TmnxPtpPortStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatsTable.setStatus("current")
+_TmnxPtpPortStatsEntry_Object = MibTableRow
+tmnxPtpPortStatsEntry = _TmnxPtpPortStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1)
+)
+tmnxPtpPortStatsEntry.setIndexNames(
+    (0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"),
+    (0, "TIMETRA-PORT-MIB", "tmnxPortPortID"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPortStatDirection"),
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatsEntry.setStatus("current")
+_TmnxPtpPortStatDirection_Type = TmnxPtpDirection
+_TmnxPtpPortStatDirection_Object = MibTableColumn
+tmnxPtpPortStatDirection = _TmnxPtpPortStatDirection_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 1),
+    _TmnxPtpPortStatDirection_Type()
+)
+tmnxPtpPortStatDirection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatDirection.setStatus("current")
+_TmnxPtpPortStatAnnounce_Type = Counter32
+_TmnxPtpPortStatAnnounce_Object = MibTableColumn
+tmnxPtpPortStatAnnounce = _TmnxPtpPortStatAnnounce_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 2),
+    _TmnxPtpPortStatAnnounce_Type()
+)
+tmnxPtpPortStatAnnounce.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatAnnounce.setStatus("current")
+_TmnxPtpPortStatSync_Type = Counter32
+_TmnxPtpPortStatSync_Object = MibTableColumn
+tmnxPtpPortStatSync = _TmnxPtpPortStatSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 3),
+    _TmnxPtpPortStatSync_Type()
+)
+tmnxPtpPortStatSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatSync.setStatus("current")
+_TmnxPtpPortStatFollowUp_Type = Counter32
+_TmnxPtpPortStatFollowUp_Object = MibTableColumn
+tmnxPtpPortStatFollowUp = _TmnxPtpPortStatFollowUp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 4),
+    _TmnxPtpPortStatFollowUp_Type()
+)
+tmnxPtpPortStatFollowUp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatFollowUp.setStatus("current")
+_TmnxPtpPortStatDelayRequest_Type = Counter32
+_TmnxPtpPortStatDelayRequest_Object = MibTableColumn
+tmnxPtpPortStatDelayRequest = _TmnxPtpPortStatDelayRequest_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 5),
+    _TmnxPtpPortStatDelayRequest_Type()
+)
+tmnxPtpPortStatDelayRequest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatDelayRequest.setStatus("current")
+_TmnxPtpPortStatDelayResponse_Type = Counter32
+_TmnxPtpPortStatDelayResponse_Object = MibTableColumn
+tmnxPtpPortStatDelayResponse = _TmnxPtpPortStatDelayResponse_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 6),
+    _TmnxPtpPortStatDelayResponse_Type()
+)
+tmnxPtpPortStatDelayResponse.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatDelayResponse.setStatus("current")
+_TmnxPtpPortStatSignaling_Type = Counter32
+_TmnxPtpPortStatSignaling_Object = MibTableColumn
+tmnxPtpPortStatSignaling = _TmnxPtpPortStatSignaling_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 7),
+    _TmnxPtpPortStatSignaling_Type()
+)
+tmnxPtpPortStatSignaling.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatSignaling.setStatus("current")
+_TmnxPtpPortStatOther_Type = Counter32
+_TmnxPtpPortStatOther_Object = MibTableColumn
+tmnxPtpPortStatOther = _TmnxPtpPortStatOther_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 8),
+    _TmnxPtpPortStatOther_Type()
+)
+tmnxPtpPortStatOther.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatOther.setStatus("current")
+_TmnxPtpPortStatTimeStampPort_Type = Counter32
+_TmnxPtpPortStatTimeStampPort_Object = MibTableColumn
+tmnxPtpPortStatTimeStampPort = _TmnxPtpPortStatTimeStampPort_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 9),
+    _TmnxPtpPortStatTimeStampPort_Type()
+)
+tmnxPtpPortStatTimeStampPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatTimeStampPort.setStatus("current")
+_TmnxPtpPortStatTimeStampCpm_Type = Counter32
+_TmnxPtpPortStatTimeStampCpm_Object = MibTableColumn
+tmnxPtpPortStatTimeStampCpm = _TmnxPtpPortStatTimeStampCpm_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 10),
+    _TmnxPtpPortStatTimeStampCpm_Type()
+)
+tmnxPtpPortStatTimeStampCpm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatTimeStampCpm.setStatus("current")
+_TmnxPtpPortStatDropBadDomain_Type = Counter32
+_TmnxPtpPortStatDropBadDomain_Object = MibTableColumn
+tmnxPtpPortStatDropBadDomain = _TmnxPtpPortStatDropBadDomain_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 11),
+    _TmnxPtpPortStatDropBadDomain_Type()
+)
+tmnxPtpPortStatDropBadDomain.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatDropBadDomain.setStatus("current")
+_TmnxPtpPortStatDropAltMaster_Type = Counter32
+_TmnxPtpPortStatDropAltMaster_Object = MibTableColumn
+tmnxPtpPortStatDropAltMaster = _TmnxPtpPortStatDropAltMaster_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 12),
+    _TmnxPtpPortStatDropAltMaster_Type()
+)
+tmnxPtpPortStatDropAltMaster.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatDropAltMaster.setStatus("current")
+_TmnxPtpPortStatDropOutOfSeq_Type = Counter32
+_TmnxPtpPortStatDropOutOfSeq_Object = MibTableColumn
+tmnxPtpPortStatDropOutOfSeq = _TmnxPtpPortStatDropOutOfSeq_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 13),
+    _TmnxPtpPortStatDropOutOfSeq_Type()
+)
+tmnxPtpPortStatDropOutOfSeq.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatDropOutOfSeq.setStatus("current")
+_TmnxPtpPortStatDropOther_Type = Counter32
+_TmnxPtpPortStatDropOther_Object = MibTableColumn
+tmnxPtpPortStatDropOther = _TmnxPtpPortStatDropOther_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 14),
+    _TmnxPtpPortStatDropOther_Type()
+)
+tmnxPtpPortStatDropOther.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatDropOther.setStatus("current")
+_TmnxPtpPacketRateStatsTable_Object = MibTable
+tmnxPtpPacketRateStatsTable = _TmnxPtpPacketRateStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5)
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsTable.setStatus("current")
+_TmnxPtpPacketRateStatsEntry_Object = MibTableRow
+tmnxPtpPacketRateStatsEntry = _TmnxPtpPacketRateStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1)
+)
+tmnxPtpPacketRateStatsEntry.setIndexNames(
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsTransport"),
+    (0, "TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsDirection"),
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsEntry.setStatus("current")
+_TmnxPtpPacketRateStatsTransport_Type = TmnxPtpTransportType
+_TmnxPtpPacketRateStatsTransport_Object = MibTableColumn
+tmnxPtpPacketRateStatsTransport = _TmnxPtpPacketRateStatsTransport_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 1),
+    _TmnxPtpPacketRateStatsTransport_Type()
+)
+tmnxPtpPacketRateStatsTransport.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsTransport.setStatus("current")
+_TmnxPtpPacketRateStatsDirection_Type = TmnxPtpDirection
+_TmnxPtpPacketRateStatsDirection_Object = MibTableColumn
+tmnxPtpPacketRateStatsDirection = _TmnxPtpPacketRateStatsDirection_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 2),
+    _TmnxPtpPacketRateStatsDirection_Type()
+)
+tmnxPtpPacketRateStatsDirection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsDirection.setStatus("current")
+_TmnxPtpPacketRateStatsAnnounce_Type = Unsigned32
+_TmnxPtpPacketRateStatsAnnounce_Object = MibTableColumn
+tmnxPtpPacketRateStatsAnnounce = _TmnxPtpPacketRateStatsAnnounce_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 3),
+    _TmnxPtpPacketRateStatsAnnounce_Type()
+)
+tmnxPtpPacketRateStatsAnnounce.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsAnnounce.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsAnnounce.setUnits("packets per decasecond")
+_TmnxPtpPacketRateStatsSync_Type = Unsigned32
+_TmnxPtpPacketRateStatsSync_Object = MibTableColumn
+tmnxPtpPacketRateStatsSync = _TmnxPtpPacketRateStatsSync_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 4),
+    _TmnxPtpPacketRateStatsSync_Type()
+)
+tmnxPtpPacketRateStatsSync.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsSync.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsSync.setUnits("packets per decasecond")
+_TmnxPtpPacketRateStatsFollowUp_Type = Unsigned32
+_TmnxPtpPacketRateStatsFollowUp_Object = MibTableColumn
+tmnxPtpPacketRateStatsFollowUp = _TmnxPtpPacketRateStatsFollowUp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 5),
+    _TmnxPtpPacketRateStatsFollowUp_Type()
+)
+tmnxPtpPacketRateStatsFollowUp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsFollowUp.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsFollowUp.setUnits("packets per decasecond")
+_TmnxPtpPacketRateStatsDelayReq_Type = Unsigned32
+_TmnxPtpPacketRateStatsDelayReq_Object = MibTableColumn
+tmnxPtpPacketRateStatsDelayReq = _TmnxPtpPacketRateStatsDelayReq_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 6),
+    _TmnxPtpPacketRateStatsDelayReq_Type()
+)
+tmnxPtpPacketRateStatsDelayReq.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsDelayReq.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsDelayReq.setUnits("packets per decasecond")
+_TmnxPtpPacketRateStatsDelayResp_Type = Unsigned32
+_TmnxPtpPacketRateStatsDelayResp_Object = MibTableColumn
+tmnxPtpPacketRateStatsDelayResp = _TmnxPtpPacketRateStatsDelayResp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 7),
+    _TmnxPtpPacketRateStatsDelayResp_Type()
+)
+tmnxPtpPacketRateStatsDelayResp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsDelayResp.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsDelayResp.setUnits("packets per decasecond")
+_TmnxPtpPacketRateStatsOther_Type = Unsigned32
+_TmnxPtpPacketRateStatsOther_Object = MibTableColumn
+tmnxPtpPacketRateStatsOther = _TmnxPtpPacketRateStatsOther_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 8),
+    _TmnxPtpPacketRateStatsOther_Type()
+)
+tmnxPtpPacketRateStatsOther.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsOther.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsOther.setUnits("packets per decasecond")
+_TmnxPtp1588NotifyObjects_ObjectIdentity = ObjectIdentity
+tmnxPtp1588NotifyObjects = _TmnxPtp1588NotifyObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10)
+)
+_TmnxPtpMasterClockLastIpAddrType_Type = InetAddressType
+_TmnxPtpMasterClockLastIpAddrType_Object = MibScalar
+tmnxPtpMasterClockLastIpAddrType = _TmnxPtpMasterClockLastIpAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 1),
+    _TmnxPtpMasterClockLastIpAddrType_Type()
+)
+tmnxPtpMasterClockLastIpAddrType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockLastIpAddrType.setStatus("current")
+
+
+class _TmnxPtpMasterClockLastIpAddress_Type(InetAddress):
+    """Custom type tmnxPtpMasterClockLastIpAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+    )
+
+
+_TmnxPtpMasterClockLastIpAddress_Type.__name__ = "InetAddress"
+_TmnxPtpMasterClockLastIpAddress_Object = MibScalar
+tmnxPtpMasterClockLastIpAddress = _TmnxPtpMasterClockLastIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 2),
+    _TmnxPtpMasterClockLastIpAddress_Type()
+)
+tmnxPtpMasterClockLastIpAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockLastIpAddress.setStatus("current")
+_TmnxPtpNotifyRowPointer_Type = RowPointer
+_TmnxPtpNotifyRowPointer_Object = MibScalar
+tmnxPtpNotifyRowPointer = _TmnxPtpNotifyRowPointer_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 3),
+    _TmnxPtpNotifyRowPointer_Type()
+)
+tmnxPtpNotifyRowPointer.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxPtpNotifyRowPointer.setStatus("current")
+_TmnxPtpNotifyRowDescription_Type = TItemDescription
+_TmnxPtpNotifyRowDescription_Object = MibScalar
+tmnxPtpNotifyRowDescription = _TmnxPtpNotifyRowDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 4),
+    _TmnxPtpNotifyRowDescription_Type()
+)
+tmnxPtpNotifyRowDescription.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxPtpNotifyRowDescription.setStatus("current")
+_TmnxPtpMasterClockLastTransType_Type = TmnxPtpTransportType
+_TmnxPtpMasterClockLastTransType_Object = MibScalar
+tmnxPtpMasterClockLastTransType = _TmnxPtpMasterClockLastTransType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 5),
+    _TmnxPtpMasterClockLastTransType_Type()
+)
+tmnxPtpMasterClockLastTransType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockLastTransType.setStatus("current")
+_TmnxPtpMasterClockLastEthPort_Type = TmnxPortID
+_TmnxPtpMasterClockLastEthPort_Object = MibScalar
+tmnxPtpMasterClockLastEthPort = _TmnxPtpMasterClockLastEthPort_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 6),
+    _TmnxPtpMasterClockLastEthPort_Type()
+)
+tmnxPtpMasterClockLastEthPort.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockLastEthPort.setStatus("current")
+_TmnxPtpMasterClockLastMacAddress_Type = MacAddress
+_TmnxPtpMasterClockLastMacAddress_Object = MibScalar
+tmnxPtpMasterClockLastMacAddress = _TmnxPtpMasterClockLastMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 7),
+    _TmnxPtpMasterClockLastMacAddress_Type()
+)
+tmnxPtpMasterClockLastMacAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockLastMacAddress.setStatus("current")
+_TmnxPtpNotifyPortId_Type = TmnxPortID
+_TmnxPtpNotifyPortId_Object = MibScalar
+tmnxPtpNotifyPortId = _TmnxPtpNotifyPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 8),
+    _TmnxPtpNotifyPortId_Type()
+)
+tmnxPtpNotifyPortId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxPtpNotifyPortId.setStatus("current")
+_TmnxPtp1588NotifyPrefix_ObjectIdentity = ObjectIdentity
+tmnxPtp1588NotifyPrefix = _TmnxPtp1588NotifyPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74)
+)
+_TmnxPtp1588Notifications_ObjectIdentity = ObjectIdentity
+tmnxPtp1588Notifications = _TmnxPtp1588Notifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0)
+)
+vRtrIfEntry.registerAugmentions(
+    ("TIMETRA-PTP-MIB",
+     "tmnxPtpVRtrIfEntry")
+)
 tmnxPtpVRtrIfEntry.setIndexNames(*vRtrIfEntry.getIndexNames())
-if mibBuilder.loadTexts: tmnxPtpVRtrIfEntry.setStatus('current')
-tmnxPtpVRtrIfAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 4, 1, 1), TmnxAdminState()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpVRtrIfAdminState.setStatus('current')
-tmnxPtpVRtrTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5), )
-if mibBuilder.loadTexts: tmnxPtpVRtrTable.setStatus('current')
-tmnxPtpVRtrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"))
-if mibBuilder.loadTexts: tmnxPtpVRtrEntry.setStatus('current')
-tmnxPtpVRtrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpVRtrRowStatus.setStatus('current')
-tmnxPtpVRtrLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpVRtrLastChanged.setStatus('current')
-tmnxPtpVRtrAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1, 3), TmnxAdminState().clone('inService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpVRtrAdminState.setStatus('current')
-tmnxPtpVRtrOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1, 4), TmnxOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpVRtrOperState.setStatus('current')
-tmnxPtpVRtrPeerLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 512), )).clone(-1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpVRtrPeerLimit.setStatus('current')
-tmnxPtpPortTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6), )
-if mibBuilder.loadTexts: tmnxPtpPortTable.setStatus('current')
-tmnxPtpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"), (0, "TIMETRA-PORT-MIB", "tmnxPortPortID"))
-if mibBuilder.loadTexts: tmnxPtpPortEntry.setStatus('current')
-tmnxPtpPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPortRowStatus.setStatus('current')
-tmnxPtpPortLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortLastChanged.setStatus('current')
-tmnxPtpPortAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 3), TmnxAdminState().clone('inService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPortAdminState.setStatus('current')
-tmnxPtpPortSyncInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 4), TmnxPtpLogInterval().subtype(subtypeSpec=ValueRangeConstraint(-6, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPortSyncInterval.setStatus('current')
-tmnxPtpPortDelayInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 5), TmnxPtpLogInterval().subtype(subtypeSpec=ValueRangeConstraint(-6, 0))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPortDelayInterval.setStatus('current')
-tmnxPtpPortMulticastAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 6), MacAddress().clone(hexValue="011B19000000")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPortMulticastAddress.setStatus('current')
-tmnxPtpPortLocalPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 7), TmnxPtpPriority().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(128)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPortLocalPriority.setStatus('current')
-tmnxPtpPortMasterOnly = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 2, 6, 1, 8), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPtpPortMasterOnly.setStatus('current')
-tmnxPtp1588Status = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3))
-tmnxPtpClockOperTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1), )
-if mibBuilder.loadTexts: tmnxPtpClockOperTable.setStatus('current')
-tmnxPtpClockOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1), )
-tmnxCpmCardEntry.registerAugmentions(("TIMETRA-PTP-MIB", "tmnxPtpClockOperEntry"))
+tmnxCpmCardEntry.registerAugmentions(
+    ("TIMETRA-PTP-MIB",
+     "tmnxPtpClockOperEntry")
+)
 tmnxPtpClockOperEntry.setIndexNames(*tmnxCpmCardEntry.getIndexNames())
-if mibBuilder.loadTexts: tmnxPtpClockOperEntry.setStatus('current')
-tmnxPtpClockIdentity = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 1), TmnxPtpClockIdentity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockIdentity.setStatus('current')
-tmnxPtpClockOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 2), TmnxOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockOperState.setStatus('current')
-tmnxPtpClockStepType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 3), TmnxPtpClockStepType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockStepType.setStatus('current')
-tmnxPtpClockClass = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 4), TmnxPtpClockClass()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockClass.setStatus('current')
-tmnxPtpClockAccuracy = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 5), TmnxPtpClockAccuracy()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockAccuracy.setStatus('current')
-tmnxPtpClockVariance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 6), TmnxPtpClockVariance()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockVariance.setStatus('current')
-tmnxPtpClockPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 7), TmnxPtpPortState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockPortState.setStatus('current')
-tmnxPtpClockPortStateLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 8), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockPortStateLastChanged.setStatus('current')
-tmnxPtpClockRecoveryState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("notApplicable", 0), ("initial", 1), ("acquiring", 2), ("phaseTracking", 3), ("holdover", 4), ("locked", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecoveryState.setStatus('current')
-tmnxPtpClockRecoveryStateLastChg = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 10), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecoveryStateLastChg.setStatus('current')
-tmnxPtpClockFrequencyOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 1, 1, 11), Integer32()).setUnits('parts per trillion').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockFrequencyOffset.setStatus('current')
-tmnxPtpMasterClockOper = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2))
-tmnxPtpMasterClockAddressType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 1), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockAddressType.setStatus('current')
-tmnxPtpMasterClockAddress = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockAddress.setStatus('current')
-tmnxPtpMasterClockGMClockId = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 3), TmnxPtpClockIdentity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockGMClockId.setStatus('current')
-tmnxPtpMasterClockGMClockPrio1 = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 4), TmnxPtpPriority()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockGMClockPrio1.setStatus('current')
-tmnxPtpMasterClockGMClockPrio2 = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 5), TmnxPtpPriority()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockGMClockPrio2.setStatus('current')
-tmnxPtpMasterClockGMClockClass = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 6), TmnxPtpClockClass()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockGMClockClass.setStatus('current')
-tmnxPtpMasterClockGMAccuracy = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 7), TmnxPtpClockAccuracy()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockGMAccuracy.setStatus('current')
-tmnxPtpMasterClockGMVariance = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 8), TmnxPtpClockVariance()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockGMVariance.setStatus('current')
-tmnxPtpMasterClockParentClockId = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 9), TmnxPtpClockIdentity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockParentClockId.setStatus('current')
-tmnxPtpMasterClockParentPortNum = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 10), TmnxPtpPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockParentPortNum.setStatus('current')
-tmnxPtpMasterClockTransportType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 11), TmnxPtpTransportType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockTransportType.setStatus('current')
-tmnxPtpMasterClockEthernetPort = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 12), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockEthernetPort.setStatus('current')
-tmnxPtpMasterClockMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 2, 13), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpMasterClockMacAddress.setStatus('current')
-tmnxPtpPeerMasterStatusTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3), )
-if mibBuilder.loadTexts: tmnxPtpPeerMasterStatusTable.setStatus('current')
-tmnxPtpPeerMasterStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddrType"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddress"))
-if mibBuilder.loadTexts: tmnxPtpPeerMasterStatusEntry.setStatus('current')
-tmnxPtpPeerMasterCurrentMaster = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerMasterCurrentMaster.setStatus('current')
-tmnxPtpPeerMasterClockStepType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 2), TmnxPtpClockStepType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerMasterClockStepType.setStatus('current')
-tmnxPtpPeerMasterClockStepsRemvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerMasterClockStepsRemvd.setStatus('current')
-tmnxPtpPeerMasterGMClockId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 4), TmnxPtpClockIdentity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerMasterGMClockId.setStatus('current')
-tmnxPtpPeerMasterGMClockPrio1 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 5), TmnxPtpPriority()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerMasterGMClockPrio1.setStatus('current')
-tmnxPtpPeerMasterGMClockPrio2 = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 6), TmnxPtpPriority()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerMasterGMClockPrio2.setStatus('current')
-tmnxPtpPeerMasterGMClockClass = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 7), TmnxPtpClockClass()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerMasterGMClockClass.setStatus('current')
-tmnxPtpPeerMasterGMClockAccuracy = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 8), TmnxPtpClockAccuracy()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerMasterGMClockAccuracy.setStatus('current')
-tmnxPtpPeerMasterGMClockVariance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 9), TmnxPtpClockVariance()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerMasterGMClockVariance.setStatus('current')
-tmnxPtpPeerMasterAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 3, 1, 11), Bits().clone(namedValues=NamedValues(("ptsfLossAnnounce", 0), ("ptsfLossSync", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerMasterAlarm.setStatus('current')
-tmnxPtpPeerUnicastTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4), )
-if mibBuilder.loadTexts: tmnxPtpPeerUnicastTable.setStatus('current')
-tmnxPtpPeerUnicastEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddrType"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddress"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastDirection"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastPktType"))
-if mibBuilder.loadTexts: tmnxPtpPeerUnicastEntry.setStatus('current')
-tmnxPtpPeerUnicastDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 1), TmnxPtpDirection())
-if mibBuilder.loadTexts: tmnxPtpPeerUnicastDirection.setStatus('current')
-tmnxPtpPeerUnicastPktType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("announce", 1), ("sync", 2), ("delayResponse", 3))))
-if mibBuilder.loadTexts: tmnxPtpPeerUnicastPktType.setStatus('current')
-tmnxPtpPeerUnicastStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("pending", 1), ("granted", 2), ("denied", 3), ("expired", 4), ("canceled", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerUnicastStatus.setStatus('current')
-tmnxPtpPeerUnicastRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 4), TmnxPtpLogInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerUnicastRate.setStatus('current')
-tmnxPtpPeerUnicastDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 5), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerUnicastDuration.setStatus('current')
-tmnxPtpPeerUnicastEventTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 4, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerUnicastEventTime.setStatus('current')
-tmnxPtpTimeInformation = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5))
-tmnxPtpTimeInfoTimescale = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ptp", 1), ("arbitrary", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpTimeInfoTimescale.setStatus('current')
-tmnxPtpTimeInfoCurrentTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5, 2), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpTimeInfoCurrentTime.setStatus('current')
-tmnxPtpTimeInfoFreqTraceable = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpTimeInfoFreqTraceable.setStatus('current')
-tmnxPtpTimeInfoTimeTraceable = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpTimeInfoTimeTraceable.setStatus('current')
-tmnxPtpTimeInfoTimeSource = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 5, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(16, 32, 48, 64, 80, 96, 144, 160, 255))).clone(namedValues=NamedValues(("atomicClock", 16), ("gps", 32), ("terrestrialRadio", 48), ("ptp", 64), ("ntp", 80), ("handSet", 96), ("other", 144), ("internalOscillator", 160), ("reserved", 255)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpTimeInfoTimeSource.setStatus('current')
-tmnxPtpPortStatusTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6), )
-if mibBuilder.loadTexts: tmnxPtpPortStatusTable.setStatus('current')
-tmnxPtpPortStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1), )
-tmnxPtpPortEntry.registerAugmentions(("TIMETRA-PTP-MIB", "tmnxPtpPortStatusEntry"))
+tmnxPtpPortEntry.registerAugmentions(
+    ("TIMETRA-PTP-MIB",
+     "tmnxPtpPortStatusEntry")
+)
 tmnxPtpPortStatusEntry.setIndexNames(*tmnxPtpPortEntry.getIndexNames())
-if mibBuilder.loadTexts: tmnxPtpPortStatusEntry.setStatus('current')
-tmnxPtpPortLocalPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 1), TmnxPtpPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortLocalPortNumber.setStatus('current')
-tmnxPtpPortOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 2), TmnxOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortOperState.setStatus('current')
-tmnxPtpPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 3), TmnxPtpPortState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortState.setStatus('current')
-tmnxPtpPortTimeStampRefPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 4), TmnxPtpTimeStampReferencePoint()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortTimeStampRefPoint.setStatus('current')
-tmnxPtpPortNeighbors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortNeighbors.setStatus('current')
-tmnxPtpPortTxPacketRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 6), Unsigned32()).setUnits('packets per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortTxPacketRate.setStatus('current')
-tmnxPtpPortRxPacketRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 7), Unsigned32()).setUnits('packets per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortRxPacketRate.setStatus('current')
-tmnxPtpPortSrcMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 6, 1, 8), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortSrcMacAddr.setStatus('current')
-tmnxPtpPortNeighborTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7), )
-if mibBuilder.loadTexts: tmnxPtpPortNeighborTable.setStatus('current')
-tmnxPtpPortNeighborEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"), (0, "TIMETRA-PORT-MIB", "tmnxPortPortID"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPortNeighborMacAddress"))
-if mibBuilder.loadTexts: tmnxPtpPortNeighborEntry.setStatus('current')
-tmnxPtpPortNeighborMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7, 1, 1), MacAddress())
-if mibBuilder.loadTexts: tmnxPtpPortNeighborMacAddress.setStatus('current')
-tmnxPtpPortNeighborClockId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7, 1, 2), TmnxPtpClockIdentity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortNeighborClockId.setStatus('current')
-tmnxPtpPortNeighborPtpPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7, 1, 3), TmnxPtpPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortNeighborPtpPortNumber.setStatus('current')
-tmnxPtpPortNeighborRxPacketRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 3, 7, 1, 4), Unsigned32()).setUnits('packets per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortNeighborRxPacketRate.setStatus('current')
-tmnxPtp1588Statistics = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5))
-tmnxPtpClockPacketStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1), )
-if mibBuilder.loadTexts: tmnxPtpClockPacketStatsTable.setStatus('current')
-tmnxPtpClockPacketStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1), ).setIndexNames((0, "TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDirection"))
-if mibBuilder.loadTexts: tmnxPtpClockPacketStatsEntry.setStatus('current')
-tmnxPtpClkPktStatsDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 1), TmnxPtpDirection())
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsDirection.setStatus('current')
-tmnxPtpClkPktStatsAnnounce = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsAnnounce.setStatus('current')
-tmnxPtpClkPktStatsSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsSync.setStatus('current')
-tmnxPtpClkPktStatsFollowUp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsFollowUp.setStatus('current')
-tmnxPtpClkPktStatsDelayRequest = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsDelayRequest.setStatus('current')
-tmnxPtpClkPktStatsDelayResp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsDelayResp.setStatus('current')
-tmnxPtpClkPktStatsSignaling = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsSignaling.setStatus('current')
-tmnxPtpClkPktStatsOther = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsOther.setStatus('current')
-tmnxPtpClkPktStatsUniReqAnno = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniReqAnno.setStatus('current')
-tmnxPtpClkPktStatsUniReqSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniReqSync.setStatus('current')
-tmnxPtpClkPktStatsUniReqDelayRsp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniReqDelayRsp.setStatus('current')
-tmnxPtpClkPktStatsUniGrantAnno = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniGrantAnno.setStatus('current')
-tmnxPtpClkPktStatsUniGrantSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniGrantSync.setStatus('current')
-tmnxPtpClkPktStatsUniGrantDelRsp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniGrantDelRsp.setStatus('current')
-tmnxPtpClkPktStatsUniDenyAnno = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniDenyAnno.setStatus('current')
-tmnxPtpClkPktStatsUniDenySync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniDenySync.setStatus('current')
-tmnxPtpClkPktStatsUniDenyDelRsp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniDenyDelRsp.setStatus('current')
-tmnxPtpClkPktStatsUniCancelAnno = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniCancelAnno.setStatus('current')
-tmnxPtpClkPktStatsUniCancelSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniCancelSync.setStatus('current')
-tmnxPtpClkPktStatsUniCancelDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniCancelDelay.setStatus('current')
-tmnxPtpClkPktStatsUniAckCnclAnno = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniAckCnclAnno.setStatus('current')
-tmnxPtpClkPktStatsUniAckCnclSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 22), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniAckCnclSync.setStatus('current')
-tmnxPtpClkPktStatsUniAckCnclDly = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsUniAckCnclDly.setStatus('current')
-tmnxPtpClkPktStatsOtherTLVs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 24), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsOtherTLVs.setStatus('current')
-tmnxPtpClkPktStatsDropBadDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 25), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsDropBadDomain.setStatus('current')
-tmnxPtpClkPktStatsDropAltMaster = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 26), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsDropAltMaster.setStatus('current')
-tmnxPtpClkPktStatsDropOther = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 27), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsDropOther.setStatus('current')
-tmnxPtpClkPktStatsTimeStampPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 28), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsTimeStampPort.setStatus('current')
-tmnxPtpClkPktStatsTimeStampCpm = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 29), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsTimeStampCpm.setStatus('current')
-tmnxPtpClkPktStatsDropOutOfSeq = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 30), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsDropOutOfSeq.setStatus('current')
-tmnxPtpClkPktStatsDropPeerShut = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 1, 1, 31), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClkPktStatsDropPeerShut.setStatus('current')
-tmnxPtpPeerPacketStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2), )
-if mibBuilder.loadTexts: tmnxPtpPeerPacketStatsTable.setStatus('current')
-tmnxPtpPeerPacketStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddrType"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerIpAddress"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDirection"))
-if mibBuilder.loadTexts: tmnxPtpPeerPacketStatsEntry.setStatus('current')
-tmnxPtpPeerPktStatDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 1), TmnxPtpDirection())
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatDirection.setStatus('current')
-tmnxPtpPeerPktStatAnnounce = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatAnnounce.setStatus('current')
-tmnxPtpPeerPktStatSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatSync.setStatus('current')
-tmnxPtpPeerPktStatFollowUp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatFollowUp.setStatus('current')
-tmnxPtpPeerPktStatDelayRequest = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatDelayRequest.setStatus('current')
-tmnxPtpPeerPktStatDelayResp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatDelayResp.setStatus('current')
-tmnxPtpPeerPktStatSignaling = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatSignaling.setStatus('current')
-tmnxPtpPeerPktStatOther = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatOther.setStatus('current')
-tmnxPtpPeerPktStatUniReqAnno = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniReqAnno.setStatus('current')
-tmnxPtpPeerPktStatUniReqSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniReqSync.setStatus('current')
-tmnxPtpPeerPktStatUniReqDelayRsp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniReqDelayRsp.setStatus('current')
-tmnxPtpPeerPktStatUniGrantAnno = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniGrantAnno.setStatus('current')
-tmnxPtpPeerPktStatUniGrantSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniGrantSync.setStatus('current')
-tmnxPtpPeerPktStatUniGrantDelRsp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniGrantDelRsp.setStatus('current')
-tmnxPtpPeerPktStatUniDenyAnno = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniDenyAnno.setStatus('current')
-tmnxPtpPeerPktStatUniDenySync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 16), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniDenySync.setStatus('current')
-tmnxPtpPeerPktStatUniDenyDelRsp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 17), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniDenyDelRsp.setStatus('current')
-tmnxPtpPeerPktStatUniCancelAnno = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniCancelAnno.setStatus('current')
-tmnxPtpPeerPktStatUniCancelSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 19), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniCancelSync.setStatus('current')
-tmnxPtpPeerPktStatUniCancelDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniCancelDelay.setStatus('current')
-tmnxPtpPeerPktStatUniAckCnclAnno = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniAckCnclAnno.setStatus('current')
-tmnxPtpPeerPktStatUniAckCnclSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 22), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniAckCnclSync.setStatus('current')
-tmnxPtpPeerPktStatUniAckCnclDly = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatUniAckCnclDly.setStatus('current')
-tmnxPtpPeerPktStatOtherTLVs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 24), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatOtherTLVs.setStatus('current')
-tmnxPtpPeerPktStatDropBadDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 25), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatDropBadDomain.setStatus('current')
-tmnxPtpPeerPktStatDropAltMaster = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 26), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatDropAltMaster.setStatus('current')
-tmnxPtpPeerPktStatDropOther = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 27), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatDropOther.setStatus('current')
-tmnxPtpPeerPktStatTimeStampPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 28), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatTimeStampPort.setStatus('current')
-tmnxPtpPeerPktStatTimeStampCpm = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 29), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatTimeStampCpm.setStatus('current')
-tmnxPtpPeerPktStatDropOutOfSeq = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 30), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatDropOutOfSeq.setStatus('current')
-tmnxPtpPeerPktStatDropPeerShut = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 2, 1, 31), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPeerPktStatDropPeerShut.setStatus('current')
-tmnxPtpClockRecoveryStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3))
-tmnxPtpClockRecStatsInitial = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 1), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsInitial.setStatus('current')
-tmnxPtpClockRecStatsAcquiring = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 2), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsAcquiring.setStatus('current')
-tmnxPtpClockRecStatsPhaseTrack = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 3), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsPhaseTrack.setStatus('current')
-tmnxPtpClockRecStatsLocked = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 4), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsLocked.setStatus('current')
-tmnxPtpClockRecStatsHoldover = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 5), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsHoldover.setStatus('current')
-tmnxPtpClockRecStatsSyncPktLoss = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsSyncPktLoss.setStatus('current')
-tmnxPtpClockRecStatsSyncHiPktLss = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsSyncHiPktLss.setStatus('current')
-tmnxPtpClockRecStatsSyncStep = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsSyncStep.setStatus('current')
-tmnxPtpClockRecStatsSyncHighPDV = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsSyncHighPDV.setStatus('current')
-tmnxPtpClockRecStatsDlyPktLoss = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsDlyPktLoss.setStatus('current')
-tmnxPtpClockRecStatsDlyHiPktLss = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsDlyHiPktLss.setStatus('current')
-tmnxPtpClockRecStatsDlyStep = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsDlyStep.setStatus('current')
-tmnxPtpClockRecStatsDlyHighPDV = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 3, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpClockRecStatsDlyHighPDV.setStatus('current')
-tmnxPtpPortStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4), )
-if mibBuilder.loadTexts: tmnxPtpPortStatsTable.setStatus('current')
-tmnxPtpPortStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1), ).setIndexNames((0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"), (0, "TIMETRA-PORT-MIB", "tmnxPortPortID"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPortStatDirection"))
-if mibBuilder.loadTexts: tmnxPtpPortStatsEntry.setStatus('current')
-tmnxPtpPortStatDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 1), TmnxPtpDirection())
-if mibBuilder.loadTexts: tmnxPtpPortStatDirection.setStatus('current')
-tmnxPtpPortStatAnnounce = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatAnnounce.setStatus('current')
-tmnxPtpPortStatSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatSync.setStatus('current')
-tmnxPtpPortStatFollowUp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatFollowUp.setStatus('current')
-tmnxPtpPortStatDelayRequest = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatDelayRequest.setStatus('current')
-tmnxPtpPortStatDelayResponse = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatDelayResponse.setStatus('current')
-tmnxPtpPortStatSignaling = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatSignaling.setStatus('current')
-tmnxPtpPortStatOther = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatOther.setStatus('current')
-tmnxPtpPortStatTimeStampPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatTimeStampPort.setStatus('current')
-tmnxPtpPortStatTimeStampCpm = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatTimeStampCpm.setStatus('current')
-tmnxPtpPortStatDropBadDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatDropBadDomain.setStatus('current')
-tmnxPtpPortStatDropAltMaster = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatDropAltMaster.setStatus('current')
-tmnxPtpPortStatDropOutOfSeq = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatDropOutOfSeq.setStatus('current')
-tmnxPtpPortStatDropOther = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 4, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPortStatDropOther.setStatus('current')
-tmnxPtpPacketRateStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5), )
-if mibBuilder.loadTexts: tmnxPtpPacketRateStatsTable.setStatus('current')
-tmnxPtpPacketRateStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1), ).setIndexNames((0, "TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsTransport"), (0, "TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsDirection"))
-if mibBuilder.loadTexts: tmnxPtpPacketRateStatsEntry.setStatus('current')
-tmnxPtpPacketRateStatsTransport = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 1), TmnxPtpTransportType())
-if mibBuilder.loadTexts: tmnxPtpPacketRateStatsTransport.setStatus('current')
-tmnxPtpPacketRateStatsDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 2), TmnxPtpDirection())
-if mibBuilder.loadTexts: tmnxPtpPacketRateStatsDirection.setStatus('current')
-tmnxPtpPacketRateStatsAnnounce = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 3), Unsigned32()).setUnits('packets per decasecond').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPacketRateStatsAnnounce.setStatus('current')
-tmnxPtpPacketRateStatsSync = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 4), Unsigned32()).setUnits('packets per decasecond').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPacketRateStatsSync.setStatus('current')
-tmnxPtpPacketRateStatsFollowUp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 5), Unsigned32()).setUnits('packets per decasecond').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPacketRateStatsFollowUp.setStatus('current')
-tmnxPtpPacketRateStatsDelayReq = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 6), Unsigned32()).setUnits('packets per decasecond').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPacketRateStatsDelayReq.setStatus('current')
-tmnxPtpPacketRateStatsDelayResp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 7), Unsigned32()).setUnits('packets per decasecond').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPacketRateStatsDelayResp.setStatus('current')
-tmnxPtpPacketRateStatsOther = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 5, 5, 1, 8), Unsigned32()).setUnits('packets per decasecond').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPtpPacketRateStatsOther.setStatus('current')
-tmnxPtp1588NotifyObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10))
-tmnxPtpMasterClockLastIpAddrType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 1), InetAddressType()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxPtpMasterClockLastIpAddrType.setStatus('current')
-tmnxPtpMasterClockLastIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxPtpMasterClockLastIpAddress.setStatus('current')
-tmnxPtpNotifyRowPointer = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 3), RowPointer()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxPtpNotifyRowPointer.setStatus('current')
-tmnxPtpNotifyRowDescription = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 4), TItemDescription()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxPtpNotifyRowDescription.setStatus('current')
-tmnxPtpMasterClockLastTransType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 5), TmnxPtpTransportType()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxPtpMasterClockLastTransType.setStatus('current')
-tmnxPtpMasterClockLastEthPort = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 6), TmnxPortID()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxPtpMasterClockLastEthPort.setStatus('current')
-tmnxPtpMasterClockLastMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 7), MacAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxPtpMasterClockLastMacAddress.setStatus('current')
-tmnxPtpNotifyPortId = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 74, 10, 8), TmnxPortID()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxPtpNotifyPortId.setStatus('current')
-tmnxPtp1588Conformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74))
-tmnxPtp1588Compliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1))
-tmnxPtpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1, 1)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpTimeStampGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpLocalConfigGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpLocalOperGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerBaseConfigGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterStatusGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPacketStatsGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastStatusGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpNotificationsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpCompliance = tmnxPtpCompliance.setStatus('obsolete')
-tmnxPtpComplianceV10v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1, 2)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpTimeStampGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpLocalConfigGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpLocalOperGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerBaseConfigGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterStatusGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPacketStatsGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastStatusGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpNotificationsGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfTimeStampGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfConfigGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerOperGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPacketStatsV10v0Group"))
+# Managed Objects groups
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpComplianceV10v0 = tmnxPtpComplianceV10v0.setStatus('obsolete')
-tmnxPtpComplianceV11v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1, 3)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpTimeStampGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpLocalConfigGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpLocalOperGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerBaseConfigGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterStatusGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPacketStatsGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastStatusGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpNotificationsGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfTimeStampGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfConfigGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerOperGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPacketStatsV10v0Group"), ("TIMETRA-PTP-MIB", "tmnxPtpVRtrGroup"))
+tmnxPtpTimeStampGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 1)
+)
+tmnxPtpTimeStampGroup.setObjects(
+    ("TIMETRA-PTP-MIB", "tmnxPtpPeerConfigTblLastChanged")
+)
+if mibBuilder.loadTexts:
+    tmnxPtpTimeStampGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpComplianceV11v0 = tmnxPtpComplianceV11v0.setStatus('current')
-tmnxPtpComplianceV12v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1, 4)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpLocalConfigV12v0Group"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerBaseConfigV12v0Group"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockV12v0Group"), ("TIMETRA-PTP-MIB", "tmnxPtpPortGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatsGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsGroup"), ("TIMETRA-PTP-MIB", "tmnxPtpNotifyObjsV12v0Group"), ("TIMETRA-PTP-MIB", "tmnxPtpNotificationsV12v0Group"))
+tmnxPtpLocalConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 2)
+)
+tmnxPtpLocalConfigGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpClockAdminState"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockClockType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockProfile"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockDomain"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockPriority1"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockPriority2"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockNetworkType"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpLocalConfigGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpComplianceV12v0 = tmnxPtpComplianceV12v0.setStatus('current')
-tmnxPtpComplianceV13v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1, 5)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpConfigV13v0Group"))
+tmnxPtpLocalOperGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 3)
+)
+tmnxPtpLocalOperGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpClockIdentity"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockOperState"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockStepType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockClass"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockAccuracy"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockVariance"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockPortState"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockPortStateLastChanged"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryState"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryStateLastChg"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockFrequencyOffset"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpLocalOperGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpComplianceV13v0 = tmnxPtpComplianceV13v0.setStatus('current')
-tmnxPtp1588Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2))
-tmnxPtpV9v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1))
-tmnxPtpTimeStampGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 1)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpPeerConfigTblLastChanged"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpTimeStampGroup = tmnxPtpTimeStampGroup.setStatus('current')
-tmnxPtpLocalConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 2)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpClockAdminState"), ("TIMETRA-PTP-MIB", "tmnxPtpClockClockType"), ("TIMETRA-PTP-MIB", "tmnxPtpClockProfile"), ("TIMETRA-PTP-MIB", "tmnxPtpClockDomain"), ("TIMETRA-PTP-MIB", "tmnxPtpClockPriority1"), ("TIMETRA-PTP-MIB", "tmnxPtpClockPriority2"), ("TIMETRA-PTP-MIB", "tmnxPtpClockNetworkType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpLocalConfigGroup = tmnxPtpLocalConfigGroup.setStatus('current')
-tmnxPtpLocalOperGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 3)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpClockIdentity"), ("TIMETRA-PTP-MIB", "tmnxPtpClockOperState"), ("TIMETRA-PTP-MIB", "tmnxPtpClockStepType"), ("TIMETRA-PTP-MIB", "tmnxPtpClockClass"), ("TIMETRA-PTP-MIB", "tmnxPtpClockAccuracy"), ("TIMETRA-PTP-MIB", "tmnxPtpClockVariance"), ("TIMETRA-PTP-MIB", "tmnxPtpClockPortState"), ("TIMETRA-PTP-MIB", "tmnxPtpClockPortStateLastChanged"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryState"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryStateLastChg"), ("TIMETRA-PTP-MIB", "tmnxPtpClockFrequencyOffset"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpLocalOperGroup = tmnxPtpLocalOperGroup.setStatus('current')
-tmnxPtpMasterClockGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 4)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpMasterClockAddressType"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockAddress"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMClockId"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMClockPrio1"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMClockPrio2"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMClockClass"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMAccuracy"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMVariance"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockParentClockId"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockParentPortNum"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpMasterClockGroup = tmnxPtpMasterClockGroup.setStatus('current')
-tmnxPtpPeerBaseConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 5)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpPeerRowStatus"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastChanged"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerAdminState"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPortState"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerLocalPriority"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerRemoteMaster"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerRemoteSlave"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerClockId"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerLocalPortNumber"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerRemotePortNumber"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpPeerBaseConfigGroup = tmnxPtpPeerBaseConfigGroup.setStatus('current')
-tmnxPtpPeerMasterStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 6)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterCurrentMaster"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterClockStepType"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterClockStepsRemvd"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockId"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockPrio1"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockPrio2"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockClass"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockAccuracy"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockVariance"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterAlarm"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpPeerMasterStatusGroup = tmnxPtpPeerMasterStatusGroup.setStatus('current')
-tmnxPtpPacketStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 7)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsAnnounce"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsSync"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsFollowUp"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDelayRequest"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDelayResp"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsSignaling"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsOther"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniReqAnno"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniReqSync"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniReqDelayRsp"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniGrantAnno"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniGrantSync"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniGrantDelRsp"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniDenyAnno"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniDenySync"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniDenyDelRsp"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniCancelAnno"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniCancelSync"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniCancelDelay"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniAckCnclAnno"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniAckCnclSync"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniAckCnclDly"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsOtherTLVs"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDropBadDomain"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDropAltMaster"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDropOther"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDropOutOfSeq"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDropPeerShut"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatAnnounce"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatSync"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatFollowUp"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDelayRequest"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDelayResp"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatSignaling"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatOther"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniReqAnno"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniReqSync"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniReqDelayRsp"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniGrantAnno"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniGrantSync"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniGrantDelRsp"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniDenyAnno"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniDenySync"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniDenyDelRsp"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniCancelAnno"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniCancelSync"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniCancelDelay"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniAckCnclAnno"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniAckCnclSync"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniAckCnclDly"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatOtherTLVs"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDropBadDomain"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDropAltMaster"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDropOther"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDropOutOfSeq"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDropPeerShut"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpPacketStatsGroup = tmnxPtpPacketStatsGroup.setStatus('current')
-tmnxPtpClockRecoveryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 8)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsInitial"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsAcquiring"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsPhaseTrack"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsLocked"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsHoldover"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsSyncPktLoss"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsSyncHiPktLss"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsSyncStep"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsSyncHighPDV"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsDlyPktLoss"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsDlyHiPktLss"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsDlyStep"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsDlyHighPDV"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpClockRecoveryGroup = tmnxPtpClockRecoveryGroup.setStatus('current')
-tmnxPtpPeerUnicastStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 9)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastStatus"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastRate"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastDuration"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastEventTime"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpPeerUnicastStatusGroup = tmnxPtpPeerUnicastStatusGroup.setStatus('current')
-tmnxPtpNotifyObjsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 10)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastIpAddrType"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastIpAddress"), ("TIMETRA-PTP-MIB", "tmnxPtpNotifyRowPointer"), ("TIMETRA-PTP-MIB", "tmnxPtpNotifyRowDescription"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpNotifyObjsGroup = tmnxPtpNotifyObjsGroup.setStatus('current')
-tmnxPtpNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 11)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpCardNotSupported"), ("TIMETRA-PTP-MIB", "tmnxPtpCardNotSupportedClear"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockChangedEvent"), ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryStateChange"), ("TIMETRA-PTP-MIB", "tmnxPtpOutOfResources"), ("TIMETRA-PTP-MIB", "tmnxPtpOutOfResourcesClear"), ("TIMETRA-PTP-MIB", "tmnxPtpDynamicChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpNotificationsGroup = tmnxPtpNotificationsGroup.setStatus('current')
-tmnxPtpV10v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2))
-tmnxPtpVRtrIfTimeStampGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2, 1)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfTableLastChanged"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpVRtrIfTimeStampGroup = tmnxPtpVRtrIfTimeStampGroup.setStatus('current')
-tmnxPtpVRtrIfConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2, 2)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfAdminState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpVRtrIfConfigGroup = tmnxPtpVRtrIfConfigGroup.setStatus('current')
-tmnxPtpTimeInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2, 3)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoTimescale"), ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoCurrentTime"), ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoFreqTraceable"), ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoTimeTraceable"), ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoTimeSource"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpTimeInfoGroup = tmnxPtpTimeInfoGroup.setStatus('current')
-tmnxPtpPeerOperGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2, 5)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpPeerTxTimeStampPoint"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastTxPortId"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastTxPortEncapType"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastTxPortEncapValue"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerRxTimeStampPoint"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastRxPortId"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastRxPortEncapType"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastRxPortEncapValue"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpPeerOperGroup = tmnxPtpPeerOperGroup.setStatus('current')
-tmnxPtpPacketStatsV10v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2, 6)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsTimeStampPort"), ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsTimeStampCpm"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatTimeStampPort"), ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatTimeStampCpm"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpPacketStatsV10v0Group = tmnxPtpPacketStatsV10v0Group.setStatus('current')
-tmnxPtpV11v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 3))
-tmnxPtpVRtrGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 3, 1)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpVRtrTableLastChanged"), ("TIMETRA-PTP-MIB", "tmnxPtpVRtrRowStatus"), ("TIMETRA-PTP-MIB", "tmnxPtpVRtrLastChanged"), ("TIMETRA-PTP-MIB", "tmnxPtpVRtrAdminState"), ("TIMETRA-PTP-MIB", "tmnxPtpVRtrOperState"), ("TIMETRA-PTP-MIB", "tmnxPtpVRtrPeerLimit"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpVRtrGroup = tmnxPtpVRtrGroup.setStatus('current')
-tmnxPtpV12v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4))
-tmnxPtpLocalConfigV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 1)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpClockAnnounceInterval"), ("TIMETRA-PTP-MIB", "tmnxPtpClockAnnoRxTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpLocalConfigV12v0Group = tmnxPtpLocalConfigV12v0Group.setStatus('current')
-tmnxPtpPeerBaseConfigV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 2)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpPeerSyncInterval"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpPeerBaseConfigV12v0Group = tmnxPtpPeerBaseConfigV12v0Group.setStatus('current')
-tmnxPtpMasterClockV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 3)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpMasterClockTransportType"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockEthernetPort"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockMacAddress"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpMasterClockV12v0Group = tmnxPtpMasterClockV12v0Group.setStatus('current')
-tmnxPtpPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 4)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpPortTableLastChanged"), ("TIMETRA-PTP-MIB", "tmnxPtpPortRowStatus"), ("TIMETRA-PTP-MIB", "tmnxPtpPortLastChanged"), ("TIMETRA-PTP-MIB", "tmnxPtpPortAdminState"), ("TIMETRA-PTP-MIB", "tmnxPtpPortSyncInterval"), ("TIMETRA-PTP-MIB", "tmnxPtpPortDelayInterval"), ("TIMETRA-PTP-MIB", "tmnxPtpPortMulticastAddress"), ("TIMETRA-PTP-MIB", "tmnxPtpPortLocalPortNumber"), ("TIMETRA-PTP-MIB", "tmnxPtpPortOperState"), ("TIMETRA-PTP-MIB", "tmnxPtpPortState"), ("TIMETRA-PTP-MIB", "tmnxPtpPortTimeStampRefPoint"), ("TIMETRA-PTP-MIB", "tmnxPtpPortNeighbors"), ("TIMETRA-PTP-MIB", "tmnxPtpPortTxPacketRate"), ("TIMETRA-PTP-MIB", "tmnxPtpPortRxPacketRate"), ("TIMETRA-PTP-MIB", "tmnxPtpPortSrcMacAddr"), ("TIMETRA-PTP-MIB", "tmnxPtpPortNeighborClockId"), ("TIMETRA-PTP-MIB", "tmnxPtpPortNeighborPtpPortNumber"), ("TIMETRA-PTP-MIB", "tmnxPtpPortNeighborRxPacketRate"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpPortGroup = tmnxPtpPortGroup.setStatus('current')
-tmnxPtpPortStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 5)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpPortStatAnnounce"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatSync"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatFollowUp"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDelayRequest"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDelayResponse"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatSignaling"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatOther"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatTimeStampPort"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatTimeStampCpm"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDropBadDomain"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDropAltMaster"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDropOutOfSeq"), ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDropOther"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpPortStatsGroup = tmnxPtpPortStatsGroup.setStatus('current')
-tmnxPtpPacketRateStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 6)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsAnnounce"), ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsSync"), ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsFollowUp"), ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsDelayReq"), ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsDelayResp"), ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsOther"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpPacketRateStatsGroup = tmnxPtpPacketRateStatsGroup.setStatus('current')
-tmnxPtpNotifyObjsV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 7)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastTransType"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastEthPort"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastMacAddress"), ("TIMETRA-PTP-MIB", "tmnxPtpNotifyPortId"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpNotifyObjsV12v0Group = tmnxPtpNotifyObjsV12v0Group.setStatus('current')
-tmnxPtpNotificationsV12v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 8)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpPortNoTimestamping"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpNotificationsV12v0Group = tmnxPtpNotificationsV12v0Group.setStatus('current')
-tmnxPtpV13v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 5))
-tmnxPtpConfigV13v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 5, 1)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpClockLocalPriority"), ("TIMETRA-PTP-MIB", "tmnxPtpPortLocalPriority"), ("TIMETRA-PTP-MIB", "tmnxPtpPortMasterOnly"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPtpConfigV13v0Group = tmnxPtpConfigV13v0Group.setStatus('current')
-tmnxPtp1588NotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74))
-tmnxPtp1588Notifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0))
-tmnxPtpCardNotSupported = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 1)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxCpmCardOscillatorType"), ("TIMETRA-PTP-MIB", "tmnxPtpClockClockType"), ("TIMETRA-PTP-MIB", "tmnxPtpClockAdminState"))
-if mibBuilder.loadTexts: tmnxPtpCardNotSupported.setStatus('current')
-tmnxPtpCardNotSupportedClear = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 2)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxCpmCardOscillatorType"), ("TIMETRA-PTP-MIB", "tmnxPtpClockClockType"), ("TIMETRA-PTP-MIB", "tmnxPtpClockAdminState"))
-if mibBuilder.loadTexts: tmnxPtpCardNotSupportedClear.setStatus('current')
-tmnxPtpMasterClockChangedEvent = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 3)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpMasterClockAddressType"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockAddress"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastIpAddrType"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastIpAddress"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockTransportType"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockEthernetPort"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockMacAddress"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastTransType"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastEthPort"), ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastMacAddress"))
-if mibBuilder.loadTexts: tmnxPtpMasterClockChangedEvent.setStatus('current')
-tmnxPtpClockRecoveryStateChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 4)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryState"))
-if mibBuilder.loadTexts: tmnxPtpClockRecoveryStateChange.setStatus('current')
-tmnxPtpOutOfResources = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 5)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyChassisId"), ("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyHwIndex"))
-if mibBuilder.loadTexts: tmnxPtpOutOfResources.setStatus('current')
-tmnxPtpOutOfResourcesClear = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 6)).setObjects(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyChassisId"), ("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyHwIndex"))
-if mibBuilder.loadTexts: tmnxPtpOutOfResourcesClear.setStatus('current')
-tmnxPtpDynamicChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 7)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpNotifyRowPointer"), ("TIMETRA-PTP-MIB", "tmnxPtpNotifyRowDescription"))
-if mibBuilder.loadTexts: tmnxPtpDynamicChange.setStatus('current')
-tmnxPtpPortNoTimestamping = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 8)).setObjects(("TIMETRA-PTP-MIB", "tmnxPtpNotifyPortId"))
-if mibBuilder.loadTexts: tmnxPtpPortNoTimestamping.setStatus('current')
-mibBuilder.exportSymbols("TIMETRA-PTP-MIB", tmnxPtpClockClass=tmnxPtpClockClass, tmnxPtpTimeInfoCurrentTime=tmnxPtpTimeInfoCurrentTime, tmnxPtpPacketRateStatsOther=tmnxPtpPacketRateStatsOther, tmnxPtpMasterClockAddress=tmnxPtpMasterClockAddress, tmnxPtpLocalConfigV12v0Group=tmnxPtpLocalConfigV12v0Group, tmnxPtpClkPktStatsDropOutOfSeq=tmnxPtpClkPktStatsDropOutOfSeq, tmnxPtpVRtrLastChanged=tmnxPtpVRtrLastChanged, tmnxPtpPeerRowStatus=tmnxPtpPeerRowStatus, tmnxPtpPacketRateStatsSync=tmnxPtpPacketRateStatsSync, TmnxPtpDirection=TmnxPtpDirection, tmnxPtpPeerUnicastStatusGroup=tmnxPtpPeerUnicastStatusGroup, tmnxPtpCompliance=tmnxPtpCompliance, tmnxPtpNotificationsV12v0Group=tmnxPtpNotificationsV12v0Group, tmnxPtp1588Configurations=tmnxPtp1588Configurations, tmnxPtpPeerTxTimeStampPoint=tmnxPtpPeerTxTimeStampPoint, tmnxPtpPeerPktStatUniCancelDelay=tmnxPtpPeerPktStatUniCancelDelay, tmnxPtpPeerPktStatSignaling=tmnxPtpPeerPktStatSignaling, tmnxPtpPortStatDelayResponse=tmnxPtpPortStatDelayResponse, tmnxPtpMasterClockGMClockPrio1=tmnxPtpMasterClockGMClockPrio1, tmnxPtpPacketRateStatsDelayReq=tmnxPtpPacketRateStatsDelayReq, tmnxPtpPortNeighborRxPacketRate=tmnxPtpPortNeighborRxPacketRate, tmnxPtpMasterClockEthernetPort=tmnxPtpMasterClockEthernetPort, tmnxPtpPortTimeStampRefPoint=tmnxPtpPortTimeStampRefPoint, tmnxPtpClockLocalPriority=tmnxPtpClockLocalPriority, tmnxPtpPortTable=tmnxPtpPortTable, tmnxPtpPeerBaseConfigV12v0Group=tmnxPtpPeerBaseConfigV12v0Group, tmnxPtpClockRecStatsDlyPktLoss=tmnxPtpClockRecStatsDlyPktLoss, tmnxPtpPeerPortState=tmnxPtpPeerPortState, tmnxPtpPortStatDropOther=tmnxPtpPortStatDropOther, tmnxPtpConfigV13v0Group=tmnxPtpConfigV13v0Group, tmnxPtpClockClockType=tmnxPtpClockClockType, tmnxPtpPortNeighborTable=tmnxPtpPortNeighborTable, tmnxPtpPeerRemotePortNumber=tmnxPtpPeerRemotePortNumber, tmnxPtpClockRecStatsDlyHighPDV=tmnxPtpClockRecStatsDlyHighPDV, tmnxPtpPeerMasterClockStepsRemvd=tmnxPtpPeerMasterClockStepsRemvd, tmnxPtpClkPktStatsUniGrantDelRsp=tmnxPtpClkPktStatsUniGrantDelRsp, TmnxPtpTimeStampReferencePoint=TmnxPtpTimeStampReferencePoint, tmnxPtpPeerMasterGMClockAccuracy=tmnxPtpPeerMasterGMClockAccuracy, tmnxPtpDynamicChange=tmnxPtpDynamicChange, tmnxPtpPeerUnicastDirection=tmnxPtpPeerUnicastDirection, tmnxPtpPortTableLastChanged=tmnxPtpPortTableLastChanged, tmnxPtpClkPktStatsDropPeerShut=tmnxPtpClkPktStatsDropPeerShut, tmnxPtpClockRecStatsInitial=tmnxPtpClockRecStatsInitial, TmnxPtpPortNumber=TmnxPtpPortNumber, tmnxPtpVRtrIfEntry=tmnxPtpVRtrIfEntry, TmnxPtpClockIdentity=TmnxPtpClockIdentity, tmnxPtpPortEntry=tmnxPtpPortEntry, tmnxPtpClkPktStatsOtherTLVs=tmnxPtpClkPktStatsOtherTLVs, tmnxPtpOutOfResourcesClear=tmnxPtpOutOfResourcesClear, tmnxPtpPeerPktStatDelayRequest=tmnxPtpPeerPktStatDelayRequest, tmnxPtpPeerConfigTable=tmnxPtpPeerConfigTable, tmnxPtpMasterClockLastIpAddress=tmnxPtpMasterClockLastIpAddress, tmnxPtpClkPktStatsDelayResp=tmnxPtpClkPktStatsDelayResp, tmnxPtpTimeInfoTimescale=tmnxPtpTimeInfoTimescale, tmnxPtpClockRecoveryStateLastChg=tmnxPtpClockRecoveryStateLastChg, tmnxPtpV11v0Groups=tmnxPtpV11v0Groups, tmnxPtpClockDomain=tmnxPtpClockDomain, tmnxPtpPeerLastRxPortId=tmnxPtpPeerLastRxPortId, tmnxPtpMasterClockLastIpAddrType=tmnxPtpMasterClockLastIpAddrType, tmnxPtpPeerPktStatDropBadDomain=tmnxPtpPeerPktStatDropBadDomain, tmnxPtpOutOfResources=tmnxPtpOutOfResources, tmnxPtpMasterClockParentClockId=tmnxPtpMasterClockParentClockId, tmnxPtpClkPktStatsDelayRequest=tmnxPtpClkPktStatsDelayRequest, tmnxPtpPortMulticastAddress=tmnxPtpPortMulticastAddress, tmnxPtpV9v0Groups=tmnxPtpV9v0Groups, tmnxPtpMasterClockGMAccuracy=tmnxPtpMasterClockGMAccuracy, tmnxPtpPacketRateStatsFollowUp=tmnxPtpPacketRateStatsFollowUp, tmnxPtpPortOperState=tmnxPtpPortOperState, tmnxPtpTimeInfoGroup=tmnxPtpTimeInfoGroup, tmnxPtpClkPktStatsDropAltMaster=tmnxPtpClkPktStatsDropAltMaster, tmnxPtp1588NotifyObjects=tmnxPtp1588NotifyObjects, tmnxPtpVRtrGroup=tmnxPtpVRtrGroup, tmnxPtpPeerMasterStatusTable=tmnxPtpPeerMasterStatusTable, tmnxPtpPeerRemoteMaster=tmnxPtpPeerRemoteMaster, tmnxPtpClkPktStatsAnnounce=tmnxPtpClkPktStatsAnnounce, tmnxPtpPeerUnicastStatus=tmnxPtpPeerUnicastStatus, tmnxPtpPeerRemoteSlave=tmnxPtpPeerRemoteSlave, tmnxPtpPeerClockId=tmnxPtpPeerClockId, tmnxPtpVRtrIfAdminState=tmnxPtpVRtrIfAdminState, tmnxPtpTimeInfoFreqTraceable=tmnxPtpTimeInfoFreqTraceable, tmnxPtpPeerPktStatDirection=tmnxPtpPeerPktStatDirection, tmnxPtpClockRecStatsAcquiring=tmnxPtpClockRecStatsAcquiring, tmnxPtpPeerLastTxPortId=tmnxPtpPeerLastTxPortId, tmnxPtpTimeInfoTimeSource=tmnxPtpTimeInfoTimeSource, tmnxPtp1588Compliances=tmnxPtp1588Compliances, tmnxPtpClockIdentity=tmnxPtpClockIdentity, tmnxPtpPortNeighborEntry=tmnxPtpPortNeighborEntry, tmnxPtpVRtrOperState=tmnxPtpVRtrOperState, tmnxPtpVRtrIfTimeStampGroup=tmnxPtpVRtrIfTimeStampGroup, tmnxPtpPeerLastRxPortEncapType=tmnxPtpPeerLastRxPortEncapType, timetraPtpMIBModule=timetraPtpMIBModule, tmnxPtpClockNetworkType=tmnxPtpClockNetworkType, tmnxPtpPortStatusTable=tmnxPtpPortStatusTable, tmnxPtpClockAnnounceInterval=tmnxPtpClockAnnounceInterval, tmnxPtpClkPktStatsUniGrantAnno=tmnxPtpClkPktStatsUniGrantAnno, tmnxPtpClockRecoveryStatistics=tmnxPtpClockRecoveryStatistics, tmnxPtpPortStatusEntry=tmnxPtpPortStatusEntry, tmnxPtpClockPacketStatsEntry=tmnxPtpClockPacketStatsEntry, tmnxPtpClkPktStatsOther=tmnxPtpClkPktStatsOther, tmnxPtpPeerUnicastDuration=tmnxPtpPeerUnicastDuration, tmnxPtpClockRecoveryStateChange=tmnxPtpClockRecoveryStateChange, TmnxPtpLogInterval=TmnxPtpLogInterval, tmnxPtpVRtrIfTable=tmnxPtpVRtrIfTable, tmnxPtpVRtrIfTableLastChanged=tmnxPtpVRtrIfTableLastChanged, tmnxPtpPeerAdminState=tmnxPtpPeerAdminState, tmnxPtp1588Objs=tmnxPtp1588Objs, tmnxPtpNotifyPortId=tmnxPtpNotifyPortId, tmnxPtpClockRecStatsLocked=tmnxPtpClockRecStatsLocked, tmnxPtpPortStatFollowUp=tmnxPtpPortStatFollowUp, tmnxPtpClockVariance=tmnxPtpClockVariance, tmnxPtpPortMasterOnly=tmnxPtpPortMasterOnly, tmnxPtpPacketRateStatsGroup=tmnxPtpPacketRateStatsGroup, tmnxPtpPortStatDropOutOfSeq=tmnxPtpPortStatDropOutOfSeq, tmnxPtp1588NotifyPrefix=tmnxPtp1588NotifyPrefix, tmnxPtpClkPktStatsSignaling=tmnxPtpClkPktStatsSignaling, tmnxPtpPortStatDelayRequest=tmnxPtpPortStatDelayRequest, tmnxPtpPeerMasterGMClockPrio2=tmnxPtpPeerMasterGMClockPrio2, tmnxPtpPortRowStatus=tmnxPtpPortRowStatus, tmnxPtpPeerPktStatUniGrantSync=tmnxPtpPeerPktStatUniGrantSync, tmnxPtpPeerConfigEntry=tmnxPtpPeerConfigEntry, tmnxPtpPeerLastChanged=tmnxPtpPeerLastChanged, tmnxPtpPeerPktStatUniDenyDelRsp=tmnxPtpPeerPktStatUniDenyDelRsp, tmnxPtpPortStatDropBadDomain=tmnxPtpPortStatDropBadDomain, tmnxPtpPeerPktStatUniDenySync=tmnxPtpPeerPktStatUniDenySync, tmnxPtpClockPriority1=tmnxPtpClockPriority1, tmnxPtpPeerPktStatUniCancelSync=tmnxPtpPeerPktStatUniCancelSync, tmnxPtpPeerPktStatUniAckCnclDly=tmnxPtpPeerPktStatUniAckCnclDly, tmnxPtpMasterClockAddressType=tmnxPtpMasterClockAddressType, tmnxPtpPeerMasterStatusGroup=tmnxPtpPeerMasterStatusGroup, tmnxPtpPeerIpAddress=tmnxPtpPeerIpAddress, tmnxPtpClkPktStatsUniCancelDelay=tmnxPtpClkPktStatsUniCancelDelay, tmnxPtpClkPktStatsUniReqSync=tmnxPtpClkPktStatsUniReqSync, tmnxPtpClockPriority2=tmnxPtpClockPriority2, tmnxPtpPortLocalPortNumber=tmnxPtpPortLocalPortNumber, tmnxPtpPacketRateStatsAnnounce=tmnxPtpPacketRateStatsAnnounce, TmnxPtpDomain=TmnxPtpDomain, tmnxPtpPortStatsGroup=tmnxPtpPortStatsGroup, tmnxPtpPortStatTimeStampCpm=tmnxPtpPortStatTimeStampCpm, tmnxPtpComplianceV11v0=tmnxPtpComplianceV11v0, tmnxPtpClkPktStatsTimeStampPort=tmnxPtpClkPktStatsTimeStampPort, tmnxPtpClkPktStatsUniDenyDelRsp=tmnxPtpClkPktStatsUniDenyDelRsp, tmnxPtpClockOperTable=tmnxPtpClockOperTable, tmnxPtpPeerUnicastPktType=tmnxPtpPeerUnicastPktType, tmnxPtpPeerLastRxPortEncapValue=tmnxPtpPeerLastRxPortEncapValue, TmnxPtpClockStepType=TmnxPtpClockStepType, tmnxPtpMasterClockLastEthPort=tmnxPtpMasterClockLastEthPort, tmnxPtpNotifyRowPointer=tmnxPtpNotifyRowPointer, tmnxPtpClkPktStatsTimeStampCpm=tmnxPtpClkPktStatsTimeStampCpm, tmnxPtpPortNeighborClockId=tmnxPtpPortNeighborClockId, tmnxPtpClockRecStatsHoldover=tmnxPtpClockRecStatsHoldover, tmnxPtpVRtrAdminState=tmnxPtpVRtrAdminState, tmnxPtpClkPktStatsUniReqDelayRsp=tmnxPtpClkPktStatsUniReqDelayRsp, tmnxPtpPortGroup=tmnxPtpPortGroup, tmnxPtpPeerMasterAlarm=tmnxPtpPeerMasterAlarm, PYSNMP_MODULE_ID=timetraPtpMIBModule, tmnxPtpMasterClockV12v0Group=tmnxPtpMasterClockV12v0Group, tmnxPtpPeerPktStatUniAckCnclAnno=tmnxPtpPeerPktStatUniAckCnclAnno, tmnxPtpPeerUnicastEntry=tmnxPtpPeerUnicastEntry, tmnxPtpMasterClockGMVariance=tmnxPtpMasterClockGMVariance, tmnxPtpPacketRateStatsTransport=tmnxPtpPacketRateStatsTransport, tmnxPtpPacketStatsV10v0Group=tmnxPtpPacketStatsV10v0Group, tmnxPtpClockOperEntry=tmnxPtpClockOperEntry, tmnxPtpPeerMasterStatusEntry=tmnxPtpPeerMasterStatusEntry, tmnxPtpClkPktStatsUniDenyAnno=tmnxPtpClkPktStatsUniDenyAnno, tmnxPtpClkPktStatsDropBadDomain=tmnxPtpClkPktStatsDropBadDomain, tmnxPtpMasterClockParentPortNum=tmnxPtpMasterClockParentPortNum, tmnxPtpPeerMasterGMClockPrio1=tmnxPtpPeerMasterGMClockPrio1, tmnxPtpMasterClockLastTransType=tmnxPtpMasterClockLastTransType, tmnxPtpCardNotSupportedClear=tmnxPtpCardNotSupportedClear, tmnxPtpClkPktStatsUniCancelAnno=tmnxPtpClkPktStatsUniCancelAnno, tmnxPtpClockProfile=tmnxPtpClockProfile, tmnxPtpPeerPktStatDropPeerShut=tmnxPtpPeerPktStatDropPeerShut, TmnxPtpProfile=TmnxPtpProfile, tmnxPtpPeerPktStatOther=tmnxPtpPeerPktStatOther, tmnxPtpTimeStampGroup=tmnxPtpTimeStampGroup, tmnxPtpClockAdminState=tmnxPtpClockAdminState, tmnxPtpPortStatAnnounce=tmnxPtpPortStatAnnounce, tmnxPtpClockRecStatsDlyHiPktLss=tmnxPtpClockRecStatsDlyHiPktLss, tmnxPtpMasterClockChangedEvent=tmnxPtpMasterClockChangedEvent, tmnxPtpPacketStatsGroup=tmnxPtpPacketStatsGroup, tmnxPtpPeerPktStatOtherTLVs=tmnxPtpPeerPktStatOtherTLVs, tmnxPtpMasterClockGMClockPrio2=tmnxPtpMasterClockGMClockPrio2, tmnxPtpClockRecStatsSyncHighPDV=tmnxPtpClockRecStatsSyncHighPDV, tmnxPtpClkPktStatsUniGrantSync=tmnxPtpClkPktStatsUniGrantSync, tmnxPtpPacketRateStatsDirection=tmnxPtpPacketRateStatsDirection, tmnxPtpMasterClockOper=tmnxPtpMasterClockOper, tmnxPtpV12v0Groups=tmnxPtpV12v0Groups, tmnxPtpPeerConfigTblLastChanged=tmnxPtpPeerConfigTblLastChanged, tmnxPtpPeerPacketStatsTable=tmnxPtpPeerPacketStatsTable, tmnxPtpPeerOperGroup=tmnxPtpPeerOperGroup, tmnxPtpPeerPktStatUniCancelAnno=tmnxPtpPeerPktStatUniCancelAnno, tmnxPtpClockAccuracy=tmnxPtpClockAccuracy, tmnxPtpPeerPktStatUniReqDelayRsp=tmnxPtpPeerPktStatUniReqDelayRsp, tmnxPtpPortRxPacketRate=tmnxPtpPortRxPacketRate, tmnxPtpPacketRateStatsEntry=tmnxPtpPacketRateStatsEntry, tmnxPtpPortStatTimeStampPort=tmnxPtpPortStatTimeStampPort, tmnxPtpClockPortState=tmnxPtpClockPortState, tmnxPtpPeerPktStatSync=tmnxPtpPeerPktStatSync, tmnxPtpMasterClockTransportType=tmnxPtpMasterClockTransportType, tmnxPtpComplianceV10v0=tmnxPtpComplianceV10v0, tmnxPtpPeerMasterGMClockClass=tmnxPtpPeerMasterGMClockClass, tmnxPtpClockPortStateLastChanged=tmnxPtpClockPortStateLastChanged, tmnxPtpClockRecStatsSyncPktLoss=tmnxPtpClockRecStatsSyncPktLoss, tmnxPtpPeerPktStatDropOutOfSeq=tmnxPtpPeerPktStatDropOutOfSeq, tmnxPtpComplianceV13v0=tmnxPtpComplianceV13v0, tmnxPtpNotifyObjsGroup=tmnxPtpNotifyObjsGroup, tmnxPtpPortStatSync=tmnxPtpPortStatSync, tmnxPtpPortSrcMacAddr=tmnxPtpPortSrcMacAddr, tmnxPtpPeerPktStatTimeStampCpm=tmnxPtpPeerPktStatTimeStampCpm, tmnxPtpPeerMasterGMClockVariance=tmnxPtpPeerMasterGMClockVariance, TmnxPtpClockAccuracy=TmnxPtpClockAccuracy, tmnxPtp1588Statistics=tmnxPtp1588Statistics, tmnxPtpV10v0Groups=tmnxPtpV10v0Groups, tmnxPtpLocalOperGroup=tmnxPtpLocalOperGroup, tmnxPtpPeerLastTxPortEncapValue=tmnxPtpPeerLastTxPortEncapValue, tmnxPtpPortNeighborMacAddress=tmnxPtpPortNeighborMacAddress, tmnxPtpClockStepType=tmnxPtpClockStepType, TmnxPtpPriority=TmnxPtpPriority, tmnxPtpPortLocalPriority=tmnxPtpPortLocalPriority, tmnxPtpPeerPktStatUniReqAnno=tmnxPtpPeerPktStatUniReqAnno, tmnxPtpPortStatDirection=tmnxPtpPortStatDirection, tmnxPtpPeerPktStatUniAckCnclSync=tmnxPtpPeerPktStatUniAckCnclSync, tmnxPtpPeerPktStatTimeStampPort=tmnxPtpPeerPktStatTimeStampPort, tmnxPtpPeerPktStatAnnounce=tmnxPtpPeerPktStatAnnounce, tmnxPtpPeerMasterGMClockId=tmnxPtpPeerMasterGMClockId, tmnxPtp1588Groups=tmnxPtp1588Groups, tmnxPtpPeerLocalPortNumber=tmnxPtpPeerLocalPortNumber, tmnxPtpVRtrEntry=tmnxPtpVRtrEntry, tmnxPtpPeerPktStatUniReqSync=tmnxPtpPeerPktStatUniReqSync, tmnxPtpClockRecoveryState=tmnxPtpClockRecoveryState, tmnxPtpPortSyncInterval=tmnxPtpPortSyncInterval, tmnxPtpNotificationsGroup=tmnxPtpNotificationsGroup, tmnxPtpClockRecStatsPhaseTrack=tmnxPtpClockRecStatsPhaseTrack, tmnxPtpMasterClockGMClockId=tmnxPtpMasterClockGMClockId, tmnxPtpPortAdminState=tmnxPtpPortAdminState, tmnxPtpPacketRateStatsTable=tmnxPtpPacketRateStatsTable, tmnxPtpPeerUnicastRate=tmnxPtpPeerUnicastRate, tmnxPtpPacketRateStatsDelayResp=tmnxPtpPacketRateStatsDelayResp, tmnxPtpClockPacketStatsTable=tmnxPtpClockPacketStatsTable, tmnxPtpClkPktStatsUniDenySync=tmnxPtpClkPktStatsUniDenySync, tmnxPtpClkPktStatsUniAckCnclSync=tmnxPtpClkPktStatsUniAckCnclSync, tmnxPtpPortDelayInterval=tmnxPtpPortDelayInterval, tmnxPtpPeerMasterCurrentMaster=tmnxPtpPeerMasterCurrentMaster, tmnxPtpClockRecStatsSyncStep=tmnxPtpClockRecStatsSyncStep, tmnxPtpClkPktStatsUniCancelSync=tmnxPtpClkPktStatsUniCancelSync, tmnxPtpPeerIpAddrType=tmnxPtpPeerIpAddrType, tmnxPtpPortStatsTable=tmnxPtpPortStatsTable, tmnxPtpClkPktStatsUniAckCnclDly=tmnxPtpClkPktStatsUniAckCnclDly, tmnxPtpMasterClockGroup=tmnxPtpMasterClockGroup, tmnxPtpComplianceV12v0=tmnxPtpComplianceV12v0, TmnxPtpClockClass=TmnxPtpClockClass, tmnxPtpPeerLocalPriority=tmnxPtpPeerLocalPriority, tmnxPtpPeerPktStatUniGrantDelRsp=tmnxPtpPeerPktStatUniGrantDelRsp, tmnxPtpPeerSyncInterval=tmnxPtpPeerSyncInterval)
-mibBuilder.exportSymbols("TIMETRA-PTP-MIB", tmnxPtpVRtrTableLastChanged=tmnxPtpVRtrTableLastChanged, tmnxPtpVRtrRowStatus=tmnxPtpVRtrRowStatus, tmnxPtpPortLastChanged=tmnxPtpPortLastChanged, tmnxPtpLocalConfigGroup=tmnxPtpLocalConfigGroup, tmnxPtpPeerPktStatUniDenyAnno=tmnxPtpPeerPktStatUniDenyAnno, tmnxPtp1588Status=tmnxPtp1588Status, tmnxPtpPortStatDropAltMaster=tmnxPtpPortStatDropAltMaster, tmnxPtpCardNotSupported=tmnxPtpCardNotSupported, TmnxPtpClockType=TmnxPtpClockType, tmnxPtpPortStatsEntry=tmnxPtpPortStatsEntry, tmnxPtpTimeInformation=tmnxPtpTimeInformation, tmnxPtpClkPktStatsDirection=tmnxPtpClkPktStatsDirection, tmnxPtpClkPktStatsFollowUp=tmnxPtpClkPktStatsFollowUp, tmnxPtpNotifyRowDescription=tmnxPtpNotifyRowDescription, tmnxPtpClockRecStatsDlyStep=tmnxPtpClockRecStatsDlyStep, tmnxPtpClockFrequencyOffset=tmnxPtpClockFrequencyOffset, tmnxPtpClkPktStatsUniAckCnclAnno=tmnxPtpClkPktStatsUniAckCnclAnno, tmnxPtpClkPktStatsDropOther=tmnxPtpClkPktStatsDropOther, tmnxPtpClockConfig=tmnxPtpClockConfig, tmnxPtpTimeInfoTimeTraceable=tmnxPtpTimeInfoTimeTraceable, tmnxPtpClockRecoveryGroup=tmnxPtpClockRecoveryGroup, TmnxPtpPortState=TmnxPtpPortState, tmnxPtpPeerPktStatDropOther=tmnxPtpPeerPktStatDropOther, tmnxPtpPeerPktStatDelayResp=tmnxPtpPeerPktStatDelayResp, tmnxPtpNotifyObjsV12v0Group=tmnxPtpNotifyObjsV12v0Group, tmnxPtpPeerUnicastEventTime=tmnxPtpPeerUnicastEventTime, tmnxPtpPeerUnicastTable=tmnxPtpPeerUnicastTable, tmnxPtpPortNeighborPtpPortNumber=tmnxPtpPortNeighborPtpPortNumber, tmnxPtpMasterClockLastMacAddress=tmnxPtpMasterClockLastMacAddress, tmnxPtpPeerPktStatFollowUp=tmnxPtpPeerPktStatFollowUp, tmnxPtpPeerPacketStatsEntry=tmnxPtpPeerPacketStatsEntry, tmnxPtpPortTxPacketRate=tmnxPtpPortTxPacketRate, tmnxPtpPeerPktStatUniGrantAnno=tmnxPtpPeerPktStatUniGrantAnno, tmnxPtpPeerLastTxPortEncapType=tmnxPtpPeerLastTxPortEncapType, tmnxPtpPortStatOther=tmnxPtpPortStatOther, tmnxPtpPeerBaseConfigGroup=tmnxPtpPeerBaseConfigGroup, tmnxPtpVRtrIfConfigGroup=tmnxPtpVRtrIfConfigGroup, tmnxPtp1588Notifications=tmnxPtp1588Notifications, tmnxPtpPeerMasterClockStepType=tmnxPtpPeerMasterClockStepType, tmnxPtp1588ConfigTimeStamps=tmnxPtp1588ConfigTimeStamps, tmnxPtpPeerPktStatDropAltMaster=tmnxPtpPeerPktStatDropAltMaster, TmnxPtpTransportType=TmnxPtpTransportType, tmnxPtpClockRecStatsSyncHiPktLss=tmnxPtpClockRecStatsSyncHiPktLss, tmnxPtpClockOperState=tmnxPtpClockOperState, tmnxPtpVRtrPeerLimit=tmnxPtpVRtrPeerLimit, TmnxPtpClockVariance=TmnxPtpClockVariance, tmnxPtpMasterClockMacAddress=tmnxPtpMasterClockMacAddress, tmnxPtpClkPktStatsUniReqAnno=tmnxPtpClkPktStatsUniReqAnno, tmnxPtpPortNeighbors=tmnxPtpPortNeighbors, tmnxPtpClockAnnoRxTimeout=tmnxPtpClockAnnoRxTimeout, tmnxPtpMasterClockGMClockClass=tmnxPtpMasterClockGMClockClass, tmnxPtpClkPktStatsSync=tmnxPtpClkPktStatsSync, tmnxPtpPeerRxTimeStampPoint=tmnxPtpPeerRxTimeStampPoint, tmnxPtpPortState=tmnxPtpPortState, tmnxPtp1588Conformance=tmnxPtp1588Conformance, tmnxPtpPortStatSignaling=tmnxPtpPortStatSignaling, tmnxPtpVRtrTable=tmnxPtpVRtrTable, tmnxPtpPortNoTimestamping=tmnxPtpPortNoTimestamping, tmnxPtpV13v0Groups=tmnxPtpV13v0Groups)
+tmnxPtpMasterClockGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 4)
+)
+tmnxPtpMasterClockGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpMasterClockAddressType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockAddress"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMClockId"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMClockPrio1"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMClockPrio2"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMClockClass"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMAccuracy"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGMVariance"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockParentClockId"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockParentPortNum"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockGroup.setStatus("current")
+
+tmnxPtpPeerBaseConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 5)
+)
+tmnxPtpPeerBaseConfigGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpPeerRowStatus"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastChanged"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerAdminState"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPortState"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerLocalPriority"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerRemoteMaster"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerRemoteSlave"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerClockId"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerLocalPortNumber"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerRemotePortNumber"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerBaseConfigGroup.setStatus("current")
+
+tmnxPtpPeerMasterStatusGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 6)
+)
+tmnxPtpPeerMasterStatusGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterCurrentMaster"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterClockStepType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterClockStepsRemvd"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockId"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockPrio1"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockPrio2"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockClass"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockAccuracy"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterGMClockVariance"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterAlarm"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerMasterStatusGroup.setStatus("current")
+
+tmnxPtpPacketStatsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 7)
+)
+tmnxPtpPacketStatsGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsAnnounce"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsFollowUp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDelayRequest"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDelayResp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsSignaling"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsOther"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniReqAnno"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniReqSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniReqDelayRsp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniGrantAnno"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniGrantSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniGrantDelRsp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniDenyAnno"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniDenySync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniDenyDelRsp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniCancelAnno"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniCancelSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniCancelDelay"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniAckCnclAnno"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniAckCnclSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsUniAckCnclDly"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsOtherTLVs"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDropBadDomain"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDropAltMaster"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDropOther"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDropOutOfSeq"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsDropPeerShut"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatAnnounce"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatFollowUp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDelayRequest"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDelayResp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatSignaling"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatOther"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniReqAnno"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniReqSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniReqDelayRsp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniGrantAnno"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniGrantSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniGrantDelRsp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniDenyAnno"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniDenySync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniDenyDelRsp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniCancelAnno"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniCancelSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniCancelDelay"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniAckCnclAnno"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniAckCnclSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatUniAckCnclDly"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatOtherTLVs"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDropBadDomain"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDropAltMaster"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDropOther"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDropOutOfSeq"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatDropPeerShut"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPacketStatsGroup.setStatus("current")
+
+tmnxPtpClockRecoveryGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 8)
+)
+tmnxPtpClockRecoveryGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsInitial"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsAcquiring"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsPhaseTrack"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsLocked"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsHoldover"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsSyncPktLoss"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsSyncHiPktLss"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsSyncStep"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsSyncHighPDV"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsDlyPktLoss"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsDlyHiPktLss"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsDlyStep"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecStatsDlyHighPDV"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecoveryGroup.setStatus("current")
+
+tmnxPtpPeerUnicastStatusGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 9)
+)
+tmnxPtpPeerUnicastStatusGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastStatus"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastRate"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastDuration"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastEventTime"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerUnicastStatusGroup.setStatus("current")
+
+tmnxPtpNotifyObjsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 10)
+)
+tmnxPtpNotifyObjsGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastIpAddrType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastIpAddress"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpNotifyRowPointer"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpNotifyRowDescription"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpNotifyObjsGroup.setStatus("current")
+
+tmnxPtpVRtrIfTimeStampGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2, 1)
+)
+tmnxPtpVRtrIfTimeStampGroup.setObjects(
+    ("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfTableLastChanged")
+)
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrIfTimeStampGroup.setStatus("current")
+
+tmnxPtpVRtrIfConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2, 2)
+)
+tmnxPtpVRtrIfConfigGroup.setObjects(
+    ("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfAdminState")
+)
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrIfConfigGroup.setStatus("current")
+
+tmnxPtpTimeInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2, 3)
+)
+tmnxPtpTimeInfoGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoTimescale"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoCurrentTime"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoFreqTraceable"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoTimeTraceable"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoTimeSource"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpTimeInfoGroup.setStatus("current")
+
+tmnxPtpPeerOperGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2, 5)
+)
+tmnxPtpPeerOperGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpPeerTxTimeStampPoint"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastTxPortId"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastTxPortEncapType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastTxPortEncapValue"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerRxTimeStampPoint"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastRxPortId"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastRxPortEncapType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerLastRxPortEncapValue"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerOperGroup.setStatus("current")
+
+tmnxPtpPacketStatsV10v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 2, 6)
+)
+tmnxPtpPacketStatsV10v0Group.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsTimeStampPort"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClkPktStatsTimeStampCpm"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatTimeStampPort"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerPktStatTimeStampCpm"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPacketStatsV10v0Group.setStatus("current")
+
+tmnxPtpVRtrGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 3, 1)
+)
+tmnxPtpVRtrGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpVRtrTableLastChanged"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpVRtrRowStatus"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpVRtrLastChanged"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpVRtrAdminState"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpVRtrOperState"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpVRtrPeerLimit"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpVRtrGroup.setStatus("current")
+
+tmnxPtpLocalConfigV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 1)
+)
+tmnxPtpLocalConfigV12v0Group.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpClockAnnounceInterval"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockAnnoRxTimeout"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpLocalConfigV12v0Group.setStatus("current")
+
+tmnxPtpPeerBaseConfigV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 2)
+)
+tmnxPtpPeerBaseConfigV12v0Group.setObjects(
+    ("TIMETRA-PTP-MIB", "tmnxPtpPeerSyncInterval")
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPeerBaseConfigV12v0Group.setStatus("current")
+
+tmnxPtpMasterClockV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 3)
+)
+tmnxPtpMasterClockV12v0Group.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpMasterClockTransportType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockEthernetPort"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockMacAddress"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockV12v0Group.setStatus("current")
+
+tmnxPtpPortGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 4)
+)
+tmnxPtpPortGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpPortTableLastChanged"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortRowStatus"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortLastChanged"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortAdminState"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortSyncInterval"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortDelayInterval"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortMulticastAddress"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortLocalPortNumber"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortOperState"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortState"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortTimeStampRefPoint"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortNeighbors"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortTxPacketRate"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortRxPacketRate"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortSrcMacAddr"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortNeighborClockId"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortNeighborPtpPortNumber"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortNeighborRxPacketRate"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPortGroup.setStatus("current")
+
+tmnxPtpPortStatsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 5)
+)
+tmnxPtpPortStatsGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpPortStatAnnounce"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatFollowUp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDelayRequest"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDelayResponse"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatSignaling"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatOther"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatTimeStampPort"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatTimeStampCpm"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDropBadDomain"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDropAltMaster"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDropOutOfSeq"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatDropOther"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPortStatsGroup.setStatus("current")
+
+tmnxPtpPacketRateStatsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 6)
+)
+tmnxPtpPacketRateStatsGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsAnnounce"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsSync"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsFollowUp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsDelayReq"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsDelayResp"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsOther"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPacketRateStatsGroup.setStatus("current")
+
+tmnxPtpNotifyObjsV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 7)
+)
+tmnxPtpNotifyObjsV12v0Group.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastTransType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastEthPort"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastMacAddress"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpNotifyPortId"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpNotifyObjsV12v0Group.setStatus("current")
+
+tmnxPtpConfigV13v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 5, 1)
+)
+tmnxPtpConfigV13v0Group.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpClockLocalPriority"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortLocalPriority"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortMasterOnly"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpConfigV13v0Group.setStatus("current")
+
+
+# Notification objects
+
+tmnxPtpCardNotSupported = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 1)
+)
+tmnxPtpCardNotSupported.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxCpmCardOscillatorType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockClockType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockAdminState"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpCardNotSupported.setStatus(
+        "current"
+    )
+
+tmnxPtpCardNotSupportedClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 2)
+)
+tmnxPtpCardNotSupportedClear.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxCpmCardOscillatorType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockClockType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockAdminState"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpCardNotSupportedClear.setStatus(
+        "current"
+    )
+
+tmnxPtpMasterClockChangedEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 3)
+)
+tmnxPtpMasterClockChangedEvent.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpMasterClockAddressType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockAddress"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastIpAddrType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastIpAddress"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockTransportType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockEthernetPort"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockMacAddress"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastTransType"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastEthPort"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockLastMacAddress"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpMasterClockChangedEvent.setStatus(
+        "current"
+    )
+
+tmnxPtpClockRecoveryStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 4)
+)
+tmnxPtpClockRecoveryStateChange.setObjects(
+    ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryState")
+)
+if mibBuilder.loadTexts:
+    tmnxPtpClockRecoveryStateChange.setStatus(
+        "current"
+    )
+
+tmnxPtpOutOfResources = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 5)
+)
+tmnxPtpOutOfResources.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyChassisId"),
+        ("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyHwIndex"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpOutOfResources.setStatus(
+        "current"
+    )
+
+tmnxPtpOutOfResourcesClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 6)
+)
+tmnxPtpOutOfResourcesClear.setObjects(
+      *(("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyChassisId"),
+        ("TIMETRA-CHASSIS-MIB", "tmnxChassisNotifyHwIndex"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpOutOfResourcesClear.setStatus(
+        "current"
+    )
+
+tmnxPtpDynamicChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 7)
+)
+tmnxPtpDynamicChange.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpNotifyRowPointer"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpNotifyRowDescription"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpDynamicChange.setStatus(
+        "current"
+    )
+
+tmnxPtpPortNoTimestamping = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 74, 0, 8)
+)
+tmnxPtpPortNoTimestamping.setObjects(
+    ("TIMETRA-PTP-MIB", "tmnxPtpNotifyPortId")
+)
+if mibBuilder.loadTexts:
+    tmnxPtpPortNoTimestamping.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+tmnxPtpNotificationsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 1, 11)
+)
+tmnxPtpNotificationsGroup.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpCardNotSupported"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpCardNotSupportedClear"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockChangedEvent"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryStateChange"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpOutOfResources"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpOutOfResourcesClear"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpDynamicChange"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpNotificationsGroup.setStatus(
+        "current"
+    )
+
+tmnxPtpNotificationsV12v0Group = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 2, 4, 8)
+)
+tmnxPtpNotificationsV12v0Group.setObjects(
+    ("TIMETRA-PTP-MIB", "tmnxPtpPortNoTimestamping")
+)
+if mibBuilder.loadTexts:
+    tmnxPtpNotificationsV12v0Group.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tmnxPtpCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1, 1)
+)
+tmnxPtpCompliance.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpTimeStampGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpLocalConfigGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpLocalOperGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerBaseConfigGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterStatusGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPacketStatsGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastStatusGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpNotificationsGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpCompliance.setStatus(
+        "obsolete"
+    )
+
+tmnxPtpComplianceV10v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1, 2)
+)
+tmnxPtpComplianceV10v0.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpTimeStampGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpLocalConfigGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpLocalOperGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerBaseConfigGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterStatusGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPacketStatsGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastStatusGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpNotificationsGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfTimeStampGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfConfigGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerOperGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPacketStatsV10v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpComplianceV10v0.setStatus(
+        "obsolete"
+    )
+
+tmnxPtpComplianceV11v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1, 3)
+)
+tmnxPtpComplianceV11v0.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpTimeStampGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpLocalConfigGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpLocalOperGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerBaseConfigGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerMasterStatusGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPacketStatsGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpClockRecoveryGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerUnicastStatusGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpNotificationsGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfTimeStampGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpVRtrIfConfigGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpTimeInfoGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerOperGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPacketStatsV10v0Group"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpVRtrGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpComplianceV11v0.setStatus(
+        "current"
+    )
+
+tmnxPtpComplianceV12v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1, 4)
+)
+tmnxPtpComplianceV12v0.setObjects(
+      *(("TIMETRA-PTP-MIB", "tmnxPtpLocalConfigV12v0Group"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPeerBaseConfigV12v0Group"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpMasterClockV12v0Group"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPortStatsGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpPacketRateStatsGroup"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpNotifyObjsV12v0Group"),
+        ("TIMETRA-PTP-MIB", "tmnxPtpNotificationsV12v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxPtpComplianceV12v0.setStatus(
+        "current"
+    )
+
+tmnxPtpComplianceV13v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 74, 1, 5)
+)
+tmnxPtpComplianceV13v0.setObjects(
+    ("TIMETRA-PTP-MIB", "tmnxPtpConfigV13v0Group")
+)
+if mibBuilder.loadTexts:
+    tmnxPtpComplianceV13v0.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TIMETRA-PTP-MIB",
+    **{"TmnxPtpClockType": TmnxPtpClockType,
+       "TmnxPtpClockIdentity": TmnxPtpClockIdentity,
+       "TmnxPtpClockClass": TmnxPtpClockClass,
+       "TmnxPtpDomain": TmnxPtpDomain,
+       "TmnxPtpPriority": TmnxPtpPriority,
+       "TmnxPtpProfile": TmnxPtpProfile,
+       "TmnxPtpDirection": TmnxPtpDirection,
+       "TmnxPtpLogInterval": TmnxPtpLogInterval,
+       "TmnxPtpClockStepType": TmnxPtpClockStepType,
+       "TmnxPtpClockAccuracy": TmnxPtpClockAccuracy,
+       "TmnxPtpClockVariance": TmnxPtpClockVariance,
+       "TmnxPtpPortState": TmnxPtpPortState,
+       "TmnxPtpPortNumber": TmnxPtpPortNumber,
+       "TmnxPtpTimeStampReferencePoint": TmnxPtpTimeStampReferencePoint,
+       "TmnxPtpTransportType": TmnxPtpTransportType,
+       "timetraPtpMIBModule": timetraPtpMIBModule,
+       "tmnxPtp1588Conformance": tmnxPtp1588Conformance,
+       "tmnxPtp1588Compliances": tmnxPtp1588Compliances,
+       "tmnxPtpCompliance": tmnxPtpCompliance,
+       "tmnxPtpComplianceV10v0": tmnxPtpComplianceV10v0,
+       "tmnxPtpComplianceV11v0": tmnxPtpComplianceV11v0,
+       "tmnxPtpComplianceV12v0": tmnxPtpComplianceV12v0,
+       "tmnxPtpComplianceV13v0": tmnxPtpComplianceV13v0,
+       "tmnxPtp1588Groups": tmnxPtp1588Groups,
+       "tmnxPtpV9v0Groups": tmnxPtpV9v0Groups,
+       "tmnxPtpTimeStampGroup": tmnxPtpTimeStampGroup,
+       "tmnxPtpLocalConfigGroup": tmnxPtpLocalConfigGroup,
+       "tmnxPtpLocalOperGroup": tmnxPtpLocalOperGroup,
+       "tmnxPtpMasterClockGroup": tmnxPtpMasterClockGroup,
+       "tmnxPtpPeerBaseConfigGroup": tmnxPtpPeerBaseConfigGroup,
+       "tmnxPtpPeerMasterStatusGroup": tmnxPtpPeerMasterStatusGroup,
+       "tmnxPtpPacketStatsGroup": tmnxPtpPacketStatsGroup,
+       "tmnxPtpClockRecoveryGroup": tmnxPtpClockRecoveryGroup,
+       "tmnxPtpPeerUnicastStatusGroup": tmnxPtpPeerUnicastStatusGroup,
+       "tmnxPtpNotifyObjsGroup": tmnxPtpNotifyObjsGroup,
+       "tmnxPtpNotificationsGroup": tmnxPtpNotificationsGroup,
+       "tmnxPtpV10v0Groups": tmnxPtpV10v0Groups,
+       "tmnxPtpVRtrIfTimeStampGroup": tmnxPtpVRtrIfTimeStampGroup,
+       "tmnxPtpVRtrIfConfigGroup": tmnxPtpVRtrIfConfigGroup,
+       "tmnxPtpTimeInfoGroup": tmnxPtpTimeInfoGroup,
+       "tmnxPtpPeerOperGroup": tmnxPtpPeerOperGroup,
+       "tmnxPtpPacketStatsV10v0Group": tmnxPtpPacketStatsV10v0Group,
+       "tmnxPtpV11v0Groups": tmnxPtpV11v0Groups,
+       "tmnxPtpVRtrGroup": tmnxPtpVRtrGroup,
+       "tmnxPtpV12v0Groups": tmnxPtpV12v0Groups,
+       "tmnxPtpLocalConfigV12v0Group": tmnxPtpLocalConfigV12v0Group,
+       "tmnxPtpPeerBaseConfigV12v0Group": tmnxPtpPeerBaseConfigV12v0Group,
+       "tmnxPtpMasterClockV12v0Group": tmnxPtpMasterClockV12v0Group,
+       "tmnxPtpPortGroup": tmnxPtpPortGroup,
+       "tmnxPtpPortStatsGroup": tmnxPtpPortStatsGroup,
+       "tmnxPtpPacketRateStatsGroup": tmnxPtpPacketRateStatsGroup,
+       "tmnxPtpNotifyObjsV12v0Group": tmnxPtpNotifyObjsV12v0Group,
+       "tmnxPtpNotificationsV12v0Group": tmnxPtpNotificationsV12v0Group,
+       "tmnxPtpV13v0Groups": tmnxPtpV13v0Groups,
+       "tmnxPtpConfigV13v0Group": tmnxPtpConfigV13v0Group,
+       "tmnxPtp1588Objs": tmnxPtp1588Objs,
+       "tmnxPtp1588ConfigTimeStamps": tmnxPtp1588ConfigTimeStamps,
+       "tmnxPtpPeerConfigTblLastChanged": tmnxPtpPeerConfigTblLastChanged,
+       "tmnxPtpVRtrIfTableLastChanged": tmnxPtpVRtrIfTableLastChanged,
+       "tmnxPtpVRtrTableLastChanged": tmnxPtpVRtrTableLastChanged,
+       "tmnxPtpPortTableLastChanged": tmnxPtpPortTableLastChanged,
+       "tmnxPtp1588Configurations": tmnxPtp1588Configurations,
+       "tmnxPtpClockConfig": tmnxPtpClockConfig,
+       "tmnxPtpClockAdminState": tmnxPtpClockAdminState,
+       "tmnxPtpClockClockType": tmnxPtpClockClockType,
+       "tmnxPtpClockProfile": tmnxPtpClockProfile,
+       "tmnxPtpClockDomain": tmnxPtpClockDomain,
+       "tmnxPtpClockAnnounceInterval": tmnxPtpClockAnnounceInterval,
+       "tmnxPtpClockPriority1": tmnxPtpClockPriority1,
+       "tmnxPtpClockPriority2": tmnxPtpClockPriority2,
+       "tmnxPtpClockNetworkType": tmnxPtpClockNetworkType,
+       "tmnxPtpClockAnnoRxTimeout": tmnxPtpClockAnnoRxTimeout,
+       "tmnxPtpClockLocalPriority": tmnxPtpClockLocalPriority,
+       "tmnxPtpPeerConfigTable": tmnxPtpPeerConfigTable,
+       "tmnxPtpPeerConfigEntry": tmnxPtpPeerConfigEntry,
+       "tmnxPtpPeerIpAddrType": tmnxPtpPeerIpAddrType,
+       "tmnxPtpPeerIpAddress": tmnxPtpPeerIpAddress,
+       "tmnxPtpPeerRowStatus": tmnxPtpPeerRowStatus,
+       "tmnxPtpPeerLastChanged": tmnxPtpPeerLastChanged,
+       "tmnxPtpPeerAdminState": tmnxPtpPeerAdminState,
+       "tmnxPtpPeerPortState": tmnxPtpPeerPortState,
+       "tmnxPtpPeerLocalPriority": tmnxPtpPeerLocalPriority,
+       "tmnxPtpPeerRemoteMaster": tmnxPtpPeerRemoteMaster,
+       "tmnxPtpPeerRemoteSlave": tmnxPtpPeerRemoteSlave,
+       "tmnxPtpPeerClockId": tmnxPtpPeerClockId,
+       "tmnxPtpPeerLocalPortNumber": tmnxPtpPeerLocalPortNumber,
+       "tmnxPtpPeerRemotePortNumber": tmnxPtpPeerRemotePortNumber,
+       "tmnxPtpPeerTxTimeStampPoint": tmnxPtpPeerTxTimeStampPoint,
+       "tmnxPtpPeerLastTxPortId": tmnxPtpPeerLastTxPortId,
+       "tmnxPtpPeerLastTxPortEncapType": tmnxPtpPeerLastTxPortEncapType,
+       "tmnxPtpPeerLastTxPortEncapValue": tmnxPtpPeerLastTxPortEncapValue,
+       "tmnxPtpPeerRxTimeStampPoint": tmnxPtpPeerRxTimeStampPoint,
+       "tmnxPtpPeerLastRxPortId": tmnxPtpPeerLastRxPortId,
+       "tmnxPtpPeerLastRxPortEncapType": tmnxPtpPeerLastRxPortEncapType,
+       "tmnxPtpPeerLastRxPortEncapValue": tmnxPtpPeerLastRxPortEncapValue,
+       "tmnxPtpPeerSyncInterval": tmnxPtpPeerSyncInterval,
+       "tmnxPtpVRtrIfTable": tmnxPtpVRtrIfTable,
+       "tmnxPtpVRtrIfEntry": tmnxPtpVRtrIfEntry,
+       "tmnxPtpVRtrIfAdminState": tmnxPtpVRtrIfAdminState,
+       "tmnxPtpVRtrTable": tmnxPtpVRtrTable,
+       "tmnxPtpVRtrEntry": tmnxPtpVRtrEntry,
+       "tmnxPtpVRtrRowStatus": tmnxPtpVRtrRowStatus,
+       "tmnxPtpVRtrLastChanged": tmnxPtpVRtrLastChanged,
+       "tmnxPtpVRtrAdminState": tmnxPtpVRtrAdminState,
+       "tmnxPtpVRtrOperState": tmnxPtpVRtrOperState,
+       "tmnxPtpVRtrPeerLimit": tmnxPtpVRtrPeerLimit,
+       "tmnxPtpPortTable": tmnxPtpPortTable,
+       "tmnxPtpPortEntry": tmnxPtpPortEntry,
+       "tmnxPtpPortRowStatus": tmnxPtpPortRowStatus,
+       "tmnxPtpPortLastChanged": tmnxPtpPortLastChanged,
+       "tmnxPtpPortAdminState": tmnxPtpPortAdminState,
+       "tmnxPtpPortSyncInterval": tmnxPtpPortSyncInterval,
+       "tmnxPtpPortDelayInterval": tmnxPtpPortDelayInterval,
+       "tmnxPtpPortMulticastAddress": tmnxPtpPortMulticastAddress,
+       "tmnxPtpPortLocalPriority": tmnxPtpPortLocalPriority,
+       "tmnxPtpPortMasterOnly": tmnxPtpPortMasterOnly,
+       "tmnxPtp1588Status": tmnxPtp1588Status,
+       "tmnxPtpClockOperTable": tmnxPtpClockOperTable,
+       "tmnxPtpClockOperEntry": tmnxPtpClockOperEntry,
+       "tmnxPtpClockIdentity": tmnxPtpClockIdentity,
+       "tmnxPtpClockOperState": tmnxPtpClockOperState,
+       "tmnxPtpClockStepType": tmnxPtpClockStepType,
+       "tmnxPtpClockClass": tmnxPtpClockClass,
+       "tmnxPtpClockAccuracy": tmnxPtpClockAccuracy,
+       "tmnxPtpClockVariance": tmnxPtpClockVariance,
+       "tmnxPtpClockPortState": tmnxPtpClockPortState,
+       "tmnxPtpClockPortStateLastChanged": tmnxPtpClockPortStateLastChanged,
+       "tmnxPtpClockRecoveryState": tmnxPtpClockRecoveryState,
+       "tmnxPtpClockRecoveryStateLastChg": tmnxPtpClockRecoveryStateLastChg,
+       "tmnxPtpClockFrequencyOffset": tmnxPtpClockFrequencyOffset,
+       "tmnxPtpMasterClockOper": tmnxPtpMasterClockOper,
+       "tmnxPtpMasterClockAddressType": tmnxPtpMasterClockAddressType,
+       "tmnxPtpMasterClockAddress": tmnxPtpMasterClockAddress,
+       "tmnxPtpMasterClockGMClockId": tmnxPtpMasterClockGMClockId,
+       "tmnxPtpMasterClockGMClockPrio1": tmnxPtpMasterClockGMClockPrio1,
+       "tmnxPtpMasterClockGMClockPrio2": tmnxPtpMasterClockGMClockPrio2,
+       "tmnxPtpMasterClockGMClockClass": tmnxPtpMasterClockGMClockClass,
+       "tmnxPtpMasterClockGMAccuracy": tmnxPtpMasterClockGMAccuracy,
+       "tmnxPtpMasterClockGMVariance": tmnxPtpMasterClockGMVariance,
+       "tmnxPtpMasterClockParentClockId": tmnxPtpMasterClockParentClockId,
+       "tmnxPtpMasterClockParentPortNum": tmnxPtpMasterClockParentPortNum,
+       "tmnxPtpMasterClockTransportType": tmnxPtpMasterClockTransportType,
+       "tmnxPtpMasterClockEthernetPort": tmnxPtpMasterClockEthernetPort,
+       "tmnxPtpMasterClockMacAddress": tmnxPtpMasterClockMacAddress,
+       "tmnxPtpPeerMasterStatusTable": tmnxPtpPeerMasterStatusTable,
+       "tmnxPtpPeerMasterStatusEntry": tmnxPtpPeerMasterStatusEntry,
+       "tmnxPtpPeerMasterCurrentMaster": tmnxPtpPeerMasterCurrentMaster,
+       "tmnxPtpPeerMasterClockStepType": tmnxPtpPeerMasterClockStepType,
+       "tmnxPtpPeerMasterClockStepsRemvd": tmnxPtpPeerMasterClockStepsRemvd,
+       "tmnxPtpPeerMasterGMClockId": tmnxPtpPeerMasterGMClockId,
+       "tmnxPtpPeerMasterGMClockPrio1": tmnxPtpPeerMasterGMClockPrio1,
+       "tmnxPtpPeerMasterGMClockPrio2": tmnxPtpPeerMasterGMClockPrio2,
+       "tmnxPtpPeerMasterGMClockClass": tmnxPtpPeerMasterGMClockClass,
+       "tmnxPtpPeerMasterGMClockAccuracy": tmnxPtpPeerMasterGMClockAccuracy,
+       "tmnxPtpPeerMasterGMClockVariance": tmnxPtpPeerMasterGMClockVariance,
+       "tmnxPtpPeerMasterAlarm": tmnxPtpPeerMasterAlarm,
+       "tmnxPtpPeerUnicastTable": tmnxPtpPeerUnicastTable,
+       "tmnxPtpPeerUnicastEntry": tmnxPtpPeerUnicastEntry,
+       "tmnxPtpPeerUnicastDirection": tmnxPtpPeerUnicastDirection,
+       "tmnxPtpPeerUnicastPktType": tmnxPtpPeerUnicastPktType,
+       "tmnxPtpPeerUnicastStatus": tmnxPtpPeerUnicastStatus,
+       "tmnxPtpPeerUnicastRate": tmnxPtpPeerUnicastRate,
+       "tmnxPtpPeerUnicastDuration": tmnxPtpPeerUnicastDuration,
+       "tmnxPtpPeerUnicastEventTime": tmnxPtpPeerUnicastEventTime,
+       "tmnxPtpTimeInformation": tmnxPtpTimeInformation,
+       "tmnxPtpTimeInfoTimescale": tmnxPtpTimeInfoTimescale,
+       "tmnxPtpTimeInfoCurrentTime": tmnxPtpTimeInfoCurrentTime,
+       "tmnxPtpTimeInfoFreqTraceable": tmnxPtpTimeInfoFreqTraceable,
+       "tmnxPtpTimeInfoTimeTraceable": tmnxPtpTimeInfoTimeTraceable,
+       "tmnxPtpTimeInfoTimeSource": tmnxPtpTimeInfoTimeSource,
+       "tmnxPtpPortStatusTable": tmnxPtpPortStatusTable,
+       "tmnxPtpPortStatusEntry": tmnxPtpPortStatusEntry,
+       "tmnxPtpPortLocalPortNumber": tmnxPtpPortLocalPortNumber,
+       "tmnxPtpPortOperState": tmnxPtpPortOperState,
+       "tmnxPtpPortState": tmnxPtpPortState,
+       "tmnxPtpPortTimeStampRefPoint": tmnxPtpPortTimeStampRefPoint,
+       "tmnxPtpPortNeighbors": tmnxPtpPortNeighbors,
+       "tmnxPtpPortTxPacketRate": tmnxPtpPortTxPacketRate,
+       "tmnxPtpPortRxPacketRate": tmnxPtpPortRxPacketRate,
+       "tmnxPtpPortSrcMacAddr": tmnxPtpPortSrcMacAddr,
+       "tmnxPtpPortNeighborTable": tmnxPtpPortNeighborTable,
+       "tmnxPtpPortNeighborEntry": tmnxPtpPortNeighborEntry,
+       "tmnxPtpPortNeighborMacAddress": tmnxPtpPortNeighborMacAddress,
+       "tmnxPtpPortNeighborClockId": tmnxPtpPortNeighborClockId,
+       "tmnxPtpPortNeighborPtpPortNumber": tmnxPtpPortNeighborPtpPortNumber,
+       "tmnxPtpPortNeighborRxPacketRate": tmnxPtpPortNeighborRxPacketRate,
+       "tmnxPtp1588Statistics": tmnxPtp1588Statistics,
+       "tmnxPtpClockPacketStatsTable": tmnxPtpClockPacketStatsTable,
+       "tmnxPtpClockPacketStatsEntry": tmnxPtpClockPacketStatsEntry,
+       "tmnxPtpClkPktStatsDirection": tmnxPtpClkPktStatsDirection,
+       "tmnxPtpClkPktStatsAnnounce": tmnxPtpClkPktStatsAnnounce,
+       "tmnxPtpClkPktStatsSync": tmnxPtpClkPktStatsSync,
+       "tmnxPtpClkPktStatsFollowUp": tmnxPtpClkPktStatsFollowUp,
+       "tmnxPtpClkPktStatsDelayRequest": tmnxPtpClkPktStatsDelayRequest,
+       "tmnxPtpClkPktStatsDelayResp": tmnxPtpClkPktStatsDelayResp,
+       "tmnxPtpClkPktStatsSignaling": tmnxPtpClkPktStatsSignaling,
+       "tmnxPtpClkPktStatsOther": tmnxPtpClkPktStatsOther,
+       "tmnxPtpClkPktStatsUniReqAnno": tmnxPtpClkPktStatsUniReqAnno,
+       "tmnxPtpClkPktStatsUniReqSync": tmnxPtpClkPktStatsUniReqSync,
+       "tmnxPtpClkPktStatsUniReqDelayRsp": tmnxPtpClkPktStatsUniReqDelayRsp,
+       "tmnxPtpClkPktStatsUniGrantAnno": tmnxPtpClkPktStatsUniGrantAnno,
+       "tmnxPtpClkPktStatsUniGrantSync": tmnxPtpClkPktStatsUniGrantSync,
+       "tmnxPtpClkPktStatsUniGrantDelRsp": tmnxPtpClkPktStatsUniGrantDelRsp,
+       "tmnxPtpClkPktStatsUniDenyAnno": tmnxPtpClkPktStatsUniDenyAnno,
+       "tmnxPtpClkPktStatsUniDenySync": tmnxPtpClkPktStatsUniDenySync,
+       "tmnxPtpClkPktStatsUniDenyDelRsp": tmnxPtpClkPktStatsUniDenyDelRsp,
+       "tmnxPtpClkPktStatsUniCancelAnno": tmnxPtpClkPktStatsUniCancelAnno,
+       "tmnxPtpClkPktStatsUniCancelSync": tmnxPtpClkPktStatsUniCancelSync,
+       "tmnxPtpClkPktStatsUniCancelDelay": tmnxPtpClkPktStatsUniCancelDelay,
+       "tmnxPtpClkPktStatsUniAckCnclAnno": tmnxPtpClkPktStatsUniAckCnclAnno,
+       "tmnxPtpClkPktStatsUniAckCnclSync": tmnxPtpClkPktStatsUniAckCnclSync,
+       "tmnxPtpClkPktStatsUniAckCnclDly": tmnxPtpClkPktStatsUniAckCnclDly,
+       "tmnxPtpClkPktStatsOtherTLVs": tmnxPtpClkPktStatsOtherTLVs,
+       "tmnxPtpClkPktStatsDropBadDomain": tmnxPtpClkPktStatsDropBadDomain,
+       "tmnxPtpClkPktStatsDropAltMaster": tmnxPtpClkPktStatsDropAltMaster,
+       "tmnxPtpClkPktStatsDropOther": tmnxPtpClkPktStatsDropOther,
+       "tmnxPtpClkPktStatsTimeStampPort": tmnxPtpClkPktStatsTimeStampPort,
+       "tmnxPtpClkPktStatsTimeStampCpm": tmnxPtpClkPktStatsTimeStampCpm,
+       "tmnxPtpClkPktStatsDropOutOfSeq": tmnxPtpClkPktStatsDropOutOfSeq,
+       "tmnxPtpClkPktStatsDropPeerShut": tmnxPtpClkPktStatsDropPeerShut,
+       "tmnxPtpPeerPacketStatsTable": tmnxPtpPeerPacketStatsTable,
+       "tmnxPtpPeerPacketStatsEntry": tmnxPtpPeerPacketStatsEntry,
+       "tmnxPtpPeerPktStatDirection": tmnxPtpPeerPktStatDirection,
+       "tmnxPtpPeerPktStatAnnounce": tmnxPtpPeerPktStatAnnounce,
+       "tmnxPtpPeerPktStatSync": tmnxPtpPeerPktStatSync,
+       "tmnxPtpPeerPktStatFollowUp": tmnxPtpPeerPktStatFollowUp,
+       "tmnxPtpPeerPktStatDelayRequest": tmnxPtpPeerPktStatDelayRequest,
+       "tmnxPtpPeerPktStatDelayResp": tmnxPtpPeerPktStatDelayResp,
+       "tmnxPtpPeerPktStatSignaling": tmnxPtpPeerPktStatSignaling,
+       "tmnxPtpPeerPktStatOther": tmnxPtpPeerPktStatOther,
+       "tmnxPtpPeerPktStatUniReqAnno": tmnxPtpPeerPktStatUniReqAnno,
+       "tmnxPtpPeerPktStatUniReqSync": tmnxPtpPeerPktStatUniReqSync,
+       "tmnxPtpPeerPktStatUniReqDelayRsp": tmnxPtpPeerPktStatUniReqDelayRsp,
+       "tmnxPtpPeerPktStatUniGrantAnno": tmnxPtpPeerPktStatUniGrantAnno,
+       "tmnxPtpPeerPktStatUniGrantSync": tmnxPtpPeerPktStatUniGrantSync,
+       "tmnxPtpPeerPktStatUniGrantDelRsp": tmnxPtpPeerPktStatUniGrantDelRsp,
+       "tmnxPtpPeerPktStatUniDenyAnno": tmnxPtpPeerPktStatUniDenyAnno,
+       "tmnxPtpPeerPktStatUniDenySync": tmnxPtpPeerPktStatUniDenySync,
+       "tmnxPtpPeerPktStatUniDenyDelRsp": tmnxPtpPeerPktStatUniDenyDelRsp,
+       "tmnxPtpPeerPktStatUniCancelAnno": tmnxPtpPeerPktStatUniCancelAnno,
+       "tmnxPtpPeerPktStatUniCancelSync": tmnxPtpPeerPktStatUniCancelSync,
+       "tmnxPtpPeerPktStatUniCancelDelay": tmnxPtpPeerPktStatUniCancelDelay,
+       "tmnxPtpPeerPktStatUniAckCnclAnno": tmnxPtpPeerPktStatUniAckCnclAnno,
+       "tmnxPtpPeerPktStatUniAckCnclSync": tmnxPtpPeerPktStatUniAckCnclSync,
+       "tmnxPtpPeerPktStatUniAckCnclDly": tmnxPtpPeerPktStatUniAckCnclDly,
+       "tmnxPtpPeerPktStatOtherTLVs": tmnxPtpPeerPktStatOtherTLVs,
+       "tmnxPtpPeerPktStatDropBadDomain": tmnxPtpPeerPktStatDropBadDomain,
+       "tmnxPtpPeerPktStatDropAltMaster": tmnxPtpPeerPktStatDropAltMaster,
+       "tmnxPtpPeerPktStatDropOther": tmnxPtpPeerPktStatDropOther,
+       "tmnxPtpPeerPktStatTimeStampPort": tmnxPtpPeerPktStatTimeStampPort,
+       "tmnxPtpPeerPktStatTimeStampCpm": tmnxPtpPeerPktStatTimeStampCpm,
+       "tmnxPtpPeerPktStatDropOutOfSeq": tmnxPtpPeerPktStatDropOutOfSeq,
+       "tmnxPtpPeerPktStatDropPeerShut": tmnxPtpPeerPktStatDropPeerShut,
+       "tmnxPtpClockRecoveryStatistics": tmnxPtpClockRecoveryStatistics,
+       "tmnxPtpClockRecStatsInitial": tmnxPtpClockRecStatsInitial,
+       "tmnxPtpClockRecStatsAcquiring": tmnxPtpClockRecStatsAcquiring,
+       "tmnxPtpClockRecStatsPhaseTrack": tmnxPtpClockRecStatsPhaseTrack,
+       "tmnxPtpClockRecStatsLocked": tmnxPtpClockRecStatsLocked,
+       "tmnxPtpClockRecStatsHoldover": tmnxPtpClockRecStatsHoldover,
+       "tmnxPtpClockRecStatsSyncPktLoss": tmnxPtpClockRecStatsSyncPktLoss,
+       "tmnxPtpClockRecStatsSyncHiPktLss": tmnxPtpClockRecStatsSyncHiPktLss,
+       "tmnxPtpClockRecStatsSyncStep": tmnxPtpClockRecStatsSyncStep,
+       "tmnxPtpClockRecStatsSyncHighPDV": tmnxPtpClockRecStatsSyncHighPDV,
+       "tmnxPtpClockRecStatsDlyPktLoss": tmnxPtpClockRecStatsDlyPktLoss,
+       "tmnxPtpClockRecStatsDlyHiPktLss": tmnxPtpClockRecStatsDlyHiPktLss,
+       "tmnxPtpClockRecStatsDlyStep": tmnxPtpClockRecStatsDlyStep,
+       "tmnxPtpClockRecStatsDlyHighPDV": tmnxPtpClockRecStatsDlyHighPDV,
+       "tmnxPtpPortStatsTable": tmnxPtpPortStatsTable,
+       "tmnxPtpPortStatsEntry": tmnxPtpPortStatsEntry,
+       "tmnxPtpPortStatDirection": tmnxPtpPortStatDirection,
+       "tmnxPtpPortStatAnnounce": tmnxPtpPortStatAnnounce,
+       "tmnxPtpPortStatSync": tmnxPtpPortStatSync,
+       "tmnxPtpPortStatFollowUp": tmnxPtpPortStatFollowUp,
+       "tmnxPtpPortStatDelayRequest": tmnxPtpPortStatDelayRequest,
+       "tmnxPtpPortStatDelayResponse": tmnxPtpPortStatDelayResponse,
+       "tmnxPtpPortStatSignaling": tmnxPtpPortStatSignaling,
+       "tmnxPtpPortStatOther": tmnxPtpPortStatOther,
+       "tmnxPtpPortStatTimeStampPort": tmnxPtpPortStatTimeStampPort,
+       "tmnxPtpPortStatTimeStampCpm": tmnxPtpPortStatTimeStampCpm,
+       "tmnxPtpPortStatDropBadDomain": tmnxPtpPortStatDropBadDomain,
+       "tmnxPtpPortStatDropAltMaster": tmnxPtpPortStatDropAltMaster,
+       "tmnxPtpPortStatDropOutOfSeq": tmnxPtpPortStatDropOutOfSeq,
+       "tmnxPtpPortStatDropOther": tmnxPtpPortStatDropOther,
+       "tmnxPtpPacketRateStatsTable": tmnxPtpPacketRateStatsTable,
+       "tmnxPtpPacketRateStatsEntry": tmnxPtpPacketRateStatsEntry,
+       "tmnxPtpPacketRateStatsTransport": tmnxPtpPacketRateStatsTransport,
+       "tmnxPtpPacketRateStatsDirection": tmnxPtpPacketRateStatsDirection,
+       "tmnxPtpPacketRateStatsAnnounce": tmnxPtpPacketRateStatsAnnounce,
+       "tmnxPtpPacketRateStatsSync": tmnxPtpPacketRateStatsSync,
+       "tmnxPtpPacketRateStatsFollowUp": tmnxPtpPacketRateStatsFollowUp,
+       "tmnxPtpPacketRateStatsDelayReq": tmnxPtpPacketRateStatsDelayReq,
+       "tmnxPtpPacketRateStatsDelayResp": tmnxPtpPacketRateStatsDelayResp,
+       "tmnxPtpPacketRateStatsOther": tmnxPtpPacketRateStatsOther,
+       "tmnxPtp1588NotifyObjects": tmnxPtp1588NotifyObjects,
+       "tmnxPtpMasterClockLastIpAddrType": tmnxPtpMasterClockLastIpAddrType,
+       "tmnxPtpMasterClockLastIpAddress": tmnxPtpMasterClockLastIpAddress,
+       "tmnxPtpNotifyRowPointer": tmnxPtpNotifyRowPointer,
+       "tmnxPtpNotifyRowDescription": tmnxPtpNotifyRowDescription,
+       "tmnxPtpMasterClockLastTransType": tmnxPtpMasterClockLastTransType,
+       "tmnxPtpMasterClockLastEthPort": tmnxPtpMasterClockLastEthPort,
+       "tmnxPtpMasterClockLastMacAddress": tmnxPtpMasterClockLastMacAddress,
+       "tmnxPtpNotifyPortId": tmnxPtpNotifyPortId,
+       "tmnxPtp1588NotifyPrefix": tmnxPtp1588NotifyPrefix,
+       "tmnxPtp1588Notifications": tmnxPtp1588Notifications,
+       "tmnxPtpCardNotSupported": tmnxPtpCardNotSupported,
+       "tmnxPtpCardNotSupportedClear": tmnxPtpCardNotSupportedClear,
+       "tmnxPtpMasterClockChangedEvent": tmnxPtpMasterClockChangedEvent,
+       "tmnxPtpClockRecoveryStateChange": tmnxPtpClockRecoveryStateChange,
+       "tmnxPtpOutOfResources": tmnxPtpOutOfResources,
+       "tmnxPtpOutOfResourcesClear": tmnxPtpOutOfResourcesClear,
+       "tmnxPtpDynamicChange": tmnxPtpDynamicChange,
+       "tmnxPtpPortNoTimestamping": tmnxPtpPortNoTimestamping}
+)

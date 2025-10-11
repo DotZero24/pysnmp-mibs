@@ -1,31 +1,235 @@
+# SNMP MIB module (LANOPTICS-ETHERNET-OPTION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module LANOPTICS-ETHERNET-OPTION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/LANOPTICS-ETHERNET-OPTION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:28:09 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/LANOPTICS-ETHERNET-OPTION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:34:55 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-lanOptics = MibIdentifier((1, 3, 6, 1, 4, 1, 224))
-lanOpticsDot3Monitor = MibIdentifier((1, 3, 6, 1, 4, 1, 224, 3))
-etAlertsLevel = MibScalar((1, 3, 6, 1, 4, 1, 224, 3, 1), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etAlertsLevel.setStatus('mandatory')
-etAlertsBuffer = MibScalar((1, 3, 6, 1, 4, 1, 224, 3, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etAlertsBuffer.setStatus('mandatory')
-etFullStatisticsBuffer = MibScalar((1, 3, 6, 1, 4, 1, 224, 3, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etFullStatisticsBuffer.setStatus('mandatory')
-etResetBuffers = MibScalar((1, 3, 6, 1, 4, 1, 224, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("reset", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etResetBuffers.setStatus('mandatory')
-etSlotsTable = MibTable((1, 3, 6, 1, 4, 1, 224, 3, 5), )
-if mibBuilder.loadTexts: etSlotsTable.setStatus('mandatory')
-pysmiFakeCol1021 = MibTableColumn((1, 3, 6, 1, 4, 1, 224, 3, 5, 1) + (1021, ), Integer32())
-etSlotsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 224, 3, 5, 1), ).setIndexNames((0, "LANOPTICS-ETHERNET-OPTION-MIB", "pysmiFakeCol1021"))
-if mibBuilder.loadTexts: etSlotsEntry.setStatus('mandatory')
-etSlotPollStruct = MibTableColumn((1, 3, 6, 1, 4, 1, 224, 3, 5, 1, 1), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etSlotPollStruct.setStatus('mandatory')
-mibBuilder.exportSymbols("LANOPTICS-ETHERNET-OPTION-MIB", etSlotsTable=etSlotsTable, etSlotsEntry=etSlotsEntry, etAlertsLevel=etAlertsLevel, lanOpticsDot3Monitor=lanOpticsDot3Monitor, etResetBuffers=etResetBuffers, etFullStatisticsBuffer=etFullStatisticsBuffer, etAlertsBuffer=etAlertsBuffer, pysmiFakeCol1021=pysmiFakeCol1021, lanOptics=lanOptics, etSlotPollStruct=etSlotPollStruct)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_LanOptics_ObjectIdentity = ObjectIdentity
+lanOptics = _LanOptics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 224)
+)
+_LanOpticsDot3Monitor_ObjectIdentity = ObjectIdentity
+lanOpticsDot3Monitor = _LanOpticsDot3Monitor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 224, 3)
+)
+_EtAlertsLevel_Type = OctetString
+_EtAlertsLevel_Object = MibScalar
+etAlertsLevel = _EtAlertsLevel_Object(
+    (1, 3, 6, 1, 4, 1, 224, 3, 1),
+    _EtAlertsLevel_Type()
+)
+etAlertsLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etAlertsLevel.setStatus("mandatory")
+_EtAlertsBuffer_Type = OctetString
+_EtAlertsBuffer_Object = MibScalar
+etAlertsBuffer = _EtAlertsBuffer_Object(
+    (1, 3, 6, 1, 4, 1, 224, 3, 2),
+    _EtAlertsBuffer_Type()
+)
+etAlertsBuffer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etAlertsBuffer.setStatus("mandatory")
+_EtFullStatisticsBuffer_Type = OctetString
+_EtFullStatisticsBuffer_Object = MibScalar
+etFullStatisticsBuffer = _EtFullStatisticsBuffer_Object(
+    (1, 3, 6, 1, 4, 1, 224, 3, 3),
+    _EtFullStatisticsBuffer_Type()
+)
+etFullStatisticsBuffer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etFullStatisticsBuffer.setStatus("mandatory")
+
+
+class _EtResetBuffers_Type(Integer32):
+    """Custom type etResetBuffers based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("reset", 1)
+    )
+
+
+_EtResetBuffers_Type.__name__ = "Integer32"
+_EtResetBuffers_Object = MibScalar
+etResetBuffers = _EtResetBuffers_Object(
+    (1, 3, 6, 1, 4, 1, 224, 3, 4),
+    _EtResetBuffers_Type()
+)
+etResetBuffers.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etResetBuffers.setStatus("mandatory")
+_EtSlotsTable_Object = MibTable
+etSlotsTable = _EtSlotsTable_Object(
+    (1, 3, 6, 1, 4, 1, 224, 3, 5)
+)
+if mibBuilder.loadTexts:
+    etSlotsTable.setStatus("mandatory")
+_EtSlotsEntry_Object = MibTableRow
+etSlotsEntry = _EtSlotsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 224, 3, 5, 1)
+)
+etSlotsEntry.setIndexNames(
+    (0, "LANOPTICS-ETHERNET-OPTION-MIB", "pysmiFakeCol22"),
+)
+if mibBuilder.loadTexts:
+    etSlotsEntry.setStatus("mandatory")
+_EtSlotPollStruct_Type = OctetString
+_EtSlotPollStruct_Object = MibTableColumn
+etSlotPollStruct = _EtSlotPollStruct_Object(
+    (1, 3, 6, 1, 4, 1, 224, 3, 5, 1, 1),
+    _EtSlotPollStruct_Type()
+)
+etSlotPollStruct.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etSlotPollStruct.setStatus("mandatory")
+_PysmiFakeCol22_Type = Integer32
+_PysmiFakeCol22_Object = MibTableColumn
+pysmiFakeCol22 = _PysmiFakeCol22_Object(
+    (1, 3, 6, 1, 4, 1, 224, 3, 5, 1, 4294967295),
+    _PysmiFakeCol22_Type()
+)
+pysmiFakeCol22.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pysmiFakeCol22.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "LANOPTICS-ETHERNET-OPTION-MIB",
+    **{"lanOptics": lanOptics,
+       "lanOpticsDot3Monitor": lanOpticsDot3Monitor,
+       "etAlertsLevel": etAlertsLevel,
+       "etAlertsBuffer": etAlertsBuffer,
+       "etFullStatisticsBuffer": etFullStatisticsBuffer,
+       "etResetBuffers": etResetBuffers,
+       "etSlotsTable": etSlotsTable,
+       "etSlotsEntry": etSlotsEntry,
+       "etSlotPollStruct": etSlotPollStruct,
+       "pysmiFakeCol22": pysmiFakeCol22}
+)

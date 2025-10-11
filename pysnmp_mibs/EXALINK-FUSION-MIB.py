@@ -1,210 +1,1288 @@
+# SNMP MIB module (EXALINK-FUSION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EXALINK-FUSION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/EXALINK-FUSION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:24:13 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/EXALINK-FUSION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:25:04 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-exaFusion = ModuleIdentity((1, 3, 6, 1, 4, 1, 43296, 3))
-exaFusion.setRevisions(('2019-12-04 00:00', '2019-07-16 00:00', '2019-07-02 00:00', '2018-08-06 00:00', '2017-03-16 00:01', '2017-03-16 00:00', '2015-10-20 00:00', '2015-07-30 00:00', '2015-04-13 00:00',))
-if mibBuilder.loadTexts: exaFusion.setLastUpdated('201912040000Z')
-if mibBuilder.loadTexts: exaFusion.setOrganization('Exablaze')
-fusionInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 43296, 3, 1))
-fusionInfoSerial = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionInfoSerial.setStatus('current')
-fusionInfoVersion = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionInfoVersion.setStatus('current')
-fusionInfoBoard = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionInfoBoard.setStatus('current')
-fusionInfoSoftware = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionInfoSoftware.setStatus('current')
-fusionLineCardTable = MibTable((1, 3, 6, 1, 4, 1, 43296, 3, 1, 5), )
-if mibBuilder.loadTexts: fusionLineCardTable.setStatus('current')
-fusionLineCard = MibTableRow((1, 3, 6, 1, 4, 1, 43296, 3, 1, 5, 1), ).setIndexNames((0, "EXALINK-FUSION-MIB", "fusionLineCardIndex"))
-if mibBuilder.loadTexts: fusionLineCard.setStatus('current')
-fusionLineCardIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionLineCardIndex.setStatus('current')
-fusionLineCardName = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 1, 5, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionLineCardName.setStatus('current')
-fusionLineCardBoard = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 1, 5, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionLineCardBoard.setStatus('current')
-fusionModuleTable = MibTable((1, 3, 6, 1, 4, 1, 43296, 3, 1, 6), )
-if mibBuilder.loadTexts: fusionModuleTable.setStatus('current')
-fusionModule = MibTableRow((1, 3, 6, 1, 4, 1, 43296, 3, 1, 6, 1), ).setIndexNames((0, "EXALINK-FUSION-MIB", "fusionModuleIndex"))
-if mibBuilder.loadTexts: fusionModule.setStatus('current')
-fusionModuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionModuleIndex.setStatus('current')
-fusionModuleName = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 1, 6, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionModuleName.setStatus('current')
-fusionModuleBoard = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 1, 6, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionModuleBoard.setStatus('current')
-fusionModuleFunction = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 1, 6, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionModuleFunction.setStatus('current')
-fusionSysInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 43296, 3, 1, 7))
-fusionSysInfoLoadAverage = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 1, 7, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionSysInfoLoadAverage.setStatus('current')
-fusionSysInfoAvailMem = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 1, 7, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionSysInfoAvailMem.setStatus('current')
-fusionSysInfoNumProcesses = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 1, 7, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionSysInfoNumProcesses.setStatus('current')
-fusionSensor = MibIdentifier((1, 3, 6, 1, 4, 1, 43296, 3, 2))
-fusionTempSensorTable = MibTable((1, 3, 6, 1, 4, 1, 43296, 3, 2, 1), )
-if mibBuilder.loadTexts: fusionTempSensorTable.setStatus('current')
-fusionTempSensor = MibTableRow((1, 3, 6, 1, 4, 1, 43296, 3, 2, 1, 1), ).setIndexNames((0, "EXALINK-FUSION-MIB", "fusionTempSensorIndex"))
-if mibBuilder.loadTexts: fusionTempSensor.setStatus('current')
-fusionTempSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionTempSensorIndex.setStatus('current')
-fusionTempSensorName = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 2, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionTempSensorName.setStatus('current')
-fusionTempSensorValue = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 2, 1, 1, 3), Integer32()).setUnits('Celsius').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionTempSensorValue.setStatus('current')
-fusionFanSensorTable = MibTable((1, 3, 6, 1, 4, 1, 43296, 3, 2, 2), )
-if mibBuilder.loadTexts: fusionFanSensorTable.setStatus('current')
-fusionFanSensor = MibTableRow((1, 3, 6, 1, 4, 1, 43296, 3, 2, 2, 1), ).setIndexNames((0, "EXALINK-FUSION-MIB", "fusionFanSensorIndex"))
-if mibBuilder.loadTexts: fusionFanSensor.setStatus('current')
-fusionFanSensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionFanSensorIndex.setStatus('current')
-fusionFanSensorName = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 2, 2, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionFanSensorName.setStatus('current')
-fusionFanSensorValue = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 2, 2, 1, 3), Integer32()).setUnits('RPM').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionFanSensorValue.setStatus('current')
-fusionPsuTable = MibTable((1, 3, 6, 1, 4, 1, 43296, 3, 3), )
-if mibBuilder.loadTexts: fusionPsuTable.setStatus('current')
-fusionPsu = MibTableRow((1, 3, 6, 1, 4, 1, 43296, 3, 3, 1), ).setIndexNames((0, "EXALINK-FUSION-MIB", "fusionPsuIndex"))
-if mibBuilder.loadTexts: fusionPsu.setStatus('current')
-fusionPsuIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPsuIndex.setStatus('current')
-fusionPsuType = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPsuType.setStatus('current')
-fusionPsuPresent = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPsuPresent.setStatus('current')
-fusionPsuTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 4), Integer32()).setUnits('Celsius').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPsuTemperature.setStatus('current')
-fusionPsuPowerIn = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 5), Integer32()).setUnits('Watts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPsuPowerIn.setStatus('current')
-fusionPsuPowerOut = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 6), Integer32()).setUnits('Watts').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPsuPowerOut.setStatus('current')
-fusionPortTable = MibTable((1, 3, 6, 1, 4, 1, 43296, 3, 4), )
-if mibBuilder.loadTexts: fusionPortTable.setStatus('current')
-fusionPort = MibTableRow((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1), ).setIndexNames((0, "EXALINK-FUSION-MIB", "fusionPortLineCard"), (0, "EXALINK-FUSION-MIB", "fusionPortIndex"))
-if mibBuilder.loadTexts: fusionPort.setStatus('current')
-fusionPortLineCard = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortLineCard.setStatus('current')
-fusionPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortIndex.setStatus('current')
-fusionPortName = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortName.setStatus('current')
-fusionPortPresent = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortPresent.setStatus('current')
-fusionPortHasSignal = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 5), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortHasSignal.setStatus('current')
-fusionPortEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 6), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortEnabled.setStatus('current')
-fusionPortAlias = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 7), SnmpAdminString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fusionPortAlias.setStatus('current')
-fusionPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 8), Integer32()).setUnits('Mbps').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fusionPortSpeed.setStatus('current')
-fusionPortRXPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 9), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRXPackets.setStatus('current')
-fusionPortRXBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 10), Counter64()).setUnits('B').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRXBytes.setStatus('current')
-fusionPortRXErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 11), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRXErrors.setStatus('current')
-fusionPortTXPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 12), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTXPackets.setStatus('current')
-fusionPortTXBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 13), Counter64()).setUnits('B').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTXBytes.setStatus('current')
-fusionPortRXLink = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 14), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRXLink.setStatus('current')
-fusionPortRXLinkChanges = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 15), Counter64()).setUnits('State changes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRXLinkChanges.setStatus('current')
-fusionPortRXDropped = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 16), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRXDropped.setStatus('current')
-fusionPortRXUnicast = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 17), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRXUnicast.setStatus('current')
-fusionPortRXMulticast = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 18), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRXMulticast.setStatus('current')
-fusionPortRXBroadcast = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 19), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRXBroadcast.setStatus('current')
-fusionPortRXRunt = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 20), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRXRunt.setStatus('current')
-fusionPortRXPause = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 21), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRXPause.setStatus('current')
-fusionPortRX64b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 22), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRX64b.setStatus('current')
-fusionPortRX65to127b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 23), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRX65to127b.setStatus('current')
-fusionPortRX128to255b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 24), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRX128to255b.setStatus('current')
-fusionPortRX256to511b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 25), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRX256to511b.setStatus('current')
-fusionPortRX512to1023b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 26), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRX512to1023b.setStatus('current')
-fusionPortRX1024to1518b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 27), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRX1024to1518b.setStatus('current')
-fusionPortRX1519to1522b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 28), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortRX1519to1522b.setStatus('current')
-fusionPortTXUnicast = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 29), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTXUnicast.setStatus('current')
-fusionPortTXMulticast = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 30), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTXMulticast.setStatus('current')
-fusionPortTXBroadcast = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 31), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTXBroadcast.setStatus('current')
-fusionPortTX64b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 32), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTX64b.setStatus('current')
-fusionPortTX65to127b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 33), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTX65to127b.setStatus('current')
-fusionPortTX128to255b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 34), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTX128to255b.setStatus('current')
-fusionPortTX256to511b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 35), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTX256to511b.setStatus('current')
-fusionPortTX512to1023b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 36), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTX512to1023b.setStatus('current')
-fusionPortTX1024to1518b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 37), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTX1024to1518b.setStatus('current')
-fusionPortTX1519to1522b = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 38), Counter64()).setUnits('Packets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortTX1519to1522b.setStatus('current')
-fusionPortL1Source = MibTableColumn((1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 39), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortL1Source.setStatus('current')
-fusionTrapValues = MibIdentifier((1, 3, 6, 1, 4, 1, 43296, 3, 5))
-fusionLidOpenStatus = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 5, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionLidOpenStatus.setStatus('current')
-fusionFanFaultStatus = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 5, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionFanFaultStatus.setStatus('current')
-fusionHighTempStatus = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 5, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionHighTempStatus.setStatus('current')
-fusionPortUsageStatus = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 5, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("off", 0), ("error", 1), ("unused", 2), ("ok", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortUsageStatus.setStatus('current')
-fusionPortLinkStatus = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 5, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("off", 0), ("error", 1), ("unused", 2), ("ok", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPortLinkStatus.setStatus('current')
-fusionPsuFaultStatus = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 5, 6), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionPsuFaultStatus.setStatus('current')
-fusionTimeSourceStatus = MibScalar((1, 3, 6, 1, 4, 1, 43296, 3, 5, 7), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fusionTimeSourceStatus.setStatus('current')
-fusionTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 43296, 3, 6))
-fusionPowerFail = NotificationType((1, 3, 6, 1, 4, 1, 43296, 3, 6, 1))
-if mibBuilder.loadTexts: fusionPowerFail.setStatus('current')
-fusionTamperAlert = NotificationType((1, 3, 6, 1, 4, 1, 43296, 3, 6, 2)).setObjects(("EXALINK-FUSION-MIB", "fusionLidOpenStatus"))
-if mibBuilder.loadTexts: fusionTamperAlert.setStatus('current')
-fusionTempAlert = NotificationType((1, 3, 6, 1, 4, 1, 43296, 3, 6, 3)).setObjects(("EXALINK-FUSION-MIB", "fusionTempSensorName"), ("EXALINK-FUSION-MIB", "fusionHighTempStatus"))
-if mibBuilder.loadTexts: fusionTempAlert.setStatus('current')
-fusionPsuAlert = NotificationType((1, 3, 6, 1, 4, 1, 43296, 3, 6, 4)).setObjects(("EXALINK-FUSION-MIB", "fusionPsuFaultStatus"))
-if mibBuilder.loadTexts: fusionPsuAlert.setStatus('current')
-fusionSystemAlert = NotificationType((1, 3, 6, 1, 4, 1, 43296, 3, 6, 5))
-if mibBuilder.loadTexts: fusionSystemAlert.setStatus('current')
-fusionFanAlert = NotificationType((1, 3, 6, 1, 4, 1, 43296, 3, 6, 6)).setObjects(("EXALINK-FUSION-MIB", "fusionFanFaultStatus"))
-if mibBuilder.loadTexts: fusionFanAlert.setStatus('current')
-fusionPortAlert = NotificationType((1, 3, 6, 1, 4, 1, 43296, 3, 6, 7)).setObjects(("EXALINK-FUSION-MIB", "fusionPortName"), ("EXALINK-FUSION-MIB", "fusionPortLinkStatus"), ("EXALINK-FUSION-MIB", "fusionPortUsageStatus"))
-if mibBuilder.loadTexts: fusionPortAlert.setStatus('current')
-fusionConfigUpdateAlert = NotificationType((1, 3, 6, 1, 4, 1, 43296, 3, 6, 8))
-if mibBuilder.loadTexts: fusionConfigUpdateAlert.setStatus('current')
-fusionTimeAlert = NotificationType((1, 3, 6, 1, 4, 1, 43296, 3, 6, 9)).setObjects(("EXALINK-FUSION-MIB", "fusionTimeSourceStatus"))
-if mibBuilder.loadTexts: fusionTimeAlert.setStatus('current')
-mibBuilder.exportSymbols("EXALINK-FUSION-MIB", fusionModuleIndex=fusionModuleIndex, fusionModuleFunction=fusionModuleFunction, fusionTamperAlert=fusionTamperAlert, fusionPortRXLink=fusionPortRXLink, fusionLineCardName=fusionLineCardName, fusionPortTX1519to1522b=fusionPortTX1519to1522b, fusionFanSensorValue=fusionFanSensorValue, fusionPortIndex=fusionPortIndex, fusionPortTXBroadcast=fusionPortTXBroadcast, fusionPortRXPackets=fusionPortRXPackets, fusionPortRXPause=fusionPortRXPause, fusionPortSpeed=fusionPortSpeed, fusionModuleName=fusionModuleName, fusionModuleBoard=fusionModuleBoard, fusionPsuType=fusionPsuType, fusionFanAlert=fusionFanAlert, fusionTimeAlert=fusionTimeAlert, fusionPsuPresent=fusionPsuPresent, fusionPortTX1024to1518b=fusionPortTX1024to1518b, fusionPortRX512to1023b=fusionPortRX512to1023b, fusionInfoSoftware=fusionInfoSoftware, fusionPortTXBytes=fusionPortTXBytes, fusionSysInfo=fusionSysInfo, fusionPortRX128to255b=fusionPortRX128to255b, fusionPsuAlert=fusionPsuAlert, fusionLineCardTable=fusionLineCardTable, fusionPortRXBroadcast=fusionPortRXBroadcast, fusionPsu=fusionPsu, fusionTempSensorIndex=fusionTempSensorIndex, fusionPortRXDropped=fusionPortRXDropped, fusionInfo=fusionInfo, fusionPortRXLinkChanges=fusionPortRXLinkChanges, fusionTempSensorValue=fusionTempSensorValue, fusionPortTX65to127b=fusionPortTX65to127b, fusionPortLineCard=fusionPortLineCard, fusionSystemAlert=fusionSystemAlert, fusionPortAlias=fusionPortAlias, fusionPortRX256to511b=fusionPortRX256to511b, fusionTempSensorName=fusionTempSensorName, fusionLineCardBoard=fusionLineCardBoard, fusionPortRX1519to1522b=fusionPortRX1519to1522b, fusionSysInfoLoadAverage=fusionSysInfoLoadAverage, fusionPortTXUnicast=fusionPortTXUnicast, fusionPsuIndex=fusionPsuIndex, fusionPsuTemperature=fusionPsuTemperature, fusionPort=fusionPort, fusionPsuFaultStatus=fusionPsuFaultStatus, fusionPortHasSignal=fusionPortHasSignal, fusionLidOpenStatus=fusionLidOpenStatus, fusionPortEnabled=fusionPortEnabled, fusionLineCard=fusionLineCard, fusionSysInfoAvailMem=fusionSysInfoAvailMem, fusionPortRXMulticast=fusionPortRXMulticast, fusionSensor=fusionSensor, fusionTrapValues=fusionTrapValues, fusionTraps=fusionTraps, fusionConfigUpdateAlert=fusionConfigUpdateAlert, fusionTempSensorTable=fusionTempSensorTable, fusionFanSensorTable=fusionFanSensorTable, fusionFanFaultStatus=fusionFanFaultStatus, fusionTimeSourceStatus=fusionTimeSourceStatus, PYSNMP_MODULE_ID=exaFusion, fusionFanSensorIndex=fusionFanSensorIndex, fusionTempAlert=fusionTempAlert, fusionPortName=fusionPortName, fusionPortUsageStatus=fusionPortUsageStatus, fusionPortRXUnicast=fusionPortRXUnicast, fusionPowerFail=fusionPowerFail, fusionInfoBoard=fusionInfoBoard, fusionHighTempStatus=fusionHighTempStatus, fusionPortL1Source=fusionPortL1Source, fusionPortRX1024to1518b=fusionPortRX1024to1518b, fusionPortTX256to511b=fusionPortTX256to511b, fusionPsuPowerIn=fusionPsuPowerIn, fusionPortTXPackets=fusionPortTXPackets, fusionModuleTable=fusionModuleTable, fusionPortRXBytes=fusionPortRXBytes, fusionModule=fusionModule, fusionInfoSerial=fusionInfoSerial, fusionPortRX65to127b=fusionPortRX65to127b, fusionPortRXErrors=fusionPortRXErrors, fusionPsuPowerOut=fusionPsuPowerOut, fusionPortTXMulticast=fusionPortTXMulticast, fusionPortTX64b=fusionPortTX64b, fusionInfoVersion=fusionInfoVersion, fusionPortTX512to1023b=fusionPortTX512to1023b, fusionFanSensorName=fusionFanSensorName, fusionSysInfoNumProcesses=fusionSysInfoNumProcesses, exaFusion=exaFusion, fusionPortTable=fusionPortTable, fusionPortAlert=fusionPortAlert, fusionTempSensor=fusionTempSensor, fusionFanSensor=fusionFanSensor, fusionPortRXRunt=fusionPortRXRunt, fusionPsuTable=fusionPsuTable, fusionLineCardIndex=fusionLineCardIndex, fusionPortTX128to255b=fusionPortTX128to255b, fusionPortLinkStatus=fusionPortLinkStatus, fusionPortRX64b=fusionPortRX64b, fusionPortPresent=fusionPortPresent)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+exaFusion = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 43296, 3)
+)
+if mibBuilder.loadTexts:
+    exaFusion.setRevisions(
+        ("2019-12-04 00:00",
+         "2019-07-16 00:00",
+         "2019-07-02 00:00",
+         "2018-08-06 00:00",
+         "2017-03-16 00:01",
+         "2017-03-16 00:00",
+         "2015-10-20 00:00",
+         "2015-07-30 00:00",
+         "2015-04-13 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_FusionInfo_ObjectIdentity = ObjectIdentity
+fusionInfo = _FusionInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1)
+)
+_FusionInfoSerial_Type = SnmpAdminString
+_FusionInfoSerial_Object = MibScalar
+fusionInfoSerial = _FusionInfoSerial_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 1),
+    _FusionInfoSerial_Type()
+)
+fusionInfoSerial.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionInfoSerial.setStatus("current")
+_FusionInfoVersion_Type = SnmpAdminString
+_FusionInfoVersion_Object = MibScalar
+fusionInfoVersion = _FusionInfoVersion_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 2),
+    _FusionInfoVersion_Type()
+)
+fusionInfoVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionInfoVersion.setStatus("current")
+_FusionInfoBoard_Type = SnmpAdminString
+_FusionInfoBoard_Object = MibScalar
+fusionInfoBoard = _FusionInfoBoard_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 3),
+    _FusionInfoBoard_Type()
+)
+fusionInfoBoard.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionInfoBoard.setStatus("current")
+_FusionInfoSoftware_Type = SnmpAdminString
+_FusionInfoSoftware_Object = MibScalar
+fusionInfoSoftware = _FusionInfoSoftware_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 4),
+    _FusionInfoSoftware_Type()
+)
+fusionInfoSoftware.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionInfoSoftware.setStatus("current")
+_FusionLineCardTable_Object = MibTable
+fusionLineCardTable = _FusionLineCardTable_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 5)
+)
+if mibBuilder.loadTexts:
+    fusionLineCardTable.setStatus("current")
+_FusionLineCard_Object = MibTableRow
+fusionLineCard = _FusionLineCard_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 5, 1)
+)
+fusionLineCard.setIndexNames(
+    (0, "EXALINK-FUSION-MIB", "fusionLineCardIndex"),
+)
+if mibBuilder.loadTexts:
+    fusionLineCard.setStatus("current")
+
+
+class _FusionLineCardIndex_Type(Integer32):
+    """Custom type fusionLineCardIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_FusionLineCardIndex_Type.__name__ = "Integer32"
+_FusionLineCardIndex_Object = MibTableColumn
+fusionLineCardIndex = _FusionLineCardIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 5, 1, 1),
+    _FusionLineCardIndex_Type()
+)
+fusionLineCardIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionLineCardIndex.setStatus("current")
+_FusionLineCardName_Type = SnmpAdminString
+_FusionLineCardName_Object = MibTableColumn
+fusionLineCardName = _FusionLineCardName_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 5, 1, 2),
+    _FusionLineCardName_Type()
+)
+fusionLineCardName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionLineCardName.setStatus("current")
+_FusionLineCardBoard_Type = SnmpAdminString
+_FusionLineCardBoard_Object = MibTableColumn
+fusionLineCardBoard = _FusionLineCardBoard_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 5, 1, 3),
+    _FusionLineCardBoard_Type()
+)
+fusionLineCardBoard.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionLineCardBoard.setStatus("current")
+_FusionModuleTable_Object = MibTable
+fusionModuleTable = _FusionModuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 6)
+)
+if mibBuilder.loadTexts:
+    fusionModuleTable.setStatus("current")
+_FusionModule_Object = MibTableRow
+fusionModule = _FusionModule_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 6, 1)
+)
+fusionModule.setIndexNames(
+    (0, "EXALINK-FUSION-MIB", "fusionModuleIndex"),
+)
+if mibBuilder.loadTexts:
+    fusionModule.setStatus("current")
+
+
+class _FusionModuleIndex_Type(Integer32):
+    """Custom type fusionModuleIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_FusionModuleIndex_Type.__name__ = "Integer32"
+_FusionModuleIndex_Object = MibTableColumn
+fusionModuleIndex = _FusionModuleIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 6, 1, 1),
+    _FusionModuleIndex_Type()
+)
+fusionModuleIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionModuleIndex.setStatus("current")
+_FusionModuleName_Type = SnmpAdminString
+_FusionModuleName_Object = MibTableColumn
+fusionModuleName = _FusionModuleName_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 6, 1, 2),
+    _FusionModuleName_Type()
+)
+fusionModuleName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionModuleName.setStatus("current")
+_FusionModuleBoard_Type = SnmpAdminString
+_FusionModuleBoard_Object = MibTableColumn
+fusionModuleBoard = _FusionModuleBoard_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 6, 1, 3),
+    _FusionModuleBoard_Type()
+)
+fusionModuleBoard.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionModuleBoard.setStatus("current")
+_FusionModuleFunction_Type = SnmpAdminString
+_FusionModuleFunction_Object = MibTableColumn
+fusionModuleFunction = _FusionModuleFunction_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 6, 1, 4),
+    _FusionModuleFunction_Type()
+)
+fusionModuleFunction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionModuleFunction.setStatus("current")
+_FusionSysInfo_ObjectIdentity = ObjectIdentity
+fusionSysInfo = _FusionSysInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 7)
+)
+_FusionSysInfoLoadAverage_Type = Integer32
+_FusionSysInfoLoadAverage_Object = MibScalar
+fusionSysInfoLoadAverage = _FusionSysInfoLoadAverage_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 7, 1),
+    _FusionSysInfoLoadAverage_Type()
+)
+fusionSysInfoLoadAverage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionSysInfoLoadAverage.setStatus("current")
+_FusionSysInfoAvailMem_Type = Integer32
+_FusionSysInfoAvailMem_Object = MibScalar
+fusionSysInfoAvailMem = _FusionSysInfoAvailMem_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 7, 2),
+    _FusionSysInfoAvailMem_Type()
+)
+fusionSysInfoAvailMem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionSysInfoAvailMem.setStatus("current")
+_FusionSysInfoNumProcesses_Type = Integer32
+_FusionSysInfoNumProcesses_Object = MibScalar
+fusionSysInfoNumProcesses = _FusionSysInfoNumProcesses_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 1, 7, 3),
+    _FusionSysInfoNumProcesses_Type()
+)
+fusionSysInfoNumProcesses.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionSysInfoNumProcesses.setStatus("current")
+_FusionSensor_ObjectIdentity = ObjectIdentity
+fusionSensor = _FusionSensor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 2)
+)
+_FusionTempSensorTable_Object = MibTable
+fusionTempSensorTable = _FusionTempSensorTable_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 2, 1)
+)
+if mibBuilder.loadTexts:
+    fusionTempSensorTable.setStatus("current")
+_FusionTempSensor_Object = MibTableRow
+fusionTempSensor = _FusionTempSensor_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 2, 1, 1)
+)
+fusionTempSensor.setIndexNames(
+    (0, "EXALINK-FUSION-MIB", "fusionTempSensorIndex"),
+)
+if mibBuilder.loadTexts:
+    fusionTempSensor.setStatus("current")
+
+
+class _FusionTempSensorIndex_Type(Integer32):
+    """Custom type fusionTempSensorIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_FusionTempSensorIndex_Type.__name__ = "Integer32"
+_FusionTempSensorIndex_Object = MibTableColumn
+fusionTempSensorIndex = _FusionTempSensorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 2, 1, 1, 1),
+    _FusionTempSensorIndex_Type()
+)
+fusionTempSensorIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionTempSensorIndex.setStatus("current")
+_FusionTempSensorName_Type = SnmpAdminString
+_FusionTempSensorName_Object = MibTableColumn
+fusionTempSensorName = _FusionTempSensorName_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 2, 1, 1, 2),
+    _FusionTempSensorName_Type()
+)
+fusionTempSensorName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionTempSensorName.setStatus("current")
+_FusionTempSensorValue_Type = Integer32
+_FusionTempSensorValue_Object = MibTableColumn
+fusionTempSensorValue = _FusionTempSensorValue_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 2, 1, 1, 3),
+    _FusionTempSensorValue_Type()
+)
+fusionTempSensorValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionTempSensorValue.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionTempSensorValue.setUnits("Celsius")
+_FusionFanSensorTable_Object = MibTable
+fusionFanSensorTable = _FusionFanSensorTable_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 2, 2)
+)
+if mibBuilder.loadTexts:
+    fusionFanSensorTable.setStatus("current")
+_FusionFanSensor_Object = MibTableRow
+fusionFanSensor = _FusionFanSensor_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 2, 2, 1)
+)
+fusionFanSensor.setIndexNames(
+    (0, "EXALINK-FUSION-MIB", "fusionFanSensorIndex"),
+)
+if mibBuilder.loadTexts:
+    fusionFanSensor.setStatus("current")
+
+
+class _FusionFanSensorIndex_Type(Integer32):
+    """Custom type fusionFanSensorIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_FusionFanSensorIndex_Type.__name__ = "Integer32"
+_FusionFanSensorIndex_Object = MibTableColumn
+fusionFanSensorIndex = _FusionFanSensorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 2, 2, 1, 1),
+    _FusionFanSensorIndex_Type()
+)
+fusionFanSensorIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionFanSensorIndex.setStatus("current")
+_FusionFanSensorName_Type = SnmpAdminString
+_FusionFanSensorName_Object = MibTableColumn
+fusionFanSensorName = _FusionFanSensorName_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 2, 2, 1, 2),
+    _FusionFanSensorName_Type()
+)
+fusionFanSensorName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionFanSensorName.setStatus("current")
+_FusionFanSensorValue_Type = Integer32
+_FusionFanSensorValue_Object = MibTableColumn
+fusionFanSensorValue = _FusionFanSensorValue_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 2, 2, 1, 3),
+    _FusionFanSensorValue_Type()
+)
+fusionFanSensorValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionFanSensorValue.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionFanSensorValue.setUnits("RPM")
+_FusionPsuTable_Object = MibTable
+fusionPsuTable = _FusionPsuTable_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 3)
+)
+if mibBuilder.loadTexts:
+    fusionPsuTable.setStatus("current")
+_FusionPsu_Object = MibTableRow
+fusionPsu = _FusionPsu_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 3, 1)
+)
+fusionPsu.setIndexNames(
+    (0, "EXALINK-FUSION-MIB", "fusionPsuIndex"),
+)
+if mibBuilder.loadTexts:
+    fusionPsu.setStatus("current")
+
+
+class _FusionPsuIndex_Type(Integer32):
+    """Custom type fusionPsuIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_FusionPsuIndex_Type.__name__ = "Integer32"
+_FusionPsuIndex_Object = MibTableColumn
+fusionPsuIndex = _FusionPsuIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 1),
+    _FusionPsuIndex_Type()
+)
+fusionPsuIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPsuIndex.setStatus("current")
+_FusionPsuType_Type = SnmpAdminString
+_FusionPsuType_Object = MibTableColumn
+fusionPsuType = _FusionPsuType_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 2),
+    _FusionPsuType_Type()
+)
+fusionPsuType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPsuType.setStatus("current")
+_FusionPsuPresent_Type = TruthValue
+_FusionPsuPresent_Object = MibTableColumn
+fusionPsuPresent = _FusionPsuPresent_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 3),
+    _FusionPsuPresent_Type()
+)
+fusionPsuPresent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPsuPresent.setStatus("current")
+_FusionPsuTemperature_Type = Integer32
+_FusionPsuTemperature_Object = MibTableColumn
+fusionPsuTemperature = _FusionPsuTemperature_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 4),
+    _FusionPsuTemperature_Type()
+)
+fusionPsuTemperature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPsuTemperature.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPsuTemperature.setUnits("Celsius")
+_FusionPsuPowerIn_Type = Integer32
+_FusionPsuPowerIn_Object = MibTableColumn
+fusionPsuPowerIn = _FusionPsuPowerIn_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 5),
+    _FusionPsuPowerIn_Type()
+)
+fusionPsuPowerIn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPsuPowerIn.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPsuPowerIn.setUnits("Watts")
+_FusionPsuPowerOut_Type = Integer32
+_FusionPsuPowerOut_Object = MibTableColumn
+fusionPsuPowerOut = _FusionPsuPowerOut_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 3, 1, 6),
+    _FusionPsuPowerOut_Type()
+)
+fusionPsuPowerOut.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPsuPowerOut.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPsuPowerOut.setUnits("Watts")
+_FusionPortTable_Object = MibTable
+fusionPortTable = _FusionPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4)
+)
+if mibBuilder.loadTexts:
+    fusionPortTable.setStatus("current")
+_FusionPort_Object = MibTableRow
+fusionPort = _FusionPort_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1)
+)
+fusionPort.setIndexNames(
+    (0, "EXALINK-FUSION-MIB", "fusionPortLineCard"),
+    (0, "EXALINK-FUSION-MIB", "fusionPortIndex"),
+)
+if mibBuilder.loadTexts:
+    fusionPort.setStatus("current")
+
+
+class _FusionPortLineCard_Type(Integer32):
+    """Custom type fusionPortLineCard based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_FusionPortLineCard_Type.__name__ = "Integer32"
+_FusionPortLineCard_Object = MibTableColumn
+fusionPortLineCard = _FusionPortLineCard_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 1),
+    _FusionPortLineCard_Type()
+)
+fusionPortLineCard.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortLineCard.setStatus("current")
+
+
+class _FusionPortIndex_Type(Integer32):
+    """Custom type fusionPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_FusionPortIndex_Type.__name__ = "Integer32"
+_FusionPortIndex_Object = MibTableColumn
+fusionPortIndex = _FusionPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 2),
+    _FusionPortIndex_Type()
+)
+fusionPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortIndex.setStatus("current")
+_FusionPortName_Type = SnmpAdminString
+_FusionPortName_Object = MibTableColumn
+fusionPortName = _FusionPortName_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 3),
+    _FusionPortName_Type()
+)
+fusionPortName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortName.setStatus("current")
+_FusionPortPresent_Type = TruthValue
+_FusionPortPresent_Object = MibTableColumn
+fusionPortPresent = _FusionPortPresent_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 4),
+    _FusionPortPresent_Type()
+)
+fusionPortPresent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortPresent.setStatus("current")
+_FusionPortHasSignal_Type = TruthValue
+_FusionPortHasSignal_Object = MibTableColumn
+fusionPortHasSignal = _FusionPortHasSignal_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 5),
+    _FusionPortHasSignal_Type()
+)
+fusionPortHasSignal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortHasSignal.setStatus("current")
+_FusionPortEnabled_Type = TruthValue
+_FusionPortEnabled_Object = MibTableColumn
+fusionPortEnabled = _FusionPortEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 6),
+    _FusionPortEnabled_Type()
+)
+fusionPortEnabled.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortEnabled.setStatus("current")
+_FusionPortAlias_Type = SnmpAdminString
+_FusionPortAlias_Object = MibTableColumn
+fusionPortAlias = _FusionPortAlias_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 7),
+    _FusionPortAlias_Type()
+)
+fusionPortAlias.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fusionPortAlias.setStatus("current")
+_FusionPortSpeed_Type = Integer32
+_FusionPortSpeed_Object = MibTableColumn
+fusionPortSpeed = _FusionPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 8),
+    _FusionPortSpeed_Type()
+)
+fusionPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fusionPortSpeed.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortSpeed.setUnits("Mbps")
+_FusionPortRXPackets_Type = Counter64
+_FusionPortRXPackets_Object = MibTableColumn
+fusionPortRXPackets = _FusionPortRXPackets_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 9),
+    _FusionPortRXPackets_Type()
+)
+fusionPortRXPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRXPackets.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRXPackets.setUnits("Packets")
+_FusionPortRXBytes_Type = Counter64
+_FusionPortRXBytes_Object = MibTableColumn
+fusionPortRXBytes = _FusionPortRXBytes_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 10),
+    _FusionPortRXBytes_Type()
+)
+fusionPortRXBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRXBytes.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRXBytes.setUnits("B")
+_FusionPortRXErrors_Type = Counter64
+_FusionPortRXErrors_Object = MibTableColumn
+fusionPortRXErrors = _FusionPortRXErrors_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 11),
+    _FusionPortRXErrors_Type()
+)
+fusionPortRXErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRXErrors.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRXErrors.setUnits("Packets")
+_FusionPortTXPackets_Type = Counter64
+_FusionPortTXPackets_Object = MibTableColumn
+fusionPortTXPackets = _FusionPortTXPackets_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 12),
+    _FusionPortTXPackets_Type()
+)
+fusionPortTXPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTXPackets.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTXPackets.setUnits("Packets")
+_FusionPortTXBytes_Type = Counter64
+_FusionPortTXBytes_Object = MibTableColumn
+fusionPortTXBytes = _FusionPortTXBytes_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 13),
+    _FusionPortTXBytes_Type()
+)
+fusionPortTXBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTXBytes.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTXBytes.setUnits("B")
+_FusionPortRXLink_Type = TruthValue
+_FusionPortRXLink_Object = MibTableColumn
+fusionPortRXLink = _FusionPortRXLink_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 14),
+    _FusionPortRXLink_Type()
+)
+fusionPortRXLink.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRXLink.setStatus("current")
+_FusionPortRXLinkChanges_Type = Counter64
+_FusionPortRXLinkChanges_Object = MibTableColumn
+fusionPortRXLinkChanges = _FusionPortRXLinkChanges_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 15),
+    _FusionPortRXLinkChanges_Type()
+)
+fusionPortRXLinkChanges.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRXLinkChanges.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRXLinkChanges.setUnits("State changes")
+_FusionPortRXDropped_Type = Counter64
+_FusionPortRXDropped_Object = MibTableColumn
+fusionPortRXDropped = _FusionPortRXDropped_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 16),
+    _FusionPortRXDropped_Type()
+)
+fusionPortRXDropped.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRXDropped.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRXDropped.setUnits("Packets")
+_FusionPortRXUnicast_Type = Counter64
+_FusionPortRXUnicast_Object = MibTableColumn
+fusionPortRXUnicast = _FusionPortRXUnicast_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 17),
+    _FusionPortRXUnicast_Type()
+)
+fusionPortRXUnicast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRXUnicast.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRXUnicast.setUnits("Packets")
+_FusionPortRXMulticast_Type = Counter64
+_FusionPortRXMulticast_Object = MibTableColumn
+fusionPortRXMulticast = _FusionPortRXMulticast_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 18),
+    _FusionPortRXMulticast_Type()
+)
+fusionPortRXMulticast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRXMulticast.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRXMulticast.setUnits("Packets")
+_FusionPortRXBroadcast_Type = Counter64
+_FusionPortRXBroadcast_Object = MibTableColumn
+fusionPortRXBroadcast = _FusionPortRXBroadcast_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 19),
+    _FusionPortRXBroadcast_Type()
+)
+fusionPortRXBroadcast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRXBroadcast.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRXBroadcast.setUnits("Packets")
+_FusionPortRXRunt_Type = Counter64
+_FusionPortRXRunt_Object = MibTableColumn
+fusionPortRXRunt = _FusionPortRXRunt_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 20),
+    _FusionPortRXRunt_Type()
+)
+fusionPortRXRunt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRXRunt.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRXRunt.setUnits("Packets")
+_FusionPortRXPause_Type = Counter64
+_FusionPortRXPause_Object = MibTableColumn
+fusionPortRXPause = _FusionPortRXPause_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 21),
+    _FusionPortRXPause_Type()
+)
+fusionPortRXPause.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRXPause.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRXPause.setUnits("Packets")
+_FusionPortRX64b_Type = Counter64
+_FusionPortRX64b_Object = MibTableColumn
+fusionPortRX64b = _FusionPortRX64b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 22),
+    _FusionPortRX64b_Type()
+)
+fusionPortRX64b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRX64b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRX64b.setUnits("Packets")
+_FusionPortRX65to127b_Type = Counter64
+_FusionPortRX65to127b_Object = MibTableColumn
+fusionPortRX65to127b = _FusionPortRX65to127b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 23),
+    _FusionPortRX65to127b_Type()
+)
+fusionPortRX65to127b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRX65to127b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRX65to127b.setUnits("Packets")
+_FusionPortRX128to255b_Type = Counter64
+_FusionPortRX128to255b_Object = MibTableColumn
+fusionPortRX128to255b = _FusionPortRX128to255b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 24),
+    _FusionPortRX128to255b_Type()
+)
+fusionPortRX128to255b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRX128to255b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRX128to255b.setUnits("Packets")
+_FusionPortRX256to511b_Type = Counter64
+_FusionPortRX256to511b_Object = MibTableColumn
+fusionPortRX256to511b = _FusionPortRX256to511b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 25),
+    _FusionPortRX256to511b_Type()
+)
+fusionPortRX256to511b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRX256to511b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRX256to511b.setUnits("Packets")
+_FusionPortRX512to1023b_Type = Counter64
+_FusionPortRX512to1023b_Object = MibTableColumn
+fusionPortRX512to1023b = _FusionPortRX512to1023b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 26),
+    _FusionPortRX512to1023b_Type()
+)
+fusionPortRX512to1023b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRX512to1023b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRX512to1023b.setUnits("Packets")
+_FusionPortRX1024to1518b_Type = Counter64
+_FusionPortRX1024to1518b_Object = MibTableColumn
+fusionPortRX1024to1518b = _FusionPortRX1024to1518b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 27),
+    _FusionPortRX1024to1518b_Type()
+)
+fusionPortRX1024to1518b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRX1024to1518b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRX1024to1518b.setUnits("Packets")
+_FusionPortRX1519to1522b_Type = Counter64
+_FusionPortRX1519to1522b_Object = MibTableColumn
+fusionPortRX1519to1522b = _FusionPortRX1519to1522b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 28),
+    _FusionPortRX1519to1522b_Type()
+)
+fusionPortRX1519to1522b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortRX1519to1522b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortRX1519to1522b.setUnits("Packets")
+_FusionPortTXUnicast_Type = Counter64
+_FusionPortTXUnicast_Object = MibTableColumn
+fusionPortTXUnicast = _FusionPortTXUnicast_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 29),
+    _FusionPortTXUnicast_Type()
+)
+fusionPortTXUnicast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTXUnicast.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTXUnicast.setUnits("Packets")
+_FusionPortTXMulticast_Type = Counter64
+_FusionPortTXMulticast_Object = MibTableColumn
+fusionPortTXMulticast = _FusionPortTXMulticast_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 30),
+    _FusionPortTXMulticast_Type()
+)
+fusionPortTXMulticast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTXMulticast.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTXMulticast.setUnits("Packets")
+_FusionPortTXBroadcast_Type = Counter64
+_FusionPortTXBroadcast_Object = MibTableColumn
+fusionPortTXBroadcast = _FusionPortTXBroadcast_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 31),
+    _FusionPortTXBroadcast_Type()
+)
+fusionPortTXBroadcast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTXBroadcast.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTXBroadcast.setUnits("Packets")
+_FusionPortTX64b_Type = Counter64
+_FusionPortTX64b_Object = MibTableColumn
+fusionPortTX64b = _FusionPortTX64b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 32),
+    _FusionPortTX64b_Type()
+)
+fusionPortTX64b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTX64b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTX64b.setUnits("Packets")
+_FusionPortTX65to127b_Type = Counter64
+_FusionPortTX65to127b_Object = MibTableColumn
+fusionPortTX65to127b = _FusionPortTX65to127b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 33),
+    _FusionPortTX65to127b_Type()
+)
+fusionPortTX65to127b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTX65to127b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTX65to127b.setUnits("Packets")
+_FusionPortTX128to255b_Type = Counter64
+_FusionPortTX128to255b_Object = MibTableColumn
+fusionPortTX128to255b = _FusionPortTX128to255b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 34),
+    _FusionPortTX128to255b_Type()
+)
+fusionPortTX128to255b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTX128to255b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTX128to255b.setUnits("Packets")
+_FusionPortTX256to511b_Type = Counter64
+_FusionPortTX256to511b_Object = MibTableColumn
+fusionPortTX256to511b = _FusionPortTX256to511b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 35),
+    _FusionPortTX256to511b_Type()
+)
+fusionPortTX256to511b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTX256to511b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTX256to511b.setUnits("Packets")
+_FusionPortTX512to1023b_Type = Counter64
+_FusionPortTX512to1023b_Object = MibTableColumn
+fusionPortTX512to1023b = _FusionPortTX512to1023b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 36),
+    _FusionPortTX512to1023b_Type()
+)
+fusionPortTX512to1023b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTX512to1023b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTX512to1023b.setUnits("Packets")
+_FusionPortTX1024to1518b_Type = Counter64
+_FusionPortTX1024to1518b_Object = MibTableColumn
+fusionPortTX1024to1518b = _FusionPortTX1024to1518b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 37),
+    _FusionPortTX1024to1518b_Type()
+)
+fusionPortTX1024to1518b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTX1024to1518b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTX1024to1518b.setUnits("Packets")
+_FusionPortTX1519to1522b_Type = Counter64
+_FusionPortTX1519to1522b_Object = MibTableColumn
+fusionPortTX1519to1522b = _FusionPortTX1519to1522b_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 38),
+    _FusionPortTX1519to1522b_Type()
+)
+fusionPortTX1519to1522b.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortTX1519to1522b.setStatus("current")
+if mibBuilder.loadTexts:
+    fusionPortTX1519to1522b.setUnits("Packets")
+_FusionPortL1Source_Type = SnmpAdminString
+_FusionPortL1Source_Object = MibTableColumn
+fusionPortL1Source = _FusionPortL1Source_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 4, 1, 39),
+    _FusionPortL1Source_Type()
+)
+fusionPortL1Source.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortL1Source.setStatus("current")
+_FusionTrapValues_ObjectIdentity = ObjectIdentity
+fusionTrapValues = _FusionTrapValues_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 5)
+)
+_FusionLidOpenStatus_Type = TruthValue
+_FusionLidOpenStatus_Object = MibScalar
+fusionLidOpenStatus = _FusionLidOpenStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 5, 1),
+    _FusionLidOpenStatus_Type()
+)
+fusionLidOpenStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionLidOpenStatus.setStatus("current")
+_FusionFanFaultStatus_Type = TruthValue
+_FusionFanFaultStatus_Object = MibScalar
+fusionFanFaultStatus = _FusionFanFaultStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 5, 2),
+    _FusionFanFaultStatus_Type()
+)
+fusionFanFaultStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionFanFaultStatus.setStatus("current")
+_FusionHighTempStatus_Type = TruthValue
+_FusionHighTempStatus_Object = MibScalar
+fusionHighTempStatus = _FusionHighTempStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 5, 3),
+    _FusionHighTempStatus_Type()
+)
+fusionHighTempStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionHighTempStatus.setStatus("current")
+
+
+class _FusionPortUsageStatus_Type(Integer32):
+    """Custom type fusionPortUsageStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("error", 1),
+          ("unused", 2),
+          ("ok", 3))
+    )
+
+
+_FusionPortUsageStatus_Type.__name__ = "Integer32"
+_FusionPortUsageStatus_Object = MibScalar
+fusionPortUsageStatus = _FusionPortUsageStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 5, 4),
+    _FusionPortUsageStatus_Type()
+)
+fusionPortUsageStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortUsageStatus.setStatus("current")
+
+
+class _FusionPortLinkStatus_Type(Integer32):
+    """Custom type fusionPortLinkStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("error", 1),
+          ("unused", 2),
+          ("ok", 3))
+    )
+
+
+_FusionPortLinkStatus_Type.__name__ = "Integer32"
+_FusionPortLinkStatus_Object = MibScalar
+fusionPortLinkStatus = _FusionPortLinkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 5, 5),
+    _FusionPortLinkStatus_Type()
+)
+fusionPortLinkStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPortLinkStatus.setStatus("current")
+_FusionPsuFaultStatus_Type = TruthValue
+_FusionPsuFaultStatus_Object = MibScalar
+fusionPsuFaultStatus = _FusionPsuFaultStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 5, 6),
+    _FusionPsuFaultStatus_Type()
+)
+fusionPsuFaultStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionPsuFaultStatus.setStatus("current")
+_FusionTimeSourceStatus_Type = TruthValue
+_FusionTimeSourceStatus_Object = MibScalar
+fusionTimeSourceStatus = _FusionTimeSourceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 5, 7),
+    _FusionTimeSourceStatus_Type()
+)
+fusionTimeSourceStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fusionTimeSourceStatus.setStatus("current")
+_FusionTraps_ObjectIdentity = ObjectIdentity
+fusionTraps = _FusionTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 6)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+fusionPowerFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 6, 1)
+)
+if mibBuilder.loadTexts:
+    fusionPowerFail.setStatus(
+        "current"
+    )
+
+fusionTamperAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 6, 2)
+)
+fusionTamperAlert.setObjects(
+    ("EXALINK-FUSION-MIB", "fusionLidOpenStatus")
+)
+if mibBuilder.loadTexts:
+    fusionTamperAlert.setStatus(
+        "current"
+    )
+
+fusionTempAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 6, 3)
+)
+fusionTempAlert.setObjects(
+      *(("EXALINK-FUSION-MIB", "fusionTempSensorName"),
+        ("EXALINK-FUSION-MIB", "fusionHighTempStatus"))
+)
+if mibBuilder.loadTexts:
+    fusionTempAlert.setStatus(
+        "current"
+    )
+
+fusionPsuAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 6, 4)
+)
+fusionPsuAlert.setObjects(
+    ("EXALINK-FUSION-MIB", "fusionPsuFaultStatus")
+)
+if mibBuilder.loadTexts:
+    fusionPsuAlert.setStatus(
+        "current"
+    )
+
+fusionSystemAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 6, 5)
+)
+if mibBuilder.loadTexts:
+    fusionSystemAlert.setStatus(
+        "current"
+    )
+
+fusionFanAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 6, 6)
+)
+fusionFanAlert.setObjects(
+    ("EXALINK-FUSION-MIB", "fusionFanFaultStatus")
+)
+if mibBuilder.loadTexts:
+    fusionFanAlert.setStatus(
+        "current"
+    )
+
+fusionPortAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 6, 7)
+)
+fusionPortAlert.setObjects(
+      *(("EXALINK-FUSION-MIB", "fusionPortName"),
+        ("EXALINK-FUSION-MIB", "fusionPortLinkStatus"),
+        ("EXALINK-FUSION-MIB", "fusionPortUsageStatus"))
+)
+if mibBuilder.loadTexts:
+    fusionPortAlert.setStatus(
+        "current"
+    )
+
+fusionConfigUpdateAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 6, 8)
+)
+if mibBuilder.loadTexts:
+    fusionConfigUpdateAlert.setStatus(
+        "current"
+    )
+
+fusionTimeAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 43296, 3, 6, 9)
+)
+fusionTimeAlert.setObjects(
+    ("EXALINK-FUSION-MIB", "fusionTimeSourceStatus")
+)
+if mibBuilder.loadTexts:
+    fusionTimeAlert.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EXALINK-FUSION-MIB",
+    **{"exaFusion": exaFusion,
+       "fusionInfo": fusionInfo,
+       "fusionInfoSerial": fusionInfoSerial,
+       "fusionInfoVersion": fusionInfoVersion,
+       "fusionInfoBoard": fusionInfoBoard,
+       "fusionInfoSoftware": fusionInfoSoftware,
+       "fusionLineCardTable": fusionLineCardTable,
+       "fusionLineCard": fusionLineCard,
+       "fusionLineCardIndex": fusionLineCardIndex,
+       "fusionLineCardName": fusionLineCardName,
+       "fusionLineCardBoard": fusionLineCardBoard,
+       "fusionModuleTable": fusionModuleTable,
+       "fusionModule": fusionModule,
+       "fusionModuleIndex": fusionModuleIndex,
+       "fusionModuleName": fusionModuleName,
+       "fusionModuleBoard": fusionModuleBoard,
+       "fusionModuleFunction": fusionModuleFunction,
+       "fusionSysInfo": fusionSysInfo,
+       "fusionSysInfoLoadAverage": fusionSysInfoLoadAverage,
+       "fusionSysInfoAvailMem": fusionSysInfoAvailMem,
+       "fusionSysInfoNumProcesses": fusionSysInfoNumProcesses,
+       "fusionSensor": fusionSensor,
+       "fusionTempSensorTable": fusionTempSensorTable,
+       "fusionTempSensor": fusionTempSensor,
+       "fusionTempSensorIndex": fusionTempSensorIndex,
+       "fusionTempSensorName": fusionTempSensorName,
+       "fusionTempSensorValue": fusionTempSensorValue,
+       "fusionFanSensorTable": fusionFanSensorTable,
+       "fusionFanSensor": fusionFanSensor,
+       "fusionFanSensorIndex": fusionFanSensorIndex,
+       "fusionFanSensorName": fusionFanSensorName,
+       "fusionFanSensorValue": fusionFanSensorValue,
+       "fusionPsuTable": fusionPsuTable,
+       "fusionPsu": fusionPsu,
+       "fusionPsuIndex": fusionPsuIndex,
+       "fusionPsuType": fusionPsuType,
+       "fusionPsuPresent": fusionPsuPresent,
+       "fusionPsuTemperature": fusionPsuTemperature,
+       "fusionPsuPowerIn": fusionPsuPowerIn,
+       "fusionPsuPowerOut": fusionPsuPowerOut,
+       "fusionPortTable": fusionPortTable,
+       "fusionPort": fusionPort,
+       "fusionPortLineCard": fusionPortLineCard,
+       "fusionPortIndex": fusionPortIndex,
+       "fusionPortName": fusionPortName,
+       "fusionPortPresent": fusionPortPresent,
+       "fusionPortHasSignal": fusionPortHasSignal,
+       "fusionPortEnabled": fusionPortEnabled,
+       "fusionPortAlias": fusionPortAlias,
+       "fusionPortSpeed": fusionPortSpeed,
+       "fusionPortRXPackets": fusionPortRXPackets,
+       "fusionPortRXBytes": fusionPortRXBytes,
+       "fusionPortRXErrors": fusionPortRXErrors,
+       "fusionPortTXPackets": fusionPortTXPackets,
+       "fusionPortTXBytes": fusionPortTXBytes,
+       "fusionPortRXLink": fusionPortRXLink,
+       "fusionPortRXLinkChanges": fusionPortRXLinkChanges,
+       "fusionPortRXDropped": fusionPortRXDropped,
+       "fusionPortRXUnicast": fusionPortRXUnicast,
+       "fusionPortRXMulticast": fusionPortRXMulticast,
+       "fusionPortRXBroadcast": fusionPortRXBroadcast,
+       "fusionPortRXRunt": fusionPortRXRunt,
+       "fusionPortRXPause": fusionPortRXPause,
+       "fusionPortRX64b": fusionPortRX64b,
+       "fusionPortRX65to127b": fusionPortRX65to127b,
+       "fusionPortRX128to255b": fusionPortRX128to255b,
+       "fusionPortRX256to511b": fusionPortRX256to511b,
+       "fusionPortRX512to1023b": fusionPortRX512to1023b,
+       "fusionPortRX1024to1518b": fusionPortRX1024to1518b,
+       "fusionPortRX1519to1522b": fusionPortRX1519to1522b,
+       "fusionPortTXUnicast": fusionPortTXUnicast,
+       "fusionPortTXMulticast": fusionPortTXMulticast,
+       "fusionPortTXBroadcast": fusionPortTXBroadcast,
+       "fusionPortTX64b": fusionPortTX64b,
+       "fusionPortTX65to127b": fusionPortTX65to127b,
+       "fusionPortTX128to255b": fusionPortTX128to255b,
+       "fusionPortTX256to511b": fusionPortTX256to511b,
+       "fusionPortTX512to1023b": fusionPortTX512to1023b,
+       "fusionPortTX1024to1518b": fusionPortTX1024to1518b,
+       "fusionPortTX1519to1522b": fusionPortTX1519to1522b,
+       "fusionPortL1Source": fusionPortL1Source,
+       "fusionTrapValues": fusionTrapValues,
+       "fusionLidOpenStatus": fusionLidOpenStatus,
+       "fusionFanFaultStatus": fusionFanFaultStatus,
+       "fusionHighTempStatus": fusionHighTempStatus,
+       "fusionPortUsageStatus": fusionPortUsageStatus,
+       "fusionPortLinkStatus": fusionPortLinkStatus,
+       "fusionPsuFaultStatus": fusionPsuFaultStatus,
+       "fusionTimeSourceStatus": fusionTimeSourceStatus,
+       "fusionTraps": fusionTraps,
+       "fusionPowerFail": fusionPowerFail,
+       "fusionTamperAlert": fusionTamperAlert,
+       "fusionTempAlert": fusionTempAlert,
+       "fusionPsuAlert": fusionPsuAlert,
+       "fusionSystemAlert": fusionSystemAlert,
+       "fusionFanAlert": fusionFanAlert,
+       "fusionPortAlert": fusionPortAlert,
+       "fusionConfigUpdateAlert": fusionConfigUpdateAlert,
+       "fusionTimeAlert": fusionTimeAlert}
+)

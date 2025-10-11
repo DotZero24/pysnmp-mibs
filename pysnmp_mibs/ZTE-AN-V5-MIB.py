@@ -1,289 +1,2697 @@
+# SNMP MIB module (ZTE-AN-V5-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZTE-AN-V5-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zte/ZTE-AN-V5-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:18 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zte/ZTE-AN-V5-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:43:55 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
-zxAnV5Mib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3902, 1015, 5200))
-if mibBuilder.loadTexts: zxAnV5Mib.setLastUpdated('0608140000Z')
-if mibBuilder.loadTexts: zxAnV5Mib.setOrganization('zte Telcom Co. Ltd.')
-zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
-zxAn = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015))
-msagmajorVersion = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3))
-msagV5Service = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5))
-v5InterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1), )
-if mibBuilder.loadTexts: v5InterfaceTable.setStatus('current')
-v5InterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1), ).setIndexNames((0, "ZTE-AN-V5-MIB", "v5IFID"))
-if mibBuilder.loadTexts: v5InterfaceEntry.setStatus('current')
-v5IFID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: v5IFID.setStatus('current')
-v5IFType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("v51Type", 1), ("v52Type", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5IFType.setStatus('current')
-v5IFVar = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 254))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5IFVar.setStatus('current')
-v5IFLeType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("leNormal", 0), ("leF_150", 1), ("leS11240", 2), ("leL_5ESS", 3), ("leC_C08", 4), ("leEWSD", 5), ("leDMS", 6), ("leSP30", 7), ("leNec", 8), ("leHJD04", 9), ("leSTND", 10), ("leCompliance", 11)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5IFLeType.setStatus('current')
-v5IFStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 255))).clone(namedValues=NamedValues(("inDeactive", 0), ("inActive", 1), ("inCtrlDeactive", 2), ("inInvalid", 255)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5IFStatus.setStatus('current')
-v5IFCommCtrlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("commNormal", 0), ("commStop", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5IFCommCtrlStatus.setStatus('current')
-v5IFPstnDLStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("dlNormal", 0), ("dlAbNormal", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5IFPstnDLStatus.setStatus('current')
-v5IFBccDLStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("dlNormal", 0), ("dlAbNormal", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5IFBccDLStatus.setStatus('current')
-v5IFLinkDLStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("dlNormal", 0), ("dlAbNormal", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5IFLinkDLStatus.setStatus('current')
-v5IFCtrlDLStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("dlNormal", 0), ("dlAbNormal", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5IFCtrlDLStatus.setStatus('current')
-v5IFProtMDLStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("dlNormal", 0), ("dlAbNormal", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5IFProtMDLStatus.setStatus('current')
-v5IFProtBDLStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("dlNormal", 0), ("dlAbNormal", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5IFProtBDLStatus.setStatus('current')
-v5IFNewV5IID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 13), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5IFNewV5IID.setStatus('current')
-v5IFRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 14), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5IFRowStatus.setStatus('current')
-v5LinkTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3), )
-if mibBuilder.loadTexts: v5LinkTable.setStatus('current')
-v5LinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1), ).setIndexNames((0, "ZTE-AN-V5-MIB", "v5LinkV5IID"), (0, "ZTE-AN-V5-MIB", "v5LinkID"))
-if mibBuilder.loadTexts: v5LinkEntry.setStatus('current')
-v5LinkV5IID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: v5LinkV5IID.setStatus('current')
-v5LinkID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)))
-if mibBuilder.loadTexts: v5LinkID.setStatus('current')
-v5LinkRack = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LinkRack.setStatus('current')
-v5LinkShelf = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LinkShelf.setStatus('current')
-v5LinkSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 23))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LinkSlot.setStatus('current')
-v5LinkE1No = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LinkE1No.setStatus('current')
-v5LinkType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("mainLink", 0), ("standbyLink", 1), ("normalLink", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5LinkType.setStatus('current')
-v5LinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("linkNormal", 0), ("linkFault", 1), ("linkFaultBlock", 2), ("linkRemoteBlock", 3), ("linkLocalBlock", 4), ("linkCicBlock", 5), ("linkBlock", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5LinkStatus.setStatus('current')
-v5LinkTs15PchFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("tsUnUsed", 0), ("tsUnsed", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5LinkTs15PchFlag.setStatus('current')
-v5LinkTs16PchFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("tsUnUsed", 0), ("tsUsed", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5LinkTs16PchFlag.setStatus('current')
-v5LinkTs31PchFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("tsUnUsed", 0), ("tsUsed", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5LinkTs31PchFlag.setStatus('current')
-v5LinkNewID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LinkNewID.setStatus('current')
-v5LinkRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 13), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LinkRowStatus.setStatus('current')
-v5linkBlockFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5linkBlockFlag.setStatus('current')
-v5linkVerify = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5linkVerify.setStatus('current')
-v5linkTs = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(15, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5linkTs.setStatus('current')
-v5linkAnfaultSet = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5linkAnfaultSet.setStatus('current')
-v5PchTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5), )
-if mibBuilder.loadTexts: v5PchTable.setStatus('current')
-v5PchEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1), ).setIndexNames((0, "ZTE-AN-V5-MIB", "v5PchV5IID"), (0, "ZTE-AN-V5-MIB", "v5PchLinkId"), (0, "ZTE-AN-V5-MIB", "v5PchLinkTs"))
-if mibBuilder.loadTexts: v5PchEntry.setStatus('current')
-v5PchV5IID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: v5PchV5IID.setStatus('current')
-v5PchLinkId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)))
-if mibBuilder.loadTexts: v5PchLinkId.setStatus('current')
-v5PchLinkTs = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31)))
-if mibBuilder.loadTexts: v5PchLinkTs.setStatus('current')
-v5PchProtGrp = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5PchProtGrp.setStatus('current')
-v5PchStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("pchNormal", 0), ("pchAbNormal", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5PchStatus.setStatus('current')
-v5PchCtsTln = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5PchCtsTln.setStatus('current')
-v5PchRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5PchRowStatus.setStatus('current')
-v5LchTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6), )
-if mibBuilder.loadTexts: v5LchTable.setStatus('current')
-v5LchEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1), ).setIndexNames((0, "ZTE-AN-V5-MIB", "v5LchV5IID"), (0, "ZTE-AN-V5-MIB", "v5LchLcci"))
-if mibBuilder.loadTexts: v5LchEntry.setStatus('current')
-v5LchV5IID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967294)))
-if mibBuilder.loadTexts: v5LchV5IID.setStatus('current')
-v5LchLcci = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: v5LchLcci.setStatus('current')
-v5LchLinkID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LchLinkID.setStatus('current')
-v5LchLinkTs = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LchLinkTs.setStatus('current')
-v5LchIsdnCreatedFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("flagNotCreated", 0), ("flagCreated", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LchIsdnCreatedFlag.setStatus('current')
-v5LchPstnCrreatedFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("flagNotCreated", 0), ("flagCreated", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LchPstnCrreatedFlag.setStatus('current')
-v5LchCtrlCreatedFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("flagNotCreated", 0), ("flagCreated", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LchCtrlCreatedFlag.setStatus('current')
-v5LchBccCreatedFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("flagNotCreated", 0), ("flagCreated", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LchBccCreatedFlag.setStatus('current')
-v5LchLinkCreatedFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("flagNotCreated", 0), ("flagCreated", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LchLinkCreatedFlag.setStatus('current')
-v5LchProtCreatedFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("flagNotCreated", 0), ("flagCreated", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LchProtCreatedFlag.setStatus('current')
-v5LchCurrLinkId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5LchCurrLinkId.setStatus('current')
-v5LchCurrLinkTs = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5LchCurrLinkTs.setStatus('current')
-v5LchSwitch = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noop", 0), ("switch", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LchSwitch.setStatus('current')
-v5LchRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 14), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: v5LchRowStatus.setStatus('current')
-v5PstnUserTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8), )
-if mibBuilder.loadTexts: v5PstnUserTable.setStatus('current')
-v5PstnUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1), ).setIndexNames((0, "ZTE-AN-V5-MIB", "pstnV5IID"), (0, "ZTE-AN-V5-MIB", "pstnL3Addr"))
-if mibBuilder.loadTexts: v5PstnUserEntry.setStatus('current')
-pstnV5IID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: pstnV5IID.setStatus('current')
-pstnL3Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32767)))
-if mibBuilder.loadTexts: pstnL3Addr.setStatus('current')
-pstnRack = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pstnRack.setStatus('current')
-pstnShelf = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pstnShelf.setStatus('current')
-pstnSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 23))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pstnSlot.setStatus('current')
-pstnPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pstnPort.setStatus('current')
-trunkRack = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: trunkRack.setStatus('current')
-trunkShelf = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: trunkShelf.setStatus('current')
-trunkSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(8, 8), ValueRangeConstraint(11, 12), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: trunkSlot.setStatus('current')
-trunkE1No = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: trunkE1No.setStatus('current')
-trunkCircuit = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: trunkCircuit.setStatus('current')
-pstnConnType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("fix", 0), ("active", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pstnConnType.setStatus('current')
-pstnTelType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pstnTelType.setStatus('current')
-pstnPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("v5UpStop", 0), ("vtUpIdle", 1), ("v5UpBusy", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pstnPortStatus.setStatus('current')
-pstnProtocolStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("ctrlIdle", 0), ("ctrlBusy", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pstnProtocolStatus.setStatus('current')
-pstnSum = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 192))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pstnSum.setStatus('current')
-pstnRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 26), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pstnRowStatus.setStatus('current')
-pstnportBlock = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pstnportBlock.setStatus('current')
-pstnportUnBlock = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pstnportUnBlock.setStatus('current')
-v5IsdnUserTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9), )
-if mibBuilder.loadTexts: v5IsdnUserTable.setStatus('current')
-v5IsdnUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1), ).setIndexNames((0, "ZTE-AN-V5-MIB", "isdnV5IID"), (0, "ZTE-AN-V5-MIB", "isdnEfAddr"))
-if mibBuilder.loadTexts: v5IsdnUserEntry.setStatus('current')
-isdnV5IID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: isdnV5IID.setStatus('current')
-isdnEfAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8191)))
-if mibBuilder.loadTexts: isdnEfAddr.setStatus('current')
-isdnRack = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnRack.setStatus('current')
-isdnShelf = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnShelf.setStatus('current')
-isdnSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 23))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnSlot.setStatus('current')
-isdnPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnPort.setStatus('current')
-isdnTrunkRack = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 3))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnTrunkRack.setStatus('current')
-isdnTrunkShelf = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnTrunkShelf.setStatus('current')
-isdnTrunkSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(8, 8), ValueRangeConstraint(11, 12), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnTrunkSlot.setStatus('current')
-isdnTrunkE1No = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnTrunkE1No.setStatus('current')
-isdnTrunkCircuit = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnTrunkCircuit.setStatus('current')
-isdnConnType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("fix", 0), ("active", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnConnType.setStatus('current')
-isdnTelType = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 13), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnTelType.setStatus('current')
-isdnDsLcci = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65534))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnDsLcci.setStatus('current')
-isdnGroupLcci = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65534))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnGroupLcci.setStatus('current')
-isdnFrameLcci = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65534))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnFrameLcci.setStatus('current')
-isdnPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("v5UpStop", 0), ("vtUpIdle", 1), ("v5UpBusy", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnPortStatus.setStatus('current')
-isdnProtocolStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("ctrlIdle", 0), ("ctrlBusy", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnProtocolStatus.setStatus('current')
-isdnSemiPermFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("flagUsed", 0), ("flagUnused", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnSemiPermFlag.setStatus('current')
-isdnPolarityFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("positive", 0), ("negative", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnPolarityFlag.setStatus('current')
-isdnDistance = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 21), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnDistance.setStatus('current')
-isdnV51UpPir = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 22), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnV51UpPir.setStatus('current')
-isdnV52UpPir = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 23), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnV52UpPir.setStatus('current')
-isdnV5IsAnfault = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 24), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: isdnV5IsAnfault.setStatus('current')
-isdnSum = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 192))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnSum.setStatus('current')
-isdnRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 26), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnRowStatus.setStatus('current')
-isdnActive = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnActive.setStatus('current')
-isdnBlock = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnBlock.setStatus('current')
-isdnUnBlock = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 29), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: isdnUnBlock.setStatus('current')
-msagServiceV5 = MibScalar((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("notSupport", 0), ("support", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: msagServiceV5.setStatus('current')
-v5LinkTsTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11), )
-if mibBuilder.loadTexts: v5LinkTsTable.setStatus('current')
-v5LinkTsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1), ).setIndexNames((0, "ZTE-AN-V5-MIB", "v5LinkTsV5IID"), (0, "ZTE-AN-V5-MIB", "v5LinkTsLinkID"), (0, "ZTE-AN-V5-MIB", "v5LinkTsNo"))
-if mibBuilder.loadTexts: v5LinkTsEntry.setStatus('current')
-v5LinkTsV5IID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: v5LinkTsV5IID.setStatus('current')
-v5LinkTsLinkID = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
-if mibBuilder.loadTexts: v5LinkTsLinkID.setStatus('current')
-v5LinkTsNo = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
-if mibBuilder.loadTexts: v5LinkTsNo.setStatus('current')
-v5LinkTsState = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 255))).clone(namedValues=NamedValues(("tlnidle", 0), ("tlnbusy", 1), ("tlnblock", 2), ("tlninvalid", 255)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5LinkTsState.setStatus('current')
-v5LinkTsL3Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32767))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: v5LinkTsL3Addr.setStatus('current')
-v5LinkTsFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: v5LinkTsFlag.setStatus('current')
-v5LinkTsBlock = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: v5LinkTsBlock.setStatus('current')
-v5LinkTsUnBlock = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: v5LinkTsUnBlock.setStatus('current')
-zxAnV5UaLinkTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12), )
-if mibBuilder.loadTexts: zxAnV5UaLinkTable.setStatus('current')
-zxAnV5UaLinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1), ).setIndexNames((0, "ZTE-AN-V5-MIB", "zxAnV5UaLinkRack"), (0, "ZTE-AN-V5-MIB", "zxAnV5UaLinkShelf"), (0, "ZTE-AN-V5-MIB", "zxAnV5UaLinkSlot"), (0, "ZTE-AN-V5-MIB", "zxAnV5UaLinkDsx1LinkNo"), (0, "ZTE-AN-V5-MIB", "zxAnV5UaLinkDsx1TsNo"))
-if mibBuilder.loadTexts: zxAnV5UaLinkEntry.setStatus('current')
-zxAnV5UaLinkRack = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 1), Integer32())
-if mibBuilder.loadTexts: zxAnV5UaLinkRack.setStatus('current')
-zxAnV5UaLinkShelf = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 2), Integer32())
-if mibBuilder.loadTexts: zxAnV5UaLinkShelf.setStatus('current')
-zxAnV5UaLinkSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 3), Integer32())
-if mibBuilder.loadTexts: zxAnV5UaLinkSlot.setStatus('current')
-zxAnV5UaLinkDsx1LinkNo = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: zxAnV5UaLinkDsx1LinkNo.setStatus('current')
-zxAnV5UaLinkDsx1TsNo = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 5), Integer32())
-if mibBuilder.loadTexts: zxAnV5UaLinkDsx1TsNo.setStatus('current')
-zxAnV5UaLinkV5LinkId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zxAnV5UaLinkV5LinkId.setStatus('current')
-zxAnV5UaLinkAsId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 127))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zxAnV5UaLinkAsId.setStatus('current')
-zxAnV5UaLinkIfId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zxAnV5UaLinkIfId.setStatus('current')
-zxAnV5UaLinkRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 50), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zxAnV5UaLinkRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ZTE-AN-V5-MIB", v5LchLcci=v5LchLcci, isdnShelf=isdnShelf, v5PchLinkId=v5PchLinkId, isdnProtocolStatus=isdnProtocolStatus, isdnSlot=isdnSlot, v5LchCurrLinkId=v5LchCurrLinkId, trunkShelf=trunkShelf, v5LinkTsBlock=v5LinkTsBlock, v5LinkTsFlag=v5LinkTsFlag, v5LinkTsUnBlock=v5LinkTsUnBlock, zxAn=zxAn, v5LinkStatus=v5LinkStatus, pstnRack=pstnRack, trunkSlot=trunkSlot, isdnDsLcci=isdnDsLcci, v5LinkTsTable=v5LinkTsTable, v5LinkTsLinkID=v5LinkTsLinkID, v5LinkNewID=v5LinkNewID, zxAnV5UaLinkDsx1LinkNo=zxAnV5UaLinkDsx1LinkNo, pstnportUnBlock=pstnportUnBlock, pstnSlot=pstnSlot, v5IFID=v5IFID, isdnTrunkCircuit=isdnTrunkCircuit, v5PchCtsTln=v5PchCtsTln, zxAnV5UaLinkShelf=zxAnV5UaLinkShelf, v5IFLeType=v5IFLeType, zxAnV5UaLinkRack=zxAnV5UaLinkRack, v5LinkTs31PchFlag=v5LinkTs31PchFlag, v5LinkTsNo=v5LinkTsNo, v5LinkSlot=v5LinkSlot, v5LinkTs16PchFlag=v5LinkTs16PchFlag, pstnV5IID=pstnV5IID, v5InterfaceTable=v5InterfaceTable, v5IFStatus=v5IFStatus, isdnTrunkSlot=isdnTrunkSlot, zxAnV5UaLinkRowStatus=zxAnV5UaLinkRowStatus, v5LinkV5IID=v5LinkV5IID, v5LchEntry=v5LchEntry, isdnV5IID=isdnV5IID, isdnTrunkRack=isdnTrunkRack, v5LchSwitch=v5LchSwitch, v5PstnUserTable=v5PstnUserTable, isdnPortStatus=isdnPortStatus, isdnPolarityFlag=isdnPolarityFlag, v5linkTs=v5linkTs, isdnFrameLcci=isdnFrameLcci, v5LinkTsV5IID=v5LinkTsV5IID, pstnProtocolStatus=pstnProtocolStatus, v5LchIsdnCreatedFlag=v5LchIsdnCreatedFlag, v5IsdnUserEntry=v5IsdnUserEntry, isdnTrunkShelf=isdnTrunkShelf, v5LinkTsState=v5LinkTsState, isdnV51UpPir=isdnV51UpPir, PYSNMP_MODULE_ID=zxAnV5Mib, pstnShelf=pstnShelf, v5PchProtGrp=v5PchProtGrp, v5LchTable=v5LchTable, zxAnV5Mib=zxAnV5Mib, isdnRack=isdnRack, v5linkBlockFlag=v5linkBlockFlag, v5IFProtBDLStatus=v5IFProtBDLStatus, v5LinkTs15PchFlag=v5LinkTs15PchFlag, v5LinkRack=v5LinkRack, zte=zte, v5IFType=v5IFType, msagmajorVersion=msagmajorVersion, isdnTrunkE1No=isdnTrunkE1No, isdnEfAddr=isdnEfAddr, v5InterfaceEntry=v5InterfaceEntry, v5LinkShelf=v5LinkShelf, pstnL3Addr=pstnL3Addr, isdnV52UpPir=isdnV52UpPir, v5IFVar=v5IFVar, v5PchRowStatus=v5PchRowStatus, msagServiceV5=msagServiceV5, zxAnV5UaLinkV5LinkId=zxAnV5UaLinkV5LinkId, v5LinkTsL3Addr=v5LinkTsL3Addr, isdnActive=isdnActive, trunkRack=trunkRack, v5IFCommCtrlStatus=v5IFCommCtrlStatus, isdnGroupLcci=isdnGroupLcci, v5LchLinkID=v5LchLinkID, v5LchV5IID=v5LchV5IID, v5PchV5IID=v5PchV5IID, isdnDistance=isdnDistance, isdnPort=isdnPort, trunkCircuit=trunkCircuit, v5IFBccDLStatus=v5IFBccDLStatus, v5PchEntry=v5PchEntry, v5LinkRowStatus=v5LinkRowStatus, pstnTelType=pstnTelType, v5PstnUserEntry=v5PstnUserEntry, pstnPortStatus=pstnPortStatus, isdnSum=isdnSum, trunkE1No=trunkE1No, msagV5Service=msagV5Service, v5LinkTable=v5LinkTable, v5IFNewV5IID=v5IFNewV5IID, isdnV5IsAnfault=isdnV5IsAnfault, zxAnV5UaLinkEntry=zxAnV5UaLinkEntry, v5PchStatus=v5PchStatus, isdnConnType=isdnConnType, v5LchLinkTs=v5LchLinkTs, v5linkVerify=v5linkVerify, v5PchLinkTs=v5PchLinkTs, v5IsdnUserTable=v5IsdnUserTable, isdnTelType=isdnTelType, pstnportBlock=pstnportBlock, v5LchCurrLinkTs=v5LchCurrLinkTs, v5IFRowStatus=v5IFRowStatus, v5LchCtrlCreatedFlag=v5LchCtrlCreatedFlag, zxAnV5UaLinkTable=zxAnV5UaLinkTable, pstnRowStatus=pstnRowStatus, v5LinkType=v5LinkType, v5LinkID=v5LinkID, isdnRowStatus=isdnRowStatus, zxAnV5UaLinkAsId=zxAnV5UaLinkAsId, pstnConnType=pstnConnType, v5IFLinkDLStatus=v5IFLinkDLStatus, v5IFCtrlDLStatus=v5IFCtrlDLStatus, zxAnV5UaLinkDsx1TsNo=zxAnV5UaLinkDsx1TsNo, v5LinkTsEntry=v5LinkTsEntry, v5LinkEntry=v5LinkEntry, v5LchRowStatus=v5LchRowStatus, v5IFProtMDLStatus=v5IFProtMDLStatus, isdnSemiPermFlag=isdnSemiPermFlag, zxAnV5UaLinkSlot=zxAnV5UaLinkSlot, v5LchLinkCreatedFlag=v5LchLinkCreatedFlag, v5LchProtCreatedFlag=v5LchProtCreatedFlag, pstnPort=pstnPort, v5PchTable=v5PchTable, zxAnV5UaLinkIfId=zxAnV5UaLinkIfId, v5LinkE1No=v5LinkE1No, pstnSum=pstnSum, v5IFPstnDLStatus=v5IFPstnDLStatus, isdnUnBlock=isdnUnBlock, v5LchBccCreatedFlag=v5LchBccCreatedFlag, isdnBlock=isdnBlock, v5LchPstnCrreatedFlag=v5LchPstnCrreatedFlag, v5linkAnfaultSet=v5linkAnfaultSet)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+zxAnV5Mib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Zte_ObjectIdentity = ObjectIdentity
+zte = _Zte_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902)
+)
+_ZxAn_ObjectIdentity = ObjectIdentity
+zxAn = _ZxAn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 1015)
+)
+_MsagmajorVersion_ObjectIdentity = ObjectIdentity
+msagmajorVersion = _MsagmajorVersion_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3)
+)
+_MsagV5Service_ObjectIdentity = ObjectIdentity
+msagV5Service = _MsagV5Service_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5)
+)
+_V5InterfaceTable_Object = MibTable
+v5InterfaceTable = _V5InterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1)
+)
+if mibBuilder.loadTexts:
+    v5InterfaceTable.setStatus("current")
+_V5InterfaceEntry_Object = MibTableRow
+v5InterfaceEntry = _V5InterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1)
+)
+v5InterfaceEntry.setIndexNames(
+    (0, "ZTE-AN-V5-MIB", "v5IFID"),
+)
+if mibBuilder.loadTexts:
+    v5InterfaceEntry.setStatus("current")
+_V5IFID_Type = Unsigned32
+_V5IFID_Object = MibTableColumn
+v5IFID = _V5IFID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 1),
+    _V5IFID_Type()
+)
+v5IFID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    v5IFID.setStatus("current")
+
+
+class _V5IFType_Type(Integer32):
+    """Custom type v5IFType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("v51Type", 1),
+          ("v52Type", 2))
+    )
+
+
+_V5IFType_Type.__name__ = "Integer32"
+_V5IFType_Object = MibTableColumn
+v5IFType = _V5IFType_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 2),
+    _V5IFType_Type()
+)
+v5IFType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5IFType.setStatus("current")
+
+
+class _V5IFVar_Type(Integer32):
+    """Custom type v5IFVar based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 254),
+    )
+
+
+_V5IFVar_Type.__name__ = "Integer32"
+_V5IFVar_Object = MibTableColumn
+v5IFVar = _V5IFVar_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 3),
+    _V5IFVar_Type()
+)
+v5IFVar.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5IFVar.setStatus("current")
+
+
+class _V5IFLeType_Type(Integer32):
+    """Custom type v5IFLeType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("leNormal", 0),
+          ("leF_150", 1),
+          ("leS11240", 2),
+          ("leL_5ESS", 3),
+          ("leC_C08", 4),
+          ("leEWSD", 5),
+          ("leDMS", 6),
+          ("leSP30", 7),
+          ("leNec", 8),
+          ("leHJD04", 9),
+          ("leSTND", 10),
+          ("leCompliance", 11))
+    )
+
+
+_V5IFLeType_Type.__name__ = "Integer32"
+_V5IFLeType_Object = MibTableColumn
+v5IFLeType = _V5IFLeType_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 4),
+    _V5IFLeType_Type()
+)
+v5IFLeType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5IFLeType.setStatus("current")
+
+
+class _V5IFStatus_Type(Integer32):
+    """Custom type v5IFStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inDeactive", 0),
+          ("inActive", 1),
+          ("inCtrlDeactive", 2),
+          ("inInvalid", 255))
+    )
+
+
+_V5IFStatus_Type.__name__ = "Integer32"
+_V5IFStatus_Object = MibTableColumn
+v5IFStatus = _V5IFStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 5),
+    _V5IFStatus_Type()
+)
+v5IFStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5IFStatus.setStatus("current")
+
+
+class _V5IFCommCtrlStatus_Type(Integer32):
+    """Custom type v5IFCommCtrlStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("commNormal", 0),
+          ("commStop", 1))
+    )
+
+
+_V5IFCommCtrlStatus_Type.__name__ = "Integer32"
+_V5IFCommCtrlStatus_Object = MibTableColumn
+v5IFCommCtrlStatus = _V5IFCommCtrlStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 6),
+    _V5IFCommCtrlStatus_Type()
+)
+v5IFCommCtrlStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5IFCommCtrlStatus.setStatus("current")
+
+
+class _V5IFPstnDLStatus_Type(Integer32):
+    """Custom type v5IFPstnDLStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dlNormal", 0),
+          ("dlAbNormal", 1))
+    )
+
+
+_V5IFPstnDLStatus_Type.__name__ = "Integer32"
+_V5IFPstnDLStatus_Object = MibTableColumn
+v5IFPstnDLStatus = _V5IFPstnDLStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 7),
+    _V5IFPstnDLStatus_Type()
+)
+v5IFPstnDLStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5IFPstnDLStatus.setStatus("current")
+
+
+class _V5IFBccDLStatus_Type(Integer32):
+    """Custom type v5IFBccDLStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dlNormal", 0),
+          ("dlAbNormal", 1))
+    )
+
+
+_V5IFBccDLStatus_Type.__name__ = "Integer32"
+_V5IFBccDLStatus_Object = MibTableColumn
+v5IFBccDLStatus = _V5IFBccDLStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 8),
+    _V5IFBccDLStatus_Type()
+)
+v5IFBccDLStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5IFBccDLStatus.setStatus("current")
+
+
+class _V5IFLinkDLStatus_Type(Integer32):
+    """Custom type v5IFLinkDLStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dlNormal", 0),
+          ("dlAbNormal", 1))
+    )
+
+
+_V5IFLinkDLStatus_Type.__name__ = "Integer32"
+_V5IFLinkDLStatus_Object = MibTableColumn
+v5IFLinkDLStatus = _V5IFLinkDLStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 9),
+    _V5IFLinkDLStatus_Type()
+)
+v5IFLinkDLStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5IFLinkDLStatus.setStatus("current")
+
+
+class _V5IFCtrlDLStatus_Type(Integer32):
+    """Custom type v5IFCtrlDLStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dlNormal", 0),
+          ("dlAbNormal", 1))
+    )
+
+
+_V5IFCtrlDLStatus_Type.__name__ = "Integer32"
+_V5IFCtrlDLStatus_Object = MibTableColumn
+v5IFCtrlDLStatus = _V5IFCtrlDLStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 10),
+    _V5IFCtrlDLStatus_Type()
+)
+v5IFCtrlDLStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5IFCtrlDLStatus.setStatus("current")
+
+
+class _V5IFProtMDLStatus_Type(Integer32):
+    """Custom type v5IFProtMDLStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dlNormal", 0),
+          ("dlAbNormal", 1))
+    )
+
+
+_V5IFProtMDLStatus_Type.__name__ = "Integer32"
+_V5IFProtMDLStatus_Object = MibTableColumn
+v5IFProtMDLStatus = _V5IFProtMDLStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 11),
+    _V5IFProtMDLStatus_Type()
+)
+v5IFProtMDLStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5IFProtMDLStatus.setStatus("current")
+
+
+class _V5IFProtBDLStatus_Type(Integer32):
+    """Custom type v5IFProtBDLStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dlNormal", 0),
+          ("dlAbNormal", 1))
+    )
+
+
+_V5IFProtBDLStatus_Type.__name__ = "Integer32"
+_V5IFProtBDLStatus_Object = MibTableColumn
+v5IFProtBDLStatus = _V5IFProtBDLStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 12),
+    _V5IFProtBDLStatus_Type()
+)
+v5IFProtBDLStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5IFProtBDLStatus.setStatus("current")
+_V5IFNewV5IID_Type = Unsigned32
+_V5IFNewV5IID_Object = MibTableColumn
+v5IFNewV5IID = _V5IFNewV5IID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 13),
+    _V5IFNewV5IID_Type()
+)
+v5IFNewV5IID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5IFNewV5IID.setStatus("current")
+_V5IFRowStatus_Type = RowStatus
+_V5IFRowStatus_Object = MibTableColumn
+v5IFRowStatus = _V5IFRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 1, 1, 14),
+    _V5IFRowStatus_Type()
+)
+v5IFRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5IFRowStatus.setStatus("current")
+_V5LinkTable_Object = MibTable
+v5LinkTable = _V5LinkTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3)
+)
+if mibBuilder.loadTexts:
+    v5LinkTable.setStatus("current")
+_V5LinkEntry_Object = MibTableRow
+v5LinkEntry = _V5LinkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1)
+)
+v5LinkEntry.setIndexNames(
+    (0, "ZTE-AN-V5-MIB", "v5LinkV5IID"),
+    (0, "ZTE-AN-V5-MIB", "v5LinkID"),
+)
+if mibBuilder.loadTexts:
+    v5LinkEntry.setStatus("current")
+_V5LinkV5IID_Type = Unsigned32
+_V5LinkV5IID_Object = MibTableColumn
+v5LinkV5IID = _V5LinkV5IID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 1),
+    _V5LinkV5IID_Type()
+)
+v5LinkV5IID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    v5LinkV5IID.setStatus("current")
+
+
+class _V5LinkID_Type(Integer32):
+    """Custom type v5LinkID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_V5LinkID_Type.__name__ = "Integer32"
+_V5LinkID_Object = MibTableColumn
+v5LinkID = _V5LinkID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 2),
+    _V5LinkID_Type()
+)
+v5LinkID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    v5LinkID.setStatus("current")
+
+
+class _V5LinkRack_Type(Integer32):
+    """Custom type v5LinkRack based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_V5LinkRack_Type.__name__ = "Integer32"
+_V5LinkRack_Object = MibTableColumn
+v5LinkRack = _V5LinkRack_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 3),
+    _V5LinkRack_Type()
+)
+v5LinkRack.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LinkRack.setStatus("current")
+
+
+class _V5LinkShelf_Type(Integer32):
+    """Custom type v5LinkShelf based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_V5LinkShelf_Type.__name__ = "Integer32"
+_V5LinkShelf_Object = MibTableColumn
+v5LinkShelf = _V5LinkShelf_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 4),
+    _V5LinkShelf_Type()
+)
+v5LinkShelf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LinkShelf.setStatus("current")
+
+
+class _V5LinkSlot_Type(Integer32):
+    """Custom type v5LinkSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 23),
+    )
+
+
+_V5LinkSlot_Type.__name__ = "Integer32"
+_V5LinkSlot_Object = MibTableColumn
+v5LinkSlot = _V5LinkSlot_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 5),
+    _V5LinkSlot_Type()
+)
+v5LinkSlot.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LinkSlot.setStatus("current")
+
+
+class _V5LinkE1No_Type(Integer32):
+    """Custom type v5LinkE1No based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_V5LinkE1No_Type.__name__ = "Integer32"
+_V5LinkE1No_Object = MibTableColumn
+v5LinkE1No = _V5LinkE1No_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 6),
+    _V5LinkE1No_Type()
+)
+v5LinkE1No.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LinkE1No.setStatus("current")
+
+
+class _V5LinkType_Type(Integer32):
+    """Custom type v5LinkType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mainLink", 0),
+          ("standbyLink", 1),
+          ("normalLink", 2))
+    )
+
+
+_V5LinkType_Type.__name__ = "Integer32"
+_V5LinkType_Object = MibTableColumn
+v5LinkType = _V5LinkType_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 7),
+    _V5LinkType_Type()
+)
+v5LinkType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5LinkType.setStatus("current")
+
+
+class _V5LinkStatus_Type(Integer32):
+    """Custom type v5LinkStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("linkNormal", 0),
+          ("linkFault", 1),
+          ("linkFaultBlock", 2),
+          ("linkRemoteBlock", 3),
+          ("linkLocalBlock", 4),
+          ("linkCicBlock", 5),
+          ("linkBlock", 6))
+    )
+
+
+_V5LinkStatus_Type.__name__ = "Integer32"
+_V5LinkStatus_Object = MibTableColumn
+v5LinkStatus = _V5LinkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 8),
+    _V5LinkStatus_Type()
+)
+v5LinkStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5LinkStatus.setStatus("current")
+
+
+class _V5LinkTs15PchFlag_Type(Integer32):
+    """Custom type v5LinkTs15PchFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("tsUnUsed", 0),
+          ("tsUnsed", 1))
+    )
+
+
+_V5LinkTs15PchFlag_Type.__name__ = "Integer32"
+_V5LinkTs15PchFlag_Object = MibTableColumn
+v5LinkTs15PchFlag = _V5LinkTs15PchFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 9),
+    _V5LinkTs15PchFlag_Type()
+)
+v5LinkTs15PchFlag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5LinkTs15PchFlag.setStatus("current")
+
+
+class _V5LinkTs16PchFlag_Type(Integer32):
+    """Custom type v5LinkTs16PchFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("tsUnUsed", 0),
+          ("tsUsed", 1))
+    )
+
+
+_V5LinkTs16PchFlag_Type.__name__ = "Integer32"
+_V5LinkTs16PchFlag_Object = MibTableColumn
+v5LinkTs16PchFlag = _V5LinkTs16PchFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 10),
+    _V5LinkTs16PchFlag_Type()
+)
+v5LinkTs16PchFlag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5LinkTs16PchFlag.setStatus("current")
+
+
+class _V5LinkTs31PchFlag_Type(Integer32):
+    """Custom type v5LinkTs31PchFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("tsUnUsed", 0),
+          ("tsUsed", 1))
+    )
+
+
+_V5LinkTs31PchFlag_Type.__name__ = "Integer32"
+_V5LinkTs31PchFlag_Object = MibTableColumn
+v5LinkTs31PchFlag = _V5LinkTs31PchFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 11),
+    _V5LinkTs31PchFlag_Type()
+)
+v5LinkTs31PchFlag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5LinkTs31PchFlag.setStatus("current")
+
+
+class _V5LinkNewID_Type(Integer32):
+    """Custom type v5LinkNewID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_V5LinkNewID_Type.__name__ = "Integer32"
+_V5LinkNewID_Object = MibTableColumn
+v5LinkNewID = _V5LinkNewID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 12),
+    _V5LinkNewID_Type()
+)
+v5LinkNewID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LinkNewID.setStatus("current")
+_V5LinkRowStatus_Type = RowStatus
+_V5LinkRowStatus_Object = MibTableColumn
+v5LinkRowStatus = _V5LinkRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 13),
+    _V5LinkRowStatus_Type()
+)
+v5LinkRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LinkRowStatus.setStatus("current")
+
+
+class _V5linkBlockFlag_Type(Integer32):
+    """Custom type v5linkBlockFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_V5linkBlockFlag_Type.__name__ = "Integer32"
+_V5linkBlockFlag_Object = MibTableColumn
+v5linkBlockFlag = _V5linkBlockFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 14),
+    _V5linkBlockFlag_Type()
+)
+v5linkBlockFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5linkBlockFlag.setStatus("current")
+
+
+class _V5linkVerify_Type(Integer32):
+    """Custom type v5linkVerify based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_V5linkVerify_Type.__name__ = "Integer32"
+_V5linkVerify_Object = MibTableColumn
+v5linkVerify = _V5linkVerify_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 15),
+    _V5linkVerify_Type()
+)
+v5linkVerify.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5linkVerify.setStatus("current")
+
+
+class _V5linkTs_Type(Integer32):
+    """Custom type v5linkTs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(15, 31),
+    )
+
+
+_V5linkTs_Type.__name__ = "Integer32"
+_V5linkTs_Object = MibTableColumn
+v5linkTs = _V5linkTs_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 16),
+    _V5linkTs_Type()
+)
+v5linkTs.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5linkTs.setStatus("current")
+
+
+class _V5linkAnfaultSet_Type(Integer32):
+    """Custom type v5linkAnfaultSet based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_V5linkAnfaultSet_Type.__name__ = "Integer32"
+_V5linkAnfaultSet_Object = MibTableColumn
+v5linkAnfaultSet = _V5linkAnfaultSet_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 3, 1, 17),
+    _V5linkAnfaultSet_Type()
+)
+v5linkAnfaultSet.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5linkAnfaultSet.setStatus("current")
+_V5PchTable_Object = MibTable
+v5PchTable = _V5PchTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5)
+)
+if mibBuilder.loadTexts:
+    v5PchTable.setStatus("current")
+_V5PchEntry_Object = MibTableRow
+v5PchEntry = _V5PchEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1)
+)
+v5PchEntry.setIndexNames(
+    (0, "ZTE-AN-V5-MIB", "v5PchV5IID"),
+    (0, "ZTE-AN-V5-MIB", "v5PchLinkId"),
+    (0, "ZTE-AN-V5-MIB", "v5PchLinkTs"),
+)
+if mibBuilder.loadTexts:
+    v5PchEntry.setStatus("current")
+_V5PchV5IID_Type = Unsigned32
+_V5PchV5IID_Object = MibTableColumn
+v5PchV5IID = _V5PchV5IID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 1),
+    _V5PchV5IID_Type()
+)
+v5PchV5IID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    v5PchV5IID.setStatus("current")
+
+
+class _V5PchLinkId_Type(Integer32):
+    """Custom type v5PchLinkId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_V5PchLinkId_Type.__name__ = "Integer32"
+_V5PchLinkId_Object = MibTableColumn
+v5PchLinkId = _V5PchLinkId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 2),
+    _V5PchLinkId_Type()
+)
+v5PchLinkId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    v5PchLinkId.setStatus("current")
+
+
+class _V5PchLinkTs_Type(Integer32):
+    """Custom type v5PchLinkTs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_V5PchLinkTs_Type.__name__ = "Integer32"
+_V5PchLinkTs_Object = MibTableColumn
+v5PchLinkTs = _V5PchLinkTs_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 3),
+    _V5PchLinkTs_Type()
+)
+v5PchLinkTs.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    v5PchLinkTs.setStatus("current")
+
+
+class _V5PchProtGrp_Type(Integer32):
+    """Custom type v5PchProtGrp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_V5PchProtGrp_Type.__name__ = "Integer32"
+_V5PchProtGrp_Object = MibTableColumn
+v5PchProtGrp = _V5PchProtGrp_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 4),
+    _V5PchProtGrp_Type()
+)
+v5PchProtGrp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5PchProtGrp.setStatus("current")
+
+
+class _V5PchStatus_Type(Integer32):
+    """Custom type v5PchStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pchNormal", 0),
+          ("pchAbNormal", 1))
+    )
+
+
+_V5PchStatus_Type.__name__ = "Integer32"
+_V5PchStatus_Object = MibTableColumn
+v5PchStatus = _V5PchStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 5),
+    _V5PchStatus_Type()
+)
+v5PchStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5PchStatus.setStatus("current")
+_V5PchCtsTln_Type = Integer32
+_V5PchCtsTln_Object = MibTableColumn
+v5PchCtsTln = _V5PchCtsTln_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 6),
+    _V5PchCtsTln_Type()
+)
+v5PchCtsTln.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5PchCtsTln.setStatus("current")
+_V5PchRowStatus_Type = RowStatus
+_V5PchRowStatus_Object = MibTableColumn
+v5PchRowStatus = _V5PchRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 5, 1, 7),
+    _V5PchRowStatus_Type()
+)
+v5PchRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5PchRowStatus.setStatus("current")
+_V5LchTable_Object = MibTable
+v5LchTable = _V5LchTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6)
+)
+if mibBuilder.loadTexts:
+    v5LchTable.setStatus("current")
+_V5LchEntry_Object = MibTableRow
+v5LchEntry = _V5LchEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1)
+)
+v5LchEntry.setIndexNames(
+    (0, "ZTE-AN-V5-MIB", "v5LchV5IID"),
+    (0, "ZTE-AN-V5-MIB", "v5LchLcci"),
+)
+if mibBuilder.loadTexts:
+    v5LchEntry.setStatus("current")
+
+
+class _V5LchV5IID_Type(Unsigned32):
+    """Custom type v5LchV5IID based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967294),
+    )
+
+
+_V5LchV5IID_Type.__name__ = "Unsigned32"
+_V5LchV5IID_Object = MibTableColumn
+v5LchV5IID = _V5LchV5IID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 1),
+    _V5LchV5IID_Type()
+)
+v5LchV5IID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    v5LchV5IID.setStatus("current")
+
+
+class _V5LchLcci_Type(Integer32):
+    """Custom type v5LchLcci based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_V5LchLcci_Type.__name__ = "Integer32"
+_V5LchLcci_Object = MibTableColumn
+v5LchLcci = _V5LchLcci_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 2),
+    _V5LchLcci_Type()
+)
+v5LchLcci.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    v5LchLcci.setStatus("current")
+
+
+class _V5LchLinkID_Type(Integer32):
+    """Custom type v5LchLinkID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_V5LchLinkID_Type.__name__ = "Integer32"
+_V5LchLinkID_Object = MibTableColumn
+v5LchLinkID = _V5LchLinkID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 3),
+    _V5LchLinkID_Type()
+)
+v5LchLinkID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LchLinkID.setStatus("current")
+
+
+class _V5LchLinkTs_Type(Integer32):
+    """Custom type v5LchLinkTs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_V5LchLinkTs_Type.__name__ = "Integer32"
+_V5LchLinkTs_Object = MibTableColumn
+v5LchLinkTs = _V5LchLinkTs_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 4),
+    _V5LchLinkTs_Type()
+)
+v5LchLinkTs.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LchLinkTs.setStatus("current")
+
+
+class _V5LchIsdnCreatedFlag_Type(Integer32):
+    """Custom type v5LchIsdnCreatedFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("flagNotCreated", 0),
+          ("flagCreated", 1))
+    )
+
+
+_V5LchIsdnCreatedFlag_Type.__name__ = "Integer32"
+_V5LchIsdnCreatedFlag_Object = MibTableColumn
+v5LchIsdnCreatedFlag = _V5LchIsdnCreatedFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 5),
+    _V5LchIsdnCreatedFlag_Type()
+)
+v5LchIsdnCreatedFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LchIsdnCreatedFlag.setStatus("current")
+
+
+class _V5LchPstnCrreatedFlag_Type(Integer32):
+    """Custom type v5LchPstnCrreatedFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("flagNotCreated", 0),
+          ("flagCreated", 1))
+    )
+
+
+_V5LchPstnCrreatedFlag_Type.__name__ = "Integer32"
+_V5LchPstnCrreatedFlag_Object = MibTableColumn
+v5LchPstnCrreatedFlag = _V5LchPstnCrreatedFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 6),
+    _V5LchPstnCrreatedFlag_Type()
+)
+v5LchPstnCrreatedFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LchPstnCrreatedFlag.setStatus("current")
+
+
+class _V5LchCtrlCreatedFlag_Type(Integer32):
+    """Custom type v5LchCtrlCreatedFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("flagNotCreated", 0),
+          ("flagCreated", 1))
+    )
+
+
+_V5LchCtrlCreatedFlag_Type.__name__ = "Integer32"
+_V5LchCtrlCreatedFlag_Object = MibTableColumn
+v5LchCtrlCreatedFlag = _V5LchCtrlCreatedFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 7),
+    _V5LchCtrlCreatedFlag_Type()
+)
+v5LchCtrlCreatedFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LchCtrlCreatedFlag.setStatus("current")
+
+
+class _V5LchBccCreatedFlag_Type(Integer32):
+    """Custom type v5LchBccCreatedFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("flagNotCreated", 0),
+          ("flagCreated", 1))
+    )
+
+
+_V5LchBccCreatedFlag_Type.__name__ = "Integer32"
+_V5LchBccCreatedFlag_Object = MibTableColumn
+v5LchBccCreatedFlag = _V5LchBccCreatedFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 8),
+    _V5LchBccCreatedFlag_Type()
+)
+v5LchBccCreatedFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LchBccCreatedFlag.setStatus("current")
+
+
+class _V5LchLinkCreatedFlag_Type(Integer32):
+    """Custom type v5LchLinkCreatedFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("flagNotCreated", 0),
+          ("flagCreated", 1))
+    )
+
+
+_V5LchLinkCreatedFlag_Type.__name__ = "Integer32"
+_V5LchLinkCreatedFlag_Object = MibTableColumn
+v5LchLinkCreatedFlag = _V5LchLinkCreatedFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 9),
+    _V5LchLinkCreatedFlag_Type()
+)
+v5LchLinkCreatedFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LchLinkCreatedFlag.setStatus("current")
+
+
+class _V5LchProtCreatedFlag_Type(Integer32):
+    """Custom type v5LchProtCreatedFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("flagNotCreated", 0),
+          ("flagCreated", 1))
+    )
+
+
+_V5LchProtCreatedFlag_Type.__name__ = "Integer32"
+_V5LchProtCreatedFlag_Object = MibTableColumn
+v5LchProtCreatedFlag = _V5LchProtCreatedFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 10),
+    _V5LchProtCreatedFlag_Type()
+)
+v5LchProtCreatedFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LchProtCreatedFlag.setStatus("current")
+
+
+class _V5LchCurrLinkId_Type(Integer32):
+    """Custom type v5LchCurrLinkId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_V5LchCurrLinkId_Type.__name__ = "Integer32"
+_V5LchCurrLinkId_Object = MibTableColumn
+v5LchCurrLinkId = _V5LchCurrLinkId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 11),
+    _V5LchCurrLinkId_Type()
+)
+v5LchCurrLinkId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5LchCurrLinkId.setStatus("current")
+
+
+class _V5LchCurrLinkTs_Type(Integer32):
+    """Custom type v5LchCurrLinkTs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_V5LchCurrLinkTs_Type.__name__ = "Integer32"
+_V5LchCurrLinkTs_Object = MibTableColumn
+v5LchCurrLinkTs = _V5LchCurrLinkTs_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 12),
+    _V5LchCurrLinkTs_Type()
+)
+v5LchCurrLinkTs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5LchCurrLinkTs.setStatus("current")
+
+
+class _V5LchSwitch_Type(Integer32):
+    """Custom type v5LchSwitch based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noop", 0),
+          ("switch", 1))
+    )
+
+
+_V5LchSwitch_Type.__name__ = "Integer32"
+_V5LchSwitch_Object = MibTableColumn
+v5LchSwitch = _V5LchSwitch_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 13),
+    _V5LchSwitch_Type()
+)
+v5LchSwitch.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LchSwitch.setStatus("current")
+_V5LchRowStatus_Type = RowStatus
+_V5LchRowStatus_Object = MibTableColumn
+v5LchRowStatus = _V5LchRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 6, 1, 14),
+    _V5LchRowStatus_Type()
+)
+v5LchRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    v5LchRowStatus.setStatus("current")
+_V5PstnUserTable_Object = MibTable
+v5PstnUserTable = _V5PstnUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8)
+)
+if mibBuilder.loadTexts:
+    v5PstnUserTable.setStatus("current")
+_V5PstnUserEntry_Object = MibTableRow
+v5PstnUserEntry = _V5PstnUserEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1)
+)
+v5PstnUserEntry.setIndexNames(
+    (0, "ZTE-AN-V5-MIB", "pstnV5IID"),
+    (0, "ZTE-AN-V5-MIB", "pstnL3Addr"),
+)
+if mibBuilder.loadTexts:
+    v5PstnUserEntry.setStatus("current")
+_PstnV5IID_Type = Unsigned32
+_PstnV5IID_Object = MibTableColumn
+pstnV5IID = _PstnV5IID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 1),
+    _PstnV5IID_Type()
+)
+pstnV5IID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pstnV5IID.setStatus("current")
+
+
+class _PstnL3Addr_Type(Integer32):
+    """Custom type pstnL3Addr based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32767),
+    )
+
+
+_PstnL3Addr_Type.__name__ = "Integer32"
+_PstnL3Addr_Object = MibTableColumn
+pstnL3Addr = _PstnL3Addr_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 2),
+    _PstnL3Addr_Type()
+)
+pstnL3Addr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pstnL3Addr.setStatus("current")
+
+
+class _PstnRack_Type(Integer32):
+    """Custom type pstnRack based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_PstnRack_Type.__name__ = "Integer32"
+_PstnRack_Object = MibTableColumn
+pstnRack = _PstnRack_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 3),
+    _PstnRack_Type()
+)
+pstnRack.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pstnRack.setStatus("current")
+
+
+class _PstnShelf_Type(Integer32):
+    """Custom type pstnShelf based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_PstnShelf_Type.__name__ = "Integer32"
+_PstnShelf_Object = MibTableColumn
+pstnShelf = _PstnShelf_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 4),
+    _PstnShelf_Type()
+)
+pstnShelf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pstnShelf.setStatus("current")
+
+
+class _PstnSlot_Type(Integer32):
+    """Custom type pstnSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 23),
+    )
+
+
+_PstnSlot_Type.__name__ = "Integer32"
+_PstnSlot_Object = MibTableColumn
+pstnSlot = _PstnSlot_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 5),
+    _PstnSlot_Type()
+)
+pstnSlot.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pstnSlot.setStatus("current")
+
+
+class _PstnPort_Type(Integer32):
+    """Custom type pstnPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_PstnPort_Type.__name__ = "Integer32"
+_PstnPort_Object = MibTableColumn
+pstnPort = _PstnPort_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 6),
+    _PstnPort_Type()
+)
+pstnPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pstnPort.setStatus("current")
+
+
+class _TrunkRack_Type(Integer32):
+    """Custom type trunkRack based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_TrunkRack_Type.__name__ = "Integer32"
+_TrunkRack_Object = MibTableColumn
+trunkRack = _TrunkRack_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 7),
+    _TrunkRack_Type()
+)
+trunkRack.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    trunkRack.setStatus("current")
+
+
+class _TrunkShelf_Type(Integer32):
+    """Custom type trunkShelf based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_TrunkShelf_Type.__name__ = "Integer32"
+_TrunkShelf_Object = MibTableColumn
+trunkShelf = _TrunkShelf_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 8),
+    _TrunkShelf_Type()
+)
+trunkShelf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    trunkShelf.setStatus("current")
+
+
+class _TrunkSlot_Type(Integer32):
+    """Custom type trunkSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(8, 8),
+        ValueRangeConstraint(11, 12),
+    )
+
+
+_TrunkSlot_Type.__name__ = "Integer32"
+_TrunkSlot_Object = MibTableColumn
+trunkSlot = _TrunkSlot_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 9),
+    _TrunkSlot_Type()
+)
+trunkSlot.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    trunkSlot.setStatus("current")
+
+
+class _TrunkE1No_Type(Integer32):
+    """Custom type trunkE1No based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 8),
+    )
+
+
+_TrunkE1No_Type.__name__ = "Integer32"
+_TrunkE1No_Object = MibTableColumn
+trunkE1No = _TrunkE1No_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 10),
+    _TrunkE1No_Type()
+)
+trunkE1No.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    trunkE1No.setStatus("current")
+
+
+class _TrunkCircuit_Type(Integer32):
+    """Custom type trunkCircuit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_TrunkCircuit_Type.__name__ = "Integer32"
+_TrunkCircuit_Object = MibTableColumn
+trunkCircuit = _TrunkCircuit_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 11),
+    _TrunkCircuit_Type()
+)
+trunkCircuit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    trunkCircuit.setStatus("current")
+
+
+class _PstnConnType_Type(Integer32):
+    """Custom type pstnConnType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fix", 0),
+          ("active", 1))
+    )
+
+
+_PstnConnType_Type.__name__ = "Integer32"
+_PstnConnType_Object = MibTableColumn
+pstnConnType = _PstnConnType_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 12),
+    _PstnConnType_Type()
+)
+pstnConnType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pstnConnType.setStatus("current")
+_PstnTelType_Type = Integer32
+_PstnTelType_Object = MibTableColumn
+pstnTelType = _PstnTelType_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 13),
+    _PstnTelType_Type()
+)
+pstnTelType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pstnTelType.setStatus("current")
+
+
+class _PstnPortStatus_Type(Integer32):
+    """Custom type pstnPortStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("v5UpStop", 0),
+          ("vtUpIdle", 1),
+          ("v5UpBusy", 2))
+    )
+
+
+_PstnPortStatus_Type.__name__ = "Integer32"
+_PstnPortStatus_Object = MibTableColumn
+pstnPortStatus = _PstnPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 17),
+    _PstnPortStatus_Type()
+)
+pstnPortStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pstnPortStatus.setStatus("current")
+
+
+class _PstnProtocolStatus_Type(Integer32):
+    """Custom type pstnProtocolStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ctrlIdle", 0),
+          ("ctrlBusy", 1))
+    )
+
+
+_PstnProtocolStatus_Type.__name__ = "Integer32"
+_PstnProtocolStatus_Object = MibTableColumn
+pstnProtocolStatus = _PstnProtocolStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 18),
+    _PstnProtocolStatus_Type()
+)
+pstnProtocolStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pstnProtocolStatus.setStatus("current")
+
+
+class _PstnSum_Type(Integer32):
+    """Custom type pstnSum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 192),
+    )
+
+
+_PstnSum_Type.__name__ = "Integer32"
+_PstnSum_Object = MibTableColumn
+pstnSum = _PstnSum_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 25),
+    _PstnSum_Type()
+)
+pstnSum.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pstnSum.setStatus("current")
+_PstnRowStatus_Type = RowStatus
+_PstnRowStatus_Object = MibTableColumn
+pstnRowStatus = _PstnRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 26),
+    _PstnRowStatus_Type()
+)
+pstnRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pstnRowStatus.setStatus("current")
+
+
+class _PstnportBlock_Type(Integer32):
+    """Custom type pstnportBlock based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_PstnportBlock_Type.__name__ = "Integer32"
+_PstnportBlock_Object = MibTableColumn
+pstnportBlock = _PstnportBlock_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 27),
+    _PstnportBlock_Type()
+)
+pstnportBlock.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pstnportBlock.setStatus("current")
+
+
+class _PstnportUnBlock_Type(Integer32):
+    """Custom type pstnportUnBlock based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_PstnportUnBlock_Type.__name__ = "Integer32"
+_PstnportUnBlock_Object = MibTableColumn
+pstnportUnBlock = _PstnportUnBlock_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 8, 1, 28),
+    _PstnportUnBlock_Type()
+)
+pstnportUnBlock.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pstnportUnBlock.setStatus("current")
+_V5IsdnUserTable_Object = MibTable
+v5IsdnUserTable = _V5IsdnUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9)
+)
+if mibBuilder.loadTexts:
+    v5IsdnUserTable.setStatus("current")
+_V5IsdnUserEntry_Object = MibTableRow
+v5IsdnUserEntry = _V5IsdnUserEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1)
+)
+v5IsdnUserEntry.setIndexNames(
+    (0, "ZTE-AN-V5-MIB", "isdnV5IID"),
+    (0, "ZTE-AN-V5-MIB", "isdnEfAddr"),
+)
+if mibBuilder.loadTexts:
+    v5IsdnUserEntry.setStatus("current")
+_IsdnV5IID_Type = Unsigned32
+_IsdnV5IID_Object = MibTableColumn
+isdnV5IID = _IsdnV5IID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 1),
+    _IsdnV5IID_Type()
+)
+isdnV5IID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    isdnV5IID.setStatus("current")
+
+
+class _IsdnEfAddr_Type(Integer32):
+    """Custom type isdnEfAddr based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 8191),
+    )
+
+
+_IsdnEfAddr_Type.__name__ = "Integer32"
+_IsdnEfAddr_Object = MibTableColumn
+isdnEfAddr = _IsdnEfAddr_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 2),
+    _IsdnEfAddr_Type()
+)
+isdnEfAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    isdnEfAddr.setStatus("current")
+
+
+class _IsdnRack_Type(Integer32):
+    """Custom type isdnRack based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_IsdnRack_Type.__name__ = "Integer32"
+_IsdnRack_Object = MibTableColumn
+isdnRack = _IsdnRack_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 3),
+    _IsdnRack_Type()
+)
+isdnRack.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnRack.setStatus("current")
+
+
+class _IsdnShelf_Type(Integer32):
+    """Custom type isdnShelf based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_IsdnShelf_Type.__name__ = "Integer32"
+_IsdnShelf_Object = MibTableColumn
+isdnShelf = _IsdnShelf_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 4),
+    _IsdnShelf_Type()
+)
+isdnShelf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnShelf.setStatus("current")
+
+
+class _IsdnSlot_Type(Integer32):
+    """Custom type isdnSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 23),
+    )
+
+
+_IsdnSlot_Type.__name__ = "Integer32"
+_IsdnSlot_Object = MibTableColumn
+isdnSlot = _IsdnSlot_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 5),
+    _IsdnSlot_Type()
+)
+isdnSlot.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnSlot.setStatus("current")
+
+
+class _IsdnPort_Type(Integer32):
+    """Custom type isdnPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_IsdnPort_Type.__name__ = "Integer32"
+_IsdnPort_Object = MibTableColumn
+isdnPort = _IsdnPort_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 6),
+    _IsdnPort_Type()
+)
+isdnPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnPort.setStatus("current")
+
+
+class _IsdnTrunkRack_Type(Integer32):
+    """Custom type isdnTrunkRack based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 3),
+    )
+
+
+_IsdnTrunkRack_Type.__name__ = "Integer32"
+_IsdnTrunkRack_Object = MibTableColumn
+isdnTrunkRack = _IsdnTrunkRack_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 7),
+    _IsdnTrunkRack_Type()
+)
+isdnTrunkRack.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnTrunkRack.setStatus("current")
+
+
+class _IsdnTrunkShelf_Type(Integer32):
+    """Custom type isdnTrunkShelf based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_IsdnTrunkShelf_Type.__name__ = "Integer32"
+_IsdnTrunkShelf_Object = MibTableColumn
+isdnTrunkShelf = _IsdnTrunkShelf_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 8),
+    _IsdnTrunkShelf_Type()
+)
+isdnTrunkShelf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnTrunkShelf.setStatus("current")
+
+
+class _IsdnTrunkSlot_Type(Integer32):
+    """Custom type isdnTrunkSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(8, 8),
+        ValueRangeConstraint(11, 12),
+    )
+
+
+_IsdnTrunkSlot_Type.__name__ = "Integer32"
+_IsdnTrunkSlot_Object = MibTableColumn
+isdnTrunkSlot = _IsdnTrunkSlot_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 9),
+    _IsdnTrunkSlot_Type()
+)
+isdnTrunkSlot.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnTrunkSlot.setStatus("current")
+
+
+class _IsdnTrunkE1No_Type(Integer32):
+    """Custom type isdnTrunkE1No based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 8),
+    )
+
+
+_IsdnTrunkE1No_Type.__name__ = "Integer32"
+_IsdnTrunkE1No_Object = MibTableColumn
+isdnTrunkE1No = _IsdnTrunkE1No_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 10),
+    _IsdnTrunkE1No_Type()
+)
+isdnTrunkE1No.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnTrunkE1No.setStatus("current")
+
+
+class _IsdnTrunkCircuit_Type(Integer32):
+    """Custom type isdnTrunkCircuit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_IsdnTrunkCircuit_Type.__name__ = "Integer32"
+_IsdnTrunkCircuit_Object = MibTableColumn
+isdnTrunkCircuit = _IsdnTrunkCircuit_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 11),
+    _IsdnTrunkCircuit_Type()
+)
+isdnTrunkCircuit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnTrunkCircuit.setStatus("current")
+
+
+class _IsdnConnType_Type(Integer32):
+    """Custom type isdnConnType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fix", 0),
+          ("active", 1))
+    )
+
+
+_IsdnConnType_Type.__name__ = "Integer32"
+_IsdnConnType_Object = MibTableColumn
+isdnConnType = _IsdnConnType_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 12),
+    _IsdnConnType_Type()
+)
+isdnConnType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnConnType.setStatus("current")
+_IsdnTelType_Type = Integer32
+_IsdnTelType_Object = MibTableColumn
+isdnTelType = _IsdnTelType_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 13),
+    _IsdnTelType_Type()
+)
+isdnTelType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnTelType.setStatus("current")
+
+
+class _IsdnDsLcci_Type(Integer32):
+    """Custom type isdnDsLcci based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65534),
+    )
+
+
+_IsdnDsLcci_Type.__name__ = "Integer32"
+_IsdnDsLcci_Object = MibTableColumn
+isdnDsLcci = _IsdnDsLcci_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 14),
+    _IsdnDsLcci_Type()
+)
+isdnDsLcci.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnDsLcci.setStatus("current")
+
+
+class _IsdnGroupLcci_Type(Integer32):
+    """Custom type isdnGroupLcci based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65534),
+    )
+
+
+_IsdnGroupLcci_Type.__name__ = "Integer32"
+_IsdnGroupLcci_Object = MibTableColumn
+isdnGroupLcci = _IsdnGroupLcci_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 15),
+    _IsdnGroupLcci_Type()
+)
+isdnGroupLcci.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnGroupLcci.setStatus("current")
+
+
+class _IsdnFrameLcci_Type(Integer32):
+    """Custom type isdnFrameLcci based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65534),
+    )
+
+
+_IsdnFrameLcci_Type.__name__ = "Integer32"
+_IsdnFrameLcci_Object = MibTableColumn
+isdnFrameLcci = _IsdnFrameLcci_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 16),
+    _IsdnFrameLcci_Type()
+)
+isdnFrameLcci.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnFrameLcci.setStatus("current")
+
+
+class _IsdnPortStatus_Type(Integer32):
+    """Custom type isdnPortStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("v5UpStop", 0),
+          ("vtUpIdle", 1),
+          ("v5UpBusy", 2))
+    )
+
+
+_IsdnPortStatus_Type.__name__ = "Integer32"
+_IsdnPortStatus_Object = MibTableColumn
+isdnPortStatus = _IsdnPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 17),
+    _IsdnPortStatus_Type()
+)
+isdnPortStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    isdnPortStatus.setStatus("current")
+
+
+class _IsdnProtocolStatus_Type(Integer32):
+    """Custom type isdnProtocolStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ctrlIdle", 0),
+          ("ctrlBusy", 1))
+    )
+
+
+_IsdnProtocolStatus_Type.__name__ = "Integer32"
+_IsdnProtocolStatus_Object = MibTableColumn
+isdnProtocolStatus = _IsdnProtocolStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 18),
+    _IsdnProtocolStatus_Type()
+)
+isdnProtocolStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    isdnProtocolStatus.setStatus("current")
+
+
+class _IsdnSemiPermFlag_Type(Integer32):
+    """Custom type isdnSemiPermFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("flagUsed", 0),
+          ("flagUnused", 1))
+    )
+
+
+_IsdnSemiPermFlag_Type.__name__ = "Integer32"
+_IsdnSemiPermFlag_Object = MibTableColumn
+isdnSemiPermFlag = _IsdnSemiPermFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 19),
+    _IsdnSemiPermFlag_Type()
+)
+isdnSemiPermFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnSemiPermFlag.setStatus("current")
+
+
+class _IsdnPolarityFlag_Type(Integer32):
+    """Custom type isdnPolarityFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("positive", 0),
+          ("negative", 1))
+    )
+
+
+_IsdnPolarityFlag_Type.__name__ = "Integer32"
+_IsdnPolarityFlag_Object = MibTableColumn
+isdnPolarityFlag = _IsdnPolarityFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 20),
+    _IsdnPolarityFlag_Type()
+)
+isdnPolarityFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnPolarityFlag.setStatus("current")
+_IsdnDistance_Type = Integer32
+_IsdnDistance_Object = MibTableColumn
+isdnDistance = _IsdnDistance_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 21),
+    _IsdnDistance_Type()
+)
+isdnDistance.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnDistance.setStatus("current")
+_IsdnV51UpPir_Type = Integer32
+_IsdnV51UpPir_Object = MibTableColumn
+isdnV51UpPir = _IsdnV51UpPir_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 22),
+    _IsdnV51UpPir_Type()
+)
+isdnV51UpPir.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    isdnV51UpPir.setStatus("current")
+_IsdnV52UpPir_Type = Integer32
+_IsdnV52UpPir_Object = MibTableColumn
+isdnV52UpPir = _IsdnV52UpPir_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 23),
+    _IsdnV52UpPir_Type()
+)
+isdnV52UpPir.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    isdnV52UpPir.setStatus("current")
+_IsdnV5IsAnfault_Type = Integer32
+_IsdnV5IsAnfault_Object = MibTableColumn
+isdnV5IsAnfault = _IsdnV5IsAnfault_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 24),
+    _IsdnV5IsAnfault_Type()
+)
+isdnV5IsAnfault.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    isdnV5IsAnfault.setStatus("current")
+
+
+class _IsdnSum_Type(Integer32):
+    """Custom type isdnSum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 192),
+    )
+
+
+_IsdnSum_Type.__name__ = "Integer32"
+_IsdnSum_Object = MibTableColumn
+isdnSum = _IsdnSum_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 25),
+    _IsdnSum_Type()
+)
+isdnSum.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnSum.setStatus("current")
+_IsdnRowStatus_Type = RowStatus
+_IsdnRowStatus_Object = MibTableColumn
+isdnRowStatus = _IsdnRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 26),
+    _IsdnRowStatus_Type()
+)
+isdnRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnRowStatus.setStatus("current")
+
+
+class _IsdnActive_Type(Integer32):
+    """Custom type isdnActive based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_IsdnActive_Type.__name__ = "Integer32"
+_IsdnActive_Object = MibTableColumn
+isdnActive = _IsdnActive_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 27),
+    _IsdnActive_Type()
+)
+isdnActive.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnActive.setStatus("current")
+
+
+class _IsdnBlock_Type(Integer32):
+    """Custom type isdnBlock based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_IsdnBlock_Type.__name__ = "Integer32"
+_IsdnBlock_Object = MibTableColumn
+isdnBlock = _IsdnBlock_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 28),
+    _IsdnBlock_Type()
+)
+isdnBlock.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnBlock.setStatus("current")
+
+
+class _IsdnUnBlock_Type(Integer32):
+    """Custom type isdnUnBlock based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_IsdnUnBlock_Type.__name__ = "Integer32"
+_IsdnUnBlock_Object = MibTableColumn
+isdnUnBlock = _IsdnUnBlock_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 9, 1, 29),
+    _IsdnUnBlock_Type()
+)
+isdnUnBlock.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    isdnUnBlock.setStatus("current")
+
+
+class _MsagServiceV5_Type(Integer32):
+    """Custom type msagServiceV5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notSupport", 0),
+          ("support", 1))
+    )
+
+
+_MsagServiceV5_Type.__name__ = "Integer32"
+_MsagServiceV5_Object = MibScalar
+msagServiceV5 = _MsagServiceV5_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 10),
+    _MsagServiceV5_Type()
+)
+msagServiceV5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    msagServiceV5.setStatus("current")
+_V5LinkTsTable_Object = MibTable
+v5LinkTsTable = _V5LinkTsTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11)
+)
+if mibBuilder.loadTexts:
+    v5LinkTsTable.setStatus("current")
+_V5LinkTsEntry_Object = MibTableRow
+v5LinkTsEntry = _V5LinkTsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1)
+)
+v5LinkTsEntry.setIndexNames(
+    (0, "ZTE-AN-V5-MIB", "v5LinkTsV5IID"),
+    (0, "ZTE-AN-V5-MIB", "v5LinkTsLinkID"),
+    (0, "ZTE-AN-V5-MIB", "v5LinkTsNo"),
+)
+if mibBuilder.loadTexts:
+    v5LinkTsEntry.setStatus("current")
+_V5LinkTsV5IID_Type = Unsigned32
+_V5LinkTsV5IID_Object = MibTableColumn
+v5LinkTsV5IID = _V5LinkTsV5IID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 1),
+    _V5LinkTsV5IID_Type()
+)
+v5LinkTsV5IID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    v5LinkTsV5IID.setStatus("current")
+
+
+class _V5LinkTsLinkID_Type(Integer32):
+    """Custom type v5LinkTsLinkID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_V5LinkTsLinkID_Type.__name__ = "Integer32"
+_V5LinkTsLinkID_Object = MibTableColumn
+v5LinkTsLinkID = _V5LinkTsLinkID_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 2),
+    _V5LinkTsLinkID_Type()
+)
+v5LinkTsLinkID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    v5LinkTsLinkID.setStatus("current")
+
+
+class _V5LinkTsNo_Type(Integer32):
+    """Custom type v5LinkTsNo based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_V5LinkTsNo_Type.__name__ = "Integer32"
+_V5LinkTsNo_Object = MibTableColumn
+v5LinkTsNo = _V5LinkTsNo_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 3),
+    _V5LinkTsNo_Type()
+)
+v5LinkTsNo.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    v5LinkTsNo.setStatus("current")
+
+
+class _V5LinkTsState_Type(Integer32):
+    """Custom type v5LinkTsState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("tlnidle", 0),
+          ("tlnbusy", 1),
+          ("tlnblock", 2),
+          ("tlninvalid", 255))
+    )
+
+
+_V5LinkTsState_Type.__name__ = "Integer32"
+_V5LinkTsState_Object = MibTableColumn
+v5LinkTsState = _V5LinkTsState_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 4),
+    _V5LinkTsState_Type()
+)
+v5LinkTsState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5LinkTsState.setStatus("current")
+
+
+class _V5LinkTsL3Addr_Type(Integer32):
+    """Custom type v5LinkTsL3Addr based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32767),
+    )
+
+
+_V5LinkTsL3Addr_Type.__name__ = "Integer32"
+_V5LinkTsL3Addr_Object = MibTableColumn
+v5LinkTsL3Addr = _V5LinkTsL3Addr_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 5),
+    _V5LinkTsL3Addr_Type()
+)
+v5LinkTsL3Addr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    v5LinkTsL3Addr.setStatus("current")
+
+
+class _V5LinkTsFlag_Type(Integer32):
+    """Custom type v5LinkTsFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_V5LinkTsFlag_Type.__name__ = "Integer32"
+_V5LinkTsFlag_Object = MibTableColumn
+v5LinkTsFlag = _V5LinkTsFlag_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 6),
+    _V5LinkTsFlag_Type()
+)
+v5LinkTsFlag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    v5LinkTsFlag.setStatus("current")
+
+
+class _V5LinkTsBlock_Type(Integer32):
+    """Custom type v5LinkTsBlock based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_V5LinkTsBlock_Type.__name__ = "Integer32"
+_V5LinkTsBlock_Object = MibTableColumn
+v5LinkTsBlock = _V5LinkTsBlock_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 7),
+    _V5LinkTsBlock_Type()
+)
+v5LinkTsBlock.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    v5LinkTsBlock.setStatus("current")
+
+
+class _V5LinkTsUnBlock_Type(Integer32):
+    """Custom type v5LinkTsUnBlock based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_V5LinkTsUnBlock_Type.__name__ = "Integer32"
+_V5LinkTsUnBlock_Object = MibTableColumn
+v5LinkTsUnBlock = _V5LinkTsUnBlock_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 11, 1, 8),
+    _V5LinkTsUnBlock_Type()
+)
+v5LinkTsUnBlock.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    v5LinkTsUnBlock.setStatus("current")
+_ZxAnV5UaLinkTable_Object = MibTable
+zxAnV5UaLinkTable = _ZxAnV5UaLinkTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12)
+)
+if mibBuilder.loadTexts:
+    zxAnV5UaLinkTable.setStatus("current")
+_ZxAnV5UaLinkEntry_Object = MibTableRow
+zxAnV5UaLinkEntry = _ZxAnV5UaLinkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1)
+)
+zxAnV5UaLinkEntry.setIndexNames(
+    (0, "ZTE-AN-V5-MIB", "zxAnV5UaLinkRack"),
+    (0, "ZTE-AN-V5-MIB", "zxAnV5UaLinkShelf"),
+    (0, "ZTE-AN-V5-MIB", "zxAnV5UaLinkSlot"),
+    (0, "ZTE-AN-V5-MIB", "zxAnV5UaLinkDsx1LinkNo"),
+    (0, "ZTE-AN-V5-MIB", "zxAnV5UaLinkDsx1TsNo"),
+)
+if mibBuilder.loadTexts:
+    zxAnV5UaLinkEntry.setStatus("current")
+_ZxAnV5UaLinkRack_Type = Integer32
+_ZxAnV5UaLinkRack_Object = MibTableColumn
+zxAnV5UaLinkRack = _ZxAnV5UaLinkRack_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 1),
+    _ZxAnV5UaLinkRack_Type()
+)
+zxAnV5UaLinkRack.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zxAnV5UaLinkRack.setStatus("current")
+_ZxAnV5UaLinkShelf_Type = Integer32
+_ZxAnV5UaLinkShelf_Object = MibTableColumn
+zxAnV5UaLinkShelf = _ZxAnV5UaLinkShelf_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 2),
+    _ZxAnV5UaLinkShelf_Type()
+)
+zxAnV5UaLinkShelf.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zxAnV5UaLinkShelf.setStatus("current")
+_ZxAnV5UaLinkSlot_Type = Integer32
+_ZxAnV5UaLinkSlot_Object = MibTableColumn
+zxAnV5UaLinkSlot = _ZxAnV5UaLinkSlot_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 3),
+    _ZxAnV5UaLinkSlot_Type()
+)
+zxAnV5UaLinkSlot.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zxAnV5UaLinkSlot.setStatus("current")
+
+
+class _ZxAnV5UaLinkDsx1LinkNo_Type(Integer32):
+    """Custom type zxAnV5UaLinkDsx1LinkNo based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_ZxAnV5UaLinkDsx1LinkNo_Type.__name__ = "Integer32"
+_ZxAnV5UaLinkDsx1LinkNo_Object = MibTableColumn
+zxAnV5UaLinkDsx1LinkNo = _ZxAnV5UaLinkDsx1LinkNo_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 4),
+    _ZxAnV5UaLinkDsx1LinkNo_Type()
+)
+zxAnV5UaLinkDsx1LinkNo.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zxAnV5UaLinkDsx1LinkNo.setStatus("current")
+_ZxAnV5UaLinkDsx1TsNo_Type = Integer32
+_ZxAnV5UaLinkDsx1TsNo_Object = MibTableColumn
+zxAnV5UaLinkDsx1TsNo = _ZxAnV5UaLinkDsx1TsNo_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 5),
+    _ZxAnV5UaLinkDsx1TsNo_Type()
+)
+zxAnV5UaLinkDsx1TsNo.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zxAnV5UaLinkDsx1TsNo.setStatus("current")
+
+
+class _ZxAnV5UaLinkV5LinkId_Type(Integer32):
+    """Custom type zxAnV5UaLinkV5LinkId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_ZxAnV5UaLinkV5LinkId_Type.__name__ = "Integer32"
+_ZxAnV5UaLinkV5LinkId_Object = MibTableColumn
+zxAnV5UaLinkV5LinkId = _ZxAnV5UaLinkV5LinkId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 6),
+    _ZxAnV5UaLinkV5LinkId_Type()
+)
+zxAnV5UaLinkV5LinkId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zxAnV5UaLinkV5LinkId.setStatus("current")
+
+
+class _ZxAnV5UaLinkAsId_Type(Integer32):
+    """Custom type zxAnV5UaLinkAsId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 127),
+    )
+
+
+_ZxAnV5UaLinkAsId_Type.__name__ = "Integer32"
+_ZxAnV5UaLinkAsId_Object = MibTableColumn
+zxAnV5UaLinkAsId = _ZxAnV5UaLinkAsId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 7),
+    _ZxAnV5UaLinkAsId_Type()
+)
+zxAnV5UaLinkAsId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zxAnV5UaLinkAsId.setStatus("current")
+
+
+class _ZxAnV5UaLinkIfId_Type(Integer32):
+    """Custom type zxAnV5UaLinkIfId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+_ZxAnV5UaLinkIfId_Type.__name__ = "Integer32"
+_ZxAnV5UaLinkIfId_Object = MibTableColumn
+zxAnV5UaLinkIfId = _ZxAnV5UaLinkIfId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 8),
+    _ZxAnV5UaLinkIfId_Type()
+)
+zxAnV5UaLinkIfId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zxAnV5UaLinkIfId.setStatus("current")
+_ZxAnV5UaLinkRowStatus_Type = RowStatus
+_ZxAnV5UaLinkRowStatus_Object = MibTableColumn
+zxAnV5UaLinkRowStatus = _ZxAnV5UaLinkRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 1015, 5200, 3, 5, 12, 1, 50),
+    _ZxAnV5UaLinkRowStatus_Type()
+)
+zxAnV5UaLinkRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zxAnV5UaLinkRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZTE-AN-V5-MIB",
+    **{"zte": zte,
+       "zxAn": zxAn,
+       "zxAnV5Mib": zxAnV5Mib,
+       "msagmajorVersion": msagmajorVersion,
+       "msagV5Service": msagV5Service,
+       "v5InterfaceTable": v5InterfaceTable,
+       "v5InterfaceEntry": v5InterfaceEntry,
+       "v5IFID": v5IFID,
+       "v5IFType": v5IFType,
+       "v5IFVar": v5IFVar,
+       "v5IFLeType": v5IFLeType,
+       "v5IFStatus": v5IFStatus,
+       "v5IFCommCtrlStatus": v5IFCommCtrlStatus,
+       "v5IFPstnDLStatus": v5IFPstnDLStatus,
+       "v5IFBccDLStatus": v5IFBccDLStatus,
+       "v5IFLinkDLStatus": v5IFLinkDLStatus,
+       "v5IFCtrlDLStatus": v5IFCtrlDLStatus,
+       "v5IFProtMDLStatus": v5IFProtMDLStatus,
+       "v5IFProtBDLStatus": v5IFProtBDLStatus,
+       "v5IFNewV5IID": v5IFNewV5IID,
+       "v5IFRowStatus": v5IFRowStatus,
+       "v5LinkTable": v5LinkTable,
+       "v5LinkEntry": v5LinkEntry,
+       "v5LinkV5IID": v5LinkV5IID,
+       "v5LinkID": v5LinkID,
+       "v5LinkRack": v5LinkRack,
+       "v5LinkShelf": v5LinkShelf,
+       "v5LinkSlot": v5LinkSlot,
+       "v5LinkE1No": v5LinkE1No,
+       "v5LinkType": v5LinkType,
+       "v5LinkStatus": v5LinkStatus,
+       "v5LinkTs15PchFlag": v5LinkTs15PchFlag,
+       "v5LinkTs16PchFlag": v5LinkTs16PchFlag,
+       "v5LinkTs31PchFlag": v5LinkTs31PchFlag,
+       "v5LinkNewID": v5LinkNewID,
+       "v5LinkRowStatus": v5LinkRowStatus,
+       "v5linkBlockFlag": v5linkBlockFlag,
+       "v5linkVerify": v5linkVerify,
+       "v5linkTs": v5linkTs,
+       "v5linkAnfaultSet": v5linkAnfaultSet,
+       "v5PchTable": v5PchTable,
+       "v5PchEntry": v5PchEntry,
+       "v5PchV5IID": v5PchV5IID,
+       "v5PchLinkId": v5PchLinkId,
+       "v5PchLinkTs": v5PchLinkTs,
+       "v5PchProtGrp": v5PchProtGrp,
+       "v5PchStatus": v5PchStatus,
+       "v5PchCtsTln": v5PchCtsTln,
+       "v5PchRowStatus": v5PchRowStatus,
+       "v5LchTable": v5LchTable,
+       "v5LchEntry": v5LchEntry,
+       "v5LchV5IID": v5LchV5IID,
+       "v5LchLcci": v5LchLcci,
+       "v5LchLinkID": v5LchLinkID,
+       "v5LchLinkTs": v5LchLinkTs,
+       "v5LchIsdnCreatedFlag": v5LchIsdnCreatedFlag,
+       "v5LchPstnCrreatedFlag": v5LchPstnCrreatedFlag,
+       "v5LchCtrlCreatedFlag": v5LchCtrlCreatedFlag,
+       "v5LchBccCreatedFlag": v5LchBccCreatedFlag,
+       "v5LchLinkCreatedFlag": v5LchLinkCreatedFlag,
+       "v5LchProtCreatedFlag": v5LchProtCreatedFlag,
+       "v5LchCurrLinkId": v5LchCurrLinkId,
+       "v5LchCurrLinkTs": v5LchCurrLinkTs,
+       "v5LchSwitch": v5LchSwitch,
+       "v5LchRowStatus": v5LchRowStatus,
+       "v5PstnUserTable": v5PstnUserTable,
+       "v5PstnUserEntry": v5PstnUserEntry,
+       "pstnV5IID": pstnV5IID,
+       "pstnL3Addr": pstnL3Addr,
+       "pstnRack": pstnRack,
+       "pstnShelf": pstnShelf,
+       "pstnSlot": pstnSlot,
+       "pstnPort": pstnPort,
+       "trunkRack": trunkRack,
+       "trunkShelf": trunkShelf,
+       "trunkSlot": trunkSlot,
+       "trunkE1No": trunkE1No,
+       "trunkCircuit": trunkCircuit,
+       "pstnConnType": pstnConnType,
+       "pstnTelType": pstnTelType,
+       "pstnPortStatus": pstnPortStatus,
+       "pstnProtocolStatus": pstnProtocolStatus,
+       "pstnSum": pstnSum,
+       "pstnRowStatus": pstnRowStatus,
+       "pstnportBlock": pstnportBlock,
+       "pstnportUnBlock": pstnportUnBlock,
+       "v5IsdnUserTable": v5IsdnUserTable,
+       "v5IsdnUserEntry": v5IsdnUserEntry,
+       "isdnV5IID": isdnV5IID,
+       "isdnEfAddr": isdnEfAddr,
+       "isdnRack": isdnRack,
+       "isdnShelf": isdnShelf,
+       "isdnSlot": isdnSlot,
+       "isdnPort": isdnPort,
+       "isdnTrunkRack": isdnTrunkRack,
+       "isdnTrunkShelf": isdnTrunkShelf,
+       "isdnTrunkSlot": isdnTrunkSlot,
+       "isdnTrunkE1No": isdnTrunkE1No,
+       "isdnTrunkCircuit": isdnTrunkCircuit,
+       "isdnConnType": isdnConnType,
+       "isdnTelType": isdnTelType,
+       "isdnDsLcci": isdnDsLcci,
+       "isdnGroupLcci": isdnGroupLcci,
+       "isdnFrameLcci": isdnFrameLcci,
+       "isdnPortStatus": isdnPortStatus,
+       "isdnProtocolStatus": isdnProtocolStatus,
+       "isdnSemiPermFlag": isdnSemiPermFlag,
+       "isdnPolarityFlag": isdnPolarityFlag,
+       "isdnDistance": isdnDistance,
+       "isdnV51UpPir": isdnV51UpPir,
+       "isdnV52UpPir": isdnV52UpPir,
+       "isdnV5IsAnfault": isdnV5IsAnfault,
+       "isdnSum": isdnSum,
+       "isdnRowStatus": isdnRowStatus,
+       "isdnActive": isdnActive,
+       "isdnBlock": isdnBlock,
+       "isdnUnBlock": isdnUnBlock,
+       "msagServiceV5": msagServiceV5,
+       "v5LinkTsTable": v5LinkTsTable,
+       "v5LinkTsEntry": v5LinkTsEntry,
+       "v5LinkTsV5IID": v5LinkTsV5IID,
+       "v5LinkTsLinkID": v5LinkTsLinkID,
+       "v5LinkTsNo": v5LinkTsNo,
+       "v5LinkTsState": v5LinkTsState,
+       "v5LinkTsL3Addr": v5LinkTsL3Addr,
+       "v5LinkTsFlag": v5LinkTsFlag,
+       "v5LinkTsBlock": v5LinkTsBlock,
+       "v5LinkTsUnBlock": v5LinkTsUnBlock,
+       "zxAnV5UaLinkTable": zxAnV5UaLinkTable,
+       "zxAnV5UaLinkEntry": zxAnV5UaLinkEntry,
+       "zxAnV5UaLinkRack": zxAnV5UaLinkRack,
+       "zxAnV5UaLinkShelf": zxAnV5UaLinkShelf,
+       "zxAnV5UaLinkSlot": zxAnV5UaLinkSlot,
+       "zxAnV5UaLinkDsx1LinkNo": zxAnV5UaLinkDsx1LinkNo,
+       "zxAnV5UaLinkDsx1TsNo": zxAnV5UaLinkDsx1TsNo,
+       "zxAnV5UaLinkV5LinkId": zxAnV5UaLinkV5LinkId,
+       "zxAnV5UaLinkAsId": zxAnV5UaLinkAsId,
+       "zxAnV5UaLinkIfId": zxAnV5UaLinkIfId,
+       "zxAnV5UaLinkRowStatus": zxAnV5UaLinkRowStatus}
+)

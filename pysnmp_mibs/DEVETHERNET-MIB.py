@@ -1,27 +1,265 @@
+# SNMP MIB module (DEVETHERNET-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DEVETHERNET-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aperto/DEVETHERNET-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:16 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/aperto/DEVETHERNET-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:06:13 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-device, = mibBuilder.importSymbols("ANIROOT-MIB", "device")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-aniDevEthernet = ModuleIdentity((1, 3, 6, 1, 4, 1, 4325, 2, 11))
-if mibBuilder.loadTexts: aniDevEthernet.setLastUpdated('0210251725Z')
-if mibBuilder.loadTexts: aniDevEthernet.setOrganization('Aperto Networks')
-aniDevEthernetConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 4325, 2, 11, 1))
-aniDevEthernetConfigMode = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 11, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("auto-negotiate", 1), ("speed-100mbps-full", 2), ("speed-100mbps-half", 3), ("speed-10mbps-full", 4), ("speed-10mbps-half", 5))).clone('auto-negotiate')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevEthernetConfigMode.setStatus('current')
-aniDevEthernetCurrentLinkStatus = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 11, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevEthernetCurrentLinkStatus.setStatus('current')
-aniDevEthernetCurrentSpeed = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 11, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("speed-10-mbps", 1), ("speed-100-mbps", 2), ("not-applicable", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevEthernetCurrentSpeed.setStatus('current')
-aniDevEthernetCurrentDuplex = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 11, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("half-duplex", 1), ("full-duplex", 2), ("not-applicable", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevEthernetCurrentDuplex.setStatus('current')
-mibBuilder.exportSymbols("DEVETHERNET-MIB", aniDevEthernetCurrentLinkStatus=aniDevEthernetCurrentLinkStatus, aniDevEthernetConfig=aniDevEthernetConfig, PYSNMP_MODULE_ID=aniDevEthernet, aniDevEthernet=aniDevEthernet, aniDevEthernetConfigMode=aniDevEthernetConfigMode, aniDevEthernetCurrentDuplex=aniDevEthernetCurrentDuplex, aniDevEthernetCurrentSpeed=aniDevEthernetCurrentSpeed)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(device,) = mibBuilder.importSymbols(
+    "ANIROOT-MIB",
+    "device")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aniDevEthernet = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 11)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AniDevEthernetConfig_ObjectIdentity = ObjectIdentity
+aniDevEthernetConfig = _AniDevEthernetConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 11, 1)
+)
+
+
+class _AniDevEthernetConfigMode_Type(Integer32):
+    """Custom type aniDevEthernetConfigMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto-negotiate", 1),
+          ("speed-100mbps-full", 2),
+          ("speed-100mbps-half", 3),
+          ("speed-10mbps-full", 4),
+          ("speed-10mbps-half", 5))
+    )
+
+
+_AniDevEthernetConfigMode_Type.__name__ = "Integer32"
+_AniDevEthernetConfigMode_Object = MibScalar
+aniDevEthernetConfigMode = _AniDevEthernetConfigMode_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 11, 1, 1),
+    _AniDevEthernetConfigMode_Type()
+)
+aniDevEthernetConfigMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevEthernetConfigMode.setStatus("current")
+
+
+class _AniDevEthernetCurrentLinkStatus_Type(Integer32):
+    """Custom type aniDevEthernetCurrentLinkStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2))
+    )
+
+
+_AniDevEthernetCurrentLinkStatus_Type.__name__ = "Integer32"
+_AniDevEthernetCurrentLinkStatus_Object = MibScalar
+aniDevEthernetCurrentLinkStatus = _AniDevEthernetCurrentLinkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 11, 1, 2),
+    _AniDevEthernetCurrentLinkStatus_Type()
+)
+aniDevEthernetCurrentLinkStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevEthernetCurrentLinkStatus.setStatus("current")
+
+
+class _AniDevEthernetCurrentSpeed_Type(Integer32):
+    """Custom type aniDevEthernetCurrentSpeed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("speed-10-mbps", 1),
+          ("speed-100-mbps", 2),
+          ("not-applicable", 3))
+    )
+
+
+_AniDevEthernetCurrentSpeed_Type.__name__ = "Integer32"
+_AniDevEthernetCurrentSpeed_Object = MibScalar
+aniDevEthernetCurrentSpeed = _AniDevEthernetCurrentSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 11, 1, 3),
+    _AniDevEthernetCurrentSpeed_Type()
+)
+aniDevEthernetCurrentSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevEthernetCurrentSpeed.setStatus("current")
+
+
+class _AniDevEthernetCurrentDuplex_Type(Integer32):
+    """Custom type aniDevEthernetCurrentDuplex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("half-duplex", 1),
+          ("full-duplex", 2),
+          ("not-applicable", 3))
+    )
+
+
+_AniDevEthernetCurrentDuplex_Type.__name__ = "Integer32"
+_AniDevEthernetCurrentDuplex_Object = MibScalar
+aniDevEthernetCurrentDuplex = _AniDevEthernetCurrentDuplex_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 11, 1, 4),
+    _AniDevEthernetCurrentDuplex_Type()
+)
+aniDevEthernetCurrentDuplex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevEthernetCurrentDuplex.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DEVETHERNET-MIB",
+    **{"aniDevEthernet": aniDevEthernet,
+       "aniDevEthernetConfig": aniDevEthernetConfig,
+       "aniDevEthernetConfigMode": aniDevEthernetConfigMode,
+       "aniDevEthernetCurrentLinkStatus": aniDevEthernetCurrentLinkStatus,
+       "aniDevEthernetCurrentSpeed": aniDevEthernetCurrentSpeed,
+       "aniDevEthernetCurrentDuplex": aniDevEthernetCurrentDuplex}
+)

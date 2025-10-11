@@ -1,45 +1,340 @@
+# SNMP MIB module (NETSCREEN-IP-ARP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NETSCREEN-IP-ARP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/netscreen/NETSCREEN-IP-ARP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:49 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/netscreen/NETSCREEN-IP-ARP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:57:58 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-netscreenIp, = mibBuilder.importSymbols("NETSCREEN-SMI", "netscreenIp")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "PhysAddress", "TextualConvention", "DisplayString")
-nsIpArp = ModuleIdentity((1, 3, 6, 1, 4, 1, 3224, 17, 1))
-nsIpArp.setRevisions(('2004-05-03 00:00', '2004-03-03 00:00', '2003-11-10 00:00', '2001-09-28 00:00', '2001-05-02 00:00',))
-if mibBuilder.loadTexts: nsIpArp.setLastUpdated('200405032022Z')
-if mibBuilder.loadTexts: nsIpArp.setOrganization('Juniper Networks, Inc.')
-nsIpArpAOD = MibScalar((1, 3, 6, 1, 4, 1, 3224, 17, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enabled", 1))))
-if mibBuilder.loadTexts: nsIpArpAOD.setStatus('current')
-nsIpArpCachUpdate = MibScalar((1, 3, 6, 1, 4, 1, 3224, 17, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enabled", 1))))
-if mibBuilder.loadTexts: nsIpArpCachUpdate.setStatus('current')
-nsIpArpTable = MibTable((1, 3, 6, 1, 4, 1, 3224, 17, 1, 3), )
-if mibBuilder.loadTexts: nsIpArpTable.setStatus('current')
-nsIpArpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1), ).setIndexNames((0, "NETSCREEN-IP-ARP-MIB", "nsIpArpIndex"))
-if mibBuilder.loadTexts: nsIpArpEntry.setStatus('current')
-nsIpArpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsIpArpIndex.setStatus('current')
-nsIpArpIp = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsIpArpIp.setStatus('current')
-nsIpArpMac = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 3), PhysAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsIpArpMac.setStatus('current')
-nsIpArpVsys = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsIpArpVsys.setStatus('current')
-nsIpArpIfIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsIpArpIfIdx.setStatus('current')
-nsIpArpState = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("pending", 1), ("valid", 2), ("delete", 3), ("static", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsIpArpState.setStatus('current')
-nsIpArpAge = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsIpArpAge.setStatus('current')
-nsIpArpRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsIpArpRetry.setStatus('current')
-nsIpArpPakQue = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsIpArpPakQue.setStatus('current')
-mibBuilder.exportSymbols("NETSCREEN-IP-ARP-MIB", nsIpArpAge=nsIpArpAge, PYSNMP_MODULE_ID=nsIpArp, nsIpArpPakQue=nsIpArpPakQue, nsIpArpIfIdx=nsIpArpIfIdx, nsIpArpState=nsIpArpState, nsIpArpAOD=nsIpArpAOD, nsIpArpVsys=nsIpArpVsys, nsIpArpIndex=nsIpArpIndex, nsIpArp=nsIpArp, nsIpArpTable=nsIpArpTable, nsIpArpRetry=nsIpArpRetry, nsIpArpEntry=nsIpArpEntry, nsIpArpIp=nsIpArpIp, nsIpArpMac=nsIpArpMac, nsIpArpCachUpdate=nsIpArpCachUpdate)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(netscreenIp,) = mibBuilder.importSymbols(
+    "NETSCREEN-SMI",
+    "netscreenIp")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+nsIpArp = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1)
+)
+if mibBuilder.loadTexts:
+    nsIpArp.setRevisions(
+        ("2004-05-03 00:00",
+         "2004-03-03 00:00",
+         "2003-11-10 00:00",
+         "2001-09-28 00:00",
+         "2001-05-02 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+
+class _NsIpArpAOD_Type(Integer32):
+    """Custom type nsIpArpAOD based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enabled", 1))
+    )
+
+
+_NsIpArpAOD_Type.__name__ = "Integer32"
+_NsIpArpAOD_Object = MibScalar
+nsIpArpAOD = _NsIpArpAOD_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 1),
+    _NsIpArpAOD_Type()
+)
+nsIpArpAOD.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nsIpArpAOD.setStatus("current")
+
+
+class _NsIpArpCachUpdate_Type(Integer32):
+    """Custom type nsIpArpCachUpdate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enabled", 1))
+    )
+
+
+_NsIpArpCachUpdate_Type.__name__ = "Integer32"
+_NsIpArpCachUpdate_Object = MibScalar
+nsIpArpCachUpdate = _NsIpArpCachUpdate_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 2),
+    _NsIpArpCachUpdate_Type()
+)
+nsIpArpCachUpdate.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nsIpArpCachUpdate.setStatus("current")
+_NsIpArpTable_Object = MibTable
+nsIpArpTable = _NsIpArpTable_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 3)
+)
+if mibBuilder.loadTexts:
+    nsIpArpTable.setStatus("current")
+_NsIpArpEntry_Object = MibTableRow
+nsIpArpEntry = _NsIpArpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1)
+)
+nsIpArpEntry.setIndexNames(
+    (0, "NETSCREEN-IP-ARP-MIB", "nsIpArpIndex"),
+)
+if mibBuilder.loadTexts:
+    nsIpArpEntry.setStatus("current")
+
+
+class _NsIpArpIndex_Type(Integer32):
+    """Custom type nsIpArpIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_NsIpArpIndex_Type.__name__ = "Integer32"
+_NsIpArpIndex_Object = MibTableColumn
+nsIpArpIndex = _NsIpArpIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 1),
+    _NsIpArpIndex_Type()
+)
+nsIpArpIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsIpArpIndex.setStatus("current")
+_NsIpArpIp_Type = IpAddress
+_NsIpArpIp_Object = MibTableColumn
+nsIpArpIp = _NsIpArpIp_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 2),
+    _NsIpArpIp_Type()
+)
+nsIpArpIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsIpArpIp.setStatus("current")
+_NsIpArpMac_Type = PhysAddress
+_NsIpArpMac_Object = MibTableColumn
+nsIpArpMac = _NsIpArpMac_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 3),
+    _NsIpArpMac_Type()
+)
+nsIpArpMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsIpArpMac.setStatus("current")
+_NsIpArpVsys_Type = Integer32
+_NsIpArpVsys_Object = MibTableColumn
+nsIpArpVsys = _NsIpArpVsys_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 4),
+    _NsIpArpVsys_Type()
+)
+nsIpArpVsys.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsIpArpVsys.setStatus("current")
+_NsIpArpIfIdx_Type = Integer32
+_NsIpArpIfIdx_Object = MibTableColumn
+nsIpArpIfIdx = _NsIpArpIfIdx_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 5),
+    _NsIpArpIfIdx_Type()
+)
+nsIpArpIfIdx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsIpArpIfIdx.setStatus("current")
+
+
+class _NsIpArpState_Type(Integer32):
+    """Custom type nsIpArpState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pending", 1),
+          ("valid", 2),
+          ("delete", 3),
+          ("static", 4))
+    )
+
+
+_NsIpArpState_Type.__name__ = "Integer32"
+_NsIpArpState_Object = MibTableColumn
+nsIpArpState = _NsIpArpState_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 6),
+    _NsIpArpState_Type()
+)
+nsIpArpState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsIpArpState.setStatus("current")
+_NsIpArpAge_Type = Integer32
+_NsIpArpAge_Object = MibTableColumn
+nsIpArpAge = _NsIpArpAge_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 7),
+    _NsIpArpAge_Type()
+)
+nsIpArpAge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsIpArpAge.setStatus("current")
+_NsIpArpRetry_Type = Integer32
+_NsIpArpRetry_Object = MibTableColumn
+nsIpArpRetry = _NsIpArpRetry_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 8),
+    _NsIpArpRetry_Type()
+)
+nsIpArpRetry.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsIpArpRetry.setStatus("current")
+_NsIpArpPakQue_Type = Integer32
+_NsIpArpPakQue_Object = MibTableColumn
+nsIpArpPakQue = _NsIpArpPakQue_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 17, 1, 3, 1, 9),
+    _NsIpArpPakQue_Type()
+)
+nsIpArpPakQue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsIpArpPakQue.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NETSCREEN-IP-ARP-MIB",
+    **{"nsIpArp": nsIpArp,
+       "nsIpArpAOD": nsIpArpAOD,
+       "nsIpArpCachUpdate": nsIpArpCachUpdate,
+       "nsIpArpTable": nsIpArpTable,
+       "nsIpArpEntry": nsIpArpEntry,
+       "nsIpArpIndex": nsIpArpIndex,
+       "nsIpArpIp": nsIpArpIp,
+       "nsIpArpMac": nsIpArpMac,
+       "nsIpArpVsys": nsIpArpVsys,
+       "nsIpArpIfIdx": nsIpArpIfIdx,
+       "nsIpArpState": nsIpArpState,
+       "nsIpArpAge": nsIpArpAge,
+       "nsIpArpRetry": nsIpArpRetry,
+       "nsIpArpPakQue": nsIpArpPakQue}
+)

@@ -1,82 +1,671 @@
+# SNMP MIB module (ICT-DISTRIBUTION-PANEL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ICT-DISTRIBUTION-PANEL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ict/ICT-DISTRIBUTION-PANEL-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:07:11 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ict/ICT-DISTRIBUTION-PANEL-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:09:35 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ictPower = MibIdentifier((1, 3, 6, 1, 4, 1, 39145))
-distPanel = MibIdentifier((1, 3, 6, 1, 4, 1, 39145, 10))
-deviceModel = MibScalar((1, 3, 6, 1, 4, 1, 39145, 10, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceModel.setStatus('mandatory')
-deviceName = MibScalar((1, 3, 6, 1, 4, 1, 39145, 10, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceName.setStatus('mandatory')
-deviceHardware = MibScalar((1, 3, 6, 1, 4, 1, 39145, 10, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceHardware.setStatus('mandatory')
-deviceFirmware = MibScalar((1, 3, 6, 1, 4, 1, 39145, 10, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceFirmware.setStatus('mandatory')
-deviceMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 39145, 10, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceMacAddress.setStatus('mandatory')
-systemVoltage = MibScalar((1, 3, 6, 1, 4, 1, 39145, 10, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: systemVoltage.setStatus('mandatory')
-systemCurrent = MibScalar((1, 3, 6, 1, 4, 1, 39145, 10, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: systemCurrent.setStatus('mandatory')
-outputTable = MibTable((1, 3, 6, 1, 4, 1, 39145, 10, 8), )
-if mibBuilder.loadTexts: outputTable.setStatus('mandatory')
-outputEntry = MibTableRow((1, 3, 6, 1, 4, 1, 39145, 10, 8, 1), ).setIndexNames((0, "ICT-DISTRIBUTION-PANEL-MIB", "outputNumber"))
-if mibBuilder.loadTexts: outputEntry.setStatus('mandatory')
-outputNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 8, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 11))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: outputNumber.setStatus('mandatory')
-outputName = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 8, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: outputName.setStatus('mandatory')
-outputCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 8, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: outputCurrent.setStatus('mandatory')
-outputFuseStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 8, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ok", 1), ("open", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: outputFuseStatus.setStatus('mandatory')
-outputEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 8, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: outputEnable.setStatus('mandatory')
-alarmTable = MibTable((1, 3, 6, 1, 4, 1, 39145, 10, 9), )
-if mibBuilder.loadTexts: alarmTable.setStatus('mandatory')
-alarmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 39145, 10, 9, 1), ).setIndexNames((0, "ICT-DISTRIBUTION-PANEL-MIB", "alarmNumber"))
-if mibBuilder.loadTexts: alarmEntry.setStatus('mandatory')
-alarmNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 9, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmNumber.setStatus('mandatory')
-alarmName = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 9, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmName.setStatus('mandatory')
-alarmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 9, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("inactive", 1), ("ready", 2), ("alarm", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmStatus.setStatus('mandatory')
-busTable = MibTable((1, 3, 6, 1, 4, 1, 39145, 10, 10), )
-if mibBuilder.loadTexts: busTable.setStatus('mandatory')
-busEntry = MibTableRow((1, 3, 6, 1, 4, 1, 39145, 10, 10, 1), ).setIndexNames((0, "ICT-DISTRIBUTION-PANEL-MIB", "busNumber"))
-if mibBuilder.loadTexts: busEntry.setStatus('mandatory')
-busNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 10, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: busNumber.setStatus('mandatory')
-busName = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 10, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: busName.setStatus('mandatory')
-busVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 10, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: busVoltage.setStatus('mandatory')
-busCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 39145, 10, 10, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: busCurrent.setStatus('mandatory')
-sysUndervoltageAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,101)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "busNumber"))
-sysOvervoltageAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,102)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "busNumber"))
-sysOvercurrentAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,103)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "busNumber"))
-fuseAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,104)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber"))
-undercurrentAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,105)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber"))
-overcurrentAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,106)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber"))
-loadshedTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,107)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber"))
-alarmInputTrap = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,108)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "alarmNumber"))
-sysUndervoltageAlarmClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,111)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "busNumber"))
-sysOvervoltageAlarmClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,112)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "busNumber"))
-sysOvercurrentAlarmClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,113)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "busNumber"))
-fuseAlarmClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,114)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber"))
-undercurrentAlarmClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,115)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber"))
-overcurrentAlarmClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,116)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber"))
-loadshedClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,117)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber"))
-alarmInputClear = NotificationType((1, 3, 6, 1, 4, 1, 39145, 10) + (0,118)).setObjects(("ICT-DISTRIBUTION-PANEL-MIB", "alarmNumber"))
-mibBuilder.exportSymbols("ICT-DISTRIBUTION-PANEL-MIB", deviceMacAddress=deviceMacAddress, undercurrentAlarmClear=undercurrentAlarmClear, outputTable=outputTable, alarmName=alarmName, alarmEntry=alarmEntry, busNumber=busNumber, overcurrentAlarmTrap=overcurrentAlarmTrap, deviceHardware=deviceHardware, outputName=outputName, outputFuseStatus=outputFuseStatus, overcurrentAlarmClear=overcurrentAlarmClear, loadshedClear=loadshedClear, fuseAlarmTrap=fuseAlarmTrap, outputCurrent=outputCurrent, outputEnable=outputEnable, sysOvervoltageAlarmTrap=sysOvervoltageAlarmTrap, outputNumber=outputNumber, busEntry=busEntry, sysOvercurrentAlarmClear=sysOvercurrentAlarmClear, systemCurrent=systemCurrent, deviceModel=deviceModel, systemVoltage=systemVoltage, alarmInputClear=alarmInputClear, undercurrentAlarmTrap=undercurrentAlarmTrap, deviceName=deviceName, busName=busName, distPanel=distPanel, alarmTable=alarmTable, busTable=busTable, busVoltage=busVoltage, deviceFirmware=deviceFirmware, outputEntry=outputEntry, alarmNumber=alarmNumber, sysUndervoltageAlarmClear=sysUndervoltageAlarmClear, busCurrent=busCurrent, ictPower=ictPower, fuseAlarmClear=fuseAlarmClear, sysOvercurrentAlarmTrap=sysOvercurrentAlarmTrap, sysUndervoltageAlarmTrap=sysUndervoltageAlarmTrap, alarmStatus=alarmStatus, alarmInputTrap=alarmInputTrap, sysOvervoltageAlarmClear=sysOvervoltageAlarmClear, loadshedTrap=loadshedTrap)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_IctPower_ObjectIdentity = ObjectIdentity
+ictPower = _IctPower_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 39145)
+)
+_DistPanel_ObjectIdentity = ObjectIdentity
+distPanel = _DistPanel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 39145, 10)
+)
+_DeviceModel_Type = DisplayString
+_DeviceModel_Object = MibScalar
+deviceModel = _DeviceModel_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 1),
+    _DeviceModel_Type()
+)
+deviceModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceModel.setStatus("mandatory")
+_DeviceName_Type = DisplayString
+_DeviceName_Object = MibScalar
+deviceName = _DeviceName_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 2),
+    _DeviceName_Type()
+)
+deviceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceName.setStatus("mandatory")
+
+
+class _DeviceHardware_Type(Integer32):
+    """Custom type deviceHardware based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 127),
+    )
+
+
+_DeviceHardware_Type.__name__ = "Integer32"
+_DeviceHardware_Object = MibScalar
+deviceHardware = _DeviceHardware_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 3),
+    _DeviceHardware_Type()
+)
+deviceHardware.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceHardware.setStatus("mandatory")
+_DeviceFirmware_Type = DisplayString
+_DeviceFirmware_Object = MibScalar
+deviceFirmware = _DeviceFirmware_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 4),
+    _DeviceFirmware_Type()
+)
+deviceFirmware.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceFirmware.setStatus("mandatory")
+_DeviceMacAddress_Type = DisplayString
+_DeviceMacAddress_Object = MibScalar
+deviceMacAddress = _DeviceMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 5),
+    _DeviceMacAddress_Type()
+)
+deviceMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceMacAddress.setStatus("mandatory")
+_SystemVoltage_Type = DisplayString
+_SystemVoltage_Object = MibScalar
+systemVoltage = _SystemVoltage_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 6),
+    _SystemVoltage_Type()
+)
+systemVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    systemVoltage.setStatus("mandatory")
+_SystemCurrent_Type = DisplayString
+_SystemCurrent_Object = MibScalar
+systemCurrent = _SystemCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 7),
+    _SystemCurrent_Type()
+)
+systemCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    systemCurrent.setStatus("mandatory")
+_OutputTable_Object = MibTable
+outputTable = _OutputTable_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 8)
+)
+if mibBuilder.loadTexts:
+    outputTable.setStatus("mandatory")
+_OutputEntry_Object = MibTableRow
+outputEntry = _OutputEntry_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 8, 1)
+)
+outputEntry.setIndexNames(
+    (0, "ICT-DISTRIBUTION-PANEL-MIB", "outputNumber"),
+)
+if mibBuilder.loadTexts:
+    outputEntry.setStatus("mandatory")
+
+
+class _OutputNumber_Type(Integer32):
+    """Custom type outputNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 11),
+    )
+
+
+_OutputNumber_Type.__name__ = "Integer32"
+_OutputNumber_Object = MibTableColumn
+outputNumber = _OutputNumber_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 8, 1, 1),
+    _OutputNumber_Type()
+)
+outputNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    outputNumber.setStatus("mandatory")
+_OutputName_Type = DisplayString
+_OutputName_Object = MibTableColumn
+outputName = _OutputName_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 8, 1, 2),
+    _OutputName_Type()
+)
+outputName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    outputName.setStatus("mandatory")
+_OutputCurrent_Type = DisplayString
+_OutputCurrent_Object = MibTableColumn
+outputCurrent = _OutputCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 8, 1, 3),
+    _OutputCurrent_Type()
+)
+outputCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    outputCurrent.setStatus("mandatory")
+
+
+class _OutputFuseStatus_Type(Integer32):
+    """Custom type outputFuseStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 1),
+          ("open", 2))
+    )
+
+
+_OutputFuseStatus_Type.__name__ = "Integer32"
+_OutputFuseStatus_Object = MibTableColumn
+outputFuseStatus = _OutputFuseStatus_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 8, 1, 4),
+    _OutputFuseStatus_Type()
+)
+outputFuseStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    outputFuseStatus.setStatus("mandatory")
+
+
+class _OutputEnable_Type(Integer32):
+    """Custom type outputEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_OutputEnable_Type.__name__ = "Integer32"
+_OutputEnable_Object = MibTableColumn
+outputEnable = _OutputEnable_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 8, 1, 5),
+    _OutputEnable_Type()
+)
+outputEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    outputEnable.setStatus("mandatory")
+_AlarmTable_Object = MibTable
+alarmTable = _AlarmTable_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 9)
+)
+if mibBuilder.loadTexts:
+    alarmTable.setStatus("mandatory")
+_AlarmEntry_Object = MibTableRow
+alarmEntry = _AlarmEntry_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 9, 1)
+)
+alarmEntry.setIndexNames(
+    (0, "ICT-DISTRIBUTION-PANEL-MIB", "alarmNumber"),
+)
+if mibBuilder.loadTexts:
+    alarmEntry.setStatus("mandatory")
+
+
+class _AlarmNumber_Type(Integer32):
+    """Custom type alarmNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4),
+    )
+
+
+_AlarmNumber_Type.__name__ = "Integer32"
+_AlarmNumber_Object = MibTableColumn
+alarmNumber = _AlarmNumber_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 9, 1, 1),
+    _AlarmNumber_Type()
+)
+alarmNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmNumber.setStatus("mandatory")
+_AlarmName_Type = DisplayString
+_AlarmName_Object = MibTableColumn
+alarmName = _AlarmName_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 9, 1, 2),
+    _AlarmName_Type()
+)
+alarmName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmName.setStatus("mandatory")
+
+
+class _AlarmStatus_Type(Integer32):
+    """Custom type alarmStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("ready", 2),
+          ("alarm", 3))
+    )
+
+
+_AlarmStatus_Type.__name__ = "Integer32"
+_AlarmStatus_Object = MibTableColumn
+alarmStatus = _AlarmStatus_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 9, 1, 3),
+    _AlarmStatus_Type()
+)
+alarmStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmStatus.setStatus("mandatory")
+_BusTable_Object = MibTable
+busTable = _BusTable_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 10)
+)
+if mibBuilder.loadTexts:
+    busTable.setStatus("mandatory")
+_BusEntry_Object = MibTableRow
+busEntry = _BusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 10, 1)
+)
+busEntry.setIndexNames(
+    (0, "ICT-DISTRIBUTION-PANEL-MIB", "busNumber"),
+)
+if mibBuilder.loadTexts:
+    busEntry.setStatus("mandatory")
+
+
+class _BusNumber_Type(Integer32):
+    """Custom type busNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_BusNumber_Type.__name__ = "Integer32"
+_BusNumber_Object = MibTableColumn
+busNumber = _BusNumber_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 10, 1, 1),
+    _BusNumber_Type()
+)
+busNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    busNumber.setStatus("mandatory")
+_BusName_Type = DisplayString
+_BusName_Object = MibTableColumn
+busName = _BusName_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 10, 1, 2),
+    _BusName_Type()
+)
+busName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    busName.setStatus("mandatory")
+_BusVoltage_Type = DisplayString
+_BusVoltage_Object = MibTableColumn
+busVoltage = _BusVoltage_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 10, 1, 3),
+    _BusVoltage_Type()
+)
+busVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    busVoltage.setStatus("mandatory")
+_BusCurrent_Type = DisplayString
+_BusCurrent_Object = MibTableColumn
+busCurrent = _BusCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 10, 1, 4),
+    _BusCurrent_Type()
+)
+busCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    busCurrent.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+sysUndervoltageAlarmTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 101)
+)
+sysUndervoltageAlarmTrap.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "busNumber")
+)
+if mibBuilder.loadTexts:
+    sysUndervoltageAlarmTrap.setStatus(
+        ""
+    )
+
+sysOvervoltageAlarmTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 102)
+)
+sysOvervoltageAlarmTrap.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "busNumber")
+)
+if mibBuilder.loadTexts:
+    sysOvervoltageAlarmTrap.setStatus(
+        ""
+    )
+
+sysOvercurrentAlarmTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 103)
+)
+sysOvercurrentAlarmTrap.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "busNumber")
+)
+if mibBuilder.loadTexts:
+    sysOvercurrentAlarmTrap.setStatus(
+        ""
+    )
+
+fuseAlarmTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 104)
+)
+fuseAlarmTrap.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber")
+)
+if mibBuilder.loadTexts:
+    fuseAlarmTrap.setStatus(
+        ""
+    )
+
+undercurrentAlarmTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 105)
+)
+undercurrentAlarmTrap.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber")
+)
+if mibBuilder.loadTexts:
+    undercurrentAlarmTrap.setStatus(
+        ""
+    )
+
+overcurrentAlarmTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 106)
+)
+overcurrentAlarmTrap.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber")
+)
+if mibBuilder.loadTexts:
+    overcurrentAlarmTrap.setStatus(
+        ""
+    )
+
+loadshedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 107)
+)
+loadshedTrap.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber")
+)
+if mibBuilder.loadTexts:
+    loadshedTrap.setStatus(
+        ""
+    )
+
+alarmInputTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 108)
+)
+alarmInputTrap.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "alarmNumber")
+)
+if mibBuilder.loadTexts:
+    alarmInputTrap.setStatus(
+        ""
+    )
+
+sysUndervoltageAlarmClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 111)
+)
+sysUndervoltageAlarmClear.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "busNumber")
+)
+if mibBuilder.loadTexts:
+    sysUndervoltageAlarmClear.setStatus(
+        ""
+    )
+
+sysOvervoltageAlarmClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 112)
+)
+sysOvervoltageAlarmClear.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "busNumber")
+)
+if mibBuilder.loadTexts:
+    sysOvervoltageAlarmClear.setStatus(
+        ""
+    )
+
+sysOvercurrentAlarmClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 113)
+)
+sysOvercurrentAlarmClear.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "busNumber")
+)
+if mibBuilder.loadTexts:
+    sysOvercurrentAlarmClear.setStatus(
+        ""
+    )
+
+fuseAlarmClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 114)
+)
+fuseAlarmClear.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber")
+)
+if mibBuilder.loadTexts:
+    fuseAlarmClear.setStatus(
+        ""
+    )
+
+undercurrentAlarmClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 115)
+)
+undercurrentAlarmClear.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber")
+)
+if mibBuilder.loadTexts:
+    undercurrentAlarmClear.setStatus(
+        ""
+    )
+
+overcurrentAlarmClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 116)
+)
+overcurrentAlarmClear.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber")
+)
+if mibBuilder.loadTexts:
+    overcurrentAlarmClear.setStatus(
+        ""
+    )
+
+loadshedClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 117)
+)
+loadshedClear.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "outputNumber")
+)
+if mibBuilder.loadTexts:
+    loadshedClear.setStatus(
+        ""
+    )
+
+alarmInputClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39145, 10, 0, 118)
+)
+alarmInputClear.setObjects(
+    ("ICT-DISTRIBUTION-PANEL-MIB", "alarmNumber")
+)
+if mibBuilder.loadTexts:
+    alarmInputClear.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ICT-DISTRIBUTION-PANEL-MIB",
+    **{"ictPower": ictPower,
+       "distPanel": distPanel,
+       "sysUndervoltageAlarmTrap": sysUndervoltageAlarmTrap,
+       "sysOvervoltageAlarmTrap": sysOvervoltageAlarmTrap,
+       "sysOvercurrentAlarmTrap": sysOvercurrentAlarmTrap,
+       "fuseAlarmTrap": fuseAlarmTrap,
+       "undercurrentAlarmTrap": undercurrentAlarmTrap,
+       "overcurrentAlarmTrap": overcurrentAlarmTrap,
+       "loadshedTrap": loadshedTrap,
+       "alarmInputTrap": alarmInputTrap,
+       "sysUndervoltageAlarmClear": sysUndervoltageAlarmClear,
+       "sysOvervoltageAlarmClear": sysOvervoltageAlarmClear,
+       "sysOvercurrentAlarmClear": sysOvercurrentAlarmClear,
+       "fuseAlarmClear": fuseAlarmClear,
+       "undercurrentAlarmClear": undercurrentAlarmClear,
+       "overcurrentAlarmClear": overcurrentAlarmClear,
+       "loadshedClear": loadshedClear,
+       "alarmInputClear": alarmInputClear,
+       "deviceModel": deviceModel,
+       "deviceName": deviceName,
+       "deviceHardware": deviceHardware,
+       "deviceFirmware": deviceFirmware,
+       "deviceMacAddress": deviceMacAddress,
+       "systemVoltage": systemVoltage,
+       "systemCurrent": systemCurrent,
+       "outputTable": outputTable,
+       "outputEntry": outputEntry,
+       "outputNumber": outputNumber,
+       "outputName": outputName,
+       "outputCurrent": outputCurrent,
+       "outputFuseStatus": outputFuseStatus,
+       "outputEnable": outputEnable,
+       "alarmTable": alarmTable,
+       "alarmEntry": alarmEntry,
+       "alarmNumber": alarmNumber,
+       "alarmName": alarmName,
+       "alarmStatus": alarmStatus,
+       "busTable": busTable,
+       "busEntry": busEntry,
+       "busNumber": busNumber,
+       "busName": busName,
+       "busVoltage": busVoltage,
+       "busCurrent": busCurrent}
+)

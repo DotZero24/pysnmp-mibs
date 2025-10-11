@@ -1,39 +1,229 @@
+# SNMP MIB module (INFINERA-TP-PXMINTERFACE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module INFINERA-TP-PXMINTERFACE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-TP-PXMINTERFACE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:21:32 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/infinera/INFINERA-TP-PXMINTERFACE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:16:23 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
-InfnPxmIntfProtocolType, = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnPxmIntfProtocolType")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-pxmInterfaceMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73))
-pxmInterfaceMIB.setRevisions(('2016-05-20 00:00',))
-if mibBuilder.loadTexts: pxmInterfaceMIB.setLastUpdated('201605200000Z')
-if mibBuilder.loadTexts: pxmInterfaceMIB.setOrganization('Infinera')
-pxmInterfaceConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 3))
-pxmInterfaceCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 3, 1))
-pxmInterfaceGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 3, 2))
-pxmInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 1), )
-if mibBuilder.loadTexts: pxmInterfaceTable.setStatus('current')
-pxmInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: pxmInterfaceEntry.setStatus('current')
-pxmInterfaceProtocolType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 1, 1, 1), InfnPxmIntfProtocolType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pxmInterfaceProtocolType.setStatus('current')
-pxmInterfaceMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pxmInterfaceMacAddress.setStatus('current')
-pxmInterfaceCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 3, 1, 1)).setObjects(("INFINERA-TP-PXMINTERFACE-MIB", "pxmInterfaceGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pxmInterfaceCompliance = pxmInterfaceCompliance.setStatus('current')
-pxmInterfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 3, 2, 1)).setObjects(("INFINERA-TP-PXMINTERFACE-MIB", "pxmInterfaceProtocolType"), ("INFINERA-TP-PXMINTERFACE-MIB", "pxmInterfaceMacAddress"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pxmInterfaceGroup = pxmInterfaceGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-TP-PXMINTERFACE-MIB", PYSNMP_MODULE_ID=pxmInterfaceMIB, pxmInterfaceCompliance=pxmInterfaceCompliance, pxmInterfaceGroup=pxmInterfaceGroup, pxmInterfaceGroups=pxmInterfaceGroups, pxmInterfaceProtocolType=pxmInterfaceProtocolType, pxmInterfaceMIB=pxmInterfaceMIB, pxmInterfaceMacAddress=pxmInterfaceMacAddress, pxmInterfaceTable=pxmInterfaceTable, pxmInterfaceCompliances=pxmInterfaceCompliances, pxmInterfaceEntry=pxmInterfaceEntry, pxmInterfaceConformance=pxmInterfaceConformance)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(terminationPoint,) = mibBuilder.importSymbols(
+    "INFINERA-REG-MIB",
+    "terminationPoint")
+
+(InfnPxmIntfProtocolType,) = mibBuilder.importSymbols(
+    "INFINERA-TC-MIB",
+    "InfnPxmIntfProtocolType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pxmInterfaceMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73)
+)
+if mibBuilder.loadTexts:
+    pxmInterfaceMIB.setRevisions(
+        ("2016-05-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PxmInterfaceTable_Object = MibTable
+pxmInterfaceTable = _PxmInterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 1)
+)
+if mibBuilder.loadTexts:
+    pxmInterfaceTable.setStatus("current")
+_PxmInterfaceEntry_Object = MibTableRow
+pxmInterfaceEntry = _PxmInterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 1, 1)
+)
+pxmInterfaceEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    pxmInterfaceEntry.setStatus("current")
+_PxmInterfaceProtocolType_Type = InfnPxmIntfProtocolType
+_PxmInterfaceProtocolType_Object = MibTableColumn
+pxmInterfaceProtocolType = _PxmInterfaceProtocolType_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 1, 1, 1),
+    _PxmInterfaceProtocolType_Type()
+)
+pxmInterfaceProtocolType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pxmInterfaceProtocolType.setStatus("current")
+_PxmInterfaceMacAddress_Type = DisplayString
+_PxmInterfaceMacAddress_Object = MibTableColumn
+pxmInterfaceMacAddress = _PxmInterfaceMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 1, 1, 2),
+    _PxmInterfaceMacAddress_Type()
+)
+pxmInterfaceMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pxmInterfaceMacAddress.setStatus("current")
+_PxmInterfaceConformance_ObjectIdentity = ObjectIdentity
+pxmInterfaceConformance = _PxmInterfaceConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 3)
+)
+_PxmInterfaceCompliances_ObjectIdentity = ObjectIdentity
+pxmInterfaceCompliances = _PxmInterfaceCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 3, 1)
+)
+_PxmInterfaceGroups_ObjectIdentity = ObjectIdentity
+pxmInterfaceGroups = _PxmInterfaceGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 3, 2)
+)
+
+# Managed Objects groups
+
+pxmInterfaceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 3, 2, 1)
+)
+pxmInterfaceGroup.setObjects(
+      *(("INFINERA-TP-PXMINTERFACE-MIB", "pxmInterfaceProtocolType"),
+        ("INFINERA-TP-PXMINTERFACE-MIB", "pxmInterfaceMacAddress"))
+)
+if mibBuilder.loadTexts:
+    pxmInterfaceGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+pxmInterfaceCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 73, 3, 1, 1)
+)
+pxmInterfaceCompliance.setObjects(
+    ("INFINERA-TP-PXMINTERFACE-MIB", "pxmInterfaceGroup")
+)
+if mibBuilder.loadTexts:
+    pxmInterfaceCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "INFINERA-TP-PXMINTERFACE-MIB",
+    **{"pxmInterfaceMIB": pxmInterfaceMIB,
+       "pxmInterfaceTable": pxmInterfaceTable,
+       "pxmInterfaceEntry": pxmInterfaceEntry,
+       "pxmInterfaceProtocolType": pxmInterfaceProtocolType,
+       "pxmInterfaceMacAddress": pxmInterfaceMacAddress,
+       "pxmInterfaceConformance": pxmInterfaceConformance,
+       "pxmInterfaceCompliances": pxmInterfaceCompliances,
+       "pxmInterfaceCompliance": pxmInterfaceCompliance,
+       "pxmInterfaceGroups": pxmInterfaceGroups,
+       "pxmInterfaceGroup": pxmInterfaceGroup}
+)

@@ -1,45 +1,282 @@
+# SNMP MIB module (SIAE-QUEUE-DEPTH-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SIAE-QUEUE-DEPTH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/siaemic/SIAE-QUEUE-DEPTH-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:03 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/siaemic/SIAE-QUEUE-DEPTH-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:14:01 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
-siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-queueDepth = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 84))
-queueDepth.setRevisions(('2014-05-20 00:00',))
-if mibBuilder.loadTexts: queueDepth.setLastUpdated('201405200000Z')
-if mibBuilder.loadTexts: queueDepth.setOrganization('SIAE MICROELETTRONICA spa')
-class DisplayString1024(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '1024a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 1024)
 
-queueDepthMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 84, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: queueDepthMibVersion.setStatus('current')
-qdProfileTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 84, 2), )
-if mibBuilder.loadTexts: qdProfileTable.setStatus('current')
-qdProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 84, 2, 1), ).setIndexNames((0, "SIAE-QUEUE-DEPTH-MIB", "qdProfileIndex"))
-if mibBuilder.loadTexts: qdProfileEntry.setStatus('current')
-qdProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 84, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qdProfileIndex.setStatus('current')
-qdProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 84, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qdProfileName.setStatus('current')
-qdProfileDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 84, 2, 1, 3), DisplayString1024()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qdProfileDescription.setStatus('current')
-qdProfileSelect = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 84, 3), Integer32().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qdProfileSelect.setStatus('current')
-qdActualProfile = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 84, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qdActualProfile.setStatus('current')
-qdProfileMismatchAlarm = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 84, 5), AlarmStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qdProfileMismatchAlarm.setStatus('current')
-qdProfileMismatchAlarmSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 84, 6), AlarmSeverityCode().clone('warningTrapEnable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qdProfileMismatchAlarmSeverityCode.setStatus('current')
-mibBuilder.exportSymbols("SIAE-QUEUE-DEPTH-MIB", queueDepthMibVersion=queueDepthMibVersion, qdProfileIndex=qdProfileIndex, qdProfileSelect=qdProfileSelect, DisplayString1024=DisplayString1024, queueDepth=queueDepth, qdActualProfile=qdActualProfile, qdProfileMismatchAlarm=qdProfileMismatchAlarm, qdProfileName=qdProfileName, PYSNMP_MODULE_ID=queueDepth, qdProfileTable=qdProfileTable, qdProfileDescription=qdProfileDescription, qdProfileEntry=qdProfileEntry, qdProfileMismatchAlarmSeverityCode=qdProfileMismatchAlarmSeverityCode)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(AlarmSeverityCode,
+ AlarmStatus) = mibBuilder.importSymbols(
+    "SIAE-ALARM-MIB",
+    "AlarmSeverityCode",
+    "AlarmStatus")
+
+(siaeMib,) = mibBuilder.importSymbols(
+    "SIAE-TREE-MIB",
+    "siaeMib")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+queueDepth = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 84)
+)
+if mibBuilder.loadTexts:
+    queueDepth.setRevisions(
+        ("2014-05-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class DisplayString1024(TextualConvention, OctetString):
+    status = "current"
+    displayHint = "1024a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 1024),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_QueueDepthMibVersion_Type = Integer32
+_QueueDepthMibVersion_Object = MibScalar
+queueDepthMibVersion = _QueueDepthMibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 84, 1),
+    _QueueDepthMibVersion_Type()
+)
+queueDepthMibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    queueDepthMibVersion.setStatus("current")
+_QdProfileTable_Object = MibTable
+qdProfileTable = _QdProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 84, 2)
+)
+if mibBuilder.loadTexts:
+    qdProfileTable.setStatus("current")
+_QdProfileEntry_Object = MibTableRow
+qdProfileEntry = _QdProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 84, 2, 1)
+)
+qdProfileEntry.setIndexNames(
+    (0, "SIAE-QUEUE-DEPTH-MIB", "qdProfileIndex"),
+)
+if mibBuilder.loadTexts:
+    qdProfileEntry.setStatus("current")
+_QdProfileIndex_Type = Integer32
+_QdProfileIndex_Object = MibTableColumn
+qdProfileIndex = _QdProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 84, 2, 1, 1),
+    _QdProfileIndex_Type()
+)
+qdProfileIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qdProfileIndex.setStatus("current")
+
+
+class _QdProfileName_Type(DisplayString):
+    """Custom type qdProfileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_QdProfileName_Type.__name__ = "DisplayString"
+_QdProfileName_Object = MibTableColumn
+qdProfileName = _QdProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 84, 2, 1, 2),
+    _QdProfileName_Type()
+)
+qdProfileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qdProfileName.setStatus("current")
+_QdProfileDescription_Type = DisplayString1024
+_QdProfileDescription_Object = MibTableColumn
+qdProfileDescription = _QdProfileDescription_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 84, 2, 1, 3),
+    _QdProfileDescription_Type()
+)
+qdProfileDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qdProfileDescription.setStatus("current")
+
+
+class _QdProfileSelect_Type(Integer32):
+    """Custom type qdProfileSelect based on Integer32"""
+    defaultValue = 1
+
+
+_QdProfileSelect_Type.__name__ = "Integer32"
+_QdProfileSelect_Object = MibScalar
+qdProfileSelect = _QdProfileSelect_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 84, 3),
+    _QdProfileSelect_Type()
+)
+qdProfileSelect.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qdProfileSelect.setStatus("current")
+_QdActualProfile_Type = Integer32
+_QdActualProfile_Object = MibScalar
+qdActualProfile = _QdActualProfile_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 84, 4),
+    _QdActualProfile_Type()
+)
+qdActualProfile.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qdActualProfile.setStatus("current")
+_QdProfileMismatchAlarm_Type = AlarmStatus
+_QdProfileMismatchAlarm_Object = MibScalar
+qdProfileMismatchAlarm = _QdProfileMismatchAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 84, 5),
+    _QdProfileMismatchAlarm_Type()
+)
+qdProfileMismatchAlarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qdProfileMismatchAlarm.setStatus("current")
+
+
+class _QdProfileMismatchAlarmSeverityCode_Type(AlarmSeverityCode):
+    """Custom type qdProfileMismatchAlarmSeverityCode based on AlarmSeverityCode"""
+    defaultValue = 3
+
+
+_QdProfileMismatchAlarmSeverityCode_Type.__name__ = "AlarmSeverityCode"
+_QdProfileMismatchAlarmSeverityCode_Object = MibScalar
+qdProfileMismatchAlarmSeverityCode = _QdProfileMismatchAlarmSeverityCode_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 84, 6),
+    _QdProfileMismatchAlarmSeverityCode_Type()
+)
+qdProfileMismatchAlarmSeverityCode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qdProfileMismatchAlarmSeverityCode.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SIAE-QUEUE-DEPTH-MIB",
+    **{"DisplayString1024": DisplayString1024,
+       "queueDepth": queueDepth,
+       "queueDepthMibVersion": queueDepthMibVersion,
+       "qdProfileTable": qdProfileTable,
+       "qdProfileEntry": qdProfileEntry,
+       "qdProfileIndex": qdProfileIndex,
+       "qdProfileName": qdProfileName,
+       "qdProfileDescription": qdProfileDescription,
+       "qdProfileSelect": qdProfileSelect,
+       "qdActualProfile": qdActualProfile,
+       "qdProfileMismatchAlarm": qdProfileMismatchAlarm,
+       "qdProfileMismatchAlarmSeverityCode": qdProfileMismatchAlarmSeverityCode}
+)

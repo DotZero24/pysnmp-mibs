@@ -1,23 +1,167 @@
+# SNMP MIB module (ALVARION-PRODUCTS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALVARION-PRODUCTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alvarion/ALVARION-PRODUCTS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:41 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alvarion/ALVARION-PRODUCTS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:07:18 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-alvarionModules, alvarionProducts = mibBuilder.importSymbols("ALVARION-SMI", "alvarionModules", "alvarionProducts")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-alvarionProductsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 12394, 1, 10, 4, 2))
-if mibBuilder.loadTexts: alvarionProductsMIB.setLastUpdated('200710310000Z')
-if mibBuilder.loadTexts: alvarionProductsMIB.setOrganization('Alvarion Ltd.')
-alvarionWI2CTRL40 = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 1, 25))
-alvarionWI2CTRL200 = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 1, 27))
-alvarionWI2CTRL10 = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 1, 35))
-alvarionWI2SR1 = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 1, 36))
-alvarionWI2DR1 = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 1, 37))
-mibBuilder.exportSymbols("ALVARION-PRODUCTS-MIB", alvarionWI2CTRL40=alvarionWI2CTRL40, alvarionWI2CTRL200=alvarionWI2CTRL200, alvarionWI2DR1=alvarionWI2DR1, PYSNMP_MODULE_ID=alvarionProductsMIB, alvarionProductsMIB=alvarionProductsMIB, alvarionWI2CTRL10=alvarionWI2CTRL10, alvarionWI2SR1=alvarionWI2SR1)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(alvarionModules,
+ alvarionProducts) = mibBuilder.importSymbols(
+    "ALVARION-SMI",
+    "alvarionModules",
+    "alvarionProducts")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alvarionProductsMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 4, 2)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlvarionWI2CTRL40_ObjectIdentity = ObjectIdentity
+alvarionWI2CTRL40 = _AlvarionWI2CTRL40_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 1, 25)
+)
+_AlvarionWI2CTRL200_ObjectIdentity = ObjectIdentity
+alvarionWI2CTRL200 = _AlvarionWI2CTRL200_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 1, 27)
+)
+_AlvarionWI2CTRL10_ObjectIdentity = ObjectIdentity
+alvarionWI2CTRL10 = _AlvarionWI2CTRL10_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 1, 35)
+)
+_AlvarionWI2SR1_ObjectIdentity = ObjectIdentity
+alvarionWI2SR1 = _AlvarionWI2SR1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 1, 36)
+)
+_AlvarionWI2DR1_ObjectIdentity = ObjectIdentity
+alvarionWI2DR1 = _AlvarionWI2DR1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 1, 37)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALVARION-PRODUCTS-MIB",
+    **{"alvarionWI2CTRL40": alvarionWI2CTRL40,
+       "alvarionWI2CTRL200": alvarionWI2CTRL200,
+       "alvarionWI2CTRL10": alvarionWI2CTRL10,
+       "alvarionWI2SR1": alvarionWI2SR1,
+       "alvarionWI2DR1": alvarionWI2DR1,
+       "alvarionProductsMIB": alvarionProductsMIB}
+)

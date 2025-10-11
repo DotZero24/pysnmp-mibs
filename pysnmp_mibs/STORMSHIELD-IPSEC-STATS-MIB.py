@@ -1,33 +1,216 @@
+# SNMP MIB module (STORMSHIELD-IPSEC-STATS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module STORMSHIELD-IPSEC-STATS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/stormshield/STORMSHIELD-IPSEC-STATS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:37 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/stormshield/STORMSHIELD-IPSEC-STATS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:06:36 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
-snsIPSECStats = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 13))
-snsIPSECStats.setRevisions(('2017-02-20 00:00',))
-if mibBuilder.loadTexts: snsIPSECStats.setLastUpdated('201702200000Z')
-if mibBuilder.loadTexts: snsIPSECStats.setOrganization('Stormshield')
-snsIPSECStatsSPD = MibIdentifier((1, 3, 6, 1, 4, 1, 11256, 1, 13, 1))
-snsIPSECStatsSAD = MibIdentifier((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2))
-snsIPSECStatsSPDIn = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsIPSECStatsSPDIn.setStatus('current')
-snsIPSECStatsSPDOut = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsIPSECStatsSPDOut.setStatus('current')
-snsIPSECStatsSADLarval = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsIPSECStatsSADLarval.setStatus('current')
-snsIPSECStatsSADMature = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsIPSECStatsSADMature.setStatus('current')
-snsIPSECStatsSADDying = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsIPSECStatsSADDying.setStatus('current')
-snsIPSECStatsSADDead = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsIPSECStatsSADDead.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-IPSEC-STATS-MIB", snsIPSECStatsSADLarval=snsIPSECStatsSADLarval, snsIPSECStatsSAD=snsIPSECStatsSAD, snsIPSECStatsSPD=snsIPSECStatsSPD, PYSNMP_MODULE_ID=snsIPSECStats, snsIPSECStatsSPDIn=snsIPSECStatsSPDIn, snsIPSECStatsSADDying=snsIPSECStatsSADDying, snsIPSECStatsSADMature=snsIPSECStatsSADMature, snsIPSECStatsSPDOut=snsIPSECStatsSPDOut, snsIPSECStatsSADDead=snsIPSECStatsSADDead, snsIPSECStats=snsIPSECStats)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+(stormshieldMIB,) = mibBuilder.importSymbols(
+    "STORMSHIELD-SMI-MIB",
+    "stormshieldMIB")
+
+
+# MODULE-IDENTITY
+
+snsIPSECStats = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 13)
+)
+if mibBuilder.loadTexts:
+    snsIPSECStats.setRevisions(
+        ("2017-02-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SnsIPSECStatsSPD_ObjectIdentity = ObjectIdentity
+snsIPSECStatsSPD = _SnsIPSECStatsSPD_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 13, 1)
+)
+_SnsIPSECStatsSPDIn_Type = Counter64
+_SnsIPSECStatsSPDIn_Object = MibScalar
+snsIPSECStatsSPDIn = _SnsIPSECStatsSPDIn_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 13, 1, 1),
+    _SnsIPSECStatsSPDIn_Type()
+)
+snsIPSECStatsSPDIn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsIPSECStatsSPDIn.setStatus("current")
+_SnsIPSECStatsSPDOut_Type = Counter64
+_SnsIPSECStatsSPDOut_Object = MibScalar
+snsIPSECStatsSPDOut = _SnsIPSECStatsSPDOut_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 13, 1, 2),
+    _SnsIPSECStatsSPDOut_Type()
+)
+snsIPSECStatsSPDOut.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsIPSECStatsSPDOut.setStatus("current")
+_SnsIPSECStatsSAD_ObjectIdentity = ObjectIdentity
+snsIPSECStatsSAD = _SnsIPSECStatsSAD_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 13, 2)
+)
+_SnsIPSECStatsSADLarval_Type = Counter64
+_SnsIPSECStatsSADLarval_Object = MibScalar
+snsIPSECStatsSADLarval = _SnsIPSECStatsSADLarval_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 1),
+    _SnsIPSECStatsSADLarval_Type()
+)
+snsIPSECStatsSADLarval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsIPSECStatsSADLarval.setStatus("current")
+_SnsIPSECStatsSADMature_Type = Counter64
+_SnsIPSECStatsSADMature_Object = MibScalar
+snsIPSECStatsSADMature = _SnsIPSECStatsSADMature_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 2),
+    _SnsIPSECStatsSADMature_Type()
+)
+snsIPSECStatsSADMature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsIPSECStatsSADMature.setStatus("current")
+_SnsIPSECStatsSADDying_Type = Counter64
+_SnsIPSECStatsSADDying_Object = MibScalar
+snsIPSECStatsSADDying = _SnsIPSECStatsSADDying_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 3),
+    _SnsIPSECStatsSADDying_Type()
+)
+snsIPSECStatsSADDying.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsIPSECStatsSADDying.setStatus("current")
+_SnsIPSECStatsSADDead_Type = Counter64
+_SnsIPSECStatsSADDead_Object = MibScalar
+snsIPSECStatsSADDead = _SnsIPSECStatsSADDead_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 13, 2, 4),
+    _SnsIPSECStatsSADDead_Type()
+)
+snsIPSECStatsSADDead.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsIPSECStatsSADDead.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "STORMSHIELD-IPSEC-STATS-MIB",
+    **{"snsIPSECStats": snsIPSECStats,
+       "snsIPSECStatsSPD": snsIPSECStatsSPD,
+       "snsIPSECStatsSPDIn": snsIPSECStatsSPDIn,
+       "snsIPSECStatsSPDOut": snsIPSECStatsSPDOut,
+       "snsIPSECStatsSAD": snsIPSECStatsSAD,
+       "snsIPSECStatsSADLarval": snsIPSECStatsSADLarval,
+       "snsIPSECStatsSADMature": snsIPSECStatsSADMature,
+       "snsIPSECStatsSADDying": snsIPSECStatsSADDying,
+       "snsIPSECStatsSADDead": snsIPSECStatsSADDead}
+)

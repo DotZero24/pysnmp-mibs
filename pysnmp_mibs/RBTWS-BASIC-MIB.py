@@ -1,59 +1,422 @@
+# SNMP MIB module (RBTWS-BASIC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RBTWS-BASIC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/RBTWS-BASIC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:36 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cabletron/RBTWS-BASIC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:55:30 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rbtwsMibs, = mibBuilder.importSymbols("RBTWS-ROOT-MIB", "rbtwsMibs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-rbtwsBasic = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2))
-rbtwsBasic.setRevisions(('2006-07-10 00:08', '2006-04-14 00:07', '2005-01-01 00:00',))
-if mibBuilder.loadTexts: rbtwsBasic.setLastUpdated('200607102335Z')
-if mibBuilder.loadTexts: rbtwsBasic.setOrganization('Enterasys Networks')
-class RbtwsLicenseFeature(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("none", 1), ("maxSupportedAPsOrDAPs", 2))
 
-rbtwsBasicSystemInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 1))
-rbtwsSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbtwsSerialNumber.setStatus('current')
-rbtwsSwMajorVersionNumber = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbtwsSwMajorVersionNumber.setStatus('current')
-rbtwsSwMinorVersionNumber = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbtwsSwMinorVersionNumber.setStatus('current')
-rbtwsVersionString = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbtwsVersionString.setStatus('current')
-rbtwsMobilityDomainInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2))
-rbtwsMobilityDomainName = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbtwsMobilityDomainName.setStatus('current')
-rbtwsMobilitySeedIp = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbtwsMobilitySeedIp.setStatus('current')
-rbtwsMobilityMemberTableSize = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbtwsMobilityMemberTableSize.setStatus('current')
-rbtwsMobilityMemberTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 4), )
-if mibBuilder.loadTexts: rbtwsMobilityMemberTable.setStatus('current')
-rbtwsMobilityMemberEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 4, 1), ).setIndexNames((0, "RBTWS-BASIC-MIB", "rbtwsMobilityMemberEntryAddr"))
-if mibBuilder.loadTexts: rbtwsMobilityMemberEntry.setStatus('current')
-rbtwsMobilityMemberEntryAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 4, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbtwsMobilityMemberEntryAddr.setStatus('current')
-rbtwsLicenseInfoGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3))
-rbtwsLicenseInfoTableSize = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbtwsLicenseInfoTableSize.setStatus('current')
-rbtwsLicenseInfoTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 2), )
-if mibBuilder.loadTexts: rbtwsLicenseInfoTable.setStatus('current')
-rbtwsLicenseInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 2, 1), ).setIndexNames((0, "RBTWS-BASIC-MIB", "rbtwsLicenseInfoEntryFeature"))
-if mibBuilder.loadTexts: rbtwsLicenseInfoEntry.setStatus('current')
-rbtwsLicenseInfoEntryFeature = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 2, 1, 1), RbtwsLicenseFeature())
-if mibBuilder.loadTexts: rbtwsLicenseInfoEntryFeature.setStatus('current')
-rbtwsLicenseInfoEntryValue = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4096))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbtwsLicenseInfoEntryValue.setStatus('current')
-rbtwsLicenseInfoEntryDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbtwsLicenseInfoEntryDescr.setStatus('current')
-mibBuilder.exportSymbols("RBTWS-BASIC-MIB", rbtwsMobilityMemberTable=rbtwsMobilityMemberTable, rbtwsMobilityMemberTableSize=rbtwsMobilityMemberTableSize, PYSNMP_MODULE_ID=rbtwsBasic, rbtwsBasicSystemInfo=rbtwsBasicSystemInfo, rbtwsLicenseInfoEntryDescr=rbtwsLicenseInfoEntryDescr, rbtwsLicenseInfoTableSize=rbtwsLicenseInfoTableSize, rbtwsSwMajorVersionNumber=rbtwsSwMajorVersionNumber, rbtwsMobilitySeedIp=rbtwsMobilitySeedIp, rbtwsLicenseInfoGroup=rbtwsLicenseInfoGroup, rbtwsLicenseInfoEntryValue=rbtwsLicenseInfoEntryValue, rbtwsMobilityDomainInfo=rbtwsMobilityDomainInfo, rbtwsSwMinorVersionNumber=rbtwsSwMinorVersionNumber, RbtwsLicenseFeature=RbtwsLicenseFeature, rbtwsMobilityDomainName=rbtwsMobilityDomainName, rbtwsLicenseInfoTable=rbtwsLicenseInfoTable, rbtwsMobilityMemberEntry=rbtwsMobilityMemberEntry, rbtwsLicenseInfoEntry=rbtwsLicenseInfoEntry, rbtwsBasic=rbtwsBasic, rbtwsMobilityMemberEntryAddr=rbtwsMobilityMemberEntryAddr, rbtwsSerialNumber=rbtwsSerialNumber, rbtwsVersionString=rbtwsVersionString, rbtwsLicenseInfoEntryFeature=rbtwsLicenseInfoEntryFeature)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rbtwsMibs,) = mibBuilder.importSymbols(
+    "RBTWS-ROOT-MIB",
+    "rbtwsMibs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+rbtwsBasic = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2)
+)
+if mibBuilder.loadTexts:
+    rbtwsBasic.setRevisions(
+        ("2006-07-10 00:08",
+         "2006-04-14 00:07",
+         "2005-01-01 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class RbtwsLicenseFeature(TextualConvention, Integer32):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("maxSupportedAPsOrDAPs", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RbtwsBasicSystemInfo_ObjectIdentity = ObjectIdentity
+rbtwsBasicSystemInfo = _RbtwsBasicSystemInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 1)
+)
+
+
+class _RbtwsSerialNumber_Type(DisplayString):
+    """Custom type rbtwsSerialNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_RbtwsSerialNumber_Type.__name__ = "DisplayString"
+_RbtwsSerialNumber_Object = MibScalar
+rbtwsSerialNumber = _RbtwsSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 1, 1),
+    _RbtwsSerialNumber_Type()
+)
+rbtwsSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbtwsSerialNumber.setStatus("current")
+
+
+class _RbtwsSwMajorVersionNumber_Type(Integer32):
+    """Custom type rbtwsSwMajorVersionNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 99),
+    )
+
+
+_RbtwsSwMajorVersionNumber_Type.__name__ = "Integer32"
+_RbtwsSwMajorVersionNumber_Object = MibScalar
+rbtwsSwMajorVersionNumber = _RbtwsSwMajorVersionNumber_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 1, 2),
+    _RbtwsSwMajorVersionNumber_Type()
+)
+rbtwsSwMajorVersionNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbtwsSwMajorVersionNumber.setStatus("current")
+
+
+class _RbtwsSwMinorVersionNumber_Type(Integer32):
+    """Custom type rbtwsSwMinorVersionNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 99),
+    )
+
+
+_RbtwsSwMinorVersionNumber_Type.__name__ = "Integer32"
+_RbtwsSwMinorVersionNumber_Object = MibScalar
+rbtwsSwMinorVersionNumber = _RbtwsSwMinorVersionNumber_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 1, 3),
+    _RbtwsSwMinorVersionNumber_Type()
+)
+rbtwsSwMinorVersionNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbtwsSwMinorVersionNumber.setStatus("current")
+
+
+class _RbtwsVersionString_Type(DisplayString):
+    """Custom type rbtwsVersionString based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_RbtwsVersionString_Type.__name__ = "DisplayString"
+_RbtwsVersionString_Object = MibScalar
+rbtwsVersionString = _RbtwsVersionString_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 1, 4),
+    _RbtwsVersionString_Type()
+)
+rbtwsVersionString.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbtwsVersionString.setStatus("current")
+_RbtwsMobilityDomainInfo_ObjectIdentity = ObjectIdentity
+rbtwsMobilityDomainInfo = _RbtwsMobilityDomainInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2)
+)
+
+
+class _RbtwsMobilityDomainName_Type(DisplayString):
+    """Custom type rbtwsMobilityDomainName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_RbtwsMobilityDomainName_Type.__name__ = "DisplayString"
+_RbtwsMobilityDomainName_Object = MibScalar
+rbtwsMobilityDomainName = _RbtwsMobilityDomainName_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 1),
+    _RbtwsMobilityDomainName_Type()
+)
+rbtwsMobilityDomainName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbtwsMobilityDomainName.setStatus("current")
+_RbtwsMobilitySeedIp_Type = IpAddress
+_RbtwsMobilitySeedIp_Object = MibScalar
+rbtwsMobilitySeedIp = _RbtwsMobilitySeedIp_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 2),
+    _RbtwsMobilitySeedIp_Type()
+)
+rbtwsMobilitySeedIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbtwsMobilitySeedIp.setStatus("current")
+
+
+class _RbtwsMobilityMemberTableSize_Type(Integer32):
+    """Custom type rbtwsMobilityMemberTableSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 64),
+    )
+
+
+_RbtwsMobilityMemberTableSize_Type.__name__ = "Integer32"
+_RbtwsMobilityMemberTableSize_Object = MibScalar
+rbtwsMobilityMemberTableSize = _RbtwsMobilityMemberTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 3),
+    _RbtwsMobilityMemberTableSize_Type()
+)
+rbtwsMobilityMemberTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbtwsMobilityMemberTableSize.setStatus("current")
+_RbtwsMobilityMemberTable_Object = MibTable
+rbtwsMobilityMemberTable = _RbtwsMobilityMemberTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 4)
+)
+if mibBuilder.loadTexts:
+    rbtwsMobilityMemberTable.setStatus("current")
+_RbtwsMobilityMemberEntry_Object = MibTableRow
+rbtwsMobilityMemberEntry = _RbtwsMobilityMemberEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 4, 1)
+)
+rbtwsMobilityMemberEntry.setIndexNames(
+    (0, "RBTWS-BASIC-MIB", "rbtwsMobilityMemberEntryAddr"),
+)
+if mibBuilder.loadTexts:
+    rbtwsMobilityMemberEntry.setStatus("current")
+_RbtwsMobilityMemberEntryAddr_Type = IpAddress
+_RbtwsMobilityMemberEntryAddr_Object = MibTableColumn
+rbtwsMobilityMemberEntryAddr = _RbtwsMobilityMemberEntryAddr_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 2, 4, 1, 1),
+    _RbtwsMobilityMemberEntryAddr_Type()
+)
+rbtwsMobilityMemberEntryAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbtwsMobilityMemberEntryAddr.setStatus("current")
+_RbtwsLicenseInfoGroup_ObjectIdentity = ObjectIdentity
+rbtwsLicenseInfoGroup = _RbtwsLicenseInfoGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3)
+)
+
+
+class _RbtwsLicenseInfoTableSize_Type(Integer32):
+    """Custom type rbtwsLicenseInfoTableSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 64),
+    )
+
+
+_RbtwsLicenseInfoTableSize_Type.__name__ = "Integer32"
+_RbtwsLicenseInfoTableSize_Object = MibScalar
+rbtwsLicenseInfoTableSize = _RbtwsLicenseInfoTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 1),
+    _RbtwsLicenseInfoTableSize_Type()
+)
+rbtwsLicenseInfoTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbtwsLicenseInfoTableSize.setStatus("current")
+_RbtwsLicenseInfoTable_Object = MibTable
+rbtwsLicenseInfoTable = _RbtwsLicenseInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 2)
+)
+if mibBuilder.loadTexts:
+    rbtwsLicenseInfoTable.setStatus("current")
+_RbtwsLicenseInfoEntry_Object = MibTableRow
+rbtwsLicenseInfoEntry = _RbtwsLicenseInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 2, 1)
+)
+rbtwsLicenseInfoEntry.setIndexNames(
+    (0, "RBTWS-BASIC-MIB", "rbtwsLicenseInfoEntryFeature"),
+)
+if mibBuilder.loadTexts:
+    rbtwsLicenseInfoEntry.setStatus("current")
+_RbtwsLicenseInfoEntryFeature_Type = RbtwsLicenseFeature
+_RbtwsLicenseInfoEntryFeature_Object = MibTableColumn
+rbtwsLicenseInfoEntryFeature = _RbtwsLicenseInfoEntryFeature_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 2, 1, 1),
+    _RbtwsLicenseInfoEntryFeature_Type()
+)
+rbtwsLicenseInfoEntryFeature.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rbtwsLicenseInfoEntryFeature.setStatus("current")
+
+
+class _RbtwsLicenseInfoEntryValue_Type(Integer32):
+    """Custom type rbtwsLicenseInfoEntryValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4096),
+    )
+
+
+_RbtwsLicenseInfoEntryValue_Type.__name__ = "Integer32"
+_RbtwsLicenseInfoEntryValue_Object = MibTableColumn
+rbtwsLicenseInfoEntryValue = _RbtwsLicenseInfoEntryValue_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 2, 1, 2),
+    _RbtwsLicenseInfoEntryValue_Type()
+)
+rbtwsLicenseInfoEntryValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbtwsLicenseInfoEntryValue.setStatus("current")
+
+
+class _RbtwsLicenseInfoEntryDescr_Type(DisplayString):
+    """Custom type rbtwsLicenseInfoEntryDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_RbtwsLicenseInfoEntryDescr_Type.__name__ = "DisplayString"
+_RbtwsLicenseInfoEntryDescr_Object = MibTableColumn
+rbtwsLicenseInfoEntryDescr = _RbtwsLicenseInfoEntryDescr_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 15, 1, 4, 2, 3, 2, 1, 3),
+    _RbtwsLicenseInfoEntryDescr_Type()
+)
+rbtwsLicenseInfoEntryDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbtwsLicenseInfoEntryDescr.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RBTWS-BASIC-MIB",
+    **{"RbtwsLicenseFeature": RbtwsLicenseFeature,
+       "rbtwsBasic": rbtwsBasic,
+       "rbtwsBasicSystemInfo": rbtwsBasicSystemInfo,
+       "rbtwsSerialNumber": rbtwsSerialNumber,
+       "rbtwsSwMajorVersionNumber": rbtwsSwMajorVersionNumber,
+       "rbtwsSwMinorVersionNumber": rbtwsSwMinorVersionNumber,
+       "rbtwsVersionString": rbtwsVersionString,
+       "rbtwsMobilityDomainInfo": rbtwsMobilityDomainInfo,
+       "rbtwsMobilityDomainName": rbtwsMobilityDomainName,
+       "rbtwsMobilitySeedIp": rbtwsMobilitySeedIp,
+       "rbtwsMobilityMemberTableSize": rbtwsMobilityMemberTableSize,
+       "rbtwsMobilityMemberTable": rbtwsMobilityMemberTable,
+       "rbtwsMobilityMemberEntry": rbtwsMobilityMemberEntry,
+       "rbtwsMobilityMemberEntryAddr": rbtwsMobilityMemberEntryAddr,
+       "rbtwsLicenseInfoGroup": rbtwsLicenseInfoGroup,
+       "rbtwsLicenseInfoTableSize": rbtwsLicenseInfoTableSize,
+       "rbtwsLicenseInfoTable": rbtwsLicenseInfoTable,
+       "rbtwsLicenseInfoEntry": rbtwsLicenseInfoEntry,
+       "rbtwsLicenseInfoEntryFeature": rbtwsLicenseInfoEntryFeature,
+       "rbtwsLicenseInfoEntryValue": rbtwsLicenseInfoEntryValue,
+       "rbtwsLicenseInfoEntryDescr": rbtwsLicenseInfoEntryDescr}
+)

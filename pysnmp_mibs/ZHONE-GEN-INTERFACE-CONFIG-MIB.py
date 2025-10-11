@@ -1,46 +1,276 @@
+# SNMP MIB module (ZHONE-GEN-INTERFACE-CONFIG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZHONE-GEN-INTERFACE-CONFIG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zhone/ZHONE-GEN-INTERFACE-CONFIG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:24 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zhone/ZHONE-GEN-INTERFACE-CONFIG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:11:21 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-zhoneInterfaceConfig, zhoneModules = mibBuilder.importSymbols("Zhone", "zhoneInterfaceConfig", "zhoneModules")
-ZhoneRowStatus, ZhoneAlarmSeverity = mibBuilder.importSymbols("Zhone-TC", "ZhoneRowStatus", "ZhoneAlarmSeverity")
-alarmConfigMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1))
-alarmConfigMib.setRevisions(('2010-12-07 02:37', '2008-02-26 06:25',))
-if mibBuilder.loadTexts: alarmConfigMib.setLastUpdated('201012071714Z')
-if mibBuilder.loadTexts: alarmConfigMib.setOrganization('Organization.')
-alarmConfigTable = MibTable((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1), )
-if mibBuilder.loadTexts: alarmConfigTable.setStatus('current')
-alarmConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: alarmConfigEntry.setStatus('current')
-alarmConfigBitRateThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 1), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmConfigBitRateThreshold.setStatus('current')
-alarmConfigBitRateThresholdValue = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 2), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmConfigBitRateThresholdValue.setStatus('current')
-alarmConfigBitRateThresholdHoldtime = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmConfigBitRateThresholdHoldtime.setStatus('current')
-alarmConfigStatusTrap = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 4), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmConfigStatusTrap.setStatus('current')
-alarmConfigAdminUp = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 5), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmConfigAdminUp.setStatus('current')
-alarmConfigAlarmSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 6), ZhoneAlarmSeverity()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmConfigAlarmSeverity.setStatus('current')
-alarmConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 7), ZhoneRowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alarmConfigRowStatus.setStatus('current')
-alarmConfigTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 2))
-alarmConfigTrapPrefix = ObjectIdentity((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 2, 0))
-if mibBuilder.loadTexts: alarmConfigTrapPrefix.setStatus('current')
-zhoneAlarmConfigThresholdTrap = NotificationType((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 2, 0, 1))
-if mibBuilder.loadTexts: zhoneAlarmConfigThresholdTrap.setStatus('current')
-zhoneAlarmConfigThresholdClearTrap = NotificationType((1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 2, 0, 2))
-if mibBuilder.loadTexts: zhoneAlarmConfigThresholdClearTrap.setStatus('current')
-mibBuilder.exportSymbols("ZHONE-GEN-INTERFACE-CONFIG-MIB", alarmConfigRowStatus=alarmConfigRowStatus, alarmConfigTable=alarmConfigTable, alarmConfigAdminUp=alarmConfigAdminUp, zhoneAlarmConfigThresholdClearTrap=zhoneAlarmConfigThresholdClearTrap, alarmConfigMib=alarmConfigMib, alarmConfigBitRateThresholdHoldtime=alarmConfigBitRateThresholdHoldtime, alarmConfigTrapPrefix=alarmConfigTrapPrefix, alarmConfigBitRateThresholdValue=alarmConfigBitRateThresholdValue, alarmConfigStatusTrap=alarmConfigStatusTrap, alarmConfigBitRateThreshold=alarmConfigBitRateThreshold, zhoneAlarmConfigThresholdTrap=zhoneAlarmConfigThresholdTrap, PYSNMP_MODULE_ID=alarmConfigMib, alarmConfigTraps=alarmConfigTraps, alarmConfigEntry=alarmConfigEntry, alarmConfigAlarmSeverity=alarmConfigAlarmSeverity)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+(zhoneInterfaceConfig,
+ zhoneModules) = mibBuilder.importSymbols(
+    "Zhone",
+    "zhoneInterfaceConfig",
+    "zhoneModules")
+
+(ZhoneAlarmSeverity,
+ ZhoneRowStatus) = mibBuilder.importSymbols(
+    "Zhone-TC",
+    "ZhoneAlarmSeverity",
+    "ZhoneRowStatus")
+
+
+# MODULE-IDENTITY
+
+alarmConfigMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1)
+)
+if mibBuilder.loadTexts:
+    alarmConfigMib.setRevisions(
+        ("2010-12-07 02:37",
+         "2008-02-26 06:25")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlarmConfigTable_Object = MibTable
+alarmConfigTable = _AlarmConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1)
+)
+if mibBuilder.loadTexts:
+    alarmConfigTable.setStatus("current")
+_AlarmConfigEntry_Object = MibTableRow
+alarmConfigEntry = _AlarmConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1)
+)
+alarmConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    alarmConfigEntry.setStatus("current")
+_AlarmConfigBitRateThreshold_Type = TruthValue
+_AlarmConfigBitRateThreshold_Object = MibTableColumn
+alarmConfigBitRateThreshold = _AlarmConfigBitRateThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 1),
+    _AlarmConfigBitRateThreshold_Type()
+)
+alarmConfigBitRateThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alarmConfigBitRateThreshold.setStatus("current")
+_AlarmConfigBitRateThresholdValue_Type = Integer32
+_AlarmConfigBitRateThresholdValue_Object = MibTableColumn
+alarmConfigBitRateThresholdValue = _AlarmConfigBitRateThresholdValue_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 2),
+    _AlarmConfigBitRateThresholdValue_Type()
+)
+alarmConfigBitRateThresholdValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alarmConfigBitRateThresholdValue.setStatus("current")
+_AlarmConfigBitRateThresholdHoldtime_Type = Integer32
+_AlarmConfigBitRateThresholdHoldtime_Object = MibTableColumn
+alarmConfigBitRateThresholdHoldtime = _AlarmConfigBitRateThresholdHoldtime_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 3),
+    _AlarmConfigBitRateThresholdHoldtime_Type()
+)
+alarmConfigBitRateThresholdHoldtime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alarmConfigBitRateThresholdHoldtime.setStatus("current")
+_AlarmConfigStatusTrap_Type = TruthValue
+_AlarmConfigStatusTrap_Object = MibTableColumn
+alarmConfigStatusTrap = _AlarmConfigStatusTrap_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 4),
+    _AlarmConfigStatusTrap_Type()
+)
+alarmConfigStatusTrap.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alarmConfigStatusTrap.setStatus("current")
+_AlarmConfigAdminUp_Type = TruthValue
+_AlarmConfigAdminUp_Object = MibTableColumn
+alarmConfigAdminUp = _AlarmConfigAdminUp_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 5),
+    _AlarmConfigAdminUp_Type()
+)
+alarmConfigAdminUp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alarmConfigAdminUp.setStatus("current")
+_AlarmConfigAlarmSeverity_Type = ZhoneAlarmSeverity
+_AlarmConfigAlarmSeverity_Object = MibTableColumn
+alarmConfigAlarmSeverity = _AlarmConfigAlarmSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 6),
+    _AlarmConfigAlarmSeverity_Type()
+)
+alarmConfigAlarmSeverity.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alarmConfigAlarmSeverity.setStatus("current")
+_AlarmConfigRowStatus_Type = ZhoneRowStatus
+_AlarmConfigRowStatus_Object = MibTableColumn
+alarmConfigRowStatus = _AlarmConfigRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 1, 1, 7),
+    _AlarmConfigRowStatus_Type()
+)
+alarmConfigRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alarmConfigRowStatus.setStatus("current")
+_AlarmConfigTraps_ObjectIdentity = ObjectIdentity
+alarmConfigTraps = _AlarmConfigTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 2)
+)
+_AlarmConfigTrapPrefix_ObjectIdentity = ObjectIdentity
+alarmConfigTrapPrefix = _AlarmConfigTrapPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 2, 0)
+)
+if mibBuilder.loadTexts:
+    alarmConfigTrapPrefix.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+zhoneAlarmConfigThresholdTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 2, 0, 1)
+)
+if mibBuilder.loadTexts:
+    zhoneAlarmConfigThresholdTrap.setStatus(
+        "current"
+    )
+
+zhoneAlarmConfigThresholdClearTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 5504, 3, 13, 1, 2, 0, 2)
+)
+if mibBuilder.loadTexts:
+    zhoneAlarmConfigThresholdClearTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZHONE-GEN-INTERFACE-CONFIG-MIB",
+    **{"alarmConfigMib": alarmConfigMib,
+       "alarmConfigTable": alarmConfigTable,
+       "alarmConfigEntry": alarmConfigEntry,
+       "alarmConfigBitRateThreshold": alarmConfigBitRateThreshold,
+       "alarmConfigBitRateThresholdValue": alarmConfigBitRateThresholdValue,
+       "alarmConfigBitRateThresholdHoldtime": alarmConfigBitRateThresholdHoldtime,
+       "alarmConfigStatusTrap": alarmConfigStatusTrap,
+       "alarmConfigAdminUp": alarmConfigAdminUp,
+       "alarmConfigAlarmSeverity": alarmConfigAlarmSeverity,
+       "alarmConfigRowStatus": alarmConfigRowStatus,
+       "alarmConfigTraps": alarmConfigTraps,
+       "alarmConfigTrapPrefix": alarmConfigTrapPrefix,
+       "zhoneAlarmConfigThresholdTrap": zhoneAlarmConfigThresholdTrap,
+       "zhoneAlarmConfigThresholdClearTrap": zhoneAlarmConfigThresholdClearTrap}
+)

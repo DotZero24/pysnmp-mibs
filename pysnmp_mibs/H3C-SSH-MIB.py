@@ -1,109 +1,903 @@
+# SNMP MIB module (H3C-SSH-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-SSH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-SSH-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:46 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/H3C-SSH-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:20:41 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-h3cSSH = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22))
-h3cSSH.setRevisions(('2018-02-06 00:00', '2016-04-26 00:00', '2014-10-25 00:00', '2014-02-20 00:00', '2014-01-17 00:00', '2013-12-21 00:00', '2007-11-19 00:00',))
-if mibBuilder.loadTexts: h3cSSH.setLastUpdated('201802060000Z')
-if mibBuilder.loadTexts: h3cSSH.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
-h3cSSHServerMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1))
-h3cSSHServerMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1))
-h3cSSHServerGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1))
-h3cSSHServerVersion = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSSHServerVersion.setStatus('current')
-h3cSSHServerCompatibleSSH1x = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enableCompatibleSSH1x", 1), ("disableCompatibleSSH1x", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSSHServerCompatibleSSH1x.setStatus('current')
-h3cSSHServerRekeyInterval = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSSHServerRekeyInterval.setStatus('current')
-h3cSSHServerAuthRetries = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSSHServerAuthRetries.setStatus('current')
-h3cSSHServerAuthTimeout = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSSHServerAuthTimeout.setStatus('current')
-h3cSFTPServerIdleTimeout = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSFTPServerIdleTimeout.setStatus('current')
-h3cSSHServerEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enableSSHServer", 1), ("disableSSHServer", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSSHServerEnable.setStatus('current')
-h3cSFTPServerEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enableSFTPService", 1), ("disableSFTPService", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSFTPServerEnable.setStatus('current')
-h3cSTelnetServerEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enableSTelnetServer", 1), ("disableSTelnetServer", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSTelnetServerEnable.setStatus('current')
-h3cSCPServerEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enableSCPService", 1), ("disableSCPService", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cSCPServerEnable.setStatus('current')
-h3cSSHUserConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2))
-h3cSSHUserConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1), )
-if mibBuilder.loadTexts: h3cSSHUserConfigTable.setStatus('current')
-h3cSSHUserConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1), ).setIndexNames((0, "H3C-SSH-MIB", "h3cSSHUserName"))
-if mibBuilder.loadTexts: h3cSSHUserConfigEntry.setStatus('current')
-h3cSSHUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 1), DisplayString())
-if mibBuilder.loadTexts: h3cSSHUserName.setStatus('current')
-h3cSSHUserServiceType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("invalid", 1), ("all", 2), ("stelnet", 3), ("sftp", 4), ("scp", 5), ("netconf", 6))).clone('invalid')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSSHUserServiceType.setStatus('current')
-h3cSSHUserAuthType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("invalid", 1), ("password", 2), ("publicKey", 3), ("any", 4), ("publicKeyPassword", 5), ("keyboardInteractive", 6))).clone('invalid')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSSHUserAuthType.setStatus('current')
-h3cSSHUserPublicKeyName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSSHUserPublicKeyName.setStatus('current')
-h3cSSHUserWorkDirectory = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 5), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSSHUserWorkDirectory.setStatus('current')
-h3cSSHUserRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSSHUserRowStatus.setStatus('current')
-h3cSSHUserPublicKeyName2 = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 7), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSSHUserPublicKeyName2.setStatus('current')
-h3cSSHUserPublicKeyName3 = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 8), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSSHUserPublicKeyName3.setStatus('current')
-h3cSSHUserPublicKeyName4 = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 9), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSSHUserPublicKeyName4.setStatus('current')
-h3cSSHUserPublicKeyName5 = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 10), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSSHUserPublicKeyName5.setStatus('current')
-h3cSSHUserPublicKeyName6 = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 11), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cSSHUserPublicKeyName6.setStatus('current')
-h3cSSHSessionInfoTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3), )
-if mibBuilder.loadTexts: h3cSSHSessionInfoTable.setStatus('current')
-h3cSSHSessionInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1), ).setIndexNames((0, "H3C-SSH-MIB", "h3cSSHSessionID"))
-if mibBuilder.loadTexts: h3cSSHSessionInfoEntry.setStatus('current')
-h3cSSHSessionID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 1), Integer32())
-if mibBuilder.loadTexts: h3cSSHSessionID.setStatus('current')
-h3cSSHSessionUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSSHSessionUserName.setStatus('current')
-h3cSSHSessionUserIpAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 3), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSSHSessionUserIpAddrType.setStatus('current')
-h3cSSHSessionUserIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 4), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSSHSessionUserIpAddr.setStatus('current')
-h3cSSHSessionClientVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSSHSessionClientVersion.setStatus('current')
-h3cSSHSessionServiceType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("invalid", 1), ("stelnet", 2), ("sftp", 3), ("scp", 4), ("netconf", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSSHSessionServiceType.setStatus('current')
-h3cSSHSessionEncry = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("invalid", 1), ("aes128CBC", 2), ("desCBC", 3), ("des3CBC", 4), ("aes128CTR", 5), ("aes192CTR", 6), ("aes256CTR", 7), ("aes128GCM", 8), ("aes256GCM", 9), ("aes256CBC", 10)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSSHSessionEncry.setStatus('current')
-h3cSSHSessionState = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("init", 1), ("verExchange", 2), ("keysExchange", 3), ("authRequest", 4), ("serviceRequest", 5), ("established", 6), ("disconnect", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cSSHSessionState.setStatus('current')
-h3cSSHServerObjForTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 2))
-h3cSSHAttemptUserName = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 2, 1), DisplayString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cSSHAttemptUserName.setStatus('current')
-h3cSSHAttemptIpAddrType = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 2, 2), InetAddressType()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cSSHAttemptIpAddrType.setStatus('current')
-h3cSSHAttemptIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 2, 3), InetAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cSSHAttemptIpAddr.setStatus('current')
-h3cSSHUserAuthFailureReason = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 2, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("exceedRetries", 1), ("authTimeout", 2), ("otherReason", 3)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: h3cSSHUserAuthFailureReason.setStatus('current')
-h3cSSHServerNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3))
-h3cSSHServerNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3, 0))
-h3cSSHUserAuthFailure = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3, 0, 1)).setObjects(("H3C-SSH-MIB", "h3cSSHAttemptUserName"), ("H3C-SSH-MIB", "h3cSSHAttemptIpAddrType"), ("H3C-SSH-MIB", "h3cSSHAttemptIpAddr"), ("H3C-SSH-MIB", "h3cSSHUserAuthFailureReason"))
-if mibBuilder.loadTexts: h3cSSHUserAuthFailure.setStatus('current')
-h3cSSHVersionNegotiationFailure = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3, 0, 2)).setObjects(("H3C-SSH-MIB", "h3cSSHAttemptIpAddrType"), ("H3C-SSH-MIB", "h3cSSHAttemptIpAddr"))
-if mibBuilder.loadTexts: h3cSSHVersionNegotiationFailure.setStatus('current')
-h3cSSHUserLogin = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3, 0, 3)).setObjects(("H3C-SSH-MIB", "h3cSSHSessionUserName"), ("H3C-SSH-MIB", "h3cSSHSessionUserIpAddrType"), ("H3C-SSH-MIB", "h3cSSHSessionUserIpAddr"))
-if mibBuilder.loadTexts: h3cSSHUserLogin.setStatus('current')
-h3cSSHUserLogoff = NotificationType((1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3, 0, 4)).setObjects(("H3C-SSH-MIB", "h3cSSHSessionUserName"), ("H3C-SSH-MIB", "h3cSSHSessionUserIpAddrType"), ("H3C-SSH-MIB", "h3cSSHSessionUserIpAddr"))
-if mibBuilder.loadTexts: h3cSSHUserLogoff.setStatus('current')
-mibBuilder.exportSymbols("H3C-SSH-MIB", h3cSSHServerVersion=h3cSSHServerVersion, h3cSSHUserPublicKeyName=h3cSSHUserPublicKeyName, h3cSSHUserPublicKeyName6=h3cSSHUserPublicKeyName6, h3cSSHSessionServiceType=h3cSSHSessionServiceType, h3cSSHServerNotificationsPrefix=h3cSSHServerNotificationsPrefix, h3cSSHAttemptIpAddrType=h3cSSHAttemptIpAddrType, h3cSFTPServerEnable=h3cSFTPServerEnable, h3cSSHUserPublicKeyName5=h3cSSHUserPublicKeyName5, h3cSSHSessionUserName=h3cSSHSessionUserName, h3cSSHUserPublicKeyName4=h3cSSHUserPublicKeyName4, h3cSSHServerNotifications=h3cSSHServerNotifications, h3cSSHAttemptUserName=h3cSSHAttemptUserName, h3cSSHUserAuthType=h3cSSHUserAuthType, h3cSSHServerRekeyInterval=h3cSSHServerRekeyInterval, h3cSSH=h3cSSH, h3cSSHUserAuthFailureReason=h3cSSHUserAuthFailureReason, h3cSSHServerGlobalConfig=h3cSSHServerGlobalConfig, h3cSSHUserConfigTable=h3cSSHUserConfigTable, PYSNMP_MODULE_ID=h3cSSH, h3cSSHUserRowStatus=h3cSSHUserRowStatus, h3cSSHUserLogin=h3cSSHUserLogin, h3cSSHSessionEncry=h3cSSHSessionEncry, h3cSSHSessionClientVersion=h3cSSHSessionClientVersion, h3cSSHUserConfig=h3cSSHUserConfig, h3cSSHAttemptIpAddr=h3cSSHAttemptIpAddr, h3cSSHSessionID=h3cSSHSessionID, h3cSSHUserLogoff=h3cSSHUserLogoff, h3cSCPServerEnable=h3cSCPServerEnable, h3cSSHServerMIB=h3cSSHServerMIB, h3cSSHUserPublicKeyName3=h3cSSHUserPublicKeyName3, h3cSSHSessionUserIpAddrType=h3cSSHSessionUserIpAddrType, h3cSSHServerObjForTrap=h3cSSHServerObjForTrap, h3cSSHServerEnable=h3cSSHServerEnable, h3cSFTPServerIdleTimeout=h3cSFTPServerIdleTimeout, h3cSSHSessionUserIpAddr=h3cSSHSessionUserIpAddr, h3cSSHServerAuthTimeout=h3cSSHServerAuthTimeout, h3cSSHServerAuthRetries=h3cSSHServerAuthRetries, h3cSSHUserConfigEntry=h3cSSHUserConfigEntry, h3cSTelnetServerEnable=h3cSTelnetServerEnable, h3cSSHServerCompatibleSSH1x=h3cSSHServerCompatibleSSH1x, h3cSSHUserServiceType=h3cSSHUserServiceType, h3cSSHUserWorkDirectory=h3cSSHUserWorkDirectory, h3cSSHUserPublicKeyName2=h3cSSHUserPublicKeyName2, h3cSSHVersionNegotiationFailure=h3cSSHVersionNegotiationFailure, h3cSSHUserName=h3cSSHUserName, h3cSSHSessionInfoEntry=h3cSSHSessionInfoEntry, h3cSSHSessionInfoTable=h3cSSHSessionInfoTable, h3cSSHServerMIBObjects=h3cSSHServerMIBObjects, h3cSSHSessionState=h3cSSHSessionState, h3cSSHUserAuthFailure=h3cSSHUserAuthFailure)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+h3cSSH = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22)
+)
+if mibBuilder.loadTexts:
+    h3cSSH.setRevisions(
+        ("2018-02-06 00:00",
+         "2016-04-26 00:00",
+         "2014-10-25 00:00",
+         "2014-02-20 00:00",
+         "2014-01-17 00:00",
+         "2013-12-21 00:00",
+         "2007-11-19 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cSSHServerMIB_ObjectIdentity = ObjectIdentity
+h3cSSHServerMIB = _H3cSSHServerMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1)
+)
+_H3cSSHServerMIBObjects_ObjectIdentity = ObjectIdentity
+h3cSSHServerMIBObjects = _H3cSSHServerMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1)
+)
+_H3cSSHServerGlobalConfig_ObjectIdentity = ObjectIdentity
+h3cSSHServerGlobalConfig = _H3cSSHServerGlobalConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1)
+)
+_H3cSSHServerVersion_Type = DisplayString
+_H3cSSHServerVersion_Object = MibScalar
+h3cSSHServerVersion = _H3cSSHServerVersion_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 1),
+    _H3cSSHServerVersion_Type()
+)
+h3cSSHServerVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSSHServerVersion.setStatus("current")
+
+
+class _H3cSSHServerCompatibleSSH1x_Type(Integer32):
+    """Custom type h3cSSHServerCompatibleSSH1x based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enableCompatibleSSH1x", 1),
+          ("disableCompatibleSSH1x", 2))
+    )
+
+
+_H3cSSHServerCompatibleSSH1x_Type.__name__ = "Integer32"
+_H3cSSHServerCompatibleSSH1x_Object = MibScalar
+h3cSSHServerCompatibleSSH1x = _H3cSSHServerCompatibleSSH1x_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 2),
+    _H3cSSHServerCompatibleSSH1x_Type()
+)
+h3cSSHServerCompatibleSSH1x.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSSHServerCompatibleSSH1x.setStatus("current")
+_H3cSSHServerRekeyInterval_Type = Integer32
+_H3cSSHServerRekeyInterval_Object = MibScalar
+h3cSSHServerRekeyInterval = _H3cSSHServerRekeyInterval_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 3),
+    _H3cSSHServerRekeyInterval_Type()
+)
+h3cSSHServerRekeyInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSSHServerRekeyInterval.setStatus("current")
+_H3cSSHServerAuthRetries_Type = Integer32
+_H3cSSHServerAuthRetries_Object = MibScalar
+h3cSSHServerAuthRetries = _H3cSSHServerAuthRetries_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 4),
+    _H3cSSHServerAuthRetries_Type()
+)
+h3cSSHServerAuthRetries.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSSHServerAuthRetries.setStatus("current")
+_H3cSSHServerAuthTimeout_Type = Integer32
+_H3cSSHServerAuthTimeout_Object = MibScalar
+h3cSSHServerAuthTimeout = _H3cSSHServerAuthTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 5),
+    _H3cSSHServerAuthTimeout_Type()
+)
+h3cSSHServerAuthTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSSHServerAuthTimeout.setStatus("current")
+_H3cSFTPServerIdleTimeout_Type = Integer32
+_H3cSFTPServerIdleTimeout_Object = MibScalar
+h3cSFTPServerIdleTimeout = _H3cSFTPServerIdleTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 6),
+    _H3cSFTPServerIdleTimeout_Type()
+)
+h3cSFTPServerIdleTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSFTPServerIdleTimeout.setStatus("current")
+
+
+class _H3cSSHServerEnable_Type(Integer32):
+    """Custom type h3cSSHServerEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enableSSHServer", 1),
+          ("disableSSHServer", 2))
+    )
+
+
+_H3cSSHServerEnable_Type.__name__ = "Integer32"
+_H3cSSHServerEnable_Object = MibScalar
+h3cSSHServerEnable = _H3cSSHServerEnable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 7),
+    _H3cSSHServerEnable_Type()
+)
+h3cSSHServerEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSSHServerEnable.setStatus("current")
+
+
+class _H3cSFTPServerEnable_Type(Integer32):
+    """Custom type h3cSFTPServerEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enableSFTPService", 1),
+          ("disableSFTPService", 2))
+    )
+
+
+_H3cSFTPServerEnable_Type.__name__ = "Integer32"
+_H3cSFTPServerEnable_Object = MibScalar
+h3cSFTPServerEnable = _H3cSFTPServerEnable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 8),
+    _H3cSFTPServerEnable_Type()
+)
+h3cSFTPServerEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSFTPServerEnable.setStatus("current")
+
+
+class _H3cSTelnetServerEnable_Type(Integer32):
+    """Custom type h3cSTelnetServerEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enableSTelnetServer", 1),
+          ("disableSTelnetServer", 2))
+    )
+
+
+_H3cSTelnetServerEnable_Type.__name__ = "Integer32"
+_H3cSTelnetServerEnable_Object = MibScalar
+h3cSTelnetServerEnable = _H3cSTelnetServerEnable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 9),
+    _H3cSTelnetServerEnable_Type()
+)
+h3cSTelnetServerEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSTelnetServerEnable.setStatus("current")
+
+
+class _H3cSCPServerEnable_Type(Integer32):
+    """Custom type h3cSCPServerEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enableSCPService", 1),
+          ("disableSCPService", 2))
+    )
+
+
+_H3cSCPServerEnable_Type.__name__ = "Integer32"
+_H3cSCPServerEnable_Object = MibScalar
+h3cSCPServerEnable = _H3cSCPServerEnable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 1, 10),
+    _H3cSCPServerEnable_Type()
+)
+h3cSCPServerEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cSCPServerEnable.setStatus("current")
+_H3cSSHUserConfig_ObjectIdentity = ObjectIdentity
+h3cSSHUserConfig = _H3cSSHUserConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2)
+)
+_H3cSSHUserConfigTable_Object = MibTable
+h3cSSHUserConfigTable = _H3cSSHUserConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    h3cSSHUserConfigTable.setStatus("current")
+_H3cSSHUserConfigEntry_Object = MibTableRow
+h3cSSHUserConfigEntry = _H3cSSHUserConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1)
+)
+h3cSSHUserConfigEntry.setIndexNames(
+    (0, "H3C-SSH-MIB", "h3cSSHUserName"),
+)
+if mibBuilder.loadTexts:
+    h3cSSHUserConfigEntry.setStatus("current")
+_H3cSSHUserName_Type = DisplayString
+_H3cSSHUserName_Object = MibTableColumn
+h3cSSHUserName = _H3cSSHUserName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 1),
+    _H3cSSHUserName_Type()
+)
+h3cSSHUserName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSSHUserName.setStatus("current")
+
+
+class _H3cSSHUserServiceType_Type(Integer32):
+    """Custom type h3cSSHUserServiceType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 1),
+          ("all", 2),
+          ("stelnet", 3),
+          ("sftp", 4),
+          ("scp", 5),
+          ("netconf", 6))
+    )
+
+
+_H3cSSHUserServiceType_Type.__name__ = "Integer32"
+_H3cSSHUserServiceType_Object = MibTableColumn
+h3cSSHUserServiceType = _H3cSSHUserServiceType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 2),
+    _H3cSSHUserServiceType_Type()
+)
+h3cSSHUserServiceType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSSHUserServiceType.setStatus("current")
+
+
+class _H3cSSHUserAuthType_Type(Integer32):
+    """Custom type h3cSSHUserAuthType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 1),
+          ("password", 2),
+          ("publicKey", 3),
+          ("any", 4),
+          ("publicKeyPassword", 5),
+          ("keyboardInteractive", 6))
+    )
+
+
+_H3cSSHUserAuthType_Type.__name__ = "Integer32"
+_H3cSSHUserAuthType_Object = MibTableColumn
+h3cSSHUserAuthType = _H3cSSHUserAuthType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 3),
+    _H3cSSHUserAuthType_Type()
+)
+h3cSSHUserAuthType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSSHUserAuthType.setStatus("current")
+
+
+class _H3cSSHUserPublicKeyName_Type(DisplayString):
+    """Custom type h3cSSHUserPublicKeyName based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_H3cSSHUserPublicKeyName_Type.__name__ = "DisplayString"
+_H3cSSHUserPublicKeyName_Object = MibTableColumn
+h3cSSHUserPublicKeyName = _H3cSSHUserPublicKeyName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 4),
+    _H3cSSHUserPublicKeyName_Type()
+)
+h3cSSHUserPublicKeyName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSSHUserPublicKeyName.setStatus("current")
+
+
+class _H3cSSHUserWorkDirectory_Type(DisplayString):
+    """Custom type h3cSSHUserWorkDirectory based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_H3cSSHUserWorkDirectory_Type.__name__ = "DisplayString"
+_H3cSSHUserWorkDirectory_Object = MibTableColumn
+h3cSSHUserWorkDirectory = _H3cSSHUserWorkDirectory_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 5),
+    _H3cSSHUserWorkDirectory_Type()
+)
+h3cSSHUserWorkDirectory.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSSHUserWorkDirectory.setStatus("current")
+_H3cSSHUserRowStatus_Type = RowStatus
+_H3cSSHUserRowStatus_Object = MibTableColumn
+h3cSSHUserRowStatus = _H3cSSHUserRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 6),
+    _H3cSSHUserRowStatus_Type()
+)
+h3cSSHUserRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSSHUserRowStatus.setStatus("current")
+
+
+class _H3cSSHUserPublicKeyName2_Type(DisplayString):
+    """Custom type h3cSSHUserPublicKeyName2 based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_H3cSSHUserPublicKeyName2_Type.__name__ = "DisplayString"
+_H3cSSHUserPublicKeyName2_Object = MibTableColumn
+h3cSSHUserPublicKeyName2 = _H3cSSHUserPublicKeyName2_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 7),
+    _H3cSSHUserPublicKeyName2_Type()
+)
+h3cSSHUserPublicKeyName2.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSSHUserPublicKeyName2.setStatus("current")
+
+
+class _H3cSSHUserPublicKeyName3_Type(DisplayString):
+    """Custom type h3cSSHUserPublicKeyName3 based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_H3cSSHUserPublicKeyName3_Type.__name__ = "DisplayString"
+_H3cSSHUserPublicKeyName3_Object = MibTableColumn
+h3cSSHUserPublicKeyName3 = _H3cSSHUserPublicKeyName3_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 8),
+    _H3cSSHUserPublicKeyName3_Type()
+)
+h3cSSHUserPublicKeyName3.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSSHUserPublicKeyName3.setStatus("current")
+
+
+class _H3cSSHUserPublicKeyName4_Type(DisplayString):
+    """Custom type h3cSSHUserPublicKeyName4 based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_H3cSSHUserPublicKeyName4_Type.__name__ = "DisplayString"
+_H3cSSHUserPublicKeyName4_Object = MibTableColumn
+h3cSSHUserPublicKeyName4 = _H3cSSHUserPublicKeyName4_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 9),
+    _H3cSSHUserPublicKeyName4_Type()
+)
+h3cSSHUserPublicKeyName4.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSSHUserPublicKeyName4.setStatus("current")
+
+
+class _H3cSSHUserPublicKeyName5_Type(DisplayString):
+    """Custom type h3cSSHUserPublicKeyName5 based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_H3cSSHUserPublicKeyName5_Type.__name__ = "DisplayString"
+_H3cSSHUserPublicKeyName5_Object = MibTableColumn
+h3cSSHUserPublicKeyName5 = _H3cSSHUserPublicKeyName5_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 10),
+    _H3cSSHUserPublicKeyName5_Type()
+)
+h3cSSHUserPublicKeyName5.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSSHUserPublicKeyName5.setStatus("current")
+
+
+class _H3cSSHUserPublicKeyName6_Type(DisplayString):
+    """Custom type h3cSSHUserPublicKeyName6 based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_H3cSSHUserPublicKeyName6_Type.__name__ = "DisplayString"
+_H3cSSHUserPublicKeyName6_Object = MibTableColumn
+h3cSSHUserPublicKeyName6 = _H3cSSHUserPublicKeyName6_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 2, 1, 1, 11),
+    _H3cSSHUserPublicKeyName6_Type()
+)
+h3cSSHUserPublicKeyName6.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cSSHUserPublicKeyName6.setStatus("current")
+_H3cSSHSessionInfoTable_Object = MibTable
+h3cSSHSessionInfoTable = _H3cSSHSessionInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    h3cSSHSessionInfoTable.setStatus("current")
+_H3cSSHSessionInfoEntry_Object = MibTableRow
+h3cSSHSessionInfoEntry = _H3cSSHSessionInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1)
+)
+h3cSSHSessionInfoEntry.setIndexNames(
+    (0, "H3C-SSH-MIB", "h3cSSHSessionID"),
+)
+if mibBuilder.loadTexts:
+    h3cSSHSessionInfoEntry.setStatus("current")
+_H3cSSHSessionID_Type = Integer32
+_H3cSSHSessionID_Object = MibTableColumn
+h3cSSHSessionID = _H3cSSHSessionID_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 1),
+    _H3cSSHSessionID_Type()
+)
+h3cSSHSessionID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cSSHSessionID.setStatus("current")
+_H3cSSHSessionUserName_Type = DisplayString
+_H3cSSHSessionUserName_Object = MibTableColumn
+h3cSSHSessionUserName = _H3cSSHSessionUserName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 2),
+    _H3cSSHSessionUserName_Type()
+)
+h3cSSHSessionUserName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSSHSessionUserName.setStatus("current")
+_H3cSSHSessionUserIpAddrType_Type = InetAddressType
+_H3cSSHSessionUserIpAddrType_Object = MibTableColumn
+h3cSSHSessionUserIpAddrType = _H3cSSHSessionUserIpAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 3),
+    _H3cSSHSessionUserIpAddrType_Type()
+)
+h3cSSHSessionUserIpAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSSHSessionUserIpAddrType.setStatus("current")
+_H3cSSHSessionUserIpAddr_Type = InetAddress
+_H3cSSHSessionUserIpAddr_Object = MibTableColumn
+h3cSSHSessionUserIpAddr = _H3cSSHSessionUserIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 4),
+    _H3cSSHSessionUserIpAddr_Type()
+)
+h3cSSHSessionUserIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSSHSessionUserIpAddr.setStatus("current")
+_H3cSSHSessionClientVersion_Type = DisplayString
+_H3cSSHSessionClientVersion_Object = MibTableColumn
+h3cSSHSessionClientVersion = _H3cSSHSessionClientVersion_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 5),
+    _H3cSSHSessionClientVersion_Type()
+)
+h3cSSHSessionClientVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSSHSessionClientVersion.setStatus("current")
+
+
+class _H3cSSHSessionServiceType_Type(Integer32):
+    """Custom type h3cSSHSessionServiceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 1),
+          ("stelnet", 2),
+          ("sftp", 3),
+          ("scp", 4),
+          ("netconf", 5))
+    )
+
+
+_H3cSSHSessionServiceType_Type.__name__ = "Integer32"
+_H3cSSHSessionServiceType_Object = MibTableColumn
+h3cSSHSessionServiceType = _H3cSSHSessionServiceType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 6),
+    _H3cSSHSessionServiceType_Type()
+)
+h3cSSHSessionServiceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSSHSessionServiceType.setStatus("current")
+
+
+class _H3cSSHSessionEncry_Type(Integer32):
+    """Custom type h3cSSHSessionEncry based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 1),
+          ("aes128CBC", 2),
+          ("desCBC", 3),
+          ("des3CBC", 4),
+          ("aes128CTR", 5),
+          ("aes192CTR", 6),
+          ("aes256CTR", 7),
+          ("aes128GCM", 8),
+          ("aes256GCM", 9),
+          ("aes256CBC", 10))
+    )
+
+
+_H3cSSHSessionEncry_Type.__name__ = "Integer32"
+_H3cSSHSessionEncry_Object = MibTableColumn
+h3cSSHSessionEncry = _H3cSSHSessionEncry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 7),
+    _H3cSSHSessionEncry_Type()
+)
+h3cSSHSessionEncry.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSSHSessionEncry.setStatus("current")
+
+
+class _H3cSSHSessionState_Type(Integer32):
+    """Custom type h3cSSHSessionState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("init", 1),
+          ("verExchange", 2),
+          ("keysExchange", 3),
+          ("authRequest", 4),
+          ("serviceRequest", 5),
+          ("established", 6),
+          ("disconnect", 7))
+    )
+
+
+_H3cSSHSessionState_Type.__name__ = "Integer32"
+_H3cSSHSessionState_Object = MibTableColumn
+h3cSSHSessionState = _H3cSSHSessionState_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 1, 3, 1, 8),
+    _H3cSSHSessionState_Type()
+)
+h3cSSHSessionState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cSSHSessionState.setStatus("current")
+_H3cSSHServerObjForTrap_ObjectIdentity = ObjectIdentity
+h3cSSHServerObjForTrap = _H3cSSHServerObjForTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 2)
+)
+_H3cSSHAttemptUserName_Type = DisplayString
+_H3cSSHAttemptUserName_Object = MibScalar
+h3cSSHAttemptUserName = _H3cSSHAttemptUserName_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 2, 1),
+    _H3cSSHAttemptUserName_Type()
+)
+h3cSSHAttemptUserName.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cSSHAttemptUserName.setStatus("current")
+_H3cSSHAttemptIpAddrType_Type = InetAddressType
+_H3cSSHAttemptIpAddrType_Object = MibScalar
+h3cSSHAttemptIpAddrType = _H3cSSHAttemptIpAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 2, 2),
+    _H3cSSHAttemptIpAddrType_Type()
+)
+h3cSSHAttemptIpAddrType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cSSHAttemptIpAddrType.setStatus("current")
+_H3cSSHAttemptIpAddr_Type = InetAddress
+_H3cSSHAttemptIpAddr_Object = MibScalar
+h3cSSHAttemptIpAddr = _H3cSSHAttemptIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 2, 3),
+    _H3cSSHAttemptIpAddr_Type()
+)
+h3cSSHAttemptIpAddr.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cSSHAttemptIpAddr.setStatus("current")
+
+
+class _H3cSSHUserAuthFailureReason_Type(Integer32):
+    """Custom type h3cSSHUserAuthFailureReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("exceedRetries", 1),
+          ("authTimeout", 2),
+          ("otherReason", 3))
+    )
+
+
+_H3cSSHUserAuthFailureReason_Type.__name__ = "Integer32"
+_H3cSSHUserAuthFailureReason_Object = MibScalar
+h3cSSHUserAuthFailureReason = _H3cSSHUserAuthFailureReason_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 2, 4),
+    _H3cSSHUserAuthFailureReason_Type()
+)
+h3cSSHUserAuthFailureReason.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    h3cSSHUserAuthFailureReason.setStatus("current")
+_H3cSSHServerNotifications_ObjectIdentity = ObjectIdentity
+h3cSSHServerNotifications = _H3cSSHServerNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3)
+)
+_H3cSSHServerNotificationsPrefix_ObjectIdentity = ObjectIdentity
+h3cSSHServerNotificationsPrefix = _H3cSSHServerNotificationsPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3, 0)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+h3cSSHUserAuthFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3, 0, 1)
+)
+h3cSSHUserAuthFailure.setObjects(
+      *(("H3C-SSH-MIB", "h3cSSHAttemptUserName"),
+        ("H3C-SSH-MIB", "h3cSSHAttemptIpAddrType"),
+        ("H3C-SSH-MIB", "h3cSSHAttemptIpAddr"),
+        ("H3C-SSH-MIB", "h3cSSHUserAuthFailureReason"))
+)
+if mibBuilder.loadTexts:
+    h3cSSHUserAuthFailure.setStatus(
+        "current"
+    )
+
+h3cSSHVersionNegotiationFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3, 0, 2)
+)
+h3cSSHVersionNegotiationFailure.setObjects(
+      *(("H3C-SSH-MIB", "h3cSSHAttemptIpAddrType"),
+        ("H3C-SSH-MIB", "h3cSSHAttemptIpAddr"))
+)
+if mibBuilder.loadTexts:
+    h3cSSHVersionNegotiationFailure.setStatus(
+        "current"
+    )
+
+h3cSSHUserLogin = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3, 0, 3)
+)
+h3cSSHUserLogin.setObjects(
+      *(("H3C-SSH-MIB", "h3cSSHSessionUserName"),
+        ("H3C-SSH-MIB", "h3cSSHSessionUserIpAddrType"),
+        ("H3C-SSH-MIB", "h3cSSHSessionUserIpAddr"))
+)
+if mibBuilder.loadTexts:
+    h3cSSHUserLogin.setStatus(
+        "current"
+    )
+
+h3cSSHUserLogoff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 22, 1, 3, 0, 4)
+)
+h3cSSHUserLogoff.setObjects(
+      *(("H3C-SSH-MIB", "h3cSSHSessionUserName"),
+        ("H3C-SSH-MIB", "h3cSSHSessionUserIpAddrType"),
+        ("H3C-SSH-MIB", "h3cSSHSessionUserIpAddr"))
+)
+if mibBuilder.loadTexts:
+    h3cSSHUserLogoff.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-SSH-MIB",
+    **{"h3cSSH": h3cSSH,
+       "h3cSSHServerMIB": h3cSSHServerMIB,
+       "h3cSSHServerMIBObjects": h3cSSHServerMIBObjects,
+       "h3cSSHServerGlobalConfig": h3cSSHServerGlobalConfig,
+       "h3cSSHServerVersion": h3cSSHServerVersion,
+       "h3cSSHServerCompatibleSSH1x": h3cSSHServerCompatibleSSH1x,
+       "h3cSSHServerRekeyInterval": h3cSSHServerRekeyInterval,
+       "h3cSSHServerAuthRetries": h3cSSHServerAuthRetries,
+       "h3cSSHServerAuthTimeout": h3cSSHServerAuthTimeout,
+       "h3cSFTPServerIdleTimeout": h3cSFTPServerIdleTimeout,
+       "h3cSSHServerEnable": h3cSSHServerEnable,
+       "h3cSFTPServerEnable": h3cSFTPServerEnable,
+       "h3cSTelnetServerEnable": h3cSTelnetServerEnable,
+       "h3cSCPServerEnable": h3cSCPServerEnable,
+       "h3cSSHUserConfig": h3cSSHUserConfig,
+       "h3cSSHUserConfigTable": h3cSSHUserConfigTable,
+       "h3cSSHUserConfigEntry": h3cSSHUserConfigEntry,
+       "h3cSSHUserName": h3cSSHUserName,
+       "h3cSSHUserServiceType": h3cSSHUserServiceType,
+       "h3cSSHUserAuthType": h3cSSHUserAuthType,
+       "h3cSSHUserPublicKeyName": h3cSSHUserPublicKeyName,
+       "h3cSSHUserWorkDirectory": h3cSSHUserWorkDirectory,
+       "h3cSSHUserRowStatus": h3cSSHUserRowStatus,
+       "h3cSSHUserPublicKeyName2": h3cSSHUserPublicKeyName2,
+       "h3cSSHUserPublicKeyName3": h3cSSHUserPublicKeyName3,
+       "h3cSSHUserPublicKeyName4": h3cSSHUserPublicKeyName4,
+       "h3cSSHUserPublicKeyName5": h3cSSHUserPublicKeyName5,
+       "h3cSSHUserPublicKeyName6": h3cSSHUserPublicKeyName6,
+       "h3cSSHSessionInfoTable": h3cSSHSessionInfoTable,
+       "h3cSSHSessionInfoEntry": h3cSSHSessionInfoEntry,
+       "h3cSSHSessionID": h3cSSHSessionID,
+       "h3cSSHSessionUserName": h3cSSHSessionUserName,
+       "h3cSSHSessionUserIpAddrType": h3cSSHSessionUserIpAddrType,
+       "h3cSSHSessionUserIpAddr": h3cSSHSessionUserIpAddr,
+       "h3cSSHSessionClientVersion": h3cSSHSessionClientVersion,
+       "h3cSSHSessionServiceType": h3cSSHSessionServiceType,
+       "h3cSSHSessionEncry": h3cSSHSessionEncry,
+       "h3cSSHSessionState": h3cSSHSessionState,
+       "h3cSSHServerObjForTrap": h3cSSHServerObjForTrap,
+       "h3cSSHAttemptUserName": h3cSSHAttemptUserName,
+       "h3cSSHAttemptIpAddrType": h3cSSHAttemptIpAddrType,
+       "h3cSSHAttemptIpAddr": h3cSSHAttemptIpAddr,
+       "h3cSSHUserAuthFailureReason": h3cSSHUserAuthFailureReason,
+       "h3cSSHServerNotifications": h3cSSHServerNotifications,
+       "h3cSSHServerNotificationsPrefix": h3cSSHServerNotificationsPrefix,
+       "h3cSSHUserAuthFailure": h3cSSHUserAuthFailure,
+       "h3cSSHVersionNegotiationFailure": h3cSSHVersionNegotiationFailure,
+       "h3cSSHUserLogin": h3cSSHUserLogin,
+       "h3cSSHUserLogoff": h3cSSHUserLogoff}
+)

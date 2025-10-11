@@ -1,65 +1,451 @@
+# SNMP MIB module (Juniper-INET-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Juniper-INET-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/junose/Juniper-INET-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:42:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/junose/Juniper-INET-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:06:10 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-InetAutonomousSystemNumber, InetAddressPrefixLength, InetAddressIPv6, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAutonomousSystemNumber", "InetAddressPrefixLength", "InetAddressIPv6", "InetAddressType", "InetAddress")
-juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32, Opaque = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32", "Opaque")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-juniInetMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82))
-juniInetMIB.setRevisions(('2010-08-03 09:30',))
-if mibBuilder.loadTexts: juniInetMIB.setLastUpdated('201008030930Z')
-if mibBuilder.loadTexts: juniInetMIB.setOrganization('Juniper Networks, Inc.')
-juniInetObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1))
-juniInetRoute = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1))
-juniInetStaticRouteTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1), )
-if mibBuilder.loadTexts: juniInetStaticRouteTable.setStatus('current')
-juniInetStaticRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1), ).setIndexNames((0, "Juniper-INET-MIB", "juniInetRouteDestType"), (0, "Juniper-INET-MIB", "juniInetRouteDest"), (0, "Juniper-INET-MIB", "juniInetRoutePfxLen"), (0, "Juniper-INET-MIB", "juniInetRoutePolicy"), (0, "Juniper-INET-MIB", "juniInetRouteNextHopType"), (0, "Juniper-INET-MIB", "juniInetRouteNextHop"), (0, "Juniper-INET-MIB", "juniInetRouteStaticPref"))
-if mibBuilder.loadTexts: juniInetStaticRouteEntry.setStatus('current')
-juniInetRouteDestType = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: juniInetRouteDestType.setStatus('current')
-juniInetRouteDest = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 2), InetAddress())
-if mibBuilder.loadTexts: juniInetRouteDest.setStatus('current')
-juniInetRoutePfxLen = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 3), InetAddressPrefixLength())
-if mibBuilder.loadTexts: juniInetRoutePfxLen.setStatus('current')
-juniInetRoutePolicy = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 4), ObjectIdentifier())
-if mibBuilder.loadTexts: juniInetRoutePolicy.setStatus('current')
-juniInetRouteNextHopType = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 5), InetAddressType())
-if mibBuilder.loadTexts: juniInetRouteNextHopType.setStatus('current')
-juniInetRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 6), InetAddress())
-if mibBuilder.loadTexts: juniInetRouteNextHop.setStatus('current')
-juniInetRouteStaticPref = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: juniInetRouteStaticPref.setStatus('current')
-juniInetRouteStaticRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: juniInetRouteStaticRowStatus.setStatus('current')
-juniInetRouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 9), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: juniInetRouteIfIndex.setStatus('current')
-juniInetRouteStaticStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("active", 0), ("inactive", 1), ("incomplete", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: juniInetRouteStaticStatus.setStatus('current')
-juniInetRouteStaticNextHopAS = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 11), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: juniInetRouteStaticNextHopAS.setStatus('current')
-juniInetRouteStaticMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 12), Integer32().clone(-1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: juniInetRouteStaticMetric.setStatus('current')
-juniInetRouteStaticTag = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 13), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: juniInetRouteStaticTag.setStatus('current')
-juniInetRouteStaticNullIntf = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("discard", 1), ("reject", 2))).clone('discard')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: juniInetRouteStaticNullIntf.setStatus('current')
-juniInetConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 2))
-juniInetCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 2, 1))
-juniInetGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 2, 2))
-juniInetCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 2, 1, 1)).setObjects(("Juniper-INET-MIB", "juniInetRouteGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniInetCompliance = juniInetCompliance.setStatus('current')
-juniInetRouteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 2, 2, 1)).setObjects(("Juniper-INET-MIB", "juniInetRouteStaticRowStatus"), ("Juniper-INET-MIB", "juniInetRouteIfIndex"), ("Juniper-INET-MIB", "juniInetRouteStaticStatus"), ("Juniper-INET-MIB", "juniInetRouteStaticNextHopAS"), ("Juniper-INET-MIB", "juniInetRouteStaticMetric"), ("Juniper-INET-MIB", "juniInetRouteStaticTag"), ("Juniper-INET-MIB", "juniInetRouteStaticNullIntf"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniInetRouteGroup = juniInetRouteGroup.setStatus('current')
-mibBuilder.exportSymbols("Juniper-INET-MIB", juniInetRouteStaticPref=juniInetRouteStaticPref, juniInetRoutePfxLen=juniInetRoutePfxLen, juniInetCompliances=juniInetCompliances, juniInetRouteDestType=juniInetRouteDestType, PYSNMP_MODULE_ID=juniInetMIB, juniInetStaticRouteEntry=juniInetStaticRouteEntry, juniInetCompliance=juniInetCompliance, juniInetRouteIfIndex=juniInetRouteIfIndex, juniInetRouteStaticTag=juniInetRouteStaticTag, juniInetRouteStaticStatus=juniInetRouteStaticStatus, juniInetRouteStaticMetric=juniInetRouteStaticMetric, juniInetRouteGroup=juniInetRouteGroup, juniInetRouteStaticNullIntf=juniInetRouteStaticNullIntf, juniInetRoutePolicy=juniInetRoutePolicy, juniInetRoute=juniInetRoute, juniInetObjects=juniInetObjects, juniInetConformance=juniInetConformance, juniInetRouteDest=juniInetRouteDest, juniInetRouteNextHopType=juniInetRouteNextHopType, juniInetStaticRouteTable=juniInetStaticRouteTable, juniInetGroups=juniInetGroups, juniInetMIB=juniInetMIB, juniInetRouteStaticRowStatus=juniInetRouteStaticRowStatus, juniInetRouteNextHop=juniInetRouteNextHop, juniInetRouteStaticNextHopAS=juniInetRouteStaticNextHopAS)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(InetAddress,
+ InetAddressIPv6,
+ InetAddressPrefixLength,
+ InetAddressType,
+ InetAutonomousSystemNumber) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressIPv6",
+    "InetAddressPrefixLength",
+    "InetAddressType",
+    "InetAutonomousSystemNumber")
+
+(juniMibs,) = mibBuilder.importSymbols(
+    "Juniper-MIBs",
+    "juniMibs")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ Opaque,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "Opaque",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+juniInetMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82)
+)
+if mibBuilder.loadTexts:
+    juniInetMIB.setRevisions(
+        ("2010-08-03 09:30",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JuniInetObjects_ObjectIdentity = ObjectIdentity
+juniInetObjects = _JuniInetObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1)
+)
+_JuniInetRoute_ObjectIdentity = ObjectIdentity
+juniInetRoute = _JuniInetRoute_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1)
+)
+_JuniInetStaticRouteTable_Object = MibTable
+juniInetStaticRouteTable = _JuniInetStaticRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    juniInetStaticRouteTable.setStatus("current")
+_JuniInetStaticRouteEntry_Object = MibTableRow
+juniInetStaticRouteEntry = _JuniInetStaticRouteEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1)
+)
+juniInetStaticRouteEntry.setIndexNames(
+    (0, "Juniper-INET-MIB", "juniInetRouteDestType"),
+    (0, "Juniper-INET-MIB", "juniInetRouteDest"),
+    (0, "Juniper-INET-MIB", "juniInetRoutePfxLen"),
+    (0, "Juniper-INET-MIB", "juniInetRoutePolicy"),
+    (0, "Juniper-INET-MIB", "juniInetRouteNextHopType"),
+    (0, "Juniper-INET-MIB", "juniInetRouteNextHop"),
+    (0, "Juniper-INET-MIB", "juniInetRouteStaticPref"),
+)
+if mibBuilder.loadTexts:
+    juniInetStaticRouteEntry.setStatus("current")
+_JuniInetRouteDestType_Type = InetAddressType
+_JuniInetRouteDestType_Object = MibTableColumn
+juniInetRouteDestType = _JuniInetRouteDestType_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 1),
+    _JuniInetRouteDestType_Type()
+)
+juniInetRouteDestType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    juniInetRouteDestType.setStatus("current")
+_JuniInetRouteDest_Type = InetAddress
+_JuniInetRouteDest_Object = MibTableColumn
+juniInetRouteDest = _JuniInetRouteDest_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 2),
+    _JuniInetRouteDest_Type()
+)
+juniInetRouteDest.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    juniInetRouteDest.setStatus("current")
+_JuniInetRoutePfxLen_Type = InetAddressPrefixLength
+_JuniInetRoutePfxLen_Object = MibTableColumn
+juniInetRoutePfxLen = _JuniInetRoutePfxLen_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 3),
+    _JuniInetRoutePfxLen_Type()
+)
+juniInetRoutePfxLen.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    juniInetRoutePfxLen.setStatus("current")
+_JuniInetRoutePolicy_Type = ObjectIdentifier
+_JuniInetRoutePolicy_Object = MibTableColumn
+juniInetRoutePolicy = _JuniInetRoutePolicy_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 4),
+    _JuniInetRoutePolicy_Type()
+)
+juniInetRoutePolicy.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    juniInetRoutePolicy.setStatus("current")
+_JuniInetRouteNextHopType_Type = InetAddressType
+_JuniInetRouteNextHopType_Object = MibTableColumn
+juniInetRouteNextHopType = _JuniInetRouteNextHopType_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 5),
+    _JuniInetRouteNextHopType_Type()
+)
+juniInetRouteNextHopType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    juniInetRouteNextHopType.setStatus("current")
+_JuniInetRouteNextHop_Type = InetAddress
+_JuniInetRouteNextHop_Object = MibTableColumn
+juniInetRouteNextHop = _JuniInetRouteNextHop_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 6),
+    _JuniInetRouteNextHop_Type()
+)
+juniInetRouteNextHop.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    juniInetRouteNextHop.setStatus("current")
+
+
+class _JuniInetRouteStaticPref_Type(Integer32):
+    """Custom type juniInetRouteStaticPref based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_JuniInetRouteStaticPref_Type.__name__ = "Integer32"
+_JuniInetRouteStaticPref_Object = MibTableColumn
+juniInetRouteStaticPref = _JuniInetRouteStaticPref_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 7),
+    _JuniInetRouteStaticPref_Type()
+)
+juniInetRouteStaticPref.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    juniInetRouteStaticPref.setStatus("current")
+_JuniInetRouteStaticRowStatus_Type = RowStatus
+_JuniInetRouteStaticRowStatus_Object = MibTableColumn
+juniInetRouteStaticRowStatus = _JuniInetRouteStaticRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 8),
+    _JuniInetRouteStaticRowStatus_Type()
+)
+juniInetRouteStaticRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    juniInetRouteStaticRowStatus.setStatus("current")
+_JuniInetRouteIfIndex_Type = InterfaceIndexOrZero
+_JuniInetRouteIfIndex_Object = MibTableColumn
+juniInetRouteIfIndex = _JuniInetRouteIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 9),
+    _JuniInetRouteIfIndex_Type()
+)
+juniInetRouteIfIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    juniInetRouteIfIndex.setStatus("current")
+
+
+class _JuniInetRouteStaticStatus_Type(Integer32):
+    """Custom type juniInetRouteStaticStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 0),
+          ("inactive", 1),
+          ("incomplete", 2))
+    )
+
+
+_JuniInetRouteStaticStatus_Type.__name__ = "Integer32"
+_JuniInetRouteStaticStatus_Object = MibTableColumn
+juniInetRouteStaticStatus = _JuniInetRouteStaticStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 10),
+    _JuniInetRouteStaticStatus_Type()
+)
+juniInetRouteStaticStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    juniInetRouteStaticStatus.setStatus("current")
+
+
+class _JuniInetRouteStaticNextHopAS_Type(Integer32):
+    """Custom type juniInetRouteStaticNextHopAS based on Integer32"""
+    defaultValue = 0
+
+
+_JuniInetRouteStaticNextHopAS_Type.__name__ = "Integer32"
+_JuniInetRouteStaticNextHopAS_Object = MibTableColumn
+juniInetRouteStaticNextHopAS = _JuniInetRouteStaticNextHopAS_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 11),
+    _JuniInetRouteStaticNextHopAS_Type()
+)
+juniInetRouteStaticNextHopAS.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    juniInetRouteStaticNextHopAS.setStatus("current")
+
+
+class _JuniInetRouteStaticMetric_Type(Integer32):
+    """Custom type juniInetRouteStaticMetric based on Integer32"""
+    defaultValue = -1
+
+
+_JuniInetRouteStaticMetric_Type.__name__ = "Integer32"
+_JuniInetRouteStaticMetric_Object = MibTableColumn
+juniInetRouteStaticMetric = _JuniInetRouteStaticMetric_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 12),
+    _JuniInetRouteStaticMetric_Type()
+)
+juniInetRouteStaticMetric.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    juniInetRouteStaticMetric.setStatus("current")
+
+
+class _JuniInetRouteStaticTag_Type(Unsigned32):
+    """Custom type juniInetRouteStaticTag based on Unsigned32"""
+    defaultValue = 0
+
+
+_JuniInetRouteStaticTag_Type.__name__ = "Unsigned32"
+_JuniInetRouteStaticTag_Object = MibTableColumn
+juniInetRouteStaticTag = _JuniInetRouteStaticTag_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 13),
+    _JuniInetRouteStaticTag_Type()
+)
+juniInetRouteStaticTag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    juniInetRouteStaticTag.setStatus("current")
+
+
+class _JuniInetRouteStaticNullIntf_Type(Integer32):
+    """Custom type juniInetRouteStaticNullIntf based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("discard", 1),
+          ("reject", 2))
+    )
+
+
+_JuniInetRouteStaticNullIntf_Type.__name__ = "Integer32"
+_JuniInetRouteStaticNullIntf_Object = MibTableColumn
+juniInetRouteStaticNullIntf = _JuniInetRouteStaticNullIntf_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 1, 1, 1, 1, 14),
+    _JuniInetRouteStaticNullIntf_Type()
+)
+juniInetRouteStaticNullIntf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    juniInetRouteStaticNullIntf.setStatus("current")
+_JuniInetConformance_ObjectIdentity = ObjectIdentity
+juniInetConformance = _JuniInetConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 2)
+)
+_JuniInetCompliances_ObjectIdentity = ObjectIdentity
+juniInetCompliances = _JuniInetCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 2, 1)
+)
+_JuniInetGroups_ObjectIdentity = ObjectIdentity
+juniInetGroups = _JuniInetGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 2, 2)
+)
+
+# Managed Objects groups
+
+juniInetRouteGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 2, 2, 1)
+)
+juniInetRouteGroup.setObjects(
+      *(("Juniper-INET-MIB", "juniInetRouteStaticRowStatus"),
+        ("Juniper-INET-MIB", "juniInetRouteIfIndex"),
+        ("Juniper-INET-MIB", "juniInetRouteStaticStatus"),
+        ("Juniper-INET-MIB", "juniInetRouteStaticNextHopAS"),
+        ("Juniper-INET-MIB", "juniInetRouteStaticMetric"),
+        ("Juniper-INET-MIB", "juniInetRouteStaticTag"),
+        ("Juniper-INET-MIB", "juniInetRouteStaticNullIntf"))
+)
+if mibBuilder.loadTexts:
+    juniInetRouteGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+juniInetCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 82, 2, 1, 1)
+)
+juniInetCompliance.setObjects(
+    ("Juniper-INET-MIB", "juniInetRouteGroup")
+)
+if mibBuilder.loadTexts:
+    juniInetCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Juniper-INET-MIB",
+    **{"juniInetMIB": juniInetMIB,
+       "juniInetObjects": juniInetObjects,
+       "juniInetRoute": juniInetRoute,
+       "juniInetStaticRouteTable": juniInetStaticRouteTable,
+       "juniInetStaticRouteEntry": juniInetStaticRouteEntry,
+       "juniInetRouteDestType": juniInetRouteDestType,
+       "juniInetRouteDest": juniInetRouteDest,
+       "juniInetRoutePfxLen": juniInetRoutePfxLen,
+       "juniInetRoutePolicy": juniInetRoutePolicy,
+       "juniInetRouteNextHopType": juniInetRouteNextHopType,
+       "juniInetRouteNextHop": juniInetRouteNextHop,
+       "juniInetRouteStaticPref": juniInetRouteStaticPref,
+       "juniInetRouteStaticRowStatus": juniInetRouteStaticRowStatus,
+       "juniInetRouteIfIndex": juniInetRouteIfIndex,
+       "juniInetRouteStaticStatus": juniInetRouteStaticStatus,
+       "juniInetRouteStaticNextHopAS": juniInetRouteStaticNextHopAS,
+       "juniInetRouteStaticMetric": juniInetRouteStaticMetric,
+       "juniInetRouteStaticTag": juniInetRouteStaticTag,
+       "juniInetRouteStaticNullIntf": juniInetRouteStaticNullIntf,
+       "juniInetConformance": juniInetConformance,
+       "juniInetCompliances": juniInetCompliances,
+       "juniInetCompliance": juniInetCompliance,
+       "juniInetGroups": juniInetGroups,
+       "juniInetRouteGroup": juniInetRouteGroup}
+)

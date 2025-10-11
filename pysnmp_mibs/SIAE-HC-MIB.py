@@ -1,37 +1,308 @@
+# SNMP MIB module (SIAE-HC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SIAE-HC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/siaemic/SIAE-HC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:06 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/siaemic/SIAE-HC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:14:12 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-headerCompression = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 79))
-headerCompression.setRevisions(('2014-10-07 00:00', '2014-03-31 00:00',))
-if mibBuilder.loadTexts: headerCompression.setLastUpdated('201410070000Z')
-if mibBuilder.loadTexts: headerCompression.setOrganization('SIAE MICROELETTRONICA spa')
-headerCompressionMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: headerCompressionMibVersion.setStatus('current')
-headerCompressionTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2), )
-if mibBuilder.loadTexts: headerCompressionTable.setStatus('current')
-headerCompressionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1), ).setIndexNames((0, "SIAE-HC-MIB", "headerCompressionIndex"))
-if mibBuilder.loadTexts: headerCompressionEntry.setStatus('current')
-headerCompressionIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: headerCompressionIndex.setStatus('current')
-headerCompressionAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: headerCompressionAdminStatus.setStatus('current')
-headerCompressionContextDepth = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("ctx16bytes", 1), ("ctx32bytes", 2), ("ctx64byets", 3), ("ctx128bytes", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: headerCompressionContextDepth.setStatus('current')
-headerCompressionParsingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("auto", 1), ("semiMpls", 2), ("semiIPv4IPv6", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: headerCompressionParsingMode.setStatus('current')
-headerCompressionTagEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: headerCompressionTagEnable.setStatus('current')
-headerCompressionRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: headerCompressionRowStatus.setStatus('current')
-mibBuilder.exportSymbols("SIAE-HC-MIB", headerCompressionContextDepth=headerCompressionContextDepth, headerCompressionIndex=headerCompressionIndex, headerCompressionAdminStatus=headerCompressionAdminStatus, headerCompression=headerCompression, headerCompressionTagEnable=headerCompressionTagEnable, headerCompressionParsingMode=headerCompressionParsingMode, headerCompressionTable=headerCompressionTable, headerCompressionMibVersion=headerCompressionMibVersion, headerCompressionRowStatus=headerCompressionRowStatus, PYSNMP_MODULE_ID=headerCompression, headerCompressionEntry=headerCompressionEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(siaeMib,) = mibBuilder.importSymbols(
+    "SIAE-TREE-MIB",
+    "siaeMib")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+headerCompression = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 79)
+)
+if mibBuilder.loadTexts:
+    headerCompression.setRevisions(
+        ("2014-10-07 00:00",
+         "2014-03-31 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HeaderCompressionMibVersion_Type = Integer32
+_HeaderCompressionMibVersion_Object = MibScalar
+headerCompressionMibVersion = _HeaderCompressionMibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 79, 1),
+    _HeaderCompressionMibVersion_Type()
+)
+headerCompressionMibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    headerCompressionMibVersion.setStatus("current")
+_HeaderCompressionTable_Object = MibTable
+headerCompressionTable = _HeaderCompressionTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2)
+)
+if mibBuilder.loadTexts:
+    headerCompressionTable.setStatus("current")
+_HeaderCompressionEntry_Object = MibTableRow
+headerCompressionEntry = _HeaderCompressionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1)
+)
+headerCompressionEntry.setIndexNames(
+    (0, "SIAE-HC-MIB", "headerCompressionIndex"),
+)
+if mibBuilder.loadTexts:
+    headerCompressionEntry.setStatus("current")
+_HeaderCompressionIndex_Type = Integer32
+_HeaderCompressionIndex_Object = MibTableColumn
+headerCompressionIndex = _HeaderCompressionIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 1),
+    _HeaderCompressionIndex_Type()
+)
+headerCompressionIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    headerCompressionIndex.setStatus("current")
+
+
+class _HeaderCompressionAdminStatus_Type(Integer32):
+    """Custom type headerCompressionAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2))
+    )
+
+
+_HeaderCompressionAdminStatus_Type.__name__ = "Integer32"
+_HeaderCompressionAdminStatus_Object = MibTableColumn
+headerCompressionAdminStatus = _HeaderCompressionAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 2),
+    _HeaderCompressionAdminStatus_Type()
+)
+headerCompressionAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    headerCompressionAdminStatus.setStatus("current")
+
+
+class _HeaderCompressionContextDepth_Type(Integer32):
+    """Custom type headerCompressionContextDepth based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ctx16bytes", 1),
+          ("ctx32bytes", 2),
+          ("ctx64byets", 3),
+          ("ctx128bytes", 4))
+    )
+
+
+_HeaderCompressionContextDepth_Type.__name__ = "Integer32"
+_HeaderCompressionContextDepth_Object = MibTableColumn
+headerCompressionContextDepth = _HeaderCompressionContextDepth_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 3),
+    _HeaderCompressionContextDepth_Type()
+)
+headerCompressionContextDepth.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    headerCompressionContextDepth.setStatus("current")
+
+
+class _HeaderCompressionParsingMode_Type(Integer32):
+    """Custom type headerCompressionParsingMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 1),
+          ("semiMpls", 2),
+          ("semiIPv4IPv6", 3))
+    )
+
+
+_HeaderCompressionParsingMode_Type.__name__ = "Integer32"
+_HeaderCompressionParsingMode_Object = MibTableColumn
+headerCompressionParsingMode = _HeaderCompressionParsingMode_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 4),
+    _HeaderCompressionParsingMode_Type()
+)
+headerCompressionParsingMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    headerCompressionParsingMode.setStatus("current")
+
+
+class _HeaderCompressionTagEnable_Type(Integer32):
+    """Custom type headerCompressionTagEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 2))
+    )
+
+
+_HeaderCompressionTagEnable_Type.__name__ = "Integer32"
+_HeaderCompressionTagEnable_Object = MibTableColumn
+headerCompressionTagEnable = _HeaderCompressionTagEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 5),
+    _HeaderCompressionTagEnable_Type()
+)
+headerCompressionTagEnable.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    headerCompressionTagEnable.setStatus("current")
+_HeaderCompressionRowStatus_Type = RowStatus
+_HeaderCompressionRowStatus_Object = MibTableColumn
+headerCompressionRowStatus = _HeaderCompressionRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 79, 2, 1, 6),
+    _HeaderCompressionRowStatus_Type()
+)
+headerCompressionRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    headerCompressionRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SIAE-HC-MIB",
+    **{"headerCompression": headerCompression,
+       "headerCompressionMibVersion": headerCompressionMibVersion,
+       "headerCompressionTable": headerCompressionTable,
+       "headerCompressionEntry": headerCompressionEntry,
+       "headerCompressionIndex": headerCompressionIndex,
+       "headerCompressionAdminStatus": headerCompressionAdminStatus,
+       "headerCompressionContextDepth": headerCompressionContextDepth,
+       "headerCompressionParsingMode": headerCompressionParsingMode,
+       "headerCompressionTagEnable": headerCompressionTagEnable,
+       "headerCompressionRowStatus": headerCompressionRowStatus}
+)

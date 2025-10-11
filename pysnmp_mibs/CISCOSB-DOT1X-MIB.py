@@ -1,279 +1,1903 @@
+# SNMP MIB module (CISCOSB-DOT1X-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCOSB-DOT1X-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ciscosb/CISCOSB-DOT1X-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:56:15 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ciscosb/CISCOSB-DOT1X-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:40:51 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-switch001, = mibBuilder.importSymbols("CISCOSB-MIB", "switch001")
-dot1xPaePortNumber, dot1xAuthSessionStatsEntry, PaeControlledPortStatus = mibBuilder.importSymbols("IEEE8021-PAE-MIB", "dot1xPaePortNumber", "dot1xAuthSessionStatsEntry", "PaeControlledPortStatus")
-ieee8021XPaePortNumber, = mibBuilder.importSymbols("IEEE8021X-PAE-MIB", "ieee8021XPaePortNumber")
-VlanIndex, PortList, dot1qFdbId = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanIndex", "PortList", "dot1qFdbId")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
-rldot1x = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95))
-rldot1x.setRevisions(('2007-01-02 00:00',))
-if mibBuilder.loadTexts: rldot1x.setLastUpdated('200701020000Z')
-if mibBuilder.loadTexts: rldot1x.setOrganization('Cisco Systems, Inc.')
-rldot1xMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xMibVersion.setStatus('current')
-rldot1xExtAuthSessionStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 2), )
-if mibBuilder.loadTexts: rldot1xExtAuthSessionStatsTable.setStatus('current')
-rldot1xExtAuthSessionStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 2, 1), )
-dot1xAuthSessionStatsEntry.registerAugmentions(("CISCOSB-DOT1X-MIB", "rldot1xExtAuthSessionStatsEntry"))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(switch001,) = mibBuilder.importSymbols(
+    "CISCOSB-MIB",
+    "switch001")
+
+(PaeControlledPortStatus,
+ dot1xAuthSessionStatsEntry,
+ dot1xPaePortNumber) = mibBuilder.importSymbols(
+    "IEEE8021-PAE-MIB",
+    "PaeControlledPortStatus",
+    "dot1xAuthSessionStatsEntry",
+    "dot1xPaePortNumber")
+
+(ieee8021XPaePortNumber,) = mibBuilder.importSymbols(
+    "IEEE8021X-PAE-MIB",
+    "ieee8021XPaePortNumber")
+
+(PortList,
+ VlanIndex,
+ dot1qFdbId) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "PortList",
+    "VlanIndex",
+    "dot1qFdbId")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rldot1x = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95)
+)
+if mibBuilder.loadTexts:
+    rldot1x.setRevisions(
+        ("2007-01-02 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Rldot1xMibVersion_Type = Integer32
+_Rldot1xMibVersion_Object = MibScalar
+rldot1xMibVersion = _Rldot1xMibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 1),
+    _Rldot1xMibVersion_Type()
+)
+rldot1xMibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xMibVersion.setStatus("current")
+_Rldot1xExtAuthSessionStatsTable_Object = MibTable
+rldot1xExtAuthSessionStatsTable = _Rldot1xExtAuthSessionStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 2)
+)
+if mibBuilder.loadTexts:
+    rldot1xExtAuthSessionStatsTable.setStatus("current")
+_Rldot1xExtAuthSessionStatsEntry_Object = MibTableRow
+rldot1xExtAuthSessionStatsEntry = _Rldot1xExtAuthSessionStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 2, 1)
+)
+if mibBuilder.loadTexts:
+    rldot1xExtAuthSessionStatsEntry.setStatus("current")
+
+
+class _RlDot1xAuthSessionAuthenticMethod_Type(Integer32):
+    """Custom type rlDot1xAuthSessionAuthenticMethod based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("remoteAuthServer", 1),
+          ("localAuthServer", 2),
+          ("none", 3))
+    )
+
+
+_RlDot1xAuthSessionAuthenticMethod_Type.__name__ = "Integer32"
+_RlDot1xAuthSessionAuthenticMethod_Object = MibTableColumn
+rlDot1xAuthSessionAuthenticMethod = _RlDot1xAuthSessionAuthenticMethod_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 2, 1, 1),
+    _RlDot1xAuthSessionAuthenticMethod_Type()
+)
+rlDot1xAuthSessionAuthenticMethod.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDot1xAuthSessionAuthenticMethod.setStatus("current")
+_Rldot1xGuestVlanSupported_Type = TruthValue
+_Rldot1xGuestVlanSupported_Object = MibScalar
+rldot1xGuestVlanSupported = _Rldot1xGuestVlanSupported_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 3),
+    _Rldot1xGuestVlanSupported_Type()
+)
+rldot1xGuestVlanSupported.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xGuestVlanSupported.setStatus("current")
+_Rldot1xGuestVlanVID_Type = VlanIndex
+_Rldot1xGuestVlanVID_Object = MibScalar
+rldot1xGuestVlanVID = _Rldot1xGuestVlanVID_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 4),
+    _Rldot1xGuestVlanVID_Type()
+)
+rldot1xGuestVlanVID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xGuestVlanVID.setStatus("current")
+_Rldot1xGuestVlanPorts_Type = PortList
+_Rldot1xGuestVlanPorts_Object = MibScalar
+rldot1xGuestVlanPorts = _Rldot1xGuestVlanPorts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 5),
+    _Rldot1xGuestVlanPorts_Type()
+)
+rldot1xGuestVlanPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xGuestVlanPorts.setStatus("current")
+_Rldot1xUnAuthenticatedVlanSupported_Type = TruthValue
+_Rldot1xUnAuthenticatedVlanSupported_Object = MibScalar
+rldot1xUnAuthenticatedVlanSupported = _Rldot1xUnAuthenticatedVlanSupported_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 6),
+    _Rldot1xUnAuthenticatedVlanSupported_Type()
+)
+rldot1xUnAuthenticatedVlanSupported.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xUnAuthenticatedVlanSupported.setStatus("current")
+_Rldot1xUnAuthenticatedVlanTable_Object = MibTable
+rldot1xUnAuthenticatedVlanTable = _Rldot1xUnAuthenticatedVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 7)
+)
+if mibBuilder.loadTexts:
+    rldot1xUnAuthenticatedVlanTable.setStatus("current")
+_Rldot1xUnAuthenticatedVlanEntry_Object = MibTableRow
+rldot1xUnAuthenticatedVlanEntry = _Rldot1xUnAuthenticatedVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 7, 1)
+)
+rldot1xUnAuthenticatedVlanEntry.setIndexNames(
+    (0, "Q-BRIDGE-MIB", "dot1qFdbId"),
+)
+if mibBuilder.loadTexts:
+    rldot1xUnAuthenticatedVlanEntry.setStatus("current")
+_Rldot1xUnAuthenticatedVlanStatus_Type = RowStatus
+_Rldot1xUnAuthenticatedVlanStatus_Object = MibTableColumn
+rldot1xUnAuthenticatedVlanStatus = _Rldot1xUnAuthenticatedVlanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 7, 1, 1),
+    _Rldot1xUnAuthenticatedVlanStatus_Type()
+)
+rldot1xUnAuthenticatedVlanStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    rldot1xUnAuthenticatedVlanStatus.setStatus("current")
+_Rldot1xUserBasedVlanSupported_Type = TruthValue
+_Rldot1xUserBasedVlanSupported_Object = MibScalar
+rldot1xUserBasedVlanSupported = _Rldot1xUserBasedVlanSupported_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 8),
+    _Rldot1xUserBasedVlanSupported_Type()
+)
+rldot1xUserBasedVlanSupported.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xUserBasedVlanSupported.setStatus("current")
+_Rldot1xUserBasedVlanPorts_Type = PortList
+_Rldot1xUserBasedVlanPorts_Object = MibScalar
+rldot1xUserBasedVlanPorts = _Rldot1xUserBasedVlanPorts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 9),
+    _Rldot1xUserBasedVlanPorts_Type()
+)
+rldot1xUserBasedVlanPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xUserBasedVlanPorts.setStatus("current")
+_Rldot1xAuthenticationPortTable_Object = MibTable
+rldot1xAuthenticationPortTable = _Rldot1xAuthenticationPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10)
+)
+if mibBuilder.loadTexts:
+    rldot1xAuthenticationPortTable.setStatus("current")
+_Rldot1xAuthenticationPortEntry_Object = MibTableRow
+rldot1xAuthenticationPortEntry = _Rldot1xAuthenticationPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1)
+)
+rldot1xAuthenticationPortEntry.setIndexNames(
+    (0, "IEEE8021-PAE-MIB", "dot1xPaePortNumber"),
+)
+if mibBuilder.loadTexts:
+    rldot1xAuthenticationPortEntry.setStatus("current")
+
+
+class _Rldot1xAuthenticationPortMethod_Type(Integer32):
+    """Custom type rldot1xAuthenticationPortMethod based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eapolOnly", 1),
+          ("macAndEapol", 2),
+          ("macOnly", 3),
+          ("webOnly", 4),
+          ("webAndEapol", 5),
+          ("webAndMac", 6),
+          ("webAndMacAndEapol", 7))
+    )
+
+
+_Rldot1xAuthenticationPortMethod_Type.__name__ = "Integer32"
+_Rldot1xAuthenticationPortMethod_Object = MibTableColumn
+rldot1xAuthenticationPortMethod = _Rldot1xAuthenticationPortMethod_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 1),
+    _Rldot1xAuthenticationPortMethod_Type()
+)
+rldot1xAuthenticationPortMethod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xAuthenticationPortMethod.setStatus("current")
+_Rldot1xRadiusAttrVlanIdEnabled_Type = TruthValue
+_Rldot1xRadiusAttrVlanIdEnabled_Object = MibTableColumn
+rldot1xRadiusAttrVlanIdEnabled = _Rldot1xRadiusAttrVlanIdEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 2),
+    _Rldot1xRadiusAttrVlanIdEnabled_Type()
+)
+rldot1xRadiusAttrVlanIdEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xRadiusAttrVlanIdEnabled.setStatus("current")
+_Rldot1xRadiusAttAclNameEnabled_Type = TruthValue
+_Rldot1xRadiusAttAclNameEnabled_Object = MibTableColumn
+rldot1xRadiusAttAclNameEnabled = _Rldot1xRadiusAttAclNameEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 3),
+    _Rldot1xRadiusAttAclNameEnabled_Type()
+)
+rldot1xRadiusAttAclNameEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xRadiusAttAclNameEnabled.setStatus("current")
+
+
+class _Rldot1xTimeBasedName_Type(SnmpAdminString):
+    """Custom type rldot1xTimeBasedName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Rldot1xTimeBasedName_Type.__name__ = "SnmpAdminString"
+_Rldot1xTimeBasedName_Object = MibTableColumn
+rldot1xTimeBasedName = _Rldot1xTimeBasedName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 4),
+    _Rldot1xTimeBasedName_Type()
+)
+rldot1xTimeBasedName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xTimeBasedName.setStatus("current")
+_Rldot1xTimeBasedActive_Type = TruthValue
+_Rldot1xTimeBasedActive_Object = MibTableColumn
+rldot1xTimeBasedActive = _Rldot1xTimeBasedActive_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 5),
+    _Rldot1xTimeBasedActive_Type()
+)
+rldot1xTimeBasedActive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xTimeBasedActive.setStatus("current")
+
+
+class _Rldot1xRadiusAttrVlanIdentifier_Type(VlanIndex):
+    """Custom type rldot1xRadiusAttrVlanIdentifier based on VlanIndex"""
+    defaultValue = 0
+
+
+_Rldot1xRadiusAttrVlanIdentifier_Type.__name__ = "VlanIndex"
+_Rldot1xRadiusAttrVlanIdentifier_Object = MibTableColumn
+rldot1xRadiusAttrVlanIdentifier = _Rldot1xRadiusAttrVlanIdentifier_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 6),
+    _Rldot1xRadiusAttrVlanIdentifier_Type()
+)
+rldot1xRadiusAttrVlanIdentifier.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xRadiusAttrVlanIdentifier.setStatus("current")
+
+
+class _Rldot1xMaxHosts_Type(Unsigned32):
+    """Custom type rldot1xMaxHosts based on Unsigned32"""
+    defaultValue = 0
+
+
+_Rldot1xMaxHosts_Type.__name__ = "Unsigned32"
+_Rldot1xMaxHosts_Object = MibTableColumn
+rldot1xMaxHosts = _Rldot1xMaxHosts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 7),
+    _Rldot1xMaxHosts_Type()
+)
+rldot1xMaxHosts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMaxHosts.setStatus("current")
+
+
+class _Rldot1xMaxLoginAttempts_Type(Integer32):
+    """Custom type rldot1xMaxLoginAttempts based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10),
+    )
+
+
+_Rldot1xMaxLoginAttempts_Type.__name__ = "Integer32"
+_Rldot1xMaxLoginAttempts_Object = MibTableColumn
+rldot1xMaxLoginAttempts = _Rldot1xMaxLoginAttempts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 8),
+    _Rldot1xMaxLoginAttempts_Type()
+)
+rldot1xMaxLoginAttempts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMaxLoginAttempts.setStatus("current")
+
+
+class _Rldot1xTimeoutSilencePeriod_Type(Integer32):
+    """Custom type rldot1xTimeoutSilencePeriod based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Rldot1xTimeoutSilencePeriod_Type.__name__ = "Integer32"
+_Rldot1xTimeoutSilencePeriod_Object = MibTableColumn
+rldot1xTimeoutSilencePeriod = _Rldot1xTimeoutSilencePeriod_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 9),
+    _Rldot1xTimeoutSilencePeriod_Type()
+)
+rldot1xTimeoutSilencePeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xTimeoutSilencePeriod.setStatus("current")
+_Rldot1xNumOfAuthorizedHosts_Type = Integer32
+_Rldot1xNumOfAuthorizedHosts_Object = MibTableColumn
+rldot1xNumOfAuthorizedHosts = _Rldot1xNumOfAuthorizedHosts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 10),
+    _Rldot1xNumOfAuthorizedHosts_Type()
+)
+rldot1xNumOfAuthorizedHosts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xNumOfAuthorizedHosts.setStatus("current")
+
+
+class _Rldot1xAuthenticationOpenEnabled_Type(TruthValue):
+    """Custom type rldot1xAuthenticationOpenEnabled based on TruthValue"""
+    defaultValue = 2
+
+
+_Rldot1xAuthenticationOpenEnabled_Type.__name__ = "TruthValue"
+_Rldot1xAuthenticationOpenEnabled_Object = MibTableColumn
+rldot1xAuthenticationOpenEnabled = _Rldot1xAuthenticationOpenEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 11),
+    _Rldot1xAuthenticationOpenEnabled_Type()
+)
+rldot1xAuthenticationOpenEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xAuthenticationOpenEnabled.setStatus("current")
+
+
+class _Rldot1xAuthenticationOperatingControlMode_Type(Integer32):
+    """Custom type rldot1xAuthenticationOperatingControlMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("auto", 2),
+          ("forceAuthorized", 3),
+          ("forceUnauthorized", 4),
+          ("macBased", 5))
+    )
+
+
+_Rldot1xAuthenticationOperatingControlMode_Type.__name__ = "Integer32"
+_Rldot1xAuthenticationOperatingControlMode_Object = MibTableColumn
+rldot1xAuthenticationOperatingControlMode = _Rldot1xAuthenticationOperatingControlMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 12),
+    _Rldot1xAuthenticationOperatingControlMode_Type()
+)
+rldot1xAuthenticationOperatingControlMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthenticationOperatingControlMode.setStatus("current")
+_Rldot1xAuthMultiStatsTable_Object = MibTable
+rldot1xAuthMultiStatsTable = _Rldot1xAuthMultiStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11)
+)
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiStatsTable.setStatus("current")
+_Rldot1xAuthMultiStatsEntry_Object = MibTableRow
+rldot1xAuthMultiStatsEntry = _Rldot1xAuthMultiStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1)
+)
+rldot1xAuthMultiStatsEntry.setIndexNames(
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiStatsPortNumber"),
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiStatsSourceMac"),
+)
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiStatsEntry.setStatus("current")
+_Rldot1xAuthMultiStatsPortNumber_Type = Integer32
+_Rldot1xAuthMultiStatsPortNumber_Object = MibTableColumn
+rldot1xAuthMultiStatsPortNumber = _Rldot1xAuthMultiStatsPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 1),
+    _Rldot1xAuthMultiStatsPortNumber_Type()
+)
+rldot1xAuthMultiStatsPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiStatsPortNumber.setStatus("current")
+_Rldot1xAuthMultiStatsSourceMac_Type = MacAddress
+_Rldot1xAuthMultiStatsSourceMac_Object = MibTableColumn
+rldot1xAuthMultiStatsSourceMac = _Rldot1xAuthMultiStatsSourceMac_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 2),
+    _Rldot1xAuthMultiStatsSourceMac_Type()
+)
+rldot1xAuthMultiStatsSourceMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiStatsSourceMac.setStatus("current")
+_Rldot1xAuthMultiEapolFramesRx_Type = Counter32
+_Rldot1xAuthMultiEapolFramesRx_Object = MibTableColumn
+rldot1xAuthMultiEapolFramesRx = _Rldot1xAuthMultiEapolFramesRx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 3),
+    _Rldot1xAuthMultiEapolFramesRx_Type()
+)
+rldot1xAuthMultiEapolFramesRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiEapolFramesRx.setStatus("current")
+_Rldot1xAuthMultiEapolFramesTx_Type = Counter32
+_Rldot1xAuthMultiEapolFramesTx_Object = MibTableColumn
+rldot1xAuthMultiEapolFramesTx = _Rldot1xAuthMultiEapolFramesTx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 4),
+    _Rldot1xAuthMultiEapolFramesTx_Type()
+)
+rldot1xAuthMultiEapolFramesTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiEapolFramesTx.setStatus("current")
+_Rldot1xAuthMultiEapolStartFramesRx_Type = Counter32
+_Rldot1xAuthMultiEapolStartFramesRx_Object = MibTableColumn
+rldot1xAuthMultiEapolStartFramesRx = _Rldot1xAuthMultiEapolStartFramesRx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 5),
+    _Rldot1xAuthMultiEapolStartFramesRx_Type()
+)
+rldot1xAuthMultiEapolStartFramesRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiEapolStartFramesRx.setStatus("current")
+_Rldot1xAuthMultiEapolLogoffFramesRx_Type = Counter32
+_Rldot1xAuthMultiEapolLogoffFramesRx_Object = MibTableColumn
+rldot1xAuthMultiEapolLogoffFramesRx = _Rldot1xAuthMultiEapolLogoffFramesRx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 6),
+    _Rldot1xAuthMultiEapolLogoffFramesRx_Type()
+)
+rldot1xAuthMultiEapolLogoffFramesRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiEapolLogoffFramesRx.setStatus("current")
+_Rldot1xAuthMultiEapolRespIdFramesRx_Type = Counter32
+_Rldot1xAuthMultiEapolRespIdFramesRx_Object = MibTableColumn
+rldot1xAuthMultiEapolRespIdFramesRx = _Rldot1xAuthMultiEapolRespIdFramesRx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 7),
+    _Rldot1xAuthMultiEapolRespIdFramesRx_Type()
+)
+rldot1xAuthMultiEapolRespIdFramesRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiEapolRespIdFramesRx.setStatus("current")
+_Rldot1xAuthMultiEapolRespFramesRx_Type = Counter32
+_Rldot1xAuthMultiEapolRespFramesRx_Object = MibTableColumn
+rldot1xAuthMultiEapolRespFramesRx = _Rldot1xAuthMultiEapolRespFramesRx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 8),
+    _Rldot1xAuthMultiEapolRespFramesRx_Type()
+)
+rldot1xAuthMultiEapolRespFramesRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiEapolRespFramesRx.setStatus("current")
+_Rldot1xAuthMultiEapolReqIdFramesTx_Type = Counter32
+_Rldot1xAuthMultiEapolReqIdFramesTx_Object = MibTableColumn
+rldot1xAuthMultiEapolReqIdFramesTx = _Rldot1xAuthMultiEapolReqIdFramesTx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 9),
+    _Rldot1xAuthMultiEapolReqIdFramesTx_Type()
+)
+rldot1xAuthMultiEapolReqIdFramesTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiEapolReqIdFramesTx.setStatus("current")
+_Rldot1xAuthMultiEapolReqFramesTx_Type = Counter32
+_Rldot1xAuthMultiEapolReqFramesTx_Object = MibTableColumn
+rldot1xAuthMultiEapolReqFramesTx = _Rldot1xAuthMultiEapolReqFramesTx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 10),
+    _Rldot1xAuthMultiEapolReqFramesTx_Type()
+)
+rldot1xAuthMultiEapolReqFramesTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiEapolReqFramesTx.setStatus("current")
+_Rldot1xAuthMultiInvalidEapolFramesRx_Type = Counter32
+_Rldot1xAuthMultiInvalidEapolFramesRx_Object = MibTableColumn
+rldot1xAuthMultiInvalidEapolFramesRx = _Rldot1xAuthMultiInvalidEapolFramesRx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 11),
+    _Rldot1xAuthMultiInvalidEapolFramesRx_Type()
+)
+rldot1xAuthMultiInvalidEapolFramesRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiInvalidEapolFramesRx.setStatus("current")
+_Rldot1xAuthMultiEapLengthErrorFramesRx_Type = Counter32
+_Rldot1xAuthMultiEapLengthErrorFramesRx_Object = MibTableColumn
+rldot1xAuthMultiEapLengthErrorFramesRx = _Rldot1xAuthMultiEapLengthErrorFramesRx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 12),
+    _Rldot1xAuthMultiEapLengthErrorFramesRx_Type()
+)
+rldot1xAuthMultiEapLengthErrorFramesRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiEapLengthErrorFramesRx.setStatus("current")
+_Rldot1xAuthMultiDiagTable_Object = MibTable
+rldot1xAuthMultiDiagTable = _Rldot1xAuthMultiDiagTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12)
+)
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiDiagTable.setStatus("current")
+_Rldot1xAuthMultiDiagEntry_Object = MibTableRow
+rldot1xAuthMultiDiagEntry = _Rldot1xAuthMultiDiagEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1)
+)
+rldot1xAuthMultiDiagEntry.setIndexNames(
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiDiagPortNumber"),
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiDiagSourceMac"),
+)
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiDiagEntry.setStatus("current")
+_Rldot1xAuthMultiDiagPortNumber_Type = Integer32
+_Rldot1xAuthMultiDiagPortNumber_Object = MibTableColumn
+rldot1xAuthMultiDiagPortNumber = _Rldot1xAuthMultiDiagPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 1),
+    _Rldot1xAuthMultiDiagPortNumber_Type()
+)
+rldot1xAuthMultiDiagPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiDiagPortNumber.setStatus("current")
+_Rldot1xAuthMultiDiagSourceMac_Type = MacAddress
+_Rldot1xAuthMultiDiagSourceMac_Object = MibTableColumn
+rldot1xAuthMultiDiagSourceMac = _Rldot1xAuthMultiDiagSourceMac_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 2),
+    _Rldot1xAuthMultiDiagSourceMac_Type()
+)
+rldot1xAuthMultiDiagSourceMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiDiagSourceMac.setStatus("current")
+_Rldot1xAuthMultiEntersConnecting_Type = Counter32
+_Rldot1xAuthMultiEntersConnecting_Object = MibTableColumn
+rldot1xAuthMultiEntersConnecting = _Rldot1xAuthMultiEntersConnecting_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 3),
+    _Rldot1xAuthMultiEntersConnecting_Type()
+)
+rldot1xAuthMultiEntersConnecting.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiEntersConnecting.setStatus("current")
+_Rldot1xAuthMultiEntersAuthenticating_Type = Counter32
+_Rldot1xAuthMultiEntersAuthenticating_Object = MibTableColumn
+rldot1xAuthMultiEntersAuthenticating = _Rldot1xAuthMultiEntersAuthenticating_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 4),
+    _Rldot1xAuthMultiEntersAuthenticating_Type()
+)
+rldot1xAuthMultiEntersAuthenticating.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiEntersAuthenticating.setStatus("current")
+_Rldot1xAuthMultiAuthSuccessWhileAuthenticating_Type = Counter32
+_Rldot1xAuthMultiAuthSuccessWhileAuthenticating_Object = MibTableColumn
+rldot1xAuthMultiAuthSuccessWhileAuthenticating = _Rldot1xAuthMultiAuthSuccessWhileAuthenticating_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 5),
+    _Rldot1xAuthMultiAuthSuccessWhileAuthenticating_Type()
+)
+rldot1xAuthMultiAuthSuccessWhileAuthenticating.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiAuthSuccessWhileAuthenticating.setStatus("current")
+_Rldot1xAuthMultiAuthFailWhileAuthenticating_Type = Counter32
+_Rldot1xAuthMultiAuthFailWhileAuthenticating_Object = MibTableColumn
+rldot1xAuthMultiAuthFailWhileAuthenticating = _Rldot1xAuthMultiAuthFailWhileAuthenticating_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 6),
+    _Rldot1xAuthMultiAuthFailWhileAuthenticating_Type()
+)
+rldot1xAuthMultiAuthFailWhileAuthenticating.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiAuthFailWhileAuthenticating.setStatus("current")
+_Rldot1xAuthMultiAuthReauthsWhileAuthenticating_Type = Counter32
+_Rldot1xAuthMultiAuthReauthsWhileAuthenticating_Object = MibTableColumn
+rldot1xAuthMultiAuthReauthsWhileAuthenticating = _Rldot1xAuthMultiAuthReauthsWhileAuthenticating_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 7),
+    _Rldot1xAuthMultiAuthReauthsWhileAuthenticating_Type()
+)
+rldot1xAuthMultiAuthReauthsWhileAuthenticating.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiAuthReauthsWhileAuthenticating.setStatus("current")
+_Rldot1xAuthMultiAuthEapStartsWhileAuthenticating_Type = Counter32
+_Rldot1xAuthMultiAuthEapStartsWhileAuthenticating_Object = MibTableColumn
+rldot1xAuthMultiAuthEapStartsWhileAuthenticating = _Rldot1xAuthMultiAuthEapStartsWhileAuthenticating_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 8),
+    _Rldot1xAuthMultiAuthEapStartsWhileAuthenticating_Type()
+)
+rldot1xAuthMultiAuthEapStartsWhileAuthenticating.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiAuthEapStartsWhileAuthenticating.setStatus("current")
+_Rldot1xAuthMultiAuthReauthsWhileAuthenticated_Type = Counter32
+_Rldot1xAuthMultiAuthReauthsWhileAuthenticated_Object = MibTableColumn
+rldot1xAuthMultiAuthReauthsWhileAuthenticated = _Rldot1xAuthMultiAuthReauthsWhileAuthenticated_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 9),
+    _Rldot1xAuthMultiAuthReauthsWhileAuthenticated_Type()
+)
+rldot1xAuthMultiAuthReauthsWhileAuthenticated.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiAuthReauthsWhileAuthenticated.setStatus("current")
+_Rldot1xAuthMultiAuthEapStartsWhileAuthenticated_Type = Counter32
+_Rldot1xAuthMultiAuthEapStartsWhileAuthenticated_Object = MibTableColumn
+rldot1xAuthMultiAuthEapStartsWhileAuthenticated = _Rldot1xAuthMultiAuthEapStartsWhileAuthenticated_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 10),
+    _Rldot1xAuthMultiAuthEapStartsWhileAuthenticated_Type()
+)
+rldot1xAuthMultiAuthEapStartsWhileAuthenticated.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiAuthEapStartsWhileAuthenticated.setStatus("current")
+_Rldot1xAuthMultiBackendResponses_Type = Counter32
+_Rldot1xAuthMultiBackendResponses_Object = MibTableColumn
+rldot1xAuthMultiBackendResponses = _Rldot1xAuthMultiBackendResponses_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 11),
+    _Rldot1xAuthMultiBackendResponses_Type()
+)
+rldot1xAuthMultiBackendResponses.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiBackendResponses.setStatus("current")
+_Rldot1xAuthMultiBackendAccessChallenges_Type = Counter32
+_Rldot1xAuthMultiBackendAccessChallenges_Object = MibTableColumn
+rldot1xAuthMultiBackendAccessChallenges = _Rldot1xAuthMultiBackendAccessChallenges_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 12),
+    _Rldot1xAuthMultiBackendAccessChallenges_Type()
+)
+rldot1xAuthMultiBackendAccessChallenges.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiBackendAccessChallenges.setStatus("current")
+_Rldot1xAuthMultiBackendOtherRequestsToSupplicant_Type = Counter32
+_Rldot1xAuthMultiBackendOtherRequestsToSupplicant_Object = MibTableColumn
+rldot1xAuthMultiBackendOtherRequestsToSupplicant = _Rldot1xAuthMultiBackendOtherRequestsToSupplicant_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 13),
+    _Rldot1xAuthMultiBackendOtherRequestsToSupplicant_Type()
+)
+rldot1xAuthMultiBackendOtherRequestsToSupplicant.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiBackendOtherRequestsToSupplicant.setStatus("current")
+_Rldot1xAuthMultiBackendNonNakResponsesFromSupplicant_Type = Counter32
+_Rldot1xAuthMultiBackendNonNakResponsesFromSupplicant_Object = MibTableColumn
+rldot1xAuthMultiBackendNonNakResponsesFromSupplicant = _Rldot1xAuthMultiBackendNonNakResponsesFromSupplicant_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 14),
+    _Rldot1xAuthMultiBackendNonNakResponsesFromSupplicant_Type()
+)
+rldot1xAuthMultiBackendNonNakResponsesFromSupplicant.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiBackendNonNakResponsesFromSupplicant.setStatus("current")
+_Rldot1xAuthMultiBackendAuthSuccesses_Type = Counter32
+_Rldot1xAuthMultiBackendAuthSuccesses_Object = MibTableColumn
+rldot1xAuthMultiBackendAuthSuccesses = _Rldot1xAuthMultiBackendAuthSuccesses_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 15),
+    _Rldot1xAuthMultiBackendAuthSuccesses_Type()
+)
+rldot1xAuthMultiBackendAuthSuccesses.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiBackendAuthSuccesses.setStatus("current")
+_Rldot1xAuthMultiSessionStatsTable_Object = MibTable
+rldot1xAuthMultiSessionStatsTable = _Rldot1xAuthMultiSessionStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13)
+)
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionStatsTable.setStatus("current")
+_Rldot1xAuthMultiSessionStatsEntry_Object = MibTableRow
+rldot1xAuthMultiSessionStatsEntry = _Rldot1xAuthMultiSessionStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1)
+)
+rldot1xAuthMultiSessionStatsEntry.setIndexNames(
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiSessionStatsPortNumber"),
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiSessionStatsSourceMac"),
+)
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionStatsEntry.setStatus("current")
+_Rldot1xAuthMultiSessionStatsPortNumber_Type = Integer32
+_Rldot1xAuthMultiSessionStatsPortNumber_Object = MibTableColumn
+rldot1xAuthMultiSessionStatsPortNumber = _Rldot1xAuthMultiSessionStatsPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 1),
+    _Rldot1xAuthMultiSessionStatsPortNumber_Type()
+)
+rldot1xAuthMultiSessionStatsPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionStatsPortNumber.setStatus("current")
+_Rldot1xAuthMultiSessionStatsSourceMac_Type = MacAddress
+_Rldot1xAuthMultiSessionStatsSourceMac_Object = MibTableColumn
+rldot1xAuthMultiSessionStatsSourceMac = _Rldot1xAuthMultiSessionStatsSourceMac_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 2),
+    _Rldot1xAuthMultiSessionStatsSourceMac_Type()
+)
+rldot1xAuthMultiSessionStatsSourceMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionStatsSourceMac.setStatus("current")
+_Rldot1xAuthMultiSessionOctetsRx_Type = Counter64
+_Rldot1xAuthMultiSessionOctetsRx_Object = MibTableColumn
+rldot1xAuthMultiSessionOctetsRx = _Rldot1xAuthMultiSessionOctetsRx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 3),
+    _Rldot1xAuthMultiSessionOctetsRx_Type()
+)
+rldot1xAuthMultiSessionOctetsRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionOctetsRx.setStatus("current")
+_Rldot1xAuthMultiSessionOctetsTx_Type = Counter64
+_Rldot1xAuthMultiSessionOctetsTx_Object = MibTableColumn
+rldot1xAuthMultiSessionOctetsTx = _Rldot1xAuthMultiSessionOctetsTx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 4),
+    _Rldot1xAuthMultiSessionOctetsTx_Type()
+)
+rldot1xAuthMultiSessionOctetsTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionOctetsTx.setStatus("current")
+_Rldot1xAuthMultiSessionFramesRx_Type = Counter32
+_Rldot1xAuthMultiSessionFramesRx_Object = MibTableColumn
+rldot1xAuthMultiSessionFramesRx = _Rldot1xAuthMultiSessionFramesRx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 5),
+    _Rldot1xAuthMultiSessionFramesRx_Type()
+)
+rldot1xAuthMultiSessionFramesRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionFramesRx.setStatus("current")
+_Rldot1xAuthMultiSessionFramesTx_Type = Counter32
+_Rldot1xAuthMultiSessionFramesTx_Object = MibTableColumn
+rldot1xAuthMultiSessionFramesTx = _Rldot1xAuthMultiSessionFramesTx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 6),
+    _Rldot1xAuthMultiSessionFramesTx_Type()
+)
+rldot1xAuthMultiSessionFramesTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionFramesTx.setStatus("current")
+_Rldot1xAuthMultiSessionId_Type = SnmpAdminString
+_Rldot1xAuthMultiSessionId_Object = MibTableColumn
+rldot1xAuthMultiSessionId = _Rldot1xAuthMultiSessionId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 7),
+    _Rldot1xAuthMultiSessionId_Type()
+)
+rldot1xAuthMultiSessionId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionId.setStatus("current")
+_Rldot1xAuthMultiSessionTime_Type = TimeTicks
+_Rldot1xAuthMultiSessionTime_Object = MibTableColumn
+rldot1xAuthMultiSessionTime = _Rldot1xAuthMultiSessionTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 8),
+    _Rldot1xAuthMultiSessionTime_Type()
+)
+rldot1xAuthMultiSessionTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionTime.setStatus("current")
+_Rldot1xAuthMultiSessionUserName_Type = SnmpAdminString
+_Rldot1xAuthMultiSessionUserName_Object = MibTableColumn
+rldot1xAuthMultiSessionUserName = _Rldot1xAuthMultiSessionUserName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 9),
+    _Rldot1xAuthMultiSessionUserName_Type()
+)
+rldot1xAuthMultiSessionUserName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionUserName.setStatus("current")
+_Rldot1xAuthMultiSessionRadiusAttrVlan_Type = Integer32
+_Rldot1xAuthMultiSessionRadiusAttrVlan_Object = MibTableColumn
+rldot1xAuthMultiSessionRadiusAttrVlan = _Rldot1xAuthMultiSessionRadiusAttrVlan_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 10),
+    _Rldot1xAuthMultiSessionRadiusAttrVlan_Type()
+)
+rldot1xAuthMultiSessionRadiusAttrVlan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionRadiusAttrVlan.setStatus("current")
+_Rldot1xAuthMultiSessionRadiusAttrFilterId_Type = SnmpAdminString
+_Rldot1xAuthMultiSessionRadiusAttrFilterId_Object = MibTableColumn
+rldot1xAuthMultiSessionRadiusAttrFilterId = _Rldot1xAuthMultiSessionRadiusAttrFilterId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 11),
+    _Rldot1xAuthMultiSessionRadiusAttrFilterId_Type()
+)
+rldot1xAuthMultiSessionRadiusAttrFilterId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionRadiusAttrFilterId.setStatus("current")
+_Rldot1xAuthMultiSessionRadiusAttrSecondFilterId_Type = SnmpAdminString
+_Rldot1xAuthMultiSessionRadiusAttrSecondFilterId_Object = MibTableColumn
+rldot1xAuthMultiSessionRadiusAttrSecondFilterId = _Rldot1xAuthMultiSessionRadiusAttrSecondFilterId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 12),
+    _Rldot1xAuthMultiSessionRadiusAttrSecondFilterId_Type()
+)
+rldot1xAuthMultiSessionRadiusAttrSecondFilterId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSessionRadiusAttrSecondFilterId.setStatus("current")
+
+
+class _RlDot1xAuthMultiSessionMonitorResultsReason_Type(Integer32):
+    """Custom type rlDot1xAuthMultiSessionMonitorResultsReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              27)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notRejected", 0),
+          ("aclNotExst", 1),
+          ("aclOvrfl", 2),
+          ("authErr", 3),
+          ("fltrErr", 4),
+          ("ipv6WithMac", 5),
+          ("ipv6WithNotIp", 6),
+          ("polBasicMode", 7),
+          ("aclDel", 8),
+          ("polDel", 9),
+          ("vlanDfly", 10),
+          ("vlanDynam", 11),
+          ("vlanGuest", 12),
+          ("vlanNoInMsg", 13),
+          ("vlanNotExst", 14),
+          ("vlanOvfl", 15),
+          ("vlanVoice", 16),
+          ("vlanUnauth", 17),
+          ("frsMthDeny", 18),
+          ("radApierr", 19),
+          ("radInvlres", 20),
+          ("radNoresp", 21),
+          ("aclEgress", 22),
+          ("maxHosts", 23),
+          ("noActivity", 24),
+          ("vlanSurveillance", 27))
+    )
+
+
+_RlDot1xAuthMultiSessionMonitorResultsReason_Type.__name__ = "Integer32"
+_RlDot1xAuthMultiSessionMonitorResultsReason_Object = MibTableColumn
+rlDot1xAuthMultiSessionMonitorResultsReason = _RlDot1xAuthMultiSessionMonitorResultsReason_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 13),
+    _RlDot1xAuthMultiSessionMonitorResultsReason_Type()
+)
+rlDot1xAuthMultiSessionMonitorResultsReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDot1xAuthMultiSessionMonitorResultsReason.setStatus("current")
+
+
+class _RlDot1xAuthMultiSessionMethodType_Type(Integer32):
+    """Custom type rlDot1xAuthMultiSessionMethodType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eapol", 1),
+          ("mac", 2),
+          ("web", 3))
+    )
+
+
+_RlDot1xAuthMultiSessionMethodType_Type.__name__ = "Integer32"
+_RlDot1xAuthMultiSessionMethodType_Object = MibTableColumn
+rlDot1xAuthMultiSessionMethodType = _RlDot1xAuthMultiSessionMethodType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 14),
+    _RlDot1xAuthMultiSessionMethodType_Type()
+)
+rlDot1xAuthMultiSessionMethodType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlDot1xAuthMultiSessionMethodType.setStatus("current")
+_Rldot1xAuthMultiConfigTable_Object = MibTable
+rldot1xAuthMultiConfigTable = _Rldot1xAuthMultiConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14)
+)
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiConfigTable.setStatus("current")
+_Rldot1xAuthMultiConfigEntry_Object = MibTableRow
+rldot1xAuthMultiConfigEntry = _Rldot1xAuthMultiConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1)
+)
+rldot1xAuthMultiConfigEntry.setIndexNames(
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiPortNumber"),
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiSourceMac"),
+)
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiConfigEntry.setStatus("current")
+_Rldot1xAuthMultiPortNumber_Type = Integer32
+_Rldot1xAuthMultiPortNumber_Object = MibTableColumn
+rldot1xAuthMultiPortNumber = _Rldot1xAuthMultiPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1, 1),
+    _Rldot1xAuthMultiPortNumber_Type()
+)
+rldot1xAuthMultiPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiPortNumber.setStatus("current")
+_Rldot1xAuthMultiSourceMac_Type = MacAddress
+_Rldot1xAuthMultiSourceMac_Object = MibTableColumn
+rldot1xAuthMultiSourceMac = _Rldot1xAuthMultiSourceMac_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1, 2),
+    _Rldot1xAuthMultiSourceMac_Type()
+)
+rldot1xAuthMultiSourceMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiSourceMac.setStatus("current")
+
+
+class _Rldot1xAuthMultiPaeState_Type(Integer32):
+    """Custom type rldot1xAuthMultiPaeState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("initialize", 1),
+          ("disconnected", 2),
+          ("connecting", 3),
+          ("authenticating", 4),
+          ("authenticated", 5),
+          ("aborting", 6),
+          ("held", 7),
+          ("forceAuth", 8),
+          ("forceUnauth", 9))
+    )
+
+
+_Rldot1xAuthMultiPaeState_Type.__name__ = "Integer32"
+_Rldot1xAuthMultiPaeState_Object = MibTableColumn
+rldot1xAuthMultiPaeState = _Rldot1xAuthMultiPaeState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1, 3),
+    _Rldot1xAuthMultiPaeState_Type()
+)
+rldot1xAuthMultiPaeState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiPaeState.setStatus("current")
+
+
+class _Rldot1xAuthMultiBackendAuthState_Type(Integer32):
+    """Custom type rldot1xAuthMultiBackendAuthState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("request", 1),
+          ("response", 2),
+          ("success", 3),
+          ("fail", 4),
+          ("timeout", 5),
+          ("idle", 6),
+          ("initialize", 7))
+    )
+
+
+_Rldot1xAuthMultiBackendAuthState_Type.__name__ = "Integer32"
+_Rldot1xAuthMultiBackendAuthState_Object = MibTableColumn
+rldot1xAuthMultiBackendAuthState = _Rldot1xAuthMultiBackendAuthState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1, 4),
+    _Rldot1xAuthMultiBackendAuthState_Type()
+)
+rldot1xAuthMultiBackendAuthState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiBackendAuthState.setStatus("current")
+_Rldot1xAuthMultiControlledPortStatus_Type = PaeControlledPortStatus
+_Rldot1xAuthMultiControlledPortStatus_Object = MibTableColumn
+rldot1xAuthMultiControlledPortStatus = _Rldot1xAuthMultiControlledPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1, 5),
+    _Rldot1xAuthMultiControlledPortStatus_Type()
+)
+rldot1xAuthMultiControlledPortStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xAuthMultiControlledPortStatus.setStatus("current")
+_Rldot1xBpduFilteringEnabled_Type = TruthValue
+_Rldot1xBpduFilteringEnabled_Object = MibScalar
+rldot1xBpduFilteringEnabled = _Rldot1xBpduFilteringEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 15),
+    _Rldot1xBpduFilteringEnabled_Type()
+)
+rldot1xBpduFilteringEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xBpduFilteringEnabled.setStatus("current")
+_Rldot1xRadiusAttributesErrorsAclReject_Type = TruthValue
+_Rldot1xRadiusAttributesErrorsAclReject_Object = MibScalar
+rldot1xRadiusAttributesErrorsAclReject = _Rldot1xRadiusAttributesErrorsAclReject_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 18),
+    _Rldot1xRadiusAttributesErrorsAclReject_Type()
+)
+rldot1xRadiusAttributesErrorsAclReject.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xRadiusAttributesErrorsAclReject.setStatus("current")
+
+
+class _Rldot1xGuestVlanTimeInterval_Type(Integer32):
+    """Custom type rldot1xGuestVlanTimeInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 180),
+    )
+
+
+_Rldot1xGuestVlanTimeInterval_Type.__name__ = "Integer32"
+_Rldot1xGuestVlanTimeInterval_Object = MibScalar
+rldot1xGuestVlanTimeInterval = _Rldot1xGuestVlanTimeInterval_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 19),
+    _Rldot1xGuestVlanTimeInterval_Type()
+)
+rldot1xGuestVlanTimeInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xGuestVlanTimeInterval.setStatus("current")
+_Rldot1xMacAuthSuccessTrapEnabled_Type = TruthValue
+_Rldot1xMacAuthSuccessTrapEnabled_Object = MibScalar
+rldot1xMacAuthSuccessTrapEnabled = _Rldot1xMacAuthSuccessTrapEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 20),
+    _Rldot1xMacAuthSuccessTrapEnabled_Type()
+)
+rldot1xMacAuthSuccessTrapEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMacAuthSuccessTrapEnabled.setStatus("current")
+_Rldot1xMacAuthFailureTrapEnabled_Type = TruthValue
+_Rldot1xMacAuthFailureTrapEnabled_Object = MibScalar
+rldot1xMacAuthFailureTrapEnabled = _Rldot1xMacAuthFailureTrapEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 21),
+    _Rldot1xMacAuthFailureTrapEnabled_Type()
+)
+rldot1xMacAuthFailureTrapEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMacAuthFailureTrapEnabled.setStatus("current")
+_Rldot1xLegacyPortTable_Object = MibTable
+rldot1xLegacyPortTable = _Rldot1xLegacyPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 22)
+)
+if mibBuilder.loadTexts:
+    rldot1xLegacyPortTable.setStatus("current")
+_Rldot1xLegacyPortEntry_Object = MibTableRow
+rldot1xLegacyPortEntry = _Rldot1xLegacyPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 22, 1)
+)
+rldot1xLegacyPortEntry.setIndexNames(
+    (0, "IEEE8021-PAE-MIB", "dot1xPaePortNumber"),
+)
+if mibBuilder.loadTexts:
+    rldot1xLegacyPortEntry.setStatus("current")
+_Rldot1xLegacyPortModeEnabled_Type = TruthValue
+_Rldot1xLegacyPortModeEnabled_Object = MibTableColumn
+rldot1xLegacyPortModeEnabled = _Rldot1xLegacyPortModeEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 22, 1, 1),
+    _Rldot1xLegacyPortModeEnabled_Type()
+)
+rldot1xLegacyPortModeEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xLegacyPortModeEnabled.setStatus("current")
+
+
+class _Rldot1xSystemAuthControlMonitorVlan_Type(Integer32):
+    """Custom type rldot1xSystemAuthControlMonitorVlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_Rldot1xSystemAuthControlMonitorVlan_Type.__name__ = "Integer32"
+_Rldot1xSystemAuthControlMonitorVlan_Object = MibScalar
+rldot1xSystemAuthControlMonitorVlan = _Rldot1xSystemAuthControlMonitorVlan_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 23),
+    _Rldot1xSystemAuthControlMonitorVlan_Type()
+)
+rldot1xSystemAuthControlMonitorVlan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xSystemAuthControlMonitorVlan.setStatus("current")
+_Rldot1xClearPortMibCounters_Type = PortList
+_Rldot1xClearPortMibCounters_Object = MibScalar
+rldot1xClearPortMibCounters = _Rldot1xClearPortMibCounters_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 24),
+    _Rldot1xClearPortMibCounters_Type()
+)
+rldot1xClearPortMibCounters.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xClearPortMibCounters.setStatus("current")
+_Rldot1xWebQuietFailureTrapEnabled_Type = TruthValue
+_Rldot1xWebQuietFailureTrapEnabled_Object = MibScalar
+rldot1xWebQuietFailureTrapEnabled = _Rldot1xWebQuietFailureTrapEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 25),
+    _Rldot1xWebQuietFailureTrapEnabled_Type()
+)
+rldot1xWebQuietFailureTrapEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xWebQuietFailureTrapEnabled.setStatus("current")
+
+
+class _Rldot1xMacWebAuthSuccessTrapEnabled_Type(Integer32):
+    """Custom type rldot1xMacWebAuthSuccessTrapEnabled based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("eapolOnly", 1),
+          ("macAndEapol", 2),
+          ("macOnly", 3),
+          ("webOnly", 4),
+          ("webAndEapol", 5),
+          ("webAndMac", 6),
+          ("webAndMacAndEapol", 7))
+    )
+
+
+_Rldot1xMacWebAuthSuccessTrapEnabled_Type.__name__ = "Integer32"
+_Rldot1xMacWebAuthSuccessTrapEnabled_Object = MibScalar
+rldot1xMacWebAuthSuccessTrapEnabled = _Rldot1xMacWebAuthSuccessTrapEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 26),
+    _Rldot1xMacWebAuthSuccessTrapEnabled_Type()
+)
+rldot1xMacWebAuthSuccessTrapEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMacWebAuthSuccessTrapEnabled.setStatus("current")
+
+
+class _Rldot1xMacWebAuthFailureTrapEnabled_Type(Integer32):
+    """Custom type rldot1xMacWebAuthFailureTrapEnabled based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("eapolOnly", 1),
+          ("macAndEapol", 2),
+          ("macOnly", 3),
+          ("webOnly", 4),
+          ("webAndEapol", 5),
+          ("webAndMac", 6),
+          ("webAndMacAndEapol", 7))
+    )
+
+
+_Rldot1xMacWebAuthFailureTrapEnabled_Type.__name__ = "Integer32"
+_Rldot1xMacWebAuthFailureTrapEnabled_Object = MibScalar
+rldot1xMacWebAuthFailureTrapEnabled = _Rldot1xMacWebAuthFailureTrapEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 27),
+    _Rldot1xMacWebAuthFailureTrapEnabled_Type()
+)
+rldot1xMacWebAuthFailureTrapEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMacWebAuthFailureTrapEnabled.setStatus("current")
+_Rldot1xLockedCientsTable_Object = MibTable
+rldot1xLockedCientsTable = _Rldot1xLockedCientsTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28)
+)
+if mibBuilder.loadTexts:
+    rldot1xLockedCientsTable.setStatus("current")
+_Rldot1xLockedCientsEntry_Object = MibTableRow
+rldot1xLockedCientsEntry = _Rldot1xLockedCientsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28, 1)
+)
+rldot1xLockedCientsEntry.setIndexNames(
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xLockedCientsPortNumber"),
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xLockedCientsSourceMac"),
+)
+if mibBuilder.loadTexts:
+    rldot1xLockedCientsEntry.setStatus("current")
+_Rldot1xLockedCientsPortNumber_Type = Integer32
+_Rldot1xLockedCientsPortNumber_Object = MibTableColumn
+rldot1xLockedCientsPortNumber = _Rldot1xLockedCientsPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28, 1, 1),
+    _Rldot1xLockedCientsPortNumber_Type()
+)
+rldot1xLockedCientsPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xLockedCientsPortNumber.setStatus("current")
+_Rldot1xLockedCientsSourceMac_Type = MacAddress
+_Rldot1xLockedCientsSourceMac_Object = MibTableColumn
+rldot1xLockedCientsSourceMac = _Rldot1xLockedCientsSourceMac_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28, 1, 2),
+    _Rldot1xLockedCientsSourceMac_Type()
+)
+rldot1xLockedCientsSourceMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xLockedCientsSourceMac.setStatus("current")
+_Rldot1xLockedCientsRemainedTime_Type = Integer32
+_Rldot1xLockedCientsRemainedTime_Object = MibTableColumn
+rldot1xLockedCientsRemainedTime = _Rldot1xLockedCientsRemainedTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28, 1, 3),
+    _Rldot1xLockedCientsRemainedTime_Type()
+)
+rldot1xLockedCientsRemainedTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xLockedCientsRemainedTime.setStatus("current")
+_Rldot1xLockedCientsRowStatus_Type = RowStatus
+_Rldot1xLockedCientsRowStatus_Object = MibTableColumn
+rldot1xLockedCientsRowStatus = _Rldot1xLockedCientsRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28, 1, 4),
+    _Rldot1xLockedCientsRowStatus_Type()
+)
+rldot1xLockedCientsRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xLockedCientsRowStatus.setStatus("current")
+_Rldot1xSupplicantSuccessTrapEnabled_Type = TruthValue
+_Rldot1xSupplicantSuccessTrapEnabled_Object = MibScalar
+rldot1xSupplicantSuccessTrapEnabled = _Rldot1xSupplicantSuccessTrapEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 29),
+    _Rldot1xSupplicantSuccessTrapEnabled_Type()
+)
+rldot1xSupplicantSuccessTrapEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantSuccessTrapEnabled.setStatus("current")
+_Rldot1xSupplicantFailureTrapEnabled_Type = TruthValue
+_Rldot1xSupplicantFailureTrapEnabled_Object = MibScalar
+rldot1xSupplicantFailureTrapEnabled = _Rldot1xSupplicantFailureTrapEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 30),
+    _Rldot1xSupplicantFailureTrapEnabled_Type()
+)
+rldot1xSupplicantFailureTrapEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantFailureTrapEnabled.setStatus("current")
+_Rldot1xSupplicantCredentialActivateConfiguration_Type = TruthValue
+_Rldot1xSupplicantCredentialActivateConfiguration_Object = MibScalar
+rldot1xSupplicantCredentialActivateConfiguration = _Rldot1xSupplicantCredentialActivateConfiguration_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 31),
+    _Rldot1xSupplicantCredentialActivateConfiguration_Type()
+)
+rldot1xSupplicantCredentialActivateConfiguration.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialActivateConfiguration.setStatus("current")
+_Rldot1xSupplicantCredentialPendingTable_Object = MibTable
+rldot1xSupplicantCredentialPendingTable = _Rldot1xSupplicantCredentialPendingTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32)
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialPendingTable.setStatus("current")
+_Rldot1xSupplicantCredentialPendingEntry_Object = MibTableRow
+rldot1xSupplicantCredentialPendingEntry = _Rldot1xSupplicantCredentialPendingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1)
+)
+rldot1xSupplicantCredentialPendingEntry.setIndexNames(
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xSupplicantCredentialName"),
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialPendingEntry.setStatus("current")
+
+
+class _Rldot1xSupplicantCredentialName_Type(SnmpAdminString):
+    """Custom type rldot1xSupplicantCredentialName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_Rldot1xSupplicantCredentialName_Type.__name__ = "SnmpAdminString"
+_Rldot1xSupplicantCredentialName_Object = MibTableColumn
+rldot1xSupplicantCredentialName = _Rldot1xSupplicantCredentialName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1, 1),
+    _Rldot1xSupplicantCredentialName_Type()
+)
+rldot1xSupplicantCredentialName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialName.setStatus("current")
+
+
+class _Rldot1xSupplicantCredentialPendingDescription_Type(SnmpAdminString):
+    """Custom type rldot1xSupplicantCredentialPendingDescription based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_Rldot1xSupplicantCredentialPendingDescription_Type.__name__ = "SnmpAdminString"
+_Rldot1xSupplicantCredentialPendingDescription_Object = MibTableColumn
+rldot1xSupplicantCredentialPendingDescription = _Rldot1xSupplicantCredentialPendingDescription_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1, 2),
+    _Rldot1xSupplicantCredentialPendingDescription_Type()
+)
+rldot1xSupplicantCredentialPendingDescription.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialPendingDescription.setStatus("current")
+
+
+class _Rldot1xSupplicantCredentialPendingUsername_Type(SnmpAdminString):
+    """Custom type rldot1xSupplicantCredentialPendingUsername based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Rldot1xSupplicantCredentialPendingUsername_Type.__name__ = "SnmpAdminString"
+_Rldot1xSupplicantCredentialPendingUsername_Object = MibTableColumn
+rldot1xSupplicantCredentialPendingUsername = _Rldot1xSupplicantCredentialPendingUsername_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1, 3),
+    _Rldot1xSupplicantCredentialPendingUsername_Type()
+)
+rldot1xSupplicantCredentialPendingUsername.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialPendingUsername.setStatus("current")
+
+
+class _Rldot1xSupplicantCredentialPendingPassword_Type(SnmpAdminString):
+    """Custom type rldot1xSupplicantCredentialPendingPassword based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_Rldot1xSupplicantCredentialPendingPassword_Type.__name__ = "SnmpAdminString"
+_Rldot1xSupplicantCredentialPendingPassword_Object = MibTableColumn
+rldot1xSupplicantCredentialPendingPassword = _Rldot1xSupplicantCredentialPendingPassword_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1, 4),
+    _Rldot1xSupplicantCredentialPendingPassword_Type()
+)
+rldot1xSupplicantCredentialPendingPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialPendingPassword.setStatus("current")
+_Rldot1xSupplicantCredentialPendingRowStatus_Type = RowStatus
+_Rldot1xSupplicantCredentialPendingRowStatus_Object = MibTableColumn
+rldot1xSupplicantCredentialPendingRowStatus = _Rldot1xSupplicantCredentialPendingRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1, 5),
+    _Rldot1xSupplicantCredentialPendingRowStatus_Type()
+)
+rldot1xSupplicantCredentialPendingRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialPendingRowStatus.setStatus("current")
+_Rldot1xSupplicantCredentialTable_Object = MibTable
+rldot1xSupplicantCredentialTable = _Rldot1xSupplicantCredentialTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33)
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialTable.setStatus("current")
+_Rldot1xSupplicantCredentialEntry_Object = MibTableRow
+rldot1xSupplicantCredentialEntry = _Rldot1xSupplicantCredentialEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33, 1)
+)
+rldot1xSupplicantCredentialEntry.setIndexNames(
+    (0, "CISCOSB-DOT1X-MIB", "rldot1xSupplicantCredentialName"),
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialEntry.setStatus("current")
+
+
+class _Rldot1xSupplicantCredentialDescription_Type(SnmpAdminString):
+    """Custom type rldot1xSupplicantCredentialDescription based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_Rldot1xSupplicantCredentialDescription_Type.__name__ = "SnmpAdminString"
+_Rldot1xSupplicantCredentialDescription_Object = MibTableColumn
+rldot1xSupplicantCredentialDescription = _Rldot1xSupplicantCredentialDescription_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33, 1, 1),
+    _Rldot1xSupplicantCredentialDescription_Type()
+)
+rldot1xSupplicantCredentialDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialDescription.setStatus("current")
+
+
+class _Rldot1xSupplicantCredentialUsername_Type(SnmpAdminString):
+    """Custom type rldot1xSupplicantCredentialUsername based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Rldot1xSupplicantCredentialUsername_Type.__name__ = "SnmpAdminString"
+_Rldot1xSupplicantCredentialUsername_Object = MibTableColumn
+rldot1xSupplicantCredentialUsername = _Rldot1xSupplicantCredentialUsername_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33, 1, 2),
+    _Rldot1xSupplicantCredentialUsername_Type()
+)
+rldot1xSupplicantCredentialUsername.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialUsername.setStatus("current")
+
+
+class _Rldot1xSupplicantCredentialPassword_Type(SnmpAdminString):
+    """Custom type rldot1xSupplicantCredentialPassword based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_Rldot1xSupplicantCredentialPassword_Type.__name__ = "SnmpAdminString"
+_Rldot1xSupplicantCredentialPassword_Object = MibTableColumn
+rldot1xSupplicantCredentialPassword = _Rldot1xSupplicantCredentialPassword_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33, 1, 3),
+    _Rldot1xSupplicantCredentialPassword_Type()
+)
+rldot1xSupplicantCredentialPassword.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialPassword.setStatus("current")
+_Rldot1xSupplicantCredentialPasswordMD5_Type = SnmpAdminString
+_Rldot1xSupplicantCredentialPasswordMD5_Object = MibTableColumn
+rldot1xSupplicantCredentialPasswordMD5 = _Rldot1xSupplicantCredentialPasswordMD5_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33, 1, 4),
+    _Rldot1xSupplicantCredentialPasswordMD5_Type()
+)
+rldot1xSupplicantCredentialPasswordMD5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantCredentialPasswordMD5.setStatus("current")
+_Rldot1xSupplicantConfigurationTable_Object = MibTable
+rldot1xSupplicantConfigurationTable = _Rldot1xSupplicantConfigurationTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 34)
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantConfigurationTable.setStatus("current")
+_Rldot1xSupplicantConfigurationEntry_Object = MibTableRow
+rldot1xSupplicantConfigurationEntry = _Rldot1xSupplicantConfigurationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 34, 1)
+)
+rldot1xSupplicantConfigurationEntry.setIndexNames(
+    (0, "IEEE8021X-PAE-MIB", "ieee8021XPaePortNumber"),
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantConfigurationEntry.setStatus("current")
+
+
+class _Rldot1xSupplicantConfigurationCredentialName_Type(SnmpAdminString):
+    """Custom type rldot1xSupplicantConfigurationCredentialName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Rldot1xSupplicantConfigurationCredentialName_Type.__name__ = "SnmpAdminString"
+_Rldot1xSupplicantConfigurationCredentialName_Object = MibTableColumn
+rldot1xSupplicantConfigurationCredentialName = _Rldot1xSupplicantConfigurationCredentialName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 34, 1, 1),
+    _Rldot1xSupplicantConfigurationCredentialName_Type()
+)
+rldot1xSupplicantConfigurationCredentialName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantConfigurationCredentialName.setStatus("current")
+
+
+class _Rldot1xSupplicantConfigurationEapTimeout_Type(Integer32):
+    """Custom type rldot1xSupplicantConfigurationEapTimeout based on Integer32"""
+    defaultValue = 30
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Rldot1xSupplicantConfigurationEapTimeout_Type.__name__ = "Integer32"
+_Rldot1xSupplicantConfigurationEapTimeout_Object = MibTableColumn
+rldot1xSupplicantConfigurationEapTimeout = _Rldot1xSupplicantConfigurationEapTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 34, 1, 2),
+    _Rldot1xSupplicantConfigurationEapTimeout_Type()
+)
+rldot1xSupplicantConfigurationEapTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xSupplicantConfigurationEapTimeout.setStatus("current")
+_Rldot1xMacAuthEapEnabled_Type = TruthValue
+_Rldot1xMacAuthEapEnabled_Object = MibScalar
+rldot1xMacAuthEapEnabled = _Rldot1xMacAuthEapEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 35),
+    _Rldot1xMacAuthEapEnabled_Type()
+)
+rldot1xMacAuthEapEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMacAuthEapEnabled.setStatus("current")
+
+
+class _Rldot1xMacAuthUserGroupsize_Type(Integer32):
+    """Custom type rldot1xMacAuthUserGroupsize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("one", 1),
+          ("two", 2),
+          ("four", 4),
+          ("twelve", 12))
+    )
+
+
+_Rldot1xMacAuthUserGroupsize_Type.__name__ = "Integer32"
+_Rldot1xMacAuthUserGroupsize_Object = MibScalar
+rldot1xMacAuthUserGroupsize = _Rldot1xMacAuthUserGroupsize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 36),
+    _Rldot1xMacAuthUserGroupsize_Type()
+)
+rldot1xMacAuthUserGroupsize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMacAuthUserGroupsize.setStatus("current")
+
+
+class _Rldot1xMacAuthUserSeparator_Type(Integer32):
+    """Custom type rldot1xMacAuthUserSeparator based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("hyphen", 1),
+          ("colon", 2),
+          ("dot", 3))
+    )
+
+
+_Rldot1xMacAuthUserSeparator_Type.__name__ = "Integer32"
+_Rldot1xMacAuthUserSeparator_Object = MibScalar
+rldot1xMacAuthUserSeparator = _Rldot1xMacAuthUserSeparator_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 37),
+    _Rldot1xMacAuthUserSeparator_Type()
+)
+rldot1xMacAuthUserSeparator.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMacAuthUserSeparator.setStatus("current")
+_Rldot1xMacAuthUserLowercase_Type = TruthValue
+_Rldot1xMacAuthUserLowercase_Object = MibScalar
+rldot1xMacAuthUserLowercase = _Rldot1xMacAuthUserLowercase_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 38),
+    _Rldot1xMacAuthUserLowercase_Type()
+)
+rldot1xMacAuthUserLowercase.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMacAuthUserLowercase.setStatus("current")
+
+
+class _Rldot1xMacAuthPassword_Type(SnmpAdminString):
+    """Custom type rldot1xMacAuthPassword based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Rldot1xMacAuthPassword_Type.__name__ = "SnmpAdminString"
+_Rldot1xMacAuthPassword_Object = MibScalar
+rldot1xMacAuthPassword = _Rldot1xMacAuthPassword_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 39),
+    _Rldot1xMacAuthPassword_Type()
+)
+rldot1xMacAuthPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMacAuthPassword.setStatus("current")
+_Rldot1xMacAuthApplyReauthentication_Type = TruthValue
+_Rldot1xMacAuthApplyReauthentication_Object = MibScalar
+rldot1xMacAuthApplyReauthentication = _Rldot1xMacAuthApplyReauthentication_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 40),
+    _Rldot1xMacAuthApplyReauthentication_Type()
+)
+rldot1xMacAuthApplyReauthentication.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rldot1xMacAuthApplyReauthentication.setStatus("current")
+_Rldot1xMacAuthPasswordMD5_Type = SnmpAdminString
+_Rldot1xMacAuthPasswordMD5_Object = MibScalar
+rldot1xMacAuthPasswordMD5 = _Rldot1xMacAuthPasswordMD5_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 41),
+    _Rldot1xMacAuthPasswordMD5_Type()
+)
+rldot1xMacAuthPasswordMD5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rldot1xMacAuthPasswordMD5.setStatus("current")
+dot1xAuthSessionStatsEntry.registerAugmentions(
+    ("CISCOSB-DOT1X-MIB",
+     "rldot1xExtAuthSessionStatsEntry")
+)
 rldot1xExtAuthSessionStatsEntry.setIndexNames(*dot1xAuthSessionStatsEntry.getIndexNames())
-if mibBuilder.loadTexts: rldot1xExtAuthSessionStatsEntry.setStatus('current')
-rlDot1xAuthSessionAuthenticMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("remoteAuthServer", 1), ("localAuthServer", 2), ("none", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDot1xAuthSessionAuthenticMethod.setStatus('current')
-rldot1xGuestVlanSupported = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xGuestVlanSupported.setStatus('current')
-rldot1xGuestVlanVID = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 4), VlanIndex()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xGuestVlanVID.setStatus('current')
-rldot1xGuestVlanPorts = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 5), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xGuestVlanPorts.setStatus('current')
-rldot1xUnAuthenticatedVlanSupported = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 6), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xUnAuthenticatedVlanSupported.setStatus('current')
-rldot1xUnAuthenticatedVlanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 7), )
-if mibBuilder.loadTexts: rldot1xUnAuthenticatedVlanTable.setStatus('current')
-rldot1xUnAuthenticatedVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 7, 1), ).setIndexNames((0, "Q-BRIDGE-MIB", "dot1qFdbId"))
-if mibBuilder.loadTexts: rldot1xUnAuthenticatedVlanEntry.setStatus('current')
-rldot1xUnAuthenticatedVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 7, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: rldot1xUnAuthenticatedVlanStatus.setStatus('current')
-rldot1xUserBasedVlanSupported = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xUserBasedVlanSupported.setStatus('current')
-rldot1xUserBasedVlanPorts = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 9), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xUserBasedVlanPorts.setStatus('current')
-rldot1xAuthenticationPortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10), )
-if mibBuilder.loadTexts: rldot1xAuthenticationPortTable.setStatus('current')
-rldot1xAuthenticationPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1), ).setIndexNames((0, "IEEE8021-PAE-MIB", "dot1xPaePortNumber"))
-if mibBuilder.loadTexts: rldot1xAuthenticationPortEntry.setStatus('current')
-rldot1xAuthenticationPortMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("eapolOnly", 1), ("macAndEapol", 2), ("macOnly", 3), ("webOnly", 4), ("webAndEapol", 5), ("webAndMac", 6), ("webAndMacAndEapol", 7))).clone('eapolOnly')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xAuthenticationPortMethod.setStatus('current')
-rldot1xRadiusAttrVlanIdEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xRadiusAttrVlanIdEnabled.setStatus('current')
-rldot1xRadiusAttAclNameEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 3), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xRadiusAttAclNameEnabled.setStatus('current')
-rldot1xTimeBasedName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xTimeBasedName.setStatus('current')
-rldot1xTimeBasedActive = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 5), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xTimeBasedActive.setStatus('current')
-rldot1xRadiusAttrVlanIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 6), VlanIndex()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xRadiusAttrVlanIdentifier.setStatus('current')
-rldot1xMaxHosts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 7), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMaxHosts.setStatus('current')
-rldot1xMaxLoginAttempts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMaxLoginAttempts.setStatus('current')
-rldot1xTimeoutSilencePeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xTimeoutSilencePeriod.setStatus('current')
-rldot1xNumOfAuthorizedHosts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xNumOfAuthorizedHosts.setStatus('current')
-rldot1xAuthenticationOpenEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 11), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xAuthenticationOpenEnabled.setStatus('current')
-rldot1xAuthenticationOperatingControlMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 10, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("auto", 2), ("forceAuthorized", 3), ("forceUnauthorized", 4), ("macBased", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthenticationOperatingControlMode.setStatus('current')
-rldot1xAuthMultiStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11), )
-if mibBuilder.loadTexts: rldot1xAuthMultiStatsTable.setStatus('current')
-rldot1xAuthMultiStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1), ).setIndexNames((0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiStatsPortNumber"), (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiStatsSourceMac"))
-if mibBuilder.loadTexts: rldot1xAuthMultiStatsEntry.setStatus('current')
-rldot1xAuthMultiStatsPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiStatsPortNumber.setStatus('current')
-rldot1xAuthMultiStatsSourceMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiStatsSourceMac.setStatus('current')
-rldot1xAuthMultiEapolFramesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiEapolFramesRx.setStatus('current')
-rldot1xAuthMultiEapolFramesTx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiEapolFramesTx.setStatus('current')
-rldot1xAuthMultiEapolStartFramesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiEapolStartFramesRx.setStatus('current')
-rldot1xAuthMultiEapolLogoffFramesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiEapolLogoffFramesRx.setStatus('current')
-rldot1xAuthMultiEapolRespIdFramesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiEapolRespIdFramesRx.setStatus('current')
-rldot1xAuthMultiEapolRespFramesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiEapolRespFramesRx.setStatus('current')
-rldot1xAuthMultiEapolReqIdFramesTx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiEapolReqIdFramesTx.setStatus('current')
-rldot1xAuthMultiEapolReqFramesTx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiEapolReqFramesTx.setStatus('current')
-rldot1xAuthMultiInvalidEapolFramesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiInvalidEapolFramesRx.setStatus('current')
-rldot1xAuthMultiEapLengthErrorFramesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 11, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiEapLengthErrorFramesRx.setStatus('current')
-rldot1xAuthMultiDiagTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12), )
-if mibBuilder.loadTexts: rldot1xAuthMultiDiagTable.setStatus('current')
-rldot1xAuthMultiDiagEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1), ).setIndexNames((0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiDiagPortNumber"), (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiDiagSourceMac"))
-if mibBuilder.loadTexts: rldot1xAuthMultiDiagEntry.setStatus('current')
-rldot1xAuthMultiDiagPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiDiagPortNumber.setStatus('current')
-rldot1xAuthMultiDiagSourceMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiDiagSourceMac.setStatus('current')
-rldot1xAuthMultiEntersConnecting = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiEntersConnecting.setStatus('current')
-rldot1xAuthMultiEntersAuthenticating = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiEntersAuthenticating.setStatus('current')
-rldot1xAuthMultiAuthSuccessWhileAuthenticating = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiAuthSuccessWhileAuthenticating.setStatus('current')
-rldot1xAuthMultiAuthFailWhileAuthenticating = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiAuthFailWhileAuthenticating.setStatus('current')
-rldot1xAuthMultiAuthReauthsWhileAuthenticating = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiAuthReauthsWhileAuthenticating.setStatus('current')
-rldot1xAuthMultiAuthEapStartsWhileAuthenticating = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiAuthEapStartsWhileAuthenticating.setStatus('current')
-rldot1xAuthMultiAuthReauthsWhileAuthenticated = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiAuthReauthsWhileAuthenticated.setStatus('current')
-rldot1xAuthMultiAuthEapStartsWhileAuthenticated = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiAuthEapStartsWhileAuthenticated.setStatus('current')
-rldot1xAuthMultiBackendResponses = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiBackendResponses.setStatus('current')
-rldot1xAuthMultiBackendAccessChallenges = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiBackendAccessChallenges.setStatus('current')
-rldot1xAuthMultiBackendOtherRequestsToSupplicant = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiBackendOtherRequestsToSupplicant.setStatus('current')
-rldot1xAuthMultiBackendNonNakResponsesFromSupplicant = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiBackendNonNakResponsesFromSupplicant.setStatus('current')
-rldot1xAuthMultiBackendAuthSuccesses = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 12, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiBackendAuthSuccesses.setStatus('current')
-rldot1xAuthMultiSessionStatsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13), )
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionStatsTable.setStatus('current')
-rldot1xAuthMultiSessionStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1), ).setIndexNames((0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiSessionStatsPortNumber"), (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiSessionStatsSourceMac"))
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionStatsEntry.setStatus('current')
-rldot1xAuthMultiSessionStatsPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionStatsPortNumber.setStatus('current')
-rldot1xAuthMultiSessionStatsSourceMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionStatsSourceMac.setStatus('current')
-rldot1xAuthMultiSessionOctetsRx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionOctetsRx.setStatus('current')
-rldot1xAuthMultiSessionOctetsTx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionOctetsTx.setStatus('current')
-rldot1xAuthMultiSessionFramesRx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionFramesRx.setStatus('current')
-rldot1xAuthMultiSessionFramesTx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionFramesTx.setStatus('current')
-rldot1xAuthMultiSessionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionId.setStatus('current')
-rldot1xAuthMultiSessionTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 8), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionTime.setStatus('current')
-rldot1xAuthMultiSessionUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionUserName.setStatus('current')
-rldot1xAuthMultiSessionRadiusAttrVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionRadiusAttrVlan.setStatus('current')
-rldot1xAuthMultiSessionRadiusAttrFilterId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionRadiusAttrFilterId.setStatus('current')
-rldot1xAuthMultiSessionRadiusAttrSecondFilterId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 12), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSessionRadiusAttrSecondFilterId.setStatus('current')
-rlDot1xAuthMultiSessionMonitorResultsReason = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 27))).clone(namedValues=NamedValues(("notRejected", 0), ("aclNotExst", 1), ("aclOvrfl", 2), ("authErr", 3), ("fltrErr", 4), ("ipv6WithMac", 5), ("ipv6WithNotIp", 6), ("polBasicMode", 7), ("aclDel", 8), ("polDel", 9), ("vlanDfly", 10), ("vlanDynam", 11), ("vlanGuest", 12), ("vlanNoInMsg", 13), ("vlanNotExst", 14), ("vlanOvfl", 15), ("vlanVoice", 16), ("vlanUnauth", 17), ("frsMthDeny", 18), ("radApierr", 19), ("radInvlres", 20), ("radNoresp", 21), ("aclEgress", 22), ("maxHosts", 23), ("noActivity", 24), ("vlanSurveillance", 27)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDot1xAuthMultiSessionMonitorResultsReason.setStatus('current')
-rlDot1xAuthMultiSessionMethodType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 13, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("eapol", 1), ("mac", 2), ("web", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlDot1xAuthMultiSessionMethodType.setStatus('current')
-rldot1xAuthMultiConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14), )
-if mibBuilder.loadTexts: rldot1xAuthMultiConfigTable.setStatus('current')
-rldot1xAuthMultiConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1), ).setIndexNames((0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiPortNumber"), (0, "CISCOSB-DOT1X-MIB", "rldot1xAuthMultiSourceMac"))
-if mibBuilder.loadTexts: rldot1xAuthMultiConfigEntry.setStatus('current')
-rldot1xAuthMultiPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiPortNumber.setStatus('current')
-rldot1xAuthMultiSourceMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiSourceMac.setStatus('current')
-rldot1xAuthMultiPaeState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("initialize", 1), ("disconnected", 2), ("connecting", 3), ("authenticating", 4), ("authenticated", 5), ("aborting", 6), ("held", 7), ("forceAuth", 8), ("forceUnauth", 9)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiPaeState.setStatus('current')
-rldot1xAuthMultiBackendAuthState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("request", 1), ("response", 2), ("success", 3), ("fail", 4), ("timeout", 5), ("idle", 6), ("initialize", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiBackendAuthState.setStatus('current')
-rldot1xAuthMultiControlledPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 14, 1, 5), PaeControlledPortStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xAuthMultiControlledPortStatus.setStatus('current')
-rldot1xBpduFilteringEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 15), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xBpduFilteringEnabled.setStatus('current')
-rldot1xRadiusAttributesErrorsAclReject = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 18), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xRadiusAttributesErrorsAclReject.setStatus('current')
-rldot1xGuestVlanTimeInterval = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 180))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xGuestVlanTimeInterval.setStatus('current')
-rldot1xMacAuthSuccessTrapEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 20), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMacAuthSuccessTrapEnabled.setStatus('current')
-rldot1xMacAuthFailureTrapEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 21), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMacAuthFailureTrapEnabled.setStatus('current')
-rldot1xLegacyPortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 22), )
-if mibBuilder.loadTexts: rldot1xLegacyPortTable.setStatus('current')
-rldot1xLegacyPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 22, 1), ).setIndexNames((0, "IEEE8021-PAE-MIB", "dot1xPaePortNumber"))
-if mibBuilder.loadTexts: rldot1xLegacyPortEntry.setStatus('current')
-rldot1xLegacyPortModeEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 22, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xLegacyPortModeEnabled.setStatus('current')
-rldot1xSystemAuthControlMonitorVlan = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xSystemAuthControlMonitorVlan.setStatus('current')
-rldot1xClearPortMibCounters = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 24), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xClearPortMibCounters.setStatus('current')
-rldot1xWebQuietFailureTrapEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 25), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xWebQuietFailureTrapEnabled.setStatus('current')
-rldot1xMacWebAuthSuccessTrapEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 26), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("none", 0), ("eapolOnly", 1), ("macAndEapol", 2), ("macOnly", 3), ("webOnly", 4), ("webAndEapol", 5), ("webAndMac", 6), ("webAndMacAndEapol", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMacWebAuthSuccessTrapEnabled.setStatus('current')
-rldot1xMacWebAuthFailureTrapEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("none", 0), ("eapolOnly", 1), ("macAndEapol", 2), ("macOnly", 3), ("webOnly", 4), ("webAndEapol", 5), ("webAndMac", 6), ("webAndMacAndEapol", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMacWebAuthFailureTrapEnabled.setStatus('current')
-rldot1xLockedCientsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28), )
-if mibBuilder.loadTexts: rldot1xLockedCientsTable.setStatus('current')
-rldot1xLockedCientsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28, 1), ).setIndexNames((0, "CISCOSB-DOT1X-MIB", "rldot1xLockedCientsPortNumber"), (0, "CISCOSB-DOT1X-MIB", "rldot1xLockedCientsSourceMac"))
-if mibBuilder.loadTexts: rldot1xLockedCientsEntry.setStatus('current')
-rldot1xLockedCientsPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xLockedCientsPortNumber.setStatus('current')
-rldot1xLockedCientsSourceMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xLockedCientsSourceMac.setStatus('current')
-rldot1xLockedCientsRemainedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xLockedCientsRemainedTime.setStatus('current')
-rldot1xLockedCientsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 28, 1, 4), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xLockedCientsRowStatus.setStatus('current')
-rldot1xSupplicantSuccessTrapEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 29), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xSupplicantSuccessTrapEnabled.setStatus('current')
-rldot1xSupplicantFailureTrapEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 30), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xSupplicantFailureTrapEnabled.setStatus('current')
-rldot1xSupplicantCredentialActivateConfiguration = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 31), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialActivateConfiguration.setStatus('current')
-rldot1xSupplicantCredentialPendingTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32), )
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialPendingTable.setStatus('current')
-rldot1xSupplicantCredentialPendingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1), ).setIndexNames((0, "CISCOSB-DOT1X-MIB", "rldot1xSupplicantCredentialName"))
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialPendingEntry.setStatus('current')
-rldot1xSupplicantCredentialName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialName.setStatus('current')
-rldot1xSupplicantCredentialPendingDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialPendingDescription.setStatus('current')
-rldot1xSupplicantCredentialPendingUsername = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialPendingUsername.setStatus('current')
-rldot1xSupplicantCredentialPendingPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialPendingPassword.setStatus('current')
-rldot1xSupplicantCredentialPendingRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 32, 1, 5), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialPendingRowStatus.setStatus('current')
-rldot1xSupplicantCredentialTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33), )
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialTable.setStatus('current')
-rldot1xSupplicantCredentialEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33, 1), ).setIndexNames((0, "CISCOSB-DOT1X-MIB", "rldot1xSupplicantCredentialName"))
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialEntry.setStatus('current')
-rldot1xSupplicantCredentialDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialDescription.setStatus('current')
-rldot1xSupplicantCredentialUsername = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialUsername.setStatus('current')
-rldot1xSupplicantCredentialPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialPassword.setStatus('current')
-rldot1xSupplicantCredentialPasswordMD5 = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 33, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xSupplicantCredentialPasswordMD5.setStatus('current')
-rldot1xSupplicantConfigurationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 34), )
-if mibBuilder.loadTexts: rldot1xSupplicantConfigurationTable.setStatus('current')
-rldot1xSupplicantConfigurationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 34, 1), ).setIndexNames((0, "IEEE8021X-PAE-MIB", "ieee8021XPaePortNumber"))
-if mibBuilder.loadTexts: rldot1xSupplicantConfigurationEntry.setStatus('current')
-rldot1xSupplicantConfigurationCredentialName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 34, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xSupplicantConfigurationCredentialName.setStatus('current')
-rldot1xSupplicantConfigurationEapTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 34, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(30)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xSupplicantConfigurationEapTimeout.setStatus('current')
-rldot1xMacAuthEapEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 35), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMacAuthEapEnabled.setStatus('current')
-rldot1xMacAuthUserGroupsize = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 36), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 12))).clone(namedValues=NamedValues(("one", 1), ("two", 2), ("four", 4), ("twelve", 12)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMacAuthUserGroupsize.setStatus('current')
-rldot1xMacAuthUserSeparator = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 37), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("hyphen", 1), ("colon", 2), ("dot", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMacAuthUserSeparator.setStatus('current')
-rldot1xMacAuthUserLowercase = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 38), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMacAuthUserLowercase.setStatus('current')
-rldot1xMacAuthPassword = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 39), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMacAuthPassword.setStatus('current')
-rldot1xMacAuthApplyReauthentication = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 40), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rldot1xMacAuthApplyReauthentication.setStatus('current')
-rldot1xMacAuthPasswordMD5 = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 95, 41), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rldot1xMacAuthPasswordMD5.setStatus('current')
-mibBuilder.exportSymbols("CISCOSB-DOT1X-MIB", rldot1xUnAuthenticatedVlanTable=rldot1xUnAuthenticatedVlanTable, rldot1xAuthMultiSessionStatsTable=rldot1xAuthMultiSessionStatsTable, rldot1xUnAuthenticatedVlanSupported=rldot1xUnAuthenticatedVlanSupported, rldot1xAuthMultiSessionRadiusAttrVlan=rldot1xAuthMultiSessionRadiusAttrVlan, rldot1xAuthMultiBackendOtherRequestsToSupplicant=rldot1xAuthMultiBackendOtherRequestsToSupplicant, rldot1xLegacyPortModeEnabled=rldot1xLegacyPortModeEnabled, rldot1xSupplicantCredentialPassword=rldot1xSupplicantCredentialPassword, rldot1xSupplicantCredentialPendingRowStatus=rldot1xSupplicantCredentialPendingRowStatus, rldot1xSupplicantConfigurationCredentialName=rldot1xSupplicantConfigurationCredentialName, rldot1xSupplicantCredentialPasswordMD5=rldot1xSupplicantCredentialPasswordMD5, rldot1xAuthMultiAuthReauthsWhileAuthenticating=rldot1xAuthMultiAuthReauthsWhileAuthenticating, rldot1xAuthMultiSessionStatsPortNumber=rldot1xAuthMultiSessionStatsPortNumber, rldot1xAuthMultiEapolStartFramesRx=rldot1xAuthMultiEapolStartFramesRx, rldot1xAuthMultiAuthEapStartsWhileAuthenticated=rldot1xAuthMultiAuthEapStartsWhileAuthenticated, rldot1xGuestVlanSupported=rldot1xGuestVlanSupported, rldot1xBpduFilteringEnabled=rldot1xBpduFilteringEnabled, rldot1xAuthMultiSessionStatsEntry=rldot1xAuthMultiSessionStatsEntry, rldot1xMacAuthUserLowercase=rldot1xMacAuthUserLowercase, rldot1xAuthMultiAuthReauthsWhileAuthenticated=rldot1xAuthMultiAuthReauthsWhileAuthenticated, rldot1xAuthMultiStatsPortNumber=rldot1xAuthMultiStatsPortNumber, rldot1xAuthMultiSessionRadiusAttrFilterId=rldot1xAuthMultiSessionRadiusAttrFilterId, rldot1xNumOfAuthorizedHosts=rldot1xNumOfAuthorizedHosts, rldot1xWebQuietFailureTrapEnabled=rldot1xWebQuietFailureTrapEnabled, rldot1xAuthMultiDiagEntry=rldot1xAuthMultiDiagEntry, rldot1xAuthMultiStatsSourceMac=rldot1xAuthMultiStatsSourceMac, rldot1xLockedCientsPortNumber=rldot1xLockedCientsPortNumber, rldot1xAuthMultiEapolFramesTx=rldot1xAuthMultiEapolFramesTx, rldot1xMaxLoginAttempts=rldot1xMaxLoginAttempts, rldot1xAuthMultiBackendAuthState=rldot1xAuthMultiBackendAuthState, rldot1xSupplicantCredentialName=rldot1xSupplicantCredentialName, rldot1xAuthMultiSessionUserName=rldot1xAuthMultiSessionUserName, rldot1xUserBasedVlanPorts=rldot1xUserBasedVlanPorts, rldot1xSupplicantCredentialPendingDescription=rldot1xSupplicantCredentialPendingDescription, rldot1xGuestVlanPorts=rldot1xGuestVlanPorts, rldot1xExtAuthSessionStatsTable=rldot1xExtAuthSessionStatsTable, rldot1xLockedCientsSourceMac=rldot1xLockedCientsSourceMac, rldot1xTimeoutSilencePeriod=rldot1xTimeoutSilencePeriod, rldot1xTimeBasedName=rldot1xTimeBasedName, rldot1xAuthMultiSessionStatsSourceMac=rldot1xAuthMultiSessionStatsSourceMac, rldot1xAuthMultiConfigTable=rldot1xAuthMultiConfigTable, rldot1xAuthMultiBackendAccessChallenges=rldot1xAuthMultiBackendAccessChallenges, rldot1xSupplicantCredentialPendingTable=rldot1xSupplicantCredentialPendingTable, rldot1xAuthMultiBackendResponses=rldot1xAuthMultiBackendResponses, rldot1xRadiusAttributesErrorsAclReject=rldot1xRadiusAttributesErrorsAclReject, rldot1xSupplicantCredentialPendingUsername=rldot1xSupplicantCredentialPendingUsername, rldot1xAuthMultiEapolReqFramesTx=rldot1xAuthMultiEapolReqFramesTx, rlDot1xAuthMultiSessionMonitorResultsReason=rlDot1xAuthMultiSessionMonitorResultsReason, rldot1xMibVersion=rldot1xMibVersion, PYSNMP_MODULE_ID=rldot1x, rldot1xLockedCientsTable=rldot1xLockedCientsTable, rldot1xAuthMultiBackendAuthSuccesses=rldot1xAuthMultiBackendAuthSuccesses, rldot1xAuthMultiEntersAuthenticating=rldot1xAuthMultiEntersAuthenticating, rldot1xClearPortMibCounters=rldot1xClearPortMibCounters, rldot1xAuthMultiPortNumber=rldot1xAuthMultiPortNumber, rldot1xMacAuthFailureTrapEnabled=rldot1xMacAuthFailureTrapEnabled, rldot1xSupplicantCredentialPendingPassword=rldot1xSupplicantCredentialPendingPassword, rldot1xSupplicantCredentialPendingEntry=rldot1xSupplicantCredentialPendingEntry, rldot1xAuthMultiStatsTable=rldot1xAuthMultiStatsTable, rldot1xMacWebAuthSuccessTrapEnabled=rldot1xMacWebAuthSuccessTrapEnabled, rldot1xAuthenticationOperatingControlMode=rldot1xAuthenticationOperatingControlMode, rldot1xAuthMultiSessionTime=rldot1xAuthMultiSessionTime, rldot1xAuthMultiSourceMac=rldot1xAuthMultiSourceMac, rldot1xUnAuthenticatedVlanEntry=rldot1xUnAuthenticatedVlanEntry, rldot1xAuthMultiDiagPortNumber=rldot1xAuthMultiDiagPortNumber, rldot1xAuthMultiSessionId=rldot1xAuthMultiSessionId, rldot1xAuthMultiControlledPortStatus=rldot1xAuthMultiControlledPortStatus, rldot1xAuthMultiEapolFramesRx=rldot1xAuthMultiEapolFramesRx, rldot1xAuthMultiEntersConnecting=rldot1xAuthMultiEntersConnecting, rldot1xAuthMultiEapLengthErrorFramesRx=rldot1xAuthMultiEapLengthErrorFramesRx, rldot1xAuthMultiAuthSuccessWhileAuthenticating=rldot1xAuthMultiAuthSuccessWhileAuthenticating, rldot1xRadiusAttAclNameEnabled=rldot1xRadiusAttAclNameEnabled, rldot1xAuthMultiBackendNonNakResponsesFromSupplicant=rldot1xAuthMultiBackendNonNakResponsesFromSupplicant, rldot1xMacAuthUserSeparator=rldot1xMacAuthUserSeparator, rldot1xRadiusAttrVlanIdEnabled=rldot1xRadiusAttrVlanIdEnabled, rldot1xSupplicantCredentialActivateConfiguration=rldot1xSupplicantCredentialActivateConfiguration, rldot1xUnAuthenticatedVlanStatus=rldot1xUnAuthenticatedVlanStatus, rldot1xAuthenticationPortMethod=rldot1xAuthenticationPortMethod, rldot1x=rldot1x, rldot1xAuthMultiSessionRadiusAttrSecondFilterId=rldot1xAuthMultiSessionRadiusAttrSecondFilterId, rldot1xTimeBasedActive=rldot1xTimeBasedActive, rldot1xGuestVlanTimeInterval=rldot1xGuestVlanTimeInterval, rldot1xAuthMultiInvalidEapolFramesRx=rldot1xAuthMultiInvalidEapolFramesRx, rldot1xLockedCientsRemainedTime=rldot1xLockedCientsRemainedTime, rldot1xSupplicantCredentialEntry=rldot1xSupplicantCredentialEntry, rldot1xLockedCientsRowStatus=rldot1xLockedCientsRowStatus, rldot1xSystemAuthControlMonitorVlan=rldot1xSystemAuthControlMonitorVlan, rldot1xExtAuthSessionStatsEntry=rldot1xExtAuthSessionStatsEntry, rldot1xAuthMultiDiagSourceMac=rldot1xAuthMultiDiagSourceMac, rldot1xAuthMultiEapolRespFramesRx=rldot1xAuthMultiEapolRespFramesRx, rldot1xAuthMultiSessionOctetsRx=rldot1xAuthMultiSessionOctetsRx, rldot1xMacAuthSuccessTrapEnabled=rldot1xMacAuthSuccessTrapEnabled, rldot1xLegacyPortTable=rldot1xLegacyPortTable, rldot1xAuthMultiEapolReqIdFramesTx=rldot1xAuthMultiEapolReqIdFramesTx, rldot1xAuthMultiConfigEntry=rldot1xAuthMultiConfigEntry, rldot1xMacAuthPasswordMD5=rldot1xMacAuthPasswordMD5, rldot1xAuthenticationOpenEnabled=rldot1xAuthenticationOpenEnabled, rldot1xUserBasedVlanSupported=rldot1xUserBasedVlanSupported, rldot1xSupplicantConfigurationEntry=rldot1xSupplicantConfigurationEntry, rldot1xSupplicantSuccessTrapEnabled=rldot1xSupplicantSuccessTrapEnabled, rldot1xMacAuthUserGroupsize=rldot1xMacAuthUserGroupsize, rldot1xMaxHosts=rldot1xMaxHosts, rldot1xSupplicantConfigurationTable=rldot1xSupplicantConfigurationTable, rlDot1xAuthMultiSessionMethodType=rlDot1xAuthMultiSessionMethodType, rldot1xSupplicantFailureTrapEnabled=rldot1xSupplicantFailureTrapEnabled, rldot1xMacAuthApplyReauthentication=rldot1xMacAuthApplyReauthentication, rldot1xAuthMultiEapolRespIdFramesRx=rldot1xAuthMultiEapolRespIdFramesRx, rldot1xSupplicantConfigurationEapTimeout=rldot1xSupplicantConfigurationEapTimeout, rldot1xSupplicantCredentialUsername=rldot1xSupplicantCredentialUsername, rldot1xSupplicantCredentialDescription=rldot1xSupplicantCredentialDescription, rldot1xRadiusAttrVlanIdentifier=rldot1xRadiusAttrVlanIdentifier, rldot1xAuthMultiAuthEapStartsWhileAuthenticating=rldot1xAuthMultiAuthEapStartsWhileAuthenticating, rldot1xMacAuthEapEnabled=rldot1xMacAuthEapEnabled, rldot1xAuthMultiSessionFramesRx=rldot1xAuthMultiSessionFramesRx, rldot1xAuthMultiAuthFailWhileAuthenticating=rldot1xAuthMultiAuthFailWhileAuthenticating, rldot1xLockedCientsEntry=rldot1xLockedCientsEntry, rldot1xMacWebAuthFailureTrapEnabled=rldot1xMacWebAuthFailureTrapEnabled, rldot1xAuthMultiSessionFramesTx=rldot1xAuthMultiSessionFramesTx, rldot1xAuthMultiSessionOctetsTx=rldot1xAuthMultiSessionOctetsTx, rldot1xAuthMultiStatsEntry=rldot1xAuthMultiStatsEntry, rldot1xAuthMultiPaeState=rldot1xAuthMultiPaeState, rldot1xGuestVlanVID=rldot1xGuestVlanVID, rldot1xAuthenticationPortTable=rldot1xAuthenticationPortTable, rlDot1xAuthSessionAuthenticMethod=rlDot1xAuthSessionAuthenticMethod, rldot1xAuthenticationPortEntry=rldot1xAuthenticationPortEntry, rldot1xAuthMultiDiagTable=rldot1xAuthMultiDiagTable, rldot1xSupplicantCredentialTable=rldot1xSupplicantCredentialTable, rldot1xAuthMultiEapolLogoffFramesRx=rldot1xAuthMultiEapolLogoffFramesRx, rldot1xLegacyPortEntry=rldot1xLegacyPortEntry, rldot1xMacAuthPassword=rldot1xMacAuthPassword)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCOSB-DOT1X-MIB",
+    **{"rldot1x": rldot1x,
+       "rldot1xMibVersion": rldot1xMibVersion,
+       "rldot1xExtAuthSessionStatsTable": rldot1xExtAuthSessionStatsTable,
+       "rldot1xExtAuthSessionStatsEntry": rldot1xExtAuthSessionStatsEntry,
+       "rlDot1xAuthSessionAuthenticMethod": rlDot1xAuthSessionAuthenticMethod,
+       "rldot1xGuestVlanSupported": rldot1xGuestVlanSupported,
+       "rldot1xGuestVlanVID": rldot1xGuestVlanVID,
+       "rldot1xGuestVlanPorts": rldot1xGuestVlanPorts,
+       "rldot1xUnAuthenticatedVlanSupported": rldot1xUnAuthenticatedVlanSupported,
+       "rldot1xUnAuthenticatedVlanTable": rldot1xUnAuthenticatedVlanTable,
+       "rldot1xUnAuthenticatedVlanEntry": rldot1xUnAuthenticatedVlanEntry,
+       "rldot1xUnAuthenticatedVlanStatus": rldot1xUnAuthenticatedVlanStatus,
+       "rldot1xUserBasedVlanSupported": rldot1xUserBasedVlanSupported,
+       "rldot1xUserBasedVlanPorts": rldot1xUserBasedVlanPorts,
+       "rldot1xAuthenticationPortTable": rldot1xAuthenticationPortTable,
+       "rldot1xAuthenticationPortEntry": rldot1xAuthenticationPortEntry,
+       "rldot1xAuthenticationPortMethod": rldot1xAuthenticationPortMethod,
+       "rldot1xRadiusAttrVlanIdEnabled": rldot1xRadiusAttrVlanIdEnabled,
+       "rldot1xRadiusAttAclNameEnabled": rldot1xRadiusAttAclNameEnabled,
+       "rldot1xTimeBasedName": rldot1xTimeBasedName,
+       "rldot1xTimeBasedActive": rldot1xTimeBasedActive,
+       "rldot1xRadiusAttrVlanIdentifier": rldot1xRadiusAttrVlanIdentifier,
+       "rldot1xMaxHosts": rldot1xMaxHosts,
+       "rldot1xMaxLoginAttempts": rldot1xMaxLoginAttempts,
+       "rldot1xTimeoutSilencePeriod": rldot1xTimeoutSilencePeriod,
+       "rldot1xNumOfAuthorizedHosts": rldot1xNumOfAuthorizedHosts,
+       "rldot1xAuthenticationOpenEnabled": rldot1xAuthenticationOpenEnabled,
+       "rldot1xAuthenticationOperatingControlMode": rldot1xAuthenticationOperatingControlMode,
+       "rldot1xAuthMultiStatsTable": rldot1xAuthMultiStatsTable,
+       "rldot1xAuthMultiStatsEntry": rldot1xAuthMultiStatsEntry,
+       "rldot1xAuthMultiStatsPortNumber": rldot1xAuthMultiStatsPortNumber,
+       "rldot1xAuthMultiStatsSourceMac": rldot1xAuthMultiStatsSourceMac,
+       "rldot1xAuthMultiEapolFramesRx": rldot1xAuthMultiEapolFramesRx,
+       "rldot1xAuthMultiEapolFramesTx": rldot1xAuthMultiEapolFramesTx,
+       "rldot1xAuthMultiEapolStartFramesRx": rldot1xAuthMultiEapolStartFramesRx,
+       "rldot1xAuthMultiEapolLogoffFramesRx": rldot1xAuthMultiEapolLogoffFramesRx,
+       "rldot1xAuthMultiEapolRespIdFramesRx": rldot1xAuthMultiEapolRespIdFramesRx,
+       "rldot1xAuthMultiEapolRespFramesRx": rldot1xAuthMultiEapolRespFramesRx,
+       "rldot1xAuthMultiEapolReqIdFramesTx": rldot1xAuthMultiEapolReqIdFramesTx,
+       "rldot1xAuthMultiEapolReqFramesTx": rldot1xAuthMultiEapolReqFramesTx,
+       "rldot1xAuthMultiInvalidEapolFramesRx": rldot1xAuthMultiInvalidEapolFramesRx,
+       "rldot1xAuthMultiEapLengthErrorFramesRx": rldot1xAuthMultiEapLengthErrorFramesRx,
+       "rldot1xAuthMultiDiagTable": rldot1xAuthMultiDiagTable,
+       "rldot1xAuthMultiDiagEntry": rldot1xAuthMultiDiagEntry,
+       "rldot1xAuthMultiDiagPortNumber": rldot1xAuthMultiDiagPortNumber,
+       "rldot1xAuthMultiDiagSourceMac": rldot1xAuthMultiDiagSourceMac,
+       "rldot1xAuthMultiEntersConnecting": rldot1xAuthMultiEntersConnecting,
+       "rldot1xAuthMultiEntersAuthenticating": rldot1xAuthMultiEntersAuthenticating,
+       "rldot1xAuthMultiAuthSuccessWhileAuthenticating": rldot1xAuthMultiAuthSuccessWhileAuthenticating,
+       "rldot1xAuthMultiAuthFailWhileAuthenticating": rldot1xAuthMultiAuthFailWhileAuthenticating,
+       "rldot1xAuthMultiAuthReauthsWhileAuthenticating": rldot1xAuthMultiAuthReauthsWhileAuthenticating,
+       "rldot1xAuthMultiAuthEapStartsWhileAuthenticating": rldot1xAuthMultiAuthEapStartsWhileAuthenticating,
+       "rldot1xAuthMultiAuthReauthsWhileAuthenticated": rldot1xAuthMultiAuthReauthsWhileAuthenticated,
+       "rldot1xAuthMultiAuthEapStartsWhileAuthenticated": rldot1xAuthMultiAuthEapStartsWhileAuthenticated,
+       "rldot1xAuthMultiBackendResponses": rldot1xAuthMultiBackendResponses,
+       "rldot1xAuthMultiBackendAccessChallenges": rldot1xAuthMultiBackendAccessChallenges,
+       "rldot1xAuthMultiBackendOtherRequestsToSupplicant": rldot1xAuthMultiBackendOtherRequestsToSupplicant,
+       "rldot1xAuthMultiBackendNonNakResponsesFromSupplicant": rldot1xAuthMultiBackendNonNakResponsesFromSupplicant,
+       "rldot1xAuthMultiBackendAuthSuccesses": rldot1xAuthMultiBackendAuthSuccesses,
+       "rldot1xAuthMultiSessionStatsTable": rldot1xAuthMultiSessionStatsTable,
+       "rldot1xAuthMultiSessionStatsEntry": rldot1xAuthMultiSessionStatsEntry,
+       "rldot1xAuthMultiSessionStatsPortNumber": rldot1xAuthMultiSessionStatsPortNumber,
+       "rldot1xAuthMultiSessionStatsSourceMac": rldot1xAuthMultiSessionStatsSourceMac,
+       "rldot1xAuthMultiSessionOctetsRx": rldot1xAuthMultiSessionOctetsRx,
+       "rldot1xAuthMultiSessionOctetsTx": rldot1xAuthMultiSessionOctetsTx,
+       "rldot1xAuthMultiSessionFramesRx": rldot1xAuthMultiSessionFramesRx,
+       "rldot1xAuthMultiSessionFramesTx": rldot1xAuthMultiSessionFramesTx,
+       "rldot1xAuthMultiSessionId": rldot1xAuthMultiSessionId,
+       "rldot1xAuthMultiSessionTime": rldot1xAuthMultiSessionTime,
+       "rldot1xAuthMultiSessionUserName": rldot1xAuthMultiSessionUserName,
+       "rldot1xAuthMultiSessionRadiusAttrVlan": rldot1xAuthMultiSessionRadiusAttrVlan,
+       "rldot1xAuthMultiSessionRadiusAttrFilterId": rldot1xAuthMultiSessionRadiusAttrFilterId,
+       "rldot1xAuthMultiSessionRadiusAttrSecondFilterId": rldot1xAuthMultiSessionRadiusAttrSecondFilterId,
+       "rlDot1xAuthMultiSessionMonitorResultsReason": rlDot1xAuthMultiSessionMonitorResultsReason,
+       "rlDot1xAuthMultiSessionMethodType": rlDot1xAuthMultiSessionMethodType,
+       "rldot1xAuthMultiConfigTable": rldot1xAuthMultiConfigTable,
+       "rldot1xAuthMultiConfigEntry": rldot1xAuthMultiConfigEntry,
+       "rldot1xAuthMultiPortNumber": rldot1xAuthMultiPortNumber,
+       "rldot1xAuthMultiSourceMac": rldot1xAuthMultiSourceMac,
+       "rldot1xAuthMultiPaeState": rldot1xAuthMultiPaeState,
+       "rldot1xAuthMultiBackendAuthState": rldot1xAuthMultiBackendAuthState,
+       "rldot1xAuthMultiControlledPortStatus": rldot1xAuthMultiControlledPortStatus,
+       "rldot1xBpduFilteringEnabled": rldot1xBpduFilteringEnabled,
+       "rldot1xRadiusAttributesErrorsAclReject": rldot1xRadiusAttributesErrorsAclReject,
+       "rldot1xGuestVlanTimeInterval": rldot1xGuestVlanTimeInterval,
+       "rldot1xMacAuthSuccessTrapEnabled": rldot1xMacAuthSuccessTrapEnabled,
+       "rldot1xMacAuthFailureTrapEnabled": rldot1xMacAuthFailureTrapEnabled,
+       "rldot1xLegacyPortTable": rldot1xLegacyPortTable,
+       "rldot1xLegacyPortEntry": rldot1xLegacyPortEntry,
+       "rldot1xLegacyPortModeEnabled": rldot1xLegacyPortModeEnabled,
+       "rldot1xSystemAuthControlMonitorVlan": rldot1xSystemAuthControlMonitorVlan,
+       "rldot1xClearPortMibCounters": rldot1xClearPortMibCounters,
+       "rldot1xWebQuietFailureTrapEnabled": rldot1xWebQuietFailureTrapEnabled,
+       "rldot1xMacWebAuthSuccessTrapEnabled": rldot1xMacWebAuthSuccessTrapEnabled,
+       "rldot1xMacWebAuthFailureTrapEnabled": rldot1xMacWebAuthFailureTrapEnabled,
+       "rldot1xLockedCientsTable": rldot1xLockedCientsTable,
+       "rldot1xLockedCientsEntry": rldot1xLockedCientsEntry,
+       "rldot1xLockedCientsPortNumber": rldot1xLockedCientsPortNumber,
+       "rldot1xLockedCientsSourceMac": rldot1xLockedCientsSourceMac,
+       "rldot1xLockedCientsRemainedTime": rldot1xLockedCientsRemainedTime,
+       "rldot1xLockedCientsRowStatus": rldot1xLockedCientsRowStatus,
+       "rldot1xSupplicantSuccessTrapEnabled": rldot1xSupplicantSuccessTrapEnabled,
+       "rldot1xSupplicantFailureTrapEnabled": rldot1xSupplicantFailureTrapEnabled,
+       "rldot1xSupplicantCredentialActivateConfiguration": rldot1xSupplicantCredentialActivateConfiguration,
+       "rldot1xSupplicantCredentialPendingTable": rldot1xSupplicantCredentialPendingTable,
+       "rldot1xSupplicantCredentialPendingEntry": rldot1xSupplicantCredentialPendingEntry,
+       "rldot1xSupplicantCredentialName": rldot1xSupplicantCredentialName,
+       "rldot1xSupplicantCredentialPendingDescription": rldot1xSupplicantCredentialPendingDescription,
+       "rldot1xSupplicantCredentialPendingUsername": rldot1xSupplicantCredentialPendingUsername,
+       "rldot1xSupplicantCredentialPendingPassword": rldot1xSupplicantCredentialPendingPassword,
+       "rldot1xSupplicantCredentialPendingRowStatus": rldot1xSupplicantCredentialPendingRowStatus,
+       "rldot1xSupplicantCredentialTable": rldot1xSupplicantCredentialTable,
+       "rldot1xSupplicantCredentialEntry": rldot1xSupplicantCredentialEntry,
+       "rldot1xSupplicantCredentialDescription": rldot1xSupplicantCredentialDescription,
+       "rldot1xSupplicantCredentialUsername": rldot1xSupplicantCredentialUsername,
+       "rldot1xSupplicantCredentialPassword": rldot1xSupplicantCredentialPassword,
+       "rldot1xSupplicantCredentialPasswordMD5": rldot1xSupplicantCredentialPasswordMD5,
+       "rldot1xSupplicantConfigurationTable": rldot1xSupplicantConfigurationTable,
+       "rldot1xSupplicantConfigurationEntry": rldot1xSupplicantConfigurationEntry,
+       "rldot1xSupplicantConfigurationCredentialName": rldot1xSupplicantConfigurationCredentialName,
+       "rldot1xSupplicantConfigurationEapTimeout": rldot1xSupplicantConfigurationEapTimeout,
+       "rldot1xMacAuthEapEnabled": rldot1xMacAuthEapEnabled,
+       "rldot1xMacAuthUserGroupsize": rldot1xMacAuthUserGroupsize,
+       "rldot1xMacAuthUserSeparator": rldot1xMacAuthUserSeparator,
+       "rldot1xMacAuthUserLowercase": rldot1xMacAuthUserLowercase,
+       "rldot1xMacAuthPassword": rldot1xMacAuthPassword,
+       "rldot1xMacAuthApplyReauthentication": rldot1xMacAuthApplyReauthentication,
+       "rldot1xMacAuthPasswordMD5": rldot1xMacAuthPasswordMD5}
+)

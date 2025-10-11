@@ -1,41 +1,299 @@
+# SNMP MIB module (ELTEX-MES-eltMacNotification-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ELTEX-MES-eltMacNotification-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eltex/ELTEX-MES-eltMacNotification-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:11 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/eltex/ELTEX-MES-eltMacNotification-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:50:53 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-VlanIndex, = mibBuilder.importSymbols("CISCO-VTP-MIB", "VlanIndex")
-eltMesMng, = mibBuilder.importSymbols("ELTEX-MES", "eltMesMng")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, MacAddress, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "MacAddress", "TruthValue", "TimeStamp", "DisplayString")
-eltMesMacNotificationMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7))
-eltMesMacNotificationMIB.setRevisions(('2015-11-05 00:00', '2015-11-19 00:00',))
-if mibBuilder.loadTexts: eltMesMacNotificationMIB.setLastUpdated('201511190000Z')
-if mibBuilder.loadTexts: eltMesMacNotificationMIB.setOrganization('Eltex Enterprise Co, Ltd.')
-eltMesMacNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1))
-eltMesMnFlappingObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1))
-eltMnFlappingFeatureEnabled = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltMnFlappingFeatureEnabled.setStatus('deprecated')
-eltMnFlappingNotificationsEnabled = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 2), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltMnFlappingNotificationsEnabled.setStatus('deprecated')
-eltMnFlappingAddress = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltMnFlappingAddress.setStatus('deprecated')
-eltMnFlappingVlanNumber = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 4), VlanIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltMnFlappingVlanNumber.setStatus('deprecated')
-eltMnFlappingFirstPortId = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltMnFlappingFirstPortId.setStatus('deprecated')
-eltMnFlappingSecondPortId = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltMnFlappingSecondPortId.setStatus('deprecated')
-eltMnFlappingTime = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltMnFlappingTime.setStatus('deprecated')
-eltMesMnNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 2))
-eltMesMnNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 2, 0))
-eltMnFlappingNotification = NotificationType((1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 2, 0, 1)).setObjects(("ELTEX-MES-eltMacNotification-MIB", "eltMnFlappingAddress"), ("ELTEX-MES-eltMacNotification-MIB", "eltMnFlappingVlanNumber"), ("ELTEX-MES-eltMacNotification-MIB", "eltMnFlappingFirstPortId"), ("ELTEX-MES-eltMacNotification-MIB", "eltMnFlappingSecondPortId"), ("ELTEX-MES-eltMacNotification-MIB", "eltMnFlappingTime"))
-if mibBuilder.loadTexts: eltMnFlappingNotification.setStatus('deprecated')
-mibBuilder.exportSymbols("ELTEX-MES-eltMacNotification-MIB", eltMesMnFlappingObjects=eltMesMnFlappingObjects, eltMnFlappingNotificationsEnabled=eltMnFlappingNotificationsEnabled, eltMnFlappingAddress=eltMnFlappingAddress, eltMnFlappingSecondPortId=eltMnFlappingSecondPortId, PYSNMP_MODULE_ID=eltMesMacNotificationMIB, eltMesMnNotificationPrefix=eltMesMnNotificationPrefix, eltMesMacNotificationObjects=eltMesMacNotificationObjects, eltMnFlappingNotification=eltMnFlappingNotification, eltMesMacNotificationMIB=eltMesMacNotificationMIB, eltMnFlappingFeatureEnabled=eltMnFlappingFeatureEnabled, eltMnFlappingFirstPortId=eltMnFlappingFirstPortId, eltMnFlappingVlanNumber=eltMnFlappingVlanNumber, eltMnFlappingTime=eltMnFlappingTime, eltMesMnNotifications=eltMesMnNotifications)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(VlanIndex,) = mibBuilder.importSymbols(
+    "CISCO-VTP-MIB",
+    "VlanIndex")
+
+(eltMesMng,) = mibBuilder.importSymbols(
+    "ELTEX-MES",
+    "eltMesMng")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+eltMesMacNotificationMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7)
+)
+if mibBuilder.loadTexts:
+    eltMesMacNotificationMIB.setRevisions(
+        ("2015-11-05 00:00",
+         "2015-11-19 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EltMesMacNotificationObjects_ObjectIdentity = ObjectIdentity
+eltMesMacNotificationObjects = _EltMesMacNotificationObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1)
+)
+_EltMesMnFlappingObjects_ObjectIdentity = ObjectIdentity
+eltMesMnFlappingObjects = _EltMesMnFlappingObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1)
+)
+
+
+class _EltMnFlappingFeatureEnabled_Type(TruthValue):
+    """Custom type eltMnFlappingFeatureEnabled based on TruthValue"""
+    defaultValue = 1
+
+
+_EltMnFlappingFeatureEnabled_Type.__name__ = "TruthValue"
+_EltMnFlappingFeatureEnabled_Object = MibScalar
+eltMnFlappingFeatureEnabled = _EltMnFlappingFeatureEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 1),
+    _EltMnFlappingFeatureEnabled_Type()
+)
+eltMnFlappingFeatureEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltMnFlappingFeatureEnabled.setStatus("deprecated")
+
+
+class _EltMnFlappingNotificationsEnabled_Type(TruthValue):
+    """Custom type eltMnFlappingNotificationsEnabled based on TruthValue"""
+    defaultValue = 1
+
+
+_EltMnFlappingNotificationsEnabled_Type.__name__ = "TruthValue"
+_EltMnFlappingNotificationsEnabled_Object = MibScalar
+eltMnFlappingNotificationsEnabled = _EltMnFlappingNotificationsEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 2),
+    _EltMnFlappingNotificationsEnabled_Type()
+)
+eltMnFlappingNotificationsEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltMnFlappingNotificationsEnabled.setStatus("deprecated")
+_EltMnFlappingAddress_Type = MacAddress
+_EltMnFlappingAddress_Object = MibScalar
+eltMnFlappingAddress = _EltMnFlappingAddress_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 3),
+    _EltMnFlappingAddress_Type()
+)
+eltMnFlappingAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltMnFlappingAddress.setStatus("deprecated")
+_EltMnFlappingVlanNumber_Type = VlanIndex
+_EltMnFlappingVlanNumber_Object = MibScalar
+eltMnFlappingVlanNumber = _EltMnFlappingVlanNumber_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 4),
+    _EltMnFlappingVlanNumber_Type()
+)
+eltMnFlappingVlanNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltMnFlappingVlanNumber.setStatus("deprecated")
+
+
+class _EltMnFlappingFirstPortId_Type(Integer32):
+    """Custom type eltMnFlappingFirstPortId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_EltMnFlappingFirstPortId_Type.__name__ = "Integer32"
+_EltMnFlappingFirstPortId_Object = MibScalar
+eltMnFlappingFirstPortId = _EltMnFlappingFirstPortId_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 5),
+    _EltMnFlappingFirstPortId_Type()
+)
+eltMnFlappingFirstPortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltMnFlappingFirstPortId.setStatus("deprecated")
+
+
+class _EltMnFlappingSecondPortId_Type(Integer32):
+    """Custom type eltMnFlappingSecondPortId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_EltMnFlappingSecondPortId_Type.__name__ = "Integer32"
+_EltMnFlappingSecondPortId_Object = MibScalar
+eltMnFlappingSecondPortId = _EltMnFlappingSecondPortId_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 6),
+    _EltMnFlappingSecondPortId_Type()
+)
+eltMnFlappingSecondPortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltMnFlappingSecondPortId.setStatus("deprecated")
+_EltMnFlappingTime_Type = TimeStamp
+_EltMnFlappingTime_Object = MibScalar
+eltMnFlappingTime = _EltMnFlappingTime_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 1, 1, 7),
+    _EltMnFlappingTime_Type()
+)
+eltMnFlappingTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltMnFlappingTime.setStatus("deprecated")
+_EltMesMnNotificationPrefix_ObjectIdentity = ObjectIdentity
+eltMesMnNotificationPrefix = _EltMesMnNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 2)
+)
+_EltMesMnNotifications_ObjectIdentity = ObjectIdentity
+eltMesMnNotifications = _EltMesMnNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 2, 0)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+eltMnFlappingNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 1, 7, 2, 0, 1)
+)
+eltMnFlappingNotification.setObjects(
+      *(("ELTEX-MES-eltMacNotification-MIB", "eltMnFlappingAddress"),
+        ("ELTEX-MES-eltMacNotification-MIB", "eltMnFlappingVlanNumber"),
+        ("ELTEX-MES-eltMacNotification-MIB", "eltMnFlappingFirstPortId"),
+        ("ELTEX-MES-eltMacNotification-MIB", "eltMnFlappingSecondPortId"),
+        ("ELTEX-MES-eltMacNotification-MIB", "eltMnFlappingTime"))
+)
+if mibBuilder.loadTexts:
+    eltMnFlappingNotification.setStatus(
+        "deprecated"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ELTEX-MES-eltMacNotification-MIB",
+    **{"eltMesMacNotificationMIB": eltMesMacNotificationMIB,
+       "eltMesMacNotificationObjects": eltMesMacNotificationObjects,
+       "eltMesMnFlappingObjects": eltMesMnFlappingObjects,
+       "eltMnFlappingFeatureEnabled": eltMnFlappingFeatureEnabled,
+       "eltMnFlappingNotificationsEnabled": eltMnFlappingNotificationsEnabled,
+       "eltMnFlappingAddress": eltMnFlappingAddress,
+       "eltMnFlappingVlanNumber": eltMnFlappingVlanNumber,
+       "eltMnFlappingFirstPortId": eltMnFlappingFirstPortId,
+       "eltMnFlappingSecondPortId": eltMnFlappingSecondPortId,
+       "eltMnFlappingTime": eltMnFlappingTime,
+       "eltMesMnNotificationPrefix": eltMesMnNotificationPrefix,
+       "eltMesMnNotifications": eltMesMnNotifications,
+       "eltMnFlappingNotification": eltMnFlappingNotification}
+)

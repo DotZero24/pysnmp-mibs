@@ -1,114 +1,487 @@
+# SNMP MIB module (SIAE-UNITYPE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SIAE-UNITYPE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/siaemic/SIAE-UNITYPE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:45:55 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/siaemic/SIAE-UNITYPE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:13:39 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-unitTypeMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 506))
-unitTypeMib.setRevisions(('2017-06-05 00:00', '2017-05-23 00:00', '2016-10-14 00:00', '2016-07-19 00:00', '2016-04-05 00:00', '2015-03-04 00:00', '2014-12-01 00:00', '2014-03-19 00:00', '2014-02-07 00:00', '2013-04-16 00:00',))
-if mibBuilder.loadTexts: unitTypeMib.setLastUpdated('201607190000Z')
-if mibBuilder.loadTexts: unitTypeMib.setOrganization('SIAE MICROELETTRONICA spa')
-unitType = MibIdentifier((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3))
-unitTypeUnequipped = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 1))
-if mibBuilder.loadTexts: unitTypeUnequipped.setStatus('current')
-unitTypeODU = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 5))
-if mibBuilder.loadTexts: unitTypeODU.setStatus('current')
-unitTypeALFO80HD = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 200))
-if mibBuilder.loadTexts: unitTypeALFO80HD.setStatus('current')
-unitTypeALFO80HDelectrical = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 201))
-if mibBuilder.loadTexts: unitTypeALFO80HDelectrical.setStatus('current')
-unitTypeALFO80HDelectricalOptical = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 202))
-if mibBuilder.loadTexts: unitTypeALFO80HDelectricalOptical.setStatus('current')
-unitTypeALFO80HDoptical = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 203))
-if mibBuilder.loadTexts: unitTypeALFO80HDoptical.setStatus('current')
-unitTypeAGS20ARI1 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 210))
-if mibBuilder.loadTexts: unitTypeAGS20ARI1.setStatus('current')
-unitTypeAGS20ARI2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 211))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2.setStatus('current')
-unitTypeAGS20ARI4 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 212))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4.setStatus('current')
-unitTypeAGS20DRI4 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 213))
-if mibBuilder.loadTexts: unitTypeAGS20DRI4.setStatus('current')
-unitTypeAGS20ARI1TDM2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 214))
-if mibBuilder.loadTexts: unitTypeAGS20ARI1TDM2.setStatus('current')
-unitTypeAGS20ARI1TDM3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 215))
-if mibBuilder.loadTexts: unitTypeAGS20ARI1TDM3.setStatus('current')
-unitTypeAGS20ARI2TDM2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 216))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2TDM2.setStatus('current')
-unitTypeAGS20ARI2TDM3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 217))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2TDM3.setStatus('current')
-unitTypeAGS20ARI4TDM2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 218))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4TDM2.setStatus('current')
-unitTypeAGS20ARI4TDM3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 219))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4TDM3.setStatus('current')
-unitTypeAGS20DRI4TDM2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 220))
-if mibBuilder.loadTexts: unitTypeAGS20DRI4TDM2.setStatus('current')
-unitTypeAGS20DRI4TDM3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 221))
-if mibBuilder.loadTexts: unitTypeAGS20DRI4TDM3.setStatus('current')
-unitTypeAGS20CORE = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 222))
-if mibBuilder.loadTexts: unitTypeAGS20CORE.setStatus('current')
-unitTypeAGS20ARI1DP = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 223))
-if mibBuilder.loadTexts: unitTypeAGS20ARI1DP.setStatus('current')
-unitTypeAGS20ARI1TDM2DP = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 224))
-if mibBuilder.loadTexts: unitTypeAGS20ARI1TDM2DP.setStatus('current')
-unitTypeAGS20ARI1TDM3DP = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 225))
-if mibBuilder.loadTexts: unitTypeAGS20ARI1TDM3DP.setStatus('current')
-unitTypeALFOplus1 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 229))
-if mibBuilder.loadTexts: unitTypeALFOplus1.setStatus('current')
-unitTypeALFOplus2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 230))
-if mibBuilder.loadTexts: unitTypeALFOplus2.setStatus('current')
-unitTypeAGS20ODU = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 231))
-if mibBuilder.loadTexts: unitTypeAGS20ODU.setStatus('current')
-unitTypeALFOplus2XG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 232))
-if mibBuilder.loadTexts: unitTypeALFOplus2XG.setStatus('current')
-unitTypeAGS20ARI1TDM2LC = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 240))
-if mibBuilder.loadTexts: unitTypeAGS20ARI1TDM2LC.setStatus('current')
-unitTypeAGS20COREXG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 249))
-if mibBuilder.loadTexts: unitTypeAGS20COREXG.setStatus('current')
-unitTypeAGS20ARI2XG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 250))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2XG.setStatus('current')
-unitTypeAGS20ARI2TDM2XG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 251))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2TDM2XG.setStatus('current')
-unitTypeAGS20ARI2TDM3XG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 252))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2TDM3XG.setStatus('current')
-unitTypeAGS20ARI4XG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 253))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4XG.setStatus('current')
-unitTypeAGS20ARI4TDM2XG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 254))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4TDM2XG.setStatus('current')
-unitTypeAGS20ARI4TDM3XG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 255))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4TDM3XG.setStatus('current')
-unitTypeAGS20ARI2E = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 260))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2E.setStatus('current')
-unitTypeAGS20ARI2ETDM2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 261))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2ETDM2.setStatus('current')
-unitTypeAGS20ARI2ETDM3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 262))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2ETDM3.setStatus('current')
-unitTypeAGS20ARI2EXG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 263))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2EXG.setStatus('current')
-unitTypeAGS20ARI2ETDM2XG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 264))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2ETDM2XG.setStatus('current')
-unitTypeAGS20ARI2ETDM3XG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 265))
-if mibBuilder.loadTexts: unitTypeAGS20ARI2ETDM3XG.setStatus('current')
-unitTypeAGS20ARI4E = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 266))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4E.setStatus('current')
-unitTypeAGS20ARI4ETDM2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 267))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4ETDM2.setStatus('current')
-unitTypeAGS20ARI4ETDM3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 268))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4ETDM3.setStatus('current')
-unitTypeAGS20ARI4EXG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 269))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4EXG.setStatus('current')
-unitTypeAGS20ARI4ETDM2XG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 270))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4ETDM2XG.setStatus('current')
-unitTypeAGS20ARI4ETDM3XG = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 271))
-if mibBuilder.loadTexts: unitTypeAGS20ARI4ETDM3XG.setStatus('current')
-unitTypeALFO80HDx = ObjectIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 280))
-if mibBuilder.loadTexts: unitTypeALFO80HDx.setStatus('current')
-mibBuilder.exportSymbols("SIAE-UNITYPE-MIB", unitTypeALFOplus2XG=unitTypeALFOplus2XG, PYSNMP_MODULE_ID=unitTypeMib, unitTypeALFO80HDx=unitTypeALFO80HDx, unitTypeAGS20ARI4ETDM3=unitTypeAGS20ARI4ETDM3, unitTypeODU=unitTypeODU, unitTypeAGS20ARI1=unitTypeAGS20ARI1, unitTypeAGS20ARI2ETDM2XG=unitTypeAGS20ARI2ETDM2XG, unitType=unitType, unitTypeAGS20ARI4EXG=unitTypeAGS20ARI4EXG, unitTypeAGS20COREXG=unitTypeAGS20COREXG, unitTypeAGS20CORE=unitTypeAGS20CORE, unitTypeAGS20ARI1TDM3DP=unitTypeAGS20ARI1TDM3DP, unitTypeAGS20ARI4ETDM3XG=unitTypeAGS20ARI4ETDM3XG, unitTypeUnequipped=unitTypeUnequipped, unitTypeAGS20ARI2TDM2=unitTypeAGS20ARI2TDM2, unitTypeAGS20ODU=unitTypeAGS20ODU, unitTypeAGS20ARI2TDM2XG=unitTypeAGS20ARI2TDM2XG, unitTypeALFOplus2=unitTypeALFOplus2, unitTypeAGS20ARI2ETDM3=unitTypeAGS20ARI2ETDM3, unitTypeAGS20ARI2ETDM2=unitTypeAGS20ARI2ETDM2, unitTypeAGS20DRI4TDM2=unitTypeAGS20DRI4TDM2, unitTypeAGS20ARI4E=unitTypeAGS20ARI4E, unitTypeAGS20ARI1TDM2LC=unitTypeAGS20ARI1TDM2LC, unitTypeAGS20ARI2TDM3=unitTypeAGS20ARI2TDM3, unitTypeALFO80HDoptical=unitTypeALFO80HDoptical, unitTypeAGS20ARI4TDM2XG=unitTypeAGS20ARI4TDM2XG, unitTypeAGS20ARI4XG=unitTypeAGS20ARI4XG, unitTypeALFO80HDelectrical=unitTypeALFO80HDelectrical, unitTypeAGS20ARI4TDM2=unitTypeAGS20ARI4TDM2, unitTypeALFO80HD=unitTypeALFO80HD, unitTypeAGS20ARI1TDM2DP=unitTypeAGS20ARI1TDM2DP, unitTypeAGS20ARI2TDM3XG=unitTypeAGS20ARI2TDM3XG, unitTypeAGS20ARI2ETDM3XG=unitTypeAGS20ARI2ETDM3XG, unitTypeAGS20ARI4ETDM2XG=unitTypeAGS20ARI4ETDM2XG, unitTypeAGS20ARI4=unitTypeAGS20ARI4, unitTypeAGS20ARI2EXG=unitTypeAGS20ARI2EXG, unitTypeAGS20ARI1TDM3=unitTypeAGS20ARI1TDM3, unitTypeAGS20ARI4TDM3=unitTypeAGS20ARI4TDM3, unitTypeAGS20ARI2XG=unitTypeAGS20ARI2XG, unitTypeAGS20ARI4TDM3XG=unitTypeAGS20ARI4TDM3XG, unitTypeAGS20DRI4TDM3=unitTypeAGS20DRI4TDM3, unitTypeAGS20ARI4ETDM2=unitTypeAGS20ARI4ETDM2, unitTypeAGS20ARI2E=unitTypeAGS20ARI2E, unitTypeMib=unitTypeMib, unitTypeAGS20ARI1DP=unitTypeAGS20ARI1DP, unitTypeAGS20DRI4=unitTypeAGS20DRI4, unitTypeAGS20ARI2=unitTypeAGS20ARI2, unitTypeAGS20ARI1TDM2=unitTypeAGS20ARI1TDM2, unitTypeALFO80HDelectricalOptical=unitTypeALFO80HDelectricalOptical, unitTypeALFOplus1=unitTypeALFOplus1)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(siaeMib,) = mibBuilder.importSymbols(
+    "SIAE-TREE-MIB",
+    "siaeMib")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+unitTypeMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 506)
+)
+if mibBuilder.loadTexts:
+    unitTypeMib.setRevisions(
+        ("2017-06-05 00:00",
+         "2017-05-23 00:00",
+         "2016-10-14 00:00",
+         "2016-07-19 00:00",
+         "2016-04-05 00:00",
+         "2015-03-04 00:00",
+         "2014-12-01 00:00",
+         "2014-03-19 00:00",
+         "2014-02-07 00:00",
+         "2013-04-16 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_UnitType_ObjectIdentity = ObjectIdentity
+unitType = _UnitType_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3)
+)
+_UnitTypeUnequipped_ObjectIdentity = ObjectIdentity
+unitTypeUnequipped = _UnitTypeUnequipped_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 1)
+)
+if mibBuilder.loadTexts:
+    unitTypeUnequipped.setStatus("current")
+_UnitTypeODU_ObjectIdentity = ObjectIdentity
+unitTypeODU = _UnitTypeODU_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 5)
+)
+if mibBuilder.loadTexts:
+    unitTypeODU.setStatus("current")
+_UnitTypeALFO80HD_ObjectIdentity = ObjectIdentity
+unitTypeALFO80HD = _UnitTypeALFO80HD_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 200)
+)
+if mibBuilder.loadTexts:
+    unitTypeALFO80HD.setStatus("current")
+_UnitTypeALFO80HDelectrical_ObjectIdentity = ObjectIdentity
+unitTypeALFO80HDelectrical = _UnitTypeALFO80HDelectrical_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 201)
+)
+if mibBuilder.loadTexts:
+    unitTypeALFO80HDelectrical.setStatus("current")
+_UnitTypeALFO80HDelectricalOptical_ObjectIdentity = ObjectIdentity
+unitTypeALFO80HDelectricalOptical = _UnitTypeALFO80HDelectricalOptical_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 202)
+)
+if mibBuilder.loadTexts:
+    unitTypeALFO80HDelectricalOptical.setStatus("current")
+_UnitTypeALFO80HDoptical_ObjectIdentity = ObjectIdentity
+unitTypeALFO80HDoptical = _UnitTypeALFO80HDoptical_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 203)
+)
+if mibBuilder.loadTexts:
+    unitTypeALFO80HDoptical.setStatus("current")
+_UnitTypeAGS20ARI1_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI1 = _UnitTypeAGS20ARI1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 210)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI1.setStatus("current")
+_UnitTypeAGS20ARI2_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2 = _UnitTypeAGS20ARI2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 211)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2.setStatus("current")
+_UnitTypeAGS20ARI4_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4 = _UnitTypeAGS20ARI4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 212)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4.setStatus("current")
+_UnitTypeAGS20DRI4_ObjectIdentity = ObjectIdentity
+unitTypeAGS20DRI4 = _UnitTypeAGS20DRI4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 213)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20DRI4.setStatus("current")
+_UnitTypeAGS20ARI1TDM2_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI1TDM2 = _UnitTypeAGS20ARI1TDM2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 214)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI1TDM2.setStatus("current")
+_UnitTypeAGS20ARI1TDM3_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI1TDM3 = _UnitTypeAGS20ARI1TDM3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 215)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI1TDM3.setStatus("current")
+_UnitTypeAGS20ARI2TDM2_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2TDM2 = _UnitTypeAGS20ARI2TDM2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 216)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2TDM2.setStatus("current")
+_UnitTypeAGS20ARI2TDM3_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2TDM3 = _UnitTypeAGS20ARI2TDM3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 217)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2TDM3.setStatus("current")
+_UnitTypeAGS20ARI4TDM2_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4TDM2 = _UnitTypeAGS20ARI4TDM2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 218)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4TDM2.setStatus("current")
+_UnitTypeAGS20ARI4TDM3_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4TDM3 = _UnitTypeAGS20ARI4TDM3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 219)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4TDM3.setStatus("current")
+_UnitTypeAGS20DRI4TDM2_ObjectIdentity = ObjectIdentity
+unitTypeAGS20DRI4TDM2 = _UnitTypeAGS20DRI4TDM2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 220)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20DRI4TDM2.setStatus("current")
+_UnitTypeAGS20DRI4TDM3_ObjectIdentity = ObjectIdentity
+unitTypeAGS20DRI4TDM3 = _UnitTypeAGS20DRI4TDM3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 221)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20DRI4TDM3.setStatus("current")
+_UnitTypeAGS20CORE_ObjectIdentity = ObjectIdentity
+unitTypeAGS20CORE = _UnitTypeAGS20CORE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 222)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20CORE.setStatus("current")
+_UnitTypeAGS20ARI1DP_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI1DP = _UnitTypeAGS20ARI1DP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 223)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI1DP.setStatus("current")
+_UnitTypeAGS20ARI1TDM2DP_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI1TDM2DP = _UnitTypeAGS20ARI1TDM2DP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 224)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI1TDM2DP.setStatus("current")
+_UnitTypeAGS20ARI1TDM3DP_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI1TDM3DP = _UnitTypeAGS20ARI1TDM3DP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 225)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI1TDM3DP.setStatus("current")
+_UnitTypeALFOplus1_ObjectIdentity = ObjectIdentity
+unitTypeALFOplus1 = _UnitTypeALFOplus1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 229)
+)
+if mibBuilder.loadTexts:
+    unitTypeALFOplus1.setStatus("current")
+_UnitTypeALFOplus2_ObjectIdentity = ObjectIdentity
+unitTypeALFOplus2 = _UnitTypeALFOplus2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 230)
+)
+if mibBuilder.loadTexts:
+    unitTypeALFOplus2.setStatus("current")
+_UnitTypeAGS20ODU_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ODU = _UnitTypeAGS20ODU_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 231)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ODU.setStatus("current")
+_UnitTypeALFOplus2XG_ObjectIdentity = ObjectIdentity
+unitTypeALFOplus2XG = _UnitTypeALFOplus2XG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 232)
+)
+if mibBuilder.loadTexts:
+    unitTypeALFOplus2XG.setStatus("current")
+_UnitTypeAGS20ARI1TDM2LC_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI1TDM2LC = _UnitTypeAGS20ARI1TDM2LC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 240)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI1TDM2LC.setStatus("current")
+_UnitTypeAGS20COREXG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20COREXG = _UnitTypeAGS20COREXG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 249)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20COREXG.setStatus("current")
+_UnitTypeAGS20ARI2XG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2XG = _UnitTypeAGS20ARI2XG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 250)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2XG.setStatus("current")
+_UnitTypeAGS20ARI2TDM2XG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2TDM2XG = _UnitTypeAGS20ARI2TDM2XG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 251)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2TDM2XG.setStatus("current")
+_UnitTypeAGS20ARI2TDM3XG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2TDM3XG = _UnitTypeAGS20ARI2TDM3XG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 252)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2TDM3XG.setStatus("current")
+_UnitTypeAGS20ARI4XG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4XG = _UnitTypeAGS20ARI4XG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 253)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4XG.setStatus("current")
+_UnitTypeAGS20ARI4TDM2XG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4TDM2XG = _UnitTypeAGS20ARI4TDM2XG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 254)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4TDM2XG.setStatus("current")
+_UnitTypeAGS20ARI4TDM3XG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4TDM3XG = _UnitTypeAGS20ARI4TDM3XG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 255)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4TDM3XG.setStatus("current")
+_UnitTypeAGS20ARI2E_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2E = _UnitTypeAGS20ARI2E_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 260)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2E.setStatus("current")
+_UnitTypeAGS20ARI2ETDM2_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2ETDM2 = _UnitTypeAGS20ARI2ETDM2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 261)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2ETDM2.setStatus("current")
+_UnitTypeAGS20ARI2ETDM3_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2ETDM3 = _UnitTypeAGS20ARI2ETDM3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 262)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2ETDM3.setStatus("current")
+_UnitTypeAGS20ARI2EXG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2EXG = _UnitTypeAGS20ARI2EXG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 263)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2EXG.setStatus("current")
+_UnitTypeAGS20ARI2ETDM2XG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2ETDM2XG = _UnitTypeAGS20ARI2ETDM2XG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 264)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2ETDM2XG.setStatus("current")
+_UnitTypeAGS20ARI2ETDM3XG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI2ETDM3XG = _UnitTypeAGS20ARI2ETDM3XG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 265)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI2ETDM3XG.setStatus("current")
+_UnitTypeAGS20ARI4E_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4E = _UnitTypeAGS20ARI4E_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 266)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4E.setStatus("current")
+_UnitTypeAGS20ARI4ETDM2_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4ETDM2 = _UnitTypeAGS20ARI4ETDM2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 267)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4ETDM2.setStatus("current")
+_UnitTypeAGS20ARI4ETDM3_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4ETDM3 = _UnitTypeAGS20ARI4ETDM3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 268)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4ETDM3.setStatus("current")
+_UnitTypeAGS20ARI4EXG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4EXG = _UnitTypeAGS20ARI4EXG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 269)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4EXG.setStatus("current")
+_UnitTypeAGS20ARI4ETDM2XG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4ETDM2XG = _UnitTypeAGS20ARI4ETDM2XG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 270)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4ETDM2XG.setStatus("current")
+_UnitTypeAGS20ARI4ETDM3XG_ObjectIdentity = ObjectIdentity
+unitTypeAGS20ARI4ETDM3XG = _UnitTypeAGS20ARI4ETDM3XG_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 271)
+)
+if mibBuilder.loadTexts:
+    unitTypeAGS20ARI4ETDM3XG.setStatus("current")
+_UnitTypeALFO80HDx_ObjectIdentity = ObjectIdentity
+unitTypeALFO80HDx = _UnitTypeALFO80HDx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 6, 3, 280)
+)
+if mibBuilder.loadTexts:
+    unitTypeALFO80HDx.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SIAE-UNITYPE-MIB",
+    **{"unitType": unitType,
+       "unitTypeUnequipped": unitTypeUnequipped,
+       "unitTypeODU": unitTypeODU,
+       "unitTypeALFO80HD": unitTypeALFO80HD,
+       "unitTypeALFO80HDelectrical": unitTypeALFO80HDelectrical,
+       "unitTypeALFO80HDelectricalOptical": unitTypeALFO80HDelectricalOptical,
+       "unitTypeALFO80HDoptical": unitTypeALFO80HDoptical,
+       "unitTypeAGS20ARI1": unitTypeAGS20ARI1,
+       "unitTypeAGS20ARI2": unitTypeAGS20ARI2,
+       "unitTypeAGS20ARI4": unitTypeAGS20ARI4,
+       "unitTypeAGS20DRI4": unitTypeAGS20DRI4,
+       "unitTypeAGS20ARI1TDM2": unitTypeAGS20ARI1TDM2,
+       "unitTypeAGS20ARI1TDM3": unitTypeAGS20ARI1TDM3,
+       "unitTypeAGS20ARI2TDM2": unitTypeAGS20ARI2TDM2,
+       "unitTypeAGS20ARI2TDM3": unitTypeAGS20ARI2TDM3,
+       "unitTypeAGS20ARI4TDM2": unitTypeAGS20ARI4TDM2,
+       "unitTypeAGS20ARI4TDM3": unitTypeAGS20ARI4TDM3,
+       "unitTypeAGS20DRI4TDM2": unitTypeAGS20DRI4TDM2,
+       "unitTypeAGS20DRI4TDM3": unitTypeAGS20DRI4TDM3,
+       "unitTypeAGS20CORE": unitTypeAGS20CORE,
+       "unitTypeAGS20ARI1DP": unitTypeAGS20ARI1DP,
+       "unitTypeAGS20ARI1TDM2DP": unitTypeAGS20ARI1TDM2DP,
+       "unitTypeAGS20ARI1TDM3DP": unitTypeAGS20ARI1TDM3DP,
+       "unitTypeALFOplus1": unitTypeALFOplus1,
+       "unitTypeALFOplus2": unitTypeALFOplus2,
+       "unitTypeAGS20ODU": unitTypeAGS20ODU,
+       "unitTypeALFOplus2XG": unitTypeALFOplus2XG,
+       "unitTypeAGS20ARI1TDM2LC": unitTypeAGS20ARI1TDM2LC,
+       "unitTypeAGS20COREXG": unitTypeAGS20COREXG,
+       "unitTypeAGS20ARI2XG": unitTypeAGS20ARI2XG,
+       "unitTypeAGS20ARI2TDM2XG": unitTypeAGS20ARI2TDM2XG,
+       "unitTypeAGS20ARI2TDM3XG": unitTypeAGS20ARI2TDM3XG,
+       "unitTypeAGS20ARI4XG": unitTypeAGS20ARI4XG,
+       "unitTypeAGS20ARI4TDM2XG": unitTypeAGS20ARI4TDM2XG,
+       "unitTypeAGS20ARI4TDM3XG": unitTypeAGS20ARI4TDM3XG,
+       "unitTypeAGS20ARI2E": unitTypeAGS20ARI2E,
+       "unitTypeAGS20ARI2ETDM2": unitTypeAGS20ARI2ETDM2,
+       "unitTypeAGS20ARI2ETDM3": unitTypeAGS20ARI2ETDM3,
+       "unitTypeAGS20ARI2EXG": unitTypeAGS20ARI2EXG,
+       "unitTypeAGS20ARI2ETDM2XG": unitTypeAGS20ARI2ETDM2XG,
+       "unitTypeAGS20ARI2ETDM3XG": unitTypeAGS20ARI2ETDM3XG,
+       "unitTypeAGS20ARI4E": unitTypeAGS20ARI4E,
+       "unitTypeAGS20ARI4ETDM2": unitTypeAGS20ARI4ETDM2,
+       "unitTypeAGS20ARI4ETDM3": unitTypeAGS20ARI4ETDM3,
+       "unitTypeAGS20ARI4EXG": unitTypeAGS20ARI4EXG,
+       "unitTypeAGS20ARI4ETDM2XG": unitTypeAGS20ARI4ETDM2XG,
+       "unitTypeAGS20ARI4ETDM3XG": unitTypeAGS20ARI4ETDM3XG,
+       "unitTypeALFO80HDx": unitTypeALFO80HDx,
+       "unitTypeMib": unitTypeMib}
+)

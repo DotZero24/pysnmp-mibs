@@ -1,34 +1,242 @@
+# SNMP MIB module (NETSCREEN-IPPOOL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NETSCREEN-IPPOOL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/netscreen/NETSCREEN-IPPOOL-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:49 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/netscreen/NETSCREEN-IPPOOL-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:57:59 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-netscreenVpnMibModule, netscreenVpn = mibBuilder.importSymbols("NETSCREEN-SMI", "netscreenVpnMibModule", "netscreenVpn")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-netscreenIppoolMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3224, 4, 0, 9))
-netscreenIppoolMibModule.setRevisions(('2004-05-03 00:00', '2004-03-03 00:00', '2003-11-13 00:00', '2001-09-28 00:00', '2000-08-27 00:00',))
-if mibBuilder.loadTexts: netscreenIppoolMibModule.setLastUpdated('200405032022Z')
-if mibBuilder.loadTexts: netscreenIppoolMibModule.setOrganization('Juniper Networks, Inc.')
-nsVpnIpPool = MibIdentifier((1, 3, 6, 1, 4, 1, 3224, 4, 9))
-nsVpnIpPoolTable = MibTable((1, 3, 6, 1, 4, 1, 3224, 4, 9, 1), )
-if mibBuilder.loadTexts: nsVpnIpPoolTable.setStatus('current')
-nsVpnIpPoolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1), ).setIndexNames((0, "NETSCREEN-IPPOOL-MIB", "nsVpnIpPoolIndex"))
-if mibBuilder.loadTexts: nsVpnIpPoolEntry.setStatus('current')
-nsVpnIpPoolIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsVpnIpPoolIndex.setStatus('current')
-nsVpnIpPoolName = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsVpnIpPoolName.setStatus('current')
-nsVpnIpPoolStartIp = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsVpnIpPoolStartIp.setStatus('current')
-nsVpnIpPoolEndIp = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsVpnIpPoolEndIp.setStatus('current')
-nsVpnIpPoolIpUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nsVpnIpPoolIpUsed.setStatus('current')
-mibBuilder.exportSymbols("NETSCREEN-IPPOOL-MIB", nsVpnIpPoolIpUsed=nsVpnIpPoolIpUsed, nsVpnIpPoolEndIp=nsVpnIpPoolEndIp, nsVpnIpPoolEntry=nsVpnIpPoolEntry, netscreenIppoolMibModule=netscreenIppoolMibModule, nsVpnIpPoolTable=nsVpnIpPoolTable, nsVpnIpPoolName=nsVpnIpPoolName, nsVpnIpPool=nsVpnIpPool, nsVpnIpPoolStartIp=nsVpnIpPoolStartIp, nsVpnIpPoolIndex=nsVpnIpPoolIndex, PYSNMP_MODULE_ID=netscreenIppoolMibModule)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(netscreenVpn,
+ netscreenVpnMibModule) = mibBuilder.importSymbols(
+    "NETSCREEN-SMI",
+    "netscreenVpn",
+    "netscreenVpnMibModule")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+netscreenIppoolMibModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3224, 4, 0, 9)
+)
+if mibBuilder.loadTexts:
+    netscreenIppoolMibModule.setRevisions(
+        ("2004-05-03 00:00",
+         "2004-03-03 00:00",
+         "2003-11-13 00:00",
+         "2001-09-28 00:00",
+         "2000-08-27 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NsVpnIpPool_ObjectIdentity = ObjectIdentity
+nsVpnIpPool = _NsVpnIpPool_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3224, 4, 9)
+)
+_NsVpnIpPoolTable_Object = MibTable
+nsVpnIpPoolTable = _NsVpnIpPoolTable_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 4, 9, 1)
+)
+if mibBuilder.loadTexts:
+    nsVpnIpPoolTable.setStatus("current")
+_NsVpnIpPoolEntry_Object = MibTableRow
+nsVpnIpPoolEntry = _NsVpnIpPoolEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1)
+)
+nsVpnIpPoolEntry.setIndexNames(
+    (0, "NETSCREEN-IPPOOL-MIB", "nsVpnIpPoolIndex"),
+)
+if mibBuilder.loadTexts:
+    nsVpnIpPoolEntry.setStatus("current")
+
+
+class _NsVpnIpPoolIndex_Type(Integer32):
+    """Custom type nsVpnIpPoolIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_NsVpnIpPoolIndex_Type.__name__ = "Integer32"
+_NsVpnIpPoolIndex_Object = MibTableColumn
+nsVpnIpPoolIndex = _NsVpnIpPoolIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1, 1),
+    _NsVpnIpPoolIndex_Type()
+)
+nsVpnIpPoolIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsVpnIpPoolIndex.setStatus("current")
+
+
+class _NsVpnIpPoolName_Type(DisplayString):
+    """Custom type nsVpnIpPoolName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_NsVpnIpPoolName_Type.__name__ = "DisplayString"
+_NsVpnIpPoolName_Object = MibTableColumn
+nsVpnIpPoolName = _NsVpnIpPoolName_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1, 2),
+    _NsVpnIpPoolName_Type()
+)
+nsVpnIpPoolName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsVpnIpPoolName.setStatus("current")
+_NsVpnIpPoolStartIp_Type = IpAddress
+_NsVpnIpPoolStartIp_Object = MibTableColumn
+nsVpnIpPoolStartIp = _NsVpnIpPoolStartIp_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1, 3),
+    _NsVpnIpPoolStartIp_Type()
+)
+nsVpnIpPoolStartIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsVpnIpPoolStartIp.setStatus("current")
+_NsVpnIpPoolEndIp_Type = IpAddress
+_NsVpnIpPoolEndIp_Object = MibTableColumn
+nsVpnIpPoolEndIp = _NsVpnIpPoolEndIp_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1, 4),
+    _NsVpnIpPoolEndIp_Type()
+)
+nsVpnIpPoolEndIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsVpnIpPoolEndIp.setStatus("current")
+_NsVpnIpPoolIpUsed_Type = Integer32
+_NsVpnIpPoolIpUsed_Object = MibTableColumn
+nsVpnIpPoolIpUsed = _NsVpnIpPoolIpUsed_Object(
+    (1, 3, 6, 1, 4, 1, 3224, 4, 9, 1, 1, 5),
+    _NsVpnIpPoolIpUsed_Type()
+)
+nsVpnIpPoolIpUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nsVpnIpPoolIpUsed.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NETSCREEN-IPPOOL-MIB",
+    **{"netscreenIppoolMibModule": netscreenIppoolMibModule,
+       "nsVpnIpPool": nsVpnIpPool,
+       "nsVpnIpPoolTable": nsVpnIpPoolTable,
+       "nsVpnIpPoolEntry": nsVpnIpPoolEntry,
+       "nsVpnIpPoolIndex": nsVpnIpPoolIndex,
+       "nsVpnIpPoolName": nsVpnIpPoolName,
+       "nsVpnIpPoolStartIp": nsVpnIpPoolStartIp,
+       "nsVpnIpPoolEndIp": nsVpnIpPoolEndIp,
+       "nsVpnIpPoolIpUsed": nsVpnIpPoolIpUsed}
+)

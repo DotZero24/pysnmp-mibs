@@ -1,60 +1,316 @@
+# SNMP MIB module (PDN-PPP-BRIDGE-NCP-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PDN-PPP-BRIDGE-NCP-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/paradyne/PDN-PPP-BRIDGE-NCP-EXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:12 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/paradyne/PDN-PPP-BRIDGE-NCP-EXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:00:00 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-pdn_interfaces, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-interfaces")
-PdnPPPState, SwitchState = mibBuilder.importSymbols("PDN-TC", "PdnPPPState", "SwitchState")
-pppBridgeMediaConfigEntry, pppBridgeEntry = mibBuilder.importSymbols("PPP-BRIDGE-NCP-MIB", "pppBridgeMediaConfigEntry", "pppBridgeEntry")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-pdnPppBridgeExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29))
-pdnPppBridgeExtMIB.setRevisions(('2004-09-10 00:00',))
-if mibBuilder.loadTexts: pdnPppBridgeExtMIB.setLastUpdated('200409100000Z')
-if mibBuilder.loadTexts: pdnPppBridgeExtMIB.setOrganization('Paradyne Networks MIB Working Group Other information about group editing the MIB')
-pdnPppBridgeExtNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 0))
-pdnPppBridgeExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1))
-pdnPppBridgeExtAFNs = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 2))
-pdnPppBridgeExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3))
-pdnPppBridgeExtTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 1), )
-if mibBuilder.loadTexts: pdnPppBridgeExtTable.setStatus('current')
-pdnPppBridgeExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 1, 1), )
-pppBridgeEntry.registerAugmentions(("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeExtEntry"))
-pdnPppBridgeExtEntry.setIndexNames(*pppBridgeEntry.getIndexNames())
-if mibBuilder.loadTexts: pdnPppBridgeExtEntry.setStatus('current')
-pdnPppBridgeBcpLinkStatusCurrState = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 1, 1, 1), PdnPPPState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnPppBridgeBcpLinkStatusCurrState.setStatus('current')
-pdnPppBridgeLocalToRemote802Tagged = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 1, 1, 2), SwitchState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnPppBridgeLocalToRemote802Tagged.setStatus('current')
-pdnPppBridgeRemoteToLocal802Tagged = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 1, 1, 3), SwitchState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pdnPppBridgeRemoteToLocal802Tagged.setStatus('current')
-pdnPppBridgeMediaConfigExtTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 2), )
-if mibBuilder.loadTexts: pdnPppBridgeMediaConfigExtTable.setStatus('current')
-pdnPppBridgeMediaConfigExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 2, 1), )
-pppBridgeMediaConfigEntry.registerAugmentions(("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeMediaConfigExtEntry"))
-pdnPppBridgeMediaConfigExtEntry.setIndexNames(*pppBridgeMediaConfigEntry.getIndexNames())
-if mibBuilder.loadTexts: pdnPppBridgeMediaConfigExtEntry.setStatus('current')
-pdnPppBridgeMediaIeee802Tagged = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 2, 1, 1), SwitchState()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pdnPppBridgeMediaIeee802Tagged.setStatus('current')
-pdnPppBridgeExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 1))
-pdnPppBridgeExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2))
-pdnPppBridgeExtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 1, 1)).setObjects(("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeExtStateMachineGroup"), ("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeExt802TaggedGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnPppBridgeExtCompliance = pdnPppBridgeExtCompliance.setStatus('current')
-pdnPppBridgeExtObjGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2, 1))
-pdnPppBridgeExtAfnGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2, 2))
-pdnPppBridgeExtNtfyGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2, 3))
-pdnPppBridgeExtStateMachineGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2, 1, 1)).setObjects(("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeBcpLinkStatusCurrState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnPppBridgeExtStateMachineGroup = pdnPppBridgeExtStateMachineGroup.setStatus('current')
-pdnPppBridgeExt802TaggedGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2, 1, 2)).setObjects(("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeMediaIeee802Tagged"), ("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeLocalToRemote802Tagged"), ("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeRemoteToLocal802Tagged"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pdnPppBridgeExt802TaggedGroup = pdnPppBridgeExt802TaggedGroup.setStatus('current')
-mibBuilder.exportSymbols("PDN-PPP-BRIDGE-NCP-EXT-MIB", pdnPppBridgeMediaConfigExtEntry=pdnPppBridgeMediaConfigExtEntry, pdnPppBridgeExtStateMachineGroup=pdnPppBridgeExtStateMachineGroup, pdnPppBridgeMediaConfigExtTable=pdnPppBridgeMediaConfigExtTable, pdnPppBridgeExtConformance=pdnPppBridgeExtConformance, pdnPppBridgeExtEntry=pdnPppBridgeExtEntry, pdnPppBridgeExtObjGroups=pdnPppBridgeExtObjGroups, pdnPppBridgeLocalToRemote802Tagged=pdnPppBridgeLocalToRemote802Tagged, pdnPppBridgeExtTable=pdnPppBridgeExtTable, pdnPppBridgeExtGroups=pdnPppBridgeExtGroups, pdnPppBridgeExtAfnGroups=pdnPppBridgeExtAfnGroups, pdnPppBridgeMediaIeee802Tagged=pdnPppBridgeMediaIeee802Tagged, pdnPppBridgeExt802TaggedGroup=pdnPppBridgeExt802TaggedGroup, pdnPppBridgeExtNotifications=pdnPppBridgeExtNotifications, pdnPppBridgeBcpLinkStatusCurrState=pdnPppBridgeBcpLinkStatusCurrState, pdnPppBridgeExtNtfyGroups=pdnPppBridgeExtNtfyGroups, pdnPppBridgeExtObjects=pdnPppBridgeExtObjects, PYSNMP_MODULE_ID=pdnPppBridgeExtMIB, pdnPppBridgeRemoteToLocal802Tagged=pdnPppBridgeRemoteToLocal802Tagged, pdnPppBridgeExtCompliance=pdnPppBridgeExtCompliance, pdnPppBridgeExtCompliances=pdnPppBridgeExtCompliances, pdnPppBridgeExtAFNs=pdnPppBridgeExtAFNs, pdnPppBridgeExtMIB=pdnPppBridgeExtMIB)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(pdn_interfaces,) = mibBuilder.importSymbols(
+    "PDN-HEADER-MIB",
+    "pdn-interfaces")
+
+(PdnPPPState,
+ SwitchState) = mibBuilder.importSymbols(
+    "PDN-TC",
+    "PdnPPPState",
+    "SwitchState")
+
+(pppBridgeEntry,
+ pppBridgeMediaConfigEntry) = mibBuilder.importSymbols(
+    "PPP-BRIDGE-NCP-MIB",
+    "pppBridgeEntry",
+    "pppBridgeMediaConfigEntry")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pdnPppBridgeExtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29)
+)
+if mibBuilder.loadTexts:
+    pdnPppBridgeExtMIB.setRevisions(
+        ("2004-09-10 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PdnPppBridgeExtNotifications_ObjectIdentity = ObjectIdentity
+pdnPppBridgeExtNotifications = _PdnPppBridgeExtNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 0)
+)
+_PdnPppBridgeExtObjects_ObjectIdentity = ObjectIdentity
+pdnPppBridgeExtObjects = _PdnPppBridgeExtObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1)
+)
+_PdnPppBridgeExtTable_Object = MibTable
+pdnPppBridgeExtTable = _PdnPppBridgeExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 1)
+)
+if mibBuilder.loadTexts:
+    pdnPppBridgeExtTable.setStatus("current")
+_PdnPppBridgeExtEntry_Object = MibTableRow
+pdnPppBridgeExtEntry = _PdnPppBridgeExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    pdnPppBridgeExtEntry.setStatus("current")
+_PdnPppBridgeBcpLinkStatusCurrState_Type = PdnPPPState
+_PdnPppBridgeBcpLinkStatusCurrState_Object = MibTableColumn
+pdnPppBridgeBcpLinkStatusCurrState = _PdnPppBridgeBcpLinkStatusCurrState_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 1, 1, 1),
+    _PdnPppBridgeBcpLinkStatusCurrState_Type()
+)
+pdnPppBridgeBcpLinkStatusCurrState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnPppBridgeBcpLinkStatusCurrState.setStatus("current")
+_PdnPppBridgeLocalToRemote802Tagged_Type = SwitchState
+_PdnPppBridgeLocalToRemote802Tagged_Object = MibTableColumn
+pdnPppBridgeLocalToRemote802Tagged = _PdnPppBridgeLocalToRemote802Tagged_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 1, 1, 2),
+    _PdnPppBridgeLocalToRemote802Tagged_Type()
+)
+pdnPppBridgeLocalToRemote802Tagged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnPppBridgeLocalToRemote802Tagged.setStatus("current")
+_PdnPppBridgeRemoteToLocal802Tagged_Type = SwitchState
+_PdnPppBridgeRemoteToLocal802Tagged_Object = MibTableColumn
+pdnPppBridgeRemoteToLocal802Tagged = _PdnPppBridgeRemoteToLocal802Tagged_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 1, 1, 3),
+    _PdnPppBridgeRemoteToLocal802Tagged_Type()
+)
+pdnPppBridgeRemoteToLocal802Tagged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pdnPppBridgeRemoteToLocal802Tagged.setStatus("current")
+_PdnPppBridgeMediaConfigExtTable_Object = MibTable
+pdnPppBridgeMediaConfigExtTable = _PdnPppBridgeMediaConfigExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 2)
+)
+if mibBuilder.loadTexts:
+    pdnPppBridgeMediaConfigExtTable.setStatus("current")
+_PdnPppBridgeMediaConfigExtEntry_Object = MibTableRow
+pdnPppBridgeMediaConfigExtEntry = _PdnPppBridgeMediaConfigExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    pdnPppBridgeMediaConfigExtEntry.setStatus("current")
+_PdnPppBridgeMediaIeee802Tagged_Type = SwitchState
+_PdnPppBridgeMediaIeee802Tagged_Object = MibTableColumn
+pdnPppBridgeMediaIeee802Tagged = _PdnPppBridgeMediaIeee802Tagged_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 1, 2, 1, 1),
+    _PdnPppBridgeMediaIeee802Tagged_Type()
+)
+pdnPppBridgeMediaIeee802Tagged.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pdnPppBridgeMediaIeee802Tagged.setStatus("current")
+_PdnPppBridgeExtAFNs_ObjectIdentity = ObjectIdentity
+pdnPppBridgeExtAFNs = _PdnPppBridgeExtAFNs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 2)
+)
+_PdnPppBridgeExtConformance_ObjectIdentity = ObjectIdentity
+pdnPppBridgeExtConformance = _PdnPppBridgeExtConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3)
+)
+_PdnPppBridgeExtCompliances_ObjectIdentity = ObjectIdentity
+pdnPppBridgeExtCompliances = _PdnPppBridgeExtCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 1)
+)
+_PdnPppBridgeExtGroups_ObjectIdentity = ObjectIdentity
+pdnPppBridgeExtGroups = _PdnPppBridgeExtGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2)
+)
+_PdnPppBridgeExtObjGroups_ObjectIdentity = ObjectIdentity
+pdnPppBridgeExtObjGroups = _PdnPppBridgeExtObjGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2, 1)
+)
+_PdnPppBridgeExtAfnGroups_ObjectIdentity = ObjectIdentity
+pdnPppBridgeExtAfnGroups = _PdnPppBridgeExtAfnGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2, 2)
+)
+_PdnPppBridgeExtNtfyGroups_ObjectIdentity = ObjectIdentity
+pdnPppBridgeExtNtfyGroups = _PdnPppBridgeExtNtfyGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2, 3)
+)
+pppBridgeEntry.registerAugmentions(
+    ("PDN-PPP-BRIDGE-NCP-EXT-MIB",
+     "pdnPppBridgeExtEntry")
+)
+pdnPppBridgeExtEntry.setIndexNames(*pppBridgeEntry.getIndexNames())
+pppBridgeMediaConfigEntry.registerAugmentions(
+    ("PDN-PPP-BRIDGE-NCP-EXT-MIB",
+     "pdnPppBridgeMediaConfigExtEntry")
+)
+pdnPppBridgeMediaConfigExtEntry.setIndexNames(*pppBridgeMediaConfigEntry.getIndexNames())
+
+# Managed Objects groups
+
+pdnPppBridgeExtStateMachineGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2, 1, 1)
+)
+pdnPppBridgeExtStateMachineGroup.setObjects(
+    ("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeBcpLinkStatusCurrState")
+)
+if mibBuilder.loadTexts:
+    pdnPppBridgeExtStateMachineGroup.setStatus("current")
+
+pdnPppBridgeExt802TaggedGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 2, 1, 2)
+)
+pdnPppBridgeExt802TaggedGroup.setObjects(
+      *(("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeMediaIeee802Tagged"),
+        ("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeLocalToRemote802Tagged"),
+        ("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeRemoteToLocal802Tagged"))
+)
+if mibBuilder.loadTexts:
+    pdnPppBridgeExt802TaggedGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+pdnPppBridgeExtCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 6, 29, 3, 1, 1)
+)
+pdnPppBridgeExtCompliance.setObjects(
+      *(("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeExtStateMachineGroup"),
+        ("PDN-PPP-BRIDGE-NCP-EXT-MIB", "pdnPppBridgeExt802TaggedGroup"))
+)
+if mibBuilder.loadTexts:
+    pdnPppBridgeExtCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PDN-PPP-BRIDGE-NCP-EXT-MIB",
+    **{"pdnPppBridgeExtMIB": pdnPppBridgeExtMIB,
+       "pdnPppBridgeExtNotifications": pdnPppBridgeExtNotifications,
+       "pdnPppBridgeExtObjects": pdnPppBridgeExtObjects,
+       "pdnPppBridgeExtTable": pdnPppBridgeExtTable,
+       "pdnPppBridgeExtEntry": pdnPppBridgeExtEntry,
+       "pdnPppBridgeBcpLinkStatusCurrState": pdnPppBridgeBcpLinkStatusCurrState,
+       "pdnPppBridgeLocalToRemote802Tagged": pdnPppBridgeLocalToRemote802Tagged,
+       "pdnPppBridgeRemoteToLocal802Tagged": pdnPppBridgeRemoteToLocal802Tagged,
+       "pdnPppBridgeMediaConfigExtTable": pdnPppBridgeMediaConfigExtTable,
+       "pdnPppBridgeMediaConfigExtEntry": pdnPppBridgeMediaConfigExtEntry,
+       "pdnPppBridgeMediaIeee802Tagged": pdnPppBridgeMediaIeee802Tagged,
+       "pdnPppBridgeExtAFNs": pdnPppBridgeExtAFNs,
+       "pdnPppBridgeExtConformance": pdnPppBridgeExtConformance,
+       "pdnPppBridgeExtCompliances": pdnPppBridgeExtCompliances,
+       "pdnPppBridgeExtCompliance": pdnPppBridgeExtCompliance,
+       "pdnPppBridgeExtGroups": pdnPppBridgeExtGroups,
+       "pdnPppBridgeExtObjGroups": pdnPppBridgeExtObjGroups,
+       "pdnPppBridgeExtStateMachineGroup": pdnPppBridgeExtStateMachineGroup,
+       "pdnPppBridgeExt802TaggedGroup": pdnPppBridgeExt802TaggedGroup,
+       "pdnPppBridgeExtAfnGroups": pdnPppBridgeExtAfnGroups,
+       "pdnPppBridgeExtNtfyGroups": pdnPppBridgeExtNtfyGroups}
+)

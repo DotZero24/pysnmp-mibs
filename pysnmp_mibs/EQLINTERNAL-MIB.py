@@ -1,56 +1,406 @@
+# SNMP MIB module (EQLINTERNAL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EQLINTERNAL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/equallogic/EQLINTERNAL-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:40 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/equallogic/EQLINTERNAL-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:15:48 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-UTFString, = mibBuilder.importSymbols("EQLGROUP-MIB", "UTFString")
-equalLogic, = mibBuilder.importSymbols("EQUALLOGIC-SMI", "equalLogic")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-eqlInternalModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 12740, 27))
-eqlInternalModule.setRevisions(('2013-01-28 00:00',))
-if mibBuilder.loadTexts: eqlInternalModule.setLastUpdated('201403121459Z')
-if mibBuilder.loadTexts: eqlInternalModule.setOrganization('Dell Inc.')
-eqlInternalObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12740, 27, 1))
-eqlMonitorTable = MibTable((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1), )
-if mibBuilder.loadTexts: eqlMonitorTable.setStatus('current')
-eqlMonitorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1), ).setIndexNames((0, "EQLINTERNAL-MIB", "eqlMonitorIndex"))
-if mibBuilder.loadTexts: eqlMonitorEntry.setStatus('current')
-eqlMonitorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: eqlMonitorIndex.setStatus('current')
-eqlMonitorRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlMonitorRowStatus.setStatus('current')
-eqlMonitorUUID = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(16, 16)).setFixedLength(16)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlMonitorUUID.setStatus('current')
-eqlMonitorServerName = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 4), UTFString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlMonitorServerName.setStatus('current')
-eqlMonitorDomainName = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 5), UTFString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlMonitorDomainName.setStatus('current')
-eqlMonitorInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 6), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlMonitorInetAddressType.setStatus('current')
-eqlMonitorInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 7), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlMonitorInetAddress.setStatus('current')
-eqlMonitorSupportAssist = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("supportAssistNone", 0), ("supportAssistInstalledNotEnabled", 1), ("supportAssistEnabled", 2), ("supportAssistCommunicatingWithDell", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlMonitorSupportAssist.setStatus('current')
-eqlMonitorTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 9), Counter32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlMonitorTimestamp.setStatus('current')
-eqlMonitorSupportAssistTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 10), Counter32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlMonitorSupportAssistTimestamp.setStatus('current')
-eqlMonitorLicensingTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 11), Counter32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlMonitorLicensingTimestamp.setStatus('current')
-eqlMonitorDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 12), UTFString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlMonitorDescription.setStatus('current')
-eqlMonitorStatusTable = MibTable((1, 3, 6, 1, 4, 1, 12740, 27, 1, 2), )
-if mibBuilder.loadTexts: eqlMonitorStatusTable.setStatus('current')
-eqlMonitorStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12740, 27, 1, 2, 1), ).setIndexNames((0, "EQLINTERNAL-MIB", "eqlMonitorIndex"))
-if mibBuilder.loadTexts: eqlMonitorStatusEntry.setStatus('current')
-eqlMonitorStatusReminder = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 27, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("monitoringExpired", 0), ("monitoringCurrent", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlMonitorStatusReminder.setStatus('current')
-mibBuilder.exportSymbols("EQLINTERNAL-MIB", eqlMonitorTimestamp=eqlMonitorTimestamp, eqlMonitorStatusTable=eqlMonitorStatusTable, eqlMonitorIndex=eqlMonitorIndex, eqlMonitorLicensingTimestamp=eqlMonitorLicensingTimestamp, PYSNMP_MODULE_ID=eqlInternalModule, eqlInternalObjects=eqlInternalObjects, eqlMonitorSupportAssistTimestamp=eqlMonitorSupportAssistTimestamp, eqlMonitorDescription=eqlMonitorDescription, eqlMonitorInetAddressType=eqlMonitorInetAddressType, eqlMonitorStatusEntry=eqlMonitorStatusEntry, eqlMonitorStatusReminder=eqlMonitorStatusReminder, eqlMonitorEntry=eqlMonitorEntry, eqlMonitorUUID=eqlMonitorUUID, eqlMonitorRowStatus=eqlMonitorRowStatus, eqlMonitorServerName=eqlMonitorServerName, eqlMonitorDomainName=eqlMonitorDomainName, eqlInternalModule=eqlInternalModule, eqlMonitorTable=eqlMonitorTable, eqlMonitorInetAddress=eqlMonitorInetAddress, eqlMonitorSupportAssist=eqlMonitorSupportAssist)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(UTFString,) = mibBuilder.importSymbols(
+    "EQLGROUP-MIB",
+    "UTFString")
+
+(equalLogic,) = mibBuilder.importSymbols(
+    "EQUALLOGIC-SMI",
+    "equalLogic")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+eqlInternalModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12740, 27)
+)
+if mibBuilder.loadTexts:
+    eqlInternalModule.setRevisions(
+        ("2013-01-28 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EqlInternalObjects_ObjectIdentity = ObjectIdentity
+eqlInternalObjects = _EqlInternalObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1)
+)
+_EqlMonitorTable_Object = MibTable
+eqlMonitorTable = _EqlMonitorTable_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1)
+)
+if mibBuilder.loadTexts:
+    eqlMonitorTable.setStatus("current")
+_EqlMonitorEntry_Object = MibTableRow
+eqlMonitorEntry = _EqlMonitorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1)
+)
+eqlMonitorEntry.setIndexNames(
+    (0, "EQLINTERNAL-MIB", "eqlMonitorIndex"),
+)
+if mibBuilder.loadTexts:
+    eqlMonitorEntry.setStatus("current")
+_EqlMonitorIndex_Type = Unsigned32
+_EqlMonitorIndex_Object = MibTableColumn
+eqlMonitorIndex = _EqlMonitorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 1),
+    _EqlMonitorIndex_Type()
+)
+eqlMonitorIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    eqlMonitorIndex.setStatus("current")
+_EqlMonitorRowStatus_Type = RowStatus
+_EqlMonitorRowStatus_Object = MibTableColumn
+eqlMonitorRowStatus = _EqlMonitorRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 2),
+    _EqlMonitorRowStatus_Type()
+)
+eqlMonitorRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlMonitorRowStatus.setStatus("current")
+
+
+class _EqlMonitorUUID_Type(OctetString):
+    """Custom type eqlMonitorUUID based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(16, 16),
+    )
+    fixed_length = 16
+
+
+_EqlMonitorUUID_Type.__name__ = "OctetString"
+_EqlMonitorUUID_Object = MibTableColumn
+eqlMonitorUUID = _EqlMonitorUUID_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 3),
+    _EqlMonitorUUID_Type()
+)
+eqlMonitorUUID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlMonitorUUID.setStatus("current")
+
+
+class _EqlMonitorServerName_Type(UTFString):
+    """Custom type eqlMonitorServerName based on UTFString"""
+    subtypeSpec = UTFString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_EqlMonitorServerName_Type.__name__ = "UTFString"
+_EqlMonitorServerName_Object = MibTableColumn
+eqlMonitorServerName = _EqlMonitorServerName_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 4),
+    _EqlMonitorServerName_Type()
+)
+eqlMonitorServerName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlMonitorServerName.setStatus("current")
+
+
+class _EqlMonitorDomainName_Type(UTFString):
+    """Custom type eqlMonitorDomainName based on UTFString"""
+    subtypeSpec = UTFString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_EqlMonitorDomainName_Type.__name__ = "UTFString"
+_EqlMonitorDomainName_Object = MibTableColumn
+eqlMonitorDomainName = _EqlMonitorDomainName_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 5),
+    _EqlMonitorDomainName_Type()
+)
+eqlMonitorDomainName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlMonitorDomainName.setStatus("current")
+_EqlMonitorInetAddressType_Type = InetAddressType
+_EqlMonitorInetAddressType_Object = MibTableColumn
+eqlMonitorInetAddressType = _EqlMonitorInetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 6),
+    _EqlMonitorInetAddressType_Type()
+)
+eqlMonitorInetAddressType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlMonitorInetAddressType.setStatus("current")
+_EqlMonitorInetAddress_Type = InetAddress
+_EqlMonitorInetAddress_Object = MibTableColumn
+eqlMonitorInetAddress = _EqlMonitorInetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 7),
+    _EqlMonitorInetAddress_Type()
+)
+eqlMonitorInetAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlMonitorInetAddress.setStatus("current")
+
+
+class _EqlMonitorSupportAssist_Type(Integer32):
+    """Custom type eqlMonitorSupportAssist based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("supportAssistNone", 0),
+          ("supportAssistInstalledNotEnabled", 1),
+          ("supportAssistEnabled", 2),
+          ("supportAssistCommunicatingWithDell", 3))
+    )
+
+
+_EqlMonitorSupportAssist_Type.__name__ = "Integer32"
+_EqlMonitorSupportAssist_Object = MibTableColumn
+eqlMonitorSupportAssist = _EqlMonitorSupportAssist_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 8),
+    _EqlMonitorSupportAssist_Type()
+)
+eqlMonitorSupportAssist.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlMonitorSupportAssist.setStatus("current")
+_EqlMonitorTimestamp_Type = Counter32
+_EqlMonitorTimestamp_Object = MibTableColumn
+eqlMonitorTimestamp = _EqlMonitorTimestamp_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 9),
+    _EqlMonitorTimestamp_Type()
+)
+eqlMonitorTimestamp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlMonitorTimestamp.setStatus("current")
+_EqlMonitorSupportAssistTimestamp_Type = Counter32
+_EqlMonitorSupportAssistTimestamp_Object = MibTableColumn
+eqlMonitorSupportAssistTimestamp = _EqlMonitorSupportAssistTimestamp_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 10),
+    _EqlMonitorSupportAssistTimestamp_Type()
+)
+eqlMonitorSupportAssistTimestamp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlMonitorSupportAssistTimestamp.setStatus("current")
+_EqlMonitorLicensingTimestamp_Type = Counter32
+_EqlMonitorLicensingTimestamp_Object = MibTableColumn
+eqlMonitorLicensingTimestamp = _EqlMonitorLicensingTimestamp_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 11),
+    _EqlMonitorLicensingTimestamp_Type()
+)
+eqlMonitorLicensingTimestamp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlMonitorLicensingTimestamp.setStatus("current")
+
+
+class _EqlMonitorDescription_Type(UTFString):
+    """Custom type eqlMonitorDescription based on UTFString"""
+    subtypeSpec = UTFString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_EqlMonitorDescription_Type.__name__ = "UTFString"
+_EqlMonitorDescription_Object = MibTableColumn
+eqlMonitorDescription = _EqlMonitorDescription_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 1, 1, 12),
+    _EqlMonitorDescription_Type()
+)
+eqlMonitorDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlMonitorDescription.setStatus("current")
+_EqlMonitorStatusTable_Object = MibTable
+eqlMonitorStatusTable = _EqlMonitorStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 2)
+)
+if mibBuilder.loadTexts:
+    eqlMonitorStatusTable.setStatus("current")
+_EqlMonitorStatusEntry_Object = MibTableRow
+eqlMonitorStatusEntry = _EqlMonitorStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 2, 1)
+)
+eqlMonitorStatusEntry.setIndexNames(
+    (0, "EQLINTERNAL-MIB", "eqlMonitorIndex"),
+)
+if mibBuilder.loadTexts:
+    eqlMonitorStatusEntry.setStatus("current")
+
+
+class _EqlMonitorStatusReminder_Type(Integer32):
+    """Custom type eqlMonitorStatusReminder based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("monitoringExpired", 0),
+          ("monitoringCurrent", 1))
+    )
+
+
+_EqlMonitorStatusReminder_Type.__name__ = "Integer32"
+_EqlMonitorStatusReminder_Object = MibTableColumn
+eqlMonitorStatusReminder = _EqlMonitorStatusReminder_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 27, 1, 2, 1, 1),
+    _EqlMonitorStatusReminder_Type()
+)
+eqlMonitorStatusReminder.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlMonitorStatusReminder.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EQLINTERNAL-MIB",
+    **{"eqlInternalModule": eqlInternalModule,
+       "eqlInternalObjects": eqlInternalObjects,
+       "eqlMonitorTable": eqlMonitorTable,
+       "eqlMonitorEntry": eqlMonitorEntry,
+       "eqlMonitorIndex": eqlMonitorIndex,
+       "eqlMonitorRowStatus": eqlMonitorRowStatus,
+       "eqlMonitorUUID": eqlMonitorUUID,
+       "eqlMonitorServerName": eqlMonitorServerName,
+       "eqlMonitorDomainName": eqlMonitorDomainName,
+       "eqlMonitorInetAddressType": eqlMonitorInetAddressType,
+       "eqlMonitorInetAddress": eqlMonitorInetAddress,
+       "eqlMonitorSupportAssist": eqlMonitorSupportAssist,
+       "eqlMonitorTimestamp": eqlMonitorTimestamp,
+       "eqlMonitorSupportAssistTimestamp": eqlMonitorSupportAssistTimestamp,
+       "eqlMonitorLicensingTimestamp": eqlMonitorLicensingTimestamp,
+       "eqlMonitorDescription": eqlMonitorDescription,
+       "eqlMonitorStatusTable": eqlMonitorStatusTable,
+       "eqlMonitorStatusEntry": eqlMonitorStatusEntry,
+       "eqlMonitorStatusReminder": eqlMonitorStatusReminder}
+)

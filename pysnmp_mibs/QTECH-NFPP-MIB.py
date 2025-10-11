@@ -1,39 +1,243 @@
+# SNMP MIB module (QTECH-NFPP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module QTECH-NFPP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/qtech/QTECH-NFPP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:37 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/qtech/QTECH-NFPP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:59:21 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-qtechMgmt, = mibBuilder.importSymbols("QTECH-SMI", "qtechMgmt")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-qtechNFPPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43))
-qtechNFPPMIB.setRevisions(('2009-07-09 00:00',))
-if mibBuilder.loadTexts: qtechNFPPMIB.setLastUpdated('200907090000Z')
-if mibBuilder.loadTexts: qtechNFPPMIB.setOrganization('Qtech Networks Co.,Ltd.')
-qtechNFPPMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 1))
-qtechNFPPMessageContent = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 1, 0), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 512))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: qtechNFPPMessageContent.setStatus('current')
-qtechNFPPMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 2))
-qtechNFPPMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 2, 0))
-qtechNFPPMessageGenerated = NotificationType((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 2, 0, 1)).setObjects(("QTECH-NFPP-MIB", "qtechNFPPMessageContent"))
-if mibBuilder.loadTexts: qtechNFPPMessageGenerated.setStatus('current')
-qtechNFPPMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3))
-qtechNFPPMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3, 1))
-qtechNFPPMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3, 2))
-qtechNFPPMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3, 1, 1)).setObjects(("QTECH-NFPP-MIB", "qtechNFPPNotifObjectsGroup"), ("QTECH-NFPP-MIB", "qtechNFPPNotificationsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qtechNFPPMIBCompliance = qtechNFPPMIBCompliance.setStatus('current')
-qtechNFPPNotifObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3, 2, 1)).setObjects(("QTECH-NFPP-MIB", "qtechNFPPMessageContent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qtechNFPPNotifObjectsGroup = qtechNFPPNotifObjectsGroup.setStatus('current')
-qtechNFPPNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3, 2, 2)).setObjects(("QTECH-NFPP-MIB", "qtechNFPPMessageGenerated"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qtechNFPPNotificationsGroup = qtechNFPPNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("QTECH-NFPP-MIB", qtechNFPPNotifObjectsGroup=qtechNFPPNotifObjectsGroup, qtechNFPPNotificationsGroup=qtechNFPPNotificationsGroup, qtechNFPPMIBObjects=qtechNFPPMIBObjects, qtechNFPPMIBNotifications=qtechNFPPMIBNotifications, qtechNFPPMIBCompliances=qtechNFPPMIBCompliances, qtechNFPPMIBCompliance=qtechNFPPMIBCompliance, qtechNFPPMessageGenerated=qtechNFPPMessageGenerated, qtechNFPPMIBGroups=qtechNFPPMIBGroups, qtechNFPPMIB=qtechNFPPMIB, qtechNFPPMIBNotificationPrefix=qtechNFPPMIBNotificationPrefix, qtechNFPPMessageContent=qtechNFPPMessageContent, PYSNMP_MODULE_ID=qtechNFPPMIB, qtechNFPPMIBConformance=qtechNFPPMIBConformance)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(qtechMgmt,) = mibBuilder.importSymbols(
+    "QTECH-SMI",
+    "qtechMgmt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+qtechNFPPMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43)
+)
+if mibBuilder.loadTexts:
+    qtechNFPPMIB.setRevisions(
+        ("2009-07-09 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_QtechNFPPMIBObjects_ObjectIdentity = ObjectIdentity
+qtechNFPPMIBObjects = _QtechNFPPMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 1)
+)
+
+
+class _QtechNFPPMessageContent_Type(OctetString):
+    """Custom type qtechNFPPMessageContent based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 512),
+    )
+
+
+_QtechNFPPMessageContent_Type.__name__ = "OctetString"
+_QtechNFPPMessageContent_Object = MibScalar
+qtechNFPPMessageContent = _QtechNFPPMessageContent_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 1, 0),
+    _QtechNFPPMessageContent_Type()
+)
+qtechNFPPMessageContent.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    qtechNFPPMessageContent.setStatus("current")
+_QtechNFPPMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+qtechNFPPMIBNotificationPrefix = _QtechNFPPMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 2)
+)
+_QtechNFPPMIBNotifications_ObjectIdentity = ObjectIdentity
+qtechNFPPMIBNotifications = _QtechNFPPMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 2, 0)
+)
+_QtechNFPPMIBConformance_ObjectIdentity = ObjectIdentity
+qtechNFPPMIBConformance = _QtechNFPPMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3)
+)
+_QtechNFPPMIBCompliances_ObjectIdentity = ObjectIdentity
+qtechNFPPMIBCompliances = _QtechNFPPMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3, 1)
+)
+_QtechNFPPMIBGroups_ObjectIdentity = ObjectIdentity
+qtechNFPPMIBGroups = _QtechNFPPMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3, 2)
+)
+
+# Managed Objects groups
+
+qtechNFPPNotifObjectsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3, 2, 1)
+)
+qtechNFPPNotifObjectsGroup.setObjects(
+    ("QTECH-NFPP-MIB", "qtechNFPPMessageContent")
+)
+if mibBuilder.loadTexts:
+    qtechNFPPNotifObjectsGroup.setStatus("current")
+
+
+# Notification objects
+
+qtechNFPPMessageGenerated = NotificationType(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 2, 0, 1)
+)
+qtechNFPPMessageGenerated.setObjects(
+    ("QTECH-NFPP-MIB", "qtechNFPPMessageContent")
+)
+if mibBuilder.loadTexts:
+    qtechNFPPMessageGenerated.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+qtechNFPPNotificationsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3, 2, 2)
+)
+qtechNFPPNotificationsGroup.setObjects(
+    ("QTECH-NFPP-MIB", "qtechNFPPMessageGenerated")
+)
+if mibBuilder.loadTexts:
+    qtechNFPPNotificationsGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+qtechNFPPMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 1, 10, 2, 43, 3, 1, 1)
+)
+qtechNFPPMIBCompliance.setObjects(
+      *(("QTECH-NFPP-MIB", "qtechNFPPNotifObjectsGroup"),
+        ("QTECH-NFPP-MIB", "qtechNFPPNotificationsGroup"))
+)
+if mibBuilder.loadTexts:
+    qtechNFPPMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "QTECH-NFPP-MIB",
+    **{"qtechNFPPMIB": qtechNFPPMIB,
+       "qtechNFPPMIBObjects": qtechNFPPMIBObjects,
+       "qtechNFPPMessageContent": qtechNFPPMessageContent,
+       "qtechNFPPMIBNotificationPrefix": qtechNFPPMIBNotificationPrefix,
+       "qtechNFPPMIBNotifications": qtechNFPPMIBNotifications,
+       "qtechNFPPMessageGenerated": qtechNFPPMessageGenerated,
+       "qtechNFPPMIBConformance": qtechNFPPMIBConformance,
+       "qtechNFPPMIBCompliances": qtechNFPPMIBCompliances,
+       "qtechNFPPMIBCompliance": qtechNFPPMIBCompliance,
+       "qtechNFPPMIBGroups": qtechNFPPMIBGroups,
+       "qtechNFPPNotifObjectsGroup": qtechNFPPNotifObjectsGroup,
+       "qtechNFPPNotificationsGroup": qtechNFPPNotificationsGroup}
+)

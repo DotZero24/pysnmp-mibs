@@ -1,25 +1,203 @@
+# SNMP MIB module (CT-DAWANDEVCONN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CT-DAWANDEVCONN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/CT-DAWANDEVCONN-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:13 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cabletron/CT-DAWANDEVCONN-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:54:19 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ctSSA = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497))
-daWanDevConn = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497, 23))
-daWanDevConnTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4497, 23, 1), )
-if mibBuilder.loadTexts: daWanDevConnTable.setStatus('mandatory')
-daWanDevConnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4497, 23, 1, 1), ).setIndexNames((0, "CT-DAWANDEVCONN-MIB", "daWanDeviceIndex"), (0, "CT-DAWANDEVCONN-MIB", "daWanConnectionIndex"))
-if mibBuilder.loadTexts: daWanDevConnEntry.setStatus('mandatory')
-daWanDeviceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 23, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: daWanDeviceIndex.setStatus('mandatory')
-daWanConnectionIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 23, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: daWanConnectionIndex.setStatus('mandatory')
-mibBuilder.exportSymbols("CT-DAWANDEVCONN-MIB", ctSSA=ctSSA, daWanDevConn=daWanDevConn, daWanDevConnTable=daWanDevConnTable, daWanDeviceIndex=daWanDeviceIndex, daWanConnectionIndex=daWanConnectionIndex, daWanDevConnEntry=daWanDevConnEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cabletron,) = mibBuilder.importSymbols(
+    "CTRON-OIDS",
+    "cabletron")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CtSSA_ObjectIdentity = ObjectIdentity
+ctSSA = _CtSSA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4497)
+)
+_DaWanDevConn_ObjectIdentity = ObjectIdentity
+daWanDevConn = _DaWanDevConn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 23)
+)
+_DaWanDevConnTable_Object = MibTable
+daWanDevConnTable = _DaWanDevConnTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 23, 1)
+)
+if mibBuilder.loadTexts:
+    daWanDevConnTable.setStatus("mandatory")
+_DaWanDevConnEntry_Object = MibTableRow
+daWanDevConnEntry = _DaWanDevConnEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 23, 1, 1)
+)
+daWanDevConnEntry.setIndexNames(
+    (0, "CT-DAWANDEVCONN-MIB", "daWanDeviceIndex"),
+    (0, "CT-DAWANDEVCONN-MIB", "daWanConnectionIndex"),
+)
+if mibBuilder.loadTexts:
+    daWanDevConnEntry.setStatus("mandatory")
+
+
+class _DaWanDeviceIndex_Type(Integer32):
+    """Custom type daWanDeviceIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_DaWanDeviceIndex_Type.__name__ = "Integer32"
+_DaWanDeviceIndex_Object = MibTableColumn
+daWanDeviceIndex = _DaWanDeviceIndex_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 23, 1, 1, 1),
+    _DaWanDeviceIndex_Type()
+)
+daWanDeviceIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    daWanDeviceIndex.setStatus("mandatory")
+
+
+class _DaWanConnectionIndex_Type(Integer32):
+    """Custom type daWanConnectionIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_DaWanConnectionIndex_Type.__name__ = "Integer32"
+_DaWanConnectionIndex_Object = MibTableColumn
+daWanConnectionIndex = _DaWanConnectionIndex_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 23, 1, 1, 2),
+    _DaWanConnectionIndex_Type()
+)
+daWanConnectionIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    daWanConnectionIndex.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CT-DAWANDEVCONN-MIB",
+    **{"ctSSA": ctSSA,
+       "daWanDevConn": daWanDevConn,
+       "daWanDevConnTable": daWanDevConnTable,
+       "daWanDevConnEntry": daWanDevConnEntry,
+       "daWanDeviceIndex": daWanDeviceIndex,
+       "daWanConnectionIndex": daWanConnectionIndex}
+)

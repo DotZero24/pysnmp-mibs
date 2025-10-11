@@ -1,35 +1,247 @@
+# SNMP MIB module (H3C-UNICAST-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-UNICAST-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-UNICAST-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:44 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/H3C-UNICAST-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:20:32 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-h3cUnicast = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 44))
-h3cUnicast.setRevisions(('2005-03-24 14:54',))
-if mibBuilder.loadTexts: h3cUnicast.setLastUpdated('200501311454Z')
-if mibBuilder.loadTexts: h3cUnicast.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
-h3cURPFTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1), )
-if mibBuilder.loadTexts: h3cURPFTable.setStatus('current')
-h3cURPFEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1), ).setIndexNames((0, "H3C-UNICAST-MIB", "h3cURPFIfIndex"))
-if mibBuilder.loadTexts: h3cURPFEntry.setStatus('current')
-h3cURPFIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: h3cURPFIfIndex.setStatus('current')
-h3cURPFEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cURPFEnabled.setStatus('current')
-h3cURPFSlotID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cURPFSlotID.setStatus('current')
-h3cURPFTotalReceivedPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cURPFTotalReceivedPacket.setStatus('current')
-h3cURPFDroppedPacket = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cURPFDroppedPacket.setStatus('current')
-h3cURPFClearStat = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("reserved", 0), ("reset", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cURPFClearStat.setStatus('current')
-mibBuilder.exportSymbols("H3C-UNICAST-MIB", h3cURPFEntry=h3cURPFEntry, h3cURPFDroppedPacket=h3cURPFDroppedPacket, h3cURPFSlotID=h3cURPFSlotID, h3cURPFEnabled=h3cURPFEnabled, PYSNMP_MODULE_ID=h3cUnicast, h3cURPFTable=h3cURPFTable, h3cURPFClearStat=h3cURPFClearStat, h3cUnicast=h3cUnicast, h3cURPFIfIndex=h3cURPFIfIndex, h3cURPFTotalReceivedPacket=h3cURPFTotalReceivedPacket)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+h3cUnicast = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 44)
+)
+if mibBuilder.loadTexts:
+    h3cUnicast.setRevisions(
+        ("2005-03-24 14:54",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cURPFTable_Object = MibTable
+h3cURPFTable = _H3cURPFTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1)
+)
+if mibBuilder.loadTexts:
+    h3cURPFTable.setStatus("current")
+_H3cURPFEntry_Object = MibTableRow
+h3cURPFEntry = _H3cURPFEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1)
+)
+h3cURPFEntry.setIndexNames(
+    (0, "H3C-UNICAST-MIB", "h3cURPFIfIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cURPFEntry.setStatus("current")
+_H3cURPFIfIndex_Type = Integer32
+_H3cURPFIfIndex_Object = MibTableColumn
+h3cURPFIfIndex = _H3cURPFIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 1),
+    _H3cURPFIfIndex_Type()
+)
+h3cURPFIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cURPFIfIndex.setStatus("current")
+
+
+class _H3cURPFEnabled_Type(TruthValue):
+    """Custom type h3cURPFEnabled based on TruthValue"""
+    defaultValue = 2
+
+
+_H3cURPFEnabled_Type.__name__ = "TruthValue"
+_H3cURPFEnabled_Object = MibTableColumn
+h3cURPFEnabled = _H3cURPFEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 2),
+    _H3cURPFEnabled_Type()
+)
+h3cURPFEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cURPFEnabled.setStatus("current")
+_H3cURPFSlotID_Type = Integer32
+_H3cURPFSlotID_Object = MibTableColumn
+h3cURPFSlotID = _H3cURPFSlotID_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 3),
+    _H3cURPFSlotID_Type()
+)
+h3cURPFSlotID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cURPFSlotID.setStatus("current")
+_H3cURPFTotalReceivedPacket_Type = Counter64
+_H3cURPFTotalReceivedPacket_Object = MibTableColumn
+h3cURPFTotalReceivedPacket = _H3cURPFTotalReceivedPacket_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 4),
+    _H3cURPFTotalReceivedPacket_Type()
+)
+h3cURPFTotalReceivedPacket.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cURPFTotalReceivedPacket.setStatus("current")
+_H3cURPFDroppedPacket_Type = Counter64
+_H3cURPFDroppedPacket_Object = MibTableColumn
+h3cURPFDroppedPacket = _H3cURPFDroppedPacket_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 5),
+    _H3cURPFDroppedPacket_Type()
+)
+h3cURPFDroppedPacket.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cURPFDroppedPacket.setStatus("current")
+
+
+class _H3cURPFClearStat_Type(Integer32):
+    """Custom type h3cURPFClearStat based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("reserved", 0),
+          ("reset", 1))
+    )
+
+
+_H3cURPFClearStat_Type.__name__ = "Integer32"
+_H3cURPFClearStat_Object = MibTableColumn
+h3cURPFClearStat = _H3cURPFClearStat_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 44, 1, 1, 6),
+    _H3cURPFClearStat_Type()
+)
+h3cURPFClearStat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cURPFClearStat.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-UNICAST-MIB",
+    **{"h3cUnicast": h3cUnicast,
+       "h3cURPFTable": h3cURPFTable,
+       "h3cURPFEntry": h3cURPFEntry,
+       "h3cURPFIfIndex": h3cURPFIfIndex,
+       "h3cURPFEnabled": h3cURPFEnabled,
+       "h3cURPFSlotID": h3cURPFSlotID,
+       "h3cURPFTotalReceivedPacket": h3cURPFTotalReceivedPacket,
+       "h3cURPFDroppedPacket": h3cURPFDroppedPacket,
+       "h3cURPFClearStat": h3cURPFClearStat}
+)

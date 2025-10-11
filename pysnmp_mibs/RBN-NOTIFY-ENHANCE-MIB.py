@@ -1,70 +1,492 @@
+# SNMP MIB module (RBN-NOTIFY-ENHANCE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RBN-NOTIFY-ENHANCE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ericsson/RBN-NOTIFY-ENHANCE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:21 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ericsson/RBN-NOTIFY-ENHANCE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:17:17 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dsx1LineStatus, dsx1LineStatusLastChange = mibBuilder.importSymbols("DS1-MIB", "dsx1LineStatus", "dsx1LineStatusLastChange")
-dsx3LineStatus, dsx3LineStatusLastChange = mibBuilder.importSymbols("DS3-MIB", "dsx3LineStatus", "dsx3LineStatusLastChange")
-ifHighSpeed, ifOperStatus, ifAdminStatus, ifIndex, ifSpeed = mibBuilder.importSymbols("IF-MIB", "ifHighSpeed", "ifOperStatus", "ifAdminStatus", "ifIndex", "ifSpeed")
-rbnCardAlarmDateAndTime, rbnCardAlarmType, rbnCardAlarmId, rbnCardAlarmDescription, rbnCardAlarmServiceAffecting, rbnCardAlarmSeverity, rbnCardAlarmProbableCause = mibBuilder.importSymbols("RBN-CARDMON-MIB", "rbnCardAlarmDateAndTime", "rbnCardAlarmType", "rbnCardAlarmId", "rbnCardAlarmDescription", "rbnCardAlarmServiceAffecting", "rbnCardAlarmSeverity", "rbnCardAlarmProbableCause")
-rbnDsx1AlarmSeverity, rbnDsx1AlarmServiceAffecting = mibBuilder.importSymbols("RBN-DS1-MIB", "rbnDsx1AlarmSeverity", "rbnDsx1AlarmServiceAffecting")
-rbnDsx3AlarmSeverity, rbnDsx3AlarmServiceAffecting = mibBuilder.importSymbols("RBN-DS3-MIB", "rbnDsx3AlarmSeverity", "rbnDsx3AlarmServiceAffecting")
-rbnMgmt, = mibBuilder.importSymbols("RBN-SMI", "rbnMgmt")
-RbnSlot, = mibBuilder.importSymbols("RBN-TC", "RbnSlot")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-rbnNotifyEnhanceMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 2, 36))
-rbnNotifyEnhanceMIB.setRevisions(('2009-03-23 17:00', '2005-05-09 00:00',))
-if mibBuilder.loadTexts: rbnNotifyEnhanceMIB.setLastUpdated('200903231700Z')
-if mibBuilder.loadTexts: rbnNotifyEnhanceMIB.setOrganization('RedBack Networks, Inc.')
-rbnNotifyEnhanceMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 36, 0))
-rbnNotifyEnhanceMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 36, 1))
-rbnNotifyEnhanceMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 36, 2))
-rbnNEGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1))
-rbnNESlot = MibScalar((1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1, 1), RbnSlot()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: rbnNESlot.setStatus('current')
-rbnNECardName = MibScalar((1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: rbnNECardName.setStatus('current')
-rbnNECardOp = MibScalar((1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("insert", 1), ("remove", 2), ("other", 3)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: rbnNECardOp.setStatus('current')
-rbnNECircuitId = MibScalar((1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: rbnNECircuitId.setStatus('current')
-rbnNEGroupName = MibScalar((1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1, 5), SnmpAdminString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: rbnNEGroupName.setStatus('current')
-rbnNEentConfigChange = NotificationType((1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 1)).setObjects(("RBN-NOTIFY-ENHANCE-MIB", "rbnNESlot"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardName"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardOp"), ("SNMPv2-MIB", "sysName"))
-if mibBuilder.loadTexts: rbnNEentConfigChange.setStatus('current')
-rbnNECardAlarm = NotificationType((1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 2)).setObjects(("RBN-CARDMON-MIB", "rbnCardAlarmId"), ("RBN-CARDMON-MIB", "rbnCardAlarmType"), ("RBN-CARDMON-MIB", "rbnCardAlarmDateAndTime"), ("RBN-CARDMON-MIB", "rbnCardAlarmDescription"), ("RBN-CARDMON-MIB", "rbnCardAlarmProbableCause"), ("RBN-CARDMON-MIB", "rbnCardAlarmSeverity"), ("RBN-CARDMON-MIB", "rbnCardAlarmServiceAffecting"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardName"), ("SNMPv2-MIB", "sysName"))
-if mibBuilder.loadTexts: rbnNECardAlarm.setStatus('current')
-rbnNElinkDown = NotificationType((1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 3)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifAdminStatus"), ("IF-MIB", "ifOperStatus"), ("IF-MIB", "ifSpeed"), ("IF-MIB", "ifHighSpeed"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECircuitId"), ("SNMPv2-MIB", "sysName"))
-if mibBuilder.loadTexts: rbnNElinkDown.setStatus('current')
-rbnNElinkUp = NotificationType((1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 4)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifAdminStatus"), ("IF-MIB", "ifOperStatus"), ("IF-MIB", "ifSpeed"), ("IF-MIB", "ifHighSpeed"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECircuitId"), ("SNMPv2-MIB", "sysName"))
-if mibBuilder.loadTexts: rbnNElinkUp.setStatus('current')
-rbnNEdsx1LineStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 5)).setObjects(("DS1-MIB", "dsx1LineStatus"), ("DS1-MIB", "dsx1LineStatusLastChange"), ("RBN-DS1-MIB", "rbnDsx1AlarmSeverity"), ("RBN-DS1-MIB", "rbnDsx1AlarmServiceAffecting"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECircuitId"), ("SNMPv2-MIB", "sysName"))
-if mibBuilder.loadTexts: rbnNEdsx1LineStatusChange.setStatus('current')
-rbnNEdsx3LineStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 6)).setObjects(("DS3-MIB", "dsx3LineStatus"), ("DS3-MIB", "dsx3LineStatusLastChange"), ("RBN-DS3-MIB", "rbnDsx3AlarmSeverity"), ("RBN-DS3-MIB", "rbnDsx3AlarmServiceAffecting"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECircuitId"), ("SNMPv2-MIB", "sysName"))
-if mibBuilder.loadTexts: rbnNEdsx3LineStatusChange.setStatus('current')
-rbnNotifyEnhanceMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 1))
-rbnNotifyEnhanceMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 2))
-rbnNotifyEnhanceMIBObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 1, 1)).setObjects(("RBN-NOTIFY-ENHANCE-MIB", "rbnNESlot"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardName"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardOp"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECircuitId"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNEGroupName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    rbnNotifyEnhanceMIBObjectGroup = rbnNotifyEnhanceMIBObjectGroup.setStatus('current')
-rbnNotifyEnhanceMIBNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 1, 2)).setObjects(("RBN-NOTIFY-ENHANCE-MIB", "rbnNEentConfigChange"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardAlarm"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNElinkDown"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNElinkUp"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNEdsx1LineStatusChange"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNEdsx3LineStatusChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    rbnNotifyEnhanceMIBNotificationGroup = rbnNotifyEnhanceMIBNotificationGroup.setStatus('current')
-rbnNotifyEnhanceMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 2, 1)).setObjects(("RBN-NOTIFY-ENHANCE-MIB", "rbnNotifyEnhanceMIBNotificationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    rbnNotifyEnhanceMIBCompliance = rbnNotifyEnhanceMIBCompliance.setStatus('deprecated')
-rbnNotifyEnhanceMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 2, 2)).setObjects(("RBN-NOTIFY-ENHANCE-MIB", "rbnNotifyEnhanceMIBObjectGroup"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNotifyEnhanceMIBNotificationGroup"), ("RBN-NOTIFY-ENHANCE-MIB", "rbnNotifyEnhanceMIBNotificationGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    rbnNotifyEnhanceMIBCompliance2 = rbnNotifyEnhanceMIBCompliance2.setStatus('current')
-mibBuilder.exportSymbols("RBN-NOTIFY-ENHANCE-MIB", rbnNotifyEnhanceMIBCompliances=rbnNotifyEnhanceMIBCompliances, rbnNECardAlarm=rbnNECardAlarm, rbnNotifyEnhanceMIBConformance=rbnNotifyEnhanceMIBConformance, rbnNotifyEnhanceMIBObjectGroup=rbnNotifyEnhanceMIBObjectGroup, rbnNECardName=rbnNECardName, rbnNEGroupName=rbnNEGroupName, rbnNEdsx3LineStatusChange=rbnNEdsx3LineStatusChange, rbnNElinkUp=rbnNElinkUp, rbnNEdsx1LineStatusChange=rbnNEdsx1LineStatusChange, rbnNEentConfigChange=rbnNEentConfigChange, rbnNotifyEnhanceMIB=rbnNotifyEnhanceMIB, rbnNotifyEnhanceMIBObjects=rbnNotifyEnhanceMIBObjects, rbnNotifyEnhanceMIBCompliance2=rbnNotifyEnhanceMIBCompliance2, rbnNEGeneral=rbnNEGeneral, rbnNECircuitId=rbnNECircuitId, rbnNESlot=rbnNESlot, rbnNotifyEnhanceMIBGroups=rbnNotifyEnhanceMIBGroups, rbnNotifyEnhanceMIBNotificationGroup=rbnNotifyEnhanceMIBNotificationGroup, rbnNECardOp=rbnNECardOp, rbnNElinkDown=rbnNElinkDown, rbnNotifyEnhanceMIBNotifications=rbnNotifyEnhanceMIBNotifications, rbnNotifyEnhanceMIBCompliance=rbnNotifyEnhanceMIBCompliance, PYSNMP_MODULE_ID=rbnNotifyEnhanceMIB)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dsx1LineStatus,
+ dsx1LineStatusLastChange) = mibBuilder.importSymbols(
+    "DS1-MIB",
+    "dsx1LineStatus",
+    "dsx1LineStatusLastChange")
+
+(dsx3LineStatus,
+ dsx3LineStatusLastChange) = mibBuilder.importSymbols(
+    "DS3-MIB",
+    "dsx3LineStatus",
+    "dsx3LineStatusLastChange")
+
+(ifAdminStatus,
+ ifHighSpeed,
+ ifIndex,
+ ifOperStatus,
+ ifSpeed) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifAdminStatus",
+    "ifHighSpeed",
+    "ifIndex",
+    "ifOperStatus",
+    "ifSpeed")
+
+(rbnCardAlarmDateAndTime,
+ rbnCardAlarmDescription,
+ rbnCardAlarmId,
+ rbnCardAlarmProbableCause,
+ rbnCardAlarmServiceAffecting,
+ rbnCardAlarmSeverity,
+ rbnCardAlarmType) = mibBuilder.importSymbols(
+    "RBN-CARDMON-MIB",
+    "rbnCardAlarmDateAndTime",
+    "rbnCardAlarmDescription",
+    "rbnCardAlarmId",
+    "rbnCardAlarmProbableCause",
+    "rbnCardAlarmServiceAffecting",
+    "rbnCardAlarmSeverity",
+    "rbnCardAlarmType")
+
+(rbnDsx1AlarmServiceAffecting,
+ rbnDsx1AlarmSeverity) = mibBuilder.importSymbols(
+    "RBN-DS1-MIB",
+    "rbnDsx1AlarmServiceAffecting",
+    "rbnDsx1AlarmSeverity")
+
+(rbnDsx3AlarmServiceAffecting,
+ rbnDsx3AlarmSeverity) = mibBuilder.importSymbols(
+    "RBN-DS3-MIB",
+    "rbnDsx3AlarmServiceAffecting",
+    "rbnDsx3AlarmSeverity")
+
+(rbnMgmt,) = mibBuilder.importSymbols(
+    "RBN-SMI",
+    "rbnMgmt")
+
+(RbnSlot,) = mibBuilder.importSymbols(
+    "RBN-TC",
+    "RbnSlot")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(sysName,) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "sysName")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+rbnNotifyEnhanceMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36)
+)
+if mibBuilder.loadTexts:
+    rbnNotifyEnhanceMIB.setRevisions(
+        ("2009-03-23 17:00",
+         "2005-05-09 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RbnNotifyEnhanceMIBNotifications_ObjectIdentity = ObjectIdentity
+rbnNotifyEnhanceMIBNotifications = _RbnNotifyEnhanceMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 0)
+)
+_RbnNotifyEnhanceMIBObjects_ObjectIdentity = ObjectIdentity
+rbnNotifyEnhanceMIBObjects = _RbnNotifyEnhanceMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 1)
+)
+_RbnNEGeneral_ObjectIdentity = ObjectIdentity
+rbnNEGeneral = _RbnNEGeneral_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1)
+)
+_RbnNESlot_Type = RbnSlot
+_RbnNESlot_Object = MibScalar
+rbnNESlot = _RbnNESlot_Object(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1, 1),
+    _RbnNESlot_Type()
+)
+rbnNESlot.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    rbnNESlot.setStatus("current")
+
+
+class _RbnNECardName_Type(DisplayString):
+    """Custom type rbnNECardName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_RbnNECardName_Type.__name__ = "DisplayString"
+_RbnNECardName_Object = MibScalar
+rbnNECardName = _RbnNECardName_Object(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1, 2),
+    _RbnNECardName_Type()
+)
+rbnNECardName.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    rbnNECardName.setStatus("current")
+
+
+class _RbnNECardOp_Type(Integer32):
+    """Custom type rbnNECardOp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("insert", 1),
+          ("remove", 2),
+          ("other", 3))
+    )
+
+
+_RbnNECardOp_Type.__name__ = "Integer32"
+_RbnNECardOp_Object = MibScalar
+rbnNECardOp = _RbnNECardOp_Object(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1, 3),
+    _RbnNECardOp_Type()
+)
+rbnNECardOp.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    rbnNECardOp.setStatus("current")
+
+
+class _RbnNECircuitId_Type(DisplayString):
+    """Custom type rbnNECircuitId based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_RbnNECircuitId_Type.__name__ = "DisplayString"
+_RbnNECircuitId_Object = MibScalar
+rbnNECircuitId = _RbnNECircuitId_Object(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1, 4),
+    _RbnNECircuitId_Type()
+)
+rbnNECircuitId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    rbnNECircuitId.setStatus("current")
+_RbnNEGroupName_Type = SnmpAdminString
+_RbnNEGroupName_Object = MibScalar
+rbnNEGroupName = _RbnNEGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 1, 1, 5),
+    _RbnNEGroupName_Type()
+)
+rbnNEGroupName.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    rbnNEGroupName.setStatus("current")
+_RbnNotifyEnhanceMIBConformance_ObjectIdentity = ObjectIdentity
+rbnNotifyEnhanceMIBConformance = _RbnNotifyEnhanceMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 2)
+)
+_RbnNotifyEnhanceMIBGroups_ObjectIdentity = ObjectIdentity
+rbnNotifyEnhanceMIBGroups = _RbnNotifyEnhanceMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 1)
+)
+_RbnNotifyEnhanceMIBCompliances_ObjectIdentity = ObjectIdentity
+rbnNotifyEnhanceMIBCompliances = _RbnNotifyEnhanceMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 2)
+)
+
+# Managed Objects groups
+
+rbnNotifyEnhanceMIBObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 1, 1)
+)
+rbnNotifyEnhanceMIBObjectGroup.setObjects(
+      *(("RBN-NOTIFY-ENHANCE-MIB", "rbnNESlot"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardName"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardOp"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECircuitId"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNEGroupName"))
+)
+if mibBuilder.loadTexts:
+    rbnNotifyEnhanceMIBObjectGroup.setStatus("current")
+
+
+# Notification objects
+
+rbnNEentConfigChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 1)
+)
+rbnNEentConfigChange.setObjects(
+      *(("RBN-NOTIFY-ENHANCE-MIB", "rbnNESlot"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardName"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardOp"),
+        ("SNMPv2-MIB", "sysName"))
+)
+if mibBuilder.loadTexts:
+    rbnNEentConfigChange.setStatus(
+        "current"
+    )
+
+rbnNECardAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 2)
+)
+rbnNECardAlarm.setObjects(
+      *(("RBN-CARDMON-MIB", "rbnCardAlarmId"),
+        ("RBN-CARDMON-MIB", "rbnCardAlarmType"),
+        ("RBN-CARDMON-MIB", "rbnCardAlarmDateAndTime"),
+        ("RBN-CARDMON-MIB", "rbnCardAlarmDescription"),
+        ("RBN-CARDMON-MIB", "rbnCardAlarmProbableCause"),
+        ("RBN-CARDMON-MIB", "rbnCardAlarmSeverity"),
+        ("RBN-CARDMON-MIB", "rbnCardAlarmServiceAffecting"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardName"),
+        ("SNMPv2-MIB", "sysName"))
+)
+if mibBuilder.loadTexts:
+    rbnNECardAlarm.setStatus(
+        "current"
+    )
+
+rbnNElinkDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 3)
+)
+rbnNElinkDown.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifAdminStatus"),
+        ("IF-MIB", "ifOperStatus"),
+        ("IF-MIB", "ifSpeed"),
+        ("IF-MIB", "ifHighSpeed"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECircuitId"),
+        ("SNMPv2-MIB", "sysName"))
+)
+if mibBuilder.loadTexts:
+    rbnNElinkDown.setStatus(
+        "current"
+    )
+
+rbnNElinkUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 4)
+)
+rbnNElinkUp.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifAdminStatus"),
+        ("IF-MIB", "ifOperStatus"),
+        ("IF-MIB", "ifSpeed"),
+        ("IF-MIB", "ifHighSpeed"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECircuitId"),
+        ("SNMPv2-MIB", "sysName"))
+)
+if mibBuilder.loadTexts:
+    rbnNElinkUp.setStatus(
+        "current"
+    )
+
+rbnNEdsx1LineStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 5)
+)
+rbnNEdsx1LineStatusChange.setObjects(
+      *(("DS1-MIB", "dsx1LineStatus"),
+        ("DS1-MIB", "dsx1LineStatusLastChange"),
+        ("RBN-DS1-MIB", "rbnDsx1AlarmSeverity"),
+        ("RBN-DS1-MIB", "rbnDsx1AlarmServiceAffecting"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECircuitId"),
+        ("SNMPv2-MIB", "sysName"))
+)
+if mibBuilder.loadTexts:
+    rbnNEdsx1LineStatusChange.setStatus(
+        "current"
+    )
+
+rbnNEdsx3LineStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 0, 6)
+)
+rbnNEdsx3LineStatusChange.setObjects(
+      *(("DS3-MIB", "dsx3LineStatus"),
+        ("DS3-MIB", "dsx3LineStatusLastChange"),
+        ("RBN-DS3-MIB", "rbnDsx3AlarmSeverity"),
+        ("RBN-DS3-MIB", "rbnDsx3AlarmServiceAffecting"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECircuitId"),
+        ("SNMPv2-MIB", "sysName"))
+)
+if mibBuilder.loadTexts:
+    rbnNEdsx3LineStatusChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+rbnNotifyEnhanceMIBNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 1, 2)
+)
+rbnNotifyEnhanceMIBNotificationGroup.setObjects(
+      *(("RBN-NOTIFY-ENHANCE-MIB", "rbnNEentConfigChange"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNECardAlarm"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNElinkDown"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNElinkUp"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNEdsx1LineStatusChange"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNEdsx3LineStatusChange"))
+)
+if mibBuilder.loadTexts:
+    rbnNotifyEnhanceMIBNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+rbnNotifyEnhanceMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 2, 1)
+)
+rbnNotifyEnhanceMIBCompliance.setObjects(
+    ("RBN-NOTIFY-ENHANCE-MIB", "rbnNotifyEnhanceMIBNotificationGroup")
+)
+if mibBuilder.loadTexts:
+    rbnNotifyEnhanceMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+rbnNotifyEnhanceMIBCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 36, 2, 2, 2)
+)
+rbnNotifyEnhanceMIBCompliance2.setObjects(
+      *(("RBN-NOTIFY-ENHANCE-MIB", "rbnNotifyEnhanceMIBObjectGroup"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNotifyEnhanceMIBNotificationGroup"),
+        ("RBN-NOTIFY-ENHANCE-MIB", "rbnNotifyEnhanceMIBNotificationGroup"))
+)
+if mibBuilder.loadTexts:
+    rbnNotifyEnhanceMIBCompliance2.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RBN-NOTIFY-ENHANCE-MIB",
+    **{"rbnNotifyEnhanceMIB": rbnNotifyEnhanceMIB,
+       "rbnNotifyEnhanceMIBNotifications": rbnNotifyEnhanceMIBNotifications,
+       "rbnNEentConfigChange": rbnNEentConfigChange,
+       "rbnNECardAlarm": rbnNECardAlarm,
+       "rbnNElinkDown": rbnNElinkDown,
+       "rbnNElinkUp": rbnNElinkUp,
+       "rbnNEdsx1LineStatusChange": rbnNEdsx1LineStatusChange,
+       "rbnNEdsx3LineStatusChange": rbnNEdsx3LineStatusChange,
+       "rbnNotifyEnhanceMIBObjects": rbnNotifyEnhanceMIBObjects,
+       "rbnNEGeneral": rbnNEGeneral,
+       "rbnNESlot": rbnNESlot,
+       "rbnNECardName": rbnNECardName,
+       "rbnNECardOp": rbnNECardOp,
+       "rbnNECircuitId": rbnNECircuitId,
+       "rbnNEGroupName": rbnNEGroupName,
+       "rbnNotifyEnhanceMIBConformance": rbnNotifyEnhanceMIBConformance,
+       "rbnNotifyEnhanceMIBGroups": rbnNotifyEnhanceMIBGroups,
+       "rbnNotifyEnhanceMIBObjectGroup": rbnNotifyEnhanceMIBObjectGroup,
+       "rbnNotifyEnhanceMIBNotificationGroup": rbnNotifyEnhanceMIBNotificationGroup,
+       "rbnNotifyEnhanceMIBCompliances": rbnNotifyEnhanceMIBCompliances,
+       "rbnNotifyEnhanceMIBCompliance": rbnNotifyEnhanceMIBCompliance,
+       "rbnNotifyEnhanceMIBCompliance2": rbnNotifyEnhanceMIBCompliance2}
+)

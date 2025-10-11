@@ -1,67 +1,511 @@
+# SNMP MIB module (ARICENT-OSPFMI-TRAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ARICENT-OSPFMI-TRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aricent/ARICENT-OSPFMI-TRAP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:57:11 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/aricent/ARICENT-OSPFMI-TRAP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:43:52 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-fsMIStdOspfVirtIfState, fsMIStdOspfNbrRtrId, fsMIStdOspfNbrState, fsMIStdOspfEntry, fsMIStdOspfExtLsdbLimit, fsMIStdOspfRouterId, fsMIStdOspfIfState, fsMIStdOspfVirtNbrState = mibBuilder.importSymbols("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfVirtIfState", "fsMIStdOspfNbrRtrId", "fsMIStdOspfNbrState", "fsMIStdOspfEntry", "fsMIStdOspfExtLsdbLimit", "fsMIStdOspfRouterId", "fsMIStdOspfIfState", "fsMIStdOspfVirtNbrState")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-fsMIStdOspfTrap = ModuleIdentity((1, 3, 6, 1, 4, 1, 2076, 148))
-fsMIStdOspfTrap.setRevisions(('2012-09-05 00:00',))
-if mibBuilder.loadTexts: fsMIStdOspfTrap.setLastUpdated('201209050000Z')
-if mibBuilder.loadTexts: fsMIStdOspfTrap.setOrganization('ARICENT COMMUNICATIONS SOFTWARE')
-fsMIStdOspfTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 2076, 148, 0))
-fsMIStdOspfTrapControl = MibIdentifier((1, 3, 6, 1, 4, 1, 2076, 148, 1))
-fsMIStdOspfTrapTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 148, 1, 1), )
-if mibBuilder.loadTexts: fsMIStdOspfTrapTable.setStatus('current')
-fsMIStdOspfTrapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 148, 1, 1, 1), )
-fsMIStdOspfEntry.registerAugmentions(("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfTrapEntry"))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(fsMIStdOspfEntry,
+ fsMIStdOspfExtLsdbLimit,
+ fsMIStdOspfIfState,
+ fsMIStdOspfNbrRtrId,
+ fsMIStdOspfNbrState,
+ fsMIStdOspfRouterId,
+ fsMIStdOspfVirtIfState,
+ fsMIStdOspfVirtNbrState) = mibBuilder.importSymbols(
+    "ARICENT-MISTDOSPF-MIB",
+    "fsMIStdOspfEntry",
+    "fsMIStdOspfExtLsdbLimit",
+    "fsMIStdOspfIfState",
+    "fsMIStdOspfNbrRtrId",
+    "fsMIStdOspfNbrState",
+    "fsMIStdOspfRouterId",
+    "fsMIStdOspfVirtIfState",
+    "fsMIStdOspfVirtNbrState")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+fsMIStdOspfTrap = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2076, 148)
+)
+if mibBuilder.loadTexts:
+    fsMIStdOspfTrap.setRevisions(
+        ("2012-09-05 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_FsMIStdOspfTraps_ObjectIdentity = ObjectIdentity
+fsMIStdOspfTraps = _FsMIStdOspfTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0)
+)
+_FsMIStdOspfTrapControl_ObjectIdentity = ObjectIdentity
+fsMIStdOspfTrapControl = _FsMIStdOspfTrapControl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 1)
+)
+_FsMIStdOspfTrapTable_Object = MibTable
+fsMIStdOspfTrapTable = _FsMIStdOspfTrapTable_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 1, 1)
+)
+if mibBuilder.loadTexts:
+    fsMIStdOspfTrapTable.setStatus("current")
+_FsMIStdOspfTrapEntry_Object = MibTableRow
+fsMIStdOspfTrapEntry = _FsMIStdOspfTrapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    fsMIStdOspfTrapEntry.setStatus("current")
+
+
+class _FsMIStdOspfSetTrap_Type(OctetString):
+    """Custom type fsMIStdOspfSetTrap based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_FsMIStdOspfSetTrap_Type.__name__ = "OctetString"
+_FsMIStdOspfSetTrap_Object = MibTableColumn
+fsMIStdOspfSetTrap = _FsMIStdOspfSetTrap_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 1, 1, 1, 1),
+    _FsMIStdOspfSetTrap_Type()
+)
+fsMIStdOspfSetTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsMIStdOspfSetTrap.setStatus("current")
+
+
+class _FsMIStdOspfConfigErrorType_Type(Integer32):
+    """Custom type fsMIStdOspfConfigErrorType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("badVersion", 1),
+          ("areaMismatch", 2),
+          ("unknownNbmaNbr", 3),
+          ("unknownVirtualNbr", 4),
+          ("authTypeMismatch", 5),
+          ("authFailure", 6),
+          ("netMaskMismatch", 7),
+          ("helloIntervalMismatch", 8),
+          ("deadIntervalMismatch", 9),
+          ("optionMismatch", 10))
+    )
+
+
+_FsMIStdOspfConfigErrorType_Type.__name__ = "Integer32"
+_FsMIStdOspfConfigErrorType_Object = MibTableColumn
+fsMIStdOspfConfigErrorType = _FsMIStdOspfConfigErrorType_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 1, 1, 1, 2),
+    _FsMIStdOspfConfigErrorType_Type()
+)
+fsMIStdOspfConfigErrorType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsMIStdOspfConfigErrorType.setStatus("current")
+
+
+class _FsMIStdOspfPacketType_Type(Integer32):
+    """Custom type fsMIStdOspfPacketType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("hello", 1),
+          ("dbDescript", 2),
+          ("lsReq", 3),
+          ("lsUpdate", 4),
+          ("lsAck", 5))
+    )
+
+
+_FsMIStdOspfPacketType_Type.__name__ = "Integer32"
+_FsMIStdOspfPacketType_Object = MibTableColumn
+fsMIStdOspfPacketType = _FsMIStdOspfPacketType_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 1, 1, 1, 3),
+    _FsMIStdOspfPacketType_Type()
+)
+fsMIStdOspfPacketType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsMIStdOspfPacketType.setStatus("current")
+_FsMIStdOspfPacketSrc_Type = IpAddress
+_FsMIStdOspfPacketSrc_Object = MibTableColumn
+fsMIStdOspfPacketSrc = _FsMIStdOspfPacketSrc_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 1, 1, 1, 4),
+    _FsMIStdOspfPacketSrc_Type()
+)
+fsMIStdOspfPacketSrc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsMIStdOspfPacketSrc.setStatus("current")
+fsMIStdOspfEntry.registerAugmentions(
+    ("ARICENT-OSPFMI-TRAP-MIB",
+     "fsMIStdOspfTrapEntry")
+)
 fsMIStdOspfTrapEntry.setIndexNames(*fsMIStdOspfEntry.getIndexNames())
-if mibBuilder.loadTexts: fsMIStdOspfTrapEntry.setStatus('current')
-fsMIStdOspfSetTrap = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 148, 1, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsMIStdOspfSetTrap.setStatus('current')
-fsMIStdOspfConfigErrorType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 148, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("badVersion", 1), ("areaMismatch", 2), ("unknownNbmaNbr", 3), ("unknownVirtualNbr", 4), ("authTypeMismatch", 5), ("authFailure", 6), ("netMaskMismatch", 7), ("helloIntervalMismatch", 8), ("deadIntervalMismatch", 9), ("optionMismatch", 10)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsMIStdOspfConfigErrorType.setStatus('current')
-fsMIStdOspfPacketType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 148, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("hello", 1), ("dbDescript", 2), ("lsReq", 3), ("lsUpdate", 4), ("lsAck", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsMIStdOspfPacketType.setStatus('current')
-fsMIStdOspfPacketSrc = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 148, 1, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsMIStdOspfPacketSrc.setStatus('current')
-ospfIfStateChange = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 16)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfIfState"))
-if mibBuilder.loadTexts: ospfIfStateChange.setStatus('current')
-ospfVirtIfStateChange = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 1)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfVirtIfState"))
-if mibBuilder.loadTexts: ospfVirtIfStateChange.setStatus('current')
-ospfNbrStateChange = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 2)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfNbrRtrId"), ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfNbrState"))
-if mibBuilder.loadTexts: ospfNbrStateChange.setStatus('current')
-ospfVirtNbrStateChange = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 3)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfVirtNbrState"))
-if mibBuilder.loadTexts: ospfVirtNbrStateChange.setStatus('current')
-ospfIfConfigError = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 4)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketSrc"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
-if mibBuilder.loadTexts: ospfIfConfigError.setStatus('current')
-ospfVirtIfConfigError = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 5)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
-if mibBuilder.loadTexts: ospfVirtIfConfigError.setStatus('current')
-ospfIfAuthFailure = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 6)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketSrc"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
-if mibBuilder.loadTexts: ospfIfAuthFailure.setStatus('current')
-ospfVirtIfAuthFailure = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 7)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
-if mibBuilder.loadTexts: ospfVirtIfAuthFailure.setStatus('current')
-ospfIfRxBadPacket = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 8)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketSrc"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
-if mibBuilder.loadTexts: ospfIfRxBadPacket.setStatus('current')
-ospfVirtIfRxBadPacket = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 9)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
-if mibBuilder.loadTexts: ospfVirtIfRxBadPacket.setStatus('current')
-ospfTxRetransmit = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 10)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfNbrRtrId"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
-if mibBuilder.loadTexts: ospfTxRetransmit.setStatus('current')
-ospfVirtIfTxRetransmit = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 11)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
-if mibBuilder.loadTexts: ospfVirtIfTxRetransmit.setStatus('current')
-ospfOriginateLsa = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 12)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"))
-if mibBuilder.loadTexts: ospfOriginateLsa.setStatus('current')
-ospfMaxAgeLsa = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 13)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"))
-if mibBuilder.loadTexts: ospfMaxAgeLsa.setStatus('current')
-ospfLsdbOverflow = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 14)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfExtLsdbLimit"))
-if mibBuilder.loadTexts: ospfLsdbOverflow.setStatus('current')
-ospfLsdbApproachingOverflow = NotificationType((1, 3, 6, 1, 4, 1, 2076, 148, 0, 15)).setObjects(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"), ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfExtLsdbLimit"))
-if mibBuilder.loadTexts: ospfLsdbApproachingOverflow.setStatus('current')
-mibBuilder.exportSymbols("ARICENT-OSPFMI-TRAP-MIB", ospfIfRxBadPacket=ospfIfRxBadPacket, fsMIStdOspfTrapControl=fsMIStdOspfTrapControl, ospfLsdbApproachingOverflow=ospfLsdbApproachingOverflow, ospfOriginateLsa=ospfOriginateLsa, fsMIStdOspfConfigErrorType=fsMIStdOspfConfigErrorType, ospfVirtIfAuthFailure=ospfVirtIfAuthFailure, ospfIfStateChange=ospfIfStateChange, fsMIStdOspfPacketType=fsMIStdOspfPacketType, fsMIStdOspfPacketSrc=fsMIStdOspfPacketSrc, fsMIStdOspfTraps=fsMIStdOspfTraps, ospfVirtIfTxRetransmit=ospfVirtIfTxRetransmit, ospfLsdbOverflow=ospfLsdbOverflow, ospfTxRetransmit=ospfTxRetransmit, ospfNbrStateChange=ospfNbrStateChange, ospfVirtIfConfigError=ospfVirtIfConfigError, fsMIStdOspfTrapEntry=fsMIStdOspfTrapEntry, ospfVirtNbrStateChange=ospfVirtNbrStateChange, fsMIStdOspfTrapTable=fsMIStdOspfTrapTable, ospfVirtIfStateChange=ospfVirtIfStateChange, PYSNMP_MODULE_ID=fsMIStdOspfTrap, fsMIStdOspfTrap=fsMIStdOspfTrap, ospfIfConfigError=ospfIfConfigError, ospfVirtIfRxBadPacket=ospfVirtIfRxBadPacket, fsMIStdOspfSetTrap=fsMIStdOspfSetTrap, ospfIfAuthFailure=ospfIfAuthFailure, ospfMaxAgeLsa=ospfMaxAgeLsa)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+ospfVirtIfStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 1)
+)
+ospfVirtIfStateChange.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfVirtIfState"))
+)
+if mibBuilder.loadTexts:
+    ospfVirtIfStateChange.setStatus(
+        "current"
+    )
+
+ospfNbrStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 2)
+)
+ospfNbrStateChange.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfNbrRtrId"),
+        ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfNbrState"))
+)
+if mibBuilder.loadTexts:
+    ospfNbrStateChange.setStatus(
+        "current"
+    )
+
+ospfVirtNbrStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 3)
+)
+ospfVirtNbrStateChange.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfVirtNbrState"))
+)
+if mibBuilder.loadTexts:
+    ospfVirtNbrStateChange.setStatus(
+        "current"
+    )
+
+ospfIfConfigError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 4)
+)
+ospfIfConfigError.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketSrc"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+)
+if mibBuilder.loadTexts:
+    ospfIfConfigError.setStatus(
+        "current"
+    )
+
+ospfVirtIfConfigError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 5)
+)
+ospfVirtIfConfigError.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+)
+if mibBuilder.loadTexts:
+    ospfVirtIfConfigError.setStatus(
+        "current"
+    )
+
+ospfIfAuthFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 6)
+)
+ospfIfAuthFailure.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketSrc"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+)
+if mibBuilder.loadTexts:
+    ospfIfAuthFailure.setStatus(
+        "current"
+    )
+
+ospfVirtIfAuthFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 7)
+)
+ospfVirtIfAuthFailure.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfConfigErrorType"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+)
+if mibBuilder.loadTexts:
+    ospfVirtIfAuthFailure.setStatus(
+        "current"
+    )
+
+ospfIfRxBadPacket = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 8)
+)
+ospfIfRxBadPacket.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketSrc"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+)
+if mibBuilder.loadTexts:
+    ospfIfRxBadPacket.setStatus(
+        "current"
+    )
+
+ospfVirtIfRxBadPacket = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 9)
+)
+ospfVirtIfRxBadPacket.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+)
+if mibBuilder.loadTexts:
+    ospfVirtIfRxBadPacket.setStatus(
+        "current"
+    )
+
+ospfTxRetransmit = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 10)
+)
+ospfTxRetransmit.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfNbrRtrId"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+)
+if mibBuilder.loadTexts:
+    ospfTxRetransmit.setStatus(
+        "current"
+    )
+
+ospfVirtIfTxRetransmit = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 11)
+)
+ospfVirtIfTxRetransmit.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-OSPFMI-TRAP-MIB", "fsMIStdOspfPacketType"))
+)
+if mibBuilder.loadTexts:
+    ospfVirtIfTxRetransmit.setStatus(
+        "current"
+    )
+
+ospfOriginateLsa = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 12)
+)
+ospfOriginateLsa.setObjects(
+    ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId")
+)
+if mibBuilder.loadTexts:
+    ospfOriginateLsa.setStatus(
+        "current"
+    )
+
+ospfMaxAgeLsa = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 13)
+)
+ospfMaxAgeLsa.setObjects(
+    ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId")
+)
+if mibBuilder.loadTexts:
+    ospfMaxAgeLsa.setStatus(
+        "current"
+    )
+
+ospfLsdbOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 14)
+)
+ospfLsdbOverflow.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfExtLsdbLimit"))
+)
+if mibBuilder.loadTexts:
+    ospfLsdbOverflow.setStatus(
+        "current"
+    )
+
+ospfLsdbApproachingOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 15)
+)
+ospfLsdbApproachingOverflow.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfExtLsdbLimit"))
+)
+if mibBuilder.loadTexts:
+    ospfLsdbApproachingOverflow.setStatus(
+        "current"
+    )
+
+ospfIfStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2076, 148, 0, 16)
+)
+ospfIfStateChange.setObjects(
+      *(("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfRouterId"),
+        ("ARICENT-MISTDOSPF-MIB", "fsMIStdOspfIfState"))
+)
+if mibBuilder.loadTexts:
+    ospfIfStateChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ARICENT-OSPFMI-TRAP-MIB",
+    **{"fsMIStdOspfTrap": fsMIStdOspfTrap,
+       "fsMIStdOspfTraps": fsMIStdOspfTraps,
+       "ospfVirtIfStateChange": ospfVirtIfStateChange,
+       "ospfNbrStateChange": ospfNbrStateChange,
+       "ospfVirtNbrStateChange": ospfVirtNbrStateChange,
+       "ospfIfConfigError": ospfIfConfigError,
+       "ospfVirtIfConfigError": ospfVirtIfConfigError,
+       "ospfIfAuthFailure": ospfIfAuthFailure,
+       "ospfVirtIfAuthFailure": ospfVirtIfAuthFailure,
+       "ospfIfRxBadPacket": ospfIfRxBadPacket,
+       "ospfVirtIfRxBadPacket": ospfVirtIfRxBadPacket,
+       "ospfTxRetransmit": ospfTxRetransmit,
+       "ospfVirtIfTxRetransmit": ospfVirtIfTxRetransmit,
+       "ospfOriginateLsa": ospfOriginateLsa,
+       "ospfMaxAgeLsa": ospfMaxAgeLsa,
+       "ospfLsdbOverflow": ospfLsdbOverflow,
+       "ospfLsdbApproachingOverflow": ospfLsdbApproachingOverflow,
+       "ospfIfStateChange": ospfIfStateChange,
+       "fsMIStdOspfTrapControl": fsMIStdOspfTrapControl,
+       "fsMIStdOspfTrapTable": fsMIStdOspfTrapTable,
+       "fsMIStdOspfTrapEntry": fsMIStdOspfTrapEntry,
+       "fsMIStdOspfSetTrap": fsMIStdOspfSetTrap,
+       "fsMIStdOspfConfigErrorType": fsMIStdOspfConfigErrorType,
+       "fsMIStdOspfPacketType": fsMIStdOspfPacketType,
+       "fsMIStdOspfPacketSrc": fsMIStdOspfPacketSrc}
+)

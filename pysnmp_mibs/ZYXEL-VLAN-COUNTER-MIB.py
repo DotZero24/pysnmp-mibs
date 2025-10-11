@@ -1,63 +1,362 @@
+# SNMP MIB module (ZYXEL-VLAN-COUNTER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-VLAN-COUNTER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-VLAN-COUNTER-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:04:13 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zyxel/ZYXEL-VLAN-COUNTER-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:03:09 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelVlanCounter = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87))
-if mibBuilder.loadTexts: zyxelVlanCounter.setLastUpdated('201207010000Z')
-if mibBuilder.loadTexts: zyxelVlanCounter.setOrganization('Enterprise Solution ZyXEL')
-zyxelVlanCounterSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1))
-zyxelVlanCounterStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2))
-zyxelVlanCounterTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1), )
-if mibBuilder.loadTexts: zyxelVlanCounterTable.setStatus('current')
-zyxelVlanCounterEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1, 1), ).setIndexNames((0, "ZYXEL-VLAN-COUNTER-MIB", "zyVlanCounterVid"))
-if mibBuilder.loadTexts: zyxelVlanCounterEntry.setStatus('current')
-zyVlanCounterVid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: zyVlanCounterVid.setStatus('current')
-zyVlanCounterTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyVlanCounterTimeout.setStatus('current')
-zyVlanCounterPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyVlanCounterPorts.setStatus('current')
-zyVlanCounterRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zyVlanCounterRowStatus.setStatus('current')
-zyxelVlanCounterInfoTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1), )
-if mibBuilder.loadTexts: zyxelVlanCounterInfoTable.setStatus('current')
-zyxelVlanCounterInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1), ).setIndexNames((0, "ZYXEL-VLAN-COUNTER-MIB", "zyVlanCounterInfoVid"))
-if mibBuilder.loadTexts: zyxelVlanCounterInfoEntry.setStatus('current')
-zyVlanCounterInfoVid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: zyVlanCounterInfoVid.setStatus('current')
-zyVlanCounterInfoHCOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 2), Counter64()).setUnits('Octets').setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCOctets.setStatus('current')
-zyVlanCounterInfoHCPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCPackets.setStatus('current')
-zyVlanCounterInfoHCMulticastPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCMulticastPackets.setStatus('current')
-zyVlanCounterInfoHCBroadcastPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCBroadcastPackets.setStatus('current')
-zyVlanCounterInfoHCTaggedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCTaggedPackets.setStatus('current')
-zyVlanCounterInfoHCPackets64Octets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCPackets64Octets.setStatus('current')
-zyVlanCounterInfoHCPackets65to127Octets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCPackets65to127Octets.setStatus('current')
-zyVlanCounterInfoHCPackets128to255Octets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCPackets128to255Octets.setStatus('current')
-zyVlanCounterInfoHCPackets256to511Octets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCPackets256to511Octets.setStatus('current')
-zyVlanCounterInfoHCPackets512to1023Octets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCPackets512to1023Octets.setStatus('current')
-zyVlanCounterInfoHCPackets1024to1518Octets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCPackets1024to1518Octets.setStatus('current')
-zyVlanCounterInfoHCOversizePackets = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyVlanCounterInfoHCOversizePackets.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-VLAN-COUNTER-MIB", zyVlanCounterVid=zyVlanCounterVid, zyVlanCounterInfoHCPackets65to127Octets=zyVlanCounterInfoHCPackets65to127Octets, zyVlanCounterInfoHCBroadcastPackets=zyVlanCounterInfoHCBroadcastPackets, zyVlanCounterInfoHCOctets=zyVlanCounterInfoHCOctets, zyVlanCounterRowStatus=zyVlanCounterRowStatus, zyxelVlanCounterStatus=zyxelVlanCounterStatus, zyVlanCounterInfoHCOversizePackets=zyVlanCounterInfoHCOversizePackets, zyVlanCounterInfoHCPackets1024to1518Octets=zyVlanCounterInfoHCPackets1024to1518Octets, zyVlanCounterInfoHCPackets=zyVlanCounterInfoHCPackets, zyxelVlanCounterTable=zyxelVlanCounterTable, zyVlanCounterInfoHCTaggedPackets=zyVlanCounterInfoHCTaggedPackets, zyxelVlanCounterInfoEntry=zyxelVlanCounterInfoEntry, PYSNMP_MODULE_ID=zyxelVlanCounter, zyVlanCounterTimeout=zyVlanCounterTimeout, zyxelVlanCounterInfoTable=zyxelVlanCounterInfoTable, zyVlanCounterInfoHCPackets512to1023Octets=zyVlanCounterInfoHCPackets512to1023Octets, zyxelVlanCounterSetup=zyxelVlanCounterSetup, zyVlanCounterInfoHCPackets128to255Octets=zyVlanCounterInfoHCPackets128to255Octets, zyxelVlanCounterEntry=zyxelVlanCounterEntry, zyxelVlanCounter=zyxelVlanCounter, zyVlanCounterInfoHCPackets64Octets=zyVlanCounterInfoHCPackets64Octets, zyVlanCounterInfoHCPackets256to511Octets=zyVlanCounterInfoHCPackets256to511Octets, zyVlanCounterPorts=zyVlanCounterPorts, zyVlanCounterInfoVid=zyVlanCounterInfoVid, zyVlanCounterInfoHCMulticastPackets=zyVlanCounterInfoHCMulticastPackets)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(PortList,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "PortList")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelVlanCounter = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelVlanCounterSetup_ObjectIdentity = ObjectIdentity
+zyxelVlanCounterSetup = _ZyxelVlanCounterSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1)
+)
+_ZyxelVlanCounterTable_Object = MibTable
+zyxelVlanCounterTable = _ZyxelVlanCounterTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1)
+)
+if mibBuilder.loadTexts:
+    zyxelVlanCounterTable.setStatus("current")
+_ZyxelVlanCounterEntry_Object = MibTableRow
+zyxelVlanCounterEntry = _ZyxelVlanCounterEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1, 1)
+)
+zyxelVlanCounterEntry.setIndexNames(
+    (0, "ZYXEL-VLAN-COUNTER-MIB", "zyVlanCounterVid"),
+)
+if mibBuilder.loadTexts:
+    zyxelVlanCounterEntry.setStatus("current")
+_ZyVlanCounterVid_Type = Integer32
+_ZyVlanCounterVid_Object = MibTableColumn
+zyVlanCounterVid = _ZyVlanCounterVid_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1, 1, 1),
+    _ZyVlanCounterVid_Type()
+)
+zyVlanCounterVid.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyVlanCounterVid.setStatus("current")
+_ZyVlanCounterTimeout_Type = Unsigned32
+_ZyVlanCounterTimeout_Object = MibTableColumn
+zyVlanCounterTimeout = _ZyVlanCounterTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1, 1, 2),
+    _ZyVlanCounterTimeout_Type()
+)
+zyVlanCounterTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyVlanCounterTimeout.setStatus("current")
+_ZyVlanCounterPorts_Type = PortList
+_ZyVlanCounterPorts_Object = MibTableColumn
+zyVlanCounterPorts = _ZyVlanCounterPorts_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1, 1, 3),
+    _ZyVlanCounterPorts_Type()
+)
+zyVlanCounterPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyVlanCounterPorts.setStatus("current")
+_ZyVlanCounterRowStatus_Type = RowStatus
+_ZyVlanCounterRowStatus_Object = MibTableColumn
+zyVlanCounterRowStatus = _ZyVlanCounterRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 1, 1, 1, 4),
+    _ZyVlanCounterRowStatus_Type()
+)
+zyVlanCounterRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zyVlanCounterRowStatus.setStatus("current")
+_ZyxelVlanCounterStatus_ObjectIdentity = ObjectIdentity
+zyxelVlanCounterStatus = _ZyxelVlanCounterStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2)
+)
+_ZyxelVlanCounterInfoTable_Object = MibTable
+zyxelVlanCounterInfoTable = _ZyxelVlanCounterInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1)
+)
+if mibBuilder.loadTexts:
+    zyxelVlanCounterInfoTable.setStatus("current")
+_ZyxelVlanCounterInfoEntry_Object = MibTableRow
+zyxelVlanCounterInfoEntry = _ZyxelVlanCounterInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1)
+)
+zyxelVlanCounterInfoEntry.setIndexNames(
+    (0, "ZYXEL-VLAN-COUNTER-MIB", "zyVlanCounterInfoVid"),
+)
+if mibBuilder.loadTexts:
+    zyxelVlanCounterInfoEntry.setStatus("current")
+_ZyVlanCounterInfoVid_Type = Integer32
+_ZyVlanCounterInfoVid_Object = MibTableColumn
+zyVlanCounterInfoVid = _ZyVlanCounterInfoVid_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 1),
+    _ZyVlanCounterInfoVid_Type()
+)
+zyVlanCounterInfoVid.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoVid.setStatus("current")
+_ZyVlanCounterInfoHCOctets_Type = Counter64
+_ZyVlanCounterInfoHCOctets_Object = MibTableColumn
+zyVlanCounterInfoHCOctets = _ZyVlanCounterInfoHCOctets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 2),
+    _ZyVlanCounterInfoHCOctets_Type()
+)
+zyVlanCounterInfoHCOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCOctets.setStatus("current")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCOctets.setUnits("Octets")
+_ZyVlanCounterInfoHCPackets_Type = Counter64
+_ZyVlanCounterInfoHCPackets_Object = MibTableColumn
+zyVlanCounterInfoHCPackets = _ZyVlanCounterInfoHCPackets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 3),
+    _ZyVlanCounterInfoHCPackets_Type()
+)
+zyVlanCounterInfoHCPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCPackets.setStatus("current")
+_ZyVlanCounterInfoHCMulticastPackets_Type = Counter64
+_ZyVlanCounterInfoHCMulticastPackets_Object = MibTableColumn
+zyVlanCounterInfoHCMulticastPackets = _ZyVlanCounterInfoHCMulticastPackets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 4),
+    _ZyVlanCounterInfoHCMulticastPackets_Type()
+)
+zyVlanCounterInfoHCMulticastPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCMulticastPackets.setStatus("current")
+_ZyVlanCounterInfoHCBroadcastPackets_Type = Counter64
+_ZyVlanCounterInfoHCBroadcastPackets_Object = MibTableColumn
+zyVlanCounterInfoHCBroadcastPackets = _ZyVlanCounterInfoHCBroadcastPackets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 5),
+    _ZyVlanCounterInfoHCBroadcastPackets_Type()
+)
+zyVlanCounterInfoHCBroadcastPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCBroadcastPackets.setStatus("current")
+_ZyVlanCounterInfoHCTaggedPackets_Type = Counter64
+_ZyVlanCounterInfoHCTaggedPackets_Object = MibTableColumn
+zyVlanCounterInfoHCTaggedPackets = _ZyVlanCounterInfoHCTaggedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 6),
+    _ZyVlanCounterInfoHCTaggedPackets_Type()
+)
+zyVlanCounterInfoHCTaggedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCTaggedPackets.setStatus("current")
+_ZyVlanCounterInfoHCPackets64Octets_Type = Counter64
+_ZyVlanCounterInfoHCPackets64Octets_Object = MibTableColumn
+zyVlanCounterInfoHCPackets64Octets = _ZyVlanCounterInfoHCPackets64Octets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 7),
+    _ZyVlanCounterInfoHCPackets64Octets_Type()
+)
+zyVlanCounterInfoHCPackets64Octets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCPackets64Octets.setStatus("current")
+_ZyVlanCounterInfoHCPackets65to127Octets_Type = Counter64
+_ZyVlanCounterInfoHCPackets65to127Octets_Object = MibTableColumn
+zyVlanCounterInfoHCPackets65to127Octets = _ZyVlanCounterInfoHCPackets65to127Octets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 8),
+    _ZyVlanCounterInfoHCPackets65to127Octets_Type()
+)
+zyVlanCounterInfoHCPackets65to127Octets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCPackets65to127Octets.setStatus("current")
+_ZyVlanCounterInfoHCPackets128to255Octets_Type = Counter64
+_ZyVlanCounterInfoHCPackets128to255Octets_Object = MibTableColumn
+zyVlanCounterInfoHCPackets128to255Octets = _ZyVlanCounterInfoHCPackets128to255Octets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 9),
+    _ZyVlanCounterInfoHCPackets128to255Octets_Type()
+)
+zyVlanCounterInfoHCPackets128to255Octets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCPackets128to255Octets.setStatus("current")
+_ZyVlanCounterInfoHCPackets256to511Octets_Type = Counter64
+_ZyVlanCounterInfoHCPackets256to511Octets_Object = MibTableColumn
+zyVlanCounterInfoHCPackets256to511Octets = _ZyVlanCounterInfoHCPackets256to511Octets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 10),
+    _ZyVlanCounterInfoHCPackets256to511Octets_Type()
+)
+zyVlanCounterInfoHCPackets256to511Octets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCPackets256to511Octets.setStatus("current")
+_ZyVlanCounterInfoHCPackets512to1023Octets_Type = Counter64
+_ZyVlanCounterInfoHCPackets512to1023Octets_Object = MibTableColumn
+zyVlanCounterInfoHCPackets512to1023Octets = _ZyVlanCounterInfoHCPackets512to1023Octets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 11),
+    _ZyVlanCounterInfoHCPackets512to1023Octets_Type()
+)
+zyVlanCounterInfoHCPackets512to1023Octets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCPackets512to1023Octets.setStatus("current")
+_ZyVlanCounterInfoHCPackets1024to1518Octets_Type = Counter64
+_ZyVlanCounterInfoHCPackets1024to1518Octets_Object = MibTableColumn
+zyVlanCounterInfoHCPackets1024to1518Octets = _ZyVlanCounterInfoHCPackets1024to1518Octets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 12),
+    _ZyVlanCounterInfoHCPackets1024to1518Octets_Type()
+)
+zyVlanCounterInfoHCPackets1024to1518Octets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCPackets1024to1518Octets.setStatus("current")
+_ZyVlanCounterInfoHCOversizePackets_Type = Counter64
+_ZyVlanCounterInfoHCOversizePackets_Object = MibTableColumn
+zyVlanCounterInfoHCOversizePackets = _ZyVlanCounterInfoHCOversizePackets_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 87, 2, 1, 1, 13),
+    _ZyVlanCounterInfoHCOversizePackets_Type()
+)
+zyVlanCounterInfoHCOversizePackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyVlanCounterInfoHCOversizePackets.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-VLAN-COUNTER-MIB",
+    **{"zyxelVlanCounter": zyxelVlanCounter,
+       "zyxelVlanCounterSetup": zyxelVlanCounterSetup,
+       "zyxelVlanCounterTable": zyxelVlanCounterTable,
+       "zyxelVlanCounterEntry": zyxelVlanCounterEntry,
+       "zyVlanCounterVid": zyVlanCounterVid,
+       "zyVlanCounterTimeout": zyVlanCounterTimeout,
+       "zyVlanCounterPorts": zyVlanCounterPorts,
+       "zyVlanCounterRowStatus": zyVlanCounterRowStatus,
+       "zyxelVlanCounterStatus": zyxelVlanCounterStatus,
+       "zyxelVlanCounterInfoTable": zyxelVlanCounterInfoTable,
+       "zyxelVlanCounterInfoEntry": zyxelVlanCounterInfoEntry,
+       "zyVlanCounterInfoVid": zyVlanCounterInfoVid,
+       "zyVlanCounterInfoHCOctets": zyVlanCounterInfoHCOctets,
+       "zyVlanCounterInfoHCPackets": zyVlanCounterInfoHCPackets,
+       "zyVlanCounterInfoHCMulticastPackets": zyVlanCounterInfoHCMulticastPackets,
+       "zyVlanCounterInfoHCBroadcastPackets": zyVlanCounterInfoHCBroadcastPackets,
+       "zyVlanCounterInfoHCTaggedPackets": zyVlanCounterInfoHCTaggedPackets,
+       "zyVlanCounterInfoHCPackets64Octets": zyVlanCounterInfoHCPackets64Octets,
+       "zyVlanCounterInfoHCPackets65to127Octets": zyVlanCounterInfoHCPackets65to127Octets,
+       "zyVlanCounterInfoHCPackets128to255Octets": zyVlanCounterInfoHCPackets128to255Octets,
+       "zyVlanCounterInfoHCPackets256to511Octets": zyVlanCounterInfoHCPackets256to511Octets,
+       "zyVlanCounterInfoHCPackets512to1023Octets": zyVlanCounterInfoHCPackets512to1023Octets,
+       "zyVlanCounterInfoHCPackets1024to1518Octets": zyVlanCounterInfoHCPackets1024to1518Octets,
+       "zyVlanCounterInfoHCOversizePackets": zyVlanCounterInfoHCOversizePackets}
+)

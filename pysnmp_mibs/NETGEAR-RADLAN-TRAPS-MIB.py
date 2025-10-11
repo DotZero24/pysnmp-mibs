@@ -1,213 +1,1408 @@
+# SNMP MIB module (NETGEAR-RADLAN-TRAPS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NETGEAR-RADLAN-TRAPS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/netgear/NETGEAR-RADLAN-TRAPS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:51:09 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/netgear/NETGEAR-RADLAN-TRAPS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:27:02 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rldot1dStpTrapVrblifIndex, rldot1dStpTrapVrblVID = mibBuilder.importSymbols("NETGEAR-RADLAN-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblifIndex", "rldot1dStpTrapVrblVID")
-rndErrorSeverity, rndErrorDesc = mibBuilder.importSymbols("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity", "rndErrorDesc")
-rnd, = mibBuilder.importSymbols("NETGEAR-RADLAN-MIB", "rnd")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-rndNotifications = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 17, 0))
-rndNotifications.setRevisions(('2010-06-25 00:00',))
-if mibBuilder.loadTexts: rndNotifications.setLastUpdated('201006250000Z')
-if mibBuilder.loadTexts: rndNotifications.setOrganization('Marvell Semiconductor, Inc.')
-rxOverflowHWFault = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 3)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rxOverflowHWFault.setStatus('current')
-txOverflowHWFault = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 4)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: txOverflowHWFault.setStatus('current')
-routeTableOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 5)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: routeTableOverflow.setStatus('current')
-resetRequired = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 10)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: resetRequired.setStatus('current')
-endTftp = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 12)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: endTftp.setStatus('current')
-abortTftp = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 13)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: abortTftp.setStatus('current')
-startTftp = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 14)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: startTftp.setStatus('current')
-faultBackUp = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 23)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: faultBackUp.setStatus('current')
-mainLinkUp = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 24)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: mainLinkUp.setStatus('current')
-ipxRipTblOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 36)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: ipxRipTblOverflow.setStatus('current')
-ipxSapTblOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 37)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: ipxSapTblOverflow.setStatus('current')
-facsAccessVoilation = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 49)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: facsAccessVoilation.setStatus('current')
-autoConfigurationCompleted = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 50)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: autoConfigurationCompleted.setStatus('current')
-forwardingTabOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 51)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: forwardingTabOverflow.setStatus('current')
-framRelaySwitchConnectionUp = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 53)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: framRelaySwitchConnectionUp.setStatus('current')
-framRelaySwitchConnectionDown = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 54)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: framRelaySwitchConnectionDown.setStatus('current')
-errorsDuringInit = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 61)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: errorsDuringInit.setStatus('current')
-vlanDynPortAdded = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 66)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanDynPortAdded.setStatus('current')
-vlanDynPortRemoved = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 67)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanDynPortRemoved.setStatus('current')
-rsSDclientsTableOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 68)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsSDclientsTableOverflow.setStatus('current')
-rsSDinactiveServer = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 69)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsSDinactiveServer.setStatus('current')
-rsIpZhrConnectionsTableOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 70)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsIpZhrConnectionsTableOverflow.setStatus('current')
-rsIpZhrReqStaticConnNotAccepted = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 71)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsIpZhrReqStaticConnNotAccepted.setStatus('current')
-rsIpZhrVirtualIpAsSource = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 72)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsIpZhrVirtualIpAsSource.setStatus('current')
-rsIpZhrNotAllocVirtualIp = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 73)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsIpZhrNotAllocVirtualIp.setStatus('current')
-rsSnmpSetRequestInSpecialCfgState = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 74)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsSnmpSetRequestInSpecialCfgState.setStatus('current')
-rsPingCompletion = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 136)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsPingCompletion.setStatus('current')
-pppSecurityViolation = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 137)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: pppSecurityViolation.setStatus('current')
-frDLCIStatudChange = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 138)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: frDLCIStatudChange.setStatus('current')
-papFailedCommunication = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 139)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: papFailedCommunication.setStatus('current')
-chapFailedCommunication = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 140)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: chapFailedCommunication.setStatus('current')
-rsWSDRedundancySwitch = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 141)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsWSDRedundancySwitch.setStatus('current')
-rsDhcpAllocationFailure = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 142)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsDhcpAllocationFailure.setStatus('current')
-rlIpFftStnOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 145)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIpFftStnOverflow.setStatus('current')
-rlIpFftSubOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 146)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIpFftSubOverflow.setStatus('current')
-rlIpxFftStnOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 147)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIpxFftStnOverflow.setStatus('current')
-rlIpxFftSubOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 148)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIpxFftSubOverflow.setStatus('current')
-rlIpmFftOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 149)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIpmFftOverflow.setStatus('current')
-rlPhysicalDescriptionChanged = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 150)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlPhysicalDescriptionChanged.setStatus('current')
-rldot1dStpPortStateForwarding = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 151)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"), ("NETGEAR-RADLAN-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblifIndex"), ("NETGEAR-RADLAN-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblVID"))
-if mibBuilder.loadTexts: rldot1dStpPortStateForwarding.setStatus('current')
-rldot1dStpPortStateNotForwarding = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 152)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"), ("NETGEAR-RADLAN-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblifIndex"), ("NETGEAR-RADLAN-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblVID"))
-if mibBuilder.loadTexts: rldot1dStpPortStateNotForwarding.setStatus('current')
-rlPolicyDropPacketTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 153)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlPolicyDropPacketTrap.setStatus('current')
-rlPolicyForwardPacketTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 154)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlPolicyForwardPacketTrap.setStatus('current')
-rlIgmpProxyTableOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 156)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIgmpProxyTableOverflow.setStatus('current')
-rlIgmpV1MsgReceived = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 157)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIgmpV1MsgReceived.setStatus('current')
-rlVrrpEntriesDeleted = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 158)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlVrrpEntriesDeleted.setStatus('current')
-rlHotSwapTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 159)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlHotSwapTrap.setStatus('current')
-rlTrunkPortAddedTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 160)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlTrunkPortAddedTrap.setStatus('current')
-rlTrunkPortRemovedTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 161)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlTrunkPortRemovedTrap.setStatus('current')
-rlTrunkPortNotCapableTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 162)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlTrunkPortNotCapableTrap.setStatus('current')
-rlLockPortTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 170)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlLockPortTrap.setStatus('current')
-vlanDynVlanAdded = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 171)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanDynVlanAdded.setStatus('current')
-vlanDynVlanRemoved = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 172)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanDynVlanRemoved.setStatus('current')
-vlanDynamicToStatic = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 173)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanDynamicToStatic.setStatus('current')
-vlanStaticToDynamic = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 174)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanStaticToDynamic.setStatus('current')
-dstrSysLog = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 175)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: dstrSysLog.setStatus('current')
-rlEnvMonFanStateChange = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 176)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlEnvMonFanStateChange.setStatus('current')
-rlEnvMonPowerSupplyStateChange = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 177)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlEnvMonPowerSupplyStateChange.setStatus('current')
-rlStackStateChange = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 178)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlStackStateChange.setStatus('current')
-rlEnvMonTemperatureRisingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 179)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlEnvMonTemperatureRisingAlarm.setStatus('current')
-rlBrgMacAddFailedTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 183)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlBrgMacAddFailedTrap.setStatus('current')
-rldot1xPortStatusAuthorizedTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 184)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xPortStatusAuthorizedTrap.setStatus('current')
-rldot1xPortStatusUnauthorizedTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 185)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xPortStatusUnauthorizedTrap.setStatus('current')
-swIfTablePortLock = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 192)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: swIfTablePortLock.setStatus('current')
-swIfTablePortUnLock = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 193)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: swIfTablePortUnLock.setStatus('current')
-rlAAAUserLocked = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 194)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlAAAUserLocked.setStatus('current')
-bpduGuardPortSuspended = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 202)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: bpduGuardPortSuspended.setStatus('current')
-rldot1xSupplicantMacAuthorizedTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 203)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xSupplicantMacAuthorizedTrap.setStatus('current')
-rldot1xSupplicantMacUnauthorizedTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 204)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xSupplicantMacUnauthorizedTrap.setStatus('current')
-stpLoopbackDetection = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 205)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: stpLoopbackDetection.setStatus('current')
-stpLoopbackDetectionResolved = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 206)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: stpLoopbackDetectionResolved.setStatus('current')
-loopbackDetectionPortSuspended = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 207)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: loopbackDetectionPortSuspended.setStatus('current')
-rlPortSuspended = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 213)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlPortSuspended.setStatus('current')
-rlSpecialBpduDbOverflow = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 214)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlSpecialBpduDbOverflow.setStatus('current')
-rldot1xSupplicantLoggedOutTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 215)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xSupplicantLoggedOutTrap.setStatus('current')
-rldot1xPortControlModeNotAutoTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 216)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xPortControlModeNotAutoTrap.setStatus('current')
-rlEeeLldpMultipleNeighbours = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 217)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlEeeLldpMultipleNeighbours.setStatus('current')
-rlEeeLldpSingleNeighbour = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 218)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlEeeLldpSingleNeighbour.setStatus('current')
-rldot1xSupplicantQuietPeriodTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 219)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xSupplicantQuietPeriodTrap.setStatus('current')
-rlStackVersionUpgradeTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 222)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlStackVersionUpgradeTrap.setStatus('current')
-rlStackVersionDowngradeTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 223)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlStackVersionDowngradeTrap.setStatus('current')
-pseInrushPort = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 240)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: pseInrushPort.setStatus('current')
-pseOverloadPort = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 241)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: pseOverloadPort.setStatus('current')
-poePowerNegotiationInfo = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 242)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: poePowerNegotiationInfo.setStatus('current')
-poePowerNegotiation4Wire = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 243)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: poePowerNegotiation4Wire.setStatus('current')
-poePowerHWFail = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 244)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: poePowerHWFail.setStatus('current')
-rlStormControlMinRateTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 246)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlStormControlMinRateTrap.setStatus('current')
-rlApBackplanePortResolutionTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 247)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlApBackplanePortResolutionTrap.setStatus('current')
-sfpPortPresent = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 248)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: sfpPortPresent.setStatus('current')
-sfpPortNotPresent = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 249)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: sfpPortNotPresent.setStatus('current')
-sfpPortLoss = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 250)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: sfpPortLoss.setStatus('current')
-sfpPortNotLoss = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 251)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: sfpPortNotLoss.setStatus('current')
-rlStormControlOccursTrap = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 252)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlStormControlOccursTrap.setStatus('current')
-rlRadiusServTrapAcct = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 255)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlRadiusServTrapAcct.setStatus('current')
-rlRadiusServTrapAuthFailure = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 256)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlRadiusServTrapAuthFailure.setStatus('current')
-rlRadiusServTrapAuthSuccess = NotificationType((1, 3, 6, 1, 4, 1, 4526, 17, 0, 257)).setObjects(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlRadiusServTrapAuthSuccess.setStatus('current')
-mibBuilder.exportSymbols("NETGEAR-RADLAN-TRAPS-MIB", rldot1xSupplicantMacUnauthorizedTrap=rldot1xSupplicantMacUnauthorizedTrap, rsIpZhrConnectionsTableOverflow=rsIpZhrConnectionsTableOverflow, rldot1dStpPortStateForwarding=rldot1dStpPortStateForwarding, rsSDinactiveServer=rsSDinactiveServer, rlIpxFftSubOverflow=rlIpxFftSubOverflow, rlPhysicalDescriptionChanged=rlPhysicalDescriptionChanged, rlPolicyForwardPacketTrap=rlPolicyForwardPacketTrap, vlanDynamicToStatic=vlanDynamicToStatic, mainLinkUp=mainLinkUp, vlanDynPortRemoved=vlanDynPortRemoved, rldot1xSupplicantMacAuthorizedTrap=rldot1xSupplicantMacAuthorizedTrap, loopbackDetectionPortSuspended=loopbackDetectionPortSuspended, swIfTablePortUnLock=swIfTablePortUnLock, sfpPortPresent=sfpPortPresent, resetRequired=resetRequired, rlRadiusServTrapAuthSuccess=rlRadiusServTrapAuthSuccess, poePowerNegotiation4Wire=poePowerNegotiation4Wire, sfpPortNotPresent=sfpPortNotPresent, sfpPortLoss=sfpPortLoss, rlEeeLldpMultipleNeighbours=rlEeeLldpMultipleNeighbours, rldot1xSupplicantLoggedOutTrap=rldot1xSupplicantLoggedOutTrap, rlHotSwapTrap=rlHotSwapTrap, rldot1xPortStatusAuthorizedTrap=rldot1xPortStatusAuthorizedTrap, poePowerNegotiationInfo=poePowerNegotiationInfo, poePowerHWFail=poePowerHWFail, rlIpmFftOverflow=rlIpmFftOverflow, rsWSDRedundancySwitch=rsWSDRedundancySwitch, rlEnvMonTemperatureRisingAlarm=rlEnvMonTemperatureRisingAlarm, rldot1xSupplicantQuietPeriodTrap=rldot1xSupplicantQuietPeriodTrap, rlRadiusServTrapAuthFailure=rlRadiusServTrapAuthFailure, startTftp=startTftp, rlStormControlMinRateTrap=rlStormControlMinRateTrap, facsAccessVoilation=facsAccessVoilation, rlTrunkPortAddedTrap=rlTrunkPortAddedTrap, rsDhcpAllocationFailure=rsDhcpAllocationFailure, rsIpZhrReqStaticConnNotAccepted=rsIpZhrReqStaticConnNotAccepted, vlanDynVlanAdded=vlanDynVlanAdded, stpLoopbackDetectionResolved=stpLoopbackDetectionResolved, rsSDclientsTableOverflow=rsSDclientsTableOverflow, rlLockPortTrap=rlLockPortTrap, rsPingCompletion=rsPingCompletion, rlApBackplanePortResolutionTrap=rlApBackplanePortResolutionTrap, routeTableOverflow=routeTableOverflow, rlSpecialBpduDbOverflow=rlSpecialBpduDbOverflow, frDLCIStatudChange=frDLCIStatudChange, pseInrushPort=pseInrushPort, rlStackVersionDowngradeTrap=rlStackVersionDowngradeTrap, pseOverloadPort=pseOverloadPort, rlAAAUserLocked=rlAAAUserLocked, rldot1dStpPortStateNotForwarding=rldot1dStpPortStateNotForwarding, chapFailedCommunication=chapFailedCommunication, rsIpZhrNotAllocVirtualIp=rsIpZhrNotAllocVirtualIp, framRelaySwitchConnectionDown=framRelaySwitchConnectionDown, forwardingTabOverflow=forwardingTabOverflow, rlEnvMonPowerSupplyStateChange=rlEnvMonPowerSupplyStateChange, PYSNMP_MODULE_ID=rndNotifications, abortTftp=abortTftp, rlTrunkPortNotCapableTrap=rlTrunkPortNotCapableTrap, vlanStaticToDynamic=vlanStaticToDynamic, txOverflowHWFault=txOverflowHWFault, rlIpFftStnOverflow=rlIpFftStnOverflow, papFailedCommunication=papFailedCommunication, errorsDuringInit=errorsDuringInit, ipxRipTblOverflow=ipxRipTblOverflow, swIfTablePortLock=swIfTablePortLock, rsSnmpSetRequestInSpecialCfgState=rsSnmpSetRequestInSpecialCfgState, rlIpFftSubOverflow=rlIpFftSubOverflow, pppSecurityViolation=pppSecurityViolation, rlPolicyDropPacketTrap=rlPolicyDropPacketTrap, autoConfigurationCompleted=autoConfigurationCompleted, rlStormControlOccursTrap=rlStormControlOccursTrap, rlEeeLldpSingleNeighbour=rlEeeLldpSingleNeighbour, rlTrunkPortRemovedTrap=rlTrunkPortRemovedTrap, rlEnvMonFanStateChange=rlEnvMonFanStateChange, rlRadiusServTrapAcct=rlRadiusServTrapAcct, rlIpxFftStnOverflow=rlIpxFftStnOverflow, bpduGuardPortSuspended=bpduGuardPortSuspended, rlIgmpProxyTableOverflow=rlIgmpProxyTableOverflow, endTftp=endTftp, rsIpZhrVirtualIpAsSource=rsIpZhrVirtualIpAsSource, rlBrgMacAddFailedTrap=rlBrgMacAddFailedTrap, faultBackUp=faultBackUp, rldot1xPortControlModeNotAutoTrap=rldot1xPortControlModeNotAutoTrap, sfpPortNotLoss=sfpPortNotLoss, rldot1xPortStatusUnauthorizedTrap=rldot1xPortStatusUnauthorizedTrap, framRelaySwitchConnectionUp=framRelaySwitchConnectionUp, rlPortSuspended=rlPortSuspended, rndNotifications=rndNotifications, rlVrrpEntriesDeleted=rlVrrpEntriesDeleted, vlanDynVlanRemoved=vlanDynVlanRemoved, rlIgmpV1MsgReceived=rlIgmpV1MsgReceived, rxOverflowHWFault=rxOverflowHWFault, stpLoopbackDetection=stpLoopbackDetection, vlanDynPortAdded=vlanDynPortAdded, dstrSysLog=dstrSysLog, rlStackStateChange=rlStackStateChange, ipxSapTblOverflow=ipxSapTblOverflow, rlStackVersionUpgradeTrap=rlStackVersionUpgradeTrap)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rldot1dStpTrapVrblVID,
+ rldot1dStpTrapVrblifIndex) = mibBuilder.importSymbols(
+    "NETGEAR-RADLAN-BRIDGEMIBOBJECTS-MIB",
+    "rldot1dStpTrapVrblVID",
+    "rldot1dStpTrapVrblifIndex")
+
+(rndErrorDesc,
+ rndErrorSeverity) = mibBuilder.importSymbols(
+    "NETGEAR-RADLAN-DEVICEPARAMS-MIB",
+    "rndErrorDesc",
+    "rndErrorSeverity")
+
+(rnd,) = mibBuilder.importSymbols(
+    "NETGEAR-RADLAN-MIB",
+    "rnd")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+rndNotifications = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0)
+)
+if mibBuilder.loadTexts:
+    rndNotifications.setRevisions(
+        ("2010-06-25 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+rxOverflowHWFault = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 3)
+)
+rxOverflowHWFault.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rxOverflowHWFault.setStatus(
+        "current"
+    )
+
+txOverflowHWFault = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 4)
+)
+txOverflowHWFault.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    txOverflowHWFault.setStatus(
+        "current"
+    )
+
+routeTableOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 5)
+)
+routeTableOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    routeTableOverflow.setStatus(
+        "current"
+    )
+
+resetRequired = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 10)
+)
+resetRequired.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    resetRequired.setStatus(
+        "current"
+    )
+
+endTftp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 12)
+)
+endTftp.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    endTftp.setStatus(
+        "current"
+    )
+
+abortTftp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 13)
+)
+abortTftp.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    abortTftp.setStatus(
+        "current"
+    )
+
+startTftp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 14)
+)
+startTftp.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    startTftp.setStatus(
+        "current"
+    )
+
+faultBackUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 23)
+)
+faultBackUp.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    faultBackUp.setStatus(
+        "current"
+    )
+
+mainLinkUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 24)
+)
+mainLinkUp.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    mainLinkUp.setStatus(
+        "current"
+    )
+
+ipxRipTblOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 36)
+)
+ipxRipTblOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    ipxRipTblOverflow.setStatus(
+        "current"
+    )
+
+ipxSapTblOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 37)
+)
+ipxSapTblOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    ipxSapTblOverflow.setStatus(
+        "current"
+    )
+
+facsAccessVoilation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 49)
+)
+facsAccessVoilation.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    facsAccessVoilation.setStatus(
+        "current"
+    )
+
+autoConfigurationCompleted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 50)
+)
+autoConfigurationCompleted.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    autoConfigurationCompleted.setStatus(
+        "current"
+    )
+
+forwardingTabOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 51)
+)
+forwardingTabOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    forwardingTabOverflow.setStatus(
+        "current"
+    )
+
+framRelaySwitchConnectionUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 53)
+)
+framRelaySwitchConnectionUp.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    framRelaySwitchConnectionUp.setStatus(
+        "current"
+    )
+
+framRelaySwitchConnectionDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 54)
+)
+framRelaySwitchConnectionDown.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    framRelaySwitchConnectionDown.setStatus(
+        "current"
+    )
+
+errorsDuringInit = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 61)
+)
+errorsDuringInit.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    errorsDuringInit.setStatus(
+        "current"
+    )
+
+vlanDynPortAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 66)
+)
+vlanDynPortAdded.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanDynPortAdded.setStatus(
+        "current"
+    )
+
+vlanDynPortRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 67)
+)
+vlanDynPortRemoved.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanDynPortRemoved.setStatus(
+        "current"
+    )
+
+rsSDclientsTableOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 68)
+)
+rsSDclientsTableOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsSDclientsTableOverflow.setStatus(
+        "current"
+    )
+
+rsSDinactiveServer = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 69)
+)
+rsSDinactiveServer.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsSDinactiveServer.setStatus(
+        "current"
+    )
+
+rsIpZhrConnectionsTableOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 70)
+)
+rsIpZhrConnectionsTableOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsIpZhrConnectionsTableOverflow.setStatus(
+        "current"
+    )
+
+rsIpZhrReqStaticConnNotAccepted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 71)
+)
+rsIpZhrReqStaticConnNotAccepted.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsIpZhrReqStaticConnNotAccepted.setStatus(
+        "current"
+    )
+
+rsIpZhrVirtualIpAsSource = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 72)
+)
+rsIpZhrVirtualIpAsSource.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsIpZhrVirtualIpAsSource.setStatus(
+        "current"
+    )
+
+rsIpZhrNotAllocVirtualIp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 73)
+)
+rsIpZhrNotAllocVirtualIp.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsIpZhrNotAllocVirtualIp.setStatus(
+        "current"
+    )
+
+rsSnmpSetRequestInSpecialCfgState = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 74)
+)
+rsSnmpSetRequestInSpecialCfgState.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsSnmpSetRequestInSpecialCfgState.setStatus(
+        "current"
+    )
+
+rsPingCompletion = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 136)
+)
+rsPingCompletion.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsPingCompletion.setStatus(
+        "current"
+    )
+
+pppSecurityViolation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 137)
+)
+pppSecurityViolation.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    pppSecurityViolation.setStatus(
+        "current"
+    )
+
+frDLCIStatudChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 138)
+)
+frDLCIStatudChange.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    frDLCIStatudChange.setStatus(
+        "current"
+    )
+
+papFailedCommunication = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 139)
+)
+papFailedCommunication.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    papFailedCommunication.setStatus(
+        "current"
+    )
+
+chapFailedCommunication = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 140)
+)
+chapFailedCommunication.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    chapFailedCommunication.setStatus(
+        "current"
+    )
+
+rsWSDRedundancySwitch = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 141)
+)
+rsWSDRedundancySwitch.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsWSDRedundancySwitch.setStatus(
+        "current"
+    )
+
+rsDhcpAllocationFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 142)
+)
+rsDhcpAllocationFailure.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsDhcpAllocationFailure.setStatus(
+        "current"
+    )
+
+rlIpFftStnOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 145)
+)
+rlIpFftStnOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIpFftStnOverflow.setStatus(
+        "current"
+    )
+
+rlIpFftSubOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 146)
+)
+rlIpFftSubOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIpFftSubOverflow.setStatus(
+        "current"
+    )
+
+rlIpxFftStnOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 147)
+)
+rlIpxFftStnOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIpxFftStnOverflow.setStatus(
+        "current"
+    )
+
+rlIpxFftSubOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 148)
+)
+rlIpxFftSubOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIpxFftSubOverflow.setStatus(
+        "current"
+    )
+
+rlIpmFftOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 149)
+)
+rlIpmFftOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIpmFftOverflow.setStatus(
+        "current"
+    )
+
+rlPhysicalDescriptionChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 150)
+)
+rlPhysicalDescriptionChanged.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlPhysicalDescriptionChanged.setStatus(
+        "current"
+    )
+
+rldot1dStpPortStateForwarding = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 151)
+)
+rldot1dStpPortStateForwarding.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"),
+        ("NETGEAR-RADLAN-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblifIndex"),
+        ("NETGEAR-RADLAN-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblVID"))
+)
+if mibBuilder.loadTexts:
+    rldot1dStpPortStateForwarding.setStatus(
+        "current"
+    )
+
+rldot1dStpPortStateNotForwarding = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 152)
+)
+rldot1dStpPortStateNotForwarding.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"),
+        ("NETGEAR-RADLAN-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblifIndex"),
+        ("NETGEAR-RADLAN-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblVID"))
+)
+if mibBuilder.loadTexts:
+    rldot1dStpPortStateNotForwarding.setStatus(
+        "current"
+    )
+
+rlPolicyDropPacketTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 153)
+)
+rlPolicyDropPacketTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlPolicyDropPacketTrap.setStatus(
+        "current"
+    )
+
+rlPolicyForwardPacketTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 154)
+)
+rlPolicyForwardPacketTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlPolicyForwardPacketTrap.setStatus(
+        "current"
+    )
+
+rlIgmpProxyTableOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 156)
+)
+rlIgmpProxyTableOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIgmpProxyTableOverflow.setStatus(
+        "current"
+    )
+
+rlIgmpV1MsgReceived = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 157)
+)
+rlIgmpV1MsgReceived.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIgmpV1MsgReceived.setStatus(
+        "current"
+    )
+
+rlVrrpEntriesDeleted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 158)
+)
+rlVrrpEntriesDeleted.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlVrrpEntriesDeleted.setStatus(
+        "current"
+    )
+
+rlHotSwapTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 159)
+)
+rlHotSwapTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlHotSwapTrap.setStatus(
+        "current"
+    )
+
+rlTrunkPortAddedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 160)
+)
+rlTrunkPortAddedTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlTrunkPortAddedTrap.setStatus(
+        "current"
+    )
+
+rlTrunkPortRemovedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 161)
+)
+rlTrunkPortRemovedTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlTrunkPortRemovedTrap.setStatus(
+        "current"
+    )
+
+rlTrunkPortNotCapableTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 162)
+)
+rlTrunkPortNotCapableTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlTrunkPortNotCapableTrap.setStatus(
+        "current"
+    )
+
+rlLockPortTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 170)
+)
+rlLockPortTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlLockPortTrap.setStatus(
+        "current"
+    )
+
+vlanDynVlanAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 171)
+)
+vlanDynVlanAdded.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanDynVlanAdded.setStatus(
+        "current"
+    )
+
+vlanDynVlanRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 172)
+)
+vlanDynVlanRemoved.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanDynVlanRemoved.setStatus(
+        "current"
+    )
+
+vlanDynamicToStatic = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 173)
+)
+vlanDynamicToStatic.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanDynamicToStatic.setStatus(
+        "current"
+    )
+
+vlanStaticToDynamic = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 174)
+)
+vlanStaticToDynamic.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanStaticToDynamic.setStatus(
+        "current"
+    )
+
+dstrSysLog = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 175)
+)
+dstrSysLog.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    dstrSysLog.setStatus(
+        "current"
+    )
+
+rlEnvMonFanStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 176)
+)
+rlEnvMonFanStateChange.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlEnvMonFanStateChange.setStatus(
+        "current"
+    )
+
+rlEnvMonPowerSupplyStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 177)
+)
+rlEnvMonPowerSupplyStateChange.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlEnvMonPowerSupplyStateChange.setStatus(
+        "current"
+    )
+
+rlStackStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 178)
+)
+rlStackStateChange.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlStackStateChange.setStatus(
+        "current"
+    )
+
+rlEnvMonTemperatureRisingAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 179)
+)
+rlEnvMonTemperatureRisingAlarm.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlEnvMonTemperatureRisingAlarm.setStatus(
+        "current"
+    )
+
+rlBrgMacAddFailedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 183)
+)
+rlBrgMacAddFailedTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlBrgMacAddFailedTrap.setStatus(
+        "current"
+    )
+
+rldot1xPortStatusAuthorizedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 184)
+)
+rldot1xPortStatusAuthorizedTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xPortStatusAuthorizedTrap.setStatus(
+        "current"
+    )
+
+rldot1xPortStatusUnauthorizedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 185)
+)
+rldot1xPortStatusUnauthorizedTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xPortStatusUnauthorizedTrap.setStatus(
+        "current"
+    )
+
+swIfTablePortLock = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 192)
+)
+swIfTablePortLock.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    swIfTablePortLock.setStatus(
+        "current"
+    )
+
+swIfTablePortUnLock = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 193)
+)
+swIfTablePortUnLock.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    swIfTablePortUnLock.setStatus(
+        "current"
+    )
+
+rlAAAUserLocked = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 194)
+)
+rlAAAUserLocked.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlAAAUserLocked.setStatus(
+        "current"
+    )
+
+bpduGuardPortSuspended = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 202)
+)
+bpduGuardPortSuspended.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    bpduGuardPortSuspended.setStatus(
+        "current"
+    )
+
+rldot1xSupplicantMacAuthorizedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 203)
+)
+rldot1xSupplicantMacAuthorizedTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantMacAuthorizedTrap.setStatus(
+        "current"
+    )
+
+rldot1xSupplicantMacUnauthorizedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 204)
+)
+rldot1xSupplicantMacUnauthorizedTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantMacUnauthorizedTrap.setStatus(
+        "current"
+    )
+
+stpLoopbackDetection = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 205)
+)
+stpLoopbackDetection.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    stpLoopbackDetection.setStatus(
+        "current"
+    )
+
+stpLoopbackDetectionResolved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 206)
+)
+stpLoopbackDetectionResolved.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    stpLoopbackDetectionResolved.setStatus(
+        "current"
+    )
+
+loopbackDetectionPortSuspended = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 207)
+)
+loopbackDetectionPortSuspended.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    loopbackDetectionPortSuspended.setStatus(
+        "current"
+    )
+
+rlPortSuspended = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 213)
+)
+rlPortSuspended.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlPortSuspended.setStatus(
+        "current"
+    )
+
+rlSpecialBpduDbOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 214)
+)
+rlSpecialBpduDbOverflow.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlSpecialBpduDbOverflow.setStatus(
+        "current"
+    )
+
+rldot1xSupplicantLoggedOutTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 215)
+)
+rldot1xSupplicantLoggedOutTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantLoggedOutTrap.setStatus(
+        "current"
+    )
+
+rldot1xPortControlModeNotAutoTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 216)
+)
+rldot1xPortControlModeNotAutoTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xPortControlModeNotAutoTrap.setStatus(
+        "current"
+    )
+
+rlEeeLldpMultipleNeighbours = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 217)
+)
+rlEeeLldpMultipleNeighbours.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlEeeLldpMultipleNeighbours.setStatus(
+        "current"
+    )
+
+rlEeeLldpSingleNeighbour = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 218)
+)
+rlEeeLldpSingleNeighbour.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlEeeLldpSingleNeighbour.setStatus(
+        "current"
+    )
+
+rldot1xSupplicantQuietPeriodTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 219)
+)
+rldot1xSupplicantQuietPeriodTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantQuietPeriodTrap.setStatus(
+        "current"
+    )
+
+rlStackVersionUpgradeTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 222)
+)
+rlStackVersionUpgradeTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlStackVersionUpgradeTrap.setStatus(
+        "current"
+    )
+
+rlStackVersionDowngradeTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 223)
+)
+rlStackVersionDowngradeTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlStackVersionDowngradeTrap.setStatus(
+        "current"
+    )
+
+pseInrushPort = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 240)
+)
+pseInrushPort.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    pseInrushPort.setStatus(
+        "current"
+    )
+
+pseOverloadPort = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 241)
+)
+pseOverloadPort.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    pseOverloadPort.setStatus(
+        "current"
+    )
+
+poePowerNegotiationInfo = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 242)
+)
+poePowerNegotiationInfo.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    poePowerNegotiationInfo.setStatus(
+        "current"
+    )
+
+poePowerNegotiation4Wire = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 243)
+)
+poePowerNegotiation4Wire.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    poePowerNegotiation4Wire.setStatus(
+        "current"
+    )
+
+poePowerHWFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 244)
+)
+poePowerHWFail.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    poePowerHWFail.setStatus(
+        "current"
+    )
+
+rlStormControlMinRateTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 246)
+)
+rlStormControlMinRateTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlStormControlMinRateTrap.setStatus(
+        "current"
+    )
+
+rlApBackplanePortResolutionTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 247)
+)
+rlApBackplanePortResolutionTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlApBackplanePortResolutionTrap.setStatus(
+        "current"
+    )
+
+sfpPortPresent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 248)
+)
+sfpPortPresent.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    sfpPortPresent.setStatus(
+        "current"
+    )
+
+sfpPortNotPresent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 249)
+)
+sfpPortNotPresent.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    sfpPortNotPresent.setStatus(
+        "current"
+    )
+
+sfpPortLoss = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 250)
+)
+sfpPortLoss.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    sfpPortLoss.setStatus(
+        "current"
+    )
+
+sfpPortNotLoss = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 251)
+)
+sfpPortNotLoss.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    sfpPortNotLoss.setStatus(
+        "current"
+    )
+
+rlStormControlOccursTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 252)
+)
+rlStormControlOccursTrap.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlStormControlOccursTrap.setStatus(
+        "current"
+    )
+
+rlRadiusServTrapAcct = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 255)
+)
+rlRadiusServTrapAcct.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlRadiusServTrapAcct.setStatus(
+        "current"
+    )
+
+rlRadiusServTrapAuthFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 256)
+)
+rlRadiusServTrapAuthFailure.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlRadiusServTrapAuthFailure.setStatus(
+        "current"
+    )
+
+rlRadiusServTrapAuthSuccess = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 0, 257)
+)
+rlRadiusServTrapAuthSuccess.setObjects(
+      *(("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("NETGEAR-RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlRadiusServTrapAuthSuccess.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NETGEAR-RADLAN-TRAPS-MIB",
+    **{"rndNotifications": rndNotifications,
+       "rxOverflowHWFault": rxOverflowHWFault,
+       "txOverflowHWFault": txOverflowHWFault,
+       "routeTableOverflow": routeTableOverflow,
+       "resetRequired": resetRequired,
+       "endTftp": endTftp,
+       "abortTftp": abortTftp,
+       "startTftp": startTftp,
+       "faultBackUp": faultBackUp,
+       "mainLinkUp": mainLinkUp,
+       "ipxRipTblOverflow": ipxRipTblOverflow,
+       "ipxSapTblOverflow": ipxSapTblOverflow,
+       "facsAccessVoilation": facsAccessVoilation,
+       "autoConfigurationCompleted": autoConfigurationCompleted,
+       "forwardingTabOverflow": forwardingTabOverflow,
+       "framRelaySwitchConnectionUp": framRelaySwitchConnectionUp,
+       "framRelaySwitchConnectionDown": framRelaySwitchConnectionDown,
+       "errorsDuringInit": errorsDuringInit,
+       "vlanDynPortAdded": vlanDynPortAdded,
+       "vlanDynPortRemoved": vlanDynPortRemoved,
+       "rsSDclientsTableOverflow": rsSDclientsTableOverflow,
+       "rsSDinactiveServer": rsSDinactiveServer,
+       "rsIpZhrConnectionsTableOverflow": rsIpZhrConnectionsTableOverflow,
+       "rsIpZhrReqStaticConnNotAccepted": rsIpZhrReqStaticConnNotAccepted,
+       "rsIpZhrVirtualIpAsSource": rsIpZhrVirtualIpAsSource,
+       "rsIpZhrNotAllocVirtualIp": rsIpZhrNotAllocVirtualIp,
+       "rsSnmpSetRequestInSpecialCfgState": rsSnmpSetRequestInSpecialCfgState,
+       "rsPingCompletion": rsPingCompletion,
+       "pppSecurityViolation": pppSecurityViolation,
+       "frDLCIStatudChange": frDLCIStatudChange,
+       "papFailedCommunication": papFailedCommunication,
+       "chapFailedCommunication": chapFailedCommunication,
+       "rsWSDRedundancySwitch": rsWSDRedundancySwitch,
+       "rsDhcpAllocationFailure": rsDhcpAllocationFailure,
+       "rlIpFftStnOverflow": rlIpFftStnOverflow,
+       "rlIpFftSubOverflow": rlIpFftSubOverflow,
+       "rlIpxFftStnOverflow": rlIpxFftStnOverflow,
+       "rlIpxFftSubOverflow": rlIpxFftSubOverflow,
+       "rlIpmFftOverflow": rlIpmFftOverflow,
+       "rlPhysicalDescriptionChanged": rlPhysicalDescriptionChanged,
+       "rldot1dStpPortStateForwarding": rldot1dStpPortStateForwarding,
+       "rldot1dStpPortStateNotForwarding": rldot1dStpPortStateNotForwarding,
+       "rlPolicyDropPacketTrap": rlPolicyDropPacketTrap,
+       "rlPolicyForwardPacketTrap": rlPolicyForwardPacketTrap,
+       "rlIgmpProxyTableOverflow": rlIgmpProxyTableOverflow,
+       "rlIgmpV1MsgReceived": rlIgmpV1MsgReceived,
+       "rlVrrpEntriesDeleted": rlVrrpEntriesDeleted,
+       "rlHotSwapTrap": rlHotSwapTrap,
+       "rlTrunkPortAddedTrap": rlTrunkPortAddedTrap,
+       "rlTrunkPortRemovedTrap": rlTrunkPortRemovedTrap,
+       "rlTrunkPortNotCapableTrap": rlTrunkPortNotCapableTrap,
+       "rlLockPortTrap": rlLockPortTrap,
+       "vlanDynVlanAdded": vlanDynVlanAdded,
+       "vlanDynVlanRemoved": vlanDynVlanRemoved,
+       "vlanDynamicToStatic": vlanDynamicToStatic,
+       "vlanStaticToDynamic": vlanStaticToDynamic,
+       "dstrSysLog": dstrSysLog,
+       "rlEnvMonFanStateChange": rlEnvMonFanStateChange,
+       "rlEnvMonPowerSupplyStateChange": rlEnvMonPowerSupplyStateChange,
+       "rlStackStateChange": rlStackStateChange,
+       "rlEnvMonTemperatureRisingAlarm": rlEnvMonTemperatureRisingAlarm,
+       "rlBrgMacAddFailedTrap": rlBrgMacAddFailedTrap,
+       "rldot1xPortStatusAuthorizedTrap": rldot1xPortStatusAuthorizedTrap,
+       "rldot1xPortStatusUnauthorizedTrap": rldot1xPortStatusUnauthorizedTrap,
+       "swIfTablePortLock": swIfTablePortLock,
+       "swIfTablePortUnLock": swIfTablePortUnLock,
+       "rlAAAUserLocked": rlAAAUserLocked,
+       "bpduGuardPortSuspended": bpduGuardPortSuspended,
+       "rldot1xSupplicantMacAuthorizedTrap": rldot1xSupplicantMacAuthorizedTrap,
+       "rldot1xSupplicantMacUnauthorizedTrap": rldot1xSupplicantMacUnauthorizedTrap,
+       "stpLoopbackDetection": stpLoopbackDetection,
+       "stpLoopbackDetectionResolved": stpLoopbackDetectionResolved,
+       "loopbackDetectionPortSuspended": loopbackDetectionPortSuspended,
+       "rlPortSuspended": rlPortSuspended,
+       "rlSpecialBpduDbOverflow": rlSpecialBpduDbOverflow,
+       "rldot1xSupplicantLoggedOutTrap": rldot1xSupplicantLoggedOutTrap,
+       "rldot1xPortControlModeNotAutoTrap": rldot1xPortControlModeNotAutoTrap,
+       "rlEeeLldpMultipleNeighbours": rlEeeLldpMultipleNeighbours,
+       "rlEeeLldpSingleNeighbour": rlEeeLldpSingleNeighbour,
+       "rldot1xSupplicantQuietPeriodTrap": rldot1xSupplicantQuietPeriodTrap,
+       "rlStackVersionUpgradeTrap": rlStackVersionUpgradeTrap,
+       "rlStackVersionDowngradeTrap": rlStackVersionDowngradeTrap,
+       "pseInrushPort": pseInrushPort,
+       "pseOverloadPort": pseOverloadPort,
+       "poePowerNegotiationInfo": poePowerNegotiationInfo,
+       "poePowerNegotiation4Wire": poePowerNegotiation4Wire,
+       "poePowerHWFail": poePowerHWFail,
+       "rlStormControlMinRateTrap": rlStormControlMinRateTrap,
+       "rlApBackplanePortResolutionTrap": rlApBackplanePortResolutionTrap,
+       "sfpPortPresent": sfpPortPresent,
+       "sfpPortNotPresent": sfpPortNotPresent,
+       "sfpPortLoss": sfpPortLoss,
+       "sfpPortNotLoss": sfpPortNotLoss,
+       "rlStormControlOccursTrap": rlStormControlOccursTrap,
+       "rlRadiusServTrapAcct": rlRadiusServTrapAcct,
+       "rlRadiusServTrapAuthFailure": rlRadiusServTrapAuthFailure,
+       "rlRadiusServTrapAuthSuccess": rlRadiusServTrapAuthSuccess}
+)

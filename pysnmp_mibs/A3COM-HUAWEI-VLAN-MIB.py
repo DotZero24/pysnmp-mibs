@@ -1,58 +1,419 @@
+# SNMP MIB module (A3COM-HUAWEI-VLAN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module A3COM-HUAWEI-VLAN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3COM-HUAWEI-VLAN-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:10 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/a3com/A3COM-HUAWEI-VLAN-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:45:05 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-vrpProtocol, hwLocal, hwInternetProtocol = mibBuilder.importSymbols("A3COM-HUAWEI-OID-MIB", "vrpProtocol", "hwLocal", "hwInternetProtocol")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-huawei_vlan = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3)).setLabel("huawei-vlan")
-vLANMibRoutertCountTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1), )
-if mibBuilder.loadTexts: vLANMibRoutertCountTable.setStatus('mandatory')
-vLANMibRoutertCountEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1, 1), ).setIndexNames((0, "A3COM-HUAWEI-VLAN-MIB", "vLANMibRouterPort"))
-if mibBuilder.loadTexts: vLANMibRoutertCountEntry.setStatus('mandatory')
-vLANMibRouterPort = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vLANMibRouterPort.setStatus('mandatory')
-vLANMibRouterPortPktDisc = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vLANMibRouterPortPktDisc.setStatus('mandatory')
-vLANMibRouterPortPktTran = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vLANMibRouterPortPktTran.setStatus('mandatory')
-vLANMibClearRouterStatistics = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("clear", 1)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: vLANMibClearRouterStatistics.setStatus('mandatory')
-vLANMibRoutertVlanCountTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2), )
-if mibBuilder.loadTexts: vLANMibRoutertVlanCountTable.setStatus('mandatory')
-vLANMibRoutertVlanCountEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2, 1), ).setIndexNames((0, "A3COM-HUAWEI-VLAN-MIB", "vLANMibRouterVID"))
-if mibBuilder.loadTexts: vLANMibRoutertVlanCountEntry.setStatus('mandatory')
-vLANMibRouterVID = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vLANMibRouterVID.setStatus('mandatory')
-vLANMibRouterVlanPacketTran = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vLANMibRouterVlanPacketTran.setStatus('mandatory')
-vLANMibRouterVlanPacketSent = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vLANMibRouterVlanPacketSent.setStatus('mandatory')
-vLANMibClearVidStatistics = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("clear", 1)))).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: vLANMibClearVidStatistics.setStatus('mandatory')
-vLANMibRouterMaxPkTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 9), )
-if mibBuilder.loadTexts: vLANMibRouterMaxPkTable.setStatus('mandatory')
-vLANMibRouterMaxPkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 9, 1), ).setIndexNames((0, "A3COM-HUAWEI-VLAN-MIB", "vLANMIbVID"))
-if mibBuilder.loadTexts: vLANMibRouterMaxPkEntry.setStatus('mandatory')
-vLANMIbVID = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 9, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vLANMIbVID.setStatus('mandatory')
-vLANMibRouterMaxPktProcessCount = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 9, 1, 2), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vLANMibRouterMaxPktProcessCount.setStatus('mandatory')
-vLANMibSubIfTable = MibTable((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 11), )
-if mibBuilder.loadTexts: vLANMibSubIfTable.setStatus('mandatory')
-vLANMibSubIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 11, 1), ).setIndexNames((0, "A3COM-HUAWEI-VLAN-MIB", "vLANMibSubIfPortIndex"))
-if mibBuilder.loadTexts: vLANMibSubIfEntry.setStatus('mandatory')
-vLANMibSubIfPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 11, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vLANMibSubIfPortIndex.setStatus('mandatory')
-vLANMibSubIfEncapsulation = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 11, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("iSL", 1), ("dot1q", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vLANMibSubIfEncapsulation.setStatus('mandatory')
-vLANMibSubIfVID = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 11, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vLANMibSubIfVID.setStatus('mandatory')
-mibBuilder.exportSymbols("A3COM-HUAWEI-VLAN-MIB", vLANMibSubIfEncapsulation=vLANMibSubIfEncapsulation, vLANMibClearVidStatistics=vLANMibClearVidStatistics, vLANMibRouterVlanPacketTran=vLANMibRouterVlanPacketTran, vLANMibRouterMaxPktProcessCount=vLANMibRouterMaxPktProcessCount, vLANMibRouterPortPktTran=vLANMibRouterPortPktTran, vLANMibRouterMaxPkTable=vLANMibRouterMaxPkTable, vLANMibRouterMaxPkEntry=vLANMibRouterMaxPkEntry, vLANMibSubIfPortIndex=vLANMibSubIfPortIndex, vLANMibSubIfEntry=vLANMibSubIfEntry, vLANMibRoutertVlanCountTable=vLANMibRoutertVlanCountTable, huawei_vlan=huawei_vlan, vLANMibRouterPort=vLANMibRouterPort, vLANMibRouterPortPktDisc=vLANMibRouterPortPktDisc, vLANMibSubIfVID=vLANMibSubIfVID, vLANMibRoutertCountTable=vLANMibRoutertCountTable, vLANMibRouterVID=vLANMibRouterVID, vLANMIbVID=vLANMIbVID, vLANMibRoutertVlanCountEntry=vLANMibRoutertVlanCountEntry, vLANMibRoutertCountEntry=vLANMibRoutertCountEntry, vLANMibSubIfTable=vLANMibSubIfTable, vLANMibRouterVlanPacketSent=vLANMibRouterVlanPacketSent, vLANMibClearRouterStatistics=vLANMibClearRouterStatistics)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hwInternetProtocol,
+ hwLocal,
+ vrpProtocol) = mibBuilder.importSymbols(
+    "A3COM-HUAWEI-OID-MIB",
+    "hwInternetProtocol",
+    "hwLocal",
+    "vrpProtocol")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Huawei_vlan_ObjectIdentity = ObjectIdentity
+huawei_vlan = _Huawei_vlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3)
+)
+_VLANMibRoutertCountTable_Object = MibTable
+vLANMibRoutertCountTable = _VLANMibRoutertCountTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1)
+)
+if mibBuilder.loadTexts:
+    vLANMibRoutertCountTable.setStatus("mandatory")
+_VLANMibRoutertCountEntry_Object = MibTableRow
+vLANMibRoutertCountEntry = _VLANMibRoutertCountEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1, 1)
+)
+vLANMibRoutertCountEntry.setIndexNames(
+    (0, "A3COM-HUAWEI-VLAN-MIB", "vLANMibRouterPort"),
+)
+if mibBuilder.loadTexts:
+    vLANMibRoutertCountEntry.setStatus("mandatory")
+_VLANMibRouterPort_Type = Integer32
+_VLANMibRouterPort_Object = MibTableColumn
+vLANMibRouterPort = _VLANMibRouterPort_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1, 1, 1),
+    _VLANMibRouterPort_Type()
+)
+vLANMibRouterPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vLANMibRouterPort.setStatus("mandatory")
+_VLANMibRouterPortPktDisc_Type = Counter32
+_VLANMibRouterPortPktDisc_Object = MibTableColumn
+vLANMibRouterPortPktDisc = _VLANMibRouterPortPktDisc_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1, 1, 2),
+    _VLANMibRouterPortPktDisc_Type()
+)
+vLANMibRouterPortPktDisc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vLANMibRouterPortPktDisc.setStatus("mandatory")
+_VLANMibRouterPortPktTran_Type = Counter32
+_VLANMibRouterPortPktTran_Object = MibTableColumn
+vLANMibRouterPortPktTran = _VLANMibRouterPortPktTran_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1, 1, 3),
+    _VLANMibRouterPortPktTran_Type()
+)
+vLANMibRouterPortPktTran.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vLANMibRouterPortPktTran.setStatus("mandatory")
+
+
+class _VLANMibClearRouterStatistics_Type(Integer32):
+    """Custom type vLANMibClearRouterStatistics based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("clear", 1)
+    )
+
+
+_VLANMibClearRouterStatistics_Type.__name__ = "Integer32"
+_VLANMibClearRouterStatistics_Object = MibTableColumn
+vLANMibClearRouterStatistics = _VLANMibClearRouterStatistics_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 1, 1, 4),
+    _VLANMibClearRouterStatistics_Type()
+)
+vLANMibClearRouterStatistics.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    vLANMibClearRouterStatistics.setStatus("mandatory")
+_VLANMibRoutertVlanCountTable_Object = MibTable
+vLANMibRoutertVlanCountTable = _VLANMibRoutertVlanCountTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2)
+)
+if mibBuilder.loadTexts:
+    vLANMibRoutertVlanCountTable.setStatus("mandatory")
+_VLANMibRoutertVlanCountEntry_Object = MibTableRow
+vLANMibRoutertVlanCountEntry = _VLANMibRoutertVlanCountEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2, 1)
+)
+vLANMibRoutertVlanCountEntry.setIndexNames(
+    (0, "A3COM-HUAWEI-VLAN-MIB", "vLANMibRouterVID"),
+)
+if mibBuilder.loadTexts:
+    vLANMibRoutertVlanCountEntry.setStatus("mandatory")
+
+
+class _VLANMibRouterVID_Type(Integer32):
+    """Custom type vLANMibRouterVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_VLANMibRouterVID_Type.__name__ = "Integer32"
+_VLANMibRouterVID_Object = MibTableColumn
+vLANMibRouterVID = _VLANMibRouterVID_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2, 1, 1),
+    _VLANMibRouterVID_Type()
+)
+vLANMibRouterVID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vLANMibRouterVID.setStatus("mandatory")
+_VLANMibRouterVlanPacketTran_Type = Counter32
+_VLANMibRouterVlanPacketTran_Object = MibTableColumn
+vLANMibRouterVlanPacketTran = _VLANMibRouterVlanPacketTran_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2, 1, 2),
+    _VLANMibRouterVlanPacketTran_Type()
+)
+vLANMibRouterVlanPacketTran.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vLANMibRouterVlanPacketTran.setStatus("mandatory")
+_VLANMibRouterVlanPacketSent_Type = Counter32
+_VLANMibRouterVlanPacketSent_Object = MibTableColumn
+vLANMibRouterVlanPacketSent = _VLANMibRouterVlanPacketSent_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2, 1, 3),
+    _VLANMibRouterVlanPacketSent_Type()
+)
+vLANMibRouterVlanPacketSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vLANMibRouterVlanPacketSent.setStatus("mandatory")
+
+
+class _VLANMibClearVidStatistics_Type(Integer32):
+    """Custom type vLANMibClearVidStatistics based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("clear", 1)
+    )
+
+
+_VLANMibClearVidStatistics_Type.__name__ = "Integer32"
+_VLANMibClearVidStatistics_Object = MibTableColumn
+vLANMibClearVidStatistics = _VLANMibClearVidStatistics_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 2, 1, 4),
+    _VLANMibClearVidStatistics_Type()
+)
+vLANMibClearVidStatistics.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    vLANMibClearVidStatistics.setStatus("mandatory")
+_VLANMibRouterMaxPkTable_Object = MibTable
+vLANMibRouterMaxPkTable = _VLANMibRouterMaxPkTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 9)
+)
+if mibBuilder.loadTexts:
+    vLANMibRouterMaxPkTable.setStatus("mandatory")
+_VLANMibRouterMaxPkEntry_Object = MibTableRow
+vLANMibRouterMaxPkEntry = _VLANMibRouterMaxPkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 9, 1)
+)
+vLANMibRouterMaxPkEntry.setIndexNames(
+    (0, "A3COM-HUAWEI-VLAN-MIB", "vLANMIbVID"),
+)
+if mibBuilder.loadTexts:
+    vLANMibRouterMaxPkEntry.setStatus("mandatory")
+
+
+class _VLANMIbVID_Type(Integer32):
+    """Custom type vLANMIbVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_VLANMIbVID_Type.__name__ = "Integer32"
+_VLANMIbVID_Object = MibTableColumn
+vLANMIbVID = _VLANMIbVID_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 9, 1, 1),
+    _VLANMIbVID_Type()
+)
+vLANMIbVID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vLANMIbVID.setStatus("mandatory")
+_VLANMibRouterMaxPktProcessCount_Type = Unsigned32
+_VLANMibRouterMaxPktProcessCount_Object = MibTableColumn
+vLANMibRouterMaxPktProcessCount = _VLANMibRouterMaxPktProcessCount_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 9, 1, 2),
+    _VLANMibRouterMaxPktProcessCount_Type()
+)
+vLANMibRouterMaxPktProcessCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vLANMibRouterMaxPktProcessCount.setStatus("mandatory")
+_VLANMibSubIfTable_Object = MibTable
+vLANMibSubIfTable = _VLANMibSubIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 11)
+)
+if mibBuilder.loadTexts:
+    vLANMibSubIfTable.setStatus("mandatory")
+_VLANMibSubIfEntry_Object = MibTableRow
+vLANMibSubIfEntry = _VLANMibSubIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 11, 1)
+)
+vLANMibSubIfEntry.setIndexNames(
+    (0, "A3COM-HUAWEI-VLAN-MIB", "vLANMibSubIfPortIndex"),
+)
+if mibBuilder.loadTexts:
+    vLANMibSubIfEntry.setStatus("mandatory")
+_VLANMibSubIfPortIndex_Type = Integer32
+_VLANMibSubIfPortIndex_Object = MibTableColumn
+vLANMibSubIfPortIndex = _VLANMibSubIfPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 11, 1, 1),
+    _VLANMibSubIfPortIndex_Type()
+)
+vLANMibSubIfPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vLANMibSubIfPortIndex.setStatus("mandatory")
+
+
+class _VLANMibSubIfEncapsulation_Type(Integer32):
+    """Custom type vLANMibSubIfEncapsulation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("iSL", 1),
+          ("dot1q", 2))
+    )
+
+
+_VLANMibSubIfEncapsulation_Type.__name__ = "Integer32"
+_VLANMibSubIfEncapsulation_Object = MibTableColumn
+vLANMibSubIfEncapsulation = _VLANMibSubIfEncapsulation_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 11, 1, 2),
+    _VLANMibSubIfEncapsulation_Type()
+)
+vLANMibSubIfEncapsulation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vLANMibSubIfEncapsulation.setStatus("mandatory")
+
+
+class _VLANMibSubIfVID_Type(Integer32):
+    """Custom type vLANMibSubIfVID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_VLANMibSubIfVID_Type.__name__ = "Integer32"
+_VLANMibSubIfVID_Object = MibTableColumn
+vLANMibSubIfVID = _VLANMibSubIfVID_Object(
+    (1, 3, 6, 1, 4, 1, 43, 45, 1, 1, 3, 3, 3, 11, 1, 3),
+    _VLANMibSubIfVID_Type()
+)
+vLANMibSubIfVID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vLANMibSubIfVID.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "A3COM-HUAWEI-VLAN-MIB",
+    **{"huawei-vlan": huawei_vlan,
+       "vLANMibRoutertCountTable": vLANMibRoutertCountTable,
+       "vLANMibRoutertCountEntry": vLANMibRoutertCountEntry,
+       "vLANMibRouterPort": vLANMibRouterPort,
+       "vLANMibRouterPortPktDisc": vLANMibRouterPortPktDisc,
+       "vLANMibRouterPortPktTran": vLANMibRouterPortPktTran,
+       "vLANMibClearRouterStatistics": vLANMibClearRouterStatistics,
+       "vLANMibRoutertVlanCountTable": vLANMibRoutertVlanCountTable,
+       "vLANMibRoutertVlanCountEntry": vLANMibRoutertVlanCountEntry,
+       "vLANMibRouterVID": vLANMibRouterVID,
+       "vLANMibRouterVlanPacketTran": vLANMibRouterVlanPacketTran,
+       "vLANMibRouterVlanPacketSent": vLANMibRouterVlanPacketSent,
+       "vLANMibClearVidStatistics": vLANMibClearVidStatistics,
+       "vLANMibRouterMaxPkTable": vLANMibRouterMaxPkTable,
+       "vLANMibRouterMaxPkEntry": vLANMibRouterMaxPkEntry,
+       "vLANMIbVID": vLANMIbVID,
+       "vLANMibRouterMaxPktProcessCount": vLANMibRouterMaxPktProcessCount,
+       "vLANMibSubIfTable": vLANMibSubIfTable,
+       "vLANMibSubIfEntry": vLANMibSubIfEntry,
+       "vLANMibSubIfPortIndex": vLANMibSubIfPortIndex,
+       "vLANMibSubIfEncapsulation": vLANMibSubIfEncapsulation,
+       "vLANMibSubIfVID": vLANMibSubIfVID}
+)

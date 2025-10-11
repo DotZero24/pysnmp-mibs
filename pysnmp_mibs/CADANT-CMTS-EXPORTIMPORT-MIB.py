@@ -1,60 +1,420 @@
+# SNMP MIB module (CADANT-CMTS-EXPORTIMPORT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CADANT-CMTS-EXPORTIMPORT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arris/CADANT-CMTS-EXPORTIMPORT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:18:48 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/arris/CADANT-CMTS-EXPORTIMPORT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:10:09 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-trapCounter, trapSeverity = mibBuilder.importSymbols("CADANT-CMTS-EQUIPMENT-MIB", "trapCounter", "trapSeverity")
-cadExperimental, = mibBuilder.importSymbols("CADANT-PRODUCTS-MIB", "cadExperimental")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-cadExportImportMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1))
-cadExportImportMib.setRevisions(('2001-03-09 00:00', '2004-02-13 00:00', '2004-02-16 00:00',))
-if mibBuilder.loadTexts: cadExportImportMib.setLastUpdated('200402160000Z')
-if mibBuilder.loadTexts: cadExportImportMib.setOrganization('Arris International Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(trapCounter,
+ trapSeverity) = mibBuilder.importSymbols(
+    "CADANT-CMTS-EQUIPMENT-MIB",
+    "trapCounter",
+    "trapSeverity")
+
+(cadExperimental,) = mibBuilder.importSymbols(
+    "CADANT-PRODUCTS-MIB",
+    "cadExperimental")
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cadExportImportMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1)
+)
+if mibBuilder.loadTexts:
+    cadExportImportMib.setRevisions(
+        ("2001-03-09 00:00",
+         "2004-02-13 00:00",
+         "2004-02-16 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class ExportImportAction(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
-    namedValues = NamedValues(("noop", 0), ("export", 1), ("import", 2), ("pCmCertExport", 3), ("caCertExport", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noop", 0),
+          ("export", 1),
+          ("import", 2),
+          ("pCmCertExport", 3),
+          ("caCertExport", 4))
+    )
+
+
 
 class ExportResult(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
-    namedValues = NamedValues(("unknown", 0), ("success", 1), ("fileNameTooLong", 2), ("invalidCharactersInFilename", 3), ("fileSystemFull", 4), ("otherError", 5))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("success", 1),
+          ("fileNameTooLong", 2),
+          ("invalidCharactersInFilename", 3),
+          ("fileSystemFull", 4),
+          ("otherError", 5))
+    )
+
+
 
 class ImportResult(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
-    namedValues = NamedValues(("unknown", 0), ("success", 1), ("fileNotFound", 2), ("fileDecodingError", 3), ("otherError", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("success", 1),
+          ("fileNotFound", 2),
+          ("fileDecodingError", 3),
+          ("otherError", 4))
+    )
 
-cadCmtsExportImportGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1))
-cadCmtsExportImportFilename = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 1), DisplayString().clone('update:/export.txt')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadCmtsExportImportFilename.setStatus('current')
-cadCmtsExportImportAction = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 2), ExportImportAction().clone('noop')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadCmtsExportImportAction.setStatus('current')
-cadCmtsExportResult = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 3), ExportResult().clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cadCmtsExportResult.setStatus('current')
-cadCmtsImportResult = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 4), ImportResult().clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cadCmtsImportResult.setStatus('current')
-cadCmtsExportImportWithLineNums = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadCmtsExportImportWithLineNums.setStatus('current')
-cadCmtsExportImportWithDefaults = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 6), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadCmtsExportImportWithDefaults.setStatus('current')
-cadCmtsExportImportNested = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 7), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadCmtsExportImportNested.setStatus('current')
-cadCmtsExportImportWithCertificates = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 8), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadCmtsExportImportWithCertificates.setStatus('current')
-cadCmtsExportImportIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 9), InterfaceIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cadCmtsExportImportIfIndex.setStatus('current')
-cadCmtsExportImportTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 0))
-cadCmtsExportNotification = NotificationType((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 0, 1)).setObjects(("CADANT-CMTS-EQUIPMENT-MIB", "trapCounter"), ("CADANT-CMTS-EQUIPMENT-MIB", "trapSeverity"), ("CADANT-CMTS-EXPORTIMPORT-MIB", "cadCmtsExportResult"))
-if mibBuilder.loadTexts: cadCmtsExportNotification.setStatus('current')
-cadCmtsImportNotification = NotificationType((1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 0, 2)).setObjects(("CADANT-CMTS-EQUIPMENT-MIB", "trapCounter"), ("CADANT-CMTS-EQUIPMENT-MIB", "trapSeverity"), ("CADANT-CMTS-EXPORTIMPORT-MIB", "cadCmtsImportResult"))
-if mibBuilder.loadTexts: cadCmtsImportNotification.setStatus('current')
-mibBuilder.exportSymbols("CADANT-CMTS-EXPORTIMPORT-MIB", cadExportImportMib=cadExportImportMib, cadCmtsExportImportIfIndex=cadCmtsExportImportIfIndex, cadCmtsExportNotification=cadCmtsExportNotification, ImportResult=ImportResult, cadCmtsImportResult=cadCmtsImportResult, ExportResult=ExportResult, PYSNMP_MODULE_ID=cadExportImportMib, cadCmtsExportImportWithLineNums=cadCmtsExportImportWithLineNums, ExportImportAction=ExportImportAction, cadCmtsExportImportGroup=cadCmtsExportImportGroup, cadCmtsExportImportWithCertificates=cadCmtsExportImportWithCertificates, cadCmtsExportImportTraps=cadCmtsExportImportTraps, cadCmtsExportResult=cadCmtsExportResult, cadCmtsExportImportWithDefaults=cadCmtsExportImportWithDefaults, cadCmtsExportImportNested=cadCmtsExportImportNested, cadCmtsExportImportAction=cadCmtsExportImportAction, cadCmtsExportImportFilename=cadCmtsExportImportFilename, cadCmtsImportNotification=cadCmtsImportNotification)
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CadCmtsExportImportTraps_ObjectIdentity = ObjectIdentity
+cadCmtsExportImportTraps = _CadCmtsExportImportTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 0)
+)
+_CadCmtsExportImportGroup_ObjectIdentity = ObjectIdentity
+cadCmtsExportImportGroup = _CadCmtsExportImportGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1)
+)
+
+
+class _CadCmtsExportImportFilename_Type(DisplayString):
+    """Custom type cadCmtsExportImportFilename based on DisplayString"""
+    defaultValue = OctetString("update:/export.txt")
+
+
+_CadCmtsExportImportFilename_Type.__name__ = "DisplayString"
+_CadCmtsExportImportFilename_Object = MibScalar
+cadCmtsExportImportFilename = _CadCmtsExportImportFilename_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 1),
+    _CadCmtsExportImportFilename_Type()
+)
+cadCmtsExportImportFilename.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadCmtsExportImportFilename.setStatus("current")
+
+
+class _CadCmtsExportImportAction_Type(ExportImportAction):
+    """Custom type cadCmtsExportImportAction based on ExportImportAction"""
+    defaultValue = 0
+
+
+_CadCmtsExportImportAction_Type.__name__ = "ExportImportAction"
+_CadCmtsExportImportAction_Object = MibScalar
+cadCmtsExportImportAction = _CadCmtsExportImportAction_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 2),
+    _CadCmtsExportImportAction_Type()
+)
+cadCmtsExportImportAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadCmtsExportImportAction.setStatus("current")
+
+
+class _CadCmtsExportResult_Type(ExportResult):
+    """Custom type cadCmtsExportResult based on ExportResult"""
+    defaultValue = 0
+
+
+_CadCmtsExportResult_Type.__name__ = "ExportResult"
+_CadCmtsExportResult_Object = MibScalar
+cadCmtsExportResult = _CadCmtsExportResult_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 3),
+    _CadCmtsExportResult_Type()
+)
+cadCmtsExportResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cadCmtsExportResult.setStatus("current")
+
+
+class _CadCmtsImportResult_Type(ImportResult):
+    """Custom type cadCmtsImportResult based on ImportResult"""
+    defaultValue = 0
+
+
+_CadCmtsImportResult_Type.__name__ = "ImportResult"
+_CadCmtsImportResult_Object = MibScalar
+cadCmtsImportResult = _CadCmtsImportResult_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 4),
+    _CadCmtsImportResult_Type()
+)
+cadCmtsImportResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cadCmtsImportResult.setStatus("current")
+
+
+class _CadCmtsExportImportWithLineNums_Type(TruthValue):
+    """Custom type cadCmtsExportImportWithLineNums based on TruthValue"""
+    defaultValue = 2
+
+
+_CadCmtsExportImportWithLineNums_Type.__name__ = "TruthValue"
+_CadCmtsExportImportWithLineNums_Object = MibScalar
+cadCmtsExportImportWithLineNums = _CadCmtsExportImportWithLineNums_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 5),
+    _CadCmtsExportImportWithLineNums_Type()
+)
+cadCmtsExportImportWithLineNums.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadCmtsExportImportWithLineNums.setStatus("current")
+
+
+class _CadCmtsExportImportWithDefaults_Type(TruthValue):
+    """Custom type cadCmtsExportImportWithDefaults based on TruthValue"""
+    defaultValue = 2
+
+
+_CadCmtsExportImportWithDefaults_Type.__name__ = "TruthValue"
+_CadCmtsExportImportWithDefaults_Object = MibScalar
+cadCmtsExportImportWithDefaults = _CadCmtsExportImportWithDefaults_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 6),
+    _CadCmtsExportImportWithDefaults_Type()
+)
+cadCmtsExportImportWithDefaults.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadCmtsExportImportWithDefaults.setStatus("current")
+
+
+class _CadCmtsExportImportNested_Type(TruthValue):
+    """Custom type cadCmtsExportImportNested based on TruthValue"""
+    defaultValue = 1
+
+
+_CadCmtsExportImportNested_Type.__name__ = "TruthValue"
+_CadCmtsExportImportNested_Object = MibScalar
+cadCmtsExportImportNested = _CadCmtsExportImportNested_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 7),
+    _CadCmtsExportImportNested_Type()
+)
+cadCmtsExportImportNested.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadCmtsExportImportNested.setStatus("current")
+
+
+class _CadCmtsExportImportWithCertificates_Type(TruthValue):
+    """Custom type cadCmtsExportImportWithCertificates based on TruthValue"""
+    defaultValue = 1
+
+
+_CadCmtsExportImportWithCertificates_Type.__name__ = "TruthValue"
+_CadCmtsExportImportWithCertificates_Object = MibScalar
+cadCmtsExportImportWithCertificates = _CadCmtsExportImportWithCertificates_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 8),
+    _CadCmtsExportImportWithCertificates_Type()
+)
+cadCmtsExportImportWithCertificates.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadCmtsExportImportWithCertificates.setStatus("current")
+
+
+class _CadCmtsExportImportIfIndex_Type(InterfaceIndexOrZero):
+    """Custom type cadCmtsExportImportIfIndex based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_CadCmtsExportImportIfIndex_Type.__name__ = "InterfaceIndexOrZero"
+_CadCmtsExportImportIfIndex_Object = MibScalar
+cadCmtsExportImportIfIndex = _CadCmtsExportImportIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 1, 9),
+    _CadCmtsExportImportIfIndex_Type()
+)
+cadCmtsExportImportIfIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cadCmtsExportImportIfIndex.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+cadCmtsExportNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 0, 1)
+)
+cadCmtsExportNotification.setObjects(
+      *(("CADANT-CMTS-EQUIPMENT-MIB", "trapCounter"),
+        ("CADANT-CMTS-EQUIPMENT-MIB", "trapSeverity"),
+        ("CADANT-CMTS-EXPORTIMPORT-MIB", "cadCmtsExportResult"))
+)
+if mibBuilder.loadTexts:
+    cadCmtsExportNotification.setStatus(
+        "current"
+    )
+
+cadCmtsImportNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4998, 1, 1, 100, 1, 0, 2)
+)
+cadCmtsImportNotification.setObjects(
+      *(("CADANT-CMTS-EQUIPMENT-MIB", "trapCounter"),
+        ("CADANT-CMTS-EQUIPMENT-MIB", "trapSeverity"),
+        ("CADANT-CMTS-EXPORTIMPORT-MIB", "cadCmtsImportResult"))
+)
+if mibBuilder.loadTexts:
+    cadCmtsImportNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CADANT-CMTS-EXPORTIMPORT-MIB",
+    **{"ExportImportAction": ExportImportAction,
+       "ExportResult": ExportResult,
+       "ImportResult": ImportResult,
+       "cadExportImportMib": cadExportImportMib,
+       "cadCmtsExportImportTraps": cadCmtsExportImportTraps,
+       "cadCmtsExportNotification": cadCmtsExportNotification,
+       "cadCmtsImportNotification": cadCmtsImportNotification,
+       "cadCmtsExportImportGroup": cadCmtsExportImportGroup,
+       "cadCmtsExportImportFilename": cadCmtsExportImportFilename,
+       "cadCmtsExportImportAction": cadCmtsExportImportAction,
+       "cadCmtsExportResult": cadCmtsExportResult,
+       "cadCmtsImportResult": cadCmtsImportResult,
+       "cadCmtsExportImportWithLineNums": cadCmtsExportImportWithLineNums,
+       "cadCmtsExportImportWithDefaults": cadCmtsExportImportWithDefaults,
+       "cadCmtsExportImportNested": cadCmtsExportImportNested,
+       "cadCmtsExportImportWithCertificates": cadCmtsExportImportWithCertificates,
+       "cadCmtsExportImportIfIndex": cadCmtsExportImportIfIndex}
+)

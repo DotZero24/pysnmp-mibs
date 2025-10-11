@@ -1,49 +1,346 @@
+# SNMP MIB module (H3C-DOT11-CFGEXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-DOT11-CFGEXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-DOT11-CFGEXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:20 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/H3C-DOT11-CFGEXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:19:02 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-h3cDot11, = mibBuilder.importSymbols("H3C-DOT11-REF-MIB", "h3cDot11")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
-h3cDot11CFGEXT = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6))
-h3cDot11CFGEXT.setRevisions(('2016-03-11 18:00', '2010-06-02 14:00', '2007-04-25 20:00',))
-if mibBuilder.loadTexts: h3cDot11CFGEXT.setLastUpdated('201603111800Z')
-if mibBuilder.loadTexts: h3cDot11CFGEXT.setOrganization('H3C Technologies Co., Ltd.')
-h3cDot11LoadBalance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1))
-h3cDot11LBGlobalGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1))
-h3cDot11LoadBalanceTrafficEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cDot11LoadBalanceTrafficEnable.setStatus('current')
-h3cDot11LoadBalanceTrafficThres = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cDot11LoadBalanceTrafficThres.setStatus('current')
-h3cDot11LoadBalanceSessionEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 3), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cDot11LoadBalanceSessionEnable.setStatus('current')
-h3cDot11LoadBalanceSessionThres = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cDot11LoadBalanceSessionThres.setStatus('current')
-h3cDot11LoadBalanceTrafficGap = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 40)).clone(20)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cDot11LoadBalanceTrafficGap.setStatus('current')
-h3cDot11LoadBalanceSessionGap = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)).clone(4)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cDot11LoadBalanceSessionGap.setStatus('current')
-h3cDot11LBTrafficThresKbps = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 7), Integer32()).setUnits('kbps').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cDot11LBTrafficThresKbps.setStatus('current')
-h3cDot11LBTrafficGapKbps = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 8), Integer32()).setUnits('kbps').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cDot11LBTrafficGapKbps.setStatus('current')
-h3cDot11LoadBalanceEnable = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("trafficBased", 1), ("userBased", 2))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cDot11LoadBalanceEnable.setStatus('current')
-h3cDot11LBRadioGroupTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 2), )
-if mibBuilder.loadTexts: h3cDot11LBRadioGroupTable.setStatus('current')
-h3cDot11LBRadioGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 2, 1), ).setIndexNames((0, "H3C-DOT11-CFGEXT-MIB", "h3cDot11LBRadioGroupId"))
-if mibBuilder.loadTexts: h3cDot11LBRadioGroupEntry.setStatus('current')
-h3cDot11LBRadioGroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: h3cDot11LBRadioGroupId.setStatus('current')
-h3cDot11LBRadioGroupDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 2, 1, 2), OctetString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cDot11LBRadioGroupDesc.setStatus('current')
-h3cDot11LBRadioGroupRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cDot11LBRadioGroupRowStatus.setStatus('current')
-mibBuilder.exportSymbols("H3C-DOT11-CFGEXT-MIB", h3cDot11LBRadioGroupEntry=h3cDot11LBRadioGroupEntry, h3cDot11LoadBalance=h3cDot11LoadBalance, h3cDot11CFGEXT=h3cDot11CFGEXT, h3cDot11LBRadioGroupId=h3cDot11LBRadioGroupId, h3cDot11LBTrafficThresKbps=h3cDot11LBTrafficThresKbps, h3cDot11LBGlobalGroup=h3cDot11LBGlobalGroup, h3cDot11LBRadioGroupTable=h3cDot11LBRadioGroupTable, h3cDot11LBRadioGroupRowStatus=h3cDot11LBRadioGroupRowStatus, h3cDot11LoadBalanceTrafficGap=h3cDot11LoadBalanceTrafficGap, h3cDot11LBTrafficGapKbps=h3cDot11LBTrafficGapKbps, h3cDot11LoadBalanceTrafficEnable=h3cDot11LoadBalanceTrafficEnable, PYSNMP_MODULE_ID=h3cDot11CFGEXT, h3cDot11LoadBalanceEnable=h3cDot11LoadBalanceEnable, h3cDot11LBRadioGroupDesc=h3cDot11LBRadioGroupDesc, h3cDot11LoadBalanceSessionEnable=h3cDot11LoadBalanceSessionEnable, h3cDot11LoadBalanceSessionThres=h3cDot11LoadBalanceSessionThres, h3cDot11LoadBalanceTrafficThres=h3cDot11LoadBalanceTrafficThres, h3cDot11LoadBalanceSessionGap=h3cDot11LoadBalanceSessionGap)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cDot11,) = mibBuilder.importSymbols(
+    "H3C-DOT11-REF-MIB",
+    "h3cDot11")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+h3cDot11CFGEXT = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6)
+)
+if mibBuilder.loadTexts:
+    h3cDot11CFGEXT.setRevisions(
+        ("2016-03-11 18:00",
+         "2010-06-02 14:00",
+         "2007-04-25 20:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cDot11LoadBalance_ObjectIdentity = ObjectIdentity
+h3cDot11LoadBalance = _H3cDot11LoadBalance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1)
+)
+_H3cDot11LBGlobalGroup_ObjectIdentity = ObjectIdentity
+h3cDot11LBGlobalGroup = _H3cDot11LBGlobalGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1)
+)
+_H3cDot11LoadBalanceTrafficEnable_Type = TruthValue
+_H3cDot11LoadBalanceTrafficEnable_Object = MibScalar
+h3cDot11LoadBalanceTrafficEnable = _H3cDot11LoadBalanceTrafficEnable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 1),
+    _H3cDot11LoadBalanceTrafficEnable_Type()
+)
+h3cDot11LoadBalanceTrafficEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cDot11LoadBalanceTrafficEnable.setStatus("current")
+_H3cDot11LoadBalanceTrafficThres_Type = Integer32
+_H3cDot11LoadBalanceTrafficThres_Object = MibScalar
+h3cDot11LoadBalanceTrafficThres = _H3cDot11LoadBalanceTrafficThres_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 2),
+    _H3cDot11LoadBalanceTrafficThres_Type()
+)
+h3cDot11LoadBalanceTrafficThres.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cDot11LoadBalanceTrafficThres.setStatus("current")
+_H3cDot11LoadBalanceSessionEnable_Type = TruthValue
+_H3cDot11LoadBalanceSessionEnable_Object = MibScalar
+h3cDot11LoadBalanceSessionEnable = _H3cDot11LoadBalanceSessionEnable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 3),
+    _H3cDot11LoadBalanceSessionEnable_Type()
+)
+h3cDot11LoadBalanceSessionEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cDot11LoadBalanceSessionEnable.setStatus("current")
+_H3cDot11LoadBalanceSessionThres_Type = Integer32
+_H3cDot11LoadBalanceSessionThres_Object = MibScalar
+h3cDot11LoadBalanceSessionThres = _H3cDot11LoadBalanceSessionThres_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 4),
+    _H3cDot11LoadBalanceSessionThres_Type()
+)
+h3cDot11LoadBalanceSessionThres.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cDot11LoadBalanceSessionThres.setStatus("current")
+
+
+class _H3cDot11LoadBalanceTrafficGap_Type(Integer32):
+    """Custom type h3cDot11LoadBalanceTrafficGap based on Integer32"""
+    defaultValue = 20
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 40),
+    )
+
+
+_H3cDot11LoadBalanceTrafficGap_Type.__name__ = "Integer32"
+_H3cDot11LoadBalanceTrafficGap_Object = MibScalar
+h3cDot11LoadBalanceTrafficGap = _H3cDot11LoadBalanceTrafficGap_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 5),
+    _H3cDot11LoadBalanceTrafficGap_Type()
+)
+h3cDot11LoadBalanceTrafficGap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cDot11LoadBalanceTrafficGap.setStatus("current")
+
+
+class _H3cDot11LoadBalanceSessionGap_Type(Integer32):
+    """Custom type h3cDot11LoadBalanceSessionGap based on Integer32"""
+    defaultValue = 4
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_H3cDot11LoadBalanceSessionGap_Type.__name__ = "Integer32"
+_H3cDot11LoadBalanceSessionGap_Object = MibScalar
+h3cDot11LoadBalanceSessionGap = _H3cDot11LoadBalanceSessionGap_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 6),
+    _H3cDot11LoadBalanceSessionGap_Type()
+)
+h3cDot11LoadBalanceSessionGap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cDot11LoadBalanceSessionGap.setStatus("current")
+_H3cDot11LBTrafficThresKbps_Type = Integer32
+_H3cDot11LBTrafficThresKbps_Object = MibScalar
+h3cDot11LBTrafficThresKbps = _H3cDot11LBTrafficThresKbps_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 7),
+    _H3cDot11LBTrafficThresKbps_Type()
+)
+h3cDot11LBTrafficThresKbps.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cDot11LBTrafficThresKbps.setStatus("current")
+if mibBuilder.loadTexts:
+    h3cDot11LBTrafficThresKbps.setUnits("kbps")
+_H3cDot11LBTrafficGapKbps_Type = Integer32
+_H3cDot11LBTrafficGapKbps_Object = MibScalar
+h3cDot11LBTrafficGapKbps = _H3cDot11LBTrafficGapKbps_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 8),
+    _H3cDot11LBTrafficGapKbps_Type()
+)
+h3cDot11LBTrafficGapKbps.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cDot11LBTrafficGapKbps.setStatus("current")
+if mibBuilder.loadTexts:
+    h3cDot11LBTrafficGapKbps.setUnits("kbps")
+
+
+class _H3cDot11LoadBalanceEnable_Type(Integer32):
+    """Custom type h3cDot11LoadBalanceEnable based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("trafficBased", 1),
+          ("userBased", 2))
+    )
+
+
+_H3cDot11LoadBalanceEnable_Type.__name__ = "Integer32"
+_H3cDot11LoadBalanceEnable_Object = MibScalar
+h3cDot11LoadBalanceEnable = _H3cDot11LoadBalanceEnable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 1, 9),
+    _H3cDot11LoadBalanceEnable_Type()
+)
+h3cDot11LoadBalanceEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cDot11LoadBalanceEnable.setStatus("current")
+_H3cDot11LBRadioGroupTable_Object = MibTable
+h3cDot11LBRadioGroupTable = _H3cDot11LBRadioGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 2)
+)
+if mibBuilder.loadTexts:
+    h3cDot11LBRadioGroupTable.setStatus("current")
+_H3cDot11LBRadioGroupEntry_Object = MibTableRow
+h3cDot11LBRadioGroupEntry = _H3cDot11LBRadioGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 2, 1)
+)
+h3cDot11LBRadioGroupEntry.setIndexNames(
+    (0, "H3C-DOT11-CFGEXT-MIB", "h3cDot11LBRadioGroupId"),
+)
+if mibBuilder.loadTexts:
+    h3cDot11LBRadioGroupEntry.setStatus("current")
+_H3cDot11LBRadioGroupId_Type = Unsigned32
+_H3cDot11LBRadioGroupId_Object = MibTableColumn
+h3cDot11LBRadioGroupId = _H3cDot11LBRadioGroupId_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 2, 1, 1),
+    _H3cDot11LBRadioGroupId_Type()
+)
+h3cDot11LBRadioGroupId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cDot11LBRadioGroupId.setStatus("current")
+_H3cDot11LBRadioGroupDesc_Type = OctetString
+_H3cDot11LBRadioGroupDesc_Object = MibTableColumn
+h3cDot11LBRadioGroupDesc = _H3cDot11LBRadioGroupDesc_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 2, 1, 2),
+    _H3cDot11LBRadioGroupDesc_Type()
+)
+h3cDot11LBRadioGroupDesc.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cDot11LBRadioGroupDesc.setStatus("current")
+_H3cDot11LBRadioGroupRowStatus_Type = RowStatus
+_H3cDot11LBRadioGroupRowStatus_Object = MibTableColumn
+h3cDot11LBRadioGroupRowStatus = _H3cDot11LBRadioGroupRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 75, 6, 1, 2, 1, 3),
+    _H3cDot11LBRadioGroupRowStatus_Type()
+)
+h3cDot11LBRadioGroupRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cDot11LBRadioGroupRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-DOT11-CFGEXT-MIB",
+    **{"h3cDot11CFGEXT": h3cDot11CFGEXT,
+       "h3cDot11LoadBalance": h3cDot11LoadBalance,
+       "h3cDot11LBGlobalGroup": h3cDot11LBGlobalGroup,
+       "h3cDot11LoadBalanceTrafficEnable": h3cDot11LoadBalanceTrafficEnable,
+       "h3cDot11LoadBalanceTrafficThres": h3cDot11LoadBalanceTrafficThres,
+       "h3cDot11LoadBalanceSessionEnable": h3cDot11LoadBalanceSessionEnable,
+       "h3cDot11LoadBalanceSessionThres": h3cDot11LoadBalanceSessionThres,
+       "h3cDot11LoadBalanceTrafficGap": h3cDot11LoadBalanceTrafficGap,
+       "h3cDot11LoadBalanceSessionGap": h3cDot11LoadBalanceSessionGap,
+       "h3cDot11LBTrafficThresKbps": h3cDot11LBTrafficThresKbps,
+       "h3cDot11LBTrafficGapKbps": h3cDot11LBTrafficGapKbps,
+       "h3cDot11LoadBalanceEnable": h3cDot11LoadBalanceEnable,
+       "h3cDot11LBRadioGroupTable": h3cDot11LBRadioGroupTable,
+       "h3cDot11LBRadioGroupEntry": h3cDot11LBRadioGroupEntry,
+       "h3cDot11LBRadioGroupId": h3cDot11LBRadioGroupId,
+       "h3cDot11LBRadioGroupDesc": h3cDot11LBRadioGroupDesc,
+       "h3cDot11LBRadioGroupRowStatus": h3cDot11LBRadioGroupRowStatus}
+)

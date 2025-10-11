@@ -1,66 +1,452 @@
+# SNMP MIB module (ALVARION-VIRTUAL-AP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALVARION-VIRTUAL-AP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alvarion/ALVARION-VIRTUAL-AP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:40 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alvarion/ALVARION-VIRTUAL-AP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:07:16 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-alvarionMgmtV2, = mibBuilder.importSymbols("ALVARION-SMI", "alvarionMgmtV2")
-AlvarionPriorityQueue, AlvarionSecurity, AlvarionSSID, AlvarionProfileIndexOrZero, AlvarionUsersAuthenticationMode = mibBuilder.importSymbols("ALVARION-TC", "AlvarionPriorityQueue", "AlvarionSecurity", "AlvarionSSID", "AlvarionProfileIndexOrZero", "AlvarionUsersAuthenticationMode")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-alvarionVirtualApMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11))
-if mibBuilder.loadTexts: alvarionVirtualApMIB.setLastUpdated('200710310000Z')
-if mibBuilder.loadTexts: alvarionVirtualApMIB.setOrganization('Alvarion Ltd.')
-alvarionVirtualApMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1))
-coVirtualApConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1))
-coVirtualAccessPointConfigTable = MibTable((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1), )
-if mibBuilder.loadTexts: coVirtualAccessPointConfigTable.setStatus('current')
-coVirtualAccessPointConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ALVARION-VIRTUAL-AP-MIB", "coVirtualApWlanProfileIndex"))
-if mibBuilder.loadTexts: coVirtualAccessPointConfigEntry.setStatus('current')
-coVirtualApWlanProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: coVirtualApWlanProfileIndex.setStatus('current')
-coVirtualApSSID = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 2), AlvarionSSID()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: coVirtualApSSID.setStatus('current')
-coVirtualApBroadcastSSID = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 3), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: coVirtualApBroadcastSSID.setStatus('current')
-coVirtualApMaximumNumberOfUsers = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: coVirtualApMaximumNumberOfUsers.setStatus('current')
-coVirtualApDefaultVLAN = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: coVirtualApDefaultVLAN.setStatus('current')
-coVirtualApSecurity = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 6), AlvarionSecurity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coVirtualApSecurity.setStatus('current')
-coVirtualApAuthenMode = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 7), AlvarionUsersAuthenticationMode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coVirtualApAuthenMode.setStatus('current')
-coVirtualApAuthenProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 8), AlvarionProfileIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coVirtualApAuthenProfileIndex.setStatus('current')
-coVirtualApUserAccountingEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coVirtualApUserAccountingEnabled.setStatus('current')
-coVirtualApUserAccountingProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 10), AlvarionProfileIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coVirtualApUserAccountingProfileIndex.setStatus('current')
-coVirtualApDefaultUserRateLimitationEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 11), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coVirtualApDefaultUserRateLimitationEnabled.setStatus('current')
-coVirtualApDefaultUserMaxTransmitRate = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coVirtualApDefaultUserMaxTransmitRate.setStatus('current')
-coVirtualApDefaultUserMaxReceiveRate = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coVirtualApDefaultUserMaxReceiveRate.setStatus('current')
-coVirtualApDefaultUserBandwidthLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 14), AlvarionPriorityQueue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: coVirtualApDefaultUserBandwidthLevel.setStatus('current')
-coVirtualApOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: coVirtualApOperState.setStatus('current')
-alvarionVirtualApMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 2))
-alvarionVirtualApMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 2, 1))
-alvarionVirtualApMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 2, 2))
-alvarionVirtualApMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 2, 1, 1)).setObjects(("ALVARION-VIRTUAL-AP-MIB", "alvarionVirtualApMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alvarionVirtualApMIBCompliance = alvarionVirtualApMIBCompliance.setStatus('current')
-alvarionVirtualApMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 2, 2, 1)).setObjects(("ALVARION-VIRTUAL-AP-MIB", "coVirtualApSSID"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApBroadcastSSID"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApMaximumNumberOfUsers"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApDefaultVLAN"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApSecurity"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApAuthenMode"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApAuthenProfileIndex"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApUserAccountingEnabled"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApUserAccountingProfileIndex"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApDefaultUserRateLimitationEnabled"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApDefaultUserMaxTransmitRate"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApDefaultUserMaxReceiveRate"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApDefaultUserBandwidthLevel"), ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApOperState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alvarionVirtualApMIBGroup = alvarionVirtualApMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("ALVARION-VIRTUAL-AP-MIB", alvarionVirtualApMIB=alvarionVirtualApMIB, coVirtualApConfig=coVirtualApConfig, coVirtualApMaximumNumberOfUsers=coVirtualApMaximumNumberOfUsers, coVirtualApDefaultVLAN=coVirtualApDefaultVLAN, coVirtualApSSID=coVirtualApSSID, alvarionVirtualApMIBGroups=alvarionVirtualApMIBGroups, coVirtualApAuthenProfileIndex=coVirtualApAuthenProfileIndex, coVirtualApDefaultUserRateLimitationEnabled=coVirtualApDefaultUserRateLimitationEnabled, coVirtualApDefaultUserMaxTransmitRate=coVirtualApDefaultUserMaxTransmitRate, alvarionVirtualApMIBObjects=alvarionVirtualApMIBObjects, coVirtualApBroadcastSSID=coVirtualApBroadcastSSID, coVirtualApUserAccountingProfileIndex=coVirtualApUserAccountingProfileIndex, coVirtualApWlanProfileIndex=coVirtualApWlanProfileIndex, coVirtualApDefaultUserMaxReceiveRate=coVirtualApDefaultUserMaxReceiveRate, coVirtualApSecurity=coVirtualApSecurity, alvarionVirtualApMIBCompliance=alvarionVirtualApMIBCompliance, alvarionVirtualApMIBGroup=alvarionVirtualApMIBGroup, coVirtualApAuthenMode=coVirtualApAuthenMode, coVirtualAccessPointConfigEntry=coVirtualAccessPointConfigEntry, coVirtualApOperState=coVirtualApOperState, coVirtualAccessPointConfigTable=coVirtualAccessPointConfigTable, PYSNMP_MODULE_ID=alvarionVirtualApMIB, coVirtualApDefaultUserBandwidthLevel=coVirtualApDefaultUserBandwidthLevel, alvarionVirtualApMIBCompliances=alvarionVirtualApMIBCompliances, alvarionVirtualApMIBConformance=alvarionVirtualApMIBConformance, coVirtualApUserAccountingEnabled=coVirtualApUserAccountingEnabled)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(alvarionMgmtV2,) = mibBuilder.importSymbols(
+    "ALVARION-SMI",
+    "alvarionMgmtV2")
+
+(AlvarionPriorityQueue,
+ AlvarionProfileIndexOrZero,
+ AlvarionSSID,
+ AlvarionSecurity,
+ AlvarionUsersAuthenticationMode) = mibBuilder.importSymbols(
+    "ALVARION-TC",
+    "AlvarionPriorityQueue",
+    "AlvarionProfileIndexOrZero",
+    "AlvarionSSID",
+    "AlvarionSecurity",
+    "AlvarionUsersAuthenticationMode")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+alvarionVirtualApMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlvarionVirtualApMIBObjects_ObjectIdentity = ObjectIdentity
+alvarionVirtualApMIBObjects = _AlvarionVirtualApMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1)
+)
+_CoVirtualApConfig_ObjectIdentity = ObjectIdentity
+coVirtualApConfig = _CoVirtualApConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1)
+)
+_CoVirtualAccessPointConfigTable_Object = MibTable
+coVirtualAccessPointConfigTable = _CoVirtualAccessPointConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    coVirtualAccessPointConfigTable.setStatus("current")
+_CoVirtualAccessPointConfigEntry_Object = MibTableRow
+coVirtualAccessPointConfigEntry = _CoVirtualAccessPointConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1)
+)
+coVirtualAccessPointConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "ALVARION-VIRTUAL-AP-MIB", "coVirtualApWlanProfileIndex"),
+)
+if mibBuilder.loadTexts:
+    coVirtualAccessPointConfigEntry.setStatus("current")
+
+
+class _CoVirtualApWlanProfileIndex_Type(Integer32):
+    """Custom type coVirtualApWlanProfileIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_CoVirtualApWlanProfileIndex_Type.__name__ = "Integer32"
+_CoVirtualApWlanProfileIndex_Object = MibTableColumn
+coVirtualApWlanProfileIndex = _CoVirtualApWlanProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 1),
+    _CoVirtualApWlanProfileIndex_Type()
+)
+coVirtualApWlanProfileIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    coVirtualApWlanProfileIndex.setStatus("current")
+_CoVirtualApSSID_Type = AlvarionSSID
+_CoVirtualApSSID_Object = MibTableColumn
+coVirtualApSSID = _CoVirtualApSSID_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 2),
+    _CoVirtualApSSID_Type()
+)
+coVirtualApSSID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    coVirtualApSSID.setStatus("current")
+_CoVirtualApBroadcastSSID_Type = TruthValue
+_CoVirtualApBroadcastSSID_Object = MibTableColumn
+coVirtualApBroadcastSSID = _CoVirtualApBroadcastSSID_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 3),
+    _CoVirtualApBroadcastSSID_Type()
+)
+coVirtualApBroadcastSSID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    coVirtualApBroadcastSSID.setStatus("current")
+
+
+class _CoVirtualApMaximumNumberOfUsers_Type(Integer32):
+    """Custom type coVirtualApMaximumNumberOfUsers based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_CoVirtualApMaximumNumberOfUsers_Type.__name__ = "Integer32"
+_CoVirtualApMaximumNumberOfUsers_Object = MibTableColumn
+coVirtualApMaximumNumberOfUsers = _CoVirtualApMaximumNumberOfUsers_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 4),
+    _CoVirtualApMaximumNumberOfUsers_Type()
+)
+coVirtualApMaximumNumberOfUsers.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    coVirtualApMaximumNumberOfUsers.setStatus("current")
+
+
+class _CoVirtualApDefaultVLAN_Type(Integer32):
+    """Custom type coVirtualApDefaultVLAN based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_CoVirtualApDefaultVLAN_Type.__name__ = "Integer32"
+_CoVirtualApDefaultVLAN_Object = MibTableColumn
+coVirtualApDefaultVLAN = _CoVirtualApDefaultVLAN_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 5),
+    _CoVirtualApDefaultVLAN_Type()
+)
+coVirtualApDefaultVLAN.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    coVirtualApDefaultVLAN.setStatus("current")
+_CoVirtualApSecurity_Type = AlvarionSecurity
+_CoVirtualApSecurity_Object = MibTableColumn
+coVirtualApSecurity = _CoVirtualApSecurity_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 6),
+    _CoVirtualApSecurity_Type()
+)
+coVirtualApSecurity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coVirtualApSecurity.setStatus("current")
+_CoVirtualApAuthenMode_Type = AlvarionUsersAuthenticationMode
+_CoVirtualApAuthenMode_Object = MibTableColumn
+coVirtualApAuthenMode = _CoVirtualApAuthenMode_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 7),
+    _CoVirtualApAuthenMode_Type()
+)
+coVirtualApAuthenMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coVirtualApAuthenMode.setStatus("current")
+_CoVirtualApAuthenProfileIndex_Type = AlvarionProfileIndexOrZero
+_CoVirtualApAuthenProfileIndex_Object = MibTableColumn
+coVirtualApAuthenProfileIndex = _CoVirtualApAuthenProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 8),
+    _CoVirtualApAuthenProfileIndex_Type()
+)
+coVirtualApAuthenProfileIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coVirtualApAuthenProfileIndex.setStatus("current")
+
+
+class _CoVirtualApUserAccountingEnabled_Type(Integer32):
+    """Custom type coVirtualApUserAccountingEnabled based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_CoVirtualApUserAccountingEnabled_Type.__name__ = "Integer32"
+_CoVirtualApUserAccountingEnabled_Object = MibTableColumn
+coVirtualApUserAccountingEnabled = _CoVirtualApUserAccountingEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 9),
+    _CoVirtualApUserAccountingEnabled_Type()
+)
+coVirtualApUserAccountingEnabled.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coVirtualApUserAccountingEnabled.setStatus("current")
+_CoVirtualApUserAccountingProfileIndex_Type = AlvarionProfileIndexOrZero
+_CoVirtualApUserAccountingProfileIndex_Object = MibTableColumn
+coVirtualApUserAccountingProfileIndex = _CoVirtualApUserAccountingProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 10),
+    _CoVirtualApUserAccountingProfileIndex_Type()
+)
+coVirtualApUserAccountingProfileIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coVirtualApUserAccountingProfileIndex.setStatus("current")
+_CoVirtualApDefaultUserRateLimitationEnabled_Type = TruthValue
+_CoVirtualApDefaultUserRateLimitationEnabled_Object = MibTableColumn
+coVirtualApDefaultUserRateLimitationEnabled = _CoVirtualApDefaultUserRateLimitationEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 11),
+    _CoVirtualApDefaultUserRateLimitationEnabled_Type()
+)
+coVirtualApDefaultUserRateLimitationEnabled.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coVirtualApDefaultUserRateLimitationEnabled.setStatus("current")
+_CoVirtualApDefaultUserMaxTransmitRate_Type = Integer32
+_CoVirtualApDefaultUserMaxTransmitRate_Object = MibTableColumn
+coVirtualApDefaultUserMaxTransmitRate = _CoVirtualApDefaultUserMaxTransmitRate_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 12),
+    _CoVirtualApDefaultUserMaxTransmitRate_Type()
+)
+coVirtualApDefaultUserMaxTransmitRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coVirtualApDefaultUserMaxTransmitRate.setStatus("current")
+_CoVirtualApDefaultUserMaxReceiveRate_Type = Integer32
+_CoVirtualApDefaultUserMaxReceiveRate_Object = MibTableColumn
+coVirtualApDefaultUserMaxReceiveRate = _CoVirtualApDefaultUserMaxReceiveRate_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 13),
+    _CoVirtualApDefaultUserMaxReceiveRate_Type()
+)
+coVirtualApDefaultUserMaxReceiveRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coVirtualApDefaultUserMaxReceiveRate.setStatus("current")
+_CoVirtualApDefaultUserBandwidthLevel_Type = AlvarionPriorityQueue
+_CoVirtualApDefaultUserBandwidthLevel_Object = MibTableColumn
+coVirtualApDefaultUserBandwidthLevel = _CoVirtualApDefaultUserBandwidthLevel_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 14),
+    _CoVirtualApDefaultUserBandwidthLevel_Type()
+)
+coVirtualApDefaultUserBandwidthLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    coVirtualApDefaultUserBandwidthLevel.setStatus("current")
+
+
+class _CoVirtualApOperState_Type(Integer32):
+    """Custom type coVirtualApOperState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_CoVirtualApOperState_Type.__name__ = "Integer32"
+_CoVirtualApOperState_Object = MibTableColumn
+coVirtualApOperState = _CoVirtualApOperState_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 1, 1, 1, 1, 15),
+    _CoVirtualApOperState_Type()
+)
+coVirtualApOperState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    coVirtualApOperState.setStatus("current")
+_AlvarionVirtualApMIBConformance_ObjectIdentity = ObjectIdentity
+alvarionVirtualApMIBConformance = _AlvarionVirtualApMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 2)
+)
+_AlvarionVirtualApMIBCompliances_ObjectIdentity = ObjectIdentity
+alvarionVirtualApMIBCompliances = _AlvarionVirtualApMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 2, 1)
+)
+_AlvarionVirtualApMIBGroups_ObjectIdentity = ObjectIdentity
+alvarionVirtualApMIBGroups = _AlvarionVirtualApMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 2, 2)
+)
+
+# Managed Objects groups
+
+alvarionVirtualApMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 2, 2, 1)
+)
+alvarionVirtualApMIBGroup.setObjects(
+      *(("ALVARION-VIRTUAL-AP-MIB", "coVirtualApSSID"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApBroadcastSSID"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApMaximumNumberOfUsers"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApDefaultVLAN"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApSecurity"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApAuthenMode"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApAuthenProfileIndex"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApUserAccountingEnabled"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApUserAccountingProfileIndex"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApDefaultUserRateLimitationEnabled"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApDefaultUserMaxTransmitRate"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApDefaultUserMaxReceiveRate"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApDefaultUserBandwidthLevel"),
+        ("ALVARION-VIRTUAL-AP-MIB", "coVirtualApOperState"))
+)
+if mibBuilder.loadTexts:
+    alvarionVirtualApMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alvarionVirtualApMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 11, 2, 1, 1)
+)
+alvarionVirtualApMIBCompliance.setObjects(
+    ("ALVARION-VIRTUAL-AP-MIB", "alvarionVirtualApMIBGroup")
+)
+if mibBuilder.loadTexts:
+    alvarionVirtualApMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALVARION-VIRTUAL-AP-MIB",
+    **{"alvarionVirtualApMIB": alvarionVirtualApMIB,
+       "alvarionVirtualApMIBObjects": alvarionVirtualApMIBObjects,
+       "coVirtualApConfig": coVirtualApConfig,
+       "coVirtualAccessPointConfigTable": coVirtualAccessPointConfigTable,
+       "coVirtualAccessPointConfigEntry": coVirtualAccessPointConfigEntry,
+       "coVirtualApWlanProfileIndex": coVirtualApWlanProfileIndex,
+       "coVirtualApSSID": coVirtualApSSID,
+       "coVirtualApBroadcastSSID": coVirtualApBroadcastSSID,
+       "coVirtualApMaximumNumberOfUsers": coVirtualApMaximumNumberOfUsers,
+       "coVirtualApDefaultVLAN": coVirtualApDefaultVLAN,
+       "coVirtualApSecurity": coVirtualApSecurity,
+       "coVirtualApAuthenMode": coVirtualApAuthenMode,
+       "coVirtualApAuthenProfileIndex": coVirtualApAuthenProfileIndex,
+       "coVirtualApUserAccountingEnabled": coVirtualApUserAccountingEnabled,
+       "coVirtualApUserAccountingProfileIndex": coVirtualApUserAccountingProfileIndex,
+       "coVirtualApDefaultUserRateLimitationEnabled": coVirtualApDefaultUserRateLimitationEnabled,
+       "coVirtualApDefaultUserMaxTransmitRate": coVirtualApDefaultUserMaxTransmitRate,
+       "coVirtualApDefaultUserMaxReceiveRate": coVirtualApDefaultUserMaxReceiveRate,
+       "coVirtualApDefaultUserBandwidthLevel": coVirtualApDefaultUserBandwidthLevel,
+       "coVirtualApOperState": coVirtualApOperState,
+       "alvarionVirtualApMIBConformance": alvarionVirtualApMIBConformance,
+       "alvarionVirtualApMIBCompliances": alvarionVirtualApMIBCompliances,
+       "alvarionVirtualApMIBCompliance": alvarionVirtualApMIBCompliance,
+       "alvarionVirtualApMIBGroups": alvarionVirtualApMIBGroups,
+       "alvarionVirtualApMIBGroup": alvarionVirtualApMIBGroup}
+)

@@ -1,31 +1,213 @@
+# SNMP MIB module (H3C-OSPF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-OSPF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-OSPF-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:31 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/H3C-OSPF-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:19:47 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-h3cOspf = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 161))
-h3cOspf.setRevisions(('2014-12-17 17:00',))
-if mibBuilder.loadTexts: h3cOspf.setLastUpdated('201412171700Z')
-if mibBuilder.loadTexts: h3cOspf.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
-h3cOspfNetworkTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1), )
-if mibBuilder.loadTexts: h3cOspfNetworkTable.setStatus('current')
-h3cOspfNetworkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1, 1), ).setIndexNames((0, "H3C-OSPF-MIB", "h3cOspfProcessId"), (0, "H3C-OSPF-MIB", "h3cOspfAreaId"), (0, "H3C-OSPF-MIB", "h3cOspfNetworkIpAddr"))
-if mibBuilder.loadTexts: h3cOspfNetworkEntry.setStatus('current')
-h3cOspfProcessId = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: h3cOspfProcessId.setStatus('current')
-h3cOspfAreaId = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1, 1, 2), IpAddress())
-if mibBuilder.loadTexts: h3cOspfAreaId.setStatus('current')
-h3cOspfNetworkIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1, 1, 3), IpAddress())
-if mibBuilder.loadTexts: h3cOspfNetworkIpAddr.setStatus('current')
-h3cOspfNetworkIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cOspfNetworkIpMask.setStatus('current')
-mibBuilder.exportSymbols("H3C-OSPF-MIB", h3cOspf=h3cOspf, PYSNMP_MODULE_ID=h3cOspf, h3cOspfProcessId=h3cOspfProcessId, h3cOspfNetworkEntry=h3cOspfNetworkEntry, h3cOspfAreaId=h3cOspfAreaId, h3cOspfNetworkIpAddr=h3cOspfNetworkIpAddr, h3cOspfNetworkIpMask=h3cOspfNetworkIpMask, h3cOspfNetworkTable=h3cOspfNetworkTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+h3cOspf = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 161)
+)
+if mibBuilder.loadTexts:
+    h3cOspf.setRevisions(
+        ("2014-12-17 17:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cOspfNetworkTable_Object = MibTable
+h3cOspfNetworkTable = _H3cOspfNetworkTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1)
+)
+if mibBuilder.loadTexts:
+    h3cOspfNetworkTable.setStatus("current")
+_H3cOspfNetworkEntry_Object = MibTableRow
+h3cOspfNetworkEntry = _H3cOspfNetworkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1, 1)
+)
+h3cOspfNetworkEntry.setIndexNames(
+    (0, "H3C-OSPF-MIB", "h3cOspfProcessId"),
+    (0, "H3C-OSPF-MIB", "h3cOspfAreaId"),
+    (0, "H3C-OSPF-MIB", "h3cOspfNetworkIpAddr"),
+)
+if mibBuilder.loadTexts:
+    h3cOspfNetworkEntry.setStatus("current")
+
+
+class _H3cOspfProcessId_Type(Integer32):
+    """Custom type h3cOspfProcessId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_H3cOspfProcessId_Type.__name__ = "Integer32"
+_H3cOspfProcessId_Object = MibTableColumn
+h3cOspfProcessId = _H3cOspfProcessId_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1, 1, 1),
+    _H3cOspfProcessId_Type()
+)
+h3cOspfProcessId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cOspfProcessId.setStatus("current")
+_H3cOspfAreaId_Type = IpAddress
+_H3cOspfAreaId_Object = MibTableColumn
+h3cOspfAreaId = _H3cOspfAreaId_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1, 1, 2),
+    _H3cOspfAreaId_Type()
+)
+h3cOspfAreaId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cOspfAreaId.setStatus("current")
+_H3cOspfNetworkIpAddr_Type = IpAddress
+_H3cOspfNetworkIpAddr_Object = MibTableColumn
+h3cOspfNetworkIpAddr = _H3cOspfNetworkIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1, 1, 3),
+    _H3cOspfNetworkIpAddr_Type()
+)
+h3cOspfNetworkIpAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cOspfNetworkIpAddr.setStatus("current")
+_H3cOspfNetworkIpMask_Type = IpAddress
+_H3cOspfNetworkIpMask_Object = MibTableColumn
+h3cOspfNetworkIpMask = _H3cOspfNetworkIpMask_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 161, 1, 1, 4),
+    _H3cOspfNetworkIpMask_Type()
+)
+h3cOspfNetworkIpMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cOspfNetworkIpMask.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-OSPF-MIB",
+    **{"h3cOspf": h3cOspf,
+       "h3cOspfNetworkTable": h3cOspfNetworkTable,
+       "h3cOspfNetworkEntry": h3cOspfNetworkEntry,
+       "h3cOspfProcessId": h3cOspfProcessId,
+       "h3cOspfAreaId": h3cOspfAreaId,
+       "h3cOspfNetworkIpAddr": h3cOspfNetworkIpAddr,
+       "h3cOspfNetworkIpMask": h3cOspfNetworkIpMask}
+)

@@ -1,100 +1,343 @@
+# SNMP MIB module (VMWARE-VRNI-AGENTCAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module VMWARE-VRNI-AGENTCAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/vmware/VMWARE-VRNI-AGENTCAP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:12:36 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/vmware/VMWARE-VRNI-AGENTCAP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:23:25 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-AgentCapabilities, NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "AgentCapabilities", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-vmwareAgentCapabilities, = mibBuilder.importSymbols("VMWARE-ROOT-MIB", "vmwareAgentCapabilities")
-vmwVRNIAgentCapabilityMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6876, 70, 125))
-vmwVRNIAgentCapabilityMIB.setRevisions(('2023-08-07 00:00', '2023-04-20 00:00', '2022-09-07 00:00', '2022-03-30 00:00', '2021-10-01 00:00', '2021-05-24 00:00', '2020-05-20 00:00', '2019-08-19 00:00', '2019-06-06 00:00', '2019-03-22 00:00', '2018-12-04 00:00', '2018-09-12 00:00', '2017-10-13 00:00', '2017-09-05 00:00', '2017-06-01 00:00', '2017-03-02 00:00', '2016-11-22 00:01',))
-if mibBuilder.loadTexts: vmwVRNIAgentCapabilityMIB.setLastUpdated('202308070000Z')
-if mibBuilder.loadTexts: vmwVRNIAgentCapabilityMIB.setOrganization('VMware, Inc')
-vmwVRNICapability = MibIdentifier((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10))
-vmwVRNIAgent2021v611 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 22))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v611 = vmwVRNIAgent2021v611.setProductRelease('6.11.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v611 = vmwVRNIAgent2021v611.setStatus('current')
-vmwVRNIAgent2021v670 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 21))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v670 = vmwVRNIAgent2021v670.setProductRelease('6.10.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v670 = vmwVRNIAgent2021v670.setStatus('current')
-vmwVRNIAgent2021v660 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 20))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v660 = vmwVRNIAgent2021v660.setProductRelease('6.8.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v660 = vmwVRNIAgent2021v660.setStatus('current')
-vmwVRNIAgent2021v650 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 19))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v650 = vmwVRNIAgent2021v650.setProductRelease('6.6.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v650 = vmwVRNIAgent2021v650.setStatus('current')
-vmwVRNIAgent2021v640 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 18))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v640 = vmwVRNIAgent2021v640.setProductRelease('6.4.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v640 = vmwVRNIAgent2021v640.setStatus('current')
-vmwVRNIAgent2021v620 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 17))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v620 = vmwVRNIAgent2021v620.setProductRelease('6.2.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2021v620 = vmwVRNIAgent2021v620.setStatus('current')
-vmwVRNIAgent2020v520 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 16))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2020v520 = vmwVRNIAgent2020v520.setProductRelease('5.2.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2020v520 = vmwVRNIAgent2020v520.setStatus('current')
-vmwVRNIAgent2019v500 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 15))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2019v500 = vmwVRNIAgent2019v500.setProductRelease('5.0.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2019v500 = vmwVRNIAgent2019v500.setStatus('current')
-vmwVRNIAgent2019v420 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 14))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2019v420 = vmwVRNIAgent2019v420.setProductRelease('4.2.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2019v420 = vmwVRNIAgent2019v420.setStatus('current')
-vmwVRNIAgent2019v410 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 13))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2019v410 = vmwVRNIAgent2019v410.setProductRelease('4.1.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2019v410 = vmwVRNIAgent2019v410.setStatus('current')
-vmwVRNIAgent2018v400 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 12))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2018v400 = vmwVRNIAgent2018v400.setProductRelease('4.0.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2018v400 = vmwVRNIAgent2018v400.setStatus('current')
-vmwVRNIAgent2018v390 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 11))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2018v390 = vmwVRNIAgent2018v390.setProductRelease('3.9.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2018v390 = vmwVRNIAgent2018v390.setStatus('current')
-vmwVRNIAgent2016v350 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 9))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2016v350 = vmwVRNIAgent2016v350.setProductRelease('3.5.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2016v350 = vmwVRNIAgent2016v350.setStatus('current')
-vmwVRNIAgent2017v340 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 8))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2017v340 = vmwVRNIAgent2017v340.setProductRelease('3.4.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2017v340 = vmwVRNIAgent2017v340.setStatus('current')
-vmwVRNIAgent2017v330 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 7))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2017v330 = vmwVRNIAgent2017v330.setProductRelease('3.3.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2017v330 = vmwVRNIAgent2017v330.setStatus('current')
-vmwVRNIAgent2016v320 = AgentCapabilities((1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 6))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2016v320 = vmwVRNIAgent2016v320.setProductRelease('3.2.0')
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vmwVRNIAgent2016v320 = vmwVRNIAgent2016v320.setStatus('current')
-mibBuilder.exportSymbols("VMWARE-VRNI-AGENTCAP-MIB", vmwVRNIAgent2019v410=vmwVRNIAgent2019v410, vmwVRNIAgent2021v620=vmwVRNIAgent2021v620, vmwVRNIAgent2021v660=vmwVRNIAgent2021v660, vmwVRNIAgent2017v330=vmwVRNIAgent2017v330, vmwVRNIAgent2016v320=vmwVRNIAgent2016v320, vmwVRNIAgent2021v670=vmwVRNIAgent2021v670, vmwVRNIAgent2018v400=vmwVRNIAgent2018v400, vmwVRNIAgent2017v340=vmwVRNIAgent2017v340, vmwVRNIAgent2020v520=vmwVRNIAgent2020v520, vmwVRNIAgent2021v650=vmwVRNIAgent2021v650, vmwVRNIAgent2021v640=vmwVRNIAgent2021v640, PYSNMP_MODULE_ID=vmwVRNIAgentCapabilityMIB, vmwVRNIAgent2019v420=vmwVRNIAgent2019v420, vmwVRNIAgent2019v500=vmwVRNIAgent2019v500, vmwVRNIAgent2016v350=vmwVRNIAgent2016v350, vmwVRNIAgent2021v611=vmwVRNIAgent2021v611, vmwVRNIAgent2018v390=vmwVRNIAgent2018v390, vmwVRNIAgentCapabilityMIB=vmwVRNIAgentCapabilityMIB, vmwVRNICapability=vmwVRNICapability)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(AgentCapabilities,
+ ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "AgentCapabilities",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(vmwareAgentCapabilities,) = mibBuilder.importSymbols(
+    "VMWARE-ROOT-MIB",
+    "vmwareAgentCapabilities")
+
+
+# MODULE-IDENTITY
+
+vmwVRNIAgentCapabilityMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgentCapabilityMIB.setRevisions(
+        ("2023-08-07 00:00",
+         "2023-04-20 00:00",
+         "2022-09-07 00:00",
+         "2022-03-30 00:00",
+         "2021-10-01 00:00",
+         "2021-05-24 00:00",
+         "2020-05-20 00:00",
+         "2019-08-19 00:00",
+         "2019-06-06 00:00",
+         "2019-03-22 00:00",
+         "2018-12-04 00:00",
+         "2018-09-12 00:00",
+         "2017-10-13 00:00",
+         "2017-09-05 00:00",
+         "2017-06-01 00:00",
+         "2017-03-02 00:00",
+         "2016-11-22 00:01")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_VmwVRNICapability_ObjectIdentity = ObjectIdentity
+vmwVRNICapability = _VmwVRNICapability_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+vmwVRNIAgent2016v320 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 6)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2016v320.setProductRelease("3.2.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2016v320.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2017v330 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 7)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2017v330.setProductRelease("3.3.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2017v330.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2017v340 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 8)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2017v340.setProductRelease("3.4.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2017v340.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2016v350 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 9)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2016v350.setProductRelease("3.5.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2016v350.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2018v390 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 11)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2018v390.setProductRelease("3.9.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2018v390.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2018v400 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 12)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2018v400.setProductRelease("4.0.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2018v400.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2019v410 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 13)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2019v410.setProductRelease("4.1.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2019v410.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2019v420 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 14)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2019v420.setProductRelease("4.2.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2019v420.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2019v500 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 15)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2019v500.setProductRelease("5.0.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2019v500.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2020v520 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 16)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2020v520.setProductRelease("5.2.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2020v520.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2021v620 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 17)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v620.setProductRelease("6.2.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v620.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2021v640 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 18)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v640.setProductRelease("6.4.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v640.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2021v650 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 19)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v650.setProductRelease("6.6.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v650.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2021v660 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 20)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v660.setProductRelease("6.8.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v660.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2021v670 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 21)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v670.setProductRelease("6.10.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v670.setStatus(
+        "current"
+    )
+
+vmwVRNIAgent2021v611 = AgentCapabilities(
+    (1, 3, 6, 1, 4, 1, 6876, 70, 125, 10, 22)
+)
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v611.setProductRelease("6.11.0")
+if mibBuilder.loadTexts:
+    vmwVRNIAgent2021v611.setStatus(
+        "current"
+    )
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "VMWARE-VRNI-AGENTCAP-MIB",
+    **{"vmwVRNIAgentCapabilityMIB": vmwVRNIAgentCapabilityMIB,
+       "vmwVRNICapability": vmwVRNICapability,
+       "vmwVRNIAgent2016v320": vmwVRNIAgent2016v320,
+       "vmwVRNIAgent2017v330": vmwVRNIAgent2017v330,
+       "vmwVRNIAgent2017v340": vmwVRNIAgent2017v340,
+       "vmwVRNIAgent2016v350": vmwVRNIAgent2016v350,
+       "vmwVRNIAgent2018v390": vmwVRNIAgent2018v390,
+       "vmwVRNIAgent2018v400": vmwVRNIAgent2018v400,
+       "vmwVRNIAgent2019v410": vmwVRNIAgent2019v410,
+       "vmwVRNIAgent2019v420": vmwVRNIAgent2019v420,
+       "vmwVRNIAgent2019v500": vmwVRNIAgent2019v500,
+       "vmwVRNIAgent2020v520": vmwVRNIAgent2020v520,
+       "vmwVRNIAgent2021v620": vmwVRNIAgent2021v620,
+       "vmwVRNIAgent2021v640": vmwVRNIAgent2021v640,
+       "vmwVRNIAgent2021v650": vmwVRNIAgent2021v650,
+       "vmwVRNIAgent2021v660": vmwVRNIAgent2021v660,
+       "vmwVRNIAgent2021v670": vmwVRNIAgent2021v670,
+       "vmwVRNIAgent2021v611": vmwVRNIAgent2021v611}
+)

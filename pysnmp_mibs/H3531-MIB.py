@@ -1,213 +1,2179 @@
+# SNMP MIB module (H3531-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3531-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/comet/H3531-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:54 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/comet/H3531-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:16:14 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-class DisplayString(OctetString):
-    pass
 
-comet = MibIdentifier((1, 3, 6, 1, 4, 1, 22626))
-products = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1))
-h3531 = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2))
-values = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1))
-pysmi_global = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2)).setLabel("global")
-valuesInt = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3))
-settings = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4))
-traps = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 5))
-tables = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6))
-temp = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: temp.setStatus('mandatory')
-hum = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hum.setStatus('mandatory')
-compVal = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compVal.setStatus('mandatory')
-bin1 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin1.setStatus('mandatory')
-bin2 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin2.setStatus('mandatory')
-bin3 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin3.setStatus('mandatory')
-re1 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: re1.setStatus('mandatory')
-re2 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: re2.setStatus('mandatory')
-tempAlarm1 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempAlarm1.setStatus('mandatory')
-humAlarm1 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 11), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humAlarm1.setStatus('mandatory')
-compValAlarm1 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValAlarm1.setStatus('mandatory')
-tempAlarm2 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempAlarm2.setStatus('mandatory')
-humAlarm2 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humAlarm2.setStatus('mandatory')
-compValAlarm2 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValAlarm2.setStatus('mandatory')
-bin1Alarm = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin1Alarm.setStatus('mandatory')
-bin2Alarm = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 19), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin2Alarm.setStatus('mandatory')
-bin3Alarm = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 20), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin3Alarm.setStatus('mandatory')
-tempUnit = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 21), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempUnit.setStatus('mandatory')
-humUnit = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 22), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humUnit.setStatus('mandatory')
-compValUnit = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 23), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValUnit.setStatus('mandatory')
-sensorName = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 68))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensorName.setStatus('mandatory')
-serialNumber = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: serialNumber.setStatus('mandatory')
-deviceType = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65534))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceType.setStatus('mandatory')
-tempInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempInt.setStatus('mandatory')
-humInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humInt.setStatus('mandatory')
-compValInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValInt.setStatus('mandatory')
-bin1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin1Int.setStatus('mandatory')
-bin2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin2Int.setStatus('mandatory')
-bin3Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin3Int.setStatus('mandatory')
-re1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: re1Int.setStatus('mandatory')
-re2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: re2Int.setStatus('mandatory')
-tempAlarm1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempAlarm1Int.setStatus('mandatory')
-humAlarm1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humAlarm1Int.setStatus('mandatory')
-compValAlarm1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValAlarm1Int.setStatus('mandatory')
-tempAlarm2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempAlarm2Int.setStatus('mandatory')
-humAlarm2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humAlarm2Int.setStatus('mandatory')
-compValAlarm2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValAlarm2Int.setStatus('mandatory')
-bin1AlarmInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin1AlarmInt.setStatus('mandatory')
-bin2AlarmInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin2AlarmInt.setStatus('mandatory')
-bin3AlarmInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin3AlarmInt.setStatus('mandatory')
-tempLim1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempLim1Int.setStatus('mandatory')
-humLim1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humLim1Int.setStatus('mandatory')
-compValLim1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValLim1Int.setStatus('mandatory')
-tempLim2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempLim2Int.setStatus('mandatory')
-humLim2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humLim2Int.setStatus('mandatory')
-compValLim2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValLim2Int.setStatus('mandatory')
-tempHyst1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempHyst1Int.setStatus('mandatory')
-humHyst1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humHyst1Int.setStatus('mandatory')
-compValHyst1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValHyst1Int.setStatus('mandatory')
-tempHyst2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempHyst2Int.setStatus('mandatory')
-humHyst2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humHyst2Int.setStatus('mandatory')
-compValHyst2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValHyst2Int.setStatus('mandatory')
-tempDelay1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempDelay1Int.setStatus('mandatory')
-humDelay1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humDelay1Int.setStatus('mandatory')
-compValDelay1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValDelay1Int.setStatus('mandatory')
-tempDelay2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempDelay2Int.setStatus('mandatory')
-humDelay2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humDelay2Int.setStatus('mandatory')
-compValDelay2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValDelay2Int.setStatus('mandatory')
-tempType1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempType1Int.setStatus('mandatory')
-humType1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 26), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humType1Int.setStatus('mandatory')
-compValType1Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValType1Int.setStatus('mandatory')
-tempType2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 29), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tempType2Int.setStatus('mandatory')
-humType2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 30), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humType2Int.setStatus('mandatory')
-compValType2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 31), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: compValType2Int.setStatus('mandatory')
-bin1DelayInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 33), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin1DelayInt.setStatus('mandatory')
-bin2DelayInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 34), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin2DelayInt.setStatus('mandatory')
-bin3DelayInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 35), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 30000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin3DelayInt.setStatus('mandatory')
-bin1TypeInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 36), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin1TypeInt.setStatus('mandatory')
-bin2TypeInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 37), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin2TypeInt.setStatus('mandatory')
-bin3TypeInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 38), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bin3TypeInt.setStatus('mandatory')
-messageString = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 5, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: messageString.setStatus('mandatory')
-historyTable = MibTable((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1), )
-if mibBuilder.loadTexts: historyTable.setStatus('mandatory')
-historyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1), ).setIndexNames((0, "H3531-MIB", "histTemp"))
-if mibBuilder.loadTexts: historyEntry.setStatus('optional')
-histTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: histTemp.setStatus('mandatory')
-histHum = MibTableColumn((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: histHum.setStatus('mandatory')
-histCompVal = MibTableColumn((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: histCompVal.setStatus('mandatory')
-trapTest = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,0)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapNTPError = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,1)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapEmailErrLogin = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,2)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapEmailErrAuth = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,3)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapEmailErrSome = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,4)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapEmailErrSocket = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,5)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapEmailErrDNS = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,6)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapSOAPErrFile = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,7)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapSOAPErrDNS = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,8)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapSOAPErrSocket = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,9)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapSOAPErrDelivery = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,10)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapTempAlarm1 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,11)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "temp"), ("H3531-MIB", "tempAlarm1Int"))
-trapHumAlarm1 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,12)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "hum"), ("H3531-MIB", "humAlarm1Int"))
-trapCompValAlarm1 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,13)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "compVal"), ("H3531-MIB", "compValAlarm1Int"))
-trapTempAlarm2 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,21)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "temp"), ("H3531-MIB", "tempAlarm2Int"))
-trapHumAlarm2 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,22)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "hum"), ("H3531-MIB", "humAlarm2Int"))
-trapCompValAlarm2 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,23)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "compVal"), ("H3531-MIB", "compValAlarm2Int"))
-trapTempClrAlarm1 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,31)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "temp"), ("H3531-MIB", "tempAlarm1Int"))
-trapHumClrAlarm1 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,32)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "hum"), ("H3531-MIB", "humAlarm1Int"))
-trapCompValClrAlarm1 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,33)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "compVal"), ("H3531-MIB", "compValAlarm1Int"))
-trapTempClrAlarm2 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,41)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "temp"), ("H3531-MIB", "tempAlarm2Int"))
-trapHumClrAlarm2 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,42)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "hum"), ("H3531-MIB", "humAlarm2Int"))
-trapCompValClrAlarm2 = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,43)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "compVal"), ("H3531-MIB", "compValAlarm2Int"))
-trapBin1Alarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,51)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "bin1Int"), ("H3531-MIB", "bin1AlarmInt"))
-trapBin2Alarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,52)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "bin2Int"), ("H3531-MIB", "bin2AlarmInt"))
-trapBin3Alarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,53)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "bin3Int"), ("H3531-MIB", "bin3AlarmInt"))
-trapBin1ClrAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,61)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "bin1Int"), ("H3531-MIB", "bin1AlarmInt"))
-trapBin2ClrAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,62)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "bin2Int"), ("H3531-MIB", "bin2AlarmInt"))
-trapBin3ClrAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,63)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "bin3Int"), ("H3531-MIB", "bin3AlarmInt"))
-trapRelay1Closed = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,70)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "re1Int"))
-trapRelay2Closed = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,71)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "re2Int"))
-trapRelay1Open = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,72)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "re1Int"))
-trapRelay2Open = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,73)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"), ("H3531-MIB", "re2Int"))
-trapAcousticActivated = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,74)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-trapAcousticDeactivated = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,75)).setObjects(("H3531-MIB", "sensorName"), ("H3531-MIB", "messageString"))
-mibBuilder.exportSymbols("H3531-MIB", compValAlarm1Int=compValAlarm1Int, trapTempAlarm1=trapTempAlarm1, trapSOAPErrFile=trapSOAPErrFile, DisplayString=DisplayString, tempLim1Int=tempLim1Int, trapCompValAlarm1=trapCompValAlarm1, humAlarm1=humAlarm1, trapEmailErrSome=trapEmailErrSome, trapSOAPErrDNS=trapSOAPErrDNS, temp=temp, tempUnit=tempUnit, historyTable=historyTable, bin1Int=bin1Int, humUnit=humUnit, compValInt=compValInt, settings=settings, trapHumAlarm1=trapHumAlarm1, tempAlarm2Int=tempAlarm2Int, trapCompValClrAlarm1=trapCompValClrAlarm1, compValDelay1Int=compValDelay1Int, trapEmailErrLogin=trapEmailErrLogin, trapBin2ClrAlarm=trapBin2ClrAlarm, tempHyst2Int=tempHyst2Int, compValHyst2Int=compValHyst2Int, compValType2Int=compValType2Int, humAlarm1Int=humAlarm1Int, trapEmailErrSocket=trapEmailErrSocket, trapBin1ClrAlarm=trapBin1ClrAlarm, trapBin3ClrAlarm=trapBin3ClrAlarm, trapTempClrAlarm1=trapTempClrAlarm1, compValUnit=compValUnit, bin2Alarm=bin2Alarm, bin2=bin2, comet=comet, bin3Alarm=bin3Alarm, trapCompValAlarm2=trapCompValAlarm2, trapSOAPErrSocket=trapSOAPErrSocket, compValAlarm2=compValAlarm2, historyEntry=historyEntry, humLim1Int=humLim1Int, products=products, hum=hum, trapRelay1Open=trapRelay1Open, tempType2Int=tempType2Int, humAlarm2=humAlarm2, bin1AlarmInt=bin1AlarmInt, humHyst1Int=humHyst1Int, tempDelay1Int=tempDelay1Int, tempDelay2Int=tempDelay2Int, trapBin1Alarm=trapBin1Alarm, compValType1Int=compValType1Int, trapEmailErrAuth=trapEmailErrAuth, tempInt=tempInt, compValAlarm1=compValAlarm1, humAlarm2Int=humAlarm2Int, messageString=messageString, bin1TypeInt=bin1TypeInt, trapAcousticDeactivated=trapAcousticDeactivated, trapCompValClrAlarm2=trapCompValClrAlarm2, bin1Alarm=bin1Alarm, bin2AlarmInt=bin2AlarmInt, trapRelay1Closed=trapRelay1Closed, serialNumber=serialNumber, h3531=h3531, valuesInt=valuesInt, bin2TypeInt=bin2TypeInt, deviceType=deviceType, bin1=bin1, bin3Int=bin3Int, bin3DelayInt=bin3DelayInt, trapRelay2Open=trapRelay2Open, histTemp=histTemp, tempType1Int=tempType1Int, histCompVal=histCompVal, tables=tables, trapRelay2Closed=trapRelay2Closed, trapEmailErrDNS=trapEmailErrDNS, trapBin3Alarm=trapBin3Alarm, humDelay1Int=humDelay1Int, humHyst2Int=humHyst2Int, histHum=histHum, bin1DelayInt=bin1DelayInt, compValHyst1Int=compValHyst1Int, trapHumClrAlarm1=trapHumClrAlarm1, bin2Int=bin2Int, trapTempAlarm2=trapTempAlarm2, trapNTPError=trapNTPError, values=values, compValDelay2Int=compValDelay2Int, bin2DelayInt=bin2DelayInt, re1Int=re1Int, bin3=bin3, humInt=humInt, humType1Int=humType1Int, trapHumClrAlarm2=trapHumClrAlarm2, traps=traps, compValLim1Int=compValLim1Int, sensorName=sensorName, compValAlarm2Int=compValAlarm2Int, humDelay2Int=humDelay2Int, humType2Int=humType2Int, tempLim2Int=tempLim2Int, trapSOAPErrDelivery=trapSOAPErrDelivery, pysmi_global=pysmi_global, bin3TypeInt=bin3TypeInt, trapTest=trapTest, humLim2Int=humLim2Int, tempAlarm2=tempAlarm2, trapHumAlarm2=trapHumAlarm2, trapTempClrAlarm2=trapTempClrAlarm2, tempAlarm1Int=tempAlarm1Int, tempHyst1Int=tempHyst1Int, re2=re2, re1=re1, compVal=compVal, tempAlarm1=tempAlarm1, bin3AlarmInt=bin3AlarmInt, re2Int=re2Int, compValLim2Int=compValLim2Int, trapBin2Alarm=trapBin2Alarm, trapAcousticActivated=trapAcousticActivated)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class DisplayString(OctetString):
+    """Custom type DisplayString based on OctetString"""
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Comet_ObjectIdentity = ObjectIdentity
+comet = _Comet_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626)
+)
+_Products_ObjectIdentity = ObjectIdentity
+products = _Products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1)
+)
+_H3531_ObjectIdentity = ObjectIdentity
+h3531 = _H3531_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2)
+)
+_Values_ObjectIdentity = ObjectIdentity
+values = _Values_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1)
+)
+
+
+class _Temp_Type(DisplayString):
+    """Custom type temp based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Temp_Type.__name__ = "DisplayString"
+_Temp_Object = MibScalar
+temp = _Temp_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 1),
+    _Temp_Type()
+)
+temp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    temp.setStatus("mandatory")
+
+
+class _Hum_Type(DisplayString):
+    """Custom type hum based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Hum_Type.__name__ = "DisplayString"
+_Hum_Object = MibScalar
+hum = _Hum_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 2),
+    _Hum_Type()
+)
+hum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hum.setStatus("mandatory")
+
+
+class _CompVal_Type(DisplayString):
+    """Custom type compVal based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_CompVal_Type.__name__ = "DisplayString"
+_CompVal_Object = MibScalar
+compVal = _CompVal_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 3),
+    _CompVal_Type()
+)
+compVal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compVal.setStatus("mandatory")
+
+
+class _Bin1_Type(DisplayString):
+    """Custom type bin1 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Bin1_Type.__name__ = "DisplayString"
+_Bin1_Object = MibScalar
+bin1 = _Bin1_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 5),
+    _Bin1_Type()
+)
+bin1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin1.setStatus("mandatory")
+
+
+class _Bin2_Type(DisplayString):
+    """Custom type bin2 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Bin2_Type.__name__ = "DisplayString"
+_Bin2_Object = MibScalar
+bin2 = _Bin2_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 6),
+    _Bin2_Type()
+)
+bin2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin2.setStatus("mandatory")
+
+
+class _Bin3_Type(DisplayString):
+    """Custom type bin3 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Bin3_Type.__name__ = "DisplayString"
+_Bin3_Object = MibScalar
+bin3 = _Bin3_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 7),
+    _Bin3_Type()
+)
+bin3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin3.setStatus("mandatory")
+
+
+class _Re1_Type(DisplayString):
+    """Custom type re1 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Re1_Type.__name__ = "DisplayString"
+_Re1_Object = MibScalar
+re1 = _Re1_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 8),
+    _Re1_Type()
+)
+re1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    re1.setStatus("mandatory")
+
+
+class _Re2_Type(DisplayString):
+    """Custom type re2 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Re2_Type.__name__ = "DisplayString"
+_Re2_Object = MibScalar
+re2 = _Re2_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 9),
+    _Re2_Type()
+)
+re2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    re2.setStatus("mandatory")
+
+
+class _TempAlarm1_Type(DisplayString):
+    """Custom type tempAlarm1 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_TempAlarm1_Type.__name__ = "DisplayString"
+_TempAlarm1_Object = MibScalar
+tempAlarm1 = _TempAlarm1_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 10),
+    _TempAlarm1_Type()
+)
+tempAlarm1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempAlarm1.setStatus("mandatory")
+
+
+class _HumAlarm1_Type(DisplayString):
+    """Custom type humAlarm1 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_HumAlarm1_Type.__name__ = "DisplayString"
+_HumAlarm1_Object = MibScalar
+humAlarm1 = _HumAlarm1_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 11),
+    _HumAlarm1_Type()
+)
+humAlarm1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humAlarm1.setStatus("mandatory")
+
+
+class _CompValAlarm1_Type(DisplayString):
+    """Custom type compValAlarm1 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_CompValAlarm1_Type.__name__ = "DisplayString"
+_CompValAlarm1_Object = MibScalar
+compValAlarm1 = _CompValAlarm1_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 12),
+    _CompValAlarm1_Type()
+)
+compValAlarm1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValAlarm1.setStatus("mandatory")
+
+
+class _TempAlarm2_Type(DisplayString):
+    """Custom type tempAlarm2 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_TempAlarm2_Type.__name__ = "DisplayString"
+_TempAlarm2_Object = MibScalar
+tempAlarm2 = _TempAlarm2_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 14),
+    _TempAlarm2_Type()
+)
+tempAlarm2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempAlarm2.setStatus("mandatory")
+
+
+class _HumAlarm2_Type(DisplayString):
+    """Custom type humAlarm2 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_HumAlarm2_Type.__name__ = "DisplayString"
+_HumAlarm2_Object = MibScalar
+humAlarm2 = _HumAlarm2_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 15),
+    _HumAlarm2_Type()
+)
+humAlarm2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humAlarm2.setStatus("mandatory")
+
+
+class _CompValAlarm2_Type(DisplayString):
+    """Custom type compValAlarm2 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_CompValAlarm2_Type.__name__ = "DisplayString"
+_CompValAlarm2_Object = MibScalar
+compValAlarm2 = _CompValAlarm2_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 16),
+    _CompValAlarm2_Type()
+)
+compValAlarm2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValAlarm2.setStatus("mandatory")
+
+
+class _Bin1Alarm_Type(DisplayString):
+    """Custom type bin1Alarm based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Bin1Alarm_Type.__name__ = "DisplayString"
+_Bin1Alarm_Object = MibScalar
+bin1Alarm = _Bin1Alarm_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 18),
+    _Bin1Alarm_Type()
+)
+bin1Alarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin1Alarm.setStatus("mandatory")
+
+
+class _Bin2Alarm_Type(DisplayString):
+    """Custom type bin2Alarm based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Bin2Alarm_Type.__name__ = "DisplayString"
+_Bin2Alarm_Object = MibScalar
+bin2Alarm = _Bin2Alarm_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 19),
+    _Bin2Alarm_Type()
+)
+bin2Alarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin2Alarm.setStatus("mandatory")
+
+
+class _Bin3Alarm_Type(DisplayString):
+    """Custom type bin3Alarm based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Bin3Alarm_Type.__name__ = "DisplayString"
+_Bin3Alarm_Object = MibScalar
+bin3Alarm = _Bin3Alarm_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 20),
+    _Bin3Alarm_Type()
+)
+bin3Alarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin3Alarm.setStatus("mandatory")
+
+
+class _TempUnit_Type(DisplayString):
+    """Custom type tempUnit based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_TempUnit_Type.__name__ = "DisplayString"
+_TempUnit_Object = MibScalar
+tempUnit = _TempUnit_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 21),
+    _TempUnit_Type()
+)
+tempUnit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempUnit.setStatus("mandatory")
+
+
+class _HumUnit_Type(DisplayString):
+    """Custom type humUnit based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_HumUnit_Type.__name__ = "DisplayString"
+_HumUnit_Object = MibScalar
+humUnit = _HumUnit_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 22),
+    _HumUnit_Type()
+)
+humUnit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humUnit.setStatus("mandatory")
+
+
+class _CompValUnit_Type(DisplayString):
+    """Custom type compValUnit based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_CompValUnit_Type.__name__ = "DisplayString"
+_CompValUnit_Object = MibScalar
+compValUnit = _CompValUnit_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 23),
+    _CompValUnit_Type()
+)
+compValUnit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValUnit.setStatus("mandatory")
+__pysmi_global_ObjectIdentity = ObjectIdentity
+_pysmi_global = __pysmi_global_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 2)
+)
+
+
+class _SensorName_Type(DisplayString):
+    """Custom type sensorName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 68),
+    )
+
+
+_SensorName_Type.__name__ = "DisplayString"
+_SensorName_Object = MibScalar
+sensorName = _SensorName_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 1),
+    _SensorName_Type()
+)
+sensorName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensorName.setStatus("mandatory")
+
+
+class _SerialNumber_Type(DisplayString):
+    """Custom type serialNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_SerialNumber_Type.__name__ = "DisplayString"
+_SerialNumber_Object = MibScalar
+serialNumber = _SerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 2),
+    _SerialNumber_Type()
+)
+serialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    serialNumber.setStatus("mandatory")
+
+
+class _DeviceType_Type(Integer32):
+    """Custom type deviceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65534),
+    )
+
+
+_DeviceType_Type.__name__ = "Integer32"
+_DeviceType_Object = MibScalar
+deviceType = _DeviceType_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 3),
+    _DeviceType_Type()
+)
+deviceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceType.setStatus("mandatory")
+_ValuesInt_ObjectIdentity = ObjectIdentity
+valuesInt = _ValuesInt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3)
+)
+
+
+class _TempInt_Type(Integer32):
+    """Custom type tempInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_TempInt_Type.__name__ = "Integer32"
+_TempInt_Object = MibScalar
+tempInt = _TempInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 1),
+    _TempInt_Type()
+)
+tempInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempInt.setStatus("mandatory")
+
+
+class _HumInt_Type(Integer32):
+    """Custom type humInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_HumInt_Type.__name__ = "Integer32"
+_HumInt_Object = MibScalar
+humInt = _HumInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 2),
+    _HumInt_Type()
+)
+humInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humInt.setStatus("mandatory")
+
+
+class _CompValInt_Type(Integer32):
+    """Custom type compValInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_CompValInt_Type.__name__ = "Integer32"
+_CompValInt_Object = MibScalar
+compValInt = _CompValInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 3),
+    _CompValInt_Type()
+)
+compValInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValInt.setStatus("mandatory")
+
+
+class _Bin1Int_Type(Integer32):
+    """Custom type bin1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Bin1Int_Type.__name__ = "Integer32"
+_Bin1Int_Object = MibScalar
+bin1Int = _Bin1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 5),
+    _Bin1Int_Type()
+)
+bin1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin1Int.setStatus("mandatory")
+
+
+class _Bin2Int_Type(Integer32):
+    """Custom type bin2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Bin2Int_Type.__name__ = "Integer32"
+_Bin2Int_Object = MibScalar
+bin2Int = _Bin2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 6),
+    _Bin2Int_Type()
+)
+bin2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin2Int.setStatus("mandatory")
+
+
+class _Bin3Int_Type(Integer32):
+    """Custom type bin3Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Bin3Int_Type.__name__ = "Integer32"
+_Bin3Int_Object = MibScalar
+bin3Int = _Bin3Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 7),
+    _Bin3Int_Type()
+)
+bin3Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin3Int.setStatus("mandatory")
+
+
+class _Re1Int_Type(Integer32):
+    """Custom type re1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Re1Int_Type.__name__ = "Integer32"
+_Re1Int_Object = MibScalar
+re1Int = _Re1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 8),
+    _Re1Int_Type()
+)
+re1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    re1Int.setStatus("mandatory")
+
+
+class _Re2Int_Type(Integer32):
+    """Custom type re2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Re2Int_Type.__name__ = "Integer32"
+_Re2Int_Object = MibScalar
+re2Int = _Re2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 9),
+    _Re2Int_Type()
+)
+re2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    re2Int.setStatus("mandatory")
+
+
+class _TempAlarm1Int_Type(Integer32):
+    """Custom type tempAlarm1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_TempAlarm1Int_Type.__name__ = "Integer32"
+_TempAlarm1Int_Object = MibScalar
+tempAlarm1Int = _TempAlarm1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 10),
+    _TempAlarm1Int_Type()
+)
+tempAlarm1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempAlarm1Int.setStatus("mandatory")
+
+
+class _HumAlarm1Int_Type(Integer32):
+    """Custom type humAlarm1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_HumAlarm1Int_Type.__name__ = "Integer32"
+_HumAlarm1Int_Object = MibScalar
+humAlarm1Int = _HumAlarm1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 11),
+    _HumAlarm1Int_Type()
+)
+humAlarm1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humAlarm1Int.setStatus("mandatory")
+
+
+class _CompValAlarm1Int_Type(Integer32):
+    """Custom type compValAlarm1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_CompValAlarm1Int_Type.__name__ = "Integer32"
+_CompValAlarm1Int_Object = MibScalar
+compValAlarm1Int = _CompValAlarm1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 12),
+    _CompValAlarm1Int_Type()
+)
+compValAlarm1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValAlarm1Int.setStatus("mandatory")
+
+
+class _TempAlarm2Int_Type(Integer32):
+    """Custom type tempAlarm2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_TempAlarm2Int_Type.__name__ = "Integer32"
+_TempAlarm2Int_Object = MibScalar
+tempAlarm2Int = _TempAlarm2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 14),
+    _TempAlarm2Int_Type()
+)
+tempAlarm2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempAlarm2Int.setStatus("mandatory")
+
+
+class _HumAlarm2Int_Type(Integer32):
+    """Custom type humAlarm2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_HumAlarm2Int_Type.__name__ = "Integer32"
+_HumAlarm2Int_Object = MibScalar
+humAlarm2Int = _HumAlarm2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 15),
+    _HumAlarm2Int_Type()
+)
+humAlarm2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humAlarm2Int.setStatus("mandatory")
+
+
+class _CompValAlarm2Int_Type(Integer32):
+    """Custom type compValAlarm2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_CompValAlarm2Int_Type.__name__ = "Integer32"
+_CompValAlarm2Int_Object = MibScalar
+compValAlarm2Int = _CompValAlarm2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 16),
+    _CompValAlarm2Int_Type()
+)
+compValAlarm2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValAlarm2Int.setStatus("mandatory")
+
+
+class _Bin1AlarmInt_Type(Integer32):
+    """Custom type bin1AlarmInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Bin1AlarmInt_Type.__name__ = "Integer32"
+_Bin1AlarmInt_Object = MibScalar
+bin1AlarmInt = _Bin1AlarmInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 18),
+    _Bin1AlarmInt_Type()
+)
+bin1AlarmInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin1AlarmInt.setStatus("mandatory")
+
+
+class _Bin2AlarmInt_Type(Integer32):
+    """Custom type bin2AlarmInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Bin2AlarmInt_Type.__name__ = "Integer32"
+_Bin2AlarmInt_Object = MibScalar
+bin2AlarmInt = _Bin2AlarmInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 19),
+    _Bin2AlarmInt_Type()
+)
+bin2AlarmInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin2AlarmInt.setStatus("mandatory")
+
+
+class _Bin3AlarmInt_Type(Integer32):
+    """Custom type bin3AlarmInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Bin3AlarmInt_Type.__name__ = "Integer32"
+_Bin3AlarmInt_Object = MibScalar
+bin3AlarmInt = _Bin3AlarmInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 20),
+    _Bin3AlarmInt_Type()
+)
+bin3AlarmInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin3AlarmInt.setStatus("mandatory")
+_Settings_ObjectIdentity = ObjectIdentity
+settings = _Settings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4)
+)
+
+
+class _TempLim1Int_Type(Integer32):
+    """Custom type tempLim1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_TempLim1Int_Type.__name__ = "Integer32"
+_TempLim1Int_Object = MibScalar
+tempLim1Int = _TempLim1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 1),
+    _TempLim1Int_Type()
+)
+tempLim1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempLim1Int.setStatus("mandatory")
+
+
+class _HumLim1Int_Type(Integer32):
+    """Custom type humLim1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_HumLim1Int_Type.__name__ = "Integer32"
+_HumLim1Int_Object = MibScalar
+humLim1Int = _HumLim1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 2),
+    _HumLim1Int_Type()
+)
+humLim1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humLim1Int.setStatus("mandatory")
+
+
+class _CompValLim1Int_Type(Integer32):
+    """Custom type compValLim1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_CompValLim1Int_Type.__name__ = "Integer32"
+_CompValLim1Int_Object = MibScalar
+compValLim1Int = _CompValLim1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 3),
+    _CompValLim1Int_Type()
+)
+compValLim1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValLim1Int.setStatus("mandatory")
+
+
+class _TempLim2Int_Type(Integer32):
+    """Custom type tempLim2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_TempLim2Int_Type.__name__ = "Integer32"
+_TempLim2Int_Object = MibScalar
+tempLim2Int = _TempLim2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 5),
+    _TempLim2Int_Type()
+)
+tempLim2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempLim2Int.setStatus("mandatory")
+
+
+class _HumLim2Int_Type(Integer32):
+    """Custom type humLim2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_HumLim2Int_Type.__name__ = "Integer32"
+_HumLim2Int_Object = MibScalar
+humLim2Int = _HumLim2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 6),
+    _HumLim2Int_Type()
+)
+humLim2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humLim2Int.setStatus("mandatory")
+
+
+class _CompValLim2Int_Type(Integer32):
+    """Custom type compValLim2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_CompValLim2Int_Type.__name__ = "Integer32"
+_CompValLim2Int_Object = MibScalar
+compValLim2Int = _CompValLim2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 7),
+    _CompValLim2Int_Type()
+)
+compValLim2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValLim2Int.setStatus("mandatory")
+
+
+class _TempHyst1Int_Type(Integer32):
+    """Custom type tempHyst1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_TempHyst1Int_Type.__name__ = "Integer32"
+_TempHyst1Int_Object = MibScalar
+tempHyst1Int = _TempHyst1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 9),
+    _TempHyst1Int_Type()
+)
+tempHyst1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempHyst1Int.setStatus("mandatory")
+
+
+class _HumHyst1Int_Type(Integer32):
+    """Custom type humHyst1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_HumHyst1Int_Type.__name__ = "Integer32"
+_HumHyst1Int_Object = MibScalar
+humHyst1Int = _HumHyst1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 10),
+    _HumHyst1Int_Type()
+)
+humHyst1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humHyst1Int.setStatus("mandatory")
+
+
+class _CompValHyst1Int_Type(Integer32):
+    """Custom type compValHyst1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_CompValHyst1Int_Type.__name__ = "Integer32"
+_CompValHyst1Int_Object = MibScalar
+compValHyst1Int = _CompValHyst1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 11),
+    _CompValHyst1Int_Type()
+)
+compValHyst1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValHyst1Int.setStatus("mandatory")
+
+
+class _TempHyst2Int_Type(Integer32):
+    """Custom type tempHyst2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_TempHyst2Int_Type.__name__ = "Integer32"
+_TempHyst2Int_Object = MibScalar
+tempHyst2Int = _TempHyst2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 13),
+    _TempHyst2Int_Type()
+)
+tempHyst2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempHyst2Int.setStatus("mandatory")
+
+
+class _HumHyst2Int_Type(Integer32):
+    """Custom type humHyst2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_HumHyst2Int_Type.__name__ = "Integer32"
+_HumHyst2Int_Object = MibScalar
+humHyst2Int = _HumHyst2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 14),
+    _HumHyst2Int_Type()
+)
+humHyst2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humHyst2Int.setStatus("mandatory")
+
+
+class _CompValHyst2Int_Type(Integer32):
+    """Custom type compValHyst2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_CompValHyst2Int_Type.__name__ = "Integer32"
+_CompValHyst2Int_Object = MibScalar
+compValHyst2Int = _CompValHyst2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 15),
+    _CompValHyst2Int_Type()
+)
+compValHyst2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValHyst2Int.setStatus("mandatory")
+
+
+class _TempDelay1Int_Type(Integer32):
+    """Custom type tempDelay1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 30000),
+    )
+
+
+_TempDelay1Int_Type.__name__ = "Integer32"
+_TempDelay1Int_Object = MibScalar
+tempDelay1Int = _TempDelay1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 17),
+    _TempDelay1Int_Type()
+)
+tempDelay1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempDelay1Int.setStatus("mandatory")
+
+
+class _HumDelay1Int_Type(Integer32):
+    """Custom type humDelay1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 30000),
+    )
+
+
+_HumDelay1Int_Type.__name__ = "Integer32"
+_HumDelay1Int_Object = MibScalar
+humDelay1Int = _HumDelay1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 18),
+    _HumDelay1Int_Type()
+)
+humDelay1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humDelay1Int.setStatus("mandatory")
+
+
+class _CompValDelay1Int_Type(Integer32):
+    """Custom type compValDelay1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 30000),
+    )
+
+
+_CompValDelay1Int_Type.__name__ = "Integer32"
+_CompValDelay1Int_Object = MibScalar
+compValDelay1Int = _CompValDelay1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 19),
+    _CompValDelay1Int_Type()
+)
+compValDelay1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValDelay1Int.setStatus("mandatory")
+
+
+class _TempDelay2Int_Type(Integer32):
+    """Custom type tempDelay2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 30000),
+    )
+
+
+_TempDelay2Int_Type.__name__ = "Integer32"
+_TempDelay2Int_Object = MibScalar
+tempDelay2Int = _TempDelay2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 21),
+    _TempDelay2Int_Type()
+)
+tempDelay2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempDelay2Int.setStatus("mandatory")
+
+
+class _HumDelay2Int_Type(Integer32):
+    """Custom type humDelay2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 30000),
+    )
+
+
+_HumDelay2Int_Type.__name__ = "Integer32"
+_HumDelay2Int_Object = MibScalar
+humDelay2Int = _HumDelay2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 22),
+    _HumDelay2Int_Type()
+)
+humDelay2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humDelay2Int.setStatus("mandatory")
+
+
+class _CompValDelay2Int_Type(Integer32):
+    """Custom type compValDelay2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 30000),
+    )
+
+
+_CompValDelay2Int_Type.__name__ = "Integer32"
+_CompValDelay2Int_Object = MibScalar
+compValDelay2Int = _CompValDelay2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 23),
+    _CompValDelay2Int_Type()
+)
+compValDelay2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValDelay2Int.setStatus("mandatory")
+
+
+class _TempType1Int_Type(Integer32):
+    """Custom type tempType1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_TempType1Int_Type.__name__ = "Integer32"
+_TempType1Int_Object = MibScalar
+tempType1Int = _TempType1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 25),
+    _TempType1Int_Type()
+)
+tempType1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempType1Int.setStatus("mandatory")
+
+
+class _HumType1Int_Type(Integer32):
+    """Custom type humType1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_HumType1Int_Type.__name__ = "Integer32"
+_HumType1Int_Object = MibScalar
+humType1Int = _HumType1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 26),
+    _HumType1Int_Type()
+)
+humType1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humType1Int.setStatus("mandatory")
+
+
+class _CompValType1Int_Type(Integer32):
+    """Custom type compValType1Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_CompValType1Int_Type.__name__ = "Integer32"
+_CompValType1Int_Object = MibScalar
+compValType1Int = _CompValType1Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 27),
+    _CompValType1Int_Type()
+)
+compValType1Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValType1Int.setStatus("mandatory")
+
+
+class _TempType2Int_Type(Integer32):
+    """Custom type tempType2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_TempType2Int_Type.__name__ = "Integer32"
+_TempType2Int_Object = MibScalar
+tempType2Int = _TempType2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 29),
+    _TempType2Int_Type()
+)
+tempType2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tempType2Int.setStatus("mandatory")
+
+
+class _HumType2Int_Type(Integer32):
+    """Custom type humType2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_HumType2Int_Type.__name__ = "Integer32"
+_HumType2Int_Object = MibScalar
+humType2Int = _HumType2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 30),
+    _HumType2Int_Type()
+)
+humType2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humType2Int.setStatus("mandatory")
+
+
+class _CompValType2Int_Type(Integer32):
+    """Custom type compValType2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_CompValType2Int_Type.__name__ = "Integer32"
+_CompValType2Int_Object = MibScalar
+compValType2Int = _CompValType2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 31),
+    _CompValType2Int_Type()
+)
+compValType2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    compValType2Int.setStatus("mandatory")
+
+
+class _Bin1DelayInt_Type(Integer32):
+    """Custom type bin1DelayInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 30000),
+    )
+
+
+_Bin1DelayInt_Type.__name__ = "Integer32"
+_Bin1DelayInt_Object = MibScalar
+bin1DelayInt = _Bin1DelayInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 33),
+    _Bin1DelayInt_Type()
+)
+bin1DelayInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin1DelayInt.setStatus("mandatory")
+
+
+class _Bin2DelayInt_Type(Integer32):
+    """Custom type bin2DelayInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 30000),
+    )
+
+
+_Bin2DelayInt_Type.__name__ = "Integer32"
+_Bin2DelayInt_Object = MibScalar
+bin2DelayInt = _Bin2DelayInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 34),
+    _Bin2DelayInt_Type()
+)
+bin2DelayInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin2DelayInt.setStatus("mandatory")
+
+
+class _Bin3DelayInt_Type(Integer32):
+    """Custom type bin3DelayInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 30000),
+    )
+
+
+_Bin3DelayInt_Type.__name__ = "Integer32"
+_Bin3DelayInt_Object = MibScalar
+bin3DelayInt = _Bin3DelayInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 35),
+    _Bin3DelayInt_Type()
+)
+bin3DelayInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin3DelayInt.setStatus("mandatory")
+
+
+class _Bin1TypeInt_Type(Integer32):
+    """Custom type bin1TypeInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_Bin1TypeInt_Type.__name__ = "Integer32"
+_Bin1TypeInt_Object = MibScalar
+bin1TypeInt = _Bin1TypeInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 36),
+    _Bin1TypeInt_Type()
+)
+bin1TypeInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin1TypeInt.setStatus("mandatory")
+
+
+class _Bin2TypeInt_Type(Integer32):
+    """Custom type bin2TypeInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_Bin2TypeInt_Type.__name__ = "Integer32"
+_Bin2TypeInt_Object = MibScalar
+bin2TypeInt = _Bin2TypeInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 37),
+    _Bin2TypeInt_Type()
+)
+bin2TypeInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin2TypeInt.setStatus("mandatory")
+
+
+class _Bin3TypeInt_Type(Integer32):
+    """Custom type bin3TypeInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_Bin3TypeInt_Type.__name__ = "Integer32"
+_Bin3TypeInt_Object = MibScalar
+bin3TypeInt = _Bin3TypeInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 38),
+    _Bin3TypeInt_Type()
+)
+bin3TypeInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bin3TypeInt.setStatus("mandatory")
+_Traps_ObjectIdentity = ObjectIdentity
+traps = _Traps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 5)
+)
+
+
+class _MessageString_Type(DisplayString):
+    """Custom type messageString based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_MessageString_Type.__name__ = "DisplayString"
+_MessageString_Object = MibScalar
+messageString = _MessageString_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 5, 1),
+    _MessageString_Type()
+)
+messageString.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    messageString.setStatus("mandatory")
+_Tables_ObjectIdentity = ObjectIdentity
+tables = _Tables_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 6)
+)
+_HistoryTable_Object = MibTable
+historyTable = _HistoryTable_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1)
+)
+if mibBuilder.loadTexts:
+    historyTable.setStatus("mandatory")
+_HistoryEntry_Object = MibTableRow
+historyEntry = _HistoryEntry_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1)
+)
+historyEntry.setIndexNames(
+    (0, "H3531-MIB", "histTemp"),
+)
+if mibBuilder.loadTexts:
+    historyEntry.setStatus("optional")
+
+
+class _HistTemp_Type(Integer32):
+    """Custom type histTemp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_HistTemp_Type.__name__ = "Integer32"
+_HistTemp_Object = MibTableColumn
+histTemp = _HistTemp_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 1),
+    _HistTemp_Type()
+)
+histTemp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    histTemp.setStatus("mandatory")
+
+
+class _HistHum_Type(Integer32):
+    """Custom type histHum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_HistHum_Type.__name__ = "Integer32"
+_HistHum_Object = MibTableColumn
+histHum = _HistHum_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 2),
+    _HistHum_Type()
+)
+histHum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    histHum.setStatus("mandatory")
+
+
+class _HistCompVal_Type(Integer32):
+    """Custom type histCompVal based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_HistCompVal_Type.__name__ = "Integer32"
+_HistCompVal_Object = MibTableColumn
+histCompVal = _HistCompVal_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 3),
+    _HistCompVal_Type()
+)
+histCompVal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    histCompVal.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+trapTest = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 0)
+)
+trapTest.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapTest.setStatus(
+        ""
+    )
+
+trapNTPError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 1)
+)
+trapNTPError.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapNTPError.setStatus(
+        ""
+    )
+
+trapEmailErrLogin = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 2)
+)
+trapEmailErrLogin.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapEmailErrLogin.setStatus(
+        ""
+    )
+
+trapEmailErrAuth = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 3)
+)
+trapEmailErrAuth.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapEmailErrAuth.setStatus(
+        ""
+    )
+
+trapEmailErrSome = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 4)
+)
+trapEmailErrSome.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapEmailErrSome.setStatus(
+        ""
+    )
+
+trapEmailErrSocket = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 5)
+)
+trapEmailErrSocket.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapEmailErrSocket.setStatus(
+        ""
+    )
+
+trapEmailErrDNS = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 6)
+)
+trapEmailErrDNS.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapEmailErrDNS.setStatus(
+        ""
+    )
+
+trapSOAPErrFile = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 7)
+)
+trapSOAPErrFile.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapSOAPErrFile.setStatus(
+        ""
+    )
+
+trapSOAPErrDNS = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 8)
+)
+trapSOAPErrDNS.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapSOAPErrDNS.setStatus(
+        ""
+    )
+
+trapSOAPErrSocket = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 9)
+)
+trapSOAPErrSocket.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapSOAPErrSocket.setStatus(
+        ""
+    )
+
+trapSOAPErrDelivery = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 10)
+)
+trapSOAPErrDelivery.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapSOAPErrDelivery.setStatus(
+        ""
+    )
+
+trapTempAlarm1 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 11)
+)
+trapTempAlarm1.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "temp"),
+        ("H3531-MIB", "tempAlarm1Int"))
+)
+if mibBuilder.loadTexts:
+    trapTempAlarm1.setStatus(
+        ""
+    )
+
+trapHumAlarm1 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 12)
+)
+trapHumAlarm1.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "hum"),
+        ("H3531-MIB", "humAlarm1Int"))
+)
+if mibBuilder.loadTexts:
+    trapHumAlarm1.setStatus(
+        ""
+    )
+
+trapCompValAlarm1 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 13)
+)
+trapCompValAlarm1.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "compVal"),
+        ("H3531-MIB", "compValAlarm1Int"))
+)
+if mibBuilder.loadTexts:
+    trapCompValAlarm1.setStatus(
+        ""
+    )
+
+trapTempAlarm2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 21)
+)
+trapTempAlarm2.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "temp"),
+        ("H3531-MIB", "tempAlarm2Int"))
+)
+if mibBuilder.loadTexts:
+    trapTempAlarm2.setStatus(
+        ""
+    )
+
+trapHumAlarm2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 22)
+)
+trapHumAlarm2.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "hum"),
+        ("H3531-MIB", "humAlarm2Int"))
+)
+if mibBuilder.loadTexts:
+    trapHumAlarm2.setStatus(
+        ""
+    )
+
+trapCompValAlarm2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 23)
+)
+trapCompValAlarm2.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "compVal"),
+        ("H3531-MIB", "compValAlarm2Int"))
+)
+if mibBuilder.loadTexts:
+    trapCompValAlarm2.setStatus(
+        ""
+    )
+
+trapTempClrAlarm1 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 31)
+)
+trapTempClrAlarm1.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "temp"),
+        ("H3531-MIB", "tempAlarm1Int"))
+)
+if mibBuilder.loadTexts:
+    trapTempClrAlarm1.setStatus(
+        ""
+    )
+
+trapHumClrAlarm1 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 32)
+)
+trapHumClrAlarm1.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "hum"),
+        ("H3531-MIB", "humAlarm1Int"))
+)
+if mibBuilder.loadTexts:
+    trapHumClrAlarm1.setStatus(
+        ""
+    )
+
+trapCompValClrAlarm1 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 33)
+)
+trapCompValClrAlarm1.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "compVal"),
+        ("H3531-MIB", "compValAlarm1Int"))
+)
+if mibBuilder.loadTexts:
+    trapCompValClrAlarm1.setStatus(
+        ""
+    )
+
+trapTempClrAlarm2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 41)
+)
+trapTempClrAlarm2.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "temp"),
+        ("H3531-MIB", "tempAlarm2Int"))
+)
+if mibBuilder.loadTexts:
+    trapTempClrAlarm2.setStatus(
+        ""
+    )
+
+trapHumClrAlarm2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 42)
+)
+trapHumClrAlarm2.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "hum"),
+        ("H3531-MIB", "humAlarm2Int"))
+)
+if mibBuilder.loadTexts:
+    trapHumClrAlarm2.setStatus(
+        ""
+    )
+
+trapCompValClrAlarm2 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 43)
+)
+trapCompValClrAlarm2.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "compVal"),
+        ("H3531-MIB", "compValAlarm2Int"))
+)
+if mibBuilder.loadTexts:
+    trapCompValClrAlarm2.setStatus(
+        ""
+    )
+
+trapBin1Alarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 51)
+)
+trapBin1Alarm.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "bin1Int"),
+        ("H3531-MIB", "bin1AlarmInt"))
+)
+if mibBuilder.loadTexts:
+    trapBin1Alarm.setStatus(
+        ""
+    )
+
+trapBin2Alarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 52)
+)
+trapBin2Alarm.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "bin2Int"),
+        ("H3531-MIB", "bin2AlarmInt"))
+)
+if mibBuilder.loadTexts:
+    trapBin2Alarm.setStatus(
+        ""
+    )
+
+trapBin3Alarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 53)
+)
+trapBin3Alarm.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "bin3Int"),
+        ("H3531-MIB", "bin3AlarmInt"))
+)
+if mibBuilder.loadTexts:
+    trapBin3Alarm.setStatus(
+        ""
+    )
+
+trapBin1ClrAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 61)
+)
+trapBin1ClrAlarm.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "bin1Int"),
+        ("H3531-MIB", "bin1AlarmInt"))
+)
+if mibBuilder.loadTexts:
+    trapBin1ClrAlarm.setStatus(
+        ""
+    )
+
+trapBin2ClrAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 62)
+)
+trapBin2ClrAlarm.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "bin2Int"),
+        ("H3531-MIB", "bin2AlarmInt"))
+)
+if mibBuilder.loadTexts:
+    trapBin2ClrAlarm.setStatus(
+        ""
+    )
+
+trapBin3ClrAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 63)
+)
+trapBin3ClrAlarm.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "bin3Int"),
+        ("H3531-MIB", "bin3AlarmInt"))
+)
+if mibBuilder.loadTexts:
+    trapBin3ClrAlarm.setStatus(
+        ""
+    )
+
+trapRelay1Closed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 70)
+)
+trapRelay1Closed.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "re1Int"))
+)
+if mibBuilder.loadTexts:
+    trapRelay1Closed.setStatus(
+        ""
+    )
+
+trapRelay2Closed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 71)
+)
+trapRelay2Closed.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "re2Int"))
+)
+if mibBuilder.loadTexts:
+    trapRelay2Closed.setStatus(
+        ""
+    )
+
+trapRelay1Open = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 72)
+)
+trapRelay1Open.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "re1Int"))
+)
+if mibBuilder.loadTexts:
+    trapRelay1Open.setStatus(
+        ""
+    )
+
+trapRelay2Open = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 73)
+)
+trapRelay2Open.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"),
+        ("H3531-MIB", "re2Int"))
+)
+if mibBuilder.loadTexts:
+    trapRelay2Open.setStatus(
+        ""
+    )
+
+trapAcousticActivated = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 74)
+)
+trapAcousticActivated.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapAcousticActivated.setStatus(
+        ""
+    )
+
+trapAcousticDeactivated = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 75)
+)
+trapAcousticDeactivated.setObjects(
+      *(("H3531-MIB", "sensorName"),
+        ("H3531-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapAcousticDeactivated.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3531-MIB",
+    **{"DisplayString": DisplayString,
+       "comet": comet,
+       "trapTest": trapTest,
+       "trapNTPError": trapNTPError,
+       "trapEmailErrLogin": trapEmailErrLogin,
+       "trapEmailErrAuth": trapEmailErrAuth,
+       "trapEmailErrSome": trapEmailErrSome,
+       "trapEmailErrSocket": trapEmailErrSocket,
+       "trapEmailErrDNS": trapEmailErrDNS,
+       "trapSOAPErrFile": trapSOAPErrFile,
+       "trapSOAPErrDNS": trapSOAPErrDNS,
+       "trapSOAPErrSocket": trapSOAPErrSocket,
+       "trapSOAPErrDelivery": trapSOAPErrDelivery,
+       "trapTempAlarm1": trapTempAlarm1,
+       "trapHumAlarm1": trapHumAlarm1,
+       "trapCompValAlarm1": trapCompValAlarm1,
+       "trapTempAlarm2": trapTempAlarm2,
+       "trapHumAlarm2": trapHumAlarm2,
+       "trapCompValAlarm2": trapCompValAlarm2,
+       "trapTempClrAlarm1": trapTempClrAlarm1,
+       "trapHumClrAlarm1": trapHumClrAlarm1,
+       "trapCompValClrAlarm1": trapCompValClrAlarm1,
+       "trapTempClrAlarm2": trapTempClrAlarm2,
+       "trapHumClrAlarm2": trapHumClrAlarm2,
+       "trapCompValClrAlarm2": trapCompValClrAlarm2,
+       "trapBin1Alarm": trapBin1Alarm,
+       "trapBin2Alarm": trapBin2Alarm,
+       "trapBin3Alarm": trapBin3Alarm,
+       "trapBin1ClrAlarm": trapBin1ClrAlarm,
+       "trapBin2ClrAlarm": trapBin2ClrAlarm,
+       "trapBin3ClrAlarm": trapBin3ClrAlarm,
+       "trapRelay1Closed": trapRelay1Closed,
+       "trapRelay2Closed": trapRelay2Closed,
+       "trapRelay1Open": trapRelay1Open,
+       "trapRelay2Open": trapRelay2Open,
+       "trapAcousticActivated": trapAcousticActivated,
+       "trapAcousticDeactivated": trapAcousticDeactivated,
+       "products": products,
+       "h3531": h3531,
+       "values": values,
+       "temp": temp,
+       "hum": hum,
+       "compVal": compVal,
+       "bin1": bin1,
+       "bin2": bin2,
+       "bin3": bin3,
+       "re1": re1,
+       "re2": re2,
+       "tempAlarm1": tempAlarm1,
+       "humAlarm1": humAlarm1,
+       "compValAlarm1": compValAlarm1,
+       "tempAlarm2": tempAlarm2,
+       "humAlarm2": humAlarm2,
+       "compValAlarm2": compValAlarm2,
+       "bin1Alarm": bin1Alarm,
+       "bin2Alarm": bin2Alarm,
+       "bin3Alarm": bin3Alarm,
+       "tempUnit": tempUnit,
+       "humUnit": humUnit,
+       "compValUnit": compValUnit,
+       "global": _pysmi_global,
+       "sensorName": sensorName,
+       "serialNumber": serialNumber,
+       "deviceType": deviceType,
+       "valuesInt": valuesInt,
+       "tempInt": tempInt,
+       "humInt": humInt,
+       "compValInt": compValInt,
+       "bin1Int": bin1Int,
+       "bin2Int": bin2Int,
+       "bin3Int": bin3Int,
+       "re1Int": re1Int,
+       "re2Int": re2Int,
+       "tempAlarm1Int": tempAlarm1Int,
+       "humAlarm1Int": humAlarm1Int,
+       "compValAlarm1Int": compValAlarm1Int,
+       "tempAlarm2Int": tempAlarm2Int,
+       "humAlarm2Int": humAlarm2Int,
+       "compValAlarm2Int": compValAlarm2Int,
+       "bin1AlarmInt": bin1AlarmInt,
+       "bin2AlarmInt": bin2AlarmInt,
+       "bin3AlarmInt": bin3AlarmInt,
+       "settings": settings,
+       "tempLim1Int": tempLim1Int,
+       "humLim1Int": humLim1Int,
+       "compValLim1Int": compValLim1Int,
+       "tempLim2Int": tempLim2Int,
+       "humLim2Int": humLim2Int,
+       "compValLim2Int": compValLim2Int,
+       "tempHyst1Int": tempHyst1Int,
+       "humHyst1Int": humHyst1Int,
+       "compValHyst1Int": compValHyst1Int,
+       "tempHyst2Int": tempHyst2Int,
+       "humHyst2Int": humHyst2Int,
+       "compValHyst2Int": compValHyst2Int,
+       "tempDelay1Int": tempDelay1Int,
+       "humDelay1Int": humDelay1Int,
+       "compValDelay1Int": compValDelay1Int,
+       "tempDelay2Int": tempDelay2Int,
+       "humDelay2Int": humDelay2Int,
+       "compValDelay2Int": compValDelay2Int,
+       "tempType1Int": tempType1Int,
+       "humType1Int": humType1Int,
+       "compValType1Int": compValType1Int,
+       "tempType2Int": tempType2Int,
+       "humType2Int": humType2Int,
+       "compValType2Int": compValType2Int,
+       "bin1DelayInt": bin1DelayInt,
+       "bin2DelayInt": bin2DelayInt,
+       "bin3DelayInt": bin3DelayInt,
+       "bin1TypeInt": bin1TypeInt,
+       "bin2TypeInt": bin2TypeInt,
+       "bin3TypeInt": bin3TypeInt,
+       "traps": traps,
+       "messageString": messageString,
+       "tables": tables,
+       "historyTable": historyTable,
+       "historyEntry": historyEntry,
+       "histTemp": histTemp,
+       "histHum": histHum,
+       "histCompVal": histCompVal}
+)

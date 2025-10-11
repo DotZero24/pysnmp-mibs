@@ -1,56 +1,435 @@
+# SNMP MIB module (TIMETRA-SAS-SDP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TIMETRA-SAS-SDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TIMETRA-SAS-SDP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:37:19 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TIMETRA-SAS-SDP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:54:36 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-RowStatus, TextualConvention, MacAddress, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "TimeStamp", "DisplayString")
-tmnxMDASlotNum, tmnxCardSlotNum, tmnxChassisIndex = mibBuilder.importSymbols("TIMETRA-CHASSIS-MIB", "tmnxMDASlotNum", "tmnxCardSlotNum", "tmnxChassisIndex")
-TFilterID, = mibBuilder.importSymbols("TIMETRA-FILTER-MIB", "TFilterID")
-timetraSRMIBModules, = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "timetraSRMIBModules")
-timetraSASModules, timetraSASNotifyPrefix, timetraSASConfs, timetraSASObjs = mibBuilder.importSymbols("TIMETRA-SAS-GLOBAL-MIB", "timetraSASModules", "timetraSASNotifyPrefix", "timetraSASConfs", "timetraSASObjs")
-tmnxSASServConformance, = mibBuilder.importSymbols("TIMETRA-SAS-SERV-MIB", "tmnxSASServConformance")
-sdpBindBaseStatsEntry, sdpBindEntry = mibBuilder.importSymbols("TIMETRA-SDP-MIB", "sdpBindBaseStatsEntry", "sdpBindEntry")
-tmnxServObjs, tmnxCustomerRootBridgeId, tmnxOldSdpBindTlsStpPortState, SdpId, svcTlsStpDesignatedRoot, svcDhcpLseStatePopulateError, SdpBindBandwidth, TdmOptionsSigPkts, TlsLimitMacMoveLevel, SdpBindVcType, svcDhcpSubAuthError, ServObjName, MvplsPruneState, LspIdList, TStpPortState, ServObjDesc, VpnId, StpProtocol, svcDhcpCoAError, tmnxCustomerBridgeId, svcDhcpLseStateNewChAddr, StpPortRole, StpExceptionCondition, svcDhcpProxyError, PWTemplateId, svcTlsMacMoveMaxRate, tstpTraps, svcDhcpLseStateNewCiAddr, SdpBFHundredthsOfPercent, custId, tmnxOtherBridgeId, svcId, svcDhcpLseStateOldChAddr, L2ptProtocols, ConfigStatus, tmnxServNotifications, svcDhcpLseStateOldCiAddr, TdmOptionsCasTrunkFraming, svcDhcpPacketProblem, BridgeId, svcVpnId, tlsDhcpPacketProblem, tmnxServConformance, svcDhcpClientLease, tmnxSvcObjs, TlsLimitMacMove = mibBuilder.importSymbols("TIMETRA-SERV-MIB", "tmnxServObjs", "tmnxCustomerRootBridgeId", "tmnxOldSdpBindTlsStpPortState", "SdpId", "svcTlsStpDesignatedRoot", "svcDhcpLseStatePopulateError", "SdpBindBandwidth", "TdmOptionsSigPkts", "TlsLimitMacMoveLevel", "SdpBindVcType", "svcDhcpSubAuthError", "ServObjName", "MvplsPruneState", "LspIdList", "TStpPortState", "ServObjDesc", "VpnId", "StpProtocol", "svcDhcpCoAError", "tmnxCustomerBridgeId", "svcDhcpLseStateNewChAddr", "StpPortRole", "StpExceptionCondition", "svcDhcpProxyError", "PWTemplateId", "svcTlsMacMoveMaxRate", "tstpTraps", "svcDhcpLseStateNewCiAddr", "SdpBFHundredthsOfPercent", "custId", "tmnxOtherBridgeId", "svcId", "svcDhcpLseStateOldChAddr", "L2ptProtocols", "ConfigStatus", "tmnxServNotifications", "svcDhcpLseStateOldCiAddr", "TdmOptionsCasTrunkFraming", "svcDhcpPacketProblem", "BridgeId", "svcVpnId", "tlsDhcpPacketProblem", "tmnxServConformance", "svcDhcpClientLease", "tmnxSvcObjs", "TlsLimitMacMove")
-TmnxVPNRouteDistinguisher, TmnxCustId, TmnxActionType, TmnxVRtrMplsLspID, TNamedItem, TItemDescription, TmnxOperState, TmnxEnabledDisabled, ServiceAdminStatus, TPolicyStatementNameOrEmpty, TmnxIgmpVersion, TNamedItemOrEmpty, SdpBindId, TmnxServId = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TmnxVPNRouteDistinguisher", "TmnxCustId", "TmnxActionType", "TmnxVRtrMplsLspID", "TNamedItem", "TItemDescription", "TmnxOperState", "TmnxEnabledDisabled", "ServiceAdminStatus", "TPolicyStatementNameOrEmpty", "TmnxIgmpVersion", "TNamedItemOrEmpty", "SdpBindId", "TmnxServId")
-timetraSASServicesSdpMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 6, 2, 1, 1, 12))
-timetraSASServicesSdpMIBModule.setRevisions(('1907-10-01 00:00',))
-if mibBuilder.loadTexts: timetraSASServicesSdpMIBModule.setLastUpdated('1102010000Z')
-if mibBuilder.loadTexts: timetraSASServicesSdpMIBModule.setOrganization('Alcatel')
-tmnxSASSdpObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12))
-tmnxSASSdpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 13))
-sdpBindExtnTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 4), )
-if mibBuilder.loadTexts: sdpBindExtnTable.setStatus('current')
-sdpBindExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 4, 1), )
-sdpBindEntry.registerAugmentions(("TIMETRA-SAS-SDP-MIB", "sdpBindExtnEntry"))
-sdpBindExtnEntry.setIndexNames(*sdpBindEntry.getIndexNames())
-if mibBuilder.loadTexts: sdpBindExtnEntry.setStatus('current')
-sdpBindIngressExtraVlanTagDropCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 4, 1, 1), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: sdpBindIngressExtraVlanTagDropCount.setStatus('current')
-sdpBindBaseStatsExtnTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 5), )
-if mibBuilder.loadTexts: sdpBindBaseStatsExtnTable.setStatus('current')
-sdpBindBaseStatsExtnEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 5, 1), )
-sdpBindBaseStatsEntry.registerAugmentions(("TIMETRA-SAS-SDP-MIB", "sdpBindBaseStatsExtnEntry"))
-sdpBindBaseStatsExtnEntry.setIndexNames(*sdpBindBaseStatsEntry.getIndexNames())
-if mibBuilder.loadTexts: sdpBindBaseStatsExtnEntry.setStatus('current')
-sdpBindIngressExtraVlanTagDroppedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 5, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdpBindIngressExtraVlanTagDroppedPackets.setStatus('current')
-sdpBindIngressExtraVlanTagDroppedOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 5, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sdpBindIngressExtraVlanTagDroppedOctets.setStatus('current')
-tmnxSASSdpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 13, 1))
-tmnxSASSdpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 13, 2))
-tmnxSASSdp7210V3v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 13, 1, 1)).setObjects(("TIMETRA-SAS-SDP-MIB", "tmnxSASSdpV3v0Group"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxSASSdp7210V3v0Compliance = tmnxSASSdp7210V3v0Compliance.setStatus('current')
-tmnxSASSdpV3v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 13, 2, 1)).setObjects(("TIMETRA-SAS-SDP-MIB", "sdpBindIngressExtraVlanTagDropCount"), ("TIMETRA-SAS-SDP-MIB", "sdpBindIngressExtraVlanTagDroppedPackets"), ("TIMETRA-SAS-SDP-MIB", "sdpBindIngressExtraVlanTagDroppedOctets"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxSASSdpV3v0Group = tmnxSASSdpV3v0Group.setStatus('current')
-mibBuilder.exportSymbols("TIMETRA-SAS-SDP-MIB", sdpBindExtnTable=sdpBindExtnTable, sdpBindExtnEntry=sdpBindExtnEntry, tmnxSASSdpGroups=tmnxSASSdpGroups, sdpBindIngressExtraVlanTagDropCount=sdpBindIngressExtraVlanTagDropCount, tmnxSASSdpV3v0Group=tmnxSASSdpV3v0Group, PYSNMP_MODULE_ID=timetraSASServicesSdpMIBModule, sdpBindBaseStatsExtnTable=sdpBindBaseStatsExtnTable, tmnxSASSdp7210V3v0Compliance=tmnxSASSdp7210V3v0Compliance, timetraSASServicesSdpMIBModule=timetraSASServicesSdpMIBModule, tmnxSASSdpObjs=tmnxSASSdpObjs, sdpBindIngressExtraVlanTagDroppedPackets=sdpBindIngressExtraVlanTagDroppedPackets, sdpBindBaseStatsExtnEntry=sdpBindBaseStatsExtnEntry, tmnxSASSdpCompliances=tmnxSASSdpCompliances, sdpBindIngressExtraVlanTagDroppedOctets=sdpBindIngressExtraVlanTagDroppedOctets, tmnxSASSdpConformance=tmnxSASSdpConformance)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+(tmnxCardSlotNum,
+ tmnxChassisIndex,
+ tmnxMDASlotNum) = mibBuilder.importSymbols(
+    "TIMETRA-CHASSIS-MIB",
+    "tmnxCardSlotNum",
+    "tmnxChassisIndex",
+    "tmnxMDASlotNum")
+
+(TFilterID,) = mibBuilder.importSymbols(
+    "TIMETRA-FILTER-MIB",
+    "TFilterID")
+
+(timetraSRMIBModules,) = mibBuilder.importSymbols(
+    "TIMETRA-GLOBAL-MIB",
+    "timetraSRMIBModules")
+
+(timetraSASConfs,
+ timetraSASModules,
+ timetraSASNotifyPrefix,
+ timetraSASObjs) = mibBuilder.importSymbols(
+    "TIMETRA-SAS-GLOBAL-MIB",
+    "timetraSASConfs",
+    "timetraSASModules",
+    "timetraSASNotifyPrefix",
+    "timetraSASObjs")
+
+(tmnxSASServConformance,) = mibBuilder.importSymbols(
+    "TIMETRA-SAS-SERV-MIB",
+    "tmnxSASServConformance")
+
+(sdpBindBaseStatsEntry,
+ sdpBindEntry) = mibBuilder.importSymbols(
+    "TIMETRA-SDP-MIB",
+    "sdpBindBaseStatsEntry",
+    "sdpBindEntry")
+
+(BridgeId,
+ ConfigStatus,
+ L2ptProtocols,
+ LspIdList,
+ MvplsPruneState,
+ PWTemplateId,
+ SdpBFHundredthsOfPercent,
+ SdpBindBandwidth,
+ SdpBindVcType,
+ SdpId,
+ ServObjDesc,
+ ServObjName,
+ StpExceptionCondition,
+ StpPortRole,
+ StpProtocol,
+ TStpPortState,
+ TdmOptionsCasTrunkFraming,
+ TdmOptionsSigPkts,
+ TlsLimitMacMove,
+ TlsLimitMacMoveLevel,
+ VpnId,
+ custId,
+ svcDhcpClientLease,
+ svcDhcpCoAError,
+ svcDhcpLseStateNewChAddr,
+ svcDhcpLseStateNewCiAddr,
+ svcDhcpLseStateOldChAddr,
+ svcDhcpLseStateOldCiAddr,
+ svcDhcpLseStatePopulateError,
+ svcDhcpPacketProblem,
+ svcDhcpProxyError,
+ svcDhcpSubAuthError,
+ svcId,
+ svcTlsMacMoveMaxRate,
+ svcTlsStpDesignatedRoot,
+ svcVpnId,
+ tlsDhcpPacketProblem,
+ tmnxCustomerBridgeId,
+ tmnxCustomerRootBridgeId,
+ tmnxOldSdpBindTlsStpPortState,
+ tmnxOtherBridgeId,
+ tmnxServConformance,
+ tmnxServNotifications,
+ tmnxServObjs,
+ tmnxSvcObjs,
+ tstpTraps) = mibBuilder.importSymbols(
+    "TIMETRA-SERV-MIB",
+    "BridgeId",
+    "ConfigStatus",
+    "L2ptProtocols",
+    "LspIdList",
+    "MvplsPruneState",
+    "PWTemplateId",
+    "SdpBFHundredthsOfPercent",
+    "SdpBindBandwidth",
+    "SdpBindVcType",
+    "SdpId",
+    "ServObjDesc",
+    "ServObjName",
+    "StpExceptionCondition",
+    "StpPortRole",
+    "StpProtocol",
+    "TStpPortState",
+    "TdmOptionsCasTrunkFraming",
+    "TdmOptionsSigPkts",
+    "TlsLimitMacMove",
+    "TlsLimitMacMoveLevel",
+    "VpnId",
+    "custId",
+    "svcDhcpClientLease",
+    "svcDhcpCoAError",
+    "svcDhcpLseStateNewChAddr",
+    "svcDhcpLseStateNewCiAddr",
+    "svcDhcpLseStateOldChAddr",
+    "svcDhcpLseStateOldCiAddr",
+    "svcDhcpLseStatePopulateError",
+    "svcDhcpPacketProblem",
+    "svcDhcpProxyError",
+    "svcDhcpSubAuthError",
+    "svcId",
+    "svcTlsMacMoveMaxRate",
+    "svcTlsStpDesignatedRoot",
+    "svcVpnId",
+    "tlsDhcpPacketProblem",
+    "tmnxCustomerBridgeId",
+    "tmnxCustomerRootBridgeId",
+    "tmnxOldSdpBindTlsStpPortState",
+    "tmnxOtherBridgeId",
+    "tmnxServConformance",
+    "tmnxServNotifications",
+    "tmnxServObjs",
+    "tmnxSvcObjs",
+    "tstpTraps")
+
+(SdpBindId,
+ ServiceAdminStatus,
+ TItemDescription,
+ TNamedItem,
+ TNamedItemOrEmpty,
+ TPolicyStatementNameOrEmpty,
+ TmnxActionType,
+ TmnxCustId,
+ TmnxEnabledDisabled,
+ TmnxIgmpVersion,
+ TmnxOperState,
+ TmnxServId,
+ TmnxVPNRouteDistinguisher,
+ TmnxVRtrMplsLspID) = mibBuilder.importSymbols(
+    "TIMETRA-TC-MIB",
+    "SdpBindId",
+    "ServiceAdminStatus",
+    "TItemDescription",
+    "TNamedItem",
+    "TNamedItemOrEmpty",
+    "TPolicyStatementNameOrEmpty",
+    "TmnxActionType",
+    "TmnxCustId",
+    "TmnxEnabledDisabled",
+    "TmnxIgmpVersion",
+    "TmnxOperState",
+    "TmnxServId",
+    "TmnxVPNRouteDistinguisher",
+    "TmnxVRtrMplsLspID")
+
+
+# MODULE-IDENTITY
+
+timetraSASServicesSdpMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 1, 1, 12)
+)
+if mibBuilder.loadTexts:
+    timetraSASServicesSdpMIBModule.setRevisions(
+        ("1907-10-01 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TmnxSASSdpConformance_ObjectIdentity = ObjectIdentity
+tmnxSASSdpConformance = _TmnxSASSdpConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 13)
+)
+_TmnxSASSdpCompliances_ObjectIdentity = ObjectIdentity
+tmnxSASSdpCompliances = _TmnxSASSdpCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 13, 1)
+)
+_TmnxSASSdpGroups_ObjectIdentity = ObjectIdentity
+tmnxSASSdpGroups = _TmnxSASSdpGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 13, 2)
+)
+_TmnxSASSdpObjs_ObjectIdentity = ObjectIdentity
+tmnxSASSdpObjs = _TmnxSASSdpObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12)
+)
+_SdpBindExtnTable_Object = MibTable
+sdpBindExtnTable = _SdpBindExtnTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 4)
+)
+if mibBuilder.loadTexts:
+    sdpBindExtnTable.setStatus("current")
+_SdpBindExtnEntry_Object = MibTableRow
+sdpBindExtnEntry = _SdpBindExtnEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 4, 1)
+)
+if mibBuilder.loadTexts:
+    sdpBindExtnEntry.setStatus("current")
+
+
+class _SdpBindIngressExtraVlanTagDropCount_Type(TruthValue):
+    """Custom type sdpBindIngressExtraVlanTagDropCount based on TruthValue"""
+    defaultValue = 2
+
+
+_SdpBindIngressExtraVlanTagDropCount_Type.__name__ = "TruthValue"
+_SdpBindIngressExtraVlanTagDropCount_Object = MibTableColumn
+sdpBindIngressExtraVlanTagDropCount = _SdpBindIngressExtraVlanTagDropCount_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 4, 1, 1),
+    _SdpBindIngressExtraVlanTagDropCount_Type()
+)
+sdpBindIngressExtraVlanTagDropCount.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    sdpBindIngressExtraVlanTagDropCount.setStatus("current")
+_SdpBindBaseStatsExtnTable_Object = MibTable
+sdpBindBaseStatsExtnTable = _SdpBindBaseStatsExtnTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 5)
+)
+if mibBuilder.loadTexts:
+    sdpBindBaseStatsExtnTable.setStatus("current")
+_SdpBindBaseStatsExtnEntry_Object = MibTableRow
+sdpBindBaseStatsExtnEntry = _SdpBindBaseStatsExtnEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 5, 1)
+)
+if mibBuilder.loadTexts:
+    sdpBindBaseStatsExtnEntry.setStatus("current")
+_SdpBindIngressExtraVlanTagDroppedPackets_Type = Counter64
+_SdpBindIngressExtraVlanTagDroppedPackets_Object = MibTableColumn
+sdpBindIngressExtraVlanTagDroppedPackets = _SdpBindIngressExtraVlanTagDroppedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 5, 1, 1),
+    _SdpBindIngressExtraVlanTagDroppedPackets_Type()
+)
+sdpBindIngressExtraVlanTagDroppedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sdpBindIngressExtraVlanTagDroppedPackets.setStatus("current")
+_SdpBindIngressExtraVlanTagDroppedOctets_Type = Counter64
+_SdpBindIngressExtraVlanTagDroppedOctets_Object = MibTableColumn
+sdpBindIngressExtraVlanTagDroppedOctets = _SdpBindIngressExtraVlanTagDroppedOctets_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 2, 12, 5, 1, 2),
+    _SdpBindIngressExtraVlanTagDroppedOctets_Type()
+)
+sdpBindIngressExtraVlanTagDroppedOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sdpBindIngressExtraVlanTagDroppedOctets.setStatus("current")
+sdpBindEntry.registerAugmentions(
+    ("TIMETRA-SAS-SDP-MIB",
+     "sdpBindExtnEntry")
+)
+sdpBindExtnEntry.setIndexNames(*sdpBindEntry.getIndexNames())
+sdpBindBaseStatsEntry.registerAugmentions(
+    ("TIMETRA-SAS-SDP-MIB",
+     "sdpBindBaseStatsExtnEntry")
+)
+sdpBindBaseStatsExtnEntry.setIndexNames(*sdpBindBaseStatsEntry.getIndexNames())
+
+# Managed Objects groups
+
+tmnxSASSdpV3v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 13, 2, 1)
+)
+tmnxSASSdpV3v0Group.setObjects(
+      *(("TIMETRA-SAS-SDP-MIB", "sdpBindIngressExtraVlanTagDropCount"),
+        ("TIMETRA-SAS-SDP-MIB", "sdpBindIngressExtraVlanTagDroppedPackets"),
+        ("TIMETRA-SAS-SDP-MIB", "sdpBindIngressExtraVlanTagDroppedOctets"))
+)
+if mibBuilder.loadTexts:
+    tmnxSASSdpV3v0Group.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tmnxSASSdp7210V3v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 6, 2, 2, 1, 13, 1, 1)
+)
+tmnxSASSdp7210V3v0Compliance.setObjects(
+    ("TIMETRA-SAS-SDP-MIB", "tmnxSASSdpV3v0Group")
+)
+if mibBuilder.loadTexts:
+    tmnxSASSdp7210V3v0Compliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TIMETRA-SAS-SDP-MIB",
+    **{"timetraSASServicesSdpMIBModule": timetraSASServicesSdpMIBModule,
+       "tmnxSASSdpConformance": tmnxSASSdpConformance,
+       "tmnxSASSdpCompliances": tmnxSASSdpCompliances,
+       "tmnxSASSdp7210V3v0Compliance": tmnxSASSdp7210V3v0Compliance,
+       "tmnxSASSdpGroups": tmnxSASSdpGroups,
+       "tmnxSASSdpV3v0Group": tmnxSASSdpV3v0Group,
+       "tmnxSASSdpObjs": tmnxSASSdpObjs,
+       "sdpBindExtnTable": sdpBindExtnTable,
+       "sdpBindExtnEntry": sdpBindExtnEntry,
+       "sdpBindIngressExtraVlanTagDropCount": sdpBindIngressExtraVlanTagDropCount,
+       "sdpBindBaseStatsExtnTable": sdpBindBaseStatsExtnTable,
+       "sdpBindBaseStatsExtnEntry": sdpBindBaseStatsExtnEntry,
+       "sdpBindIngressExtraVlanTagDroppedPackets": sdpBindIngressExtraVlanTagDroppedPackets,
+       "sdpBindIngressExtraVlanTagDroppedOctets": sdpBindIngressExtraVlanTagDroppedOctets}
+)

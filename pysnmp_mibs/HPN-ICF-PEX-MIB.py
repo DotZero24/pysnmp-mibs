@@ -1,71 +1,498 @@
+# SNMP MIB module (HPN-ICF-PEX-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-PEX-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-PEX-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:23 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HPN-ICF-PEX-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:40:26 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-entPhysicalIndex, entPhysicalDescr = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex", "entPhysicalDescr")
-hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-hpnicfPex = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129))
-hpnicfPex.setRevisions(('2012-11-12 11:29',))
-if mibBuilder.loadTexts: hpnicfPex.setLastUpdated('201211121129Z')
-if mibBuilder.loadTexts: hpnicfPex.setOrganization('')
-hpnicfPexSpecInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1))
-hpnicfPexPortMinId = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfPexPortMinId.setStatus('current')
-hpnicfPexPortMaxId = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfPexPortMaxId.setStatus('current')
-hpnicfPexMinAssociateId = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfPexMinAssociateId.setStatus('current')
-hpnicfPexMaxAssociateId = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfPexMaxAssociateId.setStatus('current')
-hpnicfPexMaxPortPerPexPort = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfPexMaxPortPerPexPort.setStatus('current')
-hpnicfPexTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2))
-hpnicfPexPortTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1), )
-if mibBuilder.loadTexts: hpnicfPexPortTable.setStatus('current')
-hpnicfPexPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1), ).setIndexNames((0, "HPN-ICF-PEX-MIB", "hpnicfPexPortId"))
-if mibBuilder.loadTexts: hpnicfPexPortEntry.setStatus('current')
-hpnicfPexPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfPexPortId.setStatus('current')
-hpnicfPexPortAssociateId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 2), Integer32().clone(65535)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfPexPortAssociateId.setStatus('current')
-hpnicfPexPortEntPhysicalIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfPexPortEntPhysicalIndex.setStatus('current')
-hpnicfPexPortDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 79))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfPexPortDescr.setStatus('current')
-hpnicfPexPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("offline", 1), ("loading", 2), ("online", 3))).clone('offline')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfPexPortStatus.setStatus('current')
-hpnicfPexPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfPexPortRowStatus.setStatus('current')
-hpnicfPexPhyPortTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 2), )
-if mibBuilder.loadTexts: hpnicfPexPhyPortTable.setStatus('current')
-hpnicfPexPhyPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: hpnicfPexPhyPortEntry.setStatus('current')
-hpnicfPexPhyPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("down", 2), ("blocked", 3), ("forwarding", 4))).clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfPexPhyPortStatus.setStatus('current')
-hpnicfPexPhyPortBelongToPexPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 2, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfPexPhyPortBelongToPexPort.setStatus('current')
-hpnicfPexPhyPortNeighborEntIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfPexPhyPortNeighborEntIndex.setStatus('current')
-hpnicfPexTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3))
-hpnicfPexTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3, 0))
-hpnicfPexPortOnline = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3, 0, 1)).setObjects(("HPN-ICF-PEX-MIB", "hpnicfPexPortId"), ("HPN-ICF-PEX-MIB", "hpnicfPexPortDescr"))
-if mibBuilder.loadTexts: hpnicfPexPortOnline.setStatus('current')
-hpnicfPexPortOffline = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3, 0, 2)).setObjects(("HPN-ICF-PEX-MIB", "hpnicfPexPortId"), ("HPN-ICF-PEX-MIB", "hpnicfPexPortDescr"))
-if mibBuilder.loadTexts: hpnicfPexPortOffline.setStatus('current')
-hpnicfPexPhyPortForwarding = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3, 0, 3)).setObjects(("HPN-ICF-PEX-MIB", "hpnicfPexEntPhysicalIndexBind"), ("ENTITY-MIB", "entPhysicalDescr"))
-if mibBuilder.loadTexts: hpnicfPexPhyPortForwarding.setStatus('current')
-hpnicfPexPhyPortBlocked = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3, 0, 4)).setObjects(("HPN-ICF-PEX-MIB", "hpnicfPexEntPhysicalIndexBind"), ("ENTITY-MIB", "entPhysicalDescr"))
-if mibBuilder.loadTexts: hpnicfPexPhyPortBlocked.setStatus('current')
-hpnicfPexTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 4))
-hpnicfPexEntPhysicalIndexBind = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 4, 1), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfPexEntPhysicalIndexBind.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-PEX-MIB", hpnicfPexPortOnline=hpnicfPexPortOnline, PYSNMP_MODULE_ID=hpnicfPex, hpnicfPexPortEntry=hpnicfPexPortEntry, hpnicfPexTrapPrefix=hpnicfPexTrapPrefix, hpnicfPexSpecInfo=hpnicfPexSpecInfo, hpnicfPexPhyPortForwarding=hpnicfPexPhyPortForwarding, hpnicfPexTrapObjects=hpnicfPexTrapObjects, hpnicfPexEntPhysicalIndexBind=hpnicfPexEntPhysicalIndexBind, hpnicfPexPortMinId=hpnicfPexPortMinId, hpnicfPexPortAssociateId=hpnicfPexPortAssociateId, hpnicfPexPortEntPhysicalIndex=hpnicfPexPortEntPhysicalIndex, hpnicfPexTraps=hpnicfPexTraps, hpnicfPexMaxAssociateId=hpnicfPexMaxAssociateId, hpnicfPexTable=hpnicfPexTable, hpnicfPexPortDescr=hpnicfPexPortDescr, hpnicfPexMinAssociateId=hpnicfPexMinAssociateId, hpnicfPexPortOffline=hpnicfPexPortOffline, hpnicfPexMaxPortPerPexPort=hpnicfPexMaxPortPerPexPort, hpnicfPexPhyPortTable=hpnicfPexPhyPortTable, hpnicfPexPhyPortBelongToPexPort=hpnicfPexPhyPortBelongToPexPort, hpnicfPexPortMaxId=hpnicfPexPortMaxId, hpnicfPexPhyPortEntry=hpnicfPexPhyPortEntry, hpnicfPexPortId=hpnicfPexPortId, hpnicfPexPhyPortStatus=hpnicfPexPhyPortStatus, hpnicfPexPhyPortNeighborEntIndex=hpnicfPexPhyPortNeighborEntIndex, hpnicfPexPhyPortBlocked=hpnicfPexPhyPortBlocked, hpnicfPexPortStatus=hpnicfPexPortStatus, hpnicfPexPortRowStatus=hpnicfPexPortRowStatus, hpnicfPexPortTable=hpnicfPexPortTable, hpnicfPex=hpnicfPex)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(entPhysicalDescr,
+ entPhysicalIndex) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "entPhysicalDescr",
+    "entPhysicalIndex")
+
+(hpnicfCommon,) = mibBuilder.importSymbols(
+    "HPN-ICF-OID-MIB",
+    "hpnicfCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpnicfPex = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129)
+)
+if mibBuilder.loadTexts:
+    hpnicfPex.setRevisions(
+        ("2012-11-12 11:29",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfPexSpecInfo_ObjectIdentity = ObjectIdentity
+hpnicfPexSpecInfo = _HpnicfPexSpecInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1)
+)
+_HpnicfPexPortMinId_Type = Integer32
+_HpnicfPexPortMinId_Object = MibScalar
+hpnicfPexPortMinId = _HpnicfPexPortMinId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1, 1),
+    _HpnicfPexPortMinId_Type()
+)
+hpnicfPexPortMinId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfPexPortMinId.setStatus("current")
+_HpnicfPexPortMaxId_Type = Integer32
+_HpnicfPexPortMaxId_Object = MibScalar
+hpnicfPexPortMaxId = _HpnicfPexPortMaxId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1, 2),
+    _HpnicfPexPortMaxId_Type()
+)
+hpnicfPexPortMaxId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfPexPortMaxId.setStatus("current")
+_HpnicfPexMinAssociateId_Type = Integer32
+_HpnicfPexMinAssociateId_Object = MibScalar
+hpnicfPexMinAssociateId = _HpnicfPexMinAssociateId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1, 3),
+    _HpnicfPexMinAssociateId_Type()
+)
+hpnicfPexMinAssociateId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfPexMinAssociateId.setStatus("current")
+_HpnicfPexMaxAssociateId_Type = Integer32
+_HpnicfPexMaxAssociateId_Object = MibScalar
+hpnicfPexMaxAssociateId = _HpnicfPexMaxAssociateId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1, 4),
+    _HpnicfPexMaxAssociateId_Type()
+)
+hpnicfPexMaxAssociateId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfPexMaxAssociateId.setStatus("current")
+_HpnicfPexMaxPortPerPexPort_Type = Integer32
+_HpnicfPexMaxPortPerPexPort_Object = MibScalar
+hpnicfPexMaxPortPerPexPort = _HpnicfPexMaxPortPerPexPort_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 1, 5),
+    _HpnicfPexMaxPortPerPexPort_Type()
+)
+hpnicfPexMaxPortPerPexPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfPexMaxPortPerPexPort.setStatus("current")
+_HpnicfPexTable_ObjectIdentity = ObjectIdentity
+hpnicfPexTable = _HpnicfPexTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2)
+)
+_HpnicfPexPortTable_Object = MibTable
+hpnicfPexPortTable = _HpnicfPexPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hpnicfPexPortTable.setStatus("current")
+_HpnicfPexPortEntry_Object = MibTableRow
+hpnicfPexPortEntry = _HpnicfPexPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1)
+)
+hpnicfPexPortEntry.setIndexNames(
+    (0, "HPN-ICF-PEX-MIB", "hpnicfPexPortId"),
+)
+if mibBuilder.loadTexts:
+    hpnicfPexPortEntry.setStatus("current")
+
+
+class _HpnicfPexPortId_Type(Integer32):
+    """Custom type hpnicfPexPortId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HpnicfPexPortId_Type.__name__ = "Integer32"
+_HpnicfPexPortId_Object = MibTableColumn
+hpnicfPexPortId = _HpnicfPexPortId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 1),
+    _HpnicfPexPortId_Type()
+)
+hpnicfPexPortId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfPexPortId.setStatus("current")
+
+
+class _HpnicfPexPortAssociateId_Type(Integer32):
+    """Custom type hpnicfPexPortAssociateId based on Integer32"""
+    defaultValue = 65535
+
+
+_HpnicfPexPortAssociateId_Type.__name__ = "Integer32"
+_HpnicfPexPortAssociateId_Object = MibTableColumn
+hpnicfPexPortAssociateId = _HpnicfPexPortAssociateId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 2),
+    _HpnicfPexPortAssociateId_Type()
+)
+hpnicfPexPortAssociateId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfPexPortAssociateId.setStatus("current")
+
+
+class _HpnicfPexPortEntPhysicalIndex_Type(Integer32):
+    """Custom type hpnicfPexPortEntPhysicalIndex based on Integer32"""
+    defaultValue = 0
+
+
+_HpnicfPexPortEntPhysicalIndex_Type.__name__ = "Integer32"
+_HpnicfPexPortEntPhysicalIndex_Object = MibTableColumn
+hpnicfPexPortEntPhysicalIndex = _HpnicfPexPortEntPhysicalIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 3),
+    _HpnicfPexPortEntPhysicalIndex_Type()
+)
+hpnicfPexPortEntPhysicalIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfPexPortEntPhysicalIndex.setStatus("current")
+
+
+class _HpnicfPexPortDescr_Type(DisplayString):
+    """Custom type hpnicfPexPortDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 79),
+    )
+
+
+_HpnicfPexPortDescr_Type.__name__ = "DisplayString"
+_HpnicfPexPortDescr_Object = MibTableColumn
+hpnicfPexPortDescr = _HpnicfPexPortDescr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 4),
+    _HpnicfPexPortDescr_Type()
+)
+hpnicfPexPortDescr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfPexPortDescr.setStatus("current")
+
+
+class _HpnicfPexPortStatus_Type(Integer32):
+    """Custom type hpnicfPexPortStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("offline", 1),
+          ("loading", 2),
+          ("online", 3))
+    )
+
+
+_HpnicfPexPortStatus_Type.__name__ = "Integer32"
+_HpnicfPexPortStatus_Object = MibTableColumn
+hpnicfPexPortStatus = _HpnicfPexPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 5),
+    _HpnicfPexPortStatus_Type()
+)
+hpnicfPexPortStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfPexPortStatus.setStatus("current")
+_HpnicfPexPortRowStatus_Type = RowStatus
+_HpnicfPexPortRowStatus_Object = MibTableColumn
+hpnicfPexPortRowStatus = _HpnicfPexPortRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 1, 1, 6),
+    _HpnicfPexPortRowStatus_Type()
+)
+hpnicfPexPortRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfPexPortRowStatus.setStatus("current")
+_HpnicfPexPhyPortTable_Object = MibTable
+hpnicfPexPhyPortTable = _HpnicfPexPhyPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 2)
+)
+if mibBuilder.loadTexts:
+    hpnicfPexPhyPortTable.setStatus("current")
+_HpnicfPexPhyPortEntry_Object = MibTableRow
+hpnicfPexPhyPortEntry = _HpnicfPexPhyPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 2, 1)
+)
+hpnicfPexPhyPortEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfPexPhyPortEntry.setStatus("current")
+
+
+class _HpnicfPexPhyPortStatus_Type(Integer32):
+    """Custom type hpnicfPexPhyPortStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("down", 2),
+          ("blocked", 3),
+          ("forwarding", 4))
+    )
+
+
+_HpnicfPexPhyPortStatus_Type.__name__ = "Integer32"
+_HpnicfPexPhyPortStatus_Object = MibTableColumn
+hpnicfPexPhyPortStatus = _HpnicfPexPhyPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 2, 1, 1),
+    _HpnicfPexPhyPortStatus_Type()
+)
+hpnicfPexPhyPortStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfPexPhyPortStatus.setStatus("current")
+
+
+class _HpnicfPexPhyPortBelongToPexPort_Type(Integer32):
+    """Custom type hpnicfPexPhyPortBelongToPexPort based on Integer32"""
+    defaultValue = 0
+
+
+_HpnicfPexPhyPortBelongToPexPort_Type.__name__ = "Integer32"
+_HpnicfPexPhyPortBelongToPexPort_Object = MibTableColumn
+hpnicfPexPhyPortBelongToPexPort = _HpnicfPexPhyPortBelongToPexPort_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 2, 1, 2),
+    _HpnicfPexPhyPortBelongToPexPort_Type()
+)
+hpnicfPexPhyPortBelongToPexPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfPexPhyPortBelongToPexPort.setStatus("current")
+_HpnicfPexPhyPortNeighborEntIndex_Type = Integer32
+_HpnicfPexPhyPortNeighborEntIndex_Object = MibTableColumn
+hpnicfPexPhyPortNeighborEntIndex = _HpnicfPexPhyPortNeighborEntIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 2, 2, 1, 3),
+    _HpnicfPexPhyPortNeighborEntIndex_Type()
+)
+hpnicfPexPhyPortNeighborEntIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfPexPhyPortNeighborEntIndex.setStatus("current")
+_HpnicfPexTraps_ObjectIdentity = ObjectIdentity
+hpnicfPexTraps = _HpnicfPexTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3)
+)
+_HpnicfPexTrapPrefix_ObjectIdentity = ObjectIdentity
+hpnicfPexTrapPrefix = _HpnicfPexTrapPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3, 0)
+)
+_HpnicfPexTrapObjects_ObjectIdentity = ObjectIdentity
+hpnicfPexTrapObjects = _HpnicfPexTrapObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 4)
+)
+_HpnicfPexEntPhysicalIndexBind_Type = Integer32
+_HpnicfPexEntPhysicalIndexBind_Object = MibScalar
+hpnicfPexEntPhysicalIndexBind = _HpnicfPexEntPhysicalIndexBind_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 4, 1),
+    _HpnicfPexEntPhysicalIndexBind_Type()
+)
+hpnicfPexEntPhysicalIndexBind.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfPexEntPhysicalIndexBind.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hpnicfPexPortOnline = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3, 0, 1)
+)
+hpnicfPexPortOnline.setObjects(
+      *(("HPN-ICF-PEX-MIB", "hpnicfPexPortId"),
+        ("HPN-ICF-PEX-MIB", "hpnicfPexPortDescr"))
+)
+if mibBuilder.loadTexts:
+    hpnicfPexPortOnline.setStatus(
+        "current"
+    )
+
+hpnicfPexPortOffline = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3, 0, 2)
+)
+hpnicfPexPortOffline.setObjects(
+      *(("HPN-ICF-PEX-MIB", "hpnicfPexPortId"),
+        ("HPN-ICF-PEX-MIB", "hpnicfPexPortDescr"))
+)
+if mibBuilder.loadTexts:
+    hpnicfPexPortOffline.setStatus(
+        "current"
+    )
+
+hpnicfPexPhyPortForwarding = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3, 0, 3)
+)
+hpnicfPexPhyPortForwarding.setObjects(
+      *(("HPN-ICF-PEX-MIB", "hpnicfPexEntPhysicalIndexBind"),
+        ("ENTITY-MIB", "entPhysicalDescr"))
+)
+if mibBuilder.loadTexts:
+    hpnicfPexPhyPortForwarding.setStatus(
+        "current"
+    )
+
+hpnicfPexPhyPortBlocked = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 129, 3, 0, 4)
+)
+hpnicfPexPhyPortBlocked.setObjects(
+      *(("HPN-ICF-PEX-MIB", "hpnicfPexEntPhysicalIndexBind"),
+        ("ENTITY-MIB", "entPhysicalDescr"))
+)
+if mibBuilder.loadTexts:
+    hpnicfPexPhyPortBlocked.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-PEX-MIB",
+    **{"hpnicfPex": hpnicfPex,
+       "hpnicfPexSpecInfo": hpnicfPexSpecInfo,
+       "hpnicfPexPortMinId": hpnicfPexPortMinId,
+       "hpnicfPexPortMaxId": hpnicfPexPortMaxId,
+       "hpnicfPexMinAssociateId": hpnicfPexMinAssociateId,
+       "hpnicfPexMaxAssociateId": hpnicfPexMaxAssociateId,
+       "hpnicfPexMaxPortPerPexPort": hpnicfPexMaxPortPerPexPort,
+       "hpnicfPexTable": hpnicfPexTable,
+       "hpnicfPexPortTable": hpnicfPexPortTable,
+       "hpnicfPexPortEntry": hpnicfPexPortEntry,
+       "hpnicfPexPortId": hpnicfPexPortId,
+       "hpnicfPexPortAssociateId": hpnicfPexPortAssociateId,
+       "hpnicfPexPortEntPhysicalIndex": hpnicfPexPortEntPhysicalIndex,
+       "hpnicfPexPortDescr": hpnicfPexPortDescr,
+       "hpnicfPexPortStatus": hpnicfPexPortStatus,
+       "hpnicfPexPortRowStatus": hpnicfPexPortRowStatus,
+       "hpnicfPexPhyPortTable": hpnicfPexPhyPortTable,
+       "hpnicfPexPhyPortEntry": hpnicfPexPhyPortEntry,
+       "hpnicfPexPhyPortStatus": hpnicfPexPhyPortStatus,
+       "hpnicfPexPhyPortBelongToPexPort": hpnicfPexPhyPortBelongToPexPort,
+       "hpnicfPexPhyPortNeighborEntIndex": hpnicfPexPhyPortNeighborEntIndex,
+       "hpnicfPexTraps": hpnicfPexTraps,
+       "hpnicfPexTrapPrefix": hpnicfPexTrapPrefix,
+       "hpnicfPexPortOnline": hpnicfPexPortOnline,
+       "hpnicfPexPortOffline": hpnicfPexPortOffline,
+       "hpnicfPexPhyPortForwarding": hpnicfPexPhyPortForwarding,
+       "hpnicfPexPhyPortBlocked": hpnicfPexPhyPortBlocked,
+       "hpnicfPexTrapObjects": hpnicfPexTrapObjects,
+       "hpnicfPexEntPhysicalIndexBind": hpnicfPexEntPhysicalIndexBind}
+)

@@ -1,73 +1,597 @@
+# SNMP MIB module (QTECH-GBNDeviceOEM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module QTECH-GBNDeviceOEM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/qtech/QTECH-GBNDeviceOEM-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:02 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/qtech/QTECH-GBNDeviceOEM-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:57:11 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-gbnDevice, = mibBuilder.importSymbols("QTECH-MASTER-MIB", "gbnDevice")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-bcm5600 = ModuleIdentity((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3))
-bcm5600.setRevisions(('1901-05-03 00:00',))
-if mibBuilder.loadTexts: bcm5600.setLastUpdated('0105030000Z')
-if mibBuilder.loadTexts: bcm5600.setOrganization('QTECH LLC')
-oemArchIface = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1))
-oemChip = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 2))
-oemProdConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3))
-oemProdGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3, 1))
-oemProdCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3, 2))
-oemArchIfaceTable = MibTable((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1), )
-if mibBuilder.loadTexts: oemArchIfaceTable.setStatus('current')
-oemArchIfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1), ).setIndexNames((0, "QTECH-GBNDeviceOEM-MIB", "oemArchIfaceUnit"), (0, "QTECH-GBNDeviceOEM-MIB", "oemArchIfacePort"))
-if mibBuilder.loadTexts: oemArchIfaceEntry.setStatus('current')
-oemArchIfaceUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oemArchIfaceUnit.setStatus('current')
-oemArchIfacePort = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 26))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oemArchIfacePort.setStatus('current')
-oemArchIfaceLLWHPort = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(8193, 8296))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oemArchIfaceLLWHPort.setStatus('current')
-oemArchIfaceIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oemArchIfaceIfIndex.setStatus('current')
-oemArchIfaceName = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oemArchIfaceName.setStatus('current')
-oemArchIfaceEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 6), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oemArchIfaceEnable.setStatus('current')
-oemArchIfaceSTPEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 7), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oemArchIfaceSTPEnable.setStatus('current')
-oemArchIfaceLink = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oemArchIfaceLink.setStatus('current')
-oemArchIfaceDuplexSpeedSet = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 99))).clone(namedValues=NamedValues(("autonegotiate", 1), ("half-10", 2), ("full-10", 3), ("half-100", 4), ("full-100", 5), ("half-1000", 6), ("full-1000", 7), ("auto-10", 8), ("auto-100", 9), ("auto-1000", 10), ("full-10000", 11), ("illegal", 99)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oemArchIfaceDuplexSpeedSet.setStatus('current')
-oemArchIfaceDuplexSpeedGet = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 99))).clone(namedValues=NamedValues(("unknown", 1), ("half-10", 2), ("full-10", 3), ("half-100", 4), ("full-100", 5), ("half-1000", 6), ("full-1000", 7), ("auto_10", 8), ("auto_100", 9), ("auto_1000", 10), ("full-10000", 11), ("illegal", 99)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oemArchIfaceDuplexSpeedGet.setStatus('current')
-oemArchIfacePortLoop = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("internalEnable", 1), ("externalEnable", 2), ("disable", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oemArchIfacePortLoop.setStatus('current')
-oemArchIfaceFlowControl = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oemArchIfaceFlowControl.setStatus('current')
-oemArchIfaceTxVlanTagPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oemArchIfaceTxVlanTagPkts.setStatus('current')
-oemArchIfaceTxL3Pkts = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oemArchIfaceTxL3Pkts.setStatus('current')
-oemArchIfaceTxL3AbortedPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oemArchIfaceTxL3AbortedPkts.setStatus('current')
-oemArchIfaceRxIpInHdrErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oemArchIfaceRxIpInHdrErrors.setStatus('current')
-oemChipStub = MibScalar((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noop", 1), ("chip-value2", 2), ("chip-value3", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oemChipStub.setStatus('current')
-oemArchIfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3, 1, 1)).setObjects(("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceLLWHPort"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceIfIndex"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceName"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceEnable"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceSTPEnable"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceLink"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceDuplexSpeedSet"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceDuplexSpeedGet"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfacePortLoop"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceFlowControl"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceTxVlanTagPkts"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceTxL3Pkts"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceTxL3AbortedPkts"), ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceRxIpInHdrErrors"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oemArchIfaceGroup = oemArchIfaceGroup.setStatus('current')
-oemChipGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3, 1, 2)).setObjects(("QTECH-GBNDeviceOEM-MIB", "oemChipStub"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oemChipGroup = oemChipGroup.setStatus('current')
-oemProdCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3, 2, 1)).setObjects(("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceGroup"), ("QTECH-GBNDeviceOEM-MIB", "oemChipGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oemProdCompliance = oemProdCompliance.setStatus('current')
-mibBuilder.exportSymbols("QTECH-GBNDeviceOEM-MIB", oemArchIfaceUnit=oemArchIfaceUnit, oemArchIfaceTxL3AbortedPkts=oemArchIfaceTxL3AbortedPkts, bcm5600=bcm5600, oemArchIfaceRxIpInHdrErrors=oemArchIfaceRxIpInHdrErrors, oemChipStub=oemChipStub, oemProdCompliances=oemProdCompliances, oemArchIfaceGroup=oemArchIfaceGroup, oemArchIfaceName=oemArchIfaceName, oemChipGroup=oemChipGroup, oemArchIfacePort=oemArchIfacePort, oemArchIfaceSTPEnable=oemArchIfaceSTPEnable, oemArchIface=oemArchIface, oemArchIfaceFlowControl=oemArchIfaceFlowControl, PYSNMP_MODULE_ID=bcm5600, oemArchIfaceDuplexSpeedGet=oemArchIfaceDuplexSpeedGet, oemArchIfaceLink=oemArchIfaceLink, oemArchIfaceTable=oemArchIfaceTable, oemArchIfaceDuplexSpeedSet=oemArchIfaceDuplexSpeedSet, oemProdConformance=oemProdConformance, oemArchIfaceEntry=oemArchIfaceEntry, oemChip=oemChip, oemArchIfacePortLoop=oemArchIfacePortLoop, oemProdGroups=oemProdGroups, oemArchIfaceTxVlanTagPkts=oemArchIfaceTxVlanTagPkts, oemProdCompliance=oemProdCompliance, oemArchIfaceLLWHPort=oemArchIfaceLLWHPort, oemArchIfaceIfIndex=oemArchIfaceIfIndex, oemArchIfaceEnable=oemArchIfaceEnable, oemArchIfaceTxL3Pkts=oemArchIfaceTxL3Pkts)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(PortList,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "PortList")
+
+(gbnDevice,) = mibBuilder.importSymbols(
+    "QTECH-MASTER-MIB",
+    "gbnDevice")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+bcm5600 = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3)
+)
+if mibBuilder.loadTexts:
+    bcm5600.setRevisions(
+        ("1901-05-03 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_OemArchIface_ObjectIdentity = ObjectIdentity
+oemArchIface = _OemArchIface_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1)
+)
+_OemArchIfaceTable_Object = MibTable
+oemArchIfaceTable = _OemArchIfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    oemArchIfaceTable.setStatus("current")
+_OemArchIfaceEntry_Object = MibTableRow
+oemArchIfaceEntry = _OemArchIfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1)
+)
+oemArchIfaceEntry.setIndexNames(
+    (0, "QTECH-GBNDeviceOEM-MIB", "oemArchIfaceUnit"),
+    (0, "QTECH-GBNDeviceOEM-MIB", "oemArchIfacePort"),
+)
+if mibBuilder.loadTexts:
+    oemArchIfaceEntry.setStatus("current")
+
+
+class _OemArchIfaceUnit_Type(Integer32):
+    """Custom type oemArchIfaceUnit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4),
+    )
+
+
+_OemArchIfaceUnit_Type.__name__ = "Integer32"
+_OemArchIfaceUnit_Object = MibTableColumn
+oemArchIfaceUnit = _OemArchIfaceUnit_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 1),
+    _OemArchIfaceUnit_Type()
+)
+oemArchIfaceUnit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oemArchIfaceUnit.setStatus("current")
+
+
+class _OemArchIfacePort_Type(Integer32):
+    """Custom type oemArchIfacePort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 26),
+    )
+
+
+_OemArchIfacePort_Type.__name__ = "Integer32"
+_OemArchIfacePort_Object = MibTableColumn
+oemArchIfacePort = _OemArchIfacePort_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 2),
+    _OemArchIfacePort_Type()
+)
+oemArchIfacePort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oemArchIfacePort.setStatus("current")
+
+
+class _OemArchIfaceLLWHPort_Type(Integer32):
+    """Custom type oemArchIfaceLLWHPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(8193, 8296),
+    )
+
+
+_OemArchIfaceLLWHPort_Type.__name__ = "Integer32"
+_OemArchIfaceLLWHPort_Object = MibTableColumn
+oemArchIfaceLLWHPort = _OemArchIfaceLLWHPort_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 3),
+    _OemArchIfaceLLWHPort_Type()
+)
+oemArchIfaceLLWHPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oemArchIfaceLLWHPort.setStatus("current")
+_OemArchIfaceIfIndex_Type = Integer32
+_OemArchIfaceIfIndex_Object = MibTableColumn
+oemArchIfaceIfIndex = _OemArchIfaceIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 4),
+    _OemArchIfaceIfIndex_Type()
+)
+oemArchIfaceIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oemArchIfaceIfIndex.setStatus("current")
+
+
+class _OemArchIfaceName_Type(DisplayString):
+    """Custom type oemArchIfaceName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_OemArchIfaceName_Type.__name__ = "DisplayString"
+_OemArchIfaceName_Object = MibTableColumn
+oemArchIfaceName = _OemArchIfaceName_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 5),
+    _OemArchIfaceName_Type()
+)
+oemArchIfaceName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oemArchIfaceName.setStatus("current")
+_OemArchIfaceEnable_Type = TruthValue
+_OemArchIfaceEnable_Object = MibTableColumn
+oemArchIfaceEnable = _OemArchIfaceEnable_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 6),
+    _OemArchIfaceEnable_Type()
+)
+oemArchIfaceEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oemArchIfaceEnable.setStatus("current")
+_OemArchIfaceSTPEnable_Type = TruthValue
+_OemArchIfaceSTPEnable_Object = MibTableColumn
+oemArchIfaceSTPEnable = _OemArchIfaceSTPEnable_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 7),
+    _OemArchIfaceSTPEnable_Type()
+)
+oemArchIfaceSTPEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oemArchIfaceSTPEnable.setStatus("current")
+
+
+class _OemArchIfaceLink_Type(Integer32):
+    """Custom type oemArchIfaceLink based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2))
+    )
+
+
+_OemArchIfaceLink_Type.__name__ = "Integer32"
+_OemArchIfaceLink_Object = MibTableColumn
+oemArchIfaceLink = _OemArchIfaceLink_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 8),
+    _OemArchIfaceLink_Type()
+)
+oemArchIfaceLink.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oemArchIfaceLink.setStatus("current")
+
+
+class _OemArchIfaceDuplexSpeedSet_Type(Integer32):
+    """Custom type oemArchIfaceDuplexSpeedSet based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              99)
+        )
+    )
+    namedValues = NamedValues(
+        *(("autonegotiate", 1),
+          ("half-10", 2),
+          ("full-10", 3),
+          ("half-100", 4),
+          ("full-100", 5),
+          ("half-1000", 6),
+          ("full-1000", 7),
+          ("auto-10", 8),
+          ("auto-100", 9),
+          ("auto-1000", 10),
+          ("full-10000", 11),
+          ("illegal", 99))
+    )
+
+
+_OemArchIfaceDuplexSpeedSet_Type.__name__ = "Integer32"
+_OemArchIfaceDuplexSpeedSet_Object = MibTableColumn
+oemArchIfaceDuplexSpeedSet = _OemArchIfaceDuplexSpeedSet_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 9),
+    _OemArchIfaceDuplexSpeedSet_Type()
+)
+oemArchIfaceDuplexSpeedSet.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oemArchIfaceDuplexSpeedSet.setStatus("current")
+
+
+class _OemArchIfaceDuplexSpeedGet_Type(Integer32):
+    """Custom type oemArchIfaceDuplexSpeedGet based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              99)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("half-10", 2),
+          ("full-10", 3),
+          ("half-100", 4),
+          ("full-100", 5),
+          ("half-1000", 6),
+          ("full-1000", 7),
+          ("auto_10", 8),
+          ("auto_100", 9),
+          ("auto_1000", 10),
+          ("full-10000", 11),
+          ("illegal", 99))
+    )
+
+
+_OemArchIfaceDuplexSpeedGet_Type.__name__ = "Integer32"
+_OemArchIfaceDuplexSpeedGet_Object = MibTableColumn
+oemArchIfaceDuplexSpeedGet = _OemArchIfaceDuplexSpeedGet_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 10),
+    _OemArchIfaceDuplexSpeedGet_Type()
+)
+oemArchIfaceDuplexSpeedGet.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oemArchIfaceDuplexSpeedGet.setStatus("current")
+
+
+class _OemArchIfacePortLoop_Type(Integer32):
+    """Custom type oemArchIfacePortLoop based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("internalEnable", 1),
+          ("externalEnable", 2),
+          ("disable", 3))
+    )
+
+
+_OemArchIfacePortLoop_Type.__name__ = "Integer32"
+_OemArchIfacePortLoop_Object = MibTableColumn
+oemArchIfacePortLoop = _OemArchIfacePortLoop_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 11),
+    _OemArchIfacePortLoop_Type()
+)
+oemArchIfacePortLoop.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oemArchIfacePortLoop.setStatus("current")
+
+
+class _OemArchIfaceFlowControl_Type(Integer32):
+    """Custom type oemArchIfaceFlowControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_OemArchIfaceFlowControl_Type.__name__ = "Integer32"
+_OemArchIfaceFlowControl_Object = MibTableColumn
+oemArchIfaceFlowControl = _OemArchIfaceFlowControl_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 12),
+    _OemArchIfaceFlowControl_Type()
+)
+oemArchIfaceFlowControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oemArchIfaceFlowControl.setStatus("current")
+_OemArchIfaceTxVlanTagPkts_Type = Counter64
+_OemArchIfaceTxVlanTagPkts_Object = MibTableColumn
+oemArchIfaceTxVlanTagPkts = _OemArchIfaceTxVlanTagPkts_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 13),
+    _OemArchIfaceTxVlanTagPkts_Type()
+)
+oemArchIfaceTxVlanTagPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oemArchIfaceTxVlanTagPkts.setStatus("current")
+_OemArchIfaceTxL3Pkts_Type = Counter64
+_OemArchIfaceTxL3Pkts_Object = MibTableColumn
+oemArchIfaceTxL3Pkts = _OemArchIfaceTxL3Pkts_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 14),
+    _OemArchIfaceTxL3Pkts_Type()
+)
+oemArchIfaceTxL3Pkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oemArchIfaceTxL3Pkts.setStatus("current")
+_OemArchIfaceTxL3AbortedPkts_Type = Counter64
+_OemArchIfaceTxL3AbortedPkts_Object = MibTableColumn
+oemArchIfaceTxL3AbortedPkts = _OemArchIfaceTxL3AbortedPkts_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 15),
+    _OemArchIfaceTxL3AbortedPkts_Type()
+)
+oemArchIfaceTxL3AbortedPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oemArchIfaceTxL3AbortedPkts.setStatus("current")
+_OemArchIfaceRxIpInHdrErrors_Type = Counter64
+_OemArchIfaceRxIpInHdrErrors_Object = MibTableColumn
+oemArchIfaceRxIpInHdrErrors = _OemArchIfaceRxIpInHdrErrors_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 1, 1, 1, 16),
+    _OemArchIfaceRxIpInHdrErrors_Type()
+)
+oemArchIfaceRxIpInHdrErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oemArchIfaceRxIpInHdrErrors.setStatus("current")
+_OemChip_ObjectIdentity = ObjectIdentity
+oemChip = _OemChip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 2)
+)
+
+
+class _OemChipStub_Type(Integer32):
+    """Custom type oemChipStub based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noop", 1),
+          ("chip-value2", 2),
+          ("chip-value3", 3))
+    )
+
+
+_OemChipStub_Type.__name__ = "Integer32"
+_OemChipStub_Object = MibScalar
+oemChipStub = _OemChipStub_Object(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 2, 1),
+    _OemChipStub_Type()
+)
+oemChipStub.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oemChipStub.setStatus("current")
+_OemProdConformance_ObjectIdentity = ObjectIdentity
+oemProdConformance = _OemProdConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3)
+)
+_OemProdGroups_ObjectIdentity = ObjectIdentity
+oemProdGroups = _OemProdGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3, 1)
+)
+_OemProdCompliances_ObjectIdentity = ObjectIdentity
+oemProdCompliances = _OemProdCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3, 2)
+)
+
+# Managed Objects groups
+
+oemArchIfaceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3, 1, 1)
+)
+oemArchIfaceGroup.setObjects(
+      *(("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceLLWHPort"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceIfIndex"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceName"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceEnable"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceSTPEnable"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceLink"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceDuplexSpeedSet"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceDuplexSpeedGet"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfacePortLoop"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceFlowControl"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceTxVlanTagPkts"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceTxL3Pkts"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceTxL3AbortedPkts"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceRxIpInHdrErrors"))
+)
+if mibBuilder.loadTexts:
+    oemArchIfaceGroup.setStatus("current")
+
+oemChipGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3, 1, 2)
+)
+oemChipGroup.setObjects(
+    ("QTECH-GBNDeviceOEM-MIB", "oemChipStub")
+)
+if mibBuilder.loadTexts:
+    oemChipGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+oemProdCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 27514, 1, 2, 2, 3, 3, 2, 1)
+)
+oemProdCompliance.setObjects(
+      *(("QTECH-GBNDeviceOEM-MIB", "oemArchIfaceGroup"),
+        ("QTECH-GBNDeviceOEM-MIB", "oemChipGroup"))
+)
+if mibBuilder.loadTexts:
+    oemProdCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "QTECH-GBNDeviceOEM-MIB",
+    **{"bcm5600": bcm5600,
+       "oemArchIface": oemArchIface,
+       "oemArchIfaceTable": oemArchIfaceTable,
+       "oemArchIfaceEntry": oemArchIfaceEntry,
+       "oemArchIfaceUnit": oemArchIfaceUnit,
+       "oemArchIfacePort": oemArchIfacePort,
+       "oemArchIfaceLLWHPort": oemArchIfaceLLWHPort,
+       "oemArchIfaceIfIndex": oemArchIfaceIfIndex,
+       "oemArchIfaceName": oemArchIfaceName,
+       "oemArchIfaceEnable": oemArchIfaceEnable,
+       "oemArchIfaceSTPEnable": oemArchIfaceSTPEnable,
+       "oemArchIfaceLink": oemArchIfaceLink,
+       "oemArchIfaceDuplexSpeedSet": oemArchIfaceDuplexSpeedSet,
+       "oemArchIfaceDuplexSpeedGet": oemArchIfaceDuplexSpeedGet,
+       "oemArchIfacePortLoop": oemArchIfacePortLoop,
+       "oemArchIfaceFlowControl": oemArchIfaceFlowControl,
+       "oemArchIfaceTxVlanTagPkts": oemArchIfaceTxVlanTagPkts,
+       "oemArchIfaceTxL3Pkts": oemArchIfaceTxL3Pkts,
+       "oemArchIfaceTxL3AbortedPkts": oemArchIfaceTxL3AbortedPkts,
+       "oemArchIfaceRxIpInHdrErrors": oemArchIfaceRxIpInHdrErrors,
+       "oemChip": oemChip,
+       "oemChipStub": oemChipStub,
+       "oemProdConformance": oemProdConformance,
+       "oemProdGroups": oemProdGroups,
+       "oemArchIfaceGroup": oemArchIfaceGroup,
+       "oemChipGroup": oemChipGroup,
+       "oemProdCompliances": oemProdCompliances,
+       "oemProdCompliance": oemProdCompliance}
+)

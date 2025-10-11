@@ -1,59 +1,397 @@
+# SNMP MIB module (CISCO-LRE-CPE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-LRE-CPE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-LRE-CPE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:30:29 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-LRE-CPE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:38:49 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dot1dTpFdbAddress, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dTpFdbAddress")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-ciscoLreCpeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 340))
-ciscoLreCpeMIB.setRevisions(('2003-03-12 00:00',))
-if mibBuilder.loadTexts: ciscoLreCpeMIB.setLastUpdated('200303120000Z')
-if mibBuilder.loadTexts: ciscoLreCpeMIB.setOrganization('Cisco Systems, Inc.')
-ciscoLreCpeMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 340, 1))
-clreCpeDot1dTp = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 1))
-clreCpePort = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2))
-clreCpeDot1dTpFdbTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 1, 1), )
-if mibBuilder.loadTexts: clreCpeDot1dTpFdbTable.setStatus('current')
-clreCpeDot1dTpFdbEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 1, 1, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dTpFdbAddress"))
-if mibBuilder.loadTexts: clreCpeDot1dTpFdbEntry.setStatus('current')
-clreCpeDot1dBasePortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 1, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: clreCpeDot1dBasePortIfIndex.setStatus('current')
-clreCpePortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1), )
-if mibBuilder.loadTexts: clreCpePortTable.setStatus('current')
-clreCpePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: clreCpePortEntry.setStatus('current')
-clreCpePortAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clreCpePortAdminStatus.setStatus('current')
-clreCpePortAdminSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 10000000, 100000000))).clone(namedValues=NamedValues(("autoDetect", 1), ("s10000000", 10000000), ("s100000000", 100000000))).clone('autoDetect')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clreCpePortAdminSpeed.setStatus('current')
-clreCpePortAdminDuplex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("autoDetect", 1), ("fullDuplex", 2), ("halfDuplex", 3))).clone('autoDetect')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clreCpePortAdminDuplex.setStatus('current')
-clreCpePortAdminProtected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clreCpePortAdminProtected.setStatus('current')
-clreCpePortOperProtected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1, 5), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: clreCpePortOperProtected.setStatus('current')
-clreCpeMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 340, 0))
-clreCpeMIBNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 340, 0, 0))
-clreCpeMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 340, 2))
-clreCpeMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 340, 2, 1))
-clreCpeMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 340, 2, 2))
-clreCpeMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 340, 2, 1, 1)).setObjects(("CISCO-LRE-CPE-MIB", "clreCpePortGroup"), ("CISCO-LRE-CPE-MIB", "clreCpeDot1dTpGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clreCpeMIBCompliance = clreCpeMIBCompliance.setStatus('current')
-clreCpeDot1dTpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 340, 2, 2, 1)).setObjects(("CISCO-LRE-CPE-MIB", "clreCpeDot1dBasePortIfIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clreCpeDot1dTpGroup = clreCpeDot1dTpGroup.setStatus('current')
-clreCpePortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 340, 2, 2, 2)).setObjects(("CISCO-LRE-CPE-MIB", "clreCpePortAdminStatus"), ("CISCO-LRE-CPE-MIB", "clreCpePortAdminSpeed"), ("CISCO-LRE-CPE-MIB", "clreCpePortAdminDuplex"), ("CISCO-LRE-CPE-MIB", "clreCpePortAdminProtected"), ("CISCO-LRE-CPE-MIB", "clreCpePortOperProtected"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clreCpePortGroup = clreCpePortGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-LRE-CPE-MIB", clreCpePortAdminSpeed=clreCpePortAdminSpeed, clreCpeMIBCompliance=clreCpeMIBCompliance, clreCpeDot1dBasePortIfIndex=clreCpeDot1dBasePortIfIndex, PYSNMP_MODULE_ID=ciscoLreCpeMIB, clreCpePortOperProtected=clreCpePortOperProtected, clreCpeMIBNotificationsPrefix=clreCpeMIBNotificationsPrefix, ciscoLreCpeMIBObjects=ciscoLreCpeMIBObjects, clreCpePortAdminProtected=clreCpePortAdminProtected, clreCpePortGroup=clreCpePortGroup, clreCpeMIBCompliances=clreCpeMIBCompliances, clreCpePortAdminDuplex=clreCpePortAdminDuplex, clreCpePortTable=clreCpePortTable, clreCpePortEntry=clreCpePortEntry, clreCpePort=clreCpePort, clreCpeMIBConformance=clreCpeMIBConformance, clreCpeMIBGroups=clreCpeMIBGroups, clreCpeDot1dTpFdbEntry=clreCpeDot1dTpFdbEntry, clreCpePortAdminStatus=clreCpePortAdminStatus, ciscoLreCpeMIB=ciscoLreCpeMIB, clreCpeDot1dTpGroup=clreCpeDot1dTpGroup, clreCpeDot1dTpFdbTable=clreCpeDot1dTpFdbTable, clreCpeMIBNotifications=clreCpeMIBNotifications, clreCpeDot1dTp=clreCpeDot1dTp)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dot1dTpFdbAddress,) = mibBuilder.importSymbols(
+    "BRIDGE-MIB",
+    "dot1dTpFdbAddress")
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(InterfaceIndex,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoLreCpeMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340)
+)
+if mibBuilder.loadTexts:
+    ciscoLreCpeMIB.setRevisions(
+        ("2003-03-12 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ClreCpeMIBNotifications_ObjectIdentity = ObjectIdentity
+clreCpeMIBNotifications = _ClreCpeMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 0)
+)
+_ClreCpeMIBNotificationsPrefix_ObjectIdentity = ObjectIdentity
+clreCpeMIBNotificationsPrefix = _ClreCpeMIBNotificationsPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 0, 0)
+)
+_CiscoLreCpeMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoLreCpeMIBObjects = _CiscoLreCpeMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1)
+)
+_ClreCpeDot1dTp_ObjectIdentity = ObjectIdentity
+clreCpeDot1dTp = _ClreCpeDot1dTp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 1)
+)
+_ClreCpeDot1dTpFdbTable_Object = MibTable
+clreCpeDot1dTpFdbTable = _ClreCpeDot1dTpFdbTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    clreCpeDot1dTpFdbTable.setStatus("current")
+_ClreCpeDot1dTpFdbEntry_Object = MibTableRow
+clreCpeDot1dTpFdbEntry = _ClreCpeDot1dTpFdbEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 1, 1, 1)
+)
+clreCpeDot1dTpFdbEntry.setIndexNames(
+    (0, "BRIDGE-MIB", "dot1dTpFdbAddress"),
+)
+if mibBuilder.loadTexts:
+    clreCpeDot1dTpFdbEntry.setStatus("current")
+_ClreCpeDot1dBasePortIfIndex_Type = InterfaceIndex
+_ClreCpeDot1dBasePortIfIndex_Object = MibTableColumn
+clreCpeDot1dBasePortIfIndex = _ClreCpeDot1dBasePortIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 1, 1, 1, 1),
+    _ClreCpeDot1dBasePortIfIndex_Type()
+)
+clreCpeDot1dBasePortIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    clreCpeDot1dBasePortIfIndex.setStatus("current")
+_ClreCpePort_ObjectIdentity = ObjectIdentity
+clreCpePort = _ClreCpePort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2)
+)
+_ClreCpePortTable_Object = MibTable
+clreCpePortTable = _ClreCpePortTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    clreCpePortTable.setStatus("current")
+_ClreCpePortEntry_Object = MibTableRow
+clreCpePortEntry = _ClreCpePortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1)
+)
+clreCpePortEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    clreCpePortEntry.setStatus("current")
+
+
+class _ClreCpePortAdminStatus_Type(Integer32):
+    """Custom type clreCpePortAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2),
+          ("testing", 3))
+    )
+
+
+_ClreCpePortAdminStatus_Type.__name__ = "Integer32"
+_ClreCpePortAdminStatus_Object = MibTableColumn
+clreCpePortAdminStatus = _ClreCpePortAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1, 1),
+    _ClreCpePortAdminStatus_Type()
+)
+clreCpePortAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clreCpePortAdminStatus.setStatus("current")
+
+
+class _ClreCpePortAdminSpeed_Type(Integer32):
+    """Custom type clreCpePortAdminSpeed based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              10000000,
+              100000000)
+        )
+    )
+    namedValues = NamedValues(
+        *(("autoDetect", 1),
+          ("s10000000", 10000000),
+          ("s100000000", 100000000))
+    )
+
+
+_ClreCpePortAdminSpeed_Type.__name__ = "Integer32"
+_ClreCpePortAdminSpeed_Object = MibTableColumn
+clreCpePortAdminSpeed = _ClreCpePortAdminSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1, 2),
+    _ClreCpePortAdminSpeed_Type()
+)
+clreCpePortAdminSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clreCpePortAdminSpeed.setStatus("current")
+
+
+class _ClreCpePortAdminDuplex_Type(Integer32):
+    """Custom type clreCpePortAdminDuplex based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("autoDetect", 1),
+          ("fullDuplex", 2),
+          ("halfDuplex", 3))
+    )
+
+
+_ClreCpePortAdminDuplex_Type.__name__ = "Integer32"
+_ClreCpePortAdminDuplex_Object = MibTableColumn
+clreCpePortAdminDuplex = _ClreCpePortAdminDuplex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1, 3),
+    _ClreCpePortAdminDuplex_Type()
+)
+clreCpePortAdminDuplex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clreCpePortAdminDuplex.setStatus("current")
+
+
+class _ClreCpePortAdminProtected_Type(TruthValue):
+    """Custom type clreCpePortAdminProtected based on TruthValue"""
+    defaultValue = 2
+
+
+_ClreCpePortAdminProtected_Type.__name__ = "TruthValue"
+_ClreCpePortAdminProtected_Object = MibTableColumn
+clreCpePortAdminProtected = _ClreCpePortAdminProtected_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1, 4),
+    _ClreCpePortAdminProtected_Type()
+)
+clreCpePortAdminProtected.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clreCpePortAdminProtected.setStatus("current")
+_ClreCpePortOperProtected_Type = TruthValue
+_ClreCpePortOperProtected_Object = MibTableColumn
+clreCpePortOperProtected = _ClreCpePortOperProtected_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 1, 2, 1, 1, 5),
+    _ClreCpePortOperProtected_Type()
+)
+clreCpePortOperProtected.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    clreCpePortOperProtected.setStatus("current")
+_ClreCpeMIBConformance_ObjectIdentity = ObjectIdentity
+clreCpeMIBConformance = _ClreCpeMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 2)
+)
+_ClreCpeMIBCompliances_ObjectIdentity = ObjectIdentity
+clreCpeMIBCompliances = _ClreCpeMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 2, 1)
+)
+_ClreCpeMIBGroups_ObjectIdentity = ObjectIdentity
+clreCpeMIBGroups = _ClreCpeMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 2, 2)
+)
+
+# Managed Objects groups
+
+clreCpeDot1dTpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 2, 2, 1)
+)
+clreCpeDot1dTpGroup.setObjects(
+    ("CISCO-LRE-CPE-MIB", "clreCpeDot1dBasePortIfIndex")
+)
+if mibBuilder.loadTexts:
+    clreCpeDot1dTpGroup.setStatus("current")
+
+clreCpePortGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 2, 2, 2)
+)
+clreCpePortGroup.setObjects(
+      *(("CISCO-LRE-CPE-MIB", "clreCpePortAdminStatus"),
+        ("CISCO-LRE-CPE-MIB", "clreCpePortAdminSpeed"),
+        ("CISCO-LRE-CPE-MIB", "clreCpePortAdminDuplex"),
+        ("CISCO-LRE-CPE-MIB", "clreCpePortAdminProtected"),
+        ("CISCO-LRE-CPE-MIB", "clreCpePortOperProtected"))
+)
+if mibBuilder.loadTexts:
+    clreCpePortGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+clreCpeMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 340, 2, 1, 1)
+)
+clreCpeMIBCompliance.setObjects(
+      *(("CISCO-LRE-CPE-MIB", "clreCpePortGroup"),
+        ("CISCO-LRE-CPE-MIB", "clreCpeDot1dTpGroup"))
+)
+if mibBuilder.loadTexts:
+    clreCpeMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-LRE-CPE-MIB",
+    **{"ciscoLreCpeMIB": ciscoLreCpeMIB,
+       "clreCpeMIBNotifications": clreCpeMIBNotifications,
+       "clreCpeMIBNotificationsPrefix": clreCpeMIBNotificationsPrefix,
+       "ciscoLreCpeMIBObjects": ciscoLreCpeMIBObjects,
+       "clreCpeDot1dTp": clreCpeDot1dTp,
+       "clreCpeDot1dTpFdbTable": clreCpeDot1dTpFdbTable,
+       "clreCpeDot1dTpFdbEntry": clreCpeDot1dTpFdbEntry,
+       "clreCpeDot1dBasePortIfIndex": clreCpeDot1dBasePortIfIndex,
+       "clreCpePort": clreCpePort,
+       "clreCpePortTable": clreCpePortTable,
+       "clreCpePortEntry": clreCpePortEntry,
+       "clreCpePortAdminStatus": clreCpePortAdminStatus,
+       "clreCpePortAdminSpeed": clreCpePortAdminSpeed,
+       "clreCpePortAdminDuplex": clreCpePortAdminDuplex,
+       "clreCpePortAdminProtected": clreCpePortAdminProtected,
+       "clreCpePortOperProtected": clreCpePortOperProtected,
+       "clreCpeMIBConformance": clreCpeMIBConformance,
+       "clreCpeMIBCompliances": clreCpeMIBCompliances,
+       "clreCpeMIBCompliance": clreCpeMIBCompliance,
+       "clreCpeMIBGroups": clreCpeMIBGroups,
+       "clreCpeDot1dTpGroup": clreCpeDot1dTpGroup,
+       "clreCpePortGroup": clreCpePortGroup}
+)

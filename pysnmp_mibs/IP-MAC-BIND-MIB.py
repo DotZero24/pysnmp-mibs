@@ -1,244 +1,2060 @@
+# SNMP MIB module (IP-MAC-BIND-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module IP-MAC-BIND-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/IP-MAC-BIND-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:27 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/IP-MAC-BIND-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:52:33 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DateAndTime, TextualConvention, MacAddress, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "MacAddress", "DisplayString")
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_common_mgmt,) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-common-mgmt")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(Ipv6Address,) = mibBuilder.importSymbols(
+    "IPV6-TC",
+    "Ipv6Address")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+swIpMacBindMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23)
+)
+
+
+# Types definitions
+
+
+
 class VlanId(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 4094)
+    """Custom type VlanId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
 
-swIpMacBindMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 23))
-if mibBuilder.loadTexts: swIpMacBindMIB.setLastUpdated('1210260000Z')
-if mibBuilder.loadTexts: swIpMacBindMIB.setOrganization('D-Link Corp.')
+
+
+
+
 class PortList(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 127)
+    """Custom type PortList based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
 
-swIpMacBindingCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 23, 1))
-swIpMacBindingInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 23, 2))
-swIpMacBindingPortMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 23, 3))
-swIpMacBindingMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 23, 4))
-swIpMacBindingNotify = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 23, 5))
-swIpMacBindingTrapLogState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("enable", 2), ("disable", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingTrapLogState.setStatus('current')
-swIpMacBindingACLMode = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("enable", 2), ("disable", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingACLMode.setStatus('current')
-swIpMacBindingRecoveryInterval = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingRecoveryInterval.setStatus('current')
-swIpMacBindingDHCPSnoopState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingDHCPSnoopState.setStatus('current')
-swIpMacBindingDHCPSnoopEntryClearAllState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingDHCPSnoopEntryClearAllState.setStatus('current')
-swIpMacBindingARPInspectionState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingARPInspectionState.setStatus('current')
-swIpMacBindingIPv6DHCPSnoopState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingIPv6DHCPSnoopState.setStatus('current')
-swIpMacBindingNDSnoopState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingNDSnoopState.setStatus('current')
-swIpMacBindingIPv6DHCPSnoopEntryClearAllState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingIPv6DHCPSnoopEntryClearAllState.setStatus('current')
-swIpMacBindingNDSnoopEntryClearAllState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingNDSnoopEntryClearAllState.setStatus('current')
-swIpMacBindingRoamingState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingRoamingState.setStatus('current')
-swIpMacBindingAutosaveState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingAutosaveState.setStatus('current')
-swIpMacBindingAutosaveFileName = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingAutosaveFileName.setStatus('current')
-swIpMacBindingSaveActivity = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingSaveActivity.setStatus('current')
-swIpMacBindingAutoRecoverTime = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 15), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingAutoRecoverTime.setStatus('current')
-swIpMacBindingAllPortState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("enable-strict", 2), ("disable", 3), ("enable-loose", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingAllPortState.setStatus('current')
-swIpMacBindingPortTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2), )
-if mibBuilder.loadTexts: swIpMacBindingPortTable.setStatus('current')
-swIpMacBindingPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1), ).setIndexNames((0, "IP-MAC-BIND-MIB", "swIpMacBindingPortIndex"))
-if mibBuilder.loadTexts: swIpMacBindingPortEntry.setStatus('current')
-swIpMacBindingPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingPortIndex.setStatus('current')
-swIpMacBindingPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("enable-strict", 2), ("disable", 3), ("enable-loose", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortState.setStatus('current')
-swIpMacBindingPortZeroIPState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortZeroIPState.setStatus('current')
-swIpMacBindingPortForwardDhcpPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortForwardDhcpPkt.setStatus('current')
-swIpMacBindingPortDHCPSnoopMaxEntry = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortDHCPSnoopMaxEntry.setStatus('current')
-swIpMacBindingPortDHCPSnoopEntryClearAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortDHCPSnoopEntryClearAction.setStatus('current')
-swIpMacBindingPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("arp", 1), ("acl", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortMode.setStatus('current')
-swIpMacBindingPortStopLearningThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortStopLearningThreshold.setStatus('current')
-swIpMacBindingPortRecoverLearning = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortRecoverLearning.setStatus('current')
-swIpMacBindingPortLearningStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("normal", 1), ("stop", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingPortLearningStatus.setStatus('current')
-swIpMacBindingPortIPv6State = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("enabled", 2), ("disabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortIPv6State.setStatus('current')
-swIpMacBindingPortIPv6DHCPSnoopMaxEntry = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 12), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortIPv6DHCPSnoopMaxEntry.setStatus('current')
-swIpMacBindingPortNDSnoopMaxEntry = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 13), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortNDSnoopMaxEntry.setStatus('current')
-swIpMacBindingPortIPv6DHCPSnoopEntryClearAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortIPv6DHCPSnoopEntryClearAction.setStatus('current')
-swIpMacBindingPortNDSnoopEntryClearAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("other", 1), ("start", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortNDSnoopEntryClearAction.setStatus('current')
-swIpMacBindingPortARPInspection = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("disabled", 1), ("strict", 2), ("loose", 3))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortARPInspection.setStatus('current')
-swIpMacBindingPortIPInspection = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortIPInspection.setStatus('current')
-swIpMacBindingPortIPProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("all", 1), ("ipv4", 2), ("ipv6", 3))).clone('all')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortIPProtocol.setStatus('current')
-swIpMacBindingPortNDInspection = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortNDInspection.setStatus('current')
-swIpMacBindingPortLimitRateValue = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 20), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortLimitRateValue.setStatus('current')
-swIpMacBindingPortLimitRateAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("drop", 1), ("shutdown", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingPortLimitRateAction.setStatus('current')
-swIpMacBindingTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1), )
-if mibBuilder.loadTexts: swIpMacBindingTable.setStatus('current')
-swIpMacBindingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1), ).setIndexNames((0, "IP-MAC-BIND-MIB", "swIpMacBindingIpIndex"))
-if mibBuilder.loadTexts: swIpMacBindingEntry.setStatus('current')
-swIpMacBindingIpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingIpIndex.setStatus('current')
-swIpMacBindingMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 2), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingMac.setStatus('current')
-swIpMacBindingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingStatus.setStatus('current')
-swIpMacBindingPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 4), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingPorts.setStatus('current')
-swIpMacBindingAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingAction.setStatus('current')
-swIpMacBindingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("arp", 1), ("acl", 2), ("dhcp-snooping", 3), ("static", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingMode.setStatus('current')
-swIpMacBindingAclStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingAclStatus.setStatus('current')
-swIpMacBindingBlockedTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2), )
-if mibBuilder.loadTexts: swIpMacBindingBlockedTable.setStatus('current')
-swIpMacBindingBlockedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1), ).setIndexNames((0, "IP-MAC-BIND-MIB", "swIpMacBindingBlockedVID"), (0, "IP-MAC-BIND-MIB", "swIpMacBindingBlockedMac"))
-if mibBuilder.loadTexts: swIpMacBindingBlockedEntry.setStatus('current')
-swIpMacBindingBlockedVID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 1), VlanId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingBlockedVID.setStatus('current')
-swIpMacBindingBlockedMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingBlockedMac.setStatus('current')
-swIpMacBindingBlockedVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingBlockedVlanName.setStatus('current')
-swIpMacBindingBlockedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingBlockedPort.setStatus('current')
-swIpMacBindingBlockedType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("blockByAddrBind", 2), ("delete", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swIpMacBindingBlockedType.setStatus('obsolete')
-swIpMacBindingBlockedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 6), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingBlockedTime.setStatus('current')
-swIpMacBindingBlockedStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingBlockedStatus.setStatus('current')
-swIpMacBindingDHCPSnoopTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3), )
-if mibBuilder.loadTexts: swIpMacBindingDHCPSnoopTable.setStatus('current')
-swIpMacBindingDHCPSnoopEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1), ).setIndexNames((0, "IP-MAC-BIND-MIB", "swIpMacBindingDHCPSnoopIpIndex"))
-if mibBuilder.loadTexts: swIpMacBindingDHCPSnoopEntry.setStatus('current')
-swIpMacBindingDHCPSnoopIpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingDHCPSnoopIpIndex.setStatus('current')
-swIpMacBindingDHCPSnoopMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingDHCPSnoopMac.setStatus('current')
-swIpMacBindingDHCPSnoopLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingDHCPSnoopLeaseTime.setStatus('current')
-swIpMacBindingDHCPSnoopPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingDHCPSnoopPort.setStatus('current')
-swIpMacBindingDHCPSnoopStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingDHCPSnoopStatus.setStatus('current')
-swIpMacBindingIPv6Table = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4), )
-if mibBuilder.loadTexts: swIpMacBindingIPv6Table.setStatus('current')
-swIpMacBindingIPv6Entry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1), ).setIndexNames((0, "IP-MAC-BIND-MIB", "swIpMacBindingIPv6Addr"))
-if mibBuilder.loadTexts: swIpMacBindingIPv6Entry.setStatus('current')
-swIpMacBindingIPv6Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 1), Ipv6Address()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingIPv6Addr.setStatus('current')
-swIpMacBindingIPv6MacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 2), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingIPv6MacAddr.setStatus('current')
-swIpMacBindingIPv6Portlist = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 3), PortList()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingIPv6Portlist.setStatus('current')
-swIpMacBindingIPv6Mode = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("static", 1), ("dhcp-snooping", 2), ("nd-snooping", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingIPv6Mode.setStatus('current')
-swIpMacBindingIPv6ACLStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingIPv6ACLStatus.setStatus('current')
-swIpMacBindingIPv6RowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingIPv6RowStatus.setStatus('current')
-swIpMacBindingIPv6DHCPSnoopTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5), )
-if mibBuilder.loadTexts: swIpMacBindingIPv6DHCPSnoopTable.setStatus('current')
-swIpMacBindingIPv6DHCPSnoopEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1), ).setIndexNames((0, "IP-MAC-BIND-MIB", "swIpMacBindingIPv6DHCPSnoopAddr"))
-if mibBuilder.loadTexts: swIpMacBindingIPv6DHCPSnoopEntry.setStatus('current')
-swIpMacBindingIPv6DHCPSnoopAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1, 1), Ipv6Address()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingIPv6DHCPSnoopAddr.setStatus('current')
-swIpMacBindingIPv6DHCPSnoopMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingIPv6DHCPSnoopMac.setStatus('current')
-swIpMacBindingIPv6DHCPSnoopLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingIPv6DHCPSnoopLeaseTime.setStatus('current')
-swIpMacBindingIPv6DHCPSnoopPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingIPv6DHCPSnoopPort.setStatus('current')
-swIpMacBindingIPv6DHCPSnoopStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingIPv6DHCPSnoopStatus.setStatus('current')
-swIpMacBindingNDSnoopTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6), )
-if mibBuilder.loadTexts: swIpMacBindingNDSnoopTable.setStatus('current')
-swIpMacBindingNDSnoopEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1), ).setIndexNames((0, "IP-MAC-BIND-MIB", "swIpMacBindingNDSnoopAddr"))
-if mibBuilder.loadTexts: swIpMacBindingNDSnoopEntry.setStatus('current')
-swIpMacBindingNDSnoopAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1, 1), Ipv6Address()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingNDSnoopAddr.setStatus('current')
-swIpMacBindingNDSnoopMac = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingNDSnoopMac.setStatus('current')
-swIpMacBindingNDSnoopLeaseTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingNDSnoopLeaseTime.setStatus('current')
-swIpMacBindingNDSnoopPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingNDSnoopPort.setStatus('current')
-swIpMacBindingNDSnoopStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingNDSnoopStatus.setStatus('current')
-swIpMacBindingUploadDownloadTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7), )
-if mibBuilder.loadTexts: swIpMacBindingUploadDownloadTable.setStatus('current')
-swIpMacBindingUploadDownloadEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1), ).setIndexNames((0, "IP-MAC-BIND-MIB", "swIpMacBindingUploadDownloadProtocol"))
-if mibBuilder.loadTexts: swIpMacBindingUploadDownloadEntry.setStatus('current')
-swIpMacBindingUploadDownloadProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("tftp", 1), ("ftp", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swIpMacBindingUploadDownloadProtocol.setStatus('current')
-swIpMacBindingUploadDownloadServerIPAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 2), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingUploadDownloadServerIPAddressType.setStatus('current')
-swIpMacBindingUploadDownloadServerIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 3), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingUploadDownloadServerIPAddress.setStatus('current')
-swIpMacBindingUploadDownloadUsername = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingUploadDownloadUsername.setStatus('current')
-swIpMacBindingUploadDownloadPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingUploadDownloadPassword.setStatus('current')
-swIpMacBindingUploadDownloadTcpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingUploadDownloadTcpPort.setStatus('current')
-swIpMacBindingUploadDownloadFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingUploadDownloadFileName.setStatus('current')
-swIpMacBindingUploadDownloadAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("upload", 1), ("download", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swIpMacBindingUploadDownloadAction.setStatus('current')
-swIpMacBindingNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0))
-swIpMacBindingViolationTrap = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 1)).setObjects(("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex"), ("IP-MAC-BIND-MIB", "swIpMacBindingViolationIP"), ("IP-MAC-BIND-MIB", "swIpMacBindingViolationMac"))
-if mibBuilder.loadTexts: swIpMacBindingViolationTrap.setStatus('current')
-swIpMacBindingStopLearningTrap = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 2)).setObjects(("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex"))
-if mibBuilder.loadTexts: swIpMacBindingStopLearningTrap.setStatus('current')
-swIpMacBindingRecoverLearningTrap = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 3)).setObjects(("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex"))
-if mibBuilder.loadTexts: swIpMacBindingRecoverLearningTrap.setStatus('current')
-swIpMacBindingIPv6ViolationTrap = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 4)).setObjects(("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex"), ("IP-MAC-BIND-MIB", "swIpMacBindingViolationIPv6Addr"), ("IP-MAC-BIND-MIB", "swIpMacBindingViolationMac"))
-if mibBuilder.loadTexts: swIpMacBindingIPv6ViolationTrap.setStatus('current')
-swIpMacBindingShutdownTrap = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 5)).setObjects(("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex"))
-if mibBuilder.loadTexts: swIpMacBindingShutdownTrap.setStatus('current')
-swIpMacBindingRecoveryTrap = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 6)).setObjects(("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex"))
-if mibBuilder.loadTexts: swIpMacBindingRecoveryTrap.setStatus('current')
-swIpMacBindingNotificationBidings = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 2))
-swIpMacBindingViolationIP = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 2, 1), IpAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: swIpMacBindingViolationIP.setStatus('current')
-swIpMacBindingViolationMac = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 2, 2), MacAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: swIpMacBindingViolationMac.setStatus('current')
-swIpMacBindingViolationIPv6Addr = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 2, 3), Ipv6Address()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: swIpMacBindingViolationIPv6Addr.setStatus('current')
-mibBuilder.exportSymbols("IP-MAC-BIND-MIB", swIpMacBindingUploadDownloadUsername=swIpMacBindingUploadDownloadUsername, swIpMacBindingUploadDownloadProtocol=swIpMacBindingUploadDownloadProtocol, swIpMacBindingBlockedStatus=swIpMacBindingBlockedStatus, swIpMacBindingBlockedEntry=swIpMacBindingBlockedEntry, swIpMacBindingMgmt=swIpMacBindingMgmt, swIpMacBindingBlockedVID=swIpMacBindingBlockedVID, swIpMacBindingUploadDownloadPassword=swIpMacBindingUploadDownloadPassword, swIpMacBindingIPv6DHCPSnoopStatus=swIpMacBindingIPv6DHCPSnoopStatus, swIpMacBindingPortLimitRateValue=swIpMacBindingPortLimitRateValue, swIpMacBindingPortZeroIPState=swIpMacBindingPortZeroIPState, swIpMacBindingACLMode=swIpMacBindingACLMode, swIpMacBindingStatus=swIpMacBindingStatus, swIpMacBindingUploadDownloadServerIPAddressType=swIpMacBindingUploadDownloadServerIPAddressType, swIpMacBindingAllPortState=swIpMacBindingAllPortState, swIpMacBindingNDSnoopAddr=swIpMacBindingNDSnoopAddr, swIpMacBindingIPv6DHCPSnoopPort=swIpMacBindingIPv6DHCPSnoopPort, swIpMacBindingDHCPSnoopState=swIpMacBindingDHCPSnoopState, swIpMacBindingBlockedTable=swIpMacBindingBlockedTable, swIpMacBindingIPv6DHCPSnoopEntry=swIpMacBindingIPv6DHCPSnoopEntry, swIpMacBindingPortIndex=swIpMacBindingPortIndex, swIpMacBindingDHCPSnoopIpIndex=swIpMacBindingDHCPSnoopIpIndex, swIpMacBindingRecoverLearningTrap=swIpMacBindingRecoverLearningTrap, swIpMacBindingPorts=swIpMacBindingPorts, swIpMacBindingPortLearningStatus=swIpMacBindingPortLearningStatus, swIpMacBindingRecoveryTrap=swIpMacBindingRecoveryTrap, swIpMacBindingPortIPv6DHCPSnoopMaxEntry=swIpMacBindingPortIPv6DHCPSnoopMaxEntry, swIpMacBindingNDSnoopPort=swIpMacBindingNDSnoopPort, swIpMacBindingNDSnoopLeaseTime=swIpMacBindingNDSnoopLeaseTime, swIpMacBindingTable=swIpMacBindingTable, swIpMacBindingDHCPSnoopTable=swIpMacBindingDHCPSnoopTable, swIpMacBindingPortRecoverLearning=swIpMacBindingPortRecoverLearning, swIpMacBindingIPv6DHCPSnoopEntryClearAllState=swIpMacBindingIPv6DHCPSnoopEntryClearAllState, swIpMacBindingIPv6Mode=swIpMacBindingIPv6Mode, swIpMacBindingIPv6DHCPSnoopState=swIpMacBindingIPv6DHCPSnoopState, swIpMacBindingPortTable=swIpMacBindingPortTable, swIpMacBindingViolationTrap=swIpMacBindingViolationTrap, swIpMacBindingSaveActivity=swIpMacBindingSaveActivity, swIpMacBindingDHCPSnoopStatus=swIpMacBindingDHCPSnoopStatus, VlanId=VlanId, swIpMacBindingUploadDownloadAction=swIpMacBindingUploadDownloadAction, swIpMacBindingUploadDownloadServerIPAddress=swIpMacBindingUploadDownloadServerIPAddress, swIpMacBindingIPv6RowStatus=swIpMacBindingIPv6RowStatus, swIpMacBindingIPv6ACLStatus=swIpMacBindingIPv6ACLStatus, swIpMacBindingPortARPInspection=swIpMacBindingPortARPInspection, swIpMacBindingPortDHCPSnoopEntryClearAction=swIpMacBindingPortDHCPSnoopEntryClearAction, swIpMacBindingRoamingState=swIpMacBindingRoamingState, swIpMacBindingViolationMac=swIpMacBindingViolationMac, swIpMacBindingUploadDownloadEntry=swIpMacBindingUploadDownloadEntry, PYSNMP_MODULE_ID=swIpMacBindMIB, swIpMacBindingTrapLogState=swIpMacBindingTrapLogState, swIpMacBindingPortStopLearningThreshold=swIpMacBindingPortStopLearningThreshold, swIpMacBindingPortMgmt=swIpMacBindingPortMgmt, swIpMacBindingPortEntry=swIpMacBindingPortEntry, swIpMacBindingEntry=swIpMacBindingEntry, swIpMacBindingNDSnoopEntry=swIpMacBindingNDSnoopEntry, swIpMacBindingMode=swIpMacBindingMode, swIpMacBindingStopLearningTrap=swIpMacBindingStopLearningTrap, swIpMacBindingBlockedPort=swIpMacBindingBlockedPort, swIpMacBindingMac=swIpMacBindingMac, swIpMacBindingUploadDownloadFileName=swIpMacBindingUploadDownloadFileName, swIpMacBindingPortMode=swIpMacBindingPortMode, swIpMacBindingIPv6DHCPSnoopAddr=swIpMacBindingIPv6DHCPSnoopAddr, swIpMacBindingPortDHCPSnoopMaxEntry=swIpMacBindingPortDHCPSnoopMaxEntry, swIpMacBindingPortIPInspection=swIpMacBindingPortIPInspection, swIpMacBindingBlockedVlanName=swIpMacBindingBlockedVlanName, swIpMacBindingNotify=swIpMacBindingNotify, swIpMacBindingARPInspectionState=swIpMacBindingARPInspectionState, swIpMacBindingPortIPProtocol=swIpMacBindingPortIPProtocol, swIpMacBindingIPv6DHCPSnoopTable=swIpMacBindingIPv6DHCPSnoopTable, swIpMacBindingDHCPSnoopEntry=swIpMacBindingDHCPSnoopEntry, swIpMacBindingBlockedType=swIpMacBindingBlockedType, swIpMacBindingIpIndex=swIpMacBindingIpIndex, swIpMacBindingPortNDSnoopEntryClearAction=swIpMacBindingPortNDSnoopEntryClearAction, swIpMacBindingDHCPSnoopPort=swIpMacBindingDHCPSnoopPort, swIpMacBindingNDSnoopMac=swIpMacBindingNDSnoopMac, swIpMacBindingCtrl=swIpMacBindingCtrl, swIpMacBindMIB=swIpMacBindMIB, swIpMacBindingPortNDInspection=swIpMacBindingPortNDInspection, swIpMacBindingDHCPSnoopEntryClearAllState=swIpMacBindingDHCPSnoopEntryClearAllState, swIpMacBindingAutosaveState=swIpMacBindingAutosaveState, swIpMacBindingDHCPSnoopMac=swIpMacBindingDHCPSnoopMac, swIpMacBindingDHCPSnoopLeaseTime=swIpMacBindingDHCPSnoopLeaseTime, swIpMacBindingIPv6Entry=swIpMacBindingIPv6Entry, swIpMacBindingIPv6Addr=swIpMacBindingIPv6Addr, PortList=PortList, swIpMacBindingAclStatus=swIpMacBindingAclStatus, swIpMacBindingNotifyPrefix=swIpMacBindingNotifyPrefix, swIpMacBindingPortIPv6DHCPSnoopEntryClearAction=swIpMacBindingPortIPv6DHCPSnoopEntryClearAction, swIpMacBindingNDSnoopStatus=swIpMacBindingNDSnoopStatus, swIpMacBindingViolationIPv6Addr=swIpMacBindingViolationIPv6Addr, swIpMacBindingIPv6ViolationTrap=swIpMacBindingIPv6ViolationTrap, swIpMacBindingInfo=swIpMacBindingInfo, swIpMacBindingRecoveryInterval=swIpMacBindingRecoveryInterval, swIpMacBindingBlockedMac=swIpMacBindingBlockedMac, swIpMacBindingNDSnoopState=swIpMacBindingNDSnoopState, swIpMacBindingAutosaveFileName=swIpMacBindingAutosaveFileName, swIpMacBindingUploadDownloadTable=swIpMacBindingUploadDownloadTable, swIpMacBindingIPv6DHCPSnoopMac=swIpMacBindingIPv6DHCPSnoopMac, swIpMacBindingBlockedTime=swIpMacBindingBlockedTime, swIpMacBindingPortLimitRateAction=swIpMacBindingPortLimitRateAction, swIpMacBindingUploadDownloadTcpPort=swIpMacBindingUploadDownloadTcpPort, swIpMacBindingShutdownTrap=swIpMacBindingShutdownTrap, swIpMacBindingIPv6MacAddr=swIpMacBindingIPv6MacAddr, swIpMacBindingNotificationBidings=swIpMacBindingNotificationBidings, swIpMacBindingIPv6DHCPSnoopLeaseTime=swIpMacBindingIPv6DHCPSnoopLeaseTime, swIpMacBindingIPv6Table=swIpMacBindingIPv6Table, swIpMacBindingPortIPv6State=swIpMacBindingPortIPv6State, swIpMacBindingPortForwardDhcpPkt=swIpMacBindingPortForwardDhcpPkt, swIpMacBindingNDSnoopEntryClearAllState=swIpMacBindingNDSnoopEntryClearAllState, swIpMacBindingIPv6Portlist=swIpMacBindingIPv6Portlist, swIpMacBindingPortNDSnoopMaxEntry=swIpMacBindingPortNDSnoopMaxEntry, swIpMacBindingAutoRecoverTime=swIpMacBindingAutoRecoverTime, swIpMacBindingViolationIP=swIpMacBindingViolationIP, swIpMacBindingPortState=swIpMacBindingPortState, swIpMacBindingNDSnoopTable=swIpMacBindingNDSnoopTable, swIpMacBindingAction=swIpMacBindingAction)
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SwIpMacBindingCtrl_ObjectIdentity = ObjectIdentity
+swIpMacBindingCtrl = _SwIpMacBindingCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1)
+)
+
+
+class _SwIpMacBindingTrapLogState_Type(Integer32):
+    """Custom type swIpMacBindingTrapLogState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("enable", 2),
+          ("disable", 3))
+    )
+
+
+_SwIpMacBindingTrapLogState_Type.__name__ = "Integer32"
+_SwIpMacBindingTrapLogState_Object = MibScalar
+swIpMacBindingTrapLogState = _SwIpMacBindingTrapLogState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 1),
+    _SwIpMacBindingTrapLogState_Type()
+)
+swIpMacBindingTrapLogState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingTrapLogState.setStatus("current")
+
+
+class _SwIpMacBindingACLMode_Type(Integer32):
+    """Custom type swIpMacBindingACLMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("enable", 2),
+          ("disable", 3))
+    )
+
+
+_SwIpMacBindingACLMode_Type.__name__ = "Integer32"
+_SwIpMacBindingACLMode_Object = MibScalar
+swIpMacBindingACLMode = _SwIpMacBindingACLMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 2),
+    _SwIpMacBindingACLMode_Type()
+)
+swIpMacBindingACLMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingACLMode.setStatus("current")
+
+
+class _SwIpMacBindingRecoveryInterval_Type(Integer32):
+    """Custom type swIpMacBindingRecoveryInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwIpMacBindingRecoveryInterval_Type.__name__ = "Integer32"
+_SwIpMacBindingRecoveryInterval_Object = MibScalar
+swIpMacBindingRecoveryInterval = _SwIpMacBindingRecoveryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 3),
+    _SwIpMacBindingRecoveryInterval_Type()
+)
+swIpMacBindingRecoveryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingRecoveryInterval.setStatus("current")
+
+
+class _SwIpMacBindingDHCPSnoopState_Type(Integer32):
+    """Custom type swIpMacBindingDHCPSnoopState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwIpMacBindingDHCPSnoopState_Type.__name__ = "Integer32"
+_SwIpMacBindingDHCPSnoopState_Object = MibScalar
+swIpMacBindingDHCPSnoopState = _SwIpMacBindingDHCPSnoopState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 4),
+    _SwIpMacBindingDHCPSnoopState_Type()
+)
+swIpMacBindingDHCPSnoopState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingDHCPSnoopState.setStatus("current")
+
+
+class _SwIpMacBindingDHCPSnoopEntryClearAllState_Type(Integer32):
+    """Custom type swIpMacBindingDHCPSnoopEntryClearAllState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("start", 2))
+    )
+
+
+_SwIpMacBindingDHCPSnoopEntryClearAllState_Type.__name__ = "Integer32"
+_SwIpMacBindingDHCPSnoopEntryClearAllState_Object = MibScalar
+swIpMacBindingDHCPSnoopEntryClearAllState = _SwIpMacBindingDHCPSnoopEntryClearAllState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 5),
+    _SwIpMacBindingDHCPSnoopEntryClearAllState_Type()
+)
+swIpMacBindingDHCPSnoopEntryClearAllState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingDHCPSnoopEntryClearAllState.setStatus("current")
+
+
+class _SwIpMacBindingARPInspectionState_Type(Integer32):
+    """Custom type swIpMacBindingARPInspectionState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwIpMacBindingARPInspectionState_Type.__name__ = "Integer32"
+_SwIpMacBindingARPInspectionState_Object = MibScalar
+swIpMacBindingARPInspectionState = _SwIpMacBindingARPInspectionState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 6),
+    _SwIpMacBindingARPInspectionState_Type()
+)
+swIpMacBindingARPInspectionState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingARPInspectionState.setStatus("current")
+
+
+class _SwIpMacBindingIPv6DHCPSnoopState_Type(Integer32):
+    """Custom type swIpMacBindingIPv6DHCPSnoopState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwIpMacBindingIPv6DHCPSnoopState_Type.__name__ = "Integer32"
+_SwIpMacBindingIPv6DHCPSnoopState_Object = MibScalar
+swIpMacBindingIPv6DHCPSnoopState = _SwIpMacBindingIPv6DHCPSnoopState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 7),
+    _SwIpMacBindingIPv6DHCPSnoopState_Type()
+)
+swIpMacBindingIPv6DHCPSnoopState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6DHCPSnoopState.setStatus("current")
+
+
+class _SwIpMacBindingNDSnoopState_Type(Integer32):
+    """Custom type swIpMacBindingNDSnoopState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwIpMacBindingNDSnoopState_Type.__name__ = "Integer32"
+_SwIpMacBindingNDSnoopState_Object = MibScalar
+swIpMacBindingNDSnoopState = _SwIpMacBindingNDSnoopState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 8),
+    _SwIpMacBindingNDSnoopState_Type()
+)
+swIpMacBindingNDSnoopState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingNDSnoopState.setStatus("current")
+
+
+class _SwIpMacBindingIPv6DHCPSnoopEntryClearAllState_Type(Integer32):
+    """Custom type swIpMacBindingIPv6DHCPSnoopEntryClearAllState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("start", 2))
+    )
+
+
+_SwIpMacBindingIPv6DHCPSnoopEntryClearAllState_Type.__name__ = "Integer32"
+_SwIpMacBindingIPv6DHCPSnoopEntryClearAllState_Object = MibScalar
+swIpMacBindingIPv6DHCPSnoopEntryClearAllState = _SwIpMacBindingIPv6DHCPSnoopEntryClearAllState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 9),
+    _SwIpMacBindingIPv6DHCPSnoopEntryClearAllState_Type()
+)
+swIpMacBindingIPv6DHCPSnoopEntryClearAllState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6DHCPSnoopEntryClearAllState.setStatus("current")
+
+
+class _SwIpMacBindingNDSnoopEntryClearAllState_Type(Integer32):
+    """Custom type swIpMacBindingNDSnoopEntryClearAllState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("start", 2))
+    )
+
+
+_SwIpMacBindingNDSnoopEntryClearAllState_Type.__name__ = "Integer32"
+_SwIpMacBindingNDSnoopEntryClearAllState_Object = MibScalar
+swIpMacBindingNDSnoopEntryClearAllState = _SwIpMacBindingNDSnoopEntryClearAllState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 10),
+    _SwIpMacBindingNDSnoopEntryClearAllState_Type()
+)
+swIpMacBindingNDSnoopEntryClearAllState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingNDSnoopEntryClearAllState.setStatus("current")
+
+
+class _SwIpMacBindingRoamingState_Type(Integer32):
+    """Custom type swIpMacBindingRoamingState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwIpMacBindingRoamingState_Type.__name__ = "Integer32"
+_SwIpMacBindingRoamingState_Object = MibScalar
+swIpMacBindingRoamingState = _SwIpMacBindingRoamingState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 11),
+    _SwIpMacBindingRoamingState_Type()
+)
+swIpMacBindingRoamingState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingRoamingState.setStatus("current")
+
+
+class _SwIpMacBindingAutosaveState_Type(Integer32):
+    """Custom type swIpMacBindingAutosaveState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwIpMacBindingAutosaveState_Type.__name__ = "Integer32"
+_SwIpMacBindingAutosaveState_Object = MibScalar
+swIpMacBindingAutosaveState = _SwIpMacBindingAutosaveState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 12),
+    _SwIpMacBindingAutosaveState_Type()
+)
+swIpMacBindingAutosaveState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingAutosaveState.setStatus("current")
+
+
+class _SwIpMacBindingAutosaveFileName_Type(DisplayString):
+    """Custom type swIpMacBindingAutosaveFileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 64),
+    )
+
+
+_SwIpMacBindingAutosaveFileName_Type.__name__ = "DisplayString"
+_SwIpMacBindingAutosaveFileName_Object = MibScalar
+swIpMacBindingAutosaveFileName = _SwIpMacBindingAutosaveFileName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 13),
+    _SwIpMacBindingAutosaveFileName_Type()
+)
+swIpMacBindingAutosaveFileName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingAutosaveFileName.setStatus("current")
+
+
+class _SwIpMacBindingSaveActivity_Type(Integer32):
+    """Custom type swIpMacBindingSaveActivity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("start", 2))
+    )
+
+
+_SwIpMacBindingSaveActivity_Type.__name__ = "Integer32"
+_SwIpMacBindingSaveActivity_Object = MibScalar
+swIpMacBindingSaveActivity = _SwIpMacBindingSaveActivity_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 14),
+    _SwIpMacBindingSaveActivity_Type()
+)
+swIpMacBindingSaveActivity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingSaveActivity.setStatus("current")
+_SwIpMacBindingAutoRecoverTime_Type = Integer32
+_SwIpMacBindingAutoRecoverTime_Object = MibScalar
+swIpMacBindingAutoRecoverTime = _SwIpMacBindingAutoRecoverTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 1, 15),
+    _SwIpMacBindingAutoRecoverTime_Type()
+)
+swIpMacBindingAutoRecoverTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingAutoRecoverTime.setStatus("current")
+_SwIpMacBindingInfo_ObjectIdentity = ObjectIdentity
+swIpMacBindingInfo = _SwIpMacBindingInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 2)
+)
+_SwIpMacBindingPortMgmt_ObjectIdentity = ObjectIdentity
+swIpMacBindingPortMgmt = _SwIpMacBindingPortMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3)
+)
+
+
+class _SwIpMacBindingAllPortState_Type(Integer32):
+    """Custom type swIpMacBindingAllPortState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("enable-strict", 2),
+          ("disable", 3),
+          ("enable-loose", 4))
+    )
+
+
+_SwIpMacBindingAllPortState_Type.__name__ = "Integer32"
+_SwIpMacBindingAllPortState_Object = MibScalar
+swIpMacBindingAllPortState = _SwIpMacBindingAllPortState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 1),
+    _SwIpMacBindingAllPortState_Type()
+)
+swIpMacBindingAllPortState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingAllPortState.setStatus("current")
+_SwIpMacBindingPortTable_Object = MibTable
+swIpMacBindingPortTable = _SwIpMacBindingPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2)
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingPortTable.setStatus("current")
+_SwIpMacBindingPortEntry_Object = MibTableRow
+swIpMacBindingPortEntry = _SwIpMacBindingPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1)
+)
+swIpMacBindingPortEntry.setIndexNames(
+    (0, "IP-MAC-BIND-MIB", "swIpMacBindingPortIndex"),
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingPortEntry.setStatus("current")
+
+
+class _SwIpMacBindingPortIndex_Type(Integer32):
+    """Custom type swIpMacBindingPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwIpMacBindingPortIndex_Type.__name__ = "Integer32"
+_SwIpMacBindingPortIndex_Object = MibTableColumn
+swIpMacBindingPortIndex = _SwIpMacBindingPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 1),
+    _SwIpMacBindingPortIndex_Type()
+)
+swIpMacBindingPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortIndex.setStatus("current")
+
+
+class _SwIpMacBindingPortState_Type(Integer32):
+    """Custom type swIpMacBindingPortState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("enable-strict", 2),
+          ("disable", 3),
+          ("enable-loose", 4))
+    )
+
+
+_SwIpMacBindingPortState_Type.__name__ = "Integer32"
+_SwIpMacBindingPortState_Object = MibTableColumn
+swIpMacBindingPortState = _SwIpMacBindingPortState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 2),
+    _SwIpMacBindingPortState_Type()
+)
+swIpMacBindingPortState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortState.setStatus("current")
+
+
+class _SwIpMacBindingPortZeroIPState_Type(Integer32):
+    """Custom type swIpMacBindingPortZeroIPState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwIpMacBindingPortZeroIPState_Type.__name__ = "Integer32"
+_SwIpMacBindingPortZeroIPState_Object = MibTableColumn
+swIpMacBindingPortZeroIPState = _SwIpMacBindingPortZeroIPState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 3),
+    _SwIpMacBindingPortZeroIPState_Type()
+)
+swIpMacBindingPortZeroIPState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortZeroIPState.setStatus("current")
+
+
+class _SwIpMacBindingPortForwardDhcpPkt_Type(Integer32):
+    """Custom type swIpMacBindingPortForwardDhcpPkt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwIpMacBindingPortForwardDhcpPkt_Type.__name__ = "Integer32"
+_SwIpMacBindingPortForwardDhcpPkt_Object = MibTableColumn
+swIpMacBindingPortForwardDhcpPkt = _SwIpMacBindingPortForwardDhcpPkt_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 4),
+    _SwIpMacBindingPortForwardDhcpPkt_Type()
+)
+swIpMacBindingPortForwardDhcpPkt.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortForwardDhcpPkt.setStatus("current")
+
+
+class _SwIpMacBindingPortDHCPSnoopMaxEntry_Type(Integer32):
+    """Custom type swIpMacBindingPortDHCPSnoopMaxEntry based on Integer32"""
+    defaultValue = 0
+
+
+_SwIpMacBindingPortDHCPSnoopMaxEntry_Type.__name__ = "Integer32"
+_SwIpMacBindingPortDHCPSnoopMaxEntry_Object = MibTableColumn
+swIpMacBindingPortDHCPSnoopMaxEntry = _SwIpMacBindingPortDHCPSnoopMaxEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 5),
+    _SwIpMacBindingPortDHCPSnoopMaxEntry_Type()
+)
+swIpMacBindingPortDHCPSnoopMaxEntry.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortDHCPSnoopMaxEntry.setStatus("current")
+
+
+class _SwIpMacBindingPortDHCPSnoopEntryClearAction_Type(Integer32):
+    """Custom type swIpMacBindingPortDHCPSnoopEntryClearAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("start", 2))
+    )
+
+
+_SwIpMacBindingPortDHCPSnoopEntryClearAction_Type.__name__ = "Integer32"
+_SwIpMacBindingPortDHCPSnoopEntryClearAction_Object = MibTableColumn
+swIpMacBindingPortDHCPSnoopEntryClearAction = _SwIpMacBindingPortDHCPSnoopEntryClearAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 6),
+    _SwIpMacBindingPortDHCPSnoopEntryClearAction_Type()
+)
+swIpMacBindingPortDHCPSnoopEntryClearAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortDHCPSnoopEntryClearAction.setStatus("current")
+
+
+class _SwIpMacBindingPortMode_Type(Integer32):
+    """Custom type swIpMacBindingPortMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("arp", 1),
+          ("acl", 2))
+    )
+
+
+_SwIpMacBindingPortMode_Type.__name__ = "Integer32"
+_SwIpMacBindingPortMode_Object = MibTableColumn
+swIpMacBindingPortMode = _SwIpMacBindingPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 7),
+    _SwIpMacBindingPortMode_Type()
+)
+swIpMacBindingPortMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortMode.setStatus("current")
+_SwIpMacBindingPortStopLearningThreshold_Type = Integer32
+_SwIpMacBindingPortStopLearningThreshold_Object = MibTableColumn
+swIpMacBindingPortStopLearningThreshold = _SwIpMacBindingPortStopLearningThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 8),
+    _SwIpMacBindingPortStopLearningThreshold_Type()
+)
+swIpMacBindingPortStopLearningThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortStopLearningThreshold.setStatus("current")
+
+
+class _SwIpMacBindingPortRecoverLearning_Type(Integer32):
+    """Custom type swIpMacBindingPortRecoverLearning based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("start", 2))
+    )
+
+
+_SwIpMacBindingPortRecoverLearning_Type.__name__ = "Integer32"
+_SwIpMacBindingPortRecoverLearning_Object = MibTableColumn
+swIpMacBindingPortRecoverLearning = _SwIpMacBindingPortRecoverLearning_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 9),
+    _SwIpMacBindingPortRecoverLearning_Type()
+)
+swIpMacBindingPortRecoverLearning.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortRecoverLearning.setStatus("current")
+
+
+class _SwIpMacBindingPortLearningStatus_Type(Integer32):
+    """Custom type swIpMacBindingPortLearningStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 1),
+          ("stop", 2))
+    )
+
+
+_SwIpMacBindingPortLearningStatus_Type.__name__ = "Integer32"
+_SwIpMacBindingPortLearningStatus_Object = MibTableColumn
+swIpMacBindingPortLearningStatus = _SwIpMacBindingPortLearningStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 10),
+    _SwIpMacBindingPortLearningStatus_Type()
+)
+swIpMacBindingPortLearningStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortLearningStatus.setStatus("current")
+
+
+class _SwIpMacBindingPortIPv6State_Type(Integer32):
+    """Custom type swIpMacBindingPortIPv6State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("enabled", 2),
+          ("disabled", 3))
+    )
+
+
+_SwIpMacBindingPortIPv6State_Type.__name__ = "Integer32"
+_SwIpMacBindingPortIPv6State_Object = MibTableColumn
+swIpMacBindingPortIPv6State = _SwIpMacBindingPortIPv6State_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 11),
+    _SwIpMacBindingPortIPv6State_Type()
+)
+swIpMacBindingPortIPv6State.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortIPv6State.setStatus("current")
+
+
+class _SwIpMacBindingPortIPv6DHCPSnoopMaxEntry_Type(Integer32):
+    """Custom type swIpMacBindingPortIPv6DHCPSnoopMaxEntry based on Integer32"""
+    defaultValue = 0
+
+
+_SwIpMacBindingPortIPv6DHCPSnoopMaxEntry_Type.__name__ = "Integer32"
+_SwIpMacBindingPortIPv6DHCPSnoopMaxEntry_Object = MibTableColumn
+swIpMacBindingPortIPv6DHCPSnoopMaxEntry = _SwIpMacBindingPortIPv6DHCPSnoopMaxEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 12),
+    _SwIpMacBindingPortIPv6DHCPSnoopMaxEntry_Type()
+)
+swIpMacBindingPortIPv6DHCPSnoopMaxEntry.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortIPv6DHCPSnoopMaxEntry.setStatus("current")
+
+
+class _SwIpMacBindingPortNDSnoopMaxEntry_Type(Integer32):
+    """Custom type swIpMacBindingPortNDSnoopMaxEntry based on Integer32"""
+    defaultValue = 0
+
+
+_SwIpMacBindingPortNDSnoopMaxEntry_Type.__name__ = "Integer32"
+_SwIpMacBindingPortNDSnoopMaxEntry_Object = MibTableColumn
+swIpMacBindingPortNDSnoopMaxEntry = _SwIpMacBindingPortNDSnoopMaxEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 13),
+    _SwIpMacBindingPortNDSnoopMaxEntry_Type()
+)
+swIpMacBindingPortNDSnoopMaxEntry.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortNDSnoopMaxEntry.setStatus("current")
+
+
+class _SwIpMacBindingPortIPv6DHCPSnoopEntryClearAction_Type(Integer32):
+    """Custom type swIpMacBindingPortIPv6DHCPSnoopEntryClearAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("start", 2))
+    )
+
+
+_SwIpMacBindingPortIPv6DHCPSnoopEntryClearAction_Type.__name__ = "Integer32"
+_SwIpMacBindingPortIPv6DHCPSnoopEntryClearAction_Object = MibTableColumn
+swIpMacBindingPortIPv6DHCPSnoopEntryClearAction = _SwIpMacBindingPortIPv6DHCPSnoopEntryClearAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 14),
+    _SwIpMacBindingPortIPv6DHCPSnoopEntryClearAction_Type()
+)
+swIpMacBindingPortIPv6DHCPSnoopEntryClearAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortIPv6DHCPSnoopEntryClearAction.setStatus("current")
+
+
+class _SwIpMacBindingPortNDSnoopEntryClearAction_Type(Integer32):
+    """Custom type swIpMacBindingPortNDSnoopEntryClearAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("start", 2))
+    )
+
+
+_SwIpMacBindingPortNDSnoopEntryClearAction_Type.__name__ = "Integer32"
+_SwIpMacBindingPortNDSnoopEntryClearAction_Object = MibTableColumn
+swIpMacBindingPortNDSnoopEntryClearAction = _SwIpMacBindingPortNDSnoopEntryClearAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 15),
+    _SwIpMacBindingPortNDSnoopEntryClearAction_Type()
+)
+swIpMacBindingPortNDSnoopEntryClearAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortNDSnoopEntryClearAction.setStatus("current")
+
+
+class _SwIpMacBindingPortARPInspection_Type(Integer32):
+    """Custom type swIpMacBindingPortARPInspection based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("strict", 2),
+          ("loose", 3))
+    )
+
+
+_SwIpMacBindingPortARPInspection_Type.__name__ = "Integer32"
+_SwIpMacBindingPortARPInspection_Object = MibTableColumn
+swIpMacBindingPortARPInspection = _SwIpMacBindingPortARPInspection_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 16),
+    _SwIpMacBindingPortARPInspection_Type()
+)
+swIpMacBindingPortARPInspection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortARPInspection.setStatus("current")
+
+
+class _SwIpMacBindingPortIPInspection_Type(Integer32):
+    """Custom type swIpMacBindingPortIPInspection based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwIpMacBindingPortIPInspection_Type.__name__ = "Integer32"
+_SwIpMacBindingPortIPInspection_Object = MibTableColumn
+swIpMacBindingPortIPInspection = _SwIpMacBindingPortIPInspection_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 17),
+    _SwIpMacBindingPortIPInspection_Type()
+)
+swIpMacBindingPortIPInspection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortIPInspection.setStatus("current")
+
+
+class _SwIpMacBindingPortIPProtocol_Type(Integer32):
+    """Custom type swIpMacBindingPortIPProtocol based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("all", 1),
+          ("ipv4", 2),
+          ("ipv6", 3))
+    )
+
+
+_SwIpMacBindingPortIPProtocol_Type.__name__ = "Integer32"
+_SwIpMacBindingPortIPProtocol_Object = MibTableColumn
+swIpMacBindingPortIPProtocol = _SwIpMacBindingPortIPProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 18),
+    _SwIpMacBindingPortIPProtocol_Type()
+)
+swIpMacBindingPortIPProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortIPProtocol.setStatus("current")
+
+
+class _SwIpMacBindingPortNDInspection_Type(Integer32):
+    """Custom type swIpMacBindingPortNDInspection based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwIpMacBindingPortNDInspection_Type.__name__ = "Integer32"
+_SwIpMacBindingPortNDInspection_Object = MibTableColumn
+swIpMacBindingPortNDInspection = _SwIpMacBindingPortNDInspection_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 19),
+    _SwIpMacBindingPortNDInspection_Type()
+)
+swIpMacBindingPortNDInspection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortNDInspection.setStatus("current")
+_SwIpMacBindingPortLimitRateValue_Type = Integer32
+_SwIpMacBindingPortLimitRateValue_Object = MibTableColumn
+swIpMacBindingPortLimitRateValue = _SwIpMacBindingPortLimitRateValue_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 20),
+    _SwIpMacBindingPortLimitRateValue_Type()
+)
+swIpMacBindingPortLimitRateValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortLimitRateValue.setStatus("current")
+
+
+class _SwIpMacBindingPortLimitRateAction_Type(Integer32):
+    """Custom type swIpMacBindingPortLimitRateAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("drop", 1),
+          ("shutdown", 2))
+    )
+
+
+_SwIpMacBindingPortLimitRateAction_Type.__name__ = "Integer32"
+_SwIpMacBindingPortLimitRateAction_Object = MibTableColumn
+swIpMacBindingPortLimitRateAction = _SwIpMacBindingPortLimitRateAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 3, 2, 1, 21),
+    _SwIpMacBindingPortLimitRateAction_Type()
+)
+swIpMacBindingPortLimitRateAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingPortLimitRateAction.setStatus("current")
+_SwIpMacBindingMgmt_ObjectIdentity = ObjectIdentity
+swIpMacBindingMgmt = _SwIpMacBindingMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4)
+)
+_SwIpMacBindingTable_Object = MibTable
+swIpMacBindingTable = _SwIpMacBindingTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1)
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingTable.setStatus("current")
+_SwIpMacBindingEntry_Object = MibTableRow
+swIpMacBindingEntry = _SwIpMacBindingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1)
+)
+swIpMacBindingEntry.setIndexNames(
+    (0, "IP-MAC-BIND-MIB", "swIpMacBindingIpIndex"),
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingEntry.setStatus("current")
+_SwIpMacBindingIpIndex_Type = IpAddress
+_SwIpMacBindingIpIndex_Object = MibTableColumn
+swIpMacBindingIpIndex = _SwIpMacBindingIpIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 1),
+    _SwIpMacBindingIpIndex_Type()
+)
+swIpMacBindingIpIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingIpIndex.setStatus("current")
+_SwIpMacBindingMac_Type = MacAddress
+_SwIpMacBindingMac_Object = MibTableColumn
+swIpMacBindingMac = _SwIpMacBindingMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 2),
+    _SwIpMacBindingMac_Type()
+)
+swIpMacBindingMac.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingMac.setStatus("current")
+_SwIpMacBindingStatus_Type = RowStatus
+_SwIpMacBindingStatus_Object = MibTableColumn
+swIpMacBindingStatus = _SwIpMacBindingStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 3),
+    _SwIpMacBindingStatus_Type()
+)
+swIpMacBindingStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingStatus.setStatus("current")
+_SwIpMacBindingPorts_Type = PortList
+_SwIpMacBindingPorts_Object = MibTableColumn
+swIpMacBindingPorts = _SwIpMacBindingPorts_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 4),
+    _SwIpMacBindingPorts_Type()
+)
+swIpMacBindingPorts.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingPorts.setStatus("current")
+
+
+class _SwIpMacBindingAction_Type(Integer32):
+    """Custom type swIpMacBindingAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("active", 2))
+    )
+
+
+_SwIpMacBindingAction_Type.__name__ = "Integer32"
+_SwIpMacBindingAction_Object = MibTableColumn
+swIpMacBindingAction = _SwIpMacBindingAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 5),
+    _SwIpMacBindingAction_Type()
+)
+swIpMacBindingAction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingAction.setStatus("current")
+
+
+class _SwIpMacBindingMode_Type(Integer32):
+    """Custom type swIpMacBindingMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("arp", 1),
+          ("acl", 2),
+          ("dhcp-snooping", 3),
+          ("static", 4))
+    )
+
+
+_SwIpMacBindingMode_Type.__name__ = "Integer32"
+_SwIpMacBindingMode_Object = MibTableColumn
+swIpMacBindingMode = _SwIpMacBindingMode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 6),
+    _SwIpMacBindingMode_Type()
+)
+swIpMacBindingMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingMode.setStatus("current")
+
+
+class _SwIpMacBindingAclStatus_Type(Integer32):
+    """Custom type swIpMacBindingAclStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("active", 2))
+    )
+
+
+_SwIpMacBindingAclStatus_Type.__name__ = "Integer32"
+_SwIpMacBindingAclStatus_Object = MibTableColumn
+swIpMacBindingAclStatus = _SwIpMacBindingAclStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 1, 1, 7),
+    _SwIpMacBindingAclStatus_Type()
+)
+swIpMacBindingAclStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingAclStatus.setStatus("current")
+_SwIpMacBindingBlockedTable_Object = MibTable
+swIpMacBindingBlockedTable = _SwIpMacBindingBlockedTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2)
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingBlockedTable.setStatus("current")
+_SwIpMacBindingBlockedEntry_Object = MibTableRow
+swIpMacBindingBlockedEntry = _SwIpMacBindingBlockedEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1)
+)
+swIpMacBindingBlockedEntry.setIndexNames(
+    (0, "IP-MAC-BIND-MIB", "swIpMacBindingBlockedVID"),
+    (0, "IP-MAC-BIND-MIB", "swIpMacBindingBlockedMac"),
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingBlockedEntry.setStatus("current")
+_SwIpMacBindingBlockedVID_Type = VlanId
+_SwIpMacBindingBlockedVID_Object = MibTableColumn
+swIpMacBindingBlockedVID = _SwIpMacBindingBlockedVID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 1),
+    _SwIpMacBindingBlockedVID_Type()
+)
+swIpMacBindingBlockedVID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingBlockedVID.setStatus("current")
+_SwIpMacBindingBlockedMac_Type = MacAddress
+_SwIpMacBindingBlockedMac_Object = MibTableColumn
+swIpMacBindingBlockedMac = _SwIpMacBindingBlockedMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 2),
+    _SwIpMacBindingBlockedMac_Type()
+)
+swIpMacBindingBlockedMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingBlockedMac.setStatus("current")
+_SwIpMacBindingBlockedVlanName_Type = DisplayString
+_SwIpMacBindingBlockedVlanName_Object = MibTableColumn
+swIpMacBindingBlockedVlanName = _SwIpMacBindingBlockedVlanName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 3),
+    _SwIpMacBindingBlockedVlanName_Type()
+)
+swIpMacBindingBlockedVlanName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingBlockedVlanName.setStatus("current")
+
+
+class _SwIpMacBindingBlockedPort_Type(Integer32):
+    """Custom type swIpMacBindingBlockedPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwIpMacBindingBlockedPort_Type.__name__ = "Integer32"
+_SwIpMacBindingBlockedPort_Object = MibTableColumn
+swIpMacBindingBlockedPort = _SwIpMacBindingBlockedPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 4),
+    _SwIpMacBindingBlockedPort_Type()
+)
+swIpMacBindingBlockedPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingBlockedPort.setStatus("current")
+
+
+class _SwIpMacBindingBlockedType_Type(Integer32):
+    """Custom type swIpMacBindingBlockedType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("blockByAddrBind", 2),
+          ("delete", 3))
+    )
+
+
+_SwIpMacBindingBlockedType_Type.__name__ = "Integer32"
+_SwIpMacBindingBlockedType_Object = MibTableColumn
+swIpMacBindingBlockedType = _SwIpMacBindingBlockedType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 5),
+    _SwIpMacBindingBlockedType_Type()
+)
+swIpMacBindingBlockedType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swIpMacBindingBlockedType.setStatus("obsolete")
+_SwIpMacBindingBlockedTime_Type = DateAndTime
+_SwIpMacBindingBlockedTime_Object = MibTableColumn
+swIpMacBindingBlockedTime = _SwIpMacBindingBlockedTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 6),
+    _SwIpMacBindingBlockedTime_Type()
+)
+swIpMacBindingBlockedTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingBlockedTime.setStatus("current")
+_SwIpMacBindingBlockedStatus_Type = RowStatus
+_SwIpMacBindingBlockedStatus_Object = MibTableColumn
+swIpMacBindingBlockedStatus = _SwIpMacBindingBlockedStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 2, 1, 7),
+    _SwIpMacBindingBlockedStatus_Type()
+)
+swIpMacBindingBlockedStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingBlockedStatus.setStatus("current")
+_SwIpMacBindingDHCPSnoopTable_Object = MibTable
+swIpMacBindingDHCPSnoopTable = _SwIpMacBindingDHCPSnoopTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3)
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingDHCPSnoopTable.setStatus("current")
+_SwIpMacBindingDHCPSnoopEntry_Object = MibTableRow
+swIpMacBindingDHCPSnoopEntry = _SwIpMacBindingDHCPSnoopEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1)
+)
+swIpMacBindingDHCPSnoopEntry.setIndexNames(
+    (0, "IP-MAC-BIND-MIB", "swIpMacBindingDHCPSnoopIpIndex"),
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingDHCPSnoopEntry.setStatus("current")
+_SwIpMacBindingDHCPSnoopIpIndex_Type = IpAddress
+_SwIpMacBindingDHCPSnoopIpIndex_Object = MibTableColumn
+swIpMacBindingDHCPSnoopIpIndex = _SwIpMacBindingDHCPSnoopIpIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1, 1),
+    _SwIpMacBindingDHCPSnoopIpIndex_Type()
+)
+swIpMacBindingDHCPSnoopIpIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingDHCPSnoopIpIndex.setStatus("current")
+_SwIpMacBindingDHCPSnoopMac_Type = MacAddress
+_SwIpMacBindingDHCPSnoopMac_Object = MibTableColumn
+swIpMacBindingDHCPSnoopMac = _SwIpMacBindingDHCPSnoopMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1, 2),
+    _SwIpMacBindingDHCPSnoopMac_Type()
+)
+swIpMacBindingDHCPSnoopMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingDHCPSnoopMac.setStatus("current")
+_SwIpMacBindingDHCPSnoopLeaseTime_Type = Integer32
+_SwIpMacBindingDHCPSnoopLeaseTime_Object = MibTableColumn
+swIpMacBindingDHCPSnoopLeaseTime = _SwIpMacBindingDHCPSnoopLeaseTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1, 3),
+    _SwIpMacBindingDHCPSnoopLeaseTime_Type()
+)
+swIpMacBindingDHCPSnoopLeaseTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingDHCPSnoopLeaseTime.setStatus("current")
+_SwIpMacBindingDHCPSnoopPort_Type = Integer32
+_SwIpMacBindingDHCPSnoopPort_Object = MibTableColumn
+swIpMacBindingDHCPSnoopPort = _SwIpMacBindingDHCPSnoopPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1, 4),
+    _SwIpMacBindingDHCPSnoopPort_Type()
+)
+swIpMacBindingDHCPSnoopPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingDHCPSnoopPort.setStatus("current")
+
+
+class _SwIpMacBindingDHCPSnoopStatus_Type(Integer32):
+    """Custom type swIpMacBindingDHCPSnoopStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("active", 2))
+    )
+
+
+_SwIpMacBindingDHCPSnoopStatus_Type.__name__ = "Integer32"
+_SwIpMacBindingDHCPSnoopStatus_Object = MibTableColumn
+swIpMacBindingDHCPSnoopStatus = _SwIpMacBindingDHCPSnoopStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 3, 1, 5),
+    _SwIpMacBindingDHCPSnoopStatus_Type()
+)
+swIpMacBindingDHCPSnoopStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingDHCPSnoopStatus.setStatus("current")
+_SwIpMacBindingIPv6Table_Object = MibTable
+swIpMacBindingIPv6Table = _SwIpMacBindingIPv6Table_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4)
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6Table.setStatus("current")
+_SwIpMacBindingIPv6Entry_Object = MibTableRow
+swIpMacBindingIPv6Entry = _SwIpMacBindingIPv6Entry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1)
+)
+swIpMacBindingIPv6Entry.setIndexNames(
+    (0, "IP-MAC-BIND-MIB", "swIpMacBindingIPv6Addr"),
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6Entry.setStatus("current")
+_SwIpMacBindingIPv6Addr_Type = Ipv6Address
+_SwIpMacBindingIPv6Addr_Object = MibTableColumn
+swIpMacBindingIPv6Addr = _SwIpMacBindingIPv6Addr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 1),
+    _SwIpMacBindingIPv6Addr_Type()
+)
+swIpMacBindingIPv6Addr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6Addr.setStatus("current")
+_SwIpMacBindingIPv6MacAddr_Type = MacAddress
+_SwIpMacBindingIPv6MacAddr_Object = MibTableColumn
+swIpMacBindingIPv6MacAddr = _SwIpMacBindingIPv6MacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 2),
+    _SwIpMacBindingIPv6MacAddr_Type()
+)
+swIpMacBindingIPv6MacAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6MacAddr.setStatus("current")
+_SwIpMacBindingIPv6Portlist_Type = PortList
+_SwIpMacBindingIPv6Portlist_Object = MibTableColumn
+swIpMacBindingIPv6Portlist = _SwIpMacBindingIPv6Portlist_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 3),
+    _SwIpMacBindingIPv6Portlist_Type()
+)
+swIpMacBindingIPv6Portlist.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6Portlist.setStatus("current")
+
+
+class _SwIpMacBindingIPv6Mode_Type(Integer32):
+    """Custom type swIpMacBindingIPv6Mode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("static", 1),
+          ("dhcp-snooping", 2),
+          ("nd-snooping", 3))
+    )
+
+
+_SwIpMacBindingIPv6Mode_Type.__name__ = "Integer32"
+_SwIpMacBindingIPv6Mode_Object = MibTableColumn
+swIpMacBindingIPv6Mode = _SwIpMacBindingIPv6Mode_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 4),
+    _SwIpMacBindingIPv6Mode_Type()
+)
+swIpMacBindingIPv6Mode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6Mode.setStatus("current")
+
+
+class _SwIpMacBindingIPv6ACLStatus_Type(Integer32):
+    """Custom type swIpMacBindingIPv6ACLStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("active", 2))
+    )
+
+
+_SwIpMacBindingIPv6ACLStatus_Type.__name__ = "Integer32"
+_SwIpMacBindingIPv6ACLStatus_Object = MibTableColumn
+swIpMacBindingIPv6ACLStatus = _SwIpMacBindingIPv6ACLStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 5),
+    _SwIpMacBindingIPv6ACLStatus_Type()
+)
+swIpMacBindingIPv6ACLStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6ACLStatus.setStatus("current")
+_SwIpMacBindingIPv6RowStatus_Type = RowStatus
+_SwIpMacBindingIPv6RowStatus_Object = MibTableColumn
+swIpMacBindingIPv6RowStatus = _SwIpMacBindingIPv6RowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 4, 1, 6),
+    _SwIpMacBindingIPv6RowStatus_Type()
+)
+swIpMacBindingIPv6RowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6RowStatus.setStatus("current")
+_SwIpMacBindingIPv6DHCPSnoopTable_Object = MibTable
+swIpMacBindingIPv6DHCPSnoopTable = _SwIpMacBindingIPv6DHCPSnoopTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5)
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6DHCPSnoopTable.setStatus("current")
+_SwIpMacBindingIPv6DHCPSnoopEntry_Object = MibTableRow
+swIpMacBindingIPv6DHCPSnoopEntry = _SwIpMacBindingIPv6DHCPSnoopEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1)
+)
+swIpMacBindingIPv6DHCPSnoopEntry.setIndexNames(
+    (0, "IP-MAC-BIND-MIB", "swIpMacBindingIPv6DHCPSnoopAddr"),
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6DHCPSnoopEntry.setStatus("current")
+_SwIpMacBindingIPv6DHCPSnoopAddr_Type = Ipv6Address
+_SwIpMacBindingIPv6DHCPSnoopAddr_Object = MibTableColumn
+swIpMacBindingIPv6DHCPSnoopAddr = _SwIpMacBindingIPv6DHCPSnoopAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1, 1),
+    _SwIpMacBindingIPv6DHCPSnoopAddr_Type()
+)
+swIpMacBindingIPv6DHCPSnoopAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6DHCPSnoopAddr.setStatus("current")
+_SwIpMacBindingIPv6DHCPSnoopMac_Type = MacAddress
+_SwIpMacBindingIPv6DHCPSnoopMac_Object = MibTableColumn
+swIpMacBindingIPv6DHCPSnoopMac = _SwIpMacBindingIPv6DHCPSnoopMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1, 2),
+    _SwIpMacBindingIPv6DHCPSnoopMac_Type()
+)
+swIpMacBindingIPv6DHCPSnoopMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6DHCPSnoopMac.setStatus("current")
+_SwIpMacBindingIPv6DHCPSnoopLeaseTime_Type = Integer32
+_SwIpMacBindingIPv6DHCPSnoopLeaseTime_Object = MibTableColumn
+swIpMacBindingIPv6DHCPSnoopLeaseTime = _SwIpMacBindingIPv6DHCPSnoopLeaseTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1, 3),
+    _SwIpMacBindingIPv6DHCPSnoopLeaseTime_Type()
+)
+swIpMacBindingIPv6DHCPSnoopLeaseTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6DHCPSnoopLeaseTime.setStatus("current")
+_SwIpMacBindingIPv6DHCPSnoopPort_Type = Integer32
+_SwIpMacBindingIPv6DHCPSnoopPort_Object = MibTableColumn
+swIpMacBindingIPv6DHCPSnoopPort = _SwIpMacBindingIPv6DHCPSnoopPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1, 4),
+    _SwIpMacBindingIPv6DHCPSnoopPort_Type()
+)
+swIpMacBindingIPv6DHCPSnoopPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6DHCPSnoopPort.setStatus("current")
+
+
+class _SwIpMacBindingIPv6DHCPSnoopStatus_Type(Integer32):
+    """Custom type swIpMacBindingIPv6DHCPSnoopStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("active", 2))
+    )
+
+
+_SwIpMacBindingIPv6DHCPSnoopStatus_Type.__name__ = "Integer32"
+_SwIpMacBindingIPv6DHCPSnoopStatus_Object = MibTableColumn
+swIpMacBindingIPv6DHCPSnoopStatus = _SwIpMacBindingIPv6DHCPSnoopStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 5, 1, 5),
+    _SwIpMacBindingIPv6DHCPSnoopStatus_Type()
+)
+swIpMacBindingIPv6DHCPSnoopStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6DHCPSnoopStatus.setStatus("current")
+_SwIpMacBindingNDSnoopTable_Object = MibTable
+swIpMacBindingNDSnoopTable = _SwIpMacBindingNDSnoopTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6)
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingNDSnoopTable.setStatus("current")
+_SwIpMacBindingNDSnoopEntry_Object = MibTableRow
+swIpMacBindingNDSnoopEntry = _SwIpMacBindingNDSnoopEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1)
+)
+swIpMacBindingNDSnoopEntry.setIndexNames(
+    (0, "IP-MAC-BIND-MIB", "swIpMacBindingNDSnoopAddr"),
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingNDSnoopEntry.setStatus("current")
+_SwIpMacBindingNDSnoopAddr_Type = Ipv6Address
+_SwIpMacBindingNDSnoopAddr_Object = MibTableColumn
+swIpMacBindingNDSnoopAddr = _SwIpMacBindingNDSnoopAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1, 1),
+    _SwIpMacBindingNDSnoopAddr_Type()
+)
+swIpMacBindingNDSnoopAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingNDSnoopAddr.setStatus("current")
+_SwIpMacBindingNDSnoopMac_Type = MacAddress
+_SwIpMacBindingNDSnoopMac_Object = MibTableColumn
+swIpMacBindingNDSnoopMac = _SwIpMacBindingNDSnoopMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1, 2),
+    _SwIpMacBindingNDSnoopMac_Type()
+)
+swIpMacBindingNDSnoopMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingNDSnoopMac.setStatus("current")
+_SwIpMacBindingNDSnoopLeaseTime_Type = Integer32
+_SwIpMacBindingNDSnoopLeaseTime_Object = MibTableColumn
+swIpMacBindingNDSnoopLeaseTime = _SwIpMacBindingNDSnoopLeaseTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1, 3),
+    _SwIpMacBindingNDSnoopLeaseTime_Type()
+)
+swIpMacBindingNDSnoopLeaseTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingNDSnoopLeaseTime.setStatus("current")
+_SwIpMacBindingNDSnoopPort_Type = Integer32
+_SwIpMacBindingNDSnoopPort_Object = MibTableColumn
+swIpMacBindingNDSnoopPort = _SwIpMacBindingNDSnoopPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1, 4),
+    _SwIpMacBindingNDSnoopPort_Type()
+)
+swIpMacBindingNDSnoopPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingNDSnoopPort.setStatus("current")
+
+
+class _SwIpMacBindingNDSnoopStatus_Type(Integer32):
+    """Custom type swIpMacBindingNDSnoopStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("active", 2))
+    )
+
+
+_SwIpMacBindingNDSnoopStatus_Type.__name__ = "Integer32"
+_SwIpMacBindingNDSnoopStatus_Object = MibTableColumn
+swIpMacBindingNDSnoopStatus = _SwIpMacBindingNDSnoopStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 6, 1, 5),
+    _SwIpMacBindingNDSnoopStatus_Type()
+)
+swIpMacBindingNDSnoopStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingNDSnoopStatus.setStatus("current")
+_SwIpMacBindingUploadDownloadTable_Object = MibTable
+swIpMacBindingUploadDownloadTable = _SwIpMacBindingUploadDownloadTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7)
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingUploadDownloadTable.setStatus("current")
+_SwIpMacBindingUploadDownloadEntry_Object = MibTableRow
+swIpMacBindingUploadDownloadEntry = _SwIpMacBindingUploadDownloadEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1)
+)
+swIpMacBindingUploadDownloadEntry.setIndexNames(
+    (0, "IP-MAC-BIND-MIB", "swIpMacBindingUploadDownloadProtocol"),
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingUploadDownloadEntry.setStatus("current")
+
+
+class _SwIpMacBindingUploadDownloadProtocol_Type(Integer32):
+    """Custom type swIpMacBindingUploadDownloadProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("tftp", 1),
+          ("ftp", 2))
+    )
+
+
+_SwIpMacBindingUploadDownloadProtocol_Type.__name__ = "Integer32"
+_SwIpMacBindingUploadDownloadProtocol_Object = MibTableColumn
+swIpMacBindingUploadDownloadProtocol = _SwIpMacBindingUploadDownloadProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 1),
+    _SwIpMacBindingUploadDownloadProtocol_Type()
+)
+swIpMacBindingUploadDownloadProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swIpMacBindingUploadDownloadProtocol.setStatus("current")
+_SwIpMacBindingUploadDownloadServerIPAddressType_Type = InetAddressType
+_SwIpMacBindingUploadDownloadServerIPAddressType_Object = MibTableColumn
+swIpMacBindingUploadDownloadServerIPAddressType = _SwIpMacBindingUploadDownloadServerIPAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 2),
+    _SwIpMacBindingUploadDownloadServerIPAddressType_Type()
+)
+swIpMacBindingUploadDownloadServerIPAddressType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingUploadDownloadServerIPAddressType.setStatus("current")
+_SwIpMacBindingUploadDownloadServerIPAddress_Type = InetAddress
+_SwIpMacBindingUploadDownloadServerIPAddress_Object = MibTableColumn
+swIpMacBindingUploadDownloadServerIPAddress = _SwIpMacBindingUploadDownloadServerIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 3),
+    _SwIpMacBindingUploadDownloadServerIPAddress_Type()
+)
+swIpMacBindingUploadDownloadServerIPAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingUploadDownloadServerIPAddress.setStatus("current")
+
+
+class _SwIpMacBindingUploadDownloadUsername_Type(DisplayString):
+    """Custom type swIpMacBindingUploadDownloadUsername based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_SwIpMacBindingUploadDownloadUsername_Type.__name__ = "DisplayString"
+_SwIpMacBindingUploadDownloadUsername_Object = MibTableColumn
+swIpMacBindingUploadDownloadUsername = _SwIpMacBindingUploadDownloadUsername_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 4),
+    _SwIpMacBindingUploadDownloadUsername_Type()
+)
+swIpMacBindingUploadDownloadUsername.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingUploadDownloadUsername.setStatus("current")
+
+
+class _SwIpMacBindingUploadDownloadPassword_Type(DisplayString):
+    """Custom type swIpMacBindingUploadDownloadPassword based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_SwIpMacBindingUploadDownloadPassword_Type.__name__ = "DisplayString"
+_SwIpMacBindingUploadDownloadPassword_Object = MibTableColumn
+swIpMacBindingUploadDownloadPassword = _SwIpMacBindingUploadDownloadPassword_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 5),
+    _SwIpMacBindingUploadDownloadPassword_Type()
+)
+swIpMacBindingUploadDownloadPassword.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingUploadDownloadPassword.setStatus("current")
+
+
+class _SwIpMacBindingUploadDownloadTcpPort_Type(Integer32):
+    """Custom type swIpMacBindingUploadDownloadTcpPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwIpMacBindingUploadDownloadTcpPort_Type.__name__ = "Integer32"
+_SwIpMacBindingUploadDownloadTcpPort_Object = MibTableColumn
+swIpMacBindingUploadDownloadTcpPort = _SwIpMacBindingUploadDownloadTcpPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 6),
+    _SwIpMacBindingUploadDownloadTcpPort_Type()
+)
+swIpMacBindingUploadDownloadTcpPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingUploadDownloadTcpPort.setStatus("current")
+
+
+class _SwIpMacBindingUploadDownloadFileName_Type(DisplayString):
+    """Custom type swIpMacBindingUploadDownloadFileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_SwIpMacBindingUploadDownloadFileName_Type.__name__ = "DisplayString"
+_SwIpMacBindingUploadDownloadFileName_Object = MibTableColumn
+swIpMacBindingUploadDownloadFileName = _SwIpMacBindingUploadDownloadFileName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 7),
+    _SwIpMacBindingUploadDownloadFileName_Type()
+)
+swIpMacBindingUploadDownloadFileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingUploadDownloadFileName.setStatus("current")
+
+
+class _SwIpMacBindingUploadDownloadAction_Type(Integer32):
+    """Custom type swIpMacBindingUploadDownloadAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("upload", 1),
+          ("download", 2))
+    )
+
+
+_SwIpMacBindingUploadDownloadAction_Type.__name__ = "Integer32"
+_SwIpMacBindingUploadDownloadAction_Object = MibTableColumn
+swIpMacBindingUploadDownloadAction = _SwIpMacBindingUploadDownloadAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 4, 7, 1, 10),
+    _SwIpMacBindingUploadDownloadAction_Type()
+)
+swIpMacBindingUploadDownloadAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swIpMacBindingUploadDownloadAction.setStatus("current")
+_SwIpMacBindingNotify_ObjectIdentity = ObjectIdentity
+swIpMacBindingNotify = _SwIpMacBindingNotify_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5)
+)
+_SwIpMacBindingNotifyPrefix_ObjectIdentity = ObjectIdentity
+swIpMacBindingNotifyPrefix = _SwIpMacBindingNotifyPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0)
+)
+_SwIpMacBindingNotificationBidings_ObjectIdentity = ObjectIdentity
+swIpMacBindingNotificationBidings = _SwIpMacBindingNotificationBidings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 2)
+)
+_SwIpMacBindingViolationIP_Type = IpAddress
+_SwIpMacBindingViolationIP_Object = MibScalar
+swIpMacBindingViolationIP = _SwIpMacBindingViolationIP_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 2, 1),
+    _SwIpMacBindingViolationIP_Type()
+)
+swIpMacBindingViolationIP.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    swIpMacBindingViolationIP.setStatus("current")
+_SwIpMacBindingViolationMac_Type = MacAddress
+_SwIpMacBindingViolationMac_Object = MibScalar
+swIpMacBindingViolationMac = _SwIpMacBindingViolationMac_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 2, 2),
+    _SwIpMacBindingViolationMac_Type()
+)
+swIpMacBindingViolationMac.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    swIpMacBindingViolationMac.setStatus("current")
+_SwIpMacBindingViolationIPv6Addr_Type = Ipv6Address
+_SwIpMacBindingViolationIPv6Addr_Object = MibScalar
+swIpMacBindingViolationIPv6Addr = _SwIpMacBindingViolationIPv6Addr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 2, 3),
+    _SwIpMacBindingViolationIPv6Addr_Type()
+)
+swIpMacBindingViolationIPv6Addr.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    swIpMacBindingViolationIPv6Addr.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+swIpMacBindingViolationTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 1)
+)
+swIpMacBindingViolationTrap.setObjects(
+      *(("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex"),
+        ("IP-MAC-BIND-MIB", "swIpMacBindingViolationIP"),
+        ("IP-MAC-BIND-MIB", "swIpMacBindingViolationMac"))
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingViolationTrap.setStatus(
+        "current"
+    )
+
+swIpMacBindingStopLearningTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 2)
+)
+swIpMacBindingStopLearningTrap.setObjects(
+    ("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex")
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingStopLearningTrap.setStatus(
+        "current"
+    )
+
+swIpMacBindingRecoverLearningTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 3)
+)
+swIpMacBindingRecoverLearningTrap.setObjects(
+    ("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex")
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingRecoverLearningTrap.setStatus(
+        "current"
+    )
+
+swIpMacBindingIPv6ViolationTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 4)
+)
+swIpMacBindingIPv6ViolationTrap.setObjects(
+      *(("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex"),
+        ("IP-MAC-BIND-MIB", "swIpMacBindingViolationIPv6Addr"),
+        ("IP-MAC-BIND-MIB", "swIpMacBindingViolationMac"))
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingIPv6ViolationTrap.setStatus(
+        "current"
+    )
+
+swIpMacBindingShutdownTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 5)
+)
+swIpMacBindingShutdownTrap.setObjects(
+    ("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex")
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingShutdownTrap.setStatus(
+        "current"
+    )
+
+swIpMacBindingRecoveryTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 12, 23, 5, 0, 6)
+)
+swIpMacBindingRecoveryTrap.setObjects(
+    ("IP-MAC-BIND-MIB", "swIpMacBindingPortIndex")
+)
+if mibBuilder.loadTexts:
+    swIpMacBindingRecoveryTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "IP-MAC-BIND-MIB",
+    **{"VlanId": VlanId,
+       "PortList": PortList,
+       "swIpMacBindMIB": swIpMacBindMIB,
+       "swIpMacBindingCtrl": swIpMacBindingCtrl,
+       "swIpMacBindingTrapLogState": swIpMacBindingTrapLogState,
+       "swIpMacBindingACLMode": swIpMacBindingACLMode,
+       "swIpMacBindingRecoveryInterval": swIpMacBindingRecoveryInterval,
+       "swIpMacBindingDHCPSnoopState": swIpMacBindingDHCPSnoopState,
+       "swIpMacBindingDHCPSnoopEntryClearAllState": swIpMacBindingDHCPSnoopEntryClearAllState,
+       "swIpMacBindingARPInspectionState": swIpMacBindingARPInspectionState,
+       "swIpMacBindingIPv6DHCPSnoopState": swIpMacBindingIPv6DHCPSnoopState,
+       "swIpMacBindingNDSnoopState": swIpMacBindingNDSnoopState,
+       "swIpMacBindingIPv6DHCPSnoopEntryClearAllState": swIpMacBindingIPv6DHCPSnoopEntryClearAllState,
+       "swIpMacBindingNDSnoopEntryClearAllState": swIpMacBindingNDSnoopEntryClearAllState,
+       "swIpMacBindingRoamingState": swIpMacBindingRoamingState,
+       "swIpMacBindingAutosaveState": swIpMacBindingAutosaveState,
+       "swIpMacBindingAutosaveFileName": swIpMacBindingAutosaveFileName,
+       "swIpMacBindingSaveActivity": swIpMacBindingSaveActivity,
+       "swIpMacBindingAutoRecoverTime": swIpMacBindingAutoRecoverTime,
+       "swIpMacBindingInfo": swIpMacBindingInfo,
+       "swIpMacBindingPortMgmt": swIpMacBindingPortMgmt,
+       "swIpMacBindingAllPortState": swIpMacBindingAllPortState,
+       "swIpMacBindingPortTable": swIpMacBindingPortTable,
+       "swIpMacBindingPortEntry": swIpMacBindingPortEntry,
+       "swIpMacBindingPortIndex": swIpMacBindingPortIndex,
+       "swIpMacBindingPortState": swIpMacBindingPortState,
+       "swIpMacBindingPortZeroIPState": swIpMacBindingPortZeroIPState,
+       "swIpMacBindingPortForwardDhcpPkt": swIpMacBindingPortForwardDhcpPkt,
+       "swIpMacBindingPortDHCPSnoopMaxEntry": swIpMacBindingPortDHCPSnoopMaxEntry,
+       "swIpMacBindingPortDHCPSnoopEntryClearAction": swIpMacBindingPortDHCPSnoopEntryClearAction,
+       "swIpMacBindingPortMode": swIpMacBindingPortMode,
+       "swIpMacBindingPortStopLearningThreshold": swIpMacBindingPortStopLearningThreshold,
+       "swIpMacBindingPortRecoverLearning": swIpMacBindingPortRecoverLearning,
+       "swIpMacBindingPortLearningStatus": swIpMacBindingPortLearningStatus,
+       "swIpMacBindingPortIPv6State": swIpMacBindingPortIPv6State,
+       "swIpMacBindingPortIPv6DHCPSnoopMaxEntry": swIpMacBindingPortIPv6DHCPSnoopMaxEntry,
+       "swIpMacBindingPortNDSnoopMaxEntry": swIpMacBindingPortNDSnoopMaxEntry,
+       "swIpMacBindingPortIPv6DHCPSnoopEntryClearAction": swIpMacBindingPortIPv6DHCPSnoopEntryClearAction,
+       "swIpMacBindingPortNDSnoopEntryClearAction": swIpMacBindingPortNDSnoopEntryClearAction,
+       "swIpMacBindingPortARPInspection": swIpMacBindingPortARPInspection,
+       "swIpMacBindingPortIPInspection": swIpMacBindingPortIPInspection,
+       "swIpMacBindingPortIPProtocol": swIpMacBindingPortIPProtocol,
+       "swIpMacBindingPortNDInspection": swIpMacBindingPortNDInspection,
+       "swIpMacBindingPortLimitRateValue": swIpMacBindingPortLimitRateValue,
+       "swIpMacBindingPortLimitRateAction": swIpMacBindingPortLimitRateAction,
+       "swIpMacBindingMgmt": swIpMacBindingMgmt,
+       "swIpMacBindingTable": swIpMacBindingTable,
+       "swIpMacBindingEntry": swIpMacBindingEntry,
+       "swIpMacBindingIpIndex": swIpMacBindingIpIndex,
+       "swIpMacBindingMac": swIpMacBindingMac,
+       "swIpMacBindingStatus": swIpMacBindingStatus,
+       "swIpMacBindingPorts": swIpMacBindingPorts,
+       "swIpMacBindingAction": swIpMacBindingAction,
+       "swIpMacBindingMode": swIpMacBindingMode,
+       "swIpMacBindingAclStatus": swIpMacBindingAclStatus,
+       "swIpMacBindingBlockedTable": swIpMacBindingBlockedTable,
+       "swIpMacBindingBlockedEntry": swIpMacBindingBlockedEntry,
+       "swIpMacBindingBlockedVID": swIpMacBindingBlockedVID,
+       "swIpMacBindingBlockedMac": swIpMacBindingBlockedMac,
+       "swIpMacBindingBlockedVlanName": swIpMacBindingBlockedVlanName,
+       "swIpMacBindingBlockedPort": swIpMacBindingBlockedPort,
+       "swIpMacBindingBlockedType": swIpMacBindingBlockedType,
+       "swIpMacBindingBlockedTime": swIpMacBindingBlockedTime,
+       "swIpMacBindingBlockedStatus": swIpMacBindingBlockedStatus,
+       "swIpMacBindingDHCPSnoopTable": swIpMacBindingDHCPSnoopTable,
+       "swIpMacBindingDHCPSnoopEntry": swIpMacBindingDHCPSnoopEntry,
+       "swIpMacBindingDHCPSnoopIpIndex": swIpMacBindingDHCPSnoopIpIndex,
+       "swIpMacBindingDHCPSnoopMac": swIpMacBindingDHCPSnoopMac,
+       "swIpMacBindingDHCPSnoopLeaseTime": swIpMacBindingDHCPSnoopLeaseTime,
+       "swIpMacBindingDHCPSnoopPort": swIpMacBindingDHCPSnoopPort,
+       "swIpMacBindingDHCPSnoopStatus": swIpMacBindingDHCPSnoopStatus,
+       "swIpMacBindingIPv6Table": swIpMacBindingIPv6Table,
+       "swIpMacBindingIPv6Entry": swIpMacBindingIPv6Entry,
+       "swIpMacBindingIPv6Addr": swIpMacBindingIPv6Addr,
+       "swIpMacBindingIPv6MacAddr": swIpMacBindingIPv6MacAddr,
+       "swIpMacBindingIPv6Portlist": swIpMacBindingIPv6Portlist,
+       "swIpMacBindingIPv6Mode": swIpMacBindingIPv6Mode,
+       "swIpMacBindingIPv6ACLStatus": swIpMacBindingIPv6ACLStatus,
+       "swIpMacBindingIPv6RowStatus": swIpMacBindingIPv6RowStatus,
+       "swIpMacBindingIPv6DHCPSnoopTable": swIpMacBindingIPv6DHCPSnoopTable,
+       "swIpMacBindingIPv6DHCPSnoopEntry": swIpMacBindingIPv6DHCPSnoopEntry,
+       "swIpMacBindingIPv6DHCPSnoopAddr": swIpMacBindingIPv6DHCPSnoopAddr,
+       "swIpMacBindingIPv6DHCPSnoopMac": swIpMacBindingIPv6DHCPSnoopMac,
+       "swIpMacBindingIPv6DHCPSnoopLeaseTime": swIpMacBindingIPv6DHCPSnoopLeaseTime,
+       "swIpMacBindingIPv6DHCPSnoopPort": swIpMacBindingIPv6DHCPSnoopPort,
+       "swIpMacBindingIPv6DHCPSnoopStatus": swIpMacBindingIPv6DHCPSnoopStatus,
+       "swIpMacBindingNDSnoopTable": swIpMacBindingNDSnoopTable,
+       "swIpMacBindingNDSnoopEntry": swIpMacBindingNDSnoopEntry,
+       "swIpMacBindingNDSnoopAddr": swIpMacBindingNDSnoopAddr,
+       "swIpMacBindingNDSnoopMac": swIpMacBindingNDSnoopMac,
+       "swIpMacBindingNDSnoopLeaseTime": swIpMacBindingNDSnoopLeaseTime,
+       "swIpMacBindingNDSnoopPort": swIpMacBindingNDSnoopPort,
+       "swIpMacBindingNDSnoopStatus": swIpMacBindingNDSnoopStatus,
+       "swIpMacBindingUploadDownloadTable": swIpMacBindingUploadDownloadTable,
+       "swIpMacBindingUploadDownloadEntry": swIpMacBindingUploadDownloadEntry,
+       "swIpMacBindingUploadDownloadProtocol": swIpMacBindingUploadDownloadProtocol,
+       "swIpMacBindingUploadDownloadServerIPAddressType": swIpMacBindingUploadDownloadServerIPAddressType,
+       "swIpMacBindingUploadDownloadServerIPAddress": swIpMacBindingUploadDownloadServerIPAddress,
+       "swIpMacBindingUploadDownloadUsername": swIpMacBindingUploadDownloadUsername,
+       "swIpMacBindingUploadDownloadPassword": swIpMacBindingUploadDownloadPassword,
+       "swIpMacBindingUploadDownloadTcpPort": swIpMacBindingUploadDownloadTcpPort,
+       "swIpMacBindingUploadDownloadFileName": swIpMacBindingUploadDownloadFileName,
+       "swIpMacBindingUploadDownloadAction": swIpMacBindingUploadDownloadAction,
+       "swIpMacBindingNotify": swIpMacBindingNotify,
+       "swIpMacBindingNotifyPrefix": swIpMacBindingNotifyPrefix,
+       "swIpMacBindingViolationTrap": swIpMacBindingViolationTrap,
+       "swIpMacBindingStopLearningTrap": swIpMacBindingStopLearningTrap,
+       "swIpMacBindingRecoverLearningTrap": swIpMacBindingRecoverLearningTrap,
+       "swIpMacBindingIPv6ViolationTrap": swIpMacBindingIPv6ViolationTrap,
+       "swIpMacBindingShutdownTrap": swIpMacBindingShutdownTrap,
+       "swIpMacBindingRecoveryTrap": swIpMacBindingRecoveryTrap,
+       "swIpMacBindingNotificationBidings": swIpMacBindingNotificationBidings,
+       "swIpMacBindingViolationIP": swIpMacBindingViolationIP,
+       "swIpMacBindingViolationMac": swIpMacBindingViolationMac,
+       "swIpMacBindingViolationIPv6Addr": swIpMacBindingViolationIPv6Addr}
+)

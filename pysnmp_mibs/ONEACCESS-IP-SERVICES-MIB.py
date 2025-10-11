@@ -1,90 +1,661 @@
+# SNMP MIB module (ONEACCESS-IP-SERVICES-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ONEACCESS-IP-SERVICES-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/oneaccess/ONEACCESS-IP-SERVICES-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:23 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/oneaccess/ONEACCESS-IP-SERVICES-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:54:56 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-oacExpIMIp, oacMIBModules = mibBuilder.importSymbols("ONEACCESS-GLOBAL-REG", "oacExpIMIp", "oacMIBModules")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
-oacIpServicesConfigMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 13191, 1, 100, 683))
-oacIpServicesConfigMIB.setRevisions(('2011-07-29 00:00', '2011-06-15 00:00',))
-if mibBuilder.loadTexts: oacIpServicesConfigMIB.setLastUpdated('201107290000Z')
-if mibBuilder.loadTexts: oacIpServicesConfigMIB.setOrganization(' OneAccess ')
-oacIpServicesConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8))
-oacIpServicesConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1))
-oacIpServicesConfigConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 2))
-oacIpServicesDnsConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 1))
-oacIpDnsConfigDomainName = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 1, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oacIpDnsConfigDomainName.setStatus('current')
-oacIpDnsConfigMainAdd = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 1, 2), IpAddress().clone(hexValue="00000000")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oacIpDnsConfigMainAdd.setStatus('current')
-oacIpDnsConfigSndAdd = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 1, 3), IpAddress().clone(hexValue="00000000")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oacIpDnsConfigSndAdd.setStatus('current')
-oacIpDnsConfigTimeout = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("timeoutValueDefault", 1), ("timeoutValue4", 2), ("timeoutValue12", 3), ("timeoutValue18", 4), ("timeoutValue42", 5), ("timeoutValue90", 6), ("timeoutValue120", 7))).clone('timeoutValueDefault')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oacIpDnsConfigTimeout.setStatus('current')
-oacIpServicesDHCPCConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2))
-oacDhcpClientAutoRestartAtm = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oacDhcpClientAutoRestartAtm.setStatus('current')
-oacDhcpClientBroadcastFlag = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oacDhcpClientBroadcastFlag.setStatus('current')
-oacDhcpVendorId = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 199))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oacDhcpVendorId.setStatus('current')
-oacIpDhcpClientInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4), )
-if mibBuilder.loadTexts: oacIpDhcpClientInterfaceTable.setStatus('current')
-oacIpDhcpClientInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: oacIpDhcpClientInterfaceEntry.setStatus('current')
-oacIpDhcpClientInterfaceIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oacIpDhcpClientInterfaceIfName.setStatus('current')
-oacIpDhcpClientInterfaceIgnoreDefRoute = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1, 2), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: oacIpDhcpClientInterfaceIgnoreDefRoute.setStatus('current')
-oacIpDhcpClientInterfaceLeaseOptLess = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1, 3), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: oacIpDhcpClientInterfaceLeaseOptLess.setStatus('current')
-oacIpDhcpClientInterfaceUserClassId = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: oacIpDhcpClientInterfaceUserClassId.setStatus('current')
-oacIpDhcpClientInterfaceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: oacIpDhcpClientInterfaceRowStatus.setStatus('current')
-oacIpDhcpAddClientInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5), )
-if mibBuilder.loadTexts: oacIpDhcpAddClientInterfaceTable.setStatus('current')
-oacIpDhcpAddClientInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: oacIpDhcpAddClientInterfaceEntry.setStatus('current')
-oacIpDhcpAddClientInterfaceActivate = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1, 1), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: oacIpDhcpAddClientInterfaceActivate.setStatus('current')
-oacIpDhcpAddClientInterfaceIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oacIpDhcpAddClientInterfaceIfName.setStatus('current')
-oacIpDhcpAddClientInterfaceClientId = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1, 3), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: oacIpDhcpAddClientInterfaceClientId.setStatus('current')
-oacIpDhcpAddClientInterfaceHostname = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: oacIpDhcpAddClientInterfaceHostname.setStatus('current')
-oacIpDhcpAddClientInterfaceRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: oacIpDhcpAddClientInterfaceRowStatus.setStatus('current')
-oacIpServicesArpProxyConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3))
-oacIpProxyArpInterfaceConfigTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3, 1), )
-if mibBuilder.loadTexts: oacIpProxyArpInterfaceConfigTable.setStatus('current')
-oacIpProxyArpInterfaceConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: oacIpProxyArpInterfaceConfigEntry.setStatus('current')
-oacIpProxyArpInterfaceConfigActivate = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3, 1, 1, 1), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: oacIpProxyArpInterfaceConfigActivate.setStatus('current')
-oacIpProxyArpInterfaceConfigIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oacIpProxyArpInterfaceConfigIfName.setStatus('current')
-oacIpProxyArpInterfaceConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: oacIpProxyArpInterfaceConfigRowStatus.setStatus('current')
-oacIpServicesIcmpRedirConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 4))
-oacIpIcmpRedirConfigActivate = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 4, 1), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oacIpIcmpRedirConfigActivate.setStatus('current')
-oacIpIcmpRedirConfigRedirRoutesActivate = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 4, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oacIpIcmpRedirConfigRedirRoutesActivate.setStatus('current')
-oacIpIcmpRedirConfigRateLimitUnreach = MibScalar((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 4, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oacIpIcmpRedirConfigRateLimitUnreach.setStatus('current')
-oacIpServicesGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 2, 1))
-oacIpServicesConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 2, 1, 1)).setObjects(("ONEACCESS-IP-SERVICES-MIB", "oacIpDnsConfigDomainName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oacIpServicesConfigGroup = oacIpServicesConfigGroup.setStatus('current')
-oacIpServicesCompls = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 2, 2))
-mibBuilder.exportSymbols("ONEACCESS-IP-SERVICES-MIB", oacIpDhcpAddClientInterfaceIfName=oacIpDhcpAddClientInterfaceIfName, oacIpServicesConfigMIB=oacIpServicesConfigMIB, oacIpDhcpClientInterfaceUserClassId=oacIpDhcpClientInterfaceUserClassId, oacDhcpClientAutoRestartAtm=oacDhcpClientAutoRestartAtm, oacIpDhcpAddClientInterfaceClientId=oacIpDhcpAddClientInterfaceClientId, oacIpDnsConfigMainAdd=oacIpDnsConfigMainAdd, oacIpDhcpAddClientInterfaceTable=oacIpDhcpAddClientInterfaceTable, oacIpDhcpClientInterfaceIfName=oacIpDhcpClientInterfaceIfName, oacIpDhcpClientInterfaceTable=oacIpDhcpClientInterfaceTable, oacIpServicesIcmpRedirConfigObjects=oacIpServicesIcmpRedirConfigObjects, oacIpServicesConfigGroup=oacIpServicesConfigGroup, oacIpServicesConfigObjects=oacIpServicesConfigObjects, oacIpServicesGroups=oacIpServicesGroups, oacIpServicesConfigConformance=oacIpServicesConfigConformance, oacIpServicesConfig=oacIpServicesConfig, oacIpDhcpAddClientInterfaceRowStatus=oacIpDhcpAddClientInterfaceRowStatus, oacDhcpVendorId=oacDhcpVendorId, oacIpDnsConfigDomainName=oacIpDnsConfigDomainName, oacIpProxyArpInterfaceConfigEntry=oacIpProxyArpInterfaceConfigEntry, oacIpServicesDHCPCConfigObjects=oacIpServicesDHCPCConfigObjects, oacIpDhcpClientInterfaceEntry=oacIpDhcpClientInterfaceEntry, oacIpIcmpRedirConfigActivate=oacIpIcmpRedirConfigActivate, PYSNMP_MODULE_ID=oacIpServicesConfigMIB, oacIpProxyArpInterfaceConfigRowStatus=oacIpProxyArpInterfaceConfigRowStatus, oacIpServicesArpProxyConfigObjects=oacIpServicesArpProxyConfigObjects, oacIpProxyArpInterfaceConfigTable=oacIpProxyArpInterfaceConfigTable, oacIpProxyArpInterfaceConfigActivate=oacIpProxyArpInterfaceConfigActivate, oacIpDnsConfigTimeout=oacIpDnsConfigTimeout, oacIpDhcpClientInterfaceIgnoreDefRoute=oacIpDhcpClientInterfaceIgnoreDefRoute, oacIpServicesDnsConfigObjects=oacIpServicesDnsConfigObjects, oacIpDhcpAddClientInterfaceHostname=oacIpDhcpAddClientInterfaceHostname, oacIpIcmpRedirConfigRedirRoutesActivate=oacIpIcmpRedirConfigRedirRoutesActivate, oacIpIcmpRedirConfigRateLimitUnreach=oacIpIcmpRedirConfigRateLimitUnreach, oacIpServicesCompls=oacIpServicesCompls, oacDhcpClientBroadcastFlag=oacDhcpClientBroadcastFlag, oacIpProxyArpInterfaceConfigIfName=oacIpProxyArpInterfaceConfigIfName, oacIpDhcpClientInterfaceLeaseOptLess=oacIpDhcpClientInterfaceLeaseOptLess, oacIpDnsConfigSndAdd=oacIpDnsConfigSndAdd, oacIpDhcpAddClientInterfaceEntry=oacIpDhcpAddClientInterfaceEntry, oacIpDhcpClientInterfaceRowStatus=oacIpDhcpClientInterfaceRowStatus, oacIpDhcpAddClientInterfaceActivate=oacIpDhcpAddClientInterfaceActivate)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(oacExpIMIp,
+ oacMIBModules) = mibBuilder.importSymbols(
+    "ONEACCESS-GLOBAL-REG",
+    "oacExpIMIp",
+    "oacMIBModules")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+oacIpServicesConfigMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 1, 100, 683)
+)
+if mibBuilder.loadTexts:
+    oacIpServicesConfigMIB.setRevisions(
+        ("2011-07-29 00:00",
+         "2011-06-15 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_OacIpServicesConfig_ObjectIdentity = ObjectIdentity
+oacIpServicesConfig = _OacIpServicesConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8)
+)
+_OacIpServicesConfigObjects_ObjectIdentity = ObjectIdentity
+oacIpServicesConfigObjects = _OacIpServicesConfigObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1)
+)
+_OacIpServicesDnsConfigObjects_ObjectIdentity = ObjectIdentity
+oacIpServicesDnsConfigObjects = _OacIpServicesDnsConfigObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 1)
+)
+
+
+class _OacIpDnsConfigDomainName_Type(DisplayString):
+    """Custom type oacIpDnsConfigDomainName based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_OacIpDnsConfigDomainName_Type.__name__ = "DisplayString"
+_OacIpDnsConfigDomainName_Object = MibScalar
+oacIpDnsConfigDomainName = _OacIpDnsConfigDomainName_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 1, 1),
+    _OacIpDnsConfigDomainName_Type()
+)
+oacIpDnsConfigDomainName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oacIpDnsConfigDomainName.setStatus("current")
+
+
+class _OacIpDnsConfigMainAdd_Type(IpAddress):
+    """Custom type oacIpDnsConfigMainAdd based on IpAddress"""
+    defaultHexValue = "00000000"
+
+
+_OacIpDnsConfigMainAdd_Type.__name__ = "IpAddress"
+_OacIpDnsConfigMainAdd_Object = MibScalar
+oacIpDnsConfigMainAdd = _OacIpDnsConfigMainAdd_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 1, 2),
+    _OacIpDnsConfigMainAdd_Type()
+)
+oacIpDnsConfigMainAdd.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oacIpDnsConfigMainAdd.setStatus("current")
+
+
+class _OacIpDnsConfigSndAdd_Type(IpAddress):
+    """Custom type oacIpDnsConfigSndAdd based on IpAddress"""
+    defaultHexValue = "00000000"
+
+
+_OacIpDnsConfigSndAdd_Type.__name__ = "IpAddress"
+_OacIpDnsConfigSndAdd_Object = MibScalar
+oacIpDnsConfigSndAdd = _OacIpDnsConfigSndAdd_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 1, 3),
+    _OacIpDnsConfigSndAdd_Type()
+)
+oacIpDnsConfigSndAdd.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oacIpDnsConfigSndAdd.setStatus("current")
+
+
+class _OacIpDnsConfigTimeout_Type(Integer32):
+    """Custom type oacIpDnsConfigTimeout based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("timeoutValueDefault", 1),
+          ("timeoutValue4", 2),
+          ("timeoutValue12", 3),
+          ("timeoutValue18", 4),
+          ("timeoutValue42", 5),
+          ("timeoutValue90", 6),
+          ("timeoutValue120", 7))
+    )
+
+
+_OacIpDnsConfigTimeout_Type.__name__ = "Integer32"
+_OacIpDnsConfigTimeout_Object = MibScalar
+oacIpDnsConfigTimeout = _OacIpDnsConfigTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 1, 4),
+    _OacIpDnsConfigTimeout_Type()
+)
+oacIpDnsConfigTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oacIpDnsConfigTimeout.setStatus("current")
+_OacIpServicesDHCPCConfigObjects_ObjectIdentity = ObjectIdentity
+oacIpServicesDHCPCConfigObjects = _OacIpServicesDHCPCConfigObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2)
+)
+
+
+class _OacDhcpClientAutoRestartAtm_Type(Integer32):
+    """Custom type oacDhcpClientAutoRestartAtm based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_OacDhcpClientAutoRestartAtm_Type.__name__ = "Integer32"
+_OacDhcpClientAutoRestartAtm_Object = MibScalar
+oacDhcpClientAutoRestartAtm = _OacDhcpClientAutoRestartAtm_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 1),
+    _OacDhcpClientAutoRestartAtm_Type()
+)
+oacDhcpClientAutoRestartAtm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oacDhcpClientAutoRestartAtm.setStatus("current")
+
+
+class _OacDhcpClientBroadcastFlag_Type(Integer32):
+    """Custom type oacDhcpClientBroadcastFlag based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_OacDhcpClientBroadcastFlag_Type.__name__ = "Integer32"
+_OacDhcpClientBroadcastFlag_Object = MibScalar
+oacDhcpClientBroadcastFlag = _OacDhcpClientBroadcastFlag_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 2),
+    _OacDhcpClientBroadcastFlag_Type()
+)
+oacDhcpClientBroadcastFlag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oacDhcpClientBroadcastFlag.setStatus("current")
+
+
+class _OacDhcpVendorId_Type(OctetString):
+    """Custom type oacDhcpVendorId based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 199),
+    )
+
+
+_OacDhcpVendorId_Type.__name__ = "OctetString"
+_OacDhcpVendorId_Object = MibScalar
+oacDhcpVendorId = _OacDhcpVendorId_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 3),
+    _OacDhcpVendorId_Type()
+)
+oacDhcpVendorId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oacDhcpVendorId.setStatus("current")
+_OacIpDhcpClientInterfaceTable_Object = MibTable
+oacIpDhcpClientInterfaceTable = _OacIpDhcpClientInterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4)
+)
+if mibBuilder.loadTexts:
+    oacIpDhcpClientInterfaceTable.setStatus("current")
+_OacIpDhcpClientInterfaceEntry_Object = MibTableRow
+oacIpDhcpClientInterfaceEntry = _OacIpDhcpClientInterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1)
+)
+oacIpDhcpClientInterfaceEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    oacIpDhcpClientInterfaceEntry.setStatus("current")
+_OacIpDhcpClientInterfaceIfName_Type = DisplayString
+_OacIpDhcpClientInterfaceIfName_Object = MibTableColumn
+oacIpDhcpClientInterfaceIfName = _OacIpDhcpClientInterfaceIfName_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1, 1),
+    _OacIpDhcpClientInterfaceIfName_Type()
+)
+oacIpDhcpClientInterfaceIfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oacIpDhcpClientInterfaceIfName.setStatus("current")
+
+
+class _OacIpDhcpClientInterfaceIgnoreDefRoute_Type(TruthValue):
+    """Custom type oacIpDhcpClientInterfaceIgnoreDefRoute based on TruthValue"""
+    defaultValue = 2
+
+
+_OacIpDhcpClientInterfaceIgnoreDefRoute_Type.__name__ = "TruthValue"
+_OacIpDhcpClientInterfaceIgnoreDefRoute_Object = MibTableColumn
+oacIpDhcpClientInterfaceIgnoreDefRoute = _OacIpDhcpClientInterfaceIgnoreDefRoute_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1, 2),
+    _OacIpDhcpClientInterfaceIgnoreDefRoute_Type()
+)
+oacIpDhcpClientInterfaceIgnoreDefRoute.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    oacIpDhcpClientInterfaceIgnoreDefRoute.setStatus("current")
+
+
+class _OacIpDhcpClientInterfaceLeaseOptLess_Type(TruthValue):
+    """Custom type oacIpDhcpClientInterfaceLeaseOptLess based on TruthValue"""
+    defaultValue = 2
+
+
+_OacIpDhcpClientInterfaceLeaseOptLess_Type.__name__ = "TruthValue"
+_OacIpDhcpClientInterfaceLeaseOptLess_Object = MibTableColumn
+oacIpDhcpClientInterfaceLeaseOptLess = _OacIpDhcpClientInterfaceLeaseOptLess_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1, 3),
+    _OacIpDhcpClientInterfaceLeaseOptLess_Type()
+)
+oacIpDhcpClientInterfaceLeaseOptLess.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    oacIpDhcpClientInterfaceLeaseOptLess.setStatus("current")
+
+
+class _OacIpDhcpClientInterfaceUserClassId_Type(DisplayString):
+    """Custom type oacIpDhcpClientInterfaceUserClassId based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_OacIpDhcpClientInterfaceUserClassId_Type.__name__ = "DisplayString"
+_OacIpDhcpClientInterfaceUserClassId_Object = MibTableColumn
+oacIpDhcpClientInterfaceUserClassId = _OacIpDhcpClientInterfaceUserClassId_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1, 4),
+    _OacIpDhcpClientInterfaceUserClassId_Type()
+)
+oacIpDhcpClientInterfaceUserClassId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    oacIpDhcpClientInterfaceUserClassId.setStatus("current")
+_OacIpDhcpClientInterfaceRowStatus_Type = RowStatus
+_OacIpDhcpClientInterfaceRowStatus_Object = MibTableColumn
+oacIpDhcpClientInterfaceRowStatus = _OacIpDhcpClientInterfaceRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 4, 1, 5),
+    _OacIpDhcpClientInterfaceRowStatus_Type()
+)
+oacIpDhcpClientInterfaceRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    oacIpDhcpClientInterfaceRowStatus.setStatus("current")
+_OacIpDhcpAddClientInterfaceTable_Object = MibTable
+oacIpDhcpAddClientInterfaceTable = _OacIpDhcpAddClientInterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5)
+)
+if mibBuilder.loadTexts:
+    oacIpDhcpAddClientInterfaceTable.setStatus("current")
+_OacIpDhcpAddClientInterfaceEntry_Object = MibTableRow
+oacIpDhcpAddClientInterfaceEntry = _OacIpDhcpAddClientInterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1)
+)
+oacIpDhcpAddClientInterfaceEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    oacIpDhcpAddClientInterfaceEntry.setStatus("current")
+
+
+class _OacIpDhcpAddClientInterfaceActivate_Type(TruthValue):
+    """Custom type oacIpDhcpAddClientInterfaceActivate based on TruthValue"""
+    defaultValue = 2
+
+
+_OacIpDhcpAddClientInterfaceActivate_Type.__name__ = "TruthValue"
+_OacIpDhcpAddClientInterfaceActivate_Object = MibTableColumn
+oacIpDhcpAddClientInterfaceActivate = _OacIpDhcpAddClientInterfaceActivate_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1, 1),
+    _OacIpDhcpAddClientInterfaceActivate_Type()
+)
+oacIpDhcpAddClientInterfaceActivate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    oacIpDhcpAddClientInterfaceActivate.setStatus("current")
+_OacIpDhcpAddClientInterfaceIfName_Type = DisplayString
+_OacIpDhcpAddClientInterfaceIfName_Object = MibTableColumn
+oacIpDhcpAddClientInterfaceIfName = _OacIpDhcpAddClientInterfaceIfName_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1, 2),
+    _OacIpDhcpAddClientInterfaceIfName_Type()
+)
+oacIpDhcpAddClientInterfaceIfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oacIpDhcpAddClientInterfaceIfName.setStatus("current")
+
+
+class _OacIpDhcpAddClientInterfaceClientId_Type(DisplayString):
+    """Custom type oacIpDhcpAddClientInterfaceClientId based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_OacIpDhcpAddClientInterfaceClientId_Type.__name__ = "DisplayString"
+_OacIpDhcpAddClientInterfaceClientId_Object = MibTableColumn
+oacIpDhcpAddClientInterfaceClientId = _OacIpDhcpAddClientInterfaceClientId_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1, 3),
+    _OacIpDhcpAddClientInterfaceClientId_Type()
+)
+oacIpDhcpAddClientInterfaceClientId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    oacIpDhcpAddClientInterfaceClientId.setStatus("current")
+
+
+class _OacIpDhcpAddClientInterfaceHostname_Type(DisplayString):
+    """Custom type oacIpDhcpAddClientInterfaceHostname based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_OacIpDhcpAddClientInterfaceHostname_Type.__name__ = "DisplayString"
+_OacIpDhcpAddClientInterfaceHostname_Object = MibTableColumn
+oacIpDhcpAddClientInterfaceHostname = _OacIpDhcpAddClientInterfaceHostname_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1, 4),
+    _OacIpDhcpAddClientInterfaceHostname_Type()
+)
+oacIpDhcpAddClientInterfaceHostname.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    oacIpDhcpAddClientInterfaceHostname.setStatus("current")
+_OacIpDhcpAddClientInterfaceRowStatus_Type = RowStatus
+_OacIpDhcpAddClientInterfaceRowStatus_Object = MibTableColumn
+oacIpDhcpAddClientInterfaceRowStatus = _OacIpDhcpAddClientInterfaceRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 2, 5, 1, 5),
+    _OacIpDhcpAddClientInterfaceRowStatus_Type()
+)
+oacIpDhcpAddClientInterfaceRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    oacIpDhcpAddClientInterfaceRowStatus.setStatus("current")
+_OacIpServicesArpProxyConfigObjects_ObjectIdentity = ObjectIdentity
+oacIpServicesArpProxyConfigObjects = _OacIpServicesArpProxyConfigObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3)
+)
+_OacIpProxyArpInterfaceConfigTable_Object = MibTable
+oacIpProxyArpInterfaceConfigTable = _OacIpProxyArpInterfaceConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    oacIpProxyArpInterfaceConfigTable.setStatus("current")
+_OacIpProxyArpInterfaceConfigEntry_Object = MibTableRow
+oacIpProxyArpInterfaceConfigEntry = _OacIpProxyArpInterfaceConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3, 1, 1)
+)
+oacIpProxyArpInterfaceConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    oacIpProxyArpInterfaceConfigEntry.setStatus("current")
+
+
+class _OacIpProxyArpInterfaceConfigActivate_Type(TruthValue):
+    """Custom type oacIpProxyArpInterfaceConfigActivate based on TruthValue"""
+    defaultValue = 1
+
+
+_OacIpProxyArpInterfaceConfigActivate_Type.__name__ = "TruthValue"
+_OacIpProxyArpInterfaceConfigActivate_Object = MibTableColumn
+oacIpProxyArpInterfaceConfigActivate = _OacIpProxyArpInterfaceConfigActivate_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3, 1, 1, 1),
+    _OacIpProxyArpInterfaceConfigActivate_Type()
+)
+oacIpProxyArpInterfaceConfigActivate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    oacIpProxyArpInterfaceConfigActivate.setStatus("current")
+_OacIpProxyArpInterfaceConfigIfName_Type = DisplayString
+_OacIpProxyArpInterfaceConfigIfName_Object = MibTableColumn
+oacIpProxyArpInterfaceConfigIfName = _OacIpProxyArpInterfaceConfigIfName_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3, 1, 1, 2),
+    _OacIpProxyArpInterfaceConfigIfName_Type()
+)
+oacIpProxyArpInterfaceConfigIfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oacIpProxyArpInterfaceConfigIfName.setStatus("current")
+_OacIpProxyArpInterfaceConfigRowStatus_Type = RowStatus
+_OacIpProxyArpInterfaceConfigRowStatus_Object = MibTableColumn
+oacIpProxyArpInterfaceConfigRowStatus = _OacIpProxyArpInterfaceConfigRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 3, 1, 1, 3),
+    _OacIpProxyArpInterfaceConfigRowStatus_Type()
+)
+oacIpProxyArpInterfaceConfigRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    oacIpProxyArpInterfaceConfigRowStatus.setStatus("current")
+_OacIpServicesIcmpRedirConfigObjects_ObjectIdentity = ObjectIdentity
+oacIpServicesIcmpRedirConfigObjects = _OacIpServicesIcmpRedirConfigObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 4)
+)
+
+
+class _OacIpIcmpRedirConfigActivate_Type(TruthValue):
+    """Custom type oacIpIcmpRedirConfigActivate based on TruthValue"""
+    defaultValue = 1
+
+
+_OacIpIcmpRedirConfigActivate_Type.__name__ = "TruthValue"
+_OacIpIcmpRedirConfigActivate_Object = MibScalar
+oacIpIcmpRedirConfigActivate = _OacIpIcmpRedirConfigActivate_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 4, 1),
+    _OacIpIcmpRedirConfigActivate_Type()
+)
+oacIpIcmpRedirConfigActivate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oacIpIcmpRedirConfigActivate.setStatus("current")
+
+
+class _OacIpIcmpRedirConfigRedirRoutesActivate_Type(Integer32):
+    """Custom type oacIpIcmpRedirConfigRedirRoutesActivate based on Integer32"""
+    defaultValue = 0
+
+
+_OacIpIcmpRedirConfigRedirRoutesActivate_Type.__name__ = "Integer32"
+_OacIpIcmpRedirConfigRedirRoutesActivate_Object = MibScalar
+oacIpIcmpRedirConfigRedirRoutesActivate = _OacIpIcmpRedirConfigRedirRoutesActivate_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 4, 2),
+    _OacIpIcmpRedirConfigRedirRoutesActivate_Type()
+)
+oacIpIcmpRedirConfigRedirRoutesActivate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oacIpIcmpRedirConfigRedirRoutesActivate.setStatus("current")
+
+
+class _OacIpIcmpRedirConfigRateLimitUnreach_Type(Integer32):
+    """Custom type oacIpIcmpRedirConfigRateLimitUnreach based on Integer32"""
+    defaultValue = 0
+
+
+_OacIpIcmpRedirConfigRateLimitUnreach_Type.__name__ = "Integer32"
+_OacIpIcmpRedirConfigRateLimitUnreach_Object = MibScalar
+oacIpIcmpRedirConfigRateLimitUnreach = _OacIpIcmpRedirConfigRateLimitUnreach_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 1, 4, 3),
+    _OacIpIcmpRedirConfigRateLimitUnreach_Type()
+)
+oacIpIcmpRedirConfigRateLimitUnreach.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oacIpIcmpRedirConfigRateLimitUnreach.setStatus("current")
+_OacIpServicesConfigConformance_ObjectIdentity = ObjectIdentity
+oacIpServicesConfigConformance = _OacIpServicesConfigConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 2)
+)
+_OacIpServicesGroups_ObjectIdentity = ObjectIdentity
+oacIpServicesGroups = _OacIpServicesGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 2, 1)
+)
+_OacIpServicesCompls_ObjectIdentity = ObjectIdentity
+oacIpServicesCompls = _OacIpServicesCompls_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 2, 2)
+)
+
+# Managed Objects groups
+
+oacIpServicesConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 1, 8, 2, 1, 1)
+)
+oacIpServicesConfigGroup.setObjects(
+    ("ONEACCESS-IP-SERVICES-MIB", "oacIpDnsConfigDomainName")
+)
+if mibBuilder.loadTexts:
+    oacIpServicesConfigGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ONEACCESS-IP-SERVICES-MIB",
+    **{"oacIpServicesConfigMIB": oacIpServicesConfigMIB,
+       "oacIpServicesConfig": oacIpServicesConfig,
+       "oacIpServicesConfigObjects": oacIpServicesConfigObjects,
+       "oacIpServicesDnsConfigObjects": oacIpServicesDnsConfigObjects,
+       "oacIpDnsConfigDomainName": oacIpDnsConfigDomainName,
+       "oacIpDnsConfigMainAdd": oacIpDnsConfigMainAdd,
+       "oacIpDnsConfigSndAdd": oacIpDnsConfigSndAdd,
+       "oacIpDnsConfigTimeout": oacIpDnsConfigTimeout,
+       "oacIpServicesDHCPCConfigObjects": oacIpServicesDHCPCConfigObjects,
+       "oacDhcpClientAutoRestartAtm": oacDhcpClientAutoRestartAtm,
+       "oacDhcpClientBroadcastFlag": oacDhcpClientBroadcastFlag,
+       "oacDhcpVendorId": oacDhcpVendorId,
+       "oacIpDhcpClientInterfaceTable": oacIpDhcpClientInterfaceTable,
+       "oacIpDhcpClientInterfaceEntry": oacIpDhcpClientInterfaceEntry,
+       "oacIpDhcpClientInterfaceIfName": oacIpDhcpClientInterfaceIfName,
+       "oacIpDhcpClientInterfaceIgnoreDefRoute": oacIpDhcpClientInterfaceIgnoreDefRoute,
+       "oacIpDhcpClientInterfaceLeaseOptLess": oacIpDhcpClientInterfaceLeaseOptLess,
+       "oacIpDhcpClientInterfaceUserClassId": oacIpDhcpClientInterfaceUserClassId,
+       "oacIpDhcpClientInterfaceRowStatus": oacIpDhcpClientInterfaceRowStatus,
+       "oacIpDhcpAddClientInterfaceTable": oacIpDhcpAddClientInterfaceTable,
+       "oacIpDhcpAddClientInterfaceEntry": oacIpDhcpAddClientInterfaceEntry,
+       "oacIpDhcpAddClientInterfaceActivate": oacIpDhcpAddClientInterfaceActivate,
+       "oacIpDhcpAddClientInterfaceIfName": oacIpDhcpAddClientInterfaceIfName,
+       "oacIpDhcpAddClientInterfaceClientId": oacIpDhcpAddClientInterfaceClientId,
+       "oacIpDhcpAddClientInterfaceHostname": oacIpDhcpAddClientInterfaceHostname,
+       "oacIpDhcpAddClientInterfaceRowStatus": oacIpDhcpAddClientInterfaceRowStatus,
+       "oacIpServicesArpProxyConfigObjects": oacIpServicesArpProxyConfigObjects,
+       "oacIpProxyArpInterfaceConfigTable": oacIpProxyArpInterfaceConfigTable,
+       "oacIpProxyArpInterfaceConfigEntry": oacIpProxyArpInterfaceConfigEntry,
+       "oacIpProxyArpInterfaceConfigActivate": oacIpProxyArpInterfaceConfigActivate,
+       "oacIpProxyArpInterfaceConfigIfName": oacIpProxyArpInterfaceConfigIfName,
+       "oacIpProxyArpInterfaceConfigRowStatus": oacIpProxyArpInterfaceConfigRowStatus,
+       "oacIpServicesIcmpRedirConfigObjects": oacIpServicesIcmpRedirConfigObjects,
+       "oacIpIcmpRedirConfigActivate": oacIpIcmpRedirConfigActivate,
+       "oacIpIcmpRedirConfigRedirRoutesActivate": oacIpIcmpRedirConfigRedirRoutesActivate,
+       "oacIpIcmpRedirConfigRateLimitUnreach": oacIpIcmpRedirConfigRateLimitUnreach,
+       "oacIpServicesConfigConformance": oacIpServicesConfigConformance,
+       "oacIpServicesGroups": oacIpServicesGroups,
+       "oacIpServicesConfigGroup": oacIpServicesConfigGroup,
+       "oacIpServicesCompls": oacIpServicesCompls}
+)

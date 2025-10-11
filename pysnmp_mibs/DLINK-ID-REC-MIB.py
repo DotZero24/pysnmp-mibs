@@ -1,245 +1,1292 @@
+# SNMP MIB module (DLINK-ID-REC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DLINK-ID-REC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DLINK-ID-REC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:26 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/DLINK-ID-REC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:13:07 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-class AgentNotifyLevel(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("critical", 0), ("warning", 1), ("information", 2), ("emergency", 3), ("alert", 4), ("error", 5), ("notice", 6), ("debug", 7))
 
-dlink = MibIdentifier((1, 3, 6, 1, 4, 1, 171))
-dlink_products = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10)).setLabel("dlink-products")
-dlink_mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11)).setLabel("dlink-mgmt")
-dlink_common_mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12)).setLabel("dlink-common-mgmt")
-dlinkIndustrialCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 14))
-dlinkPrimeCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15))
-dlink_broadband_products = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 30)).setLabel("dlink-broadband-products")
-dlink_broadband_mgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 31)).setLabel("dlink-broadband-mgmt")
-dlink_Des3624Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25)).setLabel("dlink-Des3624Prod")
-des3624DevRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 2))
-des3624Device = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 2, 1))
-des3624UnitRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 3))
-des3624Master = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 3, 1))
-des3624Slave1 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 3, 2))
-des3624Slave2 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 3, 3))
-des3624Slave3 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 3, 4))
-des3624ModuleRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 4))
-des3624ModuleMainboardTx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 1))
-des3624ModuleTxTwoPort = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 2))
-des3624ModuleFxSC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 3))
-des3624ModuleFxMTRJ = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 4))
-des3624ModuleSIO = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 5))
-des3624ModuleSXGIGAOnePort = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 6))
-des3624ModuleSXGIGATwoPort = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 7))
-des3624ModuleLXGIGAOnePort = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 8))
-des3624ModuleLXGIGATwoPort = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 9))
-des3624ModuleNone = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 10))
-dlink_Des3225gProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24)).setLabel("dlink-Des3225gProd")
-des3225gDevRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 2))
-des3225gDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 2, 1))
-des3225gUnitRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 3))
-des3225gUnit = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 3, 1))
-des3225gModuleRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 4))
-des3225gModule_Mainboard_22Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 1)).setLabel("des3225gModule-Mainboard-22Port")
-des3225gModule_362TX_2Ports = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 2)).setLabel("des3225gModule-362TX-2Ports")
-des3225gModule_361FX_1Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 3)).setLabel("des3225gModule-361FX-1Port")
-des3225gModule_362FM_2Ports = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 4)).setLabel("des3225gModule-362FM-2Ports")
-des3225gModule_3251G_1Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 5)).setLabel("des3225gModule-3251G-1Port")
-des3225gModule_3251GL_1Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 6)).setLabel("des3225gModule-3251GL-1Port")
-des3225gModule_321GT_1Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 7)).setLabel("des3225gModule-321GT-1Port")
-des3225gPortRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 5))
-des3225gPort_10_100TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 1)).setLabel("des3225gPort-10-100TX")
-des3225gPort_100_SC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 2)).setLabel("des3225gPort-100-SC")
-des3225gPort_100_MTRJ = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 3)).setLabel("des3225gPort-100-MTRJ")
-des3225gPort_1000_SX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 4)).setLabel("des3225gPort-1000-SX")
-des3225gPort_1000_LX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 5)).setLabel("des3225gPort-1000-LX")
-des3225gPort_1000_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 6)).setLabel("des3225gPort-1000-TX")
-des3225gPowerSupplyRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 6))
-des3225gPowerSupply = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 6, 1))
-des3225gFanRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 7))
-des3225gFan = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 7, 1))
-des3225gSlotRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 8))
-des3225gSlot1 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 8, 1))
-des3225gSlot2 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 8, 2))
-des3225gSensorRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 9))
-des3225gBackplaneRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 24, 10))
-dlink_Des3124Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19)).setLabel("dlink-Des3124Prod")
-des3124DevRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 2))
-des3124Device = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 2, 1))
-des3124UnitRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 3))
-des3124Unit = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 3, 1))
-des3124ModuleRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 4))
-des3124Module_Mainboard_24Ports = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 4, 1)).setLabel("des3124Module-Mainboard-24Ports")
-des3124Module_NMM = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 4, 2)).setLabel("des3124Module-NMM")
-des3124PortRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 5))
-des3124Port_10_100TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 5, 1)).setLabel("des3124Port-10-100TX")
-des3124PowerSupplyRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 6))
-des3124PowerSupply = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 6, 1))
-des3124FanRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 7))
-des3124Fan = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 19, 7, 1))
-dlink_Des3126Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29)).setLabel("dlink-Des3126Prod")
-des3126DevRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 2))
-des3126Device = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 2, 1))
-des3126UnitRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 3))
-des3126Unit = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 3, 1))
-des3126ModuleRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 4))
-des3126Module_Mainboard_22Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 1)).setLabel("des3126Module-Mainboard-22Port")
-des3126Module_362TX_2Ports = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 2)).setLabel("des3126Module-362TX-2Ports")
-des3126Module_361FX_1Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 3)).setLabel("des3126Module-361FX-1Port")
-des3126Module_362FM_2Ports = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 4)).setLabel("des3126Module-362FM-2Ports")
-des3126Module_361G_1Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 5)).setLabel("des3126Module-361G-1Port")
-des3126Module_361GL_1Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 6)).setLabel("des3126Module-361GL-1Port")
-des3126Module_361GT_1Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 7)).setLabel("des3126Module-361GT-1Port")
-des3126Module_362G_2Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 8)).setLabel("des3126Module-362G-2Port")
-des3126Module_362GL_2Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 9)).setLabel("des3126Module-362GL-2Port")
-des3126Module_362GT_2Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 10)).setLabel("des3126Module-362GT-2Port")
-des3126PortRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 5))
-des3126Port_10_100TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 1)).setLabel("des3126Port-10-100TX")
-des3126Port_100_SC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 2)).setLabel("des3126Port-100-SC")
-des3126Port_100_MTRJ = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 3)).setLabel("des3126Port-100-MTRJ")
-des3126Port_1000_SX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 4)).setLabel("des3126Port-1000-SX")
-des3126Port_1000_LX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 5)).setLabel("des3126Port-1000-LX")
-des3126Port_1000_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 6)).setLabel("des3126Port-1000-TX")
-des3126PowerSupplyRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 6))
-des3126PowerSupply = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 6, 1))
-des3126FanRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 7))
-des3126Fan = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 7, 1))
-des3126SlotRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 8))
-des3126Slot1 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 8, 1))
-des3126Slot2 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 8, 2))
-des3126SensorRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 9))
-des3126BackplaneRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 29, 10))
-dlink_DGS3208Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23)).setLabel("dlink-DGS3208Prod")
-dgs3208DevRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 2))
-dgs3208Device = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 2, 1))
-dgs3208UnitRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 3))
-dgs3208Unit = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 3, 1))
-dgs3208ModuleRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 4))
-dgs3208Module_Mainboard_8Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 4, 1)).setLabel("dgs3208Module-Mainboard-8Port")
-dgs3208Module_Mainboard_6Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 4, 2)).setLabel("dgs3208Module-Mainboard-6Port")
-dgs3208Module_GBIC_SX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 4, 3)).setLabel("dgs3208Module-GBIC-SX")
-dgs3208Module_GBIC_LX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 4, 4)).setLabel("dgs3208Module-GBIC-LX")
-dgs3208Module_GBIC_LH = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 4, 5)).setLabel("dgs3208Module-GBIC-LH")
-dgs3208PortRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 5))
-dgs3208Port_1000_SX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 5, 1)).setLabel("dgs3208Port-1000-SX")
-dgs3208Port_1000_LX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 5, 2)).setLabel("dgs3208Port-1000-LX")
-dgs3208Port_100_1000_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 5, 3)).setLabel("dgs3208Port-100-1000-TX")
-dgs3208PowerSupplyRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 6))
-dgs3208PowerSupply = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 6, 1))
-dgs3208FanRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 7))
-dgs3208Fan = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 7, 1))
-dgs3208SlotRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 8))
-dgs3208Slot1 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 8, 1))
-dgs3208Slot2 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 23, 8, 2))
-dlink_Des6000Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28)).setLabel("dlink-Des6000Prod")
-des6000DevRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 2))
-des6000Device = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 2, 1))
-des6000UnitRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 3))
-des6000Main = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 3, 1))
-des6000ModuleRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 4))
-des6000ModuleTx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 1))
-des6000ModuleFx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 2))
-des6000ModuleGIGAMTRJSX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 3))
-des6000ModuleGIGAMTRJLX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 4))
-des6000ModuleGIGASCSX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 5))
-des6000ModuleGIGASCLX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 6))
-des6000ModuleGIGATX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 7))
-des6000ModuleCPUMaster = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 8))
-des6000ModuleCPUBackup = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 9))
-des6000ModuleNone = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 10))
-des6000PortRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 5))
-des6000Port_10_100TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 1)).setLabel("des6000Port-10-100TX")
-des6000Port_100_MTRJ = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 2)).setLabel("des6000Port-100-MTRJ")
-des6000Port_1000_SX_MTRJ = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 3)).setLabel("des6000Port-1000-SX-MTRJ")
-des6000Port_1000_LX_MTRJ = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 4)).setLabel("des6000Port-1000-LX-MTRJ")
-des6000Port_1000_SX_SC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 5)).setLabel("des6000Port-1000-SX-SC")
-des6000Port_1000_LX_SC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 6)).setLabel("des6000Port-1000-LX-SC")
-des6000Port_1000_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 7)).setLabel("des6000Port-1000-TX")
-des6000PowerSupplyRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 6))
-des6000PowerSupply1 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 6, 1))
-des6000PowerSupply2 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 6, 2))
-des6000FanRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 7))
-des6000Fan1 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 7, 1))
-des6000Fan2 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 7, 2))
-des6000Fan3 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 7, 3))
-des6000Fan4 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 7, 4))
-des6000SlotRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8))
-des6000Slot1 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 1))
-des6000Slot2 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 2))
-des6000Slot3 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 3))
-des6000Slot4 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 4))
-des6000Slot5 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 5))
-des6000Slot6 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 6))
-des6000Slot7 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 7))
-des6000Slot8 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 8))
-des6000CPUSlot = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 9))
-des6000SysFan1Socket = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 10))
-des6000SysFan2Socket = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 11))
-des6000SysFan3Socket = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 12))
-des6000SysFan4Socket = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 13))
-des6000Power1Socket = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 14))
-des6000Power2Socket = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 15))
-des6000BackplaneRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 9))
-des6000Backplane = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 9, 1))
-des6000SensorRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 28, 10))
-dlink_Des3326SeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32)).setLabel("dlink-Des3326SeriesProd")
-dlink_Des3326sProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2)).setLabel("dlink-Des3326sProd")
-des3326sDevRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 2))
-des3326sDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 2, 1))
-des3326sUnitRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 3))
-des3326sMain = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 3, 1))
-des3326sModuleRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 4))
-des3326sModuleGIGASCSX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 4, 1))
-des3326sModuleGIGASCLX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 4, 2))
-des3326sModuleGIGATX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 4, 3))
-des3326sModuleGBIC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 4, 4))
-des3326sPortRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 5))
-des3326sPort_10_100TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 5, 1)).setLabel("des3326sPort-10-100TX")
-des3326sPort_1000_SX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 5, 2)).setLabel("des3326sPort-1000-SX")
-des3326sPort_1000_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 5, 3)).setLabel("des3326sPort-1000-TX")
-dlink_Dhs3226SeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36)).setLabel("dlink-Dhs3226SeriesProd")
-dlink_Dhs3226Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1)).setLabel("dlink-Dhs3226Prod")
-dlink_Dhs3226Prod_Dhs3226 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 1)).setLabel("dlink-Dhs3226Prod-Dhs3226")
-dlink_Dhs3226Prod_Dhs3218 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 2)).setLabel("dlink-Dhs3226Prod-Dhs3218")
-dlink_Dhs3226Prod_Dhs3210 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 3)).setLabel("dlink-Dhs3226Prod-Dhs3210")
-dlink_Dhs3226Prod_Des3226 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 11)).setLabel("dlink-Dhs3226Prod-Des3226")
-dlink_Dhs3226Prod_Des3218 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 12)).setLabel("dlink-Dhs3226Prod-Des3218")
-dlink_Dhs3226Prod_Des3210 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 13)).setLabel("dlink-Dhs3226Prod-Des3210")
-dhs3226DevRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 2))
-dhs3226Device = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 2, 1))
-dhs3226UnitRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 3))
-dhs3226Unit = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 3, 1))
-dhs3226ModuleRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4))
-dhs3226_Module_Mainboard_24Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 1)).setLabel("dhs3226-Module-Mainboard-24Port")
-dhs3226_Module_1_Port_100_FX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 2)).setLabel("dhs3226-Module-1-Port-100-FX")
-dhs3226_Module_2_Port_100_FX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 3)).setLabel("dhs3226-Module-2-Port-100-FX")
-dhs3226_Module_1_Port_100_FL = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 4)).setLabel("dhs3226-Module-1-Port-100-FL")
-dhs3226_Module_2_Port_100_FL = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 5)).setLabel("dhs3226-Module-2-Port-100-FL")
-dhs3226_Module_2_Port_1000_SX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 6)).setLabel("dhs3226-Module-2-Port-1000-SX")
-dhs3226_Module_2_Port_1000_LX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 7)).setLabel("dhs3226-Module-2-Port-1000-LX")
-dhs3226_Module_2_Port_1000_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 8)).setLabel("dhs3226-Module-2-Port-1000-TX")
-dhs3226_Module_2_Port_GBIC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 9)).setLabel("dhs3226-Module-2-Port-GBIC")
-dhs3226_Module_Mainboard_8Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 10)).setLabel("dhs3226-Module-Mainboard-8Port")
-dhs3226_Module_Mainboard_16Port = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 11)).setLabel("dhs3226-Module-Mainboard-16Port")
-dhs3226_Module_2_Port_100_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 12)).setLabel("dhs3226-Module-2-Port-100-TX")
-dhs3226PortRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5))
-dhs3226_Port_10_100_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 1)).setLabel("dhs3226-Port-10-100-TX")
-dhs3226_Port_100_FX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 2)).setLabel("dhs3226-Port-100-FX")
-dhs3226_Port_100_FL = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 3)).setLabel("dhs3226-Port-100-FL")
-dhs3226_Port_1000_SX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 4)).setLabel("dhs3226-Port-1000-SX")
-dhs3226_Port_1000_LX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 5)).setLabel("dhs3226-Port-1000-LX")
-dhs3226_Port_1000_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 6)).setLabel("dhs3226-Port-1000-TX")
-dhs3226_Port_GBIC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 7)).setLabel("dhs3226-Port-GBIC")
-dhs3226_Port_100_TX = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 8)).setLabel("dhs3226-Port-100-TX")
-dhs3226SlotRegistration = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 6))
-dhs3226Slot1 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 6, 1))
-mibBuilder.exportSymbols("DLINK-ID-REC-MIB", des6000ModuleGIGATX=des6000ModuleGIGATX, des3124DevRegistration=des3124DevRegistration, dhs3226_Module_2_Port_100_FX=dhs3226_Module_2_Port_100_FX, AgentNotifyLevel=AgentNotifyLevel, dlink_Des3124Prod=dlink_Des3124Prod, dgs3208Module_Mainboard_8Port=dgs3208Module_Mainboard_8Port, des3326sPortRegistration=des3326sPortRegistration, des3624ModuleTxTwoPort=des3624ModuleTxTwoPort, des3126Port_1000_SX=des3126Port_1000_SX, des6000Fan3=des6000Fan3, dhs3226SlotRegistration=dhs3226SlotRegistration, des3124UnitRegistration=des3124UnitRegistration, des3225gModuleRegistration=des3225gModuleRegistration, des3126Port_1000_LX=des3126Port_1000_LX, des3225gUnitRegistration=des3225gUnitRegistration, des3326sPort_1000_SX=des3326sPort_1000_SX, des3225gUnit=des3225gUnit, dlink_products=dlink_products, des3326sModuleRegistration=des3326sModuleRegistration, des3126Module_361G_1Port=des3126Module_361G_1Port, dgs3208FanRegistration=dgs3208FanRegistration, des3126Fan=des3126Fan, dgs3208Slot1=dgs3208Slot1, dhs3226_Port_1000_LX=dhs3226_Port_1000_LX, dhs3226_Module_2_Port_100_FL=dhs3226_Module_2_Port_100_FL, des3225gPort_1000_LX=des3225gPort_1000_LX, dgs3208Port_100_1000_TX=dgs3208Port_100_1000_TX, des6000Fan1=des6000Fan1, des6000SysFan1Socket=des6000SysFan1Socket, dlink_Des3225gProd=dlink_Des3225gProd, dgs3208Module_Mainboard_6Port=dgs3208Module_Mainboard_6Port, dhs3226UnitRegistration=dhs3226UnitRegistration, des3126UnitRegistration=des3126UnitRegistration, des3624ModuleLXGIGATwoPort=des3624ModuleLXGIGATwoPort, des3624Master=des3624Master, des6000ModuleGIGAMTRJSX=des6000ModuleGIGAMTRJSX, des3326sModuleGIGASCSX=des3326sModuleGIGASCSX, dlink_Dhs3226SeriesProd=dlink_Dhs3226SeriesProd, dhs3226Device=dhs3226Device, dlink_Des3126Prod=dlink_Des3126Prod, dgs3208Module_GBIC_SX=dgs3208Module_GBIC_SX, dhs3226_Module_Mainboard_8Port=dhs3226_Module_Mainboard_8Port, des3124PortRegistration=des3124PortRegistration, des6000Slot6=des6000Slot6, dhs3226DevRegistration=dhs3226DevRegistration, des6000Slot2=des6000Slot2, dhs3226_Port_10_100_TX=dhs3226_Port_10_100_TX, dlink_broadband_products=dlink_broadband_products, des3225gModule_362TX_2Ports=des3225gModule_362TX_2Ports, dgs3208PowerSupply=dgs3208PowerSupply, des6000SysFan3Socket=des6000SysFan3Socket, des6000Fan2=des6000Fan2, des3126SensorRegistration=des3126SensorRegistration, dhs3226_Module_Mainboard_24Port=dhs3226_Module_Mainboard_24Port, des3225gPort_100_SC=des3225gPort_100_SC, des3225gPort_100_MTRJ=des3225gPort_100_MTRJ, des3225gPort_1000_TX=des3225gPort_1000_TX, dhs3226_Port_GBIC=dhs3226_Port_GBIC, des3126PowerSupply=des3126PowerSupply, dhs3226_Port_100_FL=dhs3226_Port_100_FL, des3225gModule_3251G_1Port=des3225gModule_3251G_1Port, des3126Module_361GL_1Port=des3126Module_361GL_1Port, dhs3226_Module_1_Port_100_FX=dhs3226_Module_1_Port_100_FX, dlink_Des6000Prod=dlink_Des6000Prod, dlink_Dhs3226Prod_Dhs3218=dlink_Dhs3226Prod_Dhs3218, des3126Module_362GT_2Port=des3126Module_362GT_2Port, des6000FanRegistration=des6000FanRegistration, des3624ModuleMainboardTx=des3624ModuleMainboardTx, des3225gSensorRegistration=des3225gSensorRegistration, des6000DevRegistration=des6000DevRegistration, des3326sModuleGBIC=des3326sModuleGBIC, des6000ModuleCPUMaster=des6000ModuleCPUMaster, dlink_Des3624Prod=dlink_Des3624Prod, des3225gPort_1000_SX=des3225gPort_1000_SX, dlinkIndustrialCommon=dlinkIndustrialCommon, des6000CPUSlot=des6000CPUSlot, des3225gDevRegistration=des3225gDevRegistration, des3225gPortRegistration=des3225gPortRegistration, des6000ModuleFx=des6000ModuleFx, dgs3208Device=dgs3208Device, des3126Port_100_MTRJ=des3126Port_100_MTRJ, des6000ModuleGIGAMTRJLX=des6000ModuleGIGAMTRJLX, des3126BackplaneRegistration=des3126BackplaneRegistration, des3124PowerSupply=des3124PowerSupply, des3126Module_361FX_1Port=des3126Module_361FX_1Port, des6000ModuleNone=des6000ModuleNone, dlink_Des3326sProd=dlink_Des3326sProd, des3126Module_Mainboard_22Port=des3126Module_Mainboard_22Port, dlinkPrimeCommon=dlinkPrimeCommon, dhs3226_Module_2_Port_1000_SX=dhs3226_Module_2_Port_1000_SX, des3624ModuleSXGIGATwoPort=des3624ModuleSXGIGATwoPort, des3326sPort_1000_TX=des3326sPort_1000_TX, des6000Port_100_MTRJ=des6000Port_100_MTRJ, dgs3208Port_1000_SX=dgs3208Port_1000_SX, des6000Port_1000_LX_MTRJ=des6000Port_1000_LX_MTRJ, des3326sPort_10_100TX=des3326sPort_10_100TX, dhs3226_Module_2_Port_1000_TX=dhs3226_Module_2_Port_1000_TX, dhs3226_Module_2_Port_100_TX=dhs3226_Module_2_Port_100_TX, dhs3226_Port_1000_TX=dhs3226_Port_1000_TX, des3225gModule_3251GL_1Port=des3225gModule_3251GL_1Port, dgs3208Unit=dgs3208Unit, des3124ModuleRegistration=des3124ModuleRegistration, des6000ModuleGIGASCSX=des6000ModuleGIGASCSX, dgs3208Fan=dgs3208Fan, des3624ModuleSIO=des3624ModuleSIO, dlink_Dhs3226Prod_Des3210=dlink_Dhs3226Prod_Des3210, dgs3208Slot2=dgs3208Slot2, dgs3208PowerSupplyRegistration=dgs3208PowerSupplyRegistration, des6000Main=des6000Main, des6000Slot4=des6000Slot4, des3225gModule_361FX_1Port=des3225gModule_361FX_1Port, des3126Device=des3126Device, des3225gPort_10_100TX=des3225gPort_10_100TX, des3624ModuleFxSC=des3624ModuleFxSC, des3225gSlot2=des3225gSlot2, des3326sMain=des3326sMain, des3225gFanRegistration=des3225gFanRegistration, dgs3208Module_GBIC_LH=dgs3208Module_GBIC_LH, des3624ModuleLXGIGAOnePort=des3624ModuleLXGIGAOnePort, des3326sModuleGIGATX=des3326sModuleGIGATX, des3624Slave3=des3624Slave3, dhs3226Unit=dhs3226Unit, dlink=dlink, des3225gSlotRegistration=des3225gSlotRegistration, des3124Device=des3124Device, dgs3208Port_1000_LX=dgs3208Port_1000_LX, des6000SensorRegistration=des6000SensorRegistration, des3624ModuleSXGIGAOnePort=des3624ModuleSXGIGAOnePort, des3126Module_361GT_1Port=des3126Module_361GT_1Port, des3126PortRegistration=des3126PortRegistration, dhs3226Slot1=dhs3226Slot1, dlink_mgmt=dlink_mgmt, des6000SysFan4Socket=des6000SysFan4Socket, des3225gSlot1=des3225gSlot1, des6000Port_10_100TX=des6000Port_10_100TX, dlink_Dhs3226Prod_Des3226=dlink_Dhs3226Prod_Des3226, dgs3208Module_GBIC_LX=dgs3208Module_GBIC_LX, des6000Port_1000_SX_MTRJ=des6000Port_1000_SX_MTRJ, des6000Slot5=des6000Slot5, des3624Slave1=des3624Slave1, des6000ModuleTx=des6000ModuleTx, dlink_Dhs3226Prod_Dhs3226=dlink_Dhs3226Prod_Dhs3226, des6000Slot1=des6000Slot1, des3225gBackplaneRegistration=des3225gBackplaneRegistration, des3124PowerSupplyRegistration=des3124PowerSupplyRegistration, des3126Module_362TX_2Ports=des3126Module_362TX_2Ports, des3126FanRegistration=des3126FanRegistration, des6000Device=des6000Device, dlink_DGS3208Prod=dlink_DGS3208Prod, dhs3226_Module_2_Port_1000_LX=dhs3226_Module_2_Port_1000_LX, dlink_Dhs3226Prod_Des3218=dlink_Dhs3226Prod_Des3218, des3326sUnitRegistration=des3326sUnitRegistration, des6000ModuleCPUBackup=des6000ModuleCPUBackup, dgs3208DevRegistration=dgs3208DevRegistration, des3225gDevice=des3225gDevice, dhs3226_Module_2_Port_GBIC=dhs3226_Module_2_Port_GBIC, des6000PowerSupplyRegistration=des6000PowerSupplyRegistration, des6000Port_1000_TX=des6000Port_1000_TX, des6000BackplaneRegistration=des6000BackplaneRegistration, des3225gModule_Mainboard_22Port=des3225gModule_Mainboard_22Port, des6000Port_1000_SX_SC=des6000Port_1000_SX_SC, des6000PowerSupply1=des6000PowerSupply1, des6000Slot7=des6000Slot7, des6000Port_1000_LX_SC=des6000Port_1000_LX_SC, dhs3226_Port_100_TX=dhs3226_Port_100_TX, des3126Slot2=des3126Slot2, des3624Device=des3624Device, des3124Port_10_100TX=des3124Port_10_100TX, des3624UnitRegistration=des3624UnitRegistration, des6000Backplane=des6000Backplane, des6000SysFan2Socket=des6000SysFan2Socket, dhs3226_Port_100_FX=dhs3226_Port_100_FX, des6000UnitRegistration=des6000UnitRegistration, des6000PowerSupply2=des6000PowerSupply2, des3225gFan=des3225gFan, dgs3208UnitRegistration=dgs3208UnitRegistration, des3124FanRegistration=des3124FanRegistration, des3124Fan=des3124Fan, des3326sDevice=des3326sDevice, des6000ModuleRegistration=des6000ModuleRegistration, dlink_common_mgmt=dlink_common_mgmt, dhs3226PortRegistration=dhs3226PortRegistration, dgs3208PortRegistration=dgs3208PortRegistration, des6000PortRegistration=des6000PortRegistration, des3326sDevRegistration=des3326sDevRegistration, des3126Module_362GL_2Port=des3126Module_362GL_2Port, des3126DevRegistration=des3126DevRegistration, des3126Unit=des3126Unit, des3124Module_NMM=des3124Module_NMM, des3126Module_362G_2Port=des3126Module_362G_2Port, des3326sModuleGIGASCLX=des3326sModuleGIGASCLX, des3126Port_100_SC=des3126Port_100_SC, des3624ModuleFxMTRJ=des3624ModuleFxMTRJ, dlink_broadband_mgmt=dlink_broadband_mgmt, des3225gModule_362FM_2Ports=des3225gModule_362FM_2Ports, des3126ModuleRegistration=des3126ModuleRegistration, des3126SlotRegistration=des3126SlotRegistration, des6000ModuleGIGASCLX=des6000ModuleGIGASCLX, des3225gModule_321GT_1Port=des3225gModule_321GT_1Port, des3126Port_1000_TX=des3126Port_1000_TX, dhs3226_Port_1000_SX=dhs3226_Port_1000_SX, des6000SlotRegistration=des6000SlotRegistration, des3624ModuleNone=des3624ModuleNone, dlink_Des3326SeriesProd=dlink_Des3326SeriesProd, des3126PowerSupplyRegistration=des3126PowerSupplyRegistration, dhs3226_Module_1_Port_100_FL=dhs3226_Module_1_Port_100_FL, des3624ModuleRegistration=des3624ModuleRegistration, des3624DevRegistration=des3624DevRegistration, dgs3208ModuleRegistration=dgs3208ModuleRegistration, des3124Module_Mainboard_24Ports=des3124Module_Mainboard_24Ports, dlink_Dhs3226Prod=dlink_Dhs3226Prod, des3126Module_362FM_2Ports=des3126Module_362FM_2Ports, des3225gPowerSupplyRegistration=des3225gPowerSupplyRegistration, des3624Slave2=des3624Slave2, dgs3208SlotRegistration=dgs3208SlotRegistration, des6000Power2Socket=des6000Power2Socket, des6000Slot3=des6000Slot3, des3225gPowerSupply=des3225gPowerSupply, dhs3226_Module_Mainboard_16Port=dhs3226_Module_Mainboard_16Port, des3124Unit=des3124Unit, dlink_Dhs3226Prod_Dhs3210=dlink_Dhs3226Prod_Dhs3210, des3126Port_10_100TX=des3126Port_10_100TX, des6000Power1Socket=des6000Power1Socket, des6000Fan4=des6000Fan4, des3126Slot1=des3126Slot1, des6000Slot8=des6000Slot8, dhs3226ModuleRegistration=dhs3226ModuleRegistration)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class AgentNotifyLevel(TextualConvention, Integer32):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("critical", 0),
+          ("warning", 1),
+          ("information", 2),
+          ("emergency", 3),
+          ("alert", 4),
+          ("error", 5),
+          ("notice", 6),
+          ("debug", 7))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Dlink_ObjectIdentity = ObjectIdentity
+dlink = _Dlink_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171)
+)
+_Dlink_products_ObjectIdentity = ObjectIdentity
+dlink_products = _Dlink_products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10)
+)
+_Dlink_Des3124Prod_ObjectIdentity = ObjectIdentity
+dlink_Des3124Prod = _Dlink_Des3124Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19)
+)
+_Des3124DevRegistration_ObjectIdentity = ObjectIdentity
+des3124DevRegistration = _Des3124DevRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 2)
+)
+_Des3124Device_ObjectIdentity = ObjectIdentity
+des3124Device = _Des3124Device_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 2, 1)
+)
+_Des3124UnitRegistration_ObjectIdentity = ObjectIdentity
+des3124UnitRegistration = _Des3124UnitRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 3)
+)
+_Des3124Unit_ObjectIdentity = ObjectIdentity
+des3124Unit = _Des3124Unit_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 3, 1)
+)
+_Des3124ModuleRegistration_ObjectIdentity = ObjectIdentity
+des3124ModuleRegistration = _Des3124ModuleRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 4)
+)
+_Des3124Module_Mainboard_24Ports_ObjectIdentity = ObjectIdentity
+des3124Module_Mainboard_24Ports = _Des3124Module_Mainboard_24Ports_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 4, 1)
+)
+_Des3124Module_NMM_ObjectIdentity = ObjectIdentity
+des3124Module_NMM = _Des3124Module_NMM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 4, 2)
+)
+_Des3124PortRegistration_ObjectIdentity = ObjectIdentity
+des3124PortRegistration = _Des3124PortRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 5)
+)
+_Des3124Port_10_100TX_ObjectIdentity = ObjectIdentity
+des3124Port_10_100TX = _Des3124Port_10_100TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 5, 1)
+)
+_Des3124PowerSupplyRegistration_ObjectIdentity = ObjectIdentity
+des3124PowerSupplyRegistration = _Des3124PowerSupplyRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 6)
+)
+_Des3124PowerSupply_ObjectIdentity = ObjectIdentity
+des3124PowerSupply = _Des3124PowerSupply_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 6, 1)
+)
+_Des3124FanRegistration_ObjectIdentity = ObjectIdentity
+des3124FanRegistration = _Des3124FanRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 7)
+)
+_Des3124Fan_ObjectIdentity = ObjectIdentity
+des3124Fan = _Des3124Fan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 19, 7, 1)
+)
+_Dlink_DGS3208Prod_ObjectIdentity = ObjectIdentity
+dlink_DGS3208Prod = _Dlink_DGS3208Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23)
+)
+_Dgs3208DevRegistration_ObjectIdentity = ObjectIdentity
+dgs3208DevRegistration = _Dgs3208DevRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 2)
+)
+_Dgs3208Device_ObjectIdentity = ObjectIdentity
+dgs3208Device = _Dgs3208Device_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 2, 1)
+)
+_Dgs3208UnitRegistration_ObjectIdentity = ObjectIdentity
+dgs3208UnitRegistration = _Dgs3208UnitRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 3)
+)
+_Dgs3208Unit_ObjectIdentity = ObjectIdentity
+dgs3208Unit = _Dgs3208Unit_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 3, 1)
+)
+_Dgs3208ModuleRegistration_ObjectIdentity = ObjectIdentity
+dgs3208ModuleRegistration = _Dgs3208ModuleRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 4)
+)
+_Dgs3208Module_Mainboard_8Port_ObjectIdentity = ObjectIdentity
+dgs3208Module_Mainboard_8Port = _Dgs3208Module_Mainboard_8Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 4, 1)
+)
+_Dgs3208Module_Mainboard_6Port_ObjectIdentity = ObjectIdentity
+dgs3208Module_Mainboard_6Port = _Dgs3208Module_Mainboard_6Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 4, 2)
+)
+_Dgs3208Module_GBIC_SX_ObjectIdentity = ObjectIdentity
+dgs3208Module_GBIC_SX = _Dgs3208Module_GBIC_SX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 4, 3)
+)
+_Dgs3208Module_GBIC_LX_ObjectIdentity = ObjectIdentity
+dgs3208Module_GBIC_LX = _Dgs3208Module_GBIC_LX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 4, 4)
+)
+_Dgs3208Module_GBIC_LH_ObjectIdentity = ObjectIdentity
+dgs3208Module_GBIC_LH = _Dgs3208Module_GBIC_LH_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 4, 5)
+)
+_Dgs3208PortRegistration_ObjectIdentity = ObjectIdentity
+dgs3208PortRegistration = _Dgs3208PortRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 5)
+)
+_Dgs3208Port_1000_SX_ObjectIdentity = ObjectIdentity
+dgs3208Port_1000_SX = _Dgs3208Port_1000_SX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 5, 1)
+)
+_Dgs3208Port_1000_LX_ObjectIdentity = ObjectIdentity
+dgs3208Port_1000_LX = _Dgs3208Port_1000_LX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 5, 2)
+)
+_Dgs3208Port_100_1000_TX_ObjectIdentity = ObjectIdentity
+dgs3208Port_100_1000_TX = _Dgs3208Port_100_1000_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 5, 3)
+)
+_Dgs3208PowerSupplyRegistration_ObjectIdentity = ObjectIdentity
+dgs3208PowerSupplyRegistration = _Dgs3208PowerSupplyRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 6)
+)
+_Dgs3208PowerSupply_ObjectIdentity = ObjectIdentity
+dgs3208PowerSupply = _Dgs3208PowerSupply_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 6, 1)
+)
+_Dgs3208FanRegistration_ObjectIdentity = ObjectIdentity
+dgs3208FanRegistration = _Dgs3208FanRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 7)
+)
+_Dgs3208Fan_ObjectIdentity = ObjectIdentity
+dgs3208Fan = _Dgs3208Fan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 7, 1)
+)
+_Dgs3208SlotRegistration_ObjectIdentity = ObjectIdentity
+dgs3208SlotRegistration = _Dgs3208SlotRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 8)
+)
+_Dgs3208Slot1_ObjectIdentity = ObjectIdentity
+dgs3208Slot1 = _Dgs3208Slot1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 8, 1)
+)
+_Dgs3208Slot2_ObjectIdentity = ObjectIdentity
+dgs3208Slot2 = _Dgs3208Slot2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 23, 8, 2)
+)
+_Dlink_Des3225gProd_ObjectIdentity = ObjectIdentity
+dlink_Des3225gProd = _Dlink_Des3225gProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24)
+)
+_Des3225gDevRegistration_ObjectIdentity = ObjectIdentity
+des3225gDevRegistration = _Des3225gDevRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 2)
+)
+_Des3225gDevice_ObjectIdentity = ObjectIdentity
+des3225gDevice = _Des3225gDevice_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 2, 1)
+)
+_Des3225gUnitRegistration_ObjectIdentity = ObjectIdentity
+des3225gUnitRegistration = _Des3225gUnitRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 3)
+)
+_Des3225gUnit_ObjectIdentity = ObjectIdentity
+des3225gUnit = _Des3225gUnit_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 3, 1)
+)
+_Des3225gModuleRegistration_ObjectIdentity = ObjectIdentity
+des3225gModuleRegistration = _Des3225gModuleRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 4)
+)
+_Des3225gModule_Mainboard_22Port_ObjectIdentity = ObjectIdentity
+des3225gModule_Mainboard_22Port = _Des3225gModule_Mainboard_22Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 1)
+)
+_Des3225gModule_362TX_2Ports_ObjectIdentity = ObjectIdentity
+des3225gModule_362TX_2Ports = _Des3225gModule_362TX_2Ports_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 2)
+)
+_Des3225gModule_361FX_1Port_ObjectIdentity = ObjectIdentity
+des3225gModule_361FX_1Port = _Des3225gModule_361FX_1Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 3)
+)
+_Des3225gModule_362FM_2Ports_ObjectIdentity = ObjectIdentity
+des3225gModule_362FM_2Ports = _Des3225gModule_362FM_2Ports_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 4)
+)
+_Des3225gModule_3251G_1Port_ObjectIdentity = ObjectIdentity
+des3225gModule_3251G_1Port = _Des3225gModule_3251G_1Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 5)
+)
+_Des3225gModule_3251GL_1Port_ObjectIdentity = ObjectIdentity
+des3225gModule_3251GL_1Port = _Des3225gModule_3251GL_1Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 6)
+)
+_Des3225gModule_321GT_1Port_ObjectIdentity = ObjectIdentity
+des3225gModule_321GT_1Port = _Des3225gModule_321GT_1Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 4, 7)
+)
+_Des3225gPortRegistration_ObjectIdentity = ObjectIdentity
+des3225gPortRegistration = _Des3225gPortRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 5)
+)
+_Des3225gPort_10_100TX_ObjectIdentity = ObjectIdentity
+des3225gPort_10_100TX = _Des3225gPort_10_100TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 1)
+)
+_Des3225gPort_100_SC_ObjectIdentity = ObjectIdentity
+des3225gPort_100_SC = _Des3225gPort_100_SC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 2)
+)
+_Des3225gPort_100_MTRJ_ObjectIdentity = ObjectIdentity
+des3225gPort_100_MTRJ = _Des3225gPort_100_MTRJ_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 3)
+)
+_Des3225gPort_1000_SX_ObjectIdentity = ObjectIdentity
+des3225gPort_1000_SX = _Des3225gPort_1000_SX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 4)
+)
+_Des3225gPort_1000_LX_ObjectIdentity = ObjectIdentity
+des3225gPort_1000_LX = _Des3225gPort_1000_LX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 5)
+)
+_Des3225gPort_1000_TX_ObjectIdentity = ObjectIdentity
+des3225gPort_1000_TX = _Des3225gPort_1000_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 5, 6)
+)
+_Des3225gPowerSupplyRegistration_ObjectIdentity = ObjectIdentity
+des3225gPowerSupplyRegistration = _Des3225gPowerSupplyRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 6)
+)
+_Des3225gPowerSupply_ObjectIdentity = ObjectIdentity
+des3225gPowerSupply = _Des3225gPowerSupply_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 6, 1)
+)
+_Des3225gFanRegistration_ObjectIdentity = ObjectIdentity
+des3225gFanRegistration = _Des3225gFanRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 7)
+)
+_Des3225gFan_ObjectIdentity = ObjectIdentity
+des3225gFan = _Des3225gFan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 7, 1)
+)
+_Des3225gSlotRegistration_ObjectIdentity = ObjectIdentity
+des3225gSlotRegistration = _Des3225gSlotRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 8)
+)
+_Des3225gSlot1_ObjectIdentity = ObjectIdentity
+des3225gSlot1 = _Des3225gSlot1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 8, 1)
+)
+_Des3225gSlot2_ObjectIdentity = ObjectIdentity
+des3225gSlot2 = _Des3225gSlot2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 8, 2)
+)
+_Des3225gSensorRegistration_ObjectIdentity = ObjectIdentity
+des3225gSensorRegistration = _Des3225gSensorRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 9)
+)
+_Des3225gBackplaneRegistration_ObjectIdentity = ObjectIdentity
+des3225gBackplaneRegistration = _Des3225gBackplaneRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 24, 10)
+)
+_Dlink_Des3624Prod_ObjectIdentity = ObjectIdentity
+dlink_Des3624Prod = _Dlink_Des3624Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25)
+)
+_Des3624DevRegistration_ObjectIdentity = ObjectIdentity
+des3624DevRegistration = _Des3624DevRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 2)
+)
+_Des3624Device_ObjectIdentity = ObjectIdentity
+des3624Device = _Des3624Device_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 2, 1)
+)
+_Des3624UnitRegistration_ObjectIdentity = ObjectIdentity
+des3624UnitRegistration = _Des3624UnitRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 3)
+)
+_Des3624Master_ObjectIdentity = ObjectIdentity
+des3624Master = _Des3624Master_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 3, 1)
+)
+_Des3624Slave1_ObjectIdentity = ObjectIdentity
+des3624Slave1 = _Des3624Slave1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 3, 2)
+)
+_Des3624Slave2_ObjectIdentity = ObjectIdentity
+des3624Slave2 = _Des3624Slave2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 3, 3)
+)
+_Des3624Slave3_ObjectIdentity = ObjectIdentity
+des3624Slave3 = _Des3624Slave3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 3, 4)
+)
+_Des3624ModuleRegistration_ObjectIdentity = ObjectIdentity
+des3624ModuleRegistration = _Des3624ModuleRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 4)
+)
+_Des3624ModuleMainboardTx_ObjectIdentity = ObjectIdentity
+des3624ModuleMainboardTx = _Des3624ModuleMainboardTx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 1)
+)
+_Des3624ModuleTxTwoPort_ObjectIdentity = ObjectIdentity
+des3624ModuleTxTwoPort = _Des3624ModuleTxTwoPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 2)
+)
+_Des3624ModuleFxSC_ObjectIdentity = ObjectIdentity
+des3624ModuleFxSC = _Des3624ModuleFxSC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 3)
+)
+_Des3624ModuleFxMTRJ_ObjectIdentity = ObjectIdentity
+des3624ModuleFxMTRJ = _Des3624ModuleFxMTRJ_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 4)
+)
+_Des3624ModuleSIO_ObjectIdentity = ObjectIdentity
+des3624ModuleSIO = _Des3624ModuleSIO_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 5)
+)
+_Des3624ModuleSXGIGAOnePort_ObjectIdentity = ObjectIdentity
+des3624ModuleSXGIGAOnePort = _Des3624ModuleSXGIGAOnePort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 6)
+)
+_Des3624ModuleSXGIGATwoPort_ObjectIdentity = ObjectIdentity
+des3624ModuleSXGIGATwoPort = _Des3624ModuleSXGIGATwoPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 7)
+)
+_Des3624ModuleLXGIGAOnePort_ObjectIdentity = ObjectIdentity
+des3624ModuleLXGIGAOnePort = _Des3624ModuleLXGIGAOnePort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 8)
+)
+_Des3624ModuleLXGIGATwoPort_ObjectIdentity = ObjectIdentity
+des3624ModuleLXGIGATwoPort = _Des3624ModuleLXGIGATwoPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 9)
+)
+_Des3624ModuleNone_ObjectIdentity = ObjectIdentity
+des3624ModuleNone = _Des3624ModuleNone_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 25, 4, 10)
+)
+_Dlink_Des6000Prod_ObjectIdentity = ObjectIdentity
+dlink_Des6000Prod = _Dlink_Des6000Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28)
+)
+_Des6000DevRegistration_ObjectIdentity = ObjectIdentity
+des6000DevRegistration = _Des6000DevRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 2)
+)
+_Des6000Device_ObjectIdentity = ObjectIdentity
+des6000Device = _Des6000Device_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 2, 1)
+)
+_Des6000UnitRegistration_ObjectIdentity = ObjectIdentity
+des6000UnitRegistration = _Des6000UnitRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 3)
+)
+_Des6000Main_ObjectIdentity = ObjectIdentity
+des6000Main = _Des6000Main_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 3, 1)
+)
+_Des6000ModuleRegistration_ObjectIdentity = ObjectIdentity
+des6000ModuleRegistration = _Des6000ModuleRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 4)
+)
+_Des6000ModuleTx_ObjectIdentity = ObjectIdentity
+des6000ModuleTx = _Des6000ModuleTx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 1)
+)
+_Des6000ModuleFx_ObjectIdentity = ObjectIdentity
+des6000ModuleFx = _Des6000ModuleFx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 2)
+)
+_Des6000ModuleGIGAMTRJSX_ObjectIdentity = ObjectIdentity
+des6000ModuleGIGAMTRJSX = _Des6000ModuleGIGAMTRJSX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 3)
+)
+_Des6000ModuleGIGAMTRJLX_ObjectIdentity = ObjectIdentity
+des6000ModuleGIGAMTRJLX = _Des6000ModuleGIGAMTRJLX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 4)
+)
+_Des6000ModuleGIGASCSX_ObjectIdentity = ObjectIdentity
+des6000ModuleGIGASCSX = _Des6000ModuleGIGASCSX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 5)
+)
+_Des6000ModuleGIGASCLX_ObjectIdentity = ObjectIdentity
+des6000ModuleGIGASCLX = _Des6000ModuleGIGASCLX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 6)
+)
+_Des6000ModuleGIGATX_ObjectIdentity = ObjectIdentity
+des6000ModuleGIGATX = _Des6000ModuleGIGATX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 7)
+)
+_Des6000ModuleCPUMaster_ObjectIdentity = ObjectIdentity
+des6000ModuleCPUMaster = _Des6000ModuleCPUMaster_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 8)
+)
+_Des6000ModuleCPUBackup_ObjectIdentity = ObjectIdentity
+des6000ModuleCPUBackup = _Des6000ModuleCPUBackup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 9)
+)
+_Des6000ModuleNone_ObjectIdentity = ObjectIdentity
+des6000ModuleNone = _Des6000ModuleNone_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 4, 10)
+)
+_Des6000PortRegistration_ObjectIdentity = ObjectIdentity
+des6000PortRegistration = _Des6000PortRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 5)
+)
+_Des6000Port_10_100TX_ObjectIdentity = ObjectIdentity
+des6000Port_10_100TX = _Des6000Port_10_100TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 1)
+)
+_Des6000Port_100_MTRJ_ObjectIdentity = ObjectIdentity
+des6000Port_100_MTRJ = _Des6000Port_100_MTRJ_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 2)
+)
+_Des6000Port_1000_SX_MTRJ_ObjectIdentity = ObjectIdentity
+des6000Port_1000_SX_MTRJ = _Des6000Port_1000_SX_MTRJ_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 3)
+)
+_Des6000Port_1000_LX_MTRJ_ObjectIdentity = ObjectIdentity
+des6000Port_1000_LX_MTRJ = _Des6000Port_1000_LX_MTRJ_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 4)
+)
+_Des6000Port_1000_SX_SC_ObjectIdentity = ObjectIdentity
+des6000Port_1000_SX_SC = _Des6000Port_1000_SX_SC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 5)
+)
+_Des6000Port_1000_LX_SC_ObjectIdentity = ObjectIdentity
+des6000Port_1000_LX_SC = _Des6000Port_1000_LX_SC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 6)
+)
+_Des6000Port_1000_TX_ObjectIdentity = ObjectIdentity
+des6000Port_1000_TX = _Des6000Port_1000_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 5, 7)
+)
+_Des6000PowerSupplyRegistration_ObjectIdentity = ObjectIdentity
+des6000PowerSupplyRegistration = _Des6000PowerSupplyRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 6)
+)
+_Des6000PowerSupply1_ObjectIdentity = ObjectIdentity
+des6000PowerSupply1 = _Des6000PowerSupply1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 6, 1)
+)
+_Des6000PowerSupply2_ObjectIdentity = ObjectIdentity
+des6000PowerSupply2 = _Des6000PowerSupply2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 6, 2)
+)
+_Des6000FanRegistration_ObjectIdentity = ObjectIdentity
+des6000FanRegistration = _Des6000FanRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 7)
+)
+_Des6000Fan1_ObjectIdentity = ObjectIdentity
+des6000Fan1 = _Des6000Fan1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 7, 1)
+)
+_Des6000Fan2_ObjectIdentity = ObjectIdentity
+des6000Fan2 = _Des6000Fan2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 7, 2)
+)
+_Des6000Fan3_ObjectIdentity = ObjectIdentity
+des6000Fan3 = _Des6000Fan3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 7, 3)
+)
+_Des6000Fan4_ObjectIdentity = ObjectIdentity
+des6000Fan4 = _Des6000Fan4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 7, 4)
+)
+_Des6000SlotRegistration_ObjectIdentity = ObjectIdentity
+des6000SlotRegistration = _Des6000SlotRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8)
+)
+_Des6000Slot1_ObjectIdentity = ObjectIdentity
+des6000Slot1 = _Des6000Slot1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 1)
+)
+_Des6000Slot2_ObjectIdentity = ObjectIdentity
+des6000Slot2 = _Des6000Slot2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 2)
+)
+_Des6000Slot3_ObjectIdentity = ObjectIdentity
+des6000Slot3 = _Des6000Slot3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 3)
+)
+_Des6000Slot4_ObjectIdentity = ObjectIdentity
+des6000Slot4 = _Des6000Slot4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 4)
+)
+_Des6000Slot5_ObjectIdentity = ObjectIdentity
+des6000Slot5 = _Des6000Slot5_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 5)
+)
+_Des6000Slot6_ObjectIdentity = ObjectIdentity
+des6000Slot6 = _Des6000Slot6_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 6)
+)
+_Des6000Slot7_ObjectIdentity = ObjectIdentity
+des6000Slot7 = _Des6000Slot7_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 7)
+)
+_Des6000Slot8_ObjectIdentity = ObjectIdentity
+des6000Slot8 = _Des6000Slot8_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 8)
+)
+_Des6000CPUSlot_ObjectIdentity = ObjectIdentity
+des6000CPUSlot = _Des6000CPUSlot_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 9)
+)
+_Des6000SysFan1Socket_ObjectIdentity = ObjectIdentity
+des6000SysFan1Socket = _Des6000SysFan1Socket_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 10)
+)
+_Des6000SysFan2Socket_ObjectIdentity = ObjectIdentity
+des6000SysFan2Socket = _Des6000SysFan2Socket_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 11)
+)
+_Des6000SysFan3Socket_ObjectIdentity = ObjectIdentity
+des6000SysFan3Socket = _Des6000SysFan3Socket_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 12)
+)
+_Des6000SysFan4Socket_ObjectIdentity = ObjectIdentity
+des6000SysFan4Socket = _Des6000SysFan4Socket_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 13)
+)
+_Des6000Power1Socket_ObjectIdentity = ObjectIdentity
+des6000Power1Socket = _Des6000Power1Socket_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 14)
+)
+_Des6000Power2Socket_ObjectIdentity = ObjectIdentity
+des6000Power2Socket = _Des6000Power2Socket_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 8, 15)
+)
+_Des6000BackplaneRegistration_ObjectIdentity = ObjectIdentity
+des6000BackplaneRegistration = _Des6000BackplaneRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 9)
+)
+_Des6000Backplane_ObjectIdentity = ObjectIdentity
+des6000Backplane = _Des6000Backplane_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 9, 1)
+)
+_Des6000SensorRegistration_ObjectIdentity = ObjectIdentity
+des6000SensorRegistration = _Des6000SensorRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 28, 10)
+)
+_Dlink_Des3126Prod_ObjectIdentity = ObjectIdentity
+dlink_Des3126Prod = _Dlink_Des3126Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29)
+)
+_Des3126DevRegistration_ObjectIdentity = ObjectIdentity
+des3126DevRegistration = _Des3126DevRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 2)
+)
+_Des3126Device_ObjectIdentity = ObjectIdentity
+des3126Device = _Des3126Device_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 2, 1)
+)
+_Des3126UnitRegistration_ObjectIdentity = ObjectIdentity
+des3126UnitRegistration = _Des3126UnitRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 3)
+)
+_Des3126Unit_ObjectIdentity = ObjectIdentity
+des3126Unit = _Des3126Unit_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 3, 1)
+)
+_Des3126ModuleRegistration_ObjectIdentity = ObjectIdentity
+des3126ModuleRegistration = _Des3126ModuleRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 4)
+)
+_Des3126Module_Mainboard_22Port_ObjectIdentity = ObjectIdentity
+des3126Module_Mainboard_22Port = _Des3126Module_Mainboard_22Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 1)
+)
+_Des3126Module_362TX_2Ports_ObjectIdentity = ObjectIdentity
+des3126Module_362TX_2Ports = _Des3126Module_362TX_2Ports_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 2)
+)
+_Des3126Module_361FX_1Port_ObjectIdentity = ObjectIdentity
+des3126Module_361FX_1Port = _Des3126Module_361FX_1Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 3)
+)
+_Des3126Module_362FM_2Ports_ObjectIdentity = ObjectIdentity
+des3126Module_362FM_2Ports = _Des3126Module_362FM_2Ports_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 4)
+)
+_Des3126Module_361G_1Port_ObjectIdentity = ObjectIdentity
+des3126Module_361G_1Port = _Des3126Module_361G_1Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 5)
+)
+_Des3126Module_361GL_1Port_ObjectIdentity = ObjectIdentity
+des3126Module_361GL_1Port = _Des3126Module_361GL_1Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 6)
+)
+_Des3126Module_361GT_1Port_ObjectIdentity = ObjectIdentity
+des3126Module_361GT_1Port = _Des3126Module_361GT_1Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 7)
+)
+_Des3126Module_362G_2Port_ObjectIdentity = ObjectIdentity
+des3126Module_362G_2Port = _Des3126Module_362G_2Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 8)
+)
+_Des3126Module_362GL_2Port_ObjectIdentity = ObjectIdentity
+des3126Module_362GL_2Port = _Des3126Module_362GL_2Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 9)
+)
+_Des3126Module_362GT_2Port_ObjectIdentity = ObjectIdentity
+des3126Module_362GT_2Port = _Des3126Module_362GT_2Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 4, 10)
+)
+_Des3126PortRegistration_ObjectIdentity = ObjectIdentity
+des3126PortRegistration = _Des3126PortRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 5)
+)
+_Des3126Port_10_100TX_ObjectIdentity = ObjectIdentity
+des3126Port_10_100TX = _Des3126Port_10_100TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 1)
+)
+_Des3126Port_100_SC_ObjectIdentity = ObjectIdentity
+des3126Port_100_SC = _Des3126Port_100_SC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 2)
+)
+_Des3126Port_100_MTRJ_ObjectIdentity = ObjectIdentity
+des3126Port_100_MTRJ = _Des3126Port_100_MTRJ_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 3)
+)
+_Des3126Port_1000_SX_ObjectIdentity = ObjectIdentity
+des3126Port_1000_SX = _Des3126Port_1000_SX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 4)
+)
+_Des3126Port_1000_LX_ObjectIdentity = ObjectIdentity
+des3126Port_1000_LX = _Des3126Port_1000_LX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 5)
+)
+_Des3126Port_1000_TX_ObjectIdentity = ObjectIdentity
+des3126Port_1000_TX = _Des3126Port_1000_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 5, 6)
+)
+_Des3126PowerSupplyRegistration_ObjectIdentity = ObjectIdentity
+des3126PowerSupplyRegistration = _Des3126PowerSupplyRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 6)
+)
+_Des3126PowerSupply_ObjectIdentity = ObjectIdentity
+des3126PowerSupply = _Des3126PowerSupply_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 6, 1)
+)
+_Des3126FanRegistration_ObjectIdentity = ObjectIdentity
+des3126FanRegistration = _Des3126FanRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 7)
+)
+_Des3126Fan_ObjectIdentity = ObjectIdentity
+des3126Fan = _Des3126Fan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 7, 1)
+)
+_Des3126SlotRegistration_ObjectIdentity = ObjectIdentity
+des3126SlotRegistration = _Des3126SlotRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 8)
+)
+_Des3126Slot1_ObjectIdentity = ObjectIdentity
+des3126Slot1 = _Des3126Slot1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 8, 1)
+)
+_Des3126Slot2_ObjectIdentity = ObjectIdentity
+des3126Slot2 = _Des3126Slot2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 8, 2)
+)
+_Des3126SensorRegistration_ObjectIdentity = ObjectIdentity
+des3126SensorRegistration = _Des3126SensorRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 9)
+)
+_Des3126BackplaneRegistration_ObjectIdentity = ObjectIdentity
+des3126BackplaneRegistration = _Des3126BackplaneRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 29, 10)
+)
+_Dlink_Des3326SeriesProd_ObjectIdentity = ObjectIdentity
+dlink_Des3326SeriesProd = _Dlink_Des3326SeriesProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32)
+)
+_Dlink_Des3326sProd_ObjectIdentity = ObjectIdentity
+dlink_Des3326sProd = _Dlink_Des3326sProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2)
+)
+_Des3326sDevRegistration_ObjectIdentity = ObjectIdentity
+des3326sDevRegistration = _Des3326sDevRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 2)
+)
+_Des3326sDevice_ObjectIdentity = ObjectIdentity
+des3326sDevice = _Des3326sDevice_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 2, 1)
+)
+_Des3326sUnitRegistration_ObjectIdentity = ObjectIdentity
+des3326sUnitRegistration = _Des3326sUnitRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 3)
+)
+_Des3326sMain_ObjectIdentity = ObjectIdentity
+des3326sMain = _Des3326sMain_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 3, 1)
+)
+_Des3326sModuleRegistration_ObjectIdentity = ObjectIdentity
+des3326sModuleRegistration = _Des3326sModuleRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 4)
+)
+_Des3326sModuleGIGASCSX_ObjectIdentity = ObjectIdentity
+des3326sModuleGIGASCSX = _Des3326sModuleGIGASCSX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 4, 1)
+)
+_Des3326sModuleGIGASCLX_ObjectIdentity = ObjectIdentity
+des3326sModuleGIGASCLX = _Des3326sModuleGIGASCLX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 4, 2)
+)
+_Des3326sModuleGIGATX_ObjectIdentity = ObjectIdentity
+des3326sModuleGIGATX = _Des3326sModuleGIGATX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 4, 3)
+)
+_Des3326sModuleGBIC_ObjectIdentity = ObjectIdentity
+des3326sModuleGBIC = _Des3326sModuleGBIC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 4, 4)
+)
+_Des3326sPortRegistration_ObjectIdentity = ObjectIdentity
+des3326sPortRegistration = _Des3326sPortRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 5)
+)
+_Des3326sPort_10_100TX_ObjectIdentity = ObjectIdentity
+des3326sPort_10_100TX = _Des3326sPort_10_100TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 5, 1)
+)
+_Des3326sPort_1000_SX_ObjectIdentity = ObjectIdentity
+des3326sPort_1000_SX = _Des3326sPort_1000_SX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 5, 2)
+)
+_Des3326sPort_1000_TX_ObjectIdentity = ObjectIdentity
+des3326sPort_1000_TX = _Des3326sPort_1000_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 32, 2, 5, 3)
+)
+_Dlink_Dhs3226SeriesProd_ObjectIdentity = ObjectIdentity
+dlink_Dhs3226SeriesProd = _Dlink_Dhs3226SeriesProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36)
+)
+_Dlink_Dhs3226Prod_ObjectIdentity = ObjectIdentity
+dlink_Dhs3226Prod = _Dlink_Dhs3226Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1)
+)
+_Dlink_Dhs3226Prod_Dhs3226_ObjectIdentity = ObjectIdentity
+dlink_Dhs3226Prod_Dhs3226 = _Dlink_Dhs3226Prod_Dhs3226_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 1)
+)
+_Dlink_Dhs3226Prod_Dhs3218_ObjectIdentity = ObjectIdentity
+dlink_Dhs3226Prod_Dhs3218 = _Dlink_Dhs3226Prod_Dhs3218_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 2)
+)
+_Dhs3226DevRegistration_ObjectIdentity = ObjectIdentity
+dhs3226DevRegistration = _Dhs3226DevRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 2)
+)
+_Dhs3226Device_ObjectIdentity = ObjectIdentity
+dhs3226Device = _Dhs3226Device_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 2, 1)
+)
+_Dlink_Dhs3226Prod_Dhs3210_ObjectIdentity = ObjectIdentity
+dlink_Dhs3226Prod_Dhs3210 = _Dlink_Dhs3226Prod_Dhs3210_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 3)
+)
+_Dhs3226UnitRegistration_ObjectIdentity = ObjectIdentity
+dhs3226UnitRegistration = _Dhs3226UnitRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 3)
+)
+_Dhs3226Unit_ObjectIdentity = ObjectIdentity
+dhs3226Unit = _Dhs3226Unit_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 3, 1)
+)
+_Dhs3226ModuleRegistration_ObjectIdentity = ObjectIdentity
+dhs3226ModuleRegistration = _Dhs3226ModuleRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4)
+)
+_Dhs3226_Module_Mainboard_24Port_ObjectIdentity = ObjectIdentity
+dhs3226_Module_Mainboard_24Port = _Dhs3226_Module_Mainboard_24Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 1)
+)
+_Dhs3226_Module_1_Port_100_FX_ObjectIdentity = ObjectIdentity
+dhs3226_Module_1_Port_100_FX = _Dhs3226_Module_1_Port_100_FX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 2)
+)
+_Dhs3226_Module_2_Port_100_FX_ObjectIdentity = ObjectIdentity
+dhs3226_Module_2_Port_100_FX = _Dhs3226_Module_2_Port_100_FX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 3)
+)
+_Dhs3226_Module_1_Port_100_FL_ObjectIdentity = ObjectIdentity
+dhs3226_Module_1_Port_100_FL = _Dhs3226_Module_1_Port_100_FL_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 4)
+)
+_Dhs3226_Module_2_Port_100_FL_ObjectIdentity = ObjectIdentity
+dhs3226_Module_2_Port_100_FL = _Dhs3226_Module_2_Port_100_FL_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 5)
+)
+_Dhs3226_Module_2_Port_1000_SX_ObjectIdentity = ObjectIdentity
+dhs3226_Module_2_Port_1000_SX = _Dhs3226_Module_2_Port_1000_SX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 6)
+)
+_Dhs3226_Module_2_Port_1000_LX_ObjectIdentity = ObjectIdentity
+dhs3226_Module_2_Port_1000_LX = _Dhs3226_Module_2_Port_1000_LX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 7)
+)
+_Dhs3226_Module_2_Port_1000_TX_ObjectIdentity = ObjectIdentity
+dhs3226_Module_2_Port_1000_TX = _Dhs3226_Module_2_Port_1000_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 8)
+)
+_Dhs3226_Module_2_Port_GBIC_ObjectIdentity = ObjectIdentity
+dhs3226_Module_2_Port_GBIC = _Dhs3226_Module_2_Port_GBIC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 9)
+)
+_Dhs3226_Module_Mainboard_8Port_ObjectIdentity = ObjectIdentity
+dhs3226_Module_Mainboard_8Port = _Dhs3226_Module_Mainboard_8Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 10)
+)
+_Dhs3226_Module_Mainboard_16Port_ObjectIdentity = ObjectIdentity
+dhs3226_Module_Mainboard_16Port = _Dhs3226_Module_Mainboard_16Port_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 11)
+)
+_Dhs3226_Module_2_Port_100_TX_ObjectIdentity = ObjectIdentity
+dhs3226_Module_2_Port_100_TX = _Dhs3226_Module_2_Port_100_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 4, 12)
+)
+_Dhs3226PortRegistration_ObjectIdentity = ObjectIdentity
+dhs3226PortRegistration = _Dhs3226PortRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5)
+)
+_Dhs3226_Port_10_100_TX_ObjectIdentity = ObjectIdentity
+dhs3226_Port_10_100_TX = _Dhs3226_Port_10_100_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 1)
+)
+_Dhs3226_Port_100_FX_ObjectIdentity = ObjectIdentity
+dhs3226_Port_100_FX = _Dhs3226_Port_100_FX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 2)
+)
+_Dhs3226_Port_100_FL_ObjectIdentity = ObjectIdentity
+dhs3226_Port_100_FL = _Dhs3226_Port_100_FL_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 3)
+)
+_Dhs3226_Port_1000_SX_ObjectIdentity = ObjectIdentity
+dhs3226_Port_1000_SX = _Dhs3226_Port_1000_SX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 4)
+)
+_Dhs3226_Port_1000_LX_ObjectIdentity = ObjectIdentity
+dhs3226_Port_1000_LX = _Dhs3226_Port_1000_LX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 5)
+)
+_Dhs3226_Port_1000_TX_ObjectIdentity = ObjectIdentity
+dhs3226_Port_1000_TX = _Dhs3226_Port_1000_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 6)
+)
+_Dhs3226_Port_GBIC_ObjectIdentity = ObjectIdentity
+dhs3226_Port_GBIC = _Dhs3226_Port_GBIC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 7)
+)
+_Dhs3226_Port_100_TX_ObjectIdentity = ObjectIdentity
+dhs3226_Port_100_TX = _Dhs3226_Port_100_TX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 5, 8)
+)
+_Dhs3226SlotRegistration_ObjectIdentity = ObjectIdentity
+dhs3226SlotRegistration = _Dhs3226SlotRegistration_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 6)
+)
+_Dhs3226Slot1_ObjectIdentity = ObjectIdentity
+dhs3226Slot1 = _Dhs3226Slot1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 6, 1)
+)
+_Dlink_Dhs3226Prod_Des3226_ObjectIdentity = ObjectIdentity
+dlink_Dhs3226Prod_Des3226 = _Dlink_Dhs3226Prod_Des3226_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 11)
+)
+_Dlink_Dhs3226Prod_Des3218_ObjectIdentity = ObjectIdentity
+dlink_Dhs3226Prod_Des3218 = _Dlink_Dhs3226Prod_Des3218_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 12)
+)
+_Dlink_Dhs3226Prod_Des3210_ObjectIdentity = ObjectIdentity
+dlink_Dhs3226Prod_Des3210 = _Dlink_Dhs3226Prod_Des3210_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 36, 1, 13)
+)
+_Dlink_mgmt_ObjectIdentity = ObjectIdentity
+dlink_mgmt = _Dlink_mgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11)
+)
+_Dlink_common_mgmt_ObjectIdentity = ObjectIdentity
+dlink_common_mgmt = _Dlink_common_mgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12)
+)
+_DlinkIndustrialCommon_ObjectIdentity = ObjectIdentity
+dlinkIndustrialCommon = _DlinkIndustrialCommon_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 14)
+)
+_DlinkPrimeCommon_ObjectIdentity = ObjectIdentity
+dlinkPrimeCommon = _DlinkPrimeCommon_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 15)
+)
+_Dlink_broadband_products_ObjectIdentity = ObjectIdentity
+dlink_broadband_products = _Dlink_broadband_products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 30)
+)
+_Dlink_broadband_mgmt_ObjectIdentity = ObjectIdentity
+dlink_broadband_mgmt = _Dlink_broadband_mgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 31)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DLINK-ID-REC-MIB",
+    **{"AgentNotifyLevel": AgentNotifyLevel,
+       "dlink": dlink,
+       "dlink-products": dlink_products,
+       "dlink-Des3124Prod": dlink_Des3124Prod,
+       "des3124DevRegistration": des3124DevRegistration,
+       "des3124Device": des3124Device,
+       "des3124UnitRegistration": des3124UnitRegistration,
+       "des3124Unit": des3124Unit,
+       "des3124ModuleRegistration": des3124ModuleRegistration,
+       "des3124Module-Mainboard-24Ports": des3124Module_Mainboard_24Ports,
+       "des3124Module-NMM": des3124Module_NMM,
+       "des3124PortRegistration": des3124PortRegistration,
+       "des3124Port-10-100TX": des3124Port_10_100TX,
+       "des3124PowerSupplyRegistration": des3124PowerSupplyRegistration,
+       "des3124PowerSupply": des3124PowerSupply,
+       "des3124FanRegistration": des3124FanRegistration,
+       "des3124Fan": des3124Fan,
+       "dlink-DGS3208Prod": dlink_DGS3208Prod,
+       "dgs3208DevRegistration": dgs3208DevRegistration,
+       "dgs3208Device": dgs3208Device,
+       "dgs3208UnitRegistration": dgs3208UnitRegistration,
+       "dgs3208Unit": dgs3208Unit,
+       "dgs3208ModuleRegistration": dgs3208ModuleRegistration,
+       "dgs3208Module-Mainboard-8Port": dgs3208Module_Mainboard_8Port,
+       "dgs3208Module-Mainboard-6Port": dgs3208Module_Mainboard_6Port,
+       "dgs3208Module-GBIC-SX": dgs3208Module_GBIC_SX,
+       "dgs3208Module-GBIC-LX": dgs3208Module_GBIC_LX,
+       "dgs3208Module-GBIC-LH": dgs3208Module_GBIC_LH,
+       "dgs3208PortRegistration": dgs3208PortRegistration,
+       "dgs3208Port-1000-SX": dgs3208Port_1000_SX,
+       "dgs3208Port-1000-LX": dgs3208Port_1000_LX,
+       "dgs3208Port-100-1000-TX": dgs3208Port_100_1000_TX,
+       "dgs3208PowerSupplyRegistration": dgs3208PowerSupplyRegistration,
+       "dgs3208PowerSupply": dgs3208PowerSupply,
+       "dgs3208FanRegistration": dgs3208FanRegistration,
+       "dgs3208Fan": dgs3208Fan,
+       "dgs3208SlotRegistration": dgs3208SlotRegistration,
+       "dgs3208Slot1": dgs3208Slot1,
+       "dgs3208Slot2": dgs3208Slot2,
+       "dlink-Des3225gProd": dlink_Des3225gProd,
+       "des3225gDevRegistration": des3225gDevRegistration,
+       "des3225gDevice": des3225gDevice,
+       "des3225gUnitRegistration": des3225gUnitRegistration,
+       "des3225gUnit": des3225gUnit,
+       "des3225gModuleRegistration": des3225gModuleRegistration,
+       "des3225gModule-Mainboard-22Port": des3225gModule_Mainboard_22Port,
+       "des3225gModule-362TX-2Ports": des3225gModule_362TX_2Ports,
+       "des3225gModule-361FX-1Port": des3225gModule_361FX_1Port,
+       "des3225gModule-362FM-2Ports": des3225gModule_362FM_2Ports,
+       "des3225gModule-3251G-1Port": des3225gModule_3251G_1Port,
+       "des3225gModule-3251GL-1Port": des3225gModule_3251GL_1Port,
+       "des3225gModule-321GT-1Port": des3225gModule_321GT_1Port,
+       "des3225gPortRegistration": des3225gPortRegistration,
+       "des3225gPort-10-100TX": des3225gPort_10_100TX,
+       "des3225gPort-100-SC": des3225gPort_100_SC,
+       "des3225gPort-100-MTRJ": des3225gPort_100_MTRJ,
+       "des3225gPort-1000-SX": des3225gPort_1000_SX,
+       "des3225gPort-1000-LX": des3225gPort_1000_LX,
+       "des3225gPort-1000-TX": des3225gPort_1000_TX,
+       "des3225gPowerSupplyRegistration": des3225gPowerSupplyRegistration,
+       "des3225gPowerSupply": des3225gPowerSupply,
+       "des3225gFanRegistration": des3225gFanRegistration,
+       "des3225gFan": des3225gFan,
+       "des3225gSlotRegistration": des3225gSlotRegistration,
+       "des3225gSlot1": des3225gSlot1,
+       "des3225gSlot2": des3225gSlot2,
+       "des3225gSensorRegistration": des3225gSensorRegistration,
+       "des3225gBackplaneRegistration": des3225gBackplaneRegistration,
+       "dlink-Des3624Prod": dlink_Des3624Prod,
+       "des3624DevRegistration": des3624DevRegistration,
+       "des3624Device": des3624Device,
+       "des3624UnitRegistration": des3624UnitRegistration,
+       "des3624Master": des3624Master,
+       "des3624Slave1": des3624Slave1,
+       "des3624Slave2": des3624Slave2,
+       "des3624Slave3": des3624Slave3,
+       "des3624ModuleRegistration": des3624ModuleRegistration,
+       "des3624ModuleMainboardTx": des3624ModuleMainboardTx,
+       "des3624ModuleTxTwoPort": des3624ModuleTxTwoPort,
+       "des3624ModuleFxSC": des3624ModuleFxSC,
+       "des3624ModuleFxMTRJ": des3624ModuleFxMTRJ,
+       "des3624ModuleSIO": des3624ModuleSIO,
+       "des3624ModuleSXGIGAOnePort": des3624ModuleSXGIGAOnePort,
+       "des3624ModuleSXGIGATwoPort": des3624ModuleSXGIGATwoPort,
+       "des3624ModuleLXGIGAOnePort": des3624ModuleLXGIGAOnePort,
+       "des3624ModuleLXGIGATwoPort": des3624ModuleLXGIGATwoPort,
+       "des3624ModuleNone": des3624ModuleNone,
+       "dlink-Des6000Prod": dlink_Des6000Prod,
+       "des6000DevRegistration": des6000DevRegistration,
+       "des6000Device": des6000Device,
+       "des6000UnitRegistration": des6000UnitRegistration,
+       "des6000Main": des6000Main,
+       "des6000ModuleRegistration": des6000ModuleRegistration,
+       "des6000ModuleTx": des6000ModuleTx,
+       "des6000ModuleFx": des6000ModuleFx,
+       "des6000ModuleGIGAMTRJSX": des6000ModuleGIGAMTRJSX,
+       "des6000ModuleGIGAMTRJLX": des6000ModuleGIGAMTRJLX,
+       "des6000ModuleGIGASCSX": des6000ModuleGIGASCSX,
+       "des6000ModuleGIGASCLX": des6000ModuleGIGASCLX,
+       "des6000ModuleGIGATX": des6000ModuleGIGATX,
+       "des6000ModuleCPUMaster": des6000ModuleCPUMaster,
+       "des6000ModuleCPUBackup": des6000ModuleCPUBackup,
+       "des6000ModuleNone": des6000ModuleNone,
+       "des6000PortRegistration": des6000PortRegistration,
+       "des6000Port-10-100TX": des6000Port_10_100TX,
+       "des6000Port-100-MTRJ": des6000Port_100_MTRJ,
+       "des6000Port-1000-SX-MTRJ": des6000Port_1000_SX_MTRJ,
+       "des6000Port-1000-LX-MTRJ": des6000Port_1000_LX_MTRJ,
+       "des6000Port-1000-SX-SC": des6000Port_1000_SX_SC,
+       "des6000Port-1000-LX-SC": des6000Port_1000_LX_SC,
+       "des6000Port-1000-TX": des6000Port_1000_TX,
+       "des6000PowerSupplyRegistration": des6000PowerSupplyRegistration,
+       "des6000PowerSupply1": des6000PowerSupply1,
+       "des6000PowerSupply2": des6000PowerSupply2,
+       "des6000FanRegistration": des6000FanRegistration,
+       "des6000Fan1": des6000Fan1,
+       "des6000Fan2": des6000Fan2,
+       "des6000Fan3": des6000Fan3,
+       "des6000Fan4": des6000Fan4,
+       "des6000SlotRegistration": des6000SlotRegistration,
+       "des6000Slot1": des6000Slot1,
+       "des6000Slot2": des6000Slot2,
+       "des6000Slot3": des6000Slot3,
+       "des6000Slot4": des6000Slot4,
+       "des6000Slot5": des6000Slot5,
+       "des6000Slot6": des6000Slot6,
+       "des6000Slot7": des6000Slot7,
+       "des6000Slot8": des6000Slot8,
+       "des6000CPUSlot": des6000CPUSlot,
+       "des6000SysFan1Socket": des6000SysFan1Socket,
+       "des6000SysFan2Socket": des6000SysFan2Socket,
+       "des6000SysFan3Socket": des6000SysFan3Socket,
+       "des6000SysFan4Socket": des6000SysFan4Socket,
+       "des6000Power1Socket": des6000Power1Socket,
+       "des6000Power2Socket": des6000Power2Socket,
+       "des6000BackplaneRegistration": des6000BackplaneRegistration,
+       "des6000Backplane": des6000Backplane,
+       "des6000SensorRegistration": des6000SensorRegistration,
+       "dlink-Des3126Prod": dlink_Des3126Prod,
+       "des3126DevRegistration": des3126DevRegistration,
+       "des3126Device": des3126Device,
+       "des3126UnitRegistration": des3126UnitRegistration,
+       "des3126Unit": des3126Unit,
+       "des3126ModuleRegistration": des3126ModuleRegistration,
+       "des3126Module-Mainboard-22Port": des3126Module_Mainboard_22Port,
+       "des3126Module-362TX-2Ports": des3126Module_362TX_2Ports,
+       "des3126Module-361FX-1Port": des3126Module_361FX_1Port,
+       "des3126Module-362FM-2Ports": des3126Module_362FM_2Ports,
+       "des3126Module-361G-1Port": des3126Module_361G_1Port,
+       "des3126Module-361GL-1Port": des3126Module_361GL_1Port,
+       "des3126Module-361GT-1Port": des3126Module_361GT_1Port,
+       "des3126Module-362G-2Port": des3126Module_362G_2Port,
+       "des3126Module-362GL-2Port": des3126Module_362GL_2Port,
+       "des3126Module-362GT-2Port": des3126Module_362GT_2Port,
+       "des3126PortRegistration": des3126PortRegistration,
+       "des3126Port-10-100TX": des3126Port_10_100TX,
+       "des3126Port-100-SC": des3126Port_100_SC,
+       "des3126Port-100-MTRJ": des3126Port_100_MTRJ,
+       "des3126Port-1000-SX": des3126Port_1000_SX,
+       "des3126Port-1000-LX": des3126Port_1000_LX,
+       "des3126Port-1000-TX": des3126Port_1000_TX,
+       "des3126PowerSupplyRegistration": des3126PowerSupplyRegistration,
+       "des3126PowerSupply": des3126PowerSupply,
+       "des3126FanRegistration": des3126FanRegistration,
+       "des3126Fan": des3126Fan,
+       "des3126SlotRegistration": des3126SlotRegistration,
+       "des3126Slot1": des3126Slot1,
+       "des3126Slot2": des3126Slot2,
+       "des3126SensorRegistration": des3126SensorRegistration,
+       "des3126BackplaneRegistration": des3126BackplaneRegistration,
+       "dlink-Des3326SeriesProd": dlink_Des3326SeriesProd,
+       "dlink-Des3326sProd": dlink_Des3326sProd,
+       "des3326sDevRegistration": des3326sDevRegistration,
+       "des3326sDevice": des3326sDevice,
+       "des3326sUnitRegistration": des3326sUnitRegistration,
+       "des3326sMain": des3326sMain,
+       "des3326sModuleRegistration": des3326sModuleRegistration,
+       "des3326sModuleGIGASCSX": des3326sModuleGIGASCSX,
+       "des3326sModuleGIGASCLX": des3326sModuleGIGASCLX,
+       "des3326sModuleGIGATX": des3326sModuleGIGATX,
+       "des3326sModuleGBIC": des3326sModuleGBIC,
+       "des3326sPortRegistration": des3326sPortRegistration,
+       "des3326sPort-10-100TX": des3326sPort_10_100TX,
+       "des3326sPort-1000-SX": des3326sPort_1000_SX,
+       "des3326sPort-1000-TX": des3326sPort_1000_TX,
+       "dlink-Dhs3226SeriesProd": dlink_Dhs3226SeriesProd,
+       "dlink-Dhs3226Prod": dlink_Dhs3226Prod,
+       "dlink-Dhs3226Prod-Dhs3226": dlink_Dhs3226Prod_Dhs3226,
+       "dlink-Dhs3226Prod-Dhs3218": dlink_Dhs3226Prod_Dhs3218,
+       "dhs3226DevRegistration": dhs3226DevRegistration,
+       "dhs3226Device": dhs3226Device,
+       "dlink-Dhs3226Prod-Dhs3210": dlink_Dhs3226Prod_Dhs3210,
+       "dhs3226UnitRegistration": dhs3226UnitRegistration,
+       "dhs3226Unit": dhs3226Unit,
+       "dhs3226ModuleRegistration": dhs3226ModuleRegistration,
+       "dhs3226-Module-Mainboard-24Port": dhs3226_Module_Mainboard_24Port,
+       "dhs3226-Module-1-Port-100-FX": dhs3226_Module_1_Port_100_FX,
+       "dhs3226-Module-2-Port-100-FX": dhs3226_Module_2_Port_100_FX,
+       "dhs3226-Module-1-Port-100-FL": dhs3226_Module_1_Port_100_FL,
+       "dhs3226-Module-2-Port-100-FL": dhs3226_Module_2_Port_100_FL,
+       "dhs3226-Module-2-Port-1000-SX": dhs3226_Module_2_Port_1000_SX,
+       "dhs3226-Module-2-Port-1000-LX": dhs3226_Module_2_Port_1000_LX,
+       "dhs3226-Module-2-Port-1000-TX": dhs3226_Module_2_Port_1000_TX,
+       "dhs3226-Module-2-Port-GBIC": dhs3226_Module_2_Port_GBIC,
+       "dhs3226-Module-Mainboard-8Port": dhs3226_Module_Mainboard_8Port,
+       "dhs3226-Module-Mainboard-16Port": dhs3226_Module_Mainboard_16Port,
+       "dhs3226-Module-2-Port-100-TX": dhs3226_Module_2_Port_100_TX,
+       "dhs3226PortRegistration": dhs3226PortRegistration,
+       "dhs3226-Port-10-100-TX": dhs3226_Port_10_100_TX,
+       "dhs3226-Port-100-FX": dhs3226_Port_100_FX,
+       "dhs3226-Port-100-FL": dhs3226_Port_100_FL,
+       "dhs3226-Port-1000-SX": dhs3226_Port_1000_SX,
+       "dhs3226-Port-1000-LX": dhs3226_Port_1000_LX,
+       "dhs3226-Port-1000-TX": dhs3226_Port_1000_TX,
+       "dhs3226-Port-GBIC": dhs3226_Port_GBIC,
+       "dhs3226-Port-100-TX": dhs3226_Port_100_TX,
+       "dhs3226SlotRegistration": dhs3226SlotRegistration,
+       "dhs3226Slot1": dhs3226Slot1,
+       "dlink-Dhs3226Prod-Des3226": dlink_Dhs3226Prod_Des3226,
+       "dlink-Dhs3226Prod-Des3218": dlink_Dhs3226Prod_Des3218,
+       "dlink-Dhs3226Prod-Des3210": dlink_Dhs3226Prod_Des3210,
+       "dlink-mgmt": dlink_mgmt,
+       "dlink-common-mgmt": dlink_common_mgmt,
+       "dlinkIndustrialCommon": dlinkIndustrialCommon,
+       "dlinkPrimeCommon": dlinkPrimeCommon,
+       "dlink-broadband-products": dlink_broadband_products,
+       "dlink-broadband-mgmt": dlink_broadband_mgmt}
+)

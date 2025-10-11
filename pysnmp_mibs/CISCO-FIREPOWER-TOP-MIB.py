@@ -1,101 +1,563 @@
+# SNMP MIB module (CISCO-FIREPOWER-TOP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-FIREPOWER-TOP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-FIREPOWER-TOP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:27:34 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-FIREPOWER-TOP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:33:48 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoFirepowerMIBObjects, CfprManagedObjectId, CfprManagedObjectDn = mibBuilder.importSymbols("CISCO-FIREPOWER-MIB", "ciscoFirepowerMIBObjects", "CfprManagedObjectId", "CfprManagedObjectDn")
-CfprTopInfoPolicyState, CfprTopMode = mibBuilder.importSymbols("CISCO-FIREPOWER-TC-MIB", "CfprTopInfoPolicyState", "CfprTopMode")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoInetAddressMask, CiscoNetworkAddress, CiscoAlarmSeverity, TimeIntervalSec, Unsigned64 = mibBuilder.importSymbols("CISCO-TC", "CiscoInetAddressMask", "CiscoNetworkAddress", "CiscoAlarmSeverity", "TimeIntervalSec", "Unsigned64")
-InetAddressIPv4, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressIPv6")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, TextualConvention, TimeInterval, MacAddress, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
-cfprTopObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78))
-if mibBuilder.loadTexts: cfprTopObjects.setLastUpdated('202003100000Z')
-if mibBuilder.loadTexts: cfprTopObjects.setOrganization('Cisco Systems Inc.')
-cfprTopInfoPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1), )
-if mibBuilder.loadTexts: cfprTopInfoPolicyTable.setStatus('current')
-cfprTopInfoPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1, 1), ).setIndexNames((0, "CISCO-FIREPOWER-TOP-MIB", "cfprTopInfoPolicyInstanceId"))
-if mibBuilder.loadTexts: cfprTopInfoPolicyEntry.setStatus('current')
-cfprTopInfoPolicyInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1, 1, 1), CfprManagedObjectId())
-if mibBuilder.loadTexts: cfprTopInfoPolicyInstanceId.setStatus('current')
-cfprTopInfoPolicyDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopInfoPolicyDn.setStatus('current')
-cfprTopInfoPolicyRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopInfoPolicyRn.setStatus('current')
-cfprTopInfoPolicyState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1, 1, 4), CfprTopInfoPolicyState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopInfoPolicyState.setStatus('current')
-cfprTopMetaInfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2), )
-if mibBuilder.loadTexts: cfprTopMetaInfTable.setStatus('current')
-cfprTopMetaInfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1), ).setIndexNames((0, "CISCO-FIREPOWER-TOP-MIB", "cfprTopMetaInfInstanceId"))
-if mibBuilder.loadTexts: cfprTopMetaInfEntry.setStatus('current')
-cfprTopMetaInfInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 1), CfprManagedObjectId())
-if mibBuilder.loadTexts: cfprTopMetaInfInstanceId.setStatus('current')
-cfprTopMetaInfDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopMetaInfDn.setStatus('current')
-cfprTopMetaInfRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopMetaInfRn.setStatus('current')
-cfprTopMetaInfEcode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopMetaInfEcode.setStatus('current')
-cfprTopMetaInfName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopMetaInfName.setStatus('current')
-cfprTopMetaInfEveri = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopMetaInfEveri.setStatus('current')
-cfprTopRootTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 3), )
-if mibBuilder.loadTexts: cfprTopRootTable.setStatus('current')
-cfprTopRootEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 3, 1), ).setIndexNames((0, "CISCO-FIREPOWER-TOP-MIB", "cfprTopRootInstanceId"))
-if mibBuilder.loadTexts: cfprTopRootEntry.setStatus('current')
-cfprTopRootInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 3, 1, 1), CfprManagedObjectId())
-if mibBuilder.loadTexts: cfprTopRootInstanceId.setStatus('current')
-cfprTopRootDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 3, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopRootDn.setStatus('current')
-cfprTopRootRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 3, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopRootRn.setStatus('current')
-cfprTopSysDefaultsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 4), )
-if mibBuilder.loadTexts: cfprTopSysDefaultsTable.setStatus('current')
-cfprTopSysDefaultsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 4, 1), ).setIndexNames((0, "CISCO-FIREPOWER-TOP-MIB", "cfprTopSysDefaultsInstanceId"))
-if mibBuilder.loadTexts: cfprTopSysDefaultsEntry.setStatus('current')
-cfprTopSysDefaultsInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 4, 1, 1), CfprManagedObjectId())
-if mibBuilder.loadTexts: cfprTopSysDefaultsInstanceId.setStatus('current')
-cfprTopSysDefaultsDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 4, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSysDefaultsDn.setStatus('current')
-cfprTopSysDefaultsRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 4, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSysDefaultsRn.setStatus('current')
-cfprTopSystemTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5), )
-if mibBuilder.loadTexts: cfprTopSystemTable.setStatus('current')
-cfprTopSystemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1), ).setIndexNames((0, "CISCO-FIREPOWER-TOP-MIB", "cfprTopSystemInstanceId"))
-if mibBuilder.loadTexts: cfprTopSystemEntry.setStatus('current')
-cfprTopSystemInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 1), CfprManagedObjectId())
-if mibBuilder.loadTexts: cfprTopSystemInstanceId.setStatus('current')
-cfprTopSystemDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 2), CfprManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemDn.setStatus('current')
-cfprTopSystemRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemRn.setStatus('current')
-cfprTopSystemAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 4), InetAddressIPv4()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemAddress.setStatus('current')
-cfprTopSystemCurrentTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 5), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemCurrentTime.setStatus('current')
-cfprTopSystemDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemDescr.setStatus('current')
-cfprTopSystemIpv6Addr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 7), InetAddressIPv6()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemIpv6Addr.setStatus('current')
-cfprTopSystemMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 8), CfprTopMode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemMode.setStatus('current')
-cfprTopSystemName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 9), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemName.setStatus('current')
-cfprTopSystemOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 10), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemOwner.setStatus('current')
-cfprTopSystemSite = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 11), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemSite.setStatus('current')
-cfprTopSystemSystemUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 12), TimeIntervalSec()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemSystemUpTime.setStatus('current')
-cfprTopSystemMgmtUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 13), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfprTopSystemMgmtUrl.setStatus('current')
-mibBuilder.exportSymbols("CISCO-FIREPOWER-TOP-MIB", cfprTopMetaInfInstanceId=cfprTopMetaInfInstanceId, cfprTopSystemAddress=cfprTopSystemAddress, cfprTopSystemRn=cfprTopSystemRn, cfprTopSystemMgmtUrl=cfprTopSystemMgmtUrl, cfprTopSysDefaultsInstanceId=cfprTopSysDefaultsInstanceId, cfprTopRootTable=cfprTopRootTable, cfprTopInfoPolicyInstanceId=cfprTopInfoPolicyInstanceId, cfprTopSystemSite=cfprTopSystemSite, cfprTopSystemIpv6Addr=cfprTopSystemIpv6Addr, cfprTopSysDefaultsRn=cfprTopSysDefaultsRn, cfprTopSystemSystemUpTime=cfprTopSystemSystemUpTime, cfprTopSysDefaultsTable=cfprTopSysDefaultsTable, cfprTopRootEntry=cfprTopRootEntry, cfprTopObjects=cfprTopObjects, cfprTopMetaInfRn=cfprTopMetaInfRn, cfprTopSystemOwner=cfprTopSystemOwner, cfprTopSystemDescr=cfprTopSystemDescr, cfprTopMetaInfDn=cfprTopMetaInfDn, cfprTopSystemInstanceId=cfprTopSystemInstanceId, cfprTopSystemDn=cfprTopSystemDn, cfprTopMetaInfEveri=cfprTopMetaInfEveri, cfprTopMetaInfTable=cfprTopMetaInfTable, cfprTopSysDefaultsEntry=cfprTopSysDefaultsEntry, cfprTopSystemMode=cfprTopSystemMode, cfprTopSystemEntry=cfprTopSystemEntry, cfprTopSystemName=cfprTopSystemName, cfprTopRootInstanceId=cfprTopRootInstanceId, cfprTopInfoPolicyTable=cfprTopInfoPolicyTable, PYSNMP_MODULE_ID=cfprTopObjects, cfprTopMetaInfEcode=cfprTopMetaInfEcode, cfprTopMetaInfName=cfprTopMetaInfName, cfprTopInfoPolicyDn=cfprTopInfoPolicyDn, cfprTopInfoPolicyEntry=cfprTopInfoPolicyEntry, cfprTopMetaInfEntry=cfprTopMetaInfEntry, cfprTopInfoPolicyRn=cfprTopInfoPolicyRn, cfprTopInfoPolicyState=cfprTopInfoPolicyState, cfprTopRootRn=cfprTopRootRn, cfprTopSystemTable=cfprTopSystemTable, cfprTopSystemCurrentTime=cfprTopSystemCurrentTime, cfprTopSysDefaultsDn=cfprTopSysDefaultsDn, cfprTopRootDn=cfprTopRootDn)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(CfprManagedObjectDn,
+ CfprManagedObjectId,
+ ciscoFirepowerMIBObjects) = mibBuilder.importSymbols(
+    "CISCO-FIREPOWER-MIB",
+    "CfprManagedObjectDn",
+    "CfprManagedObjectId",
+    "ciscoFirepowerMIBObjects")
+
+(CfprTopInfoPolicyState,
+ CfprTopMode) = mibBuilder.importSymbols(
+    "CISCO-FIREPOWER-TC-MIB",
+    "CfprTopInfoPolicyState",
+    "CfprTopMode")
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CiscoAlarmSeverity,
+ CiscoInetAddressMask,
+ CiscoNetworkAddress,
+ TimeIntervalSec,
+ Unsigned64) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoAlarmSeverity",
+    "CiscoInetAddressMask",
+    "CiscoNetworkAddress",
+    "TimeIntervalSec",
+    "Unsigned64")
+
+(InetAddressIPv4,
+ InetAddressIPv6) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv4",
+    "InetAddressIPv6")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cfprTopObjects = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CfprTopInfoPolicyTable_Object = MibTable
+cfprTopInfoPolicyTable = _CfprTopInfoPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1)
+)
+if mibBuilder.loadTexts:
+    cfprTopInfoPolicyTable.setStatus("current")
+_CfprTopInfoPolicyEntry_Object = MibTableRow
+cfprTopInfoPolicyEntry = _CfprTopInfoPolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1, 1)
+)
+cfprTopInfoPolicyEntry.setIndexNames(
+    (0, "CISCO-FIREPOWER-TOP-MIB", "cfprTopInfoPolicyInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cfprTopInfoPolicyEntry.setStatus("current")
+_CfprTopInfoPolicyInstanceId_Type = CfprManagedObjectId
+_CfprTopInfoPolicyInstanceId_Object = MibTableColumn
+cfprTopInfoPolicyInstanceId = _CfprTopInfoPolicyInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1, 1, 1),
+    _CfprTopInfoPolicyInstanceId_Type()
+)
+cfprTopInfoPolicyInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cfprTopInfoPolicyInstanceId.setStatus("current")
+_CfprTopInfoPolicyDn_Type = CfprManagedObjectDn
+_CfprTopInfoPolicyDn_Object = MibTableColumn
+cfprTopInfoPolicyDn = _CfprTopInfoPolicyDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1, 1, 2),
+    _CfprTopInfoPolicyDn_Type()
+)
+cfprTopInfoPolicyDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopInfoPolicyDn.setStatus("current")
+_CfprTopInfoPolicyRn_Type = SnmpAdminString
+_CfprTopInfoPolicyRn_Object = MibTableColumn
+cfprTopInfoPolicyRn = _CfprTopInfoPolicyRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1, 1, 3),
+    _CfprTopInfoPolicyRn_Type()
+)
+cfprTopInfoPolicyRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopInfoPolicyRn.setStatus("current")
+_CfprTopInfoPolicyState_Type = CfprTopInfoPolicyState
+_CfprTopInfoPolicyState_Object = MibTableColumn
+cfprTopInfoPolicyState = _CfprTopInfoPolicyState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 1, 1, 4),
+    _CfprTopInfoPolicyState_Type()
+)
+cfprTopInfoPolicyState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopInfoPolicyState.setStatus("current")
+_CfprTopMetaInfTable_Object = MibTable
+cfprTopMetaInfTable = _CfprTopMetaInfTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2)
+)
+if mibBuilder.loadTexts:
+    cfprTopMetaInfTable.setStatus("current")
+_CfprTopMetaInfEntry_Object = MibTableRow
+cfprTopMetaInfEntry = _CfprTopMetaInfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1)
+)
+cfprTopMetaInfEntry.setIndexNames(
+    (0, "CISCO-FIREPOWER-TOP-MIB", "cfprTopMetaInfInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cfprTopMetaInfEntry.setStatus("current")
+_CfprTopMetaInfInstanceId_Type = CfprManagedObjectId
+_CfprTopMetaInfInstanceId_Object = MibTableColumn
+cfprTopMetaInfInstanceId = _CfprTopMetaInfInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 1),
+    _CfprTopMetaInfInstanceId_Type()
+)
+cfprTopMetaInfInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cfprTopMetaInfInstanceId.setStatus("current")
+_CfprTopMetaInfDn_Type = CfprManagedObjectDn
+_CfprTopMetaInfDn_Object = MibTableColumn
+cfprTopMetaInfDn = _CfprTopMetaInfDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 2),
+    _CfprTopMetaInfDn_Type()
+)
+cfprTopMetaInfDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopMetaInfDn.setStatus("current")
+_CfprTopMetaInfRn_Type = SnmpAdminString
+_CfprTopMetaInfRn_Object = MibTableColumn
+cfprTopMetaInfRn = _CfprTopMetaInfRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 3),
+    _CfprTopMetaInfRn_Type()
+)
+cfprTopMetaInfRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopMetaInfRn.setStatus("current")
+_CfprTopMetaInfEcode_Type = SnmpAdminString
+_CfprTopMetaInfEcode_Object = MibTableColumn
+cfprTopMetaInfEcode = _CfprTopMetaInfEcode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 4),
+    _CfprTopMetaInfEcode_Type()
+)
+cfprTopMetaInfEcode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopMetaInfEcode.setStatus("current")
+_CfprTopMetaInfName_Type = SnmpAdminString
+_CfprTopMetaInfName_Object = MibTableColumn
+cfprTopMetaInfName = _CfprTopMetaInfName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 5),
+    _CfprTopMetaInfName_Type()
+)
+cfprTopMetaInfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopMetaInfName.setStatus("current")
+_CfprTopMetaInfEveri_Type = SnmpAdminString
+_CfprTopMetaInfEveri_Object = MibTableColumn
+cfprTopMetaInfEveri = _CfprTopMetaInfEveri_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 2, 1, 6),
+    _CfprTopMetaInfEveri_Type()
+)
+cfprTopMetaInfEveri.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopMetaInfEveri.setStatus("current")
+_CfprTopRootTable_Object = MibTable
+cfprTopRootTable = _CfprTopRootTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 3)
+)
+if mibBuilder.loadTexts:
+    cfprTopRootTable.setStatus("current")
+_CfprTopRootEntry_Object = MibTableRow
+cfprTopRootEntry = _CfprTopRootEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 3, 1)
+)
+cfprTopRootEntry.setIndexNames(
+    (0, "CISCO-FIREPOWER-TOP-MIB", "cfprTopRootInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cfprTopRootEntry.setStatus("current")
+_CfprTopRootInstanceId_Type = CfprManagedObjectId
+_CfprTopRootInstanceId_Object = MibTableColumn
+cfprTopRootInstanceId = _CfprTopRootInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 3, 1, 1),
+    _CfprTopRootInstanceId_Type()
+)
+cfprTopRootInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cfprTopRootInstanceId.setStatus("current")
+_CfprTopRootDn_Type = CfprManagedObjectDn
+_CfprTopRootDn_Object = MibTableColumn
+cfprTopRootDn = _CfprTopRootDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 3, 1, 2),
+    _CfprTopRootDn_Type()
+)
+cfprTopRootDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopRootDn.setStatus("current")
+_CfprTopRootRn_Type = SnmpAdminString
+_CfprTopRootRn_Object = MibTableColumn
+cfprTopRootRn = _CfprTopRootRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 3, 1, 3),
+    _CfprTopRootRn_Type()
+)
+cfprTopRootRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopRootRn.setStatus("current")
+_CfprTopSysDefaultsTable_Object = MibTable
+cfprTopSysDefaultsTable = _CfprTopSysDefaultsTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 4)
+)
+if mibBuilder.loadTexts:
+    cfprTopSysDefaultsTable.setStatus("current")
+_CfprTopSysDefaultsEntry_Object = MibTableRow
+cfprTopSysDefaultsEntry = _CfprTopSysDefaultsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 4, 1)
+)
+cfprTopSysDefaultsEntry.setIndexNames(
+    (0, "CISCO-FIREPOWER-TOP-MIB", "cfprTopSysDefaultsInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cfprTopSysDefaultsEntry.setStatus("current")
+_CfprTopSysDefaultsInstanceId_Type = CfprManagedObjectId
+_CfprTopSysDefaultsInstanceId_Object = MibTableColumn
+cfprTopSysDefaultsInstanceId = _CfprTopSysDefaultsInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 4, 1, 1),
+    _CfprTopSysDefaultsInstanceId_Type()
+)
+cfprTopSysDefaultsInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cfprTopSysDefaultsInstanceId.setStatus("current")
+_CfprTopSysDefaultsDn_Type = CfprManagedObjectDn
+_CfprTopSysDefaultsDn_Object = MibTableColumn
+cfprTopSysDefaultsDn = _CfprTopSysDefaultsDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 4, 1, 2),
+    _CfprTopSysDefaultsDn_Type()
+)
+cfprTopSysDefaultsDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSysDefaultsDn.setStatus("current")
+_CfprTopSysDefaultsRn_Type = SnmpAdminString
+_CfprTopSysDefaultsRn_Object = MibTableColumn
+cfprTopSysDefaultsRn = _CfprTopSysDefaultsRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 4, 1, 3),
+    _CfprTopSysDefaultsRn_Type()
+)
+cfprTopSysDefaultsRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSysDefaultsRn.setStatus("current")
+_CfprTopSystemTable_Object = MibTable
+cfprTopSystemTable = _CfprTopSystemTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5)
+)
+if mibBuilder.loadTexts:
+    cfprTopSystemTable.setStatus("current")
+_CfprTopSystemEntry_Object = MibTableRow
+cfprTopSystemEntry = _CfprTopSystemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1)
+)
+cfprTopSystemEntry.setIndexNames(
+    (0, "CISCO-FIREPOWER-TOP-MIB", "cfprTopSystemInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cfprTopSystemEntry.setStatus("current")
+_CfprTopSystemInstanceId_Type = CfprManagedObjectId
+_CfprTopSystemInstanceId_Object = MibTableColumn
+cfprTopSystemInstanceId = _CfprTopSystemInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 1),
+    _CfprTopSystemInstanceId_Type()
+)
+cfprTopSystemInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cfprTopSystemInstanceId.setStatus("current")
+_CfprTopSystemDn_Type = CfprManagedObjectDn
+_CfprTopSystemDn_Object = MibTableColumn
+cfprTopSystemDn = _CfprTopSystemDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 2),
+    _CfprTopSystemDn_Type()
+)
+cfprTopSystemDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemDn.setStatus("current")
+_CfprTopSystemRn_Type = SnmpAdminString
+_CfprTopSystemRn_Object = MibTableColumn
+cfprTopSystemRn = _CfprTopSystemRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 3),
+    _CfprTopSystemRn_Type()
+)
+cfprTopSystemRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemRn.setStatus("current")
+_CfprTopSystemAddress_Type = InetAddressIPv4
+_CfprTopSystemAddress_Object = MibTableColumn
+cfprTopSystemAddress = _CfprTopSystemAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 4),
+    _CfprTopSystemAddress_Type()
+)
+cfprTopSystemAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemAddress.setStatus("current")
+_CfprTopSystemCurrentTime_Type = DateAndTime
+_CfprTopSystemCurrentTime_Object = MibTableColumn
+cfprTopSystemCurrentTime = _CfprTopSystemCurrentTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 5),
+    _CfprTopSystemCurrentTime_Type()
+)
+cfprTopSystemCurrentTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemCurrentTime.setStatus("current")
+_CfprTopSystemDescr_Type = SnmpAdminString
+_CfprTopSystemDescr_Object = MibTableColumn
+cfprTopSystemDescr = _CfprTopSystemDescr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 6),
+    _CfprTopSystemDescr_Type()
+)
+cfprTopSystemDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemDescr.setStatus("current")
+_CfprTopSystemIpv6Addr_Type = InetAddressIPv6
+_CfprTopSystemIpv6Addr_Object = MibTableColumn
+cfprTopSystemIpv6Addr = _CfprTopSystemIpv6Addr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 7),
+    _CfprTopSystemIpv6Addr_Type()
+)
+cfprTopSystemIpv6Addr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemIpv6Addr.setStatus("current")
+_CfprTopSystemMode_Type = CfprTopMode
+_CfprTopSystemMode_Object = MibTableColumn
+cfprTopSystemMode = _CfprTopSystemMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 8),
+    _CfprTopSystemMode_Type()
+)
+cfprTopSystemMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemMode.setStatus("current")
+_CfprTopSystemName_Type = SnmpAdminString
+_CfprTopSystemName_Object = MibTableColumn
+cfprTopSystemName = _CfprTopSystemName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 9),
+    _CfprTopSystemName_Type()
+)
+cfprTopSystemName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemName.setStatus("current")
+_CfprTopSystemOwner_Type = SnmpAdminString
+_CfprTopSystemOwner_Object = MibTableColumn
+cfprTopSystemOwner = _CfprTopSystemOwner_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 10),
+    _CfprTopSystemOwner_Type()
+)
+cfprTopSystemOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemOwner.setStatus("current")
+_CfprTopSystemSite_Type = SnmpAdminString
+_CfprTopSystemSite_Object = MibTableColumn
+cfprTopSystemSite = _CfprTopSystemSite_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 11),
+    _CfprTopSystemSite_Type()
+)
+cfprTopSystemSite.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemSite.setStatus("current")
+_CfprTopSystemSystemUpTime_Type = TimeIntervalSec
+_CfprTopSystemSystemUpTime_Object = MibTableColumn
+cfprTopSystemSystemUpTime = _CfprTopSystemSystemUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 12),
+    _CfprTopSystemSystemUpTime_Type()
+)
+cfprTopSystemSystemUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemSystemUpTime.setStatus("current")
+_CfprTopSystemMgmtUrl_Type = SnmpAdminString
+_CfprTopSystemMgmtUrl_Object = MibTableColumn
+cfprTopSystemMgmtUrl = _CfprTopSystemMgmtUrl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 826, 1, 78, 5, 1, 13),
+    _CfprTopSystemMgmtUrl_Type()
+)
+cfprTopSystemMgmtUrl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfprTopSystemMgmtUrl.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-FIREPOWER-TOP-MIB",
+    **{"cfprTopObjects": cfprTopObjects,
+       "cfprTopInfoPolicyTable": cfprTopInfoPolicyTable,
+       "cfprTopInfoPolicyEntry": cfprTopInfoPolicyEntry,
+       "cfprTopInfoPolicyInstanceId": cfprTopInfoPolicyInstanceId,
+       "cfprTopInfoPolicyDn": cfprTopInfoPolicyDn,
+       "cfprTopInfoPolicyRn": cfprTopInfoPolicyRn,
+       "cfprTopInfoPolicyState": cfprTopInfoPolicyState,
+       "cfprTopMetaInfTable": cfprTopMetaInfTable,
+       "cfprTopMetaInfEntry": cfprTopMetaInfEntry,
+       "cfprTopMetaInfInstanceId": cfprTopMetaInfInstanceId,
+       "cfprTopMetaInfDn": cfprTopMetaInfDn,
+       "cfprTopMetaInfRn": cfprTopMetaInfRn,
+       "cfprTopMetaInfEcode": cfprTopMetaInfEcode,
+       "cfprTopMetaInfName": cfprTopMetaInfName,
+       "cfprTopMetaInfEveri": cfprTopMetaInfEveri,
+       "cfprTopRootTable": cfprTopRootTable,
+       "cfprTopRootEntry": cfprTopRootEntry,
+       "cfprTopRootInstanceId": cfprTopRootInstanceId,
+       "cfprTopRootDn": cfprTopRootDn,
+       "cfprTopRootRn": cfprTopRootRn,
+       "cfprTopSysDefaultsTable": cfprTopSysDefaultsTable,
+       "cfprTopSysDefaultsEntry": cfprTopSysDefaultsEntry,
+       "cfprTopSysDefaultsInstanceId": cfprTopSysDefaultsInstanceId,
+       "cfprTopSysDefaultsDn": cfprTopSysDefaultsDn,
+       "cfprTopSysDefaultsRn": cfprTopSysDefaultsRn,
+       "cfprTopSystemTable": cfprTopSystemTable,
+       "cfprTopSystemEntry": cfprTopSystemEntry,
+       "cfprTopSystemInstanceId": cfprTopSystemInstanceId,
+       "cfprTopSystemDn": cfprTopSystemDn,
+       "cfprTopSystemRn": cfprTopSystemRn,
+       "cfprTopSystemAddress": cfprTopSystemAddress,
+       "cfprTopSystemCurrentTime": cfprTopSystemCurrentTime,
+       "cfprTopSystemDescr": cfprTopSystemDescr,
+       "cfprTopSystemIpv6Addr": cfprTopSystemIpv6Addr,
+       "cfprTopSystemMode": cfprTopSystemMode,
+       "cfprTopSystemName": cfprTopSystemName,
+       "cfprTopSystemOwner": cfprTopSystemOwner,
+       "cfprTopSystemSite": cfprTopSystemSite,
+       "cfprTopSystemSystemUpTime": cfprTopSystemSystemUpTime,
+       "cfprTopSystemMgmtUrl": cfprTopSystemMgmtUrl}
+)

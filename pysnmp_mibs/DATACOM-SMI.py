@@ -1,31 +1,218 @@
+# SNMP MIB module (DATACOM-SMI) expressed in pysnmp data model.
 #
-# PySNMP MIB module DATACOM-SMI (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/datacom/DATACOM-SMI
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:41:58 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/datacom/DATACOM-SMI
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:04:55 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-datacom = MibIdentifier((1, 3, 6, 1, 4, 1, 3709))
-datacomRegistrations = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 1))
-datacomGenericMIBs = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 2))
-datacomProductsMIBs = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 3))
-datacomExperimental = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 4))
-datacomModules = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 1, 1))
-datacomManagementCards = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 1, 2))
-datacomModems = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 1, 3))
-datacomAccessDevices = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 1, 5))
-datacomDevices = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 1, 6))
-datacomModemsMIBs = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 3, 3))
-datacomAccessDevicesMIBs = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 3, 5))
-datacomDevicesMIBs = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 3, 6))
-datacomExpGenericMIBs = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 4, 2))
-datacomExpProductsMIBs = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 4, 3))
-datacomExpModemsMIBs = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 4, 3, 3))
-datacomExpAccessDevicesMIBs = MibIdentifier((1, 3, 6, 1, 4, 1, 3709, 4, 3, 5))
-mibBuilder.exportSymbols("DATACOM-SMI", datacomDevicesMIBs=datacomDevicesMIBs, datacomExpAccessDevicesMIBs=datacomExpAccessDevicesMIBs, datacom=datacom, datacomExpProductsMIBs=datacomExpProductsMIBs, datacomExpModemsMIBs=datacomExpModemsMIBs, datacomAccessDevices=datacomAccessDevices, datacomProductsMIBs=datacomProductsMIBs, datacomGenericMIBs=datacomGenericMIBs, datacomManagementCards=datacomManagementCards, datacomModems=datacomModems, datacomModemsMIBs=datacomModemsMIBs, datacomExperimental=datacomExperimental, datacomDevices=datacomDevices, datacomExpGenericMIBs=datacomExpGenericMIBs, datacomAccessDevicesMIBs=datacomAccessDevicesMIBs, datacomModules=datacomModules, datacomRegistrations=datacomRegistrations)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Datacom_ObjectIdentity = ObjectIdentity
+datacom = _Datacom_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709)
+)
+_DatacomRegistrations_ObjectIdentity = ObjectIdentity
+datacomRegistrations = _DatacomRegistrations_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 1)
+)
+_DatacomModules_ObjectIdentity = ObjectIdentity
+datacomModules = _DatacomModules_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 1, 1)
+)
+_DatacomManagementCards_ObjectIdentity = ObjectIdentity
+datacomManagementCards = _DatacomManagementCards_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 1, 2)
+)
+_DatacomModems_ObjectIdentity = ObjectIdentity
+datacomModems = _DatacomModems_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 1, 3)
+)
+_DatacomAccessDevices_ObjectIdentity = ObjectIdentity
+datacomAccessDevices = _DatacomAccessDevices_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 1, 5)
+)
+_DatacomDevices_ObjectIdentity = ObjectIdentity
+datacomDevices = _DatacomDevices_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 1, 6)
+)
+_DatacomGenericMIBs_ObjectIdentity = ObjectIdentity
+datacomGenericMIBs = _DatacomGenericMIBs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 2)
+)
+_DatacomProductsMIBs_ObjectIdentity = ObjectIdentity
+datacomProductsMIBs = _DatacomProductsMIBs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 3)
+)
+_DatacomModemsMIBs_ObjectIdentity = ObjectIdentity
+datacomModemsMIBs = _DatacomModemsMIBs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 3, 3)
+)
+_DatacomAccessDevicesMIBs_ObjectIdentity = ObjectIdentity
+datacomAccessDevicesMIBs = _DatacomAccessDevicesMIBs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 3, 5)
+)
+_DatacomDevicesMIBs_ObjectIdentity = ObjectIdentity
+datacomDevicesMIBs = _DatacomDevicesMIBs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 3, 6)
+)
+_DatacomExperimental_ObjectIdentity = ObjectIdentity
+datacomExperimental = _DatacomExperimental_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 4)
+)
+_DatacomExpGenericMIBs_ObjectIdentity = ObjectIdentity
+datacomExpGenericMIBs = _DatacomExpGenericMIBs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 4, 2)
+)
+_DatacomExpProductsMIBs_ObjectIdentity = ObjectIdentity
+datacomExpProductsMIBs = _DatacomExpProductsMIBs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 4, 3)
+)
+_DatacomExpModemsMIBs_ObjectIdentity = ObjectIdentity
+datacomExpModemsMIBs = _DatacomExpModemsMIBs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 4, 3, 3)
+)
+_DatacomExpAccessDevicesMIBs_ObjectIdentity = ObjectIdentity
+datacomExpAccessDevicesMIBs = _DatacomExpAccessDevicesMIBs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3709, 4, 3, 5)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DATACOM-SMI",
+    **{"datacom": datacom,
+       "datacomRegistrations": datacomRegistrations,
+       "datacomModules": datacomModules,
+       "datacomManagementCards": datacomManagementCards,
+       "datacomModems": datacomModems,
+       "datacomAccessDevices": datacomAccessDevices,
+       "datacomDevices": datacomDevices,
+       "datacomGenericMIBs": datacomGenericMIBs,
+       "datacomProductsMIBs": datacomProductsMIBs,
+       "datacomModemsMIBs": datacomModemsMIBs,
+       "datacomAccessDevicesMIBs": datacomAccessDevicesMIBs,
+       "datacomDevicesMIBs": datacomDevicesMIBs,
+       "datacomExperimental": datacomExperimental,
+       "datacomExpGenericMIBs": datacomExpGenericMIBs,
+       "datacomExpProductsMIBs": datacomExpProductsMIBs,
+       "datacomExpModemsMIBs": datacomExpModemsMIBs,
+       "datacomExpAccessDevicesMIBs": datacomExpAccessDevicesMIBs}
+)

@@ -1,30 +1,184 @@
+# SNMP MIB module (TIPPINGPOINT-REG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TIPPINGPOINT-REG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/trendmicro/TIPPINGPOINT-REG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:33 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/trendmicro/TIPPINGPOINT-REG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:06:25 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-tippingpoint = ModuleIdentity((1, 3, 6, 1, 4, 1, 10734))
-tippingpoint.setRevisions(('2016-05-25 18:54',))
-if mibBuilder.loadTexts: tippingpoint.setLastUpdated('201605251854Z')
-if mibBuilder.loadTexts: tippingpoint.setOrganization('Trend Micro, Inc.')
-tpt_reg = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 1)).setLabel("tpt-reg")
-if mibBuilder.loadTexts: tpt_reg.setStatus('current')
-tpt_generic = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 2)).setLabel("tpt-generic")
-if mibBuilder.loadTexts: tpt_generic.setStatus('current')
-tpt_products = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 3)).setLabel("tpt-products")
-if mibBuilder.loadTexts: tpt_products.setStatus('current')
-tpt_caps = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 4)).setLabel("tpt-caps")
-if mibBuilder.loadTexts: tpt_caps.setStatus('current')
-tpt_reqs = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 5)).setLabel("tpt-reqs")
-if mibBuilder.loadTexts: tpt_reqs.setStatus('current')
-tpt_expr = ObjectIdentity((1, 3, 6, 1, 4, 1, 10734, 6)).setLabel("tpt-expr")
-if mibBuilder.loadTexts: tpt_expr.setStatus('current')
-mibBuilder.exportSymbols("TIPPINGPOINT-REG-MIB", tpt_products=tpt_products, tpt_expr=tpt_expr, PYSNMP_MODULE_ID=tippingpoint, tpt_caps=tpt_caps, tpt_reqs=tpt_reqs, tpt_reg=tpt_reg, tpt_generic=tpt_generic, tippingpoint=tippingpoint)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+tippingpoint = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 10734)
+)
+if mibBuilder.loadTexts:
+    tippingpoint.setRevisions(
+        ("2016-05-25 18:54",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Tpt_reg_ObjectIdentity = ObjectIdentity
+tpt_reg = _Tpt_reg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10734, 1)
+)
+if mibBuilder.loadTexts:
+    tpt_reg.setStatus("current")
+_Tpt_generic_ObjectIdentity = ObjectIdentity
+tpt_generic = _Tpt_generic_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10734, 2)
+)
+if mibBuilder.loadTexts:
+    tpt_generic.setStatus("current")
+_Tpt_products_ObjectIdentity = ObjectIdentity
+tpt_products = _Tpt_products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10734, 3)
+)
+if mibBuilder.loadTexts:
+    tpt_products.setStatus("current")
+_Tpt_caps_ObjectIdentity = ObjectIdentity
+tpt_caps = _Tpt_caps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10734, 4)
+)
+if mibBuilder.loadTexts:
+    tpt_caps.setStatus("current")
+_Tpt_reqs_ObjectIdentity = ObjectIdentity
+tpt_reqs = _Tpt_reqs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10734, 5)
+)
+if mibBuilder.loadTexts:
+    tpt_reqs.setStatus("current")
+_Tpt_expr_ObjectIdentity = ObjectIdentity
+tpt_expr = _Tpt_expr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10734, 6)
+)
+if mibBuilder.loadTexts:
+    tpt_expr.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TIPPINGPOINT-REG-MIB",
+    **{"tippingpoint": tippingpoint,
+       "tpt-reg": tpt_reg,
+       "tpt-generic": tpt_generic,
+       "tpt-products": tpt_products,
+       "tpt-caps": tpt_caps,
+       "tpt-reqs": tpt_reqs,
+       "tpt-expr": tpt_expr}
+)

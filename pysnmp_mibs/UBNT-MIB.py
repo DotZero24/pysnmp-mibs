@@ -1,56 +1,329 @@
+# SNMP MIB module (UBNT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module UBNT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ubiquiti/UBNT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:04 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ubiquiti/UBNT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:59:24 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ubntMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 41112, 1))
-ubntMIB.setRevisions(('2019-11-29 00:00',))
-if mibBuilder.loadTexts: ubntMIB.setLastUpdated('201911290000Z')
-if mibBuilder.loadTexts: ubntMIB.setOrganization('Ubiquiti Networks, Inc.')
-ubnt = MibIdentifier((1, 3, 6, 1, 4, 1, 41112))
-ubntSnmpInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 2))
-ubntSnmpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 2, 1))
-ubntAirosGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 2, 2))
-ubntAirFiberGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 2, 3))
-ubntEdgeMaxGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 2, 4))
-ubntUniFiGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 2, 5))
-ubntAirVisionGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 2, 6))
-ubntMFiGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 2, 7))
-ubntUniTelGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 2, 8))
-ubntAFLTUGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 2, 9))
-ubntSunMaxGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 2, 10))
-ubntAirFIBER = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 3))
-ubntAirMAX = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 4))
-ubntEdgeMax = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 5))
-ubntUniFi = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 6))
-ubntAirVision = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 7))
-ubntMFi = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 8))
-ubntUniTel = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 9))
-ubntAFLTU = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 10))
-ubntSunMax = MibIdentifier((1, 3, 6, 1, 4, 1, 41112, 1, 11))
-ubntORTable = MibTable((1, 3, 6, 1, 4, 1, 41112, 1, 1), )
-if mibBuilder.loadTexts: ubntORTable.setStatus('current')
-ubntOREntry = MibTableRow((1, 3, 6, 1, 4, 1, 41112, 1, 1, 1), ).setIndexNames((0, "UBNT-MIB", "ubntORIndex"))
-if mibBuilder.loadTexts: ubntOREntry.setStatus('current')
-ubntORIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 41112, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)))
-if mibBuilder.loadTexts: ubntORIndex.setStatus('current')
-ubntORID = MibTableColumn((1, 3, 6, 1, 4, 1, 41112, 1, 1, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ubntORID.setStatus('current')
-ubntORDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 41112, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ubntORDescr.setStatus('current')
-ubntORInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 41112, 1, 2, 1, 1)).setObjects(("UBNT-MIB", "ubntORID"), ("UBNT-MIB", "ubntORDescr"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ubntORInfoGroup = ubntORInfoGroup.setStatus('current')
-ubntORCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 41112, 1, 2, 1, 2)).setObjects(("UBNT-MIB", "ubntORInfoGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ubntORCompliance = ubntORCompliance.setStatus('current')
-mibBuilder.exportSymbols("UBNT-MIB", ubntAirFiberGroups=ubntAirFiberGroups, ubntAirosGroups=ubntAirosGroups, ubntAirVisionGroups=ubntAirVisionGroups, ubntMIB=ubntMIB, ubntORID=ubntORID, ubntORInfoGroup=ubntORInfoGroup, ubntORCompliance=ubntORCompliance, ubntAirFIBER=ubntAirFIBER, ubntUniFi=ubntUniFi, ubntUniTel=ubntUniTel, ubntUniFiGroups=ubntUniFiGroups, ubntAFLTUGroups=ubntAFLTUGroups, ubntSunMaxGroups=ubntSunMaxGroups, ubntEdgeMaxGroups=ubntEdgeMaxGroups, ubntSunMax=ubntSunMax, ubntUniTelGroups=ubntUniTelGroups, ubntMFi=ubntMFi, ubntEdgeMax=ubntEdgeMax, ubntORDescr=ubntORDescr, ubntAirMAX=ubntAirMAX, ubntMFiGroups=ubntMFiGroups, ubntORIndex=ubntORIndex, ubntSnmpInfo=ubntSnmpInfo, ubntSnmpGroups=ubntSnmpGroups, ubntAFLTU=ubntAFLTU, ubntORTable=ubntORTable, ubnt=ubnt, ubntOREntry=ubntOREntry, ubntAirVision=ubntAirVision, PYSNMP_MODULE_ID=ubntMIB)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ubntMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1)
+)
+if mibBuilder.loadTexts:
+    ubntMIB.setRevisions(
+        ("2019-11-29 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Ubnt_ObjectIdentity = ObjectIdentity
+ubnt = _Ubnt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112)
+)
+_UbntORTable_Object = MibTable
+ubntORTable = _UbntORTable_Object(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ubntORTable.setStatus("current")
+_UbntOREntry_Object = MibTableRow
+ubntOREntry = _UbntOREntry_Object(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 1, 1)
+)
+ubntOREntry.setIndexNames(
+    (0, "UBNT-MIB", "ubntORIndex"),
+)
+if mibBuilder.loadTexts:
+    ubntOREntry.setStatus("current")
+
+
+class _UbntORIndex_Type(Integer32):
+    """Custom type ubntORIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_UbntORIndex_Type.__name__ = "Integer32"
+_UbntORIndex_Object = MibTableColumn
+ubntORIndex = _UbntORIndex_Object(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 1, 1, 1),
+    _UbntORIndex_Type()
+)
+ubntORIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ubntORIndex.setStatus("current")
+_UbntORID_Type = ObjectIdentifier
+_UbntORID_Object = MibTableColumn
+ubntORID = _UbntORID_Object(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 1, 1, 2),
+    _UbntORID_Type()
+)
+ubntORID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ubntORID.setStatus("current")
+_UbntORDescr_Type = DisplayString
+_UbntORDescr_Object = MibTableColumn
+ubntORDescr = _UbntORDescr_Object(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 1, 1, 3),
+    _UbntORDescr_Type()
+)
+ubntORDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ubntORDescr.setStatus("current")
+_UbntSnmpInfo_ObjectIdentity = ObjectIdentity
+ubntSnmpInfo = _UbntSnmpInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2)
+)
+_UbntSnmpGroups_ObjectIdentity = ObjectIdentity
+ubntSnmpGroups = _UbntSnmpGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 1)
+)
+_UbntAirosGroups_ObjectIdentity = ObjectIdentity
+ubntAirosGroups = _UbntAirosGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 2)
+)
+_UbntAirFiberGroups_ObjectIdentity = ObjectIdentity
+ubntAirFiberGroups = _UbntAirFiberGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 3)
+)
+_UbntEdgeMaxGroups_ObjectIdentity = ObjectIdentity
+ubntEdgeMaxGroups = _UbntEdgeMaxGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 4)
+)
+_UbntUniFiGroups_ObjectIdentity = ObjectIdentity
+ubntUniFiGroups = _UbntUniFiGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 5)
+)
+_UbntAirVisionGroups_ObjectIdentity = ObjectIdentity
+ubntAirVisionGroups = _UbntAirVisionGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 6)
+)
+_UbntMFiGroups_ObjectIdentity = ObjectIdentity
+ubntMFiGroups = _UbntMFiGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 7)
+)
+_UbntUniTelGroups_ObjectIdentity = ObjectIdentity
+ubntUniTelGroups = _UbntUniTelGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 8)
+)
+_UbntAFLTUGroups_ObjectIdentity = ObjectIdentity
+ubntAFLTUGroups = _UbntAFLTUGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 9)
+)
+_UbntSunMaxGroups_ObjectIdentity = ObjectIdentity
+ubntSunMaxGroups = _UbntSunMaxGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 10)
+)
+_UbntAirFIBER_ObjectIdentity = ObjectIdentity
+ubntAirFIBER = _UbntAirFIBER_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 3)
+)
+_UbntAirMAX_ObjectIdentity = ObjectIdentity
+ubntAirMAX = _UbntAirMAX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 4)
+)
+_UbntEdgeMax_ObjectIdentity = ObjectIdentity
+ubntEdgeMax = _UbntEdgeMax_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 5)
+)
+_UbntUniFi_ObjectIdentity = ObjectIdentity
+ubntUniFi = _UbntUniFi_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 6)
+)
+_UbntAirVision_ObjectIdentity = ObjectIdentity
+ubntAirVision = _UbntAirVision_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 7)
+)
+_UbntMFi_ObjectIdentity = ObjectIdentity
+ubntMFi = _UbntMFi_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 8)
+)
+_UbntUniTel_ObjectIdentity = ObjectIdentity
+ubntUniTel = _UbntUniTel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 9)
+)
+_UbntAFLTU_ObjectIdentity = ObjectIdentity
+ubntAFLTU = _UbntAFLTU_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 10)
+)
+_UbntSunMax_ObjectIdentity = ObjectIdentity
+ubntSunMax = _UbntSunMax_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 11)
+)
+
+# Managed Objects groups
+
+ubntORInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 1, 1)
+)
+ubntORInfoGroup.setObjects(
+      *(("UBNT-MIB", "ubntORID"),
+        ("UBNT-MIB", "ubntORDescr"))
+)
+if mibBuilder.loadTexts:
+    ubntORInfoGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ubntORCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 41112, 1, 2, 1, 2)
+)
+ubntORCompliance.setObjects(
+    ("UBNT-MIB", "ubntORInfoGroup")
+)
+if mibBuilder.loadTexts:
+    ubntORCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "UBNT-MIB",
+    **{"ubnt": ubnt,
+       "ubntMIB": ubntMIB,
+       "ubntORTable": ubntORTable,
+       "ubntOREntry": ubntOREntry,
+       "ubntORIndex": ubntORIndex,
+       "ubntORID": ubntORID,
+       "ubntORDescr": ubntORDescr,
+       "ubntSnmpInfo": ubntSnmpInfo,
+       "ubntSnmpGroups": ubntSnmpGroups,
+       "ubntORInfoGroup": ubntORInfoGroup,
+       "ubntORCompliance": ubntORCompliance,
+       "ubntAirosGroups": ubntAirosGroups,
+       "ubntAirFiberGroups": ubntAirFiberGroups,
+       "ubntEdgeMaxGroups": ubntEdgeMaxGroups,
+       "ubntUniFiGroups": ubntUniFiGroups,
+       "ubntAirVisionGroups": ubntAirVisionGroups,
+       "ubntMFiGroups": ubntMFiGroups,
+       "ubntUniTelGroups": ubntUniTelGroups,
+       "ubntAFLTUGroups": ubntAFLTUGroups,
+       "ubntSunMaxGroups": ubntSunMaxGroups,
+       "ubntAirFIBER": ubntAirFIBER,
+       "ubntAirMAX": ubntAirMAX,
+       "ubntEdgeMax": ubntEdgeMax,
+       "ubntUniFi": ubntUniFi,
+       "ubntAirVision": ubntAirVision,
+       "ubntMFi": ubntMFi,
+       "ubntUniTel": ubntUniTel,
+       "ubntAFLTU": ubntAFLTU,
+       "ubntSunMax": ubntSunMax}
+)

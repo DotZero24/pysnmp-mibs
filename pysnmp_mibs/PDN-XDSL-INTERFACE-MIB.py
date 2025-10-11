@@ -1,112 +1,830 @@
+# SNMP MIB module (PDN-XDSL-INTERFACE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PDN-XDSL-INTERFACE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/paradyne/PDN-XDSL-INTERFACE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:17 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/paradyne/PDN-XDSL-INTERFACE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:00:45 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-pdn_xdsl, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-xdsl")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-xdslIfConfigMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2))
-xdslIfConfigMIBTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 4))
-xdslDevGenericIfConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1))
-xdslDevRADSLSpecificIfConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2))
-xdslDevMVLSpecificIfConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3))
-xdslDevSDSLSpecificIfConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4))
-xdslDevIDSLSpecificIfConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5))
-xdslDevGenericIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1), )
-if mibBuilder.loadTexts: xdslDevGenericIfConfigTable.setStatus('mandatory')
-xdslDevGenericIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: xdslDevGenericIfConfigEntry.setStatus('mandatory')
-xdslDevGenericIfConfigPortSpeedBehaviour = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("fixed", 1), ("adaptive", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevGenericIfConfigPortSpeedBehaviour.setStatus('mandatory')
-xdslDevGenericIfConfigMarginThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevGenericIfConfigMarginThreshold.setStatus('mandatory')
-xdslDevGenericIfConfigPortID = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 40))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevGenericIfConfigPortID.setStatus('mandatory')
-xdslDevGenericIfConfigLinkUpDownTransitionThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevGenericIfConfigLinkUpDownTransitionThreshold.setStatus('mandatory')
-xdslDevGenericIfConfigLineEncodeType = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("other", 1), ("cap", 2), ("twoB1q", 3), ("mvl", 4), ("g-lite", 5), ("dmt", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xdslDevGenericIfConfigLineEncodeType.setStatus('mandatory')
-xdslDevGenericIfConfigLineRateMode = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("standard", 1), ("nx128", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevGenericIfConfigLineRateMode.setStatus('mandatory')
-xdslDevGenericIfConfigLinkEncapType = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))).clone(namedValues=NamedValues(("linkNone", 1), ("ethernet", 2), ("ppp", 3), ("slip", 4), ("frameRelay-PLL", 5), ("x23PVC", 6), ("x25SVC", 7), ("hdlc", 8), ("etherHDLC", 9), ("rfc1483-MPOA", 10), ("funi-MPOA", 11), ("frf5", 12), ("frf8", 13), ("pppoAVC-Mux", 14), ("pppoALLC", 15)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevGenericIfConfigLinkEncapType.setStatus('mandatory')
-xdslDevGenericIfConfigSnType = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 8), ObjectIdentifier()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevGenericIfConfigSnType.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1), )
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigTable.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigEntry.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigUpFixedPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigUpFixedPortSpeed.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigDownFixedPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigDownFixedPortSpeed.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("minimizeError", 1), ("minimizeDelay", 2), ("reedSolomonNotSupported", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigStartUpMargin = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-3, 9))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigStartUpMargin.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigTxPowerAttenuation = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 9), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigTxPowerAttenuation.setStatus('mandatory')
-xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 10), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation.setStatus('mandatory')
-xdslDevMVLSpecificIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1), )
-if mibBuilder.loadTexts: xdslDevMVLSpecificIfConfigTable.setStatus('mandatory')
-xdslDevMVLSpecificIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: xdslDevMVLSpecificIfConfigEntry.setStatus('mandatory')
-xdslDevMVLSpecificIfConfigMaxPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevMVLSpecificIfConfigMaxPortSpeed.setStatus('deprecated')
-xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation.setStatus('mandatory')
-xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation.setStatus('mandatory')
-xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue.setStatus('mandatory')
-xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue.setStatus('mandatory')
-xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed.setStatus('mandatory')
-xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed.setStatus('mandatory')
-xdslDevSDSLSpecificIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1), )
-if mibBuilder.loadTexts: xdslDevSDSLSpecificIfConfigTable.setStatus('mandatory')
-xdslDevSDSLSpecificIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: xdslDevSDSLSpecificIfConfigEntry.setStatus('mandatory')
-xdslDevSDSLSpecificIfConfigFixedPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevSDSLSpecificIfConfigFixedPortSpeed.setStatus('mandatory')
-xdslDevSDSLSpecificIfConfigMaxPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevSDSLSpecificIfConfigMaxPortSpeed.setStatus('mandatory')
-xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode.setStatus('mandatory')
-xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode.setStatus('mandatory')
-xdslDevSDSLSpecificIfConfigMinSnrMargin = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevSDSLSpecificIfConfigMinSnrMargin.setStatus('mandatory')
-xdslDevSDSLSpecificIfConfigTargetSnrMargin = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevSDSLSpecificIfConfigTargetSnrMargin.setStatus('mandatory')
-xdslDevIDSLSpecificIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5, 1), )
-if mibBuilder.loadTexts: xdslDevIDSLSpecificIfConfigTable.setStatus('mandatory')
-xdslDevIDSLSpecificIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: xdslDevIDSLSpecificIfConfigEntry.setStatus('mandatory')
-xdslDevIDSLSpecificIfConfigPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevIDSLSpecificIfConfigPortSpeed.setStatus('mandatory')
-xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("networkTiming", 1), ("localTiming", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode.setStatus('mandatory')
-xdslDevIDSLSpecificChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("b1", 1), ("b2", 2), ("noOp", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: xdslDevIDSLSpecificChannel.setStatus('mandatory')
-xdslLinkUpDownTransitions = NotificationType((1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 4) + (0,1)).setObjects(("IF-MIB", "ifIndex"))
-mibBuilder.exportSymbols("PDN-XDSL-INTERFACE-MIB", xdslDevRADSLSpecificIfConfigEntry=xdslDevRADSLSpecificIfConfigEntry, xdslDevIDSLSpecificIfConfigEntry=xdslDevIDSLSpecificIfConfigEntry, xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation=xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation, xdslDevGenericIfConfigMarginThreshold=xdslDevGenericIfConfigMarginThreshold, xdslDevMVLSpecificIfConfigTable=xdslDevMVLSpecificIfConfigTable, xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode=xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode, xdslLinkUpDownTransitions=xdslLinkUpDownTransitions, xdslDevSDSLSpecificIfConfigTable=xdslDevSDSLSpecificIfConfigTable, xdslDevGenericIfConfig=xdslDevGenericIfConfig, xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed=xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed, xdslDevSDSLSpecificIfConfigMinSnrMargin=xdslDevSDSLSpecificIfConfigMinSnrMargin, xdslDevRADSLSpecificIfConfigUpFixedPortSpeed=xdslDevRADSLSpecificIfConfigUpFixedPortSpeed, xdslDevRADSLSpecificIfConfigTable=xdslDevRADSLSpecificIfConfigTable, xdslDevSDSLSpecificIfConfigFixedPortSpeed=xdslDevSDSLSpecificIfConfigFixedPortSpeed, xdslDevMVLSpecificIfConfigMaxPortSpeed=xdslDevMVLSpecificIfConfigMaxPortSpeed, xdslIfConfigMIBTraps=xdslIfConfigMIBTraps, xdslDevGenericIfConfigTable=xdslDevGenericIfConfigTable, xdslDevGenericIfConfigLineRateMode=xdslDevGenericIfConfigLineRateMode, xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue=xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue, xdslDevSDSLSpecificIfConfigTargetSnrMargin=xdslDevSDSLSpecificIfConfigTargetSnrMargin, xdslDevIDSLSpecificIfConfigTable=xdslDevIDSLSpecificIfConfigTable, xdslDevIDSLSpecificIfConfigPortSpeed=xdslDevIDSLSpecificIfConfigPortSpeed, xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation=xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation, xdslDevRADSLSpecificIfConfigStartUpMargin=xdslDevRADSLSpecificIfConfigStartUpMargin, xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode=xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode, xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue=xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue, xdslDevGenericIfConfigLinkUpDownTransitionThreshold=xdslDevGenericIfConfigLinkUpDownTransitionThreshold, xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed=xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed, xdslDevMVLSpecificIfConfig=xdslDevMVLSpecificIfConfig, xdslDevGenericIfConfigLinkEncapType=xdslDevGenericIfConfigLinkEncapType, xdslDevRADSLSpecificIfConfigTxPowerAttenuation=xdslDevRADSLSpecificIfConfigTxPowerAttenuation, xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation=xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation, xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed=xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed, xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed=xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed, xdslDevRADSLSpecificIfConfigDownFixedPortSpeed=xdslDevRADSLSpecificIfConfigDownFixedPortSpeed, xdslDevGenericIfConfigPortSpeedBehaviour=xdslDevGenericIfConfigPortSpeedBehaviour, xdslDevIDSLSpecificIfConfig=xdslDevIDSLSpecificIfConfig, xdslIfConfigMIBObjects=xdslIfConfigMIBObjects, xdslDevSDSLSpecificIfConfig=xdslDevSDSLSpecificIfConfig, xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection=xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection, xdslDevGenericIfConfigEntry=xdslDevGenericIfConfigEntry, xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed=xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed, xdslDevMVLSpecificIfConfigEntry=xdslDevMVLSpecificIfConfigEntry, xdslDevRADSLSpecificIfConfig=xdslDevRADSLSpecificIfConfig, xdslDevGenericIfConfigSnType=xdslDevGenericIfConfigSnType, xdslDevGenericIfConfigLineEncodeType=xdslDevGenericIfConfigLineEncodeType, xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed=xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed, xdslDevSDSLSpecificIfConfigMaxPortSpeed=xdslDevSDSLSpecificIfConfigMaxPortSpeed, xdslDevIDSLSpecificChannel=xdslDevIDSLSpecificChannel, xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode=xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode, xdslDevGenericIfConfigPortID=xdslDevGenericIfConfigPortID, xdslDevSDSLSpecificIfConfigEntry=xdslDevSDSLSpecificIfConfigEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(pdn_xdsl,) = mibBuilder.importSymbols(
+    "PDN-HEADER-MIB",
+    "pdn-xdsl")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_XdslIfConfigMIBObjects_ObjectIdentity = ObjectIdentity
+xdslIfConfigMIBObjects = _XdslIfConfigMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2)
+)
+_XdslDevGenericIfConfig_ObjectIdentity = ObjectIdentity
+xdslDevGenericIfConfig = _XdslDevGenericIfConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1)
+)
+_XdslDevGenericIfConfigTable_Object = MibTable
+xdslDevGenericIfConfigTable = _XdslDevGenericIfConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    xdslDevGenericIfConfigTable.setStatus("mandatory")
+_XdslDevGenericIfConfigEntry_Object = MibTableRow
+xdslDevGenericIfConfigEntry = _XdslDevGenericIfConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1)
+)
+xdslDevGenericIfConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    xdslDevGenericIfConfigEntry.setStatus("mandatory")
+
+
+class _XdslDevGenericIfConfigPortSpeedBehaviour_Type(Integer32):
+    """Custom type xdslDevGenericIfConfigPortSpeedBehaviour based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fixed", 1),
+          ("adaptive", 2))
+    )
+
+
+_XdslDevGenericIfConfigPortSpeedBehaviour_Type.__name__ = "Integer32"
+_XdslDevGenericIfConfigPortSpeedBehaviour_Object = MibTableColumn
+xdslDevGenericIfConfigPortSpeedBehaviour = _XdslDevGenericIfConfigPortSpeedBehaviour_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 1),
+    _XdslDevGenericIfConfigPortSpeedBehaviour_Type()
+)
+xdslDevGenericIfConfigPortSpeedBehaviour.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevGenericIfConfigPortSpeedBehaviour.setStatus("mandatory")
+_XdslDevGenericIfConfigMarginThreshold_Type = Integer32
+_XdslDevGenericIfConfigMarginThreshold_Object = MibTableColumn
+xdslDevGenericIfConfigMarginThreshold = _XdslDevGenericIfConfigMarginThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 2),
+    _XdslDevGenericIfConfigMarginThreshold_Type()
+)
+xdslDevGenericIfConfigMarginThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevGenericIfConfigMarginThreshold.setStatus("mandatory")
+
+
+class _XdslDevGenericIfConfigPortID_Type(DisplayString):
+    """Custom type xdslDevGenericIfConfigPortID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 40),
+    )
+
+
+_XdslDevGenericIfConfigPortID_Type.__name__ = "DisplayString"
+_XdslDevGenericIfConfigPortID_Object = MibTableColumn
+xdslDevGenericIfConfigPortID = _XdslDevGenericIfConfigPortID_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 3),
+    _XdslDevGenericIfConfigPortID_Type()
+)
+xdslDevGenericIfConfigPortID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevGenericIfConfigPortID.setStatus("mandatory")
+_XdslDevGenericIfConfigLinkUpDownTransitionThreshold_Type = Integer32
+_XdslDevGenericIfConfigLinkUpDownTransitionThreshold_Object = MibTableColumn
+xdslDevGenericIfConfigLinkUpDownTransitionThreshold = _XdslDevGenericIfConfigLinkUpDownTransitionThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 4),
+    _XdslDevGenericIfConfigLinkUpDownTransitionThreshold_Type()
+)
+xdslDevGenericIfConfigLinkUpDownTransitionThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevGenericIfConfigLinkUpDownTransitionThreshold.setStatus("mandatory")
+
+
+class _XdslDevGenericIfConfigLineEncodeType_Type(Integer32):
+    """Custom type xdslDevGenericIfConfigLineEncodeType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("cap", 2),
+          ("twoB1q", 3),
+          ("mvl", 4),
+          ("g-lite", 5),
+          ("dmt", 6))
+    )
+
+
+_XdslDevGenericIfConfigLineEncodeType_Type.__name__ = "Integer32"
+_XdslDevGenericIfConfigLineEncodeType_Object = MibTableColumn
+xdslDevGenericIfConfigLineEncodeType = _XdslDevGenericIfConfigLineEncodeType_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 5),
+    _XdslDevGenericIfConfigLineEncodeType_Type()
+)
+xdslDevGenericIfConfigLineEncodeType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xdslDevGenericIfConfigLineEncodeType.setStatus("mandatory")
+
+
+class _XdslDevGenericIfConfigLineRateMode_Type(Integer32):
+    """Custom type xdslDevGenericIfConfigLineRateMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("standard", 1),
+          ("nx128", 2))
+    )
+
+
+_XdslDevGenericIfConfigLineRateMode_Type.__name__ = "Integer32"
+_XdslDevGenericIfConfigLineRateMode_Object = MibTableColumn
+xdslDevGenericIfConfigLineRateMode = _XdslDevGenericIfConfigLineRateMode_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 6),
+    _XdslDevGenericIfConfigLineRateMode_Type()
+)
+xdslDevGenericIfConfigLineRateMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevGenericIfConfigLineRateMode.setStatus("mandatory")
+
+
+class _XdslDevGenericIfConfigLinkEncapType_Type(Integer32):
+    """Custom type xdslDevGenericIfConfigLinkEncapType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15)
+        )
+    )
+    namedValues = NamedValues(
+        *(("linkNone", 1),
+          ("ethernet", 2),
+          ("ppp", 3),
+          ("slip", 4),
+          ("frameRelay-PLL", 5),
+          ("x23PVC", 6),
+          ("x25SVC", 7),
+          ("hdlc", 8),
+          ("etherHDLC", 9),
+          ("rfc1483-MPOA", 10),
+          ("funi-MPOA", 11),
+          ("frf5", 12),
+          ("frf8", 13),
+          ("pppoAVC-Mux", 14),
+          ("pppoALLC", 15))
+    )
+
+
+_XdslDevGenericIfConfigLinkEncapType_Type.__name__ = "Integer32"
+_XdslDevGenericIfConfigLinkEncapType_Object = MibTableColumn
+xdslDevGenericIfConfigLinkEncapType = _XdslDevGenericIfConfigLinkEncapType_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 7),
+    _XdslDevGenericIfConfigLinkEncapType_Type()
+)
+xdslDevGenericIfConfigLinkEncapType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevGenericIfConfigLinkEncapType.setStatus("mandatory")
+_XdslDevGenericIfConfigSnType_Type = ObjectIdentifier
+_XdslDevGenericIfConfigSnType_Object = MibTableColumn
+xdslDevGenericIfConfigSnType = _XdslDevGenericIfConfigSnType_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 1, 1, 1, 8),
+    _XdslDevGenericIfConfigSnType_Type()
+)
+xdslDevGenericIfConfigSnType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevGenericIfConfigSnType.setStatus("mandatory")
+_XdslDevRADSLSpecificIfConfig_ObjectIdentity = ObjectIdentity
+xdslDevRADSLSpecificIfConfig = _XdslDevRADSLSpecificIfConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2)
+)
+_XdslDevRADSLSpecificIfConfigTable_Object = MibTable
+xdslDevRADSLSpecificIfConfigTable = _XdslDevRADSLSpecificIfConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigTable.setStatus("mandatory")
+_XdslDevRADSLSpecificIfConfigEntry_Object = MibTableRow
+xdslDevRADSLSpecificIfConfigEntry = _XdslDevRADSLSpecificIfConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1)
+)
+xdslDevRADSLSpecificIfConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigEntry.setStatus("mandatory")
+_XdslDevRADSLSpecificIfConfigUpFixedPortSpeed_Type = Integer32
+_XdslDevRADSLSpecificIfConfigUpFixedPortSpeed_Object = MibTableColumn
+xdslDevRADSLSpecificIfConfigUpFixedPortSpeed = _XdslDevRADSLSpecificIfConfigUpFixedPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 1),
+    _XdslDevRADSLSpecificIfConfigUpFixedPortSpeed_Type()
+)
+xdslDevRADSLSpecificIfConfigUpFixedPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigUpFixedPortSpeed.setStatus("mandatory")
+_XdslDevRADSLSpecificIfConfigDownFixedPortSpeed_Type = Integer32
+_XdslDevRADSLSpecificIfConfigDownFixedPortSpeed_Object = MibTableColumn
+xdslDevRADSLSpecificIfConfigDownFixedPortSpeed = _XdslDevRADSLSpecificIfConfigDownFixedPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 2),
+    _XdslDevRADSLSpecificIfConfigDownFixedPortSpeed_Type()
+)
+xdslDevRADSLSpecificIfConfigDownFixedPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigDownFixedPortSpeed.setStatus("mandatory")
+_XdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed_Type = Integer32
+_XdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed_Object = MibTableColumn
+xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed = _XdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 3),
+    _XdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed_Type()
+)
+xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed.setStatus("mandatory")
+_XdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed_Type = Integer32
+_XdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed_Object = MibTableColumn
+xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed = _XdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 4),
+    _XdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed_Type()
+)
+xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed.setStatus("mandatory")
+_XdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed_Type = Integer32
+_XdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed_Object = MibTableColumn
+xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed = _XdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 5),
+    _XdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed_Type()
+)
+xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed.setStatus("mandatory")
+_XdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed_Type = Integer32
+_XdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed_Object = MibTableColumn
+xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed = _XdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 6),
+    _XdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed_Type()
+)
+xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed.setStatus("mandatory")
+
+
+class _XdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection_Type(Integer32):
+    """Custom type xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("minimizeError", 1),
+          ("minimizeDelay", 2),
+          ("reedSolomonNotSupported", 3))
+    )
+
+
+_XdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection_Type.__name__ = "Integer32"
+_XdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection_Object = MibTableColumn
+xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection = _XdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 7),
+    _XdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection_Type()
+)
+xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection.setStatus("mandatory")
+
+
+class _XdslDevRADSLSpecificIfConfigStartUpMargin_Type(Integer32):
+    """Custom type xdslDevRADSLSpecificIfConfigStartUpMargin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-3, 9),
+    )
+
+
+_XdslDevRADSLSpecificIfConfigStartUpMargin_Type.__name__ = "Integer32"
+_XdslDevRADSLSpecificIfConfigStartUpMargin_Object = MibTableColumn
+xdslDevRADSLSpecificIfConfigStartUpMargin = _XdslDevRADSLSpecificIfConfigStartUpMargin_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 8),
+    _XdslDevRADSLSpecificIfConfigStartUpMargin_Type()
+)
+xdslDevRADSLSpecificIfConfigStartUpMargin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigStartUpMargin.setStatus("mandatory")
+_XdslDevRADSLSpecificIfConfigTxPowerAttenuation_Type = Integer32
+_XdslDevRADSLSpecificIfConfigTxPowerAttenuation_Object = MibTableColumn
+xdslDevRADSLSpecificIfConfigTxPowerAttenuation = _XdslDevRADSLSpecificIfConfigTxPowerAttenuation_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 9),
+    _XdslDevRADSLSpecificIfConfigTxPowerAttenuation_Type()
+)
+xdslDevRADSLSpecificIfConfigTxPowerAttenuation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigTxPowerAttenuation.setStatus("mandatory")
+_XdslDevRADSLSpecificIfConfigSnTxPowerAttenuation_Type = Integer32
+_XdslDevRADSLSpecificIfConfigSnTxPowerAttenuation_Object = MibTableColumn
+xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation = _XdslDevRADSLSpecificIfConfigSnTxPowerAttenuation_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 2, 1, 1, 10),
+    _XdslDevRADSLSpecificIfConfigSnTxPowerAttenuation_Type()
+)
+xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation.setStatus("mandatory")
+_XdslDevMVLSpecificIfConfig_ObjectIdentity = ObjectIdentity
+xdslDevMVLSpecificIfConfig = _XdslDevMVLSpecificIfConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3)
+)
+_XdslDevMVLSpecificIfConfigTable_Object = MibTable
+xdslDevMVLSpecificIfConfigTable = _XdslDevMVLSpecificIfConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1)
+)
+if mibBuilder.loadTexts:
+    xdslDevMVLSpecificIfConfigTable.setStatus("mandatory")
+_XdslDevMVLSpecificIfConfigEntry_Object = MibTableRow
+xdslDevMVLSpecificIfConfigEntry = _XdslDevMVLSpecificIfConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1)
+)
+xdslDevMVLSpecificIfConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    xdslDevMVLSpecificIfConfigEntry.setStatus("mandatory")
+_XdslDevMVLSpecificIfConfigMaxPortSpeed_Type = Integer32
+_XdslDevMVLSpecificIfConfigMaxPortSpeed_Object = MibTableColumn
+xdslDevMVLSpecificIfConfigMaxPortSpeed = _XdslDevMVLSpecificIfConfigMaxPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 1),
+    _XdslDevMVLSpecificIfConfigMaxPortSpeed_Type()
+)
+xdslDevMVLSpecificIfConfigMaxPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevMVLSpecificIfConfigMaxPortSpeed.setStatus("deprecated")
+_XdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation_Type = Integer32
+_XdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation_Object = MibTableColumn
+xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation = _XdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 2),
+    _XdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation_Type()
+)
+xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation.setStatus("mandatory")
+_XdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation_Type = Integer32
+_XdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation_Object = MibTableColumn
+xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation = _XdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 3),
+    _XdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation_Type()
+)
+xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation.setStatus("mandatory")
+_XdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue_Type = Integer32
+_XdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue_Object = MibTableColumn
+xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue = _XdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 4),
+    _XdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue_Type()
+)
+xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue.setStatus("mandatory")
+_XdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue_Type = Integer32
+_XdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue_Object = MibTableColumn
+xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue = _XdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 5),
+    _XdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue_Type()
+)
+xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue.setStatus("mandatory")
+_XdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed_Type = Integer32
+_XdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed_Object = MibTableColumn
+xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed = _XdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 6),
+    _XdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed_Type()
+)
+xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed.setStatus("mandatory")
+_XdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed_Type = Integer32
+_XdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed_Object = MibTableColumn
+xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed = _XdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 3, 1, 1, 7),
+    _XdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed_Type()
+)
+xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed.setStatus("mandatory")
+_XdslDevSDSLSpecificIfConfig_ObjectIdentity = ObjectIdentity
+xdslDevSDSLSpecificIfConfig = _XdslDevSDSLSpecificIfConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4)
+)
+_XdslDevSDSLSpecificIfConfigTable_Object = MibTable
+xdslDevSDSLSpecificIfConfigTable = _XdslDevSDSLSpecificIfConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1)
+)
+if mibBuilder.loadTexts:
+    xdslDevSDSLSpecificIfConfigTable.setStatus("mandatory")
+_XdslDevSDSLSpecificIfConfigEntry_Object = MibTableRow
+xdslDevSDSLSpecificIfConfigEntry = _XdslDevSDSLSpecificIfConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1)
+)
+xdslDevSDSLSpecificIfConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    xdslDevSDSLSpecificIfConfigEntry.setStatus("mandatory")
+_XdslDevSDSLSpecificIfConfigFixedPortSpeed_Type = Integer32
+_XdslDevSDSLSpecificIfConfigFixedPortSpeed_Object = MibTableColumn
+xdslDevSDSLSpecificIfConfigFixedPortSpeed = _XdslDevSDSLSpecificIfConfigFixedPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 1),
+    _XdslDevSDSLSpecificIfConfigFixedPortSpeed_Type()
+)
+xdslDevSDSLSpecificIfConfigFixedPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevSDSLSpecificIfConfigFixedPortSpeed.setStatus("mandatory")
+_XdslDevSDSLSpecificIfConfigMaxPortSpeed_Type = Integer32
+_XdslDevSDSLSpecificIfConfigMaxPortSpeed_Object = MibTableColumn
+xdslDevSDSLSpecificIfConfigMaxPortSpeed = _XdslDevSDSLSpecificIfConfigMaxPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 2),
+    _XdslDevSDSLSpecificIfConfigMaxPortSpeed_Type()
+)
+xdslDevSDSLSpecificIfConfigMaxPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevSDSLSpecificIfConfigMaxPortSpeed.setStatus("mandatory")
+
+
+class _XdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode_Type(Integer32):
+    """Custom type xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_XdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode_Type.__name__ = "Integer32"
+_XdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode_Object = MibTableColumn
+xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode = _XdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 3),
+    _XdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode_Type()
+)
+xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode.setStatus("mandatory")
+
+
+class _XdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode_Type(Integer32):
+    """Custom type xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_XdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode_Type.__name__ = "Integer32"
+_XdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode_Object = MibTableColumn
+xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode = _XdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 4),
+    _XdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode_Type()
+)
+xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode.setStatus("mandatory")
+
+
+class _XdslDevSDSLSpecificIfConfigMinSnrMargin_Type(Integer32):
+    """Custom type xdslDevSDSLSpecificIfConfigMinSnrMargin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 15),
+    )
+
+
+_XdslDevSDSLSpecificIfConfigMinSnrMargin_Type.__name__ = "Integer32"
+_XdslDevSDSLSpecificIfConfigMinSnrMargin_Object = MibTableColumn
+xdslDevSDSLSpecificIfConfigMinSnrMargin = _XdslDevSDSLSpecificIfConfigMinSnrMargin_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 5),
+    _XdslDevSDSLSpecificIfConfigMinSnrMargin_Type()
+)
+xdslDevSDSLSpecificIfConfigMinSnrMargin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevSDSLSpecificIfConfigMinSnrMargin.setStatus("mandatory")
+
+
+class _XdslDevSDSLSpecificIfConfigTargetSnrMargin_Type(Integer32):
+    """Custom type xdslDevSDSLSpecificIfConfigTargetSnrMargin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 15),
+    )
+
+
+_XdslDevSDSLSpecificIfConfigTargetSnrMargin_Type.__name__ = "Integer32"
+_XdslDevSDSLSpecificIfConfigTargetSnrMargin_Object = MibTableColumn
+xdslDevSDSLSpecificIfConfigTargetSnrMargin = _XdslDevSDSLSpecificIfConfigTargetSnrMargin_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 4, 1, 1, 6),
+    _XdslDevSDSLSpecificIfConfigTargetSnrMargin_Type()
+)
+xdslDevSDSLSpecificIfConfigTargetSnrMargin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevSDSLSpecificIfConfigTargetSnrMargin.setStatus("mandatory")
+_XdslDevIDSLSpecificIfConfig_ObjectIdentity = ObjectIdentity
+xdslDevIDSLSpecificIfConfig = _XdslDevIDSLSpecificIfConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5)
+)
+_XdslDevIDSLSpecificIfConfigTable_Object = MibTable
+xdslDevIDSLSpecificIfConfigTable = _XdslDevIDSLSpecificIfConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5, 1)
+)
+if mibBuilder.loadTexts:
+    xdslDevIDSLSpecificIfConfigTable.setStatus("mandatory")
+_XdslDevIDSLSpecificIfConfigEntry_Object = MibTableRow
+xdslDevIDSLSpecificIfConfigEntry = _XdslDevIDSLSpecificIfConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5, 1, 1)
+)
+xdslDevIDSLSpecificIfConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    xdslDevIDSLSpecificIfConfigEntry.setStatus("mandatory")
+_XdslDevIDSLSpecificIfConfigPortSpeed_Type = Integer32
+_XdslDevIDSLSpecificIfConfigPortSpeed_Object = MibTableColumn
+xdslDevIDSLSpecificIfConfigPortSpeed = _XdslDevIDSLSpecificIfConfigPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5, 1, 1, 1),
+    _XdslDevIDSLSpecificIfConfigPortSpeed_Type()
+)
+xdslDevIDSLSpecificIfConfigPortSpeed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevIDSLSpecificIfConfigPortSpeed.setStatus("mandatory")
+
+
+class _XdslDevIDSLSpecificIfConfigTimingPortTransceiverMode_Type(Integer32):
+    """Custom type xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("networkTiming", 1),
+          ("localTiming", 2))
+    )
+
+
+_XdslDevIDSLSpecificIfConfigTimingPortTransceiverMode_Type.__name__ = "Integer32"
+_XdslDevIDSLSpecificIfConfigTimingPortTransceiverMode_Object = MibTableColumn
+xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode = _XdslDevIDSLSpecificIfConfigTimingPortTransceiverMode_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5, 1, 1, 2),
+    _XdslDevIDSLSpecificIfConfigTimingPortTransceiverMode_Type()
+)
+xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode.setStatus("mandatory")
+
+
+class _XdslDevIDSLSpecificChannel_Type(Integer32):
+    """Custom type xdslDevIDSLSpecificChannel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("b1", 1),
+          ("b2", 2),
+          ("noOp", 3))
+    )
+
+
+_XdslDevIDSLSpecificChannel_Type.__name__ = "Integer32"
+_XdslDevIDSLSpecificChannel_Object = MibTableColumn
+xdslDevIDSLSpecificChannel = _XdslDevIDSLSpecificChannel_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 2, 5, 1, 1, 3),
+    _XdslDevIDSLSpecificChannel_Type()
+)
+xdslDevIDSLSpecificChannel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    xdslDevIDSLSpecificChannel.setStatus("mandatory")
+_XdslIfConfigMIBTraps_ObjectIdentity = ObjectIdentity
+xdslIfConfigMIBTraps = _XdslIfConfigMIBTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 4)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+xdslLinkUpDownTransitions = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 9, 4, 0, 1)
+)
+xdslLinkUpDownTransitions.setObjects(
+    ("IF-MIB", "ifIndex")
+)
+if mibBuilder.loadTexts:
+    xdslLinkUpDownTransitions.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PDN-XDSL-INTERFACE-MIB",
+    **{"xdslIfConfigMIBObjects": xdslIfConfigMIBObjects,
+       "xdslDevGenericIfConfig": xdslDevGenericIfConfig,
+       "xdslDevGenericIfConfigTable": xdslDevGenericIfConfigTable,
+       "xdslDevGenericIfConfigEntry": xdslDevGenericIfConfigEntry,
+       "xdslDevGenericIfConfigPortSpeedBehaviour": xdslDevGenericIfConfigPortSpeedBehaviour,
+       "xdslDevGenericIfConfigMarginThreshold": xdslDevGenericIfConfigMarginThreshold,
+       "xdslDevGenericIfConfigPortID": xdslDevGenericIfConfigPortID,
+       "xdslDevGenericIfConfigLinkUpDownTransitionThreshold": xdslDevGenericIfConfigLinkUpDownTransitionThreshold,
+       "xdslDevGenericIfConfigLineEncodeType": xdslDevGenericIfConfigLineEncodeType,
+       "xdslDevGenericIfConfigLineRateMode": xdslDevGenericIfConfigLineRateMode,
+       "xdslDevGenericIfConfigLinkEncapType": xdslDevGenericIfConfigLinkEncapType,
+       "xdslDevGenericIfConfigSnType": xdslDevGenericIfConfigSnType,
+       "xdslDevRADSLSpecificIfConfig": xdslDevRADSLSpecificIfConfig,
+       "xdslDevRADSLSpecificIfConfigTable": xdslDevRADSLSpecificIfConfigTable,
+       "xdslDevRADSLSpecificIfConfigEntry": xdslDevRADSLSpecificIfConfigEntry,
+       "xdslDevRADSLSpecificIfConfigUpFixedPortSpeed": xdslDevRADSLSpecificIfConfigUpFixedPortSpeed,
+       "xdslDevRADSLSpecificIfConfigDownFixedPortSpeed": xdslDevRADSLSpecificIfConfigDownFixedPortSpeed,
+       "xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed": xdslDevRADSLSpecificIfConfigUpAdaptiveUpperBoundPortSpeed,
+       "xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed": xdslDevRADSLSpecificIfConfigUpAdaptiveLowerBoundPortSpeed,
+       "xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed": xdslDevRADSLSpecificIfConfigDownAdaptiveUpperBoundPortSpeed,
+       "xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed": xdslDevRADSLSpecificIfConfigDownAdaptiveLowerBoundPortSpeed,
+       "xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection": xdslDevRADSLSpecificIfConfigReedSolomonDownFwdErrCorrection,
+       "xdslDevRADSLSpecificIfConfigStartUpMargin": xdslDevRADSLSpecificIfConfigStartUpMargin,
+       "xdslDevRADSLSpecificIfConfigTxPowerAttenuation": xdslDevRADSLSpecificIfConfigTxPowerAttenuation,
+       "xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation": xdslDevRADSLSpecificIfConfigSnTxPowerAttenuation,
+       "xdslDevMVLSpecificIfConfig": xdslDevMVLSpecificIfConfig,
+       "xdslDevMVLSpecificIfConfigTable": xdslDevMVLSpecificIfConfigTable,
+       "xdslDevMVLSpecificIfConfigEntry": xdslDevMVLSpecificIfConfigEntry,
+       "xdslDevMVLSpecificIfConfigMaxPortSpeed": xdslDevMVLSpecificIfConfigMaxPortSpeed,
+       "xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation": xdslDevMVLSpecificIfConfigOnHookTxPowerAttenuation,
+       "xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation": xdslDevMVLSpecificIfConfigOffHookTxPowerAttenuation,
+       "xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue": xdslDevMVLSpecificIfConfigOnHookPCVoltageDropThresholdValue,
+       "xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue": xdslDevMVLSpecificIfConfigOnHookSNVoltageDropThresholdValue,
+       "xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed": xdslDevMVLSpecificIfConfigMaxDownStreamPortSpeed,
+       "xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed": xdslDevMVLSpecificIfConfigMaxUpStreamPortSpeed,
+       "xdslDevSDSLSpecificIfConfig": xdslDevSDSLSpecificIfConfig,
+       "xdslDevSDSLSpecificIfConfigTable": xdslDevSDSLSpecificIfConfigTable,
+       "xdslDevSDSLSpecificIfConfigEntry": xdslDevSDSLSpecificIfConfigEntry,
+       "xdslDevSDSLSpecificIfConfigFixedPortSpeed": xdslDevSDSLSpecificIfConfigFixedPortSpeed,
+       "xdslDevSDSLSpecificIfConfigMaxPortSpeed": xdslDevSDSLSpecificIfConfigMaxPortSpeed,
+       "xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode": xdslDevSDSLSpecificIfConfigFixedPortSpeedNx128Mode,
+       "xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode": xdslDevSDSLSpecificIfConfigMaxPortSpeedNx128Mode,
+       "xdslDevSDSLSpecificIfConfigMinSnrMargin": xdslDevSDSLSpecificIfConfigMinSnrMargin,
+       "xdslDevSDSLSpecificIfConfigTargetSnrMargin": xdslDevSDSLSpecificIfConfigTargetSnrMargin,
+       "xdslDevIDSLSpecificIfConfig": xdslDevIDSLSpecificIfConfig,
+       "xdslDevIDSLSpecificIfConfigTable": xdslDevIDSLSpecificIfConfigTable,
+       "xdslDevIDSLSpecificIfConfigEntry": xdslDevIDSLSpecificIfConfigEntry,
+       "xdslDevIDSLSpecificIfConfigPortSpeed": xdslDevIDSLSpecificIfConfigPortSpeed,
+       "xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode": xdslDevIDSLSpecificIfConfigTimingPortTransceiverMode,
+       "xdslDevIDSLSpecificChannel": xdslDevIDSLSpecificChannel,
+       "xdslIfConfigMIBTraps": xdslIfConfigMIBTraps,
+       "xdslLinkUpDownTransitions": xdslLinkUpDownTransitions}
+)

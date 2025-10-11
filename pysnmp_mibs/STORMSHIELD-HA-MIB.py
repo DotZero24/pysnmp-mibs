@@ -1,103 +1,625 @@
+# SNMP MIB module (STORMSHIELD-HA-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module STORMSHIELD-HA-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/stormshield/STORMSHIELD-HA-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:38 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/stormshield/STORMSHIELD-HA-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:06:37 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
-snsHA = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 11))
-snsHA.setRevisions(('2017-02-20 00:00',))
-if mibBuilder.loadTexts: snsHA.setLastUpdated('201702200000Z')
-if mibBuilder.loadTexts: snsHA.setOrganization('Stormshield')
-snsNbNode = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 11, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNbNode.setStatus('current')
-snsNbDeadNode = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 11, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNbDeadNode.setStatus('current')
-snsNbActiveNode = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 11, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNbActiveNode.setStatus('current')
-snsNbHALinks = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 11, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNbHALinks.setStatus('current')
-snsNbFaultyHALinks = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 11, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNbFaultyHALinks.setStatus('current')
-snsNodeTable = MibTable((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7), )
-if mibBuilder.loadTexts: snsNodeTable.setStatus('current')
-snsNode = MibTableRow((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1), ).setIndexNames((0, "STORMSHIELD-HA-MIB", "snsNodeIndex"))
-if mibBuilder.loadTexts: snsNode.setStatus('current')
-snsNodeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2)))
-if mibBuilder.loadTexts: snsNodeIndex.setStatus('current')
-snsFwSerial = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsFwSerial.setStatus('current')
-snsOnline = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsOnline.setStatus('current')
-snsModel = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsModel.setStatus('current')
-snsVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsVersion.setStatus('current')
-snsHALicence = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsHALicence.setStatus('current')
-snsHAQuality = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsHAQuality.setStatus('current')
-snsHAPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsHAPriority.setStatus('current')
-snsHAStatusForced = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsHAStatusForced.setStatus('current')
-snsHAActive = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 10), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsHAActive.setStatus('current')
-snsUptime = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsUptime.setStatus('current')
-snsHASyncStatus = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 11, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsHASyncStatus.setStatus('current')
-snsHAFwAdminRevison = MibScalar((1, 3, 6, 1, 4, 1, 11256, 1, 11, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsHAFwAdminRevison.setStatus('current')
-snsNodePowerSupplyTable = MibTable((1, 3, 6, 1, 4, 1, 11256, 1, 11, 10), )
-if mibBuilder.loadTexts: snsNodePowerSupplyTable.setStatus('current')
-snsNodePowerSupplyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11256, 1, 11, 10, 1), ).setIndexNames((0, "STORMSHIELD-HA-MIB", "snsNodeIndex"), (0, "STORMSHIELD-HA-MIB", "snsNodePowerSupplyIndex"))
-if mibBuilder.loadTexts: snsNodePowerSupplyEntry.setStatus('current')
-snsNodePowerSupplyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 10, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
-if mibBuilder.loadTexts: snsNodePowerSupplyIndex.setStatus('current')
-snsNodePowerSupplyPowered = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 10, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNodePowerSupplyPowered.setStatus('current')
-snsNodeDiskTable = MibTable((1, 3, 6, 1, 4, 1, 11256, 1, 11, 11), )
-if mibBuilder.loadTexts: snsNodeDiskTable.setStatus('current')
-snsNodeDiskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1), ).setIndexNames((0, "STORMSHIELD-HA-MIB", "snsNodeIndex"), (0, "STORMSHIELD-HA-MIB", "snsNodeDiskIndex"))
-if mibBuilder.loadTexts: snsNodeDiskEntry.setStatus('current')
-snsNodeDiskIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
-if mibBuilder.loadTexts: snsNodeDiskIndex.setStatus('current')
-snsNodeDiskName = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNodeDiskName.setStatus('current')
-snsNodeDiskSmartResult = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNodeDiskSmartResult.setStatus('current')
-snsNodeDiskIsRaid = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNodeDiskIsRaid.setStatus('current')
-snsNodeDiskRaidStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNodeDiskRaidStatus.setStatus('current')
-snsNodeDiskPosition = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNodeDiskPosition.setStatus('current')
-snsNodeCpuTable = MibTable((1, 3, 6, 1, 4, 1, 11256, 1, 11, 12), )
-if mibBuilder.loadTexts: snsNodeCpuTable.setStatus('current')
-snsNodeCpuEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11256, 1, 11, 12, 1), ).setIndexNames((0, "STORMSHIELD-HA-MIB", "snsNodeIndex"), (0, "STORMSHIELD-HA-MIB", "snsNodeCpuIndex"))
-if mibBuilder.loadTexts: snsNodeCpuEntry.setStatus('current')
-snsNodeCpuIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 12, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
-if mibBuilder.loadTexts: snsNodeCpuIndex.setStatus('current')
-snsNodeCpuTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 12, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNodeCpuTemp.setStatus('current')
-snsNodeFanTable = MibTable((1, 3, 6, 1, 4, 1, 11256, 1, 11, 13), )
-if mibBuilder.loadTexts: snsNodeFanTable.setStatus('current')
-snsNodeFanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11256, 1, 11, 13, 1), ).setIndexNames((0, "STORMSHIELD-HA-MIB", "snsNodeIndex"), (0, "STORMSHIELD-HA-MIB", "snsNodeFanIndex"))
-if mibBuilder.loadTexts: snsNodeFanEntry.setStatus('current')
-snsNodeFanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 13, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
-if mibBuilder.loadTexts: snsNodeFanIndex.setStatus('current')
-snsNodeFanName = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 13, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNodeFanName.setStatus('current')
-snsNodeFanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 13, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNodeFanStatus.setStatus('current')
-snsNodeFanRpm = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 11, 13, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4294967295))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsNodeFanRpm.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-HA-MIB", snsNbFaultyHALinks=snsNbFaultyHALinks, snsNodeDiskSmartResult=snsNodeDiskSmartResult, snsNodePowerSupplyIndex=snsNodePowerSupplyIndex, snsNodeDiskPosition=snsNodeDiskPosition, snsNodeDiskEntry=snsNodeDiskEntry, snsNodeDiskIndex=snsNodeDiskIndex, snsNodeFanEntry=snsNodeFanEntry, snsNodePowerSupplyEntry=snsNodePowerSupplyEntry, snsNodeCpuEntry=snsNodeCpuEntry, snsHA=snsHA, snsHAPriority=snsHAPriority, snsNbNode=snsNbNode, snsNodeCpuTemp=snsNodeCpuTemp, snsNbDeadNode=snsNbDeadNode, snsNodeIndex=snsNodeIndex, snsNodeFanTable=snsNodeFanTable, snsHAQuality=snsHAQuality, snsHASyncStatus=snsHASyncStatus, snsNodeFanStatus=snsNodeFanStatus, snsNodeDiskTable=snsNodeDiskTable, snsHAActive=snsHAActive, snsNbHALinks=snsNbHALinks, snsNodePowerSupplyPowered=snsNodePowerSupplyPowered, snsHAStatusForced=snsHAStatusForced, snsNodeDiskName=snsNodeDiskName, snsNodeDiskIsRaid=snsNodeDiskIsRaid, snsFwSerial=snsFwSerial, snsNodeDiskRaidStatus=snsNodeDiskRaidStatus, snsModel=snsModel, snsUptime=snsUptime, snsVersion=snsVersion, snsNodeTable=snsNodeTable, PYSNMP_MODULE_ID=snsHA, snsNode=snsNode, snsHAFwAdminRevison=snsHAFwAdminRevison, snsNodeFanName=snsNodeFanName, snsNbActiveNode=snsNbActiveNode, snsNodeCpuTable=snsNodeCpuTable, snsNodeCpuIndex=snsNodeCpuIndex, snsHALicence=snsHALicence, snsNodeFanRpm=snsNodeFanRpm, snsNodeFanIndex=snsNodeFanIndex, snsNodePowerSupplyTable=snsNodePowerSupplyTable, snsOnline=snsOnline)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+(stormshieldMIB,) = mibBuilder.importSymbols(
+    "STORMSHIELD-SMI-MIB",
+    "stormshieldMIB")
+
+
+# MODULE-IDENTITY
+
+snsHA = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11)
+)
+if mibBuilder.loadTexts:
+    snsHA.setRevisions(
+        ("2017-02-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SnsNbNode_Type = Integer32
+_SnsNbNode_Object = MibScalar
+snsNbNode = _SnsNbNode_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 1),
+    _SnsNbNode_Type()
+)
+snsNbNode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNbNode.setStatus("current")
+_SnsNbDeadNode_Type = Integer32
+_SnsNbDeadNode_Object = MibScalar
+snsNbDeadNode = _SnsNbDeadNode_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 2),
+    _SnsNbDeadNode_Type()
+)
+snsNbDeadNode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNbDeadNode.setStatus("current")
+_SnsNbActiveNode_Type = Integer32
+_SnsNbActiveNode_Object = MibScalar
+snsNbActiveNode = _SnsNbActiveNode_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 3),
+    _SnsNbActiveNode_Type()
+)
+snsNbActiveNode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNbActiveNode.setStatus("current")
+_SnsNbHALinks_Type = Integer32
+_SnsNbHALinks_Object = MibScalar
+snsNbHALinks = _SnsNbHALinks_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 5),
+    _SnsNbHALinks_Type()
+)
+snsNbHALinks.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNbHALinks.setStatus("current")
+_SnsNbFaultyHALinks_Type = Integer32
+_SnsNbFaultyHALinks_Object = MibScalar
+snsNbFaultyHALinks = _SnsNbFaultyHALinks_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 6),
+    _SnsNbFaultyHALinks_Type()
+)
+snsNbFaultyHALinks.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNbFaultyHALinks.setStatus("current")
+_SnsNodeTable_Object = MibTable
+snsNodeTable = _SnsNodeTable_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7)
+)
+if mibBuilder.loadTexts:
+    snsNodeTable.setStatus("current")
+_SnsNode_Object = MibTableRow
+snsNode = _SnsNode_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1)
+)
+snsNode.setIndexNames(
+    (0, "STORMSHIELD-HA-MIB", "snsNodeIndex"),
+)
+if mibBuilder.loadTexts:
+    snsNode.setStatus("current")
+
+
+class _SnsNodeIndex_Type(Integer32):
+    """Custom type snsNodeIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_SnsNodeIndex_Type.__name__ = "Integer32"
+_SnsNodeIndex_Object = MibTableColumn
+snsNodeIndex = _SnsNodeIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 1),
+    _SnsNodeIndex_Type()
+)
+snsNodeIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snsNodeIndex.setStatus("current")
+_SnsFwSerial_Type = DisplayString
+_SnsFwSerial_Object = MibTableColumn
+snsFwSerial = _SnsFwSerial_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 2),
+    _SnsFwSerial_Type()
+)
+snsFwSerial.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsFwSerial.setStatus("current")
+_SnsOnline_Type = TruthValue
+_SnsOnline_Object = MibTableColumn
+snsOnline = _SnsOnline_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 3),
+    _SnsOnline_Type()
+)
+snsOnline.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsOnline.setStatus("current")
+_SnsModel_Type = DisplayString
+_SnsModel_Object = MibTableColumn
+snsModel = _SnsModel_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 4),
+    _SnsModel_Type()
+)
+snsModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsModel.setStatus("current")
+_SnsVersion_Type = DisplayString
+_SnsVersion_Object = MibTableColumn
+snsVersion = _SnsVersion_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 5),
+    _SnsVersion_Type()
+)
+snsVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsVersion.setStatus("current")
+_SnsHALicence_Type = DisplayString
+_SnsHALicence_Object = MibTableColumn
+snsHALicence = _SnsHALicence_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 6),
+    _SnsHALicence_Type()
+)
+snsHALicence.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsHALicence.setStatus("current")
+_SnsHAQuality_Type = Integer32
+_SnsHAQuality_Object = MibTableColumn
+snsHAQuality = _SnsHAQuality_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 7),
+    _SnsHAQuality_Type()
+)
+snsHAQuality.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsHAQuality.setStatus("current")
+_SnsHAPriority_Type = Integer32
+_SnsHAPriority_Object = MibTableColumn
+snsHAPriority = _SnsHAPriority_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 8),
+    _SnsHAPriority_Type()
+)
+snsHAPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsHAPriority.setStatus("current")
+_SnsHAStatusForced_Type = Integer32
+_SnsHAStatusForced_Object = MibTableColumn
+snsHAStatusForced = _SnsHAStatusForced_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 9),
+    _SnsHAStatusForced_Type()
+)
+snsHAStatusForced.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsHAStatusForced.setStatus("current")
+_SnsHAActive_Type = TruthValue
+_SnsHAActive_Object = MibTableColumn
+snsHAActive = _SnsHAActive_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 10),
+    _SnsHAActive_Type()
+)
+snsHAActive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsHAActive.setStatus("current")
+_SnsUptime_Type = Integer32
+_SnsUptime_Object = MibTableColumn
+snsUptime = _SnsUptime_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 7, 1, 11),
+    _SnsUptime_Type()
+)
+snsUptime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsUptime.setStatus("current")
+_SnsHASyncStatus_Type = Integer32
+_SnsHASyncStatus_Object = MibScalar
+snsHASyncStatus = _SnsHASyncStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 8),
+    _SnsHASyncStatus_Type()
+)
+snsHASyncStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsHASyncStatus.setStatus("current")
+_SnsHAFwAdminRevison_Type = DisplayString
+_SnsHAFwAdminRevison_Object = MibScalar
+snsHAFwAdminRevison = _SnsHAFwAdminRevison_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 9),
+    _SnsHAFwAdminRevison_Type()
+)
+snsHAFwAdminRevison.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsHAFwAdminRevison.setStatus("current")
+_SnsNodePowerSupplyTable_Object = MibTable
+snsNodePowerSupplyTable = _SnsNodePowerSupplyTable_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 10)
+)
+if mibBuilder.loadTexts:
+    snsNodePowerSupplyTable.setStatus("current")
+_SnsNodePowerSupplyEntry_Object = MibTableRow
+snsNodePowerSupplyEntry = _SnsNodePowerSupplyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 10, 1)
+)
+snsNodePowerSupplyEntry.setIndexNames(
+    (0, "STORMSHIELD-HA-MIB", "snsNodeIndex"),
+    (0, "STORMSHIELD-HA-MIB", "snsNodePowerSupplyIndex"),
+)
+if mibBuilder.loadTexts:
+    snsNodePowerSupplyEntry.setStatus("current")
+
+
+class _SnsNodePowerSupplyIndex_Type(Integer32):
+    """Custom type snsNodePowerSupplyIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SnsNodePowerSupplyIndex_Type.__name__ = "Integer32"
+_SnsNodePowerSupplyIndex_Object = MibTableColumn
+snsNodePowerSupplyIndex = _SnsNodePowerSupplyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 10, 1, 1),
+    _SnsNodePowerSupplyIndex_Type()
+)
+snsNodePowerSupplyIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snsNodePowerSupplyIndex.setStatus("current")
+_SnsNodePowerSupplyPowered_Type = TruthValue
+_SnsNodePowerSupplyPowered_Object = MibTableColumn
+snsNodePowerSupplyPowered = _SnsNodePowerSupplyPowered_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 10, 1, 2),
+    _SnsNodePowerSupplyPowered_Type()
+)
+snsNodePowerSupplyPowered.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNodePowerSupplyPowered.setStatus("current")
+_SnsNodeDiskTable_Object = MibTable
+snsNodeDiskTable = _SnsNodeDiskTable_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 11)
+)
+if mibBuilder.loadTexts:
+    snsNodeDiskTable.setStatus("current")
+_SnsNodeDiskEntry_Object = MibTableRow
+snsNodeDiskEntry = _SnsNodeDiskEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1)
+)
+snsNodeDiskEntry.setIndexNames(
+    (0, "STORMSHIELD-HA-MIB", "snsNodeIndex"),
+    (0, "STORMSHIELD-HA-MIB", "snsNodeDiskIndex"),
+)
+if mibBuilder.loadTexts:
+    snsNodeDiskEntry.setStatus("current")
+
+
+class _SnsNodeDiskIndex_Type(Integer32):
+    """Custom type snsNodeDiskIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SnsNodeDiskIndex_Type.__name__ = "Integer32"
+_SnsNodeDiskIndex_Object = MibTableColumn
+snsNodeDiskIndex = _SnsNodeDiskIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 1),
+    _SnsNodeDiskIndex_Type()
+)
+snsNodeDiskIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snsNodeDiskIndex.setStatus("current")
+_SnsNodeDiskName_Type = DisplayString
+_SnsNodeDiskName_Object = MibTableColumn
+snsNodeDiskName = _SnsNodeDiskName_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 2),
+    _SnsNodeDiskName_Type()
+)
+snsNodeDiskName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNodeDiskName.setStatus("current")
+_SnsNodeDiskSmartResult_Type = DisplayString
+_SnsNodeDiskSmartResult_Object = MibTableColumn
+snsNodeDiskSmartResult = _SnsNodeDiskSmartResult_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 3),
+    _SnsNodeDiskSmartResult_Type()
+)
+snsNodeDiskSmartResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNodeDiskSmartResult.setStatus("current")
+
+
+class _SnsNodeDiskIsRaid_Type(Integer32):
+    """Custom type snsNodeDiskIsRaid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_SnsNodeDiskIsRaid_Type.__name__ = "Integer32"
+_SnsNodeDiskIsRaid_Object = MibTableColumn
+snsNodeDiskIsRaid = _SnsNodeDiskIsRaid_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 4),
+    _SnsNodeDiskIsRaid_Type()
+)
+snsNodeDiskIsRaid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNodeDiskIsRaid.setStatus("current")
+_SnsNodeDiskRaidStatus_Type = DisplayString
+_SnsNodeDiskRaidStatus_Object = MibTableColumn
+snsNodeDiskRaidStatus = _SnsNodeDiskRaidStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 5),
+    _SnsNodeDiskRaidStatus_Type()
+)
+snsNodeDiskRaidStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNodeDiskRaidStatus.setStatus("current")
+_SnsNodeDiskPosition_Type = DisplayString
+_SnsNodeDiskPosition_Object = MibTableColumn
+snsNodeDiskPosition = _SnsNodeDiskPosition_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 11, 1, 6),
+    _SnsNodeDiskPosition_Type()
+)
+snsNodeDiskPosition.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNodeDiskPosition.setStatus("current")
+_SnsNodeCpuTable_Object = MibTable
+snsNodeCpuTable = _SnsNodeCpuTable_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 12)
+)
+if mibBuilder.loadTexts:
+    snsNodeCpuTable.setStatus("current")
+_SnsNodeCpuEntry_Object = MibTableRow
+snsNodeCpuEntry = _SnsNodeCpuEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 12, 1)
+)
+snsNodeCpuEntry.setIndexNames(
+    (0, "STORMSHIELD-HA-MIB", "snsNodeIndex"),
+    (0, "STORMSHIELD-HA-MIB", "snsNodeCpuIndex"),
+)
+if mibBuilder.loadTexts:
+    snsNodeCpuEntry.setStatus("current")
+
+
+class _SnsNodeCpuIndex_Type(Integer32):
+    """Custom type snsNodeCpuIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SnsNodeCpuIndex_Type.__name__ = "Integer32"
+_SnsNodeCpuIndex_Object = MibTableColumn
+snsNodeCpuIndex = _SnsNodeCpuIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 12, 1, 1),
+    _SnsNodeCpuIndex_Type()
+)
+snsNodeCpuIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snsNodeCpuIndex.setStatus("current")
+_SnsNodeCpuTemp_Type = Integer32
+_SnsNodeCpuTemp_Object = MibTableColumn
+snsNodeCpuTemp = _SnsNodeCpuTemp_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 12, 1, 2),
+    _SnsNodeCpuTemp_Type()
+)
+snsNodeCpuTemp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNodeCpuTemp.setStatus("current")
+_SnsNodeFanTable_Object = MibTable
+snsNodeFanTable = _SnsNodeFanTable_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 13)
+)
+if mibBuilder.loadTexts:
+    snsNodeFanTable.setStatus("current")
+_SnsNodeFanEntry_Object = MibTableRow
+snsNodeFanEntry = _SnsNodeFanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 13, 1)
+)
+snsNodeFanEntry.setIndexNames(
+    (0, "STORMSHIELD-HA-MIB", "snsNodeIndex"),
+    (0, "STORMSHIELD-HA-MIB", "snsNodeFanIndex"),
+)
+if mibBuilder.loadTexts:
+    snsNodeFanEntry.setStatus("current")
+
+
+class _SnsNodeFanIndex_Type(Integer32):
+    """Custom type snsNodeFanIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SnsNodeFanIndex_Type.__name__ = "Integer32"
+_SnsNodeFanIndex_Object = MibTableColumn
+snsNodeFanIndex = _SnsNodeFanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 13, 1, 1),
+    _SnsNodeFanIndex_Type()
+)
+snsNodeFanIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snsNodeFanIndex.setStatus("current")
+_SnsNodeFanName_Type = DisplayString
+_SnsNodeFanName_Object = MibTableColumn
+snsNodeFanName = _SnsNodeFanName_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 13, 1, 2),
+    _SnsNodeFanName_Type()
+)
+snsNodeFanName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNodeFanName.setStatus("current")
+_SnsNodeFanStatus_Type = DisplayString
+_SnsNodeFanStatus_Object = MibTableColumn
+snsNodeFanStatus = _SnsNodeFanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 13, 1, 3),
+    _SnsNodeFanStatus_Type()
+)
+snsNodeFanStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNodeFanStatus.setStatus("current")
+
+
+class _SnsNodeFanRpm_Type(Unsigned32):
+    """Custom type snsNodeFanRpm based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4294967295),
+    )
+
+
+_SnsNodeFanRpm_Type.__name__ = "Unsigned32"
+_SnsNodeFanRpm_Object = MibTableColumn
+snsNodeFanRpm = _SnsNodeFanRpm_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 11, 13, 1, 4),
+    _SnsNodeFanRpm_Type()
+)
+snsNodeFanRpm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsNodeFanRpm.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "STORMSHIELD-HA-MIB",
+    **{"snsHA": snsHA,
+       "snsNbNode": snsNbNode,
+       "snsNbDeadNode": snsNbDeadNode,
+       "snsNbActiveNode": snsNbActiveNode,
+       "snsNbHALinks": snsNbHALinks,
+       "snsNbFaultyHALinks": snsNbFaultyHALinks,
+       "snsNodeTable": snsNodeTable,
+       "snsNode": snsNode,
+       "snsNodeIndex": snsNodeIndex,
+       "snsFwSerial": snsFwSerial,
+       "snsOnline": snsOnline,
+       "snsModel": snsModel,
+       "snsVersion": snsVersion,
+       "snsHALicence": snsHALicence,
+       "snsHAQuality": snsHAQuality,
+       "snsHAPriority": snsHAPriority,
+       "snsHAStatusForced": snsHAStatusForced,
+       "snsHAActive": snsHAActive,
+       "snsUptime": snsUptime,
+       "snsHASyncStatus": snsHASyncStatus,
+       "snsHAFwAdminRevison": snsHAFwAdminRevison,
+       "snsNodePowerSupplyTable": snsNodePowerSupplyTable,
+       "snsNodePowerSupplyEntry": snsNodePowerSupplyEntry,
+       "snsNodePowerSupplyIndex": snsNodePowerSupplyIndex,
+       "snsNodePowerSupplyPowered": snsNodePowerSupplyPowered,
+       "snsNodeDiskTable": snsNodeDiskTable,
+       "snsNodeDiskEntry": snsNodeDiskEntry,
+       "snsNodeDiskIndex": snsNodeDiskIndex,
+       "snsNodeDiskName": snsNodeDiskName,
+       "snsNodeDiskSmartResult": snsNodeDiskSmartResult,
+       "snsNodeDiskIsRaid": snsNodeDiskIsRaid,
+       "snsNodeDiskRaidStatus": snsNodeDiskRaidStatus,
+       "snsNodeDiskPosition": snsNodeDiskPosition,
+       "snsNodeCpuTable": snsNodeCpuTable,
+       "snsNodeCpuEntry": snsNodeCpuEntry,
+       "snsNodeCpuIndex": snsNodeCpuIndex,
+       "snsNodeCpuTemp": snsNodeCpuTemp,
+       "snsNodeFanTable": snsNodeFanTable,
+       "snsNodeFanEntry": snsNodeFanEntry,
+       "snsNodeFanIndex": snsNodeFanIndex,
+       "snsNodeFanName": snsNodeFanName,
+       "snsNodeFanStatus": snsNodeFanStatus,
+       "snsNodeFanRpm": snsNodeFanRpm}
+)

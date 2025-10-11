@@ -1,83 +1,641 @@
+# SNMP MIB module (WRED-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module WRED-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/WRED-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:27 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/WRED-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:52:32 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-swWredMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 31))
-if mibBuilder.loadTexts: swWredMIB.setLastUpdated('1109300000Z')
-if mibBuilder.loadTexts: swWredMIB.setOrganization('D-Link Corp.')
-swWredCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 31, 1))
-swWredInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 31, 2))
-swWredMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 31, 3))
-swWredGlobalState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 31, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("disabled", 2), ("enabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swWredGlobalState.setStatus('current')
-swWredAverageTimeTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 1), )
-if mibBuilder.loadTexts: swWredAverageTimeTable.setStatus('current')
-swWredAverageTimeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 1, 1), ).setIndexNames((0, "WRED-MIB", "swWredPortIndex"))
-if mibBuilder.loadTexts: swWredAverageTimeEntry.setStatus('current')
-swWredPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swWredPortIndex.setStatus('current')
-swWredAverageTime = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 32768))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swWredAverageTime.setStatus('current')
-swWredCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2), )
-if mibBuilder.loadTexts: swWredCtrlTable.setStatus('current')
-swWredCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2, 1), ).setIndexNames((0, "WRED-MIB", "swWredCtrlPortIndex"), (0, "WRED-MIB", "swWredCtrlClassIndex"))
-if mibBuilder.loadTexts: swWredCtrlEntry.setStatus('current')
-swWredCtrlPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swWredCtrlPortIndex.setStatus('current')
-swWredCtrlClassIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swWredCtrlClassIndex.setStatus('current')
-swWredCtrlDropStart = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swWredCtrlDropStart.setStatus('current')
-swWredCtrlDropSlope = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 90))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swWredCtrlDropSlope.setStatus('current')
-swWredProfileTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 4), )
-if mibBuilder.loadTexts: swWredProfileTable.setStatus('current')
-swWredProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 4, 1), ).setIndexNames((0, "WRED-MIB", "swWredProfileIndex"))
-if mibBuilder.loadTexts: swWredProfileEntry.setStatus('current')
-swWredProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swWredProfileIndex.setStatus('current')
-swWredProfileName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 4, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swWredProfileName.setStatus('current')
-swWredProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swWredProfileRowStatus.setStatus('current')
-swWredProfileCfgTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5), )
-if mibBuilder.loadTexts: swWredProfileCfgTable.setStatus('current')
-swWredProfileCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1), ).setIndexNames((0, "WRED-MIB", "swWredProfileCfgIndex"), (0, "WRED-MIB", "swWredProfileCfgPacketType"), (0, "WRED-MIB", "swWredProfileCfgPacketColor"))
-if mibBuilder.loadTexts: swWredProfileCfgEntry.setStatus('current')
-swWredProfileCfgIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swWredProfileCfgIndex.setStatus('current')
-swWredProfileCfgPacketType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("tcp", 1), ("nonTcp", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swWredProfileCfgPacketType.setStatus('current')
-swWredProfileCfgPacketColor = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("green", 1), ("yellow", 2), ("red", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swWredProfileCfgPacketColor.setStatus('current')
-swWredProfileCfgMinThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swWredProfileCfgMinThreshold.setStatus('current')
-swWredProfileCfgMaxThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swWredProfileCfgMaxThreshold.setStatus('current')
-swWredProfileCfgMaxDropRate = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swWredProfileCfgMaxDropRate.setStatus('current')
-swWredPortProfileTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6), )
-if mibBuilder.loadTexts: swWredPortProfileTable.setStatus('current')
-swWredPortProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6, 1), ).setIndexNames((0, "WRED-MIB", "swWredPortProfilePortIndex"), (0, "WRED-MIB", "swWredPortProfileClassIndex"))
-if mibBuilder.loadTexts: swWredPortProfileEntry.setStatus('current')
-swWredPortProfilePortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swWredPortProfilePortIndex.setStatus('current')
-swWredPortProfileClassIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swWredPortProfileClassIndex.setStatus('current')
-swWredPortProfileId = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swWredPortProfileId.setStatus('current')
-swWredPortWeightNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swWredPortWeightNum.setStatus('current')
-swWredAllPortAverageTime = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32768))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swWredAllPortAverageTime.setStatus('current')
-mibBuilder.exportSymbols("WRED-MIB", swWredProfileCfgMaxDropRate=swWredProfileCfgMaxDropRate, swWredPortIndex=swWredPortIndex, swWredGlobalState=swWredGlobalState, swWredCtrlDropSlope=swWredCtrlDropSlope, swWredAverageTimeTable=swWredAverageTimeTable, swWredCtrlPortIndex=swWredCtrlPortIndex, swWredCtrl=swWredCtrl, swWredMIB=swWredMIB, swWredCtrlDropStart=swWredCtrlDropStart, swWredAverageTime=swWredAverageTime, swWredProfileCfgTable=swWredProfileCfgTable, swWredProfileCfgPacketType=swWredProfileCfgPacketType, swWredPortProfileId=swWredPortProfileId, swWredProfileName=swWredProfileName, swWredPortProfileTable=swWredPortProfileTable, swWredPortWeightNum=swWredPortWeightNum, swWredCtrlTable=swWredCtrlTable, swWredAverageTimeEntry=swWredAverageTimeEntry, swWredMgmt=swWredMgmt, swWredProfileCfgMaxThreshold=swWredProfileCfgMaxThreshold, swWredProfileEntry=swWredProfileEntry, swWredProfileCfgIndex=swWredProfileCfgIndex, swWredProfileCfgEntry=swWredProfileCfgEntry, swWredProfileTable=swWredProfileTable, swWredCtrlEntry=swWredCtrlEntry, swWredAllPortAverageTime=swWredAllPortAverageTime, swWredProfileIndex=swWredProfileIndex, swWredPortProfileEntry=swWredPortProfileEntry, swWredInfo=swWredInfo, swWredProfileRowStatus=swWredProfileRowStatus, swWredCtrlClassIndex=swWredCtrlClassIndex, swWredPortProfileClassIndex=swWredPortProfileClassIndex, swWredPortProfilePortIndex=swWredPortProfilePortIndex, swWredProfileCfgMinThreshold=swWredProfileCfgMinThreshold, swWredProfileCfgPacketColor=swWredProfileCfgPacketColor, PYSNMP_MODULE_ID=swWredMIB)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_common_mgmt,) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-common-mgmt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+swWredMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SwWredCtrl_ObjectIdentity = ObjectIdentity
+swWredCtrl = _SwWredCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 1)
+)
+
+
+class _SwWredGlobalState_Type(Integer32):
+    """Custom type swWredGlobalState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("disabled", 2),
+          ("enabled", 3))
+    )
+
+
+_SwWredGlobalState_Type.__name__ = "Integer32"
+_SwWredGlobalState_Object = MibScalar
+swWredGlobalState = _SwWredGlobalState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 1, 1),
+    _SwWredGlobalState_Type()
+)
+swWredGlobalState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swWredGlobalState.setStatus("current")
+_SwWredInfo_ObjectIdentity = ObjectIdentity
+swWredInfo = _SwWredInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 2)
+)
+_SwWredMgmt_ObjectIdentity = ObjectIdentity
+swWredMgmt = _SwWredMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3)
+)
+_SwWredAverageTimeTable_Object = MibTable
+swWredAverageTimeTable = _SwWredAverageTimeTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 1)
+)
+if mibBuilder.loadTexts:
+    swWredAverageTimeTable.setStatus("current")
+_SwWredAverageTimeEntry_Object = MibTableRow
+swWredAverageTimeEntry = _SwWredAverageTimeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 1, 1)
+)
+swWredAverageTimeEntry.setIndexNames(
+    (0, "WRED-MIB", "swWredPortIndex"),
+)
+if mibBuilder.loadTexts:
+    swWredAverageTimeEntry.setStatus("current")
+
+
+class _SwWredPortIndex_Type(Integer32):
+    """Custom type swWredPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwWredPortIndex_Type.__name__ = "Integer32"
+_SwWredPortIndex_Object = MibTableColumn
+swWredPortIndex = _SwWredPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 1, 1, 1),
+    _SwWredPortIndex_Type()
+)
+swWredPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swWredPortIndex.setStatus("current")
+
+
+class _SwWredAverageTime_Type(Integer32):
+    """Custom type swWredAverageTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 32768),
+    )
+
+
+_SwWredAverageTime_Type.__name__ = "Integer32"
+_SwWredAverageTime_Object = MibTableColumn
+swWredAverageTime = _SwWredAverageTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 1, 1, 2),
+    _SwWredAverageTime_Type()
+)
+swWredAverageTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swWredAverageTime.setStatus("current")
+_SwWredCtrlTable_Object = MibTable
+swWredCtrlTable = _SwWredCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2)
+)
+if mibBuilder.loadTexts:
+    swWredCtrlTable.setStatus("current")
+_SwWredCtrlEntry_Object = MibTableRow
+swWredCtrlEntry = _SwWredCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2, 1)
+)
+swWredCtrlEntry.setIndexNames(
+    (0, "WRED-MIB", "swWredCtrlPortIndex"),
+    (0, "WRED-MIB", "swWredCtrlClassIndex"),
+)
+if mibBuilder.loadTexts:
+    swWredCtrlEntry.setStatus("current")
+
+
+class _SwWredCtrlPortIndex_Type(Integer32):
+    """Custom type swWredCtrlPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwWredCtrlPortIndex_Type.__name__ = "Integer32"
+_SwWredCtrlPortIndex_Object = MibTableColumn
+swWredCtrlPortIndex = _SwWredCtrlPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2, 1, 1),
+    _SwWredCtrlPortIndex_Type()
+)
+swWredCtrlPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swWredCtrlPortIndex.setStatus("current")
+
+
+class _SwWredCtrlClassIndex_Type(Integer32):
+    """Custom type swWredCtrlClassIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwWredCtrlClassIndex_Type.__name__ = "Integer32"
+_SwWredCtrlClassIndex_Object = MibTableColumn
+swWredCtrlClassIndex = _SwWredCtrlClassIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2, 1, 2),
+    _SwWredCtrlClassIndex_Type()
+)
+swWredCtrlClassIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swWredCtrlClassIndex.setStatus("current")
+
+
+class _SwWredCtrlDropStart_Type(Integer32):
+    """Custom type swWredCtrlDropStart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_SwWredCtrlDropStart_Type.__name__ = "Integer32"
+_SwWredCtrlDropStart_Object = MibTableColumn
+swWredCtrlDropStart = _SwWredCtrlDropStart_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2, 1, 3),
+    _SwWredCtrlDropStart_Type()
+)
+swWredCtrlDropStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swWredCtrlDropStart.setStatus("current")
+
+
+class _SwWredCtrlDropSlope_Type(Integer32):
+    """Custom type swWredCtrlDropSlope based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 90),
+    )
+
+
+_SwWredCtrlDropSlope_Type.__name__ = "Integer32"
+_SwWredCtrlDropSlope_Object = MibTableColumn
+swWredCtrlDropSlope = _SwWredCtrlDropSlope_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 2, 1, 4),
+    _SwWredCtrlDropSlope_Type()
+)
+swWredCtrlDropSlope.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swWredCtrlDropSlope.setStatus("current")
+
+
+class _SwWredAllPortAverageTime_Type(Integer32):
+    """Custom type swWredAllPortAverageTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32768),
+    )
+
+
+_SwWredAllPortAverageTime_Type.__name__ = "Integer32"
+_SwWredAllPortAverageTime_Object = MibScalar
+swWredAllPortAverageTime = _SwWredAllPortAverageTime_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 3),
+    _SwWredAllPortAverageTime_Type()
+)
+swWredAllPortAverageTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swWredAllPortAverageTime.setStatus("current")
+_SwWredProfileTable_Object = MibTable
+swWredProfileTable = _SwWredProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 4)
+)
+if mibBuilder.loadTexts:
+    swWredProfileTable.setStatus("current")
+_SwWredProfileEntry_Object = MibTableRow
+swWredProfileEntry = _SwWredProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 4, 1)
+)
+swWredProfileEntry.setIndexNames(
+    (0, "WRED-MIB", "swWredProfileIndex"),
+)
+if mibBuilder.loadTexts:
+    swWredProfileEntry.setStatus("current")
+_SwWredProfileIndex_Type = Integer32
+_SwWredProfileIndex_Object = MibTableColumn
+swWredProfileIndex = _SwWredProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 4, 1, 1),
+    _SwWredProfileIndex_Type()
+)
+swWredProfileIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swWredProfileIndex.setStatus("current")
+_SwWredProfileName_Type = DisplayString
+_SwWredProfileName_Object = MibTableColumn
+swWredProfileName = _SwWredProfileName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 4, 1, 2),
+    _SwWredProfileName_Type()
+)
+swWredProfileName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swWredProfileName.setStatus("current")
+_SwWredProfileRowStatus_Type = RowStatus
+_SwWredProfileRowStatus_Object = MibTableColumn
+swWredProfileRowStatus = _SwWredProfileRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 4, 1, 3),
+    _SwWredProfileRowStatus_Type()
+)
+swWredProfileRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swWredProfileRowStatus.setStatus("current")
+_SwWredProfileCfgTable_Object = MibTable
+swWredProfileCfgTable = _SwWredProfileCfgTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5)
+)
+if mibBuilder.loadTexts:
+    swWredProfileCfgTable.setStatus("current")
+_SwWredProfileCfgEntry_Object = MibTableRow
+swWredProfileCfgEntry = _SwWredProfileCfgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1)
+)
+swWredProfileCfgEntry.setIndexNames(
+    (0, "WRED-MIB", "swWredProfileCfgIndex"),
+    (0, "WRED-MIB", "swWredProfileCfgPacketType"),
+    (0, "WRED-MIB", "swWredProfileCfgPacketColor"),
+)
+if mibBuilder.loadTexts:
+    swWredProfileCfgEntry.setStatus("current")
+
+
+class _SwWredProfileCfgIndex_Type(Integer32):
+    """Custom type swWredProfileCfgIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+_SwWredProfileCfgIndex_Type.__name__ = "Integer32"
+_SwWredProfileCfgIndex_Object = MibTableColumn
+swWredProfileCfgIndex = _SwWredProfileCfgIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 1),
+    _SwWredProfileCfgIndex_Type()
+)
+swWredProfileCfgIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swWredProfileCfgIndex.setStatus("current")
+
+
+class _SwWredProfileCfgPacketType_Type(Integer32):
+    """Custom type swWredProfileCfgPacketType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("tcp", 1),
+          ("nonTcp", 2))
+    )
+
+
+_SwWredProfileCfgPacketType_Type.__name__ = "Integer32"
+_SwWredProfileCfgPacketType_Object = MibTableColumn
+swWredProfileCfgPacketType = _SwWredProfileCfgPacketType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 2),
+    _SwWredProfileCfgPacketType_Type()
+)
+swWredProfileCfgPacketType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swWredProfileCfgPacketType.setStatus("current")
+
+
+class _SwWredProfileCfgPacketColor_Type(Integer32):
+    """Custom type swWredProfileCfgPacketColor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("green", 1),
+          ("yellow", 2),
+          ("red", 3))
+    )
+
+
+_SwWredProfileCfgPacketColor_Type.__name__ = "Integer32"
+_SwWredProfileCfgPacketColor_Object = MibTableColumn
+swWredProfileCfgPacketColor = _SwWredProfileCfgPacketColor_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 3),
+    _SwWredProfileCfgPacketColor_Type()
+)
+swWredProfileCfgPacketColor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swWredProfileCfgPacketColor.setStatus("current")
+
+
+class _SwWredProfileCfgMinThreshold_Type(Integer32):
+    """Custom type swWredProfileCfgMinThreshold based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_SwWredProfileCfgMinThreshold_Type.__name__ = "Integer32"
+_SwWredProfileCfgMinThreshold_Object = MibTableColumn
+swWredProfileCfgMinThreshold = _SwWredProfileCfgMinThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 4),
+    _SwWredProfileCfgMinThreshold_Type()
+)
+swWredProfileCfgMinThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swWredProfileCfgMinThreshold.setStatus("current")
+
+
+class _SwWredProfileCfgMaxThreshold_Type(Integer32):
+    """Custom type swWredProfileCfgMaxThreshold based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_SwWredProfileCfgMaxThreshold_Type.__name__ = "Integer32"
+_SwWredProfileCfgMaxThreshold_Object = MibTableColumn
+swWredProfileCfgMaxThreshold = _SwWredProfileCfgMaxThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 5),
+    _SwWredProfileCfgMaxThreshold_Type()
+)
+swWredProfileCfgMaxThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swWredProfileCfgMaxThreshold.setStatus("current")
+
+
+class _SwWredProfileCfgMaxDropRate_Type(Integer32):
+    """Custom type swWredProfileCfgMaxDropRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_SwWredProfileCfgMaxDropRate_Type.__name__ = "Integer32"
+_SwWredProfileCfgMaxDropRate_Object = MibTableColumn
+swWredProfileCfgMaxDropRate = _SwWredProfileCfgMaxDropRate_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 5, 1, 6),
+    _SwWredProfileCfgMaxDropRate_Type()
+)
+swWredProfileCfgMaxDropRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swWredProfileCfgMaxDropRate.setStatus("current")
+_SwWredPortProfileTable_Object = MibTable
+swWredPortProfileTable = _SwWredPortProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6)
+)
+if mibBuilder.loadTexts:
+    swWredPortProfileTable.setStatus("current")
+_SwWredPortProfileEntry_Object = MibTableRow
+swWredPortProfileEntry = _SwWredPortProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6, 1)
+)
+swWredPortProfileEntry.setIndexNames(
+    (0, "WRED-MIB", "swWredPortProfilePortIndex"),
+    (0, "WRED-MIB", "swWredPortProfileClassIndex"),
+)
+if mibBuilder.loadTexts:
+    swWredPortProfileEntry.setStatus("current")
+
+
+class _SwWredPortProfilePortIndex_Type(Integer32):
+    """Custom type swWredPortProfilePortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwWredPortProfilePortIndex_Type.__name__ = "Integer32"
+_SwWredPortProfilePortIndex_Object = MibTableColumn
+swWredPortProfilePortIndex = _SwWredPortProfilePortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6, 1, 1),
+    _SwWredPortProfilePortIndex_Type()
+)
+swWredPortProfilePortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swWredPortProfilePortIndex.setStatus("current")
+
+
+class _SwWredPortProfileClassIndex_Type(Integer32):
+    """Custom type swWredPortProfileClassIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SwWredPortProfileClassIndex_Type.__name__ = "Integer32"
+_SwWredPortProfileClassIndex_Object = MibTableColumn
+swWredPortProfileClassIndex = _SwWredPortProfileClassIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6, 1, 2),
+    _SwWredPortProfileClassIndex_Type()
+)
+swWredPortProfileClassIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swWredPortProfileClassIndex.setStatus("current")
+_SwWredPortProfileId_Type = Integer32
+_SwWredPortProfileId_Object = MibTableColumn
+swWredPortProfileId = _SwWredPortProfileId_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6, 1, 3),
+    _SwWredPortProfileId_Type()
+)
+swWredPortProfileId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swWredPortProfileId.setStatus("current")
+_SwWredPortWeightNum_Type = Integer32
+_SwWredPortWeightNum_Object = MibTableColumn
+swWredPortWeightNum = _SwWredPortWeightNum_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 31, 3, 6, 1, 4),
+    _SwWredPortWeightNum_Type()
+)
+swWredPortWeightNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swWredPortWeightNum.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "WRED-MIB",
+    **{"swWredMIB": swWredMIB,
+       "swWredCtrl": swWredCtrl,
+       "swWredGlobalState": swWredGlobalState,
+       "swWredInfo": swWredInfo,
+       "swWredMgmt": swWredMgmt,
+       "swWredAverageTimeTable": swWredAverageTimeTable,
+       "swWredAverageTimeEntry": swWredAverageTimeEntry,
+       "swWredPortIndex": swWredPortIndex,
+       "swWredAverageTime": swWredAverageTime,
+       "swWredCtrlTable": swWredCtrlTable,
+       "swWredCtrlEntry": swWredCtrlEntry,
+       "swWredCtrlPortIndex": swWredCtrlPortIndex,
+       "swWredCtrlClassIndex": swWredCtrlClassIndex,
+       "swWredCtrlDropStart": swWredCtrlDropStart,
+       "swWredCtrlDropSlope": swWredCtrlDropSlope,
+       "swWredAllPortAverageTime": swWredAllPortAverageTime,
+       "swWredProfileTable": swWredProfileTable,
+       "swWredProfileEntry": swWredProfileEntry,
+       "swWredProfileIndex": swWredProfileIndex,
+       "swWredProfileName": swWredProfileName,
+       "swWredProfileRowStatus": swWredProfileRowStatus,
+       "swWredProfileCfgTable": swWredProfileCfgTable,
+       "swWredProfileCfgEntry": swWredProfileCfgEntry,
+       "swWredProfileCfgIndex": swWredProfileCfgIndex,
+       "swWredProfileCfgPacketType": swWredProfileCfgPacketType,
+       "swWredProfileCfgPacketColor": swWredProfileCfgPacketColor,
+       "swWredProfileCfgMinThreshold": swWredProfileCfgMinThreshold,
+       "swWredProfileCfgMaxThreshold": swWredProfileCfgMaxThreshold,
+       "swWredProfileCfgMaxDropRate": swWredProfileCfgMaxDropRate,
+       "swWredPortProfileTable": swWredPortProfileTable,
+       "swWredPortProfileEntry": swWredPortProfileEntry,
+       "swWredPortProfilePortIndex": swWredPortProfilePortIndex,
+       "swWredPortProfileClassIndex": swWredPortProfileClassIndex,
+       "swWredPortProfileId": swWredPortProfileId,
+       "swWredPortWeightNum": swWredPortWeightNum}
+)

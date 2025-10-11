@@ -1,43 +1,279 @@
+# SNMP MIB module (ZYXEL-DNS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-DNS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-DNS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:04:27 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zyxel/ZYXEL-DNS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:03:39 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelDns = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111))
-if mibBuilder.loadTexts: zyxelDns.setLastUpdated('201501010000Z')
-if mibBuilder.loadTexts: zyxelDns.setOrganization('Enterprise Solution ZyXEL')
-zyxelDnsSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1))
-zyxelDnsStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2))
-zyxelDnsStaticNameServerTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1, 1), )
-if mibBuilder.loadTexts: zyxelDnsStaticNameServerTable.setStatus('current')
-zyxelDnsStaticNameServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1, 1, 1), ).setIndexNames((0, "ZYXEL-DNS-MIB", "zyDnsStaticNameServerPreference"))
-if mibBuilder.loadTexts: zyxelDnsStaticNameServerEntry.setStatus('current')
-zyDnsStaticNameServerPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: zyDnsStaticNameServerPreference.setStatus('current')
-zyDnsStaticNameServerInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1, 1, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyDnsStaticNameServerInetAddressType.setStatus('current')
-zyDnsStaticNameServerInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1, 1, 1, 3), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyDnsStaticNameServerInetAddress.setStatus('current')
-zyxelDnsNameServerTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1), )
-if mibBuilder.loadTexts: zyxelDnsNameServerTable.setStatus('current')
-zyxelDnsNameServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1, 1), ).setIndexNames((0, "ZYXEL-DNS-MIB", "zyDnsNameServerIndex"))
-if mibBuilder.loadTexts: zyxelDnsNameServerEntry.setStatus('current')
-zyDnsNameServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: zyDnsNameServerIndex.setStatus('current')
-zyDnsNameServerInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyDnsNameServerInetAddressType.setStatus('current')
-zyDnsNameServerInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyDnsNameServerInetAddress.setStatus('current')
-zyDnsNameServerSource = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("static", 0), ("dhcpv4", 1), ("dhcpv6", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyDnsNameServerSource.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-DNS-MIB", zyxelDnsStaticNameServerTable=zyxelDnsStaticNameServerTable, zyDnsNameServerInetAddress=zyDnsNameServerInetAddress, zyDnsStaticNameServerPreference=zyDnsStaticNameServerPreference, zyDnsNameServerIndex=zyDnsNameServerIndex, zyxelDnsStaticNameServerEntry=zyxelDnsStaticNameServerEntry, zyxelDnsStatus=zyxelDnsStatus, zyDnsStaticNameServerInetAddressType=zyDnsStaticNameServerInetAddressType, zyDnsStaticNameServerInetAddress=zyDnsStaticNameServerInetAddress, PYSNMP_MODULE_ID=zyxelDns, zyDnsNameServerInetAddressType=zyDnsNameServerInetAddressType, zyxelDnsNameServerEntry=zyxelDnsNameServerEntry, zyxelDns=zyxelDns, zyxelDnsSetup=zyxelDnsSetup, zyxelDnsNameServerTable=zyxelDnsNameServerTable, zyDnsNameServerSource=zyDnsNameServerSource)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelDns = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelDnsSetup_ObjectIdentity = ObjectIdentity
+zyxelDnsSetup = _ZyxelDnsSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1)
+)
+_ZyxelDnsStaticNameServerTable_Object = MibTable
+zyxelDnsStaticNameServerTable = _ZyxelDnsStaticNameServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1, 1)
+)
+if mibBuilder.loadTexts:
+    zyxelDnsStaticNameServerTable.setStatus("current")
+_ZyxelDnsStaticNameServerEntry_Object = MibTableRow
+zyxelDnsStaticNameServerEntry = _ZyxelDnsStaticNameServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1, 1, 1)
+)
+zyxelDnsStaticNameServerEntry.setIndexNames(
+    (0, "ZYXEL-DNS-MIB", "zyDnsStaticNameServerPreference"),
+)
+if mibBuilder.loadTexts:
+    zyxelDnsStaticNameServerEntry.setStatus("current")
+_ZyDnsStaticNameServerPreference_Type = Integer32
+_ZyDnsStaticNameServerPreference_Object = MibTableColumn
+zyDnsStaticNameServerPreference = _ZyDnsStaticNameServerPreference_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1, 1, 1, 1),
+    _ZyDnsStaticNameServerPreference_Type()
+)
+zyDnsStaticNameServerPreference.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyDnsStaticNameServerPreference.setStatus("current")
+_ZyDnsStaticNameServerInetAddressType_Type = InetAddressType
+_ZyDnsStaticNameServerInetAddressType_Object = MibTableColumn
+zyDnsStaticNameServerInetAddressType = _ZyDnsStaticNameServerInetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1, 1, 1, 2),
+    _ZyDnsStaticNameServerInetAddressType_Type()
+)
+zyDnsStaticNameServerInetAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyDnsStaticNameServerInetAddressType.setStatus("current")
+_ZyDnsStaticNameServerInetAddress_Type = InetAddress
+_ZyDnsStaticNameServerInetAddress_Object = MibTableColumn
+zyDnsStaticNameServerInetAddress = _ZyDnsStaticNameServerInetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 1, 1, 1, 3),
+    _ZyDnsStaticNameServerInetAddress_Type()
+)
+zyDnsStaticNameServerInetAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyDnsStaticNameServerInetAddress.setStatus("current")
+_ZyxelDnsStatus_ObjectIdentity = ObjectIdentity
+zyxelDnsStatus = _ZyxelDnsStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2)
+)
+_ZyxelDnsNameServerTable_Object = MibTable
+zyxelDnsNameServerTable = _ZyxelDnsNameServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1)
+)
+if mibBuilder.loadTexts:
+    zyxelDnsNameServerTable.setStatus("current")
+_ZyxelDnsNameServerEntry_Object = MibTableRow
+zyxelDnsNameServerEntry = _ZyxelDnsNameServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1, 1)
+)
+zyxelDnsNameServerEntry.setIndexNames(
+    (0, "ZYXEL-DNS-MIB", "zyDnsNameServerIndex"),
+)
+if mibBuilder.loadTexts:
+    zyxelDnsNameServerEntry.setStatus("current")
+_ZyDnsNameServerIndex_Type = Integer32
+_ZyDnsNameServerIndex_Object = MibTableColumn
+zyDnsNameServerIndex = _ZyDnsNameServerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1, 1, 1),
+    _ZyDnsNameServerIndex_Type()
+)
+zyDnsNameServerIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyDnsNameServerIndex.setStatus("current")
+_ZyDnsNameServerInetAddressType_Type = InetAddressType
+_ZyDnsNameServerInetAddressType_Object = MibTableColumn
+zyDnsNameServerInetAddressType = _ZyDnsNameServerInetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1, 1, 2),
+    _ZyDnsNameServerInetAddressType_Type()
+)
+zyDnsNameServerInetAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyDnsNameServerInetAddressType.setStatus("current")
+_ZyDnsNameServerInetAddress_Type = InetAddress
+_ZyDnsNameServerInetAddress_Object = MibTableColumn
+zyDnsNameServerInetAddress = _ZyDnsNameServerInetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1, 1, 3),
+    _ZyDnsNameServerInetAddress_Type()
+)
+zyDnsNameServerInetAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyDnsNameServerInetAddress.setStatus("current")
+
+
+class _ZyDnsNameServerSource_Type(Integer32):
+    """Custom type zyDnsNameServerSource based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("static", 0),
+          ("dhcpv4", 1),
+          ("dhcpv6", 2))
+    )
+
+
+_ZyDnsNameServerSource_Type.__name__ = "Integer32"
+_ZyDnsNameServerSource_Object = MibTableColumn
+zyDnsNameServerSource = _ZyDnsNameServerSource_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 111, 2, 1, 1, 4),
+    _ZyDnsNameServerSource_Type()
+)
+zyDnsNameServerSource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyDnsNameServerSource.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-DNS-MIB",
+    **{"zyxelDns": zyxelDns,
+       "zyxelDnsSetup": zyxelDnsSetup,
+       "zyxelDnsStaticNameServerTable": zyxelDnsStaticNameServerTable,
+       "zyxelDnsStaticNameServerEntry": zyxelDnsStaticNameServerEntry,
+       "zyDnsStaticNameServerPreference": zyDnsStaticNameServerPreference,
+       "zyDnsStaticNameServerInetAddressType": zyDnsStaticNameServerInetAddressType,
+       "zyDnsStaticNameServerInetAddress": zyDnsStaticNameServerInetAddress,
+       "zyxelDnsStatus": zyxelDnsStatus,
+       "zyxelDnsNameServerTable": zyxelDnsNameServerTable,
+       "zyxelDnsNameServerEntry": zyxelDnsNameServerEntry,
+       "zyDnsNameServerIndex": zyDnsNameServerIndex,
+       "zyDnsNameServerInetAddressType": zyDnsNameServerInetAddressType,
+       "zyDnsNameServerInetAddress": zyDnsNameServerInetAddress,
+       "zyDnsNameServerSource": zyDnsNameServerSource}
+)

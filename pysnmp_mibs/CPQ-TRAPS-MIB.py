@@ -1,37 +1,555 @@
+# SNMP MIB module (CPQ-TRAPS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CPQ-TRAPS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/CPQ-TRAPS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:08:30 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/CPQ-TRAPS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:36:22 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-agentBscSwFileStatus, agentSwitchFanIndex, agentSwitchTempSensorIndex, agentSwitchFanCondition, agentSwitchPowerSupplyStatus, agentBscSwFileAddr, agentSwitchTempSensorCondition, agentSwitchCubeSparePartNumber, agentSNTPServer1IPAddr, agentSwitchCubeType, agentSwitchPowerSupplyIntakeTemp, agentSwitchPowerSupplyExhaustTemp, agentBscSwFileLoadType, agentSwitchPowerSupplyCondition, agentSwitchPowerSupplyInputLineStatus, agentSNTPServer2IPAddr, agentSwitchTempSensorCurrent, agentSwitchPowerSupplyCurPwrOutput, agentSwitchTempSensorTempType, agentBscSwFile, agentSwitchCubeSpareName, agentSwitchPowerSupplyMaxPwrOutput, agentSwitchTempSensorThreshold = mibBuilder.importSymbols("COMPAQ-AGENT-MIB", "agentBscSwFileStatus", "agentSwitchFanIndex", "agentSwitchTempSensorIndex", "agentSwitchFanCondition", "agentSwitchPowerSupplyStatus", "agentBscSwFileAddr", "agentSwitchTempSensorCondition", "agentSwitchCubeSparePartNumber", "agentSNTPServer1IPAddr", "agentSwitchCubeType", "agentSwitchPowerSupplyIntakeTemp", "agentSwitchPowerSupplyExhaustTemp", "agentBscSwFileLoadType", "agentSwitchPowerSupplyCondition", "agentSwitchPowerSupplyInputLineStatus", "agentSNTPServer2IPAddr", "agentSwitchTempSensorCurrent", "agentSwitchPowerSupplyCurPwrOutput", "agentSwitchTempSensorTempType", "agentBscSwFile", "agentSwitchCubeSpareName", "agentSwitchPowerSupplyMaxPwrOutput", "agentSwitchTempSensorThreshold")
-compaq_common_mgmt, = mibBuilder.importSymbols("COMPAQ-ID-REC-MIB", "compaq-common-mgmt")
-compaq, = mibBuilder.importSymbols("CPQHOST-MIB", "compaq")
-cpqRackCommonEnclosureName, cpqRackCommonEnclosureSerialNum, cpqRackName, cpqRackNetConnectorFWRev, cpqRackNetConnectorSerialNum, cpqRackNetConnectorName, cpqRackNetConnectorSparePartNumber, cpqRackUid, cpqRackNetConnectorLocation = mibBuilder.importSymbols("CPQRACK-MIB", "cpqRackCommonEnclosureName", "cpqRackCommonEnclosureSerialNum", "cpqRackName", "cpqRackNetConnectorFWRev", "cpqRackNetConnectorSerialNum", "cpqRackNetConnectorName", "cpqRackNetConnectorSparePartNumber", "cpqRackUid", "cpqRackNetConnectorLocation")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, enterprises, MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "enterprises", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "mib-2")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-entityMIB = MibIdentifier((1, 3, 6, 1, 2, 1, 47))
-entityMIBTraps = MibIdentifier((1, 3, 6, 1, 2, 1, 47, 2))
-entityMIBTrapPrefix = MibIdentifier((1, 3, 6, 1, 2, 1, 47, 2, 0))
-entConfigChange = NotificationType((1, 3, 6, 1, 2, 1, 47, 2, 0) + (0,1))
-switchFirmwareTransferred = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161001)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("COMPAQ-AGENT-MIB", "agentBscSwFileAddr"), ("COMPAQ-AGENT-MIB", "agentBscSwFile"), ("COMPAQ-AGENT-MIB", "agentBscSwFileLoadType"), ("CPQRACK-MIB", "cpqRackNetConnectorFWRev"))
-switchConfigFileTransferred = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161002)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("COMPAQ-AGENT-MIB", "agentBscSwFileAddr"), ("COMPAQ-AGENT-MIB", "agentBscSwFile"), ("COMPAQ-AGENT-MIB", "agentBscSwFileLoadType"))
-switchTFTPTransferSucceeded = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161003)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("COMPAQ-AGENT-MIB", "agentBscSwFileAddr"), ("COMPAQ-AGENT-MIB", "agentBscSwFile"), ("COMPAQ-AGENT-MIB", "agentBscSwFileLoadType"))
-switchTFTPTransferFailed = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161004)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("COMPAQ-AGENT-MIB", "agentBscSwFileAddr"), ("COMPAQ-AGENT-MIB", "agentBscSwFile"), ("COMPAQ-AGENT-MIB", "agentBscSwFileLoadType"))
-switchFileInvalid = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161005)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("COMPAQ-AGENT-MIB", "agentBscSwFileAddr"), ("COMPAQ-AGENT-MIB", "agentBscSwFile"), ("COMPAQ-AGENT-MIB", "agentBscSwFileLoadType"), ("COMPAQ-AGENT-MIB", "agentBscSwFileStatus"))
-switchFanFailed = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161006)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"), ("COMPAQ-AGENT-MIB", "agentSwitchFanIndex"), ("COMPAQ-AGENT-MIB", "agentSwitchFanCondition"))
-switchFanOk = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161007)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"), ("COMPAQ-AGENT-MIB", "agentSwitchFanIndex"), ("COMPAQ-AGENT-MIB", "agentSwitchFanCondition"))
-switchTempSensorDegraded = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161008)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorIndex"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCurrent"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorThreshold"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCondition"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorTempType"))
-switchTempSensorFailed = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161009)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorIndex"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCurrent"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorThreshold"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCondition"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorTempType"))
-switchTempSensorOk = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161010)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorIndex"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCurrent"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorThreshold"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCondition"), ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorTempType"))
-switchPostSuccess = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161011)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"))
-switchLoginFailure = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161012)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"))
-switchLocationChange = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161013)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"))
-switchCubeTypeChange = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161014)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"), ("COMPAQ-AGENT-MIB", "agentSwitchCubeType"), ("COMPAQ-AGENT-MIB", "agentSwitchCubeSpareName"), ("COMPAQ-AGENT-MIB", "agentSwitchCubeSparePartNumber"))
-switchSNTPServiceUnavailable = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,161015)).setObjects(("CPQRACK-MIB", "cpqRackUid"), ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"), ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"), ("CPQRACK-MIB", "cpqRackName"), ("CPQRACK-MIB", "cpqRackCommonEnclosureName"), ("CPQRACK-MIB", "cpqRackNetConnectorName"), ("CPQRACK-MIB", "cpqRackNetConnectorLocation"), ("COMPAQ-AGENT-MIB", "agentSNTPServer1IPAddr"), ("COMPAQ-AGENT-MIB", "agentSNTPServer2IPAddr"))
-mibBuilder.exportSymbols("CPQ-TRAPS-MIB", entityMIBTrapPrefix=entityMIBTrapPrefix, entityMIB=entityMIB, entityMIBTraps=entityMIBTraps, switchPostSuccess=switchPostSuccess, switchConfigFileTransferred=switchConfigFileTransferred, switchLoginFailure=switchLoginFailure, switchTFTPTransferFailed=switchTFTPTransferFailed, switchFanFailed=switchFanFailed, entConfigChange=entConfigChange, switchFanOk=switchFanOk, switchTempSensorFailed=switchTempSensorFailed, switchCubeTypeChange=switchCubeTypeChange, switchTempSensorOk=switchTempSensorOk, switchTFTPTransferSucceeded=switchTFTPTransferSucceeded, switchLocationChange=switchLocationChange, switchFileInvalid=switchFileInvalid, switchTempSensorDegraded=switchTempSensorDegraded, switchFirmwareTransferred=switchFirmwareTransferred, switchSNTPServiceUnavailable=switchSNTPServiceUnavailable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(agentBscSwFile,
+ agentBscSwFileAddr,
+ agentBscSwFileLoadType,
+ agentBscSwFileStatus,
+ agentSNTPServer1IPAddr,
+ agentSNTPServer2IPAddr,
+ agentSwitchCubeSpareName,
+ agentSwitchCubeSparePartNumber,
+ agentSwitchCubeType,
+ agentSwitchFanCondition,
+ agentSwitchFanIndex,
+ agentSwitchPowerSupplyCondition,
+ agentSwitchPowerSupplyCurPwrOutput,
+ agentSwitchPowerSupplyExhaustTemp,
+ agentSwitchPowerSupplyInputLineStatus,
+ agentSwitchPowerSupplyIntakeTemp,
+ agentSwitchPowerSupplyMaxPwrOutput,
+ agentSwitchPowerSupplyStatus,
+ agentSwitchTempSensorCondition,
+ agentSwitchTempSensorCurrent,
+ agentSwitchTempSensorIndex,
+ agentSwitchTempSensorTempType,
+ agentSwitchTempSensorThreshold) = mibBuilder.importSymbols(
+    "COMPAQ-AGENT-MIB",
+    "agentBscSwFile",
+    "agentBscSwFileAddr",
+    "agentBscSwFileLoadType",
+    "agentBscSwFileStatus",
+    "agentSNTPServer1IPAddr",
+    "agentSNTPServer2IPAddr",
+    "agentSwitchCubeSpareName",
+    "agentSwitchCubeSparePartNumber",
+    "agentSwitchCubeType",
+    "agentSwitchFanCondition",
+    "agentSwitchFanIndex",
+    "agentSwitchPowerSupplyCondition",
+    "agentSwitchPowerSupplyCurPwrOutput",
+    "agentSwitchPowerSupplyExhaustTemp",
+    "agentSwitchPowerSupplyInputLineStatus",
+    "agentSwitchPowerSupplyIntakeTemp",
+    "agentSwitchPowerSupplyMaxPwrOutput",
+    "agentSwitchPowerSupplyStatus",
+    "agentSwitchTempSensorCondition",
+    "agentSwitchTempSensorCurrent",
+    "agentSwitchTempSensorIndex",
+    "agentSwitchTempSensorTempType",
+    "agentSwitchTempSensorThreshold")
+
+(compaq_common_mgmt,) = mibBuilder.importSymbols(
+    "COMPAQ-ID-REC-MIB",
+    "compaq-common-mgmt")
+
+(compaq,) = mibBuilder.importSymbols(
+    "CPQHOST-MIB",
+    "compaq")
+
+(cpqRackCommonEnclosureName,
+ cpqRackCommonEnclosureSerialNum,
+ cpqRackName,
+ cpqRackNetConnectorFWRev,
+ cpqRackNetConnectorLocation,
+ cpqRackNetConnectorName,
+ cpqRackNetConnectorSerialNum,
+ cpqRackNetConnectorSparePartNumber,
+ cpqRackUid) = mibBuilder.importSymbols(
+    "CPQRACK-MIB",
+    "cpqRackCommonEnclosureName",
+    "cpqRackCommonEnclosureSerialNum",
+    "cpqRackName",
+    "cpqRackNetConnectorFWRev",
+    "cpqRackNetConnectorLocation",
+    "cpqRackNetConnectorName",
+    "cpqRackNetConnectorSerialNum",
+    "cpqRackNetConnectorSparePartNumber",
+    "cpqRackUid")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EntityMIB_ObjectIdentity = ObjectIdentity
+entityMIB = _EntityMIB_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 47)
+)
+_EntityMIBTraps_ObjectIdentity = ObjectIdentity
+entityMIBTraps = _EntityMIBTraps_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 47, 2)
+)
+_EntityMIBTrapPrefix_ObjectIdentity = ObjectIdentity
+entityMIBTrapPrefix = _EntityMIBTrapPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 47, 2, 0)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+entConfigChange = NotificationType(
+    (1, 3, 6, 1, 2, 1, 47, 2, 0, 0, 1)
+)
+if mibBuilder.loadTexts:
+    entConfigChange.setStatus(
+        ""
+    )
+
+switchFirmwareTransferred = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161001)
+)
+switchFirmwareTransferred.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFileAddr"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFile"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFileLoadType"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorFWRev"))
+)
+if mibBuilder.loadTexts:
+    switchFirmwareTransferred.setStatus(
+        ""
+    )
+
+switchConfigFileTransferred = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161002)
+)
+switchConfigFileTransferred.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFileAddr"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFile"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFileLoadType"))
+)
+if mibBuilder.loadTexts:
+    switchConfigFileTransferred.setStatus(
+        ""
+    )
+
+switchTFTPTransferSucceeded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161003)
+)
+switchTFTPTransferSucceeded.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFileAddr"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFile"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFileLoadType"))
+)
+if mibBuilder.loadTexts:
+    switchTFTPTransferSucceeded.setStatus(
+        ""
+    )
+
+switchTFTPTransferFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161004)
+)
+switchTFTPTransferFailed.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFileAddr"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFile"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFileLoadType"))
+)
+if mibBuilder.loadTexts:
+    switchTFTPTransferFailed.setStatus(
+        ""
+    )
+
+switchFileInvalid = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161005)
+)
+switchFileInvalid.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFileAddr"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFile"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFileLoadType"),
+        ("COMPAQ-AGENT-MIB", "agentBscSwFileStatus"))
+)
+if mibBuilder.loadTexts:
+    switchFileInvalid.setStatus(
+        ""
+    )
+
+switchFanFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161006)
+)
+switchFanFailed.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchFanIndex"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchFanCondition"))
+)
+if mibBuilder.loadTexts:
+    switchFanFailed.setStatus(
+        ""
+    )
+
+switchFanOk = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161007)
+)
+switchFanOk.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchFanIndex"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchFanCondition"))
+)
+if mibBuilder.loadTexts:
+    switchFanOk.setStatus(
+        ""
+    )
+
+switchTempSensorDegraded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161008)
+)
+switchTempSensorDegraded.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorIndex"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCurrent"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorThreshold"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCondition"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorTempType"))
+)
+if mibBuilder.loadTexts:
+    switchTempSensorDegraded.setStatus(
+        ""
+    )
+
+switchTempSensorFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161009)
+)
+switchTempSensorFailed.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorIndex"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCurrent"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorThreshold"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCondition"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorTempType"))
+)
+if mibBuilder.loadTexts:
+    switchTempSensorFailed.setStatus(
+        ""
+    )
+
+switchTempSensorOk = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161010)
+)
+switchTempSensorOk.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorIndex"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCurrent"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorThreshold"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorCondition"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchTempSensorTempType"))
+)
+if mibBuilder.loadTexts:
+    switchTempSensorOk.setStatus(
+        ""
+    )
+
+switchPostSuccess = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161011)
+)
+switchPostSuccess.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"))
+)
+if mibBuilder.loadTexts:
+    switchPostSuccess.setStatus(
+        ""
+    )
+
+switchLoginFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161012)
+)
+switchLoginFailure.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"))
+)
+if mibBuilder.loadTexts:
+    switchLoginFailure.setStatus(
+        ""
+    )
+
+switchLocationChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161013)
+)
+switchLocationChange.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"))
+)
+if mibBuilder.loadTexts:
+    switchLocationChange.setStatus(
+        ""
+    )
+
+switchCubeTypeChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161014)
+)
+switchCubeTypeChange.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSparePartNumber"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchCubeType"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchCubeSpareName"),
+        ("COMPAQ-AGENT-MIB", "agentSwitchCubeSparePartNumber"))
+)
+if mibBuilder.loadTexts:
+    switchCubeTypeChange.setStatus(
+        ""
+    )
+
+switchSNTPServiceUnavailable = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 161015)
+)
+switchSNTPServiceUnavailable.setObjects(
+      *(("CPQRACK-MIB", "cpqRackUid"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureSerialNum"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorSerialNum"),
+        ("CPQRACK-MIB", "cpqRackName"),
+        ("CPQRACK-MIB", "cpqRackCommonEnclosureName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorName"),
+        ("CPQRACK-MIB", "cpqRackNetConnectorLocation"),
+        ("COMPAQ-AGENT-MIB", "agentSNTPServer1IPAddr"),
+        ("COMPAQ-AGENT-MIB", "agentSNTPServer2IPAddr"))
+)
+if mibBuilder.loadTexts:
+    switchSNTPServiceUnavailable.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CPQ-TRAPS-MIB",
+    **{"entityMIB": entityMIB,
+       "entityMIBTraps": entityMIBTraps,
+       "entityMIBTrapPrefix": entityMIBTrapPrefix,
+       "entConfigChange": entConfigChange,
+       "switchFirmwareTransferred": switchFirmwareTransferred,
+       "switchConfigFileTransferred": switchConfigFileTransferred,
+       "switchTFTPTransferSucceeded": switchTFTPTransferSucceeded,
+       "switchTFTPTransferFailed": switchTFTPTransferFailed,
+       "switchFileInvalid": switchFileInvalid,
+       "switchFanFailed": switchFanFailed,
+       "switchFanOk": switchFanOk,
+       "switchTempSensorDegraded": switchTempSensorDegraded,
+       "switchTempSensorFailed": switchTempSensorFailed,
+       "switchTempSensorOk": switchTempSensorOk,
+       "switchPostSuccess": switchPostSuccess,
+       "switchLoginFailure": switchLoginFailure,
+       "switchLocationChange": switchLocationChange,
+       "switchCubeTypeChange": switchCubeTypeChange,
+       "switchSNTPServiceUnavailable": switchSNTPServiceUnavailable}
+)

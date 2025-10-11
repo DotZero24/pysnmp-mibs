@@ -1,176 +1,1059 @@
+# SNMP MIB module (RADLAN-LLDP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RADLAN-LLDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/radlan/RADLAN-LLDP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:07:21 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/radlan/RADLAN-LLDP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:09:57 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-Dscp, = mibBuilder.importSymbols("DIFFSERV-DSCP-TC", "Dscp")
-AddressFamilyNumbers, = mibBuilder.importSymbols("IANA-ADDRESS-FAMILY-NUMBERS-MIB", "AddressFamilyNumbers")
-LldpXMedCapabilities, = mibBuilder.importSymbols("LLDP-EXT-MED-MIB", "LldpXMedCapabilities")
-LldpPortNumber, lldpRemIndex, lldpRemEntry, lldpRemTimeMark, lldpRemLocalPortNum, LldpPortList, lldpPortConfigEntry, LldpManAddress = mibBuilder.importSymbols("LLDP-MIB", "LldpPortNumber", "lldpRemIndex", "lldpRemEntry", "lldpRemTimeMark", "lldpRemLocalPortNum", "LldpPortList", "lldpPortConfigEntry", "LldpManAddress")
-lldpV2RemLocalIfIndex, lldpV2LocPortIfIndex = mibBuilder.importSymbols("LLDP-V2-MIB", "lldpV2RemLocalIfIndex", "lldpV2LocPortIfIndex")
-PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-rndErrorSeverity, rndErrorDesc = mibBuilder.importSymbols("RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity", "rndErrorDesc")
-rnd, rndNotifications = mibBuilder.importSymbols("RADLAN-MIB", "rnd", "rndNotifications")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
-rlLldp = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 110))
-rlLldp.setRevisions(('2005-06-20 00:00',))
-if mibBuilder.loadTexts: rlLldp.setLastUpdated('200506200000Z')
-if mibBuilder.loadTexts: rlLldp.setOrganization('Radlan Computer Communications Ltd.')
-rlLldpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 110, 1))
-rlLldpConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 110, 1, 1))
-rlLldpXMedConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 110, 1, 2))
-rlLldpTLVsTxOverload = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 110, 1, 3))
-rlLldpRemStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 110, 1, 4))
-rlLldpLocalSystemData = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 110, 1, 5))
-rlLldpRemoteSystemsData = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 110, 1, 6))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(Dscp,) = mibBuilder.importSymbols(
+    "DIFFSERV-DSCP-TC",
+    "Dscp")
+
+(AddressFamilyNumbers,) = mibBuilder.importSymbols(
+    "IANA-ADDRESS-FAMILY-NUMBERS-MIB",
+    "AddressFamilyNumbers")
+
+(LldpXMedCapabilities,) = mibBuilder.importSymbols(
+    "LLDP-EXT-MED-MIB",
+    "LldpXMedCapabilities")
+
+(LldpManAddress,
+ LldpPortList,
+ LldpPortNumber,
+ lldpPortConfigEntry,
+ lldpRemEntry,
+ lldpRemIndex,
+ lldpRemLocalPortNum,
+ lldpRemTimeMark) = mibBuilder.importSymbols(
+    "LLDP-MIB",
+    "LldpManAddress",
+    "LldpPortList",
+    "LldpPortNumber",
+    "lldpPortConfigEntry",
+    "lldpRemEntry",
+    "lldpRemIndex",
+    "lldpRemLocalPortNum",
+    "lldpRemTimeMark")
+
+(lldpV2LocPortIfIndex,
+ lldpV2RemLocalIfIndex) = mibBuilder.importSymbols(
+    "LLDP-V2-MIB",
+    "lldpV2LocPortIfIndex",
+    "lldpV2RemLocalIfIndex")
+
+(PortList,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "PortList")
+
+(rndErrorDesc,
+ rndErrorSeverity) = mibBuilder.importSymbols(
+    "RADLAN-DEVICEPARAMS-MIB",
+    "rndErrorDesc",
+    "rndErrorSeverity")
+
+(rnd,
+ rndNotifications) = mibBuilder.importSymbols(
+    "RADLAN-MIB",
+    "rnd",
+    "rndNotifications")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rlLldp = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 110)
+)
+if mibBuilder.loadTexts:
+    rlLldp.setRevisions(
+        ("2005-06-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class PolicyNumber(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 32768)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 32768),
+    )
+
+
 
 class PolicyContainerAppType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("unknown", 0), ("voice", 1), ("voiceSignaling", 2), ("guestVoice", 3), ("guestVoiceSignaling", 4), ("softPhoneVoice", 5), ("videoconferencing", 6), ("streamingVideo", 7), ("videoSignaling", 8))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("voice", 1),
+          ("voiceSignaling", 2),
+          ("guestVoice", 3),
+          ("guestVoiceSignaling", 4),
+          ("softPhoneVoice", 5),
+          ("videoconferencing", 6),
+          ("streamingVideo", 7),
+          ("videoSignaling", 8))
+    )
+
+
 
 class PolicyAppVoiceUpdateMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("manual", 0), ("auto", 1))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("manual", 0),
+          ("auto", 1))
+    )
 
-rlLldpEnabled = MibScalar((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpEnabled.setStatus('current')
-rlLldpClearRx = MibScalar((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 2), PortList().clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpClearRx.setStatus('current')
-rlLldpDuMode = MibScalar((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("filtering", 1), ("flooding", 2))).clone('filtering')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpDuMode.setStatus('current')
-rlLldpAutoAdvLocPortManAddrTable = MibTable((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4), )
-if mibBuilder.loadTexts: rlLldpAutoAdvLocPortManAddrTable.setStatus('current')
-rlLldpAutoAdvLocPortManAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1), ).setIndexNames((0, "RADLAN-LLDP-MIB", "rlLldpAutoAdvLocPortNum"))
-if mibBuilder.loadTexts: rlLldpAutoAdvLocPortManAddrEntry.setStatus('current')
-rlLldpAutoAdvLocPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 1), LldpPortNumber())
-if mibBuilder.loadTexts: rlLldpAutoAdvLocPortNum.setStatus('current')
-rlLldpAutoAdvManAddrOwnerIfId = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpAutoAdvManAddrOwnerIfId.setStatus('current')
-rlLldpAutoAdvManAddrNone = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpAutoAdvManAddrNone.setStatus('current')
-rlLldpAutoAdvManAddrSubtype = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 4), AddressFamilyNumbers()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpAutoAdvManAddrSubtype.setStatus('current')
-rlLldpAutoAdvManAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 5), LldpManAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpAutoAdvManAddr.setStatus('current')
-rlLldpAutoAdvPortsStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 6), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpAutoAdvPortsStatus.setStatus('current')
-rlLldpChassisIdSubtype = MibScalar((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(4, 7))).clone(namedValues=NamedValues(("macAddress", 4), ("local", 7))).clone('macAddress')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpChassisIdSubtype.setStatus('current')
-rlLldpPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 6), )
-if mibBuilder.loadTexts: rlLldpPortConfigTable.setStatus('current')
-rlLldpPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 6, 1), )
-lldpPortConfigEntry.registerAugmentions(("RADLAN-LLDP-MIB", "rlLldpPortConfigEntry"))
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlLldpObjects_ObjectIdentity = ObjectIdentity
+rlLldpObjects = _RlLldpObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1)
+)
+_RlLldpConfig_ObjectIdentity = ObjectIdentity
+rlLldpConfig = _RlLldpConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1)
+)
+_RlLldpEnabled_Type = TruthValue
+_RlLldpEnabled_Object = MibScalar
+rlLldpEnabled = _RlLldpEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 1),
+    _RlLldpEnabled_Type()
+)
+rlLldpEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpEnabled.setStatus("current")
+
+
+class _RlLldpClearRx_Type(PortList):
+    """Custom type rlLldpClearRx based on PortList"""
+    defaultHexValue = ""
+
+
+_RlLldpClearRx_Type.__name__ = "PortList"
+_RlLldpClearRx_Object = MibScalar
+rlLldpClearRx = _RlLldpClearRx_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 2),
+    _RlLldpClearRx_Type()
+)
+rlLldpClearRx.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpClearRx.setStatus("current")
+
+
+class _RlLldpDuMode_Type(Integer32):
+    """Custom type rlLldpDuMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("filtering", 1),
+          ("flooding", 2))
+    )
+
+
+_RlLldpDuMode_Type.__name__ = "Integer32"
+_RlLldpDuMode_Object = MibScalar
+rlLldpDuMode = _RlLldpDuMode_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 3),
+    _RlLldpDuMode_Type()
+)
+rlLldpDuMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpDuMode.setStatus("current")
+_RlLldpAutoAdvLocPortManAddrTable_Object = MibTable
+rlLldpAutoAdvLocPortManAddrTable = _RlLldpAutoAdvLocPortManAddrTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    rlLldpAutoAdvLocPortManAddrTable.setStatus("current")
+_RlLldpAutoAdvLocPortManAddrEntry_Object = MibTableRow
+rlLldpAutoAdvLocPortManAddrEntry = _RlLldpAutoAdvLocPortManAddrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1)
+)
+rlLldpAutoAdvLocPortManAddrEntry.setIndexNames(
+    (0, "RADLAN-LLDP-MIB", "rlLldpAutoAdvLocPortNum"),
+)
+if mibBuilder.loadTexts:
+    rlLldpAutoAdvLocPortManAddrEntry.setStatus("current")
+_RlLldpAutoAdvLocPortNum_Type = LldpPortNumber
+_RlLldpAutoAdvLocPortNum_Object = MibTableColumn
+rlLldpAutoAdvLocPortNum = _RlLldpAutoAdvLocPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 1),
+    _RlLldpAutoAdvLocPortNum_Type()
+)
+rlLldpAutoAdvLocPortNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlLldpAutoAdvLocPortNum.setStatus("current")
+
+
+class _RlLldpAutoAdvManAddrOwnerIfId_Type(Integer32):
+    """Custom type rlLldpAutoAdvManAddrOwnerIfId based on Integer32"""
+    defaultValue = 0
+
+
+_RlLldpAutoAdvManAddrOwnerIfId_Type.__name__ = "Integer32"
+_RlLldpAutoAdvManAddrOwnerIfId_Object = MibTableColumn
+rlLldpAutoAdvManAddrOwnerIfId = _RlLldpAutoAdvManAddrOwnerIfId_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 2),
+    _RlLldpAutoAdvManAddrOwnerIfId_Type()
+)
+rlLldpAutoAdvManAddrOwnerIfId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpAutoAdvManAddrOwnerIfId.setStatus("current")
+
+
+class _RlLldpAutoAdvManAddrNone_Type(TruthValue):
+    """Custom type rlLldpAutoAdvManAddrNone based on TruthValue"""
+    defaultValue = 2
+
+
+_RlLldpAutoAdvManAddrNone_Type.__name__ = "TruthValue"
+_RlLldpAutoAdvManAddrNone_Object = MibTableColumn
+rlLldpAutoAdvManAddrNone = _RlLldpAutoAdvManAddrNone_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 3),
+    _RlLldpAutoAdvManAddrNone_Type()
+)
+rlLldpAutoAdvManAddrNone.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpAutoAdvManAddrNone.setStatus("current")
+_RlLldpAutoAdvManAddrSubtype_Type = AddressFamilyNumbers
+_RlLldpAutoAdvManAddrSubtype_Object = MibTableColumn
+rlLldpAutoAdvManAddrSubtype = _RlLldpAutoAdvManAddrSubtype_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 4),
+    _RlLldpAutoAdvManAddrSubtype_Type()
+)
+rlLldpAutoAdvManAddrSubtype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpAutoAdvManAddrSubtype.setStatus("current")
+_RlLldpAutoAdvManAddr_Type = LldpManAddress
+_RlLldpAutoAdvManAddr_Object = MibTableColumn
+rlLldpAutoAdvManAddr = _RlLldpAutoAdvManAddr_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 5),
+    _RlLldpAutoAdvManAddr_Type()
+)
+rlLldpAutoAdvManAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpAutoAdvManAddr.setStatus("current")
+_RlLldpAutoAdvPortsStatus_Type = RowStatus
+_RlLldpAutoAdvPortsStatus_Object = MibTableColumn
+rlLldpAutoAdvPortsStatus = _RlLldpAutoAdvPortsStatus_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 4, 1, 6),
+    _RlLldpAutoAdvPortsStatus_Type()
+)
+rlLldpAutoAdvPortsStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpAutoAdvPortsStatus.setStatus("current")
+
+
+class _RlLldpChassisIdSubtype_Type(Integer32):
+    """Custom type rlLldpChassisIdSubtype based on Integer32"""
+    defaultValue = 4
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(4,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("macAddress", 4),
+          ("local", 7))
+    )
+
+
+_RlLldpChassisIdSubtype_Type.__name__ = "Integer32"
+_RlLldpChassisIdSubtype_Object = MibScalar
+rlLldpChassisIdSubtype = _RlLldpChassisIdSubtype_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 5),
+    _RlLldpChassisIdSubtype_Type()
+)
+rlLldpChassisIdSubtype.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpChassisIdSubtype.setStatus("current")
+_RlLldpPortConfigTable_Object = MibTable
+rlLldpPortConfigTable = _RlLldpPortConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 6)
+)
+if mibBuilder.loadTexts:
+    rlLldpPortConfigTable.setStatus("current")
+_RlLldpPortConfigEntry_Object = MibTableRow
+rlLldpPortConfigEntry = _RlLldpPortConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 6, 1)
+)
+if mibBuilder.loadTexts:
+    rlLldpPortConfigEntry.setStatus("current")
+
+
+class _RlLldpPortConfig4wireTxEnable_Type(TruthValue):
+    """Custom type rlLldpPortConfig4wireTxEnable based on TruthValue"""
+    defaultValue = 2
+
+
+_RlLldpPortConfig4wireTxEnable_Type.__name__ = "TruthValue"
+_RlLldpPortConfig4wireTxEnable_Object = MibTableColumn
+rlLldpPortConfig4wireTxEnable = _RlLldpPortConfig4wireTxEnable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 6, 1, 1),
+    _RlLldpPortConfig4wireTxEnable_Type()
+)
+rlLldpPortConfig4wireTxEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpPortConfig4wireTxEnable.setStatus("current")
+_RlLldpXMedConfig_ObjectIdentity = ObjectIdentity
+rlLldpXMedConfig = _RlLldpXMedConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2)
+)
+_RlLldpXMedLocMediaPolicyContainerTable_Object = MibTable
+rlLldpXMedLocMediaPolicyContainerTable = _RlLldpXMedLocMediaPolicyContainerTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    rlLldpXMedLocMediaPolicyContainerTable.setStatus("current")
+_RlLldpXMedLocMediaPolicyContainerEntry_Object = MibTableRow
+rlLldpXMedLocMediaPolicyContainerEntry = _RlLldpXMedLocMediaPolicyContainerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1)
+)
+rlLldpXMedLocMediaPolicyContainerEntry.setIndexNames(
+    (0, "RADLAN-LLDP-MIB", "rlLldpXMedLocMediaPolicyContainerIndex"),
+)
+if mibBuilder.loadTexts:
+    rlLldpXMedLocMediaPolicyContainerEntry.setStatus("current")
+_RlLldpXMedLocMediaPolicyContainerIndex_Type = PolicyNumber
+_RlLldpXMedLocMediaPolicyContainerIndex_Object = MibTableColumn
+rlLldpXMedLocMediaPolicyContainerIndex = _RlLldpXMedLocMediaPolicyContainerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 1),
+    _RlLldpXMedLocMediaPolicyContainerIndex_Type()
+)
+rlLldpXMedLocMediaPolicyContainerIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlLldpXMedLocMediaPolicyContainerIndex.setStatus("current")
+_RlLldpXMedLocMediaPolicyContainerAppType_Type = PolicyContainerAppType
+_RlLldpXMedLocMediaPolicyContainerAppType_Object = MibTableColumn
+rlLldpXMedLocMediaPolicyContainerAppType = _RlLldpXMedLocMediaPolicyContainerAppType_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 2),
+    _RlLldpXMedLocMediaPolicyContainerAppType_Type()
+)
+rlLldpXMedLocMediaPolicyContainerAppType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpXMedLocMediaPolicyContainerAppType.setStatus("current")
+
+
+class _RlLldpXMedLocMediaPolicyContainerVlanID_Type(Integer32):
+    """Custom type rlLldpXMedLocMediaPolicyContainerVlanID based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 4094),
+        ValueRangeConstraint(4095, 4095),
+    )
+
+
+_RlLldpXMedLocMediaPolicyContainerVlanID_Type.__name__ = "Integer32"
+_RlLldpXMedLocMediaPolicyContainerVlanID_Object = MibTableColumn
+rlLldpXMedLocMediaPolicyContainerVlanID = _RlLldpXMedLocMediaPolicyContainerVlanID_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 3),
+    _RlLldpXMedLocMediaPolicyContainerVlanID_Type()
+)
+rlLldpXMedLocMediaPolicyContainerVlanID.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpXMedLocMediaPolicyContainerVlanID.setStatus("current")
+
+
+class _RlLldpXMedLocMediaPolicyContainerPriority_Type(Integer32):
+    """Custom type rlLldpXMedLocMediaPolicyContainerPriority based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_RlLldpXMedLocMediaPolicyContainerPriority_Type.__name__ = "Integer32"
+_RlLldpXMedLocMediaPolicyContainerPriority_Object = MibTableColumn
+rlLldpXMedLocMediaPolicyContainerPriority = _RlLldpXMedLocMediaPolicyContainerPriority_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 4),
+    _RlLldpXMedLocMediaPolicyContainerPriority_Type()
+)
+rlLldpXMedLocMediaPolicyContainerPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpXMedLocMediaPolicyContainerPriority.setStatus("current")
+
+
+class _RlLldpXMedLocMediaPolicyContainerDscp_Type(Dscp):
+    """Custom type rlLldpXMedLocMediaPolicyContainerDscp based on Dscp"""
+    defaultValue = 0
+
+
+_RlLldpXMedLocMediaPolicyContainerDscp_Type.__name__ = "Dscp"
+_RlLldpXMedLocMediaPolicyContainerDscp_Object = MibTableColumn
+rlLldpXMedLocMediaPolicyContainerDscp = _RlLldpXMedLocMediaPolicyContainerDscp_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 5),
+    _RlLldpXMedLocMediaPolicyContainerDscp_Type()
+)
+rlLldpXMedLocMediaPolicyContainerDscp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpXMedLocMediaPolicyContainerDscp.setStatus("current")
+
+
+class _RlLldpXMedLocMediaPolicyContainerUnknown_Type(TruthValue):
+    """Custom type rlLldpXMedLocMediaPolicyContainerUnknown based on TruthValue"""
+    defaultValue = 2
+
+
+_RlLldpXMedLocMediaPolicyContainerUnknown_Type.__name__ = "TruthValue"
+_RlLldpXMedLocMediaPolicyContainerUnknown_Object = MibTableColumn
+rlLldpXMedLocMediaPolicyContainerUnknown = _RlLldpXMedLocMediaPolicyContainerUnknown_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 6),
+    _RlLldpXMedLocMediaPolicyContainerUnknown_Type()
+)
+rlLldpXMedLocMediaPolicyContainerUnknown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpXMedLocMediaPolicyContainerUnknown.setStatus("current")
+
+
+class _RlLldpXMedLocMediaPolicyContainerTagged_Type(TruthValue):
+    """Custom type rlLldpXMedLocMediaPolicyContainerTagged based on TruthValue"""
+    defaultValue = 2
+
+
+_RlLldpXMedLocMediaPolicyContainerTagged_Type.__name__ = "TruthValue"
+_RlLldpXMedLocMediaPolicyContainerTagged_Object = MibTableColumn
+rlLldpXMedLocMediaPolicyContainerTagged = _RlLldpXMedLocMediaPolicyContainerTagged_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 7),
+    _RlLldpXMedLocMediaPolicyContainerTagged_Type()
+)
+rlLldpXMedLocMediaPolicyContainerTagged.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpXMedLocMediaPolicyContainerTagged.setStatus("current")
+
+
+class _RlLldpXMedLocMediaPolicyContainerPorts_Type(PortList):
+    """Custom type rlLldpXMedLocMediaPolicyContainerPorts based on PortList"""
+    defaultHexValue = ""
+
+
+_RlLldpXMedLocMediaPolicyContainerPorts_Type.__name__ = "PortList"
+_RlLldpXMedLocMediaPolicyContainerPorts_Object = MibTableColumn
+rlLldpXMedLocMediaPolicyContainerPorts = _RlLldpXMedLocMediaPolicyContainerPorts_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 8),
+    _RlLldpXMedLocMediaPolicyContainerPorts_Type()
+)
+rlLldpXMedLocMediaPolicyContainerPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpXMedLocMediaPolicyContainerPorts.setStatus("current")
+_RlLldpXMedLocMediaPolicyContainerRowStatus_Type = RowStatus
+_RlLldpXMedLocMediaPolicyContainerRowStatus_Object = MibTableColumn
+rlLldpXMedLocMediaPolicyContainerRowStatus = _RlLldpXMedLocMediaPolicyContainerRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 9),
+    _RlLldpXMedLocMediaPolicyContainerRowStatus_Type()
+)
+rlLldpXMedLocMediaPolicyContainerRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpXMedLocMediaPolicyContainerRowStatus.setStatus("current")
+_RlLldpXMedNetPolVoiceUpdateMode_Type = PolicyAppVoiceUpdateMode
+_RlLldpXMedNetPolVoiceUpdateMode_Object = MibScalar
+rlLldpXMedNetPolVoiceUpdateMode = _RlLldpXMedNetPolVoiceUpdateMode_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 2),
+    _RlLldpXMedNetPolVoiceUpdateMode_Type()
+)
+rlLldpXMedNetPolVoiceUpdateMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlLldpXMedNetPolVoiceUpdateMode.setStatus("current")
+_RlLldpTLVsTxOverload_ObjectIdentity = ObjectIdentity
+rlLldpTLVsTxOverload = _RlLldpTLVsTxOverload_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3)
+)
+_RlLldpTLVsTxOverloadingTable_Object = MibTable
+rlLldpTLVsTxOverloadingTable = _RlLldpTLVsTxOverloadingTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    rlLldpTLVsTxOverloadingTable.setStatus("current")
+_RlLldpTLVsTxOverloadingEntry_Object = MibTableRow
+rlLldpTLVsTxOverloadingEntry = _RlLldpTLVsTxOverloadingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1)
+)
+rlLldpTLVsTxOverloadingEntry.setIndexNames(
+    (0, "RADLAN-LLDP-MIB", "rlLldpTxOverloadingPortNum"),
+    (0, "RADLAN-LLDP-MIB", "rlLldpTxOverloadingIndex"),
+)
+if mibBuilder.loadTexts:
+    rlLldpTLVsTxOverloadingEntry.setStatus("current")
+_RlLldpTxOverloadingPortNum_Type = LldpPortNumber
+_RlLldpTxOverloadingPortNum_Object = MibTableColumn
+rlLldpTxOverloadingPortNum = _RlLldpTxOverloadingPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 1),
+    _RlLldpTxOverloadingPortNum_Type()
+)
+rlLldpTxOverloadingPortNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlLldpTxOverloadingPortNum.setStatus("current")
+_RlLldpTxOverloadingIndex_Type = Unsigned32
+_RlLldpTxOverloadingIndex_Object = MibTableColumn
+rlLldpTxOverloadingIndex = _RlLldpTxOverloadingIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 2),
+    _RlLldpTxOverloadingIndex_Type()
+)
+rlLldpTxOverloadingIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlLldpTxOverloadingIndex.setStatus("current")
+
+
+class _RlLldpTxOverloadingGroupId_Type(Integer32):
+    """Custom type rlLldpTxOverloadingGroupId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mandatory", 1),
+          ("optional", 2),
+          ("medCap", 3),
+          ("medLocation", 4),
+          ("medNetPolicy", 5),
+          ("medPoe", 6),
+          ("medInventory", 7),
+          ("xDot3", 8),
+          ("xDot1", 9),
+          ("dcbx", 10),
+          ("cisco", 11))
+    )
+
+
+_RlLldpTxOverloadingGroupId_Type.__name__ = "Integer32"
+_RlLldpTxOverloadingGroupId_Object = MibTableColumn
+rlLldpTxOverloadingGroupId = _RlLldpTxOverloadingGroupId_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 3),
+    _RlLldpTxOverloadingGroupId_Type()
+)
+rlLldpTxOverloadingGroupId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpTxOverloadingGroupId.setStatus("current")
+_RlLldpTLVsTxSize_Type = Unsigned32
+_RlLldpTLVsTxSize_Object = MibTableColumn
+rlLldpTLVsTxSize = _RlLldpTLVsTxSize_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 4),
+    _RlLldpTLVsTxSize_Type()
+)
+rlLldpTLVsTxSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpTLVsTxSize.setStatus("current")
+_RlLldpTLVsTxGroupOverloading_Type = TruthValue
+_RlLldpTLVsTxGroupOverloading_Object = MibTableColumn
+rlLldpTLVsTxGroupOverloading = _RlLldpTLVsTxGroupOverloading_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 5),
+    _RlLldpTLVsTxGroupOverloading_Type()
+)
+rlLldpTLVsTxGroupOverloading.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpTLVsTxGroupOverloading.setStatus("current")
+_RlLldpTLVsTxLeftSize_Type = Unsigned32
+_RlLldpTLVsTxLeftSize_Object = MibTableColumn
+rlLldpTLVsTxLeftSize = _RlLldpTLVsTxLeftSize_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 6),
+    _RlLldpTLVsTxLeftSize_Type()
+)
+rlLldpTLVsTxLeftSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpTLVsTxLeftSize.setStatus("current")
+_RlLldpTLVsTxOverloadingSizeTable_Object = MibTable
+rlLldpTLVsTxOverloadingSizeTable = _RlLldpTLVsTxOverloadingSizeTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    rlLldpTLVsTxOverloadingSizeTable.setStatus("current")
+_RlLldpTLVsTxOverloadingSizeEntry_Object = MibTableRow
+rlLldpTLVsTxOverloadingSizeEntry = _RlLldpTLVsTxOverloadingSizeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 2, 1)
+)
+rlLldpTLVsTxOverloadingSizeEntry.setIndexNames(
+    (0, "RADLAN-LLDP-MIB", "rlLldpTxOverloadingPortNum"),
+)
+if mibBuilder.loadTexts:
+    rlLldpTLVsTxOverloadingSizeEntry.setStatus("current")
+_RlLldpTotalTLVsTxSize_Type = Unsigned32
+_RlLldpTotalTLVsTxSize_Object = MibTableColumn
+rlLldpTotalTLVsTxSize = _RlLldpTotalTLVsTxSize_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 2, 1, 2),
+    _RlLldpTotalTLVsTxSize_Type()
+)
+rlLldpTotalTLVsTxSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpTotalTLVsTxSize.setStatus("current")
+_RlLldpTLVsTxOverloading_Type = TruthValue
+_RlLldpTLVsTxOverloading_Object = MibTableColumn
+rlLldpTLVsTxOverloading = _RlLldpTLVsTxOverloading_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 2, 1, 3),
+    _RlLldpTLVsTxOverloading_Type()
+)
+rlLldpTLVsTxOverloading.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpTLVsTxOverloading.setStatus("current")
+_RlLldpLeftTLVsTxSize_Type = Unsigned32
+_RlLldpLeftTLVsTxSize_Object = MibTableColumn
+rlLldpLeftTLVsTxSize = _RlLldpLeftTLVsTxSize_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 2, 1, 4),
+    _RlLldpLeftTLVsTxSize_Type()
+)
+rlLldpLeftTLVsTxSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpLeftTLVsTxSize.setStatus("current")
+_RlLldpTLVsTxOverloadingPorts_Type = PortList
+_RlLldpTLVsTxOverloadingPorts_Object = MibScalar
+rlLldpTLVsTxOverloadingPorts = _RlLldpTLVsTxOverloadingPorts_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 3),
+    _RlLldpTLVsTxOverloadingPorts_Type()
+)
+rlLldpTLVsTxOverloadingPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpTLVsTxOverloadingPorts.setStatus("current")
+_RlLldpRemStatus_ObjectIdentity = ObjectIdentity
+rlLldpRemStatus = _RlLldpRemStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 4)
+)
+_RlLldpRemTtlTable_Object = MibTable
+rlLldpRemTtlTable = _RlLldpRemTtlTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    rlLldpRemTtlTable.setStatus("current")
+_RlLldpRemTtlEntry_Object = MibTableRow
+rlLldpRemTtlEntry = _RlLldpRemTtlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 4, 1, 1)
+)
+rlLldpRemTtlEntry.setIndexNames(
+    (0, "LLDP-MIB", "lldpRemTimeMark"),
+    (0, "LLDP-MIB", "lldpRemLocalPortNum"),
+    (0, "LLDP-MIB", "lldpRemIndex"),
+)
+if mibBuilder.loadTexts:
+    rlLldpRemTtlEntry.setStatus("current")
+_RlLldpRemTtl_Type = Unsigned32
+_RlLldpRemTtl_Object = MibTableColumn
+rlLldpRemTtl = _RlLldpRemTtl_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 4, 1, 1, 1),
+    _RlLldpRemTtl_Type()
+)
+rlLldpRemTtl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpRemTtl.setStatus("current")
+if mibBuilder.loadTexts:
+    rlLldpRemTtl.setUnits("seconds")
+_RlLldpLocalSystemData_ObjectIdentity = ObjectIdentity
+rlLldpLocalSystemData = _RlLldpLocalSystemData_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 5)
+)
+_RlLldpLoc4WirePowerTable_Object = MibTable
+rlLldpLoc4WirePowerTable = _RlLldpLoc4WirePowerTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    rlLldpLoc4WirePowerTable.setStatus("current")
+_RlLldpLoc4WirePowerEntry_Object = MibTableRow
+rlLldpLoc4WirePowerEntry = _RlLldpLoc4WirePowerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1, 1)
+)
+rlLldpLoc4WirePowerEntry.setIndexNames(
+    (0, "LLDP-V2-MIB", "lldpV2LocPortIfIndex"),
+)
+if mibBuilder.loadTexts:
+    rlLldpLoc4WirePowerEntry.setStatus("current")
+_RlLldpLoc4WirePowerSupported_Type = TruthValue
+_RlLldpLoc4WirePowerSupported_Object = MibTableColumn
+rlLldpLoc4WirePowerSupported = _RlLldpLoc4WirePowerSupported_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1, 1, 1),
+    _RlLldpLoc4WirePowerSupported_Type()
+)
+rlLldpLoc4WirePowerSupported.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpLoc4WirePowerSupported.setStatus("current")
+_RlLldpLoc4WirePowerSpPairDetClasReq_Type = TruthValue
+_RlLldpLoc4WirePowerSpPairDetClasReq_Object = MibTableColumn
+rlLldpLoc4WirePowerSpPairDetClasReq = _RlLldpLoc4WirePowerSpPairDetClasReq_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1, 1, 2),
+    _RlLldpLoc4WirePowerSpPairDetClasReq_Type()
+)
+rlLldpLoc4WirePowerSpPairDetClasReq.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpLoc4WirePowerSpPairDetClasReq.setStatus("current")
+_RlLldpLoc4WirePowerPdSpPairDesStEn_Type = TruthValue
+_RlLldpLoc4WirePowerPdSpPairDesStEn_Object = MibTableColumn
+rlLldpLoc4WirePowerPdSpPairDesStEn = _RlLldpLoc4WirePowerPdSpPairDesStEn_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1, 1, 3),
+    _RlLldpLoc4WirePowerPdSpPairDesStEn_Type()
+)
+rlLldpLoc4WirePowerPdSpPairDesStEn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpLoc4WirePowerPdSpPairDesStEn.setStatus("current")
+_RlLldpLoc4WirePowerPseSpPairOpStEn_Type = TruthValue
+_RlLldpLoc4WirePowerPseSpPairOpStEn_Object = MibTableColumn
+rlLldpLoc4WirePowerPseSpPairOpStEn = _RlLldpLoc4WirePowerPseSpPairOpStEn_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1, 1, 4),
+    _RlLldpLoc4WirePowerPseSpPairOpStEn_Type()
+)
+rlLldpLoc4WirePowerPseSpPairOpStEn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpLoc4WirePowerPseSpPairOpStEn.setStatus("current")
+_RlLldpRemoteSystemsData_ObjectIdentity = ObjectIdentity
+rlLldpRemoteSystemsData = _RlLldpRemoteSystemsData_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 6)
+)
+_RlLldpRem4WirePowerTable_Object = MibTable
+rlLldpRem4WirePowerTable = _RlLldpRem4WirePowerTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1)
+)
+if mibBuilder.loadTexts:
+    rlLldpRem4WirePowerTable.setStatus("current")
+_RlLldpRem4WirePowerEntry_Object = MibTableRow
+rlLldpRem4WirePowerEntry = _RlLldpRem4WirePowerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1, 1)
+)
+rlLldpRem4WirePowerEntry.setIndexNames(
+    (0, "LLDP-MIB", "lldpRemTimeMark"),
+    (0, "LLDP-MIB", "lldpRemLocalPortNum"),
+    (0, "LLDP-MIB", "lldpRemIndex"),
+)
+if mibBuilder.loadTexts:
+    rlLldpRem4WirePowerEntry.setStatus("current")
+_RlLldpRem4WirePowerSupported_Type = TruthValue
+_RlLldpRem4WirePowerSupported_Object = MibTableColumn
+rlLldpRem4WirePowerSupported = _RlLldpRem4WirePowerSupported_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1, 1, 1),
+    _RlLldpRem4WirePowerSupported_Type()
+)
+rlLldpRem4WirePowerSupported.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpRem4WirePowerSupported.setStatus("current")
+_RlLldpRem4WirePowerSpPairDetClasReq_Type = TruthValue
+_RlLldpRem4WirePowerSpPairDetClasReq_Object = MibTableColumn
+rlLldpRem4WirePowerSpPairDetClasReq = _RlLldpRem4WirePowerSpPairDetClasReq_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1, 1, 2),
+    _RlLldpRem4WirePowerSpPairDetClasReq_Type()
+)
+rlLldpRem4WirePowerSpPairDetClasReq.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpRem4WirePowerSpPairDetClasReq.setStatus("current")
+_RlLldpRem4WirePowerPdSpPairDesStEn_Type = TruthValue
+_RlLldpRem4WirePowerPdSpPairDesStEn_Object = MibTableColumn
+rlLldpRem4WirePowerPdSpPairDesStEn = _RlLldpRem4WirePowerPdSpPairDesStEn_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1, 1, 3),
+    _RlLldpRem4WirePowerPdSpPairDesStEn_Type()
+)
+rlLldpRem4WirePowerPdSpPairDesStEn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpRem4WirePowerPdSpPairDesStEn.setStatus("current")
+_RlLldpRem4WirePowerPseSpPairOpStEn_Type = TruthValue
+_RlLldpRem4WirePowerPseSpPairOpStEn_Object = MibTableColumn
+rlLldpRem4WirePowerPseSpPairOpStEn = _RlLldpRem4WirePowerPseSpPairOpStEn_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1, 1, 4),
+    _RlLldpRem4WirePowerPseSpPairOpStEn_Type()
+)
+rlLldpRem4WirePowerPseSpPairOpStEn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpRem4WirePowerPseSpPairOpStEn.setStatus("current")
+_RlLldpRemTable_Object = MibTable
+rlLldpRemTable = _RlLldpRemTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 2)
+)
+if mibBuilder.loadTexts:
+    rlLldpRemTable.setStatus("current")
+_RlLldpRemEntry_Object = MibTableRow
+rlLldpRemEntry = _RlLldpRemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 2, 1)
+)
+if mibBuilder.loadTexts:
+    rlLldpRemEntry.setStatus("current")
+_RlLldpRemSrcMacAddr_Type = MacAddress
+_RlLldpRemSrcMacAddr_Object = MibTableColumn
+rlLldpRemSrcMacAddr = _RlLldpRemSrcMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 2, 1, 1),
+    _RlLldpRemSrcMacAddr_Type()
+)
+rlLldpRemSrcMacAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpRemSrcMacAddr.setStatus("current")
+_RlLldpRemActiveStation_Type = TruthValue
+_RlLldpRemActiveStation_Object = MibTableColumn
+rlLldpRemActiveStation = _RlLldpRemActiveStation_Object(
+    (1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 2, 1, 2),
+    _RlLldpRemActiveStation_Type()
+)
+rlLldpRemActiveStation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlLldpRemActiveStation.setStatus("current")
+lldpPortConfigEntry.registerAugmentions(
+    ("RADLAN-LLDP-MIB",
+     "rlLldpPortConfigEntry")
+)
 rlLldpPortConfigEntry.setIndexNames(*lldpPortConfigEntry.getIndexNames())
-if mibBuilder.loadTexts: rlLldpPortConfigEntry.setStatus('current')
-rlLldpPortConfig4wireTxEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 1, 6, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpPortConfig4wireTxEnable.setStatus('current')
-rlLldpXMedLocMediaPolicyContainerTable = MibTable((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1), )
-if mibBuilder.loadTexts: rlLldpXMedLocMediaPolicyContainerTable.setStatus('current')
-rlLldpXMedLocMediaPolicyContainerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1), ).setIndexNames((0, "RADLAN-LLDP-MIB", "rlLldpXMedLocMediaPolicyContainerIndex"))
-if mibBuilder.loadTexts: rlLldpXMedLocMediaPolicyContainerEntry.setStatus('current')
-rlLldpXMedLocMediaPolicyContainerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 1), PolicyNumber())
-if mibBuilder.loadTexts: rlLldpXMedLocMediaPolicyContainerIndex.setStatus('current')
-rlLldpXMedLocMediaPolicyContainerAppType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 2), PolicyContainerAppType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpXMedLocMediaPolicyContainerAppType.setStatus('current')
-rlLldpXMedLocMediaPolicyContainerVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4094), ValueRangeConstraint(4095, 4095), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpXMedLocMediaPolicyContainerVlanID.setStatus('current')
-rlLldpXMedLocMediaPolicyContainerPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpXMedLocMediaPolicyContainerPriority.setStatus('current')
-rlLldpXMedLocMediaPolicyContainerDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 5), Dscp()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpXMedLocMediaPolicyContainerDscp.setStatus('current')
-rlLldpXMedLocMediaPolicyContainerUnknown = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 6), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpXMedLocMediaPolicyContainerUnknown.setStatus('current')
-rlLldpXMedLocMediaPolicyContainerTagged = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpXMedLocMediaPolicyContainerTagged.setStatus('current')
-rlLldpXMedLocMediaPolicyContainerPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 8), PortList().clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpXMedLocMediaPolicyContainerPorts.setStatus('current')
-rlLldpXMedLocMediaPolicyContainerRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 1, 1, 9), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpXMedLocMediaPolicyContainerRowStatus.setStatus('current')
-rlLldpXMedNetPolVoiceUpdateMode = MibScalar((1, 3, 6, 1, 4, 1, 89, 110, 1, 2, 2), PolicyAppVoiceUpdateMode()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlLldpXMedNetPolVoiceUpdateMode.setStatus('current')
-rlLldpTLVsTxOverloadingTable = MibTable((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1), )
-if mibBuilder.loadTexts: rlLldpTLVsTxOverloadingTable.setStatus('current')
-rlLldpTLVsTxOverloadingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1), ).setIndexNames((0, "RADLAN-LLDP-MIB", "rlLldpTxOverloadingPortNum"), (0, "RADLAN-LLDP-MIB", "rlLldpTxOverloadingIndex"))
-if mibBuilder.loadTexts: rlLldpTLVsTxOverloadingEntry.setStatus('current')
-rlLldpTxOverloadingPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 1), LldpPortNumber())
-if mibBuilder.loadTexts: rlLldpTxOverloadingPortNum.setStatus('current')
-rlLldpTxOverloadingIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 2), Unsigned32())
-if mibBuilder.loadTexts: rlLldpTxOverloadingIndex.setStatus('current')
-rlLldpTxOverloadingGroupId = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("mandatory", 1), ("optional", 2), ("medCap", 3), ("medLocation", 4), ("medNetPolicy", 5), ("medPoe", 6), ("medInventory", 7), ("xDot3", 8), ("xDot1", 9), ("dcbx", 10), ("cisco", 11)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpTxOverloadingGroupId.setStatus('current')
-rlLldpTLVsTxSize = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpTLVsTxSize.setStatus('current')
-rlLldpTLVsTxGroupOverloading = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 5), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpTLVsTxGroupOverloading.setStatus('current')
-rlLldpTLVsTxLeftSize = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpTLVsTxLeftSize.setStatus('current')
-rlLldpTLVsTxOverloadingSizeTable = MibTable((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 2), )
-if mibBuilder.loadTexts: rlLldpTLVsTxOverloadingSizeTable.setStatus('current')
-rlLldpTLVsTxOverloadingSizeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 2, 1), ).setIndexNames((0, "RADLAN-LLDP-MIB", "rlLldpTxOverloadingPortNum"))
-if mibBuilder.loadTexts: rlLldpTLVsTxOverloadingSizeEntry.setStatus('current')
-rlLldpTotalTLVsTxSize = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpTotalTLVsTxSize.setStatus('current')
-rlLldpTLVsTxOverloading = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 2, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpTLVsTxOverloading.setStatus('current')
-rlLldpLeftTLVsTxSize = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpLeftTLVsTxSize.setStatus('current')
-rlLldpTLVsTxOverloadingPorts = MibScalar((1, 3, 6, 1, 4, 1, 89, 110, 1, 3, 3), PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpTLVsTxOverloadingPorts.setStatus('current')
-rlLldpTLVsTxOverloadingStateEnterTrap = NotificationType((1, 3, 6, 1, 4, 1, 89, 0, 209)).setObjects(("RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlLldpTLVsTxOverloadingStateEnterTrap.setStatus('current')
-rlLldpTLVsTxOverloadingStateExitTrap = NotificationType((1, 3, 6, 1, 4, 1, 89, 0, 210)).setObjects(("RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"), ("RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlLldpTLVsTxOverloadingStateExitTrap.setStatus('current')
-rlLldpRemTtlTable = MibTable((1, 3, 6, 1, 4, 1, 89, 110, 1, 4, 1), )
-if mibBuilder.loadTexts: rlLldpRemTtlTable.setStatus('current')
-rlLldpRemTtlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 110, 1, 4, 1, 1), ).setIndexNames((0, "LLDP-MIB", "lldpRemTimeMark"), (0, "LLDP-MIB", "lldpRemLocalPortNum"), (0, "LLDP-MIB", "lldpRemIndex"))
-if mibBuilder.loadTexts: rlLldpRemTtlEntry.setStatus('current')
-rlLldpRemTtl = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 4, 1, 1, 1), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpRemTtl.setStatus('current')
-rlLldpLoc4WirePowerTable = MibTable((1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1), )
-if mibBuilder.loadTexts: rlLldpLoc4WirePowerTable.setStatus('current')
-rlLldpLoc4WirePowerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1, 1), ).setIndexNames((0, "LLDP-V2-MIB", "lldpV2LocPortIfIndex"))
-if mibBuilder.loadTexts: rlLldpLoc4WirePowerEntry.setStatus('current')
-rlLldpLoc4WirePowerSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpLoc4WirePowerSupported.setStatus('current')
-rlLldpLoc4WirePowerSpPairDetClasReq = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpLoc4WirePowerSpPairDetClasReq.setStatus('current')
-rlLldpLoc4WirePowerPdSpPairDesStEn = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpLoc4WirePowerPdSpPairDesStEn.setStatus('current')
-rlLldpLoc4WirePowerPseSpPairOpStEn = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 5, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpLoc4WirePowerPseSpPairOpStEn.setStatus('current')
-rlLldpRem4WirePowerTable = MibTable((1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1), )
-if mibBuilder.loadTexts: rlLldpRem4WirePowerTable.setStatus('current')
-rlLldpRem4WirePowerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1, 1), ).setIndexNames((0, "LLDP-MIB", "lldpRemTimeMark"), (0, "LLDP-MIB", "lldpRemLocalPortNum"), (0, "LLDP-MIB", "lldpRemIndex"))
-if mibBuilder.loadTexts: rlLldpRem4WirePowerEntry.setStatus('current')
-rlLldpRem4WirePowerSupported = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpRem4WirePowerSupported.setStatus('current')
-rlLldpRem4WirePowerSpPairDetClasReq = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpRem4WirePowerSpPairDetClasReq.setStatus('current')
-rlLldpRem4WirePowerPdSpPairDesStEn = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpRem4WirePowerPdSpPairDesStEn.setStatus('current')
-rlLldpRem4WirePowerPseSpPairOpStEn = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpRem4WirePowerPseSpPairOpStEn.setStatus('current')
-rlLldpRemTable = MibTable((1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 2), )
-if mibBuilder.loadTexts: rlLldpRemTable.setStatus('current')
-rlLldpRemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 2, 1), )
-lldpRemEntry.registerAugmentions(("RADLAN-LLDP-MIB", "rlLldpRemEntry"))
+lldpRemEntry.registerAugmentions(
+    ("RADLAN-LLDP-MIB",
+     "rlLldpRemEntry")
+)
 rlLldpRemEntry.setIndexNames(*lldpRemEntry.getIndexNames())
-if mibBuilder.loadTexts: rlLldpRemEntry.setStatus('current')
-rlLldpRemSrcMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 2, 1, 1), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpRemSrcMacAddr.setStatus('current')
-rlLldpRemActiveStation = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 110, 1, 6, 2, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlLldpRemActiveStation.setStatus('current')
-mibBuilder.exportSymbols("RADLAN-LLDP-MIB", rlLldpRem4WirePowerTable=rlLldpRem4WirePowerTable, PYSNMP_MODULE_ID=rlLldp, rlLldpAutoAdvLocPortNum=rlLldpAutoAdvLocPortNum, rlLldpRemTtlTable=rlLldpRemTtlTable, rlLldpTLVsTxGroupOverloading=rlLldpTLVsTxGroupOverloading, rlLldpRemTtlEntry=rlLldpRemTtlEntry, rlLldpConfig=rlLldpConfig, rlLldpAutoAdvLocPortManAddrTable=rlLldpAutoAdvLocPortManAddrTable, rlLldpTLVsTxOverloadingStateExitTrap=rlLldpTLVsTxOverloadingStateExitTrap, rlLldpLoc4WirePowerPdSpPairDesStEn=rlLldpLoc4WirePowerPdSpPairDesStEn, rlLldp=rlLldp, rlLldpXMedConfig=rlLldpXMedConfig, rlLldpRemSrcMacAddr=rlLldpRemSrcMacAddr, rlLldpObjects=rlLldpObjects, rlLldpXMedLocMediaPolicyContainerAppType=rlLldpXMedLocMediaPolicyContainerAppType, rlLldpTLVsTxSize=rlLldpTLVsTxSize, rlLldpXMedLocMediaPolicyContainerVlanID=rlLldpXMedLocMediaPolicyContainerVlanID, rlLldpTLVsTxOverloadingStateEnterTrap=rlLldpTLVsTxOverloadingStateEnterTrap, rlLldpRemTtl=rlLldpRemTtl, rlLldpTLVsTxOverloadingSizeTable=rlLldpTLVsTxOverloadingSizeTable, rlLldpXMedLocMediaPolicyContainerTagged=rlLldpXMedLocMediaPolicyContainerTagged, rlLldpLoc4WirePowerSpPairDetClasReq=rlLldpLoc4WirePowerSpPairDetClasReq, rlLldpPortConfigEntry=rlLldpPortConfigEntry, rlLldpXMedLocMediaPolicyContainerTable=rlLldpXMedLocMediaPolicyContainerTable, rlLldpTLVsTxOverloadingPorts=rlLldpTLVsTxOverloadingPorts, rlLldpLoc4WirePowerTable=rlLldpLoc4WirePowerTable, rlLldpRem4WirePowerSupported=rlLldpRem4WirePowerSupported, rlLldpEnabled=rlLldpEnabled, rlLldpXMedNetPolVoiceUpdateMode=rlLldpXMedNetPolVoiceUpdateMode, rlLldpAutoAdvLocPortManAddrEntry=rlLldpAutoAdvLocPortManAddrEntry, rlLldpRemoteSystemsData=rlLldpRemoteSystemsData, rlLldpTLVsTxOverload=rlLldpTLVsTxOverload, rlLldpXMedLocMediaPolicyContainerRowStatus=rlLldpXMedLocMediaPolicyContainerRowStatus, rlLldpTLVsTxLeftSize=rlLldpTLVsTxLeftSize, rlLldpLoc4WirePowerSupported=rlLldpLoc4WirePowerSupported, rlLldpTxOverloadingIndex=rlLldpTxOverloadingIndex, rlLldpRem4WirePowerSpPairDetClasReq=rlLldpRem4WirePowerSpPairDetClasReq, rlLldpXMedLocMediaPolicyContainerPorts=rlLldpXMedLocMediaPolicyContainerPorts, rlLldpRemTable=rlLldpRemTable, PolicyAppVoiceUpdateMode=PolicyAppVoiceUpdateMode, rlLldpRem4WirePowerEntry=rlLldpRem4WirePowerEntry, rlLldpRemEntry=rlLldpRemEntry, rlLldpRemStatus=rlLldpRemStatus, rlLldpTLVsTxOverloading=rlLldpTLVsTxOverloading, rlLldpAutoAdvManAddr=rlLldpAutoAdvManAddr, rlLldpRem4WirePowerPseSpPairOpStEn=rlLldpRem4WirePowerPseSpPairOpStEn, PolicyNumber=PolicyNumber, rlLldpXMedLocMediaPolicyContainerUnknown=rlLldpXMedLocMediaPolicyContainerUnknown, rlLldpLoc4WirePowerEntry=rlLldpLoc4WirePowerEntry, rlLldpLocalSystemData=rlLldpLocalSystemData, rlLldpXMedLocMediaPolicyContainerIndex=rlLldpXMedLocMediaPolicyContainerIndex, rlLldpTLVsTxOverloadingEntry=rlLldpTLVsTxOverloadingEntry, rlLldpRem4WirePowerPdSpPairDesStEn=rlLldpRem4WirePowerPdSpPairDesStEn, rlLldpAutoAdvManAddrSubtype=rlLldpAutoAdvManAddrSubtype, rlLldpChassisIdSubtype=rlLldpChassisIdSubtype, rlLldpPortConfigTable=rlLldpPortConfigTable, rlLldpTotalTLVsTxSize=rlLldpTotalTLVsTxSize, rlLldpPortConfig4wireTxEnable=rlLldpPortConfig4wireTxEnable, rlLldpAutoAdvManAddrNone=rlLldpAutoAdvManAddrNone, rlLldpXMedLocMediaPolicyContainerDscp=rlLldpXMedLocMediaPolicyContainerDscp, PolicyContainerAppType=PolicyContainerAppType, rlLldpTxOverloadingPortNum=rlLldpTxOverloadingPortNum, rlLldpDuMode=rlLldpDuMode, rlLldpTxOverloadingGroupId=rlLldpTxOverloadingGroupId, rlLldpXMedLocMediaPolicyContainerPriority=rlLldpXMedLocMediaPolicyContainerPriority, rlLldpTLVsTxOverloadingTable=rlLldpTLVsTxOverloadingTable, rlLldpAutoAdvPortsStatus=rlLldpAutoAdvPortsStatus, rlLldpTLVsTxOverloadingSizeEntry=rlLldpTLVsTxOverloadingSizeEntry, rlLldpLeftTLVsTxSize=rlLldpLeftTLVsTxSize, rlLldpLoc4WirePowerPseSpPairOpStEn=rlLldpLoc4WirePowerPseSpPairOpStEn, rlLldpAutoAdvManAddrOwnerIfId=rlLldpAutoAdvManAddrOwnerIfId, rlLldpXMedLocMediaPolicyContainerEntry=rlLldpXMedLocMediaPolicyContainerEntry, rlLldpClearRx=rlLldpClearRx, rlLldpRemActiveStation=rlLldpRemActiveStation)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+rlLldpTLVsTxOverloadingStateEnterTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 89, 0, 209)
+)
+rlLldpTLVsTxOverloadingStateEnterTrap.setObjects(
+      *(("RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlLldpTLVsTxOverloadingStateEnterTrap.setStatus(
+        "current"
+    )
+
+rlLldpTLVsTxOverloadingStateExitTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 89, 0, 210)
+)
+rlLldpTLVsTxOverloadingStateExitTrap.setObjects(
+      *(("RADLAN-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("RADLAN-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlLldpTLVsTxOverloadingStateExitTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RADLAN-LLDP-MIB",
+    **{"PolicyNumber": PolicyNumber,
+       "PolicyContainerAppType": PolicyContainerAppType,
+       "PolicyAppVoiceUpdateMode": PolicyAppVoiceUpdateMode,
+       "rlLldpTLVsTxOverloadingStateEnterTrap": rlLldpTLVsTxOverloadingStateEnterTrap,
+       "rlLldpTLVsTxOverloadingStateExitTrap": rlLldpTLVsTxOverloadingStateExitTrap,
+       "rlLldp": rlLldp,
+       "rlLldpObjects": rlLldpObjects,
+       "rlLldpConfig": rlLldpConfig,
+       "rlLldpEnabled": rlLldpEnabled,
+       "rlLldpClearRx": rlLldpClearRx,
+       "rlLldpDuMode": rlLldpDuMode,
+       "rlLldpAutoAdvLocPortManAddrTable": rlLldpAutoAdvLocPortManAddrTable,
+       "rlLldpAutoAdvLocPortManAddrEntry": rlLldpAutoAdvLocPortManAddrEntry,
+       "rlLldpAutoAdvLocPortNum": rlLldpAutoAdvLocPortNum,
+       "rlLldpAutoAdvManAddrOwnerIfId": rlLldpAutoAdvManAddrOwnerIfId,
+       "rlLldpAutoAdvManAddrNone": rlLldpAutoAdvManAddrNone,
+       "rlLldpAutoAdvManAddrSubtype": rlLldpAutoAdvManAddrSubtype,
+       "rlLldpAutoAdvManAddr": rlLldpAutoAdvManAddr,
+       "rlLldpAutoAdvPortsStatus": rlLldpAutoAdvPortsStatus,
+       "rlLldpChassisIdSubtype": rlLldpChassisIdSubtype,
+       "rlLldpPortConfigTable": rlLldpPortConfigTable,
+       "rlLldpPortConfigEntry": rlLldpPortConfigEntry,
+       "rlLldpPortConfig4wireTxEnable": rlLldpPortConfig4wireTxEnable,
+       "rlLldpXMedConfig": rlLldpXMedConfig,
+       "rlLldpXMedLocMediaPolicyContainerTable": rlLldpXMedLocMediaPolicyContainerTable,
+       "rlLldpXMedLocMediaPolicyContainerEntry": rlLldpXMedLocMediaPolicyContainerEntry,
+       "rlLldpXMedLocMediaPolicyContainerIndex": rlLldpXMedLocMediaPolicyContainerIndex,
+       "rlLldpXMedLocMediaPolicyContainerAppType": rlLldpXMedLocMediaPolicyContainerAppType,
+       "rlLldpXMedLocMediaPolicyContainerVlanID": rlLldpXMedLocMediaPolicyContainerVlanID,
+       "rlLldpXMedLocMediaPolicyContainerPriority": rlLldpXMedLocMediaPolicyContainerPriority,
+       "rlLldpXMedLocMediaPolicyContainerDscp": rlLldpXMedLocMediaPolicyContainerDscp,
+       "rlLldpXMedLocMediaPolicyContainerUnknown": rlLldpXMedLocMediaPolicyContainerUnknown,
+       "rlLldpXMedLocMediaPolicyContainerTagged": rlLldpXMedLocMediaPolicyContainerTagged,
+       "rlLldpXMedLocMediaPolicyContainerPorts": rlLldpXMedLocMediaPolicyContainerPorts,
+       "rlLldpXMedLocMediaPolicyContainerRowStatus": rlLldpXMedLocMediaPolicyContainerRowStatus,
+       "rlLldpXMedNetPolVoiceUpdateMode": rlLldpXMedNetPolVoiceUpdateMode,
+       "rlLldpTLVsTxOverload": rlLldpTLVsTxOverload,
+       "rlLldpTLVsTxOverloadingTable": rlLldpTLVsTxOverloadingTable,
+       "rlLldpTLVsTxOverloadingEntry": rlLldpTLVsTxOverloadingEntry,
+       "rlLldpTxOverloadingPortNum": rlLldpTxOverloadingPortNum,
+       "rlLldpTxOverloadingIndex": rlLldpTxOverloadingIndex,
+       "rlLldpTxOverloadingGroupId": rlLldpTxOverloadingGroupId,
+       "rlLldpTLVsTxSize": rlLldpTLVsTxSize,
+       "rlLldpTLVsTxGroupOverloading": rlLldpTLVsTxGroupOverloading,
+       "rlLldpTLVsTxLeftSize": rlLldpTLVsTxLeftSize,
+       "rlLldpTLVsTxOverloadingSizeTable": rlLldpTLVsTxOverloadingSizeTable,
+       "rlLldpTLVsTxOverloadingSizeEntry": rlLldpTLVsTxOverloadingSizeEntry,
+       "rlLldpTotalTLVsTxSize": rlLldpTotalTLVsTxSize,
+       "rlLldpTLVsTxOverloading": rlLldpTLVsTxOverloading,
+       "rlLldpLeftTLVsTxSize": rlLldpLeftTLVsTxSize,
+       "rlLldpTLVsTxOverloadingPorts": rlLldpTLVsTxOverloadingPorts,
+       "rlLldpRemStatus": rlLldpRemStatus,
+       "rlLldpRemTtlTable": rlLldpRemTtlTable,
+       "rlLldpRemTtlEntry": rlLldpRemTtlEntry,
+       "rlLldpRemTtl": rlLldpRemTtl,
+       "rlLldpLocalSystemData": rlLldpLocalSystemData,
+       "rlLldpLoc4WirePowerTable": rlLldpLoc4WirePowerTable,
+       "rlLldpLoc4WirePowerEntry": rlLldpLoc4WirePowerEntry,
+       "rlLldpLoc4WirePowerSupported": rlLldpLoc4WirePowerSupported,
+       "rlLldpLoc4WirePowerSpPairDetClasReq": rlLldpLoc4WirePowerSpPairDetClasReq,
+       "rlLldpLoc4WirePowerPdSpPairDesStEn": rlLldpLoc4WirePowerPdSpPairDesStEn,
+       "rlLldpLoc4WirePowerPseSpPairOpStEn": rlLldpLoc4WirePowerPseSpPairOpStEn,
+       "rlLldpRemoteSystemsData": rlLldpRemoteSystemsData,
+       "rlLldpRem4WirePowerTable": rlLldpRem4WirePowerTable,
+       "rlLldpRem4WirePowerEntry": rlLldpRem4WirePowerEntry,
+       "rlLldpRem4WirePowerSupported": rlLldpRem4WirePowerSupported,
+       "rlLldpRem4WirePowerSpPairDetClasReq": rlLldpRem4WirePowerSpPairDetClasReq,
+       "rlLldpRem4WirePowerPdSpPairDesStEn": rlLldpRem4WirePowerPdSpPairDesStEn,
+       "rlLldpRem4WirePowerPseSpPairOpStEn": rlLldpRem4WirePowerPseSpPairOpStEn,
+       "rlLldpRemTable": rlLldpRemTable,
+       "rlLldpRemEntry": rlLldpRemEntry,
+       "rlLldpRemSrcMacAddr": rlLldpRemSrcMacAddr,
+       "rlLldpRemActiveStation": rlLldpRemActiveStation}
+)

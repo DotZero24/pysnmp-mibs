@@ -1,79 +1,707 @@
+# SNMP MIB module (SUPERMICRO-SSM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SUPERMICRO-SSM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/supermicro/SUPERMICRO-SSM-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:40 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/supermicro/SUPERMICRO-SSM-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:02:41 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-smSSMInfo, = mibBuilder.importSymbols("SUPERMICRO-SMI", "smSSMInfo")
-smSSMTrapMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 10876, 100, 4))
-trapGenericHostStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,101))
-trapGenericHostStatusDown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,102))
-trapGenericHostStatusUnreachable = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,103))
-trapGenericServiceStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,201))
-trapGenericServiceStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,202))
-trapGenericServiceStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,203))
-trapGenericServiceStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,204))
-trapVersionStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,301))
-trapVersionStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,302))
-trapVersionStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,303))
-trapVersionStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,304))
-trapSysinfoStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,401))
-trapSysinfoStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,402))
-trapSysinfoStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,403))
-trapSysinfoStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,404))
-trapBuiltinSensorHealthStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,501))
-trapBuiltinSensorHealthStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,502))
-trapBuiltinSensorHealthStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,503))
-trapBuiltinSensorHealthStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,504))
-trapExecuteScriptStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,601))
-trapExecuteScriptStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,602))
-trapExecuteScriptStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,603))
-trapExecuteScriptStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,604))
-trapStorageHealthStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,701))
-trapStorageHealthStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,702))
-trapStorageHealthStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,703))
-trapStorageHealthStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,704))
-trapMemoryHealthStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,801))
-trapMemoryHealthStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,802))
-trapMemoryHealthStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,803))
-trapMemoryHealthStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,804))
-trapHttpStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,901))
-trapHttpStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,902))
-trapHttpStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,903))
-trapHttpStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,904))
-trapFtpStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1001))
-trapFtpStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1002))
-trapFtpStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1003))
-trapFtpStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1004))
-trapSmtpStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1101))
-trapSmtpStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1102))
-trapSmtpStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1103))
-trapSmtpStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1104))
-trapIpmiSensorHealthStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1201))
-trapIpmiSensorHealthStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1202))
-trapIpmiSensorHealthStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1203))
-trapIpmiSensorHealthStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1204))
-trapIpmiPowerConsumptionStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1301))
-trapIpmiPowerConsumptionStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1302))
-trapIpmiPowerConsumptionStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1303))
-trapIpmiPowerConsumptionStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1304))
-trapIpmiSysinfoStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1401))
-trapIpmiSysinfoStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1402))
-trapIpmiSysinfoStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1403))
-trapIpmiSysinfoStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1404))
-trapSumSupportStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1501))
-trapSumSupportStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1502))
-trapSumSupportStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1503))
-trapSumSupportStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1504))
-trapIpmiSelHealthStatusNormal = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1601))
-trapIpmiSelHealthStatusWarning = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1602))
-trapIpmiSelHealthStatusCritical = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1603))
-trapIpmiSelHealthStatusUnknown = NotificationType((1, 3, 6, 1, 4, 1, 10876, 100, 4) + (0,1604))
-mibBuilder.exportSymbols("SUPERMICRO-SSM-MIB", trapExecuteScriptStatusCritical=trapExecuteScriptStatusCritical, trapVersionStatusWarning=trapVersionStatusWarning, trapIpmiSysinfoStatusCritical=trapIpmiSysinfoStatusCritical, trapGenericServiceStatusCritical=trapGenericServiceStatusCritical, trapFtpStatusUnknown=trapFtpStatusUnknown, trapSumSupportStatusCritical=trapSumSupportStatusCritical, trapMemoryHealthStatusNormal=trapMemoryHealthStatusNormal, trapStorageHealthStatusCritical=trapStorageHealthStatusCritical, trapSysinfoStatusWarning=trapSysinfoStatusWarning, trapMemoryHealthStatusWarning=trapMemoryHealthStatusWarning, trapIpmiSelHealthStatusNormal=trapIpmiSelHealthStatusNormal, trapGenericHostStatusDown=trapGenericHostStatusDown, trapStorageHealthStatusWarning=trapStorageHealthStatusWarning, trapFtpStatusWarning=trapFtpStatusWarning, trapExecuteScriptStatusUnknown=trapExecuteScriptStatusUnknown, trapGenericHostStatusUnreachable=trapGenericHostStatusUnreachable, trapBuiltinSensorHealthStatusWarning=trapBuiltinSensorHealthStatusWarning, trapFtpStatusNormal=trapFtpStatusNormal, trapSysinfoStatusCritical=trapSysinfoStatusCritical, trapSmtpStatusWarning=trapSmtpStatusWarning, trapBuiltinSensorHealthStatusNormal=trapBuiltinSensorHealthStatusNormal, trapGenericHostStatusNormal=trapGenericHostStatusNormal, trapSmtpStatusUnknown=trapSmtpStatusUnknown, trapIpmiSensorHealthStatusNormal=trapIpmiSensorHealthStatusNormal, trapStorageHealthStatusNormal=trapStorageHealthStatusNormal, trapStorageHealthStatusUnknown=trapStorageHealthStatusUnknown, trapSumSupportStatusNormal=trapSumSupportStatusNormal, trapIpmiSelHealthStatusUnknown=trapIpmiSelHealthStatusUnknown, trapIpmiSensorHealthStatusWarning=trapIpmiSensorHealthStatusWarning, smSSMTrapMIB=smSSMTrapMIB, trapVersionStatusNormal=trapVersionStatusNormal, trapGenericServiceStatusUnknown=trapGenericServiceStatusUnknown, trapSmtpStatusNormal=trapSmtpStatusNormal, trapHttpStatusUnknown=trapHttpStatusUnknown, trapIpmiPowerConsumptionStatusWarning=trapIpmiPowerConsumptionStatusWarning, trapHttpStatusNormal=trapHttpStatusNormal, trapIpmiSysinfoStatusUnknown=trapIpmiSysinfoStatusUnknown, trapSumSupportStatusUnknown=trapSumSupportStatusUnknown, trapVersionStatusUnknown=trapVersionStatusUnknown, trapIpmiSensorHealthStatusUnknown=trapIpmiSensorHealthStatusUnknown, trapIpmiSysinfoStatusWarning=trapIpmiSysinfoStatusWarning, trapHttpStatusCritical=trapHttpStatusCritical, trapVersionStatusCritical=trapVersionStatusCritical, trapMemoryHealthStatusCritical=trapMemoryHealthStatusCritical, trapSumSupportStatusWarning=trapSumSupportStatusWarning, trapGenericServiceStatusNormal=trapGenericServiceStatusNormal, trapBuiltinSensorHealthStatusUnknown=trapBuiltinSensorHealthStatusUnknown, trapGenericServiceStatusWarning=trapGenericServiceStatusWarning, trapSysinfoStatusNormal=trapSysinfoStatusNormal, trapHttpStatusWarning=trapHttpStatusWarning, trapFtpStatusCritical=trapFtpStatusCritical, trapIpmiPowerConsumptionStatusCritical=trapIpmiPowerConsumptionStatusCritical, trapExecuteScriptStatusWarning=trapExecuteScriptStatusWarning, trapSmtpStatusCritical=trapSmtpStatusCritical, trapIpmiSelHealthStatusWarning=trapIpmiSelHealthStatusWarning, trapIpmiSelHealthStatusCritical=trapIpmiSelHealthStatusCritical, trapIpmiSensorHealthStatusCritical=trapIpmiSensorHealthStatusCritical, trapIpmiPowerConsumptionStatusUnknown=trapIpmiPowerConsumptionStatusUnknown, trapMemoryHealthStatusUnknown=trapMemoryHealthStatusUnknown, trapIpmiSysinfoStatusNormal=trapIpmiSysinfoStatusNormal, trapIpmiPowerConsumptionStatusNormal=trapIpmiPowerConsumptionStatusNormal, trapSysinfoStatusUnknown=trapSysinfoStatusUnknown, trapBuiltinSensorHealthStatusCritical=trapBuiltinSensorHealthStatusCritical, trapExecuteScriptStatusNormal=trapExecuteScriptStatusNormal)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(smSSMInfo,) = mibBuilder.importSymbols(
+    "SUPERMICRO-SMI",
+    "smSSMInfo")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SmSSMTrapMIB_ObjectIdentity = ObjectIdentity
+smSSMTrapMIB = _SmSSMTrapMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+trapGenericHostStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 101)
+)
+if mibBuilder.loadTexts:
+    trapGenericHostStatusNormal.setStatus(
+        ""
+    )
+
+trapGenericHostStatusDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 102)
+)
+if mibBuilder.loadTexts:
+    trapGenericHostStatusDown.setStatus(
+        ""
+    )
+
+trapGenericHostStatusUnreachable = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 103)
+)
+if mibBuilder.loadTexts:
+    trapGenericHostStatusUnreachable.setStatus(
+        ""
+    )
+
+trapGenericServiceStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 201)
+)
+if mibBuilder.loadTexts:
+    trapGenericServiceStatusNormal.setStatus(
+        ""
+    )
+
+trapGenericServiceStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 202)
+)
+if mibBuilder.loadTexts:
+    trapGenericServiceStatusWarning.setStatus(
+        ""
+    )
+
+trapGenericServiceStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 203)
+)
+if mibBuilder.loadTexts:
+    trapGenericServiceStatusCritical.setStatus(
+        ""
+    )
+
+trapGenericServiceStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 204)
+)
+if mibBuilder.loadTexts:
+    trapGenericServiceStatusUnknown.setStatus(
+        ""
+    )
+
+trapVersionStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 301)
+)
+if mibBuilder.loadTexts:
+    trapVersionStatusNormal.setStatus(
+        ""
+    )
+
+trapVersionStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 302)
+)
+if mibBuilder.loadTexts:
+    trapVersionStatusWarning.setStatus(
+        ""
+    )
+
+trapVersionStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 303)
+)
+if mibBuilder.loadTexts:
+    trapVersionStatusCritical.setStatus(
+        ""
+    )
+
+trapVersionStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 304)
+)
+if mibBuilder.loadTexts:
+    trapVersionStatusUnknown.setStatus(
+        ""
+    )
+
+trapSysinfoStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 401)
+)
+if mibBuilder.loadTexts:
+    trapSysinfoStatusNormal.setStatus(
+        ""
+    )
+
+trapSysinfoStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 402)
+)
+if mibBuilder.loadTexts:
+    trapSysinfoStatusWarning.setStatus(
+        ""
+    )
+
+trapSysinfoStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 403)
+)
+if mibBuilder.loadTexts:
+    trapSysinfoStatusCritical.setStatus(
+        ""
+    )
+
+trapSysinfoStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 404)
+)
+if mibBuilder.loadTexts:
+    trapSysinfoStatusUnknown.setStatus(
+        ""
+    )
+
+trapBuiltinSensorHealthStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 501)
+)
+if mibBuilder.loadTexts:
+    trapBuiltinSensorHealthStatusNormal.setStatus(
+        ""
+    )
+
+trapBuiltinSensorHealthStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 502)
+)
+if mibBuilder.loadTexts:
+    trapBuiltinSensorHealthStatusWarning.setStatus(
+        ""
+    )
+
+trapBuiltinSensorHealthStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 503)
+)
+if mibBuilder.loadTexts:
+    trapBuiltinSensorHealthStatusCritical.setStatus(
+        ""
+    )
+
+trapBuiltinSensorHealthStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 504)
+)
+if mibBuilder.loadTexts:
+    trapBuiltinSensorHealthStatusUnknown.setStatus(
+        ""
+    )
+
+trapExecuteScriptStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 601)
+)
+if mibBuilder.loadTexts:
+    trapExecuteScriptStatusNormal.setStatus(
+        ""
+    )
+
+trapExecuteScriptStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 602)
+)
+if mibBuilder.loadTexts:
+    trapExecuteScriptStatusWarning.setStatus(
+        ""
+    )
+
+trapExecuteScriptStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 603)
+)
+if mibBuilder.loadTexts:
+    trapExecuteScriptStatusCritical.setStatus(
+        ""
+    )
+
+trapExecuteScriptStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 604)
+)
+if mibBuilder.loadTexts:
+    trapExecuteScriptStatusUnknown.setStatus(
+        ""
+    )
+
+trapStorageHealthStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 701)
+)
+if mibBuilder.loadTexts:
+    trapStorageHealthStatusNormal.setStatus(
+        ""
+    )
+
+trapStorageHealthStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 702)
+)
+if mibBuilder.loadTexts:
+    trapStorageHealthStatusWarning.setStatus(
+        ""
+    )
+
+trapStorageHealthStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 703)
+)
+if mibBuilder.loadTexts:
+    trapStorageHealthStatusCritical.setStatus(
+        ""
+    )
+
+trapStorageHealthStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 704)
+)
+if mibBuilder.loadTexts:
+    trapStorageHealthStatusUnknown.setStatus(
+        ""
+    )
+
+trapMemoryHealthStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 801)
+)
+if mibBuilder.loadTexts:
+    trapMemoryHealthStatusNormal.setStatus(
+        ""
+    )
+
+trapMemoryHealthStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 802)
+)
+if mibBuilder.loadTexts:
+    trapMemoryHealthStatusWarning.setStatus(
+        ""
+    )
+
+trapMemoryHealthStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 803)
+)
+if mibBuilder.loadTexts:
+    trapMemoryHealthStatusCritical.setStatus(
+        ""
+    )
+
+trapMemoryHealthStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 804)
+)
+if mibBuilder.loadTexts:
+    trapMemoryHealthStatusUnknown.setStatus(
+        ""
+    )
+
+trapHttpStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 901)
+)
+if mibBuilder.loadTexts:
+    trapHttpStatusNormal.setStatus(
+        ""
+    )
+
+trapHttpStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 902)
+)
+if mibBuilder.loadTexts:
+    trapHttpStatusWarning.setStatus(
+        ""
+    )
+
+trapHttpStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 903)
+)
+if mibBuilder.loadTexts:
+    trapHttpStatusCritical.setStatus(
+        ""
+    )
+
+trapHttpStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 904)
+)
+if mibBuilder.loadTexts:
+    trapHttpStatusUnknown.setStatus(
+        ""
+    )
+
+trapFtpStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1001)
+)
+if mibBuilder.loadTexts:
+    trapFtpStatusNormal.setStatus(
+        ""
+    )
+
+trapFtpStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1002)
+)
+if mibBuilder.loadTexts:
+    trapFtpStatusWarning.setStatus(
+        ""
+    )
+
+trapFtpStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1003)
+)
+if mibBuilder.loadTexts:
+    trapFtpStatusCritical.setStatus(
+        ""
+    )
+
+trapFtpStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1004)
+)
+if mibBuilder.loadTexts:
+    trapFtpStatusUnknown.setStatus(
+        ""
+    )
+
+trapSmtpStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1101)
+)
+if mibBuilder.loadTexts:
+    trapSmtpStatusNormal.setStatus(
+        ""
+    )
+
+trapSmtpStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1102)
+)
+if mibBuilder.loadTexts:
+    trapSmtpStatusWarning.setStatus(
+        ""
+    )
+
+trapSmtpStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1103)
+)
+if mibBuilder.loadTexts:
+    trapSmtpStatusCritical.setStatus(
+        ""
+    )
+
+trapSmtpStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1104)
+)
+if mibBuilder.loadTexts:
+    trapSmtpStatusUnknown.setStatus(
+        ""
+    )
+
+trapIpmiSensorHealthStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1201)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSensorHealthStatusNormal.setStatus(
+        ""
+    )
+
+trapIpmiSensorHealthStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1202)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSensorHealthStatusWarning.setStatus(
+        ""
+    )
+
+trapIpmiSensorHealthStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1203)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSensorHealthStatusCritical.setStatus(
+        ""
+    )
+
+trapIpmiSensorHealthStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1204)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSensorHealthStatusUnknown.setStatus(
+        ""
+    )
+
+trapIpmiPowerConsumptionStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1301)
+)
+if mibBuilder.loadTexts:
+    trapIpmiPowerConsumptionStatusNormal.setStatus(
+        ""
+    )
+
+trapIpmiPowerConsumptionStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1302)
+)
+if mibBuilder.loadTexts:
+    trapIpmiPowerConsumptionStatusWarning.setStatus(
+        ""
+    )
+
+trapIpmiPowerConsumptionStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1303)
+)
+if mibBuilder.loadTexts:
+    trapIpmiPowerConsumptionStatusCritical.setStatus(
+        ""
+    )
+
+trapIpmiPowerConsumptionStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1304)
+)
+if mibBuilder.loadTexts:
+    trapIpmiPowerConsumptionStatusUnknown.setStatus(
+        ""
+    )
+
+trapIpmiSysinfoStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1401)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSysinfoStatusNormal.setStatus(
+        ""
+    )
+
+trapIpmiSysinfoStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1402)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSysinfoStatusWarning.setStatus(
+        ""
+    )
+
+trapIpmiSysinfoStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1403)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSysinfoStatusCritical.setStatus(
+        ""
+    )
+
+trapIpmiSysinfoStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1404)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSysinfoStatusUnknown.setStatus(
+        ""
+    )
+
+trapSumSupportStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1501)
+)
+if mibBuilder.loadTexts:
+    trapSumSupportStatusNormal.setStatus(
+        ""
+    )
+
+trapSumSupportStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1502)
+)
+if mibBuilder.loadTexts:
+    trapSumSupportStatusWarning.setStatus(
+        ""
+    )
+
+trapSumSupportStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1503)
+)
+if mibBuilder.loadTexts:
+    trapSumSupportStatusCritical.setStatus(
+        ""
+    )
+
+trapSumSupportStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1504)
+)
+if mibBuilder.loadTexts:
+    trapSumSupportStatusUnknown.setStatus(
+        ""
+    )
+
+trapIpmiSelHealthStatusNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1601)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSelHealthStatusNormal.setStatus(
+        ""
+    )
+
+trapIpmiSelHealthStatusWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1602)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSelHealthStatusWarning.setStatus(
+        ""
+    )
+
+trapIpmiSelHealthStatusCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1603)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSelHealthStatusCritical.setStatus(
+        ""
+    )
+
+trapIpmiSelHealthStatusUnknown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 10876, 100, 4, 0, 1604)
+)
+if mibBuilder.loadTexts:
+    trapIpmiSelHealthStatusUnknown.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SUPERMICRO-SSM-MIB",
+    **{"smSSMTrapMIB": smSSMTrapMIB,
+       "trapGenericHostStatusNormal": trapGenericHostStatusNormal,
+       "trapGenericHostStatusDown": trapGenericHostStatusDown,
+       "trapGenericHostStatusUnreachable": trapGenericHostStatusUnreachable,
+       "trapGenericServiceStatusNormal": trapGenericServiceStatusNormal,
+       "trapGenericServiceStatusWarning": trapGenericServiceStatusWarning,
+       "trapGenericServiceStatusCritical": trapGenericServiceStatusCritical,
+       "trapGenericServiceStatusUnknown": trapGenericServiceStatusUnknown,
+       "trapVersionStatusNormal": trapVersionStatusNormal,
+       "trapVersionStatusWarning": trapVersionStatusWarning,
+       "trapVersionStatusCritical": trapVersionStatusCritical,
+       "trapVersionStatusUnknown": trapVersionStatusUnknown,
+       "trapSysinfoStatusNormal": trapSysinfoStatusNormal,
+       "trapSysinfoStatusWarning": trapSysinfoStatusWarning,
+       "trapSysinfoStatusCritical": trapSysinfoStatusCritical,
+       "trapSysinfoStatusUnknown": trapSysinfoStatusUnknown,
+       "trapBuiltinSensorHealthStatusNormal": trapBuiltinSensorHealthStatusNormal,
+       "trapBuiltinSensorHealthStatusWarning": trapBuiltinSensorHealthStatusWarning,
+       "trapBuiltinSensorHealthStatusCritical": trapBuiltinSensorHealthStatusCritical,
+       "trapBuiltinSensorHealthStatusUnknown": trapBuiltinSensorHealthStatusUnknown,
+       "trapExecuteScriptStatusNormal": trapExecuteScriptStatusNormal,
+       "trapExecuteScriptStatusWarning": trapExecuteScriptStatusWarning,
+       "trapExecuteScriptStatusCritical": trapExecuteScriptStatusCritical,
+       "trapExecuteScriptStatusUnknown": trapExecuteScriptStatusUnknown,
+       "trapStorageHealthStatusNormal": trapStorageHealthStatusNormal,
+       "trapStorageHealthStatusWarning": trapStorageHealthStatusWarning,
+       "trapStorageHealthStatusCritical": trapStorageHealthStatusCritical,
+       "trapStorageHealthStatusUnknown": trapStorageHealthStatusUnknown,
+       "trapMemoryHealthStatusNormal": trapMemoryHealthStatusNormal,
+       "trapMemoryHealthStatusWarning": trapMemoryHealthStatusWarning,
+       "trapMemoryHealthStatusCritical": trapMemoryHealthStatusCritical,
+       "trapMemoryHealthStatusUnknown": trapMemoryHealthStatusUnknown,
+       "trapHttpStatusNormal": trapHttpStatusNormal,
+       "trapHttpStatusWarning": trapHttpStatusWarning,
+       "trapHttpStatusCritical": trapHttpStatusCritical,
+       "trapHttpStatusUnknown": trapHttpStatusUnknown,
+       "trapFtpStatusNormal": trapFtpStatusNormal,
+       "trapFtpStatusWarning": trapFtpStatusWarning,
+       "trapFtpStatusCritical": trapFtpStatusCritical,
+       "trapFtpStatusUnknown": trapFtpStatusUnknown,
+       "trapSmtpStatusNormal": trapSmtpStatusNormal,
+       "trapSmtpStatusWarning": trapSmtpStatusWarning,
+       "trapSmtpStatusCritical": trapSmtpStatusCritical,
+       "trapSmtpStatusUnknown": trapSmtpStatusUnknown,
+       "trapIpmiSensorHealthStatusNormal": trapIpmiSensorHealthStatusNormal,
+       "trapIpmiSensorHealthStatusWarning": trapIpmiSensorHealthStatusWarning,
+       "trapIpmiSensorHealthStatusCritical": trapIpmiSensorHealthStatusCritical,
+       "trapIpmiSensorHealthStatusUnknown": trapIpmiSensorHealthStatusUnknown,
+       "trapIpmiPowerConsumptionStatusNormal": trapIpmiPowerConsumptionStatusNormal,
+       "trapIpmiPowerConsumptionStatusWarning": trapIpmiPowerConsumptionStatusWarning,
+       "trapIpmiPowerConsumptionStatusCritical": trapIpmiPowerConsumptionStatusCritical,
+       "trapIpmiPowerConsumptionStatusUnknown": trapIpmiPowerConsumptionStatusUnknown,
+       "trapIpmiSysinfoStatusNormal": trapIpmiSysinfoStatusNormal,
+       "trapIpmiSysinfoStatusWarning": trapIpmiSysinfoStatusWarning,
+       "trapIpmiSysinfoStatusCritical": trapIpmiSysinfoStatusCritical,
+       "trapIpmiSysinfoStatusUnknown": trapIpmiSysinfoStatusUnknown,
+       "trapSumSupportStatusNormal": trapSumSupportStatusNormal,
+       "trapSumSupportStatusWarning": trapSumSupportStatusWarning,
+       "trapSumSupportStatusCritical": trapSumSupportStatusCritical,
+       "trapSumSupportStatusUnknown": trapSumSupportStatusUnknown,
+       "trapIpmiSelHealthStatusNormal": trapIpmiSelHealthStatusNormal,
+       "trapIpmiSelHealthStatusWarning": trapIpmiSelHealthStatusWarning,
+       "trapIpmiSelHealthStatusCritical": trapIpmiSelHealthStatusCritical,
+       "trapIpmiSelHealthStatusUnknown": trapIpmiSelHealthStatusUnknown}
+)

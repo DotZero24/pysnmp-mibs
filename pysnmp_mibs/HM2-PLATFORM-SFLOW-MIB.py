@@ -1,23 +1,163 @@
+# SNMP MIB module (HM2-PLATFORM-SFLOW-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HM2-PLATFORM-SFLOW-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HM2-PLATFORM-SFLOW-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:27 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hirschmann/HM2-PLATFORM-SFLOW-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:55:39 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hm2PlatformMibs, = mibBuilder.importSymbols("HM2-TC-MIB", "hm2PlatformMibs")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hm2PlatformSflow = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 12, 59))
-hm2PlatformSflow.setRevisions(('2011-10-12 00:00',))
-if mibBuilder.loadTexts: hm2PlatformSflow.setLastUpdated('201110120000Z')
-if mibBuilder.loadTexts: hm2PlatformSflow.setOrganization('Hirschmann Automation and Control GmbH')
-hm2AgentFastPathSflowObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 12, 59, 1))
-hm2AgentSflowSourceInterface = MibScalar((1, 3, 6, 1, 4, 1, 248, 12, 59, 1, 1), InterfaceIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hm2AgentSflowSourceInterface.setStatus('current')
-mibBuilder.exportSymbols("HM2-PLATFORM-SFLOW-MIB", hm2AgentFastPathSflowObjects=hm2AgentFastPathSflowObjects, hm2AgentSflowSourceInterface=hm2AgentSflowSourceInterface, hm2PlatformSflow=hm2PlatformSflow, PYSNMP_MODULE_ID=hm2PlatformSflow)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hm2PlatformMibs,) = mibBuilder.importSymbols(
+    "HM2-TC-MIB",
+    "hm2PlatformMibs")
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hm2PlatformSflow = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 12, 59)
+)
+if mibBuilder.loadTexts:
+    hm2PlatformSflow.setRevisions(
+        ("2011-10-12 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hm2AgentFastPathSflowObjects_ObjectIdentity = ObjectIdentity
+hm2AgentFastPathSflowObjects = _Hm2AgentFastPathSflowObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 12, 59, 1)
+)
+_Hm2AgentSflowSourceInterface_Type = InterfaceIndexOrZero
+_Hm2AgentSflowSourceInterface_Object = MibScalar
+hm2AgentSflowSourceInterface = _Hm2AgentSflowSourceInterface_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 59, 1, 1),
+    _Hm2AgentSflowSourceInterface_Type()
+)
+hm2AgentSflowSourceInterface.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hm2AgentSflowSourceInterface.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HM2-PLATFORM-SFLOW-MIB",
+    **{"hm2PlatformSflow": hm2PlatformSflow,
+       "hm2AgentFastPathSflowObjects": hm2AgentFastPathSflowObjects,
+       "hm2AgentSflowSourceInterface": hm2AgentSflowSourceInterface}
+)

@@ -1,44 +1,273 @@
+# SNMP MIB module (ONEACCESS-PING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ONEACCESS-PING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/oneaccess/ONEACCESS-PING-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:16 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/oneaccess/ONEACCESS-PING-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:54:35 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-pingCtlTestName, pingCtlOwnerIndex = mibBuilder.importSymbols("DISMAN-PING-MIB", "pingCtlTestName", "pingCtlOwnerIndex")
-oneAccess, oacExpIMPing, oacMIBModules = mibBuilder.importSymbols("ONEACCESS-GLOBAL-REG", "oneAccess", "oacExpIMPing", "oacMIBModules")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Gauge32, MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "mib-2")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-oacPingMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 13191, 1, 100, 6601))
-oacPingMIBModule.setRevisions(('2011-06-15 00:00', '2010-07-08 00:01',))
-if mibBuilder.loadTexts: oacPingMIBModule.setLastUpdated('201106150000Z')
-if mibBuilder.loadTexts: oacPingMIBModule.setOrganization(' OneAccess ')
-oacPingNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 0))
-oacPingObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1))
-oacPingConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 2))
-oacPingResultsTable = MibTable((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3), )
-if mibBuilder.loadTexts: oacPingResultsTable.setStatus('current')
-oacPingResultsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3, 1), ).setIndexNames((0, "DISMAN-PING-MIB", "pingCtlOwnerIndex"), (0, "DISMAN-PING-MIB", "pingCtlTestName"))
-if mibBuilder.loadTexts: oacPingResultsEntry.setStatus('current')
-oacPingJitterSamples = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oacPingJitterSamples.setStatus('current')
-oacPingResultsMinJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3, 1, 2), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oacPingResultsMinJitter.setStatus('current')
-oacPingResultsMaxJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3, 1, 3), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oacPingResultsMaxJitter.setStatus('current')
-oacPingResultsAverageJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3, 1, 4), Unsigned32()).setUnits('microseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oacPingResultsAverageJitter.setStatus('current')
-oacPingCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 2, 1))
-oacPingGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 2, 2))
-oacPingCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 2, 1, 1)).setObjects(("ONEACCESS-PING-MIB", "oacPingGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oacPingCompliance = oacPingCompliance.setStatus('current')
-oacPingGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 2, 2, 1)).setObjects(("ONEACCESS-PING-MIB", "oacPingJitterSamples"), ("ONEACCESS-PING-MIB", "oacPingResultsMinJitter"), ("ONEACCESS-PING-MIB", "oacPingResultsMaxJitter"), ("ONEACCESS-PING-MIB", "oacPingResultsAverageJitter"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oacPingGroup = oacPingGroup.setStatus('current')
-mibBuilder.exportSymbols("ONEACCESS-PING-MIB", oacPingJitterSamples=oacPingJitterSamples, oacPingConformance=oacPingConformance, oacPingNotifications=oacPingNotifications, oacPingResultsAverageJitter=oacPingResultsAverageJitter, oacPingGroups=oacPingGroups, oacPingGroup=oacPingGroup, oacPingResultsEntry=oacPingResultsEntry, oacPingResultsMinJitter=oacPingResultsMinJitter, oacPingResultsTable=oacPingResultsTable, oacPingCompliance=oacPingCompliance, PYSNMP_MODULE_ID=oacPingMIBModule, oacPingCompliances=oacPingCompliances, oacPingObjects=oacPingObjects, oacPingResultsMaxJitter=oacPingResultsMaxJitter, oacPingMIBModule=oacPingMIBModule)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(pingCtlOwnerIndex,
+ pingCtlTestName) = mibBuilder.importSymbols(
+    "DISMAN-PING-MIB",
+    "pingCtlOwnerIndex",
+    "pingCtlTestName")
+
+(oacExpIMPing,
+ oacMIBModules,
+ oneAccess) = mibBuilder.importSymbols(
+    "ONEACCESS-GLOBAL-REG",
+    "oacExpIMPing",
+    "oacMIBModules",
+    "oneAccess")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+oacPingMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 1, 100, 6601)
+)
+if mibBuilder.loadTexts:
+    oacPingMIBModule.setRevisions(
+        ("2011-06-15 00:00",
+         "2010-07-08 00:01")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_OacPingNotifications_ObjectIdentity = ObjectIdentity
+oacPingNotifications = _OacPingNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 0)
+)
+_OacPingObjects_ObjectIdentity = ObjectIdentity
+oacPingObjects = _OacPingObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1)
+)
+_OacPingResultsTable_Object = MibTable
+oacPingResultsTable = _OacPingResultsTable_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3)
+)
+if mibBuilder.loadTexts:
+    oacPingResultsTable.setStatus("current")
+_OacPingResultsEntry_Object = MibTableRow
+oacPingResultsEntry = _OacPingResultsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3, 1)
+)
+oacPingResultsEntry.setIndexNames(
+    (0, "DISMAN-PING-MIB", "pingCtlOwnerIndex"),
+    (0, "DISMAN-PING-MIB", "pingCtlTestName"),
+)
+if mibBuilder.loadTexts:
+    oacPingResultsEntry.setStatus("current")
+_OacPingJitterSamples_Type = Unsigned32
+_OacPingJitterSamples_Object = MibTableColumn
+oacPingJitterSamples = _OacPingJitterSamples_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3, 1, 1),
+    _OacPingJitterSamples_Type()
+)
+oacPingJitterSamples.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oacPingJitterSamples.setStatus("current")
+_OacPingResultsMinJitter_Type = Unsigned32
+_OacPingResultsMinJitter_Object = MibTableColumn
+oacPingResultsMinJitter = _OacPingResultsMinJitter_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3, 1, 2),
+    _OacPingResultsMinJitter_Type()
+)
+oacPingResultsMinJitter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oacPingResultsMinJitter.setStatus("current")
+if mibBuilder.loadTexts:
+    oacPingResultsMinJitter.setUnits("microseconds")
+_OacPingResultsMaxJitter_Type = Unsigned32
+_OacPingResultsMaxJitter_Object = MibTableColumn
+oacPingResultsMaxJitter = _OacPingResultsMaxJitter_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3, 1, 3),
+    _OacPingResultsMaxJitter_Type()
+)
+oacPingResultsMaxJitter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oacPingResultsMaxJitter.setStatus("current")
+if mibBuilder.loadTexts:
+    oacPingResultsMaxJitter.setUnits("microseconds")
+_OacPingResultsAverageJitter_Type = Unsigned32
+_OacPingResultsAverageJitter_Object = MibTableColumn
+oacPingResultsAverageJitter = _OacPingResultsAverageJitter_Object(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 1, 3, 1, 4),
+    _OacPingResultsAverageJitter_Type()
+)
+oacPingResultsAverageJitter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oacPingResultsAverageJitter.setStatus("current")
+if mibBuilder.loadTexts:
+    oacPingResultsAverageJitter.setUnits("microseconds")
+_OacPingConformance_ObjectIdentity = ObjectIdentity
+oacPingConformance = _OacPingConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 2)
+)
+_OacPingCompliances_ObjectIdentity = ObjectIdentity
+oacPingCompliances = _OacPingCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 2, 1)
+)
+_OacPingGroups_ObjectIdentity = ObjectIdentity
+oacPingGroups = _OacPingGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 2, 2)
+)
+
+# Managed Objects groups
+
+oacPingGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 2, 2, 1)
+)
+oacPingGroup.setObjects(
+      *(("ONEACCESS-PING-MIB", "oacPingJitterSamples"),
+        ("ONEACCESS-PING-MIB", "oacPingResultsMinJitter"),
+        ("ONEACCESS-PING-MIB", "oacPingResultsMaxJitter"),
+        ("ONEACCESS-PING-MIB", "oacPingResultsAverageJitter"))
+)
+if mibBuilder.loadTexts:
+    oacPingGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+oacPingCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 13191, 10, 3, 4, 3, 2, 1, 1)
+)
+oacPingCompliance.setObjects(
+    ("ONEACCESS-PING-MIB", "oacPingGroup")
+)
+if mibBuilder.loadTexts:
+    oacPingCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ONEACCESS-PING-MIB",
+    **{"oacPingMIBModule": oacPingMIBModule,
+       "oacPingNotifications": oacPingNotifications,
+       "oacPingObjects": oacPingObjects,
+       "oacPingResultsTable": oacPingResultsTable,
+       "oacPingResultsEntry": oacPingResultsEntry,
+       "oacPingJitterSamples": oacPingJitterSamples,
+       "oacPingResultsMinJitter": oacPingResultsMinJitter,
+       "oacPingResultsMaxJitter": oacPingResultsMaxJitter,
+       "oacPingResultsAverageJitter": oacPingResultsAverageJitter,
+       "oacPingConformance": oacPingConformance,
+       "oacPingCompliances": oacPingCompliances,
+       "oacPingCompliance": oacPingCompliance,
+       "oacPingGroups": oacPingGroups,
+       "oacPingGroup": oacPingGroup}
+)

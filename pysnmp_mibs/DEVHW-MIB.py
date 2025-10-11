@@ -1,28 +1,210 @@
+# SNMP MIB module (DEVHW-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DEVHW-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aperto/DEVHW-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:19 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/aperto/DEVHW-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:06:20 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-device, = mibBuilder.importSymbols("ANIROOT-MIB", "device")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-aniDevHardware = ModuleIdentity((1, 3, 6, 1, 4, 1, 4325, 2, 3))
-if mibBuilder.loadTexts: aniDevHardware.setLastUpdated('0105091130Z')
-if mibBuilder.loadTexts: aniDevHardware.setOrganization('Aperto Networks')
-aniDevHwRevision = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 3, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevHwRevision.setStatus('current')
-aniDevHwSpeed = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 3, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevHwSpeed.setStatus('current')
-aniDevHwBuildDate = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 3, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 22))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevHwBuildDate.setStatus('current')
-aniDevHwSerialNum = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 3, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 15))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevHwSerialNum.setStatus('current')
-aniDevHwBoardRevision = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 3, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevHwBoardRevision.setStatus('current')
-mibBuilder.exportSymbols("DEVHW-MIB", aniDevHwBoardRevision=aniDevHwBoardRevision, PYSNMP_MODULE_ID=aniDevHardware, aniDevHardware=aniDevHardware, aniDevHwBuildDate=aniDevHwBuildDate, aniDevHwSerialNum=aniDevHwSerialNum, aniDevHwRevision=aniDevHwRevision, aniDevHwSpeed=aniDevHwSpeed)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(device,) = mibBuilder.importSymbols(
+    "ANIROOT-MIB",
+    "device")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aniDevHardware = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 3)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AniDevHwRevision_Type = Integer32
+_AniDevHwRevision_Object = MibScalar
+aniDevHwRevision = _AniDevHwRevision_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 3, 1),
+    _AniDevHwRevision_Type()
+)
+aniDevHwRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevHwRevision.setStatus("current")
+_AniDevHwSpeed_Type = DisplayString
+_AniDevHwSpeed_Object = MibScalar
+aniDevHwSpeed = _AniDevHwSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 3, 2),
+    _AniDevHwSpeed_Type()
+)
+aniDevHwSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevHwSpeed.setStatus("current")
+
+
+class _AniDevHwBuildDate_Type(DisplayString):
+    """Custom type aniDevHwBuildDate based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 22),
+    )
+
+
+_AniDevHwBuildDate_Type.__name__ = "DisplayString"
+_AniDevHwBuildDate_Object = MibScalar
+aniDevHwBuildDate = _AniDevHwBuildDate_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 3, 3),
+    _AniDevHwBuildDate_Type()
+)
+aniDevHwBuildDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevHwBuildDate.setStatus("current")
+
+
+class _AniDevHwSerialNum_Type(DisplayString):
+    """Custom type aniDevHwSerialNum based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 15),
+    )
+
+
+_AniDevHwSerialNum_Type.__name__ = "DisplayString"
+_AniDevHwSerialNum_Object = MibScalar
+aniDevHwSerialNum = _AniDevHwSerialNum_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 3, 4),
+    _AniDevHwSerialNum_Type()
+)
+aniDevHwSerialNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevHwSerialNum.setStatus("current")
+_AniDevHwBoardRevision_Type = Integer32
+_AniDevHwBoardRevision_Object = MibScalar
+aniDevHwBoardRevision = _AniDevHwBoardRevision_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 3, 5),
+    _AniDevHwBoardRevision_Type()
+)
+aniDevHwBoardRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevHwBoardRevision.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DEVHW-MIB",
+    **{"aniDevHardware": aniDevHardware,
+       "aniDevHwRevision": aniDevHwRevision,
+       "aniDevHwSpeed": aniDevHwSpeed,
+       "aniDevHwBuildDate": aniDevHwBuildDate,
+       "aniDevHwSerialNum": aniDevHwSerialNum,
+       "aniDevHwBoardRevision": aniDevHwBoardRevision}
+)

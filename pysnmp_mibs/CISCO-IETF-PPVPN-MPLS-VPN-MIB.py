@@ -1,34 +1,212 @@
+# SNMP MIB module (CISCO-IETF-PPVPN-MPLS-VPN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-IETF-PPVPN-MPLS-VPN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-IETF-PPVPN-MPLS-VPN-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:30:34 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-IETF-PPVPN-MPLS-VPN-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:38:58 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
-mplsVpnVrfConfHighRouteThreshold, mplsVpnVrfPerfCurrNumRoutes = mibBuilder.importSymbols("MPLS-VPN-MIB", "mplsVpnVrfConfHighRouteThreshold", "mplsVpnVrfPerfCurrNumRoutes")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoMplsVpnMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 999))
-ciscoMplsVpnMIB.setRevisions(('2003-04-17 12:00',))
-if mibBuilder.loadTexts: ciscoMplsVpnMIB.setLastUpdated('200304171200Z')
-if mibBuilder.loadTexts: ciscoMplsVpnMIB.setOrganization('Cisco Systems, Inc.')
-cMplsVpnNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 0))
-cMplsVpnObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 1))
-cMplsVpnConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 2))
-cMplsNumVrfRouteMaxThreshCleared = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 999, 0, 1)).setObjects(("MPLS-VPN-MIB", "mplsVpnVrfPerfCurrNumRoutes"), ("MPLS-VPN-MIB", "mplsVpnVrfConfHighRouteThreshold"))
-if mibBuilder.loadTexts: cMplsNumVrfRouteMaxThreshCleared.setStatus('current')
-cMplsVpnCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1))
-cMplsVpnGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 2))
-cMplsVpnCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1, 1)).setObjects(("CISCO-IETF-PPVPN-MPLS-VPN-MIB", "cMplsVpnNotificationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cMplsVpnCompliance = cMplsVpnCompliance.setStatus('current')
-cMplsVpnNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 2, 1)).setObjects(("CISCO-IETF-PPVPN-MPLS-VPN-MIB", "cMplsNumVrfRouteMaxThreshCleared"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cMplsVpnNotificationGroup = cMplsVpnNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-IETF-PPVPN-MPLS-VPN-MIB", cMplsVpnGroups=cMplsVpnGroups, cMplsVpnCompliance=cMplsVpnCompliance, cMplsVpnNotifs=cMplsVpnNotifs, PYSNMP_MODULE_ID=ciscoMplsVpnMIB, cMplsVpnConform=cMplsVpnConform, cMplsVpnObjects=cMplsVpnObjects, cMplsNumVrfRouteMaxThreshCleared=cMplsNumVrfRouteMaxThreshCleared, cMplsVpnCompliances=cMplsVpnCompliances, cMplsVpnNotificationGroup=cMplsVpnNotificationGroup, ciscoMplsVpnMIB=ciscoMplsVpnMIB)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoExperiment,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoExperiment")
+
+(mplsVpnVrfConfHighRouteThreshold,
+ mplsVpnVrfPerfCurrNumRoutes) = mibBuilder.importSymbols(
+    "MPLS-VPN-MIB",
+    "mplsVpnVrfConfHighRouteThreshold",
+    "mplsVpnVrfPerfCurrNumRoutes")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoMplsVpnMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 999)
+)
+if mibBuilder.loadTexts:
+    ciscoMplsVpnMIB.setRevisions(
+        ("2003-04-17 12:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CMplsVpnNotifs_ObjectIdentity = ObjectIdentity
+cMplsVpnNotifs = _CMplsVpnNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 999, 0)
+)
+_CMplsVpnObjects_ObjectIdentity = ObjectIdentity
+cMplsVpnObjects = _CMplsVpnObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 999, 1)
+)
+_CMplsVpnConform_ObjectIdentity = ObjectIdentity
+cMplsVpnConform = _CMplsVpnConform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 999, 2)
+)
+_CMplsVpnCompliances_ObjectIdentity = ObjectIdentity
+cMplsVpnCompliances = _CMplsVpnCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1)
+)
+_CMplsVpnGroups_ObjectIdentity = ObjectIdentity
+cMplsVpnGroups = _CMplsVpnGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+cMplsNumVrfRouteMaxThreshCleared = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 10, 999, 0, 1)
+)
+cMplsNumVrfRouteMaxThreshCleared.setObjects(
+      *(("MPLS-VPN-MIB", "mplsVpnVrfPerfCurrNumRoutes"),
+        ("MPLS-VPN-MIB", "mplsVpnVrfConfHighRouteThreshold"))
+)
+if mibBuilder.loadTexts:
+    cMplsNumVrfRouteMaxThreshCleared.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+cMplsVpnNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 2, 1)
+)
+cMplsVpnNotificationGroup.setObjects(
+    ("CISCO-IETF-PPVPN-MPLS-VPN-MIB", "cMplsNumVrfRouteMaxThreshCleared")
+)
+if mibBuilder.loadTexts:
+    cMplsVpnNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cMplsVpnCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 999, 2, 1, 1)
+)
+cMplsVpnCompliance.setObjects(
+    ("CISCO-IETF-PPVPN-MPLS-VPN-MIB", "cMplsVpnNotificationGroup")
+)
+if mibBuilder.loadTexts:
+    cMplsVpnCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-IETF-PPVPN-MPLS-VPN-MIB",
+    **{"ciscoMplsVpnMIB": ciscoMplsVpnMIB,
+       "cMplsVpnNotifs": cMplsVpnNotifs,
+       "cMplsNumVrfRouteMaxThreshCleared": cMplsNumVrfRouteMaxThreshCleared,
+       "cMplsVpnObjects": cMplsVpnObjects,
+       "cMplsVpnConform": cMplsVpnConform,
+       "cMplsVpnCompliances": cMplsVpnCompliances,
+       "cMplsVpnCompliance": cMplsVpnCompliance,
+       "cMplsVpnGroups": cMplsVpnGroups,
+       "cMplsVpnNotificationGroup": cMplsVpnNotificationGroup}
+)

@@ -1,36 +1,222 @@
+# SNMP MIB module (CIE1000-HTTPS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CIE1000-HTTPS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CIE1000-HTTPS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:27:56 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CIE1000-HTTPS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:34:25 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-cie1000SwitchMgmt, = mibBuilder.importSymbols("CISCO-IE1000-MIB", "cie1000SwitchMgmt")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-cie1000HttpsMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47))
-cie1000HttpsMib.setRevisions(('2014-10-10 00:00', '2014-07-01 00:00',))
-if mibBuilder.loadTexts: cie1000HttpsMib.setLastUpdated('201410100000Z')
-if mibBuilder.loadTexts: cie1000HttpsMib.setOrganization('Cisco Systems, Inc.')
-cie1000HttpsMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 1))
-cie1000HttpsConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 1, 2))
-cie1000HttpsConfigGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 1, 2, 1))
-cie1000HttpsConfigGlobalsMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 1, 2, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000HttpsConfigGlobalsMode.setStatus('current')
-cie1000HttpsConfigGlobalsRedirectToHttps = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 1, 2, 1, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000HttpsConfigGlobalsRedirectToHttps.setStatus('current')
-cie1000HttpsMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 2))
-cie1000HttpsMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 2, 1))
-cie1000HttpsMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 2, 2))
-cie1000HttpsConfigGlobalsInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 2, 2, 1)).setObjects(("CIE1000-HTTPS-MIB", "cie1000HttpsConfigGlobalsMode"), ("CIE1000-HTTPS-MIB", "cie1000HttpsConfigGlobalsRedirectToHttps"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cie1000HttpsConfigGlobalsInfoGroup = cie1000HttpsConfigGlobalsInfoGroup.setStatus('current')
-cie1000HttpsMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 2, 1, 1)).setObjects(("CIE1000-HTTPS-MIB", "cie1000HttpsConfigGlobalsInfoGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cie1000HttpsMibCompliance = cie1000HttpsMibCompliance.setStatus('current')
-mibBuilder.exportSymbols("CIE1000-HTTPS-MIB", cie1000HttpsMibCompliances=cie1000HttpsMibCompliances, PYSNMP_MODULE_ID=cie1000HttpsMib, cie1000HttpsMib=cie1000HttpsMib, cie1000HttpsMibCompliance=cie1000HttpsMibCompliance, cie1000HttpsConfig=cie1000HttpsConfig, cie1000HttpsMibGroups=cie1000HttpsMibGroups, cie1000HttpsMibConformance=cie1000HttpsMibConformance, cie1000HttpsConfigGlobalsMode=cie1000HttpsConfigGlobalsMode, cie1000HttpsMibObjects=cie1000HttpsMibObjects, cie1000HttpsConfigGlobalsInfoGroup=cie1000HttpsConfigGlobalsInfoGroup, cie1000HttpsConfigGlobalsRedirectToHttps=cie1000HttpsConfigGlobalsRedirectToHttps, cie1000HttpsConfigGlobals=cie1000HttpsConfigGlobals)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cie1000SwitchMgmt,) = mibBuilder.importSymbols(
+    "CISCO-IE1000-MIB",
+    "cie1000SwitchMgmt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cie1000HttpsMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47)
+)
+if mibBuilder.loadTexts:
+    cie1000HttpsMib.setRevisions(
+        ("2014-10-10 00:00",
+         "2014-07-01 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Cie1000HttpsMibObjects_ObjectIdentity = ObjectIdentity
+cie1000HttpsMibObjects = _Cie1000HttpsMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 1)
+)
+_Cie1000HttpsConfig_ObjectIdentity = ObjectIdentity
+cie1000HttpsConfig = _Cie1000HttpsConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 1, 2)
+)
+_Cie1000HttpsConfigGlobals_ObjectIdentity = ObjectIdentity
+cie1000HttpsConfigGlobals = _Cie1000HttpsConfigGlobals_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 1, 2, 1)
+)
+_Cie1000HttpsConfigGlobalsMode_Type = TruthValue
+_Cie1000HttpsConfigGlobalsMode_Object = MibScalar
+cie1000HttpsConfigGlobalsMode = _Cie1000HttpsConfigGlobalsMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 1, 2, 1, 1),
+    _Cie1000HttpsConfigGlobalsMode_Type()
+)
+cie1000HttpsConfigGlobalsMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000HttpsConfigGlobalsMode.setStatus("current")
+_Cie1000HttpsConfigGlobalsRedirectToHttps_Type = TruthValue
+_Cie1000HttpsConfigGlobalsRedirectToHttps_Object = MibScalar
+cie1000HttpsConfigGlobalsRedirectToHttps = _Cie1000HttpsConfigGlobalsRedirectToHttps_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 1, 2, 1, 2),
+    _Cie1000HttpsConfigGlobalsRedirectToHttps_Type()
+)
+cie1000HttpsConfigGlobalsRedirectToHttps.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000HttpsConfigGlobalsRedirectToHttps.setStatus("current")
+_Cie1000HttpsMibConformance_ObjectIdentity = ObjectIdentity
+cie1000HttpsMibConformance = _Cie1000HttpsMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 2)
+)
+_Cie1000HttpsMibCompliances_ObjectIdentity = ObjectIdentity
+cie1000HttpsMibCompliances = _Cie1000HttpsMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 2, 1)
+)
+_Cie1000HttpsMibGroups_ObjectIdentity = ObjectIdentity
+cie1000HttpsMibGroups = _Cie1000HttpsMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 2, 2)
+)
+
+# Managed Objects groups
+
+cie1000HttpsConfigGlobalsInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 2, 2, 1)
+)
+cie1000HttpsConfigGlobalsInfoGroup.setObjects(
+      *(("CIE1000-HTTPS-MIB", "cie1000HttpsConfigGlobalsMode"),
+        ("CIE1000-HTTPS-MIB", "cie1000HttpsConfigGlobalsRedirectToHttps"))
+)
+if mibBuilder.loadTexts:
+    cie1000HttpsConfigGlobalsInfoGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cie1000HttpsMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 47, 2, 1, 1)
+)
+cie1000HttpsMibCompliance.setObjects(
+    ("CIE1000-HTTPS-MIB", "cie1000HttpsConfigGlobalsInfoGroup")
+)
+if mibBuilder.loadTexts:
+    cie1000HttpsMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CIE1000-HTTPS-MIB",
+    **{"cie1000HttpsMib": cie1000HttpsMib,
+       "cie1000HttpsMibObjects": cie1000HttpsMibObjects,
+       "cie1000HttpsConfig": cie1000HttpsConfig,
+       "cie1000HttpsConfigGlobals": cie1000HttpsConfigGlobals,
+       "cie1000HttpsConfigGlobalsMode": cie1000HttpsConfigGlobalsMode,
+       "cie1000HttpsConfigGlobalsRedirectToHttps": cie1000HttpsConfigGlobalsRedirectToHttps,
+       "cie1000HttpsMibConformance": cie1000HttpsMibConformance,
+       "cie1000HttpsMibCompliances": cie1000HttpsMibCompliances,
+       "cie1000HttpsMibCompliance": cie1000HttpsMibCompliance,
+       "cie1000HttpsMibGroups": cie1000HttpsMibGroups,
+       "cie1000HttpsConfigGlobalsInfoGroup": cie1000HttpsConfigGlobalsInfoGroup}
+)

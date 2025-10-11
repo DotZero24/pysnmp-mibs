@@ -1,56 +1,428 @@
+# SNMP MIB module (CYCLADES-ACS-INFO-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CYCLADES-ACS-INFO-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/vertiv/CYCLADES-ACS-INFO-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:07 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/vertiv/CYCLADES-ACS-INFO-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:05:46 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-cyACSMgmt, = mibBuilder.importSymbols("CYCLADES-ACS-MIB", "cyACSMgmt")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-cyACSInfo = ModuleIdentity((1, 3, 6, 1, 4, 1, 2925, 4, 3))
-cyACSInfo.setRevisions(('2005-08-29 00:00', '2002-09-20 00:00',))
-if mibBuilder.loadTexts: cyACSInfo.setLastUpdated('200508290000Z')
-if mibBuilder.loadTexts: cyACSInfo.setOrganization('Cyclades Corporation')
-cyInfoSerialTable = MibTable((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1), )
-if mibBuilder.loadTexts: cyInfoSerialTable.setStatus('current')
-cyisPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1), ).setIndexNames((0, "CYCLADES-ACS-INFO-MIB", "cyISPortNumber"))
-if mibBuilder.loadTexts: cyisPortEntry.setStatus('current')
-cyISPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortNumber.setStatus('current')
-cyISPortTty = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortTty.setStatus('current')
-cyISPortName = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortName.setStatus('current')
-cyISPortSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortSpeed.setStatus('current')
-cyISPortTxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortTxBytes.setStatus('current')
-cyISPortRXBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortRXBytes.setStatus('current')
-cyISPortErrFrame = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortErrFrame.setStatus('current')
-cyISPortErrParity = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortErrParity.setStatus('current')
-cyISPortErrBreaks = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortErrBreaks.setStatus('current')
-cyISPortErrOverrun = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortErrOverrun.setStatus('current')
-cyISPortSigDTR = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("down", 0), ("up", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortSigDTR.setStatus('current')
-cyISPortSigCD = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("down", 0), ("up", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortSigCD.setStatus('current')
-cyISPortSigDSR = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("down", 0), ("up", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortSigDSR.setStatus('current')
-cyISPortSigRTS = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("down", 0), ("up", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortSigRTS.setStatus('current')
-cyISPortSigCTS = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("down", 0), ("up", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortSigCTS.setStatus('current')
-cyISPortSigRI = MibTableColumn((1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("down", 0), ("up", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyISPortSigRI.setStatus('current')
-mibBuilder.exportSymbols("CYCLADES-ACS-INFO-MIB", cyISPortTxBytes=cyISPortTxBytes, cyISPortName=cyISPortName, cyISPortTty=cyISPortTty, cyISPortErrOverrun=cyISPortErrOverrun, PYSNMP_MODULE_ID=cyACSInfo, cyISPortNumber=cyISPortNumber, cyisPortEntry=cyisPortEntry, cyISPortSigDSR=cyISPortSigDSR, cyISPortSigCD=cyISPortSigCD, cyISPortSigCTS=cyISPortSigCTS, cyISPortSigDTR=cyISPortSigDTR, cyISPortSigRI=cyISPortSigRI, cyACSInfo=cyACSInfo, cyInfoSerialTable=cyInfoSerialTable, cyISPortSpeed=cyISPortSpeed, cyISPortErrParity=cyISPortErrParity, cyISPortErrBreaks=cyISPortErrBreaks, cyISPortSigRTS=cyISPortSigRTS, cyISPortErrFrame=cyISPortErrFrame, cyISPortRXBytes=cyISPortRXBytes)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cyACSMgmt,) = mibBuilder.importSymbols(
+    "CYCLADES-ACS-MIB",
+    "cyACSMgmt")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+cyACSInfo = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3)
+)
+if mibBuilder.loadTexts:
+    cyACSInfo.setRevisions(
+        ("2005-08-29 00:00",
+         "2002-09-20 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CyInfoSerialTable_Object = MibTable
+cyInfoSerialTable = _CyInfoSerialTable_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1)
+)
+if mibBuilder.loadTexts:
+    cyInfoSerialTable.setStatus("current")
+_CyisPortEntry_Object = MibTableRow
+cyisPortEntry = _CyisPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1)
+)
+cyisPortEntry.setIndexNames(
+    (0, "CYCLADES-ACS-INFO-MIB", "cyISPortNumber"),
+)
+if mibBuilder.loadTexts:
+    cyisPortEntry.setStatus("current")
+_CyISPortNumber_Type = InterfaceIndex
+_CyISPortNumber_Object = MibTableColumn
+cyISPortNumber = _CyISPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 1),
+    _CyISPortNumber_Type()
+)
+cyISPortNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortNumber.setStatus("current")
+_CyISPortTty_Type = DisplayString
+_CyISPortTty_Object = MibTableColumn
+cyISPortTty = _CyISPortTty_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 2),
+    _CyISPortTty_Type()
+)
+cyISPortTty.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortTty.setStatus("current")
+_CyISPortName_Type = DisplayString
+_CyISPortName_Object = MibTableColumn
+cyISPortName = _CyISPortName_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 3),
+    _CyISPortName_Type()
+)
+cyISPortName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortName.setStatus("current")
+_CyISPortSpeed_Type = Integer32
+_CyISPortSpeed_Object = MibTableColumn
+cyISPortSpeed = _CyISPortSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 4),
+    _CyISPortSpeed_Type()
+)
+cyISPortSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortSpeed.setStatus("current")
+_CyISPortTxBytes_Type = Counter32
+_CyISPortTxBytes_Object = MibTableColumn
+cyISPortTxBytes = _CyISPortTxBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 5),
+    _CyISPortTxBytes_Type()
+)
+cyISPortTxBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortTxBytes.setStatus("current")
+_CyISPortRXBytes_Type = Counter32
+_CyISPortRXBytes_Object = MibTableColumn
+cyISPortRXBytes = _CyISPortRXBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 6),
+    _CyISPortRXBytes_Type()
+)
+cyISPortRXBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortRXBytes.setStatus("current")
+_CyISPortErrFrame_Type = Counter32
+_CyISPortErrFrame_Object = MibTableColumn
+cyISPortErrFrame = _CyISPortErrFrame_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 7),
+    _CyISPortErrFrame_Type()
+)
+cyISPortErrFrame.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortErrFrame.setStatus("current")
+_CyISPortErrParity_Type = Counter32
+_CyISPortErrParity_Object = MibTableColumn
+cyISPortErrParity = _CyISPortErrParity_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 8),
+    _CyISPortErrParity_Type()
+)
+cyISPortErrParity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortErrParity.setStatus("current")
+_CyISPortErrBreaks_Type = Counter32
+_CyISPortErrBreaks_Object = MibTableColumn
+cyISPortErrBreaks = _CyISPortErrBreaks_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 9),
+    _CyISPortErrBreaks_Type()
+)
+cyISPortErrBreaks.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortErrBreaks.setStatus("current")
+_CyISPortErrOverrun_Type = Counter32
+_CyISPortErrOverrun_Object = MibTableColumn
+cyISPortErrOverrun = _CyISPortErrOverrun_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 10),
+    _CyISPortErrOverrun_Type()
+)
+cyISPortErrOverrun.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortErrOverrun.setStatus("current")
+
+
+class _CyISPortSigDTR_Type(Integer32):
+    """Custom type cyISPortSigDTR based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 0),
+          ("up", 1))
+    )
+
+
+_CyISPortSigDTR_Type.__name__ = "Integer32"
+_CyISPortSigDTR_Object = MibTableColumn
+cyISPortSigDTR = _CyISPortSigDTR_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 11),
+    _CyISPortSigDTR_Type()
+)
+cyISPortSigDTR.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortSigDTR.setStatus("current")
+
+
+class _CyISPortSigCD_Type(Integer32):
+    """Custom type cyISPortSigCD based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 0),
+          ("up", 1))
+    )
+
+
+_CyISPortSigCD_Type.__name__ = "Integer32"
+_CyISPortSigCD_Object = MibTableColumn
+cyISPortSigCD = _CyISPortSigCD_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 12),
+    _CyISPortSigCD_Type()
+)
+cyISPortSigCD.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortSigCD.setStatus("current")
+
+
+class _CyISPortSigDSR_Type(Integer32):
+    """Custom type cyISPortSigDSR based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 0),
+          ("up", 1))
+    )
+
+
+_CyISPortSigDSR_Type.__name__ = "Integer32"
+_CyISPortSigDSR_Object = MibTableColumn
+cyISPortSigDSR = _CyISPortSigDSR_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 13),
+    _CyISPortSigDSR_Type()
+)
+cyISPortSigDSR.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortSigDSR.setStatus("current")
+
+
+class _CyISPortSigRTS_Type(Integer32):
+    """Custom type cyISPortSigRTS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 0),
+          ("up", 1))
+    )
+
+
+_CyISPortSigRTS_Type.__name__ = "Integer32"
+_CyISPortSigRTS_Object = MibTableColumn
+cyISPortSigRTS = _CyISPortSigRTS_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 14),
+    _CyISPortSigRTS_Type()
+)
+cyISPortSigRTS.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortSigRTS.setStatus("current")
+
+
+class _CyISPortSigCTS_Type(Integer32):
+    """Custom type cyISPortSigCTS based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 0),
+          ("up", 1))
+    )
+
+
+_CyISPortSigCTS_Type.__name__ = "Integer32"
+_CyISPortSigCTS_Object = MibTableColumn
+cyISPortSigCTS = _CyISPortSigCTS_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 15),
+    _CyISPortSigCTS_Type()
+)
+cyISPortSigCTS.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortSigCTS.setStatus("current")
+
+
+class _CyISPortSigRI_Type(Integer32):
+    """Custom type cyISPortSigRI based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 0),
+          ("up", 1))
+    )
+
+
+_CyISPortSigRI_Type.__name__ = "Integer32"
+_CyISPortSigRI_Object = MibTableColumn
+cyISPortSigRI = _CyISPortSigRI_Object(
+    (1, 3, 6, 1, 4, 1, 2925, 4, 3, 1, 1, 16),
+    _CyISPortSigRI_Type()
+)
+cyISPortSigRI.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyISPortSigRI.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CYCLADES-ACS-INFO-MIB",
+    **{"cyACSInfo": cyACSInfo,
+       "cyInfoSerialTable": cyInfoSerialTable,
+       "cyisPortEntry": cyisPortEntry,
+       "cyISPortNumber": cyISPortNumber,
+       "cyISPortTty": cyISPortTty,
+       "cyISPortName": cyISPortName,
+       "cyISPortSpeed": cyISPortSpeed,
+       "cyISPortTxBytes": cyISPortTxBytes,
+       "cyISPortRXBytes": cyISPortRXBytes,
+       "cyISPortErrFrame": cyISPortErrFrame,
+       "cyISPortErrParity": cyISPortErrParity,
+       "cyISPortErrBreaks": cyISPortErrBreaks,
+       "cyISPortErrOverrun": cyISPortErrOverrun,
+       "cyISPortSigDTR": cyISPortSigDTR,
+       "cyISPortSigCD": cyISPortSigCD,
+       "cyISPortSigDSR": cyISPortSigDSR,
+       "cyISPortSigRTS": cyISPortSigRTS,
+       "cyISPortSigCTS": cyISPortSigCTS,
+       "cyISPortSigRI": cyISPortSigRI}
+)

@@ -1,189 +1,1088 @@
+# SNMP MIB module (CISCO-METRO-PHY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-METRO-PHY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-METRO-PHY-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:23:36 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-METRO-PHY-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:23:11 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, ModuleIdentity, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "ModuleIdentity", "TimeTicks", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-ciscoMetroPhyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 69))
-ciscoMetroPhyMIB.setRevisions(('2005-09-02 00:00', '2004-11-19 00:00', '2003-08-25 00:00', '2003-01-08 00:00', '2002-05-14 00:00', '2001-08-31 00:00', '2001-04-19 00:00',))
-if mibBuilder.loadTexts: ciscoMetroPhyMIB.setLastUpdated('200509020000Z')
-if mibBuilder.loadTexts: ciscoMetroPhyMIB.setOrganization('Cisco Systems, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoExperiment,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoExperiment")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoMetroPhyMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69)
+)
+if mibBuilder.loadTexts:
+    ciscoMetroPhyMIB.setRevisions(
+        ("2005-09-02 00:00",
+         "2004-11-19 00:00",
+         "2003-08-25 00:00",
+         "2003-01-08 00:00",
+         "2002-05-14 00:00",
+         "2001-08-31 00:00",
+         "2001-04-19 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class TransmissionType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("unknown", 1), ("copper", 2), ("optical", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("copper", 2),
+          ("optical", 3))
+    )
+
+
 
 class ProtocolType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22))
-    namedValues = NamedValues(("other", 1), ("unknown", 2), ("gigabitEthernet", 3), ("tenGigabitEthernet", 4), ("fibreChannel", 5), ("ficon", 6), ("escon", 7), ("sonet", 8), ("sdh", 9), ("sysplexIscCompatibility", 10), ("sysplexIscPeer", 11), ("sysplexTimerEtr", 12), ("sysplexTimerClo", 13), ("fastEthernet", 14), ("fddi", 15), ("e1", 16), ("t1", 17), ("e3", 18), ("t3", 19), ("dvb", 20), ("sdi", 21), ("its", 22))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("unknown", 2),
+          ("gigabitEthernet", 3),
+          ("tenGigabitEthernet", 4),
+          ("fibreChannel", 5),
+          ("ficon", 6),
+          ("escon", 7),
+          ("sonet", 8),
+          ("sdh", 9),
+          ("sysplexIscCompatibility", 10),
+          ("sysplexIscPeer", 11),
+          ("sysplexTimerEtr", 12),
+          ("sysplexTimerClo", 13),
+          ("fastEthernet", 14),
+          ("fddi", 15),
+          ("e1", 16),
+          ("t1", 17),
+          ("e3", 18),
+          ("t3", 19),
+          ("dvb", 20),
+          ("sdi", 21),
+          ("its", 22))
+    )
+
+
 
 class TriValue(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("true", 1), ("false", 2), ("notApplicable", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("true", 1),
+          ("false", 2),
+          ("notApplicable", 3))
+    )
+
+
 
 class CmRateType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("unknown", 1), ("auto", 2), ("oneGbps", 3), ("twoGbps", 4), ("fourGbps", 5), ("tenGbps", 6))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("auto", 2),
+          ("oneGbps", 3),
+          ("twoGbps", 4),
+          ("fourGbps", 5),
+          ("tenGbps", 6))
+    )
+
+
 
 class CmNegotiatedRateType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("notApplicable", 1), ("negotiating", 2), ("oneGbps", 3), ("twoGbps", 4), ("fourGbps", 5), ("tenGbps", 6))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 1),
+          ("negotiating", 2),
+          ("oneGbps", 3),
+          ("twoGbps", 4),
+          ("fourGbps", 5),
+          ("tenGbps", 6))
+    )
 
-ciscoMetroPhyMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 69, 1))
-cmPhyIf = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1))
-cmPhyStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2))
-cmPhySonetSectionTrace = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 3))
-cmPhyIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1), )
-if mibBuilder.loadTexts: cmPhyIfTable.setStatus('current')
-cmPhyIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: cmPhyIfEntry.setStatus('current')
-cmPhyIfMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("mode2R", 1), ("mode3R", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfMode.setStatus('current')
-cmPhyIfProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 2), ProtocolType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfProtocol.setStatus('current')
-cmPhyIfClockRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10312000))).setUnits('kHz').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfClockRate.setStatus('current')
-cmPhyIfMonitor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 4), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfMonitor.setStatus('current')
-cmPhyIfLoopback = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("noLoop", 1), ("diagnosticLoop", 2), ("lineLoop", 3), ("otherLoop", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfLoopback.setStatus('current')
-cmPhyIfOFC = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 6), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfOFC.setStatus('current')
-cmPhyIfLaserSafetyControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 7), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfLaserSafetyControl.setStatus('deprecated')
-cmPhyIfForwardLaserControl = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 8), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfForwardLaserControl.setStatus('deprecated')
-cmPhyIfTxBufferSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65536))).setUnits('bytes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfTxBufferSize.setStatus('current')
-cmPhyIfAutoNegotiation = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 10), TriValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfAutoNegotiation.setStatus('current')
-cmPhyIfTransType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 11), TransmissionType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyIfTransType.setStatus('current')
-cmPhyIfRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 12), CmRateType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfRate.setStatus('current')
-cmPhyIfNegotiatedRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 13), CmNegotiatedRateType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyIfNegotiatedRate.setStatus('current')
-cmPhyIfOverSubscription = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 14), TriValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfOverSubscription.setStatus('current')
-cmPhyIfClientSubrate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 4240))).setUnits('mega-bytes-per-second').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfClientSubrate.setStatus('current')
-cmPhyIfClientSubrateLock = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 16), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhyIfClientSubrateLock.setStatus('current')
-cmPhyStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1), )
-if mibBuilder.loadTexts: cmPhyStatisticsTable.setStatus('current')
-cmPhyStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: cmPhyStatisticsEntry.setStatus('current')
-cmPhyRxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-4000, 0))).setUnits('dBm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyRxPower.setStatus('deprecated')
-cmPhyRxCVRD = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyRxCVRD.setStatus('current')
-cmPhyRxCVRDOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyRxCVRDOverflow.setStatus('current')
-cmPhyHCRxCVRD = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyHCRxCVRD.setStatus('current')
-cmPhyRxHEC = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyRxHEC.setStatus('deprecated')
-cmPhyRxHECOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyRxHECOverflow.setStatus('deprecated')
-cmPhyHCRxHEC = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyHCRxHEC.setStatus('deprecated')
-cmPhyRxCRC = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyRxCRC.setStatus('current')
-cmPhyRxCRCOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyRxCRCOverflow.setStatus('current')
-cmPhyHCRxCRC = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyHCRxCRC.setStatus('current')
-cmPhyTxEncapFarEndPktErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyTxEncapFarEndPktErrors.setStatus('current')
-cmPhyTxEncapFarEndPktErrOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyTxEncapFarEndPktErrOverflow.setStatus('current')
-cmPhyHCTxEncapFarEndPktErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhyHCTxEncapFarEndPktErrors.setStatus('current')
-cmPhySonetSectionTraceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 3, 1), )
-if mibBuilder.loadTexts: cmPhySonetSectionTraceTable.setStatus('current')
-cmPhySonetSectionTraceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 3, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: cmPhySonetSectionTraceEntry.setStatus('current')
-cmPhySonetSectionTraceReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 3, 1, 1, 1), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(16, 16), ValueSizeConstraint(64, 64), ))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cmPhySonetSectionTraceReceived.setStatus('current')
-cmPhySonetSectionTraceExpected = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 3, 1, 1, 2), OctetString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(16, 16), ValueSizeConstraint(64, 64), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cmPhySonetSectionTraceExpected.setStatus('current')
-ciscoMetroPhyMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 69, 3))
-ciscoMetroPhyMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1))
-ciscoMetroPhyMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2))
-cmPhyMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 1)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIfGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyStatisticsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyMIBCompliance = cmPhyMIBCompliance.setStatus('deprecated')
-cmPhyMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 2)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIf2Group"), ("CISCO-METRO-PHY-MIB", "cmPhyCVRDErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyCRCErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyEncapFarEndPktErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyMIBCompliance2 = cmPhyMIBCompliance2.setStatus('deprecated')
-cmPhyMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 3)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIf2Group"), ("CISCO-METRO-PHY-MIB", "cmPhyCVRDErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyCRCErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyEncapFarEndPktErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyIfTxBufferSizeGroup"))
+# MIB Managed Objects in the order of their OIDs
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyMIBCompliance3 = cmPhyMIBCompliance3.setStatus('deprecated')
-cmPhyMIBComplianceRev4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 4)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIf2Group"), ("CISCO-METRO-PHY-MIB", "cmPhyCVRDErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyCRCErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyEncapFarEndPktErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyIfTxBufferSizeGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyIfAutoNegGroup"))
+_CiscoMetroPhyMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoMetroPhyMIBObjects = _CiscoMetroPhyMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1)
+)
+_CmPhyIf_ObjectIdentity = ObjectIdentity
+cmPhyIf = _CmPhyIf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1)
+)
+_CmPhyIfTable_Object = MibTable
+cmPhyIfTable = _CmPhyIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cmPhyIfTable.setStatus("current")
+_CmPhyIfEntry_Object = MibTableRow
+cmPhyIfEntry = _CmPhyIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1)
+)
+cmPhyIfEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    cmPhyIfEntry.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyMIBComplianceRev4 = cmPhyMIBComplianceRev4.setStatus('deprecated')
-cmPhyMIBComplianceRev5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 5)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIf2Group"), ("CISCO-METRO-PHY-MIB", "cmPhyCVRDErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyCRCErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyEncapFarEndPktErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyIfTxBufferSizeGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyIfAutoNegGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyIfGroupSup1"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyMIBComplianceRev5 = cmPhyMIBComplianceRev5.setStatus('deprecated')
-cmPhyMIBComplianceRev6 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 6)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIf2Group"), ("CISCO-METRO-PHY-MIB", "cmPhyCVRDErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyCRCErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyEncapFarEndPktErrorsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyIfTxBufferSizeGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyIfAutoNegGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyIfGroupSup1"), ("CISCO-METRO-PHY-MIB", "cmPhyIfRateGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyIfClientOvsGroup"), ("CISCO-METRO-PHY-MIB", "cmPhyIfClientSubrateGroup"))
+class _CmPhyIfMode_Type(Integer32):
+    """Custom type cmPhyIfMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mode2R", 1),
+          ("mode3R", 2))
+    )
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyMIBComplianceRev6 = cmPhyMIBComplianceRev6.setStatus('current')
-cmPhyIfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 1)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIfMode"), ("CISCO-METRO-PHY-MIB", "cmPhyIfProtocol"), ("CISCO-METRO-PHY-MIB", "cmPhyIfClockRate"), ("CISCO-METRO-PHY-MIB", "cmPhyIfMonitor"), ("CISCO-METRO-PHY-MIB", "cmPhyIfLoopback"), ("CISCO-METRO-PHY-MIB", "cmPhyIfOFC"), ("CISCO-METRO-PHY-MIB", "cmPhyIfLaserSafetyControl"), ("CISCO-METRO-PHY-MIB", "cmPhyIfForwardLaserControl"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyIfGroup = cmPhyIfGroup.setStatus('deprecated')
-cmPhyStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 2)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyRxPower"), ("CISCO-METRO-PHY-MIB", "cmPhyRxCVRD"), ("CISCO-METRO-PHY-MIB", "cmPhyRxCVRDOverflow"), ("CISCO-METRO-PHY-MIB", "cmPhyHCRxCVRD"), ("CISCO-METRO-PHY-MIB", "cmPhyRxHEC"), ("CISCO-METRO-PHY-MIB", "cmPhyRxHECOverflow"), ("CISCO-METRO-PHY-MIB", "cmPhyHCRxHEC"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyStatisticsGroup = cmPhyStatisticsGroup.setStatus('deprecated')
-cmPhySonetSectionTraceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 3)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceReceived"), ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceExpected"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhySonetSectionTraceGroup = cmPhySonetSectionTraceGroup.setStatus('current')
-cmPhyIf2Group = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 4)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIfMode"), ("CISCO-METRO-PHY-MIB", "cmPhyIfProtocol"), ("CISCO-METRO-PHY-MIB", "cmPhyIfClockRate"), ("CISCO-METRO-PHY-MIB", "cmPhyIfMonitor"), ("CISCO-METRO-PHY-MIB", "cmPhyIfLoopback"), ("CISCO-METRO-PHY-MIB", "cmPhyIfOFC"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyIf2Group = cmPhyIf2Group.setStatus('current')
-cmPhyCVRDErrorsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 5)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyRxCVRD"), ("CISCO-METRO-PHY-MIB", "cmPhyRxCVRDOverflow"), ("CISCO-METRO-PHY-MIB", "cmPhyHCRxCVRD"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyCVRDErrorsGroup = cmPhyCVRDErrorsGroup.setStatus('current')
-cmPhyCRCErrorsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 6)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyRxCRC"), ("CISCO-METRO-PHY-MIB", "cmPhyRxCRCOverflow"), ("CISCO-METRO-PHY-MIB", "cmPhyHCRxCRC"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyCRCErrorsGroup = cmPhyCRCErrorsGroup.setStatus('current')
-cmPhyEncapFarEndPktErrorsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 7)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyTxEncapFarEndPktErrors"), ("CISCO-METRO-PHY-MIB", "cmPhyTxEncapFarEndPktErrOverflow"), ("CISCO-METRO-PHY-MIB", "cmPhyHCTxEncapFarEndPktErrors"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyEncapFarEndPktErrorsGroup = cmPhyEncapFarEndPktErrorsGroup.setStatus('current')
-cmPhyIfTxBufferSizeGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 8)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIfTxBufferSize"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyIfTxBufferSizeGroup = cmPhyIfTxBufferSizeGroup.setStatus('current')
-cmPhyIfAutoNegGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 9)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIfAutoNegotiation"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyIfAutoNegGroup = cmPhyIfAutoNegGroup.setStatus('current')
-cmPhyIfGroupSup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 10)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIfTransType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyIfGroupSup1 = cmPhyIfGroupSup1.setStatus('current')
-cmPhyIfRateGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 11)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIfRate"), ("CISCO-METRO-PHY-MIB", "cmPhyIfNegotiatedRate"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyIfRateGroup = cmPhyIfRateGroup.setStatus('current')
-cmPhyIfClientOvsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 12)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIfOverSubscription"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyIfClientOvsGroup = cmPhyIfClientOvsGroup.setStatus('current')
-cmPhyIfClientSubrateGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 13)).setObjects(("CISCO-METRO-PHY-MIB", "cmPhyIfClientSubrate"), ("CISCO-METRO-PHY-MIB", "cmPhyIfClientSubrateLock"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cmPhyIfClientSubrateGroup = cmPhyIfClientSubrateGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-METRO-PHY-MIB", PYSNMP_MODULE_ID=ciscoMetroPhyMIB, TriValue=TriValue, cmPhyMIBComplianceRev6=cmPhyMIBComplianceRev6, cmPhyIfClientSubrateGroup=cmPhyIfClientSubrateGroup, cmPhyRxCVRDOverflow=cmPhyRxCVRDOverflow, cmPhyRxCRC=cmPhyRxCRC, cmPhyIfLoopback=cmPhyIfLoopback, cmPhyCVRDErrorsGroup=cmPhyCVRDErrorsGroup, cmPhyHCTxEncapFarEndPktErrors=cmPhyHCTxEncapFarEndPktErrors, cmPhyIfClientSubrate=cmPhyIfClientSubrate, cmPhyIfAutoNegotiation=cmPhyIfAutoNegotiation, cmPhyCRCErrorsGroup=cmPhyCRCErrorsGroup, cmPhyEncapFarEndPktErrorsGroup=cmPhyEncapFarEndPktErrorsGroup, cmPhyIfClockRate=cmPhyIfClockRate, cmPhyIfEntry=cmPhyIfEntry, cmPhyIfGroupSup1=cmPhyIfGroupSup1, cmPhyIfNegotiatedRate=cmPhyIfNegotiatedRate, cmPhyIfClientOvsGroup=cmPhyIfClientOvsGroup, ciscoMetroPhyMIBGroups=ciscoMetroPhyMIBGroups, cmPhyIfTransType=cmPhyIfTransType, cmPhyIfRateGroup=cmPhyIfRateGroup, cmPhyHCRxCRC=cmPhyHCRxCRC, cmPhyMIBCompliance2=cmPhyMIBCompliance2, cmPhyIfOverSubscription=cmPhyIfOverSubscription, cmPhyIfGroup=cmPhyIfGroup, cmPhyIfRate=cmPhyIfRate, cmPhyIf=cmPhyIf, cmPhyTxEncapFarEndPktErrors=cmPhyTxEncapFarEndPktErrors, cmPhySonetSectionTraceEntry=cmPhySonetSectionTraceEntry, cmPhyIfForwardLaserControl=cmPhyIfForwardLaserControl, cmPhyIfTxBufferSize=cmPhyIfTxBufferSize, cmPhyIfProtocol=cmPhyIfProtocol, cmPhySonetSectionTraceTable=cmPhySonetSectionTraceTable, cmPhySonetSectionTraceGroup=cmPhySonetSectionTraceGroup, cmPhyIfAutoNegGroup=cmPhyIfAutoNegGroup, CmRateType=CmRateType, cmPhyIfClientSubrateLock=cmPhyIfClientSubrateLock, cmPhyStatisticsEntry=cmPhyStatisticsEntry, cmPhyRxHECOverflow=cmPhyRxHECOverflow, cmPhyMIBCompliance3=cmPhyMIBCompliance3, cmPhyIfOFC=cmPhyIfOFC, cmPhySonetSectionTraceReceived=cmPhySonetSectionTraceReceived, CmNegotiatedRateType=CmNegotiatedRateType, cmPhyIfMonitor=cmPhyIfMonitor, cmPhyIfLaserSafetyControl=cmPhyIfLaserSafetyControl, cmPhyIfTable=cmPhyIfTable, cmPhyRxPower=cmPhyRxPower, cmPhyIfMode=cmPhyIfMode, cmPhyHCRxCVRD=cmPhyHCRxCVRD, cmPhyStatisticsTable=cmPhyStatisticsTable, cmPhyMIBComplianceRev5=cmPhyMIBComplianceRev5, ciscoMetroPhyMIB=ciscoMetroPhyMIB, cmPhyIf2Group=cmPhyIf2Group, cmPhyHCRxHEC=cmPhyHCRxHEC, cmPhyRxHEC=cmPhyRxHEC, cmPhyTxEncapFarEndPktErrOverflow=cmPhyTxEncapFarEndPktErrOverflow, cmPhyStatisticsGroup=cmPhyStatisticsGroup, cmPhyRxCVRD=cmPhyRxCVRD, ProtocolType=ProtocolType, cmPhyRxCRCOverflow=cmPhyRxCRCOverflow, ciscoMetroPhyMIBCompliances=ciscoMetroPhyMIBCompliances, cmPhyMIBCompliance=cmPhyMIBCompliance, cmPhySonetSectionTraceExpected=cmPhySonetSectionTraceExpected, cmPhyMIBComplianceRev4=cmPhyMIBComplianceRev4, cmPhyIfTxBufferSizeGroup=cmPhyIfTxBufferSizeGroup, TransmissionType=TransmissionType, cmPhyStatistics=cmPhyStatistics, cmPhySonetSectionTrace=cmPhySonetSectionTrace, ciscoMetroPhyMIBObjects=ciscoMetroPhyMIBObjects, ciscoMetroPhyMIBConformance=ciscoMetroPhyMIBConformance)
+
+_CmPhyIfMode_Type.__name__ = "Integer32"
+_CmPhyIfMode_Object = MibTableColumn
+cmPhyIfMode = _CmPhyIfMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 1),
+    _CmPhyIfMode_Type()
+)
+cmPhyIfMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfMode.setStatus("current")
+_CmPhyIfProtocol_Type = ProtocolType
+_CmPhyIfProtocol_Object = MibTableColumn
+cmPhyIfProtocol = _CmPhyIfProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 2),
+    _CmPhyIfProtocol_Type()
+)
+cmPhyIfProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfProtocol.setStatus("current")
+
+
+class _CmPhyIfClockRate_Type(Integer32):
+    """Custom type cmPhyIfClockRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10312000),
+    )
+
+
+_CmPhyIfClockRate_Type.__name__ = "Integer32"
+_CmPhyIfClockRate_Object = MibTableColumn
+cmPhyIfClockRate = _CmPhyIfClockRate_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 3),
+    _CmPhyIfClockRate_Type()
+)
+cmPhyIfClockRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfClockRate.setStatus("current")
+if mibBuilder.loadTexts:
+    cmPhyIfClockRate.setUnits("kHz")
+_CmPhyIfMonitor_Type = TruthValue
+_CmPhyIfMonitor_Object = MibTableColumn
+cmPhyIfMonitor = _CmPhyIfMonitor_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 4),
+    _CmPhyIfMonitor_Type()
+)
+cmPhyIfMonitor.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfMonitor.setStatus("current")
+
+
+class _CmPhyIfLoopback_Type(Integer32):
+    """Custom type cmPhyIfLoopback based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noLoop", 1),
+          ("diagnosticLoop", 2),
+          ("lineLoop", 3),
+          ("otherLoop", 4))
+    )
+
+
+_CmPhyIfLoopback_Type.__name__ = "Integer32"
+_CmPhyIfLoopback_Object = MibTableColumn
+cmPhyIfLoopback = _CmPhyIfLoopback_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 5),
+    _CmPhyIfLoopback_Type()
+)
+cmPhyIfLoopback.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfLoopback.setStatus("current")
+_CmPhyIfOFC_Type = TruthValue
+_CmPhyIfOFC_Object = MibTableColumn
+cmPhyIfOFC = _CmPhyIfOFC_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 6),
+    _CmPhyIfOFC_Type()
+)
+cmPhyIfOFC.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfOFC.setStatus("current")
+_CmPhyIfLaserSafetyControl_Type = TruthValue
+_CmPhyIfLaserSafetyControl_Object = MibTableColumn
+cmPhyIfLaserSafetyControl = _CmPhyIfLaserSafetyControl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 7),
+    _CmPhyIfLaserSafetyControl_Type()
+)
+cmPhyIfLaserSafetyControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfLaserSafetyControl.setStatus("deprecated")
+_CmPhyIfForwardLaserControl_Type = TruthValue
+_CmPhyIfForwardLaserControl_Object = MibTableColumn
+cmPhyIfForwardLaserControl = _CmPhyIfForwardLaserControl_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 8),
+    _CmPhyIfForwardLaserControl_Type()
+)
+cmPhyIfForwardLaserControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfForwardLaserControl.setStatus("deprecated")
+
+
+class _CmPhyIfTxBufferSize_Type(Unsigned32):
+    """Custom type cmPhyIfTxBufferSize based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65536),
+    )
+
+
+_CmPhyIfTxBufferSize_Type.__name__ = "Unsigned32"
+_CmPhyIfTxBufferSize_Object = MibTableColumn
+cmPhyIfTxBufferSize = _CmPhyIfTxBufferSize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 9),
+    _CmPhyIfTxBufferSize_Type()
+)
+cmPhyIfTxBufferSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfTxBufferSize.setStatus("current")
+if mibBuilder.loadTexts:
+    cmPhyIfTxBufferSize.setUnits("bytes")
+_CmPhyIfAutoNegotiation_Type = TriValue
+_CmPhyIfAutoNegotiation_Object = MibTableColumn
+cmPhyIfAutoNegotiation = _CmPhyIfAutoNegotiation_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 10),
+    _CmPhyIfAutoNegotiation_Type()
+)
+cmPhyIfAutoNegotiation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfAutoNegotiation.setStatus("current")
+_CmPhyIfTransType_Type = TransmissionType
+_CmPhyIfTransType_Object = MibTableColumn
+cmPhyIfTransType = _CmPhyIfTransType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 11),
+    _CmPhyIfTransType_Type()
+)
+cmPhyIfTransType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyIfTransType.setStatus("current")
+_CmPhyIfRate_Type = CmRateType
+_CmPhyIfRate_Object = MibTableColumn
+cmPhyIfRate = _CmPhyIfRate_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 12),
+    _CmPhyIfRate_Type()
+)
+cmPhyIfRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfRate.setStatus("current")
+_CmPhyIfNegotiatedRate_Type = CmNegotiatedRateType
+_CmPhyIfNegotiatedRate_Object = MibTableColumn
+cmPhyIfNegotiatedRate = _CmPhyIfNegotiatedRate_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 13),
+    _CmPhyIfNegotiatedRate_Type()
+)
+cmPhyIfNegotiatedRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyIfNegotiatedRate.setStatus("current")
+
+
+class _CmPhyIfOverSubscription_Type(TriValue):
+    """Custom type cmPhyIfOverSubscription based on TriValue"""
+    defaultValue = 2
+
+
+_CmPhyIfOverSubscription_Type.__name__ = "TriValue"
+_CmPhyIfOverSubscription_Object = MibTableColumn
+cmPhyIfOverSubscription = _CmPhyIfOverSubscription_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 14),
+    _CmPhyIfOverSubscription_Type()
+)
+cmPhyIfOverSubscription.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfOverSubscription.setStatus("current")
+
+
+class _CmPhyIfClientSubrate_Type(Unsigned32):
+    """Custom type cmPhyIfClientSubrate based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4240),
+    )
+
+
+_CmPhyIfClientSubrate_Type.__name__ = "Unsigned32"
+_CmPhyIfClientSubrate_Object = MibTableColumn
+cmPhyIfClientSubrate = _CmPhyIfClientSubrate_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 15),
+    _CmPhyIfClientSubrate_Type()
+)
+cmPhyIfClientSubrate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfClientSubrate.setStatus("current")
+if mibBuilder.loadTexts:
+    cmPhyIfClientSubrate.setUnits("mega-bytes-per-second")
+
+
+class _CmPhyIfClientSubrateLock_Type(TruthValue):
+    """Custom type cmPhyIfClientSubrateLock based on TruthValue"""
+    defaultValue = 2
+
+
+_CmPhyIfClientSubrateLock_Type.__name__ = "TruthValue"
+_CmPhyIfClientSubrateLock_Object = MibTableColumn
+cmPhyIfClientSubrateLock = _CmPhyIfClientSubrateLock_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 1, 1, 1, 16),
+    _CmPhyIfClientSubrateLock_Type()
+)
+cmPhyIfClientSubrateLock.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhyIfClientSubrateLock.setStatus("current")
+_CmPhyStatistics_ObjectIdentity = ObjectIdentity
+cmPhyStatistics = _CmPhyStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2)
+)
+_CmPhyStatisticsTable_Object = MibTable
+cmPhyStatisticsTable = _CmPhyStatisticsTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    cmPhyStatisticsTable.setStatus("current")
+_CmPhyStatisticsEntry_Object = MibTableRow
+cmPhyStatisticsEntry = _CmPhyStatisticsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1)
+)
+cmPhyStatisticsEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    cmPhyStatisticsEntry.setStatus("current")
+
+
+class _CmPhyRxPower_Type(Integer32):
+    """Custom type cmPhyRxPower based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-4000, 0),
+    )
+
+
+_CmPhyRxPower_Type.__name__ = "Integer32"
+_CmPhyRxPower_Object = MibTableColumn
+cmPhyRxPower = _CmPhyRxPower_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 1),
+    _CmPhyRxPower_Type()
+)
+cmPhyRxPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyRxPower.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    cmPhyRxPower.setUnits("dBm")
+_CmPhyRxCVRD_Type = Counter32
+_CmPhyRxCVRD_Object = MibTableColumn
+cmPhyRxCVRD = _CmPhyRxCVRD_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 2),
+    _CmPhyRxCVRD_Type()
+)
+cmPhyRxCVRD.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyRxCVRD.setStatus("current")
+_CmPhyRxCVRDOverflow_Type = Counter32
+_CmPhyRxCVRDOverflow_Object = MibTableColumn
+cmPhyRxCVRDOverflow = _CmPhyRxCVRDOverflow_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 3),
+    _CmPhyRxCVRDOverflow_Type()
+)
+cmPhyRxCVRDOverflow.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyRxCVRDOverflow.setStatus("current")
+_CmPhyHCRxCVRD_Type = Counter64
+_CmPhyHCRxCVRD_Object = MibTableColumn
+cmPhyHCRxCVRD = _CmPhyHCRxCVRD_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 4),
+    _CmPhyHCRxCVRD_Type()
+)
+cmPhyHCRxCVRD.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyHCRxCVRD.setStatus("current")
+_CmPhyRxHEC_Type = Counter32
+_CmPhyRxHEC_Object = MibTableColumn
+cmPhyRxHEC = _CmPhyRxHEC_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 5),
+    _CmPhyRxHEC_Type()
+)
+cmPhyRxHEC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyRxHEC.setStatus("deprecated")
+_CmPhyRxHECOverflow_Type = Counter32
+_CmPhyRxHECOverflow_Object = MibTableColumn
+cmPhyRxHECOverflow = _CmPhyRxHECOverflow_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 6),
+    _CmPhyRxHECOverflow_Type()
+)
+cmPhyRxHECOverflow.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyRxHECOverflow.setStatus("deprecated")
+_CmPhyHCRxHEC_Type = Counter64
+_CmPhyHCRxHEC_Object = MibTableColumn
+cmPhyHCRxHEC = _CmPhyHCRxHEC_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 7),
+    _CmPhyHCRxHEC_Type()
+)
+cmPhyHCRxHEC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyHCRxHEC.setStatus("deprecated")
+_CmPhyRxCRC_Type = Counter32
+_CmPhyRxCRC_Object = MibTableColumn
+cmPhyRxCRC = _CmPhyRxCRC_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 8),
+    _CmPhyRxCRC_Type()
+)
+cmPhyRxCRC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyRxCRC.setStatus("current")
+_CmPhyRxCRCOverflow_Type = Counter32
+_CmPhyRxCRCOverflow_Object = MibTableColumn
+cmPhyRxCRCOverflow = _CmPhyRxCRCOverflow_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 9),
+    _CmPhyRxCRCOverflow_Type()
+)
+cmPhyRxCRCOverflow.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyRxCRCOverflow.setStatus("current")
+_CmPhyHCRxCRC_Type = Counter64
+_CmPhyHCRxCRC_Object = MibTableColumn
+cmPhyHCRxCRC = _CmPhyHCRxCRC_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 10),
+    _CmPhyHCRxCRC_Type()
+)
+cmPhyHCRxCRC.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyHCRxCRC.setStatus("current")
+_CmPhyTxEncapFarEndPktErrors_Type = Counter32
+_CmPhyTxEncapFarEndPktErrors_Object = MibTableColumn
+cmPhyTxEncapFarEndPktErrors = _CmPhyTxEncapFarEndPktErrors_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 11),
+    _CmPhyTxEncapFarEndPktErrors_Type()
+)
+cmPhyTxEncapFarEndPktErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyTxEncapFarEndPktErrors.setStatus("current")
+_CmPhyTxEncapFarEndPktErrOverflow_Type = Counter32
+_CmPhyTxEncapFarEndPktErrOverflow_Object = MibTableColumn
+cmPhyTxEncapFarEndPktErrOverflow = _CmPhyTxEncapFarEndPktErrOverflow_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 12),
+    _CmPhyTxEncapFarEndPktErrOverflow_Type()
+)
+cmPhyTxEncapFarEndPktErrOverflow.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyTxEncapFarEndPktErrOverflow.setStatus("current")
+_CmPhyHCTxEncapFarEndPktErrors_Type = Counter64
+_CmPhyHCTxEncapFarEndPktErrors_Object = MibTableColumn
+cmPhyHCTxEncapFarEndPktErrors = _CmPhyHCTxEncapFarEndPktErrors_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 2, 1, 1, 13),
+    _CmPhyHCTxEncapFarEndPktErrors_Type()
+)
+cmPhyHCTxEncapFarEndPktErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhyHCTxEncapFarEndPktErrors.setStatus("current")
+_CmPhySonetSectionTrace_ObjectIdentity = ObjectIdentity
+cmPhySonetSectionTrace = _CmPhySonetSectionTrace_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 3)
+)
+_CmPhySonetSectionTraceTable_Object = MibTable
+cmPhySonetSectionTraceTable = _CmPhySonetSectionTraceTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    cmPhySonetSectionTraceTable.setStatus("current")
+_CmPhySonetSectionTraceEntry_Object = MibTableRow
+cmPhySonetSectionTraceEntry = _CmPhySonetSectionTraceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 3, 1, 1)
+)
+cmPhySonetSectionTraceEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    cmPhySonetSectionTraceEntry.setStatus("current")
+
+
+class _CmPhySonetSectionTraceReceived_Type(OctetString):
+    """Custom type cmPhySonetSectionTraceReceived based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(16, 16),
+        ValueSizeConstraint(64, 64),
+    )
+
+
+_CmPhySonetSectionTraceReceived_Type.__name__ = "OctetString"
+_CmPhySonetSectionTraceReceived_Object = MibTableColumn
+cmPhySonetSectionTraceReceived = _CmPhySonetSectionTraceReceived_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 3, 1, 1, 1),
+    _CmPhySonetSectionTraceReceived_Type()
+)
+cmPhySonetSectionTraceReceived.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cmPhySonetSectionTraceReceived.setStatus("current")
+
+
+class _CmPhySonetSectionTraceExpected_Type(OctetString):
+    """Custom type cmPhySonetSectionTraceExpected based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(16, 16),
+        ValueSizeConstraint(64, 64),
+    )
+
+
+_CmPhySonetSectionTraceExpected_Type.__name__ = "OctetString"
+_CmPhySonetSectionTraceExpected_Object = MibTableColumn
+cmPhySonetSectionTraceExpected = _CmPhySonetSectionTraceExpected_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 1, 3, 1, 1, 2),
+    _CmPhySonetSectionTraceExpected_Type()
+)
+cmPhySonetSectionTraceExpected.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cmPhySonetSectionTraceExpected.setStatus("current")
+_CiscoMetroPhyMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoMetroPhyMIBConformance = _CiscoMetroPhyMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3)
+)
+_CiscoMetroPhyMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoMetroPhyMIBCompliances = _CiscoMetroPhyMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1)
+)
+_CiscoMetroPhyMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoMetroPhyMIBGroups = _CiscoMetroPhyMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2)
+)
+
+# Managed Objects groups
+
+cmPhyIfGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 1)
+)
+cmPhyIfGroup.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyIfMode"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfProtocol"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfClockRate"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfMonitor"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfLoopback"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfOFC"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfLaserSafetyControl"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfForwardLaserControl"))
+)
+if mibBuilder.loadTexts:
+    cmPhyIfGroup.setStatus("deprecated")
+
+cmPhyStatisticsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 2)
+)
+cmPhyStatisticsGroup.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyRxPower"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyRxCVRD"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyRxCVRDOverflow"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyHCRxCVRD"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyRxHEC"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyRxHECOverflow"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyHCRxHEC"))
+)
+if mibBuilder.loadTexts:
+    cmPhyStatisticsGroup.setStatus("deprecated")
+
+cmPhySonetSectionTraceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 3)
+)
+cmPhySonetSectionTraceGroup.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceReceived"),
+        ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceExpected"))
+)
+if mibBuilder.loadTexts:
+    cmPhySonetSectionTraceGroup.setStatus("current")
+
+cmPhyIf2Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 4)
+)
+cmPhyIf2Group.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyIfMode"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfProtocol"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfClockRate"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfMonitor"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfLoopback"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfOFC"))
+)
+if mibBuilder.loadTexts:
+    cmPhyIf2Group.setStatus("current")
+
+cmPhyCVRDErrorsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 5)
+)
+cmPhyCVRDErrorsGroup.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyRxCVRD"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyRxCVRDOverflow"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyHCRxCVRD"))
+)
+if mibBuilder.loadTexts:
+    cmPhyCVRDErrorsGroup.setStatus("current")
+
+cmPhyCRCErrorsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 6)
+)
+cmPhyCRCErrorsGroup.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyRxCRC"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyRxCRCOverflow"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyHCRxCRC"))
+)
+if mibBuilder.loadTexts:
+    cmPhyCRCErrorsGroup.setStatus("current")
+
+cmPhyEncapFarEndPktErrorsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 7)
+)
+cmPhyEncapFarEndPktErrorsGroup.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyTxEncapFarEndPktErrors"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyTxEncapFarEndPktErrOverflow"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyHCTxEncapFarEndPktErrors"))
+)
+if mibBuilder.loadTexts:
+    cmPhyEncapFarEndPktErrorsGroup.setStatus("current")
+
+cmPhyIfTxBufferSizeGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 8)
+)
+cmPhyIfTxBufferSizeGroup.setObjects(
+    ("CISCO-METRO-PHY-MIB", "cmPhyIfTxBufferSize")
+)
+if mibBuilder.loadTexts:
+    cmPhyIfTxBufferSizeGroup.setStatus("current")
+
+cmPhyIfAutoNegGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 9)
+)
+cmPhyIfAutoNegGroup.setObjects(
+    ("CISCO-METRO-PHY-MIB", "cmPhyIfAutoNegotiation")
+)
+if mibBuilder.loadTexts:
+    cmPhyIfAutoNegGroup.setStatus("current")
+
+cmPhyIfGroupSup1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 10)
+)
+cmPhyIfGroupSup1.setObjects(
+    ("CISCO-METRO-PHY-MIB", "cmPhyIfTransType")
+)
+if mibBuilder.loadTexts:
+    cmPhyIfGroupSup1.setStatus("current")
+
+cmPhyIfRateGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 11)
+)
+cmPhyIfRateGroup.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyIfRate"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfNegotiatedRate"))
+)
+if mibBuilder.loadTexts:
+    cmPhyIfRateGroup.setStatus("current")
+
+cmPhyIfClientOvsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 12)
+)
+cmPhyIfClientOvsGroup.setObjects(
+    ("CISCO-METRO-PHY-MIB", "cmPhyIfOverSubscription")
+)
+if mibBuilder.loadTexts:
+    cmPhyIfClientOvsGroup.setStatus("current")
+
+cmPhyIfClientSubrateGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 2, 13)
+)
+cmPhyIfClientSubrateGroup.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyIfClientSubrate"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfClientSubrateLock"))
+)
+if mibBuilder.loadTexts:
+    cmPhyIfClientSubrateGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cmPhyMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 1)
+)
+cmPhyMIBCompliance.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyIfGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyStatisticsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"))
+)
+if mibBuilder.loadTexts:
+    cmPhyMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+cmPhyMIBCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 2)
+)
+cmPhyMIBCompliance2.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyIf2Group"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyCVRDErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyCRCErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyEncapFarEndPktErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"))
+)
+if mibBuilder.loadTexts:
+    cmPhyMIBCompliance2.setStatus(
+        "deprecated"
+    )
+
+cmPhyMIBCompliance3 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 3)
+)
+cmPhyMIBCompliance3.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyIf2Group"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyCVRDErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyCRCErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyEncapFarEndPktErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfTxBufferSizeGroup"))
+)
+if mibBuilder.loadTexts:
+    cmPhyMIBCompliance3.setStatus(
+        "deprecated"
+    )
+
+cmPhyMIBComplianceRev4 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 4)
+)
+cmPhyMIBComplianceRev4.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyIf2Group"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyCVRDErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyCRCErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyEncapFarEndPktErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfTxBufferSizeGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfAutoNegGroup"))
+)
+if mibBuilder.loadTexts:
+    cmPhyMIBComplianceRev4.setStatus(
+        "deprecated"
+    )
+
+cmPhyMIBComplianceRev5 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 5)
+)
+cmPhyMIBComplianceRev5.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyIf2Group"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyCVRDErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyCRCErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyEncapFarEndPktErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfTxBufferSizeGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfAutoNegGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfGroupSup1"))
+)
+if mibBuilder.loadTexts:
+    cmPhyMIBComplianceRev5.setStatus(
+        "deprecated"
+    )
+
+cmPhyMIBComplianceRev6 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 69, 3, 1, 6)
+)
+cmPhyMIBComplianceRev6.setObjects(
+      *(("CISCO-METRO-PHY-MIB", "cmPhyIf2Group"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyCVRDErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyCRCErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyEncapFarEndPktErrorsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhySonetSectionTraceGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfTxBufferSizeGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfAutoNegGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfGroupSup1"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfRateGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfClientOvsGroup"),
+        ("CISCO-METRO-PHY-MIB", "cmPhyIfClientSubrateGroup"))
+)
+if mibBuilder.loadTexts:
+    cmPhyMIBComplianceRev6.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-METRO-PHY-MIB",
+    **{"TransmissionType": TransmissionType,
+       "ProtocolType": ProtocolType,
+       "TriValue": TriValue,
+       "CmRateType": CmRateType,
+       "CmNegotiatedRateType": CmNegotiatedRateType,
+       "ciscoMetroPhyMIB": ciscoMetroPhyMIB,
+       "ciscoMetroPhyMIBObjects": ciscoMetroPhyMIBObjects,
+       "cmPhyIf": cmPhyIf,
+       "cmPhyIfTable": cmPhyIfTable,
+       "cmPhyIfEntry": cmPhyIfEntry,
+       "cmPhyIfMode": cmPhyIfMode,
+       "cmPhyIfProtocol": cmPhyIfProtocol,
+       "cmPhyIfClockRate": cmPhyIfClockRate,
+       "cmPhyIfMonitor": cmPhyIfMonitor,
+       "cmPhyIfLoopback": cmPhyIfLoopback,
+       "cmPhyIfOFC": cmPhyIfOFC,
+       "cmPhyIfLaserSafetyControl": cmPhyIfLaserSafetyControl,
+       "cmPhyIfForwardLaserControl": cmPhyIfForwardLaserControl,
+       "cmPhyIfTxBufferSize": cmPhyIfTxBufferSize,
+       "cmPhyIfAutoNegotiation": cmPhyIfAutoNegotiation,
+       "cmPhyIfTransType": cmPhyIfTransType,
+       "cmPhyIfRate": cmPhyIfRate,
+       "cmPhyIfNegotiatedRate": cmPhyIfNegotiatedRate,
+       "cmPhyIfOverSubscription": cmPhyIfOverSubscription,
+       "cmPhyIfClientSubrate": cmPhyIfClientSubrate,
+       "cmPhyIfClientSubrateLock": cmPhyIfClientSubrateLock,
+       "cmPhyStatistics": cmPhyStatistics,
+       "cmPhyStatisticsTable": cmPhyStatisticsTable,
+       "cmPhyStatisticsEntry": cmPhyStatisticsEntry,
+       "cmPhyRxPower": cmPhyRxPower,
+       "cmPhyRxCVRD": cmPhyRxCVRD,
+       "cmPhyRxCVRDOverflow": cmPhyRxCVRDOverflow,
+       "cmPhyHCRxCVRD": cmPhyHCRxCVRD,
+       "cmPhyRxHEC": cmPhyRxHEC,
+       "cmPhyRxHECOverflow": cmPhyRxHECOverflow,
+       "cmPhyHCRxHEC": cmPhyHCRxHEC,
+       "cmPhyRxCRC": cmPhyRxCRC,
+       "cmPhyRxCRCOverflow": cmPhyRxCRCOverflow,
+       "cmPhyHCRxCRC": cmPhyHCRxCRC,
+       "cmPhyTxEncapFarEndPktErrors": cmPhyTxEncapFarEndPktErrors,
+       "cmPhyTxEncapFarEndPktErrOverflow": cmPhyTxEncapFarEndPktErrOverflow,
+       "cmPhyHCTxEncapFarEndPktErrors": cmPhyHCTxEncapFarEndPktErrors,
+       "cmPhySonetSectionTrace": cmPhySonetSectionTrace,
+       "cmPhySonetSectionTraceTable": cmPhySonetSectionTraceTable,
+       "cmPhySonetSectionTraceEntry": cmPhySonetSectionTraceEntry,
+       "cmPhySonetSectionTraceReceived": cmPhySonetSectionTraceReceived,
+       "cmPhySonetSectionTraceExpected": cmPhySonetSectionTraceExpected,
+       "ciscoMetroPhyMIBConformance": ciscoMetroPhyMIBConformance,
+       "ciscoMetroPhyMIBCompliances": ciscoMetroPhyMIBCompliances,
+       "cmPhyMIBCompliance": cmPhyMIBCompliance,
+       "cmPhyMIBCompliance2": cmPhyMIBCompliance2,
+       "cmPhyMIBCompliance3": cmPhyMIBCompliance3,
+       "cmPhyMIBComplianceRev4": cmPhyMIBComplianceRev4,
+       "cmPhyMIBComplianceRev5": cmPhyMIBComplianceRev5,
+       "cmPhyMIBComplianceRev6": cmPhyMIBComplianceRev6,
+       "ciscoMetroPhyMIBGroups": ciscoMetroPhyMIBGroups,
+       "cmPhyIfGroup": cmPhyIfGroup,
+       "cmPhyStatisticsGroup": cmPhyStatisticsGroup,
+       "cmPhySonetSectionTraceGroup": cmPhySonetSectionTraceGroup,
+       "cmPhyIf2Group": cmPhyIf2Group,
+       "cmPhyCVRDErrorsGroup": cmPhyCVRDErrorsGroup,
+       "cmPhyCRCErrorsGroup": cmPhyCRCErrorsGroup,
+       "cmPhyEncapFarEndPktErrorsGroup": cmPhyEncapFarEndPktErrorsGroup,
+       "cmPhyIfTxBufferSizeGroup": cmPhyIfTxBufferSizeGroup,
+       "cmPhyIfAutoNegGroup": cmPhyIfAutoNegGroup,
+       "cmPhyIfGroupSup1": cmPhyIfGroupSup1,
+       "cmPhyIfRateGroup": cmPhyIfRateGroup,
+       "cmPhyIfClientOvsGroup": cmPhyIfClientOvsGroup,
+       "cmPhyIfClientSubrateGroup": cmPhyIfClientSubrateGroup}
+)

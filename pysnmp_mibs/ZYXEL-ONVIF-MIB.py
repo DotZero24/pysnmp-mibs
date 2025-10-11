@@ -1,35 +1,232 @@
+# SNMP MIB module (ZYXEL-ONVIF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-ONVIF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-ONVIF-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:16 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zyxel/ZYXEL-ONVIF-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:00:54 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelOnvif = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123))
-if mibBuilder.loadTexts: zyxelOnvif.setLastUpdated('201912160000Z')
-if mibBuilder.loadTexts: zyxelOnvif.setOrganization('Enterprise Solution ZyXEL')
-zyxelOnvifSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1))
-zyOnvifState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyOnvifState.setStatus('current')
-zyOnvifMaxNumberOfVlans = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyOnvifMaxNumberOfVlans.setStatus('current')
-zyxelOnvifVlanTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 3), )
-if mibBuilder.loadTexts: zyxelOnvifVlanTable.setStatus('current')
-zyxelOnvifVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 3, 1), ).setIndexNames((0, "ZYXEL-ONVIF-MIB", "zyOnvifVlanVid"))
-if mibBuilder.loadTexts: zyxelOnvifVlanEntry.setStatus('current')
-zyOnvifVlanVid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
-if mibBuilder.loadTexts: zyOnvifVlanVid.setStatus('current')
-zyOnvifVlanPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 3, 1, 2), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyOnvifVlanPorts.setStatus('current')
-zyOnvifVlanRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zyOnvifVlanRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-ONVIF-MIB", PYSNMP_MODULE_ID=zyxelOnvif, zyxelOnvif=zyxelOnvif, zyxelOnvifVlanEntry=zyxelOnvifVlanEntry, zyOnvifVlanRowStatus=zyOnvifVlanRowStatus, zyOnvifMaxNumberOfVlans=zyOnvifMaxNumberOfVlans, zyOnvifState=zyOnvifState, zyxelOnvifSetup=zyxelOnvifSetup, zyOnvifVlanPorts=zyOnvifVlanPorts, zyOnvifVlanVid=zyOnvifVlanVid, zyxelOnvifVlanTable=zyxelOnvifVlanTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(PortList,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "PortList")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelOnvif = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelOnvifSetup_ObjectIdentity = ObjectIdentity
+zyxelOnvifSetup = _ZyxelOnvifSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1)
+)
+_ZyOnvifState_Type = EnabledStatus
+_ZyOnvifState_Object = MibScalar
+zyOnvifState = _ZyOnvifState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 1),
+    _ZyOnvifState_Type()
+)
+zyOnvifState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyOnvifState.setStatus("current")
+_ZyOnvifMaxNumberOfVlans_Type = Integer32
+_ZyOnvifMaxNumberOfVlans_Object = MibScalar
+zyOnvifMaxNumberOfVlans = _ZyOnvifMaxNumberOfVlans_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 2),
+    _ZyOnvifMaxNumberOfVlans_Type()
+)
+zyOnvifMaxNumberOfVlans.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyOnvifMaxNumberOfVlans.setStatus("current")
+_ZyxelOnvifVlanTable_Object = MibTable
+zyxelOnvifVlanTable = _ZyxelOnvifVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 3)
+)
+if mibBuilder.loadTexts:
+    zyxelOnvifVlanTable.setStatus("current")
+_ZyxelOnvifVlanEntry_Object = MibTableRow
+zyxelOnvifVlanEntry = _ZyxelOnvifVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 3, 1)
+)
+zyxelOnvifVlanEntry.setIndexNames(
+    (0, "ZYXEL-ONVIF-MIB", "zyOnvifVlanVid"),
+)
+if mibBuilder.loadTexts:
+    zyxelOnvifVlanEntry.setStatus("current")
+
+
+class _ZyOnvifVlanVid_Type(Integer32):
+    """Custom type zyOnvifVlanVid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_ZyOnvifVlanVid_Type.__name__ = "Integer32"
+_ZyOnvifVlanVid_Object = MibTableColumn
+zyOnvifVlanVid = _ZyOnvifVlanVid_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 3, 1, 1),
+    _ZyOnvifVlanVid_Type()
+)
+zyOnvifVlanVid.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyOnvifVlanVid.setStatus("current")
+_ZyOnvifVlanPorts_Type = PortList
+_ZyOnvifVlanPorts_Object = MibTableColumn
+zyOnvifVlanPorts = _ZyOnvifVlanPorts_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 3, 1, 2),
+    _ZyOnvifVlanPorts_Type()
+)
+zyOnvifVlanPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyOnvifVlanPorts.setStatus("current")
+_ZyOnvifVlanRowStatus_Type = RowStatus
+_ZyOnvifVlanRowStatus_Object = MibTableColumn
+zyOnvifVlanRowStatus = _ZyOnvifVlanRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 123, 1, 3, 1, 3),
+    _ZyOnvifVlanRowStatus_Type()
+)
+zyOnvifVlanRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zyOnvifVlanRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-ONVIF-MIB",
+    **{"zyxelOnvif": zyxelOnvif,
+       "zyxelOnvifSetup": zyxelOnvifSetup,
+       "zyOnvifState": zyOnvifState,
+       "zyOnvifMaxNumberOfVlans": zyOnvifMaxNumberOfVlans,
+       "zyxelOnvifVlanTable": zyxelOnvifVlanTable,
+       "zyxelOnvifVlanEntry": zyxelOnvifVlanEntry,
+       "zyOnvifVlanVid": zyOnvifVlanVid,
+       "zyOnvifVlanPorts": zyOnvifVlanPorts,
+       "zyOnvifVlanRowStatus": zyOnvifVlanRowStatus}
+)

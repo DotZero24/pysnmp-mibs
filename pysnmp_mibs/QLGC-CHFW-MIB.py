@@ -1,76 +1,478 @@
+# SNMP MIB module (QLGC-CHFW-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module QLGC-CHFW-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/marvell/QLGC-CHFW-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:18 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/marvell/QLGC-CHFW-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:47:51 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
-qlogicMgmt, = mibBuilder.importSymbols("QLOGIC-SMI", "qlogicMgmt")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, zeroDotZero, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "zeroDotZero", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-AutonomousType, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "AutonomousType", "TextualConvention", "DisplayString")
-qlgcChangeFirmwareModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1))
-qlgcChangeFirmwareModule.setRevisions(('2006-01-26 00:00', '2005-08-24 00:00', '2005-06-17 00:00',))
-if mibBuilder.loadTexts: qlgcChangeFirmwareModule.setLastUpdated('200601260000Z')
-if mibBuilder.loadTexts: qlgcChangeFirmwareModule.setOrganization('QLogic Corp.')
-qlgcChFwNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 1, 0))
-qlgcChFwObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1))
-qlgcChFwConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 1, 2))
-qlgcChFwOpTypes = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1))
-qlgcChFwOperDownload = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 1))
-if mibBuilder.loadTexts: qlgcChFwOperDownload.setStatus('current')
-qlgcChFwOperInstall = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 2))
-if mibBuilder.loadTexts: qlgcChFwOperInstall.setStatus('current')
-qlgcChFwOperReset = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 3))
-if mibBuilder.loadTexts: qlgcChFwOperReset.setStatus('current')
-qlgcChFwDwldNoErr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 1, 1))
-if mibBuilder.loadTexts: qlgcChFwDwldNoErr.setStatus('current')
-qlgcChFwDwldHostErr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 1, 2))
-if mibBuilder.loadTexts: qlgcChFwDwldHostErr.setStatus('obsolete')
-qlgcChFwDwldFileErr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 1, 3))
-if mibBuilder.loadTexts: qlgcChFwDwldFileErr.setStatus('obsolete')
-qlgcChFwDwldTftpErr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 1, 4))
-if mibBuilder.loadTexts: qlgcChFwDwldTftpErr.setStatus('current')
-qlgcChFwInstallNoErr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 2, 1))
-if mibBuilder.loadTexts: qlgcChFwInstallNoErr.setStatus('current')
-qlgcChFwInstallFileErr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 2, 2))
-if mibBuilder.loadTexts: qlgcChFwInstallFileErr.setStatus('current')
-qlgcChFwInstallFileNoAdminErr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 2, 3))
-if mibBuilder.loadTexts: qlgcChFwInstallFileNoAdminErr.setStatus('current')
-qlgcChFwResetNoErr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 3, 1))
-if mibBuilder.loadTexts: qlgcChFwResetNoErr.setStatus('current')
-qlgcChFwResetErr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 3, 2))
-if mibBuilder.loadTexts: qlgcChFwResetErr.setStatus('current')
-qlgcChFwResetNoAdminErr = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 3, 3))
-if mibBuilder.loadTexts: qlgcChFwResetNoAdminErr.setStatus('current')
-qlgcChFwOpControl = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2))
-qlgcChFwOpResult = MibScalar((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 1), AutonomousType().clone((0, 0))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: qlgcChFwOpResult.setStatus('current')
-qlgcChFwOpRequest = MibScalar((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("auto", 1), ("downloadOnly", 2), ("installOnly", 3), ("resetOnly", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qlgcChFwOpRequest.setStatus('current')
-qlgcChFwDwldHostAddrType = MibScalar((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 3), InetAddressType().clone('ipv4')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qlgcChFwDwldHostAddrType.setStatus('current')
-qlgcChFwDwldHostAddr = MibScalar((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 4), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qlgcChFwDwldHostAddr.setStatus('current')
-qlgcChFwDwldHostPort = MibScalar((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 5), InetPortNumber().clone(69)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qlgcChFwDwldHostPort.setStatus('current')
-qlgcChFwDwldPathName = MibScalar((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 255)).clone('/')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qlgcChFwDwldPathName.setStatus('current')
-qlgcChFwDwldFileName = MibScalar((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qlgcChFwDwldFileName.setStatus('current')
-qlgcChFwResetMethod = MibScalar((1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("reset", 1), ("ndcla", 2))).clone('reset')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: qlgcChFwResetMethod.setStatus('current')
-qlgcChFwGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 1, 2, 1))
-qlgcChFwGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3873, 3, 1, 2, 1, 1)).setObjects(("QLGC-CHFW-MIB", "qlgcChFwOpResult"), ("QLGC-CHFW-MIB", "qlgcChFwOpRequest"), ("QLGC-CHFW-MIB", "qlgcChFwDwldHostAddrType"), ("QLGC-CHFW-MIB", "qlgcChFwDwldHostAddr"), ("QLGC-CHFW-MIB", "qlgcChFwDwldHostPort"), ("QLGC-CHFW-MIB", "qlgcChFwDwldPathName"), ("QLGC-CHFW-MIB", "qlgcChFwDwldFileName"), ("QLGC-CHFW-MIB", "qlgcChFwResetMethod"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qlgcChFwGroup = qlgcChFwGroup.setStatus('current')
-qlgcChFwCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 3, 1, 2, 2))
-qlgcChFwComplianceV1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 3873, 3, 1, 2, 2, 1)).setObjects(("QLGC-CHFW-MIB", "qlgcChFwGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    qlgcChFwComplianceV1 = qlgcChFwComplianceV1.setStatus('current')
-mibBuilder.exportSymbols("QLGC-CHFW-MIB", PYSNMP_MODULE_ID=qlgcChangeFirmwareModule, qlgcChFwDwldFileName=qlgcChFwDwldFileName, qlgcChFwGroups=qlgcChFwGroups, qlgcChFwDwldHostAddr=qlgcChFwDwldHostAddr, qlgcChFwOperReset=qlgcChFwOperReset, qlgcChFwResetNoErr=qlgcChFwResetNoErr, qlgcChFwNotifications=qlgcChFwNotifications, qlgcChFwDwldHostErr=qlgcChFwDwldHostErr, qlgcChFwOpRequest=qlgcChFwOpRequest, qlgcChFwInstallFileErr=qlgcChFwInstallFileErr, qlgcChFwResetNoAdminErr=qlgcChFwResetNoAdminErr, qlgcChFwCompliances=qlgcChFwCompliances, qlgcChFwObjects=qlgcChFwObjects, qlgcChFwOpTypes=qlgcChFwOpTypes, qlgcChFwOperDownload=qlgcChFwOperDownload, qlgcChFwDwldFileErr=qlgcChFwDwldFileErr, qlgcChangeFirmwareModule=qlgcChangeFirmwareModule, qlgcChFwOpControl=qlgcChFwOpControl, qlgcChFwDwldPathName=qlgcChFwDwldPathName, qlgcChFwOpResult=qlgcChFwOpResult, qlgcChFwResetMethod=qlgcChFwResetMethod, qlgcChFwDwldTftpErr=qlgcChFwDwldTftpErr, qlgcChFwInstallFileNoAdminErr=qlgcChFwInstallFileNoAdminErr, qlgcChFwDwldHostPort=qlgcChFwDwldHostPort, qlgcChFwResetErr=qlgcChFwResetErr, qlgcChFwDwldNoErr=qlgcChFwDwldNoErr, qlgcChFwOperInstall=qlgcChFwOperInstall, qlgcChFwDwldHostAddrType=qlgcChFwDwldHostAddrType, qlgcChFwInstallNoErr=qlgcChFwInstallNoErr, qlgcChFwConformance=qlgcChFwConformance, qlgcChFwGroup=qlgcChFwGroup, qlgcChFwComplianceV1=qlgcChFwComplianceV1)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressType,
+ InetPortNumber) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType",
+    "InetPortNumber")
+
+(qlogicMgmt,) = mibBuilder.importSymbols(
+    "QLOGIC-SMI",
+    "qlogicMgmt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ zeroDotZero) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "zeroDotZero")
+
+(AutonomousType,
+ DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "AutonomousType",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+qlgcChangeFirmwareModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1)
+)
+if mibBuilder.loadTexts:
+    qlgcChangeFirmwareModule.setRevisions(
+        ("2006-01-26 00:00",
+         "2005-08-24 00:00",
+         "2005-06-17 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_QlgcChFwNotifications_ObjectIdentity = ObjectIdentity
+qlgcChFwNotifications = _QlgcChFwNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 0)
+)
+_QlgcChFwObjects_ObjectIdentity = ObjectIdentity
+qlgcChFwObjects = _QlgcChFwObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1)
+)
+_QlgcChFwOpTypes_ObjectIdentity = ObjectIdentity
+qlgcChFwOpTypes = _QlgcChFwOpTypes_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1)
+)
+_QlgcChFwOperDownload_ObjectIdentity = ObjectIdentity
+qlgcChFwOperDownload = _QlgcChFwOperDownload_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwOperDownload.setStatus("current")
+_QlgcChFwDwldNoErr_ObjectIdentity = ObjectIdentity
+qlgcChFwDwldNoErr = _QlgcChFwDwldNoErr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwDwldNoErr.setStatus("current")
+_QlgcChFwDwldHostErr_ObjectIdentity = ObjectIdentity
+qlgcChFwDwldHostErr = _QlgcChFwDwldHostErr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwDwldHostErr.setStatus("obsolete")
+_QlgcChFwDwldFileErr_ObjectIdentity = ObjectIdentity
+qlgcChFwDwldFileErr = _QlgcChFwDwldFileErr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwDwldFileErr.setStatus("obsolete")
+_QlgcChFwDwldTftpErr_ObjectIdentity = ObjectIdentity
+qlgcChFwDwldTftpErr = _QlgcChFwDwldTftpErr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwDwldTftpErr.setStatus("current")
+_QlgcChFwOperInstall_ObjectIdentity = ObjectIdentity
+qlgcChFwOperInstall = _QlgcChFwOperInstall_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwOperInstall.setStatus("current")
+_QlgcChFwInstallNoErr_ObjectIdentity = ObjectIdentity
+qlgcChFwInstallNoErr = _QlgcChFwInstallNoErr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwInstallNoErr.setStatus("current")
+_QlgcChFwInstallFileErr_ObjectIdentity = ObjectIdentity
+qlgcChFwInstallFileErr = _QlgcChFwInstallFileErr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwInstallFileErr.setStatus("current")
+_QlgcChFwInstallFileNoAdminErr_ObjectIdentity = ObjectIdentity
+qlgcChFwInstallFileNoAdminErr = _QlgcChFwInstallFileNoAdminErr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwInstallFileNoAdminErr.setStatus("current")
+_QlgcChFwOperReset_ObjectIdentity = ObjectIdentity
+qlgcChFwOperReset = _QlgcChFwOperReset_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwOperReset.setStatus("current")
+_QlgcChFwResetNoErr_ObjectIdentity = ObjectIdentity
+qlgcChFwResetNoErr = _QlgcChFwResetNoErr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwResetNoErr.setStatus("current")
+_QlgcChFwResetErr_ObjectIdentity = ObjectIdentity
+qlgcChFwResetErr = _QlgcChFwResetErr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwResetErr.setStatus("current")
+_QlgcChFwResetNoAdminErr_ObjectIdentity = ObjectIdentity
+qlgcChFwResetNoAdminErr = _QlgcChFwResetNoAdminErr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 1, 3, 3)
+)
+if mibBuilder.loadTexts:
+    qlgcChFwResetNoAdminErr.setStatus("current")
+_QlgcChFwOpControl_ObjectIdentity = ObjectIdentity
+qlgcChFwOpControl = _QlgcChFwOpControl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2)
+)
+
+
+class _QlgcChFwOpResult_Type(AutonomousType):
+    """Custom type qlgcChFwOpResult based on AutonomousType"""
+    defaultValue = (0, 0)
+
+
+_QlgcChFwOpResult_Type.__name__ = "AutonomousType"
+_QlgcChFwOpResult_Object = MibScalar
+qlgcChFwOpResult = _QlgcChFwOpResult_Object(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 1),
+    _QlgcChFwOpResult_Type()
+)
+qlgcChFwOpResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    qlgcChFwOpResult.setStatus("current")
+
+
+class _QlgcChFwOpRequest_Type(Integer32):
+    """Custom type qlgcChFwOpRequest based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 1),
+          ("downloadOnly", 2),
+          ("installOnly", 3),
+          ("resetOnly", 4))
+    )
+
+
+_QlgcChFwOpRequest_Type.__name__ = "Integer32"
+_QlgcChFwOpRequest_Object = MibScalar
+qlgcChFwOpRequest = _QlgcChFwOpRequest_Object(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 2),
+    _QlgcChFwOpRequest_Type()
+)
+qlgcChFwOpRequest.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qlgcChFwOpRequest.setStatus("current")
+
+
+class _QlgcChFwDwldHostAddrType_Type(InetAddressType):
+    """Custom type qlgcChFwDwldHostAddrType based on InetAddressType"""
+    defaultValue = 1
+
+
+_QlgcChFwDwldHostAddrType_Type.__name__ = "InetAddressType"
+_QlgcChFwDwldHostAddrType_Object = MibScalar
+qlgcChFwDwldHostAddrType = _QlgcChFwDwldHostAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 3),
+    _QlgcChFwDwldHostAddrType_Type()
+)
+qlgcChFwDwldHostAddrType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qlgcChFwDwldHostAddrType.setStatus("current")
+_QlgcChFwDwldHostAddr_Type = InetAddress
+_QlgcChFwDwldHostAddr_Object = MibScalar
+qlgcChFwDwldHostAddr = _QlgcChFwDwldHostAddr_Object(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 4),
+    _QlgcChFwDwldHostAddr_Type()
+)
+qlgcChFwDwldHostAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qlgcChFwDwldHostAddr.setStatus("current")
+
+
+class _QlgcChFwDwldHostPort_Type(InetPortNumber):
+    """Custom type qlgcChFwDwldHostPort based on InetPortNumber"""
+    defaultValue = 69
+
+
+_QlgcChFwDwldHostPort_Type.__name__ = "InetPortNumber"
+_QlgcChFwDwldHostPort_Object = MibScalar
+qlgcChFwDwldHostPort = _QlgcChFwDwldHostPort_Object(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 5),
+    _QlgcChFwDwldHostPort_Type()
+)
+qlgcChFwDwldHostPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qlgcChFwDwldHostPort.setStatus("current")
+
+
+class _QlgcChFwDwldPathName_Type(DisplayString):
+    """Custom type qlgcChFwDwldPathName based on DisplayString"""
+    defaultValue = OctetString("/")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+_QlgcChFwDwldPathName_Type.__name__ = "DisplayString"
+_QlgcChFwDwldPathName_Object = MibScalar
+qlgcChFwDwldPathName = _QlgcChFwDwldPathName_Object(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 6),
+    _QlgcChFwDwldPathName_Type()
+)
+qlgcChFwDwldPathName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qlgcChFwDwldPathName.setStatus("current")
+
+
+class _QlgcChFwDwldFileName_Type(DisplayString):
+    """Custom type qlgcChFwDwldFileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+_QlgcChFwDwldFileName_Type.__name__ = "DisplayString"
+_QlgcChFwDwldFileName_Object = MibScalar
+qlgcChFwDwldFileName = _QlgcChFwDwldFileName_Object(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 7),
+    _QlgcChFwDwldFileName_Type()
+)
+qlgcChFwDwldFileName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qlgcChFwDwldFileName.setStatus("current")
+
+
+class _QlgcChFwResetMethod_Type(Integer32):
+    """Custom type qlgcChFwResetMethod based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("reset", 1),
+          ("ndcla", 2))
+    )
+
+
+_QlgcChFwResetMethod_Type.__name__ = "Integer32"
+_QlgcChFwResetMethod_Object = MibScalar
+qlgcChFwResetMethod = _QlgcChFwResetMethod_Object(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 1, 2, 8),
+    _QlgcChFwResetMethod_Type()
+)
+qlgcChFwResetMethod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    qlgcChFwResetMethod.setStatus("current")
+_QlgcChFwConformance_ObjectIdentity = ObjectIdentity
+qlgcChFwConformance = _QlgcChFwConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 2)
+)
+_QlgcChFwGroups_ObjectIdentity = ObjectIdentity
+qlgcChFwGroups = _QlgcChFwGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 2, 1)
+)
+_QlgcChFwCompliances_ObjectIdentity = ObjectIdentity
+qlgcChFwCompliances = _QlgcChFwCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 2, 2)
+)
+
+# Managed Objects groups
+
+qlgcChFwGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 2, 1, 1)
+)
+qlgcChFwGroup.setObjects(
+      *(("QLGC-CHFW-MIB", "qlgcChFwOpResult"),
+        ("QLGC-CHFW-MIB", "qlgcChFwOpRequest"),
+        ("QLGC-CHFW-MIB", "qlgcChFwDwldHostAddrType"),
+        ("QLGC-CHFW-MIB", "qlgcChFwDwldHostAddr"),
+        ("QLGC-CHFW-MIB", "qlgcChFwDwldHostPort"),
+        ("QLGC-CHFW-MIB", "qlgcChFwDwldPathName"),
+        ("QLGC-CHFW-MIB", "qlgcChFwDwldFileName"),
+        ("QLGC-CHFW-MIB", "qlgcChFwResetMethod"))
+)
+if mibBuilder.loadTexts:
+    qlgcChFwGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+qlgcChFwComplianceV1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 3873, 3, 1, 2, 2, 1)
+)
+qlgcChFwComplianceV1.setObjects(
+    ("QLGC-CHFW-MIB", "qlgcChFwGroup")
+)
+if mibBuilder.loadTexts:
+    qlgcChFwComplianceV1.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "QLGC-CHFW-MIB",
+    **{"qlgcChangeFirmwareModule": qlgcChangeFirmwareModule,
+       "qlgcChFwNotifications": qlgcChFwNotifications,
+       "qlgcChFwObjects": qlgcChFwObjects,
+       "qlgcChFwOpTypes": qlgcChFwOpTypes,
+       "qlgcChFwOperDownload": qlgcChFwOperDownload,
+       "qlgcChFwDwldNoErr": qlgcChFwDwldNoErr,
+       "qlgcChFwDwldHostErr": qlgcChFwDwldHostErr,
+       "qlgcChFwDwldFileErr": qlgcChFwDwldFileErr,
+       "qlgcChFwDwldTftpErr": qlgcChFwDwldTftpErr,
+       "qlgcChFwOperInstall": qlgcChFwOperInstall,
+       "qlgcChFwInstallNoErr": qlgcChFwInstallNoErr,
+       "qlgcChFwInstallFileErr": qlgcChFwInstallFileErr,
+       "qlgcChFwInstallFileNoAdminErr": qlgcChFwInstallFileNoAdminErr,
+       "qlgcChFwOperReset": qlgcChFwOperReset,
+       "qlgcChFwResetNoErr": qlgcChFwResetNoErr,
+       "qlgcChFwResetErr": qlgcChFwResetErr,
+       "qlgcChFwResetNoAdminErr": qlgcChFwResetNoAdminErr,
+       "qlgcChFwOpControl": qlgcChFwOpControl,
+       "qlgcChFwOpResult": qlgcChFwOpResult,
+       "qlgcChFwOpRequest": qlgcChFwOpRequest,
+       "qlgcChFwDwldHostAddrType": qlgcChFwDwldHostAddrType,
+       "qlgcChFwDwldHostAddr": qlgcChFwDwldHostAddr,
+       "qlgcChFwDwldHostPort": qlgcChFwDwldHostPort,
+       "qlgcChFwDwldPathName": qlgcChFwDwldPathName,
+       "qlgcChFwDwldFileName": qlgcChFwDwldFileName,
+       "qlgcChFwResetMethod": qlgcChFwResetMethod,
+       "qlgcChFwConformance": qlgcChFwConformance,
+       "qlgcChFwGroups": qlgcChFwGroups,
+       "qlgcChFwGroup": qlgcChFwGroup,
+       "qlgcChFwCompliances": qlgcChFwCompliances,
+       "qlgcChFwComplianceV1": qlgcChFwComplianceV1}
+)

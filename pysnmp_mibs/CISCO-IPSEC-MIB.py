@@ -1,246 +1,1360 @@
+# SNMP MIB module (CISCO-IPSEC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-IPSEC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-IPSEC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:25 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-IPSEC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:28:04 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoExperiment, = mibBuilder.importSymbols("CISCO-SMI", "ciscoExperiment")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-ciscoIPsecMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 10, 62))
-if mibBuilder.loadTexts: ciscoIPsecMIB.setLastUpdated('200008071139Z')
-if mibBuilder.loadTexts: ciscoIPsecMIB.setOrganization('Cisco Systems, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoExperiment,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoExperiment")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoIPsecMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class CIPsecLifetime(TextualConvention, Gauge32):
-    status = 'current'
-    subtypeSpec = Gauge32.subtypeSpec + ValueRangeConstraint(120, 86400)
+    status = "current"
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(120, 86400),
+    )
+
+
 
 class CIPsecLifesize(TextualConvention, Gauge32):
-    status = 'current'
-    subtypeSpec = Gauge32.subtypeSpec + ValueRangeConstraint(2560, 536870912)
+    status = "current"
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2560, 536870912),
+    )
+
+
 
 class CIPsecNumCryptoMaps(TextualConvention, Gauge32):
-    status = 'current'
-    subtypeSpec = Gauge32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+    status = "current"
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
 
 class CryptomapType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))
-    namedValues = NamedValues(("cryptomapTypeNONE", 0), ("cryptomapTypeMANUAL", 1), ("cryptomapTypeISAKMP", 2), ("cryptomapTypeCET", 3), ("cryptomapTypeDYNAMIC", 4), ("cryptomapTypeDYNAMICDISCOVERY", 5))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cryptomapTypeNONE", 0),
+          ("cryptomapTypeMANUAL", 1),
+          ("cryptomapTypeISAKMP", 2),
+          ("cryptomapTypeCET", 3),
+          ("cryptomapTypeDYNAMIC", 4),
+          ("cryptomapTypeDYNAMICDISCOVERY", 5))
+    )
+
+
 
 class CryptomapSetBindStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("unknown", 0), ("attached", 1), ("detached", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("attached", 1),
+          ("detached", 2))
+    )
+
+
 
 class IPSIpAddress(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+
 class IkeHashAlgo(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("none", 1), ("md5", 2), ("sha", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("md5", 2),
+          ("sha", 3))
+    )
+
+
 
 class IkeAuthMethod(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("none", 1), ("preSharedKey", 2), ("rsaSig", 3), ("rsaEncrypt", 4), ("revPublicKey", 5))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("preSharedKey", 2),
+          ("rsaSig", 3),
+          ("rsaEncrypt", 4),
+          ("revPublicKey", 5))
+    )
+
+
 
 class IkeIdentityType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("isakmpIdTypeUNKNOWN", 0), ("isakmpIdTypeADDRESS", 1), ("isakmpIdTypeHOSTNAME", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("isakmpIdTypeUNKNOWN", 0),
+          ("isakmpIdTypeADDRESS", 1),
+          ("isakmpIdTypeHOSTNAME", 2))
+    )
+
+
 
 class DiffHellmanGrp(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("none", 1), ("dhGroup1", 2), ("dhGroup2", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("dhGroup1", 2),
+          ("dhGroup2", 3))
+    )
+
+
 
 class EncryptAlgo(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("none", 1), ("des", 2), ("des3", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("des", 2),
+          ("des3", 3))
+    )
+
+
 
 class TrapStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("enabled", 1), ("disabled", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
 
-ciscoIPsecMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 1))
-ciscoIPsecMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 2))
-ciscoIPsecMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 3))
-cipsIsakmpGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1))
-cipsIPsecGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2))
-cipsIPsecGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1))
-cipsIPsecStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 2))
-cipsCryptomapGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3))
-cipsSysCapacityGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 3))
-cipsTrapCntlGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4))
-cipsIsakmpEnabled = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsIsakmpEnabled.setStatus('current')
-cipsIsakmpIdentity = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 2), IkeIdentityType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsIsakmpIdentity.setStatus('current')
-cipsIsakmpKeepaliveInterval = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 3600))).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsIsakmpKeepaliveInterval.setStatus('current')
-cipsNumIsakmpPolicies = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsNumIsakmpPolicies.setStatus('current')
-cipsIsakmpPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5), )
-if mibBuilder.loadTexts: cipsIsakmpPolicyTable.setStatus('current')
-cipsIsakmpPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1), ).setIndexNames((0, "CISCO-IPSEC-MIB", "cipsIsakmpPolPriority"))
-if mibBuilder.loadTexts: cipsIsakmpPolicyEntry.setStatus('current')
-cipsIsakmpPolPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: cipsIsakmpPolPriority.setStatus('current')
-cipsIsakmpPolEncr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 2), EncryptAlgo()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsIsakmpPolEncr.setStatus('current')
-cipsIsakmpPolHash = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 3), IkeHashAlgo()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsIsakmpPolHash.setStatus('current')
-cipsIsakmpPolAuth = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 4), IkeAuthMethod()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsIsakmpPolAuth.setStatus('current')
-cipsIsakmpPolGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 5), DiffHellmanGrp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsIsakmpPolGroup.setStatus('current')
-cipsIsakmpPolLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 86400))).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsIsakmpPolLifetime.setStatus('current')
-cipsSALifetime = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 1), CIPsecLifetime()).setUnits('Seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsSALifetime.setStatus('current')
-cipsSALifesize = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 2), CIPsecLifesize()).setUnits('KBytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsSALifesize.setStatus('current')
-cipsNumStaticCryptomapSets = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 3), CIPsecNumCryptoMaps()).setUnits('Integral Units').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsNumStaticCryptomapSets.setStatus('current')
-cipsNumCETCryptomapSets = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 4), CIPsecNumCryptoMaps()).setUnits('Integral Units').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsNumCETCryptomapSets.setStatus('current')
-cipsNumDynamicCryptomapSets = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 5), CIPsecNumCryptoMaps()).setUnits('Integral Units').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsNumDynamicCryptomapSets.setStatus('current')
-cipsNumTEDCryptomapSets = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 6), CIPsecNumCryptoMaps()).setUnits('Integral Units').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsNumTEDCryptomapSets.setStatus('current')
-cipsNumTEDProbesReceived = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 2, 1), Counter32()).setUnits('Integral Units').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsNumTEDProbesReceived.setStatus('current')
-cipsNumTEDProbesSent = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 2, 2), Counter32()).setUnits('Integral Units').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsNumTEDProbesSent.setStatus('current')
-cipsNumTEDFailures = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 2, 3), Counter32()).setUnits('Integral Units').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsNumTEDFailures.setStatus('current')
-cipsMaxSAs = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setUnits('Integral Units').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsMaxSAs.setStatus('current')
-cips3DesCapable = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 3, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cips3DesCapable.setStatus('current')
-cipsStaticCryptomapSetTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1), )
-if mibBuilder.loadTexts: cipsStaticCryptomapSetTable.setStatus('current')
-cipsStaticCryptomapSetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1), ).setIndexNames((0, "CISCO-IPSEC-MIB", "cipsStaticCryptomapSetName"))
-if mibBuilder.loadTexts: cipsStaticCryptomapSetEntry.setStatus('current')
-cipsStaticCryptomapSetName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 1), DisplayString())
-if mibBuilder.loadTexts: cipsStaticCryptomapSetName.setStatus('current')
-cipsStaticCryptomapSetSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapSetSize.setStatus('current')
-cipsStaticCryptomapSetNumIsakmp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapSetNumIsakmp.setStatus('current')
-cipsStaticCryptomapSetNumManual = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapSetNumManual.setStatus('current')
-cipsStaticCryptomapSetNumCET = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 5), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapSetNumCET.setStatus('current')
-cipsStaticCryptomapSetNumDynamic = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapSetNumDynamic.setStatus('current')
-cipsStaticCryptomapSetNumDisc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapSetNumDisc.setStatus('current')
-cipsStaticCryptomapSetNumSAs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 8), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapSetNumSAs.setStatus('current')
-cipsDynamicCryptomapSetTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 2), )
-if mibBuilder.loadTexts: cipsDynamicCryptomapSetTable.setStatus('current')
-cipsDynamicCryptomapSetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 2, 1), ).setIndexNames((0, "CISCO-IPSEC-MIB", "cipsDynamicCryptomapSetName"))
-if mibBuilder.loadTexts: cipsDynamicCryptomapSetEntry.setStatus('current')
-cipsDynamicCryptomapSetName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 2, 1, 1), DisplayString())
-if mibBuilder.loadTexts: cipsDynamicCryptomapSetName.setStatus('current')
-cipsDynamicCryptomapSetSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 2, 1, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsDynamicCryptomapSetSize.setStatus('current')
-cipsDynamicCryptomapSetNumAssoc = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 2, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsDynamicCryptomapSetNumAssoc.setStatus('current')
-cipsStaticCryptomapTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3), )
-if mibBuilder.loadTexts: cipsStaticCryptomapTable.setStatus('current')
-cipsStaticCryptomapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1), ).setIndexNames((0, "CISCO-IPSEC-MIB", "cipsStaticCryptomapSetName"), (0, "CISCO-IPSEC-MIB", "cipsStaticCryptomapPriority"))
-if mibBuilder.loadTexts: cipsStaticCryptomapEntry.setStatus('current')
-cipsStaticCryptomapPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: cipsStaticCryptomapPriority.setStatus('current')
-cipsStaticCryptomapType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 2), CryptomapType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapType.setStatus('current')
-cipsStaticCryptomapDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapDescr.setStatus('current')
-cipsStaticCryptomapPeer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 4), IPSIpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapPeer.setStatus('current')
-cipsStaticCryptomapNumPeers = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 40))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapNumPeers.setStatus('current')
-cipsStaticCryptomapPfs = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 6), DiffHellmanGrp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapPfs.setStatus('current')
-cipsStaticCryptomapLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(120, 86400), ))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapLifetime.setStatus('current')
-cipsStaticCryptomapLifesize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(2560, 536870912), ))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapLifesize.setStatus('current')
-cipsStaticCryptomapLevelHost = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsStaticCryptomapLevelHost.setStatus('current')
-cipsCryptomapSetIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 4), )
-if mibBuilder.loadTexts: cipsCryptomapSetIfTable.setStatus('current')
-cipsCryptomapSetIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-IPSEC-MIB", "cipsStaticCryptomapSetName"))
-if mibBuilder.loadTexts: cipsCryptomapSetIfEntry.setStatus('current')
-cipsCryptomapSetIfVirtual = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 4, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cipsCryptomapSetIfVirtual.setStatus('current')
-cipsCryptomapSetIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 4, 1, 2), CryptomapSetBindStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cipsCryptomapSetIfStatus.setStatus('current')
-cipsCntlIsakmpPolicyAdded = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 1), TrapStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cipsCntlIsakmpPolicyAdded.setStatus('current')
-cipsCntlIsakmpPolicyDeleted = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 2), TrapStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cipsCntlIsakmpPolicyDeleted.setStatus('current')
-cipsCntlCryptomapAdded = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 3), TrapStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cipsCntlCryptomapAdded.setStatus('current')
-cipsCntlCryptomapDeleted = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 4), TrapStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cipsCntlCryptomapDeleted.setStatus('current')
-cipsCntlCryptomapSetAttached = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 5), TrapStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cipsCntlCryptomapSetAttached.setStatus('current')
-cipsCntlCryptomapSetDetached = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 6), TrapStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cipsCntlCryptomapSetDetached.setStatus('current')
-cipsCntlTooManySAs = MibScalar((1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 7), TrapStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cipsCntlTooManySAs.setStatus('current')
-cipsMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0))
-cipsIsakmpPolicyAdded = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 1)).setObjects(("CISCO-IPSEC-MIB", "cipsNumIsakmpPolicies"))
-if mibBuilder.loadTexts: cipsIsakmpPolicyAdded.setStatus('current')
-cipsIsakmpPolicyDeleted = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 2)).setObjects(("CISCO-IPSEC-MIB", "cipsNumIsakmpPolicies"))
-if mibBuilder.loadTexts: cipsIsakmpPolicyDeleted.setStatus('current')
-cipsCryptomapAdded = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 3)).setObjects(("CISCO-IPSEC-MIB", "cipsStaticCryptomapType"), ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetSize"))
-if mibBuilder.loadTexts: cipsCryptomapAdded.setStatus('current')
-cipsCryptomapDeleted = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 4)).setObjects(("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetSize"))
-if mibBuilder.loadTexts: cipsCryptomapDeleted.setStatus('current')
-cipsCryptomapSetAttached = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 5)).setObjects(("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetSize"), ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumIsakmp"), ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumDynamic"))
-if mibBuilder.loadTexts: cipsCryptomapSetAttached.setStatus('current')
-cipsCryptomapSetDetached = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 6)).setObjects(("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetSize"))
-if mibBuilder.loadTexts: cipsCryptomapSetDetached.setStatus('current')
-cipsTooManySAs = NotificationType((1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 7)).setObjects(("CISCO-IPSEC-MIB", "cipsMaxSAs"))
-if mibBuilder.loadTexts: cipsTooManySAs.setStatus('current')
-cipsMIBConformances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 1))
-cipsMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2))
-cipsMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 1, 1)).setObjects(("CISCO-IPSEC-MIB", "cipsMIBConfIsakmpGroup"), ("CISCO-IPSEC-MIB", "cipsMIBConfIPSecGlobalsGroup"), ("CISCO-IPSEC-MIB", "cipsMIBConfCapacityGroup"), ("CISCO-IPSEC-MIB", "cipsMIBStaticCryptomapGroup"), ("CISCO-IPSEC-MIB", "cipsMIBMandatoryNotifCntlGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cipsMIBCompliance = cipsMIBCompliance.setStatus('current')
-cipsMIBConfIsakmpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 1)).setObjects(("CISCO-IPSEC-MIB", "cipsIsakmpEnabled"), ("CISCO-IPSEC-MIB", "cipsIsakmpIdentity"), ("CISCO-IPSEC-MIB", "cipsIsakmpKeepaliveInterval"), ("CISCO-IPSEC-MIB", "cipsNumIsakmpPolicies"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cipsMIBConfIsakmpGroup = cipsMIBConfIsakmpGroup.setStatus('current')
-cipsMIBConfIPSecGlobalsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 2)).setObjects(("CISCO-IPSEC-MIB", "cipsSALifetime"), ("CISCO-IPSEC-MIB", "cipsSALifesize"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cipsMIBConfIPSecGlobalsGroup = cipsMIBConfIPSecGlobalsGroup.setStatus('current')
-cipsMIBConfCapacityGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 3)).setObjects(("CISCO-IPSEC-MIB", "cipsMaxSAs"), ("CISCO-IPSEC-MIB", "cips3DesCapable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cipsMIBConfCapacityGroup = cipsMIBConfCapacityGroup.setStatus('current')
-cipsMIBStaticCryptomapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 4)).setObjects(("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetSize"), ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumIsakmp"), ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumCET"), ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumSAs"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cipsMIBStaticCryptomapGroup = cipsMIBStaticCryptomapGroup.setStatus('current')
-cipsMIBManualCryptomapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 5)).setObjects(("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumManual"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cipsMIBManualCryptomapGroup = cipsMIBManualCryptomapGroup.setStatus('current')
-cipsMIBDynamicCryptomapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 6)).setObjects(("CISCO-IPSEC-MIB", "cipsNumTEDProbesReceived"), ("CISCO-IPSEC-MIB", "cipsNumTEDProbesSent"), ("CISCO-IPSEC-MIB", "cipsNumTEDFailures"), ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumDynamic"), ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumDisc"), ("CISCO-IPSEC-MIB", "cipsNumTEDCryptomapSets"), ("CISCO-IPSEC-MIB", "cipsDynamicCryptomapSetSize"), ("CISCO-IPSEC-MIB", "cipsDynamicCryptomapSetNumAssoc"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cipsMIBDynamicCryptomapGroup = cipsMIBDynamicCryptomapGroup.setStatus('current')
-cipsMIBMandatoryNotifCntlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 7)).setObjects(("CISCO-IPSEC-MIB", "cipsCntlIsakmpPolicyAdded"), ("CISCO-IPSEC-MIB", "cipsCntlIsakmpPolicyDeleted"), ("CISCO-IPSEC-MIB", "cipsCntlCryptomapAdded"), ("CISCO-IPSEC-MIB", "cipsCntlCryptomapDeleted"), ("CISCO-IPSEC-MIB", "cipsCntlCryptomapSetAttached"), ("CISCO-IPSEC-MIB", "cipsCntlCryptomapSetDetached"), ("CISCO-IPSEC-MIB", "cipsCntlTooManySAs"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cipsMIBMandatoryNotifCntlGroup = cipsMIBMandatoryNotifCntlGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-IPSEC-MIB", CryptomapSetBindStatus=CryptomapSetBindStatus, cipsCntlIsakmpPolicyDeleted=cipsCntlIsakmpPolicyDeleted, cipsCntlIsakmpPolicyAdded=cipsCntlIsakmpPolicyAdded, cipsIsakmpPolicyEntry=cipsIsakmpPolicyEntry, cipsIsakmpEnabled=cipsIsakmpEnabled, cipsNumTEDProbesReceived=cipsNumTEDProbesReceived, cipsMIBGroups=cipsMIBGroups, cipsCntlCryptomapAdded=cipsCntlCryptomapAdded, cipsMIBManualCryptomapGroup=cipsMIBManualCryptomapGroup, cipsIsakmpPolEncr=cipsIsakmpPolEncr, cipsIsakmpGroup=cipsIsakmpGroup, cipsNumStaticCryptomapSets=cipsNumStaticCryptomapSets, cipsCntlCryptomapSetAttached=cipsCntlCryptomapSetAttached, cipsSysCapacityGroup=cipsSysCapacityGroup, cipsCntlCryptomapSetDetached=cipsCntlCryptomapSetDetached, cipsStaticCryptomapType=cipsStaticCryptomapType, cipsCryptomapAdded=cipsCryptomapAdded, cipsStaticCryptomapSetTable=cipsStaticCryptomapSetTable, ciscoIPsecMIBNotificationPrefix=ciscoIPsecMIBNotificationPrefix, cipsStaticCryptomapSetEntry=cipsStaticCryptomapSetEntry, cipsDynamicCryptomapSetTable=cipsDynamicCryptomapSetTable, cipsMIBDynamicCryptomapGroup=cipsMIBDynamicCryptomapGroup, cipsCryptomapSetIfStatus=cipsCryptomapSetIfStatus, cipsMIBNotifications=cipsMIBNotifications, CryptomapType=CryptomapType, cipsCryptomapGroup=cipsCryptomapGroup, cipsStaticCryptomapPeer=cipsStaticCryptomapPeer, TrapStatus=TrapStatus, cipsStaticCryptomapSetNumManual=cipsStaticCryptomapSetNumManual, cipsDynamicCryptomapSetNumAssoc=cipsDynamicCryptomapSetNumAssoc, cipsIPsecStatistics=cipsIPsecStatistics, cipsCryptomapSetIfVirtual=cipsCryptomapSetIfVirtual, cipsCntlCryptomapDeleted=cipsCntlCryptomapDeleted, cipsSALifesize=cipsSALifesize, DiffHellmanGrp=DiffHellmanGrp, IkeHashAlgo=IkeHashAlgo, cipsIsakmpPolHash=cipsIsakmpPolHash, cipsNumCETCryptomapSets=cipsNumCETCryptomapSets, CIPsecLifesize=CIPsecLifesize, cipsIsakmpPolicyDeleted=cipsIsakmpPolicyDeleted, cipsMIBConfCapacityGroup=cipsMIBConfCapacityGroup, cipsDynamicCryptomapSetName=cipsDynamicCryptomapSetName, cipsMIBConfIsakmpGroup=cipsMIBConfIsakmpGroup, cipsDynamicCryptomapSetEntry=cipsDynamicCryptomapSetEntry, cipsIPsecGroup=cipsIPsecGroup, EncryptAlgo=EncryptAlgo, cipsStaticCryptomapTable=cipsStaticCryptomapTable, cipsStaticCryptomapDescr=cipsStaticCryptomapDescr, cipsStaticCryptomapLifetime=cipsStaticCryptomapLifetime, cipsNumDynamicCryptomapSets=cipsNumDynamicCryptomapSets, cipsStaticCryptomapSetNumCET=cipsStaticCryptomapSetNumCET, cipsCryptomapSetIfTable=cipsCryptomapSetIfTable, cipsCryptomapSetDetached=cipsCryptomapSetDetached, cipsCryptomapSetAttached=cipsCryptomapSetAttached, cipsSALifetime=cipsSALifetime, cipsIsakmpPolLifetime=cipsIsakmpPolLifetime, cipsStaticCryptomapPfs=cipsStaticCryptomapPfs, cipsIPsecGlobals=cipsIPsecGlobals, cipsNumTEDFailures=cipsNumTEDFailures, cipsNumTEDProbesSent=cipsNumTEDProbesSent, cipsIsakmpKeepaliveInterval=cipsIsakmpKeepaliveInterval, PYSNMP_MODULE_ID=ciscoIPsecMIB, cipsTooManySAs=cipsTooManySAs, cipsMIBStaticCryptomapGroup=cipsMIBStaticCryptomapGroup, cipsStaticCryptomapLevelHost=cipsStaticCryptomapLevelHost, cipsIsakmpPolGroup=cipsIsakmpPolGroup, ciscoIPsecMIBObjects=ciscoIPsecMIBObjects, cipsIsakmpIdentity=cipsIsakmpIdentity, cipsDynamicCryptomapSetSize=cipsDynamicCryptomapSetSize, cipsTrapCntlGroup=cipsTrapCntlGroup, IkeIdentityType=IkeIdentityType, cipsStaticCryptomapSetSize=cipsStaticCryptomapSetSize, cipsStaticCryptomapLifesize=cipsStaticCryptomapLifesize, cipsStaticCryptomapEntry=cipsStaticCryptomapEntry, cipsCntlTooManySAs=cipsCntlTooManySAs, cipsMIBConfIPSecGlobalsGroup=cipsMIBConfIPSecGlobalsGroup, cipsStaticCryptomapSetNumDisc=cipsStaticCryptomapSetNumDisc, cipsStaticCryptomapSetName=cipsStaticCryptomapSetName, cipsIsakmpPolAuth=cipsIsakmpPolAuth, cipsMIBConformances=cipsMIBConformances, cipsMIBMandatoryNotifCntlGroup=cipsMIBMandatoryNotifCntlGroup, cipsIsakmpPolicyTable=cipsIsakmpPolicyTable, CIPsecNumCryptoMaps=CIPsecNumCryptoMaps, cips3DesCapable=cips3DesCapable, cipsStaticCryptomapSetNumIsakmp=cipsStaticCryptomapSetNumIsakmp, cipsMaxSAs=cipsMaxSAs, cipsIsakmpPolPriority=cipsIsakmpPolPriority, cipsStaticCryptomapNumPeers=cipsStaticCryptomapNumPeers, CIPsecLifetime=CIPsecLifetime, cipsStaticCryptomapPriority=cipsStaticCryptomapPriority, cipsNumIsakmpPolicies=cipsNumIsakmpPolicies, ciscoIPsecMIB=ciscoIPsecMIB, ciscoIPsecMIBConformance=ciscoIPsecMIBConformance, IkeAuthMethod=IkeAuthMethod, cipsMIBCompliance=cipsMIBCompliance, cipsStaticCryptomapSetNumDynamic=cipsStaticCryptomapSetNumDynamic, IPSIpAddress=IPSIpAddress, cipsStaticCryptomapSetNumSAs=cipsStaticCryptomapSetNumSAs, cipsIsakmpPolicyAdded=cipsIsakmpPolicyAdded, cipsCryptomapDeleted=cipsCryptomapDeleted, cipsCryptomapSetIfEntry=cipsCryptomapSetIfEntry, cipsNumTEDCryptomapSets=cipsNumTEDCryptomapSets)
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoIPsecMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoIPsecMIBObjects = _CiscoIPsecMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1)
+)
+_CipsIsakmpGroup_ObjectIdentity = ObjectIdentity
+cipsIsakmpGroup = _CipsIsakmpGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1)
+)
+_CipsIsakmpEnabled_Type = TruthValue
+_CipsIsakmpEnabled_Object = MibScalar
+cipsIsakmpEnabled = _CipsIsakmpEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 1),
+    _CipsIsakmpEnabled_Type()
+)
+cipsIsakmpEnabled.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsIsakmpEnabled.setStatus("current")
+_CipsIsakmpIdentity_Type = IkeIdentityType
+_CipsIsakmpIdentity_Object = MibScalar
+cipsIsakmpIdentity = _CipsIsakmpIdentity_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 2),
+    _CipsIsakmpIdentity_Type()
+)
+cipsIsakmpIdentity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsIsakmpIdentity.setStatus("current")
+
+
+class _CipsIsakmpKeepaliveInterval_Type(Integer32):
+    """Custom type cipsIsakmpKeepaliveInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 3600),
+    )
+
+
+_CipsIsakmpKeepaliveInterval_Type.__name__ = "Integer32"
+_CipsIsakmpKeepaliveInterval_Object = MibScalar
+cipsIsakmpKeepaliveInterval = _CipsIsakmpKeepaliveInterval_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 3),
+    _CipsIsakmpKeepaliveInterval_Type()
+)
+cipsIsakmpKeepaliveInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsIsakmpKeepaliveInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsIsakmpKeepaliveInterval.setUnits("seconds")
+
+
+class _CipsNumIsakmpPolicies_Type(Integer32):
+    """Custom type cipsNumIsakmpPolicies based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_CipsNumIsakmpPolicies_Type.__name__ = "Integer32"
+_CipsNumIsakmpPolicies_Object = MibScalar
+cipsNumIsakmpPolicies = _CipsNumIsakmpPolicies_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 4),
+    _CipsNumIsakmpPolicies_Type()
+)
+cipsNumIsakmpPolicies.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsNumIsakmpPolicies.setStatus("current")
+_CipsIsakmpPolicyTable_Object = MibTable
+cipsIsakmpPolicyTable = _CipsIsakmpPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    cipsIsakmpPolicyTable.setStatus("current")
+_CipsIsakmpPolicyEntry_Object = MibTableRow
+cipsIsakmpPolicyEntry = _CipsIsakmpPolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1)
+)
+cipsIsakmpPolicyEntry.setIndexNames(
+    (0, "CISCO-IPSEC-MIB", "cipsIsakmpPolPriority"),
+)
+if mibBuilder.loadTexts:
+    cipsIsakmpPolicyEntry.setStatus("current")
+
+
+class _CipsIsakmpPolPriority_Type(Integer32):
+    """Custom type cipsIsakmpPolPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CipsIsakmpPolPriority_Type.__name__ = "Integer32"
+_CipsIsakmpPolPriority_Object = MibTableColumn
+cipsIsakmpPolPriority = _CipsIsakmpPolPriority_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 1),
+    _CipsIsakmpPolPriority_Type()
+)
+cipsIsakmpPolPriority.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cipsIsakmpPolPriority.setStatus("current")
+_CipsIsakmpPolEncr_Type = EncryptAlgo
+_CipsIsakmpPolEncr_Object = MibTableColumn
+cipsIsakmpPolEncr = _CipsIsakmpPolEncr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 2),
+    _CipsIsakmpPolEncr_Type()
+)
+cipsIsakmpPolEncr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsIsakmpPolEncr.setStatus("current")
+_CipsIsakmpPolHash_Type = IkeHashAlgo
+_CipsIsakmpPolHash_Object = MibTableColumn
+cipsIsakmpPolHash = _CipsIsakmpPolHash_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 3),
+    _CipsIsakmpPolHash_Type()
+)
+cipsIsakmpPolHash.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsIsakmpPolHash.setStatus("current")
+_CipsIsakmpPolAuth_Type = IkeAuthMethod
+_CipsIsakmpPolAuth_Object = MibTableColumn
+cipsIsakmpPolAuth = _CipsIsakmpPolAuth_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 4),
+    _CipsIsakmpPolAuth_Type()
+)
+cipsIsakmpPolAuth.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsIsakmpPolAuth.setStatus("current")
+_CipsIsakmpPolGroup_Type = DiffHellmanGrp
+_CipsIsakmpPolGroup_Object = MibTableColumn
+cipsIsakmpPolGroup = _CipsIsakmpPolGroup_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 5),
+    _CipsIsakmpPolGroup_Type()
+)
+cipsIsakmpPolGroup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsIsakmpPolGroup.setStatus("current")
+
+
+class _CipsIsakmpPolLifetime_Type(Integer32):
+    """Custom type cipsIsakmpPolLifetime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(60, 86400),
+    )
+
+
+_CipsIsakmpPolLifetime_Type.__name__ = "Integer32"
+_CipsIsakmpPolLifetime_Object = MibTableColumn
+cipsIsakmpPolLifetime = _CipsIsakmpPolLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 1, 5, 1, 6),
+    _CipsIsakmpPolLifetime_Type()
+)
+cipsIsakmpPolLifetime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsIsakmpPolLifetime.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsIsakmpPolLifetime.setUnits("seconds")
+_CipsIPsecGroup_ObjectIdentity = ObjectIdentity
+cipsIPsecGroup = _CipsIPsecGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2)
+)
+_CipsIPsecGlobals_ObjectIdentity = ObjectIdentity
+cipsIPsecGlobals = _CipsIPsecGlobals_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1)
+)
+_CipsSALifetime_Type = CIPsecLifetime
+_CipsSALifetime_Object = MibScalar
+cipsSALifetime = _CipsSALifetime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 1),
+    _CipsSALifetime_Type()
+)
+cipsSALifetime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsSALifetime.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsSALifetime.setUnits("Seconds")
+_CipsSALifesize_Type = CIPsecLifesize
+_CipsSALifesize_Object = MibScalar
+cipsSALifesize = _CipsSALifesize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 2),
+    _CipsSALifesize_Type()
+)
+cipsSALifesize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsSALifesize.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsSALifesize.setUnits("KBytes")
+_CipsNumStaticCryptomapSets_Type = CIPsecNumCryptoMaps
+_CipsNumStaticCryptomapSets_Object = MibScalar
+cipsNumStaticCryptomapSets = _CipsNumStaticCryptomapSets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 3),
+    _CipsNumStaticCryptomapSets_Type()
+)
+cipsNumStaticCryptomapSets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsNumStaticCryptomapSets.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsNumStaticCryptomapSets.setUnits("Integral Units")
+_CipsNumCETCryptomapSets_Type = CIPsecNumCryptoMaps
+_CipsNumCETCryptomapSets_Object = MibScalar
+cipsNumCETCryptomapSets = _CipsNumCETCryptomapSets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 4),
+    _CipsNumCETCryptomapSets_Type()
+)
+cipsNumCETCryptomapSets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsNumCETCryptomapSets.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsNumCETCryptomapSets.setUnits("Integral Units")
+_CipsNumDynamicCryptomapSets_Type = CIPsecNumCryptoMaps
+_CipsNumDynamicCryptomapSets_Object = MibScalar
+cipsNumDynamicCryptomapSets = _CipsNumDynamicCryptomapSets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 5),
+    _CipsNumDynamicCryptomapSets_Type()
+)
+cipsNumDynamicCryptomapSets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsNumDynamicCryptomapSets.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsNumDynamicCryptomapSets.setUnits("Integral Units")
+_CipsNumTEDCryptomapSets_Type = CIPsecNumCryptoMaps
+_CipsNumTEDCryptomapSets_Object = MibScalar
+cipsNumTEDCryptomapSets = _CipsNumTEDCryptomapSets_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 1, 6),
+    _CipsNumTEDCryptomapSets_Type()
+)
+cipsNumTEDCryptomapSets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsNumTEDCryptomapSets.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsNumTEDCryptomapSets.setUnits("Integral Units")
+_CipsIPsecStatistics_ObjectIdentity = ObjectIdentity
+cipsIPsecStatistics = _CipsIPsecStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 2)
+)
+_CipsNumTEDProbesReceived_Type = Counter32
+_CipsNumTEDProbesReceived_Object = MibScalar
+cipsNumTEDProbesReceived = _CipsNumTEDProbesReceived_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 2, 1),
+    _CipsNumTEDProbesReceived_Type()
+)
+cipsNumTEDProbesReceived.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsNumTEDProbesReceived.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsNumTEDProbesReceived.setUnits("Integral Units")
+_CipsNumTEDProbesSent_Type = Counter32
+_CipsNumTEDProbesSent_Object = MibScalar
+cipsNumTEDProbesSent = _CipsNumTEDProbesSent_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 2, 2),
+    _CipsNumTEDProbesSent_Type()
+)
+cipsNumTEDProbesSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsNumTEDProbesSent.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsNumTEDProbesSent.setUnits("Integral Units")
+_CipsNumTEDFailures_Type = Counter32
+_CipsNumTEDFailures_Object = MibScalar
+cipsNumTEDFailures = _CipsNumTEDFailures_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 2, 3),
+    _CipsNumTEDFailures_Type()
+)
+cipsNumTEDFailures.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsNumTEDFailures.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsNumTEDFailures.setUnits("Integral Units")
+_CipsCryptomapGroup_ObjectIdentity = ObjectIdentity
+cipsCryptomapGroup = _CipsCryptomapGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3)
+)
+_CipsStaticCryptomapSetTable_Object = MibTable
+cipsStaticCryptomapSetTable = _CipsStaticCryptomapSetTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1)
+)
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapSetTable.setStatus("current")
+_CipsStaticCryptomapSetEntry_Object = MibTableRow
+cipsStaticCryptomapSetEntry = _CipsStaticCryptomapSetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1)
+)
+cipsStaticCryptomapSetEntry.setIndexNames(
+    (0, "CISCO-IPSEC-MIB", "cipsStaticCryptomapSetName"),
+)
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapSetEntry.setStatus("current")
+_CipsStaticCryptomapSetName_Type = DisplayString
+_CipsStaticCryptomapSetName_Object = MibTableColumn
+cipsStaticCryptomapSetName = _CipsStaticCryptomapSetName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 1),
+    _CipsStaticCryptomapSetName_Type()
+)
+cipsStaticCryptomapSetName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapSetName.setStatus("current")
+_CipsStaticCryptomapSetSize_Type = Gauge32
+_CipsStaticCryptomapSetSize_Object = MibTableColumn
+cipsStaticCryptomapSetSize = _CipsStaticCryptomapSetSize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 2),
+    _CipsStaticCryptomapSetSize_Type()
+)
+cipsStaticCryptomapSetSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapSetSize.setStatus("current")
+_CipsStaticCryptomapSetNumIsakmp_Type = Gauge32
+_CipsStaticCryptomapSetNumIsakmp_Object = MibTableColumn
+cipsStaticCryptomapSetNumIsakmp = _CipsStaticCryptomapSetNumIsakmp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 3),
+    _CipsStaticCryptomapSetNumIsakmp_Type()
+)
+cipsStaticCryptomapSetNumIsakmp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapSetNumIsakmp.setStatus("current")
+_CipsStaticCryptomapSetNumManual_Type = Gauge32
+_CipsStaticCryptomapSetNumManual_Object = MibTableColumn
+cipsStaticCryptomapSetNumManual = _CipsStaticCryptomapSetNumManual_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 4),
+    _CipsStaticCryptomapSetNumManual_Type()
+)
+cipsStaticCryptomapSetNumManual.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapSetNumManual.setStatus("current")
+_CipsStaticCryptomapSetNumCET_Type = Gauge32
+_CipsStaticCryptomapSetNumCET_Object = MibTableColumn
+cipsStaticCryptomapSetNumCET = _CipsStaticCryptomapSetNumCET_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 5),
+    _CipsStaticCryptomapSetNumCET_Type()
+)
+cipsStaticCryptomapSetNumCET.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapSetNumCET.setStatus("current")
+_CipsStaticCryptomapSetNumDynamic_Type = Gauge32
+_CipsStaticCryptomapSetNumDynamic_Object = MibTableColumn
+cipsStaticCryptomapSetNumDynamic = _CipsStaticCryptomapSetNumDynamic_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 6),
+    _CipsStaticCryptomapSetNumDynamic_Type()
+)
+cipsStaticCryptomapSetNumDynamic.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapSetNumDynamic.setStatus("current")
+_CipsStaticCryptomapSetNumDisc_Type = Gauge32
+_CipsStaticCryptomapSetNumDisc_Object = MibTableColumn
+cipsStaticCryptomapSetNumDisc = _CipsStaticCryptomapSetNumDisc_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 7),
+    _CipsStaticCryptomapSetNumDisc_Type()
+)
+cipsStaticCryptomapSetNumDisc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapSetNumDisc.setStatus("current")
+_CipsStaticCryptomapSetNumSAs_Type = Gauge32
+_CipsStaticCryptomapSetNumSAs_Object = MibTableColumn
+cipsStaticCryptomapSetNumSAs = _CipsStaticCryptomapSetNumSAs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 1, 1, 8),
+    _CipsStaticCryptomapSetNumSAs_Type()
+)
+cipsStaticCryptomapSetNumSAs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapSetNumSAs.setStatus("current")
+_CipsDynamicCryptomapSetTable_Object = MibTable
+cipsDynamicCryptomapSetTable = _CipsDynamicCryptomapSetTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 2)
+)
+if mibBuilder.loadTexts:
+    cipsDynamicCryptomapSetTable.setStatus("current")
+_CipsDynamicCryptomapSetEntry_Object = MibTableRow
+cipsDynamicCryptomapSetEntry = _CipsDynamicCryptomapSetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 2, 1)
+)
+cipsDynamicCryptomapSetEntry.setIndexNames(
+    (0, "CISCO-IPSEC-MIB", "cipsDynamicCryptomapSetName"),
+)
+if mibBuilder.loadTexts:
+    cipsDynamicCryptomapSetEntry.setStatus("current")
+_CipsDynamicCryptomapSetName_Type = DisplayString
+_CipsDynamicCryptomapSetName_Object = MibTableColumn
+cipsDynamicCryptomapSetName = _CipsDynamicCryptomapSetName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 2, 1, 1),
+    _CipsDynamicCryptomapSetName_Type()
+)
+cipsDynamicCryptomapSetName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cipsDynamicCryptomapSetName.setStatus("current")
+_CipsDynamicCryptomapSetSize_Type = Gauge32
+_CipsDynamicCryptomapSetSize_Object = MibTableColumn
+cipsDynamicCryptomapSetSize = _CipsDynamicCryptomapSetSize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 2, 1, 2),
+    _CipsDynamicCryptomapSetSize_Type()
+)
+cipsDynamicCryptomapSetSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsDynamicCryptomapSetSize.setStatus("current")
+_CipsDynamicCryptomapSetNumAssoc_Type = Gauge32
+_CipsDynamicCryptomapSetNumAssoc_Object = MibTableColumn
+cipsDynamicCryptomapSetNumAssoc = _CipsDynamicCryptomapSetNumAssoc_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 2, 1, 3),
+    _CipsDynamicCryptomapSetNumAssoc_Type()
+)
+cipsDynamicCryptomapSetNumAssoc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsDynamicCryptomapSetNumAssoc.setStatus("current")
+_CipsStaticCryptomapTable_Object = MibTable
+cipsStaticCryptomapTable = _CipsStaticCryptomapTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3)
+)
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapTable.setStatus("current")
+_CipsStaticCryptomapEntry_Object = MibTableRow
+cipsStaticCryptomapEntry = _CipsStaticCryptomapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1)
+)
+cipsStaticCryptomapEntry.setIndexNames(
+    (0, "CISCO-IPSEC-MIB", "cipsStaticCryptomapSetName"),
+    (0, "CISCO-IPSEC-MIB", "cipsStaticCryptomapPriority"),
+)
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapEntry.setStatus("current")
+
+
+class _CipsStaticCryptomapPriority_Type(Integer32):
+    """Custom type cipsStaticCryptomapPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CipsStaticCryptomapPriority_Type.__name__ = "Integer32"
+_CipsStaticCryptomapPriority_Object = MibTableColumn
+cipsStaticCryptomapPriority = _CipsStaticCryptomapPriority_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 1),
+    _CipsStaticCryptomapPriority_Type()
+)
+cipsStaticCryptomapPriority.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapPriority.setStatus("current")
+_CipsStaticCryptomapType_Type = CryptomapType
+_CipsStaticCryptomapType_Object = MibTableColumn
+cipsStaticCryptomapType = _CipsStaticCryptomapType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 2),
+    _CipsStaticCryptomapType_Type()
+)
+cipsStaticCryptomapType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapType.setStatus("current")
+_CipsStaticCryptomapDescr_Type = DisplayString
+_CipsStaticCryptomapDescr_Object = MibTableColumn
+cipsStaticCryptomapDescr = _CipsStaticCryptomapDescr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 3),
+    _CipsStaticCryptomapDescr_Type()
+)
+cipsStaticCryptomapDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapDescr.setStatus("current")
+_CipsStaticCryptomapPeer_Type = IPSIpAddress
+_CipsStaticCryptomapPeer_Object = MibTableColumn
+cipsStaticCryptomapPeer = _CipsStaticCryptomapPeer_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 4),
+    _CipsStaticCryptomapPeer_Type()
+)
+cipsStaticCryptomapPeer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapPeer.setStatus("current")
+
+
+class _CipsStaticCryptomapNumPeers_Type(Integer32):
+    """Custom type cipsStaticCryptomapNumPeers based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 40),
+    )
+
+
+_CipsStaticCryptomapNumPeers_Type.__name__ = "Integer32"
+_CipsStaticCryptomapNumPeers_Object = MibTableColumn
+cipsStaticCryptomapNumPeers = _CipsStaticCryptomapNumPeers_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 5),
+    _CipsStaticCryptomapNumPeers_Type()
+)
+cipsStaticCryptomapNumPeers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapNumPeers.setStatus("current")
+_CipsStaticCryptomapPfs_Type = DiffHellmanGrp
+_CipsStaticCryptomapPfs_Object = MibTableColumn
+cipsStaticCryptomapPfs = _CipsStaticCryptomapPfs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 6),
+    _CipsStaticCryptomapPfs_Type()
+)
+cipsStaticCryptomapPfs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapPfs.setStatus("current")
+
+
+class _CipsStaticCryptomapLifetime_Type(Integer32):
+    """Custom type cipsStaticCryptomapLifetime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(120, 86400),
+    )
+
+
+_CipsStaticCryptomapLifetime_Type.__name__ = "Integer32"
+_CipsStaticCryptomapLifetime_Object = MibTableColumn
+cipsStaticCryptomapLifetime = _CipsStaticCryptomapLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 7),
+    _CipsStaticCryptomapLifetime_Type()
+)
+cipsStaticCryptomapLifetime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapLifetime.setStatus("current")
+
+
+class _CipsStaticCryptomapLifesize_Type(Integer32):
+    """Custom type cipsStaticCryptomapLifesize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(2560, 536870912),
+    )
+
+
+_CipsStaticCryptomapLifesize_Type.__name__ = "Integer32"
+_CipsStaticCryptomapLifesize_Object = MibTableColumn
+cipsStaticCryptomapLifesize = _CipsStaticCryptomapLifesize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 8),
+    _CipsStaticCryptomapLifesize_Type()
+)
+cipsStaticCryptomapLifesize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapLifesize.setStatus("current")
+_CipsStaticCryptomapLevelHost_Type = TruthValue
+_CipsStaticCryptomapLevelHost_Object = MibTableColumn
+cipsStaticCryptomapLevelHost = _CipsStaticCryptomapLevelHost_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 3, 1, 9),
+    _CipsStaticCryptomapLevelHost_Type()
+)
+cipsStaticCryptomapLevelHost.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsStaticCryptomapLevelHost.setStatus("current")
+_CipsCryptomapSetIfTable_Object = MibTable
+cipsCryptomapSetIfTable = _CipsCryptomapSetIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 4)
+)
+if mibBuilder.loadTexts:
+    cipsCryptomapSetIfTable.setStatus("current")
+_CipsCryptomapSetIfEntry_Object = MibTableRow
+cipsCryptomapSetIfEntry = _CipsCryptomapSetIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 4, 1)
+)
+cipsCryptomapSetIfEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "CISCO-IPSEC-MIB", "cipsStaticCryptomapSetName"),
+)
+if mibBuilder.loadTexts:
+    cipsCryptomapSetIfEntry.setStatus("current")
+_CipsCryptomapSetIfVirtual_Type = TruthValue
+_CipsCryptomapSetIfVirtual_Object = MibTableColumn
+cipsCryptomapSetIfVirtual = _CipsCryptomapSetIfVirtual_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 4, 1, 1),
+    _CipsCryptomapSetIfVirtual_Type()
+)
+cipsCryptomapSetIfVirtual.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsCryptomapSetIfVirtual.setStatus("current")
+_CipsCryptomapSetIfStatus_Type = CryptomapSetBindStatus
+_CipsCryptomapSetIfStatus_Object = MibTableColumn
+cipsCryptomapSetIfStatus = _CipsCryptomapSetIfStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 2, 3, 4, 1, 2),
+    _CipsCryptomapSetIfStatus_Type()
+)
+cipsCryptomapSetIfStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cipsCryptomapSetIfStatus.setStatus("current")
+_CipsSysCapacityGroup_ObjectIdentity = ObjectIdentity
+cipsSysCapacityGroup = _CipsSysCapacityGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 3)
+)
+
+
+class _CipsMaxSAs_Type(Integer32):
+    """Custom type cipsMaxSAs based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CipsMaxSAs_Type.__name__ = "Integer32"
+_CipsMaxSAs_Object = MibScalar
+cipsMaxSAs = _CipsMaxSAs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 3, 1),
+    _CipsMaxSAs_Type()
+)
+cipsMaxSAs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cipsMaxSAs.setStatus("current")
+if mibBuilder.loadTexts:
+    cipsMaxSAs.setUnits("Integral Units")
+_Cips3DesCapable_Type = TruthValue
+_Cips3DesCapable_Object = MibScalar
+cips3DesCapable = _Cips3DesCapable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 3, 2),
+    _Cips3DesCapable_Type()
+)
+cips3DesCapable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cips3DesCapable.setStatus("current")
+_CipsTrapCntlGroup_ObjectIdentity = ObjectIdentity
+cipsTrapCntlGroup = _CipsTrapCntlGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4)
+)
+
+
+class _CipsCntlIsakmpPolicyAdded_Type(TrapStatus):
+    """Custom type cipsCntlIsakmpPolicyAdded based on TrapStatus"""
+    defaultValue = 2
+
+
+_CipsCntlIsakmpPolicyAdded_Type.__name__ = "TrapStatus"
+_CipsCntlIsakmpPolicyAdded_Object = MibScalar
+cipsCntlIsakmpPolicyAdded = _CipsCntlIsakmpPolicyAdded_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 1),
+    _CipsCntlIsakmpPolicyAdded_Type()
+)
+cipsCntlIsakmpPolicyAdded.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cipsCntlIsakmpPolicyAdded.setStatus("current")
+
+
+class _CipsCntlIsakmpPolicyDeleted_Type(TrapStatus):
+    """Custom type cipsCntlIsakmpPolicyDeleted based on TrapStatus"""
+    defaultValue = 2
+
+
+_CipsCntlIsakmpPolicyDeleted_Type.__name__ = "TrapStatus"
+_CipsCntlIsakmpPolicyDeleted_Object = MibScalar
+cipsCntlIsakmpPolicyDeleted = _CipsCntlIsakmpPolicyDeleted_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 2),
+    _CipsCntlIsakmpPolicyDeleted_Type()
+)
+cipsCntlIsakmpPolicyDeleted.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cipsCntlIsakmpPolicyDeleted.setStatus("current")
+
+
+class _CipsCntlCryptomapAdded_Type(TrapStatus):
+    """Custom type cipsCntlCryptomapAdded based on TrapStatus"""
+    defaultValue = 2
+
+
+_CipsCntlCryptomapAdded_Type.__name__ = "TrapStatus"
+_CipsCntlCryptomapAdded_Object = MibScalar
+cipsCntlCryptomapAdded = _CipsCntlCryptomapAdded_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 3),
+    _CipsCntlCryptomapAdded_Type()
+)
+cipsCntlCryptomapAdded.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cipsCntlCryptomapAdded.setStatus("current")
+
+
+class _CipsCntlCryptomapDeleted_Type(TrapStatus):
+    """Custom type cipsCntlCryptomapDeleted based on TrapStatus"""
+    defaultValue = 2
+
+
+_CipsCntlCryptomapDeleted_Type.__name__ = "TrapStatus"
+_CipsCntlCryptomapDeleted_Object = MibScalar
+cipsCntlCryptomapDeleted = _CipsCntlCryptomapDeleted_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 4),
+    _CipsCntlCryptomapDeleted_Type()
+)
+cipsCntlCryptomapDeleted.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cipsCntlCryptomapDeleted.setStatus("current")
+
+
+class _CipsCntlCryptomapSetAttached_Type(TrapStatus):
+    """Custom type cipsCntlCryptomapSetAttached based on TrapStatus"""
+    defaultValue = 2
+
+
+_CipsCntlCryptomapSetAttached_Type.__name__ = "TrapStatus"
+_CipsCntlCryptomapSetAttached_Object = MibScalar
+cipsCntlCryptomapSetAttached = _CipsCntlCryptomapSetAttached_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 5),
+    _CipsCntlCryptomapSetAttached_Type()
+)
+cipsCntlCryptomapSetAttached.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cipsCntlCryptomapSetAttached.setStatus("current")
+
+
+class _CipsCntlCryptomapSetDetached_Type(TrapStatus):
+    """Custom type cipsCntlCryptomapSetDetached based on TrapStatus"""
+    defaultValue = 2
+
+
+_CipsCntlCryptomapSetDetached_Type.__name__ = "TrapStatus"
+_CipsCntlCryptomapSetDetached_Object = MibScalar
+cipsCntlCryptomapSetDetached = _CipsCntlCryptomapSetDetached_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 6),
+    _CipsCntlCryptomapSetDetached_Type()
+)
+cipsCntlCryptomapSetDetached.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cipsCntlCryptomapSetDetached.setStatus("current")
+
+
+class _CipsCntlTooManySAs_Type(TrapStatus):
+    """Custom type cipsCntlTooManySAs based on TrapStatus"""
+    defaultValue = 2
+
+
+_CipsCntlTooManySAs_Type.__name__ = "TrapStatus"
+_CipsCntlTooManySAs_Object = MibScalar
+cipsCntlTooManySAs = _CipsCntlTooManySAs_Object(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 1, 4, 7),
+    _CipsCntlTooManySAs_Type()
+)
+cipsCntlTooManySAs.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cipsCntlTooManySAs.setStatus("current")
+_CiscoIPsecMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+ciscoIPsecMIBNotificationPrefix = _CiscoIPsecMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 2)
+)
+_CipsMIBNotifications_ObjectIdentity = ObjectIdentity
+cipsMIBNotifications = _CipsMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0)
+)
+_CiscoIPsecMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoIPsecMIBConformance = _CiscoIPsecMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 3)
+)
+_CipsMIBConformances_ObjectIdentity = ObjectIdentity
+cipsMIBConformances = _CipsMIBConformances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 1)
+)
+_CipsMIBGroups_ObjectIdentity = ObjectIdentity
+cipsMIBGroups = _CipsMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2)
+)
+
+# Managed Objects groups
+
+cipsMIBConfIsakmpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 1)
+)
+cipsMIBConfIsakmpGroup.setObjects(
+      *(("CISCO-IPSEC-MIB", "cipsIsakmpEnabled"),
+        ("CISCO-IPSEC-MIB", "cipsIsakmpIdentity"),
+        ("CISCO-IPSEC-MIB", "cipsIsakmpKeepaliveInterval"),
+        ("CISCO-IPSEC-MIB", "cipsNumIsakmpPolicies"))
+)
+if mibBuilder.loadTexts:
+    cipsMIBConfIsakmpGroup.setStatus("current")
+
+cipsMIBConfIPSecGlobalsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 2)
+)
+cipsMIBConfIPSecGlobalsGroup.setObjects(
+      *(("CISCO-IPSEC-MIB", "cipsSALifetime"),
+        ("CISCO-IPSEC-MIB", "cipsSALifesize"))
+)
+if mibBuilder.loadTexts:
+    cipsMIBConfIPSecGlobalsGroup.setStatus("current")
+
+cipsMIBConfCapacityGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 3)
+)
+cipsMIBConfCapacityGroup.setObjects(
+      *(("CISCO-IPSEC-MIB", "cipsMaxSAs"),
+        ("CISCO-IPSEC-MIB", "cips3DesCapable"))
+)
+if mibBuilder.loadTexts:
+    cipsMIBConfCapacityGroup.setStatus("current")
+
+cipsMIBStaticCryptomapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 4)
+)
+cipsMIBStaticCryptomapGroup.setObjects(
+      *(("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetSize"),
+        ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumIsakmp"),
+        ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumCET"),
+        ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumSAs"))
+)
+if mibBuilder.loadTexts:
+    cipsMIBStaticCryptomapGroup.setStatus("current")
+
+cipsMIBManualCryptomapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 5)
+)
+cipsMIBManualCryptomapGroup.setObjects(
+    ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumManual")
+)
+if mibBuilder.loadTexts:
+    cipsMIBManualCryptomapGroup.setStatus("current")
+
+cipsMIBDynamicCryptomapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 6)
+)
+cipsMIBDynamicCryptomapGroup.setObjects(
+      *(("CISCO-IPSEC-MIB", "cipsNumTEDProbesReceived"),
+        ("CISCO-IPSEC-MIB", "cipsNumTEDProbesSent"),
+        ("CISCO-IPSEC-MIB", "cipsNumTEDFailures"),
+        ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumDynamic"),
+        ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumDisc"),
+        ("CISCO-IPSEC-MIB", "cipsNumTEDCryptomapSets"),
+        ("CISCO-IPSEC-MIB", "cipsDynamicCryptomapSetSize"),
+        ("CISCO-IPSEC-MIB", "cipsDynamicCryptomapSetNumAssoc"))
+)
+if mibBuilder.loadTexts:
+    cipsMIBDynamicCryptomapGroup.setStatus("current")
+
+cipsMIBMandatoryNotifCntlGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 2, 7)
+)
+cipsMIBMandatoryNotifCntlGroup.setObjects(
+      *(("CISCO-IPSEC-MIB", "cipsCntlIsakmpPolicyAdded"),
+        ("CISCO-IPSEC-MIB", "cipsCntlIsakmpPolicyDeleted"),
+        ("CISCO-IPSEC-MIB", "cipsCntlCryptomapAdded"),
+        ("CISCO-IPSEC-MIB", "cipsCntlCryptomapDeleted"),
+        ("CISCO-IPSEC-MIB", "cipsCntlCryptomapSetAttached"),
+        ("CISCO-IPSEC-MIB", "cipsCntlCryptomapSetDetached"),
+        ("CISCO-IPSEC-MIB", "cipsCntlTooManySAs"))
+)
+if mibBuilder.loadTexts:
+    cipsMIBMandatoryNotifCntlGroup.setStatus("current")
+
+
+# Notification objects
+
+cipsIsakmpPolicyAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 1)
+)
+cipsIsakmpPolicyAdded.setObjects(
+    ("CISCO-IPSEC-MIB", "cipsNumIsakmpPolicies")
+)
+if mibBuilder.loadTexts:
+    cipsIsakmpPolicyAdded.setStatus(
+        "current"
+    )
+
+cipsIsakmpPolicyDeleted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 2)
+)
+cipsIsakmpPolicyDeleted.setObjects(
+    ("CISCO-IPSEC-MIB", "cipsNumIsakmpPolicies")
+)
+if mibBuilder.loadTexts:
+    cipsIsakmpPolicyDeleted.setStatus(
+        "current"
+    )
+
+cipsCryptomapAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 3)
+)
+cipsCryptomapAdded.setObjects(
+      *(("CISCO-IPSEC-MIB", "cipsStaticCryptomapType"),
+        ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetSize"))
+)
+if mibBuilder.loadTexts:
+    cipsCryptomapAdded.setStatus(
+        "current"
+    )
+
+cipsCryptomapDeleted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 4)
+)
+cipsCryptomapDeleted.setObjects(
+    ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetSize")
+)
+if mibBuilder.loadTexts:
+    cipsCryptomapDeleted.setStatus(
+        "current"
+    )
+
+cipsCryptomapSetAttached = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 5)
+)
+cipsCryptomapSetAttached.setObjects(
+      *(("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetSize"),
+        ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumIsakmp"),
+        ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetNumDynamic"))
+)
+if mibBuilder.loadTexts:
+    cipsCryptomapSetAttached.setStatus(
+        "current"
+    )
+
+cipsCryptomapSetDetached = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 6)
+)
+cipsCryptomapSetDetached.setObjects(
+    ("CISCO-IPSEC-MIB", "cipsStaticCryptomapSetSize")
+)
+if mibBuilder.loadTexts:
+    cipsCryptomapSetDetached.setStatus(
+        "current"
+    )
+
+cipsTooManySAs = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 2, 0, 7)
+)
+cipsTooManySAs.setObjects(
+    ("CISCO-IPSEC-MIB", "cipsMaxSAs")
+)
+if mibBuilder.loadTexts:
+    cipsTooManySAs.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cipsMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 10, 62, 3, 1, 1)
+)
+cipsMIBCompliance.setObjects(
+      *(("CISCO-IPSEC-MIB", "cipsMIBConfIsakmpGroup"),
+        ("CISCO-IPSEC-MIB", "cipsMIBConfIPSecGlobalsGroup"),
+        ("CISCO-IPSEC-MIB", "cipsMIBConfCapacityGroup"),
+        ("CISCO-IPSEC-MIB", "cipsMIBStaticCryptomapGroup"),
+        ("CISCO-IPSEC-MIB", "cipsMIBMandatoryNotifCntlGroup"))
+)
+if mibBuilder.loadTexts:
+    cipsMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-IPSEC-MIB",
+    **{"CIPsecLifetime": CIPsecLifetime,
+       "CIPsecLifesize": CIPsecLifesize,
+       "CIPsecNumCryptoMaps": CIPsecNumCryptoMaps,
+       "CryptomapType": CryptomapType,
+       "CryptomapSetBindStatus": CryptomapSetBindStatus,
+       "IPSIpAddress": IPSIpAddress,
+       "IkeHashAlgo": IkeHashAlgo,
+       "IkeAuthMethod": IkeAuthMethod,
+       "IkeIdentityType": IkeIdentityType,
+       "DiffHellmanGrp": DiffHellmanGrp,
+       "EncryptAlgo": EncryptAlgo,
+       "TrapStatus": TrapStatus,
+       "ciscoIPsecMIB": ciscoIPsecMIB,
+       "ciscoIPsecMIBObjects": ciscoIPsecMIBObjects,
+       "cipsIsakmpGroup": cipsIsakmpGroup,
+       "cipsIsakmpEnabled": cipsIsakmpEnabled,
+       "cipsIsakmpIdentity": cipsIsakmpIdentity,
+       "cipsIsakmpKeepaliveInterval": cipsIsakmpKeepaliveInterval,
+       "cipsNumIsakmpPolicies": cipsNumIsakmpPolicies,
+       "cipsIsakmpPolicyTable": cipsIsakmpPolicyTable,
+       "cipsIsakmpPolicyEntry": cipsIsakmpPolicyEntry,
+       "cipsIsakmpPolPriority": cipsIsakmpPolPriority,
+       "cipsIsakmpPolEncr": cipsIsakmpPolEncr,
+       "cipsIsakmpPolHash": cipsIsakmpPolHash,
+       "cipsIsakmpPolAuth": cipsIsakmpPolAuth,
+       "cipsIsakmpPolGroup": cipsIsakmpPolGroup,
+       "cipsIsakmpPolLifetime": cipsIsakmpPolLifetime,
+       "cipsIPsecGroup": cipsIPsecGroup,
+       "cipsIPsecGlobals": cipsIPsecGlobals,
+       "cipsSALifetime": cipsSALifetime,
+       "cipsSALifesize": cipsSALifesize,
+       "cipsNumStaticCryptomapSets": cipsNumStaticCryptomapSets,
+       "cipsNumCETCryptomapSets": cipsNumCETCryptomapSets,
+       "cipsNumDynamicCryptomapSets": cipsNumDynamicCryptomapSets,
+       "cipsNumTEDCryptomapSets": cipsNumTEDCryptomapSets,
+       "cipsIPsecStatistics": cipsIPsecStatistics,
+       "cipsNumTEDProbesReceived": cipsNumTEDProbesReceived,
+       "cipsNumTEDProbesSent": cipsNumTEDProbesSent,
+       "cipsNumTEDFailures": cipsNumTEDFailures,
+       "cipsCryptomapGroup": cipsCryptomapGroup,
+       "cipsStaticCryptomapSetTable": cipsStaticCryptomapSetTable,
+       "cipsStaticCryptomapSetEntry": cipsStaticCryptomapSetEntry,
+       "cipsStaticCryptomapSetName": cipsStaticCryptomapSetName,
+       "cipsStaticCryptomapSetSize": cipsStaticCryptomapSetSize,
+       "cipsStaticCryptomapSetNumIsakmp": cipsStaticCryptomapSetNumIsakmp,
+       "cipsStaticCryptomapSetNumManual": cipsStaticCryptomapSetNumManual,
+       "cipsStaticCryptomapSetNumCET": cipsStaticCryptomapSetNumCET,
+       "cipsStaticCryptomapSetNumDynamic": cipsStaticCryptomapSetNumDynamic,
+       "cipsStaticCryptomapSetNumDisc": cipsStaticCryptomapSetNumDisc,
+       "cipsStaticCryptomapSetNumSAs": cipsStaticCryptomapSetNumSAs,
+       "cipsDynamicCryptomapSetTable": cipsDynamicCryptomapSetTable,
+       "cipsDynamicCryptomapSetEntry": cipsDynamicCryptomapSetEntry,
+       "cipsDynamicCryptomapSetName": cipsDynamicCryptomapSetName,
+       "cipsDynamicCryptomapSetSize": cipsDynamicCryptomapSetSize,
+       "cipsDynamicCryptomapSetNumAssoc": cipsDynamicCryptomapSetNumAssoc,
+       "cipsStaticCryptomapTable": cipsStaticCryptomapTable,
+       "cipsStaticCryptomapEntry": cipsStaticCryptomapEntry,
+       "cipsStaticCryptomapPriority": cipsStaticCryptomapPriority,
+       "cipsStaticCryptomapType": cipsStaticCryptomapType,
+       "cipsStaticCryptomapDescr": cipsStaticCryptomapDescr,
+       "cipsStaticCryptomapPeer": cipsStaticCryptomapPeer,
+       "cipsStaticCryptomapNumPeers": cipsStaticCryptomapNumPeers,
+       "cipsStaticCryptomapPfs": cipsStaticCryptomapPfs,
+       "cipsStaticCryptomapLifetime": cipsStaticCryptomapLifetime,
+       "cipsStaticCryptomapLifesize": cipsStaticCryptomapLifesize,
+       "cipsStaticCryptomapLevelHost": cipsStaticCryptomapLevelHost,
+       "cipsCryptomapSetIfTable": cipsCryptomapSetIfTable,
+       "cipsCryptomapSetIfEntry": cipsCryptomapSetIfEntry,
+       "cipsCryptomapSetIfVirtual": cipsCryptomapSetIfVirtual,
+       "cipsCryptomapSetIfStatus": cipsCryptomapSetIfStatus,
+       "cipsSysCapacityGroup": cipsSysCapacityGroup,
+       "cipsMaxSAs": cipsMaxSAs,
+       "cips3DesCapable": cips3DesCapable,
+       "cipsTrapCntlGroup": cipsTrapCntlGroup,
+       "cipsCntlIsakmpPolicyAdded": cipsCntlIsakmpPolicyAdded,
+       "cipsCntlIsakmpPolicyDeleted": cipsCntlIsakmpPolicyDeleted,
+       "cipsCntlCryptomapAdded": cipsCntlCryptomapAdded,
+       "cipsCntlCryptomapDeleted": cipsCntlCryptomapDeleted,
+       "cipsCntlCryptomapSetAttached": cipsCntlCryptomapSetAttached,
+       "cipsCntlCryptomapSetDetached": cipsCntlCryptomapSetDetached,
+       "cipsCntlTooManySAs": cipsCntlTooManySAs,
+       "ciscoIPsecMIBNotificationPrefix": ciscoIPsecMIBNotificationPrefix,
+       "cipsMIBNotifications": cipsMIBNotifications,
+       "cipsIsakmpPolicyAdded": cipsIsakmpPolicyAdded,
+       "cipsIsakmpPolicyDeleted": cipsIsakmpPolicyDeleted,
+       "cipsCryptomapAdded": cipsCryptomapAdded,
+       "cipsCryptomapDeleted": cipsCryptomapDeleted,
+       "cipsCryptomapSetAttached": cipsCryptomapSetAttached,
+       "cipsCryptomapSetDetached": cipsCryptomapSetDetached,
+       "cipsTooManySAs": cipsTooManySAs,
+       "ciscoIPsecMIBConformance": ciscoIPsecMIBConformance,
+       "cipsMIBConformances": cipsMIBConformances,
+       "cipsMIBCompliance": cipsMIBCompliance,
+       "cipsMIBGroups": cipsMIBGroups,
+       "cipsMIBConfIsakmpGroup": cipsMIBConfIsakmpGroup,
+       "cipsMIBConfIPSecGlobalsGroup": cipsMIBConfIPSecGlobalsGroup,
+       "cipsMIBConfCapacityGroup": cipsMIBConfCapacityGroup,
+       "cipsMIBStaticCryptomapGroup": cipsMIBStaticCryptomapGroup,
+       "cipsMIBManualCryptomapGroup": cipsMIBManualCryptomapGroup,
+       "cipsMIBDynamicCryptomapGroup": cipsMIBDynamicCryptomapGroup,
+       "cipsMIBMandatoryNotifCntlGroup": cipsMIBMandatoryNotifCntlGroup}
+)

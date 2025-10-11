@@ -1,63 +1,405 @@
+# SNMP MIB module (DES7200-TRAFFIC-CTRL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DES7200-TRAFFIC-CTRL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DES7200-TRAFFIC-CTRL-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:59:22 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/DES7200-TRAFFIC-CTRL-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:50:00 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-myMgmt, = mibBuilder.importSymbols("DES7200-SMI", "myMgmt")
-MemberMap, IfIndex, ConfigStatus = mibBuilder.importSymbols("DES7200-TC", "MemberMap", "IfIndex", "ConfigStatus")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
-myTrafficCtrlMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14))
-myTrafficCtrlMIB.setRevisions(('2002-03-20 00:00',))
-if mibBuilder.loadTexts: myTrafficCtrlMIB.setLastUpdated('200203200000Z')
-if mibBuilder.loadTexts: myTrafficCtrlMIB.setOrganization('$Company$')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(myMgmt,) = mibBuilder.importSymbols(
+    "DES7200-SMI",
+    "myMgmt")
+
+(ConfigStatus,
+ IfIndex,
+ MemberMap) = mibBuilder.importSymbols(
+    "DES7200-TC",
+    "ConfigStatus",
+    "IfIndex",
+    "MemberMap")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(VlanId,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "VlanId")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+myTrafficCtrlMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14)
+)
+if mibBuilder.loadTexts:
+    myTrafficCtrlMIB.setRevisions(
+        ("2002-03-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class Percent(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 100)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 100),
+    )
 
-myTrafficCtrlMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1))
-myPtTrafficCtrlTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1), )
-if mibBuilder.loadTexts: myPtTrafficCtrlTable.setStatus('current')
-myPtTrafficCtrlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1), ).setIndexNames((0, "DES7200-TRAFFIC-CTRL-MIB", "myPtTrafficCtrlIfIndex"))
-if mibBuilder.loadTexts: myPtTrafficCtrlEntry.setStatus('current')
-myPtTrafficCtrlIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 1), IfIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myPtTrafficCtrlIfIndex.setStatus('current')
-myPtProtectedPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 2), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myPtProtectedPortStatus.setStatus('current')
-myPtBroadcastStormControlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 3), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myPtBroadcastStormControlStatus.setStatus('current')
-myPtMulticastStormControlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 4), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myPtMulticastStormControlStatus.setStatus('current')
-myPtUnicastStormControlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 5), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myPtUnicastStormControlStatus.setStatus('current')
-myPtBroadcastStormControlLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 6), Percent().clone(10)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myPtBroadcastStormControlLevel.setStatus('current')
-myPtMulticastStormControlLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 7), Percent().clone(10)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myPtMulticastStormControlLevel.setStatus('current')
-myPtUnicastStormControlLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 8), Percent().clone(10)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myPtUnicastStormControlLevel.setStatus('current')
-myPtTrafficCtrlTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 2))
-stormViolationAlarmType = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("broadcast", 2), ("mutlicast", 3), ("unicast", 4)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: stormViolationAlarmType.setStatus('current')
-stormViolationAlarm = NotificationType((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 2, 2)).setObjects(("IF-MIB", "ifIndex"), ("DES7200-TRAFFIC-CTRL-MIB", "stormViolationAlarmType"))
-if mibBuilder.loadTexts: stormViolationAlarm.setStatus('current')
-myPtTrafficCtrlMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 3))
-myPtTrafficCtrlMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 3, 1))
-myPtTrafficCtrlMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 3, 2))
-myPtTrafficCtrlMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 3, 1, 1)).setObjects(("DES7200-TRAFFIC-CTRL-MIB", "myPtTrafficCtrlMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    myPtTrafficCtrlMIBCompliance = myPtTrafficCtrlMIBCompliance.setStatus('current')
-myPtTrafficCtrlMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 3, 2, 1)).setObjects(("DES7200-TRAFFIC-CTRL-MIB", "myPtTrafficCtrlIfIndex"), ("DES7200-TRAFFIC-CTRL-MIB", "myPtProtectedPortStatus"), ("DES7200-TRAFFIC-CTRL-MIB", "myPtBroadcastStormControlStatus"), ("DES7200-TRAFFIC-CTRL-MIB", "myPtMulticastStormControlStatus"), ("DES7200-TRAFFIC-CTRL-MIB", "myPtUnicastStormControlStatus"), ("DES7200-TRAFFIC-CTRL-MIB", "myPtBroadcastStormControlLevel"), ("DES7200-TRAFFIC-CTRL-MIB", "myPtMulticastStormControlLevel"), ("DES7200-TRAFFIC-CTRL-MIB", "myPtUnicastStormControlLevel"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    myPtTrafficCtrlMIBGroup = myPtTrafficCtrlMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("DES7200-TRAFFIC-CTRL-MIB", myPtUnicastStormControlLevel=myPtUnicastStormControlLevel, myPtTrafficCtrlTraps=myPtTrafficCtrlTraps, stormViolationAlarmType=stormViolationAlarmType, stormViolationAlarm=stormViolationAlarm, PYSNMP_MODULE_ID=myTrafficCtrlMIB, myPtTrafficCtrlMIBGroups=myPtTrafficCtrlMIBGroups, Percent=Percent, myPtBroadcastStormControlStatus=myPtBroadcastStormControlStatus, myPtTrafficCtrlEntry=myPtTrafficCtrlEntry, myPtProtectedPortStatus=myPtProtectedPortStatus, myPtTrafficCtrlTable=myPtTrafficCtrlTable, myPtBroadcastStormControlLevel=myPtBroadcastStormControlLevel, myPtTrafficCtrlMIBConformance=myPtTrafficCtrlMIBConformance, myPtMulticastStormControlLevel=myPtMulticastStormControlLevel, myPtTrafficCtrlMIBCompliance=myPtTrafficCtrlMIBCompliance, myPtTrafficCtrlIfIndex=myPtTrafficCtrlIfIndex, myPtMulticastStormControlStatus=myPtMulticastStormControlStatus, myTrafficCtrlMIB=myTrafficCtrlMIB, myPtTrafficCtrlMIBGroup=myPtTrafficCtrlMIBGroup, myPtTrafficCtrlMIBCompliances=myPtTrafficCtrlMIBCompliances, myPtUnicastStormControlStatus=myPtUnicastStormControlStatus, myTrafficCtrlMIBObjects=myTrafficCtrlMIBObjects)
+
+# MIB Managed Objects in the order of their OIDs
+
+_MyTrafficCtrlMIBObjects_ObjectIdentity = ObjectIdentity
+myTrafficCtrlMIBObjects = _MyTrafficCtrlMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1)
+)
+_MyPtTrafficCtrlTable_Object = MibTable
+myPtTrafficCtrlTable = _MyPtTrafficCtrlTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1)
+)
+if mibBuilder.loadTexts:
+    myPtTrafficCtrlTable.setStatus("current")
+_MyPtTrafficCtrlEntry_Object = MibTableRow
+myPtTrafficCtrlEntry = _MyPtTrafficCtrlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1)
+)
+myPtTrafficCtrlEntry.setIndexNames(
+    (0, "DES7200-TRAFFIC-CTRL-MIB", "myPtTrafficCtrlIfIndex"),
+)
+if mibBuilder.loadTexts:
+    myPtTrafficCtrlEntry.setStatus("current")
+_MyPtTrafficCtrlIfIndex_Type = IfIndex
+_MyPtTrafficCtrlIfIndex_Object = MibTableColumn
+myPtTrafficCtrlIfIndex = _MyPtTrafficCtrlIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 1),
+    _MyPtTrafficCtrlIfIndex_Type()
+)
+myPtTrafficCtrlIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myPtTrafficCtrlIfIndex.setStatus("current")
+
+
+class _MyPtProtectedPortStatus_Type(EnabledStatus):
+    """Custom type myPtProtectedPortStatus based on EnabledStatus"""
+    defaultValue = 2
+
+
+_MyPtProtectedPortStatus_Type.__name__ = "EnabledStatus"
+_MyPtProtectedPortStatus_Object = MibTableColumn
+myPtProtectedPortStatus = _MyPtProtectedPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 2),
+    _MyPtProtectedPortStatus_Type()
+)
+myPtProtectedPortStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myPtProtectedPortStatus.setStatus("current")
+_MyPtBroadcastStormControlStatus_Type = EnabledStatus
+_MyPtBroadcastStormControlStatus_Object = MibTableColumn
+myPtBroadcastStormControlStatus = _MyPtBroadcastStormControlStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 3),
+    _MyPtBroadcastStormControlStatus_Type()
+)
+myPtBroadcastStormControlStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myPtBroadcastStormControlStatus.setStatus("current")
+_MyPtMulticastStormControlStatus_Type = EnabledStatus
+_MyPtMulticastStormControlStatus_Object = MibTableColumn
+myPtMulticastStormControlStatus = _MyPtMulticastStormControlStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 4),
+    _MyPtMulticastStormControlStatus_Type()
+)
+myPtMulticastStormControlStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myPtMulticastStormControlStatus.setStatus("current")
+_MyPtUnicastStormControlStatus_Type = EnabledStatus
+_MyPtUnicastStormControlStatus_Object = MibTableColumn
+myPtUnicastStormControlStatus = _MyPtUnicastStormControlStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 5),
+    _MyPtUnicastStormControlStatus_Type()
+)
+myPtUnicastStormControlStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myPtUnicastStormControlStatus.setStatus("current")
+
+
+class _MyPtBroadcastStormControlLevel_Type(Percent):
+    """Custom type myPtBroadcastStormControlLevel based on Percent"""
+    defaultValue = 10
+
+
+_MyPtBroadcastStormControlLevel_Type.__name__ = "Percent"
+_MyPtBroadcastStormControlLevel_Object = MibTableColumn
+myPtBroadcastStormControlLevel = _MyPtBroadcastStormControlLevel_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 6),
+    _MyPtBroadcastStormControlLevel_Type()
+)
+myPtBroadcastStormControlLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myPtBroadcastStormControlLevel.setStatus("current")
+
+
+class _MyPtMulticastStormControlLevel_Type(Percent):
+    """Custom type myPtMulticastStormControlLevel based on Percent"""
+    defaultValue = 10
+
+
+_MyPtMulticastStormControlLevel_Type.__name__ = "Percent"
+_MyPtMulticastStormControlLevel_Object = MibTableColumn
+myPtMulticastStormControlLevel = _MyPtMulticastStormControlLevel_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 7),
+    _MyPtMulticastStormControlLevel_Type()
+)
+myPtMulticastStormControlLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myPtMulticastStormControlLevel.setStatus("current")
+
+
+class _MyPtUnicastStormControlLevel_Type(Percent):
+    """Custom type myPtUnicastStormControlLevel based on Percent"""
+    defaultValue = 10
+
+
+_MyPtUnicastStormControlLevel_Type.__name__ = "Percent"
+_MyPtUnicastStormControlLevel_Object = MibTableColumn
+myPtUnicastStormControlLevel = _MyPtUnicastStormControlLevel_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 1, 1, 1, 8),
+    _MyPtUnicastStormControlLevel_Type()
+)
+myPtUnicastStormControlLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myPtUnicastStormControlLevel.setStatus("current")
+_MyPtTrafficCtrlTraps_ObjectIdentity = ObjectIdentity
+myPtTrafficCtrlTraps = _MyPtTrafficCtrlTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 2)
+)
+
+
+class _StormViolationAlarmType_Type(Integer32):
+    """Custom type stormViolationAlarmType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("broadcast", 2),
+          ("mutlicast", 3),
+          ("unicast", 4))
+    )
+
+
+_StormViolationAlarmType_Type.__name__ = "Integer32"
+_StormViolationAlarmType_Object = MibScalar
+stormViolationAlarmType = _StormViolationAlarmType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 2, 1),
+    _StormViolationAlarmType_Type()
+)
+stormViolationAlarmType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    stormViolationAlarmType.setStatus("current")
+_MyPtTrafficCtrlMIBConformance_ObjectIdentity = ObjectIdentity
+myPtTrafficCtrlMIBConformance = _MyPtTrafficCtrlMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 3)
+)
+_MyPtTrafficCtrlMIBCompliances_ObjectIdentity = ObjectIdentity
+myPtTrafficCtrlMIBCompliances = _MyPtTrafficCtrlMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 3, 1)
+)
+_MyPtTrafficCtrlMIBGroups_ObjectIdentity = ObjectIdentity
+myPtTrafficCtrlMIBGroups = _MyPtTrafficCtrlMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 3, 2)
+)
+
+# Managed Objects groups
+
+myPtTrafficCtrlMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 3, 2, 1)
+)
+myPtTrafficCtrlMIBGroup.setObjects(
+      *(("DES7200-TRAFFIC-CTRL-MIB", "myPtTrafficCtrlIfIndex"),
+        ("DES7200-TRAFFIC-CTRL-MIB", "myPtProtectedPortStatus"),
+        ("DES7200-TRAFFIC-CTRL-MIB", "myPtBroadcastStormControlStatus"),
+        ("DES7200-TRAFFIC-CTRL-MIB", "myPtMulticastStormControlStatus"),
+        ("DES7200-TRAFFIC-CTRL-MIB", "myPtUnicastStormControlStatus"),
+        ("DES7200-TRAFFIC-CTRL-MIB", "myPtBroadcastStormControlLevel"),
+        ("DES7200-TRAFFIC-CTRL-MIB", "myPtMulticastStormControlLevel"),
+        ("DES7200-TRAFFIC-CTRL-MIB", "myPtUnicastStormControlLevel"))
+)
+if mibBuilder.loadTexts:
+    myPtTrafficCtrlMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+stormViolationAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 2, 2)
+)
+stormViolationAlarm.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("DES7200-TRAFFIC-CTRL-MIB", "stormViolationAlarmType"))
+)
+if mibBuilder.loadTexts:
+    stormViolationAlarm.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+myPtTrafficCtrlMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 14, 3, 1, 1)
+)
+myPtTrafficCtrlMIBCompliance.setObjects(
+    ("DES7200-TRAFFIC-CTRL-MIB", "myPtTrafficCtrlMIBGroup")
+)
+if mibBuilder.loadTexts:
+    myPtTrafficCtrlMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DES7200-TRAFFIC-CTRL-MIB",
+    **{"Percent": Percent,
+       "myTrafficCtrlMIB": myTrafficCtrlMIB,
+       "myTrafficCtrlMIBObjects": myTrafficCtrlMIBObjects,
+       "myPtTrafficCtrlTable": myPtTrafficCtrlTable,
+       "myPtTrafficCtrlEntry": myPtTrafficCtrlEntry,
+       "myPtTrafficCtrlIfIndex": myPtTrafficCtrlIfIndex,
+       "myPtProtectedPortStatus": myPtProtectedPortStatus,
+       "myPtBroadcastStormControlStatus": myPtBroadcastStormControlStatus,
+       "myPtMulticastStormControlStatus": myPtMulticastStormControlStatus,
+       "myPtUnicastStormControlStatus": myPtUnicastStormControlStatus,
+       "myPtBroadcastStormControlLevel": myPtBroadcastStormControlLevel,
+       "myPtMulticastStormControlLevel": myPtMulticastStormControlLevel,
+       "myPtUnicastStormControlLevel": myPtUnicastStormControlLevel,
+       "myPtTrafficCtrlTraps": myPtTrafficCtrlTraps,
+       "stormViolationAlarmType": stormViolationAlarmType,
+       "stormViolationAlarm": stormViolationAlarm,
+       "myPtTrafficCtrlMIBConformance": myPtTrafficCtrlMIBConformance,
+       "myPtTrafficCtrlMIBCompliances": myPtTrafficCtrlMIBCompliances,
+       "myPtTrafficCtrlMIBCompliance": myPtTrafficCtrlMIBCompliance,
+       "myPtTrafficCtrlMIBGroups": myPtTrafficCtrlMIBGroups,
+       "myPtTrafficCtrlMIBGroup": myPtTrafficCtrlMIBGroup}
+)

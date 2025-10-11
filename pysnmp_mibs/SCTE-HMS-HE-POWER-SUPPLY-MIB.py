@@ -1,60 +1,347 @@
+# SNMP MIB module (SCTE-HMS-HE-POWER-SUPPLY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SCTE-HMS-HE-POWER-SUPPLY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/scte/SCTE-HMS-HE-POWER-SUPPLY-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:55 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/scte/SCTE-HMS-HE-POWER-SUPPLY-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:53:36 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
-HeTenthVolt, HeHundredthWatts, HeMilliAmp, hePowerSupply = mibBuilder.importSymbols("SCTE-HMS-HEADENDIDENT-MIB", "HeTenthVolt", "HeHundredthWatts", "HeMilliAmp", "hePowerSupply")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hePowerSupplyMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1))
-if mibBuilder.loadTexts: hePowerSupplyMIB.setLastUpdated('200403250410Z')
-if mibBuilder.loadTexts: hePowerSupplyMIB.setOrganization('SCTE HMS Working Group')
-hePsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1))
-hePsMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2))
-hePsMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 1))
-hePsMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 2))
-hePsUnitTable = MibTable((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1), )
-if mibBuilder.loadTexts: hePsUnitTable.setStatus('current')
-hePsUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: hePsUnitEntry.setStatus('current')
-hePsUnitCurrentIN = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1, 1, 1), HeMilliAmp()).setUnits('milliamperes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hePsUnitCurrentIN.setStatus('current')
-hePsUnitPowerIN = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1, 1, 2), HeHundredthWatts()).setUnits('hundredths of a watt').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hePsUnitPowerIN.setStatus('current')
-hePsUnitDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hePsUnitDescription.setStatus('current')
-hePsUnitVoltageIN = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1, 1, 4), HeTenthVolt()).setUnits('tenths of a volt').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hePsUnitVoltageIN.setStatus('current')
-hePsOutputTable = MibTable((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2), )
-if mibBuilder.loadTexts: hePsOutputTable.setStatus('current')
-hePsOutputEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputIndex"))
-if mibBuilder.loadTexts: hePsOutputEntry.setStatus('current')
-hePsOutputIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: hePsOutputIndex.setStatus('current')
-hePsOutputVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2, 1, 2), HeTenthVolt()).setUnits('tenths of a volt').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hePsOutputVoltage.setStatus('current')
-hePsOutputCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2, 1, 3), HeMilliAmp()).setUnits('milliamperes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hePsOutputCurrent.setStatus('current')
-hePsOutputPower = MibTableColumn((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2, 1, 4), HeHundredthWatts()).setUnits('hundredths of a watt').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hePsOutputPower.setStatus('current')
-hePsCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 1, 1)).setObjects(("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputMandatoryGroup"), ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsUnitGroup"), ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hePsCompliance = hePsCompliance.setStatus('current')
-hePsOutputMandatoryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 2, 1)).setObjects(("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputVoltage"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hePsOutputMandatoryGroup = hePsOutputMandatoryGroup.setStatus('current')
-hePsUnitGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 2, 2)).setObjects(("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsUnitVoltageIN"), ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsUnitCurrentIN"), ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsUnitPowerIN"), ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsUnitDescription"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hePsUnitGroup = hePsUnitGroup.setStatus('current')
-hePsOutputGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 2, 3)).setObjects(("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputCurrent"), ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputPower"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hePsOutputGroup = hePsOutputGroup.setStatus('current')
-mibBuilder.exportSymbols("SCTE-HMS-HE-POWER-SUPPLY-MIB", hePsOutputEntry=hePsOutputEntry, hePsMIBCompliances=hePsMIBCompliances, hePsOutputVoltage=hePsOutputVoltage, hePsUnitEntry=hePsUnitEntry, hePsOutputCurrent=hePsOutputCurrent, hePsUnitDescription=hePsUnitDescription, hePsUnitVoltageIN=hePsUnitVoltageIN, hePsOutputPower=hePsOutputPower, hePsUnitGroup=hePsUnitGroup, hePsOutputIndex=hePsOutputIndex, PYSNMP_MODULE_ID=hePowerSupplyMIB, hePsOutputTable=hePsOutputTable, hePsMIBObjects=hePsMIBObjects, hePsUnitCurrentIN=hePsUnitCurrentIN, hePsUnitPowerIN=hePsUnitPowerIN, hePowerSupplyMIB=hePowerSupplyMIB, hePsOutputMandatoryGroup=hePsOutputMandatoryGroup, hePsMIBConformance=hePsMIBConformance, hePsOutputGroup=hePsOutputGroup, hePsMIBGroups=hePsMIBGroups, hePsUnitTable=hePsUnitTable, hePsCompliance=hePsCompliance)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(entPhysicalIndex,) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "entPhysicalIndex")
+
+(HeHundredthWatts,
+ HeMilliAmp,
+ HeTenthVolt,
+ hePowerSupply) = mibBuilder.importSymbols(
+    "SCTE-HMS-HEADENDIDENT-MIB",
+    "HeHundredthWatts",
+    "HeMilliAmp",
+    "HeTenthVolt",
+    "hePowerSupply")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hePowerSupplyMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HePsMIBObjects_ObjectIdentity = ObjectIdentity
+hePsMIBObjects = _HePsMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1)
+)
+_HePsUnitTable_Object = MibTable
+hePsUnitTable = _HePsUnitTable_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hePsUnitTable.setStatus("current")
+_HePsUnitEntry_Object = MibTableRow
+hePsUnitEntry = _HePsUnitEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1, 1)
+)
+hePsUnitEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    hePsUnitEntry.setStatus("current")
+_HePsUnitCurrentIN_Type = HeMilliAmp
+_HePsUnitCurrentIN_Object = MibTableColumn
+hePsUnitCurrentIN = _HePsUnitCurrentIN_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1, 1, 1),
+    _HePsUnitCurrentIN_Type()
+)
+hePsUnitCurrentIN.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hePsUnitCurrentIN.setStatus("current")
+if mibBuilder.loadTexts:
+    hePsUnitCurrentIN.setUnits("milliamperes")
+_HePsUnitPowerIN_Type = HeHundredthWatts
+_HePsUnitPowerIN_Object = MibTableColumn
+hePsUnitPowerIN = _HePsUnitPowerIN_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1, 1, 2),
+    _HePsUnitPowerIN_Type()
+)
+hePsUnitPowerIN.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hePsUnitPowerIN.setStatus("current")
+if mibBuilder.loadTexts:
+    hePsUnitPowerIN.setUnits("hundredths of a watt")
+_HePsUnitDescription_Type = DisplayString
+_HePsUnitDescription_Object = MibTableColumn
+hePsUnitDescription = _HePsUnitDescription_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1, 1, 3),
+    _HePsUnitDescription_Type()
+)
+hePsUnitDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hePsUnitDescription.setStatus("current")
+_HePsUnitVoltageIN_Type = HeTenthVolt
+_HePsUnitVoltageIN_Object = MibTableColumn
+hePsUnitVoltageIN = _HePsUnitVoltageIN_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 1, 1, 4),
+    _HePsUnitVoltageIN_Type()
+)
+hePsUnitVoltageIN.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hePsUnitVoltageIN.setStatus("current")
+if mibBuilder.loadTexts:
+    hePsUnitVoltageIN.setUnits("tenths of a volt")
+_HePsOutputTable_Object = MibTable
+hePsOutputTable = _HePsOutputTable_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    hePsOutputTable.setStatus("current")
+_HePsOutputEntry_Object = MibTableRow
+hePsOutputEntry = _HePsOutputEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2, 1)
+)
+hePsOutputEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+    (0, "SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputIndex"),
+)
+if mibBuilder.loadTexts:
+    hePsOutputEntry.setStatus("current")
+_HePsOutputIndex_Type = Unsigned32
+_HePsOutputIndex_Object = MibTableColumn
+hePsOutputIndex = _HePsOutputIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2, 1, 1),
+    _HePsOutputIndex_Type()
+)
+hePsOutputIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hePsOutputIndex.setStatus("current")
+_HePsOutputVoltage_Type = HeTenthVolt
+_HePsOutputVoltage_Object = MibTableColumn
+hePsOutputVoltage = _HePsOutputVoltage_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2, 1, 2),
+    _HePsOutputVoltage_Type()
+)
+hePsOutputVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hePsOutputVoltage.setStatus("current")
+if mibBuilder.loadTexts:
+    hePsOutputVoltage.setUnits("tenths of a volt")
+_HePsOutputCurrent_Type = HeMilliAmp
+_HePsOutputCurrent_Object = MibTableColumn
+hePsOutputCurrent = _HePsOutputCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2, 1, 3),
+    _HePsOutputCurrent_Type()
+)
+hePsOutputCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hePsOutputCurrent.setStatus("current")
+if mibBuilder.loadTexts:
+    hePsOutputCurrent.setUnits("milliamperes")
+_HePsOutputPower_Type = HeHundredthWatts
+_HePsOutputPower_Object = MibTableColumn
+hePsOutputPower = _HePsOutputPower_Object(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 1, 2, 1, 4),
+    _HePsOutputPower_Type()
+)
+hePsOutputPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hePsOutputPower.setStatus("current")
+if mibBuilder.loadTexts:
+    hePsOutputPower.setUnits("hundredths of a watt")
+_HePsMIBConformance_ObjectIdentity = ObjectIdentity
+hePsMIBConformance = _HePsMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2)
+)
+_HePsMIBCompliances_ObjectIdentity = ObjectIdentity
+hePsMIBCompliances = _HePsMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 1)
+)
+_HePsMIBGroups_ObjectIdentity = ObjectIdentity
+hePsMIBGroups = _HePsMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 2)
+)
+
+# Managed Objects groups
+
+hePsOutputMandatoryGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 2, 1)
+)
+hePsOutputMandatoryGroup.setObjects(
+    ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputVoltage")
+)
+if mibBuilder.loadTexts:
+    hePsOutputMandatoryGroup.setStatus("current")
+
+hePsUnitGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 2, 2)
+)
+hePsUnitGroup.setObjects(
+      *(("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsUnitVoltageIN"),
+        ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsUnitCurrentIN"),
+        ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsUnitPowerIN"),
+        ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsUnitDescription"))
+)
+if mibBuilder.loadTexts:
+    hePsUnitGroup.setStatus("current")
+
+hePsOutputGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 2, 3)
+)
+hePsOutputGroup.setObjects(
+      *(("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputCurrent"),
+        ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputPower"))
+)
+if mibBuilder.loadTexts:
+    hePsOutputGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+hePsCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 5591, 1, 11, 2, 2, 1, 2, 1, 1)
+)
+hePsCompliance.setObjects(
+      *(("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputMandatoryGroup"),
+        ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsUnitGroup"),
+        ("SCTE-HMS-HE-POWER-SUPPLY-MIB", "hePsOutputGroup"))
+)
+if mibBuilder.loadTexts:
+    hePsCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SCTE-HMS-HE-POWER-SUPPLY-MIB",
+    **{"hePowerSupplyMIB": hePowerSupplyMIB,
+       "hePsMIBObjects": hePsMIBObjects,
+       "hePsUnitTable": hePsUnitTable,
+       "hePsUnitEntry": hePsUnitEntry,
+       "hePsUnitCurrentIN": hePsUnitCurrentIN,
+       "hePsUnitPowerIN": hePsUnitPowerIN,
+       "hePsUnitDescription": hePsUnitDescription,
+       "hePsUnitVoltageIN": hePsUnitVoltageIN,
+       "hePsOutputTable": hePsOutputTable,
+       "hePsOutputEntry": hePsOutputEntry,
+       "hePsOutputIndex": hePsOutputIndex,
+       "hePsOutputVoltage": hePsOutputVoltage,
+       "hePsOutputCurrent": hePsOutputCurrent,
+       "hePsOutputPower": hePsOutputPower,
+       "hePsMIBConformance": hePsMIBConformance,
+       "hePsMIBCompliances": hePsMIBCompliances,
+       "hePsCompliance": hePsCompliance,
+       "hePsMIBGroups": hePsMIBGroups,
+       "hePsOutputMandatoryGroup": hePsOutputMandatoryGroup,
+       "hePsUnitGroup": hePsUnitGroup,
+       "hePsOutputGroup": hePsOutputGroup}
+)

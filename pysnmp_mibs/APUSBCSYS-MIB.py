@@ -1,67 +1,402 @@
+# SNMP MIB module (APUSBCSYS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module APUSBCSYS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/acme/APUSBCSYS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:24 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/acme/APUSBCSYS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:51:41 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-acmepacketMgmt, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketMgmt")
-ApHardwareModuleFamily, ApPresence, ApServerStatus, ApPhyPortType, ApRedundancyState = mibBuilder.importSymbols("ACMEPACKET-TC", "ApHardwareModuleFamily", "ApPresence", "ApServerStatus", "ApPhyPortType", "ApRedundancyState")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-apUsbcSysModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 3, 17))
-apUsbcSysModule.setRevisions(('2012-03-07 00:00',))
-if mibBuilder.loadTexts: apUsbcSysModule.setLastUpdated('201203070000Z')
-if mibBuilder.loadTexts: apUsbcSysModule.setOrganization('Acme Packet, Inc')
-apUsbcSysMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1))
-apUsbcSysNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 17, 2))
-apUsbcSysNotifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 17, 2, 1))
-apUsbcSysNotifPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 17, 2, 2))
-apUsbcSysCpuNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 17, 2, 2, 1, 0))
-apUsbcSysConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 17, 3))
-apUsbcSysObjectGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 17, 3, 1))
-apUsbcSysNotificationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 17, 3, 2))
-class UsbcSysPercent(TextualConvention, Gauge32):
-    status = 'current'
-    subtypeSpec = Gauge32.subtypeSpec + ValueRangeConstraint(0, 100)
 
-apUsbcSysObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1))
-apUsbcSysCpuUtilAll = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 1), UsbcSysPercent()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apUsbcSysCpuUtilAll.setStatus('current')
-apUsbcSysCpuCount = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apUsbcSysCpuCount.setStatus('current')
-apUsbcSysCpuSpeedMHz = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apUsbcSysCpuSpeedMHz.setStatus('current')
-apUsbcSysMemSzMB = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apUsbcSysMemSzMB.setStatus('current')
-apUsbcSysMemSzGB = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apUsbcSysMemSzGB.setStatus('current')
-apUsbcSysAppMemUtil = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 6), UsbcSysPercent()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apUsbcSysAppMemUtil.setStatus('current')
-apUsbcSysKernelMemUtil = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 7), UsbcSysPercent()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apUsbcSysKernelMemUtil.setStatus('current')
-apUsbcSysMyBogoMips = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apUsbcSysMyBogoMips.setStatus('current')
-apUsbcSysAllBogoMips = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apUsbcSysAllBogoMips.setStatus('current')
-apUsbcSysCpuTblObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 10))
-apUsbcSysCpuTable = MibTable((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 10, 1), )
-if mibBuilder.loadTexts: apUsbcSysCpuTable.setStatus('current')
-apUsbcSysCpuEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 10, 1, 1), ).setIndexNames((0, "APUSBCSYS-MIB", "apUsbcSysCpuNum"))
-if mibBuilder.loadTexts: apUsbcSysCpuEntry.setStatus('current')
-apUsbcSysCpuNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 10, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apUsbcSysCpuNum.setStatus('current')
-apUsbcSysCpuUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 10, 1, 1, 2), UsbcSysPercent()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apUsbcSysCpuUtil.setStatus('current')
-apUsbcSysGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9148, 3, 17, 3, 1, 1)).setObjects(("APUSBCSYS-MIB", "apUsbcSysCpuUtilAll"), ("APUSBCSYS-MIB", "apUsbcSysCpuCount"), ("APUSBCSYS-MIB", "apUsbcSysCpuSpeedMHz"), ("APUSBCSYS-MIB", "apUsbcSysMemSzMB"), ("APUSBCSYS-MIB", "apUsbcSysMemSzGB"), ("APUSBCSYS-MIB", "apUsbcSysAppMemUtil"), ("APUSBCSYS-MIB", "apUsbcSysKernelMemUtil"), ("APUSBCSYS-MIB", "apUsbcSysMyBogoMips"), ("APUSBCSYS-MIB", "apUsbcSysAllBogoMips"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    apUsbcSysGroup = apUsbcSysGroup.setStatus('current')
-apUsbcSysCpuTblGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9148, 3, 17, 3, 1, 2)).setObjects(("APUSBCSYS-MIB", "apUsbcSysCpuNum"), ("APUSBCSYS-MIB", "apUsbcSysCpuUtil"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    apUsbcSysCpuTblGroup = apUsbcSysCpuTblGroup.setStatus('current')
-mibBuilder.exportSymbols("APUSBCSYS-MIB", apUsbcSysGroup=apUsbcSysGroup, apUsbcSysCpuNum=apUsbcSysCpuNum, apUsbcSysMyBogoMips=apUsbcSysMyBogoMips, apUsbcSysNotifPrefix=apUsbcSysNotifPrefix, apUsbcSysCpuSpeedMHz=apUsbcSysCpuSpeedMHz, apUsbcSysCpuEntry=apUsbcSysCpuEntry, apUsbcSysCpuTblGroup=apUsbcSysCpuTblGroup, apUsbcSysNotifObjects=apUsbcSysNotifObjects, apUsbcSysNotificationObjects=apUsbcSysNotificationObjects, apUsbcSysConformance=apUsbcSysConformance, apUsbcSysMemSzMB=apUsbcSysMemSzMB, UsbcSysPercent=UsbcSysPercent, apUsbcSysModule=apUsbcSysModule, apUsbcSysMemSzGB=apUsbcSysMemSzGB, apUsbcSysAllBogoMips=apUsbcSysAllBogoMips, apUsbcSysObjects=apUsbcSysObjects, apUsbcSysCpuUtil=apUsbcSysCpuUtil, apUsbcSysCpuTblObjects=apUsbcSysCpuTblObjects, apUsbcSysNotificationGroups=apUsbcSysNotificationGroups, apUsbcSysCpuCount=apUsbcSysCpuCount, apUsbcSysCpuUtilAll=apUsbcSysCpuUtilAll, apUsbcSysObjectGroups=apUsbcSysObjectGroups, apUsbcSysMIBObjects=apUsbcSysMIBObjects, apUsbcSysKernelMemUtil=apUsbcSysKernelMemUtil, PYSNMP_MODULE_ID=apUsbcSysModule, apUsbcSysCpuNotifications=apUsbcSysCpuNotifications, apUsbcSysAppMemUtil=apUsbcSysAppMemUtil, apUsbcSysCpuTable=apUsbcSysCpuTable)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(acmepacketMgmt,) = mibBuilder.importSymbols(
+    "ACMEPACKET-SMI",
+    "acmepacketMgmt")
+
+(ApHardwareModuleFamily,
+ ApPhyPortType,
+ ApPresence,
+ ApRedundancyState,
+ ApServerStatus) = mibBuilder.importSymbols(
+    "ACMEPACKET-TC",
+    "ApHardwareModuleFamily",
+    "ApPhyPortType",
+    "ApPresence",
+    "ApRedundancyState",
+    "ApServerStatus")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+apUsbcSysModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17)
+)
+if mibBuilder.loadTexts:
+    apUsbcSysModule.setRevisions(
+        ("2012-03-07 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class UsbcSysPercent(TextualConvention, Gauge32):
+    status = "current"
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ApUsbcSysMIBObjects_ObjectIdentity = ObjectIdentity
+apUsbcSysMIBObjects = _ApUsbcSysMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1)
+)
+_ApUsbcSysObjects_ObjectIdentity = ObjectIdentity
+apUsbcSysObjects = _ApUsbcSysObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1)
+)
+_ApUsbcSysCpuUtilAll_Type = UsbcSysPercent
+_ApUsbcSysCpuUtilAll_Object = MibScalar
+apUsbcSysCpuUtilAll = _ApUsbcSysCpuUtilAll_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 1),
+    _ApUsbcSysCpuUtilAll_Type()
+)
+apUsbcSysCpuUtilAll.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apUsbcSysCpuUtilAll.setStatus("current")
+
+
+class _ApUsbcSysCpuCount_Type(Integer32):
+    """Custom type apUsbcSysCpuCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_ApUsbcSysCpuCount_Type.__name__ = "Integer32"
+_ApUsbcSysCpuCount_Object = MibScalar
+apUsbcSysCpuCount = _ApUsbcSysCpuCount_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 2),
+    _ApUsbcSysCpuCount_Type()
+)
+apUsbcSysCpuCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apUsbcSysCpuCount.setStatus("current")
+_ApUsbcSysCpuSpeedMHz_Type = Integer32
+_ApUsbcSysCpuSpeedMHz_Object = MibScalar
+apUsbcSysCpuSpeedMHz = _ApUsbcSysCpuSpeedMHz_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 3),
+    _ApUsbcSysCpuSpeedMHz_Type()
+)
+apUsbcSysCpuSpeedMHz.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apUsbcSysCpuSpeedMHz.setStatus("current")
+_ApUsbcSysMemSzMB_Type = Integer32
+_ApUsbcSysMemSzMB_Object = MibScalar
+apUsbcSysMemSzMB = _ApUsbcSysMemSzMB_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 4),
+    _ApUsbcSysMemSzMB_Type()
+)
+apUsbcSysMemSzMB.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apUsbcSysMemSzMB.setStatus("current")
+_ApUsbcSysMemSzGB_Type = Integer32
+_ApUsbcSysMemSzGB_Object = MibScalar
+apUsbcSysMemSzGB = _ApUsbcSysMemSzGB_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 5),
+    _ApUsbcSysMemSzGB_Type()
+)
+apUsbcSysMemSzGB.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apUsbcSysMemSzGB.setStatus("current")
+_ApUsbcSysAppMemUtil_Type = UsbcSysPercent
+_ApUsbcSysAppMemUtil_Object = MibScalar
+apUsbcSysAppMemUtil = _ApUsbcSysAppMemUtil_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 6),
+    _ApUsbcSysAppMemUtil_Type()
+)
+apUsbcSysAppMemUtil.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apUsbcSysAppMemUtil.setStatus("current")
+_ApUsbcSysKernelMemUtil_Type = UsbcSysPercent
+_ApUsbcSysKernelMemUtil_Object = MibScalar
+apUsbcSysKernelMemUtil = _ApUsbcSysKernelMemUtil_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 7),
+    _ApUsbcSysKernelMemUtil_Type()
+)
+apUsbcSysKernelMemUtil.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apUsbcSysKernelMemUtil.setStatus("current")
+_ApUsbcSysMyBogoMips_Type = Integer32
+_ApUsbcSysMyBogoMips_Object = MibScalar
+apUsbcSysMyBogoMips = _ApUsbcSysMyBogoMips_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 8),
+    _ApUsbcSysMyBogoMips_Type()
+)
+apUsbcSysMyBogoMips.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apUsbcSysMyBogoMips.setStatus("current")
+_ApUsbcSysAllBogoMips_Type = Integer32
+_ApUsbcSysAllBogoMips_Object = MibScalar
+apUsbcSysAllBogoMips = _ApUsbcSysAllBogoMips_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 9),
+    _ApUsbcSysAllBogoMips_Type()
+)
+apUsbcSysAllBogoMips.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apUsbcSysAllBogoMips.setStatus("current")
+_ApUsbcSysCpuTblObjects_ObjectIdentity = ObjectIdentity
+apUsbcSysCpuTblObjects = _ApUsbcSysCpuTblObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 10)
+)
+_ApUsbcSysCpuTable_Object = MibTable
+apUsbcSysCpuTable = _ApUsbcSysCpuTable_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 10, 1)
+)
+if mibBuilder.loadTexts:
+    apUsbcSysCpuTable.setStatus("current")
+_ApUsbcSysCpuEntry_Object = MibTableRow
+apUsbcSysCpuEntry = _ApUsbcSysCpuEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 10, 1, 1)
+)
+apUsbcSysCpuEntry.setIndexNames(
+    (0, "APUSBCSYS-MIB", "apUsbcSysCpuNum"),
+)
+if mibBuilder.loadTexts:
+    apUsbcSysCpuEntry.setStatus("current")
+
+
+class _ApUsbcSysCpuNum_Type(Integer32):
+    """Custom type apUsbcSysCpuNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_ApUsbcSysCpuNum_Type.__name__ = "Integer32"
+_ApUsbcSysCpuNum_Object = MibTableColumn
+apUsbcSysCpuNum = _ApUsbcSysCpuNum_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 10, 1, 1, 1),
+    _ApUsbcSysCpuNum_Type()
+)
+apUsbcSysCpuNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apUsbcSysCpuNum.setStatus("current")
+_ApUsbcSysCpuUtil_Type = UsbcSysPercent
+_ApUsbcSysCpuUtil_Object = MibTableColumn
+apUsbcSysCpuUtil = _ApUsbcSysCpuUtil_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 1, 1, 10, 1, 1, 2),
+    _ApUsbcSysCpuUtil_Type()
+)
+apUsbcSysCpuUtil.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apUsbcSysCpuUtil.setStatus("current")
+_ApUsbcSysNotificationObjects_ObjectIdentity = ObjectIdentity
+apUsbcSysNotificationObjects = _ApUsbcSysNotificationObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 2)
+)
+_ApUsbcSysNotifObjects_ObjectIdentity = ObjectIdentity
+apUsbcSysNotifObjects = _ApUsbcSysNotifObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 2, 1)
+)
+_ApUsbcSysNotifPrefix_ObjectIdentity = ObjectIdentity
+apUsbcSysNotifPrefix = _ApUsbcSysNotifPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 2, 2)
+)
+_ApUsbcSysCpuNotifications_ObjectIdentity = ObjectIdentity
+apUsbcSysCpuNotifications = _ApUsbcSysCpuNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 2, 2, 1, 0)
+)
+_ApUsbcSysConformance_ObjectIdentity = ObjectIdentity
+apUsbcSysConformance = _ApUsbcSysConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 3)
+)
+_ApUsbcSysObjectGroups_ObjectIdentity = ObjectIdentity
+apUsbcSysObjectGroups = _ApUsbcSysObjectGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 3, 1)
+)
+_ApUsbcSysNotificationGroups_ObjectIdentity = ObjectIdentity
+apUsbcSysNotificationGroups = _ApUsbcSysNotificationGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 3, 2)
+)
+
+# Managed Objects groups
+
+apUsbcSysGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 3, 1, 1)
+)
+apUsbcSysGroup.setObjects(
+      *(("APUSBCSYS-MIB", "apUsbcSysCpuUtilAll"),
+        ("APUSBCSYS-MIB", "apUsbcSysCpuCount"),
+        ("APUSBCSYS-MIB", "apUsbcSysCpuSpeedMHz"),
+        ("APUSBCSYS-MIB", "apUsbcSysMemSzMB"),
+        ("APUSBCSYS-MIB", "apUsbcSysMemSzGB"),
+        ("APUSBCSYS-MIB", "apUsbcSysAppMemUtil"),
+        ("APUSBCSYS-MIB", "apUsbcSysKernelMemUtil"),
+        ("APUSBCSYS-MIB", "apUsbcSysMyBogoMips"),
+        ("APUSBCSYS-MIB", "apUsbcSysAllBogoMips"))
+)
+if mibBuilder.loadTexts:
+    apUsbcSysGroup.setStatus("current")
+
+apUsbcSysCpuTblGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 17, 3, 1, 2)
+)
+apUsbcSysCpuTblGroup.setObjects(
+      *(("APUSBCSYS-MIB", "apUsbcSysCpuNum"),
+        ("APUSBCSYS-MIB", "apUsbcSysCpuUtil"))
+)
+if mibBuilder.loadTexts:
+    apUsbcSysCpuTblGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "APUSBCSYS-MIB",
+    **{"UsbcSysPercent": UsbcSysPercent,
+       "apUsbcSysModule": apUsbcSysModule,
+       "apUsbcSysMIBObjects": apUsbcSysMIBObjects,
+       "apUsbcSysObjects": apUsbcSysObjects,
+       "apUsbcSysCpuUtilAll": apUsbcSysCpuUtilAll,
+       "apUsbcSysCpuCount": apUsbcSysCpuCount,
+       "apUsbcSysCpuSpeedMHz": apUsbcSysCpuSpeedMHz,
+       "apUsbcSysMemSzMB": apUsbcSysMemSzMB,
+       "apUsbcSysMemSzGB": apUsbcSysMemSzGB,
+       "apUsbcSysAppMemUtil": apUsbcSysAppMemUtil,
+       "apUsbcSysKernelMemUtil": apUsbcSysKernelMemUtil,
+       "apUsbcSysMyBogoMips": apUsbcSysMyBogoMips,
+       "apUsbcSysAllBogoMips": apUsbcSysAllBogoMips,
+       "apUsbcSysCpuTblObjects": apUsbcSysCpuTblObjects,
+       "apUsbcSysCpuTable": apUsbcSysCpuTable,
+       "apUsbcSysCpuEntry": apUsbcSysCpuEntry,
+       "apUsbcSysCpuNum": apUsbcSysCpuNum,
+       "apUsbcSysCpuUtil": apUsbcSysCpuUtil,
+       "apUsbcSysNotificationObjects": apUsbcSysNotificationObjects,
+       "apUsbcSysNotifObjects": apUsbcSysNotifObjects,
+       "apUsbcSysNotifPrefix": apUsbcSysNotifPrefix,
+       "apUsbcSysCpuNotifications": apUsbcSysCpuNotifications,
+       "apUsbcSysConformance": apUsbcSysConformance,
+       "apUsbcSysObjectGroups": apUsbcSysObjectGroups,
+       "apUsbcSysGroup": apUsbcSysGroup,
+       "apUsbcSysCpuTblGroup": apUsbcSysCpuTblGroup,
+       "apUsbcSysNotificationGroups": apUsbcSysNotificationGroups}
+)

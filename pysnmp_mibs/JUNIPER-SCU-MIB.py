@@ -1,38 +1,273 @@
+# SNMP MIB module (JUNIPER-SCU-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module JUNIPER-SCU-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/juniper/JUNIPER-SCU-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:55:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/juniper/JUNIPER-SCU-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:39:21 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-jnxMibs, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-jnxScu = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 16))
-jnxScu.setRevisions(('2002-02-25 00:00',))
-if mibBuilder.loadTexts: jnxScu.setLastUpdated('200307182153Z')
-if mibBuilder.loadTexts: jnxScu.setOrganization('Juniper Networks, Inc.')
-jnxScuStats = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 16, 1))
-jnxScuStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1), )
-if mibBuilder.loadTexts: jnxScuStatsTable.setStatus('current')
-jnxScuStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1), ).setIndexNames((0, "JUNIPER-SCU-MIB", "jnxScuStatsDstIfIndex"), (0, "JUNIPER-SCU-MIB", "jnxScuStatsAddrFamily"), (0, "JUNIPER-SCU-MIB", "jnxScuStatsClassName"))
-if mibBuilder.loadTexts: jnxScuStatsEntry.setStatus('current')
-jnxScuStatsDstIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: jnxScuStatsDstIfIndex.setStatus('current')
-jnxScuStatsAddrFamily = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv4", 1), ("ipv6", 2))))
-if mibBuilder.loadTexts: jnxScuStatsAddrFamily.setStatus('current')
-jnxScuStatsClassName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 112)))
-if mibBuilder.loadTexts: jnxScuStatsClassName.setStatus('current')
-jnxScuStatsPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxScuStatsPackets.setStatus('current')
-jnxScuStatsBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxScuStatsBytes.setStatus('current')
-jnxScuStatsClName = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 6), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 112))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxScuStatsClName.setStatus('current')
-mibBuilder.exportSymbols("JUNIPER-SCU-MIB", jnxScu=jnxScu, jnxScuStatsDstIfIndex=jnxScuStatsDstIfIndex, jnxScuStatsPackets=jnxScuStatsPackets, jnxScuStatsBytes=jnxScuStatsBytes, jnxScuStats=jnxScuStats, jnxScuStatsAddrFamily=jnxScuStatsAddrFamily, jnxScuStatsClName=jnxScuStatsClName, PYSNMP_MODULE_ID=jnxScu, jnxScuStatsEntry=jnxScuStatsEntry, jnxScuStatsClassName=jnxScuStatsClassName, jnxScuStatsTable=jnxScuStatsTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(jnxMibs,) = mibBuilder.importSymbols(
+    "JUNIPER-SMI",
+    "jnxMibs")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+jnxScu = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 16)
+)
+if mibBuilder.loadTexts:
+    jnxScu.setRevisions(
+        ("2002-02-25 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JnxScuStats_ObjectIdentity = ObjectIdentity
+jnxScuStats = _JnxScuStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 16, 1)
+)
+_JnxScuStatsTable_Object = MibTable
+jnxScuStatsTable = _JnxScuStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1)
+)
+if mibBuilder.loadTexts:
+    jnxScuStatsTable.setStatus("current")
+_JnxScuStatsEntry_Object = MibTableRow
+jnxScuStatsEntry = _JnxScuStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1)
+)
+jnxScuStatsEntry.setIndexNames(
+    (0, "JUNIPER-SCU-MIB", "jnxScuStatsDstIfIndex"),
+    (0, "JUNIPER-SCU-MIB", "jnxScuStatsAddrFamily"),
+    (0, "JUNIPER-SCU-MIB", "jnxScuStatsClassName"),
+)
+if mibBuilder.loadTexts:
+    jnxScuStatsEntry.setStatus("current")
+_JnxScuStatsDstIfIndex_Type = InterfaceIndex
+_JnxScuStatsDstIfIndex_Object = MibTableColumn
+jnxScuStatsDstIfIndex = _JnxScuStatsDstIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 1),
+    _JnxScuStatsDstIfIndex_Type()
+)
+jnxScuStatsDstIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxScuStatsDstIfIndex.setStatus("current")
+
+
+class _JnxScuStatsAddrFamily_Type(Integer32):
+    """Custom type jnxScuStatsAddrFamily based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 1),
+          ("ipv6", 2))
+    )
+
+
+_JnxScuStatsAddrFamily_Type.__name__ = "Integer32"
+_JnxScuStatsAddrFamily_Object = MibTableColumn
+jnxScuStatsAddrFamily = _JnxScuStatsAddrFamily_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 2),
+    _JnxScuStatsAddrFamily_Type()
+)
+jnxScuStatsAddrFamily.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxScuStatsAddrFamily.setStatus("current")
+
+
+class _JnxScuStatsClassName_Type(SnmpAdminString):
+    """Custom type jnxScuStatsClassName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 112),
+    )
+
+
+_JnxScuStatsClassName_Type.__name__ = "SnmpAdminString"
+_JnxScuStatsClassName_Object = MibTableColumn
+jnxScuStatsClassName = _JnxScuStatsClassName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 3),
+    _JnxScuStatsClassName_Type()
+)
+jnxScuStatsClassName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    jnxScuStatsClassName.setStatus("current")
+_JnxScuStatsPackets_Type = Counter64
+_JnxScuStatsPackets_Object = MibTableColumn
+jnxScuStatsPackets = _JnxScuStatsPackets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 4),
+    _JnxScuStatsPackets_Type()
+)
+jnxScuStatsPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxScuStatsPackets.setStatus("current")
+_JnxScuStatsBytes_Type = Counter64
+_JnxScuStatsBytes_Object = MibTableColumn
+jnxScuStatsBytes = _JnxScuStatsBytes_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 5),
+    _JnxScuStatsBytes_Type()
+)
+jnxScuStatsBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxScuStatsBytes.setStatus("current")
+
+
+class _JnxScuStatsClName_Type(SnmpAdminString):
+    """Custom type jnxScuStatsClName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 112),
+    )
+
+
+_JnxScuStatsClName_Type.__name__ = "SnmpAdminString"
+_JnxScuStatsClName_Object = MibTableColumn
+jnxScuStatsClName = _JnxScuStatsClName_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 16, 1, 1, 1, 6),
+    _JnxScuStatsClName_Type()
+)
+jnxScuStatsClName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxScuStatsClName.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "JUNIPER-SCU-MIB",
+    **{"jnxScu": jnxScu,
+       "jnxScuStats": jnxScuStats,
+       "jnxScuStatsTable": jnxScuStatsTable,
+       "jnxScuStatsEntry": jnxScuStatsEntry,
+       "jnxScuStatsDstIfIndex": jnxScuStatsDstIfIndex,
+       "jnxScuStatsAddrFamily": jnxScuStatsAddrFamily,
+       "jnxScuStatsClassName": jnxScuStatsClassName,
+       "jnxScuStatsPackets": jnxScuStatsPackets,
+       "jnxScuStatsBytes": jnxScuStatsBytes,
+       "jnxScuStatsClName": jnxScuStatsClName}
+)

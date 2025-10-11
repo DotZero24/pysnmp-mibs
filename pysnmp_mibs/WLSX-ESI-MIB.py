@@ -1,49 +1,312 @@
+# SNMP MIB module (WLSX-ESI-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module WLSX-ESI-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aruba/WLSX-ESI-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:12:09 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/aruba/WLSX-ESI-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:22:21 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-wlsxEnterpriseMibModules, = mibBuilder.importSymbols("ARUBA-MIB", "wlsxEnterpriseMibModules")
-ArubaESIServerStatus, ArubaESIServerMode = mibBuilder.importSymbols("ARUBA-TC", "ArubaESIServerStatus", "ArubaESIServerMode")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, snmpModules, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "snmpModules", "Gauge32")
-TDomain, TAddress, RowStatus, TextualConvention, TimeInterval, MacAddress, StorageType, TestAndIncr, PhysAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TDomain", "TAddress", "RowStatus", "TextualConvention", "TimeInterval", "MacAddress", "StorageType", "TestAndIncr", "PhysAddress", "TruthValue", "DisplayString")
-wlsxESIMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10))
-wlsxESIMIB.setRevisions(('2020-08-14 17:45',))
-if mibBuilder.loadTexts: wlsxESIMIB.setLastUpdated('202008141745Z')
-if mibBuilder.loadTexts: wlsxESIMIB.setOrganization('Aruba, a Hewlett Packard Enterprise company')
-wlsxESIConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1))
-wlsxESIServerTable = MibTable((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1), )
-if mibBuilder.loadTexts: wlsxESIServerTable.setStatus('current')
-wlsxESIServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1), ).setIndexNames((0, "WLSX-ESI-MIB", "esiServerName"))
-if mibBuilder.loadTexts: wlsxESIServerEntry.setStatus('current')
-esiServerName = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 1), DisplayString())
-if mibBuilder.loadTexts: esiServerName.setStatus('current')
-esiServerGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esiServerGroup.setStatus('current')
-esiServerMode = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 3), ArubaESIServerMode()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esiServerMode.setStatus('current')
-esiServerTrustedIP = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esiServerTrustedIP.setStatus('current')
-esiServerUntrustedIP = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esiServerUntrustedIP.setStatus('current')
-esiServerTrustedSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esiServerTrustedSlot.setStatus('current')
-esiServerTrustedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esiServerTrustedPort.setStatus('current')
-esiServerUntrustedSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esiServerUntrustedSlot.setStatus('current')
-esiServerUntrustedPort = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esiServerUntrustedPort.setStatus('current')
-esiServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 10), ArubaESIServerStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esiServerStatus.setStatus('current')
-esiServerTrustedModule = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esiServerTrustedModule.setStatus('current')
-esiServerUntrustedModule = MibTableColumn((1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: esiServerUntrustedModule.setStatus('current')
-mibBuilder.exportSymbols("WLSX-ESI-MIB", esiServerUntrustedPort=esiServerUntrustedPort, esiServerUntrustedSlot=esiServerUntrustedSlot, wlsxESIServerEntry=wlsxESIServerEntry, PYSNMP_MODULE_ID=wlsxESIMIB, esiServerGroup=esiServerGroup, esiServerMode=esiServerMode, esiServerName=esiServerName, esiServerUntrustedIP=esiServerUntrustedIP, wlsxESIServerTable=wlsxESIServerTable, esiServerUntrustedModule=esiServerUntrustedModule, wlsxESIMIB=wlsxESIMIB, esiServerTrustedModule=esiServerTrustedModule, esiServerTrustedIP=esiServerTrustedIP, esiServerTrustedPort=esiServerTrustedPort, esiServerStatus=esiServerStatus, esiServerTrustedSlot=esiServerTrustedSlot, wlsxESIConfigGroup=wlsxESIConfigGroup)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(wlsxEnterpriseMibModules,) = mibBuilder.importSymbols(
+    "ARUBA-MIB",
+    "wlsxEnterpriseMibModules")
+
+(ArubaESIServerMode,
+ ArubaESIServerStatus) = mibBuilder.importSymbols(
+    "ARUBA-TC",
+    "ArubaESIServerMode",
+    "ArubaESIServerStatus")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ snmpModules) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "snmpModules")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ StorageType,
+ TAddress,
+ TDomain,
+ TextualConvention,
+ TestAndIncr,
+ TimeInterval,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "StorageType",
+    "TAddress",
+    "TDomain",
+    "TextualConvention",
+    "TestAndIncr",
+    "TimeInterval",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+wlsxESIMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10)
+)
+if mibBuilder.loadTexts:
+    wlsxESIMIB.setRevisions(
+        ("2020-08-14 17:45",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_WlsxESIConfigGroup_ObjectIdentity = ObjectIdentity
+wlsxESIConfigGroup = _WlsxESIConfigGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1)
+)
+_WlsxESIServerTable_Object = MibTable
+wlsxESIServerTable = _WlsxESIServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1)
+)
+if mibBuilder.loadTexts:
+    wlsxESIServerTable.setStatus("current")
+_WlsxESIServerEntry_Object = MibTableRow
+wlsxESIServerEntry = _WlsxESIServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1)
+)
+wlsxESIServerEntry.setIndexNames(
+    (0, "WLSX-ESI-MIB", "esiServerName"),
+)
+if mibBuilder.loadTexts:
+    wlsxESIServerEntry.setStatus("current")
+_EsiServerName_Type = DisplayString
+_EsiServerName_Object = MibTableColumn
+esiServerName = _EsiServerName_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 1),
+    _EsiServerName_Type()
+)
+esiServerName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    esiServerName.setStatus("current")
+_EsiServerGroup_Type = DisplayString
+_EsiServerGroup_Object = MibTableColumn
+esiServerGroup = _EsiServerGroup_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 2),
+    _EsiServerGroup_Type()
+)
+esiServerGroup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esiServerGroup.setStatus("current")
+_EsiServerMode_Type = ArubaESIServerMode
+_EsiServerMode_Object = MibTableColumn
+esiServerMode = _EsiServerMode_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 3),
+    _EsiServerMode_Type()
+)
+esiServerMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esiServerMode.setStatus("current")
+_EsiServerTrustedIP_Type = IpAddress
+_EsiServerTrustedIP_Object = MibTableColumn
+esiServerTrustedIP = _EsiServerTrustedIP_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 4),
+    _EsiServerTrustedIP_Type()
+)
+esiServerTrustedIP.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esiServerTrustedIP.setStatus("current")
+_EsiServerUntrustedIP_Type = IpAddress
+_EsiServerUntrustedIP_Object = MibTableColumn
+esiServerUntrustedIP = _EsiServerUntrustedIP_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 5),
+    _EsiServerUntrustedIP_Type()
+)
+esiServerUntrustedIP.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esiServerUntrustedIP.setStatus("current")
+_EsiServerTrustedSlot_Type = Integer32
+_EsiServerTrustedSlot_Object = MibTableColumn
+esiServerTrustedSlot = _EsiServerTrustedSlot_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 6),
+    _EsiServerTrustedSlot_Type()
+)
+esiServerTrustedSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esiServerTrustedSlot.setStatus("current")
+_EsiServerTrustedPort_Type = Integer32
+_EsiServerTrustedPort_Object = MibTableColumn
+esiServerTrustedPort = _EsiServerTrustedPort_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 7),
+    _EsiServerTrustedPort_Type()
+)
+esiServerTrustedPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esiServerTrustedPort.setStatus("current")
+_EsiServerUntrustedSlot_Type = Integer32
+_EsiServerUntrustedSlot_Object = MibTableColumn
+esiServerUntrustedSlot = _EsiServerUntrustedSlot_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 8),
+    _EsiServerUntrustedSlot_Type()
+)
+esiServerUntrustedSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esiServerUntrustedSlot.setStatus("current")
+_EsiServerUntrustedPort_Type = Integer32
+_EsiServerUntrustedPort_Object = MibTableColumn
+esiServerUntrustedPort = _EsiServerUntrustedPort_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 9),
+    _EsiServerUntrustedPort_Type()
+)
+esiServerUntrustedPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esiServerUntrustedPort.setStatus("current")
+_EsiServerStatus_Type = ArubaESIServerStatus
+_EsiServerStatus_Object = MibTableColumn
+esiServerStatus = _EsiServerStatus_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 10),
+    _EsiServerStatus_Type()
+)
+esiServerStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esiServerStatus.setStatus("current")
+_EsiServerTrustedModule_Type = Integer32
+_EsiServerTrustedModule_Object = MibTableColumn
+esiServerTrustedModule = _EsiServerTrustedModule_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 11),
+    _EsiServerTrustedModule_Type()
+)
+esiServerTrustedModule.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esiServerTrustedModule.setStatus("current")
+_EsiServerUntrustedModule_Type = Integer32
+_EsiServerUntrustedModule_Object = MibTableColumn
+esiServerUntrustedModule = _EsiServerUntrustedModule_Object(
+    (1, 3, 6, 1, 4, 1, 14823, 2, 2, 1, 10, 1, 1, 1, 12),
+    _EsiServerUntrustedModule_Type()
+)
+esiServerUntrustedModule.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    esiServerUntrustedModule.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "WLSX-ESI-MIB",
+    **{"wlsxESIMIB": wlsxESIMIB,
+       "wlsxESIConfigGroup": wlsxESIConfigGroup,
+       "wlsxESIServerTable": wlsxESIServerTable,
+       "wlsxESIServerEntry": wlsxESIServerEntry,
+       "esiServerName": esiServerName,
+       "esiServerGroup": esiServerGroup,
+       "esiServerMode": esiServerMode,
+       "esiServerTrustedIP": esiServerTrustedIP,
+       "esiServerUntrustedIP": esiServerUntrustedIP,
+       "esiServerTrustedSlot": esiServerTrustedSlot,
+       "esiServerTrustedPort": esiServerTrustedPort,
+       "esiServerUntrustedSlot": esiServerUntrustedSlot,
+       "esiServerUntrustedPort": esiServerUntrustedPort,
+       "esiServerStatus": esiServerStatus,
+       "esiServerTrustedModule": esiServerTrustedModule,
+       "esiServerUntrustedModule": esiServerUntrustedModule}
+)

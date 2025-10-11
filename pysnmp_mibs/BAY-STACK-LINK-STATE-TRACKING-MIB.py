@@ -1,54 +1,392 @@
+# SNMP MIB module (BAY-STACK-LINK-STATE-TRACKING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BAY-STACK-LINK-STATE-TRACKING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/BAY-STACK-LINK-STATE-TRACKING-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:03:06 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nortel/BAY-STACK-LINK-STATE-TRACKING-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:21:02 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-bayStackMibs, = mibBuilder.importSymbols("SYNOPTICS-ROOT-MIB", "bayStackMibs")
-bayStackLinkStateTrackingMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 5, 43))
-bayStackLinkStateTrackingMib.setRevisions(('2018-09-28 00:00', '2017-08-31 00:00', '2013-10-11 00:00', '2013-02-13 00:00', '2012-11-15 00:00', '2012-10-17 00:00', '2012-09-03 00:00',))
-if mibBuilder.loadTexts: bayStackLinkStateTrackingMib.setLastUpdated('201809280000Z')
-if mibBuilder.loadTexts: bayStackLinkStateTrackingMib.setOrganization('Avaya')
-bsLstNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 43, 0))
-bsLstObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 43, 1))
-bsLstScalars = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 1))
-bsLstNotifObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 3))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+(bayStackMibs,) = mibBuilder.importSymbols(
+    "SYNOPTICS-ROOT-MIB",
+    "bayStackMibs")
+
+
+# MODULE-IDENTITY
+
+bayStackLinkStateTrackingMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43)
+)
+if mibBuilder.loadTexts:
+    bayStackLinkStateTrackingMib.setRevisions(
+        ("2018-09-28 00:00",
+         "2017-08-31 00:00",
+         "2013-10-11 00:00",
+         "2013-02-13 00:00",
+         "2012-11-15 00:00",
+         "2012-10-17 00:00",
+         "2012-09-03 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class PortList(TextualConvention, OctetString):
-    status = 'current'
+    status = "current"
+
 
 class IdList(TextualConvention, OctetString):
-    status = 'current'
+    status = "current"
 
-bsLstInterfaceStatus = MibScalar((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: bsLstInterfaceStatus.setStatus('current')
-bsLstGroupTable = MibTable((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2), )
-if mibBuilder.loadTexts: bsLstGroupTable.setStatus('current')
-bsLstGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1), ).setIndexNames((0, "BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstGroupIndex"))
-if mibBuilder.loadTexts: bsLstGroupEntry.setStatus('current')
-bsLstGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bsLstGroupIndex.setStatus('current')
-bsLstGroupEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsLstGroupEnabled.setStatus('current')
-bsLstGroupUpstreamPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 3), PortList().clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsLstGroupUpstreamPortList.setStatus('current')
-bsLstGroupDownstreamPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 4), PortList().clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsLstGroupDownstreamPortList.setStatus('current')
-bsLstGroupUpstreamMltList = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 5), IdList().clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsLstGroupUpstreamMltList.setStatus('current')
-bsLstGroupDownstreamMltList = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 6), IdList().clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsLstGroupDownstreamMltList.setStatus('current')
-bsLstGroupOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("notConfigured", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bsLstGroupOperState.setStatus('current')
-bsLstInterfaceStatusChanged = NotificationType((1, 3, 6, 1, 4, 1, 45, 5, 43, 0, 1)).setObjects(("IF-MIB", "ifIndex"), ("BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstInterfaceStatus"), ("BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstGroupIndex"))
-if mibBuilder.loadTexts: bsLstInterfaceStatusChanged.setStatus('current')
-bsLstGroupOperStateChanged = NotificationType((1, 3, 6, 1, 4, 1, 45, 5, 43, 0, 2)).setObjects(("IF-MIB", "ifIndex"), ("BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstInterfaceStatus"), ("BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstGroupOperState"))
-if mibBuilder.loadTexts: bsLstGroupOperStateChanged.setStatus('current')
-mibBuilder.exportSymbols("BAY-STACK-LINK-STATE-TRACKING-MIB", bsLstGroupUpstreamPortList=bsLstGroupUpstreamPortList, bsLstNotifications=bsLstNotifications, PYSNMP_MODULE_ID=bayStackLinkStateTrackingMib, bsLstGroupUpstreamMltList=bsLstGroupUpstreamMltList, bsLstGroupTable=bsLstGroupTable, bsLstInterfaceStatusChanged=bsLstInterfaceStatusChanged, bsLstGroupEntry=bsLstGroupEntry, bsLstGroupDownstreamMltList=bsLstGroupDownstreamMltList, bsLstGroupDownstreamPortList=bsLstGroupDownstreamPortList, IdList=IdList, bsLstGroupOperState=bsLstGroupOperState, bsLstNotifObjects=bsLstNotifObjects, bsLstObjects=bsLstObjects, bayStackLinkStateTrackingMib=bayStackLinkStateTrackingMib, bsLstGroupIndex=bsLstGroupIndex, bsLstGroupEnabled=bsLstGroupEnabled, bsLstGroupOperStateChanged=bsLstGroupOperStateChanged, bsLstInterfaceStatus=bsLstInterfaceStatus, PortList=PortList, bsLstScalars=bsLstScalars)
+
+# MIB Managed Objects in the order of their OIDs
+
+_BsLstNotifications_ObjectIdentity = ObjectIdentity
+bsLstNotifications = _BsLstNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 0)
+)
+_BsLstObjects_ObjectIdentity = ObjectIdentity
+bsLstObjects = _BsLstObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1)
+)
+_BsLstScalars_ObjectIdentity = ObjectIdentity
+bsLstScalars = _BsLstScalars_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 1)
+)
+_BsLstGroupTable_Object = MibTable
+bsLstGroupTable = _BsLstGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2)
+)
+if mibBuilder.loadTexts:
+    bsLstGroupTable.setStatus("current")
+_BsLstGroupEntry_Object = MibTableRow
+bsLstGroupEntry = _BsLstGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1)
+)
+bsLstGroupEntry.setIndexNames(
+    (0, "BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstGroupIndex"),
+)
+if mibBuilder.loadTexts:
+    bsLstGroupEntry.setStatus("current")
+
+
+class _BsLstGroupIndex_Type(Unsigned32):
+    """Custom type bsLstGroupIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_BsLstGroupIndex_Type.__name__ = "Unsigned32"
+_BsLstGroupIndex_Object = MibTableColumn
+bsLstGroupIndex = _BsLstGroupIndex_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 1),
+    _BsLstGroupIndex_Type()
+)
+bsLstGroupIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bsLstGroupIndex.setStatus("current")
+
+
+class _BsLstGroupEnabled_Type(TruthValue):
+    """Custom type bsLstGroupEnabled based on TruthValue"""
+    defaultValue = 2
+
+
+_BsLstGroupEnabled_Type.__name__ = "TruthValue"
+_BsLstGroupEnabled_Object = MibTableColumn
+bsLstGroupEnabled = _BsLstGroupEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 2),
+    _BsLstGroupEnabled_Type()
+)
+bsLstGroupEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsLstGroupEnabled.setStatus("current")
+
+
+class _BsLstGroupUpstreamPortList_Type(PortList):
+    """Custom type bsLstGroupUpstreamPortList based on PortList"""
+    defaultHexValue = ""
+
+
+_BsLstGroupUpstreamPortList_Type.__name__ = "PortList"
+_BsLstGroupUpstreamPortList_Object = MibTableColumn
+bsLstGroupUpstreamPortList = _BsLstGroupUpstreamPortList_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 3),
+    _BsLstGroupUpstreamPortList_Type()
+)
+bsLstGroupUpstreamPortList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsLstGroupUpstreamPortList.setStatus("current")
+
+
+class _BsLstGroupDownstreamPortList_Type(PortList):
+    """Custom type bsLstGroupDownstreamPortList based on PortList"""
+    defaultHexValue = ""
+
+
+_BsLstGroupDownstreamPortList_Type.__name__ = "PortList"
+_BsLstGroupDownstreamPortList_Object = MibTableColumn
+bsLstGroupDownstreamPortList = _BsLstGroupDownstreamPortList_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 4),
+    _BsLstGroupDownstreamPortList_Type()
+)
+bsLstGroupDownstreamPortList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsLstGroupDownstreamPortList.setStatus("current")
+
+
+class _BsLstGroupUpstreamMltList_Type(IdList):
+    """Custom type bsLstGroupUpstreamMltList based on IdList"""
+    defaultHexValue = ""
+
+
+_BsLstGroupUpstreamMltList_Type.__name__ = "IdList"
+_BsLstGroupUpstreamMltList_Object = MibTableColumn
+bsLstGroupUpstreamMltList = _BsLstGroupUpstreamMltList_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 5),
+    _BsLstGroupUpstreamMltList_Type()
+)
+bsLstGroupUpstreamMltList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsLstGroupUpstreamMltList.setStatus("current")
+
+
+class _BsLstGroupDownstreamMltList_Type(IdList):
+    """Custom type bsLstGroupDownstreamMltList based on IdList"""
+    defaultHexValue = ""
+
+
+_BsLstGroupDownstreamMltList_Type.__name__ = "IdList"
+_BsLstGroupDownstreamMltList_Object = MibTableColumn
+bsLstGroupDownstreamMltList = _BsLstGroupDownstreamMltList_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 6),
+    _BsLstGroupDownstreamMltList_Type()
+)
+bsLstGroupDownstreamMltList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsLstGroupDownstreamMltList.setStatus("current")
+
+
+class _BsLstGroupOperState_Type(Integer32):
+    """Custom type bsLstGroupOperState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2),
+          ("notConfigured", 3))
+    )
+
+
+_BsLstGroupOperState_Type.__name__ = "Integer32"
+_BsLstGroupOperState_Object = MibTableColumn
+bsLstGroupOperState = _BsLstGroupOperState_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 2, 1, 7),
+    _BsLstGroupOperState_Type()
+)
+bsLstGroupOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bsLstGroupOperState.setStatus("current")
+_BsLstNotifObjects_ObjectIdentity = ObjectIdentity
+bsLstNotifObjects = _BsLstNotifObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 3)
+)
+
+
+class _BsLstInterfaceStatus_Type(Integer32):
+    """Custom type bsLstInterfaceStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2))
+    )
+
+
+_BsLstInterfaceStatus_Type.__name__ = "Integer32"
+_BsLstInterfaceStatus_Object = MibScalar
+bsLstInterfaceStatus = _BsLstInterfaceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 1, 3, 1),
+    _BsLstInterfaceStatus_Type()
+)
+bsLstInterfaceStatus.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    bsLstInterfaceStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+bsLstInterfaceStatusChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 0, 1)
+)
+bsLstInterfaceStatusChanged.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstInterfaceStatus"),
+        ("BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstGroupIndex"))
+)
+if mibBuilder.loadTexts:
+    bsLstInterfaceStatusChanged.setStatus(
+        "current"
+    )
+
+bsLstGroupOperStateChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 5, 43, 0, 2)
+)
+bsLstGroupOperStateChanged.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstInterfaceStatus"),
+        ("BAY-STACK-LINK-STATE-TRACKING-MIB", "bsLstGroupOperState"))
+)
+if mibBuilder.loadTexts:
+    bsLstGroupOperStateChanged.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BAY-STACK-LINK-STATE-TRACKING-MIB",
+    **{"PortList": PortList,
+       "IdList": IdList,
+       "bayStackLinkStateTrackingMib": bayStackLinkStateTrackingMib,
+       "bsLstNotifications": bsLstNotifications,
+       "bsLstInterfaceStatusChanged": bsLstInterfaceStatusChanged,
+       "bsLstGroupOperStateChanged": bsLstGroupOperStateChanged,
+       "bsLstObjects": bsLstObjects,
+       "bsLstScalars": bsLstScalars,
+       "bsLstGroupTable": bsLstGroupTable,
+       "bsLstGroupEntry": bsLstGroupEntry,
+       "bsLstGroupIndex": bsLstGroupIndex,
+       "bsLstGroupEnabled": bsLstGroupEnabled,
+       "bsLstGroupUpstreamPortList": bsLstGroupUpstreamPortList,
+       "bsLstGroupDownstreamPortList": bsLstGroupDownstreamPortList,
+       "bsLstGroupUpstreamMltList": bsLstGroupUpstreamMltList,
+       "bsLstGroupDownstreamMltList": bsLstGroupDownstreamMltList,
+       "bsLstGroupOperState": bsLstGroupOperState,
+       "bsLstNotifObjects": bsLstNotifObjects,
+       "bsLstInterfaceStatus": bsLstInterfaceStatus}
+)

@@ -1,53 +1,515 @@
+# SNMP MIB module (ALCATEL-IND1-IPMRM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALCATEL-IND1-IPMRM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-IPMRM-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:52 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alcatel/ALCATEL-IND1-IPMRM-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:08:47 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-routingIND1Ipmrm, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "routingIND1Ipmrm")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-alcatelIND1IPMRMMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1))
-alcatelIND1IPMRMMIB.setRevisions(('2007-04-03 00:00',))
-if mibBuilder.loadTexts: alcatelIND1IPMRMMIB.setLastUpdated('200704030000Z')
-if mibBuilder.loadTexts: alcatelIND1IPMRMMIB.setOrganization('Alcatel-Lucent')
-alcatelIND1IPMRMMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1))
-alaIpmrmDebugConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1))
-alaIpmrmDebugLevel = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpmrmDebugLevel.setStatus('deprecated')
-alaIpmrmDebugError = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpmrmDebugError.setStatus('deprecated')
-alaIpmrmDebugFib = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpmrmDebugFib.setStatus('deprecated')
-alaIpmrmDebugAging = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpmrmDebugAging.setStatus('deprecated')
-alaIpmrmDebugProtos = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpmrmDebugProtos.setStatus('deprecated')
-alaIpmrmDebugIpms = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpmrmDebugIpms.setStatus('deprecated')
-alaIpmrmDebugMip = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpmrmDebugMip.setStatus('deprecated')
-alaIpmrmDebugInit = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpmrmDebugInit.setStatus('deprecated')
-alaIpmrmDebugTm = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpmrmDebugTm.setStatus('deprecated')
-alaIpmrmDebugMisc = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpmrmDebugMisc.setStatus('deprecated')
-alaIpmrmDebugAll = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIpmrmDebugAll.setStatus('deprecated')
-alcatelIND1IPMRMMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 2))
-alcatelIND1IPMRMMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 2, 1))
-alcatelIND1IPMRMMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 2, 2))
-alaIpmrmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIpmrmCompliance = alaIpmrmCompliance.setStatus('current')
-alaIpmrmDebugMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 2, 2, 2)).setObjects(("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugLevel"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugError"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugFib"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugAging"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugProtos"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugIpms"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugMip"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugInit"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugTm"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugMisc"), ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugAll"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIpmrmDebugMIBGroup = alaIpmrmDebugMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-IND1-IPMRM-MIB", alaIpmrmDebugInit=alaIpmrmDebugInit, alcatelIND1IPMRMMIBGroups=alcatelIND1IPMRMMIBGroups, alaIpmrmDebugAll=alaIpmrmDebugAll, alcatelIND1IPMRMMIBConformance=alcatelIND1IPMRMMIBConformance, alaIpmrmDebugAging=alaIpmrmDebugAging, alaIpmrmDebugMip=alaIpmrmDebugMip, alaIpmrmDebugProtos=alaIpmrmDebugProtos, alaIpmrmDebugConfig=alaIpmrmDebugConfig, alaIpmrmCompliance=alaIpmrmCompliance, alcatelIND1IPMRMMIB=alcatelIND1IPMRMMIB, alaIpmrmDebugMisc=alaIpmrmDebugMisc, alaIpmrmDebugFib=alaIpmrmDebugFib, alaIpmrmDebugError=alaIpmrmDebugError, alaIpmrmDebugLevel=alaIpmrmDebugLevel, PYSNMP_MODULE_ID=alcatelIND1IPMRMMIB, alcatelIND1IPMRMMIBObjects=alcatelIND1IPMRMMIBObjects, alaIpmrmDebugIpms=alaIpmrmDebugIpms, alaIpmrmDebugMIBGroup=alaIpmrmDebugMIBGroup, alcatelIND1IPMRMMIBCompliances=alcatelIND1IPMRMMIBCompliances, alaIpmrmDebugTm=alaIpmrmDebugTm)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(routingIND1Ipmrm,) = mibBuilder.importSymbols(
+    "ALCATEL-IND1-BASE",
+    "routingIND1Ipmrm")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alcatelIND1IPMRMMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1IPMRMMIB.setRevisions(
+        ("2007-04-03 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlcatelIND1IPMRMMIBObjects_ObjectIdentity = ObjectIdentity
+alcatelIND1IPMRMMIBObjects = _AlcatelIND1IPMRMMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1)
+)
+_AlaIpmrmDebugConfig_ObjectIdentity = ObjectIdentity
+alaIpmrmDebugConfig = _AlaIpmrmDebugConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1)
+)
+
+
+class _AlaIpmrmDebugLevel_Type(Integer32):
+    """Custom type alaIpmrmDebugLevel based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_AlaIpmrmDebugLevel_Type.__name__ = "Integer32"
+_AlaIpmrmDebugLevel_Object = MibScalar
+alaIpmrmDebugLevel = _AlaIpmrmDebugLevel_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 1),
+    _AlaIpmrmDebugLevel_Type()
+)
+alaIpmrmDebugLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpmrmDebugLevel.setStatus("deprecated")
+
+
+class _AlaIpmrmDebugError_Type(Integer32):
+    """Custom type alaIpmrmDebugError based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIpmrmDebugError_Type.__name__ = "Integer32"
+_AlaIpmrmDebugError_Object = MibScalar
+alaIpmrmDebugError = _AlaIpmrmDebugError_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 2),
+    _AlaIpmrmDebugError_Type()
+)
+alaIpmrmDebugError.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpmrmDebugError.setStatus("deprecated")
+
+
+class _AlaIpmrmDebugFib_Type(Integer32):
+    """Custom type alaIpmrmDebugFib based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIpmrmDebugFib_Type.__name__ = "Integer32"
+_AlaIpmrmDebugFib_Object = MibScalar
+alaIpmrmDebugFib = _AlaIpmrmDebugFib_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 3),
+    _AlaIpmrmDebugFib_Type()
+)
+alaIpmrmDebugFib.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpmrmDebugFib.setStatus("deprecated")
+
+
+class _AlaIpmrmDebugAging_Type(Integer32):
+    """Custom type alaIpmrmDebugAging based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIpmrmDebugAging_Type.__name__ = "Integer32"
+_AlaIpmrmDebugAging_Object = MibScalar
+alaIpmrmDebugAging = _AlaIpmrmDebugAging_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 4),
+    _AlaIpmrmDebugAging_Type()
+)
+alaIpmrmDebugAging.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpmrmDebugAging.setStatus("deprecated")
+
+
+class _AlaIpmrmDebugProtos_Type(Integer32):
+    """Custom type alaIpmrmDebugProtos based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIpmrmDebugProtos_Type.__name__ = "Integer32"
+_AlaIpmrmDebugProtos_Object = MibScalar
+alaIpmrmDebugProtos = _AlaIpmrmDebugProtos_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 5),
+    _AlaIpmrmDebugProtos_Type()
+)
+alaIpmrmDebugProtos.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpmrmDebugProtos.setStatus("deprecated")
+
+
+class _AlaIpmrmDebugIpms_Type(Integer32):
+    """Custom type alaIpmrmDebugIpms based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIpmrmDebugIpms_Type.__name__ = "Integer32"
+_AlaIpmrmDebugIpms_Object = MibScalar
+alaIpmrmDebugIpms = _AlaIpmrmDebugIpms_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 6),
+    _AlaIpmrmDebugIpms_Type()
+)
+alaIpmrmDebugIpms.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpmrmDebugIpms.setStatus("deprecated")
+
+
+class _AlaIpmrmDebugMip_Type(Integer32):
+    """Custom type alaIpmrmDebugMip based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIpmrmDebugMip_Type.__name__ = "Integer32"
+_AlaIpmrmDebugMip_Object = MibScalar
+alaIpmrmDebugMip = _AlaIpmrmDebugMip_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 7),
+    _AlaIpmrmDebugMip_Type()
+)
+alaIpmrmDebugMip.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpmrmDebugMip.setStatus("deprecated")
+
+
+class _AlaIpmrmDebugInit_Type(Integer32):
+    """Custom type alaIpmrmDebugInit based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIpmrmDebugInit_Type.__name__ = "Integer32"
+_AlaIpmrmDebugInit_Object = MibScalar
+alaIpmrmDebugInit = _AlaIpmrmDebugInit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 8),
+    _AlaIpmrmDebugInit_Type()
+)
+alaIpmrmDebugInit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpmrmDebugInit.setStatus("deprecated")
+
+
+class _AlaIpmrmDebugTm_Type(Integer32):
+    """Custom type alaIpmrmDebugTm based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIpmrmDebugTm_Type.__name__ = "Integer32"
+_AlaIpmrmDebugTm_Object = MibScalar
+alaIpmrmDebugTm = _AlaIpmrmDebugTm_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 9),
+    _AlaIpmrmDebugTm_Type()
+)
+alaIpmrmDebugTm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpmrmDebugTm.setStatus("deprecated")
+
+
+class _AlaIpmrmDebugMisc_Type(Integer32):
+    """Custom type alaIpmrmDebugMisc based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIpmrmDebugMisc_Type.__name__ = "Integer32"
+_AlaIpmrmDebugMisc_Object = MibScalar
+alaIpmrmDebugMisc = _AlaIpmrmDebugMisc_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 10),
+    _AlaIpmrmDebugMisc_Type()
+)
+alaIpmrmDebugMisc.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpmrmDebugMisc.setStatus("deprecated")
+
+
+class _AlaIpmrmDebugAll_Type(Integer32):
+    """Custom type alaIpmrmDebugAll based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIpmrmDebugAll_Type.__name__ = "Integer32"
+_AlaIpmrmDebugAll_Object = MibScalar
+alaIpmrmDebugAll = _AlaIpmrmDebugAll_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 1, 1, 11),
+    _AlaIpmrmDebugAll_Type()
+)
+alaIpmrmDebugAll.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIpmrmDebugAll.setStatus("deprecated")
+_AlcatelIND1IPMRMMIBConformance_ObjectIdentity = ObjectIdentity
+alcatelIND1IPMRMMIBConformance = _AlcatelIND1IPMRMMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 2)
+)
+_AlcatelIND1IPMRMMIBCompliances_ObjectIdentity = ObjectIdentity
+alcatelIND1IPMRMMIBCompliances = _AlcatelIND1IPMRMMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 2, 1)
+)
+_AlcatelIND1IPMRMMIBGroups_ObjectIdentity = ObjectIdentity
+alcatelIND1IPMRMMIBGroups = _AlcatelIND1IPMRMMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 2, 2)
+)
+
+# Managed Objects groups
+
+alaIpmrmDebugMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 2, 2, 2)
+)
+alaIpmrmDebugMIBGroup.setObjects(
+      *(("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugLevel"),
+        ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugError"),
+        ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugFib"),
+        ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugAging"),
+        ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugProtos"),
+        ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugIpms"),
+        ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugMip"),
+        ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugInit"),
+        ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugTm"),
+        ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugMisc"),
+        ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugAll"))
+)
+if mibBuilder.loadTexts:
+    alaIpmrmDebugMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alaIpmrmCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 10, 1, 2, 1, 1)
+)
+alaIpmrmCompliance.setObjects(
+    ("ALCATEL-IND1-IPMRM-MIB", "alaIpmrmDebugMIBGroup")
+)
+if mibBuilder.loadTexts:
+    alaIpmrmCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALCATEL-IND1-IPMRM-MIB",
+    **{"alcatelIND1IPMRMMIB": alcatelIND1IPMRMMIB,
+       "alcatelIND1IPMRMMIBObjects": alcatelIND1IPMRMMIBObjects,
+       "alaIpmrmDebugConfig": alaIpmrmDebugConfig,
+       "alaIpmrmDebugLevel": alaIpmrmDebugLevel,
+       "alaIpmrmDebugError": alaIpmrmDebugError,
+       "alaIpmrmDebugFib": alaIpmrmDebugFib,
+       "alaIpmrmDebugAging": alaIpmrmDebugAging,
+       "alaIpmrmDebugProtos": alaIpmrmDebugProtos,
+       "alaIpmrmDebugIpms": alaIpmrmDebugIpms,
+       "alaIpmrmDebugMip": alaIpmrmDebugMip,
+       "alaIpmrmDebugInit": alaIpmrmDebugInit,
+       "alaIpmrmDebugTm": alaIpmrmDebugTm,
+       "alaIpmrmDebugMisc": alaIpmrmDebugMisc,
+       "alaIpmrmDebugAll": alaIpmrmDebugAll,
+       "alcatelIND1IPMRMMIBConformance": alcatelIND1IPMRMMIBConformance,
+       "alcatelIND1IPMRMMIBCompliances": alcatelIND1IPMRMMIBCompliances,
+       "alaIpmrmCompliance": alaIpmrmCompliance,
+       "alcatelIND1IPMRMMIBGroups": alcatelIND1IPMRMMIBGroups,
+       "alaIpmrmDebugMIBGroup": alaIpmrmDebugMIBGroup}
+)

@@ -1,180 +1,1316 @@
+# SNMP MIB module (ES-GroupManagement-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ES-GroupManagement-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zte/ES-GroupManagement-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zte/ES-GroupManagement-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:45:36 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-class MacAddress(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = ''
 
-zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
-ethernetSwitch = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 15))
-groupManagement = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 15, 4))
-groupParam = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 15, 4, 1))
-neighborDiscovery = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2))
-topologyCollect = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3))
-memberManage = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4))
-gmEnterpriseTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 15, 4, 5))
-gmHandtime = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 300))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: gmHandtime.setStatus('current')
-gmHoldtime = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 300))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: gmHoldtime.setStatus('current')
-gmName = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: gmName.setStatus('current')
-gmSwitchRole = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("commandSwitch", 1), ("memberSwitch", 2), ("candidateSwitch", 3), ("independentSwitch", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: gmSwitchRole.setStatus('current')
-gmIpPool = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 5), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: gmIpPool.setStatus('current')
-tftpServerIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 6), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tftpServerIpAddr.setStatus('current')
-belongedCmdMac = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 7), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: belongedCmdMac.setStatus('current')
-dpAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dpAdminStatus.setStatus('current')
-dpTimer = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dpTimer.setStatus('current')
-dpHoldtime = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dpHoldtime.setStatus('current')
-dpPortTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 4), )
-if mibBuilder.loadTexts: dpPortTable.setStatus('current')
-dpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 4, 1), ).setIndexNames((0, "ES-GroupManagement-MIB", "dpPortId"))
-if mibBuilder.loadTexts: dpPortEntry.setStatus('current')
-dpPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 4, 1, 1), Integer32())
-if mibBuilder.loadTexts: dpPortId.setStatus('current')
-dpPortAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dpPortAdminStatus.setStatus('current')
-dpTrunkTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 5), )
-if mibBuilder.loadTexts: dpTrunkTable.setStatus('current')
-dpTrunkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 5, 1), ).setIndexNames((0, "ES-GroupManagement-MIB", "dpTrunkId"))
-if mibBuilder.loadTexts: dpTrunkEntry.setStatus('current')
-dpTrunkId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 5, 1, 1), Integer32())
-if mibBuilder.loadTexts: dpTrunkId.setStatus('current')
-dpTrunkAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 5, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dpTrunkAdminStatus.setStatus('current')
-dpDevPortTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6), )
-if mibBuilder.loadTexts: dpDevPortTable.setStatus('current')
-dpDevPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1), ).setIndexNames((0, "ES-GroupManagement-MIB", "dpLocalPortId"), (0, "ES-GroupManagement-MIB", "dpPortPeerMac"))
-if mibBuilder.loadTexts: dpDevPortEntry.setStatus('current')
-dpLocalPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1, 1), Integer32())
-if mibBuilder.loadTexts: dpLocalPortId.setStatus('current')
-dpPortPeerMac = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dpPortPeerMac.setStatus('current')
-dpPortHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dpPortHoldTime.setStatus('current')
-dpPortPeerPlatform = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1, 4), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dpPortPeerPlatform.setStatus('current')
-dpPortPeerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1, 5), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dpPortPeerPort.setStatus('current')
-dpDevTrunkTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7), )
-if mibBuilder.loadTexts: dpDevTrunkTable.setStatus('current')
-dpDevTrunkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1), ).setIndexNames((0, "ES-GroupManagement-MIB", "dpLocalTrunkId"), (0, "ES-GroupManagement-MIB", "dpTrunkPeerMac"))
-if mibBuilder.loadTexts: dpDevTrunkEntry.setStatus('current')
-dpLocalTrunkId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1, 1), Integer32())
-if mibBuilder.loadTexts: dpLocalTrunkId.setStatus('current')
-dpTrunkPeerMac = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dpTrunkPeerMac.setStatus('current')
-dpTrunkHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dpTrunkHoldTime.setStatus('current')
-dpTrunkPeerPlatform = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1, 4), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dpTrunkPeerPlatform.setStatus('current')
-dpTrunkPeerTrunk = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1, 5), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dpTrunkPeerTrunk.setStatus('current')
-tpAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpAdminStatus.setStatus('current')
-tpVlan = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpVlan.setStatus('current')
-tpHop = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpHop.setStatus('current')
-tpTimer = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpTimer.setStatus('current')
-tpHopDelay = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpHopDelay.setStatus('current')
-tpPortDelay = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpPortDelay.setStatus('current')
-tpStart = MibScalar((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("start", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpStart.setStatus('current')
-tpPortTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 8), )
-if mibBuilder.loadTexts: tpPortTable.setStatus('current')
-tpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 8, 1), ).setIndexNames((0, "ES-GroupManagement-MIB", "tpPortId"))
-if mibBuilder.loadTexts: tpPortEntry.setStatus('current')
-tpPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 8, 1, 1), Integer32())
-if mibBuilder.loadTexts: tpPortId.setStatus('current')
-tpPortAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpPortAdminStatus.setStatus('current')
-tpTrunkTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 9), )
-if mibBuilder.loadTexts: tpTrunkTable.setStatus('current')
-tpTrunkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 9, 1), ).setIndexNames((0, "ES-GroupManagement-MIB", "tpTrunkId"))
-if mibBuilder.loadTexts: tpTrunkEntry.setStatus('current')
-tpTrunkId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 9, 1, 1), Integer32())
-if mibBuilder.loadTexts: tpTrunkId.setStatus('current')
-tpTrunkAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 9, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpTrunkAdminStatus.setStatus('current')
-tpDeviceTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10), )
-if mibBuilder.loadTexts: tpDeviceTable.setStatus('current')
-tpDeviceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1), ).setIndexNames((0, "ES-GroupManagement-MIB", "deviceMac"))
-if mibBuilder.loadTexts: tpDeviceEntry.setStatus('current')
-deviceMac = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 1), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceMac.setStatus('current')
-deviceId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2147483648, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceId.setStatus('current')
-deviceIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceIpAddr.setStatus('current')
-deviceHop = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceHop.setStatus('current')
-devicePlatform = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 5), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devicePlatform.setStatus('current')
-deviceRole = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("commandSwitch", 1), ("memberSwitch", 2), ("candidateSwitch", 3), ("independentSwitch", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceRole.setStatus('current')
-devicePeerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 7), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devicePeerPort.setStatus('current')
-deviceBelongedMac = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 8), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceBelongedMac.setStatus('current')
-deviceBelongedIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 9), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceBelongedIpAddr.setStatus('current')
-memberTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1), )
-if mibBuilder.loadTexts: memberTable.setStatus('current')
-memberEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1), ).setIndexNames((0, "ES-GroupManagement-MIB", "memMac"))
-if mibBuilder.loadTexts: memberEntry.setStatus('current')
-memMac = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 1), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: memMac.setStatus('current')
-memId = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: memId.setStatus('current')
-memIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: memIpAddr.setStatus('current')
-memMask = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: memMask.setStatus('current')
-memStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: memStatus.setStatus('current')
-memRole = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("memberSwitch", 1), ("candidateSwitch", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: memRole.setStatus('current')
-snmpPortMap = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snmpPortMap.setStatus('current')
-httpPortMap = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2147483648, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: httpPortMap.setStatus('current')
-ftpPortMap = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2147483648, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ftpPortMap.setStatus('current')
-tftpPortMap = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-2147483648, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tftpPortMap.setStatus('current')
-telnetPortMap = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: telnetPortMap.setStatus('current')
-sshPortMap = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sshPortMap.setStatus('current')
-memSaveConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: memSaveConfig.setStatus('current')
-memEraseConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: memEraseConfig.setStatus('current')
-memReboot = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: memReboot.setStatus('current')
-gmTopologyChange = NotificationType((1, 3, 6, 1, 4, 1, 3902, 15, 4, 5, 1))
-if mibBuilder.loadTexts: gmTopologyChange.setStatus('current')
-gmMemberUpDown = NotificationType((1, 3, 6, 1, 4, 1, 3902, 15, 4, 5, 2)).setObjects(("ES-GroupManagement-MIB", "memMac"), ("ES-GroupManagement-MIB", "memId"), ("ES-GroupManagement-MIB", "memIpAddr"), ("ES-GroupManagement-MIB", "memStatus"))
-if mibBuilder.loadTexts: gmMemberUpDown.setStatus('current')
-mibBuilder.exportSymbols("ES-GroupManagement-MIB", tpDeviceTable=tpDeviceTable, memStatus=memStatus, dpDevPortTable=dpDevPortTable, memberTable=memberTable, dpPortPeerPort=dpPortPeerPort, dpPortAdminStatus=dpPortAdminStatus, tpPortAdminStatus=tpPortAdminStatus, dpTrunkEntry=dpTrunkEntry, memMac=memMac, tpPortId=tpPortId, dpPortId=dpPortId, snmpPortMap=snmpPortMap, dpTimer=dpTimer, deviceBelongedIpAddr=deviceBelongedIpAddr, memId=memId, tpDeviceEntry=tpDeviceEntry, deviceIpAddr=deviceIpAddr, ethernetSwitch=ethernetSwitch, tpPortEntry=tpPortEntry, dpTrunkId=dpTrunkId, gmHoldtime=gmHoldtime, dpAdminStatus=dpAdminStatus, topologyCollect=topologyCollect, dpPortTable=dpPortTable, dpPortPeerMac=dpPortPeerMac, tpVlan=tpVlan, neighborDiscovery=neighborDiscovery, sshPortMap=sshPortMap, gmMemberUpDown=gmMemberUpDown, deviceBelongedMac=deviceBelongedMac, deviceRole=deviceRole, gmHandtime=gmHandtime, devicePlatform=devicePlatform, belongedCmdMac=belongedCmdMac, tpTrunkTable=tpTrunkTable, dpDevPortEntry=dpDevPortEntry, memRole=memRole, tftpPortMap=tftpPortMap, zte=zte, MacAddress=MacAddress, tpAdminStatus=tpAdminStatus, httpPortMap=httpPortMap, tpHopDelay=tpHopDelay, ftpPortMap=ftpPortMap, dpLocalTrunkId=dpLocalTrunkId, dpPortEntry=dpPortEntry, groupParam=groupParam, dpPortPeerPlatform=dpPortPeerPlatform, dpTrunkAdminStatus=dpTrunkAdminStatus, dpDevTrunkEntry=dpDevTrunkEntry, dpTrunkHoldTime=dpTrunkHoldTime, deviceHop=deviceHop, memReboot=memReboot, tpTimer=tpTimer, memberManage=memberManage, dpDevTrunkTable=dpDevTrunkTable, gmIpPool=gmIpPool, memEraseConfig=memEraseConfig, dpTrunkPeerMac=dpTrunkPeerMac, tpStart=tpStart, deviceMac=deviceMac, tftpServerIpAddr=tftpServerIpAddr, dpTrunkTable=dpTrunkTable, groupManagement=groupManagement, dpLocalPortId=dpLocalPortId, tpPortTable=tpPortTable, memberEntry=memberEntry, gmSwitchRole=gmSwitchRole, deviceId=deviceId, devicePeerPort=devicePeerPort, gmName=gmName, gmEnterpriseTrap=gmEnterpriseTrap, memIpAddr=memIpAddr, gmTopologyChange=gmTopologyChange, tpPortDelay=tpPortDelay, dpTrunkPeerPlatform=dpTrunkPeerPlatform, dpTrunkPeerTrunk=dpTrunkPeerTrunk, dpHoldtime=dpHoldtime, tpHop=tpHop, telnetPortMap=telnetPortMap, memSaveConfig=memSaveConfig, memMask=memMask, dpPortHoldTime=dpPortHoldTime, tpTrunkEntry=tpTrunkEntry, tpTrunkId=tpTrunkId, tpTrunkAdminStatus=tpTrunkAdminStatus)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class MacAddress(TextualConvention, OctetString):
+    status = "current"
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Zte_ObjectIdentity = ObjectIdentity
+zte = _Zte_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902)
+)
+_EthernetSwitch_ObjectIdentity = ObjectIdentity
+ethernetSwitch = _EthernetSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 15)
+)
+_GroupManagement_ObjectIdentity = ObjectIdentity
+groupManagement = _GroupManagement_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4)
+)
+_GroupParam_ObjectIdentity = ObjectIdentity
+groupParam = _GroupParam_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 1)
+)
+
+
+class _GmHandtime_Type(Integer32):
+    """Custom type gmHandtime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 300),
+    )
+
+
+_GmHandtime_Type.__name__ = "Integer32"
+_GmHandtime_Object = MibScalar
+gmHandtime = _GmHandtime_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 1),
+    _GmHandtime_Type()
+)
+gmHandtime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    gmHandtime.setStatus("current")
+
+
+class _GmHoldtime_Type(Integer32):
+    """Custom type gmHoldtime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 300),
+    )
+
+
+_GmHoldtime_Type.__name__ = "Integer32"
+_GmHoldtime_Object = MibScalar
+gmHoldtime = _GmHoldtime_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 2),
+    _GmHoldtime_Type()
+)
+gmHoldtime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    gmHoldtime.setStatus("current")
+
+
+class _GmName_Type(OctetString):
+    """Custom type gmName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_GmName_Type.__name__ = "OctetString"
+_GmName_Object = MibScalar
+gmName = _GmName_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 3),
+    _GmName_Type()
+)
+gmName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    gmName.setStatus("current")
+
+
+class _GmSwitchRole_Type(Integer32):
+    """Custom type gmSwitchRole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("commandSwitch", 1),
+          ("memberSwitch", 2),
+          ("candidateSwitch", 3),
+          ("independentSwitch", 4))
+    )
+
+
+_GmSwitchRole_Type.__name__ = "Integer32"
+_GmSwitchRole_Object = MibScalar
+gmSwitchRole = _GmSwitchRole_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 4),
+    _GmSwitchRole_Type()
+)
+gmSwitchRole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    gmSwitchRole.setStatus("current")
+_GmIpPool_Type = OctetString
+_GmIpPool_Object = MibScalar
+gmIpPool = _GmIpPool_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 5),
+    _GmIpPool_Type()
+)
+gmIpPool.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    gmIpPool.setStatus("current")
+_TftpServerIpAddr_Type = IpAddress
+_TftpServerIpAddr_Object = MibScalar
+tftpServerIpAddr = _TftpServerIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 6),
+    _TftpServerIpAddr_Type()
+)
+tftpServerIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tftpServerIpAddr.setStatus("current")
+_BelongedCmdMac_Type = MacAddress
+_BelongedCmdMac_Object = MibScalar
+belongedCmdMac = _BelongedCmdMac_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 1, 7),
+    _BelongedCmdMac_Type()
+)
+belongedCmdMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    belongedCmdMac.setStatus("current")
+_NeighborDiscovery_ObjectIdentity = ObjectIdentity
+neighborDiscovery = _NeighborDiscovery_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2)
+)
+
+
+class _DpAdminStatus_Type(Integer32):
+    """Custom type dpAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_DpAdminStatus_Type.__name__ = "Integer32"
+_DpAdminStatus_Object = MibScalar
+dpAdminStatus = _DpAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 1),
+    _DpAdminStatus_Type()
+)
+dpAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dpAdminStatus.setStatus("current")
+
+
+class _DpTimer_Type(Integer32):
+    """Custom type dpTimer based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 255),
+    )
+
+
+_DpTimer_Type.__name__ = "Integer32"
+_DpTimer_Object = MibScalar
+dpTimer = _DpTimer_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 2),
+    _DpTimer_Type()
+)
+dpTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dpTimer.setStatus("current")
+
+
+class _DpHoldtime_Type(Integer32):
+    """Custom type dpHoldtime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 255),
+    )
+
+
+_DpHoldtime_Type.__name__ = "Integer32"
+_DpHoldtime_Object = MibScalar
+dpHoldtime = _DpHoldtime_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 3),
+    _DpHoldtime_Type()
+)
+dpHoldtime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dpHoldtime.setStatus("current")
+_DpPortTable_Object = MibTable
+dpPortTable = _DpPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 4)
+)
+if mibBuilder.loadTexts:
+    dpPortTable.setStatus("current")
+_DpPortEntry_Object = MibTableRow
+dpPortEntry = _DpPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 4, 1)
+)
+dpPortEntry.setIndexNames(
+    (0, "ES-GroupManagement-MIB", "dpPortId"),
+)
+if mibBuilder.loadTexts:
+    dpPortEntry.setStatus("current")
+_DpPortId_Type = Integer32
+_DpPortId_Object = MibTableColumn
+dpPortId = _DpPortId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 4, 1, 1),
+    _DpPortId_Type()
+)
+dpPortId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dpPortId.setStatus("current")
+
+
+class _DpPortAdminStatus_Type(Integer32):
+    """Custom type dpPortAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_DpPortAdminStatus_Type.__name__ = "Integer32"
+_DpPortAdminStatus_Object = MibTableColumn
+dpPortAdminStatus = _DpPortAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 4, 1, 2),
+    _DpPortAdminStatus_Type()
+)
+dpPortAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dpPortAdminStatus.setStatus("current")
+_DpTrunkTable_Object = MibTable
+dpTrunkTable = _DpTrunkTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 5)
+)
+if mibBuilder.loadTexts:
+    dpTrunkTable.setStatus("current")
+_DpTrunkEntry_Object = MibTableRow
+dpTrunkEntry = _DpTrunkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 5, 1)
+)
+dpTrunkEntry.setIndexNames(
+    (0, "ES-GroupManagement-MIB", "dpTrunkId"),
+)
+if mibBuilder.loadTexts:
+    dpTrunkEntry.setStatus("current")
+_DpTrunkId_Type = Integer32
+_DpTrunkId_Object = MibTableColumn
+dpTrunkId = _DpTrunkId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 5, 1, 1),
+    _DpTrunkId_Type()
+)
+dpTrunkId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dpTrunkId.setStatus("current")
+
+
+class _DpTrunkAdminStatus_Type(Integer32):
+    """Custom type dpTrunkAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_DpTrunkAdminStatus_Type.__name__ = "Integer32"
+_DpTrunkAdminStatus_Object = MibTableColumn
+dpTrunkAdminStatus = _DpTrunkAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 5, 1, 2),
+    _DpTrunkAdminStatus_Type()
+)
+dpTrunkAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dpTrunkAdminStatus.setStatus("current")
+_DpDevPortTable_Object = MibTable
+dpDevPortTable = _DpDevPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6)
+)
+if mibBuilder.loadTexts:
+    dpDevPortTable.setStatus("current")
+_DpDevPortEntry_Object = MibTableRow
+dpDevPortEntry = _DpDevPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1)
+)
+dpDevPortEntry.setIndexNames(
+    (0, "ES-GroupManagement-MIB", "dpLocalPortId"),
+    (0, "ES-GroupManagement-MIB", "dpPortPeerMac"),
+)
+if mibBuilder.loadTexts:
+    dpDevPortEntry.setStatus("current")
+_DpLocalPortId_Type = Integer32
+_DpLocalPortId_Object = MibTableColumn
+dpLocalPortId = _DpLocalPortId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1, 1),
+    _DpLocalPortId_Type()
+)
+dpLocalPortId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dpLocalPortId.setStatus("current")
+_DpPortPeerMac_Type = MacAddress
+_DpPortPeerMac_Object = MibTableColumn
+dpPortPeerMac = _DpPortPeerMac_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1, 2),
+    _DpPortPeerMac_Type()
+)
+dpPortPeerMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dpPortPeerMac.setStatus("current")
+_DpPortHoldTime_Type = Integer32
+_DpPortHoldTime_Object = MibTableColumn
+dpPortHoldTime = _DpPortHoldTime_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1, 3),
+    _DpPortHoldTime_Type()
+)
+dpPortHoldTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dpPortHoldTime.setStatus("current")
+_DpPortPeerPlatform_Type = OctetString
+_DpPortPeerPlatform_Object = MibTableColumn
+dpPortPeerPlatform = _DpPortPeerPlatform_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1, 4),
+    _DpPortPeerPlatform_Type()
+)
+dpPortPeerPlatform.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dpPortPeerPlatform.setStatus("current")
+_DpPortPeerPort_Type = OctetString
+_DpPortPeerPort_Object = MibTableColumn
+dpPortPeerPort = _DpPortPeerPort_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 6, 1, 5),
+    _DpPortPeerPort_Type()
+)
+dpPortPeerPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dpPortPeerPort.setStatus("current")
+_DpDevTrunkTable_Object = MibTable
+dpDevTrunkTable = _DpDevTrunkTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7)
+)
+if mibBuilder.loadTexts:
+    dpDevTrunkTable.setStatus("current")
+_DpDevTrunkEntry_Object = MibTableRow
+dpDevTrunkEntry = _DpDevTrunkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1)
+)
+dpDevTrunkEntry.setIndexNames(
+    (0, "ES-GroupManagement-MIB", "dpLocalTrunkId"),
+    (0, "ES-GroupManagement-MIB", "dpTrunkPeerMac"),
+)
+if mibBuilder.loadTexts:
+    dpDevTrunkEntry.setStatus("current")
+_DpLocalTrunkId_Type = Integer32
+_DpLocalTrunkId_Object = MibTableColumn
+dpLocalTrunkId = _DpLocalTrunkId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1, 1),
+    _DpLocalTrunkId_Type()
+)
+dpLocalTrunkId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dpLocalTrunkId.setStatus("current")
+_DpTrunkPeerMac_Type = MacAddress
+_DpTrunkPeerMac_Object = MibTableColumn
+dpTrunkPeerMac = _DpTrunkPeerMac_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1, 2),
+    _DpTrunkPeerMac_Type()
+)
+dpTrunkPeerMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dpTrunkPeerMac.setStatus("current")
+_DpTrunkHoldTime_Type = Integer32
+_DpTrunkHoldTime_Object = MibTableColumn
+dpTrunkHoldTime = _DpTrunkHoldTime_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1, 3),
+    _DpTrunkHoldTime_Type()
+)
+dpTrunkHoldTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dpTrunkHoldTime.setStatus("current")
+_DpTrunkPeerPlatform_Type = OctetString
+_DpTrunkPeerPlatform_Object = MibTableColumn
+dpTrunkPeerPlatform = _DpTrunkPeerPlatform_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1, 4),
+    _DpTrunkPeerPlatform_Type()
+)
+dpTrunkPeerPlatform.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dpTrunkPeerPlatform.setStatus("current")
+_DpTrunkPeerTrunk_Type = OctetString
+_DpTrunkPeerTrunk_Object = MibTableColumn
+dpTrunkPeerTrunk = _DpTrunkPeerTrunk_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 2, 7, 1, 5),
+    _DpTrunkPeerTrunk_Type()
+)
+dpTrunkPeerTrunk.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dpTrunkPeerTrunk.setStatus("current")
+_TopologyCollect_ObjectIdentity = ObjectIdentity
+topologyCollect = _TopologyCollect_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3)
+)
+
+
+class _TpAdminStatus_Type(Integer32):
+    """Custom type tpAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_TpAdminStatus_Type.__name__ = "Integer32"
+_TpAdminStatus_Object = MibScalar
+tpAdminStatus = _TpAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 1),
+    _TpAdminStatus_Type()
+)
+tpAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpAdminStatus.setStatus("current")
+
+
+class _TpVlan_Type(Integer32):
+    """Custom type tpVlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_TpVlan_Type.__name__ = "Integer32"
+_TpVlan_Object = MibScalar
+tpVlan = _TpVlan_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 2),
+    _TpVlan_Type()
+)
+tpVlan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpVlan.setStatus("current")
+
+
+class _TpHop_Type(Integer32):
+    """Custom type tpHop based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+_TpHop_Type.__name__ = "Integer32"
+_TpHop_Object = MibScalar
+tpHop = _TpHop_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 3),
+    _TpHop_Type()
+)
+tpHop.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpHop.setStatus("current")
+
+
+class _TpTimer_Type(Integer32):
+    """Custom type tpTimer based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60),
+    )
+
+
+_TpTimer_Type.__name__ = "Integer32"
+_TpTimer_Object = MibScalar
+tpTimer = _TpTimer_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 4),
+    _TpTimer_Type()
+)
+tpTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpTimer.setStatus("current")
+
+
+class _TpHopDelay_Type(Integer32):
+    """Custom type tpHopDelay based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1000),
+    )
+
+
+_TpHopDelay_Type.__name__ = "Integer32"
+_TpHopDelay_Object = MibScalar
+tpHopDelay = _TpHopDelay_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 5),
+    _TpHopDelay_Type()
+)
+tpHopDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpHopDelay.setStatus("current")
+
+
+class _TpPortDelay_Type(Integer32):
+    """Custom type tpPortDelay based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 100),
+    )
+
+
+_TpPortDelay_Type.__name__ = "Integer32"
+_TpPortDelay_Object = MibScalar
+tpPortDelay = _TpPortDelay_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 6),
+    _TpPortDelay_Type()
+)
+tpPortDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpPortDelay.setStatus("current")
+
+
+class _TpStart_Type(Integer32):
+    """Custom type tpStart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("start", 1)
+    )
+
+
+_TpStart_Type.__name__ = "Integer32"
+_TpStart_Object = MibScalar
+tpStart = _TpStart_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 7),
+    _TpStart_Type()
+)
+tpStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpStart.setStatus("current")
+_TpPortTable_Object = MibTable
+tpPortTable = _TpPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 8)
+)
+if mibBuilder.loadTexts:
+    tpPortTable.setStatus("current")
+_TpPortEntry_Object = MibTableRow
+tpPortEntry = _TpPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 8, 1)
+)
+tpPortEntry.setIndexNames(
+    (0, "ES-GroupManagement-MIB", "tpPortId"),
+)
+if mibBuilder.loadTexts:
+    tpPortEntry.setStatus("current")
+_TpPortId_Type = Integer32
+_TpPortId_Object = MibTableColumn
+tpPortId = _TpPortId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 8, 1, 1),
+    _TpPortId_Type()
+)
+tpPortId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tpPortId.setStatus("current")
+
+
+class _TpPortAdminStatus_Type(Integer32):
+    """Custom type tpPortAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_TpPortAdminStatus_Type.__name__ = "Integer32"
+_TpPortAdminStatus_Object = MibTableColumn
+tpPortAdminStatus = _TpPortAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 8, 1, 2),
+    _TpPortAdminStatus_Type()
+)
+tpPortAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpPortAdminStatus.setStatus("current")
+_TpTrunkTable_Object = MibTable
+tpTrunkTable = _TpTrunkTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 9)
+)
+if mibBuilder.loadTexts:
+    tpTrunkTable.setStatus("current")
+_TpTrunkEntry_Object = MibTableRow
+tpTrunkEntry = _TpTrunkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 9, 1)
+)
+tpTrunkEntry.setIndexNames(
+    (0, "ES-GroupManagement-MIB", "tpTrunkId"),
+)
+if mibBuilder.loadTexts:
+    tpTrunkEntry.setStatus("current")
+_TpTrunkId_Type = Integer32
+_TpTrunkId_Object = MibTableColumn
+tpTrunkId = _TpTrunkId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 9, 1, 1),
+    _TpTrunkId_Type()
+)
+tpTrunkId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tpTrunkId.setStatus("current")
+
+
+class _TpTrunkAdminStatus_Type(Integer32):
+    """Custom type tpTrunkAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_TpTrunkAdminStatus_Type.__name__ = "Integer32"
+_TpTrunkAdminStatus_Object = MibTableColumn
+tpTrunkAdminStatus = _TpTrunkAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 9, 1, 2),
+    _TpTrunkAdminStatus_Type()
+)
+tpTrunkAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpTrunkAdminStatus.setStatus("current")
+_TpDeviceTable_Object = MibTable
+tpDeviceTable = _TpDeviceTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10)
+)
+if mibBuilder.loadTexts:
+    tpDeviceTable.setStatus("current")
+_TpDeviceEntry_Object = MibTableRow
+tpDeviceEntry = _TpDeviceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1)
+)
+tpDeviceEntry.setIndexNames(
+    (0, "ES-GroupManagement-MIB", "deviceMac"),
+)
+if mibBuilder.loadTexts:
+    tpDeviceEntry.setStatus("current")
+_DeviceMac_Type = MacAddress
+_DeviceMac_Object = MibTableColumn
+deviceMac = _DeviceMac_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 1),
+    _DeviceMac_Type()
+)
+deviceMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceMac.setStatus("current")
+
+
+class _DeviceId_Type(Integer32):
+    """Custom type deviceId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-2147483648, 2147483647),
+    )
+
+
+_DeviceId_Type.__name__ = "Integer32"
+_DeviceId_Object = MibTableColumn
+deviceId = _DeviceId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 2),
+    _DeviceId_Type()
+)
+deviceId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceId.setStatus("current")
+_DeviceIpAddr_Type = IpAddress
+_DeviceIpAddr_Object = MibTableColumn
+deviceIpAddr = _DeviceIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 3),
+    _DeviceIpAddr_Type()
+)
+deviceIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceIpAddr.setStatus("current")
+_DeviceHop_Type = Integer32
+_DeviceHop_Object = MibTableColumn
+deviceHop = _DeviceHop_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 4),
+    _DeviceHop_Type()
+)
+deviceHop.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceHop.setStatus("current")
+_DevicePlatform_Type = OctetString
+_DevicePlatform_Object = MibTableColumn
+devicePlatform = _DevicePlatform_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 5),
+    _DevicePlatform_Type()
+)
+devicePlatform.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devicePlatform.setStatus("current")
+
+
+class _DeviceRole_Type(Integer32):
+    """Custom type deviceRole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("commandSwitch", 1),
+          ("memberSwitch", 2),
+          ("candidateSwitch", 3),
+          ("independentSwitch", 4))
+    )
+
+
+_DeviceRole_Type.__name__ = "Integer32"
+_DeviceRole_Object = MibTableColumn
+deviceRole = _DeviceRole_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 6),
+    _DeviceRole_Type()
+)
+deviceRole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceRole.setStatus("current")
+_DevicePeerPort_Type = OctetString
+_DevicePeerPort_Object = MibTableColumn
+devicePeerPort = _DevicePeerPort_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 7),
+    _DevicePeerPort_Type()
+)
+devicePeerPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devicePeerPort.setStatus("current")
+_DeviceBelongedMac_Type = MacAddress
+_DeviceBelongedMac_Object = MibTableColumn
+deviceBelongedMac = _DeviceBelongedMac_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 8),
+    _DeviceBelongedMac_Type()
+)
+deviceBelongedMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceBelongedMac.setStatus("current")
+_DeviceBelongedIpAddr_Type = IpAddress
+_DeviceBelongedIpAddr_Object = MibTableColumn
+deviceBelongedIpAddr = _DeviceBelongedIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 3, 10, 1, 9),
+    _DeviceBelongedIpAddr_Type()
+)
+deviceBelongedIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceBelongedIpAddr.setStatus("current")
+_MemberManage_ObjectIdentity = ObjectIdentity
+memberManage = _MemberManage_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4)
+)
+_MemberTable_Object = MibTable
+memberTable = _MemberTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1)
+)
+if mibBuilder.loadTexts:
+    memberTable.setStatus("current")
+_MemberEntry_Object = MibTableRow
+memberEntry = _MemberEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1)
+)
+memberEntry.setIndexNames(
+    (0, "ES-GroupManagement-MIB", "memMac"),
+)
+if mibBuilder.loadTexts:
+    memberEntry.setStatus("current")
+_MemMac_Type = MacAddress
+_MemMac_Object = MibTableColumn
+memMac = _MemMac_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 1),
+    _MemMac_Type()
+)
+memMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    memMac.setStatus("current")
+_MemId_Type = Integer32
+_MemId_Object = MibTableColumn
+memId = _MemId_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 2),
+    _MemId_Type()
+)
+memId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    memId.setStatus("current")
+_MemIpAddr_Type = IpAddress
+_MemIpAddr_Object = MibTableColumn
+memIpAddr = _MemIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 3),
+    _MemIpAddr_Type()
+)
+memIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    memIpAddr.setStatus("current")
+_MemMask_Type = IpAddress
+_MemMask_Object = MibTableColumn
+memMask = _MemMask_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 4),
+    _MemMask_Type()
+)
+memMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    memMask.setStatus("current")
+
+
+class _MemStatus_Type(Integer32):
+    """Custom type memStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2))
+    )
+
+
+_MemStatus_Type.__name__ = "Integer32"
+_MemStatus_Object = MibTableColumn
+memStatus = _MemStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 5),
+    _MemStatus_Type()
+)
+memStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    memStatus.setStatus("current")
+
+
+class _MemRole_Type(Integer32):
+    """Custom type memRole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("memberSwitch", 1),
+          ("candidateSwitch", 2))
+    )
+
+
+_MemRole_Type.__name__ = "Integer32"
+_MemRole_Object = MibTableColumn
+memRole = _MemRole_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 6),
+    _MemRole_Type()
+)
+memRole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    memRole.setStatus("current")
+_SnmpPortMap_Type = Unsigned32
+_SnmpPortMap_Object = MibTableColumn
+snmpPortMap = _SnmpPortMap_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 7),
+    _SnmpPortMap_Type()
+)
+snmpPortMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snmpPortMap.setStatus("current")
+
+
+class _HttpPortMap_Type(Integer32):
+    """Custom type httpPortMap based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-2147483648, 2147483647),
+    )
+
+
+_HttpPortMap_Type.__name__ = "Integer32"
+_HttpPortMap_Object = MibTableColumn
+httpPortMap = _HttpPortMap_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 8),
+    _HttpPortMap_Type()
+)
+httpPortMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    httpPortMap.setStatus("current")
+
+
+class _FtpPortMap_Type(Integer32):
+    """Custom type ftpPortMap based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-2147483648, 2147483647),
+    )
+
+
+_FtpPortMap_Type.__name__ = "Integer32"
+_FtpPortMap_Object = MibTableColumn
+ftpPortMap = _FtpPortMap_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 9),
+    _FtpPortMap_Type()
+)
+ftpPortMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ftpPortMap.setStatus("current")
+
+
+class _TftpPortMap_Type(Integer32):
+    """Custom type tftpPortMap based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-2147483648, 2147483647),
+    )
+
+
+_TftpPortMap_Type.__name__ = "Integer32"
+_TftpPortMap_Object = MibTableColumn
+tftpPortMap = _TftpPortMap_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 10),
+    _TftpPortMap_Type()
+)
+tftpPortMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tftpPortMap.setStatus("current")
+_TelnetPortMap_Type = Integer32
+_TelnetPortMap_Object = MibTableColumn
+telnetPortMap = _TelnetPortMap_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 11),
+    _TelnetPortMap_Type()
+)
+telnetPortMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    telnetPortMap.setStatus("current")
+_SshPortMap_Type = Integer32
+_SshPortMap_Object = MibTableColumn
+sshPortMap = _SshPortMap_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 12),
+    _SshPortMap_Type()
+)
+sshPortMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sshPortMap.setStatus("current")
+
+
+class _MemSaveConfig_Type(Integer32):
+    """Custom type memSaveConfig based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("yes", 1),
+          ("no", 2))
+    )
+
+
+_MemSaveConfig_Type.__name__ = "Integer32"
+_MemSaveConfig_Object = MibTableColumn
+memSaveConfig = _MemSaveConfig_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 13),
+    _MemSaveConfig_Type()
+)
+memSaveConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    memSaveConfig.setStatus("current")
+
+
+class _MemEraseConfig_Type(Integer32):
+    """Custom type memEraseConfig based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("yes", 1),
+          ("no", 2))
+    )
+
+
+_MemEraseConfig_Type.__name__ = "Integer32"
+_MemEraseConfig_Object = MibTableColumn
+memEraseConfig = _MemEraseConfig_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 14),
+    _MemEraseConfig_Type()
+)
+memEraseConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    memEraseConfig.setStatus("current")
+
+
+class _MemReboot_Type(Integer32):
+    """Custom type memReboot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("yes", 1),
+          ("no", 2))
+    )
+
+
+_MemReboot_Type.__name__ = "Integer32"
+_MemReboot_Object = MibTableColumn
+memReboot = _MemReboot_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 4, 1, 1, 15),
+    _MemReboot_Type()
+)
+memReboot.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    memReboot.setStatus("current")
+_GmEnterpriseTrap_ObjectIdentity = ObjectIdentity
+gmEnterpriseTrap = _GmEnterpriseTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 5)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+gmTopologyChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 5, 1)
+)
+if mibBuilder.loadTexts:
+    gmTopologyChange.setStatus(
+        "current"
+    )
+
+gmMemberUpDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 3902, 15, 4, 5, 2)
+)
+gmMemberUpDown.setObjects(
+      *(("ES-GroupManagement-MIB", "memMac"),
+        ("ES-GroupManagement-MIB", "memId"),
+        ("ES-GroupManagement-MIB", "memIpAddr"),
+        ("ES-GroupManagement-MIB", "memStatus"))
+)
+if mibBuilder.loadTexts:
+    gmMemberUpDown.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ES-GroupManagement-MIB",
+    **{"MacAddress": MacAddress,
+       "zte": zte,
+       "ethernetSwitch": ethernetSwitch,
+       "groupManagement": groupManagement,
+       "groupParam": groupParam,
+       "gmHandtime": gmHandtime,
+       "gmHoldtime": gmHoldtime,
+       "gmName": gmName,
+       "gmSwitchRole": gmSwitchRole,
+       "gmIpPool": gmIpPool,
+       "tftpServerIpAddr": tftpServerIpAddr,
+       "belongedCmdMac": belongedCmdMac,
+       "neighborDiscovery": neighborDiscovery,
+       "dpAdminStatus": dpAdminStatus,
+       "dpTimer": dpTimer,
+       "dpHoldtime": dpHoldtime,
+       "dpPortTable": dpPortTable,
+       "dpPortEntry": dpPortEntry,
+       "dpPortId": dpPortId,
+       "dpPortAdminStatus": dpPortAdminStatus,
+       "dpTrunkTable": dpTrunkTable,
+       "dpTrunkEntry": dpTrunkEntry,
+       "dpTrunkId": dpTrunkId,
+       "dpTrunkAdminStatus": dpTrunkAdminStatus,
+       "dpDevPortTable": dpDevPortTable,
+       "dpDevPortEntry": dpDevPortEntry,
+       "dpLocalPortId": dpLocalPortId,
+       "dpPortPeerMac": dpPortPeerMac,
+       "dpPortHoldTime": dpPortHoldTime,
+       "dpPortPeerPlatform": dpPortPeerPlatform,
+       "dpPortPeerPort": dpPortPeerPort,
+       "dpDevTrunkTable": dpDevTrunkTable,
+       "dpDevTrunkEntry": dpDevTrunkEntry,
+       "dpLocalTrunkId": dpLocalTrunkId,
+       "dpTrunkPeerMac": dpTrunkPeerMac,
+       "dpTrunkHoldTime": dpTrunkHoldTime,
+       "dpTrunkPeerPlatform": dpTrunkPeerPlatform,
+       "dpTrunkPeerTrunk": dpTrunkPeerTrunk,
+       "topologyCollect": topologyCollect,
+       "tpAdminStatus": tpAdminStatus,
+       "tpVlan": tpVlan,
+       "tpHop": tpHop,
+       "tpTimer": tpTimer,
+       "tpHopDelay": tpHopDelay,
+       "tpPortDelay": tpPortDelay,
+       "tpStart": tpStart,
+       "tpPortTable": tpPortTable,
+       "tpPortEntry": tpPortEntry,
+       "tpPortId": tpPortId,
+       "tpPortAdminStatus": tpPortAdminStatus,
+       "tpTrunkTable": tpTrunkTable,
+       "tpTrunkEntry": tpTrunkEntry,
+       "tpTrunkId": tpTrunkId,
+       "tpTrunkAdminStatus": tpTrunkAdminStatus,
+       "tpDeviceTable": tpDeviceTable,
+       "tpDeviceEntry": tpDeviceEntry,
+       "deviceMac": deviceMac,
+       "deviceId": deviceId,
+       "deviceIpAddr": deviceIpAddr,
+       "deviceHop": deviceHop,
+       "devicePlatform": devicePlatform,
+       "deviceRole": deviceRole,
+       "devicePeerPort": devicePeerPort,
+       "deviceBelongedMac": deviceBelongedMac,
+       "deviceBelongedIpAddr": deviceBelongedIpAddr,
+       "memberManage": memberManage,
+       "memberTable": memberTable,
+       "memberEntry": memberEntry,
+       "memMac": memMac,
+       "memId": memId,
+       "memIpAddr": memIpAddr,
+       "memMask": memMask,
+       "memStatus": memStatus,
+       "memRole": memRole,
+       "snmpPortMap": snmpPortMap,
+       "httpPortMap": httpPortMap,
+       "ftpPortMap": ftpPortMap,
+       "tftpPortMap": tftpPortMap,
+       "telnetPortMap": telnetPortMap,
+       "sshPortMap": sshPortMap,
+       "memSaveConfig": memSaveConfig,
+       "memEraseConfig": memEraseConfig,
+       "memReboot": memReboot,
+       "gmEnterpriseTrap": gmEnterpriseTrap,
+       "gmTopologyChange": gmTopologyChange,
+       "gmMemberUpDown": gmMemberUpDown}
+)

@@ -1,27 +1,196 @@
+# SNMP MIB module (BEGEMOT-MIB2-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BEGEMOT-MIB2-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/bsd/BEGEMOT-MIB2-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:59 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/bsd/BEGEMOT-MIB2-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:21:23 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-begemotIp, = mibBuilder.importSymbols("BEGEMOT-IP-MIB", "begemotIp")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, ModuleIdentity, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "ModuleIdentity", "TimeTicks", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-begemotMib2 = ModuleIdentity((1, 3, 6, 1, 4, 1, 12325, 1, 3, 1))
-begemotMib2.setRevisions(('2009-08-03 00:00', '2006-02-13 00:00',))
-if mibBuilder.loadTexts: begemotMib2.setLastUpdated('200908030000Z')
-if mibBuilder.loadTexts: begemotMib2.setOrganization('German Aerospace Center')
-begemotIfMaxspeed = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 3, 1, 1), Counter64()).setUnits('bps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: begemotIfMaxspeed.setStatus('current')
-begemotIfPoll = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 3, 1, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: begemotIfPoll.setStatus('current')
-begemotIfForcePoll = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 3, 1, 3), TimeTicks()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: begemotIfForcePoll.setStatus('current')
-begemotIfDataPoll = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 3, 1, 4), TimeTicks().clone(100)).setUnits('deciseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: begemotIfDataPoll.setStatus('current')
-mibBuilder.exportSymbols("BEGEMOT-MIB2-MIB", PYSNMP_MODULE_ID=begemotMib2, begemotIfMaxspeed=begemotIfMaxspeed, begemotIfDataPoll=begemotIfDataPoll, begemotMib2=begemotMib2, begemotIfForcePoll=begemotIfForcePoll, begemotIfPoll=begemotIfPoll)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(begemotIp,) = mibBuilder.importSymbols(
+    "BEGEMOT-IP-MIB",
+    "begemotIp")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+begemotMib2 = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    begemotMib2.setRevisions(
+        ("2009-08-03 00:00",
+         "2006-02-13 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_BegemotIfMaxspeed_Type = Counter64
+_BegemotIfMaxspeed_Object = MibScalar
+begemotIfMaxspeed = _BegemotIfMaxspeed_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 3, 1, 1),
+    _BegemotIfMaxspeed_Type()
+)
+begemotIfMaxspeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    begemotIfMaxspeed.setStatus("current")
+if mibBuilder.loadTexts:
+    begemotIfMaxspeed.setUnits("bps")
+_BegemotIfPoll_Type = TimeTicks
+_BegemotIfPoll_Object = MibScalar
+begemotIfPoll = _BegemotIfPoll_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 3, 1, 2),
+    _BegemotIfPoll_Type()
+)
+begemotIfPoll.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    begemotIfPoll.setStatus("current")
+_BegemotIfForcePoll_Type = TimeTicks
+_BegemotIfForcePoll_Object = MibScalar
+begemotIfForcePoll = _BegemotIfForcePoll_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 3, 1, 3),
+    _BegemotIfForcePoll_Type()
+)
+begemotIfForcePoll.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    begemotIfForcePoll.setStatus("current")
+
+
+class _BegemotIfDataPoll_Type(TimeTicks):
+    """Custom type begemotIfDataPoll based on TimeTicks"""
+    defaultValue = 100
+
+
+_BegemotIfDataPoll_Type.__name__ = "TimeTicks"
+_BegemotIfDataPoll_Object = MibScalar
+begemotIfDataPoll = _BegemotIfDataPoll_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 3, 1, 4),
+    _BegemotIfDataPoll_Type()
+)
+begemotIfDataPoll.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    begemotIfDataPoll.setStatus("current")
+if mibBuilder.loadTexts:
+    begemotIfDataPoll.setUnits("deciseconds")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BEGEMOT-MIB2-MIB",
+    **{"begemotMib2": begemotMib2,
+       "begemotIfMaxspeed": begemotIfMaxspeed,
+       "begemotIfPoll": begemotIfPoll,
+       "begemotIfForcePoll": begemotIfForcePoll,
+       "begemotIfDataPoll": begemotIfDataPoll}
+)

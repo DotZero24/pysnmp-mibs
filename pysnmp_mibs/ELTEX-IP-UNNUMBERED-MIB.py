@@ -1,29 +1,194 @@
+# SNMP MIB module (ELTEX-IP-UNNUMBERED-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ELTEX-IP-UNNUMBERED-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eltex/ELTEX-IP-UNNUMBERED-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:18 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/eltex/ELTEX-IP-UNNUMBERED-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:51:18 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-eltexLtd, = mibBuilder.importSymbols("ELTEX-SMI-ACTUAL", "eltexLtd")
-ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-eltexIpUnnumberedMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 42))
-eltexIpUnnumberedMIB.setRevisions(('2017-10-16 00:00',))
-if mibBuilder.loadTexts: eltexIpUnnumberedMIB.setLastUpdated('201710160000Z')
-if mibBuilder.loadTexts: eltexIpUnnumberedMIB.setOrganization('Eltex Enterprise Co, Ltd.')
-eltexIpUnnumberedMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 42, 1))
-eltexIpUnnumberedInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 42, 1, 1), )
-if mibBuilder.loadTexts: eltexIpUnnumberedInterfaceTable.setStatus('current')
-eltexIpUnnumberedInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 42, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: eltexIpUnnumberedInterfaceEntry.setStatus('current')
-eltexIpUnnumberedParentIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 42, 1, 1, 1, 1), InterfaceIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eltexIpUnnumberedParentIfIndex.setStatus('current')
-eltexIpUnnumberedRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 42, 1, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eltexIpUnnumberedRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-IP-UNNUMBERED-MIB", eltexIpUnnumberedParentIfIndex=eltexIpUnnumberedParentIfIndex, eltexIpUnnumberedInterfaceEntry=eltexIpUnnumberedInterfaceEntry, eltexIpUnnumberedMIB=eltexIpUnnumberedMIB, eltexIpUnnumberedMIBObjects=eltexIpUnnumberedMIBObjects, PYSNMP_MODULE_ID=eltexIpUnnumberedMIB, eltexIpUnnumberedRowStatus=eltexIpUnnumberedRowStatus, eltexIpUnnumberedInterfaceTable=eltexIpUnnumberedInterfaceTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(eltexLtd,) = mibBuilder.importSymbols(
+    "ELTEX-SMI-ACTUAL",
+    "eltexLtd")
+
+(InterfaceIndex,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+eltexIpUnnumberedMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 42)
+)
+if mibBuilder.loadTexts:
+    eltexIpUnnumberedMIB.setRevisions(
+        ("2017-10-16 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EltexIpUnnumberedMIBObjects_ObjectIdentity = ObjectIdentity
+eltexIpUnnumberedMIBObjects = _EltexIpUnnumberedMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 42, 1)
+)
+_EltexIpUnnumberedInterfaceTable_Object = MibTable
+eltexIpUnnumberedInterfaceTable = _EltexIpUnnumberedInterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 42, 1, 1)
+)
+if mibBuilder.loadTexts:
+    eltexIpUnnumberedInterfaceTable.setStatus("current")
+_EltexIpUnnumberedInterfaceEntry_Object = MibTableRow
+eltexIpUnnumberedInterfaceEntry = _EltexIpUnnumberedInterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 42, 1, 1, 1)
+)
+eltexIpUnnumberedInterfaceEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    eltexIpUnnumberedInterfaceEntry.setStatus("current")
+_EltexIpUnnumberedParentIfIndex_Type = InterfaceIndex
+_EltexIpUnnumberedParentIfIndex_Object = MibTableColumn
+eltexIpUnnumberedParentIfIndex = _EltexIpUnnumberedParentIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 42, 1, 1, 1, 1),
+    _EltexIpUnnumberedParentIfIndex_Type()
+)
+eltexIpUnnumberedParentIfIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eltexIpUnnumberedParentIfIndex.setStatus("current")
+_EltexIpUnnumberedRowStatus_Type = RowStatus
+_EltexIpUnnumberedRowStatus_Object = MibTableColumn
+eltexIpUnnumberedRowStatus = _EltexIpUnnumberedRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 42, 1, 1, 1, 2),
+    _EltexIpUnnumberedRowStatus_Type()
+)
+eltexIpUnnumberedRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eltexIpUnnumberedRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ELTEX-IP-UNNUMBERED-MIB",
+    **{"eltexIpUnnumberedMIB": eltexIpUnnumberedMIB,
+       "eltexIpUnnumberedMIBObjects": eltexIpUnnumberedMIBObjects,
+       "eltexIpUnnumberedInterfaceTable": eltexIpUnnumberedInterfaceTable,
+       "eltexIpUnnumberedInterfaceEntry": eltexIpUnnumberedInterfaceEntry,
+       "eltexIpUnnumberedParentIfIndex": eltexIpUnnumberedParentIfIndex,
+       "eltexIpUnnumberedRowStatus": eltexIpUnnumberedRowStatus}
+)

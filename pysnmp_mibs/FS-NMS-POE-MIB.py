@@ -1,30 +1,229 @@
+# SNMP MIB module (FS-NMS-POE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module FS-NMS-POE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/FS-NMS-POE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:37 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/fscom/FS-NMS-POE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:15:20 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-nmslocal, = mibBuilder.importSymbols("FS-NMS-SMI", "nmslocal")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-poe = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 2, 236))
-powerEtherTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 2, 236, 1), )
-if mibBuilder.loadTexts: powerEtherTable.setStatus('mandatory')
-powerEtherTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1), ).setIndexNames((0, "FS-NMS-POE-MIB", "ifIndex"))
-if mibBuilder.loadTexts: powerEtherTableEntry.setStatus('mandatory')
-ifIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifIndex.setStatus('mandatory')
-ifDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifDescr.setStatus('mandatory')
-ifPethPortControlAbility = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifPethPortControlAbility.setStatus('mandatory')
-ifPethPortMaxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ifPethPortMaxPower.setStatus('mandatory')
-ifPethPortConsumptionPower = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifPethPortConsumptionPower.setStatus('mandatory')
-mibBuilder.exportSymbols("FS-NMS-POE-MIB", ifPethPortConsumptionPower=ifPethPortConsumptionPower, ifDescr=ifDescr, ifIndex=ifIndex, poe=poe, ifPethPortMaxPower=ifPethPortMaxPower, powerEtherTableEntry=powerEtherTableEntry, powerEtherTable=powerEtherTable, ifPethPortControlAbility=ifPethPortControlAbility)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(nmslocal,) = mibBuilder.importSymbols(
+    "FS-NMS-SMI",
+    "nmslocal")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Poe_ObjectIdentity = ObjectIdentity
+poe = _Poe_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 2, 236)
+)
+_PowerEtherTable_Object = MibTable
+powerEtherTable = _PowerEtherTable_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 2, 236, 1)
+)
+if mibBuilder.loadTexts:
+    powerEtherTable.setStatus("mandatory")
+_PowerEtherTableEntry_Object = MibTableRow
+powerEtherTableEntry = _PowerEtherTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1)
+)
+powerEtherTableEntry.setIndexNames(
+    (0, "FS-NMS-POE-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    powerEtherTableEntry.setStatus("mandatory")
+_IfIndex_Type = Integer32
+_IfIndex_Object = MibTableColumn
+ifIndex = _IfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1, 1),
+    _IfIndex_Type()
+)
+ifIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifIndex.setStatus("mandatory")
+
+
+class _IfDescr_Type(DisplayString):
+    """Custom type ifDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_IfDescr_Type.__name__ = "DisplayString"
+_IfDescr_Object = MibTableColumn
+ifDescr = _IfDescr_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1, 2),
+    _IfDescr_Type()
+)
+ifDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifDescr.setStatus("mandatory")
+_IfPethPortControlAbility_Type = TruthValue
+_IfPethPortControlAbility_Object = MibTableColumn
+ifPethPortControlAbility = _IfPethPortControlAbility_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1, 3),
+    _IfPethPortControlAbility_Type()
+)
+ifPethPortControlAbility.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifPethPortControlAbility.setStatus("mandatory")
+
+
+class _IfPethPortMaxPower_Type(Integer32):
+    """Custom type ifPethPortMaxPower based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 30),
+    )
+
+
+_IfPethPortMaxPower_Type.__name__ = "Integer32"
+_IfPethPortMaxPower_Object = MibTableColumn
+ifPethPortMaxPower = _IfPethPortMaxPower_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1, 4),
+    _IfPethPortMaxPower_Type()
+)
+ifPethPortMaxPower.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ifPethPortMaxPower.setStatus("mandatory")
+_IfPethPortConsumptionPower_Type = Integer32
+_IfPethPortConsumptionPower_Object = MibTableColumn
+ifPethPortConsumptionPower = _IfPethPortConsumptionPower_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 2, 236, 1, 1, 5),
+    _IfPethPortConsumptionPower_Type()
+)
+ifPethPortConsumptionPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifPethPortConsumptionPower.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "FS-NMS-POE-MIB",
+    **{"poe": poe,
+       "powerEtherTable": powerEtherTable,
+       "powerEtherTableEntry": powerEtherTableEntry,
+       "ifIndex": ifIndex,
+       "ifDescr": ifDescr,
+       "ifPethPortControlAbility": ifPethPortControlAbility,
+       "ifPethPortMaxPower": ifPethPortMaxPower,
+       "ifPethPortConsumptionPower": ifPethPortConsumptionPower}
+)

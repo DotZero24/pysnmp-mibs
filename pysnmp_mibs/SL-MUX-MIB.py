@@ -1,36 +1,258 @@
+# SNMP MIB module (SL-MUX-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SL-MUX-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/smartoptics/SL-MUX-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:52 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/smartoptics/SL-MUX-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:11:05 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
-CleiCode, = mibBuilder.importSymbols("SL-ENTITY-MIB", "CleiCode")
-sitelight, = mibBuilder.importSymbols("SL-NE-MIB", "sitelight")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "TimeStamp", "DisplayString")
-slMux = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 5))
-if mibBuilder.loadTexts: slMux.setLastUpdated('200008280000Z')
-if mibBuilder.loadTexts: slMux.setOrganization('SmartOptics AS')
-muxIfTable = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1), )
-if mibBuilder.loadTexts: muxIfTable.setStatus('current')
-muxIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1), ).setIndexNames((0, "SL-MUX-MIB", "muxIfIndex"))
-if mibBuilder.loadTexts: muxIfEntry.setStatus('current')
-muxIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: muxIfIndex.setStatus('current')
-muxIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: muxIfType.setStatus('current')
-muxIfWaveSpacing = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("ghzNone", 0), ("ghz400", 1), ("ghz200", 2), ("ghz100", 3), ("ghz50", 4), ("ghz2500", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: muxIfWaveSpacing.setStatus('current')
-muxIfWaveLengthNm = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: muxIfWaveLengthNm.setStatus('current')
-muxIfOscWaveLengthNm = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: muxIfOscWaveLengthNm.setStatus('current')
-mibBuilder.exportSymbols("SL-MUX-MIB", muxIfType=muxIfType, PYSNMP_MODULE_ID=slMux, slMux=slMux, muxIfEntry=muxIfEntry, muxIfOscWaveLengthNm=muxIfOscWaveLengthNm, muxIfIndex=muxIfIndex, muxIfWaveLengthNm=muxIfWaveLengthNm, muxIfWaveSpacing=muxIfWaveSpacing, muxIfTable=muxIfTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(PerfCurrentCount,
+ PerfIntervalCount,
+ PerfTotalCount) = mibBuilder.importSymbols(
+    "PerfHist-TC-MIB",
+    "PerfCurrentCount",
+    "PerfIntervalCount",
+    "PerfTotalCount")
+
+(CleiCode,) = mibBuilder.importSymbols(
+    "SL-ENTITY-MIB",
+    "CleiCode")
+
+(sitelight,) = mibBuilder.importSymbols(
+    "SL-NE-MIB",
+    "sitelight")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+slMux = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 5)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MuxIfTable_Object = MibTable
+muxIfTable = _MuxIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    muxIfTable.setStatus("current")
+_MuxIfEntry_Object = MibTableRow
+muxIfEntry = _MuxIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1)
+)
+muxIfEntry.setIndexNames(
+    (0, "SL-MUX-MIB", "muxIfIndex"),
+)
+if mibBuilder.loadTexts:
+    muxIfEntry.setStatus("current")
+_MuxIfIndex_Type = InterfaceIndex
+_MuxIfIndex_Object = MibTableColumn
+muxIfIndex = _MuxIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 1),
+    _MuxIfIndex_Type()
+)
+muxIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    muxIfIndex.setStatus("current")
+_MuxIfType_Type = Integer32
+_MuxIfType_Object = MibTableColumn
+muxIfType = _MuxIfType_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 2),
+    _MuxIfType_Type()
+)
+muxIfType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    muxIfType.setStatus("current")
+
+
+class _MuxIfWaveSpacing_Type(Integer32):
+    """Custom type muxIfWaveSpacing based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ghzNone", 0),
+          ("ghz400", 1),
+          ("ghz200", 2),
+          ("ghz100", 3),
+          ("ghz50", 4),
+          ("ghz2500", 5))
+    )
+
+
+_MuxIfWaveSpacing_Type.__name__ = "Integer32"
+_MuxIfWaveSpacing_Object = MibTableColumn
+muxIfWaveSpacing = _MuxIfWaveSpacing_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 3),
+    _MuxIfWaveSpacing_Type()
+)
+muxIfWaveSpacing.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    muxIfWaveSpacing.setStatus("current")
+_MuxIfWaveLengthNm_Type = Integer32
+_MuxIfWaveLengthNm_Object = MibTableColumn
+muxIfWaveLengthNm = _MuxIfWaveLengthNm_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 4),
+    _MuxIfWaveLengthNm_Type()
+)
+muxIfWaveLengthNm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    muxIfWaveLengthNm.setStatus("current")
+_MuxIfOscWaveLengthNm_Type = Integer32
+_MuxIfOscWaveLengthNm_Object = MibTableColumn
+muxIfOscWaveLengthNm = _MuxIfOscWaveLengthNm_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 5, 1, 1, 5),
+    _MuxIfOscWaveLengthNm_Type()
+)
+muxIfOscWaveLengthNm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    muxIfOscWaveLengthNm.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SL-MUX-MIB",
+    **{"slMux": slMux,
+       "muxIfTable": muxIfTable,
+       "muxIfEntry": muxIfEntry,
+       "muxIfIndex": muxIfIndex,
+       "muxIfType": muxIfType,
+       "muxIfWaveSpacing": muxIfWaveSpacing,
+       "muxIfWaveLengthNm": muxIfWaveLengthNm,
+       "muxIfOscWaveLengthNm": muxIfOscWaveLengthNm}
+)

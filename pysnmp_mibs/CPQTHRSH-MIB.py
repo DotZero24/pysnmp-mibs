@@ -1,84 +1,834 @@
+# SNMP MIB module (CPQTHRSH-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CPQTHRSH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/CPQTHRSH-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/CPQTHRSH-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:41:50 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-cpqHoTrapFlags, compaq = mibBuilder.importSymbols("CPQHOST-MIB", "cpqHoTrapFlags", "compaq")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-cpqThresholdMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 10))
-cpqMeMibRev = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 10, 1))
-cpqMeComponent = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 10, 2))
-cpqMeInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 10, 2, 1))
-cpqMeAlarm = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 10, 2, 2))
-cpqMeOsCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4))
-cpqMeMibRevMajor = MibScalar((1, 3, 6, 1, 4, 1, 232, 10, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpqMeMibRevMajor.setStatus('mandatory')
-cpqMeMibRevMinor = MibScalar((1, 3, 6, 1, 4, 1, 232, 10, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpqMeMibRevMinor.setStatus('mandatory')
-cpqMeMibCondition = MibScalar((1, 3, 6, 1, 4, 1, 232, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("ok", 2), ("degraded", 3), ("failed", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpqMeMibCondition.setStatus('mandatory')
-cpqMeOsCommonPollFreq = MibScalar((1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeOsCommonPollFreq.setStatus('mandatory')
-cpqMeOsCommonModuleTable = MibTable((1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2), )
-if mibBuilder.loadTexts: cpqMeOsCommonModuleTable.setStatus('deprecated')
-cpqMeOsCommonModuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1), ).setIndexNames((0, "CPQTHRSH-MIB", "cpqMeOsCommonModuleIndex"))
-if mibBuilder.loadTexts: cpqMeOsCommonModuleEntry.setStatus('deprecated')
-cpqMeOsCommonModuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpqMeOsCommonModuleIndex.setStatus('deprecated')
-cpqMeOsCommonModuleName = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpqMeOsCommonModuleName.setStatus('deprecated')
-cpqMeOsCommonModuleVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 5))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpqMeOsCommonModuleVersion.setStatus('deprecated')
-cpqMeOsCommonModuleDate = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(7, 7)).setFixedLength(7)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpqMeOsCommonModuleDate.setStatus('deprecated')
-cpqMeOsCommonModulePurpose = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpqMeOsCommonModulePurpose.setStatus('deprecated')
-cpqMeAlarmNextIndex = MibScalar((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpqMeAlarmNextIndex.setStatus('mandatory')
-cpqMeAlarmTable = MibTable((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2), )
-if mibBuilder.loadTexts: cpqMeAlarmTable.setStatus('mandatory')
-cpqMeAlarmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1), ).setIndexNames((0, "CPQTHRSH-MIB", "cpqMeAlarmIndex"))
-if mibBuilder.loadTexts: cpqMeAlarmEntry.setStatus('mandatory')
-cpqMeAlarmIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpqMeAlarmIndex.setStatus('mandatory')
-cpqMeAlarmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeAlarmInterval.setStatus('mandatory')
-cpqMeAlarmVariable = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 3), ObjectIdentifier()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeAlarmVariable.setStatus('mandatory')
-cpqMeAlarmSampleType = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("absoluteValue", 1), ("deltaValue", 2), ("absSuppressRisingTrap", 3), ("absSuppressFallingTrap", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeAlarmSampleType.setStatus('mandatory')
-cpqMeAlarmValue = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpqMeAlarmValue.setStatus('mandatory')
-cpqMeAlarmStartupAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("risingAlarm", 1), ("fallingAlarm", 2), ("risingOrFallingAlarm", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeAlarmStartupAlarm.setStatus('mandatory')
-cpqMeAlarmRisingThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeAlarmRisingThreshold.setStatus('mandatory')
-cpqMeAlarmFallingThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeAlarmFallingThreshold.setStatus('mandatory')
-cpqMeAlarmPermanence = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("temporary", 1), ("permanent", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeAlarmPermanence.setStatus('mandatory')
-cpqMeAlarmOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeAlarmOwner.setStatus('mandatory')
-cpqMeAlarmStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("valid", 1), ("createRequest", 2), ("underCreation", 3), ("invalid", 4), ("tempUnavailable", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeAlarmStatus.setStatus('mandatory')
-cpqMeAlarmSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("unknown", 1), ("normal", 2), ("minor", 3), ("warning", 4), ("major", 5), ("critical", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeAlarmSeverity.setStatus('mandatory')
-cpqMeAlarmExtendedDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cpqMeAlarmExtendedDescription.setStatus('mandatory')
-cpqMeRisingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,10001)).setObjects(("CPQTHRSH-MIB", "cpqMeAlarmVariable"), ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"), ("CPQTHRSH-MIB", "cpqMeAlarmValue"), ("CPQTHRSH-MIB", "cpqMeAlarmRisingThreshold"), ("CPQTHRSH-MIB", "cpqMeAlarmOwner"))
-cpqMeFallingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,10002)).setObjects(("CPQTHRSH-MIB", "cpqMeAlarmVariable"), ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"), ("CPQTHRSH-MIB", "cpqMeAlarmValue"), ("CPQTHRSH-MIB", "cpqMeAlarmFallingThreshold"), ("CPQTHRSH-MIB", "cpqMeAlarmOwner"))
-cpqMe2RisingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,10003)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQHOST-MIB", "cpqHoTrapFlags"), ("CPQTHRSH-MIB", "cpqMeAlarmVariable"), ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"), ("CPQTHRSH-MIB", "cpqMeAlarmValue"), ("CPQTHRSH-MIB", "cpqMeAlarmRisingThreshold"), ("CPQTHRSH-MIB", "cpqMeAlarmOwner"))
-cpqMe2FallingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,10004)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQHOST-MIB", "cpqHoTrapFlags"), ("CPQTHRSH-MIB", "cpqMeAlarmVariable"), ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"), ("CPQTHRSH-MIB", "cpqMeAlarmValue"), ("CPQTHRSH-MIB", "cpqMeAlarmFallingThreshold"), ("CPQTHRSH-MIB", "cpqMeAlarmOwner"))
-cpqMeRisingAlarmExtended = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,10005)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQHOST-MIB", "cpqHoTrapFlags"), ("CPQTHRSH-MIB", "cpqMeAlarmVariable"), ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"), ("CPQTHRSH-MIB", "cpqMeAlarmValue"), ("CPQTHRSH-MIB", "cpqMeAlarmRisingThreshold"), ("CPQTHRSH-MIB", "cpqMeAlarmOwner"), ("CPQTHRSH-MIB", "cpqMeAlarmSeverity"), ("CPQTHRSH-MIB", "cpqMeAlarmExtendedDescription"))
-cpqMeFallingAlarmExtended = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,10006)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQHOST-MIB", "cpqHoTrapFlags"), ("CPQTHRSH-MIB", "cpqMeAlarmVariable"), ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"), ("CPQTHRSH-MIB", "cpqMeAlarmValue"), ("CPQTHRSH-MIB", "cpqMeAlarmFallingThreshold"), ("CPQTHRSH-MIB", "cpqMeAlarmOwner"), ("CPQTHRSH-MIB", "cpqMeAlarmSeverity"), ("CPQTHRSH-MIB", "cpqMeAlarmExtendedDescription"))
-cpqMeCriticalRisingAlarmExtended = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,10007)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQHOST-MIB", "cpqHoTrapFlags"), ("CPQTHRSH-MIB", "cpqMeAlarmVariable"), ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"), ("CPQTHRSH-MIB", "cpqMeAlarmValue"), ("CPQTHRSH-MIB", "cpqMeAlarmRisingThreshold"), ("CPQTHRSH-MIB", "cpqMeAlarmOwner"), ("CPQTHRSH-MIB", "cpqMeAlarmSeverity"), ("CPQTHRSH-MIB", "cpqMeAlarmExtendedDescription"))
-cpqMeCriticalFallingAlarmExtended = NotificationType((1, 3, 6, 1, 4, 1, 232) + (0,10008)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQHOST-MIB", "cpqHoTrapFlags"), ("CPQTHRSH-MIB", "cpqMeAlarmVariable"), ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"), ("CPQTHRSH-MIB", "cpqMeAlarmValue"), ("CPQTHRSH-MIB", "cpqMeAlarmFallingThreshold"), ("CPQTHRSH-MIB", "cpqMeAlarmOwner"), ("CPQTHRSH-MIB", "cpqMeAlarmSeverity"), ("CPQTHRSH-MIB", "cpqMeAlarmExtendedDescription"))
-mibBuilder.exportSymbols("CPQTHRSH-MIB", cpqMeRisingAlarmExtended=cpqMeRisingAlarmExtended, cpqMeMibRevMajor=cpqMeMibRevMajor, cpqMeAlarmPermanence=cpqMeAlarmPermanence, cpqMeInterface=cpqMeInterface, cpqMeOsCommonModuleTable=cpqMeOsCommonModuleTable, cpqMeOsCommonModuleName=cpqMeOsCommonModuleName, cpqMeAlarmNextIndex=cpqMeAlarmNextIndex, cpqMeAlarmEntry=cpqMeAlarmEntry, cpqMeMibCondition=cpqMeMibCondition, cpqMe2FallingAlarm=cpqMe2FallingAlarm, cpqMeMibRevMinor=cpqMeMibRevMinor, cpqMeAlarmFallingThreshold=cpqMeAlarmFallingThreshold, cpqMeAlarmVariable=cpqMeAlarmVariable, cpqThresholdMgmt=cpqThresholdMgmt, cpqMeOsCommonModuleVersion=cpqMeOsCommonModuleVersion, cpqMeAlarmRisingThreshold=cpqMeAlarmRisingThreshold, cpqMeAlarmIndex=cpqMeAlarmIndex, cpqMeAlarmOwner=cpqMeAlarmOwner, cpqMeOsCommonModuleEntry=cpqMeOsCommonModuleEntry, cpqMeCriticalRisingAlarmExtended=cpqMeCriticalRisingAlarmExtended, cpqMe2RisingAlarm=cpqMe2RisingAlarm, cpqMeOsCommonPollFreq=cpqMeOsCommonPollFreq, cpqMeCriticalFallingAlarmExtended=cpqMeCriticalFallingAlarmExtended, cpqMeAlarmTable=cpqMeAlarmTable, cpqMeAlarmSampleType=cpqMeAlarmSampleType, cpqMeOsCommonModulePurpose=cpqMeOsCommonModulePurpose, cpqMeAlarm=cpqMeAlarm, cpqMeOsCommon=cpqMeOsCommon, cpqMeComponent=cpqMeComponent, cpqMeAlarmValue=cpqMeAlarmValue, cpqMeAlarmStartupAlarm=cpqMeAlarmStartupAlarm, cpqMeAlarmSeverity=cpqMeAlarmSeverity, cpqMeFallingAlarmExtended=cpqMeFallingAlarmExtended, cpqMeAlarmStatus=cpqMeAlarmStatus, cpqMeOsCommonModuleIndex=cpqMeOsCommonModuleIndex, cpqMeFallingAlarm=cpqMeFallingAlarm, cpqMeMibRev=cpqMeMibRev, cpqMeRisingAlarm=cpqMeRisingAlarm, cpqMeAlarmExtendedDescription=cpqMeAlarmExtendedDescription, cpqMeOsCommonModuleDate=cpqMeOsCommonModuleDate, cpqMeAlarmInterval=cpqMeAlarmInterval)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(compaq,
+ cpqHoTrapFlags) = mibBuilder.importSymbols(
+    "CPQHOST-MIB",
+    "compaq",
+    "cpqHoTrapFlags")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(sysName,) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "sysName")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CpqThresholdMgmt_ObjectIdentity = ObjectIdentity
+cpqThresholdMgmt = _CpqThresholdMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 10)
+)
+_CpqMeMibRev_ObjectIdentity = ObjectIdentity
+cpqMeMibRev = _CpqMeMibRev_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 10, 1)
+)
+
+
+class _CpqMeMibRevMajor_Type(Integer32):
+    """Custom type cpqMeMibRevMajor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_CpqMeMibRevMajor_Type.__name__ = "Integer32"
+_CpqMeMibRevMajor_Object = MibScalar
+cpqMeMibRevMajor = _CpqMeMibRevMajor_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 1, 1),
+    _CpqMeMibRevMajor_Type()
+)
+cpqMeMibRevMajor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpqMeMibRevMajor.setStatus("mandatory")
+
+
+class _CpqMeMibRevMinor_Type(Integer32):
+    """Custom type cpqMeMibRevMinor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CpqMeMibRevMinor_Type.__name__ = "Integer32"
+_CpqMeMibRevMinor_Object = MibScalar
+cpqMeMibRevMinor = _CpqMeMibRevMinor_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 1, 2),
+    _CpqMeMibRevMinor_Type()
+)
+cpqMeMibRevMinor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpqMeMibRevMinor.setStatus("mandatory")
+
+
+class _CpqMeMibCondition_Type(Integer32):
+    """Custom type cpqMeMibCondition based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("ok", 2),
+          ("degraded", 3),
+          ("failed", 4))
+    )
+
+
+_CpqMeMibCondition_Type.__name__ = "Integer32"
+_CpqMeMibCondition_Object = MibScalar
+cpqMeMibCondition = _CpqMeMibCondition_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 1, 3),
+    _CpqMeMibCondition_Type()
+)
+cpqMeMibCondition.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpqMeMibCondition.setStatus("mandatory")
+_CpqMeComponent_ObjectIdentity = ObjectIdentity
+cpqMeComponent = _CpqMeComponent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2)
+)
+_CpqMeInterface_ObjectIdentity = ObjectIdentity
+cpqMeInterface = _CpqMeInterface_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 1)
+)
+_CpqMeOsCommon_ObjectIdentity = ObjectIdentity
+cpqMeOsCommon = _CpqMeOsCommon_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4)
+)
+
+
+class _CpqMeOsCommonPollFreq_Type(Integer32):
+    """Custom type cpqMeOsCommonPollFreq based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_CpqMeOsCommonPollFreq_Type.__name__ = "Integer32"
+_CpqMeOsCommonPollFreq_Object = MibScalar
+cpqMeOsCommonPollFreq = _CpqMeOsCommonPollFreq_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 1),
+    _CpqMeOsCommonPollFreq_Type()
+)
+cpqMeOsCommonPollFreq.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeOsCommonPollFreq.setStatus("mandatory")
+_CpqMeOsCommonModuleTable_Object = MibTable
+cpqMeOsCommonModuleTable = _CpqMeOsCommonModuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2)
+)
+if mibBuilder.loadTexts:
+    cpqMeOsCommonModuleTable.setStatus("deprecated")
+_CpqMeOsCommonModuleEntry_Object = MibTableRow
+cpqMeOsCommonModuleEntry = _CpqMeOsCommonModuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1)
+)
+cpqMeOsCommonModuleEntry.setIndexNames(
+    (0, "CPQTHRSH-MIB", "cpqMeOsCommonModuleIndex"),
+)
+if mibBuilder.loadTexts:
+    cpqMeOsCommonModuleEntry.setStatus("deprecated")
+
+
+class _CpqMeOsCommonModuleIndex_Type(Integer32):
+    """Custom type cpqMeOsCommonModuleIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_CpqMeOsCommonModuleIndex_Type.__name__ = "Integer32"
+_CpqMeOsCommonModuleIndex_Object = MibTableColumn
+cpqMeOsCommonModuleIndex = _CpqMeOsCommonModuleIndex_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1, 1),
+    _CpqMeOsCommonModuleIndex_Type()
+)
+cpqMeOsCommonModuleIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpqMeOsCommonModuleIndex.setStatus("deprecated")
+
+
+class _CpqMeOsCommonModuleName_Type(DisplayString):
+    """Custom type cpqMeOsCommonModuleName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_CpqMeOsCommonModuleName_Type.__name__ = "DisplayString"
+_CpqMeOsCommonModuleName_Object = MibTableColumn
+cpqMeOsCommonModuleName = _CpqMeOsCommonModuleName_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1, 2),
+    _CpqMeOsCommonModuleName_Type()
+)
+cpqMeOsCommonModuleName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpqMeOsCommonModuleName.setStatus("deprecated")
+
+
+class _CpqMeOsCommonModuleVersion_Type(DisplayString):
+    """Custom type cpqMeOsCommonModuleVersion based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 5),
+    )
+
+
+_CpqMeOsCommonModuleVersion_Type.__name__ = "DisplayString"
+_CpqMeOsCommonModuleVersion_Object = MibTableColumn
+cpqMeOsCommonModuleVersion = _CpqMeOsCommonModuleVersion_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1, 3),
+    _CpqMeOsCommonModuleVersion_Type()
+)
+cpqMeOsCommonModuleVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpqMeOsCommonModuleVersion.setStatus("deprecated")
+
+
+class _CpqMeOsCommonModuleDate_Type(OctetString):
+    """Custom type cpqMeOsCommonModuleDate based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(7, 7),
+    )
+    fixed_length = 7
+
+
+_CpqMeOsCommonModuleDate_Type.__name__ = "OctetString"
+_CpqMeOsCommonModuleDate_Object = MibTableColumn
+cpqMeOsCommonModuleDate = _CpqMeOsCommonModuleDate_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1, 4),
+    _CpqMeOsCommonModuleDate_Type()
+)
+cpqMeOsCommonModuleDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpqMeOsCommonModuleDate.setStatus("deprecated")
+
+
+class _CpqMeOsCommonModulePurpose_Type(DisplayString):
+    """Custom type cpqMeOsCommonModulePurpose based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_CpqMeOsCommonModulePurpose_Type.__name__ = "DisplayString"
+_CpqMeOsCommonModulePurpose_Object = MibTableColumn
+cpqMeOsCommonModulePurpose = _CpqMeOsCommonModulePurpose_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 1, 4, 2, 1, 5),
+    _CpqMeOsCommonModulePurpose_Type()
+)
+cpqMeOsCommonModulePurpose.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpqMeOsCommonModulePurpose.setStatus("deprecated")
+_CpqMeAlarm_ObjectIdentity = ObjectIdentity
+cpqMeAlarm = _CpqMeAlarm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2)
+)
+_CpqMeAlarmNextIndex_Type = Integer32
+_CpqMeAlarmNextIndex_Object = MibScalar
+cpqMeAlarmNextIndex = _CpqMeAlarmNextIndex_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 1),
+    _CpqMeAlarmNextIndex_Type()
+)
+cpqMeAlarmNextIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpqMeAlarmNextIndex.setStatus("mandatory")
+_CpqMeAlarmTable_Object = MibTable
+cpqMeAlarmTable = _CpqMeAlarmTable_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2)
+)
+if mibBuilder.loadTexts:
+    cpqMeAlarmTable.setStatus("mandatory")
+_CpqMeAlarmEntry_Object = MibTableRow
+cpqMeAlarmEntry = _CpqMeAlarmEntry_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1)
+)
+cpqMeAlarmEntry.setIndexNames(
+    (0, "CPQTHRSH-MIB", "cpqMeAlarmIndex"),
+)
+if mibBuilder.loadTexts:
+    cpqMeAlarmEntry.setStatus("mandatory")
+
+
+class _CpqMeAlarmIndex_Type(Integer32):
+    """Custom type cpqMeAlarmIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_CpqMeAlarmIndex_Type.__name__ = "Integer32"
+_CpqMeAlarmIndex_Object = MibTableColumn
+cpqMeAlarmIndex = _CpqMeAlarmIndex_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 1),
+    _CpqMeAlarmIndex_Type()
+)
+cpqMeAlarmIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpqMeAlarmIndex.setStatus("mandatory")
+
+
+class _CpqMeAlarmInterval_Type(Integer32):
+    """Custom type cpqMeAlarmInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_CpqMeAlarmInterval_Type.__name__ = "Integer32"
+_CpqMeAlarmInterval_Object = MibTableColumn
+cpqMeAlarmInterval = _CpqMeAlarmInterval_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 2),
+    _CpqMeAlarmInterval_Type()
+)
+cpqMeAlarmInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeAlarmInterval.setStatus("mandatory")
+_CpqMeAlarmVariable_Type = ObjectIdentifier
+_CpqMeAlarmVariable_Object = MibTableColumn
+cpqMeAlarmVariable = _CpqMeAlarmVariable_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 3),
+    _CpqMeAlarmVariable_Type()
+)
+cpqMeAlarmVariable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeAlarmVariable.setStatus("mandatory")
+
+
+class _CpqMeAlarmSampleType_Type(Integer32):
+    """Custom type cpqMeAlarmSampleType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("absoluteValue", 1),
+          ("deltaValue", 2),
+          ("absSuppressRisingTrap", 3),
+          ("absSuppressFallingTrap", 4))
+    )
+
+
+_CpqMeAlarmSampleType_Type.__name__ = "Integer32"
+_CpqMeAlarmSampleType_Object = MibTableColumn
+cpqMeAlarmSampleType = _CpqMeAlarmSampleType_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 4),
+    _CpqMeAlarmSampleType_Type()
+)
+cpqMeAlarmSampleType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeAlarmSampleType.setStatus("mandatory")
+_CpqMeAlarmValue_Type = Integer32
+_CpqMeAlarmValue_Object = MibTableColumn
+cpqMeAlarmValue = _CpqMeAlarmValue_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 5),
+    _CpqMeAlarmValue_Type()
+)
+cpqMeAlarmValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpqMeAlarmValue.setStatus("mandatory")
+
+
+class _CpqMeAlarmStartupAlarm_Type(Integer32):
+    """Custom type cpqMeAlarmStartupAlarm based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("risingAlarm", 1),
+          ("fallingAlarm", 2),
+          ("risingOrFallingAlarm", 3))
+    )
+
+
+_CpqMeAlarmStartupAlarm_Type.__name__ = "Integer32"
+_CpqMeAlarmStartupAlarm_Object = MibTableColumn
+cpqMeAlarmStartupAlarm = _CpqMeAlarmStartupAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 6),
+    _CpqMeAlarmStartupAlarm_Type()
+)
+cpqMeAlarmStartupAlarm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeAlarmStartupAlarm.setStatus("mandatory")
+_CpqMeAlarmRisingThreshold_Type = Integer32
+_CpqMeAlarmRisingThreshold_Object = MibTableColumn
+cpqMeAlarmRisingThreshold = _CpqMeAlarmRisingThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 7),
+    _CpqMeAlarmRisingThreshold_Type()
+)
+cpqMeAlarmRisingThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeAlarmRisingThreshold.setStatus("mandatory")
+_CpqMeAlarmFallingThreshold_Type = Integer32
+_CpqMeAlarmFallingThreshold_Object = MibTableColumn
+cpqMeAlarmFallingThreshold = _CpqMeAlarmFallingThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 8),
+    _CpqMeAlarmFallingThreshold_Type()
+)
+cpqMeAlarmFallingThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeAlarmFallingThreshold.setStatus("mandatory")
+
+
+class _CpqMeAlarmPermanence_Type(Integer32):
+    """Custom type cpqMeAlarmPermanence based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("temporary", 1),
+          ("permanent", 2))
+    )
+
+
+_CpqMeAlarmPermanence_Type.__name__ = "Integer32"
+_CpqMeAlarmPermanence_Object = MibTableColumn
+cpqMeAlarmPermanence = _CpqMeAlarmPermanence_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 9),
+    _CpqMeAlarmPermanence_Type()
+)
+cpqMeAlarmPermanence.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeAlarmPermanence.setStatus("mandatory")
+
+
+class _CpqMeAlarmOwner_Type(DisplayString):
+    """Custom type cpqMeAlarmOwner based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+_CpqMeAlarmOwner_Type.__name__ = "DisplayString"
+_CpqMeAlarmOwner_Object = MibTableColumn
+cpqMeAlarmOwner = _CpqMeAlarmOwner_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 10),
+    _CpqMeAlarmOwner_Type()
+)
+cpqMeAlarmOwner.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeAlarmOwner.setStatus("mandatory")
+
+
+class _CpqMeAlarmStatus_Type(Integer32):
+    """Custom type cpqMeAlarmStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("valid", 1),
+          ("createRequest", 2),
+          ("underCreation", 3),
+          ("invalid", 4),
+          ("tempUnavailable", 5))
+    )
+
+
+_CpqMeAlarmStatus_Type.__name__ = "Integer32"
+_CpqMeAlarmStatus_Object = MibTableColumn
+cpqMeAlarmStatus = _CpqMeAlarmStatus_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 11),
+    _CpqMeAlarmStatus_Type()
+)
+cpqMeAlarmStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeAlarmStatus.setStatus("mandatory")
+
+
+class _CpqMeAlarmSeverity_Type(Integer32):
+    """Custom type cpqMeAlarmSeverity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("normal", 2),
+          ("minor", 3),
+          ("warning", 4),
+          ("major", 5),
+          ("critical", 6))
+    )
+
+
+_CpqMeAlarmSeverity_Type.__name__ = "Integer32"
+_CpqMeAlarmSeverity_Object = MibTableColumn
+cpqMeAlarmSeverity = _CpqMeAlarmSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 12),
+    _CpqMeAlarmSeverity_Type()
+)
+cpqMeAlarmSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeAlarmSeverity.setStatus("mandatory")
+
+
+class _CpqMeAlarmExtendedDescription_Type(DisplayString):
+    """Custom type cpqMeAlarmExtendedDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+_CpqMeAlarmExtendedDescription_Type.__name__ = "DisplayString"
+_CpqMeAlarmExtendedDescription_Object = MibTableColumn
+cpqMeAlarmExtendedDescription = _CpqMeAlarmExtendedDescription_Object(
+    (1, 3, 6, 1, 4, 1, 232, 10, 2, 2, 2, 1, 13),
+    _CpqMeAlarmExtendedDescription_Type()
+)
+cpqMeAlarmExtendedDescription.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cpqMeAlarmExtendedDescription.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+cpqMeRisingAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 10001)
+)
+cpqMeRisingAlarm.setObjects(
+      *(("CPQTHRSH-MIB", "cpqMeAlarmVariable"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmValue"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmRisingThreshold"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmOwner"))
+)
+if mibBuilder.loadTexts:
+    cpqMeRisingAlarm.setStatus(
+        ""
+    )
+
+cpqMeFallingAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 10002)
+)
+cpqMeFallingAlarm.setObjects(
+      *(("CPQTHRSH-MIB", "cpqMeAlarmVariable"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmValue"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmFallingThreshold"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmOwner"))
+)
+if mibBuilder.loadTexts:
+    cpqMeFallingAlarm.setStatus(
+        ""
+    )
+
+cpqMe2RisingAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 10003)
+)
+cpqMe2RisingAlarm.setObjects(
+      *(("SNMPv2-MIB", "sysName"),
+        ("CPQHOST-MIB", "cpqHoTrapFlags"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmVariable"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmValue"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmRisingThreshold"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmOwner"))
+)
+if mibBuilder.loadTexts:
+    cpqMe2RisingAlarm.setStatus(
+        ""
+    )
+
+cpqMe2FallingAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 10004)
+)
+cpqMe2FallingAlarm.setObjects(
+      *(("SNMPv2-MIB", "sysName"),
+        ("CPQHOST-MIB", "cpqHoTrapFlags"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmVariable"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmValue"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmFallingThreshold"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmOwner"))
+)
+if mibBuilder.loadTexts:
+    cpqMe2FallingAlarm.setStatus(
+        ""
+    )
+
+cpqMeRisingAlarmExtended = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 10005)
+)
+cpqMeRisingAlarmExtended.setObjects(
+      *(("SNMPv2-MIB", "sysName"),
+        ("CPQHOST-MIB", "cpqHoTrapFlags"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmVariable"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmValue"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmRisingThreshold"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmOwner"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSeverity"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmExtendedDescription"))
+)
+if mibBuilder.loadTexts:
+    cpqMeRisingAlarmExtended.setStatus(
+        ""
+    )
+
+cpqMeFallingAlarmExtended = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 10006)
+)
+cpqMeFallingAlarmExtended.setObjects(
+      *(("SNMPv2-MIB", "sysName"),
+        ("CPQHOST-MIB", "cpqHoTrapFlags"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmVariable"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmValue"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmFallingThreshold"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmOwner"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSeverity"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmExtendedDescription"))
+)
+if mibBuilder.loadTexts:
+    cpqMeFallingAlarmExtended.setStatus(
+        ""
+    )
+
+cpqMeCriticalRisingAlarmExtended = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 10007)
+)
+cpqMeCriticalRisingAlarmExtended.setObjects(
+      *(("SNMPv2-MIB", "sysName"),
+        ("CPQHOST-MIB", "cpqHoTrapFlags"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmVariable"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmValue"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmRisingThreshold"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmOwner"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSeverity"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmExtendedDescription"))
+)
+if mibBuilder.loadTexts:
+    cpqMeCriticalRisingAlarmExtended.setStatus(
+        ""
+    )
+
+cpqMeCriticalFallingAlarmExtended = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 0, 10008)
+)
+cpqMeCriticalFallingAlarmExtended.setObjects(
+      *(("SNMPv2-MIB", "sysName"),
+        ("CPQHOST-MIB", "cpqHoTrapFlags"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmVariable"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSampleType"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmValue"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmFallingThreshold"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmOwner"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmSeverity"),
+        ("CPQTHRSH-MIB", "cpqMeAlarmExtendedDescription"))
+)
+if mibBuilder.loadTexts:
+    cpqMeCriticalFallingAlarmExtended.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CPQTHRSH-MIB",
+    **{"cpqMeRisingAlarm": cpqMeRisingAlarm,
+       "cpqMeFallingAlarm": cpqMeFallingAlarm,
+       "cpqMe2RisingAlarm": cpqMe2RisingAlarm,
+       "cpqMe2FallingAlarm": cpqMe2FallingAlarm,
+       "cpqMeRisingAlarmExtended": cpqMeRisingAlarmExtended,
+       "cpqMeFallingAlarmExtended": cpqMeFallingAlarmExtended,
+       "cpqMeCriticalRisingAlarmExtended": cpqMeCriticalRisingAlarmExtended,
+       "cpqMeCriticalFallingAlarmExtended": cpqMeCriticalFallingAlarmExtended,
+       "cpqThresholdMgmt": cpqThresholdMgmt,
+       "cpqMeMibRev": cpqMeMibRev,
+       "cpqMeMibRevMajor": cpqMeMibRevMajor,
+       "cpqMeMibRevMinor": cpqMeMibRevMinor,
+       "cpqMeMibCondition": cpqMeMibCondition,
+       "cpqMeComponent": cpqMeComponent,
+       "cpqMeInterface": cpqMeInterface,
+       "cpqMeOsCommon": cpqMeOsCommon,
+       "cpqMeOsCommonPollFreq": cpqMeOsCommonPollFreq,
+       "cpqMeOsCommonModuleTable": cpqMeOsCommonModuleTable,
+       "cpqMeOsCommonModuleEntry": cpqMeOsCommonModuleEntry,
+       "cpqMeOsCommonModuleIndex": cpqMeOsCommonModuleIndex,
+       "cpqMeOsCommonModuleName": cpqMeOsCommonModuleName,
+       "cpqMeOsCommonModuleVersion": cpqMeOsCommonModuleVersion,
+       "cpqMeOsCommonModuleDate": cpqMeOsCommonModuleDate,
+       "cpqMeOsCommonModulePurpose": cpqMeOsCommonModulePurpose,
+       "cpqMeAlarm": cpqMeAlarm,
+       "cpqMeAlarmNextIndex": cpqMeAlarmNextIndex,
+       "cpqMeAlarmTable": cpqMeAlarmTable,
+       "cpqMeAlarmEntry": cpqMeAlarmEntry,
+       "cpqMeAlarmIndex": cpqMeAlarmIndex,
+       "cpqMeAlarmInterval": cpqMeAlarmInterval,
+       "cpqMeAlarmVariable": cpqMeAlarmVariable,
+       "cpqMeAlarmSampleType": cpqMeAlarmSampleType,
+       "cpqMeAlarmValue": cpqMeAlarmValue,
+       "cpqMeAlarmStartupAlarm": cpqMeAlarmStartupAlarm,
+       "cpqMeAlarmRisingThreshold": cpqMeAlarmRisingThreshold,
+       "cpqMeAlarmFallingThreshold": cpqMeAlarmFallingThreshold,
+       "cpqMeAlarmPermanence": cpqMeAlarmPermanence,
+       "cpqMeAlarmOwner": cpqMeAlarmOwner,
+       "cpqMeAlarmStatus": cpqMeAlarmStatus,
+       "cpqMeAlarmSeverity": cpqMeAlarmSeverity,
+       "cpqMeAlarmExtendedDescription": cpqMeAlarmExtendedDescription}
+)

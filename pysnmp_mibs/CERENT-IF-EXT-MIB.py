@@ -1,41 +1,265 @@
+# SNMP MIB module (CERENT-IF-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CERENT-IF-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CERENT-IF-EXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:38 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CERENT-IF-EXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:28:48 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-cerentModules, cerentGeneric, cerentRequirements = mibBuilder.importSymbols("CERENT-GLOBAL-REGISTRY", "cerentModules", "cerentGeneric", "cerentRequirements")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-cerentIfExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3607, 1, 10, 140))
-cerentIfExtMIB.setRevisions(('2005-11-14 00:00',))
-if mibBuilder.loadTexts: cerentIfExtMIB.setLastUpdated('200511140000Z')
-if mibBuilder.loadTexts: cerentIfExtMIB.setOrganization('Cisco Systems, Inc.')
-cerentIfExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 3607, 2, 100))
-cerentIfExtTable = MibTable((1, 3, 6, 1, 4, 1, 3607, 2, 100, 10), )
-if mibBuilder.loadTexts: cerentIfExtTable.setStatus('current')
-cerentIfExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3607, 2, 100, 10, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: cerentIfExtEntry.setStatus('current')
-cerentIfExtPreServiceAlarmSuppression = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 100, 10, 1, 10), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cerentIfExtPreServiceAlarmSuppression.setStatus('current')
-cerentIfExtConfiguredSoakTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 100, 10, 1, 20), Integer32().clone(480)).setUnits('minutes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cerentIfExtConfiguredSoakTime.setStatus('current')
-cerentIfExtCurrentSoakTime = MibTableColumn((1, 3, 6, 1, 4, 1, 3607, 2, 100, 10, 1, 30), Integer32()).setUnits('minutes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: cerentIfExtCurrentSoakTime.setStatus('current')
-cerentIfExtMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 3607, 5, 90))
-cerentIfExtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 3607, 5, 90, 1))
-cerentIfExtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 3607, 5, 90, 2))
-cerentIfExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 3607, 5, 90, 1, 1)).setObjects(("CERENT-IF-EXT-MIB", "cerentIfExtGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cerentIfExtMIBCompliance = cerentIfExtMIBCompliance.setStatus('current')
-cerentIfExtGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3607, 5, 90, 2, 10)).setObjects(("CERENT-IF-EXT-MIB", "cerentIfExtPreServiceAlarmSuppression"), ("CERENT-IF-EXT-MIB", "cerentIfExtConfiguredSoakTime"), ("CERENT-IF-EXT-MIB", "cerentIfExtCurrentSoakTime"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cerentIfExtGroup = cerentIfExtGroup.setStatus('current')
-mibBuilder.exportSymbols("CERENT-IF-EXT-MIB", cerentIfExtGroup=cerentIfExtGroup, cerentIfExtMIBObjects=cerentIfExtMIBObjects, cerentIfExtMIBGroups=cerentIfExtMIBGroups, cerentIfExtEntry=cerentIfExtEntry, cerentIfExtCurrentSoakTime=cerentIfExtCurrentSoakTime, cerentIfExtMIBCompliance=cerentIfExtMIBCompliance, PYSNMP_MODULE_ID=cerentIfExtMIB, cerentIfExtMIB=cerentIfExtMIB, cerentIfExtMIBCompliances=cerentIfExtMIBCompliances, cerentIfExtConfiguredSoakTime=cerentIfExtConfiguredSoakTime, cerentIfExtMIBConformance=cerentIfExtMIBConformance, cerentIfExtTable=cerentIfExtTable, cerentIfExtPreServiceAlarmSuppression=cerentIfExtPreServiceAlarmSuppression)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cerentGeneric,
+ cerentModules,
+ cerentRequirements) = mibBuilder.importSymbols(
+    "CERENT-GLOBAL-REGISTRY",
+    "cerentGeneric",
+    "cerentModules",
+    "cerentRequirements")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cerentIfExtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3607, 1, 10, 140)
+)
+if mibBuilder.loadTexts:
+    cerentIfExtMIB.setRevisions(
+        ("2005-11-14 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CerentIfExtMIBObjects_ObjectIdentity = ObjectIdentity
+cerentIfExtMIBObjects = _CerentIfExtMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 100)
+)
+_CerentIfExtTable_Object = MibTable
+cerentIfExtTable = _CerentIfExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 100, 10)
+)
+if mibBuilder.loadTexts:
+    cerentIfExtTable.setStatus("current")
+_CerentIfExtEntry_Object = MibTableRow
+cerentIfExtEntry = _CerentIfExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 100, 10, 1)
+)
+cerentIfExtEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    cerentIfExtEntry.setStatus("current")
+
+
+class _CerentIfExtPreServiceAlarmSuppression_Type(TruthValue):
+    """Custom type cerentIfExtPreServiceAlarmSuppression based on TruthValue"""
+    defaultValue = 2
+
+
+_CerentIfExtPreServiceAlarmSuppression_Type.__name__ = "TruthValue"
+_CerentIfExtPreServiceAlarmSuppression_Object = MibTableColumn
+cerentIfExtPreServiceAlarmSuppression = _CerentIfExtPreServiceAlarmSuppression_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 100, 10, 1, 10),
+    _CerentIfExtPreServiceAlarmSuppression_Type()
+)
+cerentIfExtPreServiceAlarmSuppression.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cerentIfExtPreServiceAlarmSuppression.setStatus("current")
+
+
+class _CerentIfExtConfiguredSoakTime_Type(Integer32):
+    """Custom type cerentIfExtConfiguredSoakTime based on Integer32"""
+    defaultValue = 480
+
+
+_CerentIfExtConfiguredSoakTime_Type.__name__ = "Integer32"
+_CerentIfExtConfiguredSoakTime_Object = MibTableColumn
+cerentIfExtConfiguredSoakTime = _CerentIfExtConfiguredSoakTime_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 100, 10, 1, 20),
+    _CerentIfExtConfiguredSoakTime_Type()
+)
+cerentIfExtConfiguredSoakTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cerentIfExtConfiguredSoakTime.setStatus("current")
+if mibBuilder.loadTexts:
+    cerentIfExtConfiguredSoakTime.setUnits("minutes")
+_CerentIfExtCurrentSoakTime_Type = Integer32
+_CerentIfExtCurrentSoakTime_Object = MibTableColumn
+cerentIfExtCurrentSoakTime = _CerentIfExtCurrentSoakTime_Object(
+    (1, 3, 6, 1, 4, 1, 3607, 2, 100, 10, 1, 30),
+    _CerentIfExtCurrentSoakTime_Type()
+)
+cerentIfExtCurrentSoakTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cerentIfExtCurrentSoakTime.setStatus("current")
+if mibBuilder.loadTexts:
+    cerentIfExtCurrentSoakTime.setUnits("minutes")
+_CerentIfExtMIBConformance_ObjectIdentity = ObjectIdentity
+cerentIfExtMIBConformance = _CerentIfExtMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3607, 5, 90)
+)
+_CerentIfExtMIBCompliances_ObjectIdentity = ObjectIdentity
+cerentIfExtMIBCompliances = _CerentIfExtMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3607, 5, 90, 1)
+)
+_CerentIfExtMIBGroups_ObjectIdentity = ObjectIdentity
+cerentIfExtMIBGroups = _CerentIfExtMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3607, 5, 90, 2)
+)
+
+# Managed Objects groups
+
+cerentIfExtGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 3607, 5, 90, 2, 10)
+)
+cerentIfExtGroup.setObjects(
+      *(("CERENT-IF-EXT-MIB", "cerentIfExtPreServiceAlarmSuppression"),
+        ("CERENT-IF-EXT-MIB", "cerentIfExtConfiguredSoakTime"),
+        ("CERENT-IF-EXT-MIB", "cerentIfExtCurrentSoakTime"))
+)
+if mibBuilder.loadTexts:
+    cerentIfExtGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cerentIfExtMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 3607, 5, 90, 1, 1)
+)
+cerentIfExtMIBCompliance.setObjects(
+    ("CERENT-IF-EXT-MIB", "cerentIfExtGroup")
+)
+if mibBuilder.loadTexts:
+    cerentIfExtMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CERENT-IF-EXT-MIB",
+    **{"cerentIfExtMIB": cerentIfExtMIB,
+       "cerentIfExtMIBObjects": cerentIfExtMIBObjects,
+       "cerentIfExtTable": cerentIfExtTable,
+       "cerentIfExtEntry": cerentIfExtEntry,
+       "cerentIfExtPreServiceAlarmSuppression": cerentIfExtPreServiceAlarmSuppression,
+       "cerentIfExtConfiguredSoakTime": cerentIfExtConfiguredSoakTime,
+       "cerentIfExtCurrentSoakTime": cerentIfExtCurrentSoakTime,
+       "cerentIfExtMIBConformance": cerentIfExtMIBConformance,
+       "cerentIfExtMIBCompliances": cerentIfExtMIBCompliances,
+       "cerentIfExtMIBCompliance": cerentIfExtMIBCompliance,
+       "cerentIfExtMIBGroups": cerentIfExtMIBGroups,
+       "cerentIfExtGroup": cerentIfExtGroup}
+)

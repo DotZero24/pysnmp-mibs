@@ -1,63 +1,358 @@
+# SNMP MIB module (PKTC-MDI-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PKTC-MDI-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rfc/PKTC-MDI-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:50:17 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/rfc/PKTC-MDI-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:24:47 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-pktcApplicationMibs, = mibBuilder.importSymbols("CLAB-DEF-MIB", "pktcApplicationMibs")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-pktcMdiMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6))
-pktcMdiMib.setRevisions(('2009-09-17 00:00', '2009-02-26 00:00',))
-if mibBuilder.loadTexts: pktcMdiMib.setLastUpdated('200909170000Z')
-if mibBuilder.loadTexts: pktcMdiMib.setOrganization('Cable Television Laboratories, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(pktcApplicationMibs,) = mibBuilder.importSymbols(
+    "CLAB-DEF-MIB",
+    "pktcApplicationMibs")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pktcMdiMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6)
+)
+if mibBuilder.loadTexts:
+    pktcMdiMib.setRevisions(
+        ("2009-09-17 00:00",
+         "2009-02-26 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class PktcMdiType(TextualConvention, Integer32):
-    reference = 'PacketCable DECT-HDV Specification'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("pots", 1), ("dectPP", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pots", 1),
+          ("dectPP", 2))
+    )
 
-pktcMdiNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 0))
-pktcMdiObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1))
-pktcMdiMdiTable = MibTable((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 1), )
-if mibBuilder.loadTexts: pktcMdiMdiTable.setStatus('current')
-pktcMdiMdiEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: pktcMdiMdiEntry.setStatus('current')
-pktcMdiMdiType = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 1, 1, 1), PktcMdiType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMdiMdiType.setStatus('current')
-pktcMdiMdiName = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 1, 1, 2), SnmpAdminString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcMdiMdiName.setStatus('current')
-pktcMdiMdiActivityStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("inactive", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcMdiMdiActivityStatus.setStatus('current')
-pktcMdiNslTable = MibTable((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2), )
-if mibBuilder.loadTexts: pktcMdiNslTable.setStatus('current')
-pktcMdiNslEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1), ).setIndexNames((0, "PKTC-MDI-MIB", "pktcMdiNslIndex"))
-if mibBuilder.loadTexts: pktcMdiNslEntry.setStatus('current')
-pktcMdiNslIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: pktcMdiNslIndex.setStatus('current')
-pktcMdiNslName = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1, 2), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMdiNslName.setStatus('current')
-pktcMdiNslPortListIn = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1, 3), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMdiNslPortListIn.setStatus('current')
-pktcMdiNslPortListOut = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1, 4), SnmpAdminString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMdiNslPortListOut.setStatus('current')
-pktcMdiNslRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcMdiNslRowStatus.setStatus('current')
-pktcMdiMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 2))
-pktcMdiMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 2, 1))
-pktcMdiMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 2, 2))
-pktcMdiCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 2, 1, 1)).setObjects(("PKTC-MDI-MIB", "pktcMdiGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pktcMdiCompliance = pktcMdiCompliance.setStatus('current')
-pktcMdiGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 2, 2, 1)).setObjects(("PKTC-MDI-MIB", "pktcMdiMdiType"), ("PKTC-MDI-MIB", "pktcMdiMdiName"), ("PKTC-MDI-MIB", "pktcMdiMdiActivityStatus"), ("PKTC-MDI-MIB", "pktcMdiNslName"), ("PKTC-MDI-MIB", "pktcMdiNslPortListIn"), ("PKTC-MDI-MIB", "pktcMdiNslPortListOut"), ("PKTC-MDI-MIB", "pktcMdiNslRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pktcMdiGroup = pktcMdiGroup.setStatus('current')
-mibBuilder.exportSymbols("PKTC-MDI-MIB", pktcMdiNslTable=pktcMdiNslTable, pktcMdiGroup=pktcMdiGroup, pktcMdiNslPortListOut=pktcMdiNslPortListOut, pktcMdiMdiEntry=pktcMdiMdiEntry, pktcMdiNslIndex=pktcMdiNslIndex, pktcMdiNslEntry=pktcMdiNslEntry, pktcMdiNslName=pktcMdiNslName, PktcMdiType=PktcMdiType, pktcMdiMdiType=pktcMdiMdiType, pktcMdiNslRowStatus=pktcMdiNslRowStatus, pktcMdiCompliance=pktcMdiCompliance, pktcMdiMdiActivityStatus=pktcMdiMdiActivityStatus, pktcMdiMibGroups=pktcMdiMibGroups, pktcMdiMibCompliances=pktcMdiMibCompliances, pktcMdiMibConformance=pktcMdiMibConformance, pktcMdiNslPortListIn=pktcMdiNslPortListIn, pktcMdiNotifications=pktcMdiNotifications, PYSNMP_MODULE_ID=pktcMdiMib, pktcMdiMib=pktcMdiMib, pktcMdiObjects=pktcMdiObjects, pktcMdiMdiName=pktcMdiMdiName, pktcMdiMdiTable=pktcMdiMdiTable)
+
+# MIB Managed Objects in the order of their OIDs
+
+_PktcMdiNotifications_ObjectIdentity = ObjectIdentity
+pktcMdiNotifications = _PktcMdiNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 0)
+)
+_PktcMdiObjects_ObjectIdentity = ObjectIdentity
+pktcMdiObjects = _PktcMdiObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1)
+)
+_PktcMdiMdiTable_Object = MibTable
+pktcMdiMdiTable = _PktcMdiMdiTable_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 1)
+)
+if mibBuilder.loadTexts:
+    pktcMdiMdiTable.setStatus("current")
+_PktcMdiMdiEntry_Object = MibTableRow
+pktcMdiMdiEntry = _PktcMdiMdiEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 1, 1)
+)
+pktcMdiMdiEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    pktcMdiMdiEntry.setStatus("current")
+_PktcMdiMdiType_Type = PktcMdiType
+_PktcMdiMdiType_Object = MibTableColumn
+pktcMdiMdiType = _PktcMdiMdiType_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 1, 1, 1),
+    _PktcMdiMdiType_Type()
+)
+pktcMdiMdiType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pktcMdiMdiType.setStatus("current")
+_PktcMdiMdiName_Type = SnmpAdminString
+_PktcMdiMdiName_Object = MibTableColumn
+pktcMdiMdiName = _PktcMdiMdiName_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 1, 1, 2),
+    _PktcMdiMdiName_Type()
+)
+pktcMdiMdiName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pktcMdiMdiName.setStatus("current")
+
+
+class _PktcMdiMdiActivityStatus_Type(Integer32):
+    """Custom type pktcMdiMdiActivityStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("inactive", 2))
+    )
+
+
+_PktcMdiMdiActivityStatus_Type.__name__ = "Integer32"
+_PktcMdiMdiActivityStatus_Object = MibTableColumn
+pktcMdiMdiActivityStatus = _PktcMdiMdiActivityStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 1, 1, 3),
+    _PktcMdiMdiActivityStatus_Type()
+)
+pktcMdiMdiActivityStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pktcMdiMdiActivityStatus.setStatus("current")
+_PktcMdiNslTable_Object = MibTable
+pktcMdiNslTable = _PktcMdiNslTable_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2)
+)
+if mibBuilder.loadTexts:
+    pktcMdiNslTable.setStatus("current")
+_PktcMdiNslEntry_Object = MibTableRow
+pktcMdiNslEntry = _PktcMdiNslEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1)
+)
+pktcMdiNslEntry.setIndexNames(
+    (0, "PKTC-MDI-MIB", "pktcMdiNslIndex"),
+)
+if mibBuilder.loadTexts:
+    pktcMdiNslEntry.setStatus("current")
+_PktcMdiNslIndex_Type = Unsigned32
+_PktcMdiNslIndex_Object = MibTableColumn
+pktcMdiNslIndex = _PktcMdiNslIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1, 1),
+    _PktcMdiNslIndex_Type()
+)
+pktcMdiNslIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pktcMdiNslIndex.setStatus("current")
+_PktcMdiNslName_Type = SnmpAdminString
+_PktcMdiNslName_Object = MibTableColumn
+pktcMdiNslName = _PktcMdiNslName_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1, 2),
+    _PktcMdiNslName_Type()
+)
+pktcMdiNslName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcMdiNslName.setStatus("current")
+_PktcMdiNslPortListIn_Type = SnmpAdminString
+_PktcMdiNslPortListIn_Object = MibTableColumn
+pktcMdiNslPortListIn = _PktcMdiNslPortListIn_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1, 3),
+    _PktcMdiNslPortListIn_Type()
+)
+pktcMdiNslPortListIn.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcMdiNslPortListIn.setStatus("current")
+_PktcMdiNslPortListOut_Type = SnmpAdminString
+_PktcMdiNslPortListOut_Object = MibTableColumn
+pktcMdiNslPortListOut = _PktcMdiNslPortListOut_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1, 4),
+    _PktcMdiNslPortListOut_Type()
+)
+pktcMdiNslPortListOut.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcMdiNslPortListOut.setStatus("current")
+_PktcMdiNslRowStatus_Type = RowStatus
+_PktcMdiNslRowStatus_Object = MibTableColumn
+pktcMdiNslRowStatus = _PktcMdiNslRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 1, 2, 1, 5),
+    _PktcMdiNslRowStatus_Type()
+)
+pktcMdiNslRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcMdiNslRowStatus.setStatus("current")
+_PktcMdiMibConformance_ObjectIdentity = ObjectIdentity
+pktcMdiMibConformance = _PktcMdiMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 2)
+)
+_PktcMdiMibCompliances_ObjectIdentity = ObjectIdentity
+pktcMdiMibCompliances = _PktcMdiMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 2, 1)
+)
+_PktcMdiMibGroups_ObjectIdentity = ObjectIdentity
+pktcMdiMibGroups = _PktcMdiMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 2, 2)
+)
+
+# Managed Objects groups
+
+pktcMdiGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 2, 2, 1)
+)
+pktcMdiGroup.setObjects(
+      *(("PKTC-MDI-MIB", "pktcMdiMdiType"),
+        ("PKTC-MDI-MIB", "pktcMdiMdiName"),
+        ("PKTC-MDI-MIB", "pktcMdiMdiActivityStatus"),
+        ("PKTC-MDI-MIB", "pktcMdiNslName"),
+        ("PKTC-MDI-MIB", "pktcMdiNslPortListIn"),
+        ("PKTC-MDI-MIB", "pktcMdiNslPortListOut"),
+        ("PKTC-MDI-MIB", "pktcMdiNslRowStatus"))
+)
+if mibBuilder.loadTexts:
+    pktcMdiGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+pktcMdiCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 8, 6, 2, 1, 1)
+)
+pktcMdiCompliance.setObjects(
+    ("PKTC-MDI-MIB", "pktcMdiGroup")
+)
+if mibBuilder.loadTexts:
+    pktcMdiCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PKTC-MDI-MIB",
+    **{"PktcMdiType": PktcMdiType,
+       "pktcMdiMib": pktcMdiMib,
+       "pktcMdiNotifications": pktcMdiNotifications,
+       "pktcMdiObjects": pktcMdiObjects,
+       "pktcMdiMdiTable": pktcMdiMdiTable,
+       "pktcMdiMdiEntry": pktcMdiMdiEntry,
+       "pktcMdiMdiType": pktcMdiMdiType,
+       "pktcMdiMdiName": pktcMdiMdiName,
+       "pktcMdiMdiActivityStatus": pktcMdiMdiActivityStatus,
+       "pktcMdiNslTable": pktcMdiNslTable,
+       "pktcMdiNslEntry": pktcMdiNslEntry,
+       "pktcMdiNslIndex": pktcMdiNslIndex,
+       "pktcMdiNslName": pktcMdiNslName,
+       "pktcMdiNslPortListIn": pktcMdiNslPortListIn,
+       "pktcMdiNslPortListOut": pktcMdiNslPortListOut,
+       "pktcMdiNslRowStatus": pktcMdiNslRowStatus,
+       "pktcMdiMibConformance": pktcMdiMibConformance,
+       "pktcMdiMibCompliances": pktcMdiMibCompliances,
+       "pktcMdiCompliance": pktcMdiCompliance,
+       "pktcMdiMibGroups": pktcMdiMibGroups,
+       "pktcMdiGroup": pktcMdiGroup}
+)

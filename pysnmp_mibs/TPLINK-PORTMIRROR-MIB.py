@@ -1,37 +1,250 @@
+# SNMP MIB module (TPLINK-PORTMIRROR-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPLINK-PORTMIRROR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/tplink/TPLINK-PORTMIRROR-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:26 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/tplink/TPLINK-PORTMIRROR-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:55:05 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
-tplinkPortMirrorMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 11))
-tplinkPortMirrorMIB.setRevisions(('2012-12-14 00:00',))
-if mibBuilder.loadTexts: tplinkPortMirrorMIB.setLastUpdated('201212140000Z')
-if mibBuilder.loadTexts: tplinkPortMirrorMIB.setOrganization('TPLINK')
-tplinkPortMirrorMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 11, 1))
-tplinkPortMirrorMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 11, 2))
-tpPortMirrorTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1), )
-if mibBuilder.loadTexts: tpPortMirrorTable.setStatus('current')
-tpPortMirrorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1), ).setIndexNames((0, "TPLINK-PORTMIRROR-MIB", "tpPortMirrorSession"))
-if mibBuilder.loadTexts: tpPortMirrorEntry.setStatus('current')
-tpPortMirrorSession = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tpPortMirrorSession.setStatus('current')
-tpPortMirrorDestination = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 2), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpPortMirrorDestination.setStatus('current')
-tpPortMirrorIngressSource = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 3), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpPortMirrorIngressSource.setStatus('current')
-tpPortMirrorEgressSource = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 4), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpPortMirrorEgressSource.setStatus('current')
-tpPortMirrorBothSource = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 5), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpPortMirrorBothSource.setStatus('current')
-tpPortMirrorSessionState = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("negative", 1), ("active", 2), ("clear", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpPortMirrorSessionState.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-PORTMIRROR-MIB", tplinkPortMirrorMIBObjects=tplinkPortMirrorMIBObjects, tpPortMirrorTable=tpPortMirrorTable, tpPortMirrorEgressSource=tpPortMirrorEgressSource, tpPortMirrorDestination=tpPortMirrorDestination, PYSNMP_MODULE_ID=tplinkPortMirrorMIB, tplinkPortMirrorMIBNotifications=tplinkPortMirrorMIBNotifications, tpPortMirrorEntry=tpPortMirrorEntry, tplinkPortMirrorMIB=tplinkPortMirrorMIB, tpPortMirrorSession=tpPortMirrorSession, tpPortMirrorBothSource=tpPortMirrorBothSource, tpPortMirrorSessionState=tpPortMirrorSessionState, tpPortMirrorIngressSource=tpPortMirrorIngressSource)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(tplinkMgmt,) = mibBuilder.importSymbols(
+    "TPLINK-MIB",
+    "tplinkMgmt")
+
+
+# MODULE-IDENTITY
+
+tplinkPortMirrorMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 11)
+)
+if mibBuilder.loadTexts:
+    tplinkPortMirrorMIB.setRevisions(
+        ("2012-12-14 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TplinkPortMirrorMIBObjects_ObjectIdentity = ObjectIdentity
+tplinkPortMirrorMIBObjects = _TplinkPortMirrorMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 11, 1)
+)
+_TpPortMirrorTable_Object = MibTable
+tpPortMirrorTable = _TpPortMirrorTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1)
+)
+if mibBuilder.loadTexts:
+    tpPortMirrorTable.setStatus("current")
+_TpPortMirrorEntry_Object = MibTableRow
+tpPortMirrorEntry = _TpPortMirrorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1)
+)
+tpPortMirrorEntry.setIndexNames(
+    (0, "TPLINK-PORTMIRROR-MIB", "tpPortMirrorSession"),
+)
+if mibBuilder.loadTexts:
+    tpPortMirrorEntry.setStatus("current")
+_TpPortMirrorSession_Type = Integer32
+_TpPortMirrorSession_Object = MibTableColumn
+tpPortMirrorSession = _TpPortMirrorSession_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 1),
+    _TpPortMirrorSession_Type()
+)
+tpPortMirrorSession.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tpPortMirrorSession.setStatus("current")
+_TpPortMirrorDestination_Type = OctetString
+_TpPortMirrorDestination_Object = MibTableColumn
+tpPortMirrorDestination = _TpPortMirrorDestination_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 2),
+    _TpPortMirrorDestination_Type()
+)
+tpPortMirrorDestination.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpPortMirrorDestination.setStatus("current")
+_TpPortMirrorIngressSource_Type = OctetString
+_TpPortMirrorIngressSource_Object = MibTableColumn
+tpPortMirrorIngressSource = _TpPortMirrorIngressSource_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 3),
+    _TpPortMirrorIngressSource_Type()
+)
+tpPortMirrorIngressSource.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpPortMirrorIngressSource.setStatus("current")
+_TpPortMirrorEgressSource_Type = OctetString
+_TpPortMirrorEgressSource_Object = MibTableColumn
+tpPortMirrorEgressSource = _TpPortMirrorEgressSource_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 4),
+    _TpPortMirrorEgressSource_Type()
+)
+tpPortMirrorEgressSource.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpPortMirrorEgressSource.setStatus("current")
+_TpPortMirrorBothSource_Type = OctetString
+_TpPortMirrorBothSource_Object = MibTableColumn
+tpPortMirrorBothSource = _TpPortMirrorBothSource_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 5),
+    _TpPortMirrorBothSource_Type()
+)
+tpPortMirrorBothSource.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpPortMirrorBothSource.setStatus("current")
+
+
+class _TpPortMirrorSessionState_Type(Integer32):
+    """Custom type tpPortMirrorSessionState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("negative", 1),
+          ("active", 2),
+          ("clear", 3))
+    )
+
+
+_TpPortMirrorSessionState_Type.__name__ = "Integer32"
+_TpPortMirrorSessionState_Object = MibTableColumn
+tpPortMirrorSessionState = _TpPortMirrorSessionState_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 11, 1, 1, 1, 6),
+    _TpPortMirrorSessionState_Type()
+)
+tpPortMirrorSessionState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpPortMirrorSessionState.setStatus("current")
+_TplinkPortMirrorMIBNotifications_ObjectIdentity = ObjectIdentity
+tplinkPortMirrorMIBNotifications = _TplinkPortMirrorMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 11, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPLINK-PORTMIRROR-MIB",
+    **{"tplinkPortMirrorMIB": tplinkPortMirrorMIB,
+       "tplinkPortMirrorMIBObjects": tplinkPortMirrorMIBObjects,
+       "tpPortMirrorTable": tpPortMirrorTable,
+       "tpPortMirrorEntry": tpPortMirrorEntry,
+       "tpPortMirrorSession": tpPortMirrorSession,
+       "tpPortMirrorDestination": tpPortMirrorDestination,
+       "tpPortMirrorIngressSource": tpPortMirrorIngressSource,
+       "tpPortMirrorEgressSource": tpPortMirrorEgressSource,
+       "tpPortMirrorBothSource": tpPortMirrorBothSource,
+       "tpPortMirrorSessionState": tpPortMirrorSessionState,
+       "tplinkPortMirrorMIBNotifications": tplinkPortMirrorMIBNotifications}
+)

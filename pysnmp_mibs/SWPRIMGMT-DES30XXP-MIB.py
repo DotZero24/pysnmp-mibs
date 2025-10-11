@@ -1,40 +1,262 @@
+# SNMP MIB module (SWPRIMGMT-DES30XXP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SWPRIMGMT-DES30XXP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/SWPRIMGMT-DES30XXP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:48 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/SWPRIMGMT-DES30XXP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:53:22 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_mgmt, dlink_products = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-mgmt", "dlink-products")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-dlink_des30xxproductProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63)).setLabel("dlink-des30xxproductProd")
-dlink_des3028Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63, 6)).setLabel("dlink-des3028Prod")
-dlink_des3028PProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63, 7)).setLabel("dlink-des3028PProd")
-dlink_des3052Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63, 8)).setLabel("dlink-des3052Prod")
-dlink_des3052PProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63, 9)).setLabel("dlink-des3052PProd")
-des30xxSeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63))
-des3028 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 6))
-des3028p = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 7))
-des3052 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 8))
-des3052p = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 9))
-des3028g = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 11))
-dlink_des3010xProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63, 1)).setLabel("dlink-des3010xProd")
-dlink_des3010FProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63, 1, 1)).setLabel("dlink-des3010FProd")
-dlink_des3010GProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63, 1, 2)).setLabel("dlink-des3010GProd")
-dlink_des3018Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63, 2)).setLabel("dlink-des3018Prod")
-dlink_des3026Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63, 3)).setLabel("dlink-des3026Prod")
-dlink_des3010FLProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63, 4)).setLabel("dlink-des3010FLProd")
-dlink_des3016Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 63, 10)).setLabel("dlink-des3016Prod")
-des3010 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 1))
-des3010f = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 1, 1))
-des3010g = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 1, 2))
-des3018 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 2))
-des3026 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 3))
-des3010fl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 4))
-des3016 = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 63, 10))
-mibBuilder.exportSymbols("SWPRIMGMT-DES30XXP-MIB", des3028p=des3028p, dlink_des3010GProd=dlink_des3010GProd, dlink_des3010FProd=dlink_des3010FProd, des3010f=des3010f, dlink_des3010xProd=dlink_des3010xProd, des3052=des3052, des3026=des3026, dlink_des3026Prod=dlink_des3026Prod, des3010g=des3010g, dlink_des30xxproductProd=dlink_des30xxproductProd, des30xxSeriesProd=des30xxSeriesProd, des3010=des3010, des3028g=des3028g, dlink_des3016Prod=dlink_des3016Prod, dlink_des3010FLProd=dlink_des3010FLProd, des3016=des3016, des3010fl=des3010fl, dlink_des3028Prod=dlink_des3028Prod, des3018=des3018, des3028=des3028, dlink_des3052Prod=dlink_des3052Prod, dlink_des3028PProd=dlink_des3028PProd, des3052p=des3052p, dlink_des3018Prod=dlink_des3018Prod, dlink_des3052PProd=dlink_des3052PProd)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_mgmt,
+ dlink_products) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-mgmt",
+    "dlink-products")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Dlink_des30xxproductProd_ObjectIdentity = ObjectIdentity
+dlink_des30xxproductProd = _Dlink_des30xxproductProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63)
+)
+_Dlink_des3010xProd_ObjectIdentity = ObjectIdentity
+dlink_des3010xProd = _Dlink_des3010xProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63, 1)
+)
+_Dlink_des3010FProd_ObjectIdentity = ObjectIdentity
+dlink_des3010FProd = _Dlink_des3010FProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63, 1, 1)
+)
+_Dlink_des3010GProd_ObjectIdentity = ObjectIdentity
+dlink_des3010GProd = _Dlink_des3010GProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63, 1, 2)
+)
+_Dlink_des3018Prod_ObjectIdentity = ObjectIdentity
+dlink_des3018Prod = _Dlink_des3018Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63, 2)
+)
+_Dlink_des3026Prod_ObjectIdentity = ObjectIdentity
+dlink_des3026Prod = _Dlink_des3026Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63, 3)
+)
+_Dlink_des3010FLProd_ObjectIdentity = ObjectIdentity
+dlink_des3010FLProd = _Dlink_des3010FLProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63, 4)
+)
+_Dlink_des3028Prod_ObjectIdentity = ObjectIdentity
+dlink_des3028Prod = _Dlink_des3028Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63, 6)
+)
+_Dlink_des3028PProd_ObjectIdentity = ObjectIdentity
+dlink_des3028PProd = _Dlink_des3028PProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63, 7)
+)
+_Dlink_des3052Prod_ObjectIdentity = ObjectIdentity
+dlink_des3052Prod = _Dlink_des3052Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63, 8)
+)
+_Dlink_des3052PProd_ObjectIdentity = ObjectIdentity
+dlink_des3052PProd = _Dlink_des3052PProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63, 9)
+)
+_Dlink_des3016Prod_ObjectIdentity = ObjectIdentity
+dlink_des3016Prod = _Dlink_des3016Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 63, 10)
+)
+_Des30xxSeriesProd_ObjectIdentity = ObjectIdentity
+des30xxSeriesProd = _Des30xxSeriesProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63)
+)
+_Des3010_ObjectIdentity = ObjectIdentity
+des3010 = _Des3010_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 1)
+)
+_Des3010f_ObjectIdentity = ObjectIdentity
+des3010f = _Des3010f_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 1, 1)
+)
+_Des3010g_ObjectIdentity = ObjectIdentity
+des3010g = _Des3010g_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 1, 2)
+)
+_Des3018_ObjectIdentity = ObjectIdentity
+des3018 = _Des3018_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 2)
+)
+_Des3026_ObjectIdentity = ObjectIdentity
+des3026 = _Des3026_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 3)
+)
+_Des3010fl_ObjectIdentity = ObjectIdentity
+des3010fl = _Des3010fl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 4)
+)
+_Des3028_ObjectIdentity = ObjectIdentity
+des3028 = _Des3028_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 6)
+)
+_Des3028p_ObjectIdentity = ObjectIdentity
+des3028p = _Des3028p_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 7)
+)
+_Des3052_ObjectIdentity = ObjectIdentity
+des3052 = _Des3052_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 8)
+)
+_Des3052p_ObjectIdentity = ObjectIdentity
+des3052p = _Des3052p_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 9)
+)
+_Des3016_ObjectIdentity = ObjectIdentity
+des3016 = _Des3016_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 10)
+)
+_Des3028g_ObjectIdentity = ObjectIdentity
+des3028g = _Des3028g_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 63, 11)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SWPRIMGMT-DES30XXP-MIB",
+    **{"dlink-des30xxproductProd": dlink_des30xxproductProd,
+       "dlink-des3010xProd": dlink_des3010xProd,
+       "dlink-des3010FProd": dlink_des3010FProd,
+       "dlink-des3010GProd": dlink_des3010GProd,
+       "dlink-des3018Prod": dlink_des3018Prod,
+       "dlink-des3026Prod": dlink_des3026Prod,
+       "dlink-des3010FLProd": dlink_des3010FLProd,
+       "dlink-des3028Prod": dlink_des3028Prod,
+       "dlink-des3028PProd": dlink_des3028PProd,
+       "dlink-des3052Prod": dlink_des3052Prod,
+       "dlink-des3052PProd": dlink_des3052PProd,
+       "dlink-des3016Prod": dlink_des3016Prod,
+       "des30xxSeriesProd": des30xxSeriesProd,
+       "des3010": des3010,
+       "des3010f": des3010f,
+       "des3010g": des3010g,
+       "des3018": des3018,
+       "des3026": des3026,
+       "des3010fl": des3010fl,
+       "des3028": des3028,
+       "des3028p": des3028p,
+       "des3052": des3052,
+       "des3052p": des3052p,
+       "des3016": des3016,
+       "des3028g": des3028g}
+)

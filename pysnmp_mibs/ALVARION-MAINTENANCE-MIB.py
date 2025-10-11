@@ -1,91 +1,730 @@
+# SNMP MIB module (ALVARION-MAINTENANCE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALVARION-MAINTENANCE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alvarion/ALVARION-MAINTENANCE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:33 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alvarion/ALVARION-MAINTENANCE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:06:56 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-alvarionMgmtV2, = mibBuilder.importSymbols("ALVARION-SMI", "alvarionMgmtV2")
-systemFirmwareRevision, systemConfigurationVersion = mibBuilder.importSymbols("ALVARION-SYSTEM-MIB", "systemFirmwareRevision", "systemConfigurationVersion")
-AlvarionNotificationEnable, = mibBuilder.importSymbols("ALVARION-TC", "AlvarionNotificationEnable")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-alvarionMaintenanceMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2))
-if mibBuilder.loadTexts: alvarionMaintenanceMIB.setLastUpdated('200710310000Z')
-if mibBuilder.loadTexts: alvarionMaintenanceMIB.setOrganization('Alvarion Ltd.')
-alvarionMaintenanceMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1))
-firmwareUpdate = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1))
-configurationUpdate = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2))
-certificate = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 3))
-firmwarePeriodicUpdate = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: firmwarePeriodicUpdate.setStatus('current')
-firmwareUpdateDay = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("monday", 1), ("tuesday", 2), ("wednesday", 3), ("thursday", 4), ("friday", 5), ("saturday", 6), ("sunday", 7), ("everyday", 8)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: firmwareUpdateDay.setStatus('current')
-firmwareUpdateTime = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(5, 5)).setFixedLength(5)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: firmwareUpdateTime.setStatus('current')
-firmwareUpdateLocation = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: firmwareUpdateLocation.setStatus('current')
-firmwareUpdateInitiate = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("idle", 0), ("update", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: firmwareUpdateInitiate.setStatus('current')
-firmwareUpdateNotificationEnabled = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 6), AlvarionNotificationEnable().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: firmwareUpdateNotificationEnabled.setStatus('current')
-firmwareUpdateInfo = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 7), DisplayString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: firmwareUpdateInfo.setStatus('current')
-configurationPeriodicUpdate = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configurationPeriodicUpdate.setStatus('current')
-configurationUpdateDay = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("monday", 1), ("tuesday", 2), ("wednesday", 3), ("thursday", 4), ("friday", 5), ("saturday", 6), ("sunday", 7), ("everyday", 8)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configurationUpdateDay.setStatus('current')
-configurationUpdateTime = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(5, 5)).setFixedLength(5)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configurationUpdateTime.setStatus('current')
-configurationUpdateLocation = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configurationUpdateLocation.setStatus('current')
-configurationUpdateInitiate = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("idle", 0), ("update", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configurationUpdateInitiate.setStatus('current')
-configurationUpdateOperation = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("backup", 1), ("restore", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configurationUpdateOperation.setStatus('current')
-configurationUpdateNotificationEnabled = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 7), AlvarionNotificationEnable().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configurationUpdateNotificationEnabled.setStatus('current')
-configurationLocalUpdateNotificationEnabled = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 8), AlvarionNotificationEnable().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configurationLocalUpdateNotificationEnabled.setStatus('current')
-configurationUpdateInfo = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 9), DisplayString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: configurationUpdateInfo.setStatus('current')
-configurationFactoryDefaults = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("idle", 0), ("resetToFactoryDefaults", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configurationFactoryDefaults.setStatus('current')
-configurationRestart = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("idle", 0), ("restart", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configurationRestart.setStatus('current')
-certificateAboutToExpireNotificationEnabled = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 3, 1), AlvarionNotificationEnable().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: certificateAboutToExpireNotificationEnabled.setStatus('current')
-certificateExpiredNotificationEnabled = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 3, 2), AlvarionNotificationEnable().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: certificateExpiredNotificationEnabled.setStatus('current')
-certificateExpiryDate = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 3, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: certificateExpiryDate.setStatus('current')
-alvarionMaintenanceMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2))
-alvarionMaintenanceMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0))
-firmwareUpdateNotification = NotificationType((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0, 5)).setObjects(("ALVARION-MAINTENANCE-MIB", "firmwareUpdateInfo"), ("ALVARION-SYSTEM-MIB", "systemFirmwareRevision"))
-if mibBuilder.loadTexts: firmwareUpdateNotification.setStatus('current')
-configurationUpdateNotification = NotificationType((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0, 1)).setObjects(("ALVARION-MAINTENANCE-MIB", "configurationUpdateInfo"), ("ALVARION-SYSTEM-MIB", "systemConfigurationVersion"))
-if mibBuilder.loadTexts: configurationUpdateNotification.setStatus('current')
-configurationLocalUpdateNotification = NotificationType((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0, 2)).setObjects(("ALVARION-MAINTENANCE-MIB", "configurationUpdateInfo"))
-if mibBuilder.loadTexts: configurationLocalUpdateNotification.setStatus('current')
-certificateAboutToExpireNotification = NotificationType((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0, 3)).setObjects(("ALVARION-MAINTENANCE-MIB", "certificateExpiryDate"))
-if mibBuilder.loadTexts: certificateAboutToExpireNotification.setStatus('current')
-certificateExpiredNotification = NotificationType((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0, 4)).setObjects(("ALVARION-MAINTENANCE-MIB", "certificateExpiryDate"))
-if mibBuilder.loadTexts: certificateExpiredNotification.setStatus('current')
-alvarionMaintenanceMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3))
-alvarionMaintenanceMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3, 1))
-alvarionMaintenanceMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3, 2))
-alvarionMaintenanceMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3, 1, 1)).setObjects(("ALVARION-MAINTENANCE-MIB", "alvarionMaintenanceMIBGroup"), ("ALVARION-MAINTENANCE-MIB", "alvarionMaintenanceNotificationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alvarionMaintenanceMIBCompliance = alvarionMaintenanceMIBCompliance.setStatus('current')
-alvarionMaintenanceMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3, 2, 1)).setObjects(("ALVARION-MAINTENANCE-MIB", "firmwarePeriodicUpdate"), ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateDay"), ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateTime"), ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateLocation"), ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateInitiate"), ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateNotificationEnabled"), ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateInfo"), ("ALVARION-MAINTENANCE-MIB", "configurationPeriodicUpdate"), ("ALVARION-MAINTENANCE-MIB", "configurationUpdateDay"), ("ALVARION-MAINTENANCE-MIB", "configurationUpdateTime"), ("ALVARION-MAINTENANCE-MIB", "configurationUpdateLocation"), ("ALVARION-MAINTENANCE-MIB", "configurationUpdateInitiate"), ("ALVARION-MAINTENANCE-MIB", "configurationUpdateOperation"), ("ALVARION-MAINTENANCE-MIB", "configurationUpdateNotificationEnabled"), ("ALVARION-MAINTENANCE-MIB", "configurationUpdateInfo"), ("ALVARION-MAINTENANCE-MIB", "configurationFactoryDefaults"), ("ALVARION-MAINTENANCE-MIB", "configurationRestart"), ("ALVARION-MAINTENANCE-MIB", "configurationLocalUpdateNotificationEnabled"), ("ALVARION-MAINTENANCE-MIB", "certificateAboutToExpireNotificationEnabled"), ("ALVARION-MAINTENANCE-MIB", "certificateExpiredNotificationEnabled"), ("ALVARION-MAINTENANCE-MIB", "certificateExpiryDate"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alvarionMaintenanceMIBGroup = alvarionMaintenanceMIBGroup.setStatus('current')
-alvarionMaintenanceNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3, 2, 2)).setObjects(("ALVARION-MAINTENANCE-MIB", "firmwareUpdateNotification"), ("ALVARION-MAINTENANCE-MIB", "configurationUpdateNotification"), ("ALVARION-MAINTENANCE-MIB", "configurationLocalUpdateNotification"), ("ALVARION-MAINTENANCE-MIB", "certificateAboutToExpireNotification"), ("ALVARION-MAINTENANCE-MIB", "certificateExpiredNotification"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alvarionMaintenanceNotificationGroup = alvarionMaintenanceNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("ALVARION-MAINTENANCE-MIB", configurationRestart=configurationRestart, firmwareUpdate=firmwareUpdate, alvarionMaintenanceNotificationGroup=alvarionMaintenanceNotificationGroup, configurationUpdateTime=configurationUpdateTime, configurationUpdateNotification=configurationUpdateNotification, PYSNMP_MODULE_ID=alvarionMaintenanceMIB, firmwareUpdateTime=firmwareUpdateTime, alvarionMaintenanceMIBGroups=alvarionMaintenanceMIBGroups, certificateAboutToExpireNotification=certificateAboutToExpireNotification, configurationUpdateOperation=configurationUpdateOperation, alvarionMaintenanceMIBObjects=alvarionMaintenanceMIBObjects, configurationUpdateDay=configurationUpdateDay, alvarionMaintenanceMIBConformance=alvarionMaintenanceMIBConformance, certificateAboutToExpireNotificationEnabled=certificateAboutToExpireNotificationEnabled, firmwareUpdateDay=firmwareUpdateDay, certificate=certificate, alvarionMaintenanceMIBGroup=alvarionMaintenanceMIBGroup, configurationUpdateLocation=configurationUpdateLocation, alvarionMaintenanceMIBCompliance=alvarionMaintenanceMIBCompliance, certificateExpiryDate=certificateExpiryDate, firmwareUpdateNotificationEnabled=firmwareUpdateNotificationEnabled, configurationLocalUpdateNotificationEnabled=configurationLocalUpdateNotificationEnabled, firmwareUpdateInfo=firmwareUpdateInfo, configurationPeriodicUpdate=configurationPeriodicUpdate, alvarionMaintenanceMIBNotificationPrefix=alvarionMaintenanceMIBNotificationPrefix, configurationUpdateInfo=configurationUpdateInfo, firmwarePeriodicUpdate=firmwarePeriodicUpdate, configurationLocalUpdateNotification=configurationLocalUpdateNotification, configurationUpdateInitiate=configurationUpdateInitiate, firmwareUpdateInitiate=firmwareUpdateInitiate, configurationUpdate=configurationUpdate, alvarionMaintenanceMIBNotifications=alvarionMaintenanceMIBNotifications, configurationFactoryDefaults=configurationFactoryDefaults, certificateExpiredNotificationEnabled=certificateExpiredNotificationEnabled, certificateExpiredNotification=certificateExpiredNotification, alvarionMaintenanceMIBCompliances=alvarionMaintenanceMIBCompliances, firmwareUpdateLocation=firmwareUpdateLocation, configurationUpdateNotificationEnabled=configurationUpdateNotificationEnabled, alvarionMaintenanceMIB=alvarionMaintenanceMIB, firmwareUpdateNotification=firmwareUpdateNotification)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(alvarionMgmtV2,) = mibBuilder.importSymbols(
+    "ALVARION-SMI",
+    "alvarionMgmtV2")
+
+(systemConfigurationVersion,
+ systemFirmwareRevision) = mibBuilder.importSymbols(
+    "ALVARION-SYSTEM-MIB",
+    "systemConfigurationVersion",
+    "systemFirmwareRevision")
+
+(AlvarionNotificationEnable,) = mibBuilder.importSymbols(
+    "ALVARION-TC",
+    "AlvarionNotificationEnable")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+alvarionMaintenanceMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlvarionMaintenanceMIBObjects_ObjectIdentity = ObjectIdentity
+alvarionMaintenanceMIBObjects = _AlvarionMaintenanceMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1)
+)
+_FirmwareUpdate_ObjectIdentity = ObjectIdentity
+firmwareUpdate = _FirmwareUpdate_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1)
+)
+_FirmwarePeriodicUpdate_Type = TruthValue
+_FirmwarePeriodicUpdate_Object = MibScalar
+firmwarePeriodicUpdate = _FirmwarePeriodicUpdate_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 1),
+    _FirmwarePeriodicUpdate_Type()
+)
+firmwarePeriodicUpdate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    firmwarePeriodicUpdate.setStatus("current")
+
+
+class _FirmwareUpdateDay_Type(Integer32):
+    """Custom type firmwareUpdateDay based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("monday", 1),
+          ("tuesday", 2),
+          ("wednesday", 3),
+          ("thursday", 4),
+          ("friday", 5),
+          ("saturday", 6),
+          ("sunday", 7),
+          ("everyday", 8))
+    )
+
+
+_FirmwareUpdateDay_Type.__name__ = "Integer32"
+_FirmwareUpdateDay_Object = MibScalar
+firmwareUpdateDay = _FirmwareUpdateDay_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 2),
+    _FirmwareUpdateDay_Type()
+)
+firmwareUpdateDay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    firmwareUpdateDay.setStatus("current")
+
+
+class _FirmwareUpdateTime_Type(OctetString):
+    """Custom type firmwareUpdateTime based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(5, 5),
+    )
+    fixed_length = 5
+
+
+_FirmwareUpdateTime_Type.__name__ = "OctetString"
+_FirmwareUpdateTime_Object = MibScalar
+firmwareUpdateTime = _FirmwareUpdateTime_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 3),
+    _FirmwareUpdateTime_Type()
+)
+firmwareUpdateTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    firmwareUpdateTime.setStatus("current")
+_FirmwareUpdateLocation_Type = DisplayString
+_FirmwareUpdateLocation_Object = MibScalar
+firmwareUpdateLocation = _FirmwareUpdateLocation_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 4),
+    _FirmwareUpdateLocation_Type()
+)
+firmwareUpdateLocation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    firmwareUpdateLocation.setStatus("current")
+
+
+class _FirmwareUpdateInitiate_Type(Integer32):
+    """Custom type firmwareUpdateInitiate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("idle", 0),
+          ("update", 1))
+    )
+
+
+_FirmwareUpdateInitiate_Type.__name__ = "Integer32"
+_FirmwareUpdateInitiate_Object = MibScalar
+firmwareUpdateInitiate = _FirmwareUpdateInitiate_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 5),
+    _FirmwareUpdateInitiate_Type()
+)
+firmwareUpdateInitiate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    firmwareUpdateInitiate.setStatus("current")
+
+
+class _FirmwareUpdateNotificationEnabled_Type(AlvarionNotificationEnable):
+    """Custom type firmwareUpdateNotificationEnabled based on AlvarionNotificationEnable"""
+    defaultValue = 1
+
+
+_FirmwareUpdateNotificationEnabled_Type.__name__ = "AlvarionNotificationEnable"
+_FirmwareUpdateNotificationEnabled_Object = MibScalar
+firmwareUpdateNotificationEnabled = _FirmwareUpdateNotificationEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 6),
+    _FirmwareUpdateNotificationEnabled_Type()
+)
+firmwareUpdateNotificationEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    firmwareUpdateNotificationEnabled.setStatus("current")
+_FirmwareUpdateInfo_Type = DisplayString
+_FirmwareUpdateInfo_Object = MibScalar
+firmwareUpdateInfo = _FirmwareUpdateInfo_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 1, 7),
+    _FirmwareUpdateInfo_Type()
+)
+firmwareUpdateInfo.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    firmwareUpdateInfo.setStatus("current")
+_ConfigurationUpdate_ObjectIdentity = ObjectIdentity
+configurationUpdate = _ConfigurationUpdate_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2)
+)
+_ConfigurationPeriodicUpdate_Type = TruthValue
+_ConfigurationPeriodicUpdate_Object = MibScalar
+configurationPeriodicUpdate = _ConfigurationPeriodicUpdate_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 1),
+    _ConfigurationPeriodicUpdate_Type()
+)
+configurationPeriodicUpdate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configurationPeriodicUpdate.setStatus("current")
+
+
+class _ConfigurationUpdateDay_Type(Integer32):
+    """Custom type configurationUpdateDay based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("monday", 1),
+          ("tuesday", 2),
+          ("wednesday", 3),
+          ("thursday", 4),
+          ("friday", 5),
+          ("saturday", 6),
+          ("sunday", 7),
+          ("everyday", 8))
+    )
+
+
+_ConfigurationUpdateDay_Type.__name__ = "Integer32"
+_ConfigurationUpdateDay_Object = MibScalar
+configurationUpdateDay = _ConfigurationUpdateDay_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 2),
+    _ConfigurationUpdateDay_Type()
+)
+configurationUpdateDay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configurationUpdateDay.setStatus("current")
+
+
+class _ConfigurationUpdateTime_Type(OctetString):
+    """Custom type configurationUpdateTime based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(5, 5),
+    )
+    fixed_length = 5
+
+
+_ConfigurationUpdateTime_Type.__name__ = "OctetString"
+_ConfigurationUpdateTime_Object = MibScalar
+configurationUpdateTime = _ConfigurationUpdateTime_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 3),
+    _ConfigurationUpdateTime_Type()
+)
+configurationUpdateTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configurationUpdateTime.setStatus("current")
+_ConfigurationUpdateLocation_Type = DisplayString
+_ConfigurationUpdateLocation_Object = MibScalar
+configurationUpdateLocation = _ConfigurationUpdateLocation_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 4),
+    _ConfigurationUpdateLocation_Type()
+)
+configurationUpdateLocation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configurationUpdateLocation.setStatus("current")
+
+
+class _ConfigurationUpdateInitiate_Type(Integer32):
+    """Custom type configurationUpdateInitiate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("idle", 0),
+          ("update", 1))
+    )
+
+
+_ConfigurationUpdateInitiate_Type.__name__ = "Integer32"
+_ConfigurationUpdateInitiate_Object = MibScalar
+configurationUpdateInitiate = _ConfigurationUpdateInitiate_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 5),
+    _ConfigurationUpdateInitiate_Type()
+)
+configurationUpdateInitiate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configurationUpdateInitiate.setStatus("current")
+
+
+class _ConfigurationUpdateOperation_Type(Integer32):
+    """Custom type configurationUpdateOperation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("backup", 1),
+          ("restore", 2))
+    )
+
+
+_ConfigurationUpdateOperation_Type.__name__ = "Integer32"
+_ConfigurationUpdateOperation_Object = MibScalar
+configurationUpdateOperation = _ConfigurationUpdateOperation_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 6),
+    _ConfigurationUpdateOperation_Type()
+)
+configurationUpdateOperation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configurationUpdateOperation.setStatus("current")
+
+
+class _ConfigurationUpdateNotificationEnabled_Type(AlvarionNotificationEnable):
+    """Custom type configurationUpdateNotificationEnabled based on AlvarionNotificationEnable"""
+    defaultValue = 1
+
+
+_ConfigurationUpdateNotificationEnabled_Type.__name__ = "AlvarionNotificationEnable"
+_ConfigurationUpdateNotificationEnabled_Object = MibScalar
+configurationUpdateNotificationEnabled = _ConfigurationUpdateNotificationEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 7),
+    _ConfigurationUpdateNotificationEnabled_Type()
+)
+configurationUpdateNotificationEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configurationUpdateNotificationEnabled.setStatus("current")
+
+
+class _ConfigurationLocalUpdateNotificationEnabled_Type(AlvarionNotificationEnable):
+    """Custom type configurationLocalUpdateNotificationEnabled based on AlvarionNotificationEnable"""
+    defaultValue = 1
+
+
+_ConfigurationLocalUpdateNotificationEnabled_Type.__name__ = "AlvarionNotificationEnable"
+_ConfigurationLocalUpdateNotificationEnabled_Object = MibScalar
+configurationLocalUpdateNotificationEnabled = _ConfigurationLocalUpdateNotificationEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 8),
+    _ConfigurationLocalUpdateNotificationEnabled_Type()
+)
+configurationLocalUpdateNotificationEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configurationLocalUpdateNotificationEnabled.setStatus("current")
+_ConfigurationUpdateInfo_Type = DisplayString
+_ConfigurationUpdateInfo_Object = MibScalar
+configurationUpdateInfo = _ConfigurationUpdateInfo_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 9),
+    _ConfigurationUpdateInfo_Type()
+)
+configurationUpdateInfo.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    configurationUpdateInfo.setStatus("current")
+
+
+class _ConfigurationFactoryDefaults_Type(Integer32):
+    """Custom type configurationFactoryDefaults based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("idle", 0),
+          ("resetToFactoryDefaults", 1))
+    )
+
+
+_ConfigurationFactoryDefaults_Type.__name__ = "Integer32"
+_ConfigurationFactoryDefaults_Object = MibScalar
+configurationFactoryDefaults = _ConfigurationFactoryDefaults_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 10),
+    _ConfigurationFactoryDefaults_Type()
+)
+configurationFactoryDefaults.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configurationFactoryDefaults.setStatus("current")
+
+
+class _ConfigurationRestart_Type(Integer32):
+    """Custom type configurationRestart based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("idle", 0),
+          ("restart", 1))
+    )
+
+
+_ConfigurationRestart_Type.__name__ = "Integer32"
+_ConfigurationRestart_Object = MibScalar
+configurationRestart = _ConfigurationRestart_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 2, 11),
+    _ConfigurationRestart_Type()
+)
+configurationRestart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configurationRestart.setStatus("current")
+_Certificate_ObjectIdentity = ObjectIdentity
+certificate = _Certificate_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 3)
+)
+
+
+class _CertificateAboutToExpireNotificationEnabled_Type(AlvarionNotificationEnable):
+    """Custom type certificateAboutToExpireNotificationEnabled based on AlvarionNotificationEnable"""
+    defaultValue = 1
+
+
+_CertificateAboutToExpireNotificationEnabled_Type.__name__ = "AlvarionNotificationEnable"
+_CertificateAboutToExpireNotificationEnabled_Object = MibScalar
+certificateAboutToExpireNotificationEnabled = _CertificateAboutToExpireNotificationEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 3, 1),
+    _CertificateAboutToExpireNotificationEnabled_Type()
+)
+certificateAboutToExpireNotificationEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    certificateAboutToExpireNotificationEnabled.setStatus("current")
+
+
+class _CertificateExpiredNotificationEnabled_Type(AlvarionNotificationEnable):
+    """Custom type certificateExpiredNotificationEnabled based on AlvarionNotificationEnable"""
+    defaultValue = 1
+
+
+_CertificateExpiredNotificationEnabled_Type.__name__ = "AlvarionNotificationEnable"
+_CertificateExpiredNotificationEnabled_Object = MibScalar
+certificateExpiredNotificationEnabled = _CertificateExpiredNotificationEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 3, 2),
+    _CertificateExpiredNotificationEnabled_Type()
+)
+certificateExpiredNotificationEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    certificateExpiredNotificationEnabled.setStatus("current")
+_CertificateExpiryDate_Type = DisplayString
+_CertificateExpiryDate_Object = MibScalar
+certificateExpiryDate = _CertificateExpiryDate_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 1, 3, 3),
+    _CertificateExpiryDate_Type()
+)
+certificateExpiryDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    certificateExpiryDate.setStatus("current")
+_AlvarionMaintenanceMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+alvarionMaintenanceMIBNotificationPrefix = _AlvarionMaintenanceMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2)
+)
+_AlvarionMaintenanceMIBNotifications_ObjectIdentity = ObjectIdentity
+alvarionMaintenanceMIBNotifications = _AlvarionMaintenanceMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0)
+)
+_AlvarionMaintenanceMIBConformance_ObjectIdentity = ObjectIdentity
+alvarionMaintenanceMIBConformance = _AlvarionMaintenanceMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3)
+)
+_AlvarionMaintenanceMIBCompliances_ObjectIdentity = ObjectIdentity
+alvarionMaintenanceMIBCompliances = _AlvarionMaintenanceMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3, 1)
+)
+_AlvarionMaintenanceMIBGroups_ObjectIdentity = ObjectIdentity
+alvarionMaintenanceMIBGroups = _AlvarionMaintenanceMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3, 2)
+)
+
+# Managed Objects groups
+
+alvarionMaintenanceMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3, 2, 1)
+)
+alvarionMaintenanceMIBGroup.setObjects(
+      *(("ALVARION-MAINTENANCE-MIB", "firmwarePeriodicUpdate"),
+        ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateDay"),
+        ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateTime"),
+        ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateLocation"),
+        ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateInitiate"),
+        ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateNotificationEnabled"),
+        ("ALVARION-MAINTENANCE-MIB", "firmwareUpdateInfo"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationPeriodicUpdate"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationUpdateDay"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationUpdateTime"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationUpdateLocation"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationUpdateInitiate"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationUpdateOperation"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationUpdateNotificationEnabled"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationUpdateInfo"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationFactoryDefaults"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationRestart"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationLocalUpdateNotificationEnabled"),
+        ("ALVARION-MAINTENANCE-MIB", "certificateAboutToExpireNotificationEnabled"),
+        ("ALVARION-MAINTENANCE-MIB", "certificateExpiredNotificationEnabled"),
+        ("ALVARION-MAINTENANCE-MIB", "certificateExpiryDate"))
+)
+if mibBuilder.loadTexts:
+    alvarionMaintenanceMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+configurationUpdateNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0, 1)
+)
+configurationUpdateNotification.setObjects(
+      *(("ALVARION-MAINTENANCE-MIB", "configurationUpdateInfo"),
+        ("ALVARION-SYSTEM-MIB", "systemConfigurationVersion"))
+)
+if mibBuilder.loadTexts:
+    configurationUpdateNotification.setStatus(
+        "current"
+    )
+
+configurationLocalUpdateNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0, 2)
+)
+configurationLocalUpdateNotification.setObjects(
+    ("ALVARION-MAINTENANCE-MIB", "configurationUpdateInfo")
+)
+if mibBuilder.loadTexts:
+    configurationLocalUpdateNotification.setStatus(
+        "current"
+    )
+
+certificateAboutToExpireNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0, 3)
+)
+certificateAboutToExpireNotification.setObjects(
+    ("ALVARION-MAINTENANCE-MIB", "certificateExpiryDate")
+)
+if mibBuilder.loadTexts:
+    certificateAboutToExpireNotification.setStatus(
+        "current"
+    )
+
+certificateExpiredNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0, 4)
+)
+certificateExpiredNotification.setObjects(
+    ("ALVARION-MAINTENANCE-MIB", "certificateExpiryDate")
+)
+if mibBuilder.loadTexts:
+    certificateExpiredNotification.setStatus(
+        "current"
+    )
+
+firmwareUpdateNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 2, 0, 5)
+)
+firmwareUpdateNotification.setObjects(
+      *(("ALVARION-MAINTENANCE-MIB", "firmwareUpdateInfo"),
+        ("ALVARION-SYSTEM-MIB", "systemFirmwareRevision"))
+)
+if mibBuilder.loadTexts:
+    firmwareUpdateNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+alvarionMaintenanceNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3, 2, 2)
+)
+alvarionMaintenanceNotificationGroup.setObjects(
+      *(("ALVARION-MAINTENANCE-MIB", "firmwareUpdateNotification"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationUpdateNotification"),
+        ("ALVARION-MAINTENANCE-MIB", "configurationLocalUpdateNotification"),
+        ("ALVARION-MAINTENANCE-MIB", "certificateAboutToExpireNotification"),
+        ("ALVARION-MAINTENANCE-MIB", "certificateExpiredNotification"))
+)
+if mibBuilder.loadTexts:
+    alvarionMaintenanceNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alvarionMaintenanceMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 2, 3, 1, 1)
+)
+alvarionMaintenanceMIBCompliance.setObjects(
+      *(("ALVARION-MAINTENANCE-MIB", "alvarionMaintenanceMIBGroup"),
+        ("ALVARION-MAINTENANCE-MIB", "alvarionMaintenanceNotificationGroup"))
+)
+if mibBuilder.loadTexts:
+    alvarionMaintenanceMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALVARION-MAINTENANCE-MIB",
+    **{"alvarionMaintenanceMIB": alvarionMaintenanceMIB,
+       "alvarionMaintenanceMIBObjects": alvarionMaintenanceMIBObjects,
+       "firmwareUpdate": firmwareUpdate,
+       "firmwarePeriodicUpdate": firmwarePeriodicUpdate,
+       "firmwareUpdateDay": firmwareUpdateDay,
+       "firmwareUpdateTime": firmwareUpdateTime,
+       "firmwareUpdateLocation": firmwareUpdateLocation,
+       "firmwareUpdateInitiate": firmwareUpdateInitiate,
+       "firmwareUpdateNotificationEnabled": firmwareUpdateNotificationEnabled,
+       "firmwareUpdateInfo": firmwareUpdateInfo,
+       "configurationUpdate": configurationUpdate,
+       "configurationPeriodicUpdate": configurationPeriodicUpdate,
+       "configurationUpdateDay": configurationUpdateDay,
+       "configurationUpdateTime": configurationUpdateTime,
+       "configurationUpdateLocation": configurationUpdateLocation,
+       "configurationUpdateInitiate": configurationUpdateInitiate,
+       "configurationUpdateOperation": configurationUpdateOperation,
+       "configurationUpdateNotificationEnabled": configurationUpdateNotificationEnabled,
+       "configurationLocalUpdateNotificationEnabled": configurationLocalUpdateNotificationEnabled,
+       "configurationUpdateInfo": configurationUpdateInfo,
+       "configurationFactoryDefaults": configurationFactoryDefaults,
+       "configurationRestart": configurationRestart,
+       "certificate": certificate,
+       "certificateAboutToExpireNotificationEnabled": certificateAboutToExpireNotificationEnabled,
+       "certificateExpiredNotificationEnabled": certificateExpiredNotificationEnabled,
+       "certificateExpiryDate": certificateExpiryDate,
+       "alvarionMaintenanceMIBNotificationPrefix": alvarionMaintenanceMIBNotificationPrefix,
+       "alvarionMaintenanceMIBNotifications": alvarionMaintenanceMIBNotifications,
+       "configurationUpdateNotification": configurationUpdateNotification,
+       "configurationLocalUpdateNotification": configurationLocalUpdateNotification,
+       "certificateAboutToExpireNotification": certificateAboutToExpireNotification,
+       "certificateExpiredNotification": certificateExpiredNotification,
+       "firmwareUpdateNotification": firmwareUpdateNotification,
+       "alvarionMaintenanceMIBConformance": alvarionMaintenanceMIBConformance,
+       "alvarionMaintenanceMIBCompliances": alvarionMaintenanceMIBCompliances,
+       "alvarionMaintenanceMIBCompliance": alvarionMaintenanceMIBCompliance,
+       "alvarionMaintenanceMIBGroups": alvarionMaintenanceMIBGroups,
+       "alvarionMaintenanceMIBGroup": alvarionMaintenanceMIBGroup,
+       "alvarionMaintenanceNotificationGroup": alvarionMaintenanceNotificationGroup}
+)

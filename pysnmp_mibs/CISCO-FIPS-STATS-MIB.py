@@ -1,35 +1,236 @@
+# SNMP MIB module (CISCO-FIPS-STATS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-FIPS-STATS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-FIPS-STATS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:27:56 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-FIPS-STATS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:34:24 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoFipsStatsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 999999))
-ciscoFipsStatsMIB.setRevisions(('2003-03-10 00:00',))
-if mibBuilder.loadTexts: ciscoFipsStatsMIB.setLastUpdated('200303100000Z')
-if mibBuilder.loadTexts: ciscoFipsStatsMIB.setOrganization('Cisco Systems, Inc.')
-ciscoFipsStatsMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 999999, 0))
-ciscoFipsStatsMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 999999, 1))
-ciscoFipsStatsMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 999999, 2))
-cfipsStats = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 999999, 1, 1))
-cfipsStatsGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 999999, 1, 1, 1))
-cfipsPostStatus = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 999999, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("running", 1), ("passed", 2), ("failed", 3), ("notAvailable", 4))).clone('notAvailable')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cfipsPostStatus.setStatus('current')
-ciscoFipsStatsMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 999999, 2, 1))
-ciscoFipsStatsMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 999999, 2, 2))
-ciscoFipsStatsMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 999999, 2, 1, 1)).setObjects(("CISCO-FIPS-STATS-MIB", "ciscoFipsStatsMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoFipsStatsMIBCompliance = ciscoFipsStatsMIBCompliance.setStatus('current')
-ciscoFipsStatsMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 999999, 2, 2, 1)).setObjects(("CISCO-FIPS-STATS-MIB", "cfipsPostStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoFipsStatsMIBGroup = ciscoFipsStatsMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-FIPS-STATS-MIB", ciscoFipsStatsMIBObjects=ciscoFipsStatsMIBObjects, ciscoFipsStatsMIBCompliance=ciscoFipsStatsMIBCompliance, ciscoFipsStatsMIB=ciscoFipsStatsMIB, PYSNMP_MODULE_ID=ciscoFipsStatsMIB, cfipsPostStatus=cfipsPostStatus, cfipsStatsGlobal=cfipsStatsGlobal, ciscoFipsStatsMIBCompliances=ciscoFipsStatsMIBCompliances, cfipsStats=cfipsStats, ciscoFipsStatsMIBGroup=ciscoFipsStatsMIBGroup, ciscoFipsStatsMIBGroups=ciscoFipsStatsMIBGroups, ciscoFipsStatsMIBConform=ciscoFipsStatsMIBConform, ciscoFipsStatsMIBNotifs=ciscoFipsStatsMIBNotifs)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoFipsStatsMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 999999)
+)
+if mibBuilder.loadTexts:
+    ciscoFipsStatsMIB.setRevisions(
+        ("2003-03-10 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoFipsStatsMIBNotifs_ObjectIdentity = ObjectIdentity
+ciscoFipsStatsMIBNotifs = _CiscoFipsStatsMIBNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 999999, 0)
+)
+_CiscoFipsStatsMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoFipsStatsMIBObjects = _CiscoFipsStatsMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 999999, 1)
+)
+_CfipsStats_ObjectIdentity = ObjectIdentity
+cfipsStats = _CfipsStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 999999, 1, 1)
+)
+_CfipsStatsGlobal_ObjectIdentity = ObjectIdentity
+cfipsStatsGlobal = _CfipsStatsGlobal_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 999999, 1, 1, 1)
+)
+
+
+class _CfipsPostStatus_Type(Integer32):
+    """Custom type cfipsPostStatus based on Integer32"""
+    defaultValue = 4
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("running", 1),
+          ("passed", 2),
+          ("failed", 3),
+          ("notAvailable", 4))
+    )
+
+
+_CfipsPostStatus_Type.__name__ = "Integer32"
+_CfipsPostStatus_Object = MibScalar
+cfipsPostStatus = _CfipsPostStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 999999, 1, 1, 1, 1),
+    _CfipsPostStatus_Type()
+)
+cfipsPostStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cfipsPostStatus.setStatus("current")
+_CiscoFipsStatsMIBConform_ObjectIdentity = ObjectIdentity
+ciscoFipsStatsMIBConform = _CiscoFipsStatsMIBConform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 999999, 2)
+)
+_CiscoFipsStatsMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoFipsStatsMIBCompliances = _CiscoFipsStatsMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 999999, 2, 1)
+)
+_CiscoFipsStatsMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoFipsStatsMIBGroups = _CiscoFipsStatsMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 999999, 2, 2)
+)
+
+# Managed Objects groups
+
+ciscoFipsStatsMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 999999, 2, 2, 1)
+)
+ciscoFipsStatsMIBGroup.setObjects(
+    ("CISCO-FIPS-STATS-MIB", "cfipsPostStatus")
+)
+if mibBuilder.loadTexts:
+    ciscoFipsStatsMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoFipsStatsMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 999999, 2, 1, 1)
+)
+ciscoFipsStatsMIBCompliance.setObjects(
+    ("CISCO-FIPS-STATS-MIB", "ciscoFipsStatsMIBGroup")
+)
+if mibBuilder.loadTexts:
+    ciscoFipsStatsMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-FIPS-STATS-MIB",
+    **{"ciscoFipsStatsMIB": ciscoFipsStatsMIB,
+       "ciscoFipsStatsMIBNotifs": ciscoFipsStatsMIBNotifs,
+       "ciscoFipsStatsMIBObjects": ciscoFipsStatsMIBObjects,
+       "cfipsStats": cfipsStats,
+       "cfipsStatsGlobal": cfipsStatsGlobal,
+       "cfipsPostStatus": cfipsPostStatus,
+       "ciscoFipsStatsMIBConform": ciscoFipsStatsMIBConform,
+       "ciscoFipsStatsMIBCompliances": ciscoFipsStatsMIBCompliances,
+       "ciscoFipsStatsMIBCompliance": ciscoFipsStatsMIBCompliance,
+       "ciscoFipsStatsMIBGroups": ciscoFipsStatsMIBGroups,
+       "ciscoFipsStatsMIBGroup": ciscoFipsStatsMIBGroup}
+)

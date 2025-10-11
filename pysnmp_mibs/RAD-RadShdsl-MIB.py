@@ -1,119 +1,1181 @@
+# SNMP MIB module (RAD-RadShdsl-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RAD-RadShdsl-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rad/RAD-RadShdsl-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:10:06 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/rad/RAD-RadShdsl-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:18:11 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hdsl2ShdslEndpointCurrEntry, hdsl2ShdslEndpointThreshSNRMargin, hdsl2ShdslEndpointCurrAtn, hdsl2ShdslEndpointCurr15MinCRCanomalies, hdsl2ShdslEndpointThreshCRCanomalies, hdsl2ShdslSpanConfProfileEntry, hdsl2ShdslEndpointThreshLoopAttenuation, hdsl2ShdslEndpointSide, hdsl2ShdslEndpointCurr15MinLOSWS, hdsl2ShdslEndpointThreshLOSWS, hdsl2ShdslEndpointCurrSnrMgn, hdsl2ShdslInvIndex = mibBuilder.importSymbols("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrEntry", "hdsl2ShdslEndpointThreshSNRMargin", "hdsl2ShdslEndpointCurrAtn", "hdsl2ShdslEndpointCurr15MinCRCanomalies", "hdsl2ShdslEndpointThreshCRCanomalies", "hdsl2ShdslSpanConfProfileEntry", "hdsl2ShdslEndpointThreshLoopAttenuation", "hdsl2ShdslEndpointSide", "hdsl2ShdslEndpointCurr15MinLOSWS", "hdsl2ShdslEndpointThreshLOSWS", "hdsl2ShdslEndpointCurrSnrMgn", "hdsl2ShdslInvIndex")
-ifAlias, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifAlias", "ifIndex")
-alarmEventLogDescription, alarmEventReason, alarmEventLogAlarmOrEventId, alarmEventLogSeverity, alarmEventLogSourceName, alarmEventLogDateAndTime = mibBuilder.importSymbols("RAD-GEN-MIB", "alarmEventLogDescription", "alarmEventReason", "alarmEventLogAlarmOrEventId", "alarmEventLogSeverity", "alarmEventLogSourceName", "alarmEventLogDateAndTime")
-diverseIfWanGen, = mibBuilder.importSymbols("RAD-SMI-MIB", "diverseIfWanGen")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-shdslIf = ModuleIdentity((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12))
-if mibBuilder.loadTexts: shdslIf.setLastUpdated('201502191808Z')
-if mibBuilder.loadTexts: shdslIf.setOrganization('RAD Data Communications Ltd.')
-radHdsl2ShdslEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0))
-shdslEndpointCurrTable = MibTable((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1), )
-if mibBuilder.loadTexts: shdslEndpointCurrTable.setStatus('current')
-shdslEndpointCurrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1), )
-hdsl2ShdslEndpointCurrEntry.registerAugmentions(("RAD-RadShdsl-MIB", "shdslEndpointCurrEntry"))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hdsl2ShdslEndpointCurr15MinCRCanomalies,
+ hdsl2ShdslEndpointCurr15MinLOSWS,
+ hdsl2ShdslEndpointCurrAtn,
+ hdsl2ShdslEndpointCurrEntry,
+ hdsl2ShdslEndpointCurrSnrMgn,
+ hdsl2ShdslEndpointSide,
+ hdsl2ShdslEndpointThreshCRCanomalies,
+ hdsl2ShdslEndpointThreshLOSWS,
+ hdsl2ShdslEndpointThreshLoopAttenuation,
+ hdsl2ShdslEndpointThreshSNRMargin,
+ hdsl2ShdslInvIndex,
+ hdsl2ShdslSpanConfProfileEntry) = mibBuilder.importSymbols(
+    "HDSL2-SHDSL-LINE-MIB",
+    "hdsl2ShdslEndpointCurr15MinCRCanomalies",
+    "hdsl2ShdslEndpointCurr15MinLOSWS",
+    "hdsl2ShdslEndpointCurrAtn",
+    "hdsl2ShdslEndpointCurrEntry",
+    "hdsl2ShdslEndpointCurrSnrMgn",
+    "hdsl2ShdslEndpointSide",
+    "hdsl2ShdslEndpointThreshCRCanomalies",
+    "hdsl2ShdslEndpointThreshLOSWS",
+    "hdsl2ShdslEndpointThreshLoopAttenuation",
+    "hdsl2ShdslEndpointThreshSNRMargin",
+    "hdsl2ShdslInvIndex",
+    "hdsl2ShdslSpanConfProfileEntry")
+
+(ifAlias,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifAlias",
+    "ifIndex")
+
+(alarmEventLogAlarmOrEventId,
+ alarmEventLogDateAndTime,
+ alarmEventLogDescription,
+ alarmEventLogSeverity,
+ alarmEventLogSourceName,
+ alarmEventReason) = mibBuilder.importSymbols(
+    "RAD-GEN-MIB",
+    "alarmEventLogAlarmOrEventId",
+    "alarmEventLogDateAndTime",
+    "alarmEventLogDescription",
+    "alarmEventLogSeverity",
+    "alarmEventLogSourceName",
+    "alarmEventReason")
+
+(diverseIfWanGen,) = mibBuilder.importSymbols(
+    "RAD-SMI-MIB",
+    "diverseIfWanGen")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+shdslIf = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RadHdsl2ShdslEvents_ObjectIdentity = ObjectIdentity
+radHdsl2ShdslEvents = _RadHdsl2ShdslEvents_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0)
+)
+_ShdslEndpointCurrTable_Object = MibTable
+shdslEndpointCurrTable = _ShdslEndpointCurrTable_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1)
+)
+if mibBuilder.loadTexts:
+    shdslEndpointCurrTable.setStatus("current")
+_ShdslEndpointCurrEntry_Object = MibTableRow
+shdslEndpointCurrEntry = _ShdslEndpointCurrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1)
+)
+if mibBuilder.loadTexts:
+    shdslEndpointCurrEntry.setStatus("current")
+_Hdsl2ShdslEndpointCurrRcvGain_Type = Integer32
+_Hdsl2ShdslEndpointCurrRcvGain_Object = MibTableColumn
+hdsl2ShdslEndpointCurrRcvGain = _Hdsl2ShdslEndpointCurrRcvGain_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 1),
+    _Hdsl2ShdslEndpointCurrRcvGain_Type()
+)
+hdsl2ShdslEndpointCurrRcvGain.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEndpointCurrRcvGain.setStatus("current")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEndpointCurrRcvGain.setUnits("dB")
+_Hdsl2ShdslEndpointCurrTransPower_Type = Integer32
+_Hdsl2ShdslEndpointCurrTransPower_Object = MibTableColumn
+hdsl2ShdslEndpointCurrTransPower = _Hdsl2ShdslEndpointCurrTransPower_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 2),
+    _Hdsl2ShdslEndpointCurrTransPower_Type()
+)
+hdsl2ShdslEndpointCurrTransPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEndpointCurrTransPower.setStatus("current")
+_Hdsl2ShdslEndpointCurrPowerBO_Type = Integer32
+_Hdsl2ShdslEndpointCurrPowerBO_Object = MibTableColumn
+hdsl2ShdslEndpointCurrPowerBO = _Hdsl2ShdslEndpointCurrPowerBO_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 3),
+    _Hdsl2ShdslEndpointCurrPowerBO_Type()
+)
+hdsl2ShdslEndpointCurrPowerBO.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEndpointCurrPowerBO.setStatus("current")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEndpointCurrPowerBO.setUnits("dB")
+
+
+class _Hdsl2ShdslEndpointCurrLineStatus_Type(Integer32):
+    """Custom type hdsl2ShdslEndpointCurrLineStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noSync", 2),
+          ("sync", 3))
+    )
+
+
+_Hdsl2ShdslEndpointCurrLineStatus_Type.__name__ = "Integer32"
+_Hdsl2ShdslEndpointCurrLineStatus_Object = MibTableColumn
+hdsl2ShdslEndpointCurrLineStatus = _Hdsl2ShdslEndpointCurrLineStatus_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 4),
+    _Hdsl2ShdslEndpointCurrLineStatus_Type()
+)
+hdsl2ShdslEndpointCurrLineStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEndpointCurrLineStatus.setStatus("current")
+
+
+class _Hdsl2ShdslEndpointCurrOpState_Type(Bits):
+    """Custom type hdsl2ShdslEndpointCurrOpState based on Bits"""
+    namedValues = NamedValues(
+        *(("idleMode", 0),
+          ("dataMode", 1),
+          ("bootUpload", 2),
+          ("bootUploadDone", 3),
+          ("startupHandshakeInProgress", 4),
+          ("startupTrainingInProgress", 5),
+          ("framerSyncInProgress", 6),
+          ("localAnalogLoopbackInProgress", 7),
+          ("remoteCoreLoopbackInProgress", 8),
+          ("localDigitalLoopbackInProgress", 9),
+          ("spectrumTestInProgress", 10))
+    )
+
+_Hdsl2ShdslEndpointCurrOpState_Type.__name__ = "Bits"
+_Hdsl2ShdslEndpointCurrOpState_Object = MibTableColumn
+hdsl2ShdslEndpointCurrOpState = _Hdsl2ShdslEndpointCurrOpState_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 5),
+    _Hdsl2ShdslEndpointCurrOpState_Type()
+)
+hdsl2ShdslEndpointCurrOpState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEndpointCurrOpState.setStatus("current")
+_Hdsl2ShdslEndpointAccumulatedTimeElapsed_Type = TimeTicks
+_Hdsl2ShdslEndpointAccumulatedTimeElapsed_Object = MibTableColumn
+hdsl2ShdslEndpointAccumulatedTimeElapsed = _Hdsl2ShdslEndpointAccumulatedTimeElapsed_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 6),
+    _Hdsl2ShdslEndpointAccumulatedTimeElapsed_Type()
+)
+hdsl2ShdslEndpointAccumulatedTimeElapsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEndpointAccumulatedTimeElapsed.setStatus("current")
+
+
+class _Hdsl2ShdslEndpointCurrPsd_Type(Integer32):
+    """Custom type hdsl2ShdslEndpointCurrPsd based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("asymmetric", 2),
+          ("symmetric", 3))
+    )
+
+
+_Hdsl2ShdslEndpointCurrPsd_Type.__name__ = "Integer32"
+_Hdsl2ShdslEndpointCurrPsd_Object = MibTableColumn
+hdsl2ShdslEndpointCurrPsd = _Hdsl2ShdslEndpointCurrPsd_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 7),
+    _Hdsl2ShdslEndpointCurrPsd_Type()
+)
+hdsl2ShdslEndpointCurrPsd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEndpointCurrPsd.setStatus("current")
+_Hdsl2ShdslEndpointValidIntervals_Type = Unsigned32
+_Hdsl2ShdslEndpointValidIntervals_Object = MibTableColumn
+hdsl2ShdslEndpointValidIntervals = _Hdsl2ShdslEndpointValidIntervals_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 8),
+    _Hdsl2ShdslEndpointValidIntervals_Type()
+)
+hdsl2ShdslEndpointValidIntervals.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEndpointValidIntervals.setStatus("current")
+_Hdsl2ShdslEndpointValidDaysIntervals_Type = Unsigned32
+_Hdsl2ShdslEndpointValidDaysIntervals_Object = MibTableColumn
+hdsl2ShdslEndpointValidDaysIntervals = _Hdsl2ShdslEndpointValidDaysIntervals_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 9),
+    _Hdsl2ShdslEndpointValidDaysIntervals_Type()
+)
+hdsl2ShdslEndpointValidDaysIntervals.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEndpointValidDaysIntervals.setStatus("current")
+_ShdslEndpointMaintTable_Object = MibTable
+shdslEndpointMaintTable = _ShdslEndpointMaintTable_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 2)
+)
+if mibBuilder.loadTexts:
+    shdslEndpointMaintTable.setStatus("current")
+_ShdslEndpointMaintEntry_Object = MibTableRow
+shdslEndpointMaintEntry = _ShdslEndpointMaintEntry_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 2, 1)
+)
+shdslEndpointMaintEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvIndex"),
+    (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointSide"),
+)
+if mibBuilder.loadTexts:
+    shdslEndpointMaintEntry.setStatus("current")
+
+
+class _ShdslMaintPowerBackOff_Type(Integer32):
+    """Custom type shdslMaintPowerBackOff based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("default", 1),
+          ("enhanced", 2),
+          ("disabled", 3))
+    )
+
+
+_ShdslMaintPowerBackOff_Type.__name__ = "Integer32"
+_ShdslMaintPowerBackOff_Object = MibTableColumn
+shdslMaintPowerBackOff = _ShdslMaintPowerBackOff_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 2, 1, 1),
+    _ShdslMaintPowerBackOff_Type()
+)
+shdslMaintPowerBackOff.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    shdslMaintPowerBackOff.setStatus("current")
+_ShdslSpanConfProfileTable_Object = MibTable
+shdslSpanConfProfileTable = _ShdslSpanConfProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3)
+)
+if mibBuilder.loadTexts:
+    shdslSpanConfProfileTable.setStatus("current")
+_ShdslSpanConfProfileEntry_Object = MibTableRow
+shdslSpanConfProfileEntry = _ShdslSpanConfProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3, 1)
+)
+if mibBuilder.loadTexts:
+    shdslSpanConfProfileEntry.setStatus("current")
+
+
+class _Hdsl2ShdslSpanConfEocCompatible_Type(Integer32):
+    """Custom type hdsl2ShdslSpanConfEocCompatible based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("proprietary", 2),
+          ("standard", 3))
+    )
+
+
+_Hdsl2ShdslSpanConfEocCompatible_Type.__name__ = "Integer32"
+_Hdsl2ShdslSpanConfEocCompatible_Object = MibTableColumn
+hdsl2ShdslSpanConfEocCompatible = _Hdsl2ShdslSpanConfEocCompatible_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3, 1, 1),
+    _Hdsl2ShdslSpanConfEocCompatible_Type()
+)
+hdsl2ShdslSpanConfEocCompatible.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslSpanConfEocCompatible.setStatus("current")
+
+
+class _Hdsl2ShdslSpanConfAsymmetricPSDRate_Type(Integer32):
+    """Custom type hdsl2ShdslSpanConfAsymmetricPSDRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 1),
+          ("asymmetricR1", 2),
+          ("asymmetricR2", 3))
+    )
+
+
+_Hdsl2ShdslSpanConfAsymmetricPSDRate_Type.__name__ = "Integer32"
+_Hdsl2ShdslSpanConfAsymmetricPSDRate_Object = MibTableColumn
+hdsl2ShdslSpanConfAsymmetricPSDRate = _Hdsl2ShdslSpanConfAsymmetricPSDRate_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3, 1, 2),
+    _Hdsl2ShdslSpanConfAsymmetricPSDRate_Type()
+)
+hdsl2ShdslSpanConfAsymmetricPSDRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslSpanConfAsymmetricPSDRate.setStatus("current")
+
+
+class _Hdsl2ShdslSpanConfWireInterfaceUsed_Type(Integer32):
+    """Custom type hdsl2ShdslSpanConfWireInterfaceUsed based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 1),
+          ("twoWires", 2),
+          ("fourWires", 3),
+          ("autoDetection", 4))
+    )
+
+
+_Hdsl2ShdslSpanConfWireInterfaceUsed_Type.__name__ = "Integer32"
+_Hdsl2ShdslSpanConfWireInterfaceUsed_Object = MibTableColumn
+hdsl2ShdslSpanConfWireInterfaceUsed = _Hdsl2ShdslSpanConfWireInterfaceUsed_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3, 1, 3),
+    _Hdsl2ShdslSpanConfWireInterfaceUsed_Type()
+)
+hdsl2ShdslSpanConfWireInterfaceUsed.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslSpanConfWireInterfaceUsed.setStatus("current")
+
+
+class _Hdsl2ShdslSpanConfHandshake_Type(Integer32):
+    """Custom type hdsl2ShdslSpanConfHandshake based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("automatic", 1),
+          ("g994dot1rev2001", 2))
+    )
+
+
+_Hdsl2ShdslSpanConfHandshake_Type.__name__ = "Integer32"
+_Hdsl2ShdslSpanConfHandshake_Object = MibTableColumn
+hdsl2ShdslSpanConfHandshake = _Hdsl2ShdslSpanConfHandshake_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3, 1, 4),
+    _Hdsl2ShdslSpanConfHandshake_Type()
+)
+hdsl2ShdslSpanConfHandshake.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslSpanConfHandshake.setStatus("current")
+_Hdsl2ShdslIfConf_ObjectIdentity = ObjectIdentity
+hdsl2ShdslIfConf = _Hdsl2ShdslIfConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4)
+)
+_Hdsl2ShdslIfConfTable_Object = MibTable
+hdsl2ShdslIfConfTable = _Hdsl2ShdslIfConfTable_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1)
+)
+if mibBuilder.loadTexts:
+    hdsl2ShdslIfConfTable.setStatus("current")
+_Hdsl2ShdslIfConfEntry_Object = MibTableRow
+hdsl2ShdslIfConfEntry = _Hdsl2ShdslIfConfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1)
+)
+hdsl2ShdslIfConfEntry.setIndexNames(
+    (0, "RAD-RadShdsl-MIB", "hdsl2ShdslIfConfIdx"),
+    (0, "IF-MIB", "ifIndex"),
+    (0, "RAD-RadShdsl-MIB", "hdsl2ShdslSideIdx"),
+)
+if mibBuilder.loadTexts:
+    hdsl2ShdslIfConfEntry.setStatus("current")
+
+
+class _Hdsl2ShdslIfConfIdx_Type(Integer32):
+    """Custom type hdsl2ShdslIfConfIdx based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_Hdsl2ShdslIfConfIdx_Type.__name__ = "Integer32"
+_Hdsl2ShdslIfConfIdx_Object = MibTableColumn
+hdsl2ShdslIfConfIdx = _Hdsl2ShdslIfConfIdx_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 1),
+    _Hdsl2ShdslIfConfIdx_Type()
+)
+hdsl2ShdslIfConfIdx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslIfConfIdx.setStatus("current")
+
+
+class _Hdsl2ShdslSideIdx_Type(Integer32):
+    """Custom type hdsl2ShdslSideIdx based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nearEnd", 2),
+          ("farEnd", 3),
+          ("rptr1", 4),
+          ("rptr2", 5),
+          ("rptr3", 6),
+          ("rptr4", 7),
+          ("rptr5", 8),
+          ("rptr6", 9),
+          ("rptr7", 10),
+          ("rptr8", 11))
+    )
+
+
+_Hdsl2ShdslSideIdx_Type.__name__ = "Integer32"
+_Hdsl2ShdslSideIdx_Object = MibTableColumn
+hdsl2ShdslSideIdx = _Hdsl2ShdslSideIdx_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 2),
+    _Hdsl2ShdslSideIdx_Type()
+)
+hdsl2ShdslSideIdx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslSideIdx.setStatus("current")
+
+
+class _Hdsl2ShdslMaxBw_Type(Integer32):
+    """Custom type hdsl2ShdslMaxBw based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 1),
+          ("r192", 2),
+          ("r256", 3),
+          ("r320", 4),
+          ("r384", 5),
+          ("r448", 6),
+          ("r512", 7),
+          ("r576", 8),
+          ("r640", 9),
+          ("r704", 10),
+          ("r768", 11),
+          ("r832", 12),
+          ("r896", 13),
+          ("r960", 14),
+          ("r1024", 15),
+          ("r1088", 16),
+          ("r1152", 17),
+          ("r1216", 18),
+          ("r1280", 19),
+          ("r1344", 20),
+          ("r1408", 21),
+          ("r1472", 22),
+          ("r1536", 23),
+          ("r1600", 24),
+          ("r1664", 25),
+          ("r1728", 26),
+          ("r1792", 27),
+          ("r1856", 28),
+          ("r1920", 29),
+          ("r1984", 30),
+          ("r2048", 31))
+    )
+
+
+_Hdsl2ShdslMaxBw_Type.__name__ = "Integer32"
+_Hdsl2ShdslMaxBw_Object = MibTableColumn
+hdsl2ShdslMaxBw = _Hdsl2ShdslMaxBw_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 3),
+    _Hdsl2ShdslMaxBw_Type()
+)
+hdsl2ShdslMaxBw.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslMaxBw.setStatus("current")
+
+
+class _Hdsl2ShdslPwrBackoff_Type(Integer32):
+    """Custom type hdsl2ShdslPwrBackoff based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 1),
+          ("enhanced", 2),
+          ("disabled", 3))
+    )
+
+
+_Hdsl2ShdslPwrBackoff_Type.__name__ = "Integer32"
+_Hdsl2ShdslPwrBackoff_Object = MibTableColumn
+hdsl2ShdslPwrBackoff = _Hdsl2ShdslPwrBackoff_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 4),
+    _Hdsl2ShdslPwrBackoff_Type()
+)
+hdsl2ShdslPwrBackoff.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslPwrBackoff.setStatus("current")
+
+
+class _Hdsl2ShdslTxMode_Type(Integer32):
+    """Custom type hdsl2ShdslTxMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 1),
+          ("annexA", 2),
+          ("annexB", 3),
+          ("annexG", 4),
+          ("annexF", 5))
+    )
+
+
+_Hdsl2ShdslTxMode_Type.__name__ = "Integer32"
+_Hdsl2ShdslTxMode_Object = MibTableColumn
+hdsl2ShdslTxMode = _Hdsl2ShdslTxMode_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 5),
+    _Hdsl2ShdslTxMode_Type()
+)
+hdsl2ShdslTxMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslTxMode.setStatus("current")
+_Hdsl2ShdslAttenuationThreshold_Type = Integer32
+_Hdsl2ShdslAttenuationThreshold_Object = MibTableColumn
+hdsl2ShdslAttenuationThreshold = _Hdsl2ShdslAttenuationThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 6),
+    _Hdsl2ShdslAttenuationThreshold_Type()
+)
+hdsl2ShdslAttenuationThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslAttenuationThreshold.setStatus("current")
+if mibBuilder.loadTexts:
+    hdsl2ShdslAttenuationThreshold.setUnits("dB")
+_Hdsl2ShdslSnrMarginThreshold_Type = Integer32
+_Hdsl2ShdslSnrMarginThreshold_Object = MibTableColumn
+hdsl2ShdslSnrMarginThreshold = _Hdsl2ShdslSnrMarginThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 7),
+    _Hdsl2ShdslSnrMarginThreshold_Type()
+)
+hdsl2ShdslSnrMarginThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslSnrMarginThreshold.setStatus("current")
+if mibBuilder.loadTexts:
+    hdsl2ShdslSnrMarginThreshold.setUnits("dB")
+
+
+class _Hdsl2ShdslTs0OverDsl_Type(Integer32):
+    """Custom type hdsl2ShdslTs0OverDsl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 1),
+          ("looped", 2),
+          ("transparent", 3))
+    )
+
+
+_Hdsl2ShdslTs0OverDsl_Type.__name__ = "Integer32"
+_Hdsl2ShdslTs0OverDsl_Object = MibTableColumn
+hdsl2ShdslTs0OverDsl = _Hdsl2ShdslTs0OverDsl_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 8),
+    _Hdsl2ShdslTs0OverDsl_Type()
+)
+hdsl2ShdslTs0OverDsl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslTs0OverDsl.setStatus("current")
+
+
+class _Hdsl2ShdslMode_Type(Integer32):
+    """Custom type hdsl2ShdslMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 1),
+          ("stuC", 2),
+          ("stuR", 3))
+    )
+
+
+_Hdsl2ShdslMode_Type.__name__ = "Integer32"
+_Hdsl2ShdslMode_Object = MibTableColumn
+hdsl2ShdslMode = _Hdsl2ShdslMode_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 9),
+    _Hdsl2ShdslMode_Type()
+)
+hdsl2ShdslMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslMode.setStatus("current")
+
+
+class _Hdsl2ShdslTsCompactionMode_Type(Integer32):
+    """Custom type hdsl2ShdslTsCompactionMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noCompaction", 1),
+          ("noMapping", 2),
+          ("withMapping", 3),
+          ("lowTsMapping", 4),
+          ("spareMapping", 5))
+    )
+
+
+_Hdsl2ShdslTsCompactionMode_Type.__name__ = "Integer32"
+_Hdsl2ShdslTsCompactionMode_Object = MibTableColumn
+hdsl2ShdslTsCompactionMode = _Hdsl2ShdslTsCompactionMode_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 10),
+    _Hdsl2ShdslTsCompactionMode_Type()
+)
+hdsl2ShdslTsCompactionMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslTsCompactionMode.setStatus("current")
+
+
+class _Hdsl2ShdslEocEnable_Type(Integer32):
+    """Custom type hdsl2ShdslEocEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 1),
+          ("no", 2),
+          ("yes", 3))
+    )
+
+
+_Hdsl2ShdslEocEnable_Type.__name__ = "Integer32"
+_Hdsl2ShdslEocEnable_Object = MibTableColumn
+hdsl2ShdslEocEnable = _Hdsl2ShdslEocEnable_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 11),
+    _Hdsl2ShdslEocEnable_Type()
+)
+hdsl2ShdslEocEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslEocEnable.setStatus("current")
+_Hdsl2ShdslFar1stIfNumOfTSs_Type = Unsigned32
+_Hdsl2ShdslFar1stIfNumOfTSs_Object = MibTableColumn
+hdsl2ShdslFar1stIfNumOfTSs = _Hdsl2ShdslFar1stIfNumOfTSs_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 12),
+    _Hdsl2ShdslFar1stIfNumOfTSs_Type()
+)
+hdsl2ShdslFar1stIfNumOfTSs.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslFar1stIfNumOfTSs.setStatus("current")
+
+
+class _Hdsl2ShdslFarEndDevice_Type(Integer32):
+    """Custom type hdsl2ShdslFarEndDevice based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 2),
+          ("mpComponent", 3),
+          ("asmi52SingleIf", 4),
+          ("asmi52E1AndData", 5),
+          ("asmi52E1AndEth", 6),
+          ("asmi52EthAndData", 7),
+          ("fcdip", 8),
+          ("dxc", 9))
+    )
+
+
+_Hdsl2ShdslFarEndDevice_Type.__name__ = "Integer32"
+_Hdsl2ShdslFarEndDevice_Object = MibTableColumn
+hdsl2ShdslFarEndDevice = _Hdsl2ShdslFarEndDevice_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 13),
+    _Hdsl2ShdslFarEndDevice_Type()
+)
+hdsl2ShdslFarEndDevice.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslFarEndDevice.setStatus("current")
+_Hdsl2ShdslPwrBackoffDb_Type = Integer32
+_Hdsl2ShdslPwrBackoffDb_Object = MibTableColumn
+hdsl2ShdslPwrBackoffDb = _Hdsl2ShdslPwrBackoffDb_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 14),
+    _Hdsl2ShdslPwrBackoffDb_Type()
+)
+hdsl2ShdslPwrBackoffDb.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslPwrBackoffDb.setStatus("current")
+if mibBuilder.loadTexts:
+    hdsl2ShdslPwrBackoffDb.setUnits("dB")
+_Hdsl2ShdslFarEndMuxTsa_Type = OctetString
+_Hdsl2ShdslFarEndMuxTsa_Object = MibTableColumn
+hdsl2ShdslFarEndMuxTsa = _Hdsl2ShdslFarEndMuxTsa_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 15),
+    _Hdsl2ShdslFarEndMuxTsa_Type()
+)
+hdsl2ShdslFarEndMuxTsa.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslFarEndMuxTsa.setStatus("current")
+
+
+class _Hdsl2ShdslLineProbeEnable_Type(Integer32):
+    """Custom type hdsl2ShdslLineProbeEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 2))
+    )
+
+
+_Hdsl2ShdslLineProbeEnable_Type.__name__ = "Integer32"
+_Hdsl2ShdslLineProbeEnable_Object = MibTableColumn
+hdsl2ShdslLineProbeEnable = _Hdsl2ShdslLineProbeEnable_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 16),
+    _Hdsl2ShdslLineProbeEnable_Type()
+)
+hdsl2ShdslLineProbeEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslLineProbeEnable.setStatus("current")
+
+
+class _Hdsl2ShdslClockMode_Type(Integer32):
+    """Custom type hdsl2ShdslClockMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("plesiochronous1", 1),
+          ("plesiochronousWithTimeReference2", 2),
+          ("synchronous3a", 3),
+          ("hybrid", 4))
+    )
+
+
+_Hdsl2ShdslClockMode_Type.__name__ = "Integer32"
+_Hdsl2ShdslClockMode_Object = MibTableColumn
+hdsl2ShdslClockMode = _Hdsl2ShdslClockMode_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 17),
+    _Hdsl2ShdslClockMode_Type()
+)
+hdsl2ShdslClockMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hdsl2ShdslClockMode.setStatus("current")
+
+
+class _Hdsl2ShdslIfConfLinkDownReason_Type(Bits):
+    """Custom type hdsl2ShdslIfConfLinkDownReason based on Bits"""
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("es", 1),
+          ("ses", 2),
+          ("crcAnomaly", 3),
+          ("losw", 4),
+          ("uas", 5),
+          ("snrMarginAlarm", 6))
+    )
+
+_Hdsl2ShdslIfConfLinkDownReason_Type.__name__ = "Bits"
+_Hdsl2ShdslIfConfLinkDownReason_Object = MibTableColumn
+hdsl2ShdslIfConfLinkDownReason = _Hdsl2ShdslIfConfLinkDownReason_Object(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 19),
+    _Hdsl2ShdslIfConfLinkDownReason_Type()
+)
+hdsl2ShdslIfConfLinkDownReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hdsl2ShdslIfConfLinkDownReason.setStatus("current")
+hdsl2ShdslEndpointCurrEntry.registerAugmentions(
+    ("RAD-RadShdsl-MIB",
+     "shdslEndpointCurrEntry")
+)
 shdslEndpointCurrEntry.setIndexNames(*hdsl2ShdslEndpointCurrEntry.getIndexNames())
-if mibBuilder.loadTexts: shdslEndpointCurrEntry.setStatus('current')
-hdsl2ShdslEndpointCurrRcvGain = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 1), Integer32()).setUnits('dB').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrRcvGain.setStatus('current')
-hdsl2ShdslEndpointCurrTransPower = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrTransPower.setStatus('current')
-hdsl2ShdslEndpointCurrPowerBO = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 3), Integer32()).setUnits('dB').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrPowerBO.setStatus('current')
-hdsl2ShdslEndpointCurrLineStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("noSync", 2), ("sync", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrLineStatus.setStatus('current')
-hdsl2ShdslEndpointCurrOpState = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 5), Bits().clone(namedValues=NamedValues(("idleMode", 0), ("dataMode", 1), ("bootUpload", 2), ("bootUploadDone", 3), ("startupHandshakeInProgress", 4), ("startupTrainingInProgress", 5), ("framerSyncInProgress", 6), ("localAnalogLoopbackInProgress", 7), ("remoteCoreLoopbackInProgress", 8), ("localDigitalLoopbackInProgress", 9), ("spectrumTestInProgress", 10)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrOpState.setStatus('current')
-hdsl2ShdslEndpointAccumulatedTimeElapsed = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointAccumulatedTimeElapsed.setStatus('current')
-hdsl2ShdslEndpointCurrPsd = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("asymmetric", 2), ("symmetric", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointCurrPsd.setStatus('current')
-hdsl2ShdslEndpointValidIntervals = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointValidIntervals.setStatus('current')
-hdsl2ShdslEndpointValidDaysIntervals = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 1, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslEndpointValidDaysIntervals.setStatus('current')
-shdslEndpointMaintTable = MibTable((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 2), )
-if mibBuilder.loadTexts: shdslEndpointMaintTable.setStatus('current')
-shdslEndpointMaintEntry = MibTableRow((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslInvIndex"), (0, "HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointSide"))
-if mibBuilder.loadTexts: shdslEndpointMaintEntry.setStatus('current')
-shdslMaintPowerBackOff = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("default", 1), ("enhanced", 2), ("disabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: shdslMaintPowerBackOff.setStatus('current')
-shdslSpanConfProfileTable = MibTable((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3), )
-if mibBuilder.loadTexts: shdslSpanConfProfileTable.setStatus('current')
-shdslSpanConfProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3, 1), )
-hdsl2ShdslSpanConfProfileEntry.registerAugmentions(("RAD-RadShdsl-MIB", "shdslSpanConfProfileEntry"))
+hdsl2ShdslSpanConfProfileEntry.registerAugmentions(
+    ("RAD-RadShdsl-MIB",
+     "shdslSpanConfProfileEntry")
+)
 shdslSpanConfProfileEntry.setIndexNames(*hdsl2ShdslSpanConfProfileEntry.getIndexNames())
-if mibBuilder.loadTexts: shdslSpanConfProfileEntry.setStatus('current')
-hdsl2ShdslSpanConfEocCompatible = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("proprietary", 2), ("standard", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfEocCompatible.setStatus('current')
-hdsl2ShdslSpanConfAsymmetricPSDRate = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notApplicable", 1), ("asymmetricR1", 2), ("asymmetricR2", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfAsymmetricPSDRate.setStatus('current')
-hdsl2ShdslSpanConfWireInterfaceUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("notApplicable", 1), ("twoWires", 2), ("fourWires", 3), ("autoDetection", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfWireInterfaceUsed.setStatus('current')
-hdsl2ShdslSpanConfHandshake = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("automatic", 1), ("g994dot1rev2001", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslSpanConfHandshake.setStatus('current')
-hdsl2ShdslIfConf = MibIdentifier((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4))
-hdsl2ShdslIfConfTable = MibTable((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1), )
-if mibBuilder.loadTexts: hdsl2ShdslIfConfTable.setStatus('current')
-hdsl2ShdslIfConfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1), ).setIndexNames((0, "RAD-RadShdsl-MIB", "hdsl2ShdslIfConfIdx"), (0, "IF-MIB", "ifIndex"), (0, "RAD-RadShdsl-MIB", "hdsl2ShdslSideIdx"))
-if mibBuilder.loadTexts: hdsl2ShdslIfConfEntry.setStatus('current')
-hdsl2ShdslIfConfIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslIfConfIdx.setStatus('current')
-hdsl2ShdslSideIdx = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("nearEnd", 2), ("farEnd", 3), ("rptr1", 4), ("rptr2", 5), ("rptr3", 6), ("rptr4", 7), ("rptr5", 8), ("rptr6", 9), ("rptr7", 10), ("rptr8", 11)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslSideIdx.setStatus('current')
-hdsl2ShdslMaxBw = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31))).clone(namedValues=NamedValues(("notApplicable", 1), ("r192", 2), ("r256", 3), ("r320", 4), ("r384", 5), ("r448", 6), ("r512", 7), ("r576", 8), ("r640", 9), ("r704", 10), ("r768", 11), ("r832", 12), ("r896", 13), ("r960", 14), ("r1024", 15), ("r1088", 16), ("r1152", 17), ("r1216", 18), ("r1280", 19), ("r1344", 20), ("r1408", 21), ("r1472", 22), ("r1536", 23), ("r1600", 24), ("r1664", 25), ("r1728", 26), ("r1792", 27), ("r1856", 28), ("r1920", 29), ("r1984", 30), ("r2048", 31)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslMaxBw.setStatus('current')
-hdsl2ShdslPwrBackoff = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notApplicable", 1), ("enhanced", 2), ("disabled", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslPwrBackoff.setStatus('current')
-hdsl2ShdslTxMode = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("notApplicable", 1), ("annexA", 2), ("annexB", 3), ("annexG", 4), ("annexF", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslTxMode.setStatus('current')
-hdsl2ShdslAttenuationThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 6), Integer32()).setUnits('dB').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslAttenuationThreshold.setStatus('current')
-hdsl2ShdslSnrMarginThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 7), Integer32()).setUnits('dB').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslSnrMarginThreshold.setStatus('current')
-hdsl2ShdslTs0OverDsl = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notApplicable", 1), ("looped", 2), ("transparent", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslTs0OverDsl.setStatus('current')
-hdsl2ShdslMode = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notApplicable", 1), ("stuC", 2), ("stuR", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslMode.setStatus('current')
-hdsl2ShdslTsCompactionMode = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("noCompaction", 1), ("noMapping", 2), ("withMapping", 3), ("lowTsMapping", 4), ("spareMapping", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslTsCompactionMode.setStatus('current')
-hdsl2ShdslEocEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notApplicable", 1), ("no", 2), ("yes", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslEocEnable.setStatus('current')
-hdsl2ShdslFar1stIfNumOfTSs = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 12), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslFar1stIfNumOfTSs.setStatus('current')
-hdsl2ShdslFarEndDevice = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("other", 2), ("mpComponent", 3), ("asmi52SingleIf", 4), ("asmi52E1AndData", 5), ("asmi52E1AndEth", 6), ("asmi52EthAndData", 7), ("fcdip", 8), ("dxc", 9)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslFarEndDevice.setStatus('current')
-hdsl2ShdslPwrBackoffDb = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 14), Integer32()).setUnits('dB').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslPwrBackoffDb.setStatus('current')
-hdsl2ShdslFarEndMuxTsa = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 15), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslFarEndMuxTsa.setStatus('current')
-hdsl2ShdslLineProbeEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslLineProbeEnable.setStatus('current')
-hdsl2ShdslClockMode = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("plesiochronous1", 1), ("plesiochronousWithTimeReference2", 2), ("synchronous3a", 3), ("hybrid", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hdsl2ShdslClockMode.setStatus('current')
-hdsl2ShdslIfConfLinkDownReason = MibTableColumn((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 4, 1, 1, 19), Bits().clone(namedValues=NamedValues(("unknown", 0), ("es", 1), ("ses", 2), ("crcAnomaly", 3), ("losw", 4), ("uas", 5), ("snrMarginAlarm", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hdsl2ShdslIfConfLinkDownReason.setStatus('current')
-radHdsl2ShdslLoopBackTrap = NotificationType((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 1)).setObjects(("RAD-RadShdsl-MIB", "alarmSeverity"), ("RAD-RadShdsl-MIB", "alarmState"), ("IF-MIB", "ifAlias"))
-if mibBuilder.loadTexts: radHdsl2ShdslLoopBackTrap.setStatus('current')
-shdslLosw = NotificationType((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 13)).setObjects(("RAD-GEN-MIB", "alarmEventLogSourceName"), ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"), ("RAD-GEN-MIB", "alarmEventLogDescription"), ("RAD-GEN-MIB", "alarmEventLogSeverity"), ("RAD-GEN-MIB", "alarmEventLogDateAndTime"), ("RAD-GEN-MIB", "alarmEventReason"), ("IF-MIB", "ifAlias"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinLOSWS"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshLOSWS"))
-if mibBuilder.loadTexts: shdslLosw.setStatus('current')
-shdslExcessiveCrcError = NotificationType((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 15)).setObjects(("RAD-GEN-MIB", "alarmEventLogSourceName"), ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"), ("RAD-GEN-MIB", "alarmEventLogDescription"), ("RAD-GEN-MIB", "alarmEventLogSeverity"), ("RAD-GEN-MIB", "alarmEventLogDateAndTime"), ("RAD-GEN-MIB", "alarmEventReason"), ("IF-MIB", "ifAlias"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinCRCanomalies"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshCRCanomalies"))
-if mibBuilder.loadTexts: shdslExcessiveCrcError.setStatus('current')
-shdslLoopAttenuationOra = NotificationType((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 19)).setObjects(("RAD-GEN-MIB", "alarmEventLogSourceName"), ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"), ("RAD-GEN-MIB", "alarmEventLogDescription"), ("RAD-GEN-MIB", "alarmEventLogSeverity"), ("RAD-GEN-MIB", "alarmEventLogDateAndTime"), ("RAD-GEN-MIB", "alarmEventReason"), ("IF-MIB", "ifAlias"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrAtn"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshLoopAttenuation"))
-if mibBuilder.loadTexts: shdslLoopAttenuationOra.setStatus('current')
-shdslSnrMarginOra = NotificationType((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 20)).setObjects(("RAD-GEN-MIB", "alarmEventLogSourceName"), ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"), ("RAD-GEN-MIB", "alarmEventLogDescription"), ("RAD-GEN-MIB", "alarmEventLogSeverity"), ("RAD-GEN-MIB", "alarmEventLogDateAndTime"), ("RAD-GEN-MIB", "alarmEventReason"), ("IF-MIB", "ifAlias"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrSnrMgn"), ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshSNRMargin"))
-if mibBuilder.loadTexts: shdslSnrMarginOra.setStatus('current')
-shdslLinkDown = NotificationType((1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 23)).setObjects(("RAD-GEN-MIB", "alarmEventLogSourceName"), ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"), ("RAD-GEN-MIB", "alarmEventLogDescription"), ("RAD-GEN-MIB", "alarmEventLogSeverity"), ("RAD-GEN-MIB", "alarmEventLogDateAndTime"), ("RAD-GEN-MIB", "alarmEventReason"), ("IF-MIB", "ifAlias"), ("RAD-RadShdsl-MIB", "hdsl2ShdslIfConfLinkDownReason"))
-if mibBuilder.loadTexts: shdslLinkDown.setStatus('current')
-mibBuilder.exportSymbols("RAD-RadShdsl-MIB", hdsl2ShdslIfConfTable=hdsl2ShdslIfConfTable, hdsl2ShdslEndpointCurrTransPower=hdsl2ShdslEndpointCurrTransPower, hdsl2ShdslSnrMarginThreshold=hdsl2ShdslSnrMarginThreshold, shdslEndpointCurrTable=shdslEndpointCurrTable, hdsl2ShdslIfConfEntry=hdsl2ShdslIfConfEntry, hdsl2ShdslSpanConfHandshake=hdsl2ShdslSpanConfHandshake, hdsl2ShdslTxMode=hdsl2ShdslTxMode, shdslEndpointMaintEntry=shdslEndpointMaintEntry, hdsl2ShdslMode=hdsl2ShdslMode, hdsl2ShdslEndpointCurrPowerBO=hdsl2ShdslEndpointCurrPowerBO, hdsl2ShdslPwrBackoff=hdsl2ShdslPwrBackoff, hdsl2ShdslEndpointValidDaysIntervals=hdsl2ShdslEndpointValidDaysIntervals, shdslSnrMarginOra=shdslSnrMarginOra, shdslLinkDown=shdslLinkDown, hdsl2ShdslLineProbeEnable=hdsl2ShdslLineProbeEnable, shdslEndpointCurrEntry=shdslEndpointCurrEntry, hdsl2ShdslTs0OverDsl=hdsl2ShdslTs0OverDsl, hdsl2ShdslEndpointCurrOpState=hdsl2ShdslEndpointCurrOpState, hdsl2ShdslEndpointCurrPsd=hdsl2ShdslEndpointCurrPsd, hdsl2ShdslSpanConfEocCompatible=hdsl2ShdslSpanConfEocCompatible, PYSNMP_MODULE_ID=shdslIf, shdslSpanConfProfileEntry=shdslSpanConfProfileEntry, hdsl2ShdslAttenuationThreshold=hdsl2ShdslAttenuationThreshold, shdslExcessiveCrcError=shdslExcessiveCrcError, shdslIf=shdslIf, hdsl2ShdslMaxBw=hdsl2ShdslMaxBw, hdsl2ShdslEndpointCurrRcvGain=hdsl2ShdslEndpointCurrRcvGain, radHdsl2ShdslEvents=radHdsl2ShdslEvents, shdslMaintPowerBackOff=shdslMaintPowerBackOff, hdsl2ShdslIfConf=hdsl2ShdslIfConf, hdsl2ShdslSpanConfAsymmetricPSDRate=hdsl2ShdslSpanConfAsymmetricPSDRate, hdsl2ShdslSpanConfWireInterfaceUsed=hdsl2ShdslSpanConfWireInterfaceUsed, hdsl2ShdslFarEndDevice=hdsl2ShdslFarEndDevice, hdsl2ShdslSideIdx=hdsl2ShdslSideIdx, radHdsl2ShdslLoopBackTrap=radHdsl2ShdslLoopBackTrap, shdslLosw=shdslLosw, hdsl2ShdslIfConfIdx=hdsl2ShdslIfConfIdx, hdsl2ShdslFarEndMuxTsa=hdsl2ShdslFarEndMuxTsa, hdsl2ShdslIfConfLinkDownReason=hdsl2ShdslIfConfLinkDownReason, shdslLoopAttenuationOra=shdslLoopAttenuationOra, hdsl2ShdslFar1stIfNumOfTSs=hdsl2ShdslFar1stIfNumOfTSs, hdsl2ShdslEndpointCurrLineStatus=hdsl2ShdslEndpointCurrLineStatus, hdsl2ShdslTsCompactionMode=hdsl2ShdslTsCompactionMode, hdsl2ShdslPwrBackoffDb=hdsl2ShdslPwrBackoffDb, hdsl2ShdslClockMode=hdsl2ShdslClockMode, shdslSpanConfProfileTable=shdslSpanConfProfileTable, hdsl2ShdslEndpointAccumulatedTimeElapsed=hdsl2ShdslEndpointAccumulatedTimeElapsed, hdsl2ShdslEocEnable=hdsl2ShdslEocEnable, hdsl2ShdslEndpointValidIntervals=hdsl2ShdslEndpointValidIntervals, shdslEndpointMaintTable=shdslEndpointMaintTable)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+radHdsl2ShdslLoopBackTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 1)
+)
+radHdsl2ShdslLoopBackTrap.setObjects(
+      *(("RAD-RadShdsl-MIB", "alarmSeverity"),
+        ("RAD-RadShdsl-MIB", "alarmState"),
+        ("IF-MIB", "ifAlias"))
+)
+if mibBuilder.loadTexts:
+    radHdsl2ShdslLoopBackTrap.setStatus(
+        "current"
+    )
+
+shdslLosw = NotificationType(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 13)
+)
+shdslLosw.setObjects(
+      *(("RAD-GEN-MIB", "alarmEventLogSourceName"),
+        ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"),
+        ("RAD-GEN-MIB", "alarmEventLogDescription"),
+        ("RAD-GEN-MIB", "alarmEventLogSeverity"),
+        ("RAD-GEN-MIB", "alarmEventLogDateAndTime"),
+        ("RAD-GEN-MIB", "alarmEventReason"),
+        ("IF-MIB", "ifAlias"),
+        ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinLOSWS"),
+        ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshLOSWS"))
+)
+if mibBuilder.loadTexts:
+    shdslLosw.setStatus(
+        "current"
+    )
+
+shdslExcessiveCrcError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 15)
+)
+shdslExcessiveCrcError.setObjects(
+      *(("RAD-GEN-MIB", "alarmEventLogSourceName"),
+        ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"),
+        ("RAD-GEN-MIB", "alarmEventLogDescription"),
+        ("RAD-GEN-MIB", "alarmEventLogSeverity"),
+        ("RAD-GEN-MIB", "alarmEventLogDateAndTime"),
+        ("RAD-GEN-MIB", "alarmEventReason"),
+        ("IF-MIB", "ifAlias"),
+        ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurr15MinCRCanomalies"),
+        ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshCRCanomalies"))
+)
+if mibBuilder.loadTexts:
+    shdslExcessiveCrcError.setStatus(
+        "current"
+    )
+
+shdslLoopAttenuationOra = NotificationType(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 19)
+)
+shdslLoopAttenuationOra.setObjects(
+      *(("RAD-GEN-MIB", "alarmEventLogSourceName"),
+        ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"),
+        ("RAD-GEN-MIB", "alarmEventLogDescription"),
+        ("RAD-GEN-MIB", "alarmEventLogSeverity"),
+        ("RAD-GEN-MIB", "alarmEventLogDateAndTime"),
+        ("RAD-GEN-MIB", "alarmEventReason"),
+        ("IF-MIB", "ifAlias"),
+        ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrAtn"),
+        ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshLoopAttenuation"))
+)
+if mibBuilder.loadTexts:
+    shdslLoopAttenuationOra.setStatus(
+        "current"
+    )
+
+shdslSnrMarginOra = NotificationType(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 20)
+)
+shdslSnrMarginOra.setObjects(
+      *(("RAD-GEN-MIB", "alarmEventLogSourceName"),
+        ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"),
+        ("RAD-GEN-MIB", "alarmEventLogDescription"),
+        ("RAD-GEN-MIB", "alarmEventLogSeverity"),
+        ("RAD-GEN-MIB", "alarmEventLogDateAndTime"),
+        ("RAD-GEN-MIB", "alarmEventReason"),
+        ("IF-MIB", "ifAlias"),
+        ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointCurrSnrMgn"),
+        ("HDSL2-SHDSL-LINE-MIB", "hdsl2ShdslEndpointThreshSNRMargin"))
+)
+if mibBuilder.loadTexts:
+    shdslSnrMarginOra.setStatus(
+        "current"
+    )
+
+shdslLinkDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 164, 3, 1, 6, 12, 0, 23)
+)
+shdslLinkDown.setObjects(
+      *(("RAD-GEN-MIB", "alarmEventLogSourceName"),
+        ("RAD-GEN-MIB", "alarmEventLogAlarmOrEventId"),
+        ("RAD-GEN-MIB", "alarmEventLogDescription"),
+        ("RAD-GEN-MIB", "alarmEventLogSeverity"),
+        ("RAD-GEN-MIB", "alarmEventLogDateAndTime"),
+        ("RAD-GEN-MIB", "alarmEventReason"),
+        ("IF-MIB", "ifAlias"),
+        ("RAD-RadShdsl-MIB", "hdsl2ShdslIfConfLinkDownReason"))
+)
+if mibBuilder.loadTexts:
+    shdslLinkDown.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RAD-RadShdsl-MIB",
+    **{"shdslIf": shdslIf,
+       "radHdsl2ShdslEvents": radHdsl2ShdslEvents,
+       "radHdsl2ShdslLoopBackTrap": radHdsl2ShdslLoopBackTrap,
+       "shdslLosw": shdslLosw,
+       "shdslExcessiveCrcError": shdslExcessiveCrcError,
+       "shdslLoopAttenuationOra": shdslLoopAttenuationOra,
+       "shdslSnrMarginOra": shdslSnrMarginOra,
+       "shdslLinkDown": shdslLinkDown,
+       "shdslEndpointCurrTable": shdslEndpointCurrTable,
+       "shdslEndpointCurrEntry": shdslEndpointCurrEntry,
+       "hdsl2ShdslEndpointCurrRcvGain": hdsl2ShdslEndpointCurrRcvGain,
+       "hdsl2ShdslEndpointCurrTransPower": hdsl2ShdslEndpointCurrTransPower,
+       "hdsl2ShdslEndpointCurrPowerBO": hdsl2ShdslEndpointCurrPowerBO,
+       "hdsl2ShdslEndpointCurrLineStatus": hdsl2ShdslEndpointCurrLineStatus,
+       "hdsl2ShdslEndpointCurrOpState": hdsl2ShdslEndpointCurrOpState,
+       "hdsl2ShdslEndpointAccumulatedTimeElapsed": hdsl2ShdslEndpointAccumulatedTimeElapsed,
+       "hdsl2ShdslEndpointCurrPsd": hdsl2ShdslEndpointCurrPsd,
+       "hdsl2ShdslEndpointValidIntervals": hdsl2ShdslEndpointValidIntervals,
+       "hdsl2ShdslEndpointValidDaysIntervals": hdsl2ShdslEndpointValidDaysIntervals,
+       "shdslEndpointMaintTable": shdslEndpointMaintTable,
+       "shdslEndpointMaintEntry": shdslEndpointMaintEntry,
+       "shdslMaintPowerBackOff": shdslMaintPowerBackOff,
+       "shdslSpanConfProfileTable": shdslSpanConfProfileTable,
+       "shdslSpanConfProfileEntry": shdslSpanConfProfileEntry,
+       "hdsl2ShdslSpanConfEocCompatible": hdsl2ShdslSpanConfEocCompatible,
+       "hdsl2ShdslSpanConfAsymmetricPSDRate": hdsl2ShdslSpanConfAsymmetricPSDRate,
+       "hdsl2ShdslSpanConfWireInterfaceUsed": hdsl2ShdslSpanConfWireInterfaceUsed,
+       "hdsl2ShdslSpanConfHandshake": hdsl2ShdslSpanConfHandshake,
+       "hdsl2ShdslIfConf": hdsl2ShdslIfConf,
+       "hdsl2ShdslIfConfTable": hdsl2ShdslIfConfTable,
+       "hdsl2ShdslIfConfEntry": hdsl2ShdslIfConfEntry,
+       "hdsl2ShdslIfConfIdx": hdsl2ShdslIfConfIdx,
+       "hdsl2ShdslSideIdx": hdsl2ShdslSideIdx,
+       "hdsl2ShdslMaxBw": hdsl2ShdslMaxBw,
+       "hdsl2ShdslPwrBackoff": hdsl2ShdslPwrBackoff,
+       "hdsl2ShdslTxMode": hdsl2ShdslTxMode,
+       "hdsl2ShdslAttenuationThreshold": hdsl2ShdslAttenuationThreshold,
+       "hdsl2ShdslSnrMarginThreshold": hdsl2ShdslSnrMarginThreshold,
+       "hdsl2ShdslTs0OverDsl": hdsl2ShdslTs0OverDsl,
+       "hdsl2ShdslMode": hdsl2ShdslMode,
+       "hdsl2ShdslTsCompactionMode": hdsl2ShdslTsCompactionMode,
+       "hdsl2ShdslEocEnable": hdsl2ShdslEocEnable,
+       "hdsl2ShdslFar1stIfNumOfTSs": hdsl2ShdslFar1stIfNumOfTSs,
+       "hdsl2ShdslFarEndDevice": hdsl2ShdslFarEndDevice,
+       "hdsl2ShdslPwrBackoffDb": hdsl2ShdslPwrBackoffDb,
+       "hdsl2ShdslFarEndMuxTsa": hdsl2ShdslFarEndMuxTsa,
+       "hdsl2ShdslLineProbeEnable": hdsl2ShdslLineProbeEnable,
+       "hdsl2ShdslClockMode": hdsl2ShdslClockMode,
+       "hdsl2ShdslIfConfLinkDownReason": hdsl2ShdslIfConfLinkDownReason}
+)

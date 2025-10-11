@@ -1,102 +1,852 @@
+# SNMP MIB module (ELTEX-MES-PHYSICAL-DESCRIPTION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ELTEX-MES-PHYSICAL-DESCRIPTION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eltex/ELTEX-MES-PHYSICAL-DESCRIPTION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:18 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/eltex/ELTEX-MES-PHYSICAL-DESCRIPTION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:51:15 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-eltMes, = mibBuilder.importSymbols("ELTEX-MES", "eltMes")
-InterfaceIndexOrZero, ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "ifIndex", "InterfaceIndex")
-JackType, = mibBuilder.importSymbols("MAU-MIB", "JackType")
-rlPhdUnitGenParamEntry, rlCascadeEntry = mibBuilder.importSymbols("RADLAN-Physicaldescription-MIB", "rlPhdUnitGenParamEntry", "rlCascadeEntry")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, PhysAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "PhysAddress", "TruthValue", "DisplayString")
-eltMesPhysicalDescription = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53))
-eltMesPhysicalDescription.setRevisions(('2018-04-24 00:00', '2017-11-11 00:00', '2015-09-14 00:00', '2013-03-21 00:00',))
-if mibBuilder.loadTexts: eltMesPhysicalDescription.setLastUpdated('201804240000Z')
-if mibBuilder.loadTexts: eltMesPhysicalDescription.setOrganization('Eltex Ltd.')
-eltMesPhdTransceiver = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1))
-eltPhdTransceiverInfoTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1), )
-if mibBuilder.loadTexts: eltPhdTransceiverInfoTable.setStatus('current')
-eltPhdTransceiverInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: eltPhdTransceiverInfoEntry.setStatus('current')
-eltPhdTransceiverInfoConnectorType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 32, 33, 34, 35, 127, 255))).clone(namedValues=NamedValues(("unknown", 0), ("sc", 1), ("fibre-ch-st1", 2), ("fibre-ch-st2", 3), ("bnc-tnc", 4), ("fibre-ch-coaxial-headers", 5), ("fibrejack", 6), ("lc", 7), ("mt-rj", 8), ("mu", 9), ("sg", 10), ("optical-pigtail", 11), ("mpo-parallel-optic", 12), ("hssdc-ii", 32), ("copper-pigtail", 33), ("rj45", 34), ("no-separable-connector", 35), ("unallocated", 127), ("vendorspec", 255)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverInfoConnectorType.setStatus('current')
-eltPhdTransceiverInfoType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 127, 255))).clone(namedValues=NamedValues(("unknown", 0), ("gbic", 1), ("sff", 2), ("sfp-sfpplus", 3), ("xbi-300-pin", 4), ("xenpak", 5), ("xfp", 6), ("xff", 7), ("xfp-e", 8), ("xpak", 9), ("x2", 10), ("dwdm-sfp", 11), ("qsfp", 12), ("qsfpplus", 13), ("reserved", 127), ("vendorspec", 255)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverInfoType.setStatus('current')
-eltPhdTransceiverInfoComplianceCode = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverInfoComplianceCode.setStatus('current')
-eltPhdTransceiverInfoWaveLength = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverInfoWaveLength.setStatus('current')
-eltPhdTransceiverInfoVendorName = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 5), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverInfoVendorName.setStatus('current')
-eltPhdTransceiverInfoSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 6), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverInfoSerialNumber.setStatus('current')
-eltPhdTransceiverInfoFiberDiameterType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 65535))).clone(namedValues=NamedValues(("fiber9", 1), ("fiber50", 2), ("fiber625", 3), ("copper", 4), ("unknown", 65535)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverInfoFiberDiameterType.setStatus('current')
-eltPhdTransceiverInfoTransferDistance = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverInfoTransferDistance.setStatus('current')
-eltPhdTransceiverInfoDiagnostic = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverInfoDiagnostic.setStatus('current')
-eltPhdTransceiverInfoPartNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 10), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverInfoPartNumber.setStatus('current')
-eltPhdTransceiverInfoVendorRev = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 11), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverInfoVendorRev.setStatus('current')
-eltPhdUnitGenParamTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 2), )
-if mibBuilder.loadTexts: eltPhdUnitGenParamTable.setStatus('current')
-eltPhdUnitGenParamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 2, 1), )
-rlPhdUnitGenParamEntry.registerAugmentions(("ELTEX-MES-PHYSICAL-DESCRIPTION-MIB", "eltPhdUnitGenParamEntry"))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(eltMes,) = mibBuilder.importSymbols(
+    "ELTEX-MES",
+    "eltMes")
+
+(InterfaceIndex,
+ InterfaceIndexOrZero,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "InterfaceIndexOrZero",
+    "ifIndex")
+
+(JackType,) = mibBuilder.importSymbols(
+    "MAU-MIB",
+    "JackType")
+
+(rlCascadeEntry,
+ rlPhdUnitGenParamEntry) = mibBuilder.importSymbols(
+    "RADLAN-Physicaldescription-MIB",
+    "rlCascadeEntry",
+    "rlPhdUnitGenParamEntry")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+eltMesPhysicalDescription = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53)
+)
+if mibBuilder.loadTexts:
+    eltMesPhysicalDescription.setRevisions(
+        ("2018-04-24 00:00",
+         "2017-11-11 00:00",
+         "2015-09-14 00:00",
+         "2013-03-21 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EltMesPhdTransceiver_ObjectIdentity = ObjectIdentity
+eltMesPhdTransceiver = _EltMesPhdTransceiver_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1)
+)
+_EltPhdTransceiverInfoTable_Object = MibTable
+eltPhdTransceiverInfoTable = _EltPhdTransceiverInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1)
+)
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoTable.setStatus("current")
+_EltPhdTransceiverInfoEntry_Object = MibTableRow
+eltPhdTransceiverInfoEntry = _EltPhdTransceiverInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1)
+)
+eltPhdTransceiverInfoEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoEntry.setStatus("current")
+
+
+class _EltPhdTransceiverInfoConnectorType_Type(Integer32):
+    """Custom type eltPhdTransceiverInfoConnectorType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              32,
+              33,
+              34,
+              35,
+              127,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("sc", 1),
+          ("fibre-ch-st1", 2),
+          ("fibre-ch-st2", 3),
+          ("bnc-tnc", 4),
+          ("fibre-ch-coaxial-headers", 5),
+          ("fibrejack", 6),
+          ("lc", 7),
+          ("mt-rj", 8),
+          ("mu", 9),
+          ("sg", 10),
+          ("optical-pigtail", 11),
+          ("mpo-parallel-optic", 12),
+          ("hssdc-ii", 32),
+          ("copper-pigtail", 33),
+          ("rj45", 34),
+          ("no-separable-connector", 35),
+          ("unallocated", 127),
+          ("vendorspec", 255))
+    )
+
+
+_EltPhdTransceiverInfoConnectorType_Type.__name__ = "Integer32"
+_EltPhdTransceiverInfoConnectorType_Object = MibTableColumn
+eltPhdTransceiverInfoConnectorType = _EltPhdTransceiverInfoConnectorType_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 1),
+    _EltPhdTransceiverInfoConnectorType_Type()
+)
+eltPhdTransceiverInfoConnectorType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoConnectorType.setStatus("current")
+
+
+class _EltPhdTransceiverInfoType_Type(Integer32):
+    """Custom type eltPhdTransceiverInfoType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              127,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("gbic", 1),
+          ("sff", 2),
+          ("sfp-sfpplus", 3),
+          ("xbi-300-pin", 4),
+          ("xenpak", 5),
+          ("xfp", 6),
+          ("xff", 7),
+          ("xfp-e", 8),
+          ("xpak", 9),
+          ("x2", 10),
+          ("dwdm-sfp", 11),
+          ("qsfp", 12),
+          ("qsfpplus", 13),
+          ("reserved", 127),
+          ("vendorspec", 255))
+    )
+
+
+_EltPhdTransceiverInfoType_Type.__name__ = "Integer32"
+_EltPhdTransceiverInfoType_Object = MibTableColumn
+eltPhdTransceiverInfoType = _EltPhdTransceiverInfoType_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 2),
+    _EltPhdTransceiverInfoType_Type()
+)
+eltPhdTransceiverInfoType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoType.setStatus("current")
+_EltPhdTransceiverInfoComplianceCode_Type = OctetString
+_EltPhdTransceiverInfoComplianceCode_Object = MibTableColumn
+eltPhdTransceiverInfoComplianceCode = _EltPhdTransceiverInfoComplianceCode_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 3),
+    _EltPhdTransceiverInfoComplianceCode_Type()
+)
+eltPhdTransceiverInfoComplianceCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoComplianceCode.setStatus("current")
+_EltPhdTransceiverInfoWaveLength_Type = Integer32
+_EltPhdTransceiverInfoWaveLength_Object = MibTableColumn
+eltPhdTransceiverInfoWaveLength = _EltPhdTransceiverInfoWaveLength_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 4),
+    _EltPhdTransceiverInfoWaveLength_Type()
+)
+eltPhdTransceiverInfoWaveLength.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoWaveLength.setStatus("current")
+_EltPhdTransceiverInfoVendorName_Type = OctetString
+_EltPhdTransceiverInfoVendorName_Object = MibTableColumn
+eltPhdTransceiverInfoVendorName = _EltPhdTransceiverInfoVendorName_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 5),
+    _EltPhdTransceiverInfoVendorName_Type()
+)
+eltPhdTransceiverInfoVendorName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoVendorName.setStatus("current")
+_EltPhdTransceiverInfoSerialNumber_Type = OctetString
+_EltPhdTransceiverInfoSerialNumber_Object = MibTableColumn
+eltPhdTransceiverInfoSerialNumber = _EltPhdTransceiverInfoSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 6),
+    _EltPhdTransceiverInfoSerialNumber_Type()
+)
+eltPhdTransceiverInfoSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoSerialNumber.setStatus("current")
+
+
+class _EltPhdTransceiverInfoFiberDiameterType_Type(Integer32):
+    """Custom type eltPhdTransceiverInfoFiberDiameterType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              65535)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fiber9", 1),
+          ("fiber50", 2),
+          ("fiber625", 3),
+          ("copper", 4),
+          ("unknown", 65535))
+    )
+
+
+_EltPhdTransceiverInfoFiberDiameterType_Type.__name__ = "Integer32"
+_EltPhdTransceiverInfoFiberDiameterType_Object = MibTableColumn
+eltPhdTransceiverInfoFiberDiameterType = _EltPhdTransceiverInfoFiberDiameterType_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 7),
+    _EltPhdTransceiverInfoFiberDiameterType_Type()
+)
+eltPhdTransceiverInfoFiberDiameterType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoFiberDiameterType.setStatus("current")
+_EltPhdTransceiverInfoTransferDistance_Type = Integer32
+_EltPhdTransceiverInfoTransferDistance_Object = MibTableColumn
+eltPhdTransceiverInfoTransferDistance = _EltPhdTransceiverInfoTransferDistance_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 8),
+    _EltPhdTransceiverInfoTransferDistance_Type()
+)
+eltPhdTransceiverInfoTransferDistance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoTransferDistance.setStatus("current")
+_EltPhdTransceiverInfoDiagnostic_Type = TruthValue
+_EltPhdTransceiverInfoDiagnostic_Object = MibTableColumn
+eltPhdTransceiverInfoDiagnostic = _EltPhdTransceiverInfoDiagnostic_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 9),
+    _EltPhdTransceiverInfoDiagnostic_Type()
+)
+eltPhdTransceiverInfoDiagnostic.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoDiagnostic.setStatus("current")
+_EltPhdTransceiverInfoPartNumber_Type = OctetString
+_EltPhdTransceiverInfoPartNumber_Object = MibTableColumn
+eltPhdTransceiverInfoPartNumber = _EltPhdTransceiverInfoPartNumber_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 10),
+    _EltPhdTransceiverInfoPartNumber_Type()
+)
+eltPhdTransceiverInfoPartNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoPartNumber.setStatus("current")
+_EltPhdTransceiverInfoVendorRev_Type = OctetString
+_EltPhdTransceiverInfoVendorRev_Object = MibTableColumn
+eltPhdTransceiverInfoVendorRev = _EltPhdTransceiverInfoVendorRev_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 1, 1, 11),
+    _EltPhdTransceiverInfoVendorRev_Type()
+)
+eltPhdTransceiverInfoVendorRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverInfoVendorRev.setStatus("current")
+_EltPhdTransceiverThresholdTable_Object = MibTable
+eltPhdTransceiverThresholdTable = _EltPhdTransceiverThresholdTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2)
+)
+if mibBuilder.loadTexts:
+    eltPhdTransceiverThresholdTable.setStatus("current")
+_EltPhdTransceiverThresholdEntry_Object = MibTableRow
+eltPhdTransceiverThresholdEntry = _EltPhdTransceiverThresholdEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1)
+)
+eltPhdTransceiverThresholdEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "ELTEX-MES-PHYSICAL-DESCRIPTION-MIB", "eltPhdTransceiverThresholdType"),
+)
+if mibBuilder.loadTexts:
+    eltPhdTransceiverThresholdEntry.setStatus("current")
+
+
+class _EltPhdTransceiverThresholdType_Type(Integer32):
+    """Custom type eltPhdTransceiverThresholdType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("temperature", 0),
+          ("supply", 1),
+          ("txBias", 2),
+          ("txOutput", 3),
+          ("rxOpticalPower", 4))
+    )
+
+
+_EltPhdTransceiverThresholdType_Type.__name__ = "Integer32"
+_EltPhdTransceiverThresholdType_Object = MibTableColumn
+eltPhdTransceiverThresholdType = _EltPhdTransceiverThresholdType_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 1),
+    _EltPhdTransceiverThresholdType_Type()
+)
+eltPhdTransceiverThresholdType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverThresholdType.setStatus("current")
+
+
+class _EltPhdTransceiverThresholdAction_Type(Integer32):
+    """Custom type eltPhdTransceiverThresholdAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("log", 1),
+          ("send-trap", 2))
+    )
+
+
+_EltPhdTransceiverThresholdAction_Type.__name__ = "Integer32"
+_EltPhdTransceiverThresholdAction_Object = MibTableColumn
+eltPhdTransceiverThresholdAction = _EltPhdTransceiverThresholdAction_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 2),
+    _EltPhdTransceiverThresholdAction_Type()
+)
+eltPhdTransceiverThresholdAction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverThresholdAction.setStatus("current")
+_EltPhdTransceiverThresholdHighAlarm_Type = Integer32
+_EltPhdTransceiverThresholdHighAlarm_Object = MibTableColumn
+eltPhdTransceiverThresholdHighAlarm = _EltPhdTransceiverThresholdHighAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 3),
+    _EltPhdTransceiverThresholdHighAlarm_Type()
+)
+eltPhdTransceiverThresholdHighAlarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverThresholdHighAlarm.setStatus("current")
+_EltPhdTransceiverThresholdHighWarning_Type = Integer32
+_EltPhdTransceiverThresholdHighWarning_Object = MibTableColumn
+eltPhdTransceiverThresholdHighWarning = _EltPhdTransceiverThresholdHighWarning_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 4),
+    _EltPhdTransceiverThresholdHighWarning_Type()
+)
+eltPhdTransceiverThresholdHighWarning.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverThresholdHighWarning.setStatus("current")
+_EltPhdTransceiverThresholdLowWarning_Type = Integer32
+_EltPhdTransceiverThresholdLowWarning_Object = MibTableColumn
+eltPhdTransceiverThresholdLowWarning = _EltPhdTransceiverThresholdLowWarning_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 5),
+    _EltPhdTransceiverThresholdLowWarning_Type()
+)
+eltPhdTransceiverThresholdLowWarning.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverThresholdLowWarning.setStatus("current")
+_EltPhdTransceiverThresholdLowAlarm_Type = Integer32
+_EltPhdTransceiverThresholdLowAlarm_Object = MibTableColumn
+eltPhdTransceiverThresholdLowAlarm = _EltPhdTransceiverThresholdLowAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 6),
+    _EltPhdTransceiverThresholdLowAlarm_Type()
+)
+eltPhdTransceiverThresholdLowAlarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdTransceiverThresholdLowAlarm.setStatus("current")
+_EltPhdUnitGenParamTable_Object = MibTable
+eltPhdUnitGenParamTable = _EltPhdUnitGenParamTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 2)
+)
+if mibBuilder.loadTexts:
+    eltPhdUnitGenParamTable.setStatus("current")
+_EltPhdUnitGenParamEntry_Object = MibTableRow
+eltPhdUnitGenParamEntry = _EltPhdUnitGenParamEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 2, 1)
+)
+if mibBuilder.loadTexts:
+    eltPhdUnitGenParamEntry.setStatus("current")
+_EltPhdUnitGenParamCommitHash_Type = DisplayString
+_EltPhdUnitGenParamCommitHash_Object = MibTableColumn
+eltPhdUnitGenParamCommitHash = _EltPhdUnitGenParamCommitHash_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 2, 1, 1),
+    _EltPhdUnitGenParamCommitHash_Type()
+)
+eltPhdUnitGenParamCommitHash.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdUnitGenParamCommitHash.setStatus("current")
+_EltPhdUnitGenParamBuildTag_Type = DisplayString
+_EltPhdUnitGenParamBuildTag_Object = MibTableColumn
+eltPhdUnitGenParamBuildTag = _EltPhdUnitGenParamBuildTag_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 2, 1, 2),
+    _EltPhdUnitGenParamBuildTag_Type()
+)
+eltPhdUnitGenParamBuildTag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdUnitGenParamBuildTag.setStatus("current")
+_EltPhdUnitGenParamBuildNumber_Type = DisplayString
+_EltPhdUnitGenParamBuildNumber_Object = MibTableColumn
+eltPhdUnitGenParamBuildNumber = _EltPhdUnitGenParamBuildNumber_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 2, 1, 3),
+    _EltPhdUnitGenParamBuildNumber_Type()
+)
+eltPhdUnitGenParamBuildNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltPhdUnitGenParamBuildNumber.setStatus("current")
+_EltCascadeTable_Object = MibTable
+eltCascadeTable = _EltCascadeTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3)
+)
+if mibBuilder.loadTexts:
+    eltCascadeTable.setStatus("current")
+_EltCascadeEntry_Object = MibTableRow
+eltCascadeEntry = _EltCascadeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1)
+)
+if mibBuilder.loadTexts:
+    eltCascadeEntry.setStatus("current")
+_EltCascadeLastChange_Type = TimeTicks
+_EltCascadeLastChange_Object = MibTableColumn
+eltCascadeLastChange = _EltCascadeLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 1),
+    _EltCascadeLastChange_Type()
+)
+eltCascadeLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltCascadeLastChange.setStatus("current")
+
+
+class _EltCascadeOperStatus_Type(Integer32):
+    """Custom type eltCascadeOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2))
+    )
+
+
+_EltCascadeOperStatus_Type.__name__ = "Integer32"
+_EltCascadeOperStatus_Object = MibTableColumn
+eltCascadeOperStatus = _EltCascadeOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 2),
+    _EltCascadeOperStatus_Type()
+)
+eltCascadeOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltCascadeOperStatus.setStatus("current")
+
+
+class _EltCascadeDuplexOperMode_Type(Integer32):
+    """Custom type eltCascadeDuplexOperMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("half", 1),
+          ("full", 2),
+          ("hybrid", 3),
+          ("unknown", 4))
+    )
+
+
+_EltCascadeDuplexOperMode_Type.__name__ = "Integer32"
+_EltCascadeDuplexOperMode_Object = MibTableColumn
+eltCascadeDuplexOperMode = _EltCascadeDuplexOperMode_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 3),
+    _EltCascadeDuplexOperMode_Type()
+)
+eltCascadeDuplexOperMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltCascadeDuplexOperMode.setStatus("current")
+
+
+class _EltCascadeOperSpeedDuplexAutoNegotiation_Type(Integer32):
+    """Custom type eltCascadeOperSpeedDuplexAutoNegotiation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2),
+          ("hybrid", 3),
+          ("unknown", 4))
+    )
+
+
+_EltCascadeOperSpeedDuplexAutoNegotiation_Type.__name__ = "Integer32"
+_EltCascadeOperSpeedDuplexAutoNegotiation_Object = MibTableColumn
+eltCascadeOperSpeedDuplexAutoNegotiation = _EltCascadeOperSpeedDuplexAutoNegotiation_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 4),
+    _EltCascadeOperSpeedDuplexAutoNegotiation_Type()
+)
+eltCascadeOperSpeedDuplexAutoNegotiation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltCascadeOperSpeedDuplexAutoNegotiation.setStatus("current")
+
+
+class _EltCascadeOperMdix_Type(Integer32):
+    """Custom type eltCascadeOperMdix based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 1),
+          ("cross", 2),
+          ("auto", 3),
+          ("unknown", 4))
+    )
+
+
+_EltCascadeOperMdix_Type.__name__ = "Integer32"
+_EltCascadeOperMdix_Object = MibTableColumn
+eltCascadeOperMdix = _EltCascadeOperMdix_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 5),
+    _EltCascadeOperMdix_Type()
+)
+eltCascadeOperMdix.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltCascadeOperMdix.setStatus("current")
+
+
+class _EltCascadeTransceiverType_Type(Integer32):
+    """Custom type eltCascadeTransceiverType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("regular", 1),
+          ("fiberOptics", 2),
+          ("comboRegular", 3),
+          ("comboFiberOptics", 4))
+    )
+
+
+_EltCascadeTransceiverType_Type.__name__ = "Integer32"
+_EltCascadeTransceiverType_Object = MibTableColumn
+eltCascadeTransceiverType = _EltCascadeTransceiverType_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 6),
+    _EltCascadeTransceiverType_Type()
+)
+eltCascadeTransceiverType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltCascadeTransceiverType.setStatus("current")
+
+
+class _EltCascadeIfType_Type(Integer32):
+    """Custom type eltCascadeIfType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("eth10M", 1),
+          ("eth100M", 2),
+          ("eth1000M", 3),
+          ("eth10G", 4),
+          ("eth20G", 5),
+          ("eth40G", 6),
+          ("eth100G", 7),
+          ("unknown", 8))
+    )
+
+
+_EltCascadeIfType_Type.__name__ = "Integer32"
+_EltCascadeIfType_Object = MibTableColumn
+eltCascadeIfType = _EltCascadeIfType_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 7),
+    _EltCascadeIfType_Type()
+)
+eltCascadeIfType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltCascadeIfType.setStatus("current")
+_EltMesPhdNsf_ObjectIdentity = ObjectIdentity
+eltMesPhdNsf = _EltMesPhdNsf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 4)
+)
+
+
+class _EltPhdNsfEnable_Type(TruthValue):
+    """Custom type eltPhdNsfEnable based on TruthValue"""
+    defaultValue = 2
+
+
+_EltPhdNsfEnable_Type.__name__ = "TruthValue"
+_EltPhdNsfEnable_Object = MibScalar
+eltPhdNsfEnable = _EltPhdNsfEnable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 4, 1),
+    _EltPhdNsfEnable_Type()
+)
+eltPhdNsfEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltPhdNsfEnable.setStatus("current")
+
+
+class _EltPhdNsfTime_Type(Integer32):
+    """Custom type eltPhdNsfTime based on Integer32"""
+    defaultValue = 120
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(60, 600),
+    )
+
+
+_EltPhdNsfTime_Type.__name__ = "Integer32"
+_EltPhdNsfTime_Object = MibScalar
+eltPhdNsfTime = _EltPhdNsfTime_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 4, 2),
+    _EltPhdNsfTime_Type()
+)
+eltPhdNsfTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltPhdNsfTime.setStatus("current")
+rlPhdUnitGenParamEntry.registerAugmentions(
+    ("ELTEX-MES-PHYSICAL-DESCRIPTION-MIB",
+     "eltPhdUnitGenParamEntry")
+)
 eltPhdUnitGenParamEntry.setIndexNames(*rlPhdUnitGenParamEntry.getIndexNames())
-if mibBuilder.loadTexts: eltPhdUnitGenParamEntry.setStatus('current')
-eltPhdUnitGenParamCommitHash = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 2, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdUnitGenParamCommitHash.setStatus('current')
-eltPhdUnitGenParamBuildTag = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdUnitGenParamBuildTag.setStatus('current')
-eltPhdUnitGenParamBuildNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdUnitGenParamBuildNumber.setStatus('current')
-eltCascadeTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3), )
-if mibBuilder.loadTexts: eltCascadeTable.setStatus('current')
-eltCascadeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1), )
-rlCascadeEntry.registerAugmentions(("ELTEX-MES-PHYSICAL-DESCRIPTION-MIB", "eltCascadeEntry"))
+rlCascadeEntry.registerAugmentions(
+    ("ELTEX-MES-PHYSICAL-DESCRIPTION-MIB",
+     "eltCascadeEntry")
+)
 eltCascadeEntry.setIndexNames(*rlCascadeEntry.getIndexNames())
-if mibBuilder.loadTexts: eltCascadeEntry.setStatus('current')
-eltCascadeLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 1), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltCascadeLastChange.setStatus('current')
-eltCascadeOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltCascadeOperStatus.setStatus('current')
-eltCascadeDuplexOperMode = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("half", 1), ("full", 2), ("hybrid", 3), ("unknown", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltCascadeDuplexOperMode.setStatus('current')
-eltCascadeOperSpeedDuplexAutoNegotiation = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("hybrid", 3), ("unknown", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltCascadeOperSpeedDuplexAutoNegotiation.setStatus('current')
-eltCascadeOperMdix = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("normal", 1), ("cross", 2), ("auto", 3), ("unknown", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltCascadeOperMdix.setStatus('current')
-eltCascadeTransceiverType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("regular", 1), ("fiberOptics", 2), ("comboRegular", 3), ("comboFiberOptics", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltCascadeTransceiverType.setStatus('current')
-eltCascadeIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("eth10M", 1), ("eth100M", 2), ("eth1000M", 3), ("eth10G", 4), ("eth20G", 5), ("eth40G", 6), ("eth100G", 7), ("unknown", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltCascadeIfType.setStatus('current')
-eltPhdTransceiverThresholdTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2), )
-if mibBuilder.loadTexts: eltPhdTransceiverThresholdTable.setStatus('current')
-eltPhdTransceiverThresholdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ELTEX-MES-PHYSICAL-DESCRIPTION-MIB", "eltPhdTransceiverThresholdType"))
-if mibBuilder.loadTexts: eltPhdTransceiverThresholdEntry.setStatus('current')
-eltPhdTransceiverThresholdType = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("temperature", 0), ("supply", 1), ("txBias", 2), ("txOutput", 3), ("rxOpticalPower", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverThresholdType.setStatus('current')
-eltPhdTransceiverThresholdAction = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("log", 1), ("send-trap", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverThresholdAction.setStatus('current')
-eltPhdTransceiverThresholdHighAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverThresholdHighAlarm.setStatus('current')
-eltPhdTransceiverThresholdHighWarning = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverThresholdHighWarning.setStatus('current')
-eltPhdTransceiverThresholdLowWarning = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverThresholdLowWarning.setStatus('current')
-eltPhdTransceiverThresholdLowAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 1, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltPhdTransceiverThresholdLowAlarm.setStatus('current')
-eltMesPhdNsf = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 4))
-eltPhdNsfEnable = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 4, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltPhdNsfEnable.setStatus('current')
-eltPhdNsfTime = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 53, 4, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 600)).clone(120)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltPhdNsfTime.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-MES-PHYSICAL-DESCRIPTION-MIB", eltCascadeOperSpeedDuplexAutoNegotiation=eltCascadeOperSpeedDuplexAutoNegotiation, eltPhdTransceiverInfoConnectorType=eltPhdTransceiverInfoConnectorType, eltPhdUnitGenParamBuildNumber=eltPhdUnitGenParamBuildNumber, eltPhdTransceiverInfoTransferDistance=eltPhdTransceiverInfoTransferDistance, eltCascadeTransceiverType=eltCascadeTransceiverType, eltPhdTransceiverInfoSerialNumber=eltPhdTransceiverInfoSerialNumber, eltCascadeLastChange=eltCascadeLastChange, eltPhdTransceiverThresholdLowAlarm=eltPhdTransceiverThresholdLowAlarm, eltPhdTransceiverThresholdType=eltPhdTransceiverThresholdType, eltPhdTransceiverInfoVendorName=eltPhdTransceiverInfoVendorName, eltMesPhdNsf=eltMesPhdNsf, PYSNMP_MODULE_ID=eltMesPhysicalDescription, eltPhdUnitGenParamEntry=eltPhdUnitGenParamEntry, eltPhdTransceiverThresholdAction=eltPhdTransceiverThresholdAction, eltPhdTransceiverInfoFiberDiameterType=eltPhdTransceiverInfoFiberDiameterType, eltCascadeOperStatus=eltCascadeOperStatus, eltPhdTransceiverThresholdHighWarning=eltPhdTransceiverThresholdHighWarning, eltPhdTransceiverInfoComplianceCode=eltPhdTransceiverInfoComplianceCode, eltPhdTransceiverThresholdTable=eltPhdTransceiverThresholdTable, eltMesPhdTransceiver=eltMesPhdTransceiver, eltCascadeDuplexOperMode=eltCascadeDuplexOperMode, eltPhdTransceiverInfoType=eltPhdTransceiverInfoType, eltPhdUnitGenParamTable=eltPhdUnitGenParamTable, eltPhdTransceiverInfoPartNumber=eltPhdTransceiverInfoPartNumber, eltPhdTransceiverInfoVendorRev=eltPhdTransceiverInfoVendorRev, eltPhdTransceiverThresholdHighAlarm=eltPhdTransceiverThresholdHighAlarm, eltPhdTransceiverInfoWaveLength=eltPhdTransceiverInfoWaveLength, eltPhdTransceiverThresholdEntry=eltPhdTransceiverThresholdEntry, eltPhdUnitGenParamCommitHash=eltPhdUnitGenParamCommitHash, eltCascadeTable=eltCascadeTable, eltPhdNsfTime=eltPhdNsfTime, eltPhdTransceiverInfoTable=eltPhdTransceiverInfoTable, eltPhdTransceiverThresholdLowWarning=eltPhdTransceiverThresholdLowWarning, eltPhdTransceiverInfoDiagnostic=eltPhdTransceiverInfoDiagnostic, eltMesPhysicalDescription=eltMesPhysicalDescription, eltCascadeOperMdix=eltCascadeOperMdix, eltPhdNsfEnable=eltPhdNsfEnable, eltCascadeEntry=eltCascadeEntry, eltCascadeIfType=eltCascadeIfType, eltPhdUnitGenParamBuildTag=eltPhdUnitGenParamBuildTag, eltPhdTransceiverInfoEntry=eltPhdTransceiverInfoEntry)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ELTEX-MES-PHYSICAL-DESCRIPTION-MIB",
+    **{"eltMesPhysicalDescription": eltMesPhysicalDescription,
+       "eltMesPhdTransceiver": eltMesPhdTransceiver,
+       "eltPhdTransceiverInfoTable": eltPhdTransceiverInfoTable,
+       "eltPhdTransceiverInfoEntry": eltPhdTransceiverInfoEntry,
+       "eltPhdTransceiverInfoConnectorType": eltPhdTransceiverInfoConnectorType,
+       "eltPhdTransceiverInfoType": eltPhdTransceiverInfoType,
+       "eltPhdTransceiverInfoComplianceCode": eltPhdTransceiverInfoComplianceCode,
+       "eltPhdTransceiverInfoWaveLength": eltPhdTransceiverInfoWaveLength,
+       "eltPhdTransceiverInfoVendorName": eltPhdTransceiverInfoVendorName,
+       "eltPhdTransceiverInfoSerialNumber": eltPhdTransceiverInfoSerialNumber,
+       "eltPhdTransceiverInfoFiberDiameterType": eltPhdTransceiverInfoFiberDiameterType,
+       "eltPhdTransceiverInfoTransferDistance": eltPhdTransceiverInfoTransferDistance,
+       "eltPhdTransceiverInfoDiagnostic": eltPhdTransceiverInfoDiagnostic,
+       "eltPhdTransceiverInfoPartNumber": eltPhdTransceiverInfoPartNumber,
+       "eltPhdTransceiverInfoVendorRev": eltPhdTransceiverInfoVendorRev,
+       "eltPhdTransceiverThresholdTable": eltPhdTransceiverThresholdTable,
+       "eltPhdTransceiverThresholdEntry": eltPhdTransceiverThresholdEntry,
+       "eltPhdTransceiverThresholdType": eltPhdTransceiverThresholdType,
+       "eltPhdTransceiverThresholdAction": eltPhdTransceiverThresholdAction,
+       "eltPhdTransceiverThresholdHighAlarm": eltPhdTransceiverThresholdHighAlarm,
+       "eltPhdTransceiverThresholdHighWarning": eltPhdTransceiverThresholdHighWarning,
+       "eltPhdTransceiverThresholdLowWarning": eltPhdTransceiverThresholdLowWarning,
+       "eltPhdTransceiverThresholdLowAlarm": eltPhdTransceiverThresholdLowAlarm,
+       "eltPhdUnitGenParamTable": eltPhdUnitGenParamTable,
+       "eltPhdUnitGenParamEntry": eltPhdUnitGenParamEntry,
+       "eltPhdUnitGenParamCommitHash": eltPhdUnitGenParamCommitHash,
+       "eltPhdUnitGenParamBuildTag": eltPhdUnitGenParamBuildTag,
+       "eltPhdUnitGenParamBuildNumber": eltPhdUnitGenParamBuildNumber,
+       "eltCascadeTable": eltCascadeTable,
+       "eltCascadeEntry": eltCascadeEntry,
+       "eltCascadeLastChange": eltCascadeLastChange,
+       "eltCascadeOperStatus": eltCascadeOperStatus,
+       "eltCascadeDuplexOperMode": eltCascadeDuplexOperMode,
+       "eltCascadeOperSpeedDuplexAutoNegotiation": eltCascadeOperSpeedDuplexAutoNegotiation,
+       "eltCascadeOperMdix": eltCascadeOperMdix,
+       "eltCascadeTransceiverType": eltCascadeTransceiverType,
+       "eltCascadeIfType": eltCascadeIfType,
+       "eltMesPhdNsf": eltMesPhdNsf,
+       "eltPhdNsfEnable": eltPhdNsfEnable,
+       "eltPhdNsfTime": eltPhdNsfTime}
+)

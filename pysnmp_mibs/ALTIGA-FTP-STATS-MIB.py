@@ -1,57 +1,337 @@
+# SNMP MIB module (ALTIGA-FTP-STATS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALTIGA-FTP-STATS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/ALTIGA-FTP-STATS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:59 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/ALTIGA-FTP-STATS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:16:25 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-alFtpMibModule, = mibBuilder.importSymbols("ALTIGA-GLOBAL-REG", "alFtpMibModule")
-alFtpGroup, alStatsFtp = mibBuilder.importSymbols("ALTIGA-MIB", "alFtpGroup", "alStatsFtp")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-altigaFtpStatsMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 3076, 1, 1, 17, 2))
-altigaFtpStatsMibModule.setRevisions(('2002-09-05 13:00', '2002-07-10 00:00',))
-if mibBuilder.loadTexts: altigaFtpStatsMibModule.setLastUpdated('200209051300Z')
-if mibBuilder.loadTexts: altigaFtpStatsMibModule.setOrganization('Cisco Systems, Inc.')
-alStatsFtpServerGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 1))
-alStatsFtpClientGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2))
-alFtpClientStatsMaxSess = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsMaxSess.setStatus('current')
-alFtpClientStatsTotalSess = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsTotalSess.setStatus('current')
-alFtpClientStatsGoodConns = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsGoodConns.setStatus('current')
-alFtpClientStatsBadConns = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsBadConns.setStatus('current')
-alFtpClientStatsGoodDataConns = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsGoodDataConns.setStatus('current')
-alFtpClientStatsBadDataConns = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsBadDataConns.setStatus('current')
-alFtpClientStatsGoodFileXfers = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsGoodFileXfers.setStatus('current')
-alFtpClientStatsBadFileXfers = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsBadFileXfers.setStatus('current')
-alFtpClientStatsAsciiXfers = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsAsciiXfers.setStatus('current')
-alFtpClientStatsBinaryXfers = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsBinaryXfers.setStatus('current')
-alFtpClientStatsOctetsXmit = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsOctetsXmit.setStatus('current')
-alFtpClientStatsOctetsRecv = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsOctetsRecv.setStatus('current')
-alFtpClientStatsTimeouts = MibScalar((1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alFtpClientStatsTimeouts.setStatus('current')
-altigaFtpStatsMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 3076, 1, 1, 17, 2, 1))
-altigaFtpStatsMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 3076, 1, 1, 17, 2, 1, 1))
-altigaFtpStatsMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 3076, 1, 1, 17, 2, 1, 1, 1)).setObjects(("ALTIGA-FTP-STATS-MIB", "altigaFtpStatsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    altigaFtpStatsMibCompliance = altigaFtpStatsMibCompliance.setStatus('current')
-altigaFtpStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 3076, 2, 1, 1, 1, 12, 2)).setObjects(("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsMaxSess"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsTotalSess"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsGoodConns"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsBadConns"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsGoodDataConns"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsBadDataConns"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsGoodFileXfers"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsBadFileXfers"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsAsciiXfers"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsBinaryXfers"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsOctetsXmit"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsOctetsRecv"), ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsTimeouts"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    altigaFtpStatsGroup = altigaFtpStatsGroup.setStatus('current')
-mibBuilder.exportSymbols("ALTIGA-FTP-STATS-MIB", alFtpClientStatsBadDataConns=alFtpClientStatsBadDataConns, alFtpClientStatsOctetsRecv=alFtpClientStatsOctetsRecv, alStatsFtpServerGlobal=alStatsFtpServerGlobal, altigaFtpStatsMibConformance=altigaFtpStatsMibConformance, alFtpClientStatsBinaryXfers=alFtpClientStatsBinaryXfers, alFtpClientStatsOctetsXmit=alFtpClientStatsOctetsXmit, altigaFtpStatsMibModule=altigaFtpStatsMibModule, alStatsFtpClientGlobal=alStatsFtpClientGlobal, alFtpClientStatsAsciiXfers=alFtpClientStatsAsciiXfers, alFtpClientStatsGoodDataConns=alFtpClientStatsGoodDataConns, altigaFtpStatsMibCompliance=altigaFtpStatsMibCompliance, altigaFtpStatsMibCompliances=altigaFtpStatsMibCompliances, alFtpClientStatsBadConns=alFtpClientStatsBadConns, altigaFtpStatsGroup=altigaFtpStatsGroup, alFtpClientStatsTotalSess=alFtpClientStatsTotalSess, PYSNMP_MODULE_ID=altigaFtpStatsMibModule, alFtpClientStatsTimeouts=alFtpClientStatsTimeouts, alFtpClientStatsGoodFileXfers=alFtpClientStatsGoodFileXfers, alFtpClientStatsGoodConns=alFtpClientStatsGoodConns, alFtpClientStatsBadFileXfers=alFtpClientStatsBadFileXfers, alFtpClientStatsMaxSess=alFtpClientStatsMaxSess)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(alFtpMibModule,) = mibBuilder.importSymbols(
+    "ALTIGA-GLOBAL-REG",
+    "alFtpMibModule")
+
+(alFtpGroup,
+ alStatsFtp) = mibBuilder.importSymbols(
+    "ALTIGA-MIB",
+    "alFtpGroup",
+    "alStatsFtp")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+altigaFtpStatsMibModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3076, 1, 1, 17, 2)
+)
+if mibBuilder.loadTexts:
+    altigaFtpStatsMibModule.setRevisions(
+        ("2002-09-05 13:00",
+         "2002-07-10 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AltigaFtpStatsMibConformance_ObjectIdentity = ObjectIdentity
+altigaFtpStatsMibConformance = _AltigaFtpStatsMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3076, 1, 1, 17, 2, 1)
+)
+_AltigaFtpStatsMibCompliances_ObjectIdentity = ObjectIdentity
+altigaFtpStatsMibCompliances = _AltigaFtpStatsMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3076, 1, 1, 17, 2, 1, 1)
+)
+_AlStatsFtpServerGlobal_ObjectIdentity = ObjectIdentity
+alStatsFtpServerGlobal = _AlStatsFtpServerGlobal_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 1)
+)
+_AlStatsFtpClientGlobal_ObjectIdentity = ObjectIdentity
+alStatsFtpClientGlobal = _AlStatsFtpClientGlobal_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2)
+)
+_AlFtpClientStatsMaxSess_Type = Gauge32
+_AlFtpClientStatsMaxSess_Object = MibScalar
+alFtpClientStatsMaxSess = _AlFtpClientStatsMaxSess_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 1),
+    _AlFtpClientStatsMaxSess_Type()
+)
+alFtpClientStatsMaxSess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsMaxSess.setStatus("current")
+_AlFtpClientStatsTotalSess_Type = Counter32
+_AlFtpClientStatsTotalSess_Object = MibScalar
+alFtpClientStatsTotalSess = _AlFtpClientStatsTotalSess_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 2),
+    _AlFtpClientStatsTotalSess_Type()
+)
+alFtpClientStatsTotalSess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsTotalSess.setStatus("current")
+_AlFtpClientStatsGoodConns_Type = Counter32
+_AlFtpClientStatsGoodConns_Object = MibScalar
+alFtpClientStatsGoodConns = _AlFtpClientStatsGoodConns_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 3),
+    _AlFtpClientStatsGoodConns_Type()
+)
+alFtpClientStatsGoodConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsGoodConns.setStatus("current")
+_AlFtpClientStatsBadConns_Type = Counter32
+_AlFtpClientStatsBadConns_Object = MibScalar
+alFtpClientStatsBadConns = _AlFtpClientStatsBadConns_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 4),
+    _AlFtpClientStatsBadConns_Type()
+)
+alFtpClientStatsBadConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsBadConns.setStatus("current")
+_AlFtpClientStatsGoodDataConns_Type = Counter32
+_AlFtpClientStatsGoodDataConns_Object = MibScalar
+alFtpClientStatsGoodDataConns = _AlFtpClientStatsGoodDataConns_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 5),
+    _AlFtpClientStatsGoodDataConns_Type()
+)
+alFtpClientStatsGoodDataConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsGoodDataConns.setStatus("current")
+_AlFtpClientStatsBadDataConns_Type = Counter32
+_AlFtpClientStatsBadDataConns_Object = MibScalar
+alFtpClientStatsBadDataConns = _AlFtpClientStatsBadDataConns_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 6),
+    _AlFtpClientStatsBadDataConns_Type()
+)
+alFtpClientStatsBadDataConns.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsBadDataConns.setStatus("current")
+_AlFtpClientStatsGoodFileXfers_Type = Counter32
+_AlFtpClientStatsGoodFileXfers_Object = MibScalar
+alFtpClientStatsGoodFileXfers = _AlFtpClientStatsGoodFileXfers_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 7),
+    _AlFtpClientStatsGoodFileXfers_Type()
+)
+alFtpClientStatsGoodFileXfers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsGoodFileXfers.setStatus("current")
+_AlFtpClientStatsBadFileXfers_Type = Counter32
+_AlFtpClientStatsBadFileXfers_Object = MibScalar
+alFtpClientStatsBadFileXfers = _AlFtpClientStatsBadFileXfers_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 8),
+    _AlFtpClientStatsBadFileXfers_Type()
+)
+alFtpClientStatsBadFileXfers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsBadFileXfers.setStatus("current")
+_AlFtpClientStatsAsciiXfers_Type = Counter32
+_AlFtpClientStatsAsciiXfers_Object = MibScalar
+alFtpClientStatsAsciiXfers = _AlFtpClientStatsAsciiXfers_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 9),
+    _AlFtpClientStatsAsciiXfers_Type()
+)
+alFtpClientStatsAsciiXfers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsAsciiXfers.setStatus("current")
+_AlFtpClientStatsBinaryXfers_Type = Counter32
+_AlFtpClientStatsBinaryXfers_Object = MibScalar
+alFtpClientStatsBinaryXfers = _AlFtpClientStatsBinaryXfers_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 10),
+    _AlFtpClientStatsBinaryXfers_Type()
+)
+alFtpClientStatsBinaryXfers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsBinaryXfers.setStatus("current")
+_AlFtpClientStatsOctetsXmit_Type = Counter32
+_AlFtpClientStatsOctetsXmit_Object = MibScalar
+alFtpClientStatsOctetsXmit = _AlFtpClientStatsOctetsXmit_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 11),
+    _AlFtpClientStatsOctetsXmit_Type()
+)
+alFtpClientStatsOctetsXmit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsOctetsXmit.setStatus("current")
+_AlFtpClientStatsOctetsRecv_Type = Counter32
+_AlFtpClientStatsOctetsRecv_Object = MibScalar
+alFtpClientStatsOctetsRecv = _AlFtpClientStatsOctetsRecv_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 12),
+    _AlFtpClientStatsOctetsRecv_Type()
+)
+alFtpClientStatsOctetsRecv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsOctetsRecv.setStatus("current")
+_AlFtpClientStatsTimeouts_Type = Counter32
+_AlFtpClientStatsTimeouts_Object = MibScalar
+alFtpClientStatsTimeouts = _AlFtpClientStatsTimeouts_Object(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 2, 12, 2, 13),
+    _AlFtpClientStatsTimeouts_Type()
+)
+alFtpClientStatsTimeouts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alFtpClientStatsTimeouts.setStatus("current")
+
+# Managed Objects groups
+
+altigaFtpStatsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 3076, 2, 1, 1, 1, 12, 2)
+)
+altigaFtpStatsGroup.setObjects(
+      *(("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsMaxSess"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsTotalSess"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsGoodConns"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsBadConns"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsGoodDataConns"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsBadDataConns"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsGoodFileXfers"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsBadFileXfers"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsAsciiXfers"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsBinaryXfers"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsOctetsXmit"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsOctetsRecv"),
+        ("ALTIGA-FTP-STATS-MIB", "alFtpClientStatsTimeouts"))
+)
+if mibBuilder.loadTexts:
+    altigaFtpStatsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+altigaFtpStatsMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 3076, 1, 1, 17, 2, 1, 1, 1)
+)
+altigaFtpStatsMibCompliance.setObjects(
+    ("ALTIGA-FTP-STATS-MIB", "altigaFtpStatsGroup")
+)
+if mibBuilder.loadTexts:
+    altigaFtpStatsMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALTIGA-FTP-STATS-MIB",
+    **{"altigaFtpStatsMibModule": altigaFtpStatsMibModule,
+       "altigaFtpStatsMibConformance": altigaFtpStatsMibConformance,
+       "altigaFtpStatsMibCompliances": altigaFtpStatsMibCompliances,
+       "altigaFtpStatsMibCompliance": altigaFtpStatsMibCompliance,
+       "altigaFtpStatsGroup": altigaFtpStatsGroup,
+       "alStatsFtpServerGlobal": alStatsFtpServerGlobal,
+       "alStatsFtpClientGlobal": alStatsFtpClientGlobal,
+       "alFtpClientStatsMaxSess": alFtpClientStatsMaxSess,
+       "alFtpClientStatsTotalSess": alFtpClientStatsTotalSess,
+       "alFtpClientStatsGoodConns": alFtpClientStatsGoodConns,
+       "alFtpClientStatsBadConns": alFtpClientStatsBadConns,
+       "alFtpClientStatsGoodDataConns": alFtpClientStatsGoodDataConns,
+       "alFtpClientStatsBadDataConns": alFtpClientStatsBadDataConns,
+       "alFtpClientStatsGoodFileXfers": alFtpClientStatsGoodFileXfers,
+       "alFtpClientStatsBadFileXfers": alFtpClientStatsBadFileXfers,
+       "alFtpClientStatsAsciiXfers": alFtpClientStatsAsciiXfers,
+       "alFtpClientStatsBinaryXfers": alFtpClientStatsBinaryXfers,
+       "alFtpClientStatsOctetsXmit": alFtpClientStatsOctetsXmit,
+       "alFtpClientStatsOctetsRecv": alFtpClientStatsOctetsRecv,
+       "alFtpClientStatsTimeouts": alFtpClientStatsTimeouts}
+)

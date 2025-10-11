@@ -1,58 +1,479 @@
+# SNMP MIB module (OLD-CISCO-FLASH-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module OLD-CISCO-FLASH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/OLD-CISCO-FLASH-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:29:54 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/OLD-CISCO-FLASH-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:37:48 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-local, = mibBuilder.importSymbols("CISCO-SMI", "local")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-lflash = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 2, 10))
-flashSize = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashSize.setStatus('mandatory')
-flashFree = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashFree.setStatus('mandatory')
-flashController = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashController.setStatus('mandatory')
-flashCard = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashCard.setStatus('mandatory')
-flashVPP = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("installed", 1), ("missing", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashVPP.setStatus('mandatory')
-flashErase = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 6), Integer32()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: flashErase.setStatus('mandatory')
-flashEraseTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 7), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashEraseTime.setStatus('mandatory')
-flashEraseStatus = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("flashOpInProgress", 1), ("flashOpSuccess", 2), ("flashOpFailure", 3), ("flashReadOnly", 4), ("flashOpenFailure", 5), ("bufferAllocationFailure", 6), ("noOpAfterPowerOn", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashEraseStatus.setStatus('mandatory')
-flashToNet = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 9), DisplayString()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: flashToNet.setStatus('mandatory')
-flashToNetTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 10), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashToNetTime.setStatus('mandatory')
-flashToNetStatus = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("flashOpInProgress", 1), ("flashOpSuccess", 2), ("flashOpFailure", 3), ("flashReadOnly", 4), ("flashOpenFailure", 5), ("bufferAllocationFailure", 6), ("noOpAfterPowerOn", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashToNetStatus.setStatus('mandatory')
-netToFlash = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 12), DisplayString()).setMaxAccess("writeonly")
-if mibBuilder.loadTexts: netToFlash.setStatus('mandatory')
-netToFlashTime = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 13), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: netToFlashTime.setStatus('mandatory')
-netToFlashStatus = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("flashOpInProgress", 1), ("flashOpSuccess", 2), ("flashOpFailure", 3), ("flashReadOnly", 4), ("flashOpenFailure", 5), ("bufferAllocationFailure", 6), ("noOpAfterPowerOn", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: netToFlashStatus.setStatus('mandatory')
-flashStatus = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("busy", 1), ("available", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashStatus.setStatus('mandatory')
-flashEntries = MibScalar((1, 3, 6, 1, 4, 1, 9, 2, 10, 16), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashEntries.setStatus('mandatory')
-lflashFileDirTable = MibTable((1, 3, 6, 1, 4, 1, 9, 2, 10, 17), )
-if mibBuilder.loadTexts: lflashFileDirTable.setStatus('mandatory')
-lflashFileDirEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 2, 10, 17, 1), ).setIndexNames((0, "OLD-CISCO-FLASH-MIB", "flashEntries"))
-if mibBuilder.loadTexts: lflashFileDirEntry.setStatus('mandatory')
-flashDirName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 2, 10, 17, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashDirName.setStatus('mandatory')
-flashDirSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 2, 10, 17, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashDirSize.setStatus('mandatory')
-flashDirStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 2, 10, 17, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("valid", 1), ("deleted", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: flashDirStatus.setStatus('mandatory')
-mibBuilder.exportSymbols("OLD-CISCO-FLASH-MIB", flashCard=flashCard, flashEraseTime=flashEraseTime, lflashFileDirEntry=lflashFileDirEntry, flashToNetTime=flashToNetTime, flashVPP=flashVPP, flashErase=flashErase, flashDirSize=flashDirSize, lflash=lflash, netToFlashTime=netToFlashTime, flashStatus=flashStatus, flashDirStatus=flashDirStatus, flashSize=flashSize, flashEraseStatus=flashEraseStatus, flashEntries=flashEntries, netToFlashStatus=netToFlashStatus, flashFree=flashFree, flashController=flashController, flashDirName=flashDirName, flashToNetStatus=flashToNetStatus, netToFlash=netToFlash, flashToNet=flashToNet, lflashFileDirTable=lflashFileDirTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(local,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "local")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Lflash_ObjectIdentity = ObjectIdentity
+lflash = _Lflash_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10)
+)
+_FlashSize_Type = Integer32
+_FlashSize_Object = MibScalar
+flashSize = _FlashSize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 1),
+    _FlashSize_Type()
+)
+flashSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashSize.setStatus("mandatory")
+_FlashFree_Type = Integer32
+_FlashFree_Object = MibScalar
+flashFree = _FlashFree_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 2),
+    _FlashFree_Type()
+)
+flashFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashFree.setStatus("mandatory")
+_FlashController_Type = DisplayString
+_FlashController_Object = MibScalar
+flashController = _FlashController_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 3),
+    _FlashController_Type()
+)
+flashController.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashController.setStatus("mandatory")
+_FlashCard_Type = DisplayString
+_FlashCard_Object = MibScalar
+flashCard = _FlashCard_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 4),
+    _FlashCard_Type()
+)
+flashCard.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashCard.setStatus("mandatory")
+
+
+class _FlashVPP_Type(Integer32):
+    """Custom type flashVPP based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("installed", 1),
+          ("missing", 2))
+    )
+
+
+_FlashVPP_Type.__name__ = "Integer32"
+_FlashVPP_Object = MibScalar
+flashVPP = _FlashVPP_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 5),
+    _FlashVPP_Type()
+)
+flashVPP.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashVPP.setStatus("mandatory")
+_FlashErase_Type = Integer32
+_FlashErase_Object = MibScalar
+flashErase = _FlashErase_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 6),
+    _FlashErase_Type()
+)
+flashErase.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    flashErase.setStatus("mandatory")
+_FlashEraseTime_Type = TimeTicks
+_FlashEraseTime_Object = MibScalar
+flashEraseTime = _FlashEraseTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 7),
+    _FlashEraseTime_Type()
+)
+flashEraseTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashEraseTime.setStatus("mandatory")
+
+
+class _FlashEraseStatus_Type(Integer32):
+    """Custom type flashEraseStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("flashOpInProgress", 1),
+          ("flashOpSuccess", 2),
+          ("flashOpFailure", 3),
+          ("flashReadOnly", 4),
+          ("flashOpenFailure", 5),
+          ("bufferAllocationFailure", 6),
+          ("noOpAfterPowerOn", 7))
+    )
+
+
+_FlashEraseStatus_Type.__name__ = "Integer32"
+_FlashEraseStatus_Object = MibScalar
+flashEraseStatus = _FlashEraseStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 8),
+    _FlashEraseStatus_Type()
+)
+flashEraseStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashEraseStatus.setStatus("mandatory")
+_FlashToNet_Type = DisplayString
+_FlashToNet_Object = MibScalar
+flashToNet = _FlashToNet_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 9),
+    _FlashToNet_Type()
+)
+flashToNet.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    flashToNet.setStatus("mandatory")
+_FlashToNetTime_Type = TimeTicks
+_FlashToNetTime_Object = MibScalar
+flashToNetTime = _FlashToNetTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 10),
+    _FlashToNetTime_Type()
+)
+flashToNetTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashToNetTime.setStatus("mandatory")
+
+
+class _FlashToNetStatus_Type(Integer32):
+    """Custom type flashToNetStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("flashOpInProgress", 1),
+          ("flashOpSuccess", 2),
+          ("flashOpFailure", 3),
+          ("flashReadOnly", 4),
+          ("flashOpenFailure", 5),
+          ("bufferAllocationFailure", 6),
+          ("noOpAfterPowerOn", 7))
+    )
+
+
+_FlashToNetStatus_Type.__name__ = "Integer32"
+_FlashToNetStatus_Object = MibScalar
+flashToNetStatus = _FlashToNetStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 11),
+    _FlashToNetStatus_Type()
+)
+flashToNetStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashToNetStatus.setStatus("mandatory")
+_NetToFlash_Type = DisplayString
+_NetToFlash_Object = MibScalar
+netToFlash = _NetToFlash_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 12),
+    _NetToFlash_Type()
+)
+netToFlash.setMaxAccess("write-only")
+if mibBuilder.loadTexts:
+    netToFlash.setStatus("mandatory")
+_NetToFlashTime_Type = TimeTicks
+_NetToFlashTime_Object = MibScalar
+netToFlashTime = _NetToFlashTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 13),
+    _NetToFlashTime_Type()
+)
+netToFlashTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    netToFlashTime.setStatus("mandatory")
+
+
+class _NetToFlashStatus_Type(Integer32):
+    """Custom type netToFlashStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("flashOpInProgress", 1),
+          ("flashOpSuccess", 2),
+          ("flashOpFailure", 3),
+          ("flashReadOnly", 4),
+          ("flashOpenFailure", 5),
+          ("bufferAllocationFailure", 6),
+          ("noOpAfterPowerOn", 7))
+    )
+
+
+_NetToFlashStatus_Type.__name__ = "Integer32"
+_NetToFlashStatus_Object = MibScalar
+netToFlashStatus = _NetToFlashStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 14),
+    _NetToFlashStatus_Type()
+)
+netToFlashStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    netToFlashStatus.setStatus("mandatory")
+
+
+class _FlashStatus_Type(Integer32):
+    """Custom type flashStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("busy", 1),
+          ("available", 2))
+    )
+
+
+_FlashStatus_Type.__name__ = "Integer32"
+_FlashStatus_Object = MibScalar
+flashStatus = _FlashStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 15),
+    _FlashStatus_Type()
+)
+flashStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashStatus.setStatus("mandatory")
+_FlashEntries_Type = Integer32
+_FlashEntries_Object = MibScalar
+flashEntries = _FlashEntries_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 16),
+    _FlashEntries_Type()
+)
+flashEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashEntries.setStatus("mandatory")
+_LflashFileDirTable_Object = MibTable
+lflashFileDirTable = _LflashFileDirTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 17)
+)
+if mibBuilder.loadTexts:
+    lflashFileDirTable.setStatus("mandatory")
+_LflashFileDirEntry_Object = MibTableRow
+lflashFileDirEntry = _LflashFileDirEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 17, 1)
+)
+lflashFileDirEntry.setIndexNames(
+    (0, "OLD-CISCO-FLASH-MIB", "flashEntries"),
+)
+if mibBuilder.loadTexts:
+    lflashFileDirEntry.setStatus("mandatory")
+_FlashDirName_Type = DisplayString
+_FlashDirName_Object = MibTableColumn
+flashDirName = _FlashDirName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 17, 1, 1),
+    _FlashDirName_Type()
+)
+flashDirName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashDirName.setStatus("mandatory")
+_FlashDirSize_Type = Integer32
+_FlashDirSize_Object = MibTableColumn
+flashDirSize = _FlashDirSize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 17, 1, 2),
+    _FlashDirSize_Type()
+)
+flashDirSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashDirSize.setStatus("mandatory")
+
+
+class _FlashDirStatus_Type(Integer32):
+    """Custom type flashDirStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("valid", 1),
+          ("deleted", 2))
+    )
+
+
+_FlashDirStatus_Type.__name__ = "Integer32"
+_FlashDirStatus_Object = MibTableColumn
+flashDirStatus = _FlashDirStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 2, 10, 17, 1, 3),
+    _FlashDirStatus_Type()
+)
+flashDirStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    flashDirStatus.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "OLD-CISCO-FLASH-MIB",
+    **{"lflash": lflash,
+       "flashSize": flashSize,
+       "flashFree": flashFree,
+       "flashController": flashController,
+       "flashCard": flashCard,
+       "flashVPP": flashVPP,
+       "flashErase": flashErase,
+       "flashEraseTime": flashEraseTime,
+       "flashEraseStatus": flashEraseStatus,
+       "flashToNet": flashToNet,
+       "flashToNetTime": flashToNetTime,
+       "flashToNetStatus": flashToNetStatus,
+       "netToFlash": netToFlash,
+       "netToFlashTime": netToFlashTime,
+       "netToFlashStatus": netToFlashStatus,
+       "flashStatus": flashStatus,
+       "flashEntries": flashEntries,
+       "lflashFileDirTable": lflashFileDirTable,
+       "lflashFileDirEntry": lflashFileDirEntry,
+       "flashDirName": flashDirName,
+       "flashDirSize": flashDirSize,
+       "flashDirStatus": flashDirStatus}
+)

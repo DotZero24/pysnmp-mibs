@@ -1,48 +1,334 @@
+# SNMP MIB module (ORACLE-AGENT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ORACLE-AGENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/oracle/ORACLE-AGENT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:48 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/oracle/ORACLE-AGENT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:07:33 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-class DateAndTime(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 11)
 
-oracle = MibIdentifier((1, 3, 6, 1, 4, 1, 111))
-oraAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 111, 12))
-oraAgentObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 111, 12, 1))
-oraAgentEventTable = MibTable((1, 3, 6, 1, 4, 1, 111, 12, 1, 1), )
-if mibBuilder.loadTexts: oraAgentEventTable.setStatus('mandatory')
-oraAgentEventEntry = MibTableRow((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1), ).setIndexNames((0, "ORACLE-AGENT-MIB", "oraAgentEventIndex"))
-if mibBuilder.loadTexts: oraAgentEventEntry.setStatus('mandatory')
-oraAgentEventIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oraAgentEventIndex.setStatus('mandatory')
-oraAgentEventName = MibTableColumn((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oraAgentEventName.setStatus('mandatory')
-oraAgentEventID = MibTableColumn((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oraAgentEventID.setStatus('mandatory')
-oraAgentEventService = MibTableColumn((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oraAgentEventService.setStatus('mandatory')
-oraAgentEventTime = MibTableColumn((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 5), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oraAgentEventTime.setStatus('mandatory')
-oraAgentEventSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, -1))).clone(namedValues=NamedValues(("warning", 1), ("alert", 2), ("clear", -1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oraAgentEventSeverity.setStatus('mandatory')
-oraAgentEventUser = MibTableColumn((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oraAgentEventUser.setStatus('mandatory')
-oraAgentEventAppID = MibTableColumn((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oraAgentEventAppID.setStatus('mandatory')
-oraAgentEventMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oraAgentEventMessage.setStatus('mandatory')
-oraAgentEventArguments = MibTableColumn((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oraAgentEventArguments.setStatus('mandatory')
-oraAgentEventResults = MibTableColumn((1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 11), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oraAgentEventResults.setStatus('mandatory')
-oraAgentTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 111, 12, 2))
-oraAgentEventOcc = NotificationType((1, 3, 6, 1, 4, 1, 111, 12, 2) + (0,2)).setObjects(("ORACLE-AGENT-MIB", "oraAgentEventName"), ("ORACLE-AGENT-MIB", "oraAgentEventID"), ("ORACLE-AGENT-MIB", "oraAgentEventService"), ("ORACLE-AGENT-MIB", "oraAgentEventTime"), ("ORACLE-AGENT-MIB", "oraAgentEventSeverity"), ("ORACLE-AGENT-MIB", "oraAgentEventUser"), ("ORACLE-AGENT-MIB", "oraAgentEventAppID"), ("ORACLE-AGENT-MIB", "oraAgentEventMessage"), ("ORACLE-AGENT-MIB", "oraAgentEventArguments"), ("ORACLE-AGENT-MIB", "oraAgentEventResults"))
-mibBuilder.exportSymbols("ORACLE-AGENT-MIB", oraAgentEventID=oraAgentEventID, oraAgentEventOcc=oraAgentEventOcc, oraAgentObjects=oraAgentObjects, oraAgentEventUser=oraAgentEventUser, DateAndTime=DateAndTime, oraAgentEventSeverity=oraAgentEventSeverity, oraAgent=oraAgent, oraAgentEventArguments=oraAgentEventArguments, oraAgentEventResults=oraAgentEventResults, oraAgentEventAppID=oraAgentEventAppID, oraAgentEventTime=oraAgentEventTime, oraAgentEventTable=oraAgentEventTable, oraAgentEventIndex=oraAgentEventIndex, oraAgentEventMessage=oraAgentEventMessage, oraAgentEventEntry=oraAgentEventEntry, oraAgentTraps=oraAgentTraps, oracle=oracle, oraAgentEventService=oraAgentEventService, oraAgentEventName=oraAgentEventName)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class DateAndTime(OctetString):
+    """Custom type DateAndTime based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 11),
+    )
+
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Oracle_ObjectIdentity = ObjectIdentity
+oracle = _Oracle_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 111)
+)
+_OraAgent_ObjectIdentity = ObjectIdentity
+oraAgent = _OraAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 111, 12)
+)
+_OraAgentObjects_ObjectIdentity = ObjectIdentity
+oraAgentObjects = _OraAgentObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1)
+)
+_OraAgentEventTable_Object = MibTable
+oraAgentEventTable = _OraAgentEventTable_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1)
+)
+if mibBuilder.loadTexts:
+    oraAgentEventTable.setStatus("mandatory")
+_OraAgentEventEntry_Object = MibTableRow
+oraAgentEventEntry = _OraAgentEventEntry_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1)
+)
+oraAgentEventEntry.setIndexNames(
+    (0, "ORACLE-AGENT-MIB", "oraAgentEventIndex"),
+)
+if mibBuilder.loadTexts:
+    oraAgentEventEntry.setStatus("mandatory")
+_OraAgentEventIndex_Type = Integer32
+_OraAgentEventIndex_Object = MibTableColumn
+oraAgentEventIndex = _OraAgentEventIndex_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 1),
+    _OraAgentEventIndex_Type()
+)
+oraAgentEventIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oraAgentEventIndex.setStatus("mandatory")
+_OraAgentEventName_Type = DisplayString
+_OraAgentEventName_Object = MibTableColumn
+oraAgentEventName = _OraAgentEventName_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 2),
+    _OraAgentEventName_Type()
+)
+oraAgentEventName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oraAgentEventName.setStatus("mandatory")
+_OraAgentEventID_Type = Integer32
+_OraAgentEventID_Object = MibTableColumn
+oraAgentEventID = _OraAgentEventID_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 3),
+    _OraAgentEventID_Type()
+)
+oraAgentEventID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oraAgentEventID.setStatus("mandatory")
+_OraAgentEventService_Type = DisplayString
+_OraAgentEventService_Object = MibTableColumn
+oraAgentEventService = _OraAgentEventService_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 4),
+    _OraAgentEventService_Type()
+)
+oraAgentEventService.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oraAgentEventService.setStatus("mandatory")
+_OraAgentEventTime_Type = DateAndTime
+_OraAgentEventTime_Object = MibTableColumn
+oraAgentEventTime = _OraAgentEventTime_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 5),
+    _OraAgentEventTime_Type()
+)
+oraAgentEventTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oraAgentEventTime.setStatus("mandatory")
+
+
+class _OraAgentEventSeverity_Type(Integer32):
+    """Custom type oraAgentEventSeverity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(-1,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clear", -1),
+          ("warning", 1),
+          ("alert", 2))
+    )
+
+
+_OraAgentEventSeverity_Type.__name__ = "Integer32"
+_OraAgentEventSeverity_Object = MibTableColumn
+oraAgentEventSeverity = _OraAgentEventSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 6),
+    _OraAgentEventSeverity_Type()
+)
+oraAgentEventSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oraAgentEventSeverity.setStatus("mandatory")
+_OraAgentEventUser_Type = DisplayString
+_OraAgentEventUser_Object = MibTableColumn
+oraAgentEventUser = _OraAgentEventUser_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 7),
+    _OraAgentEventUser_Type()
+)
+oraAgentEventUser.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oraAgentEventUser.setStatus("mandatory")
+_OraAgentEventAppID_Type = Integer32
+_OraAgentEventAppID_Object = MibTableColumn
+oraAgentEventAppID = _OraAgentEventAppID_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 8),
+    _OraAgentEventAppID_Type()
+)
+oraAgentEventAppID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oraAgentEventAppID.setStatus("mandatory")
+_OraAgentEventMessage_Type = DisplayString
+_OraAgentEventMessage_Object = MibTableColumn
+oraAgentEventMessage = _OraAgentEventMessage_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 9),
+    _OraAgentEventMessage_Type()
+)
+oraAgentEventMessage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oraAgentEventMessage.setStatus("mandatory")
+_OraAgentEventArguments_Type = DisplayString
+_OraAgentEventArguments_Object = MibTableColumn
+oraAgentEventArguments = _OraAgentEventArguments_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 10),
+    _OraAgentEventArguments_Type()
+)
+oraAgentEventArguments.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oraAgentEventArguments.setStatus("mandatory")
+_OraAgentEventResults_Type = DisplayString
+_OraAgentEventResults_Object = MibTableColumn
+oraAgentEventResults = _OraAgentEventResults_Object(
+    (1, 3, 6, 1, 4, 1, 111, 12, 1, 1, 1, 11),
+    _OraAgentEventResults_Type()
+)
+oraAgentEventResults.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oraAgentEventResults.setStatus("mandatory")
+_OraAgentTraps_ObjectIdentity = ObjectIdentity
+oraAgentTraps = _OraAgentTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 111, 12, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+oraAgentEventOcc = NotificationType(
+    (1, 3, 6, 1, 4, 1, 111, 12, 2, 0, 2)
+)
+oraAgentEventOcc.setObjects(
+      *(("ORACLE-AGENT-MIB", "oraAgentEventName"),
+        ("ORACLE-AGENT-MIB", "oraAgentEventID"),
+        ("ORACLE-AGENT-MIB", "oraAgentEventService"),
+        ("ORACLE-AGENT-MIB", "oraAgentEventTime"),
+        ("ORACLE-AGENT-MIB", "oraAgentEventSeverity"),
+        ("ORACLE-AGENT-MIB", "oraAgentEventUser"),
+        ("ORACLE-AGENT-MIB", "oraAgentEventAppID"),
+        ("ORACLE-AGENT-MIB", "oraAgentEventMessage"),
+        ("ORACLE-AGENT-MIB", "oraAgentEventArguments"),
+        ("ORACLE-AGENT-MIB", "oraAgentEventResults"))
+)
+if mibBuilder.loadTexts:
+    oraAgentEventOcc.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ORACLE-AGENT-MIB",
+    **{"DateAndTime": DateAndTime,
+       "oracle": oracle,
+       "oraAgent": oraAgent,
+       "oraAgentObjects": oraAgentObjects,
+       "oraAgentEventTable": oraAgentEventTable,
+       "oraAgentEventEntry": oraAgentEventEntry,
+       "oraAgentEventIndex": oraAgentEventIndex,
+       "oraAgentEventName": oraAgentEventName,
+       "oraAgentEventID": oraAgentEventID,
+       "oraAgentEventService": oraAgentEventService,
+       "oraAgentEventTime": oraAgentEventTime,
+       "oraAgentEventSeverity": oraAgentEventSeverity,
+       "oraAgentEventUser": oraAgentEventUser,
+       "oraAgentEventAppID": oraAgentEventAppID,
+       "oraAgentEventMessage": oraAgentEventMessage,
+       "oraAgentEventArguments": oraAgentEventArguments,
+       "oraAgentEventResults": oraAgentEventResults,
+       "oraAgentTraps": oraAgentTraps,
+       "oraAgentEventOcc": oraAgentEventOcc}
+)

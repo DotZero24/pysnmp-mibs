@@ -1,49 +1,508 @@
+# SNMP MIB module (CABLE-DIAG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CABLE-DIAG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/CABLE-DIAG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:58:11 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/CABLE-DIAG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:47:03 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
-swCableDiagMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 58))
-if mibBuilder.loadTexts: swCableDiagMIB.setLastUpdated('0808110000Z')
-if mibBuilder.loadTexts: swCableDiagMIB.setOrganization('D-Link, Inc.')
-swCableDiagCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 58, 1))
-swEtherCableDiagTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1), )
-if mibBuilder.loadTexts: swEtherCableDiagTable.setStatus('current')
-swEtherCableDiagEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1), ).setIndexNames((0, "CABLE-DIAG-MIB", "swEtherCableDiagPortIndex"))
-if mibBuilder.loadTexts: swEtherCableDiagEntry.setStatus('current')
-swEtherCableDiagPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagPortIndex.setStatus('current')
-swEtherCableDiagPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("fastEthernet", 0), ("gigaEthernet", 1), ("other", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagPortType.setStatus('current')
-swEtherCableDiagLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("link-down", 0), ("link-up", 1), ("other", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagLinkStatus.setStatus('current')
-swEtherCableDiagPair1Status = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("ok", 0), ("open", 1), ("short", 2), ("open-short", 3), ("crosstalk", 4), ("unknown", 5), ("count", 6), ("no-cable", 7), ("other", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagPair1Status.setStatus('current')
-swEtherCableDiagPair2Status = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("ok", 0), ("open", 1), ("short", 2), ("open-short", 3), ("crosstalk", 4), ("unknown", 5), ("count", 6), ("no-cable", 7), ("other", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagPair2Status.setStatus('current')
-swEtherCableDiagPair3Status = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("ok", 0), ("open", 1), ("short", 2), ("open-short", 3), ("crosstalk", 4), ("unknown", 5), ("count", 6), ("no-cable", 7), ("other", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagPair3Status.setStatus('current')
-swEtherCableDiagPair4Status = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("ok", 0), ("open", 1), ("short", 2), ("open-short", 3), ("crosstalk", 4), ("unknown", 5), ("count", 6), ("no-cable", 7), ("other", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagPair4Status.setStatus('current')
-swEtherCableDiagPair1Length = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagPair1Length.setStatus('current')
-swEtherCableDiagPair2Length = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagPair2Length.setStatus('current')
-swEtherCableDiagPair3Length = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagPair3Length.setStatus('current')
-swEtherCableDiagPair4Length = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagPair4Length.setStatus('current')
-swEtherCableDiagAction = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("action", 1), ("processing", 2), ("other", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swEtherCableDiagAction.setStatus('current')
-swEtherCableDiagStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("not-run", 1), ("processing", 2), ("last-test-ok", 3), ("last-test-failed", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swEtherCableDiagStatus.setStatus('current')
-mibBuilder.exportSymbols("CABLE-DIAG-MIB", swEtherCableDiagLinkStatus=swEtherCableDiagLinkStatus, swEtherCableDiagPair2Status=swEtherCableDiagPair2Status, swEtherCableDiagPair2Length=swEtherCableDiagPair2Length, swEtherCableDiagPortType=swEtherCableDiagPortType, swEtherCableDiagStatus=swEtherCableDiagStatus, swEtherCableDiagPortIndex=swEtherCableDiagPortIndex, swCableDiagMIB=swCableDiagMIB, swEtherCableDiagAction=swEtherCableDiagAction, swCableDiagCtrl=swCableDiagCtrl, swEtherCableDiagPair3Status=swEtherCableDiagPair3Status, swEtherCableDiagPair4Length=swEtherCableDiagPair4Length, swEtherCableDiagPair4Status=swEtherCableDiagPair4Status, swEtherCableDiagPair1Status=swEtherCableDiagPair1Status, swEtherCableDiagEntry=swEtherCableDiagEntry, swEtherCableDiagPair3Length=swEtherCableDiagPair3Length, swEtherCableDiagPair1Length=swEtherCableDiagPair1Length, PYSNMP_MODULE_ID=swCableDiagMIB, swEtherCableDiagTable=swEtherCableDiagTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_common_mgmt,) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-common-mgmt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+swCableDiagMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SwCableDiagCtrl_ObjectIdentity = ObjectIdentity
+swCableDiagCtrl = _SwCableDiagCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1)
+)
+_SwEtherCableDiagTable_Object = MibTable
+swEtherCableDiagTable = _SwEtherCableDiagTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1)
+)
+if mibBuilder.loadTexts:
+    swEtherCableDiagTable.setStatus("current")
+_SwEtherCableDiagEntry_Object = MibTableRow
+swEtherCableDiagEntry = _SwEtherCableDiagEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1)
+)
+swEtherCableDiagEntry.setIndexNames(
+    (0, "CABLE-DIAG-MIB", "swEtherCableDiagPortIndex"),
+)
+if mibBuilder.loadTexts:
+    swEtherCableDiagEntry.setStatus("current")
+
+
+class _SwEtherCableDiagPortIndex_Type(Integer32):
+    """Custom type swEtherCableDiagPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_SwEtherCableDiagPortIndex_Type.__name__ = "Integer32"
+_SwEtherCableDiagPortIndex_Object = MibTableColumn
+swEtherCableDiagPortIndex = _SwEtherCableDiagPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 1),
+    _SwEtherCableDiagPortIndex_Type()
+)
+swEtherCableDiagPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagPortIndex.setStatus("current")
+
+
+class _SwEtherCableDiagPortType_Type(Integer32):
+    """Custom type swEtherCableDiagPortType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fastEthernet", 0),
+          ("gigaEthernet", 1),
+          ("other", 2))
+    )
+
+
+_SwEtherCableDiagPortType_Type.__name__ = "Integer32"
+_SwEtherCableDiagPortType_Object = MibTableColumn
+swEtherCableDiagPortType = _SwEtherCableDiagPortType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 2),
+    _SwEtherCableDiagPortType_Type()
+)
+swEtherCableDiagPortType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagPortType.setStatus("current")
+
+
+class _SwEtherCableDiagLinkStatus_Type(Integer32):
+    """Custom type swEtherCableDiagLinkStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("link-down", 0),
+          ("link-up", 1),
+          ("other", 2))
+    )
+
+
+_SwEtherCableDiagLinkStatus_Type.__name__ = "Integer32"
+_SwEtherCableDiagLinkStatus_Object = MibTableColumn
+swEtherCableDiagLinkStatus = _SwEtherCableDiagLinkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 3),
+    _SwEtherCableDiagLinkStatus_Type()
+)
+swEtherCableDiagLinkStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagLinkStatus.setStatus("current")
+
+
+class _SwEtherCableDiagPair1Status_Type(Integer32):
+    """Custom type swEtherCableDiagPair1Status based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 0),
+          ("open", 1),
+          ("short", 2),
+          ("open-short", 3),
+          ("crosstalk", 4),
+          ("unknown", 5),
+          ("count", 6),
+          ("no-cable", 7),
+          ("other", 8))
+    )
+
+
+_SwEtherCableDiagPair1Status_Type.__name__ = "Integer32"
+_SwEtherCableDiagPair1Status_Object = MibTableColumn
+swEtherCableDiagPair1Status = _SwEtherCableDiagPair1Status_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 4),
+    _SwEtherCableDiagPair1Status_Type()
+)
+swEtherCableDiagPair1Status.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagPair1Status.setStatus("current")
+
+
+class _SwEtherCableDiagPair2Status_Type(Integer32):
+    """Custom type swEtherCableDiagPair2Status based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 0),
+          ("open", 1),
+          ("short", 2),
+          ("open-short", 3),
+          ("crosstalk", 4),
+          ("unknown", 5),
+          ("count", 6),
+          ("no-cable", 7),
+          ("other", 8))
+    )
+
+
+_SwEtherCableDiagPair2Status_Type.__name__ = "Integer32"
+_SwEtherCableDiagPair2Status_Object = MibTableColumn
+swEtherCableDiagPair2Status = _SwEtherCableDiagPair2Status_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 5),
+    _SwEtherCableDiagPair2Status_Type()
+)
+swEtherCableDiagPair2Status.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagPair2Status.setStatus("current")
+
+
+class _SwEtherCableDiagPair3Status_Type(Integer32):
+    """Custom type swEtherCableDiagPair3Status based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 0),
+          ("open", 1),
+          ("short", 2),
+          ("open-short", 3),
+          ("crosstalk", 4),
+          ("unknown", 5),
+          ("count", 6),
+          ("no-cable", 7),
+          ("other", 8))
+    )
+
+
+_SwEtherCableDiagPair3Status_Type.__name__ = "Integer32"
+_SwEtherCableDiagPair3Status_Object = MibTableColumn
+swEtherCableDiagPair3Status = _SwEtherCableDiagPair3Status_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 6),
+    _SwEtherCableDiagPair3Status_Type()
+)
+swEtherCableDiagPair3Status.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagPair3Status.setStatus("current")
+
+
+class _SwEtherCableDiagPair4Status_Type(Integer32):
+    """Custom type swEtherCableDiagPair4Status based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 0),
+          ("open", 1),
+          ("short", 2),
+          ("open-short", 3),
+          ("crosstalk", 4),
+          ("unknown", 5),
+          ("count", 6),
+          ("no-cable", 7),
+          ("other", 8))
+    )
+
+
+_SwEtherCableDiagPair4Status_Type.__name__ = "Integer32"
+_SwEtherCableDiagPair4Status_Object = MibTableColumn
+swEtherCableDiagPair4Status = _SwEtherCableDiagPair4Status_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 7),
+    _SwEtherCableDiagPair4Status_Type()
+)
+swEtherCableDiagPair4Status.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagPair4Status.setStatus("current")
+_SwEtherCableDiagPair1Length_Type = Integer32
+_SwEtherCableDiagPair1Length_Object = MibTableColumn
+swEtherCableDiagPair1Length = _SwEtherCableDiagPair1Length_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 8),
+    _SwEtherCableDiagPair1Length_Type()
+)
+swEtherCableDiagPair1Length.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagPair1Length.setStatus("current")
+_SwEtherCableDiagPair2Length_Type = Integer32
+_SwEtherCableDiagPair2Length_Object = MibTableColumn
+swEtherCableDiagPair2Length = _SwEtherCableDiagPair2Length_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 9),
+    _SwEtherCableDiagPair2Length_Type()
+)
+swEtherCableDiagPair2Length.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagPair2Length.setStatus("current")
+_SwEtherCableDiagPair3Length_Type = Integer32
+_SwEtherCableDiagPair3Length_Object = MibTableColumn
+swEtherCableDiagPair3Length = _SwEtherCableDiagPair3Length_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 10),
+    _SwEtherCableDiagPair3Length_Type()
+)
+swEtherCableDiagPair3Length.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagPair3Length.setStatus("current")
+_SwEtherCableDiagPair4Length_Type = Integer32
+_SwEtherCableDiagPair4Length_Object = MibTableColumn
+swEtherCableDiagPair4Length = _SwEtherCableDiagPair4Length_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 11),
+    _SwEtherCableDiagPair4Length_Type()
+)
+swEtherCableDiagPair4Length.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagPair4Length.setStatus("current")
+
+
+class _SwEtherCableDiagAction_Type(Integer32):
+    """Custom type swEtherCableDiagAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("action", 1),
+          ("processing", 2),
+          ("other", 3))
+    )
+
+
+_SwEtherCableDiagAction_Type.__name__ = "Integer32"
+_SwEtherCableDiagAction_Object = MibTableColumn
+swEtherCableDiagAction = _SwEtherCableDiagAction_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 12),
+    _SwEtherCableDiagAction_Type()
+)
+swEtherCableDiagAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swEtherCableDiagAction.setStatus("current")
+
+
+class _SwEtherCableDiagStatus_Type(Integer32):
+    """Custom type swEtherCableDiagStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("not-run", 1),
+          ("processing", 2),
+          ("last-test-ok", 3),
+          ("last-test-failed", 4))
+    )
+
+
+_SwEtherCableDiagStatus_Type.__name__ = "Integer32"
+_SwEtherCableDiagStatus_Object = MibTableColumn
+swEtherCableDiagStatus = _SwEtherCableDiagStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 58, 1, 1, 1, 13),
+    _SwEtherCableDiagStatus_Type()
+)
+swEtherCableDiagStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swEtherCableDiagStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CABLE-DIAG-MIB",
+    **{"swCableDiagMIB": swCableDiagMIB,
+       "swCableDiagCtrl": swCableDiagCtrl,
+       "swEtherCableDiagTable": swEtherCableDiagTable,
+       "swEtherCableDiagEntry": swEtherCableDiagEntry,
+       "swEtherCableDiagPortIndex": swEtherCableDiagPortIndex,
+       "swEtherCableDiagPortType": swEtherCableDiagPortType,
+       "swEtherCableDiagLinkStatus": swEtherCableDiagLinkStatus,
+       "swEtherCableDiagPair1Status": swEtherCableDiagPair1Status,
+       "swEtherCableDiagPair2Status": swEtherCableDiagPair2Status,
+       "swEtherCableDiagPair3Status": swEtherCableDiagPair3Status,
+       "swEtherCableDiagPair4Status": swEtherCableDiagPair4Status,
+       "swEtherCableDiagPair1Length": swEtherCableDiagPair1Length,
+       "swEtherCableDiagPair2Length": swEtherCableDiagPair2Length,
+       "swEtherCableDiagPair3Length": swEtherCableDiagPair3Length,
+       "swEtherCableDiagPair4Length": swEtherCableDiagPair4Length,
+       "swEtherCableDiagAction": swEtherCableDiagAction,
+       "swEtherCableDiagStatus": swEtherCableDiagStatus}
+)

@@ -1,53 +1,322 @@
+# SNMP MIB module (NTWS-AP-UNCONFIGURED-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NTWS-AP-UNCONFIGURED-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/NTWS-AP-UNCONFIGURED-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:48 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nortel/NTWS-AP-UNCONFIGURED-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:19:41 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NtwsApSerialNum, = mibBuilder.importSymbols("NTWS-AP-TC", "NtwsApSerialNum")
-NtwsPhysPortNumber, = mibBuilder.importSymbols("NTWS-BASIC-TC", "NtwsPhysPortNumber")
-ntwsMibs, = mibBuilder.importSymbols("NTWS-ROOT-MIB", "ntwsMibs")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ntwsApUnconfiguredMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15))
-ntwsApUnconfiguredMib.setRevisions(('2008-11-14 00:04',))
-if mibBuilder.loadTexts: ntwsApUnconfiguredMib.setLastUpdated('200811140004Z')
-if mibBuilder.loadTexts: ntwsApUnconfiguredMib.setOrganization('Nortel Networks')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(NtwsApSerialNum,) = mibBuilder.importSymbols(
+    "NTWS-AP-TC",
+    "NtwsApSerialNum")
+
+(NtwsPhysPortNumber,) = mibBuilder.importSymbols(
+    "NTWS-BASIC-TC",
+    "NtwsPhysPortNumber")
+
+(ntwsMibs,) = mibBuilder.importSymbols(
+    "NTWS-ROOT-MIB",
+    "ntwsMibs")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ntwsApUnconfiguredMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15)
+)
+if mibBuilder.loadTexts:
+    ntwsApUnconfiguredMib.setRevisions(
+        ("2008-11-14 00:04",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class NtwsApUnconfiguredOrphanReason(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("other", 1), ("no-configuration", 2), ("ap-license-exceeded", 3), ("controller-behind-nat", 4), ("ap-model-mismatch", 5), ("no-macs", 6))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("no-configuration", 2),
+          ("ap-license-exceeded", 3),
+          ("controller-behind-nat", 4),
+          ("ap-model-mismatch", 5),
+          ("no-macs", 6))
+    )
 
-ntwsApUnconfMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1))
-ntwsApUnconfOrphanTable = MibTable((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2), )
-if mibBuilder.loadTexts: ntwsApUnconfOrphanTable.setStatus('current')
-ntwsApUnconfOrphanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1), ).setIndexNames((0, "NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanApSerialNum"))
-if mibBuilder.loadTexts: ntwsApUnconfOrphanEntry.setStatus('current')
-ntwsApUnconfOrphanApSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 1), NtwsApSerialNum())
-if mibBuilder.loadTexts: ntwsApUnconfOrphanApSerialNum.setStatus('current')
-ntwsApUnconfOrphanApModelName = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 24))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ntwsApUnconfOrphanApModelName.setStatus('current')
-ntwsApUnconfOrphanIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 5), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ntwsApUnconfOrphanIpAddress.setStatus('current')
-ntwsApUnconfOrphanPhysPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 6), NtwsPhysPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ntwsApUnconfOrphanPhysPortNum.setStatus('current')
-ntwsApUnconfOrphanVLANName = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ntwsApUnconfOrphanVLANName.setStatus('current')
-ntwsApUnconfOrphanReason = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 8), NtwsApUnconfiguredOrphanReason()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ntwsApUnconfOrphanReason.setStatus('current')
-ntwsApUnconfConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 2))
-ntwsApUnconfCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 2, 1))
-ntwsApUnconfGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 2, 2))
-ntwsApUnconfCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 2, 1, 1)).setObjects(("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanBasicGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ntwsApUnconfCompliance = ntwsApUnconfCompliance.setStatus('current')
-ntwsApUnconfOrphanBasicGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 2, 2, 1)).setObjects(("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanApModelName"), ("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanIpAddress"), ("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanPhysPortNum"), ("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanVLANName"), ("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanReason"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ntwsApUnconfOrphanBasicGroup = ntwsApUnconfOrphanBasicGroup.setStatus('current')
-mibBuilder.exportSymbols("NTWS-AP-UNCONFIGURED-MIB", ntwsApUnconfOrphanApSerialNum=ntwsApUnconfOrphanApSerialNum, PYSNMP_MODULE_ID=ntwsApUnconfiguredMib, ntwsApUnconfOrphanApModelName=ntwsApUnconfOrphanApModelName, ntwsApUnconfConformance=ntwsApUnconfConformance, ntwsApUnconfiguredMib=ntwsApUnconfiguredMib, ntwsApUnconfCompliance=ntwsApUnconfCompliance, ntwsApUnconfMibObjects=ntwsApUnconfMibObjects, ntwsApUnconfCompliances=ntwsApUnconfCompliances, ntwsApUnconfOrphanVLANName=ntwsApUnconfOrphanVLANName, ntwsApUnconfOrphanReason=ntwsApUnconfOrphanReason, ntwsApUnconfOrphanTable=ntwsApUnconfOrphanTable, ntwsApUnconfOrphanEntry=ntwsApUnconfOrphanEntry, ntwsApUnconfOrphanBasicGroup=ntwsApUnconfOrphanBasicGroup, ntwsApUnconfOrphanPhysPortNum=ntwsApUnconfOrphanPhysPortNum, ntwsApUnconfGroups=ntwsApUnconfGroups, NtwsApUnconfiguredOrphanReason=NtwsApUnconfiguredOrphanReason, ntwsApUnconfOrphanIpAddress=ntwsApUnconfOrphanIpAddress)
+
+# MIB Managed Objects in the order of their OIDs
+
+_NtwsApUnconfMibObjects_ObjectIdentity = ObjectIdentity
+ntwsApUnconfMibObjects = _NtwsApUnconfMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1)
+)
+_NtwsApUnconfOrphanTable_Object = MibTable
+ntwsApUnconfOrphanTable = _NtwsApUnconfOrphanTable_Object(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2)
+)
+if mibBuilder.loadTexts:
+    ntwsApUnconfOrphanTable.setStatus("current")
+_NtwsApUnconfOrphanEntry_Object = MibTableRow
+ntwsApUnconfOrphanEntry = _NtwsApUnconfOrphanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1)
+)
+ntwsApUnconfOrphanEntry.setIndexNames(
+    (0, "NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanApSerialNum"),
+)
+if mibBuilder.loadTexts:
+    ntwsApUnconfOrphanEntry.setStatus("current")
+_NtwsApUnconfOrphanApSerialNum_Type = NtwsApSerialNum
+_NtwsApUnconfOrphanApSerialNum_Object = MibTableColumn
+ntwsApUnconfOrphanApSerialNum = _NtwsApUnconfOrphanApSerialNum_Object(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 1),
+    _NtwsApUnconfOrphanApSerialNum_Type()
+)
+ntwsApUnconfOrphanApSerialNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ntwsApUnconfOrphanApSerialNum.setStatus("current")
+
+
+class _NtwsApUnconfOrphanApModelName_Type(DisplayString):
+    """Custom type ntwsApUnconfOrphanApModelName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 24),
+    )
+
+
+_NtwsApUnconfOrphanApModelName_Type.__name__ = "DisplayString"
+_NtwsApUnconfOrphanApModelName_Object = MibTableColumn
+ntwsApUnconfOrphanApModelName = _NtwsApUnconfOrphanApModelName_Object(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 2),
+    _NtwsApUnconfOrphanApModelName_Type()
+)
+ntwsApUnconfOrphanApModelName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ntwsApUnconfOrphanApModelName.setStatus("current")
+_NtwsApUnconfOrphanIpAddress_Type = IpAddress
+_NtwsApUnconfOrphanIpAddress_Object = MibTableColumn
+ntwsApUnconfOrphanIpAddress = _NtwsApUnconfOrphanIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 5),
+    _NtwsApUnconfOrphanIpAddress_Type()
+)
+ntwsApUnconfOrphanIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ntwsApUnconfOrphanIpAddress.setStatus("current")
+_NtwsApUnconfOrphanPhysPortNum_Type = NtwsPhysPortNumber
+_NtwsApUnconfOrphanPhysPortNum_Object = MibTableColumn
+ntwsApUnconfOrphanPhysPortNum = _NtwsApUnconfOrphanPhysPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 6),
+    _NtwsApUnconfOrphanPhysPortNum_Type()
+)
+ntwsApUnconfOrphanPhysPortNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ntwsApUnconfOrphanPhysPortNum.setStatus("current")
+
+
+class _NtwsApUnconfOrphanVLANName_Type(DisplayString):
+    """Custom type ntwsApUnconfOrphanVLANName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_NtwsApUnconfOrphanVLANName_Type.__name__ = "DisplayString"
+_NtwsApUnconfOrphanVLANName_Object = MibTableColumn
+ntwsApUnconfOrphanVLANName = _NtwsApUnconfOrphanVLANName_Object(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 7),
+    _NtwsApUnconfOrphanVLANName_Type()
+)
+ntwsApUnconfOrphanVLANName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ntwsApUnconfOrphanVLANName.setStatus("current")
+_NtwsApUnconfOrphanReason_Type = NtwsApUnconfiguredOrphanReason
+_NtwsApUnconfOrphanReason_Object = MibTableColumn
+ntwsApUnconfOrphanReason = _NtwsApUnconfOrphanReason_Object(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 1, 2, 1, 8),
+    _NtwsApUnconfOrphanReason_Type()
+)
+ntwsApUnconfOrphanReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ntwsApUnconfOrphanReason.setStatus("current")
+_NtwsApUnconfConformance_ObjectIdentity = ObjectIdentity
+ntwsApUnconfConformance = _NtwsApUnconfConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 2)
+)
+_NtwsApUnconfCompliances_ObjectIdentity = ObjectIdentity
+ntwsApUnconfCompliances = _NtwsApUnconfCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 2, 1)
+)
+_NtwsApUnconfGroups_ObjectIdentity = ObjectIdentity
+ntwsApUnconfGroups = _NtwsApUnconfGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 2, 2)
+)
+
+# Managed Objects groups
+
+ntwsApUnconfOrphanBasicGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 2, 2, 1)
+)
+ntwsApUnconfOrphanBasicGroup.setObjects(
+      *(("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanApModelName"),
+        ("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanIpAddress"),
+        ("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanPhysPortNum"),
+        ("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanVLANName"),
+        ("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanReason"))
+)
+if mibBuilder.loadTexts:
+    ntwsApUnconfOrphanBasicGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ntwsApUnconfCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 15, 2, 1, 1)
+)
+ntwsApUnconfCompliance.setObjects(
+    ("NTWS-AP-UNCONFIGURED-MIB", "ntwsApUnconfOrphanBasicGroup")
+)
+if mibBuilder.loadTexts:
+    ntwsApUnconfCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NTWS-AP-UNCONFIGURED-MIB",
+    **{"NtwsApUnconfiguredOrphanReason": NtwsApUnconfiguredOrphanReason,
+       "ntwsApUnconfiguredMib": ntwsApUnconfiguredMib,
+       "ntwsApUnconfMibObjects": ntwsApUnconfMibObjects,
+       "ntwsApUnconfOrphanTable": ntwsApUnconfOrphanTable,
+       "ntwsApUnconfOrphanEntry": ntwsApUnconfOrphanEntry,
+       "ntwsApUnconfOrphanApSerialNum": ntwsApUnconfOrphanApSerialNum,
+       "ntwsApUnconfOrphanApModelName": ntwsApUnconfOrphanApModelName,
+       "ntwsApUnconfOrphanIpAddress": ntwsApUnconfOrphanIpAddress,
+       "ntwsApUnconfOrphanPhysPortNum": ntwsApUnconfOrphanPhysPortNum,
+       "ntwsApUnconfOrphanVLANName": ntwsApUnconfOrphanVLANName,
+       "ntwsApUnconfOrphanReason": ntwsApUnconfOrphanReason,
+       "ntwsApUnconfConformance": ntwsApUnconfConformance,
+       "ntwsApUnconfCompliances": ntwsApUnconfCompliances,
+       "ntwsApUnconfCompliance": ntwsApUnconfCompliance,
+       "ntwsApUnconfGroups": ntwsApUnconfGroups,
+       "ntwsApUnconfOrphanBasicGroup": ntwsApUnconfOrphanBasicGroup}
+)

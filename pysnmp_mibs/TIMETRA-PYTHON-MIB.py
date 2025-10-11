@@ -1,214 +1,1643 @@
+# SNMP MIB module (TIMETRA-PYTHON-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TIMETRA-PYTHON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TIMETRA-PYTHON-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:40:50 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TIMETRA-PYTHON-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:02:19 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "TruthValue", "TimeStamp", "DisplayString")
-tmnxMDASlotNum, tmnxCardSlotNum, tmnxChassisIndex = mibBuilder.importSymbols("TIMETRA-CHASSIS-MIB", "tmnxMDASlotNum", "tmnxCardSlotNum", "tmnxChassisIndex")
-tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix, tmnxSRConfs = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix", "tmnxSRConfs")
-TmnxDisplayStringURL, TmnxAdminState, TmnxNatIsaGrpIdOrZero, TmnxActionType, TmnxWlanGwIsaGrpIdOrZero, TNamedItem, TItemDescription, TmnxEsaNum, TmnxOperState, TmnxEsaVappNum, TDirectionIngEgr = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TmnxDisplayStringURL", "TmnxAdminState", "TmnxNatIsaGrpIdOrZero", "TmnxActionType", "TmnxWlanGwIsaGrpIdOrZero", "TNamedItem", "TItemDescription", "TmnxEsaNum", "TmnxOperState", "TmnxEsaVappNum", "TDirectionIngEgr")
-timetraPythonMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 87))
-timetraPythonMIBModule.setRevisions(('2016-01-01 00:00', '2015-01-01 00:00', '2014-01-01 00:00', '2020-01-31 00:00',))
-if mibBuilder.loadTexts: timetraPythonMIBModule.setLastUpdated('201601010000Z')
-if mibBuilder.loadTexts: timetraPythonMIBModule.setOrganization('Nokia')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+(tmnxCardSlotNum,
+ tmnxChassisIndex,
+ tmnxMDASlotNum) = mibBuilder.importSymbols(
+    "TIMETRA-CHASSIS-MIB",
+    "tmnxCardSlotNum",
+    "tmnxChassisIndex",
+    "tmnxMDASlotNum")
+
+(timetraSRMIBModules,
+ tmnxSRConfs,
+ tmnxSRNotifyPrefix,
+ tmnxSRObjs) = mibBuilder.importSymbols(
+    "TIMETRA-GLOBAL-MIB",
+    "timetraSRMIBModules",
+    "tmnxSRConfs",
+    "tmnxSRNotifyPrefix",
+    "tmnxSRObjs")
+
+(TDirectionIngEgr,
+ TItemDescription,
+ TNamedItem,
+ TmnxActionType,
+ TmnxAdminState,
+ TmnxDisplayStringURL,
+ TmnxEsaNum,
+ TmnxEsaVappNum,
+ TmnxNatIsaGrpIdOrZero,
+ TmnxOperState,
+ TmnxWlanGwIsaGrpIdOrZero) = mibBuilder.importSymbols(
+    "TIMETRA-TC-MIB",
+    "TDirectionIngEgr",
+    "TItemDescription",
+    "TNamedItem",
+    "TmnxActionType",
+    "TmnxAdminState",
+    "TmnxDisplayStringURL",
+    "TmnxEsaNum",
+    "TmnxEsaVappNum",
+    "TmnxNatIsaGrpIdOrZero",
+    "TmnxOperState",
+    "TmnxWlanGwIsaGrpIdOrZero")
+
+
+# MODULE-IDENTITY
+
+timetraPythonMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 87)
+)
+if mibBuilder.loadTexts:
+    timetraPythonMIBModule.setRevisions(
+        ("2016-01-01 00:00",
+         "2015-01-01 00:00",
+         "2014-01-01 00:00",
+         "2020-01-31 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class TmnxProtection(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("none", 1), ("hmacSha256", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("hmacSha256", 2))
+    )
 
-tmnxPython = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87))
-tmnxPythonObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1))
-tmnxPythonScriptTableLastCh = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScriptTableLastCh.setStatus('current')
-tmnxPythonScriptTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2), )
-if mibBuilder.loadTexts: tmnxPythonScriptTable.setStatus('current')
-tmnxPythonScriptEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1), ).setIndexNames((0, "TIMETRA-PYTHON-MIB", "tmnxPythonScriptName"))
-if mibBuilder.loadTexts: tmnxPythonScriptEntry.setStatus('current')
-tmnxPythonScriptName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 1), TNamedItem())
-if mibBuilder.loadTexts: tmnxPythonScriptName.setStatus('current')
-tmnxPythonScriptRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPythonScriptRowStatus.setStatus('current')
-tmnxPythonScriptLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScriptLastChanged.setStatus('current')
-tmnxPythonScriptAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 4), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPythonScriptAdminState.setStatus('current')
-tmnxPythonScriptOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 5), TmnxOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScriptOperState.setStatus('current')
-tmnxPythonScriptDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 6), TItemDescription()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPythonScriptDescription.setStatus('current')
-tmnxPythonScriptOnFail = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("passthrough", 1), ("drop", 2))).clone('drop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPythonScriptOnFail.setStatus('current')
-tmnxPythonScriptProtection = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 8), TmnxProtection().clone('none')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPythonScriptProtection.setStatus('current')
-tmnxPythonScriptProtectionKey = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128)).clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPythonScriptProtectionKey.setStatus('current')
-tmnxPythonScriptPrimaryUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 10), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPythonScriptPrimaryUrl.setStatus('current')
-tmnxPythonScriptSecondaryUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 11), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPythonScriptSecondaryUrl.setStatus('current')
-tmnxPythonScriptTertiaryUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 12), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPythonScriptTertiaryUrl.setStatus('current')
-tmnxPythonScriptActiveUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("none", 0), ("primary", 1), ("secondary", 2), ("tertiary", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScriptActiveUrl.setStatus('current')
-tmnxPythonScriptOperStateDistrib = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 14), TmnxOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScriptOperStateDistrib.setStatus('current')
-tmnxPythonScriptCodeSize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 15), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScriptCodeSize.setStatus('current')
-tmnxPythonScriptReloadAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 50), TmnxActionType().clone('notApplicable')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPythonScriptReloadAction.setStatus('current')
-tmnxPythonPolicyTableLastCh = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonPolicyTableLastCh.setStatus('current')
-tmnxPythonPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4), )
-if mibBuilder.loadTexts: tmnxPythonPolicyTable.setStatus('current')
-tmnxPythonPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1), ).setIndexNames((0, "TIMETRA-PYTHON-MIB", "tmnxPyPlcyName"))
-if mibBuilder.loadTexts: tmnxPythonPolicyEntry.setStatus('current')
-tmnxPyPlcyName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 1), TNamedItem())
-if mibBuilder.loadTexts: tmnxPyPlcyName.setStatus('current')
-tmnxPyPlcyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyRowStatus.setStatus('current')
-tmnxPyPlcyLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPyPlcyLastChanged.setStatus('current')
-tmnxPyPlcyDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 4), TItemDescription()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyDescription.setStatus('current')
-tmnxPyPlcyWlanGwGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 6), TmnxWlanGwIsaGrpIdOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyWlanGwGroup.setStatus('current')
-tmnxPyPlcyNatGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 7), TmnxNatIsaGrpIdOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyNatGroup.setStatus('current')
-tmnxPythonPolicyCacheTableLastCh = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonPolicyCacheTableLastCh.setStatus('current')
-tmnxPythonPolicyCacheTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6), )
-if mibBuilder.loadTexts: tmnxPythonPolicyCacheTable.setStatus('current')
-tmnxPythonPolicyCacheEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1), ).setIndexNames((0, "TIMETRA-PYTHON-MIB", "tmnxPyPlcyName"))
-if mibBuilder.loadTexts: tmnxPythonPolicyCacheEntry.setStatus('current')
-tmnxPyPlcyCacheRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyCacheRowStatus.setStatus('current')
-tmnxPyPlcyCacheEntrySize = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(32, 2048)).clone(256)).setUnits('bytes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyCacheEntrySize.setStatus('current')
-tmnxPyPlcyCacheMaxEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000000)).clone(128000)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyCacheMaxEntries.setStatus('current')
-tmnxPyPlcyCacheMaxLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 604800)).clone(86400)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyCacheMaxLifetime.setStatus('current')
-tmnxPyPlcyCacheAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 5), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyCacheAdminState.setStatus('current')
-tmnxPyPlcyCacheLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPyPlcyCacheLastChanged.setStatus('current')
-tmnxPyPlcyCachePersistent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 10), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyCachePersistent.setStatus('current')
-tmnxPyPlcyCacheMinLifetimeMcs = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 600))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyCacheMinLifetimeMcs.setStatus('current')
-tmnxPyPlcyCacheMinLifetimeHa = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 600))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyCacheMinLifetimeHa.setStatus('current')
-tmnxPyPlcyCacheMinLifetimePers = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 1800))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyCacheMinLifetimePers.setStatus('current')
-tmnxPyPlcyCacheNumberOfEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 14), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPyPlcyCacheNumberOfEntries.setStatus('current')
-tmnxPythonPolicyMessageTblLstCh = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonPolicyMessageTblLstCh.setStatus('current')
-tmnxPythonPolicyMessageTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8), )
-if mibBuilder.loadTexts: tmnxPythonPolicyMessageTable.setStatus('current')
-tmnxPythonPolicyMessageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1), ).setIndexNames((0, "TIMETRA-PYTHON-MIB", "tmnxPyPlcyName"), (0, "TIMETRA-PYTHON-MIB", "tmnxPyPlcyMessageType"), (0, "TIMETRA-PYTHON-MIB", "tmnxPyPlcyMessageDirection"))
-if mibBuilder.loadTexts: tmnxPythonPolicyMessageEntry.setStatus('current')
-tmnxPyPlcyMessageType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008, 3009, 3010, 3011, 3012, 3013, 3014, 4001, 5001, 5002, 5003, 5004, 5005, 5008, 5009, 5010, 5011, 6001, 6002, 6003, 6004, 6005, 6006, 6007, 6008, 6009, 6010, 6011, 6012, 6013, 6014, 6015, 6016, 6017, 6018, 7001, 7002, 7003, 7004, 7005, 7006, 7007, 7008, 7009, 7010, 8001))).clone(namedValues=NamedValues(("radiusAccessRequest", 1), ("radiusAccessAccept", 2), ("radiusAccessReject", 3), ("radiusAccountingRequest", 4), ("radiusAccountingResponse", 5), ("radiusAccessChallenge", 6), ("radiusDisconnectRequest", 7), ("radiusChangeOfAuthorizationRequest", 8), ("dhcpDiscover", 1001), ("dhcpOffer", 1002), ("dhcpRequest", 1003), ("dhcpDecline", 1004), ("dhcpAck", 1005), ("dhcpNak", 1006), ("dhcpRelease", 1007), ("dhcpInform", 1008), ("dhcpForceRenew", 1009), ("dhcpLeaseQuery", 1010), ("dhcpLeaseUnassigned", 1011), ("dhcpLeaseUnknown", 1012), ("dhcpLeaseActive", 1013), ("dhcp6Solicit", 2001), ("dhcp6Advertise", 2002), ("dhcp6Request", 2003), ("dhcp6Confirm", 2004), ("dhcp6Renew", 2005), ("dhcp6Rebind", 2006), ("dhcp6Reply", 2007), ("dhcp6Release", 2008), ("dhcp6Decline", 2009), ("dhcp6Reconfigure", 2010), ("dhcp6InfoRequest", 2011), ("dhcp6RelayForward", 2012), ("dhcp6RelayReply", 2013), ("diameterCCR", 3001), ("diameterCCA", 3002), ("diameterRAR", 3003), ("diameterRAA", 3004), ("diameterCER", 3005), ("diameterCEA", 3006), ("diameterDWR", 3007), ("diameterDWA", 3008), ("diameterDPR", 3009), ("diameterDPA", 3010), ("diameterASR", 3011), ("diameterASA", 3012), ("diameterAAR", 3013), ("diameterAAA", 3014), ("vsdAccessRequest", 4001), ("gtpv1CEchoRequest", 5001), ("gtpv1CEchoResponse", 5002), ("gtpv1CVersionNotSupported", 5003), ("gtpv1CCreatePdpContextRequest", 5004), ("gtpv1CCreatePdpContextResponse", 5005), ("gtpv1CDeletePdpContextRequest", 5008), ("gtpv1CDeletePdpContextResponse", 5009), ("gtpv1CErrorIndication", 5010), ("gtpv1CEndMarker", 5011), ("gtpv2CEchoRequest", 6001), ("gtpv2CEchoResponse", 6002), ("gtpv2CVersionNotSupported", 6003), ("gtpv2CCreateSessionRequest", 6004), ("gtpv2CCreateSessionResponse", 6005), ("gtpv2CModifyBearerRequest", 6006), ("gtpv2CModifyBearerResponse", 6007), ("gtpv2CDeleteSessionRequest", 6008), ("gtpv2CDeleteSessionResponse", 6009), ("gtpv2CDeleteBearerRequest", 6010), ("gtpv2CDeleteBearerResponse", 6011), ("gtpv2CReleaseAccessBearersRequest", 6012), ("gtpv2CReleaseAccessBearersResponse", 6013), ("gtpv2CDownLinkDataNotification", 6014), ("gtpv2CDownLinkDataNotificationAck", 6015), ("gtpv2CChangeNotificationRequest", 6016), ("gtpv2CChangeNotificationResponse", 6017), ("gtpv2CStopPagingIndication", 6018), ("pppoeSessionLcp", 7001), ("pppoeSessionPap", 7002), ("pppoeSessionChap", 7003), ("pppoeSessionIpcp", 7004), ("pppoeSessionIp6cp", 7005), ("pppoePado", 7006), ("pppoePadi", 7007), ("pppoePadr", 7008), ("pppoePads", 7009), ("pppoePadt", 7010), ("syslog", 8001))))
-if mibBuilder.loadTexts: tmnxPyPlcyMessageType.setStatus('current')
-tmnxPyPlcyMessageDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1, 3), TDirectionIngEgr())
-if mibBuilder.loadTexts: tmnxPyPlcyMessageDirection.setStatus('current')
-tmnxPyPlcyMessageRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyMessageRowStatus.setStatus('current')
-tmnxPyPlcyMessageLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPyPlcyMessageLastChanged.setStatus('current')
-tmnxPyPlcyMessagePyScript = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1, 6), TNamedItem()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxPyPlcyMessagePyScript.setStatus('current')
-tmnxPythonProtectAction = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9))
-tmnxPythonProtectFileUrl = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 1), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPythonProtectFileUrl.setStatus('current')
-tmnxPythonProtectDestFileUrl = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 2), TmnxDisplayStringURL().clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPythonProtectDestFileUrl.setStatus('current')
-tmnxPythonProtectType = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 3), TmnxProtection().clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPythonProtectType.setStatus('current')
-tmnxPythonProtectKey = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128)).clone(hexValue="")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPythonProtectKey.setStatus('current')
-tmnxPythonProtectActionGo = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 5), TmnxActionType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxPythonProtectActionGo.setStatus('current')
-tmnxPythonProtectActionSuccess = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 6), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonProtectActionSuccess.setStatus('current')
-tmnxPythonProtectActionTime = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonProtectActionTime.setStatus('current')
-tmnxPythonScrStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10), )
-if mibBuilder.loadTexts: tmnxPythonScrStatsTable.setStatus('current')
-tmnxPythonScrStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1), ).setIndexNames((0, "TIMETRA-PYTHON-MIB", "tmnxPythonScriptName"), (0, "TIMETRA-PYTHON-MIB", "tmnxPythonScrStatsIsaGrpId"), (0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"), (0, "TIMETRA-CHASSIS-MIB", "tmnxCardSlotNum"), (0, "TIMETRA-CHASSIS-MIB", "tmnxMDASlotNum"))
-if mibBuilder.loadTexts: tmnxPythonScrStatsEntry.setStatus('current')
-tmnxPythonScrStatsIsaGrpId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4)))
-if mibBuilder.loadTexts: tmnxPythonScrStatsIsaGrpId.setStatus('current')
-tmnxPythonScrStatsRunsSuccess = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScrStatsRunsSuccess.setStatus('current')
-tmnxPythonScrStatsRunsFailed = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScrStatsRunsFailed.setStatus('current')
-tmnxPythonScrStatsRunsTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScrStatsRunsTimeout.setStatus('current')
-tmnxPythonScrStatsRunsRateLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScrStatsRunsRateLimit.setStatus('current')
-tmnxPythonScrVappStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11), )
-if mibBuilder.loadTexts: tmnxPythonScrVappStatsTable.setStatus('current')
-tmnxPythonScrVappStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1), ).setIndexNames((0, "TIMETRA-PYTHON-MIB", "tmnxPythonScriptName"), (0, "TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsIsaGrpId"), (0, "TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsEsaNum"), (0, "TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsEsaVappNum"))
-if mibBuilder.loadTexts: tmnxPythonScrVappStatsEntry.setStatus('current')
-tmnxPythonScrVappStatsIsaGrpId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4)))
-if mibBuilder.loadTexts: tmnxPythonScrVappStatsIsaGrpId.setStatus('current')
-tmnxPythonScrVappStatsEsaNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 2), TmnxEsaNum().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: tmnxPythonScrVappStatsEsaNum.setStatus('current')
-tmnxPythonScrVappStatsEsaVappNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 3), TmnxEsaVappNum().subtype(subtypeSpec=ValueRangeConstraint(1, 4)))
-if mibBuilder.loadTexts: tmnxPythonScrVappStatsEsaVappNum.setStatus('current')
-tmnxPythonScrVappStatsRunSuccess = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScrVappStatsRunSuccess.setStatus('current')
-tmnxPythonScrVappStatsRunFailed = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScrVappStatsRunFailed.setStatus('current')
-tmnxPythonScrVappStatsRunTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScrVappStatsRunTimeout.setStatus('current')
-tmnxPythonScrVappStatsRunRateLmt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxPythonScrVappStatsRunRateLmt.setStatus('current')
-tmnxPythonNotificationObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 2))
-tmnxPythonNotifyString = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 2, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxPythonNotifyString.setStatus('current')
-tmnxPythonNotifyInterpreter = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxPythonNotifyInterpreter.setStatus('current')
-tmnxPythonConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87))
-tmnxPythonCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 1))
-tmnxPythonCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 1, 1)).setObjects(("TIMETRA-PYTHON-MIB", "tmnxPythonGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPythonCompliance = tmnxPythonCompliance.setStatus('obsolete')
-tmnxPythonV13v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 1, 2)).setObjects(("TIMETRA-PYTHON-MIB", "tmnxPythonGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPythonV13v0Compliance = tmnxPythonV13v0Compliance.setStatus('obsolete')
-tmnxPythonV14v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 1, 3)).setObjects(("TIMETRA-PYTHON-MIB", "tmnxPythonGroup"), ("TIMETRA-PYTHON-MIB", "tmnxPythonIsaGroup"))
+# MIB Managed Objects in the order of their OIDs
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPythonV14v0Compliance = tmnxPythonV14v0Compliance.setStatus('obsolete')
-tmnxPythonV20v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 1, 4)).setObjects(("TIMETRA-PYTHON-MIB", "tmnxPythonGroup"), ("TIMETRA-PYTHON-MIB", "tmnxPythonIsaGroup"), ("TIMETRA-PYTHON-MIB", "tmnxPythonEsaV20v0Group"))
+_TmnxPythonConformance_ObjectIdentity = ObjectIdentity
+tmnxPythonConformance = _TmnxPythonConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87)
+)
+_TmnxPythonCompliances_ObjectIdentity = ObjectIdentity
+tmnxPythonCompliances = _TmnxPythonCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 1)
+)
+_TmnxPythonGroups_ObjectIdentity = ObjectIdentity
+tmnxPythonGroups = _TmnxPythonGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 2)
+)
+_TmnxPythonNotifGroups_ObjectIdentity = ObjectIdentity
+tmnxPythonNotifGroups = _TmnxPythonNotifGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 3)
+)
+_TmnxPython_ObjectIdentity = ObjectIdentity
+tmnxPython = _TmnxPython_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87)
+)
+_TmnxPythonObjs_ObjectIdentity = ObjectIdentity
+tmnxPythonObjs = _TmnxPythonObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1)
+)
+_TmnxPythonScriptTableLastCh_Type = TimeStamp
+_TmnxPythonScriptTableLastCh_Object = MibScalar
+tmnxPythonScriptTableLastCh = _TmnxPythonScriptTableLastCh_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 1),
+    _TmnxPythonScriptTableLastCh_Type()
+)
+tmnxPythonScriptTableLastCh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptTableLastCh.setStatus("current")
+_TmnxPythonScriptTable_Object = MibTable
+tmnxPythonScriptTable = _TmnxPythonScriptTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxPythonScriptTable.setStatus("current")
+_TmnxPythonScriptEntry_Object = MibTableRow
+tmnxPythonScriptEntry = _TmnxPythonScriptEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1)
+)
+tmnxPythonScriptEntry.setIndexNames(
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPythonScriptName"),
+)
+if mibBuilder.loadTexts:
+    tmnxPythonScriptEntry.setStatus("current")
+_TmnxPythonScriptName_Type = TNamedItem
+_TmnxPythonScriptName_Object = MibTableColumn
+tmnxPythonScriptName = _TmnxPythonScriptName_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 1),
+    _TmnxPythonScriptName_Type()
+)
+tmnxPythonScriptName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptName.setStatus("current")
+_TmnxPythonScriptRowStatus_Type = RowStatus
+_TmnxPythonScriptRowStatus_Object = MibTableColumn
+tmnxPythonScriptRowStatus = _TmnxPythonScriptRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 2),
+    _TmnxPythonScriptRowStatus_Type()
+)
+tmnxPythonScriptRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptRowStatus.setStatus("current")
+_TmnxPythonScriptLastChanged_Type = TimeStamp
+_TmnxPythonScriptLastChanged_Object = MibTableColumn
+tmnxPythonScriptLastChanged = _TmnxPythonScriptLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 3),
+    _TmnxPythonScriptLastChanged_Type()
+)
+tmnxPythonScriptLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptLastChanged.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPythonV20v0Compliance = tmnxPythonV20v0Compliance.setStatus('current')
-tmnxPythonGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 2))
-tmnxPythonGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 2, 1)).setObjects(("TIMETRA-PYTHON-MIB", "tmnxPythonScriptTableLastCh"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptRowStatus"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptLastChanged"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptDescription"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptOnFail"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptProtection"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptProtectionKey"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptAdminState"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptOperState"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptPrimaryUrl"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptSecondaryUrl"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptTertiaryUrl"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptActiveUrl"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptReloadAction"), ("TIMETRA-PYTHON-MIB", "tmnxPythonPolicyTableLastCh"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyRowStatus"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyLastChanged"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyDescription"), ("TIMETRA-PYTHON-MIB", "tmnxPythonPolicyCacheTableLastCh"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheRowStatus"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheEntrySize"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheMaxEntries"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheMaxLifetime"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheAdminState"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheLastChanged"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCachePersistent"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheMinLifetimeMcs"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheMinLifetimeHa"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheMinLifetimePers"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheNumberOfEntries"), ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectFileUrl"), ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectDestFileUrl"), ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectType"), ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectKey"), ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectActionGo"), ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectActionSuccess"), ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectActionTime"), ("TIMETRA-PYTHON-MIB", "tmnxPythonPolicyMessageTblLstCh"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyMessageRowStatus"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyMessageLastChanged"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyMessagePyScript"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPythonGroup = tmnxPythonGroup.setStatus('current')
-tmnxPythonIsaGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 2, 2)).setObjects(("TIMETRA-PYTHON-MIB", "tmnxPyPlcyWlanGwGroup"), ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyNatGroup"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptOperStateDistrib"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptCodeSize"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScrStatsRunsSuccess"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScrStatsRunsFailed"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScrStatsRunsTimeout"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScrStatsRunsRateLimit"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPythonIsaGroup = tmnxPythonIsaGroup.setStatus('current')
-tmnxPythonEsaV20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 2, 4)).setObjects(("TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsRunSuccess"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsRunFailed"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsRunTimeout"), ("TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsRunRateLmt"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPythonEsaV20v0Group = tmnxPythonEsaV20v0Group.setStatus('current')
-tmnxPythonNotifyObjsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 2, 99)).setObjects(("TIMETRA-PYTHON-MIB", "tmnxPythonNotifyString"), ("TIMETRA-PYTHON-MIB", "tmnxPythonNotifyInterpreter"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxPythonNotifyObjsGroup = tmnxPythonNotifyObjsGroup.setStatus('current')
-tmnxPythonNotifGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 3))
-tmnxPythonNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 87))
-tmnxPythonNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 87, 0))
-mibBuilder.exportSymbols("TIMETRA-PYTHON-MIB", tmnxPyPlcyMessageType=tmnxPyPlcyMessageType, tmnxPythonScriptName=tmnxPythonScriptName, tmnxPythonScrVappStatsEsaVappNum=tmnxPythonScrVappStatsEsaVappNum, tmnxPythonPolicyTable=tmnxPythonPolicyTable, tmnxPyPlcyCacheMinLifetimePers=tmnxPyPlcyCacheMinLifetimePers, tmnxPythonScrVappStatsRunRateLmt=tmnxPythonScrVappStatsRunRateLmt, tmnxPythonObjs=tmnxPythonObjs, tmnxPythonScriptTableLastCh=tmnxPythonScriptTableLastCh, tmnxPyPlcyLastChanged=tmnxPyPlcyLastChanged, tmnxPythonCompliance=tmnxPythonCompliance, tmnxPythonNotifGroups=tmnxPythonNotifGroups, tmnxPyPlcyCacheMinLifetimeHa=tmnxPyPlcyCacheMinLifetimeHa, tmnxPythonPolicyMessageEntry=tmnxPythonPolicyMessageEntry, tmnxPythonProtectKey=tmnxPythonProtectKey, tmnxPythonNotifyInterpreter=tmnxPythonNotifyInterpreter, tmnxPythonProtectActionGo=tmnxPythonProtectActionGo, tmnxPyPlcyCacheAdminState=tmnxPyPlcyCacheAdminState, tmnxPythonScriptOnFail=tmnxPythonScriptOnFail, tmnxPythonPolicyMessageTable=tmnxPythonPolicyMessageTable, tmnxPythonProtectDestFileUrl=tmnxPythonProtectDestFileUrl, tmnxPythonScriptCodeSize=tmnxPythonScriptCodeSize, tmnxPythonProtectActionTime=tmnxPythonProtectActionTime, tmnxPythonEsaV20v0Group=tmnxPythonEsaV20v0Group, tmnxPyPlcyRowStatus=tmnxPyPlcyRowStatus, tmnxPyPlcyDescription=tmnxPyPlcyDescription, tmnxPythonIsaGroup=tmnxPythonIsaGroup, tmnxPythonScriptTertiaryUrl=tmnxPythonScriptTertiaryUrl, tmnxPythonScrVappStatsRunFailed=tmnxPythonScrVappStatsRunFailed, tmnxPythonPolicyCacheTableLastCh=tmnxPythonPolicyCacheTableLastCh, tmnxPyPlcyCacheNumberOfEntries=tmnxPyPlcyCacheNumberOfEntries, tmnxPythonScrStatsIsaGrpId=tmnxPythonScrStatsIsaGrpId, tmnxPythonScriptReloadAction=tmnxPythonScriptReloadAction, tmnxPythonScrStatsEntry=tmnxPythonScrStatsEntry, tmnxPyPlcyNatGroup=tmnxPyPlcyNatGroup, tmnxPythonPolicyTableLastCh=tmnxPythonPolicyTableLastCh, tmnxPythonNotificationObjs=tmnxPythonNotificationObjs, tmnxPythonV14v0Compliance=tmnxPythonV14v0Compliance, tmnxPythonNotifyObjsGroup=tmnxPythonNotifyObjsGroup, PYSNMP_MODULE_ID=timetraPythonMIBModule, tmnxPyPlcyCacheRowStatus=tmnxPyPlcyCacheRowStatus, tmnxPythonScriptAdminState=tmnxPythonScriptAdminState, timetraPythonMIBModule=timetraPythonMIBModule, tmnxPyPlcyCacheMaxEntries=tmnxPyPlcyCacheMaxEntries, tmnxPythonScrVappStatsEsaNum=tmnxPythonScrVappStatsEsaNum, tmnxPythonProtectAction=tmnxPythonProtectAction, tmnxPythonScrVappStatsIsaGrpId=tmnxPythonScrVappStatsIsaGrpId, tmnxPythonScriptOperStateDistrib=tmnxPythonScriptOperStateDistrib, tmnxPythonScriptSecondaryUrl=tmnxPythonScriptSecondaryUrl, tmnxPythonPolicyEntry=tmnxPythonPolicyEntry, tmnxPyPlcyMessagePyScript=tmnxPyPlcyMessagePyScript, tmnxPyPlcyCacheMinLifetimeMcs=tmnxPyPlcyCacheMinLifetimeMcs, tmnxPythonV13v0Compliance=tmnxPythonV13v0Compliance, tmnxPythonPolicyCacheTable=tmnxPythonPolicyCacheTable, tmnxPyPlcyWlanGwGroup=tmnxPyPlcyWlanGwGroup, tmnxPythonScriptRowStatus=tmnxPythonScriptRowStatus, tmnxPython=tmnxPython, tmnxPythonScrStatsRunsFailed=tmnxPythonScrStatsRunsFailed, tmnxPythonProtectFileUrl=tmnxPythonProtectFileUrl, tmnxPythonScrStatsRunsTimeout=tmnxPythonScrStatsRunsTimeout, tmnxPythonScriptActiveUrl=tmnxPythonScriptActiveUrl, tmnxPythonNotifyString=tmnxPythonNotifyString, tmnxPythonScriptLastChanged=tmnxPythonScriptLastChanged, tmnxPythonScrStatsTable=tmnxPythonScrStatsTable, tmnxPyPlcyMessageRowStatus=tmnxPyPlcyMessageRowStatus, TmnxProtection=TmnxProtection, tmnxPyPlcyCachePersistent=tmnxPyPlcyCachePersistent, tmnxPythonNotifications=tmnxPythonNotifications, tmnxPyPlcyCacheLastChanged=tmnxPyPlcyCacheLastChanged, tmnxPythonConformance=tmnxPythonConformance, tmnxPythonPolicyCacheEntry=tmnxPythonPolicyCacheEntry, tmnxPythonPolicyMessageTblLstCh=tmnxPythonPolicyMessageTblLstCh, tmnxPythonScrVappStatsTable=tmnxPythonScrVappStatsTable, tmnxPythonScrVappStatsEntry=tmnxPythonScrVappStatsEntry, tmnxPythonScrStatsRunsSuccess=tmnxPythonScrStatsRunsSuccess, tmnxPyPlcyMessageDirection=tmnxPyPlcyMessageDirection, tmnxPythonScriptTable=tmnxPythonScriptTable, tmnxPyPlcyMessageLastChanged=tmnxPyPlcyMessageLastChanged, tmnxPythonScriptDescription=tmnxPythonScriptDescription, tmnxPythonScriptProtectionKey=tmnxPythonScriptProtectionKey, tmnxPythonScriptProtection=tmnxPythonScriptProtection, tmnxPythonScrVappStatsRunTimeout=tmnxPythonScrVappStatsRunTimeout, tmnxPythonScrVappStatsRunSuccess=tmnxPythonScrVappStatsRunSuccess, tmnxPythonScriptEntry=tmnxPythonScriptEntry, tmnxPyPlcyCacheEntrySize=tmnxPyPlcyCacheEntrySize, tmnxPythonCompliances=tmnxPythonCompliances, tmnxPythonGroups=tmnxPythonGroups, tmnxPythonScrStatsRunsRateLimit=tmnxPythonScrStatsRunsRateLimit, tmnxPythonScriptPrimaryUrl=tmnxPythonScriptPrimaryUrl, tmnxPythonProtectActionSuccess=tmnxPythonProtectActionSuccess, tmnxPythonProtectType=tmnxPythonProtectType, tmnxPyPlcyName=tmnxPyPlcyName, tmnxPythonV20v0Compliance=tmnxPythonV20v0Compliance, tmnxPythonGroup=tmnxPythonGroup, tmnxPythonScriptOperState=tmnxPythonScriptOperState, tmnxPythonNotifyPrefix=tmnxPythonNotifyPrefix, tmnxPyPlcyCacheMaxLifetime=tmnxPyPlcyCacheMaxLifetime)
+
+class _TmnxPythonScriptAdminState_Type(TmnxAdminState):
+    """Custom type tmnxPythonScriptAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_TmnxPythonScriptAdminState_Type.__name__ = "TmnxAdminState"
+_TmnxPythonScriptAdminState_Object = MibTableColumn
+tmnxPythonScriptAdminState = _TmnxPythonScriptAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 4),
+    _TmnxPythonScriptAdminState_Type()
+)
+tmnxPythonScriptAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptAdminState.setStatus("current")
+_TmnxPythonScriptOperState_Type = TmnxOperState
+_TmnxPythonScriptOperState_Object = MibTableColumn
+tmnxPythonScriptOperState = _TmnxPythonScriptOperState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 5),
+    _TmnxPythonScriptOperState_Type()
+)
+tmnxPythonScriptOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptOperState.setStatus("current")
+
+
+class _TmnxPythonScriptDescription_Type(TItemDescription):
+    """Custom type tmnxPythonScriptDescription based on TItemDescription"""
+    defaultValue = OctetString("")
+
+
+_TmnxPythonScriptDescription_Type.__name__ = "TItemDescription"
+_TmnxPythonScriptDescription_Object = MibTableColumn
+tmnxPythonScriptDescription = _TmnxPythonScriptDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 6),
+    _TmnxPythonScriptDescription_Type()
+)
+tmnxPythonScriptDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptDescription.setStatus("current")
+
+
+class _TmnxPythonScriptOnFail_Type(Integer32):
+    """Custom type tmnxPythonScriptOnFail based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("passthrough", 1),
+          ("drop", 2))
+    )
+
+
+_TmnxPythonScriptOnFail_Type.__name__ = "Integer32"
+_TmnxPythonScriptOnFail_Object = MibTableColumn
+tmnxPythonScriptOnFail = _TmnxPythonScriptOnFail_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 7),
+    _TmnxPythonScriptOnFail_Type()
+)
+tmnxPythonScriptOnFail.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptOnFail.setStatus("current")
+
+
+class _TmnxPythonScriptProtection_Type(TmnxProtection):
+    """Custom type tmnxPythonScriptProtection based on TmnxProtection"""
+    defaultValue = 1
+
+
+_TmnxPythonScriptProtection_Type.__name__ = "TmnxProtection"
+_TmnxPythonScriptProtection_Object = MibTableColumn
+tmnxPythonScriptProtection = _TmnxPythonScriptProtection_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 8),
+    _TmnxPythonScriptProtection_Type()
+)
+tmnxPythonScriptProtection.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptProtection.setStatus("current")
+
+
+class _TmnxPythonScriptProtectionKey_Type(DisplayString):
+    """Custom type tmnxPythonScriptProtectionKey based on DisplayString"""
+    defaultHexValue = ""
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_TmnxPythonScriptProtectionKey_Type.__name__ = "DisplayString"
+_TmnxPythonScriptProtectionKey_Object = MibTableColumn
+tmnxPythonScriptProtectionKey = _TmnxPythonScriptProtectionKey_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 9),
+    _TmnxPythonScriptProtectionKey_Type()
+)
+tmnxPythonScriptProtectionKey.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptProtectionKey.setStatus("current")
+
+
+class _TmnxPythonScriptPrimaryUrl_Type(TmnxDisplayStringURL):
+    """Custom type tmnxPythonScriptPrimaryUrl based on TmnxDisplayStringURL"""
+    defaultHexValue = ""
+
+
+_TmnxPythonScriptPrimaryUrl_Type.__name__ = "TmnxDisplayStringURL"
+_TmnxPythonScriptPrimaryUrl_Object = MibTableColumn
+tmnxPythonScriptPrimaryUrl = _TmnxPythonScriptPrimaryUrl_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 10),
+    _TmnxPythonScriptPrimaryUrl_Type()
+)
+tmnxPythonScriptPrimaryUrl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptPrimaryUrl.setStatus("current")
+
+
+class _TmnxPythonScriptSecondaryUrl_Type(TmnxDisplayStringURL):
+    """Custom type tmnxPythonScriptSecondaryUrl based on TmnxDisplayStringURL"""
+    defaultHexValue = ""
+
+
+_TmnxPythonScriptSecondaryUrl_Type.__name__ = "TmnxDisplayStringURL"
+_TmnxPythonScriptSecondaryUrl_Object = MibTableColumn
+tmnxPythonScriptSecondaryUrl = _TmnxPythonScriptSecondaryUrl_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 11),
+    _TmnxPythonScriptSecondaryUrl_Type()
+)
+tmnxPythonScriptSecondaryUrl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptSecondaryUrl.setStatus("current")
+
+
+class _TmnxPythonScriptTertiaryUrl_Type(TmnxDisplayStringURL):
+    """Custom type tmnxPythonScriptTertiaryUrl based on TmnxDisplayStringURL"""
+    defaultHexValue = ""
+
+
+_TmnxPythonScriptTertiaryUrl_Type.__name__ = "TmnxDisplayStringURL"
+_TmnxPythonScriptTertiaryUrl_Object = MibTableColumn
+tmnxPythonScriptTertiaryUrl = _TmnxPythonScriptTertiaryUrl_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 12),
+    _TmnxPythonScriptTertiaryUrl_Type()
+)
+tmnxPythonScriptTertiaryUrl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptTertiaryUrl.setStatus("current")
+
+
+class _TmnxPythonScriptActiveUrl_Type(Integer32):
+    """Custom type tmnxPythonScriptActiveUrl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("primary", 1),
+          ("secondary", 2),
+          ("tertiary", 3))
+    )
+
+
+_TmnxPythonScriptActiveUrl_Type.__name__ = "Integer32"
+_TmnxPythonScriptActiveUrl_Object = MibTableColumn
+tmnxPythonScriptActiveUrl = _TmnxPythonScriptActiveUrl_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 13),
+    _TmnxPythonScriptActiveUrl_Type()
+)
+tmnxPythonScriptActiveUrl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptActiveUrl.setStatus("current")
+_TmnxPythonScriptOperStateDistrib_Type = TmnxOperState
+_TmnxPythonScriptOperStateDistrib_Object = MibTableColumn
+tmnxPythonScriptOperStateDistrib = _TmnxPythonScriptOperStateDistrib_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 14),
+    _TmnxPythonScriptOperStateDistrib_Type()
+)
+tmnxPythonScriptOperStateDistrib.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptOperStateDistrib.setStatus("current")
+_TmnxPythonScriptCodeSize_Type = Unsigned32
+_TmnxPythonScriptCodeSize_Object = MibTableColumn
+tmnxPythonScriptCodeSize = _TmnxPythonScriptCodeSize_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 15),
+    _TmnxPythonScriptCodeSize_Type()
+)
+tmnxPythonScriptCodeSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptCodeSize.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptCodeSize.setUnits("bytes")
+
+
+class _TmnxPythonScriptReloadAction_Type(TmnxActionType):
+    """Custom type tmnxPythonScriptReloadAction based on TmnxActionType"""
+    defaultValue = 2
+
+
+_TmnxPythonScriptReloadAction_Type.__name__ = "TmnxActionType"
+_TmnxPythonScriptReloadAction_Object = MibTableColumn
+tmnxPythonScriptReloadAction = _TmnxPythonScriptReloadAction_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 2, 1, 50),
+    _TmnxPythonScriptReloadAction_Type()
+)
+tmnxPythonScriptReloadAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPythonScriptReloadAction.setStatus("current")
+_TmnxPythonPolicyTableLastCh_Type = TimeStamp
+_TmnxPythonPolicyTableLastCh_Object = MibScalar
+tmnxPythonPolicyTableLastCh = _TmnxPythonPolicyTableLastCh_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 3),
+    _TmnxPythonPolicyTableLastCh_Type()
+)
+tmnxPythonPolicyTableLastCh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonPolicyTableLastCh.setStatus("current")
+_TmnxPythonPolicyTable_Object = MibTable
+tmnxPythonPolicyTable = _TmnxPythonPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4)
+)
+if mibBuilder.loadTexts:
+    tmnxPythonPolicyTable.setStatus("current")
+_TmnxPythonPolicyEntry_Object = MibTableRow
+tmnxPythonPolicyEntry = _TmnxPythonPolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1)
+)
+tmnxPythonPolicyEntry.setIndexNames(
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPyPlcyName"),
+)
+if mibBuilder.loadTexts:
+    tmnxPythonPolicyEntry.setStatus("current")
+_TmnxPyPlcyName_Type = TNamedItem
+_TmnxPyPlcyName_Object = MibTableColumn
+tmnxPyPlcyName = _TmnxPyPlcyName_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 1),
+    _TmnxPyPlcyName_Type()
+)
+tmnxPyPlcyName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyName.setStatus("current")
+_TmnxPyPlcyRowStatus_Type = RowStatus
+_TmnxPyPlcyRowStatus_Object = MibTableColumn
+tmnxPyPlcyRowStatus = _TmnxPyPlcyRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 2),
+    _TmnxPyPlcyRowStatus_Type()
+)
+tmnxPyPlcyRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyRowStatus.setStatus("current")
+_TmnxPyPlcyLastChanged_Type = TimeStamp
+_TmnxPyPlcyLastChanged_Object = MibTableColumn
+tmnxPyPlcyLastChanged = _TmnxPyPlcyLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 3),
+    _TmnxPyPlcyLastChanged_Type()
+)
+tmnxPyPlcyLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyLastChanged.setStatus("current")
+
+
+class _TmnxPyPlcyDescription_Type(TItemDescription):
+    """Custom type tmnxPyPlcyDescription based on TItemDescription"""
+    defaultValue = OctetString("")
+
+
+_TmnxPyPlcyDescription_Type.__name__ = "TItemDescription"
+_TmnxPyPlcyDescription_Object = MibTableColumn
+tmnxPyPlcyDescription = _TmnxPyPlcyDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 4),
+    _TmnxPyPlcyDescription_Type()
+)
+tmnxPyPlcyDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyDescription.setStatus("current")
+
+
+class _TmnxPyPlcyWlanGwGroup_Type(TmnxWlanGwIsaGrpIdOrZero):
+    """Custom type tmnxPyPlcyWlanGwGroup based on TmnxWlanGwIsaGrpIdOrZero"""
+    defaultValue = 0
+
+
+_TmnxPyPlcyWlanGwGroup_Type.__name__ = "TmnxWlanGwIsaGrpIdOrZero"
+_TmnxPyPlcyWlanGwGroup_Object = MibTableColumn
+tmnxPyPlcyWlanGwGroup = _TmnxPyPlcyWlanGwGroup_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 6),
+    _TmnxPyPlcyWlanGwGroup_Type()
+)
+tmnxPyPlcyWlanGwGroup.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyWlanGwGroup.setStatus("current")
+
+
+class _TmnxPyPlcyNatGroup_Type(TmnxNatIsaGrpIdOrZero):
+    """Custom type tmnxPyPlcyNatGroup based on TmnxNatIsaGrpIdOrZero"""
+    defaultValue = 0
+
+
+_TmnxPyPlcyNatGroup_Type.__name__ = "TmnxNatIsaGrpIdOrZero"
+_TmnxPyPlcyNatGroup_Object = MibTableColumn
+tmnxPyPlcyNatGroup = _TmnxPyPlcyNatGroup_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 4, 1, 7),
+    _TmnxPyPlcyNatGroup_Type()
+)
+tmnxPyPlcyNatGroup.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyNatGroup.setStatus("current")
+_TmnxPythonPolicyCacheTableLastCh_Type = TimeStamp
+_TmnxPythonPolicyCacheTableLastCh_Object = MibScalar
+tmnxPythonPolicyCacheTableLastCh = _TmnxPythonPolicyCacheTableLastCh_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 5),
+    _TmnxPythonPolicyCacheTableLastCh_Type()
+)
+tmnxPythonPolicyCacheTableLastCh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonPolicyCacheTableLastCh.setStatus("current")
+_TmnxPythonPolicyCacheTable_Object = MibTable
+tmnxPythonPolicyCacheTable = _TmnxPythonPolicyCacheTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6)
+)
+if mibBuilder.loadTexts:
+    tmnxPythonPolicyCacheTable.setStatus("current")
+_TmnxPythonPolicyCacheEntry_Object = MibTableRow
+tmnxPythonPolicyCacheEntry = _TmnxPythonPolicyCacheEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1)
+)
+tmnxPythonPolicyCacheEntry.setIndexNames(
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPyPlcyName"),
+)
+if mibBuilder.loadTexts:
+    tmnxPythonPolicyCacheEntry.setStatus("current")
+_TmnxPyPlcyCacheRowStatus_Type = RowStatus
+_TmnxPyPlcyCacheRowStatus_Object = MibTableColumn
+tmnxPyPlcyCacheRowStatus = _TmnxPyPlcyCacheRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 1),
+    _TmnxPyPlcyCacheRowStatus_Type()
+)
+tmnxPyPlcyCacheRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheRowStatus.setStatus("current")
+
+
+class _TmnxPyPlcyCacheEntrySize_Type(Integer32):
+    """Custom type tmnxPyPlcyCacheEntrySize based on Integer32"""
+    defaultValue = 256
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(32, 2048),
+    )
+
+
+_TmnxPyPlcyCacheEntrySize_Type.__name__ = "Integer32"
+_TmnxPyPlcyCacheEntrySize_Object = MibTableColumn
+tmnxPyPlcyCacheEntrySize = _TmnxPyPlcyCacheEntrySize_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 2),
+    _TmnxPyPlcyCacheEntrySize_Type()
+)
+tmnxPyPlcyCacheEntrySize.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheEntrySize.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheEntrySize.setUnits("bytes")
+
+
+class _TmnxPyPlcyCacheMaxEntries_Type(Integer32):
+    """Custom type tmnxPyPlcyCacheMaxEntries based on Integer32"""
+    defaultValue = 128000
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1000000),
+    )
+
+
+_TmnxPyPlcyCacheMaxEntries_Type.__name__ = "Integer32"
+_TmnxPyPlcyCacheMaxEntries_Object = MibTableColumn
+tmnxPyPlcyCacheMaxEntries = _TmnxPyPlcyCacheMaxEntries_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 3),
+    _TmnxPyPlcyCacheMaxEntries_Type()
+)
+tmnxPyPlcyCacheMaxEntries.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheMaxEntries.setStatus("current")
+
+
+class _TmnxPyPlcyCacheMaxLifetime_Type(Integer32):
+    """Custom type tmnxPyPlcyCacheMaxLifetime based on Integer32"""
+    defaultValue = 86400
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 604800),
+    )
+
+
+_TmnxPyPlcyCacheMaxLifetime_Type.__name__ = "Integer32"
+_TmnxPyPlcyCacheMaxLifetime_Object = MibTableColumn
+tmnxPyPlcyCacheMaxLifetime = _TmnxPyPlcyCacheMaxLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 4),
+    _TmnxPyPlcyCacheMaxLifetime_Type()
+)
+tmnxPyPlcyCacheMaxLifetime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheMaxLifetime.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheMaxLifetime.setUnits("seconds")
+
+
+class _TmnxPyPlcyCacheAdminState_Type(TmnxAdminState):
+    """Custom type tmnxPyPlcyCacheAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_TmnxPyPlcyCacheAdminState_Type.__name__ = "TmnxAdminState"
+_TmnxPyPlcyCacheAdminState_Object = MibTableColumn
+tmnxPyPlcyCacheAdminState = _TmnxPyPlcyCacheAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 5),
+    _TmnxPyPlcyCacheAdminState_Type()
+)
+tmnxPyPlcyCacheAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheAdminState.setStatus("current")
+_TmnxPyPlcyCacheLastChanged_Type = TimeStamp
+_TmnxPyPlcyCacheLastChanged_Object = MibTableColumn
+tmnxPyPlcyCacheLastChanged = _TmnxPyPlcyCacheLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 6),
+    _TmnxPyPlcyCacheLastChanged_Type()
+)
+tmnxPyPlcyCacheLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheLastChanged.setStatus("current")
+
+
+class _TmnxPyPlcyCachePersistent_Type(TruthValue):
+    """Custom type tmnxPyPlcyCachePersistent based on TruthValue"""
+    defaultValue = 2
+
+
+_TmnxPyPlcyCachePersistent_Type.__name__ = "TruthValue"
+_TmnxPyPlcyCachePersistent_Object = MibTableColumn
+tmnxPyPlcyCachePersistent = _TmnxPyPlcyCachePersistent_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 10),
+    _TmnxPyPlcyCachePersistent_Type()
+)
+tmnxPyPlcyCachePersistent.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCachePersistent.setStatus("current")
+
+
+class _TmnxPyPlcyCacheMinLifetimeMcs_Type(Unsigned32):
+    """Custom type tmnxPyPlcyCacheMinLifetimeMcs based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 600),
+    )
+
+
+_TmnxPyPlcyCacheMinLifetimeMcs_Type.__name__ = "Unsigned32"
+_TmnxPyPlcyCacheMinLifetimeMcs_Object = MibTableColumn
+tmnxPyPlcyCacheMinLifetimeMcs = _TmnxPyPlcyCacheMinLifetimeMcs_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 11),
+    _TmnxPyPlcyCacheMinLifetimeMcs_Type()
+)
+tmnxPyPlcyCacheMinLifetimeMcs.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheMinLifetimeMcs.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheMinLifetimeMcs.setUnits("seconds")
+
+
+class _TmnxPyPlcyCacheMinLifetimeHa_Type(Unsigned32):
+    """Custom type tmnxPyPlcyCacheMinLifetimeHa based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 600),
+    )
+
+
+_TmnxPyPlcyCacheMinLifetimeHa_Type.__name__ = "Unsigned32"
+_TmnxPyPlcyCacheMinLifetimeHa_Object = MibTableColumn
+tmnxPyPlcyCacheMinLifetimeHa = _TmnxPyPlcyCacheMinLifetimeHa_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 12),
+    _TmnxPyPlcyCacheMinLifetimeHa_Type()
+)
+tmnxPyPlcyCacheMinLifetimeHa.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheMinLifetimeHa.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheMinLifetimeHa.setUnits("seconds")
+
+
+class _TmnxPyPlcyCacheMinLifetimePers_Type(Unsigned32):
+    """Custom type tmnxPyPlcyCacheMinLifetimePers based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1800),
+    )
+
+
+_TmnxPyPlcyCacheMinLifetimePers_Type.__name__ = "Unsigned32"
+_TmnxPyPlcyCacheMinLifetimePers_Object = MibTableColumn
+tmnxPyPlcyCacheMinLifetimePers = _TmnxPyPlcyCacheMinLifetimePers_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 13),
+    _TmnxPyPlcyCacheMinLifetimePers_Type()
+)
+tmnxPyPlcyCacheMinLifetimePers.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheMinLifetimePers.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheMinLifetimePers.setUnits("seconds")
+_TmnxPyPlcyCacheNumberOfEntries_Type = Gauge32
+_TmnxPyPlcyCacheNumberOfEntries_Object = MibTableColumn
+tmnxPyPlcyCacheNumberOfEntries = _TmnxPyPlcyCacheNumberOfEntries_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 6, 1, 14),
+    _TmnxPyPlcyCacheNumberOfEntries_Type()
+)
+tmnxPyPlcyCacheNumberOfEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyCacheNumberOfEntries.setStatus("current")
+_TmnxPythonPolicyMessageTblLstCh_Type = TimeStamp
+_TmnxPythonPolicyMessageTblLstCh_Object = MibScalar
+tmnxPythonPolicyMessageTblLstCh = _TmnxPythonPolicyMessageTblLstCh_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 7),
+    _TmnxPythonPolicyMessageTblLstCh_Type()
+)
+tmnxPythonPolicyMessageTblLstCh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonPolicyMessageTblLstCh.setStatus("current")
+_TmnxPythonPolicyMessageTable_Object = MibTable
+tmnxPythonPolicyMessageTable = _TmnxPythonPolicyMessageTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8)
+)
+if mibBuilder.loadTexts:
+    tmnxPythonPolicyMessageTable.setStatus("current")
+_TmnxPythonPolicyMessageEntry_Object = MibTableRow
+tmnxPythonPolicyMessageEntry = _TmnxPythonPolicyMessageEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1)
+)
+tmnxPythonPolicyMessageEntry.setIndexNames(
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPyPlcyName"),
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPyPlcyMessageType"),
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPyPlcyMessageDirection"),
+)
+if mibBuilder.loadTexts:
+    tmnxPythonPolicyMessageEntry.setStatus("current")
+
+
+class _TmnxPyPlcyMessageType_Type(Integer32):
+    """Custom type tmnxPyPlcyMessageType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              1001,
+              1002,
+              1003,
+              1004,
+              1005,
+              1006,
+              1007,
+              1008,
+              1009,
+              1010,
+              1011,
+              1012,
+              1013,
+              2001,
+              2002,
+              2003,
+              2004,
+              2005,
+              2006,
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013,
+              3001,
+              3002,
+              3003,
+              3004,
+              3005,
+              3006,
+              3007,
+              3008,
+              3009,
+              3010,
+              3011,
+              3012,
+              3013,
+              3014,
+              4001,
+              5001,
+              5002,
+              5003,
+              5004,
+              5005,
+              5008,
+              5009,
+              5010,
+              5011,
+              6001,
+              6002,
+              6003,
+              6004,
+              6005,
+              6006,
+              6007,
+              6008,
+              6009,
+              6010,
+              6011,
+              6012,
+              6013,
+              6014,
+              6015,
+              6016,
+              6017,
+              6018,
+              7001,
+              7002,
+              7003,
+              7004,
+              7005,
+              7006,
+              7007,
+              7008,
+              7009,
+              7010,
+              8001)
+        )
+    )
+    namedValues = NamedValues(
+        *(("radiusAccessRequest", 1),
+          ("radiusAccessAccept", 2),
+          ("radiusAccessReject", 3),
+          ("radiusAccountingRequest", 4),
+          ("radiusAccountingResponse", 5),
+          ("radiusAccessChallenge", 6),
+          ("radiusDisconnectRequest", 7),
+          ("radiusChangeOfAuthorizationRequest", 8),
+          ("dhcpDiscover", 1001),
+          ("dhcpOffer", 1002),
+          ("dhcpRequest", 1003),
+          ("dhcpDecline", 1004),
+          ("dhcpAck", 1005),
+          ("dhcpNak", 1006),
+          ("dhcpRelease", 1007),
+          ("dhcpInform", 1008),
+          ("dhcpForceRenew", 1009),
+          ("dhcpLeaseQuery", 1010),
+          ("dhcpLeaseUnassigned", 1011),
+          ("dhcpLeaseUnknown", 1012),
+          ("dhcpLeaseActive", 1013),
+          ("dhcp6Solicit", 2001),
+          ("dhcp6Advertise", 2002),
+          ("dhcp6Request", 2003),
+          ("dhcp6Confirm", 2004),
+          ("dhcp6Renew", 2005),
+          ("dhcp6Rebind", 2006),
+          ("dhcp6Reply", 2007),
+          ("dhcp6Release", 2008),
+          ("dhcp6Decline", 2009),
+          ("dhcp6Reconfigure", 2010),
+          ("dhcp6InfoRequest", 2011),
+          ("dhcp6RelayForward", 2012),
+          ("dhcp6RelayReply", 2013),
+          ("diameterCCR", 3001),
+          ("diameterCCA", 3002),
+          ("diameterRAR", 3003),
+          ("diameterRAA", 3004),
+          ("diameterCER", 3005),
+          ("diameterCEA", 3006),
+          ("diameterDWR", 3007),
+          ("diameterDWA", 3008),
+          ("diameterDPR", 3009),
+          ("diameterDPA", 3010),
+          ("diameterASR", 3011),
+          ("diameterASA", 3012),
+          ("diameterAAR", 3013),
+          ("diameterAAA", 3014),
+          ("vsdAccessRequest", 4001),
+          ("gtpv1CEchoRequest", 5001),
+          ("gtpv1CEchoResponse", 5002),
+          ("gtpv1CVersionNotSupported", 5003),
+          ("gtpv1CCreatePdpContextRequest", 5004),
+          ("gtpv1CCreatePdpContextResponse", 5005),
+          ("gtpv1CDeletePdpContextRequest", 5008),
+          ("gtpv1CDeletePdpContextResponse", 5009),
+          ("gtpv1CErrorIndication", 5010),
+          ("gtpv1CEndMarker", 5011),
+          ("gtpv2CEchoRequest", 6001),
+          ("gtpv2CEchoResponse", 6002),
+          ("gtpv2CVersionNotSupported", 6003),
+          ("gtpv2CCreateSessionRequest", 6004),
+          ("gtpv2CCreateSessionResponse", 6005),
+          ("gtpv2CModifyBearerRequest", 6006),
+          ("gtpv2CModifyBearerResponse", 6007),
+          ("gtpv2CDeleteSessionRequest", 6008),
+          ("gtpv2CDeleteSessionResponse", 6009),
+          ("gtpv2CDeleteBearerRequest", 6010),
+          ("gtpv2CDeleteBearerResponse", 6011),
+          ("gtpv2CReleaseAccessBearersRequest", 6012),
+          ("gtpv2CReleaseAccessBearersResponse", 6013),
+          ("gtpv2CDownLinkDataNotification", 6014),
+          ("gtpv2CDownLinkDataNotificationAck", 6015),
+          ("gtpv2CChangeNotificationRequest", 6016),
+          ("gtpv2CChangeNotificationResponse", 6017),
+          ("gtpv2CStopPagingIndication", 6018),
+          ("pppoeSessionLcp", 7001),
+          ("pppoeSessionPap", 7002),
+          ("pppoeSessionChap", 7003),
+          ("pppoeSessionIpcp", 7004),
+          ("pppoeSessionIp6cp", 7005),
+          ("pppoePado", 7006),
+          ("pppoePadi", 7007),
+          ("pppoePadr", 7008),
+          ("pppoePads", 7009),
+          ("pppoePadt", 7010),
+          ("syslog", 8001))
+    )
+
+
+_TmnxPyPlcyMessageType_Type.__name__ = "Integer32"
+_TmnxPyPlcyMessageType_Object = MibTableColumn
+tmnxPyPlcyMessageType = _TmnxPyPlcyMessageType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1, 2),
+    _TmnxPyPlcyMessageType_Type()
+)
+tmnxPyPlcyMessageType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyMessageType.setStatus("current")
+_TmnxPyPlcyMessageDirection_Type = TDirectionIngEgr
+_TmnxPyPlcyMessageDirection_Object = MibTableColumn
+tmnxPyPlcyMessageDirection = _TmnxPyPlcyMessageDirection_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1, 3),
+    _TmnxPyPlcyMessageDirection_Type()
+)
+tmnxPyPlcyMessageDirection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyMessageDirection.setStatus("current")
+_TmnxPyPlcyMessageRowStatus_Type = RowStatus
+_TmnxPyPlcyMessageRowStatus_Object = MibTableColumn
+tmnxPyPlcyMessageRowStatus = _TmnxPyPlcyMessageRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1, 4),
+    _TmnxPyPlcyMessageRowStatus_Type()
+)
+tmnxPyPlcyMessageRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyMessageRowStatus.setStatus("current")
+_TmnxPyPlcyMessageLastChanged_Type = TimeStamp
+_TmnxPyPlcyMessageLastChanged_Object = MibTableColumn
+tmnxPyPlcyMessageLastChanged = _TmnxPyPlcyMessageLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1, 5),
+    _TmnxPyPlcyMessageLastChanged_Type()
+)
+tmnxPyPlcyMessageLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyMessageLastChanged.setStatus("current")
+_TmnxPyPlcyMessagePyScript_Type = TNamedItem
+_TmnxPyPlcyMessagePyScript_Object = MibTableColumn
+tmnxPyPlcyMessagePyScript = _TmnxPyPlcyMessagePyScript_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 8, 1, 6),
+    _TmnxPyPlcyMessagePyScript_Type()
+)
+tmnxPyPlcyMessagePyScript.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxPyPlcyMessagePyScript.setStatus("current")
+_TmnxPythonProtectAction_ObjectIdentity = ObjectIdentity
+tmnxPythonProtectAction = _TmnxPythonProtectAction_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9)
+)
+
+
+class _TmnxPythonProtectFileUrl_Type(TmnxDisplayStringURL):
+    """Custom type tmnxPythonProtectFileUrl based on TmnxDisplayStringURL"""
+    defaultHexValue = ""
+
+
+_TmnxPythonProtectFileUrl_Type.__name__ = "TmnxDisplayStringURL"
+_TmnxPythonProtectFileUrl_Object = MibScalar
+tmnxPythonProtectFileUrl = _TmnxPythonProtectFileUrl_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 1),
+    _TmnxPythonProtectFileUrl_Type()
+)
+tmnxPythonProtectFileUrl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPythonProtectFileUrl.setStatus("current")
+
+
+class _TmnxPythonProtectDestFileUrl_Type(TmnxDisplayStringURL):
+    """Custom type tmnxPythonProtectDestFileUrl based on TmnxDisplayStringURL"""
+    defaultHexValue = ""
+
+
+_TmnxPythonProtectDestFileUrl_Type.__name__ = "TmnxDisplayStringURL"
+_TmnxPythonProtectDestFileUrl_Object = MibScalar
+tmnxPythonProtectDestFileUrl = _TmnxPythonProtectDestFileUrl_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 2),
+    _TmnxPythonProtectDestFileUrl_Type()
+)
+tmnxPythonProtectDestFileUrl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPythonProtectDestFileUrl.setStatus("current")
+
+
+class _TmnxPythonProtectType_Type(TmnxProtection):
+    """Custom type tmnxPythonProtectType based on TmnxProtection"""
+    defaultValue = 1
+
+
+_TmnxPythonProtectType_Type.__name__ = "TmnxProtection"
+_TmnxPythonProtectType_Object = MibScalar
+tmnxPythonProtectType = _TmnxPythonProtectType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 3),
+    _TmnxPythonProtectType_Type()
+)
+tmnxPythonProtectType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPythonProtectType.setStatus("current")
+
+
+class _TmnxPythonProtectKey_Type(DisplayString):
+    """Custom type tmnxPythonProtectKey based on DisplayString"""
+    defaultHexValue = ""
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_TmnxPythonProtectKey_Type.__name__ = "DisplayString"
+_TmnxPythonProtectKey_Object = MibScalar
+tmnxPythonProtectKey = _TmnxPythonProtectKey_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 4),
+    _TmnxPythonProtectKey_Type()
+)
+tmnxPythonProtectKey.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPythonProtectKey.setStatus("current")
+_TmnxPythonProtectActionGo_Type = TmnxActionType
+_TmnxPythonProtectActionGo_Object = MibScalar
+tmnxPythonProtectActionGo = _TmnxPythonProtectActionGo_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 5),
+    _TmnxPythonProtectActionGo_Type()
+)
+tmnxPythonProtectActionGo.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxPythonProtectActionGo.setStatus("current")
+_TmnxPythonProtectActionSuccess_Type = TruthValue
+_TmnxPythonProtectActionSuccess_Object = MibScalar
+tmnxPythonProtectActionSuccess = _TmnxPythonProtectActionSuccess_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 6),
+    _TmnxPythonProtectActionSuccess_Type()
+)
+tmnxPythonProtectActionSuccess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonProtectActionSuccess.setStatus("current")
+_TmnxPythonProtectActionTime_Type = TimeStamp
+_TmnxPythonProtectActionTime_Object = MibScalar
+tmnxPythonProtectActionTime = _TmnxPythonProtectActionTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 9, 7),
+    _TmnxPythonProtectActionTime_Type()
+)
+tmnxPythonProtectActionTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonProtectActionTime.setStatus("current")
+_TmnxPythonScrStatsTable_Object = MibTable
+tmnxPythonScrStatsTable = _TmnxPythonScrStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10)
+)
+if mibBuilder.loadTexts:
+    tmnxPythonScrStatsTable.setStatus("current")
+_TmnxPythonScrStatsEntry_Object = MibTableRow
+tmnxPythonScrStatsEntry = _TmnxPythonScrStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1)
+)
+tmnxPythonScrStatsEntry.setIndexNames(
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPythonScriptName"),
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPythonScrStatsIsaGrpId"),
+    (0, "TIMETRA-CHASSIS-MIB", "tmnxChassisIndex"),
+    (0, "TIMETRA-CHASSIS-MIB", "tmnxCardSlotNum"),
+    (0, "TIMETRA-CHASSIS-MIB", "tmnxMDASlotNum"),
+)
+if mibBuilder.loadTexts:
+    tmnxPythonScrStatsEntry.setStatus("current")
+
+
+class _TmnxPythonScrStatsIsaGrpId_Type(Unsigned32):
+    """Custom type tmnxPythonScrStatsIsaGrpId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4),
+    )
+
+
+_TmnxPythonScrStatsIsaGrpId_Type.__name__ = "Unsigned32"
+_TmnxPythonScrStatsIsaGrpId_Object = MibTableColumn
+tmnxPythonScrStatsIsaGrpId = _TmnxPythonScrStatsIsaGrpId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1, 1),
+    _TmnxPythonScrStatsIsaGrpId_Type()
+)
+tmnxPythonScrStatsIsaGrpId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPythonScrStatsIsaGrpId.setStatus("current")
+_TmnxPythonScrStatsRunsSuccess_Type = Counter32
+_TmnxPythonScrStatsRunsSuccess_Object = MibTableColumn
+tmnxPythonScrStatsRunsSuccess = _TmnxPythonScrStatsRunsSuccess_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1, 2),
+    _TmnxPythonScrStatsRunsSuccess_Type()
+)
+tmnxPythonScrStatsRunsSuccess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScrStatsRunsSuccess.setStatus("current")
+_TmnxPythonScrStatsRunsFailed_Type = Counter32
+_TmnxPythonScrStatsRunsFailed_Object = MibTableColumn
+tmnxPythonScrStatsRunsFailed = _TmnxPythonScrStatsRunsFailed_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1, 3),
+    _TmnxPythonScrStatsRunsFailed_Type()
+)
+tmnxPythonScrStatsRunsFailed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScrStatsRunsFailed.setStatus("current")
+_TmnxPythonScrStatsRunsTimeout_Type = Counter32
+_TmnxPythonScrStatsRunsTimeout_Object = MibTableColumn
+tmnxPythonScrStatsRunsTimeout = _TmnxPythonScrStatsRunsTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1, 4),
+    _TmnxPythonScrStatsRunsTimeout_Type()
+)
+tmnxPythonScrStatsRunsTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScrStatsRunsTimeout.setStatus("current")
+_TmnxPythonScrStatsRunsRateLimit_Type = Counter32
+_TmnxPythonScrStatsRunsRateLimit_Object = MibTableColumn
+tmnxPythonScrStatsRunsRateLimit = _TmnxPythonScrStatsRunsRateLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 10, 1, 5),
+    _TmnxPythonScrStatsRunsRateLimit_Type()
+)
+tmnxPythonScrStatsRunsRateLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScrStatsRunsRateLimit.setStatus("current")
+_TmnxPythonScrVappStatsTable_Object = MibTable
+tmnxPythonScrVappStatsTable = _TmnxPythonScrVappStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11)
+)
+if mibBuilder.loadTexts:
+    tmnxPythonScrVappStatsTable.setStatus("current")
+_TmnxPythonScrVappStatsEntry_Object = MibTableRow
+tmnxPythonScrVappStatsEntry = _TmnxPythonScrVappStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1)
+)
+tmnxPythonScrVappStatsEntry.setIndexNames(
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPythonScriptName"),
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsIsaGrpId"),
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsEsaNum"),
+    (0, "TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsEsaVappNum"),
+)
+if mibBuilder.loadTexts:
+    tmnxPythonScrVappStatsEntry.setStatus("current")
+
+
+class _TmnxPythonScrVappStatsIsaGrpId_Type(Unsigned32):
+    """Custom type tmnxPythonScrVappStatsIsaGrpId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4),
+    )
+
+
+_TmnxPythonScrVappStatsIsaGrpId_Type.__name__ = "Unsigned32"
+_TmnxPythonScrVappStatsIsaGrpId_Object = MibTableColumn
+tmnxPythonScrVappStatsIsaGrpId = _TmnxPythonScrVappStatsIsaGrpId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 1),
+    _TmnxPythonScrVappStatsIsaGrpId_Type()
+)
+tmnxPythonScrVappStatsIsaGrpId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPythonScrVappStatsIsaGrpId.setStatus("current")
+
+
+class _TmnxPythonScrVappStatsEsaNum_Type(TmnxEsaNum):
+    """Custom type tmnxPythonScrVappStatsEsaNum based on TmnxEsaNum"""
+    subtypeSpec = TmnxEsaNum.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_TmnxPythonScrVappStatsEsaNum_Type.__name__ = "TmnxEsaNum"
+_TmnxPythonScrVappStatsEsaNum_Object = MibTableColumn
+tmnxPythonScrVappStatsEsaNum = _TmnxPythonScrVappStatsEsaNum_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 2),
+    _TmnxPythonScrVappStatsEsaNum_Type()
+)
+tmnxPythonScrVappStatsEsaNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPythonScrVappStatsEsaNum.setStatus("current")
+
+
+class _TmnxPythonScrVappStatsEsaVappNum_Type(TmnxEsaVappNum):
+    """Custom type tmnxPythonScrVappStatsEsaVappNum based on TmnxEsaVappNum"""
+    subtypeSpec = TmnxEsaVappNum.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4),
+    )
+
+
+_TmnxPythonScrVappStatsEsaVappNum_Type.__name__ = "TmnxEsaVappNum"
+_TmnxPythonScrVappStatsEsaVappNum_Object = MibTableColumn
+tmnxPythonScrVappStatsEsaVappNum = _TmnxPythonScrVappStatsEsaVappNum_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 3),
+    _TmnxPythonScrVappStatsEsaVappNum_Type()
+)
+tmnxPythonScrVappStatsEsaVappNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxPythonScrVappStatsEsaVappNum.setStatus("current")
+_TmnxPythonScrVappStatsRunSuccess_Type = Counter32
+_TmnxPythonScrVappStatsRunSuccess_Object = MibTableColumn
+tmnxPythonScrVappStatsRunSuccess = _TmnxPythonScrVappStatsRunSuccess_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 4),
+    _TmnxPythonScrVappStatsRunSuccess_Type()
+)
+tmnxPythonScrVappStatsRunSuccess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScrVappStatsRunSuccess.setStatus("current")
+_TmnxPythonScrVappStatsRunFailed_Type = Counter32
+_TmnxPythonScrVappStatsRunFailed_Object = MibTableColumn
+tmnxPythonScrVappStatsRunFailed = _TmnxPythonScrVappStatsRunFailed_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 5),
+    _TmnxPythonScrVappStatsRunFailed_Type()
+)
+tmnxPythonScrVappStatsRunFailed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScrVappStatsRunFailed.setStatus("current")
+_TmnxPythonScrVappStatsRunTimeout_Type = Counter32
+_TmnxPythonScrVappStatsRunTimeout_Object = MibTableColumn
+tmnxPythonScrVappStatsRunTimeout = _TmnxPythonScrVappStatsRunTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 6),
+    _TmnxPythonScrVappStatsRunTimeout_Type()
+)
+tmnxPythonScrVappStatsRunTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScrVappStatsRunTimeout.setStatus("current")
+_TmnxPythonScrVappStatsRunRateLmt_Type = Counter32
+_TmnxPythonScrVappStatsRunRateLmt_Object = MibTableColumn
+tmnxPythonScrVappStatsRunRateLmt = _TmnxPythonScrVappStatsRunRateLmt_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 1, 11, 1, 7),
+    _TmnxPythonScrVappStatsRunRateLmt_Type()
+)
+tmnxPythonScrVappStatsRunRateLmt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxPythonScrVappStatsRunRateLmt.setStatus("current")
+_TmnxPythonNotificationObjs_ObjectIdentity = ObjectIdentity
+tmnxPythonNotificationObjs = _TmnxPythonNotificationObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 2)
+)
+
+
+class _TmnxPythonNotifyString_Type(DisplayString):
+    """Custom type tmnxPythonNotifyString based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_TmnxPythonNotifyString_Type.__name__ = "DisplayString"
+_TmnxPythonNotifyString_Object = MibScalar
+tmnxPythonNotifyString = _TmnxPythonNotifyString_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 2, 1),
+    _TmnxPythonNotifyString_Type()
+)
+tmnxPythonNotifyString.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxPythonNotifyString.setStatus("current")
+
+
+class _TmnxPythonNotifyInterpreter_Type(DisplayString):
+    """Custom type tmnxPythonNotifyInterpreter based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_TmnxPythonNotifyInterpreter_Type.__name__ = "DisplayString"
+_TmnxPythonNotifyInterpreter_Object = MibScalar
+tmnxPythonNotifyInterpreter = _TmnxPythonNotifyInterpreter_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 87, 2, 2),
+    _TmnxPythonNotifyInterpreter_Type()
+)
+tmnxPythonNotifyInterpreter.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxPythonNotifyInterpreter.setStatus("current")
+_TmnxPythonNotifyPrefix_ObjectIdentity = ObjectIdentity
+tmnxPythonNotifyPrefix = _TmnxPythonNotifyPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 87)
+)
+_TmnxPythonNotifications_ObjectIdentity = ObjectIdentity
+tmnxPythonNotifications = _TmnxPythonNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 87, 0)
+)
+
+# Managed Objects groups
+
+tmnxPythonGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 2, 1)
+)
+tmnxPythonGroup.setObjects(
+      *(("TIMETRA-PYTHON-MIB", "tmnxPythonScriptTableLastCh"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptRowStatus"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptLastChanged"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptDescription"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptOnFail"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptProtection"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptProtectionKey"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptAdminState"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptOperState"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptPrimaryUrl"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptSecondaryUrl"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptTertiaryUrl"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptActiveUrl"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptReloadAction"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonPolicyTableLastCh"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyRowStatus"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyLastChanged"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyDescription"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonPolicyCacheTableLastCh"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheRowStatus"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheEntrySize"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheMaxEntries"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheMaxLifetime"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheAdminState"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheLastChanged"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCachePersistent"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheMinLifetimeMcs"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheMinLifetimeHa"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheMinLifetimePers"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyCacheNumberOfEntries"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectFileUrl"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectDestFileUrl"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectType"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectKey"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectActionGo"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectActionSuccess"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonProtectActionTime"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonPolicyMessageTblLstCh"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyMessageRowStatus"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyMessageLastChanged"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyMessagePyScript"))
+)
+if mibBuilder.loadTexts:
+    tmnxPythonGroup.setStatus("current")
+
+tmnxPythonIsaGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 2, 2)
+)
+tmnxPythonIsaGroup.setObjects(
+      *(("TIMETRA-PYTHON-MIB", "tmnxPyPlcyWlanGwGroup"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPyPlcyNatGroup"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptOperStateDistrib"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScriptCodeSize"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScrStatsRunsSuccess"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScrStatsRunsFailed"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScrStatsRunsTimeout"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScrStatsRunsRateLimit"))
+)
+if mibBuilder.loadTexts:
+    tmnxPythonIsaGroup.setStatus("current")
+
+tmnxPythonEsaV20v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 2, 4)
+)
+tmnxPythonEsaV20v0Group.setObjects(
+      *(("TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsRunSuccess"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsRunFailed"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsRunTimeout"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonScrVappStatsRunRateLmt"))
+)
+if mibBuilder.loadTexts:
+    tmnxPythonEsaV20v0Group.setStatus("current")
+
+tmnxPythonNotifyObjsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 2, 99)
+)
+tmnxPythonNotifyObjsGroup.setObjects(
+      *(("TIMETRA-PYTHON-MIB", "tmnxPythonNotifyString"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonNotifyInterpreter"))
+)
+if mibBuilder.loadTexts:
+    tmnxPythonNotifyObjsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tmnxPythonCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 1, 1)
+)
+tmnxPythonCompliance.setObjects(
+    ("TIMETRA-PYTHON-MIB", "tmnxPythonGroup")
+)
+if mibBuilder.loadTexts:
+    tmnxPythonCompliance.setStatus(
+        "obsolete"
+    )
+
+tmnxPythonV13v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 1, 2)
+)
+tmnxPythonV13v0Compliance.setObjects(
+    ("TIMETRA-PYTHON-MIB", "tmnxPythonGroup")
+)
+if mibBuilder.loadTexts:
+    tmnxPythonV13v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxPythonV14v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 1, 3)
+)
+tmnxPythonV14v0Compliance.setObjects(
+      *(("TIMETRA-PYTHON-MIB", "tmnxPythonGroup"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonIsaGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxPythonV14v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxPythonV20v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 87, 1, 4)
+)
+tmnxPythonV20v0Compliance.setObjects(
+      *(("TIMETRA-PYTHON-MIB", "tmnxPythonGroup"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonIsaGroup"),
+        ("TIMETRA-PYTHON-MIB", "tmnxPythonEsaV20v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxPythonV20v0Compliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TIMETRA-PYTHON-MIB",
+    **{"TmnxProtection": TmnxProtection,
+       "timetraPythonMIBModule": timetraPythonMIBModule,
+       "tmnxPythonConformance": tmnxPythonConformance,
+       "tmnxPythonCompliances": tmnxPythonCompliances,
+       "tmnxPythonCompliance": tmnxPythonCompliance,
+       "tmnxPythonV13v0Compliance": tmnxPythonV13v0Compliance,
+       "tmnxPythonV14v0Compliance": tmnxPythonV14v0Compliance,
+       "tmnxPythonV20v0Compliance": tmnxPythonV20v0Compliance,
+       "tmnxPythonGroups": tmnxPythonGroups,
+       "tmnxPythonGroup": tmnxPythonGroup,
+       "tmnxPythonIsaGroup": tmnxPythonIsaGroup,
+       "tmnxPythonEsaV20v0Group": tmnxPythonEsaV20v0Group,
+       "tmnxPythonNotifyObjsGroup": tmnxPythonNotifyObjsGroup,
+       "tmnxPythonNotifGroups": tmnxPythonNotifGroups,
+       "tmnxPython": tmnxPython,
+       "tmnxPythonObjs": tmnxPythonObjs,
+       "tmnxPythonScriptTableLastCh": tmnxPythonScriptTableLastCh,
+       "tmnxPythonScriptTable": tmnxPythonScriptTable,
+       "tmnxPythonScriptEntry": tmnxPythonScriptEntry,
+       "tmnxPythonScriptName": tmnxPythonScriptName,
+       "tmnxPythonScriptRowStatus": tmnxPythonScriptRowStatus,
+       "tmnxPythonScriptLastChanged": tmnxPythonScriptLastChanged,
+       "tmnxPythonScriptAdminState": tmnxPythonScriptAdminState,
+       "tmnxPythonScriptOperState": tmnxPythonScriptOperState,
+       "tmnxPythonScriptDescription": tmnxPythonScriptDescription,
+       "tmnxPythonScriptOnFail": tmnxPythonScriptOnFail,
+       "tmnxPythonScriptProtection": tmnxPythonScriptProtection,
+       "tmnxPythonScriptProtectionKey": tmnxPythonScriptProtectionKey,
+       "tmnxPythonScriptPrimaryUrl": tmnxPythonScriptPrimaryUrl,
+       "tmnxPythonScriptSecondaryUrl": tmnxPythonScriptSecondaryUrl,
+       "tmnxPythonScriptTertiaryUrl": tmnxPythonScriptTertiaryUrl,
+       "tmnxPythonScriptActiveUrl": tmnxPythonScriptActiveUrl,
+       "tmnxPythonScriptOperStateDistrib": tmnxPythonScriptOperStateDistrib,
+       "tmnxPythonScriptCodeSize": tmnxPythonScriptCodeSize,
+       "tmnxPythonScriptReloadAction": tmnxPythonScriptReloadAction,
+       "tmnxPythonPolicyTableLastCh": tmnxPythonPolicyTableLastCh,
+       "tmnxPythonPolicyTable": tmnxPythonPolicyTable,
+       "tmnxPythonPolicyEntry": tmnxPythonPolicyEntry,
+       "tmnxPyPlcyName": tmnxPyPlcyName,
+       "tmnxPyPlcyRowStatus": tmnxPyPlcyRowStatus,
+       "tmnxPyPlcyLastChanged": tmnxPyPlcyLastChanged,
+       "tmnxPyPlcyDescription": tmnxPyPlcyDescription,
+       "tmnxPyPlcyWlanGwGroup": tmnxPyPlcyWlanGwGroup,
+       "tmnxPyPlcyNatGroup": tmnxPyPlcyNatGroup,
+       "tmnxPythonPolicyCacheTableLastCh": tmnxPythonPolicyCacheTableLastCh,
+       "tmnxPythonPolicyCacheTable": tmnxPythonPolicyCacheTable,
+       "tmnxPythonPolicyCacheEntry": tmnxPythonPolicyCacheEntry,
+       "tmnxPyPlcyCacheRowStatus": tmnxPyPlcyCacheRowStatus,
+       "tmnxPyPlcyCacheEntrySize": tmnxPyPlcyCacheEntrySize,
+       "tmnxPyPlcyCacheMaxEntries": tmnxPyPlcyCacheMaxEntries,
+       "tmnxPyPlcyCacheMaxLifetime": tmnxPyPlcyCacheMaxLifetime,
+       "tmnxPyPlcyCacheAdminState": tmnxPyPlcyCacheAdminState,
+       "tmnxPyPlcyCacheLastChanged": tmnxPyPlcyCacheLastChanged,
+       "tmnxPyPlcyCachePersistent": tmnxPyPlcyCachePersistent,
+       "tmnxPyPlcyCacheMinLifetimeMcs": tmnxPyPlcyCacheMinLifetimeMcs,
+       "tmnxPyPlcyCacheMinLifetimeHa": tmnxPyPlcyCacheMinLifetimeHa,
+       "tmnxPyPlcyCacheMinLifetimePers": tmnxPyPlcyCacheMinLifetimePers,
+       "tmnxPyPlcyCacheNumberOfEntries": tmnxPyPlcyCacheNumberOfEntries,
+       "tmnxPythonPolicyMessageTblLstCh": tmnxPythonPolicyMessageTblLstCh,
+       "tmnxPythonPolicyMessageTable": tmnxPythonPolicyMessageTable,
+       "tmnxPythonPolicyMessageEntry": tmnxPythonPolicyMessageEntry,
+       "tmnxPyPlcyMessageType": tmnxPyPlcyMessageType,
+       "tmnxPyPlcyMessageDirection": tmnxPyPlcyMessageDirection,
+       "tmnxPyPlcyMessageRowStatus": tmnxPyPlcyMessageRowStatus,
+       "tmnxPyPlcyMessageLastChanged": tmnxPyPlcyMessageLastChanged,
+       "tmnxPyPlcyMessagePyScript": tmnxPyPlcyMessagePyScript,
+       "tmnxPythonProtectAction": tmnxPythonProtectAction,
+       "tmnxPythonProtectFileUrl": tmnxPythonProtectFileUrl,
+       "tmnxPythonProtectDestFileUrl": tmnxPythonProtectDestFileUrl,
+       "tmnxPythonProtectType": tmnxPythonProtectType,
+       "tmnxPythonProtectKey": tmnxPythonProtectKey,
+       "tmnxPythonProtectActionGo": tmnxPythonProtectActionGo,
+       "tmnxPythonProtectActionSuccess": tmnxPythonProtectActionSuccess,
+       "tmnxPythonProtectActionTime": tmnxPythonProtectActionTime,
+       "tmnxPythonScrStatsTable": tmnxPythonScrStatsTable,
+       "tmnxPythonScrStatsEntry": tmnxPythonScrStatsEntry,
+       "tmnxPythonScrStatsIsaGrpId": tmnxPythonScrStatsIsaGrpId,
+       "tmnxPythonScrStatsRunsSuccess": tmnxPythonScrStatsRunsSuccess,
+       "tmnxPythonScrStatsRunsFailed": tmnxPythonScrStatsRunsFailed,
+       "tmnxPythonScrStatsRunsTimeout": tmnxPythonScrStatsRunsTimeout,
+       "tmnxPythonScrStatsRunsRateLimit": tmnxPythonScrStatsRunsRateLimit,
+       "tmnxPythonScrVappStatsTable": tmnxPythonScrVappStatsTable,
+       "tmnxPythonScrVappStatsEntry": tmnxPythonScrVappStatsEntry,
+       "tmnxPythonScrVappStatsIsaGrpId": tmnxPythonScrVappStatsIsaGrpId,
+       "tmnxPythonScrVappStatsEsaNum": tmnxPythonScrVappStatsEsaNum,
+       "tmnxPythonScrVappStatsEsaVappNum": tmnxPythonScrVappStatsEsaVappNum,
+       "tmnxPythonScrVappStatsRunSuccess": tmnxPythonScrVappStatsRunSuccess,
+       "tmnxPythonScrVappStatsRunFailed": tmnxPythonScrVappStatsRunFailed,
+       "tmnxPythonScrVappStatsRunTimeout": tmnxPythonScrVappStatsRunTimeout,
+       "tmnxPythonScrVappStatsRunRateLmt": tmnxPythonScrVappStatsRunRateLmt,
+       "tmnxPythonNotificationObjs": tmnxPythonNotificationObjs,
+       "tmnxPythonNotifyString": tmnxPythonNotifyString,
+       "tmnxPythonNotifyInterpreter": tmnxPythonNotifyInterpreter,
+       "tmnxPythonNotifyPrefix": tmnxPythonNotifyPrefix,
+       "tmnxPythonNotifications": tmnxPythonNotifications}
+)

@@ -1,187 +1,993 @@
+# SNMP MIB module (ELTEX-MES-QOS-TAIL-DROP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ELTEX-MES-QOS-TAIL-DROP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eltex/ELTEX-MES-QOS-TAIL-DROP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:06 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/eltex/ELTEX-MES-QOS-TAIL-DROP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:50:34 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-eltMes, eltMesQosTailDropMib = mibBuilder.importSymbols("ELTEX-MES", "eltMes", "eltMesQosTailDropMib")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-eltMesQosTailDropMibMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1))
-eltMesQosTailDropConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1))
-eltMesQosTailDropStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2))
-eltQosTailDropProfileQueueTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1), )
-if mibBuilder.loadTexts: eltQosTailDropProfileQueueTable.setStatus('current')
-eltQosTailDropProfileQueueEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1, 1), ).setIndexNames((0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropProfileIndex"), (0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropProfileQueueIndex"))
-if mibBuilder.loadTexts: eltQosTailDropProfileQueueEntry.setStatus('current')
-eltQosTailDropProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: eltQosTailDropProfileIndex.setStatus('current')
-eltQosTailDropProfileQueueIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1, 1, 2), Integer32())
-if mibBuilder.loadTexts: eltQosTailDropProfileQueueIndex.setStatus('current')
-eltQosTailDropProfileQueueSharedPoolUsage = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1, 1, 3), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltQosTailDropProfileQueueSharedPoolUsage.setStatus('current')
-eltQosTailDropProfileQueueLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltQosTailDropProfileQueueLimit.setStatus('current')
-eltQosTailDropIfConfigTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 2), )
-if mibBuilder.loadTexts: eltQosTailDropIfConfigTable.setStatus('current')
-eltQosTailDropIfConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: eltQosTailDropIfConfigEntry.setStatus('current')
-eltQosTailDropIfProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 2, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltQosTailDropIfProfileIndex.setStatus('current')
-eltQosTailDropConfigTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3), )
-if mibBuilder.loadTexts: eltQosTailDropConfigTable.setStatus('current')
-eltQosTailDropConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1), ).setIndexNames((0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropConfigUnitId"))
-if mibBuilder.loadTexts: eltQosTailDropConfigEntry.setStatus('current')
-eltQosTailDropConfigUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigUnitId.setStatus('current')
-eltQosTailDropConfigPhysicalBuffersLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigPhysicalBuffersLimit.setStatus('current')
-eltQosTailDropConfigTotalDescriptorsLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigTotalDescriptorsLimit.setStatus('current')
-eltQosTailDropConfigTotalBuffersLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigTotalBuffersLimit.setStatus('current')
-eltQosTailDropConfigMCDescriptorsLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigMCDescriptorsLimit.setStatus('current')
-eltQosTailDropConfigMCBuffersLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigMCBuffersLimit.setStatus('current')
-eltQosTailDropConfigSharedDescriptorsLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedDescriptorsLimit.setStatus('current')
-eltQosTailDropConfigSharedBuffersLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedBuffersLimit.setStatus('current')
-eltQosTailDropConfigMirrorRxDescriptorsLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigMirrorRxDescriptorsLimit.setStatus('current')
-eltQosTailDropConfigMirrorTxDescriptorsLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigMirrorTxDescriptorsLimit.setStatus('current')
-eltQosTailDropConfigSharedDescriptorsLimit2 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedDescriptorsLimit2.setStatus('current')
-eltQosTailDropConfigSharedBuffersLimit2 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedBuffersLimit2.setStatus('current')
-eltQosTailDropConfigSharedDescriptorsLimit3 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedDescriptorsLimit3.setStatus('current')
-eltQosTailDropConfigSharedBuffersLimit3 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedBuffersLimit3.setStatus('current')
-eltQosTailDropConfigSharedDescriptorsLimit4 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedDescriptorsLimit4.setStatus('current')
-eltQosTailDropConfigSharedBuffersLimit4 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 16), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedBuffersLimit4.setStatus('current')
-eltQosTailDropConfigSharedDescriptorsLimit5 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 17), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedDescriptorsLimit5.setStatus('current')
-eltQosTailDropConfigSharedBuffersLimit5 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 18), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedBuffersLimit5.setStatus('current')
-eltQosTailDropConfigSharedDescriptorsLimit6 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 19), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedDescriptorsLimit6.setStatus('current')
-eltQosTailDropConfigSharedBuffersLimit6 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 20), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedBuffersLimit6.setStatus('current')
-eltQosTailDropConfigSharedDescriptorsLimit7 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 21), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedDescriptorsLimit7.setStatus('current')
-eltQosTailDropConfigSharedBuffersLimit7 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 22), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedBuffersLimit7.setStatus('current')
-eltQosTailDropConfigSharedDescriptorsLimit8 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 23), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedDescriptorsLimit8.setStatus('current')
-eltQosTailDropConfigSharedBuffersLimit8 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 24), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropConfigSharedBuffersLimit8.setStatus('current')
-eltQosTailDropProfileTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 4), )
-if mibBuilder.loadTexts: eltQosTailDropProfileTable.setStatus('current')
-eltQosTailDropProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 4, 1), ).setIndexNames((0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropProfile"))
-if mibBuilder.loadTexts: eltQosTailDropProfileEntry.setStatus('current')
-eltQosTailDropProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 4, 1, 1), Integer32())
-if mibBuilder.loadTexts: eltQosTailDropProfile.setStatus('current')
-eltQosTailDropProfilePortLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 4, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltQosTailDropProfilePortLimit.setStatus('current')
-eltQosTailDropMirrorRxDescriptorsLimit = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltQosTailDropMirrorRxDescriptorsLimit.setStatus('current')
-eltQosTailDropMirrorTxDescriptorsLimit = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltQosTailDropMirrorTxDescriptorsLimit.setStatus('current')
-eltQosTailDropStatusTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1), )
-if mibBuilder.loadTexts: eltQosTailDropStatusTable.setStatus('current')
-eltQosTailDropStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1), ).setIndexNames((0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropStatusUnitId"))
-if mibBuilder.loadTexts: eltQosTailDropStatusEntry.setStatus('current')
-eltQosTailDropStatusUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusUnitId.setStatus('current')
-eltQosTailDropStatusPhysicalBuffersEnqueuedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusPhysicalBuffersEnqueuedCounter.setStatus('current')
-eltQosTailDropStatusTotalDescriptorsEnqueuedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusTotalDescriptorsEnqueuedCounter.setStatus('current')
-eltQosTailDropStatusTotalBuffersEnqueuedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusTotalBuffersEnqueuedCounter.setStatus('current')
-eltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter.setStatus('current')
-eltQosTailDropStatusTotalMCBuffersEnqueuedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusTotalMCBuffersEnqueuedCounter.setStatus('current')
-eltQosTailDropStatusSharedDescriptorsEnqueuedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedDescriptorsEnqueuedCounter.setStatus('current')
-eltQosTailDropStatusSharedBuffersEnqueuedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedBuffersEnqueuedCounter.setStatus('current')
-eltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter.setStatus('current')
-eltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter.setStatus('current')
-eltQosTailDropStatusSharedDescriptorsEnqueuedCounter2 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedDescriptorsEnqueuedCounter2.setStatus('current')
-eltQosTailDropStatusSharedBuffersEnqueuedCounter2 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedBuffersEnqueuedCounter2.setStatus('current')
-eltQosTailDropStatusSharedDescriptorsEnqueuedCounter3 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedDescriptorsEnqueuedCounter3.setStatus('current')
-eltQosTailDropStatusSharedBuffersEnqueuedCounter3 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedBuffersEnqueuedCounter3.setStatus('current')
-eltQosTailDropStatusSharedDescriptorsEnqueuedCounter4 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedDescriptorsEnqueuedCounter4.setStatus('current')
-eltQosTailDropStatusSharedBuffersEnqueuedCounter4 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 16), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedBuffersEnqueuedCounter4.setStatus('current')
-eltQosTailDropStatusSharedDescriptorsEnqueuedCounter5 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 17), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedDescriptorsEnqueuedCounter5.setStatus('current')
-eltQosTailDropStatusSharedBuffersEnqueuedCounter5 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 18), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedBuffersEnqueuedCounter5.setStatus('current')
-eltQosTailDropStatusSharedDescriptorsEnqueuedCounter6 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 19), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedDescriptorsEnqueuedCounter6.setStatus('current')
-eltQosTailDropStatusSharedBuffersEnqueuedCounter6 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 20), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedBuffersEnqueuedCounter6.setStatus('current')
-eltQosTailDropStatusSharedDescriptorsEnqueuedCounter7 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 21), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedDescriptorsEnqueuedCounter7.setStatus('current')
-eltQosTailDropStatusSharedBuffersEnqueuedCounter7 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 22), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedBuffersEnqueuedCounter7.setStatus('current')
-eltQosTailDropStatusSharedDescriptorsEnqueuedCounter8 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 23), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedDescriptorsEnqueuedCounter8.setStatus('current')
-eltQosTailDropStatusSharedBuffersEnqueuedCounter8 = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 24), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropStatusSharedBuffersEnqueuedCounter8.setStatus('current')
-eltQosTailDropIfStatusTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2), )
-if mibBuilder.loadTexts: eltQosTailDropIfStatusTable.setStatus('current')
-eltQosTailDropIfStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: eltQosTailDropIfStatusEntry.setStatus('current')
-eltQosTailDropIfStatusEnqueuedDescriptorsCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfStatusEnqueuedDescriptorsCounter.setStatus('current')
-eltQosTailDropIfStatusEnqueuedBuffersCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfStatusEnqueuedBuffersCounter.setStatus('current')
-eltQosTailDropIfStatusDescriptorsLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfStatusDescriptorsLimit.setStatus('current')
-eltQosTailDropIfStatusBuffersLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfStatusBuffersLimit.setStatus('current')
-eltQosTailDropIfQueueStatusTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3), )
-if mibBuilder.loadTexts: eltQosTailDropIfQueueStatusTable.setStatus('current')
-eltQosTailDropIfQueueStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropIfQueueStatusQueueIndex"))
-if mibBuilder.loadTexts: eltQosTailDropIfQueueStatusEntry.setStatus('current')
-eltQosTailDropIfQueueStatusQueueIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltQosTailDropIfQueueStatusQueueIndex.setStatus('current')
-eltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter.setStatus('current')
-eltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter.setStatus('current')
-eltQosTailDropIfQueueStatusDP0BuffersLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfQueueStatusDP0BuffersLimit.setStatus('current')
-eltQosTailDropIfQueueStatusDP1BuffersLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfQueueStatusDP1BuffersLimit.setStatus('current')
-eltQosTailDropIfQueueStatusDP2BuffersLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfQueueStatusDP2BuffersLimit.setStatus('current')
-eltQosTailDropIfQueueStatusDP0DescriptorsLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfQueueStatusDP0DescriptorsLimit.setStatus('current')
-eltQosTailDropIfQueueStatusDP1DescriptorsLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfQueueStatusDP1DescriptorsLimit.setStatus('current')
-eltQosTailDropIfQueueStatusDP2DescriptorsLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eltQosTailDropIfQueueStatusDP2DescriptorsLimit.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-MES-QOS-TAIL-DROP-MIB", eltQosTailDropIfStatusDescriptorsLimit=eltQosTailDropIfStatusDescriptorsLimit, eltQosTailDropIfStatusBuffersLimit=eltQosTailDropIfStatusBuffersLimit, eltQosTailDropConfigMCBuffersLimit=eltQosTailDropConfigMCBuffersLimit, eltQosTailDropStatusSharedBuffersEnqueuedCounter4=eltQosTailDropStatusSharedBuffersEnqueuedCounter4, eltQosTailDropConfigEntry=eltQosTailDropConfigEntry, eltQosTailDropProfileIndex=eltQosTailDropProfileIndex, eltQosTailDropConfigSharedBuffersLimit7=eltQosTailDropConfigSharedBuffersLimit7, eltQosTailDropIfStatusEnqueuedDescriptorsCounter=eltQosTailDropIfStatusEnqueuedDescriptorsCounter, eltQosTailDropStatusSharedDescriptorsEnqueuedCounter7=eltQosTailDropStatusSharedDescriptorsEnqueuedCounter7, eltMesQosTailDropStatus=eltMesQosTailDropStatus, eltQosTailDropProfilePortLimit=eltQosTailDropProfilePortLimit, eltQosTailDropConfigMirrorTxDescriptorsLimit=eltQosTailDropConfigMirrorTxDescriptorsLimit, eltQosTailDropIfConfigTable=eltQosTailDropIfConfigTable, eltQosTailDropConfigPhysicalBuffersLimit=eltQosTailDropConfigPhysicalBuffersLimit, eltQosTailDropIfQueueStatusDP1DescriptorsLimit=eltQosTailDropIfQueueStatusDP1DescriptorsLimit, eltQosTailDropConfigSharedDescriptorsLimit7=eltQosTailDropConfigSharedDescriptorsLimit7, eltQosTailDropStatusSharedDescriptorsEnqueuedCounter3=eltQosTailDropStatusSharedDescriptorsEnqueuedCounter3, eltQosTailDropStatusSharedDescriptorsEnqueuedCounter2=eltQosTailDropStatusSharedDescriptorsEnqueuedCounter2, eltQosTailDropStatusEntry=eltQosTailDropStatusEntry, eltQosTailDropStatusSharedBuffersEnqueuedCounter=eltQosTailDropStatusSharedBuffersEnqueuedCounter, eltQosTailDropConfigMCDescriptorsLimit=eltQosTailDropConfigMCDescriptorsLimit, eltQosTailDropIfQueueStatusDP0DescriptorsLimit=eltQosTailDropIfQueueStatusDP0DescriptorsLimit, eltQosTailDropStatusSharedBuffersEnqueuedCounter6=eltQosTailDropStatusSharedBuffersEnqueuedCounter6, eltQosTailDropStatusSharedDescriptorsEnqueuedCounter5=eltQosTailDropStatusSharedDescriptorsEnqueuedCounter5, eltQosTailDropProfileEntry=eltQosTailDropProfileEntry, eltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter=eltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter, eltQosTailDropConfigMirrorRxDescriptorsLimit=eltQosTailDropConfigMirrorRxDescriptorsLimit, eltQosTailDropStatusPhysicalBuffersEnqueuedCounter=eltQosTailDropStatusPhysicalBuffersEnqueuedCounter, eltQosTailDropConfigTable=eltQosTailDropConfigTable, eltQosTailDropConfigSharedBuffersLimit2=eltQosTailDropConfigSharedBuffersLimit2, eltQosTailDropConfigTotalBuffersLimit=eltQosTailDropConfigTotalBuffersLimit, eltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter=eltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter, eltQosTailDropProfileQueueSharedPoolUsage=eltQosTailDropProfileQueueSharedPoolUsage, eltMesQosTailDropConfig=eltMesQosTailDropConfig, eltQosTailDropIfQueueStatusQueueIndex=eltQosTailDropIfQueueStatusQueueIndex, eltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter=eltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter, eltQosTailDropStatusSharedBuffersEnqueuedCounter7=eltQosTailDropStatusSharedBuffersEnqueuedCounter7, eltQosTailDropConfigSharedDescriptorsLimit=eltQosTailDropConfigSharedDescriptorsLimit, eltQosTailDropConfigSharedDescriptorsLimit3=eltQosTailDropConfigSharedDescriptorsLimit3, eltQosTailDropProfileQueueTable=eltQosTailDropProfileQueueTable, eltQosTailDropConfigSharedBuffersLimit3=eltQosTailDropConfigSharedBuffersLimit3, eltQosTailDropConfigSharedDescriptorsLimit6=eltQosTailDropConfigSharedDescriptorsLimit6, eltQosTailDropMirrorRxDescriptorsLimit=eltQosTailDropMirrorRxDescriptorsLimit, eltQosTailDropConfigSharedDescriptorsLimit2=eltQosTailDropConfigSharedDescriptorsLimit2, eltQosTailDropProfileTable=eltQosTailDropProfileTable, eltQosTailDropIfStatusEntry=eltQosTailDropIfStatusEntry, eltQosTailDropStatusTotalBuffersEnqueuedCounter=eltQosTailDropStatusTotalBuffersEnqueuedCounter, eltQosTailDropStatusSharedDescriptorsEnqueuedCounter=eltQosTailDropStatusSharedDescriptorsEnqueuedCounter, eltQosTailDropStatusTotalDescriptorsEnqueuedCounter=eltQosTailDropStatusTotalDescriptorsEnqueuedCounter, eltQosTailDropIfQueueStatusTable=eltQosTailDropIfQueueStatusTable, eltQosTailDropStatusSharedBuffersEnqueuedCounter2=eltQosTailDropStatusSharedBuffersEnqueuedCounter2, eltQosTailDropConfigTotalDescriptorsLimit=eltQosTailDropConfigTotalDescriptorsLimit, eltQosTailDropProfileQueueLimit=eltQosTailDropProfileQueueLimit, eltQosTailDropProfile=eltQosTailDropProfile, eltQosTailDropConfigSharedDescriptorsLimit5=eltQosTailDropConfigSharedDescriptorsLimit5, eltQosTailDropStatusUnitId=eltQosTailDropStatusUnitId, eltQosTailDropIfQueueStatusDP2BuffersLimit=eltQosTailDropIfQueueStatusDP2BuffersLimit, eltQosTailDropConfigSharedDescriptorsLimit4=eltQosTailDropConfigSharedDescriptorsLimit4, eltQosTailDropConfigUnitId=eltQosTailDropConfigUnitId, eltQosTailDropStatusSharedBuffersEnqueuedCounter3=eltQosTailDropStatusSharedBuffersEnqueuedCounter3, eltQosTailDropConfigSharedBuffersLimit=eltQosTailDropConfigSharedBuffersLimit, eltQosTailDropProfileQueueIndex=eltQosTailDropProfileQueueIndex, eltQosTailDropConfigSharedBuffersLimit4=eltQosTailDropConfigSharedBuffersLimit4, eltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter=eltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter, eltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter=eltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter, eltQosTailDropIfQueueStatusDP1BuffersLimit=eltQosTailDropIfQueueStatusDP1BuffersLimit, eltQosTailDropIfQueueStatusDP2DescriptorsLimit=eltQosTailDropIfQueueStatusDP2DescriptorsLimit, eltQosTailDropStatusTable=eltQosTailDropStatusTable, eltQosTailDropStatusSharedBuffersEnqueuedCounter8=eltQosTailDropStatusSharedBuffersEnqueuedCounter8, eltQosTailDropIfQueueStatusDP0BuffersLimit=eltQosTailDropIfQueueStatusDP0BuffersLimit, eltQosTailDropConfigSharedBuffersLimit8=eltQosTailDropConfigSharedBuffersLimit8, eltQosTailDropStatusSharedDescriptorsEnqueuedCounter4=eltQosTailDropStatusSharedDescriptorsEnqueuedCounter4, eltQosTailDropIfStatusTable=eltQosTailDropIfStatusTable, eltQosTailDropMirrorTxDescriptorsLimit=eltQosTailDropMirrorTxDescriptorsLimit, eltQosTailDropIfStatusEnqueuedBuffersCounter=eltQosTailDropIfStatusEnqueuedBuffersCounter, eltMesQosTailDropMibMIBObjects=eltMesQosTailDropMibMIBObjects, eltQosTailDropIfProfileIndex=eltQosTailDropIfProfileIndex, eltQosTailDropStatusSharedDescriptorsEnqueuedCounter6=eltQosTailDropStatusSharedDescriptorsEnqueuedCounter6, eltQosTailDropConfigSharedBuffersLimit5=eltQosTailDropConfigSharedBuffersLimit5, eltQosTailDropStatusSharedDescriptorsEnqueuedCounter8=eltQosTailDropStatusSharedDescriptorsEnqueuedCounter8, eltQosTailDropIfConfigEntry=eltQosTailDropIfConfigEntry, eltQosTailDropConfigSharedBuffersLimit6=eltQosTailDropConfigSharedBuffersLimit6, eltQosTailDropConfigSharedDescriptorsLimit8=eltQosTailDropConfigSharedDescriptorsLimit8, eltQosTailDropStatusSharedBuffersEnqueuedCounter5=eltQosTailDropStatusSharedBuffersEnqueuedCounter5, eltQosTailDropIfQueueStatusEntry=eltQosTailDropIfQueueStatusEntry, eltQosTailDropStatusTotalMCBuffersEnqueuedCounter=eltQosTailDropStatusTotalMCBuffersEnqueuedCounter, eltQosTailDropProfileQueueEntry=eltQosTailDropProfileQueueEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(eltMes,
+ eltMesQosTailDropMib) = mibBuilder.importSymbols(
+    "ELTEX-MES",
+    "eltMes",
+    "eltMesQosTailDropMib")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EltMesQosTailDropMibMIBObjects_ObjectIdentity = ObjectIdentity
+eltMesQosTailDropMibMIBObjects = _EltMesQosTailDropMibMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1)
+)
+_EltMesQosTailDropConfig_ObjectIdentity = ObjectIdentity
+eltMesQosTailDropConfig = _EltMesQosTailDropConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1)
+)
+_EltQosTailDropProfileQueueTable_Object = MibTable
+eltQosTailDropProfileQueueTable = _EltQosTailDropProfileQueueTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropProfileQueueTable.setStatus("current")
+_EltQosTailDropProfileQueueEntry_Object = MibTableRow
+eltQosTailDropProfileQueueEntry = _EltQosTailDropProfileQueueEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1, 1)
+)
+eltQosTailDropProfileQueueEntry.setIndexNames(
+    (0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropProfileIndex"),
+    (0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropProfileQueueIndex"),
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropProfileQueueEntry.setStatus("current")
+_EltQosTailDropProfileIndex_Type = Integer32
+_EltQosTailDropProfileIndex_Object = MibTableColumn
+eltQosTailDropProfileIndex = _EltQosTailDropProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1, 1, 1),
+    _EltQosTailDropProfileIndex_Type()
+)
+eltQosTailDropProfileIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    eltQosTailDropProfileIndex.setStatus("current")
+_EltQosTailDropProfileQueueIndex_Type = Integer32
+_EltQosTailDropProfileQueueIndex_Object = MibTableColumn
+eltQosTailDropProfileQueueIndex = _EltQosTailDropProfileQueueIndex_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1, 1, 2),
+    _EltQosTailDropProfileQueueIndex_Type()
+)
+eltQosTailDropProfileQueueIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    eltQosTailDropProfileQueueIndex.setStatus("current")
+
+
+class _EltQosTailDropProfileQueueSharedPoolUsage_Type(TruthValue):
+    """Custom type eltQosTailDropProfileQueueSharedPoolUsage based on TruthValue"""
+    defaultValue = 1
+
+
+_EltQosTailDropProfileQueueSharedPoolUsage_Type.__name__ = "TruthValue"
+_EltQosTailDropProfileQueueSharedPoolUsage_Object = MibTableColumn
+eltQosTailDropProfileQueueSharedPoolUsage = _EltQosTailDropProfileQueueSharedPoolUsage_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1, 1, 3),
+    _EltQosTailDropProfileQueueSharedPoolUsage_Type()
+)
+eltQosTailDropProfileQueueSharedPoolUsage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltQosTailDropProfileQueueSharedPoolUsage.setStatus("current")
+_EltQosTailDropProfileQueueLimit_Type = Integer32
+_EltQosTailDropProfileQueueLimit_Object = MibTableColumn
+eltQosTailDropProfileQueueLimit = _EltQosTailDropProfileQueueLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 1, 1, 4),
+    _EltQosTailDropProfileQueueLimit_Type()
+)
+eltQosTailDropProfileQueueLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltQosTailDropProfileQueueLimit.setStatus("current")
+_EltQosTailDropIfConfigTable_Object = MibTable
+eltQosTailDropIfConfigTable = _EltQosTailDropIfConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropIfConfigTable.setStatus("current")
+_EltQosTailDropIfConfigEntry_Object = MibTableRow
+eltQosTailDropIfConfigEntry = _EltQosTailDropIfConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 2, 1)
+)
+eltQosTailDropIfConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropIfConfigEntry.setStatus("current")
+
+
+class _EltQosTailDropIfProfileIndex_Type(Integer32):
+    """Custom type eltQosTailDropIfProfileIndex based on Integer32"""
+    defaultValue = 0
+
+
+_EltQosTailDropIfProfileIndex_Type.__name__ = "Integer32"
+_EltQosTailDropIfProfileIndex_Object = MibTableColumn
+eltQosTailDropIfProfileIndex = _EltQosTailDropIfProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 2, 1, 1),
+    _EltQosTailDropIfProfileIndex_Type()
+)
+eltQosTailDropIfProfileIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfProfileIndex.setStatus("current")
+_EltQosTailDropConfigTable_Object = MibTable
+eltQosTailDropConfigTable = _EltQosTailDropConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigTable.setStatus("current")
+_EltQosTailDropConfigEntry_Object = MibTableRow
+eltQosTailDropConfigEntry = _EltQosTailDropConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1)
+)
+eltQosTailDropConfigEntry.setIndexNames(
+    (0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropConfigUnitId"),
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigEntry.setStatus("current")
+_EltQosTailDropConfigUnitId_Type = Integer32
+_EltQosTailDropConfigUnitId_Object = MibTableColumn
+eltQosTailDropConfigUnitId = _EltQosTailDropConfigUnitId_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 1),
+    _EltQosTailDropConfigUnitId_Type()
+)
+eltQosTailDropConfigUnitId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigUnitId.setStatus("current")
+_EltQosTailDropConfigPhysicalBuffersLimit_Type = Integer32
+_EltQosTailDropConfigPhysicalBuffersLimit_Object = MibTableColumn
+eltQosTailDropConfigPhysicalBuffersLimit = _EltQosTailDropConfigPhysicalBuffersLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 2),
+    _EltQosTailDropConfigPhysicalBuffersLimit_Type()
+)
+eltQosTailDropConfigPhysicalBuffersLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigPhysicalBuffersLimit.setStatus("current")
+_EltQosTailDropConfigTotalDescriptorsLimit_Type = Integer32
+_EltQosTailDropConfigTotalDescriptorsLimit_Object = MibTableColumn
+eltQosTailDropConfigTotalDescriptorsLimit = _EltQosTailDropConfigTotalDescriptorsLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 3),
+    _EltQosTailDropConfigTotalDescriptorsLimit_Type()
+)
+eltQosTailDropConfigTotalDescriptorsLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigTotalDescriptorsLimit.setStatus("current")
+_EltQosTailDropConfigTotalBuffersLimit_Type = Integer32
+_EltQosTailDropConfigTotalBuffersLimit_Object = MibTableColumn
+eltQosTailDropConfigTotalBuffersLimit = _EltQosTailDropConfigTotalBuffersLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 4),
+    _EltQosTailDropConfigTotalBuffersLimit_Type()
+)
+eltQosTailDropConfigTotalBuffersLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigTotalBuffersLimit.setStatus("current")
+_EltQosTailDropConfigMCDescriptorsLimit_Type = Integer32
+_EltQosTailDropConfigMCDescriptorsLimit_Object = MibTableColumn
+eltQosTailDropConfigMCDescriptorsLimit = _EltQosTailDropConfigMCDescriptorsLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 5),
+    _EltQosTailDropConfigMCDescriptorsLimit_Type()
+)
+eltQosTailDropConfigMCDescriptorsLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigMCDescriptorsLimit.setStatus("current")
+_EltQosTailDropConfigMCBuffersLimit_Type = Integer32
+_EltQosTailDropConfigMCBuffersLimit_Object = MibTableColumn
+eltQosTailDropConfigMCBuffersLimit = _EltQosTailDropConfigMCBuffersLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 6),
+    _EltQosTailDropConfigMCBuffersLimit_Type()
+)
+eltQosTailDropConfigMCBuffersLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigMCBuffersLimit.setStatus("current")
+_EltQosTailDropConfigSharedDescriptorsLimit_Type = Integer32
+_EltQosTailDropConfigSharedDescriptorsLimit_Object = MibTableColumn
+eltQosTailDropConfigSharedDescriptorsLimit = _EltQosTailDropConfigSharedDescriptorsLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 7),
+    _EltQosTailDropConfigSharedDescriptorsLimit_Type()
+)
+eltQosTailDropConfigSharedDescriptorsLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedDescriptorsLimit.setStatus("current")
+_EltQosTailDropConfigSharedBuffersLimit_Type = Integer32
+_EltQosTailDropConfigSharedBuffersLimit_Object = MibTableColumn
+eltQosTailDropConfigSharedBuffersLimit = _EltQosTailDropConfigSharedBuffersLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 8),
+    _EltQosTailDropConfigSharedBuffersLimit_Type()
+)
+eltQosTailDropConfigSharedBuffersLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedBuffersLimit.setStatus("current")
+_EltQosTailDropConfigMirrorRxDescriptorsLimit_Type = Integer32
+_EltQosTailDropConfigMirrorRxDescriptorsLimit_Object = MibTableColumn
+eltQosTailDropConfigMirrorRxDescriptorsLimit = _EltQosTailDropConfigMirrorRxDescriptorsLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 9),
+    _EltQosTailDropConfigMirrorRxDescriptorsLimit_Type()
+)
+eltQosTailDropConfigMirrorRxDescriptorsLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigMirrorRxDescriptorsLimit.setStatus("current")
+_EltQosTailDropConfigMirrorTxDescriptorsLimit_Type = Integer32
+_EltQosTailDropConfigMirrorTxDescriptorsLimit_Object = MibTableColumn
+eltQosTailDropConfigMirrorTxDescriptorsLimit = _EltQosTailDropConfigMirrorTxDescriptorsLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 10),
+    _EltQosTailDropConfigMirrorTxDescriptorsLimit_Type()
+)
+eltQosTailDropConfigMirrorTxDescriptorsLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigMirrorTxDescriptorsLimit.setStatus("current")
+_EltQosTailDropConfigSharedDescriptorsLimit2_Type = Integer32
+_EltQosTailDropConfigSharedDescriptorsLimit2_Object = MibTableColumn
+eltQosTailDropConfigSharedDescriptorsLimit2 = _EltQosTailDropConfigSharedDescriptorsLimit2_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 11),
+    _EltQosTailDropConfigSharedDescriptorsLimit2_Type()
+)
+eltQosTailDropConfigSharedDescriptorsLimit2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedDescriptorsLimit2.setStatus("current")
+_EltQosTailDropConfigSharedBuffersLimit2_Type = Integer32
+_EltQosTailDropConfigSharedBuffersLimit2_Object = MibTableColumn
+eltQosTailDropConfigSharedBuffersLimit2 = _EltQosTailDropConfigSharedBuffersLimit2_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 12),
+    _EltQosTailDropConfigSharedBuffersLimit2_Type()
+)
+eltQosTailDropConfigSharedBuffersLimit2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedBuffersLimit2.setStatus("current")
+_EltQosTailDropConfigSharedDescriptorsLimit3_Type = Integer32
+_EltQosTailDropConfigSharedDescriptorsLimit3_Object = MibTableColumn
+eltQosTailDropConfigSharedDescriptorsLimit3 = _EltQosTailDropConfigSharedDescriptorsLimit3_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 13),
+    _EltQosTailDropConfigSharedDescriptorsLimit3_Type()
+)
+eltQosTailDropConfigSharedDescriptorsLimit3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedDescriptorsLimit3.setStatus("current")
+_EltQosTailDropConfigSharedBuffersLimit3_Type = Integer32
+_EltQosTailDropConfigSharedBuffersLimit3_Object = MibTableColumn
+eltQosTailDropConfigSharedBuffersLimit3 = _EltQosTailDropConfigSharedBuffersLimit3_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 14),
+    _EltQosTailDropConfigSharedBuffersLimit3_Type()
+)
+eltQosTailDropConfigSharedBuffersLimit3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedBuffersLimit3.setStatus("current")
+_EltQosTailDropConfigSharedDescriptorsLimit4_Type = Integer32
+_EltQosTailDropConfigSharedDescriptorsLimit4_Object = MibTableColumn
+eltQosTailDropConfigSharedDescriptorsLimit4 = _EltQosTailDropConfigSharedDescriptorsLimit4_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 15),
+    _EltQosTailDropConfigSharedDescriptorsLimit4_Type()
+)
+eltQosTailDropConfigSharedDescriptorsLimit4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedDescriptorsLimit4.setStatus("current")
+_EltQosTailDropConfigSharedBuffersLimit4_Type = Integer32
+_EltQosTailDropConfigSharedBuffersLimit4_Object = MibTableColumn
+eltQosTailDropConfigSharedBuffersLimit4 = _EltQosTailDropConfigSharedBuffersLimit4_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 16),
+    _EltQosTailDropConfigSharedBuffersLimit4_Type()
+)
+eltQosTailDropConfigSharedBuffersLimit4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedBuffersLimit4.setStatus("current")
+_EltQosTailDropConfigSharedDescriptorsLimit5_Type = Integer32
+_EltQosTailDropConfigSharedDescriptorsLimit5_Object = MibTableColumn
+eltQosTailDropConfigSharedDescriptorsLimit5 = _EltQosTailDropConfigSharedDescriptorsLimit5_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 17),
+    _EltQosTailDropConfigSharedDescriptorsLimit5_Type()
+)
+eltQosTailDropConfigSharedDescriptorsLimit5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedDescriptorsLimit5.setStatus("current")
+_EltQosTailDropConfigSharedBuffersLimit5_Type = Integer32
+_EltQosTailDropConfigSharedBuffersLimit5_Object = MibTableColumn
+eltQosTailDropConfigSharedBuffersLimit5 = _EltQosTailDropConfigSharedBuffersLimit5_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 18),
+    _EltQosTailDropConfigSharedBuffersLimit5_Type()
+)
+eltQosTailDropConfigSharedBuffersLimit5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedBuffersLimit5.setStatus("current")
+_EltQosTailDropConfigSharedDescriptorsLimit6_Type = Integer32
+_EltQosTailDropConfigSharedDescriptorsLimit6_Object = MibTableColumn
+eltQosTailDropConfigSharedDescriptorsLimit6 = _EltQosTailDropConfigSharedDescriptorsLimit6_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 19),
+    _EltQosTailDropConfigSharedDescriptorsLimit6_Type()
+)
+eltQosTailDropConfigSharedDescriptorsLimit6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedDescriptorsLimit6.setStatus("current")
+_EltQosTailDropConfigSharedBuffersLimit6_Type = Integer32
+_EltQosTailDropConfigSharedBuffersLimit6_Object = MibTableColumn
+eltQosTailDropConfigSharedBuffersLimit6 = _EltQosTailDropConfigSharedBuffersLimit6_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 20),
+    _EltQosTailDropConfigSharedBuffersLimit6_Type()
+)
+eltQosTailDropConfigSharedBuffersLimit6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedBuffersLimit6.setStatus("current")
+_EltQosTailDropConfigSharedDescriptorsLimit7_Type = Integer32
+_EltQosTailDropConfigSharedDescriptorsLimit7_Object = MibTableColumn
+eltQosTailDropConfigSharedDescriptorsLimit7 = _EltQosTailDropConfigSharedDescriptorsLimit7_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 21),
+    _EltQosTailDropConfigSharedDescriptorsLimit7_Type()
+)
+eltQosTailDropConfigSharedDescriptorsLimit7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedDescriptorsLimit7.setStatus("current")
+_EltQosTailDropConfigSharedBuffersLimit7_Type = Integer32
+_EltQosTailDropConfigSharedBuffersLimit7_Object = MibTableColumn
+eltQosTailDropConfigSharedBuffersLimit7 = _EltQosTailDropConfigSharedBuffersLimit7_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 22),
+    _EltQosTailDropConfigSharedBuffersLimit7_Type()
+)
+eltQosTailDropConfigSharedBuffersLimit7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedBuffersLimit7.setStatus("current")
+_EltQosTailDropConfigSharedDescriptorsLimit8_Type = Integer32
+_EltQosTailDropConfigSharedDescriptorsLimit8_Object = MibTableColumn
+eltQosTailDropConfigSharedDescriptorsLimit8 = _EltQosTailDropConfigSharedDescriptorsLimit8_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 23),
+    _EltQosTailDropConfigSharedDescriptorsLimit8_Type()
+)
+eltQosTailDropConfigSharedDescriptorsLimit8.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedDescriptorsLimit8.setStatus("current")
+_EltQosTailDropConfigSharedBuffersLimit8_Type = Integer32
+_EltQosTailDropConfigSharedBuffersLimit8_Object = MibTableColumn
+eltQosTailDropConfigSharedBuffersLimit8 = _EltQosTailDropConfigSharedBuffersLimit8_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 3, 1, 24),
+    _EltQosTailDropConfigSharedBuffersLimit8_Type()
+)
+eltQosTailDropConfigSharedBuffersLimit8.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropConfigSharedBuffersLimit8.setStatus("current")
+_EltQosTailDropProfileTable_Object = MibTable
+eltQosTailDropProfileTable = _EltQosTailDropProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropProfileTable.setStatus("current")
+_EltQosTailDropProfileEntry_Object = MibTableRow
+eltQosTailDropProfileEntry = _EltQosTailDropProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 4, 1)
+)
+eltQosTailDropProfileEntry.setIndexNames(
+    (0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropProfile"),
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropProfileEntry.setStatus("current")
+_EltQosTailDropProfile_Type = Integer32
+_EltQosTailDropProfile_Object = MibTableColumn
+eltQosTailDropProfile = _EltQosTailDropProfile_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 4, 1, 1),
+    _EltQosTailDropProfile_Type()
+)
+eltQosTailDropProfile.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    eltQosTailDropProfile.setStatus("current")
+_EltQosTailDropProfilePortLimit_Type = Integer32
+_EltQosTailDropProfilePortLimit_Object = MibTableColumn
+eltQosTailDropProfilePortLimit = _EltQosTailDropProfilePortLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 4, 1, 2),
+    _EltQosTailDropProfilePortLimit_Type()
+)
+eltQosTailDropProfilePortLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltQosTailDropProfilePortLimit.setStatus("current")
+_EltQosTailDropMirrorRxDescriptorsLimit_Type = Integer32
+_EltQosTailDropMirrorRxDescriptorsLimit_Object = MibScalar
+eltQosTailDropMirrorRxDescriptorsLimit = _EltQosTailDropMirrorRxDescriptorsLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 5),
+    _EltQosTailDropMirrorRxDescriptorsLimit_Type()
+)
+eltQosTailDropMirrorRxDescriptorsLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltQosTailDropMirrorRxDescriptorsLimit.setStatus("current")
+_EltQosTailDropMirrorTxDescriptorsLimit_Type = Integer32
+_EltQosTailDropMirrorTxDescriptorsLimit_Object = MibScalar
+eltQosTailDropMirrorTxDescriptorsLimit = _EltQosTailDropMirrorTxDescriptorsLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 1, 6),
+    _EltQosTailDropMirrorTxDescriptorsLimit_Type()
+)
+eltQosTailDropMirrorTxDescriptorsLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltQosTailDropMirrorTxDescriptorsLimit.setStatus("current")
+_EltMesQosTailDropStatus_ObjectIdentity = ObjectIdentity
+eltMesQosTailDropStatus = _EltMesQosTailDropStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2)
+)
+_EltQosTailDropStatusTable_Object = MibTable
+eltQosTailDropStatusTable = _EltQosTailDropStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusTable.setStatus("current")
+_EltQosTailDropStatusEntry_Object = MibTableRow
+eltQosTailDropStatusEntry = _EltQosTailDropStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1)
+)
+eltQosTailDropStatusEntry.setIndexNames(
+    (0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropStatusUnitId"),
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusEntry.setStatus("current")
+_EltQosTailDropStatusUnitId_Type = Integer32
+_EltQosTailDropStatusUnitId_Object = MibTableColumn
+eltQosTailDropStatusUnitId = _EltQosTailDropStatusUnitId_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 1),
+    _EltQosTailDropStatusUnitId_Type()
+)
+eltQosTailDropStatusUnitId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusUnitId.setStatus("current")
+_EltQosTailDropStatusPhysicalBuffersEnqueuedCounter_Type = Integer32
+_EltQosTailDropStatusPhysicalBuffersEnqueuedCounter_Object = MibTableColumn
+eltQosTailDropStatusPhysicalBuffersEnqueuedCounter = _EltQosTailDropStatusPhysicalBuffersEnqueuedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 2),
+    _EltQosTailDropStatusPhysicalBuffersEnqueuedCounter_Type()
+)
+eltQosTailDropStatusPhysicalBuffersEnqueuedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusPhysicalBuffersEnqueuedCounter.setStatus("current")
+_EltQosTailDropStatusTotalDescriptorsEnqueuedCounter_Type = Integer32
+_EltQosTailDropStatusTotalDescriptorsEnqueuedCounter_Object = MibTableColumn
+eltQosTailDropStatusTotalDescriptorsEnqueuedCounter = _EltQosTailDropStatusTotalDescriptorsEnqueuedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 3),
+    _EltQosTailDropStatusTotalDescriptorsEnqueuedCounter_Type()
+)
+eltQosTailDropStatusTotalDescriptorsEnqueuedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusTotalDescriptorsEnqueuedCounter.setStatus("current")
+_EltQosTailDropStatusTotalBuffersEnqueuedCounter_Type = Integer32
+_EltQosTailDropStatusTotalBuffersEnqueuedCounter_Object = MibTableColumn
+eltQosTailDropStatusTotalBuffersEnqueuedCounter = _EltQosTailDropStatusTotalBuffersEnqueuedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 4),
+    _EltQosTailDropStatusTotalBuffersEnqueuedCounter_Type()
+)
+eltQosTailDropStatusTotalBuffersEnqueuedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusTotalBuffersEnqueuedCounter.setStatus("current")
+_EltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter_Type = Integer32
+_EltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter_Object = MibTableColumn
+eltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter = _EltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 5),
+    _EltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter_Type()
+)
+eltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter.setStatus("current")
+_EltQosTailDropStatusTotalMCBuffersEnqueuedCounter_Type = Integer32
+_EltQosTailDropStatusTotalMCBuffersEnqueuedCounter_Object = MibTableColumn
+eltQosTailDropStatusTotalMCBuffersEnqueuedCounter = _EltQosTailDropStatusTotalMCBuffersEnqueuedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 6),
+    _EltQosTailDropStatusTotalMCBuffersEnqueuedCounter_Type()
+)
+eltQosTailDropStatusTotalMCBuffersEnqueuedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusTotalMCBuffersEnqueuedCounter.setStatus("current")
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter_Type = Integer32
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter_Object = MibTableColumn
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter = _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 7),
+    _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter_Type()
+)
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedDescriptorsEnqueuedCounter.setStatus("current")
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter_Type = Integer32
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter_Object = MibTableColumn
+eltQosTailDropStatusSharedBuffersEnqueuedCounter = _EltQosTailDropStatusSharedBuffersEnqueuedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 8),
+    _EltQosTailDropStatusSharedBuffersEnqueuedCounter_Type()
+)
+eltQosTailDropStatusSharedBuffersEnqueuedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedBuffersEnqueuedCounter.setStatus("current")
+_EltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter_Type = Integer32
+_EltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter_Object = MibTableColumn
+eltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter = _EltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 9),
+    _EltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter_Type()
+)
+eltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter.setStatus("current")
+_EltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter_Type = Integer32
+_EltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter_Object = MibTableColumn
+eltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter = _EltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 10),
+    _EltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter_Type()
+)
+eltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter.setStatus("current")
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter2_Type = Integer32
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter2_Object = MibTableColumn
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter2 = _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter2_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 11),
+    _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter2_Type()
+)
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedDescriptorsEnqueuedCounter2.setStatus("current")
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter2_Type = Integer32
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter2_Object = MibTableColumn
+eltQosTailDropStatusSharedBuffersEnqueuedCounter2 = _EltQosTailDropStatusSharedBuffersEnqueuedCounter2_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 12),
+    _EltQosTailDropStatusSharedBuffersEnqueuedCounter2_Type()
+)
+eltQosTailDropStatusSharedBuffersEnqueuedCounter2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedBuffersEnqueuedCounter2.setStatus("current")
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter3_Type = Integer32
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter3_Object = MibTableColumn
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter3 = _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter3_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 13),
+    _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter3_Type()
+)
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedDescriptorsEnqueuedCounter3.setStatus("current")
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter3_Type = Integer32
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter3_Object = MibTableColumn
+eltQosTailDropStatusSharedBuffersEnqueuedCounter3 = _EltQosTailDropStatusSharedBuffersEnqueuedCounter3_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 14),
+    _EltQosTailDropStatusSharedBuffersEnqueuedCounter3_Type()
+)
+eltQosTailDropStatusSharedBuffersEnqueuedCounter3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedBuffersEnqueuedCounter3.setStatus("current")
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter4_Type = Integer32
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter4_Object = MibTableColumn
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter4 = _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter4_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 15),
+    _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter4_Type()
+)
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedDescriptorsEnqueuedCounter4.setStatus("current")
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter4_Type = Integer32
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter4_Object = MibTableColumn
+eltQosTailDropStatusSharedBuffersEnqueuedCounter4 = _EltQosTailDropStatusSharedBuffersEnqueuedCounter4_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 16),
+    _EltQosTailDropStatusSharedBuffersEnqueuedCounter4_Type()
+)
+eltQosTailDropStatusSharedBuffersEnqueuedCounter4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedBuffersEnqueuedCounter4.setStatus("current")
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter5_Type = Integer32
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter5_Object = MibTableColumn
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter5 = _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter5_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 17),
+    _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter5_Type()
+)
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedDescriptorsEnqueuedCounter5.setStatus("current")
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter5_Type = Integer32
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter5_Object = MibTableColumn
+eltQosTailDropStatusSharedBuffersEnqueuedCounter5 = _EltQosTailDropStatusSharedBuffersEnqueuedCounter5_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 18),
+    _EltQosTailDropStatusSharedBuffersEnqueuedCounter5_Type()
+)
+eltQosTailDropStatusSharedBuffersEnqueuedCounter5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedBuffersEnqueuedCounter5.setStatus("current")
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter6_Type = Integer32
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter6_Object = MibTableColumn
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter6 = _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter6_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 19),
+    _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter6_Type()
+)
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedDescriptorsEnqueuedCounter6.setStatus("current")
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter6_Type = Integer32
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter6_Object = MibTableColumn
+eltQosTailDropStatusSharedBuffersEnqueuedCounter6 = _EltQosTailDropStatusSharedBuffersEnqueuedCounter6_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 20),
+    _EltQosTailDropStatusSharedBuffersEnqueuedCounter6_Type()
+)
+eltQosTailDropStatusSharedBuffersEnqueuedCounter6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedBuffersEnqueuedCounter6.setStatus("current")
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter7_Type = Integer32
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter7_Object = MibTableColumn
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter7 = _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter7_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 21),
+    _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter7_Type()
+)
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedDescriptorsEnqueuedCounter7.setStatus("current")
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter7_Type = Integer32
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter7_Object = MibTableColumn
+eltQosTailDropStatusSharedBuffersEnqueuedCounter7 = _EltQosTailDropStatusSharedBuffersEnqueuedCounter7_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 22),
+    _EltQosTailDropStatusSharedBuffersEnqueuedCounter7_Type()
+)
+eltQosTailDropStatusSharedBuffersEnqueuedCounter7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedBuffersEnqueuedCounter7.setStatus("current")
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter8_Type = Integer32
+_EltQosTailDropStatusSharedDescriptorsEnqueuedCounter8_Object = MibTableColumn
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter8 = _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter8_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 23),
+    _EltQosTailDropStatusSharedDescriptorsEnqueuedCounter8_Type()
+)
+eltQosTailDropStatusSharedDescriptorsEnqueuedCounter8.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedDescriptorsEnqueuedCounter8.setStatus("current")
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter8_Type = Integer32
+_EltQosTailDropStatusSharedBuffersEnqueuedCounter8_Object = MibTableColumn
+eltQosTailDropStatusSharedBuffersEnqueuedCounter8 = _EltQosTailDropStatusSharedBuffersEnqueuedCounter8_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 1, 1, 24),
+    _EltQosTailDropStatusSharedBuffersEnqueuedCounter8_Type()
+)
+eltQosTailDropStatusSharedBuffersEnqueuedCounter8.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropStatusSharedBuffersEnqueuedCounter8.setStatus("current")
+_EltQosTailDropIfStatusTable_Object = MibTable
+eltQosTailDropIfStatusTable = _EltQosTailDropIfStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropIfStatusTable.setStatus("current")
+_EltQosTailDropIfStatusEntry_Object = MibTableRow
+eltQosTailDropIfStatusEntry = _EltQosTailDropIfStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2, 1)
+)
+eltQosTailDropIfStatusEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropIfStatusEntry.setStatus("current")
+_EltQosTailDropIfStatusEnqueuedDescriptorsCounter_Type = Integer32
+_EltQosTailDropIfStatusEnqueuedDescriptorsCounter_Object = MibTableColumn
+eltQosTailDropIfStatusEnqueuedDescriptorsCounter = _EltQosTailDropIfStatusEnqueuedDescriptorsCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2, 1, 1),
+    _EltQosTailDropIfStatusEnqueuedDescriptorsCounter_Type()
+)
+eltQosTailDropIfStatusEnqueuedDescriptorsCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfStatusEnqueuedDescriptorsCounter.setStatus("current")
+_EltQosTailDropIfStatusEnqueuedBuffersCounter_Type = Integer32
+_EltQosTailDropIfStatusEnqueuedBuffersCounter_Object = MibTableColumn
+eltQosTailDropIfStatusEnqueuedBuffersCounter = _EltQosTailDropIfStatusEnqueuedBuffersCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2, 1, 2),
+    _EltQosTailDropIfStatusEnqueuedBuffersCounter_Type()
+)
+eltQosTailDropIfStatusEnqueuedBuffersCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfStatusEnqueuedBuffersCounter.setStatus("current")
+_EltQosTailDropIfStatusDescriptorsLimit_Type = Integer32
+_EltQosTailDropIfStatusDescriptorsLimit_Object = MibTableColumn
+eltQosTailDropIfStatusDescriptorsLimit = _EltQosTailDropIfStatusDescriptorsLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2, 1, 3),
+    _EltQosTailDropIfStatusDescriptorsLimit_Type()
+)
+eltQosTailDropIfStatusDescriptorsLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfStatusDescriptorsLimit.setStatus("current")
+_EltQosTailDropIfStatusBuffersLimit_Type = Integer32
+_EltQosTailDropIfStatusBuffersLimit_Object = MibTableColumn
+eltQosTailDropIfStatusBuffersLimit = _EltQosTailDropIfStatusBuffersLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 2, 1, 4),
+    _EltQosTailDropIfStatusBuffersLimit_Type()
+)
+eltQosTailDropIfStatusBuffersLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfStatusBuffersLimit.setStatus("current")
+_EltQosTailDropIfQueueStatusTable_Object = MibTable
+eltQosTailDropIfQueueStatusTable = _EltQosTailDropIfQueueStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropIfQueueStatusTable.setStatus("current")
+_EltQosTailDropIfQueueStatusEntry_Object = MibTableRow
+eltQosTailDropIfQueueStatusEntry = _EltQosTailDropIfQueueStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1)
+)
+eltQosTailDropIfQueueStatusEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "ELTEX-MES-QOS-TAIL-DROP-MIB", "eltQosTailDropIfQueueStatusQueueIndex"),
+)
+if mibBuilder.loadTexts:
+    eltQosTailDropIfQueueStatusEntry.setStatus("current")
+_EltQosTailDropIfQueueStatusQueueIndex_Type = Integer32
+_EltQosTailDropIfQueueStatusQueueIndex_Object = MibTableColumn
+eltQosTailDropIfQueueStatusQueueIndex = _EltQosTailDropIfQueueStatusQueueIndex_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 1),
+    _EltQosTailDropIfQueueStatusQueueIndex_Type()
+)
+eltQosTailDropIfQueueStatusQueueIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfQueueStatusQueueIndex.setStatus("current")
+_EltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter_Type = Integer32
+_EltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter_Object = MibTableColumn
+eltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter = _EltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 2),
+    _EltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter_Type()
+)
+eltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter.setStatus("current")
+_EltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter_Type = Integer32
+_EltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter_Object = MibTableColumn
+eltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter = _EltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 3),
+    _EltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter_Type()
+)
+eltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter.setStatus("current")
+_EltQosTailDropIfQueueStatusDP0BuffersLimit_Type = Integer32
+_EltQosTailDropIfQueueStatusDP0BuffersLimit_Object = MibTableColumn
+eltQosTailDropIfQueueStatusDP0BuffersLimit = _EltQosTailDropIfQueueStatusDP0BuffersLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 4),
+    _EltQosTailDropIfQueueStatusDP0BuffersLimit_Type()
+)
+eltQosTailDropIfQueueStatusDP0BuffersLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfQueueStatusDP0BuffersLimit.setStatus("current")
+_EltQosTailDropIfQueueStatusDP1BuffersLimit_Type = Integer32
+_EltQosTailDropIfQueueStatusDP1BuffersLimit_Object = MibTableColumn
+eltQosTailDropIfQueueStatusDP1BuffersLimit = _EltQosTailDropIfQueueStatusDP1BuffersLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 5),
+    _EltQosTailDropIfQueueStatusDP1BuffersLimit_Type()
+)
+eltQosTailDropIfQueueStatusDP1BuffersLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfQueueStatusDP1BuffersLimit.setStatus("current")
+_EltQosTailDropIfQueueStatusDP2BuffersLimit_Type = Integer32
+_EltQosTailDropIfQueueStatusDP2BuffersLimit_Object = MibTableColumn
+eltQosTailDropIfQueueStatusDP2BuffersLimit = _EltQosTailDropIfQueueStatusDP2BuffersLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 6),
+    _EltQosTailDropIfQueueStatusDP2BuffersLimit_Type()
+)
+eltQosTailDropIfQueueStatusDP2BuffersLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfQueueStatusDP2BuffersLimit.setStatus("current")
+_EltQosTailDropIfQueueStatusDP0DescriptorsLimit_Type = Integer32
+_EltQosTailDropIfQueueStatusDP0DescriptorsLimit_Object = MibTableColumn
+eltQosTailDropIfQueueStatusDP0DescriptorsLimit = _EltQosTailDropIfQueueStatusDP0DescriptorsLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 7),
+    _EltQosTailDropIfQueueStatusDP0DescriptorsLimit_Type()
+)
+eltQosTailDropIfQueueStatusDP0DescriptorsLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfQueueStatusDP0DescriptorsLimit.setStatus("current")
+_EltQosTailDropIfQueueStatusDP1DescriptorsLimit_Type = Integer32
+_EltQosTailDropIfQueueStatusDP1DescriptorsLimit_Object = MibTableColumn
+eltQosTailDropIfQueueStatusDP1DescriptorsLimit = _EltQosTailDropIfQueueStatusDP1DescriptorsLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 8),
+    _EltQosTailDropIfQueueStatusDP1DescriptorsLimit_Type()
+)
+eltQosTailDropIfQueueStatusDP1DescriptorsLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfQueueStatusDP1DescriptorsLimit.setStatus("current")
+_EltQosTailDropIfQueueStatusDP2DescriptorsLimit_Type = Integer32
+_EltQosTailDropIfQueueStatusDP2DescriptorsLimit_Object = MibTableColumn
+eltQosTailDropIfQueueStatusDP2DescriptorsLimit = _EltQosTailDropIfQueueStatusDP2DescriptorsLimit_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 12, 1, 2, 3, 1, 9),
+    _EltQosTailDropIfQueueStatusDP2DescriptorsLimit_Type()
+)
+eltQosTailDropIfQueueStatusDP2DescriptorsLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eltQosTailDropIfQueueStatusDP2DescriptorsLimit.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ELTEX-MES-QOS-TAIL-DROP-MIB",
+    **{"eltMesQosTailDropMibMIBObjects": eltMesQosTailDropMibMIBObjects,
+       "eltMesQosTailDropConfig": eltMesQosTailDropConfig,
+       "eltQosTailDropProfileQueueTable": eltQosTailDropProfileQueueTable,
+       "eltQosTailDropProfileQueueEntry": eltQosTailDropProfileQueueEntry,
+       "eltQosTailDropProfileIndex": eltQosTailDropProfileIndex,
+       "eltQosTailDropProfileQueueIndex": eltQosTailDropProfileQueueIndex,
+       "eltQosTailDropProfileQueueSharedPoolUsage": eltQosTailDropProfileQueueSharedPoolUsage,
+       "eltQosTailDropProfileQueueLimit": eltQosTailDropProfileQueueLimit,
+       "eltQosTailDropIfConfigTable": eltQosTailDropIfConfigTable,
+       "eltQosTailDropIfConfigEntry": eltQosTailDropIfConfigEntry,
+       "eltQosTailDropIfProfileIndex": eltQosTailDropIfProfileIndex,
+       "eltQosTailDropConfigTable": eltQosTailDropConfigTable,
+       "eltQosTailDropConfigEntry": eltQosTailDropConfigEntry,
+       "eltQosTailDropConfigUnitId": eltQosTailDropConfigUnitId,
+       "eltQosTailDropConfigPhysicalBuffersLimit": eltQosTailDropConfigPhysicalBuffersLimit,
+       "eltQosTailDropConfigTotalDescriptorsLimit": eltQosTailDropConfigTotalDescriptorsLimit,
+       "eltQosTailDropConfigTotalBuffersLimit": eltQosTailDropConfigTotalBuffersLimit,
+       "eltQosTailDropConfigMCDescriptorsLimit": eltQosTailDropConfigMCDescriptorsLimit,
+       "eltQosTailDropConfigMCBuffersLimit": eltQosTailDropConfigMCBuffersLimit,
+       "eltQosTailDropConfigSharedDescriptorsLimit": eltQosTailDropConfigSharedDescriptorsLimit,
+       "eltQosTailDropConfigSharedBuffersLimit": eltQosTailDropConfigSharedBuffersLimit,
+       "eltQosTailDropConfigMirrorRxDescriptorsLimit": eltQosTailDropConfigMirrorRxDescriptorsLimit,
+       "eltQosTailDropConfigMirrorTxDescriptorsLimit": eltQosTailDropConfigMirrorTxDescriptorsLimit,
+       "eltQosTailDropConfigSharedDescriptorsLimit2": eltQosTailDropConfigSharedDescriptorsLimit2,
+       "eltQosTailDropConfigSharedBuffersLimit2": eltQosTailDropConfigSharedBuffersLimit2,
+       "eltQosTailDropConfigSharedDescriptorsLimit3": eltQosTailDropConfigSharedDescriptorsLimit3,
+       "eltQosTailDropConfigSharedBuffersLimit3": eltQosTailDropConfigSharedBuffersLimit3,
+       "eltQosTailDropConfigSharedDescriptorsLimit4": eltQosTailDropConfigSharedDescriptorsLimit4,
+       "eltQosTailDropConfigSharedBuffersLimit4": eltQosTailDropConfigSharedBuffersLimit4,
+       "eltQosTailDropConfigSharedDescriptorsLimit5": eltQosTailDropConfigSharedDescriptorsLimit5,
+       "eltQosTailDropConfigSharedBuffersLimit5": eltQosTailDropConfigSharedBuffersLimit5,
+       "eltQosTailDropConfigSharedDescriptorsLimit6": eltQosTailDropConfigSharedDescriptorsLimit6,
+       "eltQosTailDropConfigSharedBuffersLimit6": eltQosTailDropConfigSharedBuffersLimit6,
+       "eltQosTailDropConfigSharedDescriptorsLimit7": eltQosTailDropConfigSharedDescriptorsLimit7,
+       "eltQosTailDropConfigSharedBuffersLimit7": eltQosTailDropConfigSharedBuffersLimit7,
+       "eltQosTailDropConfigSharedDescriptorsLimit8": eltQosTailDropConfigSharedDescriptorsLimit8,
+       "eltQosTailDropConfigSharedBuffersLimit8": eltQosTailDropConfigSharedBuffersLimit8,
+       "eltQosTailDropProfileTable": eltQosTailDropProfileTable,
+       "eltQosTailDropProfileEntry": eltQosTailDropProfileEntry,
+       "eltQosTailDropProfile": eltQosTailDropProfile,
+       "eltQosTailDropProfilePortLimit": eltQosTailDropProfilePortLimit,
+       "eltQosTailDropMirrorRxDescriptorsLimit": eltQosTailDropMirrorRxDescriptorsLimit,
+       "eltQosTailDropMirrorTxDescriptorsLimit": eltQosTailDropMirrorTxDescriptorsLimit,
+       "eltMesQosTailDropStatus": eltMesQosTailDropStatus,
+       "eltQosTailDropStatusTable": eltQosTailDropStatusTable,
+       "eltQosTailDropStatusEntry": eltQosTailDropStatusEntry,
+       "eltQosTailDropStatusUnitId": eltQosTailDropStatusUnitId,
+       "eltQosTailDropStatusPhysicalBuffersEnqueuedCounter": eltQosTailDropStatusPhysicalBuffersEnqueuedCounter,
+       "eltQosTailDropStatusTotalDescriptorsEnqueuedCounter": eltQosTailDropStatusTotalDescriptorsEnqueuedCounter,
+       "eltQosTailDropStatusTotalBuffersEnqueuedCounter": eltQosTailDropStatusTotalBuffersEnqueuedCounter,
+       "eltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter": eltQosTailDropStatusTotalMCDescriptorsEnqueuedCounter,
+       "eltQosTailDropStatusTotalMCBuffersEnqueuedCounter": eltQosTailDropStatusTotalMCBuffersEnqueuedCounter,
+       "eltQosTailDropStatusSharedDescriptorsEnqueuedCounter": eltQosTailDropStatusSharedDescriptorsEnqueuedCounter,
+       "eltQosTailDropStatusSharedBuffersEnqueuedCounter": eltQosTailDropStatusSharedBuffersEnqueuedCounter,
+       "eltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter": eltQosTailDropStatusMirrorRxDescriptorsEnqueuedCounter,
+       "eltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter": eltQosTailDropStatusMirrorTxDescriptorsEnqueuedCounter,
+       "eltQosTailDropStatusSharedDescriptorsEnqueuedCounter2": eltQosTailDropStatusSharedDescriptorsEnqueuedCounter2,
+       "eltQosTailDropStatusSharedBuffersEnqueuedCounter2": eltQosTailDropStatusSharedBuffersEnqueuedCounter2,
+       "eltQosTailDropStatusSharedDescriptorsEnqueuedCounter3": eltQosTailDropStatusSharedDescriptorsEnqueuedCounter3,
+       "eltQosTailDropStatusSharedBuffersEnqueuedCounter3": eltQosTailDropStatusSharedBuffersEnqueuedCounter3,
+       "eltQosTailDropStatusSharedDescriptorsEnqueuedCounter4": eltQosTailDropStatusSharedDescriptorsEnqueuedCounter4,
+       "eltQosTailDropStatusSharedBuffersEnqueuedCounter4": eltQosTailDropStatusSharedBuffersEnqueuedCounter4,
+       "eltQosTailDropStatusSharedDescriptorsEnqueuedCounter5": eltQosTailDropStatusSharedDescriptorsEnqueuedCounter5,
+       "eltQosTailDropStatusSharedBuffersEnqueuedCounter5": eltQosTailDropStatusSharedBuffersEnqueuedCounter5,
+       "eltQosTailDropStatusSharedDescriptorsEnqueuedCounter6": eltQosTailDropStatusSharedDescriptorsEnqueuedCounter6,
+       "eltQosTailDropStatusSharedBuffersEnqueuedCounter6": eltQosTailDropStatusSharedBuffersEnqueuedCounter6,
+       "eltQosTailDropStatusSharedDescriptorsEnqueuedCounter7": eltQosTailDropStatusSharedDescriptorsEnqueuedCounter7,
+       "eltQosTailDropStatusSharedBuffersEnqueuedCounter7": eltQosTailDropStatusSharedBuffersEnqueuedCounter7,
+       "eltQosTailDropStatusSharedDescriptorsEnqueuedCounter8": eltQosTailDropStatusSharedDescriptorsEnqueuedCounter8,
+       "eltQosTailDropStatusSharedBuffersEnqueuedCounter8": eltQosTailDropStatusSharedBuffersEnqueuedCounter8,
+       "eltQosTailDropIfStatusTable": eltQosTailDropIfStatusTable,
+       "eltQosTailDropIfStatusEntry": eltQosTailDropIfStatusEntry,
+       "eltQosTailDropIfStatusEnqueuedDescriptorsCounter": eltQosTailDropIfStatusEnqueuedDescriptorsCounter,
+       "eltQosTailDropIfStatusEnqueuedBuffersCounter": eltQosTailDropIfStatusEnqueuedBuffersCounter,
+       "eltQosTailDropIfStatusDescriptorsLimit": eltQosTailDropIfStatusDescriptorsLimit,
+       "eltQosTailDropIfStatusBuffersLimit": eltQosTailDropIfStatusBuffersLimit,
+       "eltQosTailDropIfQueueStatusTable": eltQosTailDropIfQueueStatusTable,
+       "eltQosTailDropIfQueueStatusEntry": eltQosTailDropIfQueueStatusEntry,
+       "eltQosTailDropIfQueueStatusQueueIndex": eltQosTailDropIfQueueStatusQueueIndex,
+       "eltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter": eltQosTailDropIfQueueStatusTotalDescriptorsEnqueuedCounter,
+       "eltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter": eltQosTailDropIfQueueStatusTotalBuffersEnqueuedCounter,
+       "eltQosTailDropIfQueueStatusDP0BuffersLimit": eltQosTailDropIfQueueStatusDP0BuffersLimit,
+       "eltQosTailDropIfQueueStatusDP1BuffersLimit": eltQosTailDropIfQueueStatusDP1BuffersLimit,
+       "eltQosTailDropIfQueueStatusDP2BuffersLimit": eltQosTailDropIfQueueStatusDP2BuffersLimit,
+       "eltQosTailDropIfQueueStatusDP0DescriptorsLimit": eltQosTailDropIfQueueStatusDP0DescriptorsLimit,
+       "eltQosTailDropIfQueueStatusDP1DescriptorsLimit": eltQosTailDropIfQueueStatusDP1DescriptorsLimit,
+       "eltQosTailDropIfQueueStatusDP2DescriptorsLimit": eltQosTailDropIfQueueStatusDP2DescriptorsLimit}
+)

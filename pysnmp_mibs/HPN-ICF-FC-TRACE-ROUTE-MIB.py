@@ -1,59 +1,448 @@
+# SNMP MIB module (HPN-ICF-FC-TRACE-ROUTE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-FC-TRACE-ROUTE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-FC-TRACE-ROUTE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:01 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HPN-ICF-FC-TRACE-ROUTE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:42:57 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-HpnicfFcNameId, HpnicfFcVsanIndex, HpnicfFcAddressType, HpnicfFcAddress, HpnicfFcStartOper = mibBuilder.importSymbols("HPN-ICF-FC-TC-MIB", "HpnicfFcNameId", "HpnicfFcVsanIndex", "HpnicfFcAddressType", "HpnicfFcAddress", "HpnicfFcStartOper")
-hpnicfSan, = mibBuilder.importSymbols("HPN-ICF-VSAN-MIB", "hpnicfSan")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
-hpnicfFcTraceRoute = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4))
-hpnicfFcTraceRoute.setRevisions(('2013-02-27 00:00',))
-if mibBuilder.loadTexts: hpnicfFcTraceRoute.setLastUpdated('201302270000Z')
-if mibBuilder.loadTexts: hpnicfFcTraceRoute.setOrganization('')
-hpnicfFcTraceRouteObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1))
-hpnicfFcTraceRouteConfigurations = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1))
-hpnicfFcTraceRouteResults = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 2))
-hpnicfFcTraceRouteNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 3))
-hpnicfFcTraceRouteNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 3, 0))
-hpnicfFcTraceRouteTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1), )
-if mibBuilder.loadTexts: hpnicfFcTraceRouteTable.setStatus('current')
-hpnicfFcTraceRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1), ).setIndexNames((0, "HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteIndex"))
-if mibBuilder.loadTexts: hpnicfFcTraceRouteEntry.setStatus('current')
-hpnicfFcTraceRouteIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfFcTraceRouteIndex.setStatus('current')
-hpnicfFcTraceRouteVsan = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 2), HpnicfFcVsanIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfFcTraceRouteVsan.setStatus('current')
-hpnicfFcTraceRouteAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 3), HpnicfFcAddressType().clone('fcid')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfFcTraceRouteAddressType.setStatus('current')
-hpnicfFcTraceRouteAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 4), HpnicfFcAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfFcTraceRouteAddress.setStatus('current')
-hpnicfFcTraceRouteTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(5)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfFcTraceRouteTimeout.setStatus('current')
-hpnicfFcTraceRouteAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 6), HpnicfFcStartOper().clone('disable')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfFcTraceRouteAdminStatus.setStatus('current')
-hpnicfFcTraceRouteOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("inProgress", 1), ("success", 2), ("partialSuccess", 3), ("failure", 4), ("disabled", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfFcTraceRouteOperStatus.setStatus('current')
-hpnicfFcTraceRouteAgeInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(500, 900)).clone(500)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfFcTraceRouteAgeInterval.setStatus('current')
-hpnicfFcTraceRouteTrapOnCompletion = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 9), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfFcTraceRouteTrapOnCompletion.setStatus('current')
-hpnicfFcTraceRouteRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfFcTraceRouteRowStatus.setStatus('current')
-hpnicfFcTraceRouteHopsTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 2, 1), )
-if mibBuilder.loadTexts: hpnicfFcTraceRouteHopsTable.setStatus('current')
-hpnicfFcTraceRouteHopsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 2, 1, 1), ).setIndexNames((0, "HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteIndex"), (0, "HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteHopsIndex"))
-if mibBuilder.loadTexts: hpnicfFcTraceRouteHopsEntry.setStatus('current')
-hpnicfFcTraceRouteHopsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 2, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: hpnicfFcTraceRouteHopsIndex.setStatus('current')
-hpnicfFcTraceRouteHopsAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 2, 1, 1, 2), HpnicfFcNameId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfFcTraceRouteHopsAddr.setStatus('current')
-hpnicfFcTraceRouteCompletionNotify = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 3, 0, 1)).setObjects(("HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteIndex"), ("HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteVsan"), ("HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteAddressType"), ("HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteAddress"), ("HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteOperStatus"))
-if mibBuilder.loadTexts: hpnicfFcTraceRouteCompletionNotify.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-FC-TRACE-ROUTE-MIB", hpnicfFcTraceRouteResults=hpnicfFcTraceRouteResults, hpnicfFcTraceRouteHopsAddr=hpnicfFcTraceRouteHopsAddr, hpnicfFcTraceRouteAddressType=hpnicfFcTraceRouteAddressType, hpnicfFcTraceRouteVsan=hpnicfFcTraceRouteVsan, hpnicfFcTraceRouteHopsTable=hpnicfFcTraceRouteHopsTable, hpnicfFcTraceRouteTrapOnCompletion=hpnicfFcTraceRouteTrapOnCompletion, hpnicfFcTraceRoute=hpnicfFcTraceRoute, hpnicfFcTraceRouteCompletionNotify=hpnicfFcTraceRouteCompletionNotify, hpnicfFcTraceRouteAddress=hpnicfFcTraceRouteAddress, hpnicfFcTraceRouteAdminStatus=hpnicfFcTraceRouteAdminStatus, hpnicfFcTraceRouteTimeout=hpnicfFcTraceRouteTimeout, hpnicfFcTraceRouteOperStatus=hpnicfFcTraceRouteOperStatus, hpnicfFcTraceRouteAgeInterval=hpnicfFcTraceRouteAgeInterval, hpnicfFcTraceRouteObjects=hpnicfFcTraceRouteObjects, hpnicfFcTraceRouteNotifications=hpnicfFcTraceRouteNotifications, hpnicfFcTraceRouteConfigurations=hpnicfFcTraceRouteConfigurations, hpnicfFcTraceRouteNotifyPrefix=hpnicfFcTraceRouteNotifyPrefix, hpnicfFcTraceRouteRowStatus=hpnicfFcTraceRouteRowStatus, hpnicfFcTraceRouteTable=hpnicfFcTraceRouteTable, hpnicfFcTraceRouteEntry=hpnicfFcTraceRouteEntry, hpnicfFcTraceRouteHopsEntry=hpnicfFcTraceRouteHopsEntry, hpnicfFcTraceRouteHopsIndex=hpnicfFcTraceRouteHopsIndex, hpnicfFcTraceRouteIndex=hpnicfFcTraceRouteIndex, PYSNMP_MODULE_ID=hpnicfFcTraceRoute)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(HpnicfFcAddress,
+ HpnicfFcAddressType,
+ HpnicfFcNameId,
+ HpnicfFcStartOper,
+ HpnicfFcVsanIndex) = mibBuilder.importSymbols(
+    "HPN-ICF-FC-TC-MIB",
+    "HpnicfFcAddress",
+    "HpnicfFcAddressType",
+    "HpnicfFcNameId",
+    "HpnicfFcStartOper",
+    "HpnicfFcVsanIndex")
+
+(hpnicfSan,) = mibBuilder.importSymbols(
+    "HPN-ICF-VSAN-MIB",
+    "hpnicfSan")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+hpnicfFcTraceRoute = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4)
+)
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRoute.setRevisions(
+        ("2013-02-27 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfFcTraceRouteObjects_ObjectIdentity = ObjectIdentity
+hpnicfFcTraceRouteObjects = _HpnicfFcTraceRouteObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1)
+)
+_HpnicfFcTraceRouteConfigurations_ObjectIdentity = ObjectIdentity
+hpnicfFcTraceRouteConfigurations = _HpnicfFcTraceRouteConfigurations_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1)
+)
+_HpnicfFcTraceRouteTable_Object = MibTable
+hpnicfFcTraceRouteTable = _HpnicfFcTraceRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteTable.setStatus("current")
+_HpnicfFcTraceRouteEntry_Object = MibTableRow
+hpnicfFcTraceRouteEntry = _HpnicfFcTraceRouteEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1)
+)
+hpnicfFcTraceRouteEntry.setIndexNames(
+    (0, "HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteEntry.setStatus("current")
+
+
+class _HpnicfFcTraceRouteIndex_Type(Unsigned32):
+    """Custom type hpnicfFcTraceRouteIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpnicfFcTraceRouteIndex_Type.__name__ = "Unsigned32"
+_HpnicfFcTraceRouteIndex_Object = MibTableColumn
+hpnicfFcTraceRouteIndex = _HpnicfFcTraceRouteIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 1),
+    _HpnicfFcTraceRouteIndex_Type()
+)
+hpnicfFcTraceRouteIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteIndex.setStatus("current")
+_HpnicfFcTraceRouteVsan_Type = HpnicfFcVsanIndex
+_HpnicfFcTraceRouteVsan_Object = MibTableColumn
+hpnicfFcTraceRouteVsan = _HpnicfFcTraceRouteVsan_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 2),
+    _HpnicfFcTraceRouteVsan_Type()
+)
+hpnicfFcTraceRouteVsan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteVsan.setStatus("current")
+
+
+class _HpnicfFcTraceRouteAddressType_Type(HpnicfFcAddressType):
+    """Custom type hpnicfFcTraceRouteAddressType based on HpnicfFcAddressType"""
+    defaultValue = 2
+
+
+_HpnicfFcTraceRouteAddressType_Type.__name__ = "HpnicfFcAddressType"
+_HpnicfFcTraceRouteAddressType_Object = MibTableColumn
+hpnicfFcTraceRouteAddressType = _HpnicfFcTraceRouteAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 3),
+    _HpnicfFcTraceRouteAddressType_Type()
+)
+hpnicfFcTraceRouteAddressType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteAddressType.setStatus("current")
+_HpnicfFcTraceRouteAddress_Type = HpnicfFcAddress
+_HpnicfFcTraceRouteAddress_Object = MibTableColumn
+hpnicfFcTraceRouteAddress = _HpnicfFcTraceRouteAddress_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 4),
+    _HpnicfFcTraceRouteAddress_Type()
+)
+hpnicfFcTraceRouteAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteAddress.setStatus("current")
+
+
+class _HpnicfFcTraceRouteTimeout_Type(Unsigned32):
+    """Custom type hpnicfFcTraceRouteTimeout based on Unsigned32"""
+    defaultValue = 5
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_HpnicfFcTraceRouteTimeout_Type.__name__ = "Unsigned32"
+_HpnicfFcTraceRouteTimeout_Object = MibTableColumn
+hpnicfFcTraceRouteTimeout = _HpnicfFcTraceRouteTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 5),
+    _HpnicfFcTraceRouteTimeout_Type()
+)
+hpnicfFcTraceRouteTimeout.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteTimeout.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteTimeout.setUnits("seconds")
+
+
+class _HpnicfFcTraceRouteAdminStatus_Type(HpnicfFcStartOper):
+    """Custom type hpnicfFcTraceRouteAdminStatus based on HpnicfFcStartOper"""
+    defaultValue = 2
+
+
+_HpnicfFcTraceRouteAdminStatus_Type.__name__ = "HpnicfFcStartOper"
+_HpnicfFcTraceRouteAdminStatus_Object = MibTableColumn
+hpnicfFcTraceRouteAdminStatus = _HpnicfFcTraceRouteAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 6),
+    _HpnicfFcTraceRouteAdminStatus_Type()
+)
+hpnicfFcTraceRouteAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteAdminStatus.setStatus("current")
+
+
+class _HpnicfFcTraceRouteOperStatus_Type(Integer32):
+    """Custom type hpnicfFcTraceRouteOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inProgress", 1),
+          ("success", 2),
+          ("partialSuccess", 3),
+          ("failure", 4),
+          ("disabled", 5))
+    )
+
+
+_HpnicfFcTraceRouteOperStatus_Type.__name__ = "Integer32"
+_HpnicfFcTraceRouteOperStatus_Object = MibTableColumn
+hpnicfFcTraceRouteOperStatus = _HpnicfFcTraceRouteOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 7),
+    _HpnicfFcTraceRouteOperStatus_Type()
+)
+hpnicfFcTraceRouteOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteOperStatus.setStatus("current")
+
+
+class _HpnicfFcTraceRouteAgeInterval_Type(Unsigned32):
+    """Custom type hpnicfFcTraceRouteAgeInterval based on Unsigned32"""
+    defaultValue = 500
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(500, 900),
+    )
+
+
+_HpnicfFcTraceRouteAgeInterval_Type.__name__ = "Unsigned32"
+_HpnicfFcTraceRouteAgeInterval_Object = MibTableColumn
+hpnicfFcTraceRouteAgeInterval = _HpnicfFcTraceRouteAgeInterval_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 8),
+    _HpnicfFcTraceRouteAgeInterval_Type()
+)
+hpnicfFcTraceRouteAgeInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteAgeInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteAgeInterval.setUnits("seconds")
+
+
+class _HpnicfFcTraceRouteTrapOnCompletion_Type(TruthValue):
+    """Custom type hpnicfFcTraceRouteTrapOnCompletion based on TruthValue"""
+    defaultValue = 2
+
+
+_HpnicfFcTraceRouteTrapOnCompletion_Type.__name__ = "TruthValue"
+_HpnicfFcTraceRouteTrapOnCompletion_Object = MibTableColumn
+hpnicfFcTraceRouteTrapOnCompletion = _HpnicfFcTraceRouteTrapOnCompletion_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 9),
+    _HpnicfFcTraceRouteTrapOnCompletion_Type()
+)
+hpnicfFcTraceRouteTrapOnCompletion.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteTrapOnCompletion.setStatus("current")
+_HpnicfFcTraceRouteRowStatus_Type = RowStatus
+_HpnicfFcTraceRouteRowStatus_Object = MibTableColumn
+hpnicfFcTraceRouteRowStatus = _HpnicfFcTraceRouteRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 1, 1, 1, 10),
+    _HpnicfFcTraceRouteRowStatus_Type()
+)
+hpnicfFcTraceRouteRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteRowStatus.setStatus("current")
+_HpnicfFcTraceRouteResults_ObjectIdentity = ObjectIdentity
+hpnicfFcTraceRouteResults = _HpnicfFcTraceRouteResults_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 2)
+)
+_HpnicfFcTraceRouteHopsTable_Object = MibTable
+hpnicfFcTraceRouteHopsTable = _HpnicfFcTraceRouteHopsTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteHopsTable.setStatus("current")
+_HpnicfFcTraceRouteHopsEntry_Object = MibTableRow
+hpnicfFcTraceRouteHopsEntry = _HpnicfFcTraceRouteHopsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 2, 1, 1)
+)
+hpnicfFcTraceRouteHopsEntry.setIndexNames(
+    (0, "HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteIndex"),
+    (0, "HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteHopsIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteHopsEntry.setStatus("current")
+
+
+class _HpnicfFcTraceRouteHopsIndex_Type(Unsigned32):
+    """Custom type hpnicfFcTraceRouteHopsIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpnicfFcTraceRouteHopsIndex_Type.__name__ = "Unsigned32"
+_HpnicfFcTraceRouteHopsIndex_Object = MibTableColumn
+hpnicfFcTraceRouteHopsIndex = _HpnicfFcTraceRouteHopsIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 2, 1, 1, 1),
+    _HpnicfFcTraceRouteHopsIndex_Type()
+)
+hpnicfFcTraceRouteHopsIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteHopsIndex.setStatus("current")
+_HpnicfFcTraceRouteHopsAddr_Type = HpnicfFcNameId
+_HpnicfFcTraceRouteHopsAddr_Object = MibTableColumn
+hpnicfFcTraceRouteHopsAddr = _HpnicfFcTraceRouteHopsAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 2, 1, 1, 2),
+    _HpnicfFcTraceRouteHopsAddr_Type()
+)
+hpnicfFcTraceRouteHopsAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteHopsAddr.setStatus("current")
+_HpnicfFcTraceRouteNotifications_ObjectIdentity = ObjectIdentity
+hpnicfFcTraceRouteNotifications = _HpnicfFcTraceRouteNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 3)
+)
+_HpnicfFcTraceRouteNotifyPrefix_ObjectIdentity = ObjectIdentity
+hpnicfFcTraceRouteNotifyPrefix = _HpnicfFcTraceRouteNotifyPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 3, 0)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hpnicfFcTraceRouteCompletionNotify = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 127, 4, 1, 3, 0, 1)
+)
+hpnicfFcTraceRouteCompletionNotify.setObjects(
+      *(("HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteIndex"),
+        ("HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteVsan"),
+        ("HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteAddressType"),
+        ("HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteAddress"),
+        ("HPN-ICF-FC-TRACE-ROUTE-MIB", "hpnicfFcTraceRouteOperStatus"))
+)
+if mibBuilder.loadTexts:
+    hpnicfFcTraceRouteCompletionNotify.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-FC-TRACE-ROUTE-MIB",
+    **{"hpnicfFcTraceRoute": hpnicfFcTraceRoute,
+       "hpnicfFcTraceRouteObjects": hpnicfFcTraceRouteObjects,
+       "hpnicfFcTraceRouteConfigurations": hpnicfFcTraceRouteConfigurations,
+       "hpnicfFcTraceRouteTable": hpnicfFcTraceRouteTable,
+       "hpnicfFcTraceRouteEntry": hpnicfFcTraceRouteEntry,
+       "hpnicfFcTraceRouteIndex": hpnicfFcTraceRouteIndex,
+       "hpnicfFcTraceRouteVsan": hpnicfFcTraceRouteVsan,
+       "hpnicfFcTraceRouteAddressType": hpnicfFcTraceRouteAddressType,
+       "hpnicfFcTraceRouteAddress": hpnicfFcTraceRouteAddress,
+       "hpnicfFcTraceRouteTimeout": hpnicfFcTraceRouteTimeout,
+       "hpnicfFcTraceRouteAdminStatus": hpnicfFcTraceRouteAdminStatus,
+       "hpnicfFcTraceRouteOperStatus": hpnicfFcTraceRouteOperStatus,
+       "hpnicfFcTraceRouteAgeInterval": hpnicfFcTraceRouteAgeInterval,
+       "hpnicfFcTraceRouteTrapOnCompletion": hpnicfFcTraceRouteTrapOnCompletion,
+       "hpnicfFcTraceRouteRowStatus": hpnicfFcTraceRouteRowStatus,
+       "hpnicfFcTraceRouteResults": hpnicfFcTraceRouteResults,
+       "hpnicfFcTraceRouteHopsTable": hpnicfFcTraceRouteHopsTable,
+       "hpnicfFcTraceRouteHopsEntry": hpnicfFcTraceRouteHopsEntry,
+       "hpnicfFcTraceRouteHopsIndex": hpnicfFcTraceRouteHopsIndex,
+       "hpnicfFcTraceRouteHopsAddr": hpnicfFcTraceRouteHopsAddr,
+       "hpnicfFcTraceRouteNotifications": hpnicfFcTraceRouteNotifications,
+       "hpnicfFcTraceRouteNotifyPrefix": hpnicfFcTraceRouteNotifyPrefix,
+       "hpnicfFcTraceRouteCompletionNotify": hpnicfFcTraceRouteCompletionNotify}
+)

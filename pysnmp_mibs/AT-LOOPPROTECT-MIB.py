@@ -1,37 +1,275 @@
+# SNMP MIB module (AT-LOOPPROTECT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module AT-LOOPPROTECT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/allied-old/AT-LOOPPROTECT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:12:43 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/allied-old/AT-LOOPPROTECT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:23:43 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-atLoopProtect = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54))
-atLoopProtect.setRevisions(('2008-08-12 00:00',))
-if mibBuilder.loadTexts: atLoopProtect.setLastUpdated('200809220000Z')
-if mibBuilder.loadTexts: atLoopProtect.setOrganization('Allied Telesis, Inc.')
-atLoopProtectAction = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("atLoopProtectAction-LearnDisable", 0), ("atLoopProtectAction-LearnEnable", 1), ("atLoopProtectAction-PortDisable", 2), ("atLoopProtectAction-PortEnable", 3), ("atLoopProtectAction-LinkDown", 4), ("atLoopProtectAction-LinkUp", 5), ("atLoopProtectAction-VlanDisable", 6), ("atLoopProtectAction-VlanEnable", 7))))
-if mibBuilder.loadTexts: atLoopProtectAction.setStatus('current')
-atLoopProtectIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 2), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atLoopProtectIfIndex.setStatus('current')
-atLoopProtectVlanId = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atLoopProtectVlanId.setStatus('current')
-atLoopProtectRxLDFIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 4), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atLoopProtectRxLDFIfIndex.setStatus('current')
-atLoopProtectRxLDFVlanId = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atLoopProtectRxLDFVlanId.setStatus('current')
-atLoopProtectTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 0))
-atLoopProtectDetectedLoopBlockedTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 0, 1)).setObjects(("AT-LOOPPROTECT-MIB", "atLoopProtectIfIndex"), ("AT-LOOPPROTECT-MIB", "atLoopProtectVlanId"), ("AT-LOOPPROTECT-MIB", "atLoopProtectAction"))
-if mibBuilder.loadTexts: atLoopProtectDetectedLoopBlockedTrap.setStatus('current')
-atLoopProtectRecoverLoopBlockedTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 0, 2)).setObjects(("AT-LOOPPROTECT-MIB", "atLoopProtectIfIndex"), ("AT-LOOPPROTECT-MIB", "atLoopProtectVlanId"), ("AT-LOOPPROTECT-MIB", "atLoopProtectAction"))
-if mibBuilder.loadTexts: atLoopProtectRecoverLoopBlockedTrap.setStatus('current')
-atLoopProtectDetectedByLoopDetectionTrap = NotificationType((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 0, 3)).setObjects(("AT-LOOPPROTECT-MIB", "atLoopProtectIfIndex"), ("AT-LOOPPROTECT-MIB", "atLoopProtectVlanId"), ("AT-LOOPPROTECT-MIB", "atLoopProtectRxLDFIfIndex"), ("AT-LOOPPROTECT-MIB", "atLoopProtectRxLDFVlanId"))
-if mibBuilder.loadTexts: atLoopProtectDetectedByLoopDetectionTrap.setStatus('current')
-mibBuilder.exportSymbols("AT-LOOPPROTECT-MIB", PYSNMP_MODULE_ID=atLoopProtect, atLoopProtectRecoverLoopBlockedTrap=atLoopProtectRecoverLoopBlockedTrap, atLoopProtectIfIndex=atLoopProtectIfIndex, atLoopProtectRxLDFVlanId=atLoopProtectRxLDFVlanId, atLoopProtectAction=atLoopProtectAction, atLoopProtectTrap=atLoopProtectTrap, atLoopProtect=atLoopProtect, atLoopProtectDetectedLoopBlockedTrap=atLoopProtectDetectedLoopBlockedTrap, atLoopProtectVlanId=atLoopProtectVlanId, atLoopProtectDetectedByLoopDetectionTrap=atLoopProtectDetectedByLoopDetectionTrap, atLoopProtectRxLDFIfIndex=atLoopProtectRxLDFIfIndex)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(modules,) = mibBuilder.importSymbols(
+    "AT-SMI-MIB",
+    "modules")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+atLoopProtect = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54)
+)
+if mibBuilder.loadTexts:
+    atLoopProtect.setRevisions(
+        ("2008-08-12 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AtLoopProtectTrap_ObjectIdentity = ObjectIdentity
+atLoopProtectTrap = _AtLoopProtectTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 0)
+)
+
+
+class _AtLoopProtectAction_Type(Integer32):
+    """Custom type atLoopProtectAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("atLoopProtectAction-LearnDisable", 0),
+          ("atLoopProtectAction-LearnEnable", 1),
+          ("atLoopProtectAction-PortDisable", 2),
+          ("atLoopProtectAction-PortEnable", 3),
+          ("atLoopProtectAction-LinkDown", 4),
+          ("atLoopProtectAction-LinkUp", 5),
+          ("atLoopProtectAction-VlanDisable", 6),
+          ("atLoopProtectAction-VlanEnable", 7))
+    )
+
+
+_AtLoopProtectAction_Type.__name__ = "Integer32"
+_AtLoopProtectAction_Object = MibScalar
+atLoopProtectAction = _AtLoopProtectAction_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 1),
+    _AtLoopProtectAction_Type()
+)
+atLoopProtectAction.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atLoopProtectAction.setStatus("current")
+_AtLoopProtectIfIndex_Type = InterfaceIndex
+_AtLoopProtectIfIndex_Object = MibScalar
+atLoopProtectIfIndex = _AtLoopProtectIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 2),
+    _AtLoopProtectIfIndex_Type()
+)
+atLoopProtectIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atLoopProtectIfIndex.setStatus("current")
+_AtLoopProtectVlanId_Type = Integer32
+_AtLoopProtectVlanId_Object = MibScalar
+atLoopProtectVlanId = _AtLoopProtectVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 3),
+    _AtLoopProtectVlanId_Type()
+)
+atLoopProtectVlanId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atLoopProtectVlanId.setStatus("current")
+_AtLoopProtectRxLDFIfIndex_Type = InterfaceIndex
+_AtLoopProtectRxLDFIfIndex_Object = MibScalar
+atLoopProtectRxLDFIfIndex = _AtLoopProtectRxLDFIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 4),
+    _AtLoopProtectRxLDFIfIndex_Type()
+)
+atLoopProtectRxLDFIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atLoopProtectRxLDFIfIndex.setStatus("current")
+_AtLoopProtectRxLDFVlanId_Type = Integer32
+_AtLoopProtectRxLDFVlanId_Object = MibScalar
+atLoopProtectRxLDFVlanId = _AtLoopProtectRxLDFVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 5),
+    _AtLoopProtectRxLDFVlanId_Type()
+)
+atLoopProtectRxLDFVlanId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atLoopProtectRxLDFVlanId.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+atLoopProtectDetectedLoopBlockedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 0, 1)
+)
+atLoopProtectDetectedLoopBlockedTrap.setObjects(
+      *(("AT-LOOPPROTECT-MIB", "atLoopProtectIfIndex"),
+        ("AT-LOOPPROTECT-MIB", "atLoopProtectVlanId"),
+        ("AT-LOOPPROTECT-MIB", "atLoopProtectAction"))
+)
+if mibBuilder.loadTexts:
+    atLoopProtectDetectedLoopBlockedTrap.setStatus(
+        "current"
+    )
+
+atLoopProtectRecoverLoopBlockedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 0, 2)
+)
+atLoopProtectRecoverLoopBlockedTrap.setObjects(
+      *(("AT-LOOPPROTECT-MIB", "atLoopProtectIfIndex"),
+        ("AT-LOOPPROTECT-MIB", "atLoopProtectVlanId"),
+        ("AT-LOOPPROTECT-MIB", "atLoopProtectAction"))
+)
+if mibBuilder.loadTexts:
+    atLoopProtectRecoverLoopBlockedTrap.setStatus(
+        "current"
+    )
+
+atLoopProtectDetectedByLoopDetectionTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 54, 0, 3)
+)
+atLoopProtectDetectedByLoopDetectionTrap.setObjects(
+      *(("AT-LOOPPROTECT-MIB", "atLoopProtectIfIndex"),
+        ("AT-LOOPPROTECT-MIB", "atLoopProtectVlanId"),
+        ("AT-LOOPPROTECT-MIB", "atLoopProtectRxLDFIfIndex"),
+        ("AT-LOOPPROTECT-MIB", "atLoopProtectRxLDFVlanId"))
+)
+if mibBuilder.loadTexts:
+    atLoopProtectDetectedByLoopDetectionTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "AT-LOOPPROTECT-MIB",
+    **{"atLoopProtect": atLoopProtect,
+       "atLoopProtectTrap": atLoopProtectTrap,
+       "atLoopProtectDetectedLoopBlockedTrap": atLoopProtectDetectedLoopBlockedTrap,
+       "atLoopProtectRecoverLoopBlockedTrap": atLoopProtectRecoverLoopBlockedTrap,
+       "atLoopProtectDetectedByLoopDetectionTrap": atLoopProtectDetectedByLoopDetectionTrap,
+       "atLoopProtectAction": atLoopProtectAction,
+       "atLoopProtectIfIndex": atLoopProtectIfIndex,
+       "atLoopProtectVlanId": atLoopProtectVlanId,
+       "atLoopProtectRxLDFIfIndex": atLoopProtectRxLDFIfIndex,
+       "atLoopProtectRxLDFVlanId": atLoopProtectRxLDFVlanId}
+)

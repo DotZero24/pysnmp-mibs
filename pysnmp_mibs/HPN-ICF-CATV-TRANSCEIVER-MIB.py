@@ -1,50 +1,339 @@
+# SNMP MIB module (HPN-ICF-CATV-TRANSCEIVER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-CATV-TRANSCEIVER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-CATV-TRANSCEIVER-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:13 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HPN-ICF-CATV-TRANSCEIVER-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:39:40 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hpnicfCATVTransceiver = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94))
-if mibBuilder.loadTexts: hpnicfCATVTransceiver.setLastUpdated('200807251008Z')
-if mibBuilder.loadTexts: hpnicfCATVTransceiver.setOrganization('')
-hpnicfCATVTransStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1))
-hpnicfCATVTransStatusScalarObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1, 1))
-hpnicfCATVTransState = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("on", 1), ("off", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfCATVTransState.setStatus('current')
-hpnicfCATVTransInputPwr = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1, 1, 2), Integer32()).setUnits('dbm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfCATVTransInputPwr.setStatus('current')
-hpnicfCATVTransOutputLevel = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1, 1, 3), Integer32()).setUnits('dbuv').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfCATVTransOutputLevel.setStatus('current')
-hpnicfCATVTransTemperature = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1, 1, 4), Integer32()).setUnits('centigrade').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfCATVTransTemperature.setStatus('current')
-hpnicfCATVTransceiverMan = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 2))
-hpnicfCATVTransCtrlScalarObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 2, 1))
-hpnicfCATVTransInputPwrLowerThr = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 2, 1, 1), Integer32()).setUnits('dbm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfCATVTransInputPwrLowerThr.setStatus('current')
-hpnicfCATVTransOutputLvlLowerThr = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 2, 1, 2), Integer32()).setUnits('dbuv').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfCATVTransOutputLvlLowerThr.setStatus('current')
-hpnicfCATVTransTempratureUpperThr = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 2, 1, 3), Integer32()).setUnits('').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfCATVTransTempratureUpperThr.setStatus('current')
-hpnicfCATVTansTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3))
-hpnicfCATVTransTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0))
-hpnicfCATVTransInputPwrTrap = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 1)).setObjects(("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransInputPwr"))
-if mibBuilder.loadTexts: hpnicfCATVTransInputPwrTrap.setStatus('current')
-hpnicfCATVTransInputPwrReTrap = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 2)).setObjects(("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransInputPwr"))
-if mibBuilder.loadTexts: hpnicfCATVTransInputPwrReTrap.setStatus('current')
-hpnicfCATVTransOutputLvlTrap = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 3)).setObjects(("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransOutputLevel"))
-if mibBuilder.loadTexts: hpnicfCATVTransOutputLvlTrap.setStatus('current')
-hpnicfCATVTransOutputLvlReTrap = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 4)).setObjects(("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransOutputLevel"))
-if mibBuilder.loadTexts: hpnicfCATVTransOutputLvlReTrap.setStatus('current')
-hpnicfCATVTransTemperatureTrap = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 5)).setObjects(("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransTemperature"))
-if mibBuilder.loadTexts: hpnicfCATVTransTemperatureTrap.setStatus('current')
-hpnicfCATVTransTemperatureReTrap = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 6)).setObjects(("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransTemperature"))
-if mibBuilder.loadTexts: hpnicfCATVTransTemperatureReTrap.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-CATV-TRANSCEIVER-MIB", hpnicfCATVTransOutputLevel=hpnicfCATVTransOutputLevel, hpnicfCATVTransceiverMan=hpnicfCATVTransceiverMan, hpnicfCATVTransTemperature=hpnicfCATVTransTemperature, hpnicfCATVTransInputPwr=hpnicfCATVTransInputPwr, hpnicfCATVTransCtrlScalarObjects=hpnicfCATVTransCtrlScalarObjects, hpnicfCATVTransInputPwrReTrap=hpnicfCATVTransInputPwrReTrap, hpnicfCATVTransTemperatureReTrap=hpnicfCATVTransTemperatureReTrap, hpnicfCATVTransTrapPrefix=hpnicfCATVTransTrapPrefix, hpnicfCATVTransOutputLvlTrap=hpnicfCATVTransOutputLvlTrap, hpnicfCATVTransTempratureUpperThr=hpnicfCATVTransTempratureUpperThr, hpnicfCATVTransStatus=hpnicfCATVTransStatus, hpnicfCATVTransTemperatureTrap=hpnicfCATVTransTemperatureTrap, hpnicfCATVTransOutputLvlLowerThr=hpnicfCATVTransOutputLvlLowerThr, hpnicfCATVTransInputPwrLowerThr=hpnicfCATVTransInputPwrLowerThr, PYSNMP_MODULE_ID=hpnicfCATVTransceiver, hpnicfCATVTransStatusScalarObjects=hpnicfCATVTransStatusScalarObjects, hpnicfCATVTransInputPwrTrap=hpnicfCATVTransInputPwrTrap, hpnicfCATVTansTrap=hpnicfCATVTansTrap, hpnicfCATVTransOutputLvlReTrap=hpnicfCATVTransOutputLvlReTrap, hpnicfCATVTransState=hpnicfCATVTransState, hpnicfCATVTransceiver=hpnicfCATVTransceiver)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpnicfCommon,) = mibBuilder.importSymbols(
+    "HPN-ICF-OID-MIB",
+    "hpnicfCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpnicfCATVTransceiver = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfCATVTransStatus_ObjectIdentity = ObjectIdentity
+hpnicfCATVTransStatus = _HpnicfCATVTransStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1)
+)
+_HpnicfCATVTransStatusScalarObjects_ObjectIdentity = ObjectIdentity
+hpnicfCATVTransStatusScalarObjects = _HpnicfCATVTransStatusScalarObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1, 1)
+)
+
+
+class _HpnicfCATVTransState_Type(Integer32):
+    """Custom type hpnicfCATVTransState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("on", 1),
+          ("off", 2))
+    )
+
+
+_HpnicfCATVTransState_Type.__name__ = "Integer32"
+_HpnicfCATVTransState_Object = MibScalar
+hpnicfCATVTransState = _HpnicfCATVTransState_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1, 1, 1),
+    _HpnicfCATVTransState_Type()
+)
+hpnicfCATVTransState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransState.setStatus("current")
+_HpnicfCATVTransInputPwr_Type = Integer32
+_HpnicfCATVTransInputPwr_Object = MibScalar
+hpnicfCATVTransInputPwr = _HpnicfCATVTransInputPwr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1, 1, 2),
+    _HpnicfCATVTransInputPwr_Type()
+)
+hpnicfCATVTransInputPwr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransInputPwr.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransInputPwr.setUnits("dbm")
+_HpnicfCATVTransOutputLevel_Type = Integer32
+_HpnicfCATVTransOutputLevel_Object = MibScalar
+hpnicfCATVTransOutputLevel = _HpnicfCATVTransOutputLevel_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1, 1, 3),
+    _HpnicfCATVTransOutputLevel_Type()
+)
+hpnicfCATVTransOutputLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransOutputLevel.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransOutputLevel.setUnits("dbuv")
+_HpnicfCATVTransTemperature_Type = Integer32
+_HpnicfCATVTransTemperature_Object = MibScalar
+hpnicfCATVTransTemperature = _HpnicfCATVTransTemperature_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 1, 1, 4),
+    _HpnicfCATVTransTemperature_Type()
+)
+hpnicfCATVTransTemperature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransTemperature.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransTemperature.setUnits("centigrade")
+_HpnicfCATVTransceiverMan_ObjectIdentity = ObjectIdentity
+hpnicfCATVTransceiverMan = _HpnicfCATVTransceiverMan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 2)
+)
+_HpnicfCATVTransCtrlScalarObjects_ObjectIdentity = ObjectIdentity
+hpnicfCATVTransCtrlScalarObjects = _HpnicfCATVTransCtrlScalarObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 2, 1)
+)
+_HpnicfCATVTransInputPwrLowerThr_Type = Integer32
+_HpnicfCATVTransInputPwrLowerThr_Object = MibScalar
+hpnicfCATVTransInputPwrLowerThr = _HpnicfCATVTransInputPwrLowerThr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 2, 1, 1),
+    _HpnicfCATVTransInputPwrLowerThr_Type()
+)
+hpnicfCATVTransInputPwrLowerThr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransInputPwrLowerThr.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransInputPwrLowerThr.setUnits("dbm")
+_HpnicfCATVTransOutputLvlLowerThr_Type = Integer32
+_HpnicfCATVTransOutputLvlLowerThr_Object = MibScalar
+hpnicfCATVTransOutputLvlLowerThr = _HpnicfCATVTransOutputLvlLowerThr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 2, 1, 2),
+    _HpnicfCATVTransOutputLvlLowerThr_Type()
+)
+hpnicfCATVTransOutputLvlLowerThr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransOutputLvlLowerThr.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransOutputLvlLowerThr.setUnits("dbuv")
+_HpnicfCATVTransTempratureUpperThr_Type = Integer32
+_HpnicfCATVTransTempratureUpperThr_Object = MibScalar
+hpnicfCATVTransTempratureUpperThr = _HpnicfCATVTransTempratureUpperThr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 2, 1, 3),
+    _HpnicfCATVTransTempratureUpperThr_Type()
+)
+hpnicfCATVTransTempratureUpperThr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfCATVTransTempratureUpperThr.setStatus("current")
+_HpnicfCATVTansTrap_ObjectIdentity = ObjectIdentity
+hpnicfCATVTansTrap = _HpnicfCATVTansTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3)
+)
+_HpnicfCATVTransTrapPrefix_ObjectIdentity = ObjectIdentity
+hpnicfCATVTransTrapPrefix = _HpnicfCATVTransTrapPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hpnicfCATVTransInputPwrTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 1)
+)
+hpnicfCATVTransInputPwrTrap.setObjects(
+    ("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransInputPwr")
+)
+if mibBuilder.loadTexts:
+    hpnicfCATVTransInputPwrTrap.setStatus(
+        "current"
+    )
+
+hpnicfCATVTransInputPwrReTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 2)
+)
+hpnicfCATVTransInputPwrReTrap.setObjects(
+    ("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransInputPwr")
+)
+if mibBuilder.loadTexts:
+    hpnicfCATVTransInputPwrReTrap.setStatus(
+        "current"
+    )
+
+hpnicfCATVTransOutputLvlTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 3)
+)
+hpnicfCATVTransOutputLvlTrap.setObjects(
+    ("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransOutputLevel")
+)
+if mibBuilder.loadTexts:
+    hpnicfCATVTransOutputLvlTrap.setStatus(
+        "current"
+    )
+
+hpnicfCATVTransOutputLvlReTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 4)
+)
+hpnicfCATVTransOutputLvlReTrap.setObjects(
+    ("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransOutputLevel")
+)
+if mibBuilder.loadTexts:
+    hpnicfCATVTransOutputLvlReTrap.setStatus(
+        "current"
+    )
+
+hpnicfCATVTransTemperatureTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 5)
+)
+hpnicfCATVTransTemperatureTrap.setObjects(
+    ("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransTemperature")
+)
+if mibBuilder.loadTexts:
+    hpnicfCATVTransTemperatureTrap.setStatus(
+        "current"
+    )
+
+hpnicfCATVTransTemperatureReTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 94, 3, 0, 6)
+)
+hpnicfCATVTransTemperatureReTrap.setObjects(
+    ("HPN-ICF-CATV-TRANSCEIVER-MIB", "hpnicfCATVTransTemperature")
+)
+if mibBuilder.loadTexts:
+    hpnicfCATVTransTemperatureReTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-CATV-TRANSCEIVER-MIB",
+    **{"hpnicfCATVTransceiver": hpnicfCATVTransceiver,
+       "hpnicfCATVTransStatus": hpnicfCATVTransStatus,
+       "hpnicfCATVTransStatusScalarObjects": hpnicfCATVTransStatusScalarObjects,
+       "hpnicfCATVTransState": hpnicfCATVTransState,
+       "hpnicfCATVTransInputPwr": hpnicfCATVTransInputPwr,
+       "hpnicfCATVTransOutputLevel": hpnicfCATVTransOutputLevel,
+       "hpnicfCATVTransTemperature": hpnicfCATVTransTemperature,
+       "hpnicfCATVTransceiverMan": hpnicfCATVTransceiverMan,
+       "hpnicfCATVTransCtrlScalarObjects": hpnicfCATVTransCtrlScalarObjects,
+       "hpnicfCATVTransInputPwrLowerThr": hpnicfCATVTransInputPwrLowerThr,
+       "hpnicfCATVTransOutputLvlLowerThr": hpnicfCATVTransOutputLvlLowerThr,
+       "hpnicfCATVTransTempratureUpperThr": hpnicfCATVTransTempratureUpperThr,
+       "hpnicfCATVTansTrap": hpnicfCATVTansTrap,
+       "hpnicfCATVTransTrapPrefix": hpnicfCATVTransTrapPrefix,
+       "hpnicfCATVTransInputPwrTrap": hpnicfCATVTransInputPwrTrap,
+       "hpnicfCATVTransInputPwrReTrap": hpnicfCATVTransInputPwrReTrap,
+       "hpnicfCATVTransOutputLvlTrap": hpnicfCATVTransOutputLvlTrap,
+       "hpnicfCATVTransOutputLvlReTrap": hpnicfCATVTransOutputLvlReTrap,
+       "hpnicfCATVTransTemperatureTrap": hpnicfCATVTransTemperatureTrap,
+       "hpnicfCATVTransTemperatureReTrap": hpnicfCATVTransTemperatureReTrap}
+)

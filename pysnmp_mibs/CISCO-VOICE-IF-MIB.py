@@ -1,68 +1,546 @@
+# SNMP MIB module (CISCO-VOICE-IF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-VOICE-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-VOICE-IF-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:23:32 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-VOICE-IF-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:22:56 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CountryCode, = mibBuilder.importSymbols("CISCO-TC", "CountryCode")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-ciscoVoiceInterfaceMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 64))
-ciscoVoiceInterfaceMIB.setRevisions(('2003-07-18 00:00', '2001-03-08 00:00',))
-if mibBuilder.loadTexts: ciscoVoiceInterfaceMIB.setLastUpdated('200307180000Z')
-if mibBuilder.loadTexts: ciscoVoiceInterfaceMIB.setOrganization('Cisco Systems, Inc.')
-cvIfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 64, 1))
-cvIfCfgObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1))
-cvIfCfgTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1), )
-if mibBuilder.loadTexts: cvIfCfgTable.setStatus('current')
-cvIfCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: cvIfCfgEntry.setStatus('current')
-cvIfCfgNoiseRegEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgNoiseRegEnable.setStatus('current')
-cvIfCfgNonLinearProcEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgNonLinearProcEnable.setStatus('current')
-cvIfCfgMusicOnHoldThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-70, -30))).setUnits('dBm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgMusicOnHoldThreshold.setStatus('current')
-cvIfCfgInGain = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-6, 14))).setUnits('dB').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgInGain.setStatus('current')
-cvIfCfgOutAttn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 14))).setUnits('dB').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgOutAttn.setStatus('current')
-cvIfCfgEchoCancelEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 6), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgEchoCancelEnable.setStatus('current')
-cvIfCfgEchoCancelCoverage = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))).clone(namedValues=NamedValues(("echoCanceller16ms", 1), ("echoCanceller24ms", 2), ("echoCanceller32ms", 3), ("echoCanceller8ms", 4), ("echoCanceller48ms", 5), ("echoCanceller64ms", 6), ("echoCanceller80ms", 7), ("echoCanceller96ms", 8), ("echoCanceller112ms", 9), ("echoCanceller128ms", 10)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgEchoCancelCoverage.setStatus('current')
-cvIfCfgConnectionMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("normal", 1), ("trunk", 2), ("plar", 3), ("tieline", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgConnectionMode.setStatus('current')
-cvIfCfgConnectionNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgConnectionNumber.setStatus('current')
-cvIfCfgInitialDigitTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 120))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgInitialDigitTimeOut.setStatus('current')
-cvIfCfgInterDigitTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 120))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgInterDigitTimeOut.setStatus('current')
-cvIfCfgRegionalTone = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 12), CountryCode()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgRegionalTone.setStatus('current')
-cvIfCfgEchoCancelWorstERL = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("echoCancellerWorstERLUnknown", 1), ("echoCancellerWorstERL6dB", 2), ("echoCancellerWorstERL3dB", 3), ("echoCancellerWorstERL0dB", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cvIfCfgEchoCancelWorstERL.setStatus('current')
-cvIfCfgEchoCanceller = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("echoCancellerStandard", 1), ("echoCancellerExtended", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvIfCfgEchoCanceller.setStatus('current')
-cvIfConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 64, 2))
-cvIfCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 64, 2, 1))
-cvIfGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 64, 2, 2))
-cvIfCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 64, 2, 1, 1)).setObjects(("CISCO-VOICE-IF-MIB", "cvIfGroup"), ("CISCO-VOICE-IF-MIB", "cvIfConnectionGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvIfCompliance = cvIfCompliance.setStatus('current')
-cvIfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 64, 2, 2, 1)).setObjects(("CISCO-VOICE-IF-MIB", "cvIfCfgNoiseRegEnable"), ("CISCO-VOICE-IF-MIB", "cvIfCfgNonLinearProcEnable"), ("CISCO-VOICE-IF-MIB", "cvIfCfgMusicOnHoldThreshold"), ("CISCO-VOICE-IF-MIB", "cvIfCfgInGain"), ("CISCO-VOICE-IF-MIB", "cvIfCfgOutAttn"), ("CISCO-VOICE-IF-MIB", "cvIfCfgEchoCancelEnable"), ("CISCO-VOICE-IF-MIB", "cvIfCfgEchoCancelCoverage"), ("CISCO-VOICE-IF-MIB", "cvIfCfgInitialDigitTimeOut"), ("CISCO-VOICE-IF-MIB", "cvIfCfgInterDigitTimeOut"), ("CISCO-VOICE-IF-MIB", "cvIfCfgRegionalTone"), ("CISCO-VOICE-IF-MIB", "cvIfCfgEchoCancelWorstERL"), ("CISCO-VOICE-IF-MIB", "cvIfCfgEchoCanceller"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvIfGroup = cvIfGroup.setStatus('current')
-cvIfConnectionGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 64, 2, 2, 2)).setObjects(("CISCO-VOICE-IF-MIB", "cvIfCfgConnectionMode"), ("CISCO-VOICE-IF-MIB", "cvIfCfgConnectionNumber"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvIfConnectionGroup = cvIfConnectionGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-VOICE-IF-MIB", cvIfCfgInterDigitTimeOut=cvIfCfgInterDigitTimeOut, cvIfCfgEchoCancelWorstERL=cvIfCfgEchoCancelWorstERL, cvIfCompliance=cvIfCompliance, cvIfCfgTable=cvIfCfgTable, cvIfCfgNoiseRegEnable=cvIfCfgNoiseRegEnable, cvIfCfgConnectionNumber=cvIfCfgConnectionNumber, cvIfCfgObjects=cvIfCfgObjects, PYSNMP_MODULE_ID=ciscoVoiceInterfaceMIB, cvIfCfgOutAttn=cvIfCfgOutAttn, cvIfGroup=cvIfGroup, cvIfConnectionGroup=cvIfConnectionGroup, cvIfCfgInGain=cvIfCfgInGain, cvIfConformance=cvIfConformance, cvIfCfgEchoCanceller=cvIfCfgEchoCanceller, cvIfCfgConnectionMode=cvIfCfgConnectionMode, cvIfObjects=cvIfObjects, cvIfCfgInitialDigitTimeOut=cvIfCfgInitialDigitTimeOut, ciscoVoiceInterfaceMIB=ciscoVoiceInterfaceMIB, cvIfCfgNonLinearProcEnable=cvIfCfgNonLinearProcEnable, cvIfCfgEchoCancelCoverage=cvIfCfgEchoCancelCoverage, cvIfCfgMusicOnHoldThreshold=cvIfCfgMusicOnHoldThreshold, cvIfCfgEntry=cvIfCfgEntry, cvIfCfgEchoCancelEnable=cvIfCfgEchoCancelEnable, cvIfCompliances=cvIfCompliances, cvIfGroups=cvIfGroups, cvIfCfgRegionalTone=cvIfCfgRegionalTone)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CountryCode,) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CountryCode")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoVoiceInterfaceMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64)
+)
+if mibBuilder.loadTexts:
+    ciscoVoiceInterfaceMIB.setRevisions(
+        ("2003-07-18 00:00",
+         "2001-03-08 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CvIfObjects_ObjectIdentity = ObjectIdentity
+cvIfObjects = _CvIfObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1)
+)
+_CvIfCfgObjects_ObjectIdentity = ObjectIdentity
+cvIfCfgObjects = _CvIfCfgObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1)
+)
+_CvIfCfgTable_Object = MibTable
+cvIfCfgTable = _CvIfCfgTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cvIfCfgTable.setStatus("current")
+_CvIfCfgEntry_Object = MibTableRow
+cvIfCfgEntry = _CvIfCfgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1)
+)
+cvIfCfgEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    cvIfCfgEntry.setStatus("current")
+_CvIfCfgNoiseRegEnable_Type = TruthValue
+_CvIfCfgNoiseRegEnable_Object = MibTableColumn
+cvIfCfgNoiseRegEnable = _CvIfCfgNoiseRegEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 1),
+    _CvIfCfgNoiseRegEnable_Type()
+)
+cvIfCfgNoiseRegEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgNoiseRegEnable.setStatus("current")
+_CvIfCfgNonLinearProcEnable_Type = TruthValue
+_CvIfCfgNonLinearProcEnable_Object = MibTableColumn
+cvIfCfgNonLinearProcEnable = _CvIfCfgNonLinearProcEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 2),
+    _CvIfCfgNonLinearProcEnable_Type()
+)
+cvIfCfgNonLinearProcEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgNonLinearProcEnable.setStatus("current")
+
+
+class _CvIfCfgMusicOnHoldThreshold_Type(Integer32):
+    """Custom type cvIfCfgMusicOnHoldThreshold based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-70, -30),
+    )
+
+
+_CvIfCfgMusicOnHoldThreshold_Type.__name__ = "Integer32"
+_CvIfCfgMusicOnHoldThreshold_Object = MibTableColumn
+cvIfCfgMusicOnHoldThreshold = _CvIfCfgMusicOnHoldThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 3),
+    _CvIfCfgMusicOnHoldThreshold_Type()
+)
+cvIfCfgMusicOnHoldThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgMusicOnHoldThreshold.setStatus("current")
+if mibBuilder.loadTexts:
+    cvIfCfgMusicOnHoldThreshold.setUnits("dBm")
+
+
+class _CvIfCfgInGain_Type(Integer32):
+    """Custom type cvIfCfgInGain based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-6, 14),
+    )
+
+
+_CvIfCfgInGain_Type.__name__ = "Integer32"
+_CvIfCfgInGain_Object = MibTableColumn
+cvIfCfgInGain = _CvIfCfgInGain_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 4),
+    _CvIfCfgInGain_Type()
+)
+cvIfCfgInGain.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgInGain.setStatus("current")
+if mibBuilder.loadTexts:
+    cvIfCfgInGain.setUnits("dB")
+
+
+class _CvIfCfgOutAttn_Type(Integer32):
+    """Custom type cvIfCfgOutAttn based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 14),
+    )
+
+
+_CvIfCfgOutAttn_Type.__name__ = "Integer32"
+_CvIfCfgOutAttn_Object = MibTableColumn
+cvIfCfgOutAttn = _CvIfCfgOutAttn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 5),
+    _CvIfCfgOutAttn_Type()
+)
+cvIfCfgOutAttn.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgOutAttn.setStatus("current")
+if mibBuilder.loadTexts:
+    cvIfCfgOutAttn.setUnits("dB")
+_CvIfCfgEchoCancelEnable_Type = TruthValue
+_CvIfCfgEchoCancelEnable_Object = MibTableColumn
+cvIfCfgEchoCancelEnable = _CvIfCfgEchoCancelEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 6),
+    _CvIfCfgEchoCancelEnable_Type()
+)
+cvIfCfgEchoCancelEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgEchoCancelEnable.setStatus("current")
+
+
+class _CvIfCfgEchoCancelCoverage_Type(Integer32):
+    """Custom type cvIfCfgEchoCancelCoverage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("echoCanceller16ms", 1),
+          ("echoCanceller24ms", 2),
+          ("echoCanceller32ms", 3),
+          ("echoCanceller8ms", 4),
+          ("echoCanceller48ms", 5),
+          ("echoCanceller64ms", 6),
+          ("echoCanceller80ms", 7),
+          ("echoCanceller96ms", 8),
+          ("echoCanceller112ms", 9),
+          ("echoCanceller128ms", 10))
+    )
+
+
+_CvIfCfgEchoCancelCoverage_Type.__name__ = "Integer32"
+_CvIfCfgEchoCancelCoverage_Object = MibTableColumn
+cvIfCfgEchoCancelCoverage = _CvIfCfgEchoCancelCoverage_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 7),
+    _CvIfCfgEchoCancelCoverage_Type()
+)
+cvIfCfgEchoCancelCoverage.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgEchoCancelCoverage.setStatus("current")
+
+
+class _CvIfCfgConnectionMode_Type(Integer32):
+    """Custom type cvIfCfgConnectionMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 1),
+          ("trunk", 2),
+          ("plar", 3),
+          ("tieline", 4))
+    )
+
+
+_CvIfCfgConnectionMode_Type.__name__ = "Integer32"
+_CvIfCfgConnectionMode_Object = MibTableColumn
+cvIfCfgConnectionMode = _CvIfCfgConnectionMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 8),
+    _CvIfCfgConnectionMode_Type()
+)
+cvIfCfgConnectionMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgConnectionMode.setStatus("current")
+
+
+class _CvIfCfgConnectionNumber_Type(DisplayString):
+    """Custom type cvIfCfgConnectionNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_CvIfCfgConnectionNumber_Type.__name__ = "DisplayString"
+_CvIfCfgConnectionNumber_Object = MibTableColumn
+cvIfCfgConnectionNumber = _CvIfCfgConnectionNumber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 9),
+    _CvIfCfgConnectionNumber_Type()
+)
+cvIfCfgConnectionNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgConnectionNumber.setStatus("current")
+
+
+class _CvIfCfgInitialDigitTimeOut_Type(Integer32):
+    """Custom type cvIfCfgInitialDigitTimeOut based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 120),
+    )
+
+
+_CvIfCfgInitialDigitTimeOut_Type.__name__ = "Integer32"
+_CvIfCfgInitialDigitTimeOut_Object = MibTableColumn
+cvIfCfgInitialDigitTimeOut = _CvIfCfgInitialDigitTimeOut_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 10),
+    _CvIfCfgInitialDigitTimeOut_Type()
+)
+cvIfCfgInitialDigitTimeOut.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgInitialDigitTimeOut.setStatus("current")
+if mibBuilder.loadTexts:
+    cvIfCfgInitialDigitTimeOut.setUnits("seconds")
+
+
+class _CvIfCfgInterDigitTimeOut_Type(Integer32):
+    """Custom type cvIfCfgInterDigitTimeOut based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 120),
+    )
+
+
+_CvIfCfgInterDigitTimeOut_Type.__name__ = "Integer32"
+_CvIfCfgInterDigitTimeOut_Object = MibTableColumn
+cvIfCfgInterDigitTimeOut = _CvIfCfgInterDigitTimeOut_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 11),
+    _CvIfCfgInterDigitTimeOut_Type()
+)
+cvIfCfgInterDigitTimeOut.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgInterDigitTimeOut.setStatus("current")
+if mibBuilder.loadTexts:
+    cvIfCfgInterDigitTimeOut.setUnits("seconds")
+_CvIfCfgRegionalTone_Type = CountryCode
+_CvIfCfgRegionalTone_Object = MibTableColumn
+cvIfCfgRegionalTone = _CvIfCfgRegionalTone_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 12),
+    _CvIfCfgRegionalTone_Type()
+)
+cvIfCfgRegionalTone.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgRegionalTone.setStatus("current")
+
+
+class _CvIfCfgEchoCancelWorstERL_Type(Integer32):
+    """Custom type cvIfCfgEchoCancelWorstERL based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("echoCancellerWorstERLUnknown", 1),
+          ("echoCancellerWorstERL6dB", 2),
+          ("echoCancellerWorstERL3dB", 3),
+          ("echoCancellerWorstERL0dB", 4))
+    )
+
+
+_CvIfCfgEchoCancelWorstERL_Type.__name__ = "Integer32"
+_CvIfCfgEchoCancelWorstERL_Object = MibTableColumn
+cvIfCfgEchoCancelWorstERL = _CvIfCfgEchoCancelWorstERL_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 13),
+    _CvIfCfgEchoCancelWorstERL_Type()
+)
+cvIfCfgEchoCancelWorstERL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cvIfCfgEchoCancelWorstERL.setStatus("current")
+
+
+class _CvIfCfgEchoCanceller_Type(Integer32):
+    """Custom type cvIfCfgEchoCanceller based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("echoCancellerStandard", 1),
+          ("echoCancellerExtended", 2))
+    )
+
+
+_CvIfCfgEchoCanceller_Type.__name__ = "Integer32"
+_CvIfCfgEchoCanceller_Object = MibTableColumn
+cvIfCfgEchoCanceller = _CvIfCfgEchoCanceller_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 1, 1, 1, 1, 14),
+    _CvIfCfgEchoCanceller_Type()
+)
+cvIfCfgEchoCanceller.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvIfCfgEchoCanceller.setStatus("current")
+_CvIfConformance_ObjectIdentity = ObjectIdentity
+cvIfConformance = _CvIfConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 2)
+)
+_CvIfCompliances_ObjectIdentity = ObjectIdentity
+cvIfCompliances = _CvIfCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 2, 1)
+)
+_CvIfGroups_ObjectIdentity = ObjectIdentity
+cvIfGroups = _CvIfGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 2, 2)
+)
+
+# Managed Objects groups
+
+cvIfGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 2, 2, 1)
+)
+cvIfGroup.setObjects(
+      *(("CISCO-VOICE-IF-MIB", "cvIfCfgNoiseRegEnable"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgNonLinearProcEnable"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgMusicOnHoldThreshold"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgInGain"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgOutAttn"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgEchoCancelEnable"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgEchoCancelCoverage"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgInitialDigitTimeOut"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgInterDigitTimeOut"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgRegionalTone"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgEchoCancelWorstERL"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgEchoCanceller"))
+)
+if mibBuilder.loadTexts:
+    cvIfGroup.setStatus("current")
+
+cvIfConnectionGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 2, 2, 2)
+)
+cvIfConnectionGroup.setObjects(
+      *(("CISCO-VOICE-IF-MIB", "cvIfCfgConnectionMode"),
+        ("CISCO-VOICE-IF-MIB", "cvIfCfgConnectionNumber"))
+)
+if mibBuilder.loadTexts:
+    cvIfConnectionGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cvIfCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 64, 2, 1, 1)
+)
+cvIfCompliance.setObjects(
+      *(("CISCO-VOICE-IF-MIB", "cvIfGroup"),
+        ("CISCO-VOICE-IF-MIB", "cvIfConnectionGroup"))
+)
+if mibBuilder.loadTexts:
+    cvIfCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-VOICE-IF-MIB",
+    **{"ciscoVoiceInterfaceMIB": ciscoVoiceInterfaceMIB,
+       "cvIfObjects": cvIfObjects,
+       "cvIfCfgObjects": cvIfCfgObjects,
+       "cvIfCfgTable": cvIfCfgTable,
+       "cvIfCfgEntry": cvIfCfgEntry,
+       "cvIfCfgNoiseRegEnable": cvIfCfgNoiseRegEnable,
+       "cvIfCfgNonLinearProcEnable": cvIfCfgNonLinearProcEnable,
+       "cvIfCfgMusicOnHoldThreshold": cvIfCfgMusicOnHoldThreshold,
+       "cvIfCfgInGain": cvIfCfgInGain,
+       "cvIfCfgOutAttn": cvIfCfgOutAttn,
+       "cvIfCfgEchoCancelEnable": cvIfCfgEchoCancelEnable,
+       "cvIfCfgEchoCancelCoverage": cvIfCfgEchoCancelCoverage,
+       "cvIfCfgConnectionMode": cvIfCfgConnectionMode,
+       "cvIfCfgConnectionNumber": cvIfCfgConnectionNumber,
+       "cvIfCfgInitialDigitTimeOut": cvIfCfgInitialDigitTimeOut,
+       "cvIfCfgInterDigitTimeOut": cvIfCfgInterDigitTimeOut,
+       "cvIfCfgRegionalTone": cvIfCfgRegionalTone,
+       "cvIfCfgEchoCancelWorstERL": cvIfCfgEchoCancelWorstERL,
+       "cvIfCfgEchoCanceller": cvIfCfgEchoCanceller,
+       "cvIfConformance": cvIfConformance,
+       "cvIfCompliances": cvIfCompliances,
+       "cvIfCompliance": cvIfCompliance,
+       "cvIfGroups": cvIfGroups,
+       "cvIfGroup": cvIfGroup,
+       "cvIfConnectionGroup": cvIfConnectionGroup}
+)

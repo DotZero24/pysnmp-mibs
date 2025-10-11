@@ -1,52 +1,330 @@
+# SNMP MIB module (CYAN-AUG64-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CYAN-AUG64-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cyan/CYAN-AUG64-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:54 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cyan/CYAN-AUG64-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:03:03 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-cyanEntityModules, = mibBuilder.importSymbols("CYAN-MIB", "cyanEntityModules")
-CyanOpStateTc, CyanOpStateQualTc, CyanAdminStateTc, CyanSecServiceStateTc, CyanAugStructureTc = mibBuilder.importSymbols("CYAN-TC-MIB", "CyanOpStateTc", "CyanOpStateQualTc", "CyanAdminStateTc", "CyanSecServiceStateTc", "CyanAugStructureTc")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-cyanAUG64Module = ModuleIdentity((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240))
-cyanAUG64Module.setRevisions(('2014-12-07 05:45',))
-if mibBuilder.loadTexts: cyanAUG64Module.setLastUpdated('201412070545Z')
-if mibBuilder.loadTexts: cyanAUG64Module.setOrganization('Cyan, Inc.')
-cyanAUG64MibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1))
-cyanAUG64Table = MibTable((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1), )
-if mibBuilder.loadTexts: cyanAUG64Table.setStatus('current')
-cyanAUG64Entry = MibTableRow((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1), ).setIndexNames((0, "CYAN-AUG64-MIB", "cyanAUG64ShelfId"), (0, "CYAN-AUG64-MIB", "cyanAUG64ModuleId"), (0, "CYAN-AUG64-MIB", "cyanAUG64AUG64Id"))
-if mibBuilder.loadTexts: cyanAUG64Entry.setStatus('current')
-cyanAUG64ShelfId = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
-if mibBuilder.loadTexts: cyanAUG64ShelfId.setStatus('current')
-cyanAUG64ModuleId = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 2), Unsigned32())
-if mibBuilder.loadTexts: cyanAUG64ModuleId.setStatus('current')
-cyanAUG64AUG64Id = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 3), Unsigned32())
-if mibBuilder.loadTexts: cyanAUG64AUG64Id.setStatus('current')
-cyanAUG64AdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 4), CyanAdminStateTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanAUG64AdminState.setStatus('current')
-cyanAUG64AutoinserviceSoakTimeSec = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanAUG64AutoinserviceSoakTimeSec.setStatus('current')
-cyanAUG64Description = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanAUG64Description.setStatus('current')
-cyanAUG64OperState = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 7), CyanOpStateTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanAUG64OperState.setStatus('current')
-cyanAUG64OperStateQual = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 8), CyanOpStateQualTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanAUG64OperStateQual.setStatus('current')
-cyanAUG64SecServState = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 9), CyanSecServiceStateTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanAUG64SecServState.setStatus('current')
-cyanAUG64StsaugStructure = MibTableColumn((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 10), CyanAugStructureTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cyanAUG64StsaugStructure.setStatus('current')
-cyanAUG64ObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 20)).setObjects(("CYAN-AUG64-MIB", "cyanAUG64AdminState"), ("CYAN-AUG64-MIB", "cyanAUG64AutoinserviceSoakTimeSec"), ("CYAN-AUG64-MIB", "cyanAUG64Description"), ("CYAN-AUG64-MIB", "cyanAUG64OperState"), ("CYAN-AUG64-MIB", "cyanAUG64OperStateQual"), ("CYAN-AUG64-MIB", "cyanAUG64SecServState"), ("CYAN-AUG64-MIB", "cyanAUG64StsaugStructure"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cyanAUG64ObjectGroup = cyanAUG64ObjectGroup.setStatus('current')
-cyanAUG64Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 30)).setObjects(("CYAN-AUG64-MIB", "cyanAUG64ObjectGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cyanAUG64Compliance = cyanAUG64Compliance.setStatus('current')
-mibBuilder.exportSymbols("CYAN-AUG64-MIB", cyanAUG64Description=cyanAUG64Description, cyanAUG64Table=cyanAUG64Table, cyanAUG64Module=cyanAUG64Module, cyanAUG64AutoinserviceSoakTimeSec=cyanAUG64AutoinserviceSoakTimeSec, cyanAUG64ObjectGroup=cyanAUG64ObjectGroup, cyanAUG64ShelfId=cyanAUG64ShelfId, cyanAUG64AUG64Id=cyanAUG64AUG64Id, cyanAUG64ModuleId=cyanAUG64ModuleId, cyanAUG64AdminState=cyanAUG64AdminState, cyanAUG64SecServState=cyanAUG64SecServState, cyanAUG64Entry=cyanAUG64Entry, cyanAUG64Compliance=cyanAUG64Compliance, cyanAUG64StsaugStructure=cyanAUG64StsaugStructure, PYSNMP_MODULE_ID=cyanAUG64Module, cyanAUG64OperStateQual=cyanAUG64OperStateQual, cyanAUG64MibObjects=cyanAUG64MibObjects, cyanAUG64OperState=cyanAUG64OperState)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cyanEntityModules,) = mibBuilder.importSymbols(
+    "CYAN-MIB",
+    "cyanEntityModules")
+
+(CyanAdminStateTc,
+ CyanAugStructureTc,
+ CyanOpStateQualTc,
+ CyanOpStateTc,
+ CyanSecServiceStateTc) = mibBuilder.importSymbols(
+    "CYAN-TC-MIB",
+    "CyanAdminStateTc",
+    "CyanAugStructureTc",
+    "CyanOpStateQualTc",
+    "CyanOpStateTc",
+    "CyanSecServiceStateTc")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+cyanAUG64Module = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240)
+)
+if mibBuilder.loadTexts:
+    cyanAUG64Module.setRevisions(
+        ("2014-12-07 05:45",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CyanAUG64MibObjects_ObjectIdentity = ObjectIdentity
+cyanAUG64MibObjects = _CyanAUG64MibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1)
+)
+_CyanAUG64Table_Object = MibTable
+cyanAUG64Table = _CyanAUG64Table_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cyanAUG64Table.setStatus("current")
+_CyanAUG64Entry_Object = MibTableRow
+cyanAUG64Entry = _CyanAUG64Entry_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1)
+)
+cyanAUG64Entry.setIndexNames(
+    (0, "CYAN-AUG64-MIB", "cyanAUG64ShelfId"),
+    (0, "CYAN-AUG64-MIB", "cyanAUG64ModuleId"),
+    (0, "CYAN-AUG64-MIB", "cyanAUG64AUG64Id"),
+)
+if mibBuilder.loadTexts:
+    cyanAUG64Entry.setStatus("current")
+
+
+class _CyanAUG64ShelfId_Type(Unsigned32):
+    """Custom type cyanAUG64ShelfId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_CyanAUG64ShelfId_Type.__name__ = "Unsigned32"
+_CyanAUG64ShelfId_Object = MibTableColumn
+cyanAUG64ShelfId = _CyanAUG64ShelfId_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 1),
+    _CyanAUG64ShelfId_Type()
+)
+cyanAUG64ShelfId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cyanAUG64ShelfId.setStatus("current")
+_CyanAUG64ModuleId_Type = Unsigned32
+_CyanAUG64ModuleId_Object = MibTableColumn
+cyanAUG64ModuleId = _CyanAUG64ModuleId_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 2),
+    _CyanAUG64ModuleId_Type()
+)
+cyanAUG64ModuleId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cyanAUG64ModuleId.setStatus("current")
+_CyanAUG64AUG64Id_Type = Unsigned32
+_CyanAUG64AUG64Id_Object = MibTableColumn
+cyanAUG64AUG64Id = _CyanAUG64AUG64Id_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 3),
+    _CyanAUG64AUG64Id_Type()
+)
+cyanAUG64AUG64Id.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cyanAUG64AUG64Id.setStatus("current")
+_CyanAUG64AdminState_Type = CyanAdminStateTc
+_CyanAUG64AdminState_Object = MibTableColumn
+cyanAUG64AdminState = _CyanAUG64AdminState_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 4),
+    _CyanAUG64AdminState_Type()
+)
+cyanAUG64AdminState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanAUG64AdminState.setStatus("current")
+_CyanAUG64AutoinserviceSoakTimeSec_Type = Integer32
+_CyanAUG64AutoinserviceSoakTimeSec_Object = MibTableColumn
+cyanAUG64AutoinserviceSoakTimeSec = _CyanAUG64AutoinserviceSoakTimeSec_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 5),
+    _CyanAUG64AutoinserviceSoakTimeSec_Type()
+)
+cyanAUG64AutoinserviceSoakTimeSec.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanAUG64AutoinserviceSoakTimeSec.setStatus("current")
+
+
+class _CyanAUG64Description_Type(DisplayString):
+    """Custom type cyanAUG64Description based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_CyanAUG64Description_Type.__name__ = "DisplayString"
+_CyanAUG64Description_Object = MibTableColumn
+cyanAUG64Description = _CyanAUG64Description_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 6),
+    _CyanAUG64Description_Type()
+)
+cyanAUG64Description.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanAUG64Description.setStatus("current")
+_CyanAUG64OperState_Type = CyanOpStateTc
+_CyanAUG64OperState_Object = MibTableColumn
+cyanAUG64OperState = _CyanAUG64OperState_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 7),
+    _CyanAUG64OperState_Type()
+)
+cyanAUG64OperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanAUG64OperState.setStatus("current")
+_CyanAUG64OperStateQual_Type = CyanOpStateQualTc
+_CyanAUG64OperStateQual_Object = MibTableColumn
+cyanAUG64OperStateQual = _CyanAUG64OperStateQual_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 8),
+    _CyanAUG64OperStateQual_Type()
+)
+cyanAUG64OperStateQual.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanAUG64OperStateQual.setStatus("current")
+_CyanAUG64SecServState_Type = CyanSecServiceStateTc
+_CyanAUG64SecServState_Object = MibTableColumn
+cyanAUG64SecServState = _CyanAUG64SecServState_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 9),
+    _CyanAUG64SecServState_Type()
+)
+cyanAUG64SecServState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanAUG64SecServState.setStatus("current")
+_CyanAUG64StsaugStructure_Type = CyanAugStructureTc
+_CyanAUG64StsaugStructure_Object = MibTableColumn
+cyanAUG64StsaugStructure = _CyanAUG64StsaugStructure_Object(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 1, 1, 1, 10),
+    _CyanAUG64StsaugStructure_Type()
+)
+cyanAUG64StsaugStructure.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cyanAUG64StsaugStructure.setStatus("current")
+
+# Managed Objects groups
+
+cyanAUG64ObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 20)
+)
+cyanAUG64ObjectGroup.setObjects(
+      *(("CYAN-AUG64-MIB", "cyanAUG64AdminState"),
+        ("CYAN-AUG64-MIB", "cyanAUG64AutoinserviceSoakTimeSec"),
+        ("CYAN-AUG64-MIB", "cyanAUG64Description"),
+        ("CYAN-AUG64-MIB", "cyanAUG64OperState"),
+        ("CYAN-AUG64-MIB", "cyanAUG64OperStateQual"),
+        ("CYAN-AUG64-MIB", "cyanAUG64SecServState"),
+        ("CYAN-AUG64-MIB", "cyanAUG64StsaugStructure"))
+)
+if mibBuilder.loadTexts:
+    cyanAUG64ObjectGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cyanAUG64Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 28533, 5, 30, 240, 30)
+)
+cyanAUG64Compliance.setObjects(
+    ("CYAN-AUG64-MIB", "cyanAUG64ObjectGroup")
+)
+if mibBuilder.loadTexts:
+    cyanAUG64Compliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CYAN-AUG64-MIB",
+    **{"cyanAUG64Module": cyanAUG64Module,
+       "cyanAUG64MibObjects": cyanAUG64MibObjects,
+       "cyanAUG64Table": cyanAUG64Table,
+       "cyanAUG64Entry": cyanAUG64Entry,
+       "cyanAUG64ShelfId": cyanAUG64ShelfId,
+       "cyanAUG64ModuleId": cyanAUG64ModuleId,
+       "cyanAUG64AUG64Id": cyanAUG64AUG64Id,
+       "cyanAUG64AdminState": cyanAUG64AdminState,
+       "cyanAUG64AutoinserviceSoakTimeSec": cyanAUG64AutoinserviceSoakTimeSec,
+       "cyanAUG64Description": cyanAUG64Description,
+       "cyanAUG64OperState": cyanAUG64OperState,
+       "cyanAUG64OperStateQual": cyanAUG64OperStateQual,
+       "cyanAUG64SecServState": cyanAUG64SecServState,
+       "cyanAUG64StsaugStructure": cyanAUG64StsaugStructure,
+       "cyanAUG64ObjectGroup": cyanAUG64ObjectGroup,
+       "cyanAUG64Compliance": cyanAUG64Compliance}
+)

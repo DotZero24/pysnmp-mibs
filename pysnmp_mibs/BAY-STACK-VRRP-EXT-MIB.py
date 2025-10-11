@@ -1,60 +1,547 @@
+# SNMP MIB module (BAY-STACK-VRRP-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BAY-STACK-VRRP-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/BAY-STACK-VRRP-EXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:20 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nortel/BAY-STACK-VRRP-EXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:17:43 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ipAdEntAddr, = mibBuilder.importSymbols("IP-MIB", "ipAdEntAddr")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
-bayStackMibs, = mibBuilder.importSymbols("SYNOPTICS-ROOT-MIB", "bayStackMibs")
-vrrpOperPrimaryIpAddr, vrrpOperVrId = mibBuilder.importSymbols("VRRP-MIB", "vrrpOperPrimaryIpAddr", "vrrpOperVrId")
-bayStackVrrpExtMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 5, 11))
-bayStackVrrpExtMib.setRevisions(('2005-07-01 00:00', '2012-10-18 00:00',))
-if mibBuilder.loadTexts: bayStackVrrpExtMib.setLastUpdated('201210180000Z')
-if mibBuilder.loadTexts: bayStackVrrpExtMib.setOrganization('Nortel Networks')
-bsveNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 11, 0))
-bsveObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 11, 1))
-bsveScalars = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 1))
-bsveVrrpEnabled = MibScalar((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsveVrrpEnabled.setStatus('current')
-bsveVrrpPingVirtualAddrEnabled = MibScalar((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 1, 2), TruthValue().clone('true')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsveVrrpPingVirtualAddrEnabled.setStatus('current')
-bsveVrrpOperExtTable = MibTable((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2), )
-if mibBuilder.loadTexts: bsveVrrpOperExtTable.setStatus('current')
-bsveVrrpOperExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "VRRP-MIB", "vrrpOperVrId"))
-if mibBuilder.loadTexts: bsveVrrpOperExtEntry.setStatus('current')
-bsveVrrpOperExtCriticalIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsveVrrpOperExtCriticalIpAddr.setStatus('current')
-bsveVrrpOperExtCriticalIpAddrEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsveVrrpOperExtCriticalIpAddrEnabled.setStatus('current')
-bsveVrrpOperExtHoldDownTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 21600))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsveVrrpOperExtHoldDownTimer.setStatus('current')
-bsveVrrpOperExtHoldDownState = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("dormant", 1), ("active", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bsveVrrpOperExtHoldDownState.setStatus('current')
-bsveVrrpOperExtHoldDownTimeRemaining = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 21600))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bsveVrrpOperExtHoldDownTimeRemaining.setStatus('current')
-bsveVrrpOperExtAction = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("preemptHoldDownTimer", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsveVrrpOperExtAction.setStatus('current')
-bsveVrrpOperExtBackUpMasterEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsveVrrpOperExtBackUpMasterEnabled.setStatus('current')
-bsveVrrpOperExtBackUpMasterState = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2))).clone('down')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bsveVrrpOperExtBackUpMasterState.setStatus('current')
-bsveVrrpOperExtFasterAdvInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(200, 1000)).clone(200)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsveVrrpOperExtFasterAdvInterval.setStatus('current')
-bsveVrrpOperExtFasterAdvIntervalEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 10), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bsveVrrpOperExtFasterAdvIntervalEnabled.setStatus('current')
-bsveNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 4))
-bsveVrrpTrapStateTransitionType = MibScalar((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("none", 1), ("masterToBackup", 2), ("backupToMaster", 3), ("initializeToMaster", 4), ("masterToInitialize", 5), ("initializeToBackup", 6), ("backupToInitialize", 7), ("backupToBackUpMaster", 8), ("backUpMasterToBackup", 9)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: bsveVrrpTrapStateTransitionType.setStatus('current')
-bsveVrrpTrapStateTransitionCause = MibScalar((1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16))).clone(namedValues=NamedValues(("none", 1), ("higherPriorityAdvertizeReceived", 2), ("shutdownReceived", 3), ("vrrpAddrAndPhysicalAddrMatch", 4), ("masterDownInterval", 5), ("preempted", 6), ("criticalIPFail", 7), ("usrConfig", 8), ("syncFromPrimary", 9), ("iPInterfaceDown", 10), ("lowerPrioAdvReceived", 11), ("higherSrcIPEqualPrioAdvReceived", 12), ("lowerSrcIPEqualPrioAdvReceived", 13), ("startVR", 14), ("other", 15), ("reboot", 16)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: bsveVrrpTrapStateTransitionCause.setStatus('current')
-bsveVrrpTrapStateTransition = NotificationType((1, 3, 6, 1, 4, 1, 45, 5, 11, 0, 1)).setObjects(("BAY-STACK-VRRP-EXT-MIB", "bsveVrrpTrapStateTransitionType"), ("BAY-STACK-VRRP-EXT-MIB", "bsveVrrpTrapStateTransitionCause"), ("VRRP-MIB", "vrrpOperPrimaryIpAddr"), ("IP-MIB", "ipAdEntAddr"))
-if mibBuilder.loadTexts: bsveVrrpTrapStateTransition.setStatus('current')
-mibBuilder.exportSymbols("BAY-STACK-VRRP-EXT-MIB", bsveVrrpOperExtFasterAdvIntervalEnabled=bsveVrrpOperExtFasterAdvIntervalEnabled, bsveVrrpOperExtTable=bsveVrrpOperExtTable, bsveObjects=bsveObjects, bsveVrrpTrapStateTransition=bsveVrrpTrapStateTransition, bsveNotifications=bsveNotifications, bayStackVrrpExtMib=bayStackVrrpExtMib, bsveVrrpOperExtFasterAdvInterval=bsveVrrpOperExtFasterAdvInterval, bsveVrrpTrapStateTransitionType=bsveVrrpTrapStateTransitionType, PYSNMP_MODULE_ID=bayStackVrrpExtMib, bsveVrrpOperExtBackUpMasterState=bsveVrrpOperExtBackUpMasterState, bsveNotificationObjects=bsveNotificationObjects, bsveVrrpEnabled=bsveVrrpEnabled, bsveVrrpOperExtBackUpMasterEnabled=bsveVrrpOperExtBackUpMasterEnabled, bsveVrrpOperExtHoldDownTimeRemaining=bsveVrrpOperExtHoldDownTimeRemaining, bsveScalars=bsveScalars, bsveVrrpPingVirtualAddrEnabled=bsveVrrpPingVirtualAddrEnabled, bsveVrrpTrapStateTransitionCause=bsveVrrpTrapStateTransitionCause, bsveVrrpOperExtCriticalIpAddr=bsveVrrpOperExtCriticalIpAddr, bsveVrrpOperExtHoldDownState=bsveVrrpOperExtHoldDownState, bsveVrrpOperExtHoldDownTimer=bsveVrrpOperExtHoldDownTimer, bsveVrrpOperExtCriticalIpAddrEnabled=bsveVrrpOperExtCriticalIpAddrEnabled, bsveVrrpOperExtAction=bsveVrrpOperExtAction, bsveVrrpOperExtEntry=bsveVrrpOperExtEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ipAdEntAddr,) = mibBuilder.importSymbols(
+    "IP-MIB",
+    "ipAdEntAddr")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+(bayStackMibs,) = mibBuilder.importSymbols(
+    "SYNOPTICS-ROOT-MIB",
+    "bayStackMibs")
+
+(vrrpOperPrimaryIpAddr,
+ vrrpOperVrId) = mibBuilder.importSymbols(
+    "VRRP-MIB",
+    "vrrpOperPrimaryIpAddr",
+    "vrrpOperVrId")
+
+
+# MODULE-IDENTITY
+
+bayStackVrrpExtMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11)
+)
+if mibBuilder.loadTexts:
+    bayStackVrrpExtMib.setRevisions(
+        ("2005-07-01 00:00",
+         "2012-10-18 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_BsveNotifications_ObjectIdentity = ObjectIdentity
+bsveNotifications = _BsveNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 0)
+)
+_BsveObjects_ObjectIdentity = ObjectIdentity
+bsveObjects = _BsveObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1)
+)
+_BsveScalars_ObjectIdentity = ObjectIdentity
+bsveScalars = _BsveScalars_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 1)
+)
+_BsveVrrpEnabled_Type = TruthValue
+_BsveVrrpEnabled_Object = MibScalar
+bsveVrrpEnabled = _BsveVrrpEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 1, 1),
+    _BsveVrrpEnabled_Type()
+)
+bsveVrrpEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsveVrrpEnabled.setStatus("current")
+
+
+class _BsveVrrpPingVirtualAddrEnabled_Type(TruthValue):
+    """Custom type bsveVrrpPingVirtualAddrEnabled based on TruthValue"""
+    defaultValue = 1
+
+
+_BsveVrrpPingVirtualAddrEnabled_Type.__name__ = "TruthValue"
+_BsveVrrpPingVirtualAddrEnabled_Object = MibScalar
+bsveVrrpPingVirtualAddrEnabled = _BsveVrrpPingVirtualAddrEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 1, 2),
+    _BsveVrrpPingVirtualAddrEnabled_Type()
+)
+bsveVrrpPingVirtualAddrEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsveVrrpPingVirtualAddrEnabled.setStatus("current")
+_BsveVrrpOperExtTable_Object = MibTable
+bsveVrrpOperExtTable = _BsveVrrpOperExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2)
+)
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtTable.setStatus("current")
+_BsveVrrpOperExtEntry_Object = MibTableRow
+bsveVrrpOperExtEntry = _BsveVrrpOperExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1)
+)
+bsveVrrpOperExtEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "VRRP-MIB", "vrrpOperVrId"),
+)
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtEntry.setStatus("current")
+_BsveVrrpOperExtCriticalIpAddr_Type = IpAddress
+_BsveVrrpOperExtCriticalIpAddr_Object = MibTableColumn
+bsveVrrpOperExtCriticalIpAddr = _BsveVrrpOperExtCriticalIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 1),
+    _BsveVrrpOperExtCriticalIpAddr_Type()
+)
+bsveVrrpOperExtCriticalIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtCriticalIpAddr.setStatus("current")
+
+
+class _BsveVrrpOperExtCriticalIpAddrEnabled_Type(TruthValue):
+    """Custom type bsveVrrpOperExtCriticalIpAddrEnabled based on TruthValue"""
+    defaultValue = 2
+
+
+_BsveVrrpOperExtCriticalIpAddrEnabled_Type.__name__ = "TruthValue"
+_BsveVrrpOperExtCriticalIpAddrEnabled_Object = MibTableColumn
+bsveVrrpOperExtCriticalIpAddrEnabled = _BsveVrrpOperExtCriticalIpAddrEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 2),
+    _BsveVrrpOperExtCriticalIpAddrEnabled_Type()
+)
+bsveVrrpOperExtCriticalIpAddrEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtCriticalIpAddrEnabled.setStatus("current")
+
+
+class _BsveVrrpOperExtHoldDownTimer_Type(Integer32):
+    """Custom type bsveVrrpOperExtHoldDownTimer based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 21600),
+    )
+
+
+_BsveVrrpOperExtHoldDownTimer_Type.__name__ = "Integer32"
+_BsveVrrpOperExtHoldDownTimer_Object = MibTableColumn
+bsveVrrpOperExtHoldDownTimer = _BsveVrrpOperExtHoldDownTimer_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 3),
+    _BsveVrrpOperExtHoldDownTimer_Type()
+)
+bsveVrrpOperExtHoldDownTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtHoldDownTimer.setStatus("current")
+
+
+class _BsveVrrpOperExtHoldDownState_Type(Integer32):
+    """Custom type bsveVrrpOperExtHoldDownState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dormant", 1),
+          ("active", 2))
+    )
+
+
+_BsveVrrpOperExtHoldDownState_Type.__name__ = "Integer32"
+_BsveVrrpOperExtHoldDownState_Object = MibTableColumn
+bsveVrrpOperExtHoldDownState = _BsveVrrpOperExtHoldDownState_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 4),
+    _BsveVrrpOperExtHoldDownState_Type()
+)
+bsveVrrpOperExtHoldDownState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtHoldDownState.setStatus("current")
+
+
+class _BsveVrrpOperExtHoldDownTimeRemaining_Type(Integer32):
+    """Custom type bsveVrrpOperExtHoldDownTimeRemaining based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 21600),
+    )
+
+
+_BsveVrrpOperExtHoldDownTimeRemaining_Type.__name__ = "Integer32"
+_BsveVrrpOperExtHoldDownTimeRemaining_Object = MibTableColumn
+bsveVrrpOperExtHoldDownTimeRemaining = _BsveVrrpOperExtHoldDownTimeRemaining_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 5),
+    _BsveVrrpOperExtHoldDownTimeRemaining_Type()
+)
+bsveVrrpOperExtHoldDownTimeRemaining.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtHoldDownTimeRemaining.setStatus("current")
+
+
+class _BsveVrrpOperExtAction_Type(Integer32):
+    """Custom type bsveVrrpOperExtAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("preemptHoldDownTimer", 2))
+    )
+
+
+_BsveVrrpOperExtAction_Type.__name__ = "Integer32"
+_BsveVrrpOperExtAction_Object = MibTableColumn
+bsveVrrpOperExtAction = _BsveVrrpOperExtAction_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 6),
+    _BsveVrrpOperExtAction_Type()
+)
+bsveVrrpOperExtAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtAction.setStatus("current")
+
+
+class _BsveVrrpOperExtBackUpMasterEnabled_Type(TruthValue):
+    """Custom type bsveVrrpOperExtBackUpMasterEnabled based on TruthValue"""
+    defaultValue = 2
+
+
+_BsveVrrpOperExtBackUpMasterEnabled_Type.__name__ = "TruthValue"
+_BsveVrrpOperExtBackUpMasterEnabled_Object = MibTableColumn
+bsveVrrpOperExtBackUpMasterEnabled = _BsveVrrpOperExtBackUpMasterEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 7),
+    _BsveVrrpOperExtBackUpMasterEnabled_Type()
+)
+bsveVrrpOperExtBackUpMasterEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtBackUpMasterEnabled.setStatus("current")
+
+
+class _BsveVrrpOperExtBackUpMasterState_Type(Integer32):
+    """Custom type bsveVrrpOperExtBackUpMasterState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2))
+    )
+
+
+_BsveVrrpOperExtBackUpMasterState_Type.__name__ = "Integer32"
+_BsveVrrpOperExtBackUpMasterState_Object = MibTableColumn
+bsveVrrpOperExtBackUpMasterState = _BsveVrrpOperExtBackUpMasterState_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 8),
+    _BsveVrrpOperExtBackUpMasterState_Type()
+)
+bsveVrrpOperExtBackUpMasterState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtBackUpMasterState.setStatus("current")
+
+
+class _BsveVrrpOperExtFasterAdvInterval_Type(Integer32):
+    """Custom type bsveVrrpOperExtFasterAdvInterval based on Integer32"""
+    defaultValue = 200
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(200, 1000),
+    )
+
+
+_BsveVrrpOperExtFasterAdvInterval_Type.__name__ = "Integer32"
+_BsveVrrpOperExtFasterAdvInterval_Object = MibTableColumn
+bsveVrrpOperExtFasterAdvInterval = _BsveVrrpOperExtFasterAdvInterval_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 9),
+    _BsveVrrpOperExtFasterAdvInterval_Type()
+)
+bsveVrrpOperExtFasterAdvInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtFasterAdvInterval.setStatus("current")
+
+
+class _BsveVrrpOperExtFasterAdvIntervalEnabled_Type(TruthValue):
+    """Custom type bsveVrrpOperExtFasterAdvIntervalEnabled based on TruthValue"""
+    defaultValue = 2
+
+
+_BsveVrrpOperExtFasterAdvIntervalEnabled_Type.__name__ = "TruthValue"
+_BsveVrrpOperExtFasterAdvIntervalEnabled_Object = MibTableColumn
+bsveVrrpOperExtFasterAdvIntervalEnabled = _BsveVrrpOperExtFasterAdvIntervalEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 2, 1, 10),
+    _BsveVrrpOperExtFasterAdvIntervalEnabled_Type()
+)
+bsveVrrpOperExtFasterAdvIntervalEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bsveVrrpOperExtFasterAdvIntervalEnabled.setStatus("current")
+_BsveNotificationObjects_ObjectIdentity = ObjectIdentity
+bsveNotificationObjects = _BsveNotificationObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 4)
+)
+
+
+class _BsveVrrpTrapStateTransitionType_Type(Integer32):
+    """Custom type bsveVrrpTrapStateTransitionType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("masterToBackup", 2),
+          ("backupToMaster", 3),
+          ("initializeToMaster", 4),
+          ("masterToInitialize", 5),
+          ("initializeToBackup", 6),
+          ("backupToInitialize", 7),
+          ("backupToBackUpMaster", 8),
+          ("backUpMasterToBackup", 9))
+    )
+
+
+_BsveVrrpTrapStateTransitionType_Type.__name__ = "Integer32"
+_BsveVrrpTrapStateTransitionType_Object = MibScalar
+bsveVrrpTrapStateTransitionType = _BsveVrrpTrapStateTransitionType_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 4, 1),
+    _BsveVrrpTrapStateTransitionType_Type()
+)
+bsveVrrpTrapStateTransitionType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    bsveVrrpTrapStateTransitionType.setStatus("current")
+
+
+class _BsveVrrpTrapStateTransitionCause_Type(Integer32):
+    """Custom type bsveVrrpTrapStateTransitionCause based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("higherPriorityAdvertizeReceived", 2),
+          ("shutdownReceived", 3),
+          ("vrrpAddrAndPhysicalAddrMatch", 4),
+          ("masterDownInterval", 5),
+          ("preempted", 6),
+          ("criticalIPFail", 7),
+          ("usrConfig", 8),
+          ("syncFromPrimary", 9),
+          ("iPInterfaceDown", 10),
+          ("lowerPrioAdvReceived", 11),
+          ("higherSrcIPEqualPrioAdvReceived", 12),
+          ("lowerSrcIPEqualPrioAdvReceived", 13),
+          ("startVR", 14),
+          ("other", 15),
+          ("reboot", 16))
+    )
+
+
+_BsveVrrpTrapStateTransitionCause_Type.__name__ = "Integer32"
+_BsveVrrpTrapStateTransitionCause_Object = MibScalar
+bsveVrrpTrapStateTransitionCause = _BsveVrrpTrapStateTransitionCause_Object(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 1, 4, 2),
+    _BsveVrrpTrapStateTransitionCause_Type()
+)
+bsveVrrpTrapStateTransitionCause.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    bsveVrrpTrapStateTransitionCause.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+bsveVrrpTrapStateTransition = NotificationType(
+    (1, 3, 6, 1, 4, 1, 45, 5, 11, 0, 1)
+)
+bsveVrrpTrapStateTransition.setObjects(
+      *(("BAY-STACK-VRRP-EXT-MIB", "bsveVrrpTrapStateTransitionType"),
+        ("BAY-STACK-VRRP-EXT-MIB", "bsveVrrpTrapStateTransitionCause"),
+        ("VRRP-MIB", "vrrpOperPrimaryIpAddr"),
+        ("IP-MIB", "ipAdEntAddr"))
+)
+if mibBuilder.loadTexts:
+    bsveVrrpTrapStateTransition.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BAY-STACK-VRRP-EXT-MIB",
+    **{"bayStackVrrpExtMib": bayStackVrrpExtMib,
+       "bsveNotifications": bsveNotifications,
+       "bsveVrrpTrapStateTransition": bsveVrrpTrapStateTransition,
+       "bsveObjects": bsveObjects,
+       "bsveScalars": bsveScalars,
+       "bsveVrrpEnabled": bsveVrrpEnabled,
+       "bsveVrrpPingVirtualAddrEnabled": bsveVrrpPingVirtualAddrEnabled,
+       "bsveVrrpOperExtTable": bsveVrrpOperExtTable,
+       "bsveVrrpOperExtEntry": bsveVrrpOperExtEntry,
+       "bsveVrrpOperExtCriticalIpAddr": bsveVrrpOperExtCriticalIpAddr,
+       "bsveVrrpOperExtCriticalIpAddrEnabled": bsveVrrpOperExtCriticalIpAddrEnabled,
+       "bsveVrrpOperExtHoldDownTimer": bsveVrrpOperExtHoldDownTimer,
+       "bsveVrrpOperExtHoldDownState": bsveVrrpOperExtHoldDownState,
+       "bsveVrrpOperExtHoldDownTimeRemaining": bsveVrrpOperExtHoldDownTimeRemaining,
+       "bsveVrrpOperExtAction": bsveVrrpOperExtAction,
+       "bsveVrrpOperExtBackUpMasterEnabled": bsveVrrpOperExtBackUpMasterEnabled,
+       "bsveVrrpOperExtBackUpMasterState": bsveVrrpOperExtBackUpMasterState,
+       "bsveVrrpOperExtFasterAdvInterval": bsveVrrpOperExtFasterAdvInterval,
+       "bsveVrrpOperExtFasterAdvIntervalEnabled": bsveVrrpOperExtFasterAdvIntervalEnabled,
+       "bsveNotificationObjects": bsveNotificationObjects,
+       "bsveVrrpTrapStateTransitionType": bsveVrrpTrapStateTransitionType,
+       "bsveVrrpTrapStateTransitionCause": bsveVrrpTrapStateTransitionCause}
+)

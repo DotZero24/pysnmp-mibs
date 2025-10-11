@@ -1,31 +1,226 @@
+# SNMP MIB module (H3C-VRRP-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-VRRP-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-VRRP-EXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:38 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/H3C-VRRP-EXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:20:12 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-vrrpOperVrId, = mibBuilder.importSymbols("VRRP-MIB", "vrrpOperVrId")
-h3cVrrpExt = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 24))
-if mibBuilder.loadTexts: h3cVrrpExt.setLastUpdated('200412090000Z')
-if mibBuilder.loadTexts: h3cVrrpExt.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
-h3cVrrpExtMibObject = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1))
-h3cVrrpExtTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1, 1), )
-if mibBuilder.loadTexts: h3cVrrpExtTable.setStatus('current')
-h3cVrrpExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "VRRP-MIB", "vrrpOperVrId"), (0, "H3C-VRRP-EXT-MIB", "h3cVrrpExtTrackInterface"))
-if mibBuilder.loadTexts: h3cVrrpExtEntry.setStatus('current')
-h3cVrrpExtTrackInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: h3cVrrpExtTrackInterface.setStatus('current')
-h3cVrrpExtPriorityReduce = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(10)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cVrrpExtPriorityReduce.setStatus('current')
-h3cVrrpExtRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cVrrpExtRowStatus.setStatus('current')
-mibBuilder.exportSymbols("H3C-VRRP-EXT-MIB", h3cVrrpExtEntry=h3cVrrpExtEntry, h3cVrrpExtTable=h3cVrrpExtTable, h3cVrrpExtTrackInterface=h3cVrrpExtTrackInterface, PYSNMP_MODULE_ID=h3cVrrpExt, h3cVrrpExtMibObject=h3cVrrpExtMibObject, h3cVrrpExtRowStatus=h3cVrrpExtRowStatus, h3cVrrpExtPriorityReduce=h3cVrrpExtPriorityReduce, h3cVrrpExt=h3cVrrpExt)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+(vrrpOperVrId,) = mibBuilder.importSymbols(
+    "VRRP-MIB",
+    "vrrpOperVrId")
+
+
+# MODULE-IDENTITY
+
+h3cVrrpExt = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 24)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cVrrpExtMibObject_ObjectIdentity = ObjectIdentity
+h3cVrrpExtMibObject = _H3cVrrpExtMibObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1)
+)
+_H3cVrrpExtTable_Object = MibTable
+h3cVrrpExtTable = _H3cVrrpExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1, 1)
+)
+if mibBuilder.loadTexts:
+    h3cVrrpExtTable.setStatus("current")
+_H3cVrrpExtEntry_Object = MibTableRow
+h3cVrrpExtEntry = _H3cVrrpExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1, 1, 1)
+)
+h3cVrrpExtEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "VRRP-MIB", "vrrpOperVrId"),
+    (0, "H3C-VRRP-EXT-MIB", "h3cVrrpExtTrackInterface"),
+)
+if mibBuilder.loadTexts:
+    h3cVrrpExtEntry.setStatus("current")
+
+
+class _H3cVrrpExtTrackInterface_Type(Integer32):
+    """Custom type h3cVrrpExtTrackInterface based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_H3cVrrpExtTrackInterface_Type.__name__ = "Integer32"
+_H3cVrrpExtTrackInterface_Object = MibTableColumn
+h3cVrrpExtTrackInterface = _H3cVrrpExtTrackInterface_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1, 1, 1, 1),
+    _H3cVrrpExtTrackInterface_Type()
+)
+h3cVrrpExtTrackInterface.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cVrrpExtTrackInterface.setStatus("current")
+
+
+class _H3cVrrpExtPriorityReduce_Type(Integer32):
+    """Custom type h3cVrrpExtPriorityReduce based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_H3cVrrpExtPriorityReduce_Type.__name__ = "Integer32"
+_H3cVrrpExtPriorityReduce_Object = MibTableColumn
+h3cVrrpExtPriorityReduce = _H3cVrrpExtPriorityReduce_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1, 1, 1, 2),
+    _H3cVrrpExtPriorityReduce_Type()
+)
+h3cVrrpExtPriorityReduce.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cVrrpExtPriorityReduce.setStatus("current")
+_H3cVrrpExtRowStatus_Type = RowStatus
+_H3cVrrpExtRowStatus_Object = MibTableColumn
+h3cVrrpExtRowStatus = _H3cVrrpExtRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 24, 1, 1, 1, 3),
+    _H3cVrrpExtRowStatus_Type()
+)
+h3cVrrpExtRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cVrrpExtRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-VRRP-EXT-MIB",
+    **{"h3cVrrpExt": h3cVrrpExt,
+       "h3cVrrpExtMibObject": h3cVrrpExtMibObject,
+       "h3cVrrpExtTable": h3cVrrpExtTable,
+       "h3cVrrpExtEntry": h3cVrrpExtEntry,
+       "h3cVrrpExtTrackInterface": h3cVrrpExtTrackInterface,
+       "h3cVrrpExtPriorityReduce": h3cVrrpExtPriorityReduce,
+       "h3cVrrpExtRowStatus": h3cVrrpExtRowStatus}
+)

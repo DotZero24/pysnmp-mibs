@@ -1,78 +1,399 @@
+# SNMP MIB module (QLOGIC-PRODUCTS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module QLOGIC-PRODUCTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/marvell/QLOGIC-PRODUCTS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:18 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/marvell/QLOGIC-PRODUCTS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:47:51 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-qlogicModules, qlogicProducts = mibBuilder.importSymbols("QLOGIC-SMI", "qlogicModules", "qlogicProducts")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-qlogicProductsMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 3873, 2, 1))
-qlogicProductsMIB.setRevisions(('2013-03-29 00:00', '2009-09-29 00:00', '2009-03-03 00:00', '2009-02-17 00:00', '2006-10-11 00:00', '2006-10-06 00:00', '2005-08-23 00:00',))
-if mibBuilder.loadTexts: qlogicProductsMIB.setLastUpdated('201303290000Z')
-if mibBuilder.loadTexts: qlogicProductsMIB.setOrganization('QLogic Corp.')
-sanBox6140 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 1))
-if mibBuilder.loadTexts: sanBox6140.setStatus('current')
-evaISCSI = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 2))
-if mibBuilder.loadTexts: evaISCSI.setStatus('current')
-reserved3 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 3))
-mpx100 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 4))
-if mibBuilder.loadTexts: mpx100.setStatus('current')
-iSR6140 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 5))
-if mibBuilder.loadTexts: iSR6140.setStatus('current')
-iSR6142 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 6))
-if mibBuilder.loadTexts: iSR6142.setStatus('current')
-mpx110 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 7))
-if mibBuilder.loadTexts: mpx110.setStatus('current')
-reserved8 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 8))
-sanBox5802 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 9))
-if mibBuilder.loadTexts: sanBox5802.setStatus('current')
-reserved10 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 10))
-hpStorageWorks820FcSwitch = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 11))
-if mibBuilder.loadTexts: hpStorageWorks820FcSwitch.setStatus('current')
-reserved12 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 12))
-reserved13 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 13))
-sanBox5800 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 14))
-if mibBuilder.loadTexts: sanBox5800.setStatus('current')
-reserved15 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 15))
-reserved16 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 16))
-iSR6200 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 17))
-if mibBuilder.loadTexts: iSR6200.setStatus('current')
-mpx200 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 18))
-if mibBuilder.loadTexts: mpx200.setStatus('current')
-mez50 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 19))
-if mibBuilder.loadTexts: mez50.setStatus('current')
-sanBox3810 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 20))
-if mibBuilder.loadTexts: sanBox3810.setStatus('current')
-reserved21 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 21))
-reserved22 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 22))
-reserved23 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 23))
-hpStorageWorksSN6000SingleFcSwitch = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 24))
-if mibBuilder.loadTexts: hpStorageWorksSN6000SingleFcSwitch.setStatus('current')
-hpStorageWorksSN6000DualFcSwitch = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 25))
-if mibBuilder.loadTexts: hpStorageWorksSN6000DualFcSwitch.setStatus('current')
-reserved26 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 26))
-reserved27 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 27))
-reserved28 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 28))
-reserved29 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 29))
-reserved30 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 30))
-reserved31 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 31))
-reserved32 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 32))
-reserved33 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 33))
-sns2120 = ObjectIdentity((1, 3, 6, 1, 4, 1, 3873, 1, 34))
-if mibBuilder.loadTexts: sns2120.setStatus('current')
-reserved35 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 35))
-reserved36 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 36))
-reserved37 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 37))
-reserved38 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 38))
-reserved39 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 39))
-reserved40 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 40))
-reserved41 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 41))
-reserved42 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 42))
-reserved43 = MibIdentifier((1, 3, 6, 1, 4, 1, 3873, 1, 43))
-mibBuilder.exportSymbols("QLOGIC-PRODUCTS-MIB", sanBox5800=sanBox5800, iSR6140=iSR6140, iSR6200=iSR6200, hpStorageWorksSN6000SingleFcSwitch=hpStorageWorksSN6000SingleFcSwitch, PYSNMP_MODULE_ID=qlogicProductsMIB, reserved8=reserved8, reserved36=reserved36, reserved21=reserved21, reserved39=reserved39, mez50=mez50, sns2120=sns2120, reserved13=reserved13, reserved30=reserved30, reserved28=reserved28, reserved37=reserved37, sanBox6140=sanBox6140, reserved29=reserved29, hpStorageWorksSN6000DualFcSwitch=hpStorageWorksSN6000DualFcSwitch, mpx110=mpx110, reserved38=reserved38, reserved31=reserved31, reserved12=reserved12, qlogicProductsMIB=qlogicProductsMIB, reserved22=reserved22, reserved42=reserved42, reserved15=reserved15, reserved16=reserved16, reserved43=reserved43, reserved33=reserved33, mpx100=mpx100, sanBox5802=sanBox5802, reserved41=reserved41, reserved26=reserved26, mpx200=mpx200, reserved32=reserved32, reserved23=reserved23, reserved40=reserved40, reserved3=reserved3, reserved35=reserved35, sanBox3810=sanBox3810, hpStorageWorks820FcSwitch=hpStorageWorks820FcSwitch, iSR6142=iSR6142, reserved27=reserved27, evaISCSI=evaISCSI, reserved10=reserved10)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(qlogicModules,
+ qlogicProducts) = mibBuilder.importSymbols(
+    "QLOGIC-SMI",
+    "qlogicModules",
+    "qlogicProducts")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+qlogicProductsMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 2, 1)
+)
+if mibBuilder.loadTexts:
+    qlogicProductsMIB.setRevisions(
+        ("2013-03-29 00:00",
+         "2009-09-29 00:00",
+         "2009-03-03 00:00",
+         "2009-02-17 00:00",
+         "2006-10-11 00:00",
+         "2006-10-06 00:00",
+         "2005-08-23 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SanBox6140_ObjectIdentity = ObjectIdentity
+sanBox6140 = _SanBox6140_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 1)
+)
+if mibBuilder.loadTexts:
+    sanBox6140.setStatus("current")
+_EvaISCSI_ObjectIdentity = ObjectIdentity
+evaISCSI = _EvaISCSI_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 2)
+)
+if mibBuilder.loadTexts:
+    evaISCSI.setStatus("current")
+_Reserved3_ObjectIdentity = ObjectIdentity
+reserved3 = _Reserved3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 3)
+)
+_Mpx100_ObjectIdentity = ObjectIdentity
+mpx100 = _Mpx100_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 4)
+)
+if mibBuilder.loadTexts:
+    mpx100.setStatus("current")
+_ISR6140_ObjectIdentity = ObjectIdentity
+iSR6140 = _ISR6140_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 5)
+)
+if mibBuilder.loadTexts:
+    iSR6140.setStatus("current")
+_ISR6142_ObjectIdentity = ObjectIdentity
+iSR6142 = _ISR6142_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 6)
+)
+if mibBuilder.loadTexts:
+    iSR6142.setStatus("current")
+_Mpx110_ObjectIdentity = ObjectIdentity
+mpx110 = _Mpx110_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 7)
+)
+if mibBuilder.loadTexts:
+    mpx110.setStatus("current")
+_Reserved8_ObjectIdentity = ObjectIdentity
+reserved8 = _Reserved8_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 8)
+)
+_SanBox5802_ObjectIdentity = ObjectIdentity
+sanBox5802 = _SanBox5802_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 9)
+)
+if mibBuilder.loadTexts:
+    sanBox5802.setStatus("current")
+_Reserved10_ObjectIdentity = ObjectIdentity
+reserved10 = _Reserved10_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 10)
+)
+_HpStorageWorks820FcSwitch_ObjectIdentity = ObjectIdentity
+hpStorageWorks820FcSwitch = _HpStorageWorks820FcSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 11)
+)
+if mibBuilder.loadTexts:
+    hpStorageWorks820FcSwitch.setStatus("current")
+_Reserved12_ObjectIdentity = ObjectIdentity
+reserved12 = _Reserved12_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 12)
+)
+_Reserved13_ObjectIdentity = ObjectIdentity
+reserved13 = _Reserved13_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 13)
+)
+_SanBox5800_ObjectIdentity = ObjectIdentity
+sanBox5800 = _SanBox5800_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 14)
+)
+if mibBuilder.loadTexts:
+    sanBox5800.setStatus("current")
+_Reserved15_ObjectIdentity = ObjectIdentity
+reserved15 = _Reserved15_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 15)
+)
+_Reserved16_ObjectIdentity = ObjectIdentity
+reserved16 = _Reserved16_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 16)
+)
+_ISR6200_ObjectIdentity = ObjectIdentity
+iSR6200 = _ISR6200_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 17)
+)
+if mibBuilder.loadTexts:
+    iSR6200.setStatus("current")
+_Mpx200_ObjectIdentity = ObjectIdentity
+mpx200 = _Mpx200_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 18)
+)
+if mibBuilder.loadTexts:
+    mpx200.setStatus("current")
+_Mez50_ObjectIdentity = ObjectIdentity
+mez50 = _Mez50_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 19)
+)
+if mibBuilder.loadTexts:
+    mez50.setStatus("current")
+_SanBox3810_ObjectIdentity = ObjectIdentity
+sanBox3810 = _SanBox3810_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 20)
+)
+if mibBuilder.loadTexts:
+    sanBox3810.setStatus("current")
+_Reserved21_ObjectIdentity = ObjectIdentity
+reserved21 = _Reserved21_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 21)
+)
+_Reserved22_ObjectIdentity = ObjectIdentity
+reserved22 = _Reserved22_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 22)
+)
+_Reserved23_ObjectIdentity = ObjectIdentity
+reserved23 = _Reserved23_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 23)
+)
+_HpStorageWorksSN6000SingleFcSwitch_ObjectIdentity = ObjectIdentity
+hpStorageWorksSN6000SingleFcSwitch = _HpStorageWorksSN6000SingleFcSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 24)
+)
+if mibBuilder.loadTexts:
+    hpStorageWorksSN6000SingleFcSwitch.setStatus("current")
+_HpStorageWorksSN6000DualFcSwitch_ObjectIdentity = ObjectIdentity
+hpStorageWorksSN6000DualFcSwitch = _HpStorageWorksSN6000DualFcSwitch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 25)
+)
+if mibBuilder.loadTexts:
+    hpStorageWorksSN6000DualFcSwitch.setStatus("current")
+_Reserved26_ObjectIdentity = ObjectIdentity
+reserved26 = _Reserved26_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 26)
+)
+_Reserved27_ObjectIdentity = ObjectIdentity
+reserved27 = _Reserved27_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 27)
+)
+_Reserved28_ObjectIdentity = ObjectIdentity
+reserved28 = _Reserved28_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 28)
+)
+_Reserved29_ObjectIdentity = ObjectIdentity
+reserved29 = _Reserved29_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 29)
+)
+_Reserved30_ObjectIdentity = ObjectIdentity
+reserved30 = _Reserved30_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 30)
+)
+_Reserved31_ObjectIdentity = ObjectIdentity
+reserved31 = _Reserved31_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 31)
+)
+_Reserved32_ObjectIdentity = ObjectIdentity
+reserved32 = _Reserved32_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 32)
+)
+_Reserved33_ObjectIdentity = ObjectIdentity
+reserved33 = _Reserved33_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 33)
+)
+_Sns2120_ObjectIdentity = ObjectIdentity
+sns2120 = _Sns2120_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 34)
+)
+if mibBuilder.loadTexts:
+    sns2120.setStatus("current")
+_Reserved35_ObjectIdentity = ObjectIdentity
+reserved35 = _Reserved35_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 35)
+)
+_Reserved36_ObjectIdentity = ObjectIdentity
+reserved36 = _Reserved36_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 36)
+)
+_Reserved37_ObjectIdentity = ObjectIdentity
+reserved37 = _Reserved37_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 37)
+)
+_Reserved38_ObjectIdentity = ObjectIdentity
+reserved38 = _Reserved38_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 38)
+)
+_Reserved39_ObjectIdentity = ObjectIdentity
+reserved39 = _Reserved39_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 39)
+)
+_Reserved40_ObjectIdentity = ObjectIdentity
+reserved40 = _Reserved40_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 40)
+)
+_Reserved41_ObjectIdentity = ObjectIdentity
+reserved41 = _Reserved41_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 41)
+)
+_Reserved42_ObjectIdentity = ObjectIdentity
+reserved42 = _Reserved42_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 42)
+)
+_Reserved43_ObjectIdentity = ObjectIdentity
+reserved43 = _Reserved43_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3873, 1, 43)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "QLOGIC-PRODUCTS-MIB",
+    **{"sanBox6140": sanBox6140,
+       "evaISCSI": evaISCSI,
+       "reserved3": reserved3,
+       "mpx100": mpx100,
+       "iSR6140": iSR6140,
+       "iSR6142": iSR6142,
+       "mpx110": mpx110,
+       "reserved8": reserved8,
+       "sanBox5802": sanBox5802,
+       "reserved10": reserved10,
+       "hpStorageWorks820FcSwitch": hpStorageWorks820FcSwitch,
+       "reserved12": reserved12,
+       "reserved13": reserved13,
+       "sanBox5800": sanBox5800,
+       "reserved15": reserved15,
+       "reserved16": reserved16,
+       "iSR6200": iSR6200,
+       "mpx200": mpx200,
+       "mez50": mez50,
+       "sanBox3810": sanBox3810,
+       "reserved21": reserved21,
+       "reserved22": reserved22,
+       "reserved23": reserved23,
+       "hpStorageWorksSN6000SingleFcSwitch": hpStorageWorksSN6000SingleFcSwitch,
+       "hpStorageWorksSN6000DualFcSwitch": hpStorageWorksSN6000DualFcSwitch,
+       "reserved26": reserved26,
+       "reserved27": reserved27,
+       "reserved28": reserved28,
+       "reserved29": reserved29,
+       "reserved30": reserved30,
+       "reserved31": reserved31,
+       "reserved32": reserved32,
+       "reserved33": reserved33,
+       "sns2120": sns2120,
+       "reserved35": reserved35,
+       "reserved36": reserved36,
+       "reserved37": reserved37,
+       "reserved38": reserved38,
+       "reserved39": reserved39,
+       "reserved40": reserved40,
+       "reserved41": reserved41,
+       "reserved42": reserved42,
+       "reserved43": reserved43,
+       "qlogicProductsMIB": qlogicProductsMIB}
+)

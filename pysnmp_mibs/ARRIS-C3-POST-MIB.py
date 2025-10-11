@@ -1,41 +1,327 @@
+# SNMP MIB module (ARRIS-C3-POST-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ARRIS-C3-POST-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arris/ARRIS-C3-POST-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:00 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/arris/ARRIS-C3-POST-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:10:35 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-cmtsC3, = mibBuilder.importSymbols("ARRIS-MIB", "cmtsC3")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-cmtsC3POSTMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13))
-if mibBuilder.loadTexts: cmtsC3POSTMIB.setLastUpdated('200403300000Z')
-if mibBuilder.loadTexts: cmtsC3POSTMIB.setOrganization('Arris International')
-dcxPOSTObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1))
-dcxCPUWANPOSTGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1))
-dcxCPUWANPOSTTable = MibTable((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1, 1), )
-if mibBuilder.loadTexts: dcxCPUWANPOSTTable.setStatus('current')
-dcxCPUWANPOSTEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1, 1, 1), ).setIndexNames((0, "ARRIS-C3-POST-MIB", "dcxCPUWANPOSTType"))
-if mibBuilder.loadTexts: dcxCPUWANPOSTEntry.setStatus('current')
-dcxCPUWANPOSTType = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100)))
-if mibBuilder.loadTexts: dcxCPUWANPOSTType.setStatus('current')
-dcxCPUWANPOSTDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dcxCPUWANPOSTDescr.setStatus('current')
-dcxCPUWANPOSTResult = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("passed", 0), ("skipped", 1), ("failed", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dcxCPUWANPOSTResult.setStatus('current')
-dcx3212POSTGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2))
-dcx3212POSTTable = MibTable((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1), )
-if mibBuilder.loadTexts: dcx3212POSTTable.setStatus('current')
-dcx3212POSTEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1, 1), ).setIndexNames((0, "ARRIS-C3-POST-MIB", "dcx3212POSTType"))
-if mibBuilder.loadTexts: dcx3212POSTEntry.setStatus('current')
-dcx3212POSTType = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100)))
-if mibBuilder.loadTexts: dcx3212POSTType.setStatus('current')
-dcx3212POSTDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 40))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dcx3212POSTDescr.setStatus('current')
-dcx3212POSTResult = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("passed", 0), ("failed", 1), ("skipped", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dcx3212POSTResult.setStatus('current')
-mibBuilder.exportSymbols("ARRIS-C3-POST-MIB", dcxCPUWANPOSTResult=dcxCPUWANPOSTResult, PYSNMP_MODULE_ID=cmtsC3POSTMIB, dcxCPUWANPOSTType=dcxCPUWANPOSTType, dcxCPUWANPOSTGroup=dcxCPUWANPOSTGroup, dcx3212POSTResult=dcx3212POSTResult, dcx3212POSTEntry=dcx3212POSTEntry, dcx3212POSTDescr=dcx3212POSTDescr, dcxPOSTObjects=dcxPOSTObjects, dcxCPUWANPOSTTable=dcxCPUWANPOSTTable, dcx3212POSTGroup=dcx3212POSTGroup, cmtsC3POSTMIB=cmtsC3POSTMIB, dcx3212POSTType=dcx3212POSTType, dcx3212POSTTable=dcx3212POSTTable, dcxCPUWANPOSTEntry=dcxCPUWANPOSTEntry, dcxCPUWANPOSTDescr=dcxCPUWANPOSTDescr)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cmtsC3,) = mibBuilder.importSymbols(
+    "ARRIS-MIB",
+    "cmtsC3")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+cmtsC3POSTMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_DcxPOSTObjects_ObjectIdentity = ObjectIdentity
+dcxPOSTObjects = _DcxPOSTObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1)
+)
+_DcxCPUWANPOSTGroup_ObjectIdentity = ObjectIdentity
+dcxCPUWANPOSTGroup = _DcxCPUWANPOSTGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1)
+)
+_DcxCPUWANPOSTTable_Object = MibTable
+dcxCPUWANPOSTTable = _DcxCPUWANPOSTTable_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    dcxCPUWANPOSTTable.setStatus("current")
+_DcxCPUWANPOSTEntry_Object = MibTableRow
+dcxCPUWANPOSTEntry = _DcxCPUWANPOSTEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1, 1, 1)
+)
+dcxCPUWANPOSTEntry.setIndexNames(
+    (0, "ARRIS-C3-POST-MIB", "dcxCPUWANPOSTType"),
+)
+if mibBuilder.loadTexts:
+    dcxCPUWANPOSTEntry.setStatus("current")
+
+
+class _DcxCPUWANPOSTType_Type(Integer32):
+    """Custom type dcxCPUWANPOSTType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_DcxCPUWANPOSTType_Type.__name__ = "Integer32"
+_DcxCPUWANPOSTType_Object = MibTableColumn
+dcxCPUWANPOSTType = _DcxCPUWANPOSTType_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1, 1, 1, 1),
+    _DcxCPUWANPOSTType_Type()
+)
+dcxCPUWANPOSTType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dcxCPUWANPOSTType.setStatus("current")
+
+
+class _DcxCPUWANPOSTDescr_Type(DisplayString):
+    """Custom type dcxCPUWANPOSTDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 40),
+    )
+
+
+_DcxCPUWANPOSTDescr_Type.__name__ = "DisplayString"
+_DcxCPUWANPOSTDescr_Object = MibTableColumn
+dcxCPUWANPOSTDescr = _DcxCPUWANPOSTDescr_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1, 1, 1, 2),
+    _DcxCPUWANPOSTDescr_Type()
+)
+dcxCPUWANPOSTDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dcxCPUWANPOSTDescr.setStatus("current")
+
+
+class _DcxCPUWANPOSTResult_Type(Integer32):
+    """Custom type dcxCPUWANPOSTResult based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("passed", 0),
+          ("skipped", 1),
+          ("failed", 2))
+    )
+
+
+_DcxCPUWANPOSTResult_Type.__name__ = "Integer32"
+_DcxCPUWANPOSTResult_Object = MibTableColumn
+dcxCPUWANPOSTResult = _DcxCPUWANPOSTResult_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 1, 1, 1, 3),
+    _DcxCPUWANPOSTResult_Type()
+)
+dcxCPUWANPOSTResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dcxCPUWANPOSTResult.setStatus("current")
+_Dcx3212POSTGroup_ObjectIdentity = ObjectIdentity
+dcx3212POSTGroup = _Dcx3212POSTGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2)
+)
+_Dcx3212POSTTable_Object = MibTable
+dcx3212POSTTable = _Dcx3212POSTTable_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    dcx3212POSTTable.setStatus("current")
+_Dcx3212POSTEntry_Object = MibTableRow
+dcx3212POSTEntry = _Dcx3212POSTEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1, 1)
+)
+dcx3212POSTEntry.setIndexNames(
+    (0, "ARRIS-C3-POST-MIB", "dcx3212POSTType"),
+)
+if mibBuilder.loadTexts:
+    dcx3212POSTEntry.setStatus("current")
+
+
+class _Dcx3212POSTType_Type(Integer32):
+    """Custom type dcx3212POSTType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_Dcx3212POSTType_Type.__name__ = "Integer32"
+_Dcx3212POSTType_Object = MibTableColumn
+dcx3212POSTType = _Dcx3212POSTType_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1, 1, 1),
+    _Dcx3212POSTType_Type()
+)
+dcx3212POSTType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dcx3212POSTType.setStatus("current")
+
+
+class _Dcx3212POSTDescr_Type(DisplayString):
+    """Custom type dcx3212POSTDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 40),
+    )
+
+
+_Dcx3212POSTDescr_Type.__name__ = "DisplayString"
+_Dcx3212POSTDescr_Object = MibTableColumn
+dcx3212POSTDescr = _Dcx3212POSTDescr_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1, 1, 2),
+    _Dcx3212POSTDescr_Type()
+)
+dcx3212POSTDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dcx3212POSTDescr.setStatus("current")
+
+
+class _Dcx3212POSTResult_Type(Integer32):
+    """Custom type dcx3212POSTResult based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("passed", 0),
+          ("failed", 1),
+          ("skipped", 2))
+    )
+
+
+_Dcx3212POSTResult_Type.__name__ = "Integer32"
+_Dcx3212POSTResult_Object = MibTableColumn
+dcx3212POSTResult = _Dcx3212POSTResult_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 13, 1, 2, 1, 1, 3),
+    _Dcx3212POSTResult_Type()
+)
+dcx3212POSTResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dcx3212POSTResult.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ARRIS-C3-POST-MIB",
+    **{"cmtsC3POSTMIB": cmtsC3POSTMIB,
+       "dcxPOSTObjects": dcxPOSTObjects,
+       "dcxCPUWANPOSTGroup": dcxCPUWANPOSTGroup,
+       "dcxCPUWANPOSTTable": dcxCPUWANPOSTTable,
+       "dcxCPUWANPOSTEntry": dcxCPUWANPOSTEntry,
+       "dcxCPUWANPOSTType": dcxCPUWANPOSTType,
+       "dcxCPUWANPOSTDescr": dcxCPUWANPOSTDescr,
+       "dcxCPUWANPOSTResult": dcxCPUWANPOSTResult,
+       "dcx3212POSTGroup": dcx3212POSTGroup,
+       "dcx3212POSTTable": dcx3212POSTTable,
+       "dcx3212POSTEntry": dcx3212POSTEntry,
+       "dcx3212POSTType": dcx3212POSTType,
+       "dcx3212POSTDescr": dcx3212POSTDescr,
+       "dcx3212POSTResult": dcx3212POSTResult}
+)

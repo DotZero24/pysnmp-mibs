@@ -1,48 +1,306 @@
+# SNMP MIB module (CISCO-UNIFIED-COMPUTING-VERSION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-UNIFIED-COMPUTING-VERSION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-VERSION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:39 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-UNIFIED-COMPUTING-VERSION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:28:49 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoInetAddressMask, CiscoNetworkAddress, CiscoAlarmSeverity, TimeIntervalSec, Unsigned64 = mibBuilder.importSymbols("CISCO-TC", "CiscoInetAddressMask", "CiscoNetworkAddress", "CiscoAlarmSeverity", "TimeIntervalSec", "Unsigned64")
-CucsManagedObjectDn, ciscoUnifiedComputingMIBObjects, CucsManagedObjectId = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectDn", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectId")
-InetAddressIPv4, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressIPv6")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, TextualConvention, TimeInterval, MacAddress, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
-cucsVersionObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70))
-if mibBuilder.loadTexts: cucsVersionObjects.setLastUpdated('201807260000Z')
-if mibBuilder.loadTexts: cucsVersionObjects.setOrganization('Cisco Systems Inc.')
-cucsVersionApplicationTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1), )
-if mibBuilder.loadTexts: cucsVersionApplicationTable.setStatus('current')
-cucsVersionApplicationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-VERSION-MIB", "cucsVersionApplicationInstanceId"))
-if mibBuilder.loadTexts: cucsVersionApplicationEntry.setStatus('current')
-cucsVersionApplicationInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 1), CucsManagedObjectId())
-if mibBuilder.loadTexts: cucsVersionApplicationInstanceId.setStatus('current')
-cucsVersionApplicationDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsVersionApplicationDn.setStatus('current')
-cucsVersionApplicationRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsVersionApplicationRn.setStatus('current')
-cucsVersionApplicationDetail = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsVersionApplicationDetail.setStatus('current')
-cucsVersionApplicationTime = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsVersionApplicationTime.setStatus('current')
-cucsVersionApplicationVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsVersionApplicationVersion.setStatus('current')
-cucsVersionEpTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 2), )
-if mibBuilder.loadTexts: cucsVersionEpTable.setStatus('current')
-cucsVersionEpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 2, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-VERSION-MIB", "cucsVersionEpInstanceId"))
-if mibBuilder.loadTexts: cucsVersionEpEntry.setStatus('current')
-cucsVersionEpInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 2, 1, 1), CucsManagedObjectId())
-if mibBuilder.loadTexts: cucsVersionEpInstanceId.setStatus('current')
-cucsVersionEpDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 2, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsVersionEpDn.setStatus('current')
-cucsVersionEpRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsVersionEpRn.setStatus('current')
-mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-VERSION-MIB", PYSNMP_MODULE_ID=cucsVersionObjects, cucsVersionApplicationEntry=cucsVersionApplicationEntry, cucsVersionApplicationRn=cucsVersionApplicationRn, cucsVersionApplicationInstanceId=cucsVersionApplicationInstanceId, cucsVersionEpRn=cucsVersionEpRn, cucsVersionEpTable=cucsVersionEpTable, cucsVersionEpDn=cucsVersionEpDn, cucsVersionApplicationVersion=cucsVersionApplicationVersion, cucsVersionEpInstanceId=cucsVersionEpInstanceId, cucsVersionEpEntry=cucsVersionEpEntry, cucsVersionApplicationDn=cucsVersionApplicationDn, cucsVersionApplicationDetail=cucsVersionApplicationDetail, cucsVersionObjects=cucsVersionObjects, cucsVersionApplicationTable=cucsVersionApplicationTable, cucsVersionApplicationTime=cucsVersionApplicationTime)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CiscoAlarmSeverity,
+ CiscoInetAddressMask,
+ CiscoNetworkAddress,
+ TimeIntervalSec,
+ Unsigned64) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoAlarmSeverity",
+    "CiscoInetAddressMask",
+    "CiscoNetworkAddress",
+    "TimeIntervalSec",
+    "Unsigned64")
+
+(CucsManagedObjectDn,
+ CucsManagedObjectId,
+ ciscoUnifiedComputingMIBObjects) = mibBuilder.importSymbols(
+    "CISCO-UNIFIED-COMPUTING-MIB",
+    "CucsManagedObjectDn",
+    "CucsManagedObjectId",
+    "ciscoUnifiedComputingMIBObjects")
+
+(InetAddressIPv4,
+ InetAddressIPv6) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv4",
+    "InetAddressIPv6")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cucsVersionObjects = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CucsVersionApplicationTable_Object = MibTable
+cucsVersionApplicationTable = _CucsVersionApplicationTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1)
+)
+if mibBuilder.loadTexts:
+    cucsVersionApplicationTable.setStatus("current")
+_CucsVersionApplicationEntry_Object = MibTableRow
+cucsVersionApplicationEntry = _CucsVersionApplicationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1)
+)
+cucsVersionApplicationEntry.setIndexNames(
+    (0, "CISCO-UNIFIED-COMPUTING-VERSION-MIB", "cucsVersionApplicationInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cucsVersionApplicationEntry.setStatus("current")
+_CucsVersionApplicationInstanceId_Type = CucsManagedObjectId
+_CucsVersionApplicationInstanceId_Object = MibTableColumn
+cucsVersionApplicationInstanceId = _CucsVersionApplicationInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 1),
+    _CucsVersionApplicationInstanceId_Type()
+)
+cucsVersionApplicationInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cucsVersionApplicationInstanceId.setStatus("current")
+_CucsVersionApplicationDn_Type = CucsManagedObjectDn
+_CucsVersionApplicationDn_Object = MibTableColumn
+cucsVersionApplicationDn = _CucsVersionApplicationDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 2),
+    _CucsVersionApplicationDn_Type()
+)
+cucsVersionApplicationDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsVersionApplicationDn.setStatus("current")
+_CucsVersionApplicationRn_Type = SnmpAdminString
+_CucsVersionApplicationRn_Object = MibTableColumn
+cucsVersionApplicationRn = _CucsVersionApplicationRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 3),
+    _CucsVersionApplicationRn_Type()
+)
+cucsVersionApplicationRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsVersionApplicationRn.setStatus("current")
+_CucsVersionApplicationDetail_Type = SnmpAdminString
+_CucsVersionApplicationDetail_Object = MibTableColumn
+cucsVersionApplicationDetail = _CucsVersionApplicationDetail_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 4),
+    _CucsVersionApplicationDetail_Type()
+)
+cucsVersionApplicationDetail.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsVersionApplicationDetail.setStatus("current")
+_CucsVersionApplicationTime_Type = SnmpAdminString
+_CucsVersionApplicationTime_Object = MibTableColumn
+cucsVersionApplicationTime = _CucsVersionApplicationTime_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 5),
+    _CucsVersionApplicationTime_Type()
+)
+cucsVersionApplicationTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsVersionApplicationTime.setStatus("current")
+_CucsVersionApplicationVersion_Type = SnmpAdminString
+_CucsVersionApplicationVersion_Object = MibTableColumn
+cucsVersionApplicationVersion = _CucsVersionApplicationVersion_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 1, 1, 6),
+    _CucsVersionApplicationVersion_Type()
+)
+cucsVersionApplicationVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsVersionApplicationVersion.setStatus("current")
+_CucsVersionEpTable_Object = MibTable
+cucsVersionEpTable = _CucsVersionEpTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 2)
+)
+if mibBuilder.loadTexts:
+    cucsVersionEpTable.setStatus("current")
+_CucsVersionEpEntry_Object = MibTableRow
+cucsVersionEpEntry = _CucsVersionEpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 2, 1)
+)
+cucsVersionEpEntry.setIndexNames(
+    (0, "CISCO-UNIFIED-COMPUTING-VERSION-MIB", "cucsVersionEpInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cucsVersionEpEntry.setStatus("current")
+_CucsVersionEpInstanceId_Type = CucsManagedObjectId
+_CucsVersionEpInstanceId_Object = MibTableColumn
+cucsVersionEpInstanceId = _CucsVersionEpInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 2, 1, 1),
+    _CucsVersionEpInstanceId_Type()
+)
+cucsVersionEpInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cucsVersionEpInstanceId.setStatus("current")
+_CucsVersionEpDn_Type = CucsManagedObjectDn
+_CucsVersionEpDn_Object = MibTableColumn
+cucsVersionEpDn = _CucsVersionEpDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 2, 1, 2),
+    _CucsVersionEpDn_Type()
+)
+cucsVersionEpDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsVersionEpDn.setStatus("current")
+_CucsVersionEpRn_Type = SnmpAdminString
+_CucsVersionEpRn_Object = MibTableColumn
+cucsVersionEpRn = _CucsVersionEpRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 70, 2, 1, 3),
+    _CucsVersionEpRn_Type()
+)
+cucsVersionEpRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsVersionEpRn.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-UNIFIED-COMPUTING-VERSION-MIB",
+    **{"cucsVersionObjects": cucsVersionObjects,
+       "cucsVersionApplicationTable": cucsVersionApplicationTable,
+       "cucsVersionApplicationEntry": cucsVersionApplicationEntry,
+       "cucsVersionApplicationInstanceId": cucsVersionApplicationInstanceId,
+       "cucsVersionApplicationDn": cucsVersionApplicationDn,
+       "cucsVersionApplicationRn": cucsVersionApplicationRn,
+       "cucsVersionApplicationDetail": cucsVersionApplicationDetail,
+       "cucsVersionApplicationTime": cucsVersionApplicationTime,
+       "cucsVersionApplicationVersion": cucsVersionApplicationVersion,
+       "cucsVersionEpTable": cucsVersionEpTable,
+       "cucsVersionEpEntry": cucsVersionEpEntry,
+       "cucsVersionEpInstanceId": cucsVersionEpInstanceId,
+       "cucsVersionEpDn": cucsVersionEpDn,
+       "cucsVersionEpRn": cucsVersionEpRn}
+)

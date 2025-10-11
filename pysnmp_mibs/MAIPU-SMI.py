@@ -1,44 +1,233 @@
+# SNMP MIB module (MAIPU-SMI) expressed in pysnmp data model.
 #
-# PySNMP MIB module MAIPU-SMI (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/maipu/MAIPU-SMI
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:19:21 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/maipu/MAIPU-SMI
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:11:15 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-maipu = ModuleIdentity((1, 3, 6, 1, 4, 1, 5651))
-maipu.setRevisions(('1901-01-01 00:00',))
-if mibBuilder.loadTexts: maipu.setLastUpdated('0101010000Z')
-if mibBuilder.loadTexts: maipu.setOrganization('Maipu Data Communication, Inc.')
-mpProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 1))
-if mibBuilder.loadTexts: mpProducts.setStatus('current')
-mpTrapObject = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 2))
-if mibBuilder.loadTexts: mpTrapObject.setStatus('current')
-mpMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 3))
-if mibBuilder.loadTexts: mpMgmt.setStatus('current')
-mpExperiment = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 4))
-if mibBuilder.loadTexts: mpExperiment.setStatus('current')
-mpSecurity = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 5))
-if mibBuilder.loadTexts: mpSecurity.setStatus('current')
-mpMgmt2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 6))
-if mibBuilder.loadTexts: mpMgmt2.setStatus('current')
-mpSystem = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 6, 1))
-if mibBuilder.loadTexts: mpSystem.setStatus('current')
-mpRouterTech = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 6, 2))
-if mibBuilder.loadTexts: mpRouterTech.setStatus('current')
-mpSwitchTech = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 6, 3))
-if mibBuilder.loadTexts: mpSwitchTech.setStatus('current')
-mpVoipTech = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 6, 4))
-if mibBuilder.loadTexts: mpVoipTech.setStatus('current')
-mpSecurityTech = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 6, 5))
-if mibBuilder.loadTexts: mpSecurityTech.setStatus('current')
-mpApp = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 6, 6))
-if mibBuilder.loadTexts: mpApp.setStatus('current')
-mpOtherSys = ObjectIdentity((1, 3, 6, 1, 4, 1, 5651, 6, 7))
-if mibBuilder.loadTexts: mpOtherSys.setStatus('current')
-mibBuilder.exportSymbols("MAIPU-SMI", mpProducts=mpProducts, mpSecurityTech=mpSecurityTech, mpExperiment=mpExperiment, mpSecurity=mpSecurity, mpTrapObject=mpTrapObject, mpApp=mpApp, mpMgmt=mpMgmt, mpVoipTech=mpVoipTech, mpRouterTech=mpRouterTech, mpMgmt2=mpMgmt2, PYSNMP_MODULE_ID=maipu, mpSwitchTech=mpSwitchTech, mpOtherSys=mpOtherSys, maipu=maipu, mpSystem=mpSystem)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+maipu = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5651)
+)
+if mibBuilder.loadTexts:
+    maipu.setRevisions(
+        ("1901-01-01 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MpProducts_ObjectIdentity = ObjectIdentity
+mpProducts = _MpProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 1)
+)
+if mibBuilder.loadTexts:
+    mpProducts.setStatus("current")
+_MpTrapObject_ObjectIdentity = ObjectIdentity
+mpTrapObject = _MpTrapObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 2)
+)
+if mibBuilder.loadTexts:
+    mpTrapObject.setStatus("current")
+_MpMgmt_ObjectIdentity = ObjectIdentity
+mpMgmt = _MpMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 3)
+)
+if mibBuilder.loadTexts:
+    mpMgmt.setStatus("current")
+_MpExperiment_ObjectIdentity = ObjectIdentity
+mpExperiment = _MpExperiment_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 4)
+)
+if mibBuilder.loadTexts:
+    mpExperiment.setStatus("current")
+_MpSecurity_ObjectIdentity = ObjectIdentity
+mpSecurity = _MpSecurity_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 5)
+)
+if mibBuilder.loadTexts:
+    mpSecurity.setStatus("current")
+_MpMgmt2_ObjectIdentity = ObjectIdentity
+mpMgmt2 = _MpMgmt2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 6)
+)
+if mibBuilder.loadTexts:
+    mpMgmt2.setStatus("current")
+_MpSystem_ObjectIdentity = ObjectIdentity
+mpSystem = _MpSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 6, 1)
+)
+if mibBuilder.loadTexts:
+    mpSystem.setStatus("current")
+_MpRouterTech_ObjectIdentity = ObjectIdentity
+mpRouterTech = _MpRouterTech_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 6, 2)
+)
+if mibBuilder.loadTexts:
+    mpRouterTech.setStatus("current")
+_MpSwitchTech_ObjectIdentity = ObjectIdentity
+mpSwitchTech = _MpSwitchTech_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 6, 3)
+)
+if mibBuilder.loadTexts:
+    mpSwitchTech.setStatus("current")
+_MpVoipTech_ObjectIdentity = ObjectIdentity
+mpVoipTech = _MpVoipTech_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 6, 4)
+)
+if mibBuilder.loadTexts:
+    mpVoipTech.setStatus("current")
+_MpSecurityTech_ObjectIdentity = ObjectIdentity
+mpSecurityTech = _MpSecurityTech_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 6, 5)
+)
+if mibBuilder.loadTexts:
+    mpSecurityTech.setStatus("current")
+_MpApp_ObjectIdentity = ObjectIdentity
+mpApp = _MpApp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 6, 6)
+)
+if mibBuilder.loadTexts:
+    mpApp.setStatus("current")
+_MpOtherSys_ObjectIdentity = ObjectIdentity
+mpOtherSys = _MpOtherSys_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5651, 6, 7)
+)
+if mibBuilder.loadTexts:
+    mpOtherSys.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MAIPU-SMI",
+    **{"maipu": maipu,
+       "mpProducts": mpProducts,
+       "mpTrapObject": mpTrapObject,
+       "mpMgmt": mpMgmt,
+       "mpExperiment": mpExperiment,
+       "mpSecurity": mpSecurity,
+       "mpMgmt2": mpMgmt2,
+       "mpSystem": mpSystem,
+       "mpRouterTech": mpRouterTech,
+       "mpSwitchTech": mpSwitchTech,
+       "mpVoipTech": mpVoipTech,
+       "mpSecurityTech": mpSecurityTech,
+       "mpApp": mpApp,
+       "mpOtherSys": mpOtherSys}
+)

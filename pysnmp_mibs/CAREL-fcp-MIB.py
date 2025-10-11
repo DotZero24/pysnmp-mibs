@@ -1,532 +1,5645 @@
+# SNMP MIB module (CAREL-fcp-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CAREL-fcp-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/carel/CAREL-fcp-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:00:34 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/carel/CAREL-fcp-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:12:04 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-sysName, sysLocation, sysContact = mibBuilder.importSymbols("SNMPv2-MIB", "sysName", "sysLocation", "sysContact")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-fcpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9839, 2, 1))
-if mibBuilder.loadTexts: fcpMIB.setLastUpdated('200303141725Z')
-if mibBuilder.loadTexts: fcpMIB.setOrganization('CAREL SpA')
-carel = MibIdentifier((1, 3, 6, 1, 4, 1, 9839))
-systm = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 1))
-agentRelease = MibScalar((1, 3, 6, 1, 4, 1, 9839, 1, 1), Integer32()).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentRelease.setStatus('current')
-agentCode = MibScalar((1, 3, 6, 1, 4, 1, 9839, 1, 2), Integer32()).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentCode.setStatus('current')
-instruments = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2))
-webGateInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 0))
-agentParameters = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 0, 1))
-netSize = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 0, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: netSize.setStatus('current')
-baudRate = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 0, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(1200, 1200), ValueRangeConstraint(2400, 2400), ValueRangeConstraint(4800, 4800), ValueRangeConstraint(9600, 9600), ValueRangeConstraint(19200, 19200), ))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: baudRate.setStatus('current')
-unitTypeGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 0, 2))
-unit1_Type = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 0, 2, 1), DisplayString()).setLabel("unit1-Type").setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: unit1_Type.setStatus('current')
-unitCodeGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 0, 3))
-unit1_Code = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 0, 3, 1), Integer32()).setLabel("unit1-Code").setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: unit1_Code.setStatus('current')
-unitSoftwareReleaseGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 0, 4))
-unit1_SoftwareRelease = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 0, 4, 1), Integer32()).setLabel("unit1-SoftwareRelease").setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: unit1_SoftwareRelease.setStatus('current')
-unitMinSoftwareReleaseGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 0, 5))
-unit1_MinSoftwareRelease = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 0, 5, 1), Integer32()).setLabel("unit1-MinSoftwareRelease").setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: unit1_MinSoftwareRelease.setStatus('current')
-unitMaxSoftwareReleaseGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 0, 6))
-unit1_MaxSoftwareRelease = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 0, 6, 1), Integer32()).setLabel("unit1-MaxSoftwareRelease").setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: unit1_MaxSoftwareRelease.setStatus('current')
-unitNoAnswerCounterGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 0, 7))
-unit1_NoAnswerCounter = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 0, 7, 1), Integer32()).setLabel("unit1-NoAnswerCounter").setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: unit1_NoAnswerCounter.setStatus('current')
-unitErrorChecksumCounterGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 0, 8))
-unit1_ErrorChecksumCounter = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 0, 8, 1), Integer32()).setLabel("unit1-ErrorChecksumCounter").setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: unit1_ErrorChecksumCounter.setStatus('current')
-unitTimeoutCounterGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 0, 9))
-unit1_TimeoutCounter = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 0, 9, 1), Integer32()).setLabel("unit1-TimeoutCounter").setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: unit1_TimeoutCounter.setStatus('current')
-unitOnLineStatusGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 0, 10))
-unit1_OnLineStatus = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 0, 10, 1), Integer32()).setLabel("unit1-OnLineStatus").setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: unit1_OnLineStatus.setStatus('current')
-digitalObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1))
-scheda_modem = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: scheda_modem.setStatus('current')
-present_expansion = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: present_expansion.setStatus('current')
-fan1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fan1.setStatus('current')
-fan2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fan2.setStatus('current')
-fan3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fan3.setStatus('current')
-fan4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fan4.setStatus('current')
-comp1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: comp1.setStatus('current')
-rich_parz11 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz11.setStatus('current')
-rich_parz21 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz21.setStatus('current')
-comp2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: comp2.setStatus('current')
-rich_parz12 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz12.setStatus('current')
-rich_parz22 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz22.setStatus('current')
-comp3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: comp3.setStatus('current')
-rich_parz13 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz13.setStatus('current')
-rich_parz23 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz23.setStatus('current')
-comp4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: comp4.setStatus('current')
-rich_parz14 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz14.setStatus('current')
-rich_parz24 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz24.setStatus('current')
-comp5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: comp5.setStatus('current')
-rich_parz15 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz15.setStatus('current')
-rich_parz25 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz25.setStatus('current')
-comp6 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 22), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: comp6.setStatus('current')
-rich_parz16 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 23), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz16.setStatus('current')
-rich_parz26 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: rich_parz26.setStatus('current')
-din1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 25), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din1.setStatus('current')
-din2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 26), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din2.setStatus('current')
-din3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din3.setStatus('current')
-din4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din4.setStatus('current')
-din5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 29), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din5.setStatus('current')
-din6 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 30), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din6.setStatus('current')
-din7 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 31), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din7.setStatus('current')
-din8 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 32), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din8.setStatus('current')
-din9 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 33), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din9.setStatus('current')
-din10 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 34), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din10.setStatus('current')
-din11 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 35), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din11.setStatus('current')
-din12 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 36), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din12.setStatus('current')
-din13 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 37), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din13.setStatus('current')
-din14 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 38), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din14.setStatus('current')
-din15 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 39), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din15.setStatus('current')
-din16 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 40), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din16.setStatus('current')
-din17 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 41), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din17.setStatus('current')
-din18 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 42), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din18.setStatus('current')
-all_pres_lpres = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 43), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: all_pres_lpres.setStatus('current')
-all_pres_hpres = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 44), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: all_pres_hpres.setStatus('current')
-din101 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 45), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din101.setStatus('current')
-din102 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 46), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din102.setStatus('current')
-din103 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 47), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din103.setStatus('current')
-din104 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 48), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din104.setStatus('current')
-din105 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 49), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din105.setStatus('current')
-din106 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 50), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din106.setStatus('current')
-din107 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 51), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din107.setStatus('current')
-din108 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 52), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: din108.setStatus('current')
-mall_term_klix1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 53), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_term_klix1.setStatus('current')
-mall_term_klix2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 54), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_term_klix2.setStatus('current')
-mall_term_klix3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 55), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_term_klix3.setStatus('current')
-mall_term_klix4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 56), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_term_klix4.setStatus('current')
-mall_term_klix5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 57), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_term_klix5.setStatus('current')
-mall_term_klix6 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 58), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_term_klix6.setStatus('current')
-mall_pres_h1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 59), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_pres_h1.setStatus('current')
-mall_pres_h2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 60), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_pres_h2.setStatus('current')
-mall_pres_h3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 61), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_pres_h3.setStatus('current')
-mall_pres_h4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 62), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_pres_h4.setStatus('current')
-mall_pres_h5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 63), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_pres_h5.setStatus('current')
-mall_pres_h6 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 64), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_pres_h6.setStatus('current')
-mall_dif_olio1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 65), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_dif_olio1.setStatus('current')
-mall_dif_olio2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 66), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_dif_olio2.setStatus('current')
-mall_dif_olio3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 67), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_dif_olio3.setStatus('current')
-mall_dif_olio4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 68), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_dif_olio4.setStatus('current')
-mall_dif_olio5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 69), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_dif_olio5.setStatus('current')
-mall_dif_olio6 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 70), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_dif_olio6.setStatus('current')
-mall_ore_comp1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 71), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_ore_comp1.setStatus('current')
-mall_ore_comp2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 72), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_ore_comp2.setStatus('current')
-mall_ore_comp3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 73), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_ore_comp3.setStatus('current')
-mall_ore_comp4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 74), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_ore_comp4.setStatus('current')
-mall_ore_comp5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 75), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_ore_comp5.setStatus('current')
-mall_ore_comp6 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 76), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_ore_comp6.setStatus('current')
-mall_term_vent1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 77), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_term_vent1.setStatus('current')
-mall_term_vent2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 78), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_term_vent2.setStatus('current')
-mall_term_vent3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 79), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_term_vent3.setStatus('current')
-mall_term_vent4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 80), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_term_vent4.setStatus('current')
-mal_liquid_level = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 81), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mal_liquid_level.setStatus('current')
-mall_pres_lpres = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 82), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_pres_lpres.setStatus('current')
-mall_pres_hpres = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 83), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_pres_hpres.setStatus('current')
-mal_low2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 84), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mal_low2.setStatus('current')
-mall_alta_mand = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 85), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_alta_mand.setStatus('current')
-mal_low_press = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 86), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mal_low_press.setStatus('current')
-mal_high_press = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 87), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mal_high_press.setStatus('current')
-mal_n_input = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 88), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mal_n_input.setStatus('current')
-mal_n_devices = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 89), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mal_n_devices.setStatus('current')
-mall_ora = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 90), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_ora.setStatus('current')
-mal_broke_pr1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 91), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mal_broke_pr1.setStatus('current')
-mal_broke_pr2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 92), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mal_broke_pr2.setStatus('current')
-glb_al = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 93), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: glb_al.setStatus('current')
-syson = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 101), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: syson.setStatus('current')
-en_off_supervisor = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 112), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: en_off_supervisor.setStatus('current')
-fan5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 114), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: fan5.setStatus('current')
-mall_term_vent5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 115), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: mall_term_vent5.setStatus('current')
-en_on_balck_out = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 118), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: en_on_balck_out.setStatus('current')
-dout1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 119), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout1.setStatus('current')
-dout2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 120), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout2.setStatus('current')
-dout3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 121), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout3.setStatus('current')
-dout4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 122), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout4.setStatus('current')
-dout5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 123), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout5.setStatus('current')
-dout6 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 124), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout6.setStatus('current')
-dout7 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 125), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout7.setStatus('current')
-dout8 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 126), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout8.setStatus('current')
-dout9 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 127), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout9.setStatus('current')
-dout10 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 128), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout10.setStatus('current')
-dout11 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 129), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout11.setStatus('current')
-dout12 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 130), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout12.setStatus('current')
-dout13 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 131), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout13.setStatus('current')
-dout14 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 132), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout14.setStatus('current')
-dout15 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 133), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout15.setStatus('current')
-dout16 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 134), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout16.setStatus('current')
-dout17 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 135), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout17.setStatus('current')
-dout18 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 136), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: dout18.setStatus('current')
-analogObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2))
-asp_conv = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('bar x10').setMaxAccess("readonly")
-if mibBuilder.loadTexts: asp_conv.setStatus('current')
-press_mand_conv = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('bar x10').setMaxAccess("readonly")
-if mibBuilder.loadTexts: press_mand_conv.setStatus('current')
-out_inv_fan = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: out_inv_fan.setStatus('current')
-inverter_comp1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: inverter_comp1.setStatus('current')
-set_comp = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767)).clone(10)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: set_comp.setStatus('current')
-diff_comp = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 20)).clone(50)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: diff_comp.setStatus('current')
-set_fan = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767)).clone(155)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: set_fan.setStatus('current')
-diff_fan = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 200)).clone(20)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: diff_fan.setStatus('current')
-voltage_in = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: voltage_in.setStatus('current')
-max_set_co = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-99, 999)).clone(1)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: max_set_co.setStatus('current')
-min_set_co = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-99, 999)).clone(25)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: min_set_co.setStatus('current')
-max_set_fa = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-99, 999)).clone(250)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: max_set_fa.setStatus('current')
-min_set_fa = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-99, 999)).clone(10)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: min_set_fa.setStatus('current')
-thresh_high1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100)).clone(50)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: thresh_high1.setStatus('current')
-diff_high1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 20)).clone(5)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: diff_high1.setStatus('current')
-thresh_low1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100, 50)).clone(10)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: thresh_low1.setStatus('current')
-diff_low1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(5)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: diff_low1.setStatus('current')
-thresh_high2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(150, 300)).clone(185)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: thresh_high2.setStatus('current')
-diff_high2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 40)).clone(10)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: diff_high2.setStatus('current')
-thresh_low2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 20), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100, 300)).clone(100)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: thresh_low2.setStatus('current')
-diff_low2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3600)).clone(1200)).setUnits('sec x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: diff_low2.setStatus('current')
-set_vent_inv = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767)).clone(155)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: set_vent_inv.setStatus('current')
-diff_vent_inv = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 200)).clone(15)).setUnits('bar x10').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: diff_vent_inv.setStatus('current')
-seinverter = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 32), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: seinverter.setStatus('current')
-diff_inv = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 33), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: diff_inv.setStatus('current')
-integerObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3))
-lhour = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lhour.setStatus('current')
-lminute = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lminute.setStatus('current')
-lday = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lday.setStatus('current')
-lmonth = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lmonth.setStatus('current')
-lyear = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lyear.setStatus('current')
-hour = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour.setStatus('current')
-minute = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 17), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: minute.setStatus('current')
-month = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: month.setStatus('current')
-pyear = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: pyear.setStatus('current')
-oil_diff = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oil_diff.setStatus('current')
-out_inv_fani = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 26), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: out_inv_fani.setStatus('current')
-inverter_compi1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: inverter_compi1.setStatus('current')
-board_type = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: board_type.setStatus('current')
-unit_status = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 29), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: unit_status.setStatus('current')
-type_b1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 30), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: type_b1.setStatus('current')
-type_b2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 31), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: type_b2.setStatus('current')
-bios_release = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 32), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: bios_release.setStatus('current')
-bios_date = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 33), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: bios_date.setStatus('current')
-boot_release = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 34), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: boot_release.setStatus('current')
-boot_date = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 35), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: boot_date.setStatus('current')
-time_switch_on1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 37), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 360)).clone(20)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: time_switch_on1.setStatus('current')
-time_switchoff1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 38), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 360)).clone(10)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: time_switchoff1.setStatus('current')
-time_min_on = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 39), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 360)).clone(60)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: time_min_on.setStatus('current')
-time_min_off = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 40), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 360)).clone(120)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: time_min_off.setStatus('current')
-time_betw_comp = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 41), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 9999)).clone(20)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: time_betw_comp.setStatus('current')
-time_same_comp = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 42), Integer32().subtype(subtypeSpec=ValueRangeConstraint(240, 600)).clone(360)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: time_same_comp.setStatus('current')
-unload_delay = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 43), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 999)).clone(20)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: unload_delay.setStatus('current')
-time_switch_on2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 44), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 999)).clone(2)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: time_switch_on2.setStatus('current')
-time_switchoff2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 45), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 999)).clone(2)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: time_switchoff2.setStatus('current')
-time_betw_fan = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 46), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 999)).clone(5)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: time_betw_fan.setStatus('current')
-rit_dif_olio = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 47), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 360)).clone(90)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rit_dif_olio.setStatus('current')
-rit_all_liq = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 48), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 360)).clone(10)).setUnits('sec').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rit_all_liq.setStatus('current')
-sg_ore_comp = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 53), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 99999)).clone(1000)).setUnits('Hours').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sg_ore_comp.setStatus('current')
-hour_comp1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 54), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_comp1.setStatus('current')
-hour_l_comp1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 55), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_l_comp1.setStatus('current')
-hour_comp2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 56), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_comp2.setStatus('current')
-hour_l_comp2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 57), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_l_comp2.setStatus('current')
-hour_comp3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 58), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_comp3.setStatus('current')
-hour_l_comp3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 59), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_l_comp3.setStatus('current')
-hour_comp4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 60), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_comp4.setStatus('current')
-hour_l_comp4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 61), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_l_comp4.setStatus('current')
-hour_comp5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 62), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_comp5.setStatus('current')
-hour_l_comp5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 63), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_l_comp5.setStatus('current')
-hour_comp6 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 64), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_comp6.setStatus('current')
-hour_l_comp6 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 65), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: hour_l_comp6.setStatus('current')
-h_hour_fan1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 66), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: h_hour_fan1.setStatus('current')
-l_hour_fan1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 67), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: l_hour_fan1.setStatus('current')
-h_hour_fan2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 68), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: h_hour_fan2.setStatus('current')
-l_hour_fan2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 69), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: l_hour_fan2.setStatus('current')
-h_hour_fan3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 70), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: h_hour_fan3.setStatus('current')
-l_hour_fan3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 71), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: l_hour_fan3.setStatus('current')
-h_hour_fan4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 72), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: h_hour_fan4.setStatus('current')
-l_hour_fan4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 73), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: l_hour_fan4.setStatus('current')
-sg_ore_fan = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 74), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sg_ore_fan.setStatus('current')
-version = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 75), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: version.setStatus('current')
-h_hour_fan5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 76), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: h_hour_fan5.setStatus('current')
-l_hour_fan5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 77), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: l_hour_fan5.setStatus('current')
-time_on_black_out = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 78), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: time_on_black_out.setStatus('current')
-config_in1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 79), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in1.setStatus('current')
-config_in2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 80), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in2.setStatus('current')
-config_in3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 81), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in3.setStatus('current')
-config_in4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 82), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in4.setStatus('current')
-config_in5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 83), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in5.setStatus('current')
-config_in6 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 84), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in6.setStatus('current')
-config_in7 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 85), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in7.setStatus('current')
-config_in8 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 86), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in8.setStatus('current')
-config_in9 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 87), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in9.setStatus('current')
-config_in10 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 88), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in10.setStatus('current')
-config_in11 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 89), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in11.setStatus('current')
-config_in12 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 90), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in12.setStatus('current')
-config_in13 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 91), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in13.setStatus('current')
-config_in14 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 92), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in14.setStatus('current')
-config_in15 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 93), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in15.setStatus('current')
-config_in16 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 94), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in16.setStatus('current')
-config_in17 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 95), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in17.setStatus('current')
-config_in18 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 96), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_in18.setStatus('current')
-config_out1 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 97), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out1.setStatus('current')
-config_out2 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 98), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out2.setStatus('current')
-config_out3 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 99), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out3.setStatus('current')
-config_out4 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 100), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out4.setStatus('current')
-config_out5 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 101), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out5.setStatus('current')
-config_out6 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 102), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out6.setStatus('current')
-config_out7 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 103), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out7.setStatus('current')
-config_out8 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 104), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out8.setStatus('current')
-config_out9 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 105), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out9.setStatus('current')
-config_out10 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 106), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out10.setStatus('current')
-config_out11 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 107), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out11.setStatus('current')
-config_out12 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 108), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out12.setStatus('current')
-config_out13 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 109), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out13.setStatus('current')
-config_out14 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 110), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out14.setStatus('current')
-config_out15 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 111), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out15.setStatus('current')
-config_out16 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 112), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out16.setStatus('current')
-config_out17 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 113), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out17.setStatus('current')
-config_out18 = MibScalar((1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 114), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-32767, 32767))).setUnits('N/A').setMaxAccess("readonly")
-if mibBuilder.loadTexts: config_out18.setStatus('current')
-mibBuilder.exportSymbols("CAREL-fcp-MIB", mall_term_vent1=mall_term_vent1, PYSNMP_MODULE_ID=fcpMIB, mall_ore_comp5=mall_ore_comp5, rich_parz16=rich_parz16, out_inv_fani=out_inv_fani, mall_pres_h5=mall_pres_h5, analogObjects=analogObjects, rich_parz22=rich_parz22, din6=din6, comp3=comp3, mall_term_klix5=mall_term_klix5, config_out8=config_out8, voltage_in=voltage_in, rich_parz24=rich_parz24, config_out2=config_out2, mal_low_press=mal_low_press, unitOnLineStatusGroup=unitOnLineStatusGroup, config_in4=config_in4, unit1_OnLineStatus=unit1_OnLineStatus, syson=syson, dout15=dout15, min_set_fa=min_set_fa, bios_date=bios_date, hour_l_comp4=hour_l_comp4, config_in13=config_in13, inverter_comp1=inverter_comp1, baudRate=baudRate, pyear=pyear, din107=din107, hour_l_comp2=hour_l_comp2, scheda_modem=scheda_modem, l_hour_fan3=l_hour_fan3, config_out10=config_out10, fan5=fan5, type_b1=type_b1, config_in3=config_in3, netSize=netSize, dout6=dout6, mall_dif_olio2=mall_dif_olio2, mall_pres_lpres=mall_pres_lpres, config_out14=config_out14, din2=din2, rich_parz21=rich_parz21, time_betw_fan=time_betw_fan, dout9=dout9, mall_pres_h3=mall_pres_h3, thresh_low1=thresh_low1, din8=din8, unitNoAnswerCounterGroup=unitNoAnswerCounterGroup, unitSoftwareReleaseGroup=unitSoftwareReleaseGroup, systm=systm, mall_term_klix2=mall_term_klix2, dout11=dout11, unit1_ErrorChecksumCounter=unit1_ErrorChecksumCounter, integerObjects=integerObjects, din3=din3, config_out13=config_out13, config_out16=config_out16, unitTimeoutCounterGroup=unitTimeoutCounterGroup, dout14=dout14, time_switch_on2=time_switch_on2, thresh_high1=thresh_high1, config_out12=config_out12, rich_parz26=rich_parz26, config_out3=config_out3, config_in7=config_in7, rich_parz11=rich_parz11, unload_delay=unload_delay, lhour=lhour, config_out1=config_out1, mal_n_devices=mal_n_devices, din5=din5, config_in15=config_in15, press_mand_conv=press_mand_conv, hour_comp4=hour_comp4, unit1_NoAnswerCounter=unit1_NoAnswerCounter, fan1=fan1, mall_dif_olio4=mall_dif_olio4, fcpMIB=fcpMIB, all_pres_hpres=all_pres_hpres, en_on_balck_out=en_on_balck_out, set_comp=set_comp, minute=minute, l_hour_fan2=l_hour_fan2, din9=din9, h_hour_fan4=h_hour_fan4, sg_ore_fan=sg_ore_fan, config_out15=config_out15, unitErrorChecksumCounterGroup=unitErrorChecksumCounterGroup, mall_term_klix4=mall_term_klix4, config_in9=config_in9, mall_dif_olio5=mall_dif_olio5, type_b2=type_b2, din11=din11, webGateInfo=webGateInfo, din18=din18, unitCodeGroup=unitCodeGroup, hour_comp6=hour_comp6, set_vent_inv=set_vent_inv, config_out11=config_out11, carel=carel, unit1_Type=unit1_Type, time_betw_comp=time_betw_comp, fan3=fan3, unit1_MaxSoftwareRelease=unit1_MaxSoftwareRelease, board_type=board_type, rich_parz12=rich_parz12, din106=din106, din105=din105, mall_pres_hpres=mall_pres_hpres, diff_high1=diff_high1, agentRelease=agentRelease, hour_l_comp3=hour_l_comp3, unit1_TimeoutCounter=unit1_TimeoutCounter, digitalObjects=digitalObjects, h_hour_fan5=h_hour_fan5, dout4=dout4, dout1=dout1, unitTypeGroup=unitTypeGroup, thresh_low2=thresh_low2, mall_ore_comp3=mall_ore_comp3, time_switchoff1=time_switchoff1, config_in12=config_in12, out_inv_fan=out_inv_fan, bios_release=bios_release, time_switchoff2=time_switchoff2, mall_term_klix1=mall_term_klix1, din103=din103, hour_comp3=hour_comp3, thresh_high2=thresh_high2, din10=din10, mall_term_vent3=mall_term_vent3, boot_date=boot_date, diff_low1=diff_low1, time_min_on=time_min_on, config_in1=config_in1, dout2=dout2, diff_vent_inv=diff_vent_inv, sg_ore_comp=sg_ore_comp, hour_comp2=hour_comp2, dout5=dout5, mall_dif_olio3=mall_dif_olio3, mall_ore_comp4=mall_ore_comp4, h_hour_fan3=h_hour_fan3, config_in16=config_in16, time_on_black_out=time_on_black_out, mall_term_klix6=mall_term_klix6, mall_term_klix3=mall_term_klix3, dout16=dout16, set_fan=set_fan, diff_fan=diff_fan, rich_parz14=rich_parz14, config_in18=config_in18, lminute=lminute, unit1_MinSoftwareRelease=unit1_MinSoftwareRelease, din13=din13, mall_term_vent2=mall_term_vent2, oil_diff=oil_diff, rich_parz23=rich_parz23, diff_inv=diff_inv, mal_broke_pr2=mal_broke_pr2, lmonth=lmonth, lday=lday, h_hour_fan1=h_hour_fan1, mall_ore_comp6=mall_ore_comp6, max_set_co=max_set_co, rich_parz15=rich_parz15, inverter_compi1=inverter_compi1, unit1_Code=unit1_Code, mall_dif_olio6=mall_dif_olio6, time_switch_on1=time_switch_on1, dout12=dout12, h_hour_fan2=h_hour_fan2, l_hour_fan5=l_hour_fan5, dout13=dout13, config_in17=config_in17, mall_pres_h1=mall_pres_h1, din7=din7, fan4=fan4, dout3=dout3, comp2=comp2, mall_ora=mall_ora, all_pres_lpres=all_pres_lpres, agentCode=agentCode, hour=hour, dout18=dout18, config_in2=config_in2, config_out9=config_out9, unitMaxSoftwareReleaseGroup=unitMaxSoftwareReleaseGroup, unit_status=unit_status, hour_l_comp6=hour_l_comp6, hour_comp5=hour_comp5, lyear=lyear, diff_comp=diff_comp, diff_low2=diff_low2, comp6=comp6, mal_low2=mal_low2, time_same_comp=time_same_comp, din108=din108, month=month, glb_al=glb_al, instruments=instruments, mal_liquid_level=mal_liquid_level, din16=din16, din102=din102, mal_n_input=mal_n_input, dout10=dout10, diff_high2=diff_high2, config_in11=config_in11, config_out7=config_out7, time_min_off=time_min_off, version=version, dout7=dout7, config_out5=config_out5, mall_alta_mand=mall_alta_mand, hour_l_comp5=hour_l_comp5, min_set_co=min_set_co, l_hour_fan4=l_hour_fan4, config_in14=config_in14, mall_ore_comp2=mall_ore_comp2, comp1=comp1, rit_all_liq=rit_all_liq, din17=din17, comp5=comp5, dout17=dout17, config_in10=config_in10, max_set_fa=max_set_fa, boot_release=boot_release, mall_pres_h6=mall_pres_h6, rich_parz13=rich_parz13, config_out6=config_out6, mall_dif_olio1=mall_dif_olio1, config_in6=config_in6, din1=din1, en_off_supervisor=en_off_supervisor, mall_ore_comp1=mall_ore_comp1, unit1_SoftwareRelease=unit1_SoftwareRelease, hour_l_comp1=hour_l_comp1, fan2=fan2, seinverter=seinverter, hour_comp1=hour_comp1, mall_term_vent5=mall_term_vent5, din14=din14, unitMinSoftwareReleaseGroup=unitMinSoftwareReleaseGroup, mal_broke_pr1=mal_broke_pr1, config_out17=config_out17, din101=din101, present_expansion=present_expansion, config_out18=config_out18, din12=din12, asp_conv=asp_conv, din4=din4, config_in5=config_in5, din15=din15)
-mibBuilder.exportSymbols("CAREL-fcp-MIB", mal_high_press=mal_high_press, agentParameters=agentParameters, comp4=comp4, l_hour_fan1=l_hour_fan1, mall_pres_h2=mall_pres_h2, mall_term_vent4=mall_term_vent4, config_out4=config_out4, mall_pres_h4=mall_pres_h4, rit_dif_olio=rit_dif_olio, config_in8=config_in8, dout8=dout8, rich_parz25=rich_parz25, din104=din104)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(sysContact,
+ sysLocation,
+ sysName) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "sysContact",
+    "sysLocation",
+    "sysName")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+fcpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Carel_ObjectIdentity = ObjectIdentity
+carel = _Carel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839)
+)
+_Systm_ObjectIdentity = ObjectIdentity
+systm = _Systm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 1)
+)
+_AgentRelease_Type = Integer32
+_AgentRelease_Object = MibScalar
+agentRelease = _AgentRelease_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 1, 1),
+    _AgentRelease_Type()
+)
+agentRelease.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentRelease.setStatus("current")
+if mibBuilder.loadTexts:
+    agentRelease.setUnits("N/A")
+_AgentCode_Type = Integer32
+_AgentCode_Object = MibScalar
+agentCode = _AgentCode_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 1, 2),
+    _AgentCode_Type()
+)
+agentCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentCode.setStatus("current")
+if mibBuilder.loadTexts:
+    agentCode.setUnits("N/A")
+_Instruments_ObjectIdentity = ObjectIdentity
+instruments = _Instruments_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2)
+)
+_WebGateInfo_ObjectIdentity = ObjectIdentity
+webGateInfo = _WebGateInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0)
+)
+_AgentParameters_ObjectIdentity = ObjectIdentity
+agentParameters = _AgentParameters_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 1)
+)
+
+
+class _NetSize_Type(Integer32):
+    """Custom type netSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_NetSize_Type.__name__ = "Integer32"
+_NetSize_Object = MibScalar
+netSize = _NetSize_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 1, 1),
+    _NetSize_Type()
+)
+netSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    netSize.setStatus("current")
+if mibBuilder.loadTexts:
+    netSize.setUnits("N/A")
+
+
+class _BaudRate_Type(Integer32):
+    """Custom type baudRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1200, 1200),
+        ValueRangeConstraint(2400, 2400),
+        ValueRangeConstraint(4800, 4800),
+        ValueRangeConstraint(9600, 9600),
+        ValueRangeConstraint(19200, 19200),
+    )
+
+
+_BaudRate_Type.__name__ = "Integer32"
+_BaudRate_Object = MibScalar
+baudRate = _BaudRate_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 1, 2),
+    _BaudRate_Type()
+)
+baudRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    baudRate.setStatus("current")
+if mibBuilder.loadTexts:
+    baudRate.setUnits("N/A")
+_UnitTypeGroup_ObjectIdentity = ObjectIdentity
+unitTypeGroup = _UnitTypeGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 2)
+)
+_Unit1_Type_Type = DisplayString
+_Unit1_Type_Object = MibScalar
+unit1_Type = _Unit1_Type_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 2, 1),
+    _Unit1_Type_Type()
+)
+unit1_Type.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    unit1_Type.setStatus("current")
+if mibBuilder.loadTexts:
+    unit1_Type.setUnits("N/A")
+_UnitCodeGroup_ObjectIdentity = ObjectIdentity
+unitCodeGroup = _UnitCodeGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 3)
+)
+_Unit1_Code_Type = Integer32
+_Unit1_Code_Object = MibScalar
+unit1_Code = _Unit1_Code_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 3, 1),
+    _Unit1_Code_Type()
+)
+unit1_Code.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    unit1_Code.setStatus("current")
+if mibBuilder.loadTexts:
+    unit1_Code.setUnits("N/A")
+_UnitSoftwareReleaseGroup_ObjectIdentity = ObjectIdentity
+unitSoftwareReleaseGroup = _UnitSoftwareReleaseGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 4)
+)
+_Unit1_SoftwareRelease_Type = Integer32
+_Unit1_SoftwareRelease_Object = MibScalar
+unit1_SoftwareRelease = _Unit1_SoftwareRelease_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 4, 1),
+    _Unit1_SoftwareRelease_Type()
+)
+unit1_SoftwareRelease.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    unit1_SoftwareRelease.setStatus("current")
+if mibBuilder.loadTexts:
+    unit1_SoftwareRelease.setUnits("N/A")
+_UnitMinSoftwareReleaseGroup_ObjectIdentity = ObjectIdentity
+unitMinSoftwareReleaseGroup = _UnitMinSoftwareReleaseGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 5)
+)
+_Unit1_MinSoftwareRelease_Type = Integer32
+_Unit1_MinSoftwareRelease_Object = MibScalar
+unit1_MinSoftwareRelease = _Unit1_MinSoftwareRelease_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 5, 1),
+    _Unit1_MinSoftwareRelease_Type()
+)
+unit1_MinSoftwareRelease.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    unit1_MinSoftwareRelease.setStatus("current")
+if mibBuilder.loadTexts:
+    unit1_MinSoftwareRelease.setUnits("N/A")
+_UnitMaxSoftwareReleaseGroup_ObjectIdentity = ObjectIdentity
+unitMaxSoftwareReleaseGroup = _UnitMaxSoftwareReleaseGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 6)
+)
+_Unit1_MaxSoftwareRelease_Type = Integer32
+_Unit1_MaxSoftwareRelease_Object = MibScalar
+unit1_MaxSoftwareRelease = _Unit1_MaxSoftwareRelease_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 6, 1),
+    _Unit1_MaxSoftwareRelease_Type()
+)
+unit1_MaxSoftwareRelease.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    unit1_MaxSoftwareRelease.setStatus("current")
+if mibBuilder.loadTexts:
+    unit1_MaxSoftwareRelease.setUnits("N/A")
+_UnitNoAnswerCounterGroup_ObjectIdentity = ObjectIdentity
+unitNoAnswerCounterGroup = _UnitNoAnswerCounterGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 7)
+)
+_Unit1_NoAnswerCounter_Type = Integer32
+_Unit1_NoAnswerCounter_Object = MibScalar
+unit1_NoAnswerCounter = _Unit1_NoAnswerCounter_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 7, 1),
+    _Unit1_NoAnswerCounter_Type()
+)
+unit1_NoAnswerCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    unit1_NoAnswerCounter.setStatus("current")
+if mibBuilder.loadTexts:
+    unit1_NoAnswerCounter.setUnits("N/A")
+_UnitErrorChecksumCounterGroup_ObjectIdentity = ObjectIdentity
+unitErrorChecksumCounterGroup = _UnitErrorChecksumCounterGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 8)
+)
+_Unit1_ErrorChecksumCounter_Type = Integer32
+_Unit1_ErrorChecksumCounter_Object = MibScalar
+unit1_ErrorChecksumCounter = _Unit1_ErrorChecksumCounter_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 8, 1),
+    _Unit1_ErrorChecksumCounter_Type()
+)
+unit1_ErrorChecksumCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    unit1_ErrorChecksumCounter.setStatus("current")
+if mibBuilder.loadTexts:
+    unit1_ErrorChecksumCounter.setUnits("N/A")
+_UnitTimeoutCounterGroup_ObjectIdentity = ObjectIdentity
+unitTimeoutCounterGroup = _UnitTimeoutCounterGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 9)
+)
+_Unit1_TimeoutCounter_Type = Integer32
+_Unit1_TimeoutCounter_Object = MibScalar
+unit1_TimeoutCounter = _Unit1_TimeoutCounter_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 9, 1),
+    _Unit1_TimeoutCounter_Type()
+)
+unit1_TimeoutCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    unit1_TimeoutCounter.setStatus("current")
+if mibBuilder.loadTexts:
+    unit1_TimeoutCounter.setUnits("N/A")
+_UnitOnLineStatusGroup_ObjectIdentity = ObjectIdentity
+unitOnLineStatusGroup = _UnitOnLineStatusGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 10)
+)
+_Unit1_OnLineStatus_Type = Integer32
+_Unit1_OnLineStatus_Object = MibScalar
+unit1_OnLineStatus = _Unit1_OnLineStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 0, 10, 1),
+    _Unit1_OnLineStatus_Type()
+)
+unit1_OnLineStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    unit1_OnLineStatus.setStatus("current")
+if mibBuilder.loadTexts:
+    unit1_OnLineStatus.setUnits("N/A")
+_DigitalObjects_ObjectIdentity = ObjectIdentity
+digitalObjects = _DigitalObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1)
+)
+
+
+class _Scheda_modem_Type(Integer32):
+    """Custom type scheda_modem based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Scheda_modem_Type.__name__ = "Integer32"
+_Scheda_modem_Object = MibScalar
+scheda_modem = _Scheda_modem_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 1),
+    _Scheda_modem_Type()
+)
+scheda_modem.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    scheda_modem.setStatus("current")
+if mibBuilder.loadTexts:
+    scheda_modem.setUnits("N/A")
+
+
+class _Present_expansion_Type(Integer32):
+    """Custom type present_expansion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Present_expansion_Type.__name__ = "Integer32"
+_Present_expansion_Object = MibScalar
+present_expansion = _Present_expansion_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 2),
+    _Present_expansion_Type()
+)
+present_expansion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    present_expansion.setStatus("current")
+if mibBuilder.loadTexts:
+    present_expansion.setUnits("N/A")
+
+
+class _Fan1_Type(Integer32):
+    """Custom type fan1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Fan1_Type.__name__ = "Integer32"
+_Fan1_Object = MibScalar
+fan1 = _Fan1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 3),
+    _Fan1_Type()
+)
+fan1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fan1.setStatus("current")
+if mibBuilder.loadTexts:
+    fan1.setUnits("N/A")
+
+
+class _Fan2_Type(Integer32):
+    """Custom type fan2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Fan2_Type.__name__ = "Integer32"
+_Fan2_Object = MibScalar
+fan2 = _Fan2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 4),
+    _Fan2_Type()
+)
+fan2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fan2.setStatus("current")
+if mibBuilder.loadTexts:
+    fan2.setUnits("N/A")
+
+
+class _Fan3_Type(Integer32):
+    """Custom type fan3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Fan3_Type.__name__ = "Integer32"
+_Fan3_Object = MibScalar
+fan3 = _Fan3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 5),
+    _Fan3_Type()
+)
+fan3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fan3.setStatus("current")
+if mibBuilder.loadTexts:
+    fan3.setUnits("N/A")
+
+
+class _Fan4_Type(Integer32):
+    """Custom type fan4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Fan4_Type.__name__ = "Integer32"
+_Fan4_Object = MibScalar
+fan4 = _Fan4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 6),
+    _Fan4_Type()
+)
+fan4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fan4.setStatus("current")
+if mibBuilder.loadTexts:
+    fan4.setUnits("N/A")
+
+
+class _Comp1_Type(Integer32):
+    """Custom type comp1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Comp1_Type.__name__ = "Integer32"
+_Comp1_Object = MibScalar
+comp1 = _Comp1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 7),
+    _Comp1_Type()
+)
+comp1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    comp1.setStatus("current")
+if mibBuilder.loadTexts:
+    comp1.setUnits("N/A")
+
+
+class _Rich_parz11_Type(Integer32):
+    """Custom type rich_parz11 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz11_Type.__name__ = "Integer32"
+_Rich_parz11_Object = MibScalar
+rich_parz11 = _Rich_parz11_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 8),
+    _Rich_parz11_Type()
+)
+rich_parz11.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz11.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz11.setUnits("N/A")
+
+
+class _Rich_parz21_Type(Integer32):
+    """Custom type rich_parz21 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz21_Type.__name__ = "Integer32"
+_Rich_parz21_Object = MibScalar
+rich_parz21 = _Rich_parz21_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 9),
+    _Rich_parz21_Type()
+)
+rich_parz21.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz21.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz21.setUnits("N/A")
+
+
+class _Comp2_Type(Integer32):
+    """Custom type comp2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Comp2_Type.__name__ = "Integer32"
+_Comp2_Object = MibScalar
+comp2 = _Comp2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 10),
+    _Comp2_Type()
+)
+comp2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    comp2.setStatus("current")
+if mibBuilder.loadTexts:
+    comp2.setUnits("N/A")
+
+
+class _Rich_parz12_Type(Integer32):
+    """Custom type rich_parz12 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz12_Type.__name__ = "Integer32"
+_Rich_parz12_Object = MibScalar
+rich_parz12 = _Rich_parz12_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 11),
+    _Rich_parz12_Type()
+)
+rich_parz12.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz12.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz12.setUnits("N/A")
+
+
+class _Rich_parz22_Type(Integer32):
+    """Custom type rich_parz22 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz22_Type.__name__ = "Integer32"
+_Rich_parz22_Object = MibScalar
+rich_parz22 = _Rich_parz22_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 12),
+    _Rich_parz22_Type()
+)
+rich_parz22.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz22.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz22.setUnits("N/A")
+
+
+class _Comp3_Type(Integer32):
+    """Custom type comp3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Comp3_Type.__name__ = "Integer32"
+_Comp3_Object = MibScalar
+comp3 = _Comp3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 13),
+    _Comp3_Type()
+)
+comp3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    comp3.setStatus("current")
+if mibBuilder.loadTexts:
+    comp3.setUnits("N/A")
+
+
+class _Rich_parz13_Type(Integer32):
+    """Custom type rich_parz13 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz13_Type.__name__ = "Integer32"
+_Rich_parz13_Object = MibScalar
+rich_parz13 = _Rich_parz13_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 14),
+    _Rich_parz13_Type()
+)
+rich_parz13.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz13.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz13.setUnits("N/A")
+
+
+class _Rich_parz23_Type(Integer32):
+    """Custom type rich_parz23 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz23_Type.__name__ = "Integer32"
+_Rich_parz23_Object = MibScalar
+rich_parz23 = _Rich_parz23_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 15),
+    _Rich_parz23_Type()
+)
+rich_parz23.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz23.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz23.setUnits("N/A")
+
+
+class _Comp4_Type(Integer32):
+    """Custom type comp4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Comp4_Type.__name__ = "Integer32"
+_Comp4_Object = MibScalar
+comp4 = _Comp4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 16),
+    _Comp4_Type()
+)
+comp4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    comp4.setStatus("current")
+if mibBuilder.loadTexts:
+    comp4.setUnits("N/A")
+
+
+class _Rich_parz14_Type(Integer32):
+    """Custom type rich_parz14 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz14_Type.__name__ = "Integer32"
+_Rich_parz14_Object = MibScalar
+rich_parz14 = _Rich_parz14_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 17),
+    _Rich_parz14_Type()
+)
+rich_parz14.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz14.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz14.setUnits("N/A")
+
+
+class _Rich_parz24_Type(Integer32):
+    """Custom type rich_parz24 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz24_Type.__name__ = "Integer32"
+_Rich_parz24_Object = MibScalar
+rich_parz24 = _Rich_parz24_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 18),
+    _Rich_parz24_Type()
+)
+rich_parz24.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz24.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz24.setUnits("N/A")
+
+
+class _Comp5_Type(Integer32):
+    """Custom type comp5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Comp5_Type.__name__ = "Integer32"
+_Comp5_Object = MibScalar
+comp5 = _Comp5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 19),
+    _Comp5_Type()
+)
+comp5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    comp5.setStatus("current")
+if mibBuilder.loadTexts:
+    comp5.setUnits("N/A")
+
+
+class _Rich_parz15_Type(Integer32):
+    """Custom type rich_parz15 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz15_Type.__name__ = "Integer32"
+_Rich_parz15_Object = MibScalar
+rich_parz15 = _Rich_parz15_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 20),
+    _Rich_parz15_Type()
+)
+rich_parz15.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz15.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz15.setUnits("N/A")
+
+
+class _Rich_parz25_Type(Integer32):
+    """Custom type rich_parz25 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz25_Type.__name__ = "Integer32"
+_Rich_parz25_Object = MibScalar
+rich_parz25 = _Rich_parz25_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 21),
+    _Rich_parz25_Type()
+)
+rich_parz25.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz25.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz25.setUnits("N/A")
+
+
+class _Comp6_Type(Integer32):
+    """Custom type comp6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Comp6_Type.__name__ = "Integer32"
+_Comp6_Object = MibScalar
+comp6 = _Comp6_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 22),
+    _Comp6_Type()
+)
+comp6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    comp6.setStatus("current")
+if mibBuilder.loadTexts:
+    comp6.setUnits("N/A")
+
+
+class _Rich_parz16_Type(Integer32):
+    """Custom type rich_parz16 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz16_Type.__name__ = "Integer32"
+_Rich_parz16_Object = MibScalar
+rich_parz16 = _Rich_parz16_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 23),
+    _Rich_parz16_Type()
+)
+rich_parz16.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz16.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz16.setUnits("N/A")
+
+
+class _Rich_parz26_Type(Integer32):
+    """Custom type rich_parz26 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Rich_parz26_Type.__name__ = "Integer32"
+_Rich_parz26_Object = MibScalar
+rich_parz26 = _Rich_parz26_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 24),
+    _Rich_parz26_Type()
+)
+rich_parz26.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rich_parz26.setStatus("current")
+if mibBuilder.loadTexts:
+    rich_parz26.setUnits("N/A")
+
+
+class _Din1_Type(Integer32):
+    """Custom type din1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din1_Type.__name__ = "Integer32"
+_Din1_Object = MibScalar
+din1 = _Din1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 25),
+    _Din1_Type()
+)
+din1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din1.setStatus("current")
+if mibBuilder.loadTexts:
+    din1.setUnits("N/A")
+
+
+class _Din2_Type(Integer32):
+    """Custom type din2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din2_Type.__name__ = "Integer32"
+_Din2_Object = MibScalar
+din2 = _Din2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 26),
+    _Din2_Type()
+)
+din2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din2.setStatus("current")
+if mibBuilder.loadTexts:
+    din2.setUnits("N/A")
+
+
+class _Din3_Type(Integer32):
+    """Custom type din3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din3_Type.__name__ = "Integer32"
+_Din3_Object = MibScalar
+din3 = _Din3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 27),
+    _Din3_Type()
+)
+din3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din3.setStatus("current")
+if mibBuilder.loadTexts:
+    din3.setUnits("N/A")
+
+
+class _Din4_Type(Integer32):
+    """Custom type din4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din4_Type.__name__ = "Integer32"
+_Din4_Object = MibScalar
+din4 = _Din4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 28),
+    _Din4_Type()
+)
+din4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din4.setStatus("current")
+if mibBuilder.loadTexts:
+    din4.setUnits("N/A")
+
+
+class _Din5_Type(Integer32):
+    """Custom type din5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din5_Type.__name__ = "Integer32"
+_Din5_Object = MibScalar
+din5 = _Din5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 29),
+    _Din5_Type()
+)
+din5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din5.setStatus("current")
+if mibBuilder.loadTexts:
+    din5.setUnits("N/A")
+
+
+class _Din6_Type(Integer32):
+    """Custom type din6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din6_Type.__name__ = "Integer32"
+_Din6_Object = MibScalar
+din6 = _Din6_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 30),
+    _Din6_Type()
+)
+din6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din6.setStatus("current")
+if mibBuilder.loadTexts:
+    din6.setUnits("N/A")
+
+
+class _Din7_Type(Integer32):
+    """Custom type din7 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din7_Type.__name__ = "Integer32"
+_Din7_Object = MibScalar
+din7 = _Din7_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 31),
+    _Din7_Type()
+)
+din7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din7.setStatus("current")
+if mibBuilder.loadTexts:
+    din7.setUnits("N/A")
+
+
+class _Din8_Type(Integer32):
+    """Custom type din8 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din8_Type.__name__ = "Integer32"
+_Din8_Object = MibScalar
+din8 = _Din8_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 32),
+    _Din8_Type()
+)
+din8.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din8.setStatus("current")
+if mibBuilder.loadTexts:
+    din8.setUnits("N/A")
+
+
+class _Din9_Type(Integer32):
+    """Custom type din9 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din9_Type.__name__ = "Integer32"
+_Din9_Object = MibScalar
+din9 = _Din9_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 33),
+    _Din9_Type()
+)
+din9.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din9.setStatus("current")
+if mibBuilder.loadTexts:
+    din9.setUnits("N/A")
+
+
+class _Din10_Type(Integer32):
+    """Custom type din10 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din10_Type.__name__ = "Integer32"
+_Din10_Object = MibScalar
+din10 = _Din10_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 34),
+    _Din10_Type()
+)
+din10.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din10.setStatus("current")
+if mibBuilder.loadTexts:
+    din10.setUnits("N/A")
+
+
+class _Din11_Type(Integer32):
+    """Custom type din11 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din11_Type.__name__ = "Integer32"
+_Din11_Object = MibScalar
+din11 = _Din11_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 35),
+    _Din11_Type()
+)
+din11.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din11.setStatus("current")
+if mibBuilder.loadTexts:
+    din11.setUnits("N/A")
+
+
+class _Din12_Type(Integer32):
+    """Custom type din12 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din12_Type.__name__ = "Integer32"
+_Din12_Object = MibScalar
+din12 = _Din12_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 36),
+    _Din12_Type()
+)
+din12.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din12.setStatus("current")
+if mibBuilder.loadTexts:
+    din12.setUnits("N/A")
+
+
+class _Din13_Type(Integer32):
+    """Custom type din13 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din13_Type.__name__ = "Integer32"
+_Din13_Object = MibScalar
+din13 = _Din13_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 37),
+    _Din13_Type()
+)
+din13.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din13.setStatus("current")
+if mibBuilder.loadTexts:
+    din13.setUnits("N/A")
+
+
+class _Din14_Type(Integer32):
+    """Custom type din14 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din14_Type.__name__ = "Integer32"
+_Din14_Object = MibScalar
+din14 = _Din14_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 38),
+    _Din14_Type()
+)
+din14.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din14.setStatus("current")
+if mibBuilder.loadTexts:
+    din14.setUnits("N/A")
+
+
+class _Din15_Type(Integer32):
+    """Custom type din15 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din15_Type.__name__ = "Integer32"
+_Din15_Object = MibScalar
+din15 = _Din15_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 39),
+    _Din15_Type()
+)
+din15.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din15.setStatus("current")
+if mibBuilder.loadTexts:
+    din15.setUnits("N/A")
+
+
+class _Din16_Type(Integer32):
+    """Custom type din16 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din16_Type.__name__ = "Integer32"
+_Din16_Object = MibScalar
+din16 = _Din16_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 40),
+    _Din16_Type()
+)
+din16.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din16.setStatus("current")
+if mibBuilder.loadTexts:
+    din16.setUnits("N/A")
+
+
+class _Din17_Type(Integer32):
+    """Custom type din17 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din17_Type.__name__ = "Integer32"
+_Din17_Object = MibScalar
+din17 = _Din17_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 41),
+    _Din17_Type()
+)
+din17.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din17.setStatus("current")
+if mibBuilder.loadTexts:
+    din17.setUnits("N/A")
+
+
+class _Din18_Type(Integer32):
+    """Custom type din18 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din18_Type.__name__ = "Integer32"
+_Din18_Object = MibScalar
+din18 = _Din18_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 42),
+    _Din18_Type()
+)
+din18.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din18.setStatus("current")
+if mibBuilder.loadTexts:
+    din18.setUnits("N/A")
+
+
+class _All_pres_lpres_Type(Integer32):
+    """Custom type all_pres_lpres based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_All_pres_lpres_Type.__name__ = "Integer32"
+_All_pres_lpres_Object = MibScalar
+all_pres_lpres = _All_pres_lpres_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 43),
+    _All_pres_lpres_Type()
+)
+all_pres_lpres.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    all_pres_lpres.setStatus("current")
+if mibBuilder.loadTexts:
+    all_pres_lpres.setUnits("N/A")
+
+
+class _All_pres_hpres_Type(Integer32):
+    """Custom type all_pres_hpres based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_All_pres_hpres_Type.__name__ = "Integer32"
+_All_pres_hpres_Object = MibScalar
+all_pres_hpres = _All_pres_hpres_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 44),
+    _All_pres_hpres_Type()
+)
+all_pres_hpres.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    all_pres_hpres.setStatus("current")
+if mibBuilder.loadTexts:
+    all_pres_hpres.setUnits("N/A")
+
+
+class _Din101_Type(Integer32):
+    """Custom type din101 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din101_Type.__name__ = "Integer32"
+_Din101_Object = MibScalar
+din101 = _Din101_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 45),
+    _Din101_Type()
+)
+din101.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din101.setStatus("current")
+if mibBuilder.loadTexts:
+    din101.setUnits("N/A")
+
+
+class _Din102_Type(Integer32):
+    """Custom type din102 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din102_Type.__name__ = "Integer32"
+_Din102_Object = MibScalar
+din102 = _Din102_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 46),
+    _Din102_Type()
+)
+din102.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din102.setStatus("current")
+if mibBuilder.loadTexts:
+    din102.setUnits("N/A")
+
+
+class _Din103_Type(Integer32):
+    """Custom type din103 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din103_Type.__name__ = "Integer32"
+_Din103_Object = MibScalar
+din103 = _Din103_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 47),
+    _Din103_Type()
+)
+din103.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din103.setStatus("current")
+if mibBuilder.loadTexts:
+    din103.setUnits("N/A")
+
+
+class _Din104_Type(Integer32):
+    """Custom type din104 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din104_Type.__name__ = "Integer32"
+_Din104_Object = MibScalar
+din104 = _Din104_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 48),
+    _Din104_Type()
+)
+din104.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din104.setStatus("current")
+if mibBuilder.loadTexts:
+    din104.setUnits("N/A")
+
+
+class _Din105_Type(Integer32):
+    """Custom type din105 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din105_Type.__name__ = "Integer32"
+_Din105_Object = MibScalar
+din105 = _Din105_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 49),
+    _Din105_Type()
+)
+din105.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din105.setStatus("current")
+if mibBuilder.loadTexts:
+    din105.setUnits("N/A")
+
+
+class _Din106_Type(Integer32):
+    """Custom type din106 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din106_Type.__name__ = "Integer32"
+_Din106_Object = MibScalar
+din106 = _Din106_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 50),
+    _Din106_Type()
+)
+din106.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din106.setStatus("current")
+if mibBuilder.loadTexts:
+    din106.setUnits("N/A")
+
+
+class _Din107_Type(Integer32):
+    """Custom type din107 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din107_Type.__name__ = "Integer32"
+_Din107_Object = MibScalar
+din107 = _Din107_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 51),
+    _Din107_Type()
+)
+din107.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din107.setStatus("current")
+if mibBuilder.loadTexts:
+    din107.setUnits("N/A")
+
+
+class _Din108_Type(Integer32):
+    """Custom type din108 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Din108_Type.__name__ = "Integer32"
+_Din108_Object = MibScalar
+din108 = _Din108_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 52),
+    _Din108_Type()
+)
+din108.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    din108.setStatus("current")
+if mibBuilder.loadTexts:
+    din108.setUnits("N/A")
+
+
+class _Mall_term_klix1_Type(Integer32):
+    """Custom type mall_term_klix1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_term_klix1_Type.__name__ = "Integer32"
+_Mall_term_klix1_Object = MibScalar
+mall_term_klix1 = _Mall_term_klix1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 53),
+    _Mall_term_klix1_Type()
+)
+mall_term_klix1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_term_klix1.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_term_klix1.setUnits("N/A")
+
+
+class _Mall_term_klix2_Type(Integer32):
+    """Custom type mall_term_klix2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_term_klix2_Type.__name__ = "Integer32"
+_Mall_term_klix2_Object = MibScalar
+mall_term_klix2 = _Mall_term_klix2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 54),
+    _Mall_term_klix2_Type()
+)
+mall_term_klix2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_term_klix2.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_term_klix2.setUnits("N/A")
+
+
+class _Mall_term_klix3_Type(Integer32):
+    """Custom type mall_term_klix3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_term_klix3_Type.__name__ = "Integer32"
+_Mall_term_klix3_Object = MibScalar
+mall_term_klix3 = _Mall_term_klix3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 55),
+    _Mall_term_klix3_Type()
+)
+mall_term_klix3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_term_klix3.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_term_klix3.setUnits("N/A")
+
+
+class _Mall_term_klix4_Type(Integer32):
+    """Custom type mall_term_klix4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_term_klix4_Type.__name__ = "Integer32"
+_Mall_term_klix4_Object = MibScalar
+mall_term_klix4 = _Mall_term_klix4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 56),
+    _Mall_term_klix4_Type()
+)
+mall_term_klix4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_term_klix4.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_term_klix4.setUnits("N/A")
+
+
+class _Mall_term_klix5_Type(Integer32):
+    """Custom type mall_term_klix5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_term_klix5_Type.__name__ = "Integer32"
+_Mall_term_klix5_Object = MibScalar
+mall_term_klix5 = _Mall_term_klix5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 57),
+    _Mall_term_klix5_Type()
+)
+mall_term_klix5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_term_klix5.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_term_klix5.setUnits("N/A")
+
+
+class _Mall_term_klix6_Type(Integer32):
+    """Custom type mall_term_klix6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_term_klix6_Type.__name__ = "Integer32"
+_Mall_term_klix6_Object = MibScalar
+mall_term_klix6 = _Mall_term_klix6_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 58),
+    _Mall_term_klix6_Type()
+)
+mall_term_klix6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_term_klix6.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_term_klix6.setUnits("N/A")
+
+
+class _Mall_pres_h1_Type(Integer32):
+    """Custom type mall_pres_h1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_pres_h1_Type.__name__ = "Integer32"
+_Mall_pres_h1_Object = MibScalar
+mall_pres_h1 = _Mall_pres_h1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 59),
+    _Mall_pres_h1_Type()
+)
+mall_pres_h1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_pres_h1.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_pres_h1.setUnits("N/A")
+
+
+class _Mall_pres_h2_Type(Integer32):
+    """Custom type mall_pres_h2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_pres_h2_Type.__name__ = "Integer32"
+_Mall_pres_h2_Object = MibScalar
+mall_pres_h2 = _Mall_pres_h2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 60),
+    _Mall_pres_h2_Type()
+)
+mall_pres_h2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_pres_h2.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_pres_h2.setUnits("N/A")
+
+
+class _Mall_pres_h3_Type(Integer32):
+    """Custom type mall_pres_h3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_pres_h3_Type.__name__ = "Integer32"
+_Mall_pres_h3_Object = MibScalar
+mall_pres_h3 = _Mall_pres_h3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 61),
+    _Mall_pres_h3_Type()
+)
+mall_pres_h3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_pres_h3.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_pres_h3.setUnits("N/A")
+
+
+class _Mall_pres_h4_Type(Integer32):
+    """Custom type mall_pres_h4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_pres_h4_Type.__name__ = "Integer32"
+_Mall_pres_h4_Object = MibScalar
+mall_pres_h4 = _Mall_pres_h4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 62),
+    _Mall_pres_h4_Type()
+)
+mall_pres_h4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_pres_h4.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_pres_h4.setUnits("N/A")
+
+
+class _Mall_pres_h5_Type(Integer32):
+    """Custom type mall_pres_h5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_pres_h5_Type.__name__ = "Integer32"
+_Mall_pres_h5_Object = MibScalar
+mall_pres_h5 = _Mall_pres_h5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 63),
+    _Mall_pres_h5_Type()
+)
+mall_pres_h5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_pres_h5.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_pres_h5.setUnits("N/A")
+
+
+class _Mall_pres_h6_Type(Integer32):
+    """Custom type mall_pres_h6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_pres_h6_Type.__name__ = "Integer32"
+_Mall_pres_h6_Object = MibScalar
+mall_pres_h6 = _Mall_pres_h6_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 64),
+    _Mall_pres_h6_Type()
+)
+mall_pres_h6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_pres_h6.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_pres_h6.setUnits("N/A")
+
+
+class _Mall_dif_olio1_Type(Integer32):
+    """Custom type mall_dif_olio1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_dif_olio1_Type.__name__ = "Integer32"
+_Mall_dif_olio1_Object = MibScalar
+mall_dif_olio1 = _Mall_dif_olio1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 65),
+    _Mall_dif_olio1_Type()
+)
+mall_dif_olio1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_dif_olio1.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_dif_olio1.setUnits("N/A")
+
+
+class _Mall_dif_olio2_Type(Integer32):
+    """Custom type mall_dif_olio2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_dif_olio2_Type.__name__ = "Integer32"
+_Mall_dif_olio2_Object = MibScalar
+mall_dif_olio2 = _Mall_dif_olio2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 66),
+    _Mall_dif_olio2_Type()
+)
+mall_dif_olio2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_dif_olio2.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_dif_olio2.setUnits("N/A")
+
+
+class _Mall_dif_olio3_Type(Integer32):
+    """Custom type mall_dif_olio3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_dif_olio3_Type.__name__ = "Integer32"
+_Mall_dif_olio3_Object = MibScalar
+mall_dif_olio3 = _Mall_dif_olio3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 67),
+    _Mall_dif_olio3_Type()
+)
+mall_dif_olio3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_dif_olio3.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_dif_olio3.setUnits("N/A")
+
+
+class _Mall_dif_olio4_Type(Integer32):
+    """Custom type mall_dif_olio4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_dif_olio4_Type.__name__ = "Integer32"
+_Mall_dif_olio4_Object = MibScalar
+mall_dif_olio4 = _Mall_dif_olio4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 68),
+    _Mall_dif_olio4_Type()
+)
+mall_dif_olio4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_dif_olio4.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_dif_olio4.setUnits("N/A")
+
+
+class _Mall_dif_olio5_Type(Integer32):
+    """Custom type mall_dif_olio5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_dif_olio5_Type.__name__ = "Integer32"
+_Mall_dif_olio5_Object = MibScalar
+mall_dif_olio5 = _Mall_dif_olio5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 69),
+    _Mall_dif_olio5_Type()
+)
+mall_dif_olio5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_dif_olio5.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_dif_olio5.setUnits("N/A")
+
+
+class _Mall_dif_olio6_Type(Integer32):
+    """Custom type mall_dif_olio6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_dif_olio6_Type.__name__ = "Integer32"
+_Mall_dif_olio6_Object = MibScalar
+mall_dif_olio6 = _Mall_dif_olio6_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 70),
+    _Mall_dif_olio6_Type()
+)
+mall_dif_olio6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_dif_olio6.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_dif_olio6.setUnits("N/A")
+
+
+class _Mall_ore_comp1_Type(Integer32):
+    """Custom type mall_ore_comp1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_ore_comp1_Type.__name__ = "Integer32"
+_Mall_ore_comp1_Object = MibScalar
+mall_ore_comp1 = _Mall_ore_comp1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 71),
+    _Mall_ore_comp1_Type()
+)
+mall_ore_comp1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_ore_comp1.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_ore_comp1.setUnits("N/A")
+
+
+class _Mall_ore_comp2_Type(Integer32):
+    """Custom type mall_ore_comp2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_ore_comp2_Type.__name__ = "Integer32"
+_Mall_ore_comp2_Object = MibScalar
+mall_ore_comp2 = _Mall_ore_comp2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 72),
+    _Mall_ore_comp2_Type()
+)
+mall_ore_comp2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_ore_comp2.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_ore_comp2.setUnits("N/A")
+
+
+class _Mall_ore_comp3_Type(Integer32):
+    """Custom type mall_ore_comp3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_ore_comp3_Type.__name__ = "Integer32"
+_Mall_ore_comp3_Object = MibScalar
+mall_ore_comp3 = _Mall_ore_comp3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 73),
+    _Mall_ore_comp3_Type()
+)
+mall_ore_comp3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_ore_comp3.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_ore_comp3.setUnits("N/A")
+
+
+class _Mall_ore_comp4_Type(Integer32):
+    """Custom type mall_ore_comp4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_ore_comp4_Type.__name__ = "Integer32"
+_Mall_ore_comp4_Object = MibScalar
+mall_ore_comp4 = _Mall_ore_comp4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 74),
+    _Mall_ore_comp4_Type()
+)
+mall_ore_comp4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_ore_comp4.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_ore_comp4.setUnits("N/A")
+
+
+class _Mall_ore_comp5_Type(Integer32):
+    """Custom type mall_ore_comp5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_ore_comp5_Type.__name__ = "Integer32"
+_Mall_ore_comp5_Object = MibScalar
+mall_ore_comp5 = _Mall_ore_comp5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 75),
+    _Mall_ore_comp5_Type()
+)
+mall_ore_comp5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_ore_comp5.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_ore_comp5.setUnits("N/A")
+
+
+class _Mall_ore_comp6_Type(Integer32):
+    """Custom type mall_ore_comp6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_ore_comp6_Type.__name__ = "Integer32"
+_Mall_ore_comp6_Object = MibScalar
+mall_ore_comp6 = _Mall_ore_comp6_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 76),
+    _Mall_ore_comp6_Type()
+)
+mall_ore_comp6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_ore_comp6.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_ore_comp6.setUnits("N/A")
+
+
+class _Mall_term_vent1_Type(Integer32):
+    """Custom type mall_term_vent1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_term_vent1_Type.__name__ = "Integer32"
+_Mall_term_vent1_Object = MibScalar
+mall_term_vent1 = _Mall_term_vent1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 77),
+    _Mall_term_vent1_Type()
+)
+mall_term_vent1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_term_vent1.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_term_vent1.setUnits("N/A")
+
+
+class _Mall_term_vent2_Type(Integer32):
+    """Custom type mall_term_vent2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_term_vent2_Type.__name__ = "Integer32"
+_Mall_term_vent2_Object = MibScalar
+mall_term_vent2 = _Mall_term_vent2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 78),
+    _Mall_term_vent2_Type()
+)
+mall_term_vent2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_term_vent2.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_term_vent2.setUnits("N/A")
+
+
+class _Mall_term_vent3_Type(Integer32):
+    """Custom type mall_term_vent3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_term_vent3_Type.__name__ = "Integer32"
+_Mall_term_vent3_Object = MibScalar
+mall_term_vent3 = _Mall_term_vent3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 79),
+    _Mall_term_vent3_Type()
+)
+mall_term_vent3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_term_vent3.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_term_vent3.setUnits("N/A")
+
+
+class _Mall_term_vent4_Type(Integer32):
+    """Custom type mall_term_vent4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_term_vent4_Type.__name__ = "Integer32"
+_Mall_term_vent4_Object = MibScalar
+mall_term_vent4 = _Mall_term_vent4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 80),
+    _Mall_term_vent4_Type()
+)
+mall_term_vent4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_term_vent4.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_term_vent4.setUnits("N/A")
+
+
+class _Mal_liquid_level_Type(Integer32):
+    """Custom type mal_liquid_level based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mal_liquid_level_Type.__name__ = "Integer32"
+_Mal_liquid_level_Object = MibScalar
+mal_liquid_level = _Mal_liquid_level_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 81),
+    _Mal_liquid_level_Type()
+)
+mal_liquid_level.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mal_liquid_level.setStatus("current")
+if mibBuilder.loadTexts:
+    mal_liquid_level.setUnits("N/A")
+
+
+class _Mall_pres_lpres_Type(Integer32):
+    """Custom type mall_pres_lpres based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_pres_lpres_Type.__name__ = "Integer32"
+_Mall_pres_lpres_Object = MibScalar
+mall_pres_lpres = _Mall_pres_lpres_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 82),
+    _Mall_pres_lpres_Type()
+)
+mall_pres_lpres.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_pres_lpres.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_pres_lpres.setUnits("N/A")
+
+
+class _Mall_pres_hpres_Type(Integer32):
+    """Custom type mall_pres_hpres based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_pres_hpres_Type.__name__ = "Integer32"
+_Mall_pres_hpres_Object = MibScalar
+mall_pres_hpres = _Mall_pres_hpres_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 83),
+    _Mall_pres_hpres_Type()
+)
+mall_pres_hpres.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_pres_hpres.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_pres_hpres.setUnits("N/A")
+
+
+class _Mal_low2_Type(Integer32):
+    """Custom type mal_low2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mal_low2_Type.__name__ = "Integer32"
+_Mal_low2_Object = MibScalar
+mal_low2 = _Mal_low2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 84),
+    _Mal_low2_Type()
+)
+mal_low2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mal_low2.setStatus("current")
+if mibBuilder.loadTexts:
+    mal_low2.setUnits("N/A")
+
+
+class _Mall_alta_mand_Type(Integer32):
+    """Custom type mall_alta_mand based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_alta_mand_Type.__name__ = "Integer32"
+_Mall_alta_mand_Object = MibScalar
+mall_alta_mand = _Mall_alta_mand_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 85),
+    _Mall_alta_mand_Type()
+)
+mall_alta_mand.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_alta_mand.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_alta_mand.setUnits("N/A")
+
+
+class _Mal_low_press_Type(Integer32):
+    """Custom type mal_low_press based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mal_low_press_Type.__name__ = "Integer32"
+_Mal_low_press_Object = MibScalar
+mal_low_press = _Mal_low_press_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 86),
+    _Mal_low_press_Type()
+)
+mal_low_press.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mal_low_press.setStatus("current")
+if mibBuilder.loadTexts:
+    mal_low_press.setUnits("N/A")
+
+
+class _Mal_high_press_Type(Integer32):
+    """Custom type mal_high_press based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mal_high_press_Type.__name__ = "Integer32"
+_Mal_high_press_Object = MibScalar
+mal_high_press = _Mal_high_press_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 87),
+    _Mal_high_press_Type()
+)
+mal_high_press.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mal_high_press.setStatus("current")
+if mibBuilder.loadTexts:
+    mal_high_press.setUnits("N/A")
+
+
+class _Mal_n_input_Type(Integer32):
+    """Custom type mal_n_input based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mal_n_input_Type.__name__ = "Integer32"
+_Mal_n_input_Object = MibScalar
+mal_n_input = _Mal_n_input_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 88),
+    _Mal_n_input_Type()
+)
+mal_n_input.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mal_n_input.setStatus("current")
+if mibBuilder.loadTexts:
+    mal_n_input.setUnits("N/A")
+
+
+class _Mal_n_devices_Type(Integer32):
+    """Custom type mal_n_devices based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mal_n_devices_Type.__name__ = "Integer32"
+_Mal_n_devices_Object = MibScalar
+mal_n_devices = _Mal_n_devices_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 89),
+    _Mal_n_devices_Type()
+)
+mal_n_devices.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mal_n_devices.setStatus("current")
+if mibBuilder.loadTexts:
+    mal_n_devices.setUnits("N/A")
+
+
+class _Mall_ora_Type(Integer32):
+    """Custom type mall_ora based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_ora_Type.__name__ = "Integer32"
+_Mall_ora_Object = MibScalar
+mall_ora = _Mall_ora_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 90),
+    _Mall_ora_Type()
+)
+mall_ora.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_ora.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_ora.setUnits("N/A")
+
+
+class _Mal_broke_pr1_Type(Integer32):
+    """Custom type mal_broke_pr1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mal_broke_pr1_Type.__name__ = "Integer32"
+_Mal_broke_pr1_Object = MibScalar
+mal_broke_pr1 = _Mal_broke_pr1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 91),
+    _Mal_broke_pr1_Type()
+)
+mal_broke_pr1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mal_broke_pr1.setStatus("current")
+if mibBuilder.loadTexts:
+    mal_broke_pr1.setUnits("N/A")
+
+
+class _Mal_broke_pr2_Type(Integer32):
+    """Custom type mal_broke_pr2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mal_broke_pr2_Type.__name__ = "Integer32"
+_Mal_broke_pr2_Object = MibScalar
+mal_broke_pr2 = _Mal_broke_pr2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 92),
+    _Mal_broke_pr2_Type()
+)
+mal_broke_pr2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mal_broke_pr2.setStatus("current")
+if mibBuilder.loadTexts:
+    mal_broke_pr2.setUnits("N/A")
+
+
+class _Glb_al_Type(Integer32):
+    """Custom type glb_al based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Glb_al_Type.__name__ = "Integer32"
+_Glb_al_Object = MibScalar
+glb_al = _Glb_al_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 93),
+    _Glb_al_Type()
+)
+glb_al.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    glb_al.setStatus("current")
+if mibBuilder.loadTexts:
+    glb_al.setUnits("N/A")
+
+
+class _Syson_Type(Integer32):
+    """Custom type syson based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Syson_Type.__name__ = "Integer32"
+_Syson_Object = MibScalar
+syson = _Syson_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 101),
+    _Syson_Type()
+)
+syson.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syson.setStatus("current")
+if mibBuilder.loadTexts:
+    syson.setUnits("N/A")
+
+
+class _En_off_supervisor_Type(Integer32):
+    """Custom type en_off_supervisor based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_En_off_supervisor_Type.__name__ = "Integer32"
+_En_off_supervisor_Object = MibScalar
+en_off_supervisor = _En_off_supervisor_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 112),
+    _En_off_supervisor_Type()
+)
+en_off_supervisor.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    en_off_supervisor.setStatus("current")
+if mibBuilder.loadTexts:
+    en_off_supervisor.setUnits("N/A")
+
+
+class _Fan5_Type(Integer32):
+    """Custom type fan5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Fan5_Type.__name__ = "Integer32"
+_Fan5_Object = MibScalar
+fan5 = _Fan5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 114),
+    _Fan5_Type()
+)
+fan5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fan5.setStatus("current")
+if mibBuilder.loadTexts:
+    fan5.setUnits("N/A")
+
+
+class _Mall_term_vent5_Type(Integer32):
+    """Custom type mall_term_vent5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Mall_term_vent5_Type.__name__ = "Integer32"
+_Mall_term_vent5_Object = MibScalar
+mall_term_vent5 = _Mall_term_vent5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 115),
+    _Mall_term_vent5_Type()
+)
+mall_term_vent5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mall_term_vent5.setStatus("current")
+if mibBuilder.loadTexts:
+    mall_term_vent5.setUnits("N/A")
+
+
+class _En_on_balck_out_Type(Integer32):
+    """Custom type en_on_balck_out based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_En_on_balck_out_Type.__name__ = "Integer32"
+_En_on_balck_out_Object = MibScalar
+en_on_balck_out = _En_on_balck_out_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 118),
+    _En_on_balck_out_Type()
+)
+en_on_balck_out.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    en_on_balck_out.setStatus("current")
+if mibBuilder.loadTexts:
+    en_on_balck_out.setUnits("N/A")
+
+
+class _Dout1_Type(Integer32):
+    """Custom type dout1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout1_Type.__name__ = "Integer32"
+_Dout1_Object = MibScalar
+dout1 = _Dout1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 119),
+    _Dout1_Type()
+)
+dout1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout1.setStatus("current")
+if mibBuilder.loadTexts:
+    dout1.setUnits("N/A")
+
+
+class _Dout2_Type(Integer32):
+    """Custom type dout2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout2_Type.__name__ = "Integer32"
+_Dout2_Object = MibScalar
+dout2 = _Dout2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 120),
+    _Dout2_Type()
+)
+dout2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout2.setStatus("current")
+if mibBuilder.loadTexts:
+    dout2.setUnits("N/A")
+
+
+class _Dout3_Type(Integer32):
+    """Custom type dout3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout3_Type.__name__ = "Integer32"
+_Dout3_Object = MibScalar
+dout3 = _Dout3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 121),
+    _Dout3_Type()
+)
+dout3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout3.setStatus("current")
+if mibBuilder.loadTexts:
+    dout3.setUnits("N/A")
+
+
+class _Dout4_Type(Integer32):
+    """Custom type dout4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout4_Type.__name__ = "Integer32"
+_Dout4_Object = MibScalar
+dout4 = _Dout4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 122),
+    _Dout4_Type()
+)
+dout4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout4.setStatus("current")
+if mibBuilder.loadTexts:
+    dout4.setUnits("N/A")
+
+
+class _Dout5_Type(Integer32):
+    """Custom type dout5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout5_Type.__name__ = "Integer32"
+_Dout5_Object = MibScalar
+dout5 = _Dout5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 123),
+    _Dout5_Type()
+)
+dout5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout5.setStatus("current")
+if mibBuilder.loadTexts:
+    dout5.setUnits("N/A")
+
+
+class _Dout6_Type(Integer32):
+    """Custom type dout6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout6_Type.__name__ = "Integer32"
+_Dout6_Object = MibScalar
+dout6 = _Dout6_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 124),
+    _Dout6_Type()
+)
+dout6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout6.setStatus("current")
+if mibBuilder.loadTexts:
+    dout6.setUnits("N/A")
+
+
+class _Dout7_Type(Integer32):
+    """Custom type dout7 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout7_Type.__name__ = "Integer32"
+_Dout7_Object = MibScalar
+dout7 = _Dout7_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 125),
+    _Dout7_Type()
+)
+dout7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout7.setStatus("current")
+if mibBuilder.loadTexts:
+    dout7.setUnits("N/A")
+
+
+class _Dout8_Type(Integer32):
+    """Custom type dout8 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout8_Type.__name__ = "Integer32"
+_Dout8_Object = MibScalar
+dout8 = _Dout8_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 126),
+    _Dout8_Type()
+)
+dout8.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout8.setStatus("current")
+if mibBuilder.loadTexts:
+    dout8.setUnits("N/A")
+
+
+class _Dout9_Type(Integer32):
+    """Custom type dout9 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout9_Type.__name__ = "Integer32"
+_Dout9_Object = MibScalar
+dout9 = _Dout9_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 127),
+    _Dout9_Type()
+)
+dout9.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout9.setStatus("current")
+if mibBuilder.loadTexts:
+    dout9.setUnits("N/A")
+
+
+class _Dout10_Type(Integer32):
+    """Custom type dout10 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout10_Type.__name__ = "Integer32"
+_Dout10_Object = MibScalar
+dout10 = _Dout10_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 128),
+    _Dout10_Type()
+)
+dout10.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout10.setStatus("current")
+if mibBuilder.loadTexts:
+    dout10.setUnits("N/A")
+
+
+class _Dout11_Type(Integer32):
+    """Custom type dout11 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout11_Type.__name__ = "Integer32"
+_Dout11_Object = MibScalar
+dout11 = _Dout11_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 129),
+    _Dout11_Type()
+)
+dout11.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout11.setStatus("current")
+if mibBuilder.loadTexts:
+    dout11.setUnits("N/A")
+
+
+class _Dout12_Type(Integer32):
+    """Custom type dout12 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout12_Type.__name__ = "Integer32"
+_Dout12_Object = MibScalar
+dout12 = _Dout12_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 130),
+    _Dout12_Type()
+)
+dout12.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout12.setStatus("current")
+if mibBuilder.loadTexts:
+    dout12.setUnits("N/A")
+
+
+class _Dout13_Type(Integer32):
+    """Custom type dout13 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout13_Type.__name__ = "Integer32"
+_Dout13_Object = MibScalar
+dout13 = _Dout13_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 131),
+    _Dout13_Type()
+)
+dout13.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout13.setStatus("current")
+if mibBuilder.loadTexts:
+    dout13.setUnits("N/A")
+
+
+class _Dout14_Type(Integer32):
+    """Custom type dout14 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout14_Type.__name__ = "Integer32"
+_Dout14_Object = MibScalar
+dout14 = _Dout14_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 132),
+    _Dout14_Type()
+)
+dout14.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout14.setStatus("current")
+if mibBuilder.loadTexts:
+    dout14.setUnits("N/A")
+
+
+class _Dout15_Type(Integer32):
+    """Custom type dout15 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout15_Type.__name__ = "Integer32"
+_Dout15_Object = MibScalar
+dout15 = _Dout15_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 133),
+    _Dout15_Type()
+)
+dout15.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout15.setStatus("current")
+if mibBuilder.loadTexts:
+    dout15.setUnits("N/A")
+
+
+class _Dout16_Type(Integer32):
+    """Custom type dout16 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout16_Type.__name__ = "Integer32"
+_Dout16_Object = MibScalar
+dout16 = _Dout16_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 134),
+    _Dout16_Type()
+)
+dout16.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout16.setStatus("current")
+if mibBuilder.loadTexts:
+    dout16.setUnits("N/A")
+
+
+class _Dout17_Type(Integer32):
+    """Custom type dout17 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout17_Type.__name__ = "Integer32"
+_Dout17_Object = MibScalar
+dout17 = _Dout17_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 135),
+    _Dout17_Type()
+)
+dout17.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout17.setStatus("current")
+if mibBuilder.loadTexts:
+    dout17.setUnits("N/A")
+
+
+class _Dout18_Type(Integer32):
+    """Custom type dout18 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Dout18_Type.__name__ = "Integer32"
+_Dout18_Object = MibScalar
+dout18 = _Dout18_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 1, 136),
+    _Dout18_Type()
+)
+dout18.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dout18.setStatus("current")
+if mibBuilder.loadTexts:
+    dout18.setUnits("N/A")
+_AnalogObjects_ObjectIdentity = ObjectIdentity
+analogObjects = _AnalogObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2)
+)
+
+
+class _Asp_conv_Type(Integer32):
+    """Custom type asp_conv based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Asp_conv_Type.__name__ = "Integer32"
+_Asp_conv_Object = MibScalar
+asp_conv = _Asp_conv_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 1),
+    _Asp_conv_Type()
+)
+asp_conv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    asp_conv.setStatus("current")
+if mibBuilder.loadTexts:
+    asp_conv.setUnits("bar x10")
+
+
+class _Press_mand_conv_Type(Integer32):
+    """Custom type press_mand_conv based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Press_mand_conv_Type.__name__ = "Integer32"
+_Press_mand_conv_Object = MibScalar
+press_mand_conv = _Press_mand_conv_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 2),
+    _Press_mand_conv_Type()
+)
+press_mand_conv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    press_mand_conv.setStatus("current")
+if mibBuilder.loadTexts:
+    press_mand_conv.setUnits("bar x10")
+
+
+class _Out_inv_fan_Type(Integer32):
+    """Custom type out_inv_fan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Out_inv_fan_Type.__name__ = "Integer32"
+_Out_inv_fan_Object = MibScalar
+out_inv_fan = _Out_inv_fan_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 3),
+    _Out_inv_fan_Type()
+)
+out_inv_fan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    out_inv_fan.setStatus("current")
+if mibBuilder.loadTexts:
+    out_inv_fan.setUnits("N/A")
+
+
+class _Inverter_comp1_Type(Integer32):
+    """Custom type inverter_comp1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Inverter_comp1_Type.__name__ = "Integer32"
+_Inverter_comp1_Object = MibScalar
+inverter_comp1 = _Inverter_comp1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 4),
+    _Inverter_comp1_Type()
+)
+inverter_comp1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    inverter_comp1.setStatus("current")
+if mibBuilder.loadTexts:
+    inverter_comp1.setUnits("N/A")
+
+
+class _Set_comp_Type(Integer32):
+    """Custom type set_comp based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Set_comp_Type.__name__ = "Integer32"
+_Set_comp_Object = MibScalar
+set_comp = _Set_comp_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 5),
+    _Set_comp_Type()
+)
+set_comp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    set_comp.setStatus("current")
+if mibBuilder.loadTexts:
+    set_comp.setUnits("bar x10")
+
+
+class _Diff_comp_Type(Integer32):
+    """Custom type diff_comp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 20),
+    )
+
+
+_Diff_comp_Type.__name__ = "Integer32"
+_Diff_comp_Object = MibScalar
+diff_comp = _Diff_comp_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 6),
+    _Diff_comp_Type()
+)
+diff_comp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    diff_comp.setStatus("current")
+if mibBuilder.loadTexts:
+    diff_comp.setUnits("bar x10")
+
+
+class _Set_fan_Type(Integer32):
+    """Custom type set_fan based on Integer32"""
+    defaultValue = 155
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Set_fan_Type.__name__ = "Integer32"
+_Set_fan_Object = MibScalar
+set_fan = _Set_fan_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 7),
+    _Set_fan_Type()
+)
+set_fan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    set_fan.setStatus("current")
+if mibBuilder.loadTexts:
+    set_fan.setUnits("bar x10")
+
+
+class _Diff_fan_Type(Integer32):
+    """Custom type diff_fan based on Integer32"""
+    defaultValue = 20
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 200),
+    )
+
+
+_Diff_fan_Type.__name__ = "Integer32"
+_Diff_fan_Object = MibScalar
+diff_fan = _Diff_fan_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 8),
+    _Diff_fan_Type()
+)
+diff_fan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    diff_fan.setStatus("current")
+if mibBuilder.loadTexts:
+    diff_fan.setUnits("bar x10")
+
+
+class _Voltage_in_Type(Integer32):
+    """Custom type voltage_in based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Voltage_in_Type.__name__ = "Integer32"
+_Voltage_in_Object = MibScalar
+voltage_in = _Voltage_in_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 9),
+    _Voltage_in_Type()
+)
+voltage_in.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    voltage_in.setStatus("current")
+if mibBuilder.loadTexts:
+    voltage_in.setUnits("N/A")
+
+
+class _Max_set_co_Type(Integer32):
+    """Custom type max_set_co based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-99, 999),
+    )
+
+
+_Max_set_co_Type.__name__ = "Integer32"
+_Max_set_co_Object = MibScalar
+max_set_co = _Max_set_co_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 10),
+    _Max_set_co_Type()
+)
+max_set_co.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    max_set_co.setStatus("current")
+if mibBuilder.loadTexts:
+    max_set_co.setUnits("bar x10")
+
+
+class _Min_set_co_Type(Integer32):
+    """Custom type min_set_co based on Integer32"""
+    defaultValue = 25
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-99, 999),
+    )
+
+
+_Min_set_co_Type.__name__ = "Integer32"
+_Min_set_co_Object = MibScalar
+min_set_co = _Min_set_co_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 11),
+    _Min_set_co_Type()
+)
+min_set_co.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    min_set_co.setStatus("current")
+if mibBuilder.loadTexts:
+    min_set_co.setUnits("bar x10")
+
+
+class _Max_set_fa_Type(Integer32):
+    """Custom type max_set_fa based on Integer32"""
+    defaultValue = 250
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-99, 999),
+    )
+
+
+_Max_set_fa_Type.__name__ = "Integer32"
+_Max_set_fa_Object = MibScalar
+max_set_fa = _Max_set_fa_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 12),
+    _Max_set_fa_Type()
+)
+max_set_fa.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    max_set_fa.setStatus("current")
+if mibBuilder.loadTexts:
+    max_set_fa.setUnits("bar x10")
+
+
+class _Min_set_fa_Type(Integer32):
+    """Custom type min_set_fa based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-99, 999),
+    )
+
+
+_Min_set_fa_Type.__name__ = "Integer32"
+_Min_set_fa_Object = MibScalar
+min_set_fa = _Min_set_fa_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 13),
+    _Min_set_fa_Type()
+)
+min_set_fa.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    min_set_fa.setStatus("current")
+if mibBuilder.loadTexts:
+    min_set_fa.setUnits("bar x10")
+
+
+class _Thresh_high1_Type(Integer32):
+    """Custom type thresh_high1 based on Integer32"""
+    defaultValue = 50
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_Thresh_high1_Type.__name__ = "Integer32"
+_Thresh_high1_Object = MibScalar
+thresh_high1 = _Thresh_high1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 14),
+    _Thresh_high1_Type()
+)
+thresh_high1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    thresh_high1.setStatus("current")
+if mibBuilder.loadTexts:
+    thresh_high1.setUnits("bar x10")
+
+
+class _Diff_high1_Type(Integer32):
+    """Custom type diff_high1 based on Integer32"""
+    defaultValue = 5
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 20),
+    )
+
+
+_Diff_high1_Type.__name__ = "Integer32"
+_Diff_high1_Object = MibScalar
+diff_high1 = _Diff_high1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 15),
+    _Diff_high1_Type()
+)
+diff_high1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    diff_high1.setStatus("current")
+if mibBuilder.loadTexts:
+    diff_high1.setUnits("bar x10")
+
+
+class _Thresh_low1_Type(Integer32):
+    """Custom type thresh_low1 based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-100, 50),
+    )
+
+
+_Thresh_low1_Type.__name__ = "Integer32"
+_Thresh_low1_Object = MibScalar
+thresh_low1 = _Thresh_low1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 16),
+    _Thresh_low1_Type()
+)
+thresh_low1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    thresh_low1.setStatus("current")
+if mibBuilder.loadTexts:
+    thresh_low1.setUnits("bar x10")
+
+
+class _Diff_low1_Type(Integer32):
+    """Custom type diff_low1 based on Integer32"""
+    defaultValue = 5
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_Diff_low1_Type.__name__ = "Integer32"
+_Diff_low1_Object = MibScalar
+diff_low1 = _Diff_low1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 17),
+    _Diff_low1_Type()
+)
+diff_low1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    diff_low1.setStatus("current")
+if mibBuilder.loadTexts:
+    diff_low1.setUnits("bar x10")
+
+
+class _Thresh_high2_Type(Integer32):
+    """Custom type thresh_high2 based on Integer32"""
+    defaultValue = 185
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(150, 300),
+    )
+
+
+_Thresh_high2_Type.__name__ = "Integer32"
+_Thresh_high2_Object = MibScalar
+thresh_high2 = _Thresh_high2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 18),
+    _Thresh_high2_Type()
+)
+thresh_high2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    thresh_high2.setStatus("current")
+if mibBuilder.loadTexts:
+    thresh_high2.setUnits("bar x10")
+
+
+class _Diff_high2_Type(Integer32):
+    """Custom type diff_high2 based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 40),
+    )
+
+
+_Diff_high2_Type.__name__ = "Integer32"
+_Diff_high2_Object = MibScalar
+diff_high2 = _Diff_high2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 19),
+    _Diff_high2_Type()
+)
+diff_high2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    diff_high2.setStatus("current")
+if mibBuilder.loadTexts:
+    diff_high2.setUnits("bar x10")
+
+
+class _Thresh_low2_Type(Integer32):
+    """Custom type thresh_low2 based on Integer32"""
+    defaultValue = 100
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-100, 300),
+    )
+
+
+_Thresh_low2_Type.__name__ = "Integer32"
+_Thresh_low2_Object = MibScalar
+thresh_low2 = _Thresh_low2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 20),
+    _Thresh_low2_Type()
+)
+thresh_low2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    thresh_low2.setStatus("current")
+if mibBuilder.loadTexts:
+    thresh_low2.setUnits("bar x10")
+
+
+class _Diff_low2_Type(Integer32):
+    """Custom type diff_low2 based on Integer32"""
+    defaultValue = 1200
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3600),
+    )
+
+
+_Diff_low2_Type.__name__ = "Integer32"
+_Diff_low2_Object = MibScalar
+diff_low2 = _Diff_low2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 21),
+    _Diff_low2_Type()
+)
+diff_low2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    diff_low2.setStatus("current")
+if mibBuilder.loadTexts:
+    diff_low2.setUnits("sec x10")
+
+
+class _Set_vent_inv_Type(Integer32):
+    """Custom type set_vent_inv based on Integer32"""
+    defaultValue = 155
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Set_vent_inv_Type.__name__ = "Integer32"
+_Set_vent_inv_Object = MibScalar
+set_vent_inv = _Set_vent_inv_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 27),
+    _Set_vent_inv_Type()
+)
+set_vent_inv.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    set_vent_inv.setStatus("current")
+if mibBuilder.loadTexts:
+    set_vent_inv.setUnits("bar x10")
+
+
+class _Diff_vent_inv_Type(Integer32):
+    """Custom type diff_vent_inv based on Integer32"""
+    defaultValue = 15
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 200),
+    )
+
+
+_Diff_vent_inv_Type.__name__ = "Integer32"
+_Diff_vent_inv_Object = MibScalar
+diff_vent_inv = _Diff_vent_inv_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 28),
+    _Diff_vent_inv_Type()
+)
+diff_vent_inv.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    diff_vent_inv.setStatus("current")
+if mibBuilder.loadTexts:
+    diff_vent_inv.setUnits("bar x10")
+
+
+class _Seinverter_Type(Integer32):
+    """Custom type seinverter based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Seinverter_Type.__name__ = "Integer32"
+_Seinverter_Object = MibScalar
+seinverter = _Seinverter_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 32),
+    _Seinverter_Type()
+)
+seinverter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    seinverter.setStatus("current")
+if mibBuilder.loadTexts:
+    seinverter.setUnits("N/A")
+
+
+class _Diff_inv_Type(Integer32):
+    """Custom type diff_inv based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Diff_inv_Type.__name__ = "Integer32"
+_Diff_inv_Object = MibScalar
+diff_inv = _Diff_inv_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 2, 33),
+    _Diff_inv_Type()
+)
+diff_inv.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    diff_inv.setStatus("current")
+if mibBuilder.loadTexts:
+    diff_inv.setUnits("N/A")
+_IntegerObjects_ObjectIdentity = ObjectIdentity
+integerObjects = _IntegerObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3)
+)
+
+
+class _Lhour_Type(Integer32):
+    """Custom type lhour based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Lhour_Type.__name__ = "Integer32"
+_Lhour_Object = MibScalar
+lhour = _Lhour_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 11),
+    _Lhour_Type()
+)
+lhour.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lhour.setStatus("current")
+if mibBuilder.loadTexts:
+    lhour.setUnits("N/A")
+
+
+class _Lminute_Type(Integer32):
+    """Custom type lminute based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Lminute_Type.__name__ = "Integer32"
+_Lminute_Object = MibScalar
+lminute = _Lminute_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 12),
+    _Lminute_Type()
+)
+lminute.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lminute.setStatus("current")
+if mibBuilder.loadTexts:
+    lminute.setUnits("N/A")
+
+
+class _Lday_Type(Integer32):
+    """Custom type lday based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Lday_Type.__name__ = "Integer32"
+_Lday_Object = MibScalar
+lday = _Lday_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 13),
+    _Lday_Type()
+)
+lday.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lday.setStatus("current")
+if mibBuilder.loadTexts:
+    lday.setUnits("N/A")
+
+
+class _Lmonth_Type(Integer32):
+    """Custom type lmonth based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Lmonth_Type.__name__ = "Integer32"
+_Lmonth_Object = MibScalar
+lmonth = _Lmonth_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 14),
+    _Lmonth_Type()
+)
+lmonth.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lmonth.setStatus("current")
+if mibBuilder.loadTexts:
+    lmonth.setUnits("N/A")
+
+
+class _Lyear_Type(Integer32):
+    """Custom type lyear based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Lyear_Type.__name__ = "Integer32"
+_Lyear_Object = MibScalar
+lyear = _Lyear_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 15),
+    _Lyear_Type()
+)
+lyear.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lyear.setStatus("current")
+if mibBuilder.loadTexts:
+    lyear.setUnits("N/A")
+
+
+class _Hour_Type(Integer32):
+    """Custom type hour based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_Type.__name__ = "Integer32"
+_Hour_Object = MibScalar
+hour = _Hour_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 16),
+    _Hour_Type()
+)
+hour.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour.setStatus("current")
+if mibBuilder.loadTexts:
+    hour.setUnits("N/A")
+
+
+class _Minute_Type(Integer32):
+    """Custom type minute based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Minute_Type.__name__ = "Integer32"
+_Minute_Object = MibScalar
+minute = _Minute_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 17),
+    _Minute_Type()
+)
+minute.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    minute.setStatus("current")
+if mibBuilder.loadTexts:
+    minute.setUnits("N/A")
+
+
+class _Month_Type(Integer32):
+    """Custom type month based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Month_Type.__name__ = "Integer32"
+_Month_Object = MibScalar
+month = _Month_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 18),
+    _Month_Type()
+)
+month.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    month.setStatus("current")
+if mibBuilder.loadTexts:
+    month.setUnits("N/A")
+
+
+class _Pyear_Type(Integer32):
+    """Custom type pyear based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Pyear_Type.__name__ = "Integer32"
+_Pyear_Object = MibScalar
+pyear = _Pyear_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 19),
+    _Pyear_Type()
+)
+pyear.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pyear.setStatus("current")
+if mibBuilder.loadTexts:
+    pyear.setUnits("N/A")
+
+
+class _Oil_diff_Type(Integer32):
+    """Custom type oil_diff based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Oil_diff_Type.__name__ = "Integer32"
+_Oil_diff_Object = MibScalar
+oil_diff = _Oil_diff_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 21),
+    _Oil_diff_Type()
+)
+oil_diff.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oil_diff.setStatus("current")
+if mibBuilder.loadTexts:
+    oil_diff.setUnits("N/A")
+
+
+class _Out_inv_fani_Type(Integer32):
+    """Custom type out_inv_fani based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Out_inv_fani_Type.__name__ = "Integer32"
+_Out_inv_fani_Object = MibScalar
+out_inv_fani = _Out_inv_fani_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 26),
+    _Out_inv_fani_Type()
+)
+out_inv_fani.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    out_inv_fani.setStatus("current")
+if mibBuilder.loadTexts:
+    out_inv_fani.setUnits("N/A")
+
+
+class _Inverter_compi1_Type(Integer32):
+    """Custom type inverter_compi1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Inverter_compi1_Type.__name__ = "Integer32"
+_Inverter_compi1_Object = MibScalar
+inverter_compi1 = _Inverter_compi1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 27),
+    _Inverter_compi1_Type()
+)
+inverter_compi1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    inverter_compi1.setStatus("current")
+if mibBuilder.loadTexts:
+    inverter_compi1.setUnits("N/A")
+
+
+class _Board_type_Type(Integer32):
+    """Custom type board_type based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Board_type_Type.__name__ = "Integer32"
+_Board_type_Object = MibScalar
+board_type = _Board_type_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 28),
+    _Board_type_Type()
+)
+board_type.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    board_type.setStatus("current")
+if mibBuilder.loadTexts:
+    board_type.setUnits("N/A")
+
+
+class _Unit_status_Type(Integer32):
+    """Custom type unit_status based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Unit_status_Type.__name__ = "Integer32"
+_Unit_status_Object = MibScalar
+unit_status = _Unit_status_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 29),
+    _Unit_status_Type()
+)
+unit_status.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    unit_status.setStatus("current")
+if mibBuilder.loadTexts:
+    unit_status.setUnits("N/A")
+
+
+class _Type_b1_Type(Integer32):
+    """Custom type type_b1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Type_b1_Type.__name__ = "Integer32"
+_Type_b1_Object = MibScalar
+type_b1 = _Type_b1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 30),
+    _Type_b1_Type()
+)
+type_b1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    type_b1.setStatus("current")
+if mibBuilder.loadTexts:
+    type_b1.setUnits("N/A")
+
+
+class _Type_b2_Type(Integer32):
+    """Custom type type_b2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Type_b2_Type.__name__ = "Integer32"
+_Type_b2_Object = MibScalar
+type_b2 = _Type_b2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 31),
+    _Type_b2_Type()
+)
+type_b2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    type_b2.setStatus("current")
+if mibBuilder.loadTexts:
+    type_b2.setUnits("N/A")
+
+
+class _Bios_release_Type(Integer32):
+    """Custom type bios_release based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Bios_release_Type.__name__ = "Integer32"
+_Bios_release_Object = MibScalar
+bios_release = _Bios_release_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 32),
+    _Bios_release_Type()
+)
+bios_release.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bios_release.setStatus("current")
+if mibBuilder.loadTexts:
+    bios_release.setUnits("N/A")
+
+
+class _Bios_date_Type(Integer32):
+    """Custom type bios_date based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Bios_date_Type.__name__ = "Integer32"
+_Bios_date_Object = MibScalar
+bios_date = _Bios_date_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 33),
+    _Bios_date_Type()
+)
+bios_date.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bios_date.setStatus("current")
+if mibBuilder.loadTexts:
+    bios_date.setUnits("N/A")
+
+
+class _Boot_release_Type(Integer32):
+    """Custom type boot_release based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Boot_release_Type.__name__ = "Integer32"
+_Boot_release_Object = MibScalar
+boot_release = _Boot_release_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 34),
+    _Boot_release_Type()
+)
+boot_release.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    boot_release.setStatus("current")
+if mibBuilder.loadTexts:
+    boot_release.setUnits("N/A")
+
+
+class _Boot_date_Type(Integer32):
+    """Custom type boot_date based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Boot_date_Type.__name__ = "Integer32"
+_Boot_date_Object = MibScalar
+boot_date = _Boot_date_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 35),
+    _Boot_date_Type()
+)
+boot_date.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    boot_date.setStatus("current")
+if mibBuilder.loadTexts:
+    boot_date.setUnits("N/A")
+
+
+class _Time_switch_on1_Type(Integer32):
+    """Custom type time_switch_on1 based on Integer32"""
+    defaultValue = 20
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 360),
+    )
+
+
+_Time_switch_on1_Type.__name__ = "Integer32"
+_Time_switch_on1_Object = MibScalar
+time_switch_on1 = _Time_switch_on1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 37),
+    _Time_switch_on1_Type()
+)
+time_switch_on1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    time_switch_on1.setStatus("current")
+if mibBuilder.loadTexts:
+    time_switch_on1.setUnits("sec")
+
+
+class _Time_switchoff1_Type(Integer32):
+    """Custom type time_switchoff1 based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 360),
+    )
+
+
+_Time_switchoff1_Type.__name__ = "Integer32"
+_Time_switchoff1_Object = MibScalar
+time_switchoff1 = _Time_switchoff1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 38),
+    _Time_switchoff1_Type()
+)
+time_switchoff1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    time_switchoff1.setStatus("current")
+if mibBuilder.loadTexts:
+    time_switchoff1.setUnits("sec")
+
+
+class _Time_min_on_Type(Integer32):
+    """Custom type time_min_on based on Integer32"""
+    defaultValue = 60
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 360),
+    )
+
+
+_Time_min_on_Type.__name__ = "Integer32"
+_Time_min_on_Object = MibScalar
+time_min_on = _Time_min_on_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 39),
+    _Time_min_on_Type()
+)
+time_min_on.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    time_min_on.setStatus("current")
+if mibBuilder.loadTexts:
+    time_min_on.setUnits("sec")
+
+
+class _Time_min_off_Type(Integer32):
+    """Custom type time_min_off based on Integer32"""
+    defaultValue = 120
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 360),
+    )
+
+
+_Time_min_off_Type.__name__ = "Integer32"
+_Time_min_off_Object = MibScalar
+time_min_off = _Time_min_off_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 40),
+    _Time_min_off_Type()
+)
+time_min_off.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    time_min_off.setStatus("current")
+if mibBuilder.loadTexts:
+    time_min_off.setUnits("sec")
+
+
+class _Time_betw_comp_Type(Integer32):
+    """Custom type time_betw_comp based on Integer32"""
+    defaultValue = 20
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 9999),
+    )
+
+
+_Time_betw_comp_Type.__name__ = "Integer32"
+_Time_betw_comp_Object = MibScalar
+time_betw_comp = _Time_betw_comp_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 41),
+    _Time_betw_comp_Type()
+)
+time_betw_comp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    time_betw_comp.setStatus("current")
+if mibBuilder.loadTexts:
+    time_betw_comp.setUnits("sec")
+
+
+class _Time_same_comp_Type(Integer32):
+    """Custom type time_same_comp based on Integer32"""
+    defaultValue = 360
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(240, 600),
+    )
+
+
+_Time_same_comp_Type.__name__ = "Integer32"
+_Time_same_comp_Object = MibScalar
+time_same_comp = _Time_same_comp_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 42),
+    _Time_same_comp_Type()
+)
+time_same_comp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    time_same_comp.setStatus("current")
+if mibBuilder.loadTexts:
+    time_same_comp.setUnits("sec")
+
+
+class _Unload_delay_Type(Integer32):
+    """Custom type unload_delay based on Integer32"""
+    defaultValue = 20
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 999),
+    )
+
+
+_Unload_delay_Type.__name__ = "Integer32"
+_Unload_delay_Object = MibScalar
+unload_delay = _Unload_delay_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 43),
+    _Unload_delay_Type()
+)
+unload_delay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    unload_delay.setStatus("current")
+if mibBuilder.loadTexts:
+    unload_delay.setUnits("sec")
+
+
+class _Time_switch_on2_Type(Integer32):
+    """Custom type time_switch_on2 based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 999),
+    )
+
+
+_Time_switch_on2_Type.__name__ = "Integer32"
+_Time_switch_on2_Object = MibScalar
+time_switch_on2 = _Time_switch_on2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 44),
+    _Time_switch_on2_Type()
+)
+time_switch_on2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    time_switch_on2.setStatus("current")
+if mibBuilder.loadTexts:
+    time_switch_on2.setUnits("sec")
+
+
+class _Time_switchoff2_Type(Integer32):
+    """Custom type time_switchoff2 based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 999),
+    )
+
+
+_Time_switchoff2_Type.__name__ = "Integer32"
+_Time_switchoff2_Object = MibScalar
+time_switchoff2 = _Time_switchoff2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 45),
+    _Time_switchoff2_Type()
+)
+time_switchoff2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    time_switchoff2.setStatus("current")
+if mibBuilder.loadTexts:
+    time_switchoff2.setUnits("sec")
+
+
+class _Time_betw_fan_Type(Integer32):
+    """Custom type time_betw_fan based on Integer32"""
+    defaultValue = 5
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 999),
+    )
+
+
+_Time_betw_fan_Type.__name__ = "Integer32"
+_Time_betw_fan_Object = MibScalar
+time_betw_fan = _Time_betw_fan_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 46),
+    _Time_betw_fan_Type()
+)
+time_betw_fan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    time_betw_fan.setStatus("current")
+if mibBuilder.loadTexts:
+    time_betw_fan.setUnits("sec")
+
+
+class _Rit_dif_olio_Type(Integer32):
+    """Custom type rit_dif_olio based on Integer32"""
+    defaultValue = 90
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 360),
+    )
+
+
+_Rit_dif_olio_Type.__name__ = "Integer32"
+_Rit_dif_olio_Object = MibScalar
+rit_dif_olio = _Rit_dif_olio_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 47),
+    _Rit_dif_olio_Type()
+)
+rit_dif_olio.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rit_dif_olio.setStatus("current")
+if mibBuilder.loadTexts:
+    rit_dif_olio.setUnits("sec")
+
+
+class _Rit_all_liq_Type(Integer32):
+    """Custom type rit_all_liq based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 360),
+    )
+
+
+_Rit_all_liq_Type.__name__ = "Integer32"
+_Rit_all_liq_Object = MibScalar
+rit_all_liq = _Rit_all_liq_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 48),
+    _Rit_all_liq_Type()
+)
+rit_all_liq.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rit_all_liq.setStatus("current")
+if mibBuilder.loadTexts:
+    rit_all_liq.setUnits("sec")
+
+
+class _Sg_ore_comp_Type(Integer32):
+    """Custom type sg_ore_comp based on Integer32"""
+    defaultValue = 1000
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 99999),
+    )
+
+
+_Sg_ore_comp_Type.__name__ = "Integer32"
+_Sg_ore_comp_Object = MibScalar
+sg_ore_comp = _Sg_ore_comp_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 53),
+    _Sg_ore_comp_Type()
+)
+sg_ore_comp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sg_ore_comp.setStatus("current")
+if mibBuilder.loadTexts:
+    sg_ore_comp.setUnits("Hours")
+
+
+class _Hour_comp1_Type(Integer32):
+    """Custom type hour_comp1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_comp1_Type.__name__ = "Integer32"
+_Hour_comp1_Object = MibScalar
+hour_comp1 = _Hour_comp1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 54),
+    _Hour_comp1_Type()
+)
+hour_comp1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_comp1.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_comp1.setUnits("N/A")
+
+
+class _Hour_l_comp1_Type(Integer32):
+    """Custom type hour_l_comp1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_l_comp1_Type.__name__ = "Integer32"
+_Hour_l_comp1_Object = MibScalar
+hour_l_comp1 = _Hour_l_comp1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 55),
+    _Hour_l_comp1_Type()
+)
+hour_l_comp1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_l_comp1.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_l_comp1.setUnits("N/A")
+
+
+class _Hour_comp2_Type(Integer32):
+    """Custom type hour_comp2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_comp2_Type.__name__ = "Integer32"
+_Hour_comp2_Object = MibScalar
+hour_comp2 = _Hour_comp2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 56),
+    _Hour_comp2_Type()
+)
+hour_comp2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_comp2.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_comp2.setUnits("N/A")
+
+
+class _Hour_l_comp2_Type(Integer32):
+    """Custom type hour_l_comp2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_l_comp2_Type.__name__ = "Integer32"
+_Hour_l_comp2_Object = MibScalar
+hour_l_comp2 = _Hour_l_comp2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 57),
+    _Hour_l_comp2_Type()
+)
+hour_l_comp2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_l_comp2.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_l_comp2.setUnits("N/A")
+
+
+class _Hour_comp3_Type(Integer32):
+    """Custom type hour_comp3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_comp3_Type.__name__ = "Integer32"
+_Hour_comp3_Object = MibScalar
+hour_comp3 = _Hour_comp3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 58),
+    _Hour_comp3_Type()
+)
+hour_comp3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_comp3.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_comp3.setUnits("N/A")
+
+
+class _Hour_l_comp3_Type(Integer32):
+    """Custom type hour_l_comp3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_l_comp3_Type.__name__ = "Integer32"
+_Hour_l_comp3_Object = MibScalar
+hour_l_comp3 = _Hour_l_comp3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 59),
+    _Hour_l_comp3_Type()
+)
+hour_l_comp3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_l_comp3.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_l_comp3.setUnits("N/A")
+
+
+class _Hour_comp4_Type(Integer32):
+    """Custom type hour_comp4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_comp4_Type.__name__ = "Integer32"
+_Hour_comp4_Object = MibScalar
+hour_comp4 = _Hour_comp4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 60),
+    _Hour_comp4_Type()
+)
+hour_comp4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_comp4.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_comp4.setUnits("N/A")
+
+
+class _Hour_l_comp4_Type(Integer32):
+    """Custom type hour_l_comp4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_l_comp4_Type.__name__ = "Integer32"
+_Hour_l_comp4_Object = MibScalar
+hour_l_comp4 = _Hour_l_comp4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 61),
+    _Hour_l_comp4_Type()
+)
+hour_l_comp4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_l_comp4.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_l_comp4.setUnits("N/A")
+
+
+class _Hour_comp5_Type(Integer32):
+    """Custom type hour_comp5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_comp5_Type.__name__ = "Integer32"
+_Hour_comp5_Object = MibScalar
+hour_comp5 = _Hour_comp5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 62),
+    _Hour_comp5_Type()
+)
+hour_comp5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_comp5.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_comp5.setUnits("N/A")
+
+
+class _Hour_l_comp5_Type(Integer32):
+    """Custom type hour_l_comp5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_l_comp5_Type.__name__ = "Integer32"
+_Hour_l_comp5_Object = MibScalar
+hour_l_comp5 = _Hour_l_comp5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 63),
+    _Hour_l_comp5_Type()
+)
+hour_l_comp5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_l_comp5.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_l_comp5.setUnits("N/A")
+
+
+class _Hour_comp6_Type(Integer32):
+    """Custom type hour_comp6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_comp6_Type.__name__ = "Integer32"
+_Hour_comp6_Object = MibScalar
+hour_comp6 = _Hour_comp6_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 64),
+    _Hour_comp6_Type()
+)
+hour_comp6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_comp6.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_comp6.setUnits("N/A")
+
+
+class _Hour_l_comp6_Type(Integer32):
+    """Custom type hour_l_comp6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Hour_l_comp6_Type.__name__ = "Integer32"
+_Hour_l_comp6_Object = MibScalar
+hour_l_comp6 = _Hour_l_comp6_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 65),
+    _Hour_l_comp6_Type()
+)
+hour_l_comp6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hour_l_comp6.setStatus("current")
+if mibBuilder.loadTexts:
+    hour_l_comp6.setUnits("N/A")
+
+
+class _H_hour_fan1_Type(Integer32):
+    """Custom type h_hour_fan1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_H_hour_fan1_Type.__name__ = "Integer32"
+_H_hour_fan1_Object = MibScalar
+h_hour_fan1 = _H_hour_fan1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 66),
+    _H_hour_fan1_Type()
+)
+h_hour_fan1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h_hour_fan1.setStatus("current")
+if mibBuilder.loadTexts:
+    h_hour_fan1.setUnits("N/A")
+
+
+class _L_hour_fan1_Type(Integer32):
+    """Custom type l_hour_fan1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_L_hour_fan1_Type.__name__ = "Integer32"
+_L_hour_fan1_Object = MibScalar
+l_hour_fan1 = _L_hour_fan1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 67),
+    _L_hour_fan1_Type()
+)
+l_hour_fan1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    l_hour_fan1.setStatus("current")
+if mibBuilder.loadTexts:
+    l_hour_fan1.setUnits("N/A")
+
+
+class _H_hour_fan2_Type(Integer32):
+    """Custom type h_hour_fan2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_H_hour_fan2_Type.__name__ = "Integer32"
+_H_hour_fan2_Object = MibScalar
+h_hour_fan2 = _H_hour_fan2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 68),
+    _H_hour_fan2_Type()
+)
+h_hour_fan2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h_hour_fan2.setStatus("current")
+if mibBuilder.loadTexts:
+    h_hour_fan2.setUnits("N/A")
+
+
+class _L_hour_fan2_Type(Integer32):
+    """Custom type l_hour_fan2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_L_hour_fan2_Type.__name__ = "Integer32"
+_L_hour_fan2_Object = MibScalar
+l_hour_fan2 = _L_hour_fan2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 69),
+    _L_hour_fan2_Type()
+)
+l_hour_fan2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    l_hour_fan2.setStatus("current")
+if mibBuilder.loadTexts:
+    l_hour_fan2.setUnits("N/A")
+
+
+class _H_hour_fan3_Type(Integer32):
+    """Custom type h_hour_fan3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_H_hour_fan3_Type.__name__ = "Integer32"
+_H_hour_fan3_Object = MibScalar
+h_hour_fan3 = _H_hour_fan3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 70),
+    _H_hour_fan3_Type()
+)
+h_hour_fan3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h_hour_fan3.setStatus("current")
+if mibBuilder.loadTexts:
+    h_hour_fan3.setUnits("N/A")
+
+
+class _L_hour_fan3_Type(Integer32):
+    """Custom type l_hour_fan3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_L_hour_fan3_Type.__name__ = "Integer32"
+_L_hour_fan3_Object = MibScalar
+l_hour_fan3 = _L_hour_fan3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 71),
+    _L_hour_fan3_Type()
+)
+l_hour_fan3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    l_hour_fan3.setStatus("current")
+if mibBuilder.loadTexts:
+    l_hour_fan3.setUnits("N/A")
+
+
+class _H_hour_fan4_Type(Integer32):
+    """Custom type h_hour_fan4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_H_hour_fan4_Type.__name__ = "Integer32"
+_H_hour_fan4_Object = MibScalar
+h_hour_fan4 = _H_hour_fan4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 72),
+    _H_hour_fan4_Type()
+)
+h_hour_fan4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h_hour_fan4.setStatus("current")
+if mibBuilder.loadTexts:
+    h_hour_fan4.setUnits("N/A")
+
+
+class _L_hour_fan4_Type(Integer32):
+    """Custom type l_hour_fan4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_L_hour_fan4_Type.__name__ = "Integer32"
+_L_hour_fan4_Object = MibScalar
+l_hour_fan4 = _L_hour_fan4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 73),
+    _L_hour_fan4_Type()
+)
+l_hour_fan4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    l_hour_fan4.setStatus("current")
+if mibBuilder.loadTexts:
+    l_hour_fan4.setUnits("N/A")
+
+
+class _Sg_ore_fan_Type(Integer32):
+    """Custom type sg_ore_fan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Sg_ore_fan_Type.__name__ = "Integer32"
+_Sg_ore_fan_Object = MibScalar
+sg_ore_fan = _Sg_ore_fan_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 74),
+    _Sg_ore_fan_Type()
+)
+sg_ore_fan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sg_ore_fan.setStatus("current")
+if mibBuilder.loadTexts:
+    sg_ore_fan.setUnits("N/A")
+
+
+class _Version_Type(Integer32):
+    """Custom type version based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Version_Type.__name__ = "Integer32"
+_Version_Object = MibScalar
+version = _Version_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 75),
+    _Version_Type()
+)
+version.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    version.setStatus("current")
+if mibBuilder.loadTexts:
+    version.setUnits("N/A")
+
+
+class _H_hour_fan5_Type(Integer32):
+    """Custom type h_hour_fan5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_H_hour_fan5_Type.__name__ = "Integer32"
+_H_hour_fan5_Object = MibScalar
+h_hour_fan5 = _H_hour_fan5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 76),
+    _H_hour_fan5_Type()
+)
+h_hour_fan5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h_hour_fan5.setStatus("current")
+if mibBuilder.loadTexts:
+    h_hour_fan5.setUnits("N/A")
+
+
+class _L_hour_fan5_Type(Integer32):
+    """Custom type l_hour_fan5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_L_hour_fan5_Type.__name__ = "Integer32"
+_L_hour_fan5_Object = MibScalar
+l_hour_fan5 = _L_hour_fan5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 77),
+    _L_hour_fan5_Type()
+)
+l_hour_fan5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    l_hour_fan5.setStatus("current")
+if mibBuilder.loadTexts:
+    l_hour_fan5.setUnits("N/A")
+
+
+class _Time_on_black_out_Type(Integer32):
+    """Custom type time_on_black_out based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Time_on_black_out_Type.__name__ = "Integer32"
+_Time_on_black_out_Object = MibScalar
+time_on_black_out = _Time_on_black_out_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 78),
+    _Time_on_black_out_Type()
+)
+time_on_black_out.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    time_on_black_out.setStatus("current")
+if mibBuilder.loadTexts:
+    time_on_black_out.setUnits("N/A")
+
+
+class _Config_in1_Type(Integer32):
+    """Custom type config_in1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in1_Type.__name__ = "Integer32"
+_Config_in1_Object = MibScalar
+config_in1 = _Config_in1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 79),
+    _Config_in1_Type()
+)
+config_in1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in1.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in1.setUnits("N/A")
+
+
+class _Config_in2_Type(Integer32):
+    """Custom type config_in2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in2_Type.__name__ = "Integer32"
+_Config_in2_Object = MibScalar
+config_in2 = _Config_in2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 80),
+    _Config_in2_Type()
+)
+config_in2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in2.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in2.setUnits("N/A")
+
+
+class _Config_in3_Type(Integer32):
+    """Custom type config_in3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in3_Type.__name__ = "Integer32"
+_Config_in3_Object = MibScalar
+config_in3 = _Config_in3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 81),
+    _Config_in3_Type()
+)
+config_in3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in3.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in3.setUnits("N/A")
+
+
+class _Config_in4_Type(Integer32):
+    """Custom type config_in4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in4_Type.__name__ = "Integer32"
+_Config_in4_Object = MibScalar
+config_in4 = _Config_in4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 82),
+    _Config_in4_Type()
+)
+config_in4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in4.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in4.setUnits("N/A")
+
+
+class _Config_in5_Type(Integer32):
+    """Custom type config_in5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in5_Type.__name__ = "Integer32"
+_Config_in5_Object = MibScalar
+config_in5 = _Config_in5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 83),
+    _Config_in5_Type()
+)
+config_in5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in5.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in5.setUnits("N/A")
+
+
+class _Config_in6_Type(Integer32):
+    """Custom type config_in6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in6_Type.__name__ = "Integer32"
+_Config_in6_Object = MibScalar
+config_in6 = _Config_in6_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 84),
+    _Config_in6_Type()
+)
+config_in6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in6.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in6.setUnits("N/A")
+
+
+class _Config_in7_Type(Integer32):
+    """Custom type config_in7 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in7_Type.__name__ = "Integer32"
+_Config_in7_Object = MibScalar
+config_in7 = _Config_in7_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 85),
+    _Config_in7_Type()
+)
+config_in7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in7.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in7.setUnits("N/A")
+
+
+class _Config_in8_Type(Integer32):
+    """Custom type config_in8 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in8_Type.__name__ = "Integer32"
+_Config_in8_Object = MibScalar
+config_in8 = _Config_in8_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 86),
+    _Config_in8_Type()
+)
+config_in8.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in8.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in8.setUnits("N/A")
+
+
+class _Config_in9_Type(Integer32):
+    """Custom type config_in9 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in9_Type.__name__ = "Integer32"
+_Config_in9_Object = MibScalar
+config_in9 = _Config_in9_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 87),
+    _Config_in9_Type()
+)
+config_in9.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in9.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in9.setUnits("N/A")
+
+
+class _Config_in10_Type(Integer32):
+    """Custom type config_in10 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in10_Type.__name__ = "Integer32"
+_Config_in10_Object = MibScalar
+config_in10 = _Config_in10_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 88),
+    _Config_in10_Type()
+)
+config_in10.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in10.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in10.setUnits("N/A")
+
+
+class _Config_in11_Type(Integer32):
+    """Custom type config_in11 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in11_Type.__name__ = "Integer32"
+_Config_in11_Object = MibScalar
+config_in11 = _Config_in11_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 89),
+    _Config_in11_Type()
+)
+config_in11.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in11.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in11.setUnits("N/A")
+
+
+class _Config_in12_Type(Integer32):
+    """Custom type config_in12 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in12_Type.__name__ = "Integer32"
+_Config_in12_Object = MibScalar
+config_in12 = _Config_in12_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 90),
+    _Config_in12_Type()
+)
+config_in12.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in12.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in12.setUnits("N/A")
+
+
+class _Config_in13_Type(Integer32):
+    """Custom type config_in13 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in13_Type.__name__ = "Integer32"
+_Config_in13_Object = MibScalar
+config_in13 = _Config_in13_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 91),
+    _Config_in13_Type()
+)
+config_in13.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in13.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in13.setUnits("N/A")
+
+
+class _Config_in14_Type(Integer32):
+    """Custom type config_in14 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in14_Type.__name__ = "Integer32"
+_Config_in14_Object = MibScalar
+config_in14 = _Config_in14_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 92),
+    _Config_in14_Type()
+)
+config_in14.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in14.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in14.setUnits("N/A")
+
+
+class _Config_in15_Type(Integer32):
+    """Custom type config_in15 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in15_Type.__name__ = "Integer32"
+_Config_in15_Object = MibScalar
+config_in15 = _Config_in15_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 93),
+    _Config_in15_Type()
+)
+config_in15.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in15.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in15.setUnits("N/A")
+
+
+class _Config_in16_Type(Integer32):
+    """Custom type config_in16 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in16_Type.__name__ = "Integer32"
+_Config_in16_Object = MibScalar
+config_in16 = _Config_in16_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 94),
+    _Config_in16_Type()
+)
+config_in16.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in16.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in16.setUnits("N/A")
+
+
+class _Config_in17_Type(Integer32):
+    """Custom type config_in17 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in17_Type.__name__ = "Integer32"
+_Config_in17_Object = MibScalar
+config_in17 = _Config_in17_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 95),
+    _Config_in17_Type()
+)
+config_in17.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in17.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in17.setUnits("N/A")
+
+
+class _Config_in18_Type(Integer32):
+    """Custom type config_in18 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_in18_Type.__name__ = "Integer32"
+_Config_in18_Object = MibScalar
+config_in18 = _Config_in18_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 96),
+    _Config_in18_Type()
+)
+config_in18.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_in18.setStatus("current")
+if mibBuilder.loadTexts:
+    config_in18.setUnits("N/A")
+
+
+class _Config_out1_Type(Integer32):
+    """Custom type config_out1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out1_Type.__name__ = "Integer32"
+_Config_out1_Object = MibScalar
+config_out1 = _Config_out1_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 97),
+    _Config_out1_Type()
+)
+config_out1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out1.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out1.setUnits("N/A")
+
+
+class _Config_out2_Type(Integer32):
+    """Custom type config_out2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out2_Type.__name__ = "Integer32"
+_Config_out2_Object = MibScalar
+config_out2 = _Config_out2_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 98),
+    _Config_out2_Type()
+)
+config_out2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out2.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out2.setUnits("N/A")
+
+
+class _Config_out3_Type(Integer32):
+    """Custom type config_out3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out3_Type.__name__ = "Integer32"
+_Config_out3_Object = MibScalar
+config_out3 = _Config_out3_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 99),
+    _Config_out3_Type()
+)
+config_out3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out3.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out3.setUnits("N/A")
+
+
+class _Config_out4_Type(Integer32):
+    """Custom type config_out4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out4_Type.__name__ = "Integer32"
+_Config_out4_Object = MibScalar
+config_out4 = _Config_out4_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 100),
+    _Config_out4_Type()
+)
+config_out4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out4.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out4.setUnits("N/A")
+
+
+class _Config_out5_Type(Integer32):
+    """Custom type config_out5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out5_Type.__name__ = "Integer32"
+_Config_out5_Object = MibScalar
+config_out5 = _Config_out5_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 101),
+    _Config_out5_Type()
+)
+config_out5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out5.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out5.setUnits("N/A")
+
+
+class _Config_out6_Type(Integer32):
+    """Custom type config_out6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out6_Type.__name__ = "Integer32"
+_Config_out6_Object = MibScalar
+config_out6 = _Config_out6_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 102),
+    _Config_out6_Type()
+)
+config_out6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out6.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out6.setUnits("N/A")
+
+
+class _Config_out7_Type(Integer32):
+    """Custom type config_out7 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out7_Type.__name__ = "Integer32"
+_Config_out7_Object = MibScalar
+config_out7 = _Config_out7_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 103),
+    _Config_out7_Type()
+)
+config_out7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out7.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out7.setUnits("N/A")
+
+
+class _Config_out8_Type(Integer32):
+    """Custom type config_out8 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out8_Type.__name__ = "Integer32"
+_Config_out8_Object = MibScalar
+config_out8 = _Config_out8_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 104),
+    _Config_out8_Type()
+)
+config_out8.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out8.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out8.setUnits("N/A")
+
+
+class _Config_out9_Type(Integer32):
+    """Custom type config_out9 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out9_Type.__name__ = "Integer32"
+_Config_out9_Object = MibScalar
+config_out9 = _Config_out9_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 105),
+    _Config_out9_Type()
+)
+config_out9.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out9.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out9.setUnits("N/A")
+
+
+class _Config_out10_Type(Integer32):
+    """Custom type config_out10 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out10_Type.__name__ = "Integer32"
+_Config_out10_Object = MibScalar
+config_out10 = _Config_out10_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 106),
+    _Config_out10_Type()
+)
+config_out10.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out10.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out10.setUnits("N/A")
+
+
+class _Config_out11_Type(Integer32):
+    """Custom type config_out11 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out11_Type.__name__ = "Integer32"
+_Config_out11_Object = MibScalar
+config_out11 = _Config_out11_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 107),
+    _Config_out11_Type()
+)
+config_out11.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out11.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out11.setUnits("N/A")
+
+
+class _Config_out12_Type(Integer32):
+    """Custom type config_out12 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out12_Type.__name__ = "Integer32"
+_Config_out12_Object = MibScalar
+config_out12 = _Config_out12_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 108),
+    _Config_out12_Type()
+)
+config_out12.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out12.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out12.setUnits("N/A")
+
+
+class _Config_out13_Type(Integer32):
+    """Custom type config_out13 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out13_Type.__name__ = "Integer32"
+_Config_out13_Object = MibScalar
+config_out13 = _Config_out13_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 109),
+    _Config_out13_Type()
+)
+config_out13.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out13.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out13.setUnits("N/A")
+
+
+class _Config_out14_Type(Integer32):
+    """Custom type config_out14 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out14_Type.__name__ = "Integer32"
+_Config_out14_Object = MibScalar
+config_out14 = _Config_out14_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 110),
+    _Config_out14_Type()
+)
+config_out14.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out14.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out14.setUnits("N/A")
+
+
+class _Config_out15_Type(Integer32):
+    """Custom type config_out15 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out15_Type.__name__ = "Integer32"
+_Config_out15_Object = MibScalar
+config_out15 = _Config_out15_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 111),
+    _Config_out15_Type()
+)
+config_out15.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out15.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out15.setUnits("N/A")
+
+
+class _Config_out16_Type(Integer32):
+    """Custom type config_out16 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out16_Type.__name__ = "Integer32"
+_Config_out16_Object = MibScalar
+config_out16 = _Config_out16_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 112),
+    _Config_out16_Type()
+)
+config_out16.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out16.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out16.setUnits("N/A")
+
+
+class _Config_out17_Type(Integer32):
+    """Custom type config_out17 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out17_Type.__name__ = "Integer32"
+_Config_out17_Object = MibScalar
+config_out17 = _Config_out17_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 113),
+    _Config_out17_Type()
+)
+config_out17.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out17.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out17.setUnits("N/A")
+
+
+class _Config_out18_Type(Integer32):
+    """Custom type config_out18 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-32767, 32767),
+    )
+
+
+_Config_out18_Type.__name__ = "Integer32"
+_Config_out18_Object = MibScalar
+config_out18 = _Config_out18_Object(
+    (1, 3, 6, 1, 4, 1, 9839, 2, 1, 3, 114),
+    _Config_out18_Type()
+)
+config_out18.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    config_out18.setStatus("current")
+if mibBuilder.loadTexts:
+    config_out18.setUnits("N/A")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CAREL-fcp-MIB",
+    **{"carel": carel,
+       "systm": systm,
+       "agentRelease": agentRelease,
+       "agentCode": agentCode,
+       "instruments": instruments,
+       "webGateInfo": webGateInfo,
+       "agentParameters": agentParameters,
+       "netSize": netSize,
+       "baudRate": baudRate,
+       "unitTypeGroup": unitTypeGroup,
+       "unit1-Type": unit1_Type,
+       "unitCodeGroup": unitCodeGroup,
+       "unit1-Code": unit1_Code,
+       "unitSoftwareReleaseGroup": unitSoftwareReleaseGroup,
+       "unit1-SoftwareRelease": unit1_SoftwareRelease,
+       "unitMinSoftwareReleaseGroup": unitMinSoftwareReleaseGroup,
+       "unit1-MinSoftwareRelease": unit1_MinSoftwareRelease,
+       "unitMaxSoftwareReleaseGroup": unitMaxSoftwareReleaseGroup,
+       "unit1-MaxSoftwareRelease": unit1_MaxSoftwareRelease,
+       "unitNoAnswerCounterGroup": unitNoAnswerCounterGroup,
+       "unit1-NoAnswerCounter": unit1_NoAnswerCounter,
+       "unitErrorChecksumCounterGroup": unitErrorChecksumCounterGroup,
+       "unit1-ErrorChecksumCounter": unit1_ErrorChecksumCounter,
+       "unitTimeoutCounterGroup": unitTimeoutCounterGroup,
+       "unit1-TimeoutCounter": unit1_TimeoutCounter,
+       "unitOnLineStatusGroup": unitOnLineStatusGroup,
+       "unit1-OnLineStatus": unit1_OnLineStatus,
+       "fcpMIB": fcpMIB,
+       "digitalObjects": digitalObjects,
+       "scheda_modem": scheda_modem,
+       "present_expansion": present_expansion,
+       "fan1": fan1,
+       "fan2": fan2,
+       "fan3": fan3,
+       "fan4": fan4,
+       "comp1": comp1,
+       "rich_parz11": rich_parz11,
+       "rich_parz21": rich_parz21,
+       "comp2": comp2,
+       "rich_parz12": rich_parz12,
+       "rich_parz22": rich_parz22,
+       "comp3": comp3,
+       "rich_parz13": rich_parz13,
+       "rich_parz23": rich_parz23,
+       "comp4": comp4,
+       "rich_parz14": rich_parz14,
+       "rich_parz24": rich_parz24,
+       "comp5": comp5,
+       "rich_parz15": rich_parz15,
+       "rich_parz25": rich_parz25,
+       "comp6": comp6,
+       "rich_parz16": rich_parz16,
+       "rich_parz26": rich_parz26,
+       "din1": din1,
+       "din2": din2,
+       "din3": din3,
+       "din4": din4,
+       "din5": din5,
+       "din6": din6,
+       "din7": din7,
+       "din8": din8,
+       "din9": din9,
+       "din10": din10,
+       "din11": din11,
+       "din12": din12,
+       "din13": din13,
+       "din14": din14,
+       "din15": din15,
+       "din16": din16,
+       "din17": din17,
+       "din18": din18,
+       "all_pres_lpres": all_pres_lpres,
+       "all_pres_hpres": all_pres_hpres,
+       "din101": din101,
+       "din102": din102,
+       "din103": din103,
+       "din104": din104,
+       "din105": din105,
+       "din106": din106,
+       "din107": din107,
+       "din108": din108,
+       "mall_term_klix1": mall_term_klix1,
+       "mall_term_klix2": mall_term_klix2,
+       "mall_term_klix3": mall_term_klix3,
+       "mall_term_klix4": mall_term_klix4,
+       "mall_term_klix5": mall_term_klix5,
+       "mall_term_klix6": mall_term_klix6,
+       "mall_pres_h1": mall_pres_h1,
+       "mall_pres_h2": mall_pres_h2,
+       "mall_pres_h3": mall_pres_h3,
+       "mall_pres_h4": mall_pres_h4,
+       "mall_pres_h5": mall_pres_h5,
+       "mall_pres_h6": mall_pres_h6,
+       "mall_dif_olio1": mall_dif_olio1,
+       "mall_dif_olio2": mall_dif_olio2,
+       "mall_dif_olio3": mall_dif_olio3,
+       "mall_dif_olio4": mall_dif_olio4,
+       "mall_dif_olio5": mall_dif_olio5,
+       "mall_dif_olio6": mall_dif_olio6,
+       "mall_ore_comp1": mall_ore_comp1,
+       "mall_ore_comp2": mall_ore_comp2,
+       "mall_ore_comp3": mall_ore_comp3,
+       "mall_ore_comp4": mall_ore_comp4,
+       "mall_ore_comp5": mall_ore_comp5,
+       "mall_ore_comp6": mall_ore_comp6,
+       "mall_term_vent1": mall_term_vent1,
+       "mall_term_vent2": mall_term_vent2,
+       "mall_term_vent3": mall_term_vent3,
+       "mall_term_vent4": mall_term_vent4,
+       "mal_liquid_level": mal_liquid_level,
+       "mall_pres_lpres": mall_pres_lpres,
+       "mall_pres_hpres": mall_pres_hpres,
+       "mal_low2": mal_low2,
+       "mall_alta_mand": mall_alta_mand,
+       "mal_low_press": mal_low_press,
+       "mal_high_press": mal_high_press,
+       "mal_n_input": mal_n_input,
+       "mal_n_devices": mal_n_devices,
+       "mall_ora": mall_ora,
+       "mal_broke_pr1": mal_broke_pr1,
+       "mal_broke_pr2": mal_broke_pr2,
+       "glb_al": glb_al,
+       "syson": syson,
+       "en_off_supervisor": en_off_supervisor,
+       "fan5": fan5,
+       "mall_term_vent5": mall_term_vent5,
+       "en_on_balck_out": en_on_balck_out,
+       "dout1": dout1,
+       "dout2": dout2,
+       "dout3": dout3,
+       "dout4": dout4,
+       "dout5": dout5,
+       "dout6": dout6,
+       "dout7": dout7,
+       "dout8": dout8,
+       "dout9": dout9,
+       "dout10": dout10,
+       "dout11": dout11,
+       "dout12": dout12,
+       "dout13": dout13,
+       "dout14": dout14,
+       "dout15": dout15,
+       "dout16": dout16,
+       "dout17": dout17,
+       "dout18": dout18,
+       "analogObjects": analogObjects,
+       "asp_conv": asp_conv,
+       "press_mand_conv": press_mand_conv,
+       "out_inv_fan": out_inv_fan,
+       "inverter_comp1": inverter_comp1,
+       "set_comp": set_comp,
+       "diff_comp": diff_comp,
+       "set_fan": set_fan,
+       "diff_fan": diff_fan,
+       "voltage_in": voltage_in,
+       "max_set_co": max_set_co,
+       "min_set_co": min_set_co,
+       "max_set_fa": max_set_fa,
+       "min_set_fa": min_set_fa,
+       "thresh_high1": thresh_high1,
+       "diff_high1": diff_high1,
+       "thresh_low1": thresh_low1,
+       "diff_low1": diff_low1,
+       "thresh_high2": thresh_high2,
+       "diff_high2": diff_high2,
+       "thresh_low2": thresh_low2,
+       "diff_low2": diff_low2,
+       "set_vent_inv": set_vent_inv,
+       "diff_vent_inv": diff_vent_inv,
+       "seinverter": seinverter,
+       "diff_inv": diff_inv,
+       "integerObjects": integerObjects,
+       "lhour": lhour,
+       "lminute": lminute,
+       "lday": lday,
+       "lmonth": lmonth,
+       "lyear": lyear,
+       "hour": hour,
+       "minute": minute,
+       "month": month,
+       "pyear": pyear,
+       "oil_diff": oil_diff,
+       "out_inv_fani": out_inv_fani,
+       "inverter_compi1": inverter_compi1,
+       "board_type": board_type,
+       "unit_status": unit_status,
+       "type_b1": type_b1,
+       "type_b2": type_b2,
+       "bios_release": bios_release,
+       "bios_date": bios_date,
+       "boot_release": boot_release,
+       "boot_date": boot_date,
+       "time_switch_on1": time_switch_on1,
+       "time_switchoff1": time_switchoff1,
+       "time_min_on": time_min_on,
+       "time_min_off": time_min_off,
+       "time_betw_comp": time_betw_comp,
+       "time_same_comp": time_same_comp,
+       "unload_delay": unload_delay,
+       "time_switch_on2": time_switch_on2,
+       "time_switchoff2": time_switchoff2,
+       "time_betw_fan": time_betw_fan,
+       "rit_dif_olio": rit_dif_olio,
+       "rit_all_liq": rit_all_liq,
+       "sg_ore_comp": sg_ore_comp,
+       "hour_comp1": hour_comp1,
+       "hour_l_comp1": hour_l_comp1,
+       "hour_comp2": hour_comp2,
+       "hour_l_comp2": hour_l_comp2,
+       "hour_comp3": hour_comp3,
+       "hour_l_comp3": hour_l_comp3,
+       "hour_comp4": hour_comp4,
+       "hour_l_comp4": hour_l_comp4,
+       "hour_comp5": hour_comp5,
+       "hour_l_comp5": hour_l_comp5,
+       "hour_comp6": hour_comp6,
+       "hour_l_comp6": hour_l_comp6,
+       "h_hour_fan1": h_hour_fan1,
+       "l_hour_fan1": l_hour_fan1,
+       "h_hour_fan2": h_hour_fan2,
+       "l_hour_fan2": l_hour_fan2,
+       "h_hour_fan3": h_hour_fan3,
+       "l_hour_fan3": l_hour_fan3,
+       "h_hour_fan4": h_hour_fan4,
+       "l_hour_fan4": l_hour_fan4,
+       "sg_ore_fan": sg_ore_fan,
+       "version": version,
+       "h_hour_fan5": h_hour_fan5,
+       "l_hour_fan5": l_hour_fan5,
+       "time_on_black_out": time_on_black_out,
+       "config_in1": config_in1,
+       "config_in2": config_in2,
+       "config_in3": config_in3,
+       "config_in4": config_in4,
+       "config_in5": config_in5,
+       "config_in6": config_in6,
+       "config_in7": config_in7,
+       "config_in8": config_in8,
+       "config_in9": config_in9,
+       "config_in10": config_in10,
+       "config_in11": config_in11,
+       "config_in12": config_in12,
+       "config_in13": config_in13,
+       "config_in14": config_in14,
+       "config_in15": config_in15,
+       "config_in16": config_in16,
+       "config_in17": config_in17,
+       "config_in18": config_in18,
+       "config_out1": config_out1,
+       "config_out2": config_out2,
+       "config_out3": config_out3,
+       "config_out4": config_out4,
+       "config_out5": config_out5,
+       "config_out6": config_out6,
+       "config_out7": config_out7,
+       "config_out8": config_out8,
+       "config_out9": config_out9,
+       "config_out10": config_out10,
+       "config_out11": config_out11,
+       "config_out12": config_out12,
+       "config_out13": config_out13,
+       "config_out14": config_out14,
+       "config_out15": config_out15,
+       "config_out16": config_out16,
+       "config_out17": config_out17,
+       "config_out18": config_out18}
+)

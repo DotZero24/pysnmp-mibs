@@ -1,49 +1,381 @@
+# SNMP MIB module (TACACS-CLIENT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TACACS-CLIENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ubiquiti/TACACS-CLIENT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:11:19 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ubiquiti/TACACS-CLIENT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:20:25 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-fastPath, = mibBuilder.importSymbols("EdgeSwitch-REF-MIB", "fastPath")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-agentTacacsClientMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18))
-agentTacacsClientMIB.setRevisions(('2011-12-14 00:00', '2011-01-26 00:00', '2007-05-23 00:00', '2005-08-17 00:44',))
-if mibBuilder.loadTexts: agentTacacsClientMIB.setLastUpdated('201112140000Z')
-if mibBuilder.loadTexts: agentTacacsClientMIB.setOrganization('Broadcom Inc')
-agentTacacsClientObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1))
-agentTacacsGlobalConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 1))
-agentTacacsGlobalTimeout = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 30)).clone(5)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentTacacsGlobalTimeout.setStatus('current')
-agentTacacsGlobalKey = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentTacacsGlobalKey.setStatus('current')
-agentTacacsServerTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2), )
-if mibBuilder.loadTexts: agentTacacsServerTable.setStatus('current')
-agentTacacsServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1), ).setIndexNames((0, "TACACS-CLIENT-MIB", "agentTacacsServerIpAddress"))
-if mibBuilder.loadTexts: agentTacacsServerEntry.setStatus('current')
-agentTacacsServerIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 1), InetAddress())
-if mibBuilder.loadTexts: agentTacacsServerIpAddress.setStatus('current')
-agentTacacsPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(49)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentTacacsPortNumber.setStatus('current')
-agentTacacsTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentTacacsTimeOut.setStatus('current')
-agentTacacsKey = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentTacacsKey.setStatus('current')
-agentTacacsPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentTacacsPriority.setStatus('current')
-agentTacacsServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentTacacsServerStatus.setStatus('current')
-agentTacacsServerIpAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 7), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentTacacsServerIpAddrType.setStatus('current')
-agentTacacsSourceInterface = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 1, 3), InterfaceIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentTacacsSourceInterface.setStatus('current')
-agentTacacsServicePortSrcInterface = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("servicePortEnable", 1), ("servicePortDisable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentTacacsServicePortSrcInterface.setStatus('current')
-mibBuilder.exportSymbols("TACACS-CLIENT-MIB", agentTacacsServerIpAddrType=agentTacacsServerIpAddrType, agentTacacsGlobalTimeout=agentTacacsGlobalTimeout, agentTacacsPortNumber=agentTacacsPortNumber, agentTacacsClientMIB=agentTacacsClientMIB, agentTacacsSourceInterface=agentTacacsSourceInterface, agentTacacsKey=agentTacacsKey, agentTacacsServerEntry=agentTacacsServerEntry, agentTacacsServicePortSrcInterface=agentTacacsServicePortSrcInterface, agentTacacsServerStatus=agentTacacsServerStatus, agentTacacsServerIpAddress=agentTacacsServerIpAddress, agentTacacsClientObjects=agentTacacsClientObjects, agentTacacsServerTable=agentTacacsServerTable, agentTacacsGlobalConfigGroup=agentTacacsGlobalConfigGroup, agentTacacsGlobalKey=agentTacacsGlobalKey, PYSNMP_MODULE_ID=agentTacacsClientMIB, agentTacacsPriority=agentTacacsPriority, agentTacacsTimeOut=agentTacacsTimeOut)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(fastPath,) = mibBuilder.importSymbols(
+    "EdgeSwitch-REF-MIB",
+    "fastPath")
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+agentTacacsClientMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18)
+)
+if mibBuilder.loadTexts:
+    agentTacacsClientMIB.setRevisions(
+        ("2011-12-14 00:00",
+         "2011-01-26 00:00",
+         "2007-05-23 00:00",
+         "2005-08-17 00:44")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AgentTacacsClientObjects_ObjectIdentity = ObjectIdentity
+agentTacacsClientObjects = _AgentTacacsClientObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1)
+)
+_AgentTacacsGlobalConfigGroup_ObjectIdentity = ObjectIdentity
+agentTacacsGlobalConfigGroup = _AgentTacacsGlobalConfigGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 1)
+)
+
+
+class _AgentTacacsGlobalTimeout_Type(Unsigned32):
+    """Custom type agentTacacsGlobalTimeout based on Unsigned32"""
+    defaultValue = 5
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 30),
+    )
+
+
+_AgentTacacsGlobalTimeout_Type.__name__ = "Unsigned32"
+_AgentTacacsGlobalTimeout_Object = MibScalar
+agentTacacsGlobalTimeout = _AgentTacacsGlobalTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 1, 1),
+    _AgentTacacsGlobalTimeout_Type()
+)
+agentTacacsGlobalTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentTacacsGlobalTimeout.setStatus("current")
+
+
+class _AgentTacacsGlobalKey_Type(OctetString):
+    """Custom type agentTacacsGlobalKey based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_AgentTacacsGlobalKey_Type.__name__ = "OctetString"
+_AgentTacacsGlobalKey_Object = MibScalar
+agentTacacsGlobalKey = _AgentTacacsGlobalKey_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 1, 2),
+    _AgentTacacsGlobalKey_Type()
+)
+agentTacacsGlobalKey.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentTacacsGlobalKey.setStatus("current")
+_AgentTacacsSourceInterface_Type = InterfaceIndexOrZero
+_AgentTacacsSourceInterface_Object = MibScalar
+agentTacacsSourceInterface = _AgentTacacsSourceInterface_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 1, 3),
+    _AgentTacacsSourceInterface_Type()
+)
+agentTacacsSourceInterface.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentTacacsSourceInterface.setStatus("current")
+
+
+class _AgentTacacsServicePortSrcInterface_Type(Integer32):
+    """Custom type agentTacacsServicePortSrcInterface based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("servicePortEnable", 1),
+          ("servicePortDisable", 2))
+    )
+
+
+_AgentTacacsServicePortSrcInterface_Type.__name__ = "Integer32"
+_AgentTacacsServicePortSrcInterface_Object = MibScalar
+agentTacacsServicePortSrcInterface = _AgentTacacsServicePortSrcInterface_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 1, 4),
+    _AgentTacacsServicePortSrcInterface_Type()
+)
+agentTacacsServicePortSrcInterface.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentTacacsServicePortSrcInterface.setStatus("current")
+_AgentTacacsServerTable_Object = MibTable
+agentTacacsServerTable = _AgentTacacsServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2)
+)
+if mibBuilder.loadTexts:
+    agentTacacsServerTable.setStatus("current")
+_AgentTacacsServerEntry_Object = MibTableRow
+agentTacacsServerEntry = _AgentTacacsServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1)
+)
+agentTacacsServerEntry.setIndexNames(
+    (0, "TACACS-CLIENT-MIB", "agentTacacsServerIpAddress"),
+)
+if mibBuilder.loadTexts:
+    agentTacacsServerEntry.setStatus("current")
+_AgentTacacsServerIpAddress_Type = InetAddress
+_AgentTacacsServerIpAddress_Object = MibTableColumn
+agentTacacsServerIpAddress = _AgentTacacsServerIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 1),
+    _AgentTacacsServerIpAddress_Type()
+)
+agentTacacsServerIpAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    agentTacacsServerIpAddress.setStatus("current")
+
+
+class _AgentTacacsPortNumber_Type(Unsigned32):
+    """Custom type agentTacacsPortNumber based on Unsigned32"""
+    defaultValue = 49
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_AgentTacacsPortNumber_Type.__name__ = "Unsigned32"
+_AgentTacacsPortNumber_Object = MibTableColumn
+agentTacacsPortNumber = _AgentTacacsPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 2),
+    _AgentTacacsPortNumber_Type()
+)
+agentTacacsPortNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentTacacsPortNumber.setStatus("current")
+
+
+class _AgentTacacsTimeOut_Type(Unsigned32):
+    """Custom type agentTacacsTimeOut based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 30),
+    )
+
+
+_AgentTacacsTimeOut_Type.__name__ = "Unsigned32"
+_AgentTacacsTimeOut_Object = MibTableColumn
+agentTacacsTimeOut = _AgentTacacsTimeOut_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 3),
+    _AgentTacacsTimeOut_Type()
+)
+agentTacacsTimeOut.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentTacacsTimeOut.setStatus("current")
+
+
+class _AgentTacacsKey_Type(OctetString):
+    """Custom type agentTacacsKey based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_AgentTacacsKey_Type.__name__ = "OctetString"
+_AgentTacacsKey_Object = MibTableColumn
+agentTacacsKey = _AgentTacacsKey_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 4),
+    _AgentTacacsKey_Type()
+)
+agentTacacsKey.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentTacacsKey.setStatus("current")
+
+
+class _AgentTacacsPriority_Type(Unsigned32):
+    """Custom type agentTacacsPriority based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_AgentTacacsPriority_Type.__name__ = "Unsigned32"
+_AgentTacacsPriority_Object = MibTableColumn
+agentTacacsPriority = _AgentTacacsPriority_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 5),
+    _AgentTacacsPriority_Type()
+)
+agentTacacsPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentTacacsPriority.setStatus("current")
+_AgentTacacsServerStatus_Type = RowStatus
+_AgentTacacsServerStatus_Object = MibTableColumn
+agentTacacsServerStatus = _AgentTacacsServerStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 6),
+    _AgentTacacsServerStatus_Type()
+)
+agentTacacsServerStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentTacacsServerStatus.setStatus("current")
+_AgentTacacsServerIpAddrType_Type = InetAddressType
+_AgentTacacsServerIpAddrType_Object = MibTableColumn
+agentTacacsServerIpAddrType = _AgentTacacsServerIpAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 18, 1, 2, 1, 7),
+    _AgentTacacsServerIpAddrType_Type()
+)
+agentTacacsServerIpAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentTacacsServerIpAddrType.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TACACS-CLIENT-MIB",
+    **{"agentTacacsClientMIB": agentTacacsClientMIB,
+       "agentTacacsClientObjects": agentTacacsClientObjects,
+       "agentTacacsGlobalConfigGroup": agentTacacsGlobalConfigGroup,
+       "agentTacacsGlobalTimeout": agentTacacsGlobalTimeout,
+       "agentTacacsGlobalKey": agentTacacsGlobalKey,
+       "agentTacacsSourceInterface": agentTacacsSourceInterface,
+       "agentTacacsServicePortSrcInterface": agentTacacsServicePortSrcInterface,
+       "agentTacacsServerTable": agentTacacsServerTable,
+       "agentTacacsServerEntry": agentTacacsServerEntry,
+       "agentTacacsServerIpAddress": agentTacacsServerIpAddress,
+       "agentTacacsPortNumber": agentTacacsPortNumber,
+       "agentTacacsTimeOut": agentTacacsTimeOut,
+       "agentTacacsKey": agentTacacsKey,
+       "agentTacacsPriority": agentTacacsPriority,
+       "agentTacacsServerStatus": agentTacacsServerStatus,
+       "agentTacacsServerIpAddrType": agentTacacsServerIpAddrType}
+)

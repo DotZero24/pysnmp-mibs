@@ -1,1205 +1,8683 @@
+# SNMP MIB module (ALCATEL-ENT1-SERVICE-MGR-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALCATEL-ENT1-SERVICE-MGR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-SERVICE-MGR-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:59:59 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alcatel-ent1/ALCATEL-ENT1-SERVICE-MGR-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:10:20 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-softentIND1serviceMgr, = mibBuilder.importSymbols("ALCATEL-ENT1-BASE", "softentIND1serviceMgr")
-AlaEServiceUNIProfileProtocolTreatment, = mibBuilder.importSymbols("ALCATEL-ENT1-E-SERVICE-MIB", "AlaEServiceUNIProfileProtocolTreatment")
-sapPortId, sapEncapValue = mibBuilder.importSymbols("ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId", "sapEncapValue")
-sdpBindId, = mibBuilder.importSymbols("ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId")
-SdpId, svcId, ServObjDesc = mibBuilder.importSymbols("ALCATEL-ENT1-TIMETRA-SERV-MIB", "SdpId", "svcId", "ServObjDesc")
-TmnxCustId, TmnxPortID, ServiceOperStatus, TmnxVcIdOrNone, ServiceAdminStatus, TmnxEncapVal, SdpBindId, TmnxVRtrID, TmnxServId = mibBuilder.importSymbols("ALCATEL-ENT1-TIMETRA-TC-MIB", "TmnxCustId", "TmnxPortID", "ServiceOperStatus", "TmnxVcIdOrNone", "ServiceAdminStatus", "TmnxEncapVal", "SdpBindId", "TmnxVRtrID", "TmnxServId")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-MplsLdpIdentifier, = mibBuilder.importSymbols("MPLS-LDP-MIB", "MplsLdpIdentifier")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DateAndTime, TextualConvention, MacAddress, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "MacAddress", "TruthValue", "TimeStamp", "DisplayString")
-alcatelIND1ServiceMgrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1))
-if mibBuilder.loadTexts: alcatelIND1ServiceMgrMIB.setLastUpdated('201208090000Z')
-if mibBuilder.loadTexts: alcatelIND1ServiceMgrMIB.setOrganization('Alcatel-Lucent')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(softentIND1serviceMgr,) = mibBuilder.importSymbols(
+    "ALCATEL-ENT1-BASE",
+    "softentIND1serviceMgr")
+
+(AlaEServiceUNIProfileProtocolTreatment,) = mibBuilder.importSymbols(
+    "ALCATEL-ENT1-E-SERVICE-MIB",
+    "AlaEServiceUNIProfileProtocolTreatment")
+
+(sapEncapValue,
+ sapPortId) = mibBuilder.importSymbols(
+    "ALCATEL-ENT1-TIMETRA-SAP-MIB",
+    "sapEncapValue",
+    "sapPortId")
+
+(sdpBindId,) = mibBuilder.importSymbols(
+    "ALCATEL-ENT1-TIMETRA-SDP-MIB",
+    "sdpBindId")
+
+(SdpId,
+ ServObjDesc,
+ svcId) = mibBuilder.importSymbols(
+    "ALCATEL-ENT1-TIMETRA-SERV-MIB",
+    "SdpId",
+    "ServObjDesc",
+    "svcId")
+
+(SdpBindId,
+ ServiceAdminStatus,
+ ServiceOperStatus,
+ TmnxCustId,
+ TmnxEncapVal,
+ TmnxPortID,
+ TmnxServId,
+ TmnxVRtrID,
+ TmnxVcIdOrNone) = mibBuilder.importSymbols(
+    "ALCATEL-ENT1-TIMETRA-TC-MIB",
+    "SdpBindId",
+    "ServiceAdminStatus",
+    "ServiceOperStatus",
+    "TmnxCustId",
+    "TmnxEncapVal",
+    "TmnxPortID",
+    "TmnxServId",
+    "TmnxVRtrID",
+    "TmnxVcIdOrNone")
+
+(InterfaceIndex,
+ InterfaceIndexOrZero) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "InterfaceIndexOrZero")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(MplsLdpIdentifier,) = mibBuilder.importSymbols(
+    "MPLS-LDP-MIB",
+    "MplsLdpIdentifier")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+alcatelIND1ServiceMgrMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class AluLocation(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("sap", 1), ("sdp", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("sap", 1),
+          ("sdp", 2))
+    )
+
+
 
 class AluServiceId(TextualConvention, Unsigned32):
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 32767), ValueRangeConstraint(32768, 65534), ValueRangeConstraint(65535, 65535), )
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 32767),
+        ValueRangeConstraint(32768, 65534),
+        ValueRangeConstraint(65535, 65535),
+    )
+
+
+
 class AluSdpId(TextualConvention, Unsigned32):
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 32767), ValueRangeConstraint(32768, 65534), ValueRangeConstraint(65535, 65535), )
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 32767),
+        ValueRangeConstraint(32768, 65534),
+        ValueRangeConstraint(65535, 65535),
+    )
+
+
+
 class AluServiceType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))
-    namedValues = NamedValues(("unknown", 0), ("epipe", 1), ("p3pipe", 2), ("tls", 3), ("vprn", 4), ("ies", 5), ("mirror", 6), ("apipe", 7), ("fpipe", 8), ("ipipe", 9), ("cpipe", 10), ("spb", 11), ("vxlan", 12), ("local", 13), ("rfpoverspb", 14))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("epipe", 1),
+          ("p3pipe", 2),
+          ("tls", 3),
+          ("vprn", 4),
+          ("ies", 5),
+          ("mirror", 6),
+          ("apipe", 7),
+          ("fpipe", 8),
+          ("ipipe", 9),
+          ("cpipe", 10),
+          ("spb", 11),
+          ("vxlan", 12),
+          ("local", 13),
+          ("rfpoverspb", 14))
+    )
+
+
 
 class AluAllocationType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("static", 1), ("dynamic", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("static", 1),
+          ("dynamic", 2))
+    )
+
+
 
 class AluSdpDynamicType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
-    namedValues = NamedValues(("unknown", 0), ("static", 1), ("dynamicUnicast", 2), ("dynamicMcastRemote", 3), ("dynamicMcastLocal", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("static", 1),
+          ("dynamicUnicast", 2),
+          ("dynamicMcastRemote", 3),
+          ("dynamicMcastLocal", 4))
+    )
+
+
 
 class AluSdpOriginType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("unknown", 0), ("static", 1), ("pbbDynamicUnicast", 2), ("pbbDynamicMcastRemote", 3), ("pbbDynamicMcastLocal", 4), ("vxlanUnicast", 5), ("vxlanMcast", 6), ("vxlanDynamicUnicast", 7), ("vxlanDynamicMcast", 8))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("static", 1),
+          ("pbbDynamicUnicast", 2),
+          ("pbbDynamicMcastRemote", 3),
+          ("pbbDynamicMcastLocal", 4),
+          ("vxlanUnicast", 5),
+          ("vxlanMcast", 6),
+          ("vxlanDynamicUnicast", 7),
+          ("vxlanDynamicMcast", 8))
+    )
+
+
 
 class AluDateAndTime(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 21)
+    status = "current"
+    displayHint = "255a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 21),
+    )
 
-alcatelIND1ServiceMgrMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1))
-if mibBuilder.loadTexts: alcatelIND1ServiceMgrMIBObjects.setStatus('current')
-alcatelIND1ServiceMgrMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2))
-if mibBuilder.loadTexts: alcatelIND1ServiceMgrMIBConformance.setStatus('current')
-alcatelIND1ServiceMgrMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1))
-if mibBuilder.loadTexts: alcatelIND1ServiceMgrMIBGroups.setStatus('current')
-alcatelIND1ServiceMgrMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 2))
-if mibBuilder.loadTexts: alcatelIND1ServiceMgrMIBCompliances.setStatus('current')
-alaServiceMgrNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0))
-alaServiceMgr = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1))
-alaServiceMgrPortProfileTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1), )
-if mibBuilder.loadTexts: alaServiceMgrPortProfileTable.setStatus('current')
-alaServiceMgrPortProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileID"))
-if mibBuilder.loadTexts: alaServiceMgrPortProfileEntry.setStatus('current')
-alaServiceMgrPortProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31)))
-if mibBuilder.loadTexts: alaServiceMgrPortProfileID.setStatus('current')
-alaServiceMgrPortProfileStpBpduTreatment = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 2), AlaEServiceUNIProfileProtocolTreatment().clone('tunnel')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortProfileStpBpduTreatment.setStatus('current')
-alaServiceMgrPortProfile8021xTreatment = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 3), AlaEServiceUNIProfileProtocolTreatment().clone('drop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortProfile8021xTreatment.setStatus('current')
-alaServiceMgrPortProfile8021ABTreatment = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 4), AlaEServiceUNIProfileProtocolTreatment().clone('drop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortProfile8021ABTreatment.setStatus('current')
-alaServiceMgrPortProfile8023adTreatment = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 5), AlaEServiceUNIProfileProtocolTreatment().clone('peer')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortProfile8023adTreatment.setStatus('current')
-alaServiceMgrPortProfileGvrpTreatment = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 6), AlaEServiceUNIProfileProtocolTreatment().clone('tunnel')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortProfileGvrpTreatment.setStatus('current')
-alaServiceMgrPortProfileAmapTreatment = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 7), AlaEServiceUNIProfileProtocolTreatment().clone('drop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortProfileAmapTreatment.setStatus('current')
-alaServiceMgrPortProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortProfileRowStatus.setStatus('current')
-alaServiceMgrPortProfileMvrpTreatment = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 9), AlaEServiceUNIProfileProtocolTreatment().clone('tunnel')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortProfileMvrpTreatment.setStatus('current')
-alaServiceMgrPortProfileCiscoPduTreatment = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 10), AlaEServiceUNIProfileProtocolTreatment().clone('drop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortProfileCiscoPduTreatment.setStatus('current')
-alaServiceMgrPortProfileCiscoVlanTreatment = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 11), AlaEServiceUNIProfileProtocolTreatment().clone('drop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortProfileCiscoVlanTreatment.setStatus('current')
-alaServiceMgrPortProfileCiscoUplinkTreatment = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 12), AlaEServiceUNIProfileProtocolTreatment().clone('drop')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortProfileCiscoUplinkTreatment.setStatus('current')
-alaServiceMgrPortTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2), )
-if mibBuilder.loadTexts: alaServiceMgrPortTable.setStatus('current')
-alaServiceMgrPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1), ).setIndexNames((0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortID"))
-if mibBuilder.loadTexts: alaServiceMgrPortEntry.setStatus('current')
-alaServiceMgrPortID = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: alaServiceMgrPortID.setStatus('current')
-alaServiceMgrPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("undefined", 0), ("access", 1), ("network", 2))).clone('network')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortMode.setStatus('current')
-alaServiceMgrPortEncapType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))).clone(namedValues=NamedValues(("unknown", 0), ("nullEncap", 1), ("qEncap", 2), ("mplsEncap", 3), ("bcpNullEncap", 4), ("bcpDot1qEncap", 5), ("ipcpEncap", 6), ("frEncap", 7), ("pppAutoEncap", 8), ("atmEncap", 9), ("qinqEncap", 10), ("wanMirrorEncap", 11), ("ciscoHDLCEncap", 12), ("cemEncap", 13))).clone('nullEncap')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortEncapType.setStatus('deprecated')
-alaServiceMgrPortPortProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortPortProfileID.setStatus('current')
-alaServiceMgrPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortRowStatus.setStatus('current')
-alaServiceMgrPortLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 6), ServiceAdminStatus().clone('down')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaServiceMgrPortLinkStatus.setStatus('current')
-alaServiceMgrPortSapType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 7), AluAllocationType().clone('static')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaServiceMgrPortSapType.setStatus('current')
-alaServiceMgrPortSapCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaServiceMgrPortSapCount.setStatus('current')
-alaServiceMgrPortVlanXlation = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 9), ServiceAdminStatus().clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortVlanXlation.setStatus('current')
-alaServiceMgrPortDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 10), ServObjDesc()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaServiceMgrPortDescription.setStatus('current')
-alaSapExtraInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 3), )
-if mibBuilder.loadTexts: alaSapExtraInfoTable.setStatus('obsolete')
-alaSapExtraInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 3, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"))
-if mibBuilder.loadTexts: alaSapExtraInfoEntry.setStatus('obsolete')
-alaSapInfoTrusted = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2))).clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaSapInfoTrusted.setStatus('obsolete')
-alaSapInfoPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaSapInfoPriority.setStatus('obsolete')
-alaSvcBaseInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4), )
-if mibBuilder.loadTexts: alaSvcBaseInfoTable.setStatus('current')
-alaSvcBaseInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1), ).setIndexNames((0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"))
-if mibBuilder.loadTexts: alaSvcBaseInfoEntry.setStatus('current')
-alaSvcId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 1), AluServiceId()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alaSvcId.setStatus('current')
-alaSvcRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcRowStatus.setStatus('current')
-alaSvcType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 3), AluServiceType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcType.setStatus('current')
-alaSvcDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 4), ServObjDesc()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcDescription.setStatus('current')
-alaSvcMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 9194))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcMtu.setStatus('current')
-alaSvcAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 6), ServiceAdminStatus().clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcAdminStatus.setStatus('current')
-alaSvcOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 7), ServiceOperStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcOperStatus.setStatus('current')
-alaSvcNumSaps = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcNumSaps.setStatus('current')
-alaSvcNumSdps = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcNumSdps.setStatus('current')
-alaSvcLastMgmtChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 10), AluDateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcLastMgmtChange.setStatus('current')
-alaSvcLastStatusChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 11), AluDateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcLastStatusChange.setStatus('current')
-alaSvcDefMeshVcId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 12), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcDefMeshVcId.setStatus('current')
-alaSvcVFI = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcVFI.setStatus('current')
-alaSvcMcIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(3, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcMcIndex.setStatus('current')
-alaSvcAllocationType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 15), AluAllocationType().clone('static')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcAllocationType.setStatus('current')
-alaSvcStatsAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 16), ServiceAdminStatus().clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcStatsAdminStatus.setStatus('current')
-alaSvcRemoteFlushStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 17), ServiceAdminStatus().clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcRemoteFlushStatus.setStatus('current')
-alaSvcIsid = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(256, 16777214))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcIsid.setStatus('current')
-alaSvcBVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcBVlan.setStatus('current')
-alaSvcMulticastMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("headend", 1), ("tandem", 2), ("hybrid", 3))).clone('headend')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcMulticastMode.setStatus('current')
-alaSvcIngressPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcIngressPacketCount.setStatus('current')
-alaSvcIngressByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 22), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcIngressByteCount.setStatus('current')
-alaSvcEgressPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcEgressPacketCount.setStatus('current')
-alaSvcEgressByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 24), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcEgressByteCount.setStatus('current')
-alaSvcClearCounters = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("done", 0), ("clear", 1))).clone('done')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcClearCounters.setStatus('current')
-alaSvcSapVlanXlation = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 26), ServiceAdminStatus().clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcSapVlanXlation.setStatus('current')
-alaSvcVnid = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 27), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(1, 16777215), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcVnid.setStatus('current')
-alaSvcRemoveIngressTag = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 28), ServiceAdminStatus().clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcRemoveIngressTag.setStatus('current')
-alaSvcL3VpnIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 29), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcL3VpnIfIndex.setStatus('current')
-alaSvcL3VpnIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 30), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcL3VpnIfName.setStatus('current')
-alaSvcL3VpnVrfName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 31), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcL3VpnVrfName.setStatus('current')
-alaSvcL3VpnMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 32), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1280, 9198), )).clone(1500)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSvcL3VpnMtu.setStatus('current')
-alaSapBaseInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5), )
-if mibBuilder.loadTexts: alaSapBaseInfoTable.setStatus('current')
-alaSapBaseInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1), ).setIndexNames((0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPortId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEncapValue"))
-if mibBuilder.loadTexts: alaSapBaseInfoEntry.setStatus('current')
-alaSapPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 1), InterfaceIndex()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alaSapPortId.setStatus('current')
-alaSapEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 2), TmnxEncapVal()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alaSapEncapValue.setStatus('current')
-alaSapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSapRowStatus.setStatus('current')
-alaSapType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 4), AluServiceType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSapType.setStatus('current')
-alaSapDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 5), ServObjDesc()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSapDescription.setStatus('current')
-alaSapAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 6), ServiceAdminStatus().clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSapAdminStatus.setStatus('current')
-alaSapOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("ingressQosMismatch", 3), ("egressQosMismatch", 4), ("portMtuTooSmall", 5), ("svcAdminDown", 6), ("iesIfAdminDown", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapOperStatus.setStatus('current')
-alaSapLastMgmtChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 8), AluDateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapLastMgmtChange.setStatus('current')
-alaSapLastStatusChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 9), AluDateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapLastStatusChange.setStatus('current')
-alaSapOperFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 10), Bits().clone(namedValues=NamedValues(("sapAdminDown", 0), ("svcAdminDown", 1), ("iesIfAdminDown", 2), ("portOperDown", 3), ("portMtuTooSmall", 4), ("l2OperDown", 5), ("ingressQosMismatch", 6), ("egressQosMismatch", 7), ("relearnLimitExceeded", 8), ("recProtSrcMac", 9), ("subIfAdminDown", 10), ("sapIpipeNoCeIpAddr", 11), ("sapTodResourceUnavail", 12), ("sapTodMssResourceUnavail", 13), ("sapParamMismatch", 14), ("sapCemNoEcidOrMacAddr", 15), ("sapStandbyForMcRing", 16), ("sapSvcMtuTooSmall", 17), ("ingressNamedPoolMismatch", 18), ("egressNamedPoolMismatch", 19), ("ipMirrorNoMacAddr", 20), ("sapEpipeNoRingNode", 21)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapOperFlags.setStatus('current')
-alaSapTrusted = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 11), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSapTrusted.setStatus('current')
-alaSapPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSapPriority.setStatus('current')
-alaSapSvcId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 13), AluServiceId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapSvcId.setStatus('current')
-alaSapSvcVFI = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapSvcVFI.setStatus('current')
-alaSapVirtualPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapVirtualPort.setStatus('current')
-alaSapAllocationType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 16), AluAllocationType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapAllocationType.setStatus('current')
-alaSapStatsAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 17), ServiceAdminStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSapStatsAdminStatus.setStatus('current')
-alaSapIngressPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 18), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapIngressPacketCount.setStatus('current')
-alaSapIngressByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 19), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapIngressByteCount.setStatus('current')
-alaSapEgressPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapEgressPacketCount.setStatus('current')
-alaSapEgressByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 21), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSapEgressByteCount.setStatus('current')
-alaSapClearCounters = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("done", 0), ("clear", 1))).clone('done')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSapClearCounters.setStatus('current')
-alaSdpInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6), )
-if mibBuilder.loadTexts: alaSdpInfoTable.setStatus('current')
-alaSdpInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1), ).setIndexNames((0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpId"))
-if mibBuilder.loadTexts: alaSdpInfoEntry.setStatus('current')
-alaSdpId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 1), AluSdpId())
-if mibBuilder.loadTexts: alaSdpId.setStatus('current')
-alaSdpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpRowStatus.setStatus('current')
-alaSdpSvcType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 3), AluServiceType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpSvcType.setStatus('current')
-alaSdpDelivery = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("gre", 1), ("mpls", 2), ("pbb", 3), ("vxlan", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpDelivery.setStatus('current')
-alaSdpFarEndIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 5), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpFarEndIpAddress.setStatus('current')
-alaSdpDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 6), ServObjDesc()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpDescription.setStatus('current')
-alaSdpLabelSignaling = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("tldp", 2))).clone('tldp')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpLabelSignaling.setStatus('current')
-alaSdpAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 8), ServiceAdminStatus().clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpAdminStatus.setStatus('current')
-alaSdpOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("up", 1), ("notAlive", 2), ("notReady", 3), ("invalidEgressInterface", 4), ("transportTunnelDown", 5), ("down", 6), ("created", 7), ("destroyed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpOperStatus.setStatus('current')
-alaSdpAdminPathMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(576, 9194), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpAdminPathMtu.setStatus('current')
-alaSdpOperPathMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpOperPathMtu.setStatus('current')
-alaSdpLastMgmtChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 12), AluDateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpLastMgmtChange.setStatus('current')
-alaSdpLdpEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 13), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpLdpEnabled.setStatus('current')
-alaSdpVlanVcEtype = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1536, 65535)).clone(33024)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpVlanVcEtype.setStatus('current')
-alaSdpAdvertisedVllMtuOverride = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 15), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpAdvertisedVllMtuOverride.setStatus('current')
-alaSdpOperFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 16), Bits().clone(namedValues=NamedValues(("sdpAdminDown", 0), ("signalingSessionDown", 1), ("transportTunnelDown", 2), ("keepaliveFailure", 3), ("invalidEgressInterface", 4), ("noSystemIpAddress", 5), ("transportTunnelUnstable", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpOperFlags.setStatus('current')
-alaSdpLastStatusChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 17), AluDateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpLastStatusChange.setStatus('current')
-alaSdpNetworkPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 18), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpNetworkPort.setStatus('current')
-alaSdpBVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBVlan.setStatus('current')
-alaSdpSystemId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 20), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpSystemId.setStatus('current')
-alaSdpSystemName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 21), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpSystemName.setStatus('current')
-alaSdpSpSourceId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 22), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpSpSourceId.setStatus('current')
-alaSdpAllocationType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 23), AluAllocationType().clone('static')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpAllocationType.setStatus('current')
-alaSdpDynamicType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 24), AluSdpDynamicType().clone('static')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpDynamicType.setStatus('current')
-alaSdpBindCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 25), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindCount.setStatus('current')
-alaSdpIsid = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 26), Integer32().subtype(subtypeSpec=ValueRangeConstraint(256, 16777214))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpIsid.setStatus('current')
-alaSdpMcastPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 27), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpMcastPortList.setStatus('current')
-alaSdpCreationOrigin = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 28), AluSdpOriginType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpCreationOrigin.setStatus('current')
-alaSdpAdminTTL = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 29), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1).clone('@')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpAdminTTL.setStatus('current')
-alaSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7), )
-if mibBuilder.loadTexts: alaSdpBindTable.setStatus('current')
-alaSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1), ).setIndexNames((0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"))
-if mibBuilder.loadTexts: alaSdpBindEntry.setStatus('current')
-alaSdpBindId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 1), SdpBindId()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alaSdpBindId.setStatus('current')
-alaSdpBindRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpBindRowStatus.setStatus('current')
-alaSdpBindSvcType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 3), AluServiceType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpBindSvcType.setStatus('current')
-alaSdpBindAdminIngressLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 4), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 1), ValueRangeConstraint(2048, 18431), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpBindAdminIngressLabel.setStatus('current')
-alaSdpBindAdminEgressLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 5), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(16, 1048575), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpBindAdminEgressLabel.setStatus('current')
-alaSdpBindOperIngressLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 6), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 1048575), ))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindOperIngressLabel.setStatus('current')
-alaSdpBindOperEgressLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 7), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 1048575), ))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindOperEgressLabel.setStatus('current')
-alaSdpBindAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 8), ServiceAdminStatus().clone('up')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpBindAdminStatus.setStatus('current')
-alaSdpBindOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("up", 1), ("noEgressLabel", 2), ("noIngressLabel", 3), ("noLabels", 4), ("down", 5), ("svcMtuMismatch", 6), ("sdpPathMtuTooSmall", 7), ("sdpNotReady", 8), ("sdpDown", 9), ("sapDown", 10), ("created", 11), ("destroyed", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindOperStatus.setStatus('current')
-alaSdpBindLastMgmtChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 10), AluDateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindLastMgmtChange.setStatus('current')
-alaSdpBindType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("spoke", 1), ("mesh", 2))).clone('mesh')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpBindType.setStatus('current')
-alaSdpBindOperFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 12), Bits().clone(namedValues=NamedValues(("sdpBindAdminDown", 0), ("svcAdminDown", 1), ("sapOperDown", 2), ("sdpOperDown", 3), ("sdpPathMtuTooSmall", 4), ("noIngressVcLabel", 5), ("noEgressVcLabel", 6), ("svcMtuMismatch", 7), ("vcTypeMismatch", 8), ("relearnLimitExceeded", 9), ("iesIfAdminDown", 10), ("releasedIngressVcLabel", 11), ("labelsExhausted", 12), ("svcParamMismatch", 13), ("insufficientBandwidth", 14), ("pwPeerFaultStatusBits", 15), ("meshSdpDown", 16)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindOperFlags.setStatus('current')
-alaSdpBindLastStatusChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 13), AluDateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindLastStatusChange.setStatus('current')
-alaSdpBindControlWordBit = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 14), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpBindControlWordBit.setStatus('current')
-alaSdpBindOperControlWord = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 15), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindOperControlWord.setStatus('current')
-alaSdpBindNetworkPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 16), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindNetworkPort.setStatus('current')
-alaSdpBindVirtualPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 17), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindVirtualPort.setStatus('current')
-alaSdpBindIsid = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 18), Integer32().subtype(subtypeSpec=ValueRangeConstraint(256, 16777214))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindIsid.setStatus('current')
-alaSdpBindBVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindBVlan.setStatus('current')
-alaSdpBindSystemId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 20), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindSystemId.setStatus('current')
-alaSdpBindSystemName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 21), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindSystemName.setStatus('current')
-alaSdpBindAllocationType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 22), AluAllocationType().clone('static')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindAllocationType.setStatus('current')
-alaSdpBindIngressPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindIngressPacketCount.setStatus('current')
-alaSdpBindIngressByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 24), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindIngressByteCount.setStatus('current')
-alaSdpBindEgressPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 25), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindEgressPacketCount.setStatus('current')
-alaSdpBindEgressByteCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 26), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindEgressByteCount.setStatus('current')
-alaSdpBindCreationOrigin = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 27), AluSdpOriginType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpBindCreationOrigin.setStatus('current')
-alaSdpBindFarEndIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 28), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindFarEndIpAddress.setStatus('current')
-alaSdpBindVnid = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 29), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16777215))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindVnid.setStatus('current')
-alaSdpBindDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 30), ServObjDesc()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaSdpBindDescription.setStatus('current')
-alaSdpBindStatsAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 31), ServiceAdminStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSdpBindStatsAdminStatus.setStatus('current')
-alaSvcMgrSysTable = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8))
-alaSvcMgrSysId = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 1), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcMgrSysId.setStatus('current')
-alaSvcMgrSysName = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcMgrSysName.setStatus('current')
-alaSvcMgrSysLastMgmtChange = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 3), AluDateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcMgrSysLastMgmtChange.setStatus('current')
-alaSvcMgrSysLastStatusChange = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 4), AluDateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaSvcMgrSysLastStatusChange.setStatus('current')
-alaSvcMgrSvcTrapAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaSvcMgrSvcTrapAdminState.setStatus('current')
-alaSvcMgrSapTrapAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaSvcMgrSapTrapAdminState.setStatus('current')
-alaSvcMgrSdpTrapAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaSvcMgrSdpTrapAdminState.setStatus('current')
-alaSvcMgrSdpBindTrapAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaSvcMgrSdpBindTrapAdminState.setStatus('current')
-alaSvcMgrMaxTrapPerMinute = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(1, 65534), ValueRangeConstraint(65535, 65535), )).clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaSvcMgrMaxTrapPerMinute.setStatus('current')
-alaSvcMgrStatsAdminState = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaSvcMgrStatsAdminState.setStatus('current')
-alaSvcMgrVxlanDestUdpPort = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 11), Integer32().clone(4789)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaSvcMgrVxlanDestUdpPort.setStatus('current')
-alaSvcMgrVxlanVrfName = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 12), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(1, 20))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaSvcMgrVxlanVrfName.setStatus('current')
-alaServiceMgrIgmp = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2))
-alaIgmpServiceTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1), )
-if mibBuilder.loadTexts: alaIgmpServiceTable.setStatus('current')
-alaIgmpServiceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"))
-if mibBuilder.loadTexts: alaIgmpServiceEntry.setStatus('current')
-alaIgmpServiceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceStatus.setStatus('current')
-alaIgmpServiceQuerying = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceQuerying.setStatus('current')
-alaIgmpServiceSpoofing = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceSpoofing.setStatus('current')
-alaIgmpServiceZapping = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceZapping.setStatus('current')
-alaIgmpServiceVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 5), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceVersion.setStatus('current')
-alaIgmpServiceRobustness = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 6), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceRobustness.setStatus('current')
-alaIgmpServiceQueryInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 7), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceQueryInterval.setStatus('current')
-alaIgmpServiceQueryResponseInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 8), Unsigned32()).setUnits('tenths of seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceQueryResponseInterval.setStatus('current')
-alaIgmpServiceLastMemberQueryInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 9), Unsigned32()).setUnits('tenths of seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceLastMemberQueryInterval.setStatus('current')
-alaIgmpServiceRouterTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 10), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceRouterTimeout.setStatus('current')
-alaIgmpServiceSourceTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 11), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceSourceTimeout.setStatus('current')
-alaIgmpServiceProxying = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceProxying.setStatus('current')
-alaIgmpServiceUnsolicitedReportInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 13), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceUnsolicitedReportInterval.setStatus('current')
-alaIgmpServiceQuerierForwarding = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceQuerierForwarding.setStatus('current')
-alaIgmpServiceMaxGroupLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 15), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceMaxGroupLimit.setStatus('current')
-alaIgmpServiceMaxGroupExceedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("drop", 1), ("replace", 2))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceMaxGroupExceedAction.setStatus('current')
-alaIgmpMemberServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2), )
-if mibBuilder.loadTexts: alaIgmpMemberServiceSapTable.setStatus('current')
-alaIgmpMemberServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapGroupAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapGroupAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapSourceAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapSourceAddress"))
-if mibBuilder.loadTexts: alaIgmpMemberServiceSapEntry.setStatus('current')
-alaIgmpMemberServiceSapGroupAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpMemberServiceSapGroupAddressType.setStatus('current')
-alaIgmpMemberServiceSapGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpMemberServiceSapGroupAddress.setStatus('current')
-alaIgmpMemberServiceSapSourceAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 3), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpMemberServiceSapSourceAddressType.setStatus('current')
-alaIgmpMemberServiceSapSourceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpMemberServiceSapSourceAddress.setStatus('current')
-alaIgmpMemberServiceSapMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("include", 1), ("exclude", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpMemberServiceSapMode.setStatus('current')
-alaIgmpMemberServiceSapCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpMemberServiceSapCount.setStatus('current')
-alaIgmpMemberServiceSapTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 7), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpMemberServiceSapTimeout.setStatus('current')
-alaIgmpMemberServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3), )
-if mibBuilder.loadTexts: alaIgmpMemberServiceSdpBindTable.setStatus('current')
-alaIgmpMemberServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindGroupAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindGroupAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindSourceAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindSourceAddress"))
-if mibBuilder.loadTexts: alaIgmpMemberServiceSdpBindEntry.setStatus('current')
-alaIgmpMemberServiceSdpBindGroupAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpMemberServiceSdpBindGroupAddressType.setStatus('current')
-alaIgmpMemberServiceSdpBindGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpMemberServiceSdpBindGroupAddress.setStatus('current')
-alaIgmpMemberServiceSdpBindSourceAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 3), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpMemberServiceSdpBindSourceAddressType.setStatus('current')
-alaIgmpMemberServiceSdpBindSourceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpMemberServiceSdpBindSourceAddress.setStatus('current')
-alaIgmpMemberServiceSdpBindMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("include", 1), ("exclude", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpMemberServiceSdpBindMode.setStatus('current')
-alaIgmpMemberServiceSdpBindCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpMemberServiceSdpBindCount.setStatus('current')
-alaIgmpMemberServiceSdpBindTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 7), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpMemberServiceSdpBindTimeout.setStatus('current')
-alaIgmpStaticMemberServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 4), )
-if mibBuilder.loadTexts: alaIgmpStaticMemberServiceSapTable.setStatus('current')
-alaIgmpStaticMemberServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 4, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSapGroupAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSapGroupAddress"))
-if mibBuilder.loadTexts: alaIgmpStaticMemberServiceSapEntry.setStatus('current')
-alaIgmpStaticMemberServiceSapGroupAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 4, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpStaticMemberServiceSapGroupAddressType.setStatus('current')
-alaIgmpStaticMemberServiceSapGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 4, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpStaticMemberServiceSapGroupAddress.setStatus('current')
-alaIgmpStaticMemberServiceSapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaIgmpStaticMemberServiceSapRowStatus.setStatus('current')
-alaIgmpStaticMemberServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 5), )
-if mibBuilder.loadTexts: alaIgmpStaticMemberServiceSdpBindTable.setStatus('current')
-alaIgmpStaticMemberServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 5, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSdpBindGroupAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSdpBindGroupAddress"))
-if mibBuilder.loadTexts: alaIgmpStaticMemberServiceSdpBindEntry.setStatus('current')
-alaIgmpStaticMemberServiceSdpBindGroupAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 5, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpStaticMemberServiceSdpBindGroupAddressType.setStatus('current')
-alaIgmpStaticMemberServiceSdpBindGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 5, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpStaticMemberServiceSdpBindGroupAddress.setStatus('current')
-alaIgmpStaticMemberServiceSdpBindRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 5, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaIgmpStaticMemberServiceSdpBindRowStatus.setStatus('current')
-alaIgmpNeighborServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6), )
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSapTable.setStatus('current')
-alaIgmpNeighborServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSapHostAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSapHostAddress"))
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSapEntry.setStatus('current')
-alaIgmpNeighborServiceSapHostAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSapHostAddressType.setStatus('current')
-alaIgmpNeighborServiceSapHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSapHostAddress.setStatus('current')
-alaIgmpNeighborServiceSapCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSapCount.setStatus('current')
-alaIgmpNeighborServiceSapTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSapTimeout.setStatus('current')
-alaIgmpNeighborServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7), )
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSdpBindTable.setStatus('current')
-alaIgmpNeighborServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSdpBindHostAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSdpBindHostAddress"))
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSdpBindEntry.setStatus('current')
-alaIgmpNeighborServiceSdpBindHostAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSdpBindHostAddressType.setStatus('current')
-alaIgmpNeighborServiceSdpBindHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSdpBindHostAddress.setStatus('current')
-alaIgmpNeighborServiceSdpBindCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSdpBindCount.setStatus('current')
-alaIgmpNeighborServiceSdpBindTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpNeighborServiceSdpBindTimeout.setStatus('current')
-alaIgmpStaticNeighborServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 8), )
-if mibBuilder.loadTexts: alaIgmpStaticNeighborServiceSapTable.setStatus('current')
-alaIgmpStaticNeighborServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 8, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"))
-if mibBuilder.loadTexts: alaIgmpStaticNeighborServiceSapEntry.setStatus('current')
-alaIgmpStaticNeighborServiceSapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 8, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaIgmpStaticNeighborServiceSapRowStatus.setStatus('current')
-alaIgmpStaticNeighborServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 9), )
-if mibBuilder.loadTexts: alaIgmpStaticNeighborServiceSdpBindTable.setStatus('current')
-alaIgmpStaticNeighborServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 9, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"))
-if mibBuilder.loadTexts: alaIgmpStaticNeighborServiceSdpBindEntry.setStatus('current')
-alaIgmpStaticNeighborServiceSdpBindRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 9, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaIgmpStaticNeighborServiceSdpBindRowStatus.setStatus('current')
-alaIgmpQuerierServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10), )
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSapTable.setStatus('current')
-alaIgmpQuerierServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSapHostAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSapHostAddress"))
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSapEntry.setStatus('current')
-alaIgmpQuerierServiceSapHostAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSapHostAddressType.setStatus('current')
-alaIgmpQuerierServiceSapHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSapHostAddress.setStatus('current')
-alaIgmpQuerierServiceSapCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSapCount.setStatus('current')
-alaIgmpQuerierServiceSapTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSapTimeout.setStatus('current')
-alaIgmpQuerierServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11), )
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSdpBindTable.setStatus('current')
-alaIgmpQuerierServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSdpBindHostAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSdpBindHostAddress"))
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSdpBindEntry.setStatus('current')
-alaIgmpQuerierServiceSdpBindHostAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSdpBindHostAddressType.setStatus('current')
-alaIgmpQuerierServiceSdpBindHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSdpBindHostAddress.setStatus('current')
-alaIgmpQuerierServiceSdpBindCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSdpBindCount.setStatus('current')
-alaIgmpQuerierServiceSdpBindTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpQuerierServiceSdpBindTimeout.setStatus('current')
-alaIgmpStaticQuerierServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 12), )
-if mibBuilder.loadTexts: alaIgmpStaticQuerierServiceSapTable.setStatus('current')
-alaIgmpStaticQuerierServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 12, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"))
-if mibBuilder.loadTexts: alaIgmpStaticQuerierServiceSapEntry.setStatus('current')
-alaIgmpStaticQuerierServiceSapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 12, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaIgmpStaticQuerierServiceSapRowStatus.setStatus('current')
-alaIgmpStaticQuerierServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 13), )
-if mibBuilder.loadTexts: alaIgmpStaticQuerierServiceSdpBindTable.setStatus('current')
-alaIgmpStaticQuerierServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 13, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"))
-if mibBuilder.loadTexts: alaIgmpStaticQuerierServiceSdpBindEntry.setStatus('current')
-alaIgmpStaticQuerierServiceSdpBindRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 13, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaIgmpStaticQuerierServiceSdpBindRowStatus.setStatus('current')
-alaIgmpServiceSourceTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14), )
-if mibBuilder.loadTexts: alaIgmpServiceSourceTable.setStatus('current')
-alaIgmpServiceSourceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceGroupAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceGroupAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceHostAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceHostAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceDestAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceDestAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceOrigAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceOrigAddress"))
-if mibBuilder.loadTexts: alaIgmpServiceSourceEntry.setStatus('current')
-alaIgmpServiceSourceGroupAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpServiceSourceGroupAddressType.setStatus('current')
-alaIgmpServiceSourceGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpServiceSourceGroupAddress.setStatus('current')
-alaIgmpServiceSourceHostAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 3), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpServiceSourceHostAddressType.setStatus('current')
-alaIgmpServiceSourceHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpServiceSourceHostAddress.setStatus('current')
-alaIgmpServiceSourceDestAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 5), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpServiceSourceDestAddressType.setStatus('current')
-alaIgmpServiceSourceDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 6), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpServiceSourceDestAddress.setStatus('current')
-alaIgmpServiceSourceOrigAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 7), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1)))
-if mibBuilder.loadTexts: alaIgmpServiceSourceOrigAddressType.setStatus('current')
-alaIgmpServiceSourceOrigAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 8), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaIgmpServiceSourceOrigAddress.setStatus('current')
-alaIgmpServiceSourceLocale = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 9), AluLocation()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSourceLocale.setStatus('current')
-alaIgmpServiceSourcePortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 10), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSourcePortId.setStatus('current')
-alaIgmpServiceSourceEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 11), TmnxEncapVal()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSourceEncapValue.setStatus('current')
-alaIgmpServiceSourceSdpId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 12), SdpId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSourceSdpId.setStatus('current')
-alaIgmpServiceSourceVcId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 13), TmnxVcIdOrNone()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSourceVcId.setStatus('current')
-alaIgmpServiceSourceType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSourceType.setStatus('current')
-alaIgmpServiceSapForwardTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15), )
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardTable.setStatus('current')
-alaIgmpServiceSapForwardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardGroupAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardHostAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardDestAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardOrigAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardNextSapPortId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardNextSapEncapValue"))
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardEntry.setStatus('current')
-alaIgmpServiceSapForwardLocale = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 1), AluLocation()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardLocale.setStatus('current')
-alaIgmpServiceSapForwardPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 2), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardPortId.setStatus('current')
-alaIgmpServiceSapForwardEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 3), TmnxEncapVal()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardEncapValue.setStatus('current')
-alaIgmpServiceSapForwardSdpId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 4), SdpId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardSdpId.setStatus('current')
-alaIgmpServiceSapForwardVcId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 5), TmnxVcIdOrNone()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardVcId.setStatus('current')
-alaIgmpServiceSapForwardGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 6), MacAddress())
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardGroupAddress.setStatus('current')
-alaIgmpServiceSapForwardHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 7), MacAddress())
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardHostAddress.setStatus('current')
-alaIgmpServiceSapForwardDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 8), MacAddress())
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardDestAddress.setStatus('current')
-alaIgmpServiceSapForwardOrigAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 9), MacAddress())
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardOrigAddress.setStatus('current')
-alaIgmpServiceSapForwardType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardType.setStatus('current')
-alaIgmpServiceSapForwardNextSapPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 11), TmnxPortID())
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardNextSapPortId.setStatus('current')
-alaIgmpServiceSapForwardNextSapEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 12), TmnxEncapVal())
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardNextSapEncapValue.setStatus('current')
-alaIgmpServiceSapForwardNextType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSapForwardNextType.setStatus('current')
-alaIgmpServiceSdpBindForwardTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16), )
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardTable.setStatus('current')
-alaIgmpServiceSdpBindForwardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardGroupAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardHostAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardDestAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardOrigAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardNextSdpBindId"))
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardEntry.setStatus('current')
-alaIgmpServiceSdpBindForwardLocale = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 1), AluLocation()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardLocale.setStatus('current')
-alaIgmpServiceSdpBindForwardPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 2), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardPortId.setStatus('current')
-alaIgmpServiceSdpBindForwardEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 3), TmnxEncapVal()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardEncapValue.setStatus('current')
-alaIgmpServiceSdpBindForwardSdpId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 4), SdpId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardSdpId.setStatus('current')
-alaIgmpServiceSdpBindForwardVcId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 5), TmnxVcIdOrNone()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardVcId.setStatus('current')
-alaIgmpServiceSdpBindForwardGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 6), MacAddress())
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardGroupAddress.setStatus('current')
-alaIgmpServiceSdpBindForwardHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 7), MacAddress())
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardHostAddress.setStatus('current')
-alaIgmpServiceSdpBindForwardDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 8), MacAddress())
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardDestAddress.setStatus('current')
-alaIgmpServiceSdpBindForwardOrigAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 9), MacAddress())
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardOrigAddress.setStatus('current')
-alaIgmpServiceSdpBindForwardType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardType.setStatus('current')
-alaIgmpServiceSdpBindForwardNextSdpBindId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 11), SdpBindId())
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardNextSdpBindId.setStatus('current')
-alaIgmpServiceSdpBindForwardNextType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindForwardNextType.setStatus('current')
-alaIgmpServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 17), )
-if mibBuilder.loadTexts: alaIgmpServiceSapTable.setStatus('current')
-alaIgmpServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 17, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"))
-if mibBuilder.loadTexts: alaIgmpServiceSapEntry.setStatus('current')
-alaIgmpServiceSapMaxGroupLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 17, 1, 1), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceSapMaxGroupLimit.setStatus('current')
-alaIgmpServiceSapMaxGroupExceedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 17, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("drop", 1), ("replace", 2))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceSapMaxGroupExceedAction.setStatus('current')
-alaIgmpServiceSapCurrentGroupCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 17, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSapCurrentGroupCount.setStatus('current')
-alaIgmpServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 18), )
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindTable.setStatus('current')
-alaIgmpServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 18, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"))
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindEntry.setStatus('current')
-alaIgmpServiceSdpBindMaxGroupLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 18, 1, 1), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindMaxGroupLimit.setStatus('current')
-alaIgmpServiceSdpBindMaxGroupExceedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 18, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("drop", 1), ("replace", 2))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindMaxGroupExceedAction.setStatus('current')
-alaIgmpServiceSdpBindCurrentGroupCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 18, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpServiceSdpBindCurrentGroupCount.setStatus('current')
-alaServiceMgrMld = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3))
-alaMldServiceTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1), )
-if mibBuilder.loadTexts: alaMldServiceTable.setStatus('current')
-alaMldServiceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"))
-if mibBuilder.loadTexts: alaMldServiceEntry.setStatus('current')
-alaMldServiceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceStatus.setStatus('current')
-alaMldServiceQuerying = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceQuerying.setStatus('current')
-alaMldServiceSpoofing = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceSpoofing.setStatus('current')
-alaMldServiceZapping = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceZapping.setStatus('current')
-alaMldServiceVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 5), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceVersion.setStatus('current')
-alaMldServiceRobustness = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 6), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceRobustness.setStatus('current')
-alaMldServiceQueryInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 7), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceQueryInterval.setStatus('current')
-alaMldServiceQueryResponseInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 8), Unsigned32()).setUnits('tenths of seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceQueryResponseInterval.setStatus('current')
-alaMldServiceLastMemberQueryInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 9), Unsigned32()).setUnits('tenths of seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceLastMemberQueryInterval.setStatus('current')
-alaMldServiceRouterTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 10), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceRouterTimeout.setStatus('current')
-alaMldServiceSourceTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 11), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceSourceTimeout.setStatus('current')
-alaMldServiceProxying = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceProxying.setStatus('current')
-alaMldServiceUnsolicitedReportInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 13), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceUnsolicitedReportInterval.setStatus('current')
-alaMldServiceQuerierForwarding = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceQuerierForwarding.setStatus('current')
-alaMldServiceMaxGroupLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 15), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceMaxGroupLimit.setStatus('current')
-alaMldServiceMaxGroupExceedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("drop", 1), ("replace", 2))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceMaxGroupExceedAction.setStatus('current')
-alaMldMemberServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2), )
-if mibBuilder.loadTexts: alaMldMemberServiceSapTable.setStatus('current')
-alaMldMemberServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapGroupAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapGroupAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapSourceAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapSourceAddress"))
-if mibBuilder.loadTexts: alaMldMemberServiceSapEntry.setStatus('current')
-alaMldMemberServiceSapGroupAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldMemberServiceSapGroupAddressType.setStatus('current')
-alaMldMemberServiceSapGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldMemberServiceSapGroupAddress.setStatus('current')
-alaMldMemberServiceSapSourceAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 3), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldMemberServiceSapSourceAddressType.setStatus('current')
-alaMldMemberServiceSapSourceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldMemberServiceSapSourceAddress.setStatus('current')
-alaMldMemberServiceSapMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("include", 1), ("exclude", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldMemberServiceSapMode.setStatus('current')
-alaMldMemberServiceSapCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldMemberServiceSapCount.setStatus('current')
-alaMldMemberServiceSapTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 7), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldMemberServiceSapTimeout.setStatus('current')
-alaMldMemberServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3), )
-if mibBuilder.loadTexts: alaMldMemberServiceSdpBindTable.setStatus('current')
-alaMldMemberServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindGroupAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindGroupAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindSourceAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindSourceAddress"))
-if mibBuilder.loadTexts: alaMldMemberServiceSdpBindEntry.setStatus('current')
-alaMldMemberServiceSdpBindGroupAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldMemberServiceSdpBindGroupAddressType.setStatus('current')
-alaMldMemberServiceSdpBindGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldMemberServiceSdpBindGroupAddress.setStatus('current')
-alaMldMemberServiceSdpBindSourceAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 3), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldMemberServiceSdpBindSourceAddressType.setStatus('current')
-alaMldMemberServiceSdpBindSourceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldMemberServiceSdpBindSourceAddress.setStatus('current')
-alaMldMemberServiceSdpBindMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("include", 1), ("exclude", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldMemberServiceSdpBindMode.setStatus('current')
-alaMldMemberServiceSdpBindCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldMemberServiceSdpBindCount.setStatus('current')
-alaMldMemberServiceSdpBindTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 7), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldMemberServiceSdpBindTimeout.setStatus('current')
-alaMldStaticMemberServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 4), )
-if mibBuilder.loadTexts: alaMldStaticMemberServiceSapTable.setStatus('current')
-alaMldStaticMemberServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 4, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSapGroupAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSapGroupAddress"))
-if mibBuilder.loadTexts: alaMldStaticMemberServiceSapEntry.setStatus('current')
-alaMldStaticMemberServiceSapGroupAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 4, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldStaticMemberServiceSapGroupAddressType.setStatus('current')
-alaMldStaticMemberServiceSapGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 4, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldStaticMemberServiceSapGroupAddress.setStatus('current')
-alaMldStaticMemberServiceSapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 4, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaMldStaticMemberServiceSapRowStatus.setStatus('current')
-alaMldStaticMemberServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 5), )
-if mibBuilder.loadTexts: alaMldStaticMemberServiceSdpBindTable.setStatus('current')
-alaMldStaticMemberServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 5, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSdpBindGroupAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSdpBindGroupAddress"))
-if mibBuilder.loadTexts: alaMldStaticMemberServiceSdpBindEntry.setStatus('current')
-alaMldStaticMemberServiceSdpBindGroupAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 5, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldStaticMemberServiceSdpBindGroupAddressType.setStatus('current')
-alaMldStaticMemberServiceSdpBindGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 5, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldStaticMemberServiceSdpBindGroupAddress.setStatus('current')
-alaMldStaticMemberServiceSdpBindRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 5, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaMldStaticMemberServiceSdpBindRowStatus.setStatus('current')
-alaMldNeighborServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6), )
-if mibBuilder.loadTexts: alaMldNeighborServiceSapTable.setStatus('current')
-alaMldNeighborServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSapHostAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSapHostAddress"))
-if mibBuilder.loadTexts: alaMldNeighborServiceSapEntry.setStatus('current')
-alaMldNeighborServiceSapHostAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldNeighborServiceSapHostAddressType.setStatus('current')
-alaMldNeighborServiceSapHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldNeighborServiceSapHostAddress.setStatus('current')
-alaMldNeighborServiceSapCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldNeighborServiceSapCount.setStatus('current')
-alaMldNeighborServiceSapTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldNeighborServiceSapTimeout.setStatus('current')
-alaMldNeighborServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7), )
-if mibBuilder.loadTexts: alaMldNeighborServiceSdpBindTable.setStatus('current')
-alaMldNeighborServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSdpBindHostAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSdpBindHostAddress"))
-if mibBuilder.loadTexts: alaMldNeighborServiceSdpBindEntry.setStatus('current')
-alaMldNeighborServiceSdpBindHostAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldNeighborServiceSdpBindHostAddressType.setStatus('current')
-alaMldNeighborServiceSdpBindHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldNeighborServiceSdpBindHostAddress.setStatus('current')
-alaMldNeighborServiceSdpBindCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldNeighborServiceSdpBindCount.setStatus('current')
-alaMldNeighborServiceSdpBindTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldNeighborServiceSdpBindTimeout.setStatus('current')
-alaMldStaticNeighborServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 8), )
-if mibBuilder.loadTexts: alaMldStaticNeighborServiceSapTable.setStatus('current')
-alaMldStaticNeighborServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 8, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"))
-if mibBuilder.loadTexts: alaMldStaticNeighborServiceSapEntry.setStatus('current')
-alaMldStaticNeighborServiceSapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 8, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaMldStaticNeighborServiceSapRowStatus.setStatus('current')
-alaMldStaticNeighborServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 9), )
-if mibBuilder.loadTexts: alaMldStaticNeighborServiceSdpBindTable.setStatus('current')
-alaMldStaticNeighborServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 9, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"))
-if mibBuilder.loadTexts: alaMldStaticNeighborServiceSdpBindEntry.setStatus('current')
-alaMldStaticNeighborServiceSdpBindRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 9, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaMldStaticNeighborServiceSdpBindRowStatus.setStatus('current')
-alaMldQuerierServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10), )
-if mibBuilder.loadTexts: alaMldQuerierServiceSapTable.setStatus('current')
-alaMldQuerierServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSapHostAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSapHostAddress"))
-if mibBuilder.loadTexts: alaMldQuerierServiceSapEntry.setStatus('current')
-alaMldQuerierServiceSapHostAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldQuerierServiceSapHostAddressType.setStatus('current')
-alaMldQuerierServiceSapHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldQuerierServiceSapHostAddress.setStatus('current')
-alaMldQuerierServiceSapCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldQuerierServiceSapCount.setStatus('current')
-alaMldQuerierServiceSapTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldQuerierServiceSapTimeout.setStatus('current')
-alaMldQuerierServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11), )
-if mibBuilder.loadTexts: alaMldQuerierServiceSdpBindTable.setStatus('current')
-alaMldQuerierServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSdpBindHostAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSdpBindHostAddress"))
-if mibBuilder.loadTexts: alaMldQuerierServiceSdpBindEntry.setStatus('current')
-alaMldQuerierServiceSdpBindHostAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldQuerierServiceSdpBindHostAddressType.setStatus('current')
-alaMldQuerierServiceSdpBindHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldQuerierServiceSdpBindHostAddress.setStatus('current')
-alaMldQuerierServiceSdpBindCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldQuerierServiceSdpBindCount.setStatus('current')
-alaMldQuerierServiceSdpBindTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldQuerierServiceSdpBindTimeout.setStatus('current')
-alaMldStaticQuerierServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 12), )
-if mibBuilder.loadTexts: alaMldStaticQuerierServiceSapTable.setStatus('current')
-alaMldStaticQuerierServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 12, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"))
-if mibBuilder.loadTexts: alaMldStaticQuerierServiceSapEntry.setStatus('current')
-alaMldStaticQuerierServiceSapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 12, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaMldStaticQuerierServiceSapRowStatus.setStatus('current')
-alaMldStaticQuerierServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 13), )
-if mibBuilder.loadTexts: alaMldStaticQuerierServiceSdpBindTable.setStatus('current')
-alaMldStaticQuerierServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 13, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"))
-if mibBuilder.loadTexts: alaMldStaticQuerierServiceSdpBindEntry.setStatus('current')
-alaMldStaticQuerierServiceSdpBindRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 13, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaMldStaticQuerierServiceSdpBindRowStatus.setStatus('current')
-alaMldServiceSourceTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14), )
-if mibBuilder.loadTexts: alaMldServiceSourceTable.setStatus('current')
-alaMldServiceSourceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceGroupAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceGroupAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceHostAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceHostAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceDestAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceDestAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceOrigAddressType"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceOrigAddress"))
-if mibBuilder.loadTexts: alaMldServiceSourceEntry.setStatus('current')
-alaMldServiceSourceGroupAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 1), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldServiceSourceGroupAddressType.setStatus('current')
-alaMldServiceSourceGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldServiceSourceGroupAddress.setStatus('current')
-alaMldServiceSourceHostAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 3), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldServiceSourceHostAddressType.setStatus('current')
-alaMldServiceSourceHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldServiceSourceHostAddress.setStatus('current')
-alaMldServiceSourceDestAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 5), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldServiceSourceDestAddressType.setStatus('current')
-alaMldServiceSourceDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 6), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldServiceSourceDestAddress.setStatus('current')
-alaMldServiceSourceOrigAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 7), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(2, 2)))
-if mibBuilder.loadTexts: alaMldServiceSourceOrigAddressType.setStatus('current')
-alaMldServiceSourceOrigAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 8), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: alaMldServiceSourceOrigAddress.setStatus('current')
-alaMldServiceSourceLocale = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 9), AluLocation()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSourceLocale.setStatus('current')
-alaMldServiceSourcePortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 10), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSourcePortId.setStatus('current')
-alaMldServiceSourceEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 11), TmnxEncapVal()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSourceEncapValue.setStatus('current')
-alaMldServiceSourceSdpId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 12), SdpId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSourceSdpId.setStatus('current')
-alaMldServiceSourceVcId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 13), TmnxVcIdOrNone()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSourceVcId.setStatus('current')
-alaMldServiceSourceType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSourceType.setStatus('current')
-alaMldServiceSapForwardTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15), )
-if mibBuilder.loadTexts: alaMldServiceSapForwardTable.setStatus('current')
-alaMldServiceSapForwardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardGroupAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardHostAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardDestAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardOrigAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardNextSapPortId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardNextSapEncapValue"))
-if mibBuilder.loadTexts: alaMldServiceSapForwardEntry.setStatus('current')
-alaMldServiceSapForwardLocale = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 1), AluLocation()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSapForwardLocale.setStatus('current')
-alaMldServiceSapForwardPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 2), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSapForwardPortId.setStatus('current')
-alaMldServiceSapForwardEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 3), TmnxEncapVal()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSapForwardEncapValue.setStatus('current')
-alaMldServiceSapForwardSdpId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 4), SdpId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSapForwardSdpId.setStatus('current')
-alaMldServiceSapForwardVcId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 5), TmnxVcIdOrNone()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSapForwardVcId.setStatus('current')
-alaMldServiceSapForwardGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 6), MacAddress())
-if mibBuilder.loadTexts: alaMldServiceSapForwardGroupAddress.setStatus('current')
-alaMldServiceSapForwardHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 7), MacAddress())
-if mibBuilder.loadTexts: alaMldServiceSapForwardHostAddress.setStatus('current')
-alaMldServiceSapForwardDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 8), MacAddress())
-if mibBuilder.loadTexts: alaMldServiceSapForwardDestAddress.setStatus('current')
-alaMldServiceSapForwardOrigAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 9), MacAddress())
-if mibBuilder.loadTexts: alaMldServiceSapForwardOrigAddress.setStatus('current')
-alaMldServiceSapForwardType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSapForwardType.setStatus('current')
-alaMldServiceSapForwardNextSapPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 11), TmnxPortID())
-if mibBuilder.loadTexts: alaMldServiceSapForwardNextSapPortId.setStatus('current')
-alaMldServiceSapForwardNextSapEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 12), TmnxEncapVal())
-if mibBuilder.loadTexts: alaMldServiceSapForwardNextSapEncapValue.setStatus('current')
-alaMldServiceSapForwardNextType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSapForwardNextType.setStatus('current')
-alaMldServiceSdpBindForwardTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16), )
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardTable.setStatus('current')
-alaMldServiceSdpBindForwardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardGroupAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardHostAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardDestAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardOrigAddress"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardNextSdpBindId"))
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardEntry.setStatus('current')
-alaMldServiceSdpBindForwardLocale = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 1), AluLocation()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardLocale.setStatus('current')
-alaMldServiceSdpBindForwardPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 2), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardPortId.setStatus('current')
-alaMldServiceSdpBindForwardEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 3), TmnxEncapVal()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardEncapValue.setStatus('current')
-alaMldServiceSdpBindForwardSdpId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 4), SdpId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardSdpId.setStatus('current')
-alaMldServiceSdpBindForwardVcId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 5), TmnxVcIdOrNone()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardVcId.setStatus('current')
-alaMldServiceSdpBindForwardGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 6), MacAddress())
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardGroupAddress.setStatus('current')
-alaMldServiceSdpBindForwardHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 7), MacAddress())
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardHostAddress.setStatus('current')
-alaMldServiceSdpBindForwardDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 8), MacAddress())
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardDestAddress.setStatus('current')
-alaMldServiceSdpBindForwardOrigAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 9), MacAddress())
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardOrigAddress.setStatus('current')
-alaMldServiceSdpBindForwardType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardType.setStatus('current')
-alaMldServiceSdpBindForwardNextSdpBindId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 11), SdpBindId())
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardNextSdpBindId.setStatus('current')
-alaMldServiceSdpBindForwardNextType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSdpBindForwardNextType.setStatus('current')
-alaMldServiceSapTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 17), )
-if mibBuilder.loadTexts: alaMldServiceSapTable.setStatus('current')
-alaMldServiceSapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 17, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"), (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"))
-if mibBuilder.loadTexts: alaMldServiceSapEntry.setStatus('current')
-alaMldServiceSapMaxGroupLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 17, 1, 1), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceSapMaxGroupLimit.setStatus('current')
-alaMldServiceSapMaxGroupExceedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 17, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("drop", 1), ("replace", 2))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceSapMaxGroupExceedAction.setStatus('current')
-alaMldServiceSapCurrentGroupCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 17, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSapCurrentGroupCount.setStatus('current')
-alaMldServiceSdpBindTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 18), )
-if mibBuilder.loadTexts: alaMldServiceSdpBindTable.setStatus('current')
-alaMldServiceSdpBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 18, 1), ).setIndexNames((0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"), (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"))
-if mibBuilder.loadTexts: alaMldServiceSdpBindEntry.setStatus('current')
-alaMldServiceSdpBindMaxGroupLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 18, 1, 1), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceSdpBindMaxGroupLimit.setStatus('current')
-alaMldServiceSdpBindMaxGroupExceedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 18, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("drop", 1), ("replace", 2))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaMldServiceSdpBindMaxGroupExceedAction.setStatus('current')
-alaMldServiceSdpBindCurrentGroupCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 18, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaMldServiceSdpBindCurrentGroupCount.setStatus('current')
-alaExtraLdp = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4))
-alaVRtrExtendedLdpGeneralTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1), )
-if mibBuilder.loadTexts: alaVRtrExtendedLdpGeneralTable.setStatus('current')
-alaVRtrExtendedLdpGeneralEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpGenvRtrID"))
-if mibBuilder.loadTexts: alaVRtrExtendedLdpGeneralEntry.setStatus('current')
-alaVRtrLdpGenGracefulRestartSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaVRtrLdpGenGracefulRestartSupport.setStatus('current')
-alaVRtrLdpGenGRReconnectTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 300)).clone(120)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaVRtrLdpGenGRReconnectTime.setStatus('current')
-alaVRtrLdpGenGRFwdStateHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(15, 1800)).clone(120)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaVRtrLdpGenGRFwdStateHoldTime.setStatus('current')
-alaVRtrLdpGenvRtrID = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1, 1, 4), TmnxVRtrID()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alaVRtrLdpGenvRtrID.setStatus('current')
-alaVRtrLdpExtendedSessionTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2), )
-if mibBuilder.loadTexts: alaVRtrLdpExtendedSessionTable.setStatus('current')
-alaVRtrLdpExtendedSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1), ).setIndexNames((0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpSessvRtrID"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpPeerLdpId"))
-if mibBuilder.loadTexts: alaVRtrLdpExtendedSessionEntry.setStatus('current')
-alaVRtrLdpPeerLdpId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1, 1), MplsLdpIdentifier())
-if mibBuilder.loadTexts: alaVRtrLdpPeerLdpId.setStatus('current')
-alaVRtrLdpSessRestartInProgress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaVRtrLdpSessRestartInProgress.setStatus('current')
-alaVRtrLdpSessFtReconTimeAdvertised = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1, 3), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaVRtrLdpSessFtReconTimeAdvertised.setStatus('current')
-alaVRtrLdpSessFtRecoveryTimeAdvertised = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1, 4), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaVRtrLdpSessFtRecoveryTimeAdvertised.setStatus('current')
-alaVRtrLdpSessvRtrID = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1, 5), TmnxVRtrID()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alaVRtrLdpSessvRtrID.setStatus('current')
-alaRfpSpb = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5))
-alaRfpSpbLocalEndPointTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1), )
-if mibBuilder.loadTexts: alaRfpSpbLocalEndPointTable.setStatus('current')
-alaRfpSpbLocalEndPointEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointRfp"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPoint"))
-if mibBuilder.loadTexts: alaRfpSpbLocalEndPointEntry.setStatus('current')
-alaRfpSpbLocalEndPointRfp = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 32767)))
-if mibBuilder.loadTexts: alaRfpSpbLocalEndPointRfp.setStatus('current')
-alaRfpSpbLocalEndPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8191)))
-if mibBuilder.loadTexts: alaRfpSpbLocalEndPoint.setStatus('current')
-alaRfpSpbLocalEndPointCcmInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("oneSecond", 1), ("oneMinute", 2), ("tenSeconds", 3), ("tenMinutes", 4), ("hundredMilliSeconds", 5))).clone('oneSecond')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaRfpSpbLocalEndPointCcmInterval.setStatus('current')
-alaRfpSpbLocalEndPointAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaRfpSpbLocalEndPointAdminStatus.setStatus('current')
-alaRfpSpbLocalEndPointLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaRfpSpbLocalEndPointLevel.setStatus('current')
-alaRfpSpbLocalEndPointCBVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRfpSpbLocalEndPointCBVlan.setStatus('current')
-alaRfpSpbLocalEndPointMaintDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 7), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRfpSpbLocalEndPointMaintDomain.setStatus('current')
-alaRfpSpbLocalEndPointMaintAssociation = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 8), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRfpSpbLocalEndPointMaintAssociation.setStatus('current')
-alaRfpSpbLocalEndPointRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaRfpSpbLocalEndPointRowStatus.setStatus('current')
-alaRfpSpbRemoteEndPointTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2), )
-if mibBuilder.loadTexts: alaRfpSpbRemoteEndPointTable.setStatus('current')
-alaRfpSpbRemoteEndPointEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1), ).setIndexNames((0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointRfp"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPoint"), (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointServiceID"))
-if mibBuilder.loadTexts: alaRfpSpbRemoteEndPointEntry.setStatus('current')
-alaRfpSpbRemoteEndPointRfp = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 32767)))
-if mibBuilder.loadTexts: alaRfpSpbRemoteEndPointRfp.setStatus('current')
-alaRfpSpbRemoteEndPoint = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8191)))
-if mibBuilder.loadTexts: alaRfpSpbRemoteEndPoint.setStatus('current')
-alaRfpSpbRemoteEndPointServiceID = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 32767)))
-if mibBuilder.loadTexts: alaRfpSpbRemoteEndPointServiceID.setStatus('current')
-alaRfpSpbRemoteEndPointStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ok", 1), ("failed", 2), ("unknown", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRfpSpbRemoteEndPointStatus.setStatus('current')
-alaRfpSpbRemoteEndPointSystemName = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRfpSpbRemoteEndPointSystemName.setStatus('current')
-alaRfpSpbRemoteEndPointISID = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRfpSpbRemoteEndPointISID.setStatus('current')
-alaRfpSpbRemoteEndPointBVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRfpSpbRemoteEndPointBVlan.setStatus('current')
-alaRfpSpbRemoteEndPointRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaRfpSpbRemoteEndPointRowStatus.setStatus('current')
-smgrServiceError = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 1)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcIsid"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMulticastMode"))
-if mibBuilder.loadTexts: smgrServiceError.setStatus('current')
-smgrServiceHwError = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 2)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcVFI"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMcIndex"))
-if mibBuilder.loadTexts: smgrServiceHwError.setStatus('current')
-smgrSapError = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 3)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPortId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEncapValue"))
-if mibBuilder.loadTexts: smgrSapError.setStatus('current')
-smgrSapHwError = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 4)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPortId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEncapValue"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcVFI"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapVirtualPort"))
-if mibBuilder.loadTexts: smgrSapHwError.setStatus('current')
-smgrSdpError = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 5)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpNetworkPort"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemId"))
-if mibBuilder.loadTexts: smgrSdpError.setStatus('current')
-smgrSdpHwError = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 6)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpNetworkPort"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemId"))
-if mibBuilder.loadTexts: smgrSdpHwError.setStatus('current')
-smgrSdpBindError = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 7)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindNetworkPort"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemId"))
-if mibBuilder.loadTexts: smgrSdpBindError.setStatus('current')
-smgrSdpBindHwError = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 8)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindNetworkPort"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindVirtualPort"))
-if mibBuilder.loadTexts: smgrSdpBindHwError.setStatus('current')
-smgrGeneralError = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 9)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"))
-if mibBuilder.loadTexts: smgrGeneralError.setStatus('current')
-smgrStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 10)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcOperStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcNumSaps"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcNumSdps"))
-if mibBuilder.loadTexts: smgrStatusChange.setStatus('deprecated')
-smgrServiceStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 11)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcOperStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcIsid"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMulticastMode"))
-if mibBuilder.loadTexts: smgrServiceStatusChange.setStatus('current')
-smgrSapStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 12)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPortId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEncapValue"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapOperStatus"))
-if mibBuilder.loadTexts: smgrSapStatusChange.setStatus('current')
-smgrSdpStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 13)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpOperStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpNetworkPort"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemName"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpDynamicType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpIsid"))
-if mibBuilder.loadTexts: smgrSdpStatusChange.setStatus('current')
-smgrSdpBindStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 14)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindNetworkPort"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemName"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindIsid"))
-if mibBuilder.loadTexts: smgrSdpBindStatusChange.setStatus('current')
-smgrVxlanSdpBindStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 15)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindFarEndIpAddress"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindVnid"))
-if mibBuilder.loadTexts: smgrVxlanSdpBindStatusChange.setStatus('current')
-alcatelIND1ServiceMgrMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 2, 1)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapExtraInfoGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticNeighborServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticNeighborServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticQuerierServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticQuerierServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticNeighborServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticNeighborServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticQuerierServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticQuerierServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrExtendedLdpGeneralGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpExtendedSessionGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcBaseInfoEntryGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapBaseInfoEntryGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpInfoTableGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindTableGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSysTableGroup"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrEndPointGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alcatelIND1ServiceMgrMIBCompliance = alcatelIND1ServiceMgrMIBCompliance.setStatus('current')
-alaServiceMgrPortProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 1)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileStpBpduTreatment"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfile8021xTreatment"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfile8021ABTreatment"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfile8023adTreatment"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileGvrpTreatment"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileAmapTreatment"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileRowStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileMvrpTreatment"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileCiscoPduTreatment"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileCiscoVlanTreatment"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileCiscoUplinkTreatment"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaServiceMgrPortProfileGroup = alaServiceMgrPortProfileGroup.setStatus('current')
-alaServiceMgrPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 2)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortMode"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortEncapType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortPortProfileID"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortRowStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortLinkStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortSapType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortSapCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortVlanXlation"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortDescription"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaServiceMgrPortGroup = alaServiceMgrPortGroup.setStatus('current')
-alaSapExtraInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 3)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapInfoTrusted"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapInfoPriority"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaSapExtraInfoGroup = alaSapExtraInfoGroup.setStatus('obsolete')
-alaIgmpServiceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 4)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceQuerying"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSpoofing"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceZapping"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceVersion"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceRobustness"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceQueryInterval"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceQueryResponseInterval"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceLastMemberQueryInterval"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceRouterTimeout"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceTimeout"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceProxying"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceUnsolicitedReportInterval"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceQuerierForwarding"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceMaxGroupLimit"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceMaxGroupExceedAction"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpServiceGroup = alaIgmpServiceGroup.setStatus('current')
-alaIgmpMemberServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 5)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapMode"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpMemberServiceSapGroup = alaIgmpMemberServiceSapGroup.setStatus('current')
-alaIgmpMemberServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 6)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindMode"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpMemberServiceSdpBindGroup = alaIgmpMemberServiceSdpBindGroup.setStatus('current')
-alaIgmpStaticMemberServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 7)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSapRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpStaticMemberServiceSapGroup = alaIgmpStaticMemberServiceSapGroup.setStatus('current')
-alaIgmpStaticMemberServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 8)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSdpBindRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpStaticMemberServiceSdpBindGroup = alaIgmpStaticMemberServiceSdpBindGroup.setStatus('current')
-alaIgmpNeighborServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 9)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSapCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSapTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpNeighborServiceSapGroup = alaIgmpNeighborServiceSapGroup.setStatus('current')
-alaIgmpNeighborServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 10)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSdpBindCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSdpBindTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpNeighborServiceSdpBindGroup = alaIgmpNeighborServiceSdpBindGroup.setStatus('current')
-alaIgmpStaticNeighborServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 11)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticNeighborServiceSapRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpStaticNeighborServiceSapGroup = alaIgmpStaticNeighborServiceSapGroup.setStatus('current')
-alaIgmpStaticNeighborServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 12)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticNeighborServiceSdpBindRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpStaticNeighborServiceSdpBindGroup = alaIgmpStaticNeighborServiceSdpBindGroup.setStatus('current')
-alaIgmpQuerierServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 13)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSapCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSapTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpQuerierServiceSapGroup = alaIgmpQuerierServiceSapGroup.setStatus('current')
-alaIgmpQuerierServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 14)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSdpBindCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSdpBindTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpQuerierServiceSdpBindGroup = alaIgmpQuerierServiceSdpBindGroup.setStatus('current')
-alaIgmpStaticQuerierServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 15)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticQuerierServiceSapRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpStaticQuerierServiceSapGroup = alaIgmpStaticQuerierServiceSapGroup.setStatus('current')
-alaIgmpStaticQuerierServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 16)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticQuerierServiceSdpBindRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpStaticQuerierServiceSdpBindGroup = alaIgmpStaticQuerierServiceSdpBindGroup.setStatus('current')
-alaIgmpServiceSourceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 17)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceLocale"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourcePortId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceEncapValue"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceSdpId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceVcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpServiceSourceGroup = alaIgmpServiceSourceGroup.setStatus('current')
-alaIgmpServiceSapForwardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 18)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardLocale"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardPortId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardEncapValue"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardSdpId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardVcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardNextType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpServiceSapForwardGroup = alaIgmpServiceSapForwardGroup.setStatus('current')
-alaIgmpServiceSdpBindForwardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 19)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardLocale"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardPortId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardEncapValue"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardSdpId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardVcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardNextType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpServiceSdpBindForwardGroup = alaIgmpServiceSdpBindForwardGroup.setStatus('current')
-alaIgmpServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 20)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapMaxGroupLimit"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapMaxGroupExceedAction"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapCurrentGroupCount"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpServiceSapGroup = alaIgmpServiceSapGroup.setStatus('current')
-alaIgmpServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 21)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindMaxGroupLimit"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindMaxGroupExceedAction"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindCurrentGroupCount"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpServiceSdpBindGroup = alaIgmpServiceSdpBindGroup.setStatus('current')
-alaMldServiceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 22)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceQuerying"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSpoofing"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceZapping"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceVersion"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceRobustness"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceQueryInterval"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceQueryResponseInterval"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceLastMemberQueryInterval"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceRouterTimeout"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceTimeout"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceProxying"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceUnsolicitedReportInterval"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceQuerierForwarding"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceMaxGroupLimit"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceMaxGroupExceedAction"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldServiceGroup = alaMldServiceGroup.setStatus('current')
-alaMldMemberServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 23)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapMode"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldMemberServiceSapGroup = alaMldMemberServiceSapGroup.setStatus('current')
-alaMldMemberServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 24)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindMode"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldMemberServiceSdpBindGroup = alaMldMemberServiceSdpBindGroup.setStatus('current')
-alaMldStaticMemberServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 25)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSapRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldStaticMemberServiceSapGroup = alaMldStaticMemberServiceSapGroup.setStatus('current')
-alaMldStaticMemberServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 26)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSdpBindRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldStaticMemberServiceSdpBindGroup = alaMldStaticMemberServiceSdpBindGroup.setStatus('current')
-alaMldNeighborServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 27)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSapCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSapTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldNeighborServiceSapGroup = alaMldNeighborServiceSapGroup.setStatus('current')
-alaMldNeighborServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 28)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSdpBindCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSdpBindTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldNeighborServiceSdpBindGroup = alaMldNeighborServiceSdpBindGroup.setStatus('current')
-alaMldStaticNeighborServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 29)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticNeighborServiceSapRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldStaticNeighborServiceSapGroup = alaMldStaticNeighborServiceSapGroup.setStatus('current')
-alaMldStaticNeighborServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 30)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticNeighborServiceSdpBindRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldStaticNeighborServiceSdpBindGroup = alaMldStaticNeighborServiceSdpBindGroup.setStatus('current')
-alaMldQuerierServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 31)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSapCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSapTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldQuerierServiceSapGroup = alaMldQuerierServiceSapGroup.setStatus('current')
-alaMldQuerierServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 32)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSdpBindCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSdpBindTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldQuerierServiceSdpBindGroup = alaMldQuerierServiceSdpBindGroup.setStatus('current')
-alaMldStaticQuerierServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 33)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticQuerierServiceSapRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldStaticQuerierServiceSapGroup = alaMldStaticQuerierServiceSapGroup.setStatus('current')
-alaMldStaticQuerierServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 34)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticQuerierServiceSdpBindRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldStaticQuerierServiceSdpBindGroup = alaMldStaticQuerierServiceSdpBindGroup.setStatus('current')
-alaMldServiceSourceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 35)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceLocale"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourcePortId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceEncapValue"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceSdpId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceVcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldServiceSourceGroup = alaMldServiceSourceGroup.setStatus('current')
-alaMldServiceSapForwardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 36)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardLocale"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardPortId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardEncapValue"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardSdpId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardVcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardNextType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldServiceSapForwardGroup = alaMldServiceSapForwardGroup.setStatus('current')
-alaMldServiceSdpBindForwardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 37)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardLocale"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardPortId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardEncapValue"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardSdpId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardVcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardNextType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldServiceSdpBindForwardGroup = alaMldServiceSdpBindForwardGroup.setStatus('current')
-alaMldServiceSapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 38)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapMaxGroupLimit"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapMaxGroupExceedAction"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapCurrentGroupCount"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldServiceSapGroup = alaMldServiceSapGroup.setStatus('current')
-alaMldServiceSdpBindGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 39)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindMaxGroupLimit"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindMaxGroupExceedAction"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindCurrentGroupCount"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaMldServiceSdpBindGroup = alaMldServiceSdpBindGroup.setStatus('current')
-alaVRtrExtendedLdpGeneralGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 40)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpGenGracefulRestartSupport"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpGenGRReconnectTime"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpGenGRFwdStateHoldTime"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpGenvRtrID"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaVRtrExtendedLdpGeneralGroup = alaVRtrExtendedLdpGeneralGroup.setStatus('current')
-alaVRtrLdpExtendedSessionGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 41)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpSessRestartInProgress"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpSessFtReconTimeAdvertised"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpSessFtRecoveryTimeAdvertised"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpSessvRtrID"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaVRtrLdpExtendedSessionGroup = alaVRtrLdpExtendedSessionGroup.setStatus('current')
-alaSvcBaseInfoEntryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 42)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcRowStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcDescription"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMtu"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcAdminStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcOperStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcNumSaps"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcNumSdps"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcLastMgmtChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcLastStatusChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcDefMeshVcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcVFI"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMcIndex"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcAllocationType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcStatsAdminStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcRemoteFlushStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcIsid"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMulticastMode"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcIngressPacketCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcIngressByteCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcEgressPacketCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcEgressByteCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcClearCounters"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcSapVlanXlation"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcVnid"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcRemoveIngressTag"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcL3VpnIfIndex"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcL3VpnIfName"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcL3VpnVrfName"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcL3VpnMtu"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaSvcBaseInfoEntryGroup = alaSvcBaseInfoEntryGroup.setStatus('current')
-alaSapBaseInfoEntryGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 43)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPortId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEncapValue"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapRowStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapDescription"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapAdminStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapOperStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapLastMgmtChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapLastStatusChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapOperFlags"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapTrusted"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPriority"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapSvcId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapSvcVFI"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapVirtualPort"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapAllocationType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapStatsAdminStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapIngressPacketCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapIngressByteCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEgressPacketCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEgressByteCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapClearCounters"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaSapBaseInfoEntryGroup = alaSapBaseInfoEntryGroup.setStatus('current')
-alaSdpInfoTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 44)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpRowStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSvcType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpDelivery"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpFarEndIpAddress"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpDescription"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpLabelSignaling"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpAdminStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpOperStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpAdminPathMtu"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpOperPathMtu"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpLastMgmtChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpLdpEnabled"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpVlanVcEtype"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpAdvertisedVllMtuOverride"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpOperFlags"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpLastStatusChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpNetworkPort"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemName"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSpSourceId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpAllocationType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpDynamicType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpIsid"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpMcastPortList"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpCreationOrigin"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpAdminTTL"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaSdpInfoTableGroup = alaSdpInfoTableGroup.setStatus('current')
-alaSdpBindTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 45)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindRowStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSvcType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindAdminIngressLabel"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindAdminEgressLabel"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperIngressLabel"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperEgressLabel"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindAdminStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindLastMgmtChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperFlags"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindLastStatusChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindControlWordBit"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperControlWord"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindNetworkPort"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindVirtualPort"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindIsid"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemName"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindAllocationType"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindIngressPacketCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindIngressByteCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindEgressPacketCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindEgressByteCount"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindCreationOrigin"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindFarEndIpAddress"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindVnid"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindDescription"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindStatsAdminStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaSdpBindTableGroup = alaSdpBindTableGroup.setStatus('current')
-alaSmgrNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 46)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrGeneralError"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSapError"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpBindError"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpError"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrServiceError"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrStatusChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrServiceStatusChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSapStatusChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpStatusChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpBindStatusChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrVxlanSdpBindStatusChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaSmgrNotificationGroup = alaSmgrNotificationGroup.setStatus('current')
-alaSmgrHwNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 47)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSapHwError"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpBindHwError"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpHwError"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrServiceHwError"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaSmgrHwNotificationGroup = alaSmgrHwNotificationGroup.setStatus('current')
-alaSvcMgrSysTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 48)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSysId"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSysName"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSdpTrapAdminState"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSvcTrapAdminState"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSapTrapAdminState"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSdpBindTrapAdminState"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrMaxTrapPerMinute"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSysLastMgmtChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSysLastStatusChange"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrStatsAdminState"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrVxlanDestUdpPort"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrVxlanVrfName"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaSvcMgrSysTableGroup = alaSvcMgrSysTableGroup.setStatus('current')
-alaSvcMgrEndPointGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 49)).setObjects(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointCcmInterval"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointAdminStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointLevel"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointCBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointMaintDomain"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointMaintAssociation"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointRowStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointStatus"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointSystemName"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointISID"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointBVlan"), ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaSvcMgrEndPointGroup = alaSvcMgrEndPointGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-ENT1-SERVICE-MGR-MIB", alaMldServiceSourceHostAddressType=alaMldServiceSourceHostAddressType, AluSdpId=AluSdpId, alaSapEgressByteCount=alaSapEgressByteCount, alaIgmpServiceSourceOrigAddress=alaIgmpServiceSourceOrigAddress, alaSmgrNotificationGroup=alaSmgrNotificationGroup, alaServiceMgrPortMode=alaServiceMgrPortMode, alaMldMemberServiceSdpBindGroup=alaMldMemberServiceSdpBindGroup, alaMldStaticQuerierServiceSapGroup=alaMldStaticQuerierServiceSapGroup, alaVRtrLdpExtendedSessionTable=alaVRtrLdpExtendedSessionTable, alaVRtrLdpExtendedSessionEntry=alaVRtrLdpExtendedSessionEntry, alaSdpBindLastStatusChange=alaSdpBindLastStatusChange, alaServiceMgrPortProfileID=alaServiceMgrPortProfileID, alaIgmpServiceQueryResponseInterval=alaIgmpServiceQueryResponseInterval, alaSvcIsid=alaSvcIsid, alaIgmpMemberServiceSdpBindCount=alaIgmpMemberServiceSdpBindCount, alaServiceMgrPortPortProfileID=alaServiceMgrPortPortProfileID, alaSvcBaseInfoEntryGroup=alaSvcBaseInfoEntryGroup, alaMldServiceSapForwardEntry=alaMldServiceSapForwardEntry, alaSvcMgrSysLastStatusChange=alaSvcMgrSysLastStatusChange, alaSdpBindType=alaSdpBindType, alaMldServiceSdpBindForwardTable=alaMldServiceSdpBindForwardTable, smgrServiceStatusChange=smgrServiceStatusChange, alaSdpRowStatus=alaSdpRowStatus, alaSapOperFlags=alaSapOperFlags, alaMldServiceTable=alaMldServiceTable, alaMldStaticMemberServiceSapRowStatus=alaMldStaticMemberServiceSapRowStatus, alaIgmpStaticNeighborServiceSapEntry=alaIgmpStaticNeighborServiceSapEntry, alaMldServiceSapTable=alaMldServiceSapTable, alaVRtrExtendedLdpGeneralTable=alaVRtrExtendedLdpGeneralTable, alaIgmpStaticNeighborServiceSdpBindRowStatus=alaIgmpStaticNeighborServiceSdpBindRowStatus, alaSvcAllocationType=alaSvcAllocationType, alaMldServiceEntry=alaMldServiceEntry, alaMldServiceSourceOrigAddressType=alaMldServiceSourceOrigAddressType, alcatelIND1ServiceMgrMIBCompliance=alcatelIND1ServiceMgrMIBCompliance, alaSapBaseInfoEntry=alaSapBaseInfoEntry, alaIgmpServiceSdpBindForwardGroup=alaIgmpServiceSdpBindForwardGroup, alaSvcVFI=alaSvcVFI, alaIgmpStaticMemberServiceSapGroupAddressType=alaIgmpStaticMemberServiceSapGroupAddressType, alaMldServiceSdpBindForwardPortId=alaMldServiceSdpBindForwardPortId, alaServiceMgrNotifications=alaServiceMgrNotifications, alaIgmpNeighborServiceSapHostAddressType=alaIgmpNeighborServiceSapHostAddressType, alaMldServiceSapForwardPortId=alaMldServiceSapForwardPortId, alaVRtrLdpPeerLdpId=alaVRtrLdpPeerLdpId, alaRfpSpbRemoteEndPointTable=alaRfpSpbRemoteEndPointTable, alaRfpSpbLocalEndPointCBVlan=alaRfpSpbLocalEndPointCBVlan, alaRfpSpbLocalEndPointCcmInterval=alaRfpSpbLocalEndPointCcmInterval, alaVRtrLdpSessvRtrID=alaVRtrLdpSessvRtrID, AluSdpOriginType=AluSdpOriginType, alaIgmpServiceRobustness=alaIgmpServiceRobustness, alaMldNeighborServiceSapHostAddress=alaMldNeighborServiceSapHostAddress, alaSvcL3VpnIfName=alaSvcL3VpnIfName, alaIgmpServiceSourceHostAddressType=alaIgmpServiceSourceHostAddressType, alaIgmpServiceSourceDestAddress=alaIgmpServiceSourceDestAddress, alaMldStaticNeighborServiceSapGroup=alaMldStaticNeighborServiceSapGroup, alaSdpBindOperIngressLabel=alaSdpBindOperIngressLabel, alaSdpBindEgressByteCount=alaSdpBindEgressByteCount, alaIgmpServiceSapForwardNextSapPortId=alaIgmpServiceSapForwardNextSapPortId, alaMldStaticMemberServiceSdpBindEntry=alaMldStaticMemberServiceSdpBindEntry, alaMldServiceMaxGroupExceedAction=alaMldServiceMaxGroupExceedAction, alaVRtrLdpGenGRFwdStateHoldTime=alaVRtrLdpGenGRFwdStateHoldTime, alaRfpSpbRemoteEndPoint=alaRfpSpbRemoteEndPoint, alaMldServiceSapEntry=alaMldServiceSapEntry, alaSvcMgrSysTable=alaSvcMgrSysTable, alaMldServiceSapForwardLocale=alaMldServiceSapForwardLocale, alaMldQuerierServiceSapHostAddress=alaMldQuerierServiceSapHostAddress, alaIgmpMemberServiceSdpBindTimeout=alaIgmpMemberServiceSdpBindTimeout, AluAllocationType=AluAllocationType, alaIgmpServiceSapEntry=alaIgmpServiceSapEntry, alaRfpSpbLocalEndPointRfp=alaRfpSpbLocalEndPointRfp, alaIgmpServiceZapping=alaIgmpServiceZapping, alaMldQuerierServiceSdpBindGroup=alaMldQuerierServiceSdpBindGroup, alaIgmpServiceSapForwardHostAddress=alaIgmpServiceSapForwardHostAddress, alaMldStaticQuerierServiceSdpBindRowStatus=alaMldStaticQuerierServiceSdpBindRowStatus, alaMldMemberServiceSapMode=alaMldMemberServiceSapMode, alaSdpBVlan=alaSdpBVlan, alaServiceMgrPortEntry=alaServiceMgrPortEntry, alaServiceMgrPortProfileMvrpTreatment=alaServiceMgrPortProfileMvrpTreatment, alaSvcMgrSdpBindTrapAdminState=alaSvcMgrSdpBindTrapAdminState, alaSdpFarEndIpAddress=alaSdpFarEndIpAddress, alaSdpLabelSignaling=alaSdpLabelSignaling, alaSdpBindAdminEgressLabel=alaSdpBindAdminEgressLabel, alaIgmpMemberServiceSapSourceAddress=alaIgmpMemberServiceSapSourceAddress, smgrGeneralError=smgrGeneralError, alaMldStaticMemberServiceSapGroup=alaMldStaticMemberServiceSapGroup, alaIgmpQuerierServiceSdpBindEntry=alaIgmpQuerierServiceSdpBindEntry, alaIgmpServiceSourceGroupAddressType=alaIgmpServiceSourceGroupAddressType, alcatelIND1ServiceMgrMIBConformance=alcatelIND1ServiceMgrMIBConformance, alaIgmpServiceSapForwardNextSapEncapValue=alaIgmpServiceSapForwardNextSapEncapValue, alaIgmpMemberServiceSdpBindGroup=alaIgmpMemberServiceSdpBindGroup, alaMldServiceQueryResponseInterval=alaMldServiceQueryResponseInterval, smgrSdpHwError=smgrSdpHwError, alaMldServiceSdpBindForwardEncapValue=alaMldServiceSdpBindForwardEncapValue, alaSdpSystemName=alaSdpSystemName, alaMldServiceSdpBindForwardHostAddress=alaMldServiceSdpBindForwardHostAddress, alaIgmpMemberServiceSapGroupAddress=alaIgmpMemberServiceSapGroupAddress, alaMldServiceSourceEntry=alaMldServiceSourceEntry, alaSdpBindAdminIngressLabel=alaSdpBindAdminIngressLabel, alaIgmpStaticMemberServiceSapEntry=alaIgmpStaticMemberServiceSapEntry, alaIgmpStaticMemberServiceSapTable=alaIgmpStaticMemberServiceSapTable, alaIgmpServiceSdpBindForwardPortId=alaIgmpServiceSdpBindForwardPortId, alaMldServiceRouterTimeout=alaMldServiceRouterTimeout, alaMldNeighborServiceSapTable=alaMldNeighborServiceSapTable, alaMldQuerierServiceSapTimeout=alaMldQuerierServiceSapTimeout, alaSvcLastMgmtChange=alaSvcLastMgmtChange, alaMldQuerierServiceSdpBindTimeout=alaMldQuerierServiceSdpBindTimeout, alaMldMemberServiceSdpBindGroupAddressType=alaMldMemberServiceSdpBindGroupAddressType, alaSvcIngressPacketCount=alaSvcIngressPacketCount, alaIgmpServiceSdpBindForwardType=alaIgmpServiceSdpBindForwardType, alaSvcMgrSysId=alaSvcMgrSysId, alaMldServiceSdpBindMaxGroupExceedAction=alaMldServiceSdpBindMaxGroupExceedAction, alaIgmpStaticNeighborServiceSapRowStatus=alaIgmpStaticNeighborServiceSapRowStatus, alaSdpBindControlWordBit=alaSdpBindControlWordBit, alaIgmpServiceSourceGroupAddress=alaIgmpServiceSourceGroupAddress, alaIgmpQuerierServiceSdpBindHostAddressType=alaIgmpQuerierServiceSdpBindHostAddressType, alaSdpDescription=alaSdpDescription, smgrSapStatusChange=smgrSapStatusChange, alaSvcBaseInfoTable=alaSvcBaseInfoTable, alaSdpIsid=alaSdpIsid, alaIgmpStaticQuerierServiceSapRowStatus=alaIgmpStaticQuerierServiceSapRowStatus, alaIgmpServiceSourceType=alaIgmpServiceSourceType, alaServiceMgrPortSapCount=alaServiceMgrPortSapCount, alaMldServiceSapCurrentGroupCount=alaMldServiceSapCurrentGroupCount, alaMldMemberServiceSdpBindMode=alaMldMemberServiceSdpBindMode, alaIgmpServiceTable=alaIgmpServiceTable, alaSapIngressByteCount=alaSapIngressByteCount, alcatelIND1ServiceMgrMIB=alcatelIND1ServiceMgrMIB, alaServiceMgrPortRowStatus=alaServiceMgrPortRowStatus, alaIgmpNeighborServiceSdpBindTimeout=alaIgmpNeighborServiceSdpBindTimeout, AluLocation=AluLocation, alaIgmpServiceSapForwardEntry=alaIgmpServiceSapForwardEntry, alaSapStatsAdminStatus=alaSapStatsAdminStatus, alaRfpSpbRemoteEndPointRfp=alaRfpSpbRemoteEndPointRfp, alaSapLastStatusChange=alaSapLastStatusChange, alaSvcMtu=alaSvcMtu, alaMldServiceSourceDestAddress=alaMldServiceSourceDestAddress, alaSdpBindSystemName=alaSdpBindSystemName, alaMldMemberServiceSapCount=alaMldMemberServiceSapCount, alaIgmpServiceSapCurrentGroupCount=alaIgmpServiceSapCurrentGroupCount, alaIgmpServiceQuerying=alaIgmpServiceQuerying, alaMldQuerierServiceSdpBindEntry=alaMldQuerierServiceSdpBindEntry, alaSdpBindCount=alaSdpBindCount, alaSapInfoTrusted=alaSapInfoTrusted, alaServiceMgrPortProfileAmapTreatment=alaServiceMgrPortProfileAmapTreatment, alaSdpLastMgmtChange=alaSdpLastMgmtChange, alaMldStaticQuerierServiceSdpBindEntry=alaMldStaticQuerierServiceSdpBindEntry, alaSvcOperStatus=alaSvcOperStatus, alaIgmpNeighborServiceSapTimeout=alaIgmpNeighborServiceSapTimeout, alaMldServiceSapForwardHostAddress=alaMldServiceSapForwardHostAddress, alaIgmpServiceSourceVcId=alaIgmpServiceSourceVcId, alaMldMemberServiceSdpBindEntry=alaMldMemberServiceSdpBindEntry, alaIgmpServiceSapGroup=alaIgmpServiceSapGroup, alaMldServiceSapMaxGroupExceedAction=alaMldServiceSapMaxGroupExceedAction, alaRfpSpb=alaRfpSpb, alaIgmpNeighborServiceSapHostAddress=alaIgmpNeighborServiceSapHostAddress, alaSvcIngressByteCount=alaSvcIngressByteCount, alaIgmpServiceSdpBindForwardTable=alaIgmpServiceSdpBindForwardTable, alaSvcMgrSapTrapAdminState=alaSvcMgrSapTrapAdminState, alaServiceMgrPortDescription=alaServiceMgrPortDescription, alaIgmpServiceMaxGroupExceedAction=alaIgmpServiceMaxGroupExceedAction, alaIgmpServiceSapForwardGroup=alaIgmpServiceSapForwardGroup, alaMldMemberServiceSdpBindTable=alaMldMemberServiceSdpBindTable, alaSdpBindEgressPacketCount=alaSdpBindEgressPacketCount, alaIgmpMemberServiceSapTimeout=alaIgmpMemberServiceSapTimeout, alaIgmpQuerierServiceSapHostAddress=alaIgmpQuerierServiceSapHostAddress, alaVRtrLdpGenGracefulRestartSupport=alaVRtrLdpGenGracefulRestartSupport, alaMldStaticNeighborServiceSdpBindTable=alaMldStaticNeighborServiceSdpBindTable, alaIgmpMemberServiceSapEntry=alaIgmpMemberServiceSapEntry, alaIgmpServiceMaxGroupLimit=alaIgmpServiceMaxGroupLimit, alaSvcClearCounters=alaSvcClearCounters, alcatelIND1ServiceMgrMIBCompliances=alcatelIND1ServiceMgrMIBCompliances, alaIgmpStaticNeighborServiceSdpBindEntry=alaIgmpStaticNeighborServiceSdpBindEntry, alaIgmpServiceSapForwardNextType=alaIgmpServiceSapForwardNextType, alaMldServiceSdpBindForwardType=alaMldServiceSdpBindForwardType, alaMldMemberServiceSapGroup=alaMldMemberServiceSapGroup, alaMldQuerierServiceSapCount=alaMldQuerierServiceSapCount, alaMldServiceSapForwardDestAddress=alaMldServiceSapForwardDestAddress, alaMldServiceSdpBindEntry=alaMldServiceSdpBindEntry, alaSdpBindAllocationType=alaSdpBindAllocationType, alaSdpInfoTableGroup=alaSdpInfoTableGroup, alaSvcRemoveIngressTag=alaSvcRemoveIngressTag, alaServiceMgrPortProfileEntry=alaServiceMgrPortProfileEntry, alaMldServiceSapForwardOrigAddress=alaMldServiceSapForwardOrigAddress, alaServiceMgrPortProfile8023adTreatment=alaServiceMgrPortProfile8023adTreatment, alaIgmpServiceSdpBindGroup=alaIgmpServiceSdpBindGroup, alaMldMemberServiceSapGroupAddress=alaMldMemberServiceSapGroupAddress, alaSvcRemoteFlushStatus=alaSvcRemoteFlushStatus, alaIgmpServiceSourceOrigAddressType=alaIgmpServiceSourceOrigAddressType, alaMldServiceSapForwardVcId=alaMldServiceSapForwardVcId, alaIgmpServiceSdpBindEntry=alaIgmpServiceSdpBindEntry, alaMldNeighborServiceSdpBindEntry=alaMldNeighborServiceSdpBindEntry, alaSdpBindRowStatus=alaSdpBindRowStatus, alaSdpBindIngressByteCount=alaSdpBindIngressByteCount, alaIgmpServiceSdpBindForwardLocale=alaIgmpServiceSdpBindForwardLocale, alaMldServiceSdpBindGroup=alaMldServiceSdpBindGroup, alaIgmpStaticMemberServiceSdpBindRowStatus=alaIgmpStaticMemberServiceSdpBindRowStatus, alaMldServiceQuerierForwarding=alaMldServiceQuerierForwarding, alaMldServiceSapForwardGroupAddress=alaMldServiceSapForwardGroupAddress, alaIgmpServiceSdpBindMaxGroupExceedAction=alaIgmpServiceSdpBindMaxGroupExceedAction, alaMldStaticMemberServiceSdpBindTable=alaMldStaticMemberServiceSdpBindTable, alaIgmpServiceUnsolicitedReportInterval=alaIgmpServiceUnsolicitedReportInterval, alaSdpBindNetworkPort=alaSdpBindNetworkPort, alaSvcMcIndex=alaSvcMcIndex, alaSvcL3VpnVrfName=alaSvcL3VpnVrfName, alaIgmpMemberServiceSdpBindEntry=alaIgmpMemberServiceSdpBindEntry, alaMldMemberServiceSdpBindGroupAddress=alaMldMemberServiceSdpBindGroupAddress, alaIgmpStaticQuerierServiceSapEntry=alaIgmpStaticQuerierServiceSapEntry, alaIgmpQuerierServiceSapHostAddressType=alaIgmpQuerierServiceSapHostAddressType, alaIgmpMemberServiceSapCount=alaIgmpMemberServiceSapCount, alaMldQuerierServiceSapGroup=alaMldQuerierServiceSapGroup, alaRfpSpbRemoteEndPointServiceID=alaRfpSpbRemoteEndPointServiceID, alaMldQuerierServiceSdpBindTable=alaMldQuerierServiceSdpBindTable, alaMldStaticMemberServiceSapGroupAddress=alaMldStaticMemberServiceSapGroupAddress, alaIgmpStaticQuerierServiceSdpBindEntry=alaIgmpStaticQuerierServiceSdpBindEntry, alaSdpBindDescription=alaSdpBindDescription, alaMldMemberServiceSdpBindTimeout=alaMldMemberServiceSdpBindTimeout, alaIgmpServiceSapForwardSdpId=alaIgmpServiceSapForwardSdpId, alaSvcSapVlanXlation=alaSvcSapVlanXlation, alaSvcMgrMaxTrapPerMinute=alaSvcMgrMaxTrapPerMinute, alaIgmpStaticQuerierServiceSdpBindTable=alaIgmpStaticQuerierServiceSdpBindTable, alaMldNeighborServiceSdpBindGroup=alaMldNeighborServiceSdpBindGroup, alaSvcEgressPacketCount=alaSvcEgressPacketCount, alaServiceMgrPortID=alaServiceMgrPortID, alaServiceMgrPortVlanXlation=alaServiceMgrPortVlanXlation, alaSdpBindAdminStatus=alaSdpBindAdminStatus, alaMldServiceSdpBindForwardEntry=alaMldServiceSdpBindForwardEntry, alaIgmpStaticNeighborServiceSdpBindGroup=alaIgmpStaticNeighborServiceSdpBindGroup, alaServiceMgrIgmp=alaServiceMgrIgmp, alaIgmpServiceSourceEncapValue=alaIgmpServiceSourceEncapValue, alaIgmpMemberServiceSdpBindSourceAddress=alaIgmpMemberServiceSdpBindSourceAddress, alaIgmpQuerierServiceSapEntry=alaIgmpQuerierServiceSapEntry, alaMldMemberServiceSapSourceAddressType=alaMldMemberServiceSapSourceAddressType, alaSapLastMgmtChange=alaSapLastMgmtChange, alaSdpAdminStatus=alaSdpAdminStatus, alaSdpBindIsid=alaSdpBindIsid, alaMldStaticQuerierServiceSdpBindTable=alaMldStaticQuerierServiceSdpBindTable, alaMldServiceSourceVcId=alaMldServiceSourceVcId, alaSapBaseInfoEntryGroup=alaSapBaseInfoEntryGroup, alaSdpVlanVcEtype=alaSdpVlanVcEtype, alaMldNeighborServiceSdpBindTable=alaMldNeighborServiceSdpBindTable, alaMldMemberServiceSapSourceAddress=alaMldMemberServiceSapSourceAddress, alaSapVirtualPort=alaSapVirtualPort, alaMldServiceSapForwardTable=alaMldServiceSapForwardTable, alaIgmpNeighborServiceSdpBindTable=alaIgmpNeighborServiceSdpBindTable, alaMldServiceSdpBindForwardGroup=alaMldServiceSdpBindForwardGroup, alaSdpBindTable=alaSdpBindTable, alaIgmpServiceSdpBindForwardOrigAddress=alaIgmpServiceSdpBindForwardOrigAddress, alaMldNeighborServiceSapEntry=alaMldNeighborServiceSapEntry, alaMldQuerierServiceSdpBindHostAddress=alaMldQuerierServiceSdpBindHostAddress, alaSapDescription=alaSapDescription, alaSdpOperPathMtu=alaSdpOperPathMtu, alaSvcRowStatus=alaSvcRowStatus, alaIgmpMemberServiceSdpBindGroupAddress=alaIgmpMemberServiceSdpBindGroupAddress, alaMldMemberServiceSdpBindCount=alaMldMemberServiceSdpBindCount, alaMldMemberServiceSapGroupAddressType=alaMldMemberServiceSapGroupAddressType)
-mibBuilder.exportSymbols("ALCATEL-ENT1-SERVICE-MGR-MIB", alaIgmpStaticMemberServiceSdpBindGroup=alaIgmpStaticMemberServiceSdpBindGroup, alaRfpSpbLocalEndPointLevel=alaRfpSpbLocalEndPointLevel, alaMldServiceSourcePortId=alaMldServiceSourcePortId, alaIgmpServiceVersion=alaIgmpServiceVersion, alaVRtrLdpExtendedSessionGroup=alaVRtrLdpExtendedSessionGroup, alaIgmpNeighborServiceSapEntry=alaIgmpNeighborServiceSapEntry, alaSvcMgrSdpTrapAdminState=alaSvcMgrSdpTrapAdminState, alaSdpBindLastMgmtChange=alaSdpBindLastMgmtChange, alaSdpBindCreationOrigin=alaSdpBindCreationOrigin, alaMldNeighborServiceSdpBindTimeout=alaMldNeighborServiceSdpBindTimeout, alaIgmpServiceSpoofing=alaIgmpServiceSpoofing, alaMldNeighborServiceSapCount=alaMldNeighborServiceSapCount, alaMldMemberServiceSdpBindSourceAddress=alaMldMemberServiceSdpBindSourceAddress, alaMldServiceSdpBindForwardNextSdpBindId=alaMldServiceSdpBindForwardNextSdpBindId, alaServiceMgrPortProfile8021xTreatment=alaServiceMgrPortProfile8021xTreatment, alaSapExtraInfoTable=alaSapExtraInfoTable, alaRfpSpbRemoteEndPointRowStatus=alaRfpSpbRemoteEndPointRowStatus, alaIgmpStaticMemberServiceSdpBindTable=alaIgmpStaticMemberServiceSdpBindTable, alaSapPortId=alaSapPortId, alaMldServiceSourceGroup=alaMldServiceSourceGroup, alaIgmpQuerierServiceSapTimeout=alaIgmpQuerierServiceSapTimeout, alaMldStaticMemberServiceSapTable=alaMldStaticMemberServiceSapTable, alaMldStaticNeighborServiceSdpBindGroup=alaMldStaticNeighborServiceSdpBindGroup, alaVRtrExtendedLdpGeneralGroup=alaVRtrExtendedLdpGeneralGroup, alaMldServiceSdpBindForwardDestAddress=alaMldServiceSdpBindForwardDestAddress, alaMldStaticQuerierServiceSapRowStatus=alaMldStaticQuerierServiceSapRowStatus, alaRfpSpbLocalEndPointEntry=alaRfpSpbLocalEndPointEntry, alaServiceMgrPortProfileCiscoVlanTreatment=alaServiceMgrPortProfileCiscoVlanTreatment, alaMldServiceQueryInterval=alaMldServiceQueryInterval, alaVRtrLdpSessFtRecoveryTimeAdvertised=alaVRtrLdpSessFtRecoveryTimeAdvertised, alaMldStaticNeighborServiceSapRowStatus=alaMldStaticNeighborServiceSapRowStatus, alaSvcStatsAdminStatus=alaSvcStatsAdminStatus, alaIgmpStaticQuerierServiceSapTable=alaIgmpStaticQuerierServiceSapTable, alaSdpBindOperFlags=alaSdpBindOperFlags, alaMldStaticMemberServiceSdpBindGroupAddressType=alaMldStaticMemberServiceSdpBindGroupAddressType, alaMldMemberServiceSapTimeout=alaMldMemberServiceSapTimeout, alaSdpOperFlags=alaSdpOperFlags, alaSdpNetworkPort=alaSdpNetworkPort, alaSvcMgrVxlanDestUdpPort=alaSvcMgrVxlanDestUdpPort, alaIgmpMemberServiceSapGroupAddressType=alaIgmpMemberServiceSapGroupAddressType, alaMldStaticQuerierServiceSdpBindGroup=alaMldStaticQuerierServiceSdpBindGroup, alaServiceMgrPortSapType=alaServiceMgrPortSapType, alaIgmpStaticMemberServiceSapGroup=alaIgmpStaticMemberServiceSapGroup, alaSvcVnid=alaSvcVnid, alaSvcDescription=alaSvcDescription, alaRfpSpbRemoteEndPointStatus=alaRfpSpbRemoteEndPointStatus, alaSdpBindOperEgressLabel=alaSdpBindOperEgressLabel, alaIgmpServiceSourcePortId=alaIgmpServiceSourcePortId, alaMldServiceSdpBindMaxGroupLimit=alaMldServiceSdpBindMaxGroupLimit, alaMldStaticNeighborServiceSdpBindEntry=alaMldStaticNeighborServiceSdpBindEntry, alaMldStaticMemberServiceSapGroupAddressType=alaMldStaticMemberServiceSapGroupAddressType, smgrSdpBindHwError=smgrSdpBindHwError, alcatelIND1ServiceMgrMIBObjects=alcatelIND1ServiceMgrMIBObjects, alaSapEncapValue=alaSapEncapValue, alaIgmpQuerierServiceSdpBindTable=alaIgmpQuerierServiceSdpBindTable, alaRfpSpbLocalEndPointMaintAssociation=alaRfpSpbLocalEndPointMaintAssociation, alaIgmpMemberServiceSapTable=alaIgmpMemberServiceSapTable, alaMldNeighborServiceSdpBindHostAddress=alaMldNeighborServiceSdpBindHostAddress, AluServiceType=AluServiceType, alaMldServiceSapForwardGroup=alaMldServiceSapForwardGroup, alaSvcBVlan=alaSvcBVlan, alaSvcMgrSysName=alaSvcMgrSysName, alaMldStaticMemberServiceSdpBindRowStatus=alaMldStaticMemberServiceSdpBindRowStatus, alaMldServiceUnsolicitedReportInterval=alaMldServiceUnsolicitedReportInterval, alaMldServiceSapForwardSdpId=alaMldServiceSapForwardSdpId, alaIgmpServiceSdpBindForwardNextSdpBindId=alaIgmpServiceSdpBindForwardNextSdpBindId, alaSvcLastStatusChange=alaSvcLastStatusChange, alaSvcId=alaSvcId, smgrServiceError=smgrServiceError, alaVRtrLdpSessRestartInProgress=alaVRtrLdpSessRestartInProgress, AluSdpDynamicType=AluSdpDynamicType, alaIgmpMemberServiceSdpBindTable=alaIgmpMemberServiceSdpBindTable, alaMldNeighborServiceSapTimeout=alaMldNeighborServiceSapTimeout, alaSdpLastStatusChange=alaSdpLastStatusChange, alaMldServiceSdpBindForwardOrigAddress=alaMldServiceSdpBindForwardOrigAddress, alaIgmpNeighborServiceSdpBindHostAddress=alaIgmpNeighborServiceSdpBindHostAddress, alaIgmpNeighborServiceSapGroup=alaIgmpNeighborServiceSapGroup, alaMldServiceSapMaxGroupLimit=alaMldServiceSapMaxGroupLimit, alaMldServiceProxying=alaMldServiceProxying, alaMldServiceSourceHostAddress=alaMldServiceSourceHostAddress, alaSdpSpSourceId=alaSdpSpSourceId, alaIgmpServiceSourceTimeout=alaIgmpServiceSourceTimeout, alaIgmpStaticNeighborServiceSapGroup=alaIgmpStaticNeighborServiceSapGroup, smgrSapHwError=smgrSapHwError, alaIgmpServiceSdpBindForwardEntry=alaIgmpServiceSdpBindForwardEntry, alaServiceMgrMld=alaServiceMgrMld, alaRfpSpbLocalEndPointMaintDomain=alaRfpSpbLocalEndPointMaintDomain, alaSdpId=alaSdpId, alaSvcMgrVxlanVrfName=alaSvcMgrVxlanVrfName, alaSapAdminStatus=alaSapAdminStatus, alaSapRowStatus=alaSapRowStatus, alaMldMemberServiceSdpBindSourceAddressType=alaMldMemberServiceSdpBindSourceAddressType, alaSapInfoPriority=alaSapInfoPriority, alaMldQuerierServiceSapTable=alaMldQuerierServiceSapTable, alaSvcEgressByteCount=alaSvcEgressByteCount, alaSapClearCounters=alaSapClearCounters, alaIgmpServiceSdpBindMaxGroupLimit=alaIgmpServiceSdpBindMaxGroupLimit, alaMldNeighborServiceSapHostAddressType=alaMldNeighborServiceSapHostAddressType, alaSapPriority=alaSapPriority, alaSdpLdpEnabled=alaSdpLdpEnabled, alaIgmpServiceSdpBindForwardGroupAddress=alaIgmpServiceSdpBindForwardGroupAddress, alaSvcL3VpnIfIndex=alaSvcL3VpnIfIndex, alaSdpCreationOrigin=alaSdpCreationOrigin, smgrServiceHwError=smgrServiceHwError, alaMldServiceSourceTimeout=alaMldServiceSourceTimeout, alaExtraLdp=alaExtraLdp, alaRfpSpbRemoteEndPointEntry=alaRfpSpbRemoteEndPointEntry, alaIgmpServiceSapForwardEncapValue=alaIgmpServiceSapForwardEncapValue, alaSdpAdminTTL=alaSdpAdminTTL, alaSdpBindIngressPacketCount=alaSdpBindIngressPacketCount, alaServiceMgrPortProfileGvrpTreatment=alaServiceMgrPortProfileGvrpTreatment, alaSdpSvcType=alaSdpSvcType, alaSapTrusted=alaSapTrusted, alaIgmpServiceGroup=alaIgmpServiceGroup, alaMldServiceSourceEncapValue=alaMldServiceSourceEncapValue, alaRfpSpbRemoteEndPointSystemName=alaRfpSpbRemoteEndPointSystemName, alaIgmpStaticMemberServiceSdpBindEntry=alaIgmpStaticMemberServiceSdpBindEntry, alaIgmpServiceSdpBindForwardHostAddress=alaIgmpServiceSdpBindForwardHostAddress, alaServiceMgrPortProfileCiscoUplinkTreatment=alaServiceMgrPortProfileCiscoUplinkTreatment, alaIgmpNeighborServiceSdpBindHostAddressType=alaIgmpNeighborServiceSdpBindHostAddressType, alaIgmpServiceSapForwardOrigAddress=alaIgmpServiceSapForwardOrigAddress, alaRfpSpbLocalEndPoint=alaRfpSpbLocalEndPoint, alaSapExtraInfoGroup=alaSapExtraInfoGroup, alaIgmpServiceSdpBindForwardNextType=alaIgmpServiceSdpBindForwardNextType, alaMldServiceLastMemberQueryInterval=alaMldServiceLastMemberQueryInterval, alaIgmpStaticNeighborServiceSapTable=alaIgmpStaticNeighborServiceSapTable, alaMldServiceSourceDestAddressType=alaMldServiceSourceDestAddressType, alaMldServiceSdpBindForwardLocale=alaMldServiceSdpBindForwardLocale, alaIgmpServiceSourceLocale=alaIgmpServiceSourceLocale, alaSdpBindBVlan=alaSdpBindBVlan, alaIgmpServiceEntry=alaIgmpServiceEntry, alaIgmpServiceSdpBindCurrentGroupCount=alaIgmpServiceSdpBindCurrentGroupCount, alaIgmpNeighborServiceSdpBindGroup=alaIgmpNeighborServiceSdpBindGroup, alaIgmpServiceSapTable=alaIgmpServiceSapTable, alaSapIngressPacketCount=alaSapIngressPacketCount, alaMldNeighborServiceSapGroup=alaMldNeighborServiceSapGroup, alaIgmpStaticQuerierServiceSdpBindRowStatus=alaIgmpStaticQuerierServiceSdpBindRowStatus, alaSapOperStatus=alaSapOperStatus, alaMldServiceSdpBindTable=alaMldServiceSdpBindTable, alaServiceMgrPortProfileRowStatus=alaServiceMgrPortProfileRowStatus, alaVRtrLdpGenGRReconnectTime=alaVRtrLdpGenGRReconnectTime, alaRfpSpbRemoteEndPointISID=alaRfpSpbRemoteEndPointISID, alaMldServiceQuerying=alaMldServiceQuerying, alaSvcNumSdps=alaSvcNumSdps, alaServiceMgrPortTable=alaServiceMgrPortTable, alaMldServiceSpoofing=alaMldServiceSpoofing, alaIgmpServiceQuerierForwarding=alaIgmpServiceQuerierForwarding, alaIgmpMemberServiceSapMode=alaIgmpMemberServiceSapMode, alaMldServiceSapForwardNextSapEncapValue=alaMldServiceSapForwardNextSapEncapValue, alaIgmpStaticMemberServiceSapGroupAddress=alaIgmpStaticMemberServiceSapGroupAddress, alaMldServiceSdpBindCurrentGroupCount=alaMldServiceSdpBindCurrentGroupCount, smgrSdpBindError=smgrSdpBindError, alaIgmpServiceSapForwardLocale=alaIgmpServiceSapForwardLocale, alcatelIND1ServiceMgrMIBGroups=alcatelIND1ServiceMgrMIBGroups, alaSdpInfoEntry=alaSdpInfoEntry, alaSapSvcId=alaSapSvcId, alaMldServiceSourceType=alaMldServiceSourceType, alaIgmpServiceSourceEntry=alaIgmpServiceSourceEntry, alaIgmpMemberServiceSdpBindSourceAddressType=alaIgmpMemberServiceSdpBindSourceAddressType, alaIgmpServiceSourceSdpId=alaIgmpServiceSourceSdpId, alaSdpBindId=alaSdpBindId, alaIgmpNeighborServiceSdpBindEntry=alaIgmpNeighborServiceSdpBindEntry, alaSvcMgrSvcTrapAdminState=alaSvcMgrSvcTrapAdminState, alaIgmpQuerierServiceSapGroup=alaIgmpQuerierServiceSapGroup, alaVRtrLdpGenvRtrID=alaVRtrLdpGenvRtrID, alaSdpBindEntry=alaSdpBindEntry, alaMldQuerierServiceSapHostAddressType=alaMldQuerierServiceSapHostAddressType, alaIgmpServiceSourceHostAddress=alaIgmpServiceSourceHostAddress, alaMldServiceSapGroup=alaMldServiceSapGroup, smgrStatusChange=smgrStatusChange, alaIgmpServiceSdpBindForwardVcId=alaIgmpServiceSdpBindForwardVcId, alaIgmpServiceStatus=alaIgmpServiceStatus, alaIgmpStaticMemberServiceSdpBindGroupAddressType=alaIgmpStaticMemberServiceSdpBindGroupAddressType, alaMldServiceMaxGroupLimit=alaMldServiceMaxGroupLimit, alaMldStaticMemberServiceSdpBindGroup=alaMldStaticMemberServiceSdpBindGroup, alaServiceMgrPortEncapType=alaServiceMgrPortEncapType, alaMldServiceZapping=alaMldServiceZapping, alaIgmpMemberServiceSapSourceAddressType=alaIgmpMemberServiceSapSourceAddressType, smgrSapError=smgrSapError, alaIgmpServiceSapMaxGroupExceedAction=alaIgmpServiceSapMaxGroupExceedAction, alaMldMemberServiceSapTable=alaMldMemberServiceSapTable, alaServiceMgrPortProfile8021ABTreatment=alaServiceMgrPortProfile8021ABTreatment, alaServiceMgr=alaServiceMgr, alaIgmpStaticQuerierServiceSapGroup=alaIgmpStaticQuerierServiceSapGroup, alaSdpBindVirtualPort=alaSdpBindVirtualPort, alaSdpDelivery=alaSdpDelivery, alaIgmpMemberServiceSdpBindMode=alaIgmpMemberServiceSdpBindMode, alaSdpOperStatus=alaSdpOperStatus, alaIgmpServiceLastMemberQueryInterval=alaIgmpServiceLastMemberQueryInterval, alaIgmpServiceSapForwardGroupAddress=alaIgmpServiceSapForwardGroupAddress, alaServiceMgrPortProfileGroup=alaServiceMgrPortProfileGroup, alaIgmpStaticMemberServiceSdpBindGroupAddress=alaIgmpStaticMemberServiceSdpBindGroupAddress, alaRfpSpbLocalEndPointAdminStatus=alaRfpSpbLocalEndPointAdminStatus, alaIgmpQuerierServiceSdpBindHostAddress=alaIgmpQuerierServiceSdpBindHostAddress, alaIgmpQuerierServiceSdpBindTimeout=alaIgmpQuerierServiceSdpBindTimeout, alaMldStaticQuerierServiceSapTable=alaMldStaticQuerierServiceSapTable, alaSdpAllocationType=alaSdpAllocationType, alaSvcMgrStatsAdminState=alaSvcMgrStatsAdminState, alaMldQuerierServiceSapEntry=alaMldQuerierServiceSapEntry, alaMldStaticQuerierServiceSapEntry=alaMldStaticQuerierServiceSapEntry, alaSvcBaseInfoEntry=alaSvcBaseInfoEntry, alaSvcMgrEndPointGroup=alaSvcMgrEndPointGroup, alaSdpDynamicType=alaSdpDynamicType, alaMldStaticNeighborServiceSapEntry=alaMldStaticNeighborServiceSapEntry, alaMldServiceVersion=alaMldServiceVersion, alaMldServiceStatus=alaMldServiceStatus, AluDateAndTime=AluDateAndTime, alaSapExtraInfoEntry=alaSapExtraInfoEntry, alaIgmpServiceSdpBindTable=alaIgmpServiceSdpBindTable, alaIgmpServiceSdpBindForwardDestAddress=alaIgmpServiceSdpBindForwardDestAddress, alaSapBaseInfoTable=alaSapBaseInfoTable, alaMldServiceSapForwardNextType=alaMldServiceSapForwardNextType, alaIgmpServiceSapMaxGroupLimit=alaIgmpServiceSapMaxGroupLimit, alaIgmpNeighborServiceSdpBindCount=alaIgmpNeighborServiceSdpBindCount, alaIgmpServiceQueryInterval=alaIgmpServiceQueryInterval, alaMldServiceRobustness=alaMldServiceRobustness, alaIgmpQuerierServiceSdpBindCount=alaIgmpQuerierServiceSdpBindCount, alaMldServiceSourceTable=alaMldServiceSourceTable, alaIgmpMemberServiceSdpBindGroupAddressType=alaIgmpMemberServiceSdpBindGroupAddressType, alaMldServiceSdpBindForwardSdpId=alaMldServiceSdpBindForwardSdpId, alaSdpBindSystemId=alaSdpBindSystemId, alaIgmpServiceSourceDestAddressType=alaIgmpServiceSourceDestAddressType, alaMldNeighborServiceSdpBindCount=alaMldNeighborServiceSdpBindCount, alaIgmpServiceProxying=alaIgmpServiceProxying, alaIgmpStaticNeighborServiceSdpBindTable=alaIgmpStaticNeighborServiceSdpBindTable, alaSapAllocationType=alaSapAllocationType, alaIgmpQuerierServiceSapTable=alaIgmpQuerierServiceSapTable, alaMldMemberServiceSapEntry=alaMldMemberServiceSapEntry, alaMldQuerierServiceSdpBindCount=alaMldQuerierServiceSdpBindCount, alaSdpBindOperControlWord=alaSdpBindOperControlWord, alaSdpBindFarEndIpAddress=alaSdpBindFarEndIpAddress, alaMldServiceSapForwardEncapValue=alaMldServiceSapForwardEncapValue, alaSdpAdminPathMtu=alaSdpAdminPathMtu, alaMldServiceSourceLocale=alaMldServiceSourceLocale, alaIgmpServiceSdpBindForwardEncapValue=alaIgmpServiceSdpBindForwardEncapValue, alaMldStaticMemberServiceSapEntry=alaMldStaticMemberServiceSapEntry, alaSapType=alaSapType, alaIgmpServiceSapForwardVcId=alaIgmpServiceSapForwardVcId, alaVRtrExtendedLdpGeneralEntry=alaVRtrExtendedLdpGeneralEntry, alaRfpSpbLocalEndPointTable=alaRfpSpbLocalEndPointTable, alaServiceMgrPortProfileTable=alaServiceMgrPortProfileTable, alaSvcMgrSysTableGroup=alaSvcMgrSysTableGroup, smgrVxlanSdpBindStatusChange=smgrVxlanSdpBindStatusChange, alaMldServiceSdpBindForwardGroupAddress=alaMldServiceSdpBindForwardGroupAddress, PYSNMP_MODULE_ID=alcatelIND1ServiceMgrMIB, alaSdpAdvertisedVllMtuOverride=alaSdpAdvertisedVllMtuOverride, alaIgmpServiceSourceGroup=alaIgmpServiceSourceGroup, smgrSdpBindStatusChange=smgrSdpBindStatusChange, alaIgmpServiceSapForwardDestAddress=alaIgmpServiceSapForwardDestAddress, smgrSdpStatusChange=smgrSdpStatusChange, alaSdpBindStatsAdminStatus=alaSdpBindStatsAdminStatus, alaIgmpQuerierServiceSapCount=alaIgmpQuerierServiceSapCount, alaIgmpServiceSapForwardTable=alaIgmpServiceSapForwardTable, alaIgmpServiceSapForwardType=alaIgmpServiceSapForwardType)
-mibBuilder.exportSymbols("ALCATEL-ENT1-SERVICE-MGR-MIB", alaSvcMulticastMode=alaSvcMulticastMode, alaMldStaticMemberServiceSdpBindGroupAddress=alaMldStaticMemberServiceSdpBindGroupAddress, alaIgmpServiceSdpBindForwardSdpId=alaIgmpServiceSdpBindForwardSdpId, alaServiceMgrPortGroup=alaServiceMgrPortGroup, alaIgmpStaticQuerierServiceSdpBindGroup=alaIgmpStaticQuerierServiceSdpBindGroup, alaIgmpServiceSourceTable=alaIgmpServiceSourceTable, alaSdpMcastPortList=alaSdpMcastPortList, alaMldServiceSapForwardNextSapPortId=alaMldServiceSapForwardNextSapPortId, alaMldServiceSapForwardType=alaMldServiceSapForwardType, alaSdpBindOperStatus=alaSdpBindOperStatus, alaMldStaticNeighborServiceSdpBindRowStatus=alaMldStaticNeighborServiceSdpBindRowStatus, alaMldStaticNeighborServiceSapTable=alaMldStaticNeighborServiceSapTable, alaIgmpQuerierServiceSdpBindGroup=alaIgmpQuerierServiceSdpBindGroup, alaSvcDefMeshVcId=alaSvcDefMeshVcId, alaServiceMgrPortProfileStpBpduTreatment=alaServiceMgrPortProfileStpBpduTreatment, alaSdpBindTableGroup=alaSdpBindTableGroup, alaMldServiceSourceGroupAddressType=alaMldServiceSourceGroupAddressType, alaMldServiceGroup=alaMldServiceGroup, alaMldServiceSdpBindForwardVcId=alaMldServiceSdpBindForwardVcId, alaSvcL3VpnMtu=alaSvcL3VpnMtu, alaIgmpNeighborServiceSapTable=alaIgmpNeighborServiceSapTable, alaRfpSpbLocalEndPointRowStatus=alaRfpSpbLocalEndPointRowStatus, alaSvcAdminStatus=alaSvcAdminStatus, alaMldServiceSourceOrigAddress=alaMldServiceSourceOrigAddress, alaSdpBindVnid=alaSdpBindVnid, alaVRtrLdpSessFtReconTimeAdvertised=alaVRtrLdpSessFtReconTimeAdvertised, alaServiceMgrPortProfileCiscoPduTreatment=alaServiceMgrPortProfileCiscoPduTreatment, alaServiceMgrPortLinkStatus=alaServiceMgrPortLinkStatus, alaSdpInfoTable=alaSdpInfoTable, alaIgmpNeighborServiceSapCount=alaIgmpNeighborServiceSapCount, alaMldNeighborServiceSdpBindHostAddressType=alaMldNeighborServiceSdpBindHostAddressType, alaSvcType=alaSvcType, alaMldServiceSourceGroupAddress=alaMldServiceSourceGroupAddress, alaMldServiceSdpBindForwardNextType=alaMldServiceSdpBindForwardNextType, alaSvcNumSaps=alaSvcNumSaps, alaSdpSystemId=alaSdpSystemId, AluServiceId=AluServiceId, alaSapEgressPacketCount=alaSapEgressPacketCount, alaIgmpMemberServiceSapGroup=alaIgmpMemberServiceSapGroup, alaIgmpStaticMemberServiceSapRowStatus=alaIgmpStaticMemberServiceSapRowStatus, alaIgmpServiceSapForwardPortId=alaIgmpServiceSapForwardPortId, alaRfpSpbRemoteEndPointBVlan=alaRfpSpbRemoteEndPointBVlan, alaSvcMgrSysLastMgmtChange=alaSvcMgrSysLastMgmtChange, alaSapSvcVFI=alaSapSvcVFI, alaMldQuerierServiceSdpBindHostAddressType=alaMldQuerierServiceSdpBindHostAddressType, alaMldServiceSourceSdpId=alaMldServiceSourceSdpId, alaSdpBindSvcType=alaSdpBindSvcType, alaIgmpServiceRouterTimeout=alaIgmpServiceRouterTimeout, alaSmgrHwNotificationGroup=alaSmgrHwNotificationGroup, smgrSdpError=smgrSdpError)
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlcatelIND1ServiceMgrMIBObjects_ObjectIdentity = ObjectIdentity
+alcatelIND1ServiceMgrMIBObjects = _AlcatelIND1ServiceMgrMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ServiceMgrMIBObjects.setStatus("current")
+_AlaServiceMgrNotifications_ObjectIdentity = ObjectIdentity
+alaServiceMgrNotifications = _AlaServiceMgrNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0)
+)
+_AlaServiceMgr_ObjectIdentity = ObjectIdentity
+alaServiceMgr = _AlaServiceMgr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1)
+)
+_AlaServiceMgrPortProfileTable_Object = MibTable
+alaServiceMgrPortProfileTable = _AlaServiceMgrPortProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileTable.setStatus("current")
+_AlaServiceMgrPortProfileEntry_Object = MibTableRow
+alaServiceMgrPortProfileEntry = _AlaServiceMgrPortProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1)
+)
+alaServiceMgrPortProfileEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileID"),
+)
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileEntry.setStatus("current")
+
+
+class _AlaServiceMgrPortProfileID_Type(DisplayString):
+    """Custom type alaServiceMgrPortProfileID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AlaServiceMgrPortProfileID_Type.__name__ = "DisplayString"
+_AlaServiceMgrPortProfileID_Object = MibTableColumn
+alaServiceMgrPortProfileID = _AlaServiceMgrPortProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 1),
+    _AlaServiceMgrPortProfileID_Type()
+)
+alaServiceMgrPortProfileID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileID.setStatus("current")
+
+
+class _AlaServiceMgrPortProfileStpBpduTreatment_Type(AlaEServiceUNIProfileProtocolTreatment):
+    """Custom type alaServiceMgrPortProfileStpBpduTreatment based on AlaEServiceUNIProfileProtocolTreatment"""
+    defaultValue = 1
+
+
+_AlaServiceMgrPortProfileStpBpduTreatment_Type.__name__ = "AlaEServiceUNIProfileProtocolTreatment"
+_AlaServiceMgrPortProfileStpBpduTreatment_Object = MibTableColumn
+alaServiceMgrPortProfileStpBpduTreatment = _AlaServiceMgrPortProfileStpBpduTreatment_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 2),
+    _AlaServiceMgrPortProfileStpBpduTreatment_Type()
+)
+alaServiceMgrPortProfileStpBpduTreatment.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileStpBpduTreatment.setStatus("current")
+
+
+class _AlaServiceMgrPortProfile8021xTreatment_Type(AlaEServiceUNIProfileProtocolTreatment):
+    """Custom type alaServiceMgrPortProfile8021xTreatment based on AlaEServiceUNIProfileProtocolTreatment"""
+    defaultValue = 2
+
+
+_AlaServiceMgrPortProfile8021xTreatment_Type.__name__ = "AlaEServiceUNIProfileProtocolTreatment"
+_AlaServiceMgrPortProfile8021xTreatment_Object = MibTableColumn
+alaServiceMgrPortProfile8021xTreatment = _AlaServiceMgrPortProfile8021xTreatment_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 3),
+    _AlaServiceMgrPortProfile8021xTreatment_Type()
+)
+alaServiceMgrPortProfile8021xTreatment.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfile8021xTreatment.setStatus("current")
+
+
+class _AlaServiceMgrPortProfile8021ABTreatment_Type(AlaEServiceUNIProfileProtocolTreatment):
+    """Custom type alaServiceMgrPortProfile8021ABTreatment based on AlaEServiceUNIProfileProtocolTreatment"""
+    defaultValue = 2
+
+
+_AlaServiceMgrPortProfile8021ABTreatment_Type.__name__ = "AlaEServiceUNIProfileProtocolTreatment"
+_AlaServiceMgrPortProfile8021ABTreatment_Object = MibTableColumn
+alaServiceMgrPortProfile8021ABTreatment = _AlaServiceMgrPortProfile8021ABTreatment_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 4),
+    _AlaServiceMgrPortProfile8021ABTreatment_Type()
+)
+alaServiceMgrPortProfile8021ABTreatment.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfile8021ABTreatment.setStatus("current")
+
+
+class _AlaServiceMgrPortProfile8023adTreatment_Type(AlaEServiceUNIProfileProtocolTreatment):
+    """Custom type alaServiceMgrPortProfile8023adTreatment based on AlaEServiceUNIProfileProtocolTreatment"""
+    defaultValue = 3
+
+
+_AlaServiceMgrPortProfile8023adTreatment_Type.__name__ = "AlaEServiceUNIProfileProtocolTreatment"
+_AlaServiceMgrPortProfile8023adTreatment_Object = MibTableColumn
+alaServiceMgrPortProfile8023adTreatment = _AlaServiceMgrPortProfile8023adTreatment_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 5),
+    _AlaServiceMgrPortProfile8023adTreatment_Type()
+)
+alaServiceMgrPortProfile8023adTreatment.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfile8023adTreatment.setStatus("current")
+
+
+class _AlaServiceMgrPortProfileGvrpTreatment_Type(AlaEServiceUNIProfileProtocolTreatment):
+    """Custom type alaServiceMgrPortProfileGvrpTreatment based on AlaEServiceUNIProfileProtocolTreatment"""
+    defaultValue = 1
+
+
+_AlaServiceMgrPortProfileGvrpTreatment_Type.__name__ = "AlaEServiceUNIProfileProtocolTreatment"
+_AlaServiceMgrPortProfileGvrpTreatment_Object = MibTableColumn
+alaServiceMgrPortProfileGvrpTreatment = _AlaServiceMgrPortProfileGvrpTreatment_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 6),
+    _AlaServiceMgrPortProfileGvrpTreatment_Type()
+)
+alaServiceMgrPortProfileGvrpTreatment.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileGvrpTreatment.setStatus("current")
+
+
+class _AlaServiceMgrPortProfileAmapTreatment_Type(AlaEServiceUNIProfileProtocolTreatment):
+    """Custom type alaServiceMgrPortProfileAmapTreatment based on AlaEServiceUNIProfileProtocolTreatment"""
+    defaultValue = 2
+
+
+_AlaServiceMgrPortProfileAmapTreatment_Type.__name__ = "AlaEServiceUNIProfileProtocolTreatment"
+_AlaServiceMgrPortProfileAmapTreatment_Object = MibTableColumn
+alaServiceMgrPortProfileAmapTreatment = _AlaServiceMgrPortProfileAmapTreatment_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 7),
+    _AlaServiceMgrPortProfileAmapTreatment_Type()
+)
+alaServiceMgrPortProfileAmapTreatment.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileAmapTreatment.setStatus("current")
+_AlaServiceMgrPortProfileRowStatus_Type = RowStatus
+_AlaServiceMgrPortProfileRowStatus_Object = MibTableColumn
+alaServiceMgrPortProfileRowStatus = _AlaServiceMgrPortProfileRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 8),
+    _AlaServiceMgrPortProfileRowStatus_Type()
+)
+alaServiceMgrPortProfileRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileRowStatus.setStatus("current")
+
+
+class _AlaServiceMgrPortProfileMvrpTreatment_Type(AlaEServiceUNIProfileProtocolTreatment):
+    """Custom type alaServiceMgrPortProfileMvrpTreatment based on AlaEServiceUNIProfileProtocolTreatment"""
+    defaultValue = 1
+
+
+_AlaServiceMgrPortProfileMvrpTreatment_Type.__name__ = "AlaEServiceUNIProfileProtocolTreatment"
+_AlaServiceMgrPortProfileMvrpTreatment_Object = MibTableColumn
+alaServiceMgrPortProfileMvrpTreatment = _AlaServiceMgrPortProfileMvrpTreatment_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 9),
+    _AlaServiceMgrPortProfileMvrpTreatment_Type()
+)
+alaServiceMgrPortProfileMvrpTreatment.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileMvrpTreatment.setStatus("current")
+
+
+class _AlaServiceMgrPortProfileCiscoPduTreatment_Type(AlaEServiceUNIProfileProtocolTreatment):
+    """Custom type alaServiceMgrPortProfileCiscoPduTreatment based on AlaEServiceUNIProfileProtocolTreatment"""
+    defaultValue = 2
+
+
+_AlaServiceMgrPortProfileCiscoPduTreatment_Type.__name__ = "AlaEServiceUNIProfileProtocolTreatment"
+_AlaServiceMgrPortProfileCiscoPduTreatment_Object = MibTableColumn
+alaServiceMgrPortProfileCiscoPduTreatment = _AlaServiceMgrPortProfileCiscoPduTreatment_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 10),
+    _AlaServiceMgrPortProfileCiscoPduTreatment_Type()
+)
+alaServiceMgrPortProfileCiscoPduTreatment.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileCiscoPduTreatment.setStatus("current")
+
+
+class _AlaServiceMgrPortProfileCiscoVlanTreatment_Type(AlaEServiceUNIProfileProtocolTreatment):
+    """Custom type alaServiceMgrPortProfileCiscoVlanTreatment based on AlaEServiceUNIProfileProtocolTreatment"""
+    defaultValue = 2
+
+
+_AlaServiceMgrPortProfileCiscoVlanTreatment_Type.__name__ = "AlaEServiceUNIProfileProtocolTreatment"
+_AlaServiceMgrPortProfileCiscoVlanTreatment_Object = MibTableColumn
+alaServiceMgrPortProfileCiscoVlanTreatment = _AlaServiceMgrPortProfileCiscoVlanTreatment_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 11),
+    _AlaServiceMgrPortProfileCiscoVlanTreatment_Type()
+)
+alaServiceMgrPortProfileCiscoVlanTreatment.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileCiscoVlanTreatment.setStatus("current")
+
+
+class _AlaServiceMgrPortProfileCiscoUplinkTreatment_Type(AlaEServiceUNIProfileProtocolTreatment):
+    """Custom type alaServiceMgrPortProfileCiscoUplinkTreatment based on AlaEServiceUNIProfileProtocolTreatment"""
+    defaultValue = 2
+
+
+_AlaServiceMgrPortProfileCiscoUplinkTreatment_Type.__name__ = "AlaEServiceUNIProfileProtocolTreatment"
+_AlaServiceMgrPortProfileCiscoUplinkTreatment_Object = MibTableColumn
+alaServiceMgrPortProfileCiscoUplinkTreatment = _AlaServiceMgrPortProfileCiscoUplinkTreatment_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 1, 1, 12),
+    _AlaServiceMgrPortProfileCiscoUplinkTreatment_Type()
+)
+alaServiceMgrPortProfileCiscoUplinkTreatment.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileCiscoUplinkTreatment.setStatus("current")
+_AlaServiceMgrPortTable_Object = MibTable
+alaServiceMgrPortTable = _AlaServiceMgrPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    alaServiceMgrPortTable.setStatus("current")
+_AlaServiceMgrPortEntry_Object = MibTableRow
+alaServiceMgrPortEntry = _AlaServiceMgrPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1)
+)
+alaServiceMgrPortEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortID"),
+)
+if mibBuilder.loadTexts:
+    alaServiceMgrPortEntry.setStatus("current")
+_AlaServiceMgrPortID_Type = InterfaceIndex
+_AlaServiceMgrPortID_Object = MibTableColumn
+alaServiceMgrPortID = _AlaServiceMgrPortID_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 1),
+    _AlaServiceMgrPortID_Type()
+)
+alaServiceMgrPortID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortID.setStatus("current")
+
+
+class _AlaServiceMgrPortMode_Type(Integer32):
+    """Custom type alaServiceMgrPortMode based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("undefined", 0),
+          ("access", 1),
+          ("network", 2))
+    )
+
+
+_AlaServiceMgrPortMode_Type.__name__ = "Integer32"
+_AlaServiceMgrPortMode_Object = MibTableColumn
+alaServiceMgrPortMode = _AlaServiceMgrPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 2),
+    _AlaServiceMgrPortMode_Type()
+)
+alaServiceMgrPortMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortMode.setStatus("current")
+
+
+class _AlaServiceMgrPortEncapType_Type(Integer32):
+    """Custom type alaServiceMgrPortEncapType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("nullEncap", 1),
+          ("qEncap", 2),
+          ("mplsEncap", 3),
+          ("bcpNullEncap", 4),
+          ("bcpDot1qEncap", 5),
+          ("ipcpEncap", 6),
+          ("frEncap", 7),
+          ("pppAutoEncap", 8),
+          ("atmEncap", 9),
+          ("qinqEncap", 10),
+          ("wanMirrorEncap", 11),
+          ("ciscoHDLCEncap", 12),
+          ("cemEncap", 13))
+    )
+
+
+_AlaServiceMgrPortEncapType_Type.__name__ = "Integer32"
+_AlaServiceMgrPortEncapType_Object = MibTableColumn
+alaServiceMgrPortEncapType = _AlaServiceMgrPortEncapType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 3),
+    _AlaServiceMgrPortEncapType_Type()
+)
+alaServiceMgrPortEncapType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortEncapType.setStatus("deprecated")
+
+
+class _AlaServiceMgrPortPortProfileID_Type(DisplayString):
+    """Custom type alaServiceMgrPortPortProfileID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AlaServiceMgrPortPortProfileID_Type.__name__ = "DisplayString"
+_AlaServiceMgrPortPortProfileID_Object = MibTableColumn
+alaServiceMgrPortPortProfileID = _AlaServiceMgrPortPortProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 4),
+    _AlaServiceMgrPortPortProfileID_Type()
+)
+alaServiceMgrPortPortProfileID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortPortProfileID.setStatus("current")
+_AlaServiceMgrPortRowStatus_Type = RowStatus
+_AlaServiceMgrPortRowStatus_Object = MibTableColumn
+alaServiceMgrPortRowStatus = _AlaServiceMgrPortRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 5),
+    _AlaServiceMgrPortRowStatus_Type()
+)
+alaServiceMgrPortRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortRowStatus.setStatus("current")
+
+
+class _AlaServiceMgrPortLinkStatus_Type(ServiceAdminStatus):
+    """Custom type alaServiceMgrPortLinkStatus based on ServiceAdminStatus"""
+    defaultValue = 2
+
+
+_AlaServiceMgrPortLinkStatus_Type.__name__ = "ServiceAdminStatus"
+_AlaServiceMgrPortLinkStatus_Object = MibTableColumn
+alaServiceMgrPortLinkStatus = _AlaServiceMgrPortLinkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 6),
+    _AlaServiceMgrPortLinkStatus_Type()
+)
+alaServiceMgrPortLinkStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortLinkStatus.setStatus("current")
+
+
+class _AlaServiceMgrPortSapType_Type(AluAllocationType):
+    """Custom type alaServiceMgrPortSapType based on AluAllocationType"""
+    defaultValue = 1
+
+
+_AlaServiceMgrPortSapType_Type.__name__ = "AluAllocationType"
+_AlaServiceMgrPortSapType_Object = MibTableColumn
+alaServiceMgrPortSapType = _AlaServiceMgrPortSapType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 7),
+    _AlaServiceMgrPortSapType_Type()
+)
+alaServiceMgrPortSapType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortSapType.setStatus("current")
+_AlaServiceMgrPortSapCount_Type = Counter32
+_AlaServiceMgrPortSapCount_Object = MibTableColumn
+alaServiceMgrPortSapCount = _AlaServiceMgrPortSapCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 8),
+    _AlaServiceMgrPortSapCount_Type()
+)
+alaServiceMgrPortSapCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortSapCount.setStatus("current")
+
+
+class _AlaServiceMgrPortVlanXlation_Type(ServiceAdminStatus):
+    """Custom type alaServiceMgrPortVlanXlation based on ServiceAdminStatus"""
+    defaultValue = 2
+
+
+_AlaServiceMgrPortVlanXlation_Type.__name__ = "ServiceAdminStatus"
+_AlaServiceMgrPortVlanXlation_Object = MibTableColumn
+alaServiceMgrPortVlanXlation = _AlaServiceMgrPortVlanXlation_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 9),
+    _AlaServiceMgrPortVlanXlation_Type()
+)
+alaServiceMgrPortVlanXlation.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortVlanXlation.setStatus("current")
+
+
+class _AlaServiceMgrPortDescription_Type(ServObjDesc):
+    """Custom type alaServiceMgrPortDescription based on ServObjDesc"""
+    defaultValue = OctetString("")
+
+
+_AlaServiceMgrPortDescription_Type.__name__ = "ServObjDesc"
+_AlaServiceMgrPortDescription_Object = MibTableColumn
+alaServiceMgrPortDescription = _AlaServiceMgrPortDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 2, 1, 10),
+    _AlaServiceMgrPortDescription_Type()
+)
+alaServiceMgrPortDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaServiceMgrPortDescription.setStatus("current")
+_AlaSapExtraInfoTable_Object = MibTable
+alaSapExtraInfoTable = _AlaSapExtraInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    alaSapExtraInfoTable.setStatus("obsolete")
+_AlaSapExtraInfoEntry_Object = MibTableRow
+alaSapExtraInfoEntry = _AlaSapExtraInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 3, 1)
+)
+alaSapExtraInfoEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+)
+if mibBuilder.loadTexts:
+    alaSapExtraInfoEntry.setStatus("obsolete")
+
+
+class _AlaSapInfoTrusted_Type(Integer32):
+    """Custom type alaSapInfoTrusted based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("true", 1),
+          ("false", 2))
+    )
+
+
+_AlaSapInfoTrusted_Type.__name__ = "Integer32"
+_AlaSapInfoTrusted_Object = MibTableColumn
+alaSapInfoTrusted = _AlaSapInfoTrusted_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 3, 1, 1),
+    _AlaSapInfoTrusted_Type()
+)
+alaSapInfoTrusted.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaSapInfoTrusted.setStatus("obsolete")
+
+
+class _AlaSapInfoPriority_Type(Integer32):
+    """Custom type alaSapInfoPriority based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_AlaSapInfoPriority_Type.__name__ = "Integer32"
+_AlaSapInfoPriority_Object = MibTableColumn
+alaSapInfoPriority = _AlaSapInfoPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 3, 1, 2),
+    _AlaSapInfoPriority_Type()
+)
+alaSapInfoPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaSapInfoPriority.setStatus("obsolete")
+_AlaSvcBaseInfoTable_Object = MibTable
+alaSvcBaseInfoTable = _AlaSvcBaseInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    alaSvcBaseInfoTable.setStatus("current")
+_AlaSvcBaseInfoEntry_Object = MibTableRow
+alaSvcBaseInfoEntry = _AlaSvcBaseInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1)
+)
+alaSvcBaseInfoEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+)
+if mibBuilder.loadTexts:
+    alaSvcBaseInfoEntry.setStatus("current")
+_AlaSvcId_Type = AluServiceId
+_AlaSvcId_Object = MibTableColumn
+alaSvcId = _AlaSvcId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 1),
+    _AlaSvcId_Type()
+)
+alaSvcId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alaSvcId.setStatus("current")
+_AlaSvcRowStatus_Type = RowStatus
+_AlaSvcRowStatus_Object = MibTableColumn
+alaSvcRowStatus = _AlaSvcRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 2),
+    _AlaSvcRowStatus_Type()
+)
+alaSvcRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcRowStatus.setStatus("current")
+_AlaSvcType_Type = AluServiceType
+_AlaSvcType_Object = MibTableColumn
+alaSvcType = _AlaSvcType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 3),
+    _AlaSvcType_Type()
+)
+alaSvcType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcType.setStatus("current")
+
+
+class _AlaSvcDescription_Type(ServObjDesc):
+    """Custom type alaSvcDescription based on ServObjDesc"""
+    defaultValue = OctetString("")
+
+
+_AlaSvcDescription_Type.__name__ = "ServObjDesc"
+_AlaSvcDescription_Object = MibTableColumn
+alaSvcDescription = _AlaSvcDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 4),
+    _AlaSvcDescription_Type()
+)
+alaSvcDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcDescription.setStatus("current")
+
+
+class _AlaSvcMtu_Type(Integer32):
+    """Custom type alaSvcMtu based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 9194),
+    )
+
+
+_AlaSvcMtu_Type.__name__ = "Integer32"
+_AlaSvcMtu_Object = MibTableColumn
+alaSvcMtu = _AlaSvcMtu_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 5),
+    _AlaSvcMtu_Type()
+)
+alaSvcMtu.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcMtu.setStatus("current")
+
+
+class _AlaSvcAdminStatus_Type(ServiceAdminStatus):
+    """Custom type alaSvcAdminStatus based on ServiceAdminStatus"""
+    defaultValue = 2
+
+
+_AlaSvcAdminStatus_Type.__name__ = "ServiceAdminStatus"
+_AlaSvcAdminStatus_Object = MibTableColumn
+alaSvcAdminStatus = _AlaSvcAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 6),
+    _AlaSvcAdminStatus_Type()
+)
+alaSvcAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcAdminStatus.setStatus("current")
+_AlaSvcOperStatus_Type = ServiceOperStatus
+_AlaSvcOperStatus_Object = MibTableColumn
+alaSvcOperStatus = _AlaSvcOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 7),
+    _AlaSvcOperStatus_Type()
+)
+alaSvcOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcOperStatus.setStatus("current")
+_AlaSvcNumSaps_Type = Integer32
+_AlaSvcNumSaps_Object = MibTableColumn
+alaSvcNumSaps = _AlaSvcNumSaps_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 8),
+    _AlaSvcNumSaps_Type()
+)
+alaSvcNumSaps.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcNumSaps.setStatus("current")
+_AlaSvcNumSdps_Type = Integer32
+_AlaSvcNumSdps_Object = MibTableColumn
+alaSvcNumSdps = _AlaSvcNumSdps_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 9),
+    _AlaSvcNumSdps_Type()
+)
+alaSvcNumSdps.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcNumSdps.setStatus("current")
+_AlaSvcLastMgmtChange_Type = AluDateAndTime
+_AlaSvcLastMgmtChange_Object = MibTableColumn
+alaSvcLastMgmtChange = _AlaSvcLastMgmtChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 10),
+    _AlaSvcLastMgmtChange_Type()
+)
+alaSvcLastMgmtChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcLastMgmtChange.setStatus("current")
+_AlaSvcLastStatusChange_Type = AluDateAndTime
+_AlaSvcLastStatusChange_Object = MibTableColumn
+alaSvcLastStatusChange = _AlaSvcLastStatusChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 11),
+    _AlaSvcLastStatusChange_Type()
+)
+alaSvcLastStatusChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcLastStatusChange.setStatus("current")
+_AlaSvcDefMeshVcId_Type = Unsigned32
+_AlaSvcDefMeshVcId_Object = MibTableColumn
+alaSvcDefMeshVcId = _AlaSvcDefMeshVcId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 12),
+    _AlaSvcDefMeshVcId_Type()
+)
+alaSvcDefMeshVcId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcDefMeshVcId.setStatus("current")
+
+
+class _AlaSvcVFI_Type(Integer32):
+    """Custom type alaSvcVFI based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4095),
+    )
+
+
+_AlaSvcVFI_Type.__name__ = "Integer32"
+_AlaSvcVFI_Object = MibTableColumn
+alaSvcVFI = _AlaSvcVFI_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 13),
+    _AlaSvcVFI_Type()
+)
+alaSvcVFI.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcVFI.setStatus("current")
+
+
+class _AlaSvcMcIndex_Type(Integer32):
+    """Custom type alaSvcMcIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(3, 65535),
+    )
+
+
+_AlaSvcMcIndex_Type.__name__ = "Integer32"
+_AlaSvcMcIndex_Object = MibTableColumn
+alaSvcMcIndex = _AlaSvcMcIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 14),
+    _AlaSvcMcIndex_Type()
+)
+alaSvcMcIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcMcIndex.setStatus("current")
+
+
+class _AlaSvcAllocationType_Type(AluAllocationType):
+    """Custom type alaSvcAllocationType based on AluAllocationType"""
+    defaultValue = 1
+
+
+_AlaSvcAllocationType_Type.__name__ = "AluAllocationType"
+_AlaSvcAllocationType_Object = MibTableColumn
+alaSvcAllocationType = _AlaSvcAllocationType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 15),
+    _AlaSvcAllocationType_Type()
+)
+alaSvcAllocationType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcAllocationType.setStatus("current")
+
+
+class _AlaSvcStatsAdminStatus_Type(ServiceAdminStatus):
+    """Custom type alaSvcStatsAdminStatus based on ServiceAdminStatus"""
+    defaultValue = 2
+
+
+_AlaSvcStatsAdminStatus_Type.__name__ = "ServiceAdminStatus"
+_AlaSvcStatsAdminStatus_Object = MibTableColumn
+alaSvcStatsAdminStatus = _AlaSvcStatsAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 16),
+    _AlaSvcStatsAdminStatus_Type()
+)
+alaSvcStatsAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcStatsAdminStatus.setStatus("current")
+
+
+class _AlaSvcRemoteFlushStatus_Type(ServiceAdminStatus):
+    """Custom type alaSvcRemoteFlushStatus based on ServiceAdminStatus"""
+    defaultValue = 2
+
+
+_AlaSvcRemoteFlushStatus_Type.__name__ = "ServiceAdminStatus"
+_AlaSvcRemoteFlushStatus_Object = MibTableColumn
+alaSvcRemoteFlushStatus = _AlaSvcRemoteFlushStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 17),
+    _AlaSvcRemoteFlushStatus_Type()
+)
+alaSvcRemoteFlushStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcRemoteFlushStatus.setStatus("current")
+
+
+class _AlaSvcIsid_Type(Integer32):
+    """Custom type alaSvcIsid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(256, 16777214),
+    )
+
+
+_AlaSvcIsid_Type.__name__ = "Integer32"
+_AlaSvcIsid_Object = MibTableColumn
+alaSvcIsid = _AlaSvcIsid_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 18),
+    _AlaSvcIsid_Type()
+)
+alaSvcIsid.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcIsid.setStatus("current")
+
+
+class _AlaSvcBVlan_Type(Integer32):
+    """Custom type alaSvcBVlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_AlaSvcBVlan_Type.__name__ = "Integer32"
+_AlaSvcBVlan_Object = MibTableColumn
+alaSvcBVlan = _AlaSvcBVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 19),
+    _AlaSvcBVlan_Type()
+)
+alaSvcBVlan.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcBVlan.setStatus("current")
+
+
+class _AlaSvcMulticastMode_Type(Integer32):
+    """Custom type alaSvcMulticastMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("headend", 1),
+          ("tandem", 2),
+          ("hybrid", 3))
+    )
+
+
+_AlaSvcMulticastMode_Type.__name__ = "Integer32"
+_AlaSvcMulticastMode_Object = MibTableColumn
+alaSvcMulticastMode = _AlaSvcMulticastMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 20),
+    _AlaSvcMulticastMode_Type()
+)
+alaSvcMulticastMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcMulticastMode.setStatus("current")
+_AlaSvcIngressPacketCount_Type = Counter32
+_AlaSvcIngressPacketCount_Object = MibTableColumn
+alaSvcIngressPacketCount = _AlaSvcIngressPacketCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 21),
+    _AlaSvcIngressPacketCount_Type()
+)
+alaSvcIngressPacketCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcIngressPacketCount.setStatus("current")
+_AlaSvcIngressByteCount_Type = Counter64
+_AlaSvcIngressByteCount_Object = MibTableColumn
+alaSvcIngressByteCount = _AlaSvcIngressByteCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 22),
+    _AlaSvcIngressByteCount_Type()
+)
+alaSvcIngressByteCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcIngressByteCount.setStatus("current")
+_AlaSvcEgressPacketCount_Type = Counter32
+_AlaSvcEgressPacketCount_Object = MibTableColumn
+alaSvcEgressPacketCount = _AlaSvcEgressPacketCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 23),
+    _AlaSvcEgressPacketCount_Type()
+)
+alaSvcEgressPacketCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcEgressPacketCount.setStatus("current")
+_AlaSvcEgressByteCount_Type = Counter64
+_AlaSvcEgressByteCount_Object = MibTableColumn
+alaSvcEgressByteCount = _AlaSvcEgressByteCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 24),
+    _AlaSvcEgressByteCount_Type()
+)
+alaSvcEgressByteCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcEgressByteCount.setStatus("current")
+
+
+class _AlaSvcClearCounters_Type(Integer32):
+    """Custom type alaSvcClearCounters based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("done", 0),
+          ("clear", 1))
+    )
+
+
+_AlaSvcClearCounters_Type.__name__ = "Integer32"
+_AlaSvcClearCounters_Object = MibTableColumn
+alaSvcClearCounters = _AlaSvcClearCounters_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 25),
+    _AlaSvcClearCounters_Type()
+)
+alaSvcClearCounters.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcClearCounters.setStatus("current")
+
+
+class _AlaSvcSapVlanXlation_Type(ServiceAdminStatus):
+    """Custom type alaSvcSapVlanXlation based on ServiceAdminStatus"""
+    defaultValue = 2
+
+
+_AlaSvcSapVlanXlation_Type.__name__ = "ServiceAdminStatus"
+_AlaSvcSapVlanXlation_Object = MibTableColumn
+alaSvcSapVlanXlation = _AlaSvcSapVlanXlation_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 26),
+    _AlaSvcSapVlanXlation_Type()
+)
+alaSvcSapVlanXlation.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcSapVlanXlation.setStatus("current")
+
+
+class _AlaSvcVnid_Type(Integer32):
+    """Custom type alaSvcVnid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(1, 16777215),
+    )
+
+
+_AlaSvcVnid_Type.__name__ = "Integer32"
+_AlaSvcVnid_Object = MibTableColumn
+alaSvcVnid = _AlaSvcVnid_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 27),
+    _AlaSvcVnid_Type()
+)
+alaSvcVnid.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcVnid.setStatus("current")
+
+
+class _AlaSvcRemoveIngressTag_Type(ServiceAdminStatus):
+    """Custom type alaSvcRemoveIngressTag based on ServiceAdminStatus"""
+    defaultValue = 2
+
+
+_AlaSvcRemoveIngressTag_Type.__name__ = "ServiceAdminStatus"
+_AlaSvcRemoveIngressTag_Object = MibTableColumn
+alaSvcRemoveIngressTag = _AlaSvcRemoveIngressTag_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 28),
+    _AlaSvcRemoveIngressTag_Type()
+)
+alaSvcRemoveIngressTag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcRemoveIngressTag.setStatus("current")
+
+
+class _AlaSvcL3VpnIfIndex_Type(InterfaceIndexOrZero):
+    """Custom type alaSvcL3VpnIfIndex based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_AlaSvcL3VpnIfIndex_Type.__name__ = "InterfaceIndexOrZero"
+_AlaSvcL3VpnIfIndex_Object = MibTableColumn
+alaSvcL3VpnIfIndex = _AlaSvcL3VpnIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 29),
+    _AlaSvcL3VpnIfIndex_Type()
+)
+alaSvcL3VpnIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcL3VpnIfIndex.setStatus("current")
+
+
+class _AlaSvcL3VpnIfName_Type(SnmpAdminString):
+    """Custom type alaSvcL3VpnIfName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_AlaSvcL3VpnIfName_Type.__name__ = "SnmpAdminString"
+_AlaSvcL3VpnIfName_Object = MibTableColumn
+alaSvcL3VpnIfName = _AlaSvcL3VpnIfName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 30),
+    _AlaSvcL3VpnIfName_Type()
+)
+alaSvcL3VpnIfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcL3VpnIfName.setStatus("current")
+
+
+class _AlaSvcL3VpnVrfName_Type(SnmpAdminString):
+    """Custom type alaSvcL3VpnVrfName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_AlaSvcL3VpnVrfName_Type.__name__ = "SnmpAdminString"
+_AlaSvcL3VpnVrfName_Object = MibTableColumn
+alaSvcL3VpnVrfName = _AlaSvcL3VpnVrfName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 31),
+    _AlaSvcL3VpnVrfName_Type()
+)
+alaSvcL3VpnVrfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcL3VpnVrfName.setStatus("current")
+
+
+class _AlaSvcL3VpnMtu_Type(Integer32):
+    """Custom type alaSvcL3VpnMtu based on Integer32"""
+    defaultValue = 1500
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1280, 9198),
+    )
+
+
+_AlaSvcL3VpnMtu_Type.__name__ = "Integer32"
+_AlaSvcL3VpnMtu_Object = MibTableColumn
+alaSvcL3VpnMtu = _AlaSvcL3VpnMtu_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 4, 1, 32),
+    _AlaSvcL3VpnMtu_Type()
+)
+alaSvcL3VpnMtu.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSvcL3VpnMtu.setStatus("current")
+_AlaSapBaseInfoTable_Object = MibTable
+alaSapBaseInfoTable = _AlaSapBaseInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    alaSapBaseInfoTable.setStatus("current")
+_AlaSapBaseInfoEntry_Object = MibTableRow
+alaSapBaseInfoEntry = _AlaSapBaseInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1)
+)
+alaSapBaseInfoEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPortId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEncapValue"),
+)
+if mibBuilder.loadTexts:
+    alaSapBaseInfoEntry.setStatus("current")
+_AlaSapPortId_Type = InterfaceIndex
+_AlaSapPortId_Object = MibTableColumn
+alaSapPortId = _AlaSapPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 1),
+    _AlaSapPortId_Type()
+)
+alaSapPortId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alaSapPortId.setStatus("current")
+_AlaSapEncapValue_Type = TmnxEncapVal
+_AlaSapEncapValue_Object = MibTableColumn
+alaSapEncapValue = _AlaSapEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 2),
+    _AlaSapEncapValue_Type()
+)
+alaSapEncapValue.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alaSapEncapValue.setStatus("current")
+_AlaSapRowStatus_Type = RowStatus
+_AlaSapRowStatus_Object = MibTableColumn
+alaSapRowStatus = _AlaSapRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 3),
+    _AlaSapRowStatus_Type()
+)
+alaSapRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSapRowStatus.setStatus("current")
+_AlaSapType_Type = AluServiceType
+_AlaSapType_Object = MibTableColumn
+alaSapType = _AlaSapType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 4),
+    _AlaSapType_Type()
+)
+alaSapType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSapType.setStatus("current")
+
+
+class _AlaSapDescription_Type(ServObjDesc):
+    """Custom type alaSapDescription based on ServObjDesc"""
+    defaultValue = OctetString("")
+
+
+_AlaSapDescription_Type.__name__ = "ServObjDesc"
+_AlaSapDescription_Object = MibTableColumn
+alaSapDescription = _AlaSapDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 5),
+    _AlaSapDescription_Type()
+)
+alaSapDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSapDescription.setStatus("current")
+
+
+class _AlaSapAdminStatus_Type(ServiceAdminStatus):
+    """Custom type alaSapAdminStatus based on ServiceAdminStatus"""
+    defaultValue = 2
+
+
+_AlaSapAdminStatus_Type.__name__ = "ServiceAdminStatus"
+_AlaSapAdminStatus_Object = MibTableColumn
+alaSapAdminStatus = _AlaSapAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 6),
+    _AlaSapAdminStatus_Type()
+)
+alaSapAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSapAdminStatus.setStatus("current")
+
+
+class _AlaSapOperStatus_Type(Integer32):
+    """Custom type alaSapOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2),
+          ("ingressQosMismatch", 3),
+          ("egressQosMismatch", 4),
+          ("portMtuTooSmall", 5),
+          ("svcAdminDown", 6),
+          ("iesIfAdminDown", 7))
+    )
+
+
+_AlaSapOperStatus_Type.__name__ = "Integer32"
+_AlaSapOperStatus_Object = MibTableColumn
+alaSapOperStatus = _AlaSapOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 7),
+    _AlaSapOperStatus_Type()
+)
+alaSapOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapOperStatus.setStatus("current")
+_AlaSapLastMgmtChange_Type = AluDateAndTime
+_AlaSapLastMgmtChange_Object = MibTableColumn
+alaSapLastMgmtChange = _AlaSapLastMgmtChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 8),
+    _AlaSapLastMgmtChange_Type()
+)
+alaSapLastMgmtChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapLastMgmtChange.setStatus("current")
+_AlaSapLastStatusChange_Type = AluDateAndTime
+_AlaSapLastStatusChange_Object = MibTableColumn
+alaSapLastStatusChange = _AlaSapLastStatusChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 9),
+    _AlaSapLastStatusChange_Type()
+)
+alaSapLastStatusChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapLastStatusChange.setStatus("current")
+
+
+class _AlaSapOperFlags_Type(Bits):
+    """Custom type alaSapOperFlags based on Bits"""
+    namedValues = NamedValues(
+        *(("sapAdminDown", 0),
+          ("svcAdminDown", 1),
+          ("iesIfAdminDown", 2),
+          ("portOperDown", 3),
+          ("portMtuTooSmall", 4),
+          ("l2OperDown", 5),
+          ("ingressQosMismatch", 6),
+          ("egressQosMismatch", 7),
+          ("relearnLimitExceeded", 8),
+          ("recProtSrcMac", 9),
+          ("subIfAdminDown", 10),
+          ("sapIpipeNoCeIpAddr", 11),
+          ("sapTodResourceUnavail", 12),
+          ("sapTodMssResourceUnavail", 13),
+          ("sapParamMismatch", 14),
+          ("sapCemNoEcidOrMacAddr", 15),
+          ("sapStandbyForMcRing", 16),
+          ("sapSvcMtuTooSmall", 17),
+          ("ingressNamedPoolMismatch", 18),
+          ("egressNamedPoolMismatch", 19),
+          ("ipMirrorNoMacAddr", 20),
+          ("sapEpipeNoRingNode", 21))
+    )
+
+_AlaSapOperFlags_Type.__name__ = "Bits"
+_AlaSapOperFlags_Object = MibTableColumn
+alaSapOperFlags = _AlaSapOperFlags_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 10),
+    _AlaSapOperFlags_Type()
+)
+alaSapOperFlags.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapOperFlags.setStatus("current")
+
+
+class _AlaSapTrusted_Type(TruthValue):
+    """Custom type alaSapTrusted based on TruthValue"""
+    defaultValue = 1
+
+
+_AlaSapTrusted_Type.__name__ = "TruthValue"
+_AlaSapTrusted_Object = MibTableColumn
+alaSapTrusted = _AlaSapTrusted_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 11),
+    _AlaSapTrusted_Type()
+)
+alaSapTrusted.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSapTrusted.setStatus("current")
+
+
+class _AlaSapPriority_Type(Integer32):
+    """Custom type alaSapPriority based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_AlaSapPriority_Type.__name__ = "Integer32"
+_AlaSapPriority_Object = MibTableColumn
+alaSapPriority = _AlaSapPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 12),
+    _AlaSapPriority_Type()
+)
+alaSapPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSapPriority.setStatus("current")
+_AlaSapSvcId_Type = AluServiceId
+_AlaSapSvcId_Object = MibTableColumn
+alaSapSvcId = _AlaSapSvcId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 13),
+    _AlaSapSvcId_Type()
+)
+alaSapSvcId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapSvcId.setStatus("current")
+_AlaSapSvcVFI_Type = Integer32
+_AlaSapSvcVFI_Object = MibTableColumn
+alaSapSvcVFI = _AlaSapSvcVFI_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 14),
+    _AlaSapSvcVFI_Type()
+)
+alaSapSvcVFI.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapSvcVFI.setStatus("current")
+_AlaSapVirtualPort_Type = Integer32
+_AlaSapVirtualPort_Object = MibTableColumn
+alaSapVirtualPort = _AlaSapVirtualPort_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 15),
+    _AlaSapVirtualPort_Type()
+)
+alaSapVirtualPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapVirtualPort.setStatus("current")
+_AlaSapAllocationType_Type = AluAllocationType
+_AlaSapAllocationType_Object = MibTableColumn
+alaSapAllocationType = _AlaSapAllocationType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 16),
+    _AlaSapAllocationType_Type()
+)
+alaSapAllocationType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapAllocationType.setStatus("current")
+_AlaSapStatsAdminStatus_Type = ServiceAdminStatus
+_AlaSapStatsAdminStatus_Object = MibTableColumn
+alaSapStatsAdminStatus = _AlaSapStatsAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 17),
+    _AlaSapStatsAdminStatus_Type()
+)
+alaSapStatsAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSapStatsAdminStatus.setStatus("current")
+_AlaSapIngressPacketCount_Type = Counter32
+_AlaSapIngressPacketCount_Object = MibTableColumn
+alaSapIngressPacketCount = _AlaSapIngressPacketCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 18),
+    _AlaSapIngressPacketCount_Type()
+)
+alaSapIngressPacketCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapIngressPacketCount.setStatus("current")
+_AlaSapIngressByteCount_Type = Counter64
+_AlaSapIngressByteCount_Object = MibTableColumn
+alaSapIngressByteCount = _AlaSapIngressByteCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 19),
+    _AlaSapIngressByteCount_Type()
+)
+alaSapIngressByteCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapIngressByteCount.setStatus("current")
+_AlaSapEgressPacketCount_Type = Counter32
+_AlaSapEgressPacketCount_Object = MibTableColumn
+alaSapEgressPacketCount = _AlaSapEgressPacketCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 20),
+    _AlaSapEgressPacketCount_Type()
+)
+alaSapEgressPacketCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapEgressPacketCount.setStatus("current")
+_AlaSapEgressByteCount_Type = Counter64
+_AlaSapEgressByteCount_Object = MibTableColumn
+alaSapEgressByteCount = _AlaSapEgressByteCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 21),
+    _AlaSapEgressByteCount_Type()
+)
+alaSapEgressByteCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSapEgressByteCount.setStatus("current")
+
+
+class _AlaSapClearCounters_Type(Integer32):
+    """Custom type alaSapClearCounters based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("done", 0),
+          ("clear", 1))
+    )
+
+
+_AlaSapClearCounters_Type.__name__ = "Integer32"
+_AlaSapClearCounters_Object = MibTableColumn
+alaSapClearCounters = _AlaSapClearCounters_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 5, 1, 22),
+    _AlaSapClearCounters_Type()
+)
+alaSapClearCounters.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSapClearCounters.setStatus("current")
+_AlaSdpInfoTable_Object = MibTable
+alaSdpInfoTable = _AlaSdpInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6)
+)
+if mibBuilder.loadTexts:
+    alaSdpInfoTable.setStatus("current")
+_AlaSdpInfoEntry_Object = MibTableRow
+alaSdpInfoEntry = _AlaSdpInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1)
+)
+alaSdpInfoEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpId"),
+)
+if mibBuilder.loadTexts:
+    alaSdpInfoEntry.setStatus("current")
+_AlaSdpId_Type = AluSdpId
+_AlaSdpId_Object = MibTableColumn
+alaSdpId = _AlaSdpId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 1),
+    _AlaSdpId_Type()
+)
+alaSdpId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaSdpId.setStatus("current")
+_AlaSdpRowStatus_Type = RowStatus
+_AlaSdpRowStatus_Object = MibTableColumn
+alaSdpRowStatus = _AlaSdpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 2),
+    _AlaSdpRowStatus_Type()
+)
+alaSdpRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpRowStatus.setStatus("current")
+_AlaSdpSvcType_Type = AluServiceType
+_AlaSdpSvcType_Object = MibTableColumn
+alaSdpSvcType = _AlaSdpSvcType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 3),
+    _AlaSdpSvcType_Type()
+)
+alaSdpSvcType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpSvcType.setStatus("current")
+
+
+class _AlaSdpDelivery_Type(Integer32):
+    """Custom type alaSdpDelivery based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("gre", 1),
+          ("mpls", 2),
+          ("pbb", 3),
+          ("vxlan", 4))
+    )
+
+
+_AlaSdpDelivery_Type.__name__ = "Integer32"
+_AlaSdpDelivery_Object = MibTableColumn
+alaSdpDelivery = _AlaSdpDelivery_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 4),
+    _AlaSdpDelivery_Type()
+)
+alaSdpDelivery.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpDelivery.setStatus("current")
+_AlaSdpFarEndIpAddress_Type = IpAddress
+_AlaSdpFarEndIpAddress_Object = MibTableColumn
+alaSdpFarEndIpAddress = _AlaSdpFarEndIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 5),
+    _AlaSdpFarEndIpAddress_Type()
+)
+alaSdpFarEndIpAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpFarEndIpAddress.setStatus("current")
+
+
+class _AlaSdpDescription_Type(ServObjDesc):
+    """Custom type alaSdpDescription based on ServObjDesc"""
+    defaultValue = OctetString("")
+
+
+_AlaSdpDescription_Type.__name__ = "ServObjDesc"
+_AlaSdpDescription_Object = MibTableColumn
+alaSdpDescription = _AlaSdpDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 6),
+    _AlaSdpDescription_Type()
+)
+alaSdpDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpDescription.setStatus("current")
+
+
+class _AlaSdpLabelSignaling_Type(Integer32):
+    """Custom type alaSdpLabelSignaling based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("tldp", 2))
+    )
+
+
+_AlaSdpLabelSignaling_Type.__name__ = "Integer32"
+_AlaSdpLabelSignaling_Object = MibTableColumn
+alaSdpLabelSignaling = _AlaSdpLabelSignaling_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 7),
+    _AlaSdpLabelSignaling_Type()
+)
+alaSdpLabelSignaling.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpLabelSignaling.setStatus("current")
+
+
+class _AlaSdpAdminStatus_Type(ServiceAdminStatus):
+    """Custom type alaSdpAdminStatus based on ServiceAdminStatus"""
+    defaultValue = 2
+
+
+_AlaSdpAdminStatus_Type.__name__ = "ServiceAdminStatus"
+_AlaSdpAdminStatus_Object = MibTableColumn
+alaSdpAdminStatus = _AlaSdpAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 8),
+    _AlaSdpAdminStatus_Type()
+)
+alaSdpAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpAdminStatus.setStatus("current")
+
+
+class _AlaSdpOperStatus_Type(Integer32):
+    """Custom type alaSdpOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("notAlive", 2),
+          ("notReady", 3),
+          ("invalidEgressInterface", 4),
+          ("transportTunnelDown", 5),
+          ("down", 6),
+          ("created", 7),
+          ("destroyed", 8))
+    )
+
+
+_AlaSdpOperStatus_Type.__name__ = "Integer32"
+_AlaSdpOperStatus_Object = MibTableColumn
+alaSdpOperStatus = _AlaSdpOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 9),
+    _AlaSdpOperStatus_Type()
+)
+alaSdpOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpOperStatus.setStatus("current")
+
+
+class _AlaSdpAdminPathMtu_Type(Integer32):
+    """Custom type alaSdpAdminPathMtu based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(576, 9194),
+    )
+
+
+_AlaSdpAdminPathMtu_Type.__name__ = "Integer32"
+_AlaSdpAdminPathMtu_Object = MibTableColumn
+alaSdpAdminPathMtu = _AlaSdpAdminPathMtu_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 10),
+    _AlaSdpAdminPathMtu_Type()
+)
+alaSdpAdminPathMtu.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpAdminPathMtu.setStatus("current")
+_AlaSdpOperPathMtu_Type = Integer32
+_AlaSdpOperPathMtu_Object = MibTableColumn
+alaSdpOperPathMtu = _AlaSdpOperPathMtu_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 11),
+    _AlaSdpOperPathMtu_Type()
+)
+alaSdpOperPathMtu.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpOperPathMtu.setStatus("current")
+_AlaSdpLastMgmtChange_Type = AluDateAndTime
+_AlaSdpLastMgmtChange_Object = MibTableColumn
+alaSdpLastMgmtChange = _AlaSdpLastMgmtChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 12),
+    _AlaSdpLastMgmtChange_Type()
+)
+alaSdpLastMgmtChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpLastMgmtChange.setStatus("current")
+
+
+class _AlaSdpLdpEnabled_Type(TruthValue):
+    """Custom type alaSdpLdpEnabled based on TruthValue"""
+    defaultValue = 2
+
+
+_AlaSdpLdpEnabled_Type.__name__ = "TruthValue"
+_AlaSdpLdpEnabled_Object = MibTableColumn
+alaSdpLdpEnabled = _AlaSdpLdpEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 13),
+    _AlaSdpLdpEnabled_Type()
+)
+alaSdpLdpEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpLdpEnabled.setStatus("current")
+
+
+class _AlaSdpVlanVcEtype_Type(Unsigned32):
+    """Custom type alaSdpVlanVcEtype based on Unsigned32"""
+    defaultValue = 33024
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1536, 65535),
+    )
+
+
+_AlaSdpVlanVcEtype_Type.__name__ = "Unsigned32"
+_AlaSdpVlanVcEtype_Object = MibTableColumn
+alaSdpVlanVcEtype = _AlaSdpVlanVcEtype_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 14),
+    _AlaSdpVlanVcEtype_Type()
+)
+alaSdpVlanVcEtype.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpVlanVcEtype.setStatus("current")
+
+
+class _AlaSdpAdvertisedVllMtuOverride_Type(TruthValue):
+    """Custom type alaSdpAdvertisedVllMtuOverride based on TruthValue"""
+    defaultValue = 2
+
+
+_AlaSdpAdvertisedVllMtuOverride_Type.__name__ = "TruthValue"
+_AlaSdpAdvertisedVllMtuOverride_Object = MibTableColumn
+alaSdpAdvertisedVllMtuOverride = _AlaSdpAdvertisedVllMtuOverride_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 15),
+    _AlaSdpAdvertisedVllMtuOverride_Type()
+)
+alaSdpAdvertisedVllMtuOverride.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpAdvertisedVllMtuOverride.setStatus("current")
+
+
+class _AlaSdpOperFlags_Type(Bits):
+    """Custom type alaSdpOperFlags based on Bits"""
+    namedValues = NamedValues(
+        *(("sdpAdminDown", 0),
+          ("signalingSessionDown", 1),
+          ("transportTunnelDown", 2),
+          ("keepaliveFailure", 3),
+          ("invalidEgressInterface", 4),
+          ("noSystemIpAddress", 5),
+          ("transportTunnelUnstable", 6))
+    )
+
+_AlaSdpOperFlags_Type.__name__ = "Bits"
+_AlaSdpOperFlags_Object = MibTableColumn
+alaSdpOperFlags = _AlaSdpOperFlags_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 16),
+    _AlaSdpOperFlags_Type()
+)
+alaSdpOperFlags.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpOperFlags.setStatus("current")
+_AlaSdpLastStatusChange_Type = AluDateAndTime
+_AlaSdpLastStatusChange_Object = MibTableColumn
+alaSdpLastStatusChange = _AlaSdpLastStatusChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 17),
+    _AlaSdpLastStatusChange_Type()
+)
+alaSdpLastStatusChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpLastStatusChange.setStatus("current")
+
+
+class _AlaSdpNetworkPort_Type(InterfaceIndexOrZero):
+    """Custom type alaSdpNetworkPort based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_AlaSdpNetworkPort_Type.__name__ = "InterfaceIndexOrZero"
+_AlaSdpNetworkPort_Object = MibTableColumn
+alaSdpNetworkPort = _AlaSdpNetworkPort_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 18),
+    _AlaSdpNetworkPort_Type()
+)
+alaSdpNetworkPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpNetworkPort.setStatus("current")
+
+
+class _AlaSdpBVlan_Type(Integer32):
+    """Custom type alaSdpBVlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_AlaSdpBVlan_Type.__name__ = "Integer32"
+_AlaSdpBVlan_Object = MibTableColumn
+alaSdpBVlan = _AlaSdpBVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 19),
+    _AlaSdpBVlan_Type()
+)
+alaSdpBVlan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBVlan.setStatus("current")
+_AlaSdpSystemId_Type = MacAddress
+_AlaSdpSystemId_Object = MibTableColumn
+alaSdpSystemId = _AlaSdpSystemId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 20),
+    _AlaSdpSystemId_Type()
+)
+alaSdpSystemId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpSystemId.setStatus("current")
+
+
+class _AlaSdpSystemName_Type(DisplayString):
+    """Custom type alaSdpSystemName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_AlaSdpSystemName_Type.__name__ = "DisplayString"
+_AlaSdpSystemName_Object = MibTableColumn
+alaSdpSystemName = _AlaSdpSystemName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 21),
+    _AlaSdpSystemName_Type()
+)
+alaSdpSystemName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpSystemName.setStatus("current")
+_AlaSdpSpSourceId_Type = Unsigned32
+_AlaSdpSpSourceId_Object = MibTableColumn
+alaSdpSpSourceId = _AlaSdpSpSourceId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 22),
+    _AlaSdpSpSourceId_Type()
+)
+alaSdpSpSourceId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpSpSourceId.setStatus("current")
+
+
+class _AlaSdpAllocationType_Type(AluAllocationType):
+    """Custom type alaSdpAllocationType based on AluAllocationType"""
+    defaultValue = 1
+
+
+_AlaSdpAllocationType_Type.__name__ = "AluAllocationType"
+_AlaSdpAllocationType_Object = MibTableColumn
+alaSdpAllocationType = _AlaSdpAllocationType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 23),
+    _AlaSdpAllocationType_Type()
+)
+alaSdpAllocationType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpAllocationType.setStatus("current")
+
+
+class _AlaSdpDynamicType_Type(AluSdpDynamicType):
+    """Custom type alaSdpDynamicType based on AluSdpDynamicType"""
+    defaultValue = 1
+
+
+_AlaSdpDynamicType_Type.__name__ = "AluSdpDynamicType"
+_AlaSdpDynamicType_Object = MibTableColumn
+alaSdpDynamicType = _AlaSdpDynamicType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 24),
+    _AlaSdpDynamicType_Type()
+)
+alaSdpDynamicType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpDynamicType.setStatus("current")
+_AlaSdpBindCount_Type = Integer32
+_AlaSdpBindCount_Object = MibTableColumn
+alaSdpBindCount = _AlaSdpBindCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 25),
+    _AlaSdpBindCount_Type()
+)
+alaSdpBindCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindCount.setStatus("current")
+
+
+class _AlaSdpIsid_Type(Integer32):
+    """Custom type alaSdpIsid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(256, 16777214),
+    )
+
+
+_AlaSdpIsid_Type.__name__ = "Integer32"
+_AlaSdpIsid_Object = MibTableColumn
+alaSdpIsid = _AlaSdpIsid_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 26),
+    _AlaSdpIsid_Type()
+)
+alaSdpIsid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpIsid.setStatus("current")
+
+
+class _AlaSdpMcastPortList_Type(DisplayString):
+    """Custom type alaSdpMcastPortList based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_AlaSdpMcastPortList_Type.__name__ = "DisplayString"
+_AlaSdpMcastPortList_Object = MibTableColumn
+alaSdpMcastPortList = _AlaSdpMcastPortList_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 27),
+    _AlaSdpMcastPortList_Type()
+)
+alaSdpMcastPortList.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpMcastPortList.setStatus("current")
+_AlaSdpCreationOrigin_Type = AluSdpOriginType
+_AlaSdpCreationOrigin_Object = MibTableColumn
+alaSdpCreationOrigin = _AlaSdpCreationOrigin_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 28),
+    _AlaSdpCreationOrigin_Type()
+)
+alaSdpCreationOrigin.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpCreationOrigin.setStatus("current")
+
+
+class _AlaSdpAdminTTL_Type(OctetString):
+    """Custom type alaSdpAdminTTL based on OctetString"""
+    defaultValue = OctetString("@")
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+    fixed_length = 1
+
+
+_AlaSdpAdminTTL_Type.__name__ = "OctetString"
+_AlaSdpAdminTTL_Object = MibTableColumn
+alaSdpAdminTTL = _AlaSdpAdminTTL_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 6, 1, 29),
+    _AlaSdpAdminTTL_Type()
+)
+alaSdpAdminTTL.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpAdminTTL.setStatus("current")
+_AlaSdpBindTable_Object = MibTable
+alaSdpBindTable = _AlaSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7)
+)
+if mibBuilder.loadTexts:
+    alaSdpBindTable.setStatus("current")
+_AlaSdpBindEntry_Object = MibTableRow
+alaSdpBindEntry = _AlaSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1)
+)
+alaSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"),
+)
+if mibBuilder.loadTexts:
+    alaSdpBindEntry.setStatus("current")
+_AlaSdpBindId_Type = SdpBindId
+_AlaSdpBindId_Object = MibTableColumn
+alaSdpBindId = _AlaSdpBindId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 1),
+    _AlaSdpBindId_Type()
+)
+alaSdpBindId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alaSdpBindId.setStatus("current")
+_AlaSdpBindRowStatus_Type = RowStatus
+_AlaSdpBindRowStatus_Object = MibTableColumn
+alaSdpBindRowStatus = _AlaSdpBindRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 2),
+    _AlaSdpBindRowStatus_Type()
+)
+alaSdpBindRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpBindRowStatus.setStatus("current")
+_AlaSdpBindSvcType_Type = AluServiceType
+_AlaSdpBindSvcType_Object = MibTableColumn
+alaSdpBindSvcType = _AlaSdpBindSvcType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 3),
+    _AlaSdpBindSvcType_Type()
+)
+alaSdpBindSvcType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpBindSvcType.setStatus("current")
+
+
+class _AlaSdpBindAdminIngressLabel_Type(Unsigned32):
+    """Custom type alaSdpBindAdminIngressLabel based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 1),
+        ValueRangeConstraint(2048, 18431),
+    )
+
+
+_AlaSdpBindAdminIngressLabel_Type.__name__ = "Unsigned32"
+_AlaSdpBindAdminIngressLabel_Object = MibTableColumn
+alaSdpBindAdminIngressLabel = _AlaSdpBindAdminIngressLabel_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 4),
+    _AlaSdpBindAdminIngressLabel_Type()
+)
+alaSdpBindAdminIngressLabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpBindAdminIngressLabel.setStatus("current")
+
+
+class _AlaSdpBindAdminEgressLabel_Type(Unsigned32):
+    """Custom type alaSdpBindAdminEgressLabel based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(16, 1048575),
+    )
+
+
+_AlaSdpBindAdminEgressLabel_Type.__name__ = "Unsigned32"
+_AlaSdpBindAdminEgressLabel_Object = MibTableColumn
+alaSdpBindAdminEgressLabel = _AlaSdpBindAdminEgressLabel_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 5),
+    _AlaSdpBindAdminEgressLabel_Type()
+)
+alaSdpBindAdminEgressLabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpBindAdminEgressLabel.setStatus("current")
+
+
+class _AlaSdpBindOperIngressLabel_Type(Unsigned32):
+    """Custom type alaSdpBindOperIngressLabel based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 1048575),
+    )
+
+
+_AlaSdpBindOperIngressLabel_Type.__name__ = "Unsigned32"
+_AlaSdpBindOperIngressLabel_Object = MibTableColumn
+alaSdpBindOperIngressLabel = _AlaSdpBindOperIngressLabel_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 6),
+    _AlaSdpBindOperIngressLabel_Type()
+)
+alaSdpBindOperIngressLabel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindOperIngressLabel.setStatus("current")
+
+
+class _AlaSdpBindOperEgressLabel_Type(Unsigned32):
+    """Custom type alaSdpBindOperEgressLabel based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 1048575),
+    )
+
+
+_AlaSdpBindOperEgressLabel_Type.__name__ = "Unsigned32"
+_AlaSdpBindOperEgressLabel_Object = MibTableColumn
+alaSdpBindOperEgressLabel = _AlaSdpBindOperEgressLabel_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 7),
+    _AlaSdpBindOperEgressLabel_Type()
+)
+alaSdpBindOperEgressLabel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindOperEgressLabel.setStatus("current")
+
+
+class _AlaSdpBindAdminStatus_Type(ServiceAdminStatus):
+    """Custom type alaSdpBindAdminStatus based on ServiceAdminStatus"""
+    defaultValue = 1
+
+
+_AlaSdpBindAdminStatus_Type.__name__ = "ServiceAdminStatus"
+_AlaSdpBindAdminStatus_Object = MibTableColumn
+alaSdpBindAdminStatus = _AlaSdpBindAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 8),
+    _AlaSdpBindAdminStatus_Type()
+)
+alaSdpBindAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpBindAdminStatus.setStatus("current")
+
+
+class _AlaSdpBindOperStatus_Type(Integer32):
+    """Custom type alaSdpBindOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("noEgressLabel", 2),
+          ("noIngressLabel", 3),
+          ("noLabels", 4),
+          ("down", 5),
+          ("svcMtuMismatch", 6),
+          ("sdpPathMtuTooSmall", 7),
+          ("sdpNotReady", 8),
+          ("sdpDown", 9),
+          ("sapDown", 10),
+          ("created", 11),
+          ("destroyed", 12))
+    )
+
+
+_AlaSdpBindOperStatus_Type.__name__ = "Integer32"
+_AlaSdpBindOperStatus_Object = MibTableColumn
+alaSdpBindOperStatus = _AlaSdpBindOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 9),
+    _AlaSdpBindOperStatus_Type()
+)
+alaSdpBindOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindOperStatus.setStatus("current")
+_AlaSdpBindLastMgmtChange_Type = AluDateAndTime
+_AlaSdpBindLastMgmtChange_Object = MibTableColumn
+alaSdpBindLastMgmtChange = _AlaSdpBindLastMgmtChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 10),
+    _AlaSdpBindLastMgmtChange_Type()
+)
+alaSdpBindLastMgmtChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindLastMgmtChange.setStatus("current")
+
+
+class _AlaSdpBindType_Type(Integer32):
+    """Custom type alaSdpBindType based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("spoke", 1),
+          ("mesh", 2))
+    )
+
+
+_AlaSdpBindType_Type.__name__ = "Integer32"
+_AlaSdpBindType_Object = MibTableColumn
+alaSdpBindType = _AlaSdpBindType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 11),
+    _AlaSdpBindType_Type()
+)
+alaSdpBindType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpBindType.setStatus("current")
+
+
+class _AlaSdpBindOperFlags_Type(Bits):
+    """Custom type alaSdpBindOperFlags based on Bits"""
+    namedValues = NamedValues(
+        *(("sdpBindAdminDown", 0),
+          ("svcAdminDown", 1),
+          ("sapOperDown", 2),
+          ("sdpOperDown", 3),
+          ("sdpPathMtuTooSmall", 4),
+          ("noIngressVcLabel", 5),
+          ("noEgressVcLabel", 6),
+          ("svcMtuMismatch", 7),
+          ("vcTypeMismatch", 8),
+          ("relearnLimitExceeded", 9),
+          ("iesIfAdminDown", 10),
+          ("releasedIngressVcLabel", 11),
+          ("labelsExhausted", 12),
+          ("svcParamMismatch", 13),
+          ("insufficientBandwidth", 14),
+          ("pwPeerFaultStatusBits", 15),
+          ("meshSdpDown", 16))
+    )
+
+_AlaSdpBindOperFlags_Type.__name__ = "Bits"
+_AlaSdpBindOperFlags_Object = MibTableColumn
+alaSdpBindOperFlags = _AlaSdpBindOperFlags_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 12),
+    _AlaSdpBindOperFlags_Type()
+)
+alaSdpBindOperFlags.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindOperFlags.setStatus("current")
+_AlaSdpBindLastStatusChange_Type = AluDateAndTime
+_AlaSdpBindLastStatusChange_Object = MibTableColumn
+alaSdpBindLastStatusChange = _AlaSdpBindLastStatusChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 13),
+    _AlaSdpBindLastStatusChange_Type()
+)
+alaSdpBindLastStatusChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindLastStatusChange.setStatus("current")
+_AlaSdpBindControlWordBit_Type = TruthValue
+_AlaSdpBindControlWordBit_Object = MibTableColumn
+alaSdpBindControlWordBit = _AlaSdpBindControlWordBit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 14),
+    _AlaSdpBindControlWordBit_Type()
+)
+alaSdpBindControlWordBit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpBindControlWordBit.setStatus("current")
+_AlaSdpBindOperControlWord_Type = TruthValue
+_AlaSdpBindOperControlWord_Object = MibTableColumn
+alaSdpBindOperControlWord = _AlaSdpBindOperControlWord_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 15),
+    _AlaSdpBindOperControlWord_Type()
+)
+alaSdpBindOperControlWord.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindOperControlWord.setStatus("current")
+
+
+class _AlaSdpBindNetworkPort_Type(InterfaceIndexOrZero):
+    """Custom type alaSdpBindNetworkPort based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_AlaSdpBindNetworkPort_Type.__name__ = "InterfaceIndexOrZero"
+_AlaSdpBindNetworkPort_Object = MibTableColumn
+alaSdpBindNetworkPort = _AlaSdpBindNetworkPort_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 16),
+    _AlaSdpBindNetworkPort_Type()
+)
+alaSdpBindNetworkPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindNetworkPort.setStatus("current")
+
+
+class _AlaSdpBindVirtualPort_Type(Integer32):
+    """Custom type alaSdpBindVirtualPort based on Integer32"""
+    defaultValue = 0
+
+
+_AlaSdpBindVirtualPort_Type.__name__ = "Integer32"
+_AlaSdpBindVirtualPort_Object = MibTableColumn
+alaSdpBindVirtualPort = _AlaSdpBindVirtualPort_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 17),
+    _AlaSdpBindVirtualPort_Type()
+)
+alaSdpBindVirtualPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindVirtualPort.setStatus("current")
+
+
+class _AlaSdpBindIsid_Type(Integer32):
+    """Custom type alaSdpBindIsid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(256, 16777214),
+    )
+
+
+_AlaSdpBindIsid_Type.__name__ = "Integer32"
+_AlaSdpBindIsid_Object = MibTableColumn
+alaSdpBindIsid = _AlaSdpBindIsid_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 18),
+    _AlaSdpBindIsid_Type()
+)
+alaSdpBindIsid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindIsid.setStatus("current")
+
+
+class _AlaSdpBindBVlan_Type(Integer32):
+    """Custom type alaSdpBindBVlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_AlaSdpBindBVlan_Type.__name__ = "Integer32"
+_AlaSdpBindBVlan_Object = MibTableColumn
+alaSdpBindBVlan = _AlaSdpBindBVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 19),
+    _AlaSdpBindBVlan_Type()
+)
+alaSdpBindBVlan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindBVlan.setStatus("current")
+_AlaSdpBindSystemId_Type = MacAddress
+_AlaSdpBindSystemId_Object = MibTableColumn
+alaSdpBindSystemId = _AlaSdpBindSystemId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 20),
+    _AlaSdpBindSystemId_Type()
+)
+alaSdpBindSystemId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindSystemId.setStatus("current")
+
+
+class _AlaSdpBindSystemName_Type(DisplayString):
+    """Custom type alaSdpBindSystemName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_AlaSdpBindSystemName_Type.__name__ = "DisplayString"
+_AlaSdpBindSystemName_Object = MibTableColumn
+alaSdpBindSystemName = _AlaSdpBindSystemName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 21),
+    _AlaSdpBindSystemName_Type()
+)
+alaSdpBindSystemName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindSystemName.setStatus("current")
+
+
+class _AlaSdpBindAllocationType_Type(AluAllocationType):
+    """Custom type alaSdpBindAllocationType based on AluAllocationType"""
+    defaultValue = 1
+
+
+_AlaSdpBindAllocationType_Type.__name__ = "AluAllocationType"
+_AlaSdpBindAllocationType_Object = MibTableColumn
+alaSdpBindAllocationType = _AlaSdpBindAllocationType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 22),
+    _AlaSdpBindAllocationType_Type()
+)
+alaSdpBindAllocationType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindAllocationType.setStatus("current")
+_AlaSdpBindIngressPacketCount_Type = Counter32
+_AlaSdpBindIngressPacketCount_Object = MibTableColumn
+alaSdpBindIngressPacketCount = _AlaSdpBindIngressPacketCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 23),
+    _AlaSdpBindIngressPacketCount_Type()
+)
+alaSdpBindIngressPacketCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindIngressPacketCount.setStatus("current")
+_AlaSdpBindIngressByteCount_Type = Counter64
+_AlaSdpBindIngressByteCount_Object = MibTableColumn
+alaSdpBindIngressByteCount = _AlaSdpBindIngressByteCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 24),
+    _AlaSdpBindIngressByteCount_Type()
+)
+alaSdpBindIngressByteCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindIngressByteCount.setStatus("current")
+_AlaSdpBindEgressPacketCount_Type = Counter32
+_AlaSdpBindEgressPacketCount_Object = MibTableColumn
+alaSdpBindEgressPacketCount = _AlaSdpBindEgressPacketCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 25),
+    _AlaSdpBindEgressPacketCount_Type()
+)
+alaSdpBindEgressPacketCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindEgressPacketCount.setStatus("current")
+_AlaSdpBindEgressByteCount_Type = Counter64
+_AlaSdpBindEgressByteCount_Object = MibTableColumn
+alaSdpBindEgressByteCount = _AlaSdpBindEgressByteCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 26),
+    _AlaSdpBindEgressByteCount_Type()
+)
+alaSdpBindEgressByteCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindEgressByteCount.setStatus("current")
+_AlaSdpBindCreationOrigin_Type = AluSdpOriginType
+_AlaSdpBindCreationOrigin_Object = MibTableColumn
+alaSdpBindCreationOrigin = _AlaSdpBindCreationOrigin_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 27),
+    _AlaSdpBindCreationOrigin_Type()
+)
+alaSdpBindCreationOrigin.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpBindCreationOrigin.setStatus("current")
+_AlaSdpBindFarEndIpAddress_Type = IpAddress
+_AlaSdpBindFarEndIpAddress_Object = MibTableColumn
+alaSdpBindFarEndIpAddress = _AlaSdpBindFarEndIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 28),
+    _AlaSdpBindFarEndIpAddress_Type()
+)
+alaSdpBindFarEndIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindFarEndIpAddress.setStatus("current")
+
+
+class _AlaSdpBindVnid_Type(Integer32):
+    """Custom type alaSdpBindVnid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16777215),
+    )
+
+
+_AlaSdpBindVnid_Type.__name__ = "Integer32"
+_AlaSdpBindVnid_Object = MibTableColumn
+alaSdpBindVnid = _AlaSdpBindVnid_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 29),
+    _AlaSdpBindVnid_Type()
+)
+alaSdpBindVnid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindVnid.setStatus("current")
+
+
+class _AlaSdpBindDescription_Type(ServObjDesc):
+    """Custom type alaSdpBindDescription based on ServObjDesc"""
+    defaultValue = OctetString("")
+
+
+_AlaSdpBindDescription_Type.__name__ = "ServObjDesc"
+_AlaSdpBindDescription_Object = MibTableColumn
+alaSdpBindDescription = _AlaSdpBindDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 30),
+    _AlaSdpBindDescription_Type()
+)
+alaSdpBindDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaSdpBindDescription.setStatus("current")
+_AlaSdpBindStatsAdminStatus_Type = ServiceAdminStatus
+_AlaSdpBindStatsAdminStatus_Object = MibTableColumn
+alaSdpBindStatsAdminStatus = _AlaSdpBindStatsAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 7, 1, 31),
+    _AlaSdpBindStatsAdminStatus_Type()
+)
+alaSdpBindStatsAdminStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSdpBindStatsAdminStatus.setStatus("current")
+_AlaSvcMgrSysTable_ObjectIdentity = ObjectIdentity
+alaSvcMgrSysTable = _AlaSvcMgrSysTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8)
+)
+_AlaSvcMgrSysId_Type = MacAddress
+_AlaSvcMgrSysId_Object = MibScalar
+alaSvcMgrSysId = _AlaSvcMgrSysId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 1),
+    _AlaSvcMgrSysId_Type()
+)
+alaSvcMgrSysId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcMgrSysId.setStatus("current")
+
+
+class _AlaSvcMgrSysName_Type(DisplayString):
+    """Custom type alaSvcMgrSysName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_AlaSvcMgrSysName_Type.__name__ = "DisplayString"
+_AlaSvcMgrSysName_Object = MibScalar
+alaSvcMgrSysName = _AlaSvcMgrSysName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 2),
+    _AlaSvcMgrSysName_Type()
+)
+alaSvcMgrSysName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcMgrSysName.setStatus("current")
+_AlaSvcMgrSysLastMgmtChange_Type = AluDateAndTime
+_AlaSvcMgrSysLastMgmtChange_Object = MibScalar
+alaSvcMgrSysLastMgmtChange = _AlaSvcMgrSysLastMgmtChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 3),
+    _AlaSvcMgrSysLastMgmtChange_Type()
+)
+alaSvcMgrSysLastMgmtChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcMgrSysLastMgmtChange.setStatus("current")
+_AlaSvcMgrSysLastStatusChange_Type = AluDateAndTime
+_AlaSvcMgrSysLastStatusChange_Object = MibScalar
+alaSvcMgrSysLastStatusChange = _AlaSvcMgrSysLastStatusChange_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 4),
+    _AlaSvcMgrSysLastStatusChange_Type()
+)
+alaSvcMgrSysLastStatusChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaSvcMgrSysLastStatusChange.setStatus("current")
+
+
+class _AlaSvcMgrSvcTrapAdminState_Type(Integer32):
+    """Custom type alaSvcMgrSvcTrapAdminState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaSvcMgrSvcTrapAdminState_Type.__name__ = "Integer32"
+_AlaSvcMgrSvcTrapAdminState_Object = MibScalar
+alaSvcMgrSvcTrapAdminState = _AlaSvcMgrSvcTrapAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 5),
+    _AlaSvcMgrSvcTrapAdminState_Type()
+)
+alaSvcMgrSvcTrapAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaSvcMgrSvcTrapAdminState.setStatus("current")
+
+
+class _AlaSvcMgrSapTrapAdminState_Type(Integer32):
+    """Custom type alaSvcMgrSapTrapAdminState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaSvcMgrSapTrapAdminState_Type.__name__ = "Integer32"
+_AlaSvcMgrSapTrapAdminState_Object = MibScalar
+alaSvcMgrSapTrapAdminState = _AlaSvcMgrSapTrapAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 6),
+    _AlaSvcMgrSapTrapAdminState_Type()
+)
+alaSvcMgrSapTrapAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaSvcMgrSapTrapAdminState.setStatus("current")
+
+
+class _AlaSvcMgrSdpTrapAdminState_Type(Integer32):
+    """Custom type alaSvcMgrSdpTrapAdminState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaSvcMgrSdpTrapAdminState_Type.__name__ = "Integer32"
+_AlaSvcMgrSdpTrapAdminState_Object = MibScalar
+alaSvcMgrSdpTrapAdminState = _AlaSvcMgrSdpTrapAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 7),
+    _AlaSvcMgrSdpTrapAdminState_Type()
+)
+alaSvcMgrSdpTrapAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaSvcMgrSdpTrapAdminState.setStatus("current")
+
+
+class _AlaSvcMgrSdpBindTrapAdminState_Type(Integer32):
+    """Custom type alaSvcMgrSdpBindTrapAdminState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaSvcMgrSdpBindTrapAdminState_Type.__name__ = "Integer32"
+_AlaSvcMgrSdpBindTrapAdminState_Object = MibScalar
+alaSvcMgrSdpBindTrapAdminState = _AlaSvcMgrSdpBindTrapAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 8),
+    _AlaSvcMgrSdpBindTrapAdminState_Type()
+)
+alaSvcMgrSdpBindTrapAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaSvcMgrSdpBindTrapAdminState.setStatus("current")
+
+
+class _AlaSvcMgrMaxTrapPerMinute_Type(Integer32):
+    """Custom type alaSvcMgrMaxTrapPerMinute based on Integer32"""
+    defaultValue = 60
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65534),
+        ValueRangeConstraint(65535, 65535),
+    )
+
+
+_AlaSvcMgrMaxTrapPerMinute_Type.__name__ = "Integer32"
+_AlaSvcMgrMaxTrapPerMinute_Object = MibScalar
+alaSvcMgrMaxTrapPerMinute = _AlaSvcMgrMaxTrapPerMinute_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 9),
+    _AlaSvcMgrMaxTrapPerMinute_Type()
+)
+alaSvcMgrMaxTrapPerMinute.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaSvcMgrMaxTrapPerMinute.setStatus("current")
+
+
+class _AlaSvcMgrStatsAdminState_Type(Integer32):
+    """Custom type alaSvcMgrStatsAdminState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaSvcMgrStatsAdminState_Type.__name__ = "Integer32"
+_AlaSvcMgrStatsAdminState_Object = MibScalar
+alaSvcMgrStatsAdminState = _AlaSvcMgrStatsAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 10),
+    _AlaSvcMgrStatsAdminState_Type()
+)
+alaSvcMgrStatsAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaSvcMgrStatsAdminState.setStatus("current")
+
+
+class _AlaSvcMgrVxlanDestUdpPort_Type(Integer32):
+    """Custom type alaSvcMgrVxlanDestUdpPort based on Integer32"""
+    defaultValue = 4789
+
+
+_AlaSvcMgrVxlanDestUdpPort_Type.__name__ = "Integer32"
+_AlaSvcMgrVxlanDestUdpPort_Object = MibScalar
+alaSvcMgrVxlanDestUdpPort = _AlaSvcMgrVxlanDestUdpPort_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 11),
+    _AlaSvcMgrVxlanDestUdpPort_Type()
+)
+alaSvcMgrVxlanDestUdpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaSvcMgrVxlanDestUdpPort.setStatus("current")
+
+
+class _AlaSvcMgrVxlanVrfName_Type(SnmpAdminString):
+    """Custom type alaSvcMgrVxlanVrfName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 20),
+    )
+
+
+_AlaSvcMgrVxlanVrfName_Type.__name__ = "SnmpAdminString"
+_AlaSvcMgrVxlanVrfName_Object = MibScalar
+alaSvcMgrVxlanVrfName = _AlaSvcMgrVxlanVrfName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 1, 8, 12),
+    _AlaSvcMgrVxlanVrfName_Type()
+)
+alaSvcMgrVxlanVrfName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaSvcMgrVxlanVrfName.setStatus("current")
+_AlaServiceMgrIgmp_ObjectIdentity = ObjectIdentity
+alaServiceMgrIgmp = _AlaServiceMgrIgmp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2)
+)
+_AlaIgmpServiceTable_Object = MibTable
+alaIgmpServiceTable = _AlaIgmpServiceTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceTable.setStatus("current")
+_AlaIgmpServiceEntry_Object = MibTableRow
+alaIgmpServiceEntry = _AlaIgmpServiceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1)
+)
+alaIgmpServiceEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceEntry.setStatus("current")
+
+
+class _AlaIgmpServiceStatus_Type(Integer32):
+    """Custom type alaIgmpServiceStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpServiceStatus_Type.__name__ = "Integer32"
+_AlaIgmpServiceStatus_Object = MibTableColumn
+alaIgmpServiceStatus = _AlaIgmpServiceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 1),
+    _AlaIgmpServiceStatus_Type()
+)
+alaIgmpServiceStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceStatus.setStatus("current")
+
+
+class _AlaIgmpServiceQuerying_Type(Integer32):
+    """Custom type alaIgmpServiceQuerying based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpServiceQuerying_Type.__name__ = "Integer32"
+_AlaIgmpServiceQuerying_Object = MibTableColumn
+alaIgmpServiceQuerying = _AlaIgmpServiceQuerying_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 2),
+    _AlaIgmpServiceQuerying_Type()
+)
+alaIgmpServiceQuerying.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceQuerying.setStatus("current")
+
+
+class _AlaIgmpServiceSpoofing_Type(Integer32):
+    """Custom type alaIgmpServiceSpoofing based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpServiceSpoofing_Type.__name__ = "Integer32"
+_AlaIgmpServiceSpoofing_Object = MibTableColumn
+alaIgmpServiceSpoofing = _AlaIgmpServiceSpoofing_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 3),
+    _AlaIgmpServiceSpoofing_Type()
+)
+alaIgmpServiceSpoofing.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSpoofing.setStatus("current")
+
+
+class _AlaIgmpServiceZapping_Type(Integer32):
+    """Custom type alaIgmpServiceZapping based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpServiceZapping_Type.__name__ = "Integer32"
+_AlaIgmpServiceZapping_Object = MibTableColumn
+alaIgmpServiceZapping = _AlaIgmpServiceZapping_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 4),
+    _AlaIgmpServiceZapping_Type()
+)
+alaIgmpServiceZapping.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceZapping.setStatus("current")
+_AlaIgmpServiceVersion_Type = Unsigned32
+_AlaIgmpServiceVersion_Object = MibTableColumn
+alaIgmpServiceVersion = _AlaIgmpServiceVersion_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 5),
+    _AlaIgmpServiceVersion_Type()
+)
+alaIgmpServiceVersion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceVersion.setStatus("current")
+_AlaIgmpServiceRobustness_Type = Unsigned32
+_AlaIgmpServiceRobustness_Object = MibTableColumn
+alaIgmpServiceRobustness = _AlaIgmpServiceRobustness_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 6),
+    _AlaIgmpServiceRobustness_Type()
+)
+alaIgmpServiceRobustness.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceRobustness.setStatus("current")
+_AlaIgmpServiceQueryInterval_Type = Unsigned32
+_AlaIgmpServiceQueryInterval_Object = MibTableColumn
+alaIgmpServiceQueryInterval = _AlaIgmpServiceQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 7),
+    _AlaIgmpServiceQueryInterval_Type()
+)
+alaIgmpServiceQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceQueryInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    alaIgmpServiceQueryInterval.setUnits("seconds")
+_AlaIgmpServiceQueryResponseInterval_Type = Unsigned32
+_AlaIgmpServiceQueryResponseInterval_Object = MibTableColumn
+alaIgmpServiceQueryResponseInterval = _AlaIgmpServiceQueryResponseInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 8),
+    _AlaIgmpServiceQueryResponseInterval_Type()
+)
+alaIgmpServiceQueryResponseInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceQueryResponseInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    alaIgmpServiceQueryResponseInterval.setUnits("tenths of seconds")
+_AlaIgmpServiceLastMemberQueryInterval_Type = Unsigned32
+_AlaIgmpServiceLastMemberQueryInterval_Object = MibTableColumn
+alaIgmpServiceLastMemberQueryInterval = _AlaIgmpServiceLastMemberQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 9),
+    _AlaIgmpServiceLastMemberQueryInterval_Type()
+)
+alaIgmpServiceLastMemberQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceLastMemberQueryInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    alaIgmpServiceLastMemberQueryInterval.setUnits("tenths of seconds")
+_AlaIgmpServiceRouterTimeout_Type = Unsigned32
+_AlaIgmpServiceRouterTimeout_Object = MibTableColumn
+alaIgmpServiceRouterTimeout = _AlaIgmpServiceRouterTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 10),
+    _AlaIgmpServiceRouterTimeout_Type()
+)
+alaIgmpServiceRouterTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceRouterTimeout.setStatus("current")
+if mibBuilder.loadTexts:
+    alaIgmpServiceRouterTimeout.setUnits("seconds")
+_AlaIgmpServiceSourceTimeout_Type = Unsigned32
+_AlaIgmpServiceSourceTimeout_Object = MibTableColumn
+alaIgmpServiceSourceTimeout = _AlaIgmpServiceSourceTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 11),
+    _AlaIgmpServiceSourceTimeout_Type()
+)
+alaIgmpServiceSourceTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceTimeout.setStatus("current")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceTimeout.setUnits("seconds")
+
+
+class _AlaIgmpServiceProxying_Type(Integer32):
+    """Custom type alaIgmpServiceProxying based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpServiceProxying_Type.__name__ = "Integer32"
+_AlaIgmpServiceProxying_Object = MibTableColumn
+alaIgmpServiceProxying = _AlaIgmpServiceProxying_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 12),
+    _AlaIgmpServiceProxying_Type()
+)
+alaIgmpServiceProxying.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceProxying.setStatus("current")
+_AlaIgmpServiceUnsolicitedReportInterval_Type = Unsigned32
+_AlaIgmpServiceUnsolicitedReportInterval_Object = MibTableColumn
+alaIgmpServiceUnsolicitedReportInterval = _AlaIgmpServiceUnsolicitedReportInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 13),
+    _AlaIgmpServiceUnsolicitedReportInterval_Type()
+)
+alaIgmpServiceUnsolicitedReportInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceUnsolicitedReportInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    alaIgmpServiceUnsolicitedReportInterval.setUnits("seconds")
+
+
+class _AlaIgmpServiceQuerierForwarding_Type(Integer32):
+    """Custom type alaIgmpServiceQuerierForwarding based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpServiceQuerierForwarding_Type.__name__ = "Integer32"
+_AlaIgmpServiceQuerierForwarding_Object = MibTableColumn
+alaIgmpServiceQuerierForwarding = _AlaIgmpServiceQuerierForwarding_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 14),
+    _AlaIgmpServiceQuerierForwarding_Type()
+)
+alaIgmpServiceQuerierForwarding.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceQuerierForwarding.setStatus("current")
+
+
+class _AlaIgmpServiceMaxGroupLimit_Type(Unsigned32):
+    """Custom type alaIgmpServiceMaxGroupLimit based on Unsigned32"""
+    defaultValue = 0
+
+
+_AlaIgmpServiceMaxGroupLimit_Type.__name__ = "Unsigned32"
+_AlaIgmpServiceMaxGroupLimit_Object = MibTableColumn
+alaIgmpServiceMaxGroupLimit = _AlaIgmpServiceMaxGroupLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 15),
+    _AlaIgmpServiceMaxGroupLimit_Type()
+)
+alaIgmpServiceMaxGroupLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceMaxGroupLimit.setStatus("current")
+
+
+class _AlaIgmpServiceMaxGroupExceedAction_Type(Integer32):
+    """Custom type alaIgmpServiceMaxGroupExceedAction based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("drop", 1),
+          ("replace", 2))
+    )
+
+
+_AlaIgmpServiceMaxGroupExceedAction_Type.__name__ = "Integer32"
+_AlaIgmpServiceMaxGroupExceedAction_Object = MibTableColumn
+alaIgmpServiceMaxGroupExceedAction = _AlaIgmpServiceMaxGroupExceedAction_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 1, 1, 16),
+    _AlaIgmpServiceMaxGroupExceedAction_Type()
+)
+alaIgmpServiceMaxGroupExceedAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceMaxGroupExceedAction.setStatus("current")
+_AlaIgmpMemberServiceSapTable_Object = MibTable
+alaIgmpMemberServiceSapTable = _AlaIgmpMemberServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSapTable.setStatus("current")
+_AlaIgmpMemberServiceSapEntry_Object = MibTableRow
+alaIgmpMemberServiceSapEntry = _AlaIgmpMemberServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1)
+)
+alaIgmpMemberServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapGroupAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapGroupAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapSourceAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapSourceAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSapEntry.setStatus("current")
+
+
+class _AlaIgmpMemberServiceSapGroupAddressType_Type(InetAddressType):
+    """Custom type alaIgmpMemberServiceSapGroupAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpMemberServiceSapGroupAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpMemberServiceSapGroupAddressType_Object = MibTableColumn
+alaIgmpMemberServiceSapGroupAddressType = _AlaIgmpMemberServiceSapGroupAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 1),
+    _AlaIgmpMemberServiceSapGroupAddressType_Type()
+)
+alaIgmpMemberServiceSapGroupAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSapGroupAddressType.setStatus("current")
+
+
+class _AlaIgmpMemberServiceSapGroupAddress_Type(InetAddress):
+    """Custom type alaIgmpMemberServiceSapGroupAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpMemberServiceSapGroupAddress_Type.__name__ = "InetAddress"
+_AlaIgmpMemberServiceSapGroupAddress_Object = MibTableColumn
+alaIgmpMemberServiceSapGroupAddress = _AlaIgmpMemberServiceSapGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 2),
+    _AlaIgmpMemberServiceSapGroupAddress_Type()
+)
+alaIgmpMemberServiceSapGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSapGroupAddress.setStatus("current")
+
+
+class _AlaIgmpMemberServiceSapSourceAddressType_Type(InetAddressType):
+    """Custom type alaIgmpMemberServiceSapSourceAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpMemberServiceSapSourceAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpMemberServiceSapSourceAddressType_Object = MibTableColumn
+alaIgmpMemberServiceSapSourceAddressType = _AlaIgmpMemberServiceSapSourceAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 3),
+    _AlaIgmpMemberServiceSapSourceAddressType_Type()
+)
+alaIgmpMemberServiceSapSourceAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSapSourceAddressType.setStatus("current")
+
+
+class _AlaIgmpMemberServiceSapSourceAddress_Type(InetAddress):
+    """Custom type alaIgmpMemberServiceSapSourceAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpMemberServiceSapSourceAddress_Type.__name__ = "InetAddress"
+_AlaIgmpMemberServiceSapSourceAddress_Object = MibTableColumn
+alaIgmpMemberServiceSapSourceAddress = _AlaIgmpMemberServiceSapSourceAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 4),
+    _AlaIgmpMemberServiceSapSourceAddress_Type()
+)
+alaIgmpMemberServiceSapSourceAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSapSourceAddress.setStatus("current")
+
+
+class _AlaIgmpMemberServiceSapMode_Type(Integer32):
+    """Custom type alaIgmpMemberServiceSapMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("include", 1),
+          ("exclude", 2))
+    )
+
+
+_AlaIgmpMemberServiceSapMode_Type.__name__ = "Integer32"
+_AlaIgmpMemberServiceSapMode_Object = MibTableColumn
+alaIgmpMemberServiceSapMode = _AlaIgmpMemberServiceSapMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 5),
+    _AlaIgmpMemberServiceSapMode_Type()
+)
+alaIgmpMemberServiceSapMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSapMode.setStatus("current")
+_AlaIgmpMemberServiceSapCount_Type = Counter32
+_AlaIgmpMemberServiceSapCount_Object = MibTableColumn
+alaIgmpMemberServiceSapCount = _AlaIgmpMemberServiceSapCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 6),
+    _AlaIgmpMemberServiceSapCount_Type()
+)
+alaIgmpMemberServiceSapCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSapCount.setStatus("current")
+_AlaIgmpMemberServiceSapTimeout_Type = TimeTicks
+_AlaIgmpMemberServiceSapTimeout_Object = MibTableColumn
+alaIgmpMemberServiceSapTimeout = _AlaIgmpMemberServiceSapTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 2, 1, 7),
+    _AlaIgmpMemberServiceSapTimeout_Type()
+)
+alaIgmpMemberServiceSapTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSapTimeout.setStatus("current")
+_AlaIgmpMemberServiceSdpBindTable_Object = MibTable
+alaIgmpMemberServiceSdpBindTable = _AlaIgmpMemberServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSdpBindTable.setStatus("current")
+_AlaIgmpMemberServiceSdpBindEntry_Object = MibTableRow
+alaIgmpMemberServiceSdpBindEntry = _AlaIgmpMemberServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1)
+)
+alaIgmpMemberServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindGroupAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindGroupAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindSourceAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindSourceAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSdpBindEntry.setStatus("current")
+
+
+class _AlaIgmpMemberServiceSdpBindGroupAddressType_Type(InetAddressType):
+    """Custom type alaIgmpMemberServiceSdpBindGroupAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpMemberServiceSdpBindGroupAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpMemberServiceSdpBindGroupAddressType_Object = MibTableColumn
+alaIgmpMemberServiceSdpBindGroupAddressType = _AlaIgmpMemberServiceSdpBindGroupAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 1),
+    _AlaIgmpMemberServiceSdpBindGroupAddressType_Type()
+)
+alaIgmpMemberServiceSdpBindGroupAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSdpBindGroupAddressType.setStatus("current")
+
+
+class _AlaIgmpMemberServiceSdpBindGroupAddress_Type(InetAddress):
+    """Custom type alaIgmpMemberServiceSdpBindGroupAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpMemberServiceSdpBindGroupAddress_Type.__name__ = "InetAddress"
+_AlaIgmpMemberServiceSdpBindGroupAddress_Object = MibTableColumn
+alaIgmpMemberServiceSdpBindGroupAddress = _AlaIgmpMemberServiceSdpBindGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 2),
+    _AlaIgmpMemberServiceSdpBindGroupAddress_Type()
+)
+alaIgmpMemberServiceSdpBindGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSdpBindGroupAddress.setStatus("current")
+
+
+class _AlaIgmpMemberServiceSdpBindSourceAddressType_Type(InetAddressType):
+    """Custom type alaIgmpMemberServiceSdpBindSourceAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpMemberServiceSdpBindSourceAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpMemberServiceSdpBindSourceAddressType_Object = MibTableColumn
+alaIgmpMemberServiceSdpBindSourceAddressType = _AlaIgmpMemberServiceSdpBindSourceAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 3),
+    _AlaIgmpMemberServiceSdpBindSourceAddressType_Type()
+)
+alaIgmpMemberServiceSdpBindSourceAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSdpBindSourceAddressType.setStatus("current")
+
+
+class _AlaIgmpMemberServiceSdpBindSourceAddress_Type(InetAddress):
+    """Custom type alaIgmpMemberServiceSdpBindSourceAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpMemberServiceSdpBindSourceAddress_Type.__name__ = "InetAddress"
+_AlaIgmpMemberServiceSdpBindSourceAddress_Object = MibTableColumn
+alaIgmpMemberServiceSdpBindSourceAddress = _AlaIgmpMemberServiceSdpBindSourceAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 4),
+    _AlaIgmpMemberServiceSdpBindSourceAddress_Type()
+)
+alaIgmpMemberServiceSdpBindSourceAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSdpBindSourceAddress.setStatus("current")
+
+
+class _AlaIgmpMemberServiceSdpBindMode_Type(Integer32):
+    """Custom type alaIgmpMemberServiceSdpBindMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("include", 1),
+          ("exclude", 2))
+    )
+
+
+_AlaIgmpMemberServiceSdpBindMode_Type.__name__ = "Integer32"
+_AlaIgmpMemberServiceSdpBindMode_Object = MibTableColumn
+alaIgmpMemberServiceSdpBindMode = _AlaIgmpMemberServiceSdpBindMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 5),
+    _AlaIgmpMemberServiceSdpBindMode_Type()
+)
+alaIgmpMemberServiceSdpBindMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSdpBindMode.setStatus("current")
+_AlaIgmpMemberServiceSdpBindCount_Type = Counter32
+_AlaIgmpMemberServiceSdpBindCount_Object = MibTableColumn
+alaIgmpMemberServiceSdpBindCount = _AlaIgmpMemberServiceSdpBindCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 6),
+    _AlaIgmpMemberServiceSdpBindCount_Type()
+)
+alaIgmpMemberServiceSdpBindCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSdpBindCount.setStatus("current")
+_AlaIgmpMemberServiceSdpBindTimeout_Type = TimeTicks
+_AlaIgmpMemberServiceSdpBindTimeout_Object = MibTableColumn
+alaIgmpMemberServiceSdpBindTimeout = _AlaIgmpMemberServiceSdpBindTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 3, 1, 7),
+    _AlaIgmpMemberServiceSdpBindTimeout_Type()
+)
+alaIgmpMemberServiceSdpBindTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSdpBindTimeout.setStatus("current")
+_AlaIgmpStaticMemberServiceSapTable_Object = MibTable
+alaIgmpStaticMemberServiceSapTable = _AlaIgmpStaticMemberServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 4)
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSapTable.setStatus("current")
+_AlaIgmpStaticMemberServiceSapEntry_Object = MibTableRow
+alaIgmpStaticMemberServiceSapEntry = _AlaIgmpStaticMemberServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 4, 1)
+)
+alaIgmpStaticMemberServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSapGroupAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSapGroupAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSapEntry.setStatus("current")
+
+
+class _AlaIgmpStaticMemberServiceSapGroupAddressType_Type(InetAddressType):
+    """Custom type alaIgmpStaticMemberServiceSapGroupAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpStaticMemberServiceSapGroupAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpStaticMemberServiceSapGroupAddressType_Object = MibTableColumn
+alaIgmpStaticMemberServiceSapGroupAddressType = _AlaIgmpStaticMemberServiceSapGroupAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 4, 1, 1),
+    _AlaIgmpStaticMemberServiceSapGroupAddressType_Type()
+)
+alaIgmpStaticMemberServiceSapGroupAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSapGroupAddressType.setStatus("current")
+
+
+class _AlaIgmpStaticMemberServiceSapGroupAddress_Type(InetAddress):
+    """Custom type alaIgmpStaticMemberServiceSapGroupAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpStaticMemberServiceSapGroupAddress_Type.__name__ = "InetAddress"
+_AlaIgmpStaticMemberServiceSapGroupAddress_Object = MibTableColumn
+alaIgmpStaticMemberServiceSapGroupAddress = _AlaIgmpStaticMemberServiceSapGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 4, 1, 2),
+    _AlaIgmpStaticMemberServiceSapGroupAddress_Type()
+)
+alaIgmpStaticMemberServiceSapGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSapGroupAddress.setStatus("current")
+_AlaIgmpStaticMemberServiceSapRowStatus_Type = RowStatus
+_AlaIgmpStaticMemberServiceSapRowStatus_Object = MibTableColumn
+alaIgmpStaticMemberServiceSapRowStatus = _AlaIgmpStaticMemberServiceSapRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 4, 1, 3),
+    _AlaIgmpStaticMemberServiceSapRowStatus_Type()
+)
+alaIgmpStaticMemberServiceSapRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSapRowStatus.setStatus("current")
+_AlaIgmpStaticMemberServiceSdpBindTable_Object = MibTable
+alaIgmpStaticMemberServiceSdpBindTable = _AlaIgmpStaticMemberServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 5)
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSdpBindTable.setStatus("current")
+_AlaIgmpStaticMemberServiceSdpBindEntry_Object = MibTableRow
+alaIgmpStaticMemberServiceSdpBindEntry = _AlaIgmpStaticMemberServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 5, 1)
+)
+alaIgmpStaticMemberServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSdpBindGroupAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSdpBindGroupAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSdpBindEntry.setStatus("current")
+
+
+class _AlaIgmpStaticMemberServiceSdpBindGroupAddressType_Type(InetAddressType):
+    """Custom type alaIgmpStaticMemberServiceSdpBindGroupAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpStaticMemberServiceSdpBindGroupAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpStaticMemberServiceSdpBindGroupAddressType_Object = MibTableColumn
+alaIgmpStaticMemberServiceSdpBindGroupAddressType = _AlaIgmpStaticMemberServiceSdpBindGroupAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 5, 1, 1),
+    _AlaIgmpStaticMemberServiceSdpBindGroupAddressType_Type()
+)
+alaIgmpStaticMemberServiceSdpBindGroupAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSdpBindGroupAddressType.setStatus("current")
+
+
+class _AlaIgmpStaticMemberServiceSdpBindGroupAddress_Type(InetAddress):
+    """Custom type alaIgmpStaticMemberServiceSdpBindGroupAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpStaticMemberServiceSdpBindGroupAddress_Type.__name__ = "InetAddress"
+_AlaIgmpStaticMemberServiceSdpBindGroupAddress_Object = MibTableColumn
+alaIgmpStaticMemberServiceSdpBindGroupAddress = _AlaIgmpStaticMemberServiceSdpBindGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 5, 1, 2),
+    _AlaIgmpStaticMemberServiceSdpBindGroupAddress_Type()
+)
+alaIgmpStaticMemberServiceSdpBindGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSdpBindGroupAddress.setStatus("current")
+_AlaIgmpStaticMemberServiceSdpBindRowStatus_Type = RowStatus
+_AlaIgmpStaticMemberServiceSdpBindRowStatus_Object = MibTableColumn
+alaIgmpStaticMemberServiceSdpBindRowStatus = _AlaIgmpStaticMemberServiceSdpBindRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 5, 1, 3),
+    _AlaIgmpStaticMemberServiceSdpBindRowStatus_Type()
+)
+alaIgmpStaticMemberServiceSdpBindRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSdpBindRowStatus.setStatus("current")
+_AlaIgmpNeighborServiceSapTable_Object = MibTable
+alaIgmpNeighborServiceSapTable = _AlaIgmpNeighborServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6)
+)
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSapTable.setStatus("current")
+_AlaIgmpNeighborServiceSapEntry_Object = MibTableRow
+alaIgmpNeighborServiceSapEntry = _AlaIgmpNeighborServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6, 1)
+)
+alaIgmpNeighborServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSapHostAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSapHostAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSapEntry.setStatus("current")
+
+
+class _AlaIgmpNeighborServiceSapHostAddressType_Type(InetAddressType):
+    """Custom type alaIgmpNeighborServiceSapHostAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpNeighborServiceSapHostAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpNeighborServiceSapHostAddressType_Object = MibTableColumn
+alaIgmpNeighborServiceSapHostAddressType = _AlaIgmpNeighborServiceSapHostAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6, 1, 1),
+    _AlaIgmpNeighborServiceSapHostAddressType_Type()
+)
+alaIgmpNeighborServiceSapHostAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSapHostAddressType.setStatus("current")
+
+
+class _AlaIgmpNeighborServiceSapHostAddress_Type(InetAddress):
+    """Custom type alaIgmpNeighborServiceSapHostAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpNeighborServiceSapHostAddress_Type.__name__ = "InetAddress"
+_AlaIgmpNeighborServiceSapHostAddress_Object = MibTableColumn
+alaIgmpNeighborServiceSapHostAddress = _AlaIgmpNeighborServiceSapHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6, 1, 2),
+    _AlaIgmpNeighborServiceSapHostAddress_Type()
+)
+alaIgmpNeighborServiceSapHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSapHostAddress.setStatus("current")
+_AlaIgmpNeighborServiceSapCount_Type = Counter32
+_AlaIgmpNeighborServiceSapCount_Object = MibTableColumn
+alaIgmpNeighborServiceSapCount = _AlaIgmpNeighborServiceSapCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6, 1, 3),
+    _AlaIgmpNeighborServiceSapCount_Type()
+)
+alaIgmpNeighborServiceSapCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSapCount.setStatus("current")
+_AlaIgmpNeighborServiceSapTimeout_Type = TimeTicks
+_AlaIgmpNeighborServiceSapTimeout_Object = MibTableColumn
+alaIgmpNeighborServiceSapTimeout = _AlaIgmpNeighborServiceSapTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 6, 1, 4),
+    _AlaIgmpNeighborServiceSapTimeout_Type()
+)
+alaIgmpNeighborServiceSapTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSapTimeout.setStatus("current")
+_AlaIgmpNeighborServiceSdpBindTable_Object = MibTable
+alaIgmpNeighborServiceSdpBindTable = _AlaIgmpNeighborServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7)
+)
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSdpBindTable.setStatus("current")
+_AlaIgmpNeighborServiceSdpBindEntry_Object = MibTableRow
+alaIgmpNeighborServiceSdpBindEntry = _AlaIgmpNeighborServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7, 1)
+)
+alaIgmpNeighborServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSdpBindHostAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSdpBindHostAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSdpBindEntry.setStatus("current")
+
+
+class _AlaIgmpNeighborServiceSdpBindHostAddressType_Type(InetAddressType):
+    """Custom type alaIgmpNeighborServiceSdpBindHostAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpNeighborServiceSdpBindHostAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpNeighborServiceSdpBindHostAddressType_Object = MibTableColumn
+alaIgmpNeighborServiceSdpBindHostAddressType = _AlaIgmpNeighborServiceSdpBindHostAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7, 1, 1),
+    _AlaIgmpNeighborServiceSdpBindHostAddressType_Type()
+)
+alaIgmpNeighborServiceSdpBindHostAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSdpBindHostAddressType.setStatus("current")
+
+
+class _AlaIgmpNeighborServiceSdpBindHostAddress_Type(InetAddress):
+    """Custom type alaIgmpNeighborServiceSdpBindHostAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpNeighborServiceSdpBindHostAddress_Type.__name__ = "InetAddress"
+_AlaIgmpNeighborServiceSdpBindHostAddress_Object = MibTableColumn
+alaIgmpNeighborServiceSdpBindHostAddress = _AlaIgmpNeighborServiceSdpBindHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7, 1, 2),
+    _AlaIgmpNeighborServiceSdpBindHostAddress_Type()
+)
+alaIgmpNeighborServiceSdpBindHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSdpBindHostAddress.setStatus("current")
+_AlaIgmpNeighborServiceSdpBindCount_Type = Counter32
+_AlaIgmpNeighborServiceSdpBindCount_Object = MibTableColumn
+alaIgmpNeighborServiceSdpBindCount = _AlaIgmpNeighborServiceSdpBindCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7, 1, 3),
+    _AlaIgmpNeighborServiceSdpBindCount_Type()
+)
+alaIgmpNeighborServiceSdpBindCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSdpBindCount.setStatus("current")
+_AlaIgmpNeighborServiceSdpBindTimeout_Type = TimeTicks
+_AlaIgmpNeighborServiceSdpBindTimeout_Object = MibTableColumn
+alaIgmpNeighborServiceSdpBindTimeout = _AlaIgmpNeighborServiceSdpBindTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 7, 1, 4),
+    _AlaIgmpNeighborServiceSdpBindTimeout_Type()
+)
+alaIgmpNeighborServiceSdpBindTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSdpBindTimeout.setStatus("current")
+_AlaIgmpStaticNeighborServiceSapTable_Object = MibTable
+alaIgmpStaticNeighborServiceSapTable = _AlaIgmpStaticNeighborServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 8)
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborServiceSapTable.setStatus("current")
+_AlaIgmpStaticNeighborServiceSapEntry_Object = MibTableRow
+alaIgmpStaticNeighborServiceSapEntry = _AlaIgmpStaticNeighborServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 8, 1)
+)
+alaIgmpStaticNeighborServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborServiceSapEntry.setStatus("current")
+_AlaIgmpStaticNeighborServiceSapRowStatus_Type = RowStatus
+_AlaIgmpStaticNeighborServiceSapRowStatus_Object = MibTableColumn
+alaIgmpStaticNeighborServiceSapRowStatus = _AlaIgmpStaticNeighborServiceSapRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 8, 1, 1),
+    _AlaIgmpStaticNeighborServiceSapRowStatus_Type()
+)
+alaIgmpStaticNeighborServiceSapRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborServiceSapRowStatus.setStatus("current")
+_AlaIgmpStaticNeighborServiceSdpBindTable_Object = MibTable
+alaIgmpStaticNeighborServiceSdpBindTable = _AlaIgmpStaticNeighborServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 9)
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborServiceSdpBindTable.setStatus("current")
+_AlaIgmpStaticNeighborServiceSdpBindEntry_Object = MibTableRow
+alaIgmpStaticNeighborServiceSdpBindEntry = _AlaIgmpStaticNeighborServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 9, 1)
+)
+alaIgmpStaticNeighborServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborServiceSdpBindEntry.setStatus("current")
+_AlaIgmpStaticNeighborServiceSdpBindRowStatus_Type = RowStatus
+_AlaIgmpStaticNeighborServiceSdpBindRowStatus_Object = MibTableColumn
+alaIgmpStaticNeighborServiceSdpBindRowStatus = _AlaIgmpStaticNeighborServiceSdpBindRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 9, 1, 1),
+    _AlaIgmpStaticNeighborServiceSdpBindRowStatus_Type()
+)
+alaIgmpStaticNeighborServiceSdpBindRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborServiceSdpBindRowStatus.setStatus("current")
+_AlaIgmpQuerierServiceSapTable_Object = MibTable
+alaIgmpQuerierServiceSapTable = _AlaIgmpQuerierServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10)
+)
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSapTable.setStatus("current")
+_AlaIgmpQuerierServiceSapEntry_Object = MibTableRow
+alaIgmpQuerierServiceSapEntry = _AlaIgmpQuerierServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10, 1)
+)
+alaIgmpQuerierServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSapHostAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSapHostAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSapEntry.setStatus("current")
+
+
+class _AlaIgmpQuerierServiceSapHostAddressType_Type(InetAddressType):
+    """Custom type alaIgmpQuerierServiceSapHostAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpQuerierServiceSapHostAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpQuerierServiceSapHostAddressType_Object = MibTableColumn
+alaIgmpQuerierServiceSapHostAddressType = _AlaIgmpQuerierServiceSapHostAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10, 1, 1),
+    _AlaIgmpQuerierServiceSapHostAddressType_Type()
+)
+alaIgmpQuerierServiceSapHostAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSapHostAddressType.setStatus("current")
+
+
+class _AlaIgmpQuerierServiceSapHostAddress_Type(InetAddress):
+    """Custom type alaIgmpQuerierServiceSapHostAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpQuerierServiceSapHostAddress_Type.__name__ = "InetAddress"
+_AlaIgmpQuerierServiceSapHostAddress_Object = MibTableColumn
+alaIgmpQuerierServiceSapHostAddress = _AlaIgmpQuerierServiceSapHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10, 1, 2),
+    _AlaIgmpQuerierServiceSapHostAddress_Type()
+)
+alaIgmpQuerierServiceSapHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSapHostAddress.setStatus("current")
+_AlaIgmpQuerierServiceSapCount_Type = Counter32
+_AlaIgmpQuerierServiceSapCount_Object = MibTableColumn
+alaIgmpQuerierServiceSapCount = _AlaIgmpQuerierServiceSapCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10, 1, 3),
+    _AlaIgmpQuerierServiceSapCount_Type()
+)
+alaIgmpQuerierServiceSapCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSapCount.setStatus("current")
+_AlaIgmpQuerierServiceSapTimeout_Type = TimeTicks
+_AlaIgmpQuerierServiceSapTimeout_Object = MibTableColumn
+alaIgmpQuerierServiceSapTimeout = _AlaIgmpQuerierServiceSapTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 10, 1, 4),
+    _AlaIgmpQuerierServiceSapTimeout_Type()
+)
+alaIgmpQuerierServiceSapTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSapTimeout.setStatus("current")
+_AlaIgmpQuerierServiceSdpBindTable_Object = MibTable
+alaIgmpQuerierServiceSdpBindTable = _AlaIgmpQuerierServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11)
+)
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSdpBindTable.setStatus("current")
+_AlaIgmpQuerierServiceSdpBindEntry_Object = MibTableRow
+alaIgmpQuerierServiceSdpBindEntry = _AlaIgmpQuerierServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11, 1)
+)
+alaIgmpQuerierServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSdpBindHostAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSdpBindHostAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSdpBindEntry.setStatus("current")
+
+
+class _AlaIgmpQuerierServiceSdpBindHostAddressType_Type(InetAddressType):
+    """Custom type alaIgmpQuerierServiceSdpBindHostAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpQuerierServiceSdpBindHostAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpQuerierServiceSdpBindHostAddressType_Object = MibTableColumn
+alaIgmpQuerierServiceSdpBindHostAddressType = _AlaIgmpQuerierServiceSdpBindHostAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11, 1, 1),
+    _AlaIgmpQuerierServiceSdpBindHostAddressType_Type()
+)
+alaIgmpQuerierServiceSdpBindHostAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSdpBindHostAddressType.setStatus("current")
+
+
+class _AlaIgmpQuerierServiceSdpBindHostAddress_Type(InetAddress):
+    """Custom type alaIgmpQuerierServiceSdpBindHostAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpQuerierServiceSdpBindHostAddress_Type.__name__ = "InetAddress"
+_AlaIgmpQuerierServiceSdpBindHostAddress_Object = MibTableColumn
+alaIgmpQuerierServiceSdpBindHostAddress = _AlaIgmpQuerierServiceSdpBindHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11, 1, 2),
+    _AlaIgmpQuerierServiceSdpBindHostAddress_Type()
+)
+alaIgmpQuerierServiceSdpBindHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSdpBindHostAddress.setStatus("current")
+_AlaIgmpQuerierServiceSdpBindCount_Type = Counter32
+_AlaIgmpQuerierServiceSdpBindCount_Object = MibTableColumn
+alaIgmpQuerierServiceSdpBindCount = _AlaIgmpQuerierServiceSdpBindCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11, 1, 3),
+    _AlaIgmpQuerierServiceSdpBindCount_Type()
+)
+alaIgmpQuerierServiceSdpBindCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSdpBindCount.setStatus("current")
+_AlaIgmpQuerierServiceSdpBindTimeout_Type = TimeTicks
+_AlaIgmpQuerierServiceSdpBindTimeout_Object = MibTableColumn
+alaIgmpQuerierServiceSdpBindTimeout = _AlaIgmpQuerierServiceSdpBindTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 11, 1, 4),
+    _AlaIgmpQuerierServiceSdpBindTimeout_Type()
+)
+alaIgmpQuerierServiceSdpBindTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSdpBindTimeout.setStatus("current")
+_AlaIgmpStaticQuerierServiceSapTable_Object = MibTable
+alaIgmpStaticQuerierServiceSapTable = _AlaIgmpStaticQuerierServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 12)
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierServiceSapTable.setStatus("current")
+_AlaIgmpStaticQuerierServiceSapEntry_Object = MibTableRow
+alaIgmpStaticQuerierServiceSapEntry = _AlaIgmpStaticQuerierServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 12, 1)
+)
+alaIgmpStaticQuerierServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierServiceSapEntry.setStatus("current")
+_AlaIgmpStaticQuerierServiceSapRowStatus_Type = RowStatus
+_AlaIgmpStaticQuerierServiceSapRowStatus_Object = MibTableColumn
+alaIgmpStaticQuerierServiceSapRowStatus = _AlaIgmpStaticQuerierServiceSapRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 12, 1, 1),
+    _AlaIgmpStaticQuerierServiceSapRowStatus_Type()
+)
+alaIgmpStaticQuerierServiceSapRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierServiceSapRowStatus.setStatus("current")
+_AlaIgmpStaticQuerierServiceSdpBindTable_Object = MibTable
+alaIgmpStaticQuerierServiceSdpBindTable = _AlaIgmpStaticQuerierServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 13)
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierServiceSdpBindTable.setStatus("current")
+_AlaIgmpStaticQuerierServiceSdpBindEntry_Object = MibTableRow
+alaIgmpStaticQuerierServiceSdpBindEntry = _AlaIgmpStaticQuerierServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 13, 1)
+)
+alaIgmpStaticQuerierServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierServiceSdpBindEntry.setStatus("current")
+_AlaIgmpStaticQuerierServiceSdpBindRowStatus_Type = RowStatus
+_AlaIgmpStaticQuerierServiceSdpBindRowStatus_Object = MibTableColumn
+alaIgmpStaticQuerierServiceSdpBindRowStatus = _AlaIgmpStaticQuerierServiceSdpBindRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 13, 1, 1),
+    _AlaIgmpStaticQuerierServiceSdpBindRowStatus_Type()
+)
+alaIgmpStaticQuerierServiceSdpBindRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierServiceSdpBindRowStatus.setStatus("current")
+_AlaIgmpServiceSourceTable_Object = MibTable
+alaIgmpServiceSourceTable = _AlaIgmpServiceSourceTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14)
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceTable.setStatus("current")
+_AlaIgmpServiceSourceEntry_Object = MibTableRow
+alaIgmpServiceSourceEntry = _AlaIgmpServiceSourceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1)
+)
+alaIgmpServiceSourceEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceGroupAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceGroupAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceHostAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceHostAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceDestAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceDestAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceOrigAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceOrigAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceEntry.setStatus("current")
+
+
+class _AlaIgmpServiceSourceGroupAddressType_Type(InetAddressType):
+    """Custom type alaIgmpServiceSourceGroupAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpServiceSourceGroupAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpServiceSourceGroupAddressType_Object = MibTableColumn
+alaIgmpServiceSourceGroupAddressType = _AlaIgmpServiceSourceGroupAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 1),
+    _AlaIgmpServiceSourceGroupAddressType_Type()
+)
+alaIgmpServiceSourceGroupAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceGroupAddressType.setStatus("current")
+
+
+class _AlaIgmpServiceSourceGroupAddress_Type(InetAddress):
+    """Custom type alaIgmpServiceSourceGroupAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpServiceSourceGroupAddress_Type.__name__ = "InetAddress"
+_AlaIgmpServiceSourceGroupAddress_Object = MibTableColumn
+alaIgmpServiceSourceGroupAddress = _AlaIgmpServiceSourceGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 2),
+    _AlaIgmpServiceSourceGroupAddress_Type()
+)
+alaIgmpServiceSourceGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceGroupAddress.setStatus("current")
+
+
+class _AlaIgmpServiceSourceHostAddressType_Type(InetAddressType):
+    """Custom type alaIgmpServiceSourceHostAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpServiceSourceHostAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpServiceSourceHostAddressType_Object = MibTableColumn
+alaIgmpServiceSourceHostAddressType = _AlaIgmpServiceSourceHostAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 3),
+    _AlaIgmpServiceSourceHostAddressType_Type()
+)
+alaIgmpServiceSourceHostAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceHostAddressType.setStatus("current")
+
+
+class _AlaIgmpServiceSourceHostAddress_Type(InetAddress):
+    """Custom type alaIgmpServiceSourceHostAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpServiceSourceHostAddress_Type.__name__ = "InetAddress"
+_AlaIgmpServiceSourceHostAddress_Object = MibTableColumn
+alaIgmpServiceSourceHostAddress = _AlaIgmpServiceSourceHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 4),
+    _AlaIgmpServiceSourceHostAddress_Type()
+)
+alaIgmpServiceSourceHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceHostAddress.setStatus("current")
+
+
+class _AlaIgmpServiceSourceDestAddressType_Type(InetAddressType):
+    """Custom type alaIgmpServiceSourceDestAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpServiceSourceDestAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpServiceSourceDestAddressType_Object = MibTableColumn
+alaIgmpServiceSourceDestAddressType = _AlaIgmpServiceSourceDestAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 5),
+    _AlaIgmpServiceSourceDestAddressType_Type()
+)
+alaIgmpServiceSourceDestAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceDestAddressType.setStatus("current")
+
+
+class _AlaIgmpServiceSourceDestAddress_Type(InetAddress):
+    """Custom type alaIgmpServiceSourceDestAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpServiceSourceDestAddress_Type.__name__ = "InetAddress"
+_AlaIgmpServiceSourceDestAddress_Object = MibTableColumn
+alaIgmpServiceSourceDestAddress = _AlaIgmpServiceSourceDestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 6),
+    _AlaIgmpServiceSourceDestAddress_Type()
+)
+alaIgmpServiceSourceDestAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceDestAddress.setStatus("current")
+
+
+class _AlaIgmpServiceSourceOrigAddressType_Type(InetAddressType):
+    """Custom type alaIgmpServiceSourceOrigAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpServiceSourceOrigAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpServiceSourceOrigAddressType_Object = MibTableColumn
+alaIgmpServiceSourceOrigAddressType = _AlaIgmpServiceSourceOrigAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 7),
+    _AlaIgmpServiceSourceOrigAddressType_Type()
+)
+alaIgmpServiceSourceOrigAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceOrigAddressType.setStatus("current")
+
+
+class _AlaIgmpServiceSourceOrigAddress_Type(InetAddress):
+    """Custom type alaIgmpServiceSourceOrigAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaIgmpServiceSourceOrigAddress_Type.__name__ = "InetAddress"
+_AlaIgmpServiceSourceOrigAddress_Object = MibTableColumn
+alaIgmpServiceSourceOrigAddress = _AlaIgmpServiceSourceOrigAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 8),
+    _AlaIgmpServiceSourceOrigAddress_Type()
+)
+alaIgmpServiceSourceOrigAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceOrigAddress.setStatus("current")
+_AlaIgmpServiceSourceLocale_Type = AluLocation
+_AlaIgmpServiceSourceLocale_Object = MibTableColumn
+alaIgmpServiceSourceLocale = _AlaIgmpServiceSourceLocale_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 9),
+    _AlaIgmpServiceSourceLocale_Type()
+)
+alaIgmpServiceSourceLocale.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceLocale.setStatus("current")
+_AlaIgmpServiceSourcePortId_Type = TmnxPortID
+_AlaIgmpServiceSourcePortId_Object = MibTableColumn
+alaIgmpServiceSourcePortId = _AlaIgmpServiceSourcePortId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 10),
+    _AlaIgmpServiceSourcePortId_Type()
+)
+alaIgmpServiceSourcePortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourcePortId.setStatus("current")
+_AlaIgmpServiceSourceEncapValue_Type = TmnxEncapVal
+_AlaIgmpServiceSourceEncapValue_Object = MibTableColumn
+alaIgmpServiceSourceEncapValue = _AlaIgmpServiceSourceEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 11),
+    _AlaIgmpServiceSourceEncapValue_Type()
+)
+alaIgmpServiceSourceEncapValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceEncapValue.setStatus("current")
+_AlaIgmpServiceSourceSdpId_Type = SdpId
+_AlaIgmpServiceSourceSdpId_Object = MibTableColumn
+alaIgmpServiceSourceSdpId = _AlaIgmpServiceSourceSdpId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 12),
+    _AlaIgmpServiceSourceSdpId_Type()
+)
+alaIgmpServiceSourceSdpId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceSdpId.setStatus("current")
+_AlaIgmpServiceSourceVcId_Type = TmnxVcIdOrNone
+_AlaIgmpServiceSourceVcId_Object = MibTableColumn
+alaIgmpServiceSourceVcId = _AlaIgmpServiceSourceVcId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 13),
+    _AlaIgmpServiceSourceVcId_Type()
+)
+alaIgmpServiceSourceVcId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceVcId.setStatus("current")
+
+
+class _AlaIgmpServiceSourceType_Type(Integer32):
+    """Custom type alaIgmpServiceSourceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaIgmpServiceSourceType_Type.__name__ = "Integer32"
+_AlaIgmpServiceSourceType_Object = MibTableColumn
+alaIgmpServiceSourceType = _AlaIgmpServiceSourceType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 14, 1, 14),
+    _AlaIgmpServiceSourceType_Type()
+)
+alaIgmpServiceSourceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceType.setStatus("current")
+_AlaIgmpServiceSapForwardTable_Object = MibTable
+alaIgmpServiceSapForwardTable = _AlaIgmpServiceSapForwardTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15)
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardTable.setStatus("current")
+_AlaIgmpServiceSapForwardEntry_Object = MibTableRow
+alaIgmpServiceSapForwardEntry = _AlaIgmpServiceSapForwardEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1)
+)
+alaIgmpServiceSapForwardEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardGroupAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardHostAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardDestAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardOrigAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardNextSapPortId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardNextSapEncapValue"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardEntry.setStatus("current")
+_AlaIgmpServiceSapForwardLocale_Type = AluLocation
+_AlaIgmpServiceSapForwardLocale_Object = MibTableColumn
+alaIgmpServiceSapForwardLocale = _AlaIgmpServiceSapForwardLocale_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 1),
+    _AlaIgmpServiceSapForwardLocale_Type()
+)
+alaIgmpServiceSapForwardLocale.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardLocale.setStatus("current")
+_AlaIgmpServiceSapForwardPortId_Type = TmnxPortID
+_AlaIgmpServiceSapForwardPortId_Object = MibTableColumn
+alaIgmpServiceSapForwardPortId = _AlaIgmpServiceSapForwardPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 2),
+    _AlaIgmpServiceSapForwardPortId_Type()
+)
+alaIgmpServiceSapForwardPortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardPortId.setStatus("current")
+_AlaIgmpServiceSapForwardEncapValue_Type = TmnxEncapVal
+_AlaIgmpServiceSapForwardEncapValue_Object = MibTableColumn
+alaIgmpServiceSapForwardEncapValue = _AlaIgmpServiceSapForwardEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 3),
+    _AlaIgmpServiceSapForwardEncapValue_Type()
+)
+alaIgmpServiceSapForwardEncapValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardEncapValue.setStatus("current")
+_AlaIgmpServiceSapForwardSdpId_Type = SdpId
+_AlaIgmpServiceSapForwardSdpId_Object = MibTableColumn
+alaIgmpServiceSapForwardSdpId = _AlaIgmpServiceSapForwardSdpId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 4),
+    _AlaIgmpServiceSapForwardSdpId_Type()
+)
+alaIgmpServiceSapForwardSdpId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardSdpId.setStatus("current")
+_AlaIgmpServiceSapForwardVcId_Type = TmnxVcIdOrNone
+_AlaIgmpServiceSapForwardVcId_Object = MibTableColumn
+alaIgmpServiceSapForwardVcId = _AlaIgmpServiceSapForwardVcId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 5),
+    _AlaIgmpServiceSapForwardVcId_Type()
+)
+alaIgmpServiceSapForwardVcId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardVcId.setStatus("current")
+_AlaIgmpServiceSapForwardGroupAddress_Type = MacAddress
+_AlaIgmpServiceSapForwardGroupAddress_Object = MibTableColumn
+alaIgmpServiceSapForwardGroupAddress = _AlaIgmpServiceSapForwardGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 6),
+    _AlaIgmpServiceSapForwardGroupAddress_Type()
+)
+alaIgmpServiceSapForwardGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardGroupAddress.setStatus("current")
+_AlaIgmpServiceSapForwardHostAddress_Type = MacAddress
+_AlaIgmpServiceSapForwardHostAddress_Object = MibTableColumn
+alaIgmpServiceSapForwardHostAddress = _AlaIgmpServiceSapForwardHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 7),
+    _AlaIgmpServiceSapForwardHostAddress_Type()
+)
+alaIgmpServiceSapForwardHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardHostAddress.setStatus("current")
+_AlaIgmpServiceSapForwardDestAddress_Type = MacAddress
+_AlaIgmpServiceSapForwardDestAddress_Object = MibTableColumn
+alaIgmpServiceSapForwardDestAddress = _AlaIgmpServiceSapForwardDestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 8),
+    _AlaIgmpServiceSapForwardDestAddress_Type()
+)
+alaIgmpServiceSapForwardDestAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardDestAddress.setStatus("current")
+_AlaIgmpServiceSapForwardOrigAddress_Type = MacAddress
+_AlaIgmpServiceSapForwardOrigAddress_Object = MibTableColumn
+alaIgmpServiceSapForwardOrigAddress = _AlaIgmpServiceSapForwardOrigAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 9),
+    _AlaIgmpServiceSapForwardOrigAddress_Type()
+)
+alaIgmpServiceSapForwardOrigAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardOrigAddress.setStatus("current")
+
+
+class _AlaIgmpServiceSapForwardType_Type(Integer32):
+    """Custom type alaIgmpServiceSapForwardType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaIgmpServiceSapForwardType_Type.__name__ = "Integer32"
+_AlaIgmpServiceSapForwardType_Object = MibTableColumn
+alaIgmpServiceSapForwardType = _AlaIgmpServiceSapForwardType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 10),
+    _AlaIgmpServiceSapForwardType_Type()
+)
+alaIgmpServiceSapForwardType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardType.setStatus("current")
+_AlaIgmpServiceSapForwardNextSapPortId_Type = TmnxPortID
+_AlaIgmpServiceSapForwardNextSapPortId_Object = MibTableColumn
+alaIgmpServiceSapForwardNextSapPortId = _AlaIgmpServiceSapForwardNextSapPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 11),
+    _AlaIgmpServiceSapForwardNextSapPortId_Type()
+)
+alaIgmpServiceSapForwardNextSapPortId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardNextSapPortId.setStatus("current")
+_AlaIgmpServiceSapForwardNextSapEncapValue_Type = TmnxEncapVal
+_AlaIgmpServiceSapForwardNextSapEncapValue_Object = MibTableColumn
+alaIgmpServiceSapForwardNextSapEncapValue = _AlaIgmpServiceSapForwardNextSapEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 12),
+    _AlaIgmpServiceSapForwardNextSapEncapValue_Type()
+)
+alaIgmpServiceSapForwardNextSapEncapValue.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardNextSapEncapValue.setStatus("current")
+
+
+class _AlaIgmpServiceSapForwardNextType_Type(Integer32):
+    """Custom type alaIgmpServiceSapForwardNextType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaIgmpServiceSapForwardNextType_Type.__name__ = "Integer32"
+_AlaIgmpServiceSapForwardNextType_Object = MibTableColumn
+alaIgmpServiceSapForwardNextType = _AlaIgmpServiceSapForwardNextType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 15, 1, 13),
+    _AlaIgmpServiceSapForwardNextType_Type()
+)
+alaIgmpServiceSapForwardNextType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardNextType.setStatus("current")
+_AlaIgmpServiceSdpBindForwardTable_Object = MibTable
+alaIgmpServiceSdpBindForwardTable = _AlaIgmpServiceSdpBindForwardTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16)
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardTable.setStatus("current")
+_AlaIgmpServiceSdpBindForwardEntry_Object = MibTableRow
+alaIgmpServiceSdpBindForwardEntry = _AlaIgmpServiceSdpBindForwardEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1)
+)
+alaIgmpServiceSdpBindForwardEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardGroupAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardHostAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardDestAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardOrigAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardNextSdpBindId"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardEntry.setStatus("current")
+_AlaIgmpServiceSdpBindForwardLocale_Type = AluLocation
+_AlaIgmpServiceSdpBindForwardLocale_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardLocale = _AlaIgmpServiceSdpBindForwardLocale_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 1),
+    _AlaIgmpServiceSdpBindForwardLocale_Type()
+)
+alaIgmpServiceSdpBindForwardLocale.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardLocale.setStatus("current")
+_AlaIgmpServiceSdpBindForwardPortId_Type = TmnxPortID
+_AlaIgmpServiceSdpBindForwardPortId_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardPortId = _AlaIgmpServiceSdpBindForwardPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 2),
+    _AlaIgmpServiceSdpBindForwardPortId_Type()
+)
+alaIgmpServiceSdpBindForwardPortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardPortId.setStatus("current")
+_AlaIgmpServiceSdpBindForwardEncapValue_Type = TmnxEncapVal
+_AlaIgmpServiceSdpBindForwardEncapValue_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardEncapValue = _AlaIgmpServiceSdpBindForwardEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 3),
+    _AlaIgmpServiceSdpBindForwardEncapValue_Type()
+)
+alaIgmpServiceSdpBindForwardEncapValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardEncapValue.setStatus("current")
+_AlaIgmpServiceSdpBindForwardSdpId_Type = SdpId
+_AlaIgmpServiceSdpBindForwardSdpId_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardSdpId = _AlaIgmpServiceSdpBindForwardSdpId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 4),
+    _AlaIgmpServiceSdpBindForwardSdpId_Type()
+)
+alaIgmpServiceSdpBindForwardSdpId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardSdpId.setStatus("current")
+_AlaIgmpServiceSdpBindForwardVcId_Type = TmnxVcIdOrNone
+_AlaIgmpServiceSdpBindForwardVcId_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardVcId = _AlaIgmpServiceSdpBindForwardVcId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 5),
+    _AlaIgmpServiceSdpBindForwardVcId_Type()
+)
+alaIgmpServiceSdpBindForwardVcId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardVcId.setStatus("current")
+_AlaIgmpServiceSdpBindForwardGroupAddress_Type = MacAddress
+_AlaIgmpServiceSdpBindForwardGroupAddress_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardGroupAddress = _AlaIgmpServiceSdpBindForwardGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 6),
+    _AlaIgmpServiceSdpBindForwardGroupAddress_Type()
+)
+alaIgmpServiceSdpBindForwardGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardGroupAddress.setStatus("current")
+_AlaIgmpServiceSdpBindForwardHostAddress_Type = MacAddress
+_AlaIgmpServiceSdpBindForwardHostAddress_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardHostAddress = _AlaIgmpServiceSdpBindForwardHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 7),
+    _AlaIgmpServiceSdpBindForwardHostAddress_Type()
+)
+alaIgmpServiceSdpBindForwardHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardHostAddress.setStatus("current")
+_AlaIgmpServiceSdpBindForwardDestAddress_Type = MacAddress
+_AlaIgmpServiceSdpBindForwardDestAddress_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardDestAddress = _AlaIgmpServiceSdpBindForwardDestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 8),
+    _AlaIgmpServiceSdpBindForwardDestAddress_Type()
+)
+alaIgmpServiceSdpBindForwardDestAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardDestAddress.setStatus("current")
+_AlaIgmpServiceSdpBindForwardOrigAddress_Type = MacAddress
+_AlaIgmpServiceSdpBindForwardOrigAddress_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardOrigAddress = _AlaIgmpServiceSdpBindForwardOrigAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 9),
+    _AlaIgmpServiceSdpBindForwardOrigAddress_Type()
+)
+alaIgmpServiceSdpBindForwardOrigAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardOrigAddress.setStatus("current")
+
+
+class _AlaIgmpServiceSdpBindForwardType_Type(Integer32):
+    """Custom type alaIgmpServiceSdpBindForwardType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaIgmpServiceSdpBindForwardType_Type.__name__ = "Integer32"
+_AlaIgmpServiceSdpBindForwardType_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardType = _AlaIgmpServiceSdpBindForwardType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 10),
+    _AlaIgmpServiceSdpBindForwardType_Type()
+)
+alaIgmpServiceSdpBindForwardType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardType.setStatus("current")
+_AlaIgmpServiceSdpBindForwardNextSdpBindId_Type = SdpBindId
+_AlaIgmpServiceSdpBindForwardNextSdpBindId_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardNextSdpBindId = _AlaIgmpServiceSdpBindForwardNextSdpBindId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 11),
+    _AlaIgmpServiceSdpBindForwardNextSdpBindId_Type()
+)
+alaIgmpServiceSdpBindForwardNextSdpBindId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardNextSdpBindId.setStatus("current")
+
+
+class _AlaIgmpServiceSdpBindForwardNextType_Type(Integer32):
+    """Custom type alaIgmpServiceSdpBindForwardNextType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaIgmpServiceSdpBindForwardNextType_Type.__name__ = "Integer32"
+_AlaIgmpServiceSdpBindForwardNextType_Object = MibTableColumn
+alaIgmpServiceSdpBindForwardNextType = _AlaIgmpServiceSdpBindForwardNextType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 16, 1, 12),
+    _AlaIgmpServiceSdpBindForwardNextType_Type()
+)
+alaIgmpServiceSdpBindForwardNextType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardNextType.setStatus("current")
+_AlaIgmpServiceSapTable_Object = MibTable
+alaIgmpServiceSapTable = _AlaIgmpServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 17)
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapTable.setStatus("current")
+_AlaIgmpServiceSapEntry_Object = MibTableRow
+alaIgmpServiceSapEntry = _AlaIgmpServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 17, 1)
+)
+alaIgmpServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapEntry.setStatus("current")
+
+
+class _AlaIgmpServiceSapMaxGroupLimit_Type(Unsigned32):
+    """Custom type alaIgmpServiceSapMaxGroupLimit based on Unsigned32"""
+    defaultValue = 0
+
+
+_AlaIgmpServiceSapMaxGroupLimit_Type.__name__ = "Unsigned32"
+_AlaIgmpServiceSapMaxGroupLimit_Object = MibTableColumn
+alaIgmpServiceSapMaxGroupLimit = _AlaIgmpServiceSapMaxGroupLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 17, 1, 1),
+    _AlaIgmpServiceSapMaxGroupLimit_Type()
+)
+alaIgmpServiceSapMaxGroupLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapMaxGroupLimit.setStatus("current")
+
+
+class _AlaIgmpServiceSapMaxGroupExceedAction_Type(Integer32):
+    """Custom type alaIgmpServiceSapMaxGroupExceedAction based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("drop", 1),
+          ("replace", 2))
+    )
+
+
+_AlaIgmpServiceSapMaxGroupExceedAction_Type.__name__ = "Integer32"
+_AlaIgmpServiceSapMaxGroupExceedAction_Object = MibTableColumn
+alaIgmpServiceSapMaxGroupExceedAction = _AlaIgmpServiceSapMaxGroupExceedAction_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 17, 1, 2),
+    _AlaIgmpServiceSapMaxGroupExceedAction_Type()
+)
+alaIgmpServiceSapMaxGroupExceedAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapMaxGroupExceedAction.setStatus("current")
+_AlaIgmpServiceSapCurrentGroupCount_Type = Unsigned32
+_AlaIgmpServiceSapCurrentGroupCount_Object = MibTableColumn
+alaIgmpServiceSapCurrentGroupCount = _AlaIgmpServiceSapCurrentGroupCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 17, 1, 3),
+    _AlaIgmpServiceSapCurrentGroupCount_Type()
+)
+alaIgmpServiceSapCurrentGroupCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapCurrentGroupCount.setStatus("current")
+_AlaIgmpServiceSdpBindTable_Object = MibTable
+alaIgmpServiceSdpBindTable = _AlaIgmpServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 18)
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindTable.setStatus("current")
+_AlaIgmpServiceSdpBindEntry_Object = MibTableRow
+alaIgmpServiceSdpBindEntry = _AlaIgmpServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 18, 1)
+)
+alaIgmpServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindEntry.setStatus("current")
+
+
+class _AlaIgmpServiceSdpBindMaxGroupLimit_Type(Unsigned32):
+    """Custom type alaIgmpServiceSdpBindMaxGroupLimit based on Unsigned32"""
+    defaultValue = 0
+
+
+_AlaIgmpServiceSdpBindMaxGroupLimit_Type.__name__ = "Unsigned32"
+_AlaIgmpServiceSdpBindMaxGroupLimit_Object = MibTableColumn
+alaIgmpServiceSdpBindMaxGroupLimit = _AlaIgmpServiceSdpBindMaxGroupLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 18, 1, 1),
+    _AlaIgmpServiceSdpBindMaxGroupLimit_Type()
+)
+alaIgmpServiceSdpBindMaxGroupLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindMaxGroupLimit.setStatus("current")
+
+
+class _AlaIgmpServiceSdpBindMaxGroupExceedAction_Type(Integer32):
+    """Custom type alaIgmpServiceSdpBindMaxGroupExceedAction based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("drop", 1),
+          ("replace", 2))
+    )
+
+
+_AlaIgmpServiceSdpBindMaxGroupExceedAction_Type.__name__ = "Integer32"
+_AlaIgmpServiceSdpBindMaxGroupExceedAction_Object = MibTableColumn
+alaIgmpServiceSdpBindMaxGroupExceedAction = _AlaIgmpServiceSdpBindMaxGroupExceedAction_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 18, 1, 2),
+    _AlaIgmpServiceSdpBindMaxGroupExceedAction_Type()
+)
+alaIgmpServiceSdpBindMaxGroupExceedAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindMaxGroupExceedAction.setStatus("current")
+_AlaIgmpServiceSdpBindCurrentGroupCount_Type = Unsigned32
+_AlaIgmpServiceSdpBindCurrentGroupCount_Object = MibTableColumn
+alaIgmpServiceSdpBindCurrentGroupCount = _AlaIgmpServiceSdpBindCurrentGroupCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 2, 18, 1, 3),
+    _AlaIgmpServiceSdpBindCurrentGroupCount_Type()
+)
+alaIgmpServiceSdpBindCurrentGroupCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindCurrentGroupCount.setStatus("current")
+_AlaServiceMgrMld_ObjectIdentity = ObjectIdentity
+alaServiceMgrMld = _AlaServiceMgrMld_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3)
+)
+_AlaMldServiceTable_Object = MibTable
+alaMldServiceTable = _AlaMldServiceTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    alaMldServiceTable.setStatus("current")
+_AlaMldServiceEntry_Object = MibTableRow
+alaMldServiceEntry = _AlaMldServiceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1)
+)
+alaMldServiceEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+)
+if mibBuilder.loadTexts:
+    alaMldServiceEntry.setStatus("current")
+
+
+class _AlaMldServiceStatus_Type(Integer32):
+    """Custom type alaMldServiceStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaMldServiceStatus_Type.__name__ = "Integer32"
+_AlaMldServiceStatus_Object = MibTableColumn
+alaMldServiceStatus = _AlaMldServiceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 1),
+    _AlaMldServiceStatus_Type()
+)
+alaMldServiceStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceStatus.setStatus("current")
+
+
+class _AlaMldServiceQuerying_Type(Integer32):
+    """Custom type alaMldServiceQuerying based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaMldServiceQuerying_Type.__name__ = "Integer32"
+_AlaMldServiceQuerying_Object = MibTableColumn
+alaMldServiceQuerying = _AlaMldServiceQuerying_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 2),
+    _AlaMldServiceQuerying_Type()
+)
+alaMldServiceQuerying.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceQuerying.setStatus("current")
+
+
+class _AlaMldServiceSpoofing_Type(Integer32):
+    """Custom type alaMldServiceSpoofing based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaMldServiceSpoofing_Type.__name__ = "Integer32"
+_AlaMldServiceSpoofing_Object = MibTableColumn
+alaMldServiceSpoofing = _AlaMldServiceSpoofing_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 3),
+    _AlaMldServiceSpoofing_Type()
+)
+alaMldServiceSpoofing.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceSpoofing.setStatus("current")
+
+
+class _AlaMldServiceZapping_Type(Integer32):
+    """Custom type alaMldServiceZapping based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaMldServiceZapping_Type.__name__ = "Integer32"
+_AlaMldServiceZapping_Object = MibTableColumn
+alaMldServiceZapping = _AlaMldServiceZapping_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 4),
+    _AlaMldServiceZapping_Type()
+)
+alaMldServiceZapping.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceZapping.setStatus("current")
+_AlaMldServiceVersion_Type = Unsigned32
+_AlaMldServiceVersion_Object = MibTableColumn
+alaMldServiceVersion = _AlaMldServiceVersion_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 5),
+    _AlaMldServiceVersion_Type()
+)
+alaMldServiceVersion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceVersion.setStatus("current")
+_AlaMldServiceRobustness_Type = Unsigned32
+_AlaMldServiceRobustness_Object = MibTableColumn
+alaMldServiceRobustness = _AlaMldServiceRobustness_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 6),
+    _AlaMldServiceRobustness_Type()
+)
+alaMldServiceRobustness.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceRobustness.setStatus("current")
+_AlaMldServiceQueryInterval_Type = Unsigned32
+_AlaMldServiceQueryInterval_Object = MibTableColumn
+alaMldServiceQueryInterval = _AlaMldServiceQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 7),
+    _AlaMldServiceQueryInterval_Type()
+)
+alaMldServiceQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceQueryInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    alaMldServiceQueryInterval.setUnits("seconds")
+_AlaMldServiceQueryResponseInterval_Type = Unsigned32
+_AlaMldServiceQueryResponseInterval_Object = MibTableColumn
+alaMldServiceQueryResponseInterval = _AlaMldServiceQueryResponseInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 8),
+    _AlaMldServiceQueryResponseInterval_Type()
+)
+alaMldServiceQueryResponseInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceQueryResponseInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    alaMldServiceQueryResponseInterval.setUnits("tenths of seconds")
+_AlaMldServiceLastMemberQueryInterval_Type = Unsigned32
+_AlaMldServiceLastMemberQueryInterval_Object = MibTableColumn
+alaMldServiceLastMemberQueryInterval = _AlaMldServiceLastMemberQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 9),
+    _AlaMldServiceLastMemberQueryInterval_Type()
+)
+alaMldServiceLastMemberQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceLastMemberQueryInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    alaMldServiceLastMemberQueryInterval.setUnits("tenths of seconds")
+_AlaMldServiceRouterTimeout_Type = Unsigned32
+_AlaMldServiceRouterTimeout_Object = MibTableColumn
+alaMldServiceRouterTimeout = _AlaMldServiceRouterTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 10),
+    _AlaMldServiceRouterTimeout_Type()
+)
+alaMldServiceRouterTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceRouterTimeout.setStatus("current")
+if mibBuilder.loadTexts:
+    alaMldServiceRouterTimeout.setUnits("seconds")
+_AlaMldServiceSourceTimeout_Type = Unsigned32
+_AlaMldServiceSourceTimeout_Object = MibTableColumn
+alaMldServiceSourceTimeout = _AlaMldServiceSourceTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 11),
+    _AlaMldServiceSourceTimeout_Type()
+)
+alaMldServiceSourceTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceTimeout.setStatus("current")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceTimeout.setUnits("seconds")
+
+
+class _AlaMldServiceProxying_Type(Integer32):
+    """Custom type alaMldServiceProxying based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaMldServiceProxying_Type.__name__ = "Integer32"
+_AlaMldServiceProxying_Object = MibTableColumn
+alaMldServiceProxying = _AlaMldServiceProxying_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 12),
+    _AlaMldServiceProxying_Type()
+)
+alaMldServiceProxying.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceProxying.setStatus("current")
+_AlaMldServiceUnsolicitedReportInterval_Type = Unsigned32
+_AlaMldServiceUnsolicitedReportInterval_Object = MibTableColumn
+alaMldServiceUnsolicitedReportInterval = _AlaMldServiceUnsolicitedReportInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 13),
+    _AlaMldServiceUnsolicitedReportInterval_Type()
+)
+alaMldServiceUnsolicitedReportInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceUnsolicitedReportInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    alaMldServiceUnsolicitedReportInterval.setUnits("seconds")
+
+
+class _AlaMldServiceQuerierForwarding_Type(Integer32):
+    """Custom type alaMldServiceQuerierForwarding based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaMldServiceQuerierForwarding_Type.__name__ = "Integer32"
+_AlaMldServiceQuerierForwarding_Object = MibTableColumn
+alaMldServiceQuerierForwarding = _AlaMldServiceQuerierForwarding_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 14),
+    _AlaMldServiceQuerierForwarding_Type()
+)
+alaMldServiceQuerierForwarding.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceQuerierForwarding.setStatus("current")
+
+
+class _AlaMldServiceMaxGroupLimit_Type(Unsigned32):
+    """Custom type alaMldServiceMaxGroupLimit based on Unsigned32"""
+    defaultValue = 0
+
+
+_AlaMldServiceMaxGroupLimit_Type.__name__ = "Unsigned32"
+_AlaMldServiceMaxGroupLimit_Object = MibTableColumn
+alaMldServiceMaxGroupLimit = _AlaMldServiceMaxGroupLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 15),
+    _AlaMldServiceMaxGroupLimit_Type()
+)
+alaMldServiceMaxGroupLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceMaxGroupLimit.setStatus("current")
+
+
+class _AlaMldServiceMaxGroupExceedAction_Type(Integer32):
+    """Custom type alaMldServiceMaxGroupExceedAction based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("drop", 1),
+          ("replace", 2))
+    )
+
+
+_AlaMldServiceMaxGroupExceedAction_Type.__name__ = "Integer32"
+_AlaMldServiceMaxGroupExceedAction_Object = MibTableColumn
+alaMldServiceMaxGroupExceedAction = _AlaMldServiceMaxGroupExceedAction_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 1, 1, 16),
+    _AlaMldServiceMaxGroupExceedAction_Type()
+)
+alaMldServiceMaxGroupExceedAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceMaxGroupExceedAction.setStatus("current")
+_AlaMldMemberServiceSapTable_Object = MibTable
+alaMldMemberServiceSapTable = _AlaMldMemberServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSapTable.setStatus("current")
+_AlaMldMemberServiceSapEntry_Object = MibTableRow
+alaMldMemberServiceSapEntry = _AlaMldMemberServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1)
+)
+alaMldMemberServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapGroupAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapGroupAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapSourceAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapSourceAddress"),
+)
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSapEntry.setStatus("current")
+
+
+class _AlaMldMemberServiceSapGroupAddressType_Type(InetAddressType):
+    """Custom type alaMldMemberServiceSapGroupAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldMemberServiceSapGroupAddressType_Type.__name__ = "InetAddressType"
+_AlaMldMemberServiceSapGroupAddressType_Object = MibTableColumn
+alaMldMemberServiceSapGroupAddressType = _AlaMldMemberServiceSapGroupAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 1),
+    _AlaMldMemberServiceSapGroupAddressType_Type()
+)
+alaMldMemberServiceSapGroupAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSapGroupAddressType.setStatus("current")
+
+
+class _AlaMldMemberServiceSapGroupAddress_Type(InetAddress):
+    """Custom type alaMldMemberServiceSapGroupAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldMemberServiceSapGroupAddress_Type.__name__ = "InetAddress"
+_AlaMldMemberServiceSapGroupAddress_Object = MibTableColumn
+alaMldMemberServiceSapGroupAddress = _AlaMldMemberServiceSapGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 2),
+    _AlaMldMemberServiceSapGroupAddress_Type()
+)
+alaMldMemberServiceSapGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSapGroupAddress.setStatus("current")
+
+
+class _AlaMldMemberServiceSapSourceAddressType_Type(InetAddressType):
+    """Custom type alaMldMemberServiceSapSourceAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldMemberServiceSapSourceAddressType_Type.__name__ = "InetAddressType"
+_AlaMldMemberServiceSapSourceAddressType_Object = MibTableColumn
+alaMldMemberServiceSapSourceAddressType = _AlaMldMemberServiceSapSourceAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 3),
+    _AlaMldMemberServiceSapSourceAddressType_Type()
+)
+alaMldMemberServiceSapSourceAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSapSourceAddressType.setStatus("current")
+
+
+class _AlaMldMemberServiceSapSourceAddress_Type(InetAddress):
+    """Custom type alaMldMemberServiceSapSourceAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldMemberServiceSapSourceAddress_Type.__name__ = "InetAddress"
+_AlaMldMemberServiceSapSourceAddress_Object = MibTableColumn
+alaMldMemberServiceSapSourceAddress = _AlaMldMemberServiceSapSourceAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 4),
+    _AlaMldMemberServiceSapSourceAddress_Type()
+)
+alaMldMemberServiceSapSourceAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSapSourceAddress.setStatus("current")
+
+
+class _AlaMldMemberServiceSapMode_Type(Integer32):
+    """Custom type alaMldMemberServiceSapMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("include", 1),
+          ("exclude", 2))
+    )
+
+
+_AlaMldMemberServiceSapMode_Type.__name__ = "Integer32"
+_AlaMldMemberServiceSapMode_Object = MibTableColumn
+alaMldMemberServiceSapMode = _AlaMldMemberServiceSapMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 5),
+    _AlaMldMemberServiceSapMode_Type()
+)
+alaMldMemberServiceSapMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSapMode.setStatus("current")
+_AlaMldMemberServiceSapCount_Type = Counter32
+_AlaMldMemberServiceSapCount_Object = MibTableColumn
+alaMldMemberServiceSapCount = _AlaMldMemberServiceSapCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 6),
+    _AlaMldMemberServiceSapCount_Type()
+)
+alaMldMemberServiceSapCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSapCount.setStatus("current")
+_AlaMldMemberServiceSapTimeout_Type = TimeTicks
+_AlaMldMemberServiceSapTimeout_Object = MibTableColumn
+alaMldMemberServiceSapTimeout = _AlaMldMemberServiceSapTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 2, 1, 7),
+    _AlaMldMemberServiceSapTimeout_Type()
+)
+alaMldMemberServiceSapTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSapTimeout.setStatus("current")
+_AlaMldMemberServiceSdpBindTable_Object = MibTable
+alaMldMemberServiceSdpBindTable = _AlaMldMemberServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3)
+)
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSdpBindTable.setStatus("current")
+_AlaMldMemberServiceSdpBindEntry_Object = MibTableRow
+alaMldMemberServiceSdpBindEntry = _AlaMldMemberServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1)
+)
+alaMldMemberServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindGroupAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindGroupAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindSourceAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindSourceAddress"),
+)
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSdpBindEntry.setStatus("current")
+
+
+class _AlaMldMemberServiceSdpBindGroupAddressType_Type(InetAddressType):
+    """Custom type alaMldMemberServiceSdpBindGroupAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldMemberServiceSdpBindGroupAddressType_Type.__name__ = "InetAddressType"
+_AlaMldMemberServiceSdpBindGroupAddressType_Object = MibTableColumn
+alaMldMemberServiceSdpBindGroupAddressType = _AlaMldMemberServiceSdpBindGroupAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 1),
+    _AlaMldMemberServiceSdpBindGroupAddressType_Type()
+)
+alaMldMemberServiceSdpBindGroupAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSdpBindGroupAddressType.setStatus("current")
+
+
+class _AlaMldMemberServiceSdpBindGroupAddress_Type(InetAddress):
+    """Custom type alaMldMemberServiceSdpBindGroupAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldMemberServiceSdpBindGroupAddress_Type.__name__ = "InetAddress"
+_AlaMldMemberServiceSdpBindGroupAddress_Object = MibTableColumn
+alaMldMemberServiceSdpBindGroupAddress = _AlaMldMemberServiceSdpBindGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 2),
+    _AlaMldMemberServiceSdpBindGroupAddress_Type()
+)
+alaMldMemberServiceSdpBindGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSdpBindGroupAddress.setStatus("current")
+
+
+class _AlaMldMemberServiceSdpBindSourceAddressType_Type(InetAddressType):
+    """Custom type alaMldMemberServiceSdpBindSourceAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldMemberServiceSdpBindSourceAddressType_Type.__name__ = "InetAddressType"
+_AlaMldMemberServiceSdpBindSourceAddressType_Object = MibTableColumn
+alaMldMemberServiceSdpBindSourceAddressType = _AlaMldMemberServiceSdpBindSourceAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 3),
+    _AlaMldMemberServiceSdpBindSourceAddressType_Type()
+)
+alaMldMemberServiceSdpBindSourceAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSdpBindSourceAddressType.setStatus("current")
+
+
+class _AlaMldMemberServiceSdpBindSourceAddress_Type(InetAddress):
+    """Custom type alaMldMemberServiceSdpBindSourceAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldMemberServiceSdpBindSourceAddress_Type.__name__ = "InetAddress"
+_AlaMldMemberServiceSdpBindSourceAddress_Object = MibTableColumn
+alaMldMemberServiceSdpBindSourceAddress = _AlaMldMemberServiceSdpBindSourceAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 4),
+    _AlaMldMemberServiceSdpBindSourceAddress_Type()
+)
+alaMldMemberServiceSdpBindSourceAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSdpBindSourceAddress.setStatus("current")
+
+
+class _AlaMldMemberServiceSdpBindMode_Type(Integer32):
+    """Custom type alaMldMemberServiceSdpBindMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("include", 1),
+          ("exclude", 2))
+    )
+
+
+_AlaMldMemberServiceSdpBindMode_Type.__name__ = "Integer32"
+_AlaMldMemberServiceSdpBindMode_Object = MibTableColumn
+alaMldMemberServiceSdpBindMode = _AlaMldMemberServiceSdpBindMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 5),
+    _AlaMldMemberServiceSdpBindMode_Type()
+)
+alaMldMemberServiceSdpBindMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSdpBindMode.setStatus("current")
+_AlaMldMemberServiceSdpBindCount_Type = Counter32
+_AlaMldMemberServiceSdpBindCount_Object = MibTableColumn
+alaMldMemberServiceSdpBindCount = _AlaMldMemberServiceSdpBindCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 6),
+    _AlaMldMemberServiceSdpBindCount_Type()
+)
+alaMldMemberServiceSdpBindCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSdpBindCount.setStatus("current")
+_AlaMldMemberServiceSdpBindTimeout_Type = TimeTicks
+_AlaMldMemberServiceSdpBindTimeout_Object = MibTableColumn
+alaMldMemberServiceSdpBindTimeout = _AlaMldMemberServiceSdpBindTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 3, 1, 7),
+    _AlaMldMemberServiceSdpBindTimeout_Type()
+)
+alaMldMemberServiceSdpBindTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSdpBindTimeout.setStatus("current")
+_AlaMldStaticMemberServiceSapTable_Object = MibTable
+alaMldStaticMemberServiceSapTable = _AlaMldStaticMemberServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 4)
+)
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSapTable.setStatus("current")
+_AlaMldStaticMemberServiceSapEntry_Object = MibTableRow
+alaMldStaticMemberServiceSapEntry = _AlaMldStaticMemberServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 4, 1)
+)
+alaMldStaticMemberServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSapGroupAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSapGroupAddress"),
+)
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSapEntry.setStatus("current")
+
+
+class _AlaMldStaticMemberServiceSapGroupAddressType_Type(InetAddressType):
+    """Custom type alaMldStaticMemberServiceSapGroupAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldStaticMemberServiceSapGroupAddressType_Type.__name__ = "InetAddressType"
+_AlaMldStaticMemberServiceSapGroupAddressType_Object = MibTableColumn
+alaMldStaticMemberServiceSapGroupAddressType = _AlaMldStaticMemberServiceSapGroupAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 4, 1, 1),
+    _AlaMldStaticMemberServiceSapGroupAddressType_Type()
+)
+alaMldStaticMemberServiceSapGroupAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSapGroupAddressType.setStatus("current")
+
+
+class _AlaMldStaticMemberServiceSapGroupAddress_Type(InetAddress):
+    """Custom type alaMldStaticMemberServiceSapGroupAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldStaticMemberServiceSapGroupAddress_Type.__name__ = "InetAddress"
+_AlaMldStaticMemberServiceSapGroupAddress_Object = MibTableColumn
+alaMldStaticMemberServiceSapGroupAddress = _AlaMldStaticMemberServiceSapGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 4, 1, 2),
+    _AlaMldStaticMemberServiceSapGroupAddress_Type()
+)
+alaMldStaticMemberServiceSapGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSapGroupAddress.setStatus("current")
+_AlaMldStaticMemberServiceSapRowStatus_Type = RowStatus
+_AlaMldStaticMemberServiceSapRowStatus_Object = MibTableColumn
+alaMldStaticMemberServiceSapRowStatus = _AlaMldStaticMemberServiceSapRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 4, 1, 3),
+    _AlaMldStaticMemberServiceSapRowStatus_Type()
+)
+alaMldStaticMemberServiceSapRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSapRowStatus.setStatus("current")
+_AlaMldStaticMemberServiceSdpBindTable_Object = MibTable
+alaMldStaticMemberServiceSdpBindTable = _AlaMldStaticMemberServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 5)
+)
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSdpBindTable.setStatus("current")
+_AlaMldStaticMemberServiceSdpBindEntry_Object = MibTableRow
+alaMldStaticMemberServiceSdpBindEntry = _AlaMldStaticMemberServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 5, 1)
+)
+alaMldStaticMemberServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSdpBindGroupAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSdpBindGroupAddress"),
+)
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSdpBindEntry.setStatus("current")
+
+
+class _AlaMldStaticMemberServiceSdpBindGroupAddressType_Type(InetAddressType):
+    """Custom type alaMldStaticMemberServiceSdpBindGroupAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldStaticMemberServiceSdpBindGroupAddressType_Type.__name__ = "InetAddressType"
+_AlaMldStaticMemberServiceSdpBindGroupAddressType_Object = MibTableColumn
+alaMldStaticMemberServiceSdpBindGroupAddressType = _AlaMldStaticMemberServiceSdpBindGroupAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 5, 1, 1),
+    _AlaMldStaticMemberServiceSdpBindGroupAddressType_Type()
+)
+alaMldStaticMemberServiceSdpBindGroupAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSdpBindGroupAddressType.setStatus("current")
+
+
+class _AlaMldStaticMemberServiceSdpBindGroupAddress_Type(InetAddress):
+    """Custom type alaMldStaticMemberServiceSdpBindGroupAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldStaticMemberServiceSdpBindGroupAddress_Type.__name__ = "InetAddress"
+_AlaMldStaticMemberServiceSdpBindGroupAddress_Object = MibTableColumn
+alaMldStaticMemberServiceSdpBindGroupAddress = _AlaMldStaticMemberServiceSdpBindGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 5, 1, 2),
+    _AlaMldStaticMemberServiceSdpBindGroupAddress_Type()
+)
+alaMldStaticMemberServiceSdpBindGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSdpBindGroupAddress.setStatus("current")
+_AlaMldStaticMemberServiceSdpBindRowStatus_Type = RowStatus
+_AlaMldStaticMemberServiceSdpBindRowStatus_Object = MibTableColumn
+alaMldStaticMemberServiceSdpBindRowStatus = _AlaMldStaticMemberServiceSdpBindRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 5, 1, 3),
+    _AlaMldStaticMemberServiceSdpBindRowStatus_Type()
+)
+alaMldStaticMemberServiceSdpBindRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSdpBindRowStatus.setStatus("current")
+_AlaMldNeighborServiceSapTable_Object = MibTable
+alaMldNeighborServiceSapTable = _AlaMldNeighborServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6)
+)
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSapTable.setStatus("current")
+_AlaMldNeighborServiceSapEntry_Object = MibTableRow
+alaMldNeighborServiceSapEntry = _AlaMldNeighborServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6, 1)
+)
+alaMldNeighborServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSapHostAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSapHostAddress"),
+)
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSapEntry.setStatus("current")
+
+
+class _AlaMldNeighborServiceSapHostAddressType_Type(InetAddressType):
+    """Custom type alaMldNeighborServiceSapHostAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldNeighborServiceSapHostAddressType_Type.__name__ = "InetAddressType"
+_AlaMldNeighborServiceSapHostAddressType_Object = MibTableColumn
+alaMldNeighborServiceSapHostAddressType = _AlaMldNeighborServiceSapHostAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6, 1, 1),
+    _AlaMldNeighborServiceSapHostAddressType_Type()
+)
+alaMldNeighborServiceSapHostAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSapHostAddressType.setStatus("current")
+
+
+class _AlaMldNeighborServiceSapHostAddress_Type(InetAddress):
+    """Custom type alaMldNeighborServiceSapHostAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldNeighborServiceSapHostAddress_Type.__name__ = "InetAddress"
+_AlaMldNeighborServiceSapHostAddress_Object = MibTableColumn
+alaMldNeighborServiceSapHostAddress = _AlaMldNeighborServiceSapHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6, 1, 2),
+    _AlaMldNeighborServiceSapHostAddress_Type()
+)
+alaMldNeighborServiceSapHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSapHostAddress.setStatus("current")
+_AlaMldNeighborServiceSapCount_Type = Counter32
+_AlaMldNeighborServiceSapCount_Object = MibTableColumn
+alaMldNeighborServiceSapCount = _AlaMldNeighborServiceSapCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6, 1, 3),
+    _AlaMldNeighborServiceSapCount_Type()
+)
+alaMldNeighborServiceSapCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSapCount.setStatus("current")
+_AlaMldNeighborServiceSapTimeout_Type = TimeTicks
+_AlaMldNeighborServiceSapTimeout_Object = MibTableColumn
+alaMldNeighborServiceSapTimeout = _AlaMldNeighborServiceSapTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 6, 1, 4),
+    _AlaMldNeighborServiceSapTimeout_Type()
+)
+alaMldNeighborServiceSapTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSapTimeout.setStatus("current")
+_AlaMldNeighborServiceSdpBindTable_Object = MibTable
+alaMldNeighborServiceSdpBindTable = _AlaMldNeighborServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7)
+)
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSdpBindTable.setStatus("current")
+_AlaMldNeighborServiceSdpBindEntry_Object = MibTableRow
+alaMldNeighborServiceSdpBindEntry = _AlaMldNeighborServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7, 1)
+)
+alaMldNeighborServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSdpBindHostAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSdpBindHostAddress"),
+)
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSdpBindEntry.setStatus("current")
+
+
+class _AlaMldNeighborServiceSdpBindHostAddressType_Type(InetAddressType):
+    """Custom type alaMldNeighborServiceSdpBindHostAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldNeighborServiceSdpBindHostAddressType_Type.__name__ = "InetAddressType"
+_AlaMldNeighborServiceSdpBindHostAddressType_Object = MibTableColumn
+alaMldNeighborServiceSdpBindHostAddressType = _AlaMldNeighborServiceSdpBindHostAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7, 1, 1),
+    _AlaMldNeighborServiceSdpBindHostAddressType_Type()
+)
+alaMldNeighborServiceSdpBindHostAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSdpBindHostAddressType.setStatus("current")
+
+
+class _AlaMldNeighborServiceSdpBindHostAddress_Type(InetAddress):
+    """Custom type alaMldNeighborServiceSdpBindHostAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldNeighborServiceSdpBindHostAddress_Type.__name__ = "InetAddress"
+_AlaMldNeighborServiceSdpBindHostAddress_Object = MibTableColumn
+alaMldNeighborServiceSdpBindHostAddress = _AlaMldNeighborServiceSdpBindHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7, 1, 2),
+    _AlaMldNeighborServiceSdpBindHostAddress_Type()
+)
+alaMldNeighborServiceSdpBindHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSdpBindHostAddress.setStatus("current")
+_AlaMldNeighborServiceSdpBindCount_Type = Counter32
+_AlaMldNeighborServiceSdpBindCount_Object = MibTableColumn
+alaMldNeighborServiceSdpBindCount = _AlaMldNeighborServiceSdpBindCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7, 1, 3),
+    _AlaMldNeighborServiceSdpBindCount_Type()
+)
+alaMldNeighborServiceSdpBindCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSdpBindCount.setStatus("current")
+_AlaMldNeighborServiceSdpBindTimeout_Type = TimeTicks
+_AlaMldNeighborServiceSdpBindTimeout_Object = MibTableColumn
+alaMldNeighborServiceSdpBindTimeout = _AlaMldNeighborServiceSdpBindTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 7, 1, 4),
+    _AlaMldNeighborServiceSdpBindTimeout_Type()
+)
+alaMldNeighborServiceSdpBindTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSdpBindTimeout.setStatus("current")
+_AlaMldStaticNeighborServiceSapTable_Object = MibTable
+alaMldStaticNeighborServiceSapTable = _AlaMldStaticNeighborServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 8)
+)
+if mibBuilder.loadTexts:
+    alaMldStaticNeighborServiceSapTable.setStatus("current")
+_AlaMldStaticNeighborServiceSapEntry_Object = MibTableRow
+alaMldStaticNeighborServiceSapEntry = _AlaMldStaticNeighborServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 8, 1)
+)
+alaMldStaticNeighborServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+)
+if mibBuilder.loadTexts:
+    alaMldStaticNeighborServiceSapEntry.setStatus("current")
+_AlaMldStaticNeighborServiceSapRowStatus_Type = RowStatus
+_AlaMldStaticNeighborServiceSapRowStatus_Object = MibTableColumn
+alaMldStaticNeighborServiceSapRowStatus = _AlaMldStaticNeighborServiceSapRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 8, 1, 1),
+    _AlaMldStaticNeighborServiceSapRowStatus_Type()
+)
+alaMldStaticNeighborServiceSapRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaMldStaticNeighborServiceSapRowStatus.setStatus("current")
+_AlaMldStaticNeighborServiceSdpBindTable_Object = MibTable
+alaMldStaticNeighborServiceSdpBindTable = _AlaMldStaticNeighborServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 9)
+)
+if mibBuilder.loadTexts:
+    alaMldStaticNeighborServiceSdpBindTable.setStatus("current")
+_AlaMldStaticNeighborServiceSdpBindEntry_Object = MibTableRow
+alaMldStaticNeighborServiceSdpBindEntry = _AlaMldStaticNeighborServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 9, 1)
+)
+alaMldStaticNeighborServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+)
+if mibBuilder.loadTexts:
+    alaMldStaticNeighborServiceSdpBindEntry.setStatus("current")
+_AlaMldStaticNeighborServiceSdpBindRowStatus_Type = RowStatus
+_AlaMldStaticNeighborServiceSdpBindRowStatus_Object = MibTableColumn
+alaMldStaticNeighborServiceSdpBindRowStatus = _AlaMldStaticNeighborServiceSdpBindRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 9, 1, 1),
+    _AlaMldStaticNeighborServiceSdpBindRowStatus_Type()
+)
+alaMldStaticNeighborServiceSdpBindRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaMldStaticNeighborServiceSdpBindRowStatus.setStatus("current")
+_AlaMldQuerierServiceSapTable_Object = MibTable
+alaMldQuerierServiceSapTable = _AlaMldQuerierServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10)
+)
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSapTable.setStatus("current")
+_AlaMldQuerierServiceSapEntry_Object = MibTableRow
+alaMldQuerierServiceSapEntry = _AlaMldQuerierServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10, 1)
+)
+alaMldQuerierServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSapHostAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSapHostAddress"),
+)
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSapEntry.setStatus("current")
+
+
+class _AlaMldQuerierServiceSapHostAddressType_Type(InetAddressType):
+    """Custom type alaMldQuerierServiceSapHostAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldQuerierServiceSapHostAddressType_Type.__name__ = "InetAddressType"
+_AlaMldQuerierServiceSapHostAddressType_Object = MibTableColumn
+alaMldQuerierServiceSapHostAddressType = _AlaMldQuerierServiceSapHostAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10, 1, 1),
+    _AlaMldQuerierServiceSapHostAddressType_Type()
+)
+alaMldQuerierServiceSapHostAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSapHostAddressType.setStatus("current")
+
+
+class _AlaMldQuerierServiceSapHostAddress_Type(InetAddress):
+    """Custom type alaMldQuerierServiceSapHostAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldQuerierServiceSapHostAddress_Type.__name__ = "InetAddress"
+_AlaMldQuerierServiceSapHostAddress_Object = MibTableColumn
+alaMldQuerierServiceSapHostAddress = _AlaMldQuerierServiceSapHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10, 1, 2),
+    _AlaMldQuerierServiceSapHostAddress_Type()
+)
+alaMldQuerierServiceSapHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSapHostAddress.setStatus("current")
+_AlaMldQuerierServiceSapCount_Type = Counter32
+_AlaMldQuerierServiceSapCount_Object = MibTableColumn
+alaMldQuerierServiceSapCount = _AlaMldQuerierServiceSapCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10, 1, 3),
+    _AlaMldQuerierServiceSapCount_Type()
+)
+alaMldQuerierServiceSapCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSapCount.setStatus("current")
+_AlaMldQuerierServiceSapTimeout_Type = TimeTicks
+_AlaMldQuerierServiceSapTimeout_Object = MibTableColumn
+alaMldQuerierServiceSapTimeout = _AlaMldQuerierServiceSapTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 10, 1, 4),
+    _AlaMldQuerierServiceSapTimeout_Type()
+)
+alaMldQuerierServiceSapTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSapTimeout.setStatus("current")
+_AlaMldQuerierServiceSdpBindTable_Object = MibTable
+alaMldQuerierServiceSdpBindTable = _AlaMldQuerierServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11)
+)
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSdpBindTable.setStatus("current")
+_AlaMldQuerierServiceSdpBindEntry_Object = MibTableRow
+alaMldQuerierServiceSdpBindEntry = _AlaMldQuerierServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11, 1)
+)
+alaMldQuerierServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSdpBindHostAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSdpBindHostAddress"),
+)
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSdpBindEntry.setStatus("current")
+
+
+class _AlaMldQuerierServiceSdpBindHostAddressType_Type(InetAddressType):
+    """Custom type alaMldQuerierServiceSdpBindHostAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldQuerierServiceSdpBindHostAddressType_Type.__name__ = "InetAddressType"
+_AlaMldQuerierServiceSdpBindHostAddressType_Object = MibTableColumn
+alaMldQuerierServiceSdpBindHostAddressType = _AlaMldQuerierServiceSdpBindHostAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11, 1, 1),
+    _AlaMldQuerierServiceSdpBindHostAddressType_Type()
+)
+alaMldQuerierServiceSdpBindHostAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSdpBindHostAddressType.setStatus("current")
+
+
+class _AlaMldQuerierServiceSdpBindHostAddress_Type(InetAddress):
+    """Custom type alaMldQuerierServiceSdpBindHostAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldQuerierServiceSdpBindHostAddress_Type.__name__ = "InetAddress"
+_AlaMldQuerierServiceSdpBindHostAddress_Object = MibTableColumn
+alaMldQuerierServiceSdpBindHostAddress = _AlaMldQuerierServiceSdpBindHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11, 1, 2),
+    _AlaMldQuerierServiceSdpBindHostAddress_Type()
+)
+alaMldQuerierServiceSdpBindHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSdpBindHostAddress.setStatus("current")
+_AlaMldQuerierServiceSdpBindCount_Type = Counter32
+_AlaMldQuerierServiceSdpBindCount_Object = MibTableColumn
+alaMldQuerierServiceSdpBindCount = _AlaMldQuerierServiceSdpBindCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11, 1, 3),
+    _AlaMldQuerierServiceSdpBindCount_Type()
+)
+alaMldQuerierServiceSdpBindCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSdpBindCount.setStatus("current")
+_AlaMldQuerierServiceSdpBindTimeout_Type = TimeTicks
+_AlaMldQuerierServiceSdpBindTimeout_Object = MibTableColumn
+alaMldQuerierServiceSdpBindTimeout = _AlaMldQuerierServiceSdpBindTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 11, 1, 4),
+    _AlaMldQuerierServiceSdpBindTimeout_Type()
+)
+alaMldQuerierServiceSdpBindTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSdpBindTimeout.setStatus("current")
+_AlaMldStaticQuerierServiceSapTable_Object = MibTable
+alaMldStaticQuerierServiceSapTable = _AlaMldStaticQuerierServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 12)
+)
+if mibBuilder.loadTexts:
+    alaMldStaticQuerierServiceSapTable.setStatus("current")
+_AlaMldStaticQuerierServiceSapEntry_Object = MibTableRow
+alaMldStaticQuerierServiceSapEntry = _AlaMldStaticQuerierServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 12, 1)
+)
+alaMldStaticQuerierServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+)
+if mibBuilder.loadTexts:
+    alaMldStaticQuerierServiceSapEntry.setStatus("current")
+_AlaMldStaticQuerierServiceSapRowStatus_Type = RowStatus
+_AlaMldStaticQuerierServiceSapRowStatus_Object = MibTableColumn
+alaMldStaticQuerierServiceSapRowStatus = _AlaMldStaticQuerierServiceSapRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 12, 1, 1),
+    _AlaMldStaticQuerierServiceSapRowStatus_Type()
+)
+alaMldStaticQuerierServiceSapRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaMldStaticQuerierServiceSapRowStatus.setStatus("current")
+_AlaMldStaticQuerierServiceSdpBindTable_Object = MibTable
+alaMldStaticQuerierServiceSdpBindTable = _AlaMldStaticQuerierServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 13)
+)
+if mibBuilder.loadTexts:
+    alaMldStaticQuerierServiceSdpBindTable.setStatus("current")
+_AlaMldStaticQuerierServiceSdpBindEntry_Object = MibTableRow
+alaMldStaticQuerierServiceSdpBindEntry = _AlaMldStaticQuerierServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 13, 1)
+)
+alaMldStaticQuerierServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+)
+if mibBuilder.loadTexts:
+    alaMldStaticQuerierServiceSdpBindEntry.setStatus("current")
+_AlaMldStaticQuerierServiceSdpBindRowStatus_Type = RowStatus
+_AlaMldStaticQuerierServiceSdpBindRowStatus_Object = MibTableColumn
+alaMldStaticQuerierServiceSdpBindRowStatus = _AlaMldStaticQuerierServiceSdpBindRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 13, 1, 1),
+    _AlaMldStaticQuerierServiceSdpBindRowStatus_Type()
+)
+alaMldStaticQuerierServiceSdpBindRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaMldStaticQuerierServiceSdpBindRowStatus.setStatus("current")
+_AlaMldServiceSourceTable_Object = MibTable
+alaMldServiceSourceTable = _AlaMldServiceSourceTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14)
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSourceTable.setStatus("current")
+_AlaMldServiceSourceEntry_Object = MibTableRow
+alaMldServiceSourceEntry = _AlaMldServiceSourceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1)
+)
+alaMldServiceSourceEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceGroupAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceGroupAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceHostAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceHostAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceDestAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceDestAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceOrigAddressType"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceOrigAddress"),
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSourceEntry.setStatus("current")
+
+
+class _AlaMldServiceSourceGroupAddressType_Type(InetAddressType):
+    """Custom type alaMldServiceSourceGroupAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldServiceSourceGroupAddressType_Type.__name__ = "InetAddressType"
+_AlaMldServiceSourceGroupAddressType_Object = MibTableColumn
+alaMldServiceSourceGroupAddressType = _AlaMldServiceSourceGroupAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 1),
+    _AlaMldServiceSourceGroupAddressType_Type()
+)
+alaMldServiceSourceGroupAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceGroupAddressType.setStatus("current")
+
+
+class _AlaMldServiceSourceGroupAddress_Type(InetAddress):
+    """Custom type alaMldServiceSourceGroupAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldServiceSourceGroupAddress_Type.__name__ = "InetAddress"
+_AlaMldServiceSourceGroupAddress_Object = MibTableColumn
+alaMldServiceSourceGroupAddress = _AlaMldServiceSourceGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 2),
+    _AlaMldServiceSourceGroupAddress_Type()
+)
+alaMldServiceSourceGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceGroupAddress.setStatus("current")
+
+
+class _AlaMldServiceSourceHostAddressType_Type(InetAddressType):
+    """Custom type alaMldServiceSourceHostAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldServiceSourceHostAddressType_Type.__name__ = "InetAddressType"
+_AlaMldServiceSourceHostAddressType_Object = MibTableColumn
+alaMldServiceSourceHostAddressType = _AlaMldServiceSourceHostAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 3),
+    _AlaMldServiceSourceHostAddressType_Type()
+)
+alaMldServiceSourceHostAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceHostAddressType.setStatus("current")
+
+
+class _AlaMldServiceSourceHostAddress_Type(InetAddress):
+    """Custom type alaMldServiceSourceHostAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldServiceSourceHostAddress_Type.__name__ = "InetAddress"
+_AlaMldServiceSourceHostAddress_Object = MibTableColumn
+alaMldServiceSourceHostAddress = _AlaMldServiceSourceHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 4),
+    _AlaMldServiceSourceHostAddress_Type()
+)
+alaMldServiceSourceHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceHostAddress.setStatus("current")
+
+
+class _AlaMldServiceSourceDestAddressType_Type(InetAddressType):
+    """Custom type alaMldServiceSourceDestAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldServiceSourceDestAddressType_Type.__name__ = "InetAddressType"
+_AlaMldServiceSourceDestAddressType_Object = MibTableColumn
+alaMldServiceSourceDestAddressType = _AlaMldServiceSourceDestAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 5),
+    _AlaMldServiceSourceDestAddressType_Type()
+)
+alaMldServiceSourceDestAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceDestAddressType.setStatus("current")
+
+
+class _AlaMldServiceSourceDestAddress_Type(InetAddress):
+    """Custom type alaMldServiceSourceDestAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldServiceSourceDestAddress_Type.__name__ = "InetAddress"
+_AlaMldServiceSourceDestAddress_Object = MibTableColumn
+alaMldServiceSourceDestAddress = _AlaMldServiceSourceDestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 6),
+    _AlaMldServiceSourceDestAddress_Type()
+)
+alaMldServiceSourceDestAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceDestAddress.setStatus("current")
+
+
+class _AlaMldServiceSourceOrigAddressType_Type(InetAddressType):
+    """Custom type alaMldServiceSourceOrigAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 2),
+    )
+
+
+_AlaMldServiceSourceOrigAddressType_Type.__name__ = "InetAddressType"
+_AlaMldServiceSourceOrigAddressType_Object = MibTableColumn
+alaMldServiceSourceOrigAddressType = _AlaMldServiceSourceOrigAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 7),
+    _AlaMldServiceSourceOrigAddressType_Type()
+)
+alaMldServiceSourceOrigAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceOrigAddressType.setStatus("current")
+
+
+class _AlaMldServiceSourceOrigAddress_Type(InetAddress):
+    """Custom type alaMldServiceSourceOrigAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_AlaMldServiceSourceOrigAddress_Type.__name__ = "InetAddress"
+_AlaMldServiceSourceOrigAddress_Object = MibTableColumn
+alaMldServiceSourceOrigAddress = _AlaMldServiceSourceOrigAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 8),
+    _AlaMldServiceSourceOrigAddress_Type()
+)
+alaMldServiceSourceOrigAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceOrigAddress.setStatus("current")
+_AlaMldServiceSourceLocale_Type = AluLocation
+_AlaMldServiceSourceLocale_Object = MibTableColumn
+alaMldServiceSourceLocale = _AlaMldServiceSourceLocale_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 9),
+    _AlaMldServiceSourceLocale_Type()
+)
+alaMldServiceSourceLocale.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceLocale.setStatus("current")
+_AlaMldServiceSourcePortId_Type = TmnxPortID
+_AlaMldServiceSourcePortId_Object = MibTableColumn
+alaMldServiceSourcePortId = _AlaMldServiceSourcePortId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 10),
+    _AlaMldServiceSourcePortId_Type()
+)
+alaMldServiceSourcePortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSourcePortId.setStatus("current")
+_AlaMldServiceSourceEncapValue_Type = TmnxEncapVal
+_AlaMldServiceSourceEncapValue_Object = MibTableColumn
+alaMldServiceSourceEncapValue = _AlaMldServiceSourceEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 11),
+    _AlaMldServiceSourceEncapValue_Type()
+)
+alaMldServiceSourceEncapValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceEncapValue.setStatus("current")
+_AlaMldServiceSourceSdpId_Type = SdpId
+_AlaMldServiceSourceSdpId_Object = MibTableColumn
+alaMldServiceSourceSdpId = _AlaMldServiceSourceSdpId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 12),
+    _AlaMldServiceSourceSdpId_Type()
+)
+alaMldServiceSourceSdpId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceSdpId.setStatus("current")
+_AlaMldServiceSourceVcId_Type = TmnxVcIdOrNone
+_AlaMldServiceSourceVcId_Object = MibTableColumn
+alaMldServiceSourceVcId = _AlaMldServiceSourceVcId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 13),
+    _AlaMldServiceSourceVcId_Type()
+)
+alaMldServiceSourceVcId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceVcId.setStatus("current")
+
+
+class _AlaMldServiceSourceType_Type(Integer32):
+    """Custom type alaMldServiceSourceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaMldServiceSourceType_Type.__name__ = "Integer32"
+_AlaMldServiceSourceType_Object = MibTableColumn
+alaMldServiceSourceType = _AlaMldServiceSourceType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 14, 1, 14),
+    _AlaMldServiceSourceType_Type()
+)
+alaMldServiceSourceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSourceType.setStatus("current")
+_AlaMldServiceSapForwardTable_Object = MibTable
+alaMldServiceSapForwardTable = _AlaMldServiceSapForwardTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15)
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardTable.setStatus("current")
+_AlaMldServiceSapForwardEntry_Object = MibTableRow
+alaMldServiceSapForwardEntry = _AlaMldServiceSapForwardEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1)
+)
+alaMldServiceSapForwardEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardGroupAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardHostAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardDestAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardOrigAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardNextSapPortId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardNextSapEncapValue"),
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardEntry.setStatus("current")
+_AlaMldServiceSapForwardLocale_Type = AluLocation
+_AlaMldServiceSapForwardLocale_Object = MibTableColumn
+alaMldServiceSapForwardLocale = _AlaMldServiceSapForwardLocale_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 1),
+    _AlaMldServiceSapForwardLocale_Type()
+)
+alaMldServiceSapForwardLocale.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardLocale.setStatus("current")
+_AlaMldServiceSapForwardPortId_Type = TmnxPortID
+_AlaMldServiceSapForwardPortId_Object = MibTableColumn
+alaMldServiceSapForwardPortId = _AlaMldServiceSapForwardPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 2),
+    _AlaMldServiceSapForwardPortId_Type()
+)
+alaMldServiceSapForwardPortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardPortId.setStatus("current")
+_AlaMldServiceSapForwardEncapValue_Type = TmnxEncapVal
+_AlaMldServiceSapForwardEncapValue_Object = MibTableColumn
+alaMldServiceSapForwardEncapValue = _AlaMldServiceSapForwardEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 3),
+    _AlaMldServiceSapForwardEncapValue_Type()
+)
+alaMldServiceSapForwardEncapValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardEncapValue.setStatus("current")
+_AlaMldServiceSapForwardSdpId_Type = SdpId
+_AlaMldServiceSapForwardSdpId_Object = MibTableColumn
+alaMldServiceSapForwardSdpId = _AlaMldServiceSapForwardSdpId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 4),
+    _AlaMldServiceSapForwardSdpId_Type()
+)
+alaMldServiceSapForwardSdpId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardSdpId.setStatus("current")
+_AlaMldServiceSapForwardVcId_Type = TmnxVcIdOrNone
+_AlaMldServiceSapForwardVcId_Object = MibTableColumn
+alaMldServiceSapForwardVcId = _AlaMldServiceSapForwardVcId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 5),
+    _AlaMldServiceSapForwardVcId_Type()
+)
+alaMldServiceSapForwardVcId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardVcId.setStatus("current")
+_AlaMldServiceSapForwardGroupAddress_Type = MacAddress
+_AlaMldServiceSapForwardGroupAddress_Object = MibTableColumn
+alaMldServiceSapForwardGroupAddress = _AlaMldServiceSapForwardGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 6),
+    _AlaMldServiceSapForwardGroupAddress_Type()
+)
+alaMldServiceSapForwardGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardGroupAddress.setStatus("current")
+_AlaMldServiceSapForwardHostAddress_Type = MacAddress
+_AlaMldServiceSapForwardHostAddress_Object = MibTableColumn
+alaMldServiceSapForwardHostAddress = _AlaMldServiceSapForwardHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 7),
+    _AlaMldServiceSapForwardHostAddress_Type()
+)
+alaMldServiceSapForwardHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardHostAddress.setStatus("current")
+_AlaMldServiceSapForwardDestAddress_Type = MacAddress
+_AlaMldServiceSapForwardDestAddress_Object = MibTableColumn
+alaMldServiceSapForwardDestAddress = _AlaMldServiceSapForwardDestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 8),
+    _AlaMldServiceSapForwardDestAddress_Type()
+)
+alaMldServiceSapForwardDestAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardDestAddress.setStatus("current")
+_AlaMldServiceSapForwardOrigAddress_Type = MacAddress
+_AlaMldServiceSapForwardOrigAddress_Object = MibTableColumn
+alaMldServiceSapForwardOrigAddress = _AlaMldServiceSapForwardOrigAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 9),
+    _AlaMldServiceSapForwardOrigAddress_Type()
+)
+alaMldServiceSapForwardOrigAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardOrigAddress.setStatus("current")
+
+
+class _AlaMldServiceSapForwardType_Type(Integer32):
+    """Custom type alaMldServiceSapForwardType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaMldServiceSapForwardType_Type.__name__ = "Integer32"
+_AlaMldServiceSapForwardType_Object = MibTableColumn
+alaMldServiceSapForwardType = _AlaMldServiceSapForwardType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 10),
+    _AlaMldServiceSapForwardType_Type()
+)
+alaMldServiceSapForwardType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardType.setStatus("current")
+_AlaMldServiceSapForwardNextSapPortId_Type = TmnxPortID
+_AlaMldServiceSapForwardNextSapPortId_Object = MibTableColumn
+alaMldServiceSapForwardNextSapPortId = _AlaMldServiceSapForwardNextSapPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 11),
+    _AlaMldServiceSapForwardNextSapPortId_Type()
+)
+alaMldServiceSapForwardNextSapPortId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardNextSapPortId.setStatus("current")
+_AlaMldServiceSapForwardNextSapEncapValue_Type = TmnxEncapVal
+_AlaMldServiceSapForwardNextSapEncapValue_Object = MibTableColumn
+alaMldServiceSapForwardNextSapEncapValue = _AlaMldServiceSapForwardNextSapEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 12),
+    _AlaMldServiceSapForwardNextSapEncapValue_Type()
+)
+alaMldServiceSapForwardNextSapEncapValue.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardNextSapEncapValue.setStatus("current")
+
+
+class _AlaMldServiceSapForwardNextType_Type(Integer32):
+    """Custom type alaMldServiceSapForwardNextType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaMldServiceSapForwardNextType_Type.__name__ = "Integer32"
+_AlaMldServiceSapForwardNextType_Object = MibTableColumn
+alaMldServiceSapForwardNextType = _AlaMldServiceSapForwardNextType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 15, 1, 13),
+    _AlaMldServiceSapForwardNextType_Type()
+)
+alaMldServiceSapForwardNextType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardNextType.setStatus("current")
+_AlaMldServiceSdpBindForwardTable_Object = MibTable
+alaMldServiceSdpBindForwardTable = _AlaMldServiceSdpBindForwardTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16)
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardTable.setStatus("current")
+_AlaMldServiceSdpBindForwardEntry_Object = MibTableRow
+alaMldServiceSdpBindForwardEntry = _AlaMldServiceSdpBindForwardEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1)
+)
+alaMldServiceSdpBindForwardEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardGroupAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardHostAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardDestAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardOrigAddress"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardNextSdpBindId"),
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardEntry.setStatus("current")
+_AlaMldServiceSdpBindForwardLocale_Type = AluLocation
+_AlaMldServiceSdpBindForwardLocale_Object = MibTableColumn
+alaMldServiceSdpBindForwardLocale = _AlaMldServiceSdpBindForwardLocale_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 1),
+    _AlaMldServiceSdpBindForwardLocale_Type()
+)
+alaMldServiceSdpBindForwardLocale.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardLocale.setStatus("current")
+_AlaMldServiceSdpBindForwardPortId_Type = TmnxPortID
+_AlaMldServiceSdpBindForwardPortId_Object = MibTableColumn
+alaMldServiceSdpBindForwardPortId = _AlaMldServiceSdpBindForwardPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 2),
+    _AlaMldServiceSdpBindForwardPortId_Type()
+)
+alaMldServiceSdpBindForwardPortId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardPortId.setStatus("current")
+_AlaMldServiceSdpBindForwardEncapValue_Type = TmnxEncapVal
+_AlaMldServiceSdpBindForwardEncapValue_Object = MibTableColumn
+alaMldServiceSdpBindForwardEncapValue = _AlaMldServiceSdpBindForwardEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 3),
+    _AlaMldServiceSdpBindForwardEncapValue_Type()
+)
+alaMldServiceSdpBindForwardEncapValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardEncapValue.setStatus("current")
+_AlaMldServiceSdpBindForwardSdpId_Type = SdpId
+_AlaMldServiceSdpBindForwardSdpId_Object = MibTableColumn
+alaMldServiceSdpBindForwardSdpId = _AlaMldServiceSdpBindForwardSdpId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 4),
+    _AlaMldServiceSdpBindForwardSdpId_Type()
+)
+alaMldServiceSdpBindForwardSdpId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardSdpId.setStatus("current")
+_AlaMldServiceSdpBindForwardVcId_Type = TmnxVcIdOrNone
+_AlaMldServiceSdpBindForwardVcId_Object = MibTableColumn
+alaMldServiceSdpBindForwardVcId = _AlaMldServiceSdpBindForwardVcId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 5),
+    _AlaMldServiceSdpBindForwardVcId_Type()
+)
+alaMldServiceSdpBindForwardVcId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardVcId.setStatus("current")
+_AlaMldServiceSdpBindForwardGroupAddress_Type = MacAddress
+_AlaMldServiceSdpBindForwardGroupAddress_Object = MibTableColumn
+alaMldServiceSdpBindForwardGroupAddress = _AlaMldServiceSdpBindForwardGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 6),
+    _AlaMldServiceSdpBindForwardGroupAddress_Type()
+)
+alaMldServiceSdpBindForwardGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardGroupAddress.setStatus("current")
+_AlaMldServiceSdpBindForwardHostAddress_Type = MacAddress
+_AlaMldServiceSdpBindForwardHostAddress_Object = MibTableColumn
+alaMldServiceSdpBindForwardHostAddress = _AlaMldServiceSdpBindForwardHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 7),
+    _AlaMldServiceSdpBindForwardHostAddress_Type()
+)
+alaMldServiceSdpBindForwardHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardHostAddress.setStatus("current")
+_AlaMldServiceSdpBindForwardDestAddress_Type = MacAddress
+_AlaMldServiceSdpBindForwardDestAddress_Object = MibTableColumn
+alaMldServiceSdpBindForwardDestAddress = _AlaMldServiceSdpBindForwardDestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 8),
+    _AlaMldServiceSdpBindForwardDestAddress_Type()
+)
+alaMldServiceSdpBindForwardDestAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardDestAddress.setStatus("current")
+_AlaMldServiceSdpBindForwardOrigAddress_Type = MacAddress
+_AlaMldServiceSdpBindForwardOrigAddress_Object = MibTableColumn
+alaMldServiceSdpBindForwardOrigAddress = _AlaMldServiceSdpBindForwardOrigAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 9),
+    _AlaMldServiceSdpBindForwardOrigAddress_Type()
+)
+alaMldServiceSdpBindForwardOrigAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardOrigAddress.setStatus("current")
+
+
+class _AlaMldServiceSdpBindForwardType_Type(Integer32):
+    """Custom type alaMldServiceSdpBindForwardType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaMldServiceSdpBindForwardType_Type.__name__ = "Integer32"
+_AlaMldServiceSdpBindForwardType_Object = MibTableColumn
+alaMldServiceSdpBindForwardType = _AlaMldServiceSdpBindForwardType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 10),
+    _AlaMldServiceSdpBindForwardType_Type()
+)
+alaMldServiceSdpBindForwardType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardType.setStatus("current")
+_AlaMldServiceSdpBindForwardNextSdpBindId_Type = SdpBindId
+_AlaMldServiceSdpBindForwardNextSdpBindId_Object = MibTableColumn
+alaMldServiceSdpBindForwardNextSdpBindId = _AlaMldServiceSdpBindForwardNextSdpBindId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 11),
+    _AlaMldServiceSdpBindForwardNextSdpBindId_Type()
+)
+alaMldServiceSdpBindForwardNextSdpBindId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardNextSdpBindId.setStatus("current")
+
+
+class _AlaMldServiceSdpBindForwardNextType_Type(Integer32):
+    """Custom type alaMldServiceSdpBindForwardNextType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaMldServiceSdpBindForwardNextType_Type.__name__ = "Integer32"
+_AlaMldServiceSdpBindForwardNextType_Object = MibTableColumn
+alaMldServiceSdpBindForwardNextType = _AlaMldServiceSdpBindForwardNextType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 16, 1, 12),
+    _AlaMldServiceSdpBindForwardNextType_Type()
+)
+alaMldServiceSdpBindForwardNextType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardNextType.setStatus("current")
+_AlaMldServiceSapTable_Object = MibTable
+alaMldServiceSapTable = _AlaMldServiceSapTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 17)
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSapTable.setStatus("current")
+_AlaMldServiceSapEntry_Object = MibTableRow
+alaMldServiceSapEntry = _AlaMldServiceSapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 17, 1)
+)
+alaMldServiceSapEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapPortId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SAP-MIB", "sapEncapValue"),
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSapEntry.setStatus("current")
+
+
+class _AlaMldServiceSapMaxGroupLimit_Type(Unsigned32):
+    """Custom type alaMldServiceSapMaxGroupLimit based on Unsigned32"""
+    defaultValue = 0
+
+
+_AlaMldServiceSapMaxGroupLimit_Type.__name__ = "Unsigned32"
+_AlaMldServiceSapMaxGroupLimit_Object = MibTableColumn
+alaMldServiceSapMaxGroupLimit = _AlaMldServiceSapMaxGroupLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 17, 1, 1),
+    _AlaMldServiceSapMaxGroupLimit_Type()
+)
+alaMldServiceSapMaxGroupLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceSapMaxGroupLimit.setStatus("current")
+
+
+class _AlaMldServiceSapMaxGroupExceedAction_Type(Integer32):
+    """Custom type alaMldServiceSapMaxGroupExceedAction based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("drop", 1),
+          ("replace", 2))
+    )
+
+
+_AlaMldServiceSapMaxGroupExceedAction_Type.__name__ = "Integer32"
+_AlaMldServiceSapMaxGroupExceedAction_Object = MibTableColumn
+alaMldServiceSapMaxGroupExceedAction = _AlaMldServiceSapMaxGroupExceedAction_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 17, 1, 2),
+    _AlaMldServiceSapMaxGroupExceedAction_Type()
+)
+alaMldServiceSapMaxGroupExceedAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceSapMaxGroupExceedAction.setStatus("current")
+_AlaMldServiceSapCurrentGroupCount_Type = Unsigned32
+_AlaMldServiceSapCurrentGroupCount_Object = MibTableColumn
+alaMldServiceSapCurrentGroupCount = _AlaMldServiceSapCurrentGroupCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 17, 1, 3),
+    _AlaMldServiceSapCurrentGroupCount_Type()
+)
+alaMldServiceSapCurrentGroupCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSapCurrentGroupCount.setStatus("current")
+_AlaMldServiceSdpBindTable_Object = MibTable
+alaMldServiceSdpBindTable = _AlaMldServiceSdpBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 18)
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindTable.setStatus("current")
+_AlaMldServiceSdpBindEntry_Object = MibTableRow
+alaMldServiceSdpBindEntry = _AlaMldServiceSdpBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 18, 1)
+)
+alaMldServiceSdpBindEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-TIMETRA-SERV-MIB", "svcId"),
+    (0, "ALCATEL-ENT1-TIMETRA-SDP-MIB", "sdpBindId"),
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindEntry.setStatus("current")
+
+
+class _AlaMldServiceSdpBindMaxGroupLimit_Type(Unsigned32):
+    """Custom type alaMldServiceSdpBindMaxGroupLimit based on Unsigned32"""
+    defaultValue = 0
+
+
+_AlaMldServiceSdpBindMaxGroupLimit_Type.__name__ = "Unsigned32"
+_AlaMldServiceSdpBindMaxGroupLimit_Object = MibTableColumn
+alaMldServiceSdpBindMaxGroupLimit = _AlaMldServiceSdpBindMaxGroupLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 18, 1, 1),
+    _AlaMldServiceSdpBindMaxGroupLimit_Type()
+)
+alaMldServiceSdpBindMaxGroupLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindMaxGroupLimit.setStatus("current")
+
+
+class _AlaMldServiceSdpBindMaxGroupExceedAction_Type(Integer32):
+    """Custom type alaMldServiceSdpBindMaxGroupExceedAction based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("drop", 1),
+          ("replace", 2))
+    )
+
+
+_AlaMldServiceSdpBindMaxGroupExceedAction_Type.__name__ = "Integer32"
+_AlaMldServiceSdpBindMaxGroupExceedAction_Object = MibTableColumn
+alaMldServiceSdpBindMaxGroupExceedAction = _AlaMldServiceSdpBindMaxGroupExceedAction_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 18, 1, 2),
+    _AlaMldServiceSdpBindMaxGroupExceedAction_Type()
+)
+alaMldServiceSdpBindMaxGroupExceedAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindMaxGroupExceedAction.setStatus("current")
+_AlaMldServiceSdpBindCurrentGroupCount_Type = Unsigned32
+_AlaMldServiceSdpBindCurrentGroupCount_Object = MibTableColumn
+alaMldServiceSdpBindCurrentGroupCount = _AlaMldServiceSdpBindCurrentGroupCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 3, 18, 1, 3),
+    _AlaMldServiceSdpBindCurrentGroupCount_Type()
+)
+alaMldServiceSdpBindCurrentGroupCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindCurrentGroupCount.setStatus("current")
+_AlaExtraLdp_ObjectIdentity = ObjectIdentity
+alaExtraLdp = _AlaExtraLdp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4)
+)
+_AlaVRtrExtendedLdpGeneralTable_Object = MibTable
+alaVRtrExtendedLdpGeneralTable = _AlaVRtrExtendedLdpGeneralTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    alaVRtrExtendedLdpGeneralTable.setStatus("current")
+_AlaVRtrExtendedLdpGeneralEntry_Object = MibTableRow
+alaVRtrExtendedLdpGeneralEntry = _AlaVRtrExtendedLdpGeneralEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1, 1)
+)
+alaVRtrExtendedLdpGeneralEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpGenvRtrID"),
+)
+if mibBuilder.loadTexts:
+    alaVRtrExtendedLdpGeneralEntry.setStatus("current")
+
+
+class _AlaVRtrLdpGenGracefulRestartSupport_Type(TruthValue):
+    """Custom type alaVRtrLdpGenGracefulRestartSupport based on TruthValue"""
+    defaultValue = 2
+
+
+_AlaVRtrLdpGenGracefulRestartSupport_Type.__name__ = "TruthValue"
+_AlaVRtrLdpGenGracefulRestartSupport_Object = MibTableColumn
+alaVRtrLdpGenGracefulRestartSupport = _AlaVRtrLdpGenGracefulRestartSupport_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1, 1, 1),
+    _AlaVRtrLdpGenGracefulRestartSupport_Type()
+)
+alaVRtrLdpGenGracefulRestartSupport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaVRtrLdpGenGracefulRestartSupport.setStatus("current")
+
+
+class _AlaVRtrLdpGenGRReconnectTime_Type(Unsigned32):
+    """Custom type alaVRtrLdpGenGRReconnectTime based on Unsigned32"""
+    defaultValue = 120
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 300),
+    )
+
+
+_AlaVRtrLdpGenGRReconnectTime_Type.__name__ = "Unsigned32"
+_AlaVRtrLdpGenGRReconnectTime_Object = MibTableColumn
+alaVRtrLdpGenGRReconnectTime = _AlaVRtrLdpGenGRReconnectTime_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1, 1, 2),
+    _AlaVRtrLdpGenGRReconnectTime_Type()
+)
+alaVRtrLdpGenGRReconnectTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaVRtrLdpGenGRReconnectTime.setStatus("current")
+if mibBuilder.loadTexts:
+    alaVRtrLdpGenGRReconnectTime.setUnits("seconds")
+
+
+class _AlaVRtrLdpGenGRFwdStateHoldTime_Type(Unsigned32):
+    """Custom type alaVRtrLdpGenGRFwdStateHoldTime based on Unsigned32"""
+    defaultValue = 120
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(15, 1800),
+    )
+
+
+_AlaVRtrLdpGenGRFwdStateHoldTime_Type.__name__ = "Unsigned32"
+_AlaVRtrLdpGenGRFwdStateHoldTime_Object = MibTableColumn
+alaVRtrLdpGenGRFwdStateHoldTime = _AlaVRtrLdpGenGRFwdStateHoldTime_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1, 1, 3),
+    _AlaVRtrLdpGenGRFwdStateHoldTime_Type()
+)
+alaVRtrLdpGenGRFwdStateHoldTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaVRtrLdpGenGRFwdStateHoldTime.setStatus("current")
+if mibBuilder.loadTexts:
+    alaVRtrLdpGenGRFwdStateHoldTime.setUnits("seconds")
+_AlaVRtrLdpGenvRtrID_Type = TmnxVRtrID
+_AlaVRtrLdpGenvRtrID_Object = MibTableColumn
+alaVRtrLdpGenvRtrID = _AlaVRtrLdpGenvRtrID_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 1, 1, 4),
+    _AlaVRtrLdpGenvRtrID_Type()
+)
+alaVRtrLdpGenvRtrID.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alaVRtrLdpGenvRtrID.setStatus("current")
+_AlaVRtrLdpExtendedSessionTable_Object = MibTable
+alaVRtrLdpExtendedSessionTable = _AlaVRtrLdpExtendedSessionTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2)
+)
+if mibBuilder.loadTexts:
+    alaVRtrLdpExtendedSessionTable.setStatus("current")
+_AlaVRtrLdpExtendedSessionEntry_Object = MibTableRow
+alaVRtrLdpExtendedSessionEntry = _AlaVRtrLdpExtendedSessionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1)
+)
+alaVRtrLdpExtendedSessionEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpSessvRtrID"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpPeerLdpId"),
+)
+if mibBuilder.loadTexts:
+    alaVRtrLdpExtendedSessionEntry.setStatus("current")
+_AlaVRtrLdpPeerLdpId_Type = MplsLdpIdentifier
+_AlaVRtrLdpPeerLdpId_Object = MibTableColumn
+alaVRtrLdpPeerLdpId = _AlaVRtrLdpPeerLdpId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1, 1),
+    _AlaVRtrLdpPeerLdpId_Type()
+)
+alaVRtrLdpPeerLdpId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaVRtrLdpPeerLdpId.setStatus("current")
+_AlaVRtrLdpSessRestartInProgress_Type = TruthValue
+_AlaVRtrLdpSessRestartInProgress_Object = MibTableColumn
+alaVRtrLdpSessRestartInProgress = _AlaVRtrLdpSessRestartInProgress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1, 2),
+    _AlaVRtrLdpSessRestartInProgress_Type()
+)
+alaVRtrLdpSessRestartInProgress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaVRtrLdpSessRestartInProgress.setStatus("current")
+_AlaVRtrLdpSessFtReconTimeAdvertised_Type = Unsigned32
+_AlaVRtrLdpSessFtReconTimeAdvertised_Object = MibTableColumn
+alaVRtrLdpSessFtReconTimeAdvertised = _AlaVRtrLdpSessFtReconTimeAdvertised_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1, 3),
+    _AlaVRtrLdpSessFtReconTimeAdvertised_Type()
+)
+alaVRtrLdpSessFtReconTimeAdvertised.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaVRtrLdpSessFtReconTimeAdvertised.setStatus("current")
+if mibBuilder.loadTexts:
+    alaVRtrLdpSessFtReconTimeAdvertised.setUnits("seconds")
+_AlaVRtrLdpSessFtRecoveryTimeAdvertised_Type = Unsigned32
+_AlaVRtrLdpSessFtRecoveryTimeAdvertised_Object = MibTableColumn
+alaVRtrLdpSessFtRecoveryTimeAdvertised = _AlaVRtrLdpSessFtRecoveryTimeAdvertised_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1, 4),
+    _AlaVRtrLdpSessFtRecoveryTimeAdvertised_Type()
+)
+alaVRtrLdpSessFtRecoveryTimeAdvertised.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaVRtrLdpSessFtRecoveryTimeAdvertised.setStatus("current")
+if mibBuilder.loadTexts:
+    alaVRtrLdpSessFtRecoveryTimeAdvertised.setUnits("seconds")
+_AlaVRtrLdpSessvRtrID_Type = TmnxVRtrID
+_AlaVRtrLdpSessvRtrID_Object = MibTableColumn
+alaVRtrLdpSessvRtrID = _AlaVRtrLdpSessvRtrID_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 4, 2, 1, 5),
+    _AlaVRtrLdpSessvRtrID_Type()
+)
+alaVRtrLdpSessvRtrID.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alaVRtrLdpSessvRtrID.setStatus("current")
+_AlaRfpSpb_ObjectIdentity = ObjectIdentity
+alaRfpSpb = _AlaRfpSpb_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5)
+)
+_AlaRfpSpbLocalEndPointTable_Object = MibTable
+alaRfpSpbLocalEndPointTable = _AlaRfpSpbLocalEndPointTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    alaRfpSpbLocalEndPointTable.setStatus("current")
+_AlaRfpSpbLocalEndPointEntry_Object = MibTableRow
+alaRfpSpbLocalEndPointEntry = _AlaRfpSpbLocalEndPointEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1)
+)
+alaRfpSpbLocalEndPointEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointRfp"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPoint"),
+)
+if mibBuilder.loadTexts:
+    alaRfpSpbLocalEndPointEntry.setStatus("current")
+
+
+class _AlaRfpSpbLocalEndPointRfp_Type(Unsigned32):
+    """Custom type alaRfpSpbLocalEndPointRfp based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 32767),
+    )
+
+
+_AlaRfpSpbLocalEndPointRfp_Type.__name__ = "Unsigned32"
+_AlaRfpSpbLocalEndPointRfp_Object = MibTableColumn
+alaRfpSpbLocalEndPointRfp = _AlaRfpSpbLocalEndPointRfp_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 1),
+    _AlaRfpSpbLocalEndPointRfp_Type()
+)
+alaRfpSpbLocalEndPointRfp.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaRfpSpbLocalEndPointRfp.setStatus("current")
+
+
+class _AlaRfpSpbLocalEndPoint_Type(Unsigned32):
+    """Custom type alaRfpSpbLocalEndPoint based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8191),
+    )
+
+
+_AlaRfpSpbLocalEndPoint_Type.__name__ = "Unsigned32"
+_AlaRfpSpbLocalEndPoint_Object = MibTableColumn
+alaRfpSpbLocalEndPoint = _AlaRfpSpbLocalEndPoint_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 2),
+    _AlaRfpSpbLocalEndPoint_Type()
+)
+alaRfpSpbLocalEndPoint.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaRfpSpbLocalEndPoint.setStatus("current")
+
+
+class _AlaRfpSpbLocalEndPointCcmInterval_Type(Integer32):
+    """Custom type alaRfpSpbLocalEndPointCcmInterval based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("oneSecond", 1),
+          ("oneMinute", 2),
+          ("tenSeconds", 3),
+          ("tenMinutes", 4),
+          ("hundredMilliSeconds", 5))
+    )
+
+
+_AlaRfpSpbLocalEndPointCcmInterval_Type.__name__ = "Integer32"
+_AlaRfpSpbLocalEndPointCcmInterval_Object = MibTableColumn
+alaRfpSpbLocalEndPointCcmInterval = _AlaRfpSpbLocalEndPointCcmInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 3),
+    _AlaRfpSpbLocalEndPointCcmInterval_Type()
+)
+alaRfpSpbLocalEndPointCcmInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaRfpSpbLocalEndPointCcmInterval.setStatus("current")
+
+
+class _AlaRfpSpbLocalEndPointAdminStatus_Type(Integer32):
+    """Custom type alaRfpSpbLocalEndPointAdminStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaRfpSpbLocalEndPointAdminStatus_Type.__name__ = "Integer32"
+_AlaRfpSpbLocalEndPointAdminStatus_Object = MibTableColumn
+alaRfpSpbLocalEndPointAdminStatus = _AlaRfpSpbLocalEndPointAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 4),
+    _AlaRfpSpbLocalEndPointAdminStatus_Type()
+)
+alaRfpSpbLocalEndPointAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaRfpSpbLocalEndPointAdminStatus.setStatus("current")
+_AlaRfpSpbLocalEndPointLevel_Type = Integer32
+_AlaRfpSpbLocalEndPointLevel_Object = MibTableColumn
+alaRfpSpbLocalEndPointLevel = _AlaRfpSpbLocalEndPointLevel_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 5),
+    _AlaRfpSpbLocalEndPointLevel_Type()
+)
+alaRfpSpbLocalEndPointLevel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaRfpSpbLocalEndPointLevel.setStatus("current")
+_AlaRfpSpbLocalEndPointCBVlan_Type = Integer32
+_AlaRfpSpbLocalEndPointCBVlan_Object = MibTableColumn
+alaRfpSpbLocalEndPointCBVlan = _AlaRfpSpbLocalEndPointCBVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 6),
+    _AlaRfpSpbLocalEndPointCBVlan_Type()
+)
+alaRfpSpbLocalEndPointCBVlan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRfpSpbLocalEndPointCBVlan.setStatus("current")
+_AlaRfpSpbLocalEndPointMaintDomain_Type = SnmpAdminString
+_AlaRfpSpbLocalEndPointMaintDomain_Object = MibTableColumn
+alaRfpSpbLocalEndPointMaintDomain = _AlaRfpSpbLocalEndPointMaintDomain_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 7),
+    _AlaRfpSpbLocalEndPointMaintDomain_Type()
+)
+alaRfpSpbLocalEndPointMaintDomain.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRfpSpbLocalEndPointMaintDomain.setStatus("current")
+_AlaRfpSpbLocalEndPointMaintAssociation_Type = SnmpAdminString
+_AlaRfpSpbLocalEndPointMaintAssociation_Object = MibTableColumn
+alaRfpSpbLocalEndPointMaintAssociation = _AlaRfpSpbLocalEndPointMaintAssociation_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 8),
+    _AlaRfpSpbLocalEndPointMaintAssociation_Type()
+)
+alaRfpSpbLocalEndPointMaintAssociation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRfpSpbLocalEndPointMaintAssociation.setStatus("current")
+_AlaRfpSpbLocalEndPointRowStatus_Type = RowStatus
+_AlaRfpSpbLocalEndPointRowStatus_Object = MibTableColumn
+alaRfpSpbLocalEndPointRowStatus = _AlaRfpSpbLocalEndPointRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 1, 1, 9),
+    _AlaRfpSpbLocalEndPointRowStatus_Type()
+)
+alaRfpSpbLocalEndPointRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaRfpSpbLocalEndPointRowStatus.setStatus("current")
+_AlaRfpSpbRemoteEndPointTable_Object = MibTable
+alaRfpSpbRemoteEndPointTable = _AlaRfpSpbRemoteEndPointTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2)
+)
+if mibBuilder.loadTexts:
+    alaRfpSpbRemoteEndPointTable.setStatus("current")
+_AlaRfpSpbRemoteEndPointEntry_Object = MibTableRow
+alaRfpSpbRemoteEndPointEntry = _AlaRfpSpbRemoteEndPointEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1)
+)
+alaRfpSpbRemoteEndPointEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointRfp"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPoint"),
+    (0, "ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointServiceID"),
+)
+if mibBuilder.loadTexts:
+    alaRfpSpbRemoteEndPointEntry.setStatus("current")
+
+
+class _AlaRfpSpbRemoteEndPointRfp_Type(Unsigned32):
+    """Custom type alaRfpSpbRemoteEndPointRfp based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 32767),
+    )
+
+
+_AlaRfpSpbRemoteEndPointRfp_Type.__name__ = "Unsigned32"
+_AlaRfpSpbRemoteEndPointRfp_Object = MibTableColumn
+alaRfpSpbRemoteEndPointRfp = _AlaRfpSpbRemoteEndPointRfp_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 1),
+    _AlaRfpSpbRemoteEndPointRfp_Type()
+)
+alaRfpSpbRemoteEndPointRfp.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaRfpSpbRemoteEndPointRfp.setStatus("current")
+
+
+class _AlaRfpSpbRemoteEndPoint_Type(Unsigned32):
+    """Custom type alaRfpSpbRemoteEndPoint based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8191),
+    )
+
+
+_AlaRfpSpbRemoteEndPoint_Type.__name__ = "Unsigned32"
+_AlaRfpSpbRemoteEndPoint_Object = MibTableColumn
+alaRfpSpbRemoteEndPoint = _AlaRfpSpbRemoteEndPoint_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 2),
+    _AlaRfpSpbRemoteEndPoint_Type()
+)
+alaRfpSpbRemoteEndPoint.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaRfpSpbRemoteEndPoint.setStatus("current")
+
+
+class _AlaRfpSpbRemoteEndPointServiceID_Type(Unsigned32):
+    """Custom type alaRfpSpbRemoteEndPointServiceID based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 32767),
+    )
+
+
+_AlaRfpSpbRemoteEndPointServiceID_Type.__name__ = "Unsigned32"
+_AlaRfpSpbRemoteEndPointServiceID_Object = MibTableColumn
+alaRfpSpbRemoteEndPointServiceID = _AlaRfpSpbRemoteEndPointServiceID_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 3),
+    _AlaRfpSpbRemoteEndPointServiceID_Type()
+)
+alaRfpSpbRemoteEndPointServiceID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaRfpSpbRemoteEndPointServiceID.setStatus("current")
+
+
+class _AlaRfpSpbRemoteEndPointStatus_Type(Integer32):
+    """Custom type alaRfpSpbRemoteEndPointStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 1),
+          ("failed", 2),
+          ("unknown", 3))
+    )
+
+
+_AlaRfpSpbRemoteEndPointStatus_Type.__name__ = "Integer32"
+_AlaRfpSpbRemoteEndPointStatus_Object = MibTableColumn
+alaRfpSpbRemoteEndPointStatus = _AlaRfpSpbRemoteEndPointStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 4),
+    _AlaRfpSpbRemoteEndPointStatus_Type()
+)
+alaRfpSpbRemoteEndPointStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRfpSpbRemoteEndPointStatus.setStatus("current")
+_AlaRfpSpbRemoteEndPointSystemName_Type = SnmpAdminString
+_AlaRfpSpbRemoteEndPointSystemName_Object = MibTableColumn
+alaRfpSpbRemoteEndPointSystemName = _AlaRfpSpbRemoteEndPointSystemName_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 5),
+    _AlaRfpSpbRemoteEndPointSystemName_Type()
+)
+alaRfpSpbRemoteEndPointSystemName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRfpSpbRemoteEndPointSystemName.setStatus("current")
+_AlaRfpSpbRemoteEndPointISID_Type = Integer32
+_AlaRfpSpbRemoteEndPointISID_Object = MibTableColumn
+alaRfpSpbRemoteEndPointISID = _AlaRfpSpbRemoteEndPointISID_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 6),
+    _AlaRfpSpbRemoteEndPointISID_Type()
+)
+alaRfpSpbRemoteEndPointISID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRfpSpbRemoteEndPointISID.setStatus("current")
+_AlaRfpSpbRemoteEndPointBVlan_Type = Integer32
+_AlaRfpSpbRemoteEndPointBVlan_Object = MibTableColumn
+alaRfpSpbRemoteEndPointBVlan = _AlaRfpSpbRemoteEndPointBVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 7),
+    _AlaRfpSpbRemoteEndPointBVlan_Type()
+)
+alaRfpSpbRemoteEndPointBVlan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRfpSpbRemoteEndPointBVlan.setStatus("current")
+_AlaRfpSpbRemoteEndPointRowStatus_Type = RowStatus
+_AlaRfpSpbRemoteEndPointRowStatus_Object = MibTableColumn
+alaRfpSpbRemoteEndPointRowStatus = _AlaRfpSpbRemoteEndPointRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 5, 2, 1, 8),
+    _AlaRfpSpbRemoteEndPointRowStatus_Type()
+)
+alaRfpSpbRemoteEndPointRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaRfpSpbRemoteEndPointRowStatus.setStatus("current")
+_AlcatelIND1ServiceMgrMIBConformance_ObjectIdentity = ObjectIdentity
+alcatelIND1ServiceMgrMIBConformance = _AlcatelIND1ServiceMgrMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ServiceMgrMIBConformance.setStatus("current")
+_AlcatelIND1ServiceMgrMIBGroups_ObjectIdentity = ObjectIdentity
+alcatelIND1ServiceMgrMIBGroups = _AlcatelIND1ServiceMgrMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ServiceMgrMIBGroups.setStatus("current")
+_AlcatelIND1ServiceMgrMIBCompliances_ObjectIdentity = ObjectIdentity
+alcatelIND1ServiceMgrMIBCompliances = _AlcatelIND1ServiceMgrMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ServiceMgrMIBCompliances.setStatus("current")
+
+# Managed Objects groups
+
+alaServiceMgrPortProfileGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 1)
+)
+alaServiceMgrPortProfileGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileStpBpduTreatment"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfile8021xTreatment"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfile8021ABTreatment"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfile8023adTreatment"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileGvrpTreatment"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileAmapTreatment"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileRowStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileMvrpTreatment"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileCiscoPduTreatment"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileCiscoVlanTreatment"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileCiscoUplinkTreatment"))
+)
+if mibBuilder.loadTexts:
+    alaServiceMgrPortProfileGroup.setStatus("current")
+
+alaServiceMgrPortGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 2)
+)
+alaServiceMgrPortGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortMode"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortEncapType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortPortProfileID"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortRowStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortLinkStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortSapType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortSapCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortVlanXlation"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortDescription"))
+)
+if mibBuilder.loadTexts:
+    alaServiceMgrPortGroup.setStatus("current")
+
+alaSapExtraInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 3)
+)
+alaSapExtraInfoGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapInfoTrusted"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapInfoPriority"))
+)
+if mibBuilder.loadTexts:
+    alaSapExtraInfoGroup.setStatus("obsolete")
+
+alaIgmpServiceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 4)
+)
+alaIgmpServiceGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceQuerying"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSpoofing"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceZapping"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceVersion"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceRobustness"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceQueryInterval"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceQueryResponseInterval"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceLastMemberQueryInterval"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceRouterTimeout"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceTimeout"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceProxying"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceUnsolicitedReportInterval"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceQuerierForwarding"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceMaxGroupLimit"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceMaxGroupExceedAction"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceGroup.setStatus("current")
+
+alaIgmpMemberServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 5)
+)
+alaIgmpMemberServiceSapGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapMode"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSapGroup.setStatus("current")
+
+alaIgmpMemberServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 6)
+)
+alaIgmpMemberServiceSdpBindGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindMode"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpMemberServiceSdpBindGroup.setStatus("current")
+
+alaIgmpStaticMemberServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 7)
+)
+alaIgmpStaticMemberServiceSapGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSapRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSapGroup.setStatus("current")
+
+alaIgmpStaticMemberServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 8)
+)
+alaIgmpStaticMemberServiceSdpBindGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSdpBindRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberServiceSdpBindGroup.setStatus("current")
+
+alaIgmpNeighborServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 9)
+)
+alaIgmpNeighborServiceSapGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSapCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSapTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSapGroup.setStatus("current")
+
+alaIgmpNeighborServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 10)
+)
+alaIgmpNeighborServiceSdpBindGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSdpBindCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSdpBindTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpNeighborServiceSdpBindGroup.setStatus("current")
+
+alaIgmpStaticNeighborServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 11)
+)
+alaIgmpStaticNeighborServiceSapGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticNeighborServiceSapRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborServiceSapGroup.setStatus("current")
+
+alaIgmpStaticNeighborServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 12)
+)
+alaIgmpStaticNeighborServiceSdpBindGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticNeighborServiceSdpBindRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborServiceSdpBindGroup.setStatus("current")
+
+alaIgmpQuerierServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 13)
+)
+alaIgmpQuerierServiceSapGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSapCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSapTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSapGroup.setStatus("current")
+
+alaIgmpQuerierServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 14)
+)
+alaIgmpQuerierServiceSdpBindGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSdpBindCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSdpBindTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpQuerierServiceSdpBindGroup.setStatus("current")
+
+alaIgmpStaticQuerierServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 15)
+)
+alaIgmpStaticQuerierServiceSapGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticQuerierServiceSapRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierServiceSapGroup.setStatus("current")
+
+alaIgmpStaticQuerierServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 16)
+)
+alaIgmpStaticQuerierServiceSdpBindGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticQuerierServiceSdpBindRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierServiceSdpBindGroup.setStatus("current")
+
+alaIgmpServiceSourceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 17)
+)
+alaIgmpServiceSourceGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceLocale"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourcePortId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceEncapValue"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceSdpId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceVcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceType"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSourceGroup.setStatus("current")
+
+alaIgmpServiceSapForwardGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 18)
+)
+alaIgmpServiceSapForwardGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardLocale"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardPortId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardEncapValue"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardSdpId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardVcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardNextType"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapForwardGroup.setStatus("current")
+
+alaIgmpServiceSdpBindForwardGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 19)
+)
+alaIgmpServiceSdpBindForwardGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardLocale"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardPortId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardEncapValue"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardSdpId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardVcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardNextType"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindForwardGroup.setStatus("current")
+
+alaIgmpServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 20)
+)
+alaIgmpServiceSapGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapMaxGroupLimit"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapMaxGroupExceedAction"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapCurrentGroupCount"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSapGroup.setStatus("current")
+
+alaIgmpServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 21)
+)
+alaIgmpServiceSdpBindGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindMaxGroupLimit"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindMaxGroupExceedAction"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindCurrentGroupCount"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpServiceSdpBindGroup.setStatus("current")
+
+alaMldServiceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 22)
+)
+alaMldServiceGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceQuerying"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSpoofing"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceZapping"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceVersion"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceRobustness"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceQueryInterval"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceQueryResponseInterval"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceLastMemberQueryInterval"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceRouterTimeout"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceTimeout"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceProxying"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceUnsolicitedReportInterval"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceQuerierForwarding"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceMaxGroupLimit"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceMaxGroupExceedAction"))
+)
+if mibBuilder.loadTexts:
+    alaMldServiceGroup.setStatus("current")
+
+alaMldMemberServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 23)
+)
+alaMldMemberServiceSapGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapMode"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSapGroup.setStatus("current")
+
+alaMldMemberServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 24)
+)
+alaMldMemberServiceSdpBindGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindMode"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaMldMemberServiceSdpBindGroup.setStatus("current")
+
+alaMldStaticMemberServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 25)
+)
+alaMldStaticMemberServiceSapGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSapRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSapGroup.setStatus("current")
+
+alaMldStaticMemberServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 26)
+)
+alaMldStaticMemberServiceSdpBindGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSdpBindRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaMldStaticMemberServiceSdpBindGroup.setStatus("current")
+
+alaMldNeighborServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 27)
+)
+alaMldNeighborServiceSapGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSapCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSapTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSapGroup.setStatus("current")
+
+alaMldNeighborServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 28)
+)
+alaMldNeighborServiceSdpBindGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSdpBindCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSdpBindTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaMldNeighborServiceSdpBindGroup.setStatus("current")
+
+alaMldStaticNeighborServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 29)
+)
+alaMldStaticNeighborServiceSapGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticNeighborServiceSapRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaMldStaticNeighborServiceSapGroup.setStatus("current")
+
+alaMldStaticNeighborServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 30)
+)
+alaMldStaticNeighborServiceSdpBindGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticNeighborServiceSdpBindRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaMldStaticNeighborServiceSdpBindGroup.setStatus("current")
+
+alaMldQuerierServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 31)
+)
+alaMldQuerierServiceSapGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSapCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSapTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSapGroup.setStatus("current")
+
+alaMldQuerierServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 32)
+)
+alaMldQuerierServiceSdpBindGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSdpBindCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSdpBindTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaMldQuerierServiceSdpBindGroup.setStatus("current")
+
+alaMldStaticQuerierServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 33)
+)
+alaMldStaticQuerierServiceSapGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticQuerierServiceSapRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaMldStaticQuerierServiceSapGroup.setStatus("current")
+
+alaMldStaticQuerierServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 34)
+)
+alaMldStaticQuerierServiceSdpBindGroup.setObjects(
+    ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticQuerierServiceSdpBindRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaMldStaticQuerierServiceSdpBindGroup.setStatus("current")
+
+alaMldServiceSourceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 35)
+)
+alaMldServiceSourceGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceLocale"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourcePortId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceEncapValue"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceSdpId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceVcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceType"))
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSourceGroup.setStatus("current")
+
+alaMldServiceSapForwardGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 36)
+)
+alaMldServiceSapForwardGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardLocale"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardPortId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardEncapValue"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardSdpId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardVcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardNextType"))
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSapForwardGroup.setStatus("current")
+
+alaMldServiceSdpBindForwardGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 37)
+)
+alaMldServiceSdpBindForwardGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardLocale"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardPortId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardEncapValue"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardSdpId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardVcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardNextType"))
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindForwardGroup.setStatus("current")
+
+alaMldServiceSapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 38)
+)
+alaMldServiceSapGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapMaxGroupLimit"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapMaxGroupExceedAction"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapCurrentGroupCount"))
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSapGroup.setStatus("current")
+
+alaMldServiceSdpBindGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 39)
+)
+alaMldServiceSdpBindGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindMaxGroupLimit"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindMaxGroupExceedAction"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindCurrentGroupCount"))
+)
+if mibBuilder.loadTexts:
+    alaMldServiceSdpBindGroup.setStatus("current")
+
+alaVRtrExtendedLdpGeneralGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 40)
+)
+alaVRtrExtendedLdpGeneralGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpGenGracefulRestartSupport"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpGenGRReconnectTime"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpGenGRFwdStateHoldTime"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpGenvRtrID"))
+)
+if mibBuilder.loadTexts:
+    alaVRtrExtendedLdpGeneralGroup.setStatus("current")
+
+alaVRtrLdpExtendedSessionGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 41)
+)
+alaVRtrLdpExtendedSessionGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpSessRestartInProgress"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpSessFtReconTimeAdvertised"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpSessFtRecoveryTimeAdvertised"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpSessvRtrID"))
+)
+if mibBuilder.loadTexts:
+    alaVRtrLdpExtendedSessionGroup.setStatus("current")
+
+alaSvcBaseInfoEntryGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 42)
+)
+alaSvcBaseInfoEntryGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcRowStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcDescription"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMtu"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcAdminStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcOperStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcNumSaps"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcNumSdps"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcLastMgmtChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcLastStatusChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcDefMeshVcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcVFI"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMcIndex"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcAllocationType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcStatsAdminStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcRemoteFlushStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcIsid"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMulticastMode"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcIngressPacketCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcIngressByteCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcEgressPacketCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcEgressByteCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcClearCounters"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcSapVlanXlation"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcVnid"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcRemoveIngressTag"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcL3VpnIfIndex"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcL3VpnIfName"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcL3VpnVrfName"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcL3VpnMtu"))
+)
+if mibBuilder.loadTexts:
+    alaSvcBaseInfoEntryGroup.setStatus("current")
+
+alaSapBaseInfoEntryGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 43)
+)
+alaSapBaseInfoEntryGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPortId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEncapValue"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapRowStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapDescription"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapAdminStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapOperStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapLastMgmtChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapLastStatusChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapOperFlags"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapTrusted"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPriority"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapSvcVFI"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapVirtualPort"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapAllocationType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapStatsAdminStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapIngressPacketCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapIngressByteCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEgressPacketCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEgressByteCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapClearCounters"))
+)
+if mibBuilder.loadTexts:
+    alaSapBaseInfoEntryGroup.setStatus("current")
+
+alaSdpInfoTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 44)
+)
+alaSdpInfoTableGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpRowStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSvcType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpDelivery"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpFarEndIpAddress"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpDescription"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpLabelSignaling"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpAdminStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpOperStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpAdminPathMtu"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpOperPathMtu"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpLastMgmtChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpLdpEnabled"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpVlanVcEtype"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpAdvertisedVllMtuOverride"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpOperFlags"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpLastStatusChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpNetworkPort"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemName"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSpSourceId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpAllocationType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpDynamicType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpIsid"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpMcastPortList"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpCreationOrigin"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpAdminTTL"))
+)
+if mibBuilder.loadTexts:
+    alaSdpInfoTableGroup.setStatus("current")
+
+alaSdpBindTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 45)
+)
+alaSdpBindTableGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindRowStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSvcType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindAdminIngressLabel"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindAdminEgressLabel"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperIngressLabel"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperEgressLabel"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindAdminStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindLastMgmtChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperFlags"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindLastStatusChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindControlWordBit"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperControlWord"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindNetworkPort"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindVirtualPort"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindIsid"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemName"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindAllocationType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindIngressPacketCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindIngressByteCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindEgressPacketCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindEgressByteCount"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindCreationOrigin"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindFarEndIpAddress"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindVnid"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindDescription"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindStatsAdminStatus"))
+)
+if mibBuilder.loadTexts:
+    alaSdpBindTableGroup.setStatus("current")
+
+alaSvcMgrSysTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 48)
+)
+alaSvcMgrSysTableGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSysId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSysName"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSdpTrapAdminState"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSvcTrapAdminState"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSapTrapAdminState"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSdpBindTrapAdminState"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrMaxTrapPerMinute"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSysLastMgmtChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSysLastStatusChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrStatsAdminState"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrVxlanDestUdpPort"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrVxlanVrfName"))
+)
+if mibBuilder.loadTexts:
+    alaSvcMgrSysTableGroup.setStatus("current")
+
+alaSvcMgrEndPointGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 49)
+)
+alaSvcMgrEndPointGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointCcmInterval"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointAdminStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointLevel"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointCBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointMaintDomain"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointMaintAssociation"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbLocalEndPointRowStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointSystemName"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointISID"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaRfpSpbRemoteEndPointRowStatus"))
+)
+if mibBuilder.loadTexts:
+    alaSvcMgrEndPointGroup.setStatus("current")
+
+
+# Notification objects
+
+smgrServiceError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 1)
+)
+smgrServiceError.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcIsid"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMulticastMode"))
+)
+if mibBuilder.loadTexts:
+    smgrServiceError.setStatus(
+        "current"
+    )
+
+smgrServiceHwError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 2)
+)
+smgrServiceHwError.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcVFI"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMcIndex"))
+)
+if mibBuilder.loadTexts:
+    smgrServiceHwError.setStatus(
+        "current"
+    )
+
+smgrSapError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 3)
+)
+smgrSapError.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPortId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEncapValue"))
+)
+if mibBuilder.loadTexts:
+    smgrSapError.setStatus(
+        "current"
+    )
+
+smgrSapHwError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 4)
+)
+smgrSapHwError.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPortId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEncapValue"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcVFI"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapVirtualPort"))
+)
+if mibBuilder.loadTexts:
+    smgrSapHwError.setStatus(
+        "current"
+    )
+
+smgrSdpError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 5)
+)
+smgrSdpError.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpNetworkPort"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemId"))
+)
+if mibBuilder.loadTexts:
+    smgrSdpError.setStatus(
+        "current"
+    )
+
+smgrSdpHwError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 6)
+)
+smgrSdpHwError.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpNetworkPort"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemId"))
+)
+if mibBuilder.loadTexts:
+    smgrSdpHwError.setStatus(
+        "current"
+    )
+
+smgrSdpBindError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 7)
+)
+smgrSdpBindError.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindNetworkPort"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemId"))
+)
+if mibBuilder.loadTexts:
+    smgrSdpBindError.setStatus(
+        "current"
+    )
+
+smgrSdpBindHwError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 8)
+)
+smgrSdpBindHwError.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindNetworkPort"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindVirtualPort"))
+)
+if mibBuilder.loadTexts:
+    smgrSdpBindHwError.setStatus(
+        "current"
+    )
+
+smgrGeneralError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 9)
+)
+smgrGeneralError.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"))
+)
+if mibBuilder.loadTexts:
+    smgrGeneralError.setStatus(
+        "current"
+    )
+
+smgrStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 10)
+)
+smgrStatusChange.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcOperStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcNumSaps"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcNumSdps"))
+)
+if mibBuilder.loadTexts:
+    smgrStatusChange.setStatus(
+        "deprecated"
+    )
+
+smgrServiceStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 11)
+)
+smgrServiceStatusChange.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcOperStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcIsid"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMulticastMode"))
+)
+if mibBuilder.loadTexts:
+    smgrServiceStatusChange.setStatus(
+        "current"
+    )
+
+smgrSapStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 12)
+)
+smgrSapStatusChange.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapPortId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapEncapValue"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapOperStatus"))
+)
+if mibBuilder.loadTexts:
+    smgrSapStatusChange.setStatus(
+        "current"
+    )
+
+smgrSdpStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 13)
+)
+smgrSdpStatusChange.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpOperStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpNetworkPort"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpSystemName"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpDynamicType"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpIsid"))
+)
+if mibBuilder.loadTexts:
+    smgrSdpStatusChange.setStatus(
+        "current"
+    )
+
+smgrSdpBindStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 14)
+)
+smgrSdpBindStatusChange.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindNetworkPort"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindBVlan"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindSystemName"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindIsid"))
+)
+if mibBuilder.loadTexts:
+    smgrSdpBindStatusChange.setStatus(
+        "current"
+    )
+
+smgrVxlanSdpBindStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 1, 0, 15)
+)
+smgrVxlanSdpBindStatusChange.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindId"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindOperStatus"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindFarEndIpAddress"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindVnid"))
+)
+if mibBuilder.loadTexts:
+    smgrVxlanSdpBindStatusChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+alaSmgrNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 46)
+)
+alaSmgrNotificationGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrGeneralError"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSapError"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpBindError"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpError"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrServiceError"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrStatusChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrServiceStatusChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSapStatusChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpStatusChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpBindStatusChange"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrVxlanSdpBindStatusChange"))
+)
+if mibBuilder.loadTexts:
+    alaSmgrNotificationGroup.setStatus(
+        "current"
+    )
+
+alaSmgrHwNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 1, 47)
+)
+alaSmgrHwNotificationGroup.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSapHwError"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpBindHwError"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrSdpHwError"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "smgrServiceHwError"))
+)
+if mibBuilder.loadTexts:
+    alaSmgrHwNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alcatelIND1ServiceMgrMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 51, 1, 2, 2, 1)
+)
+alcatelIND1ServiceMgrMIBCompliance.setObjects(
+      *(("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortProfileGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaServiceMgrPortGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapExtraInfoGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpMemberServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticMemberServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpNeighborServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticNeighborServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticNeighborServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpQuerierServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticQuerierServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpStaticQuerierServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSourceGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapForwardGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindForwardGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaIgmpServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldMemberServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticMemberServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldNeighborServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticNeighborServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticNeighborServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldQuerierServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticQuerierServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldStaticQuerierServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSourceGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapForwardGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindForwardGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSapGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaMldServiceSdpBindGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrExtendedLdpGeneralGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaVRtrLdpExtendedSessionGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcBaseInfoEntryGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSapBaseInfoEntryGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpInfoTableGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSdpBindTableGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrSysTableGroup"),
+        ("ALCATEL-ENT1-SERVICE-MGR-MIB", "alaSvcMgrEndPointGroup"))
+)
+if mibBuilder.loadTexts:
+    alcatelIND1ServiceMgrMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALCATEL-ENT1-SERVICE-MGR-MIB",
+    **{"AluLocation": AluLocation,
+       "AluServiceId": AluServiceId,
+       "AluSdpId": AluSdpId,
+       "AluServiceType": AluServiceType,
+       "AluAllocationType": AluAllocationType,
+       "AluSdpDynamicType": AluSdpDynamicType,
+       "AluSdpOriginType": AluSdpOriginType,
+       "AluDateAndTime": AluDateAndTime,
+       "alcatelIND1ServiceMgrMIB": alcatelIND1ServiceMgrMIB,
+       "alcatelIND1ServiceMgrMIBObjects": alcatelIND1ServiceMgrMIBObjects,
+       "alaServiceMgrNotifications": alaServiceMgrNotifications,
+       "smgrServiceError": smgrServiceError,
+       "smgrServiceHwError": smgrServiceHwError,
+       "smgrSapError": smgrSapError,
+       "smgrSapHwError": smgrSapHwError,
+       "smgrSdpError": smgrSdpError,
+       "smgrSdpHwError": smgrSdpHwError,
+       "smgrSdpBindError": smgrSdpBindError,
+       "smgrSdpBindHwError": smgrSdpBindHwError,
+       "smgrGeneralError": smgrGeneralError,
+       "smgrStatusChange": smgrStatusChange,
+       "smgrServiceStatusChange": smgrServiceStatusChange,
+       "smgrSapStatusChange": smgrSapStatusChange,
+       "smgrSdpStatusChange": smgrSdpStatusChange,
+       "smgrSdpBindStatusChange": smgrSdpBindStatusChange,
+       "smgrVxlanSdpBindStatusChange": smgrVxlanSdpBindStatusChange,
+       "alaServiceMgr": alaServiceMgr,
+       "alaServiceMgrPortProfileTable": alaServiceMgrPortProfileTable,
+       "alaServiceMgrPortProfileEntry": alaServiceMgrPortProfileEntry,
+       "alaServiceMgrPortProfileID": alaServiceMgrPortProfileID,
+       "alaServiceMgrPortProfileStpBpduTreatment": alaServiceMgrPortProfileStpBpduTreatment,
+       "alaServiceMgrPortProfile8021xTreatment": alaServiceMgrPortProfile8021xTreatment,
+       "alaServiceMgrPortProfile8021ABTreatment": alaServiceMgrPortProfile8021ABTreatment,
+       "alaServiceMgrPortProfile8023adTreatment": alaServiceMgrPortProfile8023adTreatment,
+       "alaServiceMgrPortProfileGvrpTreatment": alaServiceMgrPortProfileGvrpTreatment,
+       "alaServiceMgrPortProfileAmapTreatment": alaServiceMgrPortProfileAmapTreatment,
+       "alaServiceMgrPortProfileRowStatus": alaServiceMgrPortProfileRowStatus,
+       "alaServiceMgrPortProfileMvrpTreatment": alaServiceMgrPortProfileMvrpTreatment,
+       "alaServiceMgrPortProfileCiscoPduTreatment": alaServiceMgrPortProfileCiscoPduTreatment,
+       "alaServiceMgrPortProfileCiscoVlanTreatment": alaServiceMgrPortProfileCiscoVlanTreatment,
+       "alaServiceMgrPortProfileCiscoUplinkTreatment": alaServiceMgrPortProfileCiscoUplinkTreatment,
+       "alaServiceMgrPortTable": alaServiceMgrPortTable,
+       "alaServiceMgrPortEntry": alaServiceMgrPortEntry,
+       "alaServiceMgrPortID": alaServiceMgrPortID,
+       "alaServiceMgrPortMode": alaServiceMgrPortMode,
+       "alaServiceMgrPortEncapType": alaServiceMgrPortEncapType,
+       "alaServiceMgrPortPortProfileID": alaServiceMgrPortPortProfileID,
+       "alaServiceMgrPortRowStatus": alaServiceMgrPortRowStatus,
+       "alaServiceMgrPortLinkStatus": alaServiceMgrPortLinkStatus,
+       "alaServiceMgrPortSapType": alaServiceMgrPortSapType,
+       "alaServiceMgrPortSapCount": alaServiceMgrPortSapCount,
+       "alaServiceMgrPortVlanXlation": alaServiceMgrPortVlanXlation,
+       "alaServiceMgrPortDescription": alaServiceMgrPortDescription,
+       "alaSapExtraInfoTable": alaSapExtraInfoTable,
+       "alaSapExtraInfoEntry": alaSapExtraInfoEntry,
+       "alaSapInfoTrusted": alaSapInfoTrusted,
+       "alaSapInfoPriority": alaSapInfoPriority,
+       "alaSvcBaseInfoTable": alaSvcBaseInfoTable,
+       "alaSvcBaseInfoEntry": alaSvcBaseInfoEntry,
+       "alaSvcId": alaSvcId,
+       "alaSvcRowStatus": alaSvcRowStatus,
+       "alaSvcType": alaSvcType,
+       "alaSvcDescription": alaSvcDescription,
+       "alaSvcMtu": alaSvcMtu,
+       "alaSvcAdminStatus": alaSvcAdminStatus,
+       "alaSvcOperStatus": alaSvcOperStatus,
+       "alaSvcNumSaps": alaSvcNumSaps,
+       "alaSvcNumSdps": alaSvcNumSdps,
+       "alaSvcLastMgmtChange": alaSvcLastMgmtChange,
+       "alaSvcLastStatusChange": alaSvcLastStatusChange,
+       "alaSvcDefMeshVcId": alaSvcDefMeshVcId,
+       "alaSvcVFI": alaSvcVFI,
+       "alaSvcMcIndex": alaSvcMcIndex,
+       "alaSvcAllocationType": alaSvcAllocationType,
+       "alaSvcStatsAdminStatus": alaSvcStatsAdminStatus,
+       "alaSvcRemoteFlushStatus": alaSvcRemoteFlushStatus,
+       "alaSvcIsid": alaSvcIsid,
+       "alaSvcBVlan": alaSvcBVlan,
+       "alaSvcMulticastMode": alaSvcMulticastMode,
+       "alaSvcIngressPacketCount": alaSvcIngressPacketCount,
+       "alaSvcIngressByteCount": alaSvcIngressByteCount,
+       "alaSvcEgressPacketCount": alaSvcEgressPacketCount,
+       "alaSvcEgressByteCount": alaSvcEgressByteCount,
+       "alaSvcClearCounters": alaSvcClearCounters,
+       "alaSvcSapVlanXlation": alaSvcSapVlanXlation,
+       "alaSvcVnid": alaSvcVnid,
+       "alaSvcRemoveIngressTag": alaSvcRemoveIngressTag,
+       "alaSvcL3VpnIfIndex": alaSvcL3VpnIfIndex,
+       "alaSvcL3VpnIfName": alaSvcL3VpnIfName,
+       "alaSvcL3VpnVrfName": alaSvcL3VpnVrfName,
+       "alaSvcL3VpnMtu": alaSvcL3VpnMtu,
+       "alaSapBaseInfoTable": alaSapBaseInfoTable,
+       "alaSapBaseInfoEntry": alaSapBaseInfoEntry,
+       "alaSapPortId": alaSapPortId,
+       "alaSapEncapValue": alaSapEncapValue,
+       "alaSapRowStatus": alaSapRowStatus,
+       "alaSapType": alaSapType,
+       "alaSapDescription": alaSapDescription,
+       "alaSapAdminStatus": alaSapAdminStatus,
+       "alaSapOperStatus": alaSapOperStatus,
+       "alaSapLastMgmtChange": alaSapLastMgmtChange,
+       "alaSapLastStatusChange": alaSapLastStatusChange,
+       "alaSapOperFlags": alaSapOperFlags,
+       "alaSapTrusted": alaSapTrusted,
+       "alaSapPriority": alaSapPriority,
+       "alaSapSvcId": alaSapSvcId,
+       "alaSapSvcVFI": alaSapSvcVFI,
+       "alaSapVirtualPort": alaSapVirtualPort,
+       "alaSapAllocationType": alaSapAllocationType,
+       "alaSapStatsAdminStatus": alaSapStatsAdminStatus,
+       "alaSapIngressPacketCount": alaSapIngressPacketCount,
+       "alaSapIngressByteCount": alaSapIngressByteCount,
+       "alaSapEgressPacketCount": alaSapEgressPacketCount,
+       "alaSapEgressByteCount": alaSapEgressByteCount,
+       "alaSapClearCounters": alaSapClearCounters,
+       "alaSdpInfoTable": alaSdpInfoTable,
+       "alaSdpInfoEntry": alaSdpInfoEntry,
+       "alaSdpId": alaSdpId,
+       "alaSdpRowStatus": alaSdpRowStatus,
+       "alaSdpSvcType": alaSdpSvcType,
+       "alaSdpDelivery": alaSdpDelivery,
+       "alaSdpFarEndIpAddress": alaSdpFarEndIpAddress,
+       "alaSdpDescription": alaSdpDescription,
+       "alaSdpLabelSignaling": alaSdpLabelSignaling,
+       "alaSdpAdminStatus": alaSdpAdminStatus,
+       "alaSdpOperStatus": alaSdpOperStatus,
+       "alaSdpAdminPathMtu": alaSdpAdminPathMtu,
+       "alaSdpOperPathMtu": alaSdpOperPathMtu,
+       "alaSdpLastMgmtChange": alaSdpLastMgmtChange,
+       "alaSdpLdpEnabled": alaSdpLdpEnabled,
+       "alaSdpVlanVcEtype": alaSdpVlanVcEtype,
+       "alaSdpAdvertisedVllMtuOverride": alaSdpAdvertisedVllMtuOverride,
+       "alaSdpOperFlags": alaSdpOperFlags,
+       "alaSdpLastStatusChange": alaSdpLastStatusChange,
+       "alaSdpNetworkPort": alaSdpNetworkPort,
+       "alaSdpBVlan": alaSdpBVlan,
+       "alaSdpSystemId": alaSdpSystemId,
+       "alaSdpSystemName": alaSdpSystemName,
+       "alaSdpSpSourceId": alaSdpSpSourceId,
+       "alaSdpAllocationType": alaSdpAllocationType,
+       "alaSdpDynamicType": alaSdpDynamicType,
+       "alaSdpBindCount": alaSdpBindCount,
+       "alaSdpIsid": alaSdpIsid,
+       "alaSdpMcastPortList": alaSdpMcastPortList,
+       "alaSdpCreationOrigin": alaSdpCreationOrigin,
+       "alaSdpAdminTTL": alaSdpAdminTTL,
+       "alaSdpBindTable": alaSdpBindTable,
+       "alaSdpBindEntry": alaSdpBindEntry,
+       "alaSdpBindId": alaSdpBindId,
+       "alaSdpBindRowStatus": alaSdpBindRowStatus,
+       "alaSdpBindSvcType": alaSdpBindSvcType,
+       "alaSdpBindAdminIngressLabel": alaSdpBindAdminIngressLabel,
+       "alaSdpBindAdminEgressLabel": alaSdpBindAdminEgressLabel,
+       "alaSdpBindOperIngressLabel": alaSdpBindOperIngressLabel,
+       "alaSdpBindOperEgressLabel": alaSdpBindOperEgressLabel,
+       "alaSdpBindAdminStatus": alaSdpBindAdminStatus,
+       "alaSdpBindOperStatus": alaSdpBindOperStatus,
+       "alaSdpBindLastMgmtChange": alaSdpBindLastMgmtChange,
+       "alaSdpBindType": alaSdpBindType,
+       "alaSdpBindOperFlags": alaSdpBindOperFlags,
+       "alaSdpBindLastStatusChange": alaSdpBindLastStatusChange,
+       "alaSdpBindControlWordBit": alaSdpBindControlWordBit,
+       "alaSdpBindOperControlWord": alaSdpBindOperControlWord,
+       "alaSdpBindNetworkPort": alaSdpBindNetworkPort,
+       "alaSdpBindVirtualPort": alaSdpBindVirtualPort,
+       "alaSdpBindIsid": alaSdpBindIsid,
+       "alaSdpBindBVlan": alaSdpBindBVlan,
+       "alaSdpBindSystemId": alaSdpBindSystemId,
+       "alaSdpBindSystemName": alaSdpBindSystemName,
+       "alaSdpBindAllocationType": alaSdpBindAllocationType,
+       "alaSdpBindIngressPacketCount": alaSdpBindIngressPacketCount,
+       "alaSdpBindIngressByteCount": alaSdpBindIngressByteCount,
+       "alaSdpBindEgressPacketCount": alaSdpBindEgressPacketCount,
+       "alaSdpBindEgressByteCount": alaSdpBindEgressByteCount,
+       "alaSdpBindCreationOrigin": alaSdpBindCreationOrigin,
+       "alaSdpBindFarEndIpAddress": alaSdpBindFarEndIpAddress,
+       "alaSdpBindVnid": alaSdpBindVnid,
+       "alaSdpBindDescription": alaSdpBindDescription,
+       "alaSdpBindStatsAdminStatus": alaSdpBindStatsAdminStatus,
+       "alaSvcMgrSysTable": alaSvcMgrSysTable,
+       "alaSvcMgrSysId": alaSvcMgrSysId,
+       "alaSvcMgrSysName": alaSvcMgrSysName,
+       "alaSvcMgrSysLastMgmtChange": alaSvcMgrSysLastMgmtChange,
+       "alaSvcMgrSysLastStatusChange": alaSvcMgrSysLastStatusChange,
+       "alaSvcMgrSvcTrapAdminState": alaSvcMgrSvcTrapAdminState,
+       "alaSvcMgrSapTrapAdminState": alaSvcMgrSapTrapAdminState,
+       "alaSvcMgrSdpTrapAdminState": alaSvcMgrSdpTrapAdminState,
+       "alaSvcMgrSdpBindTrapAdminState": alaSvcMgrSdpBindTrapAdminState,
+       "alaSvcMgrMaxTrapPerMinute": alaSvcMgrMaxTrapPerMinute,
+       "alaSvcMgrStatsAdminState": alaSvcMgrStatsAdminState,
+       "alaSvcMgrVxlanDestUdpPort": alaSvcMgrVxlanDestUdpPort,
+       "alaSvcMgrVxlanVrfName": alaSvcMgrVxlanVrfName,
+       "alaServiceMgrIgmp": alaServiceMgrIgmp,
+       "alaIgmpServiceTable": alaIgmpServiceTable,
+       "alaIgmpServiceEntry": alaIgmpServiceEntry,
+       "alaIgmpServiceStatus": alaIgmpServiceStatus,
+       "alaIgmpServiceQuerying": alaIgmpServiceQuerying,
+       "alaIgmpServiceSpoofing": alaIgmpServiceSpoofing,
+       "alaIgmpServiceZapping": alaIgmpServiceZapping,
+       "alaIgmpServiceVersion": alaIgmpServiceVersion,
+       "alaIgmpServiceRobustness": alaIgmpServiceRobustness,
+       "alaIgmpServiceQueryInterval": alaIgmpServiceQueryInterval,
+       "alaIgmpServiceQueryResponseInterval": alaIgmpServiceQueryResponseInterval,
+       "alaIgmpServiceLastMemberQueryInterval": alaIgmpServiceLastMemberQueryInterval,
+       "alaIgmpServiceRouterTimeout": alaIgmpServiceRouterTimeout,
+       "alaIgmpServiceSourceTimeout": alaIgmpServiceSourceTimeout,
+       "alaIgmpServiceProxying": alaIgmpServiceProxying,
+       "alaIgmpServiceUnsolicitedReportInterval": alaIgmpServiceUnsolicitedReportInterval,
+       "alaIgmpServiceQuerierForwarding": alaIgmpServiceQuerierForwarding,
+       "alaIgmpServiceMaxGroupLimit": alaIgmpServiceMaxGroupLimit,
+       "alaIgmpServiceMaxGroupExceedAction": alaIgmpServiceMaxGroupExceedAction,
+       "alaIgmpMemberServiceSapTable": alaIgmpMemberServiceSapTable,
+       "alaIgmpMemberServiceSapEntry": alaIgmpMemberServiceSapEntry,
+       "alaIgmpMemberServiceSapGroupAddressType": alaIgmpMemberServiceSapGroupAddressType,
+       "alaIgmpMemberServiceSapGroupAddress": alaIgmpMemberServiceSapGroupAddress,
+       "alaIgmpMemberServiceSapSourceAddressType": alaIgmpMemberServiceSapSourceAddressType,
+       "alaIgmpMemberServiceSapSourceAddress": alaIgmpMemberServiceSapSourceAddress,
+       "alaIgmpMemberServiceSapMode": alaIgmpMemberServiceSapMode,
+       "alaIgmpMemberServiceSapCount": alaIgmpMemberServiceSapCount,
+       "alaIgmpMemberServiceSapTimeout": alaIgmpMemberServiceSapTimeout,
+       "alaIgmpMemberServiceSdpBindTable": alaIgmpMemberServiceSdpBindTable,
+       "alaIgmpMemberServiceSdpBindEntry": alaIgmpMemberServiceSdpBindEntry,
+       "alaIgmpMemberServiceSdpBindGroupAddressType": alaIgmpMemberServiceSdpBindGroupAddressType,
+       "alaIgmpMemberServiceSdpBindGroupAddress": alaIgmpMemberServiceSdpBindGroupAddress,
+       "alaIgmpMemberServiceSdpBindSourceAddressType": alaIgmpMemberServiceSdpBindSourceAddressType,
+       "alaIgmpMemberServiceSdpBindSourceAddress": alaIgmpMemberServiceSdpBindSourceAddress,
+       "alaIgmpMemberServiceSdpBindMode": alaIgmpMemberServiceSdpBindMode,
+       "alaIgmpMemberServiceSdpBindCount": alaIgmpMemberServiceSdpBindCount,
+       "alaIgmpMemberServiceSdpBindTimeout": alaIgmpMemberServiceSdpBindTimeout,
+       "alaIgmpStaticMemberServiceSapTable": alaIgmpStaticMemberServiceSapTable,
+       "alaIgmpStaticMemberServiceSapEntry": alaIgmpStaticMemberServiceSapEntry,
+       "alaIgmpStaticMemberServiceSapGroupAddressType": alaIgmpStaticMemberServiceSapGroupAddressType,
+       "alaIgmpStaticMemberServiceSapGroupAddress": alaIgmpStaticMemberServiceSapGroupAddress,
+       "alaIgmpStaticMemberServiceSapRowStatus": alaIgmpStaticMemberServiceSapRowStatus,
+       "alaIgmpStaticMemberServiceSdpBindTable": alaIgmpStaticMemberServiceSdpBindTable,
+       "alaIgmpStaticMemberServiceSdpBindEntry": alaIgmpStaticMemberServiceSdpBindEntry,
+       "alaIgmpStaticMemberServiceSdpBindGroupAddressType": alaIgmpStaticMemberServiceSdpBindGroupAddressType,
+       "alaIgmpStaticMemberServiceSdpBindGroupAddress": alaIgmpStaticMemberServiceSdpBindGroupAddress,
+       "alaIgmpStaticMemberServiceSdpBindRowStatus": alaIgmpStaticMemberServiceSdpBindRowStatus,
+       "alaIgmpNeighborServiceSapTable": alaIgmpNeighborServiceSapTable,
+       "alaIgmpNeighborServiceSapEntry": alaIgmpNeighborServiceSapEntry,
+       "alaIgmpNeighborServiceSapHostAddressType": alaIgmpNeighborServiceSapHostAddressType,
+       "alaIgmpNeighborServiceSapHostAddress": alaIgmpNeighborServiceSapHostAddress,
+       "alaIgmpNeighborServiceSapCount": alaIgmpNeighborServiceSapCount,
+       "alaIgmpNeighborServiceSapTimeout": alaIgmpNeighborServiceSapTimeout,
+       "alaIgmpNeighborServiceSdpBindTable": alaIgmpNeighborServiceSdpBindTable,
+       "alaIgmpNeighborServiceSdpBindEntry": alaIgmpNeighborServiceSdpBindEntry,
+       "alaIgmpNeighborServiceSdpBindHostAddressType": alaIgmpNeighborServiceSdpBindHostAddressType,
+       "alaIgmpNeighborServiceSdpBindHostAddress": alaIgmpNeighborServiceSdpBindHostAddress,
+       "alaIgmpNeighborServiceSdpBindCount": alaIgmpNeighborServiceSdpBindCount,
+       "alaIgmpNeighborServiceSdpBindTimeout": alaIgmpNeighborServiceSdpBindTimeout,
+       "alaIgmpStaticNeighborServiceSapTable": alaIgmpStaticNeighborServiceSapTable,
+       "alaIgmpStaticNeighborServiceSapEntry": alaIgmpStaticNeighborServiceSapEntry,
+       "alaIgmpStaticNeighborServiceSapRowStatus": alaIgmpStaticNeighborServiceSapRowStatus,
+       "alaIgmpStaticNeighborServiceSdpBindTable": alaIgmpStaticNeighborServiceSdpBindTable,
+       "alaIgmpStaticNeighborServiceSdpBindEntry": alaIgmpStaticNeighborServiceSdpBindEntry,
+       "alaIgmpStaticNeighborServiceSdpBindRowStatus": alaIgmpStaticNeighborServiceSdpBindRowStatus,
+       "alaIgmpQuerierServiceSapTable": alaIgmpQuerierServiceSapTable,
+       "alaIgmpQuerierServiceSapEntry": alaIgmpQuerierServiceSapEntry,
+       "alaIgmpQuerierServiceSapHostAddressType": alaIgmpQuerierServiceSapHostAddressType,
+       "alaIgmpQuerierServiceSapHostAddress": alaIgmpQuerierServiceSapHostAddress,
+       "alaIgmpQuerierServiceSapCount": alaIgmpQuerierServiceSapCount,
+       "alaIgmpQuerierServiceSapTimeout": alaIgmpQuerierServiceSapTimeout,
+       "alaIgmpQuerierServiceSdpBindTable": alaIgmpQuerierServiceSdpBindTable,
+       "alaIgmpQuerierServiceSdpBindEntry": alaIgmpQuerierServiceSdpBindEntry,
+       "alaIgmpQuerierServiceSdpBindHostAddressType": alaIgmpQuerierServiceSdpBindHostAddressType,
+       "alaIgmpQuerierServiceSdpBindHostAddress": alaIgmpQuerierServiceSdpBindHostAddress,
+       "alaIgmpQuerierServiceSdpBindCount": alaIgmpQuerierServiceSdpBindCount,
+       "alaIgmpQuerierServiceSdpBindTimeout": alaIgmpQuerierServiceSdpBindTimeout,
+       "alaIgmpStaticQuerierServiceSapTable": alaIgmpStaticQuerierServiceSapTable,
+       "alaIgmpStaticQuerierServiceSapEntry": alaIgmpStaticQuerierServiceSapEntry,
+       "alaIgmpStaticQuerierServiceSapRowStatus": alaIgmpStaticQuerierServiceSapRowStatus,
+       "alaIgmpStaticQuerierServiceSdpBindTable": alaIgmpStaticQuerierServiceSdpBindTable,
+       "alaIgmpStaticQuerierServiceSdpBindEntry": alaIgmpStaticQuerierServiceSdpBindEntry,
+       "alaIgmpStaticQuerierServiceSdpBindRowStatus": alaIgmpStaticQuerierServiceSdpBindRowStatus,
+       "alaIgmpServiceSourceTable": alaIgmpServiceSourceTable,
+       "alaIgmpServiceSourceEntry": alaIgmpServiceSourceEntry,
+       "alaIgmpServiceSourceGroupAddressType": alaIgmpServiceSourceGroupAddressType,
+       "alaIgmpServiceSourceGroupAddress": alaIgmpServiceSourceGroupAddress,
+       "alaIgmpServiceSourceHostAddressType": alaIgmpServiceSourceHostAddressType,
+       "alaIgmpServiceSourceHostAddress": alaIgmpServiceSourceHostAddress,
+       "alaIgmpServiceSourceDestAddressType": alaIgmpServiceSourceDestAddressType,
+       "alaIgmpServiceSourceDestAddress": alaIgmpServiceSourceDestAddress,
+       "alaIgmpServiceSourceOrigAddressType": alaIgmpServiceSourceOrigAddressType,
+       "alaIgmpServiceSourceOrigAddress": alaIgmpServiceSourceOrigAddress,
+       "alaIgmpServiceSourceLocale": alaIgmpServiceSourceLocale,
+       "alaIgmpServiceSourcePortId": alaIgmpServiceSourcePortId,
+       "alaIgmpServiceSourceEncapValue": alaIgmpServiceSourceEncapValue,
+       "alaIgmpServiceSourceSdpId": alaIgmpServiceSourceSdpId,
+       "alaIgmpServiceSourceVcId": alaIgmpServiceSourceVcId,
+       "alaIgmpServiceSourceType": alaIgmpServiceSourceType,
+       "alaIgmpServiceSapForwardTable": alaIgmpServiceSapForwardTable,
+       "alaIgmpServiceSapForwardEntry": alaIgmpServiceSapForwardEntry,
+       "alaIgmpServiceSapForwardLocale": alaIgmpServiceSapForwardLocale,
+       "alaIgmpServiceSapForwardPortId": alaIgmpServiceSapForwardPortId,
+       "alaIgmpServiceSapForwardEncapValue": alaIgmpServiceSapForwardEncapValue,
+       "alaIgmpServiceSapForwardSdpId": alaIgmpServiceSapForwardSdpId,
+       "alaIgmpServiceSapForwardVcId": alaIgmpServiceSapForwardVcId,
+       "alaIgmpServiceSapForwardGroupAddress": alaIgmpServiceSapForwardGroupAddress,
+       "alaIgmpServiceSapForwardHostAddress": alaIgmpServiceSapForwardHostAddress,
+       "alaIgmpServiceSapForwardDestAddress": alaIgmpServiceSapForwardDestAddress,
+       "alaIgmpServiceSapForwardOrigAddress": alaIgmpServiceSapForwardOrigAddress,
+       "alaIgmpServiceSapForwardType": alaIgmpServiceSapForwardType,
+       "alaIgmpServiceSapForwardNextSapPortId": alaIgmpServiceSapForwardNextSapPortId,
+       "alaIgmpServiceSapForwardNextSapEncapValue": alaIgmpServiceSapForwardNextSapEncapValue,
+       "alaIgmpServiceSapForwardNextType": alaIgmpServiceSapForwardNextType,
+       "alaIgmpServiceSdpBindForwardTable": alaIgmpServiceSdpBindForwardTable,
+       "alaIgmpServiceSdpBindForwardEntry": alaIgmpServiceSdpBindForwardEntry,
+       "alaIgmpServiceSdpBindForwardLocale": alaIgmpServiceSdpBindForwardLocale,
+       "alaIgmpServiceSdpBindForwardPortId": alaIgmpServiceSdpBindForwardPortId,
+       "alaIgmpServiceSdpBindForwardEncapValue": alaIgmpServiceSdpBindForwardEncapValue,
+       "alaIgmpServiceSdpBindForwardSdpId": alaIgmpServiceSdpBindForwardSdpId,
+       "alaIgmpServiceSdpBindForwardVcId": alaIgmpServiceSdpBindForwardVcId,
+       "alaIgmpServiceSdpBindForwardGroupAddress": alaIgmpServiceSdpBindForwardGroupAddress,
+       "alaIgmpServiceSdpBindForwardHostAddress": alaIgmpServiceSdpBindForwardHostAddress,
+       "alaIgmpServiceSdpBindForwardDestAddress": alaIgmpServiceSdpBindForwardDestAddress,
+       "alaIgmpServiceSdpBindForwardOrigAddress": alaIgmpServiceSdpBindForwardOrigAddress,
+       "alaIgmpServiceSdpBindForwardType": alaIgmpServiceSdpBindForwardType,
+       "alaIgmpServiceSdpBindForwardNextSdpBindId": alaIgmpServiceSdpBindForwardNextSdpBindId,
+       "alaIgmpServiceSdpBindForwardNextType": alaIgmpServiceSdpBindForwardNextType,
+       "alaIgmpServiceSapTable": alaIgmpServiceSapTable,
+       "alaIgmpServiceSapEntry": alaIgmpServiceSapEntry,
+       "alaIgmpServiceSapMaxGroupLimit": alaIgmpServiceSapMaxGroupLimit,
+       "alaIgmpServiceSapMaxGroupExceedAction": alaIgmpServiceSapMaxGroupExceedAction,
+       "alaIgmpServiceSapCurrentGroupCount": alaIgmpServiceSapCurrentGroupCount,
+       "alaIgmpServiceSdpBindTable": alaIgmpServiceSdpBindTable,
+       "alaIgmpServiceSdpBindEntry": alaIgmpServiceSdpBindEntry,
+       "alaIgmpServiceSdpBindMaxGroupLimit": alaIgmpServiceSdpBindMaxGroupLimit,
+       "alaIgmpServiceSdpBindMaxGroupExceedAction": alaIgmpServiceSdpBindMaxGroupExceedAction,
+       "alaIgmpServiceSdpBindCurrentGroupCount": alaIgmpServiceSdpBindCurrentGroupCount,
+       "alaServiceMgrMld": alaServiceMgrMld,
+       "alaMldServiceTable": alaMldServiceTable,
+       "alaMldServiceEntry": alaMldServiceEntry,
+       "alaMldServiceStatus": alaMldServiceStatus,
+       "alaMldServiceQuerying": alaMldServiceQuerying,
+       "alaMldServiceSpoofing": alaMldServiceSpoofing,
+       "alaMldServiceZapping": alaMldServiceZapping,
+       "alaMldServiceVersion": alaMldServiceVersion,
+       "alaMldServiceRobustness": alaMldServiceRobustness,
+       "alaMldServiceQueryInterval": alaMldServiceQueryInterval,
+       "alaMldServiceQueryResponseInterval": alaMldServiceQueryResponseInterval,
+       "alaMldServiceLastMemberQueryInterval": alaMldServiceLastMemberQueryInterval,
+       "alaMldServiceRouterTimeout": alaMldServiceRouterTimeout,
+       "alaMldServiceSourceTimeout": alaMldServiceSourceTimeout,
+       "alaMldServiceProxying": alaMldServiceProxying,
+       "alaMldServiceUnsolicitedReportInterval": alaMldServiceUnsolicitedReportInterval,
+       "alaMldServiceQuerierForwarding": alaMldServiceQuerierForwarding,
+       "alaMldServiceMaxGroupLimit": alaMldServiceMaxGroupLimit,
+       "alaMldServiceMaxGroupExceedAction": alaMldServiceMaxGroupExceedAction,
+       "alaMldMemberServiceSapTable": alaMldMemberServiceSapTable,
+       "alaMldMemberServiceSapEntry": alaMldMemberServiceSapEntry,
+       "alaMldMemberServiceSapGroupAddressType": alaMldMemberServiceSapGroupAddressType,
+       "alaMldMemberServiceSapGroupAddress": alaMldMemberServiceSapGroupAddress,
+       "alaMldMemberServiceSapSourceAddressType": alaMldMemberServiceSapSourceAddressType,
+       "alaMldMemberServiceSapSourceAddress": alaMldMemberServiceSapSourceAddress,
+       "alaMldMemberServiceSapMode": alaMldMemberServiceSapMode,
+       "alaMldMemberServiceSapCount": alaMldMemberServiceSapCount,
+       "alaMldMemberServiceSapTimeout": alaMldMemberServiceSapTimeout,
+       "alaMldMemberServiceSdpBindTable": alaMldMemberServiceSdpBindTable,
+       "alaMldMemberServiceSdpBindEntry": alaMldMemberServiceSdpBindEntry,
+       "alaMldMemberServiceSdpBindGroupAddressType": alaMldMemberServiceSdpBindGroupAddressType,
+       "alaMldMemberServiceSdpBindGroupAddress": alaMldMemberServiceSdpBindGroupAddress,
+       "alaMldMemberServiceSdpBindSourceAddressType": alaMldMemberServiceSdpBindSourceAddressType,
+       "alaMldMemberServiceSdpBindSourceAddress": alaMldMemberServiceSdpBindSourceAddress,
+       "alaMldMemberServiceSdpBindMode": alaMldMemberServiceSdpBindMode,
+       "alaMldMemberServiceSdpBindCount": alaMldMemberServiceSdpBindCount,
+       "alaMldMemberServiceSdpBindTimeout": alaMldMemberServiceSdpBindTimeout,
+       "alaMldStaticMemberServiceSapTable": alaMldStaticMemberServiceSapTable,
+       "alaMldStaticMemberServiceSapEntry": alaMldStaticMemberServiceSapEntry,
+       "alaMldStaticMemberServiceSapGroupAddressType": alaMldStaticMemberServiceSapGroupAddressType,
+       "alaMldStaticMemberServiceSapGroupAddress": alaMldStaticMemberServiceSapGroupAddress,
+       "alaMldStaticMemberServiceSapRowStatus": alaMldStaticMemberServiceSapRowStatus,
+       "alaMldStaticMemberServiceSdpBindTable": alaMldStaticMemberServiceSdpBindTable,
+       "alaMldStaticMemberServiceSdpBindEntry": alaMldStaticMemberServiceSdpBindEntry,
+       "alaMldStaticMemberServiceSdpBindGroupAddressType": alaMldStaticMemberServiceSdpBindGroupAddressType,
+       "alaMldStaticMemberServiceSdpBindGroupAddress": alaMldStaticMemberServiceSdpBindGroupAddress,
+       "alaMldStaticMemberServiceSdpBindRowStatus": alaMldStaticMemberServiceSdpBindRowStatus,
+       "alaMldNeighborServiceSapTable": alaMldNeighborServiceSapTable,
+       "alaMldNeighborServiceSapEntry": alaMldNeighborServiceSapEntry,
+       "alaMldNeighborServiceSapHostAddressType": alaMldNeighborServiceSapHostAddressType,
+       "alaMldNeighborServiceSapHostAddress": alaMldNeighborServiceSapHostAddress,
+       "alaMldNeighborServiceSapCount": alaMldNeighborServiceSapCount,
+       "alaMldNeighborServiceSapTimeout": alaMldNeighborServiceSapTimeout,
+       "alaMldNeighborServiceSdpBindTable": alaMldNeighborServiceSdpBindTable,
+       "alaMldNeighborServiceSdpBindEntry": alaMldNeighborServiceSdpBindEntry,
+       "alaMldNeighborServiceSdpBindHostAddressType": alaMldNeighborServiceSdpBindHostAddressType,
+       "alaMldNeighborServiceSdpBindHostAddress": alaMldNeighborServiceSdpBindHostAddress,
+       "alaMldNeighborServiceSdpBindCount": alaMldNeighborServiceSdpBindCount,
+       "alaMldNeighborServiceSdpBindTimeout": alaMldNeighborServiceSdpBindTimeout,
+       "alaMldStaticNeighborServiceSapTable": alaMldStaticNeighborServiceSapTable,
+       "alaMldStaticNeighborServiceSapEntry": alaMldStaticNeighborServiceSapEntry,
+       "alaMldStaticNeighborServiceSapRowStatus": alaMldStaticNeighborServiceSapRowStatus,
+       "alaMldStaticNeighborServiceSdpBindTable": alaMldStaticNeighborServiceSdpBindTable,
+       "alaMldStaticNeighborServiceSdpBindEntry": alaMldStaticNeighborServiceSdpBindEntry,
+       "alaMldStaticNeighborServiceSdpBindRowStatus": alaMldStaticNeighborServiceSdpBindRowStatus,
+       "alaMldQuerierServiceSapTable": alaMldQuerierServiceSapTable,
+       "alaMldQuerierServiceSapEntry": alaMldQuerierServiceSapEntry,
+       "alaMldQuerierServiceSapHostAddressType": alaMldQuerierServiceSapHostAddressType,
+       "alaMldQuerierServiceSapHostAddress": alaMldQuerierServiceSapHostAddress,
+       "alaMldQuerierServiceSapCount": alaMldQuerierServiceSapCount,
+       "alaMldQuerierServiceSapTimeout": alaMldQuerierServiceSapTimeout,
+       "alaMldQuerierServiceSdpBindTable": alaMldQuerierServiceSdpBindTable,
+       "alaMldQuerierServiceSdpBindEntry": alaMldQuerierServiceSdpBindEntry,
+       "alaMldQuerierServiceSdpBindHostAddressType": alaMldQuerierServiceSdpBindHostAddressType,
+       "alaMldQuerierServiceSdpBindHostAddress": alaMldQuerierServiceSdpBindHostAddress,
+       "alaMldQuerierServiceSdpBindCount": alaMldQuerierServiceSdpBindCount,
+       "alaMldQuerierServiceSdpBindTimeout": alaMldQuerierServiceSdpBindTimeout,
+       "alaMldStaticQuerierServiceSapTable": alaMldStaticQuerierServiceSapTable,
+       "alaMldStaticQuerierServiceSapEntry": alaMldStaticQuerierServiceSapEntry,
+       "alaMldStaticQuerierServiceSapRowStatus": alaMldStaticQuerierServiceSapRowStatus,
+       "alaMldStaticQuerierServiceSdpBindTable": alaMldStaticQuerierServiceSdpBindTable,
+       "alaMldStaticQuerierServiceSdpBindEntry": alaMldStaticQuerierServiceSdpBindEntry,
+       "alaMldStaticQuerierServiceSdpBindRowStatus": alaMldStaticQuerierServiceSdpBindRowStatus,
+       "alaMldServiceSourceTable": alaMldServiceSourceTable,
+       "alaMldServiceSourceEntry": alaMldServiceSourceEntry,
+       "alaMldServiceSourceGroupAddressType": alaMldServiceSourceGroupAddressType,
+       "alaMldServiceSourceGroupAddress": alaMldServiceSourceGroupAddress,
+       "alaMldServiceSourceHostAddressType": alaMldServiceSourceHostAddressType,
+       "alaMldServiceSourceHostAddress": alaMldServiceSourceHostAddress,
+       "alaMldServiceSourceDestAddressType": alaMldServiceSourceDestAddressType,
+       "alaMldServiceSourceDestAddress": alaMldServiceSourceDestAddress,
+       "alaMldServiceSourceOrigAddressType": alaMldServiceSourceOrigAddressType,
+       "alaMldServiceSourceOrigAddress": alaMldServiceSourceOrigAddress,
+       "alaMldServiceSourceLocale": alaMldServiceSourceLocale,
+       "alaMldServiceSourcePortId": alaMldServiceSourcePortId,
+       "alaMldServiceSourceEncapValue": alaMldServiceSourceEncapValue,
+       "alaMldServiceSourceSdpId": alaMldServiceSourceSdpId,
+       "alaMldServiceSourceVcId": alaMldServiceSourceVcId,
+       "alaMldServiceSourceType": alaMldServiceSourceType,
+       "alaMldServiceSapForwardTable": alaMldServiceSapForwardTable,
+       "alaMldServiceSapForwardEntry": alaMldServiceSapForwardEntry,
+       "alaMldServiceSapForwardLocale": alaMldServiceSapForwardLocale,
+       "alaMldServiceSapForwardPortId": alaMldServiceSapForwardPortId,
+       "alaMldServiceSapForwardEncapValue": alaMldServiceSapForwardEncapValue,
+       "alaMldServiceSapForwardSdpId": alaMldServiceSapForwardSdpId,
+       "alaMldServiceSapForwardVcId": alaMldServiceSapForwardVcId,
+       "alaMldServiceSapForwardGroupAddress": alaMldServiceSapForwardGroupAddress,
+       "alaMldServiceSapForwardHostAddress": alaMldServiceSapForwardHostAddress,
+       "alaMldServiceSapForwardDestAddress": alaMldServiceSapForwardDestAddress,
+       "alaMldServiceSapForwardOrigAddress": alaMldServiceSapForwardOrigAddress,
+       "alaMldServiceSapForwardType": alaMldServiceSapForwardType,
+       "alaMldServiceSapForwardNextSapPortId": alaMldServiceSapForwardNextSapPortId,
+       "alaMldServiceSapForwardNextSapEncapValue": alaMldServiceSapForwardNextSapEncapValue,
+       "alaMldServiceSapForwardNextType": alaMldServiceSapForwardNextType,
+       "alaMldServiceSdpBindForwardTable": alaMldServiceSdpBindForwardTable,
+       "alaMldServiceSdpBindForwardEntry": alaMldServiceSdpBindForwardEntry,
+       "alaMldServiceSdpBindForwardLocale": alaMldServiceSdpBindForwardLocale,
+       "alaMldServiceSdpBindForwardPortId": alaMldServiceSdpBindForwardPortId,
+       "alaMldServiceSdpBindForwardEncapValue": alaMldServiceSdpBindForwardEncapValue,
+       "alaMldServiceSdpBindForwardSdpId": alaMldServiceSdpBindForwardSdpId,
+       "alaMldServiceSdpBindForwardVcId": alaMldServiceSdpBindForwardVcId,
+       "alaMldServiceSdpBindForwardGroupAddress": alaMldServiceSdpBindForwardGroupAddress,
+       "alaMldServiceSdpBindForwardHostAddress": alaMldServiceSdpBindForwardHostAddress,
+       "alaMldServiceSdpBindForwardDestAddress": alaMldServiceSdpBindForwardDestAddress,
+       "alaMldServiceSdpBindForwardOrigAddress": alaMldServiceSdpBindForwardOrigAddress,
+       "alaMldServiceSdpBindForwardType": alaMldServiceSdpBindForwardType,
+       "alaMldServiceSdpBindForwardNextSdpBindId": alaMldServiceSdpBindForwardNextSdpBindId,
+       "alaMldServiceSdpBindForwardNextType": alaMldServiceSdpBindForwardNextType,
+       "alaMldServiceSapTable": alaMldServiceSapTable,
+       "alaMldServiceSapEntry": alaMldServiceSapEntry,
+       "alaMldServiceSapMaxGroupLimit": alaMldServiceSapMaxGroupLimit,
+       "alaMldServiceSapMaxGroupExceedAction": alaMldServiceSapMaxGroupExceedAction,
+       "alaMldServiceSapCurrentGroupCount": alaMldServiceSapCurrentGroupCount,
+       "alaMldServiceSdpBindTable": alaMldServiceSdpBindTable,
+       "alaMldServiceSdpBindEntry": alaMldServiceSdpBindEntry,
+       "alaMldServiceSdpBindMaxGroupLimit": alaMldServiceSdpBindMaxGroupLimit,
+       "alaMldServiceSdpBindMaxGroupExceedAction": alaMldServiceSdpBindMaxGroupExceedAction,
+       "alaMldServiceSdpBindCurrentGroupCount": alaMldServiceSdpBindCurrentGroupCount,
+       "alaExtraLdp": alaExtraLdp,
+       "alaVRtrExtendedLdpGeneralTable": alaVRtrExtendedLdpGeneralTable,
+       "alaVRtrExtendedLdpGeneralEntry": alaVRtrExtendedLdpGeneralEntry,
+       "alaVRtrLdpGenGracefulRestartSupport": alaVRtrLdpGenGracefulRestartSupport,
+       "alaVRtrLdpGenGRReconnectTime": alaVRtrLdpGenGRReconnectTime,
+       "alaVRtrLdpGenGRFwdStateHoldTime": alaVRtrLdpGenGRFwdStateHoldTime,
+       "alaVRtrLdpGenvRtrID": alaVRtrLdpGenvRtrID,
+       "alaVRtrLdpExtendedSessionTable": alaVRtrLdpExtendedSessionTable,
+       "alaVRtrLdpExtendedSessionEntry": alaVRtrLdpExtendedSessionEntry,
+       "alaVRtrLdpPeerLdpId": alaVRtrLdpPeerLdpId,
+       "alaVRtrLdpSessRestartInProgress": alaVRtrLdpSessRestartInProgress,
+       "alaVRtrLdpSessFtReconTimeAdvertised": alaVRtrLdpSessFtReconTimeAdvertised,
+       "alaVRtrLdpSessFtRecoveryTimeAdvertised": alaVRtrLdpSessFtRecoveryTimeAdvertised,
+       "alaVRtrLdpSessvRtrID": alaVRtrLdpSessvRtrID,
+       "alaRfpSpb": alaRfpSpb,
+       "alaRfpSpbLocalEndPointTable": alaRfpSpbLocalEndPointTable,
+       "alaRfpSpbLocalEndPointEntry": alaRfpSpbLocalEndPointEntry,
+       "alaRfpSpbLocalEndPointRfp": alaRfpSpbLocalEndPointRfp,
+       "alaRfpSpbLocalEndPoint": alaRfpSpbLocalEndPoint,
+       "alaRfpSpbLocalEndPointCcmInterval": alaRfpSpbLocalEndPointCcmInterval,
+       "alaRfpSpbLocalEndPointAdminStatus": alaRfpSpbLocalEndPointAdminStatus,
+       "alaRfpSpbLocalEndPointLevel": alaRfpSpbLocalEndPointLevel,
+       "alaRfpSpbLocalEndPointCBVlan": alaRfpSpbLocalEndPointCBVlan,
+       "alaRfpSpbLocalEndPointMaintDomain": alaRfpSpbLocalEndPointMaintDomain,
+       "alaRfpSpbLocalEndPointMaintAssociation": alaRfpSpbLocalEndPointMaintAssociation,
+       "alaRfpSpbLocalEndPointRowStatus": alaRfpSpbLocalEndPointRowStatus,
+       "alaRfpSpbRemoteEndPointTable": alaRfpSpbRemoteEndPointTable,
+       "alaRfpSpbRemoteEndPointEntry": alaRfpSpbRemoteEndPointEntry,
+       "alaRfpSpbRemoteEndPointRfp": alaRfpSpbRemoteEndPointRfp,
+       "alaRfpSpbRemoteEndPoint": alaRfpSpbRemoteEndPoint,
+       "alaRfpSpbRemoteEndPointServiceID": alaRfpSpbRemoteEndPointServiceID,
+       "alaRfpSpbRemoteEndPointStatus": alaRfpSpbRemoteEndPointStatus,
+       "alaRfpSpbRemoteEndPointSystemName": alaRfpSpbRemoteEndPointSystemName,
+       "alaRfpSpbRemoteEndPointISID": alaRfpSpbRemoteEndPointISID,
+       "alaRfpSpbRemoteEndPointBVlan": alaRfpSpbRemoteEndPointBVlan,
+       "alaRfpSpbRemoteEndPointRowStatus": alaRfpSpbRemoteEndPointRowStatus,
+       "alcatelIND1ServiceMgrMIBConformance": alcatelIND1ServiceMgrMIBConformance,
+       "alcatelIND1ServiceMgrMIBGroups": alcatelIND1ServiceMgrMIBGroups,
+       "alaServiceMgrPortProfileGroup": alaServiceMgrPortProfileGroup,
+       "alaServiceMgrPortGroup": alaServiceMgrPortGroup,
+       "alaSapExtraInfoGroup": alaSapExtraInfoGroup,
+       "alaIgmpServiceGroup": alaIgmpServiceGroup,
+       "alaIgmpMemberServiceSapGroup": alaIgmpMemberServiceSapGroup,
+       "alaIgmpMemberServiceSdpBindGroup": alaIgmpMemberServiceSdpBindGroup,
+       "alaIgmpStaticMemberServiceSapGroup": alaIgmpStaticMemberServiceSapGroup,
+       "alaIgmpStaticMemberServiceSdpBindGroup": alaIgmpStaticMemberServiceSdpBindGroup,
+       "alaIgmpNeighborServiceSapGroup": alaIgmpNeighborServiceSapGroup,
+       "alaIgmpNeighborServiceSdpBindGroup": alaIgmpNeighborServiceSdpBindGroup,
+       "alaIgmpStaticNeighborServiceSapGroup": alaIgmpStaticNeighborServiceSapGroup,
+       "alaIgmpStaticNeighborServiceSdpBindGroup": alaIgmpStaticNeighborServiceSdpBindGroup,
+       "alaIgmpQuerierServiceSapGroup": alaIgmpQuerierServiceSapGroup,
+       "alaIgmpQuerierServiceSdpBindGroup": alaIgmpQuerierServiceSdpBindGroup,
+       "alaIgmpStaticQuerierServiceSapGroup": alaIgmpStaticQuerierServiceSapGroup,
+       "alaIgmpStaticQuerierServiceSdpBindGroup": alaIgmpStaticQuerierServiceSdpBindGroup,
+       "alaIgmpServiceSourceGroup": alaIgmpServiceSourceGroup,
+       "alaIgmpServiceSapForwardGroup": alaIgmpServiceSapForwardGroup,
+       "alaIgmpServiceSdpBindForwardGroup": alaIgmpServiceSdpBindForwardGroup,
+       "alaIgmpServiceSapGroup": alaIgmpServiceSapGroup,
+       "alaIgmpServiceSdpBindGroup": alaIgmpServiceSdpBindGroup,
+       "alaMldServiceGroup": alaMldServiceGroup,
+       "alaMldMemberServiceSapGroup": alaMldMemberServiceSapGroup,
+       "alaMldMemberServiceSdpBindGroup": alaMldMemberServiceSdpBindGroup,
+       "alaMldStaticMemberServiceSapGroup": alaMldStaticMemberServiceSapGroup,
+       "alaMldStaticMemberServiceSdpBindGroup": alaMldStaticMemberServiceSdpBindGroup,
+       "alaMldNeighborServiceSapGroup": alaMldNeighborServiceSapGroup,
+       "alaMldNeighborServiceSdpBindGroup": alaMldNeighborServiceSdpBindGroup,
+       "alaMldStaticNeighborServiceSapGroup": alaMldStaticNeighborServiceSapGroup,
+       "alaMldStaticNeighborServiceSdpBindGroup": alaMldStaticNeighborServiceSdpBindGroup,
+       "alaMldQuerierServiceSapGroup": alaMldQuerierServiceSapGroup,
+       "alaMldQuerierServiceSdpBindGroup": alaMldQuerierServiceSdpBindGroup,
+       "alaMldStaticQuerierServiceSapGroup": alaMldStaticQuerierServiceSapGroup,
+       "alaMldStaticQuerierServiceSdpBindGroup": alaMldStaticQuerierServiceSdpBindGroup,
+       "alaMldServiceSourceGroup": alaMldServiceSourceGroup,
+       "alaMldServiceSapForwardGroup": alaMldServiceSapForwardGroup,
+       "alaMldServiceSdpBindForwardGroup": alaMldServiceSdpBindForwardGroup,
+       "alaMldServiceSapGroup": alaMldServiceSapGroup,
+       "alaMldServiceSdpBindGroup": alaMldServiceSdpBindGroup,
+       "alaVRtrExtendedLdpGeneralGroup": alaVRtrExtendedLdpGeneralGroup,
+       "alaVRtrLdpExtendedSessionGroup": alaVRtrLdpExtendedSessionGroup,
+       "alaSvcBaseInfoEntryGroup": alaSvcBaseInfoEntryGroup,
+       "alaSapBaseInfoEntryGroup": alaSapBaseInfoEntryGroup,
+       "alaSdpInfoTableGroup": alaSdpInfoTableGroup,
+       "alaSdpBindTableGroup": alaSdpBindTableGroup,
+       "alaSmgrNotificationGroup": alaSmgrNotificationGroup,
+       "alaSmgrHwNotificationGroup": alaSmgrHwNotificationGroup,
+       "alaSvcMgrSysTableGroup": alaSvcMgrSysTableGroup,
+       "alaSvcMgrEndPointGroup": alaSvcMgrEndPointGroup,
+       "alcatelIND1ServiceMgrMIBCompliances": alcatelIND1ServiceMgrMIBCompliances,
+       "alcatelIND1ServiceMgrMIBCompliance": alcatelIND1ServiceMgrMIBCompliance}
+)

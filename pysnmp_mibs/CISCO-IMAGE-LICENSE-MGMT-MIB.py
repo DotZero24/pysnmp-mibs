@@ -1,86 +1,476 @@
+# SNMP MIB module (CISCO-IMAGE-LICENSE-MGMT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-IMAGE-LICENSE-MGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-IMAGE-LICENSE-MGMT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:32:18 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-IMAGE-LICENSE-MGMT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:42:50 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-ciscoImageLicenseMgmtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 640))
-ciscoImageLicenseMgmtMIB.setRevisions(('2007-10-16 00:00',))
-if mibBuilder.loadTexts: ciscoImageLicenseMgmtMIB.setLastUpdated('200710160000Z')
-if mibBuilder.loadTexts: ciscoImageLicenseMgmtMIB.setOrganization('Cisco Systems Inc.')
-ciscoImageLicenseMgmtMIBNotifs = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 640, 0))
-ciscoImageLicenseMgmtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 640, 1))
-ciscoImageLicenseMgmtMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 640, 2))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(entPhysicalIndex,) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "entPhysicalIndex")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoImageLicenseMgmtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640)
+)
+if mibBuilder.loadTexts:
+    ciscoImageLicenseMgmtMIB.setRevisions(
+        ("2007-10-16 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class BootImageLevel(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
 
 class LicenseNameList(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
 
-cilmBootImageLevelTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1), )
-if mibBuilder.loadTexts: cilmBootImageLevelTable.setStatus('current')
-cilmBootImageLevelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmModuleName"))
-if mibBuilder.loadTexts: cilmBootImageLevelEntry.setStatus('current')
-cilmModuleName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 1), SnmpAdminString())
-if mibBuilder.loadTexts: cilmModuleName.setStatus('current')
-cilmCurrentImageLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 2), BootImageLevel()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cilmCurrentImageLevel.setStatus('current')
-cilmConfiguredBootImageLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 3), BootImageLevel()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cilmConfiguredBootImageLevel.setStatus('current')
-cilmNextBootImageLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 4), BootImageLevel()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cilmNextBootImageLevel.setStatus('current')
-cilmCurrentLicenseStoreIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cilmCurrentLicenseStoreIndex.setStatus('current')
-cilmCurrentLicenseIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cilmCurrentLicenseIndex.setStatus('current')
-cilmNextBootLicenseStoreIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cilmNextBootLicenseStoreIndex.setStatus('current')
-cilmNextBootLicenseIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cilmNextBootLicenseIndex.setStatus('current')
-cilmImageLevelToLicenseMapTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2), )
-if mibBuilder.loadTexts: cilmImageLevelToLicenseMapTable.setStatus('current')
-cilmImageLevelToLicenseMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmModuleName"), (0, "CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmImageLicenseMapIndex"))
-if mibBuilder.loadTexts: cilmImageLevelToLicenseMapEntry.setStatus('current')
-cilmImageLicenseMapIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: cilmImageLicenseMapIndex.setStatus('current')
-cilmImageLicenseImageLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2, 1, 2), BootImageLevel()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cilmImageLicenseImageLevel.setStatus('current')
-cilmImageLicenseName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2, 1, 3), LicenseNameList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cilmImageLicenseName.setStatus('current')
-cilmImageLicensePriority = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cilmImageLicensePriority.setStatus('current')
-cilmEULAAccepted = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cilmEULAAccepted.setStatus('current')
-cilmNotifCntl = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 4))
-cilmImageLevelChangedNotif = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 4, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cilmImageLevelChangedNotif.setStatus('current')
-cilmBootImageLevelChanged = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 640, 0, 1)).setObjects(("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmCurrentImageLevel"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmConfiguredBootImageLevel"))
-if mibBuilder.loadTexts: cilmBootImageLevelChanged.setStatus('current')
-cilmModuleCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 1))
-cilmModuleGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 2))
-cilmModuleCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 1, 1)).setObjects(("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmAdminGroup"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmNotifGroup"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmOperGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cilmModuleCompliance = cilmModuleCompliance.setStatus('current')
-cilmAdminGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 2, 1)).setObjects(("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmCurrentImageLevel"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmConfiguredBootImageLevel"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmNextBootImageLevel"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmCurrentLicenseStoreIndex"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmCurrentLicenseIndex"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmNextBootLicenseStoreIndex"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmNextBootLicenseIndex"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmEULAAccepted"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmImageLevelChangedNotif"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cilmAdminGroup = cilmAdminGroup.setStatus('current')
-cilmOperGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 2, 2)).setObjects(("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmImageLicenseImageLevel"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmImageLicenseName"), ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmImageLicensePriority"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cilmOperGroup = cilmOperGroup.setStatus('current')
-cilmNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 2, 3)).setObjects(("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmBootImageLevelChanged"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cilmNotifGroup = cilmNotifGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-IMAGE-LICENSE-MGMT-MIB", cilmCurrentLicenseStoreIndex=cilmCurrentLicenseStoreIndex, ciscoImageLicenseMgmtMIBNotifs=ciscoImageLicenseMgmtMIBNotifs, cilmImageLicenseName=cilmImageLicenseName, cilmCurrentImageLevel=cilmCurrentImageLevel, cilmNextBootImageLevel=cilmNextBootImageLevel, ciscoImageLicenseMgmtMIBObjects=ciscoImageLicenseMgmtMIBObjects, cilmNotifCntl=cilmNotifCntl, cilmBootImageLevelTable=cilmBootImageLevelTable, cilmModuleCompliances=cilmModuleCompliances, cilmModuleCompliance=cilmModuleCompliance, cilmOperGroup=cilmOperGroup, cilmNextBootLicenseIndex=cilmNextBootLicenseIndex, PYSNMP_MODULE_ID=ciscoImageLicenseMgmtMIB, cilmImageLicensePriority=cilmImageLicensePriority, cilmImageLevelChangedNotif=cilmImageLevelChangedNotif, cilmConfiguredBootImageLevel=cilmConfiguredBootImageLevel, BootImageLevel=BootImageLevel, cilmImageLicenseMapIndex=cilmImageLicenseMapIndex, cilmBootImageLevelChanged=cilmBootImageLevelChanged, ciscoImageLicenseMgmtMIB=ciscoImageLicenseMgmtMIB, cilmModuleGroups=cilmModuleGroups, cilmImageLevelToLicenseMapTable=cilmImageLevelToLicenseMapTable, cilmModuleName=cilmModuleName, ciscoImageLicenseMgmtMIBConform=ciscoImageLicenseMgmtMIBConform, cilmCurrentLicenseIndex=cilmCurrentLicenseIndex, cilmNextBootLicenseStoreIndex=cilmNextBootLicenseStoreIndex, cilmBootImageLevelEntry=cilmBootImageLevelEntry, cilmImageLevelToLicenseMapEntry=cilmImageLevelToLicenseMapEntry, cilmAdminGroup=cilmAdminGroup, LicenseNameList=LicenseNameList, cilmEULAAccepted=cilmEULAAccepted, cilmImageLicenseImageLevel=cilmImageLicenseImageLevel, cilmNotifGroup=cilmNotifGroup)
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoImageLicenseMgmtMIBNotifs_ObjectIdentity = ObjectIdentity
+ciscoImageLicenseMgmtMIBNotifs = _CiscoImageLicenseMgmtMIBNotifs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 0)
+)
+_CiscoImageLicenseMgmtMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoImageLicenseMgmtMIBObjects = _CiscoImageLicenseMgmtMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1)
+)
+_CilmBootImageLevelTable_Object = MibTable
+cilmBootImageLevelTable = _CilmBootImageLevelTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cilmBootImageLevelTable.setStatus("current")
+_CilmBootImageLevelEntry_Object = MibTableRow
+cilmBootImageLevelEntry = _CilmBootImageLevelEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1)
+)
+cilmBootImageLevelEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+    (0, "CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmModuleName"),
+)
+if mibBuilder.loadTexts:
+    cilmBootImageLevelEntry.setStatus("current")
+_CilmModuleName_Type = SnmpAdminString
+_CilmModuleName_Object = MibTableColumn
+cilmModuleName = _CilmModuleName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 1),
+    _CilmModuleName_Type()
+)
+cilmModuleName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cilmModuleName.setStatus("current")
+_CilmCurrentImageLevel_Type = BootImageLevel
+_CilmCurrentImageLevel_Object = MibTableColumn
+cilmCurrentImageLevel = _CilmCurrentImageLevel_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 2),
+    _CilmCurrentImageLevel_Type()
+)
+cilmCurrentImageLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cilmCurrentImageLevel.setStatus("current")
+_CilmConfiguredBootImageLevel_Type = BootImageLevel
+_CilmConfiguredBootImageLevel_Object = MibTableColumn
+cilmConfiguredBootImageLevel = _CilmConfiguredBootImageLevel_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 3),
+    _CilmConfiguredBootImageLevel_Type()
+)
+cilmConfiguredBootImageLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cilmConfiguredBootImageLevel.setStatus("current")
+_CilmNextBootImageLevel_Type = BootImageLevel
+_CilmNextBootImageLevel_Object = MibTableColumn
+cilmNextBootImageLevel = _CilmNextBootImageLevel_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 4),
+    _CilmNextBootImageLevel_Type()
+)
+cilmNextBootImageLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cilmNextBootImageLevel.setStatus("current")
+_CilmCurrentLicenseStoreIndex_Type = Unsigned32
+_CilmCurrentLicenseStoreIndex_Object = MibTableColumn
+cilmCurrentLicenseStoreIndex = _CilmCurrentLicenseStoreIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 5),
+    _CilmCurrentLicenseStoreIndex_Type()
+)
+cilmCurrentLicenseStoreIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cilmCurrentLicenseStoreIndex.setStatus("current")
+_CilmCurrentLicenseIndex_Type = Unsigned32
+_CilmCurrentLicenseIndex_Object = MibTableColumn
+cilmCurrentLicenseIndex = _CilmCurrentLicenseIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 6),
+    _CilmCurrentLicenseIndex_Type()
+)
+cilmCurrentLicenseIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cilmCurrentLicenseIndex.setStatus("current")
+_CilmNextBootLicenseStoreIndex_Type = Unsigned32
+_CilmNextBootLicenseStoreIndex_Object = MibTableColumn
+cilmNextBootLicenseStoreIndex = _CilmNextBootLicenseStoreIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 7),
+    _CilmNextBootLicenseStoreIndex_Type()
+)
+cilmNextBootLicenseStoreIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cilmNextBootLicenseStoreIndex.setStatus("current")
+_CilmNextBootLicenseIndex_Type = Unsigned32
+_CilmNextBootLicenseIndex_Object = MibTableColumn
+cilmNextBootLicenseIndex = _CilmNextBootLicenseIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 1, 1, 8),
+    _CilmNextBootLicenseIndex_Type()
+)
+cilmNextBootLicenseIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cilmNextBootLicenseIndex.setStatus("current")
+_CilmImageLevelToLicenseMapTable_Object = MibTable
+cilmImageLevelToLicenseMapTable = _CilmImageLevelToLicenseMapTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2)
+)
+if mibBuilder.loadTexts:
+    cilmImageLevelToLicenseMapTable.setStatus("current")
+_CilmImageLevelToLicenseMapEntry_Object = MibTableRow
+cilmImageLevelToLicenseMapEntry = _CilmImageLevelToLicenseMapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2, 1)
+)
+cilmImageLevelToLicenseMapEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+    (0, "CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmModuleName"),
+    (0, "CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmImageLicenseMapIndex"),
+)
+if mibBuilder.loadTexts:
+    cilmImageLevelToLicenseMapEntry.setStatus("current")
+_CilmImageLicenseMapIndex_Type = Unsigned32
+_CilmImageLicenseMapIndex_Object = MibTableColumn
+cilmImageLicenseMapIndex = _CilmImageLicenseMapIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2, 1, 1),
+    _CilmImageLicenseMapIndex_Type()
+)
+cilmImageLicenseMapIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cilmImageLicenseMapIndex.setStatus("current")
+_CilmImageLicenseImageLevel_Type = BootImageLevel
+_CilmImageLicenseImageLevel_Object = MibTableColumn
+cilmImageLicenseImageLevel = _CilmImageLicenseImageLevel_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2, 1, 2),
+    _CilmImageLicenseImageLevel_Type()
+)
+cilmImageLicenseImageLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cilmImageLicenseImageLevel.setStatus("current")
+_CilmImageLicenseName_Type = LicenseNameList
+_CilmImageLicenseName_Object = MibTableColumn
+cilmImageLicenseName = _CilmImageLicenseName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2, 1, 3),
+    _CilmImageLicenseName_Type()
+)
+cilmImageLicenseName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cilmImageLicenseName.setStatus("current")
+
+
+class _CilmImageLicensePriority_Type(Unsigned32):
+    """Custom type cilmImageLicensePriority based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_CilmImageLicensePriority_Type.__name__ = "Unsigned32"
+_CilmImageLicensePriority_Object = MibTableColumn
+cilmImageLicensePriority = _CilmImageLicensePriority_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 2, 1, 4),
+    _CilmImageLicensePriority_Type()
+)
+cilmImageLicensePriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cilmImageLicensePriority.setStatus("current")
+
+
+class _CilmEULAAccepted_Type(TruthValue):
+    """Custom type cilmEULAAccepted based on TruthValue"""
+    defaultValue = 2
+
+
+_CilmEULAAccepted_Type.__name__ = "TruthValue"
+_CilmEULAAccepted_Object = MibScalar
+cilmEULAAccepted = _CilmEULAAccepted_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 3),
+    _CilmEULAAccepted_Type()
+)
+cilmEULAAccepted.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cilmEULAAccepted.setStatus("current")
+_CilmNotifCntl_ObjectIdentity = ObjectIdentity
+cilmNotifCntl = _CilmNotifCntl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 4)
+)
+
+
+class _CilmImageLevelChangedNotif_Type(TruthValue):
+    """Custom type cilmImageLevelChangedNotif based on TruthValue"""
+    defaultValue = 2
+
+
+_CilmImageLevelChangedNotif_Type.__name__ = "TruthValue"
+_CilmImageLevelChangedNotif_Object = MibScalar
+cilmImageLevelChangedNotif = _CilmImageLevelChangedNotif_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 1, 4, 1),
+    _CilmImageLevelChangedNotif_Type()
+)
+cilmImageLevelChangedNotif.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cilmImageLevelChangedNotif.setStatus("current")
+_CiscoImageLicenseMgmtMIBConform_ObjectIdentity = ObjectIdentity
+ciscoImageLicenseMgmtMIBConform = _CiscoImageLicenseMgmtMIBConform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 2)
+)
+_CilmModuleCompliances_ObjectIdentity = ObjectIdentity
+cilmModuleCompliances = _CilmModuleCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 1)
+)
+_CilmModuleGroups_ObjectIdentity = ObjectIdentity
+cilmModuleGroups = _CilmModuleGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 2)
+)
+
+# Managed Objects groups
+
+cilmAdminGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 2, 1)
+)
+cilmAdminGroup.setObjects(
+      *(("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmCurrentImageLevel"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmConfiguredBootImageLevel"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmNextBootImageLevel"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmCurrentLicenseStoreIndex"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmCurrentLicenseIndex"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmNextBootLicenseStoreIndex"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmNextBootLicenseIndex"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmEULAAccepted"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmImageLevelChangedNotif"))
+)
+if mibBuilder.loadTexts:
+    cilmAdminGroup.setStatus("current")
+
+cilmOperGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 2, 2)
+)
+cilmOperGroup.setObjects(
+      *(("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmImageLicenseImageLevel"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmImageLicenseName"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmImageLicensePriority"))
+)
+if mibBuilder.loadTexts:
+    cilmOperGroup.setStatus("current")
+
+
+# Notification objects
+
+cilmBootImageLevelChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 0, 1)
+)
+cilmBootImageLevelChanged.setObjects(
+      *(("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmCurrentImageLevel"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmConfiguredBootImageLevel"))
+)
+if mibBuilder.loadTexts:
+    cilmBootImageLevelChanged.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+cilmNotifGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 2, 3)
+)
+cilmNotifGroup.setObjects(
+    ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmBootImageLevelChanged")
+)
+if mibBuilder.loadTexts:
+    cilmNotifGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cilmModuleCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 640, 2, 1, 1)
+)
+cilmModuleCompliance.setObjects(
+      *(("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmAdminGroup"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmNotifGroup"),
+        ("CISCO-IMAGE-LICENSE-MGMT-MIB", "cilmOperGroup"))
+)
+if mibBuilder.loadTexts:
+    cilmModuleCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-IMAGE-LICENSE-MGMT-MIB",
+    **{"BootImageLevel": BootImageLevel,
+       "LicenseNameList": LicenseNameList,
+       "ciscoImageLicenseMgmtMIB": ciscoImageLicenseMgmtMIB,
+       "ciscoImageLicenseMgmtMIBNotifs": ciscoImageLicenseMgmtMIBNotifs,
+       "cilmBootImageLevelChanged": cilmBootImageLevelChanged,
+       "ciscoImageLicenseMgmtMIBObjects": ciscoImageLicenseMgmtMIBObjects,
+       "cilmBootImageLevelTable": cilmBootImageLevelTable,
+       "cilmBootImageLevelEntry": cilmBootImageLevelEntry,
+       "cilmModuleName": cilmModuleName,
+       "cilmCurrentImageLevel": cilmCurrentImageLevel,
+       "cilmConfiguredBootImageLevel": cilmConfiguredBootImageLevel,
+       "cilmNextBootImageLevel": cilmNextBootImageLevel,
+       "cilmCurrentLicenseStoreIndex": cilmCurrentLicenseStoreIndex,
+       "cilmCurrentLicenseIndex": cilmCurrentLicenseIndex,
+       "cilmNextBootLicenseStoreIndex": cilmNextBootLicenseStoreIndex,
+       "cilmNextBootLicenseIndex": cilmNextBootLicenseIndex,
+       "cilmImageLevelToLicenseMapTable": cilmImageLevelToLicenseMapTable,
+       "cilmImageLevelToLicenseMapEntry": cilmImageLevelToLicenseMapEntry,
+       "cilmImageLicenseMapIndex": cilmImageLicenseMapIndex,
+       "cilmImageLicenseImageLevel": cilmImageLicenseImageLevel,
+       "cilmImageLicenseName": cilmImageLicenseName,
+       "cilmImageLicensePriority": cilmImageLicensePriority,
+       "cilmEULAAccepted": cilmEULAAccepted,
+       "cilmNotifCntl": cilmNotifCntl,
+       "cilmImageLevelChangedNotif": cilmImageLevelChangedNotif,
+       "ciscoImageLicenseMgmtMIBConform": ciscoImageLicenseMgmtMIBConform,
+       "cilmModuleCompliances": cilmModuleCompliances,
+       "cilmModuleCompliance": cilmModuleCompliance,
+       "cilmModuleGroups": cilmModuleGroups,
+       "cilmAdminGroup": cilmAdminGroup,
+       "cilmOperGroup": cilmOperGroup,
+       "cilmNotifGroup": cilmNotifGroup}
+)

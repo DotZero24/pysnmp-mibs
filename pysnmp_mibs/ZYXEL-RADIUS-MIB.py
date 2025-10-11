@@ -1,63 +1,384 @@
+# SNMP MIB module (ZYXEL-RADIUS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-RADIUS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-RADIUS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:49 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zyxel/ZYXEL-RADIUS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:02:19 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelRadius = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71))
-if mibBuilder.loadTexts: zyxelRadius.setLastUpdated('201207010000Z')
-if mibBuilder.loadTexts: zyxelRadius.setOrganization('Enterprise Solution ZyXEL')
-zyxelRadiusServerSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1))
-zyxelRadiusServerNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 2))
-zyxelRadiusAuthenticationServerSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1))
-zyRadiusAuthenticationServerMode = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("indexPriority", 1), ("roundRobin", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRadiusAuthenticationServerMode.setStatus('current')
-zyRadiusAuthenticationServerTimeout = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRadiusAuthenticationServerTimeout.setStatus('current')
-zyxelRadiusAuthenticationServerTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3), )
-if mibBuilder.loadTexts: zyxelRadiusAuthenticationServerTable.setStatus('current')
-zyxelRadiusAuthenticationServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3, 1), ).setIndexNames((0, "ZYXEL-RADIUS-MIB", "zyRadiusAuthenticationServerIndex"))
-if mibBuilder.loadTexts: zyxelRadiusAuthenticationServerEntry.setStatus('current')
-zyRadiusAuthenticationServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3, 1, 1), Integer32())
-if mibBuilder.loadTexts: zyRadiusAuthenticationServerIndex.setStatus('current')
-zyRadiusAuthenticationServerIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRadiusAuthenticationServerIpAddr.setStatus('current')
-zyRadiusAuthenticationServerUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRadiusAuthenticationServerUdpPort.setStatus('current')
-zyRadiusAuthenticationServerSharedSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRadiusAuthenticationServerSharedSecret.setStatus('current')
-zyxelRadiusAccountingServerSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2))
-zyRadiusAccountingServerTimeout = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRadiusAccountingServerTimeout.setStatus('current')
-zyxelRadiusAccountingServerTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2), )
-if mibBuilder.loadTexts: zyxelRadiusAccountingServerTable.setStatus('current')
-zyxelRadiusAccountingServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2, 1), ).setIndexNames((0, "ZYXEL-RADIUS-MIB", "zyRadiusAccountingServerIndex"))
-if mibBuilder.loadTexts: zyxelRadiusAccountingServerEntry.setStatus('current')
-zyRadiusAccountingServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: zyRadiusAccountingServerIndex.setStatus('current')
-zyRadiusAccountingServerIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRadiusAccountingServerIpAddr.setStatus('current')
-zyRadiusAccountingServerUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRadiusAccountingServerUdpPort.setStatus('current')
-zyRadiusAccountingServerSharedSecret = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRadiusAccountingServerSharedSecret.setStatus('current')
-zyRadiusServerAuthenticationServerNotReachable = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 2, 1)).setObjects(("ZYXEL-RADIUS-MIB", "zyRadiusAuthenticationServerIndex"))
-if mibBuilder.loadTexts: zyRadiusServerAuthenticationServerNotReachable.setStatus('current')
-zyRadiusServerAccountingServerNotReachable = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 2, 2)).setObjects(("ZYXEL-RADIUS-MIB", "zyRadiusAccountingServerIndex"))
-if mibBuilder.loadTexts: zyRadiusServerAccountingServerNotReachable.setStatus('current')
-zyRadiusServerAuthenticationServerNotReachableRecovered = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 2, 3)).setObjects(("ZYXEL-RADIUS-MIB", "zyRadiusAuthenticationServerIndex"))
-if mibBuilder.loadTexts: zyRadiusServerAuthenticationServerNotReachableRecovered.setStatus('current')
-zyRadiusServerAccountingServerNotReachableRecovered = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 2, 4)).setObjects(("ZYXEL-RADIUS-MIB", "zyRadiusAccountingServerIndex"))
-if mibBuilder.loadTexts: zyRadiusServerAccountingServerNotReachableRecovered.setStatus('current')
-zyxelRadiusAttributeSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 3))
-zyRadiusAttributeNasIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 3, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRadiusAttributeNasIpAddress.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-RADIUS-MIB", zyRadiusAccountingServerTimeout=zyRadiusAccountingServerTimeout, zyxelRadius=zyxelRadius, zyxelRadiusServerNotifications=zyxelRadiusServerNotifications, zyRadiusServerAccountingServerNotReachableRecovered=zyRadiusServerAccountingServerNotReachableRecovered, zyxelRadiusServerSetup=zyxelRadiusServerSetup, zyxelRadiusAuthenticationServerTable=zyxelRadiusAuthenticationServerTable, PYSNMP_MODULE_ID=zyxelRadius, zyxelRadiusAuthenticationServerEntry=zyxelRadiusAuthenticationServerEntry, zyRadiusAttributeNasIpAddress=zyRadiusAttributeNasIpAddress, zyRadiusAuthenticationServerMode=zyRadiusAuthenticationServerMode, zyRadiusServerAuthenticationServerNotReachableRecovered=zyRadiusServerAuthenticationServerNotReachableRecovered, zyRadiusAuthenticationServerIndex=zyRadiusAuthenticationServerIndex, zyxelRadiusAttributeSetup=zyxelRadiusAttributeSetup, zyRadiusAuthenticationServerUdpPort=zyRadiusAuthenticationServerUdpPort, zyRadiusAuthenticationServerIpAddr=zyRadiusAuthenticationServerIpAddr, zyxelRadiusAccountingServerSetup=zyxelRadiusAccountingServerSetup, zyRadiusServerAuthenticationServerNotReachable=zyRadiusServerAuthenticationServerNotReachable, zyxelRadiusAuthenticationServerSetup=zyxelRadiusAuthenticationServerSetup, zyRadiusAuthenticationServerTimeout=zyRadiusAuthenticationServerTimeout, zyxelRadiusAccountingServerTable=zyxelRadiusAccountingServerTable, zyRadiusAccountingServerUdpPort=zyRadiusAccountingServerUdpPort, zyRadiusServerAccountingServerNotReachable=zyRadiusServerAccountingServerNotReachable, zyRadiusAccountingServerIpAddr=zyRadiusAccountingServerIpAddr, zyRadiusAuthenticationServerSharedSecret=zyRadiusAuthenticationServerSharedSecret, zyRadiusAccountingServerSharedSecret=zyRadiusAccountingServerSharedSecret, zyRadiusAccountingServerIndex=zyRadiusAccountingServerIndex, zyxelRadiusAccountingServerEntry=zyxelRadiusAccountingServerEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelRadius = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelRadiusServerSetup_ObjectIdentity = ObjectIdentity
+zyxelRadiusServerSetup = _ZyxelRadiusServerSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1)
+)
+_ZyxelRadiusAuthenticationServerSetup_ObjectIdentity = ObjectIdentity
+zyxelRadiusAuthenticationServerSetup = _ZyxelRadiusAuthenticationServerSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1)
+)
+
+
+class _ZyRadiusAuthenticationServerMode_Type(Integer32):
+    """Custom type zyRadiusAuthenticationServerMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("indexPriority", 1),
+          ("roundRobin", 2))
+    )
+
+
+_ZyRadiusAuthenticationServerMode_Type.__name__ = "Integer32"
+_ZyRadiusAuthenticationServerMode_Object = MibScalar
+zyRadiusAuthenticationServerMode = _ZyRadiusAuthenticationServerMode_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 1),
+    _ZyRadiusAuthenticationServerMode_Type()
+)
+zyRadiusAuthenticationServerMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRadiusAuthenticationServerMode.setStatus("current")
+_ZyRadiusAuthenticationServerTimeout_Type = Integer32
+_ZyRadiusAuthenticationServerTimeout_Object = MibScalar
+zyRadiusAuthenticationServerTimeout = _ZyRadiusAuthenticationServerTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 2),
+    _ZyRadiusAuthenticationServerTimeout_Type()
+)
+zyRadiusAuthenticationServerTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRadiusAuthenticationServerTimeout.setStatus("current")
+_ZyxelRadiusAuthenticationServerTable_Object = MibTable
+zyxelRadiusAuthenticationServerTable = _ZyxelRadiusAuthenticationServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    zyxelRadiusAuthenticationServerTable.setStatus("current")
+_ZyxelRadiusAuthenticationServerEntry_Object = MibTableRow
+zyxelRadiusAuthenticationServerEntry = _ZyxelRadiusAuthenticationServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3, 1)
+)
+zyxelRadiusAuthenticationServerEntry.setIndexNames(
+    (0, "ZYXEL-RADIUS-MIB", "zyRadiusAuthenticationServerIndex"),
+)
+if mibBuilder.loadTexts:
+    zyxelRadiusAuthenticationServerEntry.setStatus("current")
+_ZyRadiusAuthenticationServerIndex_Type = Integer32
+_ZyRadiusAuthenticationServerIndex_Object = MibTableColumn
+zyRadiusAuthenticationServerIndex = _ZyRadiusAuthenticationServerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3, 1, 1),
+    _ZyRadiusAuthenticationServerIndex_Type()
+)
+zyRadiusAuthenticationServerIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyRadiusAuthenticationServerIndex.setStatus("current")
+_ZyRadiusAuthenticationServerIpAddr_Type = IpAddress
+_ZyRadiusAuthenticationServerIpAddr_Object = MibTableColumn
+zyRadiusAuthenticationServerIpAddr = _ZyRadiusAuthenticationServerIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3, 1, 2),
+    _ZyRadiusAuthenticationServerIpAddr_Type()
+)
+zyRadiusAuthenticationServerIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRadiusAuthenticationServerIpAddr.setStatus("current")
+_ZyRadiusAuthenticationServerUdpPort_Type = Integer32
+_ZyRadiusAuthenticationServerUdpPort_Object = MibTableColumn
+zyRadiusAuthenticationServerUdpPort = _ZyRadiusAuthenticationServerUdpPort_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3, 1, 3),
+    _ZyRadiusAuthenticationServerUdpPort_Type()
+)
+zyRadiusAuthenticationServerUdpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRadiusAuthenticationServerUdpPort.setStatus("current")
+_ZyRadiusAuthenticationServerSharedSecret_Type = DisplayString
+_ZyRadiusAuthenticationServerSharedSecret_Object = MibTableColumn
+zyRadiusAuthenticationServerSharedSecret = _ZyRadiusAuthenticationServerSharedSecret_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 1, 3, 1, 4),
+    _ZyRadiusAuthenticationServerSharedSecret_Type()
+)
+zyRadiusAuthenticationServerSharedSecret.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRadiusAuthenticationServerSharedSecret.setStatus("current")
+_ZyxelRadiusAccountingServerSetup_ObjectIdentity = ObjectIdentity
+zyxelRadiusAccountingServerSetup = _ZyxelRadiusAccountingServerSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2)
+)
+_ZyRadiusAccountingServerTimeout_Type = Integer32
+_ZyRadiusAccountingServerTimeout_Object = MibScalar
+zyRadiusAccountingServerTimeout = _ZyRadiusAccountingServerTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 1),
+    _ZyRadiusAccountingServerTimeout_Type()
+)
+zyRadiusAccountingServerTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRadiusAccountingServerTimeout.setStatus("current")
+_ZyxelRadiusAccountingServerTable_Object = MibTable
+zyxelRadiusAccountingServerTable = _ZyxelRadiusAccountingServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    zyxelRadiusAccountingServerTable.setStatus("current")
+_ZyxelRadiusAccountingServerEntry_Object = MibTableRow
+zyxelRadiusAccountingServerEntry = _ZyxelRadiusAccountingServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2, 1)
+)
+zyxelRadiusAccountingServerEntry.setIndexNames(
+    (0, "ZYXEL-RADIUS-MIB", "zyRadiusAccountingServerIndex"),
+)
+if mibBuilder.loadTexts:
+    zyxelRadiusAccountingServerEntry.setStatus("current")
+_ZyRadiusAccountingServerIndex_Type = Integer32
+_ZyRadiusAccountingServerIndex_Object = MibTableColumn
+zyRadiusAccountingServerIndex = _ZyRadiusAccountingServerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2, 1, 1),
+    _ZyRadiusAccountingServerIndex_Type()
+)
+zyRadiusAccountingServerIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyRadiusAccountingServerIndex.setStatus("current")
+_ZyRadiusAccountingServerIpAddr_Type = IpAddress
+_ZyRadiusAccountingServerIpAddr_Object = MibTableColumn
+zyRadiusAccountingServerIpAddr = _ZyRadiusAccountingServerIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2, 1, 2),
+    _ZyRadiusAccountingServerIpAddr_Type()
+)
+zyRadiusAccountingServerIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRadiusAccountingServerIpAddr.setStatus("current")
+_ZyRadiusAccountingServerUdpPort_Type = Integer32
+_ZyRadiusAccountingServerUdpPort_Object = MibTableColumn
+zyRadiusAccountingServerUdpPort = _ZyRadiusAccountingServerUdpPort_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2, 1, 3),
+    _ZyRadiusAccountingServerUdpPort_Type()
+)
+zyRadiusAccountingServerUdpPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRadiusAccountingServerUdpPort.setStatus("current")
+_ZyRadiusAccountingServerSharedSecret_Type = DisplayString
+_ZyRadiusAccountingServerSharedSecret_Object = MibTableColumn
+zyRadiusAccountingServerSharedSecret = _ZyRadiusAccountingServerSharedSecret_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 2, 2, 1, 4),
+    _ZyRadiusAccountingServerSharedSecret_Type()
+)
+zyRadiusAccountingServerSharedSecret.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRadiusAccountingServerSharedSecret.setStatus("current")
+_ZyxelRadiusAttributeSetup_ObjectIdentity = ObjectIdentity
+zyxelRadiusAttributeSetup = _ZyxelRadiusAttributeSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 3)
+)
+_ZyRadiusAttributeNasIpAddress_Type = IpAddress
+_ZyRadiusAttributeNasIpAddress_Object = MibScalar
+zyRadiusAttributeNasIpAddress = _ZyRadiusAttributeNasIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 1, 3, 1),
+    _ZyRadiusAttributeNasIpAddress_Type()
+)
+zyRadiusAttributeNasIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRadiusAttributeNasIpAddress.setStatus("current")
+_ZyxelRadiusServerNotifications_ObjectIdentity = ObjectIdentity
+zyxelRadiusServerNotifications = _ZyxelRadiusServerNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+zyRadiusServerAuthenticationServerNotReachable = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 2, 1)
+)
+zyRadiusServerAuthenticationServerNotReachable.setObjects(
+    ("ZYXEL-RADIUS-MIB", "zyRadiusAuthenticationServerIndex")
+)
+if mibBuilder.loadTexts:
+    zyRadiusServerAuthenticationServerNotReachable.setStatus(
+        "current"
+    )
+
+zyRadiusServerAccountingServerNotReachable = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 2, 2)
+)
+zyRadiusServerAccountingServerNotReachable.setObjects(
+    ("ZYXEL-RADIUS-MIB", "zyRadiusAccountingServerIndex")
+)
+if mibBuilder.loadTexts:
+    zyRadiusServerAccountingServerNotReachable.setStatus(
+        "current"
+    )
+
+zyRadiusServerAuthenticationServerNotReachableRecovered = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 2, 3)
+)
+zyRadiusServerAuthenticationServerNotReachableRecovered.setObjects(
+    ("ZYXEL-RADIUS-MIB", "zyRadiusAuthenticationServerIndex")
+)
+if mibBuilder.loadTexts:
+    zyRadiusServerAuthenticationServerNotReachableRecovered.setStatus(
+        "current"
+    )
+
+zyRadiusServerAccountingServerNotReachableRecovered = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 71, 2, 4)
+)
+zyRadiusServerAccountingServerNotReachableRecovered.setObjects(
+    ("ZYXEL-RADIUS-MIB", "zyRadiusAccountingServerIndex")
+)
+if mibBuilder.loadTexts:
+    zyRadiusServerAccountingServerNotReachableRecovered.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-RADIUS-MIB",
+    **{"zyxelRadius": zyxelRadius,
+       "zyxelRadiusServerSetup": zyxelRadiusServerSetup,
+       "zyxelRadiusAuthenticationServerSetup": zyxelRadiusAuthenticationServerSetup,
+       "zyRadiusAuthenticationServerMode": zyRadiusAuthenticationServerMode,
+       "zyRadiusAuthenticationServerTimeout": zyRadiusAuthenticationServerTimeout,
+       "zyxelRadiusAuthenticationServerTable": zyxelRadiusAuthenticationServerTable,
+       "zyxelRadiusAuthenticationServerEntry": zyxelRadiusAuthenticationServerEntry,
+       "zyRadiusAuthenticationServerIndex": zyRadiusAuthenticationServerIndex,
+       "zyRadiusAuthenticationServerIpAddr": zyRadiusAuthenticationServerIpAddr,
+       "zyRadiusAuthenticationServerUdpPort": zyRadiusAuthenticationServerUdpPort,
+       "zyRadiusAuthenticationServerSharedSecret": zyRadiusAuthenticationServerSharedSecret,
+       "zyxelRadiusAccountingServerSetup": zyxelRadiusAccountingServerSetup,
+       "zyRadiusAccountingServerTimeout": zyRadiusAccountingServerTimeout,
+       "zyxelRadiusAccountingServerTable": zyxelRadiusAccountingServerTable,
+       "zyxelRadiusAccountingServerEntry": zyxelRadiusAccountingServerEntry,
+       "zyRadiusAccountingServerIndex": zyRadiusAccountingServerIndex,
+       "zyRadiusAccountingServerIpAddr": zyRadiusAccountingServerIpAddr,
+       "zyRadiusAccountingServerUdpPort": zyRadiusAccountingServerUdpPort,
+       "zyRadiusAccountingServerSharedSecret": zyRadiusAccountingServerSharedSecret,
+       "zyxelRadiusAttributeSetup": zyxelRadiusAttributeSetup,
+       "zyRadiusAttributeNasIpAddress": zyRadiusAttributeNasIpAddress,
+       "zyxelRadiusServerNotifications": zyxelRadiusServerNotifications,
+       "zyRadiusServerAuthenticationServerNotReachable": zyRadiusServerAuthenticationServerNotReachable,
+       "zyRadiusServerAccountingServerNotReachable": zyRadiusServerAccountingServerNotReachable,
+       "zyRadiusServerAuthenticationServerNotReachableRecovered": zyRadiusServerAuthenticationServerNotReachableRecovered,
+       "zyRadiusServerAccountingServerNotReachableRecovered": zyRadiusServerAccountingServerNotReachableRecovered}
+)

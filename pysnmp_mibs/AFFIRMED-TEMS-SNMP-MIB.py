@@ -1,22 +1,161 @@
+# SNMP MIB module (AFFIRMED-TEMS-SNMP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module AFFIRMED-TEMS-SNMP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/microsoft/AFFIRMED-TEMS-SNMP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:04 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/microsoft/AFFIRMED-TEMS-SNMP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:05:41 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-affirmedSnmp, = mibBuilder.importSymbols("AFFIRMED-SNMP-MIB", "affirmedSnmp")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-affirmedTemsSnmp = ModuleIdentity((1, 3, 6, 1, 4, 1, 37963, 6))
-affirmedTemsSnmp.setRevisions(('2011-05-16 00:00',))
-if mibBuilder.loadTexts: affirmedTemsSnmp.setLastUpdated('201105160000Z')
-if mibBuilder.loadTexts: affirmedTemsSnmp.setOrganization('www.affirmednetworks.com')
-affirmedSnmpTc = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 6, 1))
-affirmedSnmpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 6, 2))
-affirmedSnmpNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 6, 3))
-mibBuilder.exportSymbols("AFFIRMED-TEMS-SNMP-MIB", affirmedSnmpObjects=affirmedSnmpObjects, affirmedTemsSnmp=affirmedTemsSnmp, affirmedSnmpNotifications=affirmedSnmpNotifications, PYSNMP_MODULE_ID=affirmedTemsSnmp, affirmedSnmpTc=affirmedSnmpTc)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(affirmedSnmp,) = mibBuilder.importSymbols(
+    "AFFIRMED-SNMP-MIB",
+    "affirmedSnmp")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+affirmedTemsSnmp = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 6)
+)
+if mibBuilder.loadTexts:
+    affirmedTemsSnmp.setRevisions(
+        ("2011-05-16 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AffirmedSnmpTc_ObjectIdentity = ObjectIdentity
+affirmedSnmpTc = _AffirmedSnmpTc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 6, 1)
+)
+_AffirmedSnmpObjects_ObjectIdentity = ObjectIdentity
+affirmedSnmpObjects = _AffirmedSnmpObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 6, 2)
+)
+_AffirmedSnmpNotifications_ObjectIdentity = ObjectIdentity
+affirmedSnmpNotifications = _AffirmedSnmpNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 6, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "AFFIRMED-TEMS-SNMP-MIB",
+    **{"affirmedTemsSnmp": affirmedTemsSnmp,
+       "affirmedSnmpTc": affirmedSnmpTc,
+       "affirmedSnmpObjects": affirmedSnmpObjects,
+       "affirmedSnmpNotifications": affirmedSnmpNotifications}
+)

@@ -1,338 +1,2825 @@
+# SNMP MIB module (OA-SFP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module OA-SFP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/OA-SFP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:34 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/mrv/OA-SFP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:04:41 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-oaDevTrapsPortsIfAlias, = mibBuilder.importSymbols("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias")
-oaccess, = mibBuilder.importSymbols("OS-COMMON-TC-MIB", "oaccess")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-oaSfpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 6926, 1, 18))
-oaSfpMib.setRevisions(('2005-05-26 00:00',))
-if mibBuilder.loadTexts: oaSfpMib.setLastUpdated('200505260000Z')
-if mibBuilder.loadTexts: oaSfpMib.setOrganization('MRV Communications')
-oaManagement = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1))
-oaAlarmNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0))
-oaSfp = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1))
-oaSfpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1))
-oaXfpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2))
-oaDsfpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3))
-oaMsa300PinMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4))
-oaSfpCompatibleInterfaceCount = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpCompatibleInterfaceCount.setStatus('current')
-oaSfpInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2), )
-if mibBuilder.loadTexts: oaSfpInfoTable.setStatus('current')
-oaSfpInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1), ).setIndexNames((0, "OA-SFP-MIB", "oaSfpInfoSlotIndex"), (0, "OA-SFP-MIB", "oaSfpInfoPortIndex"))
-if mibBuilder.loadTexts: oaSfpInfoEntry.setStatus('current')
-oaSfpInfoSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: oaSfpInfoSlotIndex.setStatus('current')
-oaSfpInfoPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: oaSfpInfoPortIndex.setStatus('current')
-oaSfpInfoIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))).clone(namedValues=NamedValues(("unknown", 1), ("other", 2), ("gbic", 3), ("fixed", 4), ("sfp", 5), ("xbi300pin", 6), ("xenpak", 7), ("xfp", 8), ("xff", 9), ("xfpE", 10), ("xpak", 11), ("x2", 12), ("dsfp", 13)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoIdentifier.setStatus('current')
-oaSfpInfoVendorSpecificIdentifier = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoVendorSpecificIdentifier.setStatus('current')
-oaSfpInfoConnector = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 34, 35))).clone(namedValues=NamedValues(("unknown", 1), ("other", 2), ("sc", 3), ("fcs1cc", 4), ("fcs2cc", 5), ("bnctnc", 6), ("fcch", 7), ("fiberJack", 8), ("lc", 9), ("mtrj", 10), ("mu", 11), ("sg", 12), ("opticalPigtail", 13), ("hssdcii", 34), ("copperPigtail", 35)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoConnector.setStatus('current')
-oaSfpInfoVendorSpecificConnector = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoVendorSpecificConnector.setStatus('current')
-oaSfpInfoTransceiver10GigaEth = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 18), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoTransceiver10GigaEth.setStatus('current')
-oaSfpInfoTransceiverInfiniband = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 19), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoTransceiverInfiniband.setStatus('current')
-oaSfpInfoTransceiverEscon = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 20), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoTransceiverEscon.setStatus('current')
-oaSfpInfoTransceiverSonet = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 21), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoTransceiverSonet.setStatus('current')
-oaSfpInfoTransceiverEthernet = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 22), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoTransceiverEthernet.setStatus('current')
-oaSfpInfoTransceiverFibreChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 23), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoTransceiverFibreChannel.setStatus('current')
-oaSfpInfoVendorName = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 24), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoVendorName.setStatus('current')
-oaSfpInfoVendorOUI = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 25), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(3, 3)).setFixedLength(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoVendorOUI.setStatus('current')
-oaSfpInfoVendorPN = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 26), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoVendorPN.setStatus('current')
-oaSfpInfoVendorRev = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 27), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 4))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoVendorRev.setStatus('current')
-oaSfpInfoLaserWavelength = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 28), Integer32()).setUnits('0.01 Nano Meter(nm)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoLaserWavelength.setStatus('current')
-oaSfpTunability = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 29), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("tunable", 2), ("nonTunable", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpTunability.setStatus('current')
-oaSfpInfoVendorSN = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 32), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoVendorSN.setStatus('current')
-oaSfpInfoVendorDate = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 33), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoVendorDate.setStatus('current')
-oaSfpInfoVendorSpecificLotCode = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 34), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoVendorSpecificLotCode.setStatus('current')
-oaSfpInfoVendorSpecificData = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 35), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoVendorSpecificData.setStatus('current')
-oaSfpInfoDiagnosticPowerType = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 36), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("average", 2), ("oma", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoDiagnosticPowerType.setStatus('current')
-oaSfpInfoDigitalDiagnostic = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 37), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("digitalDiagnostic", 2), ("noDigitalDiagnostic", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoDigitalDiagnostic.setStatus('current')
-oaSfpInfoDiagnosticCalibration = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 38), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("externalCalibration", 2), ("internalCalibration", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoDiagnosticCalibration.setStatus('current')
-oaSfpInfoInstalledStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 40), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("notInstalled", 2), ("installed", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoInstalledStatus.setStatus('current')
-oaSfpInfofaultStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 41), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("faulty", 2), ("operational", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfofaultStatus.setStatus('current')
-oaSfpInfoEnableStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 42), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("enabled", 2), ("disabled", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoEnableStatus.setStatus('current')
-oaSfpInfoUnitName = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 43), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 29))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoUnitName.setStatus('current')
-oaSfpInfoFiberType = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 44), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 9))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoFiberType.setStatus('current')
-oaSfpInfoReach = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 45), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoReach.setStatus('current')
-oaSfpInfoConnectorType = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 46), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 4))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoConnectorType.setStatus('current')
-oaSfpInfoItemNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 47), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoItemNum.setStatus('current')
-oaSfpInfoHWRev = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 48), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoHWRev.setStatus('current')
-oaSfpInfoCleiCode = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 49), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 12))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoCleiCode.setStatus('current')
-oaSfpInfoPageA2hSN = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 50), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 26))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoPageA2hSN.setStatus('current')
-oaSfpInfoManufactureDate = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 51), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 12))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoManufactureDate.setStatus('current')
-oaSfpInfoManufactureID = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 52), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 119))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpInfoManufactureID.setStatus('current')
-oaSfpDiagnosticTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3), )
-if mibBuilder.loadTexts: oaSfpDiagnosticTable.setStatus('current')
-oaSfpDiagnosticEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1), ).setIndexNames((0, "OA-SFP-MIB", "oaSfpDiagnosticSlotIndex"), (0, "OA-SFP-MIB", "oaSfpDiagnosticPortIndex"))
-if mibBuilder.loadTexts: oaSfpDiagnosticEntry.setStatus('current')
-oaSfpDiagnosticSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaSfpDiagnosticSlotIndex.setStatus('current')
-oaSfpDiagnosticPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaSfpDiagnosticPortIndex.setStatus('current')
-oaSfpDiagnosticTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 3), Integer32()).setUnits('1/10 degrees Celsius (C)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpDiagnosticTemperature.setStatus('current')
-oaSfpDiagnosticVcc = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 4), Integer32()).setUnits('100 micro Volts (V)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpDiagnosticVcc.setStatus('current')
-oaSfpDiagnosticTxBias = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 5), Integer32()).setUnits('1 micro Amperes (A)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpDiagnosticTxBias.setStatus('current')
-oaSfpDiagnosticTxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 6), Integer32()).setUnits('0.01 decibel (dBm)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpDiagnosticTxPower.setStatus('current')
-oaSfpDiagnosticRxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 7), Integer32()).setUnits('0.01 decibel (dBm)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpDiagnosticRxPower.setStatus('current')
-oaSfpRatesSupportedTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 4), )
-if mibBuilder.loadTexts: oaSfpRatesSupportedTable.setStatus('current')
-oaSfpRatesSupportedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 4, 1), ).setIndexNames((0, "OA-SFP-MIB", "oaSfpInfoSlotIndex"), (0, "OA-SFP-MIB", "oaSfpInfoPortIndex"), (0, "OA-SFP-MIB", "oaSfpRatesSupportedIndex"))
-if mibBuilder.loadTexts: oaSfpRatesSupportedEntry.setStatus('current')
-oaSfpRatesSupportedIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 4, 1, 3), Unsigned32())
-if mibBuilder.loadTexts: oaSfpRatesSupportedIndex.setStatus('current')
-oaSfpRatesSupportedValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 4, 1, 4), Unsigned32()).setUnits('Mbps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaSfpRatesSupportedValue.setStatus('current')
-oaXfpCompatibleInterfaceCount = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaXfpCompatibleInterfaceCount.setStatus('current')
-oaXfpInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 2), )
-if mibBuilder.loadTexts: oaXfpInfoTable.setStatus('current')
-oaXfpInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 2, 1), ).setIndexNames((0, "OA-SFP-MIB", "oaXfpInfoSlotIndex"), (0, "OA-SFP-MIB", "oaXfpInfoPortIndex"))
-if mibBuilder.loadTexts: oaXfpInfoEntry.setStatus('current')
-oaXfpInfoSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaXfpInfoSlotIndex.setStatus('current')
-oaXfpInfoPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaXfpInfoPortIndex.setStatus('current')
-oaXfpInfoLaserWavelengthTolerance = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 2, 1, 28), Integer32()).setUnits('0.001 Nano Meter(nm)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaXfpInfoLaserWavelengthTolerance.setStatus('current')
-oaXfpTunTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3), )
-if mibBuilder.loadTexts: oaXfpTunTable.setStatus('current')
-oaXfpTunEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1), ).setIndexNames((0, "OA-SFP-MIB", "oaXfpTunSlotIndex"), (0, "OA-SFP-MIB", "oaXfpTunPortIndex"))
-if mibBuilder.loadTexts: oaXfpTunEntry.setStatus('current')
-oaXfpTunSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaXfpTunSlotIndex.setStatus('current')
-oaXfpTunPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaXfpTunPortIndex.setStatus('current')
-oaXfpTunLaserFirstFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 3), Integer32()).setUnits('0.001 Terahertz(THz)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaXfpTunLaserFirstFrequency.setStatus('current')
-oaXfpTunLaserLastFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 4), Integer32()).setUnits('0.001 Terahertz(THz)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaXfpTunLaserLastFrequency.setStatus('current')
-oaXfpTunGridSpacing = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("g200", 2), ("g100", 3), ("g50", 4), ("g25", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaXfpTunGridSpacing.setStatus('current')
-oaXfpTunLaserItuBand = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("cBand", 2), ("lBand", 3), ("sBand", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaXfpTunLaserItuBand.setStatus('current')
-oaXfpTunLaserItuCh = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oaXfpTunLaserItuCh.setStatus('current')
-oaDsfpCompatibleInterfaceCount = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaDsfpCompatibleInterfaceCount.setStatus('current')
-oaDsfpInfoTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2), )
-if mibBuilder.loadTexts: oaDsfpInfoTable.setStatus('current')
-oaDsfpInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2, 1), ).setIndexNames((0, "OA-SFP-MIB", "oaDsfpInfoSlotIndex"), (0, "OA-SFP-MIB", "oaDsfpInfoPortIndex"))
-if mibBuilder.loadTexts: oaDsfpInfoEntry.setStatus('current')
-oaDsfpInfoSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaDsfpInfoSlotIndex.setStatus('current')
-oaDsfpInfoPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaDsfpInfoPortIndex.setStatus('current')
-oaDsfpInfoChannelSpacing = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("g200", 2), ("g100", 3), ("g50", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaDsfpInfoChannelSpacing.setStatus('current')
-oaDsfpInfoChannelTuning = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaDsfpInfoChannelTuning.setStatus('current')
-oaMsa300PinCompatibleIfCount = MibScalar((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinCompatibleIfCount.setStatus('current')
-oaMsa300PinIdTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2), )
-if mibBuilder.loadTexts: oaMsa300PinIdTable.setStatus('current')
-oaMsa300PinIdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1), ).setIndexNames((0, "OA-SFP-MIB", "oaMsa300PinIdSlotIndex"), (0, "OA-SFP-MIB", "oaMsa300PinIdPortIndex"))
-if mibBuilder.loadTexts: oaMsa300PinIdEntry.setStatus('current')
-oaMsa300PinIdSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaMsa300PinIdSlotIndex.setStatus('current')
-oaMsa300PinIdPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaMsa300PinIdPortIndex.setStatus('current')
-oaMsa300PinIdModuleTypeCode = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 6, 8))).clone(namedValues=NamedValues(("unknown", 1), ("msa10Gb", 6), ("msa10GbWdm", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinIdModuleTypeCode.setStatus('current')
-oaMsa300PinIdFirstLaserItuBand = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("cBand", 2), ("lBand", 3), ("sBand", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinIdFirstLaserItuBand.setStatus('current')
-oaMsa300PinIdFirstLaserItuCh = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 7), Integer32()).setUnits('0.01 Nano Meter(nm)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinIdFirstLaserItuCh.setStatus('current')
-oaMsa300PinIdLastLaserItuBand = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("cBand", 2), ("lBand", 3), ("sBand", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinIdLastLaserItuBand.setStatus('current')
-oaMsa300PinIdLastLaserItuCh = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 9), Integer32()).setUnits('0.01 Nano Meter(nm)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinIdLastLaserItuCh.setStatus('current')
-oaMsa300PinIdLaserItuChSpacing = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("g200", 2), ("g100", 3), ("g50", 4), ("g25", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinIdLaserItuChSpacing.setStatus('current')
-oaMsa300PinIdModuleDistanceType = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("unknown", 1), ("msa40Km", 2), ("msa80Km", 3), ("msa120Km", 4), ("msa160Km", 5), ("msa200Km", 6), ("msa340Km", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinIdModuleDistanceType.setStatus('current')
-oaMsa300PinIdMinDispDist = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 12), Integer32()).setUnits('ps/nm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinIdMinDispDist.setStatus('current')
-oaMsa300PinIdMaxDispDist = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 13), Integer32()).setUnits('ps/nm').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinIdMaxDispDist.setStatus('current')
-oaMsa300PinMeasTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3), )
-if mibBuilder.loadTexts: oaMsa300PinMeasTable.setStatus('current')
-oaMsa300PinMeasEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1), ).setIndexNames((0, "OA-SFP-MIB", "oaMsa300PinMeasSlotIndex"), (0, "OA-SFP-MIB", "oaMsa300PinMeasPortIndex"))
-if mibBuilder.loadTexts: oaMsa300PinMeasEntry.setStatus('current')
-oaMsa300PinMeasSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaMsa300PinMeasSlotIndex.setStatus('current')
-oaMsa300PinMeasPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaMsa300PinMeasPortIndex.setStatus('current')
-oaMsa300PinMeasLaserOutputPwrMon = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 4), Integer32()).setUnits('0.01 decibel (dBm)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinMeasLaserOutputPwrMon.setStatus('current')
-oaMsa300PinMeasLaserTempMon = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 5), Integer32()).setUnits('0.001 degrees Celsius (C)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinMeasLaserTempMon.setStatus('current')
-oaMsa300PinMeasRecSigAvrOptPower = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 7), Integer32()).setUnits('0.01 decibel (dBm)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinMeasRecSigAvrOptPower.setStatus('current')
-oaMsa300PinMeasLaserWlengthMon = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 8), Integer32()).setUnits('Mega Hertz (MHz)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinMeasLaserWlengthMon.setStatus('current')
-oaMsa300PinMeasTransTempMon = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 9), Integer32()).setUnits('0.001 degrees Celsius (C)').setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinMeasTransTempMon.setStatus('current')
-oaMsa300PinAlarmTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4), )
-if mibBuilder.loadTexts: oaMsa300PinAlarmTable.setStatus('current')
-oaMsa300PinAlarmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1), ).setIndexNames((0, "OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), (0, "OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"))
-if mibBuilder.loadTexts: oaMsa300PinAlarmEntry.setStatus('current')
-oaMsa300PinAlarmSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: oaMsa300PinAlarmSlotIndex.setStatus('current')
-oaMsa300PinAlarmPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: oaMsa300PinAlarmPortIndex.setStatus('current')
-oaMsa300PinAlarmTxAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(3, 3)).setFixedLength(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinAlarmTxAlarm.setStatus('current')
-oaMsa300PinAlarmRxAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinAlarmRxAlarm.setStatus('current')
-oaMsa300PinAlarmPsAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1)).setFixedLength(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: oaMsa300PinAlarmPsAlarm.setStatus('current')
-oaMsa300PinComTable = MibTable((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5), )
-if mibBuilder.loadTexts: oaMsa300PinComTable.setStatus('current')
-oaMsa300PinComEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1), ).setIndexNames((0, "OA-SFP-MIB", "oaMsa300PinComSlotIndex"), (0, "OA-SFP-MIB", "oaMsa300PinComPortIndex"))
-if mibBuilder.loadTexts: oaMsa300PinComEntry.setStatus('current')
-oaMsa300PinComSlotIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaMsa300PinComSlotIndex.setStatus('current')
-oaMsa300PinComPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: oaMsa300PinComPortIndex.setStatus('current')
-oaMsa300PinComLaserItuBand = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("cBand", 2), ("lBand", 3), ("sBand", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oaMsa300PinComLaserItuBand.setStatus('current')
-oaMsa300PinComLaserItuCh = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 8), Integer32()).setUnits('0.01 Nano Meter(nm)').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oaMsa300PinComLaserItuCh.setStatus('current')
-oaMsa300PinComDispDist = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 9), Integer32()).setUnits('ps/nm').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oaMsa300PinComDispDist.setStatus('current')
-oaMsa300PinComPolarityInversion = MibTableColumn((1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("on", 2), ("off", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: oaMsa300PinComPolarityInversion.setStatus('current')
-oaSfpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2))
-oaSfpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1))
-oaSfpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 2))
-oaSfpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 2, 1)).setObjects(("OA-SFP-MIB", "oaSfpCompatibleIfCountGroup"), ("OA-SFP-MIB", "oaMsa300PinNotificationsGroup"), ("OA-SFP-MIB", "oaPlugConnNotificationsGroup"), ("OA-SFP-MIB", "oaSfpGroup"), ("OA-SFP-MIB", "oaXfpGroup"), ("OA-SFP-MIB", "oaDsfpGroup"), ("OA-SFP-MIB", "oaMsa300PinGroup"), ("OA-SFP-MIB", "oaXfpTunGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oaSfpCompliance = oaSfpCompliance.setStatus('current')
-oaSfpCompatibleIfCountGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 1)).setObjects(("OA-SFP-MIB", "oaSfpCompatibleInterfaceCount"), ("OA-SFP-MIB", "oaXfpCompatibleInterfaceCount"), ("OA-SFP-MIB", "oaDsfpCompatibleInterfaceCount"), ("OA-SFP-MIB", "oaMsa300PinCompatibleIfCount"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oaSfpCompatibleIfCountGroup = oaSfpCompatibleIfCountGroup.setStatus('current')
-oaSfpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 2)).setObjects(("OA-SFP-MIB", "oaSfpInfoIdentifier"), ("OA-SFP-MIB", "oaSfpInfoVendorSpecificIdentifier"), ("OA-SFP-MIB", "oaSfpInfoConnector"), ("OA-SFP-MIB", "oaSfpInfoVendorSpecificConnector"), ("OA-SFP-MIB", "oaSfpInfoTransceiver10GigaEth"), ("OA-SFP-MIB", "oaSfpInfoTransceiverInfiniband"), ("OA-SFP-MIB", "oaSfpInfoTransceiverEscon"), ("OA-SFP-MIB", "oaSfpInfoTransceiverSonet"), ("OA-SFP-MIB", "oaSfpInfoTransceiverEthernet"), ("OA-SFP-MIB", "oaSfpInfoTransceiverFibreChannel"), ("OA-SFP-MIB", "oaSfpInfoVendorName"), ("OA-SFP-MIB", "oaSfpInfoVendorOUI"), ("OA-SFP-MIB", "oaSfpInfoVendorPN"), ("OA-SFP-MIB", "oaSfpInfoVendorRev"), ("OA-SFP-MIB", "oaSfpInfoLaserWavelength"), ("OA-SFP-MIB", "oaSfpTunability"), ("OA-SFP-MIB", "oaSfpInfoVendorSN"), ("OA-SFP-MIB", "oaSfpInfoVendorDate"), ("OA-SFP-MIB", "oaSfpInfoVendorSpecificLotCode"), ("OA-SFP-MIB", "oaSfpInfoVendorSpecificData"), ("OA-SFP-MIB", "oaSfpInfoDiagnosticPowerType"), ("OA-SFP-MIB", "oaSfpInfoDigitalDiagnostic"), ("OA-SFP-MIB", "oaSfpInfoDiagnosticCalibration"), ("OA-SFP-MIB", "oaSfpInfoInstalledStatus"), ("OA-SFP-MIB", "oaSfpInfofaultStatus"), ("OA-SFP-MIB", "oaSfpInfoEnableStatus"), ("OA-SFP-MIB", "oaSfpDiagnosticTemperature"), ("OA-SFP-MIB", "oaSfpDiagnosticVcc"), ("OA-SFP-MIB", "oaSfpDiagnosticTxBias"), ("OA-SFP-MIB", "oaSfpDiagnosticTxPower"), ("OA-SFP-MIB", "oaSfpDiagnosticRxPower"), ("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oaSfpGroup = oaSfpGroup.setStatus('current')
-oaXfpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 3)).setObjects(("OA-SFP-MIB", "oaXfpInfoLaserWavelengthTolerance"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oaXfpGroup = oaXfpGroup.setStatus('current')
-oaDsfpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 4)).setObjects(("OA-SFP-MIB", "oaDsfpInfoChannelSpacing"), ("OA-SFP-MIB", "oaDsfpInfoChannelTuning"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oaDsfpGroup = oaDsfpGroup.setStatus('current')
-oaMsa300PinGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 5)).setObjects(("OA-SFP-MIB", "oaMsa300PinIdModuleTypeCode"), ("OA-SFP-MIB", "oaMsa300PinIdFirstLaserItuBand"), ("OA-SFP-MIB", "oaMsa300PinIdFirstLaserItuCh"), ("OA-SFP-MIB", "oaMsa300PinIdLastLaserItuBand"), ("OA-SFP-MIB", "oaMsa300PinIdLastLaserItuCh"), ("OA-SFP-MIB", "oaMsa300PinIdLaserItuChSpacing"), ("OA-SFP-MIB", "oaMsa300PinIdModuleDistanceType"), ("OA-SFP-MIB", "oaMsa300PinIdMinDispDist"), ("OA-SFP-MIB", "oaMsa300PinIdMaxDispDist"), ("OA-SFP-MIB", "oaMsa300PinMeasLaserOutputPwrMon"), ("OA-SFP-MIB", "oaMsa300PinMeasLaserTempMon"), ("OA-SFP-MIB", "oaMsa300PinMeasRecSigAvrOptPower"), ("OA-SFP-MIB", "oaMsa300PinMeasLaserWlengthMon"), ("OA-SFP-MIB", "oaMsa300PinMeasTransTempMon"), ("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmTxAlarm"), ("OA-SFP-MIB", "oaMsa300PinAlarmRxAlarm"), ("OA-SFP-MIB", "oaMsa300PinAlarmPsAlarm"), ("OA-SFP-MIB", "oaMsa300PinComLaserItuBand"), ("OA-SFP-MIB", "oaMsa300PinComLaserItuCh"), ("OA-SFP-MIB", "oaMsa300PinComDispDist"), ("OA-SFP-MIB", "oaMsa300PinComPolarityInversion"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oaMsa300PinGroup = oaMsa300PinGroup.setStatus('current')
-oaMsa300PinNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 6)).setObjects(("OA-SFP-MIB", "msaPortRxLossAlarmOn"), ("OA-SFP-MIB", "msaPortRxLossAlarmOff"), ("OA-SFP-MIB", "msaPortTxLaserWlAlarmOn"), ("OA-SFP-MIB", "msaPorTxLaserWltAlarmOff"), ("OA-SFP-MIB", "msaPortTxModulatorTempAlarmOn"), ("OA-SFP-MIB", "msaPortTxModulatorTempAlarmOff"), ("OA-SFP-MIB", "msaPortTxLaserPowerAlarmOn"), ("OA-SFP-MIB", "msaPortTxLaserPowerAlarmOff"), ("OA-SFP-MIB", "msaPortTxPllLockAlarmOn"), ("OA-SFP-MIB", "msaPortTxPllLockAlarmOff"), ("OA-SFP-MIB", "msaPortTxLaserTempAlarmOn"), ("OA-SFP-MIB", "msaPortTxLaserTempAlarmOff"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oaMsa300PinNotificationsGroup = oaMsa300PinNotificationsGroup.setStatus('current')
-oaPlugConnNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 7)).setObjects(("OA-SFP-MIB", "pluggableConnectorInserted"), ("OA-SFP-MIB", "pluggableConnectorRemoved"), ("OA-SFP-MIB", "sfpXfpPortTempHighAlarmOn"), ("OA-SFP-MIB", "sfpXfpPortTempHighAlarmOff"), ("OA-SFP-MIB", "sfpXfpPortTempLowAlarmOn"), ("OA-SFP-MIB", "sfpXfpPortTempLowAlarmOff"), ("OA-SFP-MIB", "sfpXfpPortTxPowerHighAlarmOn"), ("OA-SFP-MIB", "sfpXfpPortTxPowerHighAlarmOff"), ("OA-SFP-MIB", "sfpXfpPortTxPowerLowAlarmOn"), ("OA-SFP-MIB", "sfpXfpPortTxPowerLowAlarmOff"), ("OA-SFP-MIB", "sfpXfpPortRxPowerHighAlarmOn"), ("OA-SFP-MIB", "sfpXfpPortRxPowerHighAlarmOff"), ("OA-SFP-MIB", "sfpXfpPortRxPowerLowAlarmOn"), ("OA-SFP-MIB", "sfpXfpPortRxPowerLowAlarmOff"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oaPlugConnNotificationsGroup = oaPlugConnNotificationsGroup.setStatus('current')
-oaXfpTunGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 8)).setObjects(("OA-SFP-MIB", "oaXfpTunLaserFirstFrequency"), ("OA-SFP-MIB", "oaXfpTunLaserLastFrequency"), ("OA-SFP-MIB", "oaXfpTunGridSpacing"), ("OA-SFP-MIB", "oaXfpTunLaserItuBand"), ("OA-SFP-MIB", "oaXfpTunLaserItuCh"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    oaXfpTunGroup = oaXfpTunGroup.setStatus('current')
-msaPortRxLossAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 68)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPortRxLossAlarmOn.setStatus('current')
-msaPortRxLossAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 69)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPortRxLossAlarmOff.setStatus('current')
-msaPortTxLaserWlAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 70)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPortTxLaserWlAlarmOn.setStatus('current')
-msaPorTxLaserWltAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 71)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPorTxLaserWltAlarmOff.setStatus('current')
-msaPortTxModulatorTempAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 72)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPortTxModulatorTempAlarmOn.setStatus('current')
-msaPortTxModulatorTempAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 73)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPortTxModulatorTempAlarmOff.setStatus('current')
-msaPortTxLaserPowerAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 74)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPortTxLaserPowerAlarmOn.setStatus('current')
-msaPortTxLaserPowerAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 75)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPortTxLaserPowerAlarmOff.setStatus('current')
-msaPortTxPllLockAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 76)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPortTxPllLockAlarmOn.setStatus('current')
-msaPortTxPllLockAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 77)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPortTxPllLockAlarmOff.setStatus('current')
-msaPortTxLaserTempAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 78)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPortTxLaserTempAlarmOn.setStatus('current')
-msaPortTxLaserTempAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 79)).setObjects(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"), ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: msaPortTxLaserTempAlarmOff.setStatus('current')
-pluggableConnectorInserted = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 80)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: pluggableConnectorInserted.setStatus('current')
-pluggableConnectorRemoved = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 81)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: pluggableConnectorRemoved.setStatus('current')
-sfpXfpPortTempHighAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 82)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortTempHighAlarmOn.setStatus('current')
-sfpXfpPortTempHighAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 83)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortTempHighAlarmOff.setStatus('current')
-sfpXfpPortTempLowAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 84)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortTempLowAlarmOn.setStatus('current')
-sfpXfpPortTempLowAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 85)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortTempLowAlarmOff.setStatus('current')
-sfpXfpPortTxPowerHighAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 86)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortTxPowerHighAlarmOn.setStatus('current')
-sfpXfpPortTxPowerHighAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 87)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortTxPowerHighAlarmOff.setStatus('current')
-sfpXfpPortTxPowerLowAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 88)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortTxPowerLowAlarmOn.setStatus('current')
-sfpXfpPortTxPowerLowAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 89)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortTxPowerLowAlarmOff.setStatus('current')
-sfpXfpPortRxPowerHighAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 90)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortRxPowerHighAlarmOn.setStatus('current')
-sfpXfpPortRxPowerHighAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 91)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortRxPowerHighAlarmOff.setStatus('current')
-sfpXfpPortRxPowerLowAlarmOn = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 92)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortRxPowerLowAlarmOn.setStatus('current')
-sfpXfpPortRxPowerLowAlarmOff = NotificationType((1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 93)).setObjects(("OA-SFP-MIB", "oaSfpInfoSlotIndex"), ("OA-SFP-MIB", "oaSfpInfoPortIndex"), ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
-if mibBuilder.loadTexts: sfpXfpPortRxPowerLowAlarmOff.setStatus('current')
-mibBuilder.exportSymbols("OA-SFP-MIB", oaSfpDiagnosticTemperature=oaSfpDiagnosticTemperature, oaSfpInfoVendorSpecificConnector=oaSfpInfoVendorSpecificConnector, oaXfpCompatibleInterfaceCount=oaXfpCompatibleInterfaceCount, oaXfpTunLaserLastFrequency=oaXfpTunLaserLastFrequency, oaXfpTunLaserFirstFrequency=oaXfpTunLaserFirstFrequency, oaMsa300PinAlarmSlotIndex=oaMsa300PinAlarmSlotIndex, oaSfpInfoVendorSpecificIdentifier=oaSfpInfoVendorSpecificIdentifier, sfpXfpPortTxPowerLowAlarmOn=sfpXfpPortTxPowerLowAlarmOn, oaMsa300PinIdMinDispDist=oaMsa300PinIdMinDispDist, msaPortTxLaserTempAlarmOn=msaPortTxLaserTempAlarmOn, oaMsa300PinIdLastLaserItuBand=oaMsa300PinIdLastLaserItuBand, oaMsa300PinAlarmEntry=oaMsa300PinAlarmEntry, msaPortTxPllLockAlarmOn=msaPortTxPllLockAlarmOn, pluggableConnectorInserted=pluggableConnectorInserted, oaMsa300PinMeasEntry=oaMsa300PinMeasEntry, oaSfpInfoVendorOUI=oaSfpInfoVendorOUI, oaDsfpInfoChannelSpacing=oaDsfpInfoChannelSpacing, oaSfpInfoVendorSN=oaSfpInfoVendorSN, oaSfpInfoVendorDate=oaSfpInfoVendorDate, oaXfpTunPortIndex=oaXfpTunPortIndex, oaDsfpCompatibleInterfaceCount=oaDsfpCompatibleInterfaceCount, msaPortTxLaserTempAlarmOff=msaPortTxLaserTempAlarmOff, oaMsa300PinAlarmPsAlarm=oaMsa300PinAlarmPsAlarm, oaSfpInfoTransceiverFibreChannel=oaSfpInfoTransceiverFibreChannel, sfpXfpPortTempHighAlarmOff=sfpXfpPortTempHighAlarmOff, oaSfpInfoVendorRev=oaSfpInfoVendorRev, oaMsa300PinComDispDist=oaMsa300PinComDispDist, oaSfpDiagnosticTxPower=oaSfpDiagnosticTxPower, oaSfpInfoPageA2hSN=oaSfpInfoPageA2hSN, sfpXfpPortRxPowerHighAlarmOn=sfpXfpPortRxPowerHighAlarmOn, oaSfpInfoLaserWavelength=oaSfpInfoLaserWavelength, oaMsa300PinCompatibleIfCount=oaMsa300PinCompatibleIfCount, oaMsa300PinComPolarityInversion=oaMsa300PinComPolarityInversion, oaSfpConformance=oaSfpConformance, sfpXfpPortTempLowAlarmOff=sfpXfpPortTempLowAlarmOff, oaDsfpGroup=oaDsfpGroup, oaSfpRatesSupportedIndex=oaSfpRatesSupportedIndex, oaSfpInfoTransceiverEthernet=oaSfpInfoTransceiverEthernet, oaMsa300PinIdTable=oaMsa300PinIdTable, oaSfpInfoCleiCode=oaSfpInfoCleiCode, oaSfpCompliance=oaSfpCompliance, oaSfpInfoEntry=oaSfpInfoEntry, msaPortTxLaserPowerAlarmOff=msaPortTxLaserPowerAlarmOff, oaXfpMIBObjects=oaXfpMIBObjects, oaSfpDiagnosticSlotIndex=oaSfpDiagnosticSlotIndex, oaSfpInfoItemNum=oaSfpInfoItemNum, oaMsa300PinAlarmTable=oaMsa300PinAlarmTable, sfpXfpPortTxPowerLowAlarmOff=sfpXfpPortTxPowerLowAlarmOff, msaPortTxLaserWlAlarmOn=msaPortTxLaserWlAlarmOn, oaAlarmNotifications=oaAlarmNotifications, oaMsa300PinAlarmRxAlarm=oaMsa300PinAlarmRxAlarm, sfpXfpPortTxPowerHighAlarmOn=sfpXfpPortTxPowerHighAlarmOn, oaXfpTunGridSpacing=oaXfpTunGridSpacing, oaSfpGroups=oaSfpGroups, pluggableConnectorRemoved=pluggableConnectorRemoved, oaMsa300PinMeasRecSigAvrOptPower=oaMsa300PinMeasRecSigAvrOptPower, oaSfpInfoInstalledStatus=oaSfpInfoInstalledStatus, oaMsa300PinNotificationsGroup=oaMsa300PinNotificationsGroup, oaSfpGroup=oaSfpGroup, oaXfpInfoSlotIndex=oaXfpInfoSlotIndex, oaMsa300PinIdEntry=oaMsa300PinIdEntry, oaSfp=oaSfp, oaSfpInfoIdentifier=oaSfpInfoIdentifier, oaMsa300PinIdLaserItuChSpacing=oaMsa300PinIdLaserItuChSpacing, oaSfpInfoConnectorType=oaSfpInfoConnectorType, msaPortTxModulatorTempAlarmOn=msaPortTxModulatorTempAlarmOn, PYSNMP_MODULE_ID=oaSfpMib, oaDsfpInfoSlotIndex=oaDsfpInfoSlotIndex, oaSfpInfoManufactureID=oaSfpInfoManufactureID, oaXfpGroup=oaXfpGroup, oaSfpInfoVendorSpecificLotCode=oaSfpInfoVendorSpecificLotCode, oaXfpTunLaserItuCh=oaXfpTunLaserItuCh, oaSfpInfoTable=oaSfpInfoTable, oaMsa300PinMeasPortIndex=oaMsa300PinMeasPortIndex, oaMsa300PinAlarmTxAlarm=oaMsa300PinAlarmTxAlarm, oaMsa300PinMeasLaserTempMon=oaMsa300PinMeasLaserTempMon, oaMsa300PinIdModuleDistanceType=oaMsa300PinIdModuleDistanceType, oaSfpTunability=oaSfpTunability, oaSfpInfoDigitalDiagnostic=oaSfpInfoDigitalDiagnostic, oaSfpInfoUnitName=oaSfpInfoUnitName, oaMsa300PinMIBObjects=oaMsa300PinMIBObjects, oaMsa300PinComLaserItuCh=oaMsa300PinComLaserItuCh, msaPortTxModulatorTempAlarmOff=msaPortTxModulatorTempAlarmOff, oaMsa300PinIdModuleTypeCode=oaMsa300PinIdModuleTypeCode, oaXfpTunGroup=oaXfpTunGroup, oaMsa300PinComTable=oaMsa300PinComTable, oaMsa300PinComSlotIndex=oaMsa300PinComSlotIndex, oaXfpTunEntry=oaXfpTunEntry, oaMsa300PinMeasLaserOutputPwrMon=oaMsa300PinMeasLaserOutputPwrMon, oaSfpRatesSupportedTable=oaSfpRatesSupportedTable, oaDsfpInfoEntry=oaDsfpInfoEntry, oaSfpInfoSlotIndex=oaSfpInfoSlotIndex, msaPorTxLaserWltAlarmOff=msaPorTxLaserWltAlarmOff, oaMsa300PinIdSlotIndex=oaMsa300PinIdSlotIndex, sfpXfpPortRxPowerLowAlarmOn=sfpXfpPortRxPowerLowAlarmOn, oaXfpInfoEntry=oaXfpInfoEntry, oaSfpInfoConnector=oaSfpInfoConnector, oaMsa300PinMeasSlotIndex=oaMsa300PinMeasSlotIndex, oaMsa300PinComEntry=oaMsa300PinComEntry, msaPortTxLaserPowerAlarmOn=msaPortTxLaserPowerAlarmOn, oaSfpCompliances=oaSfpCompliances, oaSfpDiagnosticTxBias=oaSfpDiagnosticTxBias, oaMsa300PinIdFirstLaserItuBand=oaMsa300PinIdFirstLaserItuBand, oaSfpDiagnosticPortIndex=oaSfpDiagnosticPortIndex, oaSfpInfoDiagnosticPowerType=oaSfpInfoDiagnosticPowerType, oaSfpInfoEnableStatus=oaSfpInfoEnableStatus, oaSfpDiagnosticRxPower=oaSfpDiagnosticRxPower, oaXfpInfoLaserWavelengthTolerance=oaXfpInfoLaserWavelengthTolerance, oaMsa300PinAlarmPortIndex=oaMsa300PinAlarmPortIndex, oaMsa300PinGroup=oaMsa300PinGroup, oaSfpInfoPortIndex=oaSfpInfoPortIndex, oaSfpMib=oaSfpMib, oaSfpCompatibleIfCountGroup=oaSfpCompatibleIfCountGroup, oaSfpInfofaultStatus=oaSfpInfofaultStatus, oaXfpInfoPortIndex=oaXfpInfoPortIndex, oaXfpTunTable=oaXfpTunTable, oaDsfpInfoChannelTuning=oaDsfpInfoChannelTuning, oaSfpInfoVendorPN=oaSfpInfoVendorPN, oaManagement=oaManagement, oaSfpInfoVendorSpecificData=oaSfpInfoVendorSpecificData, oaSfpInfoTransceiverEscon=oaSfpInfoTransceiverEscon, oaSfpCompatibleInterfaceCount=oaSfpCompatibleInterfaceCount, sfpXfpPortTxPowerHighAlarmOff=sfpXfpPortTxPowerHighAlarmOff, sfpXfpPortRxPowerLowAlarmOff=sfpXfpPortRxPowerLowAlarmOff, oaSfpRatesSupportedValue=oaSfpRatesSupportedValue, oaDsfpInfoTable=oaDsfpInfoTable, oaSfpInfoTransceiver10GigaEth=oaSfpInfoTransceiver10GigaEth, oaXfpInfoTable=oaXfpInfoTable, oaMsa300PinComPortIndex=oaMsa300PinComPortIndex, oaSfpInfoReach=oaSfpInfoReach, oaXfpTunLaserItuBand=oaXfpTunLaserItuBand, oaDsfpMIBObjects=oaDsfpMIBObjects, oaMsa300PinIdPortIndex=oaMsa300PinIdPortIndex, msaPortRxLossAlarmOff=msaPortRxLossAlarmOff, oaPlugConnNotificationsGroup=oaPlugConnNotificationsGroup, oaDsfpInfoPortIndex=oaDsfpInfoPortIndex, oaSfpInfoTransceiverInfiniband=oaSfpInfoTransceiverInfiniband, sfpXfpPortTempLowAlarmOn=sfpXfpPortTempLowAlarmOn, oaSfpDiagnosticEntry=oaSfpDiagnosticEntry, oaSfpRatesSupportedEntry=oaSfpRatesSupportedEntry, oaSfpInfoManufactureDate=oaSfpInfoManufactureDate, oaMsa300PinMeasLaserWlengthMon=oaMsa300PinMeasLaserWlengthMon, oaMsa300PinComLaserItuBand=oaMsa300PinComLaserItuBand, sfpXfpPortRxPowerHighAlarmOff=sfpXfpPortRxPowerHighAlarmOff, oaSfpDiagnosticVcc=oaSfpDiagnosticVcc, oaXfpTunSlotIndex=oaXfpTunSlotIndex, oaMsa300PinMeasTransTempMon=oaMsa300PinMeasTransTempMon, msaPortRxLossAlarmOn=msaPortRxLossAlarmOn, sfpXfpPortTempHighAlarmOn=sfpXfpPortTempHighAlarmOn, oaSfpMIBObjects=oaSfpMIBObjects, oaSfpInfoDiagnosticCalibration=oaSfpInfoDiagnosticCalibration, oaMsa300PinMeasTable=oaMsa300PinMeasTable, oaSfpInfoTransceiverSonet=oaSfpInfoTransceiverSonet, oaMsa300PinIdFirstLaserItuCh=oaMsa300PinIdFirstLaserItuCh, oaSfpInfoVendorName=oaSfpInfoVendorName, oaSfpInfoFiberType=oaSfpInfoFiberType, oaSfpInfoHWRev=oaSfpInfoHWRev, oaMsa300PinIdLastLaserItuCh=oaMsa300PinIdLastLaserItuCh, oaSfpDiagnosticTable=oaSfpDiagnosticTable, msaPortTxPllLockAlarmOff=msaPortTxPllLockAlarmOff, oaMsa300PinIdMaxDispDist=oaMsa300PinIdMaxDispDist)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(oaDevTrapsPortsIfAlias,) = mibBuilder.importSymbols(
+    "OA-TRAP-MESSAGES-MIB",
+    "oaDevTrapsPortsIfAlias")
+
+(oaccess,) = mibBuilder.importSymbols(
+    "OS-COMMON-TC-MIB",
+    "oaccess")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+oaSfpMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18)
+)
+if mibBuilder.loadTexts:
+    oaSfpMib.setRevisions(
+        ("2005-05-26 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_OaManagement_ObjectIdentity = ObjectIdentity
+oaManagement = _OaManagement_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6926, 1)
+)
+_OaAlarmNotifications_ObjectIdentity = ObjectIdentity
+oaAlarmNotifications = _OaAlarmNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0)
+)
+_OaSfp_ObjectIdentity = ObjectIdentity
+oaSfp = _OaSfp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1)
+)
+_OaSfpMIBObjects_ObjectIdentity = ObjectIdentity
+oaSfpMIBObjects = _OaSfpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1)
+)
+_OaSfpCompatibleInterfaceCount_Type = Integer32
+_OaSfpCompatibleInterfaceCount_Object = MibScalar
+oaSfpCompatibleInterfaceCount = _OaSfpCompatibleInterfaceCount_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 1),
+    _OaSfpCompatibleInterfaceCount_Type()
+)
+oaSfpCompatibleInterfaceCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpCompatibleInterfaceCount.setStatus("current")
+_OaSfpInfoTable_Object = MibTable
+oaSfpInfoTable = _OaSfpInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    oaSfpInfoTable.setStatus("current")
+_OaSfpInfoEntry_Object = MibTableRow
+oaSfpInfoEntry = _OaSfpInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1)
+)
+oaSfpInfoEntry.setIndexNames(
+    (0, "OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+    (0, "OA-SFP-MIB", "oaSfpInfoPortIndex"),
+)
+if mibBuilder.loadTexts:
+    oaSfpInfoEntry.setStatus("current")
+
+
+class _OaSfpInfoSlotIndex_Type(Integer32):
+    """Custom type oaSfpInfoSlotIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaSfpInfoSlotIndex_Type.__name__ = "Integer32"
+_OaSfpInfoSlotIndex_Object = MibTableColumn
+oaSfpInfoSlotIndex = _OaSfpInfoSlotIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 1),
+    _OaSfpInfoSlotIndex_Type()
+)
+oaSfpInfoSlotIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    oaSfpInfoSlotIndex.setStatus("current")
+
+
+class _OaSfpInfoPortIndex_Type(Integer32):
+    """Custom type oaSfpInfoPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaSfpInfoPortIndex_Type.__name__ = "Integer32"
+_OaSfpInfoPortIndex_Object = MibTableColumn
+oaSfpInfoPortIndex = _OaSfpInfoPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 2),
+    _OaSfpInfoPortIndex_Type()
+)
+oaSfpInfoPortIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    oaSfpInfoPortIndex.setStatus("current")
+
+
+class _OaSfpInfoIdentifier_Type(Integer32):
+    """Custom type oaSfpInfoIdentifier based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("other", 2),
+          ("gbic", 3),
+          ("fixed", 4),
+          ("sfp", 5),
+          ("xbi300pin", 6),
+          ("xenpak", 7),
+          ("xfp", 8),
+          ("xff", 9),
+          ("xfpE", 10),
+          ("xpak", 11),
+          ("x2", 12),
+          ("dsfp", 13))
+    )
+
+
+_OaSfpInfoIdentifier_Type.__name__ = "Integer32"
+_OaSfpInfoIdentifier_Object = MibTableColumn
+oaSfpInfoIdentifier = _OaSfpInfoIdentifier_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 3),
+    _OaSfpInfoIdentifier_Type()
+)
+oaSfpInfoIdentifier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoIdentifier.setStatus("current")
+
+
+class _OaSfpInfoVendorSpecificIdentifier_Type(DisplayString):
+    """Custom type oaSfpInfoVendorSpecificIdentifier based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_OaSfpInfoVendorSpecificIdentifier_Type.__name__ = "DisplayString"
+_OaSfpInfoVendorSpecificIdentifier_Object = MibTableColumn
+oaSfpInfoVendorSpecificIdentifier = _OaSfpInfoVendorSpecificIdentifier_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 4),
+    _OaSfpInfoVendorSpecificIdentifier_Type()
+)
+oaSfpInfoVendorSpecificIdentifier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoVendorSpecificIdentifier.setStatus("current")
+
+
+class _OaSfpInfoConnector_Type(Integer32):
+    """Custom type oaSfpInfoConnector based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              34,
+              35)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("other", 2),
+          ("sc", 3),
+          ("fcs1cc", 4),
+          ("fcs2cc", 5),
+          ("bnctnc", 6),
+          ("fcch", 7),
+          ("fiberJack", 8),
+          ("lc", 9),
+          ("mtrj", 10),
+          ("mu", 11),
+          ("sg", 12),
+          ("opticalPigtail", 13),
+          ("hssdcii", 34),
+          ("copperPigtail", 35))
+    )
+
+
+_OaSfpInfoConnector_Type.__name__ = "Integer32"
+_OaSfpInfoConnector_Object = MibTableColumn
+oaSfpInfoConnector = _OaSfpInfoConnector_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 8),
+    _OaSfpInfoConnector_Type()
+)
+oaSfpInfoConnector.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoConnector.setStatus("current")
+
+
+class _OaSfpInfoVendorSpecificConnector_Type(DisplayString):
+    """Custom type oaSfpInfoVendorSpecificConnector based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_OaSfpInfoVendorSpecificConnector_Type.__name__ = "DisplayString"
+_OaSfpInfoVendorSpecificConnector_Object = MibTableColumn
+oaSfpInfoVendorSpecificConnector = _OaSfpInfoVendorSpecificConnector_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 9),
+    _OaSfpInfoVendorSpecificConnector_Type()
+)
+oaSfpInfoVendorSpecificConnector.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoVendorSpecificConnector.setStatus("current")
+
+
+class _OaSfpInfoTransceiver10GigaEth_Type(DisplayString):
+    """Custom type oaSfpInfoTransceiver10GigaEth based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_OaSfpInfoTransceiver10GigaEth_Type.__name__ = "DisplayString"
+_OaSfpInfoTransceiver10GigaEth_Object = MibTableColumn
+oaSfpInfoTransceiver10GigaEth = _OaSfpInfoTransceiver10GigaEth_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 18),
+    _OaSfpInfoTransceiver10GigaEth_Type()
+)
+oaSfpInfoTransceiver10GigaEth.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoTransceiver10GigaEth.setStatus("current")
+
+
+class _OaSfpInfoTransceiverInfiniband_Type(DisplayString):
+    """Custom type oaSfpInfoTransceiverInfiniband based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_OaSfpInfoTransceiverInfiniband_Type.__name__ = "DisplayString"
+_OaSfpInfoTransceiverInfiniband_Object = MibTableColumn
+oaSfpInfoTransceiverInfiniband = _OaSfpInfoTransceiverInfiniband_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 19),
+    _OaSfpInfoTransceiverInfiniband_Type()
+)
+oaSfpInfoTransceiverInfiniband.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoTransceiverInfiniband.setStatus("current")
+
+
+class _OaSfpInfoTransceiverEscon_Type(DisplayString):
+    """Custom type oaSfpInfoTransceiverEscon based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_OaSfpInfoTransceiverEscon_Type.__name__ = "DisplayString"
+_OaSfpInfoTransceiverEscon_Object = MibTableColumn
+oaSfpInfoTransceiverEscon = _OaSfpInfoTransceiverEscon_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 20),
+    _OaSfpInfoTransceiverEscon_Type()
+)
+oaSfpInfoTransceiverEscon.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoTransceiverEscon.setStatus("current")
+
+
+class _OaSfpInfoTransceiverSonet_Type(DisplayString):
+    """Custom type oaSfpInfoTransceiverSonet based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_OaSfpInfoTransceiverSonet_Type.__name__ = "DisplayString"
+_OaSfpInfoTransceiverSonet_Object = MibTableColumn
+oaSfpInfoTransceiverSonet = _OaSfpInfoTransceiverSonet_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 21),
+    _OaSfpInfoTransceiverSonet_Type()
+)
+oaSfpInfoTransceiverSonet.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoTransceiverSonet.setStatus("current")
+
+
+class _OaSfpInfoTransceiverEthernet_Type(DisplayString):
+    """Custom type oaSfpInfoTransceiverEthernet based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_OaSfpInfoTransceiverEthernet_Type.__name__ = "DisplayString"
+_OaSfpInfoTransceiverEthernet_Object = MibTableColumn
+oaSfpInfoTransceiverEthernet = _OaSfpInfoTransceiverEthernet_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 22),
+    _OaSfpInfoTransceiverEthernet_Type()
+)
+oaSfpInfoTransceiverEthernet.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoTransceiverEthernet.setStatus("current")
+
+
+class _OaSfpInfoTransceiverFibreChannel_Type(DisplayString):
+    """Custom type oaSfpInfoTransceiverFibreChannel based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_OaSfpInfoTransceiverFibreChannel_Type.__name__ = "DisplayString"
+_OaSfpInfoTransceiverFibreChannel_Object = MibTableColumn
+oaSfpInfoTransceiverFibreChannel = _OaSfpInfoTransceiverFibreChannel_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 23),
+    _OaSfpInfoTransceiverFibreChannel_Type()
+)
+oaSfpInfoTransceiverFibreChannel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoTransceiverFibreChannel.setStatus("current")
+
+
+class _OaSfpInfoVendorName_Type(DisplayString):
+    """Custom type oaSfpInfoVendorName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_OaSfpInfoVendorName_Type.__name__ = "DisplayString"
+_OaSfpInfoVendorName_Object = MibTableColumn
+oaSfpInfoVendorName = _OaSfpInfoVendorName_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 24),
+    _OaSfpInfoVendorName_Type()
+)
+oaSfpInfoVendorName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoVendorName.setStatus("current")
+
+
+class _OaSfpInfoVendorOUI_Type(DisplayString):
+    """Custom type oaSfpInfoVendorOUI based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(3, 3),
+    )
+    fixed_length = 3
+
+
+_OaSfpInfoVendorOUI_Type.__name__ = "DisplayString"
+_OaSfpInfoVendorOUI_Object = MibTableColumn
+oaSfpInfoVendorOUI = _OaSfpInfoVendorOUI_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 25),
+    _OaSfpInfoVendorOUI_Type()
+)
+oaSfpInfoVendorOUI.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoVendorOUI.setStatus("current")
+
+
+class _OaSfpInfoVendorPN_Type(DisplayString):
+    """Custom type oaSfpInfoVendorPN based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_OaSfpInfoVendorPN_Type.__name__ = "DisplayString"
+_OaSfpInfoVendorPN_Object = MibTableColumn
+oaSfpInfoVendorPN = _OaSfpInfoVendorPN_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 26),
+    _OaSfpInfoVendorPN_Type()
+)
+oaSfpInfoVendorPN.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoVendorPN.setStatus("current")
+
+
+class _OaSfpInfoVendorRev_Type(DisplayString):
+    """Custom type oaSfpInfoVendorRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 4),
+    )
+
+
+_OaSfpInfoVendorRev_Type.__name__ = "DisplayString"
+_OaSfpInfoVendorRev_Object = MibTableColumn
+oaSfpInfoVendorRev = _OaSfpInfoVendorRev_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 27),
+    _OaSfpInfoVendorRev_Type()
+)
+oaSfpInfoVendorRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoVendorRev.setStatus("current")
+_OaSfpInfoLaserWavelength_Type = Integer32
+_OaSfpInfoLaserWavelength_Object = MibTableColumn
+oaSfpInfoLaserWavelength = _OaSfpInfoLaserWavelength_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 28),
+    _OaSfpInfoLaserWavelength_Type()
+)
+oaSfpInfoLaserWavelength.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoLaserWavelength.setStatus("current")
+if mibBuilder.loadTexts:
+    oaSfpInfoLaserWavelength.setUnits("0.01 Nano Meter(nm)")
+
+
+class _OaSfpTunability_Type(Integer32):
+    """Custom type oaSfpTunability based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("tunable", 2),
+          ("nonTunable", 3))
+    )
+
+
+_OaSfpTunability_Type.__name__ = "Integer32"
+_OaSfpTunability_Object = MibTableColumn
+oaSfpTunability = _OaSfpTunability_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 29),
+    _OaSfpTunability_Type()
+)
+oaSfpTunability.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpTunability.setStatus("current")
+
+
+class _OaSfpInfoVendorSN_Type(DisplayString):
+    """Custom type oaSfpInfoVendorSN based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_OaSfpInfoVendorSN_Type.__name__ = "DisplayString"
+_OaSfpInfoVendorSN_Object = MibTableColumn
+oaSfpInfoVendorSN = _OaSfpInfoVendorSN_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 32),
+    _OaSfpInfoVendorSN_Type()
+)
+oaSfpInfoVendorSN.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoVendorSN.setStatus("current")
+
+
+class _OaSfpInfoVendorDate_Type(DisplayString):
+    """Custom type oaSfpInfoVendorDate based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_OaSfpInfoVendorDate_Type.__name__ = "DisplayString"
+_OaSfpInfoVendorDate_Object = MibTableColumn
+oaSfpInfoVendorDate = _OaSfpInfoVendorDate_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 33),
+    _OaSfpInfoVendorDate_Type()
+)
+oaSfpInfoVendorDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoVendorDate.setStatus("current")
+
+
+class _OaSfpInfoVendorSpecificLotCode_Type(DisplayString):
+    """Custom type oaSfpInfoVendorSpecificLotCode based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_OaSfpInfoVendorSpecificLotCode_Type.__name__ = "DisplayString"
+_OaSfpInfoVendorSpecificLotCode_Object = MibTableColumn
+oaSfpInfoVendorSpecificLotCode = _OaSfpInfoVendorSpecificLotCode_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 34),
+    _OaSfpInfoVendorSpecificLotCode_Type()
+)
+oaSfpInfoVendorSpecificLotCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoVendorSpecificLotCode.setStatus("current")
+
+
+class _OaSfpInfoVendorSpecificData_Type(OctetString):
+    """Custom type oaSfpInfoVendorSpecificData based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_OaSfpInfoVendorSpecificData_Type.__name__ = "OctetString"
+_OaSfpInfoVendorSpecificData_Object = MibTableColumn
+oaSfpInfoVendorSpecificData = _OaSfpInfoVendorSpecificData_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 35),
+    _OaSfpInfoVendorSpecificData_Type()
+)
+oaSfpInfoVendorSpecificData.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoVendorSpecificData.setStatus("current")
+
+
+class _OaSfpInfoDiagnosticPowerType_Type(Integer32):
+    """Custom type oaSfpInfoDiagnosticPowerType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("average", 2),
+          ("oma", 3))
+    )
+
+
+_OaSfpInfoDiagnosticPowerType_Type.__name__ = "Integer32"
+_OaSfpInfoDiagnosticPowerType_Object = MibTableColumn
+oaSfpInfoDiagnosticPowerType = _OaSfpInfoDiagnosticPowerType_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 36),
+    _OaSfpInfoDiagnosticPowerType_Type()
+)
+oaSfpInfoDiagnosticPowerType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoDiagnosticPowerType.setStatus("current")
+
+
+class _OaSfpInfoDigitalDiagnostic_Type(Integer32):
+    """Custom type oaSfpInfoDigitalDiagnostic based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("digitalDiagnostic", 2),
+          ("noDigitalDiagnostic", 3))
+    )
+
+
+_OaSfpInfoDigitalDiagnostic_Type.__name__ = "Integer32"
+_OaSfpInfoDigitalDiagnostic_Object = MibTableColumn
+oaSfpInfoDigitalDiagnostic = _OaSfpInfoDigitalDiagnostic_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 37),
+    _OaSfpInfoDigitalDiagnostic_Type()
+)
+oaSfpInfoDigitalDiagnostic.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoDigitalDiagnostic.setStatus("current")
+
+
+class _OaSfpInfoDiagnosticCalibration_Type(Integer32):
+    """Custom type oaSfpInfoDiagnosticCalibration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("externalCalibration", 2),
+          ("internalCalibration", 3))
+    )
+
+
+_OaSfpInfoDiagnosticCalibration_Type.__name__ = "Integer32"
+_OaSfpInfoDiagnosticCalibration_Object = MibTableColumn
+oaSfpInfoDiagnosticCalibration = _OaSfpInfoDiagnosticCalibration_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 38),
+    _OaSfpInfoDiagnosticCalibration_Type()
+)
+oaSfpInfoDiagnosticCalibration.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoDiagnosticCalibration.setStatus("current")
+
+
+class _OaSfpInfoInstalledStatus_Type(Integer32):
+    """Custom type oaSfpInfoInstalledStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("notInstalled", 2),
+          ("installed", 3))
+    )
+
+
+_OaSfpInfoInstalledStatus_Type.__name__ = "Integer32"
+_OaSfpInfoInstalledStatus_Object = MibTableColumn
+oaSfpInfoInstalledStatus = _OaSfpInfoInstalledStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 40),
+    _OaSfpInfoInstalledStatus_Type()
+)
+oaSfpInfoInstalledStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoInstalledStatus.setStatus("current")
+
+
+class _OaSfpInfofaultStatus_Type(Integer32):
+    """Custom type oaSfpInfofaultStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("faulty", 2),
+          ("operational", 3))
+    )
+
+
+_OaSfpInfofaultStatus_Type.__name__ = "Integer32"
+_OaSfpInfofaultStatus_Object = MibTableColumn
+oaSfpInfofaultStatus = _OaSfpInfofaultStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 41),
+    _OaSfpInfofaultStatus_Type()
+)
+oaSfpInfofaultStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfofaultStatus.setStatus("current")
+
+
+class _OaSfpInfoEnableStatus_Type(Integer32):
+    """Custom type oaSfpInfoEnableStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("enabled", 2),
+          ("disabled", 3))
+    )
+
+
+_OaSfpInfoEnableStatus_Type.__name__ = "Integer32"
+_OaSfpInfoEnableStatus_Object = MibTableColumn
+oaSfpInfoEnableStatus = _OaSfpInfoEnableStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 42),
+    _OaSfpInfoEnableStatus_Type()
+)
+oaSfpInfoEnableStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoEnableStatus.setStatus("current")
+
+
+class _OaSfpInfoUnitName_Type(DisplayString):
+    """Custom type oaSfpInfoUnitName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 29),
+    )
+
+
+_OaSfpInfoUnitName_Type.__name__ = "DisplayString"
+_OaSfpInfoUnitName_Object = MibTableColumn
+oaSfpInfoUnitName = _OaSfpInfoUnitName_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 43),
+    _OaSfpInfoUnitName_Type()
+)
+oaSfpInfoUnitName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoUnitName.setStatus("current")
+
+
+class _OaSfpInfoFiberType_Type(DisplayString):
+    """Custom type oaSfpInfoFiberType based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 9),
+    )
+
+
+_OaSfpInfoFiberType_Type.__name__ = "DisplayString"
+_OaSfpInfoFiberType_Object = MibTableColumn
+oaSfpInfoFiberType = _OaSfpInfoFiberType_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 44),
+    _OaSfpInfoFiberType_Type()
+)
+oaSfpInfoFiberType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoFiberType.setStatus("current")
+
+
+class _OaSfpInfoReach_Type(DisplayString):
+    """Custom type oaSfpInfoReach based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_OaSfpInfoReach_Type.__name__ = "DisplayString"
+_OaSfpInfoReach_Object = MibTableColumn
+oaSfpInfoReach = _OaSfpInfoReach_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 45),
+    _OaSfpInfoReach_Type()
+)
+oaSfpInfoReach.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoReach.setStatus("current")
+
+
+class _OaSfpInfoConnectorType_Type(DisplayString):
+    """Custom type oaSfpInfoConnectorType based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 4),
+    )
+
+
+_OaSfpInfoConnectorType_Type.__name__ = "DisplayString"
+_OaSfpInfoConnectorType_Object = MibTableColumn
+oaSfpInfoConnectorType = _OaSfpInfoConnectorType_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 46),
+    _OaSfpInfoConnectorType_Type()
+)
+oaSfpInfoConnectorType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoConnectorType.setStatus("current")
+
+
+class _OaSfpInfoItemNum_Type(DisplayString):
+    """Custom type oaSfpInfoItemNum based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_OaSfpInfoItemNum_Type.__name__ = "DisplayString"
+_OaSfpInfoItemNum_Object = MibTableColumn
+oaSfpInfoItemNum = _OaSfpInfoItemNum_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 47),
+    _OaSfpInfoItemNum_Type()
+)
+oaSfpInfoItemNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoItemNum.setStatus("current")
+
+
+class _OaSfpInfoHWRev_Type(DisplayString):
+    """Custom type oaSfpInfoHWRev based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_OaSfpInfoHWRev_Type.__name__ = "DisplayString"
+_OaSfpInfoHWRev_Object = MibTableColumn
+oaSfpInfoHWRev = _OaSfpInfoHWRev_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 48),
+    _OaSfpInfoHWRev_Type()
+)
+oaSfpInfoHWRev.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoHWRev.setStatus("current")
+
+
+class _OaSfpInfoCleiCode_Type(DisplayString):
+    """Custom type oaSfpInfoCleiCode based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 12),
+    )
+
+
+_OaSfpInfoCleiCode_Type.__name__ = "DisplayString"
+_OaSfpInfoCleiCode_Object = MibTableColumn
+oaSfpInfoCleiCode = _OaSfpInfoCleiCode_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 49),
+    _OaSfpInfoCleiCode_Type()
+)
+oaSfpInfoCleiCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoCleiCode.setStatus("current")
+
+
+class _OaSfpInfoPageA2hSN_Type(DisplayString):
+    """Custom type oaSfpInfoPageA2hSN based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 26),
+    )
+
+
+_OaSfpInfoPageA2hSN_Type.__name__ = "DisplayString"
+_OaSfpInfoPageA2hSN_Object = MibTableColumn
+oaSfpInfoPageA2hSN = _OaSfpInfoPageA2hSN_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 50),
+    _OaSfpInfoPageA2hSN_Type()
+)
+oaSfpInfoPageA2hSN.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoPageA2hSN.setStatus("current")
+
+
+class _OaSfpInfoManufactureDate_Type(DisplayString):
+    """Custom type oaSfpInfoManufactureDate based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 12),
+    )
+
+
+_OaSfpInfoManufactureDate_Type.__name__ = "DisplayString"
+_OaSfpInfoManufactureDate_Object = MibTableColumn
+oaSfpInfoManufactureDate = _OaSfpInfoManufactureDate_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 51),
+    _OaSfpInfoManufactureDate_Type()
+)
+oaSfpInfoManufactureDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoManufactureDate.setStatus("current")
+
+
+class _OaSfpInfoManufactureID_Type(DisplayString):
+    """Custom type oaSfpInfoManufactureID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 119),
+    )
+
+
+_OaSfpInfoManufactureID_Type.__name__ = "DisplayString"
+_OaSfpInfoManufactureID_Object = MibTableColumn
+oaSfpInfoManufactureID = _OaSfpInfoManufactureID_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 2, 1, 52),
+    _OaSfpInfoManufactureID_Type()
+)
+oaSfpInfoManufactureID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpInfoManufactureID.setStatus("current")
+_OaSfpDiagnosticTable_Object = MibTable
+oaSfpDiagnosticTable = _OaSfpDiagnosticTable_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticTable.setStatus("current")
+_OaSfpDiagnosticEntry_Object = MibTableRow
+oaSfpDiagnosticEntry = _OaSfpDiagnosticEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1)
+)
+oaSfpDiagnosticEntry.setIndexNames(
+    (0, "OA-SFP-MIB", "oaSfpDiagnosticSlotIndex"),
+    (0, "OA-SFP-MIB", "oaSfpDiagnosticPortIndex"),
+)
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticEntry.setStatus("current")
+
+
+class _OaSfpDiagnosticSlotIndex_Type(Integer32):
+    """Custom type oaSfpDiagnosticSlotIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaSfpDiagnosticSlotIndex_Type.__name__ = "Integer32"
+_OaSfpDiagnosticSlotIndex_Object = MibTableColumn
+oaSfpDiagnosticSlotIndex = _OaSfpDiagnosticSlotIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 1),
+    _OaSfpDiagnosticSlotIndex_Type()
+)
+oaSfpDiagnosticSlotIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticSlotIndex.setStatus("current")
+
+
+class _OaSfpDiagnosticPortIndex_Type(Integer32):
+    """Custom type oaSfpDiagnosticPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaSfpDiagnosticPortIndex_Type.__name__ = "Integer32"
+_OaSfpDiagnosticPortIndex_Object = MibTableColumn
+oaSfpDiagnosticPortIndex = _OaSfpDiagnosticPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 2),
+    _OaSfpDiagnosticPortIndex_Type()
+)
+oaSfpDiagnosticPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticPortIndex.setStatus("current")
+_OaSfpDiagnosticTemperature_Type = Integer32
+_OaSfpDiagnosticTemperature_Object = MibTableColumn
+oaSfpDiagnosticTemperature = _OaSfpDiagnosticTemperature_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 3),
+    _OaSfpDiagnosticTemperature_Type()
+)
+oaSfpDiagnosticTemperature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticTemperature.setStatus("current")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticTemperature.setUnits("1/10 degrees Celsius (C)")
+_OaSfpDiagnosticVcc_Type = Integer32
+_OaSfpDiagnosticVcc_Object = MibTableColumn
+oaSfpDiagnosticVcc = _OaSfpDiagnosticVcc_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 4),
+    _OaSfpDiagnosticVcc_Type()
+)
+oaSfpDiagnosticVcc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticVcc.setStatus("current")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticVcc.setUnits("100 micro Volts (V)")
+_OaSfpDiagnosticTxBias_Type = Integer32
+_OaSfpDiagnosticTxBias_Object = MibTableColumn
+oaSfpDiagnosticTxBias = _OaSfpDiagnosticTxBias_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 5),
+    _OaSfpDiagnosticTxBias_Type()
+)
+oaSfpDiagnosticTxBias.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticTxBias.setStatus("current")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticTxBias.setUnits("1 micro Amperes (A)")
+_OaSfpDiagnosticTxPower_Type = Integer32
+_OaSfpDiagnosticTxPower_Object = MibTableColumn
+oaSfpDiagnosticTxPower = _OaSfpDiagnosticTxPower_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 6),
+    _OaSfpDiagnosticTxPower_Type()
+)
+oaSfpDiagnosticTxPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticTxPower.setStatus("current")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticTxPower.setUnits("0.01 decibel (dBm)")
+_OaSfpDiagnosticRxPower_Type = Integer32
+_OaSfpDiagnosticRxPower_Object = MibTableColumn
+oaSfpDiagnosticRxPower = _OaSfpDiagnosticRxPower_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 3, 1, 7),
+    _OaSfpDiagnosticRxPower_Type()
+)
+oaSfpDiagnosticRxPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticRxPower.setStatus("current")
+if mibBuilder.loadTexts:
+    oaSfpDiagnosticRxPower.setUnits("0.01 decibel (dBm)")
+_OaSfpRatesSupportedTable_Object = MibTable
+oaSfpRatesSupportedTable = _OaSfpRatesSupportedTable_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    oaSfpRatesSupportedTable.setStatus("current")
+_OaSfpRatesSupportedEntry_Object = MibTableRow
+oaSfpRatesSupportedEntry = _OaSfpRatesSupportedEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 4, 1)
+)
+oaSfpRatesSupportedEntry.setIndexNames(
+    (0, "OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+    (0, "OA-SFP-MIB", "oaSfpInfoPortIndex"),
+    (0, "OA-SFP-MIB", "oaSfpRatesSupportedIndex"),
+)
+if mibBuilder.loadTexts:
+    oaSfpRatesSupportedEntry.setStatus("current")
+_OaSfpRatesSupportedIndex_Type = Unsigned32
+_OaSfpRatesSupportedIndex_Object = MibTableColumn
+oaSfpRatesSupportedIndex = _OaSfpRatesSupportedIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 4, 1, 3),
+    _OaSfpRatesSupportedIndex_Type()
+)
+oaSfpRatesSupportedIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaSfpRatesSupportedIndex.setStatus("current")
+_OaSfpRatesSupportedValue_Type = Unsigned32
+_OaSfpRatesSupportedValue_Object = MibTableColumn
+oaSfpRatesSupportedValue = _OaSfpRatesSupportedValue_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 1, 4, 1, 4),
+    _OaSfpRatesSupportedValue_Type()
+)
+oaSfpRatesSupportedValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaSfpRatesSupportedValue.setStatus("current")
+if mibBuilder.loadTexts:
+    oaSfpRatesSupportedValue.setUnits("Mbps")
+_OaXfpMIBObjects_ObjectIdentity = ObjectIdentity
+oaXfpMIBObjects = _OaXfpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2)
+)
+_OaXfpCompatibleInterfaceCount_Type = Integer32
+_OaXfpCompatibleInterfaceCount_Object = MibScalar
+oaXfpCompatibleInterfaceCount = _OaXfpCompatibleInterfaceCount_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 1),
+    _OaXfpCompatibleInterfaceCount_Type()
+)
+oaXfpCompatibleInterfaceCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaXfpCompatibleInterfaceCount.setStatus("current")
+_OaXfpInfoTable_Object = MibTable
+oaXfpInfoTable = _OaXfpInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    oaXfpInfoTable.setStatus("current")
+_OaXfpInfoEntry_Object = MibTableRow
+oaXfpInfoEntry = _OaXfpInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 2, 1)
+)
+oaXfpInfoEntry.setIndexNames(
+    (0, "OA-SFP-MIB", "oaXfpInfoSlotIndex"),
+    (0, "OA-SFP-MIB", "oaXfpInfoPortIndex"),
+)
+if mibBuilder.loadTexts:
+    oaXfpInfoEntry.setStatus("current")
+
+
+class _OaXfpInfoSlotIndex_Type(Integer32):
+    """Custom type oaXfpInfoSlotIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaXfpInfoSlotIndex_Type.__name__ = "Integer32"
+_OaXfpInfoSlotIndex_Object = MibTableColumn
+oaXfpInfoSlotIndex = _OaXfpInfoSlotIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 2, 1, 1),
+    _OaXfpInfoSlotIndex_Type()
+)
+oaXfpInfoSlotIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaXfpInfoSlotIndex.setStatus("current")
+
+
+class _OaXfpInfoPortIndex_Type(Integer32):
+    """Custom type oaXfpInfoPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaXfpInfoPortIndex_Type.__name__ = "Integer32"
+_OaXfpInfoPortIndex_Object = MibTableColumn
+oaXfpInfoPortIndex = _OaXfpInfoPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 2, 1, 2),
+    _OaXfpInfoPortIndex_Type()
+)
+oaXfpInfoPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaXfpInfoPortIndex.setStatus("current")
+_OaXfpInfoLaserWavelengthTolerance_Type = Integer32
+_OaXfpInfoLaserWavelengthTolerance_Object = MibTableColumn
+oaXfpInfoLaserWavelengthTolerance = _OaXfpInfoLaserWavelengthTolerance_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 2, 1, 28),
+    _OaXfpInfoLaserWavelengthTolerance_Type()
+)
+oaXfpInfoLaserWavelengthTolerance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaXfpInfoLaserWavelengthTolerance.setStatus("current")
+if mibBuilder.loadTexts:
+    oaXfpInfoLaserWavelengthTolerance.setUnits("0.001 Nano Meter(nm)")
+_OaXfpTunTable_Object = MibTable
+oaXfpTunTable = _OaXfpTunTable_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    oaXfpTunTable.setStatus("current")
+_OaXfpTunEntry_Object = MibTableRow
+oaXfpTunEntry = _OaXfpTunEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1)
+)
+oaXfpTunEntry.setIndexNames(
+    (0, "OA-SFP-MIB", "oaXfpTunSlotIndex"),
+    (0, "OA-SFP-MIB", "oaXfpTunPortIndex"),
+)
+if mibBuilder.loadTexts:
+    oaXfpTunEntry.setStatus("current")
+
+
+class _OaXfpTunSlotIndex_Type(Integer32):
+    """Custom type oaXfpTunSlotIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaXfpTunSlotIndex_Type.__name__ = "Integer32"
+_OaXfpTunSlotIndex_Object = MibTableColumn
+oaXfpTunSlotIndex = _OaXfpTunSlotIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 1),
+    _OaXfpTunSlotIndex_Type()
+)
+oaXfpTunSlotIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaXfpTunSlotIndex.setStatus("current")
+
+
+class _OaXfpTunPortIndex_Type(Integer32):
+    """Custom type oaXfpTunPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaXfpTunPortIndex_Type.__name__ = "Integer32"
+_OaXfpTunPortIndex_Object = MibTableColumn
+oaXfpTunPortIndex = _OaXfpTunPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 2),
+    _OaXfpTunPortIndex_Type()
+)
+oaXfpTunPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaXfpTunPortIndex.setStatus("current")
+_OaXfpTunLaserFirstFrequency_Type = Integer32
+_OaXfpTunLaserFirstFrequency_Object = MibTableColumn
+oaXfpTunLaserFirstFrequency = _OaXfpTunLaserFirstFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 3),
+    _OaXfpTunLaserFirstFrequency_Type()
+)
+oaXfpTunLaserFirstFrequency.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaXfpTunLaserFirstFrequency.setStatus("current")
+if mibBuilder.loadTexts:
+    oaXfpTunLaserFirstFrequency.setUnits("0.001 Terahertz(THz)")
+_OaXfpTunLaserLastFrequency_Type = Integer32
+_OaXfpTunLaserLastFrequency_Object = MibTableColumn
+oaXfpTunLaserLastFrequency = _OaXfpTunLaserLastFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 4),
+    _OaXfpTunLaserLastFrequency_Type()
+)
+oaXfpTunLaserLastFrequency.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaXfpTunLaserLastFrequency.setStatus("current")
+if mibBuilder.loadTexts:
+    oaXfpTunLaserLastFrequency.setUnits("0.001 Terahertz(THz)")
+
+
+class _OaXfpTunGridSpacing_Type(Integer32):
+    """Custom type oaXfpTunGridSpacing based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("g200", 2),
+          ("g100", 3),
+          ("g50", 4),
+          ("g25", 5))
+    )
+
+
+_OaXfpTunGridSpacing_Type.__name__ = "Integer32"
+_OaXfpTunGridSpacing_Object = MibTableColumn
+oaXfpTunGridSpacing = _OaXfpTunGridSpacing_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 5),
+    _OaXfpTunGridSpacing_Type()
+)
+oaXfpTunGridSpacing.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaXfpTunGridSpacing.setStatus("current")
+
+
+class _OaXfpTunLaserItuBand_Type(Integer32):
+    """Custom type oaXfpTunLaserItuBand based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("cBand", 2),
+          ("lBand", 3),
+          ("sBand", 4))
+    )
+
+
+_OaXfpTunLaserItuBand_Type.__name__ = "Integer32"
+_OaXfpTunLaserItuBand_Object = MibTableColumn
+oaXfpTunLaserItuBand = _OaXfpTunLaserItuBand_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 6),
+    _OaXfpTunLaserItuBand_Type()
+)
+oaXfpTunLaserItuBand.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaXfpTunLaserItuBand.setStatus("current")
+_OaXfpTunLaserItuCh_Type = Integer32
+_OaXfpTunLaserItuCh_Object = MibTableColumn
+oaXfpTunLaserItuCh = _OaXfpTunLaserItuCh_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 2, 3, 1, 7),
+    _OaXfpTunLaserItuCh_Type()
+)
+oaXfpTunLaserItuCh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oaXfpTunLaserItuCh.setStatus("current")
+_OaDsfpMIBObjects_ObjectIdentity = ObjectIdentity
+oaDsfpMIBObjects = _OaDsfpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3)
+)
+_OaDsfpCompatibleInterfaceCount_Type = Integer32
+_OaDsfpCompatibleInterfaceCount_Object = MibScalar
+oaDsfpCompatibleInterfaceCount = _OaDsfpCompatibleInterfaceCount_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 1),
+    _OaDsfpCompatibleInterfaceCount_Type()
+)
+oaDsfpCompatibleInterfaceCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaDsfpCompatibleInterfaceCount.setStatus("current")
+_OaDsfpInfoTable_Object = MibTable
+oaDsfpInfoTable = _OaDsfpInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    oaDsfpInfoTable.setStatus("current")
+_OaDsfpInfoEntry_Object = MibTableRow
+oaDsfpInfoEntry = _OaDsfpInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2, 1)
+)
+oaDsfpInfoEntry.setIndexNames(
+    (0, "OA-SFP-MIB", "oaDsfpInfoSlotIndex"),
+    (0, "OA-SFP-MIB", "oaDsfpInfoPortIndex"),
+)
+if mibBuilder.loadTexts:
+    oaDsfpInfoEntry.setStatus("current")
+
+
+class _OaDsfpInfoSlotIndex_Type(Integer32):
+    """Custom type oaDsfpInfoSlotIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaDsfpInfoSlotIndex_Type.__name__ = "Integer32"
+_OaDsfpInfoSlotIndex_Object = MibTableColumn
+oaDsfpInfoSlotIndex = _OaDsfpInfoSlotIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2, 1, 1),
+    _OaDsfpInfoSlotIndex_Type()
+)
+oaDsfpInfoSlotIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaDsfpInfoSlotIndex.setStatus("current")
+
+
+class _OaDsfpInfoPortIndex_Type(Integer32):
+    """Custom type oaDsfpInfoPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaDsfpInfoPortIndex_Type.__name__ = "Integer32"
+_OaDsfpInfoPortIndex_Object = MibTableColumn
+oaDsfpInfoPortIndex = _OaDsfpInfoPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2, 1, 2),
+    _OaDsfpInfoPortIndex_Type()
+)
+oaDsfpInfoPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaDsfpInfoPortIndex.setStatus("current")
+
+
+class _OaDsfpInfoChannelSpacing_Type(Integer32):
+    """Custom type oaDsfpInfoChannelSpacing based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("g200", 2),
+          ("g100", 3),
+          ("g50", 4))
+    )
+
+
+_OaDsfpInfoChannelSpacing_Type.__name__ = "Integer32"
+_OaDsfpInfoChannelSpacing_Object = MibTableColumn
+oaDsfpInfoChannelSpacing = _OaDsfpInfoChannelSpacing_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2, 1, 4),
+    _OaDsfpInfoChannelSpacing_Type()
+)
+oaDsfpInfoChannelSpacing.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaDsfpInfoChannelSpacing.setStatus("current")
+_OaDsfpInfoChannelTuning_Type = Integer32
+_OaDsfpInfoChannelTuning_Object = MibTableColumn
+oaDsfpInfoChannelTuning = _OaDsfpInfoChannelTuning_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 3, 2, 1, 5),
+    _OaDsfpInfoChannelTuning_Type()
+)
+oaDsfpInfoChannelTuning.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaDsfpInfoChannelTuning.setStatus("current")
+_OaMsa300PinMIBObjects_ObjectIdentity = ObjectIdentity
+oaMsa300PinMIBObjects = _OaMsa300PinMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4)
+)
+_OaMsa300PinCompatibleIfCount_Type = Integer32
+_OaMsa300PinCompatibleIfCount_Object = MibScalar
+oaMsa300PinCompatibleIfCount = _OaMsa300PinCompatibleIfCount_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 1),
+    _OaMsa300PinCompatibleIfCount_Type()
+)
+oaMsa300PinCompatibleIfCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinCompatibleIfCount.setStatus("current")
+_OaMsa300PinIdTable_Object = MibTable
+oaMsa300PinIdTable = _OaMsa300PinIdTable_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2)
+)
+if mibBuilder.loadTexts:
+    oaMsa300PinIdTable.setStatus("current")
+_OaMsa300PinIdEntry_Object = MibTableRow
+oaMsa300PinIdEntry = _OaMsa300PinIdEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1)
+)
+oaMsa300PinIdEntry.setIndexNames(
+    (0, "OA-SFP-MIB", "oaMsa300PinIdSlotIndex"),
+    (0, "OA-SFP-MIB", "oaMsa300PinIdPortIndex"),
+)
+if mibBuilder.loadTexts:
+    oaMsa300PinIdEntry.setStatus("current")
+
+
+class _OaMsa300PinIdSlotIndex_Type(Integer32):
+    """Custom type oaMsa300PinIdSlotIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaMsa300PinIdSlotIndex_Type.__name__ = "Integer32"
+_OaMsa300PinIdSlotIndex_Object = MibTableColumn
+oaMsa300PinIdSlotIndex = _OaMsa300PinIdSlotIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 1),
+    _OaMsa300PinIdSlotIndex_Type()
+)
+oaMsa300PinIdSlotIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdSlotIndex.setStatus("current")
+
+
+class _OaMsa300PinIdPortIndex_Type(Integer32):
+    """Custom type oaMsa300PinIdPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaMsa300PinIdPortIndex_Type.__name__ = "Integer32"
+_OaMsa300PinIdPortIndex_Object = MibTableColumn
+oaMsa300PinIdPortIndex = _OaMsa300PinIdPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 2),
+    _OaMsa300PinIdPortIndex_Type()
+)
+oaMsa300PinIdPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdPortIndex.setStatus("current")
+
+
+class _OaMsa300PinIdModuleTypeCode_Type(Integer32):
+    """Custom type oaMsa300PinIdModuleTypeCode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              6,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("msa10Gb", 6),
+          ("msa10GbWdm", 8))
+    )
+
+
+_OaMsa300PinIdModuleTypeCode_Type.__name__ = "Integer32"
+_OaMsa300PinIdModuleTypeCode_Object = MibTableColumn
+oaMsa300PinIdModuleTypeCode = _OaMsa300PinIdModuleTypeCode_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 4),
+    _OaMsa300PinIdModuleTypeCode_Type()
+)
+oaMsa300PinIdModuleTypeCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdModuleTypeCode.setStatus("current")
+
+
+class _OaMsa300PinIdFirstLaserItuBand_Type(Integer32):
+    """Custom type oaMsa300PinIdFirstLaserItuBand based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("cBand", 2),
+          ("lBand", 3),
+          ("sBand", 4))
+    )
+
+
+_OaMsa300PinIdFirstLaserItuBand_Type.__name__ = "Integer32"
+_OaMsa300PinIdFirstLaserItuBand_Object = MibTableColumn
+oaMsa300PinIdFirstLaserItuBand = _OaMsa300PinIdFirstLaserItuBand_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 6),
+    _OaMsa300PinIdFirstLaserItuBand_Type()
+)
+oaMsa300PinIdFirstLaserItuBand.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdFirstLaserItuBand.setStatus("current")
+_OaMsa300PinIdFirstLaserItuCh_Type = Integer32
+_OaMsa300PinIdFirstLaserItuCh_Object = MibTableColumn
+oaMsa300PinIdFirstLaserItuCh = _OaMsa300PinIdFirstLaserItuCh_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 7),
+    _OaMsa300PinIdFirstLaserItuCh_Type()
+)
+oaMsa300PinIdFirstLaserItuCh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdFirstLaserItuCh.setStatus("current")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdFirstLaserItuCh.setUnits("0.01 Nano Meter(nm)")
+
+
+class _OaMsa300PinIdLastLaserItuBand_Type(Integer32):
+    """Custom type oaMsa300PinIdLastLaserItuBand based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("cBand", 2),
+          ("lBand", 3),
+          ("sBand", 4))
+    )
+
+
+_OaMsa300PinIdLastLaserItuBand_Type.__name__ = "Integer32"
+_OaMsa300PinIdLastLaserItuBand_Object = MibTableColumn
+oaMsa300PinIdLastLaserItuBand = _OaMsa300PinIdLastLaserItuBand_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 8),
+    _OaMsa300PinIdLastLaserItuBand_Type()
+)
+oaMsa300PinIdLastLaserItuBand.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdLastLaserItuBand.setStatus("current")
+_OaMsa300PinIdLastLaserItuCh_Type = Integer32
+_OaMsa300PinIdLastLaserItuCh_Object = MibTableColumn
+oaMsa300PinIdLastLaserItuCh = _OaMsa300PinIdLastLaserItuCh_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 9),
+    _OaMsa300PinIdLastLaserItuCh_Type()
+)
+oaMsa300PinIdLastLaserItuCh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdLastLaserItuCh.setStatus("current")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdLastLaserItuCh.setUnits("0.01 Nano Meter(nm)")
+
+
+class _OaMsa300PinIdLaserItuChSpacing_Type(Integer32):
+    """Custom type oaMsa300PinIdLaserItuChSpacing based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("g200", 2),
+          ("g100", 3),
+          ("g50", 4),
+          ("g25", 5))
+    )
+
+
+_OaMsa300PinIdLaserItuChSpacing_Type.__name__ = "Integer32"
+_OaMsa300PinIdLaserItuChSpacing_Object = MibTableColumn
+oaMsa300PinIdLaserItuChSpacing = _OaMsa300PinIdLaserItuChSpacing_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 10),
+    _OaMsa300PinIdLaserItuChSpacing_Type()
+)
+oaMsa300PinIdLaserItuChSpacing.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdLaserItuChSpacing.setStatus("current")
+
+
+class _OaMsa300PinIdModuleDistanceType_Type(Integer32):
+    """Custom type oaMsa300PinIdModuleDistanceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("msa40Km", 2),
+          ("msa80Km", 3),
+          ("msa120Km", 4),
+          ("msa160Km", 5),
+          ("msa200Km", 6),
+          ("msa340Km", 7))
+    )
+
+
+_OaMsa300PinIdModuleDistanceType_Type.__name__ = "Integer32"
+_OaMsa300PinIdModuleDistanceType_Object = MibTableColumn
+oaMsa300PinIdModuleDistanceType = _OaMsa300PinIdModuleDistanceType_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 11),
+    _OaMsa300PinIdModuleDistanceType_Type()
+)
+oaMsa300PinIdModuleDistanceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdModuleDistanceType.setStatus("current")
+_OaMsa300PinIdMinDispDist_Type = Integer32
+_OaMsa300PinIdMinDispDist_Object = MibTableColumn
+oaMsa300PinIdMinDispDist = _OaMsa300PinIdMinDispDist_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 12),
+    _OaMsa300PinIdMinDispDist_Type()
+)
+oaMsa300PinIdMinDispDist.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdMinDispDist.setStatus("current")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdMinDispDist.setUnits("ps/nm")
+_OaMsa300PinIdMaxDispDist_Type = Integer32
+_OaMsa300PinIdMaxDispDist_Object = MibTableColumn
+oaMsa300PinIdMaxDispDist = _OaMsa300PinIdMaxDispDist_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 2, 1, 13),
+    _OaMsa300PinIdMaxDispDist_Type()
+)
+oaMsa300PinIdMaxDispDist.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdMaxDispDist.setStatus("current")
+if mibBuilder.loadTexts:
+    oaMsa300PinIdMaxDispDist.setUnits("ps/nm")
+_OaMsa300PinMeasTable_Object = MibTable
+oaMsa300PinMeasTable = _OaMsa300PinMeasTable_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3)
+)
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasTable.setStatus("current")
+_OaMsa300PinMeasEntry_Object = MibTableRow
+oaMsa300PinMeasEntry = _OaMsa300PinMeasEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1)
+)
+oaMsa300PinMeasEntry.setIndexNames(
+    (0, "OA-SFP-MIB", "oaMsa300PinMeasSlotIndex"),
+    (0, "OA-SFP-MIB", "oaMsa300PinMeasPortIndex"),
+)
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasEntry.setStatus("current")
+
+
+class _OaMsa300PinMeasSlotIndex_Type(Integer32):
+    """Custom type oaMsa300PinMeasSlotIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaMsa300PinMeasSlotIndex_Type.__name__ = "Integer32"
+_OaMsa300PinMeasSlotIndex_Object = MibTableColumn
+oaMsa300PinMeasSlotIndex = _OaMsa300PinMeasSlotIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 1),
+    _OaMsa300PinMeasSlotIndex_Type()
+)
+oaMsa300PinMeasSlotIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasSlotIndex.setStatus("current")
+
+
+class _OaMsa300PinMeasPortIndex_Type(Integer32):
+    """Custom type oaMsa300PinMeasPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaMsa300PinMeasPortIndex_Type.__name__ = "Integer32"
+_OaMsa300PinMeasPortIndex_Object = MibTableColumn
+oaMsa300PinMeasPortIndex = _OaMsa300PinMeasPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 2),
+    _OaMsa300PinMeasPortIndex_Type()
+)
+oaMsa300PinMeasPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasPortIndex.setStatus("current")
+_OaMsa300PinMeasLaserOutputPwrMon_Type = Integer32
+_OaMsa300PinMeasLaserOutputPwrMon_Object = MibTableColumn
+oaMsa300PinMeasLaserOutputPwrMon = _OaMsa300PinMeasLaserOutputPwrMon_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 4),
+    _OaMsa300PinMeasLaserOutputPwrMon_Type()
+)
+oaMsa300PinMeasLaserOutputPwrMon.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasLaserOutputPwrMon.setStatus("current")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasLaserOutputPwrMon.setUnits("0.01 decibel (dBm)")
+_OaMsa300PinMeasLaserTempMon_Type = Integer32
+_OaMsa300PinMeasLaserTempMon_Object = MibTableColumn
+oaMsa300PinMeasLaserTempMon = _OaMsa300PinMeasLaserTempMon_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 5),
+    _OaMsa300PinMeasLaserTempMon_Type()
+)
+oaMsa300PinMeasLaserTempMon.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasLaserTempMon.setStatus("current")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasLaserTempMon.setUnits("0.001 degrees Celsius (C)")
+_OaMsa300PinMeasRecSigAvrOptPower_Type = Integer32
+_OaMsa300PinMeasRecSigAvrOptPower_Object = MibTableColumn
+oaMsa300PinMeasRecSigAvrOptPower = _OaMsa300PinMeasRecSigAvrOptPower_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 7),
+    _OaMsa300PinMeasRecSigAvrOptPower_Type()
+)
+oaMsa300PinMeasRecSigAvrOptPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasRecSigAvrOptPower.setStatus("current")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasRecSigAvrOptPower.setUnits("0.01 decibel (dBm)")
+_OaMsa300PinMeasLaserWlengthMon_Type = Integer32
+_OaMsa300PinMeasLaserWlengthMon_Object = MibTableColumn
+oaMsa300PinMeasLaserWlengthMon = _OaMsa300PinMeasLaserWlengthMon_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 8),
+    _OaMsa300PinMeasLaserWlengthMon_Type()
+)
+oaMsa300PinMeasLaserWlengthMon.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasLaserWlengthMon.setStatus("current")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasLaserWlengthMon.setUnits("Mega Hertz (MHz)")
+_OaMsa300PinMeasTransTempMon_Type = Integer32
+_OaMsa300PinMeasTransTempMon_Object = MibTableColumn
+oaMsa300PinMeasTransTempMon = _OaMsa300PinMeasTransTempMon_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 3, 1, 9),
+    _OaMsa300PinMeasTransTempMon_Type()
+)
+oaMsa300PinMeasTransTempMon.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasTransTempMon.setStatus("current")
+if mibBuilder.loadTexts:
+    oaMsa300PinMeasTransTempMon.setUnits("0.001 degrees Celsius (C)")
+_OaMsa300PinAlarmTable_Object = MibTable
+oaMsa300PinAlarmTable = _OaMsa300PinAlarmTable_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4)
+)
+if mibBuilder.loadTexts:
+    oaMsa300PinAlarmTable.setStatus("current")
+_OaMsa300PinAlarmEntry_Object = MibTableRow
+oaMsa300PinAlarmEntry = _OaMsa300PinAlarmEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1)
+)
+oaMsa300PinAlarmEntry.setIndexNames(
+    (0, "OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+    (0, "OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+)
+if mibBuilder.loadTexts:
+    oaMsa300PinAlarmEntry.setStatus("current")
+
+
+class _OaMsa300PinAlarmSlotIndex_Type(Integer32):
+    """Custom type oaMsa300PinAlarmSlotIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaMsa300PinAlarmSlotIndex_Type.__name__ = "Integer32"
+_OaMsa300PinAlarmSlotIndex_Object = MibTableColumn
+oaMsa300PinAlarmSlotIndex = _OaMsa300PinAlarmSlotIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1, 1),
+    _OaMsa300PinAlarmSlotIndex_Type()
+)
+oaMsa300PinAlarmSlotIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    oaMsa300PinAlarmSlotIndex.setStatus("current")
+
+
+class _OaMsa300PinAlarmPortIndex_Type(Integer32):
+    """Custom type oaMsa300PinAlarmPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaMsa300PinAlarmPortIndex_Type.__name__ = "Integer32"
+_OaMsa300PinAlarmPortIndex_Object = MibTableColumn
+oaMsa300PinAlarmPortIndex = _OaMsa300PinAlarmPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1, 2),
+    _OaMsa300PinAlarmPortIndex_Type()
+)
+oaMsa300PinAlarmPortIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    oaMsa300PinAlarmPortIndex.setStatus("current")
+
+
+class _OaMsa300PinAlarmTxAlarm_Type(OctetString):
+    """Custom type oaMsa300PinAlarmTxAlarm based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(3, 3),
+    )
+    fixed_length = 3
+
+
+_OaMsa300PinAlarmTxAlarm_Type.__name__ = "OctetString"
+_OaMsa300PinAlarmTxAlarm_Object = MibTableColumn
+oaMsa300PinAlarmTxAlarm = _OaMsa300PinAlarmTxAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1, 3),
+    _OaMsa300PinAlarmTxAlarm_Type()
+)
+oaMsa300PinAlarmTxAlarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinAlarmTxAlarm.setStatus("current")
+
+
+class _OaMsa300PinAlarmRxAlarm_Type(OctetString):
+    """Custom type oaMsa300PinAlarmRxAlarm based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_OaMsa300PinAlarmRxAlarm_Type.__name__ = "OctetString"
+_OaMsa300PinAlarmRxAlarm_Object = MibTableColumn
+oaMsa300PinAlarmRxAlarm = _OaMsa300PinAlarmRxAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1, 4),
+    _OaMsa300PinAlarmRxAlarm_Type()
+)
+oaMsa300PinAlarmRxAlarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinAlarmRxAlarm.setStatus("current")
+
+
+class _OaMsa300PinAlarmPsAlarm_Type(OctetString):
+    """Custom type oaMsa300PinAlarmPsAlarm based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1),
+    )
+    fixed_length = 1
+
+
+_OaMsa300PinAlarmPsAlarm_Type.__name__ = "OctetString"
+_OaMsa300PinAlarmPsAlarm_Object = MibTableColumn
+oaMsa300PinAlarmPsAlarm = _OaMsa300PinAlarmPsAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 4, 1, 5),
+    _OaMsa300PinAlarmPsAlarm_Type()
+)
+oaMsa300PinAlarmPsAlarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    oaMsa300PinAlarmPsAlarm.setStatus("current")
+_OaMsa300PinComTable_Object = MibTable
+oaMsa300PinComTable = _OaMsa300PinComTable_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5)
+)
+if mibBuilder.loadTexts:
+    oaMsa300PinComTable.setStatus("current")
+_OaMsa300PinComEntry_Object = MibTableRow
+oaMsa300PinComEntry = _OaMsa300PinComEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1)
+)
+oaMsa300PinComEntry.setIndexNames(
+    (0, "OA-SFP-MIB", "oaMsa300PinComSlotIndex"),
+    (0, "OA-SFP-MIB", "oaMsa300PinComPortIndex"),
+)
+if mibBuilder.loadTexts:
+    oaMsa300PinComEntry.setStatus("current")
+
+
+class _OaMsa300PinComSlotIndex_Type(Integer32):
+    """Custom type oaMsa300PinComSlotIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaMsa300PinComSlotIndex_Type.__name__ = "Integer32"
+_OaMsa300PinComSlotIndex_Object = MibTableColumn
+oaMsa300PinComSlotIndex = _OaMsa300PinComSlotIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 1),
+    _OaMsa300PinComSlotIndex_Type()
+)
+oaMsa300PinComSlotIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaMsa300PinComSlotIndex.setStatus("current")
+
+
+class _OaMsa300PinComPortIndex_Type(Integer32):
+    """Custom type oaMsa300PinComPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_OaMsa300PinComPortIndex_Type.__name__ = "Integer32"
+_OaMsa300PinComPortIndex_Object = MibTableColumn
+oaMsa300PinComPortIndex = _OaMsa300PinComPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 2),
+    _OaMsa300PinComPortIndex_Type()
+)
+oaMsa300PinComPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    oaMsa300PinComPortIndex.setStatus("current")
+
+
+class _OaMsa300PinComLaserItuBand_Type(Integer32):
+    """Custom type oaMsa300PinComLaserItuBand based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("cBand", 2),
+          ("lBand", 3),
+          ("sBand", 4))
+    )
+
+
+_OaMsa300PinComLaserItuBand_Type.__name__ = "Integer32"
+_OaMsa300PinComLaserItuBand_Object = MibTableColumn
+oaMsa300PinComLaserItuBand = _OaMsa300PinComLaserItuBand_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 7),
+    _OaMsa300PinComLaserItuBand_Type()
+)
+oaMsa300PinComLaserItuBand.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oaMsa300PinComLaserItuBand.setStatus("current")
+_OaMsa300PinComLaserItuCh_Type = Integer32
+_OaMsa300PinComLaserItuCh_Object = MibTableColumn
+oaMsa300PinComLaserItuCh = _OaMsa300PinComLaserItuCh_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 8),
+    _OaMsa300PinComLaserItuCh_Type()
+)
+oaMsa300PinComLaserItuCh.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oaMsa300PinComLaserItuCh.setStatus("current")
+if mibBuilder.loadTexts:
+    oaMsa300PinComLaserItuCh.setUnits("0.01 Nano Meter(nm)")
+_OaMsa300PinComDispDist_Type = Integer32
+_OaMsa300PinComDispDist_Object = MibTableColumn
+oaMsa300PinComDispDist = _OaMsa300PinComDispDist_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 9),
+    _OaMsa300PinComDispDist_Type()
+)
+oaMsa300PinComDispDist.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oaMsa300PinComDispDist.setStatus("current")
+if mibBuilder.loadTexts:
+    oaMsa300PinComDispDist.setUnits("ps/nm")
+
+
+class _OaMsa300PinComPolarityInversion_Type(Integer32):
+    """Custom type oaMsa300PinComPolarityInversion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("on", 2),
+          ("off", 3))
+    )
+
+
+_OaMsa300PinComPolarityInversion_Type.__name__ = "Integer32"
+_OaMsa300PinComPolarityInversion_Object = MibTableColumn
+oaMsa300PinComPolarityInversion = _OaMsa300PinComPolarityInversion_Object(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 1, 4, 5, 1, 10),
+    _OaMsa300PinComPolarityInversion_Type()
+)
+oaMsa300PinComPolarityInversion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    oaMsa300PinComPolarityInversion.setStatus("current")
+_OaSfpConformance_ObjectIdentity = ObjectIdentity
+oaSfpConformance = _OaSfpConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2)
+)
+_OaSfpGroups_ObjectIdentity = ObjectIdentity
+oaSfpGroups = _OaSfpGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1)
+)
+_OaSfpCompliances_ObjectIdentity = ObjectIdentity
+oaSfpCompliances = _OaSfpCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 2)
+)
+
+# Managed Objects groups
+
+oaSfpCompatibleIfCountGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 1)
+)
+oaSfpCompatibleIfCountGroup.setObjects(
+      *(("OA-SFP-MIB", "oaSfpCompatibleInterfaceCount"),
+        ("OA-SFP-MIB", "oaXfpCompatibleInterfaceCount"),
+        ("OA-SFP-MIB", "oaDsfpCompatibleInterfaceCount"),
+        ("OA-SFP-MIB", "oaMsa300PinCompatibleIfCount"))
+)
+if mibBuilder.loadTexts:
+    oaSfpCompatibleIfCountGroup.setStatus("current")
+
+oaSfpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 2)
+)
+oaSfpGroup.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoIdentifier"),
+        ("OA-SFP-MIB", "oaSfpInfoVendorSpecificIdentifier"),
+        ("OA-SFP-MIB", "oaSfpInfoConnector"),
+        ("OA-SFP-MIB", "oaSfpInfoVendorSpecificConnector"),
+        ("OA-SFP-MIB", "oaSfpInfoTransceiver10GigaEth"),
+        ("OA-SFP-MIB", "oaSfpInfoTransceiverInfiniband"),
+        ("OA-SFP-MIB", "oaSfpInfoTransceiverEscon"),
+        ("OA-SFP-MIB", "oaSfpInfoTransceiverSonet"),
+        ("OA-SFP-MIB", "oaSfpInfoTransceiverEthernet"),
+        ("OA-SFP-MIB", "oaSfpInfoTransceiverFibreChannel"),
+        ("OA-SFP-MIB", "oaSfpInfoVendorName"),
+        ("OA-SFP-MIB", "oaSfpInfoVendorOUI"),
+        ("OA-SFP-MIB", "oaSfpInfoVendorPN"),
+        ("OA-SFP-MIB", "oaSfpInfoVendorRev"),
+        ("OA-SFP-MIB", "oaSfpInfoLaserWavelength"),
+        ("OA-SFP-MIB", "oaSfpTunability"),
+        ("OA-SFP-MIB", "oaSfpInfoVendorSN"),
+        ("OA-SFP-MIB", "oaSfpInfoVendorDate"),
+        ("OA-SFP-MIB", "oaSfpInfoVendorSpecificLotCode"),
+        ("OA-SFP-MIB", "oaSfpInfoVendorSpecificData"),
+        ("OA-SFP-MIB", "oaSfpInfoDiagnosticPowerType"),
+        ("OA-SFP-MIB", "oaSfpInfoDigitalDiagnostic"),
+        ("OA-SFP-MIB", "oaSfpInfoDiagnosticCalibration"),
+        ("OA-SFP-MIB", "oaSfpInfoInstalledStatus"),
+        ("OA-SFP-MIB", "oaSfpInfofaultStatus"),
+        ("OA-SFP-MIB", "oaSfpInfoEnableStatus"),
+        ("OA-SFP-MIB", "oaSfpDiagnosticTemperature"),
+        ("OA-SFP-MIB", "oaSfpDiagnosticVcc"),
+        ("OA-SFP-MIB", "oaSfpDiagnosticTxBias"),
+        ("OA-SFP-MIB", "oaSfpDiagnosticTxPower"),
+        ("OA-SFP-MIB", "oaSfpDiagnosticRxPower"),
+        ("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"))
+)
+if mibBuilder.loadTexts:
+    oaSfpGroup.setStatus("current")
+
+oaXfpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 3)
+)
+oaXfpGroup.setObjects(
+    ("OA-SFP-MIB", "oaXfpInfoLaserWavelengthTolerance")
+)
+if mibBuilder.loadTexts:
+    oaXfpGroup.setStatus("current")
+
+oaDsfpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 4)
+)
+oaDsfpGroup.setObjects(
+      *(("OA-SFP-MIB", "oaDsfpInfoChannelSpacing"),
+        ("OA-SFP-MIB", "oaDsfpInfoChannelTuning"))
+)
+if mibBuilder.loadTexts:
+    oaDsfpGroup.setStatus("current")
+
+oaMsa300PinGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 5)
+)
+oaMsa300PinGroup.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinIdModuleTypeCode"),
+        ("OA-SFP-MIB", "oaMsa300PinIdFirstLaserItuBand"),
+        ("OA-SFP-MIB", "oaMsa300PinIdFirstLaserItuCh"),
+        ("OA-SFP-MIB", "oaMsa300PinIdLastLaserItuBand"),
+        ("OA-SFP-MIB", "oaMsa300PinIdLastLaserItuCh"),
+        ("OA-SFP-MIB", "oaMsa300PinIdLaserItuChSpacing"),
+        ("OA-SFP-MIB", "oaMsa300PinIdModuleDistanceType"),
+        ("OA-SFP-MIB", "oaMsa300PinIdMinDispDist"),
+        ("OA-SFP-MIB", "oaMsa300PinIdMaxDispDist"),
+        ("OA-SFP-MIB", "oaMsa300PinMeasLaserOutputPwrMon"),
+        ("OA-SFP-MIB", "oaMsa300PinMeasLaserTempMon"),
+        ("OA-SFP-MIB", "oaMsa300PinMeasRecSigAvrOptPower"),
+        ("OA-SFP-MIB", "oaMsa300PinMeasLaserWlengthMon"),
+        ("OA-SFP-MIB", "oaMsa300PinMeasTransTempMon"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmTxAlarm"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmRxAlarm"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPsAlarm"),
+        ("OA-SFP-MIB", "oaMsa300PinComLaserItuBand"),
+        ("OA-SFP-MIB", "oaMsa300PinComLaserItuCh"),
+        ("OA-SFP-MIB", "oaMsa300PinComDispDist"),
+        ("OA-SFP-MIB", "oaMsa300PinComPolarityInversion"))
+)
+if mibBuilder.loadTexts:
+    oaMsa300PinGroup.setStatus("current")
+
+oaXfpTunGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 8)
+)
+oaXfpTunGroup.setObjects(
+      *(("OA-SFP-MIB", "oaXfpTunLaserFirstFrequency"),
+        ("OA-SFP-MIB", "oaXfpTunLaserLastFrequency"),
+        ("OA-SFP-MIB", "oaXfpTunGridSpacing"),
+        ("OA-SFP-MIB", "oaXfpTunLaserItuBand"),
+        ("OA-SFP-MIB", "oaXfpTunLaserItuCh"))
+)
+if mibBuilder.loadTexts:
+    oaXfpTunGroup.setStatus("current")
+
+
+# Notification objects
+
+msaPortRxLossAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 68)
+)
+msaPortRxLossAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPortRxLossAlarmOn.setStatus(
+        "current"
+    )
+
+msaPortRxLossAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 69)
+)
+msaPortRxLossAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPortRxLossAlarmOff.setStatus(
+        "current"
+    )
+
+msaPortTxLaserWlAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 70)
+)
+msaPortTxLaserWlAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPortTxLaserWlAlarmOn.setStatus(
+        "current"
+    )
+
+msaPorTxLaserWltAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 71)
+)
+msaPorTxLaserWltAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPorTxLaserWltAlarmOff.setStatus(
+        "current"
+    )
+
+msaPortTxModulatorTempAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 72)
+)
+msaPortTxModulatorTempAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPortTxModulatorTempAlarmOn.setStatus(
+        "current"
+    )
+
+msaPortTxModulatorTempAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 73)
+)
+msaPortTxModulatorTempAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPortTxModulatorTempAlarmOff.setStatus(
+        "current"
+    )
+
+msaPortTxLaserPowerAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 74)
+)
+msaPortTxLaserPowerAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPortTxLaserPowerAlarmOn.setStatus(
+        "current"
+    )
+
+msaPortTxLaserPowerAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 75)
+)
+msaPortTxLaserPowerAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPortTxLaserPowerAlarmOff.setStatus(
+        "current"
+    )
+
+msaPortTxPllLockAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 76)
+)
+msaPortTxPllLockAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPortTxPllLockAlarmOn.setStatus(
+        "current"
+    )
+
+msaPortTxPllLockAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 77)
+)
+msaPortTxPllLockAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPortTxPllLockAlarmOff.setStatus(
+        "current"
+    )
+
+msaPortTxLaserTempAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 78)
+)
+msaPortTxLaserTempAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPortTxLaserTempAlarmOn.setStatus(
+        "current"
+    )
+
+msaPortTxLaserTempAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 79)
+)
+msaPortTxLaserTempAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaMsa300PinAlarmSlotIndex"),
+        ("OA-SFP-MIB", "oaMsa300PinAlarmPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    msaPortTxLaserTempAlarmOff.setStatus(
+        "current"
+    )
+
+pluggableConnectorInserted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 80)
+)
+pluggableConnectorInserted.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    pluggableConnectorInserted.setStatus(
+        "current"
+    )
+
+pluggableConnectorRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 81)
+)
+pluggableConnectorRemoved.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    pluggableConnectorRemoved.setStatus(
+        "current"
+    )
+
+sfpXfpPortTempHighAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 82)
+)
+sfpXfpPortTempHighAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortTempHighAlarmOn.setStatus(
+        "current"
+    )
+
+sfpXfpPortTempHighAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 83)
+)
+sfpXfpPortTempHighAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortTempHighAlarmOff.setStatus(
+        "current"
+    )
+
+sfpXfpPortTempLowAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 84)
+)
+sfpXfpPortTempLowAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortTempLowAlarmOn.setStatus(
+        "current"
+    )
+
+sfpXfpPortTempLowAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 85)
+)
+sfpXfpPortTempLowAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortTempLowAlarmOff.setStatus(
+        "current"
+    )
+
+sfpXfpPortTxPowerHighAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 86)
+)
+sfpXfpPortTxPowerHighAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortTxPowerHighAlarmOn.setStatus(
+        "current"
+    )
+
+sfpXfpPortTxPowerHighAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 87)
+)
+sfpXfpPortTxPowerHighAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortTxPowerHighAlarmOff.setStatus(
+        "current"
+    )
+
+sfpXfpPortTxPowerLowAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 88)
+)
+sfpXfpPortTxPowerLowAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortTxPowerLowAlarmOn.setStatus(
+        "current"
+    )
+
+sfpXfpPortTxPowerLowAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 89)
+)
+sfpXfpPortTxPowerLowAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortTxPowerLowAlarmOff.setStatus(
+        "current"
+    )
+
+sfpXfpPortRxPowerHighAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 90)
+)
+sfpXfpPortRxPowerHighAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortRxPowerHighAlarmOn.setStatus(
+        "current"
+    )
+
+sfpXfpPortRxPowerHighAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 91)
+)
+sfpXfpPortRxPowerHighAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortRxPowerHighAlarmOff.setStatus(
+        "current"
+    )
+
+sfpXfpPortRxPowerLowAlarmOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 92)
+)
+sfpXfpPortRxPowerLowAlarmOn.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortRxPowerLowAlarmOn.setStatus(
+        "current"
+    )
+
+sfpXfpPortRxPowerLowAlarmOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 0, 93)
+)
+sfpXfpPortRxPowerLowAlarmOff.setObjects(
+      *(("OA-SFP-MIB", "oaSfpInfoSlotIndex"),
+        ("OA-SFP-MIB", "oaSfpInfoPortIndex"),
+        ("OA-TRAP-MESSAGES-MIB", "oaDevTrapsPortsIfAlias"))
+)
+if mibBuilder.loadTexts:
+    sfpXfpPortRxPowerLowAlarmOff.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+oaMsa300PinNotificationsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 6)
+)
+oaMsa300PinNotificationsGroup.setObjects(
+      *(("OA-SFP-MIB", "msaPortRxLossAlarmOn"),
+        ("OA-SFP-MIB", "msaPortRxLossAlarmOff"),
+        ("OA-SFP-MIB", "msaPortTxLaserWlAlarmOn"),
+        ("OA-SFP-MIB", "msaPorTxLaserWltAlarmOff"),
+        ("OA-SFP-MIB", "msaPortTxModulatorTempAlarmOn"),
+        ("OA-SFP-MIB", "msaPortTxModulatorTempAlarmOff"),
+        ("OA-SFP-MIB", "msaPortTxLaserPowerAlarmOn"),
+        ("OA-SFP-MIB", "msaPortTxLaserPowerAlarmOff"),
+        ("OA-SFP-MIB", "msaPortTxPllLockAlarmOn"),
+        ("OA-SFP-MIB", "msaPortTxPllLockAlarmOff"),
+        ("OA-SFP-MIB", "msaPortTxLaserTempAlarmOn"),
+        ("OA-SFP-MIB", "msaPortTxLaserTempAlarmOff"))
+)
+if mibBuilder.loadTexts:
+    oaMsa300PinNotificationsGroup.setStatus(
+        "current"
+    )
+
+oaPlugConnNotificationsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 1, 7)
+)
+oaPlugConnNotificationsGroup.setObjects(
+      *(("OA-SFP-MIB", "pluggableConnectorInserted"),
+        ("OA-SFP-MIB", "pluggableConnectorRemoved"),
+        ("OA-SFP-MIB", "sfpXfpPortTempHighAlarmOn"),
+        ("OA-SFP-MIB", "sfpXfpPortTempHighAlarmOff"),
+        ("OA-SFP-MIB", "sfpXfpPortTempLowAlarmOn"),
+        ("OA-SFP-MIB", "sfpXfpPortTempLowAlarmOff"),
+        ("OA-SFP-MIB", "sfpXfpPortTxPowerHighAlarmOn"),
+        ("OA-SFP-MIB", "sfpXfpPortTxPowerHighAlarmOff"),
+        ("OA-SFP-MIB", "sfpXfpPortTxPowerLowAlarmOn"),
+        ("OA-SFP-MIB", "sfpXfpPortTxPowerLowAlarmOff"),
+        ("OA-SFP-MIB", "sfpXfpPortRxPowerHighAlarmOn"),
+        ("OA-SFP-MIB", "sfpXfpPortRxPowerHighAlarmOff"),
+        ("OA-SFP-MIB", "sfpXfpPortRxPowerLowAlarmOn"),
+        ("OA-SFP-MIB", "sfpXfpPortRxPowerLowAlarmOff"))
+)
+if mibBuilder.loadTexts:
+    oaPlugConnNotificationsGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+oaSfpCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6926, 1, 18, 2, 2, 1)
+)
+oaSfpCompliance.setObjects(
+      *(("OA-SFP-MIB", "oaSfpCompatibleIfCountGroup"),
+        ("OA-SFP-MIB", "oaMsa300PinNotificationsGroup"),
+        ("OA-SFP-MIB", "oaPlugConnNotificationsGroup"),
+        ("OA-SFP-MIB", "oaSfpGroup"),
+        ("OA-SFP-MIB", "oaXfpGroup"),
+        ("OA-SFP-MIB", "oaDsfpGroup"),
+        ("OA-SFP-MIB", "oaMsa300PinGroup"),
+        ("OA-SFP-MIB", "oaXfpTunGroup"))
+)
+if mibBuilder.loadTexts:
+    oaSfpCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "OA-SFP-MIB",
+    **{"oaManagement": oaManagement,
+       "oaSfpMib": oaSfpMib,
+       "oaAlarmNotifications": oaAlarmNotifications,
+       "msaPortRxLossAlarmOn": msaPortRxLossAlarmOn,
+       "msaPortRxLossAlarmOff": msaPortRxLossAlarmOff,
+       "msaPortTxLaserWlAlarmOn": msaPortTxLaserWlAlarmOn,
+       "msaPorTxLaserWltAlarmOff": msaPorTxLaserWltAlarmOff,
+       "msaPortTxModulatorTempAlarmOn": msaPortTxModulatorTempAlarmOn,
+       "msaPortTxModulatorTempAlarmOff": msaPortTxModulatorTempAlarmOff,
+       "msaPortTxLaserPowerAlarmOn": msaPortTxLaserPowerAlarmOn,
+       "msaPortTxLaserPowerAlarmOff": msaPortTxLaserPowerAlarmOff,
+       "msaPortTxPllLockAlarmOn": msaPortTxPllLockAlarmOn,
+       "msaPortTxPllLockAlarmOff": msaPortTxPllLockAlarmOff,
+       "msaPortTxLaserTempAlarmOn": msaPortTxLaserTempAlarmOn,
+       "msaPortTxLaserTempAlarmOff": msaPortTxLaserTempAlarmOff,
+       "pluggableConnectorInserted": pluggableConnectorInserted,
+       "pluggableConnectorRemoved": pluggableConnectorRemoved,
+       "sfpXfpPortTempHighAlarmOn": sfpXfpPortTempHighAlarmOn,
+       "sfpXfpPortTempHighAlarmOff": sfpXfpPortTempHighAlarmOff,
+       "sfpXfpPortTempLowAlarmOn": sfpXfpPortTempLowAlarmOn,
+       "sfpXfpPortTempLowAlarmOff": sfpXfpPortTempLowAlarmOff,
+       "sfpXfpPortTxPowerHighAlarmOn": sfpXfpPortTxPowerHighAlarmOn,
+       "sfpXfpPortTxPowerHighAlarmOff": sfpXfpPortTxPowerHighAlarmOff,
+       "sfpXfpPortTxPowerLowAlarmOn": sfpXfpPortTxPowerLowAlarmOn,
+       "sfpXfpPortTxPowerLowAlarmOff": sfpXfpPortTxPowerLowAlarmOff,
+       "sfpXfpPortRxPowerHighAlarmOn": sfpXfpPortRxPowerHighAlarmOn,
+       "sfpXfpPortRxPowerHighAlarmOff": sfpXfpPortRxPowerHighAlarmOff,
+       "sfpXfpPortRxPowerLowAlarmOn": sfpXfpPortRxPowerLowAlarmOn,
+       "sfpXfpPortRxPowerLowAlarmOff": sfpXfpPortRxPowerLowAlarmOff,
+       "oaSfp": oaSfp,
+       "oaSfpMIBObjects": oaSfpMIBObjects,
+       "oaSfpCompatibleInterfaceCount": oaSfpCompatibleInterfaceCount,
+       "oaSfpInfoTable": oaSfpInfoTable,
+       "oaSfpInfoEntry": oaSfpInfoEntry,
+       "oaSfpInfoSlotIndex": oaSfpInfoSlotIndex,
+       "oaSfpInfoPortIndex": oaSfpInfoPortIndex,
+       "oaSfpInfoIdentifier": oaSfpInfoIdentifier,
+       "oaSfpInfoVendorSpecificIdentifier": oaSfpInfoVendorSpecificIdentifier,
+       "oaSfpInfoConnector": oaSfpInfoConnector,
+       "oaSfpInfoVendorSpecificConnector": oaSfpInfoVendorSpecificConnector,
+       "oaSfpInfoTransceiver10GigaEth": oaSfpInfoTransceiver10GigaEth,
+       "oaSfpInfoTransceiverInfiniband": oaSfpInfoTransceiverInfiniband,
+       "oaSfpInfoTransceiverEscon": oaSfpInfoTransceiverEscon,
+       "oaSfpInfoTransceiverSonet": oaSfpInfoTransceiverSonet,
+       "oaSfpInfoTransceiverEthernet": oaSfpInfoTransceiverEthernet,
+       "oaSfpInfoTransceiverFibreChannel": oaSfpInfoTransceiverFibreChannel,
+       "oaSfpInfoVendorName": oaSfpInfoVendorName,
+       "oaSfpInfoVendorOUI": oaSfpInfoVendorOUI,
+       "oaSfpInfoVendorPN": oaSfpInfoVendorPN,
+       "oaSfpInfoVendorRev": oaSfpInfoVendorRev,
+       "oaSfpInfoLaserWavelength": oaSfpInfoLaserWavelength,
+       "oaSfpTunability": oaSfpTunability,
+       "oaSfpInfoVendorSN": oaSfpInfoVendorSN,
+       "oaSfpInfoVendorDate": oaSfpInfoVendorDate,
+       "oaSfpInfoVendorSpecificLotCode": oaSfpInfoVendorSpecificLotCode,
+       "oaSfpInfoVendorSpecificData": oaSfpInfoVendorSpecificData,
+       "oaSfpInfoDiagnosticPowerType": oaSfpInfoDiagnosticPowerType,
+       "oaSfpInfoDigitalDiagnostic": oaSfpInfoDigitalDiagnostic,
+       "oaSfpInfoDiagnosticCalibration": oaSfpInfoDiagnosticCalibration,
+       "oaSfpInfoInstalledStatus": oaSfpInfoInstalledStatus,
+       "oaSfpInfofaultStatus": oaSfpInfofaultStatus,
+       "oaSfpInfoEnableStatus": oaSfpInfoEnableStatus,
+       "oaSfpInfoUnitName": oaSfpInfoUnitName,
+       "oaSfpInfoFiberType": oaSfpInfoFiberType,
+       "oaSfpInfoReach": oaSfpInfoReach,
+       "oaSfpInfoConnectorType": oaSfpInfoConnectorType,
+       "oaSfpInfoItemNum": oaSfpInfoItemNum,
+       "oaSfpInfoHWRev": oaSfpInfoHWRev,
+       "oaSfpInfoCleiCode": oaSfpInfoCleiCode,
+       "oaSfpInfoPageA2hSN": oaSfpInfoPageA2hSN,
+       "oaSfpInfoManufactureDate": oaSfpInfoManufactureDate,
+       "oaSfpInfoManufactureID": oaSfpInfoManufactureID,
+       "oaSfpDiagnosticTable": oaSfpDiagnosticTable,
+       "oaSfpDiagnosticEntry": oaSfpDiagnosticEntry,
+       "oaSfpDiagnosticSlotIndex": oaSfpDiagnosticSlotIndex,
+       "oaSfpDiagnosticPortIndex": oaSfpDiagnosticPortIndex,
+       "oaSfpDiagnosticTemperature": oaSfpDiagnosticTemperature,
+       "oaSfpDiagnosticVcc": oaSfpDiagnosticVcc,
+       "oaSfpDiagnosticTxBias": oaSfpDiagnosticTxBias,
+       "oaSfpDiagnosticTxPower": oaSfpDiagnosticTxPower,
+       "oaSfpDiagnosticRxPower": oaSfpDiagnosticRxPower,
+       "oaSfpRatesSupportedTable": oaSfpRatesSupportedTable,
+       "oaSfpRatesSupportedEntry": oaSfpRatesSupportedEntry,
+       "oaSfpRatesSupportedIndex": oaSfpRatesSupportedIndex,
+       "oaSfpRatesSupportedValue": oaSfpRatesSupportedValue,
+       "oaXfpMIBObjects": oaXfpMIBObjects,
+       "oaXfpCompatibleInterfaceCount": oaXfpCompatibleInterfaceCount,
+       "oaXfpInfoTable": oaXfpInfoTable,
+       "oaXfpInfoEntry": oaXfpInfoEntry,
+       "oaXfpInfoSlotIndex": oaXfpInfoSlotIndex,
+       "oaXfpInfoPortIndex": oaXfpInfoPortIndex,
+       "oaXfpInfoLaserWavelengthTolerance": oaXfpInfoLaserWavelengthTolerance,
+       "oaXfpTunTable": oaXfpTunTable,
+       "oaXfpTunEntry": oaXfpTunEntry,
+       "oaXfpTunSlotIndex": oaXfpTunSlotIndex,
+       "oaXfpTunPortIndex": oaXfpTunPortIndex,
+       "oaXfpTunLaserFirstFrequency": oaXfpTunLaserFirstFrequency,
+       "oaXfpTunLaserLastFrequency": oaXfpTunLaserLastFrequency,
+       "oaXfpTunGridSpacing": oaXfpTunGridSpacing,
+       "oaXfpTunLaserItuBand": oaXfpTunLaserItuBand,
+       "oaXfpTunLaserItuCh": oaXfpTunLaserItuCh,
+       "oaDsfpMIBObjects": oaDsfpMIBObjects,
+       "oaDsfpCompatibleInterfaceCount": oaDsfpCompatibleInterfaceCount,
+       "oaDsfpInfoTable": oaDsfpInfoTable,
+       "oaDsfpInfoEntry": oaDsfpInfoEntry,
+       "oaDsfpInfoSlotIndex": oaDsfpInfoSlotIndex,
+       "oaDsfpInfoPortIndex": oaDsfpInfoPortIndex,
+       "oaDsfpInfoChannelSpacing": oaDsfpInfoChannelSpacing,
+       "oaDsfpInfoChannelTuning": oaDsfpInfoChannelTuning,
+       "oaMsa300PinMIBObjects": oaMsa300PinMIBObjects,
+       "oaMsa300PinCompatibleIfCount": oaMsa300PinCompatibleIfCount,
+       "oaMsa300PinIdTable": oaMsa300PinIdTable,
+       "oaMsa300PinIdEntry": oaMsa300PinIdEntry,
+       "oaMsa300PinIdSlotIndex": oaMsa300PinIdSlotIndex,
+       "oaMsa300PinIdPortIndex": oaMsa300PinIdPortIndex,
+       "oaMsa300PinIdModuleTypeCode": oaMsa300PinIdModuleTypeCode,
+       "oaMsa300PinIdFirstLaserItuBand": oaMsa300PinIdFirstLaserItuBand,
+       "oaMsa300PinIdFirstLaserItuCh": oaMsa300PinIdFirstLaserItuCh,
+       "oaMsa300PinIdLastLaserItuBand": oaMsa300PinIdLastLaserItuBand,
+       "oaMsa300PinIdLastLaserItuCh": oaMsa300PinIdLastLaserItuCh,
+       "oaMsa300PinIdLaserItuChSpacing": oaMsa300PinIdLaserItuChSpacing,
+       "oaMsa300PinIdModuleDistanceType": oaMsa300PinIdModuleDistanceType,
+       "oaMsa300PinIdMinDispDist": oaMsa300PinIdMinDispDist,
+       "oaMsa300PinIdMaxDispDist": oaMsa300PinIdMaxDispDist,
+       "oaMsa300PinMeasTable": oaMsa300PinMeasTable,
+       "oaMsa300PinMeasEntry": oaMsa300PinMeasEntry,
+       "oaMsa300PinMeasSlotIndex": oaMsa300PinMeasSlotIndex,
+       "oaMsa300PinMeasPortIndex": oaMsa300PinMeasPortIndex,
+       "oaMsa300PinMeasLaserOutputPwrMon": oaMsa300PinMeasLaserOutputPwrMon,
+       "oaMsa300PinMeasLaserTempMon": oaMsa300PinMeasLaserTempMon,
+       "oaMsa300PinMeasRecSigAvrOptPower": oaMsa300PinMeasRecSigAvrOptPower,
+       "oaMsa300PinMeasLaserWlengthMon": oaMsa300PinMeasLaserWlengthMon,
+       "oaMsa300PinMeasTransTempMon": oaMsa300PinMeasTransTempMon,
+       "oaMsa300PinAlarmTable": oaMsa300PinAlarmTable,
+       "oaMsa300PinAlarmEntry": oaMsa300PinAlarmEntry,
+       "oaMsa300PinAlarmSlotIndex": oaMsa300PinAlarmSlotIndex,
+       "oaMsa300PinAlarmPortIndex": oaMsa300PinAlarmPortIndex,
+       "oaMsa300PinAlarmTxAlarm": oaMsa300PinAlarmTxAlarm,
+       "oaMsa300PinAlarmRxAlarm": oaMsa300PinAlarmRxAlarm,
+       "oaMsa300PinAlarmPsAlarm": oaMsa300PinAlarmPsAlarm,
+       "oaMsa300PinComTable": oaMsa300PinComTable,
+       "oaMsa300PinComEntry": oaMsa300PinComEntry,
+       "oaMsa300PinComSlotIndex": oaMsa300PinComSlotIndex,
+       "oaMsa300PinComPortIndex": oaMsa300PinComPortIndex,
+       "oaMsa300PinComLaserItuBand": oaMsa300PinComLaserItuBand,
+       "oaMsa300PinComLaserItuCh": oaMsa300PinComLaserItuCh,
+       "oaMsa300PinComDispDist": oaMsa300PinComDispDist,
+       "oaMsa300PinComPolarityInversion": oaMsa300PinComPolarityInversion,
+       "oaSfpConformance": oaSfpConformance,
+       "oaSfpGroups": oaSfpGroups,
+       "oaSfpCompatibleIfCountGroup": oaSfpCompatibleIfCountGroup,
+       "oaSfpGroup": oaSfpGroup,
+       "oaXfpGroup": oaXfpGroup,
+       "oaDsfpGroup": oaDsfpGroup,
+       "oaMsa300PinGroup": oaMsa300PinGroup,
+       "oaMsa300PinNotificationsGroup": oaMsa300PinNotificationsGroup,
+       "oaPlugConnNotificationsGroup": oaPlugConnNotificationsGroup,
+       "oaXfpTunGroup": oaXfpTunGroup,
+       "oaSfpCompliances": oaSfpCompliances,
+       "oaSfpCompliance": oaSfpCompliance}
+)

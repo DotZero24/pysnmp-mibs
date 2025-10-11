@@ -1,41 +1,242 @@
+# SNMP MIB module (ELTEX-MES-LINKAGG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ELTEX-MES-LINKAGG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eltex/ELTEX-MES-LINKAGG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:21 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/eltex/ELTEX-MES-LINKAGG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:48:00 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-eltMesLinkAgg, = mibBuilder.importSymbols("ELTEX-MES", "eltMesLinkAgg")
-dot3adAggPortEntry, = mibBuilder.importSymbols("IEEE8023-LAG-MIB", "dot3adAggPortEntry")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-rlDot3adAggBalanceEntry, = mibBuilder.importSymbols("RADLAN-TRUNK-MIB", "rlDot3adAggBalanceEntry")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "TextualConvention", "DisplayString")
-eltMesLagMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1))
-if mibBuilder.loadTexts: eltMesLagMIB.setLastUpdated('201408310000Z')
-if mibBuilder.loadTexts: eltMesLagMIB.setOrganization('Eltex Ltd.')
-eltMesLagMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1))
-eltMesLinkAggGlobal = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 1))
-eltMesLinkAggPort = MibIdentifier((1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2))
-eltAggPortTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 1), )
-if mibBuilder.loadTexts: eltAggPortTable.setStatus('current')
-eltAggPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 1, 1), )
-dot3adAggPortEntry.registerAugmentions(("ELTEX-MES-LINKAGG-MIB", "eltAggPortEntry"))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(eltMesLinkAgg,) = mibBuilder.importSymbols(
+    "ELTEX-MES",
+    "eltMesLinkAgg")
+
+(dot3adAggPortEntry,) = mibBuilder.importSymbols(
+    "IEEE8023-LAG-MIB",
+    "dot3adAggPortEntry")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(PortList,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "PortList")
+
+(rlDot3adAggBalanceEntry,) = mibBuilder.importSymbols(
+    "RADLAN-TRUNK-MIB",
+    "rlDot3adAggBalanceEntry")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+eltMesLagMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EltMesLagMIBObjects_ObjectIdentity = ObjectIdentity
+eltMesLagMIBObjects = _EltMesLagMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1)
+)
+_EltMesLinkAggGlobal_ObjectIdentity = ObjectIdentity
+eltMesLinkAggGlobal = _EltMesLinkAggGlobal_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 1)
+)
+_EltMesLinkAggPort_ObjectIdentity = ObjectIdentity
+eltMesLinkAggPort = _EltMesLinkAggPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2)
+)
+_EltAggPortTable_Object = MibTable
+eltAggPortTable = _EltAggPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    eltAggPortTable.setStatus("current")
+_EltAggPortEntry_Object = MibTableRow
+eltAggPortEntry = _EltAggPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    eltAggPortEntry.setStatus("current")
+_EltAggPortPassive_Type = TruthValue
+_EltAggPortPassive_Object = MibTableColumn
+eltAggPortPassive = _EltAggPortPassive_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 1, 1, 1),
+    _EltAggPortPassive_Type()
+)
+eltAggPortPassive.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltAggPortPassive.setStatus("current")
+_EltAggBalanceTable_Object = MibTable
+eltAggBalanceTable = _EltAggBalanceTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    eltAggBalanceTable.setStatus("current")
+_EltAggBalanceEntry_Object = MibTableRow
+eltAggBalanceEntry = _EltAggBalanceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    eltAggBalanceEntry.setStatus("current")
+
+
+class _EltAggBalanceMplsAware_Type(TruthValue):
+    """Custom type eltAggBalanceMplsAware based on TruthValue"""
+    defaultValue = 2
+
+
+_EltAggBalanceMplsAware_Type.__name__ = "TruthValue"
+_EltAggBalanceMplsAware_Object = MibTableColumn
+eltAggBalanceMplsAware = _EltAggBalanceMplsAware_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 2, 1, 1),
+    _EltAggBalanceMplsAware_Type()
+)
+eltAggBalanceMplsAware.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltAggBalanceMplsAware.setStatus("current")
+dot3adAggPortEntry.registerAugmentions(
+    ("ELTEX-MES-LINKAGG-MIB",
+     "eltAggPortEntry")
+)
 eltAggPortEntry.setIndexNames(*dot3adAggPortEntry.getIndexNames())
-if mibBuilder.loadTexts: eltAggPortEntry.setStatus('current')
-eltAggPortPassive = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltAggPortPassive.setStatus('current')
-eltAggBalanceTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 2), )
-if mibBuilder.loadTexts: eltAggBalanceTable.setStatus('current')
-eltAggBalanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 2, 1), )
-rlDot3adAggBalanceEntry.registerAugmentions(("ELTEX-MES-LINKAGG-MIB", "eltAggBalanceEntry"))
+rlDot3adAggBalanceEntry.registerAugmentions(
+    ("ELTEX-MES-LINKAGG-MIB",
+     "eltAggBalanceEntry")
+)
 eltAggBalanceEntry.setIndexNames(*rlDot3adAggBalanceEntry.getIndexNames())
-if mibBuilder.loadTexts: eltAggBalanceEntry.setStatus('current')
-eltAggBalanceMplsAware = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 9, 1, 1, 2, 2, 1, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltAggBalanceMplsAware.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-MES-LINKAGG-MIB", eltMesLinkAggPort=eltMesLinkAggPort, eltMesLinkAggGlobal=eltMesLinkAggGlobal, eltAggPortTable=eltAggPortTable, eltAggBalanceEntry=eltAggBalanceEntry, eltAggPortPassive=eltAggPortPassive, PYSNMP_MODULE_ID=eltMesLagMIB, eltMesLagMIB=eltMesLagMIB, eltAggBalanceMplsAware=eltAggBalanceMplsAware, eltMesLagMIBObjects=eltMesLagMIBObjects, eltAggBalanceTable=eltAggBalanceTable, eltAggPortEntry=eltAggPortEntry)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ELTEX-MES-LINKAGG-MIB",
+    **{"eltMesLagMIB": eltMesLagMIB,
+       "eltMesLagMIBObjects": eltMesLagMIBObjects,
+       "eltMesLinkAggGlobal": eltMesLinkAggGlobal,
+       "eltMesLinkAggPort": eltMesLinkAggPort,
+       "eltAggPortTable": eltAggPortTable,
+       "eltAggPortEntry": eltAggPortEntry,
+       "eltAggPortPassive": eltAggPortPassive,
+       "eltAggBalanceTable": eltAggBalanceTable,
+       "eltAggBalanceEntry": eltAggBalanceEntry,
+       "eltAggBalanceMplsAware": eltAggBalanceMplsAware}
+)

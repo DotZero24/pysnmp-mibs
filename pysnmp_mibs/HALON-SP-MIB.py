@@ -1,45 +1,276 @@
+# SNMP MIB module (HALON-SP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HALON-SP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/bsd/HALON-SP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:58 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/bsd/HALON-SP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:21:20 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-halonSecuritySP = ModuleIdentity((1, 3, 6, 1, 4, 1, 33234, 1, 1))
-halonSecuritySP.setRevisions(('2013-02-07 11:32',))
-if mibBuilder.loadTexts: halonSecuritySP.setLastUpdated('201302061107Z')
-if mibBuilder.loadTexts: halonSecuritySP.setOrganization('Halon Security')
-halonSecurity = MibIdentifier((1, 3, 6, 1, 4, 1, 33234))
-halonSecurityProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 33234, 1))
-halonSecuritySPObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1))
-serialNumber = MibScalar((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 1), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: serialNumber.setStatus('current')
-configurationRevision = MibScalar((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: configurationRevision.setStatus('current')
-mailQueueLength = MibScalar((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mailQueueLength.setStatus('current')
-quarantinedMessages = MibScalar((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: quarantinedMessages.setStatus('current')
-statTable = MibTable((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5), )
-if mibBuilder.loadTexts: statTable.setStatus('current')
-statEntry = MibTableRow((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1), ).setIndexNames((0, "HALON-SP-MIB", "statKey1Index"), (0, "HALON-SP-MIB", "statKey2Index"), (0, "HALON-SP-MIB", "statKey3Index"))
-if mibBuilder.loadTexts: statEntry.setStatus('current')
-statKey1Index = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 1), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statKey1Index.setStatus('current')
-statKey2Index = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statKey2Index.setStatus('current')
-statKey3Index = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statKey3Index.setStatus('current')
-statCount = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statCount.setStatus('current')
-statCreated = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statCreated.setStatus('current')
-statUpdated = MibTableColumn((1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statUpdated.setStatus('current')
-mibBuilder.exportSymbols("HALON-SP-MIB", statCount=statCount, halonSecuritySP=halonSecuritySP, quarantinedMessages=quarantinedMessages, statKey2Index=statKey2Index, PYSNMP_MODULE_ID=halonSecuritySP, statKey3Index=statKey3Index, statTable=statTable, statUpdated=statUpdated, serialNumber=serialNumber, statEntry=statEntry, statKey1Index=statKey1Index, statCreated=statCreated, halonSecurityProducts=halonSecurityProducts, halonSecurity=halonSecurity, mailQueueLength=mailQueueLength, configurationRevision=configurationRevision, halonSecuritySPObjects=halonSecuritySPObjects)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+halonSecuritySP = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1)
+)
+if mibBuilder.loadTexts:
+    halonSecuritySP.setRevisions(
+        ("2013-02-07 11:32",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HalonSecurity_ObjectIdentity = ObjectIdentity
+halonSecurity = _HalonSecurity_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 33234)
+)
+_HalonSecurityProducts_ObjectIdentity = ObjectIdentity
+halonSecurityProducts = _HalonSecurityProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 33234, 1)
+)
+_HalonSecuritySPObjects_ObjectIdentity = ObjectIdentity
+halonSecuritySPObjects = _HalonSecuritySPObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1)
+)
+_SerialNumber_Type = OctetString
+_SerialNumber_Object = MibScalar
+serialNumber = _SerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 1),
+    _SerialNumber_Type()
+)
+serialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    serialNumber.setStatus("current")
+_ConfigurationRevision_Type = Integer32
+_ConfigurationRevision_Object = MibScalar
+configurationRevision = _ConfigurationRevision_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 2),
+    _ConfigurationRevision_Type()
+)
+configurationRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    configurationRevision.setStatus("current")
+_MailQueueLength_Type = Counter64
+_MailQueueLength_Object = MibScalar
+mailQueueLength = _MailQueueLength_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 3),
+    _MailQueueLength_Type()
+)
+mailQueueLength.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mailQueueLength.setStatus("current")
+_QuarantinedMessages_Type = Counter64
+_QuarantinedMessages_Object = MibScalar
+quarantinedMessages = _QuarantinedMessages_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 4),
+    _QuarantinedMessages_Type()
+)
+quarantinedMessages.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    quarantinedMessages.setStatus("current")
+_StatTable_Object = MibTable
+statTable = _StatTable_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    statTable.setStatus("current")
+_StatEntry_Object = MibTableRow
+statEntry = _StatEntry_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1)
+)
+statEntry.setIndexNames(
+    (0, "HALON-SP-MIB", "statKey1Index"),
+    (0, "HALON-SP-MIB", "statKey2Index"),
+    (0, "HALON-SP-MIB", "statKey3Index"),
+)
+if mibBuilder.loadTexts:
+    statEntry.setStatus("current")
+_StatKey1Index_Type = OctetString
+_StatKey1Index_Object = MibTableColumn
+statKey1Index = _StatKey1Index_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 1),
+    _StatKey1Index_Type()
+)
+statKey1Index.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statKey1Index.setStatus("current")
+_StatKey2Index_Type = OctetString
+_StatKey2Index_Object = MibTableColumn
+statKey2Index = _StatKey2Index_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 2),
+    _StatKey2Index_Type()
+)
+statKey2Index.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statKey2Index.setStatus("current")
+_StatKey3Index_Type = OctetString
+_StatKey3Index_Object = MibTableColumn
+statKey3Index = _StatKey3Index_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 3),
+    _StatKey3Index_Type()
+)
+statKey3Index.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statKey3Index.setStatus("current")
+_StatCount_Type = Counter64
+_StatCount_Object = MibTableColumn
+statCount = _StatCount_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 4),
+    _StatCount_Type()
+)
+statCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statCount.setStatus("current")
+_StatCreated_Type = Integer32
+_StatCreated_Object = MibTableColumn
+statCreated = _StatCreated_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 5),
+    _StatCreated_Type()
+)
+statCreated.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statCreated.setStatus("current")
+_StatUpdated_Type = Integer32
+_StatUpdated_Object = MibTableColumn
+statUpdated = _StatUpdated_Object(
+    (1, 3, 6, 1, 4, 1, 33234, 1, 1, 1, 5, 1, 6),
+    _StatUpdated_Type()
+)
+statUpdated.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statUpdated.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HALON-SP-MIB",
+    **{"halonSecurity": halonSecurity,
+       "halonSecurityProducts": halonSecurityProducts,
+       "halonSecuritySP": halonSecuritySP,
+       "halonSecuritySPObjects": halonSecuritySPObjects,
+       "serialNumber": serialNumber,
+       "configurationRevision": configurationRevision,
+       "mailQueueLength": mailQueueLength,
+       "quarantinedMessages": quarantinedMessages,
+       "statTable": statTable,
+       "statEntry": statEntry,
+       "statKey1Index": statKey1Index,
+       "statKey2Index": statKey2Index,
+       "statKey3Index": statKey3Index,
+       "statCount": statCount,
+       "statCreated": statCreated,
+       "statUpdated": statUpdated}
+)

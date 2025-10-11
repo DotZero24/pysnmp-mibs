@@ -1,49 +1,390 @@
+# SNMP MIB module (SL-TESTS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SL-TESTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/smartoptics/SL-TESTS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:44:54 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/smartoptics/SL-TESTS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:11:16 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-PerfCurrentCount, PerfTotalCount, PerfIntervalCount = mibBuilder.importSymbols("PerfHist-TC-MIB", "PerfCurrentCount", "PerfTotalCount", "PerfIntervalCount")
-slMain, slmTrapLogId = mibBuilder.importSymbols("SL-MAIN-MIB", "slMain", "slmTrapLogId")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DateAndTime, TextualConvention, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "TruthValue", "TimeStamp", "DisplayString")
-slTests = ModuleIdentity((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13))
-if mibBuilder.loadTexts: slTests.setLastUpdated('200101180000Z')
-if mibBuilder.loadTexts: slTests.setOrganization('Smartoptics AS')
-slTestsIfLoop = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1))
-slTestsTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 2))
-slTestsTraps0 = MibIdentifier((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 2, 0))
-slTestsIfLoopTable = MibTable((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1), )
-if mibBuilder.loadTexts: slTestsIfLoopTable.setStatus('current')
-slTestsIfLoopEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1), ).setIndexNames((0, "SL-TESTS-MIB", "slTestsIfLoopIfIndex"))
-if mibBuilder.loadTexts: slTestsIfLoopEntry.setStatus('current')
-slTestsIfLoopIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slTestsIfLoopIfIndex.setStatus('current')
-slTestsIfLoopDuration = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: slTestsIfLoopDuration.setStatus('current')
-slTestsIfLoopStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("start", 1), ("stop", 2), ("fail", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: slTestsIfLoopStatus.setStatus('current')
-slTestsIfLoopType = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("terminal", 1), ("facility", 2), ("prbs", 3), ("otnPrbs", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: slTestsIfLoopType.setStatus('current')
-slTestsIfLoopMode = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("timeout", 1), ("toggle", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: slTestsIfLoopMode.setStatus('current')
-slTestsIfLoopErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slTestsIfLoopErrors.setStatus('current')
-slTestsIfLoopResult = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("success", 1), ("fail", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slTestsIfLoopResult.setStatus('current')
-slTestsIfLoopPassedSeconds = MibTableColumn((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slTestsIfLoopPassedSeconds.setStatus('current')
-slTestsTrapsLoopbackActive = MibScalar((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 2, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slTestsTrapsLoopbackActive.setStatus('current')
-slTestsTrapsLoopbackTableChanged = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 2, 2)).setObjects(("SL-TESTS-MIB", "slTestsIfLoopIfIndex"), ("SL-TESTS-MIB", "slTestsIfLoopType"), ("SL-TESTS-MIB", "slTestsTrapsLoopbackActive"), ("SL-MAIN-MIB", "slmTrapLogId"))
-if mibBuilder.loadTexts: slTestsTrapsLoopbackTableChanged.setStatus('current')
-slTestsTrapsLoopbackTableChanged0 = NotificationType((1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 2, 0, 2)).setObjects(("SL-TESTS-MIB", "slTestsIfLoopIfIndex"), ("SL-TESTS-MIB", "slTestsIfLoopType"), ("SL-TESTS-MIB", "slTestsTrapsLoopbackActive"), ("SL-MAIN-MIB", "slmTrapLogId"))
-if mibBuilder.loadTexts: slTestsTrapsLoopbackTableChanged0.setStatus('current')
-mibBuilder.exportSymbols("SL-TESTS-MIB", slTestsIfLoopErrors=slTestsIfLoopErrors, slTestsTrapsLoopbackActive=slTestsTrapsLoopbackActive, slTestsIfLoopMode=slTestsIfLoopMode, slTestsIfLoop=slTestsIfLoop, slTestsTrapsLoopbackTableChanged=slTestsTrapsLoopbackTableChanged, slTestsIfLoopPassedSeconds=slTestsIfLoopPassedSeconds, slTestsIfLoopTable=slTestsIfLoopTable, slTestsTrapsLoopbackTableChanged0=slTestsTrapsLoopbackTableChanged0, slTestsTraps=slTestsTraps, slTestsIfLoopType=slTestsIfLoopType, slTestsIfLoopIfIndex=slTestsIfLoopIfIndex, slTestsTraps0=slTestsTraps0, slTestsIfLoopDuration=slTestsIfLoopDuration, slTests=slTests, slTestsIfLoopEntry=slTestsIfLoopEntry, PYSNMP_MODULE_ID=slTests, slTestsIfLoopStatus=slTestsIfLoopStatus, slTestsIfLoopResult=slTestsIfLoopResult)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(PerfCurrentCount,
+ PerfIntervalCount,
+ PerfTotalCount) = mibBuilder.importSymbols(
+    "PerfHist-TC-MIB",
+    "PerfCurrentCount",
+    "PerfIntervalCount",
+    "PerfTotalCount")
+
+(slMain,
+ slmTrapLogId) = mibBuilder.importSymbols(
+    "SL-MAIN-MIB",
+    "slMain",
+    "slmTrapLogId")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+slTests = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SlTestsIfLoop_ObjectIdentity = ObjectIdentity
+slTestsIfLoop = _SlTestsIfLoop_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1)
+)
+_SlTestsIfLoopTable_Object = MibTable
+slTestsIfLoopTable = _SlTestsIfLoopTable_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1)
+)
+if mibBuilder.loadTexts:
+    slTestsIfLoopTable.setStatus("current")
+_SlTestsIfLoopEntry_Object = MibTableRow
+slTestsIfLoopEntry = _SlTestsIfLoopEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1)
+)
+slTestsIfLoopEntry.setIndexNames(
+    (0, "SL-TESTS-MIB", "slTestsIfLoopIfIndex"),
+)
+if mibBuilder.loadTexts:
+    slTestsIfLoopEntry.setStatus("current")
+_SlTestsIfLoopIfIndex_Type = InterfaceIndex
+_SlTestsIfLoopIfIndex_Object = MibTableColumn
+slTestsIfLoopIfIndex = _SlTestsIfLoopIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 1),
+    _SlTestsIfLoopIfIndex_Type()
+)
+slTestsIfLoopIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    slTestsIfLoopIfIndex.setStatus("current")
+_SlTestsIfLoopDuration_Type = Integer32
+_SlTestsIfLoopDuration_Object = MibTableColumn
+slTestsIfLoopDuration = _SlTestsIfLoopDuration_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 2),
+    _SlTestsIfLoopDuration_Type()
+)
+slTestsIfLoopDuration.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    slTestsIfLoopDuration.setStatus("current")
+
+
+class _SlTestsIfLoopStatus_Type(Integer32):
+    """Custom type slTestsIfLoopStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("start", 1),
+          ("stop", 2),
+          ("fail", 3))
+    )
+
+
+_SlTestsIfLoopStatus_Type.__name__ = "Integer32"
+_SlTestsIfLoopStatus_Object = MibTableColumn
+slTestsIfLoopStatus = _SlTestsIfLoopStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 3),
+    _SlTestsIfLoopStatus_Type()
+)
+slTestsIfLoopStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    slTestsIfLoopStatus.setStatus("current")
+
+
+class _SlTestsIfLoopType_Type(Integer32):
+    """Custom type slTestsIfLoopType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("terminal", 1),
+          ("facility", 2),
+          ("prbs", 3),
+          ("otnPrbs", 4))
+    )
+
+
+_SlTestsIfLoopType_Type.__name__ = "Integer32"
+_SlTestsIfLoopType_Object = MibTableColumn
+slTestsIfLoopType = _SlTestsIfLoopType_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 5),
+    _SlTestsIfLoopType_Type()
+)
+slTestsIfLoopType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    slTestsIfLoopType.setStatus("current")
+
+
+class _SlTestsIfLoopMode_Type(Integer32):
+    """Custom type slTestsIfLoopMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("timeout", 1),
+          ("toggle", 2))
+    )
+
+
+_SlTestsIfLoopMode_Type.__name__ = "Integer32"
+_SlTestsIfLoopMode_Object = MibTableColumn
+slTestsIfLoopMode = _SlTestsIfLoopMode_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 6),
+    _SlTestsIfLoopMode_Type()
+)
+slTestsIfLoopMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    slTestsIfLoopMode.setStatus("current")
+_SlTestsIfLoopErrors_Type = Counter32
+_SlTestsIfLoopErrors_Object = MibTableColumn
+slTestsIfLoopErrors = _SlTestsIfLoopErrors_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 7),
+    _SlTestsIfLoopErrors_Type()
+)
+slTestsIfLoopErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    slTestsIfLoopErrors.setStatus("current")
+
+
+class _SlTestsIfLoopResult_Type(Integer32):
+    """Custom type slTestsIfLoopResult based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("success", 1),
+          ("fail", 2))
+    )
+
+
+_SlTestsIfLoopResult_Type.__name__ = "Integer32"
+_SlTestsIfLoopResult_Object = MibTableColumn
+slTestsIfLoopResult = _SlTestsIfLoopResult_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 8),
+    _SlTestsIfLoopResult_Type()
+)
+slTestsIfLoopResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    slTestsIfLoopResult.setStatus("current")
+_SlTestsIfLoopPassedSeconds_Type = Integer32
+_SlTestsIfLoopPassedSeconds_Object = MibTableColumn
+slTestsIfLoopPassedSeconds = _SlTestsIfLoopPassedSeconds_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 1, 1, 1, 9),
+    _SlTestsIfLoopPassedSeconds_Type()
+)
+slTestsIfLoopPassedSeconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    slTestsIfLoopPassedSeconds.setStatus("current")
+_SlTestsTraps_ObjectIdentity = ObjectIdentity
+slTestsTraps = _SlTestsTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 2)
+)
+_SlTestsTraps0_ObjectIdentity = ObjectIdentity
+slTestsTraps0 = _SlTestsTraps0_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 2, 0)
+)
+_SlTestsTrapsLoopbackActive_Type = TruthValue
+_SlTestsTrapsLoopbackActive_Object = MibScalar
+slTestsTrapsLoopbackActive = _SlTestsTrapsLoopbackActive_Object(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 2, 1),
+    _SlTestsTrapsLoopbackActive_Type()
+)
+slTestsTrapsLoopbackActive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    slTestsTrapsLoopbackActive.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+slTestsTrapsLoopbackTableChanged0 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 2, 0, 2)
+)
+slTestsTrapsLoopbackTableChanged0.setObjects(
+      *(("SL-TESTS-MIB", "slTestsIfLoopIfIndex"),
+        ("SL-TESTS-MIB", "slTestsIfLoopType"),
+        ("SL-TESTS-MIB", "slTestsTrapsLoopbackActive"),
+        ("SL-MAIN-MIB", "slmTrapLogId"))
+)
+if mibBuilder.loadTexts:
+    slTestsTrapsLoopbackTableChanged0.setStatus(
+        "current"
+    )
+
+slTestsTrapsLoopbackTableChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4515, 1, 3, 13, 2, 2)
+)
+slTestsTrapsLoopbackTableChanged.setObjects(
+      *(("SL-TESTS-MIB", "slTestsIfLoopIfIndex"),
+        ("SL-TESTS-MIB", "slTestsIfLoopType"),
+        ("SL-TESTS-MIB", "slTestsTrapsLoopbackActive"),
+        ("SL-MAIN-MIB", "slmTrapLogId"))
+)
+if mibBuilder.loadTexts:
+    slTestsTrapsLoopbackTableChanged.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SL-TESTS-MIB",
+    **{"slTests": slTests,
+       "slTestsIfLoop": slTestsIfLoop,
+       "slTestsIfLoopTable": slTestsIfLoopTable,
+       "slTestsIfLoopEntry": slTestsIfLoopEntry,
+       "slTestsIfLoopIfIndex": slTestsIfLoopIfIndex,
+       "slTestsIfLoopDuration": slTestsIfLoopDuration,
+       "slTestsIfLoopStatus": slTestsIfLoopStatus,
+       "slTestsIfLoopType": slTestsIfLoopType,
+       "slTestsIfLoopMode": slTestsIfLoopMode,
+       "slTestsIfLoopErrors": slTestsIfLoopErrors,
+       "slTestsIfLoopResult": slTestsIfLoopResult,
+       "slTestsIfLoopPassedSeconds": slTestsIfLoopPassedSeconds,
+       "slTestsTraps": slTestsTraps,
+       "slTestsTraps0": slTestsTraps0,
+       "slTestsTrapsLoopbackTableChanged0": slTestsTrapsLoopbackTableChanged0,
+       "slTestsTrapsLoopbackActive": slTestsTrapsLoopbackActive,
+       "slTestsTrapsLoopbackTableChanged": slTestsTrapsLoopbackTableChanged}
+)

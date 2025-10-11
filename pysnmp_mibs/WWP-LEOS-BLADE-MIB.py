@@ -1,74 +1,589 @@
+# SNMP MIB module (WWP-LEOS-BLADE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module WWP-LEOS-BLADE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ciena/WWP-LEOS-BLADE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:59 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ciena/WWP-LEOS-BLADE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:46:43 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DateAndTime, TextualConvention, MacAddress, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "MacAddress", "DisplayString")
-wwpModulesLeos, = mibBuilder.importSymbols("WWP-SMI", "wwpModulesLeos")
-wwpLeosBladeMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1))
-wwpLeosBladeMIB.setRevisions(('2011-10-19 00:00', '2002-03-16 00:00',))
-if mibBuilder.loadTexts: wwpLeosBladeMIB.setLastUpdated('201110190000Z')
-if mibBuilder.loadTexts: wwpLeosBladeMIB.setOrganization('Ciena, Inc')
-wwpLeosBladeMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1))
-wwpLeosBlade = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1))
-wwpLeosBladeMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 2))
-wwpLeosBladeMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 2, 0))
-wwpLeosBladeMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 3))
-wwpLeosBladeMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 3, 1))
-wwpLeosBladeMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 3, 2))
-wwpLeosBladeTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1), )
-if mibBuilder.loadTexts: wwpLeosBladeTable.setStatus('current')
-wwpLeosBladeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1), ).setIndexNames((0, "WWP-LEOS-BLADE-MIB", "wwpLeosBladeId"))
-if mibBuilder.loadTexts: wwpLeosBladeEntry.setStatus('current')
-wwpLeosBladeId = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosBladeId.setStatus('current')
-wwpLeosBladeType = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("control", 1), ("io", 2), ("fabric", 3), ("single", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosBladeType.setStatus('current')
-wwpLeosBladeCapFilename = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpLeosBladeCapFilename.setStatus('current')
-wwpLeosBladeAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpLeosBladeAdminState.setStatus('current')
-wwpLeosBladeOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("init", 1), ("enabled", 2), ("disabled", 3), ("faulted", 4), ("unequipped", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosBladeOperState.setStatus('current')
-wwpLeosBladeStartMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 6), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosBladeStartMacAddr.setStatus('current')
-wwpLeosBladeNumPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosBladeNumPorts.setStatus('current')
-wwpLeosBladeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosBladeStatus.setStatus('current')
-wwpLeosPhyBladeTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2), )
-if mibBuilder.loadTexts: wwpLeosPhyBladeTable.setStatus('current')
-wwpLeosPhyBladeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1), ).setIndexNames((0, "WWP-LEOS-BLADE-MIB", "wwpLeosBladeId"))
-if mibBuilder.loadTexts: wwpLeosPhyBladeEntry.setStatus('current')
-wwpLeosPhyBladeSysUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 1), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosPhyBladeSysUpTime.setStatus('current')
-wwpLeosPhyBladeSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosPhyBladeSerialNum.setStatus('current')
-wwpLeosPhyBladeBoardRevision = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 127))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosPhyBladeBoardRevision.setStatus('current')
-wwpLeosPhyBladePostResults = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosPhyBladePostResults.setStatus('current')
-wwpLeosPhyBladePostCode = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosPhyBladePostCode.setStatus('current')
-wwpLeosPhyBladeMfgDate = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 6), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosPhyBladeMfgDate.setStatus('current')
-wwpLeosPhyBladeBoardDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosPhyBladeBoardDesc.setStatus('current')
-wwpLeosPhyBladeNumResets = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosPhyBladeNumResets.setStatus('current')
-wwpLeosPhyBladeLastRebootReason = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("unknown", 1), ("snmp", 2), ("pwrFail", 3), ("appLoad", 4), ("errorHandler", 5), ("watchdog", 6), ("upgrade", 7), ("cli", 8), ("resetButton", 9), ("serviceModeChange", 10), ("guardianReboot", 11), ("guardianSaosRestart", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosPhyBladeLastRebootReason.setStatus('current')
-wwpLeosPhyBladeRebootOperation = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("none", 1), ("reboot", 2), ("rebootReinit", 3), ("rebootCustReinit", 4))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpLeosPhyBladeRebootOperation.setStatus('current')
-wwpLeosBladeStateChange = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 2, 0, 1)).setObjects(("WWP-LEOS-BLADE-MIB", "wwpLeosBladeId"), ("WWP-LEOS-BLADE-MIB", "wwpLeosBladeOperState"))
-if mibBuilder.loadTexts: wwpLeosBladeStateChange.setStatus('current')
-wwpLeosBladePostFail = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 2, 0, 2)).setObjects(("WWP-LEOS-BLADE-MIB", "wwpLeosBladeId"), ("WWP-LEOS-BLADE-MIB", "wwpLeosPhyBladePostCode"))
-if mibBuilder.loadTexts: wwpLeosBladePostFail.setStatus('current')
-mibBuilder.exportSymbols("WWP-LEOS-BLADE-MIB", wwpLeosBladePostFail=wwpLeosBladePostFail, wwpLeosPhyBladePostResults=wwpLeosPhyBladePostResults, wwpLeosPhyBladeSysUpTime=wwpLeosPhyBladeSysUpTime, PYSNMP_MODULE_ID=wwpLeosBladeMIB, wwpLeosBlade=wwpLeosBlade, wwpLeosBladeAdminState=wwpLeosBladeAdminState, wwpLeosPhyBladeEntry=wwpLeosPhyBladeEntry, wwpLeosPhyBladeNumResets=wwpLeosPhyBladeNumResets, wwpLeosBladeStatus=wwpLeosBladeStatus, wwpLeosBladeType=wwpLeosBladeType, wwpLeosBladeTable=wwpLeosBladeTable, wwpLeosPhyBladePostCode=wwpLeosPhyBladePostCode, wwpLeosPhyBladeBoardDesc=wwpLeosPhyBladeBoardDesc, wwpLeosPhyBladeLastRebootReason=wwpLeosPhyBladeLastRebootReason, wwpLeosPhyBladeSerialNum=wwpLeosPhyBladeSerialNum, wwpLeosBladeMIBObjects=wwpLeosBladeMIBObjects, wwpLeosBladeMIBGroups=wwpLeosBladeMIBGroups, wwpLeosBladeOperState=wwpLeosBladeOperState, wwpLeosBladeStartMacAddr=wwpLeosBladeStartMacAddr, wwpLeosBladeMIBCompliances=wwpLeosBladeMIBCompliances, wwpLeosPhyBladeTable=wwpLeosPhyBladeTable, wwpLeosBladeStateChange=wwpLeosBladeStateChange, wwpLeosBladeCapFilename=wwpLeosBladeCapFilename, wwpLeosBladeMIBConformance=wwpLeosBladeMIBConformance, wwpLeosPhyBladeBoardRevision=wwpLeosPhyBladeBoardRevision, wwpLeosPhyBladeRebootOperation=wwpLeosPhyBladeRebootOperation, wwpLeosPhyBladeMfgDate=wwpLeosPhyBladeMfgDate, wwpLeosBladeId=wwpLeosBladeId, wwpLeosBladeEntry=wwpLeosBladeEntry, wwpLeosBladeMIB=wwpLeosBladeMIB, wwpLeosBladeMIBNotificationPrefix=wwpLeosBladeMIBNotificationPrefix, wwpLeosBladeNumPorts=wwpLeosBladeNumPorts, wwpLeosBladeMIBNotifications=wwpLeosBladeMIBNotifications)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+(wwpModulesLeos,) = mibBuilder.importSymbols(
+    "WWP-SMI",
+    "wwpModulesLeos")
+
+
+# MODULE-IDENTITY
+
+wwpLeosBladeMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1)
+)
+if mibBuilder.loadTexts:
+    wwpLeosBladeMIB.setRevisions(
+        ("2011-10-19 00:00",
+         "2002-03-16 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_WwpLeosBladeMIBObjects_ObjectIdentity = ObjectIdentity
+wwpLeosBladeMIBObjects = _WwpLeosBladeMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1)
+)
+_WwpLeosBlade_ObjectIdentity = ObjectIdentity
+wwpLeosBlade = _WwpLeosBlade_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1)
+)
+_WwpLeosBladeTable_Object = MibTable
+wwpLeosBladeTable = _WwpLeosBladeTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    wwpLeosBladeTable.setStatus("current")
+_WwpLeosBladeEntry_Object = MibTableRow
+wwpLeosBladeEntry = _WwpLeosBladeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1)
+)
+wwpLeosBladeEntry.setIndexNames(
+    (0, "WWP-LEOS-BLADE-MIB", "wwpLeosBladeId"),
+)
+if mibBuilder.loadTexts:
+    wwpLeosBladeEntry.setStatus("current")
+
+
+class _WwpLeosBladeId_Type(Integer32):
+    """Custom type wwpLeosBladeId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_WwpLeosBladeId_Type.__name__ = "Integer32"
+_WwpLeosBladeId_Object = MibTableColumn
+wwpLeosBladeId = _WwpLeosBladeId_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 1),
+    _WwpLeosBladeId_Type()
+)
+wwpLeosBladeId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosBladeId.setStatus("current")
+
+
+class _WwpLeosBladeType_Type(Integer32):
+    """Custom type wwpLeosBladeType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("control", 1),
+          ("io", 2),
+          ("fabric", 3),
+          ("single", 4))
+    )
+
+
+_WwpLeosBladeType_Type.__name__ = "Integer32"
+_WwpLeosBladeType_Object = MibTableColumn
+wwpLeosBladeType = _WwpLeosBladeType_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 2),
+    _WwpLeosBladeType_Type()
+)
+wwpLeosBladeType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosBladeType.setStatus("current")
+_WwpLeosBladeCapFilename_Type = DisplayString
+_WwpLeosBladeCapFilename_Object = MibTableColumn
+wwpLeosBladeCapFilename = _WwpLeosBladeCapFilename_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 3),
+    _WwpLeosBladeCapFilename_Type()
+)
+wwpLeosBladeCapFilename.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpLeosBladeCapFilename.setStatus("current")
+
+
+class _WwpLeosBladeAdminState_Type(Integer32):
+    """Custom type wwpLeosBladeAdminState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_WwpLeosBladeAdminState_Type.__name__ = "Integer32"
+_WwpLeosBladeAdminState_Object = MibTableColumn
+wwpLeosBladeAdminState = _WwpLeosBladeAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 4),
+    _WwpLeosBladeAdminState_Type()
+)
+wwpLeosBladeAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpLeosBladeAdminState.setStatus("current")
+
+
+class _WwpLeosBladeOperState_Type(Integer32):
+    """Custom type wwpLeosBladeOperState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("init", 1),
+          ("enabled", 2),
+          ("disabled", 3),
+          ("faulted", 4),
+          ("unequipped", 5))
+    )
+
+
+_WwpLeosBladeOperState_Type.__name__ = "Integer32"
+_WwpLeosBladeOperState_Object = MibTableColumn
+wwpLeosBladeOperState = _WwpLeosBladeOperState_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 5),
+    _WwpLeosBladeOperState_Type()
+)
+wwpLeosBladeOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosBladeOperState.setStatus("current")
+_WwpLeosBladeStartMacAddr_Type = MacAddress
+_WwpLeosBladeStartMacAddr_Object = MibTableColumn
+wwpLeosBladeStartMacAddr = _WwpLeosBladeStartMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 6),
+    _WwpLeosBladeStartMacAddr_Type()
+)
+wwpLeosBladeStartMacAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosBladeStartMacAddr.setStatus("current")
+
+
+class _WwpLeosBladeNumPorts_Type(Integer32):
+    """Custom type wwpLeosBladeNumPorts based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_WwpLeosBladeNumPorts_Type.__name__ = "Integer32"
+_WwpLeosBladeNumPorts_Object = MibTableColumn
+wwpLeosBladeNumPorts = _WwpLeosBladeNumPorts_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 7),
+    _WwpLeosBladeNumPorts_Type()
+)
+wwpLeosBladeNumPorts.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosBladeNumPorts.setStatus("current")
+_WwpLeosBladeStatus_Type = RowStatus
+_WwpLeosBladeStatus_Object = MibTableColumn
+wwpLeosBladeStatus = _WwpLeosBladeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 1, 1, 8),
+    _WwpLeosBladeStatus_Type()
+)
+wwpLeosBladeStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosBladeStatus.setStatus("current")
+_WwpLeosPhyBladeTable_Object = MibTable
+wwpLeosPhyBladeTable = _WwpLeosPhyBladeTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladeTable.setStatus("current")
+_WwpLeosPhyBladeEntry_Object = MibTableRow
+wwpLeosPhyBladeEntry = _WwpLeosPhyBladeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1)
+)
+wwpLeosPhyBladeEntry.setIndexNames(
+    (0, "WWP-LEOS-BLADE-MIB", "wwpLeosBladeId"),
+)
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladeEntry.setStatus("current")
+_WwpLeosPhyBladeSysUpTime_Type = TimeTicks
+_WwpLeosPhyBladeSysUpTime_Object = MibTableColumn
+wwpLeosPhyBladeSysUpTime = _WwpLeosPhyBladeSysUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 1),
+    _WwpLeosPhyBladeSysUpTime_Type()
+)
+wwpLeosPhyBladeSysUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladeSysUpTime.setStatus("current")
+
+
+class _WwpLeosPhyBladeSerialNum_Type(DisplayString):
+    """Custom type wwpLeosPhyBladeSerialNum based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+_WwpLeosPhyBladeSerialNum_Type.__name__ = "DisplayString"
+_WwpLeosPhyBladeSerialNum_Object = MibTableColumn
+wwpLeosPhyBladeSerialNum = _WwpLeosPhyBladeSerialNum_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 2),
+    _WwpLeosPhyBladeSerialNum_Type()
+)
+wwpLeosPhyBladeSerialNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladeSerialNum.setStatus("current")
+
+
+class _WwpLeosPhyBladeBoardRevision_Type(DisplayString):
+    """Custom type wwpLeosPhyBladeBoardRevision based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 127),
+    )
+
+
+_WwpLeosPhyBladeBoardRevision_Type.__name__ = "DisplayString"
+_WwpLeosPhyBladeBoardRevision_Object = MibTableColumn
+wwpLeosPhyBladeBoardRevision = _WwpLeosPhyBladeBoardRevision_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 3),
+    _WwpLeosPhyBladeBoardRevision_Type()
+)
+wwpLeosPhyBladeBoardRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladeBoardRevision.setStatus("current")
+_WwpLeosPhyBladePostResults_Type = DisplayString
+_WwpLeosPhyBladePostResults_Object = MibTableColumn
+wwpLeosPhyBladePostResults = _WwpLeosPhyBladePostResults_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 4),
+    _WwpLeosPhyBladePostResults_Type()
+)
+wwpLeosPhyBladePostResults.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladePostResults.setStatus("current")
+_WwpLeosPhyBladePostCode_Type = Unsigned32
+_WwpLeosPhyBladePostCode_Object = MibTableColumn
+wwpLeosPhyBladePostCode = _WwpLeosPhyBladePostCode_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 5),
+    _WwpLeosPhyBladePostCode_Type()
+)
+wwpLeosPhyBladePostCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladePostCode.setStatus("current")
+_WwpLeosPhyBladeMfgDate_Type = DateAndTime
+_WwpLeosPhyBladeMfgDate_Object = MibTableColumn
+wwpLeosPhyBladeMfgDate = _WwpLeosPhyBladeMfgDate_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 6),
+    _WwpLeosPhyBladeMfgDate_Type()
+)
+wwpLeosPhyBladeMfgDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladeMfgDate.setStatus("current")
+_WwpLeosPhyBladeBoardDesc_Type = DisplayString
+_WwpLeosPhyBladeBoardDesc_Object = MibTableColumn
+wwpLeosPhyBladeBoardDesc = _WwpLeosPhyBladeBoardDesc_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 7),
+    _WwpLeosPhyBladeBoardDesc_Type()
+)
+wwpLeosPhyBladeBoardDesc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladeBoardDesc.setStatus("current")
+_WwpLeosPhyBladeNumResets_Type = Unsigned32
+_WwpLeosPhyBladeNumResets_Object = MibTableColumn
+wwpLeosPhyBladeNumResets = _WwpLeosPhyBladeNumResets_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 8),
+    _WwpLeosPhyBladeNumResets_Type()
+)
+wwpLeosPhyBladeNumResets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladeNumResets.setStatus("current")
+
+
+class _WwpLeosPhyBladeLastRebootReason_Type(Integer32):
+    """Custom type wwpLeosPhyBladeLastRebootReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("snmp", 2),
+          ("pwrFail", 3),
+          ("appLoad", 4),
+          ("errorHandler", 5),
+          ("watchdog", 6),
+          ("upgrade", 7),
+          ("cli", 8),
+          ("resetButton", 9),
+          ("serviceModeChange", 10),
+          ("guardianReboot", 11),
+          ("guardianSaosRestart", 12))
+    )
+
+
+_WwpLeosPhyBladeLastRebootReason_Type.__name__ = "Integer32"
+_WwpLeosPhyBladeLastRebootReason_Object = MibTableColumn
+wwpLeosPhyBladeLastRebootReason = _WwpLeosPhyBladeLastRebootReason_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 9),
+    _WwpLeosPhyBladeLastRebootReason_Type()
+)
+wwpLeosPhyBladeLastRebootReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladeLastRebootReason.setStatus("current")
+
+
+class _WwpLeosPhyBladeRebootOperation_Type(Integer32):
+    """Custom type wwpLeosPhyBladeRebootOperation based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("reboot", 2),
+          ("rebootReinit", 3),
+          ("rebootCustReinit", 4))
+    )
+
+
+_WwpLeosPhyBladeRebootOperation_Type.__name__ = "Integer32"
+_WwpLeosPhyBladeRebootOperation_Object = MibTableColumn
+wwpLeosPhyBladeRebootOperation = _WwpLeosPhyBladeRebootOperation_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 1, 1, 2, 1, 10),
+    _WwpLeosPhyBladeRebootOperation_Type()
+)
+wwpLeosPhyBladeRebootOperation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpLeosPhyBladeRebootOperation.setStatus("current")
+_WwpLeosBladeMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+wwpLeosBladeMIBNotificationPrefix = _WwpLeosBladeMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 2)
+)
+_WwpLeosBladeMIBNotifications_ObjectIdentity = ObjectIdentity
+wwpLeosBladeMIBNotifications = _WwpLeosBladeMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 2, 0)
+)
+_WwpLeosBladeMIBConformance_ObjectIdentity = ObjectIdentity
+wwpLeosBladeMIBConformance = _WwpLeosBladeMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 3)
+)
+_WwpLeosBladeMIBCompliances_ObjectIdentity = ObjectIdentity
+wwpLeosBladeMIBCompliances = _WwpLeosBladeMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 3, 1)
+)
+_WwpLeosBladeMIBGroups_ObjectIdentity = ObjectIdentity
+wwpLeosBladeMIBGroups = _WwpLeosBladeMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 3, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+wwpLeosBladeStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 2, 0, 1)
+)
+wwpLeosBladeStateChange.setObjects(
+      *(("WWP-LEOS-BLADE-MIB", "wwpLeosBladeId"),
+        ("WWP-LEOS-BLADE-MIB", "wwpLeosBladeOperState"))
+)
+if mibBuilder.loadTexts:
+    wwpLeosBladeStateChange.setStatus(
+        "current"
+    )
+
+wwpLeosBladePostFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 1, 2, 0, 2)
+)
+wwpLeosBladePostFail.setObjects(
+      *(("WWP-LEOS-BLADE-MIB", "wwpLeosBladeId"),
+        ("WWP-LEOS-BLADE-MIB", "wwpLeosPhyBladePostCode"))
+)
+if mibBuilder.loadTexts:
+    wwpLeosBladePostFail.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "WWP-LEOS-BLADE-MIB",
+    **{"wwpLeosBladeMIB": wwpLeosBladeMIB,
+       "wwpLeosBladeMIBObjects": wwpLeosBladeMIBObjects,
+       "wwpLeosBlade": wwpLeosBlade,
+       "wwpLeosBladeTable": wwpLeosBladeTable,
+       "wwpLeosBladeEntry": wwpLeosBladeEntry,
+       "wwpLeosBladeId": wwpLeosBladeId,
+       "wwpLeosBladeType": wwpLeosBladeType,
+       "wwpLeosBladeCapFilename": wwpLeosBladeCapFilename,
+       "wwpLeosBladeAdminState": wwpLeosBladeAdminState,
+       "wwpLeosBladeOperState": wwpLeosBladeOperState,
+       "wwpLeosBladeStartMacAddr": wwpLeosBladeStartMacAddr,
+       "wwpLeosBladeNumPorts": wwpLeosBladeNumPorts,
+       "wwpLeosBladeStatus": wwpLeosBladeStatus,
+       "wwpLeosPhyBladeTable": wwpLeosPhyBladeTable,
+       "wwpLeosPhyBladeEntry": wwpLeosPhyBladeEntry,
+       "wwpLeosPhyBladeSysUpTime": wwpLeosPhyBladeSysUpTime,
+       "wwpLeosPhyBladeSerialNum": wwpLeosPhyBladeSerialNum,
+       "wwpLeosPhyBladeBoardRevision": wwpLeosPhyBladeBoardRevision,
+       "wwpLeosPhyBladePostResults": wwpLeosPhyBladePostResults,
+       "wwpLeosPhyBladePostCode": wwpLeosPhyBladePostCode,
+       "wwpLeosPhyBladeMfgDate": wwpLeosPhyBladeMfgDate,
+       "wwpLeosPhyBladeBoardDesc": wwpLeosPhyBladeBoardDesc,
+       "wwpLeosPhyBladeNumResets": wwpLeosPhyBladeNumResets,
+       "wwpLeosPhyBladeLastRebootReason": wwpLeosPhyBladeLastRebootReason,
+       "wwpLeosPhyBladeRebootOperation": wwpLeosPhyBladeRebootOperation,
+       "wwpLeosBladeMIBNotificationPrefix": wwpLeosBladeMIBNotificationPrefix,
+       "wwpLeosBladeMIBNotifications": wwpLeosBladeMIBNotifications,
+       "wwpLeosBladeStateChange": wwpLeosBladeStateChange,
+       "wwpLeosBladePostFail": wwpLeosBladePostFail,
+       "wwpLeosBladeMIBConformance": wwpLeosBladeMIBConformance,
+       "wwpLeosBladeMIBCompliances": wwpLeosBladeMIBCompliances,
+       "wwpLeosBladeMIBGroups": wwpLeosBladeMIBGroups}
+)

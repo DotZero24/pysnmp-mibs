@@ -1,36 +1,236 @@
+# SNMP MIB module (HM2-PLATFORM-LOOPBACK-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HM2-PLATFORM-LOOPBACK-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HM2-PLATFORM-LOOPBACK-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:11 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hirschmann/HM2-PLATFORM-LOOPBACK-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:53:51 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hm2PlatformMibs, = mibBuilder.importSymbols("HM2-TC-MIB", "hm2PlatformMibs")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-InetAddressIPv4, = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-hm2PlatformLoopback = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 12, 22))
-hm2PlatformLoopback.setRevisions(('2011-09-08 00:00',))
-if mibBuilder.loadTexts: hm2PlatformLoopback.setLastUpdated('201109080000Z')
-if mibBuilder.loadTexts: hm2PlatformLoopback.setOrganization('Hirschmann Automation and Control GmbH')
-hm2AgentLoopbackGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 12, 22, 1))
-hm2AgentLoopbackTable = MibTable((1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1), )
-if mibBuilder.loadTexts: hm2AgentLoopbackTable.setStatus('current')
-hm2AgentLoopbackEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1), ).setIndexNames((0, "HM2-PLATFORM-LOOPBACK-MIB", "hm2AgentLoopbackID"))
-if mibBuilder.loadTexts: hm2AgentLoopbackEntry.setStatus('current')
-hm2AgentLoopbackID = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: hm2AgentLoopbackID.setStatus('current')
-hm2AgentLoopbackIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hm2AgentLoopbackIfIndex.setStatus('current')
-hm2AgentLoopbackIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1, 3), InetAddressIPv4()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hm2AgentLoopbackIPAddress.setStatus('current')
-hm2AgentLoopbackIPSubnet = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1, 4), InetAddressIPv4()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hm2AgentLoopbackIPSubnet.setStatus('current')
-hm2AgentLoopbackStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hm2AgentLoopbackStatus.setStatus('current')
-mibBuilder.exportSymbols("HM2-PLATFORM-LOOPBACK-MIB", hm2AgentLoopbackGroup=hm2AgentLoopbackGroup, hm2AgentLoopbackIfIndex=hm2AgentLoopbackIfIndex, hm2AgentLoopbackIPAddress=hm2AgentLoopbackIPAddress, PYSNMP_MODULE_ID=hm2PlatformLoopback, hm2AgentLoopbackIPSubnet=hm2AgentLoopbackIPSubnet, hm2PlatformLoopback=hm2PlatformLoopback, hm2AgentLoopbackStatus=hm2AgentLoopbackStatus, hm2AgentLoopbackID=hm2AgentLoopbackID, hm2AgentLoopbackEntry=hm2AgentLoopbackEntry, hm2AgentLoopbackTable=hm2AgentLoopbackTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hm2PlatformMibs,) = mibBuilder.importSymbols(
+    "HM2-TC-MIB",
+    "hm2PlatformMibs")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(InetAddressIPv4,) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv4")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hm2PlatformLoopback = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 12, 22)
+)
+if mibBuilder.loadTexts:
+    hm2PlatformLoopback.setRevisions(
+        ("2011-09-08 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hm2AgentLoopbackGroup_ObjectIdentity = ObjectIdentity
+hm2AgentLoopbackGroup = _Hm2AgentLoopbackGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 12, 22, 1)
+)
+_Hm2AgentLoopbackTable_Object = MibTable
+hm2AgentLoopbackTable = _Hm2AgentLoopbackTable_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hm2AgentLoopbackTable.setStatus("current")
+_Hm2AgentLoopbackEntry_Object = MibTableRow
+hm2AgentLoopbackEntry = _Hm2AgentLoopbackEntry_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1)
+)
+hm2AgentLoopbackEntry.setIndexNames(
+    (0, "HM2-PLATFORM-LOOPBACK-MIB", "hm2AgentLoopbackID"),
+)
+if mibBuilder.loadTexts:
+    hm2AgentLoopbackEntry.setStatus("current")
+
+
+class _Hm2AgentLoopbackID_Type(Integer32):
+    """Custom type hm2AgentLoopbackID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_Hm2AgentLoopbackID_Type.__name__ = "Integer32"
+_Hm2AgentLoopbackID_Object = MibTableColumn
+hm2AgentLoopbackID = _Hm2AgentLoopbackID_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1, 1),
+    _Hm2AgentLoopbackID_Type()
+)
+hm2AgentLoopbackID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hm2AgentLoopbackID.setStatus("current")
+_Hm2AgentLoopbackIfIndex_Type = InterfaceIndex
+_Hm2AgentLoopbackIfIndex_Object = MibTableColumn
+hm2AgentLoopbackIfIndex = _Hm2AgentLoopbackIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1, 2),
+    _Hm2AgentLoopbackIfIndex_Type()
+)
+hm2AgentLoopbackIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hm2AgentLoopbackIfIndex.setStatus("current")
+_Hm2AgentLoopbackIPAddress_Type = InetAddressIPv4
+_Hm2AgentLoopbackIPAddress_Object = MibTableColumn
+hm2AgentLoopbackIPAddress = _Hm2AgentLoopbackIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1, 3),
+    _Hm2AgentLoopbackIPAddress_Type()
+)
+hm2AgentLoopbackIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hm2AgentLoopbackIPAddress.setStatus("current")
+_Hm2AgentLoopbackIPSubnet_Type = InetAddressIPv4
+_Hm2AgentLoopbackIPSubnet_Object = MibTableColumn
+hm2AgentLoopbackIPSubnet = _Hm2AgentLoopbackIPSubnet_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1, 4),
+    _Hm2AgentLoopbackIPSubnet_Type()
+)
+hm2AgentLoopbackIPSubnet.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hm2AgentLoopbackIPSubnet.setStatus("current")
+_Hm2AgentLoopbackStatus_Type = RowStatus
+_Hm2AgentLoopbackStatus_Object = MibTableColumn
+hm2AgentLoopbackStatus = _Hm2AgentLoopbackStatus_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 22, 1, 1, 1, 5),
+    _Hm2AgentLoopbackStatus_Type()
+)
+hm2AgentLoopbackStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hm2AgentLoopbackStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HM2-PLATFORM-LOOPBACK-MIB",
+    **{"hm2PlatformLoopback": hm2PlatformLoopback,
+       "hm2AgentLoopbackGroup": hm2AgentLoopbackGroup,
+       "hm2AgentLoopbackTable": hm2AgentLoopbackTable,
+       "hm2AgentLoopbackEntry": hm2AgentLoopbackEntry,
+       "hm2AgentLoopbackID": hm2AgentLoopbackID,
+       "hm2AgentLoopbackIfIndex": hm2AgentLoopbackIfIndex,
+       "hm2AgentLoopbackIPAddress": hm2AgentLoopbackIPAddress,
+       "hm2AgentLoopbackIPSubnet": hm2AgentLoopbackIPSubnet,
+       "hm2AgentLoopbackStatus": hm2AgentLoopbackStatus}
+)

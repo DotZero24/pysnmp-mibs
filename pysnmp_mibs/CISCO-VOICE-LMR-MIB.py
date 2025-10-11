@@ -1,82 +1,497 @@
+# SNMP MIB module (CISCO-VOICE-LMR-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-VOICE-LMR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-VOICE-LMR-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:29:49 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-VOICE-LMR-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:37:40 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-ciscoVoiceLmrMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 510))
-ciscoVoiceLmrMIB.setRevisions(('2004-10-14 00:00',))
-if mibBuilder.loadTexts: ciscoVoiceLmrMIB.setLastUpdated('200410140000Z')
-if mibBuilder.loadTexts: ciscoVoiceLmrMIB.setOrganization('Cisco Systems, Inc.')
-cvlMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 510, 1))
-cvlMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 510, 2))
-cvlToneObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoVoiceLmrMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510)
+)
+if mibBuilder.loadTexts:
+    ciscoVoiceLmrMIB.setRevisions(
+        ("2004-10-14 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class VoiceFrequency(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 4000)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4000),
+    )
+
+
 
 class VoiceAmplitude(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-30, 3)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-30, 3),
+    )
+
+
 
 class LmrToneDuration(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 500)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 500),
+    )
 
-cvlClassTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1), )
-if mibBuilder.loadTexts: cvlClassTable.setStatus('current')
-cvlClassEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1), ).setIndexNames((0, "CISCO-VOICE-LMR-MIB", "cvlClassIndex"))
-if mibBuilder.loadTexts: cvlClassEntry.setStatus('current')
-cvlClassIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10000)))
-if mibBuilder.loadTexts: cvlClassIndex.setStatus('current')
-cvlClassName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 19))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvlClassName.setStatus('current')
-cvlDigitalFilter = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("digitalFilterNone", 0), ("digitalFilter1950HZ", 1), ("digitalFilter2175HZ", 2))).clone('digitalFilterNone')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvlDigitalFilter.setStatus('current')
-cvlGuardToneFreq = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 4), VoiceFrequency()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvlGuardToneFreq.setStatus('current')
-cvlGuardToneAmp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 5), VoiceAmplitude()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvlGuardToneAmp.setStatus('current')
-cvlIdleToneFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 6), TruthValue().clone('false')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvlIdleToneFlag.setStatus('current')
-cvlSignalToneTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2), )
-if mibBuilder.loadTexts: cvlSignalToneTable.setStatus('current')
-cvlSignalToneEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1), ).setIndexNames((0, "CISCO-VOICE-LMR-MIB", "cvlSignalToneGroupIndex"), (0, "CISCO-VOICE-LMR-MIB", "cvlSignalToneIndex"))
-if mibBuilder.loadTexts: cvlSignalToneEntry.setStatus('current')
-cvlSignalToneGroupIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10000)))
-if mibBuilder.loadTexts: cvlSignalToneGroupIndex.setStatus('current')
-cvlSignalToneIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)))
-if mibBuilder.loadTexts: cvlSignalToneIndex.setStatus('current')
-cvlSignalToneName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 19))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvlSignalToneName.setStatus('current')
-cvlSignalToneFreq = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 4), VoiceFrequency()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvlSignalToneFreq.setStatus('current')
-cvlSignalToneAmp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 5), VoiceAmplitude()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvlSignalToneAmp.setStatus('current')
-cvlSignalToneDur = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 6), LmrToneDuration()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cvlSignalToneDur.setStatus('current')
-cvlMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 510, 2, 1))
-cvlMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 510, 2, 2))
-cvlMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 510, 2, 1, 1)).setObjects(("CISCO-VOICE-LMR-MIB", "cvlToneClassGroup"), ("CISCO-VOICE-LMR-MIB", "cvlToneSignalGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvlMIBCompliance = cvlMIBCompliance.setStatus('current')
-cvlToneClassGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 510, 2, 2, 1)).setObjects(("CISCO-VOICE-LMR-MIB", "cvlClassName"), ("CISCO-VOICE-LMR-MIB", "cvlDigitalFilter"), ("CISCO-VOICE-LMR-MIB", "cvlGuardToneFreq"), ("CISCO-VOICE-LMR-MIB", "cvlGuardToneAmp"), ("CISCO-VOICE-LMR-MIB", "cvlIdleToneFlag"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvlToneClassGroup = cvlToneClassGroup.setStatus('current')
-cvlToneSignalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 510, 2, 2, 2)).setObjects(("CISCO-VOICE-LMR-MIB", "cvlSignalToneName"), ("CISCO-VOICE-LMR-MIB", "cvlSignalToneFreq"), ("CISCO-VOICE-LMR-MIB", "cvlSignalToneAmp"), ("CISCO-VOICE-LMR-MIB", "cvlSignalToneDur"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvlToneSignalGroup = cvlToneSignalGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-VOICE-LMR-MIB", cvlGuardToneAmp=cvlGuardToneAmp, cvlMIBObjects=cvlMIBObjects, cvlDigitalFilter=cvlDigitalFilter, LmrToneDuration=LmrToneDuration, cvlSignalToneDur=cvlSignalToneDur, cvlSignalToneIndex=cvlSignalToneIndex, cvlClassTable=cvlClassTable, cvlSignalToneGroupIndex=cvlSignalToneGroupIndex, VoiceAmplitude=VoiceAmplitude, PYSNMP_MODULE_ID=ciscoVoiceLmrMIB, cvlSignalToneEntry=cvlSignalToneEntry, cvlToneSignalGroup=cvlToneSignalGroup, VoiceFrequency=VoiceFrequency, cvlMIBConformance=cvlMIBConformance, cvlClassIndex=cvlClassIndex, cvlMIBCompliances=cvlMIBCompliances, cvlSignalToneAmp=cvlSignalToneAmp, ciscoVoiceLmrMIB=ciscoVoiceLmrMIB, cvlSignalToneFreq=cvlSignalToneFreq, cvlToneClassGroup=cvlToneClassGroup, cvlSignalToneTable=cvlSignalToneTable, cvlMIBGroups=cvlMIBGroups, cvlSignalToneName=cvlSignalToneName, cvlToneObjects=cvlToneObjects, cvlGuardToneFreq=cvlGuardToneFreq, cvlIdleToneFlag=cvlIdleToneFlag, cvlClassName=cvlClassName, cvlMIBCompliance=cvlMIBCompliance, cvlClassEntry=cvlClassEntry)
+
+# MIB Managed Objects in the order of their OIDs
+
+_CvlMIBObjects_ObjectIdentity = ObjectIdentity
+cvlMIBObjects = _CvlMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1)
+)
+_CvlToneObjects_ObjectIdentity = ObjectIdentity
+cvlToneObjects = _CvlToneObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1)
+)
+_CvlClassTable_Object = MibTable
+cvlClassTable = _CvlClassTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cvlClassTable.setStatus("current")
+_CvlClassEntry_Object = MibTableRow
+cvlClassEntry = _CvlClassEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1)
+)
+cvlClassEntry.setIndexNames(
+    (0, "CISCO-VOICE-LMR-MIB", "cvlClassIndex"),
+)
+if mibBuilder.loadTexts:
+    cvlClassEntry.setStatus("current")
+
+
+class _CvlClassIndex_Type(Unsigned32):
+    """Custom type cvlClassIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10000),
+    )
+
+
+_CvlClassIndex_Type.__name__ = "Unsigned32"
+_CvlClassIndex_Object = MibTableColumn
+cvlClassIndex = _CvlClassIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 1),
+    _CvlClassIndex_Type()
+)
+cvlClassIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cvlClassIndex.setStatus("current")
+
+
+class _CvlClassName_Type(SnmpAdminString):
+    """Custom type cvlClassName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 19),
+    )
+
+
+_CvlClassName_Type.__name__ = "SnmpAdminString"
+_CvlClassName_Object = MibTableColumn
+cvlClassName = _CvlClassName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 2),
+    _CvlClassName_Type()
+)
+cvlClassName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvlClassName.setStatus("current")
+
+
+class _CvlDigitalFilter_Type(Integer32):
+    """Custom type cvlDigitalFilter based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("digitalFilterNone", 0),
+          ("digitalFilter1950HZ", 1),
+          ("digitalFilter2175HZ", 2))
+    )
+
+
+_CvlDigitalFilter_Type.__name__ = "Integer32"
+_CvlDigitalFilter_Object = MibTableColumn
+cvlDigitalFilter = _CvlDigitalFilter_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 3),
+    _CvlDigitalFilter_Type()
+)
+cvlDigitalFilter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvlDigitalFilter.setStatus("current")
+
+
+class _CvlGuardToneFreq_Type(VoiceFrequency):
+    """Custom type cvlGuardToneFreq based on VoiceFrequency"""
+    defaultValue = 0
+
+
+_CvlGuardToneFreq_Type.__name__ = "VoiceFrequency"
+_CvlGuardToneFreq_Object = MibTableColumn
+cvlGuardToneFreq = _CvlGuardToneFreq_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 4),
+    _CvlGuardToneFreq_Type()
+)
+cvlGuardToneFreq.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvlGuardToneFreq.setStatus("current")
+
+
+class _CvlGuardToneAmp_Type(VoiceAmplitude):
+    """Custom type cvlGuardToneAmp based on VoiceAmplitude"""
+    defaultValue = 0
+
+
+_CvlGuardToneAmp_Type.__name__ = "VoiceAmplitude"
+_CvlGuardToneAmp_Object = MibTableColumn
+cvlGuardToneAmp = _CvlGuardToneAmp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 5),
+    _CvlGuardToneAmp_Type()
+)
+cvlGuardToneAmp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvlGuardToneAmp.setStatus("current")
+
+
+class _CvlIdleToneFlag_Type(TruthValue):
+    """Custom type cvlIdleToneFlag based on TruthValue"""
+    defaultValue = 2
+
+
+_CvlIdleToneFlag_Type.__name__ = "TruthValue"
+_CvlIdleToneFlag_Object = MibTableColumn
+cvlIdleToneFlag = _CvlIdleToneFlag_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 1, 1, 6),
+    _CvlIdleToneFlag_Type()
+)
+cvlIdleToneFlag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvlIdleToneFlag.setStatus("current")
+_CvlSignalToneTable_Object = MibTable
+cvlSignalToneTable = _CvlSignalToneTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    cvlSignalToneTable.setStatus("current")
+_CvlSignalToneEntry_Object = MibTableRow
+cvlSignalToneEntry = _CvlSignalToneEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1)
+)
+cvlSignalToneEntry.setIndexNames(
+    (0, "CISCO-VOICE-LMR-MIB", "cvlSignalToneGroupIndex"),
+    (0, "CISCO-VOICE-LMR-MIB", "cvlSignalToneIndex"),
+)
+if mibBuilder.loadTexts:
+    cvlSignalToneEntry.setStatus("current")
+
+
+class _CvlSignalToneGroupIndex_Type(Unsigned32):
+    """Custom type cvlSignalToneGroupIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10000),
+    )
+
+
+_CvlSignalToneGroupIndex_Type.__name__ = "Unsigned32"
+_CvlSignalToneGroupIndex_Object = MibTableColumn
+cvlSignalToneGroupIndex = _CvlSignalToneGroupIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 1),
+    _CvlSignalToneGroupIndex_Type()
+)
+cvlSignalToneGroupIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cvlSignalToneGroupIndex.setStatus("current")
+
+
+class _CvlSignalToneIndex_Type(Unsigned32):
+    """Custom type cvlSignalToneIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_CvlSignalToneIndex_Type.__name__ = "Unsigned32"
+_CvlSignalToneIndex_Object = MibTableColumn
+cvlSignalToneIndex = _CvlSignalToneIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 2),
+    _CvlSignalToneIndex_Type()
+)
+cvlSignalToneIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cvlSignalToneIndex.setStatus("current")
+
+
+class _CvlSignalToneName_Type(SnmpAdminString):
+    """Custom type cvlSignalToneName based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 19),
+    )
+
+
+_CvlSignalToneName_Type.__name__ = "SnmpAdminString"
+_CvlSignalToneName_Object = MibTableColumn
+cvlSignalToneName = _CvlSignalToneName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 3),
+    _CvlSignalToneName_Type()
+)
+cvlSignalToneName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvlSignalToneName.setStatus("current")
+_CvlSignalToneFreq_Type = VoiceFrequency
+_CvlSignalToneFreq_Object = MibTableColumn
+cvlSignalToneFreq = _CvlSignalToneFreq_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 4),
+    _CvlSignalToneFreq_Type()
+)
+cvlSignalToneFreq.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvlSignalToneFreq.setStatus("current")
+_CvlSignalToneAmp_Type = VoiceAmplitude
+_CvlSignalToneAmp_Object = MibTableColumn
+cvlSignalToneAmp = _CvlSignalToneAmp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 5),
+    _CvlSignalToneAmp_Type()
+)
+cvlSignalToneAmp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvlSignalToneAmp.setStatus("current")
+_CvlSignalToneDur_Type = LmrToneDuration
+_CvlSignalToneDur_Object = MibTableColumn
+cvlSignalToneDur = _CvlSignalToneDur_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 1, 1, 2, 1, 6),
+    _CvlSignalToneDur_Type()
+)
+cvlSignalToneDur.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cvlSignalToneDur.setStatus("current")
+_CvlMIBConformance_ObjectIdentity = ObjectIdentity
+cvlMIBConformance = _CvlMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 2)
+)
+_CvlMIBCompliances_ObjectIdentity = ObjectIdentity
+cvlMIBCompliances = _CvlMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 2, 1)
+)
+_CvlMIBGroups_ObjectIdentity = ObjectIdentity
+cvlMIBGroups = _CvlMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 2, 2)
+)
+
+# Managed Objects groups
+
+cvlToneClassGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 2, 2, 1)
+)
+cvlToneClassGroup.setObjects(
+      *(("CISCO-VOICE-LMR-MIB", "cvlClassName"),
+        ("CISCO-VOICE-LMR-MIB", "cvlDigitalFilter"),
+        ("CISCO-VOICE-LMR-MIB", "cvlGuardToneFreq"),
+        ("CISCO-VOICE-LMR-MIB", "cvlGuardToneAmp"),
+        ("CISCO-VOICE-LMR-MIB", "cvlIdleToneFlag"))
+)
+if mibBuilder.loadTexts:
+    cvlToneClassGroup.setStatus("current")
+
+cvlToneSignalGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 2, 2, 2)
+)
+cvlToneSignalGroup.setObjects(
+      *(("CISCO-VOICE-LMR-MIB", "cvlSignalToneName"),
+        ("CISCO-VOICE-LMR-MIB", "cvlSignalToneFreq"),
+        ("CISCO-VOICE-LMR-MIB", "cvlSignalToneAmp"),
+        ("CISCO-VOICE-LMR-MIB", "cvlSignalToneDur"))
+)
+if mibBuilder.loadTexts:
+    cvlToneSignalGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cvlMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 510, 2, 1, 1)
+)
+cvlMIBCompliance.setObjects(
+      *(("CISCO-VOICE-LMR-MIB", "cvlToneClassGroup"),
+        ("CISCO-VOICE-LMR-MIB", "cvlToneSignalGroup"))
+)
+if mibBuilder.loadTexts:
+    cvlMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-VOICE-LMR-MIB",
+    **{"VoiceFrequency": VoiceFrequency,
+       "VoiceAmplitude": VoiceAmplitude,
+       "LmrToneDuration": LmrToneDuration,
+       "ciscoVoiceLmrMIB": ciscoVoiceLmrMIB,
+       "cvlMIBObjects": cvlMIBObjects,
+       "cvlToneObjects": cvlToneObjects,
+       "cvlClassTable": cvlClassTable,
+       "cvlClassEntry": cvlClassEntry,
+       "cvlClassIndex": cvlClassIndex,
+       "cvlClassName": cvlClassName,
+       "cvlDigitalFilter": cvlDigitalFilter,
+       "cvlGuardToneFreq": cvlGuardToneFreq,
+       "cvlGuardToneAmp": cvlGuardToneAmp,
+       "cvlIdleToneFlag": cvlIdleToneFlag,
+       "cvlSignalToneTable": cvlSignalToneTable,
+       "cvlSignalToneEntry": cvlSignalToneEntry,
+       "cvlSignalToneGroupIndex": cvlSignalToneGroupIndex,
+       "cvlSignalToneIndex": cvlSignalToneIndex,
+       "cvlSignalToneName": cvlSignalToneName,
+       "cvlSignalToneFreq": cvlSignalToneFreq,
+       "cvlSignalToneAmp": cvlSignalToneAmp,
+       "cvlSignalToneDur": cvlSignalToneDur,
+       "cvlMIBConformance": cvlMIBConformance,
+       "cvlMIBCompliances": cvlMIBCompliances,
+       "cvlMIBCompliance": cvlMIBCompliance,
+       "cvlMIBGroups": cvlMIBGroups,
+       "cvlToneClassGroup": cvlToneClassGroup,
+       "cvlToneSignalGroup": cvlToneSignalGroup}
+)

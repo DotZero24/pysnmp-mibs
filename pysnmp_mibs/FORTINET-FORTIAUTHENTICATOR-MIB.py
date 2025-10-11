@@ -1,145 +1,867 @@
+# SNMP MIB module (FORTINET-FORTIAUTHENTICATOR-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module FORTINET-FORTIAUTHENTICATOR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fortinet/FORTINET-FORTIAUTHENTICATOR-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:11:58 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/fortinet/FORTINET-FORTIAUTHENTICATOR-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:21:50 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-FnIndex, fortinet, fnGenTrapMsg = mibBuilder.importSymbols("FORTINET-CORE-MIB", "FnIndex", "fortinet", "fnGenTrapMsg")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-fnFortiAuthenticatorMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 12356, 113))
-fnFortiAuthenticatorMib.setRevisions(('2020-04-16 00:00', '2019-01-17 00:00', '2015-06-08 00:00', '2012-11-05 00:00',))
-if mibBuilder.loadTexts: fnFortiAuthenticatorMib.setLastUpdated('201901170000Z')
-if mibBuilder.loadTexts: fnFortiAuthenticatorMib.setOrganization('Fortinet Technologies, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(FnIndex,
+ fnGenTrapMsg,
+ fortinet) = mibBuilder.importSymbols(
+    "FORTINET-CORE-MIB",
+    "FnIndex",
+    "fnGenTrapMsg",
+    "fortinet")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(sysName,) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "sysName")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+fnFortiAuthenticatorMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113)
+)
+if mibBuilder.loadTexts:
+    fnFortiAuthenticatorMib.setRevisions(
+        ("2020-04-16 00:00",
+         "2019-01-17 00:00",
+         "2015-06-08 00:00",
+         "2012-11-05 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class FacHaState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 255))
-    namedValues = NamedValues(("unknownOrDetermining", 1), ("clusterPrimary", 2), ("clusterSecondary", 3), ("standalonePrimary", 4), ("loadBalancer", 5), ("disabled", 255))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknownOrDetermining", 1),
+          ("clusterPrimary", 2),
+          ("clusterSecondary", 3),
+          ("standalonePrimary", 4),
+          ("loadBalancer", 5),
+          ("disabled", 255))
+    )
 
-facTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 0))
-facSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 1))
-facHa = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 1, 201))
-facAuth = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202))
-facMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 600))
-facModel = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100))
-facSysModel = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facSysModel.setStatus('current')
-facSysSerial = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facSysSerial.setStatus('current')
-facSysVersion = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facSysVersion.setStatus('current')
-facSysCpuUsage = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facSysCpuUsage.setStatus('current')
-facSysMemUsage = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 5), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facSysMemUsage.setStatus('current')
-facSysLogDiskUsage = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facSysLogDiskUsage.setStatus('current')
-facHaCurrentStatus = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 201, 1), FacHaState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facHaCurrentStatus.setStatus('current')
-facAuthUserCount = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 1), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facAuthUserCount.setStatus('current')
-facAuthGroupCount = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 2), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facAuthGroupCount.setStatus('current')
-facFortiTokenCount = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 3), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facFortiTokenCount.setStatus('current')
-facAuthUsersRemaining = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 4), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facAuthUsersRemaining.setStatus('current')
-facAuthGroupRemaining = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 5), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facAuthGroupRemaining.setStatus('current')
-facFortiTokenRemaining = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 6), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facFortiTokenRemaining.setStatus('current')
-facRadiusNasCount = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 7), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facRadiusNasCount.setStatus('current')
-facRadiusNasRemaining = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 8), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facRadiusNasRemaining.setStatus('current')
-facUserCertificateCount = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 9), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facUserCertificateCount.setStatus('current')
-facRadiusLoginsTotal = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 10), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facRadiusLoginsTotal.setStatus('current')
-facRadiusLogins5Mins = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 11), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facRadiusLogins5Mins.setStatus('current')
-facRadiusFailuresTotal = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 12), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facRadiusFailuresTotal.setStatus('current')
-facRadiusFailures5Mins = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 13), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facRadiusFailures5Mins.setStatus('current')
-facRadiusAccountingTotal = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 14), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facRadiusAccountingTotal.setStatus('current')
-facRadiusAccounting5Mins = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 15), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facRadiusAccounting5Mins.setStatus('current')
-facLdapLoginsTotal = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 16), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facLdapLoginsTotal.setStatus('current')
-facLdapLogins5Mins = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 17), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facLdapLogins5Mins.setStatus('current')
-facLdapFailuresTotal = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 18), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facLdapFailuresTotal.setStatus('current')
-facLdapFailures5Mins = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 19), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facLdapFailures5Mins.setStatus('current')
-facAuthEventsTotal = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 20), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facAuthEventsTotal.setStatus('current')
-facAuthEvents5Mins = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 21), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facAuthEvents5Mins.setStatus('current')
-facAuthFailuresTotal = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 22), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facAuthFailuresTotal.setStatus('current')
-facAuthFailures5Mins = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 23), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facAuthFailures5Mins.setStatus('current')
-facRadiusProxyInTotal = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 24), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facRadiusProxyInTotal.setStatus('current')
-facRadiusProxyOutTotal = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 25), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facRadiusProxyOutTotal.setStatus('current')
-facFssoUserCount = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 26), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facFssoUserCount.setStatus('current')
-facFssoUserRemaining = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 27), FnIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facFssoUserRemaining.setStatus('current')
-facRaidStatus = MibScalar((1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 28), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("none", 0), ("ok", 1), ("degraded", 2), ("failed", 3), ("initializing", 4), ("verifying", 5), ("rebuilding", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: facRaidStatus.setStatus('current')
-facTrapAuthUsersThreshold = NotificationType((1, 3, 6, 1, 4, 1, 12356, 113, 0, 100)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthUsersRemaining"))
-if mibBuilder.loadTexts: facTrapAuthUsersThreshold.setStatus('current')
-facTrapAuthGroupThreshold = NotificationType((1, 3, 6, 1, 4, 1, 12356, 113, 0, 101)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthGroupRemaining"))
-if mibBuilder.loadTexts: facTrapAuthGroupThreshold.setStatus('current')
-facTrapRadiusNasThreshold = NotificationType((1, 3, 6, 1, 4, 1, 12356, 113, 0, 102)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusNasRemaining"))
-if mibBuilder.loadTexts: facTrapRadiusNasThreshold.setStatus('current')
-facTrapAuthEventsThreshold = NotificationType((1, 3, 6, 1, 4, 1, 12356, 113, 0, 103)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthEvents5Mins"))
-if mibBuilder.loadTexts: facTrapAuthEventsThreshold.setStatus('current')
-facTrapAuthFailureThreshold = NotificationType((1, 3, 6, 1, 4, 1, 12356, 113, 0, 104)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthFailures5Mins"))
-if mibBuilder.loadTexts: facTrapAuthFailureThreshold.setStatus('current')
-facTrapUserLockout = NotificationType((1, 3, 6, 1, 4, 1, 12356, 113, 0, 105)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"), ("SNMPv2-MIB", "sysName"), ("FORTINET-CORE-MIB", "fnGenTrapMsg"))
-if mibBuilder.loadTexts: facTrapUserLockout.setStatus('current')
-facTrapHAStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 12356, 113, 0, 106)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"), ("SNMPv2-MIB", "sysName"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facHaCurrentStatus"), ("FORTINET-CORE-MIB", "fnGenTrapMsg"))
-if mibBuilder.loadTexts: facTrapHAStatusChange.setStatus('current')
-facTrapHASyncActivityLow = NotificationType((1, 3, 6, 1, 4, 1, 12356, 113, 0, 107)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"), ("SNMPv2-MIB", "sysName"), ("FORTINET-CORE-MIB", "fnGenTrapMsg"))
-if mibBuilder.loadTexts: facTrapHASyncActivityLow.setStatus('current')
-facTrapRaidStatusChange = NotificationType((1, 3, 6, 1, 4, 1, 12356, 113, 0, 108)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRaidStatus"))
-if mibBuilder.loadTexts: facTrapRaidStatusChange.setStatus('current')
-facSystemConformanceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12356, 113, 600, 1)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysModel"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysVersion"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysCpuUsage"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysMemUsage"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysLogDiskUsage"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthUserCount"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthGroupCount"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facFortiTokenCount"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthUsersRemaining"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthGroupRemaining"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facFortiTokenRemaining"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusNasCount"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusNasRemaining"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facUserCertificateCount"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusLoginsTotal"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusLogins5Mins"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusFailuresTotal"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusFailures5Mins"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusAccountingTotal"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusAccounting5Mins"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facLdapLoginsTotal"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facLdapLogins5Mins"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facLdapFailuresTotal"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facLdapFailures5Mins"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthEventsTotal"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthEvents5Mins"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthFailuresTotal"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthFailures5Mins"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facHaCurrentStatus"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusProxyInTotal"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusProxyOutTotal"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facFssoUserCount"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facFssoUserRemaining"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRaidStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    facSystemConformanceGroup = facSystemConformanceGroup.setStatus('current')
-facTrapsConformanceGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 12356, 113, 600, 2)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapAuthUsersThreshold"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapAuthGroupThreshold"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapRadiusNasThreshold"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapAuthEventsThreshold"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapAuthFailureThreshold"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapUserLockout"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapHAStatusChange"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapHASyncActivityLow"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapRaidStatusChange"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    facTrapsConformanceGroup = facTrapsConformanceGroup.setStatus('current')
-facMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 12356, 113, 600, 100)).setObjects(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSystemConformanceGroup"), ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapsConformanceGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    facMIBCompliance = facMIBCompliance.setStatus('current')
-facvm = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 101))
-facvmhv = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 102))
-facvmxen = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 103))
-facvmkvm = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 104))
-facdocker = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 105))
-fac2hd = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 204))
-fac2he = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 205))
-fac4hc = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 303))
-fac4he = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 305))
-fac1kc = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 403))
-fac1kd = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 404))
-fac2ke = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 505))
-fac3kd = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 604))
-fac3ke = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 605))
-fac3hf = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 706))
-fac8hf = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 113, 100, 806))
-mibBuilder.exportSymbols("FORTINET-FORTIAUTHENTICATOR-MIB", facSysSerial=facSysSerial, facFssoUserCount=facFssoUserCount, fac4he=fac4he, fac3ke=fac3ke, fac8hf=fac8hf, facTraps=facTraps, facRadiusAccounting5Mins=facRadiusAccounting5Mins, facRadiusFailuresTotal=facRadiusFailuresTotal, facAuthFailuresTotal=facAuthFailuresTotal, facMIBCompliance=facMIBCompliance, facvmhv=facvmhv, facModel=facModel, facMIBConformance=facMIBConformance, facSystem=facSystem, facFortiTokenCount=facFortiTokenCount, fac3kd=fac3kd, facRadiusNasCount=facRadiusNasCount, facTrapAuthUsersThreshold=facTrapAuthUsersThreshold, facLdapLoginsTotal=facLdapLoginsTotal, facSysMemUsage=facSysMemUsage, facTrapRadiusNasThreshold=facTrapRadiusNasThreshold, facHaCurrentStatus=facHaCurrentStatus, facvmxen=facvmxen, facRadiusLoginsTotal=facRadiusLoginsTotal, fac2hd=fac2hd, facAuthEvents5Mins=facAuthEvents5Mins, facTrapRaidStatusChange=facTrapRaidStatusChange, facRadiusLogins5Mins=facRadiusLogins5Mins, facSysModel=facSysModel, facSysVersion=facSysVersion, fac2he=fac2he, facRadiusNasRemaining=facRadiusNasRemaining, facSysCpuUsage=facSysCpuUsage, facTrapHASyncActivityLow=facTrapHASyncActivityLow, facRadiusProxyOutTotal=facRadiusProxyOutTotal, facTrapAuthEventsThreshold=facTrapAuthEventsThreshold, facTrapsConformanceGroup=facTrapsConformanceGroup, facRadiusFailures5Mins=facRadiusFailures5Mins, facTrapHAStatusChange=facTrapHAStatusChange, facAuthFailures5Mins=facAuthFailures5Mins, facLdapFailures5Mins=facLdapFailures5Mins, facRadiusAccountingTotal=facRadiusAccountingTotal, facTrapUserLockout=facTrapUserLockout, facAuthUsersRemaining=facAuthUsersRemaining, facTrapAuthGroupThreshold=facTrapAuthGroupThreshold, facLdapLogins5Mins=facLdapLogins5Mins, facUserCertificateCount=facUserCertificateCount, facAuthEventsTotal=facAuthEventsTotal, PYSNMP_MODULE_ID=fnFortiAuthenticatorMib, facSysLogDiskUsage=facSysLogDiskUsage, facRadiusProxyInTotal=facRadiusProxyInTotal, facAuth=facAuth, FacHaState=FacHaState, facFortiTokenRemaining=facFortiTokenRemaining, fac2ke=fac2ke, facAuthUserCount=facAuthUserCount, facAuthGroupRemaining=facAuthGroupRemaining, facTrapAuthFailureThreshold=facTrapAuthFailureThreshold, facHa=facHa, facvmkvm=facvmkvm, facFssoUserRemaining=facFssoUserRemaining, fac1kd=fac1kd, fac1kc=fac1kc, fac3hf=fac3hf, facRaidStatus=facRaidStatus, facvm=facvm, facdocker=facdocker, facAuthGroupCount=facAuthGroupCount, facSystemConformanceGroup=facSystemConformanceGroup, fnFortiAuthenticatorMib=fnFortiAuthenticatorMib, fac4hc=fac4hc, facLdapFailuresTotal=facLdapFailuresTotal)
+
+# MIB Managed Objects in the order of their OIDs
+
+_FacTraps_ObjectIdentity = ObjectIdentity
+facTraps = _FacTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 0)
+)
+_FacSystem_ObjectIdentity = ObjectIdentity
+facSystem = _FacSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1)
+)
+_FacSysModel_Type = DisplayString
+_FacSysModel_Object = MibScalar
+facSysModel = _FacSysModel_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 1),
+    _FacSysModel_Type()
+)
+facSysModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facSysModel.setStatus("current")
+_FacSysSerial_Type = DisplayString
+_FacSysSerial_Object = MibScalar
+facSysSerial = _FacSysSerial_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 2),
+    _FacSysSerial_Type()
+)
+facSysSerial.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facSysSerial.setStatus("current")
+_FacSysVersion_Type = DisplayString
+_FacSysVersion_Object = MibScalar
+facSysVersion = _FacSysVersion_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 3),
+    _FacSysVersion_Type()
+)
+facSysVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facSysVersion.setStatus("current")
+_FacSysCpuUsage_Type = Gauge32
+_FacSysCpuUsage_Object = MibScalar
+facSysCpuUsage = _FacSysCpuUsage_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 4),
+    _FacSysCpuUsage_Type()
+)
+facSysCpuUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facSysCpuUsage.setStatus("current")
+_FacSysMemUsage_Type = Gauge32
+_FacSysMemUsage_Object = MibScalar
+facSysMemUsage = _FacSysMemUsage_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 5),
+    _FacSysMemUsage_Type()
+)
+facSysMemUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facSysMemUsage.setStatus("current")
+_FacSysLogDiskUsage_Type = Gauge32
+_FacSysLogDiskUsage_Object = MibScalar
+facSysLogDiskUsage = _FacSysLogDiskUsage_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 6),
+    _FacSysLogDiskUsage_Type()
+)
+facSysLogDiskUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facSysLogDiskUsage.setStatus("current")
+_FacHa_ObjectIdentity = ObjectIdentity
+facHa = _FacHa_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 201)
+)
+_FacHaCurrentStatus_Type = FacHaState
+_FacHaCurrentStatus_Object = MibScalar
+facHaCurrentStatus = _FacHaCurrentStatus_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 201, 1),
+    _FacHaCurrentStatus_Type()
+)
+facHaCurrentStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facHaCurrentStatus.setStatus("current")
+_FacAuth_ObjectIdentity = ObjectIdentity
+facAuth = _FacAuth_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202)
+)
+_FacAuthUserCount_Type = FnIndex
+_FacAuthUserCount_Object = MibScalar
+facAuthUserCount = _FacAuthUserCount_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 1),
+    _FacAuthUserCount_Type()
+)
+facAuthUserCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facAuthUserCount.setStatus("current")
+_FacAuthGroupCount_Type = FnIndex
+_FacAuthGroupCount_Object = MibScalar
+facAuthGroupCount = _FacAuthGroupCount_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 2),
+    _FacAuthGroupCount_Type()
+)
+facAuthGroupCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facAuthGroupCount.setStatus("current")
+_FacFortiTokenCount_Type = FnIndex
+_FacFortiTokenCount_Object = MibScalar
+facFortiTokenCount = _FacFortiTokenCount_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 3),
+    _FacFortiTokenCount_Type()
+)
+facFortiTokenCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facFortiTokenCount.setStatus("current")
+_FacAuthUsersRemaining_Type = FnIndex
+_FacAuthUsersRemaining_Object = MibScalar
+facAuthUsersRemaining = _FacAuthUsersRemaining_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 4),
+    _FacAuthUsersRemaining_Type()
+)
+facAuthUsersRemaining.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facAuthUsersRemaining.setStatus("current")
+_FacAuthGroupRemaining_Type = FnIndex
+_FacAuthGroupRemaining_Object = MibScalar
+facAuthGroupRemaining = _FacAuthGroupRemaining_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 5),
+    _FacAuthGroupRemaining_Type()
+)
+facAuthGroupRemaining.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facAuthGroupRemaining.setStatus("current")
+_FacFortiTokenRemaining_Type = FnIndex
+_FacFortiTokenRemaining_Object = MibScalar
+facFortiTokenRemaining = _FacFortiTokenRemaining_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 6),
+    _FacFortiTokenRemaining_Type()
+)
+facFortiTokenRemaining.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facFortiTokenRemaining.setStatus("current")
+_FacRadiusNasCount_Type = FnIndex
+_FacRadiusNasCount_Object = MibScalar
+facRadiusNasCount = _FacRadiusNasCount_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 7),
+    _FacRadiusNasCount_Type()
+)
+facRadiusNasCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facRadiusNasCount.setStatus("current")
+_FacRadiusNasRemaining_Type = FnIndex
+_FacRadiusNasRemaining_Object = MibScalar
+facRadiusNasRemaining = _FacRadiusNasRemaining_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 8),
+    _FacRadiusNasRemaining_Type()
+)
+facRadiusNasRemaining.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facRadiusNasRemaining.setStatus("current")
+_FacUserCertificateCount_Type = FnIndex
+_FacUserCertificateCount_Object = MibScalar
+facUserCertificateCount = _FacUserCertificateCount_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 9),
+    _FacUserCertificateCount_Type()
+)
+facUserCertificateCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facUserCertificateCount.setStatus("current")
+_FacRadiusLoginsTotal_Type = FnIndex
+_FacRadiusLoginsTotal_Object = MibScalar
+facRadiusLoginsTotal = _FacRadiusLoginsTotal_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 10),
+    _FacRadiusLoginsTotal_Type()
+)
+facRadiusLoginsTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facRadiusLoginsTotal.setStatus("current")
+_FacRadiusLogins5Mins_Type = FnIndex
+_FacRadiusLogins5Mins_Object = MibScalar
+facRadiusLogins5Mins = _FacRadiusLogins5Mins_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 11),
+    _FacRadiusLogins5Mins_Type()
+)
+facRadiusLogins5Mins.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facRadiusLogins5Mins.setStatus("current")
+_FacRadiusFailuresTotal_Type = FnIndex
+_FacRadiusFailuresTotal_Object = MibScalar
+facRadiusFailuresTotal = _FacRadiusFailuresTotal_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 12),
+    _FacRadiusFailuresTotal_Type()
+)
+facRadiusFailuresTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facRadiusFailuresTotal.setStatus("current")
+_FacRadiusFailures5Mins_Type = FnIndex
+_FacRadiusFailures5Mins_Object = MibScalar
+facRadiusFailures5Mins = _FacRadiusFailures5Mins_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 13),
+    _FacRadiusFailures5Mins_Type()
+)
+facRadiusFailures5Mins.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facRadiusFailures5Mins.setStatus("current")
+_FacRadiusAccountingTotal_Type = FnIndex
+_FacRadiusAccountingTotal_Object = MibScalar
+facRadiusAccountingTotal = _FacRadiusAccountingTotal_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 14),
+    _FacRadiusAccountingTotal_Type()
+)
+facRadiusAccountingTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facRadiusAccountingTotal.setStatus("current")
+_FacRadiusAccounting5Mins_Type = FnIndex
+_FacRadiusAccounting5Mins_Object = MibScalar
+facRadiusAccounting5Mins = _FacRadiusAccounting5Mins_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 15),
+    _FacRadiusAccounting5Mins_Type()
+)
+facRadiusAccounting5Mins.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facRadiusAccounting5Mins.setStatus("current")
+_FacLdapLoginsTotal_Type = FnIndex
+_FacLdapLoginsTotal_Object = MibScalar
+facLdapLoginsTotal = _FacLdapLoginsTotal_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 16),
+    _FacLdapLoginsTotal_Type()
+)
+facLdapLoginsTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facLdapLoginsTotal.setStatus("current")
+_FacLdapLogins5Mins_Type = FnIndex
+_FacLdapLogins5Mins_Object = MibScalar
+facLdapLogins5Mins = _FacLdapLogins5Mins_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 17),
+    _FacLdapLogins5Mins_Type()
+)
+facLdapLogins5Mins.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facLdapLogins5Mins.setStatus("current")
+_FacLdapFailuresTotal_Type = FnIndex
+_FacLdapFailuresTotal_Object = MibScalar
+facLdapFailuresTotal = _FacLdapFailuresTotal_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 18),
+    _FacLdapFailuresTotal_Type()
+)
+facLdapFailuresTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facLdapFailuresTotal.setStatus("current")
+_FacLdapFailures5Mins_Type = FnIndex
+_FacLdapFailures5Mins_Object = MibScalar
+facLdapFailures5Mins = _FacLdapFailures5Mins_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 19),
+    _FacLdapFailures5Mins_Type()
+)
+facLdapFailures5Mins.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facLdapFailures5Mins.setStatus("current")
+_FacAuthEventsTotal_Type = FnIndex
+_FacAuthEventsTotal_Object = MibScalar
+facAuthEventsTotal = _FacAuthEventsTotal_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 20),
+    _FacAuthEventsTotal_Type()
+)
+facAuthEventsTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facAuthEventsTotal.setStatus("current")
+_FacAuthEvents5Mins_Type = FnIndex
+_FacAuthEvents5Mins_Object = MibScalar
+facAuthEvents5Mins = _FacAuthEvents5Mins_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 21),
+    _FacAuthEvents5Mins_Type()
+)
+facAuthEvents5Mins.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facAuthEvents5Mins.setStatus("current")
+_FacAuthFailuresTotal_Type = FnIndex
+_FacAuthFailuresTotal_Object = MibScalar
+facAuthFailuresTotal = _FacAuthFailuresTotal_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 22),
+    _FacAuthFailuresTotal_Type()
+)
+facAuthFailuresTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facAuthFailuresTotal.setStatus("current")
+_FacAuthFailures5Mins_Type = FnIndex
+_FacAuthFailures5Mins_Object = MibScalar
+facAuthFailures5Mins = _FacAuthFailures5Mins_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 23),
+    _FacAuthFailures5Mins_Type()
+)
+facAuthFailures5Mins.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facAuthFailures5Mins.setStatus("current")
+_FacRadiusProxyInTotal_Type = FnIndex
+_FacRadiusProxyInTotal_Object = MibScalar
+facRadiusProxyInTotal = _FacRadiusProxyInTotal_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 24),
+    _FacRadiusProxyInTotal_Type()
+)
+facRadiusProxyInTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facRadiusProxyInTotal.setStatus("current")
+_FacRadiusProxyOutTotal_Type = FnIndex
+_FacRadiusProxyOutTotal_Object = MibScalar
+facRadiusProxyOutTotal = _FacRadiusProxyOutTotal_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 25),
+    _FacRadiusProxyOutTotal_Type()
+)
+facRadiusProxyOutTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facRadiusProxyOutTotal.setStatus("current")
+_FacFssoUserCount_Type = FnIndex
+_FacFssoUserCount_Object = MibScalar
+facFssoUserCount = _FacFssoUserCount_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 26),
+    _FacFssoUserCount_Type()
+)
+facFssoUserCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facFssoUserCount.setStatus("current")
+_FacFssoUserRemaining_Type = FnIndex
+_FacFssoUserRemaining_Object = MibScalar
+facFssoUserRemaining = _FacFssoUserRemaining_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 27),
+    _FacFssoUserRemaining_Type()
+)
+facFssoUserRemaining.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facFssoUserRemaining.setStatus("current")
+
+
+class _FacRaidStatus_Type(Integer32):
+    """Custom type facRaidStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("ok", 1),
+          ("degraded", 2),
+          ("failed", 3),
+          ("initializing", 4),
+          ("verifying", 5),
+          ("rebuilding", 6))
+    )
+
+
+_FacRaidStatus_Type.__name__ = "Integer32"
+_FacRaidStatus_Object = MibScalar
+facRaidStatus = _FacRaidStatus_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 1, 202, 28),
+    _FacRaidStatus_Type()
+)
+facRaidStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    facRaidStatus.setStatus("current")
+_FacModel_ObjectIdentity = ObjectIdentity
+facModel = _FacModel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100)
+)
+_Facvm_ObjectIdentity = ObjectIdentity
+facvm = _Facvm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 101)
+)
+_Facvmhv_ObjectIdentity = ObjectIdentity
+facvmhv = _Facvmhv_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 102)
+)
+_Facvmxen_ObjectIdentity = ObjectIdentity
+facvmxen = _Facvmxen_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 103)
+)
+_Facvmkvm_ObjectIdentity = ObjectIdentity
+facvmkvm = _Facvmkvm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 104)
+)
+_Facdocker_ObjectIdentity = ObjectIdentity
+facdocker = _Facdocker_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 105)
+)
+_Fac2hd_ObjectIdentity = ObjectIdentity
+fac2hd = _Fac2hd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 204)
+)
+_Fac2he_ObjectIdentity = ObjectIdentity
+fac2he = _Fac2he_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 205)
+)
+_Fac4hc_ObjectIdentity = ObjectIdentity
+fac4hc = _Fac4hc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 303)
+)
+_Fac4he_ObjectIdentity = ObjectIdentity
+fac4he = _Fac4he_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 305)
+)
+_Fac1kc_ObjectIdentity = ObjectIdentity
+fac1kc = _Fac1kc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 403)
+)
+_Fac1kd_ObjectIdentity = ObjectIdentity
+fac1kd = _Fac1kd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 404)
+)
+_Fac2ke_ObjectIdentity = ObjectIdentity
+fac2ke = _Fac2ke_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 505)
+)
+_Fac3kd_ObjectIdentity = ObjectIdentity
+fac3kd = _Fac3kd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 604)
+)
+_Fac3ke_ObjectIdentity = ObjectIdentity
+fac3ke = _Fac3ke_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 605)
+)
+_Fac3hf_ObjectIdentity = ObjectIdentity
+fac3hf = _Fac3hf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 706)
+)
+_Fac8hf_ObjectIdentity = ObjectIdentity
+fac8hf = _Fac8hf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 100, 806)
+)
+_FacMIBConformance_ObjectIdentity = ObjectIdentity
+facMIBConformance = _FacMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 600)
+)
+
+# Managed Objects groups
+
+facSystemConformanceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 600, 1)
+)
+facSystemConformanceGroup.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysModel"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysVersion"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysCpuUsage"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysMemUsage"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysLogDiskUsage"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthUserCount"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthGroupCount"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facFortiTokenCount"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthUsersRemaining"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthGroupRemaining"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facFortiTokenRemaining"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusNasCount"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusNasRemaining"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facUserCertificateCount"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusLoginsTotal"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusLogins5Mins"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusFailuresTotal"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusFailures5Mins"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusAccountingTotal"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusAccounting5Mins"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facLdapLoginsTotal"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facLdapLogins5Mins"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facLdapFailuresTotal"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facLdapFailures5Mins"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthEventsTotal"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthEvents5Mins"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthFailuresTotal"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthFailures5Mins"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facHaCurrentStatus"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusProxyInTotal"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusProxyOutTotal"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facFssoUserCount"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facFssoUserRemaining"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRaidStatus"))
+)
+if mibBuilder.loadTexts:
+    facSystemConformanceGroup.setStatus("current")
+
+
+# Notification objects
+
+facTrapAuthUsersThreshold = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 0, 100)
+)
+facTrapAuthUsersThreshold.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthUsersRemaining"))
+)
+if mibBuilder.loadTexts:
+    facTrapAuthUsersThreshold.setStatus(
+        "current"
+    )
+
+facTrapAuthGroupThreshold = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 0, 101)
+)
+facTrapAuthGroupThreshold.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthGroupRemaining"))
+)
+if mibBuilder.loadTexts:
+    facTrapAuthGroupThreshold.setStatus(
+        "current"
+    )
+
+facTrapRadiusNasThreshold = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 0, 102)
+)
+facTrapRadiusNasThreshold.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRadiusNasRemaining"))
+)
+if mibBuilder.loadTexts:
+    facTrapRadiusNasThreshold.setStatus(
+        "current"
+    )
+
+facTrapAuthEventsThreshold = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 0, 103)
+)
+facTrapAuthEventsThreshold.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthEvents5Mins"))
+)
+if mibBuilder.loadTexts:
+    facTrapAuthEventsThreshold.setStatus(
+        "current"
+    )
+
+facTrapAuthFailureThreshold = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 0, 104)
+)
+facTrapAuthFailureThreshold.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facAuthFailures5Mins"))
+)
+if mibBuilder.loadTexts:
+    facTrapAuthFailureThreshold.setStatus(
+        "current"
+    )
+
+facTrapUserLockout = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 0, 105)
+)
+facTrapUserLockout.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("FORTINET-CORE-MIB", "fnGenTrapMsg"))
+)
+if mibBuilder.loadTexts:
+    facTrapUserLockout.setStatus(
+        "current"
+    )
+
+facTrapHAStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 0, 106)
+)
+facTrapHAStatusChange.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facHaCurrentStatus"),
+        ("FORTINET-CORE-MIB", "fnGenTrapMsg"))
+)
+if mibBuilder.loadTexts:
+    facTrapHAStatusChange.setStatus(
+        "current"
+    )
+
+facTrapHASyncActivityLow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 0, 107)
+)
+facTrapHASyncActivityLow.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("FORTINET-CORE-MIB", "fnGenTrapMsg"))
+)
+if mibBuilder.loadTexts:
+    facTrapHASyncActivityLow.setStatus(
+        "current"
+    )
+
+facTrapRaidStatusChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 0, 108)
+)
+facTrapRaidStatusChange.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSysSerial"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facRaidStatus"))
+)
+if mibBuilder.loadTexts:
+    facTrapRaidStatusChange.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+facTrapsConformanceGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 600, 2)
+)
+facTrapsConformanceGroup.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapAuthUsersThreshold"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapAuthGroupThreshold"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapRadiusNasThreshold"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapAuthEventsThreshold"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapAuthFailureThreshold"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapUserLockout"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapHAStatusChange"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapHASyncActivityLow"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapRaidStatusChange"))
+)
+if mibBuilder.loadTexts:
+    facTrapsConformanceGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+facMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 12356, 113, 600, 100)
+)
+facMIBCompliance.setObjects(
+      *(("FORTINET-FORTIAUTHENTICATOR-MIB", "facSystemConformanceGroup"),
+        ("FORTINET-FORTIAUTHENTICATOR-MIB", "facTrapsConformanceGroup"))
+)
+if mibBuilder.loadTexts:
+    facMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "FORTINET-FORTIAUTHENTICATOR-MIB",
+    **{"FacHaState": FacHaState,
+       "fnFortiAuthenticatorMib": fnFortiAuthenticatorMib,
+       "facTraps": facTraps,
+       "facTrapAuthUsersThreshold": facTrapAuthUsersThreshold,
+       "facTrapAuthGroupThreshold": facTrapAuthGroupThreshold,
+       "facTrapRadiusNasThreshold": facTrapRadiusNasThreshold,
+       "facTrapAuthEventsThreshold": facTrapAuthEventsThreshold,
+       "facTrapAuthFailureThreshold": facTrapAuthFailureThreshold,
+       "facTrapUserLockout": facTrapUserLockout,
+       "facTrapHAStatusChange": facTrapHAStatusChange,
+       "facTrapHASyncActivityLow": facTrapHASyncActivityLow,
+       "facTrapRaidStatusChange": facTrapRaidStatusChange,
+       "facSystem": facSystem,
+       "facSysModel": facSysModel,
+       "facSysSerial": facSysSerial,
+       "facSysVersion": facSysVersion,
+       "facSysCpuUsage": facSysCpuUsage,
+       "facSysMemUsage": facSysMemUsage,
+       "facSysLogDiskUsage": facSysLogDiskUsage,
+       "facHa": facHa,
+       "facHaCurrentStatus": facHaCurrentStatus,
+       "facAuth": facAuth,
+       "facAuthUserCount": facAuthUserCount,
+       "facAuthGroupCount": facAuthGroupCount,
+       "facFortiTokenCount": facFortiTokenCount,
+       "facAuthUsersRemaining": facAuthUsersRemaining,
+       "facAuthGroupRemaining": facAuthGroupRemaining,
+       "facFortiTokenRemaining": facFortiTokenRemaining,
+       "facRadiusNasCount": facRadiusNasCount,
+       "facRadiusNasRemaining": facRadiusNasRemaining,
+       "facUserCertificateCount": facUserCertificateCount,
+       "facRadiusLoginsTotal": facRadiusLoginsTotal,
+       "facRadiusLogins5Mins": facRadiusLogins5Mins,
+       "facRadiusFailuresTotal": facRadiusFailuresTotal,
+       "facRadiusFailures5Mins": facRadiusFailures5Mins,
+       "facRadiusAccountingTotal": facRadiusAccountingTotal,
+       "facRadiusAccounting5Mins": facRadiusAccounting5Mins,
+       "facLdapLoginsTotal": facLdapLoginsTotal,
+       "facLdapLogins5Mins": facLdapLogins5Mins,
+       "facLdapFailuresTotal": facLdapFailuresTotal,
+       "facLdapFailures5Mins": facLdapFailures5Mins,
+       "facAuthEventsTotal": facAuthEventsTotal,
+       "facAuthEvents5Mins": facAuthEvents5Mins,
+       "facAuthFailuresTotal": facAuthFailuresTotal,
+       "facAuthFailures5Mins": facAuthFailures5Mins,
+       "facRadiusProxyInTotal": facRadiusProxyInTotal,
+       "facRadiusProxyOutTotal": facRadiusProxyOutTotal,
+       "facFssoUserCount": facFssoUserCount,
+       "facFssoUserRemaining": facFssoUserRemaining,
+       "facRaidStatus": facRaidStatus,
+       "facModel": facModel,
+       "facvm": facvm,
+       "facvmhv": facvmhv,
+       "facvmxen": facvmxen,
+       "facvmkvm": facvmkvm,
+       "facdocker": facdocker,
+       "fac2hd": fac2hd,
+       "fac2he": fac2he,
+       "fac4hc": fac4hc,
+       "fac4he": fac4he,
+       "fac1kc": fac1kc,
+       "fac1kd": fac1kd,
+       "fac2ke": fac2ke,
+       "fac3kd": fac3kd,
+       "fac3ke": fac3ke,
+       "fac3hf": fac3hf,
+       "fac8hf": fac8hf,
+       "facMIBConformance": facMIBConformance,
+       "facSystemConformanceGroup": facSystemConformanceGroup,
+       "facTrapsConformanceGroup": facTrapsConformanceGroup,
+       "facMIBCompliance": facMIBCompliance}
+)

@@ -1,41 +1,320 @@
+# SNMP MIB module (JUNIPER-RMON-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module JUNIPER-RMON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/juniper/JUNIPER-RMON-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:55:40 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/juniper/JUNIPER-RMON-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:39:16 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-jnxRmonTraps, jnxMibs = mibBuilder.importSymbols("JUNIPER-SMI", "jnxRmonTraps", "jnxMibs")
-alarmVariable, alarmEntry, alarmIndex = mibBuilder.importSymbols("RMON-MIB", "alarmVariable", "alarmEntry", "alarmIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-jnxRmon = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 13))
-jnxRmon.setRevisions(('2005-11-23 00:00', '2002-01-10 00:00',))
-if mibBuilder.loadTexts: jnxRmon.setLastUpdated('200511230000Z')
-if mibBuilder.loadTexts: jnxRmon.setOrganization('Juniper Networks, Inc.')
-jnxRmonAlarmTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 13, 1), )
-if mibBuilder.loadTexts: jnxRmonAlarmTable.setStatus('current')
-jnxRmonAlarmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1), )
-alarmEntry.registerAugmentions(("JUNIPER-RMON-MIB", "jnxRmonAlarmEntry"))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(jnxMibs,
+ jnxRmonTraps) = mibBuilder.importSymbols(
+    "JUNIPER-SMI",
+    "jnxMibs",
+    "jnxRmonTraps")
+
+(alarmEntry,
+ alarmIndex,
+ alarmVariable) = mibBuilder.importSymbols(
+    "RMON-MIB",
+    "alarmEntry",
+    "alarmIndex",
+    "alarmVariable")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+jnxRmon = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 13)
+)
+if mibBuilder.loadTexts:
+    jnxRmon.setRevisions(
+        ("2005-11-23 00:00",
+         "2002-01-10 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JnxRmonAlarmTable_Object = MibTable
+jnxRmonAlarmTable = _JnxRmonAlarmTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 13, 1)
+)
+if mibBuilder.loadTexts:
+    jnxRmonAlarmTable.setStatus("current")
+_JnxRmonAlarmEntry_Object = MibTableRow
+jnxRmonAlarmEntry = _JnxRmonAlarmEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1)
+)
+if mibBuilder.loadTexts:
+    jnxRmonAlarmEntry.setStatus("current")
+_JnxRmonAlarmGetFailCnt_Type = Counter32
+_JnxRmonAlarmGetFailCnt_Object = MibTableColumn
+jnxRmonAlarmGetFailCnt = _JnxRmonAlarmGetFailCnt_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1, 1),
+    _JnxRmonAlarmGetFailCnt_Type()
+)
+jnxRmonAlarmGetFailCnt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxRmonAlarmGetFailCnt.setStatus("current")
+_JnxRmonAlarmGetFailTime_Type = TimeTicks
+_JnxRmonAlarmGetFailTime_Object = MibTableColumn
+jnxRmonAlarmGetFailTime = _JnxRmonAlarmGetFailTime_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1, 2),
+    _JnxRmonAlarmGetFailTime_Type()
+)
+jnxRmonAlarmGetFailTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxRmonAlarmGetFailTime.setStatus("current")
+
+
+class _JnxRmonAlarmGetFailReason_Type(Integer32):
+    """Custom type jnxRmonAlarmGetFailReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("noError", 2),
+          ("noSuchObject", 3),
+          ("outOfView", 4),
+          ("noSuchInstance", 5),
+          ("badReqId", 6),
+          ("oidMatchErr", 7),
+          ("oidBindErr", 8),
+          ("createPktErr", 9),
+          ("badObjType", 10),
+          ("processRestarted", 11),
+          ("lostInstance", 12))
+    )
+
+
+_JnxRmonAlarmGetFailReason_Type.__name__ = "Integer32"
+_JnxRmonAlarmGetFailReason_Object = MibTableColumn
+jnxRmonAlarmGetFailReason = _JnxRmonAlarmGetFailReason_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1, 3),
+    _JnxRmonAlarmGetFailReason_Type()
+)
+jnxRmonAlarmGetFailReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxRmonAlarmGetFailReason.setStatus("current")
+_JnxRmonAlarmGetOkTime_Type = TimeTicks
+_JnxRmonAlarmGetOkTime_Object = MibTableColumn
+jnxRmonAlarmGetOkTime = _JnxRmonAlarmGetOkTime_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1, 4),
+    _JnxRmonAlarmGetOkTime_Type()
+)
+jnxRmonAlarmGetOkTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxRmonAlarmGetOkTime.setStatus("current")
+
+
+class _JnxRmonAlarmState_Type(Integer32):
+    """Custom type jnxRmonAlarmState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("underCreation", 2),
+          ("active", 3),
+          ("startup", 4),
+          ("risingThreshold", 5),
+          ("fallingThreshold", 6),
+          ("getFailure", 7))
+    )
+
+
+_JnxRmonAlarmState_Type.__name__ = "Integer32"
+_JnxRmonAlarmState_Object = MibTableColumn
+jnxRmonAlarmState = _JnxRmonAlarmState_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1, 5),
+    _JnxRmonAlarmState_Type()
+)
+jnxRmonAlarmState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    jnxRmonAlarmState.setStatus("current")
+_JnxRmonTrapPrefix_ObjectIdentity = ObjectIdentity
+jnxRmonTrapPrefix = _JnxRmonTrapPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 4, 3, 0)
+)
+alarmEntry.registerAugmentions(
+    ("JUNIPER-RMON-MIB",
+     "jnxRmonAlarmEntry")
+)
 jnxRmonAlarmEntry.setIndexNames(*alarmEntry.getIndexNames())
-if mibBuilder.loadTexts: jnxRmonAlarmEntry.setStatus('current')
-jnxRmonAlarmGetFailCnt = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxRmonAlarmGetFailCnt.setStatus('current')
-jnxRmonAlarmGetFailTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1, 2), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxRmonAlarmGetFailTime.setStatus('current')
-jnxRmonAlarmGetFailReason = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12))).clone(namedValues=NamedValues(("other", 1), ("noError", 2), ("noSuchObject", 3), ("outOfView", 4), ("noSuchInstance", 5), ("badReqId", 6), ("oidMatchErr", 7), ("oidBindErr", 8), ("createPktErr", 9), ("badObjType", 10), ("processRestarted", 11), ("lostInstance", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxRmonAlarmGetFailReason.setStatus('current')
-jnxRmonAlarmGetOkTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxRmonAlarmGetOkTime.setStatus('current')
-jnxRmonAlarmState = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 13, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("unknown", 1), ("underCreation", 2), ("active", 3), ("startup", 4), ("risingThreshold", 5), ("fallingThreshold", 6), ("getFailure", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: jnxRmonAlarmState.setStatus('current')
-jnxRmonTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 4, 3, 0))
-jnxRmonAlarmGetFailure = NotificationType((1, 3, 6, 1, 4, 1, 2636, 4, 3, 0, 1)).setObjects(("RMON-MIB", "alarmIndex"), ("RMON-MIB", "alarmVariable"), ("JUNIPER-RMON-MIB", "jnxRmonAlarmGetFailReason"))
-if mibBuilder.loadTexts: jnxRmonAlarmGetFailure.setStatus('current')
-jnxRmonGetOk = NotificationType((1, 3, 6, 1, 4, 1, 2636, 4, 3, 0, 2)).setObjects(("RMON-MIB", "alarmIndex"), ("RMON-MIB", "alarmVariable"))
-if mibBuilder.loadTexts: jnxRmonGetOk.setStatus('current')
-mibBuilder.exportSymbols("JUNIPER-RMON-MIB", jnxRmonAlarmGetFailReason=jnxRmonAlarmGetFailReason, jnxRmon=jnxRmon, PYSNMP_MODULE_ID=jnxRmon, jnxRmonAlarmTable=jnxRmonAlarmTable, jnxRmonAlarmGetFailTime=jnxRmonAlarmGetFailTime, jnxRmonTrapPrefix=jnxRmonTrapPrefix, jnxRmonAlarmGetFailure=jnxRmonAlarmGetFailure, jnxRmonAlarmEntry=jnxRmonAlarmEntry, jnxRmonAlarmState=jnxRmonAlarmState, jnxRmonAlarmGetOkTime=jnxRmonAlarmGetOkTime, jnxRmonGetOk=jnxRmonGetOk, jnxRmonAlarmGetFailCnt=jnxRmonAlarmGetFailCnt)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+jnxRmonAlarmGetFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 4, 3, 0, 1)
+)
+jnxRmonAlarmGetFailure.setObjects(
+      *(("RMON-MIB", "alarmIndex"),
+        ("RMON-MIB", "alarmVariable"),
+        ("JUNIPER-RMON-MIB", "jnxRmonAlarmGetFailReason"))
+)
+if mibBuilder.loadTexts:
+    jnxRmonAlarmGetFailure.setStatus(
+        "current"
+    )
+
+jnxRmonGetOk = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 4, 3, 0, 2)
+)
+jnxRmonGetOk.setObjects(
+      *(("RMON-MIB", "alarmIndex"),
+        ("RMON-MIB", "alarmVariable"))
+)
+if mibBuilder.loadTexts:
+    jnxRmonGetOk.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "JUNIPER-RMON-MIB",
+    **{"jnxRmon": jnxRmon,
+       "jnxRmonAlarmTable": jnxRmonAlarmTable,
+       "jnxRmonAlarmEntry": jnxRmonAlarmEntry,
+       "jnxRmonAlarmGetFailCnt": jnxRmonAlarmGetFailCnt,
+       "jnxRmonAlarmGetFailTime": jnxRmonAlarmGetFailTime,
+       "jnxRmonAlarmGetFailReason": jnxRmonAlarmGetFailReason,
+       "jnxRmonAlarmGetOkTime": jnxRmonAlarmGetOkTime,
+       "jnxRmonAlarmState": jnxRmonAlarmState,
+       "jnxRmonTrapPrefix": jnxRmonTrapPrefix,
+       "jnxRmonAlarmGetFailure": jnxRmonAlarmGetFailure,
+       "jnxRmonGetOk": jnxRmonGetOk}
+)

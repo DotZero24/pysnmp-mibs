@@ -1,35 +1,255 @@
+# SNMP MIB module (TPLINK-DOS-PREVENTION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPLINK-DOS-PREVENTION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/tplink/TPLINK-DOS-PREVENTION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:30 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/tplink/TPLINK-DOS-PREVENTION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:55:16 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
-tplinkDosPreventionMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 30))
-tplinkDosPreventionMIB.setRevisions(('2012-12-13 09:30',))
-if mibBuilder.loadTexts: tplinkDosPreventionMIB.setLastUpdated('201212130930Z')
-if mibBuilder.loadTexts: tplinkDosPreventionMIB.setOrganization('TPLINK')
-tplinkDosPreventionMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 30, 1))
-tplinkDosPreventionNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 30, 2))
-tpDosDefendGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 1))
-tpDosDefendList = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2))
-tpDosDefendGlobalEnable = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpDosDefendGlobalEnable.setStatus('current')
-tpDosDefendListTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2, 1), )
-if mibBuilder.loadTexts: tpDosDefendListTable.setStatus('current')
-tpDosDefendListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2, 1, 1), ).setIndexNames((0, "TPLINK-DOS-PREVENTION-MIB", "tpDosDefendListIndex"))
-if mibBuilder.loadTexts: tpDosDefendListEntry.setStatus('current')
-tpDosDefendListIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tpDosDefendListIndex.setStatus('current')
-tpDosDefendListType = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2, 1, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tpDosDefendListType.setStatus('current')
-tpDosDefendListEntryEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpDosDefendListEntryEnable.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-DOS-PREVENTION-MIB", tpDosDefendList=tpDosDefendList, tpDosDefendListEntryEnable=tpDosDefendListEntryEnable, PYSNMP_MODULE_ID=tplinkDosPreventionMIB, tplinkDosPreventionMIB=tplinkDosPreventionMIB, tpDosDefendListEntry=tpDosDefendListEntry, tplinkDosPreventionNotifications=tplinkDosPreventionNotifications, tpDosDefendGlobalConfig=tpDosDefendGlobalConfig, tpDosDefendGlobalEnable=tpDosDefendGlobalEnable, tpDosDefendListType=tpDosDefendListType, tpDosDefendListTable=tpDosDefendListTable, tplinkDosPreventionMIBObjects=tplinkDosPreventionMIBObjects, tpDosDefendListIndex=tpDosDefendListIndex)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(tplinkMgmt,) = mibBuilder.importSymbols(
+    "TPLINK-MIB",
+    "tplinkMgmt")
+
+
+# MODULE-IDENTITY
+
+tplinkDosPreventionMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 30)
+)
+if mibBuilder.loadTexts:
+    tplinkDosPreventionMIB.setRevisions(
+        ("2012-12-13 09:30",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TplinkDosPreventionMIBObjects_ObjectIdentity = ObjectIdentity
+tplinkDosPreventionMIBObjects = _TplinkDosPreventionMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 30, 1)
+)
+_TpDosDefendGlobalConfig_ObjectIdentity = ObjectIdentity
+tpDosDefendGlobalConfig = _TpDosDefendGlobalConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 1)
+)
+
+
+class _TpDosDefendGlobalEnable_Type(Integer32):
+    """Custom type tpDosDefendGlobalEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_TpDosDefendGlobalEnable_Type.__name__ = "Integer32"
+_TpDosDefendGlobalEnable_Object = MibScalar
+tpDosDefendGlobalEnable = _TpDosDefendGlobalEnable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 1, 1),
+    _TpDosDefendGlobalEnable_Type()
+)
+tpDosDefendGlobalEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpDosDefendGlobalEnable.setStatus("current")
+_TpDosDefendList_ObjectIdentity = ObjectIdentity
+tpDosDefendList = _TpDosDefendList_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2)
+)
+_TpDosDefendListTable_Object = MibTable
+tpDosDefendListTable = _TpDosDefendListTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    tpDosDefendListTable.setStatus("current")
+_TpDosDefendListEntry_Object = MibTableRow
+tpDosDefendListEntry = _TpDosDefendListEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2, 1, 1)
+)
+tpDosDefendListEntry.setIndexNames(
+    (0, "TPLINK-DOS-PREVENTION-MIB", "tpDosDefendListIndex"),
+)
+if mibBuilder.loadTexts:
+    tpDosDefendListEntry.setStatus("current")
+_TpDosDefendListIndex_Type = Integer32
+_TpDosDefendListIndex_Object = MibTableColumn
+tpDosDefendListIndex = _TpDosDefendListIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2, 1, 1, 1),
+    _TpDosDefendListIndex_Type()
+)
+tpDosDefendListIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tpDosDefendListIndex.setStatus("current")
+_TpDosDefendListType_Type = OctetString
+_TpDosDefendListType_Object = MibTableColumn
+tpDosDefendListType = _TpDosDefendListType_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2, 1, 1, 2),
+    _TpDosDefendListType_Type()
+)
+tpDosDefendListType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tpDosDefendListType.setStatus("current")
+
+
+class _TpDosDefendListEntryEnable_Type(Integer32):
+    """Custom type tpDosDefendListEntryEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_TpDosDefendListEntryEnable_Type.__name__ = "Integer32"
+_TpDosDefendListEntryEnable_Object = MibTableColumn
+tpDosDefendListEntryEnable = _TpDosDefendListEntryEnable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 30, 1, 2, 1, 1, 3),
+    _TpDosDefendListEntryEnable_Type()
+)
+tpDosDefendListEntryEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpDosDefendListEntryEnable.setStatus("current")
+_TplinkDosPreventionNotifications_ObjectIdentity = ObjectIdentity
+tplinkDosPreventionNotifications = _TplinkDosPreventionNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 30, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPLINK-DOS-PREVENTION-MIB",
+    **{"tplinkDosPreventionMIB": tplinkDosPreventionMIB,
+       "tplinkDosPreventionMIBObjects": tplinkDosPreventionMIBObjects,
+       "tpDosDefendGlobalConfig": tpDosDefendGlobalConfig,
+       "tpDosDefendGlobalEnable": tpDosDefendGlobalEnable,
+       "tpDosDefendList": tpDosDefendList,
+       "tpDosDefendListTable": tpDosDefendListTable,
+       "tpDosDefendListEntry": tpDosDefendListEntry,
+       "tpDosDefendListIndex": tpDosDefendListIndex,
+       "tpDosDefendListType": tpDosDefendListType,
+       "tpDosDefendListEntryEnable": tpDosDefendListEntryEnable,
+       "tplinkDosPreventionNotifications": tplinkDosPreventionNotifications}
+)

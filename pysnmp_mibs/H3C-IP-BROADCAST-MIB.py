@@ -1,27 +1,218 @@
+# SNMP MIB module (H3C-IP-BROADCAST-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-IP-BROADCAST-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-IP-BROADCAST-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:11 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/H3C-IP-BROADCAST-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:18:25 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-h3cIpBroadcast = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 33))
-h3cIpBroadcast.setRevisions(('2004-12-13 19:36',))
-if mibBuilder.loadTexts: h3cIpBroadcast.setLastUpdated('200412131936Z')
-if mibBuilder.loadTexts: h3cIpBroadcast.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
-h3cIpBdstScalarGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 1))
-h3cIpBdstForwardBroadcast = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("forwarding", 1), ("notForwarding", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cIpBdstForwardBroadcast.setStatus('current')
-h3cIpReceiveBroadcast = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("receive", 1), ("notReceive", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: h3cIpReceiveBroadcast.setStatus('current')
-h3cIpBdstGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 2))
-h3cIpBdstTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 3))
-h3cIpBdstTrapPrex = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 3, 0))
-mibBuilder.exportSymbols("H3C-IP-BROADCAST-MIB", PYSNMP_MODULE_ID=h3cIpBroadcast, h3cIpReceiveBroadcast=h3cIpReceiveBroadcast, h3cIpBdstTrap=h3cIpBdstTrap, h3cIpBdstForwardBroadcast=h3cIpBdstForwardBroadcast, h3cIpBdstGroup=h3cIpBdstGroup, h3cIpBroadcast=h3cIpBroadcast, h3cIpBdstTrapPrex=h3cIpBdstTrapPrex, h3cIpBdstScalarGroup=h3cIpBdstScalarGroup)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+h3cIpBroadcast = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 33)
+)
+if mibBuilder.loadTexts:
+    h3cIpBroadcast.setRevisions(
+        ("2004-12-13 19:36",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cIpBdstScalarGroup_ObjectIdentity = ObjectIdentity
+h3cIpBdstScalarGroup = _H3cIpBdstScalarGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 1)
+)
+
+
+class _H3cIpBdstForwardBroadcast_Type(Integer32):
+    """Custom type h3cIpBdstForwardBroadcast based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("forwarding", 1),
+          ("notForwarding", 2))
+    )
+
+
+_H3cIpBdstForwardBroadcast_Type.__name__ = "Integer32"
+_H3cIpBdstForwardBroadcast_Object = MibScalar
+h3cIpBdstForwardBroadcast = _H3cIpBdstForwardBroadcast_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 1, 1),
+    _H3cIpBdstForwardBroadcast_Type()
+)
+h3cIpBdstForwardBroadcast.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cIpBdstForwardBroadcast.setStatus("current")
+
+
+class _H3cIpReceiveBroadcast_Type(Integer32):
+    """Custom type h3cIpReceiveBroadcast based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("receive", 1),
+          ("notReceive", 2))
+    )
+
+
+_H3cIpReceiveBroadcast_Type.__name__ = "Integer32"
+_H3cIpReceiveBroadcast_Object = MibScalar
+h3cIpReceiveBroadcast = _H3cIpReceiveBroadcast_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 1, 2),
+    _H3cIpReceiveBroadcast_Type()
+)
+h3cIpReceiveBroadcast.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    h3cIpReceiveBroadcast.setStatus("current")
+_H3cIpBdstGroup_ObjectIdentity = ObjectIdentity
+h3cIpBdstGroup = _H3cIpBdstGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 2)
+)
+_H3cIpBdstTrap_ObjectIdentity = ObjectIdentity
+h3cIpBdstTrap = _H3cIpBdstTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 3)
+)
+_H3cIpBdstTrapPrex_ObjectIdentity = ObjectIdentity
+h3cIpBdstTrapPrex = _H3cIpBdstTrapPrex_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 33, 3, 0)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-IP-BROADCAST-MIB",
+    **{"h3cIpBroadcast": h3cIpBroadcast,
+       "h3cIpBdstScalarGroup": h3cIpBdstScalarGroup,
+       "h3cIpBdstForwardBroadcast": h3cIpBdstForwardBroadcast,
+       "h3cIpReceiveBroadcast": h3cIpReceiveBroadcast,
+       "h3cIpBdstGroup": h3cIpBdstGroup,
+       "h3cIpBdstTrap": h3cIpBdstTrap,
+       "h3cIpBdstTrapPrex": h3cIpBdstTrapPrex}
+)

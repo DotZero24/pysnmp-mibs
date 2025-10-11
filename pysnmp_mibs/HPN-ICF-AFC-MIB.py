@@ -1,36 +1,328 @@
+# SNMP MIB module (HPN-ICF-AFC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-AFC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-AFC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:03 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HPN-ICF-AFC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:38:50 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hpnicfAFC = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85))
-hpnicfAFC.setRevisions(('2008-07-23 00:00',))
-if mibBuilder.loadTexts: hpnicfAFC.setLastUpdated('200807230000Z')
-if mibBuilder.loadTexts: hpnicfAFC.setOrganization('')
-hpnicfAFCLeaf = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1))
-hpnicfDDosAttackTargetIP = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1, 1), IpAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfDDosAttackTargetIP.setStatus('current')
-hpnicfDDosAttackType = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13, 14, 15, 18, 19, 20, 24, 27, 29, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 1024))).clone(namedValues=NamedValues(("land", 1), ("smurf", 2), ("fraggle", 3), ("winnuke", 4), ("synflood", 5), ("icmpflood", 6), ("udpflood", 7), ("icmpredirect", 8), ("icmpunreachable", 9), ("tracert", 11), ("tcpflag", 12), ("pingofdeath", 13), ("teardrop", 14), ("ipfragment", 15), ("largeicmp", 18), ("sourceroute", 19), ("routerecord", 20), ("fragflood", 24), ("scan", 27), ("appstreamalarm", 29), ("sessionstreamalarm", 30), ("tcpabnormal", 32), ("ipfragabnormal", 33), ("tftpabnormal", 34), ("dnsabnormal", 35), ("httpabnormal", 36), ("telnetabnormal", 37), ("ftpabnormal", 38), ("smtpabnormal", 39), ("pop3abnormal", 40), ("snmpabnormal", 41), ("ackabnormal", 42), ("cc", 43), ("otherabnormal", 1024)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfDDosAttackType.setStatus('current')
-hpnicfDDosAttackPolicy = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 80))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfDDosAttackPolicy.setStatus('current')
-hpnicfDDosAttackThreshold = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1, 4), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfDDosAttackThreshold.setStatus('current')
-hpnicfDDosAttackSpeed = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1, 5), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpnicfDDosAttackSpeed.setStatus('current')
-hpnicfAFCNotify = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 2))
-hpnicfAFCNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 2, 0))
-hpnicfDDosAttackStart = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 2, 0, 1)).setObjects(("HPN-ICF-AFC-MIB", "hpnicfDDosAttackTargetIP"), ("HPN-ICF-AFC-MIB", "hpnicfDDosAttackType"), ("HPN-ICF-AFC-MIB", "hpnicfDDosAttackPolicy"), ("HPN-ICF-AFC-MIB", "hpnicfDDosAttackThreshold"), ("HPN-ICF-AFC-MIB", "hpnicfDDosAttackSpeed"))
-if mibBuilder.loadTexts: hpnicfDDosAttackStart.setStatus('current')
-hpnicfDDosAttackEnd = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 2, 0, 2)).setObjects(("HPN-ICF-AFC-MIB", "hpnicfDDosAttackTargetIP"))
-if mibBuilder.loadTexts: hpnicfDDosAttackEnd.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-AFC-MIB", hpnicfDDosAttackTargetIP=hpnicfDDosAttackTargetIP, hpnicfDDosAttackPolicy=hpnicfDDosAttackPolicy, hpnicfAFCLeaf=hpnicfAFCLeaf, hpnicfDDosAttackThreshold=hpnicfDDosAttackThreshold, hpnicfDDosAttackSpeed=hpnicfDDosAttackSpeed, hpnicfAFCNotifyPrefix=hpnicfAFCNotifyPrefix, hpnicfDDosAttackType=hpnicfDDosAttackType, hpnicfAFCNotify=hpnicfAFCNotify, hpnicfDDosAttackEnd=hpnicfDDosAttackEnd, hpnicfDDosAttackStart=hpnicfDDosAttackStart, hpnicfAFC=hpnicfAFC, PYSNMP_MODULE_ID=hpnicfAFC)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpnicfCommon,) = mibBuilder.importSymbols(
+    "HPN-ICF-OID-MIB",
+    "hpnicfCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpnicfAFC = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85)
+)
+if mibBuilder.loadTexts:
+    hpnicfAFC.setRevisions(
+        ("2008-07-23 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfAFCLeaf_ObjectIdentity = ObjectIdentity
+hpnicfAFCLeaf = _HpnicfAFCLeaf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1)
+)
+_HpnicfDDosAttackTargetIP_Type = IpAddress
+_HpnicfDDosAttackTargetIP_Object = MibScalar
+hpnicfDDosAttackTargetIP = _HpnicfDDosAttackTargetIP_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1, 1),
+    _HpnicfDDosAttackTargetIP_Type()
+)
+hpnicfDDosAttackTargetIP.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfDDosAttackTargetIP.setStatus("current")
+
+
+class _HpnicfDDosAttackType_Type(Integer32):
+    """Custom type hpnicfDDosAttackType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              11,
+              12,
+              13,
+              14,
+              15,
+              18,
+              19,
+              20,
+              24,
+              27,
+              29,
+              30,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              1024)
+        )
+    )
+    namedValues = NamedValues(
+        *(("land", 1),
+          ("smurf", 2),
+          ("fraggle", 3),
+          ("winnuke", 4),
+          ("synflood", 5),
+          ("icmpflood", 6),
+          ("udpflood", 7),
+          ("icmpredirect", 8),
+          ("icmpunreachable", 9),
+          ("tracert", 11),
+          ("tcpflag", 12),
+          ("pingofdeath", 13),
+          ("teardrop", 14),
+          ("ipfragment", 15),
+          ("largeicmp", 18),
+          ("sourceroute", 19),
+          ("routerecord", 20),
+          ("fragflood", 24),
+          ("scan", 27),
+          ("appstreamalarm", 29),
+          ("sessionstreamalarm", 30),
+          ("tcpabnormal", 32),
+          ("ipfragabnormal", 33),
+          ("tftpabnormal", 34),
+          ("dnsabnormal", 35),
+          ("httpabnormal", 36),
+          ("telnetabnormal", 37),
+          ("ftpabnormal", 38),
+          ("smtpabnormal", 39),
+          ("pop3abnormal", 40),
+          ("snmpabnormal", 41),
+          ("ackabnormal", 42),
+          ("cc", 43),
+          ("otherabnormal", 1024))
+    )
+
+
+_HpnicfDDosAttackType_Type.__name__ = "Integer32"
+_HpnicfDDosAttackType_Object = MibScalar
+hpnicfDDosAttackType = _HpnicfDDosAttackType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1, 2),
+    _HpnicfDDosAttackType_Type()
+)
+hpnicfDDosAttackType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfDDosAttackType.setStatus("current")
+
+
+class _HpnicfDDosAttackPolicy_Type(OctetString):
+    """Custom type hpnicfDDosAttackPolicy based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 80),
+    )
+
+
+_HpnicfDDosAttackPolicy_Type.__name__ = "OctetString"
+_HpnicfDDosAttackPolicy_Object = MibScalar
+hpnicfDDosAttackPolicy = _HpnicfDDosAttackPolicy_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1, 3),
+    _HpnicfDDosAttackPolicy_Type()
+)
+hpnicfDDosAttackPolicy.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfDDosAttackPolicy.setStatus("current")
+_HpnicfDDosAttackThreshold_Type = Integer32
+_HpnicfDDosAttackThreshold_Object = MibScalar
+hpnicfDDosAttackThreshold = _HpnicfDDosAttackThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1, 4),
+    _HpnicfDDosAttackThreshold_Type()
+)
+hpnicfDDosAttackThreshold.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfDDosAttackThreshold.setStatus("current")
+_HpnicfDDosAttackSpeed_Type = Integer32
+_HpnicfDDosAttackSpeed_Object = MibScalar
+hpnicfDDosAttackSpeed = _HpnicfDDosAttackSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 1, 5),
+    _HpnicfDDosAttackSpeed_Type()
+)
+hpnicfDDosAttackSpeed.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpnicfDDosAttackSpeed.setStatus("current")
+_HpnicfAFCNotify_ObjectIdentity = ObjectIdentity
+hpnicfAFCNotify = _HpnicfAFCNotify_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 2)
+)
+_HpnicfAFCNotifyPrefix_ObjectIdentity = ObjectIdentity
+hpnicfAFCNotifyPrefix = _HpnicfAFCNotifyPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 2, 0)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hpnicfDDosAttackStart = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 2, 0, 1)
+)
+hpnicfDDosAttackStart.setObjects(
+      *(("HPN-ICF-AFC-MIB", "hpnicfDDosAttackTargetIP"),
+        ("HPN-ICF-AFC-MIB", "hpnicfDDosAttackType"),
+        ("HPN-ICF-AFC-MIB", "hpnicfDDosAttackPolicy"),
+        ("HPN-ICF-AFC-MIB", "hpnicfDDosAttackThreshold"),
+        ("HPN-ICF-AFC-MIB", "hpnicfDDosAttackSpeed"))
+)
+if mibBuilder.loadTexts:
+    hpnicfDDosAttackStart.setStatus(
+        "current"
+    )
+
+hpnicfDDosAttackEnd = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 85, 2, 0, 2)
+)
+hpnicfDDosAttackEnd.setObjects(
+    ("HPN-ICF-AFC-MIB", "hpnicfDDosAttackTargetIP")
+)
+if mibBuilder.loadTexts:
+    hpnicfDDosAttackEnd.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-AFC-MIB",
+    **{"hpnicfAFC": hpnicfAFC,
+       "hpnicfAFCLeaf": hpnicfAFCLeaf,
+       "hpnicfDDosAttackTargetIP": hpnicfDDosAttackTargetIP,
+       "hpnicfDDosAttackType": hpnicfDDosAttackType,
+       "hpnicfDDosAttackPolicy": hpnicfDDosAttackPolicy,
+       "hpnicfDDosAttackThreshold": hpnicfDDosAttackThreshold,
+       "hpnicfDDosAttackSpeed": hpnicfDDosAttackSpeed,
+       "hpnicfAFCNotify": hpnicfAFCNotify,
+       "hpnicfAFCNotifyPrefix": hpnicfAFCNotifyPrefix,
+       "hpnicfDDosAttackStart": hpnicfDDosAttackStart,
+       "hpnicfDDosAttackEnd": hpnicfDDosAttackEnd}
+)

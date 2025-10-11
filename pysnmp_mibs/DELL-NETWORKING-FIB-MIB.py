@@ -1,99 +1,565 @@
+# SNMP MIB module (DELL-NETWORKING-FIB-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DELL-NETWORKING-FIB-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/dell/DELL-NETWORKING-FIB-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:43:34 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/dell/DELL-NETWORKING-FIB-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:07:51 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dellNetMgmt, = mibBuilder.importSymbols("DELL-NETWORKING-SMI", "dellNetMgmt")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-InetAddressPrefixLength, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressPrefixLength", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-dellNetIpForwardMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 6027, 3, 9))
-dellNetIpForwardMib.setRevisions(('2011-07-08 12:00', '2007-09-14 12:00',))
-if mibBuilder.loadTexts: dellNetIpForwardMib.setLastUpdated('200709141200Z')
-if mibBuilder.loadTexts: dellNetIpForwardMib.setOrganization('Dell Inc')
-dellNetIpForwardMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1))
-dellNetIpForwardMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 9, 2))
-dellNetIpForwardVariable = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 9, 3))
-chSysCardNumber = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 9, 3, 1), Integer32())
-if mibBuilder.loadTexts: chSysCardNumber.setStatus('current')
-dellNetIpForwardVersionTable = MibTable((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1), )
-if mibBuilder.loadTexts: dellNetIpForwardVersionTable.setStatus('current')
-dellNetIpForwardVersionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1, 1), ).setIndexNames((0, "DELL-NETWORKING-FIB-MIB", "chSysCardNumber"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetIpForwardAddrFamily"))
-if mibBuilder.loadTexts: dellNetIpForwardVersionEntry.setStatus('current')
-dellNetIpForwardAddrFamily = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: dellNetIpForwardAddrFamily.setStatus('current')
-dellNetIpForwardVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetIpForwardVersion.setStatus('current')
-dellNetIpForwardTable = MibTable((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2), )
-if mibBuilder.loadTexts: dellNetIpForwardTable.setStatus('deprecated')
-dellNetIpForwardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1), ).setIndexNames((0, "DELL-NETWORKING-FIB-MIB", "chSysCardNumber"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetIpforwardDest"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetIpforwardMask"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetIpforwardNextHop"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetIpforwardFirstHop"))
-if mibBuilder.loadTexts: dellNetIpForwardEntry.setStatus('deprecated')
-dellNetIpforwardDest = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetIpforwardDest.setStatus('deprecated')
-dellNetIpforwardMask = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetIpforwardMask.setStatus('deprecated')
-dellNetIpforwardNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetIpforwardNextHop.setStatus('deprecated')
-dellNetIpforwardFirstHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetIpforwardFirstHop.setStatus('deprecated')
-dellNetIpforwardIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetIpforwardIfIndex.setStatus('deprecated')
-dellNetIpforwardMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 6), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetIpforwardMacAddress.setStatus('deprecated')
-dellNetIpforwardEgressPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetIpforwardEgressPort.setStatus('deprecated')
-dellNetIpforwardCamIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetIpforwardCamIndex.setStatus('deprecated')
-dellNetInetCidrIpv4RouteNumber = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetInetCidrIpv4RouteNumber.setStatus('current')
-dellNetInetCidrIpv6RouteNumber = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetInetCidrIpv6RouteNumber.setStatus('current')
-dellNetInetCidrECMPGrpMax = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetInetCidrECMPGrpMax.setStatus('current')
-dellNetInetCidrECMPGrpUsed = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetInetCidrECMPGrpUsed.setStatus('current')
-dellNetInetCidrECMPGrpAvl = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 8), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetInetCidrECMPGrpAvl.setStatus('current')
-dellNetInetCidrRouteTable = MibTable((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5), )
-if mibBuilder.loadTexts: dellNetInetCidrRouteTable.setStatus('current')
-dellNetInetCidrRouteTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1), ).setIndexNames((0, "DELL-NETWORKING-FIB-MIB", "chSysCardNumber"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteDestType"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteDest"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRoutePfxLen"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteNextHopType"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteNextHop"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteFirstHopType"), (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteFirstHop"))
-if mibBuilder.loadTexts: dellNetInetCidrRouteTableEntry.setStatus('current')
-dellNetInetCidrRouteDestType = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: dellNetInetCidrRouteDestType.setStatus('current')
-dellNetInetCidrRouteDest = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 2), InetAddress())
-if mibBuilder.loadTexts: dellNetInetCidrRouteDest.setStatus('current')
-dellNetInetCidrRoutePfxLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 3), InetAddressPrefixLength())
-if mibBuilder.loadTexts: dellNetInetCidrRoutePfxLen.setStatus('current')
-dellNetInetCidrRouteNextHopType = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 4), InetAddressType())
-if mibBuilder.loadTexts: dellNetInetCidrRouteNextHopType.setStatus('current')
-dellNetInetCidrRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 5), InetAddress())
-if mibBuilder.loadTexts: dellNetInetCidrRouteNextHop.setStatus('current')
-dellNetInetCidrRouteFirstHopType = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 6), InetAddressType())
-if mibBuilder.loadTexts: dellNetInetCidrRouteFirstHopType.setStatus('current')
-dellNetInetCidrRouteFirstHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 7), InetAddress())
-if mibBuilder.loadTexts: dellNetInetCidrRouteFirstHop.setStatus('current')
-dellNetInetCidrRouteIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 8), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetInetCidrRouteIfIndex.setStatus('current')
-dellNetInetCidrRouteMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 9), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetInetCidrRouteMacAddress.setStatus('current')
-dellNetInetCidrRouteEgressPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 10), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetInetCidrRouteEgressPort.setStatus('current')
-dellNetInetCidrRouteCamIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 11), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dellNetInetCidrRouteCamIndex.setStatus('current')
-dellNetIpForwardMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 1))
-dellNetIpForwardMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 2))
-dellNetIpForwardMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 1, 1)).setObjects(("DELL-NETWORKING-FIB-MIB", "dellNetIpForwardObjectGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    dellNetIpForwardMibCompliance = dellNetIpForwardMibCompliance.setStatus('current')
-dellNetIpForwardObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 2, 1)).setObjects(("DELL-NETWORKING-FIB-MIB", "dellNetIpForwardVersion"), ("DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteIfIndex"), ("DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteMacAddress"), ("DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteEgressPort"), ("DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteCamIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    dellNetIpForwardObjectGroup = dellNetIpForwardObjectGroup.setStatus('current')
-mibBuilder.exportSymbols("DELL-NETWORKING-FIB-MIB", dellNetInetCidrRouteCamIndex=dellNetInetCidrRouteCamIndex, dellNetIpForwardMib=dellNetIpForwardMib, dellNetInetCidrRouteTable=dellNetInetCidrRouteTable, dellNetIpforwardDest=dellNetIpforwardDest, dellNetIpForwardVersionEntry=dellNetIpForwardVersionEntry, dellNetInetCidrRouteMacAddress=dellNetInetCidrRouteMacAddress, dellNetInetCidrRouteNextHop=dellNetInetCidrRouteNextHop, dellNetIpForwardMibConformance=dellNetIpForwardMibConformance, dellNetInetCidrRouteEgressPort=dellNetInetCidrRouteEgressPort, dellNetIpForwardEntry=dellNetIpForwardEntry, dellNetInetCidrRouteIfIndex=dellNetInetCidrRouteIfIndex, dellNetInetCidrRouteDest=dellNetInetCidrRouteDest, dellNetInetCidrIpv4RouteNumber=dellNetInetCidrIpv4RouteNumber, dellNetInetCidrRouteFirstHopType=dellNetInetCidrRouteFirstHopType, dellNetInetCidrECMPGrpUsed=dellNetInetCidrECMPGrpUsed, chSysCardNumber=chSysCardNumber, dellNetIpForwardVersionTable=dellNetIpForwardVersionTable, dellNetInetCidrRouteTableEntry=dellNetInetCidrRouteTableEntry, dellNetIpforwardCamIndex=dellNetIpforwardCamIndex, dellNetIpforwardMask=dellNetIpforwardMask, dellNetIpForwardMibCompliance=dellNetIpForwardMibCompliance, dellNetInetCidrIpv6RouteNumber=dellNetInetCidrIpv6RouteNumber, dellNetIpforwardFirstHop=dellNetIpforwardFirstHop, dellNetIpforwardMacAddress=dellNetIpforwardMacAddress, dellNetIpForwardMibObjects=dellNetIpForwardMibObjects, dellNetIpforwardIfIndex=dellNetIpforwardIfIndex, dellNetIpForwardVersion=dellNetIpForwardVersion, dellNetIpForwardTable=dellNetIpForwardTable, PYSNMP_MODULE_ID=dellNetIpForwardMib, dellNetIpForwardVariable=dellNetIpForwardVariable, dellNetInetCidrRouteDestType=dellNetInetCidrRouteDestType, dellNetIpForwardObjectGroup=dellNetIpForwardObjectGroup, dellNetIpforwardEgressPort=dellNetIpforwardEgressPort, dellNetInetCidrRouteNextHopType=dellNetInetCidrRouteNextHopType, dellNetInetCidrECMPGrpAvl=dellNetInetCidrECMPGrpAvl, dellNetInetCidrECMPGrpMax=dellNetInetCidrECMPGrpMax, dellNetInetCidrRouteFirstHop=dellNetInetCidrRouteFirstHop, dellNetInetCidrRoutePfxLen=dellNetInetCidrRoutePfxLen, dellNetIpForwardAddrFamily=dellNetIpForwardAddrFamily, dellNetIpforwardNextHop=dellNetIpforwardNextHop, dellNetIpForwardMibCompliances=dellNetIpForwardMibCompliances, dellNetIpForwardMibGroups=dellNetIpForwardMibGroups)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dellNetMgmt,) = mibBuilder.importSymbols(
+    "DELL-NETWORKING-SMI",
+    "dellNetMgmt")
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(InetAddress,
+ InetAddressPrefixLength,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressPrefixLength",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+dellNetIpForwardMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9)
+)
+if mibBuilder.loadTexts:
+    dellNetIpForwardMib.setRevisions(
+        ("2011-07-08 12:00",
+         "2007-09-14 12:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_DellNetIpForwardMibObjects_ObjectIdentity = ObjectIdentity
+dellNetIpForwardMibObjects = _DellNetIpForwardMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1)
+)
+_DellNetIpForwardVersionTable_Object = MibTable
+dellNetIpForwardVersionTable = _DellNetIpForwardVersionTable_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1)
+)
+if mibBuilder.loadTexts:
+    dellNetIpForwardVersionTable.setStatus("current")
+_DellNetIpForwardVersionEntry_Object = MibTableRow
+dellNetIpForwardVersionEntry = _DellNetIpForwardVersionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1, 1)
+)
+dellNetIpForwardVersionEntry.setIndexNames(
+    (0, "DELL-NETWORKING-FIB-MIB", "chSysCardNumber"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetIpForwardAddrFamily"),
+)
+if mibBuilder.loadTexts:
+    dellNetIpForwardVersionEntry.setStatus("current")
+_DellNetIpForwardAddrFamily_Type = InetAddressType
+_DellNetIpForwardAddrFamily_Object = MibTableColumn
+dellNetIpForwardAddrFamily = _DellNetIpForwardAddrFamily_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1, 1, 1),
+    _DellNetIpForwardAddrFamily_Type()
+)
+dellNetIpForwardAddrFamily.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dellNetIpForwardAddrFamily.setStatus("current")
+_DellNetIpForwardVersion_Type = Counter64
+_DellNetIpForwardVersion_Object = MibTableColumn
+dellNetIpForwardVersion = _DellNetIpForwardVersion_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 1, 1, 2),
+    _DellNetIpForwardVersion_Type()
+)
+dellNetIpForwardVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetIpForwardVersion.setStatus("current")
+_DellNetIpForwardTable_Object = MibTable
+dellNetIpForwardTable = _DellNetIpForwardTable_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2)
+)
+if mibBuilder.loadTexts:
+    dellNetIpForwardTable.setStatus("deprecated")
+_DellNetIpForwardEntry_Object = MibTableRow
+dellNetIpForwardEntry = _DellNetIpForwardEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1)
+)
+dellNetIpForwardEntry.setIndexNames(
+    (0, "DELL-NETWORKING-FIB-MIB", "chSysCardNumber"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetIpforwardDest"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetIpforwardMask"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetIpforwardNextHop"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetIpforwardFirstHop"),
+)
+if mibBuilder.loadTexts:
+    dellNetIpForwardEntry.setStatus("deprecated")
+_DellNetIpforwardDest_Type = IpAddress
+_DellNetIpforwardDest_Object = MibTableColumn
+dellNetIpforwardDest = _DellNetIpforwardDest_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 1),
+    _DellNetIpforwardDest_Type()
+)
+dellNetIpforwardDest.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetIpforwardDest.setStatus("deprecated")
+_DellNetIpforwardMask_Type = IpAddress
+_DellNetIpforwardMask_Object = MibTableColumn
+dellNetIpforwardMask = _DellNetIpforwardMask_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 2),
+    _DellNetIpforwardMask_Type()
+)
+dellNetIpforwardMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetIpforwardMask.setStatus("deprecated")
+_DellNetIpforwardNextHop_Type = IpAddress
+_DellNetIpforwardNextHop_Object = MibTableColumn
+dellNetIpforwardNextHop = _DellNetIpforwardNextHop_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 3),
+    _DellNetIpforwardNextHop_Type()
+)
+dellNetIpforwardNextHop.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetIpforwardNextHop.setStatus("deprecated")
+_DellNetIpforwardFirstHop_Type = IpAddress
+_DellNetIpforwardFirstHop_Object = MibTableColumn
+dellNetIpforwardFirstHop = _DellNetIpforwardFirstHop_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 4),
+    _DellNetIpforwardFirstHop_Type()
+)
+dellNetIpforwardFirstHop.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetIpforwardFirstHop.setStatus("deprecated")
+_DellNetIpforwardIfIndex_Type = Integer32
+_DellNetIpforwardIfIndex_Object = MibTableColumn
+dellNetIpforwardIfIndex = _DellNetIpforwardIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 5),
+    _DellNetIpforwardIfIndex_Type()
+)
+dellNetIpforwardIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetIpforwardIfIndex.setStatus("deprecated")
+_DellNetIpforwardMacAddress_Type = MacAddress
+_DellNetIpforwardMacAddress_Object = MibTableColumn
+dellNetIpforwardMacAddress = _DellNetIpforwardMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 6),
+    _DellNetIpforwardMacAddress_Type()
+)
+dellNetIpforwardMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetIpforwardMacAddress.setStatus("deprecated")
+
+
+class _DellNetIpforwardEgressPort_Type(OctetString):
+    """Custom type dellNetIpforwardEgressPort based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_DellNetIpforwardEgressPort_Type.__name__ = "OctetString"
+_DellNetIpforwardEgressPort_Object = MibTableColumn
+dellNetIpforwardEgressPort = _DellNetIpforwardEgressPort_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 7),
+    _DellNetIpforwardEgressPort_Type()
+)
+dellNetIpforwardEgressPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetIpforwardEgressPort.setStatus("deprecated")
+_DellNetIpforwardCamIndex_Type = Integer32
+_DellNetIpforwardCamIndex_Object = MibTableColumn
+dellNetIpforwardCamIndex = _DellNetIpforwardCamIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 2, 1, 8),
+    _DellNetIpforwardCamIndex_Type()
+)
+dellNetIpforwardCamIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetIpforwardCamIndex.setStatus("deprecated")
+_DellNetInetCidrIpv4RouteNumber_Type = Gauge32
+_DellNetInetCidrIpv4RouteNumber_Object = MibScalar
+dellNetInetCidrIpv4RouteNumber = _DellNetInetCidrIpv4RouteNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 3),
+    _DellNetInetCidrIpv4RouteNumber_Type()
+)
+dellNetInetCidrIpv4RouteNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetInetCidrIpv4RouteNumber.setStatus("current")
+_DellNetInetCidrIpv6RouteNumber_Type = Gauge32
+_DellNetInetCidrIpv6RouteNumber_Object = MibScalar
+dellNetInetCidrIpv6RouteNumber = _DellNetInetCidrIpv6RouteNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 4),
+    _DellNetInetCidrIpv6RouteNumber_Type()
+)
+dellNetInetCidrIpv6RouteNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetInetCidrIpv6RouteNumber.setStatus("current")
+_DellNetInetCidrRouteTable_Object = MibTable
+dellNetInetCidrRouteTable = _DellNetInetCidrRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5)
+)
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteTable.setStatus("current")
+_DellNetInetCidrRouteTableEntry_Object = MibTableRow
+dellNetInetCidrRouteTableEntry = _DellNetInetCidrRouteTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1)
+)
+dellNetInetCidrRouteTableEntry.setIndexNames(
+    (0, "DELL-NETWORKING-FIB-MIB", "chSysCardNumber"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteDestType"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteDest"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRoutePfxLen"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteNextHopType"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteNextHop"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteFirstHopType"),
+    (0, "DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteFirstHop"),
+)
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteTableEntry.setStatus("current")
+_DellNetInetCidrRouteDestType_Type = InetAddressType
+_DellNetInetCidrRouteDestType_Object = MibTableColumn
+dellNetInetCidrRouteDestType = _DellNetInetCidrRouteDestType_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 1),
+    _DellNetInetCidrRouteDestType_Type()
+)
+dellNetInetCidrRouteDestType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteDestType.setStatus("current")
+_DellNetInetCidrRouteDest_Type = InetAddress
+_DellNetInetCidrRouteDest_Object = MibTableColumn
+dellNetInetCidrRouteDest = _DellNetInetCidrRouteDest_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 2),
+    _DellNetInetCidrRouteDest_Type()
+)
+dellNetInetCidrRouteDest.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteDest.setStatus("current")
+_DellNetInetCidrRoutePfxLen_Type = InetAddressPrefixLength
+_DellNetInetCidrRoutePfxLen_Object = MibTableColumn
+dellNetInetCidrRoutePfxLen = _DellNetInetCidrRoutePfxLen_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 3),
+    _DellNetInetCidrRoutePfxLen_Type()
+)
+dellNetInetCidrRoutePfxLen.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dellNetInetCidrRoutePfxLen.setStatus("current")
+_DellNetInetCidrRouteNextHopType_Type = InetAddressType
+_DellNetInetCidrRouteNextHopType_Object = MibTableColumn
+dellNetInetCidrRouteNextHopType = _DellNetInetCidrRouteNextHopType_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 4),
+    _DellNetInetCidrRouteNextHopType_Type()
+)
+dellNetInetCidrRouteNextHopType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteNextHopType.setStatus("current")
+_DellNetInetCidrRouteNextHop_Type = InetAddress
+_DellNetInetCidrRouteNextHop_Object = MibTableColumn
+dellNetInetCidrRouteNextHop = _DellNetInetCidrRouteNextHop_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 5),
+    _DellNetInetCidrRouteNextHop_Type()
+)
+dellNetInetCidrRouteNextHop.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteNextHop.setStatus("current")
+_DellNetInetCidrRouteFirstHopType_Type = InetAddressType
+_DellNetInetCidrRouteFirstHopType_Object = MibTableColumn
+dellNetInetCidrRouteFirstHopType = _DellNetInetCidrRouteFirstHopType_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 6),
+    _DellNetInetCidrRouteFirstHopType_Type()
+)
+dellNetInetCidrRouteFirstHopType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteFirstHopType.setStatus("current")
+_DellNetInetCidrRouteFirstHop_Type = InetAddress
+_DellNetInetCidrRouteFirstHop_Object = MibTableColumn
+dellNetInetCidrRouteFirstHop = _DellNetInetCidrRouteFirstHop_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 7),
+    _DellNetInetCidrRouteFirstHop_Type()
+)
+dellNetInetCidrRouteFirstHop.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteFirstHop.setStatus("current")
+_DellNetInetCidrRouteIfIndex_Type = InterfaceIndexOrZero
+_DellNetInetCidrRouteIfIndex_Object = MibTableColumn
+dellNetInetCidrRouteIfIndex = _DellNetInetCidrRouteIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 8),
+    _DellNetInetCidrRouteIfIndex_Type()
+)
+dellNetInetCidrRouteIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteIfIndex.setStatus("current")
+_DellNetInetCidrRouteMacAddress_Type = MacAddress
+_DellNetInetCidrRouteMacAddress_Object = MibTableColumn
+dellNetInetCidrRouteMacAddress = _DellNetInetCidrRouteMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 9),
+    _DellNetInetCidrRouteMacAddress_Type()
+)
+dellNetInetCidrRouteMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteMacAddress.setStatus("current")
+
+
+class _DellNetInetCidrRouteEgressPort_Type(OctetString):
+    """Custom type dellNetInetCidrRouteEgressPort based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_DellNetInetCidrRouteEgressPort_Type.__name__ = "OctetString"
+_DellNetInetCidrRouteEgressPort_Object = MibTableColumn
+dellNetInetCidrRouteEgressPort = _DellNetInetCidrRouteEgressPort_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 10),
+    _DellNetInetCidrRouteEgressPort_Type()
+)
+dellNetInetCidrRouteEgressPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteEgressPort.setStatus("current")
+_DellNetInetCidrRouteCamIndex_Type = Unsigned32
+_DellNetInetCidrRouteCamIndex_Object = MibTableColumn
+dellNetInetCidrRouteCamIndex = _DellNetInetCidrRouteCamIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 5, 1, 11),
+    _DellNetInetCidrRouteCamIndex_Type()
+)
+dellNetInetCidrRouteCamIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetInetCidrRouteCamIndex.setStatus("current")
+_DellNetInetCidrECMPGrpMax_Type = Gauge32
+_DellNetInetCidrECMPGrpMax_Object = MibScalar
+dellNetInetCidrECMPGrpMax = _DellNetInetCidrECMPGrpMax_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 6),
+    _DellNetInetCidrECMPGrpMax_Type()
+)
+dellNetInetCidrECMPGrpMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetInetCidrECMPGrpMax.setStatus("current")
+_DellNetInetCidrECMPGrpUsed_Type = Gauge32
+_DellNetInetCidrECMPGrpUsed_Object = MibScalar
+dellNetInetCidrECMPGrpUsed = _DellNetInetCidrECMPGrpUsed_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 7),
+    _DellNetInetCidrECMPGrpUsed_Type()
+)
+dellNetInetCidrECMPGrpUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetInetCidrECMPGrpUsed.setStatus("current")
+_DellNetInetCidrECMPGrpAvl_Type = Gauge32
+_DellNetInetCidrECMPGrpAvl_Object = MibScalar
+dellNetInetCidrECMPGrpAvl = _DellNetInetCidrECMPGrpAvl_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 1, 8),
+    _DellNetInetCidrECMPGrpAvl_Type()
+)
+dellNetInetCidrECMPGrpAvl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dellNetInetCidrECMPGrpAvl.setStatus("current")
+_DellNetIpForwardMibConformance_ObjectIdentity = ObjectIdentity
+dellNetIpForwardMibConformance = _DellNetIpForwardMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 2)
+)
+_DellNetIpForwardMibCompliances_ObjectIdentity = ObjectIdentity
+dellNetIpForwardMibCompliances = _DellNetIpForwardMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 1)
+)
+_DellNetIpForwardMibGroups_ObjectIdentity = ObjectIdentity
+dellNetIpForwardMibGroups = _DellNetIpForwardMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 2)
+)
+_DellNetIpForwardVariable_ObjectIdentity = ObjectIdentity
+dellNetIpForwardVariable = _DellNetIpForwardVariable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 3)
+)
+_ChSysCardNumber_Type = Integer32
+_ChSysCardNumber_Object = MibScalar
+chSysCardNumber = _ChSysCardNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 3, 1),
+    _ChSysCardNumber_Type()
+)
+chSysCardNumber.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    chSysCardNumber.setStatus("current")
+
+# Managed Objects groups
+
+dellNetIpForwardObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 2, 1)
+)
+dellNetIpForwardObjectGroup.setObjects(
+      *(("DELL-NETWORKING-FIB-MIB", "dellNetIpForwardVersion"),
+        ("DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteIfIndex"),
+        ("DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteMacAddress"),
+        ("DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteEgressPort"),
+        ("DELL-NETWORKING-FIB-MIB", "dellNetInetCidrRouteCamIndex"))
+)
+if mibBuilder.loadTexts:
+    dellNetIpForwardObjectGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+dellNetIpForwardMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 9, 2, 1, 1)
+)
+dellNetIpForwardMibCompliance.setObjects(
+    ("DELL-NETWORKING-FIB-MIB", "dellNetIpForwardObjectGroup")
+)
+if mibBuilder.loadTexts:
+    dellNetIpForwardMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DELL-NETWORKING-FIB-MIB",
+    **{"dellNetIpForwardMib": dellNetIpForwardMib,
+       "dellNetIpForwardMibObjects": dellNetIpForwardMibObjects,
+       "dellNetIpForwardVersionTable": dellNetIpForwardVersionTable,
+       "dellNetIpForwardVersionEntry": dellNetIpForwardVersionEntry,
+       "dellNetIpForwardAddrFamily": dellNetIpForwardAddrFamily,
+       "dellNetIpForwardVersion": dellNetIpForwardVersion,
+       "dellNetIpForwardTable": dellNetIpForwardTable,
+       "dellNetIpForwardEntry": dellNetIpForwardEntry,
+       "dellNetIpforwardDest": dellNetIpforwardDest,
+       "dellNetIpforwardMask": dellNetIpforwardMask,
+       "dellNetIpforwardNextHop": dellNetIpforwardNextHop,
+       "dellNetIpforwardFirstHop": dellNetIpforwardFirstHop,
+       "dellNetIpforwardIfIndex": dellNetIpforwardIfIndex,
+       "dellNetIpforwardMacAddress": dellNetIpforwardMacAddress,
+       "dellNetIpforwardEgressPort": dellNetIpforwardEgressPort,
+       "dellNetIpforwardCamIndex": dellNetIpforwardCamIndex,
+       "dellNetInetCidrIpv4RouteNumber": dellNetInetCidrIpv4RouteNumber,
+       "dellNetInetCidrIpv6RouteNumber": dellNetInetCidrIpv6RouteNumber,
+       "dellNetInetCidrRouteTable": dellNetInetCidrRouteTable,
+       "dellNetInetCidrRouteTableEntry": dellNetInetCidrRouteTableEntry,
+       "dellNetInetCidrRouteDestType": dellNetInetCidrRouteDestType,
+       "dellNetInetCidrRouteDest": dellNetInetCidrRouteDest,
+       "dellNetInetCidrRoutePfxLen": dellNetInetCidrRoutePfxLen,
+       "dellNetInetCidrRouteNextHopType": dellNetInetCidrRouteNextHopType,
+       "dellNetInetCidrRouteNextHop": dellNetInetCidrRouteNextHop,
+       "dellNetInetCidrRouteFirstHopType": dellNetInetCidrRouteFirstHopType,
+       "dellNetInetCidrRouteFirstHop": dellNetInetCidrRouteFirstHop,
+       "dellNetInetCidrRouteIfIndex": dellNetInetCidrRouteIfIndex,
+       "dellNetInetCidrRouteMacAddress": dellNetInetCidrRouteMacAddress,
+       "dellNetInetCidrRouteEgressPort": dellNetInetCidrRouteEgressPort,
+       "dellNetInetCidrRouteCamIndex": dellNetInetCidrRouteCamIndex,
+       "dellNetInetCidrECMPGrpMax": dellNetInetCidrECMPGrpMax,
+       "dellNetInetCidrECMPGrpUsed": dellNetInetCidrECMPGrpUsed,
+       "dellNetInetCidrECMPGrpAvl": dellNetInetCidrECMPGrpAvl,
+       "dellNetIpForwardMibConformance": dellNetIpForwardMibConformance,
+       "dellNetIpForwardMibCompliances": dellNetIpForwardMibCompliances,
+       "dellNetIpForwardMibCompliance": dellNetIpForwardMibCompliance,
+       "dellNetIpForwardMibGroups": dellNetIpForwardMibGroups,
+       "dellNetIpForwardObjectGroup": dellNetIpForwardObjectGroup,
+       "dellNetIpForwardVariable": dellNetIpForwardVariable,
+       "chSysCardNumber": chSysCardNumber}
+)

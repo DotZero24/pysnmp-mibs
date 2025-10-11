@@ -1,31 +1,217 @@
+# SNMP MIB module (SWDGS3620PRIMGMT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SWDGS3620PRIMGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/SWDGS3620PRIMGMT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:07 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/SWDGS3620PRIMGMT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:51:49 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_mgmt, dlink_products = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-mgmt", "dlink-products")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-dlink_Dgs3620Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 118)).setLabel("dlink-Dgs3620Prod")
-dlink_Dgs3620Prod_Dgs3620_28TC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 118, 1)).setLabel("dlink-Dgs3620Prod-Dgs3620-28TC")
-dlink_Dgs3620Prod_Dgs3620_28SC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 118, 2)).setLabel("dlink-Dgs3620Prod-Dgs3620-28SC")
-dlink_Dgs3620Prod_Dgs3620_28PC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 118, 3)).setLabel("dlink-Dgs3620Prod-Dgs3620-28PC")
-dlink_Dgs3620Prod_Dgs3620_52T = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 118, 4)).setLabel("dlink-Dgs3620Prod-Dgs3620-52T")
-dlink_Dgs3620Prod_Dgs3620_52P = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 118, 5)).setLabel("dlink-Dgs3620Prod-Dgs3620-52P")
-dlink_Dgs3620Prod_Dgs3620_28TC_DC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 118, 8)).setLabel("dlink-Dgs3620Prod-Dgs3620-28TC-DC")
-dlink_Dgs3620Prod_Dgs3620_28SC_DC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 118, 9)).setLabel("dlink-Dgs3620Prod-Dgs3620-28SC-DC")
-dlink_Dgs3620Proj = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118)).setLabel("dlink-Dgs3620Proj")
-dlink_Dgs3620Proj_Dgs3620_28TC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 1)).setLabel("dlink-Dgs3620Proj-Dgs3620-28TC")
-dlink_Dgs3620Proj_Dgs3620_28SC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 2)).setLabel("dlink-Dgs3620Proj-Dgs3620-28SC")
-dlink_Dgs3620Proj_Dgs3620_28PC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 3)).setLabel("dlink-Dgs3620Proj-Dgs3620-28PC")
-dlink_Dgs3620Proj_Dgs3620_52T = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 4)).setLabel("dlink-Dgs3620Proj-Dgs3620-52T")
-dlink_Dgs3620Proj_Dgs3620_52P = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 5)).setLabel("dlink-Dgs3620Proj-Dgs3620-52P")
-dlink_Dgs3620Proj_Dgs3620_28TC_DC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 8)).setLabel("dlink-Dgs3620Proj-Dgs3620-28TC-DC")
-dlink_Dgs3620Proj_Dgs3620_28SC_DC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 118, 9)).setLabel("dlink-Dgs3620Proj-Dgs3620-28SC-DC")
-mibBuilder.exportSymbols("SWDGS3620PRIMGMT-MIB", dlink_Dgs3620Proj_Dgs3620_52T=dlink_Dgs3620Proj_Dgs3620_52T, dlink_Dgs3620Proj=dlink_Dgs3620Proj, dlink_Dgs3620Prod_Dgs3620_52P=dlink_Dgs3620Prod_Dgs3620_52P, dlink_Dgs3620Prod_Dgs3620_28TC=dlink_Dgs3620Prod_Dgs3620_28TC, dlink_Dgs3620Prod_Dgs3620_28SC_DC=dlink_Dgs3620Prod_Dgs3620_28SC_DC, dlink_Dgs3620Proj_Dgs3620_28TC=dlink_Dgs3620Proj_Dgs3620_28TC, dlink_Dgs3620Prod=dlink_Dgs3620Prod, dlink_Dgs3620Proj_Dgs3620_28SC_DC=dlink_Dgs3620Proj_Dgs3620_28SC_DC, dlink_Dgs3620Proj_Dgs3620_28PC=dlink_Dgs3620Proj_Dgs3620_28PC, dlink_Dgs3620Proj_Dgs3620_28TC_DC=dlink_Dgs3620Proj_Dgs3620_28TC_DC, dlink_Dgs3620Prod_Dgs3620_28PC=dlink_Dgs3620Prod_Dgs3620_28PC, dlink_Dgs3620Prod_Dgs3620_28SC=dlink_Dgs3620Prod_Dgs3620_28SC, dlink_Dgs3620Prod_Dgs3620_28TC_DC=dlink_Dgs3620Prod_Dgs3620_28TC_DC, dlink_Dgs3620Proj_Dgs3620_28SC=dlink_Dgs3620Proj_Dgs3620_28SC, dlink_Dgs3620Prod_Dgs3620_52T=dlink_Dgs3620Prod_Dgs3620_52T, dlink_Dgs3620Proj_Dgs3620_52P=dlink_Dgs3620Proj_Dgs3620_52P)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_mgmt,
+ dlink_products) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-mgmt",
+    "dlink-products")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Dlink_Dgs3620Prod_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Prod = _Dlink_Dgs3620Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 118)
+)
+_Dlink_Dgs3620Prod_Dgs3620_28TC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Prod_Dgs3620_28TC = _Dlink_Dgs3620Prod_Dgs3620_28TC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 118, 1)
+)
+_Dlink_Dgs3620Prod_Dgs3620_28SC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Prod_Dgs3620_28SC = _Dlink_Dgs3620Prod_Dgs3620_28SC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 118, 2)
+)
+_Dlink_Dgs3620Prod_Dgs3620_28PC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Prod_Dgs3620_28PC = _Dlink_Dgs3620Prod_Dgs3620_28PC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 118, 3)
+)
+_Dlink_Dgs3620Prod_Dgs3620_52T_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Prod_Dgs3620_52T = _Dlink_Dgs3620Prod_Dgs3620_52T_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 118, 4)
+)
+_Dlink_Dgs3620Prod_Dgs3620_52P_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Prod_Dgs3620_52P = _Dlink_Dgs3620Prod_Dgs3620_52P_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 118, 5)
+)
+_Dlink_Dgs3620Prod_Dgs3620_28TC_DC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Prod_Dgs3620_28TC_DC = _Dlink_Dgs3620Prod_Dgs3620_28TC_DC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 118, 8)
+)
+_Dlink_Dgs3620Prod_Dgs3620_28SC_DC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Prod_Dgs3620_28SC_DC = _Dlink_Dgs3620Prod_Dgs3620_28SC_DC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 118, 9)
+)
+_Dlink_Dgs3620Proj_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Proj = _Dlink_Dgs3620Proj_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 118)
+)
+_Dlink_Dgs3620Proj_Dgs3620_28TC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Proj_Dgs3620_28TC = _Dlink_Dgs3620Proj_Dgs3620_28TC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 118, 1)
+)
+_Dlink_Dgs3620Proj_Dgs3620_28SC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Proj_Dgs3620_28SC = _Dlink_Dgs3620Proj_Dgs3620_28SC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 118, 2)
+)
+_Dlink_Dgs3620Proj_Dgs3620_28PC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Proj_Dgs3620_28PC = _Dlink_Dgs3620Proj_Dgs3620_28PC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 118, 3)
+)
+_Dlink_Dgs3620Proj_Dgs3620_52T_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Proj_Dgs3620_52T = _Dlink_Dgs3620Proj_Dgs3620_52T_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 118, 4)
+)
+_Dlink_Dgs3620Proj_Dgs3620_52P_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Proj_Dgs3620_52P = _Dlink_Dgs3620Proj_Dgs3620_52P_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 118, 5)
+)
+_Dlink_Dgs3620Proj_Dgs3620_28TC_DC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Proj_Dgs3620_28TC_DC = _Dlink_Dgs3620Proj_Dgs3620_28TC_DC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 118, 8)
+)
+_Dlink_Dgs3620Proj_Dgs3620_28SC_DC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3620Proj_Dgs3620_28SC_DC = _Dlink_Dgs3620Proj_Dgs3620_28SC_DC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 118, 9)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SWDGS3620PRIMGMT-MIB",
+    **{"dlink-Dgs3620Prod": dlink_Dgs3620Prod,
+       "dlink-Dgs3620Prod-Dgs3620-28TC": dlink_Dgs3620Prod_Dgs3620_28TC,
+       "dlink-Dgs3620Prod-Dgs3620-28SC": dlink_Dgs3620Prod_Dgs3620_28SC,
+       "dlink-Dgs3620Prod-Dgs3620-28PC": dlink_Dgs3620Prod_Dgs3620_28PC,
+       "dlink-Dgs3620Prod-Dgs3620-52T": dlink_Dgs3620Prod_Dgs3620_52T,
+       "dlink-Dgs3620Prod-Dgs3620-52P": dlink_Dgs3620Prod_Dgs3620_52P,
+       "dlink-Dgs3620Prod-Dgs3620-28TC-DC": dlink_Dgs3620Prod_Dgs3620_28TC_DC,
+       "dlink-Dgs3620Prod-Dgs3620-28SC-DC": dlink_Dgs3620Prod_Dgs3620_28SC_DC,
+       "dlink-Dgs3620Proj": dlink_Dgs3620Proj,
+       "dlink-Dgs3620Proj-Dgs3620-28TC": dlink_Dgs3620Proj_Dgs3620_28TC,
+       "dlink-Dgs3620Proj-Dgs3620-28SC": dlink_Dgs3620Proj_Dgs3620_28SC,
+       "dlink-Dgs3620Proj-Dgs3620-28PC": dlink_Dgs3620Proj_Dgs3620_28PC,
+       "dlink-Dgs3620Proj-Dgs3620-52T": dlink_Dgs3620Proj_Dgs3620_52T,
+       "dlink-Dgs3620Proj-Dgs3620-52P": dlink_Dgs3620Proj_Dgs3620_52P,
+       "dlink-Dgs3620Proj-Dgs3620-28TC-DC": dlink_Dgs3620Proj_Dgs3620_28TC_DC,
+       "dlink-Dgs3620Proj-Dgs3620-28SC-DC": dlink_Dgs3620Proj_Dgs3620_28SC_DC}
+)

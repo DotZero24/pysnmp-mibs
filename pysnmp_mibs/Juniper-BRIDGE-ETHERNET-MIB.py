@@ -1,59 +1,362 @@
+# SNMP MIB module (Juniper-BRIDGE-ETHERNET-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Juniper-BRIDGE-ETHERNET-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/junose/Juniper-BRIDGE-ETHERNET-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:42:43 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/junose/Juniper-BRIDGE-ETHERNET-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:06:11 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
-juniMibs, = mibBuilder.importSymbols("Juniper-MIBs", "juniMibs")
-JuniNextIfIndex, = mibBuilder.importSymbols("Juniper-TC", "JuniNextIfIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-juniBridgeEthernetMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31))
-juniBridgeEthernetMIB.setRevisions(('2005-12-14 17:10', '2002-09-16 21:44', '2000-09-26 14:43', '2000-03-27 23:45', '1999-12-10 18:30',))
-if mibBuilder.loadTexts: juniBridgeEthernetMIB.setLastUpdated('200512141710Z')
-if mibBuilder.loadTexts: juniBridgeEthernetMIB.setOrganization('Juniper Networks, Inc.')
-juniBridgedEthernetObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1))
-juniBridgedEthernetIfLayer = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1))
-juniBridgedEthernetNextIfIndex = MibScalar((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 1), JuniNextIfIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: juniBridgedEthernetNextIfIndex.setStatus('current')
-juniBridgedEthernetIfTable = MibTable((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2), )
-if mibBuilder.loadTexts: juniBridgedEthernetIfTable.setStatus('current')
-juniBridgedEthernetIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1), ).setIndexNames((0, "Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfIfIndex"))
-if mibBuilder.loadTexts: juniBridgedEthernetIfEntry.setStatus('current')
-juniBridgedEthernetIfIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: juniBridgedEthernetIfIfIndex.setStatus('current')
-juniBridgedEthernetProxyArp = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enableRestricted", 1), ("enableUnrestricted", 2), ("disable", 3))).clone('enableRestricted')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: juniBridgedEthernetProxyArp.setStatus('obsolete')
-juniBridgedEthernetIfLowerIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1, 3), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: juniBridgedEthernetIfLowerIfIndex.setStatus('current')
-juniBridgedEthernetIfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: juniBridgedEthernetIfRowStatus.setStatus('current')
-juniBridgedEthernetIfMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(64, 9180)).clone(1518)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: juniBridgedEthernetIfMtu.setStatus('current')
-juniBridgeEthernetConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4))
-juniBridgeEthernetCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 1))
-juniBridgeEthernetGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 2))
-juniBridgedEthernetCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 1, 1)).setObjects(("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetGroup2"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniBridgedEthernetCompliance = juniBridgedEthernetCompliance.setStatus('deprecated')
-juniBridgedEthernetCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 1, 2)).setObjects(("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetGroup3"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniBridgedEthernetCompliance2 = juniBridgedEthernetCompliance2.setStatus('current')
-juniBridgedEthernetGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 2, 1)).setObjects(("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetNextIfIndex"), ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfIfIndex"), ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetProxyArp"), ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfLowerIfIndex"), ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniBridgedEthernetGroup = juniBridgedEthernetGroup.setStatus('obsolete')
-juniBridgedEthernetGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 2, 2)).setObjects(("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetNextIfIndex"), ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfIfIndex"), ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfLowerIfIndex"), ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniBridgedEthernetGroup2 = juniBridgedEthernetGroup2.setStatus('deprecated')
-juniBridgedEthernetGroup3 = ObjectGroup((1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 2, 3)).setObjects(("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetNextIfIndex"), ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfIfIndex"), ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfLowerIfIndex"), ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfRowStatus"), ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfMtu"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    juniBridgedEthernetGroup3 = juniBridgedEthernetGroup3.setStatus('current')
-mibBuilder.exportSymbols("Juniper-BRIDGE-ETHERNET-MIB", juniBridgedEthernetIfLayer=juniBridgedEthernetIfLayer, juniBridgeEthernetConformance=juniBridgeEthernetConformance, juniBridgedEthernetIfLowerIfIndex=juniBridgedEthernetIfLowerIfIndex, juniBridgeEthernetGroups=juniBridgeEthernetGroups, juniBridgedEthernetProxyArp=juniBridgedEthernetProxyArp, juniBridgedEthernetIfEntry=juniBridgedEthernetIfEntry, juniBridgedEthernetGroup=juniBridgedEthernetGroup, juniBridgeEthernetCompliances=juniBridgeEthernetCompliances, juniBridgeEthernetMIB=juniBridgeEthernetMIB, juniBridgedEthernetIfTable=juniBridgedEthernetIfTable, juniBridgedEthernetGroup2=juniBridgedEthernetGroup2, juniBridgedEthernetCompliance=juniBridgedEthernetCompliance, juniBridgedEthernetCompliance2=juniBridgedEthernetCompliance2, juniBridgedEthernetIfMtu=juniBridgedEthernetIfMtu, juniBridgedEthernetIfRowStatus=juniBridgedEthernetIfRowStatus, juniBridgedEthernetGroup3=juniBridgedEthernetGroup3, juniBridgedEthernetObjects=juniBridgedEthernetObjects, juniBridgedEthernetIfIfIndex=juniBridgedEthernetIfIfIndex, PYSNMP_MODULE_ID=juniBridgeEthernetMIB, juniBridgedEthernetNextIfIndex=juniBridgedEthernetNextIfIndex)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,
+ InterfaceIndexOrZero) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "InterfaceIndexOrZero")
+
+(juniMibs,) = mibBuilder.importSymbols(
+    "Juniper-MIBs",
+    "juniMibs")
+
+(JuniNextIfIndex,) = mibBuilder.importSymbols(
+    "Juniper-TC",
+    "JuniNextIfIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+juniBridgeEthernetMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31)
+)
+if mibBuilder.loadTexts:
+    juniBridgeEthernetMIB.setRevisions(
+        ("2005-12-14 17:10",
+         "2002-09-16 21:44",
+         "2000-09-26 14:43",
+         "2000-03-27 23:45",
+         "1999-12-10 18:30")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JuniBridgedEthernetObjects_ObjectIdentity = ObjectIdentity
+juniBridgedEthernetObjects = _JuniBridgedEthernetObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1)
+)
+_JuniBridgedEthernetIfLayer_ObjectIdentity = ObjectIdentity
+juniBridgedEthernetIfLayer = _JuniBridgedEthernetIfLayer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1)
+)
+_JuniBridgedEthernetNextIfIndex_Type = JuniNextIfIndex
+_JuniBridgedEthernetNextIfIndex_Object = MibScalar
+juniBridgedEthernetNextIfIndex = _JuniBridgedEthernetNextIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 1),
+    _JuniBridgedEthernetNextIfIndex_Type()
+)
+juniBridgedEthernetNextIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    juniBridgedEthernetNextIfIndex.setStatus("current")
+_JuniBridgedEthernetIfTable_Object = MibTable
+juniBridgedEthernetIfTable = _JuniBridgedEthernetIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    juniBridgedEthernetIfTable.setStatus("current")
+_JuniBridgedEthernetIfEntry_Object = MibTableRow
+juniBridgedEthernetIfEntry = _JuniBridgedEthernetIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1)
+)
+juniBridgedEthernetIfEntry.setIndexNames(
+    (0, "Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfIfIndex"),
+)
+if mibBuilder.loadTexts:
+    juniBridgedEthernetIfEntry.setStatus("current")
+_JuniBridgedEthernetIfIfIndex_Type = InterfaceIndex
+_JuniBridgedEthernetIfIfIndex_Object = MibTableColumn
+juniBridgedEthernetIfIfIndex = _JuniBridgedEthernetIfIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1, 1),
+    _JuniBridgedEthernetIfIfIndex_Type()
+)
+juniBridgedEthernetIfIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    juniBridgedEthernetIfIfIndex.setStatus("current")
+
+
+class _JuniBridgedEthernetProxyArp_Type(Integer32):
+    """Custom type juniBridgedEthernetProxyArp based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enableRestricted", 1),
+          ("enableUnrestricted", 2),
+          ("disable", 3))
+    )
+
+
+_JuniBridgedEthernetProxyArp_Type.__name__ = "Integer32"
+_JuniBridgedEthernetProxyArp_Object = MibTableColumn
+juniBridgedEthernetProxyArp = _JuniBridgedEthernetProxyArp_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1, 2),
+    _JuniBridgedEthernetProxyArp_Type()
+)
+juniBridgedEthernetProxyArp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    juniBridgedEthernetProxyArp.setStatus("obsolete")
+_JuniBridgedEthernetIfLowerIfIndex_Type = InterfaceIndexOrZero
+_JuniBridgedEthernetIfLowerIfIndex_Object = MibTableColumn
+juniBridgedEthernetIfLowerIfIndex = _JuniBridgedEthernetIfLowerIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1, 3),
+    _JuniBridgedEthernetIfLowerIfIndex_Type()
+)
+juniBridgedEthernetIfLowerIfIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    juniBridgedEthernetIfLowerIfIndex.setStatus("current")
+_JuniBridgedEthernetIfRowStatus_Type = RowStatus
+_JuniBridgedEthernetIfRowStatus_Object = MibTableColumn
+juniBridgedEthernetIfRowStatus = _JuniBridgedEthernetIfRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1, 4),
+    _JuniBridgedEthernetIfRowStatus_Type()
+)
+juniBridgedEthernetIfRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    juniBridgedEthernetIfRowStatus.setStatus("current")
+
+
+class _JuniBridgedEthernetIfMtu_Type(Integer32):
+    """Custom type juniBridgedEthernetIfMtu based on Integer32"""
+    defaultValue = 1518
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(64, 9180),
+    )
+
+
+_JuniBridgedEthernetIfMtu_Type.__name__ = "Integer32"
+_JuniBridgedEthernetIfMtu_Object = MibTableColumn
+juniBridgedEthernetIfMtu = _JuniBridgedEthernetIfMtu_Object(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 1, 1, 2, 1, 5),
+    _JuniBridgedEthernetIfMtu_Type()
+)
+juniBridgedEthernetIfMtu.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    juniBridgedEthernetIfMtu.setStatus("current")
+_JuniBridgeEthernetConformance_ObjectIdentity = ObjectIdentity
+juniBridgeEthernetConformance = _JuniBridgeEthernetConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4)
+)
+_JuniBridgeEthernetCompliances_ObjectIdentity = ObjectIdentity
+juniBridgeEthernetCompliances = _JuniBridgeEthernetCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 1)
+)
+_JuniBridgeEthernetGroups_ObjectIdentity = ObjectIdentity
+juniBridgeEthernetGroups = _JuniBridgeEthernetGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 2)
+)
+
+# Managed Objects groups
+
+juniBridgedEthernetGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 2, 1)
+)
+juniBridgedEthernetGroup.setObjects(
+      *(("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetNextIfIndex"),
+        ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfIfIndex"),
+        ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetProxyArp"),
+        ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfLowerIfIndex"),
+        ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfRowStatus"))
+)
+if mibBuilder.loadTexts:
+    juniBridgedEthernetGroup.setStatus("obsolete")
+
+juniBridgedEthernetGroup2 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 2, 2)
+)
+juniBridgedEthernetGroup2.setObjects(
+      *(("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetNextIfIndex"),
+        ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfIfIndex"),
+        ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfLowerIfIndex"),
+        ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfRowStatus"))
+)
+if mibBuilder.loadTexts:
+    juniBridgedEthernetGroup2.setStatus("deprecated")
+
+juniBridgedEthernetGroup3 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 2, 3)
+)
+juniBridgedEthernetGroup3.setObjects(
+      *(("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetNextIfIndex"),
+        ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfIfIndex"),
+        ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfLowerIfIndex"),
+        ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfRowStatus"),
+        ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetIfMtu"))
+)
+if mibBuilder.loadTexts:
+    juniBridgedEthernetGroup3.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+juniBridgedEthernetCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 1, 1)
+)
+juniBridgedEthernetCompliance.setObjects(
+    ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetGroup2")
+)
+if mibBuilder.loadTexts:
+    juniBridgedEthernetCompliance.setStatus(
+        "deprecated"
+    )
+
+juniBridgedEthernetCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4874, 2, 2, 31, 4, 1, 2)
+)
+juniBridgedEthernetCompliance2.setObjects(
+    ("Juniper-BRIDGE-ETHERNET-MIB", "juniBridgedEthernetGroup3")
+)
+if mibBuilder.loadTexts:
+    juniBridgedEthernetCompliance2.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Juniper-BRIDGE-ETHERNET-MIB",
+    **{"juniBridgeEthernetMIB": juniBridgeEthernetMIB,
+       "juniBridgedEthernetObjects": juniBridgedEthernetObjects,
+       "juniBridgedEthernetIfLayer": juniBridgedEthernetIfLayer,
+       "juniBridgedEthernetNextIfIndex": juniBridgedEthernetNextIfIndex,
+       "juniBridgedEthernetIfTable": juniBridgedEthernetIfTable,
+       "juniBridgedEthernetIfEntry": juniBridgedEthernetIfEntry,
+       "juniBridgedEthernetIfIfIndex": juniBridgedEthernetIfIfIndex,
+       "juniBridgedEthernetProxyArp": juniBridgedEthernetProxyArp,
+       "juniBridgedEthernetIfLowerIfIndex": juniBridgedEthernetIfLowerIfIndex,
+       "juniBridgedEthernetIfRowStatus": juniBridgedEthernetIfRowStatus,
+       "juniBridgedEthernetIfMtu": juniBridgedEthernetIfMtu,
+       "juniBridgeEthernetConformance": juniBridgeEthernetConformance,
+       "juniBridgeEthernetCompliances": juniBridgeEthernetCompliances,
+       "juniBridgedEthernetCompliance": juniBridgedEthernetCompliance,
+       "juniBridgedEthernetCompliance2": juniBridgedEthernetCompliance2,
+       "juniBridgeEthernetGroups": juniBridgeEthernetGroups,
+       "juniBridgedEthernetGroup": juniBridgedEthernetGroup,
+       "juniBridgedEthernetGroup2": juniBridgedEthernetGroup2,
+       "juniBridgedEthernetGroup3": juniBridgedEthernetGroup3}
+)

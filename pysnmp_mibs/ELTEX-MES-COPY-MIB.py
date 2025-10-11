@@ -1,54 +1,368 @@
+# SNMP MIB module (ELTEX-MES-COPY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ELTEX-MES-COPY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/eltex/ELTEX-MES-COPY-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:51 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/eltex/ELTEX-MES-COPY-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:49:46 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-eltMesCopy, = mibBuilder.importSymbols("ELTEX-MES", "eltMesCopy")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-RlCopyLocationType, = mibBuilder.importSymbols("RADLAN-COPY-MIB", "RlCopyLocationType")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
-eltCopyAutoBackupEnable = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyAutoBackupEnable.setStatus('current')
-eltCopyAutoBackupTimeout = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 2), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyAutoBackupTimeout.setStatus('current')
-eltCopyAutoBackupFilePath = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyAutoBackupFilePath.setStatus('current')
-eltCopyAutoBackupServerAddress = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyAutoBackupServerAddress.setStatus('current')
-eltCopyAutoBackupOnWrite = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 5), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyAutoBackupOnWrite.setStatus('current')
-class EltCopyUserBackupStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("starting", 1), ("stopped", 2))
 
-eltCopyUserBackupStart = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 6), EltCopyUserBackupStatus().clone('stopped')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyUserBackupStart.setStatus('current')
-eltCopyBackupHistoryEnable = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyBackupHistoryEnable.setStatus('current')
-eltCopyBackupHistoryTable = MibTable((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8), )
-if mibBuilder.loadTexts: eltCopyBackupHistoryTable.setStatus('current')
-eltCopyBackupHistoryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1), ).setIndexNames((0, "ELTEX-MES-COPY-MIB", "eltCopyBackupHistoryIndex"))
-if mibBuilder.loadTexts: eltCopyBackupHistoryEntry.setStatus('current')
-eltCopyBackupHistoryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 1), Integer32())
-if mibBuilder.loadTexts: eltCopyBackupHistoryIndex.setStatus('current')
-eltCopyBackupHistoryDateTime = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyBackupHistoryDateTime.setStatus('current')
-eltCopyBackupHistoryDstLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 3), RlCopyLocationType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyBackupHistoryDstLocation.setStatus('current')
-eltCopyBackupHistoryServerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyBackupHistoryServerAddr.setStatus('current')
-eltCopyBackupHistoryFilePath = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyBackupHistoryFilePath.setStatus('current')
-eltCopyBackupHistoryStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 6), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyBackupHistoryStatus.setStatus('current')
-eltCopyBackupHistoryAction = MibScalar((1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noAction", 1), ("clearNow", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: eltCopyBackupHistoryAction.setStatus('current')
-mibBuilder.exportSymbols("ELTEX-MES-COPY-MIB", eltCopyAutoBackupOnWrite=eltCopyAutoBackupOnWrite, eltCopyAutoBackupTimeout=eltCopyAutoBackupTimeout, eltCopyBackupHistoryDstLocation=eltCopyBackupHistoryDstLocation, eltCopyBackupHistoryIndex=eltCopyBackupHistoryIndex, eltCopyAutoBackupEnable=eltCopyAutoBackupEnable, EltCopyUserBackupStatus=EltCopyUserBackupStatus, eltCopyBackupHistoryEnable=eltCopyBackupHistoryEnable, eltCopyBackupHistoryStatus=eltCopyBackupHistoryStatus, eltCopyBackupHistoryTable=eltCopyBackupHistoryTable, eltCopyBackupHistoryDateTime=eltCopyBackupHistoryDateTime, eltCopyBackupHistoryServerAddr=eltCopyBackupHistoryServerAddr, eltCopyAutoBackupServerAddress=eltCopyAutoBackupServerAddress, eltCopyUserBackupStart=eltCopyUserBackupStart, eltCopyBackupHistoryAction=eltCopyBackupHistoryAction, eltCopyAutoBackupFilePath=eltCopyAutoBackupFilePath, eltCopyBackupHistoryEntry=eltCopyBackupHistoryEntry, eltCopyBackupHistoryFilePath=eltCopyBackupHistoryFilePath)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(eltMesCopy,) = mibBuilder.importSymbols(
+    "ELTEX-MES",
+    "eltMesCopy")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(RlCopyLocationType,) = mibBuilder.importSymbols(
+    "RADLAN-COPY-MIB",
+    "RlCopyLocationType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class EltCopyUserBackupStatus(TextualConvention, Integer32):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("starting", 1),
+          ("stopped", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+
+class _EltCopyAutoBackupEnable_Type(TruthValue):
+    """Custom type eltCopyAutoBackupEnable based on TruthValue"""
+    defaultValue = 2
+
+
+_EltCopyAutoBackupEnable_Type.__name__ = "TruthValue"
+_EltCopyAutoBackupEnable_Object = MibScalar
+eltCopyAutoBackupEnable = _EltCopyAutoBackupEnable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 1),
+    _EltCopyAutoBackupEnable_Type()
+)
+eltCopyAutoBackupEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyAutoBackupEnable.setStatus("current")
+_EltCopyAutoBackupTimeout_Type = Unsigned32
+_EltCopyAutoBackupTimeout_Object = MibScalar
+eltCopyAutoBackupTimeout = _EltCopyAutoBackupTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 2),
+    _EltCopyAutoBackupTimeout_Type()
+)
+eltCopyAutoBackupTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyAutoBackupTimeout.setStatus("current")
+_EltCopyAutoBackupFilePath_Type = DisplayString
+_EltCopyAutoBackupFilePath_Object = MibScalar
+eltCopyAutoBackupFilePath = _EltCopyAutoBackupFilePath_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 3),
+    _EltCopyAutoBackupFilePath_Type()
+)
+eltCopyAutoBackupFilePath.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyAutoBackupFilePath.setStatus("current")
+_EltCopyAutoBackupServerAddress_Type = DisplayString
+_EltCopyAutoBackupServerAddress_Object = MibScalar
+eltCopyAutoBackupServerAddress = _EltCopyAutoBackupServerAddress_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 4),
+    _EltCopyAutoBackupServerAddress_Type()
+)
+eltCopyAutoBackupServerAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyAutoBackupServerAddress.setStatus("current")
+
+
+class _EltCopyAutoBackupOnWrite_Type(TruthValue):
+    """Custom type eltCopyAutoBackupOnWrite based on TruthValue"""
+    defaultValue = 2
+
+
+_EltCopyAutoBackupOnWrite_Type.__name__ = "TruthValue"
+_EltCopyAutoBackupOnWrite_Object = MibScalar
+eltCopyAutoBackupOnWrite = _EltCopyAutoBackupOnWrite_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 5),
+    _EltCopyAutoBackupOnWrite_Type()
+)
+eltCopyAutoBackupOnWrite.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyAutoBackupOnWrite.setStatus("current")
+
+
+class _EltCopyUserBackupStart_Type(EltCopyUserBackupStatus):
+    """Custom type eltCopyUserBackupStart based on EltCopyUserBackupStatus"""
+    defaultValue = 2
+
+
+_EltCopyUserBackupStart_Type.__name__ = "EltCopyUserBackupStatus"
+_EltCopyUserBackupStart_Object = MibScalar
+eltCopyUserBackupStart = _EltCopyUserBackupStart_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 6),
+    _EltCopyUserBackupStart_Type()
+)
+eltCopyUserBackupStart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyUserBackupStart.setStatus("current")
+
+
+class _EltCopyBackupHistoryEnable_Type(TruthValue):
+    """Custom type eltCopyBackupHistoryEnable based on TruthValue"""
+    defaultValue = 2
+
+
+_EltCopyBackupHistoryEnable_Type.__name__ = "TruthValue"
+_EltCopyBackupHistoryEnable_Object = MibScalar
+eltCopyBackupHistoryEnable = _EltCopyBackupHistoryEnable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 7),
+    _EltCopyBackupHistoryEnable_Type()
+)
+eltCopyBackupHistoryEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyBackupHistoryEnable.setStatus("current")
+_EltCopyBackupHistoryTable_Object = MibTable
+eltCopyBackupHistoryTable = _EltCopyBackupHistoryTable_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8)
+)
+if mibBuilder.loadTexts:
+    eltCopyBackupHistoryTable.setStatus("current")
+_EltCopyBackupHistoryEntry_Object = MibTableRow
+eltCopyBackupHistoryEntry = _EltCopyBackupHistoryEntry_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1)
+)
+eltCopyBackupHistoryEntry.setIndexNames(
+    (0, "ELTEX-MES-COPY-MIB", "eltCopyBackupHistoryIndex"),
+)
+if mibBuilder.loadTexts:
+    eltCopyBackupHistoryEntry.setStatus("current")
+_EltCopyBackupHistoryIndex_Type = Integer32
+_EltCopyBackupHistoryIndex_Object = MibTableColumn
+eltCopyBackupHistoryIndex = _EltCopyBackupHistoryIndex_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 1),
+    _EltCopyBackupHistoryIndex_Type()
+)
+eltCopyBackupHistoryIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    eltCopyBackupHistoryIndex.setStatus("current")
+_EltCopyBackupHistoryDateTime_Type = DisplayString
+_EltCopyBackupHistoryDateTime_Object = MibTableColumn
+eltCopyBackupHistoryDateTime = _EltCopyBackupHistoryDateTime_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 2),
+    _EltCopyBackupHistoryDateTime_Type()
+)
+eltCopyBackupHistoryDateTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyBackupHistoryDateTime.setStatus("current")
+_EltCopyBackupHistoryDstLocation_Type = RlCopyLocationType
+_EltCopyBackupHistoryDstLocation_Object = MibTableColumn
+eltCopyBackupHistoryDstLocation = _EltCopyBackupHistoryDstLocation_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 3),
+    _EltCopyBackupHistoryDstLocation_Type()
+)
+eltCopyBackupHistoryDstLocation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyBackupHistoryDstLocation.setStatus("current")
+_EltCopyBackupHistoryServerAddr_Type = DisplayString
+_EltCopyBackupHistoryServerAddr_Object = MibTableColumn
+eltCopyBackupHistoryServerAddr = _EltCopyBackupHistoryServerAddr_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 4),
+    _EltCopyBackupHistoryServerAddr_Type()
+)
+eltCopyBackupHistoryServerAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyBackupHistoryServerAddr.setStatus("current")
+_EltCopyBackupHistoryFilePath_Type = DisplayString
+_EltCopyBackupHistoryFilePath_Object = MibTableColumn
+eltCopyBackupHistoryFilePath = _EltCopyBackupHistoryFilePath_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 5),
+    _EltCopyBackupHistoryFilePath_Type()
+)
+eltCopyBackupHistoryFilePath.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyBackupHistoryFilePath.setStatus("current")
+_EltCopyBackupHistoryStatus_Type = RowStatus
+_EltCopyBackupHistoryStatus_Object = MibTableColumn
+eltCopyBackupHistoryStatus = _EltCopyBackupHistoryStatus_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 8, 1, 6),
+    _EltCopyBackupHistoryStatus_Type()
+)
+eltCopyBackupHistoryStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyBackupHistoryStatus.setStatus("current")
+
+
+class _EltCopyBackupHistoryAction_Type(Integer32):
+    """Custom type eltCopyBackupHistoryAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noAction", 1),
+          ("clearNow", 2))
+    )
+
+
+_EltCopyBackupHistoryAction_Type.__name__ = "Integer32"
+_EltCopyBackupHistoryAction_Object = MibScalar
+eltCopyBackupHistoryAction = _EltCopyBackupHistoryAction_Object(
+    (1, 3, 6, 1, 4, 1, 35265, 1, 23, 3, 9),
+    _EltCopyBackupHistoryAction_Type()
+)
+eltCopyBackupHistoryAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    eltCopyBackupHistoryAction.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ELTEX-MES-COPY-MIB",
+    **{"EltCopyUserBackupStatus": EltCopyUserBackupStatus,
+       "eltCopyAutoBackupEnable": eltCopyAutoBackupEnable,
+       "eltCopyAutoBackupTimeout": eltCopyAutoBackupTimeout,
+       "eltCopyAutoBackupFilePath": eltCopyAutoBackupFilePath,
+       "eltCopyAutoBackupServerAddress": eltCopyAutoBackupServerAddress,
+       "eltCopyAutoBackupOnWrite": eltCopyAutoBackupOnWrite,
+       "eltCopyUserBackupStart": eltCopyUserBackupStart,
+       "eltCopyBackupHistoryEnable": eltCopyBackupHistoryEnable,
+       "eltCopyBackupHistoryTable": eltCopyBackupHistoryTable,
+       "eltCopyBackupHistoryEntry": eltCopyBackupHistoryEntry,
+       "eltCopyBackupHistoryIndex": eltCopyBackupHistoryIndex,
+       "eltCopyBackupHistoryDateTime": eltCopyBackupHistoryDateTime,
+       "eltCopyBackupHistoryDstLocation": eltCopyBackupHistoryDstLocation,
+       "eltCopyBackupHistoryServerAddr": eltCopyBackupHistoryServerAddr,
+       "eltCopyBackupHistoryFilePath": eltCopyBackupHistoryFilePath,
+       "eltCopyBackupHistoryStatus": eltCopyBackupHistoryStatus,
+       "eltCopyBackupHistoryAction": eltCopyBackupHistoryAction}
+)

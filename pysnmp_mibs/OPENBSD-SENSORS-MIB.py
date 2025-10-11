@@ -1,40 +1,343 @@
+# SNMP MIB module (OPENBSD-SENSORS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module OPENBSD-SENSORS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/bsd/OPENBSD-SENSORS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:23:01 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/bsd/OPENBSD-SENSORS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:21:30 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-openBSD, = mibBuilder.importSymbols("OPENBSD-BASE-MIB", "openBSD")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-sensorsMIBObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 30155, 2))
-sensorsMIBObjects.setRevisions(('2018-12-10 00:00', '2012-09-20 00:00', '2012-01-31 00:00', '2008-12-23 00:00',))
-if mibBuilder.loadTexts: sensorsMIBObjects.setLastUpdated('201812100000Z')
-if mibBuilder.loadTexts: sensorsMIBObjects.setOrganization('OpenBSD')
-sensors = MibIdentifier((1, 3, 6, 1, 4, 1, 30155, 2, 1))
-sensorNumber = MibScalar((1, 3, 6, 1, 4, 1, 30155, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensorNumber.setStatus('current')
-sensorTable = MibTable((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2), )
-if mibBuilder.loadTexts: sensorTable.setStatus('current')
-sensorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1), ).setIndexNames((0, "OPENBSD-SENSORS-MIB", "sensorIndex"))
-if mibBuilder.loadTexts: sensorEntry.setStatus('current')
-sensorIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensorIndex.setStatus('current')
-sensorDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensorDescr.setStatus('current')
-sensorType = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21))).clone(namedValues=NamedValues(("temperature", 0), ("fan", 1), ("voltsdc", 2), ("voltsac", 3), ("resistance", 4), ("power", 5), ("current", 6), ("watthour", 7), ("amphour", 8), ("indicator", 9), ("raw", 10), ("percent", 11), ("illuminance", 12), ("drive", 13), ("timedelta", 14), ("humidity", 15), ("freq", 16), ("angle", 17), ("distance", 18), ("pressure", 19), ("accel", 20), ("velocity", 21)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensorType.setStatus('current')
-sensorDevice = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 4), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensorDevice.setStatus('current')
-sensorValue = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 5), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensorValue.setStatus('current')
-sensorUnits = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 6), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensorUnits.setStatus('current')
-sensorStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("unspecified", 0), ("ok", 1), ("warn", 2), ("critical", 3), ("unknown", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensorStatus.setStatus('current')
-mibBuilder.exportSymbols("OPENBSD-SENSORS-MIB", sensorUnits=sensorUnits, sensorNumber=sensorNumber, PYSNMP_MODULE_ID=sensorsMIBObjects, sensorEntry=sensorEntry, sensors=sensors, sensorIndex=sensorIndex, sensorDevice=sensorDevice, sensorsMIBObjects=sensorsMIBObjects, sensorValue=sensorValue, sensorTable=sensorTable, sensorStatus=sensorStatus, sensorDescr=sensorDescr, sensorType=sensorType)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(openBSD,) = mibBuilder.importSymbols(
+    "OPENBSD-BASE-MIB",
+    "openBSD")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+sensorsMIBObjects = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 30155, 2)
+)
+if mibBuilder.loadTexts:
+    sensorsMIBObjects.setRevisions(
+        ("2018-12-10 00:00",
+         "2012-09-20 00:00",
+         "2012-01-31 00:00",
+         "2008-12-23 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Sensors_ObjectIdentity = ObjectIdentity
+sensors = _Sensors_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30155, 2, 1)
+)
+_SensorNumber_Type = Integer32
+_SensorNumber_Object = MibScalar
+sensorNumber = _SensorNumber_Object(
+    (1, 3, 6, 1, 4, 1, 30155, 2, 1, 1),
+    _SensorNumber_Type()
+)
+sensorNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensorNumber.setStatus("current")
+_SensorTable_Object = MibTable
+sensorTable = _SensorTable_Object(
+    (1, 3, 6, 1, 4, 1, 30155, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    sensorTable.setStatus("current")
+_SensorEntry_Object = MibTableRow
+sensorEntry = _SensorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1)
+)
+sensorEntry.setIndexNames(
+    (0, "OPENBSD-SENSORS-MIB", "sensorIndex"),
+)
+if mibBuilder.loadTexts:
+    sensorEntry.setStatus("current")
+
+
+class _SensorIndex_Type(Integer32):
+    """Custom type sensorIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_SensorIndex_Type.__name__ = "Integer32"
+_SensorIndex_Object = MibTableColumn
+sensorIndex = _SensorIndex_Object(
+    (1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 1),
+    _SensorIndex_Type()
+)
+sensorIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensorIndex.setStatus("current")
+_SensorDescr_Type = OctetString
+_SensorDescr_Object = MibTableColumn
+sensorDescr = _SensorDescr_Object(
+    (1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 2),
+    _SensorDescr_Type()
+)
+sensorDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensorDescr.setStatus("current")
+
+
+class _SensorType_Type(Integer32):
+    """Custom type sensorType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21)
+        )
+    )
+    namedValues = NamedValues(
+        *(("temperature", 0),
+          ("fan", 1),
+          ("voltsdc", 2),
+          ("voltsac", 3),
+          ("resistance", 4),
+          ("power", 5),
+          ("current", 6),
+          ("watthour", 7),
+          ("amphour", 8),
+          ("indicator", 9),
+          ("raw", 10),
+          ("percent", 11),
+          ("illuminance", 12),
+          ("drive", 13),
+          ("timedelta", 14),
+          ("humidity", 15),
+          ("freq", 16),
+          ("angle", 17),
+          ("distance", 18),
+          ("pressure", 19),
+          ("accel", 20),
+          ("velocity", 21))
+    )
+
+
+_SensorType_Type.__name__ = "Integer32"
+_SensorType_Object = MibTableColumn
+sensorType = _SensorType_Object(
+    (1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 3),
+    _SensorType_Type()
+)
+sensorType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensorType.setStatus("current")
+_SensorDevice_Type = OctetString
+_SensorDevice_Object = MibTableColumn
+sensorDevice = _SensorDevice_Object(
+    (1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 4),
+    _SensorDevice_Type()
+)
+sensorDevice.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensorDevice.setStatus("current")
+_SensorValue_Type = OctetString
+_SensorValue_Object = MibTableColumn
+sensorValue = _SensorValue_Object(
+    (1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 5),
+    _SensorValue_Type()
+)
+sensorValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensorValue.setStatus("current")
+_SensorUnits_Type = OctetString
+_SensorUnits_Object = MibTableColumn
+sensorUnits = _SensorUnits_Object(
+    (1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 6),
+    _SensorUnits_Type()
+)
+sensorUnits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensorUnits.setStatus("current")
+
+
+class _SensorStatus_Type(Integer32):
+    """Custom type sensorStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unspecified", 0),
+          ("ok", 1),
+          ("warn", 2),
+          ("critical", 3),
+          ("unknown", 4))
+    )
+
+
+_SensorStatus_Type.__name__ = "Integer32"
+_SensorStatus_Object = MibTableColumn
+sensorStatus = _SensorStatus_Object(
+    (1, 3, 6, 1, 4, 1, 30155, 2, 1, 2, 1, 7),
+    _SensorStatus_Type()
+)
+sensorStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensorStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "OPENBSD-SENSORS-MIB",
+    **{"sensorsMIBObjects": sensorsMIBObjects,
+       "sensors": sensors,
+       "sensorNumber": sensorNumber,
+       "sensorTable": sensorTable,
+       "sensorEntry": sensorEntry,
+       "sensorIndex": sensorIndex,
+       "sensorDescr": sensorDescr,
+       "sensorType": sensorType,
+       "sensorDevice": sensorDevice,
+       "sensorValue": sensorValue,
+       "sensorUnits": sensorUnits,
+       "sensorStatus": sensorStatus}
+)

@@ -1,53 +1,387 @@
+# SNMP MIB module (ZYXEL-VLAN-STACK-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-VLAN-STACK-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-VLAN-STACK-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:29 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zyxel/ZYXEL-VLAN-STACK-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:01:28 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelVlanStack = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89))
-if mibBuilder.loadTexts: zyxelVlanStack.setLastUpdated('201207010000Z')
-if mibBuilder.loadTexts: zyxelVlanStack.setOrganization('Enterprise Solution ZyXEL')
-zyxelVlanStackSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1))
-zyVlanStackState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyVlanStackState.setStatus('current')
-zyxelVlanStackPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2), )
-if mibBuilder.loadTexts: zyxelVlanStackPortTable.setStatus('current')
-zyxelVlanStackPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
-if mibBuilder.loadTexts: zyxelVlanStackPortEntry.setStatus('current')
-zyVlanStackPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("normal", 1), ("access", 2), ("tunnel", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyVlanStackPortMode.setStatus('current')
-zyVlanStackPortVid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyVlanStackPortVid.setStatus('current')
-zyVlanStackPortPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("priority0", 0), ("priority1", 1), ("priority2", 2), ("priority3", 3), ("priority4", 4), ("priority5", 5), ("priority6", 6), ("priority7", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyVlanStackPortPriority.setStatus('current')
-zyVlanStackTunnelPortTpid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyVlanStackTunnelPortTpid.setStatus('current')
-zySelectiveQinQMaxNumberOfRules = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zySelectiveQinQMaxNumberOfRules.setStatus('current')
-zyxelSelectiveQinQTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4), )
-if mibBuilder.loadTexts: zyxelSelectiveQinQTable.setStatus('current')
-zyxelSelectiveQinQEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1), ).setIndexNames((0, "ZYXEL-VLAN-STACK-MIB", "zySelectiveQinQPort"), (0, "ZYXEL-VLAN-STACK-MIB", "zySelectiveQinQCvid"))
-if mibBuilder.loadTexts: zyxelSelectiveQinQEntry.setStatus('current')
-zySelectiveQinQName = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zySelectiveQinQName.setStatus('current')
-zySelectiveQinQPort = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 2), Integer32())
-if mibBuilder.loadTexts: zySelectiveQinQPort.setStatus('current')
-zySelectiveQinQCvid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 3), Integer32())
-if mibBuilder.loadTexts: zySelectiveQinQCvid.setStatus('current')
-zySelectiveQinQSpvid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zySelectiveQinQSpvid.setStatus('current')
-zySelectiveQinQPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("priority0", 0), ("priority1", 1), ("priority2", 2), ("priority3", 3), ("priority4", 4), ("priority5", 5), ("priority6", 6), ("priority7", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zySelectiveQinQPriority.setStatus('current')
-zySelectiveQinQRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zySelectiveQinQRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-VLAN-STACK-MIB", zyxelVlanStackPortTable=zyxelVlanStackPortTable, zySelectiveQinQName=zySelectiveQinQName, zyVlanStackPortMode=zyVlanStackPortMode, zySelectiveQinQPriority=zySelectiveQinQPriority, zyxelVlanStackPortEntry=zyxelVlanStackPortEntry, zySelectiveQinQCvid=zySelectiveQinQCvid, zySelectiveQinQSpvid=zySelectiveQinQSpvid, PYSNMP_MODULE_ID=zyxelVlanStack, zyVlanStackTunnelPortTpid=zyVlanStackTunnelPortTpid, zySelectiveQinQRowStatus=zySelectiveQinQRowStatus, zySelectiveQinQPort=zySelectiveQinQPort, zyVlanStackPortPriority=zyVlanStackPortPriority, zyVlanStackPortVid=zyVlanStackPortVid, zyxelSelectiveQinQTable=zyxelSelectiveQinQTable, zyxelSelectiveQinQEntry=zyxelSelectiveQinQEntry, zyxelVlanStackSetup=zyxelVlanStackSetup, zyxelVlanStack=zyxelVlanStack, zyVlanStackState=zyVlanStackState, zySelectiveQinQMaxNumberOfRules=zySelectiveQinQMaxNumberOfRules)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dot1dBasePort,) = mibBuilder.importSymbols(
+    "BRIDGE-MIB",
+    "dot1dBasePort")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelVlanStack = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelVlanStackSetup_ObjectIdentity = ObjectIdentity
+zyxelVlanStackSetup = _ZyxelVlanStackSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1)
+)
+_ZyVlanStackState_Type = EnabledStatus
+_ZyVlanStackState_Object = MibScalar
+zyVlanStackState = _ZyVlanStackState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 1),
+    _ZyVlanStackState_Type()
+)
+zyVlanStackState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyVlanStackState.setStatus("current")
+_ZyxelVlanStackPortTable_Object = MibTable
+zyxelVlanStackPortTable = _ZyxelVlanStackPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2)
+)
+if mibBuilder.loadTexts:
+    zyxelVlanStackPortTable.setStatus("current")
+_ZyxelVlanStackPortEntry_Object = MibTableRow
+zyxelVlanStackPortEntry = _ZyxelVlanStackPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2, 1)
+)
+zyxelVlanStackPortEntry.setIndexNames(
+    (0, "BRIDGE-MIB", "dot1dBasePort"),
+)
+if mibBuilder.loadTexts:
+    zyxelVlanStackPortEntry.setStatus("current")
+
+
+class _ZyVlanStackPortMode_Type(Integer32):
+    """Custom type zyVlanStackPortMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 1),
+          ("access", 2),
+          ("tunnel", 3))
+    )
+
+
+_ZyVlanStackPortMode_Type.__name__ = "Integer32"
+_ZyVlanStackPortMode_Object = MibTableColumn
+zyVlanStackPortMode = _ZyVlanStackPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2, 1, 1),
+    _ZyVlanStackPortMode_Type()
+)
+zyVlanStackPortMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyVlanStackPortMode.setStatus("current")
+_ZyVlanStackPortVid_Type = Integer32
+_ZyVlanStackPortVid_Object = MibTableColumn
+zyVlanStackPortVid = _ZyVlanStackPortVid_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2, 1, 2),
+    _ZyVlanStackPortVid_Type()
+)
+zyVlanStackPortVid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyVlanStackPortVid.setStatus("current")
+
+
+class _ZyVlanStackPortPriority_Type(Integer32):
+    """Custom type zyVlanStackPortPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("priority0", 0),
+          ("priority1", 1),
+          ("priority2", 2),
+          ("priority3", 3),
+          ("priority4", 4),
+          ("priority5", 5),
+          ("priority6", 6),
+          ("priority7", 7))
+    )
+
+
+_ZyVlanStackPortPriority_Type.__name__ = "Integer32"
+_ZyVlanStackPortPriority_Object = MibTableColumn
+zyVlanStackPortPriority = _ZyVlanStackPortPriority_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2, 1, 3),
+    _ZyVlanStackPortPriority_Type()
+)
+zyVlanStackPortPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyVlanStackPortPriority.setStatus("current")
+_ZyVlanStackTunnelPortTpid_Type = Integer32
+_ZyVlanStackTunnelPortTpid_Object = MibTableColumn
+zyVlanStackTunnelPortTpid = _ZyVlanStackTunnelPortTpid_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 2, 1, 4),
+    _ZyVlanStackTunnelPortTpid_Type()
+)
+zyVlanStackTunnelPortTpid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyVlanStackTunnelPortTpid.setStatus("current")
+_ZySelectiveQinQMaxNumberOfRules_Type = Integer32
+_ZySelectiveQinQMaxNumberOfRules_Object = MibScalar
+zySelectiveQinQMaxNumberOfRules = _ZySelectiveQinQMaxNumberOfRules_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 3),
+    _ZySelectiveQinQMaxNumberOfRules_Type()
+)
+zySelectiveQinQMaxNumberOfRules.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zySelectiveQinQMaxNumberOfRules.setStatus("current")
+_ZyxelSelectiveQinQTable_Object = MibTable
+zyxelSelectiveQinQTable = _ZyxelSelectiveQinQTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4)
+)
+if mibBuilder.loadTexts:
+    zyxelSelectiveQinQTable.setStatus("current")
+_ZyxelSelectiveQinQEntry_Object = MibTableRow
+zyxelSelectiveQinQEntry = _ZyxelSelectiveQinQEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1)
+)
+zyxelSelectiveQinQEntry.setIndexNames(
+    (0, "ZYXEL-VLAN-STACK-MIB", "zySelectiveQinQPort"),
+    (0, "ZYXEL-VLAN-STACK-MIB", "zySelectiveQinQCvid"),
+)
+if mibBuilder.loadTexts:
+    zyxelSelectiveQinQEntry.setStatus("current")
+_ZySelectiveQinQName_Type = DisplayString
+_ZySelectiveQinQName_Object = MibTableColumn
+zySelectiveQinQName = _ZySelectiveQinQName_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 1),
+    _ZySelectiveQinQName_Type()
+)
+zySelectiveQinQName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zySelectiveQinQName.setStatus("current")
+_ZySelectiveQinQPort_Type = Integer32
+_ZySelectiveQinQPort_Object = MibTableColumn
+zySelectiveQinQPort = _ZySelectiveQinQPort_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 2),
+    _ZySelectiveQinQPort_Type()
+)
+zySelectiveQinQPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zySelectiveQinQPort.setStatus("current")
+_ZySelectiveQinQCvid_Type = Integer32
+_ZySelectiveQinQCvid_Object = MibTableColumn
+zySelectiveQinQCvid = _ZySelectiveQinQCvid_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 3),
+    _ZySelectiveQinQCvid_Type()
+)
+zySelectiveQinQCvid.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zySelectiveQinQCvid.setStatus("current")
+_ZySelectiveQinQSpvid_Type = Integer32
+_ZySelectiveQinQSpvid_Object = MibTableColumn
+zySelectiveQinQSpvid = _ZySelectiveQinQSpvid_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 4),
+    _ZySelectiveQinQSpvid_Type()
+)
+zySelectiveQinQSpvid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zySelectiveQinQSpvid.setStatus("current")
+
+
+class _ZySelectiveQinQPriority_Type(Integer32):
+    """Custom type zySelectiveQinQPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("priority0", 0),
+          ("priority1", 1),
+          ("priority2", 2),
+          ("priority3", 3),
+          ("priority4", 4),
+          ("priority5", 5),
+          ("priority6", 6),
+          ("priority7", 7))
+    )
+
+
+_ZySelectiveQinQPriority_Type.__name__ = "Integer32"
+_ZySelectiveQinQPriority_Object = MibTableColumn
+zySelectiveQinQPriority = _ZySelectiveQinQPriority_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 5),
+    _ZySelectiveQinQPriority_Type()
+)
+zySelectiveQinQPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zySelectiveQinQPriority.setStatus("current")
+_ZySelectiveQinQRowStatus_Type = RowStatus
+_ZySelectiveQinQRowStatus_Object = MibTableColumn
+zySelectiveQinQRowStatus = _ZySelectiveQinQRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 89, 1, 4, 1, 6),
+    _ZySelectiveQinQRowStatus_Type()
+)
+zySelectiveQinQRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zySelectiveQinQRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-VLAN-STACK-MIB",
+    **{"zyxelVlanStack": zyxelVlanStack,
+       "zyxelVlanStackSetup": zyxelVlanStackSetup,
+       "zyVlanStackState": zyVlanStackState,
+       "zyxelVlanStackPortTable": zyxelVlanStackPortTable,
+       "zyxelVlanStackPortEntry": zyxelVlanStackPortEntry,
+       "zyVlanStackPortMode": zyVlanStackPortMode,
+       "zyVlanStackPortVid": zyVlanStackPortVid,
+       "zyVlanStackPortPriority": zyVlanStackPortPriority,
+       "zyVlanStackTunnelPortTpid": zyVlanStackTunnelPortTpid,
+       "zySelectiveQinQMaxNumberOfRules": zySelectiveQinQMaxNumberOfRules,
+       "zyxelSelectiveQinQTable": zyxelSelectiveQinQTable,
+       "zyxelSelectiveQinQEntry": zyxelSelectiveQinQEntry,
+       "zySelectiveQinQName": zySelectiveQinQName,
+       "zySelectiveQinQPort": zySelectiveQinQPort,
+       "zySelectiveQinQCvid": zySelectiveQinQCvid,
+       "zySelectiveQinQSpvid": zySelectiveQinQSpvid,
+       "zySelectiveQinQPriority": zySelectiveQinQPriority,
+       "zySelectiveQinQRowStatus": zySelectiveQinQRowStatus}
+)

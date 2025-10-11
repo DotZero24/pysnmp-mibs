@@ -1,256 +1,2759 @@
+# SNMP MIB module (G6-HARDWARE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module G6-HARDWARE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/microsens/G6-HARDWARE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:08 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/microsens/G6-HARDWARE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:54:13 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-g6, = mibBuilder.importSymbols("MICROSENS-G6-MIB", "g6")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-device = ModuleIdentity((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1))
-device.setRevisions(('2018-02-12 16:19',))
-if mibBuilder.loadTexts: device.setLastUpdated('201802121619Z')
-if mibBuilder.loadTexts: device.setOrganization('MICROSENS GmbH & Co. KG')
-hardware = MibIdentifier((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31))
-hardwareLedTest = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 1), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hardwareLedTest.setStatus('current')
-hardwareLedMode = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("dynamic", 0), ("static", 1), ("quiet", 2), ("dark", 3), ("lightshow", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hardwareLedMode.setStatus('current')
-hardwarePowerSupply1Monitored = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hardwarePowerSupply1Monitored.setStatus('current')
-hardwarePowerSupply2Monitored = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hardwarePowerSupply2Monitored.setStatus('current')
-hardwareFactoryResetButton = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hardwareFactoryResetButton.setStatus('current')
-cableTestConfigTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6), )
-if mibBuilder.loadTexts: cableTestConfigTable.setStatus('current')
-cableTestConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1), ).setIndexNames((0, "G6-HARDWARE-MIB", "cableTestConfigPortIndex"))
-if mibBuilder.loadTexts: cableTestConfigEntry.setStatus('current')
-cableTestConfigPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24)))
-if mibBuilder.loadTexts: cableTestConfigPortIndex.setStatus('current')
-cableTestConfigEnableAutoCableTest = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cableTestConfigEnableAutoCableTest.setStatus('current')
-cableTestConfigEventGeneration = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disabled", 0), ("anyChange", 1), ("connectionsOnly", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cableTestConfigEventGeneration.setStatus('current')
-cableTestConfigReflectionThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cableTestConfigReflectionThreshold.setStatus('current')
-cableTestConfigReflectionHysteresis = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cableTestConfigReflectionHysteresis.setStatus('current')
-cableTestConfigStartTestNow = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cableTestConfigStartTestNow.setStatus('current')
-ioSignalConfigTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7), )
-if mibBuilder.loadTexts: ioSignalConfigTable.setStatus('current')
-ioSignalConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1), ).setIndexNames((0, "G6-HARDWARE-MIB", "ioSignalConfigIndex"))
-if mibBuilder.loadTexts: ioSignalConfigEntry.setStatus('current')
-ioSignalConfigIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 0)))
-if mibBuilder.loadTexts: ioSignalConfigIndex.setStatus('current')
-ioSignalConfigSignalMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("static", 0), ("ledBlink", 1), ("relayBlink", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ioSignalConfigSignalMode.setStatus('current')
-ioSignalConfigInput1Mode = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disabled", 0), ("alarmWhenHigh", 1), ("alarmWhenLow", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ioSignalConfigInput1Mode.setStatus('current')
-ioSignalConfigInput1Name = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ioSignalConfigInput1Name.setStatus('current')
-ioSignalConfigInput2Mode = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disabled", 0), ("alarmWhenHigh", 1), ("alarmWhenLow", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ioSignalConfigInput2Mode.setStatus('current')
-ioSignalConfigInput2Name = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 6), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ioSignalConfigInput2Name.setStatus('current')
-ioSignalConfigOutput1Trigger = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("disabled", 0), ("whileRunning", 1), ("redundancyFail", 2), ("highTemp", 3), ("off", 4), ("on", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ioSignalConfigOutput1Trigger.setStatus('current')
-ioSignalConfigOutput1Name = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 8), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ioSignalConfigOutput1Name.setStatus('current')
-ioSignalConfigOutput2Trigger = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("disabled", 0), ("whileRunning", 1), ("redundancyFail", 2), ("highTemp", 3), ("off", 4), ("on", 5)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ioSignalConfigOutput2Trigger.setStatus('current')
-ioSignalConfigOutput2Name = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 10), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ioSignalConfigOutput2Name.setStatus('current')
-hardwarePowerSupply1Status = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("ok", 0), ("overload", 1), ("inputLow", 2), ("fuseFail", 3), ("notApplicable", 4), ("unmanaged", 5), ("notInstalled", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hardwarePowerSupply1Status.setStatus('current')
-hardwarePowerSupply2Status = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 101), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("ok", 0), ("overload", 1), ("inputLow", 2), ("fuseFail", 3), ("notApplicable", 4), ("unmanaged", 5), ("notInstalled", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hardwarePowerSupply2Status.setStatus('current')
-hardwareRunningOnPoe = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 102), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hardwareRunningOnPoe.setStatus('current')
-hardwareFanStatus = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 103), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("unused", 0), ("ok", 1), ("degraded", 2), ("fail", 3), ("missing", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hardwareFanStatus.setStatus('current')
-hardwareSdCardStatus = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 104), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("empty", 0), ("inserted", 1), ("writeProtected", 2), ("writing", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hardwareSdCardStatus.setStatus('current')
-hardwareNumOfPorts = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 105), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hardwareNumOfPorts.setStatus('current')
-hardwareMaskOfExistingPorts = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 106), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hardwareMaskOfExistingPorts.setStatus('current')
-hardwareMaskOfSfpPorts = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 107), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hardwareMaskOfSfpPorts.setStatus('current')
-hardwareMaskOfPoePorts = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 108), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hardwareMaskOfPoePorts.setStatus('current')
-moduleInfoTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109), )
-if mibBuilder.loadTexts: moduleInfoTable.setStatus('current')
-moduleInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1), ).setIndexNames((0, "G6-HARDWARE-MIB", "moduleInfoIndex"))
-if mibBuilder.loadTexts: moduleInfoEntry.setStatus('current')
-moduleInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 3)))
-if mibBuilder.loadTexts: moduleInfoIndex.setStatus('current')
-moduleInfoUnitType = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("notPresent", 0), ("baseUnit", 1), ("expansion", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: moduleInfoUnitType.setStatus('current')
-moduleInfoArticleNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: moduleInfoArticleNumber.setStatus('current')
-moduleInfoSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: moduleInfoSerialNumber.setStatus('current')
-moduleInfoHardwareVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: moduleInfoHardwareVersion.setStatus('current')
-moduleInfoProjectNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: moduleInfoProjectNumber.setStatus('current')
-moduleInfoOccupiedSlots = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: moduleInfoOccupiedSlots.setStatus('current')
-moduleInfoDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: moduleInfoDescription.setStatus('current')
-slotInfoTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110), )
-if mibBuilder.loadTexts: slotInfoTable.setStatus('current')
-slotInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110, 1), ).setIndexNames((0, "G6-HARDWARE-MIB", "slotInfoIndex"))
-if mibBuilder.loadTexts: slotInfoEntry.setStatus('current')
-slotInfoIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
-if mibBuilder.loadTexts: slotInfoIndex.setStatus('current')
-slotInfoBoardType = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("notPresent", 0), ("undefined", 1), ("power", 2), ("cpu", 3), ("port", 4), ("io", 5), ("ms10gPort", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slotInfoBoardType.setStatus('current')
-slotInfoBoardId = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slotInfoBoardId.setStatus('current')
-slotInfoVersionBits = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: slotInfoVersionBits.setStatus('current')
-portInfoTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111), )
-if mibBuilder.loadTexts: portInfoTable.setStatus('current')
-portInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1), ).setIndexNames((0, "G6-HARDWARE-MIB", "portInfoPortIndex"))
-if mibBuilder.loadTexts: portInfoEntry.setStatus('current')
-portInfoPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24)))
-if mibBuilder.loadTexts: portInfoPortIndex.setStatus('current')
-portInfoSystemSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portInfoSystemSlot.setStatus('current')
-portInfoSwitchPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portInfoSwitchPort.setStatus('current')
-portInfoUserSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portInfoUserSlot.setStatus('current')
-portInfoUserPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portInfoUserPort.setStatus('current')
-portInfoSnmpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portInfoSnmpPort.setStatus('current')
-portInfoSnmpInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portInfoSnmpInstance.setStatus('current')
-portInfoHardwarePort = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portInfoHardwarePort.setStatus('current')
-portInfoInterfaceType = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("copper", 0), ("optical", 1), ("dualMedia", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portInfoInterfaceType.setStatus('current')
-portInfoProperties = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 10), Bits().clone(namedValues=NamedValues(("internal", 0), ("ms10Mb", 1), ("ms100Mb", 2), ("ms1000Mb", 3), ("rj45", 4), ("sfp", 5), ("ms1x9", 6), ("poe", 7), ("poePlus", 8), ("pd", 9), ("dualMedia", 10), ("linkPort", 11), ("csfp", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portInfoProperties.setStatus('current')
-portLedsTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112), )
-if mibBuilder.loadTexts: portLedsTable.setStatus('current')
-portLedsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1), ).setIndexNames((0, "G6-HARDWARE-MIB", "portLedsPortIndex"))
-if mibBuilder.loadTexts: portLedsEntry.setStatus('current')
-portLedsPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31)))
-if mibBuilder.loadTexts: portLedsPortIndex.setStatus('current')
-portLedsEthernetColor = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portLedsEthernetColor.setStatus('current')
-portLedsEthernetBlinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portLedsEthernetBlinking.setStatus('current')
-portLedsPoeColor = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portLedsPoeColor.setStatus('current')
-portLedsPoeBlinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portLedsPoeBlinking.setStatus('current')
-deviceLedsTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113), )
-if mibBuilder.loadTexts: deviceLedsTable.setStatus('current')
-deviceLedsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1), ).setIndexNames((0, "G6-HARDWARE-MIB", "deviceLedsIndex"))
-if mibBuilder.loadTexts: deviceLedsEntry.setStatus('current')
-deviceLedsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 0)))
-if mibBuilder.loadTexts: deviceLedsIndex.setStatus('current')
-deviceLedsSystem1Color = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSystem1Color.setStatus('current')
-deviceLedsSystem1Blinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSystem1Blinking.setStatus('current')
-deviceLedsSystem2Color = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSystem2Color.setStatus('current')
-deviceLedsSystem2Blinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSystem2Blinking.setStatus('current')
-deviceLedsPowerOn1Color = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsPowerOn1Color.setStatus('current')
-deviceLedsPowerOn1Blinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsPowerOn1Blinking.setStatus('current')
-deviceLedsPowerOn2Color = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsPowerOn2Color.setStatus('current')
-deviceLedsPowerOn2Blinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsPowerOn2Blinking.setStatus('current')
-deviceLedsRing1Color = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsRing1Color.setStatus('current')
-deviceLedsRing1Blinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsRing1Blinking.setStatus('current')
-deviceLedsRing2Color = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsRing2Color.setStatus('current')
-deviceLedsRing2Blinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsRing2Blinking.setStatus('current')
-deviceLedsSignalIn1Color = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSignalIn1Color.setStatus('current')
-deviceLedsSignalIn1Blinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSignalIn1Blinking.setStatus('current')
-deviceLedsSignalIn2Color = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSignalIn2Color.setStatus('current')
-deviceLedsSignalIn2Blinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSignalIn2Blinking.setStatus('current')
-deviceLedsSignalOut1Color = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSignalOut1Color.setStatus('current')
-deviceLedsSignalOut1Blinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSignalOut1Blinking.setStatus('current')
-deviceLedsSignalOut2Color = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("off", 0), ("blue", 1), ("green", 2), ("red", 3), ("orange", 4), ("cyan", 5), ("magenta", 6), ("white", 7), ("noLed", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSignalOut2Color.setStatus('current')
-deviceLedsSignalOut2Blinking = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceLedsSignalOut2Blinking.setStatus('current')
-cableTestStatusTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114), )
-if mibBuilder.loadTexts: cableTestStatusTable.setStatus('current')
-cableTestStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1), ).setIndexNames((0, "G6-HARDWARE-MIB", "cableTestStatusPortIndex"))
-if mibBuilder.loadTexts: cableTestStatusEntry.setStatus('current')
-cableTestStatusPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24)))
-if mibBuilder.loadTexts: cableTestStatusPortIndex.setStatus('current')
-cableTestStatusUpdateTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cableTestStatusUpdateTimeStamp.setStatus('current')
-cableTestStatusPair0State = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("notAvailable", 0), ("pairOk", 1), ("pairOpen", 2), ("samePairShort", 3), ("crossPairShort", 4), ("terminationLow", 5), ("terminationHigh", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cableTestStatusPair0State.setStatus('current')
-cableTestStatusPair0DistanceToFault = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cableTestStatusPair0DistanceToFault.setStatus('current')
-cableTestStatusPair1State = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("notAvailable", 0), ("pairOk", 1), ("pairOpen", 2), ("samePairShort", 3), ("crossPairShort", 4), ("terminationLow", 5), ("terminationHigh", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cableTestStatusPair1State.setStatus('current')
-cableTestStatusPair1DistanceToFault = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cableTestStatusPair1DistanceToFault.setStatus('current')
-cableTestStatusPair2State = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("notAvailable", 0), ("pairOk", 1), ("pairOpen", 2), ("samePairShort", 3), ("crossPairShort", 4), ("terminationLow", 5), ("terminationHigh", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cableTestStatusPair2State.setStatus('current')
-cableTestStatusPair2DistanceToFault = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cableTestStatusPair2DistanceToFault.setStatus('current')
-cableTestStatusPair3State = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("notAvailable", 0), ("pairOk", 1), ("pairOpen", 2), ("samePairShort", 3), ("crossPairShort", 4), ("terminationLow", 5), ("terminationHigh", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cableTestStatusPair3State.setStatus('current')
-cableTestStatusPair3DistanceToFault = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cableTestStatusPair3DistanceToFault.setStatus('current')
-cableTestStatusReflectionValue = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cableTestStatusReflectionValue.setStatus('current')
-cableTestStatusCableStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("notAvailable", 0), ("noCable", 1), ("pluggedInLocally", 2), ("pluggedInRemotely", 3), ("terminatedCable", 4), ("terminationTooLow", 5), ("defective", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cableTestStatusCableStatus.setStatus('current')
-ioSignalStatusTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115), )
-if mibBuilder.loadTexts: ioSignalStatusTable.setStatus('current')
-ioSignalStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1), ).setIndexNames((0, "G6-HARDWARE-MIB", "ioSignalStatusIndex"))
-if mibBuilder.loadTexts: ioSignalStatusEntry.setStatus('current')
-ioSignalStatusIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 0)))
-if mibBuilder.loadTexts: ioSignalStatusIndex.setStatus('current')
-ioSignalStatusInput1AlarmActive = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ioSignalStatusInput1AlarmActive.setStatus('current')
-ioSignalStatusInput2AlarmActive = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ioSignalStatusInput2AlarmActive.setStatus('current')
-ioSignalStatusOutput1RelayActive = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ioSignalStatusOutput1RelayActive.setStatus('current')
-ioSignalStatusOutput2RelayActive = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ioSignalStatusOutput2RelayActive.setStatus('current')
-tcamStatusTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 116), )
-if mibBuilder.loadTexts: tcamStatusTable.setStatus('current')
-tcamStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 116, 1), ).setIndexNames((0, "G6-HARDWARE-MIB", "tcamStatusIndex"))
-if mibBuilder.loadTexts: tcamStatusEntry.setStatus('current')
-tcamStatusIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 116, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)))
-if mibBuilder.loadTexts: tcamStatusIndex.setStatus('current')
-tcamStatusControlFile = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 116, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcamStatusControlFile.setStatus('current')
-tcamStatusDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 116, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcamStatusDescription.setStatus('current')
-mibBuilder.exportSymbols("G6-HARDWARE-MIB", ioSignalConfigInput2Mode=ioSignalConfigInput2Mode, hardwarePowerSupply1Monitored=hardwarePowerSupply1Monitored, moduleInfoEntry=moduleInfoEntry, tcamStatusIndex=tcamStatusIndex, moduleInfoProjectNumber=moduleInfoProjectNumber, cableTestConfigReflectionHysteresis=cableTestConfigReflectionHysteresis, portInfoSnmpPort=portInfoSnmpPort, cableTestStatusPair1State=cableTestStatusPair1State, cableTestConfigTable=cableTestConfigTable, ioSignalConfigOutput1Name=ioSignalConfigOutput1Name, deviceLedsPowerOn2Blinking=deviceLedsPowerOn2Blinking, deviceLedsRing2Color=deviceLedsRing2Color, deviceLedsSignalIn2Blinking=deviceLedsSignalIn2Blinking, ioSignalStatusIndex=ioSignalStatusIndex, moduleInfoUnitType=moduleInfoUnitType, cableTestStatusPair2DistanceToFault=cableTestStatusPair2DistanceToFault, portInfoUserSlot=portInfoUserSlot, deviceLedsTable=deviceLedsTable, ioSignalConfigOutput2Trigger=ioSignalConfigOutput2Trigger, portInfoSystemSlot=portInfoSystemSlot, portInfoSwitchPort=portInfoSwitchPort, ioSignalConfigEntry=ioSignalConfigEntry, slotInfoVersionBits=slotInfoVersionBits, cableTestConfigEventGeneration=cableTestConfigEventGeneration, deviceLedsSystem2Blinking=deviceLedsSystem2Blinking, cableTestStatusPair2State=cableTestStatusPair2State, moduleInfoSerialNumber=moduleInfoSerialNumber, cableTestStatusPair1DistanceToFault=cableTestStatusPair1DistanceToFault, portInfoInterfaceType=portInfoInterfaceType, cableTestConfigReflectionThreshold=cableTestConfigReflectionThreshold, portLedsPoeBlinking=portLedsPoeBlinking, portInfoTable=portInfoTable, ioSignalConfigInput2Name=ioSignalConfigInput2Name, cableTestStatusPair3DistanceToFault=cableTestStatusPair3DistanceToFault, hardwarePowerSupply2Monitored=hardwarePowerSupply2Monitored, ioSignalStatusInput2AlarmActive=ioSignalStatusInput2AlarmActive, slotInfoTable=slotInfoTable, ioSignalConfigSignalMode=ioSignalConfigSignalMode, cableTestConfigStartTestNow=cableTestConfigStartTestNow, slotInfoEntry=slotInfoEntry, tcamStatusEntry=tcamStatusEntry, ioSignalConfigInput1Mode=ioSignalConfigInput1Mode, hardwareMaskOfExistingPorts=hardwareMaskOfExistingPorts, portLedsPortIndex=portLedsPortIndex, portInfoHardwarePort=portInfoHardwarePort, ioSignalConfigOutput2Name=ioSignalConfigOutput2Name, deviceLedsRing1Color=deviceLedsRing1Color, hardwarePowerSupply2Status=hardwarePowerSupply2Status, cableTestStatusCableStatus=cableTestStatusCableStatus, portInfoSnmpInstance=portInfoSnmpInstance, moduleInfoArticleNumber=moduleInfoArticleNumber, deviceLedsRing1Blinking=deviceLedsRing1Blinking, hardwareLedMode=hardwareLedMode, ioSignalStatusTable=ioSignalStatusTable, cableTestConfigPortIndex=cableTestConfigPortIndex, ioSignalConfigTable=ioSignalConfigTable, portInfoProperties=portInfoProperties, slotInfoBoardId=slotInfoBoardId, moduleInfoIndex=moduleInfoIndex, moduleInfoTable=moduleInfoTable, portLedsPoeColor=portLedsPoeColor, hardwareFanStatus=hardwareFanStatus, hardwarePowerSupply1Status=hardwarePowerSupply1Status, hardwareNumOfPorts=hardwareNumOfPorts, hardwareFactoryResetButton=hardwareFactoryResetButton, ioSignalStatusEntry=ioSignalStatusEntry, cableTestStatusReflectionValue=cableTestStatusReflectionValue, deviceLedsSignalIn2Color=deviceLedsSignalIn2Color, cableTestStatusPortIndex=cableTestStatusPortIndex, portLedsEntry=portLedsEntry, deviceLedsSystem1Color=deviceLedsSystem1Color, tcamStatusControlFile=tcamStatusControlFile, cableTestConfigEnableAutoCableTest=cableTestConfigEnableAutoCableTest, portLedsEthernetColor=portLedsEthernetColor, portInfoEntry=portInfoEntry, tcamStatusDescription=tcamStatusDescription, tcamStatusTable=tcamStatusTable, hardwareMaskOfPoePorts=hardwareMaskOfPoePorts, moduleInfoDescription=moduleInfoDescription, deviceLedsIndex=deviceLedsIndex, deviceLedsRing2Blinking=deviceLedsRing2Blinking, cableTestStatusPair0State=cableTestStatusPair0State, deviceLedsSignalOut2Color=deviceLedsSignalOut2Color, deviceLedsSystem1Blinking=deviceLedsSystem1Blinking, portLedsTable=portLedsTable, deviceLedsPowerOn1Color=deviceLedsPowerOn1Color, ioSignalConfigInput1Name=ioSignalConfigInput1Name, deviceLedsSignalOut1Color=deviceLedsSignalOut1Color, cableTestStatusPair0DistanceToFault=cableTestStatusPair0DistanceToFault, slotInfoBoardType=slotInfoBoardType, hardwareSdCardStatus=hardwareSdCardStatus, cableTestStatusTable=cableTestStatusTable, ioSignalStatusOutput2RelayActive=ioSignalStatusOutput2RelayActive, deviceLedsPowerOn1Blinking=deviceLedsPowerOn1Blinking, deviceLedsSignalIn1Color=deviceLedsSignalIn1Color, ioSignalStatusInput1AlarmActive=ioSignalStatusInput1AlarmActive, hardware=hardware, ioSignalConfigIndex=ioSignalConfigIndex, deviceLedsSignalOut1Blinking=deviceLedsSignalOut1Blinking, device=device, ioSignalStatusOutput1RelayActive=ioSignalStatusOutput1RelayActive, cableTestConfigEntry=cableTestConfigEntry, moduleInfoHardwareVersion=moduleInfoHardwareVersion, slotInfoIndex=slotInfoIndex, cableTestStatusPair3State=cableTestStatusPair3State, hardwareLedTest=hardwareLedTest, portInfoUserPort=portInfoUserPort, deviceLedsPowerOn2Color=deviceLedsPowerOn2Color, deviceLedsEntry=deviceLedsEntry, deviceLedsSystem2Color=deviceLedsSystem2Color, hardwareRunningOnPoe=hardwareRunningOnPoe, portLedsEthernetBlinking=portLedsEthernetBlinking, deviceLedsSignalIn1Blinking=deviceLedsSignalIn1Blinking, cableTestStatusEntry=cableTestStatusEntry, ioSignalConfigOutput1Trigger=ioSignalConfigOutput1Trigger, portInfoPortIndex=portInfoPortIndex, PYSNMP_MODULE_ID=device, deviceLedsSignalOut2Blinking=deviceLedsSignalOut2Blinking, moduleInfoOccupiedSlots=moduleInfoOccupiedSlots, hardwareMaskOfSfpPorts=hardwareMaskOfSfpPorts, cableTestStatusUpdateTimeStamp=cableTestStatusUpdateTimeStamp)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(g6,) = mibBuilder.importSymbols(
+    "MICROSENS-G6-MIB",
+    "g6")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+device = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1)
+)
+if mibBuilder.loadTexts:
+    device.setRevisions(
+        ("2018-02-12 16:19",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hardware_ObjectIdentity = ObjectIdentity
+hardware = _Hardware_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31)
+)
+_HardwareLedTest_Type = DisplayString
+_HardwareLedTest_Object = MibScalar
+hardwareLedTest = _HardwareLedTest_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 1),
+    _HardwareLedTest_Type()
+)
+hardwareLedTest.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hardwareLedTest.setStatus("current")
+
+
+class _HardwareLedMode_Type(Integer32):
+    """Custom type hardwareLedMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dynamic", 0),
+          ("static", 1),
+          ("quiet", 2),
+          ("dark", 3),
+          ("lightshow", 4))
+    )
+
+
+_HardwareLedMode_Type.__name__ = "Integer32"
+_HardwareLedMode_Object = MibScalar
+hardwareLedMode = _HardwareLedMode_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 2),
+    _HardwareLedMode_Type()
+)
+hardwareLedMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hardwareLedMode.setStatus("current")
+
+
+class _HardwarePowerSupply1Monitored_Type(Integer32):
+    """Custom type hardwarePowerSupply1Monitored based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_HardwarePowerSupply1Monitored_Type.__name__ = "Integer32"
+_HardwarePowerSupply1Monitored_Object = MibScalar
+hardwarePowerSupply1Monitored = _HardwarePowerSupply1Monitored_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 3),
+    _HardwarePowerSupply1Monitored_Type()
+)
+hardwarePowerSupply1Monitored.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hardwarePowerSupply1Monitored.setStatus("current")
+
+
+class _HardwarePowerSupply2Monitored_Type(Integer32):
+    """Custom type hardwarePowerSupply2Monitored based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_HardwarePowerSupply2Monitored_Type.__name__ = "Integer32"
+_HardwarePowerSupply2Monitored_Object = MibScalar
+hardwarePowerSupply2Monitored = _HardwarePowerSupply2Monitored_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 4),
+    _HardwarePowerSupply2Monitored_Type()
+)
+hardwarePowerSupply2Monitored.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hardwarePowerSupply2Monitored.setStatus("current")
+
+
+class _HardwareFactoryResetButton_Type(Integer32):
+    """Custom type hardwareFactoryResetButton based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_HardwareFactoryResetButton_Type.__name__ = "Integer32"
+_HardwareFactoryResetButton_Object = MibScalar
+hardwareFactoryResetButton = _HardwareFactoryResetButton_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 5),
+    _HardwareFactoryResetButton_Type()
+)
+hardwareFactoryResetButton.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hardwareFactoryResetButton.setStatus("current")
+_CableTestConfigTable_Object = MibTable
+cableTestConfigTable = _CableTestConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6)
+)
+if mibBuilder.loadTexts:
+    cableTestConfigTable.setStatus("current")
+_CableTestConfigEntry_Object = MibTableRow
+cableTestConfigEntry = _CableTestConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1)
+)
+cableTestConfigEntry.setIndexNames(
+    (0, "G6-HARDWARE-MIB", "cableTestConfigPortIndex"),
+)
+if mibBuilder.loadTexts:
+    cableTestConfigEntry.setStatus("current")
+
+
+class _CableTestConfigPortIndex_Type(Integer32):
+    """Custom type cableTestConfigPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 24),
+    )
+
+
+_CableTestConfigPortIndex_Type.__name__ = "Integer32"
+_CableTestConfigPortIndex_Object = MibTableColumn
+cableTestConfigPortIndex = _CableTestConfigPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 1),
+    _CableTestConfigPortIndex_Type()
+)
+cableTestConfigPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cableTestConfigPortIndex.setStatus("current")
+
+
+class _CableTestConfigEnableAutoCableTest_Type(Integer32):
+    """Custom type cableTestConfigEnableAutoCableTest based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_CableTestConfigEnableAutoCableTest_Type.__name__ = "Integer32"
+_CableTestConfigEnableAutoCableTest_Object = MibTableColumn
+cableTestConfigEnableAutoCableTest = _CableTestConfigEnableAutoCableTest_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 2),
+    _CableTestConfigEnableAutoCableTest_Type()
+)
+cableTestConfigEnableAutoCableTest.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cableTestConfigEnableAutoCableTest.setStatus("current")
+
+
+class _CableTestConfigEventGeneration_Type(Integer32):
+    """Custom type cableTestConfigEventGeneration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("anyChange", 1),
+          ("connectionsOnly", 2))
+    )
+
+
+_CableTestConfigEventGeneration_Type.__name__ = "Integer32"
+_CableTestConfigEventGeneration_Object = MibTableColumn
+cableTestConfigEventGeneration = _CableTestConfigEventGeneration_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 3),
+    _CableTestConfigEventGeneration_Type()
+)
+cableTestConfigEventGeneration.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cableTestConfigEventGeneration.setStatus("current")
+
+
+class _CableTestConfigReflectionThreshold_Type(Integer32):
+    """Custom type cableTestConfigReflectionThreshold based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CableTestConfigReflectionThreshold_Type.__name__ = "Integer32"
+_CableTestConfigReflectionThreshold_Object = MibTableColumn
+cableTestConfigReflectionThreshold = _CableTestConfigReflectionThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 4),
+    _CableTestConfigReflectionThreshold_Type()
+)
+cableTestConfigReflectionThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cableTestConfigReflectionThreshold.setStatus("current")
+
+
+class _CableTestConfigReflectionHysteresis_Type(Integer32):
+    """Custom type cableTestConfigReflectionHysteresis based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CableTestConfigReflectionHysteresis_Type.__name__ = "Integer32"
+_CableTestConfigReflectionHysteresis_Object = MibTableColumn
+cableTestConfigReflectionHysteresis = _CableTestConfigReflectionHysteresis_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 5),
+    _CableTestConfigReflectionHysteresis_Type()
+)
+cableTestConfigReflectionHysteresis.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cableTestConfigReflectionHysteresis.setStatus("current")
+_CableTestConfigStartTestNow_Type = DisplayString
+_CableTestConfigStartTestNow_Object = MibTableColumn
+cableTestConfigStartTestNow = _CableTestConfigStartTestNow_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 6, 1, 6),
+    _CableTestConfigStartTestNow_Type()
+)
+cableTestConfigStartTestNow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cableTestConfigStartTestNow.setStatus("current")
+_IoSignalConfigTable_Object = MibTable
+ioSignalConfigTable = _IoSignalConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7)
+)
+if mibBuilder.loadTexts:
+    ioSignalConfigTable.setStatus("current")
+_IoSignalConfigEntry_Object = MibTableRow
+ioSignalConfigEntry = _IoSignalConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1)
+)
+ioSignalConfigEntry.setIndexNames(
+    (0, "G6-HARDWARE-MIB", "ioSignalConfigIndex"),
+)
+if mibBuilder.loadTexts:
+    ioSignalConfigEntry.setStatus("current")
+
+
+class _IoSignalConfigIndex_Type(Integer32):
+    """Custom type ioSignalConfigIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+    )
+
+
+_IoSignalConfigIndex_Type.__name__ = "Integer32"
+_IoSignalConfigIndex_Object = MibTableColumn
+ioSignalConfigIndex = _IoSignalConfigIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 1),
+    _IoSignalConfigIndex_Type()
+)
+ioSignalConfigIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ioSignalConfigIndex.setStatus("current")
+
+
+class _IoSignalConfigSignalMode_Type(Integer32):
+    """Custom type ioSignalConfigSignalMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("static", 0),
+          ("ledBlink", 1),
+          ("relayBlink", 2))
+    )
+
+
+_IoSignalConfigSignalMode_Type.__name__ = "Integer32"
+_IoSignalConfigSignalMode_Object = MibTableColumn
+ioSignalConfigSignalMode = _IoSignalConfigSignalMode_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 2),
+    _IoSignalConfigSignalMode_Type()
+)
+ioSignalConfigSignalMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ioSignalConfigSignalMode.setStatus("current")
+
+
+class _IoSignalConfigInput1Mode_Type(Integer32):
+    """Custom type ioSignalConfigInput1Mode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("alarmWhenHigh", 1),
+          ("alarmWhenLow", 2))
+    )
+
+
+_IoSignalConfigInput1Mode_Type.__name__ = "Integer32"
+_IoSignalConfigInput1Mode_Object = MibTableColumn
+ioSignalConfigInput1Mode = _IoSignalConfigInput1Mode_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 3),
+    _IoSignalConfigInput1Mode_Type()
+)
+ioSignalConfigInput1Mode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ioSignalConfigInput1Mode.setStatus("current")
+_IoSignalConfigInput1Name_Type = DisplayString
+_IoSignalConfigInput1Name_Object = MibTableColumn
+ioSignalConfigInput1Name = _IoSignalConfigInput1Name_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 4),
+    _IoSignalConfigInput1Name_Type()
+)
+ioSignalConfigInput1Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ioSignalConfigInput1Name.setStatus("current")
+
+
+class _IoSignalConfigInput2Mode_Type(Integer32):
+    """Custom type ioSignalConfigInput2Mode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("alarmWhenHigh", 1),
+          ("alarmWhenLow", 2))
+    )
+
+
+_IoSignalConfigInput2Mode_Type.__name__ = "Integer32"
+_IoSignalConfigInput2Mode_Object = MibTableColumn
+ioSignalConfigInput2Mode = _IoSignalConfigInput2Mode_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 5),
+    _IoSignalConfigInput2Mode_Type()
+)
+ioSignalConfigInput2Mode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ioSignalConfigInput2Mode.setStatus("current")
+_IoSignalConfigInput2Name_Type = DisplayString
+_IoSignalConfigInput2Name_Object = MibTableColumn
+ioSignalConfigInput2Name = _IoSignalConfigInput2Name_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 6),
+    _IoSignalConfigInput2Name_Type()
+)
+ioSignalConfigInput2Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ioSignalConfigInput2Name.setStatus("current")
+
+
+class _IoSignalConfigOutput1Trigger_Type(Integer32):
+    """Custom type ioSignalConfigOutput1Trigger based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("whileRunning", 1),
+          ("redundancyFail", 2),
+          ("highTemp", 3),
+          ("off", 4),
+          ("on", 5))
+    )
+
+
+_IoSignalConfigOutput1Trigger_Type.__name__ = "Integer32"
+_IoSignalConfigOutput1Trigger_Object = MibTableColumn
+ioSignalConfigOutput1Trigger = _IoSignalConfigOutput1Trigger_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 7),
+    _IoSignalConfigOutput1Trigger_Type()
+)
+ioSignalConfigOutput1Trigger.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ioSignalConfigOutput1Trigger.setStatus("current")
+_IoSignalConfigOutput1Name_Type = DisplayString
+_IoSignalConfigOutput1Name_Object = MibTableColumn
+ioSignalConfigOutput1Name = _IoSignalConfigOutput1Name_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 8),
+    _IoSignalConfigOutput1Name_Type()
+)
+ioSignalConfigOutput1Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ioSignalConfigOutput1Name.setStatus("current")
+
+
+class _IoSignalConfigOutput2Trigger_Type(Integer32):
+    """Custom type ioSignalConfigOutput2Trigger based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("whileRunning", 1),
+          ("redundancyFail", 2),
+          ("highTemp", 3),
+          ("off", 4),
+          ("on", 5))
+    )
+
+
+_IoSignalConfigOutput2Trigger_Type.__name__ = "Integer32"
+_IoSignalConfigOutput2Trigger_Object = MibTableColumn
+ioSignalConfigOutput2Trigger = _IoSignalConfigOutput2Trigger_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 9),
+    _IoSignalConfigOutput2Trigger_Type()
+)
+ioSignalConfigOutput2Trigger.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ioSignalConfigOutput2Trigger.setStatus("current")
+_IoSignalConfigOutput2Name_Type = DisplayString
+_IoSignalConfigOutput2Name_Object = MibTableColumn
+ioSignalConfigOutput2Name = _IoSignalConfigOutput2Name_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 7, 1, 10),
+    _IoSignalConfigOutput2Name_Type()
+)
+ioSignalConfigOutput2Name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ioSignalConfigOutput2Name.setStatus("current")
+
+
+class _HardwarePowerSupply1Status_Type(Integer32):
+    """Custom type hardwarePowerSupply1Status based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 0),
+          ("overload", 1),
+          ("inputLow", 2),
+          ("fuseFail", 3),
+          ("notApplicable", 4),
+          ("unmanaged", 5),
+          ("notInstalled", 6))
+    )
+
+
+_HardwarePowerSupply1Status_Type.__name__ = "Integer32"
+_HardwarePowerSupply1Status_Object = MibScalar
+hardwarePowerSupply1Status = _HardwarePowerSupply1Status_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 100),
+    _HardwarePowerSupply1Status_Type()
+)
+hardwarePowerSupply1Status.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hardwarePowerSupply1Status.setStatus("current")
+
+
+class _HardwarePowerSupply2Status_Type(Integer32):
+    """Custom type hardwarePowerSupply2Status based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 0),
+          ("overload", 1),
+          ("inputLow", 2),
+          ("fuseFail", 3),
+          ("notApplicable", 4),
+          ("unmanaged", 5),
+          ("notInstalled", 6))
+    )
+
+
+_HardwarePowerSupply2Status_Type.__name__ = "Integer32"
+_HardwarePowerSupply2Status_Object = MibScalar
+hardwarePowerSupply2Status = _HardwarePowerSupply2Status_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 101),
+    _HardwarePowerSupply2Status_Type()
+)
+hardwarePowerSupply2Status.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hardwarePowerSupply2Status.setStatus("current")
+
+
+class _HardwareRunningOnPoe_Type(Integer32):
+    """Custom type hardwareRunningOnPoe based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_HardwareRunningOnPoe_Type.__name__ = "Integer32"
+_HardwareRunningOnPoe_Object = MibScalar
+hardwareRunningOnPoe = _HardwareRunningOnPoe_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 102),
+    _HardwareRunningOnPoe_Type()
+)
+hardwareRunningOnPoe.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hardwareRunningOnPoe.setStatus("current")
+
+
+class _HardwareFanStatus_Type(Integer32):
+    """Custom type hardwareFanStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unused", 0),
+          ("ok", 1),
+          ("degraded", 2),
+          ("fail", 3),
+          ("missing", 4))
+    )
+
+
+_HardwareFanStatus_Type.__name__ = "Integer32"
+_HardwareFanStatus_Object = MibScalar
+hardwareFanStatus = _HardwareFanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 103),
+    _HardwareFanStatus_Type()
+)
+hardwareFanStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hardwareFanStatus.setStatus("current")
+
+
+class _HardwareSdCardStatus_Type(Integer32):
+    """Custom type hardwareSdCardStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("empty", 0),
+          ("inserted", 1),
+          ("writeProtected", 2),
+          ("writing", 3))
+    )
+
+
+_HardwareSdCardStatus_Type.__name__ = "Integer32"
+_HardwareSdCardStatus_Object = MibScalar
+hardwareSdCardStatus = _HardwareSdCardStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 104),
+    _HardwareSdCardStatus_Type()
+)
+hardwareSdCardStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hardwareSdCardStatus.setStatus("current")
+
+
+class _HardwareNumOfPorts_Type(Integer32):
+    """Custom type hardwareNumOfPorts based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_HardwareNumOfPorts_Type.__name__ = "Integer32"
+_HardwareNumOfPorts_Object = MibScalar
+hardwareNumOfPorts = _HardwareNumOfPorts_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 105),
+    _HardwareNumOfPorts_Type()
+)
+hardwareNumOfPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hardwareNumOfPorts.setStatus("current")
+_HardwareMaskOfExistingPorts_Type = Integer32
+_HardwareMaskOfExistingPorts_Object = MibScalar
+hardwareMaskOfExistingPorts = _HardwareMaskOfExistingPorts_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 106),
+    _HardwareMaskOfExistingPorts_Type()
+)
+hardwareMaskOfExistingPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hardwareMaskOfExistingPorts.setStatus("current")
+_HardwareMaskOfSfpPorts_Type = Integer32
+_HardwareMaskOfSfpPorts_Object = MibScalar
+hardwareMaskOfSfpPorts = _HardwareMaskOfSfpPorts_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 107),
+    _HardwareMaskOfSfpPorts_Type()
+)
+hardwareMaskOfSfpPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hardwareMaskOfSfpPorts.setStatus("current")
+_HardwareMaskOfPoePorts_Type = Integer32
+_HardwareMaskOfPoePorts_Object = MibScalar
+hardwareMaskOfPoePorts = _HardwareMaskOfPoePorts_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 108),
+    _HardwareMaskOfPoePorts_Type()
+)
+hardwareMaskOfPoePorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hardwareMaskOfPoePorts.setStatus("current")
+_ModuleInfoTable_Object = MibTable
+moduleInfoTable = _ModuleInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109)
+)
+if mibBuilder.loadTexts:
+    moduleInfoTable.setStatus("current")
+_ModuleInfoEntry_Object = MibTableRow
+moduleInfoEntry = _ModuleInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1)
+)
+moduleInfoEntry.setIndexNames(
+    (0, "G6-HARDWARE-MIB", "moduleInfoIndex"),
+)
+if mibBuilder.loadTexts:
+    moduleInfoEntry.setStatus("current")
+
+
+class _ModuleInfoIndex_Type(Integer32):
+    """Custom type moduleInfoIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 3),
+    )
+
+
+_ModuleInfoIndex_Type.__name__ = "Integer32"
+_ModuleInfoIndex_Object = MibTableColumn
+moduleInfoIndex = _ModuleInfoIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 1),
+    _ModuleInfoIndex_Type()
+)
+moduleInfoIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    moduleInfoIndex.setStatus("current")
+
+
+class _ModuleInfoUnitType_Type(Integer32):
+    """Custom type moduleInfoUnitType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notPresent", 0),
+          ("baseUnit", 1),
+          ("expansion", 2))
+    )
+
+
+_ModuleInfoUnitType_Type.__name__ = "Integer32"
+_ModuleInfoUnitType_Object = MibTableColumn
+moduleInfoUnitType = _ModuleInfoUnitType_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 2),
+    _ModuleInfoUnitType_Type()
+)
+moduleInfoUnitType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    moduleInfoUnitType.setStatus("current")
+_ModuleInfoArticleNumber_Type = DisplayString
+_ModuleInfoArticleNumber_Object = MibTableColumn
+moduleInfoArticleNumber = _ModuleInfoArticleNumber_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 3),
+    _ModuleInfoArticleNumber_Type()
+)
+moduleInfoArticleNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    moduleInfoArticleNumber.setStatus("current")
+_ModuleInfoSerialNumber_Type = DisplayString
+_ModuleInfoSerialNumber_Object = MibTableColumn
+moduleInfoSerialNumber = _ModuleInfoSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 4),
+    _ModuleInfoSerialNumber_Type()
+)
+moduleInfoSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    moduleInfoSerialNumber.setStatus("current")
+_ModuleInfoHardwareVersion_Type = DisplayString
+_ModuleInfoHardwareVersion_Object = MibTableColumn
+moduleInfoHardwareVersion = _ModuleInfoHardwareVersion_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 5),
+    _ModuleInfoHardwareVersion_Type()
+)
+moduleInfoHardwareVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    moduleInfoHardwareVersion.setStatus("current")
+_ModuleInfoProjectNumber_Type = DisplayString
+_ModuleInfoProjectNumber_Object = MibTableColumn
+moduleInfoProjectNumber = _ModuleInfoProjectNumber_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 6),
+    _ModuleInfoProjectNumber_Type()
+)
+moduleInfoProjectNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    moduleInfoProjectNumber.setStatus("current")
+_ModuleInfoOccupiedSlots_Type = DisplayString
+_ModuleInfoOccupiedSlots_Object = MibTableColumn
+moduleInfoOccupiedSlots = _ModuleInfoOccupiedSlots_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 7),
+    _ModuleInfoOccupiedSlots_Type()
+)
+moduleInfoOccupiedSlots.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    moduleInfoOccupiedSlots.setStatus("current")
+_ModuleInfoDescription_Type = DisplayString
+_ModuleInfoDescription_Object = MibTableColumn
+moduleInfoDescription = _ModuleInfoDescription_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 109, 1, 8),
+    _ModuleInfoDescription_Type()
+)
+moduleInfoDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    moduleInfoDescription.setStatus("current")
+_SlotInfoTable_Object = MibTable
+slotInfoTable = _SlotInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110)
+)
+if mibBuilder.loadTexts:
+    slotInfoTable.setStatus("current")
+_SlotInfoEntry_Object = MibTableRow
+slotInfoEntry = _SlotInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110, 1)
+)
+slotInfoEntry.setIndexNames(
+    (0, "G6-HARDWARE-MIB", "slotInfoIndex"),
+)
+if mibBuilder.loadTexts:
+    slotInfoEntry.setStatus("current")
+
+
+class _SlotInfoIndex_Type(Integer32):
+    """Custom type slotInfoIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_SlotInfoIndex_Type.__name__ = "Integer32"
+_SlotInfoIndex_Object = MibTableColumn
+slotInfoIndex = _SlotInfoIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110, 1, 1),
+    _SlotInfoIndex_Type()
+)
+slotInfoIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    slotInfoIndex.setStatus("current")
+
+
+class _SlotInfoBoardType_Type(Integer32):
+    """Custom type slotInfoBoardType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notPresent", 0),
+          ("undefined", 1),
+          ("power", 2),
+          ("cpu", 3),
+          ("port", 4),
+          ("io", 5),
+          ("ms10gPort", 6))
+    )
+
+
+_SlotInfoBoardType_Type.__name__ = "Integer32"
+_SlotInfoBoardType_Object = MibTableColumn
+slotInfoBoardType = _SlotInfoBoardType_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110, 1, 2),
+    _SlotInfoBoardType_Type()
+)
+slotInfoBoardType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    slotInfoBoardType.setStatus("current")
+_SlotInfoBoardId_Type = Unsigned32
+_SlotInfoBoardId_Object = MibTableColumn
+slotInfoBoardId = _SlotInfoBoardId_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110, 1, 3),
+    _SlotInfoBoardId_Type()
+)
+slotInfoBoardId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    slotInfoBoardId.setStatus("current")
+
+
+class _SlotInfoVersionBits_Type(Integer32):
+    """Custom type slotInfoVersionBits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SlotInfoVersionBits_Type.__name__ = "Integer32"
+_SlotInfoVersionBits_Object = MibTableColumn
+slotInfoVersionBits = _SlotInfoVersionBits_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 110, 1, 4),
+    _SlotInfoVersionBits_Type()
+)
+slotInfoVersionBits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    slotInfoVersionBits.setStatus("current")
+_PortInfoTable_Object = MibTable
+portInfoTable = _PortInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111)
+)
+if mibBuilder.loadTexts:
+    portInfoTable.setStatus("current")
+_PortInfoEntry_Object = MibTableRow
+portInfoEntry = _PortInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1)
+)
+portInfoEntry.setIndexNames(
+    (0, "G6-HARDWARE-MIB", "portInfoPortIndex"),
+)
+if mibBuilder.loadTexts:
+    portInfoEntry.setStatus("current")
+
+
+class _PortInfoPortIndex_Type(Integer32):
+    """Custom type portInfoPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 24),
+    )
+
+
+_PortInfoPortIndex_Type.__name__ = "Integer32"
+_PortInfoPortIndex_Object = MibTableColumn
+portInfoPortIndex = _PortInfoPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 1),
+    _PortInfoPortIndex_Type()
+)
+portInfoPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    portInfoPortIndex.setStatus("current")
+
+
+class _PortInfoSystemSlot_Type(Integer32):
+    """Custom type portInfoSystemSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_PortInfoSystemSlot_Type.__name__ = "Integer32"
+_PortInfoSystemSlot_Object = MibTableColumn
+portInfoSystemSlot = _PortInfoSystemSlot_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 2),
+    _PortInfoSystemSlot_Type()
+)
+portInfoSystemSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portInfoSystemSlot.setStatus("current")
+
+
+class _PortInfoSwitchPort_Type(Integer32):
+    """Custom type portInfoSwitchPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_PortInfoSwitchPort_Type.__name__ = "Integer32"
+_PortInfoSwitchPort_Object = MibTableColumn
+portInfoSwitchPort = _PortInfoSwitchPort_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 3),
+    _PortInfoSwitchPort_Type()
+)
+portInfoSwitchPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portInfoSwitchPort.setStatus("current")
+
+
+class _PortInfoUserSlot_Type(Integer32):
+    """Custom type portInfoUserSlot based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_PortInfoUserSlot_Type.__name__ = "Integer32"
+_PortInfoUserSlot_Object = MibTableColumn
+portInfoUserSlot = _PortInfoUserSlot_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 4),
+    _PortInfoUserSlot_Type()
+)
+portInfoUserSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portInfoUserSlot.setStatus("current")
+
+
+class _PortInfoUserPort_Type(Integer32):
+    """Custom type portInfoUserPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_PortInfoUserPort_Type.__name__ = "Integer32"
+_PortInfoUserPort_Object = MibTableColumn
+portInfoUserPort = _PortInfoUserPort_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 5),
+    _PortInfoUserPort_Type()
+)
+portInfoUserPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portInfoUserPort.setStatus("current")
+
+
+class _PortInfoSnmpPort_Type(Integer32):
+    """Custom type portInfoSnmpPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PortInfoSnmpPort_Type.__name__ = "Integer32"
+_PortInfoSnmpPort_Object = MibTableColumn
+portInfoSnmpPort = _PortInfoSnmpPort_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 6),
+    _PortInfoSnmpPort_Type()
+)
+portInfoSnmpPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portInfoSnmpPort.setStatus("current")
+
+
+class _PortInfoSnmpInstance_Type(Integer32):
+    """Custom type portInfoSnmpInstance based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_PortInfoSnmpInstance_Type.__name__ = "Integer32"
+_PortInfoSnmpInstance_Object = MibTableColumn
+portInfoSnmpInstance = _PortInfoSnmpInstance_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 7),
+    _PortInfoSnmpInstance_Type()
+)
+portInfoSnmpInstance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portInfoSnmpInstance.setStatus("current")
+
+
+class _PortInfoHardwarePort_Type(Integer32):
+    """Custom type portInfoHardwarePort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_PortInfoHardwarePort_Type.__name__ = "Integer32"
+_PortInfoHardwarePort_Object = MibTableColumn
+portInfoHardwarePort = _PortInfoHardwarePort_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 8),
+    _PortInfoHardwarePort_Type()
+)
+portInfoHardwarePort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portInfoHardwarePort.setStatus("current")
+
+
+class _PortInfoInterfaceType_Type(Integer32):
+    """Custom type portInfoInterfaceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("copper", 0),
+          ("optical", 1),
+          ("dualMedia", 2))
+    )
+
+
+_PortInfoInterfaceType_Type.__name__ = "Integer32"
+_PortInfoInterfaceType_Object = MibTableColumn
+portInfoInterfaceType = _PortInfoInterfaceType_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 9),
+    _PortInfoInterfaceType_Type()
+)
+portInfoInterfaceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portInfoInterfaceType.setStatus("current")
+
+
+class _PortInfoProperties_Type(Bits):
+    """Custom type portInfoProperties based on Bits"""
+    namedValues = NamedValues(
+        *(("internal", 0),
+          ("ms10Mb", 1),
+          ("ms100Mb", 2),
+          ("ms1000Mb", 3),
+          ("rj45", 4),
+          ("sfp", 5),
+          ("ms1x9", 6),
+          ("poe", 7),
+          ("poePlus", 8),
+          ("pd", 9),
+          ("dualMedia", 10),
+          ("linkPort", 11),
+          ("csfp", 12))
+    )
+
+_PortInfoProperties_Type.__name__ = "Bits"
+_PortInfoProperties_Object = MibTableColumn
+portInfoProperties = _PortInfoProperties_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 111, 1, 10),
+    _PortInfoProperties_Type()
+)
+portInfoProperties.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portInfoProperties.setStatus("current")
+_PortLedsTable_Object = MibTable
+portLedsTable = _PortLedsTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112)
+)
+if mibBuilder.loadTexts:
+    portLedsTable.setStatus("current")
+_PortLedsEntry_Object = MibTableRow
+portLedsEntry = _PortLedsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1)
+)
+portLedsEntry.setIndexNames(
+    (0, "G6-HARDWARE-MIB", "portLedsPortIndex"),
+)
+if mibBuilder.loadTexts:
+    portLedsEntry.setStatus("current")
+
+
+class _PortLedsPortIndex_Type(Integer32):
+    """Custom type portLedsPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_PortLedsPortIndex_Type.__name__ = "Integer32"
+_PortLedsPortIndex_Object = MibTableColumn
+portLedsPortIndex = _PortLedsPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1, 1),
+    _PortLedsPortIndex_Type()
+)
+portLedsPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    portLedsPortIndex.setStatus("current")
+
+
+class _PortLedsEthernetColor_Type(Integer32):
+    """Custom type portLedsEthernetColor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_PortLedsEthernetColor_Type.__name__ = "Integer32"
+_PortLedsEthernetColor_Object = MibTableColumn
+portLedsEthernetColor = _PortLedsEthernetColor_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1, 2),
+    _PortLedsEthernetColor_Type()
+)
+portLedsEthernetColor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portLedsEthernetColor.setStatus("current")
+
+
+class _PortLedsEthernetBlinking_Type(Integer32):
+    """Custom type portLedsEthernetBlinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PortLedsEthernetBlinking_Type.__name__ = "Integer32"
+_PortLedsEthernetBlinking_Object = MibTableColumn
+portLedsEthernetBlinking = _PortLedsEthernetBlinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1, 3),
+    _PortLedsEthernetBlinking_Type()
+)
+portLedsEthernetBlinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portLedsEthernetBlinking.setStatus("current")
+
+
+class _PortLedsPoeColor_Type(Integer32):
+    """Custom type portLedsPoeColor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_PortLedsPoeColor_Type.__name__ = "Integer32"
+_PortLedsPoeColor_Object = MibTableColumn
+portLedsPoeColor = _PortLedsPoeColor_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1, 4),
+    _PortLedsPoeColor_Type()
+)
+portLedsPoeColor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portLedsPoeColor.setStatus("current")
+
+
+class _PortLedsPoeBlinking_Type(Integer32):
+    """Custom type portLedsPoeBlinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PortLedsPoeBlinking_Type.__name__ = "Integer32"
+_PortLedsPoeBlinking_Object = MibTableColumn
+portLedsPoeBlinking = _PortLedsPoeBlinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 112, 1, 5),
+    _PortLedsPoeBlinking_Type()
+)
+portLedsPoeBlinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portLedsPoeBlinking.setStatus("current")
+_DeviceLedsTable_Object = MibTable
+deviceLedsTable = _DeviceLedsTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113)
+)
+if mibBuilder.loadTexts:
+    deviceLedsTable.setStatus("current")
+_DeviceLedsEntry_Object = MibTableRow
+deviceLedsEntry = _DeviceLedsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1)
+)
+deviceLedsEntry.setIndexNames(
+    (0, "G6-HARDWARE-MIB", "deviceLedsIndex"),
+)
+if mibBuilder.loadTexts:
+    deviceLedsEntry.setStatus("current")
+
+
+class _DeviceLedsIndex_Type(Integer32):
+    """Custom type deviceLedsIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+    )
+
+
+_DeviceLedsIndex_Type.__name__ = "Integer32"
+_DeviceLedsIndex_Object = MibTableColumn
+deviceLedsIndex = _DeviceLedsIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 1),
+    _DeviceLedsIndex_Type()
+)
+deviceLedsIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    deviceLedsIndex.setStatus("current")
+
+
+class _DeviceLedsSystem1Color_Type(Integer32):
+    """Custom type deviceLedsSystem1Color based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_DeviceLedsSystem1Color_Type.__name__ = "Integer32"
+_DeviceLedsSystem1Color_Object = MibTableColumn
+deviceLedsSystem1Color = _DeviceLedsSystem1Color_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 2),
+    _DeviceLedsSystem1Color_Type()
+)
+deviceLedsSystem1Color.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSystem1Color.setStatus("current")
+
+
+class _DeviceLedsSystem1Blinking_Type(Integer32):
+    """Custom type deviceLedsSystem1Blinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_DeviceLedsSystem1Blinking_Type.__name__ = "Integer32"
+_DeviceLedsSystem1Blinking_Object = MibTableColumn
+deviceLedsSystem1Blinking = _DeviceLedsSystem1Blinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 3),
+    _DeviceLedsSystem1Blinking_Type()
+)
+deviceLedsSystem1Blinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSystem1Blinking.setStatus("current")
+
+
+class _DeviceLedsSystem2Color_Type(Integer32):
+    """Custom type deviceLedsSystem2Color based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_DeviceLedsSystem2Color_Type.__name__ = "Integer32"
+_DeviceLedsSystem2Color_Object = MibTableColumn
+deviceLedsSystem2Color = _DeviceLedsSystem2Color_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 4),
+    _DeviceLedsSystem2Color_Type()
+)
+deviceLedsSystem2Color.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSystem2Color.setStatus("current")
+
+
+class _DeviceLedsSystem2Blinking_Type(Integer32):
+    """Custom type deviceLedsSystem2Blinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_DeviceLedsSystem2Blinking_Type.__name__ = "Integer32"
+_DeviceLedsSystem2Blinking_Object = MibTableColumn
+deviceLedsSystem2Blinking = _DeviceLedsSystem2Blinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 5),
+    _DeviceLedsSystem2Blinking_Type()
+)
+deviceLedsSystem2Blinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSystem2Blinking.setStatus("current")
+
+
+class _DeviceLedsPowerOn1Color_Type(Integer32):
+    """Custom type deviceLedsPowerOn1Color based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_DeviceLedsPowerOn1Color_Type.__name__ = "Integer32"
+_DeviceLedsPowerOn1Color_Object = MibTableColumn
+deviceLedsPowerOn1Color = _DeviceLedsPowerOn1Color_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 6),
+    _DeviceLedsPowerOn1Color_Type()
+)
+deviceLedsPowerOn1Color.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsPowerOn1Color.setStatus("current")
+
+
+class _DeviceLedsPowerOn1Blinking_Type(Integer32):
+    """Custom type deviceLedsPowerOn1Blinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_DeviceLedsPowerOn1Blinking_Type.__name__ = "Integer32"
+_DeviceLedsPowerOn1Blinking_Object = MibTableColumn
+deviceLedsPowerOn1Blinking = _DeviceLedsPowerOn1Blinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 7),
+    _DeviceLedsPowerOn1Blinking_Type()
+)
+deviceLedsPowerOn1Blinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsPowerOn1Blinking.setStatus("current")
+
+
+class _DeviceLedsPowerOn2Color_Type(Integer32):
+    """Custom type deviceLedsPowerOn2Color based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_DeviceLedsPowerOn2Color_Type.__name__ = "Integer32"
+_DeviceLedsPowerOn2Color_Object = MibTableColumn
+deviceLedsPowerOn2Color = _DeviceLedsPowerOn2Color_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 8),
+    _DeviceLedsPowerOn2Color_Type()
+)
+deviceLedsPowerOn2Color.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsPowerOn2Color.setStatus("current")
+
+
+class _DeviceLedsPowerOn2Blinking_Type(Integer32):
+    """Custom type deviceLedsPowerOn2Blinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_DeviceLedsPowerOn2Blinking_Type.__name__ = "Integer32"
+_DeviceLedsPowerOn2Blinking_Object = MibTableColumn
+deviceLedsPowerOn2Blinking = _DeviceLedsPowerOn2Blinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 9),
+    _DeviceLedsPowerOn2Blinking_Type()
+)
+deviceLedsPowerOn2Blinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsPowerOn2Blinking.setStatus("current")
+
+
+class _DeviceLedsRing1Color_Type(Integer32):
+    """Custom type deviceLedsRing1Color based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_DeviceLedsRing1Color_Type.__name__ = "Integer32"
+_DeviceLedsRing1Color_Object = MibTableColumn
+deviceLedsRing1Color = _DeviceLedsRing1Color_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 10),
+    _DeviceLedsRing1Color_Type()
+)
+deviceLedsRing1Color.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsRing1Color.setStatus("current")
+
+
+class _DeviceLedsRing1Blinking_Type(Integer32):
+    """Custom type deviceLedsRing1Blinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_DeviceLedsRing1Blinking_Type.__name__ = "Integer32"
+_DeviceLedsRing1Blinking_Object = MibTableColumn
+deviceLedsRing1Blinking = _DeviceLedsRing1Blinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 11),
+    _DeviceLedsRing1Blinking_Type()
+)
+deviceLedsRing1Blinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsRing1Blinking.setStatus("current")
+
+
+class _DeviceLedsRing2Color_Type(Integer32):
+    """Custom type deviceLedsRing2Color based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_DeviceLedsRing2Color_Type.__name__ = "Integer32"
+_DeviceLedsRing2Color_Object = MibTableColumn
+deviceLedsRing2Color = _DeviceLedsRing2Color_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 12),
+    _DeviceLedsRing2Color_Type()
+)
+deviceLedsRing2Color.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsRing2Color.setStatus("current")
+
+
+class _DeviceLedsRing2Blinking_Type(Integer32):
+    """Custom type deviceLedsRing2Blinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_DeviceLedsRing2Blinking_Type.__name__ = "Integer32"
+_DeviceLedsRing2Blinking_Object = MibTableColumn
+deviceLedsRing2Blinking = _DeviceLedsRing2Blinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 13),
+    _DeviceLedsRing2Blinking_Type()
+)
+deviceLedsRing2Blinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsRing2Blinking.setStatus("current")
+
+
+class _DeviceLedsSignalIn1Color_Type(Integer32):
+    """Custom type deviceLedsSignalIn1Color based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_DeviceLedsSignalIn1Color_Type.__name__ = "Integer32"
+_DeviceLedsSignalIn1Color_Object = MibTableColumn
+deviceLedsSignalIn1Color = _DeviceLedsSignalIn1Color_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 14),
+    _DeviceLedsSignalIn1Color_Type()
+)
+deviceLedsSignalIn1Color.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSignalIn1Color.setStatus("current")
+
+
+class _DeviceLedsSignalIn1Blinking_Type(Integer32):
+    """Custom type deviceLedsSignalIn1Blinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_DeviceLedsSignalIn1Blinking_Type.__name__ = "Integer32"
+_DeviceLedsSignalIn1Blinking_Object = MibTableColumn
+deviceLedsSignalIn1Blinking = _DeviceLedsSignalIn1Blinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 15),
+    _DeviceLedsSignalIn1Blinking_Type()
+)
+deviceLedsSignalIn1Blinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSignalIn1Blinking.setStatus("current")
+
+
+class _DeviceLedsSignalIn2Color_Type(Integer32):
+    """Custom type deviceLedsSignalIn2Color based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_DeviceLedsSignalIn2Color_Type.__name__ = "Integer32"
+_DeviceLedsSignalIn2Color_Object = MibTableColumn
+deviceLedsSignalIn2Color = _DeviceLedsSignalIn2Color_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 16),
+    _DeviceLedsSignalIn2Color_Type()
+)
+deviceLedsSignalIn2Color.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSignalIn2Color.setStatus("current")
+
+
+class _DeviceLedsSignalIn2Blinking_Type(Integer32):
+    """Custom type deviceLedsSignalIn2Blinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_DeviceLedsSignalIn2Blinking_Type.__name__ = "Integer32"
+_DeviceLedsSignalIn2Blinking_Object = MibTableColumn
+deviceLedsSignalIn2Blinking = _DeviceLedsSignalIn2Blinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 17),
+    _DeviceLedsSignalIn2Blinking_Type()
+)
+deviceLedsSignalIn2Blinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSignalIn2Blinking.setStatus("current")
+
+
+class _DeviceLedsSignalOut1Color_Type(Integer32):
+    """Custom type deviceLedsSignalOut1Color based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_DeviceLedsSignalOut1Color_Type.__name__ = "Integer32"
+_DeviceLedsSignalOut1Color_Object = MibTableColumn
+deviceLedsSignalOut1Color = _DeviceLedsSignalOut1Color_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 18),
+    _DeviceLedsSignalOut1Color_Type()
+)
+deviceLedsSignalOut1Color.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSignalOut1Color.setStatus("current")
+
+
+class _DeviceLedsSignalOut1Blinking_Type(Integer32):
+    """Custom type deviceLedsSignalOut1Blinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_DeviceLedsSignalOut1Blinking_Type.__name__ = "Integer32"
+_DeviceLedsSignalOut1Blinking_Object = MibTableColumn
+deviceLedsSignalOut1Blinking = _DeviceLedsSignalOut1Blinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 19),
+    _DeviceLedsSignalOut1Blinking_Type()
+)
+deviceLedsSignalOut1Blinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSignalOut1Blinking.setStatus("current")
+
+
+class _DeviceLedsSignalOut2Color_Type(Integer32):
+    """Custom type deviceLedsSignalOut2Color based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("blue", 1),
+          ("green", 2),
+          ("red", 3),
+          ("orange", 4),
+          ("cyan", 5),
+          ("magenta", 6),
+          ("white", 7),
+          ("noLed", 8))
+    )
+
+
+_DeviceLedsSignalOut2Color_Type.__name__ = "Integer32"
+_DeviceLedsSignalOut2Color_Object = MibTableColumn
+deviceLedsSignalOut2Color = _DeviceLedsSignalOut2Color_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 20),
+    _DeviceLedsSignalOut2Color_Type()
+)
+deviceLedsSignalOut2Color.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSignalOut2Color.setStatus("current")
+
+
+class _DeviceLedsSignalOut2Blinking_Type(Integer32):
+    """Custom type deviceLedsSignalOut2Blinking based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_DeviceLedsSignalOut2Blinking_Type.__name__ = "Integer32"
+_DeviceLedsSignalOut2Blinking_Object = MibTableColumn
+deviceLedsSignalOut2Blinking = _DeviceLedsSignalOut2Blinking_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 113, 1, 21),
+    _DeviceLedsSignalOut2Blinking_Type()
+)
+deviceLedsSignalOut2Blinking.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceLedsSignalOut2Blinking.setStatus("current")
+_CableTestStatusTable_Object = MibTable
+cableTestStatusTable = _CableTestStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114)
+)
+if mibBuilder.loadTexts:
+    cableTestStatusTable.setStatus("current")
+_CableTestStatusEntry_Object = MibTableRow
+cableTestStatusEntry = _CableTestStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1)
+)
+cableTestStatusEntry.setIndexNames(
+    (0, "G6-HARDWARE-MIB", "cableTestStatusPortIndex"),
+)
+if mibBuilder.loadTexts:
+    cableTestStatusEntry.setStatus("current")
+
+
+class _CableTestStatusPortIndex_Type(Integer32):
+    """Custom type cableTestStatusPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 24),
+    )
+
+
+_CableTestStatusPortIndex_Type.__name__ = "Integer32"
+_CableTestStatusPortIndex_Object = MibTableColumn
+cableTestStatusPortIndex = _CableTestStatusPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 1),
+    _CableTestStatusPortIndex_Type()
+)
+cableTestStatusPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cableTestStatusPortIndex.setStatus("current")
+_CableTestStatusUpdateTimeStamp_Type = DisplayString
+_CableTestStatusUpdateTimeStamp_Object = MibTableColumn
+cableTestStatusUpdateTimeStamp = _CableTestStatusUpdateTimeStamp_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 2),
+    _CableTestStatusUpdateTimeStamp_Type()
+)
+cableTestStatusUpdateTimeStamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cableTestStatusUpdateTimeStamp.setStatus("current")
+
+
+class _CableTestStatusPair0State_Type(Integer32):
+    """Custom type cableTestStatusPair0State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notAvailable", 0),
+          ("pairOk", 1),
+          ("pairOpen", 2),
+          ("samePairShort", 3),
+          ("crossPairShort", 4),
+          ("terminationLow", 5),
+          ("terminationHigh", 6))
+    )
+
+
+_CableTestStatusPair0State_Type.__name__ = "Integer32"
+_CableTestStatusPair0State_Object = MibTableColumn
+cableTestStatusPair0State = _CableTestStatusPair0State_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 3),
+    _CableTestStatusPair0State_Type()
+)
+cableTestStatusPair0State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cableTestStatusPair0State.setStatus("current")
+
+
+class _CableTestStatusPair0DistanceToFault_Type(Integer32):
+    """Custom type cableTestStatusPair0DistanceToFault based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CableTestStatusPair0DistanceToFault_Type.__name__ = "Integer32"
+_CableTestStatusPair0DistanceToFault_Object = MibTableColumn
+cableTestStatusPair0DistanceToFault = _CableTestStatusPair0DistanceToFault_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 4),
+    _CableTestStatusPair0DistanceToFault_Type()
+)
+cableTestStatusPair0DistanceToFault.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cableTestStatusPair0DistanceToFault.setStatus("current")
+
+
+class _CableTestStatusPair1State_Type(Integer32):
+    """Custom type cableTestStatusPair1State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notAvailable", 0),
+          ("pairOk", 1),
+          ("pairOpen", 2),
+          ("samePairShort", 3),
+          ("crossPairShort", 4),
+          ("terminationLow", 5),
+          ("terminationHigh", 6))
+    )
+
+
+_CableTestStatusPair1State_Type.__name__ = "Integer32"
+_CableTestStatusPair1State_Object = MibTableColumn
+cableTestStatusPair1State = _CableTestStatusPair1State_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 5),
+    _CableTestStatusPair1State_Type()
+)
+cableTestStatusPair1State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cableTestStatusPair1State.setStatus("current")
+
+
+class _CableTestStatusPair1DistanceToFault_Type(Integer32):
+    """Custom type cableTestStatusPair1DistanceToFault based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CableTestStatusPair1DistanceToFault_Type.__name__ = "Integer32"
+_CableTestStatusPair1DistanceToFault_Object = MibTableColumn
+cableTestStatusPair1DistanceToFault = _CableTestStatusPair1DistanceToFault_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 6),
+    _CableTestStatusPair1DistanceToFault_Type()
+)
+cableTestStatusPair1DistanceToFault.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cableTestStatusPair1DistanceToFault.setStatus("current")
+
+
+class _CableTestStatusPair2State_Type(Integer32):
+    """Custom type cableTestStatusPair2State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notAvailable", 0),
+          ("pairOk", 1),
+          ("pairOpen", 2),
+          ("samePairShort", 3),
+          ("crossPairShort", 4),
+          ("terminationLow", 5),
+          ("terminationHigh", 6))
+    )
+
+
+_CableTestStatusPair2State_Type.__name__ = "Integer32"
+_CableTestStatusPair2State_Object = MibTableColumn
+cableTestStatusPair2State = _CableTestStatusPair2State_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 7),
+    _CableTestStatusPair2State_Type()
+)
+cableTestStatusPair2State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cableTestStatusPair2State.setStatus("current")
+
+
+class _CableTestStatusPair2DistanceToFault_Type(Integer32):
+    """Custom type cableTestStatusPair2DistanceToFault based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CableTestStatusPair2DistanceToFault_Type.__name__ = "Integer32"
+_CableTestStatusPair2DistanceToFault_Object = MibTableColumn
+cableTestStatusPair2DistanceToFault = _CableTestStatusPair2DistanceToFault_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 8),
+    _CableTestStatusPair2DistanceToFault_Type()
+)
+cableTestStatusPair2DistanceToFault.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cableTestStatusPair2DistanceToFault.setStatus("current")
+
+
+class _CableTestStatusPair3State_Type(Integer32):
+    """Custom type cableTestStatusPair3State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notAvailable", 0),
+          ("pairOk", 1),
+          ("pairOpen", 2),
+          ("samePairShort", 3),
+          ("crossPairShort", 4),
+          ("terminationLow", 5),
+          ("terminationHigh", 6))
+    )
+
+
+_CableTestStatusPair3State_Type.__name__ = "Integer32"
+_CableTestStatusPair3State_Object = MibTableColumn
+cableTestStatusPair3State = _CableTestStatusPair3State_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 9),
+    _CableTestStatusPair3State_Type()
+)
+cableTestStatusPair3State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cableTestStatusPair3State.setStatus("current")
+
+
+class _CableTestStatusPair3DistanceToFault_Type(Integer32):
+    """Custom type cableTestStatusPair3DistanceToFault based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CableTestStatusPair3DistanceToFault_Type.__name__ = "Integer32"
+_CableTestStatusPair3DistanceToFault_Object = MibTableColumn
+cableTestStatusPair3DistanceToFault = _CableTestStatusPair3DistanceToFault_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 10),
+    _CableTestStatusPair3DistanceToFault_Type()
+)
+cableTestStatusPair3DistanceToFault.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cableTestStatusPair3DistanceToFault.setStatus("current")
+
+
+class _CableTestStatusReflectionValue_Type(Integer32):
+    """Custom type cableTestStatusReflectionValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_CableTestStatusReflectionValue_Type.__name__ = "Integer32"
+_CableTestStatusReflectionValue_Object = MibTableColumn
+cableTestStatusReflectionValue = _CableTestStatusReflectionValue_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 11),
+    _CableTestStatusReflectionValue_Type()
+)
+cableTestStatusReflectionValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cableTestStatusReflectionValue.setStatus("current")
+
+
+class _CableTestStatusCableStatus_Type(Integer32):
+    """Custom type cableTestStatusCableStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notAvailable", 0),
+          ("noCable", 1),
+          ("pluggedInLocally", 2),
+          ("pluggedInRemotely", 3),
+          ("terminatedCable", 4),
+          ("terminationTooLow", 5),
+          ("defective", 6))
+    )
+
+
+_CableTestStatusCableStatus_Type.__name__ = "Integer32"
+_CableTestStatusCableStatus_Object = MibTableColumn
+cableTestStatusCableStatus = _CableTestStatusCableStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 114, 1, 12),
+    _CableTestStatusCableStatus_Type()
+)
+cableTestStatusCableStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cableTestStatusCableStatus.setStatus("current")
+_IoSignalStatusTable_Object = MibTable
+ioSignalStatusTable = _IoSignalStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115)
+)
+if mibBuilder.loadTexts:
+    ioSignalStatusTable.setStatus("current")
+_IoSignalStatusEntry_Object = MibTableRow
+ioSignalStatusEntry = _IoSignalStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1)
+)
+ioSignalStatusEntry.setIndexNames(
+    (0, "G6-HARDWARE-MIB", "ioSignalStatusIndex"),
+)
+if mibBuilder.loadTexts:
+    ioSignalStatusEntry.setStatus("current")
+
+
+class _IoSignalStatusIndex_Type(Integer32):
+    """Custom type ioSignalStatusIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+    )
+
+
+_IoSignalStatusIndex_Type.__name__ = "Integer32"
+_IoSignalStatusIndex_Object = MibTableColumn
+ioSignalStatusIndex = _IoSignalStatusIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1, 1),
+    _IoSignalStatusIndex_Type()
+)
+ioSignalStatusIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ioSignalStatusIndex.setStatus("current")
+
+
+class _IoSignalStatusInput1AlarmActive_Type(Integer32):
+    """Custom type ioSignalStatusInput1AlarmActive based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_IoSignalStatusInput1AlarmActive_Type.__name__ = "Integer32"
+_IoSignalStatusInput1AlarmActive_Object = MibTableColumn
+ioSignalStatusInput1AlarmActive = _IoSignalStatusInput1AlarmActive_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1, 2),
+    _IoSignalStatusInput1AlarmActive_Type()
+)
+ioSignalStatusInput1AlarmActive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ioSignalStatusInput1AlarmActive.setStatus("current")
+
+
+class _IoSignalStatusInput2AlarmActive_Type(Integer32):
+    """Custom type ioSignalStatusInput2AlarmActive based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_IoSignalStatusInput2AlarmActive_Type.__name__ = "Integer32"
+_IoSignalStatusInput2AlarmActive_Object = MibTableColumn
+ioSignalStatusInput2AlarmActive = _IoSignalStatusInput2AlarmActive_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1, 3),
+    _IoSignalStatusInput2AlarmActive_Type()
+)
+ioSignalStatusInput2AlarmActive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ioSignalStatusInput2AlarmActive.setStatus("current")
+
+
+class _IoSignalStatusOutput1RelayActive_Type(Integer32):
+    """Custom type ioSignalStatusOutput1RelayActive based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_IoSignalStatusOutput1RelayActive_Type.__name__ = "Integer32"
+_IoSignalStatusOutput1RelayActive_Object = MibTableColumn
+ioSignalStatusOutput1RelayActive = _IoSignalStatusOutput1RelayActive_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1, 4),
+    _IoSignalStatusOutput1RelayActive_Type()
+)
+ioSignalStatusOutput1RelayActive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ioSignalStatusOutput1RelayActive.setStatus("current")
+
+
+class _IoSignalStatusOutput2RelayActive_Type(Integer32):
+    """Custom type ioSignalStatusOutput2RelayActive based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_IoSignalStatusOutput2RelayActive_Type.__name__ = "Integer32"
+_IoSignalStatusOutput2RelayActive_Object = MibTableColumn
+ioSignalStatusOutput2RelayActive = _IoSignalStatusOutput2RelayActive_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 115, 1, 5),
+    _IoSignalStatusOutput2RelayActive_Type()
+)
+ioSignalStatusOutput2RelayActive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ioSignalStatusOutput2RelayActive.setStatus("current")
+_TcamStatusTable_Object = MibTable
+tcamStatusTable = _TcamStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 116)
+)
+if mibBuilder.loadTexts:
+    tcamStatusTable.setStatus("current")
+_TcamStatusEntry_Object = MibTableRow
+tcamStatusEntry = _TcamStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 116, 1)
+)
+tcamStatusEntry.setIndexNames(
+    (0, "G6-HARDWARE-MIB", "tcamStatusIndex"),
+)
+if mibBuilder.loadTexts:
+    tcamStatusEntry.setStatus("current")
+
+
+class _TcamStatusIndex_Type(Integer32):
+    """Custom type tcamStatusIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_TcamStatusIndex_Type.__name__ = "Integer32"
+_TcamStatusIndex_Object = MibTableColumn
+tcamStatusIndex = _TcamStatusIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 116, 1, 1),
+    _TcamStatusIndex_Type()
+)
+tcamStatusIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tcamStatusIndex.setStatus("current")
+_TcamStatusControlFile_Type = DisplayString
+_TcamStatusControlFile_Object = MibTableColumn
+tcamStatusControlFile = _TcamStatusControlFile_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 116, 1, 2),
+    _TcamStatusControlFile_Type()
+)
+tcamStatusControlFile.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcamStatusControlFile.setStatus("current")
+_TcamStatusDescription_Type = DisplayString
+_TcamStatusDescription_Object = MibTableColumn
+tcamStatusDescription = _TcamStatusDescription_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 31, 116, 1, 3),
+    _TcamStatusDescription_Type()
+)
+tcamStatusDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcamStatusDescription.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "G6-HARDWARE-MIB",
+    **{"device": device,
+       "hardware": hardware,
+       "hardwareLedTest": hardwareLedTest,
+       "hardwareLedMode": hardwareLedMode,
+       "hardwarePowerSupply1Monitored": hardwarePowerSupply1Monitored,
+       "hardwarePowerSupply2Monitored": hardwarePowerSupply2Monitored,
+       "hardwareFactoryResetButton": hardwareFactoryResetButton,
+       "cableTestConfigTable": cableTestConfigTable,
+       "cableTestConfigEntry": cableTestConfigEntry,
+       "cableTestConfigPortIndex": cableTestConfigPortIndex,
+       "cableTestConfigEnableAutoCableTest": cableTestConfigEnableAutoCableTest,
+       "cableTestConfigEventGeneration": cableTestConfigEventGeneration,
+       "cableTestConfigReflectionThreshold": cableTestConfigReflectionThreshold,
+       "cableTestConfigReflectionHysteresis": cableTestConfigReflectionHysteresis,
+       "cableTestConfigStartTestNow": cableTestConfigStartTestNow,
+       "ioSignalConfigTable": ioSignalConfigTable,
+       "ioSignalConfigEntry": ioSignalConfigEntry,
+       "ioSignalConfigIndex": ioSignalConfigIndex,
+       "ioSignalConfigSignalMode": ioSignalConfigSignalMode,
+       "ioSignalConfigInput1Mode": ioSignalConfigInput1Mode,
+       "ioSignalConfigInput1Name": ioSignalConfigInput1Name,
+       "ioSignalConfigInput2Mode": ioSignalConfigInput2Mode,
+       "ioSignalConfigInput2Name": ioSignalConfigInput2Name,
+       "ioSignalConfigOutput1Trigger": ioSignalConfigOutput1Trigger,
+       "ioSignalConfigOutput1Name": ioSignalConfigOutput1Name,
+       "ioSignalConfigOutput2Trigger": ioSignalConfigOutput2Trigger,
+       "ioSignalConfigOutput2Name": ioSignalConfigOutput2Name,
+       "hardwarePowerSupply1Status": hardwarePowerSupply1Status,
+       "hardwarePowerSupply2Status": hardwarePowerSupply2Status,
+       "hardwareRunningOnPoe": hardwareRunningOnPoe,
+       "hardwareFanStatus": hardwareFanStatus,
+       "hardwareSdCardStatus": hardwareSdCardStatus,
+       "hardwareNumOfPorts": hardwareNumOfPorts,
+       "hardwareMaskOfExistingPorts": hardwareMaskOfExistingPorts,
+       "hardwareMaskOfSfpPorts": hardwareMaskOfSfpPorts,
+       "hardwareMaskOfPoePorts": hardwareMaskOfPoePorts,
+       "moduleInfoTable": moduleInfoTable,
+       "moduleInfoEntry": moduleInfoEntry,
+       "moduleInfoIndex": moduleInfoIndex,
+       "moduleInfoUnitType": moduleInfoUnitType,
+       "moduleInfoArticleNumber": moduleInfoArticleNumber,
+       "moduleInfoSerialNumber": moduleInfoSerialNumber,
+       "moduleInfoHardwareVersion": moduleInfoHardwareVersion,
+       "moduleInfoProjectNumber": moduleInfoProjectNumber,
+       "moduleInfoOccupiedSlots": moduleInfoOccupiedSlots,
+       "moduleInfoDescription": moduleInfoDescription,
+       "slotInfoTable": slotInfoTable,
+       "slotInfoEntry": slotInfoEntry,
+       "slotInfoIndex": slotInfoIndex,
+       "slotInfoBoardType": slotInfoBoardType,
+       "slotInfoBoardId": slotInfoBoardId,
+       "slotInfoVersionBits": slotInfoVersionBits,
+       "portInfoTable": portInfoTable,
+       "portInfoEntry": portInfoEntry,
+       "portInfoPortIndex": portInfoPortIndex,
+       "portInfoSystemSlot": portInfoSystemSlot,
+       "portInfoSwitchPort": portInfoSwitchPort,
+       "portInfoUserSlot": portInfoUserSlot,
+       "portInfoUserPort": portInfoUserPort,
+       "portInfoSnmpPort": portInfoSnmpPort,
+       "portInfoSnmpInstance": portInfoSnmpInstance,
+       "portInfoHardwarePort": portInfoHardwarePort,
+       "portInfoInterfaceType": portInfoInterfaceType,
+       "portInfoProperties": portInfoProperties,
+       "portLedsTable": portLedsTable,
+       "portLedsEntry": portLedsEntry,
+       "portLedsPortIndex": portLedsPortIndex,
+       "portLedsEthernetColor": portLedsEthernetColor,
+       "portLedsEthernetBlinking": portLedsEthernetBlinking,
+       "portLedsPoeColor": portLedsPoeColor,
+       "portLedsPoeBlinking": portLedsPoeBlinking,
+       "deviceLedsTable": deviceLedsTable,
+       "deviceLedsEntry": deviceLedsEntry,
+       "deviceLedsIndex": deviceLedsIndex,
+       "deviceLedsSystem1Color": deviceLedsSystem1Color,
+       "deviceLedsSystem1Blinking": deviceLedsSystem1Blinking,
+       "deviceLedsSystem2Color": deviceLedsSystem2Color,
+       "deviceLedsSystem2Blinking": deviceLedsSystem2Blinking,
+       "deviceLedsPowerOn1Color": deviceLedsPowerOn1Color,
+       "deviceLedsPowerOn1Blinking": deviceLedsPowerOn1Blinking,
+       "deviceLedsPowerOn2Color": deviceLedsPowerOn2Color,
+       "deviceLedsPowerOn2Blinking": deviceLedsPowerOn2Blinking,
+       "deviceLedsRing1Color": deviceLedsRing1Color,
+       "deviceLedsRing1Blinking": deviceLedsRing1Blinking,
+       "deviceLedsRing2Color": deviceLedsRing2Color,
+       "deviceLedsRing2Blinking": deviceLedsRing2Blinking,
+       "deviceLedsSignalIn1Color": deviceLedsSignalIn1Color,
+       "deviceLedsSignalIn1Blinking": deviceLedsSignalIn1Blinking,
+       "deviceLedsSignalIn2Color": deviceLedsSignalIn2Color,
+       "deviceLedsSignalIn2Blinking": deviceLedsSignalIn2Blinking,
+       "deviceLedsSignalOut1Color": deviceLedsSignalOut1Color,
+       "deviceLedsSignalOut1Blinking": deviceLedsSignalOut1Blinking,
+       "deviceLedsSignalOut2Color": deviceLedsSignalOut2Color,
+       "deviceLedsSignalOut2Blinking": deviceLedsSignalOut2Blinking,
+       "cableTestStatusTable": cableTestStatusTable,
+       "cableTestStatusEntry": cableTestStatusEntry,
+       "cableTestStatusPortIndex": cableTestStatusPortIndex,
+       "cableTestStatusUpdateTimeStamp": cableTestStatusUpdateTimeStamp,
+       "cableTestStatusPair0State": cableTestStatusPair0State,
+       "cableTestStatusPair0DistanceToFault": cableTestStatusPair0DistanceToFault,
+       "cableTestStatusPair1State": cableTestStatusPair1State,
+       "cableTestStatusPair1DistanceToFault": cableTestStatusPair1DistanceToFault,
+       "cableTestStatusPair2State": cableTestStatusPair2State,
+       "cableTestStatusPair2DistanceToFault": cableTestStatusPair2DistanceToFault,
+       "cableTestStatusPair3State": cableTestStatusPair3State,
+       "cableTestStatusPair3DistanceToFault": cableTestStatusPair3DistanceToFault,
+       "cableTestStatusReflectionValue": cableTestStatusReflectionValue,
+       "cableTestStatusCableStatus": cableTestStatusCableStatus,
+       "ioSignalStatusTable": ioSignalStatusTable,
+       "ioSignalStatusEntry": ioSignalStatusEntry,
+       "ioSignalStatusIndex": ioSignalStatusIndex,
+       "ioSignalStatusInput1AlarmActive": ioSignalStatusInput1AlarmActive,
+       "ioSignalStatusInput2AlarmActive": ioSignalStatusInput2AlarmActive,
+       "ioSignalStatusOutput1RelayActive": ioSignalStatusOutput1RelayActive,
+       "ioSignalStatusOutput2RelayActive": ioSignalStatusOutput2RelayActive,
+       "tcamStatusTable": tcamStatusTable,
+       "tcamStatusEntry": tcamStatusEntry,
+       "tcamStatusIndex": tcamStatusIndex,
+       "tcamStatusControlFile": tcamStatusControlFile,
+       "tcamStatusDescription": tcamStatusDescription}
+)

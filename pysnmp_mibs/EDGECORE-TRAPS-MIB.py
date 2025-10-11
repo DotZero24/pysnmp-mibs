@@ -1,177 +1,1191 @@
+# SNMP MIB module (EDGECORE-TRAPS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EDGECORE-TRAPS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/edgecore/EDGECORE-TRAPS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:41 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/edgecore/EDGECORE-TRAPS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:52:39 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rldot1dStpTrapVrblifIndex, rldot1dStpTrapVrblVID = mibBuilder.importSymbols("EDGECORE-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblifIndex", "rldot1dStpTrapVrblVID")
-rndErrorSeverity, rndErrorDesc = mibBuilder.importSymbols("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity", "rndErrorDesc")
-rndNotifications, = mibBuilder.importSymbols("EDGECORE-MIB", "rndNotifications")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-rxOverflowHWFault = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 3)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rxOverflowHWFault.setStatus('current')
-txOverflowHWFault = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 4)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: txOverflowHWFault.setStatus('current')
-routeTableOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 5)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: routeTableOverflow.setStatus('current')
-resetRequired = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 10)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: resetRequired.setStatus('current')
-endTftp = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 12)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: endTftp.setStatus('current')
-abortTftp = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 13)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: abortTftp.setStatus('current')
-startTftp = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 14)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: startTftp.setStatus('current')
-faultBackUp = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 23)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: faultBackUp.setStatus('current')
-mainLinkUp = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 24)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: mainLinkUp.setStatus('current')
-ipxRipTblOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 36)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: ipxRipTblOverflow.setStatus('current')
-ipxSapTblOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 37)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: ipxSapTblOverflow.setStatus('current')
-facsAccessVoilation = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 49)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: facsAccessVoilation.setStatus('current')
-autoConfigurationCompleted = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 50)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: autoConfigurationCompleted.setStatus('current')
-forwardingTabOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 51)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: forwardingTabOverflow.setStatus('current')
-framRelaySwitchConnectionUp = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 53)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: framRelaySwitchConnectionUp.setStatus('current')
-framRelaySwitchConnectionDown = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 54)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: framRelaySwitchConnectionDown.setStatus('current')
-errorsDuringInit = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 61)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: errorsDuringInit.setStatus('current')
-vlanDynPortAdded = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 66)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanDynPortAdded.setStatus('current')
-vlanDynPortRemoved = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 67)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanDynPortRemoved.setStatus('current')
-rsSDclientsTableOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 68)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsSDclientsTableOverflow.setStatus('current')
-rsSDinactiveServer = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 69)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsSDinactiveServer.setStatus('current')
-rsIpZhrConnectionsTableOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 70)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsIpZhrConnectionsTableOverflow.setStatus('current')
-rsIpZhrReqStaticConnNotAccepted = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 71)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsIpZhrReqStaticConnNotAccepted.setStatus('current')
-rsIpZhrVirtualIpAsSource = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 72)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsIpZhrVirtualIpAsSource.setStatus('current')
-rsIpZhrNotAllocVirtualIp = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 73)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsIpZhrNotAllocVirtualIp.setStatus('current')
-rsSnmpSetRequestInSpecialCfgState = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 74)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsSnmpSetRequestInSpecialCfgState.setStatus('current')
-rsPingCompletion = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 136)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsPingCompletion.setStatus('current')
-pppSecurityViolation = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 137)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: pppSecurityViolation.setStatus('current')
-frDLCIStatudChange = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 138)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: frDLCIStatudChange.setStatus('current')
-papFailedCommunication = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 139)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: papFailedCommunication.setStatus('current')
-chapFailedCommunication = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 140)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: chapFailedCommunication.setStatus('current')
-rsWSDRedundancySwitch = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 141)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsWSDRedundancySwitch.setStatus('current')
-rsDhcpAllocationFailure = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 142)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rsDhcpAllocationFailure.setStatus('current')
-rlIpFftStnOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 145)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIpFftStnOverflow.setStatus('current')
-rlIpFftSubOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 146)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIpFftSubOverflow.setStatus('current')
-rlIpxFftStnOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 147)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIpxFftStnOverflow.setStatus('current')
-rlIpxFftSubOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 148)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIpxFftSubOverflow.setStatus('current')
-rlIpmFftOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 149)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIpmFftOverflow.setStatus('current')
-rlPhysicalDescriptionChanged = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 150)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlPhysicalDescriptionChanged.setStatus('current')
-rldot1dStpPortStateForwarding = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 151)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"), ("EDGECORE-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblifIndex"), ("EDGECORE-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblVID"))
-if mibBuilder.loadTexts: rldot1dStpPortStateForwarding.setStatus('current')
-rldot1dStpPortStateNotForwarding = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 152)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"), ("EDGECORE-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblifIndex"), ("EDGECORE-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblVID"))
-if mibBuilder.loadTexts: rldot1dStpPortStateNotForwarding.setStatus('current')
-rlPolicyDropPacketTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 153)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlPolicyDropPacketTrap.setStatus('current')
-rlPolicyForwardPacketTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 154)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlPolicyForwardPacketTrap.setStatus('current')
-rlIgmpProxyTableOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 156)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIgmpProxyTableOverflow.setStatus('current')
-rlIgmpV1MsgReceived = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 157)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlIgmpV1MsgReceived.setStatus('current')
-rlVrrpEntriesDeleted = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 158)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlVrrpEntriesDeleted.setStatus('current')
-rlHotSwapTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 159)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlHotSwapTrap.setStatus('current')
-rlTrunkPortAddedTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 160)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlTrunkPortAddedTrap.setStatus('current')
-rlTrunkPortRemovedTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 161)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlTrunkPortRemovedTrap.setStatus('current')
-rlTrunkPortNotCapableTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 162)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlTrunkPortNotCapableTrap.setStatus('current')
-rlLockPortTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 170)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlLockPortTrap.setStatus('current')
-vlanDynVlanAdded = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 171)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanDynVlanAdded.setStatus('current')
-vlanDynVlanRemoved = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 172)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanDynVlanRemoved.setStatus('current')
-vlanDynamicToStatic = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 173)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanDynamicToStatic.setStatus('current')
-vlanStaticToDynamic = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 174)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: vlanStaticToDynamic.setStatus('current')
-dstrSysLog = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 175)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: dstrSysLog.setStatus('current')
-rlEnvMonFanStateChange = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 176)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlEnvMonFanStateChange.setStatus('current')
-rlEnvMonPowerSupplyStateChange = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 177)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlEnvMonPowerSupplyStateChange.setStatus('current')
-rlStackStateChange = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 178)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlStackStateChange.setStatus('current')
-rlEnvMonTemperatureRisingAlarm = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 179)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlEnvMonTemperatureRisingAlarm.setStatus('current')
-rlBrgMacAddFailedTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 183)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlBrgMacAddFailedTrap.setStatus('current')
-rldot1xPortStatusAuthorizedTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 184)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xPortStatusAuthorizedTrap.setStatus('current')
-rldot1xPortStatusUnauthorizedTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 185)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xPortStatusUnauthorizedTrap.setStatus('current')
-swIfTablePortLock = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 192)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: swIfTablePortLock.setStatus('current')
-swIfTablePortUnLock = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 193)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: swIfTablePortUnLock.setStatus('current')
-rlAAAUserLocked = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 194)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlAAAUserLocked.setStatus('current')
-bpduGuardPortSuspended = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 202)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: bpduGuardPortSuspended.setStatus('current')
-rldot1xSupplicantMacAuthorizedTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 203)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xSupplicantMacAuthorizedTrap.setStatus('current')
-rldot1xSupplicantMacUnauthorizedTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 204)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xSupplicantMacUnauthorizedTrap.setStatus('current')
-stpLoopbackDetection = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 205)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: stpLoopbackDetection.setStatus('current')
-stpLoopbackDetectionResolved = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 206)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: stpLoopbackDetectionResolved.setStatus('current')
-loopbackDetectionPortSuspended = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 207)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: loopbackDetectionPortSuspended.setStatus('current')
-rlPortSuspended = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 213)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlPortSuspended.setStatus('current')
-rlSpecialBpduDbOverflow = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 214)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlSpecialBpduDbOverflow.setStatus('current')
-rldot1xSupplicantLoggedOutTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 215)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xSupplicantLoggedOutTrap.setStatus('current')
-rldot1xPortControlModeNotAutoTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 216)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rldot1xPortControlModeNotAutoTrap.setStatus('current')
-rlEeeLldpMultipleNeighbours = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 217)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlEeeLldpMultipleNeighbours.setStatus('current')
-rlEeeLldpSingleNeighbour = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 218)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlEeeLldpSingleNeighbour.setStatus('current')
-rlStackVersionUpgradeTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 222)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlStackVersionUpgradeTrap.setStatus('current')
-rlStackVersionDowngradeTrap = NotificationType((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 223)).setObjects(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"), ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
-if mibBuilder.loadTexts: rlStackVersionDowngradeTrap.setStatus('current')
-mibBuilder.exportSymbols("EDGECORE-TRAPS-MIB", rldot1xSupplicantMacUnauthorizedTrap=rldot1xSupplicantMacUnauthorizedTrap, rsIpZhrConnectionsTableOverflow=rsIpZhrConnectionsTableOverflow, rldot1dStpPortStateForwarding=rldot1dStpPortStateForwarding, rsSDinactiveServer=rsSDinactiveServer, rlIpxFftSubOverflow=rlIpxFftSubOverflow, rlPhysicalDescriptionChanged=rlPhysicalDescriptionChanged, rlPolicyForwardPacketTrap=rlPolicyForwardPacketTrap, vlanDynamicToStatic=vlanDynamicToStatic, mainLinkUp=mainLinkUp, vlanDynPortRemoved=vlanDynPortRemoved, rldot1xSupplicantMacAuthorizedTrap=rldot1xSupplicantMacAuthorizedTrap, loopbackDetectionPortSuspended=loopbackDetectionPortSuspended, swIfTablePortUnLock=swIfTablePortUnLock, resetRequired=resetRequired, rlEeeLldpMultipleNeighbours=rlEeeLldpMultipleNeighbours, rldot1xSupplicantLoggedOutTrap=rldot1xSupplicantLoggedOutTrap, rlHotSwapTrap=rlHotSwapTrap, rldot1xPortStatusAuthorizedTrap=rldot1xPortStatusAuthorizedTrap, rlIpmFftOverflow=rlIpmFftOverflow, rsWSDRedundancySwitch=rsWSDRedundancySwitch, rlEnvMonTemperatureRisingAlarm=rlEnvMonTemperatureRisingAlarm, startTftp=startTftp, facsAccessVoilation=facsAccessVoilation, rlTrunkPortAddedTrap=rlTrunkPortAddedTrap, rsDhcpAllocationFailure=rsDhcpAllocationFailure, rsIpZhrReqStaticConnNotAccepted=rsIpZhrReqStaticConnNotAccepted, vlanDynVlanAdded=vlanDynVlanAdded, stpLoopbackDetectionResolved=stpLoopbackDetectionResolved, rsSDclientsTableOverflow=rsSDclientsTableOverflow, rlLockPortTrap=rlLockPortTrap, rsPingCompletion=rsPingCompletion, routeTableOverflow=routeTableOverflow, rlSpecialBpduDbOverflow=rlSpecialBpduDbOverflow, frDLCIStatudChange=frDLCIStatudChange, rlStackVersionDowngradeTrap=rlStackVersionDowngradeTrap, rlAAAUserLocked=rlAAAUserLocked, rldot1dStpPortStateNotForwarding=rldot1dStpPortStateNotForwarding, chapFailedCommunication=chapFailedCommunication, rsIpZhrNotAllocVirtualIp=rsIpZhrNotAllocVirtualIp, framRelaySwitchConnectionDown=framRelaySwitchConnectionDown, forwardingTabOverflow=forwardingTabOverflow, rlEnvMonPowerSupplyStateChange=rlEnvMonPowerSupplyStateChange, abortTftp=abortTftp, rlTrunkPortNotCapableTrap=rlTrunkPortNotCapableTrap, vlanStaticToDynamic=vlanStaticToDynamic, txOverflowHWFault=txOverflowHWFault, rlIpFftStnOverflow=rlIpFftStnOverflow, papFailedCommunication=papFailedCommunication, errorsDuringInit=errorsDuringInit, ipxRipTblOverflow=ipxRipTblOverflow, swIfTablePortLock=swIfTablePortLock, rsSnmpSetRequestInSpecialCfgState=rsSnmpSetRequestInSpecialCfgState, rlIpFftSubOverflow=rlIpFftSubOverflow, pppSecurityViolation=pppSecurityViolation, rlPolicyDropPacketTrap=rlPolicyDropPacketTrap, autoConfigurationCompleted=autoConfigurationCompleted, rlEeeLldpSingleNeighbour=rlEeeLldpSingleNeighbour, rlTrunkPortRemovedTrap=rlTrunkPortRemovedTrap, rlEnvMonFanStateChange=rlEnvMonFanStateChange, rlIpxFftStnOverflow=rlIpxFftStnOverflow, bpduGuardPortSuspended=bpduGuardPortSuspended, rlIgmpProxyTableOverflow=rlIgmpProxyTableOverflow, endTftp=endTftp, rsIpZhrVirtualIpAsSource=rsIpZhrVirtualIpAsSource, rlBrgMacAddFailedTrap=rlBrgMacAddFailedTrap, faultBackUp=faultBackUp, rldot1xPortControlModeNotAutoTrap=rldot1xPortControlModeNotAutoTrap, rldot1xPortStatusUnauthorizedTrap=rldot1xPortStatusUnauthorizedTrap, framRelaySwitchConnectionUp=framRelaySwitchConnectionUp, rlPortSuspended=rlPortSuspended, rlVrrpEntriesDeleted=rlVrrpEntriesDeleted, vlanDynVlanRemoved=vlanDynVlanRemoved, rlIgmpV1MsgReceived=rlIgmpV1MsgReceived, rxOverflowHWFault=rxOverflowHWFault, stpLoopbackDetection=stpLoopbackDetection, vlanDynPortAdded=vlanDynPortAdded, dstrSysLog=dstrSysLog, rlStackStateChange=rlStackStateChange, ipxSapTblOverflow=ipxSapTblOverflow, rlStackVersionUpgradeTrap=rlStackVersionUpgradeTrap)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rldot1dStpTrapVrblVID,
+ rldot1dStpTrapVrblifIndex) = mibBuilder.importSymbols(
+    "EDGECORE-BRIDGEMIBOBJECTS-MIB",
+    "rldot1dStpTrapVrblVID",
+    "rldot1dStpTrapVrblifIndex")
+
+(rndErrorDesc,
+ rndErrorSeverity) = mibBuilder.importSymbols(
+    "EDGECORE-DEVICEPARAMS-MIB",
+    "rndErrorDesc",
+    "rndErrorSeverity")
+
+(rndNotifications,) = mibBuilder.importSymbols(
+    "EDGECORE-MIB",
+    "rndNotifications")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+rxOverflowHWFault = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 3)
+)
+rxOverflowHWFault.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rxOverflowHWFault.setStatus(
+        "current"
+    )
+
+txOverflowHWFault = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 4)
+)
+txOverflowHWFault.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    txOverflowHWFault.setStatus(
+        "current"
+    )
+
+routeTableOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 5)
+)
+routeTableOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    routeTableOverflow.setStatus(
+        "current"
+    )
+
+resetRequired = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 10)
+)
+resetRequired.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    resetRequired.setStatus(
+        "current"
+    )
+
+endTftp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 12)
+)
+endTftp.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    endTftp.setStatus(
+        "current"
+    )
+
+abortTftp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 13)
+)
+abortTftp.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    abortTftp.setStatus(
+        "current"
+    )
+
+startTftp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 14)
+)
+startTftp.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    startTftp.setStatus(
+        "current"
+    )
+
+faultBackUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 23)
+)
+faultBackUp.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    faultBackUp.setStatus(
+        "current"
+    )
+
+mainLinkUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 24)
+)
+mainLinkUp.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    mainLinkUp.setStatus(
+        "current"
+    )
+
+ipxRipTblOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 36)
+)
+ipxRipTblOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    ipxRipTblOverflow.setStatus(
+        "current"
+    )
+
+ipxSapTblOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 37)
+)
+ipxSapTblOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    ipxSapTblOverflow.setStatus(
+        "current"
+    )
+
+facsAccessVoilation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 49)
+)
+facsAccessVoilation.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    facsAccessVoilation.setStatus(
+        "current"
+    )
+
+autoConfigurationCompleted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 50)
+)
+autoConfigurationCompleted.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    autoConfigurationCompleted.setStatus(
+        "current"
+    )
+
+forwardingTabOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 51)
+)
+forwardingTabOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    forwardingTabOverflow.setStatus(
+        "current"
+    )
+
+framRelaySwitchConnectionUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 53)
+)
+framRelaySwitchConnectionUp.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    framRelaySwitchConnectionUp.setStatus(
+        "current"
+    )
+
+framRelaySwitchConnectionDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 54)
+)
+framRelaySwitchConnectionDown.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    framRelaySwitchConnectionDown.setStatus(
+        "current"
+    )
+
+errorsDuringInit = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 61)
+)
+errorsDuringInit.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    errorsDuringInit.setStatus(
+        "current"
+    )
+
+vlanDynPortAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 66)
+)
+vlanDynPortAdded.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanDynPortAdded.setStatus(
+        "current"
+    )
+
+vlanDynPortRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 67)
+)
+vlanDynPortRemoved.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanDynPortRemoved.setStatus(
+        "current"
+    )
+
+rsSDclientsTableOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 68)
+)
+rsSDclientsTableOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsSDclientsTableOverflow.setStatus(
+        "current"
+    )
+
+rsSDinactiveServer = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 69)
+)
+rsSDinactiveServer.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsSDinactiveServer.setStatus(
+        "current"
+    )
+
+rsIpZhrConnectionsTableOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 70)
+)
+rsIpZhrConnectionsTableOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsIpZhrConnectionsTableOverflow.setStatus(
+        "current"
+    )
+
+rsIpZhrReqStaticConnNotAccepted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 71)
+)
+rsIpZhrReqStaticConnNotAccepted.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsIpZhrReqStaticConnNotAccepted.setStatus(
+        "current"
+    )
+
+rsIpZhrVirtualIpAsSource = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 72)
+)
+rsIpZhrVirtualIpAsSource.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsIpZhrVirtualIpAsSource.setStatus(
+        "current"
+    )
+
+rsIpZhrNotAllocVirtualIp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 73)
+)
+rsIpZhrNotAllocVirtualIp.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsIpZhrNotAllocVirtualIp.setStatus(
+        "current"
+    )
+
+rsSnmpSetRequestInSpecialCfgState = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 74)
+)
+rsSnmpSetRequestInSpecialCfgState.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsSnmpSetRequestInSpecialCfgState.setStatus(
+        "current"
+    )
+
+rsPingCompletion = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 136)
+)
+rsPingCompletion.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsPingCompletion.setStatus(
+        "current"
+    )
+
+pppSecurityViolation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 137)
+)
+pppSecurityViolation.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    pppSecurityViolation.setStatus(
+        "current"
+    )
+
+frDLCIStatudChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 138)
+)
+frDLCIStatudChange.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    frDLCIStatudChange.setStatus(
+        "current"
+    )
+
+papFailedCommunication = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 139)
+)
+papFailedCommunication.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    papFailedCommunication.setStatus(
+        "current"
+    )
+
+chapFailedCommunication = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 140)
+)
+chapFailedCommunication.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    chapFailedCommunication.setStatus(
+        "current"
+    )
+
+rsWSDRedundancySwitch = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 141)
+)
+rsWSDRedundancySwitch.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsWSDRedundancySwitch.setStatus(
+        "current"
+    )
+
+rsDhcpAllocationFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 142)
+)
+rsDhcpAllocationFailure.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rsDhcpAllocationFailure.setStatus(
+        "current"
+    )
+
+rlIpFftStnOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 145)
+)
+rlIpFftStnOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIpFftStnOverflow.setStatus(
+        "current"
+    )
+
+rlIpFftSubOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 146)
+)
+rlIpFftSubOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIpFftSubOverflow.setStatus(
+        "current"
+    )
+
+rlIpxFftStnOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 147)
+)
+rlIpxFftStnOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIpxFftStnOverflow.setStatus(
+        "current"
+    )
+
+rlIpxFftSubOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 148)
+)
+rlIpxFftSubOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIpxFftSubOverflow.setStatus(
+        "current"
+    )
+
+rlIpmFftOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 149)
+)
+rlIpmFftOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIpmFftOverflow.setStatus(
+        "current"
+    )
+
+rlPhysicalDescriptionChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 150)
+)
+rlPhysicalDescriptionChanged.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlPhysicalDescriptionChanged.setStatus(
+        "current"
+    )
+
+rldot1dStpPortStateForwarding = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 151)
+)
+rldot1dStpPortStateForwarding.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"),
+        ("EDGECORE-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblifIndex"),
+        ("EDGECORE-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblVID"))
+)
+if mibBuilder.loadTexts:
+    rldot1dStpPortStateForwarding.setStatus(
+        "current"
+    )
+
+rldot1dStpPortStateNotForwarding = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 152)
+)
+rldot1dStpPortStateNotForwarding.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"),
+        ("EDGECORE-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblifIndex"),
+        ("EDGECORE-BRIDGEMIBOBJECTS-MIB", "rldot1dStpTrapVrblVID"))
+)
+if mibBuilder.loadTexts:
+    rldot1dStpPortStateNotForwarding.setStatus(
+        "current"
+    )
+
+rlPolicyDropPacketTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 153)
+)
+rlPolicyDropPacketTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlPolicyDropPacketTrap.setStatus(
+        "current"
+    )
+
+rlPolicyForwardPacketTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 154)
+)
+rlPolicyForwardPacketTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlPolicyForwardPacketTrap.setStatus(
+        "current"
+    )
+
+rlIgmpProxyTableOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 156)
+)
+rlIgmpProxyTableOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIgmpProxyTableOverflow.setStatus(
+        "current"
+    )
+
+rlIgmpV1MsgReceived = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 157)
+)
+rlIgmpV1MsgReceived.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlIgmpV1MsgReceived.setStatus(
+        "current"
+    )
+
+rlVrrpEntriesDeleted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 158)
+)
+rlVrrpEntriesDeleted.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlVrrpEntriesDeleted.setStatus(
+        "current"
+    )
+
+rlHotSwapTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 159)
+)
+rlHotSwapTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlHotSwapTrap.setStatus(
+        "current"
+    )
+
+rlTrunkPortAddedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 160)
+)
+rlTrunkPortAddedTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlTrunkPortAddedTrap.setStatus(
+        "current"
+    )
+
+rlTrunkPortRemovedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 161)
+)
+rlTrunkPortRemovedTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlTrunkPortRemovedTrap.setStatus(
+        "current"
+    )
+
+rlTrunkPortNotCapableTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 162)
+)
+rlTrunkPortNotCapableTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlTrunkPortNotCapableTrap.setStatus(
+        "current"
+    )
+
+rlLockPortTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 170)
+)
+rlLockPortTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlLockPortTrap.setStatus(
+        "current"
+    )
+
+vlanDynVlanAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 171)
+)
+vlanDynVlanAdded.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanDynVlanAdded.setStatus(
+        "current"
+    )
+
+vlanDynVlanRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 172)
+)
+vlanDynVlanRemoved.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanDynVlanRemoved.setStatus(
+        "current"
+    )
+
+vlanDynamicToStatic = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 173)
+)
+vlanDynamicToStatic.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanDynamicToStatic.setStatus(
+        "current"
+    )
+
+vlanStaticToDynamic = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 174)
+)
+vlanStaticToDynamic.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    vlanStaticToDynamic.setStatus(
+        "current"
+    )
+
+dstrSysLog = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 175)
+)
+dstrSysLog.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    dstrSysLog.setStatus(
+        "current"
+    )
+
+rlEnvMonFanStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 176)
+)
+rlEnvMonFanStateChange.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlEnvMonFanStateChange.setStatus(
+        "current"
+    )
+
+rlEnvMonPowerSupplyStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 177)
+)
+rlEnvMonPowerSupplyStateChange.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlEnvMonPowerSupplyStateChange.setStatus(
+        "current"
+    )
+
+rlStackStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 178)
+)
+rlStackStateChange.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlStackStateChange.setStatus(
+        "current"
+    )
+
+rlEnvMonTemperatureRisingAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 179)
+)
+rlEnvMonTemperatureRisingAlarm.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlEnvMonTemperatureRisingAlarm.setStatus(
+        "current"
+    )
+
+rlBrgMacAddFailedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 183)
+)
+rlBrgMacAddFailedTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlBrgMacAddFailedTrap.setStatus(
+        "current"
+    )
+
+rldot1xPortStatusAuthorizedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 184)
+)
+rldot1xPortStatusAuthorizedTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xPortStatusAuthorizedTrap.setStatus(
+        "current"
+    )
+
+rldot1xPortStatusUnauthorizedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 185)
+)
+rldot1xPortStatusUnauthorizedTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xPortStatusUnauthorizedTrap.setStatus(
+        "current"
+    )
+
+swIfTablePortLock = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 192)
+)
+swIfTablePortLock.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    swIfTablePortLock.setStatus(
+        "current"
+    )
+
+swIfTablePortUnLock = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 193)
+)
+swIfTablePortUnLock.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    swIfTablePortUnLock.setStatus(
+        "current"
+    )
+
+rlAAAUserLocked = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 194)
+)
+rlAAAUserLocked.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlAAAUserLocked.setStatus(
+        "current"
+    )
+
+bpduGuardPortSuspended = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 202)
+)
+bpduGuardPortSuspended.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    bpduGuardPortSuspended.setStatus(
+        "current"
+    )
+
+rldot1xSupplicantMacAuthorizedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 203)
+)
+rldot1xSupplicantMacAuthorizedTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantMacAuthorizedTrap.setStatus(
+        "current"
+    )
+
+rldot1xSupplicantMacUnauthorizedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 204)
+)
+rldot1xSupplicantMacUnauthorizedTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantMacUnauthorizedTrap.setStatus(
+        "current"
+    )
+
+stpLoopbackDetection = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 205)
+)
+stpLoopbackDetection.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    stpLoopbackDetection.setStatus(
+        "current"
+    )
+
+stpLoopbackDetectionResolved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 206)
+)
+stpLoopbackDetectionResolved.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    stpLoopbackDetectionResolved.setStatus(
+        "current"
+    )
+
+loopbackDetectionPortSuspended = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 207)
+)
+loopbackDetectionPortSuspended.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    loopbackDetectionPortSuspended.setStatus(
+        "current"
+    )
+
+rlPortSuspended = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 213)
+)
+rlPortSuspended.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlPortSuspended.setStatus(
+        "current"
+    )
+
+rlSpecialBpduDbOverflow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 214)
+)
+rlSpecialBpduDbOverflow.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlSpecialBpduDbOverflow.setStatus(
+        "current"
+    )
+
+rldot1xSupplicantLoggedOutTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 215)
+)
+rldot1xSupplicantLoggedOutTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xSupplicantLoggedOutTrap.setStatus(
+        "current"
+    )
+
+rldot1xPortControlModeNotAutoTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 216)
+)
+rldot1xPortControlModeNotAutoTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rldot1xPortControlModeNotAutoTrap.setStatus(
+        "current"
+    )
+
+rlEeeLldpMultipleNeighbours = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 217)
+)
+rlEeeLldpMultipleNeighbours.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlEeeLldpMultipleNeighbours.setStatus(
+        "current"
+    )
+
+rlEeeLldpSingleNeighbour = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 218)
+)
+rlEeeLldpSingleNeighbour.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlEeeLldpSingleNeighbour.setStatus(
+        "current"
+    )
+
+rlStackVersionUpgradeTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 222)
+)
+rlStackVersionUpgradeTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlStackVersionUpgradeTrap.setStatus(
+        "current"
+    )
+
+rlStackVersionDowngradeTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 0, 223)
+)
+rlStackVersionDowngradeTrap.setObjects(
+      *(("EDGECORE-DEVICEPARAMS-MIB", "rndErrorDesc"),
+        ("EDGECORE-DEVICEPARAMS-MIB", "rndErrorSeverity"))
+)
+if mibBuilder.loadTexts:
+    rlStackVersionDowngradeTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EDGECORE-TRAPS-MIB",
+    **{"rxOverflowHWFault": rxOverflowHWFault,
+       "txOverflowHWFault": txOverflowHWFault,
+       "routeTableOverflow": routeTableOverflow,
+       "resetRequired": resetRequired,
+       "endTftp": endTftp,
+       "abortTftp": abortTftp,
+       "startTftp": startTftp,
+       "faultBackUp": faultBackUp,
+       "mainLinkUp": mainLinkUp,
+       "ipxRipTblOverflow": ipxRipTblOverflow,
+       "ipxSapTblOverflow": ipxSapTblOverflow,
+       "facsAccessVoilation": facsAccessVoilation,
+       "autoConfigurationCompleted": autoConfigurationCompleted,
+       "forwardingTabOverflow": forwardingTabOverflow,
+       "framRelaySwitchConnectionUp": framRelaySwitchConnectionUp,
+       "framRelaySwitchConnectionDown": framRelaySwitchConnectionDown,
+       "errorsDuringInit": errorsDuringInit,
+       "vlanDynPortAdded": vlanDynPortAdded,
+       "vlanDynPortRemoved": vlanDynPortRemoved,
+       "rsSDclientsTableOverflow": rsSDclientsTableOverflow,
+       "rsSDinactiveServer": rsSDinactiveServer,
+       "rsIpZhrConnectionsTableOverflow": rsIpZhrConnectionsTableOverflow,
+       "rsIpZhrReqStaticConnNotAccepted": rsIpZhrReqStaticConnNotAccepted,
+       "rsIpZhrVirtualIpAsSource": rsIpZhrVirtualIpAsSource,
+       "rsIpZhrNotAllocVirtualIp": rsIpZhrNotAllocVirtualIp,
+       "rsSnmpSetRequestInSpecialCfgState": rsSnmpSetRequestInSpecialCfgState,
+       "rsPingCompletion": rsPingCompletion,
+       "pppSecurityViolation": pppSecurityViolation,
+       "frDLCIStatudChange": frDLCIStatudChange,
+       "papFailedCommunication": papFailedCommunication,
+       "chapFailedCommunication": chapFailedCommunication,
+       "rsWSDRedundancySwitch": rsWSDRedundancySwitch,
+       "rsDhcpAllocationFailure": rsDhcpAllocationFailure,
+       "rlIpFftStnOverflow": rlIpFftStnOverflow,
+       "rlIpFftSubOverflow": rlIpFftSubOverflow,
+       "rlIpxFftStnOverflow": rlIpxFftStnOverflow,
+       "rlIpxFftSubOverflow": rlIpxFftSubOverflow,
+       "rlIpmFftOverflow": rlIpmFftOverflow,
+       "rlPhysicalDescriptionChanged": rlPhysicalDescriptionChanged,
+       "rldot1dStpPortStateForwarding": rldot1dStpPortStateForwarding,
+       "rldot1dStpPortStateNotForwarding": rldot1dStpPortStateNotForwarding,
+       "rlPolicyDropPacketTrap": rlPolicyDropPacketTrap,
+       "rlPolicyForwardPacketTrap": rlPolicyForwardPacketTrap,
+       "rlIgmpProxyTableOverflow": rlIgmpProxyTableOverflow,
+       "rlIgmpV1MsgReceived": rlIgmpV1MsgReceived,
+       "rlVrrpEntriesDeleted": rlVrrpEntriesDeleted,
+       "rlHotSwapTrap": rlHotSwapTrap,
+       "rlTrunkPortAddedTrap": rlTrunkPortAddedTrap,
+       "rlTrunkPortRemovedTrap": rlTrunkPortRemovedTrap,
+       "rlTrunkPortNotCapableTrap": rlTrunkPortNotCapableTrap,
+       "rlLockPortTrap": rlLockPortTrap,
+       "vlanDynVlanAdded": vlanDynVlanAdded,
+       "vlanDynVlanRemoved": vlanDynVlanRemoved,
+       "vlanDynamicToStatic": vlanDynamicToStatic,
+       "vlanStaticToDynamic": vlanStaticToDynamic,
+       "dstrSysLog": dstrSysLog,
+       "rlEnvMonFanStateChange": rlEnvMonFanStateChange,
+       "rlEnvMonPowerSupplyStateChange": rlEnvMonPowerSupplyStateChange,
+       "rlStackStateChange": rlStackStateChange,
+       "rlEnvMonTemperatureRisingAlarm": rlEnvMonTemperatureRisingAlarm,
+       "rlBrgMacAddFailedTrap": rlBrgMacAddFailedTrap,
+       "rldot1xPortStatusAuthorizedTrap": rldot1xPortStatusAuthorizedTrap,
+       "rldot1xPortStatusUnauthorizedTrap": rldot1xPortStatusUnauthorizedTrap,
+       "swIfTablePortLock": swIfTablePortLock,
+       "swIfTablePortUnLock": swIfTablePortUnLock,
+       "rlAAAUserLocked": rlAAAUserLocked,
+       "bpduGuardPortSuspended": bpduGuardPortSuspended,
+       "rldot1xSupplicantMacAuthorizedTrap": rldot1xSupplicantMacAuthorizedTrap,
+       "rldot1xSupplicantMacUnauthorizedTrap": rldot1xSupplicantMacUnauthorizedTrap,
+       "stpLoopbackDetection": stpLoopbackDetection,
+       "stpLoopbackDetectionResolved": stpLoopbackDetectionResolved,
+       "loopbackDetectionPortSuspended": loopbackDetectionPortSuspended,
+       "rlPortSuspended": rlPortSuspended,
+       "rlSpecialBpduDbOverflow": rlSpecialBpduDbOverflow,
+       "rldot1xSupplicantLoggedOutTrap": rldot1xSupplicantLoggedOutTrap,
+       "rldot1xPortControlModeNotAutoTrap": rldot1xPortControlModeNotAutoTrap,
+       "rlEeeLldpMultipleNeighbours": rlEeeLldpMultipleNeighbours,
+       "rlEeeLldpSingleNeighbour": rlEeeLldpSingleNeighbour,
+       "rlStackVersionUpgradeTrap": rlStackVersionUpgradeTrap,
+       "rlStackVersionDowngradeTrap": rlStackVersionDowngradeTrap}
+)

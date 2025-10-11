@@ -1,82 +1,462 @@
+# SNMP MIB module (CIE1000-AGGR-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CIE1000-AGGR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CIE1000-AGGR-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:27:26 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CIE1000-AGGR-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:33:33 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-CIE1000InterfaceIndex, CIE1000PortList, CIE1000RowEditorState, CIE1000DisplayString, CIE1000PortStatusSpeed = mibBuilder.importSymbols("CIE1000-TC", "CIE1000InterfaceIndex", "CIE1000PortList", "CIE1000RowEditorState", "CIE1000DisplayString", "CIE1000PortStatusSpeed")
-cie1000SwitchMgmt, = mibBuilder.importSymbols("CISCO-IE1000-MIB", "cie1000SwitchMgmt")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-cie1000AggrMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19))
-cie1000AggrMib.setRevisions(('2015-07-07 00:00', '2014-11-18 00:00', '2014-07-01 00:00',))
-if mibBuilder.loadTexts: cie1000AggrMib.setLastUpdated('201507070000Z')
-if mibBuilder.loadTexts: cie1000AggrMib.setOrganization('Cisco Systems, Inc.')
-cie1000AggrMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1))
-cie1000AggrConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2))
-cie1000AggrConfigModeGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 1))
-cie1000AggrConfigModeGlobalsSmacAddr = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000AggrConfigModeGlobalsSmacAddr.setStatus('current')
-cie1000AggrConfigModeGlobalsDmacAddr = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 1, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000AggrConfigModeGlobalsDmacAddr.setStatus('current')
-cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 1, 3), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr.setStatus('current')
-cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 1, 4), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo.setStatus('current')
-cie1000AggrConfigGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 2), )
-if mibBuilder.loadTexts: cie1000AggrConfigGroupTable.setStatus('current')
-cie1000AggrConfigGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 2, 1), ).setIndexNames((0, "CIE1000-AGGR-MIB", "cie1000AggrConfigGroupAggrIndexNo"))
-if mibBuilder.loadTexts: cie1000AggrConfigGroupEntry.setStatus('current')
-cie1000AggrConfigGroupAggrIndexNo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 2, 1, 1), CIE1000InterfaceIndex()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: cie1000AggrConfigGroupAggrIndexNo.setStatus('current')
-cie1000AggrConfigGroupPortMembers = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 2, 1, 2), CIE1000PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000AggrConfigGroupPortMembers.setStatus('current')
-cie1000AggrConfigGroupAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 2, 1, 100), CIE1000RowEditorState()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000AggrConfigGroupAction.setStatus('current')
-cie1000AggrConfigGroupTableRowEditor = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 3))
-cie1000AggrConfigGroupTableRowEditorAggrIndexNo = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 3, 1), CIE1000InterfaceIndex()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000AggrConfigGroupTableRowEditorAggrIndexNo.setStatus('current')
-cie1000AggrConfigGroupTableRowEditorPortMembers = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 3, 2), CIE1000PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000AggrConfigGroupTableRowEditorPortMembers.setStatus('current')
-cie1000AggrConfigGroupTableRowEditorAction = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 3, 100), CIE1000RowEditorState()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000AggrConfigGroupTableRowEditorAction.setStatus('current')
-cie1000AggrStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3))
-cie1000AggrStatusGroupTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1), )
-if mibBuilder.loadTexts: cie1000AggrStatusGroupTable.setStatus('current')
-cie1000AggrStatusGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1), ).setIndexNames((0, "CIE1000-AGGR-MIB", "cie1000AggrStatusGroupAggrIndexNo"))
-if mibBuilder.loadTexts: cie1000AggrStatusGroupEntry.setStatus('current')
-cie1000AggrStatusGroupAggrIndexNo = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1, 1), CIE1000InterfaceIndex()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: cie1000AggrStatusGroupAggrIndexNo.setStatus('current')
-cie1000AggrStatusGroupConfiguredPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1, 2), CIE1000PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cie1000AggrStatusGroupConfiguredPorts.setStatus('current')
-cie1000AggrStatusGroupAggregatedPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1, 3), CIE1000PortList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cie1000AggrStatusGroupAggregatedPorts.setStatus('current')
-cie1000AggrStatusGroupSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1, 4), CIE1000PortStatusSpeed()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cie1000AggrStatusGroupSpeed.setStatus('current')
-cie1000AggrStatusGroupType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1, 5), CIE1000DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 6))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cie1000AggrStatusGroupType.setStatus('current')
-cie1000AggrMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2))
-cie1000AggrMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 1))
-cie1000AggrMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 2))
-cie1000AggrConfigModeGlobalsInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 2, 1)).setObjects(("CIE1000-AGGR-MIB", "cie1000AggrConfigModeGlobalsSmacAddr"), ("CIE1000-AGGR-MIB", "cie1000AggrConfigModeGlobalsDmacAddr"), ("CIE1000-AGGR-MIB", "cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr"), ("CIE1000-AGGR-MIB", "cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cie1000AggrConfigModeGlobalsInfoGroup = cie1000AggrConfigModeGlobalsInfoGroup.setStatus('current')
-cie1000AggrConfigGroupTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 2, 2)).setObjects(("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupAggrIndexNo"), ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupPortMembers"), ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupAction"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cie1000AggrConfigGroupTableInfoGroup = cie1000AggrConfigGroupTableInfoGroup.setStatus('current')
-cie1000AggrConfigGroupTableRowEditorInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 2, 3)).setObjects(("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupTableRowEditorAggrIndexNo"), ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupTableRowEditorPortMembers"), ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupTableRowEditorAction"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cie1000AggrConfigGroupTableRowEditorInfoGroup = cie1000AggrConfigGroupTableRowEditorInfoGroup.setStatus('current')
-cie1000AggrStatusGroupTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 2, 4)).setObjects(("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupAggrIndexNo"), ("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupConfiguredPorts"), ("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupAggregatedPorts"), ("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupSpeed"), ("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cie1000AggrStatusGroupTableInfoGroup = cie1000AggrStatusGroupTableInfoGroup.setStatus('current')
-cie1000AggrMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 1, 1)).setObjects(("CIE1000-AGGR-MIB", "cie1000AggrConfigModeGlobalsInfoGroup"), ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupTableInfoGroup"), ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupTableRowEditorInfoGroup"), ("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupTableInfoGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cie1000AggrMibCompliance = cie1000AggrMibCompliance.setStatus('current')
-mibBuilder.exportSymbols("CIE1000-AGGR-MIB", cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr=cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr, cie1000AggrMibConformance=cie1000AggrMibConformance, cie1000AggrConfigGroupTableRowEditorInfoGroup=cie1000AggrConfigGroupTableRowEditorInfoGroup, cie1000AggrConfigGroupTable=cie1000AggrConfigGroupTable, cie1000AggrConfigGroupTableRowEditor=cie1000AggrConfigGroupTableRowEditor, cie1000AggrConfigGroupAction=cie1000AggrConfigGroupAction, PYSNMP_MODULE_ID=cie1000AggrMib, cie1000AggrConfigModeGlobals=cie1000AggrConfigModeGlobals, cie1000AggrMibGroups=cie1000AggrMibGroups, cie1000AggrMibObjects=cie1000AggrMibObjects, cie1000AggrMib=cie1000AggrMib, cie1000AggrConfigGroupTableInfoGroup=cie1000AggrConfigGroupTableInfoGroup, cie1000AggrStatusGroupTableInfoGroup=cie1000AggrStatusGroupTableInfoGroup, cie1000AggrConfigModeGlobalsDmacAddr=cie1000AggrConfigModeGlobalsDmacAddr, cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo=cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo, cie1000AggrConfigGroupTableRowEditorPortMembers=cie1000AggrConfigGroupTableRowEditorPortMembers, cie1000AggrStatusGroupAggregatedPorts=cie1000AggrStatusGroupAggregatedPorts, cie1000AggrMibCompliances=cie1000AggrMibCompliances, cie1000AggrStatusGroupConfiguredPorts=cie1000AggrStatusGroupConfiguredPorts, cie1000AggrStatusGroupSpeed=cie1000AggrStatusGroupSpeed, cie1000AggrConfigGroupAggrIndexNo=cie1000AggrConfigGroupAggrIndexNo, cie1000AggrMibCompliance=cie1000AggrMibCompliance, cie1000AggrConfigModeGlobalsSmacAddr=cie1000AggrConfigModeGlobalsSmacAddr, cie1000AggrConfigGroupEntry=cie1000AggrConfigGroupEntry, cie1000AggrConfigModeGlobalsInfoGroup=cie1000AggrConfigModeGlobalsInfoGroup, cie1000AggrStatusGroupAggrIndexNo=cie1000AggrStatusGroupAggrIndexNo, cie1000AggrConfig=cie1000AggrConfig, cie1000AggrStatusGroupTable=cie1000AggrStatusGroupTable, cie1000AggrConfigGroupPortMembers=cie1000AggrConfigGroupPortMembers, cie1000AggrStatus=cie1000AggrStatus, cie1000AggrStatusGroupType=cie1000AggrStatusGroupType, cie1000AggrStatusGroupEntry=cie1000AggrStatusGroupEntry, cie1000AggrConfigGroupTableRowEditorAction=cie1000AggrConfigGroupTableRowEditorAction, cie1000AggrConfigGroupTableRowEditorAggrIndexNo=cie1000AggrConfigGroupTableRowEditorAggrIndexNo)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(CIE1000DisplayString,
+ CIE1000InterfaceIndex,
+ CIE1000PortList,
+ CIE1000PortStatusSpeed,
+ CIE1000RowEditorState) = mibBuilder.importSymbols(
+    "CIE1000-TC",
+    "CIE1000DisplayString",
+    "CIE1000InterfaceIndex",
+    "CIE1000PortList",
+    "CIE1000PortStatusSpeed",
+    "CIE1000RowEditorState")
+
+(cie1000SwitchMgmt,) = mibBuilder.importSymbols(
+    "CISCO-IE1000-MIB",
+    "cie1000SwitchMgmt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cie1000AggrMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19)
+)
+if mibBuilder.loadTexts:
+    cie1000AggrMib.setRevisions(
+        ("2015-07-07 00:00",
+         "2014-11-18 00:00",
+         "2014-07-01 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Cie1000AggrMibObjects_ObjectIdentity = ObjectIdentity
+cie1000AggrMibObjects = _Cie1000AggrMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1)
+)
+_Cie1000AggrConfig_ObjectIdentity = ObjectIdentity
+cie1000AggrConfig = _Cie1000AggrConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2)
+)
+_Cie1000AggrConfigModeGlobals_ObjectIdentity = ObjectIdentity
+cie1000AggrConfigModeGlobals = _Cie1000AggrConfigModeGlobals_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 1)
+)
+_Cie1000AggrConfigModeGlobalsSmacAddr_Type = TruthValue
+_Cie1000AggrConfigModeGlobalsSmacAddr_Object = MibScalar
+cie1000AggrConfigModeGlobalsSmacAddr = _Cie1000AggrConfigModeGlobalsSmacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 1, 1),
+    _Cie1000AggrConfigModeGlobalsSmacAddr_Type()
+)
+cie1000AggrConfigModeGlobalsSmacAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000AggrConfigModeGlobalsSmacAddr.setStatus("current")
+_Cie1000AggrConfigModeGlobalsDmacAddr_Type = TruthValue
+_Cie1000AggrConfigModeGlobalsDmacAddr_Object = MibScalar
+cie1000AggrConfigModeGlobalsDmacAddr = _Cie1000AggrConfigModeGlobalsDmacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 1, 2),
+    _Cie1000AggrConfigModeGlobalsDmacAddr_Type()
+)
+cie1000AggrConfigModeGlobalsDmacAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000AggrConfigModeGlobalsDmacAddr.setStatus("current")
+_Cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr_Type = TruthValue
+_Cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr_Object = MibScalar
+cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr = _Cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 1, 3),
+    _Cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr_Type()
+)
+cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr.setStatus("current")
+_Cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo_Type = TruthValue
+_Cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo_Object = MibScalar
+cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo = _Cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 1, 4),
+    _Cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo_Type()
+)
+cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo.setStatus("current")
+_Cie1000AggrConfigGroupTable_Object = MibTable
+cie1000AggrConfigGroupTable = _Cie1000AggrConfigGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    cie1000AggrConfigGroupTable.setStatus("current")
+_Cie1000AggrConfigGroupEntry_Object = MibTableRow
+cie1000AggrConfigGroupEntry = _Cie1000AggrConfigGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 2, 1)
+)
+cie1000AggrConfigGroupEntry.setIndexNames(
+    (0, "CIE1000-AGGR-MIB", "cie1000AggrConfigGroupAggrIndexNo"),
+)
+if mibBuilder.loadTexts:
+    cie1000AggrConfigGroupEntry.setStatus("current")
+_Cie1000AggrConfigGroupAggrIndexNo_Type = CIE1000InterfaceIndex
+_Cie1000AggrConfigGroupAggrIndexNo_Object = MibTableColumn
+cie1000AggrConfigGroupAggrIndexNo = _Cie1000AggrConfigGroupAggrIndexNo_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 2, 1, 1),
+    _Cie1000AggrConfigGroupAggrIndexNo_Type()
+)
+cie1000AggrConfigGroupAggrIndexNo.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    cie1000AggrConfigGroupAggrIndexNo.setStatus("current")
+_Cie1000AggrConfigGroupPortMembers_Type = CIE1000PortList
+_Cie1000AggrConfigGroupPortMembers_Object = MibTableColumn
+cie1000AggrConfigGroupPortMembers = _Cie1000AggrConfigGroupPortMembers_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 2, 1, 2),
+    _Cie1000AggrConfigGroupPortMembers_Type()
+)
+cie1000AggrConfigGroupPortMembers.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000AggrConfigGroupPortMembers.setStatus("current")
+_Cie1000AggrConfigGroupAction_Type = CIE1000RowEditorState
+_Cie1000AggrConfigGroupAction_Object = MibTableColumn
+cie1000AggrConfigGroupAction = _Cie1000AggrConfigGroupAction_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 2, 1, 100),
+    _Cie1000AggrConfigGroupAction_Type()
+)
+cie1000AggrConfigGroupAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000AggrConfigGroupAction.setStatus("current")
+_Cie1000AggrConfigGroupTableRowEditor_ObjectIdentity = ObjectIdentity
+cie1000AggrConfigGroupTableRowEditor = _Cie1000AggrConfigGroupTableRowEditor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 3)
+)
+_Cie1000AggrConfigGroupTableRowEditorAggrIndexNo_Type = CIE1000InterfaceIndex
+_Cie1000AggrConfigGroupTableRowEditorAggrIndexNo_Object = MibScalar
+cie1000AggrConfigGroupTableRowEditorAggrIndexNo = _Cie1000AggrConfigGroupTableRowEditorAggrIndexNo_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 3, 1),
+    _Cie1000AggrConfigGroupTableRowEditorAggrIndexNo_Type()
+)
+cie1000AggrConfigGroupTableRowEditorAggrIndexNo.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000AggrConfigGroupTableRowEditorAggrIndexNo.setStatus("current")
+_Cie1000AggrConfigGroupTableRowEditorPortMembers_Type = CIE1000PortList
+_Cie1000AggrConfigGroupTableRowEditorPortMembers_Object = MibScalar
+cie1000AggrConfigGroupTableRowEditorPortMembers = _Cie1000AggrConfigGroupTableRowEditorPortMembers_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 3, 2),
+    _Cie1000AggrConfigGroupTableRowEditorPortMembers_Type()
+)
+cie1000AggrConfigGroupTableRowEditorPortMembers.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000AggrConfigGroupTableRowEditorPortMembers.setStatus("current")
+_Cie1000AggrConfigGroupTableRowEditorAction_Type = CIE1000RowEditorState
+_Cie1000AggrConfigGroupTableRowEditorAction_Object = MibScalar
+cie1000AggrConfigGroupTableRowEditorAction = _Cie1000AggrConfigGroupTableRowEditorAction_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 2, 3, 100),
+    _Cie1000AggrConfigGroupTableRowEditorAction_Type()
+)
+cie1000AggrConfigGroupTableRowEditorAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000AggrConfigGroupTableRowEditorAction.setStatus("current")
+_Cie1000AggrStatus_ObjectIdentity = ObjectIdentity
+cie1000AggrStatus = _Cie1000AggrStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3)
+)
+_Cie1000AggrStatusGroupTable_Object = MibTable
+cie1000AggrStatusGroupTable = _Cie1000AggrStatusGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    cie1000AggrStatusGroupTable.setStatus("current")
+_Cie1000AggrStatusGroupEntry_Object = MibTableRow
+cie1000AggrStatusGroupEntry = _Cie1000AggrStatusGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1)
+)
+cie1000AggrStatusGroupEntry.setIndexNames(
+    (0, "CIE1000-AGGR-MIB", "cie1000AggrStatusGroupAggrIndexNo"),
+)
+if mibBuilder.loadTexts:
+    cie1000AggrStatusGroupEntry.setStatus("current")
+_Cie1000AggrStatusGroupAggrIndexNo_Type = CIE1000InterfaceIndex
+_Cie1000AggrStatusGroupAggrIndexNo_Object = MibTableColumn
+cie1000AggrStatusGroupAggrIndexNo = _Cie1000AggrStatusGroupAggrIndexNo_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1, 1),
+    _Cie1000AggrStatusGroupAggrIndexNo_Type()
+)
+cie1000AggrStatusGroupAggrIndexNo.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    cie1000AggrStatusGroupAggrIndexNo.setStatus("current")
+_Cie1000AggrStatusGroupConfiguredPorts_Type = CIE1000PortList
+_Cie1000AggrStatusGroupConfiguredPorts_Object = MibTableColumn
+cie1000AggrStatusGroupConfiguredPorts = _Cie1000AggrStatusGroupConfiguredPorts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1, 2),
+    _Cie1000AggrStatusGroupConfiguredPorts_Type()
+)
+cie1000AggrStatusGroupConfiguredPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cie1000AggrStatusGroupConfiguredPorts.setStatus("current")
+_Cie1000AggrStatusGroupAggregatedPorts_Type = CIE1000PortList
+_Cie1000AggrStatusGroupAggregatedPorts_Object = MibTableColumn
+cie1000AggrStatusGroupAggregatedPorts = _Cie1000AggrStatusGroupAggregatedPorts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1, 3),
+    _Cie1000AggrStatusGroupAggregatedPorts_Type()
+)
+cie1000AggrStatusGroupAggregatedPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cie1000AggrStatusGroupAggregatedPorts.setStatus("current")
+_Cie1000AggrStatusGroupSpeed_Type = CIE1000PortStatusSpeed
+_Cie1000AggrStatusGroupSpeed_Object = MibTableColumn
+cie1000AggrStatusGroupSpeed = _Cie1000AggrStatusGroupSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1, 4),
+    _Cie1000AggrStatusGroupSpeed_Type()
+)
+cie1000AggrStatusGroupSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cie1000AggrStatusGroupSpeed.setStatus("current")
+
+
+class _Cie1000AggrStatusGroupType_Type(CIE1000DisplayString):
+    """Custom type cie1000AggrStatusGroupType based on CIE1000DisplayString"""
+    subtypeSpec = CIE1000DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 6),
+    )
+
+
+_Cie1000AggrStatusGroupType_Type.__name__ = "CIE1000DisplayString"
+_Cie1000AggrStatusGroupType_Object = MibTableColumn
+cie1000AggrStatusGroupType = _Cie1000AggrStatusGroupType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 1, 3, 1, 1, 5),
+    _Cie1000AggrStatusGroupType_Type()
+)
+cie1000AggrStatusGroupType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cie1000AggrStatusGroupType.setStatus("current")
+_Cie1000AggrMibConformance_ObjectIdentity = ObjectIdentity
+cie1000AggrMibConformance = _Cie1000AggrMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2)
+)
+_Cie1000AggrMibCompliances_ObjectIdentity = ObjectIdentity
+cie1000AggrMibCompliances = _Cie1000AggrMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 1)
+)
+_Cie1000AggrMibGroups_ObjectIdentity = ObjectIdentity
+cie1000AggrMibGroups = _Cie1000AggrMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 2)
+)
+
+# Managed Objects groups
+
+cie1000AggrConfigModeGlobalsInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 2, 1)
+)
+cie1000AggrConfigModeGlobalsInfoGroup.setObjects(
+      *(("CIE1000-AGGR-MIB", "cie1000AggrConfigModeGlobalsSmacAddr"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrConfigModeGlobalsDmacAddr"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo"))
+)
+if mibBuilder.loadTexts:
+    cie1000AggrConfigModeGlobalsInfoGroup.setStatus("current")
+
+cie1000AggrConfigGroupTableInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 2, 2)
+)
+cie1000AggrConfigGroupTableInfoGroup.setObjects(
+      *(("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupAggrIndexNo"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupPortMembers"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupAction"))
+)
+if mibBuilder.loadTexts:
+    cie1000AggrConfigGroupTableInfoGroup.setStatus("current")
+
+cie1000AggrConfigGroupTableRowEditorInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 2, 3)
+)
+cie1000AggrConfigGroupTableRowEditorInfoGroup.setObjects(
+      *(("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupTableRowEditorAggrIndexNo"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupTableRowEditorPortMembers"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupTableRowEditorAction"))
+)
+if mibBuilder.loadTexts:
+    cie1000AggrConfigGroupTableRowEditorInfoGroup.setStatus("current")
+
+cie1000AggrStatusGroupTableInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 2, 4)
+)
+cie1000AggrStatusGroupTableInfoGroup.setObjects(
+      *(("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupAggrIndexNo"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupConfiguredPorts"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupAggregatedPorts"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupSpeed"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupType"))
+)
+if mibBuilder.loadTexts:
+    cie1000AggrStatusGroupTableInfoGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cie1000AggrMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 19, 2, 1, 1)
+)
+cie1000AggrMibCompliance.setObjects(
+      *(("CIE1000-AGGR-MIB", "cie1000AggrConfigModeGlobalsInfoGroup"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupTableInfoGroup"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrConfigGroupTableRowEditorInfoGroup"),
+        ("CIE1000-AGGR-MIB", "cie1000AggrStatusGroupTableInfoGroup"))
+)
+if mibBuilder.loadTexts:
+    cie1000AggrMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CIE1000-AGGR-MIB",
+    **{"cie1000AggrMib": cie1000AggrMib,
+       "cie1000AggrMibObjects": cie1000AggrMibObjects,
+       "cie1000AggrConfig": cie1000AggrConfig,
+       "cie1000AggrConfigModeGlobals": cie1000AggrConfigModeGlobals,
+       "cie1000AggrConfigModeGlobalsSmacAddr": cie1000AggrConfigModeGlobalsSmacAddr,
+       "cie1000AggrConfigModeGlobalsDmacAddr": cie1000AggrConfigModeGlobalsDmacAddr,
+       "cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr": cie1000AggrConfigModeGlobalsSourceAndDestinationIpAddr,
+       "cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo": cie1000AggrConfigModeGlobalsTcpOrUdpSportAndDportNo,
+       "cie1000AggrConfigGroupTable": cie1000AggrConfigGroupTable,
+       "cie1000AggrConfigGroupEntry": cie1000AggrConfigGroupEntry,
+       "cie1000AggrConfigGroupAggrIndexNo": cie1000AggrConfigGroupAggrIndexNo,
+       "cie1000AggrConfigGroupPortMembers": cie1000AggrConfigGroupPortMembers,
+       "cie1000AggrConfigGroupAction": cie1000AggrConfigGroupAction,
+       "cie1000AggrConfigGroupTableRowEditor": cie1000AggrConfigGroupTableRowEditor,
+       "cie1000AggrConfigGroupTableRowEditorAggrIndexNo": cie1000AggrConfigGroupTableRowEditorAggrIndexNo,
+       "cie1000AggrConfigGroupTableRowEditorPortMembers": cie1000AggrConfigGroupTableRowEditorPortMembers,
+       "cie1000AggrConfigGroupTableRowEditorAction": cie1000AggrConfigGroupTableRowEditorAction,
+       "cie1000AggrStatus": cie1000AggrStatus,
+       "cie1000AggrStatusGroupTable": cie1000AggrStatusGroupTable,
+       "cie1000AggrStatusGroupEntry": cie1000AggrStatusGroupEntry,
+       "cie1000AggrStatusGroupAggrIndexNo": cie1000AggrStatusGroupAggrIndexNo,
+       "cie1000AggrStatusGroupConfiguredPorts": cie1000AggrStatusGroupConfiguredPorts,
+       "cie1000AggrStatusGroupAggregatedPorts": cie1000AggrStatusGroupAggregatedPorts,
+       "cie1000AggrStatusGroupSpeed": cie1000AggrStatusGroupSpeed,
+       "cie1000AggrStatusGroupType": cie1000AggrStatusGroupType,
+       "cie1000AggrMibConformance": cie1000AggrMibConformance,
+       "cie1000AggrMibCompliances": cie1000AggrMibCompliances,
+       "cie1000AggrMibCompliance": cie1000AggrMibCompliance,
+       "cie1000AggrMibGroups": cie1000AggrMibGroups,
+       "cie1000AggrConfigModeGlobalsInfoGroup": cie1000AggrConfigModeGlobalsInfoGroup,
+       "cie1000AggrConfigGroupTableInfoGroup": cie1000AggrConfigGroupTableInfoGroup,
+       "cie1000AggrConfigGroupTableRowEditorInfoGroup": cie1000AggrConfigGroupTableRowEditorInfoGroup,
+       "cie1000AggrStatusGroupTableInfoGroup": cie1000AggrStatusGroupTableInfoGroup}
+)

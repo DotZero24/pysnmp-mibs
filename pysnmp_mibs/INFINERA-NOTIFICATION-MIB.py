@@ -1,196 +1,2316 @@
+# SNMP MIB module (INFINERA-NOTIFICATION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module INFINERA-NOTIFICATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-NOTIFICATION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:20:50 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/infinera/INFINERA-NOTIFICATION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:14:45 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-common, = mibBuilder.importSymbols("INFINERA-REG-MIB", "common")
-InfnManagedObjectType, = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnManagedObjectType")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-infnNotifications = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2))
-if mibBuilder.loadTexts: infnNotifications.setLastUpdated('201304241700Z')
-if mibBuilder.loadTexts: infnNotifications.setOrganization('Infinera')
-infnNotificationConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16))
-infnNotificationObjectGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1))
-infnNotificationNotifGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 2))
-infnAlarmNotification = NotificationType((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 1)).setObjects(("INFINERA-NOTIFICATION-MIB", "alarmNotificationId"), ("INFINERA-NOTIFICATION-MIB", "alarmNodeId"), ("INFINERA-NOTIFICATION-MIB", "alarmNodeName"), ("INFINERA-NOTIFICATION-MIB", "alarmObjectType"), ("INFINERA-NOTIFICATION-MIB", "alarmObjectAid"), ("INFINERA-NOTIFICATION-MIB", "alarmSourceOid"), ("INFINERA-NOTIFICATION-MIB", "alarmProbableCause"), ("INFINERA-NOTIFICATION-MIB", "alarmSeverity"), ("INFINERA-NOTIFICATION-MIB", "alarmCategory"), ("INFINERA-NOTIFICATION-MIB", "alarmServiceAffecting"), ("INFINERA-NOTIFICATION-MIB", "alarmOccurrenceTime"), ("INFINERA-NOTIFICATION-MIB", "alarmLocation"), ("INFINERA-NOTIFICATION-MIB", "alarmDirection"), ("INFINERA-NOTIFICATION-MIB", "alarmProbableCauseDescription"), ("INFINERA-NOTIFICATION-MIB", "alarmAdditionalText"), ("INFINERA-NOTIFICATION-MIB", "alarmCorrelationId"))
-if mibBuilder.loadTexts: infnAlarmNotification.setStatus('current')
-infnTcaNotification = NotificationType((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 2)).setObjects(("INFINERA-NOTIFICATION-MIB", "tcaNotificationId"), ("INFINERA-NOTIFICATION-MIB", "tcaNodeId"), ("INFINERA-NOTIFICATION-MIB", "tcaNodeName"), ("INFINERA-NOTIFICATION-MIB", "tcaObjectType"), ("INFINERA-NOTIFICATION-MIB", "tcaObjectAid"), ("INFINERA-NOTIFICATION-MIB", "tcaSourceOid"), ("INFINERA-NOTIFICATION-MIB", "tcaProbableCause"), ("INFINERA-NOTIFICATION-MIB", "tcaSeverity"), ("INFINERA-NOTIFICATION-MIB", "tcaCategory"), ("INFINERA-NOTIFICATION-MIB", "tcaServiceAffecting"), ("INFINERA-NOTIFICATION-MIB", "tcaOccurrenceTime"), ("INFINERA-NOTIFICATION-MIB", "tcaLocation"), ("INFINERA-NOTIFICATION-MIB", "tcaDirection"), ("INFINERA-NOTIFICATION-MIB", "tcaMonitoredValue"), ("INFINERA-NOTIFICATION-MIB", "tcaThresholdValue"), ("INFINERA-NOTIFICATION-MIB", "tcaTimePeriod"), ("INFINERA-NOTIFICATION-MIB", "tcaProbableCauseDescription"), ("INFINERA-NOTIFICATION-MIB", "tcaAdditionalText"))
-if mibBuilder.loadTexts: infnTcaNotification.setStatus('current')
-infnAdminEventNotification = NotificationType((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 3)).setObjects(("INFINERA-NOTIFICATION-MIB", "infnAdminNotificationId"), ("INFINERA-NOTIFICATION-MIB", "infnAdminNodeId"), ("INFINERA-NOTIFICATION-MIB", "infnAdminNodeName"), ("INFINERA-NOTIFICATION-MIB", "infnAdminObjectType"), ("INFINERA-NOTIFICATION-MIB", "infnAdminObjectAid"), ("INFINERA-NOTIFICATION-MIB", "infnAdminSourceOid"), ("INFINERA-NOTIFICATION-MIB", "infnAdminEventTime"), ("INFINERA-NOTIFICATION-MIB", "infnAdminCause"))
-if mibBuilder.loadTexts: infnAdminEventNotification.setStatus('current')
-infnAuditEventNotification = NotificationType((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 4)).setObjects(("INFINERA-NOTIFICATION-MIB", "infnAuditNotificationId"), ("INFINERA-NOTIFICATION-MIB", "infnAuditNodeId"), ("INFINERA-NOTIFICATION-MIB", "infnAuditNodeName"), ("INFINERA-NOTIFICATION-MIB", "infnAuditObjectType"), ("INFINERA-NOTIFICATION-MIB", "infnAuditObjectAid"), ("INFINERA-NOTIFICATION-MIB", "infnAuditSourceOid"), ("INFINERA-NOTIFICATION-MIB", "infnAuditUserId"), ("INFINERA-NOTIFICATION-MIB", "infnAuditHostInfo"), ("INFINERA-NOTIFICATION-MIB", "infnAuditTime"), ("INFINERA-NOTIFICATION-MIB", "infnAuditOperationName"), ("INFINERA-NOTIFICATION-MIB", "infnAuditOperationStatus"), ("INFINERA-NOTIFICATION-MIB", "infnAuditParamsList"))
-if mibBuilder.loadTexts: infnAuditEventNotification.setStatus('current')
-infnSecurityEventNotification = NotificationType((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 5)).setObjects(("INFINERA-NOTIFICATION-MIB", "infnSecurityNotificationId"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityNodeId"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityNodeName"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityObjectType"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityObjectAid"), ("INFINERA-NOTIFICATION-MIB", "infnSecuritySourceOid"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityHostInfo"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityEventTime"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityMessage"))
-if mibBuilder.loadTexts: infnSecurityEventNotification.setStatus('current')
-infnAlarmTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3), )
-if mibBuilder.loadTexts: infnAlarmTable.setStatus('current')
-infnAlarmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1), ).setIndexNames((0, "INFINERA-NOTIFICATION-MIB", "alarmNotificationId"))
-if mibBuilder.loadTexts: infnAlarmEntry.setStatus('current')
-alarmNotificationId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alarmNotificationId.setStatus('current')
-alarmNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmNodeId.setStatus('current')
-alarmNodeName = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmNodeName.setStatus('current')
-alarmObjectType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 4), InfnManagedObjectType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmObjectType.setStatus('current')
-alarmObjectAid = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmObjectAid.setStatus('current')
-alarmSourceOid = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 6), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmSourceOid.setStatus('current')
-alarmProbableCause = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 164, 165, 166, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 300, 301, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 340, 341, 342, 343), SingleValueConstraint(500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512, 513, 514, 515, 516, 517, 518, 519, 532, 533, 535, 536, 537, 538, 539, 540, 541, 542, 543, 544, 545, 546, 547, 548, 549, 550, 551, 552, 554, 556, 557, 558, 559, 560, 561, 562, 563, 564, 565, 566, 567, 568, 569, 570, 571, 572, 573, 574, 575, 576, 577, 578, 579, 580, 581, 582, 583, 584, 585, 586, 587, 588, 589, 590, 591, 592, 593, 595, 596, 597, 598, 599, 600, 601, 602, 603, 604, 605, 606, 700, 701, 702, 703, 704, 705, 706, 707, 708, 709, 710, 711, 712, 713, 714, 715))).clone(namedValues=NamedValues(("adminLock", 1), ("adminMaint", 2), ("adsrup", 3), ("adTimeout", 4), ("ais-dtp", 5), ("ais-l", 6), ("ais-ms", 7), ("alsDisabled", 8), ("ambientTempOorh", 9), ("aupfail", 10), ("auxEnetLoLinkCtrlA", 11), ("auxEnetLoLinkCtrlB", 12), ("bdi", 13), ("bdi-dtp", 14), ("backupMemoryLow", 15), ("backupMemoryVeryLow", 16), ("branMsmt", 17), ("breakerOpen48v", 18), ("ctrlCommFailA", 19), ("ctrlCommFailB", 20), ("dbMsmt", 21), ("dbRestoreFail", 22), ("dbRestoreFailReboot", 23), ("dcnEnetLoLinkCtrlA", 24), ("dcnEnetLoLinkCtrlB", 25), ("deEncapAis-l", 26), ("deEncapAis-ms", 27), ("deEncapLof", 28), ("deEncapLos", 29), ("deEncapLossOfSync", 30), ("eqpPer1", 31), ("eqpPer2", 32), ("eqpPer3", 33), ("eqptPartFail", 34), ("eqptProtFailSlot3", 35), ("eqptProtFailSlot4", 36), ("eqptProtFailSlot5", 37), ("eqptProtFailSlot6", 38), ("eqptCpReset", 39), ("eqptCpUr", 40), ("eqptDegrade", 41), ("eqptFail", 42), ("eqptMsmt", 43), ("excessiveChannels", 44), ("gmplsConfigMismatch", 45), ("gmplsNbrDown", 46), ("impropRmvl", 47), ("initFail", 48), ("insufficientGain", 49), ("interOamMisConn", 50), ("lineTestSigGen", 51), ("lineTestSigOos", 52), ("loa", 53), ("loc", 54), ("lockOutOfPr", 55), ("lockOutOfWk", 56), ("lof", 57), ("los", 58), ("lossOfSync", 59), ("lpbkFacility", 60), ("lpbkTerm", 61), ("misConn", 62), ("misConfigIpAddr", 63), ("nbrsOscIpAddrConflict", 64), ("nct1EnetLolinkCtrlA", 65), ("nct1EnetLolinkCtrlB", 66), ("nct2EnetLolinkCtrlA", 67), ("nct2EnetLolinkCtrlB", 68), ("ntpServerLoss", 69), ("nwDuplicateMeName", 70), ("nwDuplicateNbr", 71), ("nwDuplicateRouterId", 72), ("olOorh", 73), ("olos", 74), ("oprOorh", 75), ("oprOorl", 76), ("optOorh", 77), ("optOorl", 78), ("oscCommFailA", 79), ("oscCommFailB", 80), ("oscIpAddrDuplicate", 81), ("gccIpAddrSubnetMsmt", 82), ("peerCtrlCommFail", 83), ("plm", 84), ("postFecBerSf", 85), ("prbsGen", 86), ("prbsOos", 87), ("preFecBerSd", 88), ("pwrAdjustIncomplete", 89), ("power48vFail", 90), ("pwrLoopDisabled", 91), ("rfi-l", 92), ("rfi-ms", 93), ("spanLossOorh", 94), ("spanLossOorl", 95), ("sncFail", 96), ("sncSetupFail", 97), ("swInstallFail", 98), ("swUpgradeFail", 99), ("swUpgradeFailBootup", 100), ("tempOorDeviceShutdown", 101), ("tempOorh", 102), ("tempOorhRxPicShutdown", 103), ("tempOorhTxPicShutdown", 104), ("tempOorl", 105), ("tim-dtp", 106), ("tim-dts", 107), ("tim-s", 108), ("tribPrbsGen", 109), ("tribPrbsOos", 110), ("tribTestSigGen", 111), ("tribTestSigOos", 112), ("txfrPriFail", 113), ("txfrPriFailSna", 114), ("txfrsFail", 115), ("unknownFw", 116), ("powerDrawExceeded", 117), ("connectivityFail", 118), ("gccGmplsCfgMsmt", 119), ("gccGmplsNbrDown", 120), ("gccIPaddrDuplicate", 121), ("nbrsGccIPaddrInConflict", 122), ("ocgMismatch", 123), ("powerControl", 124), ("greTunnelAddressMismatch", 125), ("noManagementRedundancy", 126), ("lolm", 127), ("deEncapLolm", 128), ("oloorh", 129), ("ochMismatch", 130), ("switchBackToWrk", 131), ("manualSwitchBackToWrk", 132), ("wtrStart", 133), ("spectrumNotAttained", 134), ("incompatibleDse", 135), ("tempOorhDevAutoShutdown", 136), ("rmtChnlMismatch", 137), ("equipmentInit", 138), ("adminXfrReqDrop", 139), ("adminDBCurrupt", 140), ("adminRestoreFailed", 141), ("txfr-sec-fail", 142), ("optTooLow", 143), ("equipmentUnsupported", 144), ("ccmLoc", 145), ("ccmUnexpLevel", 146), ("ccmMisMerge", 147), ("ccmUnexpMep", 148), ("ccmUnexpPeriod", 149), ("ccmUnexpPrio", 150), ("ccmRemMacErr", 151), ("ethRdi", 152), ("ethAis", 153), ("vsiFail", 154), ("vsiPartialFail", 155), ("vsiMacLimit", 156), ("macFlap", 157), ("acMacLimit", 158), ("cacFail", 159), ("cacUnavail", 160), ("freqProvPending", 161), ("vsiMacLimDnlDnf", 162), ("intra-sch-carrier-ripple-high", 164), ("tx-tim", 165), ("rx-tim", 166), ("airCompressorFailure", 200), ("airConditioningFailure", 201), ("airDryerFailure", 202), ("batteryDischarging", 203), ("batteryFailure", 204), ("coolingFanFailure", 205), ("centralPowerFailureMajor", 206), ("centralPowerFailureMinor", 207), ("engineFailure", 208), ("engineOperating", 209), ("explosiveGas", 210), ("fireDetectorFailure", 211), ("fire", 212), ("flood", 213), ("fuseFailure", 214), ("generatorFailure", 215), ("highAirFlow", 216), ("highHumidity", 217), ("highTemperature", 218), ("highWater", 219), ("intrusion", 220), ("lowBatteryVoltage", 221), ("lowFuel", 222), ("lowHumidity", 223), ("lowCablePressure", 224), ("lowTemperature", 225), ("lowWater", 226), ("misc", 227), ("openDoor", 228), ("pumpFailure", 229), ("commercialPowerFailure", 230), ("power-xFailure", 231), ("rectifierFailure", 232), ("rectifierHighVoltage", 233), ("rectifierLowVoltage", 234), ("smoke", 235), ("toxicGas", 236), ("ventilationSystemFailure", 237), ("linePrbsGen", 238), ("ais", 239), ("deg", 240), ("linePrbsOos", 241), ("lck", 242), ("oci", 243), ("oldRevCtrlr", 244), ("protUnitAct", 245), ("misConfig", 246), ("lsActive", 247), ("deEncapAis-p", 248), ("rstPathAct", 249), ("ltc", 250), ("automaticGainCtrlNotFunctioning", 251), ("slOorh", 300), ("slOorl", 301), ("gainOorh", 303), ("gainOorl", 304), ("insufficientChanPower", 305), ("uSupportedTom", 306), ("ncLolink", 307), ("chassisMisconn", 308), ("dcnLolink", 309), ("loLink", 310), ("none", 311), ("unknownEqpt", 312), ("outputPwrFailure", 313), ("inputPwrFailure", 314), ("dropBandOptLow", 315), ("timOtu", 316), ("dropBandOprOorLow", 317), ("dropBandOprOorHigh", 318), ("dropBandOptOorLow", 319), ("dropBandOptOorHigh", 320), ("dropBandOLOS", 321), ("bandOptTooLow", 322), ("bandOptOorLow", 323), ("bandOptOorHigh", 324), ("bandOprOorLow", 325), ("bandOprOorHigh", 326), ("insufficientAttenuation", 327), ("oprOorHighOscDisabled", 328), ("switchToPr", 329), ("manualSwitchToPr", 330), ("adaptCommitPending", 331), ("txFail", 332), ("ntpAuthFail", 333), ("lowCh", 334), ("rf", 340), ("lf", 341), ("deEncapLf", 342), ("deEncapRf", 343)) + NamedValues(("eqptProtFailSlot1", 500), ("eqptProtFailSlot2", 501), ("eqptProtFailSlot7", 502), ("eqptProtFailSlot8", 503), ("eqptProtFailSlot9", 504), ("eqptProtFailSlot10", 505), ("powerProtectionFail", 506), ("lossOfFrameDelineation", 507), ("upiMismatch", 508), ("exiMismatch", 509), ("clientSignalFail", 510), ("tsmUnavailable", 511), ("noTsmRedundancy", 512), ("switchFabricFailure", 513), ("switchProtUnavailable", 514), ("timingSourceMismatch", 515), ("muxStructureIdMismatch", 516), ("powerVoltageOver", 517), ("powerVoltageUnder", 518), ("oscMisConnection", 519), ("remmodMismatch", 532), ("rx-EDFA-SPLIM", 533), ("lockedSyncSourceActive", 535), ("rxOPRTooLow", 536), ("commFailLink", 537), ("deEncapLoa", 538), ("configMismatch", 539), ("lossOfFrameLossOfMultiFrame", 540), ("lockedSwitchModuleActive", 541), ("operatingModeMismatch", 542), ("powerCtrlInitiated", 543), ("lossOfMultiFrame", 544), ("degradedConfig", 545), ("licAssignmentMsmt", 546), ("licInsufficiency", 547), ("licModFmtMsmt", 548), ("licNwAuditMsMt", 549), ("shelfDbCorrupt", 550), ("tx-lossOfMultiFrame", 551), ("lossOfFrameLogicalLane", 552), ("lossOfLaneAllignment", 554), ("igccFail", 556), ("encmodeChangePending", 557), ("remPortFecMsmt", 558), ("aisOdu-ipath", 559), ("bdiOdu-ipath", 560), ("remPortEncModeMsmt", 561), ("pmdOorHigh", 562), ("flashFail", 563), ("preFecQSigDegrade", 564), ("flashRedundancyNotAvailable", 565), ("schMisConn", 566), ("opt-too-low", 567), ("forwarddefectindicationoverhead", 568), ("forwarddefectindicationpayload", 569), ("migrationfailed", 570), ("backwardDefectIndicationS", 571), ("openconnectionIndication", 572), ("remSchParamMsmt", 573), ("schNumMismatch", 574), ("payloadMissingIndication", 575), ("backwardDefectIndicationPayloadO", 576), ("muxOprOorl", 577), ("txPayloadMisMatchODUk", 578), ("lossOfOpuMultiFrameIdentifier", 579), ("serviceStateOOSAU", 580), ("odukPELatencyFacilityOorh", 581), ("odukPELatencyFacilityOorl", 582), ("odukPELatencyTerminalOorh", 583), ("odukPELatencyTerminalOorl", 584), ("odukPSLatencyFacilityOorh", 585), ("odukPSLatencyFacilityOorl", 586), ("odukPSLatencyTerminalOorh", 587), ("odukPSLatencyTerminalOorl", 588), ("insufficientTrgtOutPwr", 589), ("backwardDefectIndication", 590), ("backwardDefectIndicationPayload", 591), ("mainPowerFailure", 592), ("pemTypMismatch", 593), ("gccOspfNbrDown", 595), ("gccIpSubnetMismatch", 596), ("gccIpConflict", 597), ("gccOspfConfigMismatch", 598), ("greAddressMismatch", 599), ("rem-sch-parameters-msmt", 600), ("opr-too-high", 601), ("opr-too-low", 602), ("opr-oorl", 603), ("opr-oorh", 604), ("opt-oorl", 605), ("opt-oorh", 606), ("ocgTTIMsmt", 700), ("ocgReachThWarn", 701), ("ocgReachThExceed", 702), ("tx-olos", 703), ("pemGLUnavailable", 704), ("registrationRequired", 705), ("registrationExpired", 706), ("registrationRequiredMJ", 707), ("ttiMismatchXtSCH", 708), ("ethCsf", 709), ("linkDown", 710), ("maint-req", 711), ("gccFail", 712), ("rxBDI", 713), ("sbsOff", 714), ("idlerSeparationOor", 715)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmProbableCause.setStatus('current')
-alarmSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("psIndeterminate", 1), ("psCritical", 2), ("psMajor", 3), ("psMinor", 4), ("psWarning", 5), ("psCleared", 6), ("psNotReported", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmSeverity.setStatus('current')
-alarmCategory = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("unknown", 1), ("communication", 2), ("qualityOfService", 3), ("environmental", 4), ("equipment", 5), ("softwareProcessing", 6), ("facility", 7), ("software", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmCategory.setStatus('current')
-alarmServiceAffecting = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("saUnknown", 1), ("saServiceAffecting", 2), ("saNonServiceAffecting", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmServiceAffecting.setStatus('current')
-alarmOccurrenceTime = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 11), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmOccurrenceTime.setStatus('current')
-alarmLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("nearEnd", 1), ("farEnd", 2), ("notApplicable", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmLocation.setStatus('current')
-alarmDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("receive", 1), ("transmit", 2), ("notApplicable", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmDirection.setStatus('current')
-alarmProbableCauseDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmProbableCauseDescription.setStatus('current')
-alarmAdditionalText = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 15), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmAdditionalText.setStatus('current')
-alarmCorrelationId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmCorrelationId.setStatus('current')
-infnTcaTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4), )
-if mibBuilder.loadTexts: infnTcaTable.setStatus('current')
-infnTcaEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1), ).setIndexNames((0, "INFINERA-NOTIFICATION-MIB", "tcaNotificationId"))
-if mibBuilder.loadTexts: infnTcaEntry.setStatus('current')
-tcaNotificationId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tcaNotificationId.setStatus('current')
-tcaNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaNodeId.setStatus('current')
-tcaNodeName = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaNodeName.setStatus('current')
-tcaObjectType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 4), InfnManagedObjectType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaObjectType.setStatus('current')
-tcaObjectAid = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaObjectAid.setStatus('current')
-tcaSourceOid = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 6), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaSourceOid.setStatus('current')
-tcaProbableCause = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51))).clone(namedValues=NamedValues(("cvs", 1), ("sess", 2), ("sefss", 3), ("ess", 4), ("uass", 5), ("cvp", 6), ("sesp", 7), ("sefsp", 8), ("esp", 9), ("uasp", 10), ("be-rs", 11), ("es-rs", 12), ("ses-rs", 13), ("ofs-rs", 14), ("loss-rs", 15), ("icg-pcs", 16), ("es-pcs", 17), ("ses-pcs", 18), ("sess-pcs", 19), ("jabberSeconds", 20), ("ses-mac", 21), ("errorOctets", 22), ("jabbers", 23), ("fragments", 24), ("crcAlignErrors", 25), ("underSized", 26), ("overSized", 27), ("pkts64", 28), ("pkts65to127", 29), ("pkts128to255", 30), ("pkts256to511", 31), ("pkts512to1023", 32), ("pkts1024to1518", 33), ("pkts1519tojumbo", 34), ("packets", 35), ("octets", 36), ("broadcastPkts", 37), ("multicastPkts", 38), ("inPauseFrames", 39), ("outPauseFrames", 40), ("pkts1024to1522", 41), ("pkts1523tojumbo", 42), ("invalidCrcs", 43), ("frames", 44), ("erroredFrames", 45), ("erroredOctets", 46), ("erroredBlocks", 47), ("defectSeconds", 48), ("beiCount", 49), ("erroredBlocksFarEnd", 50), ("defectSecondsFarEnd", 51)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaProbableCause.setStatus('current')
-tcaSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("psIndeterminate", 1), ("psCritical", 2), ("psMajor", 3), ("psMinor", 4), ("psWarning", 5), ("psCleared", 6), ("psEvent", 7), ("psNotReported", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaSeverity.setStatus('current')
-tcaCategory = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("unknown", 1), ("communication", 2), ("qualityOfService", 3), ("environmental", 4), ("equipment", 5), ("softwareProcessing", 6), ("facility", 7), ("software", 8)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaCategory.setStatus('current')
-tcaServiceAffecting = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("saUnknown", 1), ("saServiceAffecting", 2), ("saNonServiceAffecting", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaServiceAffecting.setStatus('current')
-tcaOccurrenceTime = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 11), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaOccurrenceTime.setStatus('current')
-tcaLocation = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("nearEnd", 1), ("farEnd", 2), ("notApplicable", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaLocation.setStatus('current')
-tcaDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("receive", 1), ("transmit", 2), ("notApplicable", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaDirection.setStatus('current')
-tcaMonitoredValue = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaMonitoredValue.setStatus('current')
-tcaThresholdValue = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 15), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaThresholdValue.setStatus('current')
-tcaTimePeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaTimePeriod.setStatus('current')
-tcaProbableCauseDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 17), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaProbableCauseDescription.setStatus('current')
-tcaAdditionalText = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 18), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tcaAdditionalText.setStatus('current')
-infnAdminEventTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5), )
-if mibBuilder.loadTexts: infnAdminEventTable.setStatus('current')
-infnAdminEventEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1), ).setIndexNames((0, "INFINERA-NOTIFICATION-MIB", "infnAdminNotificationId"))
-if mibBuilder.loadTexts: infnAdminEventEntry.setStatus('current')
-infnAdminNotificationId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 1), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: infnAdminNotificationId.setStatus('current')
-infnAdminNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAdminNodeId.setStatus('current')
-infnAdminNodeName = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAdminNodeName.setStatus('current')
-infnAdminObjectType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 4), InfnManagedObjectType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAdminObjectType.setStatus('current')
-infnAdminObjectAid = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAdminObjectAid.setStatus('current')
-infnAdminSourceOid = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 6), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAdminSourceOid.setStatus('current')
-infnAdminEventTime = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAdminEventTime.setStatus('current')
-infnAdminCause = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAdminCause.setStatus('current')
-infnAuditEventTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6), )
-if mibBuilder.loadTexts: infnAuditEventTable.setStatus('current')
-infnAuditEventEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1), ).setIndexNames((0, "INFINERA-NOTIFICATION-MIB", "infnAuditNotificationId"))
-if mibBuilder.loadTexts: infnAuditEventEntry.setStatus('current')
-infnAuditNotificationId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 1), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: infnAuditNotificationId.setStatus('current')
-infnAuditNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAuditNodeId.setStatus('current')
-infnAuditNodeName = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAuditNodeName.setStatus('current')
-infnAuditObjectType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 4), InfnManagedObjectType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAuditObjectType.setStatus('current')
-infnAuditObjectAid = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAuditObjectAid.setStatus('current')
-infnAuditSourceOid = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 6), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAuditSourceOid.setStatus('current')
-infnAuditUserId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAuditUserId.setStatus('current')
-infnAuditHostInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAuditHostInfo.setStatus('current')
-infnAuditTime = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAuditTime.setStatus('current')
-infnAuditOperationName = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 10), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAuditOperationName.setStatus('current')
-infnAuditOperationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 11), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAuditOperationStatus.setStatus('current')
-infnAuditParamsList = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 12), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnAuditParamsList.setStatus('current')
-infnSecurityEventTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7), )
-if mibBuilder.loadTexts: infnSecurityEventTable.setStatus('current')
-infnSecurityEventEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1), ).setIndexNames((0, "INFINERA-NOTIFICATION-MIB", "infnSecurityNotificationId"))
-if mibBuilder.loadTexts: infnSecurityEventEntry.setStatus('current')
-infnSecurityNotificationId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 1), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: infnSecurityNotificationId.setStatus('current')
-infnSecurityNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnSecurityNodeId.setStatus('current')
-infnSecurityNodeName = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnSecurityNodeName.setStatus('current')
-infnSecurityObjectType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 4), InfnManagedObjectType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnSecurityObjectType.setStatus('current')
-infnSecurityObjectAid = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnSecurityObjectAid.setStatus('current')
-infnSecuritySourceOid = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 6), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnSecuritySourceOid.setStatus('current')
-infnSecurityHostInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnSecurityHostInfo.setStatus('current')
-infnSecurityEventTime = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnSecurityEventTime.setStatus('current')
-infnSecurityMessage = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: infnSecurityMessage.setStatus('current')
-infnAlarmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1, 1)).setObjects(("INFINERA-NOTIFICATION-MIB", "alarmNotificationId"), ("INFINERA-NOTIFICATION-MIB", "alarmNodeId"), ("INFINERA-NOTIFICATION-MIB", "alarmNodeName"), ("INFINERA-NOTIFICATION-MIB", "alarmObjectType"), ("INFINERA-NOTIFICATION-MIB", "alarmObjectAid"), ("INFINERA-NOTIFICATION-MIB", "alarmSourceOid"), ("INFINERA-NOTIFICATION-MIB", "alarmProbableCause"), ("INFINERA-NOTIFICATION-MIB", "alarmSeverity"), ("INFINERA-NOTIFICATION-MIB", "alarmServiceAffecting"), ("INFINERA-NOTIFICATION-MIB", "alarmOccurrenceTime"), ("INFINERA-NOTIFICATION-MIB", "alarmLocation"), ("INFINERA-NOTIFICATION-MIB", "alarmDirection"), ("INFINERA-NOTIFICATION-MIB", "alarmProbableCauseDescription"), ("INFINERA-NOTIFICATION-MIB", "alarmAdditionalText"), ("INFINERA-NOTIFICATION-MIB", "alarmCorrelationId"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    infnAlarmGroup = infnAlarmGroup.setStatus('current')
-infnTcaGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1, 2)).setObjects(("INFINERA-NOTIFICATION-MIB", "tcaNotificationId"), ("INFINERA-NOTIFICATION-MIB", "tcaNodeId"), ("INFINERA-NOTIFICATION-MIB", "tcaNodeName"), ("INFINERA-NOTIFICATION-MIB", "tcaObjectType"), ("INFINERA-NOTIFICATION-MIB", "tcaObjectAid"), ("INFINERA-NOTIFICATION-MIB", "tcaSourceOid"), ("INFINERA-NOTIFICATION-MIB", "tcaProbableCause"), ("INFINERA-NOTIFICATION-MIB", "tcaSeverity"), ("INFINERA-NOTIFICATION-MIB", "tcaServiceAffecting"), ("INFINERA-NOTIFICATION-MIB", "tcaOccurrenceTime"), ("INFINERA-NOTIFICATION-MIB", "tcaLocation"), ("INFINERA-NOTIFICATION-MIB", "tcaDirection"), ("INFINERA-NOTIFICATION-MIB", "tcaMonitoredValue"), ("INFINERA-NOTIFICATION-MIB", "tcaThresholdValue"), ("INFINERA-NOTIFICATION-MIB", "tcaTimePeriod"), ("INFINERA-NOTIFICATION-MIB", "tcaProbableCauseDescription"), ("INFINERA-NOTIFICATION-MIB", "tcaAdditionalText"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    infnTcaGroup = infnTcaGroup.setStatus('current')
-infnAdminEventGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1, 3)).setObjects(("INFINERA-NOTIFICATION-MIB", "infnAdminNotificationId"), ("INFINERA-NOTIFICATION-MIB", "infnAdminNodeId"), ("INFINERA-NOTIFICATION-MIB", "infnAdminNodeName"), ("INFINERA-NOTIFICATION-MIB", "infnAdminObjectType"), ("INFINERA-NOTIFICATION-MIB", "infnAdminObjectAid"), ("INFINERA-NOTIFICATION-MIB", "infnAdminSourceOid"), ("INFINERA-NOTIFICATION-MIB", "infnAdminEventTime"), ("INFINERA-NOTIFICATION-MIB", "infnAdminCause"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    infnAdminEventGroup = infnAdminEventGroup.setStatus('current')
-infnAuditEventGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1, 4)).setObjects(("INFINERA-NOTIFICATION-MIB", "infnAuditNotificationId"), ("INFINERA-NOTIFICATION-MIB", "infnAuditNodeId"), ("INFINERA-NOTIFICATION-MIB", "infnAuditNodeName"), ("INFINERA-NOTIFICATION-MIB", "infnAuditObjectType"), ("INFINERA-NOTIFICATION-MIB", "infnAuditObjectAid"), ("INFINERA-NOTIFICATION-MIB", "infnAuditSourceOid"), ("INFINERA-NOTIFICATION-MIB", "infnAuditUserId"), ("INFINERA-NOTIFICATION-MIB", "infnAuditHostInfo"), ("INFINERA-NOTIFICATION-MIB", "infnAuditTime"), ("INFINERA-NOTIFICATION-MIB", "infnAuditOperationName"), ("INFINERA-NOTIFICATION-MIB", "infnAuditOperationStatus"), ("INFINERA-NOTIFICATION-MIB", "infnAuditParamsList"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    infnAuditEventGroup = infnAuditEventGroup.setStatus('current')
-infnSecurityEventGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1, 5)).setObjects(("INFINERA-NOTIFICATION-MIB", "infnSecurityNotificationId"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityNodeId"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityNodeName"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityObjectType"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityObjectAid"), ("INFINERA-NOTIFICATION-MIB", "infnSecuritySourceOid"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityHostInfo"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityEventTime"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityMessage"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    infnSecurityEventGroup = infnSecurityEventGroup.setStatus('current')
-infnNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 2, 1)).setObjects(("INFINERA-NOTIFICATION-MIB", "infnAlarmNotification"), ("INFINERA-NOTIFICATION-MIB", "infnTcaNotification"), ("INFINERA-NOTIFICATION-MIB", "infnAdminEventNotification"), ("INFINERA-NOTIFICATION-MIB", "infnSecurityEventNotification"), ("INFINERA-NOTIFICATION-MIB", "infnAuditEventNotification"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    infnNotificationGroup = infnNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-NOTIFICATION-MIB", infnTcaGroup=infnTcaGroup, PYSNMP_MODULE_ID=infnNotifications, alarmSourceOid=alarmSourceOid, infnAuditOperationStatus=infnAuditOperationStatus, infnSecurityEventTime=infnSecurityEventTime, infnAuditNotificationId=infnAuditNotificationId, alarmProbableCause=alarmProbableCause, infnAuditEventGroup=infnAuditEventGroup, tcaMonitoredValue=tcaMonitoredValue, infnAdminObjectType=infnAdminObjectType, alarmNotificationId=alarmNotificationId, infnAuditParamsList=infnAuditParamsList, tcaObjectAid=tcaObjectAid, infnNotificationObjectGroups=infnNotificationObjectGroups, alarmSeverity=alarmSeverity, tcaOccurrenceTime=tcaOccurrenceTime, infnAdminEventNotification=infnAdminEventNotification, infnTcaTable=infnTcaTable, alarmObjectType=alarmObjectType, tcaNodeId=tcaNodeId, infnSecurityNodeName=infnSecurityNodeName, infnAdminEventGroup=infnAdminEventGroup, tcaSeverity=tcaSeverity, infnNotificationGroup=infnNotificationGroup, infnAuditOperationName=infnAuditOperationName, tcaAdditionalText=tcaAdditionalText, infnSecuritySourceOid=infnSecuritySourceOid, infnAdminNotificationId=infnAdminNotificationId, alarmServiceAffecting=alarmServiceAffecting, infnAuditUserId=infnAuditUserId, tcaProbableCauseDescription=tcaProbableCauseDescription, infnAuditNodeId=infnAuditNodeId, alarmProbableCauseDescription=alarmProbableCauseDescription, alarmCorrelationId=alarmCorrelationId, alarmLocation=alarmLocation, infnSecurityNotificationId=infnSecurityNotificationId, infnSecurityNodeId=infnSecurityNodeId, infnAuditEventNotification=infnAuditEventNotification, infnSecurityEventNotification=infnSecurityEventNotification, infnTcaEntry=infnTcaEntry, infnAdminCause=infnAdminCause, infnSecurityMessage=infnSecurityMessage, tcaCategory=tcaCategory, tcaTimePeriod=tcaTimePeriod, infnAlarmNotification=infnAlarmNotification, tcaLocation=tcaLocation, infnNotificationNotifGroups=infnNotificationNotifGroups, infnSecurityObjectType=infnSecurityObjectType, infnAdminObjectAid=infnAdminObjectAid, tcaObjectType=tcaObjectType, infnAdminNodeName=infnAdminNodeName, alarmAdditionalText=alarmAdditionalText, infnAuditNodeName=infnAuditNodeName, infnSecurityHostInfo=infnSecurityHostInfo, tcaThresholdValue=tcaThresholdValue, infnAdminSourceOid=infnAdminSourceOid, infnAdminNodeId=infnAdminNodeId, infnAlarmEntry=infnAlarmEntry, infnTcaNotification=infnTcaNotification, alarmObjectAid=alarmObjectAid, infnAuditTime=infnAuditTime, alarmDirection=alarmDirection, infnAlarmTable=infnAlarmTable, infnAdminEventTable=infnAdminEventTable, infnAuditHostInfo=infnAuditHostInfo, infnAuditSourceOid=infnAuditSourceOid, infnSecurityObjectAid=infnSecurityObjectAid, infnSecurityEventEntry=infnSecurityEventEntry, alarmNodeId=alarmNodeId, alarmCategory=alarmCategory, tcaSourceOid=tcaSourceOid, infnAdminEventEntry=infnAdminEventEntry, tcaDirection=tcaDirection, infnNotificationConformance=infnNotificationConformance, infnAuditEventTable=infnAuditEventTable, tcaNotificationId=tcaNotificationId, infnAuditObjectAid=infnAuditObjectAid, alarmNodeName=alarmNodeName, alarmOccurrenceTime=alarmOccurrenceTime, infnNotifications=infnNotifications, infnAuditEventEntry=infnAuditEventEntry, infnAlarmGroup=infnAlarmGroup, infnAuditObjectType=infnAuditObjectType, tcaServiceAffecting=tcaServiceAffecting, tcaNodeName=tcaNodeName, tcaProbableCause=tcaProbableCause, infnSecurityEventTable=infnSecurityEventTable, infnSecurityEventGroup=infnSecurityEventGroup, infnAdminEventTime=infnAdminEventTime)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(common,) = mibBuilder.importSymbols(
+    "INFINERA-REG-MIB",
+    "common")
+
+(InfnManagedObjectType,) = mibBuilder.importSymbols(
+    "INFINERA-TC-MIB",
+    "InfnManagedObjectType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+infnNotifications = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_InfnNotificationConformance_ObjectIdentity = ObjectIdentity
+infnNotificationConformance = _InfnNotificationConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16)
+)
+_InfnNotificationObjectGroups_ObjectIdentity = ObjectIdentity
+infnNotificationObjectGroups = _InfnNotificationObjectGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1)
+)
+_InfnNotificationNotifGroups_ObjectIdentity = ObjectIdentity
+infnNotificationNotifGroups = _InfnNotificationNotifGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 2)
+)
+_InfnAlarmTable_Object = MibTable
+infnAlarmTable = _InfnAlarmTable_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3)
+)
+if mibBuilder.loadTexts:
+    infnAlarmTable.setStatus("current")
+_InfnAlarmEntry_Object = MibTableRow
+infnAlarmEntry = _InfnAlarmEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1)
+)
+infnAlarmEntry.setIndexNames(
+    (0, "INFINERA-NOTIFICATION-MIB", "alarmNotificationId"),
+)
+if mibBuilder.loadTexts:
+    infnAlarmEntry.setStatus("current")
+
+
+class _AlarmNotificationId_Type(Integer32):
+    """Custom type alarmNotificationId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AlarmNotificationId_Type.__name__ = "Integer32"
+_AlarmNotificationId_Object = MibTableColumn
+alarmNotificationId = _AlarmNotificationId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 1),
+    _AlarmNotificationId_Type()
+)
+alarmNotificationId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alarmNotificationId.setStatus("current")
+
+
+class _AlarmNodeId_Type(DisplayString):
+    """Custom type alarmNodeId based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 128),
+    )
+
+
+_AlarmNodeId_Type.__name__ = "DisplayString"
+_AlarmNodeId_Object = MibTableColumn
+alarmNodeId = _AlarmNodeId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 2),
+    _AlarmNodeId_Type()
+)
+alarmNodeId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmNodeId.setStatus("current")
+
+
+class _AlarmNodeName_Type(DisplayString):
+    """Custom type alarmNodeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 128),
+    )
+
+
+_AlarmNodeName_Type.__name__ = "DisplayString"
+_AlarmNodeName_Object = MibTableColumn
+alarmNodeName = _AlarmNodeName_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 3),
+    _AlarmNodeName_Type()
+)
+alarmNodeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmNodeName.setStatus("current")
+_AlarmObjectType_Type = InfnManagedObjectType
+_AlarmObjectType_Object = MibTableColumn
+alarmObjectType = _AlarmObjectType_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 4),
+    _AlarmObjectType_Type()
+)
+alarmObjectType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmObjectType.setStatus("current")
+_AlarmObjectAid_Type = DisplayString
+_AlarmObjectAid_Object = MibTableColumn
+alarmObjectAid = _AlarmObjectAid_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 5),
+    _AlarmObjectAid_Type()
+)
+alarmObjectAid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmObjectAid.setStatus("current")
+_AlarmSourceOid_Type = ObjectIdentifier
+_AlarmSourceOid_Object = MibTableColumn
+alarmSourceOid = _AlarmSourceOid_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 6),
+    _AlarmSourceOid_Type()
+)
+alarmSourceOid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmSourceOid.setStatus("current")
+
+
+class _AlarmProbableCause_Type(Integer32):
+    """Custom type alarmProbableCause based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64,
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73,
+              74,
+              75,
+              76,
+              77,
+              78,
+              79,
+              80,
+              81,
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88,
+              89,
+              90,
+              91,
+              92,
+              93,
+              94,
+              95,
+              96,
+              97,
+              98,
+              99,
+              100,
+              101,
+              102,
+              103,
+              104,
+              105,
+              106,
+              107,
+              108,
+              109,
+              110,
+              111,
+              112,
+              113,
+              114,
+              115,
+              116,
+              117,
+              118,
+              119,
+              120,
+              121,
+              122,
+              123,
+              124,
+              125,
+              126,
+              127,
+              128,
+              129,
+              130,
+              131,
+              132,
+              133,
+              134,
+              135,
+              136,
+              137,
+              138,
+              139,
+              140,
+              141,
+              142,
+              143,
+              144,
+              145,
+              146,
+              147,
+              148,
+              149,
+              150,
+              151,
+              152,
+              153,
+              154,
+              155,
+              156,
+              157,
+              158,
+              159,
+              160,
+              161,
+              162,
+              164,
+              165,
+              166,
+              200,
+              201,
+              202,
+              203,
+              204,
+              205,
+              206,
+              207,
+              208,
+              209,
+              210,
+              211,
+              212,
+              213,
+              214,
+              215,
+              216,
+              217,
+              218,
+              219,
+              220,
+              221,
+              222,
+              223,
+              224,
+              225,
+              226,
+              227,
+              228,
+              229,
+              230,
+              231,
+              232,
+              233,
+              234,
+              235,
+              236,
+              237,
+              238,
+              239,
+              240,
+              241,
+              242,
+              243,
+              244,
+              245,
+              246,
+              247,
+              248,
+              249,
+              250,
+              251,
+              300,
+              301,
+              303,
+              304,
+              305,
+              306,
+              307,
+              308,
+              309,
+              310,
+              311,
+              312,
+              313,
+              314,
+              315,
+              316,
+              317,
+              318,
+              319,
+              320,
+              321,
+              322,
+              323,
+              324,
+              325,
+              326,
+              327,
+              328,
+              329,
+              330,
+              331,
+              332,
+              333,
+              334,
+              340,
+              341,
+              342,
+              343,
+              500,
+              501,
+              502,
+              503,
+              504,
+              505,
+              506,
+              507,
+              508,
+              509,
+              510,
+              511,
+              512,
+              513,
+              514,
+              515,
+              516,
+              517,
+              518,
+              519,
+              532,
+              533,
+              535,
+              536,
+              537,
+              538,
+              539,
+              540,
+              541,
+              542,
+              543,
+              544,
+              545,
+              546,
+              547,
+              548,
+              549,
+              550,
+              551,
+              552,
+              554,
+              556,
+              557,
+              558,
+              559,
+              560,
+              561,
+              562,
+              563,
+              564,
+              565,
+              566,
+              567,
+              568,
+              569,
+              570,
+              571,
+              572,
+              573,
+              574,
+              575,
+              576,
+              577,
+              578,
+              579,
+              580,
+              581,
+              582,
+              583,
+              584,
+              585,
+              586,
+              587,
+              588,
+              589,
+              590,
+              591,
+              592,
+              593,
+              595,
+              596,
+              597,
+              598,
+              599,
+              600,
+              601,
+              602,
+              603,
+              604,
+              605,
+              606,
+              700,
+              701,
+              702,
+              703,
+              704,
+              705,
+              706,
+              707,
+              708,
+              709,
+              710,
+              711,
+              712,
+              713,
+              714,
+              715)
+        )
+    )
+    namedValues = NamedValues(
+        *(("adminLock", 1),
+          ("adminMaint", 2),
+          ("adsrup", 3),
+          ("adTimeout", 4),
+          ("ais-dtp", 5),
+          ("ais-l", 6),
+          ("ais-ms", 7),
+          ("alsDisabled", 8),
+          ("ambientTempOorh", 9),
+          ("aupfail", 10),
+          ("auxEnetLoLinkCtrlA", 11),
+          ("auxEnetLoLinkCtrlB", 12),
+          ("bdi", 13),
+          ("bdi-dtp", 14),
+          ("backupMemoryLow", 15),
+          ("backupMemoryVeryLow", 16),
+          ("branMsmt", 17),
+          ("breakerOpen48v", 18),
+          ("ctrlCommFailA", 19),
+          ("ctrlCommFailB", 20),
+          ("dbMsmt", 21),
+          ("dbRestoreFail", 22),
+          ("dbRestoreFailReboot", 23),
+          ("dcnEnetLoLinkCtrlA", 24),
+          ("dcnEnetLoLinkCtrlB", 25),
+          ("deEncapAis-l", 26),
+          ("deEncapAis-ms", 27),
+          ("deEncapLof", 28),
+          ("deEncapLos", 29),
+          ("deEncapLossOfSync", 30),
+          ("eqpPer1", 31),
+          ("eqpPer2", 32),
+          ("eqpPer3", 33),
+          ("eqptPartFail", 34),
+          ("eqptProtFailSlot3", 35),
+          ("eqptProtFailSlot4", 36),
+          ("eqptProtFailSlot5", 37),
+          ("eqptProtFailSlot6", 38),
+          ("eqptCpReset", 39),
+          ("eqptCpUr", 40),
+          ("eqptDegrade", 41),
+          ("eqptFail", 42),
+          ("eqptMsmt", 43),
+          ("excessiveChannels", 44),
+          ("gmplsConfigMismatch", 45),
+          ("gmplsNbrDown", 46),
+          ("impropRmvl", 47),
+          ("initFail", 48),
+          ("insufficientGain", 49),
+          ("interOamMisConn", 50),
+          ("lineTestSigGen", 51),
+          ("lineTestSigOos", 52),
+          ("loa", 53),
+          ("loc", 54),
+          ("lockOutOfPr", 55),
+          ("lockOutOfWk", 56),
+          ("lof", 57),
+          ("los", 58),
+          ("lossOfSync", 59),
+          ("lpbkFacility", 60),
+          ("lpbkTerm", 61),
+          ("misConn", 62),
+          ("misConfigIpAddr", 63),
+          ("nbrsOscIpAddrConflict", 64),
+          ("nct1EnetLolinkCtrlA", 65),
+          ("nct1EnetLolinkCtrlB", 66),
+          ("nct2EnetLolinkCtrlA", 67),
+          ("nct2EnetLolinkCtrlB", 68),
+          ("ntpServerLoss", 69),
+          ("nwDuplicateMeName", 70),
+          ("nwDuplicateNbr", 71),
+          ("nwDuplicateRouterId", 72),
+          ("olOorh", 73),
+          ("olos", 74),
+          ("oprOorh", 75),
+          ("oprOorl", 76),
+          ("optOorh", 77),
+          ("optOorl", 78),
+          ("oscCommFailA", 79),
+          ("oscCommFailB", 80),
+          ("oscIpAddrDuplicate", 81),
+          ("gccIpAddrSubnetMsmt", 82),
+          ("peerCtrlCommFail", 83),
+          ("plm", 84),
+          ("postFecBerSf", 85),
+          ("prbsGen", 86),
+          ("prbsOos", 87),
+          ("preFecBerSd", 88),
+          ("pwrAdjustIncomplete", 89),
+          ("power48vFail", 90),
+          ("pwrLoopDisabled", 91),
+          ("rfi-l", 92),
+          ("rfi-ms", 93),
+          ("spanLossOorh", 94),
+          ("spanLossOorl", 95),
+          ("sncFail", 96),
+          ("sncSetupFail", 97),
+          ("swInstallFail", 98),
+          ("swUpgradeFail", 99),
+          ("swUpgradeFailBootup", 100),
+          ("tempOorDeviceShutdown", 101),
+          ("tempOorh", 102),
+          ("tempOorhRxPicShutdown", 103),
+          ("tempOorhTxPicShutdown", 104),
+          ("tempOorl", 105),
+          ("tim-dtp", 106),
+          ("tim-dts", 107),
+          ("tim-s", 108),
+          ("tribPrbsGen", 109),
+          ("tribPrbsOos", 110),
+          ("tribTestSigGen", 111),
+          ("tribTestSigOos", 112),
+          ("txfrPriFail", 113),
+          ("txfrPriFailSna", 114),
+          ("txfrsFail", 115),
+          ("unknownFw", 116),
+          ("powerDrawExceeded", 117),
+          ("connectivityFail", 118),
+          ("gccGmplsCfgMsmt", 119),
+          ("gccGmplsNbrDown", 120),
+          ("gccIPaddrDuplicate", 121),
+          ("nbrsGccIPaddrInConflict", 122),
+          ("ocgMismatch", 123),
+          ("powerControl", 124),
+          ("greTunnelAddressMismatch", 125),
+          ("noManagementRedundancy", 126),
+          ("lolm", 127),
+          ("deEncapLolm", 128),
+          ("oloorh", 129),
+          ("ochMismatch", 130),
+          ("switchBackToWrk", 131),
+          ("manualSwitchBackToWrk", 132),
+          ("wtrStart", 133),
+          ("spectrumNotAttained", 134),
+          ("incompatibleDse", 135),
+          ("tempOorhDevAutoShutdown", 136),
+          ("rmtChnlMismatch", 137),
+          ("equipmentInit", 138),
+          ("adminXfrReqDrop", 139),
+          ("adminDBCurrupt", 140),
+          ("adminRestoreFailed", 141),
+          ("txfr-sec-fail", 142),
+          ("optTooLow", 143),
+          ("equipmentUnsupported", 144),
+          ("ccmLoc", 145),
+          ("ccmUnexpLevel", 146),
+          ("ccmMisMerge", 147),
+          ("ccmUnexpMep", 148),
+          ("ccmUnexpPeriod", 149),
+          ("ccmUnexpPrio", 150),
+          ("ccmRemMacErr", 151),
+          ("ethRdi", 152),
+          ("ethAis", 153),
+          ("vsiFail", 154),
+          ("vsiPartialFail", 155),
+          ("vsiMacLimit", 156),
+          ("macFlap", 157),
+          ("acMacLimit", 158),
+          ("cacFail", 159),
+          ("cacUnavail", 160),
+          ("freqProvPending", 161),
+          ("vsiMacLimDnlDnf", 162),
+          ("intra-sch-carrier-ripple-high", 164),
+          ("tx-tim", 165),
+          ("rx-tim", 166),
+          ("airCompressorFailure", 200),
+          ("airConditioningFailure", 201),
+          ("airDryerFailure", 202),
+          ("batteryDischarging", 203),
+          ("batteryFailure", 204),
+          ("coolingFanFailure", 205),
+          ("centralPowerFailureMajor", 206),
+          ("centralPowerFailureMinor", 207),
+          ("engineFailure", 208),
+          ("engineOperating", 209),
+          ("explosiveGas", 210),
+          ("fireDetectorFailure", 211),
+          ("fire", 212),
+          ("flood", 213),
+          ("fuseFailure", 214),
+          ("generatorFailure", 215),
+          ("highAirFlow", 216),
+          ("highHumidity", 217),
+          ("highTemperature", 218),
+          ("highWater", 219),
+          ("intrusion", 220),
+          ("lowBatteryVoltage", 221),
+          ("lowFuel", 222),
+          ("lowHumidity", 223),
+          ("lowCablePressure", 224),
+          ("lowTemperature", 225),
+          ("lowWater", 226),
+          ("misc", 227),
+          ("openDoor", 228),
+          ("pumpFailure", 229),
+          ("commercialPowerFailure", 230),
+          ("power-xFailure", 231),
+          ("rectifierFailure", 232),
+          ("rectifierHighVoltage", 233),
+          ("rectifierLowVoltage", 234),
+          ("smoke", 235),
+          ("toxicGas", 236),
+          ("ventilationSystemFailure", 237),
+          ("linePrbsGen", 238),
+          ("ais", 239),
+          ("deg", 240),
+          ("linePrbsOos", 241),
+          ("lck", 242),
+          ("oci", 243),
+          ("oldRevCtrlr", 244),
+          ("protUnitAct", 245),
+          ("misConfig", 246),
+          ("lsActive", 247),
+          ("deEncapAis-p", 248),
+          ("rstPathAct", 249),
+          ("ltc", 250),
+          ("automaticGainCtrlNotFunctioning", 251),
+          ("slOorh", 300),
+          ("slOorl", 301),
+          ("gainOorh", 303),
+          ("gainOorl", 304),
+          ("insufficientChanPower", 305),
+          ("uSupportedTom", 306),
+          ("ncLolink", 307),
+          ("chassisMisconn", 308),
+          ("dcnLolink", 309),
+          ("loLink", 310),
+          ("none", 311),
+          ("unknownEqpt", 312),
+          ("outputPwrFailure", 313),
+          ("inputPwrFailure", 314),
+          ("dropBandOptLow", 315),
+          ("timOtu", 316),
+          ("dropBandOprOorLow", 317),
+          ("dropBandOprOorHigh", 318),
+          ("dropBandOptOorLow", 319),
+          ("dropBandOptOorHigh", 320),
+          ("dropBandOLOS", 321),
+          ("bandOptTooLow", 322),
+          ("bandOptOorLow", 323),
+          ("bandOptOorHigh", 324),
+          ("bandOprOorLow", 325),
+          ("bandOprOorHigh", 326),
+          ("insufficientAttenuation", 327),
+          ("oprOorHighOscDisabled", 328),
+          ("switchToPr", 329),
+          ("manualSwitchToPr", 330),
+          ("adaptCommitPending", 331),
+          ("txFail", 332),
+          ("ntpAuthFail", 333),
+          ("lowCh", 334),
+          ("rf", 340),
+          ("lf", 341),
+          ("deEncapLf", 342),
+          ("deEncapRf", 343),
+          ("eqptProtFailSlot1", 500),
+          ("eqptProtFailSlot2", 501),
+          ("eqptProtFailSlot7", 502),
+          ("eqptProtFailSlot8", 503),
+          ("eqptProtFailSlot9", 504),
+          ("eqptProtFailSlot10", 505),
+          ("powerProtectionFail", 506),
+          ("lossOfFrameDelineation", 507),
+          ("upiMismatch", 508),
+          ("exiMismatch", 509),
+          ("clientSignalFail", 510),
+          ("tsmUnavailable", 511),
+          ("noTsmRedundancy", 512),
+          ("switchFabricFailure", 513),
+          ("switchProtUnavailable", 514),
+          ("timingSourceMismatch", 515),
+          ("muxStructureIdMismatch", 516),
+          ("powerVoltageOver", 517),
+          ("powerVoltageUnder", 518),
+          ("oscMisConnection", 519),
+          ("remmodMismatch", 532),
+          ("rx-EDFA-SPLIM", 533),
+          ("lockedSyncSourceActive", 535),
+          ("rxOPRTooLow", 536),
+          ("commFailLink", 537),
+          ("deEncapLoa", 538),
+          ("configMismatch", 539),
+          ("lossOfFrameLossOfMultiFrame", 540),
+          ("lockedSwitchModuleActive", 541),
+          ("operatingModeMismatch", 542),
+          ("powerCtrlInitiated", 543),
+          ("lossOfMultiFrame", 544),
+          ("degradedConfig", 545),
+          ("licAssignmentMsmt", 546),
+          ("licInsufficiency", 547),
+          ("licModFmtMsmt", 548),
+          ("licNwAuditMsMt", 549),
+          ("shelfDbCorrupt", 550),
+          ("tx-lossOfMultiFrame", 551),
+          ("lossOfFrameLogicalLane", 552),
+          ("lossOfLaneAllignment", 554),
+          ("igccFail", 556),
+          ("encmodeChangePending", 557),
+          ("remPortFecMsmt", 558),
+          ("aisOdu-ipath", 559),
+          ("bdiOdu-ipath", 560),
+          ("remPortEncModeMsmt", 561),
+          ("pmdOorHigh", 562),
+          ("flashFail", 563),
+          ("preFecQSigDegrade", 564),
+          ("flashRedundancyNotAvailable", 565),
+          ("schMisConn", 566),
+          ("opt-too-low", 567),
+          ("forwarddefectindicationoverhead", 568),
+          ("forwarddefectindicationpayload", 569),
+          ("migrationfailed", 570),
+          ("backwardDefectIndicationS", 571),
+          ("openconnectionIndication", 572),
+          ("remSchParamMsmt", 573),
+          ("schNumMismatch", 574),
+          ("payloadMissingIndication", 575),
+          ("backwardDefectIndicationPayloadO", 576),
+          ("muxOprOorl", 577),
+          ("txPayloadMisMatchODUk", 578),
+          ("lossOfOpuMultiFrameIdentifier", 579),
+          ("serviceStateOOSAU", 580),
+          ("odukPELatencyFacilityOorh", 581),
+          ("odukPELatencyFacilityOorl", 582),
+          ("odukPELatencyTerminalOorh", 583),
+          ("odukPELatencyTerminalOorl", 584),
+          ("odukPSLatencyFacilityOorh", 585),
+          ("odukPSLatencyFacilityOorl", 586),
+          ("odukPSLatencyTerminalOorh", 587),
+          ("odukPSLatencyTerminalOorl", 588),
+          ("insufficientTrgtOutPwr", 589),
+          ("backwardDefectIndication", 590),
+          ("backwardDefectIndicationPayload", 591),
+          ("mainPowerFailure", 592),
+          ("pemTypMismatch", 593),
+          ("gccOspfNbrDown", 595),
+          ("gccIpSubnetMismatch", 596),
+          ("gccIpConflict", 597),
+          ("gccOspfConfigMismatch", 598),
+          ("greAddressMismatch", 599),
+          ("rem-sch-parameters-msmt", 600),
+          ("opr-too-high", 601),
+          ("opr-too-low", 602),
+          ("opr-oorl", 603),
+          ("opr-oorh", 604),
+          ("opt-oorl", 605),
+          ("opt-oorh", 606),
+          ("ocgTTIMsmt", 700),
+          ("ocgReachThWarn", 701),
+          ("ocgReachThExceed", 702),
+          ("tx-olos", 703),
+          ("pemGLUnavailable", 704),
+          ("registrationRequired", 705),
+          ("registrationExpired", 706),
+          ("registrationRequiredMJ", 707),
+          ("ttiMismatchXtSCH", 708),
+          ("ethCsf", 709),
+          ("linkDown", 710),
+          ("maint-req", 711),
+          ("gccFail", 712),
+          ("rxBDI", 713),
+          ("sbsOff", 714),
+          ("idlerSeparationOor", 715))
+    )
+
+
+_AlarmProbableCause_Type.__name__ = "Integer32"
+_AlarmProbableCause_Object = MibTableColumn
+alarmProbableCause = _AlarmProbableCause_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 7),
+    _AlarmProbableCause_Type()
+)
+alarmProbableCause.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmProbableCause.setStatus("current")
+
+
+class _AlarmSeverity_Type(Integer32):
+    """Custom type alarmSeverity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("psIndeterminate", 1),
+          ("psCritical", 2),
+          ("psMajor", 3),
+          ("psMinor", 4),
+          ("psWarning", 5),
+          ("psCleared", 6),
+          ("psNotReported", 7))
+    )
+
+
+_AlarmSeverity_Type.__name__ = "Integer32"
+_AlarmSeverity_Object = MibTableColumn
+alarmSeverity = _AlarmSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 8),
+    _AlarmSeverity_Type()
+)
+alarmSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmSeverity.setStatus("current")
+
+
+class _AlarmCategory_Type(Integer32):
+    """Custom type alarmCategory based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("communication", 2),
+          ("qualityOfService", 3),
+          ("environmental", 4),
+          ("equipment", 5),
+          ("softwareProcessing", 6),
+          ("facility", 7),
+          ("software", 8))
+    )
+
+
+_AlarmCategory_Type.__name__ = "Integer32"
+_AlarmCategory_Object = MibTableColumn
+alarmCategory = _AlarmCategory_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 9),
+    _AlarmCategory_Type()
+)
+alarmCategory.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmCategory.setStatus("current")
+
+
+class _AlarmServiceAffecting_Type(Integer32):
+    """Custom type alarmServiceAffecting based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("saUnknown", 1),
+          ("saServiceAffecting", 2),
+          ("saNonServiceAffecting", 3))
+    )
+
+
+_AlarmServiceAffecting_Type.__name__ = "Integer32"
+_AlarmServiceAffecting_Object = MibTableColumn
+alarmServiceAffecting = _AlarmServiceAffecting_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 10),
+    _AlarmServiceAffecting_Type()
+)
+alarmServiceAffecting.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmServiceAffecting.setStatus("current")
+_AlarmOccurrenceTime_Type = DisplayString
+_AlarmOccurrenceTime_Object = MibTableColumn
+alarmOccurrenceTime = _AlarmOccurrenceTime_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 11),
+    _AlarmOccurrenceTime_Type()
+)
+alarmOccurrenceTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmOccurrenceTime.setStatus("current")
+
+
+class _AlarmLocation_Type(Integer32):
+    """Custom type alarmLocation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nearEnd", 1),
+          ("farEnd", 2),
+          ("notApplicable", 3))
+    )
+
+
+_AlarmLocation_Type.__name__ = "Integer32"
+_AlarmLocation_Object = MibTableColumn
+alarmLocation = _AlarmLocation_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 12),
+    _AlarmLocation_Type()
+)
+alarmLocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmLocation.setStatus("current")
+
+
+class _AlarmDirection_Type(Integer32):
+    """Custom type alarmDirection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("receive", 1),
+          ("transmit", 2),
+          ("notApplicable", 3))
+    )
+
+
+_AlarmDirection_Type.__name__ = "Integer32"
+_AlarmDirection_Object = MibTableColumn
+alarmDirection = _AlarmDirection_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 13),
+    _AlarmDirection_Type()
+)
+alarmDirection.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmDirection.setStatus("current")
+
+
+class _AlarmProbableCauseDescription_Type(DisplayString):
+    """Custom type alarmProbableCauseDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_AlarmProbableCauseDescription_Type.__name__ = "DisplayString"
+_AlarmProbableCauseDescription_Object = MibTableColumn
+alarmProbableCauseDescription = _AlarmProbableCauseDescription_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 14),
+    _AlarmProbableCauseDescription_Type()
+)
+alarmProbableCauseDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmProbableCauseDescription.setStatus("current")
+_AlarmAdditionalText_Type = DisplayString
+_AlarmAdditionalText_Object = MibTableColumn
+alarmAdditionalText = _AlarmAdditionalText_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 15),
+    _AlarmAdditionalText_Type()
+)
+alarmAdditionalText.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmAdditionalText.setStatus("current")
+
+
+class _AlarmCorrelationId_Type(Integer32):
+    """Custom type alarmCorrelationId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AlarmCorrelationId_Type.__name__ = "Integer32"
+_AlarmCorrelationId_Object = MibTableColumn
+alarmCorrelationId = _AlarmCorrelationId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 3, 1, 16),
+    _AlarmCorrelationId_Type()
+)
+alarmCorrelationId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmCorrelationId.setStatus("current")
+_InfnTcaTable_Object = MibTable
+infnTcaTable = _InfnTcaTable_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4)
+)
+if mibBuilder.loadTexts:
+    infnTcaTable.setStatus("current")
+_InfnTcaEntry_Object = MibTableRow
+infnTcaEntry = _InfnTcaEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1)
+)
+infnTcaEntry.setIndexNames(
+    (0, "INFINERA-NOTIFICATION-MIB", "tcaNotificationId"),
+)
+if mibBuilder.loadTexts:
+    infnTcaEntry.setStatus("current")
+
+
+class _TcaNotificationId_Type(Integer32):
+    """Custom type tcaNotificationId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_TcaNotificationId_Type.__name__ = "Integer32"
+_TcaNotificationId_Object = MibTableColumn
+tcaNotificationId = _TcaNotificationId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 1),
+    _TcaNotificationId_Type()
+)
+tcaNotificationId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tcaNotificationId.setStatus("current")
+
+
+class _TcaNodeId_Type(DisplayString):
+    """Custom type tcaNodeId based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 128),
+    )
+
+
+_TcaNodeId_Type.__name__ = "DisplayString"
+_TcaNodeId_Object = MibTableColumn
+tcaNodeId = _TcaNodeId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 2),
+    _TcaNodeId_Type()
+)
+tcaNodeId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaNodeId.setStatus("current")
+
+
+class _TcaNodeName_Type(DisplayString):
+    """Custom type tcaNodeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 128),
+    )
+
+
+_TcaNodeName_Type.__name__ = "DisplayString"
+_TcaNodeName_Object = MibTableColumn
+tcaNodeName = _TcaNodeName_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 3),
+    _TcaNodeName_Type()
+)
+tcaNodeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaNodeName.setStatus("current")
+_TcaObjectType_Type = InfnManagedObjectType
+_TcaObjectType_Object = MibTableColumn
+tcaObjectType = _TcaObjectType_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 4),
+    _TcaObjectType_Type()
+)
+tcaObjectType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaObjectType.setStatus("current")
+_TcaObjectAid_Type = DisplayString
+_TcaObjectAid_Object = MibTableColumn
+tcaObjectAid = _TcaObjectAid_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 5),
+    _TcaObjectAid_Type()
+)
+tcaObjectAid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaObjectAid.setStatus("current")
+_TcaSourceOid_Type = ObjectIdentifier
+_TcaSourceOid_Object = MibTableColumn
+tcaSourceOid = _TcaSourceOid_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 6),
+    _TcaSourceOid_Type()
+)
+tcaSourceOid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaSourceOid.setStatus("current")
+
+
+class _TcaProbableCause_Type(Integer32):
+    """Custom type tcaProbableCause based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cvs", 1),
+          ("sess", 2),
+          ("sefss", 3),
+          ("ess", 4),
+          ("uass", 5),
+          ("cvp", 6),
+          ("sesp", 7),
+          ("sefsp", 8),
+          ("esp", 9),
+          ("uasp", 10),
+          ("be-rs", 11),
+          ("es-rs", 12),
+          ("ses-rs", 13),
+          ("ofs-rs", 14),
+          ("loss-rs", 15),
+          ("icg-pcs", 16),
+          ("es-pcs", 17),
+          ("ses-pcs", 18),
+          ("sess-pcs", 19),
+          ("jabberSeconds", 20),
+          ("ses-mac", 21),
+          ("errorOctets", 22),
+          ("jabbers", 23),
+          ("fragments", 24),
+          ("crcAlignErrors", 25),
+          ("underSized", 26),
+          ("overSized", 27),
+          ("pkts64", 28),
+          ("pkts65to127", 29),
+          ("pkts128to255", 30),
+          ("pkts256to511", 31),
+          ("pkts512to1023", 32),
+          ("pkts1024to1518", 33),
+          ("pkts1519tojumbo", 34),
+          ("packets", 35),
+          ("octets", 36),
+          ("broadcastPkts", 37),
+          ("multicastPkts", 38),
+          ("inPauseFrames", 39),
+          ("outPauseFrames", 40),
+          ("pkts1024to1522", 41),
+          ("pkts1523tojumbo", 42),
+          ("invalidCrcs", 43),
+          ("frames", 44),
+          ("erroredFrames", 45),
+          ("erroredOctets", 46),
+          ("erroredBlocks", 47),
+          ("defectSeconds", 48),
+          ("beiCount", 49),
+          ("erroredBlocksFarEnd", 50),
+          ("defectSecondsFarEnd", 51))
+    )
+
+
+_TcaProbableCause_Type.__name__ = "Integer32"
+_TcaProbableCause_Object = MibTableColumn
+tcaProbableCause = _TcaProbableCause_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 7),
+    _TcaProbableCause_Type()
+)
+tcaProbableCause.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaProbableCause.setStatus("current")
+
+
+class _TcaSeverity_Type(Integer32):
+    """Custom type tcaSeverity based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("psIndeterminate", 1),
+          ("psCritical", 2),
+          ("psMajor", 3),
+          ("psMinor", 4),
+          ("psWarning", 5),
+          ("psCleared", 6),
+          ("psEvent", 7),
+          ("psNotReported", 8))
+    )
+
+
+_TcaSeverity_Type.__name__ = "Integer32"
+_TcaSeverity_Object = MibTableColumn
+tcaSeverity = _TcaSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 8),
+    _TcaSeverity_Type()
+)
+tcaSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaSeverity.setStatus("current")
+
+
+class _TcaCategory_Type(Integer32):
+    """Custom type tcaCategory based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("communication", 2),
+          ("qualityOfService", 3),
+          ("environmental", 4),
+          ("equipment", 5),
+          ("softwareProcessing", 6),
+          ("facility", 7),
+          ("software", 8))
+    )
+
+
+_TcaCategory_Type.__name__ = "Integer32"
+_TcaCategory_Object = MibTableColumn
+tcaCategory = _TcaCategory_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 9),
+    _TcaCategory_Type()
+)
+tcaCategory.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaCategory.setStatus("current")
+
+
+class _TcaServiceAffecting_Type(Integer32):
+    """Custom type tcaServiceAffecting based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("saUnknown", 1),
+          ("saServiceAffecting", 2),
+          ("saNonServiceAffecting", 3))
+    )
+
+
+_TcaServiceAffecting_Type.__name__ = "Integer32"
+_TcaServiceAffecting_Object = MibTableColumn
+tcaServiceAffecting = _TcaServiceAffecting_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 10),
+    _TcaServiceAffecting_Type()
+)
+tcaServiceAffecting.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaServiceAffecting.setStatus("current")
+_TcaOccurrenceTime_Type = DisplayString
+_TcaOccurrenceTime_Object = MibTableColumn
+tcaOccurrenceTime = _TcaOccurrenceTime_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 11),
+    _TcaOccurrenceTime_Type()
+)
+tcaOccurrenceTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaOccurrenceTime.setStatus("current")
+
+
+class _TcaLocation_Type(Integer32):
+    """Custom type tcaLocation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nearEnd", 1),
+          ("farEnd", 2),
+          ("notApplicable", 3))
+    )
+
+
+_TcaLocation_Type.__name__ = "Integer32"
+_TcaLocation_Object = MibTableColumn
+tcaLocation = _TcaLocation_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 12),
+    _TcaLocation_Type()
+)
+tcaLocation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaLocation.setStatus("current")
+
+
+class _TcaDirection_Type(Integer32):
+    """Custom type tcaDirection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("receive", 1),
+          ("transmit", 2),
+          ("notApplicable", 3))
+    )
+
+
+_TcaDirection_Type.__name__ = "Integer32"
+_TcaDirection_Object = MibTableColumn
+tcaDirection = _TcaDirection_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 13),
+    _TcaDirection_Type()
+)
+tcaDirection.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaDirection.setStatus("current")
+
+
+class _TcaMonitoredValue_Type(DisplayString):
+    """Custom type tcaMonitoredValue based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_TcaMonitoredValue_Type.__name__ = "DisplayString"
+_TcaMonitoredValue_Object = MibTableColumn
+tcaMonitoredValue = _TcaMonitoredValue_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 14),
+    _TcaMonitoredValue_Type()
+)
+tcaMonitoredValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaMonitoredValue.setStatus("current")
+
+
+class _TcaThresholdValue_Type(DisplayString):
+    """Custom type tcaThresholdValue based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_TcaThresholdValue_Type.__name__ = "DisplayString"
+_TcaThresholdValue_Object = MibTableColumn
+tcaThresholdValue = _TcaThresholdValue_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 15),
+    _TcaThresholdValue_Type()
+)
+tcaThresholdValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaThresholdValue.setStatus("current")
+
+
+class _TcaTimePeriod_Type(DisplayString):
+    """Custom type tcaTimePeriod based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_TcaTimePeriod_Type.__name__ = "DisplayString"
+_TcaTimePeriod_Object = MibTableColumn
+tcaTimePeriod = _TcaTimePeriod_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 16),
+    _TcaTimePeriod_Type()
+)
+tcaTimePeriod.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaTimePeriod.setStatus("current")
+
+
+class _TcaProbableCauseDescription_Type(DisplayString):
+    """Custom type tcaProbableCauseDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_TcaProbableCauseDescription_Type.__name__ = "DisplayString"
+_TcaProbableCauseDescription_Object = MibTableColumn
+tcaProbableCauseDescription = _TcaProbableCauseDescription_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 17),
+    _TcaProbableCauseDescription_Type()
+)
+tcaProbableCauseDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaProbableCauseDescription.setStatus("current")
+_TcaAdditionalText_Type = DisplayString
+_TcaAdditionalText_Object = MibTableColumn
+tcaAdditionalText = _TcaAdditionalText_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 4, 1, 18),
+    _TcaAdditionalText_Type()
+)
+tcaAdditionalText.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tcaAdditionalText.setStatus("current")
+_InfnAdminEventTable_Object = MibTable
+infnAdminEventTable = _InfnAdminEventTable_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5)
+)
+if mibBuilder.loadTexts:
+    infnAdminEventTable.setStatus("current")
+_InfnAdminEventEntry_Object = MibTableRow
+infnAdminEventEntry = _InfnAdminEventEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1)
+)
+infnAdminEventEntry.setIndexNames(
+    (0, "INFINERA-NOTIFICATION-MIB", "infnAdminNotificationId"),
+)
+if mibBuilder.loadTexts:
+    infnAdminEventEntry.setStatus("current")
+_InfnAdminNotificationId_Type = Integer32
+_InfnAdminNotificationId_Object = MibTableColumn
+infnAdminNotificationId = _InfnAdminNotificationId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 1),
+    _InfnAdminNotificationId_Type()
+)
+infnAdminNotificationId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    infnAdminNotificationId.setStatus("current")
+_InfnAdminNodeId_Type = DisplayString
+_InfnAdminNodeId_Object = MibTableColumn
+infnAdminNodeId = _InfnAdminNodeId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 2),
+    _InfnAdminNodeId_Type()
+)
+infnAdminNodeId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAdminNodeId.setStatus("current")
+_InfnAdminNodeName_Type = DisplayString
+_InfnAdminNodeName_Object = MibTableColumn
+infnAdminNodeName = _InfnAdminNodeName_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 3),
+    _InfnAdminNodeName_Type()
+)
+infnAdminNodeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAdminNodeName.setStatus("current")
+_InfnAdminObjectType_Type = InfnManagedObjectType
+_InfnAdminObjectType_Object = MibTableColumn
+infnAdminObjectType = _InfnAdminObjectType_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 4),
+    _InfnAdminObjectType_Type()
+)
+infnAdminObjectType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAdminObjectType.setStatus("current")
+_InfnAdminObjectAid_Type = DisplayString
+_InfnAdminObjectAid_Object = MibTableColumn
+infnAdminObjectAid = _InfnAdminObjectAid_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 5),
+    _InfnAdminObjectAid_Type()
+)
+infnAdminObjectAid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAdminObjectAid.setStatus("current")
+_InfnAdminSourceOid_Type = ObjectIdentifier
+_InfnAdminSourceOid_Object = MibTableColumn
+infnAdminSourceOid = _InfnAdminSourceOid_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 6),
+    _InfnAdminSourceOid_Type()
+)
+infnAdminSourceOid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAdminSourceOid.setStatus("current")
+_InfnAdminEventTime_Type = DisplayString
+_InfnAdminEventTime_Object = MibTableColumn
+infnAdminEventTime = _InfnAdminEventTime_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 7),
+    _InfnAdminEventTime_Type()
+)
+infnAdminEventTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAdminEventTime.setStatus("current")
+_InfnAdminCause_Type = DisplayString
+_InfnAdminCause_Object = MibTableColumn
+infnAdminCause = _InfnAdminCause_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 5, 1, 8),
+    _InfnAdminCause_Type()
+)
+infnAdminCause.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAdminCause.setStatus("current")
+_InfnAuditEventTable_Object = MibTable
+infnAuditEventTable = _InfnAuditEventTable_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6)
+)
+if mibBuilder.loadTexts:
+    infnAuditEventTable.setStatus("current")
+_InfnAuditEventEntry_Object = MibTableRow
+infnAuditEventEntry = _InfnAuditEventEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1)
+)
+infnAuditEventEntry.setIndexNames(
+    (0, "INFINERA-NOTIFICATION-MIB", "infnAuditNotificationId"),
+)
+if mibBuilder.loadTexts:
+    infnAuditEventEntry.setStatus("current")
+_InfnAuditNotificationId_Type = Integer32
+_InfnAuditNotificationId_Object = MibTableColumn
+infnAuditNotificationId = _InfnAuditNotificationId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 1),
+    _InfnAuditNotificationId_Type()
+)
+infnAuditNotificationId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    infnAuditNotificationId.setStatus("current")
+_InfnAuditNodeId_Type = DisplayString
+_InfnAuditNodeId_Object = MibTableColumn
+infnAuditNodeId = _InfnAuditNodeId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 2),
+    _InfnAuditNodeId_Type()
+)
+infnAuditNodeId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAuditNodeId.setStatus("current")
+_InfnAuditNodeName_Type = DisplayString
+_InfnAuditNodeName_Object = MibTableColumn
+infnAuditNodeName = _InfnAuditNodeName_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 3),
+    _InfnAuditNodeName_Type()
+)
+infnAuditNodeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAuditNodeName.setStatus("current")
+_InfnAuditObjectType_Type = InfnManagedObjectType
+_InfnAuditObjectType_Object = MibTableColumn
+infnAuditObjectType = _InfnAuditObjectType_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 4),
+    _InfnAuditObjectType_Type()
+)
+infnAuditObjectType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAuditObjectType.setStatus("current")
+_InfnAuditObjectAid_Type = DisplayString
+_InfnAuditObjectAid_Object = MibTableColumn
+infnAuditObjectAid = _InfnAuditObjectAid_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 5),
+    _InfnAuditObjectAid_Type()
+)
+infnAuditObjectAid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAuditObjectAid.setStatus("current")
+_InfnAuditSourceOid_Type = ObjectIdentifier
+_InfnAuditSourceOid_Object = MibTableColumn
+infnAuditSourceOid = _InfnAuditSourceOid_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 6),
+    _InfnAuditSourceOid_Type()
+)
+infnAuditSourceOid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAuditSourceOid.setStatus("current")
+_InfnAuditUserId_Type = DisplayString
+_InfnAuditUserId_Object = MibTableColumn
+infnAuditUserId = _InfnAuditUserId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 7),
+    _InfnAuditUserId_Type()
+)
+infnAuditUserId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAuditUserId.setStatus("current")
+_InfnAuditHostInfo_Type = DisplayString
+_InfnAuditHostInfo_Object = MibTableColumn
+infnAuditHostInfo = _InfnAuditHostInfo_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 8),
+    _InfnAuditHostInfo_Type()
+)
+infnAuditHostInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAuditHostInfo.setStatus("current")
+_InfnAuditTime_Type = DisplayString
+_InfnAuditTime_Object = MibTableColumn
+infnAuditTime = _InfnAuditTime_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 9),
+    _InfnAuditTime_Type()
+)
+infnAuditTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAuditTime.setStatus("current")
+_InfnAuditOperationName_Type = DisplayString
+_InfnAuditOperationName_Object = MibTableColumn
+infnAuditOperationName = _InfnAuditOperationName_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 10),
+    _InfnAuditOperationName_Type()
+)
+infnAuditOperationName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAuditOperationName.setStatus("current")
+_InfnAuditOperationStatus_Type = DisplayString
+_InfnAuditOperationStatus_Object = MibTableColumn
+infnAuditOperationStatus = _InfnAuditOperationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 11),
+    _InfnAuditOperationStatus_Type()
+)
+infnAuditOperationStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAuditOperationStatus.setStatus("current")
+_InfnAuditParamsList_Type = DisplayString
+_InfnAuditParamsList_Object = MibTableColumn
+infnAuditParamsList = _InfnAuditParamsList_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 6, 1, 12),
+    _InfnAuditParamsList_Type()
+)
+infnAuditParamsList.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnAuditParamsList.setStatus("current")
+_InfnSecurityEventTable_Object = MibTable
+infnSecurityEventTable = _InfnSecurityEventTable_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7)
+)
+if mibBuilder.loadTexts:
+    infnSecurityEventTable.setStatus("current")
+_InfnSecurityEventEntry_Object = MibTableRow
+infnSecurityEventEntry = _InfnSecurityEventEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1)
+)
+infnSecurityEventEntry.setIndexNames(
+    (0, "INFINERA-NOTIFICATION-MIB", "infnSecurityNotificationId"),
+)
+if mibBuilder.loadTexts:
+    infnSecurityEventEntry.setStatus("current")
+_InfnSecurityNotificationId_Type = Integer32
+_InfnSecurityNotificationId_Object = MibTableColumn
+infnSecurityNotificationId = _InfnSecurityNotificationId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 1),
+    _InfnSecurityNotificationId_Type()
+)
+infnSecurityNotificationId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    infnSecurityNotificationId.setStatus("current")
+_InfnSecurityNodeId_Type = DisplayString
+_InfnSecurityNodeId_Object = MibTableColumn
+infnSecurityNodeId = _InfnSecurityNodeId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 2),
+    _InfnSecurityNodeId_Type()
+)
+infnSecurityNodeId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnSecurityNodeId.setStatus("current")
+_InfnSecurityNodeName_Type = DisplayString
+_InfnSecurityNodeName_Object = MibTableColumn
+infnSecurityNodeName = _InfnSecurityNodeName_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 3),
+    _InfnSecurityNodeName_Type()
+)
+infnSecurityNodeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnSecurityNodeName.setStatus("current")
+_InfnSecurityObjectType_Type = InfnManagedObjectType
+_InfnSecurityObjectType_Object = MibTableColumn
+infnSecurityObjectType = _InfnSecurityObjectType_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 4),
+    _InfnSecurityObjectType_Type()
+)
+infnSecurityObjectType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnSecurityObjectType.setStatus("current")
+_InfnSecurityObjectAid_Type = DisplayString
+_InfnSecurityObjectAid_Object = MibTableColumn
+infnSecurityObjectAid = _InfnSecurityObjectAid_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 5),
+    _InfnSecurityObjectAid_Type()
+)
+infnSecurityObjectAid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnSecurityObjectAid.setStatus("current")
+_InfnSecuritySourceOid_Type = ObjectIdentifier
+_InfnSecuritySourceOid_Object = MibTableColumn
+infnSecuritySourceOid = _InfnSecuritySourceOid_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 6),
+    _InfnSecuritySourceOid_Type()
+)
+infnSecuritySourceOid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnSecuritySourceOid.setStatus("current")
+_InfnSecurityHostInfo_Type = DisplayString
+_InfnSecurityHostInfo_Object = MibTableColumn
+infnSecurityHostInfo = _InfnSecurityHostInfo_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 7),
+    _InfnSecurityHostInfo_Type()
+)
+infnSecurityHostInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnSecurityHostInfo.setStatus("current")
+_InfnSecurityEventTime_Type = DisplayString
+_InfnSecurityEventTime_Object = MibTableColumn
+infnSecurityEventTime = _InfnSecurityEventTime_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 8),
+    _InfnSecurityEventTime_Type()
+)
+infnSecurityEventTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnSecurityEventTime.setStatus("current")
+_InfnSecurityMessage_Type = DisplayString
+_InfnSecurityMessage_Object = MibTableColumn
+infnSecurityMessage = _InfnSecurityMessage_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 7, 1, 9),
+    _InfnSecurityMessage_Type()
+)
+infnSecurityMessage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    infnSecurityMessage.setStatus("current")
+
+# Managed Objects groups
+
+infnAlarmGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1, 1)
+)
+infnAlarmGroup.setObjects(
+      *(("INFINERA-NOTIFICATION-MIB", "alarmNotificationId"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmNodeId"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmNodeName"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmObjectType"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmObjectAid"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmSourceOid"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmProbableCause"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmSeverity"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmServiceAffecting"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmOccurrenceTime"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmLocation"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmDirection"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmProbableCauseDescription"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmAdditionalText"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmCorrelationId"))
+)
+if mibBuilder.loadTexts:
+    infnAlarmGroup.setStatus("current")
+
+infnTcaGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1, 2)
+)
+infnTcaGroup.setObjects(
+      *(("INFINERA-NOTIFICATION-MIB", "tcaNotificationId"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaNodeId"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaNodeName"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaObjectType"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaObjectAid"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaSourceOid"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaProbableCause"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaSeverity"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaServiceAffecting"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaOccurrenceTime"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaLocation"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaDirection"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaMonitoredValue"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaThresholdValue"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaTimePeriod"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaProbableCauseDescription"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaAdditionalText"))
+)
+if mibBuilder.loadTexts:
+    infnTcaGroup.setStatus("current")
+
+infnAdminEventGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1, 3)
+)
+infnAdminEventGroup.setObjects(
+      *(("INFINERA-NOTIFICATION-MIB", "infnAdminNotificationId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminNodeId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminNodeName"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminObjectType"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminObjectAid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminSourceOid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminEventTime"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminCause"))
+)
+if mibBuilder.loadTexts:
+    infnAdminEventGroup.setStatus("current")
+
+infnAuditEventGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1, 4)
+)
+infnAuditEventGroup.setObjects(
+      *(("INFINERA-NOTIFICATION-MIB", "infnAuditNotificationId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditNodeId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditNodeName"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditObjectType"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditObjectAid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditSourceOid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditUserId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditHostInfo"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditTime"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditOperationName"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditOperationStatus"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditParamsList"))
+)
+if mibBuilder.loadTexts:
+    infnAuditEventGroup.setStatus("current")
+
+infnSecurityEventGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 1, 5)
+)
+infnSecurityEventGroup.setObjects(
+      *(("INFINERA-NOTIFICATION-MIB", "infnSecurityNotificationId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityNodeId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityNodeName"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityObjectType"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityObjectAid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecuritySourceOid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityHostInfo"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityEventTime"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityMessage"))
+)
+if mibBuilder.loadTexts:
+    infnSecurityEventGroup.setStatus("current")
+
+
+# Notification objects
+
+infnAlarmNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 1)
+)
+infnAlarmNotification.setObjects(
+      *(("INFINERA-NOTIFICATION-MIB", "alarmNotificationId"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmNodeId"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmNodeName"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmObjectType"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmObjectAid"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmSourceOid"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmProbableCause"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmSeverity"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmCategory"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmServiceAffecting"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmOccurrenceTime"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmLocation"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmDirection"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmProbableCauseDescription"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmAdditionalText"),
+        ("INFINERA-NOTIFICATION-MIB", "alarmCorrelationId"))
+)
+if mibBuilder.loadTexts:
+    infnAlarmNotification.setStatus(
+        "current"
+    )
+
+infnTcaNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 2)
+)
+infnTcaNotification.setObjects(
+      *(("INFINERA-NOTIFICATION-MIB", "tcaNotificationId"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaNodeId"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaNodeName"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaObjectType"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaObjectAid"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaSourceOid"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaProbableCause"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaSeverity"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaCategory"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaServiceAffecting"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaOccurrenceTime"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaLocation"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaDirection"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaMonitoredValue"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaThresholdValue"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaTimePeriod"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaProbableCauseDescription"),
+        ("INFINERA-NOTIFICATION-MIB", "tcaAdditionalText"))
+)
+if mibBuilder.loadTexts:
+    infnTcaNotification.setStatus(
+        "current"
+    )
+
+infnAdminEventNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 3)
+)
+infnAdminEventNotification.setObjects(
+      *(("INFINERA-NOTIFICATION-MIB", "infnAdminNotificationId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminNodeId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminNodeName"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminObjectType"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminObjectAid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminSourceOid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminEventTime"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminCause"))
+)
+if mibBuilder.loadTexts:
+    infnAdminEventNotification.setStatus(
+        "current"
+    )
+
+infnAuditEventNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 4)
+)
+infnAuditEventNotification.setObjects(
+      *(("INFINERA-NOTIFICATION-MIB", "infnAuditNotificationId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditNodeId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditNodeName"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditObjectType"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditObjectAid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditSourceOid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditUserId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditHostInfo"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditTime"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditOperationName"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditOperationStatus"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditParamsList"))
+)
+if mibBuilder.loadTexts:
+    infnAuditEventNotification.setStatus(
+        "current"
+    )
+
+infnSecurityEventNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 5)
+)
+infnSecurityEventNotification.setObjects(
+      *(("INFINERA-NOTIFICATION-MIB", "infnSecurityNotificationId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityNodeId"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityNodeName"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityObjectType"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityObjectAid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecuritySourceOid"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityHostInfo"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityEventTime"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityMessage"))
+)
+if mibBuilder.loadTexts:
+    infnSecurityEventNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+infnNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 1, 2, 16, 2, 1)
+)
+infnNotificationGroup.setObjects(
+      *(("INFINERA-NOTIFICATION-MIB", "infnAlarmNotification"),
+        ("INFINERA-NOTIFICATION-MIB", "infnTcaNotification"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAdminEventNotification"),
+        ("INFINERA-NOTIFICATION-MIB", "infnSecurityEventNotification"),
+        ("INFINERA-NOTIFICATION-MIB", "infnAuditEventNotification"))
+)
+if mibBuilder.loadTexts:
+    infnNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "INFINERA-NOTIFICATION-MIB",
+    **{"infnNotifications": infnNotifications,
+       "infnAlarmNotification": infnAlarmNotification,
+       "infnTcaNotification": infnTcaNotification,
+       "infnAdminEventNotification": infnAdminEventNotification,
+       "infnAuditEventNotification": infnAuditEventNotification,
+       "infnSecurityEventNotification": infnSecurityEventNotification,
+       "infnNotificationConformance": infnNotificationConformance,
+       "infnNotificationObjectGroups": infnNotificationObjectGroups,
+       "infnAlarmGroup": infnAlarmGroup,
+       "infnTcaGroup": infnTcaGroup,
+       "infnAdminEventGroup": infnAdminEventGroup,
+       "infnAuditEventGroup": infnAuditEventGroup,
+       "infnSecurityEventGroup": infnSecurityEventGroup,
+       "infnNotificationNotifGroups": infnNotificationNotifGroups,
+       "infnNotificationGroup": infnNotificationGroup,
+       "infnAlarmTable": infnAlarmTable,
+       "infnAlarmEntry": infnAlarmEntry,
+       "alarmNotificationId": alarmNotificationId,
+       "alarmNodeId": alarmNodeId,
+       "alarmNodeName": alarmNodeName,
+       "alarmObjectType": alarmObjectType,
+       "alarmObjectAid": alarmObjectAid,
+       "alarmSourceOid": alarmSourceOid,
+       "alarmProbableCause": alarmProbableCause,
+       "alarmSeverity": alarmSeverity,
+       "alarmCategory": alarmCategory,
+       "alarmServiceAffecting": alarmServiceAffecting,
+       "alarmOccurrenceTime": alarmOccurrenceTime,
+       "alarmLocation": alarmLocation,
+       "alarmDirection": alarmDirection,
+       "alarmProbableCauseDescription": alarmProbableCauseDescription,
+       "alarmAdditionalText": alarmAdditionalText,
+       "alarmCorrelationId": alarmCorrelationId,
+       "infnTcaTable": infnTcaTable,
+       "infnTcaEntry": infnTcaEntry,
+       "tcaNotificationId": tcaNotificationId,
+       "tcaNodeId": tcaNodeId,
+       "tcaNodeName": tcaNodeName,
+       "tcaObjectType": tcaObjectType,
+       "tcaObjectAid": tcaObjectAid,
+       "tcaSourceOid": tcaSourceOid,
+       "tcaProbableCause": tcaProbableCause,
+       "tcaSeverity": tcaSeverity,
+       "tcaCategory": tcaCategory,
+       "tcaServiceAffecting": tcaServiceAffecting,
+       "tcaOccurrenceTime": tcaOccurrenceTime,
+       "tcaLocation": tcaLocation,
+       "tcaDirection": tcaDirection,
+       "tcaMonitoredValue": tcaMonitoredValue,
+       "tcaThresholdValue": tcaThresholdValue,
+       "tcaTimePeriod": tcaTimePeriod,
+       "tcaProbableCauseDescription": tcaProbableCauseDescription,
+       "tcaAdditionalText": tcaAdditionalText,
+       "infnAdminEventTable": infnAdminEventTable,
+       "infnAdminEventEntry": infnAdminEventEntry,
+       "infnAdminNotificationId": infnAdminNotificationId,
+       "infnAdminNodeId": infnAdminNodeId,
+       "infnAdminNodeName": infnAdminNodeName,
+       "infnAdminObjectType": infnAdminObjectType,
+       "infnAdminObjectAid": infnAdminObjectAid,
+       "infnAdminSourceOid": infnAdminSourceOid,
+       "infnAdminEventTime": infnAdminEventTime,
+       "infnAdminCause": infnAdminCause,
+       "infnAuditEventTable": infnAuditEventTable,
+       "infnAuditEventEntry": infnAuditEventEntry,
+       "infnAuditNotificationId": infnAuditNotificationId,
+       "infnAuditNodeId": infnAuditNodeId,
+       "infnAuditNodeName": infnAuditNodeName,
+       "infnAuditObjectType": infnAuditObjectType,
+       "infnAuditObjectAid": infnAuditObjectAid,
+       "infnAuditSourceOid": infnAuditSourceOid,
+       "infnAuditUserId": infnAuditUserId,
+       "infnAuditHostInfo": infnAuditHostInfo,
+       "infnAuditTime": infnAuditTime,
+       "infnAuditOperationName": infnAuditOperationName,
+       "infnAuditOperationStatus": infnAuditOperationStatus,
+       "infnAuditParamsList": infnAuditParamsList,
+       "infnSecurityEventTable": infnSecurityEventTable,
+       "infnSecurityEventEntry": infnSecurityEventEntry,
+       "infnSecurityNotificationId": infnSecurityNotificationId,
+       "infnSecurityNodeId": infnSecurityNodeId,
+       "infnSecurityNodeName": infnSecurityNodeName,
+       "infnSecurityObjectType": infnSecurityObjectType,
+       "infnSecurityObjectAid": infnSecurityObjectAid,
+       "infnSecuritySourceOid": infnSecuritySourceOid,
+       "infnSecurityHostInfo": infnSecurityHostInfo,
+       "infnSecurityEventTime": infnSecurityEventTime,
+       "infnSecurityMessage": infnSecurityMessage}
+)

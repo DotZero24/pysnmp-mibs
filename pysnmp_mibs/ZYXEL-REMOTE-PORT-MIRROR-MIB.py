@@ -1,47 +1,302 @@
+# SNMP MIB module (ZYXEL-REMOTE-PORT-MIRROR-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-REMOTE-PORT-MIRROR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-REMOTE-PORT-MIRROR-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:04:26 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zyxel/ZYXEL-REMOTE-PORT-MIRROR-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:03:36 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelRemotePortMirror = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73))
-if mibBuilder.loadTexts: zyxelRemotePortMirror.setLastUpdated('201207010000Z')
-if mibBuilder.loadTexts: zyxelRemotePortMirror.setOrganization('Enterprise Solution ZyXEL')
-zyxelRemotePortMirrorSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1))
-zyRemotePortMirrorMaxNumberOfVlans = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyRemotePortMirrorMaxNumberOfVlans.setStatus('current')
-zyxelRemotePortMirrorTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2), )
-if mibBuilder.loadTexts: zyxelRemotePortMirrorTable.setStatus('current')
-zyxelRemotePortMirrorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1), ).setIndexNames((0, "ZYXEL-REMOTE-PORT-MIRROR-MIB", "zyRemotePortMirrorVid"))
-if mibBuilder.loadTexts: zyxelRemotePortMirrorEntry.setStatus('current')
-zyRemotePortMirrorVid = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094)))
-if mibBuilder.loadTexts: zyRemotePortMirrorVid.setStatus('current')
-zyRemotePortMirrorSource8021pPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRemotePortMirrorSource8021pPriority.setStatus('current')
-zyRemotePortMirrorSourceIngressMirrorPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRemotePortMirrorSourceIngressMirrorPorts.setStatus('current')
-zyRemotePortMirrorSourceEgressMirrorPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 4), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRemotePortMirrorSourceEgressMirrorPorts.setStatus('current')
-zyRemotePortMirrorSourceReflectorPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 5), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRemotePortMirrorSourceReflectorPortState.setStatus('current')
-zyRemotePortMirrorSourceReflectorPort = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRemotePortMirrorSourceReflectorPort.setStatus('current')
-zyRemotePortMirrorDestinationMonitorPort = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRemotePortMirrorDestinationMonitorPort.setStatus('current')
-zyRemotePortMirrorDestinationMonitorPortTagging = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 8), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRemotePortMirrorDestinationMonitorPortTagging.setStatus('current')
-zyRemotePortMirrorConnectedPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 9), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyRemotePortMirrorConnectedPorts.setStatus('current')
-zyRemotePortMirrorRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zyRemotePortMirrorRowStatus.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-REMOTE-PORT-MIRROR-MIB", zyxelRemotePortMirrorSetup=zyxelRemotePortMirrorSetup, zyRemotePortMirrorSourceReflectorPort=zyRemotePortMirrorSourceReflectorPort, PYSNMP_MODULE_ID=zyxelRemotePortMirror, zyxelRemotePortMirrorEntry=zyxelRemotePortMirrorEntry, zyRemotePortMirrorDestinationMonitorPort=zyRemotePortMirrorDestinationMonitorPort, zyRemotePortMirrorMaxNumberOfVlans=zyRemotePortMirrorMaxNumberOfVlans, zyRemotePortMirrorSourceReflectorPortState=zyRemotePortMirrorSourceReflectorPortState, zyRemotePortMirrorDestinationMonitorPortTagging=zyRemotePortMirrorDestinationMonitorPortTagging, zyRemotePortMirrorConnectedPorts=zyRemotePortMirrorConnectedPorts, zyRemotePortMirrorRowStatus=zyRemotePortMirrorRowStatus, zyxelRemotePortMirror=zyxelRemotePortMirror, zyRemotePortMirrorVid=zyRemotePortMirrorVid, zyRemotePortMirrorSourceIngressMirrorPorts=zyRemotePortMirrorSourceIngressMirrorPorts, zyRemotePortMirrorSourceEgressMirrorPorts=zyRemotePortMirrorSourceEgressMirrorPorts, zyxelRemotePortMirrorTable=zyxelRemotePortMirrorTable, zyRemotePortMirrorSource8021pPriority=zyRemotePortMirrorSource8021pPriority)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(PortList,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "PortList")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelRemotePortMirror = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelRemotePortMirrorSetup_ObjectIdentity = ObjectIdentity
+zyxelRemotePortMirrorSetup = _ZyxelRemotePortMirrorSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1)
+)
+_ZyRemotePortMirrorMaxNumberOfVlans_Type = Integer32
+_ZyRemotePortMirrorMaxNumberOfVlans_Object = MibScalar
+zyRemotePortMirrorMaxNumberOfVlans = _ZyRemotePortMirrorMaxNumberOfVlans_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 1),
+    _ZyRemotePortMirrorMaxNumberOfVlans_Type()
+)
+zyRemotePortMirrorMaxNumberOfVlans.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyRemotePortMirrorMaxNumberOfVlans.setStatus("current")
+_ZyxelRemotePortMirrorTable_Object = MibTable
+zyxelRemotePortMirrorTable = _ZyxelRemotePortMirrorTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2)
+)
+if mibBuilder.loadTexts:
+    zyxelRemotePortMirrorTable.setStatus("current")
+_ZyxelRemotePortMirrorEntry_Object = MibTableRow
+zyxelRemotePortMirrorEntry = _ZyxelRemotePortMirrorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1)
+)
+zyxelRemotePortMirrorEntry.setIndexNames(
+    (0, "ZYXEL-REMOTE-PORT-MIRROR-MIB", "zyRemotePortMirrorVid"),
+)
+if mibBuilder.loadTexts:
+    zyxelRemotePortMirrorEntry.setStatus("current")
+
+
+class _ZyRemotePortMirrorVid_Type(Integer32):
+    """Custom type zyRemotePortMirrorVid based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_ZyRemotePortMirrorVid_Type.__name__ = "Integer32"
+_ZyRemotePortMirrorVid_Object = MibTableColumn
+zyRemotePortMirrorVid = _ZyRemotePortMirrorVid_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 1),
+    _ZyRemotePortMirrorVid_Type()
+)
+zyRemotePortMirrorVid.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyRemotePortMirrorVid.setStatus("current")
+
+
+class _ZyRemotePortMirrorSource8021pPriority_Type(Integer32):
+    """Custom type zyRemotePortMirrorSource8021pPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_ZyRemotePortMirrorSource8021pPriority_Type.__name__ = "Integer32"
+_ZyRemotePortMirrorSource8021pPriority_Object = MibTableColumn
+zyRemotePortMirrorSource8021pPriority = _ZyRemotePortMirrorSource8021pPriority_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 2),
+    _ZyRemotePortMirrorSource8021pPriority_Type()
+)
+zyRemotePortMirrorSource8021pPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRemotePortMirrorSource8021pPriority.setStatus("current")
+_ZyRemotePortMirrorSourceIngressMirrorPorts_Type = PortList
+_ZyRemotePortMirrorSourceIngressMirrorPorts_Object = MibTableColumn
+zyRemotePortMirrorSourceIngressMirrorPorts = _ZyRemotePortMirrorSourceIngressMirrorPorts_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 3),
+    _ZyRemotePortMirrorSourceIngressMirrorPorts_Type()
+)
+zyRemotePortMirrorSourceIngressMirrorPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRemotePortMirrorSourceIngressMirrorPorts.setStatus("current")
+_ZyRemotePortMirrorSourceEgressMirrorPorts_Type = PortList
+_ZyRemotePortMirrorSourceEgressMirrorPorts_Object = MibTableColumn
+zyRemotePortMirrorSourceEgressMirrorPorts = _ZyRemotePortMirrorSourceEgressMirrorPorts_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 4),
+    _ZyRemotePortMirrorSourceEgressMirrorPorts_Type()
+)
+zyRemotePortMirrorSourceEgressMirrorPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRemotePortMirrorSourceEgressMirrorPorts.setStatus("current")
+_ZyRemotePortMirrorSourceReflectorPortState_Type = EnabledStatus
+_ZyRemotePortMirrorSourceReflectorPortState_Object = MibTableColumn
+zyRemotePortMirrorSourceReflectorPortState = _ZyRemotePortMirrorSourceReflectorPortState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 5),
+    _ZyRemotePortMirrorSourceReflectorPortState_Type()
+)
+zyRemotePortMirrorSourceReflectorPortState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRemotePortMirrorSourceReflectorPortState.setStatus("current")
+_ZyRemotePortMirrorSourceReflectorPort_Type = Integer32
+_ZyRemotePortMirrorSourceReflectorPort_Object = MibTableColumn
+zyRemotePortMirrorSourceReflectorPort = _ZyRemotePortMirrorSourceReflectorPort_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 6),
+    _ZyRemotePortMirrorSourceReflectorPort_Type()
+)
+zyRemotePortMirrorSourceReflectorPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRemotePortMirrorSourceReflectorPort.setStatus("current")
+_ZyRemotePortMirrorDestinationMonitorPort_Type = Integer32
+_ZyRemotePortMirrorDestinationMonitorPort_Object = MibTableColumn
+zyRemotePortMirrorDestinationMonitorPort = _ZyRemotePortMirrorDestinationMonitorPort_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 7),
+    _ZyRemotePortMirrorDestinationMonitorPort_Type()
+)
+zyRemotePortMirrorDestinationMonitorPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRemotePortMirrorDestinationMonitorPort.setStatus("current")
+_ZyRemotePortMirrorDestinationMonitorPortTagging_Type = EnabledStatus
+_ZyRemotePortMirrorDestinationMonitorPortTagging_Object = MibTableColumn
+zyRemotePortMirrorDestinationMonitorPortTagging = _ZyRemotePortMirrorDestinationMonitorPortTagging_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 8),
+    _ZyRemotePortMirrorDestinationMonitorPortTagging_Type()
+)
+zyRemotePortMirrorDestinationMonitorPortTagging.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRemotePortMirrorDestinationMonitorPortTagging.setStatus("current")
+_ZyRemotePortMirrorConnectedPorts_Type = PortList
+_ZyRemotePortMirrorConnectedPorts_Object = MibTableColumn
+zyRemotePortMirrorConnectedPorts = _ZyRemotePortMirrorConnectedPorts_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 9),
+    _ZyRemotePortMirrorConnectedPorts_Type()
+)
+zyRemotePortMirrorConnectedPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyRemotePortMirrorConnectedPorts.setStatus("current")
+_ZyRemotePortMirrorRowStatus_Type = RowStatus
+_ZyRemotePortMirrorRowStatus_Object = MibTableColumn
+zyRemotePortMirrorRowStatus = _ZyRemotePortMirrorRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 73, 1, 2, 1, 10),
+    _ZyRemotePortMirrorRowStatus_Type()
+)
+zyRemotePortMirrorRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zyRemotePortMirrorRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-REMOTE-PORT-MIRROR-MIB",
+    **{"zyxelRemotePortMirror": zyxelRemotePortMirror,
+       "zyxelRemotePortMirrorSetup": zyxelRemotePortMirrorSetup,
+       "zyRemotePortMirrorMaxNumberOfVlans": zyRemotePortMirrorMaxNumberOfVlans,
+       "zyxelRemotePortMirrorTable": zyxelRemotePortMirrorTable,
+       "zyxelRemotePortMirrorEntry": zyxelRemotePortMirrorEntry,
+       "zyRemotePortMirrorVid": zyRemotePortMirrorVid,
+       "zyRemotePortMirrorSource8021pPriority": zyRemotePortMirrorSource8021pPriority,
+       "zyRemotePortMirrorSourceIngressMirrorPorts": zyRemotePortMirrorSourceIngressMirrorPorts,
+       "zyRemotePortMirrorSourceEgressMirrorPorts": zyRemotePortMirrorSourceEgressMirrorPorts,
+       "zyRemotePortMirrorSourceReflectorPortState": zyRemotePortMirrorSourceReflectorPortState,
+       "zyRemotePortMirrorSourceReflectorPort": zyRemotePortMirrorSourceReflectorPort,
+       "zyRemotePortMirrorDestinationMonitorPort": zyRemotePortMirrorDestinationMonitorPort,
+       "zyRemotePortMirrorDestinationMonitorPortTagging": zyRemotePortMirrorDestinationMonitorPortTagging,
+       "zyRemotePortMirrorConnectedPorts": zyRemotePortMirrorConnectedPorts,
+       "zyRemotePortMirrorRowStatus": zyRemotePortMirrorRowStatus}
+)

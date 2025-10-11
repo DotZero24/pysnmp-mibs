@@ -1,40 +1,251 @@
+# SNMP MIB module (DES7200-IP-MANAGE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DES7200-IP-MANAGE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DES7200-IP-MANAGE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:31 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/DES7200-IP-MANAGE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:52:44 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-myMgmt, = mibBuilder.importSymbols("DES7200-SMI", "myMgmt")
-MemberMap, ConfigStatus = mibBuilder.importSymbols("DES7200-TC", "MemberMap", "ConfigStatus")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
-myIpManageMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12))
-myIpManageMIB.setRevisions(('2002-03-20 00:00',))
-if mibBuilder.loadTexts: myIpManageMIB.setLastUpdated('200203200000Z')
-if mibBuilder.loadTexts: myIpManageMIB.setOrganization('$Company$')
-myDhcpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 1))
-myIpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 2))
-myDhcpRelayAgentGlobalStatus = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 1, 2), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myDhcpRelayAgentGlobalStatus.setStatus('current')
-myDhcpServerIp = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myDhcpServerIp.setStatus('current')
-myIpDefaultGateWay = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 2, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myIpDefaultGateWay.setStatus('current')
-myIpManageMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 3))
-myIpManageMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 3, 1))
-myIpManageMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 3, 2))
-myIpManageMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 3, 1, 1)).setObjects(("DES7200-IP-MANAGE-MIB", "myL2L3DhcpManageMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    myIpManageMIBCompliance = myIpManageMIBCompliance.setStatus('current')
-myL2L3DhcpManageMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 3, 2, 1)).setObjects(("DES7200-IP-MANAGE-MIB", "myDhcpRelayAgentGlobalStatus"), ("DES7200-IP-MANAGE-MIB", "myDhcpServerIp"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    myL2L3DhcpManageMIBGroup = myL2L3DhcpManageMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("DES7200-IP-MANAGE-MIB", myIpManageMIBGroups=myIpManageMIBGroups, myDhcpMIBObjects=myDhcpMIBObjects, myIpManageMIBConformance=myIpManageMIBConformance, myIpManageMIBCompliances=myIpManageMIBCompliances, myIpDefaultGateWay=myIpDefaultGateWay, myDhcpServerIp=myDhcpServerIp, myIpMIBObjects=myIpMIBObjects, PYSNMP_MODULE_ID=myIpManageMIB, myIpManageMIBCompliance=myIpManageMIBCompliance, myL2L3DhcpManageMIBGroup=myL2L3DhcpManageMIBGroup, myIpManageMIB=myIpManageMIB, myDhcpRelayAgentGlobalStatus=myDhcpRelayAgentGlobalStatus)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(myMgmt,) = mibBuilder.importSymbols(
+    "DES7200-SMI",
+    "myMgmt")
+
+(ConfigStatus,
+ MemberMap) = mibBuilder.importSymbols(
+    "DES7200-TC",
+    "ConfigStatus",
+    "MemberMap")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(VlanId,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "VlanId")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+myIpManageMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12)
+)
+if mibBuilder.loadTexts:
+    myIpManageMIB.setRevisions(
+        ("2002-03-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MyDhcpMIBObjects_ObjectIdentity = ObjectIdentity
+myDhcpMIBObjects = _MyDhcpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 1)
+)
+
+
+class _MyDhcpRelayAgentGlobalStatus_Type(EnabledStatus):
+    """Custom type myDhcpRelayAgentGlobalStatus based on EnabledStatus"""
+    defaultValue = 2
+
+
+_MyDhcpRelayAgentGlobalStatus_Type.__name__ = "EnabledStatus"
+_MyDhcpRelayAgentGlobalStatus_Object = MibScalar
+myDhcpRelayAgentGlobalStatus = _MyDhcpRelayAgentGlobalStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 1, 2),
+    _MyDhcpRelayAgentGlobalStatus_Type()
+)
+myDhcpRelayAgentGlobalStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myDhcpRelayAgentGlobalStatus.setStatus("current")
+_MyDhcpServerIp_Type = IpAddress
+_MyDhcpServerIp_Object = MibScalar
+myDhcpServerIp = _MyDhcpServerIp_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 1, 3),
+    _MyDhcpServerIp_Type()
+)
+myDhcpServerIp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myDhcpServerIp.setStatus("current")
+_MyIpMIBObjects_ObjectIdentity = ObjectIdentity
+myIpMIBObjects = _MyIpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 2)
+)
+_MyIpDefaultGateWay_Type = IpAddress
+_MyIpDefaultGateWay_Object = MibScalar
+myIpDefaultGateWay = _MyIpDefaultGateWay_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 2, 1),
+    _MyIpDefaultGateWay_Type()
+)
+myIpDefaultGateWay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myIpDefaultGateWay.setStatus("current")
+_MyIpManageMIBConformance_ObjectIdentity = ObjectIdentity
+myIpManageMIBConformance = _MyIpManageMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 3)
+)
+_MyIpManageMIBCompliances_ObjectIdentity = ObjectIdentity
+myIpManageMIBCompliances = _MyIpManageMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 3, 1)
+)
+_MyIpManageMIBGroups_ObjectIdentity = ObjectIdentity
+myIpManageMIBGroups = _MyIpManageMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 3, 2)
+)
+
+# Managed Objects groups
+
+myL2L3DhcpManageMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 3, 2, 1)
+)
+myL2L3DhcpManageMIBGroup.setObjects(
+      *(("DES7200-IP-MANAGE-MIB", "myDhcpRelayAgentGlobalStatus"),
+        ("DES7200-IP-MANAGE-MIB", "myDhcpServerIp"))
+)
+if mibBuilder.loadTexts:
+    myL2L3DhcpManageMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+myIpManageMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 12, 3, 1, 1)
+)
+myIpManageMIBCompliance.setObjects(
+    ("DES7200-IP-MANAGE-MIB", "myL2L3DhcpManageMIBGroup")
+)
+if mibBuilder.loadTexts:
+    myIpManageMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DES7200-IP-MANAGE-MIB",
+    **{"myIpManageMIB": myIpManageMIB,
+       "myDhcpMIBObjects": myDhcpMIBObjects,
+       "myDhcpRelayAgentGlobalStatus": myDhcpRelayAgentGlobalStatus,
+       "myDhcpServerIp": myDhcpServerIp,
+       "myIpMIBObjects": myIpMIBObjects,
+       "myIpDefaultGateWay": myIpDefaultGateWay,
+       "myIpManageMIBConformance": myIpManageMIBConformance,
+       "myIpManageMIBCompliances": myIpManageMIBCompliances,
+       "myIpManageMIBCompliance": myIpManageMIBCompliance,
+       "myIpManageMIBGroups": myIpManageMIBGroups,
+       "myL2L3DhcpManageMIBGroup": myL2L3DhcpManageMIBGroup}
+)

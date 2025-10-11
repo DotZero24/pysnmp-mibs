@@ -1,134 +1,714 @@
+# SNMP MIB module (ALPHA-INVERTER-SYS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALPHA-INVERTER-SYS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alpha/ALPHA-INVERTER-SYS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:07:07 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alpha/ALPHA-INVERTER-SYS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:09:25 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-simple, ScaledNumber = mibBuilder.importSymbols("ALPHA-RESOURCE-MIB", "simple", "ScaledNumber")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-inverterSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3))
-inverterSystem.setRevisions(('2016-02-29 00:00',))
-if mibBuilder.loadTexts: inverterSystem.setLastUpdated('201602290000Z')
-if mibBuilder.loadTexts: inverterSystem.setOrganization('Alpha Technologies Ltd.')
-phaseGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80))
-acInputGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81))
-dcInputGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82))
-invTotalAcOutputPowerVa = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 1), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invTotalAcOutputPowerVa.setStatus('current')
-invSysAverageLoadingOfInstalledPowerVa = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 2), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAverageLoadingOfInstalledPowerVa.setStatus('current')
-invSysAverageDcInputToOutputPowerRatio = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 3), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAverageDcInputToOutputPowerRatio.setStatus('current')
-invSysSystemMode = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 4), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysSystemMode.setStatus('current')
-invSysPhase1OutputPowerVa = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 5), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysPhase1OutputPowerVa.setStatus('current')
-invSysPhase2OutputPowerVa = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 6), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysPhase2OutputPowerVa.setStatus('current')
-invSysPhase3OutputPowerVa = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 7), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysPhase3OutputPowerVa.setStatus('current')
-invSysAverageOutputVoltageMeasured = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 8), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAverageOutputVoltageMeasured.setStatus('current')
-invSysEnabledDisconnects = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 9), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysEnabledDisconnects.setStatus('current')
-invSysActivatedDisconnects = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 10), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysActivatedDisconnects.setStatus('current')
-invSysTotalDCInputCurrent = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 11), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysTotalDCInputCurrent.setStatus('current')
-invSysAverageDcInputVoltage = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 12), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAverageDcInputVoltage.setStatus('current')
-invSysTotalDcInputPower = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 13), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysTotalDcInputPower.setStatus('current')
-invSysSystemOnBypass = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 14), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysSystemOnBypass.setStatus('current')
-invSysTotalAcInputPowerVa = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 18), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysTotalAcInputPowerVa.setStatus('current')
-invSysAcPhaseCount = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseCount.setStatus('current')
-invSysAcPhaseTable = MibTable((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2), )
-if mibBuilder.loadTexts: invSysAcPhaseTable.setStatus('current')
-invSysAcPhaseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1), ).setIndexNames((0, "ALPHA-INVERTER-SYS-MIB", "invSysAcPhaseCount"))
-if mibBuilder.loadTexts: invSysAcPhaseEntry.setStatus('current')
-invSysAcPhaseAcOutputPowerVa = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 1), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseAcOutputPowerVa.setStatus('current')
-invSysAcPhaseOutputVoltageMeasured = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 2), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseOutputVoltageMeasured.setStatus('current')
-invSysAcPhaseOutputCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 3), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseOutputCurrent.setStatus('current')
-invSysAcPhaseFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 4), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseFrequency.setStatus('current')
-invSysAcPhaseLoadingOfInstalledPowerVa = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 5), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseLoadingOfInstalledPowerVa.setStatus('current')
-invSysAcPhaseNumberOfModulesOn = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 6), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseNumberOfModulesOn.setStatus('current')
-invSysAcPhaseLoadingOfInstalledPowerWatts = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 7), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseLoadingOfInstalledPowerWatts.setStatus('current')
-invSysAcPhaseDcInputToOutputPowerRatioMeasured = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 8), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseDcInputToOutputPowerRatioMeasured.setStatus('current')
-invSysAcPhaseAcInputPowerWatts = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 9), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseAcInputPowerWatts.setStatus('current')
-invSysAcPhaseAcInputPowerVa = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 10), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseAcInputPowerVa.setStatus('current')
-invSysAcPhaseAcOutputPowerWatts = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 11), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseAcOutputPowerWatts.setStatus('current')
-invSysAcPhaseDCInputPowerWatts = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 12), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseDCInputPowerWatts.setStatus('current')
-invSysAcPhaseNumberOfRedundantModulesMeasured = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 13), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseNumberOfRedundantModulesMeasured.setStatus('current')
-invSysAcPhaseNumberOfModulesDetected = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 14), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseNumberOfModulesDetected.setStatus('current')
-invSysAcPhaseNumberOfModulesOff = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 15), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseNumberOfModulesOff.setStatus('current')
-invSysAcPhaseNumberOfModulesFailed = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 16), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcPhaseNumberOfModulesFailed.setStatus('current')
-invSysAcInputCount = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcInputCount.setStatus('current')
-invSysAcInputTable = MibTable((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2), )
-if mibBuilder.loadTexts: invSysAcInputTable.setStatus('current')
-invSysAcInputEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1), ).setIndexNames((0, "ALPHA-INVERTER-SYS-MIB", "invSysAcInputCount"))
-if mibBuilder.loadTexts: invSysAcInputEntry.setStatus('current')
-invSysAcInputInputVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 1), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcInputInputVoltage.setStatus('current')
-invSysAcInputInputCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 2), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcInputInputCurrent.setStatus('current')
-invSysAcInputFrequency = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 3), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcInputFrequency.setStatus('current')
-invSysAcInputAcInputPowerVa = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 4), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcInputAcInputPowerVa.setStatus('current')
-invSysAcInputNumberOfModulesOn = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 5), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcInputNumberOfModulesOn.setStatus('current')
-invSysAcInputAcInputPowerWatts = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 6), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcInputAcInputPowerWatts.setStatus('current')
-invSysAcInputNumberOfModulesDetected = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 7), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcInputNumberOfModulesDetected.setStatus('current')
-invSysAcInputNumberOfModulesOff = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 8), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcInputNumberOfModulesOff.setStatus('current')
-invSysAcInputNumberOfModulesFailed = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 9), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysAcInputNumberOfModulesFailed.setStatus('current')
-invSysDcInputCount = MibScalar((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysDcInputCount.setStatus('current')
-invSysDcInputTable = MibTable((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2), )
-if mibBuilder.loadTexts: invSysDcInputTable.setStatus('current')
-invSysDcInputEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1), ).setIndexNames((0, "ALPHA-INVERTER-SYS-MIB", "invSysDcInputCount"))
-if mibBuilder.loadTexts: invSysDcInputEntry.setStatus('current')
-invSysDcInputInputVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 1), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysDcInputInputVoltage.setStatus('current')
-invSysDcInputInputCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 2), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysDcInputInputCurrent.setStatus('current')
-invSysDcInputDcInputPowerWatts = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 3), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysDcInputDcInputPowerWatts.setStatus('current')
-invSysDcInputNumberOfModulesOn = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 4), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysDcInputNumberOfModulesOn.setStatus('current')
-invSysDcInputNumberOfModulesOff = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 5), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysDcInputNumberOfModulesOff.setStatus('current')
-invSysDcInputNumberOfModulesFailed = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 6), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysDcInputNumberOfModulesFailed.setStatus('current')
-invSysDcInputNumberOfModulesDetected = MibTableColumn((1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 7), ScaledNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: invSysDcInputNumberOfModulesDetected.setStatus('current')
-mibBuilder.exportSymbols("ALPHA-INVERTER-SYS-MIB", invSysAcPhaseDcInputToOutputPowerRatioMeasured=invSysAcPhaseDcInputToOutputPowerRatioMeasured, invSysDcInputNumberOfModulesOn=invSysDcInputNumberOfModulesOn, invSysAcInputNumberOfModulesFailed=invSysAcInputNumberOfModulesFailed, invSysAcPhaseCount=invSysAcPhaseCount, phaseGroup=phaseGroup, invSysAverageDcInputToOutputPowerRatio=invSysAverageDcInputToOutputPowerRatio, invSysAcPhaseOutputVoltageMeasured=invSysAcPhaseOutputVoltageMeasured, invSysDcInputInputCurrent=invSysDcInputInputCurrent, invSysDcInputNumberOfModulesOff=invSysDcInputNumberOfModulesOff, acInputGroup=acInputGroup, invSysPhase3OutputPowerVa=invSysPhase3OutputPowerVa, invSysAcPhaseNumberOfModulesOn=invSysAcPhaseNumberOfModulesOn, invSysPhase1OutputPowerVa=invSysPhase1OutputPowerVa, invTotalAcOutputPowerVa=invTotalAcOutputPowerVa, invSysAcPhaseNumberOfModulesFailed=invSysAcPhaseNumberOfModulesFailed, invSysEnabledDisconnects=invSysEnabledDisconnects, invSysActivatedDisconnects=invSysActivatedDisconnects, invSysPhase2OutputPowerVa=invSysPhase2OutputPowerVa, invSysAcPhaseLoadingOfInstalledPowerWatts=invSysAcPhaseLoadingOfInstalledPowerWatts, invSysDcInputNumberOfModulesFailed=invSysDcInputNumberOfModulesFailed, invSysTotalDCInputCurrent=invSysTotalDCInputCurrent, inverterSystem=inverterSystem, invSysTotalAcInputPowerVa=invSysTotalAcInputPowerVa, invSysAcInputCount=invSysAcInputCount, invSysDcInputEntry=invSysDcInputEntry, invSysAcPhaseAcInputPowerVa=invSysAcPhaseAcInputPowerVa, invSysSystemOnBypass=invSysSystemOnBypass, invSysAcPhaseNumberOfModulesDetected=invSysAcPhaseNumberOfModulesDetected, invSysTotalDcInputPower=invSysTotalDcInputPower, invSysAcPhaseNumberOfModulesOff=invSysAcPhaseNumberOfModulesOff, invSysDcInputTable=invSysDcInputTable, invSysDcInputInputVoltage=invSysDcInputInputVoltage, invSysAcPhaseEntry=invSysAcPhaseEntry, invSysDcInputCount=invSysDcInputCount, invSysAcPhaseAcInputPowerWatts=invSysAcPhaseAcInputPowerWatts, invSysAcInputNumberOfModulesOn=invSysAcInputNumberOfModulesOn, invSysDcInputNumberOfModulesDetected=invSysDcInputNumberOfModulesDetected, invSysAcPhaseDCInputPowerWatts=invSysAcPhaseDCInputPowerWatts, invSysAcPhaseLoadingOfInstalledPowerVa=invSysAcPhaseLoadingOfInstalledPowerVa, PYSNMP_MODULE_ID=inverterSystem, invSysAverageLoadingOfInstalledPowerVa=invSysAverageLoadingOfInstalledPowerVa, invSysAcPhaseFrequency=invSysAcPhaseFrequency, invSysAcInputNumberOfModulesOff=invSysAcInputNumberOfModulesOff, invSysAcInputAcInputPowerWatts=invSysAcInputAcInputPowerWatts, invSysAcPhaseAcOutputPowerVa=invSysAcPhaseAcOutputPowerVa, invSysAcInputEntry=invSysAcInputEntry, invSysAcInputInputCurrent=invSysAcInputInputCurrent, dcInputGroup=dcInputGroup, invSysSystemMode=invSysSystemMode, invSysAverageOutputVoltageMeasured=invSysAverageOutputVoltageMeasured, invSysAcInputInputVoltage=invSysAcInputInputVoltage, invSysAcInputTable=invSysAcInputTable, invSysAcPhaseAcOutputPowerWatts=invSysAcPhaseAcOutputPowerWatts, invSysAcPhaseTable=invSysAcPhaseTable, invSysAcInputAcInputPowerVa=invSysAcInputAcInputPowerVa, invSysAcInputNumberOfModulesDetected=invSysAcInputNumberOfModulesDetected, invSysAcPhaseNumberOfRedundantModulesMeasured=invSysAcPhaseNumberOfRedundantModulesMeasured, invSysAcInputFrequency=invSysAcInputFrequency, invSysAcPhaseOutputCurrent=invSysAcPhaseOutputCurrent, invSysDcInputDcInputPowerWatts=invSysDcInputDcInputPowerWatts, invSysAverageDcInputVoltage=invSysAverageDcInputVoltage)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ScaledNumber,
+ simple) = mibBuilder.importSymbols(
+    "ALPHA-RESOURCE-MIB",
+    "ScaledNumber",
+    "simple")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+inverterSystem = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3)
+)
+if mibBuilder.loadTexts:
+    inverterSystem.setRevisions(
+        ("2016-02-29 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_InvTotalAcOutputPowerVa_Type = ScaledNumber
+_InvTotalAcOutputPowerVa_Object = MibScalar
+invTotalAcOutputPowerVa = _InvTotalAcOutputPowerVa_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 1),
+    _InvTotalAcOutputPowerVa_Type()
+)
+invTotalAcOutputPowerVa.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invTotalAcOutputPowerVa.setStatus("current")
+_InvSysAverageLoadingOfInstalledPowerVa_Type = ScaledNumber
+_InvSysAverageLoadingOfInstalledPowerVa_Object = MibScalar
+invSysAverageLoadingOfInstalledPowerVa = _InvSysAverageLoadingOfInstalledPowerVa_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 2),
+    _InvSysAverageLoadingOfInstalledPowerVa_Type()
+)
+invSysAverageLoadingOfInstalledPowerVa.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAverageLoadingOfInstalledPowerVa.setStatus("current")
+_InvSysAverageDcInputToOutputPowerRatio_Type = ScaledNumber
+_InvSysAverageDcInputToOutputPowerRatio_Object = MibScalar
+invSysAverageDcInputToOutputPowerRatio = _InvSysAverageDcInputToOutputPowerRatio_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 3),
+    _InvSysAverageDcInputToOutputPowerRatio_Type()
+)
+invSysAverageDcInputToOutputPowerRatio.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAverageDcInputToOutputPowerRatio.setStatus("current")
+_InvSysSystemMode_Type = ScaledNumber
+_InvSysSystemMode_Object = MibScalar
+invSysSystemMode = _InvSysSystemMode_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 4),
+    _InvSysSystemMode_Type()
+)
+invSysSystemMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysSystemMode.setStatus("current")
+_InvSysPhase1OutputPowerVa_Type = ScaledNumber
+_InvSysPhase1OutputPowerVa_Object = MibScalar
+invSysPhase1OutputPowerVa = _InvSysPhase1OutputPowerVa_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 5),
+    _InvSysPhase1OutputPowerVa_Type()
+)
+invSysPhase1OutputPowerVa.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysPhase1OutputPowerVa.setStatus("current")
+_InvSysPhase2OutputPowerVa_Type = ScaledNumber
+_InvSysPhase2OutputPowerVa_Object = MibScalar
+invSysPhase2OutputPowerVa = _InvSysPhase2OutputPowerVa_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 6),
+    _InvSysPhase2OutputPowerVa_Type()
+)
+invSysPhase2OutputPowerVa.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysPhase2OutputPowerVa.setStatus("current")
+_InvSysPhase3OutputPowerVa_Type = ScaledNumber
+_InvSysPhase3OutputPowerVa_Object = MibScalar
+invSysPhase3OutputPowerVa = _InvSysPhase3OutputPowerVa_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 7),
+    _InvSysPhase3OutputPowerVa_Type()
+)
+invSysPhase3OutputPowerVa.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysPhase3OutputPowerVa.setStatus("current")
+_InvSysAverageOutputVoltageMeasured_Type = ScaledNumber
+_InvSysAverageOutputVoltageMeasured_Object = MibScalar
+invSysAverageOutputVoltageMeasured = _InvSysAverageOutputVoltageMeasured_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 8),
+    _InvSysAverageOutputVoltageMeasured_Type()
+)
+invSysAverageOutputVoltageMeasured.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAverageOutputVoltageMeasured.setStatus("current")
+_InvSysEnabledDisconnects_Type = ScaledNumber
+_InvSysEnabledDisconnects_Object = MibScalar
+invSysEnabledDisconnects = _InvSysEnabledDisconnects_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 9),
+    _InvSysEnabledDisconnects_Type()
+)
+invSysEnabledDisconnects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysEnabledDisconnects.setStatus("current")
+_InvSysActivatedDisconnects_Type = ScaledNumber
+_InvSysActivatedDisconnects_Object = MibScalar
+invSysActivatedDisconnects = _InvSysActivatedDisconnects_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 10),
+    _InvSysActivatedDisconnects_Type()
+)
+invSysActivatedDisconnects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysActivatedDisconnects.setStatus("current")
+_InvSysTotalDCInputCurrent_Type = ScaledNumber
+_InvSysTotalDCInputCurrent_Object = MibScalar
+invSysTotalDCInputCurrent = _InvSysTotalDCInputCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 11),
+    _InvSysTotalDCInputCurrent_Type()
+)
+invSysTotalDCInputCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysTotalDCInputCurrent.setStatus("current")
+_InvSysAverageDcInputVoltage_Type = ScaledNumber
+_InvSysAverageDcInputVoltage_Object = MibScalar
+invSysAverageDcInputVoltage = _InvSysAverageDcInputVoltage_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 12),
+    _InvSysAverageDcInputVoltage_Type()
+)
+invSysAverageDcInputVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAverageDcInputVoltage.setStatus("current")
+_InvSysTotalDcInputPower_Type = ScaledNumber
+_InvSysTotalDcInputPower_Object = MibScalar
+invSysTotalDcInputPower = _InvSysTotalDcInputPower_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 13),
+    _InvSysTotalDcInputPower_Type()
+)
+invSysTotalDcInputPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysTotalDcInputPower.setStatus("current")
+_InvSysSystemOnBypass_Type = ScaledNumber
+_InvSysSystemOnBypass_Object = MibScalar
+invSysSystemOnBypass = _InvSysSystemOnBypass_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 14),
+    _InvSysSystemOnBypass_Type()
+)
+invSysSystemOnBypass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysSystemOnBypass.setStatus("current")
+_InvSysTotalAcInputPowerVa_Type = ScaledNumber
+_InvSysTotalAcInputPowerVa_Object = MibScalar
+invSysTotalAcInputPowerVa = _InvSysTotalAcInputPowerVa_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 18),
+    _InvSysTotalAcInputPowerVa_Type()
+)
+invSysTotalAcInputPowerVa.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysTotalAcInputPowerVa.setStatus("current")
+_PhaseGroup_ObjectIdentity = ObjectIdentity
+phaseGroup = _PhaseGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80)
+)
+_InvSysAcPhaseCount_Type = Integer32
+_InvSysAcPhaseCount_Object = MibScalar
+invSysAcPhaseCount = _InvSysAcPhaseCount_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 1),
+    _InvSysAcPhaseCount_Type()
+)
+invSysAcPhaseCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseCount.setStatus("current")
+_InvSysAcPhaseTable_Object = MibTable
+invSysAcPhaseTable = _InvSysAcPhaseTable_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2)
+)
+if mibBuilder.loadTexts:
+    invSysAcPhaseTable.setStatus("current")
+_InvSysAcPhaseEntry_Object = MibTableRow
+invSysAcPhaseEntry = _InvSysAcPhaseEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1)
+)
+invSysAcPhaseEntry.setIndexNames(
+    (0, "ALPHA-INVERTER-SYS-MIB", "invSysAcPhaseCount"),
+)
+if mibBuilder.loadTexts:
+    invSysAcPhaseEntry.setStatus("current")
+_InvSysAcPhaseAcOutputPowerVa_Type = ScaledNumber
+_InvSysAcPhaseAcOutputPowerVa_Object = MibTableColumn
+invSysAcPhaseAcOutputPowerVa = _InvSysAcPhaseAcOutputPowerVa_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 1),
+    _InvSysAcPhaseAcOutputPowerVa_Type()
+)
+invSysAcPhaseAcOutputPowerVa.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseAcOutputPowerVa.setStatus("current")
+_InvSysAcPhaseOutputVoltageMeasured_Type = ScaledNumber
+_InvSysAcPhaseOutputVoltageMeasured_Object = MibTableColumn
+invSysAcPhaseOutputVoltageMeasured = _InvSysAcPhaseOutputVoltageMeasured_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 2),
+    _InvSysAcPhaseOutputVoltageMeasured_Type()
+)
+invSysAcPhaseOutputVoltageMeasured.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseOutputVoltageMeasured.setStatus("current")
+_InvSysAcPhaseOutputCurrent_Type = ScaledNumber
+_InvSysAcPhaseOutputCurrent_Object = MibTableColumn
+invSysAcPhaseOutputCurrent = _InvSysAcPhaseOutputCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 3),
+    _InvSysAcPhaseOutputCurrent_Type()
+)
+invSysAcPhaseOutputCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseOutputCurrent.setStatus("current")
+_InvSysAcPhaseFrequency_Type = ScaledNumber
+_InvSysAcPhaseFrequency_Object = MibTableColumn
+invSysAcPhaseFrequency = _InvSysAcPhaseFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 4),
+    _InvSysAcPhaseFrequency_Type()
+)
+invSysAcPhaseFrequency.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseFrequency.setStatus("current")
+_InvSysAcPhaseLoadingOfInstalledPowerVa_Type = ScaledNumber
+_InvSysAcPhaseLoadingOfInstalledPowerVa_Object = MibTableColumn
+invSysAcPhaseLoadingOfInstalledPowerVa = _InvSysAcPhaseLoadingOfInstalledPowerVa_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 5),
+    _InvSysAcPhaseLoadingOfInstalledPowerVa_Type()
+)
+invSysAcPhaseLoadingOfInstalledPowerVa.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseLoadingOfInstalledPowerVa.setStatus("current")
+_InvSysAcPhaseNumberOfModulesOn_Type = ScaledNumber
+_InvSysAcPhaseNumberOfModulesOn_Object = MibTableColumn
+invSysAcPhaseNumberOfModulesOn = _InvSysAcPhaseNumberOfModulesOn_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 6),
+    _InvSysAcPhaseNumberOfModulesOn_Type()
+)
+invSysAcPhaseNumberOfModulesOn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseNumberOfModulesOn.setStatus("current")
+_InvSysAcPhaseLoadingOfInstalledPowerWatts_Type = ScaledNumber
+_InvSysAcPhaseLoadingOfInstalledPowerWatts_Object = MibTableColumn
+invSysAcPhaseLoadingOfInstalledPowerWatts = _InvSysAcPhaseLoadingOfInstalledPowerWatts_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 7),
+    _InvSysAcPhaseLoadingOfInstalledPowerWatts_Type()
+)
+invSysAcPhaseLoadingOfInstalledPowerWatts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseLoadingOfInstalledPowerWatts.setStatus("current")
+_InvSysAcPhaseDcInputToOutputPowerRatioMeasured_Type = ScaledNumber
+_InvSysAcPhaseDcInputToOutputPowerRatioMeasured_Object = MibTableColumn
+invSysAcPhaseDcInputToOutputPowerRatioMeasured = _InvSysAcPhaseDcInputToOutputPowerRatioMeasured_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 8),
+    _InvSysAcPhaseDcInputToOutputPowerRatioMeasured_Type()
+)
+invSysAcPhaseDcInputToOutputPowerRatioMeasured.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseDcInputToOutputPowerRatioMeasured.setStatus("current")
+_InvSysAcPhaseAcInputPowerWatts_Type = ScaledNumber
+_InvSysAcPhaseAcInputPowerWatts_Object = MibTableColumn
+invSysAcPhaseAcInputPowerWatts = _InvSysAcPhaseAcInputPowerWatts_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 9),
+    _InvSysAcPhaseAcInputPowerWatts_Type()
+)
+invSysAcPhaseAcInputPowerWatts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseAcInputPowerWatts.setStatus("current")
+_InvSysAcPhaseAcInputPowerVa_Type = ScaledNumber
+_InvSysAcPhaseAcInputPowerVa_Object = MibTableColumn
+invSysAcPhaseAcInputPowerVa = _InvSysAcPhaseAcInputPowerVa_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 10),
+    _InvSysAcPhaseAcInputPowerVa_Type()
+)
+invSysAcPhaseAcInputPowerVa.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseAcInputPowerVa.setStatus("current")
+_InvSysAcPhaseAcOutputPowerWatts_Type = ScaledNumber
+_InvSysAcPhaseAcOutputPowerWatts_Object = MibTableColumn
+invSysAcPhaseAcOutputPowerWatts = _InvSysAcPhaseAcOutputPowerWatts_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 11),
+    _InvSysAcPhaseAcOutputPowerWatts_Type()
+)
+invSysAcPhaseAcOutputPowerWatts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseAcOutputPowerWatts.setStatus("current")
+_InvSysAcPhaseDCInputPowerWatts_Type = ScaledNumber
+_InvSysAcPhaseDCInputPowerWatts_Object = MibTableColumn
+invSysAcPhaseDCInputPowerWatts = _InvSysAcPhaseDCInputPowerWatts_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 12),
+    _InvSysAcPhaseDCInputPowerWatts_Type()
+)
+invSysAcPhaseDCInputPowerWatts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseDCInputPowerWatts.setStatus("current")
+_InvSysAcPhaseNumberOfRedundantModulesMeasured_Type = ScaledNumber
+_InvSysAcPhaseNumberOfRedundantModulesMeasured_Object = MibTableColumn
+invSysAcPhaseNumberOfRedundantModulesMeasured = _InvSysAcPhaseNumberOfRedundantModulesMeasured_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 13),
+    _InvSysAcPhaseNumberOfRedundantModulesMeasured_Type()
+)
+invSysAcPhaseNumberOfRedundantModulesMeasured.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseNumberOfRedundantModulesMeasured.setStatus("current")
+_InvSysAcPhaseNumberOfModulesDetected_Type = ScaledNumber
+_InvSysAcPhaseNumberOfModulesDetected_Object = MibTableColumn
+invSysAcPhaseNumberOfModulesDetected = _InvSysAcPhaseNumberOfModulesDetected_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 14),
+    _InvSysAcPhaseNumberOfModulesDetected_Type()
+)
+invSysAcPhaseNumberOfModulesDetected.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseNumberOfModulesDetected.setStatus("current")
+_InvSysAcPhaseNumberOfModulesOff_Type = ScaledNumber
+_InvSysAcPhaseNumberOfModulesOff_Object = MibTableColumn
+invSysAcPhaseNumberOfModulesOff = _InvSysAcPhaseNumberOfModulesOff_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 15),
+    _InvSysAcPhaseNumberOfModulesOff_Type()
+)
+invSysAcPhaseNumberOfModulesOff.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseNumberOfModulesOff.setStatus("current")
+_InvSysAcPhaseNumberOfModulesFailed_Type = ScaledNumber
+_InvSysAcPhaseNumberOfModulesFailed_Object = MibTableColumn
+invSysAcPhaseNumberOfModulesFailed = _InvSysAcPhaseNumberOfModulesFailed_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 80, 2, 1, 16),
+    _InvSysAcPhaseNumberOfModulesFailed_Type()
+)
+invSysAcPhaseNumberOfModulesFailed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcPhaseNumberOfModulesFailed.setStatus("current")
+_AcInputGroup_ObjectIdentity = ObjectIdentity
+acInputGroup = _AcInputGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81)
+)
+_InvSysAcInputCount_Type = Integer32
+_InvSysAcInputCount_Object = MibScalar
+invSysAcInputCount = _InvSysAcInputCount_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 1),
+    _InvSysAcInputCount_Type()
+)
+invSysAcInputCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcInputCount.setStatus("current")
+_InvSysAcInputTable_Object = MibTable
+invSysAcInputTable = _InvSysAcInputTable_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2)
+)
+if mibBuilder.loadTexts:
+    invSysAcInputTable.setStatus("current")
+_InvSysAcInputEntry_Object = MibTableRow
+invSysAcInputEntry = _InvSysAcInputEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1)
+)
+invSysAcInputEntry.setIndexNames(
+    (0, "ALPHA-INVERTER-SYS-MIB", "invSysAcInputCount"),
+)
+if mibBuilder.loadTexts:
+    invSysAcInputEntry.setStatus("current")
+_InvSysAcInputInputVoltage_Type = ScaledNumber
+_InvSysAcInputInputVoltage_Object = MibTableColumn
+invSysAcInputInputVoltage = _InvSysAcInputInputVoltage_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 1),
+    _InvSysAcInputInputVoltage_Type()
+)
+invSysAcInputInputVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcInputInputVoltage.setStatus("current")
+_InvSysAcInputInputCurrent_Type = ScaledNumber
+_InvSysAcInputInputCurrent_Object = MibTableColumn
+invSysAcInputInputCurrent = _InvSysAcInputInputCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 2),
+    _InvSysAcInputInputCurrent_Type()
+)
+invSysAcInputInputCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcInputInputCurrent.setStatus("current")
+_InvSysAcInputFrequency_Type = ScaledNumber
+_InvSysAcInputFrequency_Object = MibTableColumn
+invSysAcInputFrequency = _InvSysAcInputFrequency_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 3),
+    _InvSysAcInputFrequency_Type()
+)
+invSysAcInputFrequency.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcInputFrequency.setStatus("current")
+_InvSysAcInputAcInputPowerVa_Type = ScaledNumber
+_InvSysAcInputAcInputPowerVa_Object = MibTableColumn
+invSysAcInputAcInputPowerVa = _InvSysAcInputAcInputPowerVa_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 4),
+    _InvSysAcInputAcInputPowerVa_Type()
+)
+invSysAcInputAcInputPowerVa.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcInputAcInputPowerVa.setStatus("current")
+_InvSysAcInputNumberOfModulesOn_Type = ScaledNumber
+_InvSysAcInputNumberOfModulesOn_Object = MibTableColumn
+invSysAcInputNumberOfModulesOn = _InvSysAcInputNumberOfModulesOn_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 5),
+    _InvSysAcInputNumberOfModulesOn_Type()
+)
+invSysAcInputNumberOfModulesOn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcInputNumberOfModulesOn.setStatus("current")
+_InvSysAcInputAcInputPowerWatts_Type = ScaledNumber
+_InvSysAcInputAcInputPowerWatts_Object = MibTableColumn
+invSysAcInputAcInputPowerWatts = _InvSysAcInputAcInputPowerWatts_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 6),
+    _InvSysAcInputAcInputPowerWatts_Type()
+)
+invSysAcInputAcInputPowerWatts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcInputAcInputPowerWatts.setStatus("current")
+_InvSysAcInputNumberOfModulesDetected_Type = ScaledNumber
+_InvSysAcInputNumberOfModulesDetected_Object = MibTableColumn
+invSysAcInputNumberOfModulesDetected = _InvSysAcInputNumberOfModulesDetected_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 7),
+    _InvSysAcInputNumberOfModulesDetected_Type()
+)
+invSysAcInputNumberOfModulesDetected.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcInputNumberOfModulesDetected.setStatus("current")
+_InvSysAcInputNumberOfModulesOff_Type = ScaledNumber
+_InvSysAcInputNumberOfModulesOff_Object = MibTableColumn
+invSysAcInputNumberOfModulesOff = _InvSysAcInputNumberOfModulesOff_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 8),
+    _InvSysAcInputNumberOfModulesOff_Type()
+)
+invSysAcInputNumberOfModulesOff.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcInputNumberOfModulesOff.setStatus("current")
+_InvSysAcInputNumberOfModulesFailed_Type = ScaledNumber
+_InvSysAcInputNumberOfModulesFailed_Object = MibTableColumn
+invSysAcInputNumberOfModulesFailed = _InvSysAcInputNumberOfModulesFailed_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 81, 2, 1, 9),
+    _InvSysAcInputNumberOfModulesFailed_Type()
+)
+invSysAcInputNumberOfModulesFailed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysAcInputNumberOfModulesFailed.setStatus("current")
+_DcInputGroup_ObjectIdentity = ObjectIdentity
+dcInputGroup = _DcInputGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82)
+)
+_InvSysDcInputCount_Type = Integer32
+_InvSysDcInputCount_Object = MibScalar
+invSysDcInputCount = _InvSysDcInputCount_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 1),
+    _InvSysDcInputCount_Type()
+)
+invSysDcInputCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysDcInputCount.setStatus("current")
+_InvSysDcInputTable_Object = MibTable
+invSysDcInputTable = _InvSysDcInputTable_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2)
+)
+if mibBuilder.loadTexts:
+    invSysDcInputTable.setStatus("current")
+_InvSysDcInputEntry_Object = MibTableRow
+invSysDcInputEntry = _InvSysDcInputEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1)
+)
+invSysDcInputEntry.setIndexNames(
+    (0, "ALPHA-INVERTER-SYS-MIB", "invSysDcInputCount"),
+)
+if mibBuilder.loadTexts:
+    invSysDcInputEntry.setStatus("current")
+_InvSysDcInputInputVoltage_Type = ScaledNumber
+_InvSysDcInputInputVoltage_Object = MibTableColumn
+invSysDcInputInputVoltage = _InvSysDcInputInputVoltage_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 1),
+    _InvSysDcInputInputVoltage_Type()
+)
+invSysDcInputInputVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysDcInputInputVoltage.setStatus("current")
+_InvSysDcInputInputCurrent_Type = ScaledNumber
+_InvSysDcInputInputCurrent_Object = MibTableColumn
+invSysDcInputInputCurrent = _InvSysDcInputInputCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 2),
+    _InvSysDcInputInputCurrent_Type()
+)
+invSysDcInputInputCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysDcInputInputCurrent.setStatus("current")
+_InvSysDcInputDcInputPowerWatts_Type = ScaledNumber
+_InvSysDcInputDcInputPowerWatts_Object = MibTableColumn
+invSysDcInputDcInputPowerWatts = _InvSysDcInputDcInputPowerWatts_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 3),
+    _InvSysDcInputDcInputPowerWatts_Type()
+)
+invSysDcInputDcInputPowerWatts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysDcInputDcInputPowerWatts.setStatus("current")
+_InvSysDcInputNumberOfModulesOn_Type = ScaledNumber
+_InvSysDcInputNumberOfModulesOn_Object = MibTableColumn
+invSysDcInputNumberOfModulesOn = _InvSysDcInputNumberOfModulesOn_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 4),
+    _InvSysDcInputNumberOfModulesOn_Type()
+)
+invSysDcInputNumberOfModulesOn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysDcInputNumberOfModulesOn.setStatus("current")
+_InvSysDcInputNumberOfModulesOff_Type = ScaledNumber
+_InvSysDcInputNumberOfModulesOff_Object = MibTableColumn
+invSysDcInputNumberOfModulesOff = _InvSysDcInputNumberOfModulesOff_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 5),
+    _InvSysDcInputNumberOfModulesOff_Type()
+)
+invSysDcInputNumberOfModulesOff.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysDcInputNumberOfModulesOff.setStatus("current")
+_InvSysDcInputNumberOfModulesFailed_Type = ScaledNumber
+_InvSysDcInputNumberOfModulesFailed_Object = MibTableColumn
+invSysDcInputNumberOfModulesFailed = _InvSysDcInputNumberOfModulesFailed_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 6),
+    _InvSysDcInputNumberOfModulesFailed_Type()
+)
+invSysDcInputNumberOfModulesFailed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysDcInputNumberOfModulesFailed.setStatus("current")
+_InvSysDcInputNumberOfModulesDetected_Type = ScaledNumber
+_InvSysDcInputNumberOfModulesDetected_Object = MibTableColumn
+invSysDcInputNumberOfModulesDetected = _InvSysDcInputNumberOfModulesDetected_Object(
+    (1, 3, 6, 1, 4, 1, 7309, 5, 3, 3, 82, 2, 1, 7),
+    _InvSysDcInputNumberOfModulesDetected_Type()
+)
+invSysDcInputNumberOfModulesDetected.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    invSysDcInputNumberOfModulesDetected.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALPHA-INVERTER-SYS-MIB",
+    **{"inverterSystem": inverterSystem,
+       "invTotalAcOutputPowerVa": invTotalAcOutputPowerVa,
+       "invSysAverageLoadingOfInstalledPowerVa": invSysAverageLoadingOfInstalledPowerVa,
+       "invSysAverageDcInputToOutputPowerRatio": invSysAverageDcInputToOutputPowerRatio,
+       "invSysSystemMode": invSysSystemMode,
+       "invSysPhase1OutputPowerVa": invSysPhase1OutputPowerVa,
+       "invSysPhase2OutputPowerVa": invSysPhase2OutputPowerVa,
+       "invSysPhase3OutputPowerVa": invSysPhase3OutputPowerVa,
+       "invSysAverageOutputVoltageMeasured": invSysAverageOutputVoltageMeasured,
+       "invSysEnabledDisconnects": invSysEnabledDisconnects,
+       "invSysActivatedDisconnects": invSysActivatedDisconnects,
+       "invSysTotalDCInputCurrent": invSysTotalDCInputCurrent,
+       "invSysAverageDcInputVoltage": invSysAverageDcInputVoltage,
+       "invSysTotalDcInputPower": invSysTotalDcInputPower,
+       "invSysSystemOnBypass": invSysSystemOnBypass,
+       "invSysTotalAcInputPowerVa": invSysTotalAcInputPowerVa,
+       "phaseGroup": phaseGroup,
+       "invSysAcPhaseCount": invSysAcPhaseCount,
+       "invSysAcPhaseTable": invSysAcPhaseTable,
+       "invSysAcPhaseEntry": invSysAcPhaseEntry,
+       "invSysAcPhaseAcOutputPowerVa": invSysAcPhaseAcOutputPowerVa,
+       "invSysAcPhaseOutputVoltageMeasured": invSysAcPhaseOutputVoltageMeasured,
+       "invSysAcPhaseOutputCurrent": invSysAcPhaseOutputCurrent,
+       "invSysAcPhaseFrequency": invSysAcPhaseFrequency,
+       "invSysAcPhaseLoadingOfInstalledPowerVa": invSysAcPhaseLoadingOfInstalledPowerVa,
+       "invSysAcPhaseNumberOfModulesOn": invSysAcPhaseNumberOfModulesOn,
+       "invSysAcPhaseLoadingOfInstalledPowerWatts": invSysAcPhaseLoadingOfInstalledPowerWatts,
+       "invSysAcPhaseDcInputToOutputPowerRatioMeasured": invSysAcPhaseDcInputToOutputPowerRatioMeasured,
+       "invSysAcPhaseAcInputPowerWatts": invSysAcPhaseAcInputPowerWatts,
+       "invSysAcPhaseAcInputPowerVa": invSysAcPhaseAcInputPowerVa,
+       "invSysAcPhaseAcOutputPowerWatts": invSysAcPhaseAcOutputPowerWatts,
+       "invSysAcPhaseDCInputPowerWatts": invSysAcPhaseDCInputPowerWatts,
+       "invSysAcPhaseNumberOfRedundantModulesMeasured": invSysAcPhaseNumberOfRedundantModulesMeasured,
+       "invSysAcPhaseNumberOfModulesDetected": invSysAcPhaseNumberOfModulesDetected,
+       "invSysAcPhaseNumberOfModulesOff": invSysAcPhaseNumberOfModulesOff,
+       "invSysAcPhaseNumberOfModulesFailed": invSysAcPhaseNumberOfModulesFailed,
+       "acInputGroup": acInputGroup,
+       "invSysAcInputCount": invSysAcInputCount,
+       "invSysAcInputTable": invSysAcInputTable,
+       "invSysAcInputEntry": invSysAcInputEntry,
+       "invSysAcInputInputVoltage": invSysAcInputInputVoltage,
+       "invSysAcInputInputCurrent": invSysAcInputInputCurrent,
+       "invSysAcInputFrequency": invSysAcInputFrequency,
+       "invSysAcInputAcInputPowerVa": invSysAcInputAcInputPowerVa,
+       "invSysAcInputNumberOfModulesOn": invSysAcInputNumberOfModulesOn,
+       "invSysAcInputAcInputPowerWatts": invSysAcInputAcInputPowerWatts,
+       "invSysAcInputNumberOfModulesDetected": invSysAcInputNumberOfModulesDetected,
+       "invSysAcInputNumberOfModulesOff": invSysAcInputNumberOfModulesOff,
+       "invSysAcInputNumberOfModulesFailed": invSysAcInputNumberOfModulesFailed,
+       "dcInputGroup": dcInputGroup,
+       "invSysDcInputCount": invSysDcInputCount,
+       "invSysDcInputTable": invSysDcInputTable,
+       "invSysDcInputEntry": invSysDcInputEntry,
+       "invSysDcInputInputVoltage": invSysDcInputInputVoltage,
+       "invSysDcInputInputCurrent": invSysDcInputInputCurrent,
+       "invSysDcInputDcInputPowerWatts": invSysDcInputDcInputPowerWatts,
+       "invSysDcInputNumberOfModulesOn": invSysDcInputNumberOfModulesOn,
+       "invSysDcInputNumberOfModulesOff": invSysDcInputNumberOfModulesOff,
+       "invSysDcInputNumberOfModulesFailed": invSysDcInputNumberOfModulesFailed,
+       "invSysDcInputNumberOfModulesDetected": invSysDcInputNumberOfModulesDetected}
+)

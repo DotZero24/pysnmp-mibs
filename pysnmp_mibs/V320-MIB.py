@@ -1,50 +1,375 @@
+# SNMP MIB module (V320-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module V320-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fastback/V320-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:27 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/fastback/V320-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:17:34 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-Gauge32, enterprises, MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "enterprises", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "mib-2")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-sub10OID = ModuleIdentity((1, 3, 6, 1, 4, 1, 39003))
-sub10OID.setRevisions(('2011-11-29 00:00',))
-if mibBuilder.loadTexts: sub10OID.setLastUpdated('201111290000Z')
-if mibBuilder.loadTexts: sub10OID.setOrganization('Sub10 Systems Ltd')
-terminal2 = MibIdentifier((1, 3, 6, 1, 4, 1, 39003, 2))
-terminalLinkQuality = MibScalar((1, 3, 6, 1, 4, 1, 39003, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 10))).clone(namedValues=NamedValues(("green", 1), ("yellow", 2), ("red", 3), ("unknown", 10)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: terminalLinkQuality.setStatus('current')
-terminalReceivePower = MibScalar((1, 3, 6, 1, 4, 1, 39003, 2, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: terminalReceivePower.setStatus('current')
-terminalTemperature = MibScalar((1, 3, 6, 1, 4, 1, 39003, 2, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: terminalTemperature.setStatus('current')
-terminalLockDetector = MibScalar((1, 3, 6, 1, 4, 1, 39003, 2, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: terminalLockDetector.setStatus('current')
-terminalLinkQualityImproved = MibScalar((1, 3, 6, 1, 4, 1, 39003, 2, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("red2green", 1), ("red2yellow", 2), ("yellow2green", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: terminalLinkQualityImproved.setStatus('current')
-terminalLinkQualityReduced = MibScalar((1, 3, 6, 1, 4, 1, 39003, 2, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("green2yellow", 1), ("green2red", 2), ("yellow2red", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: terminalLinkQualityReduced.setStatus('current')
-terminalFirmwareversion = MibScalar((1, 3, 6, 1, 4, 1, 39003, 2, 21), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: terminalFirmwareversion.setStatus('current')
-terminalAuxVoltage = MibScalar((1, 3, 6, 1, 4, 1, 39003, 2, 25), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: terminalAuxVoltage.setStatus('current')
-terminalObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 39003, 2, 24)).setObjects(("V320-MIB", "terminalLinkQualityReduced"), ("V320-MIB", "terminalLinkQualityImproved"), ("V320-MIB", "terminalReceivePower"), ("V320-MIB", "terminalLinkQuality"), ("V320-MIB", "terminalTemperature"), ("V320-MIB", "terminalLockDetector"), ("V320-MIB", "terminalFirmwareversion"), ("V320-MIB", "terminalAuxVoltage"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    terminalObjectGroup = terminalObjectGroup.setStatus('current')
-terminalTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 39003, 2, 22))
-terminalLinkQualityImprovedTrap = NotificationType((1, 3, 6, 1, 4, 1, 39003, 2, 22, 1)).setObjects(("V320-MIB", "terminalLinkQualityImproved"))
-if mibBuilder.loadTexts: terminalLinkQualityImprovedTrap.setStatus('current')
-terminalLinkQualityReducedTrap = NotificationType((1, 3, 6, 1, 4, 1, 39003, 2, 22, 2)).setObjects(("V320-MIB", "terminalLinkQualityReduced"))
-if mibBuilder.loadTexts: terminalLinkQualityReducedTrap.setStatus('current')
-terminalTemperatureHighTrap = NotificationType((1, 3, 6, 1, 4, 1, 39003, 2, 22, 3)).setObjects(("V320-MIB", "terminalTemperature"))
-if mibBuilder.loadTexts: terminalTemperatureHighTrap.setStatus('current')
-terminalTemperatureLowTrap = NotificationType((1, 3, 6, 1, 4, 1, 39003, 2, 22, 4)).setObjects(("V320-MIB", "terminalTemperature"))
-if mibBuilder.loadTexts: terminalTemperatureLowTrap.setStatus('current')
-terminalNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 39003, 2, 23)).setObjects(("V320-MIB", "terminalLinkQualityImprovedTrap"), ("V320-MIB", "terminalLinkQualityReducedTrap"), ("V320-MIB", "terminalTemperatureHighTrap"), ("V320-MIB", "terminalTemperatureLowTrap"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    terminalNotificationGroup = terminalNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("V320-MIB", terminalLinkQualityImprovedTrap=terminalLinkQualityImprovedTrap, terminalFirmwareversion=terminalFirmwareversion, terminalTemperatureHighTrap=terminalTemperatureHighTrap, sub10OID=sub10OID, terminalAuxVoltage=terminalAuxVoltage, terminal2=terminal2, terminalObjectGroup=terminalObjectGroup, terminalTraps=terminalTraps, PYSNMP_MODULE_ID=sub10OID, terminalTemperature=terminalTemperature, terminalLinkQualityReducedTrap=terminalLinkQualityReducedTrap, terminalTemperatureLowTrap=terminalTemperatureLowTrap, terminalLinkQualityImproved=terminalLinkQualityImproved, terminalNotificationGroup=terminalNotificationGroup, terminalLockDetector=terminalLockDetector, terminalReceivePower=terminalReceivePower, terminalLinkQualityReduced=terminalLinkQualityReduced, terminalLinkQuality=terminalLinkQuality)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+sub10OID = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 39003)
+)
+if mibBuilder.loadTexts:
+    sub10OID.setRevisions(
+        ("2011-11-29 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Terminal2_ObjectIdentity = ObjectIdentity
+terminal2 = _Terminal2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 39003, 2)
+)
+
+
+class _TerminalLinkQuality_Type(Integer32):
+    """Custom type terminalLinkQuality based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("green", 1),
+          ("yellow", 2),
+          ("red", 3),
+          ("unknown", 10))
+    )
+
+
+_TerminalLinkQuality_Type.__name__ = "Integer32"
+_TerminalLinkQuality_Object = MibScalar
+terminalLinkQuality = _TerminalLinkQuality_Object(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 1),
+    _TerminalLinkQuality_Type()
+)
+terminalLinkQuality.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    terminalLinkQuality.setStatus("current")
+_TerminalReceivePower_Type = Integer32
+_TerminalReceivePower_Object = MibScalar
+terminalReceivePower = _TerminalReceivePower_Object(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 10),
+    _TerminalReceivePower_Type()
+)
+terminalReceivePower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    terminalReceivePower.setStatus("current")
+_TerminalTemperature_Type = Integer32
+_TerminalTemperature_Object = MibScalar
+terminalTemperature = _TerminalTemperature_Object(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 11),
+    _TerminalTemperature_Type()
+)
+terminalTemperature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    terminalTemperature.setStatus("current")
+_TerminalLockDetector_Type = Integer32
+_TerminalLockDetector_Object = MibScalar
+terminalLockDetector = _TerminalLockDetector_Object(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 12),
+    _TerminalLockDetector_Type()
+)
+terminalLockDetector.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    terminalLockDetector.setStatus("current")
+
+
+class _TerminalLinkQualityImproved_Type(Integer32):
+    """Custom type terminalLinkQualityImproved based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("red2green", 1),
+          ("red2yellow", 2),
+          ("yellow2green", 3))
+    )
+
+
+_TerminalLinkQualityImproved_Type.__name__ = "Integer32"
+_TerminalLinkQualityImproved_Object = MibScalar
+terminalLinkQualityImproved = _TerminalLinkQualityImproved_Object(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 13),
+    _TerminalLinkQualityImproved_Type()
+)
+terminalLinkQualityImproved.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    terminalLinkQualityImproved.setStatus("current")
+
+
+class _TerminalLinkQualityReduced_Type(Integer32):
+    """Custom type terminalLinkQualityReduced based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("green2yellow", 1),
+          ("green2red", 2),
+          ("yellow2red", 3))
+    )
+
+
+_TerminalLinkQualityReduced_Type.__name__ = "Integer32"
+_TerminalLinkQualityReduced_Object = MibScalar
+terminalLinkQualityReduced = _TerminalLinkQualityReduced_Object(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 14),
+    _TerminalLinkQualityReduced_Type()
+)
+terminalLinkQualityReduced.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    terminalLinkQualityReduced.setStatus("current")
+_TerminalFirmwareversion_Type = OctetString
+_TerminalFirmwareversion_Object = MibScalar
+terminalFirmwareversion = _TerminalFirmwareversion_Object(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 21),
+    _TerminalFirmwareversion_Type()
+)
+terminalFirmwareversion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    terminalFirmwareversion.setStatus("current")
+_TerminalTraps_ObjectIdentity = ObjectIdentity
+terminalTraps = _TerminalTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 22)
+)
+_TerminalAuxVoltage_Type = OctetString
+_TerminalAuxVoltage_Object = MibScalar
+terminalAuxVoltage = _TerminalAuxVoltage_Object(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 25),
+    _TerminalAuxVoltage_Type()
+)
+terminalAuxVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    terminalAuxVoltage.setStatus("current")
+
+# Managed Objects groups
+
+terminalObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 24)
+)
+terminalObjectGroup.setObjects(
+      *(("V320-MIB", "terminalLinkQualityReduced"),
+        ("V320-MIB", "terminalLinkQualityImproved"),
+        ("V320-MIB", "terminalReceivePower"),
+        ("V320-MIB", "terminalLinkQuality"),
+        ("V320-MIB", "terminalTemperature"),
+        ("V320-MIB", "terminalLockDetector"),
+        ("V320-MIB", "terminalFirmwareversion"),
+        ("V320-MIB", "terminalAuxVoltage"))
+)
+if mibBuilder.loadTexts:
+    terminalObjectGroup.setStatus("current")
+
+
+# Notification objects
+
+terminalLinkQualityImprovedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 22, 1)
+)
+terminalLinkQualityImprovedTrap.setObjects(
+    ("V320-MIB", "terminalLinkQualityImproved")
+)
+if mibBuilder.loadTexts:
+    terminalLinkQualityImprovedTrap.setStatus(
+        "current"
+    )
+
+terminalLinkQualityReducedTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 22, 2)
+)
+terminalLinkQualityReducedTrap.setObjects(
+    ("V320-MIB", "terminalLinkQualityReduced")
+)
+if mibBuilder.loadTexts:
+    terminalLinkQualityReducedTrap.setStatus(
+        "current"
+    )
+
+terminalTemperatureHighTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 22, 3)
+)
+terminalTemperatureHighTrap.setObjects(
+    ("V320-MIB", "terminalTemperature")
+)
+if mibBuilder.loadTexts:
+    terminalTemperatureHighTrap.setStatus(
+        "current"
+    )
+
+terminalTemperatureLowTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 22, 4)
+)
+terminalTemperatureLowTrap.setObjects(
+    ("V320-MIB", "terminalTemperature")
+)
+if mibBuilder.loadTexts:
+    terminalTemperatureLowTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+terminalNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 39003, 2, 23)
+)
+terminalNotificationGroup.setObjects(
+      *(("V320-MIB", "terminalLinkQualityImprovedTrap"),
+        ("V320-MIB", "terminalLinkQualityReducedTrap"),
+        ("V320-MIB", "terminalTemperatureHighTrap"),
+        ("V320-MIB", "terminalTemperatureLowTrap"))
+)
+if mibBuilder.loadTexts:
+    terminalNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "V320-MIB",
+    **{"sub10OID": sub10OID,
+       "terminal2": terminal2,
+       "terminalLinkQuality": terminalLinkQuality,
+       "terminalReceivePower": terminalReceivePower,
+       "terminalTemperature": terminalTemperature,
+       "terminalLockDetector": terminalLockDetector,
+       "terminalLinkQualityImproved": terminalLinkQualityImproved,
+       "terminalLinkQualityReduced": terminalLinkQualityReduced,
+       "terminalFirmwareversion": terminalFirmwareversion,
+       "terminalTraps": terminalTraps,
+       "terminalLinkQualityImprovedTrap": terminalLinkQualityImprovedTrap,
+       "terminalLinkQualityReducedTrap": terminalLinkQualityReducedTrap,
+       "terminalTemperatureHighTrap": terminalTemperatureHighTrap,
+       "terminalTemperatureLowTrap": terminalTemperatureLowTrap,
+       "terminalNotificationGroup": terminalNotificationGroup,
+       "terminalObjectGroup": terminalObjectGroup,
+       "terminalAuxVoltage": terminalAuxVoltage}
+)

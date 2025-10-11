@@ -1,96 +1,602 @@
+# SNMP MIB module (FS-LLDP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module FS-LLDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/FS-LLDP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:22 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/fscom/FS-LLDP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:14:29 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
-IfIndex, = mibBuilder.importSymbols("FS-TC", "IfIndex")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-fsLldpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32))
-fsLldpMIB.setRevisions(('2003-04-01 00:00',))
-if mibBuilder.loadTexts: fsLldpMIB.setLastUpdated('200304010000Z')
-if mibBuilder.loadTexts: fsLldpMIB.setOrganization('FS.COM Inc..')
-lldpMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1))
-lldpConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1))
-lldpStats = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2))
-lldpRcvObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3))
-lldpAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 1), EnabledStatus().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lldpAdminStatus.setStatus('current')
-lldpOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 2), EnabledStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpOperStatus.setStatus('current')
-lldpMessageTxInterval = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 299)).clone(60)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lldpMessageTxInterval.setStatus('current')
-lldpMessageTxHoldTime = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 300)).clone(180)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lldpMessageTxHoldTime.setStatus('current')
-lldpDeviceID = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 5), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpDeviceID.setStatus('current')
-lldpSuppressTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 6), )
-if mibBuilder.loadTexts: lldpSuppressTable.setStatus('current')
-lldpSuppressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 6, 1), ).setIndexNames((0, "FS-LLDP-MIB", "lldpSuppressPortIfIndex"))
-if mibBuilder.loadTexts: lldpSuppressEntry.setStatus('current')
-lldpSuppressPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 6, 1, 1), IfIndex())
-if mibBuilder.loadTexts: lldpSuppressPortIfIndex.setStatus('current')
-lldpSuppressPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 6, 1, 2), EnabledStatus().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lldpSuppressPortStatus.setStatus('current')
-lldpStatsTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1), )
-if mibBuilder.loadTexts: lldpStatsTable.setStatus('current')
-lldpStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1), ).setIndexNames((0, "FS-LLDP-MIB", "lldpStatsPortIfIndex"))
-if mibBuilder.loadTexts: lldpStatsEntry.setStatus('current')
-lldpStatsPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1, 1), IfIndex())
-if mibBuilder.loadTexts: lldpStatsPortIfIndex.setStatus('current')
-lldpStatsInGoodPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpStatsInGoodPkts.setStatus('current')
-lldpStatsInErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpStatsInErrors.setStatus('current')
-lldpStatsOutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpStatsOutPkts.setStatus('current')
-lldpStatsClear = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lldpStatsClear.setStatus('current')
-lldpRcvTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1), )
-if mibBuilder.loadTexts: lldpRcvTable.setStatus('current')
-lldpRcvEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1), ).setIndexNames((0, "FS-LLDP-MIB", "lldpRcvIfIndex"), (0, "FS-LLDP-MIB", "lldpRcvDeviceID"))
-if mibBuilder.loadTexts: lldpRcvEntry.setStatus('current')
-lldpRcvIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 1), IfIndex())
-if mibBuilder.loadTexts: lldpRcvIfIndex.setStatus('current')
-lldpRcvDeviceID = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpRcvDeviceID.setStatus('current')
-lldpRcvMgmtAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpRcvMgmtAddress.setStatus('current')
-lldpRcvPortIDSubtype = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpRcvPortIDSubtype.setStatus('current')
-lldpRcvPortInfo = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpRcvPortInfo.setStatus('current')
-lldpRcvClusterMode = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("commandDevice", 1), ("memberDevice", 2), ("none", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpRcvClusterMode.setStatus('current')
-lldpRcvClusterStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 7), EnabledStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpRcvClusterStatus.setStatus('current')
-lldpRcvClusterName = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpRcvClusterName.setStatus('current')
-lldpRcvHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 22))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpRcvHostName.setStatus('current')
-lldpRcvCommandAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 10), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: lldpRcvCommandAddress.setStatus('current')
-lldpRcvTableClear = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lldpRcvTableClear.setStatus('current')
-lldpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2))
-lldpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2, 1))
-lldpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2, 2))
-lldpCompliances = ModuleCompliance((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2, 1, 1)).setObjects(("FS-LLDP-MIB", "lldpConfigGroup"), ("FS-LLDP-MIB", "lldpStatsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    lldpCompliances = lldpCompliances.setStatus('current')
-lldpConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2, 2, 1)).setObjects(("FS-LLDP-MIB", "lldpAdminStatus"), ("FS-LLDP-MIB", "lldpOperStatus"), ("FS-LLDP-MIB", "lldpMessageTxInterval"), ("FS-LLDP-MIB", "lldpMessageTxHoldTime"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    lldpConfigGroup = lldpConfigGroup.setStatus('current')
-lldpStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2, 2, 2)).setObjects(("FS-LLDP-MIB", "lldpStatsInGoodPkts"), ("FS-LLDP-MIB", "lldpStatsInErrors"), ("FS-LLDP-MIB", "lldpStatsOutPkts"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    lldpStatsGroup = lldpStatsGroup.setStatus('current')
-mibBuilder.exportSymbols("FS-LLDP-MIB", lldpMIBGroups=lldpMIBGroups, lldpAdminStatus=lldpAdminStatus, lldpRcvTable=lldpRcvTable, lldpStatsInGoodPkts=lldpStatsInGoodPkts, lldpOperStatus=lldpOperStatus, lldpRcvHostName=lldpRcvHostName, lldpConfigGroup=lldpConfigGroup, lldpMibObjects=lldpMibObjects, lldpStatsEntry=lldpStatsEntry, lldpStatsPortIfIndex=lldpStatsPortIfIndex, lldpRcvIfIndex=lldpRcvIfIndex, lldpStats=lldpStats, lldpRcvPortInfo=lldpRcvPortInfo, lldpSuppressPortIfIndex=lldpSuppressPortIfIndex, PYSNMP_MODULE_ID=fsLldpMIB, lldpSuppressTable=lldpSuppressTable, lldpRcvTableClear=lldpRcvTableClear, fsLldpMIB=fsLldpMIB, lldpSuppressEntry=lldpSuppressEntry, lldpMIBCompliances=lldpMIBCompliances, lldpMIBConformance=lldpMIBConformance, lldpRcvCommandAddress=lldpRcvCommandAddress, lldpStatsOutPkts=lldpStatsOutPkts, lldpDeviceID=lldpDeviceID, lldpSuppressPortStatus=lldpSuppressPortStatus, lldpStatsTable=lldpStatsTable, lldpMessageTxHoldTime=lldpMessageTxHoldTime, lldpStatsGroup=lldpStatsGroup, lldpRcvObjects=lldpRcvObjects, lldpStatsClear=lldpStatsClear, lldpRcvClusterMode=lldpRcvClusterMode, lldpCompliances=lldpCompliances, lldpRcvDeviceID=lldpRcvDeviceID, lldpMessageTxInterval=lldpMessageTxInterval, lldpRcvClusterStatus=lldpRcvClusterStatus, lldpRcvEntry=lldpRcvEntry, lldpStatsInErrors=lldpStatsInErrors, lldpRcvMgmtAddress=lldpRcvMgmtAddress, lldpRcvClusterName=lldpRcvClusterName, lldpConfig=lldpConfig, lldpRcvPortIDSubtype=lldpRcvPortIDSubtype)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(fsMgmt,) = mibBuilder.importSymbols(
+    "FS-SMI",
+    "fsMgmt")
+
+(IfIndex,) = mibBuilder.importSymbols(
+    "FS-TC",
+    "IfIndex")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+fsLldpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32)
+)
+if mibBuilder.loadTexts:
+    fsLldpMIB.setRevisions(
+        ("2003-04-01 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_LldpMibObjects_ObjectIdentity = ObjectIdentity
+lldpMibObjects = _LldpMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1)
+)
+_LldpConfig_ObjectIdentity = ObjectIdentity
+lldpConfig = _LldpConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1)
+)
+
+
+class _LldpAdminStatus_Type(EnabledStatus):
+    """Custom type lldpAdminStatus based on EnabledStatus"""
+    defaultValue = 1
+
+
+_LldpAdminStatus_Type.__name__ = "EnabledStatus"
+_LldpAdminStatus_Object = MibScalar
+lldpAdminStatus = _LldpAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 1),
+    _LldpAdminStatus_Type()
+)
+lldpAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lldpAdminStatus.setStatus("current")
+_LldpOperStatus_Type = EnabledStatus
+_LldpOperStatus_Object = MibScalar
+lldpOperStatus = _LldpOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 2),
+    _LldpOperStatus_Type()
+)
+lldpOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpOperStatus.setStatus("current")
+
+
+class _LldpMessageTxInterval_Type(Integer32):
+    """Custom type lldpMessageTxInterval based on Integer32"""
+    defaultValue = 60
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 299),
+    )
+
+
+_LldpMessageTxInterval_Type.__name__ = "Integer32"
+_LldpMessageTxInterval_Object = MibScalar
+lldpMessageTxInterval = _LldpMessageTxInterval_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 3),
+    _LldpMessageTxInterval_Type()
+)
+lldpMessageTxInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lldpMessageTxInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    lldpMessageTxInterval.setUnits("seconds")
+
+
+class _LldpMessageTxHoldTime_Type(Integer32):
+    """Custom type lldpMessageTxHoldTime based on Integer32"""
+    defaultValue = 180
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 300),
+    )
+
+
+_LldpMessageTxHoldTime_Type.__name__ = "Integer32"
+_LldpMessageTxHoldTime_Object = MibScalar
+lldpMessageTxHoldTime = _LldpMessageTxHoldTime_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 4),
+    _LldpMessageTxHoldTime_Type()
+)
+lldpMessageTxHoldTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lldpMessageTxHoldTime.setStatus("current")
+if mibBuilder.loadTexts:
+    lldpMessageTxHoldTime.setUnits("seconds")
+_LldpDeviceID_Type = MacAddress
+_LldpDeviceID_Object = MibScalar
+lldpDeviceID = _LldpDeviceID_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 5),
+    _LldpDeviceID_Type()
+)
+lldpDeviceID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpDeviceID.setStatus("current")
+_LldpSuppressTable_Object = MibTable
+lldpSuppressTable = _LldpSuppressTable_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 6)
+)
+if mibBuilder.loadTexts:
+    lldpSuppressTable.setStatus("current")
+_LldpSuppressEntry_Object = MibTableRow
+lldpSuppressEntry = _LldpSuppressEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 6, 1)
+)
+lldpSuppressEntry.setIndexNames(
+    (0, "FS-LLDP-MIB", "lldpSuppressPortIfIndex"),
+)
+if mibBuilder.loadTexts:
+    lldpSuppressEntry.setStatus("current")
+_LldpSuppressPortIfIndex_Type = IfIndex
+_LldpSuppressPortIfIndex_Object = MibTableColumn
+lldpSuppressPortIfIndex = _LldpSuppressPortIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 6, 1, 1),
+    _LldpSuppressPortIfIndex_Type()
+)
+lldpSuppressPortIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    lldpSuppressPortIfIndex.setStatus("current")
+
+
+class _LldpSuppressPortStatus_Type(EnabledStatus):
+    """Custom type lldpSuppressPortStatus based on EnabledStatus"""
+    defaultValue = 1
+
+
+_LldpSuppressPortStatus_Type.__name__ = "EnabledStatus"
+_LldpSuppressPortStatus_Object = MibTableColumn
+lldpSuppressPortStatus = _LldpSuppressPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 1, 6, 1, 2),
+    _LldpSuppressPortStatus_Type()
+)
+lldpSuppressPortStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lldpSuppressPortStatus.setStatus("current")
+_LldpStats_ObjectIdentity = ObjectIdentity
+lldpStats = _LldpStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2)
+)
+_LldpStatsTable_Object = MibTable
+lldpStatsTable = _LldpStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    lldpStatsTable.setStatus("current")
+_LldpStatsEntry_Object = MibTableRow
+lldpStatsEntry = _LldpStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1)
+)
+lldpStatsEntry.setIndexNames(
+    (0, "FS-LLDP-MIB", "lldpStatsPortIfIndex"),
+)
+if mibBuilder.loadTexts:
+    lldpStatsEntry.setStatus("current")
+_LldpStatsPortIfIndex_Type = IfIndex
+_LldpStatsPortIfIndex_Object = MibTableColumn
+lldpStatsPortIfIndex = _LldpStatsPortIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1, 1),
+    _LldpStatsPortIfIndex_Type()
+)
+lldpStatsPortIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    lldpStatsPortIfIndex.setStatus("current")
+_LldpStatsInGoodPkts_Type = Counter32
+_LldpStatsInGoodPkts_Object = MibTableColumn
+lldpStatsInGoodPkts = _LldpStatsInGoodPkts_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1, 2),
+    _LldpStatsInGoodPkts_Type()
+)
+lldpStatsInGoodPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpStatsInGoodPkts.setStatus("current")
+_LldpStatsInErrors_Type = Counter32
+_LldpStatsInErrors_Object = MibTableColumn
+lldpStatsInErrors = _LldpStatsInErrors_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1, 3),
+    _LldpStatsInErrors_Type()
+)
+lldpStatsInErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpStatsInErrors.setStatus("current")
+_LldpStatsOutPkts_Type = Counter32
+_LldpStatsOutPkts_Object = MibTableColumn
+lldpStatsOutPkts = _LldpStatsOutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1, 4),
+    _LldpStatsOutPkts_Type()
+)
+lldpStatsOutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpStatsOutPkts.setStatus("current")
+_LldpStatsClear_Type = Integer32
+_LldpStatsClear_Object = MibTableColumn
+lldpStatsClear = _LldpStatsClear_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 2, 1, 1, 5),
+    _LldpStatsClear_Type()
+)
+lldpStatsClear.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lldpStatsClear.setStatus("current")
+_LldpRcvObjects_ObjectIdentity = ObjectIdentity
+lldpRcvObjects = _LldpRcvObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3)
+)
+_LldpRcvTable_Object = MibTable
+lldpRcvTable = _LldpRcvTable_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    lldpRcvTable.setStatus("current")
+_LldpRcvEntry_Object = MibTableRow
+lldpRcvEntry = _LldpRcvEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1)
+)
+lldpRcvEntry.setIndexNames(
+    (0, "FS-LLDP-MIB", "lldpRcvIfIndex"),
+    (0, "FS-LLDP-MIB", "lldpRcvDeviceID"),
+)
+if mibBuilder.loadTexts:
+    lldpRcvEntry.setStatus("current")
+_LldpRcvIfIndex_Type = IfIndex
+_LldpRcvIfIndex_Object = MibTableColumn
+lldpRcvIfIndex = _LldpRcvIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 1),
+    _LldpRcvIfIndex_Type()
+)
+lldpRcvIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    lldpRcvIfIndex.setStatus("current")
+_LldpRcvDeviceID_Type = MacAddress
+_LldpRcvDeviceID_Object = MibTableColumn
+lldpRcvDeviceID = _LldpRcvDeviceID_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 2),
+    _LldpRcvDeviceID_Type()
+)
+lldpRcvDeviceID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpRcvDeviceID.setStatus("current")
+_LldpRcvMgmtAddress_Type = MacAddress
+_LldpRcvMgmtAddress_Object = MibTableColumn
+lldpRcvMgmtAddress = _LldpRcvMgmtAddress_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 3),
+    _LldpRcvMgmtAddress_Type()
+)
+lldpRcvMgmtAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpRcvMgmtAddress.setStatus("current")
+_LldpRcvPortIDSubtype_Type = Integer32
+_LldpRcvPortIDSubtype_Object = MibTableColumn
+lldpRcvPortIDSubtype = _LldpRcvPortIDSubtype_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 4),
+    _LldpRcvPortIDSubtype_Type()
+)
+lldpRcvPortIDSubtype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpRcvPortIDSubtype.setStatus("current")
+
+
+class _LldpRcvPortInfo_Type(DisplayString):
+    """Custom type lldpRcvPortInfo based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_LldpRcvPortInfo_Type.__name__ = "DisplayString"
+_LldpRcvPortInfo_Object = MibTableColumn
+lldpRcvPortInfo = _LldpRcvPortInfo_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 5),
+    _LldpRcvPortInfo_Type()
+)
+lldpRcvPortInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpRcvPortInfo.setStatus("current")
+
+
+class _LldpRcvClusterMode_Type(Integer32):
+    """Custom type lldpRcvClusterMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("commandDevice", 1),
+          ("memberDevice", 2),
+          ("none", 3))
+    )
+
+
+_LldpRcvClusterMode_Type.__name__ = "Integer32"
+_LldpRcvClusterMode_Object = MibTableColumn
+lldpRcvClusterMode = _LldpRcvClusterMode_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 6),
+    _LldpRcvClusterMode_Type()
+)
+lldpRcvClusterMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpRcvClusterMode.setStatus("current")
+_LldpRcvClusterStatus_Type = EnabledStatus
+_LldpRcvClusterStatus_Object = MibTableColumn
+lldpRcvClusterStatus = _LldpRcvClusterStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 7),
+    _LldpRcvClusterStatus_Type()
+)
+lldpRcvClusterStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpRcvClusterStatus.setStatus("current")
+
+
+class _LldpRcvClusterName_Type(DisplayString):
+    """Custom type lldpRcvClusterName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_LldpRcvClusterName_Type.__name__ = "DisplayString"
+_LldpRcvClusterName_Object = MibTableColumn
+lldpRcvClusterName = _LldpRcvClusterName_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 8),
+    _LldpRcvClusterName_Type()
+)
+lldpRcvClusterName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpRcvClusterName.setStatus("current")
+
+
+class _LldpRcvHostName_Type(DisplayString):
+    """Custom type lldpRcvHostName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 22),
+    )
+
+
+_LldpRcvHostName_Type.__name__ = "DisplayString"
+_LldpRcvHostName_Object = MibTableColumn
+lldpRcvHostName = _LldpRcvHostName_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 9),
+    _LldpRcvHostName_Type()
+)
+lldpRcvHostName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpRcvHostName.setStatus("current")
+_LldpRcvCommandAddress_Type = MacAddress
+_LldpRcvCommandAddress_Object = MibTableColumn
+lldpRcvCommandAddress = _LldpRcvCommandAddress_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 1, 1, 10),
+    _LldpRcvCommandAddress_Type()
+)
+lldpRcvCommandAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    lldpRcvCommandAddress.setStatus("current")
+_LldpRcvTableClear_Type = Integer32
+_LldpRcvTableClear_Object = MibScalar
+lldpRcvTableClear = _LldpRcvTableClear_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 1, 3, 2),
+    _LldpRcvTableClear_Type()
+)
+lldpRcvTableClear.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lldpRcvTableClear.setStatus("current")
+_LldpMIBConformance_ObjectIdentity = ObjectIdentity
+lldpMIBConformance = _LldpMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2)
+)
+_LldpMIBCompliances_ObjectIdentity = ObjectIdentity
+lldpMIBCompliances = _LldpMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2, 1)
+)
+_LldpMIBGroups_ObjectIdentity = ObjectIdentity
+lldpMIBGroups = _LldpMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2, 2)
+)
+
+# Managed Objects groups
+
+lldpConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2, 2, 1)
+)
+lldpConfigGroup.setObjects(
+      *(("FS-LLDP-MIB", "lldpAdminStatus"),
+        ("FS-LLDP-MIB", "lldpOperStatus"),
+        ("FS-LLDP-MIB", "lldpMessageTxInterval"),
+        ("FS-LLDP-MIB", "lldpMessageTxHoldTime"))
+)
+if mibBuilder.loadTexts:
+    lldpConfigGroup.setStatus("current")
+
+lldpStatsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2, 2, 2)
+)
+lldpStatsGroup.setObjects(
+      *(("FS-LLDP-MIB", "lldpStatsInGoodPkts"),
+        ("FS-LLDP-MIB", "lldpStatsInErrors"),
+        ("FS-LLDP-MIB", "lldpStatsOutPkts"))
+)
+if mibBuilder.loadTexts:
+    lldpStatsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+lldpCompliances = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 32, 2, 1, 1)
+)
+lldpCompliances.setObjects(
+      *(("FS-LLDP-MIB", "lldpConfigGroup"),
+        ("FS-LLDP-MIB", "lldpStatsGroup"))
+)
+if mibBuilder.loadTexts:
+    lldpCompliances.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "FS-LLDP-MIB",
+    **{"fsLldpMIB": fsLldpMIB,
+       "lldpMibObjects": lldpMibObjects,
+       "lldpConfig": lldpConfig,
+       "lldpAdminStatus": lldpAdminStatus,
+       "lldpOperStatus": lldpOperStatus,
+       "lldpMessageTxInterval": lldpMessageTxInterval,
+       "lldpMessageTxHoldTime": lldpMessageTxHoldTime,
+       "lldpDeviceID": lldpDeviceID,
+       "lldpSuppressTable": lldpSuppressTable,
+       "lldpSuppressEntry": lldpSuppressEntry,
+       "lldpSuppressPortIfIndex": lldpSuppressPortIfIndex,
+       "lldpSuppressPortStatus": lldpSuppressPortStatus,
+       "lldpStats": lldpStats,
+       "lldpStatsTable": lldpStatsTable,
+       "lldpStatsEntry": lldpStatsEntry,
+       "lldpStatsPortIfIndex": lldpStatsPortIfIndex,
+       "lldpStatsInGoodPkts": lldpStatsInGoodPkts,
+       "lldpStatsInErrors": lldpStatsInErrors,
+       "lldpStatsOutPkts": lldpStatsOutPkts,
+       "lldpStatsClear": lldpStatsClear,
+       "lldpRcvObjects": lldpRcvObjects,
+       "lldpRcvTable": lldpRcvTable,
+       "lldpRcvEntry": lldpRcvEntry,
+       "lldpRcvIfIndex": lldpRcvIfIndex,
+       "lldpRcvDeviceID": lldpRcvDeviceID,
+       "lldpRcvMgmtAddress": lldpRcvMgmtAddress,
+       "lldpRcvPortIDSubtype": lldpRcvPortIDSubtype,
+       "lldpRcvPortInfo": lldpRcvPortInfo,
+       "lldpRcvClusterMode": lldpRcvClusterMode,
+       "lldpRcvClusterStatus": lldpRcvClusterStatus,
+       "lldpRcvClusterName": lldpRcvClusterName,
+       "lldpRcvHostName": lldpRcvHostName,
+       "lldpRcvCommandAddress": lldpRcvCommandAddress,
+       "lldpRcvTableClear": lldpRcvTableClear,
+       "lldpMIBConformance": lldpMIBConformance,
+       "lldpMIBCompliances": lldpMIBCompliances,
+       "lldpCompliances": lldpCompliances,
+       "lldpMIBGroups": lldpMIBGroups,
+       "lldpConfigGroup": lldpConfigGroup,
+       "lldpStatsGroup": lldpStatsGroup}
+)

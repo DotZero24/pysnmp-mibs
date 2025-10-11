@@ -1,33 +1,257 @@
+# SNMP MIB module (RUCKUS-HWINFO-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RUCKUS-HWINFO-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ruckus/RUCKUS-HWINFO-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:39 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ruckus/RUCKUS-HWINFO-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:13:50 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ruckusCommonHwInfoModule, = mibBuilder.importSymbols("RUCKUS-ROOT-MIB", "ruckusCommonHwInfoModule")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ruckusHwInfoMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1))
-if mibBuilder.loadTexts: ruckusHwInfoMIB.setLastUpdated('201010150800Z')
-if mibBuilder.loadTexts: ruckusHwInfoMIB.setOrganization('Ruckus Wireless, Inc.')
-ruckusHwInfoObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1))
-ruckusHwInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1))
-ruckusHwInfoEvents = MibIdentifier((1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 2))
-ruckusHwInfoModelNumber = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusHwInfoModelNumber.setStatus('current')
-ruckusHwInfoSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusHwInfoSerialNumber.setStatus('current')
-ruckusHwInfoCustomerID = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusHwInfoCustomerID.setStatus('current')
-ruckusHwInfoHWMajorRevision = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusHwInfoHWMajorRevision.setStatus('current')
-ruckusHwInfoHWMinorRevision = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusHwInfoHWMinorRevision.setStatus('current')
-ruckusHwInfoTemperature = MibScalar((1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ruckusHwInfoTemperature.setStatus('current')
-mibBuilder.exportSymbols("RUCKUS-HWINFO-MIB", ruckusHwInfoHWMinorRevision=ruckusHwInfoHWMinorRevision, ruckusHwInfoModelNumber=ruckusHwInfoModelNumber, ruckusHwInfoObjects=ruckusHwInfoObjects, ruckusHwInfo=ruckusHwInfo, PYSNMP_MODULE_ID=ruckusHwInfoMIB, ruckusHwInfoCustomerID=ruckusHwInfoCustomerID, ruckusHwInfoEvents=ruckusHwInfoEvents, ruckusHwInfoSerialNumber=ruckusHwInfoSerialNumber, ruckusHwInfoHWMajorRevision=ruckusHwInfoHWMajorRevision, ruckusHwInfoTemperature=ruckusHwInfoTemperature, ruckusHwInfoMIB=ruckusHwInfoMIB)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ruckusCommonHwInfoModule,) = mibBuilder.importSymbols(
+    "RUCKUS-ROOT-MIB",
+    "ruckusCommonHwInfoModule")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ruckusHwInfoMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RuckusHwInfoObjects_ObjectIdentity = ObjectIdentity
+ruckusHwInfoObjects = _RuckusHwInfoObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1)
+)
+_RuckusHwInfo_ObjectIdentity = ObjectIdentity
+ruckusHwInfo = _RuckusHwInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1)
+)
+
+
+class _RuckusHwInfoModelNumber_Type(DisplayString):
+    """Custom type ruckusHwInfoModelNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 16),
+    )
+
+
+_RuckusHwInfoModelNumber_Type.__name__ = "DisplayString"
+_RuckusHwInfoModelNumber_Object = MibScalar
+ruckusHwInfoModelNumber = _RuckusHwInfoModelNumber_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 1),
+    _RuckusHwInfoModelNumber_Type()
+)
+ruckusHwInfoModelNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusHwInfoModelNumber.setStatus("current")
+
+
+class _RuckusHwInfoSerialNumber_Type(DisplayString):
+    """Custom type ruckusHwInfoSerialNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 16),
+    )
+
+
+_RuckusHwInfoSerialNumber_Type.__name__ = "DisplayString"
+_RuckusHwInfoSerialNumber_Object = MibScalar
+ruckusHwInfoSerialNumber = _RuckusHwInfoSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 2),
+    _RuckusHwInfoSerialNumber_Type()
+)
+ruckusHwInfoSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusHwInfoSerialNumber.setStatus("current")
+
+
+class _RuckusHwInfoCustomerID_Type(DisplayString):
+    """Custom type ruckusHwInfoCustomerID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_RuckusHwInfoCustomerID_Type.__name__ = "DisplayString"
+_RuckusHwInfoCustomerID_Object = MibScalar
+ruckusHwInfoCustomerID = _RuckusHwInfoCustomerID_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 3),
+    _RuckusHwInfoCustomerID_Type()
+)
+ruckusHwInfoCustomerID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusHwInfoCustomerID.setStatus("current")
+_RuckusHwInfoHWMajorRevision_Type = Unsigned32
+_RuckusHwInfoHWMajorRevision_Object = MibScalar
+ruckusHwInfoHWMajorRevision = _RuckusHwInfoHWMajorRevision_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 4),
+    _RuckusHwInfoHWMajorRevision_Type()
+)
+ruckusHwInfoHWMajorRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusHwInfoHWMajorRevision.setStatus("current")
+_RuckusHwInfoHWMinorRevision_Type = Unsigned32
+_RuckusHwInfoHWMinorRevision_Object = MibScalar
+ruckusHwInfoHWMinorRevision = _RuckusHwInfoHWMinorRevision_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 5),
+    _RuckusHwInfoHWMinorRevision_Type()
+)
+ruckusHwInfoHWMinorRevision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusHwInfoHWMinorRevision.setStatus("current")
+
+
+class _RuckusHwInfoTemperature_Type(DisplayString):
+    """Custom type ruckusHwInfoTemperature based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 16),
+    )
+
+
+_RuckusHwInfoTemperature_Type.__name__ = "DisplayString"
+_RuckusHwInfoTemperature_Object = MibScalar
+ruckusHwInfoTemperature = _RuckusHwInfoTemperature_Object(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 1, 1, 10),
+    _RuckusHwInfoTemperature_Type()
+)
+ruckusHwInfoTemperature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ruckusHwInfoTemperature.setStatus("current")
+_RuckusHwInfoEvents_ObjectIdentity = ObjectIdentity
+ruckusHwInfoEvents = _RuckusHwInfoEvents_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 25053, 1, 1, 2, 1, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RUCKUS-HWINFO-MIB",
+    **{"ruckusHwInfoMIB": ruckusHwInfoMIB,
+       "ruckusHwInfoObjects": ruckusHwInfoObjects,
+       "ruckusHwInfo": ruckusHwInfo,
+       "ruckusHwInfoModelNumber": ruckusHwInfoModelNumber,
+       "ruckusHwInfoSerialNumber": ruckusHwInfoSerialNumber,
+       "ruckusHwInfoCustomerID": ruckusHwInfoCustomerID,
+       "ruckusHwInfoHWMajorRevision": ruckusHwInfoHWMajorRevision,
+       "ruckusHwInfoHWMinorRevision": ruckusHwInfoHWMinorRevision,
+       "ruckusHwInfoTemperature": ruckusHwInfoTemperature,
+       "ruckusHwInfoEvents": ruckusHwInfoEvents}
+)

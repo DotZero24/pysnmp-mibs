@@ -1,24 +1,194 @@
+# SNMP MIB module (DLINKPRIME-SAFEGUARD-ENGINE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DLINKPRIME-SAFEGUARD-ENGINE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DLINKPRIME-SAFEGUARD-ENGINE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:58:15 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/DLINKPRIME-SAFEGUARD-ENGINE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:47:15 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlinkPrimeCommon, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlinkPrimeCommon")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
-dlinkPrimeSafeguardEngineMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 15, 14))
-dlinkPrimeSafeguardEngineMIB.setRevisions(('2014-04-26 00:00',))
-if mibBuilder.loadTexts: dlinkPrimeSafeguardEngineMIB.setLastUpdated('201404260000Z')
-if mibBuilder.loadTexts: dlinkPrimeSafeguardEngineMIB.setOrganization('D-Link Corp.')
-dpSafeguardEngineMIBNotif = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 14, 0))
-dpSafeguardEngineMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 14, 1))
-dpSafeguardEngineMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 15, 14, 2))
-dpSafeguardEngineState = MibScalar((1, 3, 6, 1, 4, 1, 171, 15, 14, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dpSafeguardEngineState.setStatus('current')
-mibBuilder.exportSymbols("DLINKPRIME-SAFEGUARD-ENGINE-MIB", dlinkPrimeSafeguardEngineMIB=dlinkPrimeSafeguardEngineMIB, dpSafeguardEngineMIBNotif=dpSafeguardEngineMIBNotif, dpSafeguardEngineMIBConformance=dpSafeguardEngineMIBConformance, dpSafeguardEngineState=dpSafeguardEngineState, PYSNMP_MODULE_ID=dlinkPrimeSafeguardEngineMIB, dpSafeguardEngineMIBObjects=dpSafeguardEngineMIBObjects)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlinkPrimeCommon,) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlinkPrimeCommon")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+dlinkPrimeSafeguardEngineMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 15, 14)
+)
+if mibBuilder.loadTexts:
+    dlinkPrimeSafeguardEngineMIB.setRevisions(
+        ("2014-04-26 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_DpSafeguardEngineMIBNotif_ObjectIdentity = ObjectIdentity
+dpSafeguardEngineMIBNotif = _DpSafeguardEngineMIBNotif_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 15, 14, 0)
+)
+_DpSafeguardEngineMIBObjects_ObjectIdentity = ObjectIdentity
+dpSafeguardEngineMIBObjects = _DpSafeguardEngineMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 15, 14, 1)
+)
+
+
+class _DpSafeguardEngineState_Type(Integer32):
+    """Custom type dpSafeguardEngineState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_DpSafeguardEngineState_Type.__name__ = "Integer32"
+_DpSafeguardEngineState_Object = MibScalar
+dpSafeguardEngineState = _DpSafeguardEngineState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 15, 14, 1, 1),
+    _DpSafeguardEngineState_Type()
+)
+dpSafeguardEngineState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dpSafeguardEngineState.setStatus("current")
+_DpSafeguardEngineMIBConformance_ObjectIdentity = ObjectIdentity
+dpSafeguardEngineMIBConformance = _DpSafeguardEngineMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 15, 14, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DLINKPRIME-SAFEGUARD-ENGINE-MIB",
+    **{"dlinkPrimeSafeguardEngineMIB": dlinkPrimeSafeguardEngineMIB,
+       "dpSafeguardEngineMIBNotif": dpSafeguardEngineMIBNotif,
+       "dpSafeguardEngineMIBObjects": dpSafeguardEngineMIBObjects,
+       "dpSafeguardEngineState": dpSafeguardEngineState,
+       "dpSafeguardEngineMIBConformance": dpSafeguardEngineMIBConformance}
+)

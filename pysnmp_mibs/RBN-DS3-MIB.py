@@ -1,42 +1,238 @@
+# SNMP MIB module (RBN-DS3-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RBN-DS3-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ericsson/RBN-DS3-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:21 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ericsson/RBN-DS3-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:17:18 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dsx3ConfigEntry, = mibBuilder.importSymbols("DS3-MIB", "dsx3ConfigEntry")
-RbnAlarmPerceivedSeverity, RbnAlarmServiceAffecting = mibBuilder.importSymbols("RBN-ALARM-TC", "RbnAlarmPerceivedSeverity", "RbnAlarmServiceAffecting")
-rbnMgmt, = mibBuilder.importSymbols("RBN-SMI", "rbnMgmt")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-rbnDS3MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2352, 2, 38))
-rbnDS3MIB.setRevisions(('2005-05-09 00:00',))
-if mibBuilder.loadTexts: rbnDS3MIB.setLastUpdated('200505090000Z')
-if mibBuilder.loadTexts: rbnDS3MIB.setOrganization('RedBack Networks, Inc.')
-rbnDs3MIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 38, 1))
-rbnDsx3ConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2352, 2, 38, 1, 1), )
-if mibBuilder.loadTexts: rbnDsx3ConfigTable.setStatus('current')
-rbnDsx3ConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2352, 2, 38, 1, 1, 1), )
-dsx3ConfigEntry.registerAugmentions(("RBN-DS3-MIB", "rbnDsx3ConfigEntry"))
-rbnDsx3ConfigEntry.setIndexNames(*dsx3ConfigEntry.getIndexNames())
-if mibBuilder.loadTexts: rbnDsx3ConfigEntry.setStatus('current')
-rbnDsx3AlarmSeverity = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 38, 1, 1, 1, 1), RbnAlarmPerceivedSeverity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbnDsx3AlarmSeverity.setStatus('current')
-rbnDsx3AlarmServiceAffecting = MibTableColumn((1, 3, 6, 1, 4, 1, 2352, 2, 38, 1, 1, 1, 2), RbnAlarmServiceAffecting()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rbnDsx3AlarmServiceAffecting.setStatus('current')
-rbnDs3MIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 38, 2))
-rbnDs3MIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 38, 2, 1))
-rbnDs3MIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2352, 2, 38, 2, 2))
-rbnDs3MIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2352, 2, 38, 2, 2, 1)).setObjects(("RBN-DS3-MIB", "rbnDs3Group"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    rbnDs3MIBCompliance = rbnDs3MIBCompliance.setStatus('current')
-rbnDs3Group = ObjectGroup((1, 3, 6, 1, 4, 1, 2352, 2, 38, 2, 1, 1)).setObjects(("RBN-DS3-MIB", "rbnDsx3AlarmSeverity"), ("RBN-DS3-MIB", "rbnDsx3AlarmServiceAffecting"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    rbnDs3Group = rbnDs3Group.setStatus('current')
-mibBuilder.exportSymbols("RBN-DS3-MIB", PYSNMP_MODULE_ID=rbnDS3MIB, rbnDsx3ConfigEntry=rbnDsx3ConfigEntry, rbnDS3MIB=rbnDS3MIB, rbnDsx3AlarmSeverity=rbnDsx3AlarmSeverity, rbnDsx3AlarmServiceAffecting=rbnDsx3AlarmServiceAffecting, rbnDs3MIBConformance=rbnDs3MIBConformance, rbnDs3MIBCompliances=rbnDs3MIBCompliances, rbnDs3Group=rbnDs3Group, rbnDs3MIBGroups=rbnDs3MIBGroups, rbnDs3MIBObjects=rbnDs3MIBObjects, rbnDs3MIBCompliance=rbnDs3MIBCompliance, rbnDsx3ConfigTable=rbnDsx3ConfigTable)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dsx3ConfigEntry,) = mibBuilder.importSymbols(
+    "DS3-MIB",
+    "dsx3ConfigEntry")
+
+(RbnAlarmPerceivedSeverity,
+ RbnAlarmServiceAffecting) = mibBuilder.importSymbols(
+    "RBN-ALARM-TC",
+    "RbnAlarmPerceivedSeverity",
+    "RbnAlarmServiceAffecting")
+
+(rbnMgmt,) = mibBuilder.importSymbols(
+    "RBN-SMI",
+    "rbnMgmt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+rbnDS3MIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 38)
+)
+if mibBuilder.loadTexts:
+    rbnDS3MIB.setRevisions(
+        ("2005-05-09 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RbnDs3MIBObjects_ObjectIdentity = ObjectIdentity
+rbnDs3MIBObjects = _RbnDs3MIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 38, 1)
+)
+_RbnDsx3ConfigTable_Object = MibTable
+rbnDsx3ConfigTable = _RbnDsx3ConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 38, 1, 1)
+)
+if mibBuilder.loadTexts:
+    rbnDsx3ConfigTable.setStatus("current")
+_RbnDsx3ConfigEntry_Object = MibTableRow
+rbnDsx3ConfigEntry = _RbnDsx3ConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 38, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    rbnDsx3ConfigEntry.setStatus("current")
+_RbnDsx3AlarmSeverity_Type = RbnAlarmPerceivedSeverity
+_RbnDsx3AlarmSeverity_Object = MibTableColumn
+rbnDsx3AlarmSeverity = _RbnDsx3AlarmSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 38, 1, 1, 1, 1),
+    _RbnDsx3AlarmSeverity_Type()
+)
+rbnDsx3AlarmSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbnDsx3AlarmSeverity.setStatus("current")
+_RbnDsx3AlarmServiceAffecting_Type = RbnAlarmServiceAffecting
+_RbnDsx3AlarmServiceAffecting_Object = MibTableColumn
+rbnDsx3AlarmServiceAffecting = _RbnDsx3AlarmServiceAffecting_Object(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 38, 1, 1, 1, 2),
+    _RbnDsx3AlarmServiceAffecting_Type()
+)
+rbnDsx3AlarmServiceAffecting.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rbnDsx3AlarmServiceAffecting.setStatus("current")
+_RbnDs3MIBConformance_ObjectIdentity = ObjectIdentity
+rbnDs3MIBConformance = _RbnDs3MIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 38, 2)
+)
+_RbnDs3MIBGroups_ObjectIdentity = ObjectIdentity
+rbnDs3MIBGroups = _RbnDs3MIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 38, 2, 1)
+)
+_RbnDs3MIBCompliances_ObjectIdentity = ObjectIdentity
+rbnDs3MIBCompliances = _RbnDs3MIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 38, 2, 2)
+)
+dsx3ConfigEntry.registerAugmentions(
+    ("RBN-DS3-MIB",
+     "rbnDsx3ConfigEntry")
+)
+rbnDsx3ConfigEntry.setIndexNames(*dsx3ConfigEntry.getIndexNames())
+
+# Managed Objects groups
+
+rbnDs3Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 38, 2, 1, 1)
+)
+rbnDs3Group.setObjects(
+      *(("RBN-DS3-MIB", "rbnDsx3AlarmSeverity"),
+        ("RBN-DS3-MIB", "rbnDsx3AlarmServiceAffecting"))
+)
+if mibBuilder.loadTexts:
+    rbnDs3Group.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+rbnDs3MIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2352, 2, 38, 2, 2, 1)
+)
+rbnDs3MIBCompliance.setObjects(
+    ("RBN-DS3-MIB", "rbnDs3Group")
+)
+if mibBuilder.loadTexts:
+    rbnDs3MIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RBN-DS3-MIB",
+    **{"rbnDS3MIB": rbnDS3MIB,
+       "rbnDs3MIBObjects": rbnDs3MIBObjects,
+       "rbnDsx3ConfigTable": rbnDsx3ConfigTable,
+       "rbnDsx3ConfigEntry": rbnDsx3ConfigEntry,
+       "rbnDsx3AlarmSeverity": rbnDsx3AlarmSeverity,
+       "rbnDsx3AlarmServiceAffecting": rbnDsx3AlarmServiceAffecting,
+       "rbnDs3MIBConformance": rbnDs3MIBConformance,
+       "rbnDs3MIBGroups": rbnDs3MIBGroups,
+       "rbnDs3Group": rbnDs3Group,
+       "rbnDs3MIBCompliances": rbnDs3MIBCompliances,
+       "rbnDs3MIBCompliance": rbnDs3MIBCompliance}
+)

@@ -1,46 +1,259 @@
+# SNMP MIB module (H3C-ENTRELATION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-ENTRELATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-ENTRELATION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:32 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/H3C-ENTRELATION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:19:51 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-PhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "PhysicalIndex")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-h3cEntityRelation = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15))
-if mibBuilder.loadTexts: h3cEntityRelation.setLastUpdated('200408190000Z')
-if mibBuilder.loadTexts: h3cEntityRelation.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(PhysicalIndex,) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "PhysicalIndex")
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+h3cEntityRelation = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class H3cEntRelationType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("stackport", 1), ("comboport", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("stackport", 1),
+          ("comboport", 2))
+    )
 
-h3cEntRelationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1))
-h3cEntRelation = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1))
-h3cEntRelationTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1, 1), )
-if mibBuilder.loadTexts: h3cEntRelationTable.setStatus('current')
-h3cEntRelationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1, 1, 1), ).setIndexNames((0, "H3C-ENTRELATION-MIB", "h3cEntRelationType"), (0, "H3C-ENTRELATION-MIB", "h3cEntityIndex"), (0, "H3C-ENTRELATION-MIB", "h3cRelatedEntityIndex"))
-if mibBuilder.loadTexts: h3cEntRelationEntry.setStatus('current')
-h3cEntRelationType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1, 1, 1, 1), H3cEntRelationType())
-if mibBuilder.loadTexts: h3cEntRelationType.setStatus('current')
-h3cEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1, 1, 1, 2), PhysicalIndex())
-if mibBuilder.loadTexts: h3cEntityIndex.setStatus('current')
-h3cRelatedEntityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1, 1, 1, 3), PhysicalIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cRelatedEntityIndex.setStatus('current')
-h3cEntRelationConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 2))
-h3cEntRelationCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 2, 1))
-h3cEntRelationCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 2, 1, 1)).setObjects(("H3C-ENTRELATION-MIB", "h3cEntRelationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    h3cEntRelationCompliance = h3cEntRelationCompliance.setStatus('current')
-h3cEntRelationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 2, 2))
-h3cEntRelationGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 2, 2, 1)).setObjects(("H3C-ENTRELATION-MIB", "h3cRelatedEntityIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    h3cEntRelationGroup = h3cEntRelationGroup.setStatus('current')
-mibBuilder.exportSymbols("H3C-ENTRELATION-MIB", PYSNMP_MODULE_ID=h3cEntityRelation, h3cEntRelationType=h3cEntRelationType, h3cEntityRelation=h3cEntityRelation, h3cEntRelationTable=h3cEntRelationTable, h3cEntRelationGroup=h3cEntRelationGroup, h3cEntRelationObjects=h3cEntRelationObjects, h3cEntRelationCompliance=h3cEntRelationCompliance, h3cEntRelationEntry=h3cEntRelationEntry, h3cEntRelation=h3cEntRelation, h3cEntityIndex=h3cEntityIndex, h3cEntRelationConformance=h3cEntRelationConformance, H3cEntRelationType=H3cEntRelationType, h3cEntRelationCompliances=h3cEntRelationCompliances, h3cRelatedEntityIndex=h3cRelatedEntityIndex, h3cEntRelationGroups=h3cEntRelationGroups)
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cEntRelationObjects_ObjectIdentity = ObjectIdentity
+h3cEntRelationObjects = _H3cEntRelationObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1)
+)
+_H3cEntRelation_ObjectIdentity = ObjectIdentity
+h3cEntRelation = _H3cEntRelation_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1)
+)
+_H3cEntRelationTable_Object = MibTable
+h3cEntRelationTable = _H3cEntRelationTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    h3cEntRelationTable.setStatus("current")
+_H3cEntRelationEntry_Object = MibTableRow
+h3cEntRelationEntry = _H3cEntRelationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1, 1, 1)
+)
+h3cEntRelationEntry.setIndexNames(
+    (0, "H3C-ENTRELATION-MIB", "h3cEntRelationType"),
+    (0, "H3C-ENTRELATION-MIB", "h3cEntityIndex"),
+    (0, "H3C-ENTRELATION-MIB", "h3cRelatedEntityIndex"),
+)
+if mibBuilder.loadTexts:
+    h3cEntRelationEntry.setStatus("current")
+_H3cEntRelationType_Type = H3cEntRelationType
+_H3cEntRelationType_Object = MibTableColumn
+h3cEntRelationType = _H3cEntRelationType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1, 1, 1, 1),
+    _H3cEntRelationType_Type()
+)
+h3cEntRelationType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cEntRelationType.setStatus("current")
+_H3cEntityIndex_Type = PhysicalIndex
+_H3cEntityIndex_Object = MibTableColumn
+h3cEntityIndex = _H3cEntityIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1, 1, 1, 2),
+    _H3cEntityIndex_Type()
+)
+h3cEntityIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cEntityIndex.setStatus("current")
+_H3cRelatedEntityIndex_Type = PhysicalIndex
+_H3cRelatedEntityIndex_Object = MibTableColumn
+h3cRelatedEntityIndex = _H3cRelatedEntityIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 1, 1, 1, 1, 3),
+    _H3cRelatedEntityIndex_Type()
+)
+h3cRelatedEntityIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cRelatedEntityIndex.setStatus("current")
+_H3cEntRelationConformance_ObjectIdentity = ObjectIdentity
+h3cEntRelationConformance = _H3cEntRelationConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 2)
+)
+_H3cEntRelationCompliances_ObjectIdentity = ObjectIdentity
+h3cEntRelationCompliances = _H3cEntRelationCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 2, 1)
+)
+_H3cEntRelationGroups_ObjectIdentity = ObjectIdentity
+h3cEntRelationGroups = _H3cEntRelationGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 2, 2)
+)
+
+# Managed Objects groups
+
+h3cEntRelationGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 2, 2, 1)
+)
+h3cEntRelationGroup.setObjects(
+    ("H3C-ENTRELATION-MIB", "h3cRelatedEntityIndex")
+)
+if mibBuilder.loadTexts:
+    h3cEntRelationGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+h3cEntRelationCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 15, 2, 1, 1)
+)
+h3cEntRelationCompliance.setObjects(
+    ("H3C-ENTRELATION-MIB", "h3cEntRelationGroup")
+)
+if mibBuilder.loadTexts:
+    h3cEntRelationCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-ENTRELATION-MIB",
+    **{"H3cEntRelationType": H3cEntRelationType,
+       "h3cEntityRelation": h3cEntityRelation,
+       "h3cEntRelationObjects": h3cEntRelationObjects,
+       "h3cEntRelation": h3cEntRelation,
+       "h3cEntRelationTable": h3cEntRelationTable,
+       "h3cEntRelationEntry": h3cEntRelationEntry,
+       "h3cEntRelationType": h3cEntRelationType,
+       "h3cEntityIndex": h3cEntityIndex,
+       "h3cRelatedEntityIndex": h3cRelatedEntityIndex,
+       "h3cEntRelationConformance": h3cEntRelationConformance,
+       "h3cEntRelationCompliances": h3cEntRelationCompliances,
+       "h3cEntRelationCompliance": h3cEntRelationCompliance,
+       "h3cEntRelationGroups": h3cEntRelationGroups,
+       "h3cEntRelationGroup": h3cEntRelationGroup}
+)

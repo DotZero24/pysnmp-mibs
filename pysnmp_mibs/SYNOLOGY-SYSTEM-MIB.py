@@ -1,58 +1,423 @@
+# SNMP MIB module (SYNOLOGY-SYSTEM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SYNOLOGY-SYSTEM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/synology/SYNOLOGY-SYSTEM-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:53 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/synology/SYNOLOGY-SYSTEM-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:58:22 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-synoSystem = ModuleIdentity((1, 3, 6, 1, 4, 1, 6574, 1))
-synoSystem.setRevisions(('2013-09-11 00:00',))
-if mibBuilder.loadTexts: synoSystem.setLastUpdated('201309110000Z')
-if mibBuilder.loadTexts: synoSystem.setOrganization('www.synology.com')
-synology = MibIdentifier((1, 3, 6, 1, 4, 1, 6574))
-systemStatus = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: systemStatus.setStatus('current')
-temperature = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: temperature.setStatus('current')
-powerStatus = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: powerStatus.setStatus('current')
-fan = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 1, 4))
-systemFanStatus = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 4, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: systemFanStatus.setStatus('current')
-cpuFanStatus = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 4, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpuFanStatus.setStatus('current')
-dsmInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 1, 5))
-modelName = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 5, 1), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: modelName.setStatus('current')
-serialNumber = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 5, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: serialNumber.setStatus('current')
-version = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 5, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: version.setStatus('current')
-upgradeAvailable = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 5, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: upgradeAvailable.setStatus('current')
-controllerNumber = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: controllerNumber.setStatus('current')
-utilization = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 1, 7))
-cpuUtilization = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 7, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cpuUtilization.setStatus('current')
-memUtilization = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 7, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: memUtilization.setStatus('current')
-thermalStatus = MibScalar((1, 3, 6, 1, 4, 1, 6574, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: thermalStatus.setStatus('current')
-systemConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 1, 9))
-systemCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 1, 9, 1))
-systemGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6574, 1, 9, 2))
-systemCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6574, 1, 9, 1, 1)).setObjects(("SYNOLOGY-SYSTEM-MIB", "systemGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    systemCompliance = systemCompliance.setStatus('current')
-systemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6574, 1, 9, 2, 1)).setObjects(("SYNOLOGY-SYSTEM-MIB", "systemStatus"), ("SYNOLOGY-SYSTEM-MIB", "temperature"), ("SYNOLOGY-SYSTEM-MIB", "powerStatus"), ("SYNOLOGY-SYSTEM-MIB", "systemFanStatus"), ("SYNOLOGY-SYSTEM-MIB", "cpuFanStatus"), ("SYNOLOGY-SYSTEM-MIB", "modelName"), ("SYNOLOGY-SYSTEM-MIB", "serialNumber"), ("SYNOLOGY-SYSTEM-MIB", "version"), ("SYNOLOGY-SYSTEM-MIB", "upgradeAvailable"), ("SYNOLOGY-SYSTEM-MIB", "controllerNumber"), ("SYNOLOGY-SYSTEM-MIB", "cpuUtilization"), ("SYNOLOGY-SYSTEM-MIB", "memUtilization"), ("SYNOLOGY-SYSTEM-MIB", "thermalStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    systemGroup = systemGroup.setStatus('current')
-mibBuilder.exportSymbols("SYNOLOGY-SYSTEM-MIB", version=version, systemCompliance=systemCompliance, upgradeAvailable=upgradeAvailable, synoSystem=synoSystem, systemStatus=systemStatus, dsmInfo=dsmInfo, synology=synology, systemConformance=systemConformance, serialNumber=serialNumber, powerStatus=powerStatus, cpuFanStatus=cpuFanStatus, systemCompliances=systemCompliances, cpuUtilization=cpuUtilization, systemGroup=systemGroup, systemGroups=systemGroups, thermalStatus=thermalStatus, temperature=temperature, controllerNumber=controllerNumber, utilization=utilization, PYSNMP_MODULE_ID=synoSystem, memUtilization=memUtilization, systemFanStatus=systemFanStatus, modelName=modelName, fan=fan)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+synoSystem = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6574, 1)
+)
+if mibBuilder.loadTexts:
+    synoSystem.setRevisions(
+        ("2013-09-11 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Synology_ObjectIdentity = ObjectIdentity
+synology = _Synology_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6574)
+)
+
+
+class _SystemStatus_Type(Integer32):
+    """Custom type systemStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_SystemStatus_Type.__name__ = "Integer32"
+_SystemStatus_Object = MibScalar
+systemStatus = _SystemStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 1),
+    _SystemStatus_Type()
+)
+systemStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    systemStatus.setStatus("current")
+_Temperature_Type = Integer32
+_Temperature_Object = MibScalar
+temperature = _Temperature_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 2),
+    _Temperature_Type()
+)
+temperature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    temperature.setStatus("current")
+
+
+class _PowerStatus_Type(Integer32):
+    """Custom type powerStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_PowerStatus_Type.__name__ = "Integer32"
+_PowerStatus_Object = MibScalar
+powerStatus = _PowerStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 3),
+    _PowerStatus_Type()
+)
+powerStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    powerStatus.setStatus("current")
+_Fan_ObjectIdentity = ObjectIdentity
+fan = _Fan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 4)
+)
+
+
+class _SystemFanStatus_Type(Integer32):
+    """Custom type systemFanStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_SystemFanStatus_Type.__name__ = "Integer32"
+_SystemFanStatus_Object = MibScalar
+systemFanStatus = _SystemFanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 4, 1),
+    _SystemFanStatus_Type()
+)
+systemFanStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    systemFanStatus.setStatus("current")
+
+
+class _CpuFanStatus_Type(Integer32):
+    """Custom type cpuFanStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_CpuFanStatus_Type.__name__ = "Integer32"
+_CpuFanStatus_Object = MibScalar
+cpuFanStatus = _CpuFanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 4, 2),
+    _CpuFanStatus_Type()
+)
+cpuFanStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpuFanStatus.setStatus("current")
+_DsmInfo_ObjectIdentity = ObjectIdentity
+dsmInfo = _DsmInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 5)
+)
+_ModelName_Type = OctetString
+_ModelName_Object = MibScalar
+modelName = _ModelName_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 5, 1),
+    _ModelName_Type()
+)
+modelName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    modelName.setStatus("current")
+_SerialNumber_Type = OctetString
+_SerialNumber_Object = MibScalar
+serialNumber = _SerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 5, 2),
+    _SerialNumber_Type()
+)
+serialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    serialNumber.setStatus("current")
+_Version_Type = OctetString
+_Version_Object = MibScalar
+version = _Version_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 5, 3),
+    _Version_Type()
+)
+version.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    version.setStatus("current")
+
+
+class _UpgradeAvailable_Type(Integer32):
+    """Custom type upgradeAvailable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_UpgradeAvailable_Type.__name__ = "Integer32"
+_UpgradeAvailable_Object = MibScalar
+upgradeAvailable = _UpgradeAvailable_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 5, 4),
+    _UpgradeAvailable_Type()
+)
+upgradeAvailable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    upgradeAvailable.setStatus("current")
+_ControllerNumber_Type = Integer32
+_ControllerNumber_Object = MibScalar
+controllerNumber = _ControllerNumber_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 6),
+    _ControllerNumber_Type()
+)
+controllerNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    controllerNumber.setStatus("current")
+_Utilization_ObjectIdentity = ObjectIdentity
+utilization = _Utilization_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 7)
+)
+
+
+class _CpuUtilization_Type(Integer32):
+    """Custom type cpuUtilization based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_CpuUtilization_Type.__name__ = "Integer32"
+_CpuUtilization_Object = MibScalar
+cpuUtilization = _CpuUtilization_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 7, 1),
+    _CpuUtilization_Type()
+)
+cpuUtilization.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cpuUtilization.setStatus("current")
+
+
+class _MemUtilization_Type(Integer32):
+    """Custom type memUtilization based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_MemUtilization_Type.__name__ = "Integer32"
+_MemUtilization_Object = MibScalar
+memUtilization = _MemUtilization_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 7, 2),
+    _MemUtilization_Type()
+)
+memUtilization.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    memUtilization.setStatus("current")
+
+
+class _ThermalStatus_Type(Integer32):
+    """Custom type thermalStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2),
+    )
+
+
+_ThermalStatus_Type.__name__ = "Integer32"
+_ThermalStatus_Object = MibScalar
+thermalStatus = _ThermalStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 8),
+    _ThermalStatus_Type()
+)
+thermalStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    thermalStatus.setStatus("current")
+_SystemConformance_ObjectIdentity = ObjectIdentity
+systemConformance = _SystemConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 9)
+)
+_SystemCompliances_ObjectIdentity = ObjectIdentity
+systemCompliances = _SystemCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 9, 1)
+)
+_SystemGroups_ObjectIdentity = ObjectIdentity
+systemGroups = _SystemGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 9, 2)
+)
+
+# Managed Objects groups
+
+systemGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 9, 2, 1)
+)
+systemGroup.setObjects(
+      *(("SYNOLOGY-SYSTEM-MIB", "systemStatus"),
+        ("SYNOLOGY-SYSTEM-MIB", "temperature"),
+        ("SYNOLOGY-SYSTEM-MIB", "powerStatus"),
+        ("SYNOLOGY-SYSTEM-MIB", "systemFanStatus"),
+        ("SYNOLOGY-SYSTEM-MIB", "cpuFanStatus"),
+        ("SYNOLOGY-SYSTEM-MIB", "modelName"),
+        ("SYNOLOGY-SYSTEM-MIB", "serialNumber"),
+        ("SYNOLOGY-SYSTEM-MIB", "version"),
+        ("SYNOLOGY-SYSTEM-MIB", "upgradeAvailable"),
+        ("SYNOLOGY-SYSTEM-MIB", "controllerNumber"),
+        ("SYNOLOGY-SYSTEM-MIB", "cpuUtilization"),
+        ("SYNOLOGY-SYSTEM-MIB", "memUtilization"),
+        ("SYNOLOGY-SYSTEM-MIB", "thermalStatus"))
+)
+if mibBuilder.loadTexts:
+    systemGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+systemCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6574, 1, 9, 1, 1)
+)
+systemCompliance.setObjects(
+    ("SYNOLOGY-SYSTEM-MIB", "systemGroup")
+)
+if mibBuilder.loadTexts:
+    systemCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SYNOLOGY-SYSTEM-MIB",
+    **{"synology": synology,
+       "synoSystem": synoSystem,
+       "systemStatus": systemStatus,
+       "temperature": temperature,
+       "powerStatus": powerStatus,
+       "fan": fan,
+       "systemFanStatus": systemFanStatus,
+       "cpuFanStatus": cpuFanStatus,
+       "dsmInfo": dsmInfo,
+       "modelName": modelName,
+       "serialNumber": serialNumber,
+       "version": version,
+       "upgradeAvailable": upgradeAvailable,
+       "controllerNumber": controllerNumber,
+       "utilization": utilization,
+       "cpuUtilization": cpuUtilization,
+       "memUtilization": memUtilization,
+       "thermalStatus": thermalStatus,
+       "systemConformance": systemConformance,
+       "systemCompliances": systemCompliances,
+       "systemCompliance": systemCompliance,
+       "systemGroups": systemGroups,
+       "systemGroup": systemGroup}
+)

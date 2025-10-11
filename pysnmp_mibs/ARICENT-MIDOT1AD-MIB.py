@@ -1,117 +1,828 @@
+# SNMP MIB module (ARICENT-MIDOT1AD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ARICENT-MIDOT1AD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/siaemic/ARICENT-MIDOT1AD-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:57:04 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/siaemic/ARICENT-MIDOT1AD-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:43:26 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-EnabledStatus, = mibBuilder.importSymbols("ARICENTP-BRIDGE-MIB", "EnabledStatus")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
-dot1adMIMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 2076, 133))
-dot1adMIMIB.setRevisions(('2012-09-05 00:00',))
-if mibBuilder.loadTexts: dot1adMIMIB.setLastUpdated('201209050000Z')
-if mibBuilder.loadTexts: dot1adMIMIB.setOrganization('ARICENT COMMUNICATIONS SOFTWARE')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "ARICENTP-BRIDGE-MIB",
+    "EnabledStatus")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+dot1adMIMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2076, 133)
+)
+if mibBuilder.loadTexts:
+    dot1adMIMIB.setRevisions(
+        ("2012-09-05 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class PriorityCodePoint(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("codePoint8p0d", 1), ("codePoint7p1d", 2), ("codePoint6p2d", 3), ("codePoint5p3d", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("codePoint8p0d", 1),
+          ("codePoint7p1d", 2),
+          ("codePoint6p2d", 3),
+          ("codePoint5p3d", 4))
+    )
+
+
 
 class VlanId(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 4094)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
 
-dot1adMIProviderBridge = MibIdentifier((1, 3, 6, 1, 4, 1, 2076, 133, 1))
-dot1adMIPortTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 133, 1, 1), )
-if mibBuilder.loadTexts: dot1adMIPortTable.setStatus('current')
-dot1adMIPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1), ).setIndexNames((0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"))
-if mibBuilder.loadTexts: dot1adMIPortEntry.setStatus('current')
-dot1adMIPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: dot1adMIPortNum.setStatus('current')
-dot1adMIPortPcpSelectionRow = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 2), PriorityCodePoint().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPortPcpSelectionRow.setStatus('current')
-dot1adMIPortUseDei = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPortUseDei.setStatus('current')
-dot1adMIPortReqDropEncoding = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPortReqDropEncoding.setStatus('current')
-dot1adMIPortSVlanPriorityType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("fixed", 1), ("copy", 2))).clone('fixed')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPortSVlanPriorityType.setStatus('current')
-dot1adMIPortSVlanPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPortSVlanPriority.setStatus('current')
-dot1adMIVidTranslationTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 133, 1, 2), )
-if mibBuilder.loadTexts: dot1adMIVidTranslationTable.setStatus('current')
-dot1adMIVidTranslationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 133, 1, 2, 1), ).setIndexNames((0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"), (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIVidTranslationLocalVid"))
-if mibBuilder.loadTexts: dot1adMIVidTranslationEntry.setStatus('current')
-dot1adMIVidTranslationLocalVid = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 2, 1, 1), VlanId())
-if mibBuilder.loadTexts: dot1adMIVidTranslationLocalVid.setStatus('current')
-dot1adMIVidTranslationRelayVid = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 2, 1, 2), VlanId()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIVidTranslationRelayVid.setStatus('current')
-dot1adMIVidTranslationRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dot1adMIVidTranslationRowStatus.setStatus('current')
-dot1adMICVidRegistrationTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 133, 1, 3), )
-if mibBuilder.loadTexts: dot1adMICVidRegistrationTable.setStatus('current')
-dot1adMICVidRegistrationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1), ).setIndexNames((0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"), (0, "ARICENT-MIDOT1AD-MIB", "dot1adMICVidRegistrationCVid"))
-if mibBuilder.loadTexts: dot1adMICVidRegistrationEntry.setStatus('current')
-dot1adMICVidRegistrationCVid = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 1), VlanId())
-if mibBuilder.loadTexts: dot1adMICVidRegistrationCVid.setStatus('current')
-dot1adMICVidRegistrationSVid = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 2), VlanId()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMICVidRegistrationSVid.setStatus('current')
-dot1adMICVidRegistrationUntaggedPep = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMICVidRegistrationUntaggedPep.setStatus('current')
-dot1adMICVidRegistrationUntaggedCep = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMICVidRegistrationUntaggedCep.setStatus('current')
-dot1adMICVidRegistrationRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dot1adMICVidRegistrationRowStatus.setStatus('current')
-dot1adMICVidRegistrationSVlanPriorityType = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("fixed", 1), ("copy", 2))).clone('fixed')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMICVidRegistrationSVlanPriorityType.setStatus('current')
-dot1adMICVidRegistrationSVlanPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMICVidRegistrationSVlanPriority.setStatus('current')
-dot1adMIPepTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 133, 1, 4), )
-if mibBuilder.loadTexts: dot1adMIPepTable.setStatus('current')
-dot1adMIPepEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 133, 1, 4, 1), ).setIndexNames((0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"), (0, "ARICENT-MIDOT1AD-MIB", "dot1adMICVidRegistrationSVid"))
-if mibBuilder.loadTexts: dot1adMIPepEntry.setStatus('current')
-dot1adMIPepPvid = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 4, 1, 1), VlanId()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPepPvid.setStatus('current')
-dot1adMIPepDefaultUserPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPepDefaultUserPriority.setStatus('current')
-dot1adMIPepAccptableFrameTypes = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("admitAll", 1), ("admitOnlyVlanTagged", 2), ("admitOnlyUntaggedAndPriorityTagged", 3))).clone('admitAll')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPepAccptableFrameTypes.setStatus('current')
-dot1adMIPepIngressFiltering = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 4, 1, 4), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPepIngressFiltering.setStatus('current')
-dot1adMIServicePriorityRegenerationTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 133, 1, 5), )
-if mibBuilder.loadTexts: dot1adMIServicePriorityRegenerationTable.setStatus('current')
-dot1adMIServicePriorityRegenerationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 133, 1, 5, 1), ).setIndexNames((0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"), (0, "ARICENT-MIDOT1AD-MIB", "dot1adMICVidRegistrationSVid"), (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIServicePriorityRegenReceivedPriority"))
-if mibBuilder.loadTexts: dot1adMIServicePriorityRegenerationEntry.setStatus('current')
-dot1adMIServicePriorityRegenReceivedPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
-if mibBuilder.loadTexts: dot1adMIServicePriorityRegenReceivedPriority.setStatus('current')
-dot1adMIServicePriorityRegenRegeneratedPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIServicePriorityRegenRegeneratedPriority.setStatus('current')
-dot1adMIPcpDecodingTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 133, 1, 6), )
-if mibBuilder.loadTexts: dot1adMIPcpDecodingTable.setStatus('current')
-dot1adMIPcpDecodingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 133, 1, 6, 1), ).setIndexNames((0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"), (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPcpDecodingPcpSelRow"), (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPcpDecodingPcpValue"))
-if mibBuilder.loadTexts: dot1adMIPcpDecodingEntry.setStatus('current')
-dot1adMIPcpDecodingPcpSelRow = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 6, 1, 1), PriorityCodePoint())
-if mibBuilder.loadTexts: dot1adMIPcpDecodingPcpSelRow.setStatus('current')
-dot1adMIPcpDecodingPcpValue = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 6, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
-if mibBuilder.loadTexts: dot1adMIPcpDecodingPcpValue.setStatus('current')
-dot1adMIPcpDecodingPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPcpDecodingPriority.setStatus('current')
-dot1adMIPcpDecodingDropEligible = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 6, 1, 4), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPcpDecodingDropEligible.setStatus('current')
-dot1adMIPcpEncodingTable = MibTable((1, 3, 6, 1, 4, 1, 2076, 133, 1, 7), )
-if mibBuilder.loadTexts: dot1adMIPcpEncodingTable.setStatus('current')
-dot1adMIPcpEncodingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2076, 133, 1, 7, 1), ).setIndexNames((0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"), (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPcpEncodingPcpSelRow"), (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPcpEncodingPriority"), (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPcpEncodingDropEligible"))
-if mibBuilder.loadTexts: dot1adMIPcpEncodingEntry.setStatus('current')
-dot1adMIPcpEncodingPcpSelRow = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 7, 1, 1), PriorityCodePoint())
-if mibBuilder.loadTexts: dot1adMIPcpEncodingPcpSelRow.setStatus('current')
-dot1adMIPcpEncodingPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 7, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7)))
-if mibBuilder.loadTexts: dot1adMIPcpEncodingPriority.setStatus('current')
-dot1adMIPcpEncodingDropEligible = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 7, 1, 3), TruthValue())
-if mibBuilder.loadTexts: dot1adMIPcpEncodingDropEligible.setStatus('current')
-dot1adMIPcpEncodingPcpValue = MibTableColumn((1, 3, 6, 1, 4, 1, 2076, 133, 1, 7, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dot1adMIPcpEncodingPcpValue.setStatus('current')
-mibBuilder.exportSymbols("ARICENT-MIDOT1AD-MIB", dot1adMICVidRegistrationRowStatus=dot1adMICVidRegistrationRowStatus, dot1adMIPepPvid=dot1adMIPepPvid, dot1adMIServicePriorityRegenReceivedPriority=dot1adMIServicePriorityRegenReceivedPriority, dot1adMIServicePriorityRegenRegeneratedPriority=dot1adMIServicePriorityRegenRegeneratedPriority, dot1adMIMIB=dot1adMIMIB, dot1adMIPortEntry=dot1adMIPortEntry, dot1adMIPepEntry=dot1adMIPepEntry, dot1adMICVidRegistrationTable=dot1adMICVidRegistrationTable, VlanId=VlanId, dot1adMIVidTranslationRelayVid=dot1adMIVidTranslationRelayVid, dot1adMICVidRegistrationSVid=dot1adMICVidRegistrationSVid, dot1adMIPortReqDropEncoding=dot1adMIPortReqDropEncoding, dot1adMIPortSVlanPriorityType=dot1adMIPortSVlanPriorityType, dot1adMIVidTranslationEntry=dot1adMIVidTranslationEntry, dot1adMIPcpDecodingPcpValue=dot1adMIPcpDecodingPcpValue, dot1adMIPcpEncodingPriority=dot1adMIPcpEncodingPriority, dot1adMIPcpEncodingPcpValue=dot1adMIPcpEncodingPcpValue, dot1adMICVidRegistrationEntry=dot1adMICVidRegistrationEntry, dot1adMIPortNum=dot1adMIPortNum, dot1adMIPepTable=dot1adMIPepTable, dot1adMIPortTable=dot1adMIPortTable, dot1adMIVidTranslationLocalVid=dot1adMIVidTranslationLocalVid, dot1adMIPcpDecodingPriority=dot1adMIPcpDecodingPriority, dot1adMIVidTranslationRowStatus=dot1adMIVidTranslationRowStatus, dot1adMIPcpEncodingEntry=dot1adMIPcpEncodingEntry, dot1adMIPcpEncodingTable=dot1adMIPcpEncodingTable, dot1adMIPcpDecodingDropEligible=dot1adMIPcpDecodingDropEligible, dot1adMIPcpDecodingPcpSelRow=dot1adMIPcpDecodingPcpSelRow, dot1adMIVidTranslationTable=dot1adMIVidTranslationTable, dot1adMICVidRegistrationSVlanPriority=dot1adMICVidRegistrationSVlanPriority, dot1adMICVidRegistrationCVid=dot1adMICVidRegistrationCVid, dot1adMIPepAccptableFrameTypes=dot1adMIPepAccptableFrameTypes, dot1adMIPortSVlanPriority=dot1adMIPortSVlanPriority, PYSNMP_MODULE_ID=dot1adMIMIB, dot1adMIPepDefaultUserPriority=dot1adMIPepDefaultUserPriority, dot1adMIProviderBridge=dot1adMIProviderBridge, dot1adMIPortUseDei=dot1adMIPortUseDei, dot1adMIPcpDecodingEntry=dot1adMIPcpDecodingEntry, dot1adMICVidRegistrationUntaggedPep=dot1adMICVidRegistrationUntaggedPep, dot1adMIPcpEncodingDropEligible=dot1adMIPcpEncodingDropEligible, dot1adMICVidRegistrationSVlanPriorityType=dot1adMICVidRegistrationSVlanPriorityType, dot1adMICVidRegistrationUntaggedCep=dot1adMICVidRegistrationUntaggedCep, dot1adMIPepIngressFiltering=dot1adMIPepIngressFiltering, PriorityCodePoint=PriorityCodePoint, dot1adMIPcpDecodingTable=dot1adMIPcpDecodingTable, dot1adMIServicePriorityRegenerationEntry=dot1adMIServicePriorityRegenerationEntry, dot1adMIPortPcpSelectionRow=dot1adMIPortPcpSelectionRow, dot1adMIServicePriorityRegenerationTable=dot1adMIServicePriorityRegenerationTable, dot1adMIPcpEncodingPcpSelRow=dot1adMIPcpEncodingPcpSelRow)
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Dot1adMIProviderBridge_ObjectIdentity = ObjectIdentity
+dot1adMIProviderBridge = _Dot1adMIProviderBridge_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1)
+)
+_Dot1adMIPortTable_Object = MibTable
+dot1adMIPortTable = _Dot1adMIPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 1)
+)
+if mibBuilder.loadTexts:
+    dot1adMIPortTable.setStatus("current")
+_Dot1adMIPortEntry_Object = MibTableRow
+dot1adMIPortEntry = _Dot1adMIPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1)
+)
+dot1adMIPortEntry.setIndexNames(
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"),
+)
+if mibBuilder.loadTexts:
+    dot1adMIPortEntry.setStatus("current")
+
+
+class _Dot1adMIPortNum_Type(Integer32):
+    """Custom type dot1adMIPortNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Dot1adMIPortNum_Type.__name__ = "Integer32"
+_Dot1adMIPortNum_Object = MibTableColumn
+dot1adMIPortNum = _Dot1adMIPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 1),
+    _Dot1adMIPortNum_Type()
+)
+dot1adMIPortNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dot1adMIPortNum.setStatus("current")
+
+
+class _Dot1adMIPortPcpSelectionRow_Type(PriorityCodePoint):
+    """Custom type dot1adMIPortPcpSelectionRow based on PriorityCodePoint"""
+    defaultValue = 1
+
+
+_Dot1adMIPortPcpSelectionRow_Type.__name__ = "PriorityCodePoint"
+_Dot1adMIPortPcpSelectionRow_Object = MibTableColumn
+dot1adMIPortPcpSelectionRow = _Dot1adMIPortPcpSelectionRow_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 2),
+    _Dot1adMIPortPcpSelectionRow_Type()
+)
+dot1adMIPortPcpSelectionRow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPortPcpSelectionRow.setStatus("current")
+
+
+class _Dot1adMIPortUseDei_Type(TruthValue):
+    """Custom type dot1adMIPortUseDei based on TruthValue"""
+    defaultValue = 2
+
+
+_Dot1adMIPortUseDei_Type.__name__ = "TruthValue"
+_Dot1adMIPortUseDei_Object = MibTableColumn
+dot1adMIPortUseDei = _Dot1adMIPortUseDei_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 3),
+    _Dot1adMIPortUseDei_Type()
+)
+dot1adMIPortUseDei.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPortUseDei.setStatus("current")
+
+
+class _Dot1adMIPortReqDropEncoding_Type(TruthValue):
+    """Custom type dot1adMIPortReqDropEncoding based on TruthValue"""
+    defaultValue = 2
+
+
+_Dot1adMIPortReqDropEncoding_Type.__name__ = "TruthValue"
+_Dot1adMIPortReqDropEncoding_Object = MibTableColumn
+dot1adMIPortReqDropEncoding = _Dot1adMIPortReqDropEncoding_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 4),
+    _Dot1adMIPortReqDropEncoding_Type()
+)
+dot1adMIPortReqDropEncoding.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPortReqDropEncoding.setStatus("current")
+
+
+class _Dot1adMIPortSVlanPriorityType_Type(Integer32):
+    """Custom type dot1adMIPortSVlanPriorityType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("fixed", 1),
+          ("copy", 2))
+    )
+
+
+_Dot1adMIPortSVlanPriorityType_Type.__name__ = "Integer32"
+_Dot1adMIPortSVlanPriorityType_Object = MibTableColumn
+dot1adMIPortSVlanPriorityType = _Dot1adMIPortSVlanPriorityType_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 5),
+    _Dot1adMIPortSVlanPriorityType_Type()
+)
+dot1adMIPortSVlanPriorityType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPortSVlanPriorityType.setStatus("current")
+
+
+class _Dot1adMIPortSVlanPriority_Type(Integer32):
+    """Custom type dot1adMIPortSVlanPriority based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Dot1adMIPortSVlanPriority_Type.__name__ = "Integer32"
+_Dot1adMIPortSVlanPriority_Object = MibTableColumn
+dot1adMIPortSVlanPriority = _Dot1adMIPortSVlanPriority_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 1, 1, 6),
+    _Dot1adMIPortSVlanPriority_Type()
+)
+dot1adMIPortSVlanPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPortSVlanPriority.setStatus("current")
+_Dot1adMIVidTranslationTable_Object = MibTable
+dot1adMIVidTranslationTable = _Dot1adMIVidTranslationTable_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 2)
+)
+if mibBuilder.loadTexts:
+    dot1adMIVidTranslationTable.setStatus("current")
+_Dot1adMIVidTranslationEntry_Object = MibTableRow
+dot1adMIVidTranslationEntry = _Dot1adMIVidTranslationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 2, 1)
+)
+dot1adMIVidTranslationEntry.setIndexNames(
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"),
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIVidTranslationLocalVid"),
+)
+if mibBuilder.loadTexts:
+    dot1adMIVidTranslationEntry.setStatus("current")
+_Dot1adMIVidTranslationLocalVid_Type = VlanId
+_Dot1adMIVidTranslationLocalVid_Object = MibTableColumn
+dot1adMIVidTranslationLocalVid = _Dot1adMIVidTranslationLocalVid_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 2, 1, 1),
+    _Dot1adMIVidTranslationLocalVid_Type()
+)
+dot1adMIVidTranslationLocalVid.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dot1adMIVidTranslationLocalVid.setStatus("current")
+_Dot1adMIVidTranslationRelayVid_Type = VlanId
+_Dot1adMIVidTranslationRelayVid_Object = MibTableColumn
+dot1adMIVidTranslationRelayVid = _Dot1adMIVidTranslationRelayVid_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 2, 1, 2),
+    _Dot1adMIVidTranslationRelayVid_Type()
+)
+dot1adMIVidTranslationRelayVid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIVidTranslationRelayVid.setStatus("current")
+_Dot1adMIVidTranslationRowStatus_Type = RowStatus
+_Dot1adMIVidTranslationRowStatus_Object = MibTableColumn
+dot1adMIVidTranslationRowStatus = _Dot1adMIVidTranslationRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 2, 1, 3),
+    _Dot1adMIVidTranslationRowStatus_Type()
+)
+dot1adMIVidTranslationRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    dot1adMIVidTranslationRowStatus.setStatus("current")
+_Dot1adMICVidRegistrationTable_Object = MibTable
+dot1adMICVidRegistrationTable = _Dot1adMICVidRegistrationTable_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 3)
+)
+if mibBuilder.loadTexts:
+    dot1adMICVidRegistrationTable.setStatus("current")
+_Dot1adMICVidRegistrationEntry_Object = MibTableRow
+dot1adMICVidRegistrationEntry = _Dot1adMICVidRegistrationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1)
+)
+dot1adMICVidRegistrationEntry.setIndexNames(
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"),
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMICVidRegistrationCVid"),
+)
+if mibBuilder.loadTexts:
+    dot1adMICVidRegistrationEntry.setStatus("current")
+_Dot1adMICVidRegistrationCVid_Type = VlanId
+_Dot1adMICVidRegistrationCVid_Object = MibTableColumn
+dot1adMICVidRegistrationCVid = _Dot1adMICVidRegistrationCVid_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 1),
+    _Dot1adMICVidRegistrationCVid_Type()
+)
+dot1adMICVidRegistrationCVid.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dot1adMICVidRegistrationCVid.setStatus("current")
+_Dot1adMICVidRegistrationSVid_Type = VlanId
+_Dot1adMICVidRegistrationSVid_Object = MibTableColumn
+dot1adMICVidRegistrationSVid = _Dot1adMICVidRegistrationSVid_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 2),
+    _Dot1adMICVidRegistrationSVid_Type()
+)
+dot1adMICVidRegistrationSVid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMICVidRegistrationSVid.setStatus("current")
+
+
+class _Dot1adMICVidRegistrationUntaggedPep_Type(TruthValue):
+    """Custom type dot1adMICVidRegistrationUntaggedPep based on TruthValue"""
+    defaultValue = 2
+
+
+_Dot1adMICVidRegistrationUntaggedPep_Type.__name__ = "TruthValue"
+_Dot1adMICVidRegistrationUntaggedPep_Object = MibTableColumn
+dot1adMICVidRegistrationUntaggedPep = _Dot1adMICVidRegistrationUntaggedPep_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 3),
+    _Dot1adMICVidRegistrationUntaggedPep_Type()
+)
+dot1adMICVidRegistrationUntaggedPep.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMICVidRegistrationUntaggedPep.setStatus("current")
+
+
+class _Dot1adMICVidRegistrationUntaggedCep_Type(TruthValue):
+    """Custom type dot1adMICVidRegistrationUntaggedCep based on TruthValue"""
+    defaultValue = 2
+
+
+_Dot1adMICVidRegistrationUntaggedCep_Type.__name__ = "TruthValue"
+_Dot1adMICVidRegistrationUntaggedCep_Object = MibTableColumn
+dot1adMICVidRegistrationUntaggedCep = _Dot1adMICVidRegistrationUntaggedCep_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 4),
+    _Dot1adMICVidRegistrationUntaggedCep_Type()
+)
+dot1adMICVidRegistrationUntaggedCep.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMICVidRegistrationUntaggedCep.setStatus("current")
+_Dot1adMICVidRegistrationRowStatus_Type = RowStatus
+_Dot1adMICVidRegistrationRowStatus_Object = MibTableColumn
+dot1adMICVidRegistrationRowStatus = _Dot1adMICVidRegistrationRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 5),
+    _Dot1adMICVidRegistrationRowStatus_Type()
+)
+dot1adMICVidRegistrationRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    dot1adMICVidRegistrationRowStatus.setStatus("current")
+
+
+class _Dot1adMICVidRegistrationSVlanPriorityType_Type(Integer32):
+    """Custom type dot1adMICVidRegistrationSVlanPriorityType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("fixed", 1),
+          ("copy", 2))
+    )
+
+
+_Dot1adMICVidRegistrationSVlanPriorityType_Type.__name__ = "Integer32"
+_Dot1adMICVidRegistrationSVlanPriorityType_Object = MibTableColumn
+dot1adMICVidRegistrationSVlanPriorityType = _Dot1adMICVidRegistrationSVlanPriorityType_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 6),
+    _Dot1adMICVidRegistrationSVlanPriorityType_Type()
+)
+dot1adMICVidRegistrationSVlanPriorityType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMICVidRegistrationSVlanPriorityType.setStatus("current")
+
+
+class _Dot1adMICVidRegistrationSVlanPriority_Type(Integer32):
+    """Custom type dot1adMICVidRegistrationSVlanPriority based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Dot1adMICVidRegistrationSVlanPriority_Type.__name__ = "Integer32"
+_Dot1adMICVidRegistrationSVlanPriority_Object = MibTableColumn
+dot1adMICVidRegistrationSVlanPriority = _Dot1adMICVidRegistrationSVlanPriority_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 3, 1, 7),
+    _Dot1adMICVidRegistrationSVlanPriority_Type()
+)
+dot1adMICVidRegistrationSVlanPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMICVidRegistrationSVlanPriority.setStatus("current")
+_Dot1adMIPepTable_Object = MibTable
+dot1adMIPepTable = _Dot1adMIPepTable_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 4)
+)
+if mibBuilder.loadTexts:
+    dot1adMIPepTable.setStatus("current")
+_Dot1adMIPepEntry_Object = MibTableRow
+dot1adMIPepEntry = _Dot1adMIPepEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 4, 1)
+)
+dot1adMIPepEntry.setIndexNames(
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"),
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMICVidRegistrationSVid"),
+)
+if mibBuilder.loadTexts:
+    dot1adMIPepEntry.setStatus("current")
+_Dot1adMIPepPvid_Type = VlanId
+_Dot1adMIPepPvid_Object = MibTableColumn
+dot1adMIPepPvid = _Dot1adMIPepPvid_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 4, 1, 1),
+    _Dot1adMIPepPvid_Type()
+)
+dot1adMIPepPvid.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPepPvid.setStatus("current")
+
+
+class _Dot1adMIPepDefaultUserPriority_Type(Integer32):
+    """Custom type dot1adMIPepDefaultUserPriority based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Dot1adMIPepDefaultUserPriority_Type.__name__ = "Integer32"
+_Dot1adMIPepDefaultUserPriority_Object = MibTableColumn
+dot1adMIPepDefaultUserPriority = _Dot1adMIPepDefaultUserPriority_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 4, 1, 2),
+    _Dot1adMIPepDefaultUserPriority_Type()
+)
+dot1adMIPepDefaultUserPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPepDefaultUserPriority.setStatus("current")
+
+
+class _Dot1adMIPepAccptableFrameTypes_Type(Integer32):
+    """Custom type dot1adMIPepAccptableFrameTypes based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("admitAll", 1),
+          ("admitOnlyVlanTagged", 2),
+          ("admitOnlyUntaggedAndPriorityTagged", 3))
+    )
+
+
+_Dot1adMIPepAccptableFrameTypes_Type.__name__ = "Integer32"
+_Dot1adMIPepAccptableFrameTypes_Object = MibTableColumn
+dot1adMIPepAccptableFrameTypes = _Dot1adMIPepAccptableFrameTypes_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 4, 1, 3),
+    _Dot1adMIPepAccptableFrameTypes_Type()
+)
+dot1adMIPepAccptableFrameTypes.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPepAccptableFrameTypes.setStatus("current")
+
+
+class _Dot1adMIPepIngressFiltering_Type(TruthValue):
+    """Custom type dot1adMIPepIngressFiltering based on TruthValue"""
+    defaultValue = 2
+
+
+_Dot1adMIPepIngressFiltering_Type.__name__ = "TruthValue"
+_Dot1adMIPepIngressFiltering_Object = MibTableColumn
+dot1adMIPepIngressFiltering = _Dot1adMIPepIngressFiltering_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 4, 1, 4),
+    _Dot1adMIPepIngressFiltering_Type()
+)
+dot1adMIPepIngressFiltering.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPepIngressFiltering.setStatus("current")
+_Dot1adMIServicePriorityRegenerationTable_Object = MibTable
+dot1adMIServicePriorityRegenerationTable = _Dot1adMIServicePriorityRegenerationTable_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 5)
+)
+if mibBuilder.loadTexts:
+    dot1adMIServicePriorityRegenerationTable.setStatus("current")
+_Dot1adMIServicePriorityRegenerationEntry_Object = MibTableRow
+dot1adMIServicePriorityRegenerationEntry = _Dot1adMIServicePriorityRegenerationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 5, 1)
+)
+dot1adMIServicePriorityRegenerationEntry.setIndexNames(
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"),
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMICVidRegistrationSVid"),
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIServicePriorityRegenReceivedPriority"),
+)
+if mibBuilder.loadTexts:
+    dot1adMIServicePriorityRegenerationEntry.setStatus("current")
+
+
+class _Dot1adMIServicePriorityRegenReceivedPriority_Type(Integer32):
+    """Custom type dot1adMIServicePriorityRegenReceivedPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Dot1adMIServicePriorityRegenReceivedPriority_Type.__name__ = "Integer32"
+_Dot1adMIServicePriorityRegenReceivedPriority_Object = MibTableColumn
+dot1adMIServicePriorityRegenReceivedPriority = _Dot1adMIServicePriorityRegenReceivedPriority_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 5, 1, 1),
+    _Dot1adMIServicePriorityRegenReceivedPriority_Type()
+)
+dot1adMIServicePriorityRegenReceivedPriority.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dot1adMIServicePriorityRegenReceivedPriority.setStatus("current")
+
+
+class _Dot1adMIServicePriorityRegenRegeneratedPriority_Type(Integer32):
+    """Custom type dot1adMIServicePriorityRegenRegeneratedPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Dot1adMIServicePriorityRegenRegeneratedPriority_Type.__name__ = "Integer32"
+_Dot1adMIServicePriorityRegenRegeneratedPriority_Object = MibTableColumn
+dot1adMIServicePriorityRegenRegeneratedPriority = _Dot1adMIServicePriorityRegenRegeneratedPriority_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 5, 1, 2),
+    _Dot1adMIServicePriorityRegenRegeneratedPriority_Type()
+)
+dot1adMIServicePriorityRegenRegeneratedPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIServicePriorityRegenRegeneratedPriority.setStatus("current")
+_Dot1adMIPcpDecodingTable_Object = MibTable
+dot1adMIPcpDecodingTable = _Dot1adMIPcpDecodingTable_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 6)
+)
+if mibBuilder.loadTexts:
+    dot1adMIPcpDecodingTable.setStatus("current")
+_Dot1adMIPcpDecodingEntry_Object = MibTableRow
+dot1adMIPcpDecodingEntry = _Dot1adMIPcpDecodingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 6, 1)
+)
+dot1adMIPcpDecodingEntry.setIndexNames(
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"),
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPcpDecodingPcpSelRow"),
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPcpDecodingPcpValue"),
+)
+if mibBuilder.loadTexts:
+    dot1adMIPcpDecodingEntry.setStatus("current")
+_Dot1adMIPcpDecodingPcpSelRow_Type = PriorityCodePoint
+_Dot1adMIPcpDecodingPcpSelRow_Object = MibTableColumn
+dot1adMIPcpDecodingPcpSelRow = _Dot1adMIPcpDecodingPcpSelRow_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 6, 1, 1),
+    _Dot1adMIPcpDecodingPcpSelRow_Type()
+)
+dot1adMIPcpDecodingPcpSelRow.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dot1adMIPcpDecodingPcpSelRow.setStatus("current")
+
+
+class _Dot1adMIPcpDecodingPcpValue_Type(Integer32):
+    """Custom type dot1adMIPcpDecodingPcpValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Dot1adMIPcpDecodingPcpValue_Type.__name__ = "Integer32"
+_Dot1adMIPcpDecodingPcpValue_Object = MibTableColumn
+dot1adMIPcpDecodingPcpValue = _Dot1adMIPcpDecodingPcpValue_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 6, 1, 2),
+    _Dot1adMIPcpDecodingPcpValue_Type()
+)
+dot1adMIPcpDecodingPcpValue.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dot1adMIPcpDecodingPcpValue.setStatus("current")
+
+
+class _Dot1adMIPcpDecodingPriority_Type(Integer32):
+    """Custom type dot1adMIPcpDecodingPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Dot1adMIPcpDecodingPriority_Type.__name__ = "Integer32"
+_Dot1adMIPcpDecodingPriority_Object = MibTableColumn
+dot1adMIPcpDecodingPriority = _Dot1adMIPcpDecodingPriority_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 6, 1, 3),
+    _Dot1adMIPcpDecodingPriority_Type()
+)
+dot1adMIPcpDecodingPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPcpDecodingPriority.setStatus("current")
+_Dot1adMIPcpDecodingDropEligible_Type = TruthValue
+_Dot1adMIPcpDecodingDropEligible_Object = MibTableColumn
+dot1adMIPcpDecodingDropEligible = _Dot1adMIPcpDecodingDropEligible_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 6, 1, 4),
+    _Dot1adMIPcpDecodingDropEligible_Type()
+)
+dot1adMIPcpDecodingDropEligible.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPcpDecodingDropEligible.setStatus("current")
+_Dot1adMIPcpEncodingTable_Object = MibTable
+dot1adMIPcpEncodingTable = _Dot1adMIPcpEncodingTable_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 7)
+)
+if mibBuilder.loadTexts:
+    dot1adMIPcpEncodingTable.setStatus("current")
+_Dot1adMIPcpEncodingEntry_Object = MibTableRow
+dot1adMIPcpEncodingEntry = _Dot1adMIPcpEncodingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 7, 1)
+)
+dot1adMIPcpEncodingEntry.setIndexNames(
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPortNum"),
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPcpEncodingPcpSelRow"),
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPcpEncodingPriority"),
+    (0, "ARICENT-MIDOT1AD-MIB", "dot1adMIPcpEncodingDropEligible"),
+)
+if mibBuilder.loadTexts:
+    dot1adMIPcpEncodingEntry.setStatus("current")
+_Dot1adMIPcpEncodingPcpSelRow_Type = PriorityCodePoint
+_Dot1adMIPcpEncodingPcpSelRow_Object = MibTableColumn
+dot1adMIPcpEncodingPcpSelRow = _Dot1adMIPcpEncodingPcpSelRow_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 7, 1, 1),
+    _Dot1adMIPcpEncodingPcpSelRow_Type()
+)
+dot1adMIPcpEncodingPcpSelRow.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dot1adMIPcpEncodingPcpSelRow.setStatus("current")
+
+
+class _Dot1adMIPcpEncodingPriority_Type(Integer32):
+    """Custom type dot1adMIPcpEncodingPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Dot1adMIPcpEncodingPriority_Type.__name__ = "Integer32"
+_Dot1adMIPcpEncodingPriority_Object = MibTableColumn
+dot1adMIPcpEncodingPriority = _Dot1adMIPcpEncodingPriority_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 7, 1, 2),
+    _Dot1adMIPcpEncodingPriority_Type()
+)
+dot1adMIPcpEncodingPriority.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dot1adMIPcpEncodingPriority.setStatus("current")
+_Dot1adMIPcpEncodingDropEligible_Type = TruthValue
+_Dot1adMIPcpEncodingDropEligible_Object = MibTableColumn
+dot1adMIPcpEncodingDropEligible = _Dot1adMIPcpEncodingDropEligible_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 7, 1, 3),
+    _Dot1adMIPcpEncodingDropEligible_Type()
+)
+dot1adMIPcpEncodingDropEligible.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dot1adMIPcpEncodingDropEligible.setStatus("current")
+
+
+class _Dot1adMIPcpEncodingPcpValue_Type(Integer32):
+    """Custom type dot1adMIPcpEncodingPcpValue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_Dot1adMIPcpEncodingPcpValue_Type.__name__ = "Integer32"
+_Dot1adMIPcpEncodingPcpValue_Object = MibTableColumn
+dot1adMIPcpEncodingPcpValue = _Dot1adMIPcpEncodingPcpValue_Object(
+    (1, 3, 6, 1, 4, 1, 2076, 133, 1, 7, 1, 4),
+    _Dot1adMIPcpEncodingPcpValue_Type()
+)
+dot1adMIPcpEncodingPcpValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dot1adMIPcpEncodingPcpValue.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ARICENT-MIDOT1AD-MIB",
+    **{"PriorityCodePoint": PriorityCodePoint,
+       "VlanId": VlanId,
+       "dot1adMIMIB": dot1adMIMIB,
+       "dot1adMIProviderBridge": dot1adMIProviderBridge,
+       "dot1adMIPortTable": dot1adMIPortTable,
+       "dot1adMIPortEntry": dot1adMIPortEntry,
+       "dot1adMIPortNum": dot1adMIPortNum,
+       "dot1adMIPortPcpSelectionRow": dot1adMIPortPcpSelectionRow,
+       "dot1adMIPortUseDei": dot1adMIPortUseDei,
+       "dot1adMIPortReqDropEncoding": dot1adMIPortReqDropEncoding,
+       "dot1adMIPortSVlanPriorityType": dot1adMIPortSVlanPriorityType,
+       "dot1adMIPortSVlanPriority": dot1adMIPortSVlanPriority,
+       "dot1adMIVidTranslationTable": dot1adMIVidTranslationTable,
+       "dot1adMIVidTranslationEntry": dot1adMIVidTranslationEntry,
+       "dot1adMIVidTranslationLocalVid": dot1adMIVidTranslationLocalVid,
+       "dot1adMIVidTranslationRelayVid": dot1adMIVidTranslationRelayVid,
+       "dot1adMIVidTranslationRowStatus": dot1adMIVidTranslationRowStatus,
+       "dot1adMICVidRegistrationTable": dot1adMICVidRegistrationTable,
+       "dot1adMICVidRegistrationEntry": dot1adMICVidRegistrationEntry,
+       "dot1adMICVidRegistrationCVid": dot1adMICVidRegistrationCVid,
+       "dot1adMICVidRegistrationSVid": dot1adMICVidRegistrationSVid,
+       "dot1adMICVidRegistrationUntaggedPep": dot1adMICVidRegistrationUntaggedPep,
+       "dot1adMICVidRegistrationUntaggedCep": dot1adMICVidRegistrationUntaggedCep,
+       "dot1adMICVidRegistrationRowStatus": dot1adMICVidRegistrationRowStatus,
+       "dot1adMICVidRegistrationSVlanPriorityType": dot1adMICVidRegistrationSVlanPriorityType,
+       "dot1adMICVidRegistrationSVlanPriority": dot1adMICVidRegistrationSVlanPriority,
+       "dot1adMIPepTable": dot1adMIPepTable,
+       "dot1adMIPepEntry": dot1adMIPepEntry,
+       "dot1adMIPepPvid": dot1adMIPepPvid,
+       "dot1adMIPepDefaultUserPriority": dot1adMIPepDefaultUserPriority,
+       "dot1adMIPepAccptableFrameTypes": dot1adMIPepAccptableFrameTypes,
+       "dot1adMIPepIngressFiltering": dot1adMIPepIngressFiltering,
+       "dot1adMIServicePriorityRegenerationTable": dot1adMIServicePriorityRegenerationTable,
+       "dot1adMIServicePriorityRegenerationEntry": dot1adMIServicePriorityRegenerationEntry,
+       "dot1adMIServicePriorityRegenReceivedPriority": dot1adMIServicePriorityRegenReceivedPriority,
+       "dot1adMIServicePriorityRegenRegeneratedPriority": dot1adMIServicePriorityRegenRegeneratedPriority,
+       "dot1adMIPcpDecodingTable": dot1adMIPcpDecodingTable,
+       "dot1adMIPcpDecodingEntry": dot1adMIPcpDecodingEntry,
+       "dot1adMIPcpDecodingPcpSelRow": dot1adMIPcpDecodingPcpSelRow,
+       "dot1adMIPcpDecodingPcpValue": dot1adMIPcpDecodingPcpValue,
+       "dot1adMIPcpDecodingPriority": dot1adMIPcpDecodingPriority,
+       "dot1adMIPcpDecodingDropEligible": dot1adMIPcpDecodingDropEligible,
+       "dot1adMIPcpEncodingTable": dot1adMIPcpEncodingTable,
+       "dot1adMIPcpEncodingEntry": dot1adMIPcpEncodingEntry,
+       "dot1adMIPcpEncodingPcpSelRow": dot1adMIPcpEncodingPcpSelRow,
+       "dot1adMIPcpEncodingPriority": dot1adMIPcpEncodingPriority,
+       "dot1adMIPcpEncodingDropEligible": dot1adMIPcpEncodingDropEligible,
+       "dot1adMIPcpEncodingPcpValue": dot1adMIPcpEncodingPcpValue}
+)

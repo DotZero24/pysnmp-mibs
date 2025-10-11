@@ -1,37 +1,295 @@
+# SNMP MIB module (TPLINK-NDP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPLINK-NDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/tplink/TPLINK-NDP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:40 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/tplink/TPLINK-NDP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:55:45 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ndpManage, = mibBuilder.importSymbols("TPLINK-CLUSTER-MIB", "ndpManage")
-ndpGlobalConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 1))
-ndpStatus = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ndpStatus.setStatus('current')
-ndpAgingTime = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ndpAgingTime.setStatus('current')
-ndpHelloTime = MibScalar((1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 254))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ndpHelloTime.setStatus('current')
-ndpPortTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2), )
-if mibBuilder.loadTexts: ndpPortTable.setStatus('current')
-ndpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ndpPortEntry.setStatus('current')
-ndpPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ndpPortStatus.setStatus('current')
-ndpPortRecvPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ndpPortRecvPkt.setStatus('current')
-ndpPortSendPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ndpPortSendPkt.setStatus('current')
-ndpPortErrPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ndpPortErrPkt.setStatus('current')
-ndpPortNeighborNum = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ndpPortNeighborNum.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-NDP-MIB", ndpHelloTime=ndpHelloTime, ndpPortTable=ndpPortTable, ndpPortRecvPkt=ndpPortRecvPkt, ndpAgingTime=ndpAgingTime, ndpPortErrPkt=ndpPortErrPkt, ndpPortSendPkt=ndpPortSendPkt, ndpPortStatus=ndpPortStatus, ndpStatus=ndpStatus, ndpGlobalConfig=ndpGlobalConfig, ndpPortEntry=ndpPortEntry, ndpPortNeighborNum=ndpPortNeighborNum)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(ndpManage,) = mibBuilder.importSymbols(
+    "TPLINK-CLUSTER-MIB",
+    "ndpManage")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NdpGlobalConfig_ObjectIdentity = ObjectIdentity
+ndpGlobalConfig = _NdpGlobalConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 1)
+)
+
+
+class _NdpStatus_Type(Integer32):
+    """Custom type ndpStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_NdpStatus_Type.__name__ = "Integer32"
+_NdpStatus_Object = MibScalar
+ndpStatus = _NdpStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 1, 1),
+    _NdpStatus_Type()
+)
+ndpStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ndpStatus.setStatus("current")
+
+
+class _NdpAgingTime_Type(Integer32):
+    """Custom type ndpAgingTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 255),
+    )
+
+
+_NdpAgingTime_Type.__name__ = "Integer32"
+_NdpAgingTime_Object = MibScalar
+ndpAgingTime = _NdpAgingTime_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 1, 2),
+    _NdpAgingTime_Type()
+)
+ndpAgingTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ndpAgingTime.setStatus("current")
+
+
+class _NdpHelloTime_Type(Integer32):
+    """Custom type ndpHelloTime based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 254),
+    )
+
+
+_NdpHelloTime_Type.__name__ = "Integer32"
+_NdpHelloTime_Object = MibScalar
+ndpHelloTime = _NdpHelloTime_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 1, 3),
+    _NdpHelloTime_Type()
+)
+ndpHelloTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ndpHelloTime.setStatus("current")
+_NdpPortTable_Object = MibTable
+ndpPortTable = _NdpPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    ndpPortTable.setStatus("current")
+_NdpPortEntry_Object = MibTableRow
+ndpPortEntry = _NdpPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1)
+)
+ndpPortEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    ndpPortEntry.setStatus("current")
+
+
+class _NdpPortStatus_Type(Integer32):
+    """Custom type ndpPortStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_NdpPortStatus_Type.__name__ = "Integer32"
+_NdpPortStatus_Object = MibTableColumn
+ndpPortStatus = _NdpPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1, 2),
+    _NdpPortStatus_Type()
+)
+ndpPortStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ndpPortStatus.setStatus("current")
+_NdpPortRecvPkt_Type = Integer32
+_NdpPortRecvPkt_Object = MibTableColumn
+ndpPortRecvPkt = _NdpPortRecvPkt_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1, 3),
+    _NdpPortRecvPkt_Type()
+)
+ndpPortRecvPkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ndpPortRecvPkt.setStatus("current")
+_NdpPortSendPkt_Type = Integer32
+_NdpPortSendPkt_Object = MibTableColumn
+ndpPortSendPkt = _NdpPortSendPkt_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1, 4),
+    _NdpPortSendPkt_Type()
+)
+ndpPortSendPkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ndpPortSendPkt.setStatus("current")
+_NdpPortErrPkt_Type = Integer32
+_NdpPortErrPkt_Object = MibTableColumn
+ndpPortErrPkt = _NdpPortErrPkt_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1, 5),
+    _NdpPortErrPkt_Type()
+)
+ndpPortErrPkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ndpPortErrPkt.setStatus("current")
+_NdpPortNeighborNum_Type = Integer32
+_NdpPortNeighborNum_Object = MibTableColumn
+ndpPortNeighborNum = _NdpPortNeighborNum_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 33, 1, 1, 1, 2, 1, 6),
+    _NdpPortNeighborNum_Type()
+)
+ndpPortNeighborNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ndpPortNeighborNum.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPLINK-NDP-MIB",
+    **{"ndpGlobalConfig": ndpGlobalConfig,
+       "ndpStatus": ndpStatus,
+       "ndpAgingTime": ndpAgingTime,
+       "ndpHelloTime": ndpHelloTime,
+       "ndpPortTable": ndpPortTable,
+       "ndpPortEntry": ndpPortEntry,
+       "ndpPortStatus": ndpPortStatus,
+       "ndpPortRecvPkt": ndpPortRecvPkt,
+       "ndpPortSendPkt": ndpPortSendPkt,
+       "ndpPortErrPkt": ndpPortErrPkt,
+       "ndpPortNeighborNum": ndpPortNeighborNum}
+)

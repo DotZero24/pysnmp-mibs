@@ -1,85 +1,485 @@
+# SNMP MIB module (CIE1000-MIRROR-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CIE1000-MIRROR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CIE1000-MIRROR-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:10 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CIE1000-MIRROR-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:27:23 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-CIE1000PortList, CIE1000InterfaceIndex, CIE1000VlanListQuarter, CIE1000Unsigned16 = mibBuilder.importSymbols("CIE1000-TC", "CIE1000PortList", "CIE1000InterfaceIndex", "CIE1000VlanListQuarter", "CIE1000Unsigned16")
-cie1000SwitchMgmt, = mibBuilder.importSymbols("CISCO-IE1000-MIB", "cie1000SwitchMgmt")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-cie1000MirrorMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15))
-cie1000MirrorMib.setRevisions(('2014-07-01 00:00',))
-if mibBuilder.loadTexts: cie1000MirrorMib.setLastUpdated('201407010000Z')
-if mibBuilder.loadTexts: cie1000MirrorMib.setOrganization('Cisco Systems, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(CIE1000InterfaceIndex,
+ CIE1000PortList,
+ CIE1000Unsigned16,
+ CIE1000VlanListQuarter) = mibBuilder.importSymbols(
+    "CIE1000-TC",
+    "CIE1000InterfaceIndex",
+    "CIE1000PortList",
+    "CIE1000Unsigned16",
+    "CIE1000VlanListQuarter")
+
+(cie1000SwitchMgmt,) = mibBuilder.importSymbols(
+    "CISCO-IE1000-MIB",
+    "cie1000SwitchMgmt")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cie1000MirrorMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15)
+)
+if mibBuilder.loadTexts:
+    cie1000MirrorMib.setRevisions(
+        ("2014-07-01 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class CIE1000mirrorSessionType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("mirror", 0), ("rMirrorSource", 1), ("rMirrorDestination", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mirror", 0),
+          ("rMirrorSource", 1),
+          ("rMirrorDestination", 2))
+    )
 
-cie1000MirrorMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1))
-cie1000MirrorCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1))
-cie1000MirrorCapabilitiesSessionCountMax = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cie1000MirrorCapabilitiesSessionCountMax.setStatus('current')
-cie1000MirrorCapabilitiesSessionSourceCountMax = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cie1000MirrorCapabilitiesSessionSourceCountMax.setStatus('current')
-cie1000MirrorCapabilitiesRMirrorSuport = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cie1000MirrorCapabilitiesRMirrorSuport.setStatus('current')
-cie1000MirrorCapabilitiesInternalReflectorPortSupport = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1, 4), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cie1000MirrorCapabilitiesInternalReflectorPortSupport.setStatus('current')
-cie1000MirrorCapabilitiesCpuMirrorSupport = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1, 5), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cie1000MirrorCapabilitiesCpuMirrorSupport.setStatus('current')
-cie1000MirrorConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2))
-cie1000MirrorConfigSessionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1), )
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionTable.setStatus('current')
-cie1000MirrorConfigSessionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1), ).setIndexNames((0, "CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSessionId"))
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionEntry.setStatus('current')
-cie1000MirrorConfigSessionSessionId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionSessionId.setStatus('current')
-cie1000MirrorConfigSessionMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionMode.setStatus('current')
-cie1000MirrorConfigSessionType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 3), CIE1000mirrorSessionType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionType.setStatus('current')
-cie1000MirrorConfigSessionRMirrorVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 4), CIE1000Unsigned16()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionRMirrorVlan.setStatus('current')
-cie1000MirrorConfigSessionReflectorPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 5), CIE1000InterfaceIndex()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionReflectorPort.setStatus('current')
-cie1000MirrorConfigSessionStripInnerTag = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 6), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionStripInnerTag.setStatus('current')
-cie1000MirrorConfigSessionSourceVlans0KTo1K = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 7), CIE1000VlanListQuarter()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionSourceVlans0KTo1K.setStatus('current')
-cie1000MirrorConfigSessionSourceVlans1KTo2K = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 8), CIE1000VlanListQuarter()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionSourceVlans1KTo2K.setStatus('current')
-cie1000MirrorConfigSessionSourceVlans2KTo3K = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 9), CIE1000VlanListQuarter()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionSourceVlans2KTo3K.setStatus('current')
-cie1000MirrorConfigSessionSourceVlans3KTo4K = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 10), CIE1000VlanListQuarter()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionSourceVlans3KTo4K.setStatus('current')
-cie1000MirrorConfigSessionSourcePortListRx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 11), CIE1000PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionSourcePortListRx.setStatus('current')
-cie1000MirrorConfigSessionSourcePortListTx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 12), CIE1000PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionSourcePortListTx.setStatus('current')
-cie1000MirrorConfigSessionCpuRx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 13), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionCpuRx.setStatus('current')
-cie1000MirrorConfigSessionCpuTx = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 14), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionCpuTx.setStatus('current')
-cie1000MirrorConfigSessionDestinationPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 15), CIE1000PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: cie1000MirrorConfigSessionDestinationPortList.setStatus('current')
-cie1000MirrorMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2))
-cie1000MirrorMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2, 1))
-cie1000MirrorMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2, 2))
-cie1000MirrorCapabilitiesInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2, 2, 1)).setObjects(("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesSessionCountMax"), ("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesSessionSourceCountMax"), ("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesRMirrorSuport"), ("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesInternalReflectorPortSupport"), ("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesCpuMirrorSupport"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cie1000MirrorCapabilitiesInfoGroup = cie1000MirrorCapabilitiesInfoGroup.setStatus('current')
-cie1000MirrorConfigSessionTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2, 2, 2)).setObjects(("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSessionId"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionMode"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionType"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionRMirrorVlan"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionReflectorPort"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionStripInnerTag"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourceVlans0KTo1K"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourceVlans1KTo2K"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourceVlans2KTo3K"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourceVlans3KTo4K"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourcePortListRx"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourcePortListTx"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionCpuRx"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionCpuTx"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionDestinationPortList"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cie1000MirrorConfigSessionTableInfoGroup = cie1000MirrorConfigSessionTableInfoGroup.setStatus('current')
-cie1000MirrorMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2, 1, 1)).setObjects(("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesInfoGroup"), ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionTableInfoGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cie1000MirrorMibCompliance = cie1000MirrorMibCompliance.setStatus('current')
-mibBuilder.exportSymbols("CIE1000-MIRROR-MIB", cie1000MirrorConfigSessionSourcePortListRx=cie1000MirrorConfigSessionSourcePortListRx, cie1000MirrorMibObjects=cie1000MirrorMibObjects, cie1000MirrorConfigSessionCpuRx=cie1000MirrorConfigSessionCpuRx, cie1000MirrorConfigSessionType=cie1000MirrorConfigSessionType, cie1000MirrorConfigSessionSessionId=cie1000MirrorConfigSessionSessionId, cie1000MirrorConfigSessionDestinationPortList=cie1000MirrorConfigSessionDestinationPortList, cie1000MirrorConfig=cie1000MirrorConfig, cie1000MirrorConfigSessionTable=cie1000MirrorConfigSessionTable, cie1000MirrorConfigSessionMode=cie1000MirrorConfigSessionMode, cie1000MirrorCapabilitiesRMirrorSuport=cie1000MirrorCapabilitiesRMirrorSuport, cie1000MirrorMibCompliances=cie1000MirrorMibCompliances, cie1000MirrorCapabilitiesInfoGroup=cie1000MirrorCapabilitiesInfoGroup, cie1000MirrorConfigSessionCpuTx=cie1000MirrorConfigSessionCpuTx, cie1000MirrorMib=cie1000MirrorMib, cie1000MirrorCapabilitiesSessionCountMax=cie1000MirrorCapabilitiesSessionCountMax, PYSNMP_MODULE_ID=cie1000MirrorMib, cie1000MirrorConfigSessionSourceVlans1KTo2K=cie1000MirrorConfigSessionSourceVlans1KTo2K, cie1000MirrorMibGroups=cie1000MirrorMibGroups, cie1000MirrorConfigSessionSourcePortListTx=cie1000MirrorConfigSessionSourcePortListTx, cie1000MirrorMibConformance=cie1000MirrorMibConformance, cie1000MirrorMibCompliance=cie1000MirrorMibCompliance, cie1000MirrorConfigSessionSourceVlans2KTo3K=cie1000MirrorConfigSessionSourceVlans2KTo3K, cie1000MirrorConfigSessionTableInfoGroup=cie1000MirrorConfigSessionTableInfoGroup, cie1000MirrorConfigSessionReflectorPort=cie1000MirrorConfigSessionReflectorPort, CIE1000mirrorSessionType=CIE1000mirrorSessionType, cie1000MirrorCapabilities=cie1000MirrorCapabilities, cie1000MirrorCapabilitiesCpuMirrorSupport=cie1000MirrorCapabilitiesCpuMirrorSupport, cie1000MirrorConfigSessionSourceVlans3KTo4K=cie1000MirrorConfigSessionSourceVlans3KTo4K, cie1000MirrorConfigSessionStripInnerTag=cie1000MirrorConfigSessionStripInnerTag, cie1000MirrorConfigSessionEntry=cie1000MirrorConfigSessionEntry, cie1000MirrorCapabilitiesSessionSourceCountMax=cie1000MirrorCapabilitiesSessionSourceCountMax, cie1000MirrorConfigSessionSourceVlans0KTo1K=cie1000MirrorConfigSessionSourceVlans0KTo1K, cie1000MirrorCapabilitiesInternalReflectorPortSupport=cie1000MirrorCapabilitiesInternalReflectorPortSupport, cie1000MirrorConfigSessionRMirrorVlan=cie1000MirrorConfigSessionRMirrorVlan)
+
+# MIB Managed Objects in the order of their OIDs
+
+_Cie1000MirrorMibObjects_ObjectIdentity = ObjectIdentity
+cie1000MirrorMibObjects = _Cie1000MirrorMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1)
+)
+_Cie1000MirrorCapabilities_ObjectIdentity = ObjectIdentity
+cie1000MirrorCapabilities = _Cie1000MirrorCapabilities_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1)
+)
+_Cie1000MirrorCapabilitiesSessionCountMax_Type = Integer32
+_Cie1000MirrorCapabilitiesSessionCountMax_Object = MibScalar
+cie1000MirrorCapabilitiesSessionCountMax = _Cie1000MirrorCapabilitiesSessionCountMax_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1, 1),
+    _Cie1000MirrorCapabilitiesSessionCountMax_Type()
+)
+cie1000MirrorCapabilitiesSessionCountMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cie1000MirrorCapabilitiesSessionCountMax.setStatus("current")
+_Cie1000MirrorCapabilitiesSessionSourceCountMax_Type = Integer32
+_Cie1000MirrorCapabilitiesSessionSourceCountMax_Object = MibScalar
+cie1000MirrorCapabilitiesSessionSourceCountMax = _Cie1000MirrorCapabilitiesSessionSourceCountMax_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1, 2),
+    _Cie1000MirrorCapabilitiesSessionSourceCountMax_Type()
+)
+cie1000MirrorCapabilitiesSessionSourceCountMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cie1000MirrorCapabilitiesSessionSourceCountMax.setStatus("current")
+_Cie1000MirrorCapabilitiesRMirrorSuport_Type = TruthValue
+_Cie1000MirrorCapabilitiesRMirrorSuport_Object = MibScalar
+cie1000MirrorCapabilitiesRMirrorSuport = _Cie1000MirrorCapabilitiesRMirrorSuport_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1, 3),
+    _Cie1000MirrorCapabilitiesRMirrorSuport_Type()
+)
+cie1000MirrorCapabilitiesRMirrorSuport.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cie1000MirrorCapabilitiesRMirrorSuport.setStatus("current")
+_Cie1000MirrorCapabilitiesInternalReflectorPortSupport_Type = TruthValue
+_Cie1000MirrorCapabilitiesInternalReflectorPortSupport_Object = MibScalar
+cie1000MirrorCapabilitiesInternalReflectorPortSupport = _Cie1000MirrorCapabilitiesInternalReflectorPortSupport_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1, 4),
+    _Cie1000MirrorCapabilitiesInternalReflectorPortSupport_Type()
+)
+cie1000MirrorCapabilitiesInternalReflectorPortSupport.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cie1000MirrorCapabilitiesInternalReflectorPortSupport.setStatus("current")
+_Cie1000MirrorCapabilitiesCpuMirrorSupport_Type = TruthValue
+_Cie1000MirrorCapabilitiesCpuMirrorSupport_Object = MibScalar
+cie1000MirrorCapabilitiesCpuMirrorSupport = _Cie1000MirrorCapabilitiesCpuMirrorSupport_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 1, 5),
+    _Cie1000MirrorCapabilitiesCpuMirrorSupport_Type()
+)
+cie1000MirrorCapabilitiesCpuMirrorSupport.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cie1000MirrorCapabilitiesCpuMirrorSupport.setStatus("current")
+_Cie1000MirrorConfig_ObjectIdentity = ObjectIdentity
+cie1000MirrorConfig = _Cie1000MirrorConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2)
+)
+_Cie1000MirrorConfigSessionTable_Object = MibTable
+cie1000MirrorConfigSessionTable = _Cie1000MirrorConfigSessionTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionTable.setStatus("current")
+_Cie1000MirrorConfigSessionEntry_Object = MibTableRow
+cie1000MirrorConfigSessionEntry = _Cie1000MirrorConfigSessionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1)
+)
+cie1000MirrorConfigSessionEntry.setIndexNames(
+    (0, "CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSessionId"),
+)
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionEntry.setStatus("current")
+
+
+class _Cie1000MirrorConfigSessionSessionId_Type(Integer32):
+    """Custom type cie1000MirrorConfigSessionSessionId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Cie1000MirrorConfigSessionSessionId_Type.__name__ = "Integer32"
+_Cie1000MirrorConfigSessionSessionId_Object = MibTableColumn
+cie1000MirrorConfigSessionSessionId = _Cie1000MirrorConfigSessionSessionId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 1),
+    _Cie1000MirrorConfigSessionSessionId_Type()
+)
+cie1000MirrorConfigSessionSessionId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionSessionId.setStatus("current")
+_Cie1000MirrorConfigSessionMode_Type = TruthValue
+_Cie1000MirrorConfigSessionMode_Object = MibTableColumn
+cie1000MirrorConfigSessionMode = _Cie1000MirrorConfigSessionMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 2),
+    _Cie1000MirrorConfigSessionMode_Type()
+)
+cie1000MirrorConfigSessionMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionMode.setStatus("current")
+_Cie1000MirrorConfigSessionType_Type = CIE1000mirrorSessionType
+_Cie1000MirrorConfigSessionType_Object = MibTableColumn
+cie1000MirrorConfigSessionType = _Cie1000MirrorConfigSessionType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 3),
+    _Cie1000MirrorConfigSessionType_Type()
+)
+cie1000MirrorConfigSessionType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionType.setStatus("current")
+_Cie1000MirrorConfigSessionRMirrorVlan_Type = CIE1000Unsigned16
+_Cie1000MirrorConfigSessionRMirrorVlan_Object = MibTableColumn
+cie1000MirrorConfigSessionRMirrorVlan = _Cie1000MirrorConfigSessionRMirrorVlan_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 4),
+    _Cie1000MirrorConfigSessionRMirrorVlan_Type()
+)
+cie1000MirrorConfigSessionRMirrorVlan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionRMirrorVlan.setStatus("current")
+_Cie1000MirrorConfigSessionReflectorPort_Type = CIE1000InterfaceIndex
+_Cie1000MirrorConfigSessionReflectorPort_Object = MibTableColumn
+cie1000MirrorConfigSessionReflectorPort = _Cie1000MirrorConfigSessionReflectorPort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 5),
+    _Cie1000MirrorConfigSessionReflectorPort_Type()
+)
+cie1000MirrorConfigSessionReflectorPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionReflectorPort.setStatus("current")
+_Cie1000MirrorConfigSessionStripInnerTag_Type = TruthValue
+_Cie1000MirrorConfigSessionStripInnerTag_Object = MibTableColumn
+cie1000MirrorConfigSessionStripInnerTag = _Cie1000MirrorConfigSessionStripInnerTag_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 6),
+    _Cie1000MirrorConfigSessionStripInnerTag_Type()
+)
+cie1000MirrorConfigSessionStripInnerTag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionStripInnerTag.setStatus("current")
+_Cie1000MirrorConfigSessionSourceVlans0KTo1K_Type = CIE1000VlanListQuarter
+_Cie1000MirrorConfigSessionSourceVlans0KTo1K_Object = MibTableColumn
+cie1000MirrorConfigSessionSourceVlans0KTo1K = _Cie1000MirrorConfigSessionSourceVlans0KTo1K_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 7),
+    _Cie1000MirrorConfigSessionSourceVlans0KTo1K_Type()
+)
+cie1000MirrorConfigSessionSourceVlans0KTo1K.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionSourceVlans0KTo1K.setStatus("current")
+_Cie1000MirrorConfigSessionSourceVlans1KTo2K_Type = CIE1000VlanListQuarter
+_Cie1000MirrorConfigSessionSourceVlans1KTo2K_Object = MibTableColumn
+cie1000MirrorConfigSessionSourceVlans1KTo2K = _Cie1000MirrorConfigSessionSourceVlans1KTo2K_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 8),
+    _Cie1000MirrorConfigSessionSourceVlans1KTo2K_Type()
+)
+cie1000MirrorConfigSessionSourceVlans1KTo2K.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionSourceVlans1KTo2K.setStatus("current")
+_Cie1000MirrorConfigSessionSourceVlans2KTo3K_Type = CIE1000VlanListQuarter
+_Cie1000MirrorConfigSessionSourceVlans2KTo3K_Object = MibTableColumn
+cie1000MirrorConfigSessionSourceVlans2KTo3K = _Cie1000MirrorConfigSessionSourceVlans2KTo3K_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 9),
+    _Cie1000MirrorConfigSessionSourceVlans2KTo3K_Type()
+)
+cie1000MirrorConfigSessionSourceVlans2KTo3K.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionSourceVlans2KTo3K.setStatus("current")
+_Cie1000MirrorConfigSessionSourceVlans3KTo4K_Type = CIE1000VlanListQuarter
+_Cie1000MirrorConfigSessionSourceVlans3KTo4K_Object = MibTableColumn
+cie1000MirrorConfigSessionSourceVlans3KTo4K = _Cie1000MirrorConfigSessionSourceVlans3KTo4K_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 10),
+    _Cie1000MirrorConfigSessionSourceVlans3KTo4K_Type()
+)
+cie1000MirrorConfigSessionSourceVlans3KTo4K.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionSourceVlans3KTo4K.setStatus("current")
+_Cie1000MirrorConfigSessionSourcePortListRx_Type = CIE1000PortList
+_Cie1000MirrorConfigSessionSourcePortListRx_Object = MibTableColumn
+cie1000MirrorConfigSessionSourcePortListRx = _Cie1000MirrorConfigSessionSourcePortListRx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 11),
+    _Cie1000MirrorConfigSessionSourcePortListRx_Type()
+)
+cie1000MirrorConfigSessionSourcePortListRx.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionSourcePortListRx.setStatus("current")
+_Cie1000MirrorConfigSessionSourcePortListTx_Type = CIE1000PortList
+_Cie1000MirrorConfigSessionSourcePortListTx_Object = MibTableColumn
+cie1000MirrorConfigSessionSourcePortListTx = _Cie1000MirrorConfigSessionSourcePortListTx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 12),
+    _Cie1000MirrorConfigSessionSourcePortListTx_Type()
+)
+cie1000MirrorConfigSessionSourcePortListTx.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionSourcePortListTx.setStatus("current")
+_Cie1000MirrorConfigSessionCpuRx_Type = TruthValue
+_Cie1000MirrorConfigSessionCpuRx_Object = MibTableColumn
+cie1000MirrorConfigSessionCpuRx = _Cie1000MirrorConfigSessionCpuRx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 13),
+    _Cie1000MirrorConfigSessionCpuRx_Type()
+)
+cie1000MirrorConfigSessionCpuRx.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionCpuRx.setStatus("current")
+_Cie1000MirrorConfigSessionCpuTx_Type = TruthValue
+_Cie1000MirrorConfigSessionCpuTx_Object = MibTableColumn
+cie1000MirrorConfigSessionCpuTx = _Cie1000MirrorConfigSessionCpuTx_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 14),
+    _Cie1000MirrorConfigSessionCpuTx_Type()
+)
+cie1000MirrorConfigSessionCpuTx.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionCpuTx.setStatus("current")
+_Cie1000MirrorConfigSessionDestinationPortList_Type = CIE1000PortList
+_Cie1000MirrorConfigSessionDestinationPortList_Object = MibTableColumn
+cie1000MirrorConfigSessionDestinationPortList = _Cie1000MirrorConfigSessionDestinationPortList_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 1, 2, 1, 1, 15),
+    _Cie1000MirrorConfigSessionDestinationPortList_Type()
+)
+cie1000MirrorConfigSessionDestinationPortList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionDestinationPortList.setStatus("current")
+_Cie1000MirrorMibConformance_ObjectIdentity = ObjectIdentity
+cie1000MirrorMibConformance = _Cie1000MirrorMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2)
+)
+_Cie1000MirrorMibCompliances_ObjectIdentity = ObjectIdentity
+cie1000MirrorMibCompliances = _Cie1000MirrorMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2, 1)
+)
+_Cie1000MirrorMibGroups_ObjectIdentity = ObjectIdentity
+cie1000MirrorMibGroups = _Cie1000MirrorMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2, 2)
+)
+
+# Managed Objects groups
+
+cie1000MirrorCapabilitiesInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2, 2, 1)
+)
+cie1000MirrorCapabilitiesInfoGroup.setObjects(
+      *(("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesSessionCountMax"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesSessionSourceCountMax"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesRMirrorSuport"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesInternalReflectorPortSupport"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesCpuMirrorSupport"))
+)
+if mibBuilder.loadTexts:
+    cie1000MirrorCapabilitiesInfoGroup.setStatus("current")
+
+cie1000MirrorConfigSessionTableInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2, 2, 2)
+)
+cie1000MirrorConfigSessionTableInfoGroup.setObjects(
+      *(("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSessionId"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionMode"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionType"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionRMirrorVlan"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionReflectorPort"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionStripInnerTag"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourceVlans0KTo1K"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourceVlans1KTo2K"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourceVlans2KTo3K"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourceVlans3KTo4K"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourcePortListRx"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionSourcePortListTx"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionCpuRx"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionCpuTx"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionDestinationPortList"))
+)
+if mibBuilder.loadTexts:
+    cie1000MirrorConfigSessionTableInfoGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cie1000MirrorMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 832, 1, 15, 2, 1, 1)
+)
+cie1000MirrorMibCompliance.setObjects(
+      *(("CIE1000-MIRROR-MIB", "cie1000MirrorCapabilitiesInfoGroup"),
+        ("CIE1000-MIRROR-MIB", "cie1000MirrorConfigSessionTableInfoGroup"))
+)
+if mibBuilder.loadTexts:
+    cie1000MirrorMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CIE1000-MIRROR-MIB",
+    **{"CIE1000mirrorSessionType": CIE1000mirrorSessionType,
+       "cie1000MirrorMib": cie1000MirrorMib,
+       "cie1000MirrorMibObjects": cie1000MirrorMibObjects,
+       "cie1000MirrorCapabilities": cie1000MirrorCapabilities,
+       "cie1000MirrorCapabilitiesSessionCountMax": cie1000MirrorCapabilitiesSessionCountMax,
+       "cie1000MirrorCapabilitiesSessionSourceCountMax": cie1000MirrorCapabilitiesSessionSourceCountMax,
+       "cie1000MirrorCapabilitiesRMirrorSuport": cie1000MirrorCapabilitiesRMirrorSuport,
+       "cie1000MirrorCapabilitiesInternalReflectorPortSupport": cie1000MirrorCapabilitiesInternalReflectorPortSupport,
+       "cie1000MirrorCapabilitiesCpuMirrorSupport": cie1000MirrorCapabilitiesCpuMirrorSupport,
+       "cie1000MirrorConfig": cie1000MirrorConfig,
+       "cie1000MirrorConfigSessionTable": cie1000MirrorConfigSessionTable,
+       "cie1000MirrorConfigSessionEntry": cie1000MirrorConfigSessionEntry,
+       "cie1000MirrorConfigSessionSessionId": cie1000MirrorConfigSessionSessionId,
+       "cie1000MirrorConfigSessionMode": cie1000MirrorConfigSessionMode,
+       "cie1000MirrorConfigSessionType": cie1000MirrorConfigSessionType,
+       "cie1000MirrorConfigSessionRMirrorVlan": cie1000MirrorConfigSessionRMirrorVlan,
+       "cie1000MirrorConfigSessionReflectorPort": cie1000MirrorConfigSessionReflectorPort,
+       "cie1000MirrorConfigSessionStripInnerTag": cie1000MirrorConfigSessionStripInnerTag,
+       "cie1000MirrorConfigSessionSourceVlans0KTo1K": cie1000MirrorConfigSessionSourceVlans0KTo1K,
+       "cie1000MirrorConfigSessionSourceVlans1KTo2K": cie1000MirrorConfigSessionSourceVlans1KTo2K,
+       "cie1000MirrorConfigSessionSourceVlans2KTo3K": cie1000MirrorConfigSessionSourceVlans2KTo3K,
+       "cie1000MirrorConfigSessionSourceVlans3KTo4K": cie1000MirrorConfigSessionSourceVlans3KTo4K,
+       "cie1000MirrorConfigSessionSourcePortListRx": cie1000MirrorConfigSessionSourcePortListRx,
+       "cie1000MirrorConfigSessionSourcePortListTx": cie1000MirrorConfigSessionSourcePortListTx,
+       "cie1000MirrorConfigSessionCpuRx": cie1000MirrorConfigSessionCpuRx,
+       "cie1000MirrorConfigSessionCpuTx": cie1000MirrorConfigSessionCpuTx,
+       "cie1000MirrorConfigSessionDestinationPortList": cie1000MirrorConfigSessionDestinationPortList,
+       "cie1000MirrorMibConformance": cie1000MirrorMibConformance,
+       "cie1000MirrorMibCompliances": cie1000MirrorMibCompliances,
+       "cie1000MirrorMibCompliance": cie1000MirrorMibCompliance,
+       "cie1000MirrorMibGroups": cie1000MirrorMibGroups,
+       "cie1000MirrorCapabilitiesInfoGroup": cie1000MirrorCapabilitiesInfoGroup,
+       "cie1000MirrorConfigSessionTableInfoGroup": cie1000MirrorConfigSessionTableInfoGroup}
+)

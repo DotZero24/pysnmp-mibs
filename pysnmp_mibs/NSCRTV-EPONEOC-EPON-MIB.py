@@ -1,82 +1,385 @@
+# SNMP MIB module (NSCRTV-EPONEOC-EPON-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NSCRTV-EPONEOC-EPON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/NSCRTV-EPONEOC-EPON-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:15 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/fscom/NSCRTV-EPONEOC-EPON-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:14:10 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-Timeout, BridgeId = mibBuilder.importSymbols("BRIDGE-MIB", "Timeout", "BridgeId")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-RowStatus, DateAndTime, TextualConvention, MacAddress, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "MacAddress", "TruthValue", "TimeStamp", "DisplayString")
-nscrtvRoot = MibIdentifier((1, 3, 6, 1, 4, 1, 17409))
-nscrtvHFCemsTree = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1))
-nscrtvEponEocTree = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2))
-propertyIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 1))
-alarmsIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 2))
-eponTree = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3))
-eoCTree = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 4))
-eponAlarmTree = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 2, 11))
-eponTrapObjectGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 2, 11, 1))
-eponAlarmObjGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 2, 11, 2))
-eponManagementObjGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 2, 11, 3))
-systemObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3, 1))
-sniObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3, 2))
-ponPortObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3, 3))
-onuObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3, 4))
-uniObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3, 5))
-igmpManagementObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3, 6))
-vlanManagementObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3, 7))
-qosManagementObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3, 8))
-stpManagementObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3, 9))
-performanceStatisticObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3, 10))
-eponLinkedEoCManagementObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 2, 3, 11))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(BridgeId,
+ Timeout) = mibBuilder.importSymbols(
+    "BRIDGE-MIB",
+    "BridgeId",
+    "Timeout")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class EponDeviceIndex(TextualConvention, Unsigned32):
-    status = 'current'
+    status = "current"
+
 
 class EponCardIndex(TextualConvention, Unsigned32):
-    status = 'current'
+    status = "current"
+
 
 class EponPortIndex(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
 
 class EponAlarmCode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 65535)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
 
 class EponAlarmInstance(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 8)
-    fixedLength = 8
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
 
 class EponSeverityType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("critical", 1), ("major", 2), ("minor", 3), ("warning", 4), ("info", 5), ("clear", 6))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("critical", 1),
+          ("major", 2),
+          ("minor", 3),
+          ("warning", 4),
+          ("info", 5),
+          ("clear", 6))
+    )
+
+
 
 class AutoNegotiationTechAbility(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("tenBaseTFullDuplex", 1), ("tenBaseTHalfDuplex", 2), ("hundredBaseTFullDuplex", 3), ("hundredBaseTHalfDuplex", 4), ("thousandBaseTFullDuplex", 5), ("thousandBaseTHalfDuplex", 6), ("thousandBaseXFullDuplex", 7), ("thousandBaseXHalfDuplex", 8), ("fdxPause", 9), ("fdxApause", 10), ("fdxSpause", 11), ("fdxBpause", 12))
+    status = "current"
+    namedValues = NamedValues(
+        *(("tenBaseTFullDuplex", 1),
+          ("tenBaseTHalfDuplex", 2),
+          ("hundredBaseTFullDuplex", 3),
+          ("hundredBaseTHalfDuplex", 4),
+          ("thousandBaseTFullDuplex", 5),
+          ("thousandBaseTHalfDuplex", 6),
+          ("thousandBaseXFullDuplex", 7),
+          ("thousandBaseXHalfDuplex", 8),
+          ("fdxPause", 9),
+          ("fdxApause", 10),
+          ("fdxSpause", 11),
+          ("fdxBpause", 12))
+    )
+
 
 class TAddress(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 8)
-    fixedLength = 8
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
 
 class EponStats15MinRecordType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 96)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 96),
+    )
+
+
 
 class EponStats24HourRecordType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 30)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 30),
+    )
+
+
 
 class EponStatsThresholdType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 1024)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
 
-mibBuilder.exportSymbols("NSCRTV-EPONEOC-EPON-MIB", EponStats15MinRecordType=EponStats15MinRecordType, sniObjects=sniObjects, eponTrapObjectGroup=eponTrapObjectGroup, TAddress=TAddress, eoCTree=eoCTree, alarmsIdent=alarmsIdent, AutoNegotiationTechAbility=AutoNegotiationTechAbility, EponStats24HourRecordType=EponStats24HourRecordType, EponStatsThresholdType=EponStatsThresholdType, EponDeviceIndex=EponDeviceIndex, stpManagementObjects=stpManagementObjects, propertyIdent=propertyIdent, nscrtvHFCemsTree=nscrtvHFCemsTree, nscrtvRoot=nscrtvRoot, vlanManagementObjects=vlanManagementObjects, EponPortIndex=EponPortIndex, EponAlarmInstance=EponAlarmInstance, eponAlarmTree=eponAlarmTree, onuObjects=onuObjects, EponAlarmCode=EponAlarmCode, ponPortObjects=ponPortObjects, EponCardIndex=EponCardIndex, eponLinkedEoCManagementObjects=eponLinkedEoCManagementObjects, nscrtvEponEocTree=nscrtvEponEocTree, EponSeverityType=EponSeverityType, qosManagementObjects=qosManagementObjects, uniObjects=uniObjects, igmpManagementObjects=igmpManagementObjects, performanceStatisticObjects=performanceStatisticObjects, eponAlarmObjGroup=eponAlarmObjGroup, eponManagementObjGroup=eponManagementObjGroup, systemObjects=systemObjects, eponTree=eponTree)
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NscrtvRoot_ObjectIdentity = ObjectIdentity
+nscrtvRoot = _NscrtvRoot_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409)
+)
+_NscrtvHFCemsTree_ObjectIdentity = ObjectIdentity
+nscrtvHFCemsTree = _NscrtvHFCemsTree_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1)
+)
+_NscrtvEponEocTree_ObjectIdentity = ObjectIdentity
+nscrtvEponEocTree = _NscrtvEponEocTree_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2)
+)
+_PropertyIdent_ObjectIdentity = ObjectIdentity
+propertyIdent = _PropertyIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 1)
+)
+_AlarmsIdent_ObjectIdentity = ObjectIdentity
+alarmsIdent = _AlarmsIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 2)
+)
+_EponAlarmTree_ObjectIdentity = ObjectIdentity
+eponAlarmTree = _EponAlarmTree_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 2, 11)
+)
+_EponTrapObjectGroup_ObjectIdentity = ObjectIdentity
+eponTrapObjectGroup = _EponTrapObjectGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 2, 11, 1)
+)
+_EponAlarmObjGroup_ObjectIdentity = ObjectIdentity
+eponAlarmObjGroup = _EponAlarmObjGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 2, 11, 2)
+)
+_EponManagementObjGroup_ObjectIdentity = ObjectIdentity
+eponManagementObjGroup = _EponManagementObjGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 2, 11, 3)
+)
+_EponTree_ObjectIdentity = ObjectIdentity
+eponTree = _EponTree_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3)
+)
+_SystemObjects_ObjectIdentity = ObjectIdentity
+systemObjects = _SystemObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3, 1)
+)
+_SniObjects_ObjectIdentity = ObjectIdentity
+sniObjects = _SniObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3, 2)
+)
+_PonPortObjects_ObjectIdentity = ObjectIdentity
+ponPortObjects = _PonPortObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3, 3)
+)
+_OnuObjects_ObjectIdentity = ObjectIdentity
+onuObjects = _OnuObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3, 4)
+)
+_UniObjects_ObjectIdentity = ObjectIdentity
+uniObjects = _UniObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3, 5)
+)
+_IgmpManagementObjects_ObjectIdentity = ObjectIdentity
+igmpManagementObjects = _IgmpManagementObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3, 6)
+)
+_VlanManagementObjects_ObjectIdentity = ObjectIdentity
+vlanManagementObjects = _VlanManagementObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3, 7)
+)
+_QosManagementObjects_ObjectIdentity = ObjectIdentity
+qosManagementObjects = _QosManagementObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3, 8)
+)
+_StpManagementObjects_ObjectIdentity = ObjectIdentity
+stpManagementObjects = _StpManagementObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3, 9)
+)
+_PerformanceStatisticObjects_ObjectIdentity = ObjectIdentity
+performanceStatisticObjects = _PerformanceStatisticObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3, 10)
+)
+_EponLinkedEoCManagementObjects_ObjectIdentity = ObjectIdentity
+eponLinkedEoCManagementObjects = _EponLinkedEoCManagementObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 3, 11)
+)
+_EoCTree_ObjectIdentity = ObjectIdentity
+eoCTree = _EoCTree_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 2, 4)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NSCRTV-EPONEOC-EPON-MIB",
+    **{"EponDeviceIndex": EponDeviceIndex,
+       "EponCardIndex": EponCardIndex,
+       "EponPortIndex": EponPortIndex,
+       "EponAlarmCode": EponAlarmCode,
+       "EponAlarmInstance": EponAlarmInstance,
+       "EponSeverityType": EponSeverityType,
+       "AutoNegotiationTechAbility": AutoNegotiationTechAbility,
+       "TAddress": TAddress,
+       "EponStats15MinRecordType": EponStats15MinRecordType,
+       "EponStats24HourRecordType": EponStats24HourRecordType,
+       "EponStatsThresholdType": EponStatsThresholdType,
+       "nscrtvRoot": nscrtvRoot,
+       "nscrtvHFCemsTree": nscrtvHFCemsTree,
+       "nscrtvEponEocTree": nscrtvEponEocTree,
+       "propertyIdent": propertyIdent,
+       "alarmsIdent": alarmsIdent,
+       "eponAlarmTree": eponAlarmTree,
+       "eponTrapObjectGroup": eponTrapObjectGroup,
+       "eponAlarmObjGroup": eponAlarmObjGroup,
+       "eponManagementObjGroup": eponManagementObjGroup,
+       "eponTree": eponTree,
+       "systemObjects": systemObjects,
+       "sniObjects": sniObjects,
+       "ponPortObjects": ponPortObjects,
+       "onuObjects": onuObjects,
+       "uniObjects": uniObjects,
+       "igmpManagementObjects": igmpManagementObjects,
+       "vlanManagementObjects": vlanManagementObjects,
+       "qosManagementObjects": qosManagementObjects,
+       "stpManagementObjects": stpManagementObjects,
+       "performanceStatisticObjects": performanceStatisticObjects,
+       "eponLinkedEoCManagementObjects": eponLinkedEoCManagementObjects,
+       "eoCTree": eoCTree}
+)

@@ -1,45 +1,290 @@
+# SNMP MIB module (Dlink-TrafficSegmentation-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module Dlink-TrafficSegmentation-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/Dlink-TrafficSegmentation-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:28 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/Dlink-TrafficSegmentation-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:52:34 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rnd, = mibBuilder.importSymbols("DLINK-3100-MIB", "rnd")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-PortList, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "PortList")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
-rlTrafficSeg = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138))
-rlTrafficSeg.setRevisions(('2008-05-03 12:34',))
-if mibBuilder.loadTexts: rlTrafficSeg.setLastUpdated('200805031234Z')
-if mibBuilder.loadTexts: rlTrafficSeg.setOrganization('Dlink, Inc.')
-rlTrafficSegConfigTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1), )
-if mibBuilder.loadTexts: rlTrafficSegConfigTable.setStatus('current')
-rlTrafficSegConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1, 1), ).setIndexNames((0, "Dlink-TrafficSegmentation-MIB", "rlTrafficSegConfigIndex"))
-if mibBuilder.loadTexts: rlTrafficSegConfigEntry.setStatus('current')
-rlTrafficSegConfigIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: rlTrafficSegConfigIndex.setStatus('current')
-rlTrafficSegConfigIngressPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1, 1, 2), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlTrafficSegConfigIngressPorts.setStatus('current')
-rlTrafficSegConfigEgressPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlTrafficSegConfigEgressPorts.setStatus('current')
-rlTrafficSegConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: rlTrafficSegConfigRowStatus.setStatus('current')
-rlTrafficSegTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2), )
-if mibBuilder.loadTexts: rlTrafficSegTable.setStatus('current')
-rlTrafficSegEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2, 1), ).setIndexNames((0, "Dlink-TrafficSegmentation-MIB", "rlTrafficSegIndex"))
-if mibBuilder.loadTexts: rlTrafficSegEntry.setStatus('current')
-rlTrafficSegIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: rlTrafficSegIndex.setStatus('current')
-rlTrafficSegIngressPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2, 1, 2), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlTrafficSegIngressPorts.setStatus('current')
-rlTrafficSegEgressPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2, 1, 3), PortList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlTrafficSegEgressPorts.setStatus('current')
-rlTrafficSegRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: rlTrafficSegRowStatus.setStatus('current')
-mibBuilder.exportSymbols("Dlink-TrafficSegmentation-MIB", rlTrafficSegEntry=rlTrafficSegEntry, PYSNMP_MODULE_ID=rlTrafficSeg, rlTrafficSegTable=rlTrafficSegTable, rlTrafficSegConfigEgressPorts=rlTrafficSegConfigEgressPorts, rlTrafficSegConfigIngressPorts=rlTrafficSegConfigIngressPorts, rlTrafficSegIndex=rlTrafficSegIndex, rlTrafficSegConfigRowStatus=rlTrafficSegConfigRowStatus, rlTrafficSegConfigTable=rlTrafficSegConfigTable, rlTrafficSegConfigIndex=rlTrafficSegConfigIndex, rlTrafficSeg=rlTrafficSeg, rlTrafficSegIngressPorts=rlTrafficSegIngressPorts, rlTrafficSegRowStatus=rlTrafficSegRowStatus, rlTrafficSegConfigEntry=rlTrafficSegConfigEntry, rlTrafficSegEgressPorts=rlTrafficSegEgressPorts)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rnd,) = mibBuilder.importSymbols(
+    "DLINK-3100-MIB",
+    "rnd")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(PortList,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "PortList")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rlTrafficSeg = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138)
+)
+if mibBuilder.loadTexts:
+    rlTrafficSeg.setRevisions(
+        ("2008-05-03 12:34",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlTrafficSegConfigTable_Object = MibTable
+rlTrafficSegConfigTable = _RlTrafficSegConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1)
+)
+if mibBuilder.loadTexts:
+    rlTrafficSegConfigTable.setStatus("current")
+_RlTrafficSegConfigEntry_Object = MibTableRow
+rlTrafficSegConfigEntry = _RlTrafficSegConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1, 1)
+)
+rlTrafficSegConfigEntry.setIndexNames(
+    (0, "Dlink-TrafficSegmentation-MIB", "rlTrafficSegConfigIndex"),
+)
+if mibBuilder.loadTexts:
+    rlTrafficSegConfigEntry.setStatus("current")
+
+
+class _RlTrafficSegConfigIndex_Type(Unsigned32):
+    """Custom type rlTrafficSegConfigIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_RlTrafficSegConfigIndex_Type.__name__ = "Unsigned32"
+_RlTrafficSegConfigIndex_Object = MibTableColumn
+rlTrafficSegConfigIndex = _RlTrafficSegConfigIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1, 1, 1),
+    _RlTrafficSegConfigIndex_Type()
+)
+rlTrafficSegConfigIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlTrafficSegConfigIndex.setStatus("current")
+_RlTrafficSegConfigIngressPorts_Type = PortList
+_RlTrafficSegConfigIngressPorts_Object = MibTableColumn
+rlTrafficSegConfigIngressPorts = _RlTrafficSegConfigIngressPorts_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1, 1, 2),
+    _RlTrafficSegConfigIngressPorts_Type()
+)
+rlTrafficSegConfigIngressPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlTrafficSegConfigIngressPorts.setStatus("current")
+_RlTrafficSegConfigEgressPorts_Type = PortList
+_RlTrafficSegConfigEgressPorts_Object = MibTableColumn
+rlTrafficSegConfigEgressPorts = _RlTrafficSegConfigEgressPorts_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1, 1, 3),
+    _RlTrafficSegConfigEgressPorts_Type()
+)
+rlTrafficSegConfigEgressPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlTrafficSegConfigEgressPorts.setStatus("current")
+_RlTrafficSegConfigRowStatus_Type = RowStatus
+_RlTrafficSegConfigRowStatus_Object = MibTableColumn
+rlTrafficSegConfigRowStatus = _RlTrafficSegConfigRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 1, 1, 4),
+    _RlTrafficSegConfigRowStatus_Type()
+)
+rlTrafficSegConfigRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    rlTrafficSegConfigRowStatus.setStatus("current")
+_RlTrafficSegTable_Object = MibTable
+rlTrafficSegTable = _RlTrafficSegTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2)
+)
+if mibBuilder.loadTexts:
+    rlTrafficSegTable.setStatus("current")
+_RlTrafficSegEntry_Object = MibTableRow
+rlTrafficSegEntry = _RlTrafficSegEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2, 1)
+)
+rlTrafficSegEntry.setIndexNames(
+    (0, "Dlink-TrafficSegmentation-MIB", "rlTrafficSegIndex"),
+)
+if mibBuilder.loadTexts:
+    rlTrafficSegEntry.setStatus("current")
+
+
+class _RlTrafficSegIndex_Type(Unsigned32):
+    """Custom type rlTrafficSegIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_RlTrafficSegIndex_Type.__name__ = "Unsigned32"
+_RlTrafficSegIndex_Object = MibTableColumn
+rlTrafficSegIndex = _RlTrafficSegIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2, 1, 1),
+    _RlTrafficSegIndex_Type()
+)
+rlTrafficSegIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlTrafficSegIndex.setStatus("current")
+_RlTrafficSegIngressPorts_Type = PortList
+_RlTrafficSegIngressPorts_Object = MibTableColumn
+rlTrafficSegIngressPorts = _RlTrafficSegIngressPorts_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2, 1, 2),
+    _RlTrafficSegIngressPorts_Type()
+)
+rlTrafficSegIngressPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlTrafficSegIngressPorts.setStatus("current")
+_RlTrafficSegEgressPorts_Type = PortList
+_RlTrafficSegEgressPorts_Object = MibTableColumn
+rlTrafficSegEgressPorts = _RlTrafficSegEgressPorts_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2, 1, 3),
+    _RlTrafficSegEgressPorts_Type()
+)
+rlTrafficSegEgressPorts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlTrafficSegEgressPorts.setStatus("current")
+_RlTrafficSegRowStatus_Type = RowStatus
+_RlTrafficSegRowStatus_Object = MibTableColumn
+rlTrafficSegRowStatus = _RlTrafficSegRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 94, 89, 89, 138, 2, 1, 4),
+    _RlTrafficSegRowStatus_Type()
+)
+rlTrafficSegRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    rlTrafficSegRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "Dlink-TrafficSegmentation-MIB",
+    **{"rlTrafficSeg": rlTrafficSeg,
+       "rlTrafficSegConfigTable": rlTrafficSegConfigTable,
+       "rlTrafficSegConfigEntry": rlTrafficSegConfigEntry,
+       "rlTrafficSegConfigIndex": rlTrafficSegConfigIndex,
+       "rlTrafficSegConfigIngressPorts": rlTrafficSegConfigIngressPorts,
+       "rlTrafficSegConfigEgressPorts": rlTrafficSegConfigEgressPorts,
+       "rlTrafficSegConfigRowStatus": rlTrafficSegConfigRowStatus,
+       "rlTrafficSegTable": rlTrafficSegTable,
+       "rlTrafficSegEntry": rlTrafficSegEntry,
+       "rlTrafficSegIndex": rlTrafficSegIndex,
+       "rlTrafficSegIngressPorts": rlTrafficSegIngressPorts,
+       "rlTrafficSegEgressPorts": rlTrafficSegEgressPorts,
+       "rlTrafficSegRowStatus": rlTrafficSegRowStatus}
+)

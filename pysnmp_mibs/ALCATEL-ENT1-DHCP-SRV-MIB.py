@@ -1,76 +1,510 @@
+# SNMP MIB module (ALCATEL-ENT1-DHCP-SRV-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALCATEL-ENT1-DHCP-SRV-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-DHCP-SRV-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:59:35 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alcatel-ent1/ALCATEL-ENT1-DHCP-SRV-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:08:55 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-softentIND1DhcpSrv, = mibBuilder.importSymbols("ALCATEL-ENT1-BASE", "softentIND1DhcpSrv")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DateAndTime", "TextualConvention", "DisplayString")
-alcatelIND1DhcpSrvMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1))
-alcatelIND1DhcpSrvMIB.setRevisions(('2009-10-26 00:00',))
-if mibBuilder.loadTexts: alcatelIND1DhcpSrvMIB.setLastUpdated('200812100000Z')
-if mibBuilder.loadTexts: alcatelIND1DhcpSrvMIB.setOrganization('Alcatel - Architects Of An Internet World')
-alcatelIND1DhcpSrvMIBNotifications = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 0))
-if mibBuilder.loadTexts: alcatelIND1DhcpSrvMIBNotifications.setStatus('current')
-alcatelIND1DhcpSrvMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1))
-if mibBuilder.loadTexts: alcatelIND1DhcpSrvMIBObjects.setStatus('current')
-alcatelIND1DhcpSrvMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2))
-if mibBuilder.loadTexts: alcatelIND1DhcpSrvMIBConformance.setStatus('current')
-alcatelIND1DhcpSrvMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 1))
-if mibBuilder.loadTexts: alcatelIND1DhcpSrvMIBGroups.setStatus('current')
-alcatelIND1DhcpSrvMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 2))
-if mibBuilder.loadTexts: alcatelIND1DhcpSrvMIBCompliances.setStatus('current')
-alaDhcpSrvGlobalConfigStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaDhcpSrvGlobalConfigStatus.setStatus('current')
-alaDhcpSrvGlobalRestart = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("restart", 2))).clone('inactive')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaDhcpSrvGlobalRestart.setStatus('current')
-alaDhcpSrvGlobalClearStat = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("default", 1), ("reset", 2))).clone('default')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaDhcpSrvGlobalClearStat.setStatus('current')
-alaDhcpSrvLease = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4))
-alaDhcpSrvLeaseTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1), )
-if mibBuilder.loadTexts: alaDhcpSrvLeaseTable.setStatus('current')
-alaDhcpSrvLeaseEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseInetAddressType"), (0, "ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseInetAddress"))
-if mibBuilder.loadTexts: alaDhcpSrvLeaseEntry.setStatus('current')
-alaDhcpSrvLeaseInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: alaDhcpSrvLeaseInetAddressType.setStatus('current')
-alaDhcpSrvLeaseInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 2), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(1, 16)))
-if mibBuilder.loadTexts: alaDhcpSrvLeaseInetAddress.setStatus('current')
-alaDhcpSrvLeaseMACAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaDhcpSrvLeaseMACAddress.setStatus('current')
-alaDhcpSrvLeaseLeaseGrant = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 4), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaDhcpSrvLeaseLeaseGrant.setStatus('current')
-alaDhcpSrvLeaseLeaseExpiry = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 5), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaDhcpSrvLeaseLeaseExpiry.setStatus('current')
-alaDhcpSrvLeaseType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unavailable", 1), ("dynamic", 2), ("manual", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaDhcpSrvLeaseType.setStatus('current')
-alaDhcpSrvTrapsObj = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 5))
-alaDhcpSrvLeaseUtilizationThresholdTrap = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 0, 1)).setObjects(("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseThresholdStatus"), ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvSubnetDescriptor"))
-if mibBuilder.loadTexts: alaDhcpSrvLeaseUtilizationThresholdTrap.setStatus('current')
-alaDhcpSrvLeaseThresholdStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("crossedBelow80Threshold", 1), ("crossedAbove80Threshold", 2), ("reached100Threshold", 3)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alaDhcpSrvLeaseThresholdStatus.setStatus('current')
-alaDhcpSrvSubnetDescriptor = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 5, 2), DisplayString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: alaDhcpSrvSubnetDescriptor.setStatus('current')
-alcatelIND1DhcpSrvMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 2, 1)).setObjects(("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvGlobalConfigGroup"), ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseGroup"), ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvNotificationGroup"), ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseUtilizationThresholdGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alcatelIND1DhcpSrvMIBCompliance = alcatelIND1DhcpSrvMIBCompliance.setStatus('current')
-alaDhcpSrvGlobalConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 1, 1)).setObjects(("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvGlobalConfigStatus"), ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvGlobalRestart"), ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvGlobalClearStat"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaDhcpSrvGlobalConfigGroup = alaDhcpSrvGlobalConfigGroup.setStatus('current')
-alaDhcpSrvLeaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 1, 2)).setObjects(("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseMACAddress"), ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseLeaseGrant"), ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseLeaseExpiry"), ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaDhcpSrvLeaseGroup = alaDhcpSrvLeaseGroup.setStatus('current')
-alaDhcpSrvNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 1, 3)).setObjects(("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseUtilizationThresholdTrap"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaDhcpSrvNotificationGroup = alaDhcpSrvNotificationGroup.setStatus('current')
-alaDhcpSrvLeaseUtilizationThresholdGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 1, 4)).setObjects(("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseThresholdStatus"), ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvSubnetDescriptor"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaDhcpSrvLeaseUtilizationThresholdGroup = alaDhcpSrvLeaseUtilizationThresholdGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-ENT1-DHCP-SRV-MIB", alaDhcpSrvLeaseLeaseExpiry=alaDhcpSrvLeaseLeaseExpiry, alcatelIND1DhcpSrvMIBConformance=alcatelIND1DhcpSrvMIBConformance, alaDhcpSrvLeaseInetAddress=alaDhcpSrvLeaseInetAddress, alaDhcpSrvLease=alaDhcpSrvLease, alcatelIND1DhcpSrvMIBGroups=alcatelIND1DhcpSrvMIBGroups, alaDhcpSrvTrapsObj=alaDhcpSrvTrapsObj, alaDhcpSrvLeaseInetAddressType=alaDhcpSrvLeaseInetAddressType, alaDhcpSrvGlobalClearStat=alaDhcpSrvGlobalClearStat, alcatelIND1DhcpSrvMIBCompliances=alcatelIND1DhcpSrvMIBCompliances, alaDhcpSrvGlobalRestart=alaDhcpSrvGlobalRestart, alaDhcpSrvLeaseTable=alaDhcpSrvLeaseTable, alaDhcpSrvLeaseType=alaDhcpSrvLeaseType, alcatelIND1DhcpSrvMIBObjects=alcatelIND1DhcpSrvMIBObjects, alaDhcpSrvSubnetDescriptor=alaDhcpSrvSubnetDescriptor, alaDhcpSrvLeaseGroup=alaDhcpSrvLeaseGroup, alaDhcpSrvNotificationGroup=alaDhcpSrvNotificationGroup, alaDhcpSrvGlobalConfigStatus=alaDhcpSrvGlobalConfigStatus, alaDhcpSrvLeaseMACAddress=alaDhcpSrvLeaseMACAddress, alcatelIND1DhcpSrvMIBNotifications=alcatelIND1DhcpSrvMIBNotifications, alaDhcpSrvLeaseUtilizationThresholdTrap=alaDhcpSrvLeaseUtilizationThresholdTrap, alcatelIND1DhcpSrvMIB=alcatelIND1DhcpSrvMIB, alaDhcpSrvGlobalConfigGroup=alaDhcpSrvGlobalConfigGroup, alaDhcpSrvLeaseEntry=alaDhcpSrvLeaseEntry, alaDhcpSrvLeaseThresholdStatus=alaDhcpSrvLeaseThresholdStatus, alcatelIND1DhcpSrvMIBCompliance=alcatelIND1DhcpSrvMIBCompliance, alaDhcpSrvLeaseUtilizationThresholdGroup=alaDhcpSrvLeaseUtilizationThresholdGroup, PYSNMP_MODULE_ID=alcatelIND1DhcpSrvMIB, alaDhcpSrvLeaseLeaseGrant=alaDhcpSrvLeaseLeaseGrant)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(softentIND1DhcpSrv,) = mibBuilder.importSymbols(
+    "ALCATEL-ENT1-BASE",
+    "softentIND1DhcpSrv")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alcatelIND1DhcpSrvMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1DhcpSrvMIB.setRevisions(
+        ("2009-10-26 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlcatelIND1DhcpSrvMIBNotifications_ObjectIdentity = ObjectIdentity
+alcatelIND1DhcpSrvMIBNotifications = _AlcatelIND1DhcpSrvMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 0)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1DhcpSrvMIBNotifications.setStatus("current")
+_AlcatelIND1DhcpSrvMIBObjects_ObjectIdentity = ObjectIdentity
+alcatelIND1DhcpSrvMIBObjects = _AlcatelIND1DhcpSrvMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1DhcpSrvMIBObjects.setStatus("current")
+
+
+class _AlaDhcpSrvGlobalConfigStatus_Type(Integer32):
+    """Custom type alaDhcpSrvGlobalConfigStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaDhcpSrvGlobalConfigStatus_Type.__name__ = "Integer32"
+_AlaDhcpSrvGlobalConfigStatus_Object = MibScalar
+alaDhcpSrvGlobalConfigStatus = _AlaDhcpSrvGlobalConfigStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 1),
+    _AlaDhcpSrvGlobalConfigStatus_Type()
+)
+alaDhcpSrvGlobalConfigStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaDhcpSrvGlobalConfigStatus.setStatus("current")
+
+
+class _AlaDhcpSrvGlobalRestart_Type(Integer32):
+    """Custom type alaDhcpSrvGlobalRestart based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("restart", 2))
+    )
+
+
+_AlaDhcpSrvGlobalRestart_Type.__name__ = "Integer32"
+_AlaDhcpSrvGlobalRestart_Object = MibScalar
+alaDhcpSrvGlobalRestart = _AlaDhcpSrvGlobalRestart_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 2),
+    _AlaDhcpSrvGlobalRestart_Type()
+)
+alaDhcpSrvGlobalRestart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaDhcpSrvGlobalRestart.setStatus("current")
+
+
+class _AlaDhcpSrvGlobalClearStat_Type(Integer32):
+    """Custom type alaDhcpSrvGlobalClearStat based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("default", 1),
+          ("reset", 2))
+    )
+
+
+_AlaDhcpSrvGlobalClearStat_Type.__name__ = "Integer32"
+_AlaDhcpSrvGlobalClearStat_Object = MibScalar
+alaDhcpSrvGlobalClearStat = _AlaDhcpSrvGlobalClearStat_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 3),
+    _AlaDhcpSrvGlobalClearStat_Type()
+)
+alaDhcpSrvGlobalClearStat.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaDhcpSrvGlobalClearStat.setStatus("current")
+_AlaDhcpSrvLease_ObjectIdentity = ObjectIdentity
+alaDhcpSrvLease = _AlaDhcpSrvLease_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4)
+)
+_AlaDhcpSrvLeaseTable_Object = MibTable
+alaDhcpSrvLeaseTable = _AlaDhcpSrvLeaseTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseTable.setStatus("current")
+_AlaDhcpSrvLeaseEntry_Object = MibTableRow
+alaDhcpSrvLeaseEntry = _AlaDhcpSrvLeaseEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1)
+)
+alaDhcpSrvLeaseEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseInetAddressType"),
+    (0, "ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseInetAddress"),
+)
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseEntry.setStatus("current")
+_AlaDhcpSrvLeaseInetAddressType_Type = InetAddressType
+_AlaDhcpSrvLeaseInetAddressType_Object = MibTableColumn
+alaDhcpSrvLeaseInetAddressType = _AlaDhcpSrvLeaseInetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 1),
+    _AlaDhcpSrvLeaseInetAddressType_Type()
+)
+alaDhcpSrvLeaseInetAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseInetAddressType.setStatus("current")
+
+
+class _AlaDhcpSrvLeaseInetAddress_Type(InetAddress):
+    """Custom type alaDhcpSrvLeaseInetAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 16),
+    )
+
+
+_AlaDhcpSrvLeaseInetAddress_Type.__name__ = "InetAddress"
+_AlaDhcpSrvLeaseInetAddress_Object = MibTableColumn
+alaDhcpSrvLeaseInetAddress = _AlaDhcpSrvLeaseInetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 2),
+    _AlaDhcpSrvLeaseInetAddress_Type()
+)
+alaDhcpSrvLeaseInetAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseInetAddress.setStatus("current")
+_AlaDhcpSrvLeaseMACAddress_Type = MacAddress
+_AlaDhcpSrvLeaseMACAddress_Object = MibTableColumn
+alaDhcpSrvLeaseMACAddress = _AlaDhcpSrvLeaseMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 3),
+    _AlaDhcpSrvLeaseMACAddress_Type()
+)
+alaDhcpSrvLeaseMACAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseMACAddress.setStatus("current")
+_AlaDhcpSrvLeaseLeaseGrant_Type = DateAndTime
+_AlaDhcpSrvLeaseLeaseGrant_Object = MibTableColumn
+alaDhcpSrvLeaseLeaseGrant = _AlaDhcpSrvLeaseLeaseGrant_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 4),
+    _AlaDhcpSrvLeaseLeaseGrant_Type()
+)
+alaDhcpSrvLeaseLeaseGrant.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseLeaseGrant.setStatus("current")
+_AlaDhcpSrvLeaseLeaseExpiry_Type = DateAndTime
+_AlaDhcpSrvLeaseLeaseExpiry_Object = MibTableColumn
+alaDhcpSrvLeaseLeaseExpiry = _AlaDhcpSrvLeaseLeaseExpiry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 5),
+    _AlaDhcpSrvLeaseLeaseExpiry_Type()
+)
+alaDhcpSrvLeaseLeaseExpiry.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseLeaseExpiry.setStatus("current")
+
+
+class _AlaDhcpSrvLeaseType_Type(Integer32):
+    """Custom type alaDhcpSrvLeaseType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unavailable", 1),
+          ("dynamic", 2),
+          ("manual", 3))
+    )
+
+
+_AlaDhcpSrvLeaseType_Type.__name__ = "Integer32"
+_AlaDhcpSrvLeaseType_Object = MibTableColumn
+alaDhcpSrvLeaseType = _AlaDhcpSrvLeaseType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 4, 1, 1, 6),
+    _AlaDhcpSrvLeaseType_Type()
+)
+alaDhcpSrvLeaseType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseType.setStatus("current")
+_AlaDhcpSrvTrapsObj_ObjectIdentity = ObjectIdentity
+alaDhcpSrvTrapsObj = _AlaDhcpSrvTrapsObj_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 5)
+)
+
+
+class _AlaDhcpSrvLeaseThresholdStatus_Type(Integer32):
+    """Custom type alaDhcpSrvLeaseThresholdStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("crossedBelow80Threshold", 1),
+          ("crossedAbove80Threshold", 2),
+          ("reached100Threshold", 3))
+    )
+
+
+_AlaDhcpSrvLeaseThresholdStatus_Type.__name__ = "Integer32"
+_AlaDhcpSrvLeaseThresholdStatus_Object = MibScalar
+alaDhcpSrvLeaseThresholdStatus = _AlaDhcpSrvLeaseThresholdStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 5, 1),
+    _AlaDhcpSrvLeaseThresholdStatus_Type()
+)
+alaDhcpSrvLeaseThresholdStatus.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseThresholdStatus.setStatus("current")
+_AlaDhcpSrvSubnetDescriptor_Type = DisplayString
+_AlaDhcpSrvSubnetDescriptor_Object = MibScalar
+alaDhcpSrvSubnetDescriptor = _AlaDhcpSrvSubnetDescriptor_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 1, 5, 2),
+    _AlaDhcpSrvSubnetDescriptor_Type()
+)
+alaDhcpSrvSubnetDescriptor.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    alaDhcpSrvSubnetDescriptor.setStatus("current")
+_AlcatelIND1DhcpSrvMIBConformance_ObjectIdentity = ObjectIdentity
+alcatelIND1DhcpSrvMIBConformance = _AlcatelIND1DhcpSrvMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1DhcpSrvMIBConformance.setStatus("current")
+_AlcatelIND1DhcpSrvMIBGroups_ObjectIdentity = ObjectIdentity
+alcatelIND1DhcpSrvMIBGroups = _AlcatelIND1DhcpSrvMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1DhcpSrvMIBGroups.setStatus("current")
+_AlcatelIND1DhcpSrvMIBCompliances_ObjectIdentity = ObjectIdentity
+alcatelIND1DhcpSrvMIBCompliances = _AlcatelIND1DhcpSrvMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1DhcpSrvMIBCompliances.setStatus("current")
+
+# Managed Objects groups
+
+alaDhcpSrvGlobalConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 1, 1)
+)
+alaDhcpSrvGlobalConfigGroup.setObjects(
+      *(("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvGlobalConfigStatus"),
+        ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvGlobalRestart"),
+        ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvGlobalClearStat"))
+)
+if mibBuilder.loadTexts:
+    alaDhcpSrvGlobalConfigGroup.setStatus("current")
+
+alaDhcpSrvLeaseGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 1, 2)
+)
+alaDhcpSrvLeaseGroup.setObjects(
+      *(("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseMACAddress"),
+        ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseLeaseGrant"),
+        ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseLeaseExpiry"),
+        ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseType"))
+)
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseGroup.setStatus("current")
+
+alaDhcpSrvLeaseUtilizationThresholdGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 1, 4)
+)
+alaDhcpSrvLeaseUtilizationThresholdGroup.setObjects(
+      *(("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseThresholdStatus"),
+        ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvSubnetDescriptor"))
+)
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseUtilizationThresholdGroup.setStatus("current")
+
+
+# Notification objects
+
+alaDhcpSrvLeaseUtilizationThresholdTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 0, 1)
+)
+alaDhcpSrvLeaseUtilizationThresholdTrap.setObjects(
+      *(("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseThresholdStatus"),
+        ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvSubnetDescriptor"))
+)
+if mibBuilder.loadTexts:
+    alaDhcpSrvLeaseUtilizationThresholdTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+alaDhcpSrvNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 1, 3)
+)
+alaDhcpSrvNotificationGroup.setObjects(
+    ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseUtilizationThresholdTrap")
+)
+if mibBuilder.loadTexts:
+    alaDhcpSrvNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alcatelIND1DhcpSrvMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 59, 1, 2, 2, 1)
+)
+alcatelIND1DhcpSrvMIBCompliance.setObjects(
+      *(("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvGlobalConfigGroup"),
+        ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseGroup"),
+        ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvNotificationGroup"),
+        ("ALCATEL-ENT1-DHCP-SRV-MIB", "alaDhcpSrvLeaseUtilizationThresholdGroup"))
+)
+if mibBuilder.loadTexts:
+    alcatelIND1DhcpSrvMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALCATEL-ENT1-DHCP-SRV-MIB",
+    **{"alcatelIND1DhcpSrvMIB": alcatelIND1DhcpSrvMIB,
+       "alcatelIND1DhcpSrvMIBNotifications": alcatelIND1DhcpSrvMIBNotifications,
+       "alaDhcpSrvLeaseUtilizationThresholdTrap": alaDhcpSrvLeaseUtilizationThresholdTrap,
+       "alcatelIND1DhcpSrvMIBObjects": alcatelIND1DhcpSrvMIBObjects,
+       "alaDhcpSrvGlobalConfigStatus": alaDhcpSrvGlobalConfigStatus,
+       "alaDhcpSrvGlobalRestart": alaDhcpSrvGlobalRestart,
+       "alaDhcpSrvGlobalClearStat": alaDhcpSrvGlobalClearStat,
+       "alaDhcpSrvLease": alaDhcpSrvLease,
+       "alaDhcpSrvLeaseTable": alaDhcpSrvLeaseTable,
+       "alaDhcpSrvLeaseEntry": alaDhcpSrvLeaseEntry,
+       "alaDhcpSrvLeaseInetAddressType": alaDhcpSrvLeaseInetAddressType,
+       "alaDhcpSrvLeaseInetAddress": alaDhcpSrvLeaseInetAddress,
+       "alaDhcpSrvLeaseMACAddress": alaDhcpSrvLeaseMACAddress,
+       "alaDhcpSrvLeaseLeaseGrant": alaDhcpSrvLeaseLeaseGrant,
+       "alaDhcpSrvLeaseLeaseExpiry": alaDhcpSrvLeaseLeaseExpiry,
+       "alaDhcpSrvLeaseType": alaDhcpSrvLeaseType,
+       "alaDhcpSrvTrapsObj": alaDhcpSrvTrapsObj,
+       "alaDhcpSrvLeaseThresholdStatus": alaDhcpSrvLeaseThresholdStatus,
+       "alaDhcpSrvSubnetDescriptor": alaDhcpSrvSubnetDescriptor,
+       "alcatelIND1DhcpSrvMIBConformance": alcatelIND1DhcpSrvMIBConformance,
+       "alcatelIND1DhcpSrvMIBGroups": alcatelIND1DhcpSrvMIBGroups,
+       "alaDhcpSrvGlobalConfigGroup": alaDhcpSrvGlobalConfigGroup,
+       "alaDhcpSrvLeaseGroup": alaDhcpSrvLeaseGroup,
+       "alaDhcpSrvNotificationGroup": alaDhcpSrvNotificationGroup,
+       "alaDhcpSrvLeaseUtilizationThresholdGroup": alaDhcpSrvLeaseUtilizationThresholdGroup,
+       "alcatelIND1DhcpSrvMIBCompliances": alcatelIND1DhcpSrvMIBCompliances,
+       "alcatelIND1DhcpSrvMIBCompliance": alcatelIND1DhcpSrvMIBCompliance}
+)

@@ -1,153 +1,1157 @@
+# SNMP MIB module (FOUNDRY-SN-STACKING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module FOUNDRY-SN-STACKING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/FOUNDRY-SN-STACKING-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:32 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/brocade/FOUNDRY-SN-STACKING-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:02:10 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-DisplayString, = mibBuilder.importSymbols("FOUNDRY-SN-AGENT-MIB", "DisplayString")
-snSwitch, = mibBuilder.importSymbols("FOUNDRY-SN-SWITCH-GROUP-MIB", "snSwitch")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-snStacking = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31))
-snStacking.setRevisions(('2008-05-05 00:00', '2017-08-07 00:00', '2018-09-06 00:00',))
-if mibBuilder.loadTexts: snStacking.setLastUpdated('201809060000Z')
-if mibBuilder.loadTexts: snStacking.setOrganization('Ruckus Wireless, Inc.')
-snStackingGlobalObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1))
-snStackingTableObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2))
-snStackingGlobalConfigState = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingGlobalConfigState.setStatus('current')
-snStackingGlobalMacAddress = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 2), MacAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingGlobalMacAddress.setStatus('current')
-snStackingGlobalPersistentMacTimerState = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("enabled", 0), ("disabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingGlobalPersistentMacTimerState.setStatus('deprecated')
-snStackingGlobalPersistentMacTimer = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingGlobalPersistentMacTimer.setStatus('deprecated')
-snStackingGlobalTopology = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("chain", 2), ("ring", 3), ("standalone", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingGlobalTopology.setStatus('current')
-snStackingGlobalMode = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("stackingMode", 1), ("nonStackingMode", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingGlobalMode.setStatus('current')
-snStackingGlobalMixedMode = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("mixedStackingMode", 1), ("classicStackingMode", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingGlobalMixedMode.setStatus('current')
-snStackingGlobalMaxUnitNumber = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingGlobalMaxUnitNumber.setStatus('current')
-snStackingGlobalHighestPriority = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingGlobalHighestPriority.setStatus('current')
-snStackingGlobalZeroTouchEnable = MibScalar((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingGlobalZeroTouchEnable.setStatus('current')
-snStackingConfigUnitTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1), )
-if mibBuilder.loadTexts: snStackingConfigUnitTable.setStatus('current')
-snStackingConfigUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1), ).setIndexNames((0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigUnitIndex"))
-if mibBuilder.loadTexts: snStackingConfigUnitEntry.setStatus('current')
-snStackingConfigUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: snStackingConfigUnitIndex.setStatus('current')
-snStackingConfigUnitPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigUnitPriority.setStatus('current')
-snStackingConfigUnitConfigStackPort = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 3), InterfaceIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigUnitConfigStackPort.setStatus('deprecated')
-snStackingConfigUnitRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("valid", 2), ("delete", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigUnitRowStatus.setStatus('current')
-snStackingConfigUnitType = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingConfigUnitType.setStatus('current')
-snStackingConfigUnitState = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("local", 1), ("remote", 2), ("reserved", 3), ("empty", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingConfigUnitState.setStatus('current')
-snStackingConfigUnitStackPort1 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 7), InterfaceIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigUnitStackPort1.setStatus('current')
-snStackingConfigUnitStackPort2 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 8), InterfaceIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigUnitStackPort2.setStatus('current')
-snStackingConfigUnitConnectPort1 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 9), InterfaceIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigUnitConnectPort1.setStatus('deprecated')
-snStackingConfigUnitConnectPort2 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 10), InterfaceIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigUnitConnectPort2.setStatus('deprecated')
-snStackingConfigUnitStackTrunk1 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 11), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigUnitStackTrunk1.setStatus('current')
-snStackingConfigUnitStackTrunk2 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 12), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigUnitStackTrunk2.setStatus('current')
-snStackingConfigUnitName = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigUnitName.setStatus('current')
-snStackingOperUnitTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2), )
-if mibBuilder.loadTexts: snStackingOperUnitTable.setStatus('current')
-snStackingOperUnitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1), ).setIndexNames((0, "FOUNDRY-SN-STACKING-MIB", "snStackingOperUnitIndex"))
-if mibBuilder.loadTexts: snStackingOperUnitEntry.setStatus('current')
-snStackingOperUnitIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: snStackingOperUnitIndex.setStatus('current')
-snStackingOperUnitRole = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("active", 2), ("standby", 3), ("member", 4), ("standalone", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitRole.setStatus('current')
-snStackingOperUnitMac = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitMac.setStatus('current')
-snStackingOperUnitPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitPriority.setStatus('current')
-snStackingOperUnitState = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("local", 1), ("remote", 2), ("reserved", 3), ("empty", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitState.setStatus('current')
-snStackingOperUnitDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitDescription.setStatus('current')
-snStackingOperUnitStackPort1 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 7), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitStackPort1.setStatus('current')
-snStackingOperUnitStackPort1State = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("up", 2), ("down", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitStackPort1State.setStatus('current')
-snStackingOperUnitStackPort2 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 9), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitStackPort2.setStatus('current')
-snStackingOperUnitStackPort2State = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("up", 2), ("down", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitStackPort2State.setStatus('current')
-snStackingOperUnitNeighbor1 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitNeighbor1.setStatus('current')
-snStackingOperUnitNeighbor2 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitNeighbor2.setStatus('current')
-snStackingOperUnitImgVer = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 13), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitImgVer.setStatus('current')
-snStackingOperUnitBuildlVer = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 14), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingOperUnitBuildlVer.setStatus('current')
-snStackingConfigStackTrunkTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3), )
-if mibBuilder.loadTexts: snStackingConfigStackTrunkTable.setStatus('deprecated')
-snStackingConfigStackTrunkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1), ).setIndexNames((0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigStackTrunkUnit"), (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigStackTrunkPort1"), (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigStackTrunkPort2"))
-if mibBuilder.loadTexts: snStackingConfigStackTrunkEntry.setStatus('deprecated')
-snStackingConfigStackTrunkUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 1), Integer32())
-if mibBuilder.loadTexts: snStackingConfigStackTrunkUnit.setStatus('deprecated')
-snStackingConfigStackTrunkPort1 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 2), InterfaceIndexOrZero())
-if mibBuilder.loadTexts: snStackingConfigStackTrunkPort1.setStatus('deprecated')
-snStackingConfigStackTrunkPort2 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 3), InterfaceIndexOrZero())
-if mibBuilder.loadTexts: snStackingConfigStackTrunkPort2.setStatus('deprecated')
-snStackingConfigStackTrunkRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("valid", 2), ("delete", 3), ("create", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigStackTrunkRowStatus.setStatus('deprecated')
-snStackingConfigStackTrunkNumPort1 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingConfigStackTrunkNumPort1.setStatus('deprecated')
-snStackingConfigStackTrunkNumPort2 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingConfigStackTrunkNumPort2.setStatus('deprecated')
-snStackingConfigPeriPortTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 4), )
-if mibBuilder.loadTexts: snStackingConfigPeriPortTable.setStatus('deprecated')
-snStackingConfigPeriPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 4, 1), ).setIndexNames((0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigPeriPortUnit"), (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigPeriPortPort"))
-if mibBuilder.loadTexts: snStackingConfigPeriPortEntry.setStatus('deprecated')
-snStackingConfigPeriPortUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 4, 1, 1), Integer32())
-if mibBuilder.loadTexts: snStackingConfigPeriPortUnit.setStatus('deprecated')
-snStackingConfigPeriPortPort = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 4, 1, 2), InterfaceIndexOrZero())
-if mibBuilder.loadTexts: snStackingConfigPeriPortPort.setStatus('deprecated')
-snStackingConfigPeriPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("valid", 2), ("delete", 3), ("create", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigPeriPortRowStatus.setStatus('deprecated')
-snStackingConfigPeriTrunkTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5), )
-if mibBuilder.loadTexts: snStackingConfigPeriTrunkTable.setStatus('deprecated')
-snStackingConfigPeriTrunkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5, 1), ).setIndexNames((0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigPeriTrunkUnit"), (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigPeriTrunkPort1"), (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigPeriTrunkPort2"))
-if mibBuilder.loadTexts: snStackingConfigPeriTrunkEntry.setStatus('deprecated')
-snStackingConfigPeriTrunkUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5, 1, 1), Integer32())
-if mibBuilder.loadTexts: snStackingConfigPeriTrunkUnit.setStatus('deprecated')
-snStackingConfigPeriTrunkPort1 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5, 1, 2), InterfaceIndexOrZero())
-if mibBuilder.loadTexts: snStackingConfigPeriTrunkPort1.setStatus('deprecated')
-snStackingConfigPeriTrunkPort2 = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5, 1, 3), InterfaceIndexOrZero())
-if mibBuilder.loadTexts: snStackingConfigPeriTrunkPort2.setStatus('deprecated')
-snStackingConfigPeriTrunkRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("other", 1), ("valid", 2), ("delete", 3), ("create", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snStackingConfigPeriTrunkRowStatus.setStatus('current')
-snStackingNeighborPortTable = MibTable((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 6), )
-if mibBuilder.loadTexts: snStackingNeighborPortTable.setStatus('current')
-snStackingNeighborPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 6, 1), ).setIndexNames((0, "FOUNDRY-SN-STACKING-MIB", "snStackingNeighborPortUnit"), (0, "FOUNDRY-SN-STACKING-MIB", "snStackingNeighborPortStackPort"))
-if mibBuilder.loadTexts: snStackingNeighborPortEntry.setStatus('current')
-snStackingNeighborPortUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 6, 1, 1), Integer32())
-if mibBuilder.loadTexts: snStackingNeighborPortUnit.setStatus('current')
-snStackingNeighborPortStackPort = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 6, 1, 2), InterfaceIndexOrZero())
-if mibBuilder.loadTexts: snStackingNeighborPortStackPort.setStatus('current')
-snStackingNeighborPortNeighborPort = MibTableColumn((1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 6, 1, 3), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snStackingNeighborPortNeighborPort.setStatus('current')
-mibBuilder.exportSymbols("FOUNDRY-SN-STACKING-MIB", snStackingNeighborPortTable=snStackingNeighborPortTable, snStackingConfigUnitType=snStackingConfigUnitType, snStackingTableObjects=snStackingTableObjects, snStackingConfigPeriPortEntry=snStackingConfigPeriPortEntry, snStackingGlobalMode=snStackingGlobalMode, snStackingConfigUnitEntry=snStackingConfigUnitEntry, snStackingOperUnitRole=snStackingOperUnitRole, snStackingConfigUnitPriority=snStackingConfigUnitPriority, snStackingConfigStackTrunkEntry=snStackingConfigStackTrunkEntry, snStackingGlobalPersistentMacTimer=snStackingGlobalPersistentMacTimer, snStackingConfigStackTrunkUnit=snStackingConfigStackTrunkUnit, snStackingConfigPeriTrunkRowStatus=snStackingConfigPeriTrunkRowStatus, snStackingOperUnitEntry=snStackingOperUnitEntry, snStacking=snStacking, snStackingConfigUnitIndex=snStackingConfigUnitIndex, snStackingConfigUnitStackTrunk2=snStackingConfigUnitStackTrunk2, PYSNMP_MODULE_ID=snStacking, snStackingOperUnitPriority=snStackingOperUnitPriority, snStackingConfigStackTrunkNumPort1=snStackingConfigStackTrunkNumPort1, snStackingConfigUnitStackPort2=snStackingConfigUnitStackPort2, snStackingNeighborPortEntry=snStackingNeighborPortEntry, snStackingConfigPeriPortUnit=snStackingConfigPeriPortUnit, snStackingConfigPeriTrunkPort2=snStackingConfigPeriTrunkPort2, snStackingOperUnitStackPort1State=snStackingOperUnitStackPort1State, snStackingOperUnitStackPort2State=snStackingOperUnitStackPort2State, snStackingOperUnitNeighbor2=snStackingOperUnitNeighbor2, snStackingConfigUnitState=snStackingConfigUnitState, snStackingOperUnitImgVer=snStackingOperUnitImgVer, snStackingGlobalMacAddress=snStackingGlobalMacAddress, snStackingGlobalMaxUnitNumber=snStackingGlobalMaxUnitNumber, snStackingConfigUnitConfigStackPort=snStackingConfigUnitConfigStackPort, snStackingOperUnitBuildlVer=snStackingOperUnitBuildlVer, snStackingConfigPeriTrunkEntry=snStackingConfigPeriTrunkEntry, snStackingConfigPeriTrunkPort1=snStackingConfigPeriTrunkPort1, snStackingOperUnitStackPort2=snStackingOperUnitStackPort2, snStackingConfigUnitTable=snStackingConfigUnitTable, snStackingNeighborPortNeighborPort=snStackingNeighborPortNeighborPort, snStackingOperUnitIndex=snStackingOperUnitIndex, snStackingConfigPeriPortTable=snStackingConfigPeriPortTable, snStackingGlobalMixedMode=snStackingGlobalMixedMode, snStackingGlobalPersistentMacTimerState=snStackingGlobalPersistentMacTimerState, snStackingConfigUnitStackTrunk1=snStackingConfigUnitStackTrunk1, snStackingConfigStackTrunkNumPort2=snStackingConfigStackTrunkNumPort2, snStackingNeighborPortUnit=snStackingNeighborPortUnit, snStackingGlobalTopology=snStackingGlobalTopology, snStackingOperUnitDescription=snStackingOperUnitDescription, snStackingConfigUnitRowStatus=snStackingConfigUnitRowStatus, snStackingConfigPeriPortRowStatus=snStackingConfigPeriPortRowStatus, snStackingConfigPeriTrunkTable=snStackingConfigPeriTrunkTable, snStackingConfigUnitStackPort1=snStackingConfigUnitStackPort1, snStackingConfigPeriPortPort=snStackingConfigPeriPortPort, snStackingConfigStackTrunkPort2=snStackingConfigStackTrunkPort2, snStackingConfigUnitConnectPort2=snStackingConfigUnitConnectPort2, snStackingNeighborPortStackPort=snStackingNeighborPortStackPort, snStackingGlobalHighestPriority=snStackingGlobalHighestPriority, snStackingOperUnitNeighbor1=snStackingOperUnitNeighbor1, snStackingConfigStackTrunkRowStatus=snStackingConfigStackTrunkRowStatus, snStackingOperUnitStackPort1=snStackingOperUnitStackPort1, snStackingGlobalZeroTouchEnable=snStackingGlobalZeroTouchEnable, snStackingConfigStackTrunkTable=snStackingConfigStackTrunkTable, snStackingConfigStackTrunkPort1=snStackingConfigStackTrunkPort1, snStackingConfigUnitConnectPort1=snStackingConfigUnitConnectPort1, snStackingConfigUnitName=snStackingConfigUnitName, snStackingOperUnitMac=snStackingOperUnitMac, snStackingOperUnitState=snStackingOperUnitState, snStackingGlobalObjects=snStackingGlobalObjects, snStackingConfigPeriTrunkUnit=snStackingConfigPeriTrunkUnit, snStackingOperUnitTable=snStackingOperUnitTable, snStackingGlobalConfigState=snStackingGlobalConfigState)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(DisplayString,) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-AGENT-MIB",
+    "DisplayString")
+
+(snSwitch,) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-SWITCH-GROUP-MIB",
+    "snSwitch")
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+snStacking = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31)
+)
+if mibBuilder.loadTexts:
+    snStacking.setRevisions(
+        ("2008-05-05 00:00",
+         "2017-08-07 00:00",
+         "2018-09-06 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SnStackingGlobalObjects_ObjectIdentity = ObjectIdentity
+snStackingGlobalObjects = _SnStackingGlobalObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1)
+)
+
+
+class _SnStackingGlobalConfigState_Type(Integer32):
+    """Custom type snStackingGlobalConfigState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SnStackingGlobalConfigState_Type.__name__ = "Integer32"
+_SnStackingGlobalConfigState_Object = MibScalar
+snStackingGlobalConfigState = _SnStackingGlobalConfigState_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 1),
+    _SnStackingGlobalConfigState_Type()
+)
+snStackingGlobalConfigState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingGlobalConfigState.setStatus("current")
+_SnStackingGlobalMacAddress_Type = MacAddress
+_SnStackingGlobalMacAddress_Object = MibScalar
+snStackingGlobalMacAddress = _SnStackingGlobalMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 2),
+    _SnStackingGlobalMacAddress_Type()
+)
+snStackingGlobalMacAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingGlobalMacAddress.setStatus("current")
+
+
+class _SnStackingGlobalPersistentMacTimerState_Type(Integer32):
+    """Custom type snStackingGlobalPersistentMacTimerState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 0),
+          ("disabled", 1))
+    )
+
+
+_SnStackingGlobalPersistentMacTimerState_Type.__name__ = "Integer32"
+_SnStackingGlobalPersistentMacTimerState_Object = MibScalar
+snStackingGlobalPersistentMacTimerState = _SnStackingGlobalPersistentMacTimerState_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 3),
+    _SnStackingGlobalPersistentMacTimerState_Type()
+)
+snStackingGlobalPersistentMacTimerState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingGlobalPersistentMacTimerState.setStatus("deprecated")
+_SnStackingGlobalPersistentMacTimer_Type = Integer32
+_SnStackingGlobalPersistentMacTimer_Object = MibScalar
+snStackingGlobalPersistentMacTimer = _SnStackingGlobalPersistentMacTimer_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 4),
+    _SnStackingGlobalPersistentMacTimer_Type()
+)
+snStackingGlobalPersistentMacTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingGlobalPersistentMacTimer.setStatus("deprecated")
+
+
+class _SnStackingGlobalTopology_Type(Integer32):
+    """Custom type snStackingGlobalTopology based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("chain", 2),
+          ("ring", 3),
+          ("standalone", 4))
+    )
+
+
+_SnStackingGlobalTopology_Type.__name__ = "Integer32"
+_SnStackingGlobalTopology_Object = MibScalar
+snStackingGlobalTopology = _SnStackingGlobalTopology_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 5),
+    _SnStackingGlobalTopology_Type()
+)
+snStackingGlobalTopology.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingGlobalTopology.setStatus("current")
+
+
+class _SnStackingGlobalMode_Type(Integer32):
+    """Custom type snStackingGlobalMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("stackingMode", 1),
+          ("nonStackingMode", 2))
+    )
+
+
+_SnStackingGlobalMode_Type.__name__ = "Integer32"
+_SnStackingGlobalMode_Object = MibScalar
+snStackingGlobalMode = _SnStackingGlobalMode_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 6),
+    _SnStackingGlobalMode_Type()
+)
+snStackingGlobalMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingGlobalMode.setStatus("current")
+
+
+class _SnStackingGlobalMixedMode_Type(Integer32):
+    """Custom type snStackingGlobalMixedMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mixedStackingMode", 1),
+          ("classicStackingMode", 2))
+    )
+
+
+_SnStackingGlobalMixedMode_Type.__name__ = "Integer32"
+_SnStackingGlobalMixedMode_Object = MibScalar
+snStackingGlobalMixedMode = _SnStackingGlobalMixedMode_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 7),
+    _SnStackingGlobalMixedMode_Type()
+)
+snStackingGlobalMixedMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingGlobalMixedMode.setStatus("current")
+_SnStackingGlobalMaxUnitNumber_Type = Integer32
+_SnStackingGlobalMaxUnitNumber_Object = MibScalar
+snStackingGlobalMaxUnitNumber = _SnStackingGlobalMaxUnitNumber_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 8),
+    _SnStackingGlobalMaxUnitNumber_Type()
+)
+snStackingGlobalMaxUnitNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingGlobalMaxUnitNumber.setStatus("current")
+_SnStackingGlobalHighestPriority_Type = Integer32
+_SnStackingGlobalHighestPriority_Object = MibScalar
+snStackingGlobalHighestPriority = _SnStackingGlobalHighestPriority_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 9),
+    _SnStackingGlobalHighestPriority_Type()
+)
+snStackingGlobalHighestPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingGlobalHighestPriority.setStatus("current")
+
+
+class _SnStackingGlobalZeroTouchEnable_Type(Integer32):
+    """Custom type snStackingGlobalZeroTouchEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enabled", 1))
+    )
+
+
+_SnStackingGlobalZeroTouchEnable_Type.__name__ = "Integer32"
+_SnStackingGlobalZeroTouchEnable_Object = MibScalar
+snStackingGlobalZeroTouchEnable = _SnStackingGlobalZeroTouchEnable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 1, 10),
+    _SnStackingGlobalZeroTouchEnable_Type()
+)
+snStackingGlobalZeroTouchEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingGlobalZeroTouchEnable.setStatus("current")
+_SnStackingTableObjects_ObjectIdentity = ObjectIdentity
+snStackingTableObjects = _SnStackingTableObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2)
+)
+_SnStackingConfigUnitTable_Object = MibTable
+snStackingConfigUnitTable = _SnStackingConfigUnitTable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1)
+)
+if mibBuilder.loadTexts:
+    snStackingConfigUnitTable.setStatus("current")
+_SnStackingConfigUnitEntry_Object = MibTableRow
+snStackingConfigUnitEntry = _SnStackingConfigUnitEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1)
+)
+snStackingConfigUnitEntry.setIndexNames(
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigUnitIndex"),
+)
+if mibBuilder.loadTexts:
+    snStackingConfigUnitEntry.setStatus("current")
+_SnStackingConfigUnitIndex_Type = Integer32
+_SnStackingConfigUnitIndex_Object = MibTableColumn
+snStackingConfigUnitIndex = _SnStackingConfigUnitIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 1),
+    _SnStackingConfigUnitIndex_Type()
+)
+snStackingConfigUnitIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitIndex.setStatus("current")
+
+
+class _SnStackingConfigUnitPriority_Type(Integer32):
+    """Custom type snStackingConfigUnitPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SnStackingConfigUnitPriority_Type.__name__ = "Integer32"
+_SnStackingConfigUnitPriority_Object = MibTableColumn
+snStackingConfigUnitPriority = _SnStackingConfigUnitPriority_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 2),
+    _SnStackingConfigUnitPriority_Type()
+)
+snStackingConfigUnitPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitPriority.setStatus("current")
+_SnStackingConfigUnitConfigStackPort_Type = InterfaceIndexOrZero
+_SnStackingConfigUnitConfigStackPort_Object = MibTableColumn
+snStackingConfigUnitConfigStackPort = _SnStackingConfigUnitConfigStackPort_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 3),
+    _SnStackingConfigUnitConfigStackPort_Type()
+)
+snStackingConfigUnitConfigStackPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitConfigStackPort.setStatus("deprecated")
+
+
+class _SnStackingConfigUnitRowStatus_Type(Integer32):
+    """Custom type snStackingConfigUnitRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("valid", 2),
+          ("delete", 3))
+    )
+
+
+_SnStackingConfigUnitRowStatus_Type.__name__ = "Integer32"
+_SnStackingConfigUnitRowStatus_Object = MibTableColumn
+snStackingConfigUnitRowStatus = _SnStackingConfigUnitRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 4),
+    _SnStackingConfigUnitRowStatus_Type()
+)
+snStackingConfigUnitRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitRowStatus.setStatus("current")
+_SnStackingConfigUnitType_Type = DisplayString
+_SnStackingConfigUnitType_Object = MibTableColumn
+snStackingConfigUnitType = _SnStackingConfigUnitType_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 5),
+    _SnStackingConfigUnitType_Type()
+)
+snStackingConfigUnitType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitType.setStatus("current")
+
+
+class _SnStackingConfigUnitState_Type(Integer32):
+    """Custom type snStackingConfigUnitState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("local", 1),
+          ("remote", 2),
+          ("reserved", 3),
+          ("empty", 4))
+    )
+
+
+_SnStackingConfigUnitState_Type.__name__ = "Integer32"
+_SnStackingConfigUnitState_Object = MibTableColumn
+snStackingConfigUnitState = _SnStackingConfigUnitState_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 6),
+    _SnStackingConfigUnitState_Type()
+)
+snStackingConfigUnitState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitState.setStatus("current")
+_SnStackingConfigUnitStackPort1_Type = InterfaceIndexOrZero
+_SnStackingConfigUnitStackPort1_Object = MibTableColumn
+snStackingConfigUnitStackPort1 = _SnStackingConfigUnitStackPort1_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 7),
+    _SnStackingConfigUnitStackPort1_Type()
+)
+snStackingConfigUnitStackPort1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitStackPort1.setStatus("current")
+_SnStackingConfigUnitStackPort2_Type = InterfaceIndexOrZero
+_SnStackingConfigUnitStackPort2_Object = MibTableColumn
+snStackingConfigUnitStackPort2 = _SnStackingConfigUnitStackPort2_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 8),
+    _SnStackingConfigUnitStackPort2_Type()
+)
+snStackingConfigUnitStackPort2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitStackPort2.setStatus("current")
+_SnStackingConfigUnitConnectPort1_Type = InterfaceIndexOrZero
+_SnStackingConfigUnitConnectPort1_Object = MibTableColumn
+snStackingConfigUnitConnectPort1 = _SnStackingConfigUnitConnectPort1_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 9),
+    _SnStackingConfigUnitConnectPort1_Type()
+)
+snStackingConfigUnitConnectPort1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitConnectPort1.setStatus("deprecated")
+_SnStackingConfigUnitConnectPort2_Type = InterfaceIndexOrZero
+_SnStackingConfigUnitConnectPort2_Object = MibTableColumn
+snStackingConfigUnitConnectPort2 = _SnStackingConfigUnitConnectPort2_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 10),
+    _SnStackingConfigUnitConnectPort2_Type()
+)
+snStackingConfigUnitConnectPort2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitConnectPort2.setStatus("deprecated")
+_SnStackingConfigUnitStackTrunk1_Type = OctetString
+_SnStackingConfigUnitStackTrunk1_Object = MibTableColumn
+snStackingConfigUnitStackTrunk1 = _SnStackingConfigUnitStackTrunk1_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 11),
+    _SnStackingConfigUnitStackTrunk1_Type()
+)
+snStackingConfigUnitStackTrunk1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitStackTrunk1.setStatus("current")
+_SnStackingConfigUnitStackTrunk2_Type = OctetString
+_SnStackingConfigUnitStackTrunk2_Object = MibTableColumn
+snStackingConfigUnitStackTrunk2 = _SnStackingConfigUnitStackTrunk2_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 12),
+    _SnStackingConfigUnitStackTrunk2_Type()
+)
+snStackingConfigUnitStackTrunk2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitStackTrunk2.setStatus("current")
+
+
+class _SnStackingConfigUnitName_Type(DisplayString):
+    """Custom type snStackingConfigUnitName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_SnStackingConfigUnitName_Type.__name__ = "DisplayString"
+_SnStackingConfigUnitName_Object = MibTableColumn
+snStackingConfigUnitName = _SnStackingConfigUnitName_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 1, 1, 13),
+    _SnStackingConfigUnitName_Type()
+)
+snStackingConfigUnitName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigUnitName.setStatus("current")
+_SnStackingOperUnitTable_Object = MibTable
+snStackingOperUnitTable = _SnStackingOperUnitTable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2)
+)
+if mibBuilder.loadTexts:
+    snStackingOperUnitTable.setStatus("current")
+_SnStackingOperUnitEntry_Object = MibTableRow
+snStackingOperUnitEntry = _SnStackingOperUnitEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1)
+)
+snStackingOperUnitEntry.setIndexNames(
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingOperUnitIndex"),
+)
+if mibBuilder.loadTexts:
+    snStackingOperUnitEntry.setStatus("current")
+_SnStackingOperUnitIndex_Type = Integer32
+_SnStackingOperUnitIndex_Object = MibTableColumn
+snStackingOperUnitIndex = _SnStackingOperUnitIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 1),
+    _SnStackingOperUnitIndex_Type()
+)
+snStackingOperUnitIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingOperUnitIndex.setStatus("current")
+
+
+class _SnStackingOperUnitRole_Type(Integer32):
+    """Custom type snStackingOperUnitRole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("active", 2),
+          ("standby", 3),
+          ("member", 4),
+          ("standalone", 5))
+    )
+
+
+_SnStackingOperUnitRole_Type.__name__ = "Integer32"
+_SnStackingOperUnitRole_Object = MibTableColumn
+snStackingOperUnitRole = _SnStackingOperUnitRole_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 2),
+    _SnStackingOperUnitRole_Type()
+)
+snStackingOperUnitRole.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitRole.setStatus("current")
+_SnStackingOperUnitMac_Type = MacAddress
+_SnStackingOperUnitMac_Object = MibTableColumn
+snStackingOperUnitMac = _SnStackingOperUnitMac_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 3),
+    _SnStackingOperUnitMac_Type()
+)
+snStackingOperUnitMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitMac.setStatus("current")
+
+
+class _SnStackingOperUnitPriority_Type(Integer32):
+    """Custom type snStackingOperUnitPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_SnStackingOperUnitPriority_Type.__name__ = "Integer32"
+_SnStackingOperUnitPriority_Object = MibTableColumn
+snStackingOperUnitPriority = _SnStackingOperUnitPriority_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 4),
+    _SnStackingOperUnitPriority_Type()
+)
+snStackingOperUnitPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitPriority.setStatus("current")
+
+
+class _SnStackingOperUnitState_Type(Integer32):
+    """Custom type snStackingOperUnitState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("local", 1),
+          ("remote", 2),
+          ("reserved", 3),
+          ("empty", 4))
+    )
+
+
+_SnStackingOperUnitState_Type.__name__ = "Integer32"
+_SnStackingOperUnitState_Object = MibTableColumn
+snStackingOperUnitState = _SnStackingOperUnitState_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 5),
+    _SnStackingOperUnitState_Type()
+)
+snStackingOperUnitState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitState.setStatus("current")
+
+
+class _SnStackingOperUnitDescription_Type(DisplayString):
+    """Custom type snStackingOperUnitDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_SnStackingOperUnitDescription_Type.__name__ = "DisplayString"
+_SnStackingOperUnitDescription_Object = MibTableColumn
+snStackingOperUnitDescription = _SnStackingOperUnitDescription_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 6),
+    _SnStackingOperUnitDescription_Type()
+)
+snStackingOperUnitDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitDescription.setStatus("current")
+_SnStackingOperUnitStackPort1_Type = InterfaceIndexOrZero
+_SnStackingOperUnitStackPort1_Object = MibTableColumn
+snStackingOperUnitStackPort1 = _SnStackingOperUnitStackPort1_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 7),
+    _SnStackingOperUnitStackPort1_Type()
+)
+snStackingOperUnitStackPort1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitStackPort1.setStatus("current")
+
+
+class _SnStackingOperUnitStackPort1State_Type(Integer32):
+    """Custom type snStackingOperUnitStackPort1State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("up", 2),
+          ("down", 3))
+    )
+
+
+_SnStackingOperUnitStackPort1State_Type.__name__ = "Integer32"
+_SnStackingOperUnitStackPort1State_Object = MibTableColumn
+snStackingOperUnitStackPort1State = _SnStackingOperUnitStackPort1State_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 8),
+    _SnStackingOperUnitStackPort1State_Type()
+)
+snStackingOperUnitStackPort1State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitStackPort1State.setStatus("current")
+_SnStackingOperUnitStackPort2_Type = InterfaceIndexOrZero
+_SnStackingOperUnitStackPort2_Object = MibTableColumn
+snStackingOperUnitStackPort2 = _SnStackingOperUnitStackPort2_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 9),
+    _SnStackingOperUnitStackPort2_Type()
+)
+snStackingOperUnitStackPort2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitStackPort2.setStatus("current")
+
+
+class _SnStackingOperUnitStackPort2State_Type(Integer32):
+    """Custom type snStackingOperUnitStackPort2State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("up", 2),
+          ("down", 3))
+    )
+
+
+_SnStackingOperUnitStackPort2State_Type.__name__ = "Integer32"
+_SnStackingOperUnitStackPort2State_Object = MibTableColumn
+snStackingOperUnitStackPort2State = _SnStackingOperUnitStackPort2State_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 10),
+    _SnStackingOperUnitStackPort2State_Type()
+)
+snStackingOperUnitStackPort2State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitStackPort2State.setStatus("current")
+_SnStackingOperUnitNeighbor1_Type = Integer32
+_SnStackingOperUnitNeighbor1_Object = MibTableColumn
+snStackingOperUnitNeighbor1 = _SnStackingOperUnitNeighbor1_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 11),
+    _SnStackingOperUnitNeighbor1_Type()
+)
+snStackingOperUnitNeighbor1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitNeighbor1.setStatus("current")
+_SnStackingOperUnitNeighbor2_Type = Integer32
+_SnStackingOperUnitNeighbor2_Object = MibTableColumn
+snStackingOperUnitNeighbor2 = _SnStackingOperUnitNeighbor2_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 12),
+    _SnStackingOperUnitNeighbor2_Type()
+)
+snStackingOperUnitNeighbor2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitNeighbor2.setStatus("current")
+
+
+class _SnStackingOperUnitImgVer_Type(DisplayString):
+    """Custom type snStackingOperUnitImgVer based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SnStackingOperUnitImgVer_Type.__name__ = "DisplayString"
+_SnStackingOperUnitImgVer_Object = MibTableColumn
+snStackingOperUnitImgVer = _SnStackingOperUnitImgVer_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 13),
+    _SnStackingOperUnitImgVer_Type()
+)
+snStackingOperUnitImgVer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitImgVer.setStatus("current")
+
+
+class _SnStackingOperUnitBuildlVer_Type(DisplayString):
+    """Custom type snStackingOperUnitBuildlVer based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SnStackingOperUnitBuildlVer_Type.__name__ = "DisplayString"
+_SnStackingOperUnitBuildlVer_Object = MibTableColumn
+snStackingOperUnitBuildlVer = _SnStackingOperUnitBuildlVer_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 2, 1, 14),
+    _SnStackingOperUnitBuildlVer_Type()
+)
+snStackingOperUnitBuildlVer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingOperUnitBuildlVer.setStatus("current")
+_SnStackingConfigStackTrunkTable_Object = MibTable
+snStackingConfigStackTrunkTable = _SnStackingConfigStackTrunkTable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3)
+)
+if mibBuilder.loadTexts:
+    snStackingConfigStackTrunkTable.setStatus("deprecated")
+_SnStackingConfigStackTrunkEntry_Object = MibTableRow
+snStackingConfigStackTrunkEntry = _SnStackingConfigStackTrunkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1)
+)
+snStackingConfigStackTrunkEntry.setIndexNames(
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigStackTrunkUnit"),
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigStackTrunkPort1"),
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigStackTrunkPort2"),
+)
+if mibBuilder.loadTexts:
+    snStackingConfigStackTrunkEntry.setStatus("deprecated")
+_SnStackingConfigStackTrunkUnit_Type = Integer32
+_SnStackingConfigStackTrunkUnit_Object = MibTableColumn
+snStackingConfigStackTrunkUnit = _SnStackingConfigStackTrunkUnit_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 1),
+    _SnStackingConfigStackTrunkUnit_Type()
+)
+snStackingConfigStackTrunkUnit.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingConfigStackTrunkUnit.setStatus("deprecated")
+_SnStackingConfigStackTrunkPort1_Type = InterfaceIndexOrZero
+_SnStackingConfigStackTrunkPort1_Object = MibTableColumn
+snStackingConfigStackTrunkPort1 = _SnStackingConfigStackTrunkPort1_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 2),
+    _SnStackingConfigStackTrunkPort1_Type()
+)
+snStackingConfigStackTrunkPort1.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingConfigStackTrunkPort1.setStatus("deprecated")
+_SnStackingConfigStackTrunkPort2_Type = InterfaceIndexOrZero
+_SnStackingConfigStackTrunkPort2_Object = MibTableColumn
+snStackingConfigStackTrunkPort2 = _SnStackingConfigStackTrunkPort2_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 3),
+    _SnStackingConfigStackTrunkPort2_Type()
+)
+snStackingConfigStackTrunkPort2.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingConfigStackTrunkPort2.setStatus("deprecated")
+
+
+class _SnStackingConfigStackTrunkRowStatus_Type(Integer32):
+    """Custom type snStackingConfigStackTrunkRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("valid", 2),
+          ("delete", 3),
+          ("create", 4))
+    )
+
+
+_SnStackingConfigStackTrunkRowStatus_Type.__name__ = "Integer32"
+_SnStackingConfigStackTrunkRowStatus_Object = MibTableColumn
+snStackingConfigStackTrunkRowStatus = _SnStackingConfigStackTrunkRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 4),
+    _SnStackingConfigStackTrunkRowStatus_Type()
+)
+snStackingConfigStackTrunkRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigStackTrunkRowStatus.setStatus("deprecated")
+_SnStackingConfigStackTrunkNumPort1_Type = Integer32
+_SnStackingConfigStackTrunkNumPort1_Object = MibTableColumn
+snStackingConfigStackTrunkNumPort1 = _SnStackingConfigStackTrunkNumPort1_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 5),
+    _SnStackingConfigStackTrunkNumPort1_Type()
+)
+snStackingConfigStackTrunkNumPort1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingConfigStackTrunkNumPort1.setStatus("deprecated")
+_SnStackingConfigStackTrunkNumPort2_Type = Integer32
+_SnStackingConfigStackTrunkNumPort2_Object = MibTableColumn
+snStackingConfigStackTrunkNumPort2 = _SnStackingConfigStackTrunkNumPort2_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 3, 1, 6),
+    _SnStackingConfigStackTrunkNumPort2_Type()
+)
+snStackingConfigStackTrunkNumPort2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingConfigStackTrunkNumPort2.setStatus("deprecated")
+_SnStackingConfigPeriPortTable_Object = MibTable
+snStackingConfigPeriPortTable = _SnStackingConfigPeriPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 4)
+)
+if mibBuilder.loadTexts:
+    snStackingConfigPeriPortTable.setStatus("deprecated")
+_SnStackingConfigPeriPortEntry_Object = MibTableRow
+snStackingConfigPeriPortEntry = _SnStackingConfigPeriPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 4, 1)
+)
+snStackingConfigPeriPortEntry.setIndexNames(
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigPeriPortUnit"),
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigPeriPortPort"),
+)
+if mibBuilder.loadTexts:
+    snStackingConfigPeriPortEntry.setStatus("deprecated")
+_SnStackingConfigPeriPortUnit_Type = Integer32
+_SnStackingConfigPeriPortUnit_Object = MibTableColumn
+snStackingConfigPeriPortUnit = _SnStackingConfigPeriPortUnit_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 4, 1, 1),
+    _SnStackingConfigPeriPortUnit_Type()
+)
+snStackingConfigPeriPortUnit.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingConfigPeriPortUnit.setStatus("deprecated")
+_SnStackingConfigPeriPortPort_Type = InterfaceIndexOrZero
+_SnStackingConfigPeriPortPort_Object = MibTableColumn
+snStackingConfigPeriPortPort = _SnStackingConfigPeriPortPort_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 4, 1, 2),
+    _SnStackingConfigPeriPortPort_Type()
+)
+snStackingConfigPeriPortPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingConfigPeriPortPort.setStatus("deprecated")
+
+
+class _SnStackingConfigPeriPortRowStatus_Type(Integer32):
+    """Custom type snStackingConfigPeriPortRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("valid", 2),
+          ("delete", 3),
+          ("create", 4))
+    )
+
+
+_SnStackingConfigPeriPortRowStatus_Type.__name__ = "Integer32"
+_SnStackingConfigPeriPortRowStatus_Object = MibTableColumn
+snStackingConfigPeriPortRowStatus = _SnStackingConfigPeriPortRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 4, 1, 3),
+    _SnStackingConfigPeriPortRowStatus_Type()
+)
+snStackingConfigPeriPortRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigPeriPortRowStatus.setStatus("deprecated")
+_SnStackingConfigPeriTrunkTable_Object = MibTable
+snStackingConfigPeriTrunkTable = _SnStackingConfigPeriTrunkTable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5)
+)
+if mibBuilder.loadTexts:
+    snStackingConfigPeriTrunkTable.setStatus("deprecated")
+_SnStackingConfigPeriTrunkEntry_Object = MibTableRow
+snStackingConfigPeriTrunkEntry = _SnStackingConfigPeriTrunkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5, 1)
+)
+snStackingConfigPeriTrunkEntry.setIndexNames(
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigPeriTrunkUnit"),
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigPeriTrunkPort1"),
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingConfigPeriTrunkPort2"),
+)
+if mibBuilder.loadTexts:
+    snStackingConfigPeriTrunkEntry.setStatus("deprecated")
+_SnStackingConfigPeriTrunkUnit_Type = Integer32
+_SnStackingConfigPeriTrunkUnit_Object = MibTableColumn
+snStackingConfigPeriTrunkUnit = _SnStackingConfigPeriTrunkUnit_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5, 1, 1),
+    _SnStackingConfigPeriTrunkUnit_Type()
+)
+snStackingConfigPeriTrunkUnit.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingConfigPeriTrunkUnit.setStatus("deprecated")
+_SnStackingConfigPeriTrunkPort1_Type = InterfaceIndexOrZero
+_SnStackingConfigPeriTrunkPort1_Object = MibTableColumn
+snStackingConfigPeriTrunkPort1 = _SnStackingConfigPeriTrunkPort1_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5, 1, 2),
+    _SnStackingConfigPeriTrunkPort1_Type()
+)
+snStackingConfigPeriTrunkPort1.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingConfigPeriTrunkPort1.setStatus("deprecated")
+_SnStackingConfigPeriTrunkPort2_Type = InterfaceIndexOrZero
+_SnStackingConfigPeriTrunkPort2_Object = MibTableColumn
+snStackingConfigPeriTrunkPort2 = _SnStackingConfigPeriTrunkPort2_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5, 1, 3),
+    _SnStackingConfigPeriTrunkPort2_Type()
+)
+snStackingConfigPeriTrunkPort2.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingConfigPeriTrunkPort2.setStatus("deprecated")
+
+
+class _SnStackingConfigPeriTrunkRowStatus_Type(Integer32):
+    """Custom type snStackingConfigPeriTrunkRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("valid", 2),
+          ("delete", 3),
+          ("create", 4))
+    )
+
+
+_SnStackingConfigPeriTrunkRowStatus_Type.__name__ = "Integer32"
+_SnStackingConfigPeriTrunkRowStatus_Object = MibTableColumn
+snStackingConfigPeriTrunkRowStatus = _SnStackingConfigPeriTrunkRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 5, 1, 4),
+    _SnStackingConfigPeriTrunkRowStatus_Type()
+)
+snStackingConfigPeriTrunkRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snStackingConfigPeriTrunkRowStatus.setStatus("current")
+_SnStackingNeighborPortTable_Object = MibTable
+snStackingNeighborPortTable = _SnStackingNeighborPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 6)
+)
+if mibBuilder.loadTexts:
+    snStackingNeighborPortTable.setStatus("current")
+_SnStackingNeighborPortEntry_Object = MibTableRow
+snStackingNeighborPortEntry = _SnStackingNeighborPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 6, 1)
+)
+snStackingNeighborPortEntry.setIndexNames(
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingNeighborPortUnit"),
+    (0, "FOUNDRY-SN-STACKING-MIB", "snStackingNeighborPortStackPort"),
+)
+if mibBuilder.loadTexts:
+    snStackingNeighborPortEntry.setStatus("current")
+_SnStackingNeighborPortUnit_Type = Integer32
+_SnStackingNeighborPortUnit_Object = MibTableColumn
+snStackingNeighborPortUnit = _SnStackingNeighborPortUnit_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 6, 1, 1),
+    _SnStackingNeighborPortUnit_Type()
+)
+snStackingNeighborPortUnit.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingNeighborPortUnit.setStatus("current")
+_SnStackingNeighborPortStackPort_Type = InterfaceIndexOrZero
+_SnStackingNeighborPortStackPort_Object = MibTableColumn
+snStackingNeighborPortStackPort = _SnStackingNeighborPortStackPort_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 6, 1, 2),
+    _SnStackingNeighborPortStackPort_Type()
+)
+snStackingNeighborPortStackPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    snStackingNeighborPortStackPort.setStatus("current")
+_SnStackingNeighborPortNeighborPort_Type = InterfaceIndexOrZero
+_SnStackingNeighborPortNeighborPort_Object = MibTableColumn
+snStackingNeighborPortNeighborPort = _SnStackingNeighborPortNeighborPort_Object(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 1, 3, 31, 2, 6, 1, 3),
+    _SnStackingNeighborPortNeighborPort_Type()
+)
+snStackingNeighborPortNeighborPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snStackingNeighborPortNeighborPort.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "FOUNDRY-SN-STACKING-MIB",
+    **{"snStacking": snStacking,
+       "snStackingGlobalObjects": snStackingGlobalObjects,
+       "snStackingGlobalConfigState": snStackingGlobalConfigState,
+       "snStackingGlobalMacAddress": snStackingGlobalMacAddress,
+       "snStackingGlobalPersistentMacTimerState": snStackingGlobalPersistentMacTimerState,
+       "snStackingGlobalPersistentMacTimer": snStackingGlobalPersistentMacTimer,
+       "snStackingGlobalTopology": snStackingGlobalTopology,
+       "snStackingGlobalMode": snStackingGlobalMode,
+       "snStackingGlobalMixedMode": snStackingGlobalMixedMode,
+       "snStackingGlobalMaxUnitNumber": snStackingGlobalMaxUnitNumber,
+       "snStackingGlobalHighestPriority": snStackingGlobalHighestPriority,
+       "snStackingGlobalZeroTouchEnable": snStackingGlobalZeroTouchEnable,
+       "snStackingTableObjects": snStackingTableObjects,
+       "snStackingConfigUnitTable": snStackingConfigUnitTable,
+       "snStackingConfigUnitEntry": snStackingConfigUnitEntry,
+       "snStackingConfigUnitIndex": snStackingConfigUnitIndex,
+       "snStackingConfigUnitPriority": snStackingConfigUnitPriority,
+       "snStackingConfigUnitConfigStackPort": snStackingConfigUnitConfigStackPort,
+       "snStackingConfigUnitRowStatus": snStackingConfigUnitRowStatus,
+       "snStackingConfigUnitType": snStackingConfigUnitType,
+       "snStackingConfigUnitState": snStackingConfigUnitState,
+       "snStackingConfigUnitStackPort1": snStackingConfigUnitStackPort1,
+       "snStackingConfigUnitStackPort2": snStackingConfigUnitStackPort2,
+       "snStackingConfigUnitConnectPort1": snStackingConfigUnitConnectPort1,
+       "snStackingConfigUnitConnectPort2": snStackingConfigUnitConnectPort2,
+       "snStackingConfigUnitStackTrunk1": snStackingConfigUnitStackTrunk1,
+       "snStackingConfigUnitStackTrunk2": snStackingConfigUnitStackTrunk2,
+       "snStackingConfigUnitName": snStackingConfigUnitName,
+       "snStackingOperUnitTable": snStackingOperUnitTable,
+       "snStackingOperUnitEntry": snStackingOperUnitEntry,
+       "snStackingOperUnitIndex": snStackingOperUnitIndex,
+       "snStackingOperUnitRole": snStackingOperUnitRole,
+       "snStackingOperUnitMac": snStackingOperUnitMac,
+       "snStackingOperUnitPriority": snStackingOperUnitPriority,
+       "snStackingOperUnitState": snStackingOperUnitState,
+       "snStackingOperUnitDescription": snStackingOperUnitDescription,
+       "snStackingOperUnitStackPort1": snStackingOperUnitStackPort1,
+       "snStackingOperUnitStackPort1State": snStackingOperUnitStackPort1State,
+       "snStackingOperUnitStackPort2": snStackingOperUnitStackPort2,
+       "snStackingOperUnitStackPort2State": snStackingOperUnitStackPort2State,
+       "snStackingOperUnitNeighbor1": snStackingOperUnitNeighbor1,
+       "snStackingOperUnitNeighbor2": snStackingOperUnitNeighbor2,
+       "snStackingOperUnitImgVer": snStackingOperUnitImgVer,
+       "snStackingOperUnitBuildlVer": snStackingOperUnitBuildlVer,
+       "snStackingConfigStackTrunkTable": snStackingConfigStackTrunkTable,
+       "snStackingConfigStackTrunkEntry": snStackingConfigStackTrunkEntry,
+       "snStackingConfigStackTrunkUnit": snStackingConfigStackTrunkUnit,
+       "snStackingConfigStackTrunkPort1": snStackingConfigStackTrunkPort1,
+       "snStackingConfigStackTrunkPort2": snStackingConfigStackTrunkPort2,
+       "snStackingConfigStackTrunkRowStatus": snStackingConfigStackTrunkRowStatus,
+       "snStackingConfigStackTrunkNumPort1": snStackingConfigStackTrunkNumPort1,
+       "snStackingConfigStackTrunkNumPort2": snStackingConfigStackTrunkNumPort2,
+       "snStackingConfigPeriPortTable": snStackingConfigPeriPortTable,
+       "snStackingConfigPeriPortEntry": snStackingConfigPeriPortEntry,
+       "snStackingConfigPeriPortUnit": snStackingConfigPeriPortUnit,
+       "snStackingConfigPeriPortPort": snStackingConfigPeriPortPort,
+       "snStackingConfigPeriPortRowStatus": snStackingConfigPeriPortRowStatus,
+       "snStackingConfigPeriTrunkTable": snStackingConfigPeriTrunkTable,
+       "snStackingConfigPeriTrunkEntry": snStackingConfigPeriTrunkEntry,
+       "snStackingConfigPeriTrunkUnit": snStackingConfigPeriTrunkUnit,
+       "snStackingConfigPeriTrunkPort1": snStackingConfigPeriTrunkPort1,
+       "snStackingConfigPeriTrunkPort2": snStackingConfigPeriTrunkPort2,
+       "snStackingConfigPeriTrunkRowStatus": snStackingConfigPeriTrunkRowStatus,
+       "snStackingNeighborPortTable": snStackingNeighborPortTable,
+       "snStackingNeighborPortEntry": snStackingNeighborPortEntry,
+       "snStackingNeighborPortUnit": snStackingNeighborPortUnit,
+       "snStackingNeighborPortStackPort": snStackingNeighborPortStackPort,
+       "snStackingNeighborPortNeighborPort": snStackingNeighborPortNeighborPort}
+)

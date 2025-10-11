@@ -1,29 +1,273 @@
+# SNMP MIB module (CPQDCEO-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CPQDCEO-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/CPQDCEO-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:08:11 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/CPQDCEO-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:34:53 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-compaq, = mibBuilder.importSymbols("CPQHOST-MIB", "compaq")
-ifDescr, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifDescr", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-sysDescr, sysContact, sysLocation, sysName = mibBuilder.importSymbols("SNMPv2-MIB", "sysDescr", "sysContact", "sysLocation", "sysName")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-cpqDceo = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 173))
-environmentalDevice = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 173, 1))
-dceoTrapInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 232, 173, 1, 1))
-trapDescription = MibScalar((1, 3, 6, 1, 4, 1, 232, 173, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: trapDescription.setStatus('mandatory')
-trapDeviceDetails = MibScalar((1, 3, 6, 1, 4, 1, 232, 173, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: trapDeviceDetails.setStatus('mandatory')
-trapDeviceMgmtUrl = MibScalar((1, 3, 6, 1, 4, 1, 232, 173, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: trapDeviceMgmtUrl.setStatus('mandatory')
-trapDceoHighPriority = NotificationType((1, 3, 6, 1, 4, 1, 232, 173) + (0,1)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQDCEO-MIB", "trapDescription"), ("CPQDCEO-MIB", "trapDeviceDetails"), ("CPQDCEO-MIB", "trapDeviceMgmtUrl"))
-trapDceoMediumPriority = NotificationType((1, 3, 6, 1, 4, 1, 232, 173) + (0,2)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQDCEO-MIB", "trapDescription"), ("CPQDCEO-MIB", "trapDeviceDetails"), ("CPQDCEO-MIB", "trapDeviceMgmtUrl"))
-trapDceoLowPriority = NotificationType((1, 3, 6, 1, 4, 1, 232, 173) + (0,3)).setObjects(("SNMPv2-MIB", "sysName"), ("CPQDCEO-MIB", "trapDescription"), ("CPQDCEO-MIB", "trapDeviceDetails"), ("CPQDCEO-MIB", "trapDeviceMgmtUrl"))
-mibBuilder.exportSymbols("CPQDCEO-MIB", cpqDceo=cpqDceo, trapDescription=trapDescription, trapDceoMediumPriority=trapDceoMediumPriority, dceoTrapInfo=dceoTrapInfo, environmentalDevice=environmentalDevice, trapDceoHighPriority=trapDceoHighPriority, trapDceoLowPriority=trapDceoLowPriority, trapDeviceMgmtUrl=trapDeviceMgmtUrl, trapDeviceDetails=trapDeviceDetails)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(compaq,) = mibBuilder.importSymbols(
+    "CPQHOST-MIB",
+    "compaq")
+
+(ifDescr,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifDescr",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(sysContact,
+ sysDescr,
+ sysLocation,
+ sysName) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "sysContact",
+    "sysDescr",
+    "sysLocation",
+    "sysName")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CpqDceo_ObjectIdentity = ObjectIdentity
+cpqDceo = _CpqDceo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 173)
+)
+_EnvironmentalDevice_ObjectIdentity = ObjectIdentity
+environmentalDevice = _EnvironmentalDevice_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 173, 1)
+)
+_DceoTrapInfo_ObjectIdentity = ObjectIdentity
+dceoTrapInfo = _DceoTrapInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 232, 173, 1, 1)
+)
+
+
+class _TrapDescription_Type(DisplayString):
+    """Custom type trapDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_TrapDescription_Type.__name__ = "DisplayString"
+_TrapDescription_Object = MibScalar
+trapDescription = _TrapDescription_Object(
+    (1, 3, 6, 1, 4, 1, 232, 173, 1, 1, 1),
+    _TrapDescription_Type()
+)
+trapDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    trapDescription.setStatus("mandatory")
+
+
+class _TrapDeviceDetails_Type(DisplayString):
+    """Custom type trapDeviceDetails based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_TrapDeviceDetails_Type.__name__ = "DisplayString"
+_TrapDeviceDetails_Object = MibScalar
+trapDeviceDetails = _TrapDeviceDetails_Object(
+    (1, 3, 6, 1, 4, 1, 232, 173, 1, 1, 2),
+    _TrapDeviceDetails_Type()
+)
+trapDeviceDetails.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    trapDeviceDetails.setStatus("mandatory")
+
+
+class _TrapDeviceMgmtUrl_Type(DisplayString):
+    """Custom type trapDeviceMgmtUrl based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_TrapDeviceMgmtUrl_Type.__name__ = "DisplayString"
+_TrapDeviceMgmtUrl_Object = MibScalar
+trapDeviceMgmtUrl = _TrapDeviceMgmtUrl_Object(
+    (1, 3, 6, 1, 4, 1, 232, 173, 1, 1, 3),
+    _TrapDeviceMgmtUrl_Type()
+)
+trapDeviceMgmtUrl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    trapDeviceMgmtUrl.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+trapDceoHighPriority = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 173, 0, 1)
+)
+trapDceoHighPriority.setObjects(
+      *(("SNMPv2-MIB", "sysName"),
+        ("CPQDCEO-MIB", "trapDescription"),
+        ("CPQDCEO-MIB", "trapDeviceDetails"),
+        ("CPQDCEO-MIB", "trapDeviceMgmtUrl"))
+)
+if mibBuilder.loadTexts:
+    trapDceoHighPriority.setStatus(
+        ""
+    )
+
+trapDceoMediumPriority = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 173, 0, 2)
+)
+trapDceoMediumPriority.setObjects(
+      *(("SNMPv2-MIB", "sysName"),
+        ("CPQDCEO-MIB", "trapDescription"),
+        ("CPQDCEO-MIB", "trapDeviceDetails"),
+        ("CPQDCEO-MIB", "trapDeviceMgmtUrl"))
+)
+if mibBuilder.loadTexts:
+    trapDceoMediumPriority.setStatus(
+        ""
+    )
+
+trapDceoLowPriority = NotificationType(
+    (1, 3, 6, 1, 4, 1, 232, 173, 0, 3)
+)
+trapDceoLowPriority.setObjects(
+      *(("SNMPv2-MIB", "sysName"),
+        ("CPQDCEO-MIB", "trapDescription"),
+        ("CPQDCEO-MIB", "trapDeviceDetails"),
+        ("CPQDCEO-MIB", "trapDeviceMgmtUrl"))
+)
+if mibBuilder.loadTexts:
+    trapDceoLowPriority.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CPQDCEO-MIB",
+    **{"cpqDceo": cpqDceo,
+       "trapDceoHighPriority": trapDceoHighPriority,
+       "trapDceoMediumPriority": trapDceoMediumPriority,
+       "trapDceoLowPriority": trapDceoLowPriority,
+       "environmentalDevice": environmentalDevice,
+       "dceoTrapInfo": dceoTrapInfo,
+       "trapDescription": trapDescription,
+       "trapDeviceDetails": trapDeviceDetails,
+       "trapDeviceMgmtUrl": trapDeviceMgmtUrl}
+)

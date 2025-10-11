@@ -1,45 +1,372 @@
+# SNMP MIB module (ALCATEL-IND1-OSPF3-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALCATEL-IND1-OSPF3-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel/ALCATEL-IND1-OSPF3-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:41 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alcatel/ALCATEL-IND1-OSPF3-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:08:18 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-routingIND1Ospf3, = mibBuilder.importSymbols("ALCATEL-IND1-BASE", "routingIND1Ospf3")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-alcatelIND1OSPF3MIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1))
-alcatelIND1OSPF3MIB.setRevisions(('2007-04-03 00:00',))
-if mibBuilder.loadTexts: alcatelIND1OSPF3MIB.setLastUpdated('200704030000Z')
-if mibBuilder.loadTexts: alcatelIND1OSPF3MIB.setOrganization('Alcatel-Lucent')
-alcatelIND1OSPF3MIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1))
-alaProtocolOspf3 = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1))
-alaOspf3OrigRouteTag = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 1), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaOspf3OrigRouteTag.setStatus('current')
-alaOspf3TimerSpfDelay = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(5)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaOspf3TimerSpfDelay.setStatus('current')
-alaOspf3TimerSpfHold = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(10)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaOspf3TimerSpfHold.setStatus('current')
-alaOspf3RestartHelperSupport = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaOspf3RestartHelperSupport.setStatus('current')
-alaOspf3RestartStrictLsaChecking = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaOspf3RestartStrictLsaChecking.setStatus('current')
-alaOspf3RestartInitiate = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaOspf3RestartInitiate.setStatus('current')
-alaOspf3MTUCheck = MibScalar((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaOspf3MTUCheck.setStatus('current')
-alcatelIND1OSPF3MIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2))
-alcatelIND1OSPF3MIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 1))
-alcatelIND1OSPF3MIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 2))
-alcatelIND1OSPF3MIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 1, 1)).setObjects(("ALCATEL-IND1-OSPF3-MIB", "alaOSPF3ConfigMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alcatelIND1OSPF3MIBCompliance = alcatelIND1OSPF3MIBCompliance.setStatus('current')
-alaOSPF3ConfigMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 2, 1)).setObjects(("ALCATEL-IND1-OSPF3-MIB", "alaOspf3OrigRouteTag"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3TimerSpfDelay"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3TimerSpfHold"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3RestartHelperSupport"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3RestartStrictLsaChecking"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3RestartInitiate"), ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3MTUCheck"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaOSPF3ConfigMIBGroup = alaOSPF3ConfigMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-IND1-OSPF3-MIB", alcatelIND1OSPF3MIBCompliances=alcatelIND1OSPF3MIBCompliances, alcatelIND1OSPF3MIB=alcatelIND1OSPF3MIB, alaOspf3MTUCheck=alaOspf3MTUCheck, alaOspf3TimerSpfHold=alaOspf3TimerSpfHold, alcatelIND1OSPF3MIBConformance=alcatelIND1OSPF3MIBConformance, alaOSPF3ConfigMIBGroup=alaOSPF3ConfigMIBGroup, alaProtocolOspf3=alaProtocolOspf3, alaOspf3TimerSpfDelay=alaOspf3TimerSpfDelay, PYSNMP_MODULE_ID=alcatelIND1OSPF3MIB, alcatelIND1OSPF3MIBGroups=alcatelIND1OSPF3MIBGroups, alaOspf3RestartInitiate=alaOspf3RestartInitiate, alcatelIND1OSPF3MIBCompliance=alcatelIND1OSPF3MIBCompliance, alaOspf3RestartHelperSupport=alaOspf3RestartHelperSupport, alaOspf3RestartStrictLsaChecking=alaOspf3RestartStrictLsaChecking, alaOspf3OrigRouteTag=alaOspf3OrigRouteTag, alcatelIND1OSPF3MIBObjects=alcatelIND1OSPF3MIBObjects)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(routingIND1Ospf3,) = mibBuilder.importSymbols(
+    "ALCATEL-IND1-BASE",
+    "routingIND1Ospf3")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alcatelIND1OSPF3MIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1OSPF3MIB.setRevisions(
+        ("2007-04-03 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlcatelIND1OSPF3MIBObjects_ObjectIdentity = ObjectIdentity
+alcatelIND1OSPF3MIBObjects = _AlcatelIND1OSPF3MIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1)
+)
+_AlaProtocolOspf3_ObjectIdentity = ObjectIdentity
+alaProtocolOspf3 = _AlaProtocolOspf3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1)
+)
+
+
+class _AlaOspf3OrigRouteTag_Type(Unsigned32):
+    """Custom type alaOspf3OrigRouteTag based on Unsigned32"""
+    defaultValue = 0
+
+
+_AlaOspf3OrigRouteTag_Type.__name__ = "Unsigned32"
+_AlaOspf3OrigRouteTag_Object = MibScalar
+alaOspf3OrigRouteTag = _AlaOspf3OrigRouteTag_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 1),
+    _AlaOspf3OrigRouteTag_Type()
+)
+alaOspf3OrigRouteTag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaOspf3OrigRouteTag.setStatus("current")
+
+
+class _AlaOspf3TimerSpfDelay_Type(Integer32):
+    """Custom type alaOspf3TimerSpfDelay based on Integer32"""
+    defaultValue = 5
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_AlaOspf3TimerSpfDelay_Type.__name__ = "Integer32"
+_AlaOspf3TimerSpfDelay_Object = MibScalar
+alaOspf3TimerSpfDelay = _AlaOspf3TimerSpfDelay_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 2),
+    _AlaOspf3TimerSpfDelay_Type()
+)
+alaOspf3TimerSpfDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaOspf3TimerSpfDelay.setStatus("current")
+
+
+class _AlaOspf3TimerSpfHold_Type(Integer32):
+    """Custom type alaOspf3TimerSpfHold based on Integer32"""
+    defaultValue = 10
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_AlaOspf3TimerSpfHold_Type.__name__ = "Integer32"
+_AlaOspf3TimerSpfHold_Object = MibScalar
+alaOspf3TimerSpfHold = _AlaOspf3TimerSpfHold_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 3),
+    _AlaOspf3TimerSpfHold_Type()
+)
+alaOspf3TimerSpfHold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaOspf3TimerSpfHold.setStatus("current")
+
+
+class _AlaOspf3RestartHelperSupport_Type(Integer32):
+    """Custom type alaOspf3RestartHelperSupport based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaOspf3RestartHelperSupport_Type.__name__ = "Integer32"
+_AlaOspf3RestartHelperSupport_Object = MibScalar
+alaOspf3RestartHelperSupport = _AlaOspf3RestartHelperSupport_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 4),
+    _AlaOspf3RestartHelperSupport_Type()
+)
+alaOspf3RestartHelperSupport.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaOspf3RestartHelperSupport.setStatus("current")
+
+
+class _AlaOspf3RestartStrictLsaChecking_Type(Integer32):
+    """Custom type alaOspf3RestartStrictLsaChecking based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaOspf3RestartStrictLsaChecking_Type.__name__ = "Integer32"
+_AlaOspf3RestartStrictLsaChecking_Object = MibScalar
+alaOspf3RestartStrictLsaChecking = _AlaOspf3RestartStrictLsaChecking_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 5),
+    _AlaOspf3RestartStrictLsaChecking_Type()
+)
+alaOspf3RestartStrictLsaChecking.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaOspf3RestartStrictLsaChecking.setStatus("current")
+
+
+class _AlaOspf3RestartInitiate_Type(Integer32):
+    """Custom type alaOspf3RestartInitiate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaOspf3RestartInitiate_Type.__name__ = "Integer32"
+_AlaOspf3RestartInitiate_Object = MibScalar
+alaOspf3RestartInitiate = _AlaOspf3RestartInitiate_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 6),
+    _AlaOspf3RestartInitiate_Type()
+)
+alaOspf3RestartInitiate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaOspf3RestartInitiate.setStatus("current")
+
+
+class _AlaOspf3MTUCheck_Type(Integer32):
+    """Custom type alaOspf3MTUCheck based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaOspf3MTUCheck_Type.__name__ = "Integer32"
+_AlaOspf3MTUCheck_Object = MibScalar
+alaOspf3MTUCheck = _AlaOspf3MTUCheck_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 1, 1, 7),
+    _AlaOspf3MTUCheck_Type()
+)
+alaOspf3MTUCheck.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaOspf3MTUCheck.setStatus("current")
+_AlcatelIND1OSPF3MIBConformance_ObjectIdentity = ObjectIdentity
+alcatelIND1OSPF3MIBConformance = _AlcatelIND1OSPF3MIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2)
+)
+_AlcatelIND1OSPF3MIBCompliances_ObjectIdentity = ObjectIdentity
+alcatelIND1OSPF3MIBCompliances = _AlcatelIND1OSPF3MIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 1)
+)
+_AlcatelIND1OSPF3MIBGroups_ObjectIdentity = ObjectIdentity
+alcatelIND1OSPF3MIBGroups = _AlcatelIND1OSPF3MIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 2)
+)
+
+# Managed Objects groups
+
+alaOSPF3ConfigMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 2, 1)
+)
+alaOSPF3ConfigMIBGroup.setObjects(
+      *(("ALCATEL-IND1-OSPF3-MIB", "alaOspf3OrigRouteTag"),
+        ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3TimerSpfDelay"),
+        ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3TimerSpfHold"),
+        ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3RestartHelperSupport"),
+        ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3RestartStrictLsaChecking"),
+        ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3RestartInitiate"),
+        ("ALCATEL-IND1-OSPF3-MIB", "alaOspf3MTUCheck"))
+)
+if mibBuilder.loadTexts:
+    alaOSPF3ConfigMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alcatelIND1OSPF3MIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6486, 800, 1, 2, 1, 10, 13, 1, 2, 1, 1)
+)
+alcatelIND1OSPF3MIBCompliance.setObjects(
+    ("ALCATEL-IND1-OSPF3-MIB", "alaOSPF3ConfigMIBGroup")
+)
+if mibBuilder.loadTexts:
+    alcatelIND1OSPF3MIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALCATEL-IND1-OSPF3-MIB",
+    **{"alcatelIND1OSPF3MIB": alcatelIND1OSPF3MIB,
+       "alcatelIND1OSPF3MIBObjects": alcatelIND1OSPF3MIBObjects,
+       "alaProtocolOspf3": alaProtocolOspf3,
+       "alaOspf3OrigRouteTag": alaOspf3OrigRouteTag,
+       "alaOspf3TimerSpfDelay": alaOspf3TimerSpfDelay,
+       "alaOspf3TimerSpfHold": alaOspf3TimerSpfHold,
+       "alaOspf3RestartHelperSupport": alaOspf3RestartHelperSupport,
+       "alaOspf3RestartStrictLsaChecking": alaOspf3RestartStrictLsaChecking,
+       "alaOspf3RestartInitiate": alaOspf3RestartInitiate,
+       "alaOspf3MTUCheck": alaOspf3MTUCheck,
+       "alcatelIND1OSPF3MIBConformance": alcatelIND1OSPF3MIBConformance,
+       "alcatelIND1OSPF3MIBCompliances": alcatelIND1OSPF3MIBCompliances,
+       "alcatelIND1OSPF3MIBCompliance": alcatelIND1OSPF3MIBCompliance,
+       "alcatelIND1OSPF3MIBGroups": alcatelIND1OSPF3MIBGroups,
+       "alaOSPF3ConfigMIBGroup": alaOSPF3ConfigMIBGroup}
+)

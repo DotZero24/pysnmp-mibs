@@ -1,48 +1,370 @@
+# SNMP MIB module (PDN-HEALTHANDSTATUS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PDN-HEALTHANDSTATUS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/paradyne/PDN-HEALTHANDSTATUS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:11 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/paradyne/PDN-HEALTHANDSTATUS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:59:53 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-pdn_devStatus, = mibBuilder.importSymbols("PDN-HEADER-MIB", "pdn-devStatus")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-devStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1))
-devHealthAndStatus = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devHealthAndStatus.setStatus('mandatory')
-devSelfTestResults = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devSelfTestResults.setStatus('mandatory')
-devAbortStatus = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devAbortStatus.setStatus('mandatory')
-devSNMPSetStatusTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 4), )
-if mibBuilder.loadTexts: devSNMPSetStatusTable.setStatus('mandatory')
-devSNMPSetStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 4, 1), ).setIndexNames((0, "PDN-HEALTHANDSTATUS-MIB", "devSNMPSetReqId"))
-if mibBuilder.loadTexts: devSNMPSetStatusEntry.setStatus('mandatory')
-devSNMPSetReqId = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 4, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devSNMPSetReqId.setStatus('mandatory')
-devSNMPSetStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 4, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devSNMPSetStatus.setStatus('mandatory')
-devAuthenticationFailureIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 5), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devAuthenticationFailureIpAddress.setStatus('mandatory')
-devLastTrapString = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devLastTrapString.setStatus('mandatory')
-devFailureStatus = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devFailureStatus.setStatus('mandatory')
-devStatusTrapEnable = MibScalar((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: devStatusTrapEnable.setStatus('mandatory')
-devSelfTestResultTable = MibTable((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 9), )
-if mibBuilder.loadTexts: devSelfTestResultTable.setStatus('mandatory')
-devSelfTestResultEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 9, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: devSelfTestResultEntry.setStatus('mandatory')
-devSelfTestResult = MibTableColumn((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 9, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: devSelfTestResult.setStatus('mandatory')
-devSelfTestFailure = NotificationType((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1) + (0,1)).setObjects(("IF-MIB", "ifIndex"), ("PDN-HEALTHANDSTATUS-MIB", "devSelfTestResults"))
-deviceFailure = NotificationType((1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1) + (0,2)).setObjects(("IF-MIB", "ifIndex"), ("PDN-HEALTHANDSTATUS-MIB", "devFailureStatus"))
-mibBuilder.exportSymbols("PDN-HEALTHANDSTATUS-MIB", devLastTrapString=devLastTrapString, devSelfTestResultEntry=devSelfTestResultEntry, devFailureStatus=devFailureStatus, devAbortStatus=devAbortStatus, deviceFailure=deviceFailure, devStatus=devStatus, devSelfTestResultTable=devSelfTestResultTable, devSNMPSetStatus=devSNMPSetStatus, devHealthAndStatus=devHealthAndStatus, devStatusTrapEnable=devStatusTrapEnable, devSelfTestResults=devSelfTestResults, devSNMPSetReqId=devSNMPSetReqId, devSelfTestFailure=devSelfTestFailure, devSNMPSetStatusEntry=devSNMPSetStatusEntry, devAuthenticationFailureIpAddress=devAuthenticationFailureIpAddress, devSNMPSetStatusTable=devSNMPSetStatusTable, devSelfTestResult=devSelfTestResult)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(entPhysicalIndex,) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "entPhysicalIndex")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(pdn_devStatus,) = mibBuilder.importSymbols(
+    "PDN-HEADER-MIB",
+    "pdn-devStatus")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_DevStatus_ObjectIdentity = ObjectIdentity
+devStatus = _DevStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1)
+)
+
+
+class _DevHealthAndStatus_Type(DisplayString):
+    """Custom type devHealthAndStatus based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_DevHealthAndStatus_Type.__name__ = "DisplayString"
+_DevHealthAndStatus_Object = MibScalar
+devHealthAndStatus = _DevHealthAndStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 1),
+    _DevHealthAndStatus_Type()
+)
+devHealthAndStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devHealthAndStatus.setStatus("mandatory")
+
+
+class _DevSelfTestResults_Type(DisplayString):
+    """Custom type devSelfTestResults based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_DevSelfTestResults_Type.__name__ = "DisplayString"
+_DevSelfTestResults_Object = MibScalar
+devSelfTestResults = _DevSelfTestResults_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 2),
+    _DevSelfTestResults_Type()
+)
+devSelfTestResults.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devSelfTestResults.setStatus("mandatory")
+
+
+class _DevAbortStatus_Type(DisplayString):
+    """Custom type devAbortStatus based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_DevAbortStatus_Type.__name__ = "DisplayString"
+_DevAbortStatus_Object = MibScalar
+devAbortStatus = _DevAbortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 3),
+    _DevAbortStatus_Type()
+)
+devAbortStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devAbortStatus.setStatus("mandatory")
+_DevSNMPSetStatusTable_Object = MibTable
+devSNMPSetStatusTable = _DevSNMPSetStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 4)
+)
+if mibBuilder.loadTexts:
+    devSNMPSetStatusTable.setStatus("mandatory")
+_DevSNMPSetStatusEntry_Object = MibTableRow
+devSNMPSetStatusEntry = _DevSNMPSetStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 4, 1)
+)
+devSNMPSetStatusEntry.setIndexNames(
+    (0, "PDN-HEALTHANDSTATUS-MIB", "devSNMPSetReqId"),
+)
+if mibBuilder.loadTexts:
+    devSNMPSetStatusEntry.setStatus("mandatory")
+_DevSNMPSetReqId_Type = Integer32
+_DevSNMPSetReqId_Object = MibTableColumn
+devSNMPSetReqId = _DevSNMPSetReqId_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 4, 1, 1),
+    _DevSNMPSetReqId_Type()
+)
+devSNMPSetReqId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devSNMPSetReqId.setStatus("mandatory")
+
+
+class _DevSNMPSetStatus_Type(DisplayString):
+    """Custom type devSNMPSetStatus based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_DevSNMPSetStatus_Type.__name__ = "DisplayString"
+_DevSNMPSetStatus_Object = MibTableColumn
+devSNMPSetStatus = _DevSNMPSetStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 4, 1, 2),
+    _DevSNMPSetStatus_Type()
+)
+devSNMPSetStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devSNMPSetStatus.setStatus("mandatory")
+_DevAuthenticationFailureIpAddress_Type = IpAddress
+_DevAuthenticationFailureIpAddress_Object = MibScalar
+devAuthenticationFailureIpAddress = _DevAuthenticationFailureIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 5),
+    _DevAuthenticationFailureIpAddress_Type()
+)
+devAuthenticationFailureIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devAuthenticationFailureIpAddress.setStatus("mandatory")
+
+
+class _DevLastTrapString_Type(DisplayString):
+    """Custom type devLastTrapString based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_DevLastTrapString_Type.__name__ = "DisplayString"
+_DevLastTrapString_Object = MibScalar
+devLastTrapString = _DevLastTrapString_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 6),
+    _DevLastTrapString_Type()
+)
+devLastTrapString.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devLastTrapString.setStatus("mandatory")
+
+
+class _DevFailureStatus_Type(DisplayString):
+    """Custom type devFailureStatus based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_DevFailureStatus_Type.__name__ = "DisplayString"
+_DevFailureStatus_Object = MibScalar
+devFailureStatus = _DevFailureStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 7),
+    _DevFailureStatus_Type()
+)
+devFailureStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devFailureStatus.setStatus("mandatory")
+_DevStatusTrapEnable_Type = Integer32
+_DevStatusTrapEnable_Object = MibScalar
+devStatusTrapEnable = _DevStatusTrapEnable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 8),
+    _DevStatusTrapEnable_Type()
+)
+devStatusTrapEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    devStatusTrapEnable.setStatus("mandatory")
+_DevSelfTestResultTable_Object = MibTable
+devSelfTestResultTable = _DevSelfTestResultTable_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 9)
+)
+if mibBuilder.loadTexts:
+    devSelfTestResultTable.setStatus("mandatory")
+_DevSelfTestResultEntry_Object = MibTableRow
+devSelfTestResultEntry = _DevSelfTestResultEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 9, 1)
+)
+devSelfTestResultEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    devSelfTestResultEntry.setStatus("mandatory")
+_DevSelfTestResult_Type = DisplayString
+_DevSelfTestResult_Object = MibTableColumn
+devSelfTestResult = _DevSelfTestResult_Object(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 9, 1, 1),
+    _DevSelfTestResult_Type()
+)
+devSelfTestResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    devSelfTestResult.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+devSelfTestFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 0, 1)
+)
+devSelfTestFailure.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("PDN-HEALTHANDSTATUS-MIB", "devSelfTestResults"))
+)
+if mibBuilder.loadTexts:
+    devSelfTestFailure.setStatus(
+        ""
+    )
+
+deviceFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 1795, 2, 24, 2, 4, 1, 0, 2)
+)
+deviceFailure.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("PDN-HEALTHANDSTATUS-MIB", "devFailureStatus"))
+)
+if mibBuilder.loadTexts:
+    deviceFailure.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PDN-HEALTHANDSTATUS-MIB",
+    **{"devStatus": devStatus,
+       "devSelfTestFailure": devSelfTestFailure,
+       "deviceFailure": deviceFailure,
+       "devHealthAndStatus": devHealthAndStatus,
+       "devSelfTestResults": devSelfTestResults,
+       "devAbortStatus": devAbortStatus,
+       "devSNMPSetStatusTable": devSNMPSetStatusTable,
+       "devSNMPSetStatusEntry": devSNMPSetStatusEntry,
+       "devSNMPSetReqId": devSNMPSetReqId,
+       "devSNMPSetStatus": devSNMPSetStatus,
+       "devAuthenticationFailureIpAddress": devAuthenticationFailureIpAddress,
+       "devLastTrapString": devLastTrapString,
+       "devFailureStatus": devFailureStatus,
+       "devStatusTrapEnable": devStatusTrapEnable,
+       "devSelfTestResultTable": devSelfTestResultTable,
+       "devSelfTestResultEntry": devSelfTestResultEntry,
+       "devSelfTestResult": devSelfTestResult}
+)

@@ -1,43 +1,350 @@
+# SNMP MIB module (NBS-OTNOH-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NBS-OTNOH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/NBS-OTNOH-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:20 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/mrv/NBS-OTNOH-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:04:07 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-nbsOtnohMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 224))
-if mibBuilder.loadTexts: nbsOtnohMib.setLastUpdated('201212200000Z')
-if mibBuilder.loadTexts: nbsOtnohMib.setOrganization('NBS')
-nbsOtnohTtiGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 224, 1))
-if mibBuilder.loadTexts: nbsOtnohTtiGrp.setStatus('current')
-nbsOtnohTtiTable = MibTable((1, 3, 6, 1, 4, 1, 629, 224, 1, 1), )
-if mibBuilder.loadTexts: nbsOtnohTtiTable.setStatus('current')
-nbsOtnohTtiEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1), ).setIndexNames((0, "NBS-OTNOH-MIB", "nbsOtnohTtiIfIndex"), (0, "NBS-OTNOH-MIB", "nbsOtnohTtiScope"))
-if mibBuilder.loadTexts: nbsOtnohTtiEntry.setStatus('current')
-nbsOtnohTtiIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: nbsOtnohTtiIfIndex.setStatus('current')
-nbsOtnohTtiScope = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))).clone(namedValues=NamedValues(("tcm1", 1), ("tcm2", 2), ("tcm3", 3), ("tcm4", 4), ("tcm5", 5), ("tcm6", 6), ("section", 7), ("path", 8))))
-if mibBuilder.loadTexts: nbsOtnohTtiScope.setStatus('current')
-nbsOtnohTtiSendSapi = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nbsOtnohTtiSendSapi.setStatus('current')
-nbsOtnohTtiSendDapi = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nbsOtnohTtiSendDapi.setStatus('current')
-nbsOtnohTtiSendOpSpec = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nbsOtnohTtiSendOpSpec.setStatus('current')
-nbsOtnohTtiExpectSapi = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nbsOtnohTtiExpectSapi.setStatus('current')
-nbsOtnohTtiExpectDapi = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nbsOtnohTtiExpectDapi.setStatus('current')
-nbsOtnohTtiExpectOpSpec = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nbsOtnohTtiExpectOpSpec.setStatus('current')
-nbsOtnohTtiRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: nbsOtnohTtiRowStatus.setStatus('current')
-mibBuilder.exportSymbols("NBS-OTNOH-MIB", nbsOtnohTtiRowStatus=nbsOtnohTtiRowStatus, nbsOtnohTtiTable=nbsOtnohTtiTable, nbsOtnohTtiSendOpSpec=nbsOtnohTtiSendOpSpec, nbsOtnohTtiSendDapi=nbsOtnohTtiSendDapi, nbsOtnohTtiGrp=nbsOtnohTtiGrp, nbsOtnohTtiExpectOpSpec=nbsOtnohTtiExpectOpSpec, nbsOtnohTtiIfIndex=nbsOtnohTtiIfIndex, nbsOtnohTtiEntry=nbsOtnohTtiEntry, PYSNMP_MODULE_ID=nbsOtnohMib, nbsOtnohTtiExpectSapi=nbsOtnohTtiExpectSapi, nbsOtnohTtiScope=nbsOtnohTtiScope, nbsOtnohTtiExpectDapi=nbsOtnohTtiExpectDapi, nbsOtnohMib=nbsOtnohMib, nbsOtnohTtiSendSapi=nbsOtnohTtiSendSapi)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(nbs,) = mibBuilder.importSymbols(
+    "NBS-MIB",
+    "nbs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+nbsOtnohMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 224)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NbsOtnohTtiGrp_ObjectIdentity = ObjectIdentity
+nbsOtnohTtiGrp = _NbsOtnohTtiGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1)
+)
+if mibBuilder.loadTexts:
+    nbsOtnohTtiGrp.setStatus("current")
+_NbsOtnohTtiTable_Object = MibTable
+nbsOtnohTtiTable = _NbsOtnohTtiTable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1, 1)
+)
+if mibBuilder.loadTexts:
+    nbsOtnohTtiTable.setStatus("current")
+_NbsOtnohTtiEntry_Object = MibTableRow
+nbsOtnohTtiEntry = _NbsOtnohTtiEntry_Object(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1)
+)
+nbsOtnohTtiEntry.setIndexNames(
+    (0, "NBS-OTNOH-MIB", "nbsOtnohTtiIfIndex"),
+    (0, "NBS-OTNOH-MIB", "nbsOtnohTtiScope"),
+)
+if mibBuilder.loadTexts:
+    nbsOtnohTtiEntry.setStatus("current")
+_NbsOtnohTtiIfIndex_Type = InterfaceIndex
+_NbsOtnohTtiIfIndex_Object = MibTableColumn
+nbsOtnohTtiIfIndex = _NbsOtnohTtiIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 1),
+    _NbsOtnohTtiIfIndex_Type()
+)
+nbsOtnohTtiIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbsOtnohTtiIfIndex.setStatus("current")
+
+
+class _NbsOtnohTtiScope_Type(Integer32):
+    """Custom type nbsOtnohTtiScope based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("tcm1", 1),
+          ("tcm2", 2),
+          ("tcm3", 3),
+          ("tcm4", 4),
+          ("tcm5", 5),
+          ("tcm6", 6),
+          ("section", 7),
+          ("path", 8))
+    )
+
+
+_NbsOtnohTtiScope_Type.__name__ = "Integer32"
+_NbsOtnohTtiScope_Object = MibTableColumn
+nbsOtnohTtiScope = _NbsOtnohTtiScope_Object(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 2),
+    _NbsOtnohTtiScope_Type()
+)
+nbsOtnohTtiScope.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbsOtnohTtiScope.setStatus("current")
+
+
+class _NbsOtnohTtiSendSapi_Type(OctetString):
+    """Custom type nbsOtnohTtiSendSapi based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_NbsOtnohTtiSendSapi_Type.__name__ = "OctetString"
+_NbsOtnohTtiSendSapi_Object = MibTableColumn
+nbsOtnohTtiSendSapi = _NbsOtnohTtiSendSapi_Object(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 3),
+    _NbsOtnohTtiSendSapi_Type()
+)
+nbsOtnohTtiSendSapi.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nbsOtnohTtiSendSapi.setStatus("current")
+
+
+class _NbsOtnohTtiSendDapi_Type(OctetString):
+    """Custom type nbsOtnohTtiSendDapi based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_NbsOtnohTtiSendDapi_Type.__name__ = "OctetString"
+_NbsOtnohTtiSendDapi_Object = MibTableColumn
+nbsOtnohTtiSendDapi = _NbsOtnohTtiSendDapi_Object(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 4),
+    _NbsOtnohTtiSendDapi_Type()
+)
+nbsOtnohTtiSendDapi.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nbsOtnohTtiSendDapi.setStatus("current")
+
+
+class _NbsOtnohTtiSendOpSpec_Type(OctetString):
+    """Custom type nbsOtnohTtiSendOpSpec based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_NbsOtnohTtiSendOpSpec_Type.__name__ = "OctetString"
+_NbsOtnohTtiSendOpSpec_Object = MibTableColumn
+nbsOtnohTtiSendOpSpec = _NbsOtnohTtiSendOpSpec_Object(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 5),
+    _NbsOtnohTtiSendOpSpec_Type()
+)
+nbsOtnohTtiSendOpSpec.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nbsOtnohTtiSendOpSpec.setStatus("current")
+
+
+class _NbsOtnohTtiExpectSapi_Type(OctetString):
+    """Custom type nbsOtnohTtiExpectSapi based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_NbsOtnohTtiExpectSapi_Type.__name__ = "OctetString"
+_NbsOtnohTtiExpectSapi_Object = MibTableColumn
+nbsOtnohTtiExpectSapi = _NbsOtnohTtiExpectSapi_Object(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 6),
+    _NbsOtnohTtiExpectSapi_Type()
+)
+nbsOtnohTtiExpectSapi.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nbsOtnohTtiExpectSapi.setStatus("current")
+
+
+class _NbsOtnohTtiExpectDapi_Type(OctetString):
+    """Custom type nbsOtnohTtiExpectDapi based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_NbsOtnohTtiExpectDapi_Type.__name__ = "OctetString"
+_NbsOtnohTtiExpectDapi_Object = MibTableColumn
+nbsOtnohTtiExpectDapi = _NbsOtnohTtiExpectDapi_Object(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 7),
+    _NbsOtnohTtiExpectDapi_Type()
+)
+nbsOtnohTtiExpectDapi.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nbsOtnohTtiExpectDapi.setStatus("current")
+
+
+class _NbsOtnohTtiExpectOpSpec_Type(OctetString):
+    """Custom type nbsOtnohTtiExpectOpSpec based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_NbsOtnohTtiExpectOpSpec_Type.__name__ = "OctetString"
+_NbsOtnohTtiExpectOpSpec_Object = MibTableColumn
+nbsOtnohTtiExpectOpSpec = _NbsOtnohTtiExpectOpSpec_Object(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 8),
+    _NbsOtnohTtiExpectOpSpec_Type()
+)
+nbsOtnohTtiExpectOpSpec.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nbsOtnohTtiExpectOpSpec.setStatus("current")
+_NbsOtnohTtiRowStatus_Type = RowStatus
+_NbsOtnohTtiRowStatus_Object = MibTableColumn
+nbsOtnohTtiRowStatus = _NbsOtnohTtiRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 629, 224, 1, 1, 1, 10),
+    _NbsOtnohTtiRowStatus_Type()
+)
+nbsOtnohTtiRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    nbsOtnohTtiRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NBS-OTNOH-MIB",
+    **{"nbsOtnohMib": nbsOtnohMib,
+       "nbsOtnohTtiGrp": nbsOtnohTtiGrp,
+       "nbsOtnohTtiTable": nbsOtnohTtiTable,
+       "nbsOtnohTtiEntry": nbsOtnohTtiEntry,
+       "nbsOtnohTtiIfIndex": nbsOtnohTtiIfIndex,
+       "nbsOtnohTtiScope": nbsOtnohTtiScope,
+       "nbsOtnohTtiSendSapi": nbsOtnohTtiSendSapi,
+       "nbsOtnohTtiSendDapi": nbsOtnohTtiSendDapi,
+       "nbsOtnohTtiSendOpSpec": nbsOtnohTtiSendOpSpec,
+       "nbsOtnohTtiExpectSapi": nbsOtnohTtiExpectSapi,
+       "nbsOtnohTtiExpectDapi": nbsOtnohTtiExpectDapi,
+       "nbsOtnohTtiExpectOpSpec": nbsOtnohTtiExpectOpSpec,
+       "nbsOtnohTtiRowStatus": nbsOtnohTtiRowStatus}
+)

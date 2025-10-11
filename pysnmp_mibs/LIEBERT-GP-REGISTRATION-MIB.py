@@ -1,402 +1,1495 @@
+# SNMP MIB module (LIEBERT-GP-REGISTRATION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module LIEBERT-GP-REGISTRATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/liebert/LIEBERT-GP-REGISTRATION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:03 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/liebert/LIEBERT-GP-REGISTRATION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:00:43 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-liebertGlobalProductsRegistrationModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 1, 1))
-liebertGlobalProductsRegistrationModule.setRevisions(('2015-02-02 00:00', '2014-09-17 00:00', '2014-06-24 00:00', '2014-03-27 00:00', '2013-07-10 00:00', '2013-05-14 00:00', '2009-04-17 00:00', '2008-07-02 00:00', '2008-01-10 00:00', '2006-02-22 00:00',))
-if mibBuilder.loadTexts: liebertGlobalProductsRegistrationModule.setLastUpdated('201807120000Z')
-if mibBuilder.loadTexts: liebertGlobalProductsRegistrationModule.setOrganization('Liebert Corporation')
-vertiv = ObjectIdentity((1, 3, 6, 1, 4, 1, 476))
-if mibBuilder.loadTexts: vertiv.setStatus('current')
-liebertCorp = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1))
-if mibBuilder.loadTexts: liebertCorp.setStatus('current')
-liebertGlobalProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42))
-if mibBuilder.loadTexts: liebertGlobalProducts.setStatus('current')
-lgpModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1))
-if mibBuilder.loadTexts: lgpModuleReg.setStatus('current')
-lgpAgent = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 2))
-if mibBuilder.loadTexts: lgpAgent.setStatus('current')
-lgpFoundation = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 3))
-if mibBuilder.loadTexts: lgpFoundation.setStatus('current')
-lgpProductSpecific = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4))
-if mibBuilder.loadTexts: lgpProductSpecific.setStatus('current')
-liebertModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 1))
-if mibBuilder.loadTexts: liebertModuleReg.setStatus('current')
-liebertAgentModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 2))
-if mibBuilder.loadTexts: liebertAgentModuleReg.setStatus('current')
-liebertConditionsModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 3))
-if mibBuilder.loadTexts: liebertConditionsModuleReg.setStatus('current')
-liebertNotificationsModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 4))
-if mibBuilder.loadTexts: liebertNotificationsModuleReg.setStatus('current')
-liebertEnvironmentalModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 5))
-if mibBuilder.loadTexts: liebertEnvironmentalModuleReg.setStatus('current')
-liebertPowerModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 6))
-if mibBuilder.loadTexts: liebertPowerModuleReg.setStatus('current')
-liebertControllerModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 7))
-if mibBuilder.loadTexts: liebertControllerModuleReg.setStatus('current')
-liebertSystemModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 8))
-if mibBuilder.loadTexts: liebertSystemModuleReg.setStatus('current')
-liebertPduModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 9))
-if mibBuilder.loadTexts: liebertPduModuleReg.setStatus('current')
-liebertFlexibleModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 10))
-if mibBuilder.loadTexts: liebertFlexibleModuleReg.setStatus('current')
-liebertFlexibleConditionsModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 11))
-if mibBuilder.loadTexts: liebertFlexibleConditionsModuleReg.setStatus('current')
-liebertSrcModuleReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 12))
-if mibBuilder.loadTexts: liebertSrcModuleReg.setStatus('current')
-lgpAgentIdent = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 2, 1))
-if mibBuilder.loadTexts: lgpAgentIdent.setStatus('current')
-lgpAgentNotifications = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 2, 3))
-if mibBuilder.loadTexts: lgpAgentNotifications.setStatus('current')
-lgpAgentDevice = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 2, 4))
-if mibBuilder.loadTexts: lgpAgentDevice.setStatus('current')
-lgpAgentControl = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 2, 5))
-if mibBuilder.loadTexts: lgpAgentControl.setStatus('current')
-lgpConditions = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 2))
-if mibBuilder.loadTexts: lgpConditions.setStatus('current')
-lgpNotifications = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 3))
-if mibBuilder.loadTexts: lgpNotifications.setStatus('current')
-lgpEnvironmental = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 4))
-if mibBuilder.loadTexts: lgpEnvironmental.setStatus('current')
-lgpPower = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 5))
-if mibBuilder.loadTexts: lgpPower.setStatus('current')
-lgpController = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 6))
-if mibBuilder.loadTexts: lgpController.setStatus('current')
-lgpSystem = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 7))
-if mibBuilder.loadTexts: lgpSystem.setStatus('current')
-lgpPdu = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 8))
-if mibBuilder.loadTexts: lgpPdu.setStatus('current')
-lgpFlexible = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 9))
-if mibBuilder.loadTexts: lgpFlexible.setStatus('current')
-lgpSrc = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 10))
-if mibBuilder.loadTexts: lgpSrc.setStatus('current')
-lgpUpsProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2))
-if mibBuilder.loadTexts: lgpUpsProducts.setStatus('current')
-lgpAcProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3))
-if mibBuilder.loadTexts: lgpAcProducts.setStatus('current')
-lgpPowerConditioningProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 4))
-if mibBuilder.loadTexts: lgpPowerConditioningProducts.setStatus('current')
-lgpTransferSwitchProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 5))
-if mibBuilder.loadTexts: lgpTransferSwitchProducts.setStatus('current')
-lgpMultiLinkProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 7))
-if mibBuilder.loadTexts: lgpMultiLinkProducts.setStatus('current')
-lgpPowerDistributionProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8))
-if mibBuilder.loadTexts: lgpPowerDistributionProducts.setStatus('current')
-lgpCombinedSystemProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10))
-if mibBuilder.loadTexts: lgpCombinedSystemProducts.setStatus('current')
-lgpAcPACCProducts = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12))
-if mibBuilder.loadTexts: lgpAcPACCProducts.setStatus('current')
-lgpSeries7200 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 1))
-if mibBuilder.loadTexts: lgpSeries7200.setStatus('current')
-lgpUPStationGXT = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 2))
-if mibBuilder.loadTexts: lgpUPStationGXT.setStatus('current')
-lgpPowerSureInteractive = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 3))
-if mibBuilder.loadTexts: lgpPowerSureInteractive.setStatus('current')
-lgpNfinity = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 4))
-if mibBuilder.loadTexts: lgpNfinity.setStatus('current')
-lgpNpower = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 5))
-if mibBuilder.loadTexts: lgpNpower.setStatus('current')
-lgpGXT2Dual = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 6))
-if mibBuilder.loadTexts: lgpGXT2Dual.setStatus('current')
-lgpPowerSureInteractive2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 7))
-if mibBuilder.loadTexts: lgpPowerSureInteractive2.setStatus('current')
-lgpNX = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 8))
-if mibBuilder.loadTexts: lgpNX.setStatus('current')
-lgpHiNet = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 9))
-if mibBuilder.loadTexts: lgpHiNet.setStatus('current')
-lgpNXL = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 10))
-if mibBuilder.loadTexts: lgpNXL.setStatus('current')
-lgpSuper400 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 11))
-if mibBuilder.loadTexts: lgpSuper400.setStatus('current')
-lgpSeries600or610 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 12))
-if mibBuilder.loadTexts: lgpSeries600or610.setStatus('current')
-lgpSeries300 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 13))
-if mibBuilder.loadTexts: lgpSeries300.setStatus('current')
-lgpSeries610SMS = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 14))
-if mibBuilder.loadTexts: lgpSeries610SMS.setStatus('current')
-lgpSeries610MMU = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 15))
-if mibBuilder.loadTexts: lgpSeries610MMU.setStatus('current')
-lgpSeries610SCC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 16))
-if mibBuilder.loadTexts: lgpSeries610SCC.setStatus('current')
-lgpGXT3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 17))
-if mibBuilder.loadTexts: lgpGXT3.setStatus('current')
-lgpGXT3Dual = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 18))
-if mibBuilder.loadTexts: lgpGXT3Dual.setStatus('current')
-lgpNXr = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19))
-if mibBuilder.loadTexts: lgpNXr.setStatus('current')
-lgpITA = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19, 1))
-if mibBuilder.loadTexts: lgpITA.setStatus('current')
-lgpNXRb = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19, 2))
-if mibBuilder.loadTexts: lgpNXRb.setStatus('current')
-lgpNXC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19, 3))
-if mibBuilder.loadTexts: lgpNXC.setStatus('current')
-lgpNXC30to40k = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19, 4))
-if mibBuilder.loadTexts: lgpNXC30to40k.setStatus('current')
-lgpITA30to40k = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19, 5))
-if mibBuilder.loadTexts: lgpITA30to40k.setStatus('current')
-lgpAPS = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 20))
-if mibBuilder.loadTexts: lgpAPS.setStatus('current')
-lgpMUNiMx = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 22))
-if mibBuilder.loadTexts: lgpMUNiMx.setStatus('current')
-lgpGXT4 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 23))
-if mibBuilder.loadTexts: lgpGXT4.setStatus('current')
-lgpGXT4Dual = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 24))
-if mibBuilder.loadTexts: lgpGXT4Dual.setStatus('current')
-lgpEXL = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 25))
-if mibBuilder.loadTexts: lgpEXL.setStatus('current')
-lgpEXM = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 26))
-if mibBuilder.loadTexts: lgpEXM.setStatus('current')
-lgpEXM208v = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 26, 1))
-if mibBuilder.loadTexts: lgpEXM208v.setStatus('current')
-lgpEXM400v = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 26, 2))
-if mibBuilder.loadTexts: lgpEXM400v.setStatus('current')
-lgpEXM480v = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 26, 3))
-if mibBuilder.loadTexts: lgpEXM480v.setStatus('current')
-lgpEPM = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27))
-if mibBuilder.loadTexts: lgpEPM.setStatus('current')
-lgpEPM300k = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 1))
-if mibBuilder.loadTexts: lgpEPM300k.setStatus('current')
-lgpEPM400k = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 2))
-if mibBuilder.loadTexts: lgpEPM400k.setStatus('current')
-lgpEPM500k = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 3))
-if mibBuilder.loadTexts: lgpEPM500k.setStatus('current')
-lgpEPM600k = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 4))
-if mibBuilder.loadTexts: lgpEPM600k.setStatus('current')
-lgpEPM800k = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 5))
-if mibBuilder.loadTexts: lgpEPM800k.setStatus('current')
-lgpAPM600 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 9))
-if mibBuilder.loadTexts: lgpAPM600.setStatus('current')
-lgpEXLS1 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 28))
-if mibBuilder.loadTexts: lgpEXLS1.setStatus('current')
-lgpEXLS1UPS = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 28, 1))
-if mibBuilder.loadTexts: lgpEXLS1UPS.setStatus('current')
-lgpEXMMSR = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 29))
-if mibBuilder.loadTexts: lgpEXMMSR.setStatus('current')
-lgpAPM600GHMI = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 29, 2))
-if mibBuilder.loadTexts: lgpAPM600GHMI.setStatus('current')
-lgpEPMGHMI = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 29, 3))
-if mibBuilder.loadTexts: lgpEPMGHMI.setStatus('current')
-lgpITA2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31))
-if mibBuilder.loadTexts: lgpITA2.setStatus('current')
-lgpITA2cap20k = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31, 1))
-if mibBuilder.loadTexts: lgpITA2cap20k.setStatus('current')
-lgpITA2cap40k = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31, 2))
-if mibBuilder.loadTexts: lgpITA2cap40k.setStatus('current')
-lgpEXSRackMountAndFrame1 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31, 3))
-if mibBuilder.loadTexts: lgpEXSRackMountAndFrame1.setStatus('current')
-lgpGXE = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31, 4))
-if mibBuilder.loadTexts: lgpGXE.setStatus('current')
-lgpITA2cap5k30k = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31, 5))
-if mibBuilder.loadTexts: lgpITA2cap5k30k.setStatus('current')
-lgpEXS = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 32))
-if mibBuilder.loadTexts: lgpEXS.setStatus('current')
-lgpEXSFr45 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 32, 2))
-if mibBuilder.loadTexts: lgpEXSFr45.setStatus('current')
-lgpPowerSureInteractive5 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 33))
-if mibBuilder.loadTexts: lgpPowerSureInteractive5.setStatus('current')
-lgpGXT5 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 34))
-if mibBuilder.loadTexts: lgpGXT5.setStatus('current')
-lgpAPME = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 37))
-if mibBuilder.loadTexts: lgpAPME.setStatus('current')
-lgpEXM2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 38))
-if mibBuilder.loadTexts: lgpEXM2.setStatus('current')
-lgpAPMV2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 38, 2))
-if mibBuilder.loadTexts: lgpAPMV2.setStatus('current')
-lgpTrinergyCube = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 39))
-if mibBuilder.loadTexts: lgpTrinergyCube.setStatus('current')
-lgpEdgeUPS = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 40))
-if mibBuilder.loadTexts: lgpEdgeUPS.setStatus('current')
-lgpNXLJD = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 10, 1))
-if mibBuilder.loadTexts: lgpNXLJD.setStatus('current')
-lgpNX225to600k = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 22, 1))
-if mibBuilder.loadTexts: lgpNX225to600k.setStatus('current')
-lgpAdvancedMicroprocessor = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 1))
-if mibBuilder.loadTexts: lgpAdvancedMicroprocessor.setStatus('current')
-lgpStandardMicroprocessor = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 2))
-if mibBuilder.loadTexts: lgpStandardMicroprocessor.setStatus('current')
-lgpMiniMate2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 3))
-if mibBuilder.loadTexts: lgpMiniMate2.setStatus('current')
-lgpHimod = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 4))
-if mibBuilder.loadTexts: lgpHimod.setStatus('current')
-lgpCEMS100orLECS15 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 5))
-if mibBuilder.loadTexts: lgpCEMS100orLECS15.setStatus('current')
-lgpIcom = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 6))
-if mibBuilder.loadTexts: lgpIcom.setStatus('current')
-lgpIcomPA = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7))
-if mibBuilder.loadTexts: lgpIcomPA.setStatus('current')
-lgpIcomXD = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 8))
-if mibBuilder.loadTexts: lgpIcomXD.setStatus('current')
-lgpIcomXP = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 9))
-if mibBuilder.loadTexts: lgpIcomXP.setStatus('current')
-lgpIcomSC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10))
-if mibBuilder.loadTexts: lgpIcomSC.setStatus('current')
-lgpIcomCR = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 11))
-if mibBuilder.loadTexts: lgpIcomCR.setStatus('current')
-lgpIcomAH = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 12))
-if mibBuilder.loadTexts: lgpIcomAH.setStatus('current')
-lgpIcomDCL = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 13))
-if mibBuilder.loadTexts: lgpIcomDCL.setStatus('current')
-lgpIcomEEV = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 14))
-if mibBuilder.loadTexts: lgpIcomEEV.setStatus('current')
-lgpIproAFC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 30))
-if mibBuilder.loadTexts: lgpIproAFC.setStatus('current')
-lgpIproEFC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 31))
-if mibBuilder.loadTexts: lgpIproEFC.setStatus('current')
-lgpCpcoPDX = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 32))
-if mibBuilder.loadTexts: lgpCpcoPDX.setStatus('current')
-lgpIcomPAtypeDS = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 1))
-if mibBuilder.loadTexts: lgpIcomPAtypeDS.setStatus('current')
-lgpIcomPAtypeHPM = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 2))
-if mibBuilder.loadTexts: lgpIcomPAtypeHPM.setStatus('current')
-lgpIcomPAtypeChallenger = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 3))
-if mibBuilder.loadTexts: lgpIcomPAtypeChallenger.setStatus('current')
-lgpIcomPAtypePeX = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 4))
-if mibBuilder.loadTexts: lgpIcomPAtypePeX.setStatus('current')
-lgpIcomPAtypeDeluxeSys3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 5))
-if mibBuilder.loadTexts: lgpIcomPAtypeDeluxeSys3.setStatus('current')
-lgpIcomPAtypeDeluxeSystem3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 5, 1))
-if mibBuilder.loadTexts: lgpIcomPAtypeDeluxeSystem3.setStatus('current')
-lgpIcomPAtypeCW = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 5, 2))
-if mibBuilder.loadTexts: lgpIcomPAtypeCW.setStatus('current')
-lgpIcomPAtypeJumboCW = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 6))
-if mibBuilder.loadTexts: lgpIcomPAtypeJumboCW.setStatus('current')
-lgpIcomPAtypeDSE = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 7))
-if mibBuilder.loadTexts: lgpIcomPAtypeDSE.setStatus('current')
-lgpIcomPAtypeDSE400 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 7, 1))
-if mibBuilder.loadTexts: lgpIcomPAtypeDSE400.setStatus('current')
-lgpIcomPAtypeDP060 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 7, 2))
-if mibBuilder.loadTexts: lgpIcomPAtypeDP060.setStatus('current')
-lgpIcomPAtypePEXS = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 8))
-if mibBuilder.loadTexts: lgpIcomPAtypePEXS.setStatus('current')
-lgpIcomPAtypePDXsmall = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 8, 1))
-if mibBuilder.loadTexts: lgpIcomPAtypePDXsmall.setStatus('current')
-lgpIcomPAtypePCWsmall = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 8, 2))
-if mibBuilder.loadTexts: lgpIcomPAtypePCWsmall.setStatus('current')
-lgpIcomPAtypePDX = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 9))
-if mibBuilder.loadTexts: lgpIcomPAtypePDX.setStatus('current')
-lgpIcomPAtypePDXlarge = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 9, 1))
-if mibBuilder.loadTexts: lgpIcomPAtypePDXlarge.setStatus('current')
-lgpIcomPAtypePCWlarge = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 9, 2))
-if mibBuilder.loadTexts: lgpIcomPAtypePCWlarge.setStatus('current')
-lgpIcomPAtypeHPS = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 10))
-if mibBuilder.loadTexts: lgpIcomPAtypeHPS.setStatus('current')
-lgpMiniMate3 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 11))
-if mibBuilder.loadTexts: lgpMiniMate3.setStatus('current')
-lgpIcomPAtypeXDU = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 12))
-if mibBuilder.loadTexts: lgpIcomPAtypeXDU.setStatus('current')
-lgpIcomPAtypeXDM = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 13))
-if mibBuilder.loadTexts: lgpIcomPAtypeXDM.setStatus('current')
-lgpIcomPAtypeCWA = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 14))
-if mibBuilder.loadTexts: lgpIcomPAtypeCWA.setStatus('current')
-lgpIcomXDtypeXDF = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 8, 1))
-if mibBuilder.loadTexts: lgpIcomXDtypeXDF.setStatus('current')
-lgpIcomXDtypeXDFN = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 8, 2))
-if mibBuilder.loadTexts: lgpIcomXDtypeXDFN.setStatus('current')
-lgpIcomXPtypeXDP = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 9, 1))
-if mibBuilder.loadTexts: lgpIcomXPtypeXDP.setStatus('current')
-lgpIcomXPtypeXDPCray = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 9, 1, 1))
-if mibBuilder.loadTexts: lgpIcomXPtypeXDPCray.setStatus('current')
-lgpIcomXPtypeXDC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 9, 2))
-if mibBuilder.loadTexts: lgpIcomXPtypeXDC.setStatus('current')
-lgpIcomXPtypeXDPW = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 9, 3))
-if mibBuilder.loadTexts: lgpIcomXPtypeXDPW.setStatus('current')
-lgpIcomSCtypeHPC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1))
-if mibBuilder.loadTexts: lgpIcomSCtypeHPC.setStatus('current')
-lgpIcomSCtypeHPCSSmall = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 1))
-if mibBuilder.loadTexts: lgpIcomSCtypeHPCSSmall.setStatus('current')
-lgpIcomSCtypeHPCSLarge = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 2))
-if mibBuilder.loadTexts: lgpIcomSCtypeHPCSLarge.setStatus('current')
-lgpIcomSCtypeHPCR = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 3))
-if mibBuilder.loadTexts: lgpIcomSCtypeHPCR.setStatus('current')
-lgpIcomSCtypeHPCM = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 4))
-if mibBuilder.loadTexts: lgpIcomSCtypeHPCM.setStatus('current')
-lgpIcomSCtypeHPCL = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 5))
-if mibBuilder.loadTexts: lgpIcomSCtypeHPCL.setStatus('current')
-lgpIcomSCtypeHPCW = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 6))
-if mibBuilder.loadTexts: lgpIcomSCtypeHPCW.setStatus('current')
-lgpIcomCRtypeCRV = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 11, 1))
-if mibBuilder.loadTexts: lgpIcomCRtypeCRV.setStatus('current')
-lgpIcomAHStandard = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 12, 1))
-if mibBuilder.loadTexts: lgpIcomAHStandard.setStatus('current')
-lgpPMP = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 4, 1))
-if mibBuilder.loadTexts: lgpPMP.setStatus('current')
-lgpEPMP = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 4, 2))
-if mibBuilder.loadTexts: lgpEPMP.setStatus('current')
-lgpStaticTransferSwitchEDS = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 5, 1))
-if mibBuilder.loadTexts: lgpStaticTransferSwitchEDS.setStatus('current')
-lgpStaticTransferSwitch1 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 5, 2))
-if mibBuilder.loadTexts: lgpStaticTransferSwitch1.setStatus('current')
-lgpStaticTransferSwitch2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 5, 3))
-if mibBuilder.loadTexts: lgpStaticTransferSwitch2.setStatus('current')
-lgpStaticTransferSwitch2FourPole = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 5, 4))
-if mibBuilder.loadTexts: lgpStaticTransferSwitch2FourPole.setStatus('current')
-lgpMultiLinkBasicNotification = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 7, 1))
-if mibBuilder.loadTexts: lgpMultiLinkBasicNotification.setStatus('current')
-lgpRackPDU = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 2))
-if mibBuilder.loadTexts: lgpRackPDU.setStatus('current')
-lgpMPX = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 2, 1))
-if mibBuilder.loadTexts: lgpMPX.setStatus('current')
-lgpMPH = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 2, 2))
-if mibBuilder.loadTexts: lgpMPH.setStatus('current')
-lgpRackPDU2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 4))
-if mibBuilder.loadTexts: lgpRackPDU2.setStatus('current')
-lgpRPC2kMPX = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 4, 1))
-if mibBuilder.loadTexts: lgpRPC2kMPX.setStatus('current')
-lgpRPC2kMPH = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 4, 2))
-if mibBuilder.loadTexts: lgpRPC2kMPH.setStatus('current')
-lgpPMPandLDMF = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1))
-if mibBuilder.loadTexts: lgpPMPandLDMF.setStatus('current')
-lgpPMPgeneric = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 1))
-if mibBuilder.loadTexts: lgpPMPgeneric.setStatus('current')
-lgpPMPonFPC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 2))
-if mibBuilder.loadTexts: lgpPMPonFPC.setStatus('current')
-lgpPMPonPPC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 3))
-if mibBuilder.loadTexts: lgpPMPonPPC.setStatus('current')
-lgpPMPonFDC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 4))
-if mibBuilder.loadTexts: lgpPMPonFDC.setStatus('current')
-lgpPMPonRDC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 5))
-if mibBuilder.loadTexts: lgpPMPonRDC.setStatus('current')
-lgpPMPonEXC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 6))
-if mibBuilder.loadTexts: lgpPMPonEXC.setStatus('current')
-lgpPMPonSTS2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 7))
-if mibBuilder.loadTexts: lgpPMPonSTS2.setStatus('current')
-lgpPMPonSTS2PDU = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 8))
-if mibBuilder.loadTexts: lgpPMPonSTS2PDU.setStatus('current')
-lgpPM5 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 3))
-if mibBuilder.loadTexts: lgpPM5.setStatus('current')
-lgpCRD = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 1))
-if mibBuilder.loadTexts: lgpCRD.setStatus('current')
-lgpCRD010 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 1, 1))
-if mibBuilder.loadTexts: lgpCRD010.setStatus('current')
-lgpCR = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2))
-if mibBuilder.loadTexts: lgpCR.setStatus('current')
-lgpCR012 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 1))
-if mibBuilder.loadTexts: lgpCR012.setStatus('current')
-lgpCR025 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 2))
-if mibBuilder.loadTexts: lgpCR025.setStatus('current')
-lgpCR030 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 3))
-if mibBuilder.loadTexts: lgpCR030.setStatus('current')
-lgpPEX4 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 4))
-if mibBuilder.loadTexts: lgpPEX4.setStatus('current')
-lgpCRC300600 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 5))
-if mibBuilder.loadTexts: lgpCRC300600.setStatus('current')
-lgpCRV4 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 6))
-if mibBuilder.loadTexts: lgpCRV4.setStatus('current')
-lgpDME2 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 7))
-if mibBuilder.loadTexts: lgpDME2.setStatus('current')
-lgpCAHU = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 8))
-if mibBuilder.loadTexts: lgpCAHU.setStatus('current')
-lgpPEX4WCFC = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 9))
-if mibBuilder.loadTexts: lgpPEX4WCFC.setStatus('current')
-lgpCRVDX2535 = ObjectIdentity((1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 10))
-if mibBuilder.loadTexts: lgpCRVDX2535.setStatus('current')
-mibBuilder.exportSymbols("LIEBERT-GP-REGISTRATION-MIB", lgpDME2=lgpDME2, lgpGXT3=lgpGXT3, lgpIcomSCtypeHPCW=lgpIcomSCtypeHPCW, lgpMultiLinkProducts=lgpMultiLinkProducts, lgpPdu=lgpPdu, lgpMiniMate2=lgpMiniMate2, lgpIcomPAtypeDS=lgpIcomPAtypeDS, lgpITA30to40k=lgpITA30to40k, liebertGlobalProductsRegistrationModule=liebertGlobalProductsRegistrationModule, liebertPowerModuleReg=liebertPowerModuleReg, liebertConditionsModuleReg=liebertConditionsModuleReg, lgpConditions=lgpConditions, lgpITA2cap5k30k=lgpITA2cap5k30k, lgpIproEFC=lgpIproEFC, lgpIcomPAtypePDXlarge=lgpIcomPAtypePDXlarge, lgpRackPDU2=lgpRackPDU2, lgpStandardMicroprocessor=lgpStandardMicroprocessor, lgpPEX4WCFC=lgpPEX4WCFC, lgpAcPACCProducts=lgpAcPACCProducts, lgpAPM600=lgpAPM600, liebertPduModuleReg=liebertPduModuleReg, lgpMUNiMx=lgpMUNiMx, lgpController=lgpController, lgpNX225to600k=lgpNX225to600k, lgpAdvancedMicroprocessor=lgpAdvancedMicroprocessor, lgpRackPDU=lgpRackPDU, lgpPowerConditioningProducts=lgpPowerConditioningProducts, lgpSeries610SMS=lgpSeries610SMS, lgpEPMGHMI=lgpEPMGHMI, lgpIcomPAtypeChallenger=lgpIcomPAtypeChallenger, lgpIcomSCtypeHPCL=lgpIcomSCtypeHPCL, lgpPMPgeneric=lgpPMPgeneric, lgpSrc=lgpSrc, liebertGlobalProducts=liebertGlobalProducts, lgpSuper400=lgpSuper400, lgpITA2=lgpITA2, lgpCEMS100orLECS15=lgpCEMS100orLECS15, lgpIcomPAtypeXDU=lgpIcomPAtypeXDU, lgpIcomSCtypeHPCSLarge=lgpIcomSCtypeHPCSLarge, lgpITA2cap40k=lgpITA2cap40k, lgpStaticTransferSwitch1=lgpStaticTransferSwitch1, lgpRPC2kMPX=lgpRPC2kMPX, lgpPM5=lgpPM5, lgpIcomPAtypeJumboCW=lgpIcomPAtypeJumboCW, lgpNXL=lgpNXL, lgpCRD=lgpCRD, liebertModuleReg=liebertModuleReg, lgpSeries600or610=lgpSeries600or610, lgpIcomXPtypeXDC=lgpIcomXPtypeXDC, lgpSeries300=lgpSeries300, lgpIcomPAtypeCWA=lgpIcomPAtypeCWA, lgpNfinity=lgpNfinity, lgpEPM800k=lgpEPM800k, lgpEPM=lgpEPM, lgpEXM208v=lgpEXM208v, lgpPMPonSTS2PDU=lgpPMPonSTS2PDU, lgpCRV4=lgpCRV4, lgpCR030=lgpCR030, lgpAPM600GHMI=lgpAPM600GHMI, lgpIcomXD=lgpIcomXD, lgpIcomPAtypeCW=lgpIcomPAtypeCW, lgpIcomPAtypePEXS=lgpIcomPAtypePEXS, lgpEXM2=lgpEXM2, lgpEnvironmental=lgpEnvironmental, lgpCR025=lgpCR025, lgpEPM400k=lgpEPM400k, lgpCAHU=lgpCAHU, lgpAcProducts=lgpAcProducts, lgpIcomPAtypeXDM=lgpIcomPAtypeXDM, lgpEXS=lgpEXS, lgpIcomPAtypePeX=lgpIcomPAtypePeX, lgpAgentDevice=lgpAgentDevice, lgpNXr=lgpNXr, lgpSeries610SCC=lgpSeries610SCC, lgpPMPonFDC=lgpPMPonFDC, lgpGXT3Dual=lgpGXT3Dual, lgpIcomPAtypeHPS=lgpIcomPAtypeHPS, lgpFlexible=lgpFlexible, lgpProductSpecific=lgpProductSpecific, lgpIcom=lgpIcom, lgpIcomSCtypeHPCR=lgpIcomSCtypeHPCR, lgpAPMV2=lgpAPMV2, liebertSrcModuleReg=liebertSrcModuleReg, lgpPMPonSTS2=lgpPMPonSTS2, lgpStaticTransferSwitch2FourPole=lgpStaticTransferSwitch2FourPole, lgpIcomXP=lgpIcomXP, lgpUpsProducts=lgpUpsProducts, lgpNXC30to40k=lgpNXC30to40k, lgpIcomAH=lgpIcomAH, lgpIcomSCtypeHPCSSmall=lgpIcomSCtypeHPCSSmall, lgpITA2cap20k=lgpITA2cap20k, lgpGXT2Dual=lgpGXT2Dual, lgpEXL=lgpEXL, lgpIcomCRtypeCRV=lgpIcomCRtypeCRV, liebertSystemModuleReg=liebertSystemModuleReg, lgpCR=lgpCR, liebertControllerModuleReg=liebertControllerModuleReg, lgpGXT4Dual=lgpGXT4Dual, lgpPowerSureInteractive=lgpPowerSureInteractive, lgpIcomPAtypeDP060=lgpIcomPAtypeDP060, lgpIcomPA=lgpIcomPA, lgpPMPonPPC=lgpPMPonPPC, lgpIcomPAtypePCWsmall=lgpIcomPAtypePCWsmall, lgpIcomPAtypeHPM=lgpIcomPAtypeHPM, lgpCR012=lgpCR012, lgpEPM500k=lgpEPM500k, vertiv=vertiv, lgpEXM480v=lgpEXM480v, lgpIcomPAtypePCWlarge=lgpIcomPAtypePCWlarge, lgpEXM400v=lgpEXM400v, lgpGXE=lgpGXE, lgpCRD010=lgpCRD010, lgpMultiLinkBasicNotification=lgpMultiLinkBasicNotification, lgpIcomSC=lgpIcomSC, lgpFoundation=lgpFoundation, lgpEXMMSR=lgpEXMMSR, lgpMiniMate3=lgpMiniMate3, lgpStaticTransferSwitchEDS=lgpStaticTransferSwitchEDS, lgpIcomSCtypeHPC=lgpIcomSCtypeHPC, lgpMPX=lgpMPX, lgpIcomPAtypeDeluxeSys3=lgpIcomPAtypeDeluxeSys3, lgpIcomAHStandard=lgpIcomAHStandard, lgpPEX4=lgpPEX4, lgpMPH=lgpMPH, lgpSystem=lgpSystem, lgpPMPonFPC=lgpPMPonFPC, lgpModuleReg=lgpModuleReg, lgpAPME=lgpAPME, lgpIcomCR=lgpIcomCR, lgpEdgeUPS=lgpEdgeUPS, lgpCpcoPDX=lgpCpcoPDX, lgpSeries7200=lgpSeries7200, lgpRPC2kMPH=lgpRPC2kMPH, lgpCRVDX2535=lgpCRVDX2535, lgpIcomPAtypeDSE400=lgpIcomPAtypeDSE400, lgpEPMP=lgpEPMP, lgpNX=lgpNX, lgpEXSRackMountAndFrame1=lgpEXSRackMountAndFrame1, lgpAgent=lgpAgent, lgpEXLS1=lgpEXLS1, lgpEXLS1UPS=lgpEXLS1UPS, lgpAgentNotifications=lgpAgentNotifications, lgpIcomXPtypeXDPCray=lgpIcomXPtypeXDPCray, liebertEnvironmentalModuleReg=liebertEnvironmentalModuleReg, lgpEPM600k=lgpEPM600k, liebertFlexibleModuleReg=liebertFlexibleModuleReg, lgpPowerDistributionProducts=lgpPowerDistributionProducts, liebertCorp=liebertCorp, liebertFlexibleConditionsModuleReg=liebertFlexibleConditionsModuleReg, lgpNotifications=lgpNotifications, lgpIcomPAtypePDXsmall=lgpIcomPAtypePDXsmall, lgpGXT4=lgpGXT4, lgpPMPonRDC=lgpPMPonRDC, lgpUPStationGXT=lgpUPStationGXT, lgpNXRb=lgpNXRb, lgpAPS=lgpAPS, liebertNotificationsModuleReg=liebertNotificationsModuleReg, lgpNXLJD=lgpNXLJD, lgpIcomPAtypePDX=lgpIcomPAtypePDX, lgpNpower=lgpNpower, lgpIcomXPtypeXDPW=lgpIcomXPtypeXDPW, lgpPowerSureInteractive5=lgpPowerSureInteractive5, lgpIcomDCL=lgpIcomDCL, lgpIcomXDtypeXDF=lgpIcomXDtypeXDF, liebertAgentModuleReg=liebertAgentModuleReg, lgpNXC=lgpNXC, lgpEXSFr45=lgpEXSFr45, lgpIcomXPtypeXDP=lgpIcomXPtypeXDP, lgpHiNet=lgpHiNet, lgpStaticTransferSwitch2=lgpStaticTransferSwitch2, lgpIcomXDtypeXDFN=lgpIcomXDtypeXDFN, lgpIcomSCtypeHPCM=lgpIcomSCtypeHPCM, lgpPowerSureInteractive2=lgpPowerSureInteractive2, lgpSeries610MMU=lgpSeries610MMU, PYSNMP_MODULE_ID=liebertGlobalProductsRegistrationModule, lgpTrinergyCube=lgpTrinergyCube, lgpIcomPAtypeDSE=lgpIcomPAtypeDSE, lgpPMPandLDMF=lgpPMPandLDMF, lgpCombinedSystemProducts=lgpCombinedSystemProducts, lgpHimod=lgpHimod, lgpIproAFC=lgpIproAFC, lgpTransferSwitchProducts=lgpTransferSwitchProducts, lgpITA=lgpITA, lgpIcomEEV=lgpIcomEEV, lgpPower=lgpPower, lgpGXT5=lgpGXT5, lgpAgentControl=lgpAgentControl, lgpIcomPAtypeDeluxeSystem3=lgpIcomPAtypeDeluxeSystem3, lgpPMP=lgpPMP, lgpEPM300k=lgpEPM300k, lgpCRC300600=lgpCRC300600, lgpPMPonEXC=lgpPMPonEXC, lgpEXM=lgpEXM, lgpAgentIdent=lgpAgentIdent)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+liebertGlobalProductsRegistrationModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    liebertGlobalProductsRegistrationModule.setRevisions(
+        ("2015-02-02 00:00",
+         "2014-09-17 00:00",
+         "2014-06-24 00:00",
+         "2014-03-27 00:00",
+         "2013-07-10 00:00",
+         "2013-05-14 00:00",
+         "2009-04-17 00:00",
+         "2008-07-02 00:00",
+         "2008-01-10 00:00",
+         "2006-02-22 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Vertiv_ObjectIdentity = ObjectIdentity
+vertiv = _Vertiv_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476)
+)
+if mibBuilder.loadTexts:
+    vertiv.setStatus("current")
+_LiebertCorp_ObjectIdentity = ObjectIdentity
+liebertCorp = _LiebertCorp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1)
+)
+if mibBuilder.loadTexts:
+    liebertCorp.setStatus("current")
+_LiebertGlobalProducts_ObjectIdentity = ObjectIdentity
+liebertGlobalProducts = _LiebertGlobalProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42)
+)
+if mibBuilder.loadTexts:
+    liebertGlobalProducts.setStatus("current")
+_LgpModuleReg_ObjectIdentity = ObjectIdentity
+lgpModuleReg = _LgpModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1)
+)
+if mibBuilder.loadTexts:
+    lgpModuleReg.setStatus("current")
+_LiebertModuleReg_ObjectIdentity = ObjectIdentity
+liebertModuleReg = _LiebertModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 1)
+)
+if mibBuilder.loadTexts:
+    liebertModuleReg.setStatus("current")
+_LiebertAgentModuleReg_ObjectIdentity = ObjectIdentity
+liebertAgentModuleReg = _LiebertAgentModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 2)
+)
+if mibBuilder.loadTexts:
+    liebertAgentModuleReg.setStatus("current")
+_LiebertConditionsModuleReg_ObjectIdentity = ObjectIdentity
+liebertConditionsModuleReg = _LiebertConditionsModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 3)
+)
+if mibBuilder.loadTexts:
+    liebertConditionsModuleReg.setStatus("current")
+_LiebertNotificationsModuleReg_ObjectIdentity = ObjectIdentity
+liebertNotificationsModuleReg = _LiebertNotificationsModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 4)
+)
+if mibBuilder.loadTexts:
+    liebertNotificationsModuleReg.setStatus("current")
+_LiebertEnvironmentalModuleReg_ObjectIdentity = ObjectIdentity
+liebertEnvironmentalModuleReg = _LiebertEnvironmentalModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 5)
+)
+if mibBuilder.loadTexts:
+    liebertEnvironmentalModuleReg.setStatus("current")
+_LiebertPowerModuleReg_ObjectIdentity = ObjectIdentity
+liebertPowerModuleReg = _LiebertPowerModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 6)
+)
+if mibBuilder.loadTexts:
+    liebertPowerModuleReg.setStatus("current")
+_LiebertControllerModuleReg_ObjectIdentity = ObjectIdentity
+liebertControllerModuleReg = _LiebertControllerModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 7)
+)
+if mibBuilder.loadTexts:
+    liebertControllerModuleReg.setStatus("current")
+_LiebertSystemModuleReg_ObjectIdentity = ObjectIdentity
+liebertSystemModuleReg = _LiebertSystemModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 8)
+)
+if mibBuilder.loadTexts:
+    liebertSystemModuleReg.setStatus("current")
+_LiebertPduModuleReg_ObjectIdentity = ObjectIdentity
+liebertPduModuleReg = _LiebertPduModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 9)
+)
+if mibBuilder.loadTexts:
+    liebertPduModuleReg.setStatus("current")
+_LiebertFlexibleModuleReg_ObjectIdentity = ObjectIdentity
+liebertFlexibleModuleReg = _LiebertFlexibleModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 10)
+)
+if mibBuilder.loadTexts:
+    liebertFlexibleModuleReg.setStatus("current")
+_LiebertFlexibleConditionsModuleReg_ObjectIdentity = ObjectIdentity
+liebertFlexibleConditionsModuleReg = _LiebertFlexibleConditionsModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 11)
+)
+if mibBuilder.loadTexts:
+    liebertFlexibleConditionsModuleReg.setStatus("current")
+_LiebertSrcModuleReg_ObjectIdentity = ObjectIdentity
+liebertSrcModuleReg = _LiebertSrcModuleReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 1, 12)
+)
+if mibBuilder.loadTexts:
+    liebertSrcModuleReg.setStatus("current")
+_LgpAgent_ObjectIdentity = ObjectIdentity
+lgpAgent = _LgpAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 2)
+)
+if mibBuilder.loadTexts:
+    lgpAgent.setStatus("current")
+_LgpAgentIdent_ObjectIdentity = ObjectIdentity
+lgpAgentIdent = _LgpAgentIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 2, 1)
+)
+if mibBuilder.loadTexts:
+    lgpAgentIdent.setStatus("current")
+_LgpAgentNotifications_ObjectIdentity = ObjectIdentity
+lgpAgentNotifications = _LgpAgentNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 2, 3)
+)
+if mibBuilder.loadTexts:
+    lgpAgentNotifications.setStatus("current")
+_LgpAgentDevice_ObjectIdentity = ObjectIdentity
+lgpAgentDevice = _LgpAgentDevice_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 2, 4)
+)
+if mibBuilder.loadTexts:
+    lgpAgentDevice.setStatus("current")
+_LgpAgentControl_ObjectIdentity = ObjectIdentity
+lgpAgentControl = _LgpAgentControl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 2, 5)
+)
+if mibBuilder.loadTexts:
+    lgpAgentControl.setStatus("current")
+_LgpFoundation_ObjectIdentity = ObjectIdentity
+lgpFoundation = _LgpFoundation_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 3)
+)
+if mibBuilder.loadTexts:
+    lgpFoundation.setStatus("current")
+_LgpConditions_ObjectIdentity = ObjectIdentity
+lgpConditions = _LgpConditions_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 2)
+)
+if mibBuilder.loadTexts:
+    lgpConditions.setStatus("current")
+_LgpNotifications_ObjectIdentity = ObjectIdentity
+lgpNotifications = _LgpNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 3)
+)
+if mibBuilder.loadTexts:
+    lgpNotifications.setStatus("current")
+_LgpEnvironmental_ObjectIdentity = ObjectIdentity
+lgpEnvironmental = _LgpEnvironmental_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 4)
+)
+if mibBuilder.loadTexts:
+    lgpEnvironmental.setStatus("current")
+_LgpPower_ObjectIdentity = ObjectIdentity
+lgpPower = _LgpPower_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 5)
+)
+if mibBuilder.loadTexts:
+    lgpPower.setStatus("current")
+_LgpController_ObjectIdentity = ObjectIdentity
+lgpController = _LgpController_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 6)
+)
+if mibBuilder.loadTexts:
+    lgpController.setStatus("current")
+_LgpSystem_ObjectIdentity = ObjectIdentity
+lgpSystem = _LgpSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 7)
+)
+if mibBuilder.loadTexts:
+    lgpSystem.setStatus("current")
+_LgpPdu_ObjectIdentity = ObjectIdentity
+lgpPdu = _LgpPdu_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 8)
+)
+if mibBuilder.loadTexts:
+    lgpPdu.setStatus("current")
+_LgpFlexible_ObjectIdentity = ObjectIdentity
+lgpFlexible = _LgpFlexible_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 9)
+)
+if mibBuilder.loadTexts:
+    lgpFlexible.setStatus("current")
+_LgpSrc_ObjectIdentity = ObjectIdentity
+lgpSrc = _LgpSrc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 3, 10)
+)
+if mibBuilder.loadTexts:
+    lgpSrc.setStatus("current")
+_LgpProductSpecific_ObjectIdentity = ObjectIdentity
+lgpProductSpecific = _LgpProductSpecific_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4)
+)
+if mibBuilder.loadTexts:
+    lgpProductSpecific.setStatus("current")
+_LgpUpsProducts_ObjectIdentity = ObjectIdentity
+lgpUpsProducts = _LgpUpsProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2)
+)
+if mibBuilder.loadTexts:
+    lgpUpsProducts.setStatus("current")
+_LgpSeries7200_ObjectIdentity = ObjectIdentity
+lgpSeries7200 = _LgpSeries7200_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 1)
+)
+if mibBuilder.loadTexts:
+    lgpSeries7200.setStatus("current")
+_LgpUPStationGXT_ObjectIdentity = ObjectIdentity
+lgpUPStationGXT = _LgpUPStationGXT_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 2)
+)
+if mibBuilder.loadTexts:
+    lgpUPStationGXT.setStatus("current")
+_LgpPowerSureInteractive_ObjectIdentity = ObjectIdentity
+lgpPowerSureInteractive = _LgpPowerSureInteractive_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 3)
+)
+if mibBuilder.loadTexts:
+    lgpPowerSureInteractive.setStatus("current")
+_LgpNfinity_ObjectIdentity = ObjectIdentity
+lgpNfinity = _LgpNfinity_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 4)
+)
+if mibBuilder.loadTexts:
+    lgpNfinity.setStatus("current")
+_LgpNpower_ObjectIdentity = ObjectIdentity
+lgpNpower = _LgpNpower_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 5)
+)
+if mibBuilder.loadTexts:
+    lgpNpower.setStatus("current")
+_LgpGXT2Dual_ObjectIdentity = ObjectIdentity
+lgpGXT2Dual = _LgpGXT2Dual_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 6)
+)
+if mibBuilder.loadTexts:
+    lgpGXT2Dual.setStatus("current")
+_LgpPowerSureInteractive2_ObjectIdentity = ObjectIdentity
+lgpPowerSureInteractive2 = _LgpPowerSureInteractive2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 7)
+)
+if mibBuilder.loadTexts:
+    lgpPowerSureInteractive2.setStatus("current")
+_LgpNX_ObjectIdentity = ObjectIdentity
+lgpNX = _LgpNX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 8)
+)
+if mibBuilder.loadTexts:
+    lgpNX.setStatus("current")
+_LgpHiNet_ObjectIdentity = ObjectIdentity
+lgpHiNet = _LgpHiNet_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 9)
+)
+if mibBuilder.loadTexts:
+    lgpHiNet.setStatus("current")
+_LgpNXL_ObjectIdentity = ObjectIdentity
+lgpNXL = _LgpNXL_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 10)
+)
+if mibBuilder.loadTexts:
+    lgpNXL.setStatus("current")
+_LgpNXLJD_ObjectIdentity = ObjectIdentity
+lgpNXLJD = _LgpNXLJD_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 10, 1)
+)
+if mibBuilder.loadTexts:
+    lgpNXLJD.setStatus("current")
+_LgpSuper400_ObjectIdentity = ObjectIdentity
+lgpSuper400 = _LgpSuper400_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 11)
+)
+if mibBuilder.loadTexts:
+    lgpSuper400.setStatus("current")
+_LgpSeries600or610_ObjectIdentity = ObjectIdentity
+lgpSeries600or610 = _LgpSeries600or610_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 12)
+)
+if mibBuilder.loadTexts:
+    lgpSeries600or610.setStatus("current")
+_LgpSeries300_ObjectIdentity = ObjectIdentity
+lgpSeries300 = _LgpSeries300_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 13)
+)
+if mibBuilder.loadTexts:
+    lgpSeries300.setStatus("current")
+_LgpSeries610SMS_ObjectIdentity = ObjectIdentity
+lgpSeries610SMS = _LgpSeries610SMS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 14)
+)
+if mibBuilder.loadTexts:
+    lgpSeries610SMS.setStatus("current")
+_LgpSeries610MMU_ObjectIdentity = ObjectIdentity
+lgpSeries610MMU = _LgpSeries610MMU_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 15)
+)
+if mibBuilder.loadTexts:
+    lgpSeries610MMU.setStatus("current")
+_LgpSeries610SCC_ObjectIdentity = ObjectIdentity
+lgpSeries610SCC = _LgpSeries610SCC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 16)
+)
+if mibBuilder.loadTexts:
+    lgpSeries610SCC.setStatus("current")
+_LgpGXT3_ObjectIdentity = ObjectIdentity
+lgpGXT3 = _LgpGXT3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 17)
+)
+if mibBuilder.loadTexts:
+    lgpGXT3.setStatus("current")
+_LgpGXT3Dual_ObjectIdentity = ObjectIdentity
+lgpGXT3Dual = _LgpGXT3Dual_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 18)
+)
+if mibBuilder.loadTexts:
+    lgpGXT3Dual.setStatus("current")
+_LgpNXr_ObjectIdentity = ObjectIdentity
+lgpNXr = _LgpNXr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19)
+)
+if mibBuilder.loadTexts:
+    lgpNXr.setStatus("current")
+_LgpITA_ObjectIdentity = ObjectIdentity
+lgpITA = _LgpITA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19, 1)
+)
+if mibBuilder.loadTexts:
+    lgpITA.setStatus("current")
+_LgpNXRb_ObjectIdentity = ObjectIdentity
+lgpNXRb = _LgpNXRb_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19, 2)
+)
+if mibBuilder.loadTexts:
+    lgpNXRb.setStatus("current")
+_LgpNXC_ObjectIdentity = ObjectIdentity
+lgpNXC = _LgpNXC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19, 3)
+)
+if mibBuilder.loadTexts:
+    lgpNXC.setStatus("current")
+_LgpNXC30to40k_ObjectIdentity = ObjectIdentity
+lgpNXC30to40k = _LgpNXC30to40k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19, 4)
+)
+if mibBuilder.loadTexts:
+    lgpNXC30to40k.setStatus("current")
+_LgpITA30to40k_ObjectIdentity = ObjectIdentity
+lgpITA30to40k = _LgpITA30to40k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 19, 5)
+)
+if mibBuilder.loadTexts:
+    lgpITA30to40k.setStatus("current")
+_LgpAPS_ObjectIdentity = ObjectIdentity
+lgpAPS = _LgpAPS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 20)
+)
+if mibBuilder.loadTexts:
+    lgpAPS.setStatus("current")
+_LgpMUNiMx_ObjectIdentity = ObjectIdentity
+lgpMUNiMx = _LgpMUNiMx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 22)
+)
+if mibBuilder.loadTexts:
+    lgpMUNiMx.setStatus("current")
+_LgpNX225to600k_ObjectIdentity = ObjectIdentity
+lgpNX225to600k = _LgpNX225to600k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 22, 1)
+)
+if mibBuilder.loadTexts:
+    lgpNX225to600k.setStatus("current")
+_LgpGXT4_ObjectIdentity = ObjectIdentity
+lgpGXT4 = _LgpGXT4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 23)
+)
+if mibBuilder.loadTexts:
+    lgpGXT4.setStatus("current")
+_LgpGXT4Dual_ObjectIdentity = ObjectIdentity
+lgpGXT4Dual = _LgpGXT4Dual_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 24)
+)
+if mibBuilder.loadTexts:
+    lgpGXT4Dual.setStatus("current")
+_LgpEXL_ObjectIdentity = ObjectIdentity
+lgpEXL = _LgpEXL_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 25)
+)
+if mibBuilder.loadTexts:
+    lgpEXL.setStatus("current")
+_LgpEXM_ObjectIdentity = ObjectIdentity
+lgpEXM = _LgpEXM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 26)
+)
+if mibBuilder.loadTexts:
+    lgpEXM.setStatus("current")
+_LgpEXM208v_ObjectIdentity = ObjectIdentity
+lgpEXM208v = _LgpEXM208v_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 26, 1)
+)
+if mibBuilder.loadTexts:
+    lgpEXM208v.setStatus("current")
+_LgpEXM400v_ObjectIdentity = ObjectIdentity
+lgpEXM400v = _LgpEXM400v_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 26, 2)
+)
+if mibBuilder.loadTexts:
+    lgpEXM400v.setStatus("current")
+_LgpEXM480v_ObjectIdentity = ObjectIdentity
+lgpEXM480v = _LgpEXM480v_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 26, 3)
+)
+if mibBuilder.loadTexts:
+    lgpEXM480v.setStatus("current")
+_LgpEPM_ObjectIdentity = ObjectIdentity
+lgpEPM = _LgpEPM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27)
+)
+if mibBuilder.loadTexts:
+    lgpEPM.setStatus("current")
+_LgpEPM300k_ObjectIdentity = ObjectIdentity
+lgpEPM300k = _LgpEPM300k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 1)
+)
+if mibBuilder.loadTexts:
+    lgpEPM300k.setStatus("current")
+_LgpEPM400k_ObjectIdentity = ObjectIdentity
+lgpEPM400k = _LgpEPM400k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 2)
+)
+if mibBuilder.loadTexts:
+    lgpEPM400k.setStatus("current")
+_LgpEPM500k_ObjectIdentity = ObjectIdentity
+lgpEPM500k = _LgpEPM500k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 3)
+)
+if mibBuilder.loadTexts:
+    lgpEPM500k.setStatus("current")
+_LgpEPM600k_ObjectIdentity = ObjectIdentity
+lgpEPM600k = _LgpEPM600k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 4)
+)
+if mibBuilder.loadTexts:
+    lgpEPM600k.setStatus("current")
+_LgpEPM800k_ObjectIdentity = ObjectIdentity
+lgpEPM800k = _LgpEPM800k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 5)
+)
+if mibBuilder.loadTexts:
+    lgpEPM800k.setStatus("current")
+_LgpAPM600_ObjectIdentity = ObjectIdentity
+lgpAPM600 = _LgpAPM600_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 27, 9)
+)
+if mibBuilder.loadTexts:
+    lgpAPM600.setStatus("current")
+_LgpEXLS1_ObjectIdentity = ObjectIdentity
+lgpEXLS1 = _LgpEXLS1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 28)
+)
+if mibBuilder.loadTexts:
+    lgpEXLS1.setStatus("current")
+_LgpEXLS1UPS_ObjectIdentity = ObjectIdentity
+lgpEXLS1UPS = _LgpEXLS1UPS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 28, 1)
+)
+if mibBuilder.loadTexts:
+    lgpEXLS1UPS.setStatus("current")
+_LgpEXMMSR_ObjectIdentity = ObjectIdentity
+lgpEXMMSR = _LgpEXMMSR_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 29)
+)
+if mibBuilder.loadTexts:
+    lgpEXMMSR.setStatus("current")
+_LgpAPM600GHMI_ObjectIdentity = ObjectIdentity
+lgpAPM600GHMI = _LgpAPM600GHMI_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 29, 2)
+)
+if mibBuilder.loadTexts:
+    lgpAPM600GHMI.setStatus("current")
+_LgpEPMGHMI_ObjectIdentity = ObjectIdentity
+lgpEPMGHMI = _LgpEPMGHMI_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 29, 3)
+)
+if mibBuilder.loadTexts:
+    lgpEPMGHMI.setStatus("current")
+_LgpITA2_ObjectIdentity = ObjectIdentity
+lgpITA2 = _LgpITA2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31)
+)
+if mibBuilder.loadTexts:
+    lgpITA2.setStatus("current")
+_LgpITA2cap20k_ObjectIdentity = ObjectIdentity
+lgpITA2cap20k = _LgpITA2cap20k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31, 1)
+)
+if mibBuilder.loadTexts:
+    lgpITA2cap20k.setStatus("current")
+_LgpITA2cap40k_ObjectIdentity = ObjectIdentity
+lgpITA2cap40k = _LgpITA2cap40k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31, 2)
+)
+if mibBuilder.loadTexts:
+    lgpITA2cap40k.setStatus("current")
+_LgpEXSRackMountAndFrame1_ObjectIdentity = ObjectIdentity
+lgpEXSRackMountAndFrame1 = _LgpEXSRackMountAndFrame1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31, 3)
+)
+if mibBuilder.loadTexts:
+    lgpEXSRackMountAndFrame1.setStatus("current")
+_LgpGXE_ObjectIdentity = ObjectIdentity
+lgpGXE = _LgpGXE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31, 4)
+)
+if mibBuilder.loadTexts:
+    lgpGXE.setStatus("current")
+_LgpITA2cap5k30k_ObjectIdentity = ObjectIdentity
+lgpITA2cap5k30k = _LgpITA2cap5k30k_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 31, 5)
+)
+if mibBuilder.loadTexts:
+    lgpITA2cap5k30k.setStatus("current")
+_LgpEXS_ObjectIdentity = ObjectIdentity
+lgpEXS = _LgpEXS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 32)
+)
+if mibBuilder.loadTexts:
+    lgpEXS.setStatus("current")
+_LgpEXSFr45_ObjectIdentity = ObjectIdentity
+lgpEXSFr45 = _LgpEXSFr45_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 32, 2)
+)
+if mibBuilder.loadTexts:
+    lgpEXSFr45.setStatus("current")
+_LgpPowerSureInteractive5_ObjectIdentity = ObjectIdentity
+lgpPowerSureInteractive5 = _LgpPowerSureInteractive5_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 33)
+)
+if mibBuilder.loadTexts:
+    lgpPowerSureInteractive5.setStatus("current")
+_LgpGXT5_ObjectIdentity = ObjectIdentity
+lgpGXT5 = _LgpGXT5_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 34)
+)
+if mibBuilder.loadTexts:
+    lgpGXT5.setStatus("current")
+_LgpAPME_ObjectIdentity = ObjectIdentity
+lgpAPME = _LgpAPME_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 37)
+)
+if mibBuilder.loadTexts:
+    lgpAPME.setStatus("current")
+_LgpEXM2_ObjectIdentity = ObjectIdentity
+lgpEXM2 = _LgpEXM2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 38)
+)
+if mibBuilder.loadTexts:
+    lgpEXM2.setStatus("current")
+_LgpAPMV2_ObjectIdentity = ObjectIdentity
+lgpAPMV2 = _LgpAPMV2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 38, 2)
+)
+if mibBuilder.loadTexts:
+    lgpAPMV2.setStatus("current")
+_LgpTrinergyCube_ObjectIdentity = ObjectIdentity
+lgpTrinergyCube = _LgpTrinergyCube_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 39)
+)
+if mibBuilder.loadTexts:
+    lgpTrinergyCube.setStatus("current")
+_LgpEdgeUPS_ObjectIdentity = ObjectIdentity
+lgpEdgeUPS = _LgpEdgeUPS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 2, 40)
+)
+if mibBuilder.loadTexts:
+    lgpEdgeUPS.setStatus("current")
+_LgpAcProducts_ObjectIdentity = ObjectIdentity
+lgpAcProducts = _LgpAcProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3)
+)
+if mibBuilder.loadTexts:
+    lgpAcProducts.setStatus("current")
+_LgpAdvancedMicroprocessor_ObjectIdentity = ObjectIdentity
+lgpAdvancedMicroprocessor = _LgpAdvancedMicroprocessor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 1)
+)
+if mibBuilder.loadTexts:
+    lgpAdvancedMicroprocessor.setStatus("current")
+_LgpStandardMicroprocessor_ObjectIdentity = ObjectIdentity
+lgpStandardMicroprocessor = _LgpStandardMicroprocessor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 2)
+)
+if mibBuilder.loadTexts:
+    lgpStandardMicroprocessor.setStatus("current")
+_LgpMiniMate2_ObjectIdentity = ObjectIdentity
+lgpMiniMate2 = _LgpMiniMate2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 3)
+)
+if mibBuilder.loadTexts:
+    lgpMiniMate2.setStatus("current")
+_LgpHimod_ObjectIdentity = ObjectIdentity
+lgpHimod = _LgpHimod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 4)
+)
+if mibBuilder.loadTexts:
+    lgpHimod.setStatus("current")
+_LgpCEMS100orLECS15_ObjectIdentity = ObjectIdentity
+lgpCEMS100orLECS15 = _LgpCEMS100orLECS15_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 5)
+)
+if mibBuilder.loadTexts:
+    lgpCEMS100orLECS15.setStatus("current")
+_LgpIcom_ObjectIdentity = ObjectIdentity
+lgpIcom = _LgpIcom_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 6)
+)
+if mibBuilder.loadTexts:
+    lgpIcom.setStatus("current")
+_LgpIcomPA_ObjectIdentity = ObjectIdentity
+lgpIcomPA = _LgpIcomPA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPA.setStatus("current")
+_LgpIcomPAtypeDS_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeDS = _LgpIcomPAtypeDS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeDS.setStatus("current")
+_LgpIcomPAtypeHPM_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeHPM = _LgpIcomPAtypeHPM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 2)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeHPM.setStatus("current")
+_LgpIcomPAtypeChallenger_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeChallenger = _LgpIcomPAtypeChallenger_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 3)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeChallenger.setStatus("current")
+_LgpIcomPAtypePeX_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypePeX = _LgpIcomPAtypePeX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 4)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypePeX.setStatus("current")
+_LgpIcomPAtypeDeluxeSys3_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeDeluxeSys3 = _LgpIcomPAtypeDeluxeSys3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 5)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeDeluxeSys3.setStatus("current")
+_LgpIcomPAtypeDeluxeSystem3_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeDeluxeSystem3 = _LgpIcomPAtypeDeluxeSystem3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 5, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeDeluxeSystem3.setStatus("current")
+_LgpIcomPAtypeCW_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeCW = _LgpIcomPAtypeCW_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 5, 2)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeCW.setStatus("current")
+_LgpIcomPAtypeJumboCW_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeJumboCW = _LgpIcomPAtypeJumboCW_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 6)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeJumboCW.setStatus("current")
+_LgpIcomPAtypeDSE_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeDSE = _LgpIcomPAtypeDSE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 7)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeDSE.setStatus("current")
+_LgpIcomPAtypeDSE400_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeDSE400 = _LgpIcomPAtypeDSE400_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 7, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeDSE400.setStatus("current")
+_LgpIcomPAtypeDP060_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeDP060 = _LgpIcomPAtypeDP060_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 7, 2)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeDP060.setStatus("current")
+_LgpIcomPAtypePEXS_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypePEXS = _LgpIcomPAtypePEXS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 8)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypePEXS.setStatus("current")
+_LgpIcomPAtypePDXsmall_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypePDXsmall = _LgpIcomPAtypePDXsmall_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 8, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypePDXsmall.setStatus("current")
+_LgpIcomPAtypePCWsmall_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypePCWsmall = _LgpIcomPAtypePCWsmall_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 8, 2)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypePCWsmall.setStatus("current")
+_LgpIcomPAtypePDX_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypePDX = _LgpIcomPAtypePDX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 9)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypePDX.setStatus("current")
+_LgpIcomPAtypePDXlarge_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypePDXlarge = _LgpIcomPAtypePDXlarge_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 9, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypePDXlarge.setStatus("current")
+_LgpIcomPAtypePCWlarge_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypePCWlarge = _LgpIcomPAtypePCWlarge_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 9, 2)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypePCWlarge.setStatus("current")
+_LgpIcomPAtypeHPS_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeHPS = _LgpIcomPAtypeHPS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 10)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeHPS.setStatus("current")
+_LgpMiniMate3_ObjectIdentity = ObjectIdentity
+lgpMiniMate3 = _LgpMiniMate3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 11)
+)
+if mibBuilder.loadTexts:
+    lgpMiniMate3.setStatus("current")
+_LgpIcomPAtypeXDU_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeXDU = _LgpIcomPAtypeXDU_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 12)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeXDU.setStatus("current")
+_LgpIcomPAtypeXDM_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeXDM = _LgpIcomPAtypeXDM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 13)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeXDM.setStatus("current")
+_LgpIcomPAtypeCWA_ObjectIdentity = ObjectIdentity
+lgpIcomPAtypeCWA = _LgpIcomPAtypeCWA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 7, 14)
+)
+if mibBuilder.loadTexts:
+    lgpIcomPAtypeCWA.setStatus("current")
+_LgpIcomXD_ObjectIdentity = ObjectIdentity
+lgpIcomXD = _LgpIcomXD_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 8)
+)
+if mibBuilder.loadTexts:
+    lgpIcomXD.setStatus("current")
+_LgpIcomXDtypeXDF_ObjectIdentity = ObjectIdentity
+lgpIcomXDtypeXDF = _LgpIcomXDtypeXDF_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 8, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomXDtypeXDF.setStatus("current")
+_LgpIcomXDtypeXDFN_ObjectIdentity = ObjectIdentity
+lgpIcomXDtypeXDFN = _LgpIcomXDtypeXDFN_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 8, 2)
+)
+if mibBuilder.loadTexts:
+    lgpIcomXDtypeXDFN.setStatus("current")
+_LgpIcomXP_ObjectIdentity = ObjectIdentity
+lgpIcomXP = _LgpIcomXP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 9)
+)
+if mibBuilder.loadTexts:
+    lgpIcomXP.setStatus("current")
+_LgpIcomXPtypeXDP_ObjectIdentity = ObjectIdentity
+lgpIcomXPtypeXDP = _LgpIcomXPtypeXDP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 9, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomXPtypeXDP.setStatus("current")
+_LgpIcomXPtypeXDPCray_ObjectIdentity = ObjectIdentity
+lgpIcomXPtypeXDPCray = _LgpIcomXPtypeXDPCray_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 9, 1, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomXPtypeXDPCray.setStatus("current")
+_LgpIcomXPtypeXDC_ObjectIdentity = ObjectIdentity
+lgpIcomXPtypeXDC = _LgpIcomXPtypeXDC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 9, 2)
+)
+if mibBuilder.loadTexts:
+    lgpIcomXPtypeXDC.setStatus("current")
+_LgpIcomXPtypeXDPW_ObjectIdentity = ObjectIdentity
+lgpIcomXPtypeXDPW = _LgpIcomXPtypeXDPW_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 9, 3)
+)
+if mibBuilder.loadTexts:
+    lgpIcomXPtypeXDPW.setStatus("current")
+_LgpIcomSC_ObjectIdentity = ObjectIdentity
+lgpIcomSC = _LgpIcomSC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10)
+)
+if mibBuilder.loadTexts:
+    lgpIcomSC.setStatus("current")
+_LgpIcomSCtypeHPC_ObjectIdentity = ObjectIdentity
+lgpIcomSCtypeHPC = _LgpIcomSCtypeHPC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomSCtypeHPC.setStatus("current")
+_LgpIcomSCtypeHPCSSmall_ObjectIdentity = ObjectIdentity
+lgpIcomSCtypeHPCSSmall = _LgpIcomSCtypeHPCSSmall_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomSCtypeHPCSSmall.setStatus("current")
+_LgpIcomSCtypeHPCSLarge_ObjectIdentity = ObjectIdentity
+lgpIcomSCtypeHPCSLarge = _LgpIcomSCtypeHPCSLarge_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 2)
+)
+if mibBuilder.loadTexts:
+    lgpIcomSCtypeHPCSLarge.setStatus("current")
+_LgpIcomSCtypeHPCR_ObjectIdentity = ObjectIdentity
+lgpIcomSCtypeHPCR = _LgpIcomSCtypeHPCR_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 3)
+)
+if mibBuilder.loadTexts:
+    lgpIcomSCtypeHPCR.setStatus("current")
+_LgpIcomSCtypeHPCM_ObjectIdentity = ObjectIdentity
+lgpIcomSCtypeHPCM = _LgpIcomSCtypeHPCM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 4)
+)
+if mibBuilder.loadTexts:
+    lgpIcomSCtypeHPCM.setStatus("current")
+_LgpIcomSCtypeHPCL_ObjectIdentity = ObjectIdentity
+lgpIcomSCtypeHPCL = _LgpIcomSCtypeHPCL_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 5)
+)
+if mibBuilder.loadTexts:
+    lgpIcomSCtypeHPCL.setStatus("current")
+_LgpIcomSCtypeHPCW_ObjectIdentity = ObjectIdentity
+lgpIcomSCtypeHPCW = _LgpIcomSCtypeHPCW_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 10, 1, 6)
+)
+if mibBuilder.loadTexts:
+    lgpIcomSCtypeHPCW.setStatus("current")
+_LgpIcomCR_ObjectIdentity = ObjectIdentity
+lgpIcomCR = _LgpIcomCR_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 11)
+)
+if mibBuilder.loadTexts:
+    lgpIcomCR.setStatus("current")
+_LgpIcomCRtypeCRV_ObjectIdentity = ObjectIdentity
+lgpIcomCRtypeCRV = _LgpIcomCRtypeCRV_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 11, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomCRtypeCRV.setStatus("current")
+_LgpIcomAH_ObjectIdentity = ObjectIdentity
+lgpIcomAH = _LgpIcomAH_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 12)
+)
+if mibBuilder.loadTexts:
+    lgpIcomAH.setStatus("current")
+_LgpIcomAHStandard_ObjectIdentity = ObjectIdentity
+lgpIcomAHStandard = _LgpIcomAHStandard_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 12, 1)
+)
+if mibBuilder.loadTexts:
+    lgpIcomAHStandard.setStatus("current")
+_LgpIcomDCL_ObjectIdentity = ObjectIdentity
+lgpIcomDCL = _LgpIcomDCL_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 13)
+)
+if mibBuilder.loadTexts:
+    lgpIcomDCL.setStatus("current")
+_LgpIcomEEV_ObjectIdentity = ObjectIdentity
+lgpIcomEEV = _LgpIcomEEV_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 14)
+)
+if mibBuilder.loadTexts:
+    lgpIcomEEV.setStatus("current")
+_LgpIproAFC_ObjectIdentity = ObjectIdentity
+lgpIproAFC = _LgpIproAFC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 30)
+)
+if mibBuilder.loadTexts:
+    lgpIproAFC.setStatus("current")
+_LgpIproEFC_ObjectIdentity = ObjectIdentity
+lgpIproEFC = _LgpIproEFC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 31)
+)
+if mibBuilder.loadTexts:
+    lgpIproEFC.setStatus("current")
+_LgpCpcoPDX_ObjectIdentity = ObjectIdentity
+lgpCpcoPDX = _LgpCpcoPDX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 3, 32)
+)
+if mibBuilder.loadTexts:
+    lgpCpcoPDX.setStatus("current")
+_LgpPowerConditioningProducts_ObjectIdentity = ObjectIdentity
+lgpPowerConditioningProducts = _LgpPowerConditioningProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 4)
+)
+if mibBuilder.loadTexts:
+    lgpPowerConditioningProducts.setStatus("current")
+_LgpPMP_ObjectIdentity = ObjectIdentity
+lgpPMP = _LgpPMP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 4, 1)
+)
+if mibBuilder.loadTexts:
+    lgpPMP.setStatus("current")
+_LgpEPMP_ObjectIdentity = ObjectIdentity
+lgpEPMP = _LgpEPMP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 4, 2)
+)
+if mibBuilder.loadTexts:
+    lgpEPMP.setStatus("current")
+_LgpTransferSwitchProducts_ObjectIdentity = ObjectIdentity
+lgpTransferSwitchProducts = _LgpTransferSwitchProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 5)
+)
+if mibBuilder.loadTexts:
+    lgpTransferSwitchProducts.setStatus("current")
+_LgpStaticTransferSwitchEDS_ObjectIdentity = ObjectIdentity
+lgpStaticTransferSwitchEDS = _LgpStaticTransferSwitchEDS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 5, 1)
+)
+if mibBuilder.loadTexts:
+    lgpStaticTransferSwitchEDS.setStatus("current")
+_LgpStaticTransferSwitch1_ObjectIdentity = ObjectIdentity
+lgpStaticTransferSwitch1 = _LgpStaticTransferSwitch1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 5, 2)
+)
+if mibBuilder.loadTexts:
+    lgpStaticTransferSwitch1.setStatus("current")
+_LgpStaticTransferSwitch2_ObjectIdentity = ObjectIdentity
+lgpStaticTransferSwitch2 = _LgpStaticTransferSwitch2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 5, 3)
+)
+if mibBuilder.loadTexts:
+    lgpStaticTransferSwitch2.setStatus("current")
+_LgpStaticTransferSwitch2FourPole_ObjectIdentity = ObjectIdentity
+lgpStaticTransferSwitch2FourPole = _LgpStaticTransferSwitch2FourPole_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 5, 4)
+)
+if mibBuilder.loadTexts:
+    lgpStaticTransferSwitch2FourPole.setStatus("current")
+_LgpMultiLinkProducts_ObjectIdentity = ObjectIdentity
+lgpMultiLinkProducts = _LgpMultiLinkProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 7)
+)
+if mibBuilder.loadTexts:
+    lgpMultiLinkProducts.setStatus("current")
+_LgpMultiLinkBasicNotification_ObjectIdentity = ObjectIdentity
+lgpMultiLinkBasicNotification = _LgpMultiLinkBasicNotification_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 7, 1)
+)
+if mibBuilder.loadTexts:
+    lgpMultiLinkBasicNotification.setStatus("current")
+_LgpPowerDistributionProducts_ObjectIdentity = ObjectIdentity
+lgpPowerDistributionProducts = _LgpPowerDistributionProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8)
+)
+if mibBuilder.loadTexts:
+    lgpPowerDistributionProducts.setStatus("current")
+_LgpRackPDU_ObjectIdentity = ObjectIdentity
+lgpRackPDU = _LgpRackPDU_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 2)
+)
+if mibBuilder.loadTexts:
+    lgpRackPDU.setStatus("current")
+_LgpMPX_ObjectIdentity = ObjectIdentity
+lgpMPX = _LgpMPX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 2, 1)
+)
+if mibBuilder.loadTexts:
+    lgpMPX.setStatus("current")
+_LgpMPH_ObjectIdentity = ObjectIdentity
+lgpMPH = _LgpMPH_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 2, 2)
+)
+if mibBuilder.loadTexts:
+    lgpMPH.setStatus("current")
+_LgpRackPDU2_ObjectIdentity = ObjectIdentity
+lgpRackPDU2 = _LgpRackPDU2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 4)
+)
+if mibBuilder.loadTexts:
+    lgpRackPDU2.setStatus("current")
+_LgpRPC2kMPX_ObjectIdentity = ObjectIdentity
+lgpRPC2kMPX = _LgpRPC2kMPX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 4, 1)
+)
+if mibBuilder.loadTexts:
+    lgpRPC2kMPX.setStatus("current")
+_LgpRPC2kMPH_ObjectIdentity = ObjectIdentity
+lgpRPC2kMPH = _LgpRPC2kMPH_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 8, 4, 2)
+)
+if mibBuilder.loadTexts:
+    lgpRPC2kMPH.setStatus("current")
+_LgpCombinedSystemProducts_ObjectIdentity = ObjectIdentity
+lgpCombinedSystemProducts = _LgpCombinedSystemProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10)
+)
+if mibBuilder.loadTexts:
+    lgpCombinedSystemProducts.setStatus("current")
+_LgpPMPandLDMF_ObjectIdentity = ObjectIdentity
+lgpPMPandLDMF = _LgpPMPandLDMF_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1)
+)
+if mibBuilder.loadTexts:
+    lgpPMPandLDMF.setStatus("current")
+_LgpPMPgeneric_ObjectIdentity = ObjectIdentity
+lgpPMPgeneric = _LgpPMPgeneric_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 1)
+)
+if mibBuilder.loadTexts:
+    lgpPMPgeneric.setStatus("current")
+_LgpPMPonFPC_ObjectIdentity = ObjectIdentity
+lgpPMPonFPC = _LgpPMPonFPC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 2)
+)
+if mibBuilder.loadTexts:
+    lgpPMPonFPC.setStatus("current")
+_LgpPMPonPPC_ObjectIdentity = ObjectIdentity
+lgpPMPonPPC = _LgpPMPonPPC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 3)
+)
+if mibBuilder.loadTexts:
+    lgpPMPonPPC.setStatus("current")
+_LgpPMPonFDC_ObjectIdentity = ObjectIdentity
+lgpPMPonFDC = _LgpPMPonFDC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 4)
+)
+if mibBuilder.loadTexts:
+    lgpPMPonFDC.setStatus("current")
+_LgpPMPonRDC_ObjectIdentity = ObjectIdentity
+lgpPMPonRDC = _LgpPMPonRDC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 5)
+)
+if mibBuilder.loadTexts:
+    lgpPMPonRDC.setStatus("current")
+_LgpPMPonEXC_ObjectIdentity = ObjectIdentity
+lgpPMPonEXC = _LgpPMPonEXC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 6)
+)
+if mibBuilder.loadTexts:
+    lgpPMPonEXC.setStatus("current")
+_LgpPMPonSTS2_ObjectIdentity = ObjectIdentity
+lgpPMPonSTS2 = _LgpPMPonSTS2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 7)
+)
+if mibBuilder.loadTexts:
+    lgpPMPonSTS2.setStatus("current")
+_LgpPMPonSTS2PDU_ObjectIdentity = ObjectIdentity
+lgpPMPonSTS2PDU = _LgpPMPonSTS2PDU_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 1, 8)
+)
+if mibBuilder.loadTexts:
+    lgpPMPonSTS2PDU.setStatus("current")
+_LgpPM5_ObjectIdentity = ObjectIdentity
+lgpPM5 = _LgpPM5_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 10, 3)
+)
+if mibBuilder.loadTexts:
+    lgpPM5.setStatus("current")
+_LgpAcPACCProducts_ObjectIdentity = ObjectIdentity
+lgpAcPACCProducts = _LgpAcPACCProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12)
+)
+if mibBuilder.loadTexts:
+    lgpAcPACCProducts.setStatus("current")
+_LgpCRD_ObjectIdentity = ObjectIdentity
+lgpCRD = _LgpCRD_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 1)
+)
+if mibBuilder.loadTexts:
+    lgpCRD.setStatus("current")
+_LgpCRD010_ObjectIdentity = ObjectIdentity
+lgpCRD010 = _LgpCRD010_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 1, 1)
+)
+if mibBuilder.loadTexts:
+    lgpCRD010.setStatus("current")
+_LgpCR_ObjectIdentity = ObjectIdentity
+lgpCR = _LgpCR_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2)
+)
+if mibBuilder.loadTexts:
+    lgpCR.setStatus("current")
+_LgpCR012_ObjectIdentity = ObjectIdentity
+lgpCR012 = _LgpCR012_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 1)
+)
+if mibBuilder.loadTexts:
+    lgpCR012.setStatus("current")
+_LgpCR025_ObjectIdentity = ObjectIdentity
+lgpCR025 = _LgpCR025_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 2)
+)
+if mibBuilder.loadTexts:
+    lgpCR025.setStatus("current")
+_LgpCR030_ObjectIdentity = ObjectIdentity
+lgpCR030 = _LgpCR030_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 3)
+)
+if mibBuilder.loadTexts:
+    lgpCR030.setStatus("current")
+_LgpPEX4_ObjectIdentity = ObjectIdentity
+lgpPEX4 = _LgpPEX4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 4)
+)
+if mibBuilder.loadTexts:
+    lgpPEX4.setStatus("current")
+_LgpCRC300600_ObjectIdentity = ObjectIdentity
+lgpCRC300600 = _LgpCRC300600_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 5)
+)
+if mibBuilder.loadTexts:
+    lgpCRC300600.setStatus("current")
+_LgpCRV4_ObjectIdentity = ObjectIdentity
+lgpCRV4 = _LgpCRV4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 6)
+)
+if mibBuilder.loadTexts:
+    lgpCRV4.setStatus("current")
+_LgpDME2_ObjectIdentity = ObjectIdentity
+lgpDME2 = _LgpDME2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 7)
+)
+if mibBuilder.loadTexts:
+    lgpDME2.setStatus("current")
+_LgpCAHU_ObjectIdentity = ObjectIdentity
+lgpCAHU = _LgpCAHU_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 8)
+)
+if mibBuilder.loadTexts:
+    lgpCAHU.setStatus("current")
+_LgpPEX4WCFC_ObjectIdentity = ObjectIdentity
+lgpPEX4WCFC = _LgpPEX4WCFC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 9)
+)
+if mibBuilder.loadTexts:
+    lgpPEX4WCFC.setStatus("current")
+_LgpCRVDX2535_ObjectIdentity = ObjectIdentity
+lgpCRVDX2535 = _LgpCRVDX2535_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 476, 1, 42, 4, 12, 2, 10)
+)
+if mibBuilder.loadTexts:
+    lgpCRVDX2535.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "LIEBERT-GP-REGISTRATION-MIB",
+    **{"vertiv": vertiv,
+       "liebertCorp": liebertCorp,
+       "liebertGlobalProducts": liebertGlobalProducts,
+       "lgpModuleReg": lgpModuleReg,
+       "liebertModuleReg": liebertModuleReg,
+       "liebertGlobalProductsRegistrationModule": liebertGlobalProductsRegistrationModule,
+       "liebertAgentModuleReg": liebertAgentModuleReg,
+       "liebertConditionsModuleReg": liebertConditionsModuleReg,
+       "liebertNotificationsModuleReg": liebertNotificationsModuleReg,
+       "liebertEnvironmentalModuleReg": liebertEnvironmentalModuleReg,
+       "liebertPowerModuleReg": liebertPowerModuleReg,
+       "liebertControllerModuleReg": liebertControllerModuleReg,
+       "liebertSystemModuleReg": liebertSystemModuleReg,
+       "liebertPduModuleReg": liebertPduModuleReg,
+       "liebertFlexibleModuleReg": liebertFlexibleModuleReg,
+       "liebertFlexibleConditionsModuleReg": liebertFlexibleConditionsModuleReg,
+       "liebertSrcModuleReg": liebertSrcModuleReg,
+       "lgpAgent": lgpAgent,
+       "lgpAgentIdent": lgpAgentIdent,
+       "lgpAgentNotifications": lgpAgentNotifications,
+       "lgpAgentDevice": lgpAgentDevice,
+       "lgpAgentControl": lgpAgentControl,
+       "lgpFoundation": lgpFoundation,
+       "lgpConditions": lgpConditions,
+       "lgpNotifications": lgpNotifications,
+       "lgpEnvironmental": lgpEnvironmental,
+       "lgpPower": lgpPower,
+       "lgpController": lgpController,
+       "lgpSystem": lgpSystem,
+       "lgpPdu": lgpPdu,
+       "lgpFlexible": lgpFlexible,
+       "lgpSrc": lgpSrc,
+       "lgpProductSpecific": lgpProductSpecific,
+       "lgpUpsProducts": lgpUpsProducts,
+       "lgpSeries7200": lgpSeries7200,
+       "lgpUPStationGXT": lgpUPStationGXT,
+       "lgpPowerSureInteractive": lgpPowerSureInteractive,
+       "lgpNfinity": lgpNfinity,
+       "lgpNpower": lgpNpower,
+       "lgpGXT2Dual": lgpGXT2Dual,
+       "lgpPowerSureInteractive2": lgpPowerSureInteractive2,
+       "lgpNX": lgpNX,
+       "lgpHiNet": lgpHiNet,
+       "lgpNXL": lgpNXL,
+       "lgpNXLJD": lgpNXLJD,
+       "lgpSuper400": lgpSuper400,
+       "lgpSeries600or610": lgpSeries600or610,
+       "lgpSeries300": lgpSeries300,
+       "lgpSeries610SMS": lgpSeries610SMS,
+       "lgpSeries610MMU": lgpSeries610MMU,
+       "lgpSeries610SCC": lgpSeries610SCC,
+       "lgpGXT3": lgpGXT3,
+       "lgpGXT3Dual": lgpGXT3Dual,
+       "lgpNXr": lgpNXr,
+       "lgpITA": lgpITA,
+       "lgpNXRb": lgpNXRb,
+       "lgpNXC": lgpNXC,
+       "lgpNXC30to40k": lgpNXC30to40k,
+       "lgpITA30to40k": lgpITA30to40k,
+       "lgpAPS": lgpAPS,
+       "lgpMUNiMx": lgpMUNiMx,
+       "lgpNX225to600k": lgpNX225to600k,
+       "lgpGXT4": lgpGXT4,
+       "lgpGXT4Dual": lgpGXT4Dual,
+       "lgpEXL": lgpEXL,
+       "lgpEXM": lgpEXM,
+       "lgpEXM208v": lgpEXM208v,
+       "lgpEXM400v": lgpEXM400v,
+       "lgpEXM480v": lgpEXM480v,
+       "lgpEPM": lgpEPM,
+       "lgpEPM300k": lgpEPM300k,
+       "lgpEPM400k": lgpEPM400k,
+       "lgpEPM500k": lgpEPM500k,
+       "lgpEPM600k": lgpEPM600k,
+       "lgpEPM800k": lgpEPM800k,
+       "lgpAPM600": lgpAPM600,
+       "lgpEXLS1": lgpEXLS1,
+       "lgpEXLS1UPS": lgpEXLS1UPS,
+       "lgpEXMMSR": lgpEXMMSR,
+       "lgpAPM600GHMI": lgpAPM600GHMI,
+       "lgpEPMGHMI": lgpEPMGHMI,
+       "lgpITA2": lgpITA2,
+       "lgpITA2cap20k": lgpITA2cap20k,
+       "lgpITA2cap40k": lgpITA2cap40k,
+       "lgpEXSRackMountAndFrame1": lgpEXSRackMountAndFrame1,
+       "lgpGXE": lgpGXE,
+       "lgpITA2cap5k30k": lgpITA2cap5k30k,
+       "lgpEXS": lgpEXS,
+       "lgpEXSFr45": lgpEXSFr45,
+       "lgpPowerSureInteractive5": lgpPowerSureInteractive5,
+       "lgpGXT5": lgpGXT5,
+       "lgpAPME": lgpAPME,
+       "lgpEXM2": lgpEXM2,
+       "lgpAPMV2": lgpAPMV2,
+       "lgpTrinergyCube": lgpTrinergyCube,
+       "lgpEdgeUPS": lgpEdgeUPS,
+       "lgpAcProducts": lgpAcProducts,
+       "lgpAdvancedMicroprocessor": lgpAdvancedMicroprocessor,
+       "lgpStandardMicroprocessor": lgpStandardMicroprocessor,
+       "lgpMiniMate2": lgpMiniMate2,
+       "lgpHimod": lgpHimod,
+       "lgpCEMS100orLECS15": lgpCEMS100orLECS15,
+       "lgpIcom": lgpIcom,
+       "lgpIcomPA": lgpIcomPA,
+       "lgpIcomPAtypeDS": lgpIcomPAtypeDS,
+       "lgpIcomPAtypeHPM": lgpIcomPAtypeHPM,
+       "lgpIcomPAtypeChallenger": lgpIcomPAtypeChallenger,
+       "lgpIcomPAtypePeX": lgpIcomPAtypePeX,
+       "lgpIcomPAtypeDeluxeSys3": lgpIcomPAtypeDeluxeSys3,
+       "lgpIcomPAtypeDeluxeSystem3": lgpIcomPAtypeDeluxeSystem3,
+       "lgpIcomPAtypeCW": lgpIcomPAtypeCW,
+       "lgpIcomPAtypeJumboCW": lgpIcomPAtypeJumboCW,
+       "lgpIcomPAtypeDSE": lgpIcomPAtypeDSE,
+       "lgpIcomPAtypeDSE400": lgpIcomPAtypeDSE400,
+       "lgpIcomPAtypeDP060": lgpIcomPAtypeDP060,
+       "lgpIcomPAtypePEXS": lgpIcomPAtypePEXS,
+       "lgpIcomPAtypePDXsmall": lgpIcomPAtypePDXsmall,
+       "lgpIcomPAtypePCWsmall": lgpIcomPAtypePCWsmall,
+       "lgpIcomPAtypePDX": lgpIcomPAtypePDX,
+       "lgpIcomPAtypePDXlarge": lgpIcomPAtypePDXlarge,
+       "lgpIcomPAtypePCWlarge": lgpIcomPAtypePCWlarge,
+       "lgpIcomPAtypeHPS": lgpIcomPAtypeHPS,
+       "lgpMiniMate3": lgpMiniMate3,
+       "lgpIcomPAtypeXDU": lgpIcomPAtypeXDU,
+       "lgpIcomPAtypeXDM": lgpIcomPAtypeXDM,
+       "lgpIcomPAtypeCWA": lgpIcomPAtypeCWA,
+       "lgpIcomXD": lgpIcomXD,
+       "lgpIcomXDtypeXDF": lgpIcomXDtypeXDF,
+       "lgpIcomXDtypeXDFN": lgpIcomXDtypeXDFN,
+       "lgpIcomXP": lgpIcomXP,
+       "lgpIcomXPtypeXDP": lgpIcomXPtypeXDP,
+       "lgpIcomXPtypeXDPCray": lgpIcomXPtypeXDPCray,
+       "lgpIcomXPtypeXDC": lgpIcomXPtypeXDC,
+       "lgpIcomXPtypeXDPW": lgpIcomXPtypeXDPW,
+       "lgpIcomSC": lgpIcomSC,
+       "lgpIcomSCtypeHPC": lgpIcomSCtypeHPC,
+       "lgpIcomSCtypeHPCSSmall": lgpIcomSCtypeHPCSSmall,
+       "lgpIcomSCtypeHPCSLarge": lgpIcomSCtypeHPCSLarge,
+       "lgpIcomSCtypeHPCR": lgpIcomSCtypeHPCR,
+       "lgpIcomSCtypeHPCM": lgpIcomSCtypeHPCM,
+       "lgpIcomSCtypeHPCL": lgpIcomSCtypeHPCL,
+       "lgpIcomSCtypeHPCW": lgpIcomSCtypeHPCW,
+       "lgpIcomCR": lgpIcomCR,
+       "lgpIcomCRtypeCRV": lgpIcomCRtypeCRV,
+       "lgpIcomAH": lgpIcomAH,
+       "lgpIcomAHStandard": lgpIcomAHStandard,
+       "lgpIcomDCL": lgpIcomDCL,
+       "lgpIcomEEV": lgpIcomEEV,
+       "lgpIproAFC": lgpIproAFC,
+       "lgpIproEFC": lgpIproEFC,
+       "lgpCpcoPDX": lgpCpcoPDX,
+       "lgpPowerConditioningProducts": lgpPowerConditioningProducts,
+       "lgpPMP": lgpPMP,
+       "lgpEPMP": lgpEPMP,
+       "lgpTransferSwitchProducts": lgpTransferSwitchProducts,
+       "lgpStaticTransferSwitchEDS": lgpStaticTransferSwitchEDS,
+       "lgpStaticTransferSwitch1": lgpStaticTransferSwitch1,
+       "lgpStaticTransferSwitch2": lgpStaticTransferSwitch2,
+       "lgpStaticTransferSwitch2FourPole": lgpStaticTransferSwitch2FourPole,
+       "lgpMultiLinkProducts": lgpMultiLinkProducts,
+       "lgpMultiLinkBasicNotification": lgpMultiLinkBasicNotification,
+       "lgpPowerDistributionProducts": lgpPowerDistributionProducts,
+       "lgpRackPDU": lgpRackPDU,
+       "lgpMPX": lgpMPX,
+       "lgpMPH": lgpMPH,
+       "lgpRackPDU2": lgpRackPDU2,
+       "lgpRPC2kMPX": lgpRPC2kMPX,
+       "lgpRPC2kMPH": lgpRPC2kMPH,
+       "lgpCombinedSystemProducts": lgpCombinedSystemProducts,
+       "lgpPMPandLDMF": lgpPMPandLDMF,
+       "lgpPMPgeneric": lgpPMPgeneric,
+       "lgpPMPonFPC": lgpPMPonFPC,
+       "lgpPMPonPPC": lgpPMPonPPC,
+       "lgpPMPonFDC": lgpPMPonFDC,
+       "lgpPMPonRDC": lgpPMPonRDC,
+       "lgpPMPonEXC": lgpPMPonEXC,
+       "lgpPMPonSTS2": lgpPMPonSTS2,
+       "lgpPMPonSTS2PDU": lgpPMPonSTS2PDU,
+       "lgpPM5": lgpPM5,
+       "lgpAcPACCProducts": lgpAcPACCProducts,
+       "lgpCRD": lgpCRD,
+       "lgpCRD010": lgpCRD010,
+       "lgpCR": lgpCR,
+       "lgpCR012": lgpCR012,
+       "lgpCR025": lgpCR025,
+       "lgpCR030": lgpCR030,
+       "lgpPEX4": lgpPEX4,
+       "lgpCRC300600": lgpCRC300600,
+       "lgpCRV4": lgpCRV4,
+       "lgpDME2": lgpDME2,
+       "lgpCAHU": lgpCAHU,
+       "lgpPEX4WCFC": lgpPEX4WCFC,
+       "lgpCRVDX2535": lgpCRVDX2535}
+)

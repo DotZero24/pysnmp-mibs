@@ -1,77 +1,727 @@
+# SNMP MIB module (T5541-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module T5541-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/comet/T5541-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:54 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/comet/T5541-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:16:16 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-class DisplayString(OctetString):
-    pass
 
-comet = MibIdentifier((1, 3, 6, 1, 4, 1, 22626))
-products = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1))
-t5541 = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2))
-values = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1))
-pysmi_global = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2)).setLabel("global")
-valuesInt = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3))
-settings = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4))
-traps = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 5))
-tables = MibIdentifier((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6))
-co2 = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: co2.setStatus('mandatory')
-co2Alarm = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: co2Alarm.setStatus('mandatory')
-co2Unit = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 12), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: co2Unit.setStatus('mandatory')
-co2Min = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 16), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: co2Min.setStatus('mandatory')
-co2Max = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 20), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 8))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: co2Max.setStatus('mandatory')
-sensorName = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 68))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sensorName.setStatus('mandatory')
-serialNumber = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 16))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: serialNumber.setStatus('mandatory')
-deviceType = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65534))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: deviceType.setStatus('mandatory')
-co2Int = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: co2Int.setStatus('mandatory')
-co2AlarmInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: co2AlarmInt.setStatus('mandatory')
-co2LowInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: co2LowInt.setStatus('mandatory')
-co2HighInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: co2HighInt.setStatus('mandatory')
-co2DelayInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4500))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: co2DelayInt.setStatus('mandatory')
-co2HystInt = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: co2HystInt.setStatus('mandatory')
-messageString = MibScalar((1, 3, 6, 1, 4, 1, 22626, 1, 2, 5, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: messageString.setStatus('mandatory')
-historyTable = MibTable((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1), )
-if mibBuilder.loadTexts: historyTable.setStatus('mandatory')
-historyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1), ).setIndexNames((0, "T5541-MIB", "histCO2"))
-if mibBuilder.loadTexts: historyEntry.setStatus('optional')
-histCO2 = MibTableColumn((1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-5000, 20000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: histCO2.setStatus('mandatory')
-trapTest = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,0)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"))
-trapNTPError = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,1)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"))
-trapEmailErrLogin = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,2)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"))
-trapEmailErrAuth = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,3)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"))
-trapEmailErrSome = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,4)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"))
-trapEmailErrSocket = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,5)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"))
-trapEmailErrDNS = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,6)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"))
-trapSOAPErrFile = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,7)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"))
-trapSOAPErrDNS = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,8)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"))
-trapSOAPErrSocket = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,9)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"))
-trapSOAPErrDelivery = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,10)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"))
-trapCo2HighAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,14)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"), ("T5541-MIB", "co2"), ("T5541-MIB", "co2AlarmInt"))
-trapCo2LowAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,24)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"), ("T5541-MIB", "co2"), ("T5541-MIB", "co2AlarmInt"))
-trapCo2ClrAlarm = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,34)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"), ("T5541-MIB", "co2"), ("T5541-MIB", "co2AlarmInt"))
-trapCo2Error = NotificationType((1, 3, 6, 1, 4, 1, 22626) + (0,44)).setObjects(("T5541-MIB", "sensorName"), ("T5541-MIB", "messageString"), ("T5541-MIB", "co2"), ("T5541-MIB", "co2AlarmInt"))
-mibBuilder.exportSymbols("T5541-MIB", co2LowInt=co2LowInt, trapNTPError=trapNTPError, trapSOAPErrFile=trapSOAPErrFile, trapCo2ClrAlarm=trapCo2ClrAlarm, DisplayString=DisplayString, values=values, trapEmailErrAuth=trapEmailErrAuth, co2=co2, messageString=messageString, histCO2=histCO2, trapEmailErrSocket=trapEmailErrSocket, traps=traps, trapEmailErrSome=trapEmailErrSome, sensorName=sensorName, t5541=t5541, co2AlarmInt=co2AlarmInt, trapCo2Error=trapCo2Error, serialNumber=serialNumber, co2Min=co2Min, co2HighInt=co2HighInt, trapSOAPErrDNS=trapSOAPErrDNS, trapSOAPErrDelivery=trapSOAPErrDelivery, comet=comet, pysmi_global=pysmi_global, valuesInt=valuesInt, trapCo2LowAlarm=trapCo2LowAlarm, co2Alarm=co2Alarm, deviceType=deviceType, co2DelayInt=co2DelayInt, trapTest=trapTest, historyTable=historyTable, trapSOAPErrSocket=trapSOAPErrSocket, historyEntry=historyEntry, products=products, co2HystInt=co2HystInt, tables=tables, trapEmailErrDNS=trapEmailErrDNS, co2Max=co2Max, settings=settings, co2Int=co2Int, co2Unit=co2Unit, trapCo2HighAlarm=trapCo2HighAlarm, trapEmailErrLogin=trapEmailErrLogin)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class DisplayString(OctetString):
+    """Custom type DisplayString based on OctetString"""
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Comet_ObjectIdentity = ObjectIdentity
+comet = _Comet_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626)
+)
+_Products_ObjectIdentity = ObjectIdentity
+products = _Products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1)
+)
+_T5541_ObjectIdentity = ObjectIdentity
+t5541 = _T5541_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2)
+)
+_Values_ObjectIdentity = ObjectIdentity
+values = _Values_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1)
+)
+
+
+class _Co2_Type(DisplayString):
+    """Custom type co2 based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Co2_Type.__name__ = "DisplayString"
+_Co2_Object = MibScalar
+co2 = _Co2_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 4),
+    _Co2_Type()
+)
+co2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    co2.setStatus("mandatory")
+
+
+class _Co2Alarm_Type(DisplayString):
+    """Custom type co2Alarm based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Co2Alarm_Type.__name__ = "DisplayString"
+_Co2Alarm_Object = MibScalar
+co2Alarm = _Co2Alarm_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 8),
+    _Co2Alarm_Type()
+)
+co2Alarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    co2Alarm.setStatus("mandatory")
+
+
+class _Co2Unit_Type(DisplayString):
+    """Custom type co2Unit based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Co2Unit_Type.__name__ = "DisplayString"
+_Co2Unit_Object = MibScalar
+co2Unit = _Co2Unit_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 12),
+    _Co2Unit_Type()
+)
+co2Unit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    co2Unit.setStatus("mandatory")
+
+
+class _Co2Min_Type(DisplayString):
+    """Custom type co2Min based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Co2Min_Type.__name__ = "DisplayString"
+_Co2Min_Object = MibScalar
+co2Min = _Co2Min_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 16),
+    _Co2Min_Type()
+)
+co2Min.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    co2Min.setStatus("mandatory")
+
+
+class _Co2Max_Type(DisplayString):
+    """Custom type co2Max based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 8),
+    )
+
+
+_Co2Max_Type.__name__ = "DisplayString"
+_Co2Max_Object = MibScalar
+co2Max = _Co2Max_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 1, 20),
+    _Co2Max_Type()
+)
+co2Max.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    co2Max.setStatus("mandatory")
+__pysmi_global_ObjectIdentity = ObjectIdentity
+_pysmi_global = __pysmi_global_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 2)
+)
+
+
+class _SensorName_Type(DisplayString):
+    """Custom type sensorName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 68),
+    )
+
+
+_SensorName_Type.__name__ = "DisplayString"
+_SensorName_Object = MibScalar
+sensorName = _SensorName_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 1),
+    _SensorName_Type()
+)
+sensorName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sensorName.setStatus("mandatory")
+
+
+class _SerialNumber_Type(DisplayString):
+    """Custom type serialNumber based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
+_SerialNumber_Type.__name__ = "DisplayString"
+_SerialNumber_Object = MibScalar
+serialNumber = _SerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 2),
+    _SerialNumber_Type()
+)
+serialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    serialNumber.setStatus("mandatory")
+
+
+class _DeviceType_Type(Integer32):
+    """Custom type deviceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65534),
+    )
+
+
+_DeviceType_Type.__name__ = "Integer32"
+_DeviceType_Object = MibScalar
+deviceType = _DeviceType_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 2, 3),
+    _DeviceType_Type()
+)
+deviceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    deviceType.setStatus("mandatory")
+_ValuesInt_ObjectIdentity = ObjectIdentity
+valuesInt = _ValuesInt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3)
+)
+
+
+class _Co2Int_Type(Integer32):
+    """Custom type co2Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_Co2Int_Type.__name__ = "Integer32"
+_Co2Int_Object = MibScalar
+co2Int = _Co2Int_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 4),
+    _Co2Int_Type()
+)
+co2Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    co2Int.setStatus("mandatory")
+
+
+class _Co2AlarmInt_Type(Integer32):
+    """Custom type co2AlarmInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_Co2AlarmInt_Type.__name__ = "Integer32"
+_Co2AlarmInt_Object = MibScalar
+co2AlarmInt = _Co2AlarmInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 3, 8),
+    _Co2AlarmInt_Type()
+)
+co2AlarmInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    co2AlarmInt.setStatus("mandatory")
+_Settings_ObjectIdentity = ObjectIdentity
+settings = _Settings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4)
+)
+
+
+class _Co2LowInt_Type(Integer32):
+    """Custom type co2LowInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_Co2LowInt_Type.__name__ = "Integer32"
+_Co2LowInt_Object = MibScalar
+co2LowInt = _Co2LowInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 13),
+    _Co2LowInt_Type()
+)
+co2LowInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    co2LowInt.setStatus("mandatory")
+
+
+class _Co2HighInt_Type(Integer32):
+    """Custom type co2HighInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_Co2HighInt_Type.__name__ = "Integer32"
+_Co2HighInt_Object = MibScalar
+co2HighInt = _Co2HighInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 14),
+    _Co2HighInt_Type()
+)
+co2HighInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    co2HighInt.setStatus("mandatory")
+
+
+class _Co2DelayInt_Type(Integer32):
+    """Custom type co2DelayInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4500),
+    )
+
+
+_Co2DelayInt_Type.__name__ = "Integer32"
+_Co2DelayInt_Object = MibScalar
+co2DelayInt = _Co2DelayInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 15),
+    _Co2DelayInt_Type()
+)
+co2DelayInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    co2DelayInt.setStatus("mandatory")
+
+
+class _Co2HystInt_Type(Integer32):
+    """Custom type co2HystInt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_Co2HystInt_Type.__name__ = "Integer32"
+_Co2HystInt_Object = MibScalar
+co2HystInt = _Co2HystInt_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 4, 16),
+    _Co2HystInt_Type()
+)
+co2HystInt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    co2HystInt.setStatus("mandatory")
+_Traps_ObjectIdentity = ObjectIdentity
+traps = _Traps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 5)
+)
+
+
+class _MessageString_Type(DisplayString):
+    """Custom type messageString based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_MessageString_Type.__name__ = "DisplayString"
+_MessageString_Object = MibScalar
+messageString = _MessageString_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 5, 1),
+    _MessageString_Type()
+)
+messageString.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    messageString.setStatus("mandatory")
+_Tables_ObjectIdentity = ObjectIdentity
+tables = _Tables_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 6)
+)
+_HistoryTable_Object = MibTable
+historyTable = _HistoryTable_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1)
+)
+if mibBuilder.loadTexts:
+    historyTable.setStatus("mandatory")
+_HistoryEntry_Object = MibTableRow
+historyEntry = _HistoryEntry_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1)
+)
+historyEntry.setIndexNames(
+    (0, "T5541-MIB", "histCO2"),
+)
+if mibBuilder.loadTexts:
+    historyEntry.setStatus("optional")
+
+
+class _HistCO2_Type(Integer32):
+    """Custom type histCO2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-5000, 20000),
+    )
+
+
+_HistCO2_Type.__name__ = "Integer32"
+_HistCO2_Object = MibTableColumn
+histCO2 = _HistCO2_Object(
+    (1, 3, 6, 1, 4, 1, 22626, 1, 2, 6, 1, 1, 4),
+    _HistCO2_Type()
+)
+histCO2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    histCO2.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+trapTest = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 0)
+)
+trapTest.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapTest.setStatus(
+        ""
+    )
+
+trapNTPError = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 1)
+)
+trapNTPError.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapNTPError.setStatus(
+        ""
+    )
+
+trapEmailErrLogin = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 2)
+)
+trapEmailErrLogin.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapEmailErrLogin.setStatus(
+        ""
+    )
+
+trapEmailErrAuth = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 3)
+)
+trapEmailErrAuth.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapEmailErrAuth.setStatus(
+        ""
+    )
+
+trapEmailErrSome = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 4)
+)
+trapEmailErrSome.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapEmailErrSome.setStatus(
+        ""
+    )
+
+trapEmailErrSocket = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 5)
+)
+trapEmailErrSocket.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapEmailErrSocket.setStatus(
+        ""
+    )
+
+trapEmailErrDNS = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 6)
+)
+trapEmailErrDNS.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapEmailErrDNS.setStatus(
+        ""
+    )
+
+trapSOAPErrFile = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 7)
+)
+trapSOAPErrFile.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapSOAPErrFile.setStatus(
+        ""
+    )
+
+trapSOAPErrDNS = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 8)
+)
+trapSOAPErrDNS.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapSOAPErrDNS.setStatus(
+        ""
+    )
+
+trapSOAPErrSocket = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 9)
+)
+trapSOAPErrSocket.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapSOAPErrSocket.setStatus(
+        ""
+    )
+
+trapSOAPErrDelivery = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 10)
+)
+trapSOAPErrDelivery.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"))
+)
+if mibBuilder.loadTexts:
+    trapSOAPErrDelivery.setStatus(
+        ""
+    )
+
+trapCo2HighAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 14)
+)
+trapCo2HighAlarm.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"),
+        ("T5541-MIB", "co2"),
+        ("T5541-MIB", "co2AlarmInt"))
+)
+if mibBuilder.loadTexts:
+    trapCo2HighAlarm.setStatus(
+        ""
+    )
+
+trapCo2LowAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 24)
+)
+trapCo2LowAlarm.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"),
+        ("T5541-MIB", "co2"),
+        ("T5541-MIB", "co2AlarmInt"))
+)
+if mibBuilder.loadTexts:
+    trapCo2LowAlarm.setStatus(
+        ""
+    )
+
+trapCo2ClrAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 34)
+)
+trapCo2ClrAlarm.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"),
+        ("T5541-MIB", "co2"),
+        ("T5541-MIB", "co2AlarmInt"))
+)
+if mibBuilder.loadTexts:
+    trapCo2ClrAlarm.setStatus(
+        ""
+    )
+
+trapCo2Error = NotificationType(
+    (1, 3, 6, 1, 4, 1, 22626, 0, 44)
+)
+trapCo2Error.setObjects(
+      *(("T5541-MIB", "sensorName"),
+        ("T5541-MIB", "messageString"),
+        ("T5541-MIB", "co2"),
+        ("T5541-MIB", "co2AlarmInt"))
+)
+if mibBuilder.loadTexts:
+    trapCo2Error.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "T5541-MIB",
+    **{"DisplayString": DisplayString,
+       "comet": comet,
+       "trapTest": trapTest,
+       "trapNTPError": trapNTPError,
+       "trapEmailErrLogin": trapEmailErrLogin,
+       "trapEmailErrAuth": trapEmailErrAuth,
+       "trapEmailErrSome": trapEmailErrSome,
+       "trapEmailErrSocket": trapEmailErrSocket,
+       "trapEmailErrDNS": trapEmailErrDNS,
+       "trapSOAPErrFile": trapSOAPErrFile,
+       "trapSOAPErrDNS": trapSOAPErrDNS,
+       "trapSOAPErrSocket": trapSOAPErrSocket,
+       "trapSOAPErrDelivery": trapSOAPErrDelivery,
+       "trapCo2HighAlarm": trapCo2HighAlarm,
+       "trapCo2LowAlarm": trapCo2LowAlarm,
+       "trapCo2ClrAlarm": trapCo2ClrAlarm,
+       "trapCo2Error": trapCo2Error,
+       "products": products,
+       "t5541": t5541,
+       "values": values,
+       "co2": co2,
+       "co2Alarm": co2Alarm,
+       "co2Unit": co2Unit,
+       "co2Min": co2Min,
+       "co2Max": co2Max,
+       "global": _pysmi_global,
+       "sensorName": sensorName,
+       "serialNumber": serialNumber,
+       "deviceType": deviceType,
+       "valuesInt": valuesInt,
+       "co2Int": co2Int,
+       "co2AlarmInt": co2AlarmInt,
+       "settings": settings,
+       "co2LowInt": co2LowInt,
+       "co2HighInt": co2HighInt,
+       "co2DelayInt": co2DelayInt,
+       "co2HystInt": co2HystInt,
+       "traps": traps,
+       "messageString": messageString,
+       "tables": tables,
+       "historyTable": historyTable,
+       "historyEntry": historyEntry,
+       "histCO2": histCO2}
+)

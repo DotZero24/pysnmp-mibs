@@ -1,40 +1,239 @@
+# SNMP MIB module (ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:31 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/adtran/ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:33:17 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-adGenAOSConformance, adGenAOSCommon = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSConformance", "adGenAOSCommon")
-adIdentity, = mibBuilder.importSymbols("ADTRAN-MIB", "adIdentity")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-adGenAOSOverTempProtectionMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 53, 1, 10))
-adGenAOSOverTempProtectionMib.setRevisions(('2017-12-27 00:00', '2014-11-04 16:15',))
-if mibBuilder.loadTexts: adGenAOSOverTempProtectionMib.setLastUpdated('201712270000Z')
-if mibBuilder.loadTexts: adGenAOSOverTempProtectionMib.setOrganization('ADTRAN, Inc.')
-adGenAOSOverTempProtection = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10))
-adGenAOSOverTempProtectionTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10, 0))
-adGenAOSOverTempProtectionWarning = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10, 0, 1))
-if mibBuilder.loadTexts: adGenAOSOverTempProtectionWarning.setStatus('current')
-adGenAOSOverTempProtectionShutdown = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10, 0, 2))
-if mibBuilder.loadTexts: adGenAOSOverTempProtectionShutdown.setStatus('current')
-adGenAOSOverTempProtectionWarningResume = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10, 0, 3))
-if mibBuilder.loadTexts: adGenAOSOverTempProtectionWarningResume.setStatus('current')
-adGenAOSOverTempProtectionShutdownResume = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10, 0, 4))
-if mibBuilder.loadTexts: adGenAOSOverTempProtectionShutdownResume.setStatus('current')
-adGenAOSOverTempProtectionConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 19))
-adGenAOSOverTempProtectionGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 19, 1))
-adGenAOSOverTempProtectionCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 19, 2))
-adGenAOSOverTempProtectionFullCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 19, 2, 1)).setObjects(("ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB", "adGenAOSOverTempProtectionNotificationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSOverTempProtectionFullCompliance = adGenAOSOverTempProtectionFullCompliance.setStatus('current')
-adGenAOSOverTempProtectionNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 19, 1, 1)).setObjects(("ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB", "adGenAOSOverTempProtectionWarning"), ("ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB", "adGenAOSOverTempProtectionShutdown"), ("ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB", "adGenAOSOverTempProtectionWarningResume"), ("ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB", "adGenAOSOverTempProtectionShutdownResume"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSOverTempProtectionNotificationGroup = adGenAOSOverTempProtectionNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB", adGenAOSOverTempProtectionTrap=adGenAOSOverTempProtectionTrap, adGenAOSOverTempProtectionShutdown=adGenAOSOverTempProtectionShutdown, adGenAOSOverTempProtectionFullCompliance=adGenAOSOverTempProtectionFullCompliance, adGenAOSOverTempProtectionGroups=adGenAOSOverTempProtectionGroups, adGenAOSOverTempProtectionNotificationGroup=adGenAOSOverTempProtectionNotificationGroup, adGenAOSOverTempProtection=adGenAOSOverTempProtection, adGenAOSOverTempProtectionMib=adGenAOSOverTempProtectionMib, adGenAOSOverTempProtectionConformance=adGenAOSOverTempProtectionConformance, adGenAOSOverTempProtectionWarning=adGenAOSOverTempProtectionWarning, adGenAOSOverTempProtectionWarningResume=adGenAOSOverTempProtectionWarningResume, adGenAOSOverTempProtectionCompliances=adGenAOSOverTempProtectionCompliances, PYSNMP_MODULE_ID=adGenAOSOverTempProtectionMib, adGenAOSOverTempProtectionShutdownResume=adGenAOSOverTempProtectionShutdownResume)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(adGenAOSCommon,
+ adGenAOSConformance) = mibBuilder.importSymbols(
+    "ADTRAN-AOS",
+    "adGenAOSCommon",
+    "adGenAOSConformance")
+
+(adIdentity,) = mibBuilder.importSymbols(
+    "ADTRAN-MIB",
+    "adIdentity")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+adGenAOSOverTempProtectionMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 53, 1, 10)
+)
+if mibBuilder.loadTexts:
+    adGenAOSOverTempProtectionMib.setRevisions(
+        ("2017-12-27 00:00",
+         "2014-11-04 16:15")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AdGenAOSOverTempProtection_ObjectIdentity = ObjectIdentity
+adGenAOSOverTempProtection = _AdGenAOSOverTempProtection_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10)
+)
+_AdGenAOSOverTempProtectionTrap_ObjectIdentity = ObjectIdentity
+adGenAOSOverTempProtectionTrap = _AdGenAOSOverTempProtectionTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10, 0)
+)
+_AdGenAOSOverTempProtectionConformance_ObjectIdentity = ObjectIdentity
+adGenAOSOverTempProtectionConformance = _AdGenAOSOverTempProtectionConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 19)
+)
+_AdGenAOSOverTempProtectionGroups_ObjectIdentity = ObjectIdentity
+adGenAOSOverTempProtectionGroups = _AdGenAOSOverTempProtectionGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 19, 1)
+)
+_AdGenAOSOverTempProtectionCompliances_ObjectIdentity = ObjectIdentity
+adGenAOSOverTempProtectionCompliances = _AdGenAOSOverTempProtectionCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 19, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+adGenAOSOverTempProtectionWarning = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10, 0, 1)
+)
+if mibBuilder.loadTexts:
+    adGenAOSOverTempProtectionWarning.setStatus(
+        "current"
+    )
+
+adGenAOSOverTempProtectionShutdown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10, 0, 2)
+)
+if mibBuilder.loadTexts:
+    adGenAOSOverTempProtectionShutdown.setStatus(
+        "current"
+    )
+
+adGenAOSOverTempProtectionWarningResume = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10, 0, 3)
+)
+if mibBuilder.loadTexts:
+    adGenAOSOverTempProtectionWarningResume.setStatus(
+        "current"
+    )
+
+adGenAOSOverTempProtectionShutdownResume = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 1, 10, 0, 4)
+)
+if mibBuilder.loadTexts:
+    adGenAOSOverTempProtectionShutdownResume.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+adGenAOSOverTempProtectionNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 19, 1, 1)
+)
+adGenAOSOverTempProtectionNotificationGroup.setObjects(
+      *(("ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB", "adGenAOSOverTempProtectionWarning"),
+        ("ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB", "adGenAOSOverTempProtectionShutdown"),
+        ("ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB", "adGenAOSOverTempProtectionWarningResume"),
+        ("ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB", "adGenAOSOverTempProtectionShutdownResume"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSOverTempProtectionNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+adGenAOSOverTempProtectionFullCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 19, 2, 1)
+)
+adGenAOSOverTempProtectionFullCompliance.setObjects(
+    ("ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB", "adGenAOSOverTempProtectionNotificationGroup")
+)
+if mibBuilder.loadTexts:
+    adGenAOSOverTempProtectionFullCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ADTRAN-AOS-OVER-TEMP-PROTECTION-MIB",
+    **{"adGenAOSOverTempProtection": adGenAOSOverTempProtection,
+       "adGenAOSOverTempProtectionTrap": adGenAOSOverTempProtectionTrap,
+       "adGenAOSOverTempProtectionWarning": adGenAOSOverTempProtectionWarning,
+       "adGenAOSOverTempProtectionShutdown": adGenAOSOverTempProtectionShutdown,
+       "adGenAOSOverTempProtectionWarningResume": adGenAOSOverTempProtectionWarningResume,
+       "adGenAOSOverTempProtectionShutdownResume": adGenAOSOverTempProtectionShutdownResume,
+       "adGenAOSOverTempProtectionConformance": adGenAOSOverTempProtectionConformance,
+       "adGenAOSOverTempProtectionGroups": adGenAOSOverTempProtectionGroups,
+       "adGenAOSOverTempProtectionNotificationGroup": adGenAOSOverTempProtectionNotificationGroup,
+       "adGenAOSOverTempProtectionCompliances": adGenAOSOverTempProtectionCompliances,
+       "adGenAOSOverTempProtectionFullCompliance": adGenAOSOverTempProtectionFullCompliance,
+       "adGenAOSOverTempProtectionMib": adGenAOSOverTempProtectionMib}
+)

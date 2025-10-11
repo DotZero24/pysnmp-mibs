@@ -1,335 +1,2395 @@
+# SNMP MIB module (ALCATEL-ENT1-IGMP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALCATEL-ENT1-IGMP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-IGMP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:59:58 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alcatel-ent1/ALCATEL-ENT1-IGMP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:10:17 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-softentIND1Igmp, = mibBuilder.importSymbols("ALCATEL-ENT1-BASE", "softentIND1Igmp")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
-InetAddressIPv4, InetAddressPrefixLength, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressPrefixLength", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-alcatelIND1IgmpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1))
-alcatelIND1IgmpMIB.setRevisions(('2016-02-18 00:00', '2015-09-17 00:00', '2013-11-26 00:00', '2011-02-23 00:00', '2009-03-31 00:00', '2008-09-10 00:00', '2008-08-08 00:00', '2007-04-03 00:00',))
-if mibBuilder.loadTexts: alcatelIND1IgmpMIB.setLastUpdated('201509170000Z')
-if mibBuilder.loadTexts: alcatelIND1IgmpMIB.setOrganization('Alcatel-Lucent')
-alcatelIND1IgmpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1))
-alaIgmp = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1))
-alaIgmpStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpStatus.setStatus('deprecated')
-alaIgmpQuerying = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpQuerying.setStatus('deprecated')
-alaIgmpSpoofing = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpSpoofing.setStatus('deprecated')
-alaIgmpZapping = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpZapping.setStatus('deprecated')
-alaIgmpVersion = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 5), Unsigned32().clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVersion.setStatus('deprecated')
-alaIgmpRobustness = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 6), Unsigned32().clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpRobustness.setStatus('deprecated')
-alaIgmpQueryInterval = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 7), Unsigned32().clone(125)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpQueryInterval.setStatus('deprecated')
-alaIgmpQueryResponseInterval = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 8), Unsigned32().clone(100)).setUnits('tenths of seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpQueryResponseInterval.setStatus('deprecated')
-alaIgmpLastMemberQueryInterval = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 9), Unsigned32().clone(10)).setUnits('tenths of seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpLastMemberQueryInterval.setStatus('deprecated')
-alaIgmpRouterTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 10), Unsigned32().clone(90)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpRouterTimeout.setStatus('deprecated')
-alaIgmpSourceTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 11), Unsigned32().clone(30)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpSourceTimeout.setStatus('deprecated')
-alaIgmpProxying = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpProxying.setStatus('deprecated')
-alaIgmpUnsolicitedReportInterval = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 13), Unsigned32().clone(1)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpUnsolicitedReportInterval.setStatus('deprecated')
-alaIgmpQuerierForwarding = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpQuerierForwarding.setStatus('deprecated')
-alaIgmpMaxGroupLimit = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 15), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpMaxGroupLimit.setStatus('deprecated')
-alaIgmpMaxGroupExceedAction = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("drop", 1), ("replace", 2))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpMaxGroupExceedAction.setStatus('deprecated')
-alaIgmpFloodUnknown = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpFloodUnknown.setStatus('deprecated')
-alaIgmpHelperAddressType = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 18), InetAddressType().subtype(subtypeSpec=ValueRangeConstraint(1, 1))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpHelperAddressType.setStatus('deprecated')
-alaIgmpHelperAddress = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 19), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpHelperAddress.setStatus('deprecated')
-alaIgmpZeroBasedQuery = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 20), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpZeroBasedQuery.setStatus('deprecated')
-alaIgmpInitialPacketBuffer = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpInitialPacketBuffer.setStatus('deprecated')
-alaIgmpInitialPacketBufferMaxPacket = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 22), Unsigned32().clone(4)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpInitialPacketBufferMaxPacket.setStatus('deprecated')
-alaIgmpInitialPacketBufferMaxFlow = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 23), Unsigned32().clone(32)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpInitialPacketBufferMaxFlow.setStatus('deprecated')
-alaIgmpInitialPacketBufferTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 24), Unsigned32().clone(10)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpInitialPacketBufferTimeout.setStatus('deprecated')
-alaIgmpInitialPacketBufferMinDelay = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 25), Unsigned32()).setUnits('milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpInitialPacketBufferMinDelay.setStatus('deprecated')
-alaIgmpVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2))
-alaIgmpVlanTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1), )
-if mibBuilder.loadTexts: alaIgmpVlanTable.setStatus('deprecated')
-alaIgmpVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanIndex"))
-if mibBuilder.loadTexts: alaIgmpVlanEntry.setStatus('deprecated')
-alaIgmpVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpVlanIndex.setStatus('deprecated')
-alaIgmpVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanStatus.setStatus('deprecated')
-alaIgmpVlanQuerying = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanQuerying.setStatus('deprecated')
-alaIgmpVlanSpoofing = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanSpoofing.setStatus('deprecated')
-alaIgmpVlanZapping = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanZapping.setStatus('deprecated')
-alaIgmpVlanVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 6), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanVersion.setStatus('deprecated')
-alaIgmpVlanRobustness = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 7), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanRobustness.setStatus('deprecated')
-alaIgmpVlanQueryInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 8), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanQueryInterval.setStatus('deprecated')
-alaIgmpVlanQueryResponseInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 9), Unsigned32()).setUnits('tenths of seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanQueryResponseInterval.setStatus('deprecated')
-alaIgmpVlanLastMemberQueryInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 10), Unsigned32()).setUnits('tenths of seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanLastMemberQueryInterval.setStatus('deprecated')
-alaIgmpVlanRouterTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 11), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanRouterTimeout.setStatus('deprecated')
-alaIgmpVlanSourceTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 12), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanSourceTimeout.setStatus('deprecated')
-alaIgmpVlanProxying = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanProxying.setStatus('deprecated')
-alaIgmpVlanUnsolicitedReportInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 14), Unsigned32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanUnsolicitedReportInterval.setStatus('deprecated')
-alaIgmpVlanQuerierForwarding = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanQuerierForwarding.setStatus('deprecated')
-alaIgmpVlanMaxGroupLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 16), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanMaxGroupLimit.setStatus('deprecated')
-alaIgmpVlanMaxGroupExceedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("drop", 1), ("replace", 2))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanMaxGroupExceedAction.setStatus('deprecated')
-alaIgmpVlanZeroBasedQuery = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("enable", 1), ("disable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpVlanZeroBasedQuery.setStatus('deprecated')
-alaIgmpMember = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3))
-alaIgmpMemberTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1), )
-if mibBuilder.loadTexts: alaIgmpMemberTable.setStatus('deprecated')
-alaIgmpMemberEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberVlan"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberIfIndex"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberGroupAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberSourceAddress"))
-if mibBuilder.loadTexts: alaIgmpMemberEntry.setStatus('deprecated')
-alaIgmpMemberVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpMemberVlan.setStatus('deprecated')
-alaIgmpMemberIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: alaIgmpMemberIfIndex.setStatus('deprecated')
-alaIgmpMemberGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 3), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpMemberGroupAddress.setStatus('deprecated')
-alaIgmpMemberSourceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 4), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpMemberSourceAddress.setStatus('deprecated')
-alaIgmpMemberMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("include", 1), ("exclude", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpMemberMode.setStatus('deprecated')
-alaIgmpMemberCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpMemberCount.setStatus('deprecated')
-alaIgmpMemberTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 7), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpMemberTimeout.setStatus('deprecated')
-alaIgmpStaticMember = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4))
-alaIgmpStaticMemberTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1), )
-if mibBuilder.loadTexts: alaIgmpStaticMemberTable.setStatus('deprecated')
-alaIgmpStaticMemberEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticMemberVlan"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticMemberIfIndex"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticMemberGroupAddress"))
-if mibBuilder.loadTexts: alaIgmpStaticMemberEntry.setStatus('deprecated')
-alaIgmpStaticMemberVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpStaticMemberVlan.setStatus('deprecated')
-alaIgmpStaticMemberIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: alaIgmpStaticMemberIfIndex.setStatus('deprecated')
-alaIgmpStaticMemberGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1, 1, 3), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpStaticMemberGroupAddress.setStatus('deprecated')
-alaIgmpStaticMemberRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaIgmpStaticMemberRowStatus.setStatus('deprecated')
-alaIgmpNeighbor = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5))
-alaIgmpNeighborTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1), )
-if mibBuilder.loadTexts: alaIgmpNeighborTable.setStatus('deprecated')
-alaIgmpNeighborEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborVlan"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborIfIndex"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborHostAddress"))
-if mibBuilder.loadTexts: alaIgmpNeighborEntry.setStatus('deprecated')
-alaIgmpNeighborVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpNeighborVlan.setStatus('deprecated')
-alaIgmpNeighborIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: alaIgmpNeighborIfIndex.setStatus('deprecated')
-alaIgmpNeighborHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1, 3), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpNeighborHostAddress.setStatus('deprecated')
-alaIgmpNeighborCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpNeighborCount.setStatus('deprecated')
-alaIgmpNeighborTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpNeighborTimeout.setStatus('deprecated')
-alaIgmpStaticNeighbor = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6))
-alaIgmpStaticNeighborTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6, 1), )
-if mibBuilder.loadTexts: alaIgmpStaticNeighborTable.setStatus('deprecated')
-alaIgmpStaticNeighborEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticNeighborVlan"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticNeighborIfIndex"))
-if mibBuilder.loadTexts: alaIgmpStaticNeighborEntry.setStatus('deprecated')
-alaIgmpStaticNeighborVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpStaticNeighborVlan.setStatus('deprecated')
-alaIgmpStaticNeighborIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6, 1, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: alaIgmpStaticNeighborIfIndex.setStatus('deprecated')
-alaIgmpStaticNeighborRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaIgmpStaticNeighborRowStatus.setStatus('deprecated')
-alaIgmpQuerier = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7))
-alaIgmpQuerierTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1), )
-if mibBuilder.loadTexts: alaIgmpQuerierTable.setStatus('deprecated')
-alaIgmpQuerierEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierVlan"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierIfIndex"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierHostAddress"))
-if mibBuilder.loadTexts: alaIgmpQuerierEntry.setStatus('deprecated')
-alaIgmpQuerierVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpQuerierVlan.setStatus('deprecated')
-alaIgmpQuerierIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: alaIgmpQuerierIfIndex.setStatus('deprecated')
-alaIgmpQuerierHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1, 3), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpQuerierHostAddress.setStatus('deprecated')
-alaIgmpQuerierCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpQuerierCount.setStatus('deprecated')
-alaIgmpQuerierTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpQuerierTimeout.setStatus('deprecated')
-alaIgmpStaticQuerier = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8))
-alaIgmpStaticQuerierTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8, 1), )
-if mibBuilder.loadTexts: alaIgmpStaticQuerierTable.setStatus('deprecated')
-alaIgmpStaticQuerierEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticQuerierVlan"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticQuerierIfIndex"))
-if mibBuilder.loadTexts: alaIgmpStaticQuerierEntry.setStatus('deprecated')
-alaIgmpStaticQuerierVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpStaticQuerierVlan.setStatus('deprecated')
-alaIgmpStaticQuerierIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8, 1, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: alaIgmpStaticQuerierIfIndex.setStatus('deprecated')
-alaIgmpStaticQuerierRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8, 1, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaIgmpStaticQuerierRowStatus.setStatus('deprecated')
-alaIgmpSource = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9))
-alaIgmpSourceTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1), )
-if mibBuilder.loadTexts: alaIgmpSourceTable.setStatus('deprecated')
-alaIgmpSourceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceVlan"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceGroupAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceHostAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceDestAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceOrigAddress"))
-if mibBuilder.loadTexts: alaIgmpSourceEntry.setStatus('deprecated')
-alaIgmpSourceVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpSourceVlan.setStatus('deprecated')
-alaIgmpSourceIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 2), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpSourceIfIndex.setStatus('deprecated')
-alaIgmpSourceGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 3), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpSourceGroupAddress.setStatus('deprecated')
-alaIgmpSourceHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 4), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpSourceHostAddress.setStatus('deprecated')
-alaIgmpSourceDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 5), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpSourceDestAddress.setStatus('deprecated')
-alaIgmpSourceOrigAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 6), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpSourceOrigAddress.setStatus('deprecated')
-alaIgmpSourceType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpSourceType.setStatus('deprecated')
-alaIgmpForward = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10))
-alaIgmpForwardTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1), )
-if mibBuilder.loadTexts: alaIgmpForwardTable.setStatus('deprecated')
-alaIgmpForwardEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardVlan"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardGroupAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardHostAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardDestAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardOrigAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardNextVlan"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardNextIfIndex"))
-if mibBuilder.loadTexts: alaIgmpForwardEntry.setStatus('deprecated')
-alaIgmpForwardVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpForwardVlan.setStatus('deprecated')
-alaIgmpForwardIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 2), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpForwardIfIndex.setStatus('deprecated')
-alaIgmpForwardGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 3), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpForwardGroupAddress.setStatus('deprecated')
-alaIgmpForwardHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 4), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpForwardHostAddress.setStatus('deprecated')
-alaIgmpForwardDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 5), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpForwardDestAddress.setStatus('deprecated')
-alaIgmpForwardOrigAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 6), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpForwardOrigAddress.setStatus('deprecated')
-alaIgmpForwardType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpForwardType.setStatus('deprecated')
-alaIgmpForwardNextVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 8), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpForwardNextVlan.setStatus('deprecated')
-alaIgmpForwardNextIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 9), InterfaceIndex())
-if mibBuilder.loadTexts: alaIgmpForwardNextIfIndex.setStatus('deprecated')
-alaIgmpForwardNextType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpForwardNextType.setStatus('deprecated')
-alaIgmpTunnel = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11))
-alaIgmpTunnelTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1), )
-if mibBuilder.loadTexts: alaIgmpTunnelTable.setStatus('deprecated')
-alaIgmpTunnelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelVlan"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelGroupAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelHostAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelDestAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelOrigAddress"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelNextDestAddress"))
-if mibBuilder.loadTexts: alaIgmpTunnelEntry.setStatus('deprecated')
-alaIgmpTunnelVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpTunnelVlan.setStatus('deprecated')
-alaIgmpTunnelIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 2), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpTunnelIfIndex.setStatus('deprecated')
-alaIgmpTunnelGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 3), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpTunnelGroupAddress.setStatus('deprecated')
-alaIgmpTunnelHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 4), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpTunnelHostAddress.setStatus('deprecated')
-alaIgmpTunnelDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 5), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpTunnelDestAddress.setStatus('deprecated')
-alaIgmpTunnelOrigAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 6), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpTunnelOrigAddress.setStatus('deprecated')
-alaIgmpTunnelType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpTunnelType.setStatus('deprecated')
-alaIgmpTunnelNextDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 8), InetAddressIPv4())
-if mibBuilder.loadTexts: alaIgmpTunnelNextDestAddress.setStatus('deprecated')
-alaIgmpTunnelNextType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("mcast", 1), ("pim", 2), ("ipip", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpTunnelNextType.setStatus('deprecated')
-alaIgmpPort = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12))
-alaIgmpPortTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12, 1), )
-if mibBuilder.loadTexts: alaIgmpPortTable.setStatus('deprecated')
-alaIgmpPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortIfIndex"))
-if mibBuilder.loadTexts: alaIgmpPortEntry.setStatus('deprecated')
-alaIgmpPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: alaIgmpPortIfIndex.setStatus('deprecated')
-alaIgmpPortMaxGroupLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12, 1, 1, 2), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpPortMaxGroupLimit.setStatus('deprecated')
-alaIgmpPortMaxGroupExceedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("drop", 1), ("replace", 2))).clone('none')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaIgmpPortMaxGroupExceedAction.setStatus('deprecated')
-alaIgmpPortVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13))
-alaIgmpPortVlanTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1), )
-if mibBuilder.loadTexts: alaIgmpPortVlanTable.setStatus('deprecated')
-alaIgmpPortVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1, 1), ).setIndexNames((0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortIfIndex"), (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanId"))
-if mibBuilder.loadTexts: alaIgmpPortVlanEntry.setStatus('deprecated')
-alaIgmpVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: alaIgmpVlanId.setStatus('deprecated')
-alaIgmpPortVlanCurrentGroupCount = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpPortVlanCurrentGroupCount.setStatus('deprecated')
-alaIgmpPortVlanMaxGroupLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpPortVlanMaxGroupLimit.setStatus('deprecated')
-alaIgmpPortVlanMaxGroupExceedAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("drop", 1), ("replace", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaIgmpPortVlanMaxGroupExceedAction.setStatus('deprecated')
-alcatelIND1IgmpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2))
-alcatelIND1IgmpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 1))
-alaIgmpCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 1, 1)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticMemberGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticNeighborGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticQuerierGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortGroup"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortVlanGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpCompliance = alaIgmpCompliance.setStatus('current')
-alcatelIND1IgmpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2))
-alaIgmpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 1)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStatus"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerying"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpSpoofing"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpZapping"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVersion"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpRobustness"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQueryInterval"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQueryResponseInterval"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpLastMemberQueryInterval"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpRouterTimeout"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceTimeout"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpProxying"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpUnsolicitedReportInterval"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierForwarding"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMaxGroupLimit"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMaxGroupExceedAction"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpFloodUnknown"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpHelperAddressType"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpHelperAddress"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpZeroBasedQuery"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpInitialPacketBuffer"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpInitialPacketBufferMaxPacket"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpInitialPacketBufferMaxFlow"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpInitialPacketBufferTimeout"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpInitialPacketBufferMinDelay"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpGroup = alaIgmpGroup.setStatus('current')
-alaIgmpVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 2)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanStatus"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanQuerying"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanSpoofing"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanZapping"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanVersion"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanRobustness"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanQueryInterval"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanQueryResponseInterval"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanLastMemberQueryInterval"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanRouterTimeout"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanSourceTimeout"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanProxying"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanUnsolicitedReportInterval"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanQuerierForwarding"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanMaxGroupLimit"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanMaxGroupExceedAction"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanZeroBasedQuery"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpVlanGroup = alaIgmpVlanGroup.setStatus('current')
-alaIgmpMemberGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 3)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberMode"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberCount"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpMemberGroup = alaIgmpMemberGroup.setStatus('current')
-alaIgmpStaticMemberGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 4)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticMemberRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpStaticMemberGroup = alaIgmpStaticMemberGroup.setStatus('current')
-alaIgmpNeighborGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 5)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborCount"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpNeighborGroup = alaIgmpNeighborGroup.setStatus('current')
-alaIgmpStaticNeighborGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 6)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticNeighborRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpStaticNeighborGroup = alaIgmpStaticNeighborGroup.setStatus('current')
-alaIgmpQuerierGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 7)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierCount"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpQuerierGroup = alaIgmpQuerierGroup.setStatus('current')
-alaIgmpStaticQuerierGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 8)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticQuerierRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpStaticQuerierGroup = alaIgmpStaticQuerierGroup.setStatus('current')
-alaIgmpSourceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 9)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceIfIndex"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpSourceGroup = alaIgmpSourceGroup.setStatus('current')
-alaIgmpForwardGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 10)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardIfIndex"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardType"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardNextType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpForwardGroup = alaIgmpForwardGroup.setStatus('current')
-alaIgmpTunnelGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 11)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelIfIndex"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelType"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelNextType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpTunnelGroup = alaIgmpTunnelGroup.setStatus('current')
-alaIgmpPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 12)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortMaxGroupLimit"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortMaxGroupExceedAction"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpPortGroup = alaIgmpPortGroup.setStatus('current')
-alaIgmpPortVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 13)).setObjects(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortVlanCurrentGroupCount"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortVlanMaxGroupLimit"), ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortVlanMaxGroupExceedAction"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaIgmpPortVlanGroup = alaIgmpPortVlanGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-ENT1-IGMP-MIB", alaIgmpStaticQuerierIfIndex=alaIgmpStaticQuerierIfIndex, alaIgmpMemberTimeout=alaIgmpMemberTimeout, alcatelIND1IgmpMIBCompliances=alcatelIND1IgmpMIBCompliances, alaIgmpVlanQueryInterval=alaIgmpVlanQueryInterval, alaIgmp=alaIgmp, alaIgmpForwardDestAddress=alaIgmpForwardDestAddress, alaIgmpForward=alaIgmpForward, alaIgmpNeighborHostAddress=alaIgmpNeighborHostAddress, alaIgmpStaticMemberGroupAddress=alaIgmpStaticMemberGroupAddress, alaIgmpTunnelDestAddress=alaIgmpTunnelDestAddress, alaIgmpPortVlanCurrentGroupCount=alaIgmpPortVlanCurrentGroupCount, alaIgmpNeighborCount=alaIgmpNeighborCount, alaIgmpTunnelOrigAddress=alaIgmpTunnelOrigAddress, alaIgmpPortVlanGroup=alaIgmpPortVlanGroup, alaIgmpPort=alaIgmpPort, alaIgmpRouterTimeout=alaIgmpRouterTimeout, alaIgmpStaticMemberTable=alaIgmpStaticMemberTable, alaIgmpVlan=alaIgmpVlan, alaIgmpQueryResponseInterval=alaIgmpQueryResponseInterval, alaIgmpVlanMaxGroupExceedAction=alaIgmpVlanMaxGroupExceedAction, alaIgmpQueryInterval=alaIgmpQueryInterval, alaIgmpStaticNeighborIfIndex=alaIgmpStaticNeighborIfIndex, alaIgmpStaticQuerierRowStatus=alaIgmpStaticQuerierRowStatus, alaIgmpMemberGroupAddress=alaIgmpMemberGroupAddress, alaIgmpTunnel=alaIgmpTunnel, alaIgmpTunnelNextDestAddress=alaIgmpTunnelNextDestAddress, alaIgmpTunnelEntry=alaIgmpTunnelEntry, alaIgmpInitialPacketBuffer=alaIgmpInitialPacketBuffer, alaIgmpQuerier=alaIgmpQuerier, alaIgmpStaticMemberIfIndex=alaIgmpStaticMemberIfIndex, alaIgmpQuerierEntry=alaIgmpQuerierEntry, alaIgmpVlanSpoofing=alaIgmpVlanSpoofing, alaIgmpStaticQuerierEntry=alaIgmpStaticQuerierEntry, alaIgmpVlanEntry=alaIgmpVlanEntry, alaIgmpStaticMemberVlan=alaIgmpStaticMemberVlan, alaIgmpForwardNextIfIndex=alaIgmpForwardNextIfIndex, alaIgmpGroup=alaIgmpGroup, alaIgmpCompliance=alaIgmpCompliance, alaIgmpQuerierTable=alaIgmpQuerierTable, alaIgmpForwardType=alaIgmpForwardType, alaIgmpSpoofing=alaIgmpSpoofing, alaIgmpForwardTable=alaIgmpForwardTable, alaIgmpSourceGroup=alaIgmpSourceGroup, alaIgmpStaticMemberRowStatus=alaIgmpStaticMemberRowStatus, alaIgmpMemberVlan=alaIgmpMemberVlan, alaIgmpStaticNeighborGroup=alaIgmpStaticNeighborGroup, alaIgmpForwardGroupAddress=alaIgmpForwardGroupAddress, alaIgmpForwardNextType=alaIgmpForwardNextType, alaIgmpNeighborGroup=alaIgmpNeighborGroup, alcatelIND1IgmpMIB=alcatelIND1IgmpMIB, alaIgmpStaticMemberEntry=alaIgmpStaticMemberEntry, alaIgmpStaticQuerierGroup=alaIgmpStaticQuerierGroup, alcatelIND1IgmpMIBConformance=alcatelIND1IgmpMIBConformance, alaIgmpForwardEntry=alaIgmpForwardEntry, alaIgmpMemberTable=alaIgmpMemberTable, alaIgmpPortVlanEntry=alaIgmpPortVlanEntry, alaIgmpStaticQuerier=alaIgmpStaticQuerier, alaIgmpForwardGroup=alaIgmpForwardGroup, alaIgmpQuerierVlan=alaIgmpQuerierVlan, alaIgmpPortIfIndex=alaIgmpPortIfIndex, alaIgmpVlanStatus=alaIgmpVlanStatus, alaIgmpProxying=alaIgmpProxying, alaIgmpVlanUnsolicitedReportInterval=alaIgmpVlanUnsolicitedReportInterval, alaIgmpPortMaxGroupLimit=alaIgmpPortMaxGroupLimit, alaIgmpNeighborTimeout=alaIgmpNeighborTimeout, alaIgmpNeighborIfIndex=alaIgmpNeighborIfIndex, alaIgmpMemberMode=alaIgmpMemberMode, alaIgmpMemberEntry=alaIgmpMemberEntry, alaIgmpLastMemberQueryInterval=alaIgmpLastMemberQueryInterval, alaIgmpNeighborEntry=alaIgmpNeighborEntry, alaIgmpPortMaxGroupExceedAction=alaIgmpPortMaxGroupExceedAction, alaIgmpVlanZapping=alaIgmpVlanZapping, alaIgmpMemberSourceAddress=alaIgmpMemberSourceAddress, alcatelIND1IgmpMIBGroups=alcatelIND1IgmpMIBGroups, alaIgmpStaticQuerierVlan=alaIgmpStaticQuerierVlan, alaIgmpMaxGroupLimit=alaIgmpMaxGroupLimit, alaIgmpVlanIndex=alaIgmpVlanIndex, alaIgmpVlanQuerying=alaIgmpVlanQuerying, alaIgmpPortGroup=alaIgmpPortGroup, alaIgmpSource=alaIgmpSource, alaIgmpStaticNeighborVlan=alaIgmpStaticNeighborVlan, alaIgmpMemberCount=alaIgmpMemberCount, alaIgmpVersion=alaIgmpVersion, alaIgmpUnsolicitedReportInterval=alaIgmpUnsolicitedReportInterval, alaIgmpVlanRouterTimeout=alaIgmpVlanRouterTimeout, alaIgmpZeroBasedQuery=alaIgmpZeroBasedQuery, alaIgmpVlanProxying=alaIgmpVlanProxying, alaIgmpQuerierCount=alaIgmpQuerierCount, alaIgmpHelperAddressType=alaIgmpHelperAddressType, alaIgmpVlanZeroBasedQuery=alaIgmpVlanZeroBasedQuery, alaIgmpForwardOrigAddress=alaIgmpForwardOrigAddress, alaIgmpVlanQuerierForwarding=alaIgmpVlanQuerierForwarding, alaIgmpTunnelTable=alaIgmpTunnelTable, alaIgmpPortEntry=alaIgmpPortEntry, alaIgmpMember=alaIgmpMember, alaIgmpTunnelType=alaIgmpTunnelType, alaIgmpInitialPacketBufferMaxPacket=alaIgmpInitialPacketBufferMaxPacket, alaIgmpFloodUnknown=alaIgmpFloodUnknown, alaIgmpSourceVlan=alaIgmpSourceVlan, alaIgmpTunnelVlan=alaIgmpTunnelVlan, alaIgmpQuerierTimeout=alaIgmpQuerierTimeout, alaIgmpStaticNeighborTable=alaIgmpStaticNeighborTable, alaIgmpTunnelHostAddress=alaIgmpTunnelHostAddress, alaIgmpStaticMember=alaIgmpStaticMember, alaIgmpNeighbor=alaIgmpNeighbor, alaIgmpVlanQueryResponseInterval=alaIgmpVlanQueryResponseInterval, alaIgmpForwardNextVlan=alaIgmpForwardNextVlan, alaIgmpSourceGroupAddress=alaIgmpSourceGroupAddress, alaIgmpStaticMemberGroup=alaIgmpStaticMemberGroup, alaIgmpRobustness=alaIgmpRobustness, alaIgmpStatus=alaIgmpStatus, alaIgmpQuerierGroup=alaIgmpQuerierGroup, alaIgmpSourceEntry=alaIgmpSourceEntry, alaIgmpForwardIfIndex=alaIgmpForwardIfIndex, alcatelIND1IgmpMIBObjects=alcatelIND1IgmpMIBObjects, alaIgmpStaticNeighborEntry=alaIgmpStaticNeighborEntry, alaIgmpPortVlanMaxGroupExceedAction=alaIgmpPortVlanMaxGroupExceedAction, alaIgmpSourceHostAddress=alaIgmpSourceHostAddress, alaIgmpVlanRobustness=alaIgmpVlanRobustness, alaIgmpHelperAddress=alaIgmpHelperAddress, alaIgmpPortTable=alaIgmpPortTable, alaIgmpForwardVlan=alaIgmpForwardVlan, alaIgmpVlanSourceTimeout=alaIgmpVlanSourceTimeout, alaIgmpSourceOrigAddress=alaIgmpSourceOrigAddress, alaIgmpTunnelGroup=alaIgmpTunnelGroup, alaIgmpZapping=alaIgmpZapping, alaIgmpNeighborTable=alaIgmpNeighborTable, alaIgmpSourceType=alaIgmpSourceType, alaIgmpSourceTable=alaIgmpSourceTable, alaIgmpSourceIfIndex=alaIgmpSourceIfIndex, alaIgmpQuerying=alaIgmpQuerying, alaIgmpVlanLastMemberQueryInterval=alaIgmpVlanLastMemberQueryInterval, alaIgmpTunnelIfIndex=alaIgmpTunnelIfIndex, alaIgmpInitialPacketBufferTimeout=alaIgmpInitialPacketBufferTimeout, alaIgmpQuerierHostAddress=alaIgmpQuerierHostAddress, alaIgmpSourceTimeout=alaIgmpSourceTimeout, alaIgmpInitialPacketBufferMaxFlow=alaIgmpInitialPacketBufferMaxFlow, alaIgmpSourceDestAddress=alaIgmpSourceDestAddress, alaIgmpNeighborVlan=alaIgmpNeighborVlan, alaIgmpStaticQuerierTable=alaIgmpStaticQuerierTable, alaIgmpPortVlanMaxGroupLimit=alaIgmpPortVlanMaxGroupLimit, alaIgmpTunnelNextType=alaIgmpTunnelNextType, alaIgmpMemberIfIndex=alaIgmpMemberIfIndex, alaIgmpInitialPacketBufferMinDelay=alaIgmpInitialPacketBufferMinDelay, PYSNMP_MODULE_ID=alcatelIND1IgmpMIB, alaIgmpPortVlanTable=alaIgmpPortVlanTable, alaIgmpVlanTable=alaIgmpVlanTable, alaIgmpStaticNeighborRowStatus=alaIgmpStaticNeighborRowStatus, alaIgmpTunnelGroupAddress=alaIgmpTunnelGroupAddress, alaIgmpQuerierIfIndex=alaIgmpQuerierIfIndex, alaIgmpVlanVersion=alaIgmpVlanVersion, alaIgmpStaticNeighbor=alaIgmpStaticNeighbor, alaIgmpMemberGroup=alaIgmpMemberGroup, alaIgmpMaxGroupExceedAction=alaIgmpMaxGroupExceedAction, alaIgmpVlanGroup=alaIgmpVlanGroup, alaIgmpForwardHostAddress=alaIgmpForwardHostAddress, alaIgmpVlanMaxGroupLimit=alaIgmpVlanMaxGroupLimit, alaIgmpQuerierForwarding=alaIgmpQuerierForwarding, alaIgmpVlanId=alaIgmpVlanId, alaIgmpPortVlan=alaIgmpPortVlan)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(softentIND1Igmp,) = mibBuilder.importSymbols(
+    "ALCATEL-ENT1-BASE",
+    "softentIND1Igmp")
+
+(InterfaceIndex,
+ InterfaceIndexOrZero) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "InterfaceIndexOrZero")
+
+(InetAddress,
+ InetAddressIPv4,
+ InetAddressPrefixLength,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressIPv4",
+    "InetAddressPrefixLength",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alcatelIND1IgmpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1IgmpMIB.setRevisions(
+        ("2016-02-18 00:00",
+         "2015-09-17 00:00",
+         "2013-11-26 00:00",
+         "2011-02-23 00:00",
+         "2009-03-31 00:00",
+         "2008-09-10 00:00",
+         "2008-08-08 00:00",
+         "2007-04-03 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlcatelIND1IgmpMIBObjects_ObjectIdentity = ObjectIdentity
+alcatelIND1IgmpMIBObjects = _AlcatelIND1IgmpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1)
+)
+_AlaIgmp_ObjectIdentity = ObjectIdentity
+alaIgmp = _AlaIgmp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1)
+)
+
+
+class _AlaIgmpStatus_Type(Integer32):
+    """Custom type alaIgmpStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpStatus_Type.__name__ = "Integer32"
+_AlaIgmpStatus_Object = MibScalar
+alaIgmpStatus = _AlaIgmpStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 1),
+    _AlaIgmpStatus_Type()
+)
+alaIgmpStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpStatus.setStatus("deprecated")
+
+
+class _AlaIgmpQuerying_Type(Integer32):
+    """Custom type alaIgmpQuerying based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpQuerying_Type.__name__ = "Integer32"
+_AlaIgmpQuerying_Object = MibScalar
+alaIgmpQuerying = _AlaIgmpQuerying_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 2),
+    _AlaIgmpQuerying_Type()
+)
+alaIgmpQuerying.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpQuerying.setStatus("deprecated")
+
+
+class _AlaIgmpSpoofing_Type(Integer32):
+    """Custom type alaIgmpSpoofing based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpSpoofing_Type.__name__ = "Integer32"
+_AlaIgmpSpoofing_Object = MibScalar
+alaIgmpSpoofing = _AlaIgmpSpoofing_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 3),
+    _AlaIgmpSpoofing_Type()
+)
+alaIgmpSpoofing.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpSpoofing.setStatus("deprecated")
+
+
+class _AlaIgmpZapping_Type(Integer32):
+    """Custom type alaIgmpZapping based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpZapping_Type.__name__ = "Integer32"
+_AlaIgmpZapping_Object = MibScalar
+alaIgmpZapping = _AlaIgmpZapping_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 4),
+    _AlaIgmpZapping_Type()
+)
+alaIgmpZapping.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpZapping.setStatus("deprecated")
+
+
+class _AlaIgmpVersion_Type(Unsigned32):
+    """Custom type alaIgmpVersion based on Unsigned32"""
+    defaultValue = 2
+
+
+_AlaIgmpVersion_Type.__name__ = "Unsigned32"
+_AlaIgmpVersion_Object = MibScalar
+alaIgmpVersion = _AlaIgmpVersion_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 5),
+    _AlaIgmpVersion_Type()
+)
+alaIgmpVersion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVersion.setStatus("deprecated")
+
+
+class _AlaIgmpRobustness_Type(Unsigned32):
+    """Custom type alaIgmpRobustness based on Unsigned32"""
+    defaultValue = 2
+
+
+_AlaIgmpRobustness_Type.__name__ = "Unsigned32"
+_AlaIgmpRobustness_Object = MibScalar
+alaIgmpRobustness = _AlaIgmpRobustness_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 6),
+    _AlaIgmpRobustness_Type()
+)
+alaIgmpRobustness.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpRobustness.setStatus("deprecated")
+
+
+class _AlaIgmpQueryInterval_Type(Unsigned32):
+    """Custom type alaIgmpQueryInterval based on Unsigned32"""
+    defaultValue = 125
+
+
+_AlaIgmpQueryInterval_Type.__name__ = "Unsigned32"
+_AlaIgmpQueryInterval_Object = MibScalar
+alaIgmpQueryInterval = _AlaIgmpQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 7),
+    _AlaIgmpQueryInterval_Type()
+)
+alaIgmpQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpQueryInterval.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpQueryInterval.setUnits("seconds")
+
+
+class _AlaIgmpQueryResponseInterval_Type(Unsigned32):
+    """Custom type alaIgmpQueryResponseInterval based on Unsigned32"""
+    defaultValue = 100
+
+
+_AlaIgmpQueryResponseInterval_Type.__name__ = "Unsigned32"
+_AlaIgmpQueryResponseInterval_Object = MibScalar
+alaIgmpQueryResponseInterval = _AlaIgmpQueryResponseInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 8),
+    _AlaIgmpQueryResponseInterval_Type()
+)
+alaIgmpQueryResponseInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpQueryResponseInterval.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpQueryResponseInterval.setUnits("tenths of seconds")
+
+
+class _AlaIgmpLastMemberQueryInterval_Type(Unsigned32):
+    """Custom type alaIgmpLastMemberQueryInterval based on Unsigned32"""
+    defaultValue = 10
+
+
+_AlaIgmpLastMemberQueryInterval_Type.__name__ = "Unsigned32"
+_AlaIgmpLastMemberQueryInterval_Object = MibScalar
+alaIgmpLastMemberQueryInterval = _AlaIgmpLastMemberQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 9),
+    _AlaIgmpLastMemberQueryInterval_Type()
+)
+alaIgmpLastMemberQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpLastMemberQueryInterval.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpLastMemberQueryInterval.setUnits("tenths of seconds")
+
+
+class _AlaIgmpRouterTimeout_Type(Unsigned32):
+    """Custom type alaIgmpRouterTimeout based on Unsigned32"""
+    defaultValue = 90
+
+
+_AlaIgmpRouterTimeout_Type.__name__ = "Unsigned32"
+_AlaIgmpRouterTimeout_Object = MibScalar
+alaIgmpRouterTimeout = _AlaIgmpRouterTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 10),
+    _AlaIgmpRouterTimeout_Type()
+)
+alaIgmpRouterTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpRouterTimeout.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpRouterTimeout.setUnits("seconds")
+
+
+class _AlaIgmpSourceTimeout_Type(Unsigned32):
+    """Custom type alaIgmpSourceTimeout based on Unsigned32"""
+    defaultValue = 30
+
+
+_AlaIgmpSourceTimeout_Type.__name__ = "Unsigned32"
+_AlaIgmpSourceTimeout_Object = MibScalar
+alaIgmpSourceTimeout = _AlaIgmpSourceTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 11),
+    _AlaIgmpSourceTimeout_Type()
+)
+alaIgmpSourceTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpSourceTimeout.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpSourceTimeout.setUnits("seconds")
+
+
+class _AlaIgmpProxying_Type(Integer32):
+    """Custom type alaIgmpProxying based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpProxying_Type.__name__ = "Integer32"
+_AlaIgmpProxying_Object = MibScalar
+alaIgmpProxying = _AlaIgmpProxying_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 12),
+    _AlaIgmpProxying_Type()
+)
+alaIgmpProxying.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpProxying.setStatus("deprecated")
+
+
+class _AlaIgmpUnsolicitedReportInterval_Type(Unsigned32):
+    """Custom type alaIgmpUnsolicitedReportInterval based on Unsigned32"""
+    defaultValue = 1
+
+
+_AlaIgmpUnsolicitedReportInterval_Type.__name__ = "Unsigned32"
+_AlaIgmpUnsolicitedReportInterval_Object = MibScalar
+alaIgmpUnsolicitedReportInterval = _AlaIgmpUnsolicitedReportInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 13),
+    _AlaIgmpUnsolicitedReportInterval_Type()
+)
+alaIgmpUnsolicitedReportInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpUnsolicitedReportInterval.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpUnsolicitedReportInterval.setUnits("seconds")
+
+
+class _AlaIgmpQuerierForwarding_Type(Integer32):
+    """Custom type alaIgmpQuerierForwarding based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpQuerierForwarding_Type.__name__ = "Integer32"
+_AlaIgmpQuerierForwarding_Object = MibScalar
+alaIgmpQuerierForwarding = _AlaIgmpQuerierForwarding_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 14),
+    _AlaIgmpQuerierForwarding_Type()
+)
+alaIgmpQuerierForwarding.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierForwarding.setStatus("deprecated")
+
+
+class _AlaIgmpMaxGroupLimit_Type(Unsigned32):
+    """Custom type alaIgmpMaxGroupLimit based on Unsigned32"""
+    defaultValue = 0
+
+
+_AlaIgmpMaxGroupLimit_Type.__name__ = "Unsigned32"
+_AlaIgmpMaxGroupLimit_Object = MibScalar
+alaIgmpMaxGroupLimit = _AlaIgmpMaxGroupLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 15),
+    _AlaIgmpMaxGroupLimit_Type()
+)
+alaIgmpMaxGroupLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpMaxGroupLimit.setStatus("deprecated")
+
+
+class _AlaIgmpMaxGroupExceedAction_Type(Integer32):
+    """Custom type alaIgmpMaxGroupExceedAction based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("drop", 1),
+          ("replace", 2))
+    )
+
+
+_AlaIgmpMaxGroupExceedAction_Type.__name__ = "Integer32"
+_AlaIgmpMaxGroupExceedAction_Object = MibScalar
+alaIgmpMaxGroupExceedAction = _AlaIgmpMaxGroupExceedAction_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 16),
+    _AlaIgmpMaxGroupExceedAction_Type()
+)
+alaIgmpMaxGroupExceedAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpMaxGroupExceedAction.setStatus("deprecated")
+
+
+class _AlaIgmpFloodUnknown_Type(Integer32):
+    """Custom type alaIgmpFloodUnknown based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpFloodUnknown_Type.__name__ = "Integer32"
+_AlaIgmpFloodUnknown_Object = MibScalar
+alaIgmpFloodUnknown = _AlaIgmpFloodUnknown_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 17),
+    _AlaIgmpFloodUnknown_Type()
+)
+alaIgmpFloodUnknown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpFloodUnknown.setStatus("deprecated")
+
+
+class _AlaIgmpHelperAddressType_Type(InetAddressType):
+    """Custom type alaIgmpHelperAddressType based on InetAddressType"""
+    subtypeSpec = InetAddressType.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1),
+    )
+
+
+_AlaIgmpHelperAddressType_Type.__name__ = "InetAddressType"
+_AlaIgmpHelperAddressType_Object = MibScalar
+alaIgmpHelperAddressType = _AlaIgmpHelperAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 18),
+    _AlaIgmpHelperAddressType_Type()
+)
+alaIgmpHelperAddressType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpHelperAddressType.setStatus("deprecated")
+
+
+class _AlaIgmpHelperAddress_Type(InetAddress):
+    """Custom type alaIgmpHelperAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_AlaIgmpHelperAddress_Type.__name__ = "InetAddress"
+_AlaIgmpHelperAddress_Object = MibScalar
+alaIgmpHelperAddress = _AlaIgmpHelperAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 19),
+    _AlaIgmpHelperAddress_Type()
+)
+alaIgmpHelperAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpHelperAddress.setStatus("deprecated")
+
+
+class _AlaIgmpZeroBasedQuery_Type(Integer32):
+    """Custom type alaIgmpZeroBasedQuery based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpZeroBasedQuery_Type.__name__ = "Integer32"
+_AlaIgmpZeroBasedQuery_Object = MibScalar
+alaIgmpZeroBasedQuery = _AlaIgmpZeroBasedQuery_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 20),
+    _AlaIgmpZeroBasedQuery_Type()
+)
+alaIgmpZeroBasedQuery.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpZeroBasedQuery.setStatus("deprecated")
+
+
+class _AlaIgmpInitialPacketBuffer_Type(Integer32):
+    """Custom type alaIgmpInitialPacketBuffer based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpInitialPacketBuffer_Type.__name__ = "Integer32"
+_AlaIgmpInitialPacketBuffer_Object = MibScalar
+alaIgmpInitialPacketBuffer = _AlaIgmpInitialPacketBuffer_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 21),
+    _AlaIgmpInitialPacketBuffer_Type()
+)
+alaIgmpInitialPacketBuffer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpInitialPacketBuffer.setStatus("deprecated")
+
+
+class _AlaIgmpInitialPacketBufferMaxPacket_Type(Unsigned32):
+    """Custom type alaIgmpInitialPacketBufferMaxPacket based on Unsigned32"""
+    defaultValue = 4
+
+
+_AlaIgmpInitialPacketBufferMaxPacket_Type.__name__ = "Unsigned32"
+_AlaIgmpInitialPacketBufferMaxPacket_Object = MibScalar
+alaIgmpInitialPacketBufferMaxPacket = _AlaIgmpInitialPacketBufferMaxPacket_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 22),
+    _AlaIgmpInitialPacketBufferMaxPacket_Type()
+)
+alaIgmpInitialPacketBufferMaxPacket.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpInitialPacketBufferMaxPacket.setStatus("deprecated")
+
+
+class _AlaIgmpInitialPacketBufferMaxFlow_Type(Unsigned32):
+    """Custom type alaIgmpInitialPacketBufferMaxFlow based on Unsigned32"""
+    defaultValue = 32
+
+
+_AlaIgmpInitialPacketBufferMaxFlow_Type.__name__ = "Unsigned32"
+_AlaIgmpInitialPacketBufferMaxFlow_Object = MibScalar
+alaIgmpInitialPacketBufferMaxFlow = _AlaIgmpInitialPacketBufferMaxFlow_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 23),
+    _AlaIgmpInitialPacketBufferMaxFlow_Type()
+)
+alaIgmpInitialPacketBufferMaxFlow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpInitialPacketBufferMaxFlow.setStatus("deprecated")
+
+
+class _AlaIgmpInitialPacketBufferTimeout_Type(Unsigned32):
+    """Custom type alaIgmpInitialPacketBufferTimeout based on Unsigned32"""
+    defaultValue = 10
+
+
+_AlaIgmpInitialPacketBufferTimeout_Type.__name__ = "Unsigned32"
+_AlaIgmpInitialPacketBufferTimeout_Object = MibScalar
+alaIgmpInitialPacketBufferTimeout = _AlaIgmpInitialPacketBufferTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 24),
+    _AlaIgmpInitialPacketBufferTimeout_Type()
+)
+alaIgmpInitialPacketBufferTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpInitialPacketBufferTimeout.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpInitialPacketBufferTimeout.setUnits("seconds")
+
+
+class _AlaIgmpInitialPacketBufferMinDelay_Type(Unsigned32):
+    """Custom type alaIgmpInitialPacketBufferMinDelay based on Unsigned32"""
+    defaultValue = 0
+
+
+_AlaIgmpInitialPacketBufferMinDelay_Type.__name__ = "Unsigned32"
+_AlaIgmpInitialPacketBufferMinDelay_Object = MibScalar
+alaIgmpInitialPacketBufferMinDelay = _AlaIgmpInitialPacketBufferMinDelay_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 1, 25),
+    _AlaIgmpInitialPacketBufferMinDelay_Type()
+)
+alaIgmpInitialPacketBufferMinDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpInitialPacketBufferMinDelay.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpInitialPacketBufferMinDelay.setUnits("milliseconds")
+_AlaIgmpVlan_ObjectIdentity = ObjectIdentity
+alaIgmpVlan = _AlaIgmpVlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2)
+)
+_AlaIgmpVlanTable_Object = MibTable
+alaIgmpVlanTable = _AlaIgmpVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpVlanTable.setStatus("deprecated")
+_AlaIgmpVlanEntry_Object = MibTableRow
+alaIgmpVlanEntry = _AlaIgmpVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1)
+)
+alaIgmpVlanEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanIndex"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpVlanEntry.setStatus("deprecated")
+_AlaIgmpVlanIndex_Type = Unsigned32
+_AlaIgmpVlanIndex_Object = MibTableColumn
+alaIgmpVlanIndex = _AlaIgmpVlanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 1),
+    _AlaIgmpVlanIndex_Type()
+)
+alaIgmpVlanIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpVlanIndex.setStatus("deprecated")
+
+
+class _AlaIgmpVlanStatus_Type(Integer32):
+    """Custom type alaIgmpVlanStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpVlanStatus_Type.__name__ = "Integer32"
+_AlaIgmpVlanStatus_Object = MibTableColumn
+alaIgmpVlanStatus = _AlaIgmpVlanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 2),
+    _AlaIgmpVlanStatus_Type()
+)
+alaIgmpVlanStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanStatus.setStatus("deprecated")
+
+
+class _AlaIgmpVlanQuerying_Type(Integer32):
+    """Custom type alaIgmpVlanQuerying based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpVlanQuerying_Type.__name__ = "Integer32"
+_AlaIgmpVlanQuerying_Object = MibTableColumn
+alaIgmpVlanQuerying = _AlaIgmpVlanQuerying_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 3),
+    _AlaIgmpVlanQuerying_Type()
+)
+alaIgmpVlanQuerying.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanQuerying.setStatus("deprecated")
+
+
+class _AlaIgmpVlanSpoofing_Type(Integer32):
+    """Custom type alaIgmpVlanSpoofing based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpVlanSpoofing_Type.__name__ = "Integer32"
+_AlaIgmpVlanSpoofing_Object = MibTableColumn
+alaIgmpVlanSpoofing = _AlaIgmpVlanSpoofing_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 4),
+    _AlaIgmpVlanSpoofing_Type()
+)
+alaIgmpVlanSpoofing.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanSpoofing.setStatus("deprecated")
+
+
+class _AlaIgmpVlanZapping_Type(Integer32):
+    """Custom type alaIgmpVlanZapping based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpVlanZapping_Type.__name__ = "Integer32"
+_AlaIgmpVlanZapping_Object = MibTableColumn
+alaIgmpVlanZapping = _AlaIgmpVlanZapping_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 5),
+    _AlaIgmpVlanZapping_Type()
+)
+alaIgmpVlanZapping.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanZapping.setStatus("deprecated")
+_AlaIgmpVlanVersion_Type = Unsigned32
+_AlaIgmpVlanVersion_Object = MibTableColumn
+alaIgmpVlanVersion = _AlaIgmpVlanVersion_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 6),
+    _AlaIgmpVlanVersion_Type()
+)
+alaIgmpVlanVersion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanVersion.setStatus("deprecated")
+_AlaIgmpVlanRobustness_Type = Unsigned32
+_AlaIgmpVlanRobustness_Object = MibTableColumn
+alaIgmpVlanRobustness = _AlaIgmpVlanRobustness_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 7),
+    _AlaIgmpVlanRobustness_Type()
+)
+alaIgmpVlanRobustness.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanRobustness.setStatus("deprecated")
+_AlaIgmpVlanQueryInterval_Type = Unsigned32
+_AlaIgmpVlanQueryInterval_Object = MibTableColumn
+alaIgmpVlanQueryInterval = _AlaIgmpVlanQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 8),
+    _AlaIgmpVlanQueryInterval_Type()
+)
+alaIgmpVlanQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanQueryInterval.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpVlanQueryInterval.setUnits("seconds")
+_AlaIgmpVlanQueryResponseInterval_Type = Unsigned32
+_AlaIgmpVlanQueryResponseInterval_Object = MibTableColumn
+alaIgmpVlanQueryResponseInterval = _AlaIgmpVlanQueryResponseInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 9),
+    _AlaIgmpVlanQueryResponseInterval_Type()
+)
+alaIgmpVlanQueryResponseInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanQueryResponseInterval.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpVlanQueryResponseInterval.setUnits("tenths of seconds")
+_AlaIgmpVlanLastMemberQueryInterval_Type = Unsigned32
+_AlaIgmpVlanLastMemberQueryInterval_Object = MibTableColumn
+alaIgmpVlanLastMemberQueryInterval = _AlaIgmpVlanLastMemberQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 10),
+    _AlaIgmpVlanLastMemberQueryInterval_Type()
+)
+alaIgmpVlanLastMemberQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanLastMemberQueryInterval.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpVlanLastMemberQueryInterval.setUnits("tenths of seconds")
+_AlaIgmpVlanRouterTimeout_Type = Unsigned32
+_AlaIgmpVlanRouterTimeout_Object = MibTableColumn
+alaIgmpVlanRouterTimeout = _AlaIgmpVlanRouterTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 11),
+    _AlaIgmpVlanRouterTimeout_Type()
+)
+alaIgmpVlanRouterTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanRouterTimeout.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpVlanRouterTimeout.setUnits("seconds")
+_AlaIgmpVlanSourceTimeout_Type = Unsigned32
+_AlaIgmpVlanSourceTimeout_Object = MibTableColumn
+alaIgmpVlanSourceTimeout = _AlaIgmpVlanSourceTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 12),
+    _AlaIgmpVlanSourceTimeout_Type()
+)
+alaIgmpVlanSourceTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanSourceTimeout.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpVlanSourceTimeout.setUnits("seconds")
+
+
+class _AlaIgmpVlanProxying_Type(Integer32):
+    """Custom type alaIgmpVlanProxying based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpVlanProxying_Type.__name__ = "Integer32"
+_AlaIgmpVlanProxying_Object = MibTableColumn
+alaIgmpVlanProxying = _AlaIgmpVlanProxying_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 13),
+    _AlaIgmpVlanProxying_Type()
+)
+alaIgmpVlanProxying.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanProxying.setStatus("deprecated")
+_AlaIgmpVlanUnsolicitedReportInterval_Type = Unsigned32
+_AlaIgmpVlanUnsolicitedReportInterval_Object = MibTableColumn
+alaIgmpVlanUnsolicitedReportInterval = _AlaIgmpVlanUnsolicitedReportInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 14),
+    _AlaIgmpVlanUnsolicitedReportInterval_Type()
+)
+alaIgmpVlanUnsolicitedReportInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanUnsolicitedReportInterval.setStatus("deprecated")
+if mibBuilder.loadTexts:
+    alaIgmpVlanUnsolicitedReportInterval.setUnits("seconds")
+
+
+class _AlaIgmpVlanQuerierForwarding_Type(Integer32):
+    """Custom type alaIgmpVlanQuerierForwarding based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpVlanQuerierForwarding_Type.__name__ = "Integer32"
+_AlaIgmpVlanQuerierForwarding_Object = MibTableColumn
+alaIgmpVlanQuerierForwarding = _AlaIgmpVlanQuerierForwarding_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 15),
+    _AlaIgmpVlanQuerierForwarding_Type()
+)
+alaIgmpVlanQuerierForwarding.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanQuerierForwarding.setStatus("deprecated")
+
+
+class _AlaIgmpVlanMaxGroupLimit_Type(Unsigned32):
+    """Custom type alaIgmpVlanMaxGroupLimit based on Unsigned32"""
+    defaultValue = 0
+
+
+_AlaIgmpVlanMaxGroupLimit_Type.__name__ = "Unsigned32"
+_AlaIgmpVlanMaxGroupLimit_Object = MibTableColumn
+alaIgmpVlanMaxGroupLimit = _AlaIgmpVlanMaxGroupLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 16),
+    _AlaIgmpVlanMaxGroupLimit_Type()
+)
+alaIgmpVlanMaxGroupLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanMaxGroupLimit.setStatus("deprecated")
+
+
+class _AlaIgmpVlanMaxGroupExceedAction_Type(Integer32):
+    """Custom type alaIgmpVlanMaxGroupExceedAction based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("drop", 1),
+          ("replace", 2))
+    )
+
+
+_AlaIgmpVlanMaxGroupExceedAction_Type.__name__ = "Integer32"
+_AlaIgmpVlanMaxGroupExceedAction_Object = MibTableColumn
+alaIgmpVlanMaxGroupExceedAction = _AlaIgmpVlanMaxGroupExceedAction_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 17),
+    _AlaIgmpVlanMaxGroupExceedAction_Type()
+)
+alaIgmpVlanMaxGroupExceedAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanMaxGroupExceedAction.setStatus("deprecated")
+
+
+class _AlaIgmpVlanZeroBasedQuery_Type(Integer32):
+    """Custom type alaIgmpVlanZeroBasedQuery based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaIgmpVlanZeroBasedQuery_Type.__name__ = "Integer32"
+_AlaIgmpVlanZeroBasedQuery_Object = MibTableColumn
+alaIgmpVlanZeroBasedQuery = _AlaIgmpVlanZeroBasedQuery_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 2, 1, 1, 18),
+    _AlaIgmpVlanZeroBasedQuery_Type()
+)
+alaIgmpVlanZeroBasedQuery.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpVlanZeroBasedQuery.setStatus("deprecated")
+_AlaIgmpMember_ObjectIdentity = ObjectIdentity
+alaIgmpMember = _AlaIgmpMember_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3)
+)
+_AlaIgmpMemberTable_Object = MibTable
+alaIgmpMemberTable = _AlaIgmpMemberTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpMemberTable.setStatus("deprecated")
+_AlaIgmpMemberEntry_Object = MibTableRow
+alaIgmpMemberEntry = _AlaIgmpMemberEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1)
+)
+alaIgmpMemberEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberVlan"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberIfIndex"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberGroupAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberSourceAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpMemberEntry.setStatus("deprecated")
+_AlaIgmpMemberVlan_Type = Unsigned32
+_AlaIgmpMemberVlan_Object = MibTableColumn
+alaIgmpMemberVlan = _AlaIgmpMemberVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 1),
+    _AlaIgmpMemberVlan_Type()
+)
+alaIgmpMemberVlan.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberVlan.setStatus("deprecated")
+_AlaIgmpMemberIfIndex_Type = InterfaceIndex
+_AlaIgmpMemberIfIndex_Object = MibTableColumn
+alaIgmpMemberIfIndex = _AlaIgmpMemberIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 2),
+    _AlaIgmpMemberIfIndex_Type()
+)
+alaIgmpMemberIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberIfIndex.setStatus("deprecated")
+_AlaIgmpMemberGroupAddress_Type = InetAddressIPv4
+_AlaIgmpMemberGroupAddress_Object = MibTableColumn
+alaIgmpMemberGroupAddress = _AlaIgmpMemberGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 3),
+    _AlaIgmpMemberGroupAddress_Type()
+)
+alaIgmpMemberGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberGroupAddress.setStatus("deprecated")
+_AlaIgmpMemberSourceAddress_Type = InetAddressIPv4
+_AlaIgmpMemberSourceAddress_Object = MibTableColumn
+alaIgmpMemberSourceAddress = _AlaIgmpMemberSourceAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 4),
+    _AlaIgmpMemberSourceAddress_Type()
+)
+alaIgmpMemberSourceAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpMemberSourceAddress.setStatus("deprecated")
+
+
+class _AlaIgmpMemberMode_Type(Integer32):
+    """Custom type alaIgmpMemberMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("include", 1),
+          ("exclude", 2))
+    )
+
+
+_AlaIgmpMemberMode_Type.__name__ = "Integer32"
+_AlaIgmpMemberMode_Object = MibTableColumn
+alaIgmpMemberMode = _AlaIgmpMemberMode_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 5),
+    _AlaIgmpMemberMode_Type()
+)
+alaIgmpMemberMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpMemberMode.setStatus("deprecated")
+_AlaIgmpMemberCount_Type = Counter32
+_AlaIgmpMemberCount_Object = MibTableColumn
+alaIgmpMemberCount = _AlaIgmpMemberCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 6),
+    _AlaIgmpMemberCount_Type()
+)
+alaIgmpMemberCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpMemberCount.setStatus("deprecated")
+_AlaIgmpMemberTimeout_Type = TimeTicks
+_AlaIgmpMemberTimeout_Object = MibTableColumn
+alaIgmpMemberTimeout = _AlaIgmpMemberTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 3, 1, 1, 7),
+    _AlaIgmpMemberTimeout_Type()
+)
+alaIgmpMemberTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpMemberTimeout.setStatus("deprecated")
+_AlaIgmpStaticMember_ObjectIdentity = ObjectIdentity
+alaIgmpStaticMember = _AlaIgmpStaticMember_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4)
+)
+_AlaIgmpStaticMemberTable_Object = MibTable
+alaIgmpStaticMemberTable = _AlaIgmpStaticMemberTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberTable.setStatus("deprecated")
+_AlaIgmpStaticMemberEntry_Object = MibTableRow
+alaIgmpStaticMemberEntry = _AlaIgmpStaticMemberEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1, 1)
+)
+alaIgmpStaticMemberEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticMemberVlan"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticMemberIfIndex"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticMemberGroupAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberEntry.setStatus("deprecated")
+_AlaIgmpStaticMemberVlan_Type = Unsigned32
+_AlaIgmpStaticMemberVlan_Object = MibTableColumn
+alaIgmpStaticMemberVlan = _AlaIgmpStaticMemberVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1, 1, 1),
+    _AlaIgmpStaticMemberVlan_Type()
+)
+alaIgmpStaticMemberVlan.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberVlan.setStatus("deprecated")
+_AlaIgmpStaticMemberIfIndex_Type = InterfaceIndex
+_AlaIgmpStaticMemberIfIndex_Object = MibTableColumn
+alaIgmpStaticMemberIfIndex = _AlaIgmpStaticMemberIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1, 1, 2),
+    _AlaIgmpStaticMemberIfIndex_Type()
+)
+alaIgmpStaticMemberIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberIfIndex.setStatus("deprecated")
+_AlaIgmpStaticMemberGroupAddress_Type = InetAddressIPv4
+_AlaIgmpStaticMemberGroupAddress_Object = MibTableColumn
+alaIgmpStaticMemberGroupAddress = _AlaIgmpStaticMemberGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1, 1, 3),
+    _AlaIgmpStaticMemberGroupAddress_Type()
+)
+alaIgmpStaticMemberGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberGroupAddress.setStatus("deprecated")
+_AlaIgmpStaticMemberRowStatus_Type = RowStatus
+_AlaIgmpStaticMemberRowStatus_Object = MibTableColumn
+alaIgmpStaticMemberRowStatus = _AlaIgmpStaticMemberRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 4, 1, 1, 4),
+    _AlaIgmpStaticMemberRowStatus_Type()
+)
+alaIgmpStaticMemberRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberRowStatus.setStatus("deprecated")
+_AlaIgmpNeighbor_ObjectIdentity = ObjectIdentity
+alaIgmpNeighbor = _AlaIgmpNeighbor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5)
+)
+_AlaIgmpNeighborTable_Object = MibTable
+alaIgmpNeighborTable = _AlaIgmpNeighborTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpNeighborTable.setStatus("deprecated")
+_AlaIgmpNeighborEntry_Object = MibTableRow
+alaIgmpNeighborEntry = _AlaIgmpNeighborEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1)
+)
+alaIgmpNeighborEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborVlan"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborIfIndex"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborHostAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpNeighborEntry.setStatus("deprecated")
+_AlaIgmpNeighborVlan_Type = Unsigned32
+_AlaIgmpNeighborVlan_Object = MibTableColumn
+alaIgmpNeighborVlan = _AlaIgmpNeighborVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1, 1),
+    _AlaIgmpNeighborVlan_Type()
+)
+alaIgmpNeighborVlan.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborVlan.setStatus("deprecated")
+_AlaIgmpNeighborIfIndex_Type = InterfaceIndex
+_AlaIgmpNeighborIfIndex_Object = MibTableColumn
+alaIgmpNeighborIfIndex = _AlaIgmpNeighborIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1, 2),
+    _AlaIgmpNeighborIfIndex_Type()
+)
+alaIgmpNeighborIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborIfIndex.setStatus("deprecated")
+_AlaIgmpNeighborHostAddress_Type = InetAddressIPv4
+_AlaIgmpNeighborHostAddress_Object = MibTableColumn
+alaIgmpNeighborHostAddress = _AlaIgmpNeighborHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1, 3),
+    _AlaIgmpNeighborHostAddress_Type()
+)
+alaIgmpNeighborHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborHostAddress.setStatus("deprecated")
+_AlaIgmpNeighborCount_Type = Counter32
+_AlaIgmpNeighborCount_Object = MibTableColumn
+alaIgmpNeighborCount = _AlaIgmpNeighborCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1, 4),
+    _AlaIgmpNeighborCount_Type()
+)
+alaIgmpNeighborCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborCount.setStatus("deprecated")
+_AlaIgmpNeighborTimeout_Type = TimeTicks
+_AlaIgmpNeighborTimeout_Object = MibTableColumn
+alaIgmpNeighborTimeout = _AlaIgmpNeighborTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 5, 1, 1, 5),
+    _AlaIgmpNeighborTimeout_Type()
+)
+alaIgmpNeighborTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpNeighborTimeout.setStatus("deprecated")
+_AlaIgmpStaticNeighbor_ObjectIdentity = ObjectIdentity
+alaIgmpStaticNeighbor = _AlaIgmpStaticNeighbor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6)
+)
+_AlaIgmpStaticNeighborTable_Object = MibTable
+alaIgmpStaticNeighborTable = _AlaIgmpStaticNeighborTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborTable.setStatus("deprecated")
+_AlaIgmpStaticNeighborEntry_Object = MibTableRow
+alaIgmpStaticNeighborEntry = _AlaIgmpStaticNeighborEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6, 1, 1)
+)
+alaIgmpStaticNeighborEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticNeighborVlan"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticNeighborIfIndex"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborEntry.setStatus("deprecated")
+_AlaIgmpStaticNeighborVlan_Type = Unsigned32
+_AlaIgmpStaticNeighborVlan_Object = MibTableColumn
+alaIgmpStaticNeighborVlan = _AlaIgmpStaticNeighborVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6, 1, 1, 1),
+    _AlaIgmpStaticNeighborVlan_Type()
+)
+alaIgmpStaticNeighborVlan.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborVlan.setStatus("deprecated")
+_AlaIgmpStaticNeighborIfIndex_Type = InterfaceIndex
+_AlaIgmpStaticNeighborIfIndex_Object = MibTableColumn
+alaIgmpStaticNeighborIfIndex = _AlaIgmpStaticNeighborIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6, 1, 1, 2),
+    _AlaIgmpStaticNeighborIfIndex_Type()
+)
+alaIgmpStaticNeighborIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborIfIndex.setStatus("deprecated")
+_AlaIgmpStaticNeighborRowStatus_Type = RowStatus
+_AlaIgmpStaticNeighborRowStatus_Object = MibTableColumn
+alaIgmpStaticNeighborRowStatus = _AlaIgmpStaticNeighborRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 6, 1, 1, 3),
+    _AlaIgmpStaticNeighborRowStatus_Type()
+)
+alaIgmpStaticNeighborRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborRowStatus.setStatus("deprecated")
+_AlaIgmpQuerier_ObjectIdentity = ObjectIdentity
+alaIgmpQuerier = _AlaIgmpQuerier_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7)
+)
+_AlaIgmpQuerierTable_Object = MibTable
+alaIgmpQuerierTable = _AlaIgmpQuerierTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpQuerierTable.setStatus("deprecated")
+_AlaIgmpQuerierEntry_Object = MibTableRow
+alaIgmpQuerierEntry = _AlaIgmpQuerierEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1)
+)
+alaIgmpQuerierEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierVlan"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierIfIndex"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierHostAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpQuerierEntry.setStatus("deprecated")
+_AlaIgmpQuerierVlan_Type = Unsigned32
+_AlaIgmpQuerierVlan_Object = MibTableColumn
+alaIgmpQuerierVlan = _AlaIgmpQuerierVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1, 1),
+    _AlaIgmpQuerierVlan_Type()
+)
+alaIgmpQuerierVlan.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierVlan.setStatus("deprecated")
+_AlaIgmpQuerierIfIndex_Type = InterfaceIndex
+_AlaIgmpQuerierIfIndex_Object = MibTableColumn
+alaIgmpQuerierIfIndex = _AlaIgmpQuerierIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1, 2),
+    _AlaIgmpQuerierIfIndex_Type()
+)
+alaIgmpQuerierIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierIfIndex.setStatus("deprecated")
+_AlaIgmpQuerierHostAddress_Type = InetAddressIPv4
+_AlaIgmpQuerierHostAddress_Object = MibTableColumn
+alaIgmpQuerierHostAddress = _AlaIgmpQuerierHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1, 3),
+    _AlaIgmpQuerierHostAddress_Type()
+)
+alaIgmpQuerierHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierHostAddress.setStatus("deprecated")
+_AlaIgmpQuerierCount_Type = Counter32
+_AlaIgmpQuerierCount_Object = MibTableColumn
+alaIgmpQuerierCount = _AlaIgmpQuerierCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1, 4),
+    _AlaIgmpQuerierCount_Type()
+)
+alaIgmpQuerierCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierCount.setStatus("deprecated")
+_AlaIgmpQuerierTimeout_Type = TimeTicks
+_AlaIgmpQuerierTimeout_Object = MibTableColumn
+alaIgmpQuerierTimeout = _AlaIgmpQuerierTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 7, 1, 1, 5),
+    _AlaIgmpQuerierTimeout_Type()
+)
+alaIgmpQuerierTimeout.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpQuerierTimeout.setStatus("deprecated")
+_AlaIgmpStaticQuerier_ObjectIdentity = ObjectIdentity
+alaIgmpStaticQuerier = _AlaIgmpStaticQuerier_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8)
+)
+_AlaIgmpStaticQuerierTable_Object = MibTable
+alaIgmpStaticQuerierTable = _AlaIgmpStaticQuerierTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierTable.setStatus("deprecated")
+_AlaIgmpStaticQuerierEntry_Object = MibTableRow
+alaIgmpStaticQuerierEntry = _AlaIgmpStaticQuerierEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8, 1, 1)
+)
+alaIgmpStaticQuerierEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticQuerierVlan"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticQuerierIfIndex"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierEntry.setStatus("deprecated")
+_AlaIgmpStaticQuerierVlan_Type = Unsigned32
+_AlaIgmpStaticQuerierVlan_Object = MibTableColumn
+alaIgmpStaticQuerierVlan = _AlaIgmpStaticQuerierVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8, 1, 1, 1),
+    _AlaIgmpStaticQuerierVlan_Type()
+)
+alaIgmpStaticQuerierVlan.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierVlan.setStatus("deprecated")
+_AlaIgmpStaticQuerierIfIndex_Type = InterfaceIndex
+_AlaIgmpStaticQuerierIfIndex_Object = MibTableColumn
+alaIgmpStaticQuerierIfIndex = _AlaIgmpStaticQuerierIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8, 1, 1, 2),
+    _AlaIgmpStaticQuerierIfIndex_Type()
+)
+alaIgmpStaticQuerierIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierIfIndex.setStatus("deprecated")
+_AlaIgmpStaticQuerierRowStatus_Type = RowStatus
+_AlaIgmpStaticQuerierRowStatus_Object = MibTableColumn
+alaIgmpStaticQuerierRowStatus = _AlaIgmpStaticQuerierRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 8, 1, 1, 3),
+    _AlaIgmpStaticQuerierRowStatus_Type()
+)
+alaIgmpStaticQuerierRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierRowStatus.setStatus("deprecated")
+_AlaIgmpSource_ObjectIdentity = ObjectIdentity
+alaIgmpSource = _AlaIgmpSource_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9)
+)
+_AlaIgmpSourceTable_Object = MibTable
+alaIgmpSourceTable = _AlaIgmpSourceTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpSourceTable.setStatus("deprecated")
+_AlaIgmpSourceEntry_Object = MibTableRow
+alaIgmpSourceEntry = _AlaIgmpSourceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1)
+)
+alaIgmpSourceEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceVlan"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceGroupAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceHostAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceDestAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceOrigAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpSourceEntry.setStatus("deprecated")
+_AlaIgmpSourceVlan_Type = Unsigned32
+_AlaIgmpSourceVlan_Object = MibTableColumn
+alaIgmpSourceVlan = _AlaIgmpSourceVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 1),
+    _AlaIgmpSourceVlan_Type()
+)
+alaIgmpSourceVlan.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpSourceVlan.setStatus("deprecated")
+_AlaIgmpSourceIfIndex_Type = InterfaceIndexOrZero
+_AlaIgmpSourceIfIndex_Object = MibTableColumn
+alaIgmpSourceIfIndex = _AlaIgmpSourceIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 2),
+    _AlaIgmpSourceIfIndex_Type()
+)
+alaIgmpSourceIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpSourceIfIndex.setStatus("deprecated")
+_AlaIgmpSourceGroupAddress_Type = InetAddressIPv4
+_AlaIgmpSourceGroupAddress_Object = MibTableColumn
+alaIgmpSourceGroupAddress = _AlaIgmpSourceGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 3),
+    _AlaIgmpSourceGroupAddress_Type()
+)
+alaIgmpSourceGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpSourceGroupAddress.setStatus("deprecated")
+_AlaIgmpSourceHostAddress_Type = InetAddressIPv4
+_AlaIgmpSourceHostAddress_Object = MibTableColumn
+alaIgmpSourceHostAddress = _AlaIgmpSourceHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 4),
+    _AlaIgmpSourceHostAddress_Type()
+)
+alaIgmpSourceHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpSourceHostAddress.setStatus("deprecated")
+_AlaIgmpSourceDestAddress_Type = InetAddressIPv4
+_AlaIgmpSourceDestAddress_Object = MibTableColumn
+alaIgmpSourceDestAddress = _AlaIgmpSourceDestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 5),
+    _AlaIgmpSourceDestAddress_Type()
+)
+alaIgmpSourceDestAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpSourceDestAddress.setStatus("deprecated")
+_AlaIgmpSourceOrigAddress_Type = InetAddressIPv4
+_AlaIgmpSourceOrigAddress_Object = MibTableColumn
+alaIgmpSourceOrigAddress = _AlaIgmpSourceOrigAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 6),
+    _AlaIgmpSourceOrigAddress_Type()
+)
+alaIgmpSourceOrigAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpSourceOrigAddress.setStatus("deprecated")
+
+
+class _AlaIgmpSourceType_Type(Integer32):
+    """Custom type alaIgmpSourceType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaIgmpSourceType_Type.__name__ = "Integer32"
+_AlaIgmpSourceType_Object = MibTableColumn
+alaIgmpSourceType = _AlaIgmpSourceType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 9, 1, 1, 7),
+    _AlaIgmpSourceType_Type()
+)
+alaIgmpSourceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpSourceType.setStatus("deprecated")
+_AlaIgmpForward_ObjectIdentity = ObjectIdentity
+alaIgmpForward = _AlaIgmpForward_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10)
+)
+_AlaIgmpForwardTable_Object = MibTable
+alaIgmpForwardTable = _AlaIgmpForwardTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpForwardTable.setStatus("deprecated")
+_AlaIgmpForwardEntry_Object = MibTableRow
+alaIgmpForwardEntry = _AlaIgmpForwardEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1)
+)
+alaIgmpForwardEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardVlan"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardGroupAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardHostAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardDestAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardOrigAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardNextVlan"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardNextIfIndex"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpForwardEntry.setStatus("deprecated")
+_AlaIgmpForwardVlan_Type = Unsigned32
+_AlaIgmpForwardVlan_Object = MibTableColumn
+alaIgmpForwardVlan = _AlaIgmpForwardVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 1),
+    _AlaIgmpForwardVlan_Type()
+)
+alaIgmpForwardVlan.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpForwardVlan.setStatus("deprecated")
+_AlaIgmpForwardIfIndex_Type = InterfaceIndexOrZero
+_AlaIgmpForwardIfIndex_Object = MibTableColumn
+alaIgmpForwardIfIndex = _AlaIgmpForwardIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 2),
+    _AlaIgmpForwardIfIndex_Type()
+)
+alaIgmpForwardIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpForwardIfIndex.setStatus("deprecated")
+_AlaIgmpForwardGroupAddress_Type = InetAddressIPv4
+_AlaIgmpForwardGroupAddress_Object = MibTableColumn
+alaIgmpForwardGroupAddress = _AlaIgmpForwardGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 3),
+    _AlaIgmpForwardGroupAddress_Type()
+)
+alaIgmpForwardGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpForwardGroupAddress.setStatus("deprecated")
+_AlaIgmpForwardHostAddress_Type = InetAddressIPv4
+_AlaIgmpForwardHostAddress_Object = MibTableColumn
+alaIgmpForwardHostAddress = _AlaIgmpForwardHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 4),
+    _AlaIgmpForwardHostAddress_Type()
+)
+alaIgmpForwardHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpForwardHostAddress.setStatus("deprecated")
+_AlaIgmpForwardDestAddress_Type = InetAddressIPv4
+_AlaIgmpForwardDestAddress_Object = MibTableColumn
+alaIgmpForwardDestAddress = _AlaIgmpForwardDestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 5),
+    _AlaIgmpForwardDestAddress_Type()
+)
+alaIgmpForwardDestAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpForwardDestAddress.setStatus("deprecated")
+_AlaIgmpForwardOrigAddress_Type = InetAddressIPv4
+_AlaIgmpForwardOrigAddress_Object = MibTableColumn
+alaIgmpForwardOrigAddress = _AlaIgmpForwardOrigAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 6),
+    _AlaIgmpForwardOrigAddress_Type()
+)
+alaIgmpForwardOrigAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpForwardOrigAddress.setStatus("deprecated")
+
+
+class _AlaIgmpForwardType_Type(Integer32):
+    """Custom type alaIgmpForwardType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaIgmpForwardType_Type.__name__ = "Integer32"
+_AlaIgmpForwardType_Object = MibTableColumn
+alaIgmpForwardType = _AlaIgmpForwardType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 7),
+    _AlaIgmpForwardType_Type()
+)
+alaIgmpForwardType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpForwardType.setStatus("deprecated")
+_AlaIgmpForwardNextVlan_Type = Unsigned32
+_AlaIgmpForwardNextVlan_Object = MibTableColumn
+alaIgmpForwardNextVlan = _AlaIgmpForwardNextVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 8),
+    _AlaIgmpForwardNextVlan_Type()
+)
+alaIgmpForwardNextVlan.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpForwardNextVlan.setStatus("deprecated")
+_AlaIgmpForwardNextIfIndex_Type = InterfaceIndex
+_AlaIgmpForwardNextIfIndex_Object = MibTableColumn
+alaIgmpForwardNextIfIndex = _AlaIgmpForwardNextIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 9),
+    _AlaIgmpForwardNextIfIndex_Type()
+)
+alaIgmpForwardNextIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpForwardNextIfIndex.setStatus("deprecated")
+
+
+class _AlaIgmpForwardNextType_Type(Integer32):
+    """Custom type alaIgmpForwardNextType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaIgmpForwardNextType_Type.__name__ = "Integer32"
+_AlaIgmpForwardNextType_Object = MibTableColumn
+alaIgmpForwardNextType = _AlaIgmpForwardNextType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 10, 1, 1, 10),
+    _AlaIgmpForwardNextType_Type()
+)
+alaIgmpForwardNextType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpForwardNextType.setStatus("deprecated")
+_AlaIgmpTunnel_ObjectIdentity = ObjectIdentity
+alaIgmpTunnel = _AlaIgmpTunnel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11)
+)
+_AlaIgmpTunnelTable_Object = MibTable
+alaIgmpTunnelTable = _AlaIgmpTunnelTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpTunnelTable.setStatus("deprecated")
+_AlaIgmpTunnelEntry_Object = MibTableRow
+alaIgmpTunnelEntry = _AlaIgmpTunnelEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1)
+)
+alaIgmpTunnelEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelVlan"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelGroupAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelHostAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelDestAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelOrigAddress"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelNextDestAddress"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpTunnelEntry.setStatus("deprecated")
+_AlaIgmpTunnelVlan_Type = Unsigned32
+_AlaIgmpTunnelVlan_Object = MibTableColumn
+alaIgmpTunnelVlan = _AlaIgmpTunnelVlan_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 1),
+    _AlaIgmpTunnelVlan_Type()
+)
+alaIgmpTunnelVlan.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpTunnelVlan.setStatus("deprecated")
+_AlaIgmpTunnelIfIndex_Type = InterfaceIndexOrZero
+_AlaIgmpTunnelIfIndex_Object = MibTableColumn
+alaIgmpTunnelIfIndex = _AlaIgmpTunnelIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 2),
+    _AlaIgmpTunnelIfIndex_Type()
+)
+alaIgmpTunnelIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpTunnelIfIndex.setStatus("deprecated")
+_AlaIgmpTunnelGroupAddress_Type = InetAddressIPv4
+_AlaIgmpTunnelGroupAddress_Object = MibTableColumn
+alaIgmpTunnelGroupAddress = _AlaIgmpTunnelGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 3),
+    _AlaIgmpTunnelGroupAddress_Type()
+)
+alaIgmpTunnelGroupAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpTunnelGroupAddress.setStatus("deprecated")
+_AlaIgmpTunnelHostAddress_Type = InetAddressIPv4
+_AlaIgmpTunnelHostAddress_Object = MibTableColumn
+alaIgmpTunnelHostAddress = _AlaIgmpTunnelHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 4),
+    _AlaIgmpTunnelHostAddress_Type()
+)
+alaIgmpTunnelHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpTunnelHostAddress.setStatus("deprecated")
+_AlaIgmpTunnelDestAddress_Type = InetAddressIPv4
+_AlaIgmpTunnelDestAddress_Object = MibTableColumn
+alaIgmpTunnelDestAddress = _AlaIgmpTunnelDestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 5),
+    _AlaIgmpTunnelDestAddress_Type()
+)
+alaIgmpTunnelDestAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpTunnelDestAddress.setStatus("deprecated")
+_AlaIgmpTunnelOrigAddress_Type = InetAddressIPv4
+_AlaIgmpTunnelOrigAddress_Object = MibTableColumn
+alaIgmpTunnelOrigAddress = _AlaIgmpTunnelOrigAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 6),
+    _AlaIgmpTunnelOrigAddress_Type()
+)
+alaIgmpTunnelOrigAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpTunnelOrigAddress.setStatus("deprecated")
+
+
+class _AlaIgmpTunnelType_Type(Integer32):
+    """Custom type alaIgmpTunnelType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaIgmpTunnelType_Type.__name__ = "Integer32"
+_AlaIgmpTunnelType_Object = MibTableColumn
+alaIgmpTunnelType = _AlaIgmpTunnelType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 7),
+    _AlaIgmpTunnelType_Type()
+)
+alaIgmpTunnelType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpTunnelType.setStatus("deprecated")
+_AlaIgmpTunnelNextDestAddress_Type = InetAddressIPv4
+_AlaIgmpTunnelNextDestAddress_Object = MibTableColumn
+alaIgmpTunnelNextDestAddress = _AlaIgmpTunnelNextDestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 8),
+    _AlaIgmpTunnelNextDestAddress_Type()
+)
+alaIgmpTunnelNextDestAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpTunnelNextDestAddress.setStatus("deprecated")
+
+
+class _AlaIgmpTunnelNextType_Type(Integer32):
+    """Custom type alaIgmpTunnelNextType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mcast", 1),
+          ("pim", 2),
+          ("ipip", 3))
+    )
+
+
+_AlaIgmpTunnelNextType_Type.__name__ = "Integer32"
+_AlaIgmpTunnelNextType_Object = MibTableColumn
+alaIgmpTunnelNextType = _AlaIgmpTunnelNextType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 11, 1, 1, 9),
+    _AlaIgmpTunnelNextType_Type()
+)
+alaIgmpTunnelNextType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpTunnelNextType.setStatus("deprecated")
+_AlaIgmpPort_ObjectIdentity = ObjectIdentity
+alaIgmpPort = _AlaIgmpPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12)
+)
+_AlaIgmpPortTable_Object = MibTable
+alaIgmpPortTable = _AlaIgmpPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpPortTable.setStatus("deprecated")
+_AlaIgmpPortEntry_Object = MibTableRow
+alaIgmpPortEntry = _AlaIgmpPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12, 1, 1)
+)
+alaIgmpPortEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortIfIndex"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpPortEntry.setStatus("deprecated")
+_AlaIgmpPortIfIndex_Type = InterfaceIndex
+_AlaIgmpPortIfIndex_Object = MibTableColumn
+alaIgmpPortIfIndex = _AlaIgmpPortIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12, 1, 1, 1),
+    _AlaIgmpPortIfIndex_Type()
+)
+alaIgmpPortIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpPortIfIndex.setStatus("deprecated")
+
+
+class _AlaIgmpPortMaxGroupLimit_Type(Unsigned32):
+    """Custom type alaIgmpPortMaxGroupLimit based on Unsigned32"""
+    defaultValue = 0
+
+
+_AlaIgmpPortMaxGroupLimit_Type.__name__ = "Unsigned32"
+_AlaIgmpPortMaxGroupLimit_Object = MibTableColumn
+alaIgmpPortMaxGroupLimit = _AlaIgmpPortMaxGroupLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12, 1, 1, 2),
+    _AlaIgmpPortMaxGroupLimit_Type()
+)
+alaIgmpPortMaxGroupLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpPortMaxGroupLimit.setStatus("deprecated")
+
+
+class _AlaIgmpPortMaxGroupExceedAction_Type(Integer32):
+    """Custom type alaIgmpPortMaxGroupExceedAction based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("drop", 1),
+          ("replace", 2))
+    )
+
+
+_AlaIgmpPortMaxGroupExceedAction_Type.__name__ = "Integer32"
+_AlaIgmpPortMaxGroupExceedAction_Object = MibTableColumn
+alaIgmpPortMaxGroupExceedAction = _AlaIgmpPortMaxGroupExceedAction_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 12, 1, 1, 3),
+    _AlaIgmpPortMaxGroupExceedAction_Type()
+)
+alaIgmpPortMaxGroupExceedAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaIgmpPortMaxGroupExceedAction.setStatus("deprecated")
+_AlaIgmpPortVlan_ObjectIdentity = ObjectIdentity
+alaIgmpPortVlan = _AlaIgmpPortVlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13)
+)
+_AlaIgmpPortVlanTable_Object = MibTable
+alaIgmpPortVlanTable = _AlaIgmpPortVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1)
+)
+if mibBuilder.loadTexts:
+    alaIgmpPortVlanTable.setStatus("deprecated")
+_AlaIgmpPortVlanEntry_Object = MibTableRow
+alaIgmpPortVlanEntry = _AlaIgmpPortVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1, 1)
+)
+alaIgmpPortVlanEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortIfIndex"),
+    (0, "ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanId"),
+)
+if mibBuilder.loadTexts:
+    alaIgmpPortVlanEntry.setStatus("deprecated")
+_AlaIgmpVlanId_Type = Unsigned32
+_AlaIgmpVlanId_Object = MibTableColumn
+alaIgmpVlanId = _AlaIgmpVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1, 1, 1),
+    _AlaIgmpVlanId_Type()
+)
+alaIgmpVlanId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaIgmpVlanId.setStatus("deprecated")
+_AlaIgmpPortVlanCurrentGroupCount_Type = Unsigned32
+_AlaIgmpPortVlanCurrentGroupCount_Object = MibTableColumn
+alaIgmpPortVlanCurrentGroupCount = _AlaIgmpPortVlanCurrentGroupCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1, 1, 2),
+    _AlaIgmpPortVlanCurrentGroupCount_Type()
+)
+alaIgmpPortVlanCurrentGroupCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpPortVlanCurrentGroupCount.setStatus("deprecated")
+_AlaIgmpPortVlanMaxGroupLimit_Type = Unsigned32
+_AlaIgmpPortVlanMaxGroupLimit_Object = MibTableColumn
+alaIgmpPortVlanMaxGroupLimit = _AlaIgmpPortVlanMaxGroupLimit_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1, 1, 3),
+    _AlaIgmpPortVlanMaxGroupLimit_Type()
+)
+alaIgmpPortVlanMaxGroupLimit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpPortVlanMaxGroupLimit.setStatus("deprecated")
+
+
+class _AlaIgmpPortVlanMaxGroupExceedAction_Type(Integer32):
+    """Custom type alaIgmpPortVlanMaxGroupExceedAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("drop", 1),
+          ("replace", 2))
+    )
+
+
+_AlaIgmpPortVlanMaxGroupExceedAction_Type.__name__ = "Integer32"
+_AlaIgmpPortVlanMaxGroupExceedAction_Object = MibTableColumn
+alaIgmpPortVlanMaxGroupExceedAction = _AlaIgmpPortVlanMaxGroupExceedAction_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 1, 13, 1, 1, 4),
+    _AlaIgmpPortVlanMaxGroupExceedAction_Type()
+)
+alaIgmpPortVlanMaxGroupExceedAction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaIgmpPortVlanMaxGroupExceedAction.setStatus("deprecated")
+_AlcatelIND1IgmpMIBConformance_ObjectIdentity = ObjectIdentity
+alcatelIND1IgmpMIBConformance = _AlcatelIND1IgmpMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2)
+)
+_AlcatelIND1IgmpMIBCompliances_ObjectIdentity = ObjectIdentity
+alcatelIND1IgmpMIBCompliances = _AlcatelIND1IgmpMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 1)
+)
+_AlcatelIND1IgmpMIBGroups_ObjectIdentity = ObjectIdentity
+alcatelIND1IgmpMIBGroups = _AlcatelIND1IgmpMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2)
+)
+
+# Managed Objects groups
+
+alaIgmpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 1)
+)
+alaIgmpGroup.setObjects(
+      *(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStatus"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerying"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpSpoofing"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpZapping"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVersion"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpRobustness"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQueryInterval"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQueryResponseInterval"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpLastMemberQueryInterval"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpRouterTimeout"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceTimeout"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpProxying"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpUnsolicitedReportInterval"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierForwarding"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMaxGroupLimit"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMaxGroupExceedAction"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpFloodUnknown"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpHelperAddressType"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpHelperAddress"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpZeroBasedQuery"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpInitialPacketBuffer"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpInitialPacketBufferMaxPacket"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpInitialPacketBufferMaxFlow"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpInitialPacketBufferTimeout"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpInitialPacketBufferMinDelay"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpGroup.setStatus("current")
+
+alaIgmpVlanGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 2)
+)
+alaIgmpVlanGroup.setObjects(
+      *(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanStatus"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanQuerying"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanSpoofing"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanZapping"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanVersion"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanRobustness"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanQueryInterval"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanQueryResponseInterval"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanLastMemberQueryInterval"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanRouterTimeout"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanSourceTimeout"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanProxying"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanUnsolicitedReportInterval"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanQuerierForwarding"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanMaxGroupLimit"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanMaxGroupExceedAction"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanZeroBasedQuery"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpVlanGroup.setStatus("current")
+
+alaIgmpMemberGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 3)
+)
+alaIgmpMemberGroup.setObjects(
+      *(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberMode"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberCount"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpMemberGroup.setStatus("current")
+
+alaIgmpStaticMemberGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 4)
+)
+alaIgmpStaticMemberGroup.setObjects(
+    ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticMemberRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticMemberGroup.setStatus("current")
+
+alaIgmpNeighborGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 5)
+)
+alaIgmpNeighborGroup.setObjects(
+      *(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborCount"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpNeighborGroup.setStatus("current")
+
+alaIgmpStaticNeighborGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 6)
+)
+alaIgmpStaticNeighborGroup.setObjects(
+    ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticNeighborRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticNeighborGroup.setStatus("current")
+
+alaIgmpQuerierGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 7)
+)
+alaIgmpQuerierGroup.setObjects(
+      *(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierCount"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierTimeout"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpQuerierGroup.setStatus("current")
+
+alaIgmpStaticQuerierGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 8)
+)
+alaIgmpStaticQuerierGroup.setObjects(
+    ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticQuerierRowStatus")
+)
+if mibBuilder.loadTexts:
+    alaIgmpStaticQuerierGroup.setStatus("current")
+
+alaIgmpSourceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 9)
+)
+alaIgmpSourceGroup.setObjects(
+      *(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceIfIndex"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceType"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpSourceGroup.setStatus("current")
+
+alaIgmpForwardGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 10)
+)
+alaIgmpForwardGroup.setObjects(
+      *(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardIfIndex"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardType"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardNextType"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpForwardGroup.setStatus("current")
+
+alaIgmpTunnelGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 11)
+)
+alaIgmpTunnelGroup.setObjects(
+      *(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelIfIndex"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelType"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelNextType"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpTunnelGroup.setStatus("current")
+
+alaIgmpPortGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 12)
+)
+alaIgmpPortGroup.setObjects(
+      *(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortMaxGroupLimit"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortMaxGroupExceedAction"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpPortGroup.setStatus("current")
+
+alaIgmpPortVlanGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 2, 13)
+)
+alaIgmpPortVlanGroup.setObjects(
+      *(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortVlanCurrentGroupCount"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortVlanMaxGroupLimit"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortVlanMaxGroupExceedAction"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpPortVlanGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alaIgmpCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 34, 1, 2, 1, 1)
+)
+alaIgmpCompliance.setObjects(
+      *(("ALCATEL-ENT1-IGMP-MIB", "alaIgmpGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpVlanGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpMemberGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticMemberGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpNeighborGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticNeighborGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpQuerierGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpStaticQuerierGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpSourceGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpForwardGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpTunnelGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortGroup"),
+        ("ALCATEL-ENT1-IGMP-MIB", "alaIgmpPortVlanGroup"))
+)
+if mibBuilder.loadTexts:
+    alaIgmpCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALCATEL-ENT1-IGMP-MIB",
+    **{"alcatelIND1IgmpMIB": alcatelIND1IgmpMIB,
+       "alcatelIND1IgmpMIBObjects": alcatelIND1IgmpMIBObjects,
+       "alaIgmp": alaIgmp,
+       "alaIgmpStatus": alaIgmpStatus,
+       "alaIgmpQuerying": alaIgmpQuerying,
+       "alaIgmpSpoofing": alaIgmpSpoofing,
+       "alaIgmpZapping": alaIgmpZapping,
+       "alaIgmpVersion": alaIgmpVersion,
+       "alaIgmpRobustness": alaIgmpRobustness,
+       "alaIgmpQueryInterval": alaIgmpQueryInterval,
+       "alaIgmpQueryResponseInterval": alaIgmpQueryResponseInterval,
+       "alaIgmpLastMemberQueryInterval": alaIgmpLastMemberQueryInterval,
+       "alaIgmpRouterTimeout": alaIgmpRouterTimeout,
+       "alaIgmpSourceTimeout": alaIgmpSourceTimeout,
+       "alaIgmpProxying": alaIgmpProxying,
+       "alaIgmpUnsolicitedReportInterval": alaIgmpUnsolicitedReportInterval,
+       "alaIgmpQuerierForwarding": alaIgmpQuerierForwarding,
+       "alaIgmpMaxGroupLimit": alaIgmpMaxGroupLimit,
+       "alaIgmpMaxGroupExceedAction": alaIgmpMaxGroupExceedAction,
+       "alaIgmpFloodUnknown": alaIgmpFloodUnknown,
+       "alaIgmpHelperAddressType": alaIgmpHelperAddressType,
+       "alaIgmpHelperAddress": alaIgmpHelperAddress,
+       "alaIgmpZeroBasedQuery": alaIgmpZeroBasedQuery,
+       "alaIgmpInitialPacketBuffer": alaIgmpInitialPacketBuffer,
+       "alaIgmpInitialPacketBufferMaxPacket": alaIgmpInitialPacketBufferMaxPacket,
+       "alaIgmpInitialPacketBufferMaxFlow": alaIgmpInitialPacketBufferMaxFlow,
+       "alaIgmpInitialPacketBufferTimeout": alaIgmpInitialPacketBufferTimeout,
+       "alaIgmpInitialPacketBufferMinDelay": alaIgmpInitialPacketBufferMinDelay,
+       "alaIgmpVlan": alaIgmpVlan,
+       "alaIgmpVlanTable": alaIgmpVlanTable,
+       "alaIgmpVlanEntry": alaIgmpVlanEntry,
+       "alaIgmpVlanIndex": alaIgmpVlanIndex,
+       "alaIgmpVlanStatus": alaIgmpVlanStatus,
+       "alaIgmpVlanQuerying": alaIgmpVlanQuerying,
+       "alaIgmpVlanSpoofing": alaIgmpVlanSpoofing,
+       "alaIgmpVlanZapping": alaIgmpVlanZapping,
+       "alaIgmpVlanVersion": alaIgmpVlanVersion,
+       "alaIgmpVlanRobustness": alaIgmpVlanRobustness,
+       "alaIgmpVlanQueryInterval": alaIgmpVlanQueryInterval,
+       "alaIgmpVlanQueryResponseInterval": alaIgmpVlanQueryResponseInterval,
+       "alaIgmpVlanLastMemberQueryInterval": alaIgmpVlanLastMemberQueryInterval,
+       "alaIgmpVlanRouterTimeout": alaIgmpVlanRouterTimeout,
+       "alaIgmpVlanSourceTimeout": alaIgmpVlanSourceTimeout,
+       "alaIgmpVlanProxying": alaIgmpVlanProxying,
+       "alaIgmpVlanUnsolicitedReportInterval": alaIgmpVlanUnsolicitedReportInterval,
+       "alaIgmpVlanQuerierForwarding": alaIgmpVlanQuerierForwarding,
+       "alaIgmpVlanMaxGroupLimit": alaIgmpVlanMaxGroupLimit,
+       "alaIgmpVlanMaxGroupExceedAction": alaIgmpVlanMaxGroupExceedAction,
+       "alaIgmpVlanZeroBasedQuery": alaIgmpVlanZeroBasedQuery,
+       "alaIgmpMember": alaIgmpMember,
+       "alaIgmpMemberTable": alaIgmpMemberTable,
+       "alaIgmpMemberEntry": alaIgmpMemberEntry,
+       "alaIgmpMemberVlan": alaIgmpMemberVlan,
+       "alaIgmpMemberIfIndex": alaIgmpMemberIfIndex,
+       "alaIgmpMemberGroupAddress": alaIgmpMemberGroupAddress,
+       "alaIgmpMemberSourceAddress": alaIgmpMemberSourceAddress,
+       "alaIgmpMemberMode": alaIgmpMemberMode,
+       "alaIgmpMemberCount": alaIgmpMemberCount,
+       "alaIgmpMemberTimeout": alaIgmpMemberTimeout,
+       "alaIgmpStaticMember": alaIgmpStaticMember,
+       "alaIgmpStaticMemberTable": alaIgmpStaticMemberTable,
+       "alaIgmpStaticMemberEntry": alaIgmpStaticMemberEntry,
+       "alaIgmpStaticMemberVlan": alaIgmpStaticMemberVlan,
+       "alaIgmpStaticMemberIfIndex": alaIgmpStaticMemberIfIndex,
+       "alaIgmpStaticMemberGroupAddress": alaIgmpStaticMemberGroupAddress,
+       "alaIgmpStaticMemberRowStatus": alaIgmpStaticMemberRowStatus,
+       "alaIgmpNeighbor": alaIgmpNeighbor,
+       "alaIgmpNeighborTable": alaIgmpNeighborTable,
+       "alaIgmpNeighborEntry": alaIgmpNeighborEntry,
+       "alaIgmpNeighborVlan": alaIgmpNeighborVlan,
+       "alaIgmpNeighborIfIndex": alaIgmpNeighborIfIndex,
+       "alaIgmpNeighborHostAddress": alaIgmpNeighborHostAddress,
+       "alaIgmpNeighborCount": alaIgmpNeighborCount,
+       "alaIgmpNeighborTimeout": alaIgmpNeighborTimeout,
+       "alaIgmpStaticNeighbor": alaIgmpStaticNeighbor,
+       "alaIgmpStaticNeighborTable": alaIgmpStaticNeighborTable,
+       "alaIgmpStaticNeighborEntry": alaIgmpStaticNeighborEntry,
+       "alaIgmpStaticNeighborVlan": alaIgmpStaticNeighborVlan,
+       "alaIgmpStaticNeighborIfIndex": alaIgmpStaticNeighborIfIndex,
+       "alaIgmpStaticNeighborRowStatus": alaIgmpStaticNeighborRowStatus,
+       "alaIgmpQuerier": alaIgmpQuerier,
+       "alaIgmpQuerierTable": alaIgmpQuerierTable,
+       "alaIgmpQuerierEntry": alaIgmpQuerierEntry,
+       "alaIgmpQuerierVlan": alaIgmpQuerierVlan,
+       "alaIgmpQuerierIfIndex": alaIgmpQuerierIfIndex,
+       "alaIgmpQuerierHostAddress": alaIgmpQuerierHostAddress,
+       "alaIgmpQuerierCount": alaIgmpQuerierCount,
+       "alaIgmpQuerierTimeout": alaIgmpQuerierTimeout,
+       "alaIgmpStaticQuerier": alaIgmpStaticQuerier,
+       "alaIgmpStaticQuerierTable": alaIgmpStaticQuerierTable,
+       "alaIgmpStaticQuerierEntry": alaIgmpStaticQuerierEntry,
+       "alaIgmpStaticQuerierVlan": alaIgmpStaticQuerierVlan,
+       "alaIgmpStaticQuerierIfIndex": alaIgmpStaticQuerierIfIndex,
+       "alaIgmpStaticQuerierRowStatus": alaIgmpStaticQuerierRowStatus,
+       "alaIgmpSource": alaIgmpSource,
+       "alaIgmpSourceTable": alaIgmpSourceTable,
+       "alaIgmpSourceEntry": alaIgmpSourceEntry,
+       "alaIgmpSourceVlan": alaIgmpSourceVlan,
+       "alaIgmpSourceIfIndex": alaIgmpSourceIfIndex,
+       "alaIgmpSourceGroupAddress": alaIgmpSourceGroupAddress,
+       "alaIgmpSourceHostAddress": alaIgmpSourceHostAddress,
+       "alaIgmpSourceDestAddress": alaIgmpSourceDestAddress,
+       "alaIgmpSourceOrigAddress": alaIgmpSourceOrigAddress,
+       "alaIgmpSourceType": alaIgmpSourceType,
+       "alaIgmpForward": alaIgmpForward,
+       "alaIgmpForwardTable": alaIgmpForwardTable,
+       "alaIgmpForwardEntry": alaIgmpForwardEntry,
+       "alaIgmpForwardVlan": alaIgmpForwardVlan,
+       "alaIgmpForwardIfIndex": alaIgmpForwardIfIndex,
+       "alaIgmpForwardGroupAddress": alaIgmpForwardGroupAddress,
+       "alaIgmpForwardHostAddress": alaIgmpForwardHostAddress,
+       "alaIgmpForwardDestAddress": alaIgmpForwardDestAddress,
+       "alaIgmpForwardOrigAddress": alaIgmpForwardOrigAddress,
+       "alaIgmpForwardType": alaIgmpForwardType,
+       "alaIgmpForwardNextVlan": alaIgmpForwardNextVlan,
+       "alaIgmpForwardNextIfIndex": alaIgmpForwardNextIfIndex,
+       "alaIgmpForwardNextType": alaIgmpForwardNextType,
+       "alaIgmpTunnel": alaIgmpTunnel,
+       "alaIgmpTunnelTable": alaIgmpTunnelTable,
+       "alaIgmpTunnelEntry": alaIgmpTunnelEntry,
+       "alaIgmpTunnelVlan": alaIgmpTunnelVlan,
+       "alaIgmpTunnelIfIndex": alaIgmpTunnelIfIndex,
+       "alaIgmpTunnelGroupAddress": alaIgmpTunnelGroupAddress,
+       "alaIgmpTunnelHostAddress": alaIgmpTunnelHostAddress,
+       "alaIgmpTunnelDestAddress": alaIgmpTunnelDestAddress,
+       "alaIgmpTunnelOrigAddress": alaIgmpTunnelOrigAddress,
+       "alaIgmpTunnelType": alaIgmpTunnelType,
+       "alaIgmpTunnelNextDestAddress": alaIgmpTunnelNextDestAddress,
+       "alaIgmpTunnelNextType": alaIgmpTunnelNextType,
+       "alaIgmpPort": alaIgmpPort,
+       "alaIgmpPortTable": alaIgmpPortTable,
+       "alaIgmpPortEntry": alaIgmpPortEntry,
+       "alaIgmpPortIfIndex": alaIgmpPortIfIndex,
+       "alaIgmpPortMaxGroupLimit": alaIgmpPortMaxGroupLimit,
+       "alaIgmpPortMaxGroupExceedAction": alaIgmpPortMaxGroupExceedAction,
+       "alaIgmpPortVlan": alaIgmpPortVlan,
+       "alaIgmpPortVlanTable": alaIgmpPortVlanTable,
+       "alaIgmpPortVlanEntry": alaIgmpPortVlanEntry,
+       "alaIgmpVlanId": alaIgmpVlanId,
+       "alaIgmpPortVlanCurrentGroupCount": alaIgmpPortVlanCurrentGroupCount,
+       "alaIgmpPortVlanMaxGroupLimit": alaIgmpPortVlanMaxGroupLimit,
+       "alaIgmpPortVlanMaxGroupExceedAction": alaIgmpPortVlanMaxGroupExceedAction,
+       "alcatelIND1IgmpMIBConformance": alcatelIND1IgmpMIBConformance,
+       "alcatelIND1IgmpMIBCompliances": alcatelIND1IgmpMIBCompliances,
+       "alaIgmpCompliance": alaIgmpCompliance,
+       "alcatelIND1IgmpMIBGroups": alcatelIND1IgmpMIBGroups,
+       "alaIgmpGroup": alaIgmpGroup,
+       "alaIgmpVlanGroup": alaIgmpVlanGroup,
+       "alaIgmpMemberGroup": alaIgmpMemberGroup,
+       "alaIgmpStaticMemberGroup": alaIgmpStaticMemberGroup,
+       "alaIgmpNeighborGroup": alaIgmpNeighborGroup,
+       "alaIgmpStaticNeighborGroup": alaIgmpStaticNeighborGroup,
+       "alaIgmpQuerierGroup": alaIgmpQuerierGroup,
+       "alaIgmpStaticQuerierGroup": alaIgmpStaticQuerierGroup,
+       "alaIgmpSourceGroup": alaIgmpSourceGroup,
+       "alaIgmpForwardGroup": alaIgmpForwardGroup,
+       "alaIgmpTunnelGroup": alaIgmpTunnelGroup,
+       "alaIgmpPortGroup": alaIgmpPortGroup,
+       "alaIgmpPortVlanGroup": alaIgmpPortVlanGroup}
+)

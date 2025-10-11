@@ -1,56 +1,335 @@
+# SNMP MIB module (STORMSHIELD-ROUTE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module STORMSHIELD-ROUTE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/stormshield/STORMSHIELD-ROUTE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:38 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/stormshield/STORMSHIELD-ROUTE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:06:36 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
-snsRoute = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 14))
-snsRoute.setRevisions(('2017-02-20 00:00',))
-if mibBuilder.loadTexts: snsRoute.setLastUpdated('201702200000Z')
-if mibBuilder.loadTexts: snsRoute.setOrganization('Stormshield')
-snsRouteTable = MibTable((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1), )
-if mibBuilder.loadTexts: snsRouteTable.setStatus('current')
-snsRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1), ).setIndexNames((0, "STORMSHIELD-ROUTE-MIB", "snsRouteIndex"))
-if mibBuilder.loadTexts: snsRouteEntry.setStatus('current')
-snsRouteIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteIndex.setStatus('current')
-snsRouteType = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteType.setStatus('current')
-snsRouteIPVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteIPVersion.setStatus('current')
-snsRouteRouterName = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteRouterName.setStatus('current')
-snsRouteGatewayName = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteGatewayName.setStatus('current')
-snsRouteGatewayAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteGatewayAddr.setStatus('current')
-snsRouteGatewayType = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteGatewayType.setStatus('current')
-snsRouteLastCheck = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 8), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteLastCheck.setStatus('current')
-snsRouteState = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteState.setStatus('current')
-snsRouteStateLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 10), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteStateLastChange.setStatus('current')
-snsRouteActive = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteActive.setStatus('current')
-snsRouteActiveLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 12), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteActiveLastChange.setStatus('current')
-snsRouteSysDefaultGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteSysDefaultGateway.setStatus('current')
-snsRouteSysDefaultGatewayLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 14), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteSysDefaultGatewayLastChange.setStatus('current')
-snsRouteRtid = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 15), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteRtid.setStatus('current')
-snsRouteUsagePrct = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 16), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsRouteUsagePrct.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-ROUTE-MIB", snsRouteState=snsRouteState, PYSNMP_MODULE_ID=snsRoute, snsRouteRouterName=snsRouteRouterName, snsRouteIPVersion=snsRouteIPVersion, snsRouteGatewayType=snsRouteGatewayType, snsRouteType=snsRouteType, snsRoute=snsRoute, snsRouteActiveLastChange=snsRouteActiveLastChange, snsRouteLastCheck=snsRouteLastCheck, snsRouteGatewayAddr=snsRouteGatewayAddr, snsRouteIndex=snsRouteIndex, snsRouteTable=snsRouteTable, snsRouteSysDefaultGatewayLastChange=snsRouteSysDefaultGatewayLastChange, snsRouteStateLastChange=snsRouteStateLastChange, snsRouteUsagePrct=snsRouteUsagePrct, snsRouteEntry=snsRouteEntry, snsRouteActive=snsRouteActive, snsRouteSysDefaultGateway=snsRouteSysDefaultGateway, snsRouteRtid=snsRouteRtid, snsRouteGatewayName=snsRouteGatewayName)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(stormshieldMIB,) = mibBuilder.importSymbols(
+    "STORMSHIELD-SMI-MIB",
+    "stormshieldMIB")
+
+
+# MODULE-IDENTITY
+
+snsRoute = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14)
+)
+if mibBuilder.loadTexts:
+    snsRoute.setRevisions(
+        ("2017-02-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SnsRouteTable_Object = MibTable
+snsRouteTable = _SnsRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1)
+)
+if mibBuilder.loadTexts:
+    snsRouteTable.setStatus("current")
+_SnsRouteEntry_Object = MibTableRow
+snsRouteEntry = _SnsRouteEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1)
+)
+snsRouteEntry.setIndexNames(
+    (0, "STORMSHIELD-ROUTE-MIB", "snsRouteIndex"),
+)
+if mibBuilder.loadTexts:
+    snsRouteEntry.setStatus("current")
+
+
+class _SnsRouteIndex_Type(Integer32):
+    """Custom type snsRouteIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SnsRouteIndex_Type.__name__ = "Integer32"
+_SnsRouteIndex_Object = MibTableColumn
+snsRouteIndex = _SnsRouteIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 1),
+    _SnsRouteIndex_Type()
+)
+snsRouteIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteIndex.setStatus("current")
+_SnsRouteType_Type = DisplayString
+_SnsRouteType_Object = MibTableColumn
+snsRouteType = _SnsRouteType_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 2),
+    _SnsRouteType_Type()
+)
+snsRouteType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteType.setStatus("current")
+_SnsRouteIPVersion_Type = Integer32
+_SnsRouteIPVersion_Object = MibTableColumn
+snsRouteIPVersion = _SnsRouteIPVersion_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 3),
+    _SnsRouteIPVersion_Type()
+)
+snsRouteIPVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteIPVersion.setStatus("current")
+_SnsRouteRouterName_Type = SnmpAdminString
+_SnsRouteRouterName_Object = MibTableColumn
+snsRouteRouterName = _SnsRouteRouterName_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 4),
+    _SnsRouteRouterName_Type()
+)
+snsRouteRouterName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteRouterName.setStatus("current")
+_SnsRouteGatewayName_Type = SnmpAdminString
+_SnsRouteGatewayName_Object = MibTableColumn
+snsRouteGatewayName = _SnsRouteGatewayName_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 5),
+    _SnsRouteGatewayName_Type()
+)
+snsRouteGatewayName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteGatewayName.setStatus("current")
+_SnsRouteGatewayAddr_Type = DisplayString
+_SnsRouteGatewayAddr_Object = MibTableColumn
+snsRouteGatewayAddr = _SnsRouteGatewayAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 6),
+    _SnsRouteGatewayAddr_Type()
+)
+snsRouteGatewayAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteGatewayAddr.setStatus("current")
+_SnsRouteGatewayType_Type = DisplayString
+_SnsRouteGatewayType_Object = MibTableColumn
+snsRouteGatewayType = _SnsRouteGatewayType_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 7),
+    _SnsRouteGatewayType_Type()
+)
+snsRouteGatewayType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteGatewayType.setStatus("current")
+_SnsRouteLastCheck_Type = DisplayString
+_SnsRouteLastCheck_Object = MibTableColumn
+snsRouteLastCheck = _SnsRouteLastCheck_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 8),
+    _SnsRouteLastCheck_Type()
+)
+snsRouteLastCheck.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteLastCheck.setStatus("current")
+_SnsRouteState_Type = DisplayString
+_SnsRouteState_Object = MibTableColumn
+snsRouteState = _SnsRouteState_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 9),
+    _SnsRouteState_Type()
+)
+snsRouteState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteState.setStatus("current")
+_SnsRouteStateLastChange_Type = DisplayString
+_SnsRouteStateLastChange_Object = MibTableColumn
+snsRouteStateLastChange = _SnsRouteStateLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 10),
+    _SnsRouteStateLastChange_Type()
+)
+snsRouteStateLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteStateLastChange.setStatus("current")
+_SnsRouteActive_Type = Integer32
+_SnsRouteActive_Object = MibTableColumn
+snsRouteActive = _SnsRouteActive_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 11),
+    _SnsRouteActive_Type()
+)
+snsRouteActive.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteActive.setStatus("current")
+_SnsRouteActiveLastChange_Type = DisplayString
+_SnsRouteActiveLastChange_Object = MibTableColumn
+snsRouteActiveLastChange = _SnsRouteActiveLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 12),
+    _SnsRouteActiveLastChange_Type()
+)
+snsRouteActiveLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteActiveLastChange.setStatus("current")
+_SnsRouteSysDefaultGateway_Type = Integer32
+_SnsRouteSysDefaultGateway_Object = MibTableColumn
+snsRouteSysDefaultGateway = _SnsRouteSysDefaultGateway_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 13),
+    _SnsRouteSysDefaultGateway_Type()
+)
+snsRouteSysDefaultGateway.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteSysDefaultGateway.setStatus("current")
+_SnsRouteSysDefaultGatewayLastChange_Type = DisplayString
+_SnsRouteSysDefaultGatewayLastChange_Object = MibTableColumn
+snsRouteSysDefaultGatewayLastChange = _SnsRouteSysDefaultGatewayLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 14),
+    _SnsRouteSysDefaultGatewayLastChange_Type()
+)
+snsRouteSysDefaultGatewayLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteSysDefaultGatewayLastChange.setStatus("current")
+_SnsRouteRtid_Type = Integer32
+_SnsRouteRtid_Object = MibTableColumn
+snsRouteRtid = _SnsRouteRtid_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 15),
+    _SnsRouteRtid_Type()
+)
+snsRouteRtid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteRtid.setStatus("current")
+_SnsRouteUsagePrct_Type = DisplayString
+_SnsRouteUsagePrct_Object = MibTableColumn
+snsRouteUsagePrct = _SnsRouteUsagePrct_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 14, 1, 1, 16),
+    _SnsRouteUsagePrct_Type()
+)
+snsRouteUsagePrct.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsRouteUsagePrct.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "STORMSHIELD-ROUTE-MIB",
+    **{"snsRoute": snsRoute,
+       "snsRouteTable": snsRouteTable,
+       "snsRouteEntry": snsRouteEntry,
+       "snsRouteIndex": snsRouteIndex,
+       "snsRouteType": snsRouteType,
+       "snsRouteIPVersion": snsRouteIPVersion,
+       "snsRouteRouterName": snsRouteRouterName,
+       "snsRouteGatewayName": snsRouteGatewayName,
+       "snsRouteGatewayAddr": snsRouteGatewayAddr,
+       "snsRouteGatewayType": snsRouteGatewayType,
+       "snsRouteLastCheck": snsRouteLastCheck,
+       "snsRouteState": snsRouteState,
+       "snsRouteStateLastChange": snsRouteStateLastChange,
+       "snsRouteActive": snsRouteActive,
+       "snsRouteActiveLastChange": snsRouteActiveLastChange,
+       "snsRouteSysDefaultGateway": snsRouteSysDefaultGateway,
+       "snsRouteSysDefaultGatewayLastChange": snsRouteSysDefaultGatewayLastChange,
+       "snsRouteRtid": snsRouteRtid,
+       "snsRouteUsagePrct": snsRouteUsagePrct}
+)

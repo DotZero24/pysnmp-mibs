@@ -1,64 +1,563 @@
+# SNMP MIB module (ROOMALERT3S-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ROOMALERT3S-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/avtech/ROOMALERT3S-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:08 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/avtech/ROOMALERT3S-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:16:47 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-avtech = MibIdentifier((1, 3, 6, 1, 4, 1, 20916))
-products = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1))
-roomalert3S = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 13))
-sensors = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1))
-internal = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 1))
-digital = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2))
-switch = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 3))
-temperature = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 1, 1))
-digital_sen1 = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1)).setLabel("digital-sen1")
-traps = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 13, 2))
-externalrelays = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 13, 3))
-externalrelay1 = MibIdentifier((1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1))
-internal_tempf = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setLabel("internal-tempf").setMaxAccess("readonly")
-if mibBuilder.loadTexts: internal_tempf.setStatus('mandatory')
-internal_tempc = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setLabel("internal-tempc").setMaxAccess("readonly")
-if mibBuilder.loadTexts: internal_tempc.setStatus('mandatory')
-digital_sen1_1 = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setLabel("digital-sen1-1").setMaxAccess("readonly")
-if mibBuilder.loadTexts: digital_sen1_1.setStatus('mandatory')
-digital_sen1_2 = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setLabel("digital-sen1-2").setMaxAccess("readonly")
-if mibBuilder.loadTexts: digital_sen1_2.setStatus('mandatory')
-digital_sen1_3 = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setLabel("digital-sen1-3").setMaxAccess("readonly")
-if mibBuilder.loadTexts: digital_sen1_3.setStatus('mandatory')
-digital_sen1_4 = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setLabel("digital-sen1-4").setMaxAccess("readonly")
-if mibBuilder.loadTexts: digital_sen1_4.setStatus('mandatory')
-digital_sen1_5 = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setLabel("digital-sen1-5").setMaxAccess("readonly")
-if mibBuilder.loadTexts: digital_sen1_5.setStatus('mandatory')
-digital_sen1_6 = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setLabel("digital-sen1-6").setMaxAccess("readonly")
-if mibBuilder.loadTexts: digital_sen1_6.setStatus('mandatory')
-digital_sen1_7 = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setLabel("digital-sen1-7").setMaxAccess("readonly")
-if mibBuilder.loadTexts: digital_sen1_7.setStatus('mandatory')
-switch_sen1 = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 3, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setLabel("switch-sen1").setMaxAccess("readonly")
-if mibBuilder.loadTexts: switch_sen1.setStatus('mandatory')
-alarmmessage = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 2, 1), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alarmmessage.setStatus('mandatory')
-externalrelay1_element_one = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setLabel("externalrelay1-element-one").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: externalrelay1_element_one.setStatus('mandatory')
-externalrelay1_element_two = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setLabel("externalrelay1-element-two").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: externalrelay1_element_two.setStatus('mandatory')
-externalrelay1_element_three = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setLabel("externalrelay1-element-three").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: externalrelay1_element_three.setStatus('mandatory')
-externalrelay1_element_four = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setLabel("externalrelay1-element-four").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: externalrelay1_element_four.setStatus('mandatory')
-externalrelay1_element_five = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setLabel("externalrelay1-element-five").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: externalrelay1_element_five.setStatus('mandatory')
-externalrelay1_element_six = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setLabel("externalrelay1-element-six").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: externalrelay1_element_six.setStatus('mandatory')
-externalrelay1_element_seven = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setLabel("externalrelay1-element-seven").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: externalrelay1_element_seven.setStatus('mandatory')
-externalrelay1_element_eight = MibScalar((1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1))).setLabel("externalrelay1-element-eight").setMaxAccess("readwrite")
-if mibBuilder.loadTexts: externalrelay1_element_eight.setStatus('mandatory')
-mibBuilder.exportSymbols("ROOMALERT3S-MIB", switch=switch, digital_sen1=digital_sen1, digital=digital, internal=internal, internal_tempc=internal_tempc, externalrelay1=externalrelay1, externalrelay1_element_two=externalrelay1_element_two, externalrelay1_element_four=externalrelay1_element_four, traps=traps, internal_tempf=internal_tempf, externalrelay1_element_three=externalrelay1_element_three, alarmmessage=alarmmessage, digital_sen1_6=digital_sen1_6, externalrelay1_element_five=externalrelay1_element_five, digital_sen1_3=digital_sen1_3, avtech=avtech, roomalert3S=roomalert3S, sensors=sensors, externalrelay1_element_one=externalrelay1_element_one, digital_sen1_4=digital_sen1_4, digital_sen1_7=digital_sen1_7, switch_sen1=switch_sen1, products=products, temperature=temperature, externalrelay1_element_six=externalrelay1_element_six, externalrelay1_element_eight=externalrelay1_element_eight, digital_sen1_1=digital_sen1_1, digital_sen1_2=digital_sen1_2, externalrelay1_element_seven=externalrelay1_element_seven, digital_sen1_5=digital_sen1_5, externalrelays=externalrelays)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Avtech_ObjectIdentity = ObjectIdentity
+avtech = _Avtech_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916)
+)
+_Products_ObjectIdentity = ObjectIdentity
+products = _Products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916, 1)
+)
+_Roomalert3S_ObjectIdentity = ObjectIdentity
+roomalert3S = _Roomalert3S_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13)
+)
+_Sensors_ObjectIdentity = ObjectIdentity
+sensors = _Sensors_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1)
+)
+_Internal_ObjectIdentity = ObjectIdentity
+internal = _Internal_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 1)
+)
+_Temperature_ObjectIdentity = ObjectIdentity
+temperature = _Temperature_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 1, 1)
+)
+
+
+class _Internal_tempf_Type(Integer32):
+    """Custom type internal_tempf based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Internal_tempf_Type.__name__ = "Integer32"
+_Internal_tempf_Object = MibScalar
+internal_tempf = _Internal_tempf_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 1, 1, 1),
+    _Internal_tempf_Type()
+)
+internal_tempf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    internal_tempf.setStatus("mandatory")
+
+
+class _Internal_tempc_Type(Integer32):
+    """Custom type internal_tempc based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Internal_tempc_Type.__name__ = "Integer32"
+_Internal_tempc_Object = MibScalar
+internal_tempc = _Internal_tempc_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 1, 1, 2),
+    _Internal_tempc_Type()
+)
+internal_tempc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    internal_tempc.setStatus("mandatory")
+_Digital_ObjectIdentity = ObjectIdentity
+digital = _Digital_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2)
+)
+_Digital_sen1_ObjectIdentity = ObjectIdentity
+digital_sen1 = _Digital_sen1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1)
+)
+
+
+class _Digital_sen1_1_Type(Integer32):
+    """Custom type digital_sen1_1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Digital_sen1_1_Type.__name__ = "Integer32"
+_Digital_sen1_1_Object = MibScalar
+digital_sen1_1 = _Digital_sen1_1_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 1),
+    _Digital_sen1_1_Type()
+)
+digital_sen1_1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    digital_sen1_1.setStatus("mandatory")
+
+
+class _Digital_sen1_2_Type(Integer32):
+    """Custom type digital_sen1_2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Digital_sen1_2_Type.__name__ = "Integer32"
+_Digital_sen1_2_Object = MibScalar
+digital_sen1_2 = _Digital_sen1_2_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 2),
+    _Digital_sen1_2_Type()
+)
+digital_sen1_2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    digital_sen1_2.setStatus("mandatory")
+
+
+class _Digital_sen1_3_Type(Integer32):
+    """Custom type digital_sen1_3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Digital_sen1_3_Type.__name__ = "Integer32"
+_Digital_sen1_3_Object = MibScalar
+digital_sen1_3 = _Digital_sen1_3_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 3),
+    _Digital_sen1_3_Type()
+)
+digital_sen1_3.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    digital_sen1_3.setStatus("mandatory")
+
+
+class _Digital_sen1_4_Type(Integer32):
+    """Custom type digital_sen1_4 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Digital_sen1_4_Type.__name__ = "Integer32"
+_Digital_sen1_4_Object = MibScalar
+digital_sen1_4 = _Digital_sen1_4_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 4),
+    _Digital_sen1_4_Type()
+)
+digital_sen1_4.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    digital_sen1_4.setStatus("mandatory")
+
+
+class _Digital_sen1_5_Type(Integer32):
+    """Custom type digital_sen1_5 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Digital_sen1_5_Type.__name__ = "Integer32"
+_Digital_sen1_5_Object = MibScalar
+digital_sen1_5 = _Digital_sen1_5_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 5),
+    _Digital_sen1_5_Type()
+)
+digital_sen1_5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    digital_sen1_5.setStatus("mandatory")
+
+
+class _Digital_sen1_6_Type(Integer32):
+    """Custom type digital_sen1_6 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Digital_sen1_6_Type.__name__ = "Integer32"
+_Digital_sen1_6_Object = MibScalar
+digital_sen1_6 = _Digital_sen1_6_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 6),
+    _Digital_sen1_6_Type()
+)
+digital_sen1_6.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    digital_sen1_6.setStatus("mandatory")
+
+
+class _Digital_sen1_7_Type(Integer32):
+    """Custom type digital_sen1_7 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Digital_sen1_7_Type.__name__ = "Integer32"
+_Digital_sen1_7_Object = MibScalar
+digital_sen1_7 = _Digital_sen1_7_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 2, 1, 7),
+    _Digital_sen1_7_Type()
+)
+digital_sen1_7.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    digital_sen1_7.setStatus("mandatory")
+_Switch_ObjectIdentity = ObjectIdentity
+switch = _Switch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 3)
+)
+
+
+class _Switch_sen1_Type(Integer32):
+    """Custom type switch_sen1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Switch_sen1_Type.__name__ = "Integer32"
+_Switch_sen1_Object = MibScalar
+switch_sen1 = _Switch_sen1_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 1, 3, 1),
+    _Switch_sen1_Type()
+)
+switch_sen1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    switch_sen1.setStatus("mandatory")
+_Traps_ObjectIdentity = ObjectIdentity
+traps = _Traps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 2)
+)
+_Alarmmessage_Type = OctetString
+_Alarmmessage_Object = MibScalar
+alarmmessage = _Alarmmessage_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 2, 1),
+    _Alarmmessage_Type()
+)
+alarmmessage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alarmmessage.setStatus("mandatory")
+_Externalrelays_ObjectIdentity = ObjectIdentity
+externalrelays = _Externalrelays_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 3)
+)
+_Externalrelay1_ObjectIdentity = ObjectIdentity
+externalrelay1 = _Externalrelay1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1)
+)
+
+
+class _Externalrelay1_element_one_Type(Integer32):
+    """Custom type externalrelay1_element_one based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Externalrelay1_element_one_Type.__name__ = "Integer32"
+_Externalrelay1_element_one_Object = MibScalar
+externalrelay1_element_one = _Externalrelay1_element_one_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 1),
+    _Externalrelay1_element_one_Type()
+)
+externalrelay1_element_one.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    externalrelay1_element_one.setStatus("mandatory")
+
+
+class _Externalrelay1_element_two_Type(Integer32):
+    """Custom type externalrelay1_element_two based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Externalrelay1_element_two_Type.__name__ = "Integer32"
+_Externalrelay1_element_two_Object = MibScalar
+externalrelay1_element_two = _Externalrelay1_element_two_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 2),
+    _Externalrelay1_element_two_Type()
+)
+externalrelay1_element_two.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    externalrelay1_element_two.setStatus("mandatory")
+
+
+class _Externalrelay1_element_three_Type(Integer32):
+    """Custom type externalrelay1_element_three based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Externalrelay1_element_three_Type.__name__ = "Integer32"
+_Externalrelay1_element_three_Object = MibScalar
+externalrelay1_element_three = _Externalrelay1_element_three_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 3),
+    _Externalrelay1_element_three_Type()
+)
+externalrelay1_element_three.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    externalrelay1_element_three.setStatus("mandatory")
+
+
+class _Externalrelay1_element_four_Type(Integer32):
+    """Custom type externalrelay1_element_four based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Externalrelay1_element_four_Type.__name__ = "Integer32"
+_Externalrelay1_element_four_Object = MibScalar
+externalrelay1_element_four = _Externalrelay1_element_four_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 4),
+    _Externalrelay1_element_four_Type()
+)
+externalrelay1_element_four.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    externalrelay1_element_four.setStatus("mandatory")
+
+
+class _Externalrelay1_element_five_Type(Integer32):
+    """Custom type externalrelay1_element_five based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Externalrelay1_element_five_Type.__name__ = "Integer32"
+_Externalrelay1_element_five_Object = MibScalar
+externalrelay1_element_five = _Externalrelay1_element_five_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 5),
+    _Externalrelay1_element_five_Type()
+)
+externalrelay1_element_five.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    externalrelay1_element_five.setStatus("mandatory")
+
+
+class _Externalrelay1_element_six_Type(Integer32):
+    """Custom type externalrelay1_element_six based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Externalrelay1_element_six_Type.__name__ = "Integer32"
+_Externalrelay1_element_six_Object = MibScalar
+externalrelay1_element_six = _Externalrelay1_element_six_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 6),
+    _Externalrelay1_element_six_Type()
+)
+externalrelay1_element_six.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    externalrelay1_element_six.setStatus("mandatory")
+
+
+class _Externalrelay1_element_seven_Type(Integer32):
+    """Custom type externalrelay1_element_seven based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Externalrelay1_element_seven_Type.__name__ = "Integer32"
+_Externalrelay1_element_seven_Object = MibScalar
+externalrelay1_element_seven = _Externalrelay1_element_seven_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 7),
+    _Externalrelay1_element_seven_Type()
+)
+externalrelay1_element_seven.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    externalrelay1_element_seven.setStatus("mandatory")
+
+
+class _Externalrelay1_element_eight_Type(Integer32):
+    """Custom type externalrelay1_element_eight based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1),
+    )
+
+
+_Externalrelay1_element_eight_Type.__name__ = "Integer32"
+_Externalrelay1_element_eight_Object = MibScalar
+externalrelay1_element_eight = _Externalrelay1_element_eight_Object(
+    (1, 3, 6, 1, 4, 1, 20916, 1, 13, 3, 1, 8),
+    _Externalrelay1_element_eight_Type()
+)
+externalrelay1_element_eight.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    externalrelay1_element_eight.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ROOMALERT3S-MIB",
+    **{"avtech": avtech,
+       "products": products,
+       "roomalert3S": roomalert3S,
+       "sensors": sensors,
+       "internal": internal,
+       "temperature": temperature,
+       "internal-tempf": internal_tempf,
+       "internal-tempc": internal_tempc,
+       "digital": digital,
+       "digital-sen1": digital_sen1,
+       "digital-sen1-1": digital_sen1_1,
+       "digital-sen1-2": digital_sen1_2,
+       "digital-sen1-3": digital_sen1_3,
+       "digital-sen1-4": digital_sen1_4,
+       "digital-sen1-5": digital_sen1_5,
+       "digital-sen1-6": digital_sen1_6,
+       "digital-sen1-7": digital_sen1_7,
+       "switch": switch,
+       "switch-sen1": switch_sen1,
+       "traps": traps,
+       "alarmmessage": alarmmessage,
+       "externalrelays": externalrelays,
+       "externalrelay1": externalrelay1,
+       "externalrelay1-element-one": externalrelay1_element_one,
+       "externalrelay1-element-two": externalrelay1_element_two,
+       "externalrelay1-element-three": externalrelay1_element_three,
+       "externalrelay1-element-four": externalrelay1_element_four,
+       "externalrelay1-element-five": externalrelay1_element_five,
+       "externalrelay1-element-six": externalrelay1_element_six,
+       "externalrelay1-element-seven": externalrelay1_element_seven,
+       "externalrelay1-element-eight": externalrelay1_element_eight}
+)

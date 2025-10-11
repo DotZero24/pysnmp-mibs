@@ -1,72 +1,625 @@
+# SNMP MIB module (TPLINK-ACL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPLINK-ACL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/tplink/TPLINK-ACL-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:38 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/tplink/TPLINK-ACL-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:55:37 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
-TPRowStatus, = mibBuilder.importSymbols("TPLINK-TC-MIB", "TPRowStatus")
-tplinkAclMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 26))
-tplinkAclMIB.setRevisions(('2012-12-13 09:30',))
-if mibBuilder.loadTexts: tplinkAclMIB.setLastUpdated('201212130930Z')
-if mibBuilder.loadTexts: tplinkAclMIB.setOrganization('TPLINK')
-tplinkAclMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1))
-tpAclActionConfigure = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3))
-tpAclPortBindConfigure = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4))
-tpAclVlanBindConfigure = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5))
-tpAclActionTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1), )
-if mibBuilder.loadTexts: tpAclActionTable.setStatus('current')
-tpAclActionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1), ).setIndexNames((0, "TPLINK-ACL-MIB", "tpAclActionAclId"), (0, "TPLINK-ACL-MIB", "tpAclActionRuleId"))
-if mibBuilder.loadTexts: tpAclActionEntry.setStatus('current')
-tpAclActionAclId = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tpAclActionAclId.setStatus('current')
-tpAclActionRuleId = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tpAclActionRuleId.setStatus('current')
-tpAclActionMirrorPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 3), OctetString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclActionMirrorPort.setStatus('current')
-tpAclActionRedirectPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 4), OctetString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclActionRedirectPort.setStatus('current')
-tpAclActionConditionRate = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclActionConditionRate.setStatus('current')
-tpAclActionConditionBurst = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclActionConditionBurst.setStatus('current')
-tpAclActionConditionExceedOperation = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("discard", 1), ("remark-DSCP", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclActionConditionExceedOperation.setStatus('current')
-tpAclActionConditionRemarkDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 8), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclActionConditionRemarkDscp.setStatus('current')
-tpAclActionQosRemarkDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(64, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63))).clone(namedValues=NamedValues(("dscp64-noLimit", 64), ("dscp0-be-000000", 0), ("dscp1", 1), ("dscp2", 2), ("dscp3", 3), ("dscp4", 4), ("dscp5", 5), ("dscp6", 6), ("dscp7", 7), ("dscp8-cs1-001000", 8), ("dscp9", 9), ("dscp10-af11-001010", 10), ("dscp11", 11), ("dscp12-af12-001100", 12), ("dscp13", 13), ("dscp14-af13-001110", 14), ("dscp15", 15), ("dscp16-cs2-010000", 16), ("dscp17", 17), ("dscp18-af21-010010", 18), ("dscp19", 19), ("dscp20-af22-010100", 20), ("dscp21", 21), ("dscp22-af23-010110", 22), ("dscp23", 23), ("dscp24-cs3-011000", 24), ("dscp25", 25), ("dscp26-af31-011010", 26), ("dscp27", 27), ("dscp28-af32-011100", 28), ("dscp29", 29), ("dscp30-af33-011110", 30), ("dscp31", 31), ("dscp32-cs4-100000", 32), ("dscp33", 33), ("dscp34-af41-100010", 34), ("dscp35", 35), ("dscp36-af42-100100", 36), ("dscp37", 37), ("dscp38-af43-100110", 38), ("dscp39", 39), ("dscp40-cs5-101000", 40), ("dscp41", 41), ("dscp42", 42), ("dscp43", 43), ("dscp44", 44), ("dscp45", 45), ("dscp46-ef-101110", 46), ("dscp47", 47), ("dscp48-cs6-110000", 48), ("dscp49", 49), ("dscp50", 50), ("dscp51", 51), ("dscp52", 52), ("dscp53", 53), ("dscp54", 54), ("dscp55", 55), ("dscp56-cs7-111000", 56), ("dscp57", 57), ("dscp58", 58), ("dscp59", 59), ("dscp60", 60), ("dscp61", 61), ("dscp62", 62), ("dscp63", 63)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclActionQosRemarkDscp.setStatus('current')
-tpAclActionQosRemarkLocalPri = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(8, 0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("default", 8), ("tc0", 0), ("tc1", 1), ("tc2", 2), ("tc3", 3), ("tc4", 4), ("tc5", 5), ("tc6", 6), ("tc7", 7)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclActionQosRemarkLocalPri.setStatus('current')
-tpAclActionQosRemark8021p = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(8, 0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("default", 8), ("cos0", 0), ("cos1", 1), ("cos2", 2), ("cos3", 3), ("cos4", 4), ("cos5", 5), ("cos6", 6), ("cos7", 7)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclActionQosRemark8021p.setStatus('current')
-tpAclActionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 12), TPRowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclActionStatus.setStatus('current')
-tpAclPortBindTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4, 1), )
-if mibBuilder.loadTexts: tpAclPortBindTable.setStatus('current')
-tpAclPortBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4, 1, 1), ).setIndexNames((0, "TPLINK-ACL-MIB", "tpAclPortBindAclId"))
-if mibBuilder.loadTexts: tpAclPortBindEntry.setStatus('current')
-tpAclPortBindAclId = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tpAclPortBindAclId.setStatus('current')
-tpAclBindPortList = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4, 1, 1, 2), OctetString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclBindPortList.setStatus('current')
-tpAclPortBindStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4, 1, 1, 3), TPRowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclPortBindStatus.setStatus('current')
-tpAclVlanBindTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5, 2), )
-if mibBuilder.loadTexts: tpAclVlanBindTable.setStatus('current')
-tpAclVlanBindEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5, 2, 1), ).setIndexNames((0, "TPLINK-ACL-MIB", "tpAclVlanBindAclId"), (0, "TPLINK-ACL-MIB", "tpAclBindVlan"))
-if mibBuilder.loadTexts: tpAclVlanBindEntry.setStatus('current')
-tpAclVlanBindAclId = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tpAclVlanBindAclId.setStatus('current')
-tpAclBindVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tpAclBindVlan.setStatus('current')
-tpAclVlanBindStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5, 2, 1, 3), TPRowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tpAclVlanBindStatus.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-ACL-MIB", tpAclVlanBindAclId=tpAclVlanBindAclId, tplinkAclMIB=tplinkAclMIB, tpAclActionStatus=tpAclActionStatus, tpAclActionAclId=tpAclActionAclId, tpAclVlanBindStatus=tpAclVlanBindStatus, tpAclVlanBindConfigure=tpAclVlanBindConfigure, tpAclBindVlan=tpAclBindVlan, tpAclPortBindConfigure=tpAclPortBindConfigure, tpAclActionQosRemark8021p=tpAclActionQosRemark8021p, tpAclPortBindStatus=tpAclPortBindStatus, tpAclPortBindEntry=tpAclPortBindEntry, tpAclActionRuleId=tpAclActionRuleId, tpAclActionQosRemarkLocalPri=tpAclActionQosRemarkLocalPri, tpAclPortBindAclId=tpAclPortBindAclId, tpAclActionMirrorPort=tpAclActionMirrorPort, tpAclActionConfigure=tpAclActionConfigure, tpAclActionTable=tpAclActionTable, tpAclActionConditionExceedOperation=tpAclActionConditionExceedOperation, tpAclActionConditionBurst=tpAclActionConditionBurst, tpAclActionEntry=tpAclActionEntry, tpAclBindPortList=tpAclBindPortList, tpAclPortBindTable=tpAclPortBindTable, PYSNMP_MODULE_ID=tplinkAclMIB, tpAclActionConditionRemarkDscp=tpAclActionConditionRemarkDscp, tpAclVlanBindEntry=tpAclVlanBindEntry, tpAclVlanBindTable=tpAclVlanBindTable, tplinkAclMIBObjects=tplinkAclMIBObjects, tpAclActionRedirectPort=tpAclActionRedirectPort, tpAclActionQosRemarkDscp=tpAclActionQosRemarkDscp, tpAclActionConditionRate=tpAclActionConditionRate)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(tplinkMgmt,) = mibBuilder.importSymbols(
+    "TPLINK-MIB",
+    "tplinkMgmt")
+
+(TPRowStatus,) = mibBuilder.importSymbols(
+    "TPLINK-TC-MIB",
+    "TPRowStatus")
+
+
+# MODULE-IDENTITY
+
+tplinkAclMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26)
+)
+if mibBuilder.loadTexts:
+    tplinkAclMIB.setRevisions(
+        ("2012-12-13 09:30",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TplinkAclMIBObjects_ObjectIdentity = ObjectIdentity
+tplinkAclMIBObjects = _TplinkAclMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1)
+)
+_TpAclActionConfigure_ObjectIdentity = ObjectIdentity
+tpAclActionConfigure = _TpAclActionConfigure_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3)
+)
+_TpAclActionTable_Object = MibTable
+tpAclActionTable = _TpAclActionTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    tpAclActionTable.setStatus("current")
+_TpAclActionEntry_Object = MibTableRow
+tpAclActionEntry = _TpAclActionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1)
+)
+tpAclActionEntry.setIndexNames(
+    (0, "TPLINK-ACL-MIB", "tpAclActionAclId"),
+    (0, "TPLINK-ACL-MIB", "tpAclActionRuleId"),
+)
+if mibBuilder.loadTexts:
+    tpAclActionEntry.setStatus("current")
+_TpAclActionAclId_Type = Integer32
+_TpAclActionAclId_Object = MibTableColumn
+tpAclActionAclId = _TpAclActionAclId_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 1),
+    _TpAclActionAclId_Type()
+)
+tpAclActionAclId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tpAclActionAclId.setStatus("current")
+_TpAclActionRuleId_Type = Integer32
+_TpAclActionRuleId_Object = MibTableColumn
+tpAclActionRuleId = _TpAclActionRuleId_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 2),
+    _TpAclActionRuleId_Type()
+)
+tpAclActionRuleId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tpAclActionRuleId.setStatus("current")
+_TpAclActionMirrorPort_Type = OctetString
+_TpAclActionMirrorPort_Object = MibTableColumn
+tpAclActionMirrorPort = _TpAclActionMirrorPort_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 3),
+    _TpAclActionMirrorPort_Type()
+)
+tpAclActionMirrorPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclActionMirrorPort.setStatus("current")
+_TpAclActionRedirectPort_Type = OctetString
+_TpAclActionRedirectPort_Object = MibTableColumn
+tpAclActionRedirectPort = _TpAclActionRedirectPort_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 4),
+    _TpAclActionRedirectPort_Type()
+)
+tpAclActionRedirectPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclActionRedirectPort.setStatus("current")
+_TpAclActionConditionRate_Type = Integer32
+_TpAclActionConditionRate_Object = MibTableColumn
+tpAclActionConditionRate = _TpAclActionConditionRate_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 5),
+    _TpAclActionConditionRate_Type()
+)
+tpAclActionConditionRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclActionConditionRate.setStatus("current")
+_TpAclActionConditionBurst_Type = Integer32
+_TpAclActionConditionBurst_Object = MibTableColumn
+tpAclActionConditionBurst = _TpAclActionConditionBurst_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 6),
+    _TpAclActionConditionBurst_Type()
+)
+tpAclActionConditionBurst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclActionConditionBurst.setStatus("current")
+
+
+class _TpAclActionConditionExceedOperation_Type(Integer32):
+    """Custom type tpAclActionConditionExceedOperation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("discard", 1),
+          ("remark-DSCP", 2))
+    )
+
+
+_TpAclActionConditionExceedOperation_Type.__name__ = "Integer32"
+_TpAclActionConditionExceedOperation_Object = MibTableColumn
+tpAclActionConditionExceedOperation = _TpAclActionConditionExceedOperation_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 7),
+    _TpAclActionConditionExceedOperation_Type()
+)
+tpAclActionConditionExceedOperation.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclActionConditionExceedOperation.setStatus("current")
+_TpAclActionConditionRemarkDscp_Type = Integer32
+_TpAclActionConditionRemarkDscp_Object = MibTableColumn
+tpAclActionConditionRemarkDscp = _TpAclActionConditionRemarkDscp_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 8),
+    _TpAclActionConditionRemarkDscp_Type()
+)
+tpAclActionConditionRemarkDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclActionConditionRemarkDscp.setStatus("current")
+
+
+class _TpAclActionQosRemarkDscp_Type(Integer32):
+    """Custom type tpAclActionQosRemarkDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dscp0-be-000000", 0),
+          ("dscp1", 1),
+          ("dscp2", 2),
+          ("dscp3", 3),
+          ("dscp4", 4),
+          ("dscp5", 5),
+          ("dscp6", 6),
+          ("dscp7", 7),
+          ("dscp8-cs1-001000", 8),
+          ("dscp9", 9),
+          ("dscp10-af11-001010", 10),
+          ("dscp11", 11),
+          ("dscp12-af12-001100", 12),
+          ("dscp13", 13),
+          ("dscp14-af13-001110", 14),
+          ("dscp15", 15),
+          ("dscp16-cs2-010000", 16),
+          ("dscp17", 17),
+          ("dscp18-af21-010010", 18),
+          ("dscp19", 19),
+          ("dscp20-af22-010100", 20),
+          ("dscp21", 21),
+          ("dscp22-af23-010110", 22),
+          ("dscp23", 23),
+          ("dscp24-cs3-011000", 24),
+          ("dscp25", 25),
+          ("dscp26-af31-011010", 26),
+          ("dscp27", 27),
+          ("dscp28-af32-011100", 28),
+          ("dscp29", 29),
+          ("dscp30-af33-011110", 30),
+          ("dscp31", 31),
+          ("dscp32-cs4-100000", 32),
+          ("dscp33", 33),
+          ("dscp34-af41-100010", 34),
+          ("dscp35", 35),
+          ("dscp36-af42-100100", 36),
+          ("dscp37", 37),
+          ("dscp38-af43-100110", 38),
+          ("dscp39", 39),
+          ("dscp40-cs5-101000", 40),
+          ("dscp41", 41),
+          ("dscp42", 42),
+          ("dscp43", 43),
+          ("dscp44", 44),
+          ("dscp45", 45),
+          ("dscp46-ef-101110", 46),
+          ("dscp47", 47),
+          ("dscp48-cs6-110000", 48),
+          ("dscp49", 49),
+          ("dscp50", 50),
+          ("dscp51", 51),
+          ("dscp52", 52),
+          ("dscp53", 53),
+          ("dscp54", 54),
+          ("dscp55", 55),
+          ("dscp56-cs7-111000", 56),
+          ("dscp57", 57),
+          ("dscp58", 58),
+          ("dscp59", 59),
+          ("dscp60", 60),
+          ("dscp61", 61),
+          ("dscp62", 62),
+          ("dscp63", 63),
+          ("dscp64-noLimit", 64))
+    )
+
+
+_TpAclActionQosRemarkDscp_Type.__name__ = "Integer32"
+_TpAclActionQosRemarkDscp_Object = MibTableColumn
+tpAclActionQosRemarkDscp = _TpAclActionQosRemarkDscp_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 9),
+    _TpAclActionQosRemarkDscp_Type()
+)
+tpAclActionQosRemarkDscp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclActionQosRemarkDscp.setStatus("current")
+
+
+class _TpAclActionQosRemarkLocalPri_Type(Integer32):
+    """Custom type tpAclActionQosRemarkLocalPri based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("tc0", 0),
+          ("tc1", 1),
+          ("tc2", 2),
+          ("tc3", 3),
+          ("tc4", 4),
+          ("tc5", 5),
+          ("tc6", 6),
+          ("tc7", 7),
+          ("default", 8))
+    )
+
+
+_TpAclActionQosRemarkLocalPri_Type.__name__ = "Integer32"
+_TpAclActionQosRemarkLocalPri_Object = MibTableColumn
+tpAclActionQosRemarkLocalPri = _TpAclActionQosRemarkLocalPri_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 10),
+    _TpAclActionQosRemarkLocalPri_Type()
+)
+tpAclActionQosRemarkLocalPri.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclActionQosRemarkLocalPri.setStatus("current")
+
+
+class _TpAclActionQosRemark8021p_Type(Integer32):
+    """Custom type tpAclActionQosRemark8021p based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cos0", 0),
+          ("cos1", 1),
+          ("cos2", 2),
+          ("cos3", 3),
+          ("cos4", 4),
+          ("cos5", 5),
+          ("cos6", 6),
+          ("cos7", 7),
+          ("default", 8))
+    )
+
+
+_TpAclActionQosRemark8021p_Type.__name__ = "Integer32"
+_TpAclActionQosRemark8021p_Object = MibTableColumn
+tpAclActionQosRemark8021p = _TpAclActionQosRemark8021p_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 11),
+    _TpAclActionQosRemark8021p_Type()
+)
+tpAclActionQosRemark8021p.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclActionQosRemark8021p.setStatus("current")
+_TpAclActionStatus_Type = TPRowStatus
+_TpAclActionStatus_Object = MibTableColumn
+tpAclActionStatus = _TpAclActionStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 3, 1, 1, 12),
+    _TpAclActionStatus_Type()
+)
+tpAclActionStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclActionStatus.setStatus("current")
+_TpAclPortBindConfigure_ObjectIdentity = ObjectIdentity
+tpAclPortBindConfigure = _TpAclPortBindConfigure_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4)
+)
+_TpAclPortBindTable_Object = MibTable
+tpAclPortBindTable = _TpAclPortBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    tpAclPortBindTable.setStatus("current")
+_TpAclPortBindEntry_Object = MibTableRow
+tpAclPortBindEntry = _TpAclPortBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4, 1, 1)
+)
+tpAclPortBindEntry.setIndexNames(
+    (0, "TPLINK-ACL-MIB", "tpAclPortBindAclId"),
+)
+if mibBuilder.loadTexts:
+    tpAclPortBindEntry.setStatus("current")
+_TpAclPortBindAclId_Type = Integer32
+_TpAclPortBindAclId_Object = MibTableColumn
+tpAclPortBindAclId = _TpAclPortBindAclId_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4, 1, 1, 1),
+    _TpAclPortBindAclId_Type()
+)
+tpAclPortBindAclId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tpAclPortBindAclId.setStatus("current")
+_TpAclBindPortList_Type = OctetString
+_TpAclBindPortList_Object = MibTableColumn
+tpAclBindPortList = _TpAclBindPortList_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4, 1, 1, 2),
+    _TpAclBindPortList_Type()
+)
+tpAclBindPortList.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclBindPortList.setStatus("current")
+_TpAclPortBindStatus_Type = TPRowStatus
+_TpAclPortBindStatus_Object = MibTableColumn
+tpAclPortBindStatus = _TpAclPortBindStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 4, 1, 1, 3),
+    _TpAclPortBindStatus_Type()
+)
+tpAclPortBindStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclPortBindStatus.setStatus("current")
+_TpAclVlanBindConfigure_ObjectIdentity = ObjectIdentity
+tpAclVlanBindConfigure = _TpAclVlanBindConfigure_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5)
+)
+_TpAclVlanBindTable_Object = MibTable
+tpAclVlanBindTable = _TpAclVlanBindTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5, 2)
+)
+if mibBuilder.loadTexts:
+    tpAclVlanBindTable.setStatus("current")
+_TpAclVlanBindEntry_Object = MibTableRow
+tpAclVlanBindEntry = _TpAclVlanBindEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5, 2, 1)
+)
+tpAclVlanBindEntry.setIndexNames(
+    (0, "TPLINK-ACL-MIB", "tpAclVlanBindAclId"),
+    (0, "TPLINK-ACL-MIB", "tpAclBindVlan"),
+)
+if mibBuilder.loadTexts:
+    tpAclVlanBindEntry.setStatus("current")
+_TpAclVlanBindAclId_Type = Integer32
+_TpAclVlanBindAclId_Object = MibTableColumn
+tpAclVlanBindAclId = _TpAclVlanBindAclId_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5, 2, 1, 1),
+    _TpAclVlanBindAclId_Type()
+)
+tpAclVlanBindAclId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tpAclVlanBindAclId.setStatus("current")
+_TpAclBindVlan_Type = Integer32
+_TpAclBindVlan_Object = MibTableColumn
+tpAclBindVlan = _TpAclBindVlan_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5, 2, 1, 2),
+    _TpAclBindVlan_Type()
+)
+tpAclBindVlan.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tpAclBindVlan.setStatus("current")
+_TpAclVlanBindStatus_Type = TPRowStatus
+_TpAclVlanBindStatus_Object = MibTableColumn
+tpAclVlanBindStatus = _TpAclVlanBindStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 26, 1, 5, 2, 1, 3),
+    _TpAclVlanBindStatus_Type()
+)
+tpAclVlanBindStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tpAclVlanBindStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPLINK-ACL-MIB",
+    **{"tplinkAclMIB": tplinkAclMIB,
+       "tplinkAclMIBObjects": tplinkAclMIBObjects,
+       "tpAclActionConfigure": tpAclActionConfigure,
+       "tpAclActionTable": tpAclActionTable,
+       "tpAclActionEntry": tpAclActionEntry,
+       "tpAclActionAclId": tpAclActionAclId,
+       "tpAclActionRuleId": tpAclActionRuleId,
+       "tpAclActionMirrorPort": tpAclActionMirrorPort,
+       "tpAclActionRedirectPort": tpAclActionRedirectPort,
+       "tpAclActionConditionRate": tpAclActionConditionRate,
+       "tpAclActionConditionBurst": tpAclActionConditionBurst,
+       "tpAclActionConditionExceedOperation": tpAclActionConditionExceedOperation,
+       "tpAclActionConditionRemarkDscp": tpAclActionConditionRemarkDscp,
+       "tpAclActionQosRemarkDscp": tpAclActionQosRemarkDscp,
+       "tpAclActionQosRemarkLocalPri": tpAclActionQosRemarkLocalPri,
+       "tpAclActionQosRemark8021p": tpAclActionQosRemark8021p,
+       "tpAclActionStatus": tpAclActionStatus,
+       "tpAclPortBindConfigure": tpAclPortBindConfigure,
+       "tpAclPortBindTable": tpAclPortBindTable,
+       "tpAclPortBindEntry": tpAclPortBindEntry,
+       "tpAclPortBindAclId": tpAclPortBindAclId,
+       "tpAclBindPortList": tpAclBindPortList,
+       "tpAclPortBindStatus": tpAclPortBindStatus,
+       "tpAclVlanBindConfigure": tpAclVlanBindConfigure,
+       "tpAclVlanBindTable": tpAclVlanBindTable,
+       "tpAclVlanBindEntry": tpAclVlanBindEntry,
+       "tpAclVlanBindAclId": tpAclVlanBindAclId,
+       "tpAclBindVlan": tpAclBindVlan,
+       "tpAclVlanBindStatus": tpAclVlanBindStatus}
+)

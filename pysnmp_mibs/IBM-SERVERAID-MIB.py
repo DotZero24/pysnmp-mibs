@@ -1,214 +1,1958 @@
+# SNMP MIB module (IBM-SERVERAID-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module IBM-SERVERAID-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ibm/IBM-SERVERAID-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:45:24 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ibm/IBM-SERVERAID-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:12:28 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TruthValue, DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DateAndTime", "TextualConvention", "DisplayString")
-ibmServeRaidMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2))
-ibm = MibIdentifier((1, 3, 6, 1, 4, 1, 2))
-ibmProd = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6))
-ibmServeRaid = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167))
-ibmServeRaidNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0))
-ibmServeRaidMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1))
-ibmServeRaidConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2))
-ibmServeRaidAgentInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1))
-ibmServeRaidInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2))
-ibmServeRaidTrapInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3))
-ibmServeRaidCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 1))
-ibmServeRaidGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2))
-ibmServeRaidAgentKeyIndex = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 1), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidAgentKeyIndex.setStatus('mandatory')
-ibmServeRaidAgentId = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidAgentId.setStatus('mandatory')
-ibmServeRaidAgentCompany = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidAgentCompany.setStatus('mandatory')
-ibmServeRaidAgentVersion = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidAgentVersion.setStatus('mandatory')
-ibmServeRaidAgentBuildDate = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 5), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidAgentBuildDate.setStatus('mandatory')
-ibmServeRaidAgentVersionMajor = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidAgentVersionMajor.setStatus('mandatory')
-ibmServeRaidAgentVersionMinor = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidAgentVersionMinor.setStatus('mandatory')
-ibmServeRaidControllerTable = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1), )
-if mibBuilder.loadTexts: ibmServeRaidControllerTable.setStatus('mandatory')
-ibmServeRaidControllerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1), ).setIndexNames((0, "IBM-SERVERAID-MIB", "ibmServeRaidKeyIndex"))
-if mibBuilder.loadTexts: ibmServeRaidControllerEntry.setStatus('mandatory')
-ibmServeRaidKeyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 1), SnmpAdminString())
-if mibBuilder.loadTexts: ibmServeRaidKeyIndex.setStatus('mandatory')
-ibmServeRaidControllerId = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: ibmServeRaidControllerId.setStatus('mandatory')
-ibmServeRaidModel = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidModel.setStatus('mandatory')
-ibmServeRaidFirmwareVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidFirmwareVersion.setStatus('mandatory')
-ibmServeRaidBiosVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidBiosVersion.setStatus('mandatory')
-ibmServeRaidDefaultRebuildRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidDefaultRebuildRate.setStatus('mandatory')
-ibmServeRaidNumChannels = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidNumChannels.setStatus('mandatory')
-ibmServeRaidMaxChannels = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidMaxChannels.setStatus('mandatory')
-ibmServeRaidNumLogicalDrives = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 9), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidNumLogicalDrives.setStatus('mandatory')
-ibmServeRaidMaxLogicalDrives = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidMaxLogicalDrives.setStatus('mandatory')
-ibmServeRaidNumPhysicalDevices = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 11), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidNumPhysicalDevices.setStatus('mandatory')
-ibmServeRaidMaxPhysicalDevices = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 12), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidMaxPhysicalDevices.setStatus('mandatory')
-ibmServeRaidStripeSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidStripeSize.setStatus('mandatory')
-ibmServeRaidSlotNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidSlotNumber.setStatus('mandatory')
-ibmServeRaidVendorName = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 15), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidVendorName.setStatus('mandatory')
-ibmServeRaidGeneralStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 16), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ok", 1), ("fail", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidGeneralStatus.setStatus('mandatory')
-ibmServeRaidPhysDeviceTable = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2), )
-if mibBuilder.loadTexts: ibmServeRaidPhysDeviceTable.setStatus('mandatory')
-ibmServeRaidPhysDeviceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1), ).setIndexNames((0, "IBM-SERVERAID-MIB", "ibmServeRaidPhysDeviceKeyIndex"))
-if mibBuilder.loadTexts: ibmServeRaidPhysDeviceEntry.setStatus('mandatory')
-ibmServeRaidPhysDeviceKeyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 1), SnmpAdminString())
-if mibBuilder.loadTexts: ibmServeRaidPhysDeviceKeyIndex.setStatus('mandatory')
-ibmServeRaidPhysDeviceControllerId = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: ibmServeRaidPhysDeviceControllerId.setStatus('mandatory')
-ibmServeRaidPhysDeviceChannelNr = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: ibmServeRaidPhysDeviceChannelNr.setStatus('mandatory')
-ibmServeRaidPhysDeviceDevNr = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)))
-if mibBuilder.loadTexts: ibmServeRaidPhysDeviceDevNr.setStatus('mandatory')
-ibmServeRaidPhysDeviceModel = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidPhysDeviceModel.setStatus('mandatory')
-ibmServeRaidPhysDeviceCapacity = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidPhysDeviceCapacity.setStatus('mandatory')
-ibmServeRaidPhysDeviceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 9))).clone(namedValues=NamedValues(("dead", 1), ("online", 2), ("standby", 3), ("rebuild", 4), ("spare", 5), ("ready", 6), ("empty", 7), ("unknown", 9)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidPhysDeviceStatus.setStatus('mandatory')
-ibmServeRaidPhysDeviceDiskConfigured = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidPhysDeviceDiskConfigured.setStatus('mandatory')
-ibmServeRaidPhysDeviceScsiType = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 97, 98, 99))).clone(namedValues=NamedValues(("disk", 1), ("tape", 2), ("printer", 3), ("processor", 4), ("writeOnce", 5), ("cdRom", 6), ("scanner", 7), ("optical", 8), ("jukebox", 9), ("commDev", 10), ("enclosure", 97), ("host", 98), ("unknown", 99)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidPhysDeviceScsiType.setStatus('mandatory')
-ibmServeRaidPhysDevicePfaStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ok", 1), ("failurePredicted", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidPhysDevicePfaStatus.setStatus('mandatory')
-ibmServeRaidLogicalTable = MibTable((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3), )
-if mibBuilder.loadTexts: ibmServeRaidLogicalTable.setStatus('mandatory')
-ibmServeRaidLogicalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1), ).setIndexNames((0, "IBM-SERVERAID-MIB", "ibmServeRaidLogicalKeyIndex"))
-if mibBuilder.loadTexts: ibmServeRaidLogicalEntry.setStatus('mandatory')
-ibmServeRaidLogicalKeyIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 1), SnmpAdminString())
-if mibBuilder.loadTexts: ibmServeRaidLogicalKeyIndex.setStatus('mandatory')
-ibmServeRaidLogicalControllerId = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: ibmServeRaidLogicalControllerId.setStatus('mandatory')
-ibmServeRaidLogicalDriveNum = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: ibmServeRaidLogicalDriveNum.setStatus('mandatory')
-ibmServeRaidLogicalStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 9))).clone(namedValues=NamedValues(("online", 1), ("critical", 2), ("offline", 3), ("migrating", 4), ("free", 5), ("unknown", 9)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidLogicalStatus.setStatus('mandatory')
-ibmServeRaidLogicalSize = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidLogicalSize.setStatus('mandatory')
-ibmServeRaidLogicalRaidLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidLogicalRaidLevel.setStatus('mandatory')
-ibmServeRaidLogicalWriteCacheMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("writeBack", 1), ("writeThrough", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ibmServeRaidLogicalWriteCacheMode.setStatus('mandatory')
-ibmServeRaidTrapController = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 1), Integer32())
-if mibBuilder.loadTexts: ibmServeRaidTrapController.setStatus('mandatory')
-ibmServeRaidTrapLogicalDrive = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 2), Integer32())
-if mibBuilder.loadTexts: ibmServeRaidTrapLogicalDrive.setStatus('mandatory')
-ibmServeRaidTrapChannel = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 3), Integer32())
-if mibBuilder.loadTexts: ibmServeRaidTrapChannel.setStatus('mandatory')
-ibmServeRaidTrapScsiId = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 4), Integer32())
-if mibBuilder.loadTexts: ibmServeRaidTrapScsiId.setStatus('mandatory')
-ibmServeRaidTrapFan = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 5), Integer32())
-if mibBuilder.loadTexts: ibmServeRaidTrapFan.setStatus('mandatory')
-ibmServeRaidTrapPowerSupply = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 6), Integer32())
-if mibBuilder.loadTexts: ibmServeRaidTrapPowerSupply.setStatus('mandatory')
-ibmServeRaidTrapErrorCode = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 7), Integer32())
-if mibBuilder.loadTexts: ibmServeRaidTrapErrorCode.setStatus('mandatory')
-ibmServeRaidTrapServerName = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 8), SnmpAdminString())
-if mibBuilder.loadTexts: ibmServeRaidTrapServerName.setStatus('mandatory')
-ibmServeRaidTrapArray = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 9), SnmpAdminString())
-if mibBuilder.loadTexts: ibmServeRaidTrapArray.setStatus('mandatory')
-ibmServeRaidTrapFru = MibScalar((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 10), SnmpAdminString())
-if mibBuilder.loadTexts: ibmServeRaidTrapFru.setStatus('mandatory')
-ibmServeRaidNoControllers = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,201)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"))
-ibmServeRaidControllerFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,202)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidDeadBattery = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,203)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidDeadBatteryCache = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,204)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidPollingFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,205)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidConfigFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,206)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"))
-ibmServeRaidControllerAdded = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,207)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidControllerReplaced = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,208)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidControllerFailover = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,209)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidControllerVersionMismatch = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,210)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidControllerBatteryOvertemp = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,211)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidLogicalDriveCritical = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,301)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidLogicalDriveBlocked = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,302)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidLogicalDriveOffLine = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,303)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidRebuildDetected = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,304)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidRebuildComplete = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,305)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidRebuildFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,306)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidSyncDetected = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,307)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidSyncComplete = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,308)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidSyncFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,309)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidMigrationDetected = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,310)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidMigrationComplete = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,311)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidMigrationFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,312)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidCompressionDetected = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,313)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidCompressionComplete = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,314)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidcompressionFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,315)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidDecompressionDetected = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,316)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidDecompressionComplete = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,317)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidDecompressionFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,318)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidFlashCopyDetected = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,319)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidFlashCopyComplete = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,320)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidFlashCopyFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,321)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidArrayRebuildDetected = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,322)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidArrayRebuildComplete = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,323)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidArrayRebuildFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,324)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidArraySyncDetected = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,325)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidArraySyncComplete = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,326)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidArraySyncFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,327)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidArrayFlashCopyDetected = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,328)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidArrayFlashCopyComplete = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,329)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidArrayFlashCopyFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,330)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidLogicalDriveUnblocked = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,331)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidCompactionDetected = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,332)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidCompactionComplete = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,333)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidCompactionFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,334)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidExpansionDetected = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,335)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidExpansionComplete = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,336)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidExpansionFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,337)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
-ibmServeRaidLogicalDriveCriticalPeriodic = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,338)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
-ibmServeRaidDefunctDrive = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,401)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
-ibmServeRaidPfaDrive = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,402)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
-ibmServeRaidDefunctReplaced = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,403)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
-ibmServeRaidDefunctDriveFru = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,404)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFru"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
-ibmServeRaidPfaDriveFru = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,405)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFru"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
-ibmServeRaidUnsupportedDrive = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,406)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
-ibmServeRaidEnclosureOK = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,501)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidEnclosureFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,502)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidFanOk = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,503)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFan"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidFanFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,504)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFan"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidFanInstalled = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,505)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFan"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidFanRemoved = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,506)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFan"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidTempOk = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,507)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidTempFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,508)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidPowerSupplyOk = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,509)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapPowerSupply"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidPowerSupplyFail = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,510)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapPowerSupply"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidPowerSupplyInstalled = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,511)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapPowerSupply"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidPowerSupplyRemoved = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,512)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapPowerSupply"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"), ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
-ibmServeRaidTestTrap = NotificationType((1, 3, 6, 1, 4, 1, 2, 6, 167, 2) + (0,601)).setObjects(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"))
-ibmServeRaidAgentGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 1))
-ibmServeRaidControllerGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 2))
-ibmServeRaidPhysicalGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 3))
-ibmServeRaidLogicalGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 4))
-ibmServeRaidTrapInfoGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 5))
-ibmServeRaidNotificationsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 6))
-ibmServeRaidCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 1, 1))
-mibBuilder.exportSymbols("IBM-SERVERAID-MIB", ibmServeRaidCompressionDetected=ibmServeRaidCompressionDetected, ibmServeRaidPowerSupplyRemoved=ibmServeRaidPowerSupplyRemoved, ibmServeRaidLogicalGroup=ibmServeRaidLogicalGroup, ibmServeRaidControllerBatteryOvertemp=ibmServeRaidControllerBatteryOvertemp, ibmServeRaidMaxPhysicalDevices=ibmServeRaidMaxPhysicalDevices, ibmServeRaidTrapPowerSupply=ibmServeRaidTrapPowerSupply, ibmServeRaidAgentVersionMajor=ibmServeRaidAgentVersionMajor, ibmServeRaidLogicalRaidLevel=ibmServeRaidLogicalRaidLevel, ibmServeRaidTrapFru=ibmServeRaidTrapFru, ibmServeRaidLogicalKeyIndex=ibmServeRaidLogicalKeyIndex, ibmServeRaidLogicalDriveUnblocked=ibmServeRaidLogicalDriveUnblocked, ibmServeRaidNumPhysicalDevices=ibmServeRaidNumPhysicalDevices, ibmServeRaidMibObjects=ibmServeRaidMibObjects, ibmServeRaidArraySyncFail=ibmServeRaidArraySyncFail, ibmServeRaidPhysDeviceControllerId=ibmServeRaidPhysDeviceControllerId, ibmServeRaidDeadBatteryCache=ibmServeRaidDeadBatteryCache, ibmServeRaidAgentVersion=ibmServeRaidAgentVersion, ibmServeRaidPhysDeviceEntry=ibmServeRaidPhysDeviceEntry, ibmServeRaidConfigFail=ibmServeRaidConfigFail, ibmServeRaidLogicalEntry=ibmServeRaidLogicalEntry, ibmServeRaidExpansionFail=ibmServeRaidExpansionFail, ibmServeRaidLogicalDriveBlocked=ibmServeRaidLogicalDriveBlocked, ibmServeRaidSyncFail=ibmServeRaidSyncFail, ibm=ibm, ibmServeRaidFanInstalled=ibmServeRaidFanInstalled, ibmServeRaidControllerAdded=ibmServeRaidControllerAdded, ibmServeRaidCompliance=ibmServeRaidCompliance, ibmServeRaidTrapScsiId=ibmServeRaidTrapScsiId, ibmServeRaidAgentVersionMinor=ibmServeRaidAgentVersionMinor, ibmServeRaidExpansionComplete=ibmServeRaidExpansionComplete, ibmServeRaidMaxLogicalDrives=ibmServeRaidMaxLogicalDrives, ibmServeRaidTestTrap=ibmServeRaidTestTrap, ibmServeRaidDefaultRebuildRate=ibmServeRaidDefaultRebuildRate, ibmServeRaidLogicalTable=ibmServeRaidLogicalTable, ibmServeRaidCompactionDetected=ibmServeRaidCompactionDetected, ibmServeRaidLogicalDriveCriticalPeriodic=ibmServeRaidLogicalDriveCriticalPeriodic, ibmServeRaidArrayFlashCopyDetected=ibmServeRaidArrayFlashCopyDetected, ibmServeRaidCompressionComplete=ibmServeRaidCompressionComplete, ibmServeRaidTrapChannel=ibmServeRaidTrapChannel, ibmServeRaidTrapInfoGroup=ibmServeRaidTrapInfoGroup, ibmServeRaidAgentCompany=ibmServeRaidAgentCompany, ibmServeRaidPhysDeviceModel=ibmServeRaidPhysDeviceModel, ibmServeRaidMIB=ibmServeRaidMIB, ibmServeRaidInfo=ibmServeRaidInfo, ibmServeRaidTrapInfo=ibmServeRaidTrapInfo, ibmServeRaidLogicalSize=ibmServeRaidLogicalSize, ibmServeRaidTrapArray=ibmServeRaidTrapArray, ibmServeRaidPhysDeviceStatus=ibmServeRaidPhysDeviceStatus, ibmServeRaidFanFail=ibmServeRaidFanFail, ibmServeRaidTrapErrorCode=ibmServeRaidTrapErrorCode, ibmServeRaidPhysDeviceTable=ibmServeRaidPhysDeviceTable, ibmServeRaidControllerGroup=ibmServeRaidControllerGroup, ibmServeRaidGeneralStatus=ibmServeRaidGeneralStatus, ibmServeRaidArraySyncComplete=ibmServeRaidArraySyncComplete, ibmServeRaidNumLogicalDrives=ibmServeRaidNumLogicalDrives, ibmServeRaidAgentGroup=ibmServeRaidAgentGroup, ibmServeRaidNumChannels=ibmServeRaidNumChannels, ibmServeRaidDefunctReplaced=ibmServeRaidDefunctReplaced, ibmServeRaidGroups=ibmServeRaidGroups, ibmServeRaid=ibmServeRaid, ibmServeRaidEnclosureOK=ibmServeRaidEnclosureOK, ibmServeRaidAgentBuildDate=ibmServeRaidAgentBuildDate, ibmServeRaidPhysDevicePfaStatus=ibmServeRaidPhysDevicePfaStatus, ibmServeRaidTrapFan=ibmServeRaidTrapFan, ibmServeRaidDecompressionDetected=ibmServeRaidDecompressionDetected, ibmServeRaidControllerVersionMismatch=ibmServeRaidControllerVersionMismatch, ibmServeRaidArrayRebuildFail=ibmServeRaidArrayRebuildFail, ibmServeRaidSyncComplete=ibmServeRaidSyncComplete, ibmServeRaidTempOk=ibmServeRaidTempOk, ibmServeRaidFlashCopyDetected=ibmServeRaidFlashCopyDetected, ibmServeRaidCompactionComplete=ibmServeRaidCompactionComplete, ibmServeRaidNoControllers=ibmServeRaidNoControllers, ibmServeRaidLogicalDriveOffLine=ibmServeRaidLogicalDriveOffLine, ibmServeRaidAgentId=ibmServeRaidAgentId, ibmServeRaidNotifications=ibmServeRaidNotifications, ibmServeRaidVendorName=ibmServeRaidVendorName, ibmServeRaidFanOk=ibmServeRaidFanOk, ibmServeRaidPfaDrive=ibmServeRaidPfaDrive, ibmServeRaidDecompressionFail=ibmServeRaidDecompressionFail, ibmServeRaidDefunctDrive=ibmServeRaidDefunctDrive, ibmServeRaidControllerEntry=ibmServeRaidControllerEntry, ibmServeRaidMaxChannels=ibmServeRaidMaxChannels, ibmServeRaidLogicalStatus=ibmServeRaidLogicalStatus, ibmServeRaidPhysDeviceKeyIndex=ibmServeRaidPhysDeviceKeyIndex, ibmServeRaidLogicalDriveCritical=ibmServeRaidLogicalDriveCritical, ibmServeRaidDefunctDriveFru=ibmServeRaidDefunctDriveFru, ibmServeRaidRebuildFail=ibmServeRaidRebuildFail, ibmServeRaidDeadBattery=ibmServeRaidDeadBattery, ibmServeRaidModel=ibmServeRaidModel, ibmServeRaidSyncDetected=ibmServeRaidSyncDetected, ibmServeRaidPfaDriveFru=ibmServeRaidPfaDriveFru, ibmServeRaidNotificationsGroup=ibmServeRaidNotificationsGroup, ibmServeRaidPowerSupplyFail=ibmServeRaidPowerSupplyFail, ibmServeRaidControllerFailover=ibmServeRaidControllerFailover, ibmServeRaidMigrationFail=ibmServeRaidMigrationFail, ibmServeRaidPhysDeviceCapacity=ibmServeRaidPhysDeviceCapacity, ibmServeRaidPhysDeviceScsiType=ibmServeRaidPhysDeviceScsiType, ibmServeRaidPhysicalGroup=ibmServeRaidPhysicalGroup, ibmServeRaidCompactionFail=ibmServeRaidCompactionFail, ibmServeRaidLogicalWriteCacheMode=ibmServeRaidLogicalWriteCacheMode, ibmServeRaidMigrationDetected=ibmServeRaidMigrationDetected, ibmServeRaidPowerSupplyInstalled=ibmServeRaidPowerSupplyInstalled, ibmServeRaidArrayFlashCopyFail=ibmServeRaidArrayFlashCopyFail, ibmServeRaidRebuildComplete=ibmServeRaidRebuildComplete, ibmServeRaidTrapServerName=ibmServeRaidTrapServerName, ibmServeRaidRebuildDetected=ibmServeRaidRebuildDetected, ibmServeRaidArrayRebuildComplete=ibmServeRaidArrayRebuildComplete, ibmServeRaidConformance=ibmServeRaidConformance, ibmServeRaidStripeSize=ibmServeRaidStripeSize, ibmServeRaidPowerSupplyOk=ibmServeRaidPowerSupplyOk, ibmServeRaidFlashCopyComplete=ibmServeRaidFlashCopyComplete, ibmServeRaidSlotNumber=ibmServeRaidSlotNumber, ibmServeRaidControllerFail=ibmServeRaidControllerFail, ibmServeRaidPhysDeviceChannelNr=ibmServeRaidPhysDeviceChannelNr, ibmServeRaidControllerTable=ibmServeRaidControllerTable, ibmServeRaidLogicalDriveNum=ibmServeRaidLogicalDriveNum, ibmServeRaidArraySyncDetected=ibmServeRaidArraySyncDetected, ibmServeRaidKeyIndex=ibmServeRaidKeyIndex, ibmServeRaidAgentInfo=ibmServeRaidAgentInfo, ibmServeRaidLogicalControllerId=ibmServeRaidLogicalControllerId, ibmServeRaidFanRemoved=ibmServeRaidFanRemoved, ibmServeRaidUnsupportedDrive=ibmServeRaidUnsupportedDrive, ibmServeRaidPhysDeviceDevNr=ibmServeRaidPhysDeviceDevNr, ibmServeRaidTrapLogicalDrive=ibmServeRaidTrapLogicalDrive, ibmServeRaidEnclosureFail=ibmServeRaidEnclosureFail, ibmProd=ibmProd, ibmServeRaidArrayFlashCopyComplete=ibmServeRaidArrayFlashCopyComplete, ibmServeRaidPollingFail=ibmServeRaidPollingFail, ibmServeRaidFirmwareVersion=ibmServeRaidFirmwareVersion, ibmServeRaidAgentKeyIndex=ibmServeRaidAgentKeyIndex, ibmServeRaidDecompressionComplete=ibmServeRaidDecompressionComplete, ibmServeRaidTrapController=ibmServeRaidTrapController, ibmServeRaidCompliances=ibmServeRaidCompliances, ibmServeRaidPhysDeviceDiskConfigured=ibmServeRaidPhysDeviceDiskConfigured, ibmServeRaidArrayRebuildDetected=ibmServeRaidArrayRebuildDetected, ibmServeRaidControllerId=ibmServeRaidControllerId, ibmServeRaidMigrationComplete=ibmServeRaidMigrationComplete, ibmServeRaidBiosVersion=ibmServeRaidBiosVersion, ibmServeRaidTempFail=ibmServeRaidTempFail, ibmServeRaidcompressionFail=ibmServeRaidcompressionFail, ibmServeRaidExpansionDetected=ibmServeRaidExpansionDetected, ibmServeRaidControllerReplaced=ibmServeRaidControllerReplaced, ibmServeRaidFlashCopyFail=ibmServeRaidFlashCopyFail)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Ibm_ObjectIdentity = ObjectIdentity
+ibm = _Ibm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2)
+)
+_IbmProd_ObjectIdentity = ObjectIdentity
+ibmProd = _IbmProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6)
+)
+_IbmServeRaid_ObjectIdentity = ObjectIdentity
+ibmServeRaid = _IbmServeRaid_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167)
+)
+_IbmServeRaidMIB_ObjectIdentity = ObjectIdentity
+ibmServeRaidMIB = _IbmServeRaidMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2)
+)
+_IbmServeRaidNotifications_ObjectIdentity = ObjectIdentity
+ibmServeRaidNotifications = _IbmServeRaidNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0)
+)
+_IbmServeRaidMibObjects_ObjectIdentity = ObjectIdentity
+ibmServeRaidMibObjects = _IbmServeRaidMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1)
+)
+_IbmServeRaidAgentInfo_ObjectIdentity = ObjectIdentity
+ibmServeRaidAgentInfo = _IbmServeRaidAgentInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1)
+)
+_IbmServeRaidAgentKeyIndex_Type = SnmpAdminString
+_IbmServeRaidAgentKeyIndex_Object = MibScalar
+ibmServeRaidAgentKeyIndex = _IbmServeRaidAgentKeyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 1),
+    _IbmServeRaidAgentKeyIndex_Type()
+)
+ibmServeRaidAgentKeyIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidAgentKeyIndex.setStatus("mandatory")
+_IbmServeRaidAgentId_Type = SnmpAdminString
+_IbmServeRaidAgentId_Object = MibScalar
+ibmServeRaidAgentId = _IbmServeRaidAgentId_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 2),
+    _IbmServeRaidAgentId_Type()
+)
+ibmServeRaidAgentId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidAgentId.setStatus("mandatory")
+_IbmServeRaidAgentCompany_Type = SnmpAdminString
+_IbmServeRaidAgentCompany_Object = MibScalar
+ibmServeRaidAgentCompany = _IbmServeRaidAgentCompany_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 3),
+    _IbmServeRaidAgentCompany_Type()
+)
+ibmServeRaidAgentCompany.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidAgentCompany.setStatus("mandatory")
+_IbmServeRaidAgentVersion_Type = SnmpAdminString
+_IbmServeRaidAgentVersion_Object = MibScalar
+ibmServeRaidAgentVersion = _IbmServeRaidAgentVersion_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 4),
+    _IbmServeRaidAgentVersion_Type()
+)
+ibmServeRaidAgentVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidAgentVersion.setStatus("mandatory")
+_IbmServeRaidAgentBuildDate_Type = DateAndTime
+_IbmServeRaidAgentBuildDate_Object = MibScalar
+ibmServeRaidAgentBuildDate = _IbmServeRaidAgentBuildDate_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 5),
+    _IbmServeRaidAgentBuildDate_Type()
+)
+ibmServeRaidAgentBuildDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidAgentBuildDate.setStatus("mandatory")
+_IbmServeRaidAgentVersionMajor_Type = Integer32
+_IbmServeRaidAgentVersionMajor_Object = MibScalar
+ibmServeRaidAgentVersionMajor = _IbmServeRaidAgentVersionMajor_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 6),
+    _IbmServeRaidAgentVersionMajor_Type()
+)
+ibmServeRaidAgentVersionMajor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidAgentVersionMajor.setStatus("mandatory")
+_IbmServeRaidAgentVersionMinor_Type = Integer32
+_IbmServeRaidAgentVersionMinor_Object = MibScalar
+ibmServeRaidAgentVersionMinor = _IbmServeRaidAgentVersionMinor_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 1, 7),
+    _IbmServeRaidAgentVersionMinor_Type()
+)
+ibmServeRaidAgentVersionMinor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidAgentVersionMinor.setStatus("mandatory")
+_IbmServeRaidInfo_ObjectIdentity = ObjectIdentity
+ibmServeRaidInfo = _IbmServeRaidInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2)
+)
+_IbmServeRaidControllerTable_Object = MibTable
+ibmServeRaidControllerTable = _IbmServeRaidControllerTable_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidControllerTable.setStatus("mandatory")
+_IbmServeRaidControllerEntry_Object = MibTableRow
+ibmServeRaidControllerEntry = _IbmServeRaidControllerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1)
+)
+ibmServeRaidControllerEntry.setIndexNames(
+    (0, "IBM-SERVERAID-MIB", "ibmServeRaidKeyIndex"),
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidControllerEntry.setStatus("mandatory")
+_IbmServeRaidKeyIndex_Type = SnmpAdminString
+_IbmServeRaidKeyIndex_Object = MibTableColumn
+ibmServeRaidKeyIndex = _IbmServeRaidKeyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 1),
+    _IbmServeRaidKeyIndex_Type()
+)
+ibmServeRaidKeyIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidKeyIndex.setStatus("mandatory")
+
+
+class _IbmServeRaidControllerId_Type(Integer32):
+    """Custom type ibmServeRaidControllerId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_IbmServeRaidControllerId_Type.__name__ = "Integer32"
+_IbmServeRaidControllerId_Object = MibTableColumn
+ibmServeRaidControllerId = _IbmServeRaidControllerId_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 2),
+    _IbmServeRaidControllerId_Type()
+)
+ibmServeRaidControllerId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidControllerId.setStatus("mandatory")
+_IbmServeRaidModel_Type = SnmpAdminString
+_IbmServeRaidModel_Object = MibTableColumn
+ibmServeRaidModel = _IbmServeRaidModel_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 3),
+    _IbmServeRaidModel_Type()
+)
+ibmServeRaidModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidModel.setStatus("mandatory")
+_IbmServeRaidFirmwareVersion_Type = SnmpAdminString
+_IbmServeRaidFirmwareVersion_Object = MibTableColumn
+ibmServeRaidFirmwareVersion = _IbmServeRaidFirmwareVersion_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 4),
+    _IbmServeRaidFirmwareVersion_Type()
+)
+ibmServeRaidFirmwareVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidFirmwareVersion.setStatus("mandatory")
+_IbmServeRaidBiosVersion_Type = SnmpAdminString
+_IbmServeRaidBiosVersion_Object = MibTableColumn
+ibmServeRaidBiosVersion = _IbmServeRaidBiosVersion_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 5),
+    _IbmServeRaidBiosVersion_Type()
+)
+ibmServeRaidBiosVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidBiosVersion.setStatus("mandatory")
+_IbmServeRaidDefaultRebuildRate_Type = SnmpAdminString
+_IbmServeRaidDefaultRebuildRate_Object = MibTableColumn
+ibmServeRaidDefaultRebuildRate = _IbmServeRaidDefaultRebuildRate_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 6),
+    _IbmServeRaidDefaultRebuildRate_Type()
+)
+ibmServeRaidDefaultRebuildRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidDefaultRebuildRate.setStatus("mandatory")
+_IbmServeRaidNumChannels_Type = Gauge32
+_IbmServeRaidNumChannels_Object = MibTableColumn
+ibmServeRaidNumChannels = _IbmServeRaidNumChannels_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 7),
+    _IbmServeRaidNumChannels_Type()
+)
+ibmServeRaidNumChannels.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidNumChannels.setStatus("mandatory")
+_IbmServeRaidMaxChannels_Type = Integer32
+_IbmServeRaidMaxChannels_Object = MibTableColumn
+ibmServeRaidMaxChannels = _IbmServeRaidMaxChannels_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 8),
+    _IbmServeRaidMaxChannels_Type()
+)
+ibmServeRaidMaxChannels.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidMaxChannels.setStatus("mandatory")
+_IbmServeRaidNumLogicalDrives_Type = Gauge32
+_IbmServeRaidNumLogicalDrives_Object = MibTableColumn
+ibmServeRaidNumLogicalDrives = _IbmServeRaidNumLogicalDrives_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 9),
+    _IbmServeRaidNumLogicalDrives_Type()
+)
+ibmServeRaidNumLogicalDrives.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidNumLogicalDrives.setStatus("mandatory")
+_IbmServeRaidMaxLogicalDrives_Type = Integer32
+_IbmServeRaidMaxLogicalDrives_Object = MibTableColumn
+ibmServeRaidMaxLogicalDrives = _IbmServeRaidMaxLogicalDrives_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 10),
+    _IbmServeRaidMaxLogicalDrives_Type()
+)
+ibmServeRaidMaxLogicalDrives.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidMaxLogicalDrives.setStatus("mandatory")
+_IbmServeRaidNumPhysicalDevices_Type = Gauge32
+_IbmServeRaidNumPhysicalDevices_Object = MibTableColumn
+ibmServeRaidNumPhysicalDevices = _IbmServeRaidNumPhysicalDevices_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 11),
+    _IbmServeRaidNumPhysicalDevices_Type()
+)
+ibmServeRaidNumPhysicalDevices.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidNumPhysicalDevices.setStatus("mandatory")
+_IbmServeRaidMaxPhysicalDevices_Type = Integer32
+_IbmServeRaidMaxPhysicalDevices_Object = MibTableColumn
+ibmServeRaidMaxPhysicalDevices = _IbmServeRaidMaxPhysicalDevices_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 12),
+    _IbmServeRaidMaxPhysicalDevices_Type()
+)
+ibmServeRaidMaxPhysicalDevices.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidMaxPhysicalDevices.setStatus("mandatory")
+_IbmServeRaidStripeSize_Type = Integer32
+_IbmServeRaidStripeSize_Object = MibTableColumn
+ibmServeRaidStripeSize = _IbmServeRaidStripeSize_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 13),
+    _IbmServeRaidStripeSize_Type()
+)
+ibmServeRaidStripeSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidStripeSize.setStatus("mandatory")
+_IbmServeRaidSlotNumber_Type = Integer32
+_IbmServeRaidSlotNumber_Object = MibTableColumn
+ibmServeRaidSlotNumber = _IbmServeRaidSlotNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 14),
+    _IbmServeRaidSlotNumber_Type()
+)
+ibmServeRaidSlotNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidSlotNumber.setStatus("mandatory")
+_IbmServeRaidVendorName_Type = SnmpAdminString
+_IbmServeRaidVendorName_Object = MibTableColumn
+ibmServeRaidVendorName = _IbmServeRaidVendorName_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 15),
+    _IbmServeRaidVendorName_Type()
+)
+ibmServeRaidVendorName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidVendorName.setStatus("mandatory")
+
+
+class _IbmServeRaidGeneralStatus_Type(Integer32):
+    """Custom type ibmServeRaidGeneralStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 1),
+          ("fail", 2))
+    )
+
+
+_IbmServeRaidGeneralStatus_Type.__name__ = "Integer32"
+_IbmServeRaidGeneralStatus_Object = MibTableColumn
+ibmServeRaidGeneralStatus = _IbmServeRaidGeneralStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 1, 1, 16),
+    _IbmServeRaidGeneralStatus_Type()
+)
+ibmServeRaidGeneralStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidGeneralStatus.setStatus("mandatory")
+_IbmServeRaidPhysDeviceTable_Object = MibTable
+ibmServeRaidPhysDeviceTable = _IbmServeRaidPhysDeviceTable_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDeviceTable.setStatus("mandatory")
+_IbmServeRaidPhysDeviceEntry_Object = MibTableRow
+ibmServeRaidPhysDeviceEntry = _IbmServeRaidPhysDeviceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1)
+)
+ibmServeRaidPhysDeviceEntry.setIndexNames(
+    (0, "IBM-SERVERAID-MIB", "ibmServeRaidPhysDeviceKeyIndex"),
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDeviceEntry.setStatus("mandatory")
+_IbmServeRaidPhysDeviceKeyIndex_Type = SnmpAdminString
+_IbmServeRaidPhysDeviceKeyIndex_Object = MibTableColumn
+ibmServeRaidPhysDeviceKeyIndex = _IbmServeRaidPhysDeviceKeyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 1),
+    _IbmServeRaidPhysDeviceKeyIndex_Type()
+)
+ibmServeRaidPhysDeviceKeyIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDeviceKeyIndex.setStatus("mandatory")
+
+
+class _IbmServeRaidPhysDeviceControllerId_Type(Integer32):
+    """Custom type ibmServeRaidPhysDeviceControllerId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_IbmServeRaidPhysDeviceControllerId_Type.__name__ = "Integer32"
+_IbmServeRaidPhysDeviceControllerId_Object = MibTableColumn
+ibmServeRaidPhysDeviceControllerId = _IbmServeRaidPhysDeviceControllerId_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 2),
+    _IbmServeRaidPhysDeviceControllerId_Type()
+)
+ibmServeRaidPhysDeviceControllerId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDeviceControllerId.setStatus("mandatory")
+
+
+class _IbmServeRaidPhysDeviceChannelNr_Type(Integer32):
+    """Custom type ibmServeRaidPhysDeviceChannelNr based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_IbmServeRaidPhysDeviceChannelNr_Type.__name__ = "Integer32"
+_IbmServeRaidPhysDeviceChannelNr_Object = MibTableColumn
+ibmServeRaidPhysDeviceChannelNr = _IbmServeRaidPhysDeviceChannelNr_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 3),
+    _IbmServeRaidPhysDeviceChannelNr_Type()
+)
+ibmServeRaidPhysDeviceChannelNr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDeviceChannelNr.setStatus("mandatory")
+
+
+class _IbmServeRaidPhysDeviceDevNr_Type(Integer32):
+    """Custom type ibmServeRaidPhysDeviceDevNr based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_IbmServeRaidPhysDeviceDevNr_Type.__name__ = "Integer32"
+_IbmServeRaidPhysDeviceDevNr_Object = MibTableColumn
+ibmServeRaidPhysDeviceDevNr = _IbmServeRaidPhysDeviceDevNr_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 4),
+    _IbmServeRaidPhysDeviceDevNr_Type()
+)
+ibmServeRaidPhysDeviceDevNr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDeviceDevNr.setStatus("mandatory")
+_IbmServeRaidPhysDeviceModel_Type = SnmpAdminString
+_IbmServeRaidPhysDeviceModel_Object = MibTableColumn
+ibmServeRaidPhysDeviceModel = _IbmServeRaidPhysDeviceModel_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 5),
+    _IbmServeRaidPhysDeviceModel_Type()
+)
+ibmServeRaidPhysDeviceModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDeviceModel.setStatus("mandatory")
+_IbmServeRaidPhysDeviceCapacity_Type = Integer32
+_IbmServeRaidPhysDeviceCapacity_Object = MibTableColumn
+ibmServeRaidPhysDeviceCapacity = _IbmServeRaidPhysDeviceCapacity_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 6),
+    _IbmServeRaidPhysDeviceCapacity_Type()
+)
+ibmServeRaidPhysDeviceCapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDeviceCapacity.setStatus("mandatory")
+
+
+class _IbmServeRaidPhysDeviceStatus_Type(Integer32):
+    """Custom type ibmServeRaidPhysDeviceStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dead", 1),
+          ("online", 2),
+          ("standby", 3),
+          ("rebuild", 4),
+          ("spare", 5),
+          ("ready", 6),
+          ("empty", 7),
+          ("unknown", 9))
+    )
+
+
+_IbmServeRaidPhysDeviceStatus_Type.__name__ = "Integer32"
+_IbmServeRaidPhysDeviceStatus_Object = MibTableColumn
+ibmServeRaidPhysDeviceStatus = _IbmServeRaidPhysDeviceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 7),
+    _IbmServeRaidPhysDeviceStatus_Type()
+)
+ibmServeRaidPhysDeviceStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDeviceStatus.setStatus("mandatory")
+_IbmServeRaidPhysDeviceDiskConfigured_Type = TruthValue
+_IbmServeRaidPhysDeviceDiskConfigured_Object = MibTableColumn
+ibmServeRaidPhysDeviceDiskConfigured = _IbmServeRaidPhysDeviceDiskConfigured_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 8),
+    _IbmServeRaidPhysDeviceDiskConfigured_Type()
+)
+ibmServeRaidPhysDeviceDiskConfigured.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDeviceDiskConfigured.setStatus("mandatory")
+
+
+class _IbmServeRaidPhysDeviceScsiType_Type(Integer32):
+    """Custom type ibmServeRaidPhysDeviceScsiType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              97,
+              98,
+              99)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disk", 1),
+          ("tape", 2),
+          ("printer", 3),
+          ("processor", 4),
+          ("writeOnce", 5),
+          ("cdRom", 6),
+          ("scanner", 7),
+          ("optical", 8),
+          ("jukebox", 9),
+          ("commDev", 10),
+          ("enclosure", 97),
+          ("host", 98),
+          ("unknown", 99))
+    )
+
+
+_IbmServeRaidPhysDeviceScsiType_Type.__name__ = "Integer32"
+_IbmServeRaidPhysDeviceScsiType_Object = MibTableColumn
+ibmServeRaidPhysDeviceScsiType = _IbmServeRaidPhysDeviceScsiType_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 9),
+    _IbmServeRaidPhysDeviceScsiType_Type()
+)
+ibmServeRaidPhysDeviceScsiType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDeviceScsiType.setStatus("mandatory")
+
+
+class _IbmServeRaidPhysDevicePfaStatus_Type(Integer32):
+    """Custom type ibmServeRaidPhysDevicePfaStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ok", 1),
+          ("failurePredicted", 2))
+    )
+
+
+_IbmServeRaidPhysDevicePfaStatus_Type.__name__ = "Integer32"
+_IbmServeRaidPhysDevicePfaStatus_Object = MibTableColumn
+ibmServeRaidPhysDevicePfaStatus = _IbmServeRaidPhysDevicePfaStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 2, 1, 10),
+    _IbmServeRaidPhysDevicePfaStatus_Type()
+)
+ibmServeRaidPhysDevicePfaStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidPhysDevicePfaStatus.setStatus("mandatory")
+_IbmServeRaidLogicalTable_Object = MibTable
+ibmServeRaidLogicalTable = _IbmServeRaidLogicalTable_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalTable.setStatus("mandatory")
+_IbmServeRaidLogicalEntry_Object = MibTableRow
+ibmServeRaidLogicalEntry = _IbmServeRaidLogicalEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1)
+)
+ibmServeRaidLogicalEntry.setIndexNames(
+    (0, "IBM-SERVERAID-MIB", "ibmServeRaidLogicalKeyIndex"),
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalEntry.setStatus("mandatory")
+_IbmServeRaidLogicalKeyIndex_Type = SnmpAdminString
+_IbmServeRaidLogicalKeyIndex_Object = MibTableColumn
+ibmServeRaidLogicalKeyIndex = _IbmServeRaidLogicalKeyIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 1),
+    _IbmServeRaidLogicalKeyIndex_Type()
+)
+ibmServeRaidLogicalKeyIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalKeyIndex.setStatus("mandatory")
+
+
+class _IbmServeRaidLogicalControllerId_Type(Integer32):
+    """Custom type ibmServeRaidLogicalControllerId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_IbmServeRaidLogicalControllerId_Type.__name__ = "Integer32"
+_IbmServeRaidLogicalControllerId_Object = MibTableColumn
+ibmServeRaidLogicalControllerId = _IbmServeRaidLogicalControllerId_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 2),
+    _IbmServeRaidLogicalControllerId_Type()
+)
+ibmServeRaidLogicalControllerId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalControllerId.setStatus("mandatory")
+
+
+class _IbmServeRaidLogicalDriveNum_Type(Integer32):
+    """Custom type ibmServeRaidLogicalDriveNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_IbmServeRaidLogicalDriveNum_Type.__name__ = "Integer32"
+_IbmServeRaidLogicalDriveNum_Object = MibTableColumn
+ibmServeRaidLogicalDriveNum = _IbmServeRaidLogicalDriveNum_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 3),
+    _IbmServeRaidLogicalDriveNum_Type()
+)
+ibmServeRaidLogicalDriveNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalDriveNum.setStatus("mandatory")
+
+
+class _IbmServeRaidLogicalStatus_Type(Integer32):
+    """Custom type ibmServeRaidLogicalStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("online", 1),
+          ("critical", 2),
+          ("offline", 3),
+          ("migrating", 4),
+          ("free", 5),
+          ("unknown", 9))
+    )
+
+
+_IbmServeRaidLogicalStatus_Type.__name__ = "Integer32"
+_IbmServeRaidLogicalStatus_Object = MibTableColumn
+ibmServeRaidLogicalStatus = _IbmServeRaidLogicalStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 4),
+    _IbmServeRaidLogicalStatus_Type()
+)
+ibmServeRaidLogicalStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalStatus.setStatus("mandatory")
+_IbmServeRaidLogicalSize_Type = Integer32
+_IbmServeRaidLogicalSize_Object = MibTableColumn
+ibmServeRaidLogicalSize = _IbmServeRaidLogicalSize_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 5),
+    _IbmServeRaidLogicalSize_Type()
+)
+ibmServeRaidLogicalSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalSize.setStatus("mandatory")
+_IbmServeRaidLogicalRaidLevel_Type = SnmpAdminString
+_IbmServeRaidLogicalRaidLevel_Object = MibTableColumn
+ibmServeRaidLogicalRaidLevel = _IbmServeRaidLogicalRaidLevel_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 6),
+    _IbmServeRaidLogicalRaidLevel_Type()
+)
+ibmServeRaidLogicalRaidLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalRaidLevel.setStatus("mandatory")
+
+
+class _IbmServeRaidLogicalWriteCacheMode_Type(Integer32):
+    """Custom type ibmServeRaidLogicalWriteCacheMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("writeBack", 1),
+          ("writeThrough", 2))
+    )
+
+
+_IbmServeRaidLogicalWriteCacheMode_Type.__name__ = "Integer32"
+_IbmServeRaidLogicalWriteCacheMode_Object = MibTableColumn
+ibmServeRaidLogicalWriteCacheMode = _IbmServeRaidLogicalWriteCacheMode_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 2, 3, 1, 7),
+    _IbmServeRaidLogicalWriteCacheMode_Type()
+)
+ibmServeRaidLogicalWriteCacheMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalWriteCacheMode.setStatus("mandatory")
+_IbmServeRaidTrapInfo_ObjectIdentity = ObjectIdentity
+ibmServeRaidTrapInfo = _IbmServeRaidTrapInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3)
+)
+_IbmServeRaidTrapController_Type = Integer32
+_IbmServeRaidTrapController_Object = MibScalar
+ibmServeRaidTrapController = _IbmServeRaidTrapController_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 1),
+    _IbmServeRaidTrapController_Type()
+)
+ibmServeRaidTrapController.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidTrapController.setStatus("mandatory")
+_IbmServeRaidTrapLogicalDrive_Type = Integer32
+_IbmServeRaidTrapLogicalDrive_Object = MibScalar
+ibmServeRaidTrapLogicalDrive = _IbmServeRaidTrapLogicalDrive_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 2),
+    _IbmServeRaidTrapLogicalDrive_Type()
+)
+ibmServeRaidTrapLogicalDrive.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidTrapLogicalDrive.setStatus("mandatory")
+_IbmServeRaidTrapChannel_Type = Integer32
+_IbmServeRaidTrapChannel_Object = MibScalar
+ibmServeRaidTrapChannel = _IbmServeRaidTrapChannel_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 3),
+    _IbmServeRaidTrapChannel_Type()
+)
+ibmServeRaidTrapChannel.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidTrapChannel.setStatus("mandatory")
+_IbmServeRaidTrapScsiId_Type = Integer32
+_IbmServeRaidTrapScsiId_Object = MibScalar
+ibmServeRaidTrapScsiId = _IbmServeRaidTrapScsiId_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 4),
+    _IbmServeRaidTrapScsiId_Type()
+)
+ibmServeRaidTrapScsiId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidTrapScsiId.setStatus("mandatory")
+_IbmServeRaidTrapFan_Type = Integer32
+_IbmServeRaidTrapFan_Object = MibScalar
+ibmServeRaidTrapFan = _IbmServeRaidTrapFan_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 5),
+    _IbmServeRaidTrapFan_Type()
+)
+ibmServeRaidTrapFan.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidTrapFan.setStatus("mandatory")
+_IbmServeRaidTrapPowerSupply_Type = Integer32
+_IbmServeRaidTrapPowerSupply_Object = MibScalar
+ibmServeRaidTrapPowerSupply = _IbmServeRaidTrapPowerSupply_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 6),
+    _IbmServeRaidTrapPowerSupply_Type()
+)
+ibmServeRaidTrapPowerSupply.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidTrapPowerSupply.setStatus("mandatory")
+_IbmServeRaidTrapErrorCode_Type = Integer32
+_IbmServeRaidTrapErrorCode_Object = MibScalar
+ibmServeRaidTrapErrorCode = _IbmServeRaidTrapErrorCode_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 7),
+    _IbmServeRaidTrapErrorCode_Type()
+)
+ibmServeRaidTrapErrorCode.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidTrapErrorCode.setStatus("mandatory")
+_IbmServeRaidTrapServerName_Type = SnmpAdminString
+_IbmServeRaidTrapServerName_Object = MibScalar
+ibmServeRaidTrapServerName = _IbmServeRaidTrapServerName_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 8),
+    _IbmServeRaidTrapServerName_Type()
+)
+ibmServeRaidTrapServerName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidTrapServerName.setStatus("mandatory")
+_IbmServeRaidTrapArray_Type = SnmpAdminString
+_IbmServeRaidTrapArray_Object = MibScalar
+ibmServeRaidTrapArray = _IbmServeRaidTrapArray_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 9),
+    _IbmServeRaidTrapArray_Type()
+)
+ibmServeRaidTrapArray.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidTrapArray.setStatus("mandatory")
+_IbmServeRaidTrapFru_Type = SnmpAdminString
+_IbmServeRaidTrapFru_Object = MibScalar
+ibmServeRaidTrapFru = _IbmServeRaidTrapFru_Object(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 1, 3, 10),
+    _IbmServeRaidTrapFru_Type()
+)
+ibmServeRaidTrapFru.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ibmServeRaidTrapFru.setStatus("mandatory")
+_IbmServeRaidConformance_ObjectIdentity = ObjectIdentity
+ibmServeRaidConformance = _IbmServeRaidConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2)
+)
+_IbmServeRaidCompliances_ObjectIdentity = ObjectIdentity
+ibmServeRaidCompliances = _IbmServeRaidCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 1)
+)
+_IbmServeRaidCompliance_ObjectIdentity = ObjectIdentity
+ibmServeRaidCompliance = _IbmServeRaidCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 1, 1)
+)
+_IbmServeRaidGroups_ObjectIdentity = ObjectIdentity
+ibmServeRaidGroups = _IbmServeRaidGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2)
+)
+_IbmServeRaidAgentGroup_ObjectIdentity = ObjectIdentity
+ibmServeRaidAgentGroup = _IbmServeRaidAgentGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 1)
+)
+_IbmServeRaidControllerGroup_ObjectIdentity = ObjectIdentity
+ibmServeRaidControllerGroup = _IbmServeRaidControllerGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 2)
+)
+_IbmServeRaidPhysicalGroup_ObjectIdentity = ObjectIdentity
+ibmServeRaidPhysicalGroup = _IbmServeRaidPhysicalGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 3)
+)
+_IbmServeRaidLogicalGroup_ObjectIdentity = ObjectIdentity
+ibmServeRaidLogicalGroup = _IbmServeRaidLogicalGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 4)
+)
+_IbmServeRaidTrapInfoGroup_ObjectIdentity = ObjectIdentity
+ibmServeRaidTrapInfoGroup = _IbmServeRaidTrapInfoGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 5)
+)
+_IbmServeRaidNotificationsGroup_ObjectIdentity = ObjectIdentity
+ibmServeRaidNotificationsGroup = _IbmServeRaidNotificationsGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 2, 2, 6)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+ibmServeRaidNoControllers = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 201)
+)
+ibmServeRaidNoControllers.setObjects(
+    ("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName")
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidNoControllers.setStatus(
+        ""
+    )
+
+ibmServeRaidControllerFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 202)
+)
+ibmServeRaidControllerFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidControllerFail.setStatus(
+        ""
+    )
+
+ibmServeRaidDeadBattery = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 203)
+)
+ibmServeRaidDeadBattery.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidDeadBattery.setStatus(
+        ""
+    )
+
+ibmServeRaidDeadBatteryCache = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 204)
+)
+ibmServeRaidDeadBatteryCache.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidDeadBatteryCache.setStatus(
+        ""
+    )
+
+ibmServeRaidPollingFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 205)
+)
+ibmServeRaidPollingFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidPollingFail.setStatus(
+        ""
+    )
+
+ibmServeRaidConfigFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 206)
+)
+ibmServeRaidConfigFail.setObjects(
+    ("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName")
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidConfigFail.setStatus(
+        ""
+    )
+
+ibmServeRaidControllerAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 207)
+)
+ibmServeRaidControllerAdded.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidControllerAdded.setStatus(
+        ""
+    )
+
+ibmServeRaidControllerReplaced = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 208)
+)
+ibmServeRaidControllerReplaced.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidControllerReplaced.setStatus(
+        ""
+    )
+
+ibmServeRaidControllerFailover = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 209)
+)
+ibmServeRaidControllerFailover.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidControllerFailover.setStatus(
+        ""
+    )
+
+ibmServeRaidControllerVersionMismatch = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 210)
+)
+ibmServeRaidControllerVersionMismatch.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidControllerVersionMismatch.setStatus(
+        ""
+    )
+
+ibmServeRaidControllerBatteryOvertemp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 211)
+)
+ibmServeRaidControllerBatteryOvertemp.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidControllerBatteryOvertemp.setStatus(
+        ""
+    )
+
+ibmServeRaidLogicalDriveCritical = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 301)
+)
+ibmServeRaidLogicalDriveCritical.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalDriveCritical.setStatus(
+        ""
+    )
+
+ibmServeRaidLogicalDriveBlocked = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 302)
+)
+ibmServeRaidLogicalDriveBlocked.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalDriveBlocked.setStatus(
+        ""
+    )
+
+ibmServeRaidLogicalDriveOffLine = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 303)
+)
+ibmServeRaidLogicalDriveOffLine.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalDriveOffLine.setStatus(
+        ""
+    )
+
+ibmServeRaidRebuildDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 304)
+)
+ibmServeRaidRebuildDetected.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidRebuildDetected.setStatus(
+        ""
+    )
+
+ibmServeRaidRebuildComplete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 305)
+)
+ibmServeRaidRebuildComplete.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidRebuildComplete.setStatus(
+        ""
+    )
+
+ibmServeRaidRebuildFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 306)
+)
+ibmServeRaidRebuildFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidRebuildFail.setStatus(
+        ""
+    )
+
+ibmServeRaidSyncDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 307)
+)
+ibmServeRaidSyncDetected.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidSyncDetected.setStatus(
+        ""
+    )
+
+ibmServeRaidSyncComplete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 308)
+)
+ibmServeRaidSyncComplete.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidSyncComplete.setStatus(
+        ""
+    )
+
+ibmServeRaidSyncFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 309)
+)
+ibmServeRaidSyncFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidSyncFail.setStatus(
+        ""
+    )
+
+ibmServeRaidMigrationDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 310)
+)
+ibmServeRaidMigrationDetected.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidMigrationDetected.setStatus(
+        ""
+    )
+
+ibmServeRaidMigrationComplete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 311)
+)
+ibmServeRaidMigrationComplete.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidMigrationComplete.setStatus(
+        ""
+    )
+
+ibmServeRaidMigrationFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 312)
+)
+ibmServeRaidMigrationFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidMigrationFail.setStatus(
+        ""
+    )
+
+ibmServeRaidCompressionDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 313)
+)
+ibmServeRaidCompressionDetected.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidCompressionDetected.setStatus(
+        ""
+    )
+
+ibmServeRaidCompressionComplete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 314)
+)
+ibmServeRaidCompressionComplete.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidCompressionComplete.setStatus(
+        ""
+    )
+
+ibmServeRaidcompressionFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 315)
+)
+ibmServeRaidcompressionFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidcompressionFail.setStatus(
+        ""
+    )
+
+ibmServeRaidDecompressionDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 316)
+)
+ibmServeRaidDecompressionDetected.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidDecompressionDetected.setStatus(
+        ""
+    )
+
+ibmServeRaidDecompressionComplete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 317)
+)
+ibmServeRaidDecompressionComplete.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidDecompressionComplete.setStatus(
+        ""
+    )
+
+ibmServeRaidDecompressionFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 318)
+)
+ibmServeRaidDecompressionFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidDecompressionFail.setStatus(
+        ""
+    )
+
+ibmServeRaidFlashCopyDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 319)
+)
+ibmServeRaidFlashCopyDetected.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidFlashCopyDetected.setStatus(
+        ""
+    )
+
+ibmServeRaidFlashCopyComplete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 320)
+)
+ibmServeRaidFlashCopyComplete.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidFlashCopyComplete.setStatus(
+        ""
+    )
+
+ibmServeRaidFlashCopyFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 321)
+)
+ibmServeRaidFlashCopyFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidFlashCopyFail.setStatus(
+        ""
+    )
+
+ibmServeRaidArrayRebuildDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 322)
+)
+ibmServeRaidArrayRebuildDetected.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidArrayRebuildDetected.setStatus(
+        ""
+    )
+
+ibmServeRaidArrayRebuildComplete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 323)
+)
+ibmServeRaidArrayRebuildComplete.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidArrayRebuildComplete.setStatus(
+        ""
+    )
+
+ibmServeRaidArrayRebuildFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 324)
+)
+ibmServeRaidArrayRebuildFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidArrayRebuildFail.setStatus(
+        ""
+    )
+
+ibmServeRaidArraySyncDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 325)
+)
+ibmServeRaidArraySyncDetected.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidArraySyncDetected.setStatus(
+        ""
+    )
+
+ibmServeRaidArraySyncComplete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 326)
+)
+ibmServeRaidArraySyncComplete.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidArraySyncComplete.setStatus(
+        ""
+    )
+
+ibmServeRaidArraySyncFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 327)
+)
+ibmServeRaidArraySyncFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidArraySyncFail.setStatus(
+        ""
+    )
+
+ibmServeRaidArrayFlashCopyDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 328)
+)
+ibmServeRaidArrayFlashCopyDetected.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidArrayFlashCopyDetected.setStatus(
+        ""
+    )
+
+ibmServeRaidArrayFlashCopyComplete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 329)
+)
+ibmServeRaidArrayFlashCopyComplete.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidArrayFlashCopyComplete.setStatus(
+        ""
+    )
+
+ibmServeRaidArrayFlashCopyFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 330)
+)
+ibmServeRaidArrayFlashCopyFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapArray"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidArrayFlashCopyFail.setStatus(
+        ""
+    )
+
+ibmServeRaidLogicalDriveUnblocked = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 331)
+)
+ibmServeRaidLogicalDriveUnblocked.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalDriveUnblocked.setStatus(
+        ""
+    )
+
+ibmServeRaidCompactionDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 332)
+)
+ibmServeRaidCompactionDetected.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidCompactionDetected.setStatus(
+        ""
+    )
+
+ibmServeRaidCompactionComplete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 333)
+)
+ibmServeRaidCompactionComplete.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidCompactionComplete.setStatus(
+        ""
+    )
+
+ibmServeRaidCompactionFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 334)
+)
+ibmServeRaidCompactionFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidCompactionFail.setStatus(
+        ""
+    )
+
+ibmServeRaidExpansionDetected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 335)
+)
+ibmServeRaidExpansionDetected.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidExpansionDetected.setStatus(
+        ""
+    )
+
+ibmServeRaidExpansionComplete = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 336)
+)
+ibmServeRaidExpansionComplete.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidExpansionComplete.setStatus(
+        ""
+    )
+
+ibmServeRaidExpansionFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 337)
+)
+ibmServeRaidExpansionFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapLogicalDrive"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapErrorCode"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidExpansionFail.setStatus(
+        ""
+    )
+
+ibmServeRaidLogicalDriveCriticalPeriodic = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 338)
+)
+ibmServeRaidLogicalDriveCriticalPeriodic.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidLogicalDriveCriticalPeriodic.setStatus(
+        ""
+    )
+
+ibmServeRaidDefunctDrive = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 401)
+)
+ibmServeRaidDefunctDrive.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidDefunctDrive.setStatus(
+        ""
+    )
+
+ibmServeRaidPfaDrive = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 402)
+)
+ibmServeRaidPfaDrive.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidPfaDrive.setStatus(
+        ""
+    )
+
+ibmServeRaidDefunctReplaced = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 403)
+)
+ibmServeRaidDefunctReplaced.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidDefunctReplaced.setStatus(
+        ""
+    )
+
+ibmServeRaidDefunctDriveFru = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 404)
+)
+ibmServeRaidDefunctDriveFru.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFru"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidDefunctDriveFru.setStatus(
+        ""
+    )
+
+ibmServeRaidPfaDriveFru = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 405)
+)
+ibmServeRaidPfaDriveFru.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFru"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidPfaDriveFru.setStatus(
+        ""
+    )
+
+ibmServeRaidUnsupportedDrive = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 406)
+)
+ibmServeRaidUnsupportedDrive.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapScsiId"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidUnsupportedDrive.setStatus(
+        ""
+    )
+
+ibmServeRaidEnclosureOK = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 501)
+)
+ibmServeRaidEnclosureOK.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidEnclosureOK.setStatus(
+        ""
+    )
+
+ibmServeRaidEnclosureFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 502)
+)
+ibmServeRaidEnclosureFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidEnclosureFail.setStatus(
+        ""
+    )
+
+ibmServeRaidFanOk = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 503)
+)
+ibmServeRaidFanOk.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFan"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidFanOk.setStatus(
+        ""
+    )
+
+ibmServeRaidFanFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 504)
+)
+ibmServeRaidFanFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFan"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidFanFail.setStatus(
+        ""
+    )
+
+ibmServeRaidFanInstalled = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 505)
+)
+ibmServeRaidFanInstalled.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFan"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidFanInstalled.setStatus(
+        ""
+    )
+
+ibmServeRaidFanRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 506)
+)
+ibmServeRaidFanRemoved.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapFan"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidFanRemoved.setStatus(
+        ""
+    )
+
+ibmServeRaidTempOk = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 507)
+)
+ibmServeRaidTempOk.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidTempOk.setStatus(
+        ""
+    )
+
+ibmServeRaidTempFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 508)
+)
+ibmServeRaidTempFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidTempFail.setStatus(
+        ""
+    )
+
+ibmServeRaidPowerSupplyOk = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 509)
+)
+ibmServeRaidPowerSupplyOk.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapPowerSupply"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidPowerSupplyOk.setStatus(
+        ""
+    )
+
+ibmServeRaidPowerSupplyFail = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 510)
+)
+ibmServeRaidPowerSupplyFail.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapPowerSupply"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidPowerSupplyFail.setStatus(
+        ""
+    )
+
+ibmServeRaidPowerSupplyInstalled = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 511)
+)
+ibmServeRaidPowerSupplyInstalled.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapPowerSupply"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidPowerSupplyInstalled.setStatus(
+        ""
+    )
+
+ibmServeRaidPowerSupplyRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 512)
+)
+ibmServeRaidPowerSupplyRemoved.setObjects(
+      *(("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapPowerSupply"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapController"),
+        ("IBM-SERVERAID-MIB", "ibmServeRaidTrapChannel"))
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidPowerSupplyRemoved.setStatus(
+        ""
+    )
+
+ibmServeRaidTestTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2, 6, 167, 2, 0, 601)
+)
+ibmServeRaidTestTrap.setObjects(
+    ("IBM-SERVERAID-MIB", "ibmServeRaidTrapServerName")
+)
+if mibBuilder.loadTexts:
+    ibmServeRaidTestTrap.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "IBM-SERVERAID-MIB",
+    **{"ibm": ibm,
+       "ibmProd": ibmProd,
+       "ibmServeRaid": ibmServeRaid,
+       "ibmServeRaidMIB": ibmServeRaidMIB,
+       "ibmServeRaidNotifications": ibmServeRaidNotifications,
+       "ibmServeRaidNoControllers": ibmServeRaidNoControllers,
+       "ibmServeRaidControllerFail": ibmServeRaidControllerFail,
+       "ibmServeRaidDeadBattery": ibmServeRaidDeadBattery,
+       "ibmServeRaidDeadBatteryCache": ibmServeRaidDeadBatteryCache,
+       "ibmServeRaidPollingFail": ibmServeRaidPollingFail,
+       "ibmServeRaidConfigFail": ibmServeRaidConfigFail,
+       "ibmServeRaidControllerAdded": ibmServeRaidControllerAdded,
+       "ibmServeRaidControllerReplaced": ibmServeRaidControllerReplaced,
+       "ibmServeRaidControllerFailover": ibmServeRaidControllerFailover,
+       "ibmServeRaidControllerVersionMismatch": ibmServeRaidControllerVersionMismatch,
+       "ibmServeRaidControllerBatteryOvertemp": ibmServeRaidControllerBatteryOvertemp,
+       "ibmServeRaidLogicalDriveCritical": ibmServeRaidLogicalDriveCritical,
+       "ibmServeRaidLogicalDriveBlocked": ibmServeRaidLogicalDriveBlocked,
+       "ibmServeRaidLogicalDriveOffLine": ibmServeRaidLogicalDriveOffLine,
+       "ibmServeRaidRebuildDetected": ibmServeRaidRebuildDetected,
+       "ibmServeRaidRebuildComplete": ibmServeRaidRebuildComplete,
+       "ibmServeRaidRebuildFail": ibmServeRaidRebuildFail,
+       "ibmServeRaidSyncDetected": ibmServeRaidSyncDetected,
+       "ibmServeRaidSyncComplete": ibmServeRaidSyncComplete,
+       "ibmServeRaidSyncFail": ibmServeRaidSyncFail,
+       "ibmServeRaidMigrationDetected": ibmServeRaidMigrationDetected,
+       "ibmServeRaidMigrationComplete": ibmServeRaidMigrationComplete,
+       "ibmServeRaidMigrationFail": ibmServeRaidMigrationFail,
+       "ibmServeRaidCompressionDetected": ibmServeRaidCompressionDetected,
+       "ibmServeRaidCompressionComplete": ibmServeRaidCompressionComplete,
+       "ibmServeRaidcompressionFail": ibmServeRaidcompressionFail,
+       "ibmServeRaidDecompressionDetected": ibmServeRaidDecompressionDetected,
+       "ibmServeRaidDecompressionComplete": ibmServeRaidDecompressionComplete,
+       "ibmServeRaidDecompressionFail": ibmServeRaidDecompressionFail,
+       "ibmServeRaidFlashCopyDetected": ibmServeRaidFlashCopyDetected,
+       "ibmServeRaidFlashCopyComplete": ibmServeRaidFlashCopyComplete,
+       "ibmServeRaidFlashCopyFail": ibmServeRaidFlashCopyFail,
+       "ibmServeRaidArrayRebuildDetected": ibmServeRaidArrayRebuildDetected,
+       "ibmServeRaidArrayRebuildComplete": ibmServeRaidArrayRebuildComplete,
+       "ibmServeRaidArrayRebuildFail": ibmServeRaidArrayRebuildFail,
+       "ibmServeRaidArraySyncDetected": ibmServeRaidArraySyncDetected,
+       "ibmServeRaidArraySyncComplete": ibmServeRaidArraySyncComplete,
+       "ibmServeRaidArraySyncFail": ibmServeRaidArraySyncFail,
+       "ibmServeRaidArrayFlashCopyDetected": ibmServeRaidArrayFlashCopyDetected,
+       "ibmServeRaidArrayFlashCopyComplete": ibmServeRaidArrayFlashCopyComplete,
+       "ibmServeRaidArrayFlashCopyFail": ibmServeRaidArrayFlashCopyFail,
+       "ibmServeRaidLogicalDriveUnblocked": ibmServeRaidLogicalDriveUnblocked,
+       "ibmServeRaidCompactionDetected": ibmServeRaidCompactionDetected,
+       "ibmServeRaidCompactionComplete": ibmServeRaidCompactionComplete,
+       "ibmServeRaidCompactionFail": ibmServeRaidCompactionFail,
+       "ibmServeRaidExpansionDetected": ibmServeRaidExpansionDetected,
+       "ibmServeRaidExpansionComplete": ibmServeRaidExpansionComplete,
+       "ibmServeRaidExpansionFail": ibmServeRaidExpansionFail,
+       "ibmServeRaidLogicalDriveCriticalPeriodic": ibmServeRaidLogicalDriveCriticalPeriodic,
+       "ibmServeRaidDefunctDrive": ibmServeRaidDefunctDrive,
+       "ibmServeRaidPfaDrive": ibmServeRaidPfaDrive,
+       "ibmServeRaidDefunctReplaced": ibmServeRaidDefunctReplaced,
+       "ibmServeRaidDefunctDriveFru": ibmServeRaidDefunctDriveFru,
+       "ibmServeRaidPfaDriveFru": ibmServeRaidPfaDriveFru,
+       "ibmServeRaidUnsupportedDrive": ibmServeRaidUnsupportedDrive,
+       "ibmServeRaidEnclosureOK": ibmServeRaidEnclosureOK,
+       "ibmServeRaidEnclosureFail": ibmServeRaidEnclosureFail,
+       "ibmServeRaidFanOk": ibmServeRaidFanOk,
+       "ibmServeRaidFanFail": ibmServeRaidFanFail,
+       "ibmServeRaidFanInstalled": ibmServeRaidFanInstalled,
+       "ibmServeRaidFanRemoved": ibmServeRaidFanRemoved,
+       "ibmServeRaidTempOk": ibmServeRaidTempOk,
+       "ibmServeRaidTempFail": ibmServeRaidTempFail,
+       "ibmServeRaidPowerSupplyOk": ibmServeRaidPowerSupplyOk,
+       "ibmServeRaidPowerSupplyFail": ibmServeRaidPowerSupplyFail,
+       "ibmServeRaidPowerSupplyInstalled": ibmServeRaidPowerSupplyInstalled,
+       "ibmServeRaidPowerSupplyRemoved": ibmServeRaidPowerSupplyRemoved,
+       "ibmServeRaidTestTrap": ibmServeRaidTestTrap,
+       "ibmServeRaidMibObjects": ibmServeRaidMibObjects,
+       "ibmServeRaidAgentInfo": ibmServeRaidAgentInfo,
+       "ibmServeRaidAgentKeyIndex": ibmServeRaidAgentKeyIndex,
+       "ibmServeRaidAgentId": ibmServeRaidAgentId,
+       "ibmServeRaidAgentCompany": ibmServeRaidAgentCompany,
+       "ibmServeRaidAgentVersion": ibmServeRaidAgentVersion,
+       "ibmServeRaidAgentBuildDate": ibmServeRaidAgentBuildDate,
+       "ibmServeRaidAgentVersionMajor": ibmServeRaidAgentVersionMajor,
+       "ibmServeRaidAgentVersionMinor": ibmServeRaidAgentVersionMinor,
+       "ibmServeRaidInfo": ibmServeRaidInfo,
+       "ibmServeRaidControllerTable": ibmServeRaidControllerTable,
+       "ibmServeRaidControllerEntry": ibmServeRaidControllerEntry,
+       "ibmServeRaidKeyIndex": ibmServeRaidKeyIndex,
+       "ibmServeRaidControllerId": ibmServeRaidControllerId,
+       "ibmServeRaidModel": ibmServeRaidModel,
+       "ibmServeRaidFirmwareVersion": ibmServeRaidFirmwareVersion,
+       "ibmServeRaidBiosVersion": ibmServeRaidBiosVersion,
+       "ibmServeRaidDefaultRebuildRate": ibmServeRaidDefaultRebuildRate,
+       "ibmServeRaidNumChannels": ibmServeRaidNumChannels,
+       "ibmServeRaidMaxChannels": ibmServeRaidMaxChannels,
+       "ibmServeRaidNumLogicalDrives": ibmServeRaidNumLogicalDrives,
+       "ibmServeRaidMaxLogicalDrives": ibmServeRaidMaxLogicalDrives,
+       "ibmServeRaidNumPhysicalDevices": ibmServeRaidNumPhysicalDevices,
+       "ibmServeRaidMaxPhysicalDevices": ibmServeRaidMaxPhysicalDevices,
+       "ibmServeRaidStripeSize": ibmServeRaidStripeSize,
+       "ibmServeRaidSlotNumber": ibmServeRaidSlotNumber,
+       "ibmServeRaidVendorName": ibmServeRaidVendorName,
+       "ibmServeRaidGeneralStatus": ibmServeRaidGeneralStatus,
+       "ibmServeRaidPhysDeviceTable": ibmServeRaidPhysDeviceTable,
+       "ibmServeRaidPhysDeviceEntry": ibmServeRaidPhysDeviceEntry,
+       "ibmServeRaidPhysDeviceKeyIndex": ibmServeRaidPhysDeviceKeyIndex,
+       "ibmServeRaidPhysDeviceControllerId": ibmServeRaidPhysDeviceControllerId,
+       "ibmServeRaidPhysDeviceChannelNr": ibmServeRaidPhysDeviceChannelNr,
+       "ibmServeRaidPhysDeviceDevNr": ibmServeRaidPhysDeviceDevNr,
+       "ibmServeRaidPhysDeviceModel": ibmServeRaidPhysDeviceModel,
+       "ibmServeRaidPhysDeviceCapacity": ibmServeRaidPhysDeviceCapacity,
+       "ibmServeRaidPhysDeviceStatus": ibmServeRaidPhysDeviceStatus,
+       "ibmServeRaidPhysDeviceDiskConfigured": ibmServeRaidPhysDeviceDiskConfigured,
+       "ibmServeRaidPhysDeviceScsiType": ibmServeRaidPhysDeviceScsiType,
+       "ibmServeRaidPhysDevicePfaStatus": ibmServeRaidPhysDevicePfaStatus,
+       "ibmServeRaidLogicalTable": ibmServeRaidLogicalTable,
+       "ibmServeRaidLogicalEntry": ibmServeRaidLogicalEntry,
+       "ibmServeRaidLogicalKeyIndex": ibmServeRaidLogicalKeyIndex,
+       "ibmServeRaidLogicalControllerId": ibmServeRaidLogicalControllerId,
+       "ibmServeRaidLogicalDriveNum": ibmServeRaidLogicalDriveNum,
+       "ibmServeRaidLogicalStatus": ibmServeRaidLogicalStatus,
+       "ibmServeRaidLogicalSize": ibmServeRaidLogicalSize,
+       "ibmServeRaidLogicalRaidLevel": ibmServeRaidLogicalRaidLevel,
+       "ibmServeRaidLogicalWriteCacheMode": ibmServeRaidLogicalWriteCacheMode,
+       "ibmServeRaidTrapInfo": ibmServeRaidTrapInfo,
+       "ibmServeRaidTrapController": ibmServeRaidTrapController,
+       "ibmServeRaidTrapLogicalDrive": ibmServeRaidTrapLogicalDrive,
+       "ibmServeRaidTrapChannel": ibmServeRaidTrapChannel,
+       "ibmServeRaidTrapScsiId": ibmServeRaidTrapScsiId,
+       "ibmServeRaidTrapFan": ibmServeRaidTrapFan,
+       "ibmServeRaidTrapPowerSupply": ibmServeRaidTrapPowerSupply,
+       "ibmServeRaidTrapErrorCode": ibmServeRaidTrapErrorCode,
+       "ibmServeRaidTrapServerName": ibmServeRaidTrapServerName,
+       "ibmServeRaidTrapArray": ibmServeRaidTrapArray,
+       "ibmServeRaidTrapFru": ibmServeRaidTrapFru,
+       "ibmServeRaidConformance": ibmServeRaidConformance,
+       "ibmServeRaidCompliances": ibmServeRaidCompliances,
+       "ibmServeRaidCompliance": ibmServeRaidCompliance,
+       "ibmServeRaidGroups": ibmServeRaidGroups,
+       "ibmServeRaidAgentGroup": ibmServeRaidAgentGroup,
+       "ibmServeRaidControllerGroup": ibmServeRaidControllerGroup,
+       "ibmServeRaidPhysicalGroup": ibmServeRaidPhysicalGroup,
+       "ibmServeRaidLogicalGroup": ibmServeRaidLogicalGroup,
+       "ibmServeRaidTrapInfoGroup": ibmServeRaidTrapInfoGroup,
+       "ibmServeRaidNotificationsGroup": ibmServeRaidNotificationsGroup}
+)

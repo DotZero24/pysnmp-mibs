@@ -1,180 +1,791 @@
+# SNMP MIB module (NTWS-AP-TC) expressed in pysnmp data model.
 #
-# PySNMP MIB module NTWS-AP-TC (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nortel/NTWS-AP-TC
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:02:49 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nortel/NTWS-AP-TC
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:19:47 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ntwsMibs, = mibBuilder.importSymbols("NTWS-ROOT-MIB", "ntwsMibs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ntwsApTc = ModuleIdentity((1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 3))
-ntwsApTc.setRevisions(('2009-07-21 01:03', '2008-12-02 01:01', '2008-11-27 01:00', '2008-11-26 00:51', '2008-10-06 00:50', '2008-05-07 00:41', '2008-02-14 00:32', '2007-12-03 00:30', '2007-09-25 00:24', '2007-07-06 00:23', '2007-07-05 00:22', '2006-07-10 00:15', '2006-03-30 00:14',))
-if mibBuilder.loadTexts: ntwsApTc.setLastUpdated('200907210103Z')
-if mibBuilder.loadTexts: ntwsApTc.setOrganization('Nortel Networks')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ntwsMibs,) = mibBuilder.importSymbols(
+    "NTWS-ROOT-MIB",
+    "ntwsMibs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ntwsApTc = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 45, 6, 1, 4, 3)
+)
+if mibBuilder.loadTexts:
+    ntwsApTc.setRevisions(
+        ("2009-07-21 01:03",
+         "2008-12-02 01:01",
+         "2008-11-27 01:00",
+         "2008-11-26 00:51",
+         "2008-10-06 00:50",
+         "2008-05-07 00:41",
+         "2008-02-14 00:32",
+         "2007-12-03 00:30",
+         "2007-09-25 00:24",
+         "2007-07-06 00:23",
+         "2007-07-05 00:22",
+         "2006-07-10 00:15",
+         "2006-03-30 00:14")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class NtwsAccessType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("ap", 1), ("dap", 2), ("wired", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ap", 1),
+          ("dap", 2),
+          ("wired", 3))
+    )
+
+
 
 class NtwsApAttachType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("directAttach", 1), ("networkAttach", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("directAttach", 1),
+          ("networkAttach", 2))
+    )
+
+
 
 class NtwsApPortOrDapNum(TextualConvention, Unsigned32):
-    status = 'obsolete'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 1000)
+    status = "obsolete"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
 
 class NtwsApNum(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(0, 9999)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 9999),
+    )
+
+
 
 class NtwsApState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("cleared", 1), ("init", 2), ("bootStarted", 3), ("imageDownloaded", 4), ("connectFailed", 5), ("configuring", 6), ("configured", 7))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cleared", 1),
+          ("init", 2),
+          ("bootStarted", 3),
+          ("imageDownloaded", 4),
+          ("connectFailed", 5),
+          ("configuring", 6),
+          ("configured", 7))
+    )
+
+
 
 class NtwsApTransition(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("clear", 1), ("timeout", 2), ("reset", 3), ("bootSuccess", 4), ("startConfiguring", 5), ("connectFail", 6))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("clear", 1),
+          ("timeout", 2),
+          ("reset", 3),
+          ("bootSuccess", 4),
+          ("startConfiguring", 5),
+          ("connectFail", 6))
+    )
+
+
 
 class NtwsApFailDetail(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(2, 3, 4, 11, 12, 91, 99))
-    namedValues = NamedValues(("secureHandshakeFailure", 2), ("fingerprintRequired", 3), ("fingerprintMismatch", 4), ("portLinkUp", 11), ("portLinkDown", 12), ("normalTransition", 91), ("failUnknown", 99))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3,
+              4,
+              11,
+              12,
+              91,
+              99)
+        )
+    )
+    namedValues = NamedValues(
+        *(("secureHandshakeFailure", 2),
+          ("fingerprintRequired", 3),
+          ("fingerprintMismatch", 4),
+          ("portLinkUp", 11),
+          ("portLinkDown", 12),
+          ("normalTransition", 91),
+          ("failUnknown", 99))
+    )
+
+
 
 class NtwsApConnectSecurityType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("secure", 1), ("insecure", 2), ("auto", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("secure", 1),
+          ("insecure", 2),
+          ("auto", 3))
+    )
+
+
 
 class NtwsApServiceAvailability(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("fullService", 1), ("noService", 2), ("degradedService", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fullService", 1),
+          ("noService", 2),
+          ("degradedService", 3))
+    )
+
+
 
 class NtwsApBias(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("high", 1), ("low", 2), ("sticky", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("high", 1),
+          ("low", 2),
+          ("sticky", 3))
+    )
+
+
 
 class NtwsApSerialNum(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '255a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 32)
+    status = "current"
+    displayHint = "255a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
 
 class NtwsApFingerprint(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '2x:'
-    subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(16, 16), )
+    status = "current"
+    displayHint = "2x:"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+
 class NtwsRadioNum(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("radio-1", 1), ("radio-2", 2), ("not-applicable", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("radio-1", 1),
+          ("radio-2", 2),
+          ("not-applicable", 3))
+    )
+
+
 
 class NtwsApRadioIndex(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 4294967295)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
 
 class NtwsApRadioIndexOrZero(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 4294967295), )
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+
 class NtwsPowerLevel(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
+    status = "current"
+    displayHint = "d"
+
 
 class NtwsRadioPowerChangeType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("dup-pkts-threshold-exceed", 1), ("retransmit-threshold-exceed", 2), ("clients-optimal-performance-reached", 3), ("def-power-threshold-exceed", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dup-pkts-threshold-exceed", 1),
+          ("retransmit-threshold-exceed", 2),
+          ("clients-optimal-performance-reached", 3),
+          ("def-power-threshold-exceed", 4))
+    )
+
+
 
 class NtwsChannelChangeType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("util-index", 1), ("rexmit-pkt-offset", 2), ("noise-offset", 3), ("noise", 4), ("utilization", 5), ("phy-error-offset", 6), ("crc-errors-offset", 7), ("radar-detected", 8))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("util-index", 1),
+          ("rexmit-pkt-offset", 2),
+          ("noise-offset", 3),
+          ("noise", 4),
+          ("utilization", 5),
+          ("phy-error-offset", 6),
+          ("crc-errors-offset", 7),
+          ("radar-detected", 8))
+    )
+
+
 
 class NtwsChannelNum(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 1024)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
 
 class NtwsRadioEnable(TextualConvention, Integer32):
-    status = 'obsolete'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("enabled", 1), ("disabled", 2))
+    status = "obsolete"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
 
 class NtwsRadioMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("enabled", 1), ("disabled", 2), ("sentry", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2),
+          ("sentry", 3))
+    )
+
+
 
 class NtwsRadioConfigState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("configInit", 1), ("configFail", 2), ("configOk", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("configInit", 1),
+          ("configFail", 2),
+          ("configOk", 3))
+    )
+
+
 
 class NtwsRadioRate(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd-1'
-    subtypeSpec = Unsigned32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(10, 540), )
+    status = "current"
+    displayHint = "d-1"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(10, 540),
+    )
+
+
+
 class NtwsRadioRateEx(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35))
-    namedValues = NamedValues(("rateUnknown", 1), ("rate1", 2), ("rate2", 3), ("rate5-5", 4), ("rate6", 5), ("rate9", 6), ("rate11", 7), ("rate12", 8), ("rate18", 9), ("rate24", 10), ("rate36", 11), ("rate48", 12), ("rate54", 13), ("rateMCS0", 20), ("rateMCS1", 21), ("rateMCS2", 22), ("rateMCS3", 23), ("rateMCS4", 24), ("rateMCS5", 25), ("rateMCS6", 26), ("rateMCS7", 27), ("rateMCS8", 28), ("rateMCS9", 29), ("rateMCS10", 30), ("rateMCS11", 31), ("rateMCS12", 32), ("rateMCS13", 33), ("rateMCS14", 34), ("rateMCS15", 35))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33,
+              34,
+              35)
+        )
+    )
+    namedValues = NamedValues(
+        *(("rateUnknown", 1),
+          ("rate1", 2),
+          ("rate2", 3),
+          ("rate5-5", 4),
+          ("rate6", 5),
+          ("rate9", 6),
+          ("rate11", 7),
+          ("rate12", 8),
+          ("rate18", 9),
+          ("rate24", 10),
+          ("rate36", 11),
+          ("rate48", 12),
+          ("rate54", 13),
+          ("rateMCS0", 20),
+          ("rateMCS1", 21),
+          ("rateMCS2", 22),
+          ("rateMCS3", 23),
+          ("rateMCS4", 24),
+          ("rateMCS5", 25),
+          ("rateMCS6", 26),
+          ("rateMCS7", 27),
+          ("rateMCS8", 28),
+          ("rateMCS9", 29),
+          ("rateMCS10", 30),
+          ("rateMCS11", 31),
+          ("rateMCS12", 32),
+          ("rateMCS13", 33),
+          ("rateMCS14", 34),
+          ("rateMCS15", 35))
+    )
+
+
 
 class NtwsRadioType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("typeUnknown", 1), ("typeA", 2), ("typeB", 3), ("typeG", 4), ("typeNA", 5), ("typeNG", 6))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("typeUnknown", 1),
+          ("typeA", 2),
+          ("typeB", 3),
+          ("typeG", 4),
+          ("typeNA", 5),
+          ("typeNG", 6))
+    )
+
+
 
 class NtwsRssi(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(-100, 0)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-100, 0),
+    )
+
+
 
 class NtwsApWasOperational(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("oper", 1), ("nonOper", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("oper", 1),
+          ("nonOper", 2))
+    )
+
+
 
 class NtwsRadioChannelWidth(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("channelWidth20MHz", 1), ("channelWidth40MHz", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("channelWidth20MHz", 1),
+          ("channelWidth40MHz", 2))
+    )
+
+
 
 class NtwsRadioMimoState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("mimoOther", 1), ("mimo1x1", 2), ("mimo2x3", 3), ("mimo3x3", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mimoOther", 1),
+          ("mimo1x1", 2),
+          ("mimo2x3", 3),
+          ("mimo3x3", 4))
+    )
+
+
 
 class NtwsApPowerMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("auto", 1), ("high", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 1),
+          ("high", 2))
+    )
+
+
 
 class NtwsApLedMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("auto", 1), ("static", 2), ("off", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 1),
+          ("static", 2),
+          ("off", 3))
+    )
+
+
 
 class NtwsRadioAntennaLocation(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("indoors", 1), ("outdoors", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("indoors", 1),
+          ("outdoors", 2))
+    )
+
+
 
 class NtwsCryptoType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("other", 1), ("clear", 2), ("wep", 3), ("wep40", 4), ("wep104", 5), ("tkip", 6), ("aesCcmp", 7))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("clear", 2),
+          ("wep", 3),
+          ("wep40", 4),
+          ("wep104", 5),
+          ("tkip", 6),
+          ("aesCcmp", 7))
+    )
 
-mibBuilder.exportSymbols("NTWS-AP-TC", NtwsApRadioIndexOrZero=NtwsApRadioIndexOrZero, NtwsRadioConfigState=NtwsRadioConfigState, NtwsApSerialNum=NtwsApSerialNum, NtwsApWasOperational=NtwsApWasOperational, NtwsApBias=NtwsApBias, NtwsRadioAntennaLocation=NtwsRadioAntennaLocation, NtwsApLedMode=NtwsApLedMode, ntwsApTc=ntwsApTc, NtwsChannelChangeType=NtwsChannelChangeType, NtwsPowerLevel=NtwsPowerLevel, NtwsApServiceAvailability=NtwsApServiceAvailability, NtwsApTransition=NtwsApTransition, NtwsApPowerMode=NtwsApPowerMode, NtwsApNum=NtwsApNum, NtwsApAttachType=NtwsApAttachType, NtwsApPortOrDapNum=NtwsApPortOrDapNum, NtwsRadioNum=NtwsRadioNum, NtwsRadioMimoState=NtwsRadioMimoState, NtwsRadioPowerChangeType=NtwsRadioPowerChangeType, NtwsRadioEnable=NtwsRadioEnable, NtwsRadioChannelWidth=NtwsRadioChannelWidth, NtwsRadioMode=NtwsRadioMode, NtwsRssi=NtwsRssi, NtwsRadioType=NtwsRadioType, NtwsAccessType=NtwsAccessType, NtwsCryptoType=NtwsCryptoType, NtwsChannelNum=NtwsChannelNum, NtwsApState=NtwsApState, NtwsApRadioIndex=NtwsApRadioIndex, NtwsRadioRateEx=NtwsRadioRateEx, NtwsApFailDetail=NtwsApFailDetail, NtwsApConnectSecurityType=NtwsApConnectSecurityType, NtwsApFingerprint=NtwsApFingerprint, NtwsRadioRate=NtwsRadioRate, PYSNMP_MODULE_ID=ntwsApTc)
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NTWS-AP-TC",
+    **{"NtwsAccessType": NtwsAccessType,
+       "NtwsApAttachType": NtwsApAttachType,
+       "NtwsApPortOrDapNum": NtwsApPortOrDapNum,
+       "NtwsApNum": NtwsApNum,
+       "NtwsApState": NtwsApState,
+       "NtwsApTransition": NtwsApTransition,
+       "NtwsApFailDetail": NtwsApFailDetail,
+       "NtwsApConnectSecurityType": NtwsApConnectSecurityType,
+       "NtwsApServiceAvailability": NtwsApServiceAvailability,
+       "NtwsApBias": NtwsApBias,
+       "NtwsApSerialNum": NtwsApSerialNum,
+       "NtwsApFingerprint": NtwsApFingerprint,
+       "NtwsRadioNum": NtwsRadioNum,
+       "NtwsApRadioIndex": NtwsApRadioIndex,
+       "NtwsApRadioIndexOrZero": NtwsApRadioIndexOrZero,
+       "NtwsPowerLevel": NtwsPowerLevel,
+       "NtwsRadioPowerChangeType": NtwsRadioPowerChangeType,
+       "NtwsChannelChangeType": NtwsChannelChangeType,
+       "NtwsChannelNum": NtwsChannelNum,
+       "NtwsRadioEnable": NtwsRadioEnable,
+       "NtwsRadioMode": NtwsRadioMode,
+       "NtwsRadioConfigState": NtwsRadioConfigState,
+       "NtwsRadioRate": NtwsRadioRate,
+       "NtwsRadioRateEx": NtwsRadioRateEx,
+       "NtwsRadioType": NtwsRadioType,
+       "NtwsRssi": NtwsRssi,
+       "NtwsApWasOperational": NtwsApWasOperational,
+       "NtwsRadioChannelWidth": NtwsRadioChannelWidth,
+       "NtwsRadioMimoState": NtwsRadioMimoState,
+       "NtwsApPowerMode": NtwsApPowerMode,
+       "NtwsApLedMode": NtwsApLedMode,
+       "NtwsRadioAntennaLocation": NtwsRadioAntennaLocation,
+       "NtwsCryptoType": NtwsCryptoType,
+       "ntwsApTc": ntwsApTc}
+)

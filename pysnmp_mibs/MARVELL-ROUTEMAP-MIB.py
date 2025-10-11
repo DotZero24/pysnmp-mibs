@@ -1,46 +1,303 @@
+# SNMP MIB module (MARVELL-ROUTEMAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MARVELL-ROUTEMAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/radlan/MARVELL-ROUTEMAP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:06 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/radlan/MARVELL-ROUTEMAP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:12:01 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
-InetAddressIPv6, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv6", "InetAddressType", "InetAddress")
-rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-rlRouteMap = ModuleIdentity((1, 3, 6, 1, 4, 1, 89, 227))
-rlRouteMap.setRevisions(('2015-06-08 00:00',))
-if mibBuilder.loadTexts: rlRouteMap.setLastUpdated('201506080000Z')
-if mibBuilder.loadTexts: rlRouteMap.setOrganization('Marvell Computer Communications Ltd.')
-class RlRouteMapInetType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("ipv4", 1), ("ipv6", 2))
 
-rlRouteMapPbrTable = MibTable((1, 3, 6, 1, 4, 1, 89, 227, 1), )
-if mibBuilder.loadTexts: rlRouteMapPbrTable.setStatus('current')
-rlRouteMapPbrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 227, 1, 1), ).setIndexNames((0, "MARVELL-ROUTEMAP-MIB", "rlRouteMapPbrRouteMapName"), (0, "MARVELL-ROUTEMAP-MIB", "rlRouteMapPbrRouteMapSectionId"), (0, "MARVELL-ROUTEMAP-MIB", "rlRouteMapPbrInetType"))
-if mibBuilder.loadTexts: rlRouteMapPbrEntry.setStatus('current')
-rlRouteMapPbrRouteMapName = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
-if mibBuilder.loadTexts: rlRouteMapPbrRouteMapName.setStatus('current')
-rlRouteMapPbrRouteMapSectionId = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
-if mibBuilder.loadTexts: rlRouteMapPbrRouteMapSectionId.setStatus('current')
-rlRouteMapPbrInetType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 3), RlRouteMapInetType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlRouteMapPbrInetType.setStatus('current')
-rlRouteMapPbrMatchAccessListName = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlRouteMapPbrMatchAccessListName.setStatus('current')
-rlRouteMapPbrActionNexthopInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 5), InetAddressType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlRouteMapPbrActionNexthopInetAddressType.setStatus('current')
-rlRouteMapPbrActionNexthopInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 6), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlRouteMapPbrActionNexthopInetAddress.setStatus('current')
-rlRouteMapPbrActionNexthopIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 7), InterfaceIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlRouteMapPbrActionNexthopIfIndex.setStatus('current')
-rlRouteMapPbrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 8), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlRouteMapPbrRowStatus.setStatus('current')
-mibBuilder.exportSymbols("MARVELL-ROUTEMAP-MIB", rlRouteMapPbrEntry=rlRouteMapPbrEntry, RlRouteMapInetType=RlRouteMapInetType, rlRouteMapPbrRouteMapSectionId=rlRouteMapPbrRouteMapSectionId, rlRouteMapPbrMatchAccessListName=rlRouteMapPbrMatchAccessListName, PYSNMP_MODULE_ID=rlRouteMap, rlRouteMapPbrInetType=rlRouteMapPbrInetType, rlRouteMapPbrActionNexthopInetAddressType=rlRouteMapPbrActionNexthopInetAddressType, rlRouteMapPbrActionNexthopInetAddress=rlRouteMapPbrActionNexthopInetAddress, rlRouteMapPbrTable=rlRouteMapPbrTable, rlRouteMapPbrRouteMapName=rlRouteMapPbrRouteMapName, rlRouteMapPbrRowStatus=rlRouteMapPbrRowStatus, rlRouteMap=rlRouteMap, rlRouteMapPbrActionNexthopIfIndex=rlRouteMapPbrActionNexthopIfIndex)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,
+ InterfaceIndexOrZero) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "InterfaceIndexOrZero")
+
+(InetAddress,
+ InetAddressIPv6,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressIPv6",
+    "InetAddressType")
+
+(rnd,) = mibBuilder.importSymbols(
+    "RADLAN-MIB",
+    "rnd")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+rlRouteMap = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 227)
+)
+if mibBuilder.loadTexts:
+    rlRouteMap.setRevisions(
+        ("2015-06-08 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class RlRouteMapInetType(TextualConvention, Integer32):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 1),
+          ("ipv6", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlRouteMapPbrTable_Object = MibTable
+rlRouteMapPbrTable = _RlRouteMapPbrTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 227, 1)
+)
+if mibBuilder.loadTexts:
+    rlRouteMapPbrTable.setStatus("current")
+_RlRouteMapPbrEntry_Object = MibTableRow
+rlRouteMapPbrEntry = _RlRouteMapPbrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 227, 1, 1)
+)
+rlRouteMapPbrEntry.setIndexNames(
+    (0, "MARVELL-ROUTEMAP-MIB", "rlRouteMapPbrRouteMapName"),
+    (0, "MARVELL-ROUTEMAP-MIB", "rlRouteMapPbrRouteMapSectionId"),
+    (0, "MARVELL-ROUTEMAP-MIB", "rlRouteMapPbrInetType"),
+)
+if mibBuilder.loadTexts:
+    rlRouteMapPbrEntry.setStatus("current")
+
+
+class _RlRouteMapPbrRouteMapName_Type(DisplayString):
+    """Custom type rlRouteMapPbrRouteMapName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_RlRouteMapPbrRouteMapName_Type.__name__ = "DisplayString"
+_RlRouteMapPbrRouteMapName_Object = MibTableColumn
+rlRouteMapPbrRouteMapName = _RlRouteMapPbrRouteMapName_Object(
+    (1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 1),
+    _RlRouteMapPbrRouteMapName_Type()
+)
+rlRouteMapPbrRouteMapName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlRouteMapPbrRouteMapName.setStatus("current")
+
+
+class _RlRouteMapPbrRouteMapSectionId_Type(Unsigned32):
+    """Custom type rlRouteMapPbrRouteMapSectionId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_RlRouteMapPbrRouteMapSectionId_Type.__name__ = "Unsigned32"
+_RlRouteMapPbrRouteMapSectionId_Object = MibTableColumn
+rlRouteMapPbrRouteMapSectionId = _RlRouteMapPbrRouteMapSectionId_Object(
+    (1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 2),
+    _RlRouteMapPbrRouteMapSectionId_Type()
+)
+rlRouteMapPbrRouteMapSectionId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlRouteMapPbrRouteMapSectionId.setStatus("current")
+_RlRouteMapPbrInetType_Type = RlRouteMapInetType
+_RlRouteMapPbrInetType_Object = MibTableColumn
+rlRouteMapPbrInetType = _RlRouteMapPbrInetType_Object(
+    (1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 3),
+    _RlRouteMapPbrInetType_Type()
+)
+rlRouteMapPbrInetType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlRouteMapPbrInetType.setStatus("current")
+
+
+class _RlRouteMapPbrMatchAccessListName_Type(DisplayString):
+    """Custom type rlRouteMapPbrMatchAccessListName based on DisplayString"""
+    defaultValue = OctetString("")
+
+
+_RlRouteMapPbrMatchAccessListName_Type.__name__ = "DisplayString"
+_RlRouteMapPbrMatchAccessListName_Object = MibTableColumn
+rlRouteMapPbrMatchAccessListName = _RlRouteMapPbrMatchAccessListName_Object(
+    (1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 4),
+    _RlRouteMapPbrMatchAccessListName_Type()
+)
+rlRouteMapPbrMatchAccessListName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlRouteMapPbrMatchAccessListName.setStatus("current")
+_RlRouteMapPbrActionNexthopInetAddressType_Type = InetAddressType
+_RlRouteMapPbrActionNexthopInetAddressType_Object = MibTableColumn
+rlRouteMapPbrActionNexthopInetAddressType = _RlRouteMapPbrActionNexthopInetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 5),
+    _RlRouteMapPbrActionNexthopInetAddressType_Type()
+)
+rlRouteMapPbrActionNexthopInetAddressType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlRouteMapPbrActionNexthopInetAddressType.setStatus("current")
+_RlRouteMapPbrActionNexthopInetAddress_Type = InetAddress
+_RlRouteMapPbrActionNexthopInetAddress_Object = MibTableColumn
+rlRouteMapPbrActionNexthopInetAddress = _RlRouteMapPbrActionNexthopInetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 6),
+    _RlRouteMapPbrActionNexthopInetAddress_Type()
+)
+rlRouteMapPbrActionNexthopInetAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlRouteMapPbrActionNexthopInetAddress.setStatus("current")
+_RlRouteMapPbrActionNexthopIfIndex_Type = InterfaceIndexOrZero
+_RlRouteMapPbrActionNexthopIfIndex_Object = MibTableColumn
+rlRouteMapPbrActionNexthopIfIndex = _RlRouteMapPbrActionNexthopIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 7),
+    _RlRouteMapPbrActionNexthopIfIndex_Type()
+)
+rlRouteMapPbrActionNexthopIfIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlRouteMapPbrActionNexthopIfIndex.setStatus("current")
+_RlRouteMapPbrRowStatus_Type = RowStatus
+_RlRouteMapPbrRowStatus_Object = MibTableColumn
+rlRouteMapPbrRowStatus = _RlRouteMapPbrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 89, 227, 1, 1, 8),
+    _RlRouteMapPbrRowStatus_Type()
+)
+rlRouteMapPbrRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlRouteMapPbrRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MARVELL-ROUTEMAP-MIB",
+    **{"RlRouteMapInetType": RlRouteMapInetType,
+       "rlRouteMap": rlRouteMap,
+       "rlRouteMapPbrTable": rlRouteMapPbrTable,
+       "rlRouteMapPbrEntry": rlRouteMapPbrEntry,
+       "rlRouteMapPbrRouteMapName": rlRouteMapPbrRouteMapName,
+       "rlRouteMapPbrRouteMapSectionId": rlRouteMapPbrRouteMapSectionId,
+       "rlRouteMapPbrInetType": rlRouteMapPbrInetType,
+       "rlRouteMapPbrMatchAccessListName": rlRouteMapPbrMatchAccessListName,
+       "rlRouteMapPbrActionNexthopInetAddressType": rlRouteMapPbrActionNexthopInetAddressType,
+       "rlRouteMapPbrActionNexthopInetAddress": rlRouteMapPbrActionNexthopInetAddress,
+       "rlRouteMapPbrActionNexthopIfIndex": rlRouteMapPbrActionNexthopIfIndex,
+       "rlRouteMapPbrRowStatus": rlRouteMapPbrRowStatus}
+)

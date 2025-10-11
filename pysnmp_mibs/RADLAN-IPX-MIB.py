@@ -1,257 +1,2034 @@
+# SNMP MIB module (RADLAN-IPX-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RADLAN-IPX-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/radlan/RADLAN-IPX-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:07:57 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/radlan/RADLAN-IPX-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:11:40 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rndIPX, = mibBuilder.importSymbols("RADLAN-MIB", "rndIPX")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "PhysAddress", "TextualConvention", "DisplayString")
-class NetNumber(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
 
-rndIPXdriver = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 12, 1))
-rndIPXRip = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 12, 2))
-rndIPXRipFilterGlbTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 2, 10), )
-if mibBuilder.loadTexts: rndIPXRipFilterGlbTable.setStatus('mandatory')
-rndIPXRipFilterGlbEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "rndIPXRipFilterGlbFLtype"), (0, "RADLAN-IPX-MIB", "rndIPXRipFilterGlbFLnumber"))
-if mibBuilder.loadTexts: rndIPXRipFilterGlbEntry.setStatus('mandatory')
-rndIPXRipFilterGlbFLtype = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("input", 1), ("output", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rndIPXRipFilterGlbFLtype.setStatus('mandatory')
-rndIPXRipFilterGlbFLnumber = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rndIPXRipFilterGlbFLnumber.setStatus('mandatory')
-rndIPXRipFilterGlbFLStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2), ("underCreation", 3))).clone('valid')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXRipFilterGlbFLStatus.setStatus('mandatory')
-rndIPXRipFilterGlbFLnetworkPatern = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4).clone(hexValue="FFFFFFFF")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXRipFilterGlbFLnetworkPatern.setStatus('mandatory')
-rndIPXRipFilterGlbFLnetworkMask = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4).clone(hexValue="FFFFFFFF")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXRipFilterGlbFLnetworkMask.setStatus('mandatory')
-rndIPXRipFilterGlbFLaction = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2))).clone('permit')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXRipFilterGlbFLaction.setStatus('mandatory')
-rndIPXRipFilterCircuitTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 2, 11), )
-if mibBuilder.loadTexts: rndIPXRipFilterCircuitTable.setStatus('mandatory')
-rndIPXRipFilterCircuitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "rndIPXRipFilterCircFLIfIndex"), (0, "RADLAN-IPX-MIB", "rndIPXRipFilterCircFLType"), (0, "RADLAN-IPX-MIB", "rndIPXRipFilterCircFLnumber"))
-if mibBuilder.loadTexts: rndIPXRipFilterCircuitEntry.setStatus('mandatory')
-rndIPXRipFilterCircFLIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rndIPXRipFilterCircFLIfIndex.setStatus('mandatory')
-rndIPXRipFilterCircFLType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("input", 1), ("output", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rndIPXRipFilterCircFLType.setStatus('mandatory')
-rndIPXRipFilterCircFLnumber = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rndIPXRipFilterCircFLnumber.setStatus('mandatory')
-rndIPXRipFilterCircFLStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2), ("underCreation", 3))).clone('valid')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXRipFilterCircFLStatus.setStatus('mandatory')
-rndIPXRipFilterCircFLnetworkPatern = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4).clone(hexValue="FFFFFFFF")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXRipFilterCircFLnetworkPatern.setStatus('mandatory')
-rndIPXRipFilterCircFLnetworkMask = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4).clone(hexValue="FFFFFFFF")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXRipFilterCircFLnetworkMask.setStatus('mandatory')
-rndIPXRipFilterCircFLaction = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2))).clone('permit')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXRipFilterCircFLaction.setStatus('mandatory')
-rndIPXSap = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 12, 3))
-rndIPXSapFilterGlbTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 3, 10), )
-if mibBuilder.loadTexts: rndIPXSapFilterGlbTable.setStatus('mandatory')
-rndIPXSapFilterGlbEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "rndIPXSapFilterGlbFLtype"), (0, "RADLAN-IPX-MIB", "rndIPXSapFilterGlbFLnumber"))
-if mibBuilder.loadTexts: rndIPXSapFilterGlbEntry.setStatus('mandatory')
-rndIPXSapFilterGlbFLtype = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("input", 1), ("output", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rndIPXSapFilterGlbFLtype.setStatus('mandatory')
-rndIPXSapFilterGlbFLnumber = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rndIPXSapFilterGlbFLnumber.setStatus('mandatory')
-rndIPXSapFilterGlbFLStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2), ("underCreation", 3))).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterGlbFLStatus.setStatus('mandatory')
-rndIPXSapFilterGlbFLnetworkPatern = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4).clone(hexValue="FFFFFFFF")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterGlbFLnetworkPatern.setStatus('mandatory')
-rndIPXSapFilterGlbFLnetworkMask = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4).clone(hexValue="FFFFFFFF")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterGlbFLnetworkMask.setStatus('mandatory')
-rndIPXSapFilterGlbFLserviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 6), Integer32().clone(65535)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterGlbFLserviceType.setStatus('mandatory')
-rndIPXSapFilterGlbFLserviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 48)).clone('*')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterGlbFLserviceName.setStatus('mandatory')
-rndIPXSapFilterGlbFLaction = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2))).clone('permit')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterGlbFLaction.setStatus('mandatory')
-rndIPXSapFilterCircuitTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 3, 11), )
-if mibBuilder.loadTexts: rndIPXSapFilterCircuitTable.setStatus('mandatory')
-rndIPXSapFilterCircuitEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "rndIPXSapFilterCircFLIfIndex"), (0, "RADLAN-IPX-MIB", "rndIPXSapFilterCircFLtype"), (0, "RADLAN-IPX-MIB", "rndIPXSapFilterCircFLnumber"))
-if mibBuilder.loadTexts: rndIPXSapFilterCircuitEntry.setStatus('mandatory')
-rndIPXSapFilterCircFLIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rndIPXSapFilterCircFLIfIndex.setStatus('mandatory')
-rndIPXSapFilterCircFLtype = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("input", 1), ("output", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rndIPXSapFilterCircFLtype.setStatus('mandatory')
-rndIPXSapFilterCircFLnumber = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rndIPXSapFilterCircFLnumber.setStatus('mandatory')
-rndIPXSapFilterCircFLStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2), ("underCreation", 3))).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterCircFLStatus.setStatus('mandatory')
-rndIPXSapFilterCircFLnetworkPatern = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4).clone(hexValue="FFFFFFFF")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterCircFLnetworkPatern.setStatus('mandatory')
-rndIPXSapFilterCircFLnetworkMask = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 4)).setFixedLength(4).clone(hexValue="FFFFFFFF")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterCircFLnetworkMask.setStatus('mandatory')
-rndIPXSapFilterCircFLserviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 7), Integer32().clone(65535)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterCircFLserviceType.setStatus('mandatory')
-rndIPXSapFilterCircFLserviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 48)).clone('*')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterCircFLserviceName.setStatus('mandatory')
-rndIPXSapFilterCircFLaction = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("deny", 1), ("permit", 2))).clone('permit')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rndIPXSapFilterCircFLaction.setStatus('mandatory')
-ipxSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 12, 4))
-ipxBasicSysTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 4, 1), )
-if mibBuilder.loadTexts: ipxBasicSysTable.setStatus('mandatory')
-ipxBasicSysEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "ipxBasicSysInstance"))
-if mibBuilder.loadTexts: ipxBasicSysEntry.setStatus('mandatory')
-ipxBasicSysInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxBasicSysInstance.setStatus('mandatory')
-ipxBasicSysExistState = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxBasicSysExistState.setStatus('mandatory')
-ipxBasicSysInReceives = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxBasicSysInReceives.setStatus('mandatory')
-ipxBasicSysInHdrErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxBasicSysInHdrErrors.setStatus('mandatory')
-ipxBasicSysInUnknownSockets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxBasicSysInUnknownSockets.setStatus('mandatory')
-ipxBasicSysInDiscards = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxBasicSysInDiscards.setStatus('mandatory')
-ipxBasicSysInDelivers = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxBasicSysInDelivers.setStatus('mandatory')
-ipxBasicSysNoRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxBasicSysNoRoutes.setStatus('mandatory')
-ipxBasicSysOutRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxBasicSysOutRequests.setStatus('mandatory')
-ipxBasicSysOutMalformedRequests = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxBasicSysOutMalformedRequests.setStatus('mandatory')
-ipxBasicSysOutDiscards = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxBasicSysOutDiscards.setStatus('mandatory')
-ipxBasicSysOutPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxBasicSysOutPackets.setStatus('mandatory')
-ipxCircuit = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 12, 5))
-ipxCircTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 5, 1), )
-if mibBuilder.loadTexts: ipxCircTable.setStatus('mandatory')
-ipxCircEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "ipxCircSysInstance"), (0, "RADLAN-IPX-MIB", "ipxCircIndex"))
-if mibBuilder.loadTexts: ipxCircEntry.setStatus('mandatory')
-ipxCircSysInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxCircSysInstance.setStatus('mandatory')
-ipxCircIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxCircIndex.setStatus('mandatory')
-ipxCircExistState = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("sleeping", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxCircExistState.setStatus('mandatory')
-ipxCircOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("down", 1), ("up", 2), ("dormant", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxCircOperState.setStatus('mandatory')
-ipxCircIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxCircIfIndex.setStatus('mandatory')
-ipxCircNetNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 6), NetNumber()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxCircNetNumber.setStatus('mandatory')
-ipxCircTimeToNet = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxCircTimeToNet.setStatus('mandatory')
-ipxCircEncaps = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 10))).clone(namedValues=NamedValues(("novell", 1), ("ethernet", 2), ("llc", 3), ("snap", 4), ("none", 10)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxCircEncaps.setStatus('mandatory')
-ipxCircNetbiosDeliver = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxCircNetbiosDeliver.setStatus('mandatory')
-ipxForwarding = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 12, 6))
-ipxDestTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 6, 1), )
-if mibBuilder.loadTexts: ipxDestTable.setStatus('mandatory')
-ipxDestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "ipxDestSysInstance"), (0, "RADLAN-IPX-MIB", "ipxDestNetNum"), (0, "RADLAN-IPX-MIB", "ipxDestNextHopCircIndex"))
-if mibBuilder.loadTexts: ipxDestEntry.setStatus('mandatory')
-ipxDestSysInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxDestSysInstance.setStatus('mandatory')
-ipxDestNetNum = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 2), NetNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxDestNetNum.setStatus('mandatory')
-ipxDestNextHopCircIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxDestNextHopCircIndex.setStatus('mandatory')
-ipxDestProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("local", 2), ("rip", 3), ("nlsp", 4), ("static", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxDestProtocol.setStatus('mandatory')
-ipxDestTicks = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxDestTicks.setStatus('mandatory')
-ipxDestHopCount = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxDestHopCount.setStatus('mandatory')
-ipxDestNextHopNICAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 7), PhysAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxDestNextHopNICAddress.setStatus('mandatory')
-ipxDestNextHopNetNum = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 8), NetNumber()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxDestNextHopNetNum.setStatus('mandatory')
-ipxDestExistState = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxDestExistState.setStatus('mandatory')
-ipxServices = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 12, 7))
-ipxServTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 7, 1), )
-if mibBuilder.loadTexts: ipxServTable.setStatus('mandatory')
-ipxServEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "ipxServSysInstance"), (0, "RADLAN-IPX-MIB", "ipxServType"), (1, "RADLAN-IPX-MIB", "ipxServName"))
-if mibBuilder.loadTexts: ipxServEntry.setStatus('mandatory')
-ipxServSysInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxServSysInstance.setStatus('mandatory')
-ipxServType = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxServType.setStatus('mandatory')
-ipxServName = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 48))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxServName.setStatus('mandatory')
-ipxServProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 4, 5, 6))).clone(namedValues=NamedValues(("other", 1), ("local", 2), ("nlsp", 4), ("static", 5), ("sap", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ipxServProtocol.setStatus('mandatory')
-ipxServNetNum = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 5), NetNumber()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxServNetNum.setStatus('mandatory')
-ipxServNode = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxServNode.setStatus('mandatory')
-ipxServSocket = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 2)).setFixedLength(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxServSocket.setStatus('mandatory')
-ipxServHopCount = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 8), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxServHopCount.setStatus('mandatory')
-ipxServExistState = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ipxServExistState.setStatus('mandatory')
-ripsap = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 12, 8))
-ripsapSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 12, 8, 1))
-ripSysTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 1), )
-if mibBuilder.loadTexts: ripSysTable.setStatus('mandatory')
-ripSysEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 1, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "ripSysInstance"))
-if mibBuilder.loadTexts: ripSysEntry.setStatus('mandatory')
-ripSysInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ripSysInstance.setStatus('mandatory')
-ripSysState = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ripSysState.setStatus('mandatory')
-ripSysIncorrectPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ripSysIncorrectPackets.setStatus('mandatory')
-sapSysTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 2), )
-if mibBuilder.loadTexts: sapSysTable.setStatus('mandatory')
-sapSysEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 2, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "sapSysInstance"))
-if mibBuilder.loadTexts: sapSysEntry.setStatus('mandatory')
-sapSysInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 2, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sapSysInstance.setStatus('mandatory')
-sapSysState = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sapSysState.setStatus('mandatory')
-sapSysIncorrectPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sapSysIncorrectPackets.setStatus('mandatory')
-ripsapCircuit = MibIdentifier((1, 3, 6, 1, 4, 1, 89, 12, 8, 2))
-ripCircTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1), )
-if mibBuilder.loadTexts: ripCircTable.setStatus('mandatory')
-ripCircEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "ripCircSysInstance"), (0, "RADLAN-IPX-MIB", "ripCircIndex"))
-if mibBuilder.loadTexts: ripCircEntry.setStatus('mandatory')
-ripCircSysInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ripCircSysInstance.setStatus('mandatory')
-ripCircIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ripCircIndex.setStatus('mandatory')
-ripCircState = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2))).clone('on')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ripCircState.setStatus('mandatory')
-ripCircUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 4), Integer32().clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ripCircUpdate.setStatus('mandatory')
-ripCircAgeMultiplier = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 5), Integer32().clone(4)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ripCircAgeMultiplier.setStatus('mandatory')
-ripCircOutPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ripCircOutPackets.setStatus('mandatory')
-ripCircInPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ripCircInPackets.setStatus('mandatory')
-sapCircTable = MibTable((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2), )
-if mibBuilder.loadTexts: sapCircTable.setStatus('mandatory')
-sapCircEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1), ).setIndexNames((0, "RADLAN-IPX-MIB", "sapCircSysInstance"), (0, "RADLAN-IPX-MIB", "sapCircIndex"))
-if mibBuilder.loadTexts: sapCircEntry.setStatus('mandatory')
-sapCircSysInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sapCircSysInstance.setStatus('mandatory')
-sapCircIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sapCircIndex.setStatus('mandatory')
-sapCircState = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("off", 1), ("on", 2))).clone('off')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sapCircState.setStatus('mandatory')
-sapCircUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 4), Integer32().clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sapCircUpdate.setStatus('mandatory')
-sapCircAgeMultiplier = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 5), Integer32().clone(4)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sapCircAgeMultiplier.setStatus('mandatory')
-sapCircGetNearestServerReply = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("no", 1), ("yes", 2))).clone('yes')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: sapCircGetNearestServerReply.setStatus('mandatory')
-sapCircOutPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sapCircOutPackets.setStatus('mandatory')
-sapCircInPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: sapCircInPackets.setStatus('mandatory')
-mibBuilder.exportSymbols("RADLAN-IPX-MIB", ipxDestEntry=ipxDestEntry, rndIPXRipFilterCircFLnetworkMask=rndIPXRipFilterCircFLnetworkMask, ipxDestNextHopNICAddress=ipxDestNextHopNICAddress, ipxServSysInstance=ipxServSysInstance, sapCircUpdate=sapCircUpdate, sapCircAgeMultiplier=sapCircAgeMultiplier, rndIPXRipFilterCircFLnetworkPatern=rndIPXRipFilterCircFLnetworkPatern, ripCircIndex=ripCircIndex, ipxServNetNum=ipxServNetNum, ipxServExistState=ipxServExistState, ripSysEntry=ripSysEntry, ipxDestExistState=ipxDestExistState, ripCircUpdate=ripCircUpdate, ripCircEntry=ripCircEntry, sapSysIncorrectPackets=sapSysIncorrectPackets, ipxServType=ipxServType, rndIPXRipFilterCircFLStatus=rndIPXRipFilterCircFLStatus, ripCircTable=ripCircTable, rndIPXRipFilterGlbFLtype=rndIPXRipFilterGlbFLtype, rndIPXRipFilterCircuitEntry=rndIPXRipFilterCircuitEntry, rndIPXSapFilterGlbEntry=rndIPXSapFilterGlbEntry, rndIPXSapFilterGlbFLserviceName=rndIPXSapFilterGlbFLserviceName, rndIPXdriver=rndIPXdriver, rndIPXRipFilterGlbEntry=rndIPXRipFilterGlbEntry, sapCircOutPackets=sapCircOutPackets, sapSysState=sapSysState, rndIPXSapFilterCircFLaction=rndIPXSapFilterCircFLaction, rndIPXRip=rndIPXRip, ipxBasicSysEntry=ipxBasicSysEntry, rndIPXRipFilterGlbFLaction=rndIPXRipFilterGlbFLaction, sapSysEntry=sapSysEntry, rndIPXSapFilterCircFLtype=rndIPXSapFilterCircFLtype, ripCircState=ripCircState, ipxBasicSysOutRequests=ipxBasicSysOutRequests, ipxDestTable=ipxDestTable, ripCircInPackets=ripCircInPackets, ipxCircIndex=ipxCircIndex, ipxBasicSysOutMalformedRequests=ipxBasicSysOutMalformedRequests, rndIPXSapFilterCircFLnetworkPatern=rndIPXSapFilterCircFLnetworkPatern, ipxBasicSysInDelivers=ipxBasicSysInDelivers, rndIPXRipFilterGlbFLStatus=rndIPXRipFilterGlbFLStatus, ipxDestProtocol=ipxDestProtocol, rndIPXSapFilterCircuitTable=rndIPXSapFilterCircuitTable, rndIPXSapFilterCircFLserviceName=rndIPXSapFilterCircFLserviceName, ipxCircOperState=ipxCircOperState, NetNumber=NetNumber, ipxCircEncaps=ipxCircEncaps, sapCircGetNearestServerReply=sapCircGetNearestServerReply, ipxBasicSysInstance=ipxBasicSysInstance, ipxServTable=ipxServTable, ripsapCircuit=ripsapCircuit, ipxServHopCount=ipxServHopCount, sapSysTable=sapSysTable, ipxBasicSysNoRoutes=ipxBasicSysNoRoutes, ipxBasicSysInUnknownSockets=ipxBasicSysInUnknownSockets, ipxCircSysInstance=ipxCircSysInstance, ripSysIncorrectPackets=ripSysIncorrectPackets, rndIPXRipFilterGlbTable=rndIPXRipFilterGlbTable, ipxCircuit=ipxCircuit, ripsapSystem=ripsapSystem, rndIPXSapFilterGlbFLStatus=rndIPXSapFilterGlbFLStatus, ipxServices=ipxServices, sapCircTable=sapCircTable, ipxServSocket=ipxServSocket, rndIPXSapFilterCircFLserviceType=rndIPXSapFilterCircFLserviceType, ipxDestTicks=ipxDestTicks, rndIPXSap=rndIPXSap, rndIPXSapFilterGlbFLaction=rndIPXSapFilterGlbFLaction, ripsap=ripsap, ipxBasicSysInHdrErrors=ipxBasicSysInHdrErrors, ripSysInstance=ripSysInstance, rndIPXSapFilterCircFLStatus=rndIPXSapFilterCircFLStatus, rndIPXSapFilterCircuitEntry=rndIPXSapFilterCircuitEntry, ipxCircIfIndex=ipxCircIfIndex, ripCircAgeMultiplier=ripCircAgeMultiplier, ipxDestHopCount=ipxDestHopCount, ipxDestNextHopCircIndex=ipxDestNextHopCircIndex, ipxServProtocol=ipxServProtocol, ipxBasicSysOutDiscards=ipxBasicSysOutDiscards, sapCircState=sapCircState, rndIPXRipFilterCircFLaction=rndIPXRipFilterCircFLaction, ipxCircNetNumber=ipxCircNetNumber, sapCircIndex=sapCircIndex, rndIPXRipFilterCircuitTable=rndIPXRipFilterCircuitTable, rndIPXSapFilterGlbFLnetworkPatern=rndIPXSapFilterGlbFLnetworkPatern, rndIPXRipFilterCircFLIfIndex=rndIPXRipFilterCircFLIfIndex, ipxSystem=ipxSystem, ipxDestSysInstance=ipxDestSysInstance, rndIPXSapFilterCircFLIfIndex=rndIPXSapFilterCircFLIfIndex, ipxCircEntry=ipxCircEntry, rndIPXSapFilterCircFLnumber=rndIPXSapFilterCircFLnumber, ripSysTable=ripSysTable, ipxCircTimeToNet=ipxCircTimeToNet, rndIPXRipFilterGlbFLnumber=rndIPXRipFilterGlbFLnumber, ipxDestNextHopNetNum=ipxDestNextHopNetNum, rndIPXSapFilterGlbFLserviceType=rndIPXSapFilterGlbFLserviceType, ipxCircExistState=ipxCircExistState, rndIPXRipFilterGlbFLnetworkPatern=rndIPXRipFilterGlbFLnetworkPatern, ipxCircTable=ipxCircTable, ipxBasicSysInReceives=ipxBasicSysInReceives, ipxServName=ipxServName, ipxBasicSysInDiscards=ipxBasicSysInDiscards, rndIPXSapFilterCircFLnetworkMask=rndIPXSapFilterCircFLnetworkMask, rndIPXSapFilterGlbTable=rndIPXSapFilterGlbTable, rndIPXSapFilterGlbFLnetworkMask=rndIPXSapFilterGlbFLnetworkMask, rndIPXSapFilterGlbFLtype=rndIPXSapFilterGlbFLtype, ipxDestNetNum=ipxDestNetNum, ripCircSysInstance=ripCircSysInstance, rndIPXSapFilterGlbFLnumber=rndIPXSapFilterGlbFLnumber, ripSysState=ripSysState, ipxServEntry=ipxServEntry, rndIPXRipFilterCircFLnumber=rndIPXRipFilterCircFLnumber, rndIPXRipFilterGlbFLnetworkMask=rndIPXRipFilterGlbFLnetworkMask, sapSysInstance=sapSysInstance, sapCircInPackets=sapCircInPackets, sapCircSysInstance=sapCircSysInstance, ipxBasicSysExistState=ipxBasicSysExistState, ipxServNode=ipxServNode, rndIPXRipFilterCircFLType=rndIPXRipFilterCircFLType, ipxBasicSysTable=ipxBasicSysTable, ripCircOutPackets=ripCircOutPackets, ipxCircNetbiosDeliver=ipxCircNetbiosDeliver, ipxForwarding=ipxForwarding, sapCircEntry=sapCircEntry, ipxBasicSysOutPackets=ipxBasicSysOutPackets)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rndIPX,) = mibBuilder.importSymbols(
+    "RADLAN-MIB",
+    "rndIPX")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class NetNumber(OctetString):
+    """Custom type NetNumber based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RndIPXdriver_ObjectIdentity = ObjectIdentity
+rndIPXdriver = _RndIPXdriver_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 12, 1)
+)
+_RndIPXRip_ObjectIdentity = ObjectIdentity
+rndIPXRip = _RndIPXRip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2)
+)
+_RndIPXRipFilterGlbTable_Object = MibTable
+rndIPXRipFilterGlbTable = _RndIPXRipFilterGlbTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 10)
+)
+if mibBuilder.loadTexts:
+    rndIPXRipFilterGlbTable.setStatus("mandatory")
+_RndIPXRipFilterGlbEntry_Object = MibTableRow
+rndIPXRipFilterGlbEntry = _RndIPXRipFilterGlbEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1)
+)
+rndIPXRipFilterGlbEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "rndIPXRipFilterGlbFLtype"),
+    (0, "RADLAN-IPX-MIB", "rndIPXRipFilterGlbFLnumber"),
+)
+if mibBuilder.loadTexts:
+    rndIPXRipFilterGlbEntry.setStatus("mandatory")
+
+
+class _RndIPXRipFilterGlbFLtype_Type(Integer32):
+    """Custom type rndIPXRipFilterGlbFLtype based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("input", 1),
+          ("output", 2))
+    )
+
+
+_RndIPXRipFilterGlbFLtype_Type.__name__ = "Integer32"
+_RndIPXRipFilterGlbFLtype_Object = MibTableColumn
+rndIPXRipFilterGlbFLtype = _RndIPXRipFilterGlbFLtype_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 1),
+    _RndIPXRipFilterGlbFLtype_Type()
+)
+rndIPXRipFilterGlbFLtype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterGlbFLtype.setStatus("mandatory")
+_RndIPXRipFilterGlbFLnumber_Type = Integer32
+_RndIPXRipFilterGlbFLnumber_Object = MibTableColumn
+rndIPXRipFilterGlbFLnumber = _RndIPXRipFilterGlbFLnumber_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 2),
+    _RndIPXRipFilterGlbFLnumber_Type()
+)
+rndIPXRipFilterGlbFLnumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterGlbFLnumber.setStatus("mandatory")
+
+
+class _RndIPXRipFilterGlbFLStatus_Type(Integer32):
+    """Custom type rndIPXRipFilterGlbFLStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("valid", 1),
+          ("invalid", 2),
+          ("underCreation", 3))
+    )
+
+
+_RndIPXRipFilterGlbFLStatus_Type.__name__ = "Integer32"
+_RndIPXRipFilterGlbFLStatus_Object = MibTableColumn
+rndIPXRipFilterGlbFLStatus = _RndIPXRipFilterGlbFLStatus_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 3),
+    _RndIPXRipFilterGlbFLStatus_Type()
+)
+rndIPXRipFilterGlbFLStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterGlbFLStatus.setStatus("mandatory")
+
+
+class _RndIPXRipFilterGlbFLnetworkPatern_Type(OctetString):
+    """Custom type rndIPXRipFilterGlbFLnetworkPatern based on OctetString"""
+    defaultHexValue = "FFFFFFFF"
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_RndIPXRipFilterGlbFLnetworkPatern_Type.__name__ = "OctetString"
+_RndIPXRipFilterGlbFLnetworkPatern_Object = MibTableColumn
+rndIPXRipFilterGlbFLnetworkPatern = _RndIPXRipFilterGlbFLnetworkPatern_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 4),
+    _RndIPXRipFilterGlbFLnetworkPatern_Type()
+)
+rndIPXRipFilterGlbFLnetworkPatern.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterGlbFLnetworkPatern.setStatus("mandatory")
+
+
+class _RndIPXRipFilterGlbFLnetworkMask_Type(OctetString):
+    """Custom type rndIPXRipFilterGlbFLnetworkMask based on OctetString"""
+    defaultHexValue = "FFFFFFFF"
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_RndIPXRipFilterGlbFLnetworkMask_Type.__name__ = "OctetString"
+_RndIPXRipFilterGlbFLnetworkMask_Object = MibTableColumn
+rndIPXRipFilterGlbFLnetworkMask = _RndIPXRipFilterGlbFLnetworkMask_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 5),
+    _RndIPXRipFilterGlbFLnetworkMask_Type()
+)
+rndIPXRipFilterGlbFLnetworkMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterGlbFLnetworkMask.setStatus("mandatory")
+
+
+class _RndIPXRipFilterGlbFLaction_Type(Integer32):
+    """Custom type rndIPXRipFilterGlbFLaction based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2))
+    )
+
+
+_RndIPXRipFilterGlbFLaction_Type.__name__ = "Integer32"
+_RndIPXRipFilterGlbFLaction_Object = MibTableColumn
+rndIPXRipFilterGlbFLaction = _RndIPXRipFilterGlbFLaction_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 10, 1, 6),
+    _RndIPXRipFilterGlbFLaction_Type()
+)
+rndIPXRipFilterGlbFLaction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterGlbFLaction.setStatus("mandatory")
+_RndIPXRipFilterCircuitTable_Object = MibTable
+rndIPXRipFilterCircuitTable = _RndIPXRipFilterCircuitTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 11)
+)
+if mibBuilder.loadTexts:
+    rndIPXRipFilterCircuitTable.setStatus("mandatory")
+_RndIPXRipFilterCircuitEntry_Object = MibTableRow
+rndIPXRipFilterCircuitEntry = _RndIPXRipFilterCircuitEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1)
+)
+rndIPXRipFilterCircuitEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "rndIPXRipFilterCircFLIfIndex"),
+    (0, "RADLAN-IPX-MIB", "rndIPXRipFilterCircFLType"),
+    (0, "RADLAN-IPX-MIB", "rndIPXRipFilterCircFLnumber"),
+)
+if mibBuilder.loadTexts:
+    rndIPXRipFilterCircuitEntry.setStatus("mandatory")
+_RndIPXRipFilterCircFLIfIndex_Type = Integer32
+_RndIPXRipFilterCircFLIfIndex_Object = MibTableColumn
+rndIPXRipFilterCircFLIfIndex = _RndIPXRipFilterCircFLIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 1),
+    _RndIPXRipFilterCircFLIfIndex_Type()
+)
+rndIPXRipFilterCircFLIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterCircFLIfIndex.setStatus("mandatory")
+
+
+class _RndIPXRipFilterCircFLType_Type(Integer32):
+    """Custom type rndIPXRipFilterCircFLType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("input", 1),
+          ("output", 2))
+    )
+
+
+_RndIPXRipFilterCircFLType_Type.__name__ = "Integer32"
+_RndIPXRipFilterCircFLType_Object = MibTableColumn
+rndIPXRipFilterCircFLType = _RndIPXRipFilterCircFLType_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 2),
+    _RndIPXRipFilterCircFLType_Type()
+)
+rndIPXRipFilterCircFLType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterCircFLType.setStatus("mandatory")
+_RndIPXRipFilterCircFLnumber_Type = Integer32
+_RndIPXRipFilterCircFLnumber_Object = MibTableColumn
+rndIPXRipFilterCircFLnumber = _RndIPXRipFilterCircFLnumber_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 3),
+    _RndIPXRipFilterCircFLnumber_Type()
+)
+rndIPXRipFilterCircFLnumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterCircFLnumber.setStatus("mandatory")
+
+
+class _RndIPXRipFilterCircFLStatus_Type(Integer32):
+    """Custom type rndIPXRipFilterCircFLStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("valid", 1),
+          ("invalid", 2),
+          ("underCreation", 3))
+    )
+
+
+_RndIPXRipFilterCircFLStatus_Type.__name__ = "Integer32"
+_RndIPXRipFilterCircFLStatus_Object = MibTableColumn
+rndIPXRipFilterCircFLStatus = _RndIPXRipFilterCircFLStatus_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 4),
+    _RndIPXRipFilterCircFLStatus_Type()
+)
+rndIPXRipFilterCircFLStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterCircFLStatus.setStatus("mandatory")
+
+
+class _RndIPXRipFilterCircFLnetworkPatern_Type(OctetString):
+    """Custom type rndIPXRipFilterCircFLnetworkPatern based on OctetString"""
+    defaultHexValue = "FFFFFFFF"
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_RndIPXRipFilterCircFLnetworkPatern_Type.__name__ = "OctetString"
+_RndIPXRipFilterCircFLnetworkPatern_Object = MibTableColumn
+rndIPXRipFilterCircFLnetworkPatern = _RndIPXRipFilterCircFLnetworkPatern_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 5),
+    _RndIPXRipFilterCircFLnetworkPatern_Type()
+)
+rndIPXRipFilterCircFLnetworkPatern.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterCircFLnetworkPatern.setStatus("mandatory")
+
+
+class _RndIPXRipFilterCircFLnetworkMask_Type(OctetString):
+    """Custom type rndIPXRipFilterCircFLnetworkMask based on OctetString"""
+    defaultHexValue = "FFFFFFFF"
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_RndIPXRipFilterCircFLnetworkMask_Type.__name__ = "OctetString"
+_RndIPXRipFilterCircFLnetworkMask_Object = MibTableColumn
+rndIPXRipFilterCircFLnetworkMask = _RndIPXRipFilterCircFLnetworkMask_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 6),
+    _RndIPXRipFilterCircFLnetworkMask_Type()
+)
+rndIPXRipFilterCircFLnetworkMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterCircFLnetworkMask.setStatus("mandatory")
+
+
+class _RndIPXRipFilterCircFLaction_Type(Integer32):
+    """Custom type rndIPXRipFilterCircFLaction based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2))
+    )
+
+
+_RndIPXRipFilterCircFLaction_Type.__name__ = "Integer32"
+_RndIPXRipFilterCircFLaction_Object = MibTableColumn
+rndIPXRipFilterCircFLaction = _RndIPXRipFilterCircFLaction_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 2, 11, 1, 7),
+    _RndIPXRipFilterCircFLaction_Type()
+)
+rndIPXRipFilterCircFLaction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXRipFilterCircFLaction.setStatus("mandatory")
+_RndIPXSap_ObjectIdentity = ObjectIdentity
+rndIPXSap = _RndIPXSap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3)
+)
+_RndIPXSapFilterGlbTable_Object = MibTable
+rndIPXSapFilterGlbTable = _RndIPXSapFilterGlbTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 10)
+)
+if mibBuilder.loadTexts:
+    rndIPXSapFilterGlbTable.setStatus("mandatory")
+_RndIPXSapFilterGlbEntry_Object = MibTableRow
+rndIPXSapFilterGlbEntry = _RndIPXSapFilterGlbEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1)
+)
+rndIPXSapFilterGlbEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "rndIPXSapFilterGlbFLtype"),
+    (0, "RADLAN-IPX-MIB", "rndIPXSapFilterGlbFLnumber"),
+)
+if mibBuilder.loadTexts:
+    rndIPXSapFilterGlbEntry.setStatus("mandatory")
+
+
+class _RndIPXSapFilterGlbFLtype_Type(Integer32):
+    """Custom type rndIPXSapFilterGlbFLtype based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("input", 1),
+          ("output", 2))
+    )
+
+
+_RndIPXSapFilterGlbFLtype_Type.__name__ = "Integer32"
+_RndIPXSapFilterGlbFLtype_Object = MibTableColumn
+rndIPXSapFilterGlbFLtype = _RndIPXSapFilterGlbFLtype_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 1),
+    _RndIPXSapFilterGlbFLtype_Type()
+)
+rndIPXSapFilterGlbFLtype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterGlbFLtype.setStatus("mandatory")
+_RndIPXSapFilterGlbFLnumber_Type = Integer32
+_RndIPXSapFilterGlbFLnumber_Object = MibTableColumn
+rndIPXSapFilterGlbFLnumber = _RndIPXSapFilterGlbFLnumber_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 2),
+    _RndIPXSapFilterGlbFLnumber_Type()
+)
+rndIPXSapFilterGlbFLnumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterGlbFLnumber.setStatus("mandatory")
+
+
+class _RndIPXSapFilterGlbFLStatus_Type(Integer32):
+    """Custom type rndIPXSapFilterGlbFLStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("valid", 1),
+          ("invalid", 2),
+          ("underCreation", 3))
+    )
+
+
+_RndIPXSapFilterGlbFLStatus_Type.__name__ = "Integer32"
+_RndIPXSapFilterGlbFLStatus_Object = MibTableColumn
+rndIPXSapFilterGlbFLStatus = _RndIPXSapFilterGlbFLStatus_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 3),
+    _RndIPXSapFilterGlbFLStatus_Type()
+)
+rndIPXSapFilterGlbFLStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterGlbFLStatus.setStatus("mandatory")
+
+
+class _RndIPXSapFilterGlbFLnetworkPatern_Type(OctetString):
+    """Custom type rndIPXSapFilterGlbFLnetworkPatern based on OctetString"""
+    defaultHexValue = "FFFFFFFF"
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_RndIPXSapFilterGlbFLnetworkPatern_Type.__name__ = "OctetString"
+_RndIPXSapFilterGlbFLnetworkPatern_Object = MibTableColumn
+rndIPXSapFilterGlbFLnetworkPatern = _RndIPXSapFilterGlbFLnetworkPatern_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 4),
+    _RndIPXSapFilterGlbFLnetworkPatern_Type()
+)
+rndIPXSapFilterGlbFLnetworkPatern.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterGlbFLnetworkPatern.setStatus("mandatory")
+
+
+class _RndIPXSapFilterGlbFLnetworkMask_Type(OctetString):
+    """Custom type rndIPXSapFilterGlbFLnetworkMask based on OctetString"""
+    defaultHexValue = "FFFFFFFF"
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_RndIPXSapFilterGlbFLnetworkMask_Type.__name__ = "OctetString"
+_RndIPXSapFilterGlbFLnetworkMask_Object = MibTableColumn
+rndIPXSapFilterGlbFLnetworkMask = _RndIPXSapFilterGlbFLnetworkMask_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 5),
+    _RndIPXSapFilterGlbFLnetworkMask_Type()
+)
+rndIPXSapFilterGlbFLnetworkMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterGlbFLnetworkMask.setStatus("mandatory")
+
+
+class _RndIPXSapFilterGlbFLserviceType_Type(Integer32):
+    """Custom type rndIPXSapFilterGlbFLserviceType based on Integer32"""
+    defaultValue = 65535
+
+
+_RndIPXSapFilterGlbFLserviceType_Type.__name__ = "Integer32"
+_RndIPXSapFilterGlbFLserviceType_Object = MibTableColumn
+rndIPXSapFilterGlbFLserviceType = _RndIPXSapFilterGlbFLserviceType_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 6),
+    _RndIPXSapFilterGlbFLserviceType_Type()
+)
+rndIPXSapFilterGlbFLserviceType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterGlbFLserviceType.setStatus("mandatory")
+
+
+class _RndIPXSapFilterGlbFLserviceName_Type(OctetString):
+    """Custom type rndIPXSapFilterGlbFLserviceName based on OctetString"""
+    defaultValue = OctetString("*")
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 48),
+    )
+
+
+_RndIPXSapFilterGlbFLserviceName_Type.__name__ = "OctetString"
+_RndIPXSapFilterGlbFLserviceName_Object = MibTableColumn
+rndIPXSapFilterGlbFLserviceName = _RndIPXSapFilterGlbFLserviceName_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 7),
+    _RndIPXSapFilterGlbFLserviceName_Type()
+)
+rndIPXSapFilterGlbFLserviceName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterGlbFLserviceName.setStatus("mandatory")
+
+
+class _RndIPXSapFilterGlbFLaction_Type(Integer32):
+    """Custom type rndIPXSapFilterGlbFLaction based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2))
+    )
+
+
+_RndIPXSapFilterGlbFLaction_Type.__name__ = "Integer32"
+_RndIPXSapFilterGlbFLaction_Object = MibTableColumn
+rndIPXSapFilterGlbFLaction = _RndIPXSapFilterGlbFLaction_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 10, 1, 8),
+    _RndIPXSapFilterGlbFLaction_Type()
+)
+rndIPXSapFilterGlbFLaction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterGlbFLaction.setStatus("mandatory")
+_RndIPXSapFilterCircuitTable_Object = MibTable
+rndIPXSapFilterCircuitTable = _RndIPXSapFilterCircuitTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 11)
+)
+if mibBuilder.loadTexts:
+    rndIPXSapFilterCircuitTable.setStatus("mandatory")
+_RndIPXSapFilterCircuitEntry_Object = MibTableRow
+rndIPXSapFilterCircuitEntry = _RndIPXSapFilterCircuitEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1)
+)
+rndIPXSapFilterCircuitEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "rndIPXSapFilterCircFLIfIndex"),
+    (0, "RADLAN-IPX-MIB", "rndIPXSapFilterCircFLtype"),
+    (0, "RADLAN-IPX-MIB", "rndIPXSapFilterCircFLnumber"),
+)
+if mibBuilder.loadTexts:
+    rndIPXSapFilterCircuitEntry.setStatus("mandatory")
+_RndIPXSapFilterCircFLIfIndex_Type = Integer32
+_RndIPXSapFilterCircFLIfIndex_Object = MibTableColumn
+rndIPXSapFilterCircFLIfIndex = _RndIPXSapFilterCircFLIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 1),
+    _RndIPXSapFilterCircFLIfIndex_Type()
+)
+rndIPXSapFilterCircFLIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterCircFLIfIndex.setStatus("mandatory")
+
+
+class _RndIPXSapFilterCircFLtype_Type(Integer32):
+    """Custom type rndIPXSapFilterCircFLtype based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("input", 1),
+          ("output", 2))
+    )
+
+
+_RndIPXSapFilterCircFLtype_Type.__name__ = "Integer32"
+_RndIPXSapFilterCircFLtype_Object = MibTableColumn
+rndIPXSapFilterCircFLtype = _RndIPXSapFilterCircFLtype_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 2),
+    _RndIPXSapFilterCircFLtype_Type()
+)
+rndIPXSapFilterCircFLtype.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterCircFLtype.setStatus("mandatory")
+_RndIPXSapFilterCircFLnumber_Type = Integer32
+_RndIPXSapFilterCircFLnumber_Object = MibTableColumn
+rndIPXSapFilterCircFLnumber = _RndIPXSapFilterCircFLnumber_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 3),
+    _RndIPXSapFilterCircFLnumber_Type()
+)
+rndIPXSapFilterCircFLnumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterCircFLnumber.setStatus("mandatory")
+
+
+class _RndIPXSapFilterCircFLStatus_Type(Integer32):
+    """Custom type rndIPXSapFilterCircFLStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("valid", 1),
+          ("invalid", 2),
+          ("underCreation", 3))
+    )
+
+
+_RndIPXSapFilterCircFLStatus_Type.__name__ = "Integer32"
+_RndIPXSapFilterCircFLStatus_Object = MibTableColumn
+rndIPXSapFilterCircFLStatus = _RndIPXSapFilterCircFLStatus_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 4),
+    _RndIPXSapFilterCircFLStatus_Type()
+)
+rndIPXSapFilterCircFLStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterCircFLStatus.setStatus("mandatory")
+
+
+class _RndIPXSapFilterCircFLnetworkPatern_Type(OctetString):
+    """Custom type rndIPXSapFilterCircFLnetworkPatern based on OctetString"""
+    defaultHexValue = "FFFFFFFF"
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_RndIPXSapFilterCircFLnetworkPatern_Type.__name__ = "OctetString"
+_RndIPXSapFilterCircFLnetworkPatern_Object = MibTableColumn
+rndIPXSapFilterCircFLnetworkPatern = _RndIPXSapFilterCircFLnetworkPatern_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 5),
+    _RndIPXSapFilterCircFLnetworkPatern_Type()
+)
+rndIPXSapFilterCircFLnetworkPatern.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterCircFLnetworkPatern.setStatus("mandatory")
+
+
+class _RndIPXSapFilterCircFLnetworkMask_Type(OctetString):
+    """Custom type rndIPXSapFilterCircFLnetworkMask based on OctetString"""
+    defaultHexValue = "FFFFFFFF"
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+_RndIPXSapFilterCircFLnetworkMask_Type.__name__ = "OctetString"
+_RndIPXSapFilterCircFLnetworkMask_Object = MibTableColumn
+rndIPXSapFilterCircFLnetworkMask = _RndIPXSapFilterCircFLnetworkMask_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 6),
+    _RndIPXSapFilterCircFLnetworkMask_Type()
+)
+rndIPXSapFilterCircFLnetworkMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterCircFLnetworkMask.setStatus("mandatory")
+
+
+class _RndIPXSapFilterCircFLserviceType_Type(Integer32):
+    """Custom type rndIPXSapFilterCircFLserviceType based on Integer32"""
+    defaultValue = 65535
+
+
+_RndIPXSapFilterCircFLserviceType_Type.__name__ = "Integer32"
+_RndIPXSapFilterCircFLserviceType_Object = MibTableColumn
+rndIPXSapFilterCircFLserviceType = _RndIPXSapFilterCircFLserviceType_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 7),
+    _RndIPXSapFilterCircFLserviceType_Type()
+)
+rndIPXSapFilterCircFLserviceType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterCircFLserviceType.setStatus("mandatory")
+
+
+class _RndIPXSapFilterCircFLserviceName_Type(OctetString):
+    """Custom type rndIPXSapFilterCircFLserviceName based on OctetString"""
+    defaultValue = OctetString("*")
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 48),
+    )
+
+
+_RndIPXSapFilterCircFLserviceName_Type.__name__ = "OctetString"
+_RndIPXSapFilterCircFLserviceName_Object = MibTableColumn
+rndIPXSapFilterCircFLserviceName = _RndIPXSapFilterCircFLserviceName_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 8),
+    _RndIPXSapFilterCircFLserviceName_Type()
+)
+rndIPXSapFilterCircFLserviceName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterCircFLserviceName.setStatus("mandatory")
+
+
+class _RndIPXSapFilterCircFLaction_Type(Integer32):
+    """Custom type rndIPXSapFilterCircFLaction based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("deny", 1),
+          ("permit", 2))
+    )
+
+
+_RndIPXSapFilterCircFLaction_Type.__name__ = "Integer32"
+_RndIPXSapFilterCircFLaction_Object = MibTableColumn
+rndIPXSapFilterCircFLaction = _RndIPXSapFilterCircFLaction_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 3, 11, 1, 9),
+    _RndIPXSapFilterCircFLaction_Type()
+)
+rndIPXSapFilterCircFLaction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rndIPXSapFilterCircFLaction.setStatus("mandatory")
+_IpxSystem_ObjectIdentity = ObjectIdentity
+ipxSystem = _IpxSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4)
+)
+_IpxBasicSysTable_Object = MibTable
+ipxBasicSysTable = _IpxBasicSysTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1)
+)
+if mibBuilder.loadTexts:
+    ipxBasicSysTable.setStatus("mandatory")
+_IpxBasicSysEntry_Object = MibTableRow
+ipxBasicSysEntry = _IpxBasicSysEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1)
+)
+ipxBasicSysEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "ipxBasicSysInstance"),
+)
+if mibBuilder.loadTexts:
+    ipxBasicSysEntry.setStatus("mandatory")
+_IpxBasicSysInstance_Type = Integer32
+_IpxBasicSysInstance_Object = MibTableColumn
+ipxBasicSysInstance = _IpxBasicSysInstance_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 1),
+    _IpxBasicSysInstance_Type()
+)
+ipxBasicSysInstance.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxBasicSysInstance.setStatus("mandatory")
+
+
+class _IpxBasicSysExistState_Type(Integer32):
+    """Custom type ipxBasicSysExistState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_IpxBasicSysExistState_Type.__name__ = "Integer32"
+_IpxBasicSysExistState_Object = MibTableColumn
+ipxBasicSysExistState = _IpxBasicSysExistState_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 2),
+    _IpxBasicSysExistState_Type()
+)
+ipxBasicSysExistState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxBasicSysExistState.setStatus("mandatory")
+_IpxBasicSysInReceives_Type = Counter32
+_IpxBasicSysInReceives_Object = MibTableColumn
+ipxBasicSysInReceives = _IpxBasicSysInReceives_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 3),
+    _IpxBasicSysInReceives_Type()
+)
+ipxBasicSysInReceives.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxBasicSysInReceives.setStatus("mandatory")
+_IpxBasicSysInHdrErrors_Type = Counter32
+_IpxBasicSysInHdrErrors_Object = MibTableColumn
+ipxBasicSysInHdrErrors = _IpxBasicSysInHdrErrors_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 4),
+    _IpxBasicSysInHdrErrors_Type()
+)
+ipxBasicSysInHdrErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxBasicSysInHdrErrors.setStatus("mandatory")
+_IpxBasicSysInUnknownSockets_Type = Counter32
+_IpxBasicSysInUnknownSockets_Object = MibTableColumn
+ipxBasicSysInUnknownSockets = _IpxBasicSysInUnknownSockets_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 5),
+    _IpxBasicSysInUnknownSockets_Type()
+)
+ipxBasicSysInUnknownSockets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxBasicSysInUnknownSockets.setStatus("mandatory")
+_IpxBasicSysInDiscards_Type = Counter32
+_IpxBasicSysInDiscards_Object = MibTableColumn
+ipxBasicSysInDiscards = _IpxBasicSysInDiscards_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 6),
+    _IpxBasicSysInDiscards_Type()
+)
+ipxBasicSysInDiscards.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxBasicSysInDiscards.setStatus("mandatory")
+_IpxBasicSysInDelivers_Type = Counter32
+_IpxBasicSysInDelivers_Object = MibTableColumn
+ipxBasicSysInDelivers = _IpxBasicSysInDelivers_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 7),
+    _IpxBasicSysInDelivers_Type()
+)
+ipxBasicSysInDelivers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxBasicSysInDelivers.setStatus("mandatory")
+_IpxBasicSysNoRoutes_Type = Counter32
+_IpxBasicSysNoRoutes_Object = MibTableColumn
+ipxBasicSysNoRoutes = _IpxBasicSysNoRoutes_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 8),
+    _IpxBasicSysNoRoutes_Type()
+)
+ipxBasicSysNoRoutes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxBasicSysNoRoutes.setStatus("mandatory")
+_IpxBasicSysOutRequests_Type = Counter32
+_IpxBasicSysOutRequests_Object = MibTableColumn
+ipxBasicSysOutRequests = _IpxBasicSysOutRequests_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 9),
+    _IpxBasicSysOutRequests_Type()
+)
+ipxBasicSysOutRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxBasicSysOutRequests.setStatus("mandatory")
+_IpxBasicSysOutMalformedRequests_Type = Counter32
+_IpxBasicSysOutMalformedRequests_Object = MibTableColumn
+ipxBasicSysOutMalformedRequests = _IpxBasicSysOutMalformedRequests_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 10),
+    _IpxBasicSysOutMalformedRequests_Type()
+)
+ipxBasicSysOutMalformedRequests.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxBasicSysOutMalformedRequests.setStatus("mandatory")
+_IpxBasicSysOutDiscards_Type = Counter32
+_IpxBasicSysOutDiscards_Object = MibTableColumn
+ipxBasicSysOutDiscards = _IpxBasicSysOutDiscards_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 11),
+    _IpxBasicSysOutDiscards_Type()
+)
+ipxBasicSysOutDiscards.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxBasicSysOutDiscards.setStatus("mandatory")
+_IpxBasicSysOutPackets_Type = Counter32
+_IpxBasicSysOutPackets_Object = MibTableColumn
+ipxBasicSysOutPackets = _IpxBasicSysOutPackets_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 4, 1, 1, 12),
+    _IpxBasicSysOutPackets_Type()
+)
+ipxBasicSysOutPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxBasicSysOutPackets.setStatus("mandatory")
+_IpxCircuit_ObjectIdentity = ObjectIdentity
+ipxCircuit = _IpxCircuit_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5)
+)
+_IpxCircTable_Object = MibTable
+ipxCircTable = _IpxCircTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5, 1)
+)
+if mibBuilder.loadTexts:
+    ipxCircTable.setStatus("mandatory")
+_IpxCircEntry_Object = MibTableRow
+ipxCircEntry = _IpxCircEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1)
+)
+ipxCircEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "ipxCircSysInstance"),
+    (0, "RADLAN-IPX-MIB", "ipxCircIndex"),
+)
+if mibBuilder.loadTexts:
+    ipxCircEntry.setStatus("mandatory")
+_IpxCircSysInstance_Type = Integer32
+_IpxCircSysInstance_Object = MibTableColumn
+ipxCircSysInstance = _IpxCircSysInstance_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 1),
+    _IpxCircSysInstance_Type()
+)
+ipxCircSysInstance.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxCircSysInstance.setStatus("mandatory")
+_IpxCircIndex_Type = Integer32
+_IpxCircIndex_Object = MibTableColumn
+ipxCircIndex = _IpxCircIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 2),
+    _IpxCircIndex_Type()
+)
+ipxCircIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxCircIndex.setStatus("mandatory")
+
+
+class _IpxCircExistState_Type(Integer32):
+    """Custom type ipxCircExistState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2),
+          ("sleeping", 3))
+    )
+
+
+_IpxCircExistState_Type.__name__ = "Integer32"
+_IpxCircExistState_Object = MibTableColumn
+ipxCircExistState = _IpxCircExistState_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 3),
+    _IpxCircExistState_Type()
+)
+ipxCircExistState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxCircExistState.setStatus("mandatory")
+
+
+class _IpxCircOperState_Type(Integer32):
+    """Custom type ipxCircOperState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("up", 2),
+          ("dormant", 3))
+    )
+
+
+_IpxCircOperState_Type.__name__ = "Integer32"
+_IpxCircOperState_Object = MibTableColumn
+ipxCircOperState = _IpxCircOperState_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 4),
+    _IpxCircOperState_Type()
+)
+ipxCircOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxCircOperState.setStatus("mandatory")
+_IpxCircIfIndex_Type = Integer32
+_IpxCircIfIndex_Object = MibTableColumn
+ipxCircIfIndex = _IpxCircIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 5),
+    _IpxCircIfIndex_Type()
+)
+ipxCircIfIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxCircIfIndex.setStatus("mandatory")
+_IpxCircNetNumber_Type = NetNumber
+_IpxCircNetNumber_Object = MibTableColumn
+ipxCircNetNumber = _IpxCircNetNumber_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 6),
+    _IpxCircNetNumber_Type()
+)
+ipxCircNetNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxCircNetNumber.setStatus("mandatory")
+
+
+class _IpxCircTimeToNet_Type(Integer32):
+    """Custom type ipxCircTimeToNet based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_IpxCircTimeToNet_Type.__name__ = "Integer32"
+_IpxCircTimeToNet_Object = MibTableColumn
+ipxCircTimeToNet = _IpxCircTimeToNet_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 7),
+    _IpxCircTimeToNet_Type()
+)
+ipxCircTimeToNet.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxCircTimeToNet.setStatus("mandatory")
+
+
+class _IpxCircEncaps_Type(Integer32):
+    """Custom type ipxCircEncaps based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("novell", 1),
+          ("ethernet", 2),
+          ("llc", 3),
+          ("snap", 4),
+          ("none", 10))
+    )
+
+
+_IpxCircEncaps_Type.__name__ = "Integer32"
+_IpxCircEncaps_Object = MibTableColumn
+ipxCircEncaps = _IpxCircEncaps_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 8),
+    _IpxCircEncaps_Type()
+)
+ipxCircEncaps.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxCircEncaps.setStatus("mandatory")
+
+
+class _IpxCircNetbiosDeliver_Type(Integer32):
+    """Custom type ipxCircNetbiosDeliver based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_IpxCircNetbiosDeliver_Type.__name__ = "Integer32"
+_IpxCircNetbiosDeliver_Object = MibTableColumn
+ipxCircNetbiosDeliver = _IpxCircNetbiosDeliver_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 5, 1, 1, 9),
+    _IpxCircNetbiosDeliver_Type()
+)
+ipxCircNetbiosDeliver.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxCircNetbiosDeliver.setStatus("mandatory")
+_IpxForwarding_ObjectIdentity = ObjectIdentity
+ipxForwarding = _IpxForwarding_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6)
+)
+_IpxDestTable_Object = MibTable
+ipxDestTable = _IpxDestTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6, 1)
+)
+if mibBuilder.loadTexts:
+    ipxDestTable.setStatus("mandatory")
+_IpxDestEntry_Object = MibTableRow
+ipxDestEntry = _IpxDestEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1)
+)
+ipxDestEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "ipxDestSysInstance"),
+    (0, "RADLAN-IPX-MIB", "ipxDestNetNum"),
+    (0, "RADLAN-IPX-MIB", "ipxDestNextHopCircIndex"),
+)
+if mibBuilder.loadTexts:
+    ipxDestEntry.setStatus("mandatory")
+_IpxDestSysInstance_Type = Integer32
+_IpxDestSysInstance_Object = MibTableColumn
+ipxDestSysInstance = _IpxDestSysInstance_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 1),
+    _IpxDestSysInstance_Type()
+)
+ipxDestSysInstance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxDestSysInstance.setStatus("mandatory")
+_IpxDestNetNum_Type = NetNumber
+_IpxDestNetNum_Object = MibTableColumn
+ipxDestNetNum = _IpxDestNetNum_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 2),
+    _IpxDestNetNum_Type()
+)
+ipxDestNetNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxDestNetNum.setStatus("mandatory")
+_IpxDestNextHopCircIndex_Type = Integer32
+_IpxDestNextHopCircIndex_Object = MibTableColumn
+ipxDestNextHopCircIndex = _IpxDestNextHopCircIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 3),
+    _IpxDestNextHopCircIndex_Type()
+)
+ipxDestNextHopCircIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxDestNextHopCircIndex.setStatus("mandatory")
+
+
+class _IpxDestProtocol_Type(Integer32):
+    """Custom type ipxDestProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("local", 2),
+          ("rip", 3),
+          ("nlsp", 4),
+          ("static", 5))
+    )
+
+
+_IpxDestProtocol_Type.__name__ = "Integer32"
+_IpxDestProtocol_Object = MibTableColumn
+ipxDestProtocol = _IpxDestProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 4),
+    _IpxDestProtocol_Type()
+)
+ipxDestProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxDestProtocol.setStatus("mandatory")
+_IpxDestTicks_Type = Integer32
+_IpxDestTicks_Object = MibTableColumn
+ipxDestTicks = _IpxDestTicks_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 5),
+    _IpxDestTicks_Type()
+)
+ipxDestTicks.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxDestTicks.setStatus("mandatory")
+_IpxDestHopCount_Type = Integer32
+_IpxDestHopCount_Object = MibTableColumn
+ipxDestHopCount = _IpxDestHopCount_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 6),
+    _IpxDestHopCount_Type()
+)
+ipxDestHopCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxDestHopCount.setStatus("mandatory")
+_IpxDestNextHopNICAddress_Type = PhysAddress
+_IpxDestNextHopNICAddress_Object = MibTableColumn
+ipxDestNextHopNICAddress = _IpxDestNextHopNICAddress_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 7),
+    _IpxDestNextHopNICAddress_Type()
+)
+ipxDestNextHopNICAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxDestNextHopNICAddress.setStatus("mandatory")
+_IpxDestNextHopNetNum_Type = NetNumber
+_IpxDestNextHopNetNum_Object = MibTableColumn
+ipxDestNextHopNetNum = _IpxDestNextHopNetNum_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 8),
+    _IpxDestNextHopNetNum_Type()
+)
+ipxDestNextHopNetNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxDestNextHopNetNum.setStatus("mandatory")
+
+
+class _IpxDestExistState_Type(Integer32):
+    """Custom type ipxDestExistState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_IpxDestExistState_Type.__name__ = "Integer32"
+_IpxDestExistState_Object = MibTableColumn
+ipxDestExistState = _IpxDestExistState_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 6, 1, 1, 9),
+    _IpxDestExistState_Type()
+)
+ipxDestExistState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxDestExistState.setStatus("mandatory")
+_IpxServices_ObjectIdentity = ObjectIdentity
+ipxServices = _IpxServices_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7)
+)
+_IpxServTable_Object = MibTable
+ipxServTable = _IpxServTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7, 1)
+)
+if mibBuilder.loadTexts:
+    ipxServTable.setStatus("mandatory")
+_IpxServEntry_Object = MibTableRow
+ipxServEntry = _IpxServEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1)
+)
+ipxServEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "ipxServSysInstance"),
+    (0, "RADLAN-IPX-MIB", "ipxServType"),
+    (1, "RADLAN-IPX-MIB", "ipxServName"),
+)
+if mibBuilder.loadTexts:
+    ipxServEntry.setStatus("mandatory")
+_IpxServSysInstance_Type = Integer32
+_IpxServSysInstance_Object = MibTableColumn
+ipxServSysInstance = _IpxServSysInstance_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 1),
+    _IpxServSysInstance_Type()
+)
+ipxServSysInstance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxServSysInstance.setStatus("mandatory")
+
+
+class _IpxServType_Type(OctetString):
+    """Custom type ipxServType based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_IpxServType_Type.__name__ = "OctetString"
+_IpxServType_Object = MibTableColumn
+ipxServType = _IpxServType_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 2),
+    _IpxServType_Type()
+)
+ipxServType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxServType.setStatus("mandatory")
+
+
+class _IpxServName_Type(OctetString):
+    """Custom type ipxServName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 48),
+    )
+
+
+_IpxServName_Type.__name__ = "OctetString"
+_IpxServName_Object = MibTableColumn
+ipxServName = _IpxServName_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 3),
+    _IpxServName_Type()
+)
+ipxServName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxServName.setStatus("mandatory")
+
+
+class _IpxServProtocol_Type(Integer32):
+    """Custom type ipxServProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("local", 2),
+          ("nlsp", 4),
+          ("static", 5),
+          ("sap", 6))
+    )
+
+
+_IpxServProtocol_Type.__name__ = "Integer32"
+_IpxServProtocol_Object = MibTableColumn
+ipxServProtocol = _IpxServProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 4),
+    _IpxServProtocol_Type()
+)
+ipxServProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ipxServProtocol.setStatus("mandatory")
+_IpxServNetNum_Type = NetNumber
+_IpxServNetNum_Object = MibTableColumn
+ipxServNetNum = _IpxServNetNum_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 5),
+    _IpxServNetNum_Type()
+)
+ipxServNetNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxServNetNum.setStatus("mandatory")
+
+
+class _IpxServNode_Type(OctetString):
+    """Custom type ipxServNode based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+    fixed_length = 6
+
+
+_IpxServNode_Type.__name__ = "OctetString"
+_IpxServNode_Object = MibTableColumn
+ipxServNode = _IpxServNode_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 6),
+    _IpxServNode_Type()
+)
+ipxServNode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxServNode.setStatus("mandatory")
+
+
+class _IpxServSocket_Type(OctetString):
+    """Custom type ipxServSocket based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
+_IpxServSocket_Type.__name__ = "OctetString"
+_IpxServSocket_Object = MibTableColumn
+ipxServSocket = _IpxServSocket_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 7),
+    _IpxServSocket_Type()
+)
+ipxServSocket.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxServSocket.setStatus("mandatory")
+_IpxServHopCount_Type = Integer32
+_IpxServHopCount_Object = MibTableColumn
+ipxServHopCount = _IpxServHopCount_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 8),
+    _IpxServHopCount_Type()
+)
+ipxServHopCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxServHopCount.setStatus("mandatory")
+
+
+class _IpxServExistState_Type(Integer32):
+    """Custom type ipxServExistState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_IpxServExistState_Type.__name__ = "Integer32"
+_IpxServExistState_Object = MibTableColumn
+ipxServExistState = _IpxServExistState_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 7, 1, 1, 9),
+    _IpxServExistState_Type()
+)
+ipxServExistState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ipxServExistState.setStatus("mandatory")
+_Ripsap_ObjectIdentity = ObjectIdentity
+ripsap = _Ripsap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8)
+)
+_RipsapSystem_ObjectIdentity = ObjectIdentity
+ripsapSystem = _RipsapSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 1)
+)
+_RipSysTable_Object = MibTable
+ripSysTable = _RipSysTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ripSysTable.setStatus("mandatory")
+_RipSysEntry_Object = MibTableRow
+ripSysEntry = _RipSysEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 1, 1)
+)
+ripSysEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "ripSysInstance"),
+)
+if mibBuilder.loadTexts:
+    ripSysEntry.setStatus("mandatory")
+_RipSysInstance_Type = Integer32
+_RipSysInstance_Object = MibTableColumn
+ripSysInstance = _RipSysInstance_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 1, 1, 1),
+    _RipSysInstance_Type()
+)
+ripSysInstance.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ripSysInstance.setStatus("mandatory")
+
+
+class _RipSysState_Type(Integer32):
+    """Custom type ripSysState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_RipSysState_Type.__name__ = "Integer32"
+_RipSysState_Object = MibTableColumn
+ripSysState = _RipSysState_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 1, 1, 2),
+    _RipSysState_Type()
+)
+ripSysState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ripSysState.setStatus("mandatory")
+_RipSysIncorrectPackets_Type = Counter32
+_RipSysIncorrectPackets_Object = MibTableColumn
+ripSysIncorrectPackets = _RipSysIncorrectPackets_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 1, 1, 3),
+    _RipSysIncorrectPackets_Type()
+)
+ripSysIncorrectPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ripSysIncorrectPackets.setStatus("mandatory")
+_SapSysTable_Object = MibTable
+sapSysTable = _SapSysTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 2)
+)
+if mibBuilder.loadTexts:
+    sapSysTable.setStatus("mandatory")
+_SapSysEntry_Object = MibTableRow
+sapSysEntry = _SapSysEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 2, 1)
+)
+sapSysEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "sapSysInstance"),
+)
+if mibBuilder.loadTexts:
+    sapSysEntry.setStatus("mandatory")
+_SapSysInstance_Type = Integer32
+_SapSysInstance_Object = MibTableColumn
+sapSysInstance = _SapSysInstance_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 2, 1, 1),
+    _SapSysInstance_Type()
+)
+sapSysInstance.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sapSysInstance.setStatus("mandatory")
+
+
+class _SapSysState_Type(Integer32):
+    """Custom type sapSysState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_SapSysState_Type.__name__ = "Integer32"
+_SapSysState_Object = MibTableColumn
+sapSysState = _SapSysState_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 2, 1, 2),
+    _SapSysState_Type()
+)
+sapSysState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sapSysState.setStatus("mandatory")
+_SapSysIncorrectPackets_Type = Counter32
+_SapSysIncorrectPackets_Object = MibTableColumn
+sapSysIncorrectPackets = _SapSysIncorrectPackets_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 1, 2, 1, 3),
+    _SapSysIncorrectPackets_Type()
+)
+sapSysIncorrectPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sapSysIncorrectPackets.setStatus("mandatory")
+_RipsapCircuit_ObjectIdentity = ObjectIdentity
+ripsapCircuit = _RipsapCircuit_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2)
+)
+_RipCircTable_Object = MibTable
+ripCircTable = _RipCircTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1)
+)
+if mibBuilder.loadTexts:
+    ripCircTable.setStatus("mandatory")
+_RipCircEntry_Object = MibTableRow
+ripCircEntry = _RipCircEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1)
+)
+ripCircEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "ripCircSysInstance"),
+    (0, "RADLAN-IPX-MIB", "ripCircIndex"),
+)
+if mibBuilder.loadTexts:
+    ripCircEntry.setStatus("mandatory")
+_RipCircSysInstance_Type = Integer32
+_RipCircSysInstance_Object = MibTableColumn
+ripCircSysInstance = _RipCircSysInstance_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 1),
+    _RipCircSysInstance_Type()
+)
+ripCircSysInstance.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ripCircSysInstance.setStatus("mandatory")
+_RipCircIndex_Type = Integer32
+_RipCircIndex_Object = MibTableColumn
+ripCircIndex = _RipCircIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 2),
+    _RipCircIndex_Type()
+)
+ripCircIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ripCircIndex.setStatus("mandatory")
+
+
+class _RipCircState_Type(Integer32):
+    """Custom type ripCircState based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_RipCircState_Type.__name__ = "Integer32"
+_RipCircState_Object = MibTableColumn
+ripCircState = _RipCircState_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 3),
+    _RipCircState_Type()
+)
+ripCircState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ripCircState.setStatus("mandatory")
+
+
+class _RipCircUpdate_Type(Integer32):
+    """Custom type ripCircUpdate based on Integer32"""
+    defaultValue = 60
+
+
+_RipCircUpdate_Type.__name__ = "Integer32"
+_RipCircUpdate_Object = MibTableColumn
+ripCircUpdate = _RipCircUpdate_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 4),
+    _RipCircUpdate_Type()
+)
+ripCircUpdate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ripCircUpdate.setStatus("mandatory")
+
+
+class _RipCircAgeMultiplier_Type(Integer32):
+    """Custom type ripCircAgeMultiplier based on Integer32"""
+    defaultValue = 4
+
+
+_RipCircAgeMultiplier_Type.__name__ = "Integer32"
+_RipCircAgeMultiplier_Object = MibTableColumn
+ripCircAgeMultiplier = _RipCircAgeMultiplier_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 5),
+    _RipCircAgeMultiplier_Type()
+)
+ripCircAgeMultiplier.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ripCircAgeMultiplier.setStatus("mandatory")
+_RipCircOutPackets_Type = Counter32
+_RipCircOutPackets_Object = MibTableColumn
+ripCircOutPackets = _RipCircOutPackets_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 6),
+    _RipCircOutPackets_Type()
+)
+ripCircOutPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ripCircOutPackets.setStatus("mandatory")
+_RipCircInPackets_Type = Counter32
+_RipCircInPackets_Object = MibTableColumn
+ripCircInPackets = _RipCircInPackets_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 1, 1, 7),
+    _RipCircInPackets_Type()
+)
+ripCircInPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ripCircInPackets.setStatus("mandatory")
+_SapCircTable_Object = MibTable
+sapCircTable = _SapCircTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2)
+)
+if mibBuilder.loadTexts:
+    sapCircTable.setStatus("mandatory")
+_SapCircEntry_Object = MibTableRow
+sapCircEntry = _SapCircEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1)
+)
+sapCircEntry.setIndexNames(
+    (0, "RADLAN-IPX-MIB", "sapCircSysInstance"),
+    (0, "RADLAN-IPX-MIB", "sapCircIndex"),
+)
+if mibBuilder.loadTexts:
+    sapCircEntry.setStatus("mandatory")
+_SapCircSysInstance_Type = Integer32
+_SapCircSysInstance_Object = MibTableColumn
+sapCircSysInstance = _SapCircSysInstance_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 1),
+    _SapCircSysInstance_Type()
+)
+sapCircSysInstance.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sapCircSysInstance.setStatus("mandatory")
+_SapCircIndex_Type = Integer32
+_SapCircIndex_Object = MibTableColumn
+sapCircIndex = _SapCircIndex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 2),
+    _SapCircIndex_Type()
+)
+sapCircIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sapCircIndex.setStatus("mandatory")
+
+
+class _SapCircState_Type(Integer32):
+    """Custom type sapCircState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2))
+    )
+
+
+_SapCircState_Type.__name__ = "Integer32"
+_SapCircState_Object = MibTableColumn
+sapCircState = _SapCircState_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 3),
+    _SapCircState_Type()
+)
+sapCircState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sapCircState.setStatus("mandatory")
+
+
+class _SapCircUpdate_Type(Integer32):
+    """Custom type sapCircUpdate based on Integer32"""
+    defaultValue = 60
+
+
+_SapCircUpdate_Type.__name__ = "Integer32"
+_SapCircUpdate_Object = MibTableColumn
+sapCircUpdate = _SapCircUpdate_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 4),
+    _SapCircUpdate_Type()
+)
+sapCircUpdate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sapCircUpdate.setStatus("mandatory")
+
+
+class _SapCircAgeMultiplier_Type(Integer32):
+    """Custom type sapCircAgeMultiplier based on Integer32"""
+    defaultValue = 4
+
+
+_SapCircAgeMultiplier_Type.__name__ = "Integer32"
+_SapCircAgeMultiplier_Object = MibTableColumn
+sapCircAgeMultiplier = _SapCircAgeMultiplier_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 5),
+    _SapCircAgeMultiplier_Type()
+)
+sapCircAgeMultiplier.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sapCircAgeMultiplier.setStatus("mandatory")
+
+
+class _SapCircGetNearestServerReply_Type(Integer32):
+    """Custom type sapCircGetNearestServerReply based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 1),
+          ("yes", 2))
+    )
+
+
+_SapCircGetNearestServerReply_Type.__name__ = "Integer32"
+_SapCircGetNearestServerReply_Object = MibTableColumn
+sapCircGetNearestServerReply = _SapCircGetNearestServerReply_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 6),
+    _SapCircGetNearestServerReply_Type()
+)
+sapCircGetNearestServerReply.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    sapCircGetNearestServerReply.setStatus("mandatory")
+_SapCircOutPackets_Type = Counter32
+_SapCircOutPackets_Object = MibTableColumn
+sapCircOutPackets = _SapCircOutPackets_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 7),
+    _SapCircOutPackets_Type()
+)
+sapCircOutPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sapCircOutPackets.setStatus("mandatory")
+_SapCircInPackets_Type = Counter32
+_SapCircInPackets_Object = MibTableColumn
+sapCircInPackets = _SapCircInPackets_Object(
+    (1, 3, 6, 1, 4, 1, 89, 12, 8, 2, 2, 1, 8),
+    _SapCircInPackets_Type()
+)
+sapCircInPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    sapCircInPackets.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RADLAN-IPX-MIB",
+    **{"NetNumber": NetNumber,
+       "rndIPXdriver": rndIPXdriver,
+       "rndIPXRip": rndIPXRip,
+       "rndIPXRipFilterGlbTable": rndIPXRipFilterGlbTable,
+       "rndIPXRipFilterGlbEntry": rndIPXRipFilterGlbEntry,
+       "rndIPXRipFilterGlbFLtype": rndIPXRipFilterGlbFLtype,
+       "rndIPXRipFilterGlbFLnumber": rndIPXRipFilterGlbFLnumber,
+       "rndIPXRipFilterGlbFLStatus": rndIPXRipFilterGlbFLStatus,
+       "rndIPXRipFilterGlbFLnetworkPatern": rndIPXRipFilterGlbFLnetworkPatern,
+       "rndIPXRipFilterGlbFLnetworkMask": rndIPXRipFilterGlbFLnetworkMask,
+       "rndIPXRipFilterGlbFLaction": rndIPXRipFilterGlbFLaction,
+       "rndIPXRipFilterCircuitTable": rndIPXRipFilterCircuitTable,
+       "rndIPXRipFilterCircuitEntry": rndIPXRipFilterCircuitEntry,
+       "rndIPXRipFilterCircFLIfIndex": rndIPXRipFilterCircFLIfIndex,
+       "rndIPXRipFilterCircFLType": rndIPXRipFilterCircFLType,
+       "rndIPXRipFilterCircFLnumber": rndIPXRipFilterCircFLnumber,
+       "rndIPXRipFilterCircFLStatus": rndIPXRipFilterCircFLStatus,
+       "rndIPXRipFilterCircFLnetworkPatern": rndIPXRipFilterCircFLnetworkPatern,
+       "rndIPXRipFilterCircFLnetworkMask": rndIPXRipFilterCircFLnetworkMask,
+       "rndIPXRipFilterCircFLaction": rndIPXRipFilterCircFLaction,
+       "rndIPXSap": rndIPXSap,
+       "rndIPXSapFilterGlbTable": rndIPXSapFilterGlbTable,
+       "rndIPXSapFilterGlbEntry": rndIPXSapFilterGlbEntry,
+       "rndIPXSapFilterGlbFLtype": rndIPXSapFilterGlbFLtype,
+       "rndIPXSapFilterGlbFLnumber": rndIPXSapFilterGlbFLnumber,
+       "rndIPXSapFilterGlbFLStatus": rndIPXSapFilterGlbFLStatus,
+       "rndIPXSapFilterGlbFLnetworkPatern": rndIPXSapFilterGlbFLnetworkPatern,
+       "rndIPXSapFilterGlbFLnetworkMask": rndIPXSapFilterGlbFLnetworkMask,
+       "rndIPXSapFilterGlbFLserviceType": rndIPXSapFilterGlbFLserviceType,
+       "rndIPXSapFilterGlbFLserviceName": rndIPXSapFilterGlbFLserviceName,
+       "rndIPXSapFilterGlbFLaction": rndIPXSapFilterGlbFLaction,
+       "rndIPXSapFilterCircuitTable": rndIPXSapFilterCircuitTable,
+       "rndIPXSapFilterCircuitEntry": rndIPXSapFilterCircuitEntry,
+       "rndIPXSapFilterCircFLIfIndex": rndIPXSapFilterCircFLIfIndex,
+       "rndIPXSapFilterCircFLtype": rndIPXSapFilterCircFLtype,
+       "rndIPXSapFilterCircFLnumber": rndIPXSapFilterCircFLnumber,
+       "rndIPXSapFilterCircFLStatus": rndIPXSapFilterCircFLStatus,
+       "rndIPXSapFilterCircFLnetworkPatern": rndIPXSapFilterCircFLnetworkPatern,
+       "rndIPXSapFilterCircFLnetworkMask": rndIPXSapFilterCircFLnetworkMask,
+       "rndIPXSapFilterCircFLserviceType": rndIPXSapFilterCircFLserviceType,
+       "rndIPXSapFilterCircFLserviceName": rndIPXSapFilterCircFLserviceName,
+       "rndIPXSapFilterCircFLaction": rndIPXSapFilterCircFLaction,
+       "ipxSystem": ipxSystem,
+       "ipxBasicSysTable": ipxBasicSysTable,
+       "ipxBasicSysEntry": ipxBasicSysEntry,
+       "ipxBasicSysInstance": ipxBasicSysInstance,
+       "ipxBasicSysExistState": ipxBasicSysExistState,
+       "ipxBasicSysInReceives": ipxBasicSysInReceives,
+       "ipxBasicSysInHdrErrors": ipxBasicSysInHdrErrors,
+       "ipxBasicSysInUnknownSockets": ipxBasicSysInUnknownSockets,
+       "ipxBasicSysInDiscards": ipxBasicSysInDiscards,
+       "ipxBasicSysInDelivers": ipxBasicSysInDelivers,
+       "ipxBasicSysNoRoutes": ipxBasicSysNoRoutes,
+       "ipxBasicSysOutRequests": ipxBasicSysOutRequests,
+       "ipxBasicSysOutMalformedRequests": ipxBasicSysOutMalformedRequests,
+       "ipxBasicSysOutDiscards": ipxBasicSysOutDiscards,
+       "ipxBasicSysOutPackets": ipxBasicSysOutPackets,
+       "ipxCircuit": ipxCircuit,
+       "ipxCircTable": ipxCircTable,
+       "ipxCircEntry": ipxCircEntry,
+       "ipxCircSysInstance": ipxCircSysInstance,
+       "ipxCircIndex": ipxCircIndex,
+       "ipxCircExistState": ipxCircExistState,
+       "ipxCircOperState": ipxCircOperState,
+       "ipxCircIfIndex": ipxCircIfIndex,
+       "ipxCircNetNumber": ipxCircNetNumber,
+       "ipxCircTimeToNet": ipxCircTimeToNet,
+       "ipxCircEncaps": ipxCircEncaps,
+       "ipxCircNetbiosDeliver": ipxCircNetbiosDeliver,
+       "ipxForwarding": ipxForwarding,
+       "ipxDestTable": ipxDestTable,
+       "ipxDestEntry": ipxDestEntry,
+       "ipxDestSysInstance": ipxDestSysInstance,
+       "ipxDestNetNum": ipxDestNetNum,
+       "ipxDestNextHopCircIndex": ipxDestNextHopCircIndex,
+       "ipxDestProtocol": ipxDestProtocol,
+       "ipxDestTicks": ipxDestTicks,
+       "ipxDestHopCount": ipxDestHopCount,
+       "ipxDestNextHopNICAddress": ipxDestNextHopNICAddress,
+       "ipxDestNextHopNetNum": ipxDestNextHopNetNum,
+       "ipxDestExistState": ipxDestExistState,
+       "ipxServices": ipxServices,
+       "ipxServTable": ipxServTable,
+       "ipxServEntry": ipxServEntry,
+       "ipxServSysInstance": ipxServSysInstance,
+       "ipxServType": ipxServType,
+       "ipxServName": ipxServName,
+       "ipxServProtocol": ipxServProtocol,
+       "ipxServNetNum": ipxServNetNum,
+       "ipxServNode": ipxServNode,
+       "ipxServSocket": ipxServSocket,
+       "ipxServHopCount": ipxServHopCount,
+       "ipxServExistState": ipxServExistState,
+       "ripsap": ripsap,
+       "ripsapSystem": ripsapSystem,
+       "ripSysTable": ripSysTable,
+       "ripSysEntry": ripSysEntry,
+       "ripSysInstance": ripSysInstance,
+       "ripSysState": ripSysState,
+       "ripSysIncorrectPackets": ripSysIncorrectPackets,
+       "sapSysTable": sapSysTable,
+       "sapSysEntry": sapSysEntry,
+       "sapSysInstance": sapSysInstance,
+       "sapSysState": sapSysState,
+       "sapSysIncorrectPackets": sapSysIncorrectPackets,
+       "ripsapCircuit": ripsapCircuit,
+       "ripCircTable": ripCircTable,
+       "ripCircEntry": ripCircEntry,
+       "ripCircSysInstance": ripCircSysInstance,
+       "ripCircIndex": ripCircIndex,
+       "ripCircState": ripCircState,
+       "ripCircUpdate": ripCircUpdate,
+       "ripCircAgeMultiplier": ripCircAgeMultiplier,
+       "ripCircOutPackets": ripCircOutPackets,
+       "ripCircInPackets": ripCircInPackets,
+       "sapCircTable": sapCircTable,
+       "sapCircEntry": sapCircEntry,
+       "sapCircSysInstance": sapCircSysInstance,
+       "sapCircIndex": sapCircIndex,
+       "sapCircState": sapCircState,
+       "sapCircUpdate": sapCircUpdate,
+       "sapCircAgeMultiplier": sapCircAgeMultiplier,
+       "sapCircGetNearestServerReply": sapCircGetNearestServerReply,
+       "sapCircOutPackets": sapCircOutPackets,
+       "sapCircInPackets": sapCircInPackets}
+)

@@ -1,105 +1,818 @@
+# SNMP MIB module (MX-CERT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MX-CERT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/media5/MX-CERT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:05:41 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/media5/MX-CERT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:06:05 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-mediatrixServices, = mibBuilder.importSymbols("MX-SMI2", "mediatrixServices")
-MxActivationState, MxAdvancedIpPort, MxIpPort, MxDigitMap, MxEnableState, MxIpSubnetMask, MxIpHostName, MxIpAddress = mibBuilder.importSymbols("MX-TC", "MxActivationState", "MxAdvancedIpPort", "MxIpPort", "MxDigitMap", "MxEnableState", "MxIpSubnetMask", "MxIpHostName", "MxIpAddress")
-MxUrl, MxUInt64, MxIpAddr, MxIpAddrMask, MxUri, MxIpAddrPort, MxFloat32, MxIpHostNamePort = mibBuilder.importSymbols("MX-TC2", "MxUrl", "MxUInt64", "MxIpAddr", "MxIpAddrMask", "MxUri", "MxIpAddrPort", "MxFloat32", "MxIpHostNamePort")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-certMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300))
-if mibBuilder.loadTexts: certMIB.setLastUpdated('1910210000Z')
-if mibBuilder.loadTexts: certMIB.setOrganization(' Mediatrix Telecom, Inc. ')
-certMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1))
-certificateInfoGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100))
-hostCertificatesInfoTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100), )
-if mibBuilder.loadTexts: hostCertificatesInfoTable.setStatus('current')
-hostCertificatesInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1), ).setIndexNames((0, "MX-CERT-MIB", "hostCertificatesInfoFileName"))
-if mibBuilder.loadTexts: hostCertificatesInfoEntry.setStatus('current')
-hostCertificatesInfoFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 100), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostCertificatesInfoFileName.setStatus('current')
-hostCertificatesInfoIssuedTo = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 200), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostCertificatesInfoIssuedTo.setStatus('current')
-hostCertificatesInfoIssuedBy = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 300), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostCertificatesInfoIssuedBy.setStatus('current')
-hostCertificatesInfoValidFrom = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 400), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostCertificatesInfoValidFrom.setStatus('current')
-hostCertificatesInfoValidTo = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 500), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostCertificatesInfoValidTo.setStatus('current')
-hostCertificatesInfoUsage = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 550), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostCertificatesInfoUsage.setStatus('current')
-hostCertificatesInfoDelete = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 600), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 10))).clone(namedValues=NamedValues(("noOp", 0), ("delete", 10))).clone('noOp')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCertificatesInfoDelete.setStatus('current')
-othersCertificatesInfoTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200), )
-if mibBuilder.loadTexts: othersCertificatesInfoTable.setStatus('current')
-othersCertificatesInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1), ).setIndexNames((0, "MX-CERT-MIB", "othersCertificatesInfoFileName"))
-if mibBuilder.loadTexts: othersCertificatesInfoEntry.setStatus('current')
-othersCertificatesInfoFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 100), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: othersCertificatesInfoFileName.setStatus('current')
-othersCertificatesInfoIssuedTo = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 200), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: othersCertificatesInfoIssuedTo.setStatus('current')
-othersCertificatesInfoIssuedBy = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 300), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: othersCertificatesInfoIssuedBy.setStatus('current')
-othersCertificatesInfoValidFrom = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 400), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: othersCertificatesInfoValidFrom.setStatus('current')
-othersCertificatesInfoValidTo = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 500), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: othersCertificatesInfoValidTo.setStatus('current')
-othersCertificatesInfoUsage = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 550), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: othersCertificatesInfoUsage.setStatus('current')
-othersCertificatesInfoCertificateAuthority = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 600), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200))).clone(namedValues=NamedValues(("yes", 100), ("no", 200))).clone('yes')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: othersCertificatesInfoCertificateAuthority.setStatus('current')
-othersCertificatesInfoDelete = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 700), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 10))).clone(namedValues=NamedValues(("noOp", 0), ("delete", 10))).clone('noOp')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: othersCertificatesInfoDelete.setStatus('current')
-hostCertificateAssociationTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300), )
-if mibBuilder.loadTexts: hostCertificateAssociationTable.setStatus('current')
-hostCertificateAssociationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1), ).setIndexNames((0, "MX-CERT-MIB", "hostCertificateAssociationFileName"))
-if mibBuilder.loadTexts: hostCertificateAssociationEntry.setStatus('current')
-hostCertificateAssociationFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 100), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hostCertificateAssociationFileName.setStatus('current')
-hostCertificateAssociationCwmp = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 1000), MxEnableState().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCertificateAssociationCwmp.setStatus('current')
-hostCertificateAssociationNlm = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 1100), MxEnableState().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCertificateAssociationNlm.setStatus('current')
-hostCertificateAssociationSip = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 200), MxEnableState().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCertificateAssociationSip.setStatus('current')
-hostCertificateAssociationWeb = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 300), MxEnableState().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCertificateAssociationWeb.setStatus('current')
-hostCertificateAssociationEap = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 400), MxEnableState().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCertificateAssociationEap.setStatus('current')
-hostCertificateAssociationConf = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 500), MxEnableState().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCertificateAssociationConf.setStatus('current')
-hostCertificateAssociationFpu = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 600), MxEnableState().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCertificateAssociationFpu.setStatus('current')
-hostCertificateAssociationFile = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 700), MxEnableState().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCertificateAssociationFile.setStatus('current')
-hostCertificateAssociationCert = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 800), MxEnableState().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCertificateAssociationCert.setStatus('current')
-hostCertificateAssociationSbc = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 900), MxEnableState().clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostCertificateAssociationSbc.setStatus('current')
-certificateAuthoritiesTable = MibTable((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 400), )
-if mibBuilder.loadTexts: certificateAuthoritiesTable.setStatus('current')
-certificateAuthoritiesEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 400, 1), ).setIndexNames((0, "MX-CERT-MIB", "certificateAuthoritiesFileName"))
-if mibBuilder.loadTexts: certificateAuthoritiesEntry.setStatus('current')
-certificateAuthoritiesFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 400, 1, 100), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: certificateAuthoritiesFileName.setStatus('current')
-certificateAuthoritiesOverrideIssuedCertificateOcspUrl = MibTableColumn((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 400, 1, 200), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 512))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: certificateAuthoritiesOverrideIssuedCertificateOcspUrl.setStatus('current')
-transferGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 500))
-transferHttpsCipherSuite = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 500, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200, 300))).clone(namedValues=NamedValues(("cS1", 100), ("cS2", 200), ("cS3", 300))).clone('cS1')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: transferHttpsCipherSuite.setStatus('current')
-transferHttpsTlsVersion = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 500, 200), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(100, 200, 300, 400))).clone(namedValues=NamedValues(("sSLv3", 100), ("tLSv1", 200), ("tLSv1-1", 300), ("tLSv1-2", 400))).clone('tLSv1')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: transferHttpsTlsVersion.setStatus('current')
-notificationsGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 60010))
-minSeverity = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 60010, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100, 200, 300, 400, 500))).clone(namedValues=NamedValues(("disable", 0), ("debug", 100), ("info", 200), ("warning", 300), ("error", 400), ("critical", 500))).clone('warning')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: minSeverity.setStatus('current')
-configurationGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 60020))
-needRestartInfo = MibScalar((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 60020, 100), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 100))).clone(namedValues=NamedValues(("no", 0), ("yes", 100)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: needRestartInfo.setStatus('current')
-mibBuilder.exportSymbols("MX-CERT-MIB", hostCertificateAssociationFileName=hostCertificateAssociationFileName, hostCertificatesInfoEntry=hostCertificatesInfoEntry, hostCertificatesInfoIssuedTo=hostCertificatesInfoIssuedTo, hostCertificateAssociationTable=hostCertificateAssociationTable, hostCertificateAssociationFpu=hostCertificateAssociationFpu, othersCertificatesInfoTable=othersCertificatesInfoTable, othersCertificatesInfoUsage=othersCertificatesInfoUsage, hostCertificatesInfoValidFrom=hostCertificatesInfoValidFrom, hostCertificateAssociationEntry=hostCertificateAssociationEntry, hostCertificatesInfoValidTo=hostCertificatesInfoValidTo, certMIBObjects=certMIBObjects, hostCertificateAssociationEap=hostCertificateAssociationEap, certificateAuthoritiesOverrideIssuedCertificateOcspUrl=certificateAuthoritiesOverrideIssuedCertificateOcspUrl, hostCertificatesInfoFileName=hostCertificatesInfoFileName, transferGroup=transferGroup, transferHttpsCipherSuite=transferHttpsCipherSuite, certMIB=certMIB, hostCertificateAssociationCwmp=hostCertificateAssociationCwmp, othersCertificatesInfoIssuedTo=othersCertificatesInfoIssuedTo, certificateAuthoritiesTable=certificateAuthoritiesTable, othersCertificatesInfoCertificateAuthority=othersCertificatesInfoCertificateAuthority, othersCertificatesInfoFileName=othersCertificatesInfoFileName, othersCertificatesInfoEntry=othersCertificatesInfoEntry, hostCertificateAssociationCert=hostCertificateAssociationCert, transferHttpsTlsVersion=transferHttpsTlsVersion, hostCertificateAssociationSip=hostCertificateAssociationSip, hostCertificateAssociationNlm=hostCertificateAssociationNlm, certificateAuthoritiesEntry=certificateAuthoritiesEntry, hostCertificatesInfoUsage=hostCertificatesInfoUsage, othersCertificatesInfoValidTo=othersCertificatesInfoValidTo, hostCertificateAssociationSbc=hostCertificateAssociationSbc, notificationsGroup=notificationsGroup, hostCertificateAssociationWeb=hostCertificateAssociationWeb, configurationGroup=configurationGroup, certificateAuthoritiesFileName=certificateAuthoritiesFileName, needRestartInfo=needRestartInfo, hostCertificatesInfoDelete=hostCertificatesInfoDelete, certificateInfoGroup=certificateInfoGroup, othersCertificatesInfoIssuedBy=othersCertificatesInfoIssuedBy, hostCertificateAssociationFile=hostCertificateAssociationFile, hostCertificatesInfoTable=hostCertificatesInfoTable, hostCertificatesInfoIssuedBy=hostCertificatesInfoIssuedBy, hostCertificateAssociationConf=hostCertificateAssociationConf, othersCertificatesInfoValidFrom=othersCertificatesInfoValidFrom, minSeverity=minSeverity, othersCertificatesInfoDelete=othersCertificatesInfoDelete, PYSNMP_MODULE_ID=certMIB)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(mediatrixServices,) = mibBuilder.importSymbols(
+    "MX-SMI2",
+    "mediatrixServices")
+
+(MxActivationState,
+ MxAdvancedIpPort,
+ MxDigitMap,
+ MxEnableState,
+ MxIpAddress,
+ MxIpHostName,
+ MxIpPort,
+ MxIpSubnetMask) = mibBuilder.importSymbols(
+    "MX-TC",
+    "MxActivationState",
+    "MxAdvancedIpPort",
+    "MxDigitMap",
+    "MxEnableState",
+    "MxIpAddress",
+    "MxIpHostName",
+    "MxIpPort",
+    "MxIpSubnetMask")
+
+(MxFloat32,
+ MxIpAddr,
+ MxIpAddrMask,
+ MxIpAddrPort,
+ MxIpHostNamePort,
+ MxUInt64,
+ MxUri,
+ MxUrl) = mibBuilder.importSymbols(
+    "MX-TC2",
+    "MxFloat32",
+    "MxIpAddr",
+    "MxIpAddrMask",
+    "MxIpAddrPort",
+    "MxIpHostNamePort",
+    "MxUInt64",
+    "MxUri",
+    "MxUrl")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+certMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CertMIBObjects_ObjectIdentity = ObjectIdentity
+certMIBObjects = _CertMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1)
+)
+_CertificateInfoGroup_ObjectIdentity = ObjectIdentity
+certificateInfoGroup = _CertificateInfoGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100)
+)
+_HostCertificatesInfoTable_Object = MibTable
+hostCertificatesInfoTable = _HostCertificatesInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100)
+)
+if mibBuilder.loadTexts:
+    hostCertificatesInfoTable.setStatus("current")
+_HostCertificatesInfoEntry_Object = MibTableRow
+hostCertificatesInfoEntry = _HostCertificatesInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1)
+)
+hostCertificatesInfoEntry.setIndexNames(
+    (0, "MX-CERT-MIB", "hostCertificatesInfoFileName"),
+)
+if mibBuilder.loadTexts:
+    hostCertificatesInfoEntry.setStatus("current")
+_HostCertificatesInfoFileName_Type = OctetString
+_HostCertificatesInfoFileName_Object = MibTableColumn
+hostCertificatesInfoFileName = _HostCertificatesInfoFileName_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 100),
+    _HostCertificatesInfoFileName_Type()
+)
+hostCertificatesInfoFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hostCertificatesInfoFileName.setStatus("current")
+_HostCertificatesInfoIssuedTo_Type = OctetString
+_HostCertificatesInfoIssuedTo_Object = MibTableColumn
+hostCertificatesInfoIssuedTo = _HostCertificatesInfoIssuedTo_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 200),
+    _HostCertificatesInfoIssuedTo_Type()
+)
+hostCertificatesInfoIssuedTo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hostCertificatesInfoIssuedTo.setStatus("current")
+_HostCertificatesInfoIssuedBy_Type = OctetString
+_HostCertificatesInfoIssuedBy_Object = MibTableColumn
+hostCertificatesInfoIssuedBy = _HostCertificatesInfoIssuedBy_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 300),
+    _HostCertificatesInfoIssuedBy_Type()
+)
+hostCertificatesInfoIssuedBy.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hostCertificatesInfoIssuedBy.setStatus("current")
+_HostCertificatesInfoValidFrom_Type = OctetString
+_HostCertificatesInfoValidFrom_Object = MibTableColumn
+hostCertificatesInfoValidFrom = _HostCertificatesInfoValidFrom_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 400),
+    _HostCertificatesInfoValidFrom_Type()
+)
+hostCertificatesInfoValidFrom.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hostCertificatesInfoValidFrom.setStatus("current")
+_HostCertificatesInfoValidTo_Type = OctetString
+_HostCertificatesInfoValidTo_Object = MibTableColumn
+hostCertificatesInfoValidTo = _HostCertificatesInfoValidTo_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 500),
+    _HostCertificatesInfoValidTo_Type()
+)
+hostCertificatesInfoValidTo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hostCertificatesInfoValidTo.setStatus("current")
+_HostCertificatesInfoUsage_Type = OctetString
+_HostCertificatesInfoUsage_Object = MibTableColumn
+hostCertificatesInfoUsage = _HostCertificatesInfoUsage_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 550),
+    _HostCertificatesInfoUsage_Type()
+)
+hostCertificatesInfoUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hostCertificatesInfoUsage.setStatus("current")
+
+
+class _HostCertificatesInfoDelete_Type(Integer32):
+    """Custom type hostCertificatesInfoDelete based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noOp", 0),
+          ("delete", 10))
+    )
+
+
+_HostCertificatesInfoDelete_Type.__name__ = "Integer32"
+_HostCertificatesInfoDelete_Object = MibTableColumn
+hostCertificatesInfoDelete = _HostCertificatesInfoDelete_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 100, 1, 600),
+    _HostCertificatesInfoDelete_Type()
+)
+hostCertificatesInfoDelete.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCertificatesInfoDelete.setStatus("current")
+_OthersCertificatesInfoTable_Object = MibTable
+othersCertificatesInfoTable = _OthersCertificatesInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200)
+)
+if mibBuilder.loadTexts:
+    othersCertificatesInfoTable.setStatus("current")
+_OthersCertificatesInfoEntry_Object = MibTableRow
+othersCertificatesInfoEntry = _OthersCertificatesInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1)
+)
+othersCertificatesInfoEntry.setIndexNames(
+    (0, "MX-CERT-MIB", "othersCertificatesInfoFileName"),
+)
+if mibBuilder.loadTexts:
+    othersCertificatesInfoEntry.setStatus("current")
+_OthersCertificatesInfoFileName_Type = OctetString
+_OthersCertificatesInfoFileName_Object = MibTableColumn
+othersCertificatesInfoFileName = _OthersCertificatesInfoFileName_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 100),
+    _OthersCertificatesInfoFileName_Type()
+)
+othersCertificatesInfoFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    othersCertificatesInfoFileName.setStatus("current")
+_OthersCertificatesInfoIssuedTo_Type = OctetString
+_OthersCertificatesInfoIssuedTo_Object = MibTableColumn
+othersCertificatesInfoIssuedTo = _OthersCertificatesInfoIssuedTo_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 200),
+    _OthersCertificatesInfoIssuedTo_Type()
+)
+othersCertificatesInfoIssuedTo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    othersCertificatesInfoIssuedTo.setStatus("current")
+_OthersCertificatesInfoIssuedBy_Type = OctetString
+_OthersCertificatesInfoIssuedBy_Object = MibTableColumn
+othersCertificatesInfoIssuedBy = _OthersCertificatesInfoIssuedBy_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 300),
+    _OthersCertificatesInfoIssuedBy_Type()
+)
+othersCertificatesInfoIssuedBy.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    othersCertificatesInfoIssuedBy.setStatus("current")
+_OthersCertificatesInfoValidFrom_Type = OctetString
+_OthersCertificatesInfoValidFrom_Object = MibTableColumn
+othersCertificatesInfoValidFrom = _OthersCertificatesInfoValidFrom_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 400),
+    _OthersCertificatesInfoValidFrom_Type()
+)
+othersCertificatesInfoValidFrom.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    othersCertificatesInfoValidFrom.setStatus("current")
+_OthersCertificatesInfoValidTo_Type = OctetString
+_OthersCertificatesInfoValidTo_Object = MibTableColumn
+othersCertificatesInfoValidTo = _OthersCertificatesInfoValidTo_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 500),
+    _OthersCertificatesInfoValidTo_Type()
+)
+othersCertificatesInfoValidTo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    othersCertificatesInfoValidTo.setStatus("current")
+_OthersCertificatesInfoUsage_Type = OctetString
+_OthersCertificatesInfoUsage_Object = MibTableColumn
+othersCertificatesInfoUsage = _OthersCertificatesInfoUsage_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 550),
+    _OthersCertificatesInfoUsage_Type()
+)
+othersCertificatesInfoUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    othersCertificatesInfoUsage.setStatus("current")
+
+
+class _OthersCertificatesInfoCertificateAuthority_Type(Integer32):
+    """Custom type othersCertificatesInfoCertificateAuthority based on Integer32"""
+    defaultValue = 100
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(100,
+              200)
+        )
+    )
+    namedValues = NamedValues(
+        *(("yes", 100),
+          ("no", 200))
+    )
+
+
+_OthersCertificatesInfoCertificateAuthority_Type.__name__ = "Integer32"
+_OthersCertificatesInfoCertificateAuthority_Object = MibTableColumn
+othersCertificatesInfoCertificateAuthority = _OthersCertificatesInfoCertificateAuthority_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 600),
+    _OthersCertificatesInfoCertificateAuthority_Type()
+)
+othersCertificatesInfoCertificateAuthority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    othersCertificatesInfoCertificateAuthority.setStatus("current")
+
+
+class _OthersCertificatesInfoDelete_Type(Integer32):
+    """Custom type othersCertificatesInfoDelete based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noOp", 0),
+          ("delete", 10))
+    )
+
+
+_OthersCertificatesInfoDelete_Type.__name__ = "Integer32"
+_OthersCertificatesInfoDelete_Object = MibTableColumn
+othersCertificatesInfoDelete = _OthersCertificatesInfoDelete_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 200, 1, 700),
+    _OthersCertificatesInfoDelete_Type()
+)
+othersCertificatesInfoDelete.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    othersCertificatesInfoDelete.setStatus("current")
+_HostCertificateAssociationTable_Object = MibTable
+hostCertificateAssociationTable = _HostCertificateAssociationTable_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300)
+)
+if mibBuilder.loadTexts:
+    hostCertificateAssociationTable.setStatus("current")
+_HostCertificateAssociationEntry_Object = MibTableRow
+hostCertificateAssociationEntry = _HostCertificateAssociationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1)
+)
+hostCertificateAssociationEntry.setIndexNames(
+    (0, "MX-CERT-MIB", "hostCertificateAssociationFileName"),
+)
+if mibBuilder.loadTexts:
+    hostCertificateAssociationEntry.setStatus("current")
+_HostCertificateAssociationFileName_Type = OctetString
+_HostCertificateAssociationFileName_Object = MibTableColumn
+hostCertificateAssociationFileName = _HostCertificateAssociationFileName_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 100),
+    _HostCertificateAssociationFileName_Type()
+)
+hostCertificateAssociationFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hostCertificateAssociationFileName.setStatus("current")
+
+
+class _HostCertificateAssociationSip_Type(MxEnableState):
+    """Custom type hostCertificateAssociationSip based on MxEnableState"""
+    defaultValue = 1
+
+
+_HostCertificateAssociationSip_Type.__name__ = "MxEnableState"
+_HostCertificateAssociationSip_Object = MibTableColumn
+hostCertificateAssociationSip = _HostCertificateAssociationSip_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 200),
+    _HostCertificateAssociationSip_Type()
+)
+hostCertificateAssociationSip.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCertificateAssociationSip.setStatus("current")
+
+
+class _HostCertificateAssociationWeb_Type(MxEnableState):
+    """Custom type hostCertificateAssociationWeb based on MxEnableState"""
+    defaultValue = 1
+
+
+_HostCertificateAssociationWeb_Type.__name__ = "MxEnableState"
+_HostCertificateAssociationWeb_Object = MibTableColumn
+hostCertificateAssociationWeb = _HostCertificateAssociationWeb_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 300),
+    _HostCertificateAssociationWeb_Type()
+)
+hostCertificateAssociationWeb.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCertificateAssociationWeb.setStatus("current")
+
+
+class _HostCertificateAssociationEap_Type(MxEnableState):
+    """Custom type hostCertificateAssociationEap based on MxEnableState"""
+    defaultValue = 1
+
+
+_HostCertificateAssociationEap_Type.__name__ = "MxEnableState"
+_HostCertificateAssociationEap_Object = MibTableColumn
+hostCertificateAssociationEap = _HostCertificateAssociationEap_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 400),
+    _HostCertificateAssociationEap_Type()
+)
+hostCertificateAssociationEap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCertificateAssociationEap.setStatus("current")
+
+
+class _HostCertificateAssociationConf_Type(MxEnableState):
+    """Custom type hostCertificateAssociationConf based on MxEnableState"""
+    defaultValue = 1
+
+
+_HostCertificateAssociationConf_Type.__name__ = "MxEnableState"
+_HostCertificateAssociationConf_Object = MibTableColumn
+hostCertificateAssociationConf = _HostCertificateAssociationConf_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 500),
+    _HostCertificateAssociationConf_Type()
+)
+hostCertificateAssociationConf.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCertificateAssociationConf.setStatus("current")
+
+
+class _HostCertificateAssociationFpu_Type(MxEnableState):
+    """Custom type hostCertificateAssociationFpu based on MxEnableState"""
+    defaultValue = 1
+
+
+_HostCertificateAssociationFpu_Type.__name__ = "MxEnableState"
+_HostCertificateAssociationFpu_Object = MibTableColumn
+hostCertificateAssociationFpu = _HostCertificateAssociationFpu_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 600),
+    _HostCertificateAssociationFpu_Type()
+)
+hostCertificateAssociationFpu.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCertificateAssociationFpu.setStatus("current")
+
+
+class _HostCertificateAssociationFile_Type(MxEnableState):
+    """Custom type hostCertificateAssociationFile based on MxEnableState"""
+    defaultValue = 1
+
+
+_HostCertificateAssociationFile_Type.__name__ = "MxEnableState"
+_HostCertificateAssociationFile_Object = MibTableColumn
+hostCertificateAssociationFile = _HostCertificateAssociationFile_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 700),
+    _HostCertificateAssociationFile_Type()
+)
+hostCertificateAssociationFile.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCertificateAssociationFile.setStatus("current")
+
+
+class _HostCertificateAssociationCert_Type(MxEnableState):
+    """Custom type hostCertificateAssociationCert based on MxEnableState"""
+    defaultValue = 1
+
+
+_HostCertificateAssociationCert_Type.__name__ = "MxEnableState"
+_HostCertificateAssociationCert_Object = MibTableColumn
+hostCertificateAssociationCert = _HostCertificateAssociationCert_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 800),
+    _HostCertificateAssociationCert_Type()
+)
+hostCertificateAssociationCert.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCertificateAssociationCert.setStatus("current")
+
+
+class _HostCertificateAssociationSbc_Type(MxEnableState):
+    """Custom type hostCertificateAssociationSbc based on MxEnableState"""
+    defaultValue = 1
+
+
+_HostCertificateAssociationSbc_Type.__name__ = "MxEnableState"
+_HostCertificateAssociationSbc_Object = MibTableColumn
+hostCertificateAssociationSbc = _HostCertificateAssociationSbc_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 900),
+    _HostCertificateAssociationSbc_Type()
+)
+hostCertificateAssociationSbc.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCertificateAssociationSbc.setStatus("current")
+
+
+class _HostCertificateAssociationCwmp_Type(MxEnableState):
+    """Custom type hostCertificateAssociationCwmp based on MxEnableState"""
+    defaultValue = 1
+
+
+_HostCertificateAssociationCwmp_Type.__name__ = "MxEnableState"
+_HostCertificateAssociationCwmp_Object = MibTableColumn
+hostCertificateAssociationCwmp = _HostCertificateAssociationCwmp_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 1000),
+    _HostCertificateAssociationCwmp_Type()
+)
+hostCertificateAssociationCwmp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCertificateAssociationCwmp.setStatus("current")
+
+
+class _HostCertificateAssociationNlm_Type(MxEnableState):
+    """Custom type hostCertificateAssociationNlm based on MxEnableState"""
+    defaultValue = 1
+
+
+_HostCertificateAssociationNlm_Type.__name__ = "MxEnableState"
+_HostCertificateAssociationNlm_Object = MibTableColumn
+hostCertificateAssociationNlm = _HostCertificateAssociationNlm_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 300, 1, 1100),
+    _HostCertificateAssociationNlm_Type()
+)
+hostCertificateAssociationNlm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostCertificateAssociationNlm.setStatus("current")
+_CertificateAuthoritiesTable_Object = MibTable
+certificateAuthoritiesTable = _CertificateAuthoritiesTable_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 400)
+)
+if mibBuilder.loadTexts:
+    certificateAuthoritiesTable.setStatus("current")
+_CertificateAuthoritiesEntry_Object = MibTableRow
+certificateAuthoritiesEntry = _CertificateAuthoritiesEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 400, 1)
+)
+certificateAuthoritiesEntry.setIndexNames(
+    (0, "MX-CERT-MIB", "certificateAuthoritiesFileName"),
+)
+if mibBuilder.loadTexts:
+    certificateAuthoritiesEntry.setStatus("current")
+_CertificateAuthoritiesFileName_Type = OctetString
+_CertificateAuthoritiesFileName_Object = MibTableColumn
+certificateAuthoritiesFileName = _CertificateAuthoritiesFileName_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 400, 1, 100),
+    _CertificateAuthoritiesFileName_Type()
+)
+certificateAuthoritiesFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    certificateAuthoritiesFileName.setStatus("current")
+
+
+class _CertificateAuthoritiesOverrideIssuedCertificateOcspUrl_Type(OctetString):
+    """Custom type certificateAuthoritiesOverrideIssuedCertificateOcspUrl based on OctetString"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 512),
+    )
+
+
+_CertificateAuthoritiesOverrideIssuedCertificateOcspUrl_Type.__name__ = "OctetString"
+_CertificateAuthoritiesOverrideIssuedCertificateOcspUrl_Object = MibTableColumn
+certificateAuthoritiesOverrideIssuedCertificateOcspUrl = _CertificateAuthoritiesOverrideIssuedCertificateOcspUrl_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 100, 400, 1, 200),
+    _CertificateAuthoritiesOverrideIssuedCertificateOcspUrl_Type()
+)
+certificateAuthoritiesOverrideIssuedCertificateOcspUrl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    certificateAuthoritiesOverrideIssuedCertificateOcspUrl.setStatus("current")
+_TransferGroup_ObjectIdentity = ObjectIdentity
+transferGroup = _TransferGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 500)
+)
+
+
+class _TransferHttpsCipherSuite_Type(Integer32):
+    """Custom type transferHttpsCipherSuite based on Integer32"""
+    defaultValue = 100
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(100,
+              200,
+              300)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cS1", 100),
+          ("cS2", 200),
+          ("cS3", 300))
+    )
+
+
+_TransferHttpsCipherSuite_Type.__name__ = "Integer32"
+_TransferHttpsCipherSuite_Object = MibScalar
+transferHttpsCipherSuite = _TransferHttpsCipherSuite_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 500, 100),
+    _TransferHttpsCipherSuite_Type()
+)
+transferHttpsCipherSuite.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    transferHttpsCipherSuite.setStatus("current")
+
+
+class _TransferHttpsTlsVersion_Type(Integer32):
+    """Custom type transferHttpsTlsVersion based on Integer32"""
+    defaultValue = 200
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(100,
+              200,
+              300,
+              400)
+        )
+    )
+    namedValues = NamedValues(
+        *(("sSLv3", 100),
+          ("tLSv1", 200),
+          ("tLSv1-1", 300),
+          ("tLSv1-2", 400))
+    )
+
+
+_TransferHttpsTlsVersion_Type.__name__ = "Integer32"
+_TransferHttpsTlsVersion_Object = MibScalar
+transferHttpsTlsVersion = _TransferHttpsTlsVersion_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 500, 200),
+    _TransferHttpsTlsVersion_Type()
+)
+transferHttpsTlsVersion.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    transferHttpsTlsVersion.setStatus("current")
+_NotificationsGroup_ObjectIdentity = ObjectIdentity
+notificationsGroup = _NotificationsGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 60010)
+)
+
+
+class _MinSeverity_Type(Integer32):
+    """Custom type minSeverity based on Integer32"""
+    defaultValue = 300
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              100,
+              200,
+              300,
+              400,
+              500)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("debug", 100),
+          ("info", 200),
+          ("warning", 300),
+          ("error", 400),
+          ("critical", 500))
+    )
+
+
+_MinSeverity_Type.__name__ = "Integer32"
+_MinSeverity_Object = MibScalar
+minSeverity = _MinSeverity_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 60010, 100),
+    _MinSeverity_Type()
+)
+minSeverity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    minSeverity.setStatus("current")
+_ConfigurationGroup_ObjectIdentity = ObjectIdentity
+configurationGroup = _ConfigurationGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 60020)
+)
+
+
+class _NeedRestartInfo_Type(Integer32):
+    """Custom type needRestartInfo based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              100)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 100))
+    )
+
+
+_NeedRestartInfo_Type.__name__ = "Integer32"
+_NeedRestartInfo_Object = MibScalar
+needRestartInfo = _NeedRestartInfo_Object(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 200, 100, 2300, 1, 60020, 100),
+    _NeedRestartInfo_Type()
+)
+needRestartInfo.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    needRestartInfo.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MX-CERT-MIB",
+    **{"certMIB": certMIB,
+       "certMIBObjects": certMIBObjects,
+       "certificateInfoGroup": certificateInfoGroup,
+       "hostCertificatesInfoTable": hostCertificatesInfoTable,
+       "hostCertificatesInfoEntry": hostCertificatesInfoEntry,
+       "hostCertificatesInfoFileName": hostCertificatesInfoFileName,
+       "hostCertificatesInfoIssuedTo": hostCertificatesInfoIssuedTo,
+       "hostCertificatesInfoIssuedBy": hostCertificatesInfoIssuedBy,
+       "hostCertificatesInfoValidFrom": hostCertificatesInfoValidFrom,
+       "hostCertificatesInfoValidTo": hostCertificatesInfoValidTo,
+       "hostCertificatesInfoUsage": hostCertificatesInfoUsage,
+       "hostCertificatesInfoDelete": hostCertificatesInfoDelete,
+       "othersCertificatesInfoTable": othersCertificatesInfoTable,
+       "othersCertificatesInfoEntry": othersCertificatesInfoEntry,
+       "othersCertificatesInfoFileName": othersCertificatesInfoFileName,
+       "othersCertificatesInfoIssuedTo": othersCertificatesInfoIssuedTo,
+       "othersCertificatesInfoIssuedBy": othersCertificatesInfoIssuedBy,
+       "othersCertificatesInfoValidFrom": othersCertificatesInfoValidFrom,
+       "othersCertificatesInfoValidTo": othersCertificatesInfoValidTo,
+       "othersCertificatesInfoUsage": othersCertificatesInfoUsage,
+       "othersCertificatesInfoCertificateAuthority": othersCertificatesInfoCertificateAuthority,
+       "othersCertificatesInfoDelete": othersCertificatesInfoDelete,
+       "hostCertificateAssociationTable": hostCertificateAssociationTable,
+       "hostCertificateAssociationEntry": hostCertificateAssociationEntry,
+       "hostCertificateAssociationFileName": hostCertificateAssociationFileName,
+       "hostCertificateAssociationSip": hostCertificateAssociationSip,
+       "hostCertificateAssociationWeb": hostCertificateAssociationWeb,
+       "hostCertificateAssociationEap": hostCertificateAssociationEap,
+       "hostCertificateAssociationConf": hostCertificateAssociationConf,
+       "hostCertificateAssociationFpu": hostCertificateAssociationFpu,
+       "hostCertificateAssociationFile": hostCertificateAssociationFile,
+       "hostCertificateAssociationCert": hostCertificateAssociationCert,
+       "hostCertificateAssociationSbc": hostCertificateAssociationSbc,
+       "hostCertificateAssociationCwmp": hostCertificateAssociationCwmp,
+       "hostCertificateAssociationNlm": hostCertificateAssociationNlm,
+       "certificateAuthoritiesTable": certificateAuthoritiesTable,
+       "certificateAuthoritiesEntry": certificateAuthoritiesEntry,
+       "certificateAuthoritiesFileName": certificateAuthoritiesFileName,
+       "certificateAuthoritiesOverrideIssuedCertificateOcspUrl": certificateAuthoritiesOverrideIssuedCertificateOcspUrl,
+       "transferGroup": transferGroup,
+       "transferHttpsCipherSuite": transferHttpsCipherSuite,
+       "transferHttpsTlsVersion": transferHttpsTlsVersion,
+       "notificationsGroup": notificationsGroup,
+       "minSeverity": minSeverity,
+       "configurationGroup": configurationGroup,
+       "needRestartInfo": needRestartInfo}
+)

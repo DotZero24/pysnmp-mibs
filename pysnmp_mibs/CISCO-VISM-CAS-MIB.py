@@ -1,77 +1,604 @@
+# SNMP MIB module (CISCO-VISM-CAS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-VISM-CAS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-VISM-CAS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:24:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-VISM-CAS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:26:20 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-voice, = mibBuilder.importSymbols("BASIS-MIB", "voice")
-ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoVismCasMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 88))
-ciscoVismCasMIB.setRevisions(('2003-07-16 00:00',))
-if mibBuilder.loadTexts: ciscoVismCasMIB.setLastUpdated('200307160000Z')
-if mibBuilder.loadTexts: ciscoVismCasMIB.setOrganization('Cisco Systems, Inc.')
-vismCasGrp = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8))
-vismCasVariantTable = MibTable((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1), )
-if mibBuilder.loadTexts: vismCasVariantTable.setStatus('current')
-vismCasVariantEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1), ).setIndexNames((0, "CISCO-VISM-CAS-MIB", "vismCasVariantName"))
-if mibBuilder.loadTexts: vismCasVariantEntry.setStatus('current')
-vismCasVariantName = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vismCasVariantName.setStatus('current')
-vismCasFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(2, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasFileName.setStatus('current')
-vismCasTRinging = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 600)).clone(180)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasTRinging.setStatus('deprecated')
-vismCasDigitMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("mf", 1), ("dtmf", 2))).clone('dtmf')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasDigitMethod.setStatus('current')
-vismCasInterdigitTpart = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 10000)).clone(16)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasInterdigitTpart.setStatus('current')
-vismCasInterdigitTcrit = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000)).clone(4)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasInterdigitTcrit.setStatus('current')
-vismCasInterdigitTMF = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasInterdigitTMF.setStatus('current')
-vismCasVariantState = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notConfigured", 1), ("configInProgress", 2), ("configured", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vismCasVariantState.setStatus('current')
-vismCasRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 4, 6))).clone(namedValues=NamedValues(("active", 1), ("createAndGo", 4), ("destroy", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasRowStatus.setStatus('current')
-vismCasCountryCode = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 10), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 2)).clone('US')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasCountryCode.setStatus('deprecated')
-vismCasVariantSource = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unspecified", 1), ("internal", 2), ("external", 3))).clone('unspecified')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasVariantSource.setStatus('current')
-vismCasXgcpVariantTable = MibTable((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2), )
-if mibBuilder.loadTexts: vismCasXgcpVariantTable.setStatus('current')
-vismCasXgcpVariantEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1), ).setIndexNames((0, "CISCO-VISM-CAS-MIB", "vismCasXgcpVariantName"))
-if mibBuilder.loadTexts: vismCasXgcpVariantEntry.setStatus('current')
-vismCasXgcpVariantName = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vismCasXgcpVariantName.setStatus('current')
-vismCasXgcpFileName = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vismCasXgcpFileName.setStatus('current')
-vismCasXgcpMaxReXmitTime = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 10000)).clone(500)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasXgcpMaxReXmitTime.setStatus('current')
-vismCasXgcpInitialReXmitTime = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 10000)).clone(100)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasXgcpInitialReXmitTime.setStatus('current')
-vismCasXgcpMaxRetries = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10)).clone(4)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vismCasXgcpMaxRetries.setStatus('current')
-ciscoVismCasMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 88, 2))
-ciscoVismCasMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 1))
-ciscoVismCasMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 2))
-ciscoVismCasCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 2, 1)).setObjects(("CISCO-VISM-CAS-MIB", "ciscoVismCasVariantGroup"), ("CISCO-VISM-CAS-MIB", "ciscoVismCasXgcpVariantGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoVismCasCompliance = ciscoVismCasCompliance.setStatus('current')
-ciscoVismCasVariantGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 1, 1)).setObjects(("CISCO-VISM-CAS-MIB", "vismCasVariantName"), ("CISCO-VISM-CAS-MIB", "vismCasFileName"), ("CISCO-VISM-CAS-MIB", "vismCasDigitMethod"), ("CISCO-VISM-CAS-MIB", "vismCasInterdigitTpart"), ("CISCO-VISM-CAS-MIB", "vismCasInterdigitTcrit"), ("CISCO-VISM-CAS-MIB", "vismCasInterdigitTMF"), ("CISCO-VISM-CAS-MIB", "vismCasVariantState"), ("CISCO-VISM-CAS-MIB", "vismCasRowStatus"), ("CISCO-VISM-CAS-MIB", "vismCasVariantSource"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoVismCasVariantGroup = ciscoVismCasVariantGroup.setStatus('current')
-ciscoVismCasXgcpVariantGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 1, 2)).setObjects(("CISCO-VISM-CAS-MIB", "vismCasXgcpVariantName"), ("CISCO-VISM-CAS-MIB", "vismCasXgcpFileName"), ("CISCO-VISM-CAS-MIB", "vismCasXgcpMaxReXmitTime"), ("CISCO-VISM-CAS-MIB", "vismCasXgcpInitialReXmitTime"), ("CISCO-VISM-CAS-MIB", "vismCasXgcpMaxRetries"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoVismCasXgcpVariantGroup = ciscoVismCasXgcpVariantGroup.setStatus('current')
-cvcVariantDeprecatedGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 1, 3)).setObjects(("CISCO-VISM-CAS-MIB", "vismCasTRinging"), ("CISCO-VISM-CAS-MIB", "vismCasCountryCode"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cvcVariantDeprecatedGroup = cvcVariantDeprecatedGroup.setStatus('deprecated')
-mibBuilder.exportSymbols("CISCO-VISM-CAS-MIB", vismCasDigitMethod=vismCasDigitMethod, vismCasGrp=vismCasGrp, vismCasVariantState=vismCasVariantState, vismCasInterdigitTMF=vismCasInterdigitTMF, vismCasInterdigitTpart=vismCasInterdigitTpart, vismCasCountryCode=vismCasCountryCode, vismCasVariantName=vismCasVariantName, vismCasVariantSource=vismCasVariantSource, vismCasXgcpVariantName=vismCasXgcpVariantName, vismCasRowStatus=vismCasRowStatus, vismCasTRinging=vismCasTRinging, cvcVariantDeprecatedGroup=cvcVariantDeprecatedGroup, ciscoVismCasMIBConformance=ciscoVismCasMIBConformance, ciscoVismCasMIBGroups=ciscoVismCasMIBGroups, vismCasVariantEntry=vismCasVariantEntry, vismCasVariantTable=vismCasVariantTable, ciscoVismCasVariantGroup=ciscoVismCasVariantGroup, vismCasXgcpInitialReXmitTime=vismCasXgcpInitialReXmitTime, PYSNMP_MODULE_ID=ciscoVismCasMIB, vismCasInterdigitTcrit=vismCasInterdigitTcrit, ciscoVismCasCompliance=ciscoVismCasCompliance, vismCasXgcpMaxRetries=vismCasXgcpMaxRetries, ciscoVismCasXgcpVariantGroup=ciscoVismCasXgcpVariantGroup, ciscoVismCasMIB=ciscoVismCasMIB, ciscoVismCasMIBCompliances=ciscoVismCasMIBCompliances, vismCasXgcpFileName=vismCasXgcpFileName, vismCasXgcpVariantTable=vismCasXgcpVariantTable, vismCasXgcpMaxReXmitTime=vismCasXgcpMaxReXmitTime, vismCasFileName=vismCasFileName, vismCasXgcpVariantEntry=vismCasXgcpVariantEntry)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(voice,) = mibBuilder.importSymbols(
+    "BASIS-MIB",
+    "voice")
+
+(ciscoWan,) = mibBuilder.importSymbols(
+    "CISCOWAN-SMI",
+    "ciscoWan")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoVismCasMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 351, 150, 88)
+)
+if mibBuilder.loadTexts:
+    ciscoVismCasMIB.setRevisions(
+        ("2003-07-16 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_VismCasGrp_ObjectIdentity = ObjectIdentity
+vismCasGrp = _VismCasGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8)
+)
+_VismCasVariantTable_Object = MibTable
+vismCasVariantTable = _VismCasVariantTable_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1)
+)
+if mibBuilder.loadTexts:
+    vismCasVariantTable.setStatus("current")
+_VismCasVariantEntry_Object = MibTableRow
+vismCasVariantEntry = _VismCasVariantEntry_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1)
+)
+vismCasVariantEntry.setIndexNames(
+    (0, "CISCO-VISM-CAS-MIB", "vismCasVariantName"),
+)
+if mibBuilder.loadTexts:
+    vismCasVariantEntry.setStatus("current")
+_VismCasVariantName_Type = DisplayString
+_VismCasVariantName_Object = MibTableColumn
+vismCasVariantName = _VismCasVariantName_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 1),
+    _VismCasVariantName_Type()
+)
+vismCasVariantName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vismCasVariantName.setStatus("current")
+
+
+class _VismCasFileName_Type(DisplayString):
+    """Custom type vismCasFileName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 64),
+    )
+
+
+_VismCasFileName_Type.__name__ = "DisplayString"
+_VismCasFileName_Object = MibTableColumn
+vismCasFileName = _VismCasFileName_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 2),
+    _VismCasFileName_Type()
+)
+vismCasFileName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasFileName.setStatus("current")
+
+
+class _VismCasTRinging_Type(Integer32):
+    """Custom type vismCasTRinging based on Integer32"""
+    defaultValue = 180
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 600),
+    )
+
+
+_VismCasTRinging_Type.__name__ = "Integer32"
+_VismCasTRinging_Object = MibTableColumn
+vismCasTRinging = _VismCasTRinging_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 3),
+    _VismCasTRinging_Type()
+)
+vismCasTRinging.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasTRinging.setStatus("deprecated")
+
+
+class _VismCasDigitMethod_Type(Integer32):
+    """Custom type vismCasDigitMethod based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mf", 1),
+          ("dtmf", 2))
+    )
+
+
+_VismCasDigitMethod_Type.__name__ = "Integer32"
+_VismCasDigitMethod_Object = MibTableColumn
+vismCasDigitMethod = _VismCasDigitMethod_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 4),
+    _VismCasDigitMethod_Type()
+)
+vismCasDigitMethod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasDigitMethod.setStatus("current")
+
+
+class _VismCasInterdigitTpart_Type(Integer32):
+    """Custom type vismCasInterdigitTpart based on Integer32"""
+    defaultValue = 16
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 10000),
+    )
+
+
+_VismCasInterdigitTpart_Type.__name__ = "Integer32"
+_VismCasInterdigitTpart_Object = MibTableColumn
+vismCasInterdigitTpart = _VismCasInterdigitTpart_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 5),
+    _VismCasInterdigitTpart_Type()
+)
+vismCasInterdigitTpart.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasInterdigitTpart.setStatus("current")
+
+
+class _VismCasInterdigitTcrit_Type(Integer32):
+    """Custom type vismCasInterdigitTcrit based on Integer32"""
+    defaultValue = 4
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_VismCasInterdigitTcrit_Type.__name__ = "Integer32"
+_VismCasInterdigitTcrit_Object = MibTableColumn
+vismCasInterdigitTcrit = _VismCasInterdigitTcrit_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 6),
+    _VismCasInterdigitTcrit_Type()
+)
+vismCasInterdigitTcrit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasInterdigitTcrit.setStatus("current")
+
+
+class _VismCasInterdigitTMF_Type(Integer32):
+    """Custom type vismCasInterdigitTMF based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_VismCasInterdigitTMF_Type.__name__ = "Integer32"
+_VismCasInterdigitTMF_Object = MibTableColumn
+vismCasInterdigitTMF = _VismCasInterdigitTMF_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 7),
+    _VismCasInterdigitTMF_Type()
+)
+vismCasInterdigitTMF.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasInterdigitTMF.setStatus("current")
+
+
+class _VismCasVariantState_Type(Integer32):
+    """Custom type vismCasVariantState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notConfigured", 1),
+          ("configInProgress", 2),
+          ("configured", 3))
+    )
+
+
+_VismCasVariantState_Type.__name__ = "Integer32"
+_VismCasVariantState_Object = MibTableColumn
+vismCasVariantState = _VismCasVariantState_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 8),
+    _VismCasVariantState_Type()
+)
+vismCasVariantState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vismCasVariantState.setStatus("current")
+
+
+class _VismCasRowStatus_Type(Integer32):
+    """Custom type vismCasRowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              4,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("createAndGo", 4),
+          ("destroy", 6))
+    )
+
+
+_VismCasRowStatus_Type.__name__ = "Integer32"
+_VismCasRowStatus_Object = MibTableColumn
+vismCasRowStatus = _VismCasRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 9),
+    _VismCasRowStatus_Type()
+)
+vismCasRowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasRowStatus.setStatus("current")
+
+
+class _VismCasCountryCode_Type(DisplayString):
+    """Custom type vismCasCountryCode based on DisplayString"""
+    defaultValue = OctetString("US")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 2),
+    )
+
+
+_VismCasCountryCode_Type.__name__ = "DisplayString"
+_VismCasCountryCode_Object = MibTableColumn
+vismCasCountryCode = _VismCasCountryCode_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 10),
+    _VismCasCountryCode_Type()
+)
+vismCasCountryCode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasCountryCode.setStatus("deprecated")
+
+
+class _VismCasVariantSource_Type(Integer32):
+    """Custom type vismCasVariantSource based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unspecified", 1),
+          ("internal", 2),
+          ("external", 3))
+    )
+
+
+_VismCasVariantSource_Type.__name__ = "Integer32"
+_VismCasVariantSource_Object = MibTableColumn
+vismCasVariantSource = _VismCasVariantSource_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 1, 1, 11),
+    _VismCasVariantSource_Type()
+)
+vismCasVariantSource.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasVariantSource.setStatus("current")
+_VismCasXgcpVariantTable_Object = MibTable
+vismCasXgcpVariantTable = _VismCasXgcpVariantTable_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2)
+)
+if mibBuilder.loadTexts:
+    vismCasXgcpVariantTable.setStatus("current")
+_VismCasXgcpVariantEntry_Object = MibTableRow
+vismCasXgcpVariantEntry = _VismCasXgcpVariantEntry_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1)
+)
+vismCasXgcpVariantEntry.setIndexNames(
+    (0, "CISCO-VISM-CAS-MIB", "vismCasXgcpVariantName"),
+)
+if mibBuilder.loadTexts:
+    vismCasXgcpVariantEntry.setStatus("current")
+_VismCasXgcpVariantName_Type = DisplayString
+_VismCasXgcpVariantName_Object = MibTableColumn
+vismCasXgcpVariantName = _VismCasXgcpVariantName_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1, 1),
+    _VismCasXgcpVariantName_Type()
+)
+vismCasXgcpVariantName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vismCasXgcpVariantName.setStatus("current")
+_VismCasXgcpFileName_Type = DisplayString
+_VismCasXgcpFileName_Object = MibTableColumn
+vismCasXgcpFileName = _VismCasXgcpFileName_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1, 2),
+    _VismCasXgcpFileName_Type()
+)
+vismCasXgcpFileName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vismCasXgcpFileName.setStatus("current")
+
+
+class _VismCasXgcpMaxReXmitTime_Type(Integer32):
+    """Custom type vismCasXgcpMaxReXmitTime based on Integer32"""
+    defaultValue = 500
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 10000),
+    )
+
+
+_VismCasXgcpMaxReXmitTime_Type.__name__ = "Integer32"
+_VismCasXgcpMaxReXmitTime_Object = MibTableColumn
+vismCasXgcpMaxReXmitTime = _VismCasXgcpMaxReXmitTime_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1, 3),
+    _VismCasXgcpMaxReXmitTime_Type()
+)
+vismCasXgcpMaxReXmitTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasXgcpMaxReXmitTime.setStatus("current")
+
+
+class _VismCasXgcpInitialReXmitTime_Type(Integer32):
+    """Custom type vismCasXgcpInitialReXmitTime based on Integer32"""
+    defaultValue = 100
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 10000),
+    )
+
+
+_VismCasXgcpInitialReXmitTime_Type.__name__ = "Integer32"
+_VismCasXgcpInitialReXmitTime_Object = MibTableColumn
+vismCasXgcpInitialReXmitTime = _VismCasXgcpInitialReXmitTime_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1, 4),
+    _VismCasXgcpInitialReXmitTime_Type()
+)
+vismCasXgcpInitialReXmitTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasXgcpInitialReXmitTime.setStatus("current")
+
+
+class _VismCasXgcpMaxRetries_Type(Integer32):
+    """Custom type vismCasXgcpMaxRetries based on Integer32"""
+    defaultValue = 4
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10),
+    )
+
+
+_VismCasXgcpMaxRetries_Type.__name__ = "Integer32"
+_VismCasXgcpMaxRetries_Object = MibTableColumn
+vismCasXgcpMaxRetries = _VismCasXgcpMaxRetries_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 5, 8, 2, 1, 5),
+    _VismCasXgcpMaxRetries_Type()
+)
+vismCasXgcpMaxRetries.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vismCasXgcpMaxRetries.setStatus("current")
+_CiscoVismCasMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoVismCasMIBConformance = _CiscoVismCasMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 351, 150, 88, 2)
+)
+_CiscoVismCasMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoVismCasMIBGroups = _CiscoVismCasMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 1)
+)
+_CiscoVismCasMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoVismCasMIBCompliances = _CiscoVismCasMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 2)
+)
+
+# Managed Objects groups
+
+ciscoVismCasVariantGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 1, 1)
+)
+ciscoVismCasVariantGroup.setObjects(
+      *(("CISCO-VISM-CAS-MIB", "vismCasVariantName"),
+        ("CISCO-VISM-CAS-MIB", "vismCasFileName"),
+        ("CISCO-VISM-CAS-MIB", "vismCasDigitMethod"),
+        ("CISCO-VISM-CAS-MIB", "vismCasInterdigitTpart"),
+        ("CISCO-VISM-CAS-MIB", "vismCasInterdigitTcrit"),
+        ("CISCO-VISM-CAS-MIB", "vismCasInterdigitTMF"),
+        ("CISCO-VISM-CAS-MIB", "vismCasVariantState"),
+        ("CISCO-VISM-CAS-MIB", "vismCasRowStatus"),
+        ("CISCO-VISM-CAS-MIB", "vismCasVariantSource"))
+)
+if mibBuilder.loadTexts:
+    ciscoVismCasVariantGroup.setStatus("current")
+
+ciscoVismCasXgcpVariantGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 1, 2)
+)
+ciscoVismCasXgcpVariantGroup.setObjects(
+      *(("CISCO-VISM-CAS-MIB", "vismCasXgcpVariantName"),
+        ("CISCO-VISM-CAS-MIB", "vismCasXgcpFileName"),
+        ("CISCO-VISM-CAS-MIB", "vismCasXgcpMaxReXmitTime"),
+        ("CISCO-VISM-CAS-MIB", "vismCasXgcpInitialReXmitTime"),
+        ("CISCO-VISM-CAS-MIB", "vismCasXgcpMaxRetries"))
+)
+if mibBuilder.loadTexts:
+    ciscoVismCasXgcpVariantGroup.setStatus("current")
+
+cvcVariantDeprecatedGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 1, 3)
+)
+cvcVariantDeprecatedGroup.setObjects(
+      *(("CISCO-VISM-CAS-MIB", "vismCasTRinging"),
+        ("CISCO-VISM-CAS-MIB", "vismCasCountryCode"))
+)
+if mibBuilder.loadTexts:
+    cvcVariantDeprecatedGroup.setStatus("deprecated")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoVismCasCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 351, 150, 88, 2, 2, 1)
+)
+ciscoVismCasCompliance.setObjects(
+      *(("CISCO-VISM-CAS-MIB", "ciscoVismCasVariantGroup"),
+        ("CISCO-VISM-CAS-MIB", "ciscoVismCasXgcpVariantGroup"))
+)
+if mibBuilder.loadTexts:
+    ciscoVismCasCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-VISM-CAS-MIB",
+    **{"vismCasGrp": vismCasGrp,
+       "vismCasVariantTable": vismCasVariantTable,
+       "vismCasVariantEntry": vismCasVariantEntry,
+       "vismCasVariantName": vismCasVariantName,
+       "vismCasFileName": vismCasFileName,
+       "vismCasTRinging": vismCasTRinging,
+       "vismCasDigitMethod": vismCasDigitMethod,
+       "vismCasInterdigitTpart": vismCasInterdigitTpart,
+       "vismCasInterdigitTcrit": vismCasInterdigitTcrit,
+       "vismCasInterdigitTMF": vismCasInterdigitTMF,
+       "vismCasVariantState": vismCasVariantState,
+       "vismCasRowStatus": vismCasRowStatus,
+       "vismCasCountryCode": vismCasCountryCode,
+       "vismCasVariantSource": vismCasVariantSource,
+       "vismCasXgcpVariantTable": vismCasXgcpVariantTable,
+       "vismCasXgcpVariantEntry": vismCasXgcpVariantEntry,
+       "vismCasXgcpVariantName": vismCasXgcpVariantName,
+       "vismCasXgcpFileName": vismCasXgcpFileName,
+       "vismCasXgcpMaxReXmitTime": vismCasXgcpMaxReXmitTime,
+       "vismCasXgcpInitialReXmitTime": vismCasXgcpInitialReXmitTime,
+       "vismCasXgcpMaxRetries": vismCasXgcpMaxRetries,
+       "ciscoVismCasMIB": ciscoVismCasMIB,
+       "ciscoVismCasMIBConformance": ciscoVismCasMIBConformance,
+       "ciscoVismCasMIBGroups": ciscoVismCasMIBGroups,
+       "ciscoVismCasVariantGroup": ciscoVismCasVariantGroup,
+       "ciscoVismCasXgcpVariantGroup": ciscoVismCasXgcpVariantGroup,
+       "cvcVariantDeprecatedGroup": cvcVariantDeprecatedGroup,
+       "ciscoVismCasMIBCompliances": ciscoVismCasMIBCompliances,
+       "ciscoVismCasCompliance": ciscoVismCasCompliance}
+)

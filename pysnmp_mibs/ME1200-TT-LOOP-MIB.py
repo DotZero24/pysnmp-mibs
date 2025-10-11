@@ -1,160 +1,864 @@
+# SNMP MIB module (ME1200-TT-LOOP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ME1200-TT-LOOP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/ME1200-TT-LOOP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:58 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/ME1200-TT-LOOP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:30:00 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-me1200SwitchMgmt, = mibBuilder.importSymbols("CISCOME1200-MIB", "me1200SwitchMgmt")
-ME1200RowEditorState, ME1200DisplayString, ME1200InterfaceIndex = mibBuilder.importSymbols("ME1200-TC", "ME1200RowEditorState", "ME1200DisplayString", "ME1200InterfaceIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "MacAddress", "DisplayString", "TextualConvention")
-me1200TtLoopMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128))
-me1200TtLoopMib.setRevisions(('2016-12-07 00:00', '2014-05-19 00:00',))
-if mibBuilder.loadTexts: me1200TtLoopMib.setLastUpdated('201405190000Z')
-if mibBuilder.loadTexts: me1200TtLoopMib.setOrganization('Cisco Systems, Inc')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(me1200SwitchMgmt,) = mibBuilder.importSymbols(
+    "CISCOME1200-MIB",
+    "me1200SwitchMgmt")
+
+(ME1200DisplayString,
+ ME1200InterfaceIndex,
+ ME1200RowEditorState) = mibBuilder.importSymbols(
+    "ME1200-TC",
+    "ME1200DisplayString",
+    "ME1200InterfaceIndex",
+    "ME1200RowEditorState")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+me1200TtLoopMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128)
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopMib.setRevisions(
+        ("2016-12-07 00:00",
+         "2014-05-19 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class ME1200TtLoopInstanceAdminState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("adminDisabled", 0), ("adminEnabled", 1))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("adminDisabled", 0),
+          ("adminEnabled", 1))
+    )
+
+
 
 class ME1200TtLoopInstanceDirection(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("facility", 0), ("terminal", 1))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("facility", 0),
+          ("terminal", 1))
+    )
+
+
 
 class ME1200TtLoopInstanceDomain(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("port", 0), ("evc", 1), ("vlan", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("port", 0),
+          ("evc", 1),
+          ("vlan", 2))
+    )
+
+
 
 class ME1200TtLoopInstanceOperState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("operDown", 0), ("operUp", 1), ("operInact", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("operDown", 0),
+          ("operUp", 1),
+          ("operInact", 2))
+    )
+
+
 
 class ME1200TtLoopInstanceSubscriber(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("none", 0), ("all", 1), ("test", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("all", 1),
+          ("test", 2))
+    )
+
+
 
 class ME1200TtLoopInstanceType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("macLoop", 0), ("oamLoop", 1))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("macLoop", 0),
+          ("oamLoop", 1))
+    )
 
-me1200TtLoopMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1))
-me1200TtLoopCapabilities = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 1))
-me1200TtLoopCapabilitiesInstanceMax = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: me1200TtLoopCapabilitiesInstanceMax.setStatus('current')
-me1200TtLoopCapabilitiesNameMax = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: me1200TtLoopCapabilitiesNameMax.setStatus('current')
-me1200TtLoopConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2))
-me1200TtLoopConfigInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1), )
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceTable.setStatus('current')
-me1200TtLoopConfigInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1), ).setIndexNames((0, "ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceId"))
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceEntry.setStatus('current')
-me1200TtLoopConfigInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceId.setStatus('current')
-me1200TtLoopConfigInstanceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 2), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceName.setStatus('current')
-me1200TtLoopConfigInstanceType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 3), ME1200TtLoopInstanceType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceType.setStatus('current')
-me1200TtLoopConfigInstanceDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 4), ME1200TtLoopInstanceDirection()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceDirection.setStatus('current')
-me1200TtLoopConfigInstanceDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 5), ME1200TtLoopInstanceDomain()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceDomain.setStatus('current')
-me1200TtLoopConfigInstanceFlow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 6), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceFlow.setStatus('current')
-me1200TtLoopConfigInstancePort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 7), ME1200InterfaceIndex()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstancePort.setStatus('current')
-me1200TtLoopConfigInstanceLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 8), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceLevel.setStatus('current')
-me1200TtLoopConfigInstanceSubscriber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 9), ME1200TtLoopInstanceSubscriber()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceSubscriber.setStatus('current')
-me1200TtLoopConfigInstanceAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 10), ME1200TtLoopInstanceAdminState()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceAdminState.setStatus('current')
-me1200TtLoopConfigInstanceAction = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 100), ME1200RowEditorState()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceAction.setStatus('current')
-me1200TtLoopConfigInstanceRowEditor = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2))
-me1200TtLoopConfigInstanceRowEditorId = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceRowEditorId.setStatus('current')
-me1200TtLoopConfigInstanceRowEditorName = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 2), ME1200DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceRowEditorName.setStatus('current')
-me1200TtLoopConfigInstanceRowEditorType = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 3), ME1200TtLoopInstanceType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceRowEditorType.setStatus('current')
-me1200TtLoopConfigInstanceRowEditorDirection = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 4), ME1200TtLoopInstanceDirection()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceRowEditorDirection.setStatus('current')
-me1200TtLoopConfigInstanceRowEditorDomain = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 5), ME1200TtLoopInstanceDomain()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceRowEditorDomain.setStatus('current')
-me1200TtLoopConfigInstanceRowEditorFlow = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 6), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceRowEditorFlow.setStatus('current')
-me1200TtLoopConfigInstanceRowEditorPort = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 7), ME1200InterfaceIndex()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceRowEditorPort.setStatus('current')
-me1200TtLoopConfigInstanceRowEditorLevel = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 8), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceRowEditorLevel.setStatus('current')
-me1200TtLoopConfigInstanceRowEditorSubscriber = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 9), ME1200TtLoopInstanceSubscriber()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceRowEditorSubscriber.setStatus('current')
-me1200TtLoopConfigInstanceRowEditorAdminState = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 10), ME1200TtLoopInstanceAdminState()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceRowEditorAdminState.setStatus('current')
-me1200TtLoopConfigInstanceRowEditorAction = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 100), ME1200RowEditorState()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopConfigInstanceRowEditorAction.setStatus('current')
-me1200TtLoopLlConfigInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3), )
-if mibBuilder.loadTexts: me1200TtLoopLlConfigInstanceTable.setStatus('current')
-me1200TtLoopLlConfigInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3, 1), ).setIndexNames((0, "ME1200-TT-LOOP-MIB", "me1200TtLoopLlConfigInstanceId"))
-if mibBuilder.loadTexts: me1200TtLoopLlConfigInstanceEntry.setStatus('current')
-me1200TtLoopLlConfigInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: me1200TtLoopLlConfigInstanceId.setStatus('current')
-me1200TtLoopLlConfigInstanceEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3, 1, 2), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopLlConfigInstanceEnable.setStatus('current')
-me1200TtLoopLlConfigInstanceMepId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3, 1, 3), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopLlConfigInstanceMepId.setStatus('current')
-me1200TtLoopLlConfigInstanceSourceMac = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3, 1, 4), MacAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: me1200TtLoopLlConfigInstanceSourceMac.setStatus('current')
-me1200TtLoopStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3))
-me1200TtLoopStatusInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 1), )
-if mibBuilder.loadTexts: me1200TtLoopStatusInstanceTable.setStatus('current')
-me1200TtLoopStatusInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 1, 1), ).setIndexNames((0, "ME1200-TT-LOOP-MIB", "me1200TtLoopStatusInstanceId"))
-if mibBuilder.loadTexts: me1200TtLoopStatusInstanceEntry.setStatus('current')
-me1200TtLoopStatusInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: me1200TtLoopStatusInstanceId.setStatus('current')
-me1200TtLoopStatusInstanceOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 1, 1, 2), ME1200TtLoopInstanceOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: me1200TtLoopStatusInstanceOperState.setStatus('current')
-me1200TtLoopLlStatusInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 2), )
-if mibBuilder.loadTexts: me1200TtLoopLlStatusInstanceTable.setStatus('current')
-me1200TtLoopLlStatusInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 2, 1), ).setIndexNames((0, "ME1200-TT-LOOP-MIB", "me1200TtLoopLlStatusInstanceId"))
-if mibBuilder.loadTexts: me1200TtLoopLlStatusInstanceEntry.setStatus('current')
-me1200TtLoopLlStatusInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: me1200TtLoopLlStatusInstanceId.setStatus('current')
-me1200TtLoopLlStatusInstanceRemainExpTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: me1200TtLoopLlStatusInstanceRemainExpTimer.setStatus('current')
-me1200TtLoopMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3))
-me1200TtLoopMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 1))
-me1200TtLoopMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2))
-me1200TtLoopCapabilitiesInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 1)).setObjects(("ME1200-TT-LOOP-MIB", "me1200TtLoopCapabilitiesInstanceMax"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopCapabilitiesNameMax"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    me1200TtLoopCapabilitiesInfoGroup = me1200TtLoopCapabilitiesInfoGroup.setStatus('current')
-me1200TtLoopConfigInstanceTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 2)).setObjects(("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceName"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceType"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceDirection"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceDomain"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceFlow"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstancePort"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceLevel"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceSubscriber"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceAdminState"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceAction"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    me1200TtLoopConfigInstanceTableInfoGroup = me1200TtLoopConfigInstanceTableInfoGroup.setStatus('current')
-me1200TtLoopConfigInstanceRowEditorInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 3)).setObjects(("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorId"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorName"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorType"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorDirection"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorDomain"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorFlow"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorPort"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorLevel"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorSubscriber"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorAdminState"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorAction"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    me1200TtLoopConfigInstanceRowEditorInfoGroup = me1200TtLoopConfigInstanceRowEditorInfoGroup.setStatus('current')
-me1200TtLoopLlConfigInstanceTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 4)).setObjects(("ME1200-TT-LOOP-MIB", "me1200TtLoopLlConfigInstanceEnable"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopLlConfigInstanceMepId"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopLlConfigInstanceSourceMac"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    me1200TtLoopLlConfigInstanceTableInfoGroup = me1200TtLoopLlConfigInstanceTableInfoGroup.setStatus('current')
-me1200TtLoopStatusInstanceTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 5)).setObjects(("ME1200-TT-LOOP-MIB", "me1200TtLoopStatusInstanceOperState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    me1200TtLoopStatusInstanceTableInfoGroup = me1200TtLoopStatusInstanceTableInfoGroup.setStatus('current')
-me1200TtLoopLlStatusInstanceTableInfoGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 6)).setObjects(("ME1200-TT-LOOP-MIB", "me1200TtLoopLlStatusInstanceRemainExpTimer"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    me1200TtLoopLlStatusInstanceTableInfoGroup = me1200TtLoopLlStatusInstanceTableInfoGroup.setStatus('current')
-me1200TtLoopMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 1, 1)).setObjects(("ME1200-TT-LOOP-MIB", "me1200TtLoopCapabilitiesInfoGroup"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceTableInfoGroup"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorInfoGroup"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopLlConfigInstanceTableInfoGroup"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopStatusInstanceTableInfoGroup"), ("ME1200-TT-LOOP-MIB", "me1200TtLoopLlStatusInstanceTableInfoGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    me1200TtLoopMibCompliance = me1200TtLoopMibCompliance.setStatus('current')
-mibBuilder.exportSymbols("ME1200-TT-LOOP-MIB", me1200TtLoopMib=me1200TtLoopMib, me1200TtLoopConfigInstancePort=me1200TtLoopConfigInstancePort, me1200TtLoopConfigInstanceRowEditor=me1200TtLoopConfigInstanceRowEditor, me1200TtLoopConfigInstanceRowEditorDirection=me1200TtLoopConfigInstanceRowEditorDirection, me1200TtLoopLlConfigInstanceEntry=me1200TtLoopLlConfigInstanceEntry, me1200TtLoopLlStatusInstanceTable=me1200TtLoopLlStatusInstanceTable, me1200TtLoopMibConformance=me1200TtLoopMibConformance, me1200TtLoopLlConfigInstanceId=me1200TtLoopLlConfigInstanceId, me1200TtLoopLlStatusInstanceTableInfoGroup=me1200TtLoopLlStatusInstanceTableInfoGroup, me1200TtLoopConfig=me1200TtLoopConfig, me1200TtLoopLlConfigInstanceTableInfoGroup=me1200TtLoopLlConfigInstanceTableInfoGroup, me1200TtLoopCapabilities=me1200TtLoopCapabilities, me1200TtLoopConfigInstanceAdminState=me1200TtLoopConfigInstanceAdminState, ME1200TtLoopInstanceType=ME1200TtLoopInstanceType, me1200TtLoopConfigInstanceTable=me1200TtLoopConfigInstanceTable, me1200TtLoopConfigInstanceFlow=me1200TtLoopConfigInstanceFlow, me1200TtLoopCapabilitiesInstanceMax=me1200TtLoopCapabilitiesInstanceMax, me1200TtLoopStatusInstanceTable=me1200TtLoopStatusInstanceTable, me1200TtLoopConfigInstanceRowEditorName=me1200TtLoopConfigInstanceRowEditorName, me1200TtLoopConfigInstanceRowEditorPort=me1200TtLoopConfigInstanceRowEditorPort, me1200TtLoopConfigInstanceLevel=me1200TtLoopConfigInstanceLevel, me1200TtLoopLlConfigInstanceMepId=me1200TtLoopLlConfigInstanceMepId, me1200TtLoopStatusInstanceId=me1200TtLoopStatusInstanceId, me1200TtLoopConfigInstanceId=me1200TtLoopConfigInstanceId, me1200TtLoopMibObjects=me1200TtLoopMibObjects, me1200TtLoopConfigInstanceRowEditorId=me1200TtLoopConfigInstanceRowEditorId, PYSNMP_MODULE_ID=me1200TtLoopMib, ME1200TtLoopInstanceDirection=ME1200TtLoopInstanceDirection, me1200TtLoopConfigInstanceAction=me1200TtLoopConfigInstanceAction, me1200TtLoopConfigInstanceEntry=me1200TtLoopConfigInstanceEntry, me1200TtLoopStatusInstanceEntry=me1200TtLoopStatusInstanceEntry, me1200TtLoopLlStatusInstanceRemainExpTimer=me1200TtLoopLlStatusInstanceRemainExpTimer, ME1200TtLoopInstanceSubscriber=ME1200TtLoopInstanceSubscriber, me1200TtLoopStatusInstanceOperState=me1200TtLoopStatusInstanceOperState, me1200TtLoopConfigInstanceRowEditorSubscriber=me1200TtLoopConfigInstanceRowEditorSubscriber, ME1200TtLoopInstanceAdminState=ME1200TtLoopInstanceAdminState, me1200TtLoopCapabilitiesNameMax=me1200TtLoopCapabilitiesNameMax, me1200TtLoopConfigInstanceName=me1200TtLoopConfigInstanceName, me1200TtLoopConfigInstanceSubscriber=me1200TtLoopConfigInstanceSubscriber, me1200TtLoopConfigInstanceRowEditorDomain=me1200TtLoopConfigInstanceRowEditorDomain, me1200TtLoopConfigInstanceRowEditorAdminState=me1200TtLoopConfigInstanceRowEditorAdminState, ME1200TtLoopInstanceDomain=ME1200TtLoopInstanceDomain, me1200TtLoopMibGroups=me1200TtLoopMibGroups, ME1200TtLoopInstanceOperState=ME1200TtLoopInstanceOperState, me1200TtLoopConfigInstanceDirection=me1200TtLoopConfigInstanceDirection, me1200TtLoopConfigInstanceRowEditorType=me1200TtLoopConfigInstanceRowEditorType, me1200TtLoopStatus=me1200TtLoopStatus, me1200TtLoopLlStatusInstanceId=me1200TtLoopLlStatusInstanceId, me1200TtLoopConfigInstanceRowEditorInfoGroup=me1200TtLoopConfigInstanceRowEditorInfoGroup, me1200TtLoopCapabilitiesInfoGroup=me1200TtLoopCapabilitiesInfoGroup, me1200TtLoopConfigInstanceTableInfoGroup=me1200TtLoopConfigInstanceTableInfoGroup, me1200TtLoopLlConfigInstanceSourceMac=me1200TtLoopLlConfigInstanceSourceMac, me1200TtLoopMibCompliances=me1200TtLoopMibCompliances, me1200TtLoopMibCompliance=me1200TtLoopMibCompliance, me1200TtLoopConfigInstanceType=me1200TtLoopConfigInstanceType, me1200TtLoopConfigInstanceRowEditorFlow=me1200TtLoopConfigInstanceRowEditorFlow, me1200TtLoopConfigInstanceRowEditorAction=me1200TtLoopConfigInstanceRowEditorAction, me1200TtLoopLlConfigInstanceTable=me1200TtLoopLlConfigInstanceTable, me1200TtLoopLlStatusInstanceEntry=me1200TtLoopLlStatusInstanceEntry, me1200TtLoopStatusInstanceTableInfoGroup=me1200TtLoopStatusInstanceTableInfoGroup, me1200TtLoopConfigInstanceRowEditorLevel=me1200TtLoopConfigInstanceRowEditorLevel, me1200TtLoopConfigInstanceDomain=me1200TtLoopConfigInstanceDomain, me1200TtLoopLlConfigInstanceEnable=me1200TtLoopLlConfigInstanceEnable)
+
+# MIB Managed Objects in the order of their OIDs
+
+_Me1200TtLoopMibObjects_ObjectIdentity = ObjectIdentity
+me1200TtLoopMibObjects = _Me1200TtLoopMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1)
+)
+_Me1200TtLoopCapabilities_ObjectIdentity = ObjectIdentity
+me1200TtLoopCapabilities = _Me1200TtLoopCapabilities_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 1)
+)
+_Me1200TtLoopCapabilitiesInstanceMax_Type = Unsigned32
+_Me1200TtLoopCapabilitiesInstanceMax_Object = MibScalar
+me1200TtLoopCapabilitiesInstanceMax = _Me1200TtLoopCapabilitiesInstanceMax_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 1, 1),
+    _Me1200TtLoopCapabilitiesInstanceMax_Type()
+)
+me1200TtLoopCapabilitiesInstanceMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    me1200TtLoopCapabilitiesInstanceMax.setStatus("current")
+_Me1200TtLoopCapabilitiesNameMax_Type = Unsigned32
+_Me1200TtLoopCapabilitiesNameMax_Object = MibScalar
+me1200TtLoopCapabilitiesNameMax = _Me1200TtLoopCapabilitiesNameMax_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 1, 2),
+    _Me1200TtLoopCapabilitiesNameMax_Type()
+)
+me1200TtLoopCapabilitiesNameMax.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    me1200TtLoopCapabilitiesNameMax.setStatus("current")
+_Me1200TtLoopConfig_ObjectIdentity = ObjectIdentity
+me1200TtLoopConfig = _Me1200TtLoopConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2)
+)
+_Me1200TtLoopConfigInstanceTable_Object = MibTable
+me1200TtLoopConfigInstanceTable = _Me1200TtLoopConfigInstanceTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceTable.setStatus("current")
+_Me1200TtLoopConfigInstanceEntry_Object = MibTableRow
+me1200TtLoopConfigInstanceEntry = _Me1200TtLoopConfigInstanceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1)
+)
+me1200TtLoopConfigInstanceEntry.setIndexNames(
+    (0, "ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceId"),
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceEntry.setStatus("current")
+
+
+class _Me1200TtLoopConfigInstanceId_Type(Integer32):
+    """Custom type me1200TtLoopConfigInstanceId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_Me1200TtLoopConfigInstanceId_Type.__name__ = "Integer32"
+_Me1200TtLoopConfigInstanceId_Object = MibTableColumn
+me1200TtLoopConfigInstanceId = _Me1200TtLoopConfigInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 1),
+    _Me1200TtLoopConfigInstanceId_Type()
+)
+me1200TtLoopConfigInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceId.setStatus("current")
+
+
+class _Me1200TtLoopConfigInstanceName_Type(ME1200DisplayString):
+    """Custom type me1200TtLoopConfigInstanceName based on ME1200DisplayString"""
+    subtypeSpec = ME1200DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Me1200TtLoopConfigInstanceName_Type.__name__ = "ME1200DisplayString"
+_Me1200TtLoopConfigInstanceName_Object = MibTableColumn
+me1200TtLoopConfigInstanceName = _Me1200TtLoopConfigInstanceName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 2),
+    _Me1200TtLoopConfigInstanceName_Type()
+)
+me1200TtLoopConfigInstanceName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceName.setStatus("current")
+_Me1200TtLoopConfigInstanceType_Type = ME1200TtLoopInstanceType
+_Me1200TtLoopConfigInstanceType_Object = MibTableColumn
+me1200TtLoopConfigInstanceType = _Me1200TtLoopConfigInstanceType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 3),
+    _Me1200TtLoopConfigInstanceType_Type()
+)
+me1200TtLoopConfigInstanceType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceType.setStatus("current")
+_Me1200TtLoopConfigInstanceDirection_Type = ME1200TtLoopInstanceDirection
+_Me1200TtLoopConfigInstanceDirection_Object = MibTableColumn
+me1200TtLoopConfigInstanceDirection = _Me1200TtLoopConfigInstanceDirection_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 4),
+    _Me1200TtLoopConfigInstanceDirection_Type()
+)
+me1200TtLoopConfigInstanceDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceDirection.setStatus("current")
+_Me1200TtLoopConfigInstanceDomain_Type = ME1200TtLoopInstanceDomain
+_Me1200TtLoopConfigInstanceDomain_Object = MibTableColumn
+me1200TtLoopConfigInstanceDomain = _Me1200TtLoopConfigInstanceDomain_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 5),
+    _Me1200TtLoopConfigInstanceDomain_Type()
+)
+me1200TtLoopConfigInstanceDomain.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceDomain.setStatus("current")
+_Me1200TtLoopConfigInstanceFlow_Type = Unsigned32
+_Me1200TtLoopConfigInstanceFlow_Object = MibTableColumn
+me1200TtLoopConfigInstanceFlow = _Me1200TtLoopConfigInstanceFlow_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 6),
+    _Me1200TtLoopConfigInstanceFlow_Type()
+)
+me1200TtLoopConfigInstanceFlow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceFlow.setStatus("current")
+_Me1200TtLoopConfigInstancePort_Type = ME1200InterfaceIndex
+_Me1200TtLoopConfigInstancePort_Object = MibTableColumn
+me1200TtLoopConfigInstancePort = _Me1200TtLoopConfigInstancePort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 7),
+    _Me1200TtLoopConfigInstancePort_Type()
+)
+me1200TtLoopConfigInstancePort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstancePort.setStatus("current")
+_Me1200TtLoopConfigInstanceLevel_Type = Unsigned32
+_Me1200TtLoopConfigInstanceLevel_Object = MibTableColumn
+me1200TtLoopConfigInstanceLevel = _Me1200TtLoopConfigInstanceLevel_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 8),
+    _Me1200TtLoopConfigInstanceLevel_Type()
+)
+me1200TtLoopConfigInstanceLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceLevel.setStatus("current")
+_Me1200TtLoopConfigInstanceSubscriber_Type = ME1200TtLoopInstanceSubscriber
+_Me1200TtLoopConfigInstanceSubscriber_Object = MibTableColumn
+me1200TtLoopConfigInstanceSubscriber = _Me1200TtLoopConfigInstanceSubscriber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 9),
+    _Me1200TtLoopConfigInstanceSubscriber_Type()
+)
+me1200TtLoopConfigInstanceSubscriber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceSubscriber.setStatus("current")
+_Me1200TtLoopConfigInstanceAdminState_Type = ME1200TtLoopInstanceAdminState
+_Me1200TtLoopConfigInstanceAdminState_Object = MibTableColumn
+me1200TtLoopConfigInstanceAdminState = _Me1200TtLoopConfigInstanceAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 10),
+    _Me1200TtLoopConfigInstanceAdminState_Type()
+)
+me1200TtLoopConfigInstanceAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceAdminState.setStatus("current")
+_Me1200TtLoopConfigInstanceAction_Type = ME1200RowEditorState
+_Me1200TtLoopConfigInstanceAction_Object = MibTableColumn
+me1200TtLoopConfigInstanceAction = _Me1200TtLoopConfigInstanceAction_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 1, 1, 100),
+    _Me1200TtLoopConfigInstanceAction_Type()
+)
+me1200TtLoopConfigInstanceAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceAction.setStatus("current")
+_Me1200TtLoopConfigInstanceRowEditor_ObjectIdentity = ObjectIdentity
+me1200TtLoopConfigInstanceRowEditor = _Me1200TtLoopConfigInstanceRowEditor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2)
+)
+
+
+class _Me1200TtLoopConfigInstanceRowEditorId_Type(Integer32):
+    """Custom type me1200TtLoopConfigInstanceRowEditorId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_Me1200TtLoopConfigInstanceRowEditorId_Type.__name__ = "Integer32"
+_Me1200TtLoopConfigInstanceRowEditorId_Object = MibScalar
+me1200TtLoopConfigInstanceRowEditorId = _Me1200TtLoopConfigInstanceRowEditorId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 1),
+    _Me1200TtLoopConfigInstanceRowEditorId_Type()
+)
+me1200TtLoopConfigInstanceRowEditorId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorId.setStatus("current")
+
+
+class _Me1200TtLoopConfigInstanceRowEditorName_Type(ME1200DisplayString):
+    """Custom type me1200TtLoopConfigInstanceRowEditorName based on ME1200DisplayString"""
+    subtypeSpec = ME1200DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_Me1200TtLoopConfigInstanceRowEditorName_Type.__name__ = "ME1200DisplayString"
+_Me1200TtLoopConfigInstanceRowEditorName_Object = MibScalar
+me1200TtLoopConfigInstanceRowEditorName = _Me1200TtLoopConfigInstanceRowEditorName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 2),
+    _Me1200TtLoopConfigInstanceRowEditorName_Type()
+)
+me1200TtLoopConfigInstanceRowEditorName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorName.setStatus("current")
+_Me1200TtLoopConfigInstanceRowEditorType_Type = ME1200TtLoopInstanceType
+_Me1200TtLoopConfigInstanceRowEditorType_Object = MibScalar
+me1200TtLoopConfigInstanceRowEditorType = _Me1200TtLoopConfigInstanceRowEditorType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 3),
+    _Me1200TtLoopConfigInstanceRowEditorType_Type()
+)
+me1200TtLoopConfigInstanceRowEditorType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorType.setStatus("current")
+_Me1200TtLoopConfigInstanceRowEditorDirection_Type = ME1200TtLoopInstanceDirection
+_Me1200TtLoopConfigInstanceRowEditorDirection_Object = MibScalar
+me1200TtLoopConfigInstanceRowEditorDirection = _Me1200TtLoopConfigInstanceRowEditorDirection_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 4),
+    _Me1200TtLoopConfigInstanceRowEditorDirection_Type()
+)
+me1200TtLoopConfigInstanceRowEditorDirection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorDirection.setStatus("current")
+_Me1200TtLoopConfigInstanceRowEditorDomain_Type = ME1200TtLoopInstanceDomain
+_Me1200TtLoopConfigInstanceRowEditorDomain_Object = MibScalar
+me1200TtLoopConfigInstanceRowEditorDomain = _Me1200TtLoopConfigInstanceRowEditorDomain_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 5),
+    _Me1200TtLoopConfigInstanceRowEditorDomain_Type()
+)
+me1200TtLoopConfigInstanceRowEditorDomain.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorDomain.setStatus("current")
+_Me1200TtLoopConfigInstanceRowEditorFlow_Type = Unsigned32
+_Me1200TtLoopConfigInstanceRowEditorFlow_Object = MibScalar
+me1200TtLoopConfigInstanceRowEditorFlow = _Me1200TtLoopConfigInstanceRowEditorFlow_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 6),
+    _Me1200TtLoopConfigInstanceRowEditorFlow_Type()
+)
+me1200TtLoopConfigInstanceRowEditorFlow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorFlow.setStatus("current")
+_Me1200TtLoopConfigInstanceRowEditorPort_Type = ME1200InterfaceIndex
+_Me1200TtLoopConfigInstanceRowEditorPort_Object = MibScalar
+me1200TtLoopConfigInstanceRowEditorPort = _Me1200TtLoopConfigInstanceRowEditorPort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 7),
+    _Me1200TtLoopConfigInstanceRowEditorPort_Type()
+)
+me1200TtLoopConfigInstanceRowEditorPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorPort.setStatus("current")
+_Me1200TtLoopConfigInstanceRowEditorLevel_Type = Unsigned32
+_Me1200TtLoopConfigInstanceRowEditorLevel_Object = MibScalar
+me1200TtLoopConfigInstanceRowEditorLevel = _Me1200TtLoopConfigInstanceRowEditorLevel_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 8),
+    _Me1200TtLoopConfigInstanceRowEditorLevel_Type()
+)
+me1200TtLoopConfigInstanceRowEditorLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorLevel.setStatus("current")
+_Me1200TtLoopConfigInstanceRowEditorSubscriber_Type = ME1200TtLoopInstanceSubscriber
+_Me1200TtLoopConfigInstanceRowEditorSubscriber_Object = MibScalar
+me1200TtLoopConfigInstanceRowEditorSubscriber = _Me1200TtLoopConfigInstanceRowEditorSubscriber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 9),
+    _Me1200TtLoopConfigInstanceRowEditorSubscriber_Type()
+)
+me1200TtLoopConfigInstanceRowEditorSubscriber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorSubscriber.setStatus("current")
+_Me1200TtLoopConfigInstanceRowEditorAdminState_Type = ME1200TtLoopInstanceAdminState
+_Me1200TtLoopConfigInstanceRowEditorAdminState_Object = MibScalar
+me1200TtLoopConfigInstanceRowEditorAdminState = _Me1200TtLoopConfigInstanceRowEditorAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 10),
+    _Me1200TtLoopConfigInstanceRowEditorAdminState_Type()
+)
+me1200TtLoopConfigInstanceRowEditorAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorAdminState.setStatus("current")
+_Me1200TtLoopConfigInstanceRowEditorAction_Type = ME1200RowEditorState
+_Me1200TtLoopConfigInstanceRowEditorAction_Object = MibScalar
+me1200TtLoopConfigInstanceRowEditorAction = _Me1200TtLoopConfigInstanceRowEditorAction_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 2, 100),
+    _Me1200TtLoopConfigInstanceRowEditorAction_Type()
+)
+me1200TtLoopConfigInstanceRowEditorAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorAction.setStatus("current")
+_Me1200TtLoopLlConfigInstanceTable_Object = MibTable
+me1200TtLoopLlConfigInstanceTable = _Me1200TtLoopLlConfigInstanceTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopLlConfigInstanceTable.setStatus("current")
+_Me1200TtLoopLlConfigInstanceEntry_Object = MibTableRow
+me1200TtLoopLlConfigInstanceEntry = _Me1200TtLoopLlConfigInstanceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3, 1)
+)
+me1200TtLoopLlConfigInstanceEntry.setIndexNames(
+    (0, "ME1200-TT-LOOP-MIB", "me1200TtLoopLlConfigInstanceId"),
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopLlConfigInstanceEntry.setStatus("current")
+
+
+class _Me1200TtLoopLlConfigInstanceId_Type(Integer32):
+    """Custom type me1200TtLoopLlConfigInstanceId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_Me1200TtLoopLlConfigInstanceId_Type.__name__ = "Integer32"
+_Me1200TtLoopLlConfigInstanceId_Object = MibTableColumn
+me1200TtLoopLlConfigInstanceId = _Me1200TtLoopLlConfigInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3, 1, 1),
+    _Me1200TtLoopLlConfigInstanceId_Type()
+)
+me1200TtLoopLlConfigInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    me1200TtLoopLlConfigInstanceId.setStatus("current")
+_Me1200TtLoopLlConfigInstanceEnable_Type = TruthValue
+_Me1200TtLoopLlConfigInstanceEnable_Object = MibTableColumn
+me1200TtLoopLlConfigInstanceEnable = _Me1200TtLoopLlConfigInstanceEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3, 1, 2),
+    _Me1200TtLoopLlConfigInstanceEnable_Type()
+)
+me1200TtLoopLlConfigInstanceEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopLlConfigInstanceEnable.setStatus("current")
+_Me1200TtLoopLlConfigInstanceMepId_Type = Unsigned32
+_Me1200TtLoopLlConfigInstanceMepId_Object = MibTableColumn
+me1200TtLoopLlConfigInstanceMepId = _Me1200TtLoopLlConfigInstanceMepId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3, 1, 3),
+    _Me1200TtLoopLlConfigInstanceMepId_Type()
+)
+me1200TtLoopLlConfigInstanceMepId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopLlConfigInstanceMepId.setStatus("current")
+_Me1200TtLoopLlConfigInstanceSourceMac_Type = MacAddress
+_Me1200TtLoopLlConfigInstanceSourceMac_Object = MibTableColumn
+me1200TtLoopLlConfigInstanceSourceMac = _Me1200TtLoopLlConfigInstanceSourceMac_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 2, 3, 1, 4),
+    _Me1200TtLoopLlConfigInstanceSourceMac_Type()
+)
+me1200TtLoopLlConfigInstanceSourceMac.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    me1200TtLoopLlConfigInstanceSourceMac.setStatus("current")
+_Me1200TtLoopStatus_ObjectIdentity = ObjectIdentity
+me1200TtLoopStatus = _Me1200TtLoopStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3)
+)
+_Me1200TtLoopStatusInstanceTable_Object = MibTable
+me1200TtLoopStatusInstanceTable = _Me1200TtLoopStatusInstanceTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopStatusInstanceTable.setStatus("current")
+_Me1200TtLoopStatusInstanceEntry_Object = MibTableRow
+me1200TtLoopStatusInstanceEntry = _Me1200TtLoopStatusInstanceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 1, 1)
+)
+me1200TtLoopStatusInstanceEntry.setIndexNames(
+    (0, "ME1200-TT-LOOP-MIB", "me1200TtLoopStatusInstanceId"),
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopStatusInstanceEntry.setStatus("current")
+
+
+class _Me1200TtLoopStatusInstanceId_Type(Integer32):
+    """Custom type me1200TtLoopStatusInstanceId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_Me1200TtLoopStatusInstanceId_Type.__name__ = "Integer32"
+_Me1200TtLoopStatusInstanceId_Object = MibTableColumn
+me1200TtLoopStatusInstanceId = _Me1200TtLoopStatusInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 1, 1, 1),
+    _Me1200TtLoopStatusInstanceId_Type()
+)
+me1200TtLoopStatusInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    me1200TtLoopStatusInstanceId.setStatus("current")
+_Me1200TtLoopStatusInstanceOperState_Type = ME1200TtLoopInstanceOperState
+_Me1200TtLoopStatusInstanceOperState_Object = MibTableColumn
+me1200TtLoopStatusInstanceOperState = _Me1200TtLoopStatusInstanceOperState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 1, 1, 2),
+    _Me1200TtLoopStatusInstanceOperState_Type()
+)
+me1200TtLoopStatusInstanceOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    me1200TtLoopStatusInstanceOperState.setStatus("current")
+_Me1200TtLoopLlStatusInstanceTable_Object = MibTable
+me1200TtLoopLlStatusInstanceTable = _Me1200TtLoopLlStatusInstanceTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopLlStatusInstanceTable.setStatus("current")
+_Me1200TtLoopLlStatusInstanceEntry_Object = MibTableRow
+me1200TtLoopLlStatusInstanceEntry = _Me1200TtLoopLlStatusInstanceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 2, 1)
+)
+me1200TtLoopLlStatusInstanceEntry.setIndexNames(
+    (0, "ME1200-TT-LOOP-MIB", "me1200TtLoopLlStatusInstanceId"),
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopLlStatusInstanceEntry.setStatus("current")
+
+
+class _Me1200TtLoopLlStatusInstanceId_Type(Integer32):
+    """Custom type me1200TtLoopLlStatusInstanceId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_Me1200TtLoopLlStatusInstanceId_Type.__name__ = "Integer32"
+_Me1200TtLoopLlStatusInstanceId_Object = MibTableColumn
+me1200TtLoopLlStatusInstanceId = _Me1200TtLoopLlStatusInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 2, 1, 1),
+    _Me1200TtLoopLlStatusInstanceId_Type()
+)
+me1200TtLoopLlStatusInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    me1200TtLoopLlStatusInstanceId.setStatus("current")
+_Me1200TtLoopLlStatusInstanceRemainExpTimer_Type = Unsigned32
+_Me1200TtLoopLlStatusInstanceRemainExpTimer_Object = MibTableColumn
+me1200TtLoopLlStatusInstanceRemainExpTimer = _Me1200TtLoopLlStatusInstanceRemainExpTimer_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 1, 3, 2, 1, 2),
+    _Me1200TtLoopLlStatusInstanceRemainExpTimer_Type()
+)
+me1200TtLoopLlStatusInstanceRemainExpTimer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    me1200TtLoopLlStatusInstanceRemainExpTimer.setStatus("current")
+_Me1200TtLoopMibConformance_ObjectIdentity = ObjectIdentity
+me1200TtLoopMibConformance = _Me1200TtLoopMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3)
+)
+_Me1200TtLoopMibCompliances_ObjectIdentity = ObjectIdentity
+me1200TtLoopMibCompliances = _Me1200TtLoopMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 1)
+)
+_Me1200TtLoopMibGroups_ObjectIdentity = ObjectIdentity
+me1200TtLoopMibGroups = _Me1200TtLoopMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2)
+)
+
+# Managed Objects groups
+
+me1200TtLoopCapabilitiesInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 1)
+)
+me1200TtLoopCapabilitiesInfoGroup.setObjects(
+      *(("ME1200-TT-LOOP-MIB", "me1200TtLoopCapabilitiesInstanceMax"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopCapabilitiesNameMax"))
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopCapabilitiesInfoGroup.setStatus("current")
+
+me1200TtLoopConfigInstanceTableInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 2)
+)
+me1200TtLoopConfigInstanceTableInfoGroup.setObjects(
+      *(("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceName"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceType"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceDirection"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceDomain"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceFlow"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstancePort"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceLevel"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceSubscriber"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceAdminState"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceAction"))
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceTableInfoGroup.setStatus("current")
+
+me1200TtLoopConfigInstanceRowEditorInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 3)
+)
+me1200TtLoopConfigInstanceRowEditorInfoGroup.setObjects(
+      *(("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorId"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorName"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorType"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorDirection"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorDomain"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorFlow"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorPort"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorLevel"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorSubscriber"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorAdminState"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorAction"))
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopConfigInstanceRowEditorInfoGroup.setStatus("current")
+
+me1200TtLoopLlConfigInstanceTableInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 4)
+)
+me1200TtLoopLlConfigInstanceTableInfoGroup.setObjects(
+      *(("ME1200-TT-LOOP-MIB", "me1200TtLoopLlConfigInstanceEnable"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopLlConfigInstanceMepId"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopLlConfigInstanceSourceMac"))
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopLlConfigInstanceTableInfoGroup.setStatus("current")
+
+me1200TtLoopStatusInstanceTableInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 5)
+)
+me1200TtLoopStatusInstanceTableInfoGroup.setObjects(
+    ("ME1200-TT-LOOP-MIB", "me1200TtLoopStatusInstanceOperState")
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopStatusInstanceTableInfoGroup.setStatus("current")
+
+me1200TtLoopLlStatusInstanceTableInfoGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 2, 6)
+)
+me1200TtLoopLlStatusInstanceTableInfoGroup.setObjects(
+    ("ME1200-TT-LOOP-MIB", "me1200TtLoopLlStatusInstanceRemainExpTimer")
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopLlStatusInstanceTableInfoGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+me1200TtLoopMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 815, 1, 128, 3, 1, 1)
+)
+me1200TtLoopMibCompliance.setObjects(
+      *(("ME1200-TT-LOOP-MIB", "me1200TtLoopCapabilitiesInfoGroup"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceTableInfoGroup"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopConfigInstanceRowEditorInfoGroup"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopLlConfigInstanceTableInfoGroup"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopStatusInstanceTableInfoGroup"),
+        ("ME1200-TT-LOOP-MIB", "me1200TtLoopLlStatusInstanceTableInfoGroup"))
+)
+if mibBuilder.loadTexts:
+    me1200TtLoopMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ME1200-TT-LOOP-MIB",
+    **{"ME1200TtLoopInstanceAdminState": ME1200TtLoopInstanceAdminState,
+       "ME1200TtLoopInstanceDirection": ME1200TtLoopInstanceDirection,
+       "ME1200TtLoopInstanceDomain": ME1200TtLoopInstanceDomain,
+       "ME1200TtLoopInstanceOperState": ME1200TtLoopInstanceOperState,
+       "ME1200TtLoopInstanceSubscriber": ME1200TtLoopInstanceSubscriber,
+       "ME1200TtLoopInstanceType": ME1200TtLoopInstanceType,
+       "me1200TtLoopMib": me1200TtLoopMib,
+       "me1200TtLoopMibObjects": me1200TtLoopMibObjects,
+       "me1200TtLoopCapabilities": me1200TtLoopCapabilities,
+       "me1200TtLoopCapabilitiesInstanceMax": me1200TtLoopCapabilitiesInstanceMax,
+       "me1200TtLoopCapabilitiesNameMax": me1200TtLoopCapabilitiesNameMax,
+       "me1200TtLoopConfig": me1200TtLoopConfig,
+       "me1200TtLoopConfigInstanceTable": me1200TtLoopConfigInstanceTable,
+       "me1200TtLoopConfigInstanceEntry": me1200TtLoopConfigInstanceEntry,
+       "me1200TtLoopConfigInstanceId": me1200TtLoopConfigInstanceId,
+       "me1200TtLoopConfigInstanceName": me1200TtLoopConfigInstanceName,
+       "me1200TtLoopConfigInstanceType": me1200TtLoopConfigInstanceType,
+       "me1200TtLoopConfigInstanceDirection": me1200TtLoopConfigInstanceDirection,
+       "me1200TtLoopConfigInstanceDomain": me1200TtLoopConfigInstanceDomain,
+       "me1200TtLoopConfigInstanceFlow": me1200TtLoopConfigInstanceFlow,
+       "me1200TtLoopConfigInstancePort": me1200TtLoopConfigInstancePort,
+       "me1200TtLoopConfigInstanceLevel": me1200TtLoopConfigInstanceLevel,
+       "me1200TtLoopConfigInstanceSubscriber": me1200TtLoopConfigInstanceSubscriber,
+       "me1200TtLoopConfigInstanceAdminState": me1200TtLoopConfigInstanceAdminState,
+       "me1200TtLoopConfigInstanceAction": me1200TtLoopConfigInstanceAction,
+       "me1200TtLoopConfigInstanceRowEditor": me1200TtLoopConfigInstanceRowEditor,
+       "me1200TtLoopConfigInstanceRowEditorId": me1200TtLoopConfigInstanceRowEditorId,
+       "me1200TtLoopConfigInstanceRowEditorName": me1200TtLoopConfigInstanceRowEditorName,
+       "me1200TtLoopConfigInstanceRowEditorType": me1200TtLoopConfigInstanceRowEditorType,
+       "me1200TtLoopConfigInstanceRowEditorDirection": me1200TtLoopConfigInstanceRowEditorDirection,
+       "me1200TtLoopConfigInstanceRowEditorDomain": me1200TtLoopConfigInstanceRowEditorDomain,
+       "me1200TtLoopConfigInstanceRowEditorFlow": me1200TtLoopConfigInstanceRowEditorFlow,
+       "me1200TtLoopConfigInstanceRowEditorPort": me1200TtLoopConfigInstanceRowEditorPort,
+       "me1200TtLoopConfigInstanceRowEditorLevel": me1200TtLoopConfigInstanceRowEditorLevel,
+       "me1200TtLoopConfigInstanceRowEditorSubscriber": me1200TtLoopConfigInstanceRowEditorSubscriber,
+       "me1200TtLoopConfigInstanceRowEditorAdminState": me1200TtLoopConfigInstanceRowEditorAdminState,
+       "me1200TtLoopConfigInstanceRowEditorAction": me1200TtLoopConfigInstanceRowEditorAction,
+       "me1200TtLoopLlConfigInstanceTable": me1200TtLoopLlConfigInstanceTable,
+       "me1200TtLoopLlConfigInstanceEntry": me1200TtLoopLlConfigInstanceEntry,
+       "me1200TtLoopLlConfigInstanceId": me1200TtLoopLlConfigInstanceId,
+       "me1200TtLoopLlConfigInstanceEnable": me1200TtLoopLlConfigInstanceEnable,
+       "me1200TtLoopLlConfigInstanceMepId": me1200TtLoopLlConfigInstanceMepId,
+       "me1200TtLoopLlConfigInstanceSourceMac": me1200TtLoopLlConfigInstanceSourceMac,
+       "me1200TtLoopStatus": me1200TtLoopStatus,
+       "me1200TtLoopStatusInstanceTable": me1200TtLoopStatusInstanceTable,
+       "me1200TtLoopStatusInstanceEntry": me1200TtLoopStatusInstanceEntry,
+       "me1200TtLoopStatusInstanceId": me1200TtLoopStatusInstanceId,
+       "me1200TtLoopStatusInstanceOperState": me1200TtLoopStatusInstanceOperState,
+       "me1200TtLoopLlStatusInstanceTable": me1200TtLoopLlStatusInstanceTable,
+       "me1200TtLoopLlStatusInstanceEntry": me1200TtLoopLlStatusInstanceEntry,
+       "me1200TtLoopLlStatusInstanceId": me1200TtLoopLlStatusInstanceId,
+       "me1200TtLoopLlStatusInstanceRemainExpTimer": me1200TtLoopLlStatusInstanceRemainExpTimer,
+       "me1200TtLoopMibConformance": me1200TtLoopMibConformance,
+       "me1200TtLoopMibCompliances": me1200TtLoopMibCompliances,
+       "me1200TtLoopMibCompliance": me1200TtLoopMibCompliance,
+       "me1200TtLoopMibGroups": me1200TtLoopMibGroups,
+       "me1200TtLoopCapabilitiesInfoGroup": me1200TtLoopCapabilitiesInfoGroup,
+       "me1200TtLoopConfigInstanceTableInfoGroup": me1200TtLoopConfigInstanceTableInfoGroup,
+       "me1200TtLoopConfigInstanceRowEditorInfoGroup": me1200TtLoopConfigInstanceRowEditorInfoGroup,
+       "me1200TtLoopLlConfigInstanceTableInfoGroup": me1200TtLoopLlConfigInstanceTableInfoGroup,
+       "me1200TtLoopStatusInstanceTableInfoGroup": me1200TtLoopStatusInstanceTableInfoGroup,
+       "me1200TtLoopLlStatusInstanceTableInfoGroup": me1200TtLoopLlStatusInstanceTableInfoGroup}
+)

@@ -1,285 +1,1540 @@
+# SNMP MIB module (JUNIPER-IF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module JUNIPER-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/juniper/JUNIPER-IF-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:55:15 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/juniper/JUNIPER-IF-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:38:17 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
-ifIndex, ifEntry = mibBuilder.importSymbols("IF-MIB", "ifIndex", "ifEntry")
-jnxMibs, = mibBuilder.importSymbols("JUNIPER-SMI", "jnxMibs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TruthValue, TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "TimeStamp", "DisplayString")
-ifJnx = ModuleIdentity((1, 3, 6, 1, 4, 1, 2636, 3, 3))
-ifJnx.setRevisions(('2011-05-10 00:00', '2011-09-22 00:00', '2007-06-05 00:00', '2002-10-31 00:00', '2001-06-21 00:00', '2001-03-15 00:00', '2015-10-15 00:00', '2015-10-15 00:00', '2020-01-01 00:00', '2020-09-19 00:00', '2022-09-01 00:00',))
-if mibBuilder.loadTexts: ifJnx.setLastUpdated('201109221523Z')
-if mibBuilder.loadTexts: ifJnx.setOrganization('Juniper Networks, Inc.')
-ifJnxTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1), )
-if mibBuilder.loadTexts: ifJnxTable.setStatus('current')
-ifJnxEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1), )
-ifEntry.registerAugmentions(("JUNIPER-IF-MIB", "ifJnxEntry"))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(CounterBasedGauge64,) = mibBuilder.importSymbols(
+    "HCNUM-TC",
+    "CounterBasedGauge64")
+
+(ifEntry,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifEntry",
+    "ifIndex")
+
+(jnxMibs,) = mibBuilder.importSymbols(
+    "JUNIPER-SMI",
+    "jnxMibs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ifJnx = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3)
+)
+if mibBuilder.loadTexts:
+    ifJnx.setRevisions(
+        ("2011-05-10 00:00",
+         "2011-09-22 00:00",
+         "2007-06-05 00:00",
+         "2002-10-31 00:00",
+         "2001-06-21 00:00",
+         "2001-03-15 00:00",
+         "2015-10-15 00:00",
+         "2015-10-15 00:00",
+         "2020-01-01 00:00",
+         "2020-09-19 00:00",
+         "2022-09-01 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_IfJnxTable_Object = MibTable
+ifJnxTable = _IfJnxTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1)
+)
+if mibBuilder.loadTexts:
+    ifJnxTable.setStatus("current")
+_IfJnxEntry_Object = MibTableRow
+ifJnxEntry = _IfJnxEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ifJnxEntry.setStatus("current")
+_IfIn1SecRate_Type = Gauge32
+_IfIn1SecRate_Object = MibTableColumn
+ifIn1SecRate = _IfIn1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 1),
+    _IfIn1SecRate_Type()
+)
+ifIn1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifIn1SecRate.setStatus("current")
+_IfIn1SecOctets_Type = Gauge32
+_IfIn1SecOctets_Object = MibTableColumn
+ifIn1SecOctets = _IfIn1SecOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 2),
+    _IfIn1SecOctets_Type()
+)
+ifIn1SecOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifIn1SecOctets.setStatus("current")
+_IfIn1SecPkts_Type = Gauge32
+_IfIn1SecPkts_Object = MibTableColumn
+ifIn1SecPkts = _IfIn1SecPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 3),
+    _IfIn1SecPkts_Type()
+)
+ifIn1SecPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifIn1SecPkts.setStatus("current")
+_IfOut1SecRate_Type = Gauge32
+_IfOut1SecRate_Object = MibTableColumn
+ifOut1SecRate = _IfOut1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 4),
+    _IfOut1SecRate_Type()
+)
+ifOut1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifOut1SecRate.setStatus("current")
+_IfOut1SecOctets_Type = Gauge32
+_IfOut1SecOctets_Object = MibTableColumn
+ifOut1SecOctets = _IfOut1SecOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 5),
+    _IfOut1SecOctets_Type()
+)
+ifOut1SecOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifOut1SecOctets.setStatus("current")
+_IfOut1SecPkts_Type = Gauge32
+_IfOut1SecPkts_Object = MibTableColumn
+ifOut1SecPkts = _IfOut1SecPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 6),
+    _IfOut1SecPkts_Type()
+)
+ifOut1SecPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifOut1SecPkts.setStatus("current")
+_IfHCIn1SecRate_Type = CounterBasedGauge64
+_IfHCIn1SecRate_Object = MibTableColumn
+ifHCIn1SecRate = _IfHCIn1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 7),
+    _IfHCIn1SecRate_Type()
+)
+ifHCIn1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifHCIn1SecRate.setStatus("current")
+_IfHCOut1SecRate_Type = CounterBasedGauge64
+_IfHCOut1SecRate_Object = MibTableColumn
+ifHCOut1SecRate = _IfHCOut1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 8),
+    _IfHCOut1SecRate_Type()
+)
+ifHCOut1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifHCOut1SecRate.setStatus("current")
+_IfJnxInErrors_Type = Counter64
+_IfJnxInErrors_Object = MibTableColumn
+ifJnxInErrors = _IfJnxInErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 9),
+    _IfJnxInErrors_Type()
+)
+ifJnxInErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInErrors.setStatus("current")
+_IfJnxInFrameErrors_Type = Counter64
+_IfJnxInFrameErrors_Object = MibTableColumn
+ifJnxInFrameErrors = _IfJnxInFrameErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 10),
+    _IfJnxInFrameErrors_Type()
+)
+ifJnxInFrameErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInFrameErrors.setStatus("current")
+_IfJnxInQDrops_Type = Counter64
+_IfJnxInQDrops_Object = MibTableColumn
+ifJnxInQDrops = _IfJnxInQDrops_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 11),
+    _IfJnxInQDrops_Type()
+)
+ifJnxInQDrops.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInQDrops.setStatus("current")
+_IfJnxInRunts_Type = Counter64
+_IfJnxInRunts_Object = MibTableColumn
+ifJnxInRunts = _IfJnxInRunts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 12),
+    _IfJnxInRunts_Type()
+)
+ifJnxInRunts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInRunts.setStatus("current")
+_IfJnxInGiants_Type = Counter64
+_IfJnxInGiants_Object = MibTableColumn
+ifJnxInGiants = _IfJnxInGiants_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 13),
+    _IfJnxInGiants_Type()
+)
+ifJnxInGiants.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInGiants.setStatus("current")
+_IfJnxInDiscards_Type = Counter64
+_IfJnxInDiscards_Object = MibTableColumn
+ifJnxInDiscards = _IfJnxInDiscards_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 14),
+    _IfJnxInDiscards_Type()
+)
+ifJnxInDiscards.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInDiscards.setStatus("current")
+_IfJnxInHslCrcErrors_Type = Counter64
+_IfJnxInHslCrcErrors_Object = MibTableColumn
+ifJnxInHslCrcErrors = _IfJnxInHslCrcErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 15),
+    _IfJnxInHslCrcErrors_Type()
+)
+ifJnxInHslCrcErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInHslCrcErrors.setStatus("current")
+_IfJnxInHslFifoOverFlows_Type = Counter64
+_IfJnxInHslFifoOverFlows_Object = MibTableColumn
+ifJnxInHslFifoOverFlows = _IfJnxInHslFifoOverFlows_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 16),
+    _IfJnxInHslFifoOverFlows_Type()
+)
+ifJnxInHslFifoOverFlows.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInHslFifoOverFlows.setStatus("current")
+_IfJnxInL3Incompletes_Type = Counter64
+_IfJnxInL3Incompletes_Object = MibTableColumn
+ifJnxInL3Incompletes = _IfJnxInL3Incompletes_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 17),
+    _IfJnxInL3Incompletes_Type()
+)
+ifJnxInL3Incompletes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInL3Incompletes.setStatus("current")
+_IfJnxInL2ChanErrors_Type = Counter64
+_IfJnxInL2ChanErrors_Object = MibTableColumn
+ifJnxInL2ChanErrors = _IfJnxInL2ChanErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 18),
+    _IfJnxInL2ChanErrors_Type()
+)
+ifJnxInL2ChanErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInL2ChanErrors.setStatus("current")
+_IfJnxInL2MismatchTimeouts_Type = Counter64
+_IfJnxInL2MismatchTimeouts_Object = MibTableColumn
+ifJnxInL2MismatchTimeouts = _IfJnxInL2MismatchTimeouts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 19),
+    _IfJnxInL2MismatchTimeouts_Type()
+)
+ifJnxInL2MismatchTimeouts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInL2MismatchTimeouts.setStatus("current")
+_IfJnxInInvalidVCs_Type = Counter64
+_IfJnxInInvalidVCs_Object = MibTableColumn
+ifJnxInInvalidVCs = _IfJnxInInvalidVCs_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 20),
+    _IfJnxInInvalidVCs_Type()
+)
+ifJnxInInvalidVCs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInInvalidVCs.setStatus("current")
+_IfJnxInFifoErrors_Type = Counter32
+_IfJnxInFifoErrors_Object = MibTableColumn
+ifJnxInFifoErrors = _IfJnxInFifoErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 21),
+    _IfJnxInFifoErrors_Type()
+)
+ifJnxInFifoErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInFifoErrors.setStatus("current")
+_IfJnxBucketDrops_Type = Counter64
+_IfJnxBucketDrops_Object = MibTableColumn
+ifJnxBucketDrops = _IfJnxBucketDrops_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 22),
+    _IfJnxBucketDrops_Type()
+)
+ifJnxBucketDrops.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxBucketDrops.setStatus("current")
+_IfJnxSramErrors_Type = Counter32
+_IfJnxSramErrors_Object = MibTableColumn
+ifJnxSramErrors = _IfJnxSramErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 23),
+    _IfJnxSramErrors_Type()
+)
+ifJnxSramErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxSramErrors.setStatus("current")
+_IfJnxOutErrors_Type = Counter64
+_IfJnxOutErrors_Object = MibTableColumn
+ifJnxOutErrors = _IfJnxOutErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 24),
+    _IfJnxOutErrors_Type()
+)
+ifJnxOutErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutErrors.setStatus("current")
+_IfJnxCollisions_Type = Counter64
+_IfJnxCollisions_Object = MibTableColumn
+ifJnxCollisions = _IfJnxCollisions_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 25),
+    _IfJnxCollisions_Type()
+)
+ifJnxCollisions.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxCollisions.setStatus("current")
+_IfJnxCarrierTrans_Type = Counter64
+_IfJnxCarrierTrans_Object = MibTableColumn
+ifJnxCarrierTrans = _IfJnxCarrierTrans_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 26),
+    _IfJnxCarrierTrans_Type()
+)
+ifJnxCarrierTrans.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxCarrierTrans.setStatus("current")
+_IfJnxOutQDrops_Type = Counter64
+_IfJnxOutQDrops_Object = MibTableColumn
+ifJnxOutQDrops = _IfJnxOutQDrops_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 27),
+    _IfJnxOutQDrops_Type()
+)
+ifJnxOutQDrops.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutQDrops.setStatus("current")
+_IfJnxOutAgedErrors_Type = Counter64
+_IfJnxOutAgedErrors_Object = MibTableColumn
+ifJnxOutAgedErrors = _IfJnxOutAgedErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 28),
+    _IfJnxOutAgedErrors_Type()
+)
+ifJnxOutAgedErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutAgedErrors.setStatus("current")
+_IfJnxOutFifoErrors_Type = Counter32
+_IfJnxOutFifoErrors_Object = MibTableColumn
+ifJnxOutFifoErrors = _IfJnxOutFifoErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 29),
+    _IfJnxOutFifoErrors_Type()
+)
+ifJnxOutFifoErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutFifoErrors.setStatus("current")
+_IfJnxOutHslFifoUnderFlows_Type = Counter64
+_IfJnxOutHslFifoUnderFlows_Object = MibTableColumn
+ifJnxOutHslFifoUnderFlows = _IfJnxOutHslFifoUnderFlows_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 30),
+    _IfJnxOutHslFifoUnderFlows_Type()
+)
+ifJnxOutHslFifoUnderFlows.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutHslFifoUnderFlows.setStatus("current")
+_IfJnxOutHslCrcErrors_Type = Counter32
+_IfJnxOutHslCrcErrors_Object = MibTableColumn
+ifJnxOutHslCrcErrors = _IfJnxOutHslCrcErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 31),
+    _IfJnxOutHslCrcErrors_Type()
+)
+ifJnxOutHslCrcErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutHslCrcErrors.setStatus("current")
+_IfJnxCrcErrors_Type = Counter64
+_IfJnxCrcErrors_Object = MibTableColumn
+ifJnxCrcErrors = _IfJnxCrcErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 32),
+    _IfJnxCrcErrors_Type()
+)
+ifJnxCrcErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxCrcErrors.setStatus("current")
+_IfJnxFcsErrors_Type = Counter64
+_IfJnxFcsErrors_Object = MibTableColumn
+ifJnxFcsErrors = _IfJnxFcsErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 33),
+    _IfJnxFcsErrors_Type()
+)
+ifJnxFcsErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxFcsErrors.setStatus("current")
+_IfHCIn1SecOctets_Type = CounterBasedGauge64
+_IfHCIn1SecOctets_Object = MibTableColumn
+ifHCIn1SecOctets = _IfHCIn1SecOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 34),
+    _IfHCIn1SecOctets_Type()
+)
+ifHCIn1SecOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifHCIn1SecOctets.setStatus("current")
+_IfHCOut1SecOctets_Type = CounterBasedGauge64
+_IfHCOut1SecOctets_Object = MibTableColumn
+ifHCOut1SecOctets = _IfHCOut1SecOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 35),
+    _IfHCOut1SecOctets_Type()
+)
+ifHCOut1SecOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifHCOut1SecOctets.setStatus("current")
+_IfJnxInputErrors_Type = Counter64
+_IfJnxInputErrors_Object = MibTableColumn
+ifJnxInputErrors = _IfJnxInputErrors_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 36),
+    _IfJnxInputErrors_Type()
+)
+ifJnxInputErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInputErrors.setStatus("current")
+_IfJnxOutEcnMarkedPackets_Type = Counter64
+_IfJnxOutEcnMarkedPackets_Object = MibTableColumn
+ifJnxOutEcnMarkedPackets = _IfJnxOutEcnMarkedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 37),
+    _IfJnxOutEcnMarkedPackets_Type()
+)
+ifJnxOutEcnMarkedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutEcnMarkedPackets.setStatus("current")
+_IfChassisTable_Object = MibTable
+ifChassisTable = _IfChassisTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 2)
+)
+if mibBuilder.loadTexts:
+    ifChassisTable.setStatus("current")
+_IfChassisEntry_Object = MibTableRow
+ifChassisEntry = _IfChassisEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1)
+)
+if mibBuilder.loadTexts:
+    ifChassisEntry.setStatus("current")
+_IfChassisFpc_Type = Integer32
+_IfChassisFpc_Object = MibTableColumn
+ifChassisFpc = _IfChassisFpc_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 1),
+    _IfChassisFpc_Type()
+)
+ifChassisFpc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifChassisFpc.setStatus("current")
+_IfChassisPic_Type = Integer32
+_IfChassisPic_Object = MibTableColumn
+ifChassisPic = _IfChassisPic_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 2),
+    _IfChassisPic_Type()
+)
+ifChassisPic.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifChassisPic.setStatus("current")
+_IfChassisPort_Type = Integer32
+_IfChassisPort_Object = MibTableColumn
+ifChassisPort = _IfChassisPort_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 3),
+    _IfChassisPort_Type()
+)
+ifChassisPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifChassisPort.setStatus("current")
+_IfChassisChannel_Type = Integer32
+_IfChassisChannel_Object = MibTableColumn
+ifChassisChannel = _IfChassisChannel_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 4),
+    _IfChassisChannel_Type()
+)
+ifChassisChannel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifChassisChannel.setStatus("current")
+_IfChassisLogicalUnit_Type = Unsigned32
+_IfChassisLogicalUnit_Object = MibTableColumn
+ifChassisLogicalUnit = _IfChassisLogicalUnit_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 5),
+    _IfChassisLogicalUnit_Type()
+)
+ifChassisLogicalUnit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifChassisLogicalUnit.setStatus("current")
+_IfChassisPicIndex_Type = OctetString
+_IfChassisPicIndex_Object = MibTableColumn
+ifChassisPicIndex = _IfChassisPicIndex_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 6),
+    _IfChassisPicIndex_Type()
+)
+ifChassisPicIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifChassisPicIndex.setStatus("current")
+_IfJnxNotification_ObjectIdentity = ObjectIdentity
+ifJnxNotification = _IfJnxNotification_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 3)
+)
+_IfJnxNotificationPrefix_ObjectIdentity = ObjectIdentity
+ifJnxNotificationPrefix = _IfJnxNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 3, 0)
+)
+_IfJnxPolTable_Object = MibTable
+ifJnxPolTable = _IfJnxPolTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4)
+)
+if mibBuilder.loadTexts:
+    ifJnxPolTable.setStatus("current")
+_IfJnxPolEntry_Object = MibTableRow
+ifJnxPolEntry = _IfJnxPolEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1)
+)
+ifJnxPolEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    ifJnxPolEntry.setStatus("current")
+_IfJnxInPolLowOctets_Type = Counter64
+_IfJnxInPolLowOctets_Object = MibTableColumn
+ifJnxInPolLowOctets = _IfJnxInPolLowOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 1),
+    _IfJnxInPolLowOctets_Type()
+)
+ifJnxInPolLowOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolLowOctets.setStatus("current")
+_IfJnxInPolLowPkts_Type = Counter64
+_IfJnxInPolLowPkts_Object = MibTableColumn
+ifJnxInPolLowPkts = _IfJnxInPolLowPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 2),
+    _IfJnxInPolLowPkts_Type()
+)
+ifJnxInPolLowPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolLowPkts.setStatus("current")
+_IfJnxInPolLow1SecRate_Type = Counter64
+_IfJnxInPolLow1SecRate_Object = MibTableColumn
+ifJnxInPolLow1SecRate = _IfJnxInPolLow1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 3),
+    _IfJnxInPolLow1SecRate_Type()
+)
+ifJnxInPolLow1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolLow1SecRate.setStatus("current")
+_IfJnxInPolMLowOctets_Type = Counter64
+_IfJnxInPolMLowOctets_Object = MibTableColumn
+ifJnxInPolMLowOctets = _IfJnxInPolMLowOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 4),
+    _IfJnxInPolMLowOctets_Type()
+)
+ifJnxInPolMLowOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolMLowOctets.setStatus("current")
+_IfJnxInPolMLowPkts_Type = Counter64
+_IfJnxInPolMLowPkts_Object = MibTableColumn
+ifJnxInPolMLowPkts = _IfJnxInPolMLowPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 5),
+    _IfJnxInPolMLowPkts_Type()
+)
+ifJnxInPolMLowPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolMLowPkts.setStatus("current")
+_IfJnxInPolMLow1SecRate_Type = Counter64
+_IfJnxInPolMLow1SecRate_Object = MibTableColumn
+ifJnxInPolMLow1SecRate = _IfJnxInPolMLow1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 6),
+    _IfJnxInPolMLow1SecRate_Type()
+)
+ifJnxInPolMLow1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolMLow1SecRate.setStatus("current")
+_IfJnxInPolMHighOctets_Type = Counter64
+_IfJnxInPolMHighOctets_Object = MibTableColumn
+ifJnxInPolMHighOctets = _IfJnxInPolMHighOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 7),
+    _IfJnxInPolMHighOctets_Type()
+)
+ifJnxInPolMHighOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolMHighOctets.setStatus("current")
+_IfJnxInPolMHighPkts_Type = Counter64
+_IfJnxInPolMHighPkts_Object = MibTableColumn
+ifJnxInPolMHighPkts = _IfJnxInPolMHighPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 8),
+    _IfJnxInPolMHighPkts_Type()
+)
+ifJnxInPolMHighPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolMHighPkts.setStatus("current")
+_IfJnxInPolMHigh1SecRate_Type = Counter64
+_IfJnxInPolMHigh1SecRate_Object = MibTableColumn
+ifJnxInPolMHigh1SecRate = _IfJnxInPolMHigh1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 9),
+    _IfJnxInPolMHigh1SecRate_Type()
+)
+ifJnxInPolMHigh1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolMHigh1SecRate.setStatus("current")
+_IfJnxInPolHighOctets_Type = Counter64
+_IfJnxInPolHighOctets_Object = MibTableColumn
+ifJnxInPolHighOctets = _IfJnxInPolHighOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 10),
+    _IfJnxInPolHighOctets_Type()
+)
+ifJnxInPolHighOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolHighOctets.setStatus("current")
+_IfJnxInPolHighPkts_Type = Counter64
+_IfJnxInPolHighPkts_Object = MibTableColumn
+ifJnxInPolHighPkts = _IfJnxInPolHighPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 11),
+    _IfJnxInPolHighPkts_Type()
+)
+ifJnxInPolHighPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolHighPkts.setStatus("current")
+_IfJnxInPolHigh1SecRate_Type = Counter64
+_IfJnxInPolHigh1SecRate_Object = MibTableColumn
+ifJnxInPolHigh1SecRate = _IfJnxInPolHigh1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 12),
+    _IfJnxInPolHigh1SecRate_Type()
+)
+ifJnxInPolHigh1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolHigh1SecRate.setStatus("current")
+_IfJnxInPolDropOctets_Type = Counter64
+_IfJnxInPolDropOctets_Object = MibTableColumn
+ifJnxInPolDropOctets = _IfJnxInPolDropOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 13),
+    _IfJnxInPolDropOctets_Type()
+)
+ifJnxInPolDropOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolDropOctets.setStatus("current")
+_IfJnxInPolDropPkts_Type = Counter64
+_IfJnxInPolDropPkts_Object = MibTableColumn
+ifJnxInPolDropPkts = _IfJnxInPolDropPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 14),
+    _IfJnxInPolDropPkts_Type()
+)
+ifJnxInPolDropPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolDropPkts.setStatus("current")
+_IfJnxInPolDrop1SecRate_Type = Counter64
+_IfJnxInPolDrop1SecRate_Object = MibTableColumn
+ifJnxInPolDrop1SecRate = _IfJnxInPolDrop1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 15),
+    _IfJnxInPolDrop1SecRate_Type()
+)
+ifJnxInPolDrop1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxInPolDrop1SecRate.setStatus("current")
+_IfJnxOutPolLowOctets_Type = Counter64
+_IfJnxOutPolLowOctets_Object = MibTableColumn
+ifJnxOutPolLowOctets = _IfJnxOutPolLowOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 16),
+    _IfJnxOutPolLowOctets_Type()
+)
+ifJnxOutPolLowOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolLowOctets.setStatus("current")
+_IfJnxOutPolLowPkts_Type = Counter64
+_IfJnxOutPolLowPkts_Object = MibTableColumn
+ifJnxOutPolLowPkts = _IfJnxOutPolLowPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 17),
+    _IfJnxOutPolLowPkts_Type()
+)
+ifJnxOutPolLowPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolLowPkts.setStatus("current")
+_IfJnxOutPolLow1SecRate_Type = Counter64
+_IfJnxOutPolLow1SecRate_Object = MibTableColumn
+ifJnxOutPolLow1SecRate = _IfJnxOutPolLow1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 18),
+    _IfJnxOutPolLow1SecRate_Type()
+)
+ifJnxOutPolLow1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolLow1SecRate.setStatus("current")
+_IfJnxOutPolMLowOctets_Type = Counter64
+_IfJnxOutPolMLowOctets_Object = MibTableColumn
+ifJnxOutPolMLowOctets = _IfJnxOutPolMLowOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 19),
+    _IfJnxOutPolMLowOctets_Type()
+)
+ifJnxOutPolMLowOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolMLowOctets.setStatus("current")
+_IfJnxOutPolMLowPkts_Type = Counter64
+_IfJnxOutPolMLowPkts_Object = MibTableColumn
+ifJnxOutPolMLowPkts = _IfJnxOutPolMLowPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 20),
+    _IfJnxOutPolMLowPkts_Type()
+)
+ifJnxOutPolMLowPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolMLowPkts.setStatus("current")
+_IfJnxOutPolMLow1SecRate_Type = Counter64
+_IfJnxOutPolMLow1SecRate_Object = MibTableColumn
+ifJnxOutPolMLow1SecRate = _IfJnxOutPolMLow1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 21),
+    _IfJnxOutPolMLow1SecRate_Type()
+)
+ifJnxOutPolMLow1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolMLow1SecRate.setStatus("current")
+_IfJnxOutPolMHighOctets_Type = Counter64
+_IfJnxOutPolMHighOctets_Object = MibTableColumn
+ifJnxOutPolMHighOctets = _IfJnxOutPolMHighOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 22),
+    _IfJnxOutPolMHighOctets_Type()
+)
+ifJnxOutPolMHighOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolMHighOctets.setStatus("current")
+_IfJnxOutPolMHighPkts_Type = Counter64
+_IfJnxOutPolMHighPkts_Object = MibTableColumn
+ifJnxOutPolMHighPkts = _IfJnxOutPolMHighPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 23),
+    _IfJnxOutPolMHighPkts_Type()
+)
+ifJnxOutPolMHighPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolMHighPkts.setStatus("current")
+_IfJnxOutPolMHigh1SecRate_Type = Counter64
+_IfJnxOutPolMHigh1SecRate_Object = MibTableColumn
+ifJnxOutPolMHigh1SecRate = _IfJnxOutPolMHigh1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 24),
+    _IfJnxOutPolMHigh1SecRate_Type()
+)
+ifJnxOutPolMHigh1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolMHigh1SecRate.setStatus("current")
+_IfJnxOutPolHighOctets_Type = Counter64
+_IfJnxOutPolHighOctets_Object = MibTableColumn
+ifJnxOutPolHighOctets = _IfJnxOutPolHighOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 25),
+    _IfJnxOutPolHighOctets_Type()
+)
+ifJnxOutPolHighOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolHighOctets.setStatus("current")
+_IfJnxOutPolHighPkts_Type = Counter64
+_IfJnxOutPolHighPkts_Object = MibTableColumn
+ifJnxOutPolHighPkts = _IfJnxOutPolHighPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 26),
+    _IfJnxOutPolHighPkts_Type()
+)
+ifJnxOutPolHighPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolHighPkts.setStatus("current")
+_IfJnxOutPolHigh1SecRate_Type = Counter64
+_IfJnxOutPolHigh1SecRate_Object = MibTableColumn
+ifJnxOutPolHigh1SecRate = _IfJnxOutPolHigh1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 27),
+    _IfJnxOutPolHigh1SecRate_Type()
+)
+ifJnxOutPolHigh1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolHigh1SecRate.setStatus("current")
+_IfJnxOutPolDropOctets_Type = Counter64
+_IfJnxOutPolDropOctets_Object = MibTableColumn
+ifJnxOutPolDropOctets = _IfJnxOutPolDropOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 28),
+    _IfJnxOutPolDropOctets_Type()
+)
+ifJnxOutPolDropOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolDropOctets.setStatus("current")
+_IfJnxOutPolDropPkts_Type = Counter64
+_IfJnxOutPolDropPkts_Object = MibTableColumn
+ifJnxOutPolDropPkts = _IfJnxOutPolDropPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 29),
+    _IfJnxOutPolDropPkts_Type()
+)
+ifJnxOutPolDropPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolDropPkts.setStatus("current")
+_IfJnxOutPolDrop1SecRate_Type = Counter64
+_IfJnxOutPolDrop1SecRate_Object = MibTableColumn
+ifJnxOutPolDrop1SecRate = _IfJnxOutPolDrop1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 30),
+    _IfJnxOutPolDrop1SecRate_Type()
+)
+ifJnxOutPolDrop1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxOutPolDrop1SecRate.setStatus("current")
+_IfJnxMediaTable_Object = MibTable
+ifJnxMediaTable = _IfJnxMediaTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5)
+)
+if mibBuilder.loadTexts:
+    ifJnxMediaTable.setStatus("current")
+_IfJnxMediaEntry_Object = MibTableRow
+ifJnxMediaEntry = _IfJnxMediaEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1)
+)
+ifJnxMediaEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    ifJnxMediaEntry.setStatus("current")
+
+
+class _IfJnxMediaType_Type(Integer32):
+    """Custom type ifJnxMediaType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("copper", 1),
+          ("fiber", 2),
+          ("others", 3))
+    )
+
+
+_IfJnxMediaType_Type.__name__ = "Integer32"
+_IfJnxMediaType_Object = MibTableColumn
+ifJnxMediaType = _IfJnxMediaType_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 1),
+    _IfJnxMediaType_Type()
+)
+ifJnxMediaType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaType.setStatus("current")
+_IfJnxMediaConfigSpeed_Type = Gauge32
+_IfJnxMediaConfigSpeed_Object = MibTableColumn
+ifJnxMediaConfigSpeed = _IfJnxMediaConfigSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 2),
+    _IfJnxMediaConfigSpeed_Type()
+)
+ifJnxMediaConfigSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaConfigSpeed.setStatus("current")
+_IfJnxMediaSpeed_Type = Gauge32
+_IfJnxMediaSpeed_Object = MibTableColumn
+ifJnxMediaSpeed = _IfJnxMediaSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 3),
+    _IfJnxMediaSpeed_Type()
+)
+ifJnxMediaSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaSpeed.setStatus("current")
+_IfJnxMediaMaxSpeed_Type = Gauge32
+_IfJnxMediaMaxSpeed_Object = MibTableColumn
+ifJnxMediaMaxSpeed = _IfJnxMediaMaxSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 4),
+    _IfJnxMediaMaxSpeed_Type()
+)
+ifJnxMediaMaxSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaMaxSpeed.setStatus("current")
+
+
+class _IfJnxMediaMode_Type(Integer32):
+    """Custom type ifJnxMediaMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("halfDuplex", 1),
+          ("fullDuplex", 2),
+          ("others", 3))
+    )
+
+
+_IfJnxMediaMode_Type.__name__ = "Integer32"
+_IfJnxMediaMode_Object = MibTableColumn
+ifJnxMediaMode = _IfJnxMediaMode_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 5),
+    _IfJnxMediaMode_Type()
+)
+ifJnxMediaMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaMode.setStatus("current")
+
+
+class _IfJnxMediaConfigMode_Type(Integer32):
+    """Custom type ifJnxMediaConfigMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("halfDuplex", 1),
+          ("fullDuplex", 2),
+          ("auto", 3))
+    )
+
+
+_IfJnxMediaConfigMode_Type.__name__ = "Integer32"
+_IfJnxMediaConfigMode_Object = MibTableColumn
+ifJnxMediaConfigMode = _IfJnxMediaConfigMode_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 6),
+    _IfJnxMediaConfigMode_Type()
+)
+ifJnxMediaConfigMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaConfigMode.setStatus("current")
+_IfJnxMediaAutoNegotiationEnabled_Type = TruthValue
+_IfJnxMediaAutoNegotiationEnabled_Object = MibTableColumn
+ifJnxMediaAutoNegotiationEnabled = _IfJnxMediaAutoNegotiationEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 7),
+    _IfJnxMediaAutoNegotiationEnabled_Type()
+)
+ifJnxMediaAutoNegotiationEnabled.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaAutoNegotiationEnabled.setStatus("current")
+_IfJnxMediaLastFlap_Type = TimeTicks
+_IfJnxMediaLastFlap_Object = MibTableColumn
+ifJnxMediaLastFlap = _IfJnxMediaLastFlap_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 8),
+    _IfJnxMediaLastFlap_Type()
+)
+ifJnxMediaLastFlap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaLastFlap.setStatus("current")
+_IfJnxMediaLastUpdate_Type = TimeTicks
+_IfJnxMediaLastUpdate_Object = MibTableColumn
+ifJnxMediaLastUpdate = _IfJnxMediaLastUpdate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 9),
+    _IfJnxMediaLastUpdate_Type()
+)
+ifJnxMediaLastUpdate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaLastUpdate.setStatus("current")
+_IfJnxMediaConfigHighSpeed_Type = Gauge32
+_IfJnxMediaConfigHighSpeed_Object = MibTableColumn
+ifJnxMediaConfigHighSpeed = _IfJnxMediaConfigHighSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 10),
+    _IfJnxMediaConfigHighSpeed_Type()
+)
+ifJnxMediaConfigHighSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaConfigHighSpeed.setStatus("current")
+
+
+class _IfJnxMediaConfigSpeedMap_Type(Bits):
+    """Custom type ifJnxMediaConfigSpeedMap based on Bits"""
+    namedValues = NamedValues(
+        *(("auto", 0),
+          ("mbps10", 1),
+          ("mbps100", 2),
+          ("mbps1000", 3),
+          ("mbps2500", 4),
+          ("mbps5000", 5),
+          ("mbps10000", 6),
+          ("mbps25000", 7),
+          ("mbps40000", 8),
+          ("mbps50000", 9),
+          ("mbps100000", 10))
+    )
+
+_IfJnxMediaConfigSpeedMap_Type.__name__ = "Bits"
+_IfJnxMediaConfigSpeedMap_Object = MibTableColumn
+ifJnxMediaConfigSpeedMap = _IfJnxMediaConfigSpeedMap_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 11),
+    _IfJnxMediaConfigSpeedMap_Type()
+)
+ifJnxMediaConfigSpeedMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaConfigSpeedMap.setStatus("current")
+_IfJnxMediaHighSpeed_Type = Gauge32
+_IfJnxMediaHighSpeed_Object = MibTableColumn
+ifJnxMediaHighSpeed = _IfJnxMediaHighSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 12),
+    _IfJnxMediaHighSpeed_Type()
+)
+ifJnxMediaHighSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxMediaHighSpeed.setStatus("current")
+_IfJnxTrafficStatsTable_Object = MibTable
+ifJnxTrafficStatsTable = _IfJnxTrafficStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6)
+)
+if mibBuilder.loadTexts:
+    ifJnxTrafficStatsTable.setStatus("current")
+_IfJnxTrafficStatsEntry_Object = MibTableRow
+ifJnxTrafficStatsEntry = _IfJnxTrafficStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1)
+)
+ifJnxTrafficStatsEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    ifJnxTrafficStatsEntry.setStatus("current")
+_IfJnxLocalV4InPkts_Type = Counter64
+_IfJnxLocalV4InPkts_Object = MibTableColumn
+ifJnxLocalV4InPkts = _IfJnxLocalV4InPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 1),
+    _IfJnxLocalV4InPkts_Type()
+)
+ifJnxLocalV4InPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxLocalV4InPkts.setStatus("current")
+_IfJnxLocalV4InOctets_Type = Counter64
+_IfJnxLocalV4InOctets_Object = MibTableColumn
+ifJnxLocalV4InOctets = _IfJnxLocalV4InOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 2),
+    _IfJnxLocalV4InOctets_Type()
+)
+ifJnxLocalV4InOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxLocalV4InOctets.setStatus("current")
+_IfJnxLocalV4OutPkts_Type = Counter64
+_IfJnxLocalV4OutPkts_Object = MibTableColumn
+ifJnxLocalV4OutPkts = _IfJnxLocalV4OutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 3),
+    _IfJnxLocalV4OutPkts_Type()
+)
+ifJnxLocalV4OutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxLocalV4OutPkts.setStatus("current")
+_IfJnxLocalV4OutOctets_Type = Counter64
+_IfJnxLocalV4OutOctets_Object = MibTableColumn
+ifJnxLocalV4OutOctets = _IfJnxLocalV4OutOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 4),
+    _IfJnxLocalV4OutOctets_Type()
+)
+ifJnxLocalV4OutOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxLocalV4OutOctets.setStatus("current")
+_IfJnxTransitV4InPkts_Type = Counter64
+_IfJnxTransitV4InPkts_Object = MibTableColumn
+ifJnxTransitV4InPkts = _IfJnxTransitV4InPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 5),
+    _IfJnxTransitV4InPkts_Type()
+)
+ifJnxTransitV4InPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV4InPkts.setStatus("current")
+_IfJnxTransitV4InOctets_Type = Counter64
+_IfJnxTransitV4InOctets_Object = MibTableColumn
+ifJnxTransitV4InOctets = _IfJnxTransitV4InOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 6),
+    _IfJnxTransitV4InOctets_Type()
+)
+ifJnxTransitV4InOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV4InOctets.setStatus("current")
+_IfJnxTransitV4OutPkts_Type = Counter64
+_IfJnxTransitV4OutPkts_Object = MibTableColumn
+ifJnxTransitV4OutPkts = _IfJnxTransitV4OutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 7),
+    _IfJnxTransitV4OutPkts_Type()
+)
+ifJnxTransitV4OutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV4OutPkts.setStatus("current")
+_IfJnxTransitV4OutOctets_Type = Counter64
+_IfJnxTransitV4OutOctets_Object = MibTableColumn
+ifJnxTransitV4OutOctets = _IfJnxTransitV4OutOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 8),
+    _IfJnxTransitV4OutOctets_Type()
+)
+ifJnxTransitV4OutOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV4OutOctets.setStatus("current")
+_IfJnxTransitV4In1SecRate_Type = CounterBasedGauge64
+_IfJnxTransitV4In1SecRate_Object = MibTableColumn
+ifJnxTransitV4In1SecRate = _IfJnxTransitV4In1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 9),
+    _IfJnxTransitV4In1SecRate_Type()
+)
+ifJnxTransitV4In1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV4In1SecRate.setStatus("current")
+_IfJnxTransitV4In1SecOctets_Type = CounterBasedGauge64
+_IfJnxTransitV4In1SecOctets_Object = MibTableColumn
+ifJnxTransitV4In1SecOctets = _IfJnxTransitV4In1SecOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 10),
+    _IfJnxTransitV4In1SecOctets_Type()
+)
+ifJnxTransitV4In1SecOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV4In1SecOctets.setStatus("current")
+_IfJnxTransitV4Out1SecRate_Type = CounterBasedGauge64
+_IfJnxTransitV4Out1SecRate_Object = MibTableColumn
+ifJnxTransitV4Out1SecRate = _IfJnxTransitV4Out1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 11),
+    _IfJnxTransitV4Out1SecRate_Type()
+)
+ifJnxTransitV4Out1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV4Out1SecRate.setStatus("current")
+_IfJnxTransitV4Out1SecOctets_Type = CounterBasedGauge64
+_IfJnxTransitV4Out1SecOctets_Object = MibTableColumn
+ifJnxTransitV4Out1SecOctets = _IfJnxTransitV4Out1SecOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 12),
+    _IfJnxTransitV4Out1SecOctets_Type()
+)
+ifJnxTransitV4Out1SecOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV4Out1SecOctets.setStatus("current")
+_IfJnxTrafficV4InPkts_Type = Counter64
+_IfJnxTrafficV4InPkts_Object = MibTableColumn
+ifJnxTrafficV4InPkts = _IfJnxTrafficV4InPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 13),
+    _IfJnxTrafficV4InPkts_Type()
+)
+ifJnxTrafficV4InPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTrafficV4InPkts.setStatus("current")
+_IfJnxTrafficV4InOctets_Type = Counter64
+_IfJnxTrafficV4InOctets_Object = MibTableColumn
+ifJnxTrafficV4InOctets = _IfJnxTrafficV4InOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 14),
+    _IfJnxTrafficV4InOctets_Type()
+)
+ifJnxTrafficV4InOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTrafficV4InOctets.setStatus("current")
+_IfJnxTrafficV4OutPkts_Type = Counter64
+_IfJnxTrafficV4OutPkts_Object = MibTableColumn
+ifJnxTrafficV4OutPkts = _IfJnxTrafficV4OutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 15),
+    _IfJnxTrafficV4OutPkts_Type()
+)
+ifJnxTrafficV4OutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTrafficV4OutPkts.setStatus("current")
+_IfJnxTrafficV4OutOctets_Type = Counter64
+_IfJnxTrafficV4OutOctets_Object = MibTableColumn
+ifJnxTrafficV4OutOctets = _IfJnxTrafficV4OutOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 16),
+    _IfJnxTrafficV4OutOctets_Type()
+)
+ifJnxTrafficV4OutOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTrafficV4OutOctets.setStatus("current")
+_IfJnxLocalV6InPkts_Type = Counter64
+_IfJnxLocalV6InPkts_Object = MibTableColumn
+ifJnxLocalV6InPkts = _IfJnxLocalV6InPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 17),
+    _IfJnxLocalV6InPkts_Type()
+)
+ifJnxLocalV6InPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxLocalV6InPkts.setStatus("current")
+_IfJnxLocalV6InOctets_Type = Counter64
+_IfJnxLocalV6InOctets_Object = MibTableColumn
+ifJnxLocalV6InOctets = _IfJnxLocalV6InOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 18),
+    _IfJnxLocalV6InOctets_Type()
+)
+ifJnxLocalV6InOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxLocalV6InOctets.setStatus("current")
+_IfJnxLocalV6OutPkts_Type = Counter64
+_IfJnxLocalV6OutPkts_Object = MibTableColumn
+ifJnxLocalV6OutPkts = _IfJnxLocalV6OutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 19),
+    _IfJnxLocalV6OutPkts_Type()
+)
+ifJnxLocalV6OutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxLocalV6OutPkts.setStatus("current")
+_IfJnxLocalV6OutOctets_Type = Counter64
+_IfJnxLocalV6OutOctets_Object = MibTableColumn
+ifJnxLocalV6OutOctets = _IfJnxLocalV6OutOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 20),
+    _IfJnxLocalV6OutOctets_Type()
+)
+ifJnxLocalV6OutOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxLocalV6OutOctets.setStatus("current")
+_IfJnxTransitV6InPkts_Type = Counter64
+_IfJnxTransitV6InPkts_Object = MibTableColumn
+ifJnxTransitV6InPkts = _IfJnxTransitV6InPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 21),
+    _IfJnxTransitV6InPkts_Type()
+)
+ifJnxTransitV6InPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV6InPkts.setStatus("current")
+_IfJnxTransitV6InOctets_Type = Counter64
+_IfJnxTransitV6InOctets_Object = MibTableColumn
+ifJnxTransitV6InOctets = _IfJnxTransitV6InOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 22),
+    _IfJnxTransitV6InOctets_Type()
+)
+ifJnxTransitV6InOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV6InOctets.setStatus("current")
+_IfJnxTransitV6OutPkts_Type = Counter64
+_IfJnxTransitV6OutPkts_Object = MibTableColumn
+ifJnxTransitV6OutPkts = _IfJnxTransitV6OutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 23),
+    _IfJnxTransitV6OutPkts_Type()
+)
+ifJnxTransitV6OutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV6OutPkts.setStatus("current")
+_IfJnxTransitV6OutOctets_Type = Counter64
+_IfJnxTransitV6OutOctets_Object = MibTableColumn
+ifJnxTransitV6OutOctets = _IfJnxTransitV6OutOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 24),
+    _IfJnxTransitV6OutOctets_Type()
+)
+ifJnxTransitV6OutOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV6OutOctets.setStatus("current")
+_IfJnxTransitV6In1SecRate_Type = CounterBasedGauge64
+_IfJnxTransitV6In1SecRate_Object = MibTableColumn
+ifJnxTransitV6In1SecRate = _IfJnxTransitV6In1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 25),
+    _IfJnxTransitV6In1SecRate_Type()
+)
+ifJnxTransitV6In1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV6In1SecRate.setStatus("current")
+_IfJnxTransitV6In1SecOctets_Type = CounterBasedGauge64
+_IfJnxTransitV6In1SecOctets_Object = MibTableColumn
+ifJnxTransitV6In1SecOctets = _IfJnxTransitV6In1SecOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 26),
+    _IfJnxTransitV6In1SecOctets_Type()
+)
+ifJnxTransitV6In1SecOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV6In1SecOctets.setStatus("current")
+_IfJnxTransitV6Out1SecRate_Type = CounterBasedGauge64
+_IfJnxTransitV6Out1SecRate_Object = MibTableColumn
+ifJnxTransitV6Out1SecRate = _IfJnxTransitV6Out1SecRate_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 27),
+    _IfJnxTransitV6Out1SecRate_Type()
+)
+ifJnxTransitV6Out1SecRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV6Out1SecRate.setStatus("current")
+_IfJnxTransitV6Out1SecOctets_Type = CounterBasedGauge64
+_IfJnxTransitV6Out1SecOctets_Object = MibTableColumn
+ifJnxTransitV6Out1SecOctets = _IfJnxTransitV6Out1SecOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 28),
+    _IfJnxTransitV6Out1SecOctets_Type()
+)
+ifJnxTransitV6Out1SecOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTransitV6Out1SecOctets.setStatus("current")
+_IfJnxTrafficV6InPkts_Type = Counter64
+_IfJnxTrafficV6InPkts_Object = MibTableColumn
+ifJnxTrafficV6InPkts = _IfJnxTrafficV6InPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 29),
+    _IfJnxTrafficV6InPkts_Type()
+)
+ifJnxTrafficV6InPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTrafficV6InPkts.setStatus("current")
+_IfJnxTrafficV6InOctets_Type = Counter64
+_IfJnxTrafficV6InOctets_Object = MibTableColumn
+ifJnxTrafficV6InOctets = _IfJnxTrafficV6InOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 30),
+    _IfJnxTrafficV6InOctets_Type()
+)
+ifJnxTrafficV6InOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTrafficV6InOctets.setStatus("current")
+_IfJnxTrafficV6OutPkts_Type = Counter64
+_IfJnxTrafficV6OutPkts_Object = MibTableColumn
+ifJnxTrafficV6OutPkts = _IfJnxTrafficV6OutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 31),
+    _IfJnxTrafficV6OutPkts_Type()
+)
+ifJnxTrafficV6OutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTrafficV6OutPkts.setStatus("current")
+_IfJnxTrafficV6OutOctets_Type = Counter64
+_IfJnxTrafficV6OutOctets_Object = MibTableColumn
+ifJnxTrafficV6OutOctets = _IfJnxTrafficV6OutOctets_Object(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 32),
+    _IfJnxTrafficV6OutOctets_Type()
+)
+ifJnxTrafficV6OutOctets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifJnxTrafficV6OutOctets.setStatus("current")
+ifEntry.registerAugmentions(
+    ("JUNIPER-IF-MIB",
+     "ifJnxEntry")
+)
 ifJnxEntry.setIndexNames(*ifEntry.getIndexNames())
-if mibBuilder.loadTexts: ifJnxEntry.setStatus('current')
-ifIn1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifIn1SecRate.setStatus('current')
-ifIn1SecOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifIn1SecOctets.setStatus('current')
-ifIn1SecPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifIn1SecPkts.setStatus('current')
-ifOut1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifOut1SecRate.setStatus('current')
-ifOut1SecOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 5), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifOut1SecOctets.setStatus('current')
-ifOut1SecPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifOut1SecPkts.setStatus('current')
-ifHCIn1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 7), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifHCIn1SecRate.setStatus('current')
-ifHCOut1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 8), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifHCOut1SecRate.setStatus('current')
-ifJnxInErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInErrors.setStatus('current')
-ifJnxInFrameErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInFrameErrors.setStatus('current')
-ifJnxInQDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInQDrops.setStatus('current')
-ifJnxInRunts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInRunts.setStatus('current')
-ifJnxInGiants = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInGiants.setStatus('current')
-ifJnxInDiscards = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInDiscards.setStatus('current')
-ifJnxInHslCrcErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInHslCrcErrors.setStatus('current')
-ifJnxInHslFifoOverFlows = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInHslFifoOverFlows.setStatus('current')
-ifJnxInL3Incompletes = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 17), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInL3Incompletes.setStatus('current')
-ifJnxInL2ChanErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 18), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInL2ChanErrors.setStatus('current')
-ifJnxInL2MismatchTimeouts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 19), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInL2MismatchTimeouts.setStatus('current')
-ifJnxInInvalidVCs = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 20), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInInvalidVCs.setStatus('current')
-ifJnxInFifoErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInFifoErrors.setStatus('current')
-ifJnxBucketDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 22), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxBucketDrops.setStatus('current')
-ifJnxSramErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 23), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxSramErrors.setStatus('current')
-ifJnxOutErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 24), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutErrors.setStatus('current')
-ifJnxCollisions = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 25), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxCollisions.setStatus('current')
-ifJnxCarrierTrans = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 26), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxCarrierTrans.setStatus('current')
-ifJnxOutQDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 27), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutQDrops.setStatus('current')
-ifJnxOutAgedErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 28), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutAgedErrors.setStatus('current')
-ifJnxOutFifoErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 29), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutFifoErrors.setStatus('current')
-ifJnxOutHslFifoUnderFlows = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 30), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutHslFifoUnderFlows.setStatus('current')
-ifJnxOutHslCrcErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 31), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutHslCrcErrors.setStatus('current')
-ifJnxCrcErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 32), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxCrcErrors.setStatus('current')
-ifJnxFcsErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 33), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxFcsErrors.setStatus('current')
-ifHCIn1SecOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 34), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifHCIn1SecOctets.setStatus('current')
-ifHCOut1SecOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 35), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifHCOut1SecOctets.setStatus('current')
-ifJnxInputErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 36), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInputErrors.setStatus('current')
-ifJnxOutEcnMarkedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 1, 1, 37), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutEcnMarkedPackets.setStatus('current')
-ifChassisTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 3, 2), )
-if mibBuilder.loadTexts: ifChassisTable.setStatus('current')
-ifChassisEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1), )
-ifEntry.registerAugmentions(("JUNIPER-IF-MIB", "ifChassisEntry"))
+ifEntry.registerAugmentions(
+    ("JUNIPER-IF-MIB",
+     "ifChassisEntry")
+)
 ifChassisEntry.setIndexNames(*ifEntry.getIndexNames())
-if mibBuilder.loadTexts: ifChassisEntry.setStatus('current')
-ifChassisFpc = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifChassisFpc.setStatus('current')
-ifChassisPic = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifChassisPic.setStatus('current')
-ifChassisPort = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifChassisPort.setStatus('current')
-ifChassisChannel = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifChassisChannel.setStatus('current')
-ifChassisLogicalUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifChassisLogicalUnit.setStatus('current')
-ifChassisPicIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 2, 1, 6), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifChassisPicIndex.setStatus('current')
-ifJnxNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 3, 3))
-ifJnxNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 2636, 3, 3, 3, 0))
-ifJnxErrors = NotificationType((1, 3, 6, 1, 4, 1, 2636, 3, 3, 3, 0, 1)).setObjects(("JUNIPER-IF-MIB", "ifJnxCrcErrors"), ("JUNIPER-IF-MIB", "ifJnxFcsErrors"))
-if mibBuilder.loadTexts: ifJnxErrors.setStatus('current')
-ifJnxL2Errors = NotificationType((1, 3, 6, 1, 4, 1, 2636, 3, 3, 3, 0, 2)).setObjects(("JUNIPER-IF-MIB", "ifJnxInL2ChanErrors"), ("JUNIPER-IF-MIB", "ifChassisFpc"), ("JUNIPER-IF-MIB", "ifChassisPic"), ("JUNIPER-IF-MIB", "ifChassisPort"))
-if mibBuilder.loadTexts: ifJnxL2Errors.setStatus('current')
-ifJnxPolTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4), )
-if mibBuilder.loadTexts: ifJnxPolTable.setStatus('current')
-ifJnxPolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ifJnxPolEntry.setStatus('current')
-ifJnxInPolLowOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolLowOctets.setStatus('current')
-ifJnxInPolLowPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolLowPkts.setStatus('current')
-ifJnxInPolLow1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolLow1SecRate.setStatus('current')
-ifJnxInPolMLowOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolMLowOctets.setStatus('current')
-ifJnxInPolMLowPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolMLowPkts.setStatus('current')
-ifJnxInPolMLow1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolMLow1SecRate.setStatus('current')
-ifJnxInPolMHighOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolMHighOctets.setStatus('current')
-ifJnxInPolMHighPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolMHighPkts.setStatus('current')
-ifJnxInPolMHigh1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolMHigh1SecRate.setStatus('current')
-ifJnxInPolHighOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolHighOctets.setStatus('current')
-ifJnxInPolHighPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolHighPkts.setStatus('current')
-ifJnxInPolHigh1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolHigh1SecRate.setStatus('current')
-ifJnxInPolDropOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolDropOctets.setStatus('current')
-ifJnxInPolDropPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolDropPkts.setStatus('current')
-ifJnxInPolDrop1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxInPolDrop1SecRate.setStatus('current')
-ifJnxOutPolLowOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolLowOctets.setStatus('current')
-ifJnxOutPolLowPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 17), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolLowPkts.setStatus('current')
-ifJnxOutPolLow1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 18), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolLow1SecRate.setStatus('current')
-ifJnxOutPolMLowOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 19), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolMLowOctets.setStatus('current')
-ifJnxOutPolMLowPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 20), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolMLowPkts.setStatus('current')
-ifJnxOutPolMLow1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 21), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolMLow1SecRate.setStatus('current')
-ifJnxOutPolMHighOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 22), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolMHighOctets.setStatus('current')
-ifJnxOutPolMHighPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 23), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolMHighPkts.setStatus('current')
-ifJnxOutPolMHigh1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 24), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolMHigh1SecRate.setStatus('current')
-ifJnxOutPolHighOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 25), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolHighOctets.setStatus('current')
-ifJnxOutPolHighPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 26), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolHighPkts.setStatus('current')
-ifJnxOutPolHigh1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 27), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolHigh1SecRate.setStatus('current')
-ifJnxOutPolDropOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 28), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolDropOctets.setStatus('current')
-ifJnxOutPolDropPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 29), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolDropPkts.setStatus('current')
-ifJnxOutPolDrop1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 4, 1, 30), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxOutPolDrop1SecRate.setStatus('current')
-ifJnxMediaTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5), )
-if mibBuilder.loadTexts: ifJnxMediaTable.setStatus('current')
-ifJnxMediaEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ifJnxMediaEntry.setStatus('current')
-ifJnxMediaType = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("copper", 1), ("fiber", 2), ("others", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaType.setStatus('current')
-ifJnxMediaConfigSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 2), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaConfigSpeed.setStatus('current')
-ifJnxMediaSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaSpeed.setStatus('current')
-ifJnxMediaMaxSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaMaxSpeed.setStatus('current')
-ifJnxMediaMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("halfDuplex", 1), ("fullDuplex", 2), ("others", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaMode.setStatus('current')
-ifJnxMediaConfigMode = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("halfDuplex", 1), ("fullDuplex", 2), ("auto", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaConfigMode.setStatus('current')
-ifJnxMediaAutoNegotiationEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 7), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaAutoNegotiationEnabled.setStatus('current')
-ifJnxMediaLastFlap = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 8), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaLastFlap.setStatus('current')
-ifJnxMediaLastUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 9), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaLastUpdate.setStatus('current')
-ifJnxMediaConfigHighSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 10), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaConfigHighSpeed.setStatus('current')
-ifJnxMediaConfigSpeedMap = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 11), Bits().clone(namedValues=NamedValues(("auto", 0), ("mbps10", 1), ("mbps100", 2), ("mbps1000", 3), ("mbps2500", 4), ("mbps5000", 5), ("mbps10000", 6), ("mbps25000", 7), ("mbps40000", 8), ("mbps50000", 9), ("mbps100000", 10)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaConfigSpeedMap.setStatus('current')
-ifJnxMediaHighSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 5, 1, 12), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxMediaHighSpeed.setStatus('current')
-ifJnxTrafficStatsTable = MibTable((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6), )
-if mibBuilder.loadTexts: ifJnxTrafficStatsTable.setStatus('current')
-ifJnxTrafficStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ifJnxTrafficStatsEntry.setStatus('current')
-ifJnxLocalV4InPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxLocalV4InPkts.setStatus('current')
-ifJnxLocalV4InOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxLocalV4InOctets.setStatus('current')
-ifJnxLocalV4OutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxLocalV4OutPkts.setStatus('current')
-ifJnxLocalV4OutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxLocalV4OutOctets.setStatus('current')
-ifJnxTransitV4InPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV4InPkts.setStatus('current')
-ifJnxTransitV4InOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV4InOctets.setStatus('current')
-ifJnxTransitV4OutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV4OutPkts.setStatus('current')
-ifJnxTransitV4OutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV4OutOctets.setStatus('current')
-ifJnxTransitV4In1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 9), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV4In1SecRate.setStatus('current')
-ifJnxTransitV4In1SecOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 10), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV4In1SecOctets.setStatus('current')
-ifJnxTransitV4Out1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 11), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV4Out1SecRate.setStatus('current')
-ifJnxTransitV4Out1SecOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 12), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV4Out1SecOctets.setStatus('current')
-ifJnxTrafficV4InPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTrafficV4InPkts.setStatus('current')
-ifJnxTrafficV4InOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTrafficV4InOctets.setStatus('current')
-ifJnxTrafficV4OutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTrafficV4OutPkts.setStatus('current')
-ifJnxTrafficV4OutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTrafficV4OutOctets.setStatus('current')
-ifJnxLocalV6InPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 17), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxLocalV6InPkts.setStatus('current')
-ifJnxLocalV6InOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 18), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxLocalV6InOctets.setStatus('current')
-ifJnxLocalV6OutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 19), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxLocalV6OutPkts.setStatus('current')
-ifJnxLocalV6OutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 20), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxLocalV6OutOctets.setStatus('current')
-ifJnxTransitV6InPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 21), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV6InPkts.setStatus('current')
-ifJnxTransitV6InOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 22), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV6InOctets.setStatus('current')
-ifJnxTransitV6OutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 23), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV6OutPkts.setStatus('current')
-ifJnxTransitV6OutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 24), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV6OutOctets.setStatus('current')
-ifJnxTransitV6In1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 25), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV6In1SecRate.setStatus('current')
-ifJnxTransitV6In1SecOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 26), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV6In1SecOctets.setStatus('current')
-ifJnxTransitV6Out1SecRate = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 27), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV6Out1SecRate.setStatus('current')
-ifJnxTransitV6Out1SecOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 28), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTransitV6Out1SecOctets.setStatus('current')
-ifJnxTrafficV6InPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 29), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTrafficV6InPkts.setStatus('current')
-ifJnxTrafficV6InOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 30), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTrafficV6InOctets.setStatus('current')
-ifJnxTrafficV6OutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 31), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTrafficV6OutPkts.setStatus('current')
-ifJnxTrafficV6OutOctets = MibTableColumn((1, 3, 6, 1, 4, 1, 2636, 3, 3, 6, 1, 32), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifJnxTrafficV6OutOctets.setStatus('current')
-mibBuilder.exportSymbols("JUNIPER-IF-MIB", ifJnxMediaTable=ifJnxMediaTable, ifJnxOutPolHigh1SecRate=ifJnxOutPolHigh1SecRate, ifJnxTransitV6In1SecOctets=ifJnxTransitV6In1SecOctets, ifJnxTransitV6InPkts=ifJnxTransitV6InPkts, ifJnxMediaMaxSpeed=ifJnxMediaMaxSpeed, ifJnxOutPolMHighPkts=ifJnxOutPolMHighPkts, ifHCOut1SecOctets=ifHCOut1SecOctets, ifJnxTransitV6Out1SecRate=ifJnxTransitV6Out1SecRate, ifChassisPic=ifChassisPic, ifJnxTransitV4InOctets=ifJnxTransitV4InOctets, ifJnxTrafficV6OutOctets=ifJnxTrafficV6OutOctets, ifOut1SecPkts=ifOut1SecPkts, ifJnxMediaLastFlap=ifJnxMediaLastFlap, ifJnxCrcErrors=ifJnxCrcErrors, ifChassisFpc=ifChassisFpc, ifOut1SecRate=ifOut1SecRate, ifJnxTransitV4Out1SecOctets=ifJnxTransitV4Out1SecOctets, ifJnxTrafficStatsEntry=ifJnxTrafficStatsEntry, ifJnxTrafficStatsTable=ifJnxTrafficStatsTable, ifJnxLocalV4InPkts=ifJnxLocalV4InPkts, ifJnxTransitV4InPkts=ifJnxTransitV4InPkts, ifJnxInPolMHigh1SecRate=ifJnxInPolMHigh1SecRate, ifChassisTable=ifChassisTable, ifJnxOutPolLowOctets=ifJnxOutPolLowOctets, ifJnxTrafficV4InPkts=ifJnxTrafficV4InPkts, ifJnxOutPolMLowPkts=ifJnxOutPolMLowPkts, ifJnxInHslFifoOverFlows=ifJnxInHslFifoOverFlows, ifJnxEntry=ifJnxEntry, ifJnxMediaConfigHighSpeed=ifJnxMediaConfigHighSpeed, ifJnxCollisions=ifJnxCollisions, ifJnxPolTable=ifJnxPolTable, ifJnxOutPolDropPkts=ifJnxOutPolDropPkts, ifJnxNotificationPrefix=ifJnxNotificationPrefix, ifIn1SecOctets=ifIn1SecOctets, ifJnxFcsErrors=ifJnxFcsErrors, ifJnxInputErrors=ifJnxInputErrors, ifJnxInPolDropPkts=ifJnxInPolDropPkts, ifJnxMediaMode=ifJnxMediaMode, ifJnxInPolMHighOctets=ifJnxInPolMHighOctets, ifJnxLocalV6InPkts=ifJnxLocalV6InPkts, ifJnxMediaHighSpeed=ifJnxMediaHighSpeed, ifJnxSramErrors=ifJnxSramErrors, ifJnxOutPolLowPkts=ifJnxOutPolLowPkts, ifJnxInPolMLowOctets=ifJnxInPolMLowOctets, ifJnxOutPolMHigh1SecRate=ifJnxOutPolMHigh1SecRate, ifJnxInQDrops=ifJnxInQDrops, ifJnxInGiants=ifJnxInGiants, ifJnxOutAgedErrors=ifJnxOutAgedErrors, ifJnxErrors=ifJnxErrors, ifJnxInFifoErrors=ifJnxInFifoErrors, ifJnxMediaConfigSpeed=ifJnxMediaConfigSpeed, ifJnxLocalV4InOctets=ifJnxLocalV4InOctets, ifJnxTrafficV4OutOctets=ifJnxTrafficV4OutOctets, ifJnxTransitV6OutOctets=ifJnxTransitV6OutOctets, ifChassisChannel=ifChassisChannel, ifJnxInPolHigh1SecRate=ifJnxInPolHigh1SecRate, ifJnxInL2ChanErrors=ifJnxInL2ChanErrors, ifJnxOutEcnMarkedPackets=ifJnxOutEcnMarkedPackets, ifJnxOutPolMHighOctets=ifJnxOutPolMHighOctets, ifJnxInPolDropOctets=ifJnxInPolDropOctets, ifJnxOutErrors=ifJnxOutErrors, ifJnxInPolMLow1SecRate=ifJnxInPolMLow1SecRate, ifJnxMediaLastUpdate=ifJnxMediaLastUpdate, ifJnxTransitV4In1SecRate=ifJnxTransitV4In1SecRate, ifJnxOutPolMLowOctets=ifJnxOutPolMLowOctets, ifJnxTrafficV6InPkts=ifJnxTrafficV6InPkts, ifJnxInL2MismatchTimeouts=ifJnxInL2MismatchTimeouts, ifJnxLocalV4OutPkts=ifJnxLocalV4OutPkts, ifJnxOutPolMLow1SecRate=ifJnxOutPolMLow1SecRate, ifJnxLocalV6InOctets=ifJnxLocalV6InOctets, ifJnxTransitV4In1SecOctets=ifJnxTransitV4In1SecOctets, ifJnxMediaConfigMode=ifJnxMediaConfigMode, ifJnxInHslCrcErrors=ifJnxInHslCrcErrors, ifJnxTrafficV6InOctets=ifJnxTrafficV6InOctets, ifJnxTransitV6In1SecRate=ifJnxTransitV6In1SecRate, ifJnxTransitV6Out1SecOctets=ifJnxTransitV6Out1SecOctets, ifJnx=ifJnx, ifJnxLocalV6OutOctets=ifJnxLocalV6OutOctets, ifJnxOutFifoErrors=ifJnxOutFifoErrors, ifJnxTrafficV4OutPkts=ifJnxTrafficV4OutPkts, ifOut1SecOctets=ifOut1SecOctets, ifJnxNotification=ifJnxNotification, ifJnxTransitV4OutPkts=ifJnxTransitV4OutPkts, ifJnxOutPolHighPkts=ifJnxOutPolHighPkts, ifJnxCarrierTrans=ifJnxCarrierTrans, ifHCOut1SecRate=ifHCOut1SecRate, ifJnxOutPolHighOctets=ifJnxOutPolHighOctets, ifJnxPolEntry=ifJnxPolEntry, ifJnxTable=ifJnxTable, ifJnxTransitV6InOctets=ifJnxTransitV6InOctets, ifJnxOutHslCrcErrors=ifJnxOutHslCrcErrors, ifJnxInPolMLowPkts=ifJnxInPolMLowPkts, ifJnxMediaSpeed=ifJnxMediaSpeed, ifJnxInPolLowPkts=ifJnxInPolLowPkts, ifJnxInDiscards=ifJnxInDiscards, ifJnxInPolLow1SecRate=ifJnxInPolLow1SecRate, ifJnxInErrors=ifJnxInErrors, ifJnxInPolHighOctets=ifJnxInPolHighOctets, ifJnxOutPolDropOctets=ifJnxOutPolDropOctets, ifJnxTransitV4Out1SecRate=ifJnxTransitV4Out1SecRate, ifJnxInRunts=ifJnxInRunts, ifJnxLocalV6OutPkts=ifJnxLocalV6OutPkts, ifJnxTrafficV6OutPkts=ifJnxTrafficV6OutPkts, ifJnxMediaConfigSpeedMap=ifJnxMediaConfigSpeedMap, ifHCIn1SecOctets=ifHCIn1SecOctets, ifJnxInPolLowOctets=ifJnxInPolLowOctets, ifChassisPort=ifChassisPort, ifJnxInInvalidVCs=ifJnxInInvalidVCs, ifJnxMediaType=ifJnxMediaType, ifJnxLocalV4OutOctets=ifJnxLocalV4OutOctets, ifIn1SecRate=ifIn1SecRate, ifJnxInPolHighPkts=ifJnxInPolHighPkts, ifJnxBucketDrops=ifJnxBucketDrops, ifJnxInPolDrop1SecRate=ifJnxInPolDrop1SecRate, ifJnxOutPolDrop1SecRate=ifJnxOutPolDrop1SecRate, ifJnxTrafficV4InOctets=ifJnxTrafficV4InOctets, ifJnxL2Errors=ifJnxL2Errors, ifJnxInPolMHighPkts=ifJnxInPolMHighPkts, ifChassisLogicalUnit=ifChassisLogicalUnit, ifChassisPicIndex=ifChassisPicIndex, PYSNMP_MODULE_ID=ifJnx, ifJnxMediaAutoNegotiationEnabled=ifJnxMediaAutoNegotiationEnabled, ifJnxTransitV6OutPkts=ifJnxTransitV6OutPkts, ifChassisEntry=ifChassisEntry, ifJnxOutPolLow1SecRate=ifJnxOutPolLow1SecRate, ifJnxOutQDrops=ifJnxOutQDrops, ifJnxOutHslFifoUnderFlows=ifJnxOutHslFifoUnderFlows, ifJnxTransitV4OutOctets=ifJnxTransitV4OutOctets, ifJnxInFrameErrors=ifJnxInFrameErrors, ifIn1SecPkts=ifIn1SecPkts, ifJnxMediaEntry=ifJnxMediaEntry, ifJnxInL3Incompletes=ifJnxInL3Incompletes, ifHCIn1SecRate=ifHCIn1SecRate)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+ifJnxErrors = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 3, 0, 1)
+)
+ifJnxErrors.setObjects(
+      *(("JUNIPER-IF-MIB", "ifJnxCrcErrors"),
+        ("JUNIPER-IF-MIB", "ifJnxFcsErrors"))
+)
+if mibBuilder.loadTexts:
+    ifJnxErrors.setStatus(
+        "current"
+    )
+
+ifJnxL2Errors = NotificationType(
+    (1, 3, 6, 1, 4, 1, 2636, 3, 3, 3, 0, 2)
+)
+ifJnxL2Errors.setObjects(
+      *(("JUNIPER-IF-MIB", "ifJnxInL2ChanErrors"),
+        ("JUNIPER-IF-MIB", "ifChassisFpc"),
+        ("JUNIPER-IF-MIB", "ifChassisPic"),
+        ("JUNIPER-IF-MIB", "ifChassisPort"))
+)
+if mibBuilder.loadTexts:
+    ifJnxL2Errors.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "JUNIPER-IF-MIB",
+    **{"ifJnx": ifJnx,
+       "ifJnxTable": ifJnxTable,
+       "ifJnxEntry": ifJnxEntry,
+       "ifIn1SecRate": ifIn1SecRate,
+       "ifIn1SecOctets": ifIn1SecOctets,
+       "ifIn1SecPkts": ifIn1SecPkts,
+       "ifOut1SecRate": ifOut1SecRate,
+       "ifOut1SecOctets": ifOut1SecOctets,
+       "ifOut1SecPkts": ifOut1SecPkts,
+       "ifHCIn1SecRate": ifHCIn1SecRate,
+       "ifHCOut1SecRate": ifHCOut1SecRate,
+       "ifJnxInErrors": ifJnxInErrors,
+       "ifJnxInFrameErrors": ifJnxInFrameErrors,
+       "ifJnxInQDrops": ifJnxInQDrops,
+       "ifJnxInRunts": ifJnxInRunts,
+       "ifJnxInGiants": ifJnxInGiants,
+       "ifJnxInDiscards": ifJnxInDiscards,
+       "ifJnxInHslCrcErrors": ifJnxInHslCrcErrors,
+       "ifJnxInHslFifoOverFlows": ifJnxInHslFifoOverFlows,
+       "ifJnxInL3Incompletes": ifJnxInL3Incompletes,
+       "ifJnxInL2ChanErrors": ifJnxInL2ChanErrors,
+       "ifJnxInL2MismatchTimeouts": ifJnxInL2MismatchTimeouts,
+       "ifJnxInInvalidVCs": ifJnxInInvalidVCs,
+       "ifJnxInFifoErrors": ifJnxInFifoErrors,
+       "ifJnxBucketDrops": ifJnxBucketDrops,
+       "ifJnxSramErrors": ifJnxSramErrors,
+       "ifJnxOutErrors": ifJnxOutErrors,
+       "ifJnxCollisions": ifJnxCollisions,
+       "ifJnxCarrierTrans": ifJnxCarrierTrans,
+       "ifJnxOutQDrops": ifJnxOutQDrops,
+       "ifJnxOutAgedErrors": ifJnxOutAgedErrors,
+       "ifJnxOutFifoErrors": ifJnxOutFifoErrors,
+       "ifJnxOutHslFifoUnderFlows": ifJnxOutHslFifoUnderFlows,
+       "ifJnxOutHslCrcErrors": ifJnxOutHslCrcErrors,
+       "ifJnxCrcErrors": ifJnxCrcErrors,
+       "ifJnxFcsErrors": ifJnxFcsErrors,
+       "ifHCIn1SecOctets": ifHCIn1SecOctets,
+       "ifHCOut1SecOctets": ifHCOut1SecOctets,
+       "ifJnxInputErrors": ifJnxInputErrors,
+       "ifJnxOutEcnMarkedPackets": ifJnxOutEcnMarkedPackets,
+       "ifChassisTable": ifChassisTable,
+       "ifChassisEntry": ifChassisEntry,
+       "ifChassisFpc": ifChassisFpc,
+       "ifChassisPic": ifChassisPic,
+       "ifChassisPort": ifChassisPort,
+       "ifChassisChannel": ifChassisChannel,
+       "ifChassisLogicalUnit": ifChassisLogicalUnit,
+       "ifChassisPicIndex": ifChassisPicIndex,
+       "ifJnxNotification": ifJnxNotification,
+       "ifJnxNotificationPrefix": ifJnxNotificationPrefix,
+       "ifJnxErrors": ifJnxErrors,
+       "ifJnxL2Errors": ifJnxL2Errors,
+       "ifJnxPolTable": ifJnxPolTable,
+       "ifJnxPolEntry": ifJnxPolEntry,
+       "ifJnxInPolLowOctets": ifJnxInPolLowOctets,
+       "ifJnxInPolLowPkts": ifJnxInPolLowPkts,
+       "ifJnxInPolLow1SecRate": ifJnxInPolLow1SecRate,
+       "ifJnxInPolMLowOctets": ifJnxInPolMLowOctets,
+       "ifJnxInPolMLowPkts": ifJnxInPolMLowPkts,
+       "ifJnxInPolMLow1SecRate": ifJnxInPolMLow1SecRate,
+       "ifJnxInPolMHighOctets": ifJnxInPolMHighOctets,
+       "ifJnxInPolMHighPkts": ifJnxInPolMHighPkts,
+       "ifJnxInPolMHigh1SecRate": ifJnxInPolMHigh1SecRate,
+       "ifJnxInPolHighOctets": ifJnxInPolHighOctets,
+       "ifJnxInPolHighPkts": ifJnxInPolHighPkts,
+       "ifJnxInPolHigh1SecRate": ifJnxInPolHigh1SecRate,
+       "ifJnxInPolDropOctets": ifJnxInPolDropOctets,
+       "ifJnxInPolDropPkts": ifJnxInPolDropPkts,
+       "ifJnxInPolDrop1SecRate": ifJnxInPolDrop1SecRate,
+       "ifJnxOutPolLowOctets": ifJnxOutPolLowOctets,
+       "ifJnxOutPolLowPkts": ifJnxOutPolLowPkts,
+       "ifJnxOutPolLow1SecRate": ifJnxOutPolLow1SecRate,
+       "ifJnxOutPolMLowOctets": ifJnxOutPolMLowOctets,
+       "ifJnxOutPolMLowPkts": ifJnxOutPolMLowPkts,
+       "ifJnxOutPolMLow1SecRate": ifJnxOutPolMLow1SecRate,
+       "ifJnxOutPolMHighOctets": ifJnxOutPolMHighOctets,
+       "ifJnxOutPolMHighPkts": ifJnxOutPolMHighPkts,
+       "ifJnxOutPolMHigh1SecRate": ifJnxOutPolMHigh1SecRate,
+       "ifJnxOutPolHighOctets": ifJnxOutPolHighOctets,
+       "ifJnxOutPolHighPkts": ifJnxOutPolHighPkts,
+       "ifJnxOutPolHigh1SecRate": ifJnxOutPolHigh1SecRate,
+       "ifJnxOutPolDropOctets": ifJnxOutPolDropOctets,
+       "ifJnxOutPolDropPkts": ifJnxOutPolDropPkts,
+       "ifJnxOutPolDrop1SecRate": ifJnxOutPolDrop1SecRate,
+       "ifJnxMediaTable": ifJnxMediaTable,
+       "ifJnxMediaEntry": ifJnxMediaEntry,
+       "ifJnxMediaType": ifJnxMediaType,
+       "ifJnxMediaConfigSpeed": ifJnxMediaConfigSpeed,
+       "ifJnxMediaSpeed": ifJnxMediaSpeed,
+       "ifJnxMediaMaxSpeed": ifJnxMediaMaxSpeed,
+       "ifJnxMediaMode": ifJnxMediaMode,
+       "ifJnxMediaConfigMode": ifJnxMediaConfigMode,
+       "ifJnxMediaAutoNegotiationEnabled": ifJnxMediaAutoNegotiationEnabled,
+       "ifJnxMediaLastFlap": ifJnxMediaLastFlap,
+       "ifJnxMediaLastUpdate": ifJnxMediaLastUpdate,
+       "ifJnxMediaConfigHighSpeed": ifJnxMediaConfigHighSpeed,
+       "ifJnxMediaConfigSpeedMap": ifJnxMediaConfigSpeedMap,
+       "ifJnxMediaHighSpeed": ifJnxMediaHighSpeed,
+       "ifJnxTrafficStatsTable": ifJnxTrafficStatsTable,
+       "ifJnxTrafficStatsEntry": ifJnxTrafficStatsEntry,
+       "ifJnxLocalV4InPkts": ifJnxLocalV4InPkts,
+       "ifJnxLocalV4InOctets": ifJnxLocalV4InOctets,
+       "ifJnxLocalV4OutPkts": ifJnxLocalV4OutPkts,
+       "ifJnxLocalV4OutOctets": ifJnxLocalV4OutOctets,
+       "ifJnxTransitV4InPkts": ifJnxTransitV4InPkts,
+       "ifJnxTransitV4InOctets": ifJnxTransitV4InOctets,
+       "ifJnxTransitV4OutPkts": ifJnxTransitV4OutPkts,
+       "ifJnxTransitV4OutOctets": ifJnxTransitV4OutOctets,
+       "ifJnxTransitV4In1SecRate": ifJnxTransitV4In1SecRate,
+       "ifJnxTransitV4In1SecOctets": ifJnxTransitV4In1SecOctets,
+       "ifJnxTransitV4Out1SecRate": ifJnxTransitV4Out1SecRate,
+       "ifJnxTransitV4Out1SecOctets": ifJnxTransitV4Out1SecOctets,
+       "ifJnxTrafficV4InPkts": ifJnxTrafficV4InPkts,
+       "ifJnxTrafficV4InOctets": ifJnxTrafficV4InOctets,
+       "ifJnxTrafficV4OutPkts": ifJnxTrafficV4OutPkts,
+       "ifJnxTrafficV4OutOctets": ifJnxTrafficV4OutOctets,
+       "ifJnxLocalV6InPkts": ifJnxLocalV6InPkts,
+       "ifJnxLocalV6InOctets": ifJnxLocalV6InOctets,
+       "ifJnxLocalV6OutPkts": ifJnxLocalV6OutPkts,
+       "ifJnxLocalV6OutOctets": ifJnxLocalV6OutOctets,
+       "ifJnxTransitV6InPkts": ifJnxTransitV6InPkts,
+       "ifJnxTransitV6InOctets": ifJnxTransitV6InOctets,
+       "ifJnxTransitV6OutPkts": ifJnxTransitV6OutPkts,
+       "ifJnxTransitV6OutOctets": ifJnxTransitV6OutOctets,
+       "ifJnxTransitV6In1SecRate": ifJnxTransitV6In1SecRate,
+       "ifJnxTransitV6In1SecOctets": ifJnxTransitV6In1SecOctets,
+       "ifJnxTransitV6Out1SecRate": ifJnxTransitV6Out1SecRate,
+       "ifJnxTransitV6Out1SecOctets": ifJnxTransitV6Out1SecOctets,
+       "ifJnxTrafficV6InPkts": ifJnxTrafficV6InPkts,
+       "ifJnxTrafficV6InOctets": ifJnxTrafficV6InOctets,
+       "ifJnxTrafficV6OutPkts": ifJnxTrafficV6OutPkts,
+       "ifJnxTrafficV6OutOctets": ifJnxTrafficV6OutOctets}
+)

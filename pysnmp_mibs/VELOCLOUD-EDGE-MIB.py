@@ -1,274 +1,1493 @@
+# SNMP MIB module (VELOCLOUD-EDGE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module VELOCLOUD-EDGE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/velocloud/VELOCLOUD-EDGE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:03 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/velocloud/VELOCLOUD-EDGE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:53:59 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "PhysAddress", "TextualConvention", "DisplayString")
-UUID, = mibBuilder.importSymbols("UUID-TC-MIB", "UUID")
-modules, = mibBuilder.importSymbols("VELOCLOUD-MIB", "modules")
-edge = ModuleIdentity((1, 3, 6, 1, 4, 1, 45346, 1, 1))
-edge.setRevisions(('2021-08-31 00:00', '2021-07-14 00:00', '2021-05-10 00:00', '2019-08-02 00:00', '2017-01-18 00:00', '2017-01-13 00:00',))
-if mibBuilder.loadTexts: edge.setLastUpdated('202108310000Z')
-if mibBuilder.loadTexts: edge.setOrganization('VMware Corporation')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+(UUID,) = mibBuilder.importSymbols(
+    "UUID-TC-MIB",
+    "UUID")
+
+(modules,) = mibBuilder.importSymbols(
+    "VELOCLOUD-MIB",
+    "modules")
+
+
+# MODULE-IDENTITY
+
+edge = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1)
+)
+if mibBuilder.loadTexts:
+    edge.setRevisions(
+        ("2021-08-31 00:00",
+         "2021-07-14 00:00",
+         "2021-05-10 00:00",
+         "2019-08-02 00:00",
+         "2017-01-18 00:00",
+         "2017-01-13 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class VceHaAdminStateType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("none", 1), ("theVelocloudActiveStandbyPair", 2), ("theVeloCloudCluster", 3), ("nonVeloCloudVrrpPair", 4), ("unknown", 5))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("theVelocloudActiveStandbyPair", 2),
+          ("theVeloCloudCluster", 3),
+          ("nonVeloCloudVrrpPair", 4),
+          ("unknown", 5))
+    )
+
+
 
 class VceHaPeerStateType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("initializing", 1), ("active", 2), ("standby", 3), ("unknown", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("initializing", 1),
+          ("active", 2),
+          ("standby", 3),
+          ("unknown", 4))
+    )
+
+
 
 class VceLinkStateType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("initial", 1), ("dead", 2), ("unusable", 3), ("quiet", 4), ("standby", 5), ("unstable", 6), ("stable", 7), ("unknown", 8))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("initial", 1),
+          ("dead", 2),
+          ("unusable", 3),
+          ("quiet", 4),
+          ("standby", 5),
+          ("unstable", 6),
+          ("stable", 7),
+          ("unknown", 8))
+    )
+
+
 
 class VcePathStateType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15))
-    namedValues = NamedValues(("initial", 1), ("dead", 2), ("unusable", 3), ("quiet", 4), ("unstable", 5), ("bwUnmeasurable", 6), ("waitingForLinkbw", 7), ("measuringTxBw", 8), ("measuringRxBw", 9), ("stable", 10), ("active", 11), ("upHsby", 12), ("idleHsby", 13), ("backup", 14), ("unknown", 15))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15)
+        )
+    )
+    namedValues = NamedValues(
+        *(("initial", 1),
+          ("dead", 2),
+          ("unusable", 3),
+          ("quiet", 4),
+          ("unstable", 5),
+          ("bwUnmeasurable", 6),
+          ("waitingForLinkbw", 7),
+          ("measuringTxBw", 8),
+          ("measuringRxBw", 9),
+          ("stable", 10),
+          ("active", 11),
+          ("upHsby", 12),
+          ("idleHsby", 13),
+          ("backup", 14),
+          ("unknown", 15))
+    )
+
+
 
 class VcePathTunlModeType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))
-    namedValues = NamedValues(("default", 1), ("trusted", 2), ("untrustedTransport", 3), ("untrustedTunnel", 4), ("unknown", 5))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("default", 1),
+          ("trusted", 2),
+          ("untrustedTransport", 3),
+          ("untrustedTunnel", 4),
+          ("unknown", 5))
+    )
+
+
 
 class VceArpStateType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 5, 6, 7))
-    namedValues = NamedValues(("reachable", 1), ("stale", 2), ("invalid", 5), ("unknown", 6), ("incomplete", 7))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("reachable", 1),
+          ("stale", 2),
+          ("invalid", 5),
+          ("unknown", 6),
+          ("incomplete", 7))
+    )
 
-vceCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 45346, 1, 1, 1)).setObjects(("VELOCLOUD-EDGE-MIB", "vceHaGroup"), ("VELOCLOUD-EDGE-MIB", "vceHealthGroup"), ("VELOCLOUD-EDGE-MIB", "vceLinkGroup"), ("VELOCLOUD-EDGE-MIB", "vcePathGroup"), ("VELOCLOUD-EDGE-MIB", "vceArpGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vceCompliance = vceCompliance.setStatus('current')
-vceEdgeObject = MibIdentifier((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2))
-vceHA = MibIdentifier((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1))
-vceHealth = MibIdentifier((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2))
-vceLink = MibIdentifier((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3))
-vcePath = MibIdentifier((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4))
-vceARP = MibIdentifier((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5))
-vceHaGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 1)).setObjects(("VELOCLOUD-EDGE-MIB", "vceHaAdminState"), ("VELOCLOUD-EDGE-MIB", "vceHaPeerState"), ("VELOCLOUD-EDGE-MIB", "vceHaActiveWanItfNum"), ("VELOCLOUD-EDGE-MIB", "vceHaActiveLanItfNum"), ("VELOCLOUD-EDGE-MIB", "vceHaStanbyWanItfNum"), ("VELOCLOUD-EDGE-MIB", "vceHaStanbyLanItfNum"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vceHaGroup = vceHaGroup.setStatus('current')
-vceHAObject = MibIdentifier((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2))
-vceHaAdminState = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 1), VceHaAdminStateType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceHaAdminState.setStatus('current')
-vceHaPeerState = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 2), VceHaPeerStateType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceHaPeerState.setStatus('current')
-vceHaActiveWanItfNum = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceHaActiveWanItfNum.setStatus('current')
-vceHaActiveLanItfNum = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceHaActiveLanItfNum.setStatus('current')
-vceHaStanbyWanItfNum = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceHaStanbyWanItfNum.setStatus('current')
-vceHaStanbyLanItfNum = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceHaStanbyLanItfNum.setStatus('current')
-vceHealthGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2, 1)).setObjects(("VELOCLOUD-EDGE-MIB", "vceCpuUtilPct5min"), ("VELOCLOUD-EDGE-MIB", "vceCpuUtilPct30sec"), ("VELOCLOUD-EDGE-MIB", "vceMemUsedPct"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vceHealthGroup = vceHealthGroup.setStatus('current')
-vceHealthObject = MibIdentifier((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2, 2))
-vceCpuUtilPct5min = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceCpuUtilPct5min.setStatus('current')
-vceCpuUtilPct30sec = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2, 2, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceCpuUtilPct30sec.setStatus('current')
-vceMemUsedPct = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2, 2, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceMemUsedPct.setStatus('current')
-vceLinkGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 1)).setObjects(("VELOCLOUD-EDGE-MIB", "vceLinkNum"), ("VELOCLOUD-EDGE-MIB", "vceLinkName"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxP1Pkt"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxP1Pkt"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxP1Bytes"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxP1Bytes"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxP2Pkt"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxP2Pkt"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxP2Bytes"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxP2Bytes"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxP3Pkt"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxP3Pkt"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxP3Bytes"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxP3Bytes"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxCtlPkt"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxCtlPkt"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxCtlBytes"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxCtlBytes"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxJitter"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxJitter"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxLatency"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxLatency"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxLostPkt"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxLostPkt"), ("VELOCLOUD-EDGE-MIB", "vceLinkPublicIpType"), ("VELOCLOUD-EDGE-MIB", "vceLinkPublicIp"), ("VELOCLOUD-EDGE-MIB", "vceLinkLocalIpType"), ("VELOCLOUD-EDGE-MIB", "vceLinkLocalIp"), ("VELOCLOUD-EDGE-MIB", "vceLinkVlanId"), ("VELOCLOUD-EDGE-MIB", "vceLinkMtu"), ("VELOCLOUD-EDGE-MIB", "vceLinkItf"), ("VELOCLOUD-EDGE-MIB", "vceLinkState"), ("VELOCLOUD-EDGE-MIB", "vceLinkVeloSvcReachable"), ("VELOCLOUD-EDGE-MIB", "vceLinkTotTxPkts"), ("VELOCLOUD-EDGE-MIB", "vceLinkTotRxPkts"), ("VELOCLOUD-EDGE-MIB", "vceLinkTotTxbytes"), ("VELOCLOUD-EDGE-MIB", "vceLinkTotRxBytes"), ("VELOCLOUD-EDGE-MIB", "vceLinkIf"), ("VELOCLOUD-EDGE-MIB", "vceLinkNextHopType"), ("VELOCLOUD-EDGE-MIB", "vceLinkNextHop"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxJitterGauge"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxJitterGauge"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxLatencyGauge"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxLatencyGauge"), ("VELOCLOUD-EDGE-MIB", "vceLinkTxLostPktGauge"), ("VELOCLOUD-EDGE-MIB", "vceLinkRxLostPktGauge"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vceLinkGroup = vceLinkGroup.setStatus('current')
-vceLinkObject = MibIdentifier((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2))
-vceLinkNum = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkNum.setStatus('current')
-vceLinkTable = MibTable((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2), )
-if mibBuilder.loadTexts: vceLinkTable.setStatus('current')
-vceLinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1), ).setIndexNames((0, "VELOCLOUD-EDGE-MIB", "vceLinkIntId"))
-if mibBuilder.loadTexts: vceLinkEntry.setStatus('current')
-vceLinkIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 2), UUID())
-if mibBuilder.loadTexts: vceLinkIntId.setStatus('current')
-vceLinkName = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkName.setStatus('current')
-vceLinkTxP1Pkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxP1Pkt.setStatus('current')
-vceLinkRxP1Pkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxP1Pkt.setStatus('current')
-vceLinkTxP1Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxP1Bytes.setStatus('current')
-vceLinkRxP1Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxP1Bytes.setStatus('current')
-vceLinkTxP2Pkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxP2Pkt.setStatus('current')
-vceLinkRxP2Pkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxP2Pkt.setStatus('current')
-vceLinkTxP2Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxP2Bytes.setStatus('current')
-vceLinkRxP2Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxP2Bytes.setStatus('current')
-vceLinkTxP3Pkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxP3Pkt.setStatus('current')
-vceLinkRxP3Pkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxP3Pkt.setStatus('current')
-vceLinkTxP3Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxP3Bytes.setStatus('current')
-vceLinkRxP3Bytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxP3Bytes.setStatus('current')
-vceLinkTxCtlPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxCtlPkt.setStatus('current')
-vceLinkRxCtlPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 17), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxCtlPkt.setStatus('current')
-vceLinkTxCtlBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 18), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxCtlBytes.setStatus('current')
-vceLinkRxCtlBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 19), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxCtlBytes.setStatus('current')
-vceLinkTxJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 20), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxJitter.setStatus('deprecated')
-vceLinkRxJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 21), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxJitter.setStatus('deprecated')
-vceLinkTxLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 22), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxLatency.setStatus('deprecated')
-vceLinkRxLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 23), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxLatency.setStatus('deprecated')
-vceLinkTxLostPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 24), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxLostPkt.setStatus('deprecated')
-vceLinkRxLostPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 25), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxLostPkt.setStatus('deprecated')
-vceLinkPublicIpType = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 27), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkPublicIpType.setStatus('current')
-vceLinkPublicIp = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 28), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkPublicIp.setStatus('current')
-vceLinkLocalIpType = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 29), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkLocalIpType.setStatus('current')
-vceLinkLocalIp = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 30), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkLocalIp.setStatus('current')
-vceLinkVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 31), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkVlanId.setStatus('current')
-vceLinkMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 32), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkMtu.setStatus('current')
-vceLinkItf = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 33), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkItf.setStatus('current')
-vceLinkState = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 34), VceLinkStateType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkState.setStatus('current')
-vceLinkVeloSvcReachable = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 35), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkVeloSvcReachable.setStatus('current')
-vceLinkTotTxPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 36), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTotTxPkts.setStatus('current')
-vceLinkTotRxPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 37), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTotRxPkts.setStatus('current')
-vceLinkTotTxbytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 38), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTotTxbytes.setStatus('current')
-vceLinkTotRxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 39), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTotRxBytes.setStatus('current')
-vceLinkIf = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 40), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkIf.setStatus('current')
-vceLinkNextHopType = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 41), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkNextHopType.setStatus('current')
-vceLinkNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 42), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkNextHop.setStatus('current')
-vceLinkTxJitterGauge = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 43), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxJitterGauge.setStatus('current')
-vceLinkRxJitterGauge = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 44), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxJitterGauge.setStatus('current')
-vceLinkTxLatencyGauge = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 45), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxLatencyGauge.setStatus('current')
-vceLinkRxLatencyGauge = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 46), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxLatencyGauge.setStatus('current')
-vceLinkTxLostPktGauge = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 47), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkTxLostPktGauge.setStatus('current')
-vceLinkRxLostPktGauge = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 48), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceLinkRxLostPktGauge.setStatus('current')
-vcePathGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 1)).setObjects(("VELOCLOUD-EDGE-MIB", "vcePathNum"), ("VELOCLOUD-EDGE-MIB", "vcePathIpType"), ("VELOCLOUD-EDGE-MIB", "vcePathIp"), ("VELOCLOUD-EDGE-MIB", "vcePathPeerName"), ("VELOCLOUD-EDGE-MIB", "vcePathState"), ("VELOCLOUD-EDGE-MIB", "vcePathUpTime"), ("VELOCLOUD-EDGE-MIB", "vcePathRxState"), ("VELOCLOUD-EDGE-MIB", "vcePathTxState"), ("VELOCLOUD-EDGE-MIB", "vcePathTunlMode"), ("VELOCLOUD-EDGE-MIB", "vcePathTxAveLatency"), ("VELOCLOUD-EDGE-MIB", "vcePathRxAveLatency"), ("VELOCLOUD-EDGE-MIB", "vcePathRxBytes"), ("VELOCLOUD-EDGE-MIB", "vcePathTxBytes"), ("VELOCLOUD-EDGE-MIB", "vcePathRxLostPkt"), ("VELOCLOUD-EDGE-MIB", "vcePathTxLostPkt"), ("VELOCLOUD-EDGE-MIB", "vcePathRxPkt"), ("VELOCLOUD-EDGE-MIB", "vcePathTxPkt"), ("VELOCLOUD-EDGE-MIB", "vcePathRxJitter"), ("VELOCLOUD-EDGE-MIB", "vcePathTxJitter"), ("VELOCLOUD-EDGE-MIB", "vcePathRxLostPktGauge"), ("VELOCLOUD-EDGE-MIB", "vcePathTxLostPktGauge"), ("VELOCLOUD-EDGE-MIB", "vcePathRxJitterGauge"), ("VELOCLOUD-EDGE-MIB", "vcePathTxJitterGauge"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vcePathGroup = vcePathGroup.setStatus('current')
-vcePathObject = MibIdentifier((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2))
-vcePathNum = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathNum.setStatus('current')
-vcePathTable = MibTable((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2), )
-if mibBuilder.loadTexts: vcePathTable.setStatus('current')
-vcePathEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1), ).setIndexNames((0, "VELOCLOUD-EDGE-MIB", "vcePathIfIntId"), (0, "VELOCLOUD-EDGE-MIB", "vcePathGwAddrType"), (0, "VELOCLOUD-EDGE-MIB", "vcePathGwAddr"))
-if mibBuilder.loadTexts: vcePathEntry.setStatus('current')
-vcePathIfIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 1), UUID())
-if mibBuilder.loadTexts: vcePathIfIntId.setStatus('current')
-vcePathIpType = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathIpType.setStatus('current')
-vcePathIp = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathIp.setStatus('current')
-vcePathGwAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 4), InetAddressType())
-if mibBuilder.loadTexts: vcePathGwAddrType.setStatus('current')
-vcePathGwAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 5), InetAddress())
-if mibBuilder.loadTexts: vcePathGwAddr.setStatus('current')
-vcePathPeerName = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathPeerName.setStatus('current')
-vcePathState = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 7), VcePathStateType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathState.setStatus('current')
-vcePathUpTime = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 8), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathUpTime.setStatus('current')
-vcePathRxState = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 10), VcePathStateType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathRxState.setStatus('current')
-vcePathTxState = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 11), VcePathStateType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathTxState.setStatus('current')
-vcePathTunlMode = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 12), VcePathTunlModeType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathTunlMode.setStatus('current')
-vcePathTxAveLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 13), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathTxAveLatency.setStatus('current')
-vcePathRxAveLatency = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathRxAveLatency.setStatus('current')
-vcePathRxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathRxBytes.setStatus('current')
-vcePathTxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 16), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathTxBytes.setStatus('current')
-vcePathRxLostPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 17), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathRxLostPkt.setStatus('deprecated')
-vcePathTxLostPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 18), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathTxLostPkt.setStatus('deprecated')
-vcePathRxPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 19), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathRxPkt.setStatus('current')
-vcePathTxPkt = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 20), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathTxPkt.setStatus('current')
-vcePathRxJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 21), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathRxJitter.setStatus('deprecated')
-vcePathTxJitter = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 22), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathTxJitter.setStatus('deprecated')
-vcePathRxLostPktGauge = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 23), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathRxLostPktGauge.setStatus('current')
-vcePathTxLostPktGauge = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 24), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathTxLostPktGauge.setStatus('current')
-vcePathRxJitterGauge = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 25), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathRxJitterGauge.setStatus('current')
-vcePathTxJitterGauge = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 26), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vcePathTxJitterGauge.setStatus('current')
-vceArpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 1)).setObjects(("VELOCLOUD-EDGE-MIB", "vceArpNum"), ("VELOCLOUD-EDGE-MIB", "vceArpMac"), ("VELOCLOUD-EDGE-MIB", "vceArpStag"), ("VELOCLOUD-EDGE-MIB", "vceArpCtag"), ("VELOCLOUD-EDGE-MIB", "vceArpState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    vceArpGroup = vceArpGroup.setStatus('current')
-vceArpObject = MibIdentifier((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2))
-vceArpNum = MibScalar((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceArpNum.setStatus('current')
-vceArpTable = MibTable((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2), )
-if mibBuilder.loadTexts: vceArpTable.setStatus('current')
-vceArpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1), ).setIndexNames((0, "VELOCLOUD-EDGE-MIB", "vceArpItf"), (0, "VELOCLOUD-EDGE-MIB", "vceArpIpAddrType"), (0, "VELOCLOUD-EDGE-MIB", "vceArpIpAddr"))
-if mibBuilder.loadTexts: vceArpEntry.setStatus('current')
-vceArpItf = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: vceArpItf.setStatus('current')
-vceArpIpAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: vceArpIpAddrType.setStatus('current')
-vceArpIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 3), InetAddress())
-if mibBuilder.loadTexts: vceArpIpAddr.setStatus('current')
-vceArpMac = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 4), PhysAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceArpMac.setStatus('current')
-vceArpStag = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceArpStag.setStatus('current')
-vceArpCtag = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceArpCtag.setStatus('current')
-vceArpState = MibTableColumn((1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 7), VceArpStateType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vceArpState.setStatus('current')
-mibBuilder.exportSymbols("VELOCLOUD-EDGE-MIB", vceLinkPublicIp=vceLinkPublicIp, vceLinkRxP3Pkt=vceLinkRxP3Pkt, vceCpuUtilPct30sec=vceCpuUtilPct30sec, vcePathRxLostPkt=vcePathRxLostPkt, vceHealthGroup=vceHealthGroup, vceArpMac=vceArpMac, vcePathRxJitter=vcePathRxJitter, VceArpStateType=VceArpStateType, vceHaAdminState=vceHaAdminState, vceLinkRxCtlBytes=vceLinkRxCtlBytes, vcePathPeerName=vcePathPeerName, vceCpuUtilPct5min=vceCpuUtilPct5min, vceHaActiveLanItfNum=vceHaActiveLanItfNum, VcePathTunlModeType=VcePathTunlModeType, vceHaPeerState=vceHaPeerState, vceLinkIntId=vceLinkIntId, VceHaAdminStateType=VceHaAdminStateType, vceLinkVeloSvcReachable=vceLinkVeloSvcReachable, vceLinkTxP1Pkt=vceLinkTxP1Pkt, vceHaStanbyLanItfNum=vceHaStanbyLanItfNum, vceLinkNextHopType=vceLinkNextHopType, vceArpTable=vceArpTable, vceHaActiveWanItfNum=vceHaActiveWanItfNum, vceArpIpAddr=vceArpIpAddr, vcePathRxLostPktGauge=vcePathRxLostPktGauge, vceLinkRxP2Pkt=vceLinkRxP2Pkt, vceLinkRxP3Bytes=vceLinkRxP3Bytes, vceLinkRxLatency=vceLinkRxLatency, vceArpEntry=vceArpEntry, vcePathTunlMode=vcePathTunlMode, vceHaStanbyWanItfNum=vceHaStanbyWanItfNum, vceLinkMtu=vceLinkMtu, vceArpState=vceArpState, vcePathNum=vcePathNum, vcePathTxPkt=vcePathTxPkt, VceHaPeerStateType=VceHaPeerStateType, vceLinkName=vceLinkName, vcePathRxBytes=vcePathRxBytes, vceLinkTxLostPktGauge=vceLinkTxLostPktGauge, vceLinkTxCtlPkt=vceLinkTxCtlPkt, vceLinkTxLostPkt=vceLinkTxLostPkt, vceLinkTotRxBytes=vceLinkTotRxBytes, vceLinkRxJitter=vceLinkRxJitter, vcePathGwAddrType=vcePathGwAddrType, vceArpObject=vceArpObject, vceCompliance=vceCompliance, vcePathIp=vcePathIp, vceLinkTotTxbytes=vceLinkTotTxbytes, vcePathTxLostPkt=vcePathTxLostPkt, vceLinkTotRxPkts=vceLinkTotRxPkts, vceLinkNum=vceLinkNum, VcePathStateType=VcePathStateType, vceLinkTable=vceLinkTable, vceArpIpAddrType=vceArpIpAddrType, vceLinkRxLatencyGauge=vceLinkRxLatencyGauge, vceLinkTxP2Bytes=vceLinkTxP2Bytes, vcePathTxJitter=vcePathTxJitter, vceLinkTxP1Bytes=vceLinkTxP1Bytes, vcePathIpType=vcePathIpType, vceLinkTxJitterGauge=vceLinkTxJitterGauge, vceHA=vceHA, vceLinkRxCtlPkt=vceLinkRxCtlPkt, vcePathState=vcePathState, vceLinkLocalIpType=vceLinkLocalIpType, vcePathEntry=vcePathEntry, vceARP=vceARP, vceArpItf=vceArpItf, vceLinkRxLostPkt=vceLinkRxLostPkt, vceEdgeObject=vceEdgeObject, vceLinkLocalIp=vceLinkLocalIp, vceLink=vceLink, vceHAObject=vceHAObject, vcePathRxState=vcePathRxState, vceLinkRxP1Bytes=vceLinkRxP1Bytes, vceLinkTxP3Bytes=vceLinkTxP3Bytes, vceArpCtag=vceArpCtag, vceLinkTxJitter=vceLinkTxJitter, vceLinkNextHop=vceLinkNextHop, vcePathRxAveLatency=vcePathRxAveLatency, vcePathTxBytes=vcePathTxBytes, vcePathTxAveLatency=vcePathTxAveLatency, vceLinkTxP3Pkt=vceLinkTxP3Pkt, vcePathRxPkt=vcePathRxPkt, vceLinkTotTxPkts=vceLinkTotTxPkts, vceLinkIf=vceLinkIf, vceLinkTxLatencyGauge=vceLinkTxLatencyGauge, PYSNMP_MODULE_ID=edge, VceLinkStateType=VceLinkStateType, vceLinkVlanId=vceLinkVlanId, vceLinkRxP2Bytes=vceLinkRxP2Bytes, vceLinkTxCtlBytes=vceLinkTxCtlBytes, vceLinkEntry=vceLinkEntry, vceHealth=vceHealth, edge=edge, vceHaGroup=vceHaGroup, vceHealthObject=vceHealthObject, vceLinkPublicIpType=vceLinkPublicIpType, vcePathIfIntId=vcePathIfIntId, vceLinkRxP1Pkt=vceLinkRxP1Pkt, vceArpStag=vceArpStag, vceMemUsedPct=vceMemUsedPct, vcePathGwAddr=vcePathGwAddr, vcePathTxLostPktGauge=vcePathTxLostPktGauge, vceLinkRxLostPktGauge=vceLinkRxLostPktGauge, vcePathTable=vcePathTable, vcePathRxJitterGauge=vcePathRxJitterGauge, vcePathGroup=vcePathGroup, vceArpGroup=vceArpGroup, vcePath=vcePath, vcePathUpTime=vcePathUpTime, vcePathTxState=vcePathTxState, vceLinkObject=vceLinkObject, vceLinkTxLatency=vceLinkTxLatency, vceLinkItf=vceLinkItf, vceLinkState=vceLinkState, vceLinkGroup=vceLinkGroup, vceLinkRxJitterGauge=vceLinkRxJitterGauge, vcePathObject=vcePathObject, vceLinkTxP2Pkt=vceLinkTxP2Pkt, vcePathTxJitterGauge=vcePathTxJitterGauge, vceArpNum=vceArpNum)
+
+# MIB Managed Objects in the order of their OIDs
+
+_VceEdgeObject_ObjectIdentity = ObjectIdentity
+vceEdgeObject = _VceEdgeObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2)
+)
+_VceHA_ObjectIdentity = ObjectIdentity
+vceHA = _VceHA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1)
+)
+_VceHAObject_ObjectIdentity = ObjectIdentity
+vceHAObject = _VceHAObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2)
+)
+_VceHaAdminState_Type = VceHaAdminStateType
+_VceHaAdminState_Object = MibScalar
+vceHaAdminState = _VceHaAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 1),
+    _VceHaAdminState_Type()
+)
+vceHaAdminState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceHaAdminState.setStatus("current")
+_VceHaPeerState_Type = VceHaPeerStateType
+_VceHaPeerState_Object = MibScalar
+vceHaPeerState = _VceHaPeerState_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 2),
+    _VceHaPeerState_Type()
+)
+vceHaPeerState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceHaPeerState.setStatus("current")
+_VceHaActiveWanItfNum_Type = Integer32
+_VceHaActiveWanItfNum_Object = MibScalar
+vceHaActiveWanItfNum = _VceHaActiveWanItfNum_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 3),
+    _VceHaActiveWanItfNum_Type()
+)
+vceHaActiveWanItfNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceHaActiveWanItfNum.setStatus("current")
+_VceHaActiveLanItfNum_Type = Integer32
+_VceHaActiveLanItfNum_Object = MibScalar
+vceHaActiveLanItfNum = _VceHaActiveLanItfNum_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 4),
+    _VceHaActiveLanItfNum_Type()
+)
+vceHaActiveLanItfNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceHaActiveLanItfNum.setStatus("current")
+_VceHaStanbyWanItfNum_Type = Integer32
+_VceHaStanbyWanItfNum_Object = MibScalar
+vceHaStanbyWanItfNum = _VceHaStanbyWanItfNum_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 5),
+    _VceHaStanbyWanItfNum_Type()
+)
+vceHaStanbyWanItfNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceHaStanbyWanItfNum.setStatus("current")
+_VceHaStanbyLanItfNum_Type = Integer32
+_VceHaStanbyLanItfNum_Object = MibScalar
+vceHaStanbyLanItfNum = _VceHaStanbyLanItfNum_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 2, 6),
+    _VceHaStanbyLanItfNum_Type()
+)
+vceHaStanbyLanItfNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceHaStanbyLanItfNum.setStatus("current")
+_VceHealth_ObjectIdentity = ObjectIdentity
+vceHealth = _VceHealth_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2)
+)
+_VceHealthObject_ObjectIdentity = ObjectIdentity
+vceHealthObject = _VceHealthObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2, 2)
+)
+_VceCpuUtilPct5min_Type = Integer32
+_VceCpuUtilPct5min_Object = MibScalar
+vceCpuUtilPct5min = _VceCpuUtilPct5min_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2, 2, 1),
+    _VceCpuUtilPct5min_Type()
+)
+vceCpuUtilPct5min.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceCpuUtilPct5min.setStatus("current")
+_VceCpuUtilPct30sec_Type = Integer32
+_VceCpuUtilPct30sec_Object = MibScalar
+vceCpuUtilPct30sec = _VceCpuUtilPct30sec_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2, 2, 2),
+    _VceCpuUtilPct30sec_Type()
+)
+vceCpuUtilPct30sec.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceCpuUtilPct30sec.setStatus("current")
+_VceMemUsedPct_Type = Integer32
+_VceMemUsedPct_Object = MibScalar
+vceMemUsedPct = _VceMemUsedPct_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2, 2, 3),
+    _VceMemUsedPct_Type()
+)
+vceMemUsedPct.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceMemUsedPct.setStatus("current")
+_VceLink_ObjectIdentity = ObjectIdentity
+vceLink = _VceLink_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3)
+)
+_VceLinkObject_ObjectIdentity = ObjectIdentity
+vceLinkObject = _VceLinkObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2)
+)
+_VceLinkNum_Type = Integer32
+_VceLinkNum_Object = MibScalar
+vceLinkNum = _VceLinkNum_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 1),
+    _VceLinkNum_Type()
+)
+vceLinkNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkNum.setStatus("current")
+_VceLinkTable_Object = MibTable
+vceLinkTable = _VceLinkTable_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2)
+)
+if mibBuilder.loadTexts:
+    vceLinkTable.setStatus("current")
+_VceLinkEntry_Object = MibTableRow
+vceLinkEntry = _VceLinkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1)
+)
+vceLinkEntry.setIndexNames(
+    (0, "VELOCLOUD-EDGE-MIB", "vceLinkIntId"),
+)
+if mibBuilder.loadTexts:
+    vceLinkEntry.setStatus("current")
+_VceLinkIntId_Type = UUID
+_VceLinkIntId_Object = MibTableColumn
+vceLinkIntId = _VceLinkIntId_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 2),
+    _VceLinkIntId_Type()
+)
+vceLinkIntId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vceLinkIntId.setStatus("current")
+_VceLinkName_Type = DisplayString
+_VceLinkName_Object = MibTableColumn
+vceLinkName = _VceLinkName_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 3),
+    _VceLinkName_Type()
+)
+vceLinkName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkName.setStatus("current")
+_VceLinkTxP1Pkt_Type = Counter64
+_VceLinkTxP1Pkt_Object = MibTableColumn
+vceLinkTxP1Pkt = _VceLinkTxP1Pkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 4),
+    _VceLinkTxP1Pkt_Type()
+)
+vceLinkTxP1Pkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxP1Pkt.setStatus("current")
+_VceLinkRxP1Pkt_Type = Counter64
+_VceLinkRxP1Pkt_Object = MibTableColumn
+vceLinkRxP1Pkt = _VceLinkRxP1Pkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 5),
+    _VceLinkRxP1Pkt_Type()
+)
+vceLinkRxP1Pkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxP1Pkt.setStatus("current")
+_VceLinkTxP1Bytes_Type = Counter64
+_VceLinkTxP1Bytes_Object = MibTableColumn
+vceLinkTxP1Bytes = _VceLinkTxP1Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 6),
+    _VceLinkTxP1Bytes_Type()
+)
+vceLinkTxP1Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxP1Bytes.setStatus("current")
+_VceLinkRxP1Bytes_Type = Counter64
+_VceLinkRxP1Bytes_Object = MibTableColumn
+vceLinkRxP1Bytes = _VceLinkRxP1Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 7),
+    _VceLinkRxP1Bytes_Type()
+)
+vceLinkRxP1Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxP1Bytes.setStatus("current")
+_VceLinkTxP2Pkt_Type = Counter64
+_VceLinkTxP2Pkt_Object = MibTableColumn
+vceLinkTxP2Pkt = _VceLinkTxP2Pkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 8),
+    _VceLinkTxP2Pkt_Type()
+)
+vceLinkTxP2Pkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxP2Pkt.setStatus("current")
+_VceLinkRxP2Pkt_Type = Counter64
+_VceLinkRxP2Pkt_Object = MibTableColumn
+vceLinkRxP2Pkt = _VceLinkRxP2Pkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 9),
+    _VceLinkRxP2Pkt_Type()
+)
+vceLinkRxP2Pkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxP2Pkt.setStatus("current")
+_VceLinkTxP2Bytes_Type = Counter64
+_VceLinkTxP2Bytes_Object = MibTableColumn
+vceLinkTxP2Bytes = _VceLinkTxP2Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 10),
+    _VceLinkTxP2Bytes_Type()
+)
+vceLinkTxP2Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxP2Bytes.setStatus("current")
+_VceLinkRxP2Bytes_Type = Counter64
+_VceLinkRxP2Bytes_Object = MibTableColumn
+vceLinkRxP2Bytes = _VceLinkRxP2Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 11),
+    _VceLinkRxP2Bytes_Type()
+)
+vceLinkRxP2Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxP2Bytes.setStatus("current")
+_VceLinkTxP3Pkt_Type = Counter64
+_VceLinkTxP3Pkt_Object = MibTableColumn
+vceLinkTxP3Pkt = _VceLinkTxP3Pkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 12),
+    _VceLinkTxP3Pkt_Type()
+)
+vceLinkTxP3Pkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxP3Pkt.setStatus("current")
+_VceLinkRxP3Pkt_Type = Counter64
+_VceLinkRxP3Pkt_Object = MibTableColumn
+vceLinkRxP3Pkt = _VceLinkRxP3Pkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 13),
+    _VceLinkRxP3Pkt_Type()
+)
+vceLinkRxP3Pkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxP3Pkt.setStatus("current")
+_VceLinkTxP3Bytes_Type = Counter64
+_VceLinkTxP3Bytes_Object = MibTableColumn
+vceLinkTxP3Bytes = _VceLinkTxP3Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 14),
+    _VceLinkTxP3Bytes_Type()
+)
+vceLinkTxP3Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxP3Bytes.setStatus("current")
+_VceLinkRxP3Bytes_Type = Counter64
+_VceLinkRxP3Bytes_Object = MibTableColumn
+vceLinkRxP3Bytes = _VceLinkRxP3Bytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 15),
+    _VceLinkRxP3Bytes_Type()
+)
+vceLinkRxP3Bytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxP3Bytes.setStatus("current")
+_VceLinkTxCtlPkt_Type = Counter64
+_VceLinkTxCtlPkt_Object = MibTableColumn
+vceLinkTxCtlPkt = _VceLinkTxCtlPkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 16),
+    _VceLinkTxCtlPkt_Type()
+)
+vceLinkTxCtlPkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxCtlPkt.setStatus("current")
+_VceLinkRxCtlPkt_Type = Counter64
+_VceLinkRxCtlPkt_Object = MibTableColumn
+vceLinkRxCtlPkt = _VceLinkRxCtlPkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 17),
+    _VceLinkRxCtlPkt_Type()
+)
+vceLinkRxCtlPkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxCtlPkt.setStatus("current")
+_VceLinkTxCtlBytes_Type = Counter64
+_VceLinkTxCtlBytes_Object = MibTableColumn
+vceLinkTxCtlBytes = _VceLinkTxCtlBytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 18),
+    _VceLinkTxCtlBytes_Type()
+)
+vceLinkTxCtlBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxCtlBytes.setStatus("current")
+_VceLinkRxCtlBytes_Type = Counter64
+_VceLinkRxCtlBytes_Object = MibTableColumn
+vceLinkRxCtlBytes = _VceLinkRxCtlBytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 19),
+    _VceLinkRxCtlBytes_Type()
+)
+vceLinkRxCtlBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxCtlBytes.setStatus("current")
+_VceLinkTxJitter_Type = Counter64
+_VceLinkTxJitter_Object = MibTableColumn
+vceLinkTxJitter = _VceLinkTxJitter_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 20),
+    _VceLinkTxJitter_Type()
+)
+vceLinkTxJitter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxJitter.setStatus("deprecated")
+_VceLinkRxJitter_Type = Counter64
+_VceLinkRxJitter_Object = MibTableColumn
+vceLinkRxJitter = _VceLinkRxJitter_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 21),
+    _VceLinkRxJitter_Type()
+)
+vceLinkRxJitter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxJitter.setStatus("deprecated")
+_VceLinkTxLatency_Type = Counter64
+_VceLinkTxLatency_Object = MibTableColumn
+vceLinkTxLatency = _VceLinkTxLatency_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 22),
+    _VceLinkTxLatency_Type()
+)
+vceLinkTxLatency.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxLatency.setStatus("deprecated")
+_VceLinkRxLatency_Type = Counter64
+_VceLinkRxLatency_Object = MibTableColumn
+vceLinkRxLatency = _VceLinkRxLatency_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 23),
+    _VceLinkRxLatency_Type()
+)
+vceLinkRxLatency.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxLatency.setStatus("deprecated")
+_VceLinkTxLostPkt_Type = Counter64
+_VceLinkTxLostPkt_Object = MibTableColumn
+vceLinkTxLostPkt = _VceLinkTxLostPkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 24),
+    _VceLinkTxLostPkt_Type()
+)
+vceLinkTxLostPkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxLostPkt.setStatus("deprecated")
+_VceLinkRxLostPkt_Type = Counter64
+_VceLinkRxLostPkt_Object = MibTableColumn
+vceLinkRxLostPkt = _VceLinkRxLostPkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 25),
+    _VceLinkRxLostPkt_Type()
+)
+vceLinkRxLostPkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxLostPkt.setStatus("deprecated")
+_VceLinkPublicIpType_Type = InetAddressType
+_VceLinkPublicIpType_Object = MibTableColumn
+vceLinkPublicIpType = _VceLinkPublicIpType_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 27),
+    _VceLinkPublicIpType_Type()
+)
+vceLinkPublicIpType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkPublicIpType.setStatus("current")
+_VceLinkPublicIp_Type = InetAddress
+_VceLinkPublicIp_Object = MibTableColumn
+vceLinkPublicIp = _VceLinkPublicIp_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 28),
+    _VceLinkPublicIp_Type()
+)
+vceLinkPublicIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkPublicIp.setStatus("current")
+_VceLinkLocalIpType_Type = InetAddressType
+_VceLinkLocalIpType_Object = MibTableColumn
+vceLinkLocalIpType = _VceLinkLocalIpType_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 29),
+    _VceLinkLocalIpType_Type()
+)
+vceLinkLocalIpType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkLocalIpType.setStatus("current")
+_VceLinkLocalIp_Type = InetAddress
+_VceLinkLocalIp_Object = MibTableColumn
+vceLinkLocalIp = _VceLinkLocalIp_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 30),
+    _VceLinkLocalIp_Type()
+)
+vceLinkLocalIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkLocalIp.setStatus("current")
+_VceLinkVlanId_Type = Integer32
+_VceLinkVlanId_Object = MibTableColumn
+vceLinkVlanId = _VceLinkVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 31),
+    _VceLinkVlanId_Type()
+)
+vceLinkVlanId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkVlanId.setStatus("current")
+_VceLinkMtu_Type = Integer32
+_VceLinkMtu_Object = MibTableColumn
+vceLinkMtu = _VceLinkMtu_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 32),
+    _VceLinkMtu_Type()
+)
+vceLinkMtu.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkMtu.setStatus("current")
+_VceLinkItf_Type = DisplayString
+_VceLinkItf_Object = MibTableColumn
+vceLinkItf = _VceLinkItf_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 33),
+    _VceLinkItf_Type()
+)
+vceLinkItf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkItf.setStatus("current")
+_VceLinkState_Type = VceLinkStateType
+_VceLinkState_Object = MibTableColumn
+vceLinkState = _VceLinkState_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 34),
+    _VceLinkState_Type()
+)
+vceLinkState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkState.setStatus("current")
+_VceLinkVeloSvcReachable_Type = TruthValue
+_VceLinkVeloSvcReachable_Object = MibTableColumn
+vceLinkVeloSvcReachable = _VceLinkVeloSvcReachable_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 35),
+    _VceLinkVeloSvcReachable_Type()
+)
+vceLinkVeloSvcReachable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkVeloSvcReachable.setStatus("current")
+_VceLinkTotTxPkts_Type = Counter64
+_VceLinkTotTxPkts_Object = MibTableColumn
+vceLinkTotTxPkts = _VceLinkTotTxPkts_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 36),
+    _VceLinkTotTxPkts_Type()
+)
+vceLinkTotTxPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTotTxPkts.setStatus("current")
+_VceLinkTotRxPkts_Type = Counter64
+_VceLinkTotRxPkts_Object = MibTableColumn
+vceLinkTotRxPkts = _VceLinkTotRxPkts_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 37),
+    _VceLinkTotRxPkts_Type()
+)
+vceLinkTotRxPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTotRxPkts.setStatus("current")
+_VceLinkTotTxbytes_Type = Counter64
+_VceLinkTotTxbytes_Object = MibTableColumn
+vceLinkTotTxbytes = _VceLinkTotTxbytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 38),
+    _VceLinkTotTxbytes_Type()
+)
+vceLinkTotTxbytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTotTxbytes.setStatus("current")
+_VceLinkTotRxBytes_Type = Counter64
+_VceLinkTotRxBytes_Object = MibTableColumn
+vceLinkTotRxBytes = _VceLinkTotRxBytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 39),
+    _VceLinkTotRxBytes_Type()
+)
+vceLinkTotRxBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTotRxBytes.setStatus("current")
+_VceLinkIf_Type = InterfaceIndex
+_VceLinkIf_Object = MibTableColumn
+vceLinkIf = _VceLinkIf_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 40),
+    _VceLinkIf_Type()
+)
+vceLinkIf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkIf.setStatus("current")
+_VceLinkNextHopType_Type = InetAddressType
+_VceLinkNextHopType_Object = MibTableColumn
+vceLinkNextHopType = _VceLinkNextHopType_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 41),
+    _VceLinkNextHopType_Type()
+)
+vceLinkNextHopType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkNextHopType.setStatus("current")
+_VceLinkNextHop_Type = InetAddress
+_VceLinkNextHop_Object = MibTableColumn
+vceLinkNextHop = _VceLinkNextHop_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 42),
+    _VceLinkNextHop_Type()
+)
+vceLinkNextHop.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkNextHop.setStatus("current")
+_VceLinkTxJitterGauge_Type = Gauge32
+_VceLinkTxJitterGauge_Object = MibTableColumn
+vceLinkTxJitterGauge = _VceLinkTxJitterGauge_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 43),
+    _VceLinkTxJitterGauge_Type()
+)
+vceLinkTxJitterGauge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxJitterGauge.setStatus("current")
+_VceLinkRxJitterGauge_Type = Gauge32
+_VceLinkRxJitterGauge_Object = MibTableColumn
+vceLinkRxJitterGauge = _VceLinkRxJitterGauge_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 44),
+    _VceLinkRxJitterGauge_Type()
+)
+vceLinkRxJitterGauge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxJitterGauge.setStatus("current")
+_VceLinkTxLatencyGauge_Type = Gauge32
+_VceLinkTxLatencyGauge_Object = MibTableColumn
+vceLinkTxLatencyGauge = _VceLinkTxLatencyGauge_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 45),
+    _VceLinkTxLatencyGauge_Type()
+)
+vceLinkTxLatencyGauge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxLatencyGauge.setStatus("current")
+_VceLinkRxLatencyGauge_Type = Gauge32
+_VceLinkRxLatencyGauge_Object = MibTableColumn
+vceLinkRxLatencyGauge = _VceLinkRxLatencyGauge_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 46),
+    _VceLinkRxLatencyGauge_Type()
+)
+vceLinkRxLatencyGauge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxLatencyGauge.setStatus("current")
+_VceLinkTxLostPktGauge_Type = Gauge32
+_VceLinkTxLostPktGauge_Object = MibTableColumn
+vceLinkTxLostPktGauge = _VceLinkTxLostPktGauge_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 47),
+    _VceLinkTxLostPktGauge_Type()
+)
+vceLinkTxLostPktGauge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkTxLostPktGauge.setStatus("current")
+_VceLinkRxLostPktGauge_Type = Gauge32
+_VceLinkRxLostPktGauge_Object = MibTableColumn
+vceLinkRxLostPktGauge = _VceLinkRxLostPktGauge_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 2, 2, 1, 48),
+    _VceLinkRxLostPktGauge_Type()
+)
+vceLinkRxLostPktGauge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceLinkRxLostPktGauge.setStatus("current")
+_VcePath_ObjectIdentity = ObjectIdentity
+vcePath = _VcePath_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4)
+)
+_VcePathObject_ObjectIdentity = ObjectIdentity
+vcePathObject = _VcePathObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2)
+)
+_VcePathNum_Type = Integer32
+_VcePathNum_Object = MibScalar
+vcePathNum = _VcePathNum_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 1),
+    _VcePathNum_Type()
+)
+vcePathNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathNum.setStatus("current")
+_VcePathTable_Object = MibTable
+vcePathTable = _VcePathTable_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2)
+)
+if mibBuilder.loadTexts:
+    vcePathTable.setStatus("current")
+_VcePathEntry_Object = MibTableRow
+vcePathEntry = _VcePathEntry_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1)
+)
+vcePathEntry.setIndexNames(
+    (0, "VELOCLOUD-EDGE-MIB", "vcePathIfIntId"),
+    (0, "VELOCLOUD-EDGE-MIB", "vcePathGwAddrType"),
+    (0, "VELOCLOUD-EDGE-MIB", "vcePathGwAddr"),
+)
+if mibBuilder.loadTexts:
+    vcePathEntry.setStatus("current")
+_VcePathIfIntId_Type = UUID
+_VcePathIfIntId_Object = MibTableColumn
+vcePathIfIntId = _VcePathIfIntId_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 1),
+    _VcePathIfIntId_Type()
+)
+vcePathIfIntId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vcePathIfIntId.setStatus("current")
+_VcePathIpType_Type = InetAddressType
+_VcePathIpType_Object = MibTableColumn
+vcePathIpType = _VcePathIpType_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 2),
+    _VcePathIpType_Type()
+)
+vcePathIpType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathIpType.setStatus("current")
+_VcePathIp_Type = InetAddress
+_VcePathIp_Object = MibTableColumn
+vcePathIp = _VcePathIp_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 3),
+    _VcePathIp_Type()
+)
+vcePathIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathIp.setStatus("current")
+_VcePathGwAddrType_Type = InetAddressType
+_VcePathGwAddrType_Object = MibTableColumn
+vcePathGwAddrType = _VcePathGwAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 4),
+    _VcePathGwAddrType_Type()
+)
+vcePathGwAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vcePathGwAddrType.setStatus("current")
+_VcePathGwAddr_Type = InetAddress
+_VcePathGwAddr_Object = MibTableColumn
+vcePathGwAddr = _VcePathGwAddr_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 5),
+    _VcePathGwAddr_Type()
+)
+vcePathGwAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vcePathGwAddr.setStatus("current")
+_VcePathPeerName_Type = DisplayString
+_VcePathPeerName_Object = MibTableColumn
+vcePathPeerName = _VcePathPeerName_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 6),
+    _VcePathPeerName_Type()
+)
+vcePathPeerName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathPeerName.setStatus("current")
+_VcePathState_Type = VcePathStateType
+_VcePathState_Object = MibTableColumn
+vcePathState = _VcePathState_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 7),
+    _VcePathState_Type()
+)
+vcePathState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathState.setStatus("current")
+_VcePathUpTime_Type = TimeTicks
+_VcePathUpTime_Object = MibTableColumn
+vcePathUpTime = _VcePathUpTime_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 8),
+    _VcePathUpTime_Type()
+)
+vcePathUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathUpTime.setStatus("current")
+_VcePathRxState_Type = VcePathStateType
+_VcePathRxState_Object = MibTableColumn
+vcePathRxState = _VcePathRxState_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 10),
+    _VcePathRxState_Type()
+)
+vcePathRxState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathRxState.setStatus("current")
+_VcePathTxState_Type = VcePathStateType
+_VcePathTxState_Object = MibTableColumn
+vcePathTxState = _VcePathTxState_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 11),
+    _VcePathTxState_Type()
+)
+vcePathTxState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathTxState.setStatus("current")
+_VcePathTunlMode_Type = VcePathTunlModeType
+_VcePathTunlMode_Object = MibTableColumn
+vcePathTunlMode = _VcePathTunlMode_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 12),
+    _VcePathTunlMode_Type()
+)
+vcePathTunlMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathTunlMode.setStatus("current")
+_VcePathTxAveLatency_Type = Integer32
+_VcePathTxAveLatency_Object = MibTableColumn
+vcePathTxAveLatency = _VcePathTxAveLatency_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 13),
+    _VcePathTxAveLatency_Type()
+)
+vcePathTxAveLatency.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathTxAveLatency.setStatus("current")
+_VcePathRxAveLatency_Type = Integer32
+_VcePathRxAveLatency_Object = MibTableColumn
+vcePathRxAveLatency = _VcePathRxAveLatency_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 14),
+    _VcePathRxAveLatency_Type()
+)
+vcePathRxAveLatency.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathRxAveLatency.setStatus("current")
+_VcePathRxBytes_Type = Counter64
+_VcePathRxBytes_Object = MibTableColumn
+vcePathRxBytes = _VcePathRxBytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 15),
+    _VcePathRxBytes_Type()
+)
+vcePathRxBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathRxBytes.setStatus("current")
+_VcePathTxBytes_Type = Counter64
+_VcePathTxBytes_Object = MibTableColumn
+vcePathTxBytes = _VcePathTxBytes_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 16),
+    _VcePathTxBytes_Type()
+)
+vcePathTxBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathTxBytes.setStatus("current")
+_VcePathRxLostPkt_Type = Counter64
+_VcePathRxLostPkt_Object = MibTableColumn
+vcePathRxLostPkt = _VcePathRxLostPkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 17),
+    _VcePathRxLostPkt_Type()
+)
+vcePathRxLostPkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathRxLostPkt.setStatus("deprecated")
+_VcePathTxLostPkt_Type = Counter64
+_VcePathTxLostPkt_Object = MibTableColumn
+vcePathTxLostPkt = _VcePathTxLostPkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 18),
+    _VcePathTxLostPkt_Type()
+)
+vcePathTxLostPkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathTxLostPkt.setStatus("deprecated")
+_VcePathRxPkt_Type = Counter64
+_VcePathRxPkt_Object = MibTableColumn
+vcePathRxPkt = _VcePathRxPkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 19),
+    _VcePathRxPkt_Type()
+)
+vcePathRxPkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathRxPkt.setStatus("current")
+_VcePathTxPkt_Type = Counter64
+_VcePathTxPkt_Object = MibTableColumn
+vcePathTxPkt = _VcePathTxPkt_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 20),
+    _VcePathTxPkt_Type()
+)
+vcePathTxPkt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathTxPkt.setStatus("current")
+_VcePathRxJitter_Type = Counter64
+_VcePathRxJitter_Object = MibTableColumn
+vcePathRxJitter = _VcePathRxJitter_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 21),
+    _VcePathRxJitter_Type()
+)
+vcePathRxJitter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathRxJitter.setStatus("deprecated")
+_VcePathTxJitter_Type = Counter64
+_VcePathTxJitter_Object = MibTableColumn
+vcePathTxJitter = _VcePathTxJitter_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 22),
+    _VcePathTxJitter_Type()
+)
+vcePathTxJitter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathTxJitter.setStatus("deprecated")
+_VcePathRxLostPktGauge_Type = Gauge32
+_VcePathRxLostPktGauge_Object = MibTableColumn
+vcePathRxLostPktGauge = _VcePathRxLostPktGauge_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 23),
+    _VcePathRxLostPktGauge_Type()
+)
+vcePathRxLostPktGauge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathRxLostPktGauge.setStatus("current")
+_VcePathTxLostPktGauge_Type = Gauge32
+_VcePathTxLostPktGauge_Object = MibTableColumn
+vcePathTxLostPktGauge = _VcePathTxLostPktGauge_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 24),
+    _VcePathTxLostPktGauge_Type()
+)
+vcePathTxLostPktGauge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathTxLostPktGauge.setStatus("current")
+_VcePathRxJitterGauge_Type = Gauge32
+_VcePathRxJitterGauge_Object = MibTableColumn
+vcePathRxJitterGauge = _VcePathRxJitterGauge_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 25),
+    _VcePathRxJitterGauge_Type()
+)
+vcePathRxJitterGauge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathRxJitterGauge.setStatus("current")
+_VcePathTxJitterGauge_Type = Gauge32
+_VcePathTxJitterGauge_Object = MibTableColumn
+vcePathTxJitterGauge = _VcePathTxJitterGauge_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 2, 2, 1, 26),
+    _VcePathTxJitterGauge_Type()
+)
+vcePathTxJitterGauge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vcePathTxJitterGauge.setStatus("current")
+_VceARP_ObjectIdentity = ObjectIdentity
+vceARP = _VceARP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5)
+)
+_VceArpObject_ObjectIdentity = ObjectIdentity
+vceArpObject = _VceArpObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2)
+)
+_VceArpNum_Type = Integer32
+_VceArpNum_Object = MibScalar
+vceArpNum = _VceArpNum_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 1),
+    _VceArpNum_Type()
+)
+vceArpNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceArpNum.setStatus("current")
+_VceArpTable_Object = MibTable
+vceArpTable = _VceArpTable_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2)
+)
+if mibBuilder.loadTexts:
+    vceArpTable.setStatus("current")
+_VceArpEntry_Object = MibTableRow
+vceArpEntry = _VceArpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1)
+)
+vceArpEntry.setIndexNames(
+    (0, "VELOCLOUD-EDGE-MIB", "vceArpItf"),
+    (0, "VELOCLOUD-EDGE-MIB", "vceArpIpAddrType"),
+    (0, "VELOCLOUD-EDGE-MIB", "vceArpIpAddr"),
+)
+if mibBuilder.loadTexts:
+    vceArpEntry.setStatus("current")
+_VceArpItf_Type = InterfaceIndex
+_VceArpItf_Object = MibTableColumn
+vceArpItf = _VceArpItf_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 1),
+    _VceArpItf_Type()
+)
+vceArpItf.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vceArpItf.setStatus("current")
+_VceArpIpAddrType_Type = InetAddressType
+_VceArpIpAddrType_Object = MibTableColumn
+vceArpIpAddrType = _VceArpIpAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 2),
+    _VceArpIpAddrType_Type()
+)
+vceArpIpAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vceArpIpAddrType.setStatus("current")
+_VceArpIpAddr_Type = InetAddress
+_VceArpIpAddr_Object = MibTableColumn
+vceArpIpAddr = _VceArpIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 3),
+    _VceArpIpAddr_Type()
+)
+vceArpIpAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vceArpIpAddr.setStatus("current")
+
+
+class _VceArpMac_Type(PhysAddress):
+    """Custom type vceArpMac based on PhysAddress"""
+    subtypeSpec = PhysAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 65535),
+    )
+
+
+_VceArpMac_Type.__name__ = "PhysAddress"
+_VceArpMac_Object = MibTableColumn
+vceArpMac = _VceArpMac_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 4),
+    _VceArpMac_Type()
+)
+vceArpMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceArpMac.setStatus("current")
+_VceArpStag_Type = Integer32
+_VceArpStag_Object = MibTableColumn
+vceArpStag = _VceArpStag_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 5),
+    _VceArpStag_Type()
+)
+vceArpStag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceArpStag.setStatus("current")
+_VceArpCtag_Type = Integer32
+_VceArpCtag_Object = MibTableColumn
+vceArpCtag = _VceArpCtag_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 6),
+    _VceArpCtag_Type()
+)
+vceArpCtag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceArpCtag.setStatus("current")
+_VceArpState_Type = VceArpStateType
+_VceArpState_Object = MibTableColumn
+vceArpState = _VceArpState_Object(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 2, 2, 1, 7),
+    _VceArpState_Type()
+)
+vceArpState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vceArpState.setStatus("current")
+
+# Managed Objects groups
+
+vceHaGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 1, 1)
+)
+vceHaGroup.setObjects(
+      *(("VELOCLOUD-EDGE-MIB", "vceHaAdminState"),
+        ("VELOCLOUD-EDGE-MIB", "vceHaPeerState"),
+        ("VELOCLOUD-EDGE-MIB", "vceHaActiveWanItfNum"),
+        ("VELOCLOUD-EDGE-MIB", "vceHaActiveLanItfNum"),
+        ("VELOCLOUD-EDGE-MIB", "vceHaStanbyWanItfNum"),
+        ("VELOCLOUD-EDGE-MIB", "vceHaStanbyLanItfNum"))
+)
+if mibBuilder.loadTexts:
+    vceHaGroup.setStatus("current")
+
+vceHealthGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 2, 1)
+)
+vceHealthGroup.setObjects(
+      *(("VELOCLOUD-EDGE-MIB", "vceCpuUtilPct5min"),
+        ("VELOCLOUD-EDGE-MIB", "vceCpuUtilPct30sec"),
+        ("VELOCLOUD-EDGE-MIB", "vceMemUsedPct"))
+)
+if mibBuilder.loadTexts:
+    vceHealthGroup.setStatus("current")
+
+vceLinkGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 3, 1)
+)
+vceLinkGroup.setObjects(
+      *(("VELOCLOUD-EDGE-MIB", "vceLinkNum"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkName"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxP1Pkt"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxP1Pkt"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxP1Bytes"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxP1Bytes"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxP2Pkt"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxP2Pkt"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxP2Bytes"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxP2Bytes"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxP3Pkt"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxP3Pkt"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxP3Bytes"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxP3Bytes"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxCtlPkt"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxCtlPkt"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxCtlBytes"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxCtlBytes"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxJitter"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxJitter"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxLatency"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxLatency"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxLostPkt"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxLostPkt"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkPublicIpType"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkPublicIp"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkLocalIpType"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkLocalIp"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkVlanId"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkMtu"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkItf"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkState"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkVeloSvcReachable"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTotTxPkts"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTotRxPkts"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTotTxbytes"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTotRxBytes"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkIf"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkNextHopType"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkNextHop"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxJitterGauge"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxJitterGauge"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxLatencyGauge"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxLatencyGauge"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkTxLostPktGauge"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkRxLostPktGauge"))
+)
+if mibBuilder.loadTexts:
+    vceLinkGroup.setStatus("current")
+
+vcePathGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 4, 1)
+)
+vcePathGroup.setObjects(
+      *(("VELOCLOUD-EDGE-MIB", "vcePathNum"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathIpType"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathIp"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathPeerName"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathState"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathUpTime"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathRxState"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathTxState"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathTunlMode"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathTxAveLatency"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathRxAveLatency"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathRxBytes"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathTxBytes"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathRxLostPkt"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathTxLostPkt"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathRxPkt"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathTxPkt"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathRxJitter"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathTxJitter"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathRxLostPktGauge"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathTxLostPktGauge"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathRxJitterGauge"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathTxJitterGauge"))
+)
+if mibBuilder.loadTexts:
+    vcePathGroup.setStatus("current")
+
+vceArpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 2, 5, 1)
+)
+vceArpGroup.setObjects(
+      *(("VELOCLOUD-EDGE-MIB", "vceArpNum"),
+        ("VELOCLOUD-EDGE-MIB", "vceArpMac"),
+        ("VELOCLOUD-EDGE-MIB", "vceArpStag"),
+        ("VELOCLOUD-EDGE-MIB", "vceArpCtag"),
+        ("VELOCLOUD-EDGE-MIB", "vceArpState"))
+)
+if mibBuilder.loadTexts:
+    vceArpGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+vceCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 45346, 1, 1, 1)
+)
+vceCompliance.setObjects(
+      *(("VELOCLOUD-EDGE-MIB", "vceHaGroup"),
+        ("VELOCLOUD-EDGE-MIB", "vceHealthGroup"),
+        ("VELOCLOUD-EDGE-MIB", "vceLinkGroup"),
+        ("VELOCLOUD-EDGE-MIB", "vcePathGroup"),
+        ("VELOCLOUD-EDGE-MIB", "vceArpGroup"))
+)
+if mibBuilder.loadTexts:
+    vceCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "VELOCLOUD-EDGE-MIB",
+    **{"VceHaAdminStateType": VceHaAdminStateType,
+       "VceHaPeerStateType": VceHaPeerStateType,
+       "VceLinkStateType": VceLinkStateType,
+       "VcePathStateType": VcePathStateType,
+       "VcePathTunlModeType": VcePathTunlModeType,
+       "VceArpStateType": VceArpStateType,
+       "edge": edge,
+       "vceCompliance": vceCompliance,
+       "vceEdgeObject": vceEdgeObject,
+       "vceHA": vceHA,
+       "vceHaGroup": vceHaGroup,
+       "vceHAObject": vceHAObject,
+       "vceHaAdminState": vceHaAdminState,
+       "vceHaPeerState": vceHaPeerState,
+       "vceHaActiveWanItfNum": vceHaActiveWanItfNum,
+       "vceHaActiveLanItfNum": vceHaActiveLanItfNum,
+       "vceHaStanbyWanItfNum": vceHaStanbyWanItfNum,
+       "vceHaStanbyLanItfNum": vceHaStanbyLanItfNum,
+       "vceHealth": vceHealth,
+       "vceHealthGroup": vceHealthGroup,
+       "vceHealthObject": vceHealthObject,
+       "vceCpuUtilPct5min": vceCpuUtilPct5min,
+       "vceCpuUtilPct30sec": vceCpuUtilPct30sec,
+       "vceMemUsedPct": vceMemUsedPct,
+       "vceLink": vceLink,
+       "vceLinkGroup": vceLinkGroup,
+       "vceLinkObject": vceLinkObject,
+       "vceLinkNum": vceLinkNum,
+       "vceLinkTable": vceLinkTable,
+       "vceLinkEntry": vceLinkEntry,
+       "vceLinkIntId": vceLinkIntId,
+       "vceLinkName": vceLinkName,
+       "vceLinkTxP1Pkt": vceLinkTxP1Pkt,
+       "vceLinkRxP1Pkt": vceLinkRxP1Pkt,
+       "vceLinkTxP1Bytes": vceLinkTxP1Bytes,
+       "vceLinkRxP1Bytes": vceLinkRxP1Bytes,
+       "vceLinkTxP2Pkt": vceLinkTxP2Pkt,
+       "vceLinkRxP2Pkt": vceLinkRxP2Pkt,
+       "vceLinkTxP2Bytes": vceLinkTxP2Bytes,
+       "vceLinkRxP2Bytes": vceLinkRxP2Bytes,
+       "vceLinkTxP3Pkt": vceLinkTxP3Pkt,
+       "vceLinkRxP3Pkt": vceLinkRxP3Pkt,
+       "vceLinkTxP3Bytes": vceLinkTxP3Bytes,
+       "vceLinkRxP3Bytes": vceLinkRxP3Bytes,
+       "vceLinkTxCtlPkt": vceLinkTxCtlPkt,
+       "vceLinkRxCtlPkt": vceLinkRxCtlPkt,
+       "vceLinkTxCtlBytes": vceLinkTxCtlBytes,
+       "vceLinkRxCtlBytes": vceLinkRxCtlBytes,
+       "vceLinkTxJitter": vceLinkTxJitter,
+       "vceLinkRxJitter": vceLinkRxJitter,
+       "vceLinkTxLatency": vceLinkTxLatency,
+       "vceLinkRxLatency": vceLinkRxLatency,
+       "vceLinkTxLostPkt": vceLinkTxLostPkt,
+       "vceLinkRxLostPkt": vceLinkRxLostPkt,
+       "vceLinkPublicIpType": vceLinkPublicIpType,
+       "vceLinkPublicIp": vceLinkPublicIp,
+       "vceLinkLocalIpType": vceLinkLocalIpType,
+       "vceLinkLocalIp": vceLinkLocalIp,
+       "vceLinkVlanId": vceLinkVlanId,
+       "vceLinkMtu": vceLinkMtu,
+       "vceLinkItf": vceLinkItf,
+       "vceLinkState": vceLinkState,
+       "vceLinkVeloSvcReachable": vceLinkVeloSvcReachable,
+       "vceLinkTotTxPkts": vceLinkTotTxPkts,
+       "vceLinkTotRxPkts": vceLinkTotRxPkts,
+       "vceLinkTotTxbytes": vceLinkTotTxbytes,
+       "vceLinkTotRxBytes": vceLinkTotRxBytes,
+       "vceLinkIf": vceLinkIf,
+       "vceLinkNextHopType": vceLinkNextHopType,
+       "vceLinkNextHop": vceLinkNextHop,
+       "vceLinkTxJitterGauge": vceLinkTxJitterGauge,
+       "vceLinkRxJitterGauge": vceLinkRxJitterGauge,
+       "vceLinkTxLatencyGauge": vceLinkTxLatencyGauge,
+       "vceLinkRxLatencyGauge": vceLinkRxLatencyGauge,
+       "vceLinkTxLostPktGauge": vceLinkTxLostPktGauge,
+       "vceLinkRxLostPktGauge": vceLinkRxLostPktGauge,
+       "vcePath": vcePath,
+       "vcePathGroup": vcePathGroup,
+       "vcePathObject": vcePathObject,
+       "vcePathNum": vcePathNum,
+       "vcePathTable": vcePathTable,
+       "vcePathEntry": vcePathEntry,
+       "vcePathIfIntId": vcePathIfIntId,
+       "vcePathIpType": vcePathIpType,
+       "vcePathIp": vcePathIp,
+       "vcePathGwAddrType": vcePathGwAddrType,
+       "vcePathGwAddr": vcePathGwAddr,
+       "vcePathPeerName": vcePathPeerName,
+       "vcePathState": vcePathState,
+       "vcePathUpTime": vcePathUpTime,
+       "vcePathRxState": vcePathRxState,
+       "vcePathTxState": vcePathTxState,
+       "vcePathTunlMode": vcePathTunlMode,
+       "vcePathTxAveLatency": vcePathTxAveLatency,
+       "vcePathRxAveLatency": vcePathRxAveLatency,
+       "vcePathRxBytes": vcePathRxBytes,
+       "vcePathTxBytes": vcePathTxBytes,
+       "vcePathRxLostPkt": vcePathRxLostPkt,
+       "vcePathTxLostPkt": vcePathTxLostPkt,
+       "vcePathRxPkt": vcePathRxPkt,
+       "vcePathTxPkt": vcePathTxPkt,
+       "vcePathRxJitter": vcePathRxJitter,
+       "vcePathTxJitter": vcePathTxJitter,
+       "vcePathRxLostPktGauge": vcePathRxLostPktGauge,
+       "vcePathTxLostPktGauge": vcePathTxLostPktGauge,
+       "vcePathRxJitterGauge": vcePathRxJitterGauge,
+       "vcePathTxJitterGauge": vcePathTxJitterGauge,
+       "vceARP": vceARP,
+       "vceArpGroup": vceArpGroup,
+       "vceArpObject": vceArpObject,
+       "vceArpNum": vceArpNum,
+       "vceArpTable": vceArpTable,
+       "vceArpEntry": vceArpEntry,
+       "vceArpItf": vceArpItf,
+       "vceArpIpAddrType": vceArpIpAddrType,
+       "vceArpIpAddr": vceArpIpAddr,
+       "vceArpMac": vceArpMac,
+       "vceArpStag": vceArpStag,
+       "vceArpCtag": vceArpCtag,
+       "vceArpState": vceArpState}
+)

@@ -1,32 +1,212 @@
+# SNMP MIB module (AFFIRMED-SNMP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module AFFIRMED-SNMP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/microsoft/AFFIRMED-SNMP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:05 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/microsoft/AFFIRMED-SNMP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:05:42 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-affirmedSnmp = ModuleIdentity((1, 3, 6, 1, 4, 1, 37963))
-affirmedSnmp.setRevisions(('2011-05-16 00:00',))
-if mibBuilder.loadTexts: affirmedSnmp.setLastUpdated('201105160000Z')
-if mibBuilder.loadTexts: affirmedSnmp.setOrganization('www.affirmednetworks.com')
-affirmedSnmpObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 1))
-affirmedSnmpEnumerations = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 3))
-affirmedSnmpModuleIDs = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 3, 1))
-affirmedSnmpAgentOIDs = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 3, 2))
-affirmedSnmpDomains = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 3, 3))
-affirmedSnmpGeneral = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 10))
-affirmedSnmpExperimental = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 9999))
-affirmedSnmpPlaypen = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 9999, 9999))
-affirmedSnmpNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 4))
-affirmedSnmpNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 4, 0))
-affirmedSnmpNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 4, 1))
-affirmedSnmpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 5))
-affirmedSnmpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 5, 1))
-affirmedSnmpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 37963, 5, 2))
-mibBuilder.exportSymbols("AFFIRMED-SNMP-MIB", affirmedSnmpDomains=affirmedSnmpDomains, affirmedSnmpObjects=affirmedSnmpObjects, affirmedSnmp=affirmedSnmp, affirmedSnmpGeneral=affirmedSnmpGeneral, affirmedSnmpModuleIDs=affirmedSnmpModuleIDs, affirmedSnmpExperimental=affirmedSnmpExperimental, affirmedSnmpCompliances=affirmedSnmpCompliances, PYSNMP_MODULE_ID=affirmedSnmp, affirmedSnmpPlaypen=affirmedSnmpPlaypen, affirmedSnmpNotificationObjects=affirmedSnmpNotificationObjects, affirmedSnmpConformance=affirmedSnmpConformance, affirmedSnmpGroups=affirmedSnmpGroups, affirmedSnmpAgentOIDs=affirmedSnmpAgentOIDs, affirmedSnmpNotifications=affirmedSnmpNotifications, affirmedSnmpNotificationPrefix=affirmedSnmpNotificationPrefix, affirmedSnmpEnumerations=affirmedSnmpEnumerations)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+affirmedSnmp = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 37963)
+)
+if mibBuilder.loadTexts:
+    affirmedSnmp.setRevisions(
+        ("2011-05-16 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AffirmedSnmpObjects_ObjectIdentity = ObjectIdentity
+affirmedSnmpObjects = _AffirmedSnmpObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 1)
+)
+_AffirmedSnmpEnumerations_ObjectIdentity = ObjectIdentity
+affirmedSnmpEnumerations = _AffirmedSnmpEnumerations_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 3)
+)
+_AffirmedSnmpModuleIDs_ObjectIdentity = ObjectIdentity
+affirmedSnmpModuleIDs = _AffirmedSnmpModuleIDs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 3, 1)
+)
+_AffirmedSnmpAgentOIDs_ObjectIdentity = ObjectIdentity
+affirmedSnmpAgentOIDs = _AffirmedSnmpAgentOIDs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 3, 2)
+)
+_AffirmedSnmpDomains_ObjectIdentity = ObjectIdentity
+affirmedSnmpDomains = _AffirmedSnmpDomains_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 3, 3)
+)
+_AffirmedSnmpNotificationPrefix_ObjectIdentity = ObjectIdentity
+affirmedSnmpNotificationPrefix = _AffirmedSnmpNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 4)
+)
+_AffirmedSnmpNotifications_ObjectIdentity = ObjectIdentity
+affirmedSnmpNotifications = _AffirmedSnmpNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 4, 0)
+)
+_AffirmedSnmpNotificationObjects_ObjectIdentity = ObjectIdentity
+affirmedSnmpNotificationObjects = _AffirmedSnmpNotificationObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 4, 1)
+)
+_AffirmedSnmpConformance_ObjectIdentity = ObjectIdentity
+affirmedSnmpConformance = _AffirmedSnmpConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 5)
+)
+_AffirmedSnmpCompliances_ObjectIdentity = ObjectIdentity
+affirmedSnmpCompliances = _AffirmedSnmpCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 5, 1)
+)
+_AffirmedSnmpGroups_ObjectIdentity = ObjectIdentity
+affirmedSnmpGroups = _AffirmedSnmpGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 5, 2)
+)
+_AffirmedSnmpGeneral_ObjectIdentity = ObjectIdentity
+affirmedSnmpGeneral = _AffirmedSnmpGeneral_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 10)
+)
+_AffirmedSnmpExperimental_ObjectIdentity = ObjectIdentity
+affirmedSnmpExperimental = _AffirmedSnmpExperimental_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 9999)
+)
+_AffirmedSnmpPlaypen_ObjectIdentity = ObjectIdentity
+affirmedSnmpPlaypen = _AffirmedSnmpPlaypen_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 37963, 9999, 9999)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "AFFIRMED-SNMP-MIB",
+    **{"affirmedSnmp": affirmedSnmp,
+       "affirmedSnmpObjects": affirmedSnmpObjects,
+       "affirmedSnmpEnumerations": affirmedSnmpEnumerations,
+       "affirmedSnmpModuleIDs": affirmedSnmpModuleIDs,
+       "affirmedSnmpAgentOIDs": affirmedSnmpAgentOIDs,
+       "affirmedSnmpDomains": affirmedSnmpDomains,
+       "affirmedSnmpNotificationPrefix": affirmedSnmpNotificationPrefix,
+       "affirmedSnmpNotifications": affirmedSnmpNotifications,
+       "affirmedSnmpNotificationObjects": affirmedSnmpNotificationObjects,
+       "affirmedSnmpConformance": affirmedSnmpConformance,
+       "affirmedSnmpCompliances": affirmedSnmpCompliances,
+       "affirmedSnmpGroups": affirmedSnmpGroups,
+       "affirmedSnmpGeneral": affirmedSnmpGeneral,
+       "affirmedSnmpExperimental": affirmedSnmpExperimental,
+       "affirmedSnmpPlaypen": affirmedSnmpPlaypen}
+)

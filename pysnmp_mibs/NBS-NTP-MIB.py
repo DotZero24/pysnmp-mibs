@@ -1,30 +1,237 @@
+# SNMP MIB module (NBS-NTP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NBS-NTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/NBS-NTP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:21 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/mrv/NBS-NTP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:04:10 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-nbsCmmcNtpGrp, = mibBuilder.importSymbols("NBS-CMMC-MIB", "nbsCmmcNtpGrp")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nbsNtpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 200, 9, 1))
-if mibBuilder.loadTexts: nbsNtpMib.setLastUpdated('200711210000Z')
-if mibBuilder.loadTexts: nbsNtpMib.setOrganization('NBS')
-nbsNtpEnable = MibScalar((1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("notSupported", 1), ("no", 2), ("yes", 3))).clone('no')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsNtpEnable.setStatus('current')
-nbsNtpServerTableSize = MibScalar((1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsNtpServerTableSize.setStatus('current')
-nbsNtpServerTable = MibTable((1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 3), )
-if mibBuilder.loadTexts: nbsNtpServerTable.setStatus('current')
-nbsNtpServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 3, 1), ).setIndexNames((0, "NBS-NTP-MIB", "nbsNtpServerIpAddr"))
-if mibBuilder.loadTexts: nbsNtpServerEntry.setStatus('current')
-nbsNtpServerIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 3, 1, 1), IpAddress())
-if mibBuilder.loadTexts: nbsNtpServerIpAddr.setStatus('current')
-nbsNtpServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("invalid", 1), ("active", 2))).clone('invalid')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsNtpServerStatus.setStatus('current')
-mibBuilder.exportSymbols("NBS-NTP-MIB", nbsNtpEnable=nbsNtpEnable, nbsNtpServerStatus=nbsNtpServerStatus, nbsNtpServerTableSize=nbsNtpServerTableSize, nbsNtpServerTable=nbsNtpServerTable, nbsNtpServerIpAddr=nbsNtpServerIpAddr, nbsNtpServerEntry=nbsNtpServerEntry, nbsNtpMib=nbsNtpMib, PYSNMP_MODULE_ID=nbsNtpMib)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(nbsCmmcNtpGrp,) = mibBuilder.importSymbols(
+    "NBS-CMMC-MIB",
+    "nbsCmmcNtpGrp")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+nbsNtpMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 200, 9, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+
+class _NbsNtpEnable_Type(Integer32):
+    """Custom type nbsNtpEnable based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notSupported", 1),
+          ("no", 2),
+          ("yes", 3))
+    )
+
+
+_NbsNtpEnable_Type.__name__ = "Integer32"
+_NbsNtpEnable_Object = MibScalar
+nbsNtpEnable = _NbsNtpEnable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 1),
+    _NbsNtpEnable_Type()
+)
+nbsNtpEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsNtpEnable.setStatus("current")
+_NbsNtpServerTableSize_Type = Integer32
+_NbsNtpServerTableSize_Object = MibScalar
+nbsNtpServerTableSize = _NbsNtpServerTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 2),
+    _NbsNtpServerTableSize_Type()
+)
+nbsNtpServerTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsNtpServerTableSize.setStatus("current")
+_NbsNtpServerTable_Object = MibTable
+nbsNtpServerTable = _NbsNtpServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 3)
+)
+if mibBuilder.loadTexts:
+    nbsNtpServerTable.setStatus("current")
+_NbsNtpServerEntry_Object = MibTableRow
+nbsNtpServerEntry = _NbsNtpServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 3, 1)
+)
+nbsNtpServerEntry.setIndexNames(
+    (0, "NBS-NTP-MIB", "nbsNtpServerIpAddr"),
+)
+if mibBuilder.loadTexts:
+    nbsNtpServerEntry.setStatus("current")
+_NbsNtpServerIpAddr_Type = IpAddress
+_NbsNtpServerIpAddr_Object = MibTableColumn
+nbsNtpServerIpAddr = _NbsNtpServerIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 3, 1, 1),
+    _NbsNtpServerIpAddr_Type()
+)
+nbsNtpServerIpAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbsNtpServerIpAddr.setStatus("current")
+
+
+class _NbsNtpServerStatus_Type(Integer32):
+    """Custom type nbsNtpServerStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("invalid", 1),
+          ("active", 2))
+    )
+
+
+_NbsNtpServerStatus_Type.__name__ = "Integer32"
+_NbsNtpServerStatus_Object = MibTableColumn
+nbsNtpServerStatus = _NbsNtpServerStatus_Object(
+    (1, 3, 6, 1, 4, 1, 629, 200, 9, 1, 3, 1, 2),
+    _NbsNtpServerStatus_Type()
+)
+nbsNtpServerStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsNtpServerStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NBS-NTP-MIB",
+    **{"nbsNtpMib": nbsNtpMib,
+       "nbsNtpEnable": nbsNtpEnable,
+       "nbsNtpServerTableSize": nbsNtpServerTableSize,
+       "nbsNtpServerTable": nbsNtpServerTable,
+       "nbsNtpServerEntry": nbsNtpServerEntry,
+       "nbsNtpServerIpAddr": nbsNtpServerIpAddr,
+       "nbsNtpServerStatus": nbsNtpServerStatus}
+)

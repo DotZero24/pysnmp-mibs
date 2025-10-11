@@ -1,77 +1,585 @@
+# SNMP MIB module (RAPID-HA-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RAPID-HA-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/watchguard/RAPID-HA-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:47:28 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/watchguard/RAPID-HA-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:17:34 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rapidstream, = mibBuilder.importSymbols("RAPID-MIB", "rapidstream")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, ModuleIdentity, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "ModuleIdentity", "TimeTicks", "Gauge32")
-DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
-rsInfoModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 4355, 6))
-rsInfoModule.setRevisions(('2002-11-01 12:00',))
-if mibBuilder.loadTexts: rsInfoModule.setLastUpdated('0211011200Z')
-if mibBuilder.loadTexts: rsInfoModule.setOrganization('WatchGuard Technologies, Inc.')
-rsHAMIB = ObjectIdentity((1, 3, 6, 1, 4, 1, 4355, 6, 6))
-if mibBuilder.loadTexts: rsHAMIB.setStatus('current')
-rsHALocal = ObjectIdentity((1, 3, 6, 1, 4, 1, 4355, 6, 6, 1))
-if mibBuilder.loadTexts: rsHALocal.setStatus('current')
-rsHAPeer = ObjectIdentity((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2))
-if mibBuilder.loadTexts: rsHAPeer.setStatus('current')
-rsHAStatus = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).clone(namedValues=NamedValues(("disabled", 0), ("unknown", 1), ("as-primary-active", 2), ("as-secondary-active", 3), ("aa-primary-ative", 4), ("aa-secondary-active", 5), ("aa-primary-takeover", 6), ("aa-secondary-takeover", 7), ("standby", 8), ("admin", 9), ("failed", 10), ("unavailable", 11)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAStatus.setStatus('current')
-rsHAPeerStatus = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("unavailable", 0), ("active", 1), ("standby", 2), ("admin", 3), ("failed", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerStatus.setStatus('current')
-rsHALastDBSyncTime = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 1, 3), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHALastDBSyncTime.setStatus('current')
-rsHAError = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("no-error", 0), ("mismatched-ha-id", 1), ("mismatched-software", 2), ("mismatched-database", 3), ("mismatched-hardware", 4), ("forced-fail", 5), ("invalid-ha-role", 6), ("link-down", 7), ("lost-mia-heartbeat", 8), ("mia-not-responding", 9), ("admin-command-failed", 10), ("detect-ha-error", 11), ("unavailable", 12), ("hotsync-failed", 13), ("config-sync-failed", 14)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAError.setStatus('current')
-rsHAPeerError = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14))).clone(namedValues=NamedValues(("no-error", 0), ("mismatched-ha-id", 1), ("mismatched-software", 2), ("mismatched-database", 3), ("mismatched-hardware", 4), ("forced-fail", 5), ("invalid-ha-role", 6), ("link-down", 7), ("lost-mia-heartbeat", 8), ("mia-not-responding", 9), ("admin-command-failed", 10), ("detect-ha-error", 11), ("unavailable", 12), ("hotsync-failed", 13), ("config-sync-failed", 14)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerError.setStatus('current')
-rsHAPeerSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 1), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSerialNumber.setStatus('current')
-rsHAPeerLastDBSyncTime = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 2), DateAndTime()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerLastDBSyncTime.setStatus('current')
-rsHAPeerDevice = ObjectIdentity((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3))
-if mibBuilder.loadTexts: rsHAPeerDevice.setStatus('current')
-rsHAPeerCounters = ObjectIdentity((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4))
-if mibBuilder.loadTexts: rsHAPeerCounters.setStatus('current')
-rsHAPeerIfNumber = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerIfNumber.setStatus('current')
-rsHAPeerIfTable = MibTable((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 2), )
-if mibBuilder.loadTexts: rsHAPeerIfTable.setStatus('current')
-rsHAPeerIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 2, 1), ).setIndexNames((0, "RAPID-HA-MIB", "rsHAPeerIfIndex"))
-if mibBuilder.loadTexts: rsHAPeerIfEntry.setStatus('current')
-rsHAPeerIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 2, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerIfIndex.setStatus('current')
-rsHAPeerIfIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerIfIpAddr.setStatus('current')
-rsHAPeerIfLinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("down", 0), ("up", 1), ("other", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerIfLinkStatus.setStatus('current')
-rsHAPeerSystemCpuUtil = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSystemCpuUtil.setStatus('current')
-rsHAPeerSystemTotalSendBytes = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSystemTotalSendBytes.setStatus('current')
-rsHAPeerSystemTotalRecvBytes = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSystemTotalRecvBytes.setStatus('current')
-rsHAPeerSystemTotalSendPackets = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSystemTotalSendPackets.setStatus('current')
-rsHAPeerSystemTotalRecvPackets = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSystemTotalRecvPackets.setStatus('current')
-rsHAPeerSystemStreamReqTotal = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSystemStreamReqTotal.setStatus('current')
-rsHAPeerSystemStreamReqDrop = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSystemStreamReqDrop.setStatus('current')
-rsHAPeerSystemCurrIpsecTunnels = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSystemCurrIpsecTunnels.setStatus('current')
-rsHAPeerSystemCpuUtil1 = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 9), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSystemCpuUtil1.setStatus('current')
-rsHAPeerSystemCpuUtil5 = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 10), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSystemCpuUtil5.setStatus('current')
-rsHAPeerSystemCpuUtil15 = MibScalar((1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 11), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rsHAPeerSystemCpuUtil15.setStatus('current')
-mibBuilder.exportSymbols("RAPID-HA-MIB", PYSNMP_MODULE_ID=rsInfoModule, rsHAPeerLastDBSyncTime=rsHAPeerLastDBSyncTime, rsHAPeerSystemTotalSendPackets=rsHAPeerSystemTotalSendPackets, rsHAPeerStatus=rsHAPeerStatus, rsHAPeerDevice=rsHAPeerDevice, rsHAPeerSystemTotalRecvPackets=rsHAPeerSystemTotalRecvPackets, rsHAPeerIfIndex=rsHAPeerIfIndex, rsHAPeerSystemCpuUtil5=rsHAPeerSystemCpuUtil5, rsInfoModule=rsInfoModule, rsHALocal=rsHALocal, rsHAPeerIfNumber=rsHAPeerIfNumber, rsHAError=rsHAError, rsHAPeerSerialNumber=rsHAPeerSerialNumber, rsHAPeerIfLinkStatus=rsHAPeerIfLinkStatus, rsHAPeerSystemCpuUtil15=rsHAPeerSystemCpuUtil15, rsHAStatus=rsHAStatus, rsHAPeerSystemTotalSendBytes=rsHAPeerSystemTotalSendBytes, rsHAPeerCounters=rsHAPeerCounters, rsHAPeerSystemTotalRecvBytes=rsHAPeerSystemTotalRecvBytes, rsHAPeerIfIpAddr=rsHAPeerIfIpAddr, rsHAMIB=rsHAMIB, rsHAPeerSystemCpuUtil=rsHAPeerSystemCpuUtil, rsHAPeer=rsHAPeer, rsHAPeerSystemStreamReqDrop=rsHAPeerSystemStreamReqDrop, rsHAPeerIfEntry=rsHAPeerIfEntry, rsHALastDBSyncTime=rsHALastDBSyncTime, rsHAPeerSystemStreamReqTotal=rsHAPeerSystemStreamReqTotal, rsHAPeerSystemCurrIpsecTunnels=rsHAPeerSystemCurrIpsecTunnels, rsHAPeerIfTable=rsHAPeerIfTable, rsHAPeerSystemCpuUtil1=rsHAPeerSystemCpuUtil1, rsHAPeerError=rsHAPeerError)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rapidstream,) = mibBuilder.importSymbols(
+    "RAPID-MIB",
+    "rapidstream")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+rsInfoModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4355, 6)
+)
+if mibBuilder.loadTexts:
+    rsInfoModule.setRevisions(
+        ("2002-11-01 12:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RsHAMIB_ObjectIdentity = ObjectIdentity
+rsHAMIB = _RsHAMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6)
+)
+if mibBuilder.loadTexts:
+    rsHAMIB.setStatus("current")
+_RsHALocal_ObjectIdentity = ObjectIdentity
+rsHALocal = _RsHALocal_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 1)
+)
+if mibBuilder.loadTexts:
+    rsHALocal.setStatus("current")
+
+
+class _RsHAStatus_Type(Integer32):
+    """Custom type rsHAStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("unknown", 1),
+          ("as-primary-active", 2),
+          ("as-secondary-active", 3),
+          ("aa-primary-ative", 4),
+          ("aa-secondary-active", 5),
+          ("aa-primary-takeover", 6),
+          ("aa-secondary-takeover", 7),
+          ("standby", 8),
+          ("admin", 9),
+          ("failed", 10),
+          ("unavailable", 11))
+    )
+
+
+_RsHAStatus_Type.__name__ = "Integer32"
+_RsHAStatus_Object = MibScalar
+rsHAStatus = _RsHAStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 1, 1),
+    _RsHAStatus_Type()
+)
+rsHAStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAStatus.setStatus("current")
+
+
+class _RsHAPeerStatus_Type(Integer32):
+    """Custom type rsHAPeerStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unavailable", 0),
+          ("active", 1),
+          ("standby", 2),
+          ("admin", 3),
+          ("failed", 4))
+    )
+
+
+_RsHAPeerStatus_Type.__name__ = "Integer32"
+_RsHAPeerStatus_Object = MibScalar
+rsHAPeerStatus = _RsHAPeerStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 1, 2),
+    _RsHAPeerStatus_Type()
+)
+rsHAPeerStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerStatus.setStatus("current")
+_RsHALastDBSyncTime_Type = DateAndTime
+_RsHALastDBSyncTime_Object = MibScalar
+rsHALastDBSyncTime = _RsHALastDBSyncTime_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 1, 3),
+    _RsHALastDBSyncTime_Type()
+)
+rsHALastDBSyncTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHALastDBSyncTime.setStatus("current")
+
+
+class _RsHAError_Type(Integer32):
+    """Custom type rsHAError based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no-error", 0),
+          ("mismatched-ha-id", 1),
+          ("mismatched-software", 2),
+          ("mismatched-database", 3),
+          ("mismatched-hardware", 4),
+          ("forced-fail", 5),
+          ("invalid-ha-role", 6),
+          ("link-down", 7),
+          ("lost-mia-heartbeat", 8),
+          ("mia-not-responding", 9),
+          ("admin-command-failed", 10),
+          ("detect-ha-error", 11),
+          ("unavailable", 12),
+          ("hotsync-failed", 13),
+          ("config-sync-failed", 14))
+    )
+
+
+_RsHAError_Type.__name__ = "Integer32"
+_RsHAError_Object = MibScalar
+rsHAError = _RsHAError_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 1, 4),
+    _RsHAError_Type()
+)
+rsHAError.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAError.setStatus("current")
+
+
+class _RsHAPeerError_Type(Integer32):
+    """Custom type rsHAPeerError based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no-error", 0),
+          ("mismatched-ha-id", 1),
+          ("mismatched-software", 2),
+          ("mismatched-database", 3),
+          ("mismatched-hardware", 4),
+          ("forced-fail", 5),
+          ("invalid-ha-role", 6),
+          ("link-down", 7),
+          ("lost-mia-heartbeat", 8),
+          ("mia-not-responding", 9),
+          ("admin-command-failed", 10),
+          ("detect-ha-error", 11),
+          ("unavailable", 12),
+          ("hotsync-failed", 13),
+          ("config-sync-failed", 14))
+    )
+
+
+_RsHAPeerError_Type.__name__ = "Integer32"
+_RsHAPeerError_Object = MibScalar
+rsHAPeerError = _RsHAPeerError_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 1, 5),
+    _RsHAPeerError_Type()
+)
+rsHAPeerError.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerError.setStatus("current")
+_RsHAPeer_ObjectIdentity = ObjectIdentity
+rsHAPeer = _RsHAPeer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2)
+)
+if mibBuilder.loadTexts:
+    rsHAPeer.setStatus("current")
+_RsHAPeerSerialNumber_Type = OctetString
+_RsHAPeerSerialNumber_Object = MibScalar
+rsHAPeerSerialNumber = _RsHAPeerSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 1),
+    _RsHAPeerSerialNumber_Type()
+)
+rsHAPeerSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSerialNumber.setStatus("current")
+_RsHAPeerLastDBSyncTime_Type = DateAndTime
+_RsHAPeerLastDBSyncTime_Object = MibScalar
+rsHAPeerLastDBSyncTime = _RsHAPeerLastDBSyncTime_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 2),
+    _RsHAPeerLastDBSyncTime_Type()
+)
+rsHAPeerLastDBSyncTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerLastDBSyncTime.setStatus("current")
+_RsHAPeerDevice_ObjectIdentity = ObjectIdentity
+rsHAPeerDevice = _RsHAPeerDevice_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3)
+)
+if mibBuilder.loadTexts:
+    rsHAPeerDevice.setStatus("current")
+_RsHAPeerIfNumber_Type = Unsigned32
+_RsHAPeerIfNumber_Object = MibScalar
+rsHAPeerIfNumber = _RsHAPeerIfNumber_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 1),
+    _RsHAPeerIfNumber_Type()
+)
+rsHAPeerIfNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerIfNumber.setStatus("current")
+_RsHAPeerIfTable_Object = MibTable
+rsHAPeerIfTable = _RsHAPeerIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 2)
+)
+if mibBuilder.loadTexts:
+    rsHAPeerIfTable.setStatus("current")
+_RsHAPeerIfEntry_Object = MibTableRow
+rsHAPeerIfEntry = _RsHAPeerIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 2, 1)
+)
+rsHAPeerIfEntry.setIndexNames(
+    (0, "RAPID-HA-MIB", "rsHAPeerIfIndex"),
+)
+if mibBuilder.loadTexts:
+    rsHAPeerIfEntry.setStatus("current")
+_RsHAPeerIfIndex_Type = Unsigned32
+_RsHAPeerIfIndex_Object = MibTableColumn
+rsHAPeerIfIndex = _RsHAPeerIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 2, 1, 1),
+    _RsHAPeerIfIndex_Type()
+)
+rsHAPeerIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerIfIndex.setStatus("current")
+_RsHAPeerIfIpAddr_Type = IpAddress
+_RsHAPeerIfIpAddr_Object = MibTableColumn
+rsHAPeerIfIpAddr = _RsHAPeerIfIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 2, 1, 4),
+    _RsHAPeerIfIpAddr_Type()
+)
+rsHAPeerIfIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerIfIpAddr.setStatus("current")
+
+
+class _RsHAPeerIfLinkStatus_Type(Integer32):
+    """Custom type rsHAPeerIfLinkStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 0),
+          ("up", 1),
+          ("other", 2))
+    )
+
+
+_RsHAPeerIfLinkStatus_Type.__name__ = "Integer32"
+_RsHAPeerIfLinkStatus_Object = MibTableColumn
+rsHAPeerIfLinkStatus = _RsHAPeerIfLinkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 3, 2, 1, 9),
+    _RsHAPeerIfLinkStatus_Type()
+)
+rsHAPeerIfLinkStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerIfLinkStatus.setStatus("current")
+_RsHAPeerCounters_ObjectIdentity = ObjectIdentity
+rsHAPeerCounters = _RsHAPeerCounters_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4)
+)
+if mibBuilder.loadTexts:
+    rsHAPeerCounters.setStatus("current")
+_RsHAPeerSystemCpuUtil_Type = Gauge32
+_RsHAPeerSystemCpuUtil_Object = MibScalar
+rsHAPeerSystemCpuUtil = _RsHAPeerSystemCpuUtil_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 1),
+    _RsHAPeerSystemCpuUtil_Type()
+)
+rsHAPeerSystemCpuUtil.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSystemCpuUtil.setStatus("current")
+_RsHAPeerSystemTotalSendBytes_Type = Counter64
+_RsHAPeerSystemTotalSendBytes_Object = MibScalar
+rsHAPeerSystemTotalSendBytes = _RsHAPeerSystemTotalSendBytes_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 2),
+    _RsHAPeerSystemTotalSendBytes_Type()
+)
+rsHAPeerSystemTotalSendBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSystemTotalSendBytes.setStatus("current")
+_RsHAPeerSystemTotalRecvBytes_Type = Counter64
+_RsHAPeerSystemTotalRecvBytes_Object = MibScalar
+rsHAPeerSystemTotalRecvBytes = _RsHAPeerSystemTotalRecvBytes_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 3),
+    _RsHAPeerSystemTotalRecvBytes_Type()
+)
+rsHAPeerSystemTotalRecvBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSystemTotalRecvBytes.setStatus("current")
+_RsHAPeerSystemTotalSendPackets_Type = Counter64
+_RsHAPeerSystemTotalSendPackets_Object = MibScalar
+rsHAPeerSystemTotalSendPackets = _RsHAPeerSystemTotalSendPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 4),
+    _RsHAPeerSystemTotalSendPackets_Type()
+)
+rsHAPeerSystemTotalSendPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSystemTotalSendPackets.setStatus("current")
+_RsHAPeerSystemTotalRecvPackets_Type = Counter64
+_RsHAPeerSystemTotalRecvPackets_Object = MibScalar
+rsHAPeerSystemTotalRecvPackets = _RsHAPeerSystemTotalRecvPackets_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 5),
+    _RsHAPeerSystemTotalRecvPackets_Type()
+)
+rsHAPeerSystemTotalRecvPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSystemTotalRecvPackets.setStatus("current")
+_RsHAPeerSystemStreamReqTotal_Type = Counter64
+_RsHAPeerSystemStreamReqTotal_Object = MibScalar
+rsHAPeerSystemStreamReqTotal = _RsHAPeerSystemStreamReqTotal_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 6),
+    _RsHAPeerSystemStreamReqTotal_Type()
+)
+rsHAPeerSystemStreamReqTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSystemStreamReqTotal.setStatus("current")
+_RsHAPeerSystemStreamReqDrop_Type = Counter64
+_RsHAPeerSystemStreamReqDrop_Object = MibScalar
+rsHAPeerSystemStreamReqDrop = _RsHAPeerSystemStreamReqDrop_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 7),
+    _RsHAPeerSystemStreamReqDrop_Type()
+)
+rsHAPeerSystemStreamReqDrop.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSystemStreamReqDrop.setStatus("current")
+_RsHAPeerSystemCurrIpsecTunnels_Type = Counter64
+_RsHAPeerSystemCurrIpsecTunnels_Object = MibScalar
+rsHAPeerSystemCurrIpsecTunnels = _RsHAPeerSystemCurrIpsecTunnels_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 8),
+    _RsHAPeerSystemCurrIpsecTunnels_Type()
+)
+rsHAPeerSystemCurrIpsecTunnels.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSystemCurrIpsecTunnels.setStatus("current")
+_RsHAPeerSystemCpuUtil1_Type = Gauge32
+_RsHAPeerSystemCpuUtil1_Object = MibScalar
+rsHAPeerSystemCpuUtil1 = _RsHAPeerSystemCpuUtil1_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 9),
+    _RsHAPeerSystemCpuUtil1_Type()
+)
+rsHAPeerSystemCpuUtil1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSystemCpuUtil1.setStatus("current")
+_RsHAPeerSystemCpuUtil5_Type = Gauge32
+_RsHAPeerSystemCpuUtil5_Object = MibScalar
+rsHAPeerSystemCpuUtil5 = _RsHAPeerSystemCpuUtil5_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 10),
+    _RsHAPeerSystemCpuUtil5_Type()
+)
+rsHAPeerSystemCpuUtil5.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSystemCpuUtil5.setStatus("current")
+_RsHAPeerSystemCpuUtil15_Type = Gauge32
+_RsHAPeerSystemCpuUtil15_Object = MibScalar
+rsHAPeerSystemCpuUtil15 = _RsHAPeerSystemCpuUtil15_Object(
+    (1, 3, 6, 1, 4, 1, 4355, 6, 6, 2, 4, 11),
+    _RsHAPeerSystemCpuUtil15_Type()
+)
+rsHAPeerSystemCpuUtil15.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rsHAPeerSystemCpuUtil15.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RAPID-HA-MIB",
+    **{"rsInfoModule": rsInfoModule,
+       "rsHAMIB": rsHAMIB,
+       "rsHALocal": rsHALocal,
+       "rsHAStatus": rsHAStatus,
+       "rsHAPeerStatus": rsHAPeerStatus,
+       "rsHALastDBSyncTime": rsHALastDBSyncTime,
+       "rsHAError": rsHAError,
+       "rsHAPeerError": rsHAPeerError,
+       "rsHAPeer": rsHAPeer,
+       "rsHAPeerSerialNumber": rsHAPeerSerialNumber,
+       "rsHAPeerLastDBSyncTime": rsHAPeerLastDBSyncTime,
+       "rsHAPeerDevice": rsHAPeerDevice,
+       "rsHAPeerIfNumber": rsHAPeerIfNumber,
+       "rsHAPeerIfTable": rsHAPeerIfTable,
+       "rsHAPeerIfEntry": rsHAPeerIfEntry,
+       "rsHAPeerIfIndex": rsHAPeerIfIndex,
+       "rsHAPeerIfIpAddr": rsHAPeerIfIpAddr,
+       "rsHAPeerIfLinkStatus": rsHAPeerIfLinkStatus,
+       "rsHAPeerCounters": rsHAPeerCounters,
+       "rsHAPeerSystemCpuUtil": rsHAPeerSystemCpuUtil,
+       "rsHAPeerSystemTotalSendBytes": rsHAPeerSystemTotalSendBytes,
+       "rsHAPeerSystemTotalRecvBytes": rsHAPeerSystemTotalRecvBytes,
+       "rsHAPeerSystemTotalSendPackets": rsHAPeerSystemTotalSendPackets,
+       "rsHAPeerSystemTotalRecvPackets": rsHAPeerSystemTotalRecvPackets,
+       "rsHAPeerSystemStreamReqTotal": rsHAPeerSystemStreamReqTotal,
+       "rsHAPeerSystemStreamReqDrop": rsHAPeerSystemStreamReqDrop,
+       "rsHAPeerSystemCurrIpsecTunnels": rsHAPeerSystemCurrIpsecTunnels,
+       "rsHAPeerSystemCpuUtil1": rsHAPeerSystemCpuUtil1,
+       "rsHAPeerSystemCpuUtil5": rsHAPeerSystemCpuUtil5,
+       "rsHAPeerSystemCpuUtil15": rsHAPeerSystemCpuUtil15}
+)

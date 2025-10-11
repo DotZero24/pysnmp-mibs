@@ -1,90 +1,712 @@
+# SNMP MIB module (DDM-MGMT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DDM-MGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DDM-MGMT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:25 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/DDM-MGMT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:52:28 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-swDdmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 72))
-if mibBuilder.loadTexts: swDdmMIB.setLastUpdated('1203200000Z')
-if mibBuilder.loadTexts: swDdmMIB.setOrganization('D-Link Corp.')
-swDdmCtrl = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 72, 1))
-swDdmInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 72, 2))
-swDdmMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 72, 3))
-swDdmNotify = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 72, 4))
-swDdmTrapState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 72, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swDdmTrapState.setStatus('current')
-swDdmLogState = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 72, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swDdmLogState.setStatus('current')
-swDdmPowerUnit = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 72, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("mw", 1), ("dbm", 2))).clone('mw')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swDdmPowerUnit.setStatus('current')
-swDdmStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1))
-swDdmStatusTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1), )
-if mibBuilder.loadTexts: swDdmStatusTable.setStatus('current')
-swDdmStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1), ).setIndexNames((0, "DDM-MGMT-MIB", "swDdmPort"))
-if mibBuilder.loadTexts: swDdmStatusEntry.setStatus('current')
-swDdmPort = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swDdmPort.setStatus('current')
-swDdmTemperature = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swDdmTemperature.setStatus('current')
-swDdmVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swDdmVoltage.setStatus('current')
-swDdmBiasCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swDdmBiasCurrent.setStatus('current')
-swDdmTxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swDdmTxPower.setStatus('current')
-swDdmRxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swDdmRxPower.setStatus('current')
-swDdmThresholdMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1))
-swDdmActionMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2))
-swDdmThresholdMgmtTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1), )
-if mibBuilder.loadTexts: swDdmThresholdMgmtTable.setStatus('current')
-swDdmThresholdMgmtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1), ).setIndexNames((0, "DDM-MGMT-MIB", "swDdmPort"), (0, "DDM-MGMT-MIB", "swDdmThresholdType"))
-if mibBuilder.loadTexts: swDdmThresholdMgmtEntry.setStatus('current')
-swDdmThresholdType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("temperature", 1), ("voltage", 2), ("bias", 3), ("txPower", 4), ("rxPower", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swDdmThresholdType.setStatus('current')
-swDdmHighAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swDdmHighAlarm.setStatus('current')
-swDdmLowAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swDdmLowAlarm.setStatus('current')
-swDdmHighWarning = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swDdmHighWarning.setStatus('current')
-swDdmLowWarning = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1, 5), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swDdmLowWarning.setStatus('current')
-swDdmActionMgmtTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 1), )
-if mibBuilder.loadTexts: swDdmActionMgmtTable.setStatus('obsolete')
-swDdmActionMgmtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 1, 1), ).setIndexNames((0, "DDM-MGMT-MIB", "swDdmPort"), (0, "DDM-MGMT-MIB", "swDdmActionType"))
-if mibBuilder.loadTexts: swDdmActionMgmtEntry.setStatus('obsolete')
-swDdmActionType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("alarm", 1), ("warning", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swDdmActionType.setStatus('obsolete')
-swDdmShutdown = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("other", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swDdmShutdown.setStatus('obsolete')
-swDdmTrapAndLog = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2), ("other", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swDdmTrapAndLog.setStatus('obsolete')
-swDdmPortMgmtTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 2), )
-if mibBuilder.loadTexts: swDdmPortMgmtTable.setStatus('current')
-swDdmPortMgmtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 2, 1), ).setIndexNames((0, "DDM-MGMT-MIB", "swDdmPort"))
-if mibBuilder.loadTexts: swDdmPortMgmtEntry.setStatus('current')
-swDdmPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swDdmPortState.setStatus('current')
-swDdmPortShutdown = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("alarm", 1), ("warning", 2), ("none", 3), ("other", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: swDdmPortShutdown.setStatus('current')
-swDdmNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 0))
-swDdmNotificationBinding = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 1))
-swDdmAlarmTrap = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 0, 1)).setObjects(("DDM-MGMT-MIB", "swDdmPort"), ("DDM-MGMT-MIB", "swDdmThresholdType"), ("DDM-MGMT-MIB", "swDdmThresholdExceedType"), ("DDM-MGMT-MIB", "swDdmThresholdExceedOrRecover"))
-if mibBuilder.loadTexts: swDdmAlarmTrap.setStatus('current')
-swDdmWarningTrap = NotificationType((1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 0, 2)).setObjects(("DDM-MGMT-MIB", "swDdmPort"), ("DDM-MGMT-MIB", "swDdmThresholdType"), ("DDM-MGMT-MIB", "swDdmThresholdExceedType"), ("DDM-MGMT-MIB", "swDdmThresholdExceedOrRecover"))
-if mibBuilder.loadTexts: swDdmWarningTrap.setStatus('current')
-swDdmThresholdExceedType = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("high", 1), ("low", 2)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: swDdmThresholdExceedType.setStatus('current')
-swDdmThresholdExceedOrRecover = MibScalar((1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("exceed", 1), ("recover", 2)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: swDdmThresholdExceedOrRecover.setStatus('current')
-mibBuilder.exportSymbols("DDM-MGMT-MIB", swDdmPort=swDdmPort, swDdmRxPower=swDdmRxPower, swDdmLowWarning=swDdmLowWarning, swDdmTrapState=swDdmTrapState, swDdmLogState=swDdmLogState, swDdmStatusTable=swDdmStatusTable, swDdmActionMgmtTable=swDdmActionMgmtTable, swDdmThresholdExceedType=swDdmThresholdExceedType, swDdmTxPower=swDdmTxPower, PYSNMP_MODULE_ID=swDdmMIB, swDdmNotifyPrefix=swDdmNotifyPrefix, swDdmActionMgmt=swDdmActionMgmt, swDdmThresholdMgmt=swDdmThresholdMgmt, swDdmThresholdMgmtTable=swDdmThresholdMgmtTable, swDdmHighAlarm=swDdmHighAlarm, swDdmPortShutdown=swDdmPortShutdown, swDdmNotify=swDdmNotify, swDdmWarningTrap=swDdmWarningTrap, swDdmTrapAndLog=swDdmTrapAndLog, swDdmHighWarning=swDdmHighWarning, swDdmPortMgmtEntry=swDdmPortMgmtEntry, swDdmBiasCurrent=swDdmBiasCurrent, swDdmPortMgmtTable=swDdmPortMgmtTable, swDdmPowerUnit=swDdmPowerUnit, swDdmStatus=swDdmStatus, swDdmMIB=swDdmMIB, swDdmTemperature=swDdmTemperature, swDdmShutdown=swDdmShutdown, swDdmNotificationBinding=swDdmNotificationBinding, swDdmLowAlarm=swDdmLowAlarm, swDdmStatusEntry=swDdmStatusEntry, swDdmAlarmTrap=swDdmAlarmTrap, swDdmThresholdType=swDdmThresholdType, swDdmCtrl=swDdmCtrl, swDdmThresholdMgmtEntry=swDdmThresholdMgmtEntry, swDdmActionType=swDdmActionType, swDdmMgmt=swDdmMgmt, swDdmInfo=swDdmInfo, swDdmActionMgmtEntry=swDdmActionMgmtEntry, swDdmPortState=swDdmPortState, swDdmThresholdExceedOrRecover=swDdmThresholdExceedOrRecover, swDdmVoltage=swDdmVoltage)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_common_mgmt,) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-common-mgmt")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+swDdmMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SwDdmCtrl_ObjectIdentity = ObjectIdentity
+swDdmCtrl = _SwDdmCtrl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 1)
+)
+
+
+class _SwDdmTrapState_Type(Integer32):
+    """Custom type swDdmTrapState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwDdmTrapState_Type.__name__ = "Integer32"
+_SwDdmTrapState_Object = MibScalar
+swDdmTrapState = _SwDdmTrapState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 1, 1),
+    _SwDdmTrapState_Type()
+)
+swDdmTrapState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swDdmTrapState.setStatus("current")
+
+
+class _SwDdmLogState_Type(Integer32):
+    """Custom type swDdmLogState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwDdmLogState_Type.__name__ = "Integer32"
+_SwDdmLogState_Object = MibScalar
+swDdmLogState = _SwDdmLogState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 1, 2),
+    _SwDdmLogState_Type()
+)
+swDdmLogState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swDdmLogState.setStatus("current")
+
+
+class _SwDdmPowerUnit_Type(Integer32):
+    """Custom type swDdmPowerUnit based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("mw", 1),
+          ("dbm", 2))
+    )
+
+
+_SwDdmPowerUnit_Type.__name__ = "Integer32"
+_SwDdmPowerUnit_Object = MibScalar
+swDdmPowerUnit = _SwDdmPowerUnit_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 1, 3),
+    _SwDdmPowerUnit_Type()
+)
+swDdmPowerUnit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swDdmPowerUnit.setStatus("current")
+_SwDdmInfo_ObjectIdentity = ObjectIdentity
+swDdmInfo = _SwDdmInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 2)
+)
+_SwDdmStatus_ObjectIdentity = ObjectIdentity
+swDdmStatus = _SwDdmStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1)
+)
+_SwDdmStatusTable_Object = MibTable
+swDdmStatusTable = _SwDdmStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    swDdmStatusTable.setStatus("current")
+_SwDdmStatusEntry_Object = MibTableRow
+swDdmStatusEntry = _SwDdmStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1)
+)
+swDdmStatusEntry.setIndexNames(
+    (0, "DDM-MGMT-MIB", "swDdmPort"),
+)
+if mibBuilder.loadTexts:
+    swDdmStatusEntry.setStatus("current")
+
+
+class _SwDdmPort_Type(Integer32):
+    """Custom type swDdmPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SwDdmPort_Type.__name__ = "Integer32"
+_SwDdmPort_Object = MibTableColumn
+swDdmPort = _SwDdmPort_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 1),
+    _SwDdmPort_Type()
+)
+swDdmPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swDdmPort.setStatus("current")
+_SwDdmTemperature_Type = DisplayString
+_SwDdmTemperature_Object = MibTableColumn
+swDdmTemperature = _SwDdmTemperature_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 2),
+    _SwDdmTemperature_Type()
+)
+swDdmTemperature.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swDdmTemperature.setStatus("current")
+_SwDdmVoltage_Type = DisplayString
+_SwDdmVoltage_Object = MibTableColumn
+swDdmVoltage = _SwDdmVoltage_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 3),
+    _SwDdmVoltage_Type()
+)
+swDdmVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swDdmVoltage.setStatus("current")
+_SwDdmBiasCurrent_Type = DisplayString
+_SwDdmBiasCurrent_Object = MibTableColumn
+swDdmBiasCurrent = _SwDdmBiasCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 4),
+    _SwDdmBiasCurrent_Type()
+)
+swDdmBiasCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swDdmBiasCurrent.setStatus("current")
+_SwDdmTxPower_Type = DisplayString
+_SwDdmTxPower_Object = MibTableColumn
+swDdmTxPower = _SwDdmTxPower_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 5),
+    _SwDdmTxPower_Type()
+)
+swDdmTxPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swDdmTxPower.setStatus("current")
+_SwDdmRxPower_Type = DisplayString
+_SwDdmRxPower_Object = MibTableColumn
+swDdmRxPower = _SwDdmRxPower_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 2, 1, 1, 1, 6),
+    _SwDdmRxPower_Type()
+)
+swDdmRxPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swDdmRxPower.setStatus("current")
+_SwDdmMgmt_ObjectIdentity = ObjectIdentity
+swDdmMgmt = _SwDdmMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3)
+)
+_SwDdmThresholdMgmt_ObjectIdentity = ObjectIdentity
+swDdmThresholdMgmt = _SwDdmThresholdMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1)
+)
+_SwDdmThresholdMgmtTable_Object = MibTable
+swDdmThresholdMgmtTable = _SwDdmThresholdMgmtTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    swDdmThresholdMgmtTable.setStatus("current")
+_SwDdmThresholdMgmtEntry_Object = MibTableRow
+swDdmThresholdMgmtEntry = _SwDdmThresholdMgmtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1)
+)
+swDdmThresholdMgmtEntry.setIndexNames(
+    (0, "DDM-MGMT-MIB", "swDdmPort"),
+    (0, "DDM-MGMT-MIB", "swDdmThresholdType"),
+)
+if mibBuilder.loadTexts:
+    swDdmThresholdMgmtEntry.setStatus("current")
+
+
+class _SwDdmThresholdType_Type(Integer32):
+    """Custom type swDdmThresholdType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("temperature", 1),
+          ("voltage", 2),
+          ("bias", 3),
+          ("txPower", 4),
+          ("rxPower", 5))
+    )
+
+
+_SwDdmThresholdType_Type.__name__ = "Integer32"
+_SwDdmThresholdType_Object = MibTableColumn
+swDdmThresholdType = _SwDdmThresholdType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1, 1),
+    _SwDdmThresholdType_Type()
+)
+swDdmThresholdType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swDdmThresholdType.setStatus("current")
+_SwDdmHighAlarm_Type = DisplayString
+_SwDdmHighAlarm_Object = MibTableColumn
+swDdmHighAlarm = _SwDdmHighAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1, 2),
+    _SwDdmHighAlarm_Type()
+)
+swDdmHighAlarm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swDdmHighAlarm.setStatus("current")
+_SwDdmLowAlarm_Type = DisplayString
+_SwDdmLowAlarm_Object = MibTableColumn
+swDdmLowAlarm = _SwDdmLowAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1, 3),
+    _SwDdmLowAlarm_Type()
+)
+swDdmLowAlarm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swDdmLowAlarm.setStatus("current")
+_SwDdmHighWarning_Type = DisplayString
+_SwDdmHighWarning_Object = MibTableColumn
+swDdmHighWarning = _SwDdmHighWarning_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1, 4),
+    _SwDdmHighWarning_Type()
+)
+swDdmHighWarning.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swDdmHighWarning.setStatus("current")
+_SwDdmLowWarning_Type = DisplayString
+_SwDdmLowWarning_Object = MibTableColumn
+swDdmLowWarning = _SwDdmLowWarning_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 1, 1, 1, 5),
+    _SwDdmLowWarning_Type()
+)
+swDdmLowWarning.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swDdmLowWarning.setStatus("current")
+_SwDdmActionMgmt_ObjectIdentity = ObjectIdentity
+swDdmActionMgmt = _SwDdmActionMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2)
+)
+_SwDdmActionMgmtTable_Object = MibTable
+swDdmActionMgmtTable = _SwDdmActionMgmtTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 1)
+)
+if mibBuilder.loadTexts:
+    swDdmActionMgmtTable.setStatus("obsolete")
+_SwDdmActionMgmtEntry_Object = MibTableRow
+swDdmActionMgmtEntry = _SwDdmActionMgmtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 1, 1)
+)
+swDdmActionMgmtEntry.setIndexNames(
+    (0, "DDM-MGMT-MIB", "swDdmPort"),
+    (0, "DDM-MGMT-MIB", "swDdmActionType"),
+)
+if mibBuilder.loadTexts:
+    swDdmActionMgmtEntry.setStatus("obsolete")
+
+
+class _SwDdmActionType_Type(Integer32):
+    """Custom type swDdmActionType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alarm", 1),
+          ("warning", 2))
+    )
+
+
+_SwDdmActionType_Type.__name__ = "Integer32"
+_SwDdmActionType_Object = MibTableColumn
+swDdmActionType = _SwDdmActionType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 1, 1, 1),
+    _SwDdmActionType_Type()
+)
+swDdmActionType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swDdmActionType.setStatus("obsolete")
+
+
+class _SwDdmShutdown_Type(Integer32):
+    """Custom type swDdmShutdown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2),
+          ("other", 3))
+    )
+
+
+_SwDdmShutdown_Type.__name__ = "Integer32"
+_SwDdmShutdown_Object = MibTableColumn
+swDdmShutdown = _SwDdmShutdown_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 1, 1, 2),
+    _SwDdmShutdown_Type()
+)
+swDdmShutdown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swDdmShutdown.setStatus("obsolete")
+
+
+class _SwDdmTrapAndLog_Type(Integer32):
+    """Custom type swDdmTrapAndLog based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2),
+          ("other", 3))
+    )
+
+
+_SwDdmTrapAndLog_Type.__name__ = "Integer32"
+_SwDdmTrapAndLog_Object = MibTableColumn
+swDdmTrapAndLog = _SwDdmTrapAndLog_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 1, 1, 3),
+    _SwDdmTrapAndLog_Type()
+)
+swDdmTrapAndLog.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swDdmTrapAndLog.setStatus("obsolete")
+_SwDdmPortMgmtTable_Object = MibTable
+swDdmPortMgmtTable = _SwDdmPortMgmtTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 2)
+)
+if mibBuilder.loadTexts:
+    swDdmPortMgmtTable.setStatus("current")
+_SwDdmPortMgmtEntry_Object = MibTableRow
+swDdmPortMgmtEntry = _SwDdmPortMgmtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 2, 1)
+)
+swDdmPortMgmtEntry.setIndexNames(
+    (0, "DDM-MGMT-MIB", "swDdmPort"),
+)
+if mibBuilder.loadTexts:
+    swDdmPortMgmtEntry.setStatus("current")
+
+
+class _SwDdmPortState_Type(Integer32):
+    """Custom type swDdmPortState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_SwDdmPortState_Type.__name__ = "Integer32"
+_SwDdmPortState_Object = MibTableColumn
+swDdmPortState = _SwDdmPortState_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 2, 1, 1),
+    _SwDdmPortState_Type()
+)
+swDdmPortState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swDdmPortState.setStatus("current")
+
+
+class _SwDdmPortShutdown_Type(Integer32):
+    """Custom type swDdmPortShutdown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("alarm", 1),
+          ("warning", 2),
+          ("none", 3),
+          ("other", 4))
+    )
+
+
+_SwDdmPortShutdown_Type.__name__ = "Integer32"
+_SwDdmPortShutdown_Object = MibTableColumn
+swDdmPortShutdown = _SwDdmPortShutdown_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 3, 2, 2, 1, 2),
+    _SwDdmPortShutdown_Type()
+)
+swDdmPortShutdown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    swDdmPortShutdown.setStatus("current")
+_SwDdmNotify_ObjectIdentity = ObjectIdentity
+swDdmNotify = _SwDdmNotify_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 4)
+)
+_SwDdmNotifyPrefix_ObjectIdentity = ObjectIdentity
+swDdmNotifyPrefix = _SwDdmNotifyPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 0)
+)
+_SwDdmNotificationBinding_ObjectIdentity = ObjectIdentity
+swDdmNotificationBinding = _SwDdmNotificationBinding_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 1)
+)
+
+
+class _SwDdmThresholdExceedType_Type(Integer32):
+    """Custom type swDdmThresholdExceedType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("high", 1),
+          ("low", 2))
+    )
+
+
+_SwDdmThresholdExceedType_Type.__name__ = "Integer32"
+_SwDdmThresholdExceedType_Object = MibScalar
+swDdmThresholdExceedType = _SwDdmThresholdExceedType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 1, 1),
+    _SwDdmThresholdExceedType_Type()
+)
+swDdmThresholdExceedType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    swDdmThresholdExceedType.setStatus("current")
+
+
+class _SwDdmThresholdExceedOrRecover_Type(Integer32):
+    """Custom type swDdmThresholdExceedOrRecover based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("exceed", 1),
+          ("recover", 2))
+    )
+
+
+_SwDdmThresholdExceedOrRecover_Type.__name__ = "Integer32"
+_SwDdmThresholdExceedOrRecover_Object = MibScalar
+swDdmThresholdExceedOrRecover = _SwDdmThresholdExceedOrRecover_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 1, 2),
+    _SwDdmThresholdExceedOrRecover_Type()
+)
+swDdmThresholdExceedOrRecover.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    swDdmThresholdExceedOrRecover.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+swDdmAlarmTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 0, 1)
+)
+swDdmAlarmTrap.setObjects(
+      *(("DDM-MGMT-MIB", "swDdmPort"),
+        ("DDM-MGMT-MIB", "swDdmThresholdType"),
+        ("DDM-MGMT-MIB", "swDdmThresholdExceedType"),
+        ("DDM-MGMT-MIB", "swDdmThresholdExceedOrRecover"))
+)
+if mibBuilder.loadTexts:
+    swDdmAlarmTrap.setStatus(
+        "current"
+    )
+
+swDdmWarningTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 171, 12, 72, 4, 0, 2)
+)
+swDdmWarningTrap.setObjects(
+      *(("DDM-MGMT-MIB", "swDdmPort"),
+        ("DDM-MGMT-MIB", "swDdmThresholdType"),
+        ("DDM-MGMT-MIB", "swDdmThresholdExceedType"),
+        ("DDM-MGMT-MIB", "swDdmThresholdExceedOrRecover"))
+)
+if mibBuilder.loadTexts:
+    swDdmWarningTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DDM-MGMT-MIB",
+    **{"swDdmMIB": swDdmMIB,
+       "swDdmCtrl": swDdmCtrl,
+       "swDdmTrapState": swDdmTrapState,
+       "swDdmLogState": swDdmLogState,
+       "swDdmPowerUnit": swDdmPowerUnit,
+       "swDdmInfo": swDdmInfo,
+       "swDdmStatus": swDdmStatus,
+       "swDdmStatusTable": swDdmStatusTable,
+       "swDdmStatusEntry": swDdmStatusEntry,
+       "swDdmPort": swDdmPort,
+       "swDdmTemperature": swDdmTemperature,
+       "swDdmVoltage": swDdmVoltage,
+       "swDdmBiasCurrent": swDdmBiasCurrent,
+       "swDdmTxPower": swDdmTxPower,
+       "swDdmRxPower": swDdmRxPower,
+       "swDdmMgmt": swDdmMgmt,
+       "swDdmThresholdMgmt": swDdmThresholdMgmt,
+       "swDdmThresholdMgmtTable": swDdmThresholdMgmtTable,
+       "swDdmThresholdMgmtEntry": swDdmThresholdMgmtEntry,
+       "swDdmThresholdType": swDdmThresholdType,
+       "swDdmHighAlarm": swDdmHighAlarm,
+       "swDdmLowAlarm": swDdmLowAlarm,
+       "swDdmHighWarning": swDdmHighWarning,
+       "swDdmLowWarning": swDdmLowWarning,
+       "swDdmActionMgmt": swDdmActionMgmt,
+       "swDdmActionMgmtTable": swDdmActionMgmtTable,
+       "swDdmActionMgmtEntry": swDdmActionMgmtEntry,
+       "swDdmActionType": swDdmActionType,
+       "swDdmShutdown": swDdmShutdown,
+       "swDdmTrapAndLog": swDdmTrapAndLog,
+       "swDdmPortMgmtTable": swDdmPortMgmtTable,
+       "swDdmPortMgmtEntry": swDdmPortMgmtEntry,
+       "swDdmPortState": swDdmPortState,
+       "swDdmPortShutdown": swDdmPortShutdown,
+       "swDdmNotify": swDdmNotify,
+       "swDdmNotifyPrefix": swDdmNotifyPrefix,
+       "swDdmAlarmTrap": swDdmAlarmTrap,
+       "swDdmWarningTrap": swDdmWarningTrap,
+       "swDdmNotificationBinding": swDdmNotificationBinding,
+       "swDdmThresholdExceedType": swDdmThresholdExceedType,
+       "swDdmThresholdExceedOrRecover": swDdmThresholdExceedOrRecover}
+)

@@ -1,192 +1,1038 @@
+# SNMP MIB module (ADTRAN-SHARED-CND-SYSTEM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ADTRAN-SHARED-CND-SYSTEM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-SHARED-CND-SYSTEM-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:41 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/adtran/ADTRAN-SHARED-CND-SYSTEM-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:33:46 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-adShared, adComplianceShared, adIdentityShared = mibBuilder.importSymbols("ADTRAN-MIB", "adShared", "adComplianceShared", "adIdentityShared")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-adGenCndSystemIdentity = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70))
-adGenCndSystemIdentity.setRevisions(('2017-12-15 00:00', '2015-04-15 00:00', '2014-10-13 00:00', '2013-12-16 00:00', '2013-09-30 00:00', '2013-09-04 00:00', '2013-06-03 00:00', '2013-05-23 00:00', '2012-05-02 00:00', '2012-04-04 00:00', '2012-02-29 00:00', '2012-02-08 00:00', '2011-12-28 00:00', '2011-10-26 00:00', '2011-10-10 00:00', '2011-09-30 00:00', '2011-09-20 00:00', '2011-09-10 00:00', '2011-05-23 00:00', '2011-04-11 00:00', '2011-03-29 00:00', '2011-03-17 00:00', '2011-03-09 00:00', '2010-04-13 00:00', '2010-02-22 00:00', '2008-05-01 00:00',))
-if mibBuilder.loadTexts: adGenCndSystemIdentity.setLastUpdated('201712150000Z')
-if mibBuilder.loadTexts: adGenCndSystemIdentity.setOrganization('Adtran, Inc.')
-adGenCndSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70))
-adGenCndSystemCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70))
-adGenSystemProduct = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 1))
-adGenSystemProductID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 1))
-adGenSystemProductCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 1))
-adGenEthernetDslamFlow = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 2))
-adGenEthernetDslamFlowID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 2))
-adGenEthernetDslamFlowCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 2))
-adGenIPTV = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 3))
-adGenIPTVID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 3))
-adGenIPTVCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 3))
-adGenPluggablePort = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 4))
-adGenPluggablePortID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 4))
-adGenPluggablePortCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 4))
-adGenNtp = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 5))
-adGenNtpID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 5))
-adGenNtpCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 5))
-adGenSystemProductMg = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 6))
-adGenIf = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 7))
-adGenIfID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 7))
-adGenIfCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 7))
-adGenMac = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 8))
-adGenMacID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 8))
-adGenMacCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 8))
-adGenEgressQueue = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 9))
-adGenEgressQueueID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 9))
-adGenEgressQueueCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 9))
-adGenEVC = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 10))
-adGenEVCID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 10))
-adGenEVCCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 10))
-adGenIGMPCache = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 11))
-adGenIGMPCacheID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 11))
-adGenIGMPCacheCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 11))
-adGenSubtendedHost = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 12))
-adGenSubtendedHostID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 12))
-adGenSubtendedHostCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 12))
-adGenSystemTiming = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 13))
-adGenSystemTimingID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 13))
-adGenSystemTimingCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 13))
-adGenSystemTC = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 14))
-adGenSystemTCID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 14))
-adGenSystemTCCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 14))
-adGenEthIfc = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 15))
-adGenEthIfcID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 15))
-adGenEthIfcCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 15))
-adGenIGMP = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 16))
-adGenIGMPID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 16))
-adGenIGMPCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 16))
-adGen802dot1x = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 17))
-adGen802dot1xID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 17))
-adGen802dot1xCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 17))
-adGenIpHost = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 18))
-adGenIpHostID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 18))
-adGenIpHostCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 18))
-adGenShaper = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 19))
-adGenShaperID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 19))
-adGenShaperCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 19))
-adGenVoip = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 20))
-adGenVoipID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 20))
-adGenVoipCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 20))
-adGenSip = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 21))
-adGenSipID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 21))
-adGenSipCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 21))
-adGenProcesses = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 22))
-adGenProcessesID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 22))
-adGenProcessesCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 22))
-adGenPerformanceMonitoring = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 23))
-adGenPerformanceMonitoringID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 23))
-adGenPerformanceMonitoringCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 23))
-adGenEZProv = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 24))
-adGenEZProvID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 24))
-adGenEZProvCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 24))
-adGenSonet = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 25))
-adGenSonetID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 25))
-adGenSonetCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 25))
-adGenMuxPonder = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 26))
-adGenMuxPonderID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 26))
-adGenMuxPonderCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 26))
-adGenMEVC = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 27))
-adGenMEVCID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 27))
-adGenMEVCCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 27))
-adGenEVCMap = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 28))
-adGenEVCMapID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 28))
-adGenEVCMapCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 28))
-adGenFrameRelay = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 29))
-adGenFrameRelayID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 29))
-adGenFrameRelayCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 29))
-adGenPseudowireCEMMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 30))
-adGenPseudowireCEMMgmtID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 30))
-adGenPseudowireCEMMgmtCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 30))
-adGenIPTVR2 = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 31))
-adGenIPTVR2ID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 31))
-adGenIPTVR2Compliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 31))
-adGenPacketTiming = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 32))
-adGenPacketTimingID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 32))
-adGenPacketTimingCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 32))
-adGenRemoteDownload = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 33))
-adGenRemoteDownloadID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 33))
-adGenRemoteDownloadCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 33))
-adGenMuxponderQoS = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 34))
-adGenMuxponderQoSID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 34))
-adGenMuxponderQoSCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 34))
-adGenPolicer = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 35))
-adGenPolicerID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 35))
-adGenPolicerCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 35))
-adGenMEgressQueue = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 36))
-adGenMEgressQueueID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 36))
-adGenMEgressQueueCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 36))
-adGenSysMgmtFac = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 37))
-adGenSysMgmtFacID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 37))
-adGenSysMgmtFacCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 37))
-adGenFxo = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 38))
-adGenFxoID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 38))
-adGenFxoCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 38))
-adGenVlan = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 39))
-adGenVlanID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 39))
-adGenOpticalCarrier = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 40))
-adGenOpticalCarrierID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 40))
-adGenOpticalCarrierCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 40))
-adGenOpticalAmplifier = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 41))
-adGenOpticalAmplifierID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 41))
-adGenOpticalAmplifierIDCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 41))
-adGenOpticalDCM = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 42))
-adGenOpticalDCMID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 42))
-adGenOpticalDCMIDCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 42))
-adGenOpticalADM = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 43))
-adGenOpticalADMID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 43))
-adGenOpticalADMCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 43))
-adGenOtn = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 44))
-adGenOtnID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 44))
-adGenOtnCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 44))
-adGenPhysicalPeer = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 45))
-adGenPhysicalPeerID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 45))
-adGenPhysicalPeerCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 45))
-adGenLldp = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 46))
-adGenLldpID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 46))
-adGenLldpCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 46))
-adGenPeerAdjacency = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 47))
-adGenPeerAdjacencyID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 47))
-adGenPeerAdjacencyCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 47))
-adGenAtm = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 48))
-adGenAtmID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 48))
-adGenAtmCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 48))
-adGenRFC2544 = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 49))
-adGenRFC2544ID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 49))
-adGenEthLbk = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 50))
-adGenEthLbkID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 50))
-adGenFibreChannel = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 51))
-adGenFibreChannelID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 51))
-adGenOneProtGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 52))
-adGenOneProtGroupID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 52))
-adGenOneProtGroupCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 52))
-adGenDynamicCounter = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 53))
-adGenDynamicCounterID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 53))
-adGenMgcp = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 54))
-adGenMgcpID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 54))
-adGenMgcpCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 54))
-adGenRadiusAuth = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 55))
-adGenRadiusAuthID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 55))
-adGenRadiusAuthCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 55))
-adGenVoiceUserMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 56))
-adGenVoiceUserMgmtID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 56))
-adGenVoiceUserMgmtCompliance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 56))
-adGenVector = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 57))
-adGenVectorID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 57))
-adAOEControlledFeature = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 58))
-adAOEControlledFeatureID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 58))
-adGenAutoConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 59))
-adGenAutoConfigID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 59))
-adGenLag = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 60))
-adGenLagID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 60))
-adGenMonitorSession = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 70, 61))
-adGenMonitorSessionID = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 61))
-mibBuilder.exportSymbols("ADTRAN-SHARED-CND-SYSTEM-MIB", adGenIf=adGenIf, adGenSonet=adGenSonet, adGenMuxponderQoSID=adGenMuxponderQoSID, adGenLldp=adGenLldp, adGenEZProvID=adGenEZProvID, adGenIGMPCacheCompliance=adGenIGMPCacheCompliance, adGenVlanID=adGenVlanID, adGenEVCID=adGenEVCID, adGenPerformanceMonitoringID=adGenPerformanceMonitoringID, adGenPseudowireCEMMgmt=adGenPseudowireCEMMgmt, adGenRemoteDownloadCompliance=adGenRemoteDownloadCompliance, adGenPluggablePort=adGenPluggablePort, adAOEControlledFeatureID=adAOEControlledFeatureID, adGenIPTVR2=adGenIPTVR2, adGenSystemProductID=adGenSystemProductID, adGenPeerAdjacencyID=adGenPeerAdjacencyID, adGenOtn=adGenOtn, adGenPluggablePortID=adGenPluggablePortID, adGenIPTVR2ID=adGenIPTVR2ID, adGenPolicer=adGenPolicer, adGenEVCMap=adGenEVCMap, adGenIGMPCacheID=adGenIGMPCacheID, adGenIPTV=adGenIPTV, adGenFxo=adGenFxo, adGenMEgressQueue=adGenMEgressQueue, adGenPacketTimingID=adGenPacketTimingID, adGenEgressQueueCompliance=adGenEgressQueueCompliance, adAOEControlledFeature=adAOEControlledFeature, adGenMuxponderQoSCompliance=adGenMuxponderQoSCompliance, adGenOpticalADMID=adGenOpticalADMID, adGenFibreChannelID=adGenFibreChannelID, adGenRadiusAuthCompliance=adGenRadiusAuthCompliance, adGenOpticalADMCompliance=adGenOpticalADMCompliance, adGenEthLbk=adGenEthLbk, adGenLag=adGenLag, adGenMuxPonderCompliance=adGenMuxPonderCompliance, adGenEgressQueueID=adGenEgressQueueID, adGenRadiusAuthID=adGenRadiusAuthID, adGenOpticalAmplifierID=adGenOpticalAmplifierID, adGenFibreChannel=adGenFibreChannel, adGenPhysicalPeerID=adGenPhysicalPeerID, adGenEthernetDslamFlowID=adGenEthernetDslamFlowID, adGenPacketTimingCompliance=adGenPacketTimingCompliance, adGenPeerAdjacency=adGenPeerAdjacency, adGenLagID=adGenLagID, adGenIPTVR2Compliance=adGenIPTVR2Compliance, adGenSysMgmtFacCompliance=adGenSysMgmtFacCompliance, adGenSysMgmtFacID=adGenSysMgmtFacID, adGenDynamicCounter=adGenDynamicCounter, adGenSystemProductCompliance=adGenSystemProductCompliance, adGenPluggablePortCompliance=adGenPluggablePortCompliance, adGenMuxPonderID=adGenMuxPonderID, PYSNMP_MODULE_ID=adGenCndSystemIdentity, adGenOneProtGroupCompliance=adGenOneProtGroupCompliance, adGenMonitorSessionID=adGenMonitorSessionID, adGenSystemTimingCompliance=adGenSystemTimingCompliance, adGenVoip=adGenVoip, adGenMacCompliance=adGenMacCompliance, adGenNtp=adGenNtp, adGenNtpCompliance=adGenNtpCompliance, adGenOpticalAmplifierIDCompliance=adGenOpticalAmplifierIDCompliance, adGenEthIfcID=adGenEthIfcID, adGenVoipID=adGenVoipID, adGenSip=adGenSip, adGenIpHostCompliance=adGenIpHostCompliance, adGenMEVC=adGenMEVC, adGenLldpID=adGenLldpID, adGenSystemProduct=adGenSystemProduct, adGenOpticalCarrierCompliance=adGenOpticalCarrierCompliance, adGenAutoConfig=adGenAutoConfig, adGenSystemTiming=adGenSystemTiming, adGenPerformanceMonitoring=adGenPerformanceMonitoring, adGenMEVCID=adGenMEVCID, adGenFrameRelayCompliance=adGenFrameRelayCompliance, adGenEVC=adGenEVC, adGenAutoConfigID=adGenAutoConfigID, adGenRFC2544=adGenRFC2544, adGenEthIfcCompliance=adGenEthIfcCompliance, adGenPolicerID=adGenPolicerID, adGenEVCMapCompliance=adGenEVCMapCompliance, adGenSystemProductMg=adGenSystemProductMg, adGenEVCCompliance=adGenEVCCompliance, adGenSystemTCCompliance=adGenSystemTCCompliance, adGenOpticalADM=adGenOpticalADM, adGenIfID=adGenIfID, adGenRFC2544ID=adGenRFC2544ID, adGenAtmID=adGenAtmID, adGenMgcpCompliance=adGenMgcpCompliance, adGenMEgressQueueCompliance=adGenMEgressQueueCompliance, adGenSysMgmtFac=adGenSysMgmtFac, adGenPerformanceMonitoringCompliance=adGenPerformanceMonitoringCompliance, adGenIGMP=adGenIGMP, adGenAtmCompliance=adGenAtmCompliance, adGenMgcpID=adGenMgcpID, adGenSipCompliance=adGenSipCompliance, adGenPseudowireCEMMgmtID=adGenPseudowireCEMMgmtID, adGenMonitorSession=adGenMonitorSession, adGenPeerAdjacencyCompliance=adGenPeerAdjacencyCompliance, adGenMEgressQueueID=adGenMEgressQueueID, adGenIpHostID=adGenIpHostID, adGenVoipCompliance=adGenVoipCompliance, adGenEZProvCompliance=adGenEZProvCompliance, adGenPseudowireCEMMgmtCompliance=adGenPseudowireCEMMgmtCompliance, adGen802dot1xID=adGen802dot1xID, adGenSonetCompliance=adGenSonetCompliance, adGenSubtendedHost=adGenSubtendedHost, adGenRemoteDownload=adGenRemoteDownload, adGenEthLbkID=adGenEthLbkID, adGenVoiceUserMgmt=adGenVoiceUserMgmt, adGenOneProtGroupID=adGenOneProtGroupID, adGenFrameRelayID=adGenFrameRelayID, adGenPhysicalPeerCompliance=adGenPhysicalPeerCompliance, adGenOpticalDCMID=adGenOpticalDCMID, adGenIfCompliance=adGenIfCompliance, adGenAtm=adGenAtm, adGenOpticalCarrierID=adGenOpticalCarrierID, adGenVoiceUserMgmtCompliance=adGenVoiceUserMgmtCompliance, adGenFxoID=adGenFxoID, adGenProcessesCompliance=adGenProcessesCompliance, adGenSystemTimingID=adGenSystemTimingID, adGenPacketTiming=adGenPacketTiming, adGenEthernetDslamFlow=adGenEthernetDslamFlow, adGenVectorID=adGenVectorID, adGenOtnCompliance=adGenOtnCompliance, adGenOtnID=adGenOtnID, adGenProcesses=adGenProcesses, adGenPolicerCompliance=adGenPolicerCompliance, adGenEZProv=adGenEZProv, adGenShaperCompliance=adGenShaperCompliance, adGenShaperID=adGenShaperID, adGenSonetID=adGenSonetID, adGenSubtendedHostID=adGenSubtendedHostID, adGenFrameRelay=adGenFrameRelay, adGenLldpCompliance=adGenLldpCompliance, adGenRadiusAuth=adGenRadiusAuth, adGen802dot1xCompliance=adGen802dot1xCompliance, adGenIGMPID=adGenIGMPID, adGenMac=adGenMac, adGenVlan=adGenVlan, adGenSipID=adGenSipID, adGenEthIfc=adGenEthIfc, adGen802dot1x=adGen802dot1x, adGenOpticalAmplifier=adGenOpticalAmplifier, adGenIGMPCompliance=adGenIGMPCompliance, adGenPhysicalPeer=adGenPhysicalPeer, adGenMacID=adGenMacID, adGenSubtendedHostCompliance=adGenSubtendedHostCompliance, adGenEgressQueue=adGenEgressQueue, adGenOneProtGroup=adGenOneProtGroup, adGenShaper=adGenShaper, adGenCndSystem=adGenCndSystem, adGenOpticalDCM=adGenOpticalDCM, adGenMuxponderQoS=adGenMuxponderQoS, adGenIPTVCompliance=adGenIPTVCompliance, adGenProcessesID=adGenProcessesID, adGenCndSystemIdentity=adGenCndSystemIdentity, adGenMEVCCompliance=adGenMEVCCompliance, adGenDynamicCounterID=adGenDynamicCounterID, adGenIGMPCache=adGenIGMPCache, adGenMgcp=adGenMgcp, adGenEVCMapID=adGenEVCMapID, adGenMuxPonder=adGenMuxPonder, adGenSystemTCID=adGenSystemTCID, adGenNtpID=adGenNtpID, adGenEthernetDslamFlowCompliance=adGenEthernetDslamFlowCompliance, adGenRemoteDownloadID=adGenRemoteDownloadID, adGenCndSystemCompliance=adGenCndSystemCompliance, adGenOpticalDCMIDCompliance=adGenOpticalDCMIDCompliance, adGenIpHost=adGenIpHost, adGenVector=adGenVector, adGenOpticalCarrier=adGenOpticalCarrier, adGenSystemTC=adGenSystemTC, adGenFxoCompliance=adGenFxoCompliance, adGenIPTVID=adGenIPTVID, adGenVoiceUserMgmtID=adGenVoiceUserMgmtID)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(adComplianceShared,
+ adIdentityShared,
+ adShared) = mibBuilder.importSymbols(
+    "ADTRAN-MIB",
+    "adComplianceShared",
+    "adIdentityShared",
+    "adShared")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+adGenCndSystemIdentity = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70)
+)
+if mibBuilder.loadTexts:
+    adGenCndSystemIdentity.setRevisions(
+        ("2017-12-15 00:00",
+         "2015-04-15 00:00",
+         "2014-10-13 00:00",
+         "2013-12-16 00:00",
+         "2013-09-30 00:00",
+         "2013-09-04 00:00",
+         "2013-06-03 00:00",
+         "2013-05-23 00:00",
+         "2012-05-02 00:00",
+         "2012-04-04 00:00",
+         "2012-02-29 00:00",
+         "2012-02-08 00:00",
+         "2011-12-28 00:00",
+         "2011-10-26 00:00",
+         "2011-10-10 00:00",
+         "2011-09-30 00:00",
+         "2011-09-20 00:00",
+         "2011-09-10 00:00",
+         "2011-05-23 00:00",
+         "2011-04-11 00:00",
+         "2011-03-29 00:00",
+         "2011-03-17 00:00",
+         "2011-03-09 00:00",
+         "2010-04-13 00:00",
+         "2010-02-22 00:00",
+         "2008-05-01 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AdGenCndSystem_ObjectIdentity = ObjectIdentity
+adGenCndSystem = _AdGenCndSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70)
+)
+_AdGenSystemProduct_ObjectIdentity = ObjectIdentity
+adGenSystemProduct = _AdGenSystemProduct_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 1)
+)
+_AdGenEthernetDslamFlow_ObjectIdentity = ObjectIdentity
+adGenEthernetDslamFlow = _AdGenEthernetDslamFlow_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 2)
+)
+_AdGenIPTV_ObjectIdentity = ObjectIdentity
+adGenIPTV = _AdGenIPTV_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 3)
+)
+_AdGenPluggablePort_ObjectIdentity = ObjectIdentity
+adGenPluggablePort = _AdGenPluggablePort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 4)
+)
+_AdGenNtp_ObjectIdentity = ObjectIdentity
+adGenNtp = _AdGenNtp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 5)
+)
+_AdGenSystemProductMg_ObjectIdentity = ObjectIdentity
+adGenSystemProductMg = _AdGenSystemProductMg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 6)
+)
+_AdGenIf_ObjectIdentity = ObjectIdentity
+adGenIf = _AdGenIf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 7)
+)
+_AdGenMac_ObjectIdentity = ObjectIdentity
+adGenMac = _AdGenMac_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 8)
+)
+_AdGenEgressQueue_ObjectIdentity = ObjectIdentity
+adGenEgressQueue = _AdGenEgressQueue_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 9)
+)
+_AdGenEVC_ObjectIdentity = ObjectIdentity
+adGenEVC = _AdGenEVC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 10)
+)
+_AdGenIGMPCache_ObjectIdentity = ObjectIdentity
+adGenIGMPCache = _AdGenIGMPCache_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 11)
+)
+_AdGenSubtendedHost_ObjectIdentity = ObjectIdentity
+adGenSubtendedHost = _AdGenSubtendedHost_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 12)
+)
+_AdGenSystemTiming_ObjectIdentity = ObjectIdentity
+adGenSystemTiming = _AdGenSystemTiming_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 13)
+)
+_AdGenSystemTC_ObjectIdentity = ObjectIdentity
+adGenSystemTC = _AdGenSystemTC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 14)
+)
+_AdGenEthIfc_ObjectIdentity = ObjectIdentity
+adGenEthIfc = _AdGenEthIfc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 15)
+)
+_AdGenIGMP_ObjectIdentity = ObjectIdentity
+adGenIGMP = _AdGenIGMP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 16)
+)
+_AdGen802dot1x_ObjectIdentity = ObjectIdentity
+adGen802dot1x = _AdGen802dot1x_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 17)
+)
+_AdGenIpHost_ObjectIdentity = ObjectIdentity
+adGenIpHost = _AdGenIpHost_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 18)
+)
+_AdGenShaper_ObjectIdentity = ObjectIdentity
+adGenShaper = _AdGenShaper_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 19)
+)
+_AdGenVoip_ObjectIdentity = ObjectIdentity
+adGenVoip = _AdGenVoip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 20)
+)
+_AdGenSip_ObjectIdentity = ObjectIdentity
+adGenSip = _AdGenSip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 21)
+)
+_AdGenProcesses_ObjectIdentity = ObjectIdentity
+adGenProcesses = _AdGenProcesses_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 22)
+)
+_AdGenPerformanceMonitoring_ObjectIdentity = ObjectIdentity
+adGenPerformanceMonitoring = _AdGenPerformanceMonitoring_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 23)
+)
+_AdGenEZProv_ObjectIdentity = ObjectIdentity
+adGenEZProv = _AdGenEZProv_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 24)
+)
+_AdGenSonet_ObjectIdentity = ObjectIdentity
+adGenSonet = _AdGenSonet_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 25)
+)
+_AdGenMuxPonder_ObjectIdentity = ObjectIdentity
+adGenMuxPonder = _AdGenMuxPonder_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 26)
+)
+_AdGenMEVC_ObjectIdentity = ObjectIdentity
+adGenMEVC = _AdGenMEVC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 27)
+)
+_AdGenEVCMap_ObjectIdentity = ObjectIdentity
+adGenEVCMap = _AdGenEVCMap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 28)
+)
+_AdGenFrameRelay_ObjectIdentity = ObjectIdentity
+adGenFrameRelay = _AdGenFrameRelay_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 29)
+)
+_AdGenPseudowireCEMMgmt_ObjectIdentity = ObjectIdentity
+adGenPseudowireCEMMgmt = _AdGenPseudowireCEMMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 30)
+)
+_AdGenIPTVR2_ObjectIdentity = ObjectIdentity
+adGenIPTVR2 = _AdGenIPTVR2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 31)
+)
+_AdGenPacketTiming_ObjectIdentity = ObjectIdentity
+adGenPacketTiming = _AdGenPacketTiming_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 32)
+)
+_AdGenRemoteDownload_ObjectIdentity = ObjectIdentity
+adGenRemoteDownload = _AdGenRemoteDownload_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 33)
+)
+_AdGenMuxponderQoS_ObjectIdentity = ObjectIdentity
+adGenMuxponderQoS = _AdGenMuxponderQoS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 34)
+)
+_AdGenPolicer_ObjectIdentity = ObjectIdentity
+adGenPolicer = _AdGenPolicer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 35)
+)
+_AdGenMEgressQueue_ObjectIdentity = ObjectIdentity
+adGenMEgressQueue = _AdGenMEgressQueue_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 36)
+)
+_AdGenSysMgmtFac_ObjectIdentity = ObjectIdentity
+adGenSysMgmtFac = _AdGenSysMgmtFac_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 37)
+)
+_AdGenFxo_ObjectIdentity = ObjectIdentity
+adGenFxo = _AdGenFxo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 38)
+)
+_AdGenVlan_ObjectIdentity = ObjectIdentity
+adGenVlan = _AdGenVlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 39)
+)
+_AdGenOpticalCarrier_ObjectIdentity = ObjectIdentity
+adGenOpticalCarrier = _AdGenOpticalCarrier_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 40)
+)
+_AdGenOpticalAmplifier_ObjectIdentity = ObjectIdentity
+adGenOpticalAmplifier = _AdGenOpticalAmplifier_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 41)
+)
+_AdGenOpticalDCM_ObjectIdentity = ObjectIdentity
+adGenOpticalDCM = _AdGenOpticalDCM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 42)
+)
+_AdGenOpticalADM_ObjectIdentity = ObjectIdentity
+adGenOpticalADM = _AdGenOpticalADM_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 43)
+)
+_AdGenOtn_ObjectIdentity = ObjectIdentity
+adGenOtn = _AdGenOtn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 44)
+)
+_AdGenPhysicalPeer_ObjectIdentity = ObjectIdentity
+adGenPhysicalPeer = _AdGenPhysicalPeer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 45)
+)
+_AdGenLldp_ObjectIdentity = ObjectIdentity
+adGenLldp = _AdGenLldp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 46)
+)
+_AdGenPeerAdjacency_ObjectIdentity = ObjectIdentity
+adGenPeerAdjacency = _AdGenPeerAdjacency_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 47)
+)
+_AdGenAtm_ObjectIdentity = ObjectIdentity
+adGenAtm = _AdGenAtm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 48)
+)
+_AdGenRFC2544_ObjectIdentity = ObjectIdentity
+adGenRFC2544 = _AdGenRFC2544_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 49)
+)
+_AdGenEthLbk_ObjectIdentity = ObjectIdentity
+adGenEthLbk = _AdGenEthLbk_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 50)
+)
+_AdGenFibreChannel_ObjectIdentity = ObjectIdentity
+adGenFibreChannel = _AdGenFibreChannel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 51)
+)
+_AdGenOneProtGroup_ObjectIdentity = ObjectIdentity
+adGenOneProtGroup = _AdGenOneProtGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 52)
+)
+_AdGenDynamicCounter_ObjectIdentity = ObjectIdentity
+adGenDynamicCounter = _AdGenDynamicCounter_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 53)
+)
+_AdGenMgcp_ObjectIdentity = ObjectIdentity
+adGenMgcp = _AdGenMgcp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 54)
+)
+_AdGenRadiusAuth_ObjectIdentity = ObjectIdentity
+adGenRadiusAuth = _AdGenRadiusAuth_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 55)
+)
+_AdGenVoiceUserMgmt_ObjectIdentity = ObjectIdentity
+adGenVoiceUserMgmt = _AdGenVoiceUserMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 56)
+)
+_AdGenVector_ObjectIdentity = ObjectIdentity
+adGenVector = _AdGenVector_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 57)
+)
+_AdAOEControlledFeature_ObjectIdentity = ObjectIdentity
+adAOEControlledFeature = _AdAOEControlledFeature_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 58)
+)
+_AdGenAutoConfig_ObjectIdentity = ObjectIdentity
+adGenAutoConfig = _AdGenAutoConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 59)
+)
+_AdGenLag_ObjectIdentity = ObjectIdentity
+adGenLag = _AdGenLag_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 60)
+)
+_AdGenMonitorSession_ObjectIdentity = ObjectIdentity
+adGenMonitorSession = _AdGenMonitorSession_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 70, 61)
+)
+_AdGenSystemProductID_ObjectIdentity = ObjectIdentity
+adGenSystemProductID = _AdGenSystemProductID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 1)
+)
+_AdGenEthernetDslamFlowID_ObjectIdentity = ObjectIdentity
+adGenEthernetDslamFlowID = _AdGenEthernetDslamFlowID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 2)
+)
+_AdGenIPTVID_ObjectIdentity = ObjectIdentity
+adGenIPTVID = _AdGenIPTVID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 3)
+)
+_AdGenPluggablePortID_ObjectIdentity = ObjectIdentity
+adGenPluggablePortID = _AdGenPluggablePortID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 4)
+)
+_AdGenNtpID_ObjectIdentity = ObjectIdentity
+adGenNtpID = _AdGenNtpID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 5)
+)
+_AdGenIfID_ObjectIdentity = ObjectIdentity
+adGenIfID = _AdGenIfID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 7)
+)
+_AdGenMacID_ObjectIdentity = ObjectIdentity
+adGenMacID = _AdGenMacID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 8)
+)
+_AdGenEgressQueueID_ObjectIdentity = ObjectIdentity
+adGenEgressQueueID = _AdGenEgressQueueID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 9)
+)
+_AdGenEVCID_ObjectIdentity = ObjectIdentity
+adGenEVCID = _AdGenEVCID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 10)
+)
+_AdGenIGMPCacheID_ObjectIdentity = ObjectIdentity
+adGenIGMPCacheID = _AdGenIGMPCacheID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 11)
+)
+_AdGenSubtendedHostID_ObjectIdentity = ObjectIdentity
+adGenSubtendedHostID = _AdGenSubtendedHostID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 12)
+)
+_AdGenSystemTimingID_ObjectIdentity = ObjectIdentity
+adGenSystemTimingID = _AdGenSystemTimingID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 13)
+)
+_AdGenSystemTCID_ObjectIdentity = ObjectIdentity
+adGenSystemTCID = _AdGenSystemTCID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 14)
+)
+_AdGenEthIfcID_ObjectIdentity = ObjectIdentity
+adGenEthIfcID = _AdGenEthIfcID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 15)
+)
+_AdGenIGMPID_ObjectIdentity = ObjectIdentity
+adGenIGMPID = _AdGenIGMPID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 16)
+)
+_AdGen802dot1xID_ObjectIdentity = ObjectIdentity
+adGen802dot1xID = _AdGen802dot1xID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 17)
+)
+_AdGenIpHostID_ObjectIdentity = ObjectIdentity
+adGenIpHostID = _AdGenIpHostID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 18)
+)
+_AdGenShaperID_ObjectIdentity = ObjectIdentity
+adGenShaperID = _AdGenShaperID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 19)
+)
+_AdGenVoipID_ObjectIdentity = ObjectIdentity
+adGenVoipID = _AdGenVoipID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 20)
+)
+_AdGenSipID_ObjectIdentity = ObjectIdentity
+adGenSipID = _AdGenSipID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 21)
+)
+_AdGenProcessesID_ObjectIdentity = ObjectIdentity
+adGenProcessesID = _AdGenProcessesID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 22)
+)
+_AdGenPerformanceMonitoringID_ObjectIdentity = ObjectIdentity
+adGenPerformanceMonitoringID = _AdGenPerformanceMonitoringID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 23)
+)
+_AdGenEZProvID_ObjectIdentity = ObjectIdentity
+adGenEZProvID = _AdGenEZProvID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 24)
+)
+_AdGenSonetID_ObjectIdentity = ObjectIdentity
+adGenSonetID = _AdGenSonetID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 25)
+)
+_AdGenMuxPonderID_ObjectIdentity = ObjectIdentity
+adGenMuxPonderID = _AdGenMuxPonderID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 26)
+)
+_AdGenMEVCID_ObjectIdentity = ObjectIdentity
+adGenMEVCID = _AdGenMEVCID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 27)
+)
+_AdGenEVCMapID_ObjectIdentity = ObjectIdentity
+adGenEVCMapID = _AdGenEVCMapID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 28)
+)
+_AdGenFrameRelayID_ObjectIdentity = ObjectIdentity
+adGenFrameRelayID = _AdGenFrameRelayID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 29)
+)
+_AdGenPseudowireCEMMgmtID_ObjectIdentity = ObjectIdentity
+adGenPseudowireCEMMgmtID = _AdGenPseudowireCEMMgmtID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 30)
+)
+_AdGenIPTVR2ID_ObjectIdentity = ObjectIdentity
+adGenIPTVR2ID = _AdGenIPTVR2ID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 31)
+)
+_AdGenPacketTimingID_ObjectIdentity = ObjectIdentity
+adGenPacketTimingID = _AdGenPacketTimingID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 32)
+)
+_AdGenRemoteDownloadID_ObjectIdentity = ObjectIdentity
+adGenRemoteDownloadID = _AdGenRemoteDownloadID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 33)
+)
+_AdGenMuxponderQoSID_ObjectIdentity = ObjectIdentity
+adGenMuxponderQoSID = _AdGenMuxponderQoSID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 34)
+)
+_AdGenPolicerID_ObjectIdentity = ObjectIdentity
+adGenPolicerID = _AdGenPolicerID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 35)
+)
+_AdGenMEgressQueueID_ObjectIdentity = ObjectIdentity
+adGenMEgressQueueID = _AdGenMEgressQueueID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 36)
+)
+_AdGenSysMgmtFacID_ObjectIdentity = ObjectIdentity
+adGenSysMgmtFacID = _AdGenSysMgmtFacID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 37)
+)
+_AdGenFxoID_ObjectIdentity = ObjectIdentity
+adGenFxoID = _AdGenFxoID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 38)
+)
+_AdGenVlanID_ObjectIdentity = ObjectIdentity
+adGenVlanID = _AdGenVlanID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 39)
+)
+_AdGenOpticalCarrierID_ObjectIdentity = ObjectIdentity
+adGenOpticalCarrierID = _AdGenOpticalCarrierID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 40)
+)
+_AdGenOpticalAmplifierID_ObjectIdentity = ObjectIdentity
+adGenOpticalAmplifierID = _AdGenOpticalAmplifierID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 41)
+)
+_AdGenOpticalDCMID_ObjectIdentity = ObjectIdentity
+adGenOpticalDCMID = _AdGenOpticalDCMID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 42)
+)
+_AdGenOpticalADMID_ObjectIdentity = ObjectIdentity
+adGenOpticalADMID = _AdGenOpticalADMID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 43)
+)
+_AdGenOtnID_ObjectIdentity = ObjectIdentity
+adGenOtnID = _AdGenOtnID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 44)
+)
+_AdGenPhysicalPeerID_ObjectIdentity = ObjectIdentity
+adGenPhysicalPeerID = _AdGenPhysicalPeerID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 45)
+)
+_AdGenLldpID_ObjectIdentity = ObjectIdentity
+adGenLldpID = _AdGenLldpID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 46)
+)
+_AdGenPeerAdjacencyID_ObjectIdentity = ObjectIdentity
+adGenPeerAdjacencyID = _AdGenPeerAdjacencyID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 47)
+)
+_AdGenAtmID_ObjectIdentity = ObjectIdentity
+adGenAtmID = _AdGenAtmID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 48)
+)
+_AdGenRFC2544ID_ObjectIdentity = ObjectIdentity
+adGenRFC2544ID = _AdGenRFC2544ID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 49)
+)
+_AdGenEthLbkID_ObjectIdentity = ObjectIdentity
+adGenEthLbkID = _AdGenEthLbkID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 50)
+)
+_AdGenFibreChannelID_ObjectIdentity = ObjectIdentity
+adGenFibreChannelID = _AdGenFibreChannelID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 51)
+)
+_AdGenOneProtGroupID_ObjectIdentity = ObjectIdentity
+adGenOneProtGroupID = _AdGenOneProtGroupID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 52)
+)
+_AdGenDynamicCounterID_ObjectIdentity = ObjectIdentity
+adGenDynamicCounterID = _AdGenDynamicCounterID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 53)
+)
+_AdGenMgcpID_ObjectIdentity = ObjectIdentity
+adGenMgcpID = _AdGenMgcpID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 54)
+)
+_AdGenRadiusAuthID_ObjectIdentity = ObjectIdentity
+adGenRadiusAuthID = _AdGenRadiusAuthID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 55)
+)
+_AdGenVoiceUserMgmtID_ObjectIdentity = ObjectIdentity
+adGenVoiceUserMgmtID = _AdGenVoiceUserMgmtID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 56)
+)
+_AdGenVectorID_ObjectIdentity = ObjectIdentity
+adGenVectorID = _AdGenVectorID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 57)
+)
+_AdAOEControlledFeatureID_ObjectIdentity = ObjectIdentity
+adAOEControlledFeatureID = _AdAOEControlledFeatureID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 58)
+)
+_AdGenAutoConfigID_ObjectIdentity = ObjectIdentity
+adGenAutoConfigID = _AdGenAutoConfigID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 59)
+)
+_AdGenLagID_ObjectIdentity = ObjectIdentity
+adGenLagID = _AdGenLagID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 60)
+)
+_AdGenMonitorSessionID_ObjectIdentity = ObjectIdentity
+adGenMonitorSessionID = _AdGenMonitorSessionID_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 70, 61)
+)
+_AdGenCndSystemCompliance_ObjectIdentity = ObjectIdentity
+adGenCndSystemCompliance = _AdGenCndSystemCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70)
+)
+_AdGenSystemProductCompliance_ObjectIdentity = ObjectIdentity
+adGenSystemProductCompliance = _AdGenSystemProductCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 1)
+)
+_AdGenEthernetDslamFlowCompliance_ObjectIdentity = ObjectIdentity
+adGenEthernetDslamFlowCompliance = _AdGenEthernetDslamFlowCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 2)
+)
+_AdGenIPTVCompliance_ObjectIdentity = ObjectIdentity
+adGenIPTVCompliance = _AdGenIPTVCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 3)
+)
+_AdGenPluggablePortCompliance_ObjectIdentity = ObjectIdentity
+adGenPluggablePortCompliance = _AdGenPluggablePortCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 4)
+)
+_AdGenNtpCompliance_ObjectIdentity = ObjectIdentity
+adGenNtpCompliance = _AdGenNtpCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 5)
+)
+_AdGenIfCompliance_ObjectIdentity = ObjectIdentity
+adGenIfCompliance = _AdGenIfCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 7)
+)
+_AdGenMacCompliance_ObjectIdentity = ObjectIdentity
+adGenMacCompliance = _AdGenMacCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 8)
+)
+_AdGenEgressQueueCompliance_ObjectIdentity = ObjectIdentity
+adGenEgressQueueCompliance = _AdGenEgressQueueCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 9)
+)
+_AdGenEVCCompliance_ObjectIdentity = ObjectIdentity
+adGenEVCCompliance = _AdGenEVCCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 10)
+)
+_AdGenIGMPCacheCompliance_ObjectIdentity = ObjectIdentity
+adGenIGMPCacheCompliance = _AdGenIGMPCacheCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 11)
+)
+_AdGenSubtendedHostCompliance_ObjectIdentity = ObjectIdentity
+adGenSubtendedHostCompliance = _AdGenSubtendedHostCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 12)
+)
+_AdGenSystemTimingCompliance_ObjectIdentity = ObjectIdentity
+adGenSystemTimingCompliance = _AdGenSystemTimingCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 13)
+)
+_AdGenSystemTCCompliance_ObjectIdentity = ObjectIdentity
+adGenSystemTCCompliance = _AdGenSystemTCCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 14)
+)
+_AdGenEthIfcCompliance_ObjectIdentity = ObjectIdentity
+adGenEthIfcCompliance = _AdGenEthIfcCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 15)
+)
+_AdGenIGMPCompliance_ObjectIdentity = ObjectIdentity
+adGenIGMPCompliance = _AdGenIGMPCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 16)
+)
+_AdGen802dot1xCompliance_ObjectIdentity = ObjectIdentity
+adGen802dot1xCompliance = _AdGen802dot1xCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 17)
+)
+_AdGenIpHostCompliance_ObjectIdentity = ObjectIdentity
+adGenIpHostCompliance = _AdGenIpHostCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 18)
+)
+_AdGenShaperCompliance_ObjectIdentity = ObjectIdentity
+adGenShaperCompliance = _AdGenShaperCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 19)
+)
+_AdGenVoipCompliance_ObjectIdentity = ObjectIdentity
+adGenVoipCompliance = _AdGenVoipCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 20)
+)
+_AdGenSipCompliance_ObjectIdentity = ObjectIdentity
+adGenSipCompliance = _AdGenSipCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 21)
+)
+_AdGenProcessesCompliance_ObjectIdentity = ObjectIdentity
+adGenProcessesCompliance = _AdGenProcessesCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 22)
+)
+_AdGenPerformanceMonitoringCompliance_ObjectIdentity = ObjectIdentity
+adGenPerformanceMonitoringCompliance = _AdGenPerformanceMonitoringCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 23)
+)
+_AdGenEZProvCompliance_ObjectIdentity = ObjectIdentity
+adGenEZProvCompliance = _AdGenEZProvCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 24)
+)
+_AdGenSonetCompliance_ObjectIdentity = ObjectIdentity
+adGenSonetCompliance = _AdGenSonetCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 25)
+)
+_AdGenMuxPonderCompliance_ObjectIdentity = ObjectIdentity
+adGenMuxPonderCompliance = _AdGenMuxPonderCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 26)
+)
+_AdGenMEVCCompliance_ObjectIdentity = ObjectIdentity
+adGenMEVCCompliance = _AdGenMEVCCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 27)
+)
+_AdGenEVCMapCompliance_ObjectIdentity = ObjectIdentity
+adGenEVCMapCompliance = _AdGenEVCMapCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 28)
+)
+_AdGenFrameRelayCompliance_ObjectIdentity = ObjectIdentity
+adGenFrameRelayCompliance = _AdGenFrameRelayCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 29)
+)
+_AdGenPseudowireCEMMgmtCompliance_ObjectIdentity = ObjectIdentity
+adGenPseudowireCEMMgmtCompliance = _AdGenPseudowireCEMMgmtCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 30)
+)
+_AdGenIPTVR2Compliance_ObjectIdentity = ObjectIdentity
+adGenIPTVR2Compliance = _AdGenIPTVR2Compliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 31)
+)
+_AdGenPacketTimingCompliance_ObjectIdentity = ObjectIdentity
+adGenPacketTimingCompliance = _AdGenPacketTimingCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 32)
+)
+_AdGenRemoteDownloadCompliance_ObjectIdentity = ObjectIdentity
+adGenRemoteDownloadCompliance = _AdGenRemoteDownloadCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 33)
+)
+_AdGenMuxponderQoSCompliance_ObjectIdentity = ObjectIdentity
+adGenMuxponderQoSCompliance = _AdGenMuxponderQoSCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 34)
+)
+_AdGenPolicerCompliance_ObjectIdentity = ObjectIdentity
+adGenPolicerCompliance = _AdGenPolicerCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 35)
+)
+_AdGenMEgressQueueCompliance_ObjectIdentity = ObjectIdentity
+adGenMEgressQueueCompliance = _AdGenMEgressQueueCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 36)
+)
+_AdGenSysMgmtFacCompliance_ObjectIdentity = ObjectIdentity
+adGenSysMgmtFacCompliance = _AdGenSysMgmtFacCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 37)
+)
+_AdGenFxoCompliance_ObjectIdentity = ObjectIdentity
+adGenFxoCompliance = _AdGenFxoCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 38)
+)
+_AdGenOpticalCarrierCompliance_ObjectIdentity = ObjectIdentity
+adGenOpticalCarrierCompliance = _AdGenOpticalCarrierCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 40)
+)
+_AdGenOpticalAmplifierIDCompliance_ObjectIdentity = ObjectIdentity
+adGenOpticalAmplifierIDCompliance = _AdGenOpticalAmplifierIDCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 41)
+)
+_AdGenOpticalDCMIDCompliance_ObjectIdentity = ObjectIdentity
+adGenOpticalDCMIDCompliance = _AdGenOpticalDCMIDCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 42)
+)
+_AdGenOpticalADMCompliance_ObjectIdentity = ObjectIdentity
+adGenOpticalADMCompliance = _AdGenOpticalADMCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 43)
+)
+_AdGenOtnCompliance_ObjectIdentity = ObjectIdentity
+adGenOtnCompliance = _AdGenOtnCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 44)
+)
+_AdGenPhysicalPeerCompliance_ObjectIdentity = ObjectIdentity
+adGenPhysicalPeerCompliance = _AdGenPhysicalPeerCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 45)
+)
+_AdGenLldpCompliance_ObjectIdentity = ObjectIdentity
+adGenLldpCompliance = _AdGenLldpCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 46)
+)
+_AdGenPeerAdjacencyCompliance_ObjectIdentity = ObjectIdentity
+adGenPeerAdjacencyCompliance = _AdGenPeerAdjacencyCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 47)
+)
+_AdGenAtmCompliance_ObjectIdentity = ObjectIdentity
+adGenAtmCompliance = _AdGenAtmCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 48)
+)
+_AdGenOneProtGroupCompliance_ObjectIdentity = ObjectIdentity
+adGenOneProtGroupCompliance = _AdGenOneProtGroupCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 52)
+)
+_AdGenMgcpCompliance_ObjectIdentity = ObjectIdentity
+adGenMgcpCompliance = _AdGenMgcpCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 54)
+)
+_AdGenRadiusAuthCompliance_ObjectIdentity = ObjectIdentity
+adGenRadiusAuthCompliance = _AdGenRadiusAuthCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 55)
+)
+_AdGenVoiceUserMgmtCompliance_ObjectIdentity = ObjectIdentity
+adGenVoiceUserMgmtCompliance = _AdGenVoiceUserMgmtCompliance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 99, 10000, 70, 56)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ADTRAN-SHARED-CND-SYSTEM-MIB",
+    **{"adGenCndSystem": adGenCndSystem,
+       "adGenSystemProduct": adGenSystemProduct,
+       "adGenEthernetDslamFlow": adGenEthernetDslamFlow,
+       "adGenIPTV": adGenIPTV,
+       "adGenPluggablePort": adGenPluggablePort,
+       "adGenNtp": adGenNtp,
+       "adGenSystemProductMg": adGenSystemProductMg,
+       "adGenIf": adGenIf,
+       "adGenMac": adGenMac,
+       "adGenEgressQueue": adGenEgressQueue,
+       "adGenEVC": adGenEVC,
+       "adGenIGMPCache": adGenIGMPCache,
+       "adGenSubtendedHost": adGenSubtendedHost,
+       "adGenSystemTiming": adGenSystemTiming,
+       "adGenSystemTC": adGenSystemTC,
+       "adGenEthIfc": adGenEthIfc,
+       "adGenIGMP": adGenIGMP,
+       "adGen802dot1x": adGen802dot1x,
+       "adGenIpHost": adGenIpHost,
+       "adGenShaper": adGenShaper,
+       "adGenVoip": adGenVoip,
+       "adGenSip": adGenSip,
+       "adGenProcesses": adGenProcesses,
+       "adGenPerformanceMonitoring": adGenPerformanceMonitoring,
+       "adGenEZProv": adGenEZProv,
+       "adGenSonet": adGenSonet,
+       "adGenMuxPonder": adGenMuxPonder,
+       "adGenMEVC": adGenMEVC,
+       "adGenEVCMap": adGenEVCMap,
+       "adGenFrameRelay": adGenFrameRelay,
+       "adGenPseudowireCEMMgmt": adGenPseudowireCEMMgmt,
+       "adGenIPTVR2": adGenIPTVR2,
+       "adGenPacketTiming": adGenPacketTiming,
+       "adGenRemoteDownload": adGenRemoteDownload,
+       "adGenMuxponderQoS": adGenMuxponderQoS,
+       "adGenPolicer": adGenPolicer,
+       "adGenMEgressQueue": adGenMEgressQueue,
+       "adGenSysMgmtFac": adGenSysMgmtFac,
+       "adGenFxo": adGenFxo,
+       "adGenVlan": adGenVlan,
+       "adGenOpticalCarrier": adGenOpticalCarrier,
+       "adGenOpticalAmplifier": adGenOpticalAmplifier,
+       "adGenOpticalDCM": adGenOpticalDCM,
+       "adGenOpticalADM": adGenOpticalADM,
+       "adGenOtn": adGenOtn,
+       "adGenPhysicalPeer": adGenPhysicalPeer,
+       "adGenLldp": adGenLldp,
+       "adGenPeerAdjacency": adGenPeerAdjacency,
+       "adGenAtm": adGenAtm,
+       "adGenRFC2544": adGenRFC2544,
+       "adGenEthLbk": adGenEthLbk,
+       "adGenFibreChannel": adGenFibreChannel,
+       "adGenOneProtGroup": adGenOneProtGroup,
+       "adGenDynamicCounter": adGenDynamicCounter,
+       "adGenMgcp": adGenMgcp,
+       "adGenRadiusAuth": adGenRadiusAuth,
+       "adGenVoiceUserMgmt": adGenVoiceUserMgmt,
+       "adGenVector": adGenVector,
+       "adAOEControlledFeature": adAOEControlledFeature,
+       "adGenAutoConfig": adGenAutoConfig,
+       "adGenLag": adGenLag,
+       "adGenMonitorSession": adGenMonitorSession,
+       "adGenCndSystemIdentity": adGenCndSystemIdentity,
+       "adGenSystemProductID": adGenSystemProductID,
+       "adGenEthernetDslamFlowID": adGenEthernetDslamFlowID,
+       "adGenIPTVID": adGenIPTVID,
+       "adGenPluggablePortID": adGenPluggablePortID,
+       "adGenNtpID": adGenNtpID,
+       "adGenIfID": adGenIfID,
+       "adGenMacID": adGenMacID,
+       "adGenEgressQueueID": adGenEgressQueueID,
+       "adGenEVCID": adGenEVCID,
+       "adGenIGMPCacheID": adGenIGMPCacheID,
+       "adGenSubtendedHostID": adGenSubtendedHostID,
+       "adGenSystemTimingID": adGenSystemTimingID,
+       "adGenSystemTCID": adGenSystemTCID,
+       "adGenEthIfcID": adGenEthIfcID,
+       "adGenIGMPID": adGenIGMPID,
+       "adGen802dot1xID": adGen802dot1xID,
+       "adGenIpHostID": adGenIpHostID,
+       "adGenShaperID": adGenShaperID,
+       "adGenVoipID": adGenVoipID,
+       "adGenSipID": adGenSipID,
+       "adGenProcessesID": adGenProcessesID,
+       "adGenPerformanceMonitoringID": adGenPerformanceMonitoringID,
+       "adGenEZProvID": adGenEZProvID,
+       "adGenSonetID": adGenSonetID,
+       "adGenMuxPonderID": adGenMuxPonderID,
+       "adGenMEVCID": adGenMEVCID,
+       "adGenEVCMapID": adGenEVCMapID,
+       "adGenFrameRelayID": adGenFrameRelayID,
+       "adGenPseudowireCEMMgmtID": adGenPseudowireCEMMgmtID,
+       "adGenIPTVR2ID": adGenIPTVR2ID,
+       "adGenPacketTimingID": adGenPacketTimingID,
+       "adGenRemoteDownloadID": adGenRemoteDownloadID,
+       "adGenMuxponderQoSID": adGenMuxponderQoSID,
+       "adGenPolicerID": adGenPolicerID,
+       "adGenMEgressQueueID": adGenMEgressQueueID,
+       "adGenSysMgmtFacID": adGenSysMgmtFacID,
+       "adGenFxoID": adGenFxoID,
+       "adGenVlanID": adGenVlanID,
+       "adGenOpticalCarrierID": adGenOpticalCarrierID,
+       "adGenOpticalAmplifierID": adGenOpticalAmplifierID,
+       "adGenOpticalDCMID": adGenOpticalDCMID,
+       "adGenOpticalADMID": adGenOpticalADMID,
+       "adGenOtnID": adGenOtnID,
+       "adGenPhysicalPeerID": adGenPhysicalPeerID,
+       "adGenLldpID": adGenLldpID,
+       "adGenPeerAdjacencyID": adGenPeerAdjacencyID,
+       "adGenAtmID": adGenAtmID,
+       "adGenRFC2544ID": adGenRFC2544ID,
+       "adGenEthLbkID": adGenEthLbkID,
+       "adGenFibreChannelID": adGenFibreChannelID,
+       "adGenOneProtGroupID": adGenOneProtGroupID,
+       "adGenDynamicCounterID": adGenDynamicCounterID,
+       "adGenMgcpID": adGenMgcpID,
+       "adGenRadiusAuthID": adGenRadiusAuthID,
+       "adGenVoiceUserMgmtID": adGenVoiceUserMgmtID,
+       "adGenVectorID": adGenVectorID,
+       "adAOEControlledFeatureID": adAOEControlledFeatureID,
+       "adGenAutoConfigID": adGenAutoConfigID,
+       "adGenLagID": adGenLagID,
+       "adGenMonitorSessionID": adGenMonitorSessionID,
+       "adGenCndSystemCompliance": adGenCndSystemCompliance,
+       "adGenSystemProductCompliance": adGenSystemProductCompliance,
+       "adGenEthernetDslamFlowCompliance": adGenEthernetDslamFlowCompliance,
+       "adGenIPTVCompliance": adGenIPTVCompliance,
+       "adGenPluggablePortCompliance": adGenPluggablePortCompliance,
+       "adGenNtpCompliance": adGenNtpCompliance,
+       "adGenIfCompliance": adGenIfCompliance,
+       "adGenMacCompliance": adGenMacCompliance,
+       "adGenEgressQueueCompliance": adGenEgressQueueCompliance,
+       "adGenEVCCompliance": adGenEVCCompliance,
+       "adGenIGMPCacheCompliance": adGenIGMPCacheCompliance,
+       "adGenSubtendedHostCompliance": adGenSubtendedHostCompliance,
+       "adGenSystemTimingCompliance": adGenSystemTimingCompliance,
+       "adGenSystemTCCompliance": adGenSystemTCCompliance,
+       "adGenEthIfcCompliance": adGenEthIfcCompliance,
+       "adGenIGMPCompliance": adGenIGMPCompliance,
+       "adGen802dot1xCompliance": adGen802dot1xCompliance,
+       "adGenIpHostCompliance": adGenIpHostCompliance,
+       "adGenShaperCompliance": adGenShaperCompliance,
+       "adGenVoipCompliance": adGenVoipCompliance,
+       "adGenSipCompliance": adGenSipCompliance,
+       "adGenProcessesCompliance": adGenProcessesCompliance,
+       "adGenPerformanceMonitoringCompliance": adGenPerformanceMonitoringCompliance,
+       "adGenEZProvCompliance": adGenEZProvCompliance,
+       "adGenSonetCompliance": adGenSonetCompliance,
+       "adGenMuxPonderCompliance": adGenMuxPonderCompliance,
+       "adGenMEVCCompliance": adGenMEVCCompliance,
+       "adGenEVCMapCompliance": adGenEVCMapCompliance,
+       "adGenFrameRelayCompliance": adGenFrameRelayCompliance,
+       "adGenPseudowireCEMMgmtCompliance": adGenPseudowireCEMMgmtCompliance,
+       "adGenIPTVR2Compliance": adGenIPTVR2Compliance,
+       "adGenPacketTimingCompliance": adGenPacketTimingCompliance,
+       "adGenRemoteDownloadCompliance": adGenRemoteDownloadCompliance,
+       "adGenMuxponderQoSCompliance": adGenMuxponderQoSCompliance,
+       "adGenPolicerCompliance": adGenPolicerCompliance,
+       "adGenMEgressQueueCompliance": adGenMEgressQueueCompliance,
+       "adGenSysMgmtFacCompliance": adGenSysMgmtFacCompliance,
+       "adGenFxoCompliance": adGenFxoCompliance,
+       "adGenOpticalCarrierCompliance": adGenOpticalCarrierCompliance,
+       "adGenOpticalAmplifierIDCompliance": adGenOpticalAmplifierIDCompliance,
+       "adGenOpticalDCMIDCompliance": adGenOpticalDCMIDCompliance,
+       "adGenOpticalADMCompliance": adGenOpticalADMCompliance,
+       "adGenOtnCompliance": adGenOtnCompliance,
+       "adGenPhysicalPeerCompliance": adGenPhysicalPeerCompliance,
+       "adGenLldpCompliance": adGenLldpCompliance,
+       "adGenPeerAdjacencyCompliance": adGenPeerAdjacencyCompliance,
+       "adGenAtmCompliance": adGenAtmCompliance,
+       "adGenOneProtGroupCompliance": adGenOneProtGroupCompliance,
+       "adGenMgcpCompliance": adGenMgcpCompliance,
+       "adGenRadiusAuthCompliance": adGenRadiusAuthCompliance,
+       "adGenVoiceUserMgmtCompliance": adGenVoiceUserMgmtCompliance}
+)

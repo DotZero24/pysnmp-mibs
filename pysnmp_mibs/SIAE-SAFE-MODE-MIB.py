@@ -1,36 +1,298 @@
+# SNMP MIB module (SIAE-SAFE-MODE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SIAE-SAFE-MODE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/siaemic/SIAE-SAFE-MODE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:45:47 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/siaemic/SIAE-SAFE-MODE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:13:19 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
-siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-safeMode = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 99))
-safeMode.setRevisions(('2016-03-10 00:00',))
-if mibBuilder.loadTexts: safeMode.setLastUpdated('201603100000Z')
-if mibBuilder.loadTexts: safeMode.setOrganization('SIAE MICROELETTRONICA spa')
-safeModeMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 99, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: safeModeMibVersion.setStatus('current')
-safeModeAlarm = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 99, 2), AlarmStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: safeModeAlarm.setStatus('current')
-safeModeAlarmSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 99, 3), AlarmSeverityCode().clone('minorTrapEnable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: safeModeAlarmSeverityCode.setStatus('current')
-safeModeStatus = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 99, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("safeModeStatusInactive", 1), ("safeModeStatusNoAuxService", 2), ("safeModeStatusLinkMngmt", 3), ("safeModeStatusSiteMngmt", 4), ("safeModeStatusSiteDefault", 5), ("safeModeStatusSiteRescue", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: safeModeStatus.setStatus('current')
-safeModeRescueAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 99, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2))).clone('enable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: safeModeRescueAdminStatus.setStatus('current')
-safeModeRescuePwd = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 99, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: safeModeRescuePwd.setStatus('current')
-safeModeRescueIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 99, 7), IpAddress().clone(hexValue="ac14fd0d")).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: safeModeRescueIpAddress.setStatus('current')
-safeModeRescueIpNetMask = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 99, 8), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: safeModeRescueIpNetMask.setStatus('current')
-mibBuilder.exportSymbols("SIAE-SAFE-MODE-MIB", safeMode=safeMode, safeModeRescueIpAddress=safeModeRescueIpAddress, PYSNMP_MODULE_ID=safeMode, safeModeStatus=safeModeStatus, safeModeRescuePwd=safeModeRescuePwd, safeModeRescueIpNetMask=safeModeRescueIpNetMask, safeModeAlarm=safeModeAlarm, safeModeRescueAdminStatus=safeModeRescueAdminStatus, safeModeMibVersion=safeModeMibVersion, safeModeAlarmSeverityCode=safeModeAlarmSeverityCode)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(AlarmSeverityCode,
+ AlarmStatus) = mibBuilder.importSymbols(
+    "SIAE-ALARM-MIB",
+    "AlarmSeverityCode",
+    "AlarmStatus")
+
+(siaeMib,) = mibBuilder.importSymbols(
+    "SIAE-TREE-MIB",
+    "siaeMib")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+safeMode = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 99)
+)
+if mibBuilder.loadTexts:
+    safeMode.setRevisions(
+        ("2016-03-10 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SafeModeMibVersion_Type = Integer32
+_SafeModeMibVersion_Object = MibScalar
+safeModeMibVersion = _SafeModeMibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 99, 1),
+    _SafeModeMibVersion_Type()
+)
+safeModeMibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    safeModeMibVersion.setStatus("current")
+_SafeModeAlarm_Type = AlarmStatus
+_SafeModeAlarm_Object = MibScalar
+safeModeAlarm = _SafeModeAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 99, 2),
+    _SafeModeAlarm_Type()
+)
+safeModeAlarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    safeModeAlarm.setStatus("current")
+
+
+class _SafeModeAlarmSeverityCode_Type(AlarmSeverityCode):
+    """Custom type safeModeAlarmSeverityCode based on AlarmSeverityCode"""
+    defaultValue = 4
+
+
+_SafeModeAlarmSeverityCode_Type.__name__ = "AlarmSeverityCode"
+_SafeModeAlarmSeverityCode_Object = MibScalar
+safeModeAlarmSeverityCode = _SafeModeAlarmSeverityCode_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 99, 3),
+    _SafeModeAlarmSeverityCode_Type()
+)
+safeModeAlarmSeverityCode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    safeModeAlarmSeverityCode.setStatus("current")
+
+
+class _SafeModeStatus_Type(Integer32):
+    """Custom type safeModeStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("safeModeStatusInactive", 1),
+          ("safeModeStatusNoAuxService", 2),
+          ("safeModeStatusLinkMngmt", 3),
+          ("safeModeStatusSiteMngmt", 4),
+          ("safeModeStatusSiteDefault", 5),
+          ("safeModeStatusSiteRescue", 6))
+    )
+
+
+_SafeModeStatus_Type.__name__ = "Integer32"
+_SafeModeStatus_Object = MibScalar
+safeModeStatus = _SafeModeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 99, 4),
+    _SafeModeStatus_Type()
+)
+safeModeStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    safeModeStatus.setStatus("current")
+
+
+class _SafeModeRescueAdminStatus_Type(Integer32):
+    """Custom type safeModeRescueAdminStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 2))
+    )
+
+
+_SafeModeRescueAdminStatus_Type.__name__ = "Integer32"
+_SafeModeRescueAdminStatus_Object = MibScalar
+safeModeRescueAdminStatus = _SafeModeRescueAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 99, 5),
+    _SafeModeRescueAdminStatus_Type()
+)
+safeModeRescueAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    safeModeRescueAdminStatus.setStatus("current")
+
+
+class _SafeModeRescuePwd_Type(DisplayString):
+    """Custom type safeModeRescuePwd based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_SafeModeRescuePwd_Type.__name__ = "DisplayString"
+_SafeModeRescuePwd_Object = MibScalar
+safeModeRescuePwd = _SafeModeRescuePwd_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 99, 6),
+    _SafeModeRescuePwd_Type()
+)
+safeModeRescuePwd.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    safeModeRescuePwd.setStatus("current")
+
+
+class _SafeModeRescueIpAddress_Type(IpAddress):
+    """Custom type safeModeRescueIpAddress based on IpAddress"""
+    defaultHexValue = "ac14fd0d"
+
+
+_SafeModeRescueIpAddress_Type.__name__ = "IpAddress"
+_SafeModeRescueIpAddress_Object = MibScalar
+safeModeRescueIpAddress = _SafeModeRescueIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 99, 7),
+    _SafeModeRescueIpAddress_Type()
+)
+safeModeRescueIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    safeModeRescueIpAddress.setStatus("current")
+_SafeModeRescueIpNetMask_Type = IpAddress
+_SafeModeRescueIpNetMask_Object = MibScalar
+safeModeRescueIpNetMask = _SafeModeRescueIpNetMask_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 99, 8),
+    _SafeModeRescueIpNetMask_Type()
+)
+safeModeRescueIpNetMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    safeModeRescueIpNetMask.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SIAE-SAFE-MODE-MIB",
+    **{"safeMode": safeMode,
+       "safeModeMibVersion": safeModeMibVersion,
+       "safeModeAlarm": safeModeAlarm,
+       "safeModeAlarmSeverityCode": safeModeAlarmSeverityCode,
+       "safeModeStatus": safeModeStatus,
+       "safeModeRescueAdminStatus": safeModeRescueAdminStatus,
+       "safeModeRescuePwd": safeModeRescuePwd,
+       "safeModeRescueIpAddress": safeModeRescueIpAddress,
+       "safeModeRescueIpNetMask": safeModeRescueIpNetMask}
+)

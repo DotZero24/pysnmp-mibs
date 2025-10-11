@@ -1,271 +1,1976 @@
+# SNMP MIB module (TN-MPLS-TP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TN-MPLS-TP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TN-MPLS-TP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:39:25 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TN-MPLS-TP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:59:21 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, TimeInterval, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "TimeInterval", "TruthValue", "TimeStamp", "DisplayString")
-vRtrMplsLspIndex, = mibBuilder.importSymbols("TN-MPLS-MIB", "vRtrMplsLspIndex")
-TmnxAdminState, TmnxMplsTpGlobalID, TmnxMplsTpNodeID, TNamedItem, TmnxTunnelID, TmnxOperState, TNamedItemOrEmpty, TmnxMplsTpTunnelType = mibBuilder.importSymbols("TN-TC-MIB", "TmnxAdminState", "TmnxMplsTpGlobalID", "TmnxMplsTpNodeID", "TNamedItem", "TmnxTunnelID", "TmnxOperState", "TNamedItemOrEmpty", "TmnxMplsTpTunnelType")
-vRtrID, = mibBuilder.importSymbols("TN-VRTR-MIB", "vRtrID")
-tnSRObjs, tnSRMIBModules = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSRObjs", "tnSRMIBModules")
-tnSysSwitchId, = mibBuilder.importSymbols("TROPIC-SYSTEM-MIB", "tnSysSwitchId")
-tnMplsTpMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 5, 1, 3, 83))
-tnMplsTpMIBModule.setRevisions(('2015-09-30 00:00', '2015-04-30 00:00', '2012-06-01 00:00',))
-if mibBuilder.loadTexts: tnMplsTpMIBModule.setLastUpdated('201509300000Z')
-if mibBuilder.loadTexts: tnMplsTpMIBModule.setOrganization('Nokia')
-vRtrMplsTpObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83))
-vRtrMplsTpConfigTimeStamps = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1))
-vRtrMplsTpConfigurations = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2))
-vRtrMplsTpStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3))
-vRtrMplsTpStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 5))
-vRtrMplsTpActions = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 6))
-vRtrMplsTpNotifyObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 10))
-class VRtrMplsTpLspPathMepPduType(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
 
-vRtrMplsTpSystemIdentifiers = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1))
-vRtrMplsTpSystemTableLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpSystemTableLastChanged.setStatus('current')
-vRtrMplsTpSystemTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1), )
-if mibBuilder.loadTexts: vRtrMplsTpSystemTable.setStatus('current')
-vRtrMplsTpSystemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1), ).setIndexNames((0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"), (0, "TN-VRTR-MIB", "vRtrID"))
-if mibBuilder.loadTexts: vRtrMplsTpSystemEntry.setStatus('current')
-vRtrMplsTpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpRowStatus.setStatus('current')
-vRtrMplsTpGlobalId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 2), TmnxMplsTpGlobalID()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpGlobalId.setStatus('current')
-vRtrMplsTpNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 3), TmnxMplsTpNodeID()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpNodeId.setStatus('current')
-vRtrMplsTpTunnelIdMin = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 61440), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpTunnelIdMin.setStatus('current')
-vRtrMplsTpTunnelIdMax = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 61440), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpTunnelIdMax.setStatus('current')
-vRtrMplsTpAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 6), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpAdminState.setStatus('current')
-vRtrMplsTpInheritance = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 7), Bits().clone(namedValues=NamedValues(("vRtrMplsTpNodeId", 0)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpInheritance.setStatus('current')
-vRtrMplsTpTemplateObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2))
-vRtrMplsTpOamTemplTblLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpOamTemplTblLastChanged.setStatus('current')
-vRtrMplsTpOamTemplateCfgTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1), )
-if mibBuilder.loadTexts: vRtrMplsTpOamTemplateCfgTable.setStatus('current')
-vRtrMplsTpOamTemplateCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1), ).setIndexNames((0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"), (0, "TN-VRTR-MIB", "vRtrID"), (1, "TN-MPLS-TP-MIB", "vRtrMplsTpOamTmplName"))
-if mibBuilder.loadTexts: vRtrMplsTpOamTemplateCfgEntry.setStatus('current')
-vRtrMplsTpOamTmplName = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 1), TNamedItem())
-if mibBuilder.loadTexts: vRtrMplsTpOamTmplName.setStatus('current')
-vRtrMplsTpOamTmplRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpOamTmplRowStatus.setStatus('current')
-vRtrMplsTpOamTmplLastChangedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpOamTmplLastChangedTime.setStatus('current')
-vRtrMplsTpOamTmplBfdTemplateName = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 4), TNamedItemOrEmpty()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpOamTmplBfdTemplateName.setStatus('current')
-vRtrMplsTpOamTmplHoldTimeDown = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 5000))).setUnits('centiseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpOamTmplHoldTimeDown.setStatus('current')
-vRtrMplsTpOamTmplHoldTimeUp = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 500)).clone(20)).setUnits('deciseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpOamTmplHoldTimeUp.setStatus('current')
-vRtrMplsTpPtcTemplTblLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpPtcTemplTblLastChanged.setStatus('current')
-vRtrMplsTpPtcTemplateCfgTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2), )
-if mibBuilder.loadTexts: vRtrMplsTpPtcTemplateCfgTable.setStatus('current')
-vRtrMplsTpPtcTemplateCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1), ).setIndexNames((0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"), (0, "TN-VRTR-MIB", "vRtrID"), (1, "TN-MPLS-TP-MIB", "vRtrMplsTpPtcTmplName"))
-if mibBuilder.loadTexts: vRtrMplsTpPtcTemplateCfgEntry.setStatus('current')
-vRtrMplsTpPtcTmplName = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 1), TNamedItem())
-if mibBuilder.loadTexts: vRtrMplsTpPtcTmplName.setStatus('current')
-vRtrMplsTpPtcTmplRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpPtcTmplRowStatus.setStatus('current')
-vRtrMplsTpPtcTmplLastChangedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpPtcTmplLastChangedTime.setStatus('current')
-vRtrMplsTpPtcTmplProtectionMode = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("one2one", 1))).clone('one2one')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpPtcTmplProtectionMode.setStatus('current')
-vRtrMplsTpPtcTmplProtectionDir = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2))).clone(namedValues=NamedValues(("bidirectional", 2))).clone('bidirectional')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpPtcTmplProtectionDir.setStatus('current')
-vRtrMplsTpPtcTmplRevertive = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("nonRevertive", 1), ("revertive", 2))).clone('revertive')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpPtcTmplRevertive.setStatus('current')
-vRtrMplsTpPtcTmplWaitToRestore = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 720)).clone(300)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpPtcTmplWaitToRestore.setStatus('current')
-vRtrMplsTpPtcTmplRapidPscTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 8), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(3, 3), ValueRangeConstraint(10, 10), ValueRangeConstraint(100, 100), ValueRangeConstraint(1000, 1000), )).clone(3)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpPtcTmplRapidPscTimer.setStatus('current')
-vRtrMplsTpPtcTmplSlowPscTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(5, 60)).clone(5)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpPtcTmplSlowPscTimer.setStatus('current')
-vRtrMplsTpLspObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3))
-vRtrMplsTpLspPathTblLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathTblLastChanged.setStatus('current')
-vRtrMplsTpLspPathTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2), )
-if mibBuilder.loadTexts: vRtrMplsTpLspPathTable.setStatus('current')
-vRtrMplsTpLspPathEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1), ).setIndexNames((0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"), (0, "TN-VRTR-MIB", "vRtrID"), (0, "TN-MPLS-MIB", "vRtrMplsLspIndex"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLspPathIndex"))
-if mibBuilder.loadTexts: vRtrMplsTpLspPathEntry.setStatus('current')
-vRtrMplsTpLspPathIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("working", 1), ("protecting", 2))))
-if mibBuilder.loadTexts: vRtrMplsTpLspPathIndex.setStatus('current')
-vRtrMplsTpLspPathRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathRowStatus.setStatus('current')
-vRtrMplsTpLspPathLastChangedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathLastChangedTime.setStatus('current')
-vRtrMplsTpLspPathAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 4), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathAdminState.setStatus('current')
-vRtrMplsTpLspPathOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 5), TmnxOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathOperState.setStatus('current')
-vRtrMplsTpLspPathReasonDownFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 6), Bits().clone(namedValues=NamedValues(("unknown", 0), ("ccFault", 1), ("cvFault", 2), ("ifDn", 3), ("portDn", 4), ("parentAdminDn", 5), ("mepAdminDn", 6), ("unsupportedPort", 7), ("ifNhAddrInconsistent", 8), ("ptcTmplMsng", 9), ("ccDnHold", 10), ("ccUpHold", 11), ("bfdNoRsrc", 12)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathReasonDownFlags.setStatus('current')
-vRtrMplsTpLspPathLspNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathLspNumber.setStatus('current')
-vRtrMplsTpLspPathInLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 8), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathInLabel.setStatus('current')
-vRtrMplsTpLspPathOutLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 9), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(16, 1048575), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathOutLabel.setStatus('current')
-vRtrMplsTpLspPathOutLink = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 10), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathOutLink.setStatus('current')
-vRtrMplsTpLspPathNextHopAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 11), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathNextHopAddrType.setStatus('current')
-vRtrMplsTpLspPathNextHopAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 12), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathNextHopAddress.setStatus('current')
-vRtrMplsTpLspPathState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unknown", 1), ("active", 2), ("inactive", 3))).clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathState.setStatus('current')
-vRtrMplsTpLspPathTimeUp = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 14), TimeInterval()).setUnits('centiseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathTimeUp.setStatus('current')
-vRtrMplsTpLspPathTimeDown = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 15), TimeInterval()).setUnits('centiseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathTimeDown.setStatus('current')
-vRtrMplsTpLspPathActiveTimeUp = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 16), TimeInterval()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathActiveTimeUp.setStatus('current')
-vRtrMplsTpLspPathMepTblLastChg = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 6), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathMepTblLastChg.setStatus('current')
-vRtrMplsTpLspPathMepTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3), )
-if mibBuilder.loadTexts: vRtrMplsTpLspPathMepTable.setStatus('current')
-vRtrMplsTpLspPathMepEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1), ).setIndexNames((0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"), (0, "TN-VRTR-MIB", "vRtrID"), (0, "TN-MPLS-MIB", "vRtrMplsLspIndex"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLspPathIndex"))
-if mibBuilder.loadTexts: vRtrMplsTpLspPathMepEntry.setStatus('current')
-vRtrMplsTpLspPathMepLastChgTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathMepLastChgTime.setStatus('current')
-vRtrMplsTpLspPathMepRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathMepRowStatus.setStatus('current')
-vRtrMplsTpLspPathMepAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 3), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathMepAdminState.setStatus('current')
-vRtrMplsTpLspPathMepProtectTmpl = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 4), TNamedItemOrEmpty()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathMepProtectTmpl.setStatus('current')
-vRtrMplsTpLspPathMepOamTmpl = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 5), TNamedItemOrEmpty()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathMepOamTmpl.setStatus('current')
-vRtrMplsTpLspPathMepBfdEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disabled", 0), ("cc", 1), ("ccCv", 2))).clone('disabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathMepBfdEnabled.setStatus('current')
-vRtrMplsTpLspPathMepBfdOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 7), TmnxOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPathMepBfdOperState.setStatus('current')
-vRtrMplsTpLspPtPathMepStatTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4), )
-if mibBuilder.loadTexts: vRtrMplsTpLspPtPathMepStatTable.setStatus('current')
-vRtrMplsTpLspPtPathMepStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4, 1), ).setIndexNames((0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"), (0, "TN-VRTR-MIB", "vRtrID"), (0, "TN-MPLS-MIB", "vRtrMplsLspIndex"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLspPathIndex"))
-if mibBuilder.loadTexts: vRtrMplsTpLspPtPathMepStatEntry.setStatus('current')
-vRtrMplsTpLspPtPathMepRxPdu = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4, 1, 1), VRtrMplsTpLspPathMepPduType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPtPathMepRxPdu.setStatus('current')
-vRtrMplsTpLspPtPathMepTxPdu = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4, 1, 2), VRtrMplsTpLspPathMepPduType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPtPathMepTxPdu.setStatus('current')
-vRtrMplsTpLspPtPathMepDefects = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4, 1, 3), Bits().clone(namedValues=NamedValues(("protectionTypeMismatch", 0), ("revertModeMismatch", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPtPathMepDefects.setStatus('current')
-vRtrMplsTpLspPtPathMepWTRTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4, 1, 4), Counter32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLspPtPathMepWTRTimer.setStatus('current')
-vRtrMplsTpCmdObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 4))
-vRtrMplsTpTunnelCommandTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 4, 1), )
-if mibBuilder.loadTexts: vRtrMplsTpTunnelCommandTable.setStatus('current')
-vRtrMplsTpTunnelCommandEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 4, 1, 1), ).setIndexNames((0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"), (0, "TN-VRTR-MIB", "vRtrID"), (0, "TN-MPLS-MIB", "vRtrMplsLspIndex"))
-if mibBuilder.loadTexts: vRtrMplsTpTunnelCommandEntry.setStatus('current')
-vRtrMplsTpTunnelCommandSwitch = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("noCmd", 0), ("clear", 1), ("forceSwitch", 2), ("manualSwitch", 3), ("lockout", 4))).clone('noCmd')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpTunnelCommandSwitch.setStatus('current')
-vRtrMplsTpLsrObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5))
-vRtrMplsTpLsrTblLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLsrTblLastChanged.setStatus('current')
-vRtrMplsTpLsrCfgTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1), )
-if mibBuilder.loadTexts: vRtrMplsTpLsrCfgTable.setStatus('current')
-vRtrMplsTpLsrCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1), ).setIndexNames((0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"), (0, "TN-VRTR-MIB", "vRtrID"), (1, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathName"))
-if mibBuilder.loadTexts: vRtrMplsTpLsrCfgEntry.setStatus('current')
-vRtrMplsTpLsrPathName = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 1), TNamedItem())
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathName.setStatus('current')
-vRtrMplsTpLsrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrRowStatus.setStatus('current')
-vRtrMplsTpLsrLastChangedTime = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLsrLastChangedTime.setStatus('current')
-vRtrMplsTpLsrAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 4), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrAdminState.setStatus('current')
-vRtrMplsTpLsrOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 5), TmnxOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLsrOperState.setStatus('current')
-vRtrMplsTpLsrFPInLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 6), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrFPInLabel.setStatus('current')
-vRtrMplsTpLsrFPOutLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(16, 1048575), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrFPOutLabel.setStatus('current')
-vRtrMplsTpLsrFPOutLink = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 8), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrFPOutLink.setStatus('current')
-vRtrMplsTpLsrFPNextHopAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 9), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrFPNextHopAddrType.setStatus('current')
-vRtrMplsTpLsrFPNextHopAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 10), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrFPNextHopAddress.setStatus('current')
-vRtrMplsTpLsrRPInLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 11), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrRPInLabel.setStatus('current')
-vRtrMplsTpLsrRPOutLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 12), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(16, 1048575), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrRPOutLabel.setStatus('current')
-vRtrMplsTpLsrRPOutLink = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 13), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrRPOutLink.setStatus('current')
-vRtrMplsTpLsrRPNextHopAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 14), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrRPNextHopAddrType.setStatus('current')
-vRtrMplsTpLsrRPNextHopAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 15), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrRPNextHopAddress.setStatus('current')
-vRtrMplsTpLsrFPEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 16), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrFPEnabled.setStatus('current')
-vRtrMplsTpLsrRPEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 17), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrRPEnabled.setStatus('current')
-vRtrMplsTpLsrPathIdTblLastChg = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 8), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdTblLastChg.setStatus('current')
-vRtrMplsTpLsrPathIdTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3), )
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdTable.setStatus('current')
-vRtrMplsTpLsrPathIdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1), ).setIndexNames((0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"), (0, "TN-VRTR-MIB", "vRtrID"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdSrcGlobalId"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdSrcNodeId"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdSrcTunNum"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdDestGlobalId"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdDestNodeId"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdDestTunNum"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdLspNumber"))
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdEntry.setStatus('current')
-vRtrMplsTpLsrPathIdSrcGlobalId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 1), TmnxMplsTpGlobalID())
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdSrcGlobalId.setStatus('current')
-vRtrMplsTpLsrPathIdSrcNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 2), TmnxMplsTpNodeID())
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdSrcNodeId.setStatus('current')
-vRtrMplsTpLsrPathIdSrcTunNum = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 3), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 61440), )))
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdSrcTunNum.setStatus('current')
-vRtrMplsTpLsrPathIdDestGlobalId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 4), TmnxMplsTpGlobalID())
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdDestGlobalId.setStatus('current')
-vRtrMplsTpLsrPathIdDestNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 5), TmnxMplsTpNodeID())
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdDestNodeId.setStatus('current')
-vRtrMplsTpLsrPathIdDestTunNum = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 6), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 61440), )))
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdDestTunNum.setStatus('current')
-vRtrMplsTpLsrPathIdLspNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdLspNumber.setStatus('current')
-vRtrMplsTpLsrPathIdRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdRowStatus.setStatus('current')
-vRtrMplsTpLsrPathIdPathName = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 9), TNamedItem()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: vRtrMplsTpLsrPathIdPathName.setStatus('current')
-vRtrMplsTpStatusObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1))
-vRtrMplsTpTunnelTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1), )
-if mibBuilder.loadTexts: vRtrMplsTpTunnelTable.setStatus('current')
-vRtrMplsTpTunnelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1), ).setIndexNames((0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"), (0, "TN-VRTR-MIB", "vRtrID"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelNodeId"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelGlobalId"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelPreference"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelType"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelID"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelNextHopAddrType"), (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelNextHopAddress"))
-if mibBuilder.loadTexts: vRtrMplsTpTunnelEntry.setStatus('current')
-vRtrMplsTpTunnelNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 1), TmnxMplsTpNodeID())
-if mibBuilder.loadTexts: vRtrMplsTpTunnelNodeId.setStatus('current')
-vRtrMplsTpTunnelGlobalId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 2), TmnxMplsTpGlobalID())
-if mibBuilder.loadTexts: vRtrMplsTpTunnelGlobalId.setStatus('current')
-vRtrMplsTpTunnelPreference = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)))
-if mibBuilder.loadTexts: vRtrMplsTpTunnelPreference.setStatus('current')
-vRtrMplsTpTunnelType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 4), TmnxMplsTpTunnelType())
-if mibBuilder.loadTexts: vRtrMplsTpTunnelType.setStatus('current')
-vRtrMplsTpTunnelID = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 5), TmnxTunnelID())
-if mibBuilder.loadTexts: vRtrMplsTpTunnelID.setStatus('current')
-vRtrMplsTpTunnelNextHopAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 6), InetAddressType())
-if mibBuilder.loadTexts: vRtrMplsTpTunnelNextHopAddrType.setStatus('current')
-vRtrMplsTpTunnelNextHopAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 7), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), ValueSizeConstraint(20, 20), )))
-if mibBuilder.loadTexts: vRtrMplsTpTunnelNextHopAddress.setStatus('current')
-vRtrMplsTpTunnelMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpTunnelMetric.setStatus('current')
-vRtrMplsTpTunnelAge = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpTunnelAge.setStatus('current')
-vRtrMplsTpScalar1 = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 101), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpScalar1.setStatus('current')
-vRtrMplsTpScalar2 = MibScalar((1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 102), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: vRtrMplsTpScalar2.setStatus('current')
-mibBuilder.exportSymbols("TN-MPLS-TP-MIB", vRtrMplsTpLspPathMepAdminState=vRtrMplsTpLspPathMepAdminState, vRtrMplsTpScalar1=vRtrMplsTpScalar1, vRtrMplsTpLspPathLspNumber=vRtrMplsTpLspPathLspNumber, vRtrMplsTpTunnelIdMax=vRtrMplsTpTunnelIdMax, vRtrMplsTpAdminState=vRtrMplsTpAdminState, vRtrMplsTpOamTmplBfdTemplateName=vRtrMplsTpOamTmplBfdTemplateName, vRtrMplsTpTunnelIdMin=vRtrMplsTpTunnelIdMin, vRtrMplsTpLspPathOutLink=vRtrMplsTpLspPathOutLink, tnMplsTpMIBModule=tnMplsTpMIBModule, vRtrMplsTpLsrPathIdPathName=vRtrMplsTpLsrPathIdPathName, vRtrMplsTpStatusObjects=vRtrMplsTpStatusObjects, vRtrMplsTpLspPathMepBfdEnabled=vRtrMplsTpLspPathMepBfdEnabled, vRtrMplsTpStatus=vRtrMplsTpStatus, vRtrMplsTpTunnelCommandSwitch=vRtrMplsTpTunnelCommandSwitch, vRtrMplsTpLspPathState=vRtrMplsTpLspPathState, vRtrMplsTpLsrTblLastChanged=vRtrMplsTpLsrTblLastChanged, vRtrMplsTpOamTmplRowStatus=vRtrMplsTpOamTmplRowStatus, vRtrMplsTpLspPathOutLabel=vRtrMplsTpLspPathOutLabel, vRtrMplsTpLspPathTimeDown=vRtrMplsTpLspPathTimeDown, vRtrMplsTpLsrPathIdEntry=vRtrMplsTpLsrPathIdEntry, VRtrMplsTpLspPathMepPduType=VRtrMplsTpLspPathMepPduType, vRtrMplsTpPtcTemplateCfgEntry=vRtrMplsTpPtcTemplateCfgEntry, vRtrMplsTpLsrPathIdTable=vRtrMplsTpLsrPathIdTable, vRtrMplsTpLsrRPNextHopAddress=vRtrMplsTpLsrRPNextHopAddress, vRtrMplsTpTunnelType=vRtrMplsTpTunnelType, vRtrMplsTpLspObjects=vRtrMplsTpLspObjects, vRtrMplsTpStatistics=vRtrMplsTpStatistics, vRtrMplsTpTunnelCommandTable=vRtrMplsTpTunnelCommandTable, vRtrMplsTpConfigTimeStamps=vRtrMplsTpConfigTimeStamps, vRtrMplsTpLsrPathIdSrcTunNum=vRtrMplsTpLsrPathIdSrcTunNum, vRtrMplsTpOamTemplateCfgTable=vRtrMplsTpOamTemplateCfgTable, vRtrMplsTpLsrAdminState=vRtrMplsTpLsrAdminState, vRtrMplsTpLsrPathIdTblLastChg=vRtrMplsTpLsrPathIdTblLastChg, vRtrMplsTpLspPathMepTblLastChg=vRtrMplsTpLspPathMepTblLastChg, vRtrMplsTpLsrCfgEntry=vRtrMplsTpLsrCfgEntry, vRtrMplsTpScalar2=vRtrMplsTpScalar2, vRtrMplsTpLspPathMepRowStatus=vRtrMplsTpLspPathMepRowStatus, vRtrMplsTpLspPtPathMepStatTable=vRtrMplsTpLspPtPathMepStatTable, vRtrMplsTpLspPathMepLastChgTime=vRtrMplsTpLspPathMepLastChgTime, vRtrMplsTpLsrFPNextHopAddrType=vRtrMplsTpLsrFPNextHopAddrType, vRtrMplsTpPtcTemplTblLastChanged=vRtrMplsTpPtcTemplTblLastChanged, vRtrMplsTpLsrPathIdSrcNodeId=vRtrMplsTpLsrPathIdSrcNodeId, vRtrMplsTpLspPathEntry=vRtrMplsTpLspPathEntry, vRtrMplsTpOamTemplateCfgEntry=vRtrMplsTpOamTemplateCfgEntry, vRtrMplsTpLspPtPathMepRxPdu=vRtrMplsTpLspPtPathMepRxPdu, vRtrMplsTpLsrLastChangedTime=vRtrMplsTpLsrLastChangedTime, vRtrMplsTpPtcTmplProtectionMode=vRtrMplsTpPtcTmplProtectionMode, vRtrMplsTpPtcTmplWaitToRestore=vRtrMplsTpPtcTmplWaitToRestore, vRtrMplsTpLsrRPOutLabel=vRtrMplsTpLsrRPOutLabel, vRtrMplsTpNodeId=vRtrMplsTpNodeId, vRtrMplsTpCmdObjects=vRtrMplsTpCmdObjects, vRtrMplsTpTunnelPreference=vRtrMplsTpTunnelPreference, vRtrMplsTpLspPathMepEntry=vRtrMplsTpLspPathMepEntry, vRtrMplsTpLspPathRowStatus=vRtrMplsTpLspPathRowStatus, vRtrMplsTpLsrPathIdSrcGlobalId=vRtrMplsTpLsrPathIdSrcGlobalId, vRtrMplsTpTunnelAge=vRtrMplsTpTunnelAge, vRtrMplsTpPtcTmplRapidPscTimer=vRtrMplsTpPtcTmplRapidPscTimer, vRtrMplsTpTunnelTable=vRtrMplsTpTunnelTable, vRtrMplsTpTunnelMetric=vRtrMplsTpTunnelMetric, vRtrMplsTpLsrPathIdDestNodeId=vRtrMplsTpLsrPathIdDestNodeId, vRtrMplsTpLsrRPNextHopAddrType=vRtrMplsTpLsrRPNextHopAddrType, vRtrMplsTpObjs=vRtrMplsTpObjs, vRtrMplsTpActions=vRtrMplsTpActions, vRtrMplsTpPtcTmplRevertive=vRtrMplsTpPtcTmplRevertive, vRtrMplsTpLspPathInLabel=vRtrMplsTpLspPathInLabel, vRtrMplsTpLspPtPathMepStatEntry=vRtrMplsTpLspPtPathMepStatEntry, vRtrMplsTpOamTmplHoldTimeUp=vRtrMplsTpOamTmplHoldTimeUp, vRtrMplsTpPtcTmplName=vRtrMplsTpPtcTmplName, vRtrMplsTpLspPathAdminState=vRtrMplsTpLspPathAdminState, vRtrMplsTpLspPathNextHopAddress=vRtrMplsTpLspPathNextHopAddress, vRtrMplsTpLsrFPOutLink=vRtrMplsTpLsrFPOutLink, vRtrMplsTpLsrOperState=vRtrMplsTpLsrOperState, vRtrMplsTpLsrFPNextHopAddress=vRtrMplsTpLsrFPNextHopAddress, vRtrMplsTpLspPathMepBfdOperState=vRtrMplsTpLspPathMepBfdOperState, vRtrMplsTpPtcTmplRowStatus=vRtrMplsTpPtcTmplRowStatus, vRtrMplsTpNotifyObjects=vRtrMplsTpNotifyObjects, vRtrMplsTpLsrRowStatus=vRtrMplsTpLsrRowStatus, vRtrMplsTpLspPtPathMepDefects=vRtrMplsTpLspPtPathMepDefects, vRtrMplsTpLsrFPInLabel=vRtrMplsTpLsrFPInLabel, vRtrMplsTpLsrCfgTable=vRtrMplsTpLsrCfgTable, vRtrMplsTpOamTmplHoldTimeDown=vRtrMplsTpOamTmplHoldTimeDown, vRtrMplsTpLspPathActiveTimeUp=vRtrMplsTpLspPathActiveTimeUp, vRtrMplsTpInheritance=vRtrMplsTpInheritance, vRtrMplsTpLspPathIndex=vRtrMplsTpLspPathIndex, vRtrMplsTpLspPathMepTable=vRtrMplsTpLspPathMepTable, vRtrMplsTpSystemTableLastChanged=vRtrMplsTpSystemTableLastChanged, vRtrMplsTpLsrFPOutLabel=vRtrMplsTpLsrFPOutLabel, vRtrMplsTpLsrPathIdLspNumber=vRtrMplsTpLsrPathIdLspNumber, vRtrMplsTpLspPathTimeUp=vRtrMplsTpLspPathTimeUp, vRtrMplsTpOamTmplLastChangedTime=vRtrMplsTpOamTmplLastChangedTime, vRtrMplsTpLspPathMepOamTmpl=vRtrMplsTpLspPathMepOamTmpl, vRtrMplsTpTunnelGlobalId=vRtrMplsTpTunnelGlobalId, vRtrMplsTpTunnelID=vRtrMplsTpTunnelID, vRtrMplsTpPtcTmplLastChangedTime=vRtrMplsTpPtcTmplLastChangedTime, vRtrMplsTpTunnelCommandEntry=vRtrMplsTpTunnelCommandEntry, vRtrMplsTpLspPtPathMepWTRTimer=vRtrMplsTpLspPtPathMepWTRTimer, vRtrMplsTpLspPathTblLastChanged=vRtrMplsTpLspPathTblLastChanged, vRtrMplsTpLsrObjects=vRtrMplsTpLsrObjects, vRtrMplsTpLsrRPOutLink=vRtrMplsTpLsrRPOutLink, vRtrMplsTpLsrPathIdDestGlobalId=vRtrMplsTpLsrPathIdDestGlobalId, vRtrMplsTpLsrPathName=vRtrMplsTpLsrPathName, vRtrMplsTpLsrPathIdDestTunNum=vRtrMplsTpLsrPathIdDestTunNum, vRtrMplsTpLspPathReasonDownFlags=vRtrMplsTpLspPathReasonDownFlags, vRtrMplsTpLspPathNextHopAddrType=vRtrMplsTpLspPathNextHopAddrType, vRtrMplsTpOamTmplName=vRtrMplsTpOamTmplName, vRtrMplsTpOamTemplTblLastChanged=vRtrMplsTpOamTemplTblLastChanged, PYSNMP_MODULE_ID=tnMplsTpMIBModule, vRtrMplsTpTunnelNextHopAddress=vRtrMplsTpTunnelNextHopAddress, vRtrMplsTpRowStatus=vRtrMplsTpRowStatus, vRtrMplsTpLspPtPathMepTxPdu=vRtrMplsTpLspPtPathMepTxPdu, vRtrMplsTpLsrRPEnabled=vRtrMplsTpLsrRPEnabled, vRtrMplsTpPtcTmplSlowPscTimer=vRtrMplsTpPtcTmplSlowPscTimer, vRtrMplsTpLspPathOperState=vRtrMplsTpLspPathOperState, vRtrMplsTpPtcTmplProtectionDir=vRtrMplsTpPtcTmplProtectionDir, vRtrMplsTpLsrPathIdRowStatus=vRtrMplsTpLsrPathIdRowStatus, vRtrMplsTpPtcTemplateCfgTable=vRtrMplsTpPtcTemplateCfgTable, vRtrMplsTpLspPathTable=vRtrMplsTpLspPathTable, vRtrMplsTpSystemIdentifiers=vRtrMplsTpSystemIdentifiers, vRtrMplsTpLsrFPEnabled=vRtrMplsTpLsrFPEnabled, vRtrMplsTpTemplateObjects=vRtrMplsTpTemplateObjects, vRtrMplsTpTunnelEntry=vRtrMplsTpTunnelEntry, vRtrMplsTpSystemTable=vRtrMplsTpSystemTable, vRtrMplsTpLspPathMepProtectTmpl=vRtrMplsTpLspPathMepProtectTmpl, vRtrMplsTpLspPathLastChangedTime=vRtrMplsTpLspPathLastChangedTime, vRtrMplsTpTunnelNodeId=vRtrMplsTpTunnelNodeId, vRtrMplsTpConfigurations=vRtrMplsTpConfigurations, vRtrMplsTpSystemEntry=vRtrMplsTpSystemEntry, vRtrMplsTpTunnelNextHopAddrType=vRtrMplsTpTunnelNextHopAddrType, vRtrMplsTpGlobalId=vRtrMplsTpGlobalId, vRtrMplsTpLsrRPInLabel=vRtrMplsTpLsrRPInLabel)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+(vRtrMplsLspIndex,) = mibBuilder.importSymbols(
+    "TN-MPLS-MIB",
+    "vRtrMplsLspIndex")
+
+(TNamedItem,
+ TNamedItemOrEmpty,
+ TmnxAdminState,
+ TmnxMplsTpGlobalID,
+ TmnxMplsTpNodeID,
+ TmnxMplsTpTunnelType,
+ TmnxOperState,
+ TmnxTunnelID) = mibBuilder.importSymbols(
+    "TN-TC-MIB",
+    "TNamedItem",
+    "TNamedItemOrEmpty",
+    "TmnxAdminState",
+    "TmnxMplsTpGlobalID",
+    "TmnxMplsTpNodeID",
+    "TmnxMplsTpTunnelType",
+    "TmnxOperState",
+    "TmnxTunnelID")
+
+(vRtrID,) = mibBuilder.importSymbols(
+    "TN-VRTR-MIB",
+    "vRtrID")
+
+(tnSRMIBModules,
+ tnSRObjs) = mibBuilder.importSymbols(
+    "TROPIC-GLOBAL-REG",
+    "tnSRMIBModules",
+    "tnSRObjs")
+
+(tnSysSwitchId,) = mibBuilder.importSymbols(
+    "TROPIC-SYSTEM-MIB",
+    "tnSysSwitchId")
+
+
+# MODULE-IDENTITY
+
+tnMplsTpMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 5, 1, 3, 83)
+)
+if mibBuilder.loadTexts:
+    tnMplsTpMIBModule.setRevisions(
+        ("2015-09-30 00:00",
+         "2015-04-30 00:00",
+         "2012-06-01 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class VRtrMplsTpLspPathMepPduType(TextualConvention, OctetString):
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_VRtrMplsTpObjs_ObjectIdentity = ObjectIdentity
+vRtrMplsTpObjs = _VRtrMplsTpObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83)
+)
+_VRtrMplsTpConfigTimeStamps_ObjectIdentity = ObjectIdentity
+vRtrMplsTpConfigTimeStamps = _VRtrMplsTpConfigTimeStamps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1)
+)
+_VRtrMplsTpSystemTableLastChanged_Type = TimeStamp
+_VRtrMplsTpSystemTableLastChanged_Object = MibScalar
+vRtrMplsTpSystemTableLastChanged = _VRtrMplsTpSystemTableLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 1),
+    _VRtrMplsTpSystemTableLastChanged_Type()
+)
+vRtrMplsTpSystemTableLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpSystemTableLastChanged.setStatus("current")
+_VRtrMplsTpOamTemplTblLastChanged_Type = TimeStamp
+_VRtrMplsTpOamTemplTblLastChanged_Object = MibScalar
+vRtrMplsTpOamTemplTblLastChanged = _VRtrMplsTpOamTemplTblLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 2),
+    _VRtrMplsTpOamTemplTblLastChanged_Type()
+)
+vRtrMplsTpOamTemplTblLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpOamTemplTblLastChanged.setStatus("current")
+_VRtrMplsTpPtcTemplTblLastChanged_Type = TimeStamp
+_VRtrMplsTpPtcTemplTblLastChanged_Object = MibScalar
+vRtrMplsTpPtcTemplTblLastChanged = _VRtrMplsTpPtcTemplTblLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 3),
+    _VRtrMplsTpPtcTemplTblLastChanged_Type()
+)
+vRtrMplsTpPtcTemplTblLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTemplTblLastChanged.setStatus("current")
+_VRtrMplsTpLspPathTblLastChanged_Type = TimeStamp
+_VRtrMplsTpLspPathTblLastChanged_Object = MibScalar
+vRtrMplsTpLspPathTblLastChanged = _VRtrMplsTpLspPathTblLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 5),
+    _VRtrMplsTpLspPathTblLastChanged_Type()
+)
+vRtrMplsTpLspPathTblLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathTblLastChanged.setStatus("current")
+_VRtrMplsTpLspPathMepTblLastChg_Type = TimeStamp
+_VRtrMplsTpLspPathMepTblLastChg_Object = MibScalar
+vRtrMplsTpLspPathMepTblLastChg = _VRtrMplsTpLspPathMepTblLastChg_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 6),
+    _VRtrMplsTpLspPathMepTblLastChg_Type()
+)
+vRtrMplsTpLspPathMepTblLastChg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathMepTblLastChg.setStatus("current")
+_VRtrMplsTpLsrTblLastChanged_Type = TimeStamp
+_VRtrMplsTpLsrTblLastChanged_Object = MibScalar
+vRtrMplsTpLsrTblLastChanged = _VRtrMplsTpLsrTblLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 7),
+    _VRtrMplsTpLsrTblLastChanged_Type()
+)
+vRtrMplsTpLsrTblLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrTblLastChanged.setStatus("current")
+_VRtrMplsTpLsrPathIdTblLastChg_Type = TimeStamp
+_VRtrMplsTpLsrPathIdTblLastChg_Object = MibScalar
+vRtrMplsTpLsrPathIdTblLastChg = _VRtrMplsTpLsrPathIdTblLastChg_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 8),
+    _VRtrMplsTpLsrPathIdTblLastChg_Type()
+)
+vRtrMplsTpLsrPathIdTblLastChg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdTblLastChg.setStatus("current")
+_VRtrMplsTpScalar1_Type = Unsigned32
+_VRtrMplsTpScalar1_Object = MibScalar
+vRtrMplsTpScalar1 = _VRtrMplsTpScalar1_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 101),
+    _VRtrMplsTpScalar1_Type()
+)
+vRtrMplsTpScalar1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpScalar1.setStatus("current")
+_VRtrMplsTpScalar2_Type = Unsigned32
+_VRtrMplsTpScalar2_Object = MibScalar
+vRtrMplsTpScalar2 = _VRtrMplsTpScalar2_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 1, 102),
+    _VRtrMplsTpScalar2_Type()
+)
+vRtrMplsTpScalar2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpScalar2.setStatus("current")
+_VRtrMplsTpConfigurations_ObjectIdentity = ObjectIdentity
+vRtrMplsTpConfigurations = _VRtrMplsTpConfigurations_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2)
+)
+_VRtrMplsTpSystemIdentifiers_ObjectIdentity = ObjectIdentity
+vRtrMplsTpSystemIdentifiers = _VRtrMplsTpSystemIdentifiers_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1)
+)
+_VRtrMplsTpSystemTable_Object = MibTable
+vRtrMplsTpSystemTable = _VRtrMplsTpSystemTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpSystemTable.setStatus("current")
+_VRtrMplsTpSystemEntry_Object = MibTableRow
+vRtrMplsTpSystemEntry = _VRtrMplsTpSystemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1)
+)
+vRtrMplsTpSystemEntry.setIndexNames(
+    (0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"),
+    (0, "TN-VRTR-MIB", "vRtrID"),
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpSystemEntry.setStatus("current")
+_VRtrMplsTpRowStatus_Type = RowStatus
+_VRtrMplsTpRowStatus_Object = MibTableColumn
+vRtrMplsTpRowStatus = _VRtrMplsTpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 1),
+    _VRtrMplsTpRowStatus_Type()
+)
+vRtrMplsTpRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpRowStatus.setStatus("current")
+
+
+class _VRtrMplsTpGlobalId_Type(TmnxMplsTpGlobalID):
+    """Custom type vRtrMplsTpGlobalId based on TmnxMplsTpGlobalID"""
+    defaultValue = 0
+
+
+_VRtrMplsTpGlobalId_Type.__name__ = "TmnxMplsTpGlobalID"
+_VRtrMplsTpGlobalId_Object = MibTableColumn
+vRtrMplsTpGlobalId = _VRtrMplsTpGlobalId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 2),
+    _VRtrMplsTpGlobalId_Type()
+)
+vRtrMplsTpGlobalId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpGlobalId.setStatus("current")
+
+
+class _VRtrMplsTpNodeId_Type(TmnxMplsTpNodeID):
+    """Custom type vRtrMplsTpNodeId based on TmnxMplsTpNodeID"""
+    defaultValue = 0
+
+
+_VRtrMplsTpNodeId_Type.__name__ = "TmnxMplsTpNodeID"
+_VRtrMplsTpNodeId_Object = MibTableColumn
+vRtrMplsTpNodeId = _VRtrMplsTpNodeId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 3),
+    _VRtrMplsTpNodeId_Type()
+)
+vRtrMplsTpNodeId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpNodeId.setStatus("current")
+
+
+class _VRtrMplsTpTunnelIdMin_Type(Unsigned32):
+    """Custom type vRtrMplsTpTunnelIdMin based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 61440),
+    )
+
+
+_VRtrMplsTpTunnelIdMin_Type.__name__ = "Unsigned32"
+_VRtrMplsTpTunnelIdMin_Object = MibTableColumn
+vRtrMplsTpTunnelIdMin = _VRtrMplsTpTunnelIdMin_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 4),
+    _VRtrMplsTpTunnelIdMin_Type()
+)
+vRtrMplsTpTunnelIdMin.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelIdMin.setStatus("current")
+
+
+class _VRtrMplsTpTunnelIdMax_Type(Unsigned32):
+    """Custom type vRtrMplsTpTunnelIdMax based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 61440),
+    )
+
+
+_VRtrMplsTpTunnelIdMax_Type.__name__ = "Unsigned32"
+_VRtrMplsTpTunnelIdMax_Object = MibTableColumn
+vRtrMplsTpTunnelIdMax = _VRtrMplsTpTunnelIdMax_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 5),
+    _VRtrMplsTpTunnelIdMax_Type()
+)
+vRtrMplsTpTunnelIdMax.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelIdMax.setStatus("current")
+
+
+class _VRtrMplsTpAdminState_Type(TmnxAdminState):
+    """Custom type vRtrMplsTpAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_VRtrMplsTpAdminState_Type.__name__ = "TmnxAdminState"
+_VRtrMplsTpAdminState_Object = MibTableColumn
+vRtrMplsTpAdminState = _VRtrMplsTpAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 6),
+    _VRtrMplsTpAdminState_Type()
+)
+vRtrMplsTpAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpAdminState.setStatus("current")
+
+
+class _VRtrMplsTpInheritance_Type(Bits):
+    """Custom type vRtrMplsTpInheritance based on Bits"""
+    defaultBinValue = "0"
+
+    namedValues = NamedValues(
+        ("vRtrMplsTpNodeId", 0)
+    )
+
+_VRtrMplsTpInheritance_Type.__name__ = "Bits"
+_VRtrMplsTpInheritance_Object = MibTableColumn
+vRtrMplsTpInheritance = _VRtrMplsTpInheritance_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 1, 1, 1, 7),
+    _VRtrMplsTpInheritance_Type()
+)
+vRtrMplsTpInheritance.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpInheritance.setStatus("current")
+_VRtrMplsTpTemplateObjects_ObjectIdentity = ObjectIdentity
+vRtrMplsTpTemplateObjects = _VRtrMplsTpTemplateObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2)
+)
+_VRtrMplsTpOamTemplateCfgTable_Object = MibTable
+vRtrMplsTpOamTemplateCfgTable = _VRtrMplsTpOamTemplateCfgTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpOamTemplateCfgTable.setStatus("current")
+_VRtrMplsTpOamTemplateCfgEntry_Object = MibTableRow
+vRtrMplsTpOamTemplateCfgEntry = _VRtrMplsTpOamTemplateCfgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1)
+)
+vRtrMplsTpOamTemplateCfgEntry.setIndexNames(
+    (0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"),
+    (0, "TN-VRTR-MIB", "vRtrID"),
+    (1, "TN-MPLS-TP-MIB", "vRtrMplsTpOamTmplName"),
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpOamTemplateCfgEntry.setStatus("current")
+_VRtrMplsTpOamTmplName_Type = TNamedItem
+_VRtrMplsTpOamTmplName_Object = MibTableColumn
+vRtrMplsTpOamTmplName = _VRtrMplsTpOamTmplName_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 1),
+    _VRtrMplsTpOamTmplName_Type()
+)
+vRtrMplsTpOamTmplName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpOamTmplName.setStatus("current")
+_VRtrMplsTpOamTmplRowStatus_Type = RowStatus
+_VRtrMplsTpOamTmplRowStatus_Object = MibTableColumn
+vRtrMplsTpOamTmplRowStatus = _VRtrMplsTpOamTmplRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 2),
+    _VRtrMplsTpOamTmplRowStatus_Type()
+)
+vRtrMplsTpOamTmplRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpOamTmplRowStatus.setStatus("current")
+_VRtrMplsTpOamTmplLastChangedTime_Type = TimeStamp
+_VRtrMplsTpOamTmplLastChangedTime_Object = MibTableColumn
+vRtrMplsTpOamTmplLastChangedTime = _VRtrMplsTpOamTmplLastChangedTime_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 3),
+    _VRtrMplsTpOamTmplLastChangedTime_Type()
+)
+vRtrMplsTpOamTmplLastChangedTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpOamTmplLastChangedTime.setStatus("current")
+_VRtrMplsTpOamTmplBfdTemplateName_Type = TNamedItemOrEmpty
+_VRtrMplsTpOamTmplBfdTemplateName_Object = MibTableColumn
+vRtrMplsTpOamTmplBfdTemplateName = _VRtrMplsTpOamTmplBfdTemplateName_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 4),
+    _VRtrMplsTpOamTmplBfdTemplateName_Type()
+)
+vRtrMplsTpOamTmplBfdTemplateName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpOamTmplBfdTemplateName.setStatus("current")
+
+
+class _VRtrMplsTpOamTmplHoldTimeDown_Type(Unsigned32):
+    """Custom type vRtrMplsTpOamTmplHoldTimeDown based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 5000),
+    )
+
+
+_VRtrMplsTpOamTmplHoldTimeDown_Type.__name__ = "Unsigned32"
+_VRtrMplsTpOamTmplHoldTimeDown_Object = MibTableColumn
+vRtrMplsTpOamTmplHoldTimeDown = _VRtrMplsTpOamTmplHoldTimeDown_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 5),
+    _VRtrMplsTpOamTmplHoldTimeDown_Type()
+)
+vRtrMplsTpOamTmplHoldTimeDown.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpOamTmplHoldTimeDown.setStatus("current")
+if mibBuilder.loadTexts:
+    vRtrMplsTpOamTmplHoldTimeDown.setUnits("centiseconds")
+
+
+class _VRtrMplsTpOamTmplHoldTimeUp_Type(Unsigned32):
+    """Custom type vRtrMplsTpOamTmplHoldTimeUp based on Unsigned32"""
+    defaultValue = 20
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 500),
+    )
+
+
+_VRtrMplsTpOamTmplHoldTimeUp_Type.__name__ = "Unsigned32"
+_VRtrMplsTpOamTmplHoldTimeUp_Object = MibTableColumn
+vRtrMplsTpOamTmplHoldTimeUp = _VRtrMplsTpOamTmplHoldTimeUp_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 1, 1, 6),
+    _VRtrMplsTpOamTmplHoldTimeUp_Type()
+)
+vRtrMplsTpOamTmplHoldTimeUp.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpOamTmplHoldTimeUp.setStatus("current")
+if mibBuilder.loadTexts:
+    vRtrMplsTpOamTmplHoldTimeUp.setUnits("deciseconds")
+_VRtrMplsTpPtcTemplateCfgTable_Object = MibTable
+vRtrMplsTpPtcTemplateCfgTable = _VRtrMplsTpPtcTemplateCfgTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2)
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTemplateCfgTable.setStatus("current")
+_VRtrMplsTpPtcTemplateCfgEntry_Object = MibTableRow
+vRtrMplsTpPtcTemplateCfgEntry = _VRtrMplsTpPtcTemplateCfgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1)
+)
+vRtrMplsTpPtcTemplateCfgEntry.setIndexNames(
+    (0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"),
+    (0, "TN-VRTR-MIB", "vRtrID"),
+    (1, "TN-MPLS-TP-MIB", "vRtrMplsTpPtcTmplName"),
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTemplateCfgEntry.setStatus("current")
+_VRtrMplsTpPtcTmplName_Type = TNamedItem
+_VRtrMplsTpPtcTmplName_Object = MibTableColumn
+vRtrMplsTpPtcTmplName = _VRtrMplsTpPtcTmplName_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 1),
+    _VRtrMplsTpPtcTmplName_Type()
+)
+vRtrMplsTpPtcTmplName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplName.setStatus("current")
+_VRtrMplsTpPtcTmplRowStatus_Type = RowStatus
+_VRtrMplsTpPtcTmplRowStatus_Object = MibTableColumn
+vRtrMplsTpPtcTmplRowStatus = _VRtrMplsTpPtcTmplRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 2),
+    _VRtrMplsTpPtcTmplRowStatus_Type()
+)
+vRtrMplsTpPtcTmplRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplRowStatus.setStatus("current")
+_VRtrMplsTpPtcTmplLastChangedTime_Type = TimeStamp
+_VRtrMplsTpPtcTmplLastChangedTime_Object = MibTableColumn
+vRtrMplsTpPtcTmplLastChangedTime = _VRtrMplsTpPtcTmplLastChangedTime_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 3),
+    _VRtrMplsTpPtcTmplLastChangedTime_Type()
+)
+vRtrMplsTpPtcTmplLastChangedTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplLastChangedTime.setStatus("current")
+
+
+class _VRtrMplsTpPtcTmplProtectionMode_Type(Integer32):
+    """Custom type vRtrMplsTpPtcTmplProtectionMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("one2one", 1)
+    )
+
+
+_VRtrMplsTpPtcTmplProtectionMode_Type.__name__ = "Integer32"
+_VRtrMplsTpPtcTmplProtectionMode_Object = MibTableColumn
+vRtrMplsTpPtcTmplProtectionMode = _VRtrMplsTpPtcTmplProtectionMode_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 4),
+    _VRtrMplsTpPtcTmplProtectionMode_Type()
+)
+vRtrMplsTpPtcTmplProtectionMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplProtectionMode.setStatus("current")
+
+
+class _VRtrMplsTpPtcTmplProtectionDir_Type(Integer32):
+    """Custom type vRtrMplsTpPtcTmplProtectionDir based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            2
+        )
+    )
+    namedValues = NamedValues(
+        ("bidirectional", 2)
+    )
+
+
+_VRtrMplsTpPtcTmplProtectionDir_Type.__name__ = "Integer32"
+_VRtrMplsTpPtcTmplProtectionDir_Object = MibTableColumn
+vRtrMplsTpPtcTmplProtectionDir = _VRtrMplsTpPtcTmplProtectionDir_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 5),
+    _VRtrMplsTpPtcTmplProtectionDir_Type()
+)
+vRtrMplsTpPtcTmplProtectionDir.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplProtectionDir.setStatus("current")
+
+
+class _VRtrMplsTpPtcTmplRevertive_Type(Integer32):
+    """Custom type vRtrMplsTpPtcTmplRevertive based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nonRevertive", 1),
+          ("revertive", 2))
+    )
+
+
+_VRtrMplsTpPtcTmplRevertive_Type.__name__ = "Integer32"
+_VRtrMplsTpPtcTmplRevertive_Object = MibTableColumn
+vRtrMplsTpPtcTmplRevertive = _VRtrMplsTpPtcTmplRevertive_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 6),
+    _VRtrMplsTpPtcTmplRevertive_Type()
+)
+vRtrMplsTpPtcTmplRevertive.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplRevertive.setStatus("current")
+
+
+class _VRtrMplsTpPtcTmplWaitToRestore_Type(Unsigned32):
+    """Custom type vRtrMplsTpPtcTmplWaitToRestore based on Unsigned32"""
+    defaultValue = 300
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 720),
+    )
+
+
+_VRtrMplsTpPtcTmplWaitToRestore_Type.__name__ = "Unsigned32"
+_VRtrMplsTpPtcTmplWaitToRestore_Object = MibTableColumn
+vRtrMplsTpPtcTmplWaitToRestore = _VRtrMplsTpPtcTmplWaitToRestore_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 7),
+    _VRtrMplsTpPtcTmplWaitToRestore_Type()
+)
+vRtrMplsTpPtcTmplWaitToRestore.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplWaitToRestore.setStatus("current")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplWaitToRestore.setUnits("seconds")
+
+
+class _VRtrMplsTpPtcTmplRapidPscTimer_Type(Unsigned32):
+    """Custom type vRtrMplsTpPtcTmplRapidPscTimer based on Unsigned32"""
+    defaultValue = 3
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(3, 3),
+        ValueRangeConstraint(10, 10),
+        ValueRangeConstraint(100, 100),
+        ValueRangeConstraint(1000, 1000),
+    )
+
+
+_VRtrMplsTpPtcTmplRapidPscTimer_Type.__name__ = "Unsigned32"
+_VRtrMplsTpPtcTmplRapidPscTimer_Object = MibTableColumn
+vRtrMplsTpPtcTmplRapidPscTimer = _VRtrMplsTpPtcTmplRapidPscTimer_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 8),
+    _VRtrMplsTpPtcTmplRapidPscTimer_Type()
+)
+vRtrMplsTpPtcTmplRapidPscTimer.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplRapidPscTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplRapidPscTimer.setUnits("milliseconds")
+
+
+class _VRtrMplsTpPtcTmplSlowPscTimer_Type(Unsigned32):
+    """Custom type vRtrMplsTpPtcTmplSlowPscTimer based on Unsigned32"""
+    defaultValue = 5
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 60),
+    )
+
+
+_VRtrMplsTpPtcTmplSlowPscTimer_Type.__name__ = "Unsigned32"
+_VRtrMplsTpPtcTmplSlowPscTimer_Object = MibTableColumn
+vRtrMplsTpPtcTmplSlowPscTimer = _VRtrMplsTpPtcTmplSlowPscTimer_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 2, 2, 1, 9),
+    _VRtrMplsTpPtcTmplSlowPscTimer_Type()
+)
+vRtrMplsTpPtcTmplSlowPscTimer.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplSlowPscTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    vRtrMplsTpPtcTmplSlowPscTimer.setUnits("seconds")
+_VRtrMplsTpLspObjects_ObjectIdentity = ObjectIdentity
+vRtrMplsTpLspObjects = _VRtrMplsTpLspObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3)
+)
+_VRtrMplsTpLspPathTable_Object = MibTable
+vRtrMplsTpLspPathTable = _VRtrMplsTpLspPathTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2)
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathTable.setStatus("current")
+_VRtrMplsTpLspPathEntry_Object = MibTableRow
+vRtrMplsTpLspPathEntry = _VRtrMplsTpLspPathEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1)
+)
+vRtrMplsTpLspPathEntry.setIndexNames(
+    (0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"),
+    (0, "TN-VRTR-MIB", "vRtrID"),
+    (0, "TN-MPLS-MIB", "vRtrMplsLspIndex"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLspPathIndex"),
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathEntry.setStatus("current")
+
+
+class _VRtrMplsTpLspPathIndex_Type(Integer32):
+    """Custom type vRtrMplsTpLspPathIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("working", 1),
+          ("protecting", 2))
+    )
+
+
+_VRtrMplsTpLspPathIndex_Type.__name__ = "Integer32"
+_VRtrMplsTpLspPathIndex_Object = MibTableColumn
+vRtrMplsTpLspPathIndex = _VRtrMplsTpLspPathIndex_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 1),
+    _VRtrMplsTpLspPathIndex_Type()
+)
+vRtrMplsTpLspPathIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathIndex.setStatus("current")
+_VRtrMplsTpLspPathRowStatus_Type = RowStatus
+_VRtrMplsTpLspPathRowStatus_Object = MibTableColumn
+vRtrMplsTpLspPathRowStatus = _VRtrMplsTpLspPathRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 2),
+    _VRtrMplsTpLspPathRowStatus_Type()
+)
+vRtrMplsTpLspPathRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathRowStatus.setStatus("current")
+_VRtrMplsTpLspPathLastChangedTime_Type = TimeStamp
+_VRtrMplsTpLspPathLastChangedTime_Object = MibTableColumn
+vRtrMplsTpLspPathLastChangedTime = _VRtrMplsTpLspPathLastChangedTime_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 3),
+    _VRtrMplsTpLspPathLastChangedTime_Type()
+)
+vRtrMplsTpLspPathLastChangedTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathLastChangedTime.setStatus("current")
+
+
+class _VRtrMplsTpLspPathAdminState_Type(TmnxAdminState):
+    """Custom type vRtrMplsTpLspPathAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_VRtrMplsTpLspPathAdminState_Type.__name__ = "TmnxAdminState"
+_VRtrMplsTpLspPathAdminState_Object = MibTableColumn
+vRtrMplsTpLspPathAdminState = _VRtrMplsTpLspPathAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 4),
+    _VRtrMplsTpLspPathAdminState_Type()
+)
+vRtrMplsTpLspPathAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathAdminState.setStatus("current")
+_VRtrMplsTpLspPathOperState_Type = TmnxOperState
+_VRtrMplsTpLspPathOperState_Object = MibTableColumn
+vRtrMplsTpLspPathOperState = _VRtrMplsTpLspPathOperState_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 5),
+    _VRtrMplsTpLspPathOperState_Type()
+)
+vRtrMplsTpLspPathOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathOperState.setStatus("current")
+
+
+class _VRtrMplsTpLspPathReasonDownFlags_Type(Bits):
+    """Custom type vRtrMplsTpLspPathReasonDownFlags based on Bits"""
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("ccFault", 1),
+          ("cvFault", 2),
+          ("ifDn", 3),
+          ("portDn", 4),
+          ("parentAdminDn", 5),
+          ("mepAdminDn", 6),
+          ("unsupportedPort", 7),
+          ("ifNhAddrInconsistent", 8),
+          ("ptcTmplMsng", 9),
+          ("ccDnHold", 10),
+          ("ccUpHold", 11),
+          ("bfdNoRsrc", 12))
+    )
+
+_VRtrMplsTpLspPathReasonDownFlags_Type.__name__ = "Bits"
+_VRtrMplsTpLspPathReasonDownFlags_Object = MibTableColumn
+vRtrMplsTpLspPathReasonDownFlags = _VRtrMplsTpLspPathReasonDownFlags_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 6),
+    _VRtrMplsTpLspPathReasonDownFlags_Type()
+)
+vRtrMplsTpLspPathReasonDownFlags.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathReasonDownFlags.setStatus("current")
+
+
+class _VRtrMplsTpLspPathLspNumber_Type(Unsigned32):
+    """Custom type vRtrMplsTpLspPathLspNumber based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_VRtrMplsTpLspPathLspNumber_Type.__name__ = "Unsigned32"
+_VRtrMplsTpLspPathLspNumber_Object = MibTableColumn
+vRtrMplsTpLspPathLspNumber = _VRtrMplsTpLspPathLspNumber_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 7),
+    _VRtrMplsTpLspPathLspNumber_Type()
+)
+vRtrMplsTpLspPathLspNumber.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathLspNumber.setStatus("current")
+
+
+class _VRtrMplsTpLspPathInLabel_Type(Unsigned32):
+    """Custom type vRtrMplsTpLspPathInLabel based on Unsigned32"""
+    defaultValue = 0
+
+
+_VRtrMplsTpLspPathInLabel_Type.__name__ = "Unsigned32"
+_VRtrMplsTpLspPathInLabel_Object = MibTableColumn
+vRtrMplsTpLspPathInLabel = _VRtrMplsTpLspPathInLabel_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 8),
+    _VRtrMplsTpLspPathInLabel_Type()
+)
+vRtrMplsTpLspPathInLabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathInLabel.setStatus("current")
+
+
+class _VRtrMplsTpLspPathOutLabel_Type(Unsigned32):
+    """Custom type vRtrMplsTpLspPathOutLabel based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(16, 1048575),
+    )
+
+
+_VRtrMplsTpLspPathOutLabel_Type.__name__ = "Unsigned32"
+_VRtrMplsTpLspPathOutLabel_Object = MibTableColumn
+vRtrMplsTpLspPathOutLabel = _VRtrMplsTpLspPathOutLabel_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 9),
+    _VRtrMplsTpLspPathOutLabel_Type()
+)
+vRtrMplsTpLspPathOutLabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathOutLabel.setStatus("current")
+
+
+class _VRtrMplsTpLspPathOutLink_Type(InterfaceIndexOrZero):
+    """Custom type vRtrMplsTpLspPathOutLink based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_VRtrMplsTpLspPathOutLink_Type.__name__ = "InterfaceIndexOrZero"
+_VRtrMplsTpLspPathOutLink_Object = MibTableColumn
+vRtrMplsTpLspPathOutLink = _VRtrMplsTpLspPathOutLink_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 10),
+    _VRtrMplsTpLspPathOutLink_Type()
+)
+vRtrMplsTpLspPathOutLink.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathOutLink.setStatus("current")
+
+
+class _VRtrMplsTpLspPathNextHopAddrType_Type(InetAddressType):
+    """Custom type vRtrMplsTpLspPathNextHopAddrType based on InetAddressType"""
+    defaultValue = 0
+
+
+_VRtrMplsTpLspPathNextHopAddrType_Type.__name__ = "InetAddressType"
+_VRtrMplsTpLspPathNextHopAddrType_Object = MibTableColumn
+vRtrMplsTpLspPathNextHopAddrType = _VRtrMplsTpLspPathNextHopAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 11),
+    _VRtrMplsTpLspPathNextHopAddrType_Type()
+)
+vRtrMplsTpLspPathNextHopAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathNextHopAddrType.setStatus("current")
+
+
+class _VRtrMplsTpLspPathNextHopAddress_Type(InetAddress):
+    """Custom type vRtrMplsTpLspPathNextHopAddress based on InetAddress"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_VRtrMplsTpLspPathNextHopAddress_Type.__name__ = "InetAddress"
+_VRtrMplsTpLspPathNextHopAddress_Object = MibTableColumn
+vRtrMplsTpLspPathNextHopAddress = _VRtrMplsTpLspPathNextHopAddress_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 12),
+    _VRtrMplsTpLspPathNextHopAddress_Type()
+)
+vRtrMplsTpLspPathNextHopAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathNextHopAddress.setStatus("current")
+
+
+class _VRtrMplsTpLspPathState_Type(Integer32):
+    """Custom type vRtrMplsTpLspPathState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("active", 2),
+          ("inactive", 3))
+    )
+
+
+_VRtrMplsTpLspPathState_Type.__name__ = "Integer32"
+_VRtrMplsTpLspPathState_Object = MibTableColumn
+vRtrMplsTpLspPathState = _VRtrMplsTpLspPathState_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 13),
+    _VRtrMplsTpLspPathState_Type()
+)
+vRtrMplsTpLspPathState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathState.setStatus("current")
+_VRtrMplsTpLspPathTimeUp_Type = TimeInterval
+_VRtrMplsTpLspPathTimeUp_Object = MibTableColumn
+vRtrMplsTpLspPathTimeUp = _VRtrMplsTpLspPathTimeUp_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 14),
+    _VRtrMplsTpLspPathTimeUp_Type()
+)
+vRtrMplsTpLspPathTimeUp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathTimeUp.setStatus("current")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathTimeUp.setUnits("centiseconds")
+_VRtrMplsTpLspPathTimeDown_Type = TimeInterval
+_VRtrMplsTpLspPathTimeDown_Object = MibTableColumn
+vRtrMplsTpLspPathTimeDown = _VRtrMplsTpLspPathTimeDown_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 15),
+    _VRtrMplsTpLspPathTimeDown_Type()
+)
+vRtrMplsTpLspPathTimeDown.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathTimeDown.setStatus("current")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathTimeDown.setUnits("centiseconds")
+_VRtrMplsTpLspPathActiveTimeUp_Type = TimeInterval
+_VRtrMplsTpLspPathActiveTimeUp_Object = MibTableColumn
+vRtrMplsTpLspPathActiveTimeUp = _VRtrMplsTpLspPathActiveTimeUp_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 2, 1, 16),
+    _VRtrMplsTpLspPathActiveTimeUp_Type()
+)
+vRtrMplsTpLspPathActiveTimeUp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathActiveTimeUp.setStatus("current")
+_VRtrMplsTpLspPathMepTable_Object = MibTable
+vRtrMplsTpLspPathMepTable = _VRtrMplsTpLspPathMepTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3)
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathMepTable.setStatus("current")
+_VRtrMplsTpLspPathMepEntry_Object = MibTableRow
+vRtrMplsTpLspPathMepEntry = _VRtrMplsTpLspPathMepEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1)
+)
+vRtrMplsTpLspPathMepEntry.setIndexNames(
+    (0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"),
+    (0, "TN-VRTR-MIB", "vRtrID"),
+    (0, "TN-MPLS-MIB", "vRtrMplsLspIndex"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLspPathIndex"),
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathMepEntry.setStatus("current")
+_VRtrMplsTpLspPathMepLastChgTime_Type = TimeStamp
+_VRtrMplsTpLspPathMepLastChgTime_Object = MibTableColumn
+vRtrMplsTpLspPathMepLastChgTime = _VRtrMplsTpLspPathMepLastChgTime_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 1),
+    _VRtrMplsTpLspPathMepLastChgTime_Type()
+)
+vRtrMplsTpLspPathMepLastChgTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathMepLastChgTime.setStatus("current")
+_VRtrMplsTpLspPathMepRowStatus_Type = RowStatus
+_VRtrMplsTpLspPathMepRowStatus_Object = MibTableColumn
+vRtrMplsTpLspPathMepRowStatus = _VRtrMplsTpLspPathMepRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 2),
+    _VRtrMplsTpLspPathMepRowStatus_Type()
+)
+vRtrMplsTpLspPathMepRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathMepRowStatus.setStatus("current")
+
+
+class _VRtrMplsTpLspPathMepAdminState_Type(TmnxAdminState):
+    """Custom type vRtrMplsTpLspPathMepAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_VRtrMplsTpLspPathMepAdminState_Type.__name__ = "TmnxAdminState"
+_VRtrMplsTpLspPathMepAdminState_Object = MibTableColumn
+vRtrMplsTpLspPathMepAdminState = _VRtrMplsTpLspPathMepAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 3),
+    _VRtrMplsTpLspPathMepAdminState_Type()
+)
+vRtrMplsTpLspPathMepAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathMepAdminState.setStatus("current")
+
+
+class _VRtrMplsTpLspPathMepProtectTmpl_Type(TNamedItemOrEmpty):
+    """Custom type vRtrMplsTpLspPathMepProtectTmpl based on TNamedItemOrEmpty"""
+    defaultValue = OctetString("")
+
+
+_VRtrMplsTpLspPathMepProtectTmpl_Type.__name__ = "TNamedItemOrEmpty"
+_VRtrMplsTpLspPathMepProtectTmpl_Object = MibTableColumn
+vRtrMplsTpLspPathMepProtectTmpl = _VRtrMplsTpLspPathMepProtectTmpl_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 4),
+    _VRtrMplsTpLspPathMepProtectTmpl_Type()
+)
+vRtrMplsTpLspPathMepProtectTmpl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathMepProtectTmpl.setStatus("current")
+
+
+class _VRtrMplsTpLspPathMepOamTmpl_Type(TNamedItemOrEmpty):
+    """Custom type vRtrMplsTpLspPathMepOamTmpl based on TNamedItemOrEmpty"""
+    defaultValue = OctetString("")
+
+
+_VRtrMplsTpLspPathMepOamTmpl_Type.__name__ = "TNamedItemOrEmpty"
+_VRtrMplsTpLspPathMepOamTmpl_Object = MibTableColumn
+vRtrMplsTpLspPathMepOamTmpl = _VRtrMplsTpLspPathMepOamTmpl_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 5),
+    _VRtrMplsTpLspPathMepOamTmpl_Type()
+)
+vRtrMplsTpLspPathMepOamTmpl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathMepOamTmpl.setStatus("current")
+
+
+class _VRtrMplsTpLspPathMepBfdEnabled_Type(Integer32):
+    """Custom type vRtrMplsTpLspPathMepBfdEnabled based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("cc", 1),
+          ("ccCv", 2))
+    )
+
+
+_VRtrMplsTpLspPathMepBfdEnabled_Type.__name__ = "Integer32"
+_VRtrMplsTpLspPathMepBfdEnabled_Object = MibTableColumn
+vRtrMplsTpLspPathMepBfdEnabled = _VRtrMplsTpLspPathMepBfdEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 6),
+    _VRtrMplsTpLspPathMepBfdEnabled_Type()
+)
+vRtrMplsTpLspPathMepBfdEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathMepBfdEnabled.setStatus("current")
+_VRtrMplsTpLspPathMepBfdOperState_Type = TmnxOperState
+_VRtrMplsTpLspPathMepBfdOperState_Object = MibTableColumn
+vRtrMplsTpLspPathMepBfdOperState = _VRtrMplsTpLspPathMepBfdOperState_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 3, 1, 7),
+    _VRtrMplsTpLspPathMepBfdOperState_Type()
+)
+vRtrMplsTpLspPathMepBfdOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPathMepBfdOperState.setStatus("current")
+_VRtrMplsTpLspPtPathMepStatTable_Object = MibTable
+vRtrMplsTpLspPtPathMepStatTable = _VRtrMplsTpLspPtPathMepStatTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4)
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPtPathMepStatTable.setStatus("current")
+_VRtrMplsTpLspPtPathMepStatEntry_Object = MibTableRow
+vRtrMplsTpLspPtPathMepStatEntry = _VRtrMplsTpLspPtPathMepStatEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4, 1)
+)
+vRtrMplsTpLspPtPathMepStatEntry.setIndexNames(
+    (0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"),
+    (0, "TN-VRTR-MIB", "vRtrID"),
+    (0, "TN-MPLS-MIB", "vRtrMplsLspIndex"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLspPathIndex"),
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPtPathMepStatEntry.setStatus("current")
+_VRtrMplsTpLspPtPathMepRxPdu_Type = VRtrMplsTpLspPathMepPduType
+_VRtrMplsTpLspPtPathMepRxPdu_Object = MibTableColumn
+vRtrMplsTpLspPtPathMepRxPdu = _VRtrMplsTpLspPtPathMepRxPdu_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4, 1, 1),
+    _VRtrMplsTpLspPtPathMepRxPdu_Type()
+)
+vRtrMplsTpLspPtPathMepRxPdu.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPtPathMepRxPdu.setStatus("current")
+_VRtrMplsTpLspPtPathMepTxPdu_Type = VRtrMplsTpLspPathMepPduType
+_VRtrMplsTpLspPtPathMepTxPdu_Object = MibTableColumn
+vRtrMplsTpLspPtPathMepTxPdu = _VRtrMplsTpLspPtPathMepTxPdu_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4, 1, 2),
+    _VRtrMplsTpLspPtPathMepTxPdu_Type()
+)
+vRtrMplsTpLspPtPathMepTxPdu.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPtPathMepTxPdu.setStatus("current")
+
+
+class _VRtrMplsTpLspPtPathMepDefects_Type(Bits):
+    """Custom type vRtrMplsTpLspPtPathMepDefects based on Bits"""
+    namedValues = NamedValues(
+        *(("protectionTypeMismatch", 0),
+          ("revertModeMismatch", 1))
+    )
+
+_VRtrMplsTpLspPtPathMepDefects_Type.__name__ = "Bits"
+_VRtrMplsTpLspPtPathMepDefects_Object = MibTableColumn
+vRtrMplsTpLspPtPathMepDefects = _VRtrMplsTpLspPtPathMepDefects_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4, 1, 3),
+    _VRtrMplsTpLspPtPathMepDefects_Type()
+)
+vRtrMplsTpLspPtPathMepDefects.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPtPathMepDefects.setStatus("current")
+_VRtrMplsTpLspPtPathMepWTRTimer_Type = Counter32
+_VRtrMplsTpLspPtPathMepWTRTimer_Object = MibTableColumn
+vRtrMplsTpLspPtPathMepWTRTimer = _VRtrMplsTpLspPtPathMepWTRTimer_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 3, 4, 1, 4),
+    _VRtrMplsTpLspPtPathMepWTRTimer_Type()
+)
+vRtrMplsTpLspPtPathMepWTRTimer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPtPathMepWTRTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLspPtPathMepWTRTimer.setUnits("seconds")
+_VRtrMplsTpCmdObjects_ObjectIdentity = ObjectIdentity
+vRtrMplsTpCmdObjects = _VRtrMplsTpCmdObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 4)
+)
+_VRtrMplsTpTunnelCommandTable_Object = MibTable
+vRtrMplsTpTunnelCommandTable = _VRtrMplsTpTunnelCommandTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 4, 1)
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelCommandTable.setStatus("current")
+_VRtrMplsTpTunnelCommandEntry_Object = MibTableRow
+vRtrMplsTpTunnelCommandEntry = _VRtrMplsTpTunnelCommandEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 4, 1, 1)
+)
+vRtrMplsTpTunnelCommandEntry.setIndexNames(
+    (0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"),
+    (0, "TN-VRTR-MIB", "vRtrID"),
+    (0, "TN-MPLS-MIB", "vRtrMplsLspIndex"),
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelCommandEntry.setStatus("current")
+
+
+class _VRtrMplsTpTunnelCommandSwitch_Type(Integer32):
+    """Custom type vRtrMplsTpTunnelCommandSwitch based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noCmd", 0),
+          ("clear", 1),
+          ("forceSwitch", 2),
+          ("manualSwitch", 3),
+          ("lockout", 4))
+    )
+
+
+_VRtrMplsTpTunnelCommandSwitch_Type.__name__ = "Integer32"
+_VRtrMplsTpTunnelCommandSwitch_Object = MibTableColumn
+vRtrMplsTpTunnelCommandSwitch = _VRtrMplsTpTunnelCommandSwitch_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 4, 1, 1, 1),
+    _VRtrMplsTpTunnelCommandSwitch_Type()
+)
+vRtrMplsTpTunnelCommandSwitch.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelCommandSwitch.setStatus("current")
+_VRtrMplsTpLsrObjects_ObjectIdentity = ObjectIdentity
+vRtrMplsTpLsrObjects = _VRtrMplsTpLsrObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5)
+)
+_VRtrMplsTpLsrCfgTable_Object = MibTable
+vRtrMplsTpLsrCfgTable = _VRtrMplsTpLsrCfgTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1)
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrCfgTable.setStatus("current")
+_VRtrMplsTpLsrCfgEntry_Object = MibTableRow
+vRtrMplsTpLsrCfgEntry = _VRtrMplsTpLsrCfgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1)
+)
+vRtrMplsTpLsrCfgEntry.setIndexNames(
+    (0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"),
+    (0, "TN-VRTR-MIB", "vRtrID"),
+    (1, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathName"),
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrCfgEntry.setStatus("current")
+_VRtrMplsTpLsrPathName_Type = TNamedItem
+_VRtrMplsTpLsrPathName_Object = MibTableColumn
+vRtrMplsTpLsrPathName = _VRtrMplsTpLsrPathName_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 1),
+    _VRtrMplsTpLsrPathName_Type()
+)
+vRtrMplsTpLsrPathName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathName.setStatus("current")
+_VRtrMplsTpLsrRowStatus_Type = RowStatus
+_VRtrMplsTpLsrRowStatus_Object = MibTableColumn
+vRtrMplsTpLsrRowStatus = _VRtrMplsTpLsrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 2),
+    _VRtrMplsTpLsrRowStatus_Type()
+)
+vRtrMplsTpLsrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrRowStatus.setStatus("current")
+_VRtrMplsTpLsrLastChangedTime_Type = TimeStamp
+_VRtrMplsTpLsrLastChangedTime_Object = MibTableColumn
+vRtrMplsTpLsrLastChangedTime = _VRtrMplsTpLsrLastChangedTime_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 3),
+    _VRtrMplsTpLsrLastChangedTime_Type()
+)
+vRtrMplsTpLsrLastChangedTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrLastChangedTime.setStatus("current")
+
+
+class _VRtrMplsTpLsrAdminState_Type(TmnxAdminState):
+    """Custom type vRtrMplsTpLsrAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_VRtrMplsTpLsrAdminState_Type.__name__ = "TmnxAdminState"
+_VRtrMplsTpLsrAdminState_Object = MibTableColumn
+vRtrMplsTpLsrAdminState = _VRtrMplsTpLsrAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 4),
+    _VRtrMplsTpLsrAdminState_Type()
+)
+vRtrMplsTpLsrAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrAdminState.setStatus("current")
+_VRtrMplsTpLsrOperState_Type = TmnxOperState
+_VRtrMplsTpLsrOperState_Object = MibTableColumn
+vRtrMplsTpLsrOperState = _VRtrMplsTpLsrOperState_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 5),
+    _VRtrMplsTpLsrOperState_Type()
+)
+vRtrMplsTpLsrOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrOperState.setStatus("current")
+
+
+class _VRtrMplsTpLsrFPInLabel_Type(Unsigned32):
+    """Custom type vRtrMplsTpLsrFPInLabel based on Unsigned32"""
+    defaultValue = 0
+
+
+_VRtrMplsTpLsrFPInLabel_Type.__name__ = "Unsigned32"
+_VRtrMplsTpLsrFPInLabel_Object = MibTableColumn
+vRtrMplsTpLsrFPInLabel = _VRtrMplsTpLsrFPInLabel_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 6),
+    _VRtrMplsTpLsrFPInLabel_Type()
+)
+vRtrMplsTpLsrFPInLabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrFPInLabel.setStatus("current")
+
+
+class _VRtrMplsTpLsrFPOutLabel_Type(Unsigned32):
+    """Custom type vRtrMplsTpLsrFPOutLabel based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(16, 1048575),
+    )
+
+
+_VRtrMplsTpLsrFPOutLabel_Type.__name__ = "Unsigned32"
+_VRtrMplsTpLsrFPOutLabel_Object = MibTableColumn
+vRtrMplsTpLsrFPOutLabel = _VRtrMplsTpLsrFPOutLabel_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 7),
+    _VRtrMplsTpLsrFPOutLabel_Type()
+)
+vRtrMplsTpLsrFPOutLabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrFPOutLabel.setStatus("current")
+
+
+class _VRtrMplsTpLsrFPOutLink_Type(InterfaceIndexOrZero):
+    """Custom type vRtrMplsTpLsrFPOutLink based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_VRtrMplsTpLsrFPOutLink_Type.__name__ = "InterfaceIndexOrZero"
+_VRtrMplsTpLsrFPOutLink_Object = MibTableColumn
+vRtrMplsTpLsrFPOutLink = _VRtrMplsTpLsrFPOutLink_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 8),
+    _VRtrMplsTpLsrFPOutLink_Type()
+)
+vRtrMplsTpLsrFPOutLink.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrFPOutLink.setStatus("current")
+
+
+class _VRtrMplsTpLsrFPNextHopAddrType_Type(InetAddressType):
+    """Custom type vRtrMplsTpLsrFPNextHopAddrType based on InetAddressType"""
+    defaultValue = 0
+
+
+_VRtrMplsTpLsrFPNextHopAddrType_Type.__name__ = "InetAddressType"
+_VRtrMplsTpLsrFPNextHopAddrType_Object = MibTableColumn
+vRtrMplsTpLsrFPNextHopAddrType = _VRtrMplsTpLsrFPNextHopAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 9),
+    _VRtrMplsTpLsrFPNextHopAddrType_Type()
+)
+vRtrMplsTpLsrFPNextHopAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrFPNextHopAddrType.setStatus("current")
+
+
+class _VRtrMplsTpLsrFPNextHopAddress_Type(InetAddress):
+    """Custom type vRtrMplsTpLsrFPNextHopAddress based on InetAddress"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_VRtrMplsTpLsrFPNextHopAddress_Type.__name__ = "InetAddress"
+_VRtrMplsTpLsrFPNextHopAddress_Object = MibTableColumn
+vRtrMplsTpLsrFPNextHopAddress = _VRtrMplsTpLsrFPNextHopAddress_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 10),
+    _VRtrMplsTpLsrFPNextHopAddress_Type()
+)
+vRtrMplsTpLsrFPNextHopAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrFPNextHopAddress.setStatus("current")
+
+
+class _VRtrMplsTpLsrRPInLabel_Type(Unsigned32):
+    """Custom type vRtrMplsTpLsrRPInLabel based on Unsigned32"""
+    defaultValue = 0
+
+
+_VRtrMplsTpLsrRPInLabel_Type.__name__ = "Unsigned32"
+_VRtrMplsTpLsrRPInLabel_Object = MibTableColumn
+vRtrMplsTpLsrRPInLabel = _VRtrMplsTpLsrRPInLabel_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 11),
+    _VRtrMplsTpLsrRPInLabel_Type()
+)
+vRtrMplsTpLsrRPInLabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrRPInLabel.setStatus("current")
+
+
+class _VRtrMplsTpLsrRPOutLabel_Type(Unsigned32):
+    """Custom type vRtrMplsTpLsrRPOutLabel based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(16, 1048575),
+    )
+
+
+_VRtrMplsTpLsrRPOutLabel_Type.__name__ = "Unsigned32"
+_VRtrMplsTpLsrRPOutLabel_Object = MibTableColumn
+vRtrMplsTpLsrRPOutLabel = _VRtrMplsTpLsrRPOutLabel_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 12),
+    _VRtrMplsTpLsrRPOutLabel_Type()
+)
+vRtrMplsTpLsrRPOutLabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrRPOutLabel.setStatus("current")
+
+
+class _VRtrMplsTpLsrRPOutLink_Type(InterfaceIndexOrZero):
+    """Custom type vRtrMplsTpLsrRPOutLink based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_VRtrMplsTpLsrRPOutLink_Type.__name__ = "InterfaceIndexOrZero"
+_VRtrMplsTpLsrRPOutLink_Object = MibTableColumn
+vRtrMplsTpLsrRPOutLink = _VRtrMplsTpLsrRPOutLink_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 13),
+    _VRtrMplsTpLsrRPOutLink_Type()
+)
+vRtrMplsTpLsrRPOutLink.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrRPOutLink.setStatus("current")
+
+
+class _VRtrMplsTpLsrRPNextHopAddrType_Type(InetAddressType):
+    """Custom type vRtrMplsTpLsrRPNextHopAddrType based on InetAddressType"""
+    defaultValue = 0
+
+
+_VRtrMplsTpLsrRPNextHopAddrType_Type.__name__ = "InetAddressType"
+_VRtrMplsTpLsrRPNextHopAddrType_Object = MibTableColumn
+vRtrMplsTpLsrRPNextHopAddrType = _VRtrMplsTpLsrRPNextHopAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 14),
+    _VRtrMplsTpLsrRPNextHopAddrType_Type()
+)
+vRtrMplsTpLsrRPNextHopAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrRPNextHopAddrType.setStatus("current")
+
+
+class _VRtrMplsTpLsrRPNextHopAddress_Type(InetAddress):
+    """Custom type vRtrMplsTpLsrRPNextHopAddress based on InetAddress"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_VRtrMplsTpLsrRPNextHopAddress_Type.__name__ = "InetAddress"
+_VRtrMplsTpLsrRPNextHopAddress_Object = MibTableColumn
+vRtrMplsTpLsrRPNextHopAddress = _VRtrMplsTpLsrRPNextHopAddress_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 15),
+    _VRtrMplsTpLsrRPNextHopAddress_Type()
+)
+vRtrMplsTpLsrRPNextHopAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrRPNextHopAddress.setStatus("current")
+
+
+class _VRtrMplsTpLsrFPEnabled_Type(TruthValue):
+    """Custom type vRtrMplsTpLsrFPEnabled based on TruthValue"""
+    defaultValue = 2
+
+
+_VRtrMplsTpLsrFPEnabled_Type.__name__ = "TruthValue"
+_VRtrMplsTpLsrFPEnabled_Object = MibTableColumn
+vRtrMplsTpLsrFPEnabled = _VRtrMplsTpLsrFPEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 16),
+    _VRtrMplsTpLsrFPEnabled_Type()
+)
+vRtrMplsTpLsrFPEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrFPEnabled.setStatus("current")
+
+
+class _VRtrMplsTpLsrRPEnabled_Type(TruthValue):
+    """Custom type vRtrMplsTpLsrRPEnabled based on TruthValue"""
+    defaultValue = 2
+
+
+_VRtrMplsTpLsrRPEnabled_Type.__name__ = "TruthValue"
+_VRtrMplsTpLsrRPEnabled_Object = MibTableColumn
+vRtrMplsTpLsrRPEnabled = _VRtrMplsTpLsrRPEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 1, 1, 17),
+    _VRtrMplsTpLsrRPEnabled_Type()
+)
+vRtrMplsTpLsrRPEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrRPEnabled.setStatus("current")
+_VRtrMplsTpLsrPathIdTable_Object = MibTable
+vRtrMplsTpLsrPathIdTable = _VRtrMplsTpLsrPathIdTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3)
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdTable.setStatus("current")
+_VRtrMplsTpLsrPathIdEntry_Object = MibTableRow
+vRtrMplsTpLsrPathIdEntry = _VRtrMplsTpLsrPathIdEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1)
+)
+vRtrMplsTpLsrPathIdEntry.setIndexNames(
+    (0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"),
+    (0, "TN-VRTR-MIB", "vRtrID"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdSrcGlobalId"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdSrcNodeId"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdSrcTunNum"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdDestGlobalId"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdDestNodeId"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdDestTunNum"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpLsrPathIdLspNumber"),
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdEntry.setStatus("current")
+_VRtrMplsTpLsrPathIdSrcGlobalId_Type = TmnxMplsTpGlobalID
+_VRtrMplsTpLsrPathIdSrcGlobalId_Object = MibTableColumn
+vRtrMplsTpLsrPathIdSrcGlobalId = _VRtrMplsTpLsrPathIdSrcGlobalId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 1),
+    _VRtrMplsTpLsrPathIdSrcGlobalId_Type()
+)
+vRtrMplsTpLsrPathIdSrcGlobalId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdSrcGlobalId.setStatus("current")
+_VRtrMplsTpLsrPathIdSrcNodeId_Type = TmnxMplsTpNodeID
+_VRtrMplsTpLsrPathIdSrcNodeId_Object = MibTableColumn
+vRtrMplsTpLsrPathIdSrcNodeId = _VRtrMplsTpLsrPathIdSrcNodeId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 2),
+    _VRtrMplsTpLsrPathIdSrcNodeId_Type()
+)
+vRtrMplsTpLsrPathIdSrcNodeId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdSrcNodeId.setStatus("current")
+
+
+class _VRtrMplsTpLsrPathIdSrcTunNum_Type(Unsigned32):
+    """Custom type vRtrMplsTpLsrPathIdSrcTunNum based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 61440),
+    )
+
+
+_VRtrMplsTpLsrPathIdSrcTunNum_Type.__name__ = "Unsigned32"
+_VRtrMplsTpLsrPathIdSrcTunNum_Object = MibTableColumn
+vRtrMplsTpLsrPathIdSrcTunNum = _VRtrMplsTpLsrPathIdSrcTunNum_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 3),
+    _VRtrMplsTpLsrPathIdSrcTunNum_Type()
+)
+vRtrMplsTpLsrPathIdSrcTunNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdSrcTunNum.setStatus("current")
+_VRtrMplsTpLsrPathIdDestGlobalId_Type = TmnxMplsTpGlobalID
+_VRtrMplsTpLsrPathIdDestGlobalId_Object = MibTableColumn
+vRtrMplsTpLsrPathIdDestGlobalId = _VRtrMplsTpLsrPathIdDestGlobalId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 4),
+    _VRtrMplsTpLsrPathIdDestGlobalId_Type()
+)
+vRtrMplsTpLsrPathIdDestGlobalId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdDestGlobalId.setStatus("current")
+_VRtrMplsTpLsrPathIdDestNodeId_Type = TmnxMplsTpNodeID
+_VRtrMplsTpLsrPathIdDestNodeId_Object = MibTableColumn
+vRtrMplsTpLsrPathIdDestNodeId = _VRtrMplsTpLsrPathIdDestNodeId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 5),
+    _VRtrMplsTpLsrPathIdDestNodeId_Type()
+)
+vRtrMplsTpLsrPathIdDestNodeId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdDestNodeId.setStatus("current")
+
+
+class _VRtrMplsTpLsrPathIdDestTunNum_Type(Unsigned32):
+    """Custom type vRtrMplsTpLsrPathIdDestTunNum based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 61440),
+    )
+
+
+_VRtrMplsTpLsrPathIdDestTunNum_Type.__name__ = "Unsigned32"
+_VRtrMplsTpLsrPathIdDestTunNum_Object = MibTableColumn
+vRtrMplsTpLsrPathIdDestTunNum = _VRtrMplsTpLsrPathIdDestTunNum_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 6),
+    _VRtrMplsTpLsrPathIdDestTunNum_Type()
+)
+vRtrMplsTpLsrPathIdDestTunNum.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdDestTunNum.setStatus("current")
+
+
+class _VRtrMplsTpLsrPathIdLspNumber_Type(Unsigned32):
+    """Custom type vRtrMplsTpLsrPathIdLspNumber based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_VRtrMplsTpLsrPathIdLspNumber_Type.__name__ = "Unsigned32"
+_VRtrMplsTpLsrPathIdLspNumber_Object = MibTableColumn
+vRtrMplsTpLsrPathIdLspNumber = _VRtrMplsTpLsrPathIdLspNumber_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 7),
+    _VRtrMplsTpLsrPathIdLspNumber_Type()
+)
+vRtrMplsTpLsrPathIdLspNumber.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdLspNumber.setStatus("current")
+_VRtrMplsTpLsrPathIdRowStatus_Type = RowStatus
+_VRtrMplsTpLsrPathIdRowStatus_Object = MibTableColumn
+vRtrMplsTpLsrPathIdRowStatus = _VRtrMplsTpLsrPathIdRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 8),
+    _VRtrMplsTpLsrPathIdRowStatus_Type()
+)
+vRtrMplsTpLsrPathIdRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdRowStatus.setStatus("current")
+_VRtrMplsTpLsrPathIdPathName_Type = TNamedItem
+_VRtrMplsTpLsrPathIdPathName_Object = MibTableColumn
+vRtrMplsTpLsrPathIdPathName = _VRtrMplsTpLsrPathIdPathName_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 2, 5, 3, 1, 9),
+    _VRtrMplsTpLsrPathIdPathName_Type()
+)
+vRtrMplsTpLsrPathIdPathName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    vRtrMplsTpLsrPathIdPathName.setStatus("current")
+_VRtrMplsTpStatus_ObjectIdentity = ObjectIdentity
+vRtrMplsTpStatus = _VRtrMplsTpStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3)
+)
+_VRtrMplsTpStatusObjects_ObjectIdentity = ObjectIdentity
+vRtrMplsTpStatusObjects = _VRtrMplsTpStatusObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1)
+)
+_VRtrMplsTpTunnelTable_Object = MibTable
+vRtrMplsTpTunnelTable = _VRtrMplsTpTunnelTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelTable.setStatus("current")
+_VRtrMplsTpTunnelEntry_Object = MibTableRow
+vRtrMplsTpTunnelEntry = _VRtrMplsTpTunnelEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1)
+)
+vRtrMplsTpTunnelEntry.setIndexNames(
+    (0, "TROPIC-SYSTEM-MIB", "tnSysSwitchId"),
+    (0, "TN-VRTR-MIB", "vRtrID"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelNodeId"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelGlobalId"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelPreference"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelType"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelID"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelNextHopAddrType"),
+    (0, "TN-MPLS-TP-MIB", "vRtrMplsTpTunnelNextHopAddress"),
+)
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelEntry.setStatus("current")
+_VRtrMplsTpTunnelNodeId_Type = TmnxMplsTpNodeID
+_VRtrMplsTpTunnelNodeId_Object = MibTableColumn
+vRtrMplsTpTunnelNodeId = _VRtrMplsTpTunnelNodeId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 1),
+    _VRtrMplsTpTunnelNodeId_Type()
+)
+vRtrMplsTpTunnelNodeId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelNodeId.setStatus("current")
+_VRtrMplsTpTunnelGlobalId_Type = TmnxMplsTpGlobalID
+_VRtrMplsTpTunnelGlobalId_Object = MibTableColumn
+vRtrMplsTpTunnelGlobalId = _VRtrMplsTpTunnelGlobalId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 2),
+    _VRtrMplsTpTunnelGlobalId_Type()
+)
+vRtrMplsTpTunnelGlobalId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelGlobalId.setStatus("current")
+
+
+class _VRtrMplsTpTunnelPreference_Type(Unsigned32):
+    """Custom type vRtrMplsTpTunnelPreference based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_VRtrMplsTpTunnelPreference_Type.__name__ = "Unsigned32"
+_VRtrMplsTpTunnelPreference_Object = MibTableColumn
+vRtrMplsTpTunnelPreference = _VRtrMplsTpTunnelPreference_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 3),
+    _VRtrMplsTpTunnelPreference_Type()
+)
+vRtrMplsTpTunnelPreference.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelPreference.setStatus("current")
+_VRtrMplsTpTunnelType_Type = TmnxMplsTpTunnelType
+_VRtrMplsTpTunnelType_Object = MibTableColumn
+vRtrMplsTpTunnelType = _VRtrMplsTpTunnelType_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 4),
+    _VRtrMplsTpTunnelType_Type()
+)
+vRtrMplsTpTunnelType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelType.setStatus("current")
+_VRtrMplsTpTunnelID_Type = TmnxTunnelID
+_VRtrMplsTpTunnelID_Object = MibTableColumn
+vRtrMplsTpTunnelID = _VRtrMplsTpTunnelID_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 5),
+    _VRtrMplsTpTunnelID_Type()
+)
+vRtrMplsTpTunnelID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelID.setStatus("current")
+_VRtrMplsTpTunnelNextHopAddrType_Type = InetAddressType
+_VRtrMplsTpTunnelNextHopAddrType_Object = MibTableColumn
+vRtrMplsTpTunnelNextHopAddrType = _VRtrMplsTpTunnelNextHopAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 6),
+    _VRtrMplsTpTunnelNextHopAddrType_Type()
+)
+vRtrMplsTpTunnelNextHopAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelNextHopAddrType.setStatus("current")
+
+
+class _VRtrMplsTpTunnelNextHopAddress_Type(InetAddress):
+    """Custom type vRtrMplsTpTunnelNextHopAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+        ValueSizeConstraint(20, 20),
+    )
+
+
+_VRtrMplsTpTunnelNextHopAddress_Type.__name__ = "InetAddress"
+_VRtrMplsTpTunnelNextHopAddress_Object = MibTableColumn
+vRtrMplsTpTunnelNextHopAddress = _VRtrMplsTpTunnelNextHopAddress_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 7),
+    _VRtrMplsTpTunnelNextHopAddress_Type()
+)
+vRtrMplsTpTunnelNextHopAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelNextHopAddress.setStatus("current")
+_VRtrMplsTpTunnelMetric_Type = Unsigned32
+_VRtrMplsTpTunnelMetric_Object = MibTableColumn
+vRtrMplsTpTunnelMetric = _VRtrMplsTpTunnelMetric_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 8),
+    _VRtrMplsTpTunnelMetric_Type()
+)
+vRtrMplsTpTunnelMetric.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelMetric.setStatus("current")
+_VRtrMplsTpTunnelAge_Type = Integer32
+_VRtrMplsTpTunnelAge_Object = MibTableColumn
+vRtrMplsTpTunnelAge = _VRtrMplsTpTunnelAge_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 3, 1, 1, 1, 9),
+    _VRtrMplsTpTunnelAge_Type()
+)
+vRtrMplsTpTunnelAge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    vRtrMplsTpTunnelAge.setStatus("current")
+_VRtrMplsTpStatistics_ObjectIdentity = ObjectIdentity
+vRtrMplsTpStatistics = _VRtrMplsTpStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 5)
+)
+_VRtrMplsTpActions_ObjectIdentity = ObjectIdentity
+vRtrMplsTpActions = _VRtrMplsTpActions_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 6)
+)
+_VRtrMplsTpNotifyObjects_ObjectIdentity = ObjectIdentity
+vRtrMplsTpNotifyObjects = _VRtrMplsTpNotifyObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 6, 1, 2, 83, 10)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TN-MPLS-TP-MIB",
+    **{"VRtrMplsTpLspPathMepPduType": VRtrMplsTpLspPathMepPduType,
+       "tnMplsTpMIBModule": tnMplsTpMIBModule,
+       "vRtrMplsTpObjs": vRtrMplsTpObjs,
+       "vRtrMplsTpConfigTimeStamps": vRtrMplsTpConfigTimeStamps,
+       "vRtrMplsTpSystemTableLastChanged": vRtrMplsTpSystemTableLastChanged,
+       "vRtrMplsTpOamTemplTblLastChanged": vRtrMplsTpOamTemplTblLastChanged,
+       "vRtrMplsTpPtcTemplTblLastChanged": vRtrMplsTpPtcTemplTblLastChanged,
+       "vRtrMplsTpLspPathTblLastChanged": vRtrMplsTpLspPathTblLastChanged,
+       "vRtrMplsTpLspPathMepTblLastChg": vRtrMplsTpLspPathMepTblLastChg,
+       "vRtrMplsTpLsrTblLastChanged": vRtrMplsTpLsrTblLastChanged,
+       "vRtrMplsTpLsrPathIdTblLastChg": vRtrMplsTpLsrPathIdTblLastChg,
+       "vRtrMplsTpScalar1": vRtrMplsTpScalar1,
+       "vRtrMplsTpScalar2": vRtrMplsTpScalar2,
+       "vRtrMplsTpConfigurations": vRtrMplsTpConfigurations,
+       "vRtrMplsTpSystemIdentifiers": vRtrMplsTpSystemIdentifiers,
+       "vRtrMplsTpSystemTable": vRtrMplsTpSystemTable,
+       "vRtrMplsTpSystemEntry": vRtrMplsTpSystemEntry,
+       "vRtrMplsTpRowStatus": vRtrMplsTpRowStatus,
+       "vRtrMplsTpGlobalId": vRtrMplsTpGlobalId,
+       "vRtrMplsTpNodeId": vRtrMplsTpNodeId,
+       "vRtrMplsTpTunnelIdMin": vRtrMplsTpTunnelIdMin,
+       "vRtrMplsTpTunnelIdMax": vRtrMplsTpTunnelIdMax,
+       "vRtrMplsTpAdminState": vRtrMplsTpAdminState,
+       "vRtrMplsTpInheritance": vRtrMplsTpInheritance,
+       "vRtrMplsTpTemplateObjects": vRtrMplsTpTemplateObjects,
+       "vRtrMplsTpOamTemplateCfgTable": vRtrMplsTpOamTemplateCfgTable,
+       "vRtrMplsTpOamTemplateCfgEntry": vRtrMplsTpOamTemplateCfgEntry,
+       "vRtrMplsTpOamTmplName": vRtrMplsTpOamTmplName,
+       "vRtrMplsTpOamTmplRowStatus": vRtrMplsTpOamTmplRowStatus,
+       "vRtrMplsTpOamTmplLastChangedTime": vRtrMplsTpOamTmplLastChangedTime,
+       "vRtrMplsTpOamTmplBfdTemplateName": vRtrMplsTpOamTmplBfdTemplateName,
+       "vRtrMplsTpOamTmplHoldTimeDown": vRtrMplsTpOamTmplHoldTimeDown,
+       "vRtrMplsTpOamTmplHoldTimeUp": vRtrMplsTpOamTmplHoldTimeUp,
+       "vRtrMplsTpPtcTemplateCfgTable": vRtrMplsTpPtcTemplateCfgTable,
+       "vRtrMplsTpPtcTemplateCfgEntry": vRtrMplsTpPtcTemplateCfgEntry,
+       "vRtrMplsTpPtcTmplName": vRtrMplsTpPtcTmplName,
+       "vRtrMplsTpPtcTmplRowStatus": vRtrMplsTpPtcTmplRowStatus,
+       "vRtrMplsTpPtcTmplLastChangedTime": vRtrMplsTpPtcTmplLastChangedTime,
+       "vRtrMplsTpPtcTmplProtectionMode": vRtrMplsTpPtcTmplProtectionMode,
+       "vRtrMplsTpPtcTmplProtectionDir": vRtrMplsTpPtcTmplProtectionDir,
+       "vRtrMplsTpPtcTmplRevertive": vRtrMplsTpPtcTmplRevertive,
+       "vRtrMplsTpPtcTmplWaitToRestore": vRtrMplsTpPtcTmplWaitToRestore,
+       "vRtrMplsTpPtcTmplRapidPscTimer": vRtrMplsTpPtcTmplRapidPscTimer,
+       "vRtrMplsTpPtcTmplSlowPscTimer": vRtrMplsTpPtcTmplSlowPscTimer,
+       "vRtrMplsTpLspObjects": vRtrMplsTpLspObjects,
+       "vRtrMplsTpLspPathTable": vRtrMplsTpLspPathTable,
+       "vRtrMplsTpLspPathEntry": vRtrMplsTpLspPathEntry,
+       "vRtrMplsTpLspPathIndex": vRtrMplsTpLspPathIndex,
+       "vRtrMplsTpLspPathRowStatus": vRtrMplsTpLspPathRowStatus,
+       "vRtrMplsTpLspPathLastChangedTime": vRtrMplsTpLspPathLastChangedTime,
+       "vRtrMplsTpLspPathAdminState": vRtrMplsTpLspPathAdminState,
+       "vRtrMplsTpLspPathOperState": vRtrMplsTpLspPathOperState,
+       "vRtrMplsTpLspPathReasonDownFlags": vRtrMplsTpLspPathReasonDownFlags,
+       "vRtrMplsTpLspPathLspNumber": vRtrMplsTpLspPathLspNumber,
+       "vRtrMplsTpLspPathInLabel": vRtrMplsTpLspPathInLabel,
+       "vRtrMplsTpLspPathOutLabel": vRtrMplsTpLspPathOutLabel,
+       "vRtrMplsTpLspPathOutLink": vRtrMplsTpLspPathOutLink,
+       "vRtrMplsTpLspPathNextHopAddrType": vRtrMplsTpLspPathNextHopAddrType,
+       "vRtrMplsTpLspPathNextHopAddress": vRtrMplsTpLspPathNextHopAddress,
+       "vRtrMplsTpLspPathState": vRtrMplsTpLspPathState,
+       "vRtrMplsTpLspPathTimeUp": vRtrMplsTpLspPathTimeUp,
+       "vRtrMplsTpLspPathTimeDown": vRtrMplsTpLspPathTimeDown,
+       "vRtrMplsTpLspPathActiveTimeUp": vRtrMplsTpLspPathActiveTimeUp,
+       "vRtrMplsTpLspPathMepTable": vRtrMplsTpLspPathMepTable,
+       "vRtrMplsTpLspPathMepEntry": vRtrMplsTpLspPathMepEntry,
+       "vRtrMplsTpLspPathMepLastChgTime": vRtrMplsTpLspPathMepLastChgTime,
+       "vRtrMplsTpLspPathMepRowStatus": vRtrMplsTpLspPathMepRowStatus,
+       "vRtrMplsTpLspPathMepAdminState": vRtrMplsTpLspPathMepAdminState,
+       "vRtrMplsTpLspPathMepProtectTmpl": vRtrMplsTpLspPathMepProtectTmpl,
+       "vRtrMplsTpLspPathMepOamTmpl": vRtrMplsTpLspPathMepOamTmpl,
+       "vRtrMplsTpLspPathMepBfdEnabled": vRtrMplsTpLspPathMepBfdEnabled,
+       "vRtrMplsTpLspPathMepBfdOperState": vRtrMplsTpLspPathMepBfdOperState,
+       "vRtrMplsTpLspPtPathMepStatTable": vRtrMplsTpLspPtPathMepStatTable,
+       "vRtrMplsTpLspPtPathMepStatEntry": vRtrMplsTpLspPtPathMepStatEntry,
+       "vRtrMplsTpLspPtPathMepRxPdu": vRtrMplsTpLspPtPathMepRxPdu,
+       "vRtrMplsTpLspPtPathMepTxPdu": vRtrMplsTpLspPtPathMepTxPdu,
+       "vRtrMplsTpLspPtPathMepDefects": vRtrMplsTpLspPtPathMepDefects,
+       "vRtrMplsTpLspPtPathMepWTRTimer": vRtrMplsTpLspPtPathMepWTRTimer,
+       "vRtrMplsTpCmdObjects": vRtrMplsTpCmdObjects,
+       "vRtrMplsTpTunnelCommandTable": vRtrMplsTpTunnelCommandTable,
+       "vRtrMplsTpTunnelCommandEntry": vRtrMplsTpTunnelCommandEntry,
+       "vRtrMplsTpTunnelCommandSwitch": vRtrMplsTpTunnelCommandSwitch,
+       "vRtrMplsTpLsrObjects": vRtrMplsTpLsrObjects,
+       "vRtrMplsTpLsrCfgTable": vRtrMplsTpLsrCfgTable,
+       "vRtrMplsTpLsrCfgEntry": vRtrMplsTpLsrCfgEntry,
+       "vRtrMplsTpLsrPathName": vRtrMplsTpLsrPathName,
+       "vRtrMplsTpLsrRowStatus": vRtrMplsTpLsrRowStatus,
+       "vRtrMplsTpLsrLastChangedTime": vRtrMplsTpLsrLastChangedTime,
+       "vRtrMplsTpLsrAdminState": vRtrMplsTpLsrAdminState,
+       "vRtrMplsTpLsrOperState": vRtrMplsTpLsrOperState,
+       "vRtrMplsTpLsrFPInLabel": vRtrMplsTpLsrFPInLabel,
+       "vRtrMplsTpLsrFPOutLabel": vRtrMplsTpLsrFPOutLabel,
+       "vRtrMplsTpLsrFPOutLink": vRtrMplsTpLsrFPOutLink,
+       "vRtrMplsTpLsrFPNextHopAddrType": vRtrMplsTpLsrFPNextHopAddrType,
+       "vRtrMplsTpLsrFPNextHopAddress": vRtrMplsTpLsrFPNextHopAddress,
+       "vRtrMplsTpLsrRPInLabel": vRtrMplsTpLsrRPInLabel,
+       "vRtrMplsTpLsrRPOutLabel": vRtrMplsTpLsrRPOutLabel,
+       "vRtrMplsTpLsrRPOutLink": vRtrMplsTpLsrRPOutLink,
+       "vRtrMplsTpLsrRPNextHopAddrType": vRtrMplsTpLsrRPNextHopAddrType,
+       "vRtrMplsTpLsrRPNextHopAddress": vRtrMplsTpLsrRPNextHopAddress,
+       "vRtrMplsTpLsrFPEnabled": vRtrMplsTpLsrFPEnabled,
+       "vRtrMplsTpLsrRPEnabled": vRtrMplsTpLsrRPEnabled,
+       "vRtrMplsTpLsrPathIdTable": vRtrMplsTpLsrPathIdTable,
+       "vRtrMplsTpLsrPathIdEntry": vRtrMplsTpLsrPathIdEntry,
+       "vRtrMplsTpLsrPathIdSrcGlobalId": vRtrMplsTpLsrPathIdSrcGlobalId,
+       "vRtrMplsTpLsrPathIdSrcNodeId": vRtrMplsTpLsrPathIdSrcNodeId,
+       "vRtrMplsTpLsrPathIdSrcTunNum": vRtrMplsTpLsrPathIdSrcTunNum,
+       "vRtrMplsTpLsrPathIdDestGlobalId": vRtrMplsTpLsrPathIdDestGlobalId,
+       "vRtrMplsTpLsrPathIdDestNodeId": vRtrMplsTpLsrPathIdDestNodeId,
+       "vRtrMplsTpLsrPathIdDestTunNum": vRtrMplsTpLsrPathIdDestTunNum,
+       "vRtrMplsTpLsrPathIdLspNumber": vRtrMplsTpLsrPathIdLspNumber,
+       "vRtrMplsTpLsrPathIdRowStatus": vRtrMplsTpLsrPathIdRowStatus,
+       "vRtrMplsTpLsrPathIdPathName": vRtrMplsTpLsrPathIdPathName,
+       "vRtrMplsTpStatus": vRtrMplsTpStatus,
+       "vRtrMplsTpStatusObjects": vRtrMplsTpStatusObjects,
+       "vRtrMplsTpTunnelTable": vRtrMplsTpTunnelTable,
+       "vRtrMplsTpTunnelEntry": vRtrMplsTpTunnelEntry,
+       "vRtrMplsTpTunnelNodeId": vRtrMplsTpTunnelNodeId,
+       "vRtrMplsTpTunnelGlobalId": vRtrMplsTpTunnelGlobalId,
+       "vRtrMplsTpTunnelPreference": vRtrMplsTpTunnelPreference,
+       "vRtrMplsTpTunnelType": vRtrMplsTpTunnelType,
+       "vRtrMplsTpTunnelID": vRtrMplsTpTunnelID,
+       "vRtrMplsTpTunnelNextHopAddrType": vRtrMplsTpTunnelNextHopAddrType,
+       "vRtrMplsTpTunnelNextHopAddress": vRtrMplsTpTunnelNextHopAddress,
+       "vRtrMplsTpTunnelMetric": vRtrMplsTpTunnelMetric,
+       "vRtrMplsTpTunnelAge": vRtrMplsTpTunnelAge,
+       "vRtrMplsTpStatistics": vRtrMplsTpStatistics,
+       "vRtrMplsTpActions": vRtrMplsTpActions,
+       "vRtrMplsTpNotifyObjects": vRtrMplsTpNotifyObjects}
+)

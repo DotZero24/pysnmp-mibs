@@ -1,51 +1,320 @@
+# SNMP MIB module (ARISTA-TAPAGG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ARISTA-TAPAGG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arista/ARISTA-TAPAGG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:46 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/arista/ARISTA-TAPAGG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:57:40 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-AristaQosShortId, = mibBuilder.importSymbols("ARISTA-QOS-MIB", "AristaQosShortId")
-aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-aristaTapaggMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 31))
-aristaTapaggMIB.setRevisions(('2021-04-23 00:00',))
-if mibBuilder.loadTexts: aristaTapaggMIB.setLastUpdated('202104230000Z')
-if mibBuilder.loadTexts: aristaTapaggMIB.setOrganization('Arista Networks, Inc.')
-aristaTapaggMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 31, 1))
-aristaTapaggMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 31, 2))
-aristaTapaggPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 1), )
-if mibBuilder.loadTexts: aristaTapaggPolicyTable.setStatus('current')
-aristaTapaggPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 1, 1), ).setIndexNames((0, "ARISTA-TAPAGG-MIB", "aristaTapaggPolicyId"))
-if mibBuilder.loadTexts: aristaTapaggPolicyEntry.setStatus('current')
-aristaTapaggPolicyId = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 1, 1, 1), AristaQosShortId())
-if mibBuilder.loadTexts: aristaTapaggPolicyId.setStatus('current')
-aristaTapaggPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaTapaggPolicyName.setStatus('current')
-aristaTapaggPolicyClassTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2), )
-if mibBuilder.loadTexts: aristaTapaggPolicyClassTable.setStatus('current')
-aristaTapaggPolicyClassEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2, 1), ).setIndexNames((0, "ARISTA-TAPAGG-MIB", "aristaTapaggPolicyId"), (0, "ARISTA-TAPAGG-MIB", "aristaTapaggPolicyClassIndex"))
-if mibBuilder.loadTexts: aristaTapaggPolicyClassEntry.setStatus('current')
-aristaTapaggPolicyClassIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: aristaTapaggPolicyClassIndex.setStatus('current')
-aristaTapaggPolicyClassName = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaTapaggPolicyClassName.setStatus('current')
-aristaTapaggPolicyPktsMatched = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaTapaggPolicyPktsMatched.setStatus('current')
-aristaTapaggPolicyBytesMatched = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaTapaggPolicyBytesMatched.setStatus('current')
-aristaTapaggMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 31, 2, 1))
-aristaTapaggMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 31, 2, 2))
-aristaTapaggMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 31, 2, 1, 1)).setObjects(("ARISTA-TAPAGG-MIB", "aristaTapaggPolicyGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aristaTapaggMibCompliance = aristaTapaggMibCompliance.setStatus('current')
-aristaTapaggPolicyGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 31, 2, 2, 1)).setObjects(("ARISTA-TAPAGG-MIB", "aristaTapaggPolicyName"), ("ARISTA-TAPAGG-MIB", "aristaTapaggPolicyClassName"), ("ARISTA-TAPAGG-MIB", "aristaTapaggPolicyPktsMatched"), ("ARISTA-TAPAGG-MIB", "aristaTapaggPolicyBytesMatched"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aristaTapaggPolicyGroup = aristaTapaggPolicyGroup.setStatus('current')
-mibBuilder.exportSymbols("ARISTA-TAPAGG-MIB", aristaTapaggPolicyClassIndex=aristaTapaggPolicyClassIndex, aristaTapaggMibConformance=aristaTapaggMibConformance, aristaTapaggPolicyClassEntry=aristaTapaggPolicyClassEntry, aristaTapaggMibCompliances=aristaTapaggMibCompliances, aristaTapaggPolicyGroup=aristaTapaggPolicyGroup, PYSNMP_MODULE_ID=aristaTapaggMIB, aristaTapaggPolicyId=aristaTapaggPolicyId, aristaTapaggPolicyEntry=aristaTapaggPolicyEntry, aristaTapaggPolicyName=aristaTapaggPolicyName, aristaTapaggPolicyPktsMatched=aristaTapaggPolicyPktsMatched, aristaTapaggPolicyClassName=aristaTapaggPolicyClassName, aristaTapaggMIB=aristaTapaggMIB, aristaTapaggPolicyClassTable=aristaTapaggPolicyClassTable, aristaTapaggMibGroups=aristaTapaggMibGroups, aristaTapaggMibCompliance=aristaTapaggMibCompliance, aristaTapaggPolicyBytesMatched=aristaTapaggPolicyBytesMatched, aristaTapaggPolicyTable=aristaTapaggPolicyTable, aristaTapaggMibObjects=aristaTapaggMibObjects)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(AristaQosShortId,) = mibBuilder.importSymbols(
+    "ARISTA-QOS-MIB",
+    "AristaQosShortId")
+
+(aristaMibs,) = mibBuilder.importSymbols(
+    "ARISTA-SMI-MIB",
+    "aristaMibs")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aristaTapaggMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31)
+)
+if mibBuilder.loadTexts:
+    aristaTapaggMIB.setRevisions(
+        ("2021-04-23 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AristaTapaggMibObjects_ObjectIdentity = ObjectIdentity
+aristaTapaggMibObjects = _AristaTapaggMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 1)
+)
+_AristaTapaggPolicyTable_Object = MibTable
+aristaTapaggPolicyTable = _AristaTapaggPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 1)
+)
+if mibBuilder.loadTexts:
+    aristaTapaggPolicyTable.setStatus("current")
+_AristaTapaggPolicyEntry_Object = MibTableRow
+aristaTapaggPolicyEntry = _AristaTapaggPolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 1, 1)
+)
+aristaTapaggPolicyEntry.setIndexNames(
+    (0, "ARISTA-TAPAGG-MIB", "aristaTapaggPolicyId"),
+)
+if mibBuilder.loadTexts:
+    aristaTapaggPolicyEntry.setStatus("current")
+_AristaTapaggPolicyId_Type = AristaQosShortId
+_AristaTapaggPolicyId_Object = MibTableColumn
+aristaTapaggPolicyId = _AristaTapaggPolicyId_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 1, 1, 1),
+    _AristaTapaggPolicyId_Type()
+)
+aristaTapaggPolicyId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aristaTapaggPolicyId.setStatus("current")
+
+
+class _AristaTapaggPolicyName_Type(DisplayString):
+    """Custom type aristaTapaggPolicyName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_AristaTapaggPolicyName_Type.__name__ = "DisplayString"
+_AristaTapaggPolicyName_Object = MibTableColumn
+aristaTapaggPolicyName = _AristaTapaggPolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 1, 1, 2),
+    _AristaTapaggPolicyName_Type()
+)
+aristaTapaggPolicyName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaTapaggPolicyName.setStatus("current")
+_AristaTapaggPolicyClassTable_Object = MibTable
+aristaTapaggPolicyClassTable = _AristaTapaggPolicyClassTable_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2)
+)
+if mibBuilder.loadTexts:
+    aristaTapaggPolicyClassTable.setStatus("current")
+_AristaTapaggPolicyClassEntry_Object = MibTableRow
+aristaTapaggPolicyClassEntry = _AristaTapaggPolicyClassEntry_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2, 1)
+)
+aristaTapaggPolicyClassEntry.setIndexNames(
+    (0, "ARISTA-TAPAGG-MIB", "aristaTapaggPolicyId"),
+    (0, "ARISTA-TAPAGG-MIB", "aristaTapaggPolicyClassIndex"),
+)
+if mibBuilder.loadTexts:
+    aristaTapaggPolicyClassEntry.setStatus("current")
+
+
+class _AristaTapaggPolicyClassIndex_Type(Integer32):
+    """Custom type aristaTapaggPolicyClassIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AristaTapaggPolicyClassIndex_Type.__name__ = "Integer32"
+_AristaTapaggPolicyClassIndex_Object = MibTableColumn
+aristaTapaggPolicyClassIndex = _AristaTapaggPolicyClassIndex_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2, 1, 1),
+    _AristaTapaggPolicyClassIndex_Type()
+)
+aristaTapaggPolicyClassIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aristaTapaggPolicyClassIndex.setStatus("current")
+
+
+class _AristaTapaggPolicyClassName_Type(DisplayString):
+    """Custom type aristaTapaggPolicyClassName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_AristaTapaggPolicyClassName_Type.__name__ = "DisplayString"
+_AristaTapaggPolicyClassName_Object = MibTableColumn
+aristaTapaggPolicyClassName = _AristaTapaggPolicyClassName_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2, 1, 2),
+    _AristaTapaggPolicyClassName_Type()
+)
+aristaTapaggPolicyClassName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaTapaggPolicyClassName.setStatus("current")
+_AristaTapaggPolicyPktsMatched_Type = Counter64
+_AristaTapaggPolicyPktsMatched_Object = MibTableColumn
+aristaTapaggPolicyPktsMatched = _AristaTapaggPolicyPktsMatched_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2, 1, 3),
+    _AristaTapaggPolicyPktsMatched_Type()
+)
+aristaTapaggPolicyPktsMatched.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaTapaggPolicyPktsMatched.setStatus("current")
+_AristaTapaggPolicyBytesMatched_Type = Counter64
+_AristaTapaggPolicyBytesMatched_Object = MibTableColumn
+aristaTapaggPolicyBytesMatched = _AristaTapaggPolicyBytesMatched_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 1, 2, 1, 4),
+    _AristaTapaggPolicyBytesMatched_Type()
+)
+aristaTapaggPolicyBytesMatched.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaTapaggPolicyBytesMatched.setStatus("current")
+_AristaTapaggMibConformance_ObjectIdentity = ObjectIdentity
+aristaTapaggMibConformance = _AristaTapaggMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 2)
+)
+_AristaTapaggMibCompliances_ObjectIdentity = ObjectIdentity
+aristaTapaggMibCompliances = _AristaTapaggMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 2, 1)
+)
+_AristaTapaggMibGroups_ObjectIdentity = ObjectIdentity
+aristaTapaggMibGroups = _AristaTapaggMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 2, 2)
+)
+
+# Managed Objects groups
+
+aristaTapaggPolicyGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 2, 2, 1)
+)
+aristaTapaggPolicyGroup.setObjects(
+      *(("ARISTA-TAPAGG-MIB", "aristaTapaggPolicyName"),
+        ("ARISTA-TAPAGG-MIB", "aristaTapaggPolicyClassName"),
+        ("ARISTA-TAPAGG-MIB", "aristaTapaggPolicyPktsMatched"),
+        ("ARISTA-TAPAGG-MIB", "aristaTapaggPolicyBytesMatched"))
+)
+if mibBuilder.loadTexts:
+    aristaTapaggPolicyGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+aristaTapaggMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 31, 2, 1, 1)
+)
+aristaTapaggMibCompliance.setObjects(
+    ("ARISTA-TAPAGG-MIB", "aristaTapaggPolicyGroup")
+)
+if mibBuilder.loadTexts:
+    aristaTapaggMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ARISTA-TAPAGG-MIB",
+    **{"aristaTapaggMIB": aristaTapaggMIB,
+       "aristaTapaggMibObjects": aristaTapaggMibObjects,
+       "aristaTapaggPolicyTable": aristaTapaggPolicyTable,
+       "aristaTapaggPolicyEntry": aristaTapaggPolicyEntry,
+       "aristaTapaggPolicyId": aristaTapaggPolicyId,
+       "aristaTapaggPolicyName": aristaTapaggPolicyName,
+       "aristaTapaggPolicyClassTable": aristaTapaggPolicyClassTable,
+       "aristaTapaggPolicyClassEntry": aristaTapaggPolicyClassEntry,
+       "aristaTapaggPolicyClassIndex": aristaTapaggPolicyClassIndex,
+       "aristaTapaggPolicyClassName": aristaTapaggPolicyClassName,
+       "aristaTapaggPolicyPktsMatched": aristaTapaggPolicyPktsMatched,
+       "aristaTapaggPolicyBytesMatched": aristaTapaggPolicyBytesMatched,
+       "aristaTapaggMibConformance": aristaTapaggMibConformance,
+       "aristaTapaggMibCompliances": aristaTapaggMibCompliances,
+       "aristaTapaggMibCompliance": aristaTapaggMibCompliance,
+       "aristaTapaggMibGroups": aristaTapaggMibGroups,
+       "aristaTapaggPolicyGroup": aristaTapaggPolicyGroup}
+)

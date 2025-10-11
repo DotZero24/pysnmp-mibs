@@ -1,32 +1,261 @@
+# SNMP MIB module (TPLINK-DDMCONFIG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPLINK-DDMCONFIG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/tplink/TPLINK-DDMCONFIG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:49 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/tplink/TPLINK-DDMCONFIG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:56:19 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-tplinkDdmManageMIBObjects, = mibBuilder.importSymbols("TPLINK-DDMMANAGE-MIB", "tplinkDdmManageMIBObjects")
-ddmConfig = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1))
-ddmConfig.setRevisions(('2009-08-27 00:00',))
-if mibBuilder.loadTexts: ddmConfig.setLastUpdated('200908270000Z')
-if mibBuilder.loadTexts: ddmConfig.setOrganization('TPLINK')
-ddmConfigTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1), )
-if mibBuilder.loadTexts: ddmConfigTable.setStatus('current')
-ddmConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ddmConfigEntry.setStatus('current')
-ddmConfigPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddmConfigPort.setStatus('current')
-ddmConfigStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ddmConfigStatus.setStatus('current')
-ddmConfigShutdown = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("warning", 1), ("alarm", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ddmConfigShutdown.setStatus('current')
-ddmConfigPortLAG = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddmConfigPortLAG.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-DDMCONFIG-MIB", ddmConfig=ddmConfig, ddmConfigStatus=ddmConfigStatus, ddmConfigPortLAG=ddmConfigPortLAG, ddmConfigPort=ddmConfigPort, PYSNMP_MODULE_ID=ddmConfig, ddmConfigTable=ddmConfigTable, ddmConfigShutdown=ddmConfigShutdown, ddmConfigEntry=ddmConfigEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(tplinkDdmManageMIBObjects,) = mibBuilder.importSymbols(
+    "TPLINK-DDMMANAGE-MIB",
+    "tplinkDdmManageMIBObjects")
+
+
+# MODULE-IDENTITY
+
+ddmConfig = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ddmConfig.setRevisions(
+        ("2009-08-27 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_DdmConfigTable_Object = MibTable
+ddmConfigTable = _DdmConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ddmConfigTable.setStatus("current")
+_DdmConfigEntry_Object = MibTableRow
+ddmConfigEntry = _DdmConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1, 1)
+)
+ddmConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    ddmConfigEntry.setStatus("current")
+
+
+class _DdmConfigPort_Type(DisplayString):
+    """Custom type ddmConfigPort based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_DdmConfigPort_Type.__name__ = "DisplayString"
+_DdmConfigPort_Object = MibTableColumn
+ddmConfigPort = _DdmConfigPort_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1, 1, 1),
+    _DdmConfigPort_Type()
+)
+ddmConfigPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ddmConfigPort.setStatus("current")
+
+
+class _DdmConfigStatus_Type(Integer32):
+    """Custom type ddmConfigStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_DdmConfigStatus_Type.__name__ = "Integer32"
+_DdmConfigStatus_Object = MibTableColumn
+ddmConfigStatus = _DdmConfigStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1, 1, 2),
+    _DdmConfigStatus_Type()
+)
+ddmConfigStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ddmConfigStatus.setStatus("current")
+
+
+class _DdmConfigShutdown_Type(Integer32):
+    """Custom type ddmConfigShutdown based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("warning", 1),
+          ("alarm", 2))
+    )
+
+
+_DdmConfigShutdown_Type.__name__ = "Integer32"
+_DdmConfigShutdown_Object = MibTableColumn
+ddmConfigShutdown = _DdmConfigShutdown_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1, 1, 3),
+    _DdmConfigShutdown_Type()
+)
+ddmConfigShutdown.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ddmConfigShutdown.setStatus("current")
+
+
+class _DdmConfigPortLAG_Type(OctetString):
+    """Custom type ddmConfigPortLAG based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_DdmConfigPortLAG_Type.__name__ = "OctetString"
+_DdmConfigPortLAG_Object = MibTableColumn
+ddmConfigPortLAG = _DdmConfigPortLAG_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 1, 1, 1, 4),
+    _DdmConfigPortLAG_Type()
+)
+ddmConfigPortLAG.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ddmConfigPortLAG.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPLINK-DDMCONFIG-MIB",
+    **{"ddmConfig": ddmConfig,
+       "ddmConfigTable": ddmConfigTable,
+       "ddmConfigEntry": ddmConfigEntry,
+       "ddmConfigPort": ddmConfigPort,
+       "ddmConfigStatus": ddmConfigStatus,
+       "ddmConfigShutdown": ddmConfigShutdown,
+       "ddmConfigPortLAG": ddmConfigPortLAG}
+)

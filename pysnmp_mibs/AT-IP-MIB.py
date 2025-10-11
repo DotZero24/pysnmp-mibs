@@ -1,44 +1,264 @@
+# SNMP MIB module (AT-IP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module AT-IP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/allied/AT-IP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:12:46 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/allied/AT-IP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:23:51 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-modules, = mibBuilder.importSymbols("AT-SMI-MIB", "modules")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-atIpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602))
-atIpMib.setRevisions(('2010-06-14 05:09', '2008-11-10 00:00',))
-if mibBuilder.loadTexts: atIpMib.setLastUpdated('201006140509Z')
-if mibBuilder.loadTexts: atIpMib.setOrganization('Allied Telesis Labs New Zealand')
-class AtIpAddressAssignmentType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("notSet", 0), ("primary", 1), ("secondary", 2))
 
-atIpAddressTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1), )
-if mibBuilder.loadTexts: atIpAddressTable.setStatus('current')
-atIpAddressEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1), ).setIndexNames((0, "AT-IP-MIB", "atIpAddressAddrType"), (0, "AT-IP-MIB", "atIpAddressAddr"))
-if mibBuilder.loadTexts: atIpAddressEntry.setStatus('current')
-atIpAddressAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: atIpAddressAddrType.setStatus('current')
-atIpAddressAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 2), InetAddress())
-if mibBuilder.loadTexts: atIpAddressAddr.setStatus('current')
-atIpAddressPrefixLen = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atIpAddressPrefixLen.setStatus('current')
-atIpAddressLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 4), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atIpAddressLabel.setStatus('current')
-atIpAddressIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 5), InterfaceIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atIpAddressIfIndex.setStatus('current')
-atIpAddressAssignmentType = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 6), AtIpAddressAssignmentType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atIpAddressAssignmentType.setStatus('current')
-atIpAddressRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: atIpAddressRowStatus.setStatus('current')
-mibBuilder.exportSymbols("AT-IP-MIB", atIpAddressTable=atIpAddressTable, PYSNMP_MODULE_ID=atIpMib, atIpAddressLabel=atIpAddressLabel, atIpAddressRowStatus=atIpAddressRowStatus, atIpAddressEntry=atIpAddressEntry, atIpAddressAddr=atIpAddressAddr, atIpAddressPrefixLen=atIpAddressPrefixLen, atIpAddressAssignmentType=atIpAddressAssignmentType, AtIpAddressAssignmentType=AtIpAddressAssignmentType, atIpAddressIfIndex=atIpAddressIfIndex, atIpMib=atIpMib, atIpAddressAddrType=atIpAddressAddrType)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(modules,) = mibBuilder.importSymbols(
+    "AT-SMI-MIB",
+    "modules")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+atIpMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602)
+)
+if mibBuilder.loadTexts:
+    atIpMib.setRevisions(
+        ("2010-06-14 05:09",
+         "2008-11-10 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class AtIpAddressAssignmentType(TextualConvention, Integer32):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notSet", 0),
+          ("primary", 1),
+          ("secondary", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AtIpAddressTable_Object = MibTable
+atIpAddressTable = _AtIpAddressTable_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1)
+)
+if mibBuilder.loadTexts:
+    atIpAddressTable.setStatus("current")
+_AtIpAddressEntry_Object = MibTableRow
+atIpAddressEntry = _AtIpAddressEntry_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1)
+)
+atIpAddressEntry.setIndexNames(
+    (0, "AT-IP-MIB", "atIpAddressAddrType"),
+    (0, "AT-IP-MIB", "atIpAddressAddr"),
+)
+if mibBuilder.loadTexts:
+    atIpAddressEntry.setStatus("current")
+_AtIpAddressAddrType_Type = InetAddressType
+_AtIpAddressAddrType_Object = MibTableColumn
+atIpAddressAddrType = _AtIpAddressAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 1),
+    _AtIpAddressAddrType_Type()
+)
+atIpAddressAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atIpAddressAddrType.setStatus("current")
+_AtIpAddressAddr_Type = InetAddress
+_AtIpAddressAddr_Object = MibTableColumn
+atIpAddressAddr = _AtIpAddressAddr_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 2),
+    _AtIpAddressAddr_Type()
+)
+atIpAddressAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    atIpAddressAddr.setStatus("current")
+_AtIpAddressPrefixLen_Type = Integer32
+_AtIpAddressPrefixLen_Object = MibTableColumn
+atIpAddressPrefixLen = _AtIpAddressPrefixLen_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 3),
+    _AtIpAddressPrefixLen_Type()
+)
+atIpAddressPrefixLen.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atIpAddressPrefixLen.setStatus("current")
+_AtIpAddressLabel_Type = DisplayString
+_AtIpAddressLabel_Object = MibTableColumn
+atIpAddressLabel = _AtIpAddressLabel_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 4),
+    _AtIpAddressLabel_Type()
+)
+atIpAddressLabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atIpAddressLabel.setStatus("current")
+_AtIpAddressIfIndex_Type = InterfaceIndex
+_AtIpAddressIfIndex_Object = MibTableColumn
+atIpAddressIfIndex = _AtIpAddressIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 5),
+    _AtIpAddressIfIndex_Type()
+)
+atIpAddressIfIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atIpAddressIfIndex.setStatus("current")
+_AtIpAddressAssignmentType_Type = AtIpAddressAssignmentType
+_AtIpAddressAssignmentType_Object = MibTableColumn
+atIpAddressAssignmentType = _AtIpAddressAssignmentType_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 6),
+    _AtIpAddressAssignmentType_Type()
+)
+atIpAddressAssignmentType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atIpAddressAssignmentType.setStatus("current")
+_AtIpAddressRowStatus_Type = RowStatus
+_AtIpAddressRowStatus_Object = MibTableColumn
+atIpAddressRowStatus = _AtIpAddressRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 4, 4, 4, 602, 1, 1, 7),
+    _AtIpAddressRowStatus_Type()
+)
+atIpAddressRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    atIpAddressRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "AT-IP-MIB",
+    **{"AtIpAddressAssignmentType": AtIpAddressAssignmentType,
+       "atIpMib": atIpMib,
+       "atIpAddressTable": atIpAddressTable,
+       "atIpAddressEntry": atIpAddressEntry,
+       "atIpAddressAddrType": atIpAddressAddrType,
+       "atIpAddressAddr": atIpAddressAddr,
+       "atIpAddressPrefixLen": atIpAddressPrefixLen,
+       "atIpAddressLabel": atIpAddressLabel,
+       "atIpAddressIfIndex": atIpAddressIfIndex,
+       "atIpAddressAssignmentType": atIpAddressAssignmentType,
+       "atIpAddressRowStatus": atIpAddressRowStatus}
+)

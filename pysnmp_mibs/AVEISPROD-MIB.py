@@ -1,61 +1,376 @@
+# SNMP MIB module (AVEISPROD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module AVEISPROD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/avaya/AVEISPROD-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:41:51 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/avaya/AVEISPROD-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:04:39 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-products, = mibBuilder.importSymbols("AVAYAGEN-MIB", "products")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-lsg = ModuleIdentity((1, 3, 6, 1, 4, 1, 6889, 1, 1))
-lsg.setRevisions(('1909-02-04 15:43', '1908-11-19 18:50', '1908-09-25 16:20', '1908-09-11 16:20', '1908-03-27 11:05', '1908-01-31 01:14', '1907-11-25 21:12', '1907-07-08 16:16', '1907-06-20 14:22', '1907-01-01 08:07', '1906-10-22 17:17', '1906-10-22 17:17', '1906-08-20 10:00', '1903-05-28 10:00', '1903-02-19 10:00', '1902-12-24 10:00', '1902-07-17 10:00', '1902-07-07 10:00', '1902-02-04 10:00', '1902-01-31 09:00', '1902-01-10 15:00', '1901-09-09 17:00', '1901-08-09 17:00',))
-if mibBuilder.loadTexts: lsg.setLastUpdated('0902041543Z')
-if mibBuilder.loadTexts: lsg.setOrganization('Avaya Inc.')
-eisProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45))
-cajunL3P580 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 2))
-cajunL3P882 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 10))
-cajunL3P882S = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 11))
-cajunL3P580S = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 12))
-hostSoftware = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 100))
-cajunViewStandAlone = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 100, 1))
-avayaCommunicationManagerBranchEditioni40TelephonyServer = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 100, 2))
-avayaCommunicationManagerBranchEditioni120TelephonyServer = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 100, 3))
-avayaCommunicationManagerBranchEditionG450TelephonyServer = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 100, 4))
-avayaCommunicationManagerBranchEditionG430TelephonyServer = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 100, 6))
-smartModules = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 101))
-cajunM8000RLB = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 1))
-cajunX330W2DS1 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 2))
-cajunX330W2USP = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 3))
-avayaP460L3 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 4))
-avayaW310StackModule = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 5))
-avayaAM110ApplicationModule = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 6))
-avayaS8300AppBlade = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 7))
-chassisProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103))
-avayaP460 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 1))
-avayaG350 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 2))
-avayaW310Standalone = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 3))
-avayaG250 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 4))
-avayaG250_BRI = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 5)).setLabel("avayaG250-BRI")
-avayaG250_DS1 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 6)).setLabel("avayaG250-DS1")
-avayaG250_DCP = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 7)).setLabel("avayaG250-DCP")
-avayaG450 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 8))
-avayaG250_A14 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 9)).setLabel("avayaG250-A14")
-avayaTGM550 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 10))
-avayaCommunicationManagerBranchEditioni120 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 11))
-avayaCommunicationManagerBranchEditioni40_Analog = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 12)).setLabel("avayaCommunicationManagerBranchEditioni40-Analog")
-avayaCommunicationManagerBranchEditioni40_BRI = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 13)).setLabel("avayaCommunicationManagerBranchEditioni40-BRI")
-avayaCommunicationManagerBranchEditioni40_DS1 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 14)).setLabel("avayaCommunicationManagerBranchEditioni40-DS1")
-avayaTRM480 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 15))
-avayaCommunicationManagerBranchEditioni40_A14 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 16)).setLabel("avayaCommunicationManagerBranchEditioni40-A14")
-avayaCommunicationManagerBranchEditionG450 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 17))
-avayaCommunicationManagerBranchEditionG430 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 19))
-avayaG430 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 41))
-avayaG860 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 42))
-wirelessProducts = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 104))
-avayaAP4 = MibIdentifier((1, 3, 6, 1, 4, 1, 6889, 1, 45, 104, 1))
-mibBuilder.exportSymbols("AVEISPROD-MIB", hostSoftware=hostSoftware, avayaTGM550=avayaTGM550, avayaAM110ApplicationModule=avayaAM110ApplicationModule, avayaCommunicationManagerBranchEditionG430=avayaCommunicationManagerBranchEditionG430, smartModules=smartModules, PYSNMP_MODULE_ID=lsg, avayaCommunicationManagerBranchEditioni40_Analog=avayaCommunicationManagerBranchEditioni40_Analog, cajunL3P882=cajunL3P882, eisProducts=eisProducts, cajunL3P882S=cajunL3P882S, avayaG250_DCP=avayaG250_DCP, avayaCommunicationManagerBranchEditionG430TelephonyServer=avayaCommunicationManagerBranchEditionG430TelephonyServer, avayaCommunicationManagerBranchEditioni40_A14=avayaCommunicationManagerBranchEditioni40_A14, avayaP460L3=avayaP460L3, avayaS8300AppBlade=avayaS8300AppBlade, avayaCommunicationManagerBranchEditioni120TelephonyServer=avayaCommunicationManagerBranchEditioni120TelephonyServer, avayaP460=avayaP460, cajunL3P580=cajunL3P580, avayaG350=avayaG350, avayaG430=avayaG430, avayaCommunicationManagerBranchEditioni40_BRI=avayaCommunicationManagerBranchEditioni40_BRI, cajunX330W2USP=cajunX330W2USP, chassisProducts=chassisProducts, avayaG250=avayaG250, wirelessProducts=wirelessProducts, avayaG250_DS1=avayaG250_DS1, avayaW310Standalone=avayaW310Standalone, avayaCommunicationManagerBranchEditionG450=avayaCommunicationManagerBranchEditionG450, avayaCommunicationManagerBranchEditionG450TelephonyServer=avayaCommunicationManagerBranchEditionG450TelephonyServer, avayaG860=avayaG860, lsg=lsg, avayaG250_A14=avayaG250_A14, cajunM8000RLB=cajunM8000RLB, avayaTRM480=avayaTRM480, avayaG250_BRI=avayaG250_BRI, avayaW310StackModule=avayaW310StackModule, avayaCommunicationManagerBranchEditioni40TelephonyServer=avayaCommunicationManagerBranchEditioni40TelephonyServer, avayaCommunicationManagerBranchEditioni120=avayaCommunicationManagerBranchEditioni120, cajunViewStandAlone=cajunViewStandAlone, avayaCommunicationManagerBranchEditioni40_DS1=avayaCommunicationManagerBranchEditioni40_DS1, cajunX330W2DS1=cajunX330W2DS1, avayaG450=avayaG450, cajunL3P580S=cajunL3P580S, avayaAP4=avayaAP4)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(products,) = mibBuilder.importSymbols(
+    "AVAYAGEN-MIB",
+    "products")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+lsg = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 1)
+)
+if mibBuilder.loadTexts:
+    lsg.setRevisions(
+        ("1909-02-04 15:43",
+         "1908-11-19 18:50",
+         "1908-09-25 16:20",
+         "1908-09-11 16:20",
+         "1908-03-27 11:05",
+         "1908-01-31 01:14",
+         "1907-11-25 21:12",
+         "1907-07-08 16:16",
+         "1907-06-20 14:22",
+         "1907-01-01 08:07",
+         "1906-10-22 17:17",
+         "1906-10-22 17:17",
+         "1906-08-20 10:00",
+         "1903-05-28 10:00",
+         "1903-02-19 10:00",
+         "1902-12-24 10:00",
+         "1902-07-17 10:00",
+         "1902-07-07 10:00",
+         "1902-02-04 10:00",
+         "1902-01-31 09:00",
+         "1902-01-10 15:00",
+         "1901-09-09 17:00",
+         "1901-08-09 17:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EisProducts_ObjectIdentity = ObjectIdentity
+eisProducts = _EisProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45)
+)
+_CajunL3P580_ObjectIdentity = ObjectIdentity
+cajunL3P580 = _CajunL3P580_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 2)
+)
+_CajunL3P882_ObjectIdentity = ObjectIdentity
+cajunL3P882 = _CajunL3P882_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 10)
+)
+_CajunL3P882S_ObjectIdentity = ObjectIdentity
+cajunL3P882S = _CajunL3P882S_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 11)
+)
+_CajunL3P580S_ObjectIdentity = ObjectIdentity
+cajunL3P580S = _CajunL3P580S_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 12)
+)
+_HostSoftware_ObjectIdentity = ObjectIdentity
+hostSoftware = _HostSoftware_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 100)
+)
+_CajunViewStandAlone_ObjectIdentity = ObjectIdentity
+cajunViewStandAlone = _CajunViewStandAlone_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 100, 1)
+)
+_AvayaCommunicationManagerBranchEditioni40TelephonyServer_ObjectIdentity = ObjectIdentity
+avayaCommunicationManagerBranchEditioni40TelephonyServer = _AvayaCommunicationManagerBranchEditioni40TelephonyServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 100, 2)
+)
+_AvayaCommunicationManagerBranchEditioni120TelephonyServer_ObjectIdentity = ObjectIdentity
+avayaCommunicationManagerBranchEditioni120TelephonyServer = _AvayaCommunicationManagerBranchEditioni120TelephonyServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 100, 3)
+)
+_AvayaCommunicationManagerBranchEditionG450TelephonyServer_ObjectIdentity = ObjectIdentity
+avayaCommunicationManagerBranchEditionG450TelephonyServer = _AvayaCommunicationManagerBranchEditionG450TelephonyServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 100, 4)
+)
+_AvayaCommunicationManagerBranchEditionG430TelephonyServer_ObjectIdentity = ObjectIdentity
+avayaCommunicationManagerBranchEditionG430TelephonyServer = _AvayaCommunicationManagerBranchEditionG430TelephonyServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 100, 6)
+)
+_SmartModules_ObjectIdentity = ObjectIdentity
+smartModules = _SmartModules_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 101)
+)
+_CajunM8000RLB_ObjectIdentity = ObjectIdentity
+cajunM8000RLB = _CajunM8000RLB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 1)
+)
+_CajunX330W2DS1_ObjectIdentity = ObjectIdentity
+cajunX330W2DS1 = _CajunX330W2DS1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 2)
+)
+_CajunX330W2USP_ObjectIdentity = ObjectIdentity
+cajunX330W2USP = _CajunX330W2USP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 3)
+)
+_AvayaP460L3_ObjectIdentity = ObjectIdentity
+avayaP460L3 = _AvayaP460L3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 4)
+)
+_AvayaW310StackModule_ObjectIdentity = ObjectIdentity
+avayaW310StackModule = _AvayaW310StackModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 5)
+)
+_AvayaAM110ApplicationModule_ObjectIdentity = ObjectIdentity
+avayaAM110ApplicationModule = _AvayaAM110ApplicationModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 6)
+)
+_AvayaS8300AppBlade_ObjectIdentity = ObjectIdentity
+avayaS8300AppBlade = _AvayaS8300AppBlade_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 101, 7)
+)
+_ChassisProducts_ObjectIdentity = ObjectIdentity
+chassisProducts = _ChassisProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103)
+)
+_AvayaP460_ObjectIdentity = ObjectIdentity
+avayaP460 = _AvayaP460_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 1)
+)
+_AvayaG350_ObjectIdentity = ObjectIdentity
+avayaG350 = _AvayaG350_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 2)
+)
+_AvayaW310Standalone_ObjectIdentity = ObjectIdentity
+avayaW310Standalone = _AvayaW310Standalone_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 3)
+)
+_AvayaG250_ObjectIdentity = ObjectIdentity
+avayaG250 = _AvayaG250_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 4)
+)
+_AvayaG250_BRI_ObjectIdentity = ObjectIdentity
+avayaG250_BRI = _AvayaG250_BRI_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 5)
+)
+_AvayaG250_DS1_ObjectIdentity = ObjectIdentity
+avayaG250_DS1 = _AvayaG250_DS1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 6)
+)
+_AvayaG250_DCP_ObjectIdentity = ObjectIdentity
+avayaG250_DCP = _AvayaG250_DCP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 7)
+)
+_AvayaG450_ObjectIdentity = ObjectIdentity
+avayaG450 = _AvayaG450_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 8)
+)
+_AvayaG250_A14_ObjectIdentity = ObjectIdentity
+avayaG250_A14 = _AvayaG250_A14_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 9)
+)
+_AvayaTGM550_ObjectIdentity = ObjectIdentity
+avayaTGM550 = _AvayaTGM550_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 10)
+)
+_AvayaCommunicationManagerBranchEditioni120_ObjectIdentity = ObjectIdentity
+avayaCommunicationManagerBranchEditioni120 = _AvayaCommunicationManagerBranchEditioni120_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 11)
+)
+_AvayaCommunicationManagerBranchEditioni40_Analog_ObjectIdentity = ObjectIdentity
+avayaCommunicationManagerBranchEditioni40_Analog = _AvayaCommunicationManagerBranchEditioni40_Analog_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 12)
+)
+_AvayaCommunicationManagerBranchEditioni40_BRI_ObjectIdentity = ObjectIdentity
+avayaCommunicationManagerBranchEditioni40_BRI = _AvayaCommunicationManagerBranchEditioni40_BRI_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 13)
+)
+_AvayaCommunicationManagerBranchEditioni40_DS1_ObjectIdentity = ObjectIdentity
+avayaCommunicationManagerBranchEditioni40_DS1 = _AvayaCommunicationManagerBranchEditioni40_DS1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 14)
+)
+_AvayaTRM480_ObjectIdentity = ObjectIdentity
+avayaTRM480 = _AvayaTRM480_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 15)
+)
+_AvayaCommunicationManagerBranchEditioni40_A14_ObjectIdentity = ObjectIdentity
+avayaCommunicationManagerBranchEditioni40_A14 = _AvayaCommunicationManagerBranchEditioni40_A14_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 16)
+)
+_AvayaCommunicationManagerBranchEditionG450_ObjectIdentity = ObjectIdentity
+avayaCommunicationManagerBranchEditionG450 = _AvayaCommunicationManagerBranchEditionG450_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 17)
+)
+_AvayaCommunicationManagerBranchEditionG430_ObjectIdentity = ObjectIdentity
+avayaCommunicationManagerBranchEditionG430 = _AvayaCommunicationManagerBranchEditionG430_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 19)
+)
+_AvayaG430_ObjectIdentity = ObjectIdentity
+avayaG430 = _AvayaG430_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 41)
+)
+_AvayaG860_ObjectIdentity = ObjectIdentity
+avayaG860 = _AvayaG860_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 103, 42)
+)
+_WirelessProducts_ObjectIdentity = ObjectIdentity
+wirelessProducts = _WirelessProducts_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 104)
+)
+_AvayaAP4_ObjectIdentity = ObjectIdentity
+avayaAP4 = _AvayaAP4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6889, 1, 45, 104, 1)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "AVEISPROD-MIB",
+    **{"lsg": lsg,
+       "eisProducts": eisProducts,
+       "cajunL3P580": cajunL3P580,
+       "cajunL3P882": cajunL3P882,
+       "cajunL3P882S": cajunL3P882S,
+       "cajunL3P580S": cajunL3P580S,
+       "hostSoftware": hostSoftware,
+       "cajunViewStandAlone": cajunViewStandAlone,
+       "avayaCommunicationManagerBranchEditioni40TelephonyServer": avayaCommunicationManagerBranchEditioni40TelephonyServer,
+       "avayaCommunicationManagerBranchEditioni120TelephonyServer": avayaCommunicationManagerBranchEditioni120TelephonyServer,
+       "avayaCommunicationManagerBranchEditionG450TelephonyServer": avayaCommunicationManagerBranchEditionG450TelephonyServer,
+       "avayaCommunicationManagerBranchEditionG430TelephonyServer": avayaCommunicationManagerBranchEditionG430TelephonyServer,
+       "smartModules": smartModules,
+       "cajunM8000RLB": cajunM8000RLB,
+       "cajunX330W2DS1": cajunX330W2DS1,
+       "cajunX330W2USP": cajunX330W2USP,
+       "avayaP460L3": avayaP460L3,
+       "avayaW310StackModule": avayaW310StackModule,
+       "avayaAM110ApplicationModule": avayaAM110ApplicationModule,
+       "avayaS8300AppBlade": avayaS8300AppBlade,
+       "chassisProducts": chassisProducts,
+       "avayaP460": avayaP460,
+       "avayaG350": avayaG350,
+       "avayaW310Standalone": avayaW310Standalone,
+       "avayaG250": avayaG250,
+       "avayaG250-BRI": avayaG250_BRI,
+       "avayaG250-DS1": avayaG250_DS1,
+       "avayaG250-DCP": avayaG250_DCP,
+       "avayaG450": avayaG450,
+       "avayaG250-A14": avayaG250_A14,
+       "avayaTGM550": avayaTGM550,
+       "avayaCommunicationManagerBranchEditioni120": avayaCommunicationManagerBranchEditioni120,
+       "avayaCommunicationManagerBranchEditioni40-Analog": avayaCommunicationManagerBranchEditioni40_Analog,
+       "avayaCommunicationManagerBranchEditioni40-BRI": avayaCommunicationManagerBranchEditioni40_BRI,
+       "avayaCommunicationManagerBranchEditioni40-DS1": avayaCommunicationManagerBranchEditioni40_DS1,
+       "avayaTRM480": avayaTRM480,
+       "avayaCommunicationManagerBranchEditioni40-A14": avayaCommunicationManagerBranchEditioni40_A14,
+       "avayaCommunicationManagerBranchEditionG450": avayaCommunicationManagerBranchEditionG450,
+       "avayaCommunicationManagerBranchEditionG430": avayaCommunicationManagerBranchEditionG430,
+       "avayaG430": avayaG430,
+       "avayaG860": avayaG860,
+       "wirelessProducts": wirelessProducts,
+       "avayaAP4": avayaAP4}
+)

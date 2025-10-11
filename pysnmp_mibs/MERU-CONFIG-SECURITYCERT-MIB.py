@@ -1,29 +1,238 @@
+# SNMP MIB module (MERU-CONFIG-SECURITYCERT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MERU-CONFIG-SECURITYCERT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/meru/MERU-CONFIG-SECURITYCERT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:32 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/meru/MERU-CONFIG-SECURITYCERT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:13:27 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-Ipv6Address, = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address")
-mwConfiguration, = mibBuilder.importSymbols("MERU-SMI", "mwConfiguration")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-RowStatus, DateAndTime, TextualConvention, TimeInterval, MacAddress, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "TruthValue", "TimeStamp", "DisplayString")
-mwConfigSecurityCert = ModuleIdentity((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10))
-if mibBuilder.loadTexts: mwConfigSecurityCert.setLastUpdated('200506050000Z')
-if mibBuilder.loadTexts: mwConfigSecurityCert.setOrganization('Meru Networks')
-mwSslCertInput = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 2))
-mwSslCert = MibIdentifier((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 3))
-mwSslCertInputCertificateName = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 2, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwSslCertInputCertificateName.setStatus('current')
-mwSslCertInputPfxPassword = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 2, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mwSslCertInputPfxPassword.setStatus('current')
-mwSslCertCertificateName = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 3, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mwSslCertCertificateName.setStatus('current')
-mwSslCertCertFormattedText = MibScalar((1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 3, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mwSslCertCertFormattedText.setStatus('current')
-mibBuilder.exportSymbols("MERU-CONFIG-SECURITYCERT-MIB", mwSslCertInput=mwSslCertInput, mwConfigSecurityCert=mwConfigSecurityCert, mwSslCertCertificateName=mwSslCertCertificateName, mwSslCert=mwSslCert, mwSslCertInputCertificateName=mwSslCertInputCertificateName, mwSslCertCertFormattedText=mwSslCertCertFormattedText, PYSNMP_MODULE_ID=mwConfigSecurityCert, mwSslCertInputPfxPassword=mwSslCertInputPfxPassword)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(Ipv6Address,) = mibBuilder.importSymbols(
+    "IPV6-TC",
+    "Ipv6Address")
+
+(mwConfiguration,) = mibBuilder.importSymbols(
+    "MERU-SMI",
+    "mwConfiguration")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+mwConfigSecurityCert = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MwSslCertInput_ObjectIdentity = ObjectIdentity
+mwSslCertInput = _MwSslCertInput_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 2)
+)
+
+
+class _MwSslCertInputCertificateName_Type(DisplayString):
+    """Custom type mwSslCertInputCertificateName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_MwSslCertInputCertificateName_Type.__name__ = "DisplayString"
+_MwSslCertInputCertificateName_Object = MibScalar
+mwSslCertInputCertificateName = _MwSslCertInputCertificateName_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 2, 1),
+    _MwSslCertInputCertificateName_Type()
+)
+mwSslCertInputCertificateName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwSslCertInputCertificateName.setStatus("current")
+
+
+class _MwSslCertInputPfxPassword_Type(DisplayString):
+    """Custom type mwSslCertInputPfxPassword based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_MwSslCertInputPfxPassword_Type.__name__ = "DisplayString"
+_MwSslCertInputPfxPassword_Object = MibScalar
+mwSslCertInputPfxPassword = _MwSslCertInputPfxPassword_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 2, 2),
+    _MwSslCertInputPfxPassword_Type()
+)
+mwSslCertInputPfxPassword.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mwSslCertInputPfxPassword.setStatus("current")
+_MwSslCert_ObjectIdentity = ObjectIdentity
+mwSslCert = _MwSslCert_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 3)
+)
+
+
+class _MwSslCertCertificateName_Type(DisplayString):
+    """Custom type mwSslCertCertificateName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_MwSslCertCertificateName_Type.__name__ = "DisplayString"
+_MwSslCertCertificateName_Object = MibScalar
+mwSslCertCertificateName = _MwSslCertCertificateName_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 3, 1),
+    _MwSslCertCertificateName_Type()
+)
+mwSslCertCertificateName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mwSslCertCertificateName.setStatus("current")
+_MwSslCertCertFormattedText_Type = DisplayString
+_MwSslCertCertFormattedText_Object = MibScalar
+mwSslCertCertFormattedText = _MwSslCertCertFormattedText_Object(
+    (1, 3, 6, 1, 4, 1, 15983, 1, 1, 4, 10, 3, 2),
+    _MwSslCertCertFormattedText_Type()
+)
+mwSslCertCertFormattedText.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mwSslCertCertFormattedText.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MERU-CONFIG-SECURITYCERT-MIB",
+    **{"mwConfigSecurityCert": mwConfigSecurityCert,
+       "mwSslCertInput": mwSslCertInput,
+       "mwSslCertInputCertificateName": mwSslCertInputCertificateName,
+       "mwSslCertInputPfxPassword": mwSslCertInputPfxPassword,
+       "mwSslCert": mwSslCert,
+       "mwSslCertCertificateName": mwSslCertCertificateName,
+       "mwSslCertCertFormattedText": mwSslCertCertFormattedText}
+)

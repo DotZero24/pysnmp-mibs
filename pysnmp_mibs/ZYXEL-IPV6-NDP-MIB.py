@@ -1,75 +1,432 @@
+# SNMP MIB module (ZYXEL-IPV6-NDP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-IPV6-NDP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-IPV6-NDP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zyxel/ZYXEL-IPV6-NDP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:02:01 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "PhysAddress", "TextualConvention", "DisplayString")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelIpv6Ndp = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35))
-if mibBuilder.loadTexts: zyxelIpv6Ndp.setLastUpdated('201207010000Z')
-if mibBuilder.loadTexts: zyxelIpv6Ndp.setOrganization('Enterprise Solution ZyXEL')
-zyxelNdpSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1))
-zyNdpMaxNumberOfPrefixes = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyNdpMaxNumberOfPrefixes.setStatus('current')
-zyxelNdpTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2), )
-if mibBuilder.loadTexts: zyxelNdpTable.setStatus('current')
-zyxelNdpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2, 1), ).setIndexNames((0, "ZYXEL-IPV6-NDP-MIB", "zyNdpIfIndex"))
-if mibBuilder.loadTexts: zyxelNdpEntry.setStatus('current')
-zyNdpIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: zyNdpIfIndex.setStatus('current')
-zyNdpDadAttempts = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyNdpDadAttempts.setStatus('current')
-zyNdpNsInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyNdpNsInterval.setStatus('current')
-zyNdpReachableTime = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyNdpReachableTime.setStatus('current')
-zyxelNdpPrefixTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3), )
-if mibBuilder.loadTexts: zyxelNdpPrefixTable.setStatus('current')
-zyxelNdpPrefixEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1), ).setIndexNames((0, "ZYXEL-IPV6-NDP-MIB", "zyNdpPrefixIfIndex"), (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpPrefixPrefixType"), (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpPrefixPrefixIpAddress"), (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpPrefixPrefixLength"))
-if mibBuilder.loadTexts: zyxelNdpPrefixEntry.setStatus('current')
-zyNdpPrefixIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 1), Integer32())
-if mibBuilder.loadTexts: zyNdpPrefixIfIndex.setStatus('current')
-zyNdpPrefixPrefixType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: zyNdpPrefixPrefixType.setStatus('current')
-zyNdpPrefixPrefixIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 3), InetAddress())
-if mibBuilder.loadTexts: zyNdpPrefixPrefixIpAddress.setStatus('current')
-zyNdpPrefixPrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 4), Integer32())
-if mibBuilder.loadTexts: zyNdpPrefixPrefixLength.setStatus('current')
-zyNdpPrefixValidLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 5), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyNdpPrefixValidLifetime.setStatus('current')
-zyNdpPrefixPreferredLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 6), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyNdpPrefixPreferredLifetime.setStatus('current')
-zyNdpPrefixNoAutonomousFlagState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 7), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyNdpPrefixNoAutonomousFlagState.setStatus('current')
-zyNdpPrefixNoOnLinkFlagState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 8), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyNdpPrefixNoOnLinkFlagState.setStatus('current')
-zyNdpPrefixNoAdvertiseFlagState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 9), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyNdpPrefixNoAdvertiseFlagState.setStatus('current')
-zyNdpPrefixRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zyNdpPrefixRowStatus.setStatus('current')
-zyNdpNSTrackingAgingTime = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 4), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyNdpNSTrackingAgingTime.setStatus('current')
-zyxelNdpStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2))
-zyxelNdpNSTrackingTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1), )
-if mibBuilder.loadTexts: zyxelNdpNSTrackingTable.setStatus('current')
-zyxelNdpNSTrackingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1, 1), ).setIndexNames((0, "ZYXEL-IPV6-NDP-MIB", "zyNdpNSTrackingIfIndex"), (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpNSTrackingNetAddressType"), (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpNSTrackingNetAddress"))
-if mibBuilder.loadTexts: zyxelNdpNSTrackingEntry.setStatus('current')
-zyNdpNSTrackingIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: zyNdpNSTrackingIfIndex.setStatus('current')
-zyNdpNSTrackingNetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: zyNdpNSTrackingNetAddressType.setStatus('current')
-zyNdpNSTrackingNetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1, 1, 3), InetAddress())
-if mibBuilder.loadTexts: zyNdpNSTrackingNetAddress.setStatus('current')
-zyNdpNSTrackingPhysAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1, 1, 4), PhysAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zyNdpNSTrackingPhysAddress.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-IPV6-NDP-MIB", zyNdpPrefixNoAutonomousFlagState=zyNdpPrefixNoAutonomousFlagState, zyxelNdpPrefixTable=zyxelNdpPrefixTable, zyNdpNSTrackingAgingTime=zyNdpNSTrackingAgingTime, zyxelNdpSetup=zyxelNdpSetup, zyNdpDadAttempts=zyNdpDadAttempts, zyxelNdpNSTrackingEntry=zyxelNdpNSTrackingEntry, zyxelIpv6Ndp=zyxelIpv6Ndp, zyNdpPrefixRowStatus=zyNdpPrefixRowStatus, zyNdpPrefixIfIndex=zyNdpPrefixIfIndex, zyNdpPrefixPreferredLifetime=zyNdpPrefixPreferredLifetime, zyNdpPrefixNoOnLinkFlagState=zyNdpPrefixNoOnLinkFlagState, zyNdpPrefixNoAdvertiseFlagState=zyNdpPrefixNoAdvertiseFlagState, zyxelNdpStatus=zyxelNdpStatus, zyxelNdpPrefixEntry=zyxelNdpPrefixEntry, zyNdpReachableTime=zyNdpReachableTime, zyNdpNSTrackingNetAddress=zyNdpNSTrackingNetAddress, zyNdpPrefixPrefixType=zyNdpPrefixPrefixType, zyNdpNSTrackingIfIndex=zyNdpNSTrackingIfIndex, zyNdpNSTrackingNetAddressType=zyNdpNSTrackingNetAddressType, zyNdpNsInterval=zyNdpNsInterval, PYSNMP_MODULE_ID=zyxelIpv6Ndp, zyNdpMaxNumberOfPrefixes=zyNdpMaxNumberOfPrefixes, zyxelNdpTable=zyxelNdpTable, zyxelNdpEntry=zyxelNdpEntry, zyNdpPrefixPrefixLength=zyNdpPrefixPrefixLength, zyNdpIfIndex=zyNdpIfIndex, zyNdpPrefixPrefixIpAddress=zyNdpPrefixPrefixIpAddress, zyxelNdpNSTrackingTable=zyxelNdpNSTrackingTable, zyNdpNSTrackingPhysAddress=zyNdpNSTrackingPhysAddress, zyNdpPrefixValidLifetime=zyNdpPrefixValidLifetime)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelIpv6Ndp = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelNdpSetup_ObjectIdentity = ObjectIdentity
+zyxelNdpSetup = _ZyxelNdpSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1)
+)
+_ZyNdpMaxNumberOfPrefixes_Type = Integer32
+_ZyNdpMaxNumberOfPrefixes_Object = MibScalar
+zyNdpMaxNumberOfPrefixes = _ZyNdpMaxNumberOfPrefixes_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 1),
+    _ZyNdpMaxNumberOfPrefixes_Type()
+)
+zyNdpMaxNumberOfPrefixes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyNdpMaxNumberOfPrefixes.setStatus("current")
+_ZyxelNdpTable_Object = MibTable
+zyxelNdpTable = _ZyxelNdpTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2)
+)
+if mibBuilder.loadTexts:
+    zyxelNdpTable.setStatus("current")
+_ZyxelNdpEntry_Object = MibTableRow
+zyxelNdpEntry = _ZyxelNdpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2, 1)
+)
+zyxelNdpEntry.setIndexNames(
+    (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpIfIndex"),
+)
+if mibBuilder.loadTexts:
+    zyxelNdpEntry.setStatus("current")
+_ZyNdpIfIndex_Type = Integer32
+_ZyNdpIfIndex_Object = MibTableColumn
+zyNdpIfIndex = _ZyNdpIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2, 1, 1),
+    _ZyNdpIfIndex_Type()
+)
+zyNdpIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyNdpIfIndex.setStatus("current")
+_ZyNdpDadAttempts_Type = Integer32
+_ZyNdpDadAttempts_Object = MibTableColumn
+zyNdpDadAttempts = _ZyNdpDadAttempts_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2, 1, 2),
+    _ZyNdpDadAttempts_Type()
+)
+zyNdpDadAttempts.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyNdpDadAttempts.setStatus("current")
+_ZyNdpNsInterval_Type = Integer32
+_ZyNdpNsInterval_Object = MibTableColumn
+zyNdpNsInterval = _ZyNdpNsInterval_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2, 1, 3),
+    _ZyNdpNsInterval_Type()
+)
+zyNdpNsInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyNdpNsInterval.setStatus("current")
+_ZyNdpReachableTime_Type = Integer32
+_ZyNdpReachableTime_Object = MibTableColumn
+zyNdpReachableTime = _ZyNdpReachableTime_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 2, 1, 4),
+    _ZyNdpReachableTime_Type()
+)
+zyNdpReachableTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyNdpReachableTime.setStatus("current")
+_ZyxelNdpPrefixTable_Object = MibTable
+zyxelNdpPrefixTable = _ZyxelNdpPrefixTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3)
+)
+if mibBuilder.loadTexts:
+    zyxelNdpPrefixTable.setStatus("current")
+_ZyxelNdpPrefixEntry_Object = MibTableRow
+zyxelNdpPrefixEntry = _ZyxelNdpPrefixEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1)
+)
+zyxelNdpPrefixEntry.setIndexNames(
+    (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpPrefixIfIndex"),
+    (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpPrefixPrefixType"),
+    (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpPrefixPrefixIpAddress"),
+    (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpPrefixPrefixLength"),
+)
+if mibBuilder.loadTexts:
+    zyxelNdpPrefixEntry.setStatus("current")
+_ZyNdpPrefixIfIndex_Type = Integer32
+_ZyNdpPrefixIfIndex_Object = MibTableColumn
+zyNdpPrefixIfIndex = _ZyNdpPrefixIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 1),
+    _ZyNdpPrefixIfIndex_Type()
+)
+zyNdpPrefixIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyNdpPrefixIfIndex.setStatus("current")
+_ZyNdpPrefixPrefixType_Type = InetAddressType
+_ZyNdpPrefixPrefixType_Object = MibTableColumn
+zyNdpPrefixPrefixType = _ZyNdpPrefixPrefixType_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 2),
+    _ZyNdpPrefixPrefixType_Type()
+)
+zyNdpPrefixPrefixType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyNdpPrefixPrefixType.setStatus("current")
+_ZyNdpPrefixPrefixIpAddress_Type = InetAddress
+_ZyNdpPrefixPrefixIpAddress_Object = MibTableColumn
+zyNdpPrefixPrefixIpAddress = _ZyNdpPrefixPrefixIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 3),
+    _ZyNdpPrefixPrefixIpAddress_Type()
+)
+zyNdpPrefixPrefixIpAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyNdpPrefixPrefixIpAddress.setStatus("current")
+_ZyNdpPrefixPrefixLength_Type = Integer32
+_ZyNdpPrefixPrefixLength_Object = MibTableColumn
+zyNdpPrefixPrefixLength = _ZyNdpPrefixPrefixLength_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 4),
+    _ZyNdpPrefixPrefixLength_Type()
+)
+zyNdpPrefixPrefixLength.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyNdpPrefixPrefixLength.setStatus("current")
+_ZyNdpPrefixValidLifetime_Type = Unsigned32
+_ZyNdpPrefixValidLifetime_Object = MibTableColumn
+zyNdpPrefixValidLifetime = _ZyNdpPrefixValidLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 5),
+    _ZyNdpPrefixValidLifetime_Type()
+)
+zyNdpPrefixValidLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyNdpPrefixValidLifetime.setStatus("current")
+_ZyNdpPrefixPreferredLifetime_Type = Unsigned32
+_ZyNdpPrefixPreferredLifetime_Object = MibTableColumn
+zyNdpPrefixPreferredLifetime = _ZyNdpPrefixPreferredLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 6),
+    _ZyNdpPrefixPreferredLifetime_Type()
+)
+zyNdpPrefixPreferredLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyNdpPrefixPreferredLifetime.setStatus("current")
+_ZyNdpPrefixNoAutonomousFlagState_Type = EnabledStatus
+_ZyNdpPrefixNoAutonomousFlagState_Object = MibTableColumn
+zyNdpPrefixNoAutonomousFlagState = _ZyNdpPrefixNoAutonomousFlagState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 7),
+    _ZyNdpPrefixNoAutonomousFlagState_Type()
+)
+zyNdpPrefixNoAutonomousFlagState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyNdpPrefixNoAutonomousFlagState.setStatus("current")
+_ZyNdpPrefixNoOnLinkFlagState_Type = EnabledStatus
+_ZyNdpPrefixNoOnLinkFlagState_Object = MibTableColumn
+zyNdpPrefixNoOnLinkFlagState = _ZyNdpPrefixNoOnLinkFlagState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 8),
+    _ZyNdpPrefixNoOnLinkFlagState_Type()
+)
+zyNdpPrefixNoOnLinkFlagState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyNdpPrefixNoOnLinkFlagState.setStatus("current")
+_ZyNdpPrefixNoAdvertiseFlagState_Type = EnabledStatus
+_ZyNdpPrefixNoAdvertiseFlagState_Object = MibTableColumn
+zyNdpPrefixNoAdvertiseFlagState = _ZyNdpPrefixNoAdvertiseFlagState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 9),
+    _ZyNdpPrefixNoAdvertiseFlagState_Type()
+)
+zyNdpPrefixNoAdvertiseFlagState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyNdpPrefixNoAdvertiseFlagState.setStatus("current")
+_ZyNdpPrefixRowStatus_Type = RowStatus
+_ZyNdpPrefixRowStatus_Object = MibTableColumn
+zyNdpPrefixRowStatus = _ZyNdpPrefixRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 3, 1, 10),
+    _ZyNdpPrefixRowStatus_Type()
+)
+zyNdpPrefixRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zyNdpPrefixRowStatus.setStatus("current")
+_ZyNdpNSTrackingAgingTime_Type = Integer32
+_ZyNdpNSTrackingAgingTime_Object = MibScalar
+zyNdpNSTrackingAgingTime = _ZyNdpNSTrackingAgingTime_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 1, 4),
+    _ZyNdpNSTrackingAgingTime_Type()
+)
+zyNdpNSTrackingAgingTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyNdpNSTrackingAgingTime.setStatus("current")
+_ZyxelNdpStatus_ObjectIdentity = ObjectIdentity
+zyxelNdpStatus = _ZyxelNdpStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2)
+)
+_ZyxelNdpNSTrackingTable_Object = MibTable
+zyxelNdpNSTrackingTable = _ZyxelNdpNSTrackingTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1)
+)
+if mibBuilder.loadTexts:
+    zyxelNdpNSTrackingTable.setStatus("current")
+_ZyxelNdpNSTrackingEntry_Object = MibTableRow
+zyxelNdpNSTrackingEntry = _ZyxelNdpNSTrackingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1, 1)
+)
+zyxelNdpNSTrackingEntry.setIndexNames(
+    (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpNSTrackingIfIndex"),
+    (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpNSTrackingNetAddressType"),
+    (0, "ZYXEL-IPV6-NDP-MIB", "zyNdpNSTrackingNetAddress"),
+)
+if mibBuilder.loadTexts:
+    zyxelNdpNSTrackingEntry.setStatus("current")
+_ZyNdpNSTrackingIfIndex_Type = InterfaceIndex
+_ZyNdpNSTrackingIfIndex_Object = MibTableColumn
+zyNdpNSTrackingIfIndex = _ZyNdpNSTrackingIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1, 1, 1),
+    _ZyNdpNSTrackingIfIndex_Type()
+)
+zyNdpNSTrackingIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyNdpNSTrackingIfIndex.setStatus("current")
+_ZyNdpNSTrackingNetAddressType_Type = InetAddressType
+_ZyNdpNSTrackingNetAddressType_Object = MibTableColumn
+zyNdpNSTrackingNetAddressType = _ZyNdpNSTrackingNetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1, 1, 2),
+    _ZyNdpNSTrackingNetAddressType_Type()
+)
+zyNdpNSTrackingNetAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyNdpNSTrackingNetAddressType.setStatus("current")
+_ZyNdpNSTrackingNetAddress_Type = InetAddress
+_ZyNdpNSTrackingNetAddress_Object = MibTableColumn
+zyNdpNSTrackingNetAddress = _ZyNdpNSTrackingNetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1, 1, 3),
+    _ZyNdpNSTrackingNetAddress_Type()
+)
+zyNdpNSTrackingNetAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyNdpNSTrackingNetAddress.setStatus("current")
+
+
+class _ZyNdpNSTrackingPhysAddress_Type(PhysAddress):
+    """Custom type zyNdpNSTrackingPhysAddress based on PhysAddress"""
+    subtypeSpec = PhysAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 65535),
+    )
+
+
+_ZyNdpNSTrackingPhysAddress_Type.__name__ = "PhysAddress"
+_ZyNdpNSTrackingPhysAddress_Object = MibTableColumn
+zyNdpNSTrackingPhysAddress = _ZyNdpNSTrackingPhysAddress_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 35, 2, 1, 1, 4),
+    _ZyNdpNSTrackingPhysAddress_Type()
+)
+zyNdpNSTrackingPhysAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zyNdpNSTrackingPhysAddress.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-IPV6-NDP-MIB",
+    **{"zyxelIpv6Ndp": zyxelIpv6Ndp,
+       "zyxelNdpSetup": zyxelNdpSetup,
+       "zyNdpMaxNumberOfPrefixes": zyNdpMaxNumberOfPrefixes,
+       "zyxelNdpTable": zyxelNdpTable,
+       "zyxelNdpEntry": zyxelNdpEntry,
+       "zyNdpIfIndex": zyNdpIfIndex,
+       "zyNdpDadAttempts": zyNdpDadAttempts,
+       "zyNdpNsInterval": zyNdpNsInterval,
+       "zyNdpReachableTime": zyNdpReachableTime,
+       "zyxelNdpPrefixTable": zyxelNdpPrefixTable,
+       "zyxelNdpPrefixEntry": zyxelNdpPrefixEntry,
+       "zyNdpPrefixIfIndex": zyNdpPrefixIfIndex,
+       "zyNdpPrefixPrefixType": zyNdpPrefixPrefixType,
+       "zyNdpPrefixPrefixIpAddress": zyNdpPrefixPrefixIpAddress,
+       "zyNdpPrefixPrefixLength": zyNdpPrefixPrefixLength,
+       "zyNdpPrefixValidLifetime": zyNdpPrefixValidLifetime,
+       "zyNdpPrefixPreferredLifetime": zyNdpPrefixPreferredLifetime,
+       "zyNdpPrefixNoAutonomousFlagState": zyNdpPrefixNoAutonomousFlagState,
+       "zyNdpPrefixNoOnLinkFlagState": zyNdpPrefixNoOnLinkFlagState,
+       "zyNdpPrefixNoAdvertiseFlagState": zyNdpPrefixNoAdvertiseFlagState,
+       "zyNdpPrefixRowStatus": zyNdpPrefixRowStatus,
+       "zyNdpNSTrackingAgingTime": zyNdpNSTrackingAgingTime,
+       "zyxelNdpStatus": zyxelNdpStatus,
+       "zyxelNdpNSTrackingTable": zyxelNdpNSTrackingTable,
+       "zyxelNdpNSTrackingEntry": zyxelNdpNSTrackingEntry,
+       "zyNdpNSTrackingIfIndex": zyNdpNSTrackingIfIndex,
+       "zyNdpNSTrackingNetAddressType": zyNdpNSTrackingNetAddressType,
+       "zyNdpNSTrackingNetAddress": zyNdpNSTrackingNetAddress,
+       "zyNdpNSTrackingPhysAddress": zyNdpNSTrackingPhysAddress}
+)

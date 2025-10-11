@@ -1,33 +1,259 @@
+# SNMP MIB module (HM2-PLATFORM-MRP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HM2-PLATFORM-MRP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HM2-PLATFORM-MRP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:12 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hirschmann/HM2-PLATFORM-MRP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:53:55 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hm2PlatformMibs, = mibBuilder.importSymbols("HM2-TC-MIB", "hm2PlatformMibs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TimeInterval, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TimeInterval", "TextualConvention", "DisplayString")
-hm2PlatformMRP = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 12, 60))
-hm2PlatformMRP.setRevisions(('2013-04-10 00:00',))
-if mibBuilder.loadTexts: hm2PlatformMRP.setLastUpdated('201304100000Z')
-if mibBuilder.loadTexts: hm2PlatformMRP.setOrganization('Hirschmann Automation and Control GmbH')
-hm2AgentDot1qMrp = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 12, 60, 1))
-hm2AgentDot1qMrpMxrp = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 12, 60, 2))
-hm2AgentDot1qPortMrpTable = MibTable((1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1), )
-if mibBuilder.loadTexts: hm2AgentDot1qPortMrpTable.setStatus('current')
-hm2AgentDot1qPortMrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1, 1), ).setIndexNames((0, "HM2-PLATFORM-MRP-MIB", "hm2AgentDot1qMrpPort"))
-if mibBuilder.loadTexts: hm2AgentDot1qPortMrpEntry.setStatus('current')
-hm2AgentDot1qMrpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: hm2AgentDot1qMrpPort.setStatus('current')
-hm2AgentDot1qPortMrpJoinTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1, 1, 2), TimeInterval().subtype(subtypeSpec=ValueRangeConstraint(10, 100)).clone(20)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hm2AgentDot1qPortMrpJoinTime.setStatus('current')
-hm2AgentDot1qPortMrpLeaveTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1, 1, 3), TimeInterval().subtype(subtypeSpec=ValueRangeConstraint(20, 600)).clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hm2AgentDot1qPortMrpLeaveTime.setStatus('current')
-hm2AgentDot1qPortMrpLeaveAllTime = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1, 1, 4), TimeInterval().subtype(subtypeSpec=ValueRangeConstraint(200, 6000)).clone(1000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hm2AgentDot1qPortMrpLeaveAllTime.setStatus('current')
-mibBuilder.exportSymbols("HM2-PLATFORM-MRP-MIB", hm2AgentDot1qPortMrpTable=hm2AgentDot1qPortMrpTable, hm2AgentDot1qPortMrpEntry=hm2AgentDot1qPortMrpEntry, hm2AgentDot1qMrpMxrp=hm2AgentDot1qMrpMxrp, hm2AgentDot1qMrp=hm2AgentDot1qMrp, hm2AgentDot1qPortMrpJoinTime=hm2AgentDot1qPortMrpJoinTime, hm2AgentDot1qPortMrpLeaveAllTime=hm2AgentDot1qPortMrpLeaveAllTime, hm2PlatformMRP=hm2PlatformMRP, hm2AgentDot1qMrpPort=hm2AgentDot1qMrpPort, PYSNMP_MODULE_ID=hm2PlatformMRP, hm2AgentDot1qPortMrpLeaveTime=hm2AgentDot1qPortMrpLeaveTime)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hm2PlatformMibs,) = mibBuilder.importSymbols(
+    "HM2-TC-MIB",
+    "hm2PlatformMibs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TimeInterval) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TimeInterval")
+
+
+# MODULE-IDENTITY
+
+hm2PlatformMRP = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60)
+)
+if mibBuilder.loadTexts:
+    hm2PlatformMRP.setRevisions(
+        ("2013-04-10 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Hm2AgentDot1qMrp_ObjectIdentity = ObjectIdentity
+hm2AgentDot1qMrp = _Hm2AgentDot1qMrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 1)
+)
+_Hm2AgentDot1qPortMrpTable_Object = MibTable
+hm2AgentDot1qPortMrpTable = _Hm2AgentDot1qPortMrpTable_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hm2AgentDot1qPortMrpTable.setStatus("current")
+_Hm2AgentDot1qPortMrpEntry_Object = MibTableRow
+hm2AgentDot1qPortMrpEntry = _Hm2AgentDot1qPortMrpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1, 1)
+)
+hm2AgentDot1qPortMrpEntry.setIndexNames(
+    (0, "HM2-PLATFORM-MRP-MIB", "hm2AgentDot1qMrpPort"),
+)
+if mibBuilder.loadTexts:
+    hm2AgentDot1qPortMrpEntry.setStatus("current")
+
+
+class _Hm2AgentDot1qMrpPort_Type(Integer32):
+    """Custom type hm2AgentDot1qMrpPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_Hm2AgentDot1qMrpPort_Type.__name__ = "Integer32"
+_Hm2AgentDot1qMrpPort_Object = MibTableColumn
+hm2AgentDot1qMrpPort = _Hm2AgentDot1qMrpPort_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1, 1, 1),
+    _Hm2AgentDot1qMrpPort_Type()
+)
+hm2AgentDot1qMrpPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qMrpPort.setStatus("current")
+
+
+class _Hm2AgentDot1qPortMrpJoinTime_Type(TimeInterval):
+    """Custom type hm2AgentDot1qPortMrpJoinTime based on TimeInterval"""
+    defaultValue = 20
+
+    subtypeSpec = TimeInterval.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 100),
+    )
+
+
+_Hm2AgentDot1qPortMrpJoinTime_Type.__name__ = "TimeInterval"
+_Hm2AgentDot1qPortMrpJoinTime_Object = MibTableColumn
+hm2AgentDot1qPortMrpJoinTime = _Hm2AgentDot1qPortMrpJoinTime_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1, 1, 2),
+    _Hm2AgentDot1qPortMrpJoinTime_Type()
+)
+hm2AgentDot1qPortMrpJoinTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qPortMrpJoinTime.setStatus("current")
+
+
+class _Hm2AgentDot1qPortMrpLeaveTime_Type(TimeInterval):
+    """Custom type hm2AgentDot1qPortMrpLeaveTime based on TimeInterval"""
+    defaultValue = 60
+
+    subtypeSpec = TimeInterval.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(20, 600),
+    )
+
+
+_Hm2AgentDot1qPortMrpLeaveTime_Type.__name__ = "TimeInterval"
+_Hm2AgentDot1qPortMrpLeaveTime_Object = MibTableColumn
+hm2AgentDot1qPortMrpLeaveTime = _Hm2AgentDot1qPortMrpLeaveTime_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1, 1, 3),
+    _Hm2AgentDot1qPortMrpLeaveTime_Type()
+)
+hm2AgentDot1qPortMrpLeaveTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qPortMrpLeaveTime.setStatus("current")
+
+
+class _Hm2AgentDot1qPortMrpLeaveAllTime_Type(TimeInterval):
+    """Custom type hm2AgentDot1qPortMrpLeaveAllTime based on TimeInterval"""
+    defaultValue = 1000
+
+    subtypeSpec = TimeInterval.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(200, 6000),
+    )
+
+
+_Hm2AgentDot1qPortMrpLeaveAllTime_Type.__name__ = "TimeInterval"
+_Hm2AgentDot1qPortMrpLeaveAllTime_Object = MibTableColumn
+hm2AgentDot1qPortMrpLeaveAllTime = _Hm2AgentDot1qPortMrpLeaveAllTime_Object(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 1, 1, 1, 4),
+    _Hm2AgentDot1qPortMrpLeaveAllTime_Type()
+)
+hm2AgentDot1qPortMrpLeaveAllTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hm2AgentDot1qPortMrpLeaveAllTime.setStatus("current")
+_Hm2AgentDot1qMrpMxrp_ObjectIdentity = ObjectIdentity
+hm2AgentDot1qMrpMxrp = _Hm2AgentDot1qMrpMxrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 12, 60, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HM2-PLATFORM-MRP-MIB",
+    **{"hm2PlatformMRP": hm2PlatformMRP,
+       "hm2AgentDot1qMrp": hm2AgentDot1qMrp,
+       "hm2AgentDot1qPortMrpTable": hm2AgentDot1qPortMrpTable,
+       "hm2AgentDot1qPortMrpEntry": hm2AgentDot1qPortMrpEntry,
+       "hm2AgentDot1qMrpPort": hm2AgentDot1qMrpPort,
+       "hm2AgentDot1qPortMrpJoinTime": hm2AgentDot1qPortMrpJoinTime,
+       "hm2AgentDot1qPortMrpLeaveTime": hm2AgentDot1qPortMrpLeaveTime,
+       "hm2AgentDot1qPortMrpLeaveAllTime": hm2AgentDot1qPortMrpLeaveAllTime,
+       "hm2AgentDot1qMrpMxrp": hm2AgentDot1qMrpMxrp}
+)

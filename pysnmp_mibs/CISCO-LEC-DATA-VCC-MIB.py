@@ -1,44 +1,260 @@
+# SNMP MIB module (CISCO-LEC-DATA-VCC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-LEC-DATA-VCC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-LEC-DATA-VCC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:24:09 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-LEC-DATA-VCC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:24:51 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-atmVclVci, atmVclVpi = mibBuilder.importSymbols("ATM-MIB", "atmVclVci", "atmVclVpi")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-lecIndex, AtmLaneAddress = mibBuilder.importSymbols("LAN-EMULATION-CLIENT-MIB", "lecIndex", "AtmLaneAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoLecDataVccMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 69))
-ciscoLecDataVccMIB.setRevisions(('1997-01-06 00:00',))
-if mibBuilder.loadTexts: ciscoLecDataVccMIB.setLastUpdated('9701060000Z')
-if mibBuilder.loadTexts: ciscoLecDataVccMIB.setOrganization('Cisco Systems, Inc.')
-ciscoLecDataVccMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 69, 1))
-cLecDataDirectVcc = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 69, 1, 1))
-cLecDataDirectVccTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 69, 1, 1, 1), )
-if mibBuilder.loadTexts: cLecDataDirectVccTable.setStatus('current')
-cLecDataDirectVccEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 69, 1, 1, 1, 1), ).setIndexNames((0, "LAN-EMULATION-CLIENT-MIB", "lecIndex"), (0, "IF-MIB", "ifIndex"), (0, "ATM-MIB", "atmVclVpi"), (0, "ATM-MIB", "atmVclVci"))
-if mibBuilder.loadTexts: cLecDataDirectVccEntry.setStatus('current')
-cLecDataDirectLocalAtmAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 69, 1, 1, 1, 1, 1), AtmLaneAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cLecDataDirectLocalAtmAddress.setStatus('current')
-cLecDataDirectRemoteAtmAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 69, 1, 1, 1, 1, 2), AtmLaneAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cLecDataDirectRemoteAtmAddress.setStatus('current')
-ciscoLecDataVccMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 69, 2))
-ciscoLecDataVccMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 69, 2, 0))
-ciscoLecDataVccMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 69, 3))
-ciscoLecDataVccMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 69, 3, 1))
-ciscoLecDataVccMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 69, 3, 2))
-ciscoLecDataVccMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 69, 3, 1, 1)).setObjects(("CISCO-LEC-DATA-VCC-MIB", "ciscoLecDataVccBaseMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoLecDataVccMIBCompliance = ciscoLecDataVccMIBCompliance.setStatus('current')
-ciscoLecDataVccBaseMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 69, 3, 2, 1)).setObjects(("CISCO-LEC-DATA-VCC-MIB", "cLecDataDirectLocalAtmAddress"), ("CISCO-LEC-DATA-VCC-MIB", "cLecDataDirectRemoteAtmAddress"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoLecDataVccBaseMIBGroup = ciscoLecDataVccBaseMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-LEC-DATA-VCC-MIB", ciscoLecDataVccBaseMIBGroup=ciscoLecDataVccBaseMIBGroup, ciscoLecDataVccMIBConformance=ciscoLecDataVccMIBConformance, ciscoLecDataVccMIBObjects=ciscoLecDataVccMIBObjects, ciscoLecDataVccMIBCompliances=ciscoLecDataVccMIBCompliances, cLecDataDirectRemoteAtmAddress=cLecDataDirectRemoteAtmAddress, ciscoLecDataVccMIBNotifications=ciscoLecDataVccMIBNotifications, cLecDataDirectLocalAtmAddress=cLecDataDirectLocalAtmAddress, ciscoLecDataVccMIBCompliance=ciscoLecDataVccMIBCompliance, cLecDataDirectVcc=cLecDataDirectVcc, ciscoLecDataVccMIBGroups=ciscoLecDataVccMIBGroups, ciscoLecDataVccMIB=ciscoLecDataVccMIB, PYSNMP_MODULE_ID=ciscoLecDataVccMIB, ciscoLecDataVccMIBNotificationPrefix=ciscoLecDataVccMIBNotificationPrefix, cLecDataDirectVccTable=cLecDataDirectVccTable, cLecDataDirectVccEntry=cLecDataDirectVccEntry)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(atmVclVci,
+ atmVclVpi) = mibBuilder.importSymbols(
+    "ATM-MIB",
+    "atmVclVci",
+    "atmVclVpi")
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(AtmLaneAddress,
+ lecIndex) = mibBuilder.importSymbols(
+    "LAN-EMULATION-CLIENT-MIB",
+    "AtmLaneAddress",
+    "lecIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoLecDataVccMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69)
+)
+if mibBuilder.loadTexts:
+    ciscoLecDataVccMIB.setRevisions(
+        ("1997-01-06 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoLecDataVccMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoLecDataVccMIBObjects = _CiscoLecDataVccMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 1)
+)
+_CLecDataDirectVcc_ObjectIdentity = ObjectIdentity
+cLecDataDirectVcc = _CLecDataDirectVcc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 1, 1)
+)
+_CLecDataDirectVccTable_Object = MibTable
+cLecDataDirectVccTable = _CLecDataDirectVccTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    cLecDataDirectVccTable.setStatus("current")
+_CLecDataDirectVccEntry_Object = MibTableRow
+cLecDataDirectVccEntry = _CLecDataDirectVccEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 1, 1, 1, 1)
+)
+cLecDataDirectVccEntry.setIndexNames(
+    (0, "LAN-EMULATION-CLIENT-MIB", "lecIndex"),
+    (0, "IF-MIB", "ifIndex"),
+    (0, "ATM-MIB", "atmVclVpi"),
+    (0, "ATM-MIB", "atmVclVci"),
+)
+if mibBuilder.loadTexts:
+    cLecDataDirectVccEntry.setStatus("current")
+_CLecDataDirectLocalAtmAddress_Type = AtmLaneAddress
+_CLecDataDirectLocalAtmAddress_Object = MibTableColumn
+cLecDataDirectLocalAtmAddress = _CLecDataDirectLocalAtmAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 1, 1, 1, 1, 1),
+    _CLecDataDirectLocalAtmAddress_Type()
+)
+cLecDataDirectLocalAtmAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cLecDataDirectLocalAtmAddress.setStatus("current")
+_CLecDataDirectRemoteAtmAddress_Type = AtmLaneAddress
+_CLecDataDirectRemoteAtmAddress_Object = MibTableColumn
+cLecDataDirectRemoteAtmAddress = _CLecDataDirectRemoteAtmAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 1, 1, 1, 1, 2),
+    _CLecDataDirectRemoteAtmAddress_Type()
+)
+cLecDataDirectRemoteAtmAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cLecDataDirectRemoteAtmAddress.setStatus("current")
+_CiscoLecDataVccMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+ciscoLecDataVccMIBNotificationPrefix = _CiscoLecDataVccMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 2)
+)
+_CiscoLecDataVccMIBNotifications_ObjectIdentity = ObjectIdentity
+ciscoLecDataVccMIBNotifications = _CiscoLecDataVccMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 2, 0)
+)
+_CiscoLecDataVccMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoLecDataVccMIBConformance = _CiscoLecDataVccMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 3)
+)
+_CiscoLecDataVccMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoLecDataVccMIBCompliances = _CiscoLecDataVccMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 3, 1)
+)
+_CiscoLecDataVccMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoLecDataVccMIBGroups = _CiscoLecDataVccMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 3, 2)
+)
+
+# Managed Objects groups
+
+ciscoLecDataVccBaseMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 3, 2, 1)
+)
+ciscoLecDataVccBaseMIBGroup.setObjects(
+      *(("CISCO-LEC-DATA-VCC-MIB", "cLecDataDirectLocalAtmAddress"),
+        ("CISCO-LEC-DATA-VCC-MIB", "cLecDataDirectRemoteAtmAddress"))
+)
+if mibBuilder.loadTexts:
+    ciscoLecDataVccBaseMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoLecDataVccMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 69, 3, 1, 1)
+)
+ciscoLecDataVccMIBCompliance.setObjects(
+    ("CISCO-LEC-DATA-VCC-MIB", "ciscoLecDataVccBaseMIBGroup")
+)
+if mibBuilder.loadTexts:
+    ciscoLecDataVccMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-LEC-DATA-VCC-MIB",
+    **{"ciscoLecDataVccMIB": ciscoLecDataVccMIB,
+       "ciscoLecDataVccMIBObjects": ciscoLecDataVccMIBObjects,
+       "cLecDataDirectVcc": cLecDataDirectVcc,
+       "cLecDataDirectVccTable": cLecDataDirectVccTable,
+       "cLecDataDirectVccEntry": cLecDataDirectVccEntry,
+       "cLecDataDirectLocalAtmAddress": cLecDataDirectLocalAtmAddress,
+       "cLecDataDirectRemoteAtmAddress": cLecDataDirectRemoteAtmAddress,
+       "ciscoLecDataVccMIBNotificationPrefix": ciscoLecDataVccMIBNotificationPrefix,
+       "ciscoLecDataVccMIBNotifications": ciscoLecDataVccMIBNotifications,
+       "ciscoLecDataVccMIBConformance": ciscoLecDataVccMIBConformance,
+       "ciscoLecDataVccMIBCompliances": ciscoLecDataVccMIBCompliances,
+       "ciscoLecDataVccMIBCompliance": ciscoLecDataVccMIBCompliance,
+       "ciscoLecDataVccMIBGroups": ciscoLecDataVccMIBGroups,
+       "ciscoLecDataVccBaseMIBGroup": ciscoLecDataVccBaseMIBGroup}
+)

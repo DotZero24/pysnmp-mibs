@@ -1,388 +1,2714 @@
+# SNMP MIB module (STATISTICS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module STATISTICS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/STATISTICS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:29 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/STATISTICS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:15:15 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
-VidList, HpSwitchPortType = mibBuilder.importSymbols("HP-ICF-TC", "VidList", "HpSwitchPortType")
-InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hpSwitchStatistics = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpSwitch,) = mibBuilder.importSymbols(
+    "HP-ICF-OID",
+    "hpSwitch")
+
+(HpSwitchPortType,
+ VidList) = mibBuilder.importSymbols(
+    "HP-ICF-TC",
+    "HpSwitchPortType",
+    "VidList")
+
+(InetAddress,
+ InetAddressType,
+ InetPortNumber) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType",
+    "InetPortNumber")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class MacAddress(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
-    fixedLength = 6
+    """Custom type MacAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+    fixed_length = 6
+
+
+
+
 
 class VlanID(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 65535)
+    """Custom type VlanID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
 
-hpSwitchIpxStat = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1))
-hpSwitchIpxStatTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1), )
-if mibBuilder.loadTexts: hpSwitchIpxStatTable.setStatus('mandatory')
-hpSwitchIpxStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchIpxStatIndex"))
-if mibBuilder.loadTexts: hpSwitchIpxStatEntry.setStatus('mandatory')
-hpSwitchIpxStatIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1, 1), VlanID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpxStatIndex.setStatus('mandatory')
-hpSwitchIpxStatNodeAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpxStatNodeAddr.setStatus('mandatory')
-hpSwitchIpxStatGatewayAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpxStatGatewayAddr.setStatus('mandatory')
-hpSwitchIpxStatGatewayEncap = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("ethernetII", 1), ("ieee8022", 2), ("snap", 3), ("ieee8023Raw", 4), ("noGateway", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpxStatGatewayEncap.setStatus('mandatory')
-hpSwitchIpxStatAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpxStatAdminStatus.setStatus('mandatory')
-hpSwitchIpStat = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2))
-hpSwitchIpStatTimepAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpStatTimepAdminStatus.setStatus('obsolete')
-hpSwitchIpStatTimepServerAddr = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpStatTimepServerAddr.setStatus('obsolete')
-hpSwitchIpStatTimepPollInterval = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpStatTimepPollInterval.setStatus('obsolete')
-hpSwitchIpStatTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4), )
-if mibBuilder.loadTexts: hpSwitchIpStatTable.setStatus('obsolete')
-hpSwitchIpStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchIpStatIndex"))
-if mibBuilder.loadTexts: hpSwitchIpStatEntry.setStatus('obsolete')
-hpSwitchIpStatIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1, 1), VlanID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpStatIndex.setStatus('obsolete')
-hpSwitchIpStatAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpStatAddr.setStatus('obsolete')
-hpSwitchIpStatMask = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpStatMask.setStatus('obsolete')
-hpSwitchIpStatGatewayAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpStatGatewayAddr.setStatus('obsolete')
-hpSwitchIpStatAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2), ("bootp", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchIpStatAdminStatus.setStatus('obsolete')
-hpSwitchFdbInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4))
-hpSwitchVlanFdbAddrTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 1), )
-if mibBuilder.loadTexts: hpSwitchVlanFdbAddrTable.setStatus('mandatory')
-hpSwitchVlanFdbAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchVlanFdbId"), (0, "STATISTICS-MIB", "hpSwitchVlanFdbAddress"))
-if mibBuilder.loadTexts: hpSwitchVlanFdbAddrEntry.setStatus('mandatory')
-hpSwitchVlanFdbId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 1, 1, 1), VlanID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchVlanFdbId.setStatus('mandatory')
-hpSwitchVlanFdbAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 1, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchVlanFdbAddress.setStatus('mandatory')
-hpSwitchVlanFdbPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchVlanFdbPort.setStatus('mandatory')
-hpSwitchPortFdbAddrTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2), )
-if mibBuilder.loadTexts: hpSwitchPortFdbAddrTable.setStatus('mandatory')
-hpSwitchPortFdbAddrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchPortFdbId"), (0, "STATISTICS-MIB", "hpSwitchPortFdbAddress"))
-if mibBuilder.loadTexts: hpSwitchPortFdbAddrEntry.setStatus('mandatory')
-hpSwitchPortFdbId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortFdbId.setStatus('mandatory')
-hpSwitchPortFdbAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortFdbAddress.setStatus('mandatory')
-hpSwitchPortFdbVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2, 1, 3), VlanID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortFdbVlanId.setStatus('deprecated')
-hpSwitchPortFdbVidList = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2, 1, 4), VidList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortFdbVidList.setStatus('mandatory')
-hpSwitchStpStat = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 5))
-hpSwitchStpStatAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 5, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchStpStatAdminStatus.setStatus('mandatory')
-hpSwitchMiscStat = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 6))
-hpSwitchCpuStat = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 6, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchCpuStat.setStatus('mandatory')
-hpSwitchFddiIpFragStat = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7))
-hpSwitchFddiIpFragStatTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1), )
-if mibBuilder.loadTexts: hpSwitchFddiIpFragStatTable.setStatus('mandatory')
-hpSwitchFddiIpFragStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchFddiIpFragStatIndex"))
-if mibBuilder.loadTexts: hpSwitchFddiIpFragStatEntry.setStatus('mandatory')
-hpSwitchFddiIpFragStatIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiIpFragStatIndex.setStatus('mandatory')
-hpSwitchFddiIpFragFramesFragmented = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiIpFragFramesFragmented.setStatus('mandatory')
-hpSwitchFddiIpFragFramesCreated = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiIpFragFramesCreated.setStatus('mandatory')
-hpSwitchFddiIpFragFrameErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiIpFragFrameErrors.setStatus('mandatory')
-hpSwitchFddiSystemStat = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8))
-hpSwitchFddiSystemStatTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1), )
-if mibBuilder.loadTexts: hpSwitchFddiSystemStatTable.setStatus('mandatory')
-hpSwitchFddiSystemStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchFddiSystemStatIndex"))
-if mibBuilder.loadTexts: hpSwitchFddiSystemStatEntry.setStatus('mandatory')
-hpSwitchFddiSystemStatIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiSystemStatIndex.setStatus('mandatory')
-hpSwitchFddiSystemOsVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiSystemOsVersion.setStatus('mandatory')
-hpSwitchFddiSystemRomVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiSystemRomVersion.setStatus('mandatory')
-hpSwitchFddiSystemMemoryTotal = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiSystemMemoryTotal.setStatus('mandatory')
-hpSwitchFddiSystemMemoryFree = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiSystemMemoryFree.setStatus('mandatory')
-hpSwitchFddiSystemCpuUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiSystemCpuUtil.setStatus('mandatory')
-hpSwitchFddiSystemBuildDirectory = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 7), OctetString().subtype(subtypeSpec=ValueSizeConstraint(80, 80)).setFixedLength(80)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiSystemBuildDirectory.setStatus('mandatory')
-hpSwitchFddiSystemBuildDate = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(40, 40)).setFixedLength(40)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiSystemBuildDate.setStatus('mandatory')
-hpSwitchFddiSystemBuildNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(20, 20)).setFixedLength(20)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFddiSystemBuildNumber.setStatus('mandatory')
-hpABCStats = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9))
-hpABCStatsTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1), )
-if mibBuilder.loadTexts: hpABCStatsTable.setStatus('mandatory')
-hpABCStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpABCStatsVlanIndex"), (0, "STATISTICS-MIB", "hpABCStatsPortIndex"))
-if mibBuilder.loadTexts: hpABCStatsEntry.setStatus('mandatory')
-hpABCStatsVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 1), VlanID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpABCStatsVlanIndex.setStatus('mandatory')
-hpABCStatsPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpABCStatsPortIndex.setStatus('mandatory')
-hpABCStatsPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 3), HpSwitchPortType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpABCStatsPortType.setStatus('mandatory')
-hpABCStatsArpReplies = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpABCStatsArpReplies.setStatus('mandatory')
-hpABCStatsIpxReplies = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpABCStatsIpxReplies.setStatus('mandatory')
-hpABCStatsIpRipControl = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("forwarding", 1), ("notforwarding", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpABCStatsIpRipControl.setStatus('mandatory')
-hpABCStatsIpxRipSapControl = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("forwarding", 1), ("notforwarding", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpABCStatsIpxRipSapControl.setStatus('mandatory')
-hpIgmpStats = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10))
-hpIgmpStatsTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1), )
-if mibBuilder.loadTexts: hpIgmpStatsTable.setStatus('mandatory')
-hpIgmpStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpIgmpStatsVlanIndex"), (0, "STATISTICS-MIB", "hpIgmpStatsActiveGroupAddr"))
-if mibBuilder.loadTexts: hpIgmpStatsEntry.setStatus('mandatory')
-hpIgmpStatsVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1, 1), VlanID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsVlanIndex.setStatus('mandatory')
-hpIgmpStatsActiveGroupAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsActiveGroupAddr.setStatus('mandatory')
-hpIgmpStatsReports = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsReports.setStatus('mandatory')
-hpIgmpStatsQueries = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsQueries.setStatus('mandatory')
-hpIgmpStatsQuerierAccessPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsQuerierAccessPort.setStatus('mandatory')
-hpIgmpStatsPortTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 2), )
-if mibBuilder.loadTexts: hpIgmpStatsPortTable.setStatus('deprecated')
-hpIgmpStatsPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 2, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpIgmpStatsActiveGroupAddr"), (0, "STATISTICS-MIB", "hpIgmpStatsPortIndex"))
-if mibBuilder.loadTexts: hpIgmpStatsPortEntry.setStatus('deprecated')
-hpIgmpStatsPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsPortIndex.setStatus('deprecated')
-hpIgmpStatsPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 2, 1, 2), HpSwitchPortType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsPortType.setStatus('deprecated')
-hpIgmpStatsPortAccess = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("host", 1), ("router", 2), ("host-router", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsPortAccess.setStatus('deprecated')
-hpIgmpStatsPortTable2 = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3), )
-if mibBuilder.loadTexts: hpIgmpStatsPortTable2.setStatus('mandatory')
-hpIgmpStatsPortEntry2 = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpIgmpStatsVlanIndex"), (0, "STATISTICS-MIB", "hpIgmpStatsActiveGroupAddr"), (0, "STATISTICS-MIB", "hpIgmpStatsPortIndex2"))
-if mibBuilder.loadTexts: hpIgmpStatsPortEntry2.setStatus('mandatory')
-hpIgmpStatsPortIndex2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsPortIndex2.setStatus('mandatory')
-hpIgmpStatsPortType2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1, 2), HpSwitchPortType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsPortType2.setStatus('mandatory')
-hpIgmpStatsPortAccess2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("host", 1), ("router", 2), ("host-router", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsPortAccess2.setStatus('mandatory')
-hpIgmpStatsPortAgeTimer2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsPortAgeTimer2.setStatus('mandatory')
-hpIgmpStatsPortLeaveTimer2 = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpIgmpStatsPortLeaveTimer2.setStatus('mandatory')
-hpLdbalStats = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11))
-hpLdbalStatsPortTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1), )
-if mibBuilder.loadTexts: hpLdbalStatsPortTable.setStatus('mandatory')
-hpLdbalStatsPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpLdbalStatsPortIndex"))
-if mibBuilder.loadTexts: hpLdbalStatsPortEntry.setStatus('mandatory')
-hpLdbalStatsPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpLdbalStatsPortIndex.setStatus('mandatory')
-hpLdbalStatsPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("disabled", 1), ("error", 2), ("initial", 3), ("notEstablished", 4), ("established", 5), ("topologyError", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpLdbalStatsPortState.setStatus('mandatory')
-hpLdbalStatsAdjacentSwitch = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpLdbalStatsAdjacentSwitch.setStatus('mandatory')
-hpLdbalStatsPeerPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 4), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpLdbalStatsPeerPort.setStatus('mandatory')
-hpLdbalStatsAdjacentHost = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpLdbalStatsAdjacentHost.setStatus('mandatory')
-hpLdbalStatsMeshWarningStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpLdbalStatsMeshWarningStatus.setStatus('mandatory')
-hpSwitchMacStats = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 12))
-hpSwitchFdbAddressCount = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 12, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16384))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFdbAddressCount.setStatus('mandatory')
-hpSwitchFlowControlStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 13))
-hpSwitchFlowControlStatusTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 13, 1), )
-if mibBuilder.loadTexts: hpSwitchFlowControlStatusTable.setStatus('mandatory')
-hpSwitchFlowControlStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 13, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchFlowControlStatusPortIndex"))
-if mibBuilder.loadTexts: hpSwitchFlowControlStatusEntry.setStatus('mandatory')
-hpSwitchFlowControlStatusPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 13, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFlowControlStatusPortIndex.setStatus('mandatory')
-hpSwitchFlowControlState = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 13, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("on-rx", 3), ("on-tx", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchFlowControlState.setStatus('mandatory')
-hpFECStatsTrunk = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14))
-hpFECStatsTrunkTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1), )
-if mibBuilder.loadTexts: hpFECStatsTrunkTable.setStatus('mandatory')
-hpFECStatsTrunkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpFECStatsTrunkIndex"))
-if mibBuilder.loadTexts: hpFECStatsTrunkEntry.setStatus('mandatory')
-hpFECStatsTrunkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsTrunkIndex.setStatus('mandatory')
-hpFECStatsTrunkName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsTrunkName.setStatus('mandatory')
-hpFECStatsTrunkNegotiationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("successful", 1), ("failed", 2), ("initialized", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsTrunkNegotiationStatus.setStatus('mandatory')
-hpFECStatsTrunkForwardingMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("sa-only", 1), ("sa-da", 2), ("none", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsTrunkForwardingMode.setStatus('mandatory')
-hpFECStatsTrunkFlushPktsEchoed = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsTrunkFlushPktsEchoed.setStatus('mandatory')
-hpFECStatsPort = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15))
-hpFECStatsPortTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1), )
-if mibBuilder.loadTexts: hpFECStatsPortTable.setStatus('mandatory')
-hpFECStatsPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpFECStatsPortIndex"))
-if mibBuilder.loadTexts: hpFECStatsPortEntry.setStatus('mandatory')
-hpFECStatsPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsPortIndex.setStatus('mandatory')
-hpFECStatsPortTrunkNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsPortTrunkNumber.setStatus('mandatory')
-hpFECStatsPortTrunkName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsPortTrunkName.setStatus('mandatory')
-hpFECStatsPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("down", 1), ("forwarding", 2), ("blocking", 3), ("up", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsPortMode.setStatus('mandatory')
-hpFECStatsPortNegotiationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("successful", 1), ("failed", 2), ("initialized", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsPortNegotiationStatus.setStatus('mandatory')
-hpFECStatsPortHellosSent = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsPortHellosSent.setStatus('mandatory')
-hpFECStatsPortHellosReceived = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsPortHellosReceived.setStatus('mandatory')
-hpFECStatsPortMySlowHello = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("fast", 1), ("slow", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsPortMySlowHello.setStatus('mandatory')
-hpFECStatsPortMyAutoMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("desirable", 1), ("auto", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsPortMyAutoMode.setStatus('mandatory')
-hpFECStatsPortPartner = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 10), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsPortPartner.setStatus('mandatory')
-hpFECStatsPortFlushPktsEchoed = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpFECStatsPortFlushPktsEchoed.setStatus('mandatory')
-hpGvrpStats = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16))
-hpGvrpStatsTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1), )
-if mibBuilder.loadTexts: hpGvrpStatsTable.setStatus('mandatory')
-hpGvrpStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpGvrpStatsVlanIndex"), (0, "STATISTICS-MIB", "hpGvrpStatsPortIndex"))
-if mibBuilder.loadTexts: hpGvrpStatsEntry.setStatus('mandatory')
-hpGvrpStatsVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1, 1), VlanID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpStatsVlanIndex.setStatus('mandatory')
-hpGvrpStatsPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpStatsPortIndex.setStatus('mandatory')
-hpGvrpStatsPortVlanMember = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("pending", 1), ("yes", 2), ("no", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpStatsPortVlanMember.setStatus('mandatory')
-hpGvrpPortIfOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpPortIfOperStatus.setStatus('mandatory')
-hpPortGvrpCtrlStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("learn", 1), ("block", 2), ("disable", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpPortGvrpCtrlStatus.setStatus('mandatory')
-hpGvrpVlanTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2), )
-if mibBuilder.loadTexts: hpGvrpVlanTable.setStatus('mandatory')
-hpGvrpVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpGvrpVlanPortIndex"))
-if mibBuilder.loadTexts: hpGvrpVlanEntry.setStatus('mandatory')
-hpGvrpVlanPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpVlanPortIndex.setStatus('mandatory')
-hpGvrpVlanCreationMap = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1, 2), VidList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpVlanCreationMap.setStatus('mandatory')
-hpGvrpVlanDeletionMap = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1, 3), VidList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpVlanDeletionMap.setStatus('mandatory')
-hpGvrpVlanLearningOnPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1, 4), VidList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpVlanLearningOnPort.setStatus('mandatory')
-hpGvrpVlanLeavingPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1, 5), VidList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpVlanLeavingPort.setStatus('mandatory')
-hpSshStats = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17))
-hpSshStatsTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1), )
-if mibBuilder.loadTexts: hpSshStatsTable.setStatus('mandatory')
-hpSshStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSshStatsSesIndex"))
-if mibBuilder.loadTexts: hpSshStatsEntry.setStatus('mandatory')
-hpSshStatsSesIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSshStatsSesIndex.setStatus('mandatory')
-hpSshStatsSesType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("console", 1), ("telnet", 2), ("ssh", 3), ("inactive", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSshStatsSesType.setStatus('mandatory')
-hpSshStatsSourceIpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 21))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSshStatsSourceIpPort.setStatus('deprecated')
-hpSshStatsSesVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 255))).clone(namedValues=NamedValues(("version1", 1), ("version2", 2), ("noConnect", 255)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSshStatsSesVersion.setStatus('mandatory')
-hpSshStatsSourceIpType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 5), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSshStatsSourceIpType.setStatus('mandatory')
-hpSshStatsSourceIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 6), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSshStatsSourceIpAddress.setStatus('mandatory')
-hpSshStatsSourceIpPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 7), InetPortNumber()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSshStatsSourceIpPortNum.setStatus('mandatory')
-hpSwitchPhysicalPort = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18))
-hpSwitchPhysicalPortTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 1), )
-if mibBuilder.loadTexts: hpSwitchPhysicalPortTable.setStatus('mandatory')
-hpSwitchPhysicalPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchPhysicalPortIndex"))
-if mibBuilder.loadTexts: hpSwitchPhysicalPortEntry.setStatus('mandatory')
-hpSwitchPhysicalPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPhysicalPortIndex.setStatus('mandatory')
-hpSwitchPhysicalPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 1, 1, 2), HpSwitchPortType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPhysicalPortType.setStatus('mandatory')
-hpSwitchPortStatTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2), )
-if mibBuilder.loadTexts: hpSwitchPortStatTable.setStatus('mandatory')
-hpSwitchPortStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchPortStatIndex"))
-if mibBuilder.loadTexts: hpSwitchPortStatEntry.setStatus('mandatory')
-hpSwitchPortStatIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortStatIndex.setStatus('mandatory')
-hpSwitchPortStatAvgInBcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortStatAvgInBcastPkts.setStatus('mandatory')
-hpSwitchPortStatAvgInMcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortStatAvgInMcastPkts.setStatus('mandatory')
-hpSwitchPortStatAvgInTotalPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortStatAvgInTotalPkts.setStatus('mandatory')
-hpSwitchPortStatAvgOutBcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortStatAvgOutBcastPkts.setStatus('mandatory')
-hpSwitchPortStatAvgOutMcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortStatAvgOutMcastPkts.setStatus('mandatory')
-hpSwitchPortStatAvgOutTotalPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortStatAvgOutTotalPkts.setStatus('mandatory')
-hpSwitchPortStatAvgInBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortStatAvgInBytes.setStatus('mandatory')
-hpSwitchPortStatAvgOutBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortStatAvgOutBytes.setStatus('mandatory')
-hpSwitchPortStatAvgInPortUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortStatAvgInPortUtil.setStatus('mandatory')
-hpSwitchPortStatAvgOutPortUtil = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchPortStatAvgOutPortUtil.setStatus('mandatory')
-hpSwitchCosStats = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19))
-hpSwitchQueueWatchStatsTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 1), )
-if mibBuilder.loadTexts: hpSwitchQueueWatchStatsTable.setStatus('mandatory')
-hpSwitchQueueWatchStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchQueueWatchStatsPortIndex"), (0, "STATISTICS-MIB", "hpSwitchQueueWatchStatsQueueIndex"))
-if mibBuilder.loadTexts: hpSwitchQueueWatchStatsEntry.setStatus('mandatory')
-hpSwitchQueueWatchStatsPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchQueueWatchStatsPortIndex.setStatus('mandatory')
-hpSwitchQueueWatchStatsQueueIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchQueueWatchStatsQueueIndex.setStatus('mandatory')
-hpSwitchQueueWatchStatsQueueDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchQueueWatchStatsQueueDrops.setStatus('mandatory')
-hpSwitchEgressQueueDropStatsTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 2), )
-if mibBuilder.loadTexts: hpSwitchEgressQueueDropStatsTable.setStatus('mandatory')
-hpSwitchEgressQueueDropStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 2, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchEgressQueueDropStatsPortIndex"), (0, "STATISTICS-MIB", "hpSwitchEgressQueueDropStatsQueueIndex"))
-if mibBuilder.loadTexts: hpSwitchEgressQueueDropStatsEntry.setStatus('mandatory')
-hpSwitchEgressQueueDropStatsPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchEgressQueueDropStatsPortIndex.setStatus('mandatory')
-hpSwitchEgressQueueDropStatsQueueIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchEgressQueueDropStatsQueueIndex.setStatus('mandatory')
-hpSwitchEgressQueueDropStatsQueueDrops = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchEgressQueueDropStatsQueueDrops.setStatus('mandatory')
-hpSwitchEgressQueueStatsTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3), )
-if mibBuilder.loadTexts: hpSwitchEgressQueueStatsTable.setStatus('mandatory')
-hpSwitchEgressQueueStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpSwitchEgressQueueStatsPortIndex"), (0, "STATISTICS-MIB", "hpSwitchEgressQueueStatsQueueIndex"))
-if mibBuilder.loadTexts: hpSwitchEgressQueueStatsEntry.setStatus('mandatory')
-hpSwitchEgressQueueStatsPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchEgressQueueStatsPortIndex.setStatus('mandatory')
-hpSwitchEgressQueueStatsQueueIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchEgressQueueStatsQueueIndex.setStatus('mandatory')
-hpSwitchEgressQueueTxPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchEgressQueueTxPkts.setStatus('mandatory')
-hpSwitchEgressQueueTxDropPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchEgressQueueTxDropPkts.setStatus('mandatory')
-hpSwitchEgressQueueTxBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchEgressQueueTxBytes.setStatus('mandatory')
-hpSwitchEgressQueueTxDropBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpSwitchEgressQueueTxDropBytes.setStatus('mandatory')
-hpGarpStats = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21))
-hpGarpStatsTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1), )
-if mibBuilder.loadTexts: hpGarpStatsTable.setStatus('mandatory')
-hpGarpStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1, 1), ).setIndexNames((0, "STATISTICS-MIB", "hpGarpStatsPortIndex"))
-if mibBuilder.loadTexts: hpGarpStatsEntry.setStatus('mandatory')
-hpGarpStatsPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: hpGarpStatsPortIndex.setStatus('mandatory')
-hpGvrpFramesRecieved = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpFramesRecieved.setStatus('mandatory')
-hpGvrpFramesTransmitted = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpFramesTransmitted.setStatus('mandatory')
-hpGvrpFramesDiscarded = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpGvrpFramesDiscarded.setStatus('mandatory')
-mibBuilder.exportSymbols("STATISTICS-MIB", hpSwitchFddiSystemStatEntry=hpSwitchFddiSystemStatEntry, hpSwitchPortStatAvgInBcastPkts=hpSwitchPortStatAvgInBcastPkts, hpSwitchFddiIpFragStatTable=hpSwitchFddiIpFragStatTable, hpSwitchIpStatIndex=hpSwitchIpStatIndex, hpSwitchFddiIpFragFramesFragmented=hpSwitchFddiIpFragFramesFragmented, hpABCStatsPortIndex=hpABCStatsPortIndex, hpIgmpStatsQueries=hpIgmpStatsQueries, hpSwitchFddiIpFragStatIndex=hpSwitchFddiIpFragStatIndex, hpSwitchFddiSystemBuildDirectory=hpSwitchFddiSystemBuildDirectory, hpIgmpStatsPortTable2=hpIgmpStatsPortTable2, hpSwitchFddiSystemStatIndex=hpSwitchFddiSystemStatIndex, hpFECStatsTrunkName=hpFECStatsTrunkName, hpGvrpStatsVlanIndex=hpGvrpStatsVlanIndex, hpFECStatsPort=hpFECStatsPort, hpGvrpVlanPortIndex=hpGvrpVlanPortIndex, hpABCStatsArpReplies=hpABCStatsArpReplies, hpSshStatsSourceIpPortNum=hpSshStatsSourceIpPortNum, hpFECStatsTrunkEntry=hpFECStatsTrunkEntry, hpSwitchIpStatTable=hpSwitchIpStatTable, hpGvrpStatsPortIndex=hpGvrpStatsPortIndex, hpIgmpStatsPortType2=hpIgmpStatsPortType2, hpSshStatsSourceIpAddress=hpSshStatsSourceIpAddress, hpLdbalStatsAdjacentHost=hpLdbalStatsAdjacentHost, hpGarpStatsPortIndex=hpGarpStatsPortIndex, hpGvrpFramesTransmitted=hpGvrpFramesTransmitted, hpFECStatsTrunkTable=hpFECStatsTrunkTable, hpSwitchFlowControlStatusEntry=hpSwitchFlowControlStatusEntry, hpFECStatsPortHellosSent=hpFECStatsPortHellosSent, hpSshStatsTable=hpSshStatsTable, hpIgmpStatsPortEntry=hpIgmpStatsPortEntry, hpFECStatsPortTrunkName=hpFECStatsPortTrunkName, hpSwitchPortFdbVlanId=hpSwitchPortFdbVlanId, hpSshStatsSourceIpType=hpSshStatsSourceIpType, hpSwitchEgressQueueStatsPortIndex=hpSwitchEgressQueueStatsPortIndex, hpSwitchPortStatAvgInPortUtil=hpSwitchPortStatAvgInPortUtil, hpGvrpVlanCreationMap=hpGvrpVlanCreationMap, hpSwitchPhysicalPortTable=hpSwitchPhysicalPortTable, hpSwitchPortFdbAddress=hpSwitchPortFdbAddress, hpGarpStatsTable=hpGarpStatsTable, hpIgmpStatsPortAccess2=hpIgmpStatsPortAccess2, hpSwitchEgressQueueDropStatsPortIndex=hpSwitchEgressQueueDropStatsPortIndex, hpLdbalStatsPortEntry=hpLdbalStatsPortEntry, VlanID=VlanID, hpFECStatsTrunkFlushPktsEchoed=hpFECStatsTrunkFlushPktsEchoed, hpSwitchQueueWatchStatsQueueIndex=hpSwitchQueueWatchStatsQueueIndex, hpSwitchFddiSystemOsVersion=hpSwitchFddiSystemOsVersion, hpSwitchCosStats=hpSwitchCosStats, hpSwitchFddiSystemStat=hpSwitchFddiSystemStat, hpABCStats=hpABCStats, hpSwitchIpxStatAdminStatus=hpSwitchIpxStatAdminStatus, hpFECStatsPortMySlowHello=hpFECStatsPortMySlowHello, hpSwitchFlowControlState=hpSwitchFlowControlState, hpFECStatsPortMode=hpFECStatsPortMode, hpSwitchQueueWatchStatsPortIndex=hpSwitchQueueWatchStatsPortIndex, hpSwitchFddiIpFragStat=hpSwitchFddiIpFragStat, hpSshStatsSourceIpPort=hpSshStatsSourceIpPort, hpIgmpStatsPortAccess=hpIgmpStatsPortAccess, hpSwitchIpxStatEntry=hpSwitchIpxStatEntry, hpSwitchFddiIpFragFramesCreated=hpSwitchFddiIpFragFramesCreated, hpIgmpStatsPortIndex=hpIgmpStatsPortIndex, hpSwitchPhysicalPortType=hpSwitchPhysicalPortType, hpGvrpVlanLearningOnPort=hpGvrpVlanLearningOnPort, hpSshStatsSesIndex=hpSshStatsSesIndex, hpGvrpStatsTable=hpGvrpStatsTable, hpGvrpVlanTable=hpGvrpVlanTable, hpFECStatsTrunkNegotiationStatus=hpFECStatsTrunkNegotiationStatus, hpSwitchIpxStat=hpSwitchIpxStat, hpFECStatsPortTable=hpFECStatsPortTable, hpSshStatsSesType=hpSshStatsSesType, hpIgmpStatsEntry=hpIgmpStatsEntry, hpIgmpStatsPortType=hpIgmpStatsPortType, hpGarpStatsEntry=hpGarpStatsEntry, hpSwitchIpxStatTable=hpSwitchIpxStatTable, hpSwitchPortStatAvgInMcastPkts=hpSwitchPortStatAvgInMcastPkts, hpIgmpStatsPortTable=hpIgmpStatsPortTable, hpSshStatsSesVersion=hpSshStatsSesVersion, hpIgmpStatsVlanIndex=hpIgmpStatsVlanIndex, hpSwitchQueueWatchStatsTable=hpSwitchQueueWatchStatsTable, hpSwitchFddiSystemCpuUtil=hpSwitchFddiSystemCpuUtil, hpABCStatsIpxReplies=hpABCStatsIpxReplies, MacAddress=MacAddress, hpIgmpStatsPortEntry2=hpIgmpStatsPortEntry2, hpSwitchQueueWatchStatsEntry=hpSwitchQueueWatchStatsEntry, hpSwitchMacStats=hpSwitchMacStats, hpIgmpStatsQuerierAccessPort=hpIgmpStatsQuerierAccessPort, hpSwitchMiscStat=hpSwitchMiscStat, hpSwitchPortFdbId=hpSwitchPortFdbId, hpSwitchFdbAddressCount=hpSwitchFdbAddressCount, hpSwitchEgressQueueStatsTable=hpSwitchEgressQueueStatsTable, hpSwitchPhysicalPort=hpSwitchPhysicalPort, hpIgmpStatsReports=hpIgmpStatsReports, hpSwitchFddiIpFragFrameErrors=hpSwitchFddiIpFragFrameErrors, hpSwitchPortStatAvgOutBcastPkts=hpSwitchPortStatAvgOutBcastPkts, hpSwitchIpStatTimepAdminStatus=hpSwitchIpStatTimepAdminStatus, hpSwitchFddiSystemMemoryFree=hpSwitchFddiSystemMemoryFree, hpABCStatsPortType=hpABCStatsPortType, hpSwitchIpStat=hpSwitchIpStat, hpFECStatsPortMyAutoMode=hpFECStatsPortMyAutoMode, hpSwitchFddiSystemStatTable=hpSwitchFddiSystemStatTable, hpSwitchPortStatTable=hpSwitchPortStatTable, hpSwitchIpStatAddr=hpSwitchIpStatAddr, hpSwitchPortStatAvgInTotalPkts=hpSwitchPortStatAvgInTotalPkts, hpSwitchVlanFdbPort=hpSwitchVlanFdbPort, hpSwitchIpxStatGatewayAddr=hpSwitchIpxStatGatewayAddr, hpFECStatsTrunkForwardingMode=hpFECStatsTrunkForwardingMode, hpSwitchFddiIpFragStatEntry=hpSwitchFddiIpFragStatEntry, hpSwitchPortStatAvgOutBytes=hpSwitchPortStatAvgOutBytes, hpSwitchIpxStatGatewayEncap=hpSwitchIpxStatGatewayEncap, hpSwitchPhysicalPortEntry=hpSwitchPhysicalPortEntry, hpSshStatsEntry=hpSshStatsEntry, hpSwitchPortStatAvgOutMcastPkts=hpSwitchPortStatAvgOutMcastPkts, hpSwitchStatistics=hpSwitchStatistics, hpGvrpFramesDiscarded=hpGvrpFramesDiscarded, hpSwitchStpStatAdminStatus=hpSwitchStpStatAdminStatus, hpSwitchFddiSystemBuildDate=hpSwitchFddiSystemBuildDate, hpIgmpStatsPortLeaveTimer2=hpIgmpStatsPortLeaveTimer2, hpLdbalStatsPortTable=hpLdbalStatsPortTable, hpSwitchFlowControlStatusPortIndex=hpSwitchFlowControlStatusPortIndex, hpSwitchIpStatEntry=hpSwitchIpStatEntry, hpSwitchFddiSystemBuildNumber=hpSwitchFddiSystemBuildNumber, hpGvrpVlanEntry=hpGvrpVlanEntry, hpLdbalStatsAdjacentSwitch=hpLdbalStatsAdjacentSwitch, hpGvrpStatsPortVlanMember=hpGvrpStatsPortVlanMember, hpGvrpVlanDeletionMap=hpGvrpVlanDeletionMap, hpSwitchEgressQueueStatsQueueIndex=hpSwitchEgressQueueStatsQueueIndex, hpSwitchEgressQueueDropStatsQueueIndex=hpSwitchEgressQueueDropStatsQueueIndex, hpSwitchEgressQueueStatsEntry=hpSwitchEgressQueueStatsEntry, hpPortGvrpCtrlStatus=hpPortGvrpCtrlStatus, hpSwitchPortStatEntry=hpSwitchPortStatEntry, hpSwitchIpStatAdminStatus=hpSwitchIpStatAdminStatus, hpSwitchVlanFdbAddrEntry=hpSwitchVlanFdbAddrEntry, hpIgmpStatsPortIndex2=hpIgmpStatsPortIndex2, hpGvrpStatsEntry=hpGvrpStatsEntry, hpLdbalStatsMeshWarningStatus=hpLdbalStatsMeshWarningStatus, hpFECStatsTrunkIndex=hpFECStatsTrunkIndex, hpSwitchIpxStatIndex=hpSwitchIpxStatIndex, hpSwitchVlanFdbId=hpSwitchVlanFdbId, hpIgmpStatsTable=hpIgmpStatsTable, hpGvrpVlanLeavingPort=hpGvrpVlanLeavingPort, hpGvrpStats=hpGvrpStats, hpFECStatsPortTrunkNumber=hpFECStatsPortTrunkNumber, hpLdbalStats=hpLdbalStats, hpSwitchFddiSystemRomVersion=hpSwitchFddiSystemRomVersion, hpABCStatsTable=hpABCStatsTable, hpABCStatsVlanIndex=hpABCStatsVlanIndex, hpFECStatsTrunk=hpFECStatsTrunk, hpSwitchPortStatAvgOutTotalPkts=hpSwitchPortStatAvgOutTotalPkts, hpSwitchPortStatAvgInBytes=hpSwitchPortStatAvgInBytes, hpSwitchPortFdbAddrEntry=hpSwitchPortFdbAddrEntry, hpSwitchQueueWatchStatsQueueDrops=hpSwitchQueueWatchStatsQueueDrops, hpSwitchEgressQueueDropStatsQueueDrops=hpSwitchEgressQueueDropStatsQueueDrops, hpFECStatsPortIndex=hpFECStatsPortIndex, hpGvrpFramesRecieved=hpGvrpFramesRecieved, hpSwitchFddiSystemMemoryTotal=hpSwitchFddiSystemMemoryTotal, hpABCStatsEntry=hpABCStatsEntry, hpSwitchFlowControlStatusTable=hpSwitchFlowControlStatusTable, hpSwitchPortStatAvgOutPortUtil=hpSwitchPortStatAvgOutPortUtil, hpIgmpStats=hpIgmpStats, hpSwitchCpuStat=hpSwitchCpuStat, hpSwitchStpStat=hpSwitchStpStat, hpFECStatsPortNegotiationStatus=hpFECStatsPortNegotiationStatus, hpSwitchIpStatTimepServerAddr=hpSwitchIpStatTimepServerAddr, hpFECStatsPortFlushPktsEchoed=hpFECStatsPortFlushPktsEchoed, hpSwitchVlanFdbAddrTable=hpSwitchVlanFdbAddrTable, hpSwitchEgressQueueTxDropBytes=hpSwitchEgressQueueTxDropBytes, hpSwitchEgressQueueTxDropPkts=hpSwitchEgressQueueTxDropPkts, hpLdbalStatsPortState=hpLdbalStatsPortState, hpSwitchIpStatGatewayAddr=hpSwitchIpStatGatewayAddr, hpSwitchVlanFdbAddress=hpSwitchVlanFdbAddress, hpSwitchFlowControlStatus=hpSwitchFlowControlStatus, hpSwitchPhysicalPortIndex=hpSwitchPhysicalPortIndex, hpGvrpPortIfOperStatus=hpGvrpPortIfOperStatus, hpSwitchIpxStatNodeAddr=hpSwitchIpxStatNodeAddr, hpFECStatsPortEntry=hpFECStatsPortEntry, hpSwitchEgressQueueTxPkts=hpSwitchEgressQueueTxPkts, hpABCStatsIpRipControl=hpABCStatsIpRipControl, hpSwitchIpStatMask=hpSwitchIpStatMask, hpIgmpStatsPortAgeTimer2=hpIgmpStatsPortAgeTimer2, hpSwitchEgressQueueDropStatsTable=hpSwitchEgressQueueDropStatsTable, hpSwitchIpStatTimepPollInterval=hpSwitchIpStatTimepPollInterval, hpSwitchFdbInfo=hpSwitchFdbInfo, hpSwitchPortFdbAddrTable=hpSwitchPortFdbAddrTable, hpFECStatsPortHellosReceived=hpFECStatsPortHellosReceived, hpFECStatsPortPartner=hpFECStatsPortPartner, hpGarpStats=hpGarpStats, hpLdbalStatsPeerPort=hpLdbalStatsPeerPort, hpSwitchPortFdbVidList=hpSwitchPortFdbVidList, hpSwitchEgressQueueTxBytes=hpSwitchEgressQueueTxBytes, hpSshStats=hpSshStats, hpSwitchPortStatIndex=hpSwitchPortStatIndex, hpABCStatsIpxRipSapControl=hpABCStatsIpxRipSapControl, hpLdbalStatsPortIndex=hpLdbalStatsPortIndex, hpSwitchEgressQueueDropStatsEntry=hpSwitchEgressQueueDropStatsEntry, hpIgmpStatsActiveGroupAddr=hpIgmpStatsActiveGroupAddr)
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpSwitchStatistics_ObjectIdentity = ObjectIdentity
+hpSwitchStatistics = _HpSwitchStatistics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9)
+)
+_HpSwitchIpxStat_ObjectIdentity = ObjectIdentity
+hpSwitchIpxStat = _HpSwitchIpxStat_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1)
+)
+_HpSwitchIpxStatTable_Object = MibTable
+hpSwitchIpxStatTable = _HpSwitchIpxStatTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hpSwitchIpxStatTable.setStatus("mandatory")
+_HpSwitchIpxStatEntry_Object = MibTableRow
+hpSwitchIpxStatEntry = _HpSwitchIpxStatEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1)
+)
+hpSwitchIpxStatEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchIpxStatIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchIpxStatEntry.setStatus("mandatory")
+_HpSwitchIpxStatIndex_Type = VlanID
+_HpSwitchIpxStatIndex_Object = MibTableColumn
+hpSwitchIpxStatIndex = _HpSwitchIpxStatIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1, 1),
+    _HpSwitchIpxStatIndex_Type()
+)
+hpSwitchIpxStatIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpxStatIndex.setStatus("mandatory")
+_HpSwitchIpxStatNodeAddr_Type = MacAddress
+_HpSwitchIpxStatNodeAddr_Object = MibTableColumn
+hpSwitchIpxStatNodeAddr = _HpSwitchIpxStatNodeAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1, 2),
+    _HpSwitchIpxStatNodeAddr_Type()
+)
+hpSwitchIpxStatNodeAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpxStatNodeAddr.setStatus("mandatory")
+_HpSwitchIpxStatGatewayAddr_Type = MacAddress
+_HpSwitchIpxStatGatewayAddr_Object = MibTableColumn
+hpSwitchIpxStatGatewayAddr = _HpSwitchIpxStatGatewayAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1, 3),
+    _HpSwitchIpxStatGatewayAddr_Type()
+)
+hpSwitchIpxStatGatewayAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpxStatGatewayAddr.setStatus("mandatory")
+
+
+class _HpSwitchIpxStatGatewayEncap_Type(Integer32):
+    """Custom type hpSwitchIpxStatGatewayEncap based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ethernetII", 1),
+          ("ieee8022", 2),
+          ("snap", 3),
+          ("ieee8023Raw", 4),
+          ("noGateway", 5))
+    )
+
+
+_HpSwitchIpxStatGatewayEncap_Type.__name__ = "Integer32"
+_HpSwitchIpxStatGatewayEncap_Object = MibTableColumn
+hpSwitchIpxStatGatewayEncap = _HpSwitchIpxStatGatewayEncap_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1, 4),
+    _HpSwitchIpxStatGatewayEncap_Type()
+)
+hpSwitchIpxStatGatewayEncap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpxStatGatewayEncap.setStatus("mandatory")
+
+
+class _HpSwitchIpxStatAdminStatus_Type(Integer32):
+    """Custom type hpSwitchIpxStatAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_HpSwitchIpxStatAdminStatus_Type.__name__ = "Integer32"
+_HpSwitchIpxStatAdminStatus_Object = MibTableColumn
+hpSwitchIpxStatAdminStatus = _HpSwitchIpxStatAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 1, 1, 1, 5),
+    _HpSwitchIpxStatAdminStatus_Type()
+)
+hpSwitchIpxStatAdminStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpxStatAdminStatus.setStatus("mandatory")
+_HpSwitchIpStat_ObjectIdentity = ObjectIdentity
+hpSwitchIpStat = _HpSwitchIpStat_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2)
+)
+
+
+class _HpSwitchIpStatTimepAdminStatus_Type(Integer32):
+    """Custom type hpSwitchIpStatTimepAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_HpSwitchIpStatTimepAdminStatus_Type.__name__ = "Integer32"
+_HpSwitchIpStatTimepAdminStatus_Object = MibScalar
+hpSwitchIpStatTimepAdminStatus = _HpSwitchIpStatTimepAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 1),
+    _HpSwitchIpStatTimepAdminStatus_Type()
+)
+hpSwitchIpStatTimepAdminStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpStatTimepAdminStatus.setStatus("obsolete")
+_HpSwitchIpStatTimepServerAddr_Type = IpAddress
+_HpSwitchIpStatTimepServerAddr_Object = MibScalar
+hpSwitchIpStatTimepServerAddr = _HpSwitchIpStatTimepServerAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 2),
+    _HpSwitchIpStatTimepServerAddr_Type()
+)
+hpSwitchIpStatTimepServerAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpStatTimepServerAddr.setStatus("obsolete")
+
+
+class _HpSwitchIpStatTimepPollInterval_Type(Integer32):
+    """Custom type hpSwitchIpStatTimepPollInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchIpStatTimepPollInterval_Type.__name__ = "Integer32"
+_HpSwitchIpStatTimepPollInterval_Object = MibScalar
+hpSwitchIpStatTimepPollInterval = _HpSwitchIpStatTimepPollInterval_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 3),
+    _HpSwitchIpStatTimepPollInterval_Type()
+)
+hpSwitchIpStatTimepPollInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpStatTimepPollInterval.setStatus("obsolete")
+_HpSwitchIpStatTable_Object = MibTable
+hpSwitchIpStatTable = _HpSwitchIpStatTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4)
+)
+if mibBuilder.loadTexts:
+    hpSwitchIpStatTable.setStatus("obsolete")
+_HpSwitchIpStatEntry_Object = MibTableRow
+hpSwitchIpStatEntry = _HpSwitchIpStatEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1)
+)
+hpSwitchIpStatEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchIpStatIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchIpStatEntry.setStatus("obsolete")
+_HpSwitchIpStatIndex_Type = VlanID
+_HpSwitchIpStatIndex_Object = MibTableColumn
+hpSwitchIpStatIndex = _HpSwitchIpStatIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1, 1),
+    _HpSwitchIpStatIndex_Type()
+)
+hpSwitchIpStatIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpStatIndex.setStatus("obsolete")
+_HpSwitchIpStatAddr_Type = IpAddress
+_HpSwitchIpStatAddr_Object = MibTableColumn
+hpSwitchIpStatAddr = _HpSwitchIpStatAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1, 2),
+    _HpSwitchIpStatAddr_Type()
+)
+hpSwitchIpStatAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpStatAddr.setStatus("obsolete")
+_HpSwitchIpStatMask_Type = IpAddress
+_HpSwitchIpStatMask_Object = MibTableColumn
+hpSwitchIpStatMask = _HpSwitchIpStatMask_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1, 3),
+    _HpSwitchIpStatMask_Type()
+)
+hpSwitchIpStatMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpStatMask.setStatus("obsolete")
+_HpSwitchIpStatGatewayAddr_Type = IpAddress
+_HpSwitchIpStatGatewayAddr_Object = MibTableColumn
+hpSwitchIpStatGatewayAddr = _HpSwitchIpStatGatewayAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1, 4),
+    _HpSwitchIpStatGatewayAddr_Type()
+)
+hpSwitchIpStatGatewayAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpStatGatewayAddr.setStatus("obsolete")
+
+
+class _HpSwitchIpStatAdminStatus_Type(Integer32):
+    """Custom type hpSwitchIpStatAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2),
+          ("bootp", 3))
+    )
+
+
+_HpSwitchIpStatAdminStatus_Type.__name__ = "Integer32"
+_HpSwitchIpStatAdminStatus_Object = MibTableColumn
+hpSwitchIpStatAdminStatus = _HpSwitchIpStatAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 2, 4, 1, 5),
+    _HpSwitchIpStatAdminStatus_Type()
+)
+hpSwitchIpStatAdminStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchIpStatAdminStatus.setStatus("obsolete")
+_HpSwitchFdbInfo_ObjectIdentity = ObjectIdentity
+hpSwitchFdbInfo = _HpSwitchFdbInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4)
+)
+_HpSwitchVlanFdbAddrTable_Object = MibTable
+hpSwitchVlanFdbAddrTable = _HpSwitchVlanFdbAddrTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 1)
+)
+if mibBuilder.loadTexts:
+    hpSwitchVlanFdbAddrTable.setStatus("mandatory")
+_HpSwitchVlanFdbAddrEntry_Object = MibTableRow
+hpSwitchVlanFdbAddrEntry = _HpSwitchVlanFdbAddrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 1, 1)
+)
+hpSwitchVlanFdbAddrEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchVlanFdbId"),
+    (0, "STATISTICS-MIB", "hpSwitchVlanFdbAddress"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchVlanFdbAddrEntry.setStatus("mandatory")
+_HpSwitchVlanFdbId_Type = VlanID
+_HpSwitchVlanFdbId_Object = MibTableColumn
+hpSwitchVlanFdbId = _HpSwitchVlanFdbId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 1, 1, 1),
+    _HpSwitchVlanFdbId_Type()
+)
+hpSwitchVlanFdbId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchVlanFdbId.setStatus("mandatory")
+_HpSwitchVlanFdbAddress_Type = MacAddress
+_HpSwitchVlanFdbAddress_Object = MibTableColumn
+hpSwitchVlanFdbAddress = _HpSwitchVlanFdbAddress_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 1, 1, 2),
+    _HpSwitchVlanFdbAddress_Type()
+)
+hpSwitchVlanFdbAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchVlanFdbAddress.setStatus("mandatory")
+_HpSwitchVlanFdbPort_Type = Integer32
+_HpSwitchVlanFdbPort_Object = MibTableColumn
+hpSwitchVlanFdbPort = _HpSwitchVlanFdbPort_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 1, 1, 3),
+    _HpSwitchVlanFdbPort_Type()
+)
+hpSwitchVlanFdbPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchVlanFdbPort.setStatus("mandatory")
+_HpSwitchPortFdbAddrTable_Object = MibTable
+hpSwitchPortFdbAddrTable = _HpSwitchPortFdbAddrTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2)
+)
+if mibBuilder.loadTexts:
+    hpSwitchPortFdbAddrTable.setStatus("mandatory")
+_HpSwitchPortFdbAddrEntry_Object = MibTableRow
+hpSwitchPortFdbAddrEntry = _HpSwitchPortFdbAddrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2, 1)
+)
+hpSwitchPortFdbAddrEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchPortFdbId"),
+    (0, "STATISTICS-MIB", "hpSwitchPortFdbAddress"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchPortFdbAddrEntry.setStatus("mandatory")
+_HpSwitchPortFdbId_Type = Integer32
+_HpSwitchPortFdbId_Object = MibTableColumn
+hpSwitchPortFdbId = _HpSwitchPortFdbId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2, 1, 1),
+    _HpSwitchPortFdbId_Type()
+)
+hpSwitchPortFdbId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortFdbId.setStatus("mandatory")
+_HpSwitchPortFdbAddress_Type = MacAddress
+_HpSwitchPortFdbAddress_Object = MibTableColumn
+hpSwitchPortFdbAddress = _HpSwitchPortFdbAddress_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2, 1, 2),
+    _HpSwitchPortFdbAddress_Type()
+)
+hpSwitchPortFdbAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortFdbAddress.setStatus("mandatory")
+_HpSwitchPortFdbVlanId_Type = VlanID
+_HpSwitchPortFdbVlanId_Object = MibTableColumn
+hpSwitchPortFdbVlanId = _HpSwitchPortFdbVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2, 1, 3),
+    _HpSwitchPortFdbVlanId_Type()
+)
+hpSwitchPortFdbVlanId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortFdbVlanId.setStatus("deprecated")
+_HpSwitchPortFdbVidList_Type = VidList
+_HpSwitchPortFdbVidList_Object = MibTableColumn
+hpSwitchPortFdbVidList = _HpSwitchPortFdbVidList_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 4, 2, 1, 4),
+    _HpSwitchPortFdbVidList_Type()
+)
+hpSwitchPortFdbVidList.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortFdbVidList.setStatus("mandatory")
+_HpSwitchStpStat_ObjectIdentity = ObjectIdentity
+hpSwitchStpStat = _HpSwitchStpStat_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 5)
+)
+
+
+class _HpSwitchStpStatAdminStatus_Type(Integer32):
+    """Custom type hpSwitchStpStatAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_HpSwitchStpStatAdminStatus_Type.__name__ = "Integer32"
+_HpSwitchStpStatAdminStatus_Object = MibScalar
+hpSwitchStpStatAdminStatus = _HpSwitchStpStatAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 5, 1),
+    _HpSwitchStpStatAdminStatus_Type()
+)
+hpSwitchStpStatAdminStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchStpStatAdminStatus.setStatus("mandatory")
+_HpSwitchMiscStat_ObjectIdentity = ObjectIdentity
+hpSwitchMiscStat = _HpSwitchMiscStat_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 6)
+)
+
+
+class _HpSwitchCpuStat_Type(Integer32):
+    """Custom type hpSwitchCpuStat based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_HpSwitchCpuStat_Type.__name__ = "Integer32"
+_HpSwitchCpuStat_Object = MibScalar
+hpSwitchCpuStat = _HpSwitchCpuStat_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 6, 1),
+    _HpSwitchCpuStat_Type()
+)
+hpSwitchCpuStat.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchCpuStat.setStatus("mandatory")
+_HpSwitchFddiIpFragStat_ObjectIdentity = ObjectIdentity
+hpSwitchFddiIpFragStat = _HpSwitchFddiIpFragStat_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7)
+)
+_HpSwitchFddiIpFragStatTable_Object = MibTable
+hpSwitchFddiIpFragStatTable = _HpSwitchFddiIpFragStatTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1)
+)
+if mibBuilder.loadTexts:
+    hpSwitchFddiIpFragStatTable.setStatus("mandatory")
+_HpSwitchFddiIpFragStatEntry_Object = MibTableRow
+hpSwitchFddiIpFragStatEntry = _HpSwitchFddiIpFragStatEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1, 1)
+)
+hpSwitchFddiIpFragStatEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchFddiIpFragStatIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchFddiIpFragStatEntry.setStatus("mandatory")
+
+
+class _HpSwitchFddiIpFragStatIndex_Type(Integer32):
+    """Custom type hpSwitchFddiIpFragStatIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchFddiIpFragStatIndex_Type.__name__ = "Integer32"
+_HpSwitchFddiIpFragStatIndex_Object = MibTableColumn
+hpSwitchFddiIpFragStatIndex = _HpSwitchFddiIpFragStatIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1, 1, 1),
+    _HpSwitchFddiIpFragStatIndex_Type()
+)
+hpSwitchFddiIpFragStatIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiIpFragStatIndex.setStatus("mandatory")
+_HpSwitchFddiIpFragFramesFragmented_Type = Counter32
+_HpSwitchFddiIpFragFramesFragmented_Object = MibTableColumn
+hpSwitchFddiIpFragFramesFragmented = _HpSwitchFddiIpFragFramesFragmented_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1, 1, 2),
+    _HpSwitchFddiIpFragFramesFragmented_Type()
+)
+hpSwitchFddiIpFragFramesFragmented.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiIpFragFramesFragmented.setStatus("mandatory")
+_HpSwitchFddiIpFragFramesCreated_Type = Counter32
+_HpSwitchFddiIpFragFramesCreated_Object = MibTableColumn
+hpSwitchFddiIpFragFramesCreated = _HpSwitchFddiIpFragFramesCreated_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1, 1, 3),
+    _HpSwitchFddiIpFragFramesCreated_Type()
+)
+hpSwitchFddiIpFragFramesCreated.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiIpFragFramesCreated.setStatus("mandatory")
+_HpSwitchFddiIpFragFrameErrors_Type = Counter32
+_HpSwitchFddiIpFragFrameErrors_Object = MibTableColumn
+hpSwitchFddiIpFragFrameErrors = _HpSwitchFddiIpFragFrameErrors_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 7, 1, 1, 4),
+    _HpSwitchFddiIpFragFrameErrors_Type()
+)
+hpSwitchFddiIpFragFrameErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiIpFragFrameErrors.setStatus("mandatory")
+_HpSwitchFddiSystemStat_ObjectIdentity = ObjectIdentity
+hpSwitchFddiSystemStat = _HpSwitchFddiSystemStat_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8)
+)
+_HpSwitchFddiSystemStatTable_Object = MibTable
+hpSwitchFddiSystemStatTable = _HpSwitchFddiSystemStatTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1)
+)
+if mibBuilder.loadTexts:
+    hpSwitchFddiSystemStatTable.setStatus("mandatory")
+_HpSwitchFddiSystemStatEntry_Object = MibTableRow
+hpSwitchFddiSystemStatEntry = _HpSwitchFddiSystemStatEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1)
+)
+hpSwitchFddiSystemStatEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchFddiSystemStatIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchFddiSystemStatEntry.setStatus("mandatory")
+
+
+class _HpSwitchFddiSystemStatIndex_Type(Integer32):
+    """Custom type hpSwitchFddiSystemStatIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchFddiSystemStatIndex_Type.__name__ = "Integer32"
+_HpSwitchFddiSystemStatIndex_Object = MibTableColumn
+hpSwitchFddiSystemStatIndex = _HpSwitchFddiSystemStatIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 1),
+    _HpSwitchFddiSystemStatIndex_Type()
+)
+hpSwitchFddiSystemStatIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiSystemStatIndex.setStatus("mandatory")
+
+
+class _HpSwitchFddiSystemOsVersion_Type(DisplayString):
+    """Custom type hpSwitchFddiSystemOsVersion based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 10),
+    )
+
+
+_HpSwitchFddiSystemOsVersion_Type.__name__ = "DisplayString"
+_HpSwitchFddiSystemOsVersion_Object = MibTableColumn
+hpSwitchFddiSystemOsVersion = _HpSwitchFddiSystemOsVersion_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 2),
+    _HpSwitchFddiSystemOsVersion_Type()
+)
+hpSwitchFddiSystemOsVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiSystemOsVersion.setStatus("mandatory")
+
+
+class _HpSwitchFddiSystemRomVersion_Type(DisplayString):
+    """Custom type hpSwitchFddiSystemRomVersion based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 10),
+    )
+
+
+_HpSwitchFddiSystemRomVersion_Type.__name__ = "DisplayString"
+_HpSwitchFddiSystemRomVersion_Object = MibTableColumn
+hpSwitchFddiSystemRomVersion = _HpSwitchFddiSystemRomVersion_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 3),
+    _HpSwitchFddiSystemRomVersion_Type()
+)
+hpSwitchFddiSystemRomVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiSystemRomVersion.setStatus("mandatory")
+_HpSwitchFddiSystemMemoryTotal_Type = Integer32
+_HpSwitchFddiSystemMemoryTotal_Object = MibTableColumn
+hpSwitchFddiSystemMemoryTotal = _HpSwitchFddiSystemMemoryTotal_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 4),
+    _HpSwitchFddiSystemMemoryTotal_Type()
+)
+hpSwitchFddiSystemMemoryTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiSystemMemoryTotal.setStatus("mandatory")
+_HpSwitchFddiSystemMemoryFree_Type = Integer32
+_HpSwitchFddiSystemMemoryFree_Object = MibTableColumn
+hpSwitchFddiSystemMemoryFree = _HpSwitchFddiSystemMemoryFree_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 5),
+    _HpSwitchFddiSystemMemoryFree_Type()
+)
+hpSwitchFddiSystemMemoryFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiSystemMemoryFree.setStatus("mandatory")
+
+
+class _HpSwitchFddiSystemCpuUtil_Type(Integer32):
+    """Custom type hpSwitchFddiSystemCpuUtil based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_HpSwitchFddiSystemCpuUtil_Type.__name__ = "Integer32"
+_HpSwitchFddiSystemCpuUtil_Object = MibTableColumn
+hpSwitchFddiSystemCpuUtil = _HpSwitchFddiSystemCpuUtil_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 6),
+    _HpSwitchFddiSystemCpuUtil_Type()
+)
+hpSwitchFddiSystemCpuUtil.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiSystemCpuUtil.setStatus("mandatory")
+
+
+class _HpSwitchFddiSystemBuildDirectory_Type(OctetString):
+    """Custom type hpSwitchFddiSystemBuildDirectory based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(80, 80),
+    )
+    fixed_length = 80
+
+
+_HpSwitchFddiSystemBuildDirectory_Type.__name__ = "OctetString"
+_HpSwitchFddiSystemBuildDirectory_Object = MibTableColumn
+hpSwitchFddiSystemBuildDirectory = _HpSwitchFddiSystemBuildDirectory_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 7),
+    _HpSwitchFddiSystemBuildDirectory_Type()
+)
+hpSwitchFddiSystemBuildDirectory.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiSystemBuildDirectory.setStatus("mandatory")
+
+
+class _HpSwitchFddiSystemBuildDate_Type(OctetString):
+    """Custom type hpSwitchFddiSystemBuildDate based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(40, 40),
+    )
+    fixed_length = 40
+
+
+_HpSwitchFddiSystemBuildDate_Type.__name__ = "OctetString"
+_HpSwitchFddiSystemBuildDate_Object = MibTableColumn
+hpSwitchFddiSystemBuildDate = _HpSwitchFddiSystemBuildDate_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 8),
+    _HpSwitchFddiSystemBuildDate_Type()
+)
+hpSwitchFddiSystemBuildDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiSystemBuildDate.setStatus("mandatory")
+
+
+class _HpSwitchFddiSystemBuildNumber_Type(OctetString):
+    """Custom type hpSwitchFddiSystemBuildNumber based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(20, 20),
+    )
+    fixed_length = 20
+
+
+_HpSwitchFddiSystemBuildNumber_Type.__name__ = "OctetString"
+_HpSwitchFddiSystemBuildNumber_Object = MibTableColumn
+hpSwitchFddiSystemBuildNumber = _HpSwitchFddiSystemBuildNumber_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 8, 1, 1, 9),
+    _HpSwitchFddiSystemBuildNumber_Type()
+)
+hpSwitchFddiSystemBuildNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFddiSystemBuildNumber.setStatus("mandatory")
+_HpABCStats_ObjectIdentity = ObjectIdentity
+hpABCStats = _HpABCStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9)
+)
+_HpABCStatsTable_Object = MibTable
+hpABCStatsTable = _HpABCStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1)
+)
+if mibBuilder.loadTexts:
+    hpABCStatsTable.setStatus("mandatory")
+_HpABCStatsEntry_Object = MibTableRow
+hpABCStatsEntry = _HpABCStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1)
+)
+hpABCStatsEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpABCStatsVlanIndex"),
+    (0, "STATISTICS-MIB", "hpABCStatsPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hpABCStatsEntry.setStatus("mandatory")
+_HpABCStatsVlanIndex_Type = VlanID
+_HpABCStatsVlanIndex_Object = MibTableColumn
+hpABCStatsVlanIndex = _HpABCStatsVlanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 1),
+    _HpABCStatsVlanIndex_Type()
+)
+hpABCStatsVlanIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpABCStatsVlanIndex.setStatus("mandatory")
+
+
+class _HpABCStatsPortIndex_Type(Integer32):
+    """Custom type hpABCStatsPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpABCStatsPortIndex_Type.__name__ = "Integer32"
+_HpABCStatsPortIndex_Object = MibTableColumn
+hpABCStatsPortIndex = _HpABCStatsPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 2),
+    _HpABCStatsPortIndex_Type()
+)
+hpABCStatsPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpABCStatsPortIndex.setStatus("mandatory")
+_HpABCStatsPortType_Type = HpSwitchPortType
+_HpABCStatsPortType_Object = MibTableColumn
+hpABCStatsPortType = _HpABCStatsPortType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 3),
+    _HpABCStatsPortType_Type()
+)
+hpABCStatsPortType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpABCStatsPortType.setStatus("mandatory")
+_HpABCStatsArpReplies_Type = Counter32
+_HpABCStatsArpReplies_Object = MibTableColumn
+hpABCStatsArpReplies = _HpABCStatsArpReplies_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 4),
+    _HpABCStatsArpReplies_Type()
+)
+hpABCStatsArpReplies.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpABCStatsArpReplies.setStatus("mandatory")
+_HpABCStatsIpxReplies_Type = Counter32
+_HpABCStatsIpxReplies_Object = MibTableColumn
+hpABCStatsIpxReplies = _HpABCStatsIpxReplies_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 5),
+    _HpABCStatsIpxReplies_Type()
+)
+hpABCStatsIpxReplies.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpABCStatsIpxReplies.setStatus("mandatory")
+
+
+class _HpABCStatsIpRipControl_Type(Integer32):
+    """Custom type hpABCStatsIpRipControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("forwarding", 1),
+          ("notforwarding", 2))
+    )
+
+
+_HpABCStatsIpRipControl_Type.__name__ = "Integer32"
+_HpABCStatsIpRipControl_Object = MibTableColumn
+hpABCStatsIpRipControl = _HpABCStatsIpRipControl_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 6),
+    _HpABCStatsIpRipControl_Type()
+)
+hpABCStatsIpRipControl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpABCStatsIpRipControl.setStatus("mandatory")
+
+
+class _HpABCStatsIpxRipSapControl_Type(Integer32):
+    """Custom type hpABCStatsIpxRipSapControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("forwarding", 1),
+          ("notforwarding", 2))
+    )
+
+
+_HpABCStatsIpxRipSapControl_Type.__name__ = "Integer32"
+_HpABCStatsIpxRipSapControl_Object = MibTableColumn
+hpABCStatsIpxRipSapControl = _HpABCStatsIpxRipSapControl_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 9, 1, 1, 7),
+    _HpABCStatsIpxRipSapControl_Type()
+)
+hpABCStatsIpxRipSapControl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpABCStatsIpxRipSapControl.setStatus("mandatory")
+_HpIgmpStats_ObjectIdentity = ObjectIdentity
+hpIgmpStats = _HpIgmpStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10)
+)
+_HpIgmpStatsTable_Object = MibTable
+hpIgmpStatsTable = _HpIgmpStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1)
+)
+if mibBuilder.loadTexts:
+    hpIgmpStatsTable.setStatus("mandatory")
+_HpIgmpStatsEntry_Object = MibTableRow
+hpIgmpStatsEntry = _HpIgmpStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1)
+)
+hpIgmpStatsEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpIgmpStatsVlanIndex"),
+    (0, "STATISTICS-MIB", "hpIgmpStatsActiveGroupAddr"),
+)
+if mibBuilder.loadTexts:
+    hpIgmpStatsEntry.setStatus("mandatory")
+_HpIgmpStatsVlanIndex_Type = VlanID
+_HpIgmpStatsVlanIndex_Object = MibTableColumn
+hpIgmpStatsVlanIndex = _HpIgmpStatsVlanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1, 1),
+    _HpIgmpStatsVlanIndex_Type()
+)
+hpIgmpStatsVlanIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsVlanIndex.setStatus("mandatory")
+_HpIgmpStatsActiveGroupAddr_Type = IpAddress
+_HpIgmpStatsActiveGroupAddr_Object = MibTableColumn
+hpIgmpStatsActiveGroupAddr = _HpIgmpStatsActiveGroupAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1, 2),
+    _HpIgmpStatsActiveGroupAddr_Type()
+)
+hpIgmpStatsActiveGroupAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsActiveGroupAddr.setStatus("mandatory")
+_HpIgmpStatsReports_Type = Counter32
+_HpIgmpStatsReports_Object = MibTableColumn
+hpIgmpStatsReports = _HpIgmpStatsReports_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1, 3),
+    _HpIgmpStatsReports_Type()
+)
+hpIgmpStatsReports.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsReports.setStatus("mandatory")
+_HpIgmpStatsQueries_Type = Counter32
+_HpIgmpStatsQueries_Object = MibTableColumn
+hpIgmpStatsQueries = _HpIgmpStatsQueries_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1, 4),
+    _HpIgmpStatsQueries_Type()
+)
+hpIgmpStatsQueries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsQueries.setStatus("mandatory")
+_HpIgmpStatsQuerierAccessPort_Type = Integer32
+_HpIgmpStatsQuerierAccessPort_Object = MibTableColumn
+hpIgmpStatsQuerierAccessPort = _HpIgmpStatsQuerierAccessPort_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 1, 1, 5),
+    _HpIgmpStatsQuerierAccessPort_Type()
+)
+hpIgmpStatsQuerierAccessPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsQuerierAccessPort.setStatus("mandatory")
+_HpIgmpStatsPortTable_Object = MibTable
+hpIgmpStatsPortTable = _HpIgmpStatsPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 2)
+)
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortTable.setStatus("deprecated")
+_HpIgmpStatsPortEntry_Object = MibTableRow
+hpIgmpStatsPortEntry = _HpIgmpStatsPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 2, 1)
+)
+hpIgmpStatsPortEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpIgmpStatsActiveGroupAddr"),
+    (0, "STATISTICS-MIB", "hpIgmpStatsPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortEntry.setStatus("deprecated")
+
+
+class _HpIgmpStatsPortIndex_Type(Integer32):
+    """Custom type hpIgmpStatsPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpIgmpStatsPortIndex_Type.__name__ = "Integer32"
+_HpIgmpStatsPortIndex_Object = MibTableColumn
+hpIgmpStatsPortIndex = _HpIgmpStatsPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 2, 1, 1),
+    _HpIgmpStatsPortIndex_Type()
+)
+hpIgmpStatsPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortIndex.setStatus("deprecated")
+_HpIgmpStatsPortType_Type = HpSwitchPortType
+_HpIgmpStatsPortType_Object = MibTableColumn
+hpIgmpStatsPortType = _HpIgmpStatsPortType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 2, 1, 2),
+    _HpIgmpStatsPortType_Type()
+)
+hpIgmpStatsPortType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortType.setStatus("deprecated")
+
+
+class _HpIgmpStatsPortAccess_Type(Integer32):
+    """Custom type hpIgmpStatsPortAccess based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("host", 1),
+          ("router", 2),
+          ("host-router", 3))
+    )
+
+
+_HpIgmpStatsPortAccess_Type.__name__ = "Integer32"
+_HpIgmpStatsPortAccess_Object = MibTableColumn
+hpIgmpStatsPortAccess = _HpIgmpStatsPortAccess_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 2, 1, 3),
+    _HpIgmpStatsPortAccess_Type()
+)
+hpIgmpStatsPortAccess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortAccess.setStatus("deprecated")
+_HpIgmpStatsPortTable2_Object = MibTable
+hpIgmpStatsPortTable2 = _HpIgmpStatsPortTable2_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3)
+)
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortTable2.setStatus("mandatory")
+_HpIgmpStatsPortEntry2_Object = MibTableRow
+hpIgmpStatsPortEntry2 = _HpIgmpStatsPortEntry2_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1)
+)
+hpIgmpStatsPortEntry2.setIndexNames(
+    (0, "STATISTICS-MIB", "hpIgmpStatsVlanIndex"),
+    (0, "STATISTICS-MIB", "hpIgmpStatsActiveGroupAddr"),
+    (0, "STATISTICS-MIB", "hpIgmpStatsPortIndex2"),
+)
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortEntry2.setStatus("mandatory")
+
+
+class _HpIgmpStatsPortIndex2_Type(Integer32):
+    """Custom type hpIgmpStatsPortIndex2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpIgmpStatsPortIndex2_Type.__name__ = "Integer32"
+_HpIgmpStatsPortIndex2_Object = MibTableColumn
+hpIgmpStatsPortIndex2 = _HpIgmpStatsPortIndex2_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1, 1),
+    _HpIgmpStatsPortIndex2_Type()
+)
+hpIgmpStatsPortIndex2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortIndex2.setStatus("mandatory")
+_HpIgmpStatsPortType2_Type = HpSwitchPortType
+_HpIgmpStatsPortType2_Object = MibTableColumn
+hpIgmpStatsPortType2 = _HpIgmpStatsPortType2_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1, 2),
+    _HpIgmpStatsPortType2_Type()
+)
+hpIgmpStatsPortType2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortType2.setStatus("mandatory")
+
+
+class _HpIgmpStatsPortAccess2_Type(Integer32):
+    """Custom type hpIgmpStatsPortAccess2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("host", 1),
+          ("router", 2),
+          ("host-router", 3))
+    )
+
+
+_HpIgmpStatsPortAccess2_Type.__name__ = "Integer32"
+_HpIgmpStatsPortAccess2_Object = MibTableColumn
+hpIgmpStatsPortAccess2 = _HpIgmpStatsPortAccess2_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1, 3),
+    _HpIgmpStatsPortAccess2_Type()
+)
+hpIgmpStatsPortAccess2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortAccess2.setStatus("mandatory")
+_HpIgmpStatsPortAgeTimer2_Type = Integer32
+_HpIgmpStatsPortAgeTimer2_Object = MibTableColumn
+hpIgmpStatsPortAgeTimer2 = _HpIgmpStatsPortAgeTimer2_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1, 4),
+    _HpIgmpStatsPortAgeTimer2_Type()
+)
+hpIgmpStatsPortAgeTimer2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortAgeTimer2.setStatus("mandatory")
+_HpIgmpStatsPortLeaveTimer2_Type = Integer32
+_HpIgmpStatsPortLeaveTimer2_Object = MibTableColumn
+hpIgmpStatsPortLeaveTimer2 = _HpIgmpStatsPortLeaveTimer2_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 10, 3, 1, 5),
+    _HpIgmpStatsPortLeaveTimer2_Type()
+)
+hpIgmpStatsPortLeaveTimer2.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpIgmpStatsPortLeaveTimer2.setStatus("mandatory")
+_HpLdbalStats_ObjectIdentity = ObjectIdentity
+hpLdbalStats = _HpLdbalStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11)
+)
+_HpLdbalStatsPortTable_Object = MibTable
+hpLdbalStatsPortTable = _HpLdbalStatsPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1)
+)
+if mibBuilder.loadTexts:
+    hpLdbalStatsPortTable.setStatus("mandatory")
+_HpLdbalStatsPortEntry_Object = MibTableRow
+hpLdbalStatsPortEntry = _HpLdbalStatsPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1)
+)
+hpLdbalStatsPortEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpLdbalStatsPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hpLdbalStatsPortEntry.setStatus("mandatory")
+
+
+class _HpLdbalStatsPortIndex_Type(Integer32):
+    """Custom type hpLdbalStatsPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpLdbalStatsPortIndex_Type.__name__ = "Integer32"
+_HpLdbalStatsPortIndex_Object = MibTableColumn
+hpLdbalStatsPortIndex = _HpLdbalStatsPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 1),
+    _HpLdbalStatsPortIndex_Type()
+)
+hpLdbalStatsPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpLdbalStatsPortIndex.setStatus("mandatory")
+
+
+class _HpLdbalStatsPortState_Type(Integer32):
+    """Custom type hpLdbalStatsPortState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("error", 2),
+          ("initial", 3),
+          ("notEstablished", 4),
+          ("established", 5),
+          ("topologyError", 6))
+    )
+
+
+_HpLdbalStatsPortState_Type.__name__ = "Integer32"
+_HpLdbalStatsPortState_Object = MibTableColumn
+hpLdbalStatsPortState = _HpLdbalStatsPortState_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 2),
+    _HpLdbalStatsPortState_Type()
+)
+hpLdbalStatsPortState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpLdbalStatsPortState.setStatus("mandatory")
+_HpLdbalStatsAdjacentSwitch_Type = MacAddress
+_HpLdbalStatsAdjacentSwitch_Object = MibTableColumn
+hpLdbalStatsAdjacentSwitch = _HpLdbalStatsAdjacentSwitch_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 3),
+    _HpLdbalStatsAdjacentSwitch_Type()
+)
+hpLdbalStatsAdjacentSwitch.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpLdbalStatsAdjacentSwitch.setStatus("mandatory")
+_HpLdbalStatsPeerPort_Type = MacAddress
+_HpLdbalStatsPeerPort_Object = MibTableColumn
+hpLdbalStatsPeerPort = _HpLdbalStatsPeerPort_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 4),
+    _HpLdbalStatsPeerPort_Type()
+)
+hpLdbalStatsPeerPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpLdbalStatsPeerPort.setStatus("mandatory")
+_HpLdbalStatsAdjacentHost_Type = DisplayString
+_HpLdbalStatsAdjacentHost_Object = MibTableColumn
+hpLdbalStatsAdjacentHost = _HpLdbalStatsAdjacentHost_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 5),
+    _HpLdbalStatsAdjacentHost_Type()
+)
+hpLdbalStatsAdjacentHost.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpLdbalStatsAdjacentHost.setStatus("mandatory")
+
+
+class _HpLdbalStatsMeshWarningStatus_Type(Integer32):
+    """Custom type hpLdbalStatsMeshWarningStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_HpLdbalStatsMeshWarningStatus_Type.__name__ = "Integer32"
+_HpLdbalStatsMeshWarningStatus_Object = MibTableColumn
+hpLdbalStatsMeshWarningStatus = _HpLdbalStatsMeshWarningStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 11, 1, 1, 6),
+    _HpLdbalStatsMeshWarningStatus_Type()
+)
+hpLdbalStatsMeshWarningStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpLdbalStatsMeshWarningStatus.setStatus("mandatory")
+_HpSwitchMacStats_ObjectIdentity = ObjectIdentity
+hpSwitchMacStats = _HpSwitchMacStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 12)
+)
+
+
+class _HpSwitchFdbAddressCount_Type(Integer32):
+    """Custom type hpSwitchFdbAddressCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16384),
+    )
+
+
+_HpSwitchFdbAddressCount_Type.__name__ = "Integer32"
+_HpSwitchFdbAddressCount_Object = MibScalar
+hpSwitchFdbAddressCount = _HpSwitchFdbAddressCount_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 12, 1),
+    _HpSwitchFdbAddressCount_Type()
+)
+hpSwitchFdbAddressCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFdbAddressCount.setStatus("mandatory")
+_HpSwitchFlowControlStatus_ObjectIdentity = ObjectIdentity
+hpSwitchFlowControlStatus = _HpSwitchFlowControlStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 13)
+)
+_HpSwitchFlowControlStatusTable_Object = MibTable
+hpSwitchFlowControlStatusTable = _HpSwitchFlowControlStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 13, 1)
+)
+if mibBuilder.loadTexts:
+    hpSwitchFlowControlStatusTable.setStatus("mandatory")
+_HpSwitchFlowControlStatusEntry_Object = MibTableRow
+hpSwitchFlowControlStatusEntry = _HpSwitchFlowControlStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 13, 1, 1)
+)
+hpSwitchFlowControlStatusEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchFlowControlStatusPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchFlowControlStatusEntry.setStatus("mandatory")
+
+
+class _HpSwitchFlowControlStatusPortIndex_Type(Integer32):
+    """Custom type hpSwitchFlowControlStatusPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchFlowControlStatusPortIndex_Type.__name__ = "Integer32"
+_HpSwitchFlowControlStatusPortIndex_Object = MibTableColumn
+hpSwitchFlowControlStatusPortIndex = _HpSwitchFlowControlStatusPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 13, 1, 1, 1),
+    _HpSwitchFlowControlStatusPortIndex_Type()
+)
+hpSwitchFlowControlStatusPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFlowControlStatusPortIndex.setStatus("mandatory")
+
+
+class _HpSwitchFlowControlState_Type(Integer32):
+    """Custom type hpSwitchFlowControlState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2),
+          ("on-rx", 3),
+          ("on-tx", 4))
+    )
+
+
+_HpSwitchFlowControlState_Type.__name__ = "Integer32"
+_HpSwitchFlowControlState_Object = MibTableColumn
+hpSwitchFlowControlState = _HpSwitchFlowControlState_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 13, 1, 1, 2),
+    _HpSwitchFlowControlState_Type()
+)
+hpSwitchFlowControlState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchFlowControlState.setStatus("mandatory")
+_HpFECStatsTrunk_ObjectIdentity = ObjectIdentity
+hpFECStatsTrunk = _HpFECStatsTrunk_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14)
+)
+_HpFECStatsTrunkTable_Object = MibTable
+hpFECStatsTrunkTable = _HpFECStatsTrunkTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1)
+)
+if mibBuilder.loadTexts:
+    hpFECStatsTrunkTable.setStatus("mandatory")
+_HpFECStatsTrunkEntry_Object = MibTableRow
+hpFECStatsTrunkEntry = _HpFECStatsTrunkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1)
+)
+hpFECStatsTrunkEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpFECStatsTrunkIndex"),
+)
+if mibBuilder.loadTexts:
+    hpFECStatsTrunkEntry.setStatus("mandatory")
+
+
+class _HpFECStatsTrunkIndex_Type(Integer32):
+    """Custom type hpFECStatsTrunkIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpFECStatsTrunkIndex_Type.__name__ = "Integer32"
+_HpFECStatsTrunkIndex_Object = MibTableColumn
+hpFECStatsTrunkIndex = _HpFECStatsTrunkIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1, 1),
+    _HpFECStatsTrunkIndex_Type()
+)
+hpFECStatsTrunkIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsTrunkIndex.setStatus("mandatory")
+_HpFECStatsTrunkName_Type = DisplayString
+_HpFECStatsTrunkName_Object = MibTableColumn
+hpFECStatsTrunkName = _HpFECStatsTrunkName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1, 2),
+    _HpFECStatsTrunkName_Type()
+)
+hpFECStatsTrunkName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsTrunkName.setStatus("mandatory")
+
+
+class _HpFECStatsTrunkNegotiationStatus_Type(Integer32):
+    """Custom type hpFECStatsTrunkNegotiationStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("successful", 1),
+          ("failed", 2),
+          ("initialized", 3))
+    )
+
+
+_HpFECStatsTrunkNegotiationStatus_Type.__name__ = "Integer32"
+_HpFECStatsTrunkNegotiationStatus_Object = MibTableColumn
+hpFECStatsTrunkNegotiationStatus = _HpFECStatsTrunkNegotiationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1, 3),
+    _HpFECStatsTrunkNegotiationStatus_Type()
+)
+hpFECStatsTrunkNegotiationStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsTrunkNegotiationStatus.setStatus("mandatory")
+
+
+class _HpFECStatsTrunkForwardingMode_Type(Integer32):
+    """Custom type hpFECStatsTrunkForwardingMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("sa-only", 1),
+          ("sa-da", 2),
+          ("none", 3))
+    )
+
+
+_HpFECStatsTrunkForwardingMode_Type.__name__ = "Integer32"
+_HpFECStatsTrunkForwardingMode_Object = MibTableColumn
+hpFECStatsTrunkForwardingMode = _HpFECStatsTrunkForwardingMode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1, 4),
+    _HpFECStatsTrunkForwardingMode_Type()
+)
+hpFECStatsTrunkForwardingMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsTrunkForwardingMode.setStatus("mandatory")
+_HpFECStatsTrunkFlushPktsEchoed_Type = Counter32
+_HpFECStatsTrunkFlushPktsEchoed_Object = MibTableColumn
+hpFECStatsTrunkFlushPktsEchoed = _HpFECStatsTrunkFlushPktsEchoed_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 14, 1, 1, 5),
+    _HpFECStatsTrunkFlushPktsEchoed_Type()
+)
+hpFECStatsTrunkFlushPktsEchoed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsTrunkFlushPktsEchoed.setStatus("mandatory")
+_HpFECStatsPort_ObjectIdentity = ObjectIdentity
+hpFECStatsPort = _HpFECStatsPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15)
+)
+_HpFECStatsPortTable_Object = MibTable
+hpFECStatsPortTable = _HpFECStatsPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1)
+)
+if mibBuilder.loadTexts:
+    hpFECStatsPortTable.setStatus("mandatory")
+_HpFECStatsPortEntry_Object = MibTableRow
+hpFECStatsPortEntry = _HpFECStatsPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1)
+)
+hpFECStatsPortEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpFECStatsPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hpFECStatsPortEntry.setStatus("mandatory")
+
+
+class _HpFECStatsPortIndex_Type(Integer32):
+    """Custom type hpFECStatsPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpFECStatsPortIndex_Type.__name__ = "Integer32"
+_HpFECStatsPortIndex_Object = MibTableColumn
+hpFECStatsPortIndex = _HpFECStatsPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 1),
+    _HpFECStatsPortIndex_Type()
+)
+hpFECStatsPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsPortIndex.setStatus("mandatory")
+
+
+class _HpFECStatsPortTrunkNumber_Type(Integer32):
+    """Custom type hpFECStatsPortTrunkNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpFECStatsPortTrunkNumber_Type.__name__ = "Integer32"
+_HpFECStatsPortTrunkNumber_Object = MibTableColumn
+hpFECStatsPortTrunkNumber = _HpFECStatsPortTrunkNumber_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 2),
+    _HpFECStatsPortTrunkNumber_Type()
+)
+hpFECStatsPortTrunkNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsPortTrunkNumber.setStatus("mandatory")
+_HpFECStatsPortTrunkName_Type = DisplayString
+_HpFECStatsPortTrunkName_Object = MibTableColumn
+hpFECStatsPortTrunkName = _HpFECStatsPortTrunkName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 3),
+    _HpFECStatsPortTrunkName_Type()
+)
+hpFECStatsPortTrunkName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsPortTrunkName.setStatus("mandatory")
+
+
+class _HpFECStatsPortMode_Type(Integer32):
+    """Custom type hpFECStatsPortMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("forwarding", 2),
+          ("blocking", 3),
+          ("up", 4))
+    )
+
+
+_HpFECStatsPortMode_Type.__name__ = "Integer32"
+_HpFECStatsPortMode_Object = MibTableColumn
+hpFECStatsPortMode = _HpFECStatsPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 4),
+    _HpFECStatsPortMode_Type()
+)
+hpFECStatsPortMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsPortMode.setStatus("mandatory")
+
+
+class _HpFECStatsPortNegotiationStatus_Type(Integer32):
+    """Custom type hpFECStatsPortNegotiationStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("successful", 1),
+          ("failed", 2),
+          ("initialized", 3))
+    )
+
+
+_HpFECStatsPortNegotiationStatus_Type.__name__ = "Integer32"
+_HpFECStatsPortNegotiationStatus_Object = MibTableColumn
+hpFECStatsPortNegotiationStatus = _HpFECStatsPortNegotiationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 5),
+    _HpFECStatsPortNegotiationStatus_Type()
+)
+hpFECStatsPortNegotiationStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsPortNegotiationStatus.setStatus("mandatory")
+_HpFECStatsPortHellosSent_Type = Counter32
+_HpFECStatsPortHellosSent_Object = MibTableColumn
+hpFECStatsPortHellosSent = _HpFECStatsPortHellosSent_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 6),
+    _HpFECStatsPortHellosSent_Type()
+)
+hpFECStatsPortHellosSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsPortHellosSent.setStatus("mandatory")
+_HpFECStatsPortHellosReceived_Type = Counter32
+_HpFECStatsPortHellosReceived_Object = MibTableColumn
+hpFECStatsPortHellosReceived = _HpFECStatsPortHellosReceived_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 7),
+    _HpFECStatsPortHellosReceived_Type()
+)
+hpFECStatsPortHellosReceived.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsPortHellosReceived.setStatus("mandatory")
+
+
+class _HpFECStatsPortMySlowHello_Type(Integer32):
+    """Custom type hpFECStatsPortMySlowHello based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fast", 1),
+          ("slow", 2))
+    )
+
+
+_HpFECStatsPortMySlowHello_Type.__name__ = "Integer32"
+_HpFECStatsPortMySlowHello_Object = MibTableColumn
+hpFECStatsPortMySlowHello = _HpFECStatsPortMySlowHello_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 8),
+    _HpFECStatsPortMySlowHello_Type()
+)
+hpFECStatsPortMySlowHello.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsPortMySlowHello.setStatus("mandatory")
+
+
+class _HpFECStatsPortMyAutoMode_Type(Integer32):
+    """Custom type hpFECStatsPortMyAutoMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("desirable", 1),
+          ("auto", 2))
+    )
+
+
+_HpFECStatsPortMyAutoMode_Type.__name__ = "Integer32"
+_HpFECStatsPortMyAutoMode_Object = MibTableColumn
+hpFECStatsPortMyAutoMode = _HpFECStatsPortMyAutoMode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 9),
+    _HpFECStatsPortMyAutoMode_Type()
+)
+hpFECStatsPortMyAutoMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsPortMyAutoMode.setStatus("mandatory")
+_HpFECStatsPortPartner_Type = MacAddress
+_HpFECStatsPortPartner_Object = MibTableColumn
+hpFECStatsPortPartner = _HpFECStatsPortPartner_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 10),
+    _HpFECStatsPortPartner_Type()
+)
+hpFECStatsPortPartner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsPortPartner.setStatus("mandatory")
+_HpFECStatsPortFlushPktsEchoed_Type = Counter32
+_HpFECStatsPortFlushPktsEchoed_Object = MibTableColumn
+hpFECStatsPortFlushPktsEchoed = _HpFECStatsPortFlushPktsEchoed_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 15, 1, 1, 11),
+    _HpFECStatsPortFlushPktsEchoed_Type()
+)
+hpFECStatsPortFlushPktsEchoed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpFECStatsPortFlushPktsEchoed.setStatus("mandatory")
+_HpGvrpStats_ObjectIdentity = ObjectIdentity
+hpGvrpStats = _HpGvrpStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16)
+)
+_HpGvrpStatsTable_Object = MibTable
+hpGvrpStatsTable = _HpGvrpStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1)
+)
+if mibBuilder.loadTexts:
+    hpGvrpStatsTable.setStatus("mandatory")
+_HpGvrpStatsEntry_Object = MibTableRow
+hpGvrpStatsEntry = _HpGvrpStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1)
+)
+hpGvrpStatsEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpGvrpStatsVlanIndex"),
+    (0, "STATISTICS-MIB", "hpGvrpStatsPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hpGvrpStatsEntry.setStatus("mandatory")
+_HpGvrpStatsVlanIndex_Type = VlanID
+_HpGvrpStatsVlanIndex_Object = MibTableColumn
+hpGvrpStatsVlanIndex = _HpGvrpStatsVlanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1, 1),
+    _HpGvrpStatsVlanIndex_Type()
+)
+hpGvrpStatsVlanIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpStatsVlanIndex.setStatus("mandatory")
+
+
+class _HpGvrpStatsPortIndex_Type(Integer32):
+    """Custom type hpGvrpStatsPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpGvrpStatsPortIndex_Type.__name__ = "Integer32"
+_HpGvrpStatsPortIndex_Object = MibTableColumn
+hpGvrpStatsPortIndex = _HpGvrpStatsPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1, 2),
+    _HpGvrpStatsPortIndex_Type()
+)
+hpGvrpStatsPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpStatsPortIndex.setStatus("mandatory")
+
+
+class _HpGvrpStatsPortVlanMember_Type(Integer32):
+    """Custom type hpGvrpStatsPortVlanMember based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("pending", 1),
+          ("yes", 2),
+          ("no", 3))
+    )
+
+
+_HpGvrpStatsPortVlanMember_Type.__name__ = "Integer32"
+_HpGvrpStatsPortVlanMember_Object = MibTableColumn
+hpGvrpStatsPortVlanMember = _HpGvrpStatsPortVlanMember_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1, 3),
+    _HpGvrpStatsPortVlanMember_Type()
+)
+hpGvrpStatsPortVlanMember.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpStatsPortVlanMember.setStatus("mandatory")
+
+
+class _HpGvrpPortIfOperStatus_Type(Integer32):
+    """Custom type hpGvrpPortIfOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2))
+    )
+
+
+_HpGvrpPortIfOperStatus_Type.__name__ = "Integer32"
+_HpGvrpPortIfOperStatus_Object = MibTableColumn
+hpGvrpPortIfOperStatus = _HpGvrpPortIfOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1, 4),
+    _HpGvrpPortIfOperStatus_Type()
+)
+hpGvrpPortIfOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpPortIfOperStatus.setStatus("mandatory")
+
+
+class _HpPortGvrpCtrlStatus_Type(Integer32):
+    """Custom type hpPortGvrpCtrlStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("learn", 1),
+          ("block", 2),
+          ("disable", 3))
+    )
+
+
+_HpPortGvrpCtrlStatus_Type.__name__ = "Integer32"
+_HpPortGvrpCtrlStatus_Object = MibTableColumn
+hpPortGvrpCtrlStatus = _HpPortGvrpCtrlStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 1, 1, 5),
+    _HpPortGvrpCtrlStatus_Type()
+)
+hpPortGvrpCtrlStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpPortGvrpCtrlStatus.setStatus("mandatory")
+_HpGvrpVlanTable_Object = MibTable
+hpGvrpVlanTable = _HpGvrpVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2)
+)
+if mibBuilder.loadTexts:
+    hpGvrpVlanTable.setStatus("mandatory")
+_HpGvrpVlanEntry_Object = MibTableRow
+hpGvrpVlanEntry = _HpGvrpVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1)
+)
+hpGvrpVlanEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpGvrpVlanPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hpGvrpVlanEntry.setStatus("mandatory")
+
+
+class _HpGvrpVlanPortIndex_Type(Integer32):
+    """Custom type hpGvrpVlanPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpGvrpVlanPortIndex_Type.__name__ = "Integer32"
+_HpGvrpVlanPortIndex_Object = MibTableColumn
+hpGvrpVlanPortIndex = _HpGvrpVlanPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1, 1),
+    _HpGvrpVlanPortIndex_Type()
+)
+hpGvrpVlanPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpVlanPortIndex.setStatus("mandatory")
+_HpGvrpVlanCreationMap_Type = VidList
+_HpGvrpVlanCreationMap_Object = MibTableColumn
+hpGvrpVlanCreationMap = _HpGvrpVlanCreationMap_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1, 2),
+    _HpGvrpVlanCreationMap_Type()
+)
+hpGvrpVlanCreationMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpVlanCreationMap.setStatus("mandatory")
+_HpGvrpVlanDeletionMap_Type = VidList
+_HpGvrpVlanDeletionMap_Object = MibTableColumn
+hpGvrpVlanDeletionMap = _HpGvrpVlanDeletionMap_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1, 3),
+    _HpGvrpVlanDeletionMap_Type()
+)
+hpGvrpVlanDeletionMap.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpVlanDeletionMap.setStatus("mandatory")
+_HpGvrpVlanLearningOnPort_Type = VidList
+_HpGvrpVlanLearningOnPort_Object = MibTableColumn
+hpGvrpVlanLearningOnPort = _HpGvrpVlanLearningOnPort_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1, 4),
+    _HpGvrpVlanLearningOnPort_Type()
+)
+hpGvrpVlanLearningOnPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpVlanLearningOnPort.setStatus("mandatory")
+_HpGvrpVlanLeavingPort_Type = VidList
+_HpGvrpVlanLeavingPort_Object = MibTableColumn
+hpGvrpVlanLeavingPort = _HpGvrpVlanLeavingPort_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 16, 2, 1, 5),
+    _HpGvrpVlanLeavingPort_Type()
+)
+hpGvrpVlanLeavingPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpVlanLeavingPort.setStatus("mandatory")
+_HpSshStats_ObjectIdentity = ObjectIdentity
+hpSshStats = _HpSshStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17)
+)
+_HpSshStatsTable_Object = MibTable
+hpSshStatsTable = _HpSshStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1)
+)
+if mibBuilder.loadTexts:
+    hpSshStatsTable.setStatus("mandatory")
+_HpSshStatsEntry_Object = MibTableRow
+hpSshStatsEntry = _HpSshStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1)
+)
+hpSshStatsEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSshStatsSesIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSshStatsEntry.setStatus("mandatory")
+
+
+class _HpSshStatsSesIndex_Type(Integer32):
+    """Custom type hpSshStatsSesIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSshStatsSesIndex_Type.__name__ = "Integer32"
+_HpSshStatsSesIndex_Object = MibTableColumn
+hpSshStatsSesIndex = _HpSshStatsSesIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 1),
+    _HpSshStatsSesIndex_Type()
+)
+hpSshStatsSesIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSshStatsSesIndex.setStatus("mandatory")
+
+
+class _HpSshStatsSesType_Type(Integer32):
+    """Custom type hpSshStatsSesType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("console", 1),
+          ("telnet", 2),
+          ("ssh", 3),
+          ("inactive", 4))
+    )
+
+
+_HpSshStatsSesType_Type.__name__ = "Integer32"
+_HpSshStatsSesType_Object = MibTableColumn
+hpSshStatsSesType = _HpSshStatsSesType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 2),
+    _HpSshStatsSesType_Type()
+)
+hpSshStatsSesType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSshStatsSesType.setStatus("mandatory")
+
+
+class _HpSshStatsSourceIpPort_Type(DisplayString):
+    """Custom type hpSshStatsSourceIpPort based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 21),
+    )
+
+
+_HpSshStatsSourceIpPort_Type.__name__ = "DisplayString"
+_HpSshStatsSourceIpPort_Object = MibTableColumn
+hpSshStatsSourceIpPort = _HpSshStatsSourceIpPort_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 3),
+    _HpSshStatsSourceIpPort_Type()
+)
+hpSshStatsSourceIpPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSshStatsSourceIpPort.setStatus("deprecated")
+
+
+class _HpSshStatsSesVersion_Type(Integer32):
+    """Custom type hpSshStatsSesVersion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("version1", 1),
+          ("version2", 2),
+          ("noConnect", 255))
+    )
+
+
+_HpSshStatsSesVersion_Type.__name__ = "Integer32"
+_HpSshStatsSesVersion_Object = MibTableColumn
+hpSshStatsSesVersion = _HpSshStatsSesVersion_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 4),
+    _HpSshStatsSesVersion_Type()
+)
+hpSshStatsSesVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSshStatsSesVersion.setStatus("mandatory")
+_HpSshStatsSourceIpType_Type = InetAddressType
+_HpSshStatsSourceIpType_Object = MibTableColumn
+hpSshStatsSourceIpType = _HpSshStatsSourceIpType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 5),
+    _HpSshStatsSourceIpType_Type()
+)
+hpSshStatsSourceIpType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSshStatsSourceIpType.setStatus("mandatory")
+_HpSshStatsSourceIpAddress_Type = InetAddress
+_HpSshStatsSourceIpAddress_Object = MibTableColumn
+hpSshStatsSourceIpAddress = _HpSshStatsSourceIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 6),
+    _HpSshStatsSourceIpAddress_Type()
+)
+hpSshStatsSourceIpAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSshStatsSourceIpAddress.setStatus("mandatory")
+_HpSshStatsSourceIpPortNum_Type = InetPortNumber
+_HpSshStatsSourceIpPortNum_Object = MibTableColumn
+hpSshStatsSourceIpPortNum = _HpSshStatsSourceIpPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 17, 1, 1, 7),
+    _HpSshStatsSourceIpPortNum_Type()
+)
+hpSshStatsSourceIpPortNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSshStatsSourceIpPortNum.setStatus("mandatory")
+_HpSwitchPhysicalPort_ObjectIdentity = ObjectIdentity
+hpSwitchPhysicalPort = _HpSwitchPhysicalPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18)
+)
+_HpSwitchPhysicalPortTable_Object = MibTable
+hpSwitchPhysicalPortTable = _HpSwitchPhysicalPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 1)
+)
+if mibBuilder.loadTexts:
+    hpSwitchPhysicalPortTable.setStatus("mandatory")
+_HpSwitchPhysicalPortEntry_Object = MibTableRow
+hpSwitchPhysicalPortEntry = _HpSwitchPhysicalPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 1, 1)
+)
+hpSwitchPhysicalPortEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchPhysicalPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchPhysicalPortEntry.setStatus("mandatory")
+
+
+class _HpSwitchPhysicalPortIndex_Type(Integer32):
+    """Custom type hpSwitchPhysicalPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchPhysicalPortIndex_Type.__name__ = "Integer32"
+_HpSwitchPhysicalPortIndex_Object = MibTableColumn
+hpSwitchPhysicalPortIndex = _HpSwitchPhysicalPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 1, 1, 1),
+    _HpSwitchPhysicalPortIndex_Type()
+)
+hpSwitchPhysicalPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPhysicalPortIndex.setStatus("mandatory")
+_HpSwitchPhysicalPortType_Type = HpSwitchPortType
+_HpSwitchPhysicalPortType_Object = MibTableColumn
+hpSwitchPhysicalPortType = _HpSwitchPhysicalPortType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 1, 1, 2),
+    _HpSwitchPhysicalPortType_Type()
+)
+hpSwitchPhysicalPortType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPhysicalPortType.setStatus("mandatory")
+_HpSwitchPortStatTable_Object = MibTable
+hpSwitchPortStatTable = _HpSwitchPortStatTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2)
+)
+if mibBuilder.loadTexts:
+    hpSwitchPortStatTable.setStatus("mandatory")
+_HpSwitchPortStatEntry_Object = MibTableRow
+hpSwitchPortStatEntry = _HpSwitchPortStatEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1)
+)
+hpSwitchPortStatEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchPortStatIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchPortStatEntry.setStatus("mandatory")
+
+
+class _HpSwitchPortStatIndex_Type(Integer32):
+    """Custom type hpSwitchPortStatIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchPortStatIndex_Type.__name__ = "Integer32"
+_HpSwitchPortStatIndex_Object = MibTableColumn
+hpSwitchPortStatIndex = _HpSwitchPortStatIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 1),
+    _HpSwitchPortStatIndex_Type()
+)
+hpSwitchPortStatIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortStatIndex.setStatus("mandatory")
+_HpSwitchPortStatAvgInBcastPkts_Type = Counter32
+_HpSwitchPortStatAvgInBcastPkts_Object = MibTableColumn
+hpSwitchPortStatAvgInBcastPkts = _HpSwitchPortStatAvgInBcastPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 2),
+    _HpSwitchPortStatAvgInBcastPkts_Type()
+)
+hpSwitchPortStatAvgInBcastPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortStatAvgInBcastPkts.setStatus("mandatory")
+_HpSwitchPortStatAvgInMcastPkts_Type = Counter32
+_HpSwitchPortStatAvgInMcastPkts_Object = MibTableColumn
+hpSwitchPortStatAvgInMcastPkts = _HpSwitchPortStatAvgInMcastPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 3),
+    _HpSwitchPortStatAvgInMcastPkts_Type()
+)
+hpSwitchPortStatAvgInMcastPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortStatAvgInMcastPkts.setStatus("mandatory")
+_HpSwitchPortStatAvgInTotalPkts_Type = Counter32
+_HpSwitchPortStatAvgInTotalPkts_Object = MibTableColumn
+hpSwitchPortStatAvgInTotalPkts = _HpSwitchPortStatAvgInTotalPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 4),
+    _HpSwitchPortStatAvgInTotalPkts_Type()
+)
+hpSwitchPortStatAvgInTotalPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortStatAvgInTotalPkts.setStatus("mandatory")
+_HpSwitchPortStatAvgOutBcastPkts_Type = Counter32
+_HpSwitchPortStatAvgOutBcastPkts_Object = MibTableColumn
+hpSwitchPortStatAvgOutBcastPkts = _HpSwitchPortStatAvgOutBcastPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 5),
+    _HpSwitchPortStatAvgOutBcastPkts_Type()
+)
+hpSwitchPortStatAvgOutBcastPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortStatAvgOutBcastPkts.setStatus("mandatory")
+_HpSwitchPortStatAvgOutMcastPkts_Type = Counter32
+_HpSwitchPortStatAvgOutMcastPkts_Object = MibTableColumn
+hpSwitchPortStatAvgOutMcastPkts = _HpSwitchPortStatAvgOutMcastPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 6),
+    _HpSwitchPortStatAvgOutMcastPkts_Type()
+)
+hpSwitchPortStatAvgOutMcastPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortStatAvgOutMcastPkts.setStatus("mandatory")
+_HpSwitchPortStatAvgOutTotalPkts_Type = Counter32
+_HpSwitchPortStatAvgOutTotalPkts_Object = MibTableColumn
+hpSwitchPortStatAvgOutTotalPkts = _HpSwitchPortStatAvgOutTotalPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 7),
+    _HpSwitchPortStatAvgOutTotalPkts_Type()
+)
+hpSwitchPortStatAvgOutTotalPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortStatAvgOutTotalPkts.setStatus("mandatory")
+_HpSwitchPortStatAvgInBytes_Type = Counter32
+_HpSwitchPortStatAvgInBytes_Object = MibTableColumn
+hpSwitchPortStatAvgInBytes = _HpSwitchPortStatAvgInBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 8),
+    _HpSwitchPortStatAvgInBytes_Type()
+)
+hpSwitchPortStatAvgInBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortStatAvgInBytes.setStatus("mandatory")
+_HpSwitchPortStatAvgOutBytes_Type = Counter32
+_HpSwitchPortStatAvgOutBytes_Object = MibTableColumn
+hpSwitchPortStatAvgOutBytes = _HpSwitchPortStatAvgOutBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 9),
+    _HpSwitchPortStatAvgOutBytes_Type()
+)
+hpSwitchPortStatAvgOutBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortStatAvgOutBytes.setStatus("mandatory")
+
+
+class _HpSwitchPortStatAvgInPortUtil_Type(Integer32):
+    """Custom type hpSwitchPortStatAvgInPortUtil based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_HpSwitchPortStatAvgInPortUtil_Type.__name__ = "Integer32"
+_HpSwitchPortStatAvgInPortUtil_Object = MibTableColumn
+hpSwitchPortStatAvgInPortUtil = _HpSwitchPortStatAvgInPortUtil_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 10),
+    _HpSwitchPortStatAvgInPortUtil_Type()
+)
+hpSwitchPortStatAvgInPortUtil.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortStatAvgInPortUtil.setStatus("mandatory")
+
+
+class _HpSwitchPortStatAvgOutPortUtil_Type(Integer32):
+    """Custom type hpSwitchPortStatAvgOutPortUtil based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_HpSwitchPortStatAvgOutPortUtil_Type.__name__ = "Integer32"
+_HpSwitchPortStatAvgOutPortUtil_Object = MibTableColumn
+hpSwitchPortStatAvgOutPortUtil = _HpSwitchPortStatAvgOutPortUtil_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 18, 2, 1, 11),
+    _HpSwitchPortStatAvgOutPortUtil_Type()
+)
+hpSwitchPortStatAvgOutPortUtil.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchPortStatAvgOutPortUtil.setStatus("mandatory")
+_HpSwitchCosStats_ObjectIdentity = ObjectIdentity
+hpSwitchCosStats = _HpSwitchCosStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19)
+)
+_HpSwitchQueueWatchStatsTable_Object = MibTable
+hpSwitchQueueWatchStatsTable = _HpSwitchQueueWatchStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 1)
+)
+if mibBuilder.loadTexts:
+    hpSwitchQueueWatchStatsTable.setStatus("mandatory")
+_HpSwitchQueueWatchStatsEntry_Object = MibTableRow
+hpSwitchQueueWatchStatsEntry = _HpSwitchQueueWatchStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 1, 1)
+)
+hpSwitchQueueWatchStatsEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchQueueWatchStatsPortIndex"),
+    (0, "STATISTICS-MIB", "hpSwitchQueueWatchStatsQueueIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchQueueWatchStatsEntry.setStatus("mandatory")
+
+
+class _HpSwitchQueueWatchStatsPortIndex_Type(Integer32):
+    """Custom type hpSwitchQueueWatchStatsPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchQueueWatchStatsPortIndex_Type.__name__ = "Integer32"
+_HpSwitchQueueWatchStatsPortIndex_Object = MibTableColumn
+hpSwitchQueueWatchStatsPortIndex = _HpSwitchQueueWatchStatsPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 1, 1, 1),
+    _HpSwitchQueueWatchStatsPortIndex_Type()
+)
+hpSwitchQueueWatchStatsPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchQueueWatchStatsPortIndex.setStatus("mandatory")
+
+
+class _HpSwitchQueueWatchStatsQueueIndex_Type(Integer32):
+    """Custom type hpSwitchQueueWatchStatsQueueIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchQueueWatchStatsQueueIndex_Type.__name__ = "Integer32"
+_HpSwitchQueueWatchStatsQueueIndex_Object = MibTableColumn
+hpSwitchQueueWatchStatsQueueIndex = _HpSwitchQueueWatchStatsQueueIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 1, 1, 2),
+    _HpSwitchQueueWatchStatsQueueIndex_Type()
+)
+hpSwitchQueueWatchStatsQueueIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchQueueWatchStatsQueueIndex.setStatus("mandatory")
+_HpSwitchQueueWatchStatsQueueDrops_Type = Counter32
+_HpSwitchQueueWatchStatsQueueDrops_Object = MibTableColumn
+hpSwitchQueueWatchStatsQueueDrops = _HpSwitchQueueWatchStatsQueueDrops_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 1, 1, 3),
+    _HpSwitchQueueWatchStatsQueueDrops_Type()
+)
+hpSwitchQueueWatchStatsQueueDrops.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchQueueWatchStatsQueueDrops.setStatus("mandatory")
+_HpSwitchEgressQueueDropStatsTable_Object = MibTable
+hpSwitchEgressQueueDropStatsTable = _HpSwitchEgressQueueDropStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 2)
+)
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueDropStatsTable.setStatus("mandatory")
+_HpSwitchEgressQueueDropStatsEntry_Object = MibTableRow
+hpSwitchEgressQueueDropStatsEntry = _HpSwitchEgressQueueDropStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 2, 1)
+)
+hpSwitchEgressQueueDropStatsEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchEgressQueueDropStatsPortIndex"),
+    (0, "STATISTICS-MIB", "hpSwitchEgressQueueDropStatsQueueIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueDropStatsEntry.setStatus("mandatory")
+
+
+class _HpSwitchEgressQueueDropStatsPortIndex_Type(Integer32):
+    """Custom type hpSwitchEgressQueueDropStatsPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchEgressQueueDropStatsPortIndex_Type.__name__ = "Integer32"
+_HpSwitchEgressQueueDropStatsPortIndex_Object = MibTableColumn
+hpSwitchEgressQueueDropStatsPortIndex = _HpSwitchEgressQueueDropStatsPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 2, 1, 1),
+    _HpSwitchEgressQueueDropStatsPortIndex_Type()
+)
+hpSwitchEgressQueueDropStatsPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueDropStatsPortIndex.setStatus("mandatory")
+
+
+class _HpSwitchEgressQueueDropStatsQueueIndex_Type(Integer32):
+    """Custom type hpSwitchEgressQueueDropStatsQueueIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchEgressQueueDropStatsQueueIndex_Type.__name__ = "Integer32"
+_HpSwitchEgressQueueDropStatsQueueIndex_Object = MibTableColumn
+hpSwitchEgressQueueDropStatsQueueIndex = _HpSwitchEgressQueueDropStatsQueueIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 2, 1, 2),
+    _HpSwitchEgressQueueDropStatsQueueIndex_Type()
+)
+hpSwitchEgressQueueDropStatsQueueIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueDropStatsQueueIndex.setStatus("mandatory")
+_HpSwitchEgressQueueDropStatsQueueDrops_Type = Counter32
+_HpSwitchEgressQueueDropStatsQueueDrops_Object = MibTableColumn
+hpSwitchEgressQueueDropStatsQueueDrops = _HpSwitchEgressQueueDropStatsQueueDrops_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 2, 1, 3),
+    _HpSwitchEgressQueueDropStatsQueueDrops_Type()
+)
+hpSwitchEgressQueueDropStatsQueueDrops.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueDropStatsQueueDrops.setStatus("mandatory")
+_HpSwitchEgressQueueStatsTable_Object = MibTable
+hpSwitchEgressQueueStatsTable = _HpSwitchEgressQueueStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3)
+)
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueStatsTable.setStatus("mandatory")
+_HpSwitchEgressQueueStatsEntry_Object = MibTableRow
+hpSwitchEgressQueueStatsEntry = _HpSwitchEgressQueueStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1)
+)
+hpSwitchEgressQueueStatsEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpSwitchEgressQueueStatsPortIndex"),
+    (0, "STATISTICS-MIB", "hpSwitchEgressQueueStatsQueueIndex"),
+)
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueStatsEntry.setStatus("mandatory")
+
+
+class _HpSwitchEgressQueueStatsPortIndex_Type(Integer32):
+    """Custom type hpSwitchEgressQueueStatsPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchEgressQueueStatsPortIndex_Type.__name__ = "Integer32"
+_HpSwitchEgressQueueStatsPortIndex_Object = MibTableColumn
+hpSwitchEgressQueueStatsPortIndex = _HpSwitchEgressQueueStatsPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 1),
+    _HpSwitchEgressQueueStatsPortIndex_Type()
+)
+hpSwitchEgressQueueStatsPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueStatsPortIndex.setStatus("mandatory")
+
+
+class _HpSwitchEgressQueueStatsQueueIndex_Type(Integer32):
+    """Custom type hpSwitchEgressQueueStatsQueueIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpSwitchEgressQueueStatsQueueIndex_Type.__name__ = "Integer32"
+_HpSwitchEgressQueueStatsQueueIndex_Object = MibTableColumn
+hpSwitchEgressQueueStatsQueueIndex = _HpSwitchEgressQueueStatsQueueIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 2),
+    _HpSwitchEgressQueueStatsQueueIndex_Type()
+)
+hpSwitchEgressQueueStatsQueueIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueStatsQueueIndex.setStatus("mandatory")
+_HpSwitchEgressQueueTxPkts_Type = Counter64
+_HpSwitchEgressQueueTxPkts_Object = MibTableColumn
+hpSwitchEgressQueueTxPkts = _HpSwitchEgressQueueTxPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 3),
+    _HpSwitchEgressQueueTxPkts_Type()
+)
+hpSwitchEgressQueueTxPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueTxPkts.setStatus("mandatory")
+_HpSwitchEgressQueueTxDropPkts_Type = Counter64
+_HpSwitchEgressQueueTxDropPkts_Object = MibTableColumn
+hpSwitchEgressQueueTxDropPkts = _HpSwitchEgressQueueTxDropPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 4),
+    _HpSwitchEgressQueueTxDropPkts_Type()
+)
+hpSwitchEgressQueueTxDropPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueTxDropPkts.setStatus("mandatory")
+_HpSwitchEgressQueueTxBytes_Type = Counter64
+_HpSwitchEgressQueueTxBytes_Object = MibTableColumn
+hpSwitchEgressQueueTxBytes = _HpSwitchEgressQueueTxBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 5),
+    _HpSwitchEgressQueueTxBytes_Type()
+)
+hpSwitchEgressQueueTxBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueTxBytes.setStatus("mandatory")
+_HpSwitchEgressQueueTxDropBytes_Type = Counter64
+_HpSwitchEgressQueueTxDropBytes_Object = MibTableColumn
+hpSwitchEgressQueueTxDropBytes = _HpSwitchEgressQueueTxDropBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 19, 3, 1, 6),
+    _HpSwitchEgressQueueTxDropBytes_Type()
+)
+hpSwitchEgressQueueTxDropBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpSwitchEgressQueueTxDropBytes.setStatus("mandatory")
+_HpGarpStats_ObjectIdentity = ObjectIdentity
+hpGarpStats = _HpGarpStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21)
+)
+_HpGarpStatsTable_Object = MibTable
+hpGarpStatsTable = _HpGarpStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1)
+)
+if mibBuilder.loadTexts:
+    hpGarpStatsTable.setStatus("mandatory")
+_HpGarpStatsEntry_Object = MibTableRow
+hpGarpStatsEntry = _HpGarpStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1, 1)
+)
+hpGarpStatsEntry.setIndexNames(
+    (0, "STATISTICS-MIB", "hpGarpStatsPortIndex"),
+)
+if mibBuilder.loadTexts:
+    hpGarpStatsEntry.setStatus("mandatory")
+
+
+class _HpGarpStatsPortIndex_Type(Integer32):
+    """Custom type hpGarpStatsPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_HpGarpStatsPortIndex_Type.__name__ = "Integer32"
+_HpGarpStatsPortIndex_Object = MibTableColumn
+hpGarpStatsPortIndex = _HpGarpStatsPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1, 1, 1),
+    _HpGarpStatsPortIndex_Type()
+)
+hpGarpStatsPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpGarpStatsPortIndex.setStatus("mandatory")
+_HpGvrpFramesRecieved_Type = Counter32
+_HpGvrpFramesRecieved_Object = MibTableColumn
+hpGvrpFramesRecieved = _HpGvrpFramesRecieved_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1, 1, 2),
+    _HpGvrpFramesRecieved_Type()
+)
+hpGvrpFramesRecieved.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpFramesRecieved.setStatus("mandatory")
+_HpGvrpFramesTransmitted_Type = Counter32
+_HpGvrpFramesTransmitted_Object = MibTableColumn
+hpGvrpFramesTransmitted = _HpGvrpFramesTransmitted_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1, 1, 3),
+    _HpGvrpFramesTransmitted_Type()
+)
+hpGvrpFramesTransmitted.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpFramesTransmitted.setStatus("mandatory")
+_HpGvrpFramesDiscarded_Type = Counter32
+_HpGvrpFramesDiscarded_Object = MibTableColumn
+hpGvrpFramesDiscarded = _HpGvrpFramesDiscarded_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 9, 21, 1, 1, 4),
+    _HpGvrpFramesDiscarded_Type()
+)
+hpGvrpFramesDiscarded.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpGvrpFramesDiscarded.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "STATISTICS-MIB",
+    **{"MacAddress": MacAddress,
+       "VlanID": VlanID,
+       "hpSwitchStatistics": hpSwitchStatistics,
+       "hpSwitchIpxStat": hpSwitchIpxStat,
+       "hpSwitchIpxStatTable": hpSwitchIpxStatTable,
+       "hpSwitchIpxStatEntry": hpSwitchIpxStatEntry,
+       "hpSwitchIpxStatIndex": hpSwitchIpxStatIndex,
+       "hpSwitchIpxStatNodeAddr": hpSwitchIpxStatNodeAddr,
+       "hpSwitchIpxStatGatewayAddr": hpSwitchIpxStatGatewayAddr,
+       "hpSwitchIpxStatGatewayEncap": hpSwitchIpxStatGatewayEncap,
+       "hpSwitchIpxStatAdminStatus": hpSwitchIpxStatAdminStatus,
+       "hpSwitchIpStat": hpSwitchIpStat,
+       "hpSwitchIpStatTimepAdminStatus": hpSwitchIpStatTimepAdminStatus,
+       "hpSwitchIpStatTimepServerAddr": hpSwitchIpStatTimepServerAddr,
+       "hpSwitchIpStatTimepPollInterval": hpSwitchIpStatTimepPollInterval,
+       "hpSwitchIpStatTable": hpSwitchIpStatTable,
+       "hpSwitchIpStatEntry": hpSwitchIpStatEntry,
+       "hpSwitchIpStatIndex": hpSwitchIpStatIndex,
+       "hpSwitchIpStatAddr": hpSwitchIpStatAddr,
+       "hpSwitchIpStatMask": hpSwitchIpStatMask,
+       "hpSwitchIpStatGatewayAddr": hpSwitchIpStatGatewayAddr,
+       "hpSwitchIpStatAdminStatus": hpSwitchIpStatAdminStatus,
+       "hpSwitchFdbInfo": hpSwitchFdbInfo,
+       "hpSwitchVlanFdbAddrTable": hpSwitchVlanFdbAddrTable,
+       "hpSwitchVlanFdbAddrEntry": hpSwitchVlanFdbAddrEntry,
+       "hpSwitchVlanFdbId": hpSwitchVlanFdbId,
+       "hpSwitchVlanFdbAddress": hpSwitchVlanFdbAddress,
+       "hpSwitchVlanFdbPort": hpSwitchVlanFdbPort,
+       "hpSwitchPortFdbAddrTable": hpSwitchPortFdbAddrTable,
+       "hpSwitchPortFdbAddrEntry": hpSwitchPortFdbAddrEntry,
+       "hpSwitchPortFdbId": hpSwitchPortFdbId,
+       "hpSwitchPortFdbAddress": hpSwitchPortFdbAddress,
+       "hpSwitchPortFdbVlanId": hpSwitchPortFdbVlanId,
+       "hpSwitchPortFdbVidList": hpSwitchPortFdbVidList,
+       "hpSwitchStpStat": hpSwitchStpStat,
+       "hpSwitchStpStatAdminStatus": hpSwitchStpStatAdminStatus,
+       "hpSwitchMiscStat": hpSwitchMiscStat,
+       "hpSwitchCpuStat": hpSwitchCpuStat,
+       "hpSwitchFddiIpFragStat": hpSwitchFddiIpFragStat,
+       "hpSwitchFddiIpFragStatTable": hpSwitchFddiIpFragStatTable,
+       "hpSwitchFddiIpFragStatEntry": hpSwitchFddiIpFragStatEntry,
+       "hpSwitchFddiIpFragStatIndex": hpSwitchFddiIpFragStatIndex,
+       "hpSwitchFddiIpFragFramesFragmented": hpSwitchFddiIpFragFramesFragmented,
+       "hpSwitchFddiIpFragFramesCreated": hpSwitchFddiIpFragFramesCreated,
+       "hpSwitchFddiIpFragFrameErrors": hpSwitchFddiIpFragFrameErrors,
+       "hpSwitchFddiSystemStat": hpSwitchFddiSystemStat,
+       "hpSwitchFddiSystemStatTable": hpSwitchFddiSystemStatTable,
+       "hpSwitchFddiSystemStatEntry": hpSwitchFddiSystemStatEntry,
+       "hpSwitchFddiSystemStatIndex": hpSwitchFddiSystemStatIndex,
+       "hpSwitchFddiSystemOsVersion": hpSwitchFddiSystemOsVersion,
+       "hpSwitchFddiSystemRomVersion": hpSwitchFddiSystemRomVersion,
+       "hpSwitchFddiSystemMemoryTotal": hpSwitchFddiSystemMemoryTotal,
+       "hpSwitchFddiSystemMemoryFree": hpSwitchFddiSystemMemoryFree,
+       "hpSwitchFddiSystemCpuUtil": hpSwitchFddiSystemCpuUtil,
+       "hpSwitchFddiSystemBuildDirectory": hpSwitchFddiSystemBuildDirectory,
+       "hpSwitchFddiSystemBuildDate": hpSwitchFddiSystemBuildDate,
+       "hpSwitchFddiSystemBuildNumber": hpSwitchFddiSystemBuildNumber,
+       "hpABCStats": hpABCStats,
+       "hpABCStatsTable": hpABCStatsTable,
+       "hpABCStatsEntry": hpABCStatsEntry,
+       "hpABCStatsVlanIndex": hpABCStatsVlanIndex,
+       "hpABCStatsPortIndex": hpABCStatsPortIndex,
+       "hpABCStatsPortType": hpABCStatsPortType,
+       "hpABCStatsArpReplies": hpABCStatsArpReplies,
+       "hpABCStatsIpxReplies": hpABCStatsIpxReplies,
+       "hpABCStatsIpRipControl": hpABCStatsIpRipControl,
+       "hpABCStatsIpxRipSapControl": hpABCStatsIpxRipSapControl,
+       "hpIgmpStats": hpIgmpStats,
+       "hpIgmpStatsTable": hpIgmpStatsTable,
+       "hpIgmpStatsEntry": hpIgmpStatsEntry,
+       "hpIgmpStatsVlanIndex": hpIgmpStatsVlanIndex,
+       "hpIgmpStatsActiveGroupAddr": hpIgmpStatsActiveGroupAddr,
+       "hpIgmpStatsReports": hpIgmpStatsReports,
+       "hpIgmpStatsQueries": hpIgmpStatsQueries,
+       "hpIgmpStatsQuerierAccessPort": hpIgmpStatsQuerierAccessPort,
+       "hpIgmpStatsPortTable": hpIgmpStatsPortTable,
+       "hpIgmpStatsPortEntry": hpIgmpStatsPortEntry,
+       "hpIgmpStatsPortIndex": hpIgmpStatsPortIndex,
+       "hpIgmpStatsPortType": hpIgmpStatsPortType,
+       "hpIgmpStatsPortAccess": hpIgmpStatsPortAccess,
+       "hpIgmpStatsPortTable2": hpIgmpStatsPortTable2,
+       "hpIgmpStatsPortEntry2": hpIgmpStatsPortEntry2,
+       "hpIgmpStatsPortIndex2": hpIgmpStatsPortIndex2,
+       "hpIgmpStatsPortType2": hpIgmpStatsPortType2,
+       "hpIgmpStatsPortAccess2": hpIgmpStatsPortAccess2,
+       "hpIgmpStatsPortAgeTimer2": hpIgmpStatsPortAgeTimer2,
+       "hpIgmpStatsPortLeaveTimer2": hpIgmpStatsPortLeaveTimer2,
+       "hpLdbalStats": hpLdbalStats,
+       "hpLdbalStatsPortTable": hpLdbalStatsPortTable,
+       "hpLdbalStatsPortEntry": hpLdbalStatsPortEntry,
+       "hpLdbalStatsPortIndex": hpLdbalStatsPortIndex,
+       "hpLdbalStatsPortState": hpLdbalStatsPortState,
+       "hpLdbalStatsAdjacentSwitch": hpLdbalStatsAdjacentSwitch,
+       "hpLdbalStatsPeerPort": hpLdbalStatsPeerPort,
+       "hpLdbalStatsAdjacentHost": hpLdbalStatsAdjacentHost,
+       "hpLdbalStatsMeshWarningStatus": hpLdbalStatsMeshWarningStatus,
+       "hpSwitchMacStats": hpSwitchMacStats,
+       "hpSwitchFdbAddressCount": hpSwitchFdbAddressCount,
+       "hpSwitchFlowControlStatus": hpSwitchFlowControlStatus,
+       "hpSwitchFlowControlStatusTable": hpSwitchFlowControlStatusTable,
+       "hpSwitchFlowControlStatusEntry": hpSwitchFlowControlStatusEntry,
+       "hpSwitchFlowControlStatusPortIndex": hpSwitchFlowControlStatusPortIndex,
+       "hpSwitchFlowControlState": hpSwitchFlowControlState,
+       "hpFECStatsTrunk": hpFECStatsTrunk,
+       "hpFECStatsTrunkTable": hpFECStatsTrunkTable,
+       "hpFECStatsTrunkEntry": hpFECStatsTrunkEntry,
+       "hpFECStatsTrunkIndex": hpFECStatsTrunkIndex,
+       "hpFECStatsTrunkName": hpFECStatsTrunkName,
+       "hpFECStatsTrunkNegotiationStatus": hpFECStatsTrunkNegotiationStatus,
+       "hpFECStatsTrunkForwardingMode": hpFECStatsTrunkForwardingMode,
+       "hpFECStatsTrunkFlushPktsEchoed": hpFECStatsTrunkFlushPktsEchoed,
+       "hpFECStatsPort": hpFECStatsPort,
+       "hpFECStatsPortTable": hpFECStatsPortTable,
+       "hpFECStatsPortEntry": hpFECStatsPortEntry,
+       "hpFECStatsPortIndex": hpFECStatsPortIndex,
+       "hpFECStatsPortTrunkNumber": hpFECStatsPortTrunkNumber,
+       "hpFECStatsPortTrunkName": hpFECStatsPortTrunkName,
+       "hpFECStatsPortMode": hpFECStatsPortMode,
+       "hpFECStatsPortNegotiationStatus": hpFECStatsPortNegotiationStatus,
+       "hpFECStatsPortHellosSent": hpFECStatsPortHellosSent,
+       "hpFECStatsPortHellosReceived": hpFECStatsPortHellosReceived,
+       "hpFECStatsPortMySlowHello": hpFECStatsPortMySlowHello,
+       "hpFECStatsPortMyAutoMode": hpFECStatsPortMyAutoMode,
+       "hpFECStatsPortPartner": hpFECStatsPortPartner,
+       "hpFECStatsPortFlushPktsEchoed": hpFECStatsPortFlushPktsEchoed,
+       "hpGvrpStats": hpGvrpStats,
+       "hpGvrpStatsTable": hpGvrpStatsTable,
+       "hpGvrpStatsEntry": hpGvrpStatsEntry,
+       "hpGvrpStatsVlanIndex": hpGvrpStatsVlanIndex,
+       "hpGvrpStatsPortIndex": hpGvrpStatsPortIndex,
+       "hpGvrpStatsPortVlanMember": hpGvrpStatsPortVlanMember,
+       "hpGvrpPortIfOperStatus": hpGvrpPortIfOperStatus,
+       "hpPortGvrpCtrlStatus": hpPortGvrpCtrlStatus,
+       "hpGvrpVlanTable": hpGvrpVlanTable,
+       "hpGvrpVlanEntry": hpGvrpVlanEntry,
+       "hpGvrpVlanPortIndex": hpGvrpVlanPortIndex,
+       "hpGvrpVlanCreationMap": hpGvrpVlanCreationMap,
+       "hpGvrpVlanDeletionMap": hpGvrpVlanDeletionMap,
+       "hpGvrpVlanLearningOnPort": hpGvrpVlanLearningOnPort,
+       "hpGvrpVlanLeavingPort": hpGvrpVlanLeavingPort,
+       "hpSshStats": hpSshStats,
+       "hpSshStatsTable": hpSshStatsTable,
+       "hpSshStatsEntry": hpSshStatsEntry,
+       "hpSshStatsSesIndex": hpSshStatsSesIndex,
+       "hpSshStatsSesType": hpSshStatsSesType,
+       "hpSshStatsSourceIpPort": hpSshStatsSourceIpPort,
+       "hpSshStatsSesVersion": hpSshStatsSesVersion,
+       "hpSshStatsSourceIpType": hpSshStatsSourceIpType,
+       "hpSshStatsSourceIpAddress": hpSshStatsSourceIpAddress,
+       "hpSshStatsSourceIpPortNum": hpSshStatsSourceIpPortNum,
+       "hpSwitchPhysicalPort": hpSwitchPhysicalPort,
+       "hpSwitchPhysicalPortTable": hpSwitchPhysicalPortTable,
+       "hpSwitchPhysicalPortEntry": hpSwitchPhysicalPortEntry,
+       "hpSwitchPhysicalPortIndex": hpSwitchPhysicalPortIndex,
+       "hpSwitchPhysicalPortType": hpSwitchPhysicalPortType,
+       "hpSwitchPortStatTable": hpSwitchPortStatTable,
+       "hpSwitchPortStatEntry": hpSwitchPortStatEntry,
+       "hpSwitchPortStatIndex": hpSwitchPortStatIndex,
+       "hpSwitchPortStatAvgInBcastPkts": hpSwitchPortStatAvgInBcastPkts,
+       "hpSwitchPortStatAvgInMcastPkts": hpSwitchPortStatAvgInMcastPkts,
+       "hpSwitchPortStatAvgInTotalPkts": hpSwitchPortStatAvgInTotalPkts,
+       "hpSwitchPortStatAvgOutBcastPkts": hpSwitchPortStatAvgOutBcastPkts,
+       "hpSwitchPortStatAvgOutMcastPkts": hpSwitchPortStatAvgOutMcastPkts,
+       "hpSwitchPortStatAvgOutTotalPkts": hpSwitchPortStatAvgOutTotalPkts,
+       "hpSwitchPortStatAvgInBytes": hpSwitchPortStatAvgInBytes,
+       "hpSwitchPortStatAvgOutBytes": hpSwitchPortStatAvgOutBytes,
+       "hpSwitchPortStatAvgInPortUtil": hpSwitchPortStatAvgInPortUtil,
+       "hpSwitchPortStatAvgOutPortUtil": hpSwitchPortStatAvgOutPortUtil,
+       "hpSwitchCosStats": hpSwitchCosStats,
+       "hpSwitchQueueWatchStatsTable": hpSwitchQueueWatchStatsTable,
+       "hpSwitchQueueWatchStatsEntry": hpSwitchQueueWatchStatsEntry,
+       "hpSwitchQueueWatchStatsPortIndex": hpSwitchQueueWatchStatsPortIndex,
+       "hpSwitchQueueWatchStatsQueueIndex": hpSwitchQueueWatchStatsQueueIndex,
+       "hpSwitchQueueWatchStatsQueueDrops": hpSwitchQueueWatchStatsQueueDrops,
+       "hpSwitchEgressQueueDropStatsTable": hpSwitchEgressQueueDropStatsTable,
+       "hpSwitchEgressQueueDropStatsEntry": hpSwitchEgressQueueDropStatsEntry,
+       "hpSwitchEgressQueueDropStatsPortIndex": hpSwitchEgressQueueDropStatsPortIndex,
+       "hpSwitchEgressQueueDropStatsQueueIndex": hpSwitchEgressQueueDropStatsQueueIndex,
+       "hpSwitchEgressQueueDropStatsQueueDrops": hpSwitchEgressQueueDropStatsQueueDrops,
+       "hpSwitchEgressQueueStatsTable": hpSwitchEgressQueueStatsTable,
+       "hpSwitchEgressQueueStatsEntry": hpSwitchEgressQueueStatsEntry,
+       "hpSwitchEgressQueueStatsPortIndex": hpSwitchEgressQueueStatsPortIndex,
+       "hpSwitchEgressQueueStatsQueueIndex": hpSwitchEgressQueueStatsQueueIndex,
+       "hpSwitchEgressQueueTxPkts": hpSwitchEgressQueueTxPkts,
+       "hpSwitchEgressQueueTxDropPkts": hpSwitchEgressQueueTxDropPkts,
+       "hpSwitchEgressQueueTxBytes": hpSwitchEgressQueueTxBytes,
+       "hpSwitchEgressQueueTxDropBytes": hpSwitchEgressQueueTxDropBytes,
+       "hpGarpStats": hpGarpStats,
+       "hpGarpStatsTable": hpGarpStatsTable,
+       "hpGarpStatsEntry": hpGarpStatsEntry,
+       "hpGarpStatsPortIndex": hpGarpStatsPortIndex,
+       "hpGvrpFramesRecieved": hpGvrpFramesRecieved,
+       "hpGvrpFramesTransmitted": hpGvrpFramesTransmitted,
+       "hpGvrpFramesDiscarded": hpGvrpFramesDiscarded}
+)

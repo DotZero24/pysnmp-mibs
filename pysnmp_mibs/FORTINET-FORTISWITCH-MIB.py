@@ -1,162 +1,1063 @@
+# SNMP MIB module (FORTINET-FORTISWITCH-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module FORTINET-FORTISWITCH-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fortinet/FORTINET-FORTISWITCH-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:11:59 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/fortinet/FORTINET-FORTISWITCH-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:21:51 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dot1dTpFdbPort, dot1dTpFdbAddress = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dTpFdbPort", "dot1dTpFdbAddress")
-fnSysSerial, fortinet = mibBuilder.importSymbols("FORTINET-CORE-MIB", "fnSysSerial", "fortinet")
-ifName, = mibBuilder.importSymbols("IF-MIB", "ifName")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-sysName, = mibBuilder.importSymbols("SNMPv2-MIB", "sysName")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-fnFortiSwitchMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 12356, 106))
-fnFortiSwitchMib.setRevisions(('2022-04-01 00:00',))
-if mibBuilder.loadTexts: fnFortiSwitchMib.setLastUpdated('202204010000Z')
-if mibBuilder.loadTexts: fnFortiSwitchMib.setOrganization('Fortinet Technologies, Inc.')
-fsCommon = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 1))
-fsSys = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 1, 1))
-fsSysSerial = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsSysSerial.setStatus('current')
-fsTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 2))
-fsTrapPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 2, 0))
-fsTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1))
-fsLlvTrapMsg = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 1), DisplayString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsLlvTrapMsg.setStatus('current')
-fsLearningTrapVid = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 2), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsLearningTrapVid.setStatus('current')
-fsLearningTrapType = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("add", 1), ("delete", 2), ("movefrom", 3), ("moveto", 4)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsLearningTrapType.setStatus('current')
-fsSensorName = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 4), DisplayString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsSensorName.setStatus('current')
-fsSensorType = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 6))).clone(namedValues=NamedValues(("temperature", 1), ("poe", 2), ("cpu", 3), ("memory", 4), ("disk", 6)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsSensorType.setStatus('current')
-fsSensorIdx = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 6), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsSensorIdx.setStatus('current')
-fsSensorFanEventType = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("detected", 1), ("undetected", 2), ("resumed", 3), ("failure", 4)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsSensorFanEventType.setStatus('current')
-fsSensorPsuEventType = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("up", 1), ("connected", 2), ("good", 3), ("down", 4), ("disconnected", 5), ("bad", 6)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsSensorPsuEventType.setStatus('current')
-fsAlarmEventType = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("inrange", 1), ("warning", 2), ("outofrange", 3), ("cleared", 4)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsAlarmEventType.setStatus('current')
-fsAlarmThresholdValue = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 10), Integer32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsAlarmThresholdValue.setStatus('current')
-fsAlarmThresholdUnits = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("celcius", 1), ("watts", 2), ("percentage", 3), ("unknown", 4)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsAlarmThresholdUnits.setStatus('current')
-fsIpAddress = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 12), IpAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: fsIpAddress.setStatus('current')
-fsTrunkMemPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 3))
-fsTrunkMember = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 3, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 82))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsTrunkMember.setStatus('current')
-fsTrapMemberDown = NotificationType((1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 703)).setObjects(("FORTINET-CORE-MIB", "fnSysSerial"), ("SNMPv2-MIB", "sysName"), ("FORTINET-FORTISWITCH-MIB", "fsTrunkMember"))
-if mibBuilder.loadTexts: fsTrapMemberDown.setStatus('current')
-fsTrapMemberUp = NotificationType((1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 704)).setObjects(("FORTINET-CORE-MIB", "fnSysSerial"), ("SNMPv2-MIB", "sysName"), ("FORTINET-FORTISWITCH-MIB", "fsTrunkMember"))
-if mibBuilder.loadTexts: fsTrapMemberUp.setStatus('current')
-fsTrapLlvViolation = NotificationType((1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 705)).setObjects(("FORTINET-CORE-MIB", "fnSysSerial"), ("SNMPv2-MIB", "sysName"), ("FORTINET-FORTISWITCH-MIB", "fsLlvTrapMsg"))
-if mibBuilder.loadTexts: fsTrapLlvViolation.setStatus('current')
-fsTrapLearningEvent = NotificationType((1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 706)).setObjects(("FORTINET-CORE-MIB", "fnSysSerial"), ("SNMPv2-MIB", "sysName"), ("BRIDGE-MIB", "dot1dTpFdbAddress"), ("FORTINET-FORTISWITCH-MIB", "fsLearningTrapVid"), ("BRIDGE-MIB", "dot1dTpFdbPort"), ("FORTINET-FORTISWITCH-MIB", "fsLearningTrapType"))
-if mibBuilder.loadTexts: fsTrapLearningEvent.setStatus('current')
-fsTrapSensorFault = NotificationType((1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 707)).setObjects(("FORTINET-CORE-MIB", "fnSysSerial"), ("SNMPv2-MIB", "sysName"), ("FORTINET-FORTISWITCH-MIB", "fsSensorName"), ("FORTINET-FORTISWITCH-MIB", "fsSensorType"))
-if mibBuilder.loadTexts: fsTrapSensorFault.setStatus('current')
-fsTrapSensorAlarm = NotificationType((1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 708)).setObjects(("FORTINET-CORE-MIB", "fnSysSerial"), ("SNMPv2-MIB", "sysName"), ("FORTINET-FORTISWITCH-MIB", "fsSensorName"), ("FORTINET-FORTISWITCH-MIB", "fsSensorType"), ("FORTINET-FORTISWITCH-MIB", "fsAlarmEventType"), ("FORTINET-FORTISWITCH-MIB", "fsAlarmThresholdValue"), ("FORTINET-FORTISWITCH-MIB", "fsAlarmThresholdUnits"))
-if mibBuilder.loadTexts: fsTrapSensorAlarm.setStatus('current')
-fsTrapFanDetect = NotificationType((1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 709)).setObjects(("FORTINET-CORE-MIB", "fnSysSerial"), ("SNMPv2-MIB", "sysName"), ("FORTINET-FORTISWITCH-MIB", "fsSensorIdx"), ("FORTINET-FORTISWITCH-MIB", "fsSensorFanEventType"))
-if mibBuilder.loadTexts: fsTrapFanDetect.setStatus('current')
-fsTrapPsuStatus = NotificationType((1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 710)).setObjects(("FORTINET-CORE-MIB", "fnSysSerial"), ("SNMPv2-MIB", "sysName"), ("FORTINET-FORTISWITCH-MIB", "fsSensorIdx"), ("FORTINET-FORTISWITCH-MIB", "fsSensorPsuEventType"))
-if mibBuilder.loadTexts: fsTrapPsuStatus.setStatus('current')
-fsTrapIpConflict = NotificationType((1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 801)).setObjects(("FORTINET-CORE-MIB", "fnSysSerial"), ("SNMPv2-MIB", "sysName"), ("FORTINET-FORTISWITCH-MIB", "fsIpAddress"), ("FORTINET-FORTISWITCH-MIB", "ifname"))
-if mibBuilder.loadTexts: fsTrapIpConflict.setStatus('current')
-fsTrapTrunkMemberHBOutOfSync = NotificationType((1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 802)).setObjects(("FORTINET-CORE-MIB", "fnSysSerial"), ("SNMPv2-MIB", "sysName"), ("IF-MIB", "ifName"), ("IF-MIB", "ifName"))
-if mibBuilder.loadTexts: fsTrapTrunkMemberHBOutOfSync.setStatus('current')
-fsSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 4))
-fsSystemInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 4, 1))
-fsSysVersion = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsSysVersion.setStatus('current')
-fsSysCpuUsage = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 2), Gauge32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsSysCpuUsage.setStatus('current')
-fsSysMemUsage = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 3), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsSysMemUsage.setStatus('current')
-fsSysMemCapacity = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsSysMemCapacity.setStatus('current')
-fsSysDiskUsage = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 5), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsSysDiskUsage.setStatus('current')
-fsSysDiskCapacity = MibScalar((1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsSysDiskCapacity.setStatus('current')
-fsModel = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5))
-s424df = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 4243))
-fs108d = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1081))
-s124fp = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 12411))
-fs224d = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 2241))
-s108fn = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1086))
-s448ep = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 4486))
-s224en = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 2243))
-s108en = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1082))
-sr24dn = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1243))
-s148ff = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1486))
-s148ep = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1248))
-s108dv = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1085))
-s124fn = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 12410))
-s524dn = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 5242))
-s124ep = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1245))
-s148fn = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1484))
-s524df = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 5241))
-s148fp = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1485))
-s124dp = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1242))
-s424dn = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 4241))
-s108fp = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1087))
-s148en = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1247))
-s248dp = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 2481))
-s424dp = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 4242))
-fs3d32 = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 30321))
-fs1d24 = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 10241))
-s124dn = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1241))
-s424ei = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 42404))
-s248df = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 2482))
-fs1e24 = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 10242))
-s124en = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1244))
-fs3e32 = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 30322))
-s448dn = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 4482))
-s424ep = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 42402))
-s108ef = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1084))
-s448dp = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 4484))
-s224df = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 2242))
-s248ep = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 2485))
-s248ef = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 2484))
-s548dn = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 5482))
-s426ef = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 42405))
-s448df = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 4483))
-s124ef = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1246))
-s424ef = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 42403))
-s548df = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 5481))
-st1e24 = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 10243))
-s424en = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 42401))
-s108ep = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1083))
-s448en = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 4485))
-s108ff = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1088))
-sr12dp = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1121))
-fs1e48 = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 10482))
-s448ef = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 4487))
-s224ep = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 2244))
-s248dn = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 2483))
-s124ff = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 1249))
-fs1d48 = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 5, 10481))
-fsMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 12356, 106, 100))
-fsNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 12356, 106, 100, 1)).setObjects(("FORTINET-FORTISWITCH-MIB", "fsTrapMemberDown"), ("FORTINET-FORTISWITCH-MIB", "fsTrapMemberUp"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    fsNotificationGroup = fsNotificationGroup.setStatus('current')
-fsSystemObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12356, 106, 100, 2)).setObjects(("FORTINET-FORTISWITCH-MIB", "fsSysVersion"), ("FORTINET-FORTISWITCH-MIB", "fsSysCpuUsage"), ("FORTINET-FORTISWITCH-MIB", "fsSysMemUsage"), ("FORTINET-FORTISWITCH-MIB", "fsSysMemCapacity"), ("FORTINET-FORTISWITCH-MIB", "fsSysDiskUsage"), ("FORTINET-FORTISWITCH-MIB", "fsSysDiskCapacity"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    fsSystemObjectGroup = fsSystemObjectGroup.setStatus('current')
-fsTrunkObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12356, 106, 100, 3)).setObjects(("FORTINET-FORTISWITCH-MIB", "fsTrunkMember"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    fsTrunkObjectGroup = fsTrunkObjectGroup.setStatus('current')
-fsMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 12356, 106, 100, 100)).setObjects(("FORTINET-FORTISWITCH-MIB", "fsNotificationGroup"), ("FORTINET-FORTISWITCH-MIB", "fsSystemObjectGroup"), ("FORTINET-FORTISWITCH-MIB", "fsTrunkObjectGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    fsMIBCompliance = fsMIBCompliance.setStatus('current')
-mibBuilder.exportSymbols("FORTINET-FORTISWITCH-MIB", s224ep=s224ep, s248df=s248df, fs3e32=fs3e32, fsCommon=fsCommon, s124ep=s124ep, s424dn=s424dn, s448dn=s448dn, fsSystemObjectGroup=fsSystemObjectGroup, s124fn=s124fn, s124dn=s124dn, fsSystem=fsSystem, fs1d24=fs1d24, s424ef=s424ef, s148en=s148en, fsSysMemCapacity=fsSysMemCapacity, s224en=s224en, fsTrapPsuStatus=fsTrapPsuStatus, s148fn=s148fn, fsSensorFanEventType=fsSensorFanEventType, fsSysDiskCapacity=fsSysDiskCapacity, s524df=s524df, fs108d=fs108d, s248dn=s248dn, s248dp=s248dp, s148ff=s148ff, s108fp=s108fp, fsLearningTrapVid=fsLearningTrapVid, fsSystemInfo=fsSystemInfo, fs224d=fs224d, fs1e24=fs1e24, fsTrapPrefix=fsTrapPrefix, s148ep=s148ep, fsTraps=fsTraps, fsLlvTrapMsg=fsLlvTrapMsg, fsIpAddress=fsIpAddress, s448ep=s448ep, fsTrunkMemPrefix=fsTrunkMemPrefix, s148fp=s148fp, s248ep=s248ep, fsMibConformance=fsMibConformance, fs3d32=fs3d32, fsSensorType=fsSensorType, fsTrapFanDetect=fsTrapFanDetect, s548dn=s548dn, s108ep=s108ep, fs1d48=fs1d48, fsSensorName=fsSensorName, s448dp=s448dp, s424ep=s424ep, fsSysMemUsage=fsSysMemUsage, fsSysCpuUsage=fsSysCpuUsage, s424dp=s424dp, fsTrapTrunkMemberHBOutOfSync=fsTrapTrunkMemberHBOutOfSync, fsSensorIdx=fsSensorIdx, fsSysDiskUsage=fsSysDiskUsage, PYSNMP_MODULE_ID=fnFortiSwitchMib, s224df=s224df, fsTrapLearningEvent=fsTrapLearningEvent, st1e24=st1e24, s448ef=s448ef, s124dp=s124dp, fs1e48=fs1e48, s108ef=s108ef, fsSensorPsuEventType=fsSensorPsuEventType, sr24dn=sr24dn, s124ef=s124ef, s248ef=s248ef, s448en=s448en, fsTrapSensorAlarm=fsTrapSensorAlarm, fsTrunkObjectGroup=fsTrunkObjectGroup, fsModel=fsModel, fsNotificationGroup=fsNotificationGroup, s108fn=s108fn, fsTrapMemberUp=fsTrapMemberUp, s108ff=s108ff, sr12dp=sr12dp, fsTrapSensorFault=fsTrapSensorFault, fsTrapIpConflict=fsTrapIpConflict, s424ei=s424ei, fnFortiSwitchMib=fnFortiSwitchMib, fsAlarmThresholdValue=fsAlarmThresholdValue, fsLearningTrapType=fsLearningTrapType, fsAlarmThresholdUnits=fsAlarmThresholdUnits, s548df=s548df, s124fp=s124fp, fsAlarmEventType=fsAlarmEventType, s448df=s448df, fsTrapObjects=fsTrapObjects, s124ff=s124ff, s424en=s424en, fsTrunkMember=fsTrunkMember, s108en=s108en, s424df=s424df, s108dv=s108dv, fsSys=fsSys, fsSysSerial=fsSysSerial, s524dn=s524dn, s124en=s124en, fsTrapLlvViolation=fsTrapLlvViolation, s426ef=s426ef, fsTrapMemberDown=fsTrapMemberDown, fsSysVersion=fsSysVersion, fsMIBCompliance=fsMIBCompliance)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dot1dTpFdbAddress,
+ dot1dTpFdbPort) = mibBuilder.importSymbols(
+    "BRIDGE-MIB",
+    "dot1dTpFdbAddress",
+    "dot1dTpFdbPort")
+
+(fnSysSerial,
+ fortinet) = mibBuilder.importSymbols(
+    "FORTINET-CORE-MIB",
+    "fnSysSerial",
+    "fortinet")
+
+(ifName,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifName")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(sysName,) = mibBuilder.importSymbols(
+    "SNMPv2-MIB",
+    "sysName")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+fnFortiSwitchMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106)
+)
+if mibBuilder.loadTexts:
+    fnFortiSwitchMib.setRevisions(
+        ("2022-04-01 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_FsCommon_ObjectIdentity = ObjectIdentity
+fsCommon = _FsCommon_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 1)
+)
+_FsSys_ObjectIdentity = ObjectIdentity
+fsSys = _FsSys_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 1, 1)
+)
+_FsSysSerial_Type = DisplayString
+_FsSysSerial_Object = MibScalar
+fsSysSerial = _FsSysSerial_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 1, 1, 1),
+    _FsSysSerial_Type()
+)
+fsSysSerial.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsSysSerial.setStatus("current")
+_FsTraps_ObjectIdentity = ObjectIdentity
+fsTraps = _FsTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2)
+)
+_FsTrapPrefix_ObjectIdentity = ObjectIdentity
+fsTrapPrefix = _FsTrapPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 0)
+)
+_FsTrapObjects_ObjectIdentity = ObjectIdentity
+fsTrapObjects = _FsTrapObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1)
+)
+_FsLlvTrapMsg_Type = DisplayString
+_FsLlvTrapMsg_Object = MibScalar
+fsLlvTrapMsg = _FsLlvTrapMsg_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 1),
+    _FsLlvTrapMsg_Type()
+)
+fsLlvTrapMsg.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsLlvTrapMsg.setStatus("current")
+_FsLearningTrapVid_Type = Integer32
+_FsLearningTrapVid_Object = MibScalar
+fsLearningTrapVid = _FsLearningTrapVid_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 2),
+    _FsLearningTrapVid_Type()
+)
+fsLearningTrapVid.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsLearningTrapVid.setStatus("current")
+
+
+class _FsLearningTrapType_Type(Integer32):
+    """Custom type fsLearningTrapType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("add", 1),
+          ("delete", 2),
+          ("movefrom", 3),
+          ("moveto", 4))
+    )
+
+
+_FsLearningTrapType_Type.__name__ = "Integer32"
+_FsLearningTrapType_Object = MibScalar
+fsLearningTrapType = _FsLearningTrapType_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 3),
+    _FsLearningTrapType_Type()
+)
+fsLearningTrapType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsLearningTrapType.setStatus("current")
+_FsSensorName_Type = DisplayString
+_FsSensorName_Object = MibScalar
+fsSensorName = _FsSensorName_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 4),
+    _FsSensorName_Type()
+)
+fsSensorName.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsSensorName.setStatus("current")
+
+
+class _FsSensorType_Type(Integer32):
+    """Custom type fsSensorType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("temperature", 1),
+          ("poe", 2),
+          ("cpu", 3),
+          ("memory", 4),
+          ("disk", 6))
+    )
+
+
+_FsSensorType_Type.__name__ = "Integer32"
+_FsSensorType_Object = MibScalar
+fsSensorType = _FsSensorType_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 5),
+    _FsSensorType_Type()
+)
+fsSensorType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsSensorType.setStatus("current")
+_FsSensorIdx_Type = Integer32
+_FsSensorIdx_Object = MibScalar
+fsSensorIdx = _FsSensorIdx_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 6),
+    _FsSensorIdx_Type()
+)
+fsSensorIdx.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsSensorIdx.setStatus("current")
+
+
+class _FsSensorFanEventType_Type(Integer32):
+    """Custom type fsSensorFanEventType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("detected", 1),
+          ("undetected", 2),
+          ("resumed", 3),
+          ("failure", 4))
+    )
+
+
+_FsSensorFanEventType_Type.__name__ = "Integer32"
+_FsSensorFanEventType_Object = MibScalar
+fsSensorFanEventType = _FsSensorFanEventType_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 7),
+    _FsSensorFanEventType_Type()
+)
+fsSensorFanEventType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsSensorFanEventType.setStatus("current")
+
+
+class _FsSensorPsuEventType_Type(Integer32):
+    """Custom type fsSensorPsuEventType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("connected", 2),
+          ("good", 3),
+          ("down", 4),
+          ("disconnected", 5),
+          ("bad", 6))
+    )
+
+
+_FsSensorPsuEventType_Type.__name__ = "Integer32"
+_FsSensorPsuEventType_Object = MibScalar
+fsSensorPsuEventType = _FsSensorPsuEventType_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 8),
+    _FsSensorPsuEventType_Type()
+)
+fsSensorPsuEventType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsSensorPsuEventType.setStatus("current")
+
+
+class _FsAlarmEventType_Type(Integer32):
+    """Custom type fsAlarmEventType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inrange", 1),
+          ("warning", 2),
+          ("outofrange", 3),
+          ("cleared", 4))
+    )
+
+
+_FsAlarmEventType_Type.__name__ = "Integer32"
+_FsAlarmEventType_Object = MibScalar
+fsAlarmEventType = _FsAlarmEventType_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 9),
+    _FsAlarmEventType_Type()
+)
+fsAlarmEventType.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsAlarmEventType.setStatus("current")
+_FsAlarmThresholdValue_Type = Integer32
+_FsAlarmThresholdValue_Object = MibScalar
+fsAlarmThresholdValue = _FsAlarmThresholdValue_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 10),
+    _FsAlarmThresholdValue_Type()
+)
+fsAlarmThresholdValue.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsAlarmThresholdValue.setStatus("current")
+
+
+class _FsAlarmThresholdUnits_Type(Integer32):
+    """Custom type fsAlarmThresholdUnits based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("celcius", 1),
+          ("watts", 2),
+          ("percentage", 3),
+          ("unknown", 4))
+    )
+
+
+_FsAlarmThresholdUnits_Type.__name__ = "Integer32"
+_FsAlarmThresholdUnits_Object = MibScalar
+fsAlarmThresholdUnits = _FsAlarmThresholdUnits_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 11),
+    _FsAlarmThresholdUnits_Type()
+)
+fsAlarmThresholdUnits.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsAlarmThresholdUnits.setStatus("current")
+_FsIpAddress_Type = IpAddress
+_FsIpAddress_Object = MibScalar
+fsIpAddress = _FsIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 1, 12),
+    _FsIpAddress_Type()
+)
+fsIpAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    fsIpAddress.setStatus("current")
+_FsTrunkMemPrefix_ObjectIdentity = ObjectIdentity
+fsTrunkMemPrefix = _FsTrunkMemPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 3)
+)
+
+
+class _FsTrunkMember_Type(DisplayString):
+    """Custom type fsTrunkMember based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 82),
+    )
+
+
+_FsTrunkMember_Type.__name__ = "DisplayString"
+_FsTrunkMember_Object = MibScalar
+fsTrunkMember = _FsTrunkMember_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 3, 1),
+    _FsTrunkMember_Type()
+)
+fsTrunkMember.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsTrunkMember.setStatus("current")
+_FsSystem_ObjectIdentity = ObjectIdentity
+fsSystem = _FsSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 4)
+)
+_FsSystemInfo_ObjectIdentity = ObjectIdentity
+fsSystemInfo = _FsSystemInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 4, 1)
+)
+
+
+class _FsSysVersion_Type(DisplayString):
+    """Custom type fsSysVersion based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_FsSysVersion_Type.__name__ = "DisplayString"
+_FsSysVersion_Object = MibScalar
+fsSysVersion = _FsSysVersion_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 1),
+    _FsSysVersion_Type()
+)
+fsSysVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsSysVersion.setStatus("current")
+
+
+class _FsSysCpuUsage_Type(Gauge32):
+    """Custom type fsSysCpuUsage based on Gauge32"""
+    subtypeSpec = Gauge32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_FsSysCpuUsage_Type.__name__ = "Gauge32"
+_FsSysCpuUsage_Object = MibScalar
+fsSysCpuUsage = _FsSysCpuUsage_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 2),
+    _FsSysCpuUsage_Type()
+)
+fsSysCpuUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsSysCpuUsage.setStatus("current")
+_FsSysMemUsage_Type = Gauge32
+_FsSysMemUsage_Object = MibScalar
+fsSysMemUsage = _FsSysMemUsage_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 3),
+    _FsSysMemUsage_Type()
+)
+fsSysMemUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsSysMemUsage.setStatus("current")
+_FsSysMemCapacity_Type = Gauge32
+_FsSysMemCapacity_Object = MibScalar
+fsSysMemCapacity = _FsSysMemCapacity_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 4),
+    _FsSysMemCapacity_Type()
+)
+fsSysMemCapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsSysMemCapacity.setStatus("current")
+_FsSysDiskUsage_Type = Gauge32
+_FsSysDiskUsage_Object = MibScalar
+fsSysDiskUsage = _FsSysDiskUsage_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 5),
+    _FsSysDiskUsage_Type()
+)
+fsSysDiskUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsSysDiskUsage.setStatus("current")
+_FsSysDiskCapacity_Type = Gauge32
+_FsSysDiskCapacity_Object = MibScalar
+fsSysDiskCapacity = _FsSysDiskCapacity_Object(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 4, 1, 6),
+    _FsSysDiskCapacity_Type()
+)
+fsSysDiskCapacity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsSysDiskCapacity.setStatus("current")
+_FsModel_ObjectIdentity = ObjectIdentity
+fsModel = _FsModel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5)
+)
+_Fs108d_ObjectIdentity = ObjectIdentity
+fs108d = _Fs108d_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1081)
+)
+_S108en_ObjectIdentity = ObjectIdentity
+s108en = _S108en_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1082)
+)
+_S108ep_ObjectIdentity = ObjectIdentity
+s108ep = _S108ep_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1083)
+)
+_S108ef_ObjectIdentity = ObjectIdentity
+s108ef = _S108ef_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1084)
+)
+_S108dv_ObjectIdentity = ObjectIdentity
+s108dv = _S108dv_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1085)
+)
+_S108fn_ObjectIdentity = ObjectIdentity
+s108fn = _S108fn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1086)
+)
+_S108fp_ObjectIdentity = ObjectIdentity
+s108fp = _S108fp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1087)
+)
+_S108ff_ObjectIdentity = ObjectIdentity
+s108ff = _S108ff_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1088)
+)
+_Sr12dp_ObjectIdentity = ObjectIdentity
+sr12dp = _Sr12dp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1121)
+)
+_S124dn_ObjectIdentity = ObjectIdentity
+s124dn = _S124dn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1241)
+)
+_S124dp_ObjectIdentity = ObjectIdentity
+s124dp = _S124dp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1242)
+)
+_Sr24dn_ObjectIdentity = ObjectIdentity
+sr24dn = _Sr24dn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1243)
+)
+_S124en_ObjectIdentity = ObjectIdentity
+s124en = _S124en_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1244)
+)
+_S124ep_ObjectIdentity = ObjectIdentity
+s124ep = _S124ep_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1245)
+)
+_S124ef_ObjectIdentity = ObjectIdentity
+s124ef = _S124ef_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1246)
+)
+_S148en_ObjectIdentity = ObjectIdentity
+s148en = _S148en_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1247)
+)
+_S148ep_ObjectIdentity = ObjectIdentity
+s148ep = _S148ep_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1248)
+)
+_S124ff_ObjectIdentity = ObjectIdentity
+s124ff = _S124ff_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1249)
+)
+_S148fn_ObjectIdentity = ObjectIdentity
+s148fn = _S148fn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1484)
+)
+_S148fp_ObjectIdentity = ObjectIdentity
+s148fp = _S148fp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1485)
+)
+_S148ff_ObjectIdentity = ObjectIdentity
+s148ff = _S148ff_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 1486)
+)
+_Fs224d_ObjectIdentity = ObjectIdentity
+fs224d = _Fs224d_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 2241)
+)
+_S224df_ObjectIdentity = ObjectIdentity
+s224df = _S224df_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 2242)
+)
+_S224en_ObjectIdentity = ObjectIdentity
+s224en = _S224en_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 2243)
+)
+_S224ep_ObjectIdentity = ObjectIdentity
+s224ep = _S224ep_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 2244)
+)
+_S248dp_ObjectIdentity = ObjectIdentity
+s248dp = _S248dp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 2481)
+)
+_S248df_ObjectIdentity = ObjectIdentity
+s248df = _S248df_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 2482)
+)
+_S248dn_ObjectIdentity = ObjectIdentity
+s248dn = _S248dn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 2483)
+)
+_S248ef_ObjectIdentity = ObjectIdentity
+s248ef = _S248ef_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 2484)
+)
+_S248ep_ObjectIdentity = ObjectIdentity
+s248ep = _S248ep_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 2485)
+)
+_S424dn_ObjectIdentity = ObjectIdentity
+s424dn = _S424dn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 4241)
+)
+_S424dp_ObjectIdentity = ObjectIdentity
+s424dp = _S424dp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 4242)
+)
+_S424df_ObjectIdentity = ObjectIdentity
+s424df = _S424df_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 4243)
+)
+_S448dn_ObjectIdentity = ObjectIdentity
+s448dn = _S448dn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 4482)
+)
+_S448df_ObjectIdentity = ObjectIdentity
+s448df = _S448df_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 4483)
+)
+_S448dp_ObjectIdentity = ObjectIdentity
+s448dp = _S448dp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 4484)
+)
+_S448en_ObjectIdentity = ObjectIdentity
+s448en = _S448en_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 4485)
+)
+_S448ep_ObjectIdentity = ObjectIdentity
+s448ep = _S448ep_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 4486)
+)
+_S448ef_ObjectIdentity = ObjectIdentity
+s448ef = _S448ef_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 4487)
+)
+_S524df_ObjectIdentity = ObjectIdentity
+s524df = _S524df_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 5241)
+)
+_S524dn_ObjectIdentity = ObjectIdentity
+s524dn = _S524dn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 5242)
+)
+_S548df_ObjectIdentity = ObjectIdentity
+s548df = _S548df_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 5481)
+)
+_S548dn_ObjectIdentity = ObjectIdentity
+s548dn = _S548dn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 5482)
+)
+_Fs1d24_ObjectIdentity = ObjectIdentity
+fs1d24 = _Fs1d24_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 10241)
+)
+_Fs1e24_ObjectIdentity = ObjectIdentity
+fs1e24 = _Fs1e24_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 10242)
+)
+_St1e24_ObjectIdentity = ObjectIdentity
+st1e24 = _St1e24_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 10243)
+)
+_Fs1d48_ObjectIdentity = ObjectIdentity
+fs1d48 = _Fs1d48_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 10481)
+)
+_Fs1e48_ObjectIdentity = ObjectIdentity
+fs1e48 = _Fs1e48_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 10482)
+)
+_S124fn_ObjectIdentity = ObjectIdentity
+s124fn = _S124fn_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 12410)
+)
+_S124fp_ObjectIdentity = ObjectIdentity
+s124fp = _S124fp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 12411)
+)
+_Fs3d32_ObjectIdentity = ObjectIdentity
+fs3d32 = _Fs3d32_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 30321)
+)
+_Fs3e32_ObjectIdentity = ObjectIdentity
+fs3e32 = _Fs3e32_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 30322)
+)
+_S424en_ObjectIdentity = ObjectIdentity
+s424en = _S424en_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 42401)
+)
+_S424ep_ObjectIdentity = ObjectIdentity
+s424ep = _S424ep_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 42402)
+)
+_S424ef_ObjectIdentity = ObjectIdentity
+s424ef = _S424ef_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 42403)
+)
+_S424ei_ObjectIdentity = ObjectIdentity
+s424ei = _S424ei_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 42404)
+)
+_S426ef_ObjectIdentity = ObjectIdentity
+s426ef = _S426ef_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 5, 42405)
+)
+_FsMibConformance_ObjectIdentity = ObjectIdentity
+fsMibConformance = _FsMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 100)
+)
+
+# Managed Objects groups
+
+fsSystemObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 100, 2)
+)
+fsSystemObjectGroup.setObjects(
+      *(("FORTINET-FORTISWITCH-MIB", "fsSysVersion"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSysCpuUsage"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSysMemUsage"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSysMemCapacity"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSysDiskUsage"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSysDiskCapacity"))
+)
+if mibBuilder.loadTexts:
+    fsSystemObjectGroup.setStatus("current")
+
+fsTrunkObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 100, 3)
+)
+fsTrunkObjectGroup.setObjects(
+    ("FORTINET-FORTISWITCH-MIB", "fsTrunkMember")
+)
+if mibBuilder.loadTexts:
+    fsTrunkObjectGroup.setStatus("current")
+
+
+# Notification objects
+
+fsTrapMemberDown = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 703)
+)
+fsTrapMemberDown.setObjects(
+      *(("FORTINET-CORE-MIB", "fnSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("FORTINET-FORTISWITCH-MIB", "fsTrunkMember"))
+)
+if mibBuilder.loadTexts:
+    fsTrapMemberDown.setStatus(
+        "current"
+    )
+
+fsTrapMemberUp = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 704)
+)
+fsTrapMemberUp.setObjects(
+      *(("FORTINET-CORE-MIB", "fnSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("FORTINET-FORTISWITCH-MIB", "fsTrunkMember"))
+)
+if mibBuilder.loadTexts:
+    fsTrapMemberUp.setStatus(
+        "current"
+    )
+
+fsTrapLlvViolation = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 705)
+)
+fsTrapLlvViolation.setObjects(
+      *(("FORTINET-CORE-MIB", "fnSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("FORTINET-FORTISWITCH-MIB", "fsLlvTrapMsg"))
+)
+if mibBuilder.loadTexts:
+    fsTrapLlvViolation.setStatus(
+        "current"
+    )
+
+fsTrapLearningEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 706)
+)
+fsTrapLearningEvent.setObjects(
+      *(("FORTINET-CORE-MIB", "fnSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("BRIDGE-MIB", "dot1dTpFdbAddress"),
+        ("FORTINET-FORTISWITCH-MIB", "fsLearningTrapVid"),
+        ("BRIDGE-MIB", "dot1dTpFdbPort"),
+        ("FORTINET-FORTISWITCH-MIB", "fsLearningTrapType"))
+)
+if mibBuilder.loadTexts:
+    fsTrapLearningEvent.setStatus(
+        "current"
+    )
+
+fsTrapSensorFault = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 707)
+)
+fsTrapSensorFault.setObjects(
+      *(("FORTINET-CORE-MIB", "fnSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSensorName"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSensorType"))
+)
+if mibBuilder.loadTexts:
+    fsTrapSensorFault.setStatus(
+        "current"
+    )
+
+fsTrapSensorAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 708)
+)
+fsTrapSensorAlarm.setObjects(
+      *(("FORTINET-CORE-MIB", "fnSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSensorName"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSensorType"),
+        ("FORTINET-FORTISWITCH-MIB", "fsAlarmEventType"),
+        ("FORTINET-FORTISWITCH-MIB", "fsAlarmThresholdValue"),
+        ("FORTINET-FORTISWITCH-MIB", "fsAlarmThresholdUnits"))
+)
+if mibBuilder.loadTexts:
+    fsTrapSensorAlarm.setStatus(
+        "current"
+    )
+
+fsTrapFanDetect = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 709)
+)
+fsTrapFanDetect.setObjects(
+      *(("FORTINET-CORE-MIB", "fnSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSensorIdx"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSensorFanEventType"))
+)
+if mibBuilder.loadTexts:
+    fsTrapFanDetect.setStatus(
+        "current"
+    )
+
+fsTrapPsuStatus = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 710)
+)
+fsTrapPsuStatus.setObjects(
+      *(("FORTINET-CORE-MIB", "fnSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSensorIdx"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSensorPsuEventType"))
+)
+if mibBuilder.loadTexts:
+    fsTrapPsuStatus.setStatus(
+        "current"
+    )
+
+fsTrapIpConflict = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 801)
+)
+fsTrapIpConflict.setObjects(
+      *(("FORTINET-CORE-MIB", "fnSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("FORTINET-FORTISWITCH-MIB", "fsIpAddress"),
+        ("FORTINET-FORTISWITCH-MIB", "ifname"))
+)
+if mibBuilder.loadTexts:
+    fsTrapIpConflict.setStatus(
+        "current"
+    )
+
+fsTrapTrunkMemberHBOutOfSync = NotificationType(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 2, 0, 802)
+)
+fsTrapTrunkMemberHBOutOfSync.setObjects(
+      *(("FORTINET-CORE-MIB", "fnSysSerial"),
+        ("SNMPv2-MIB", "sysName"),
+        ("IF-MIB", "ifName"),
+        ("IF-MIB", "ifName"))
+)
+if mibBuilder.loadTexts:
+    fsTrapTrunkMemberHBOutOfSync.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+fsNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 100, 1)
+)
+fsNotificationGroup.setObjects(
+      *(("FORTINET-FORTISWITCH-MIB", "fsTrapMemberDown"),
+        ("FORTINET-FORTISWITCH-MIB", "fsTrapMemberUp"))
+)
+if mibBuilder.loadTexts:
+    fsNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+fsMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 12356, 106, 100, 100)
+)
+fsMIBCompliance.setObjects(
+      *(("FORTINET-FORTISWITCH-MIB", "fsNotificationGroup"),
+        ("FORTINET-FORTISWITCH-MIB", "fsSystemObjectGroup"),
+        ("FORTINET-FORTISWITCH-MIB", "fsTrunkObjectGroup"))
+)
+if mibBuilder.loadTexts:
+    fsMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "FORTINET-FORTISWITCH-MIB",
+    **{"fnFortiSwitchMib": fnFortiSwitchMib,
+       "fsCommon": fsCommon,
+       "fsSys": fsSys,
+       "fsSysSerial": fsSysSerial,
+       "fsTraps": fsTraps,
+       "fsTrapPrefix": fsTrapPrefix,
+       "fsTrapMemberDown": fsTrapMemberDown,
+       "fsTrapMemberUp": fsTrapMemberUp,
+       "fsTrapLlvViolation": fsTrapLlvViolation,
+       "fsTrapLearningEvent": fsTrapLearningEvent,
+       "fsTrapSensorFault": fsTrapSensorFault,
+       "fsTrapSensorAlarm": fsTrapSensorAlarm,
+       "fsTrapFanDetect": fsTrapFanDetect,
+       "fsTrapPsuStatus": fsTrapPsuStatus,
+       "fsTrapIpConflict": fsTrapIpConflict,
+       "fsTrapTrunkMemberHBOutOfSync": fsTrapTrunkMemberHBOutOfSync,
+       "fsTrapObjects": fsTrapObjects,
+       "fsLlvTrapMsg": fsLlvTrapMsg,
+       "fsLearningTrapVid": fsLearningTrapVid,
+       "fsLearningTrapType": fsLearningTrapType,
+       "fsSensorName": fsSensorName,
+       "fsSensorType": fsSensorType,
+       "fsSensorIdx": fsSensorIdx,
+       "fsSensorFanEventType": fsSensorFanEventType,
+       "fsSensorPsuEventType": fsSensorPsuEventType,
+       "fsAlarmEventType": fsAlarmEventType,
+       "fsAlarmThresholdValue": fsAlarmThresholdValue,
+       "fsAlarmThresholdUnits": fsAlarmThresholdUnits,
+       "fsIpAddress": fsIpAddress,
+       "fsTrunkMemPrefix": fsTrunkMemPrefix,
+       "fsTrunkMember": fsTrunkMember,
+       "fsSystem": fsSystem,
+       "fsSystemInfo": fsSystemInfo,
+       "fsSysVersion": fsSysVersion,
+       "fsSysCpuUsage": fsSysCpuUsage,
+       "fsSysMemUsage": fsSysMemUsage,
+       "fsSysMemCapacity": fsSysMemCapacity,
+       "fsSysDiskUsage": fsSysDiskUsage,
+       "fsSysDiskCapacity": fsSysDiskCapacity,
+       "fsModel": fsModel,
+       "fs108d": fs108d,
+       "s108en": s108en,
+       "s108ep": s108ep,
+       "s108ef": s108ef,
+       "s108dv": s108dv,
+       "s108fn": s108fn,
+       "s108fp": s108fp,
+       "s108ff": s108ff,
+       "sr12dp": sr12dp,
+       "s124dn": s124dn,
+       "s124dp": s124dp,
+       "sr24dn": sr24dn,
+       "s124en": s124en,
+       "s124ep": s124ep,
+       "s124ef": s124ef,
+       "s148en": s148en,
+       "s148ep": s148ep,
+       "s124ff": s124ff,
+       "s148fn": s148fn,
+       "s148fp": s148fp,
+       "s148ff": s148ff,
+       "fs224d": fs224d,
+       "s224df": s224df,
+       "s224en": s224en,
+       "s224ep": s224ep,
+       "s248dp": s248dp,
+       "s248df": s248df,
+       "s248dn": s248dn,
+       "s248ef": s248ef,
+       "s248ep": s248ep,
+       "s424dn": s424dn,
+       "s424dp": s424dp,
+       "s424df": s424df,
+       "s448dn": s448dn,
+       "s448df": s448df,
+       "s448dp": s448dp,
+       "s448en": s448en,
+       "s448ep": s448ep,
+       "s448ef": s448ef,
+       "s524df": s524df,
+       "s524dn": s524dn,
+       "s548df": s548df,
+       "s548dn": s548dn,
+       "fs1d24": fs1d24,
+       "fs1e24": fs1e24,
+       "st1e24": st1e24,
+       "fs1d48": fs1d48,
+       "fs1e48": fs1e48,
+       "s124fn": s124fn,
+       "s124fp": s124fp,
+       "fs3d32": fs3d32,
+       "fs3e32": fs3e32,
+       "s424en": s424en,
+       "s424ep": s424ep,
+       "s424ef": s424ef,
+       "s424ei": s424ei,
+       "s426ef": s426ef,
+       "fsMibConformance": fsMibConformance,
+       "fsNotificationGroup": fsNotificationGroup,
+       "fsSystemObjectGroup": fsSystemObjectGroup,
+       "fsTrunkObjectGroup": fsTrunkObjectGroup,
+       "fsMIBCompliance": fsMIBCompliance}
+)

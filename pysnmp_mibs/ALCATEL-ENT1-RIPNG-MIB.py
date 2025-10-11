@@ -1,138 +1,1051 @@
+# SNMP MIB module (ALCATEL-ENT1-RIPNG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALCATEL-ENT1-RIPNG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alcatel-ent1/ALCATEL-ENT1-RIPNG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:59:43 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alcatel-ent1/ALCATEL-ENT1-RIPNG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:09:30 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-routingIND1Ripng, = mibBuilder.importSymbols("ALCATEL-ENT1-BASE", "routingIND1Ripng")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-Ipv6Address, Ipv6AddressPrefix = mibBuilder.importSymbols("IPV6-TC", "Ipv6Address", "Ipv6AddressPrefix")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-alcatelIND1RIPNGMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1))
-alcatelIND1RIPNGMIB.setRevisions(('2007-04-03 00:00',))
-if mibBuilder.loadTexts: alcatelIND1RIPNGMIB.setLastUpdated('201010260000Z')
-if mibBuilder.loadTexts: alcatelIND1RIPNGMIB.setOrganization('Alcatel-Lucent')
-alcatelIND1RIPNGMIBObjects = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1))
-if mibBuilder.loadTexts: alcatelIND1RIPNGMIBObjects.setStatus('current')
-alcatelIND1RIPNGMIBConformance = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2))
-if mibBuilder.loadTexts: alcatelIND1RIPNGMIBConformance.setStatus('current')
-alcatelIND1RIPNGMIBGroups = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1))
-if mibBuilder.loadTexts: alcatelIND1RIPNGMIBGroups.setStatus('current')
-alcatelIND1RIPNGMIBCompliances = ObjectIdentity((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 2))
-if mibBuilder.loadTexts: alcatelIND1RIPNGMIBCompliances.setStatus('current')
-alaProtocolRipng = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1))
-alaRipngProtoStatus = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaRipngProtoStatus.setStatus('current')
-alaRipngUpdateInterval = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 120)).clone(30)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaRipngUpdateInterval.setStatus('current')
-alaRipngInvalidTimer = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 360)).clone(180)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaRipngInvalidTimer.setStatus('current')
-alaRipngHolddownTimer = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 120))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaRipngHolddownTimer.setStatus('current')
-alaRipngGarbageTimer = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 180)).clone(120)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaRipngGarbageTimer.setStatus('current')
-alaRipngRouteCount = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngRouteCount.setStatus('current')
-alaRipngGlobalRouteTag = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaRipngGlobalRouteTag.setStatus('current')
-alaRipngTriggeredSends = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("all", 1), ("onlyupdated", 2), ("off", 3))).clone('onlyupdated')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaRipngTriggeredSends.setStatus('current')
-alaRipngJitter = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 60)).clone(5)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaRipngJitter.setStatus('current')
-alaRipngPort = MibScalar((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(3)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: alaRipngPort.setStatus('current')
-alaRipngInterfaceTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11), )
-if mibBuilder.loadTexts: alaRipngInterfaceTable.setStatus('current')
-alaRipngInterfaceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1), ).setIndexNames((0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceIndex"))
-if mibBuilder.loadTexts: alaRipngInterfaceEntry.setStatus('current')
-alaRipngInterfaceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: alaRipngInterfaceIndex.setStatus('current')
-alaRipngInterfaceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 2), RowStatus().clone('notInService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaRipngInterfaceStatus.setStatus('current')
-alaRipngInterfaceMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 15)).clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaRipngInterfaceMetric.setStatus('current')
-alaRipngInterfaceRecvStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaRipngInterfaceRecvStatus.setStatus('current')
-alaRipngInterfaceSendStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('enabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaRipngInterfaceSendStatus.setStatus('current')
-alaRipngInterfaceHorizon = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("onlysplit", 2), ("poison", 3))).clone('none')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: alaRipngInterfaceHorizon.setStatus('current')
-alaRipngInterfacePacketsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngInterfacePacketsSent.setStatus('current')
-alaRipngInterfacePacketsRcvd = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngInterfacePacketsRcvd.setStatus('current')
-alaRipngInterfaceMTU = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngInterfaceMTU.setStatus('current')
-alaRipngInterfaceNextUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 10), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngInterfaceNextUpdate.setStatus('current')
-alaRipngPeerTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15), )
-if mibBuilder.loadTexts: alaRipngPeerTable.setStatus('current')
-alaRipngPeerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1), ).setIndexNames((0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerAddress"), (0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerIndex"))
-if mibBuilder.loadTexts: alaRipngPeerEntry.setStatus('current')
-alaRipngPeerAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 1), Ipv6Address())
-if mibBuilder.loadTexts: alaRipngPeerAddress.setStatus('current')
-alaRipngPeerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: alaRipngPeerIndex.setStatus('current')
-alaRipngPeerLastUpdate = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 3), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngPeerLastUpdate.setStatus('current')
-alaRipngPeerNumUpdates = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngPeerNumUpdates.setStatus('current')
-alaRipngPeerNumRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngPeerNumRoutes.setStatus('current')
-alaRipngPeerBadPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngPeerBadPackets.setStatus('current')
-alaRipngPeerBadRoutes = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngPeerBadRoutes.setStatus('current')
-alaRipngRouteTable = MibTable((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16), )
-if mibBuilder.loadTexts: alaRipngRouteTable.setStatus('current')
-alaRipngRouteEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1), ).setIndexNames((0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngRoutePrefix"), (0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngRoutePrefixLen"), (0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteNextHop"))
-if mibBuilder.loadTexts: alaRipngRouteEntry.setStatus('current')
-alaRipngRoutePrefix = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 1), Ipv6AddressPrefix())
-if mibBuilder.loadTexts: alaRipngRoutePrefix.setStatus('current')
-alaRipngRoutePrefixLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 128)))
-if mibBuilder.loadTexts: alaRipngRoutePrefixLen.setStatus('current')
-alaRipngRouteNextHop = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 3), Ipv6Address())
-if mibBuilder.loadTexts: alaRipngRouteNextHop.setStatus('current')
-alaRipngRouteType = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("local", 1), ("rip", 2), ("redist", 3), ("unknown", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngRouteType.setStatus('current')
-alaRipngRouteAge = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngRouteAge.setStatus('current')
-alaRipngRouteTag = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngRouteTag.setStatus('current')
-alaRipngRouteMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngRouteMetric.setStatus('current')
-alaRipngRouteStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("inactive", 0), ("active", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngRouteStatus.setStatus('current')
-alaRipngRouteFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("active", 1), ("garbage", 2), ("holddown", 3), ("unknown", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngRouteFlags.setStatus('current')
-alaRipngRouteIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: alaRipngRouteIndex.setStatus('current')
-alcatelIND1RIPMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 2, 1)).setObjects(("ALCATEL-ENT1-RIPNG-MIB", "alaRipngGlobalGroup"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceGroup"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerGroup"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alcatelIND1RIPMIBCompliance = alcatelIND1RIPMIBCompliance.setStatus('current')
-alaRipngGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1, 1)).setObjects(("ALCATEL-ENT1-RIPNG-MIB", "alaRipngProtoStatus"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngUpdateInterval"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInvalidTimer"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngHolddownTimer"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngGarbageTimer"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteCount"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngGlobalRouteTag"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngTriggeredSends"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngJitter"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPort"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaRipngGlobalGroup = alaRipngGlobalGroup.setStatus('current')
-alaRipngInterfaceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1, 3)).setObjects(("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceStatus"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceMetric"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceRecvStatus"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceSendStatus"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceHorizon"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfacePacketsSent"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfacePacketsRcvd"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceMTU"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceNextUpdate"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaRipngInterfaceGroup = alaRipngInterfaceGroup.setStatus('current')
-alaRipngPeerGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1, 7)).setObjects(("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerLastUpdate"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerNumUpdates"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerNumRoutes"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerBadPackets"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerBadRoutes"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaRipngPeerGroup = alaRipngPeerGroup.setStatus('current')
-alaRipngRouteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1, 8)).setObjects(("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteType"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteAge"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteTag"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteMetric"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteStatus"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteFlags"), ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alaRipngRouteGroup = alaRipngRouteGroup.setStatus('current')
-alcatelIND1RIPNGTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 3))
-alcatelIND1RIPNGTrapsRoot = MibIdentifier((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 3, 0))
-ripngRouteMaxLimitReached = NotificationType((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 3, 0, 1))
-if mibBuilder.loadTexts: ripngRouteMaxLimitReached.setStatus('current')
-alcatelIND1RIPNGTrapsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1, 9)).setObjects(("ALCATEL-ENT1-RIPNG-MIB", "ripngRouteMaxLimitReached"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alcatelIND1RIPNGTrapsGroup = alcatelIND1RIPNGTrapsGroup.setStatus('current')
-mibBuilder.exportSymbols("ALCATEL-ENT1-RIPNG-MIB", alaRipngPeerGroup=alaRipngPeerGroup, alcatelIND1RIPNGTrapsGroup=alcatelIND1RIPNGTrapsGroup, alaRipngProtoStatus=alaRipngProtoStatus, alaRipngInterfaceSendStatus=alaRipngInterfaceSendStatus, alaRipngInterfaceIndex=alaRipngInterfaceIndex, alaRipngPeerBadRoutes=alaRipngPeerBadRoutes, alaRipngRouteMetric=alaRipngRouteMetric, alcatelIND1RIPNGTraps=alcatelIND1RIPNGTraps, alaRipngPeerAddress=alaRipngPeerAddress, alcatelIND1RIPNGMIBCompliances=alcatelIND1RIPNGMIBCompliances, alaProtocolRipng=alaProtocolRipng, alaRipngInterfaceRecvStatus=alaRipngInterfaceRecvStatus, alaRipngInterfaceMTU=alaRipngInterfaceMTU, alaRipngRouteEntry=alaRipngRouteEntry, alaRipngRouteAge=alaRipngRouteAge, alaRipngRouteStatus=alaRipngRouteStatus, alaRipngPeerNumUpdates=alaRipngPeerNumUpdates, alaRipngGlobalRouteTag=alaRipngGlobalRouteTag, alaRipngGarbageTimer=alaRipngGarbageTimer, alaRipngInterfacePacketsSent=alaRipngInterfacePacketsSent, alcatelIND1RIPMIBCompliance=alcatelIND1RIPMIBCompliance, alaRipngInterfaceMetric=alaRipngInterfaceMetric, alaRipngRouteTable=alaRipngRouteTable, alaRipngInterfaceEntry=alaRipngInterfaceEntry, alcatelIND1RIPNGMIBConformance=alcatelIND1RIPNGMIBConformance, alaRipngInterfaceGroup=alaRipngInterfaceGroup, alcatelIND1RIPNGMIB=alcatelIND1RIPNGMIB, PYSNMP_MODULE_ID=alcatelIND1RIPNGMIB, alaRipngPeerBadPackets=alaRipngPeerBadPackets, alaRipngPort=alaRipngPort, alaRipngInterfaceNextUpdate=alaRipngInterfaceNextUpdate, alaRipngInterfaceStatus=alaRipngInterfaceStatus, alaRipngInterfaceTable=alaRipngInterfaceTable, alaRipngRouteCount=alaRipngRouteCount, alaRipngInterfaceHorizon=alaRipngInterfaceHorizon, alaRipngRouteType=alaRipngRouteType, alcatelIND1RIPNGMIBGroups=alcatelIND1RIPNGMIBGroups, alaRipngPeerNumRoutes=alaRipngPeerNumRoutes, alaRipngRoutePrefixLen=alaRipngRoutePrefixLen, alaRipngRouteIndex=alaRipngRouteIndex, alaRipngGlobalGroup=alaRipngGlobalGroup, alcatelIND1RIPNGMIBObjects=alcatelIND1RIPNGMIBObjects, alaRipngPeerTable=alaRipngPeerTable, alcatelIND1RIPNGTrapsRoot=alcatelIND1RIPNGTrapsRoot, alaRipngRouteGroup=alaRipngRouteGroup, alaRipngHolddownTimer=alaRipngHolddownTimer, alaRipngJitter=alaRipngJitter, alaRipngRoutePrefix=alaRipngRoutePrefix, alaRipngUpdateInterval=alaRipngUpdateInterval, alaRipngRouteTag=alaRipngRouteTag, alaRipngTriggeredSends=alaRipngTriggeredSends, ripngRouteMaxLimitReached=ripngRouteMaxLimitReached, alaRipngInterfacePacketsRcvd=alaRipngInterfacePacketsRcvd, alaRipngPeerLastUpdate=alaRipngPeerLastUpdate, alaRipngRouteFlags=alaRipngRouteFlags, alaRipngPeerIndex=alaRipngPeerIndex, alaRipngInvalidTimer=alaRipngInvalidTimer, alaRipngPeerEntry=alaRipngPeerEntry, alaRipngRouteNextHop=alaRipngRouteNextHop)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(routingIND1Ripng,) = mibBuilder.importSymbols(
+    "ALCATEL-ENT1-BASE",
+    "routingIND1Ripng")
+
+(Ipv6Address,
+ Ipv6AddressPrefix) = mibBuilder.importSymbols(
+    "IPV6-TC",
+    "Ipv6Address",
+    "Ipv6AddressPrefix")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alcatelIND1RIPNGMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1RIPNGMIB.setRevisions(
+        ("2007-04-03 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlcatelIND1RIPNGMIBObjects_ObjectIdentity = ObjectIdentity
+alcatelIND1RIPNGMIBObjects = _AlcatelIND1RIPNGMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1RIPNGMIBObjects.setStatus("current")
+_AlaProtocolRipng_ObjectIdentity = ObjectIdentity
+alaProtocolRipng = _AlaProtocolRipng_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1)
+)
+
+
+class _AlaRipngProtoStatus_Type(Integer32):
+    """Custom type alaRipngProtoStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AlaRipngProtoStatus_Type.__name__ = "Integer32"
+_AlaRipngProtoStatus_Object = MibScalar
+alaRipngProtoStatus = _AlaRipngProtoStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 1),
+    _AlaRipngProtoStatus_Type()
+)
+alaRipngProtoStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaRipngProtoStatus.setStatus("current")
+
+
+class _AlaRipngUpdateInterval_Type(Integer32):
+    """Custom type alaRipngUpdateInterval based on Integer32"""
+    defaultValue = 30
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 120),
+    )
+
+
+_AlaRipngUpdateInterval_Type.__name__ = "Integer32"
+_AlaRipngUpdateInterval_Object = MibScalar
+alaRipngUpdateInterval = _AlaRipngUpdateInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 2),
+    _AlaRipngUpdateInterval_Type()
+)
+alaRipngUpdateInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaRipngUpdateInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    alaRipngUpdateInterval.setUnits("seconds")
+
+
+class _AlaRipngInvalidTimer_Type(Integer32):
+    """Custom type alaRipngInvalidTimer based on Integer32"""
+    defaultValue = 180
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 360),
+    )
+
+
+_AlaRipngInvalidTimer_Type.__name__ = "Integer32"
+_AlaRipngInvalidTimer_Object = MibScalar
+alaRipngInvalidTimer = _AlaRipngInvalidTimer_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 3),
+    _AlaRipngInvalidTimer_Type()
+)
+alaRipngInvalidTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaRipngInvalidTimer.setStatus("current")
+if mibBuilder.loadTexts:
+    alaRipngInvalidTimer.setUnits("seconds")
+
+
+class _AlaRipngHolddownTimer_Type(Integer32):
+    """Custom type alaRipngHolddownTimer based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 120),
+    )
+
+
+_AlaRipngHolddownTimer_Type.__name__ = "Integer32"
+_AlaRipngHolddownTimer_Object = MibScalar
+alaRipngHolddownTimer = _AlaRipngHolddownTimer_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 4),
+    _AlaRipngHolddownTimer_Type()
+)
+alaRipngHolddownTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaRipngHolddownTimer.setStatus("current")
+
+
+class _AlaRipngGarbageTimer_Type(Integer32):
+    """Custom type alaRipngGarbageTimer based on Integer32"""
+    defaultValue = 120
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 180),
+    )
+
+
+_AlaRipngGarbageTimer_Type.__name__ = "Integer32"
+_AlaRipngGarbageTimer_Object = MibScalar
+alaRipngGarbageTimer = _AlaRipngGarbageTimer_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 5),
+    _AlaRipngGarbageTimer_Type()
+)
+alaRipngGarbageTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaRipngGarbageTimer.setStatus("current")
+
+
+class _AlaRipngRouteCount_Type(Integer32):
+    """Custom type alaRipngRouteCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AlaRipngRouteCount_Type.__name__ = "Integer32"
+_AlaRipngRouteCount_Object = MibScalar
+alaRipngRouteCount = _AlaRipngRouteCount_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 6),
+    _AlaRipngRouteCount_Type()
+)
+alaRipngRouteCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngRouteCount.setStatus("current")
+
+
+class _AlaRipngGlobalRouteTag_Type(Integer32):
+    """Custom type alaRipngGlobalRouteTag based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_AlaRipngGlobalRouteTag_Type.__name__ = "Integer32"
+_AlaRipngGlobalRouteTag_Object = MibScalar
+alaRipngGlobalRouteTag = _AlaRipngGlobalRouteTag_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 7),
+    _AlaRipngGlobalRouteTag_Type()
+)
+alaRipngGlobalRouteTag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaRipngGlobalRouteTag.setStatus("current")
+
+
+class _AlaRipngTriggeredSends_Type(Integer32):
+    """Custom type alaRipngTriggeredSends based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("all", 1),
+          ("onlyupdated", 2),
+          ("off", 3))
+    )
+
+
+_AlaRipngTriggeredSends_Type.__name__ = "Integer32"
+_AlaRipngTriggeredSends_Object = MibScalar
+alaRipngTriggeredSends = _AlaRipngTriggeredSends_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 8),
+    _AlaRipngTriggeredSends_Type()
+)
+alaRipngTriggeredSends.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaRipngTriggeredSends.setStatus("current")
+
+
+class _AlaRipngJitter_Type(Integer32):
+    """Custom type alaRipngJitter based on Integer32"""
+    defaultValue = 5
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 60),
+    )
+
+
+_AlaRipngJitter_Type.__name__ = "Integer32"
+_AlaRipngJitter_Object = MibScalar
+alaRipngJitter = _AlaRipngJitter_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 9),
+    _AlaRipngJitter_Type()
+)
+alaRipngJitter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaRipngJitter.setStatus("current")
+if mibBuilder.loadTexts:
+    alaRipngJitter.setUnits("seconds")
+
+
+class _AlaRipngPort_Type(Integer32):
+    """Custom type alaRipngPort based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_AlaRipngPort_Type.__name__ = "Integer32"
+_AlaRipngPort_Object = MibScalar
+alaRipngPort = _AlaRipngPort_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 10),
+    _AlaRipngPort_Type()
+)
+alaRipngPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    alaRipngPort.setStatus("current")
+_AlaRipngInterfaceTable_Object = MibTable
+alaRipngInterfaceTable = _AlaRipngInterfaceTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11)
+)
+if mibBuilder.loadTexts:
+    alaRipngInterfaceTable.setStatus("current")
+_AlaRipngInterfaceEntry_Object = MibTableRow
+alaRipngInterfaceEntry = _AlaRipngInterfaceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1)
+)
+alaRipngInterfaceEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceIndex"),
+)
+if mibBuilder.loadTexts:
+    alaRipngInterfaceEntry.setStatus("current")
+
+
+class _AlaRipngInterfaceIndex_Type(Integer32):
+    """Custom type alaRipngInterfaceIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AlaRipngInterfaceIndex_Type.__name__ = "Integer32"
+_AlaRipngInterfaceIndex_Object = MibTableColumn
+alaRipngInterfaceIndex = _AlaRipngInterfaceIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 1),
+    _AlaRipngInterfaceIndex_Type()
+)
+alaRipngInterfaceIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaRipngInterfaceIndex.setStatus("current")
+
+
+class _AlaRipngInterfaceStatus_Type(RowStatus):
+    """Custom type alaRipngInterfaceStatus based on RowStatus"""
+    defaultValue = 2
+
+
+_AlaRipngInterfaceStatus_Type.__name__ = "RowStatus"
+_AlaRipngInterfaceStatus_Object = MibTableColumn
+alaRipngInterfaceStatus = _AlaRipngInterfaceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 2),
+    _AlaRipngInterfaceStatus_Type()
+)
+alaRipngInterfaceStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaRipngInterfaceStatus.setStatus("current")
+
+
+class _AlaRipngInterfaceMetric_Type(Integer32):
+    """Custom type alaRipngInterfaceMetric based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 15),
+    )
+
+
+_AlaRipngInterfaceMetric_Type.__name__ = "Integer32"
+_AlaRipngInterfaceMetric_Object = MibTableColumn
+alaRipngInterfaceMetric = _AlaRipngInterfaceMetric_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 3),
+    _AlaRipngInterfaceMetric_Type()
+)
+alaRipngInterfaceMetric.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaRipngInterfaceMetric.setStatus("current")
+
+
+class _AlaRipngInterfaceRecvStatus_Type(Integer32):
+    """Custom type alaRipngInterfaceRecvStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_AlaRipngInterfaceRecvStatus_Type.__name__ = "Integer32"
+_AlaRipngInterfaceRecvStatus_Object = MibTableColumn
+alaRipngInterfaceRecvStatus = _AlaRipngInterfaceRecvStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 4),
+    _AlaRipngInterfaceRecvStatus_Type()
+)
+alaRipngInterfaceRecvStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaRipngInterfaceRecvStatus.setStatus("current")
+
+
+class _AlaRipngInterfaceSendStatus_Type(Integer32):
+    """Custom type alaRipngInterfaceSendStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_AlaRipngInterfaceSendStatus_Type.__name__ = "Integer32"
+_AlaRipngInterfaceSendStatus_Object = MibTableColumn
+alaRipngInterfaceSendStatus = _AlaRipngInterfaceSendStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 5),
+    _AlaRipngInterfaceSendStatus_Type()
+)
+alaRipngInterfaceSendStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaRipngInterfaceSendStatus.setStatus("current")
+
+
+class _AlaRipngInterfaceHorizon_Type(Integer32):
+    """Custom type alaRipngInterfaceHorizon based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("onlysplit", 2),
+          ("poison", 3))
+    )
+
+
+_AlaRipngInterfaceHorizon_Type.__name__ = "Integer32"
+_AlaRipngInterfaceHorizon_Object = MibTableColumn
+alaRipngInterfaceHorizon = _AlaRipngInterfaceHorizon_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 6),
+    _AlaRipngInterfaceHorizon_Type()
+)
+alaRipngInterfaceHorizon.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    alaRipngInterfaceHorizon.setStatus("current")
+_AlaRipngInterfacePacketsSent_Type = Integer32
+_AlaRipngInterfacePacketsSent_Object = MibTableColumn
+alaRipngInterfacePacketsSent = _AlaRipngInterfacePacketsSent_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 7),
+    _AlaRipngInterfacePacketsSent_Type()
+)
+alaRipngInterfacePacketsSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngInterfacePacketsSent.setStatus("current")
+_AlaRipngInterfacePacketsRcvd_Type = Integer32
+_AlaRipngInterfacePacketsRcvd_Object = MibTableColumn
+alaRipngInterfacePacketsRcvd = _AlaRipngInterfacePacketsRcvd_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 8),
+    _AlaRipngInterfacePacketsRcvd_Type()
+)
+alaRipngInterfacePacketsRcvd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngInterfacePacketsRcvd.setStatus("current")
+_AlaRipngInterfaceMTU_Type = Counter32
+_AlaRipngInterfaceMTU_Object = MibTableColumn
+alaRipngInterfaceMTU = _AlaRipngInterfaceMTU_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 9),
+    _AlaRipngInterfaceMTU_Type()
+)
+alaRipngInterfaceMTU.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngInterfaceMTU.setStatus("current")
+_AlaRipngInterfaceNextUpdate_Type = TimeTicks
+_AlaRipngInterfaceNextUpdate_Object = MibTableColumn
+alaRipngInterfaceNextUpdate = _AlaRipngInterfaceNextUpdate_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 11, 1, 10),
+    _AlaRipngInterfaceNextUpdate_Type()
+)
+alaRipngInterfaceNextUpdate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngInterfaceNextUpdate.setStatus("current")
+_AlaRipngPeerTable_Object = MibTable
+alaRipngPeerTable = _AlaRipngPeerTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15)
+)
+if mibBuilder.loadTexts:
+    alaRipngPeerTable.setStatus("current")
+_AlaRipngPeerEntry_Object = MibTableRow
+alaRipngPeerEntry = _AlaRipngPeerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1)
+)
+alaRipngPeerEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerAddress"),
+    (0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerIndex"),
+)
+if mibBuilder.loadTexts:
+    alaRipngPeerEntry.setStatus("current")
+_AlaRipngPeerAddress_Type = Ipv6Address
+_AlaRipngPeerAddress_Object = MibTableColumn
+alaRipngPeerAddress = _AlaRipngPeerAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 1),
+    _AlaRipngPeerAddress_Type()
+)
+alaRipngPeerAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaRipngPeerAddress.setStatus("current")
+
+
+class _AlaRipngPeerIndex_Type(Integer32):
+    """Custom type alaRipngPeerIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AlaRipngPeerIndex_Type.__name__ = "Integer32"
+_AlaRipngPeerIndex_Object = MibTableColumn
+alaRipngPeerIndex = _AlaRipngPeerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 2),
+    _AlaRipngPeerIndex_Type()
+)
+alaRipngPeerIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaRipngPeerIndex.setStatus("current")
+_AlaRipngPeerLastUpdate_Type = TimeTicks
+_AlaRipngPeerLastUpdate_Object = MibTableColumn
+alaRipngPeerLastUpdate = _AlaRipngPeerLastUpdate_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 3),
+    _AlaRipngPeerLastUpdate_Type()
+)
+alaRipngPeerLastUpdate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngPeerLastUpdate.setStatus("current")
+_AlaRipngPeerNumUpdates_Type = Counter32
+_AlaRipngPeerNumUpdates_Object = MibTableColumn
+alaRipngPeerNumUpdates = _AlaRipngPeerNumUpdates_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 4),
+    _AlaRipngPeerNumUpdates_Type()
+)
+alaRipngPeerNumUpdates.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngPeerNumUpdates.setStatus("current")
+_AlaRipngPeerNumRoutes_Type = Counter32
+_AlaRipngPeerNumRoutes_Object = MibTableColumn
+alaRipngPeerNumRoutes = _AlaRipngPeerNumRoutes_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 5),
+    _AlaRipngPeerNumRoutes_Type()
+)
+alaRipngPeerNumRoutes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngPeerNumRoutes.setStatus("current")
+_AlaRipngPeerBadPackets_Type = Counter32
+_AlaRipngPeerBadPackets_Object = MibTableColumn
+alaRipngPeerBadPackets = _AlaRipngPeerBadPackets_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 6),
+    _AlaRipngPeerBadPackets_Type()
+)
+alaRipngPeerBadPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngPeerBadPackets.setStatus("current")
+_AlaRipngPeerBadRoutes_Type = Counter32
+_AlaRipngPeerBadRoutes_Object = MibTableColumn
+alaRipngPeerBadRoutes = _AlaRipngPeerBadRoutes_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 15, 1, 7),
+    _AlaRipngPeerBadRoutes_Type()
+)
+alaRipngPeerBadRoutes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngPeerBadRoutes.setStatus("current")
+_AlaRipngRouteTable_Object = MibTable
+alaRipngRouteTable = _AlaRipngRouteTable_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16)
+)
+if mibBuilder.loadTexts:
+    alaRipngRouteTable.setStatus("current")
+_AlaRipngRouteEntry_Object = MibTableRow
+alaRipngRouteEntry = _AlaRipngRouteEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1)
+)
+alaRipngRouteEntry.setIndexNames(
+    (0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngRoutePrefix"),
+    (0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngRoutePrefixLen"),
+    (0, "ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteNextHop"),
+)
+if mibBuilder.loadTexts:
+    alaRipngRouteEntry.setStatus("current")
+_AlaRipngRoutePrefix_Type = Ipv6AddressPrefix
+_AlaRipngRoutePrefix_Object = MibTableColumn
+alaRipngRoutePrefix = _AlaRipngRoutePrefix_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 1),
+    _AlaRipngRoutePrefix_Type()
+)
+alaRipngRoutePrefix.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaRipngRoutePrefix.setStatus("current")
+
+
+class _AlaRipngRoutePrefixLen_Type(Integer32):
+    """Custom type alaRipngRoutePrefixLen based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 128),
+    )
+
+
+_AlaRipngRoutePrefixLen_Type.__name__ = "Integer32"
+_AlaRipngRoutePrefixLen_Object = MibTableColumn
+alaRipngRoutePrefixLen = _AlaRipngRoutePrefixLen_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 2),
+    _AlaRipngRoutePrefixLen_Type()
+)
+alaRipngRoutePrefixLen.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaRipngRoutePrefixLen.setStatus("current")
+_AlaRipngRouteNextHop_Type = Ipv6Address
+_AlaRipngRouteNextHop_Object = MibTableColumn
+alaRipngRouteNextHop = _AlaRipngRouteNextHop_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 3),
+    _AlaRipngRouteNextHop_Type()
+)
+alaRipngRouteNextHop.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    alaRipngRouteNextHop.setStatus("current")
+
+
+class _AlaRipngRouteType_Type(Integer32):
+    """Custom type alaRipngRouteType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("local", 1),
+          ("rip", 2),
+          ("redist", 3),
+          ("unknown", 4))
+    )
+
+
+_AlaRipngRouteType_Type.__name__ = "Integer32"
+_AlaRipngRouteType_Object = MibTableColumn
+alaRipngRouteType = _AlaRipngRouteType_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 4),
+    _AlaRipngRouteType_Type()
+)
+alaRipngRouteType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngRouteType.setStatus("current")
+_AlaRipngRouteAge_Type = TimeTicks
+_AlaRipngRouteAge_Object = MibTableColumn
+alaRipngRouteAge = _AlaRipngRouteAge_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 5),
+    _AlaRipngRouteAge_Type()
+)
+alaRipngRouteAge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngRouteAge.setStatus("current")
+
+
+class _AlaRipngRouteTag_Type(Integer32):
+    """Custom type alaRipngRouteTag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AlaRipngRouteTag_Type.__name__ = "Integer32"
+_AlaRipngRouteTag_Object = MibTableColumn
+alaRipngRouteTag = _AlaRipngRouteTag_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 6),
+    _AlaRipngRouteTag_Type()
+)
+alaRipngRouteTag.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngRouteTag.setStatus("current")
+
+
+class _AlaRipngRouteMetric_Type(Integer32):
+    """Custom type alaRipngRouteMetric based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 15),
+    )
+
+
+_AlaRipngRouteMetric_Type.__name__ = "Integer32"
+_AlaRipngRouteMetric_Object = MibTableColumn
+alaRipngRouteMetric = _AlaRipngRouteMetric_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 7),
+    _AlaRipngRouteMetric_Type()
+)
+alaRipngRouteMetric.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngRouteMetric.setStatus("current")
+
+
+class _AlaRipngRouteStatus_Type(Integer32):
+    """Custom type alaRipngRouteStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 0),
+          ("active", 1))
+    )
+
+
+_AlaRipngRouteStatus_Type.__name__ = "Integer32"
+_AlaRipngRouteStatus_Object = MibTableColumn
+alaRipngRouteStatus = _AlaRipngRouteStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 8),
+    _AlaRipngRouteStatus_Type()
+)
+alaRipngRouteStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngRouteStatus.setStatus("current")
+
+
+class _AlaRipngRouteFlags_Type(Integer32):
+    """Custom type alaRipngRouteFlags based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("garbage", 2),
+          ("holddown", 3),
+          ("unknown", 4))
+    )
+
+
+_AlaRipngRouteFlags_Type.__name__ = "Integer32"
+_AlaRipngRouteFlags_Object = MibTableColumn
+alaRipngRouteFlags = _AlaRipngRouteFlags_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 9),
+    _AlaRipngRouteFlags_Type()
+)
+alaRipngRouteFlags.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngRouteFlags.setStatus("current")
+_AlaRipngRouteIndex_Type = Integer32
+_AlaRipngRouteIndex_Object = MibTableColumn
+alaRipngRouteIndex = _AlaRipngRouteIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 1, 1, 16, 1, 10),
+    _AlaRipngRouteIndex_Type()
+)
+alaRipngRouteIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    alaRipngRouteIndex.setStatus("current")
+_AlcatelIND1RIPNGMIBConformance_ObjectIdentity = ObjectIdentity
+alcatelIND1RIPNGMIBConformance = _AlcatelIND1RIPNGMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1RIPNGMIBConformance.setStatus("current")
+_AlcatelIND1RIPNGMIBGroups_ObjectIdentity = ObjectIdentity
+alcatelIND1RIPNGMIBGroups = _AlcatelIND1RIPNGMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1RIPNGMIBGroups.setStatus("current")
+_AlcatelIND1RIPNGMIBCompliances_ObjectIdentity = ObjectIdentity
+alcatelIND1RIPNGMIBCompliances = _AlcatelIND1RIPNGMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    alcatelIND1RIPNGMIBCompliances.setStatus("current")
+_AlcatelIND1RIPNGTraps_ObjectIdentity = ObjectIdentity
+alcatelIND1RIPNGTraps = _AlcatelIND1RIPNGTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 3)
+)
+_AlcatelIND1RIPNGTrapsRoot_ObjectIdentity = ObjectIdentity
+alcatelIND1RIPNGTrapsRoot = _AlcatelIND1RIPNGTrapsRoot_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 3, 0)
+)
+
+# Managed Objects groups
+
+alaRipngGlobalGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1, 1)
+)
+alaRipngGlobalGroup.setObjects(
+      *(("ALCATEL-ENT1-RIPNG-MIB", "alaRipngProtoStatus"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngUpdateInterval"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInvalidTimer"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngHolddownTimer"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngGarbageTimer"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteCount"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngGlobalRouteTag"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngTriggeredSends"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngJitter"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPort"))
+)
+if mibBuilder.loadTexts:
+    alaRipngGlobalGroup.setStatus("current")
+
+alaRipngInterfaceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1, 3)
+)
+alaRipngInterfaceGroup.setObjects(
+      *(("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceStatus"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceMetric"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceRecvStatus"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceSendStatus"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceHorizon"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfacePacketsSent"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfacePacketsRcvd"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceMTU"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceNextUpdate"))
+)
+if mibBuilder.loadTexts:
+    alaRipngInterfaceGroup.setStatus("current")
+
+alaRipngPeerGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1, 7)
+)
+alaRipngPeerGroup.setObjects(
+      *(("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerLastUpdate"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerNumUpdates"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerNumRoutes"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerBadPackets"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerBadRoutes"))
+)
+if mibBuilder.loadTexts:
+    alaRipngPeerGroup.setStatus("current")
+
+alaRipngRouteGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1, 8)
+)
+alaRipngRouteGroup.setObjects(
+      *(("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteType"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteAge"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteTag"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteMetric"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteStatus"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteFlags"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteIndex"))
+)
+if mibBuilder.loadTexts:
+    alaRipngRouteGroup.setStatus("current")
+
+
+# Notification objects
+
+ripngRouteMaxLimitReached = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 3, 0, 1)
+)
+if mibBuilder.loadTexts:
+    ripngRouteMaxLimitReached.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+alcatelIND1RIPNGTrapsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 1, 9)
+)
+alcatelIND1RIPNGTrapsGroup.setObjects(
+    ("ALCATEL-ENT1-RIPNG-MIB", "ripngRouteMaxLimitReached")
+)
+if mibBuilder.loadTexts:
+    alcatelIND1RIPNGTrapsGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alcatelIND1RIPMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6486, 801, 1, 2, 1, 10, 12, 1, 2, 2, 1)
+)
+alcatelIND1RIPMIBCompliance.setObjects(
+      *(("ALCATEL-ENT1-RIPNG-MIB", "alaRipngGlobalGroup"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngInterfaceGroup"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngPeerGroup"),
+        ("ALCATEL-ENT1-RIPNG-MIB", "alaRipngRouteGroup"))
+)
+if mibBuilder.loadTexts:
+    alcatelIND1RIPMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALCATEL-ENT1-RIPNG-MIB",
+    **{"alcatelIND1RIPNGMIB": alcatelIND1RIPNGMIB,
+       "alcatelIND1RIPNGMIBObjects": alcatelIND1RIPNGMIBObjects,
+       "alaProtocolRipng": alaProtocolRipng,
+       "alaRipngProtoStatus": alaRipngProtoStatus,
+       "alaRipngUpdateInterval": alaRipngUpdateInterval,
+       "alaRipngInvalidTimer": alaRipngInvalidTimer,
+       "alaRipngHolddownTimer": alaRipngHolddownTimer,
+       "alaRipngGarbageTimer": alaRipngGarbageTimer,
+       "alaRipngRouteCount": alaRipngRouteCount,
+       "alaRipngGlobalRouteTag": alaRipngGlobalRouteTag,
+       "alaRipngTriggeredSends": alaRipngTriggeredSends,
+       "alaRipngJitter": alaRipngJitter,
+       "alaRipngPort": alaRipngPort,
+       "alaRipngInterfaceTable": alaRipngInterfaceTable,
+       "alaRipngInterfaceEntry": alaRipngInterfaceEntry,
+       "alaRipngInterfaceIndex": alaRipngInterfaceIndex,
+       "alaRipngInterfaceStatus": alaRipngInterfaceStatus,
+       "alaRipngInterfaceMetric": alaRipngInterfaceMetric,
+       "alaRipngInterfaceRecvStatus": alaRipngInterfaceRecvStatus,
+       "alaRipngInterfaceSendStatus": alaRipngInterfaceSendStatus,
+       "alaRipngInterfaceHorizon": alaRipngInterfaceHorizon,
+       "alaRipngInterfacePacketsSent": alaRipngInterfacePacketsSent,
+       "alaRipngInterfacePacketsRcvd": alaRipngInterfacePacketsRcvd,
+       "alaRipngInterfaceMTU": alaRipngInterfaceMTU,
+       "alaRipngInterfaceNextUpdate": alaRipngInterfaceNextUpdate,
+       "alaRipngPeerTable": alaRipngPeerTable,
+       "alaRipngPeerEntry": alaRipngPeerEntry,
+       "alaRipngPeerAddress": alaRipngPeerAddress,
+       "alaRipngPeerIndex": alaRipngPeerIndex,
+       "alaRipngPeerLastUpdate": alaRipngPeerLastUpdate,
+       "alaRipngPeerNumUpdates": alaRipngPeerNumUpdates,
+       "alaRipngPeerNumRoutes": alaRipngPeerNumRoutes,
+       "alaRipngPeerBadPackets": alaRipngPeerBadPackets,
+       "alaRipngPeerBadRoutes": alaRipngPeerBadRoutes,
+       "alaRipngRouteTable": alaRipngRouteTable,
+       "alaRipngRouteEntry": alaRipngRouteEntry,
+       "alaRipngRoutePrefix": alaRipngRoutePrefix,
+       "alaRipngRoutePrefixLen": alaRipngRoutePrefixLen,
+       "alaRipngRouteNextHop": alaRipngRouteNextHop,
+       "alaRipngRouteType": alaRipngRouteType,
+       "alaRipngRouteAge": alaRipngRouteAge,
+       "alaRipngRouteTag": alaRipngRouteTag,
+       "alaRipngRouteMetric": alaRipngRouteMetric,
+       "alaRipngRouteStatus": alaRipngRouteStatus,
+       "alaRipngRouteFlags": alaRipngRouteFlags,
+       "alaRipngRouteIndex": alaRipngRouteIndex,
+       "alcatelIND1RIPNGMIBConformance": alcatelIND1RIPNGMIBConformance,
+       "alcatelIND1RIPNGMIBGroups": alcatelIND1RIPNGMIBGroups,
+       "alaRipngGlobalGroup": alaRipngGlobalGroup,
+       "alaRipngInterfaceGroup": alaRipngInterfaceGroup,
+       "alaRipngPeerGroup": alaRipngPeerGroup,
+       "alaRipngRouteGroup": alaRipngRouteGroup,
+       "alcatelIND1RIPNGTrapsGroup": alcatelIND1RIPNGTrapsGroup,
+       "alcatelIND1RIPNGMIBCompliances": alcatelIND1RIPNGMIBCompliances,
+       "alcatelIND1RIPMIBCompliance": alcatelIND1RIPMIBCompliance,
+       "alcatelIND1RIPNGTraps": alcatelIND1RIPNGTraps,
+       "alcatelIND1RIPNGTrapsRoot": alcatelIND1RIPNGTrapsRoot,
+       "ripngRouteMaxLimitReached": ripngRouteMaxLimitReached}
+)

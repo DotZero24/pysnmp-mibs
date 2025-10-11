@@ -1,35 +1,303 @@
+# SNMP MIB module (TROPIC-ABSNODE-NOTIFICATION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TROPIC-ABSNODE-NOTIFICATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TROPIC-ABSNODE-NOTIFICATION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:35:38 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TROPIC-ABSNODE-NOTIFICATION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:51:06 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-tnAbsNodeMIBModules, = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnAbsNodeMIBModules")
-tnTrapObjectID, tnTrapServiceAffecting, tnTrapEntityType, tnTrapObjectIDType, tnTrapData, tnNotificationObjs, tnTrapCondition, tnTrapDescr, tnTrapCategory, tnTrapTime = mibBuilder.importSymbols("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID", "tnTrapServiceAffecting", "tnTrapEntityType", "tnTrapObjectIDType", "tnTrapData", "tnNotificationObjs", "tnTrapCondition", "tnTrapDescr", "tnTrapCategory", "tnTrapTime")
-tnAbsNodeNotificationMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 1, 1, 2, 7, 2))
-tnAbsNodeNotificationMIBModule.setRevisions(('2018-02-23 12:00', '2016-11-16 12:00', '2016-10-18 12:00', '2016-08-03 12:00', '2016-02-26 12:00',))
-if mibBuilder.loadTexts: tnAbsNodeNotificationMIBModule.setLastUpdated('201802231200Z')
-if mibBuilder.loadTexts: tnAbsNodeNotificationMIBModule.setOrganization('Nokia')
-tnNotificationsAbsNode = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9))
-tnAlarmNotificationsAbsNode = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1))
-tnEventNotificationsAbsNode = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 2))
-tnAbsNodeRaisedNotif = NotificationType((1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 1)).setObjects(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"), ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"), ("TROPIC-NOTIFICATION-MIB", "tnTrapData"), ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
-if mibBuilder.loadTexts: tnAbsNodeRaisedNotif.setStatus('current')
-tnAbsNodeClearedNotif = NotificationType((1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 2)).setObjects(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"), ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"), ("TROPIC-NOTIFICATION-MIB", "tnTrapData"), ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
-if mibBuilder.loadTexts: tnAbsNodeClearedNotif.setStatus('current')
-tnAbsNodeDegradedRaisedNotif = NotificationType((1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 3)).setObjects(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"), ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"), ("TROPIC-NOTIFICATION-MIB", "tnTrapData"), ("TROPIC-NOTIFICATION-MIB", "tnTrapServiceAffecting"), ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
-if mibBuilder.loadTexts: tnAbsNodeDegradedRaisedNotif.setStatus('current')
-tnAbsNodeDegradedClearedNotif = NotificationType((1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 4)).setObjects(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"), ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"), ("TROPIC-NOTIFICATION-MIB", "tnTrapData"), ("TROPIC-NOTIFICATION-MIB", "tnTrapServiceAffecting"), ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
-if mibBuilder.loadTexts: tnAbsNodeDegradedClearedNotif.setStatus('current')
-tnAbsNodeFailedRaisedNotif = NotificationType((1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 5)).setObjects(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"), ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"), ("TROPIC-NOTIFICATION-MIB", "tnTrapData"), ("TROPIC-NOTIFICATION-MIB", "tnTrapServiceAffecting"), ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
-if mibBuilder.loadTexts: tnAbsNodeFailedRaisedNotif.setStatus('current')
-tnAbsNodeFailedClearedNotif = NotificationType((1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 6)).setObjects(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"), ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"), ("TROPIC-NOTIFICATION-MIB", "tnTrapData"), ("TROPIC-NOTIFICATION-MIB", "tnTrapServiceAffecting"), ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"), ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
-if mibBuilder.loadTexts: tnAbsNodeFailedClearedNotif.setStatus('current')
-mibBuilder.exportSymbols("TROPIC-ABSNODE-NOTIFICATION-MIB", tnAbsNodeRaisedNotif=tnAbsNodeRaisedNotif, tnAbsNodeClearedNotif=tnAbsNodeClearedNotif, PYSNMP_MODULE_ID=tnAbsNodeNotificationMIBModule, tnAbsNodeFailedClearedNotif=tnAbsNodeFailedClearedNotif, tnAbsNodeNotificationMIBModule=tnAbsNodeNotificationMIBModule, tnAbsNodeDegradedClearedNotif=tnAbsNodeDegradedClearedNotif, tnAbsNodeFailedRaisedNotif=tnAbsNodeFailedRaisedNotif, tnNotificationsAbsNode=tnNotificationsAbsNode, tnAlarmNotificationsAbsNode=tnAlarmNotificationsAbsNode, tnEventNotificationsAbsNode=tnEventNotificationsAbsNode, tnAbsNodeDegradedRaisedNotif=tnAbsNodeDegradedRaisedNotif)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(tnAbsNodeMIBModules,) = mibBuilder.importSymbols(
+    "TROPIC-GLOBAL-REG",
+    "tnAbsNodeMIBModules")
+
+(tnNotificationObjs,
+ tnTrapCategory,
+ tnTrapCondition,
+ tnTrapData,
+ tnTrapDescr,
+ tnTrapEntityType,
+ tnTrapObjectID,
+ tnTrapObjectIDType,
+ tnTrapServiceAffecting,
+ tnTrapTime) = mibBuilder.importSymbols(
+    "TROPIC-NOTIFICATION-MIB",
+    "tnNotificationObjs",
+    "tnTrapCategory",
+    "tnTrapCondition",
+    "tnTrapData",
+    "tnTrapDescr",
+    "tnTrapEntityType",
+    "tnTrapObjectID",
+    "tnTrapObjectIDType",
+    "tnTrapServiceAffecting",
+    "tnTrapTime")
+
+
+# MODULE-IDENTITY
+
+tnAbsNodeNotificationMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 1, 1, 2, 7, 2)
+)
+if mibBuilder.loadTexts:
+    tnAbsNodeNotificationMIBModule.setRevisions(
+        ("2018-02-23 12:00",
+         "2016-11-16 12:00",
+         "2016-10-18 12:00",
+         "2016-08-03 12:00",
+         "2016-02-26 12:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TnNotificationsAbsNode_ObjectIdentity = ObjectIdentity
+tnNotificationsAbsNode = _TnNotificationsAbsNode_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9)
+)
+_TnAlarmNotificationsAbsNode_ObjectIdentity = ObjectIdentity
+tnAlarmNotificationsAbsNode = _TnAlarmNotificationsAbsNode_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1)
+)
+_TnEventNotificationsAbsNode_ObjectIdentity = ObjectIdentity
+tnEventNotificationsAbsNode = _TnEventNotificationsAbsNode_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+tnAbsNodeRaisedNotif = NotificationType(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 1)
+)
+tnAbsNodeRaisedNotif.setObjects(
+      *(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapData"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
+)
+if mibBuilder.loadTexts:
+    tnAbsNodeRaisedNotif.setStatus(
+        "current"
+    )
+
+tnAbsNodeClearedNotif = NotificationType(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 2)
+)
+tnAbsNodeClearedNotif.setObjects(
+      *(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapData"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
+)
+if mibBuilder.loadTexts:
+    tnAbsNodeClearedNotif.setStatus(
+        "current"
+    )
+
+tnAbsNodeDegradedRaisedNotif = NotificationType(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 3)
+)
+tnAbsNodeDegradedRaisedNotif.setObjects(
+      *(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapData"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapServiceAffecting"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
+)
+if mibBuilder.loadTexts:
+    tnAbsNodeDegradedRaisedNotif.setStatus(
+        "current"
+    )
+
+tnAbsNodeDegradedClearedNotif = NotificationType(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 4)
+)
+tnAbsNodeDegradedClearedNotif.setObjects(
+      *(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapData"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapServiceAffecting"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
+)
+if mibBuilder.loadTexts:
+    tnAbsNodeDegradedClearedNotif.setStatus(
+        "current"
+    )
+
+tnAbsNodeFailedRaisedNotif = NotificationType(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 5)
+)
+tnAbsNodeFailedRaisedNotif.setObjects(
+      *(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapData"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapServiceAffecting"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
+)
+if mibBuilder.loadTexts:
+    tnAbsNodeFailedRaisedNotif.setStatus(
+        "current"
+    )
+
+tnAbsNodeFailedClearedNotif = NotificationType(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 2, 2, 9, 1, 6)
+)
+tnAbsNodeFailedClearedNotif.setObjects(
+      *(("TROPIC-NOTIFICATION-MIB", "tnTrapTime"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectIDType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapObjectID"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCategory"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapDescr"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapData"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapServiceAffecting"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapEntityType"),
+        ("TROPIC-NOTIFICATION-MIB", "tnTrapCondition"))
+)
+if mibBuilder.loadTexts:
+    tnAbsNodeFailedClearedNotif.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TROPIC-ABSNODE-NOTIFICATION-MIB",
+    **{"tnAbsNodeNotificationMIBModule": tnAbsNodeNotificationMIBModule,
+       "tnNotificationsAbsNode": tnNotificationsAbsNode,
+       "tnAlarmNotificationsAbsNode": tnAlarmNotificationsAbsNode,
+       "tnAbsNodeRaisedNotif": tnAbsNodeRaisedNotif,
+       "tnAbsNodeClearedNotif": tnAbsNodeClearedNotif,
+       "tnAbsNodeDegradedRaisedNotif": tnAbsNodeDegradedRaisedNotif,
+       "tnAbsNodeDegradedClearedNotif": tnAbsNodeDegradedClearedNotif,
+       "tnAbsNodeFailedRaisedNotif": tnAbsNodeFailedRaisedNotif,
+       "tnAbsNodeFailedClearedNotif": tnAbsNodeFailedClearedNotif,
+       "tnEventNotificationsAbsNode": tnEventNotificationsAbsNode}
+)

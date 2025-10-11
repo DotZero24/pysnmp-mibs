@@ -1,38 +1,338 @@
+# SNMP MIB module (NG700-MGMT-SECURITY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NG700-MGMT-SECURITY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/netgear/NG700-MGMT-SECURITY-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:50:49 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/netgear/NG700-MGMT-SECURITY-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:26:09 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ng700smartswitch, = mibBuilder.importSymbols("NG700-REF-MIB", "ng700smartswitch")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-fastPathMgmtSecurity = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 11, 11))
-fastPathMgmtSecurity.setRevisions(('2011-01-26 00:00', '2007-05-23 00:00', '2003-11-21 00:00',))
-if mibBuilder.loadTexts: fastPathMgmtSecurity.setLastUpdated('201101260000Z')
-if mibBuilder.loadTexts: fastPathMgmtSecurity.setOrganization('Netgear Inc')
-agentSSLConfigGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4526, 11, 11, 1))
-agentSSLAdminMode = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentSSLAdminMode.setStatus('current')
-agentSSLSecurePort = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1025, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentSSLSecurePort.setStatus('current')
-agentSSLProtocolLevel = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ssl30", 1), ("tls10", 2), ("both", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentSSLProtocolLevel.setStatus('current')
-agentSSLMaxSessions = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentSSLMaxSessions.setStatus('current')
-agentSSLHardTimeout = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 168))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentSSLHardTimeout.setStatus('current')
-agentSSLSoftTimeout = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 60))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentSSLSoftTimeout.setStatus('current')
-agentSSLCertificatePresent = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 7), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentSSLCertificatePresent.setStatus('current')
-agentSSLCertificateControl = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("noop", 1), ("generate", 2), ("delete", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: agentSSLCertificateControl.setStatus('current')
-agentSSLCertificateGenerationStatus = MibScalar((1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentSSLCertificateGenerationStatus.setStatus('current')
-mibBuilder.exportSymbols("NG700-MGMT-SECURITY-MIB", fastPathMgmtSecurity=fastPathMgmtSecurity, agentSSLHardTimeout=agentSSLHardTimeout, agentSSLProtocolLevel=agentSSLProtocolLevel, agentSSLCertificateGenerationStatus=agentSSLCertificateGenerationStatus, agentSSLConfigGroup=agentSSLConfigGroup, agentSSLAdminMode=agentSSLAdminMode, agentSSLCertificatePresent=agentSSLCertificatePresent, agentSSLSecurePort=agentSSLSecurePort, agentSSLCertificateControl=agentSSLCertificateControl, PYSNMP_MODULE_ID=fastPathMgmtSecurity, agentSSLMaxSessions=agentSSLMaxSessions, agentSSLSoftTimeout=agentSSLSoftTimeout)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ng700smartswitch,) = mibBuilder.importSymbols(
+    "NG700-REF-MIB",
+    "ng700smartswitch")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+fastPathMgmtSecurity = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 11, 11)
+)
+if mibBuilder.loadTexts:
+    fastPathMgmtSecurity.setRevisions(
+        ("2011-01-26 00:00",
+         "2007-05-23 00:00",
+         "2003-11-21 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AgentSSLConfigGroup_ObjectIdentity = ObjectIdentity
+agentSSLConfigGroup = _AgentSSLConfigGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 11, 11, 1)
+)
+
+
+class _AgentSSLAdminMode_Type(Integer32):
+    """Custom type agentSSLAdminMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AgentSSLAdminMode_Type.__name__ = "Integer32"
+_AgentSSLAdminMode_Object = MibScalar
+agentSSLAdminMode = _AgentSSLAdminMode_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 1),
+    _AgentSSLAdminMode_Type()
+)
+agentSSLAdminMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentSSLAdminMode.setStatus("current")
+
+
+class _AgentSSLSecurePort_Type(Integer32):
+    """Custom type agentSSLSecurePort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1025, 65535),
+    )
+
+
+_AgentSSLSecurePort_Type.__name__ = "Integer32"
+_AgentSSLSecurePort_Object = MibScalar
+agentSSLSecurePort = _AgentSSLSecurePort_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 2),
+    _AgentSSLSecurePort_Type()
+)
+agentSSLSecurePort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentSSLSecurePort.setStatus("current")
+
+
+class _AgentSSLProtocolLevel_Type(Integer32):
+    """Custom type agentSSLProtocolLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ssl30", 1),
+          ("tls10", 2),
+          ("both", 3))
+    )
+
+
+_AgentSSLProtocolLevel_Type.__name__ = "Integer32"
+_AgentSSLProtocolLevel_Object = MibScalar
+agentSSLProtocolLevel = _AgentSSLProtocolLevel_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 3),
+    _AgentSSLProtocolLevel_Type()
+)
+agentSSLProtocolLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentSSLProtocolLevel.setStatus("current")
+
+
+class _AgentSSLMaxSessions_Type(Integer32):
+    """Custom type agentSSLMaxSessions based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16),
+    )
+
+
+_AgentSSLMaxSessions_Type.__name__ = "Integer32"
+_AgentSSLMaxSessions_Object = MibScalar
+agentSSLMaxSessions = _AgentSSLMaxSessions_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 4),
+    _AgentSSLMaxSessions_Type()
+)
+agentSSLMaxSessions.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentSSLMaxSessions.setStatus("current")
+
+
+class _AgentSSLHardTimeout_Type(Integer32):
+    """Custom type agentSSLHardTimeout based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 168),
+    )
+
+
+_AgentSSLHardTimeout_Type.__name__ = "Integer32"
+_AgentSSLHardTimeout_Object = MibScalar
+agentSSLHardTimeout = _AgentSSLHardTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 5),
+    _AgentSSLHardTimeout_Type()
+)
+agentSSLHardTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentSSLHardTimeout.setStatus("current")
+
+
+class _AgentSSLSoftTimeout_Type(Integer32):
+    """Custom type agentSSLSoftTimeout based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 60),
+    )
+
+
+_AgentSSLSoftTimeout_Type.__name__ = "Integer32"
+_AgentSSLSoftTimeout_Object = MibScalar
+agentSSLSoftTimeout = _AgentSSLSoftTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 6),
+    _AgentSSLSoftTimeout_Type()
+)
+agentSSLSoftTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentSSLSoftTimeout.setStatus("current")
+_AgentSSLCertificatePresent_Type = TruthValue
+_AgentSSLCertificatePresent_Object = MibScalar
+agentSSLCertificatePresent = _AgentSSLCertificatePresent_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 7),
+    _AgentSSLCertificatePresent_Type()
+)
+agentSSLCertificatePresent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentSSLCertificatePresent.setStatus("current")
+
+
+class _AgentSSLCertificateControl_Type(Integer32):
+    """Custom type agentSSLCertificateControl based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noop", 1),
+          ("generate", 2),
+          ("delete", 3))
+    )
+
+
+_AgentSSLCertificateControl_Type.__name__ = "Integer32"
+_AgentSSLCertificateControl_Object = MibScalar
+agentSSLCertificateControl = _AgentSSLCertificateControl_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 8),
+    _AgentSSLCertificateControl_Type()
+)
+agentSSLCertificateControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    agentSSLCertificateControl.setStatus("current")
+_AgentSSLCertificateGenerationStatus_Type = TruthValue
+_AgentSSLCertificateGenerationStatus_Object = MibScalar
+agentSSLCertificateGenerationStatus = _AgentSSLCertificateGenerationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 11, 11, 1, 9),
+    _AgentSSLCertificateGenerationStatus_Type()
+)
+agentSSLCertificateGenerationStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentSSLCertificateGenerationStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NG700-MGMT-SECURITY-MIB",
+    **{"fastPathMgmtSecurity": fastPathMgmtSecurity,
+       "agentSSLConfigGroup": agentSSLConfigGroup,
+       "agentSSLAdminMode": agentSSLAdminMode,
+       "agentSSLSecurePort": agentSSLSecurePort,
+       "agentSSLProtocolLevel": agentSSLProtocolLevel,
+       "agentSSLMaxSessions": agentSSLMaxSessions,
+       "agentSSLHardTimeout": agentSSLHardTimeout,
+       "agentSSLSoftTimeout": agentSSLSoftTimeout,
+       "agentSSLCertificatePresent": agentSSLCertificatePresent,
+       "agentSSLCertificateControl": agentSSLCertificateControl,
+       "agentSSLCertificateGenerationStatus": agentSSLCertificateGenerationStatus}
+)

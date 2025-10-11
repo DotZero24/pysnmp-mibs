@@ -1,474 +1,2935 @@
+# SNMP MIB module (TIMETRA-CFLOWD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TIMETRA-CFLOWD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TIMETRA-CFLOWD-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:37:03 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TIMETRA-CFLOWD-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:53:58 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, ModuleIdentity, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "ModuleIdentity", "TimeTicks", "Gauge32")
-RowStatus, TextualConvention, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "TruthValue", "TimeStamp", "DisplayString")
-tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix, tmnxSRConfs = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix", "tmnxSRConfs")
-TmnxAdminState, TmnxActionType, TItemDescription, TmnxEnabledDisabled, TmnxOperState, TmnxStatus, TmnxVRtrID = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TmnxAdminState", "TmnxActionType", "TItemDescription", "TmnxEnabledDisabled", "TmnxOperState", "TmnxStatus", "TmnxVRtrID")
-vRtrIfIndex, vRtrID = mibBuilder.importSymbols("TIMETRA-VRTR-MIB", "vRtrIfIndex", "vRtrID")
-timetraCflowdMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 19))
-timetraCflowdMIBModule.setRevisions(('2017-01-01 00:00', '2015-01-01 00:00', '2014-02-01 00:00', '2005-01-24 00:00', '2004-01-15 00:00', '2003-08-15 00:00', '2003-01-20 00:00', '2001-11-10 00:00',))
-if mibBuilder.loadTexts: timetraCflowdMIBModule.setLastUpdated('201701010000Z')
-if mibBuilder.loadTexts: timetraCflowdMIBModule.setOrganization('Nokia')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+(timetraSRMIBModules,
+ tmnxSRConfs,
+ tmnxSRNotifyPrefix,
+ tmnxSRObjs) = mibBuilder.importSymbols(
+    "TIMETRA-GLOBAL-MIB",
+    "timetraSRMIBModules",
+    "tmnxSRConfs",
+    "tmnxSRNotifyPrefix",
+    "tmnxSRObjs")
+
+(TItemDescription,
+ TmnxActionType,
+ TmnxAdminState,
+ TmnxEnabledDisabled,
+ TmnxOperState,
+ TmnxStatus,
+ TmnxVRtrID) = mibBuilder.importSymbols(
+    "TIMETRA-TC-MIB",
+    "TItemDescription",
+    "TmnxActionType",
+    "TmnxAdminState",
+    "TmnxEnabledDisabled",
+    "TmnxOperState",
+    "TmnxStatus",
+    "TmnxVRtrID")
+
+(vRtrID,
+ vRtrIfIndex) = mibBuilder.importSymbols(
+    "TIMETRA-VRTR-MIB",
+    "vRtrID",
+    "vRtrIfIndex")
+
+
+# MODULE-IDENTITY
+
+timetraCflowdMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 19)
+)
+if mibBuilder.loadTexts:
+    timetraCflowdMIBModule.setRevisions(
+        ("2017-01-01 00:00",
+         "2015-01-01 00:00",
+         "2014-02-01 00:00",
+         "2005-01-24 00:00",
+         "2004-01-15 00:00",
+         "2003-08-15 00:00",
+         "2003-01-20 00:00",
+         "2001-11-10 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class TmnxCflowdAggScheme(TextualConvention, Bits):
-    status = 'current'
-    namedValues = NamedValues(("asMatrix", 0), ("protocolPort", 1), ("sourcePrefix", 2), ("destinationPrefix", 3), ("sourceDestinationPrefix", 4), ("raw", 5))
+    status = "current"
+    namedValues = NamedValues(
+        *(("asMatrix", 0),
+          ("protocolPort", 1),
+          ("sourcePrefix", 2),
+          ("destinationPrefix", 3),
+          ("sourceDestinationPrefix", 4),
+          ("raw", 5))
+    )
+
 
 class TmnxCflowdTemplateSet(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))
-    namedValues = NamedValues(("notApplicable", 0), ("basic", 1), ("mplsIp", 2), ("l2Ip", 3), ("mplsTransport", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("notApplicable", 0),
+          ("basic", 1),
+          ("mplsIp", 2),
+          ("l2Ip", 3),
+          ("mplsTransport", 4))
+    )
+
+
 
 class TmnxCflowdSampleProfileID(TextualConvention, Unsigned32):
-    status = 'current'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 5)
+    status = "current"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
 
-tmnxCflowdObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19))
-tmnxCflowdGeneralObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1))
-tmnxCflowdStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 1), TmnxStatus().clone('delete')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdStatus.setStatus('current')
-tmnxCflowdActiveTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 600)).clone(30)).setUnits('minutes').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdActiveTimeout.setStatus('obsolete')
-tmnxCflowdInactiveTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 600)).clone(15)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdInactiveTimeout.setStatus('current')
-tmnxCflowdCacheSize = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1000, 2000000))).setUnits('flows').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdCacheSize.setStatus('current')
-tmnxCflowdSampleRate = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10000)).clone(1000)).setUnits('packets').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdSampleRate.setStatus('obsolete')
-tmnxCflowdOverflow = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 50)).clone(1)).setUnits('percent').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdOverflow.setStatus('current')
-tmnxCflowdAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 7), TmnxAdminState().clone('inService')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdAdminStatus.setStatus('current')
-tmnxCflowdOperStatus = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 8), TmnxOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdOperStatus.setStatus('current')
-tmnxCflowdActiveFlows = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 9), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdActiveFlows.setStatus('current')
-tmnxCflowdAggregation = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 10), TmnxCflowdAggScheme()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdAggregation.setStatus('current')
-tmnxCFHostTableLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 11), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostTableLastChanged.setStatus('current')
-tmnxCflowdMaxCollectors = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 10)).clone(8)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdMaxCollectors.setStatus('current')
-tmnxCflowdTotalPktsRcvd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdTotalPktsRcvd.setStatus('current')
-tmnxCflowdTotalPktsDropped = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdTotalPktsDropped.setStatus('current')
-tmnxCflowdTemplateRetransmit = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 600)).clone(600)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdTemplateRetransmit.setStatus('current')
-tmnxCflowdGeneralStatisticsObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16))
-tmnxCflowdGenRawFlowsCreated = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdGenRawFlowsCreated.setStatus('current')
-tmnxCflowdGenAggrFlowsCreated = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdGenAggrFlowsCreated.setStatus('current')
-tmnxCflowdGenRawFlowsMatched = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdGenRawFlowsMatched.setStatus('current')
-tmnxCflowdGenAggrFlowsMatched = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdGenAggrFlowsMatched.setStatus('current')
-tmnxCflowdGenRawFlowsFlushed = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdGenRawFlowsFlushed.setStatus('current')
-tmnxCflowdGenAggrFlowsFlushed = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdGenAggrFlowsFlushed.setStatus('current')
-tmnxCflowdGenOverflowEvents = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdGenOverflowEvents.setStatus('current')
-tmnxCflowdGenDroppedFlows = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdGenDroppedFlows.setStatus('current')
-tmnxCflowdExportMode = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("automatic", 1), ("manual", 2))).clone('automatic')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdExportMode.setStatus('current')
-tmnxCflowdExportManual = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 18), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdExportManual.setStatus('current')
-tmnxCflowdVRtrIfIndexContext = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 19), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("global", 1), ("vrtr", 2))).clone('global')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdVRtrIfIndexContext.setStatus('current')
-tmnxCflowdEnhancedDistribution = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 20), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdEnhancedDistribution.setStatus('current')
-tmnxCflowdInbandCollExportOnly = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 21), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdInbandCollExportOnly.setStatus('current')
-tmnxCflowdAnalyzeGrePayload = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 22), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdAnalyzeGrePayload.setStatus('current')
-tmnxCflowdAnalyzeL2TP = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 23), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdAnalyzeL2TP.setStatus('current')
-tmnxCflowdAnalyzeV4OverV6 = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 24), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdAnalyzeV4OverV6.setStatus('current')
-tmnxCflowdActiveFlowTimeout = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 25), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(30, 36000)).clone(1800)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxCflowdActiveFlowTimeout.setStatus('current')
-tmnxCflowdNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 2))
-tmnxCflowdFlowFailureReasonCode = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("tmnxCflowdMemAllocFailure", 0), ("tmnxCflowdRTLookupFailure", 1), ("tmnxCflowdTimerCreateFailure", 2), ("tmnxCflowdUDPSendFailure", 3)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxCflowdFlowFailureReasonCode.setStatus('current')
-tmnxCflowdFlowUnsuppIPProtoNum = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 2, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tmnxCflowdFlowUnsuppIPProtoNum.setStatus('obsolete')
-tmnxCFHostTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3), )
-if mibBuilder.loadTexts: tmnxCFHostTable.setStatus('current')
-tmnxCFHostEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostAddress"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostUdpPort"))
-if mibBuilder.loadTexts: tmnxCFHostEntry.setStatus('current')
-tmnxCFHostAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 1), IpAddress())
-if mibBuilder.loadTexts: tmnxCFHostAddress.setStatus('current')
-tmnxCFHostUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(2055))
-if mibBuilder.loadTexts: tmnxCFHostUdpPort.setStatus('current')
-tmnxCFHostRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostRowStatus.setStatus('current')
-tmnxCFHostEntryLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 4), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostEntryLastChanged.setStatus('current')
-tmnxCFHostDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 5), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostDescription.setStatus('current')
-tmnxCFHostAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 6), TmnxAdminState().clone('inService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostAdminStatus.setStatus('current')
-tmnxCFHostOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 7), TmnxOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostOperStatus.setStatus('current')
-tmnxCFHostASType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("origin", 1), ("peer", 2))).clone('origin')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostASType.setStatus('current')
-tmnxCFHostAggregation = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 9), TmnxCflowdAggScheme()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostAggregation.setStatus('current')
-tmnxCFHostRecordsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostRecordsSent.setStatus('current')
-tmnxCFHostLastPktSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 11), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostLastPktSent.setStatus('current')
-tmnxCFHostVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 12), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(5, 5), ValueRangeConstraint(8, 10), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostVersion.setStatus('current')
-tmnxCFHostTemplateSet = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 13), TmnxCflowdTemplateSet().clone('notApplicable')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostTemplateSet.setStatus('current')
-tmnxCFHostPacketsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 14), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostPacketsSent.setStatus('current')
-tmnxCflowdVersionStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4), )
-if mibBuilder.loadTexts: tmnxCflowdVersionStatsTable.setStatus('current')
-tmnxCflowdVersionStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCflowdVersionIndex"))
-if mibBuilder.loadTexts: tmnxCflowdVersionStatsEntry.setStatus('current')
-tmnxCflowdVersionIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(5, 5), ValueRangeConstraint(8, 10), )))
-if mibBuilder.loadTexts: tmnxCflowdVersionIndex.setStatus('current')
-tmnxCflowdVersionStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1, 2), TmnxEnabledDisabled()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdVersionStatus.setStatus('current')
-tmnxCflowdVersionSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdVersionSent.setStatus('current')
-tmnxCflowdVersionOpen = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdVersionOpen.setStatus('current')
-tmnxCflowdVersionErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdVersionErrors.setStatus('current')
-tmnxCflowdV5StatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 5), )
-if mibBuilder.loadTexts: tmnxCflowdV5StatsTable.setStatus('current')
-tmnxCflowdV5StatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 5, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostAddress"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostUdpPort"))
-if mibBuilder.loadTexts: tmnxCflowdV5StatsEntry.setStatus('current')
-tmnxCflowdV5Sent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 5, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdV5Sent.setStatus('current')
-tmnxCflowdV5Open = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 5, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdV5Open.setStatus('current')
-tmnxCflowdV5Errors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 5, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdV5Errors.setStatus('current')
-tmnxCflowdAggregationStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6), )
-if mibBuilder.loadTexts: tmnxCflowdAggregationStatsTable.setStatus('current')
-tmnxCflowdAggregationStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostAddress"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostUdpPort"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregationIndex"))
-if mibBuilder.loadTexts: tmnxCflowdAggregationStatsEntry.setStatus('current')
-tmnxCflowdAggregationIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("nonAggregate", 0), ("asMatrix", 1), ("protocolPort", 2), ("sourcePrefix", 3), ("destinationPrefix", 4), ("sourceDestinationPrefix", 5), ("raw", 6))))
-if mibBuilder.loadTexts: tmnxCflowdAggregationIndex.setStatus('current')
-tmnxCflowdAggregationStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1, 2), TmnxEnabledDisabled()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdAggregationStatus.setStatus('current')
-tmnxCflowdAggregationSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdAggregationSent.setStatus('current')
-tmnxCflowdAggregationOpen = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdAggregationOpen.setStatus('current')
-tmnxCflowdAggregationErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdAggregationErrors.setStatus('current')
-tmnxCflowdTemplateStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7), )
-if mibBuilder.loadTexts: tmnxCflowdTemplateStatsTable.setStatus('current')
-tmnxCflowdTemplateStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostAddress"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostUdpPort"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateFlowIndex"))
-if mibBuilder.loadTexts: tmnxCflowdTemplateStatsEntry.setStatus('current')
-tmnxCflowdTemplateFlowIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("ipv4", 1), ("mpls", 2), ("ipv6", 3), ("l2", 4))))
-if mibBuilder.loadTexts: tmnxCflowdTemplateFlowIndex.setStatus('current')
-tmnxCflowdTemplateLastTxTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdTemplateLastTxTime.setStatus('current')
-tmnxCflowdTemplateSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdTemplateSent.setStatus('current')
-tmnxCflowdTemplateOpen = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdTemplateOpen.setStatus('current')
-tmnxCflowdTemplateErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdTemplateErrors.setStatus('current')
-tmnxCflowdV2Objs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8))
-tmnxCflowdGeneralV2Objs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 1))
-tmnxCFHostCollectorTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2), )
-if mibBuilder.loadTexts: tmnxCFHostCollectorTable.setStatus('current')
-tmnxCFHostCollectorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"))
-if mibBuilder.loadTexts: tmnxCFHostCollectorEntry.setStatus('current')
-tmnxCFHostCollAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: tmnxCFHostCollAddressType.setStatus('current')
-tmnxCFHostCollAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: tmnxCFHostCollAddress.setStatus('current')
-tmnxCFHostCollUdpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(2055))
-if mibBuilder.loadTexts: tmnxCFHostCollUdpPort.setStatus('current')
-tmnxCFHostCollRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostCollRowStatus.setStatus('current')
-tmnxCFHostCollEntryLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 5), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollEntryLastChanged.setStatus('current')
-tmnxCFHostCollDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 6), TItemDescription().clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostCollDescription.setStatus('current')
-tmnxCFHostCollAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 7), TmnxAdminState().clone('inService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostCollAdminStatus.setStatus('current')
-tmnxCFHostCollOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 8), TmnxOperState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollOperStatus.setStatus('current')
-tmnxCFHostCollASType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("origin", 1), ("peer", 2))).clone('origin')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostCollASType.setStatus('current')
-tmnxCFHostCollAggregation = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 10), TmnxCflowdAggScheme()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostCollAggregation.setStatus('current')
-tmnxCFHostCollRecordsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollRecordsSent.setStatus('current')
-tmnxCFHostCollLastPktSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 12), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollLastPktSent.setStatus('current')
-tmnxCFHostCollVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 13), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(5, 5), ValueRangeConstraint(8, 10), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostCollVersion.setStatus('current')
-tmnxCFHostCollTemplateSet = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 14), TmnxCflowdTemplateSet().clone('notApplicable')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostCollTemplateSet.setStatus('current')
-tmnxCFHostCollPacketsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 15), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollPacketsSent.setStatus('current')
-tmnxCFHostCollExpFilterAdrFamily = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 16), Bits().clone(namedValues=NamedValues(("ipv4", 0), ("ipv6", 1), ("mcastIPv4", 2), ("mcastIPv6", 3), ("l2IP", 4), ("mpls", 5)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostCollExpFilterAdrFamily.setStatus('current')
-tmnxCFHostCollVRtrID = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 17), TmnxVRtrID().clone(4095)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostCollVRtrID.setStatus('current')
-tmnxCFHostCollV5StatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 3), )
-if mibBuilder.loadTexts: tmnxCFHostCollV5StatsTable.setStatus('current')
-tmnxCFHostCollV5StatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 3, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"))
-if mibBuilder.loadTexts: tmnxCFHostCollV5StatsEntry.setStatus('current')
-tmnxCFHostCollV5SentPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 3, 1, 1), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollV5SentPackets.setStatus('current')
-tmnxCFHostCollV5OpenPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 3, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollV5OpenPackets.setStatus('current')
-tmnxCFHostCollV5ErrorPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 3, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollV5ErrorPackets.setStatus('current')
-tmnxCFHostCollAggrStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4), )
-if mibBuilder.loadTexts: tmnxCFHostCollAggrStatsTable.setStatus('current')
-tmnxCFHostCollAggrStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggrIndex"))
-if mibBuilder.loadTexts: tmnxCFHostCollAggrStatsEntry.setStatus('current')
-tmnxCFHostCollAggrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("nonAggregate", 0), ("asMatrix", 1), ("protocolPort", 2), ("sourcePrefix", 3), ("destinationPrefix", 4), ("sourceDestinationPrefix", 5), ("raw", 6))))
-if mibBuilder.loadTexts: tmnxCFHostCollAggrIndex.setStatus('current')
-tmnxCFHostCollAggrStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1, 2), TmnxEnabledDisabled()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollAggrStatus.setStatus('current')
-tmnxCFHostCollAggrSentPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollAggrSentPackets.setStatus('current')
-tmnxCFHostCollAggrOpenPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollAggrOpenPackets.setStatus('current')
-tmnxCFHostCollAggrErrorPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollAggrErrorPackets.setStatus('current')
-tmnxCFHostCollTemplStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5), )
-if mibBuilder.loadTexts: tmnxCFHostCollTemplStatsTable.setStatus('current')
-tmnxCFHostCollTemplStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplFlowIndex"))
-if mibBuilder.loadTexts: tmnxCFHostCollTemplStatsEntry.setStatus('current')
-tmnxCFHostCollTemplFlowIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("ipv4", 1), ("mpls", 2), ("ipv6", 3), ("l2", 4))))
-if mibBuilder.loadTexts: tmnxCFHostCollTemplFlowIndex.setStatus('current')
-tmnxCFHostCollTemplLastTxTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollTemplLastTxTime.setStatus('current')
-tmnxCFHostCollTemplSentPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollTemplSentPackets.setStatus('current')
-tmnxCFHostCollTemplOpenPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollTemplOpenPackets.setStatus('current')
-tmnxCFHostCollTemplErrorPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollTemplErrorPackets.setStatus('current')
-tmnxCFHostCollExpFilVrtrObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6))
-tmnxCFHostCollExFlVrtrTblLastChg = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollExFlVrtrTblLastChg.setStatus('current')
-tmnxCFHostCollExpFilterVrtrTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 2), )
-if mibBuilder.loadTexts: tmnxCFHostCollExpFilterVrtrTable.setStatus('current')
-tmnxCFHostCollExpFilterVrtrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 2, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"), (0, "TIMETRA-VRTR-MIB", "vRtrID"))
-if mibBuilder.loadTexts: tmnxCFHostCollExpFilterVrtrEntry.setStatus('current')
-tmnxCFHostCollExpFlVrtrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 2, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostCollExpFlVrtrRowStatus.setStatus('current')
-tmnxCFHostCollExpFltVrtrLastChg = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 2, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollExpFltVrtrLastChg.setStatus('current')
-tmnxCFHostCollExFlVrIfTblLastChg = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollExFlVrIfTblLastChg.setStatus('current')
-tmnxCFHostCollExpFiltVrtrIfTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 4), )
-if mibBuilder.loadTexts: tmnxCFHostCollExpFiltVrtrIfTable.setStatus('current')
-tmnxCFHostCollExpFiltVrtrIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 4, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"), (0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-VRTR-MIB", "vRtrIfIndex"))
-if mibBuilder.loadTexts: tmnxCFHostCollExpFiltVrtrIfEntry.setStatus('current')
-tmnxCFHostCollExpFlVrIfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 4, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCFHostCollExpFlVrIfRowStatus.setStatus('current')
-tmnxCFHostCollExpFltVrIfLastChg = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 4, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCFHostCollExpFltVrIfLastChg.setStatus('current')
-tmnxCflowdVRtrObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9))
-tmnxCflowdVRtrIfTableLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdVRtrIfTableLastChanged.setStatus('current')
-tmnxCflowdVRtrIfTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2), )
-if mibBuilder.loadTexts: tmnxCflowdVRtrIfTable.setStatus('current')
-tmnxCflowdVRtrIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1), ).setIndexNames((0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-VRTR-MIB", "vRtrIfIndex"), (0, "TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfSamplingType"))
-if mibBuilder.loadTexts: tmnxCflowdVRtrIfEntry.setStatus('current')
-tmnxCflowdVRtrIfSamplingType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("unicast", 1), ("multicast", 2), ("both", 3))))
-if mibBuilder.loadTexts: tmnxCflowdVRtrIfSamplingType.setStatus('current')
-tmnxCflowdVRtrIfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCflowdVRtrIfRowStatus.setStatus('current')
-tmnxCflowdVRtrIfLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdVRtrIfLastChanged.setStatus('current')
-tmnxCflowdVRtrIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("acl", 1), ("interface", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCflowdVRtrIfType.setStatus('current')
-tmnxCflowdVRtrIfDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ingressOnly", 1), ("egressOnly", 2), ("both", 3))).clone('ingressOnly')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCflowdVRtrIfDirection.setStatus('current')
-tmnxCflowdVRtrIfSampleProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 6), TmnxCflowdSampleProfileID().clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCflowdVRtrIfSampleProfileID.setStatus('current')
-tmnxCflowdSampleProfileObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10))
-tmnxCflowdSampProfTblLastChanged = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdSampProfTblLastChanged.setStatus('current')
-tmnxCflowdSampleProfileTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2), )
-if mibBuilder.loadTexts: tmnxCflowdSampleProfileTable.setStatus('current')
-tmnxCflowdSampleProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2, 1), ).setIndexNames((0, "TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleProfileProfileID"))
-if mibBuilder.loadTexts: tmnxCflowdSampleProfileEntry.setStatus('current')
-tmnxCflowdSampleProfileProfileID = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2, 1, 1), TmnxCflowdSampleProfileID())
-if mibBuilder.loadTexts: tmnxCflowdSampleProfileProfileID.setStatus('current')
-tmnxCflowdSampleProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCflowdSampleProfileRowStatus.setStatus('current')
-tmnxCflowdSampleProfLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxCflowdSampleProfLastChanged.setStatus('current')
-tmnxCflowdSampleProfileRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10000)).clone(1000)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxCflowdSampleProfileRate.setStatus('current')
-tmnxCflowdConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19))
-tmnxCflowdCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1))
-tmnxCflowdCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 1)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdHostGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdNotificationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdCompliance = tmnxCflowdCompliance.setStatus('obsolete')
-tmnxCflowdComplianceV6v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 2)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdHostGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdNotificationGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroupV6v0"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdComplianceV6v0 = tmnxCflowdComplianceV6v0.setStatus('obsolete')
-tmnxCflowdComplianceV8v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 3)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroupV6v0"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdHostGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdNotificationV8v0Group"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGroupV8v0"))
+# MIB Managed Objects in the order of their OIDs
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdComplianceV8v0 = tmnxCflowdComplianceV8v0.setStatus('obsolete')
-tmnxCflowdComplianceV10v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 4)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroupV6v0"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdHostGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdNotificationV8v0Group"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGroupV8v0"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdStatisticsV10v0Group"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV2HostCfgGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV2HostStatisticsGroup"))
+_TmnxCflowdConformance_ObjectIdentity = ObjectIdentity
+tmnxCflowdConformance = _TmnxCflowdConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19)
+)
+_TmnxCflowdCompliances_ObjectIdentity = ObjectIdentity
+tmnxCflowdCompliances = _TmnxCflowdCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1)
+)
+_TmnxCflowdGroups_ObjectIdentity = ObjectIdentity
+tmnxCflowdGroups = _TmnxCflowdGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2)
+)
+_TmnxCflowdV10v0Groups_ObjectIdentity = ObjectIdentity
+tmnxCflowdV10v0Groups = _TmnxCflowdV10v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 11)
+)
+_TmnxCflowdV11v0Groups_ObjectIdentity = ObjectIdentity
+tmnxCflowdV11v0Groups = _TmnxCflowdV11v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 13)
+)
+_TmnxCflowdV12v0Groups_ObjectIdentity = ObjectIdentity
+tmnxCflowdV12v0Groups = _TmnxCflowdV12v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 14)
+)
+_TmnxCflowdV13v0Groups_ObjectIdentity = ObjectIdentity
+tmnxCflowdV13v0Groups = _TmnxCflowdV13v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 15)
+)
+_TmnxCflowdV14v0Groups_ObjectIdentity = ObjectIdentity
+tmnxCflowdV14v0Groups = _TmnxCflowdV14v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 16)
+)
+_TmnxCflowdV16v0Groups_ObjectIdentity = ObjectIdentity
+tmnxCflowdV16v0Groups = _TmnxCflowdV16v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 17)
+)
+_TmnxCflowdV19v0Groups_ObjectIdentity = ObjectIdentity
+tmnxCflowdV19v0Groups = _TmnxCflowdV19v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 18)
+)
+_TmnxCflowdV20v0Groups_ObjectIdentity = ObjectIdentity
+tmnxCflowdV20v0Groups = _TmnxCflowdV20v0Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 19)
+)
+_TmnxCflowdObjs_ObjectIdentity = ObjectIdentity
+tmnxCflowdObjs = _TmnxCflowdObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19)
+)
+_TmnxCflowdGeneralObjs_ObjectIdentity = ObjectIdentity
+tmnxCflowdGeneralObjs = _TmnxCflowdGeneralObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1)
+)
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdComplianceV10v0 = tmnxCflowdComplianceV10v0.setStatus('obsolete')
-tmnxCflowdComplianceV12v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 5)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroupV6v0"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdHostGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdNotificationV8v0Group"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGroupV8v0"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGroupV12v0"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdStatisticsV10v0Group"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV2HostCfgGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV2HostStatisticsGroup"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdExportGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdComplianceV12v0 = tmnxCflowdComplianceV12v0.setStatus('current')
-tmnxCflowdComplianceV13v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 6)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrGroupV13v0"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdEnhancedDistGrpV13v0"))
+class _TmnxCflowdStatus_Type(TmnxStatus):
+    """Custom type tmnxCflowdStatus based on TmnxStatus"""
+    defaultValue = 2
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdComplianceV13v0 = tmnxCflowdComplianceV13v0.setStatus('current')
-tmnxCflowdComplianceV15v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 7)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdV2HostCfgGroupv15v0"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdExportFilterGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdComplianceV15v0 = tmnxCflowdComplianceV15v0.setStatus('current')
-tmnxCflowdComplianceV14v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 8)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdInbandCollExportV14v0"))
+_TmnxCflowdStatus_Type.__name__ = "TmnxStatus"
+_TmnxCflowdStatus_Object = MibScalar
+tmnxCflowdStatus = _TmnxCflowdStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 1),
+    _TmnxCflowdStatus_Type()
+)
+tmnxCflowdStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdStatus.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdComplianceV14v0 = tmnxCflowdComplianceV14v0.setStatus('current')
-tmnxCflowdComplianceV16v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 9)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdAnalyzeGrePayloadV16v0"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdComplianceV16v0 = tmnxCflowdComplianceV16v0.setStatus('current')
-tmnxCflowdComplianceV19v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 10)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleProfGroupV19v0"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAnalyzeTunneledV19v0"))
+class _TmnxCflowdActiveTimeout_Type(Unsigned32):
+    """Custom type tmnxCflowdActiveTimeout based on Unsigned32"""
+    defaultValue = 30
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdComplianceV19v0 = tmnxCflowdComplianceV19v0.setStatus('current')
-tmnxCflowdComplianceV20v0 = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 11)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdActiveTimeoutGrpV20v0"))
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 600),
+    )
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdComplianceV20v0 = tmnxCflowdComplianceV20v0.setStatus('current')
-tmnxCflowdGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2))
-tmnxCflowdGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 1)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdActiveTimeout"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdInactiveTimeout"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdCacheSize"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleRate"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdOverflow"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAdminStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdOperStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdActiveFlows"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregation"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdMaxCollectors"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdGlobalGroup = tmnxCflowdGlobalGroup.setStatus('current')
-tmnxCflowdHostGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 2)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCFHostTableLastChanged"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostRowStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostEntryLastChanged"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostDescription"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostAdminStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostOperStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostASType"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostAggregation"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostRecordsSent"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostLastPktSent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdHostGroup = tmnxCflowdHostGroup.setStatus('current')
-tmnxCflowdNotifyObjsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 3)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowUnsuppIPProtoNum"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFailureReasonCode"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdNotifyObjsGroup = tmnxCflowdNotifyObjsGroup.setStatus('obsolete')
-tmnxCflowdNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 4)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdCreated"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdCreateFailure"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdDeleted"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdStateChange"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdCleared"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowCreateFailure"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFlushFailure"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowUnsuppProto"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdNotificationGroup = tmnxCflowdNotificationGroup.setStatus('obsolete')
-tmnxCflowdGlobalGroupV6v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 5)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdTotalPktsRcvd"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdTotalPktsDropped"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdGlobalGroupV6v0 = tmnxCflowdGlobalGroupV6v0.setStatus('current')
-tmnxCflowdObsoleteV8v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 6)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowUnsuppIPProtoNum"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdObsoleteV8v0Group = tmnxCflowdObsoleteV8v0Group.setStatus('current')
-tmnxCflowdGroupV8v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 7)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateRetransmit"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateLastTxTime"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostVersion"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostTemplateSet"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostPacketsSent"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVersionStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVersionSent"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVersionOpen"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVersionErrors"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV5Sent"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV5Open"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV5Errors"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregationStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregationSent"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregationOpen"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregationErrors"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateSent"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateOpen"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateErrors"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdGroupV8v0 = tmnxCflowdGroupV8v0.setStatus('current')
-tmnxCflowdNotifyObjsV8v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 8)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFailureReasonCode"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdNotifyObjsV8v0Group = tmnxCflowdNotifyObjsV8v0Group.setStatus('current')
-tmnxCflowdNotificationV8v0Group = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 9)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdCreateFailure"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdStateChange"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowCreateFailure"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdPacketTxFailure"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdNotificationV8v0Group = tmnxCflowdNotificationV8v0Group.setStatus('current')
-tmnxCflowdStatisticsV10v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 10)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenRawFlowsCreated"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenAggrFlowsCreated"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenRawFlowsMatched"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenAggrFlowsMatched"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenRawFlowsFlushed"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenAggrFlowsFlushed"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenOverflowEvents"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenDroppedFlows"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdStatisticsV10v0Group = tmnxCflowdStatisticsV10v0Group.setStatus('current')
-tmnxCflowdV10v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 11))
-tmnxCflowdV2HostCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 11, 1)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollRowStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollEntryLastChanged"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollDescription"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAdminStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollOperStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollASType"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggregation"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollRecordsSent"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollLastPktSent"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollVersion"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplateSet"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollPacketsSent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdV2HostCfgGroup = tmnxCflowdV2HostCfgGroup.setStatus('current')
-tmnxCflowdV2HostStatisticsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 11, 2)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollV5SentPackets"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollV5OpenPackets"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollV5ErrorPackets"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggrStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggrSentPackets"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggrOpenPackets"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggrErrorPackets"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplLastTxTime"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplSentPackets"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplOpenPackets"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplErrorPackets"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdV2HostStatisticsGroup = tmnxCflowdV2HostStatisticsGroup.setStatus('current')
-tmnxCflowdV2HostCfgGroupv15v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 11, 3)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollVRtrID"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdV2HostCfgGroupv15v0 = tmnxCflowdV2HostCfgGroupv15v0.setStatus('current')
-tmnxCflowdExportFilterGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 11, 4)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExpFilterAdrFamily"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExpFltVrtrLastChg"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExpFlVrtrRowStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExFlVrtrTblLastChg"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExFlVrIfTblLastChg"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExpFlVrIfRowStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExpFltVrIfLastChg"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdExportFilterGroup = tmnxCflowdExportFilterGroup.setStatus('current')
-tmnxCflowdExportGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 12)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdExportMode"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdExportManual"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdExportGroup = tmnxCflowdExportGroup.setStatus('current')
-tmnxCflowdV11v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 13))
-tmnxCflowdV12v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 14))
-tmnxCflowdGroupV12v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 14, 1)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfIndexContext"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdGroupV12v0 = tmnxCflowdGroupV12v0.setStatus('current')
-tmnxCflowdV13v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 15))
-tmnxCflowdVRtrGroupV13v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 15, 1)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfTableLastChanged"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfRowStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfLastChanged"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfType"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfDirection"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdVRtrGroupV13v0 = tmnxCflowdVRtrGroupV13v0.setStatus('current')
-tmnxCflowdEnhancedDistGrpV13v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 15, 2)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdEnhancedDistribution"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdEnhancedDistGrpV13v0 = tmnxCflowdEnhancedDistGrpV13v0.setStatus('current')
-tmnxCflowdV14v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 16))
-tmnxCflowdInbandCollExportV14v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 16, 1)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdInbandCollExportOnly"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdInbandCollExportV14v0 = tmnxCflowdInbandCollExportV14v0.setStatus('current')
-tmnxCflowdV16v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 17))
-tmnxCflowdAnalyzeGrePayloadV16v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 17, 1)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdAnalyzeGrePayload"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdAnalyzeGrePayloadV16v0 = tmnxCflowdAnalyzeGrePayloadV16v0.setStatus('current')
-tmnxCflowdV19v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 18))
-tmnxCflowdSampleProfGroupV19v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 18, 1)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfSampleProfileID"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampProfTblLastChanged"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleProfileRowStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleProfLastChanged"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleProfileRate"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdSampleProfGroupV19v0 = tmnxCflowdSampleProfGroupV19v0.setStatus('current')
-tmnxCflowdObsoleteV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 18, 2)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleRate"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdObsoleteV19v0Group = tmnxCflowdObsoleteV19v0Group.setStatus('current')
-tmnxCflowdAnalyzeTunneledV19v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 18, 3)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdAnalyzeL2TP"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAnalyzeV4OverV6"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdAnalyzeTunneledV19v0 = tmnxCflowdAnalyzeTunneledV19v0.setStatus('current')
-tmnxCflowdV20v0Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 19))
-tmnxCflowdObsoleteV20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 19, 1)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdActiveTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdObsoleteV20v0Group = tmnxCflowdObsoleteV20v0Group.setStatus('current')
-tmnxCflowdActiveTimeoutGrpV20v0 = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 19, 2)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdActiveFlowTimeout"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxCflowdActiveTimeoutGrpV20v0 = tmnxCflowdActiveTimeoutGrpV20v0.setStatus('current')
-tmnxCflowdNotificationsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19))
-tmnxCflowdNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0))
-tmnxCflowdCreated = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 1))
-if mibBuilder.loadTexts: tmnxCflowdCreated.setStatus('obsolete')
-tmnxCflowdCreateFailure = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 2))
-if mibBuilder.loadTexts: tmnxCflowdCreateFailure.setStatus('current')
-tmnxCflowdDeleted = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 3))
-if mibBuilder.loadTexts: tmnxCflowdDeleted.setStatus('obsolete')
-tmnxCflowdStateChange = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 4)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdAdminStatus"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdOperStatus"))
-if mibBuilder.loadTexts: tmnxCflowdStateChange.setStatus('current')
-tmnxCflowdCleared = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 5))
-if mibBuilder.loadTexts: tmnxCflowdCleared.setStatus('obsolete')
-tmnxCflowdFlowCreateFailure = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 6)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFailureReasonCode"))
-if mibBuilder.loadTexts: tmnxCflowdFlowCreateFailure.setStatus('current')
-tmnxCflowdFlowFlushFailure = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 7)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFailureReasonCode"))
-if mibBuilder.loadTexts: tmnxCflowdFlowFlushFailure.setStatus('obsolete')
-tmnxCflowdFlowUnsuppProto = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 8)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowUnsuppIPProtoNum"))
-if mibBuilder.loadTexts: tmnxCflowdFlowUnsuppProto.setStatus('obsolete')
-tmnxCflowdPacketTxFailure = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 9)).setObjects(("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollVersion"), ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFailureReasonCode"))
-if mibBuilder.loadTexts: tmnxCflowdPacketTxFailure.setStatus('current')
-mibBuilder.exportSymbols("TIMETRA-CFLOWD-MIB", tmnxCflowdAnalyzeL2TP=tmnxCflowdAnalyzeL2TP, tmnxCFHostAggregation=tmnxCFHostAggregation, tmnxCflowdV2Objs=tmnxCflowdV2Objs, tmnxCflowdV13v0Groups=tmnxCflowdV13v0Groups, tmnxCflowdVersionIndex=tmnxCflowdVersionIndex, tmnxCFHostCollTemplateSet=tmnxCFHostCollTemplateSet, tmnxCFHostCollExFlVrIfTblLastChg=tmnxCFHostCollExFlVrIfTblLastChg, tmnxCflowdCompliances=tmnxCflowdCompliances, tmnxCflowdGroupV8v0=tmnxCflowdGroupV8v0, tmnxCFHostCollASType=tmnxCFHostCollASType, tmnxCflowdSampProfTblLastChanged=tmnxCflowdSampProfTblLastChanged, tmnxCflowdExportFilterGroup=tmnxCflowdExportFilterGroup, tmnxCFHostCollAggregation=tmnxCFHostCollAggregation, tmnxCflowdTemplateStatsTable=tmnxCflowdTemplateStatsTable, tmnxCflowdComplianceV10v0=tmnxCflowdComplianceV10v0, tmnxCflowdAggregationErrors=tmnxCflowdAggregationErrors, tmnxCflowdFlowUnsuppProto=tmnxCflowdFlowUnsuppProto, tmnxCflowdStateChange=tmnxCflowdStateChange, tmnxCflowdCreateFailure=tmnxCflowdCreateFailure, tmnxCflowdGenRawFlowsCreated=tmnxCflowdGenRawFlowsCreated, tmnxCflowdVRtrObjs=tmnxCflowdVRtrObjs, tmnxCFHostCollExpFilterVrtrTable=tmnxCFHostCollExpFilterVrtrTable, tmnxCflowdSampleProfileRate=tmnxCflowdSampleProfileRate, tmnxCflowdGlobalGroupV6v0=tmnxCflowdGlobalGroupV6v0, tmnxCflowdGroupV12v0=tmnxCflowdGroupV12v0, tmnxCflowdObsoleteV20v0Group=tmnxCflowdObsoleteV20v0Group, tmnxCflowdInactiveTimeout=tmnxCflowdInactiveTimeout, tmnxCflowdAggregationSent=tmnxCflowdAggregationSent, tmnxCflowdSampleRate=tmnxCflowdSampleRate, tmnxCflowdVersionSent=tmnxCflowdVersionSent, tmnxCflowdExportManual=tmnxCflowdExportManual, tmnxCFHostCollTemplErrorPackets=tmnxCFHostCollTemplErrorPackets, tmnxCflowdAnalyzeTunneledV19v0=tmnxCflowdAnalyzeTunneledV19v0, tmnxCflowdNotificationsPrefix=tmnxCflowdNotificationsPrefix, tmnxCFHostCollectorTable=tmnxCFHostCollectorTable, tmnxCflowdObsoleteV19v0Group=tmnxCflowdObsoleteV19v0Group, tmnxCflowdVRtrIfLastChanged=tmnxCflowdVRtrIfLastChanged, tmnxCflowdGenOverflowEvents=tmnxCflowdGenOverflowEvents, tmnxCFHostCollRecordsSent=tmnxCFHostCollRecordsSent, tmnxCflowdVRtrIfTable=tmnxCflowdVRtrIfTable, tmnxCflowdTotalPktsDropped=tmnxCflowdTotalPktsDropped, tmnxCFHostTableLastChanged=tmnxCFHostTableLastChanged, tmnxCflowdTotalPktsRcvd=tmnxCflowdTotalPktsRcvd, tmnxCFHostCollExpFilterVrtrEntry=tmnxCFHostCollExpFilterVrtrEntry, tmnxCflowdTemplateSent=tmnxCflowdTemplateSent, tmnxCflowdGenRawFlowsFlushed=tmnxCflowdGenRawFlowsFlushed, tmnxCflowdV5Errors=tmnxCflowdV5Errors, tmnxCflowdV5StatsTable=tmnxCflowdV5StatsTable, tmnxCflowdCleared=tmnxCflowdCleared, tmnxCFHostLastPktSent=tmnxCFHostLastPktSent, tmnxCFHostCollVersion=tmnxCFHostCollVersion, tmnxCflowdGroups=tmnxCflowdGroups, tmnxCflowdAggregationIndex=tmnxCflowdAggregationIndex, tmnxCFHostCollV5StatsEntry=tmnxCFHostCollV5StatsEntry, tmnxCflowdNotifyObjsGroup=tmnxCflowdNotifyObjsGroup, tmnxCflowdFlowUnsuppIPProtoNum=tmnxCflowdFlowUnsuppIPProtoNum, tmnxCflowdTemplateRetransmit=tmnxCflowdTemplateRetransmit, TmnxCflowdTemplateSet=TmnxCflowdTemplateSet, tmnxCflowdInbandCollExportOnly=tmnxCflowdInbandCollExportOnly, tmnxCflowdCacheSize=tmnxCflowdCacheSize, tmnxCFHostRecordsSent=tmnxCFHostRecordsSent, tmnxCflowdVRtrIfType=tmnxCflowdVRtrIfType, tmnxCflowdAggregationStatsEntry=tmnxCflowdAggregationStatsEntry, tmnxCflowdV11v0Groups=tmnxCflowdV11v0Groups, tmnxCFHostCollExpFltVrtrLastChg=tmnxCFHostCollExpFltVrtrLastChg, tmnxCFHostPacketsSent=tmnxCFHostPacketsSent, tmnxCflowdStatus=tmnxCflowdStatus, tmnxCflowdSampleProfileRowStatus=tmnxCflowdSampleProfileRowStatus, tmnxCflowdGeneralStatisticsObjs=tmnxCflowdGeneralStatisticsObjs, tmnxCflowdAnalyzeV4OverV6=tmnxCflowdAnalyzeV4OverV6, PYSNMP_MODULE_ID=timetraCflowdMIBModule, tmnxCFHostCollTemplOpenPackets=tmnxCFHostCollTemplOpenPackets, tmnxCFHostCollExpFiltVrtrIfTable=tmnxCFHostCollExpFiltVrtrIfTable, tmnxCflowdComplianceV19v0=tmnxCflowdComplianceV19v0, tmnxCflowdVersionErrors=tmnxCflowdVersionErrors, tmnxCFHostCollAggrOpenPackets=tmnxCFHostCollAggrOpenPackets, tmnxCFHostCollTemplFlowIndex=tmnxCFHostCollTemplFlowIndex, tmnxCFHostCollAggrSentPackets=tmnxCFHostCollAggrSentPackets, tmnxCFHostCollAddressType=tmnxCFHostCollAddressType, tmnxCflowdV2HostStatisticsGroup=tmnxCflowdV2HostStatisticsGroup, tmnxCFHostCollExFlVrtrTblLastChg=tmnxCFHostCollExFlVrtrTblLastChg, tmnxCFHostCollectorEntry=tmnxCFHostCollectorEntry, TmnxCflowdSampleProfileID=TmnxCflowdSampleProfileID, tmnxCflowdSampleProfLastChanged=tmnxCflowdSampleProfLastChanged, tmnxCflowdObjs=tmnxCflowdObjs, tmnxCflowdObsoleteV8v0Group=tmnxCflowdObsoleteV8v0Group, tmnxCflowdV14v0Groups=tmnxCflowdV14v0Groups, tmnxCflowdActiveFlowTimeout=tmnxCflowdActiveFlowTimeout, tmnxCFHostCollLastPktSent=tmnxCFHostCollLastPktSent, tmnxCflowdHostGroup=tmnxCflowdHostGroup, tmnxCflowdVRtrIfDirection=tmnxCflowdVRtrIfDirection, tmnxCFHostCollTemplSentPackets=tmnxCFHostCollTemplSentPackets, tmnxCflowdDeleted=tmnxCflowdDeleted, tmnxCFHostTemplateSet=tmnxCFHostTemplateSet, tmnxCflowdTemplateFlowIndex=tmnxCflowdTemplateFlowIndex, tmnxCFHostCollAggrStatsEntry=tmnxCFHostCollAggrStatsEntry, tmnxCflowdV19v0Groups=tmnxCflowdV19v0Groups, tmnxCFHostCollAdminStatus=tmnxCFHostCollAdminStatus, tmnxCflowdVersionStatus=tmnxCflowdVersionStatus, tmnxCflowdTemplateStatsEntry=tmnxCflowdTemplateStatsEntry, tmnxCFHostAddress=tmnxCFHostAddress, tmnxCFHostCollPacketsSent=tmnxCFHostCollPacketsSent, tmnxCflowdVRtrIfTableLastChanged=tmnxCflowdVRtrIfTableLastChanged, tmnxCflowdConformance=tmnxCflowdConformance, tmnxCFHostCollTemplStatsTable=tmnxCFHostCollTemplStatsTable, tmnxCflowdNotifyObjsV8v0Group=tmnxCflowdNotifyObjsV8v0Group, tmnxCflowdVRtrIfSampleProfileID=tmnxCflowdVRtrIfSampleProfileID, tmnxCflowdV10v0Groups=tmnxCflowdV10v0Groups, tmnxCflowdNotificationGroup=tmnxCflowdNotificationGroup, tmnxCflowdCompliance=tmnxCflowdCompliance, tmnxCflowdOperStatus=tmnxCflowdOperStatus, tmnxCFHostRowStatus=tmnxCFHostRowStatus, tmnxCflowdVersionOpen=tmnxCflowdVersionOpen, tmnxCflowdGenDroppedFlows=tmnxCflowdGenDroppedFlows, tmnxCflowdAggregationStatsTable=tmnxCflowdAggregationStatsTable, tmnxCFHostCollAggrErrorPackets=tmnxCFHostCollAggrErrorPackets, tmnxCFHostCollRowStatus=tmnxCFHostCollRowStatus, tmnxCflowdInbandCollExportV14v0=tmnxCflowdInbandCollExportV14v0, tmnxCflowdV5StatsEntry=tmnxCflowdV5StatsEntry, tmnxCflowdAnalyzeGrePayloadV16v0=tmnxCflowdAnalyzeGrePayloadV16v0, tmnxCflowdNotificationObjects=tmnxCflowdNotificationObjects, tmnxCflowdGlobalGroup=tmnxCflowdGlobalGroup, tmnxCflowdComplianceV8v0=tmnxCflowdComplianceV8v0, tmnxCFHostCollAddress=tmnxCFHostCollAddress, tmnxCflowdGenAggrFlowsFlushed=tmnxCflowdGenAggrFlowsFlushed, tmnxCflowdComplianceV13v0=tmnxCflowdComplianceV13v0, tmnxCflowdExportGroup=tmnxCflowdExportGroup, tmnxCflowdAggregation=tmnxCflowdAggregation, tmnxCFHostEntryLastChanged=tmnxCFHostEntryLastChanged, tmnxCFHostCollAggrStatsTable=tmnxCFHostCollAggrStatsTable, tmnxCflowdVRtrGroupV13v0=tmnxCflowdVRtrGroupV13v0, tmnxCflowdAggregationOpen=tmnxCflowdAggregationOpen, tmnxCflowdGeneralObjs=tmnxCflowdGeneralObjs, tmnxCFHostOperStatus=tmnxCFHostOperStatus, tmnxCFHostDescription=tmnxCFHostDescription, tmnxCflowdComplianceV15v0=tmnxCflowdComplianceV15v0, tmnxCflowdComplianceV16v0=tmnxCflowdComplianceV16v0, tmnxCflowdV20v0Groups=tmnxCflowdV20v0Groups, tmnxCFHostCollExpFlVrtrRowStatus=tmnxCFHostCollExpFlVrtrRowStatus, tmnxCflowdComplianceV6v0=tmnxCflowdComplianceV6v0, tmnxCflowdNotificationV8v0Group=tmnxCflowdNotificationV8v0Group, tmnxCflowdComplianceV14v0=tmnxCflowdComplianceV14v0, tmnxCFHostCollAggrStatus=tmnxCFHostCollAggrStatus, tmnxCFHostCollTemplStatsEntry=tmnxCFHostCollTemplStatsEntry, tmnxCflowdFlowCreateFailure=tmnxCflowdFlowCreateFailure, tmnxCflowdTemplateLastTxTime=tmnxCflowdTemplateLastTxTime, tmnxCflowdCreated=tmnxCflowdCreated, tmnxCflowdAnalyzeGrePayload=tmnxCflowdAnalyzeGrePayload, timetraCflowdMIBModule=timetraCflowdMIBModule, tmnxCflowdActiveTimeoutGrpV20v0=tmnxCflowdActiveTimeoutGrpV20v0, tmnxCFHostCollExpFilVrtrObjects=tmnxCFHostCollExpFilVrtrObjects, tmnxCflowdSampleProfileEntry=tmnxCflowdSampleProfileEntry, tmnxCflowdStatisticsV10v0Group=tmnxCflowdStatisticsV10v0Group, tmnxCflowdVRtrIfIndexContext=tmnxCflowdVRtrIfIndexContext, tmnxCflowdTemplateErrors=tmnxCflowdTemplateErrors, tmnxCflowdPacketTxFailure=tmnxCflowdPacketTxFailure, tmnxCflowdFlowFlushFailure=tmnxCflowdFlowFlushFailure, tmnxCFHostCollUdpPort=tmnxCFHostCollUdpPort, tmnxCflowdTemplateOpen=tmnxCflowdTemplateOpen, tmnxCFHostCollOperStatus=tmnxCFHostCollOperStatus, tmnxCflowdVRtrIfRowStatus=tmnxCflowdVRtrIfRowStatus, tmnxCflowdV16v0Groups=tmnxCflowdV16v0Groups, tmnxCFHostCollExpFlVrIfRowStatus=tmnxCFHostCollExpFlVrIfRowStatus, tmnxCflowdGenAggrFlowsCreated=tmnxCflowdGenAggrFlowsCreated, tmnxCFHostASType=tmnxCFHostASType, tmnxCflowdComplianceV20v0=tmnxCflowdComplianceV20v0, tmnxCFHostEntry=tmnxCFHostEntry, TmnxCflowdAggScheme=TmnxCflowdAggScheme, tmnxCFHostCollVRtrID=tmnxCFHostCollVRtrID, tmnxCflowdActiveFlows=tmnxCflowdActiveFlows, tmnxCflowdNotifications=tmnxCflowdNotifications, tmnxCflowdV2HostCfgGroup=tmnxCflowdV2HostCfgGroup, tmnxCFHostCollTemplLastTxTime=tmnxCFHostCollTemplLastTxTime, tmnxCflowdSampleProfGroupV19v0=tmnxCflowdSampleProfGroupV19v0, tmnxCflowdEnhancedDistribution=tmnxCflowdEnhancedDistribution, tmnxCflowdActiveTimeout=tmnxCflowdActiveTimeout, tmnxCflowdV12v0Groups=tmnxCflowdV12v0Groups, tmnxCFHostCollExpFiltVrtrIfEntry=tmnxCFHostCollExpFiltVrtrIfEntry, tmnxCflowdExportMode=tmnxCflowdExportMode, tmnxCflowdVersionStatsEntry=tmnxCflowdVersionStatsEntry, tmnxCFHostCollExpFilterAdrFamily=tmnxCFHostCollExpFilterAdrFamily, tmnxCflowdV5Sent=tmnxCflowdV5Sent, tmnxCflowdSampleProfileProfileID=tmnxCflowdSampleProfileProfileID, tmnxCflowdGenRawFlowsMatched=tmnxCflowdGenRawFlowsMatched, tmnxCflowdGeneralV2Objs=tmnxCflowdGeneralV2Objs, tmnxCFHostCollV5ErrorPackets=tmnxCFHostCollV5ErrorPackets, tmnxCflowdFlowFailureReasonCode=tmnxCflowdFlowFailureReasonCode, tmnxCFHostCollV5OpenPackets=tmnxCFHostCollV5OpenPackets, tmnxCflowdV2HostCfgGroupv15v0=tmnxCflowdV2HostCfgGroupv15v0, tmnxCflowdVersionStatsTable=tmnxCflowdVersionStatsTable, tmnxCflowdComplianceV12v0=tmnxCflowdComplianceV12v0, tmnxCFHostAdminStatus=tmnxCFHostAdminStatus, tmnxCFHostCollExpFltVrIfLastChg=tmnxCFHostCollExpFltVrIfLastChg, tmnxCflowdVRtrIfEntry=tmnxCflowdVRtrIfEntry, tmnxCFHostCollV5SentPackets=tmnxCFHostCollV5SentPackets, tmnxCFHostUdpPort=tmnxCFHostUdpPort, tmnxCflowdV5Open=tmnxCflowdV5Open, tmnxCflowdVRtrIfSamplingType=tmnxCflowdVRtrIfSamplingType, tmnxCflowdSampleProfileTable=tmnxCflowdSampleProfileTable, tmnxCflowdEnhancedDistGrpV13v0=tmnxCflowdEnhancedDistGrpV13v0, tmnxCflowdGenAggrFlowsMatched=tmnxCflowdGenAggrFlowsMatched, tmnxCFHostCollV5StatsTable=tmnxCFHostCollV5StatsTable, tmnxCflowdAdminStatus=tmnxCflowdAdminStatus, tmnxCflowdMaxCollectors=tmnxCflowdMaxCollectors, tmnxCFHostVersion=tmnxCFHostVersion, tmnxCflowdAggregationStatus=tmnxCflowdAggregationStatus, tmnxCFHostCollEntryLastChanged=tmnxCFHostCollEntryLastChanged, tmnxCFHostCollAggrIndex=tmnxCFHostCollAggrIndex, tmnxCflowdOverflow=tmnxCflowdOverflow, tmnxCflowdSampleProfileObjs=tmnxCflowdSampleProfileObjs, tmnxCFHostTable=tmnxCFHostTable, tmnxCFHostCollDescription=tmnxCFHostCollDescription)
+
+_TmnxCflowdActiveTimeout_Type.__name__ = "Unsigned32"
+_TmnxCflowdActiveTimeout_Object = MibScalar
+tmnxCflowdActiveTimeout = _TmnxCflowdActiveTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 2),
+    _TmnxCflowdActiveTimeout_Type()
+)
+tmnxCflowdActiveTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdActiveTimeout.setStatus("obsolete")
+if mibBuilder.loadTexts:
+    tmnxCflowdActiveTimeout.setUnits("minutes")
+
+
+class _TmnxCflowdInactiveTimeout_Type(Unsigned32):
+    """Custom type tmnxCflowdInactiveTimeout based on Unsigned32"""
+    defaultValue = 15
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 600),
+    )
+
+
+_TmnxCflowdInactiveTimeout_Type.__name__ = "Unsigned32"
+_TmnxCflowdInactiveTimeout_Object = MibScalar
+tmnxCflowdInactiveTimeout = _TmnxCflowdInactiveTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 3),
+    _TmnxCflowdInactiveTimeout_Type()
+)
+tmnxCflowdInactiveTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdInactiveTimeout.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxCflowdInactiveTimeout.setUnits("seconds")
+
+
+class _TmnxCflowdCacheSize_Type(Unsigned32):
+    """Custom type tmnxCflowdCacheSize based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1000, 2000000),
+    )
+
+
+_TmnxCflowdCacheSize_Type.__name__ = "Unsigned32"
+_TmnxCflowdCacheSize_Object = MibScalar
+tmnxCflowdCacheSize = _TmnxCflowdCacheSize_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 4),
+    _TmnxCflowdCacheSize_Type()
+)
+tmnxCflowdCacheSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdCacheSize.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxCflowdCacheSize.setUnits("flows")
+
+
+class _TmnxCflowdSampleRate_Type(Unsigned32):
+    """Custom type tmnxCflowdSampleRate based on Unsigned32"""
+    defaultValue = 1000
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10000),
+    )
+
+
+_TmnxCflowdSampleRate_Type.__name__ = "Unsigned32"
+_TmnxCflowdSampleRate_Object = MibScalar
+tmnxCflowdSampleRate = _TmnxCflowdSampleRate_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 5),
+    _TmnxCflowdSampleRate_Type()
+)
+tmnxCflowdSampleRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdSampleRate.setStatus("obsolete")
+if mibBuilder.loadTexts:
+    tmnxCflowdSampleRate.setUnits("packets")
+
+
+class _TmnxCflowdOverflow_Type(Unsigned32):
+    """Custom type tmnxCflowdOverflow based on Unsigned32"""
+    defaultValue = 1
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 50),
+    )
+
+
+_TmnxCflowdOverflow_Type.__name__ = "Unsigned32"
+_TmnxCflowdOverflow_Object = MibScalar
+tmnxCflowdOverflow = _TmnxCflowdOverflow_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 6),
+    _TmnxCflowdOverflow_Type()
+)
+tmnxCflowdOverflow.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdOverflow.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxCflowdOverflow.setUnits("percent")
+
+
+class _TmnxCflowdAdminStatus_Type(TmnxAdminState):
+    """Custom type tmnxCflowdAdminStatus based on TmnxAdminState"""
+    defaultValue = 2
+
+
+_TmnxCflowdAdminStatus_Type.__name__ = "TmnxAdminState"
+_TmnxCflowdAdminStatus_Object = MibScalar
+tmnxCflowdAdminStatus = _TmnxCflowdAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 7),
+    _TmnxCflowdAdminStatus_Type()
+)
+tmnxCflowdAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdAdminStatus.setStatus("current")
+_TmnxCflowdOperStatus_Type = TmnxOperState
+_TmnxCflowdOperStatus_Object = MibScalar
+tmnxCflowdOperStatus = _TmnxCflowdOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 8),
+    _TmnxCflowdOperStatus_Type()
+)
+tmnxCflowdOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdOperStatus.setStatus("current")
+_TmnxCflowdActiveFlows_Type = Gauge32
+_TmnxCflowdActiveFlows_Object = MibScalar
+tmnxCflowdActiveFlows = _TmnxCflowdActiveFlows_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 9),
+    _TmnxCflowdActiveFlows_Type()
+)
+tmnxCflowdActiveFlows.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdActiveFlows.setStatus("current")
+_TmnxCflowdAggregation_Type = TmnxCflowdAggScheme
+_TmnxCflowdAggregation_Object = MibScalar
+tmnxCflowdAggregation = _TmnxCflowdAggregation_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 10),
+    _TmnxCflowdAggregation_Type()
+)
+tmnxCflowdAggregation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdAggregation.setStatus("current")
+_TmnxCFHostTableLastChanged_Type = TimeStamp
+_TmnxCFHostTableLastChanged_Object = MibScalar
+tmnxCFHostTableLastChanged = _TmnxCFHostTableLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 11),
+    _TmnxCFHostTableLastChanged_Type()
+)
+tmnxCFHostTableLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostTableLastChanged.setStatus("current")
+
+
+class _TmnxCflowdMaxCollectors_Type(Integer32):
+    """Custom type tmnxCflowdMaxCollectors based on Integer32"""
+    defaultValue = 8
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10),
+    )
+
+
+_TmnxCflowdMaxCollectors_Type.__name__ = "Integer32"
+_TmnxCflowdMaxCollectors_Object = MibScalar
+tmnxCflowdMaxCollectors = _TmnxCflowdMaxCollectors_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 12),
+    _TmnxCflowdMaxCollectors_Type()
+)
+tmnxCflowdMaxCollectors.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdMaxCollectors.setStatus("current")
+_TmnxCflowdTotalPktsRcvd_Type = Counter64
+_TmnxCflowdTotalPktsRcvd_Object = MibScalar
+tmnxCflowdTotalPktsRcvd = _TmnxCflowdTotalPktsRcvd_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 13),
+    _TmnxCflowdTotalPktsRcvd_Type()
+)
+tmnxCflowdTotalPktsRcvd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdTotalPktsRcvd.setStatus("current")
+_TmnxCflowdTotalPktsDropped_Type = Counter64
+_TmnxCflowdTotalPktsDropped_Object = MibScalar
+tmnxCflowdTotalPktsDropped = _TmnxCflowdTotalPktsDropped_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 14),
+    _TmnxCflowdTotalPktsDropped_Type()
+)
+tmnxCflowdTotalPktsDropped.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdTotalPktsDropped.setStatus("current")
+
+
+class _TmnxCflowdTemplateRetransmit_Type(Unsigned32):
+    """Custom type tmnxCflowdTemplateRetransmit based on Unsigned32"""
+    defaultValue = 600
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 600),
+    )
+
+
+_TmnxCflowdTemplateRetransmit_Type.__name__ = "Unsigned32"
+_TmnxCflowdTemplateRetransmit_Object = MibScalar
+tmnxCflowdTemplateRetransmit = _TmnxCflowdTemplateRetransmit_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 15),
+    _TmnxCflowdTemplateRetransmit_Type()
+)
+tmnxCflowdTemplateRetransmit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdTemplateRetransmit.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxCflowdTemplateRetransmit.setUnits("seconds")
+_TmnxCflowdGeneralStatisticsObjs_ObjectIdentity = ObjectIdentity
+tmnxCflowdGeneralStatisticsObjs = _TmnxCflowdGeneralStatisticsObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16)
+)
+_TmnxCflowdGenRawFlowsCreated_Type = Counter64
+_TmnxCflowdGenRawFlowsCreated_Object = MibScalar
+tmnxCflowdGenRawFlowsCreated = _TmnxCflowdGenRawFlowsCreated_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 1),
+    _TmnxCflowdGenRawFlowsCreated_Type()
+)
+tmnxCflowdGenRawFlowsCreated.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdGenRawFlowsCreated.setStatus("current")
+_TmnxCflowdGenAggrFlowsCreated_Type = Counter64
+_TmnxCflowdGenAggrFlowsCreated_Object = MibScalar
+tmnxCflowdGenAggrFlowsCreated = _TmnxCflowdGenAggrFlowsCreated_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 2),
+    _TmnxCflowdGenAggrFlowsCreated_Type()
+)
+tmnxCflowdGenAggrFlowsCreated.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdGenAggrFlowsCreated.setStatus("current")
+_TmnxCflowdGenRawFlowsMatched_Type = Counter64
+_TmnxCflowdGenRawFlowsMatched_Object = MibScalar
+tmnxCflowdGenRawFlowsMatched = _TmnxCflowdGenRawFlowsMatched_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 3),
+    _TmnxCflowdGenRawFlowsMatched_Type()
+)
+tmnxCflowdGenRawFlowsMatched.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdGenRawFlowsMatched.setStatus("current")
+_TmnxCflowdGenAggrFlowsMatched_Type = Counter64
+_TmnxCflowdGenAggrFlowsMatched_Object = MibScalar
+tmnxCflowdGenAggrFlowsMatched = _TmnxCflowdGenAggrFlowsMatched_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 4),
+    _TmnxCflowdGenAggrFlowsMatched_Type()
+)
+tmnxCflowdGenAggrFlowsMatched.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdGenAggrFlowsMatched.setStatus("current")
+_TmnxCflowdGenRawFlowsFlushed_Type = Counter64
+_TmnxCflowdGenRawFlowsFlushed_Object = MibScalar
+tmnxCflowdGenRawFlowsFlushed = _TmnxCflowdGenRawFlowsFlushed_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 5),
+    _TmnxCflowdGenRawFlowsFlushed_Type()
+)
+tmnxCflowdGenRawFlowsFlushed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdGenRawFlowsFlushed.setStatus("current")
+_TmnxCflowdGenAggrFlowsFlushed_Type = Counter64
+_TmnxCflowdGenAggrFlowsFlushed_Object = MibScalar
+tmnxCflowdGenAggrFlowsFlushed = _TmnxCflowdGenAggrFlowsFlushed_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 6),
+    _TmnxCflowdGenAggrFlowsFlushed_Type()
+)
+tmnxCflowdGenAggrFlowsFlushed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdGenAggrFlowsFlushed.setStatus("current")
+_TmnxCflowdGenOverflowEvents_Type = Counter64
+_TmnxCflowdGenOverflowEvents_Object = MibScalar
+tmnxCflowdGenOverflowEvents = _TmnxCflowdGenOverflowEvents_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 7),
+    _TmnxCflowdGenOverflowEvents_Type()
+)
+tmnxCflowdGenOverflowEvents.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdGenOverflowEvents.setStatus("current")
+_TmnxCflowdGenDroppedFlows_Type = Counter64
+_TmnxCflowdGenDroppedFlows_Object = MibScalar
+tmnxCflowdGenDroppedFlows = _TmnxCflowdGenDroppedFlows_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 16, 8),
+    _TmnxCflowdGenDroppedFlows_Type()
+)
+tmnxCflowdGenDroppedFlows.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdGenDroppedFlows.setStatus("current")
+
+
+class _TmnxCflowdExportMode_Type(Integer32):
+    """Custom type tmnxCflowdExportMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("automatic", 1),
+          ("manual", 2))
+    )
+
+
+_TmnxCflowdExportMode_Type.__name__ = "Integer32"
+_TmnxCflowdExportMode_Object = MibScalar
+tmnxCflowdExportMode = _TmnxCflowdExportMode_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 17),
+    _TmnxCflowdExportMode_Type()
+)
+tmnxCflowdExportMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdExportMode.setStatus("current")
+
+
+class _TmnxCflowdExportManual_Type(TmnxActionType):
+    """Custom type tmnxCflowdExportManual based on TmnxActionType"""
+    defaultValue = 2
+
+
+_TmnxCflowdExportManual_Type.__name__ = "TmnxActionType"
+_TmnxCflowdExportManual_Object = MibScalar
+tmnxCflowdExportManual = _TmnxCflowdExportManual_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 18),
+    _TmnxCflowdExportManual_Type()
+)
+tmnxCflowdExportManual.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdExportManual.setStatus("current")
+
+
+class _TmnxCflowdVRtrIfIndexContext_Type(Integer32):
+    """Custom type tmnxCflowdVRtrIfIndexContext based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("global", 1),
+          ("vrtr", 2))
+    )
+
+
+_TmnxCflowdVRtrIfIndexContext_Type.__name__ = "Integer32"
+_TmnxCflowdVRtrIfIndexContext_Object = MibScalar
+tmnxCflowdVRtrIfIndexContext = _TmnxCflowdVRtrIfIndexContext_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 19),
+    _TmnxCflowdVRtrIfIndexContext_Type()
+)
+tmnxCflowdVRtrIfIndexContext.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdVRtrIfIndexContext.setStatus("current")
+
+
+class _TmnxCflowdEnhancedDistribution_Type(TruthValue):
+    """Custom type tmnxCflowdEnhancedDistribution based on TruthValue"""
+    defaultValue = 2
+
+
+_TmnxCflowdEnhancedDistribution_Type.__name__ = "TruthValue"
+_TmnxCflowdEnhancedDistribution_Object = MibScalar
+tmnxCflowdEnhancedDistribution = _TmnxCflowdEnhancedDistribution_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 20),
+    _TmnxCflowdEnhancedDistribution_Type()
+)
+tmnxCflowdEnhancedDistribution.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdEnhancedDistribution.setStatus("current")
+
+
+class _TmnxCflowdInbandCollExportOnly_Type(TruthValue):
+    """Custom type tmnxCflowdInbandCollExportOnly based on TruthValue"""
+    defaultValue = 2
+
+
+_TmnxCflowdInbandCollExportOnly_Type.__name__ = "TruthValue"
+_TmnxCflowdInbandCollExportOnly_Object = MibScalar
+tmnxCflowdInbandCollExportOnly = _TmnxCflowdInbandCollExportOnly_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 21),
+    _TmnxCflowdInbandCollExportOnly_Type()
+)
+tmnxCflowdInbandCollExportOnly.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdInbandCollExportOnly.setStatus("current")
+
+
+class _TmnxCflowdAnalyzeGrePayload_Type(TruthValue):
+    """Custom type tmnxCflowdAnalyzeGrePayload based on TruthValue"""
+    defaultValue = 2
+
+
+_TmnxCflowdAnalyzeGrePayload_Type.__name__ = "TruthValue"
+_TmnxCflowdAnalyzeGrePayload_Object = MibScalar
+tmnxCflowdAnalyzeGrePayload = _TmnxCflowdAnalyzeGrePayload_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 22),
+    _TmnxCflowdAnalyzeGrePayload_Type()
+)
+tmnxCflowdAnalyzeGrePayload.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdAnalyzeGrePayload.setStatus("current")
+
+
+class _TmnxCflowdAnalyzeL2TP_Type(TruthValue):
+    """Custom type tmnxCflowdAnalyzeL2TP based on TruthValue"""
+    defaultValue = 2
+
+
+_TmnxCflowdAnalyzeL2TP_Type.__name__ = "TruthValue"
+_TmnxCflowdAnalyzeL2TP_Object = MibScalar
+tmnxCflowdAnalyzeL2TP = _TmnxCflowdAnalyzeL2TP_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 23),
+    _TmnxCflowdAnalyzeL2TP_Type()
+)
+tmnxCflowdAnalyzeL2TP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdAnalyzeL2TP.setStatus("current")
+
+
+class _TmnxCflowdAnalyzeV4OverV6_Type(TruthValue):
+    """Custom type tmnxCflowdAnalyzeV4OverV6 based on TruthValue"""
+    defaultValue = 2
+
+
+_TmnxCflowdAnalyzeV4OverV6_Type.__name__ = "TruthValue"
+_TmnxCflowdAnalyzeV4OverV6_Object = MibScalar
+tmnxCflowdAnalyzeV4OverV6 = _TmnxCflowdAnalyzeV4OverV6_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 24),
+    _TmnxCflowdAnalyzeV4OverV6_Type()
+)
+tmnxCflowdAnalyzeV4OverV6.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdAnalyzeV4OverV6.setStatus("current")
+
+
+class _TmnxCflowdActiveFlowTimeout_Type(Unsigned32):
+    """Custom type tmnxCflowdActiveFlowTimeout based on Unsigned32"""
+    defaultValue = 1800
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(30, 36000),
+    )
+
+
+_TmnxCflowdActiveFlowTimeout_Type.__name__ = "Unsigned32"
+_TmnxCflowdActiveFlowTimeout_Object = MibScalar
+tmnxCflowdActiveFlowTimeout = _TmnxCflowdActiveFlowTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 1, 25),
+    _TmnxCflowdActiveFlowTimeout_Type()
+)
+tmnxCflowdActiveFlowTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxCflowdActiveFlowTimeout.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxCflowdActiveFlowTimeout.setUnits("seconds")
+_TmnxCflowdNotificationObjects_ObjectIdentity = ObjectIdentity
+tmnxCflowdNotificationObjects = _TmnxCflowdNotificationObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 2)
+)
+
+
+class _TmnxCflowdFlowFailureReasonCode_Type(Integer32):
+    """Custom type tmnxCflowdFlowFailureReasonCode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("tmnxCflowdMemAllocFailure", 0),
+          ("tmnxCflowdRTLookupFailure", 1),
+          ("tmnxCflowdTimerCreateFailure", 2),
+          ("tmnxCflowdUDPSendFailure", 3))
+    )
+
+
+_TmnxCflowdFlowFailureReasonCode_Type.__name__ = "Integer32"
+_TmnxCflowdFlowFailureReasonCode_Object = MibScalar
+tmnxCflowdFlowFailureReasonCode = _TmnxCflowdFlowFailureReasonCode_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 2, 1),
+    _TmnxCflowdFlowFailureReasonCode_Type()
+)
+tmnxCflowdFlowFailureReasonCode.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxCflowdFlowFailureReasonCode.setStatus("current")
+
+
+class _TmnxCflowdFlowUnsuppIPProtoNum_Type(Unsigned32):
+    """Custom type tmnxCflowdFlowUnsuppIPProtoNum based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_TmnxCflowdFlowUnsuppIPProtoNum_Type.__name__ = "Unsigned32"
+_TmnxCflowdFlowUnsuppIPProtoNum_Object = MibScalar
+tmnxCflowdFlowUnsuppIPProtoNum = _TmnxCflowdFlowUnsuppIPProtoNum_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 2, 2),
+    _TmnxCflowdFlowUnsuppIPProtoNum_Type()
+)
+tmnxCflowdFlowUnsuppIPProtoNum.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tmnxCflowdFlowUnsuppIPProtoNum.setStatus("obsolete")
+_TmnxCFHostTable_Object = MibTable
+tmnxCFHostTable = _TmnxCFHostTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3)
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostTable.setStatus("current")
+_TmnxCFHostEntry_Object = MibTableRow
+tmnxCFHostEntry = _TmnxCFHostEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1)
+)
+tmnxCFHostEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostAddress"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostUdpPort"),
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostEntry.setStatus("current")
+_TmnxCFHostAddress_Type = IpAddress
+_TmnxCFHostAddress_Object = MibTableColumn
+tmnxCFHostAddress = _TmnxCFHostAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 1),
+    _TmnxCFHostAddress_Type()
+)
+tmnxCFHostAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCFHostAddress.setStatus("current")
+
+
+class _TmnxCFHostUdpPort_Type(Integer32):
+    """Custom type tmnxCFHostUdpPort based on Integer32"""
+    defaultValue = 2055
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_TmnxCFHostUdpPort_Type.__name__ = "Integer32"
+_TmnxCFHostUdpPort_Object = MibTableColumn
+tmnxCFHostUdpPort = _TmnxCFHostUdpPort_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 2),
+    _TmnxCFHostUdpPort_Type()
+)
+tmnxCFHostUdpPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCFHostUdpPort.setStatus("current")
+_TmnxCFHostRowStatus_Type = RowStatus
+_TmnxCFHostRowStatus_Object = MibTableColumn
+tmnxCFHostRowStatus = _TmnxCFHostRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 3),
+    _TmnxCFHostRowStatus_Type()
+)
+tmnxCFHostRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostRowStatus.setStatus("current")
+_TmnxCFHostEntryLastChanged_Type = TimeStamp
+_TmnxCFHostEntryLastChanged_Object = MibTableColumn
+tmnxCFHostEntryLastChanged = _TmnxCFHostEntryLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 4),
+    _TmnxCFHostEntryLastChanged_Type()
+)
+tmnxCFHostEntryLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostEntryLastChanged.setStatus("current")
+
+
+class _TmnxCFHostDescription_Type(TItemDescription):
+    """Custom type tmnxCFHostDescription based on TItemDescription"""
+    defaultHexValue = ""
+
+
+_TmnxCFHostDescription_Type.__name__ = "TItemDescription"
+_TmnxCFHostDescription_Object = MibTableColumn
+tmnxCFHostDescription = _TmnxCFHostDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 5),
+    _TmnxCFHostDescription_Type()
+)
+tmnxCFHostDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostDescription.setStatus("current")
+
+
+class _TmnxCFHostAdminStatus_Type(TmnxAdminState):
+    """Custom type tmnxCFHostAdminStatus based on TmnxAdminState"""
+    defaultValue = 2
+
+
+_TmnxCFHostAdminStatus_Type.__name__ = "TmnxAdminState"
+_TmnxCFHostAdminStatus_Object = MibTableColumn
+tmnxCFHostAdminStatus = _TmnxCFHostAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 6),
+    _TmnxCFHostAdminStatus_Type()
+)
+tmnxCFHostAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostAdminStatus.setStatus("current")
+_TmnxCFHostOperStatus_Type = TmnxOperState
+_TmnxCFHostOperStatus_Object = MibTableColumn
+tmnxCFHostOperStatus = _TmnxCFHostOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 7),
+    _TmnxCFHostOperStatus_Type()
+)
+tmnxCFHostOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostOperStatus.setStatus("current")
+
+
+class _TmnxCFHostASType_Type(Integer32):
+    """Custom type tmnxCFHostASType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("origin", 1),
+          ("peer", 2))
+    )
+
+
+_TmnxCFHostASType_Type.__name__ = "Integer32"
+_TmnxCFHostASType_Object = MibTableColumn
+tmnxCFHostASType = _TmnxCFHostASType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 8),
+    _TmnxCFHostASType_Type()
+)
+tmnxCFHostASType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostASType.setStatus("current")
+
+
+class _TmnxCFHostAggregation_Type(TmnxCflowdAggScheme):
+    """Custom type tmnxCFHostAggregation based on TmnxCflowdAggScheme"""
+    defaultBinValue = "0"
+
+
+_TmnxCFHostAggregation_Type.__name__ = "TmnxCflowdAggScheme"
+_TmnxCFHostAggregation_Object = MibTableColumn
+tmnxCFHostAggregation = _TmnxCFHostAggregation_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 9),
+    _TmnxCFHostAggregation_Type()
+)
+tmnxCFHostAggregation.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostAggregation.setStatus("current")
+_TmnxCFHostRecordsSent_Type = Counter32
+_TmnxCFHostRecordsSent_Object = MibTableColumn
+tmnxCFHostRecordsSent = _TmnxCFHostRecordsSent_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 10),
+    _TmnxCFHostRecordsSent_Type()
+)
+tmnxCFHostRecordsSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostRecordsSent.setStatus("current")
+_TmnxCFHostLastPktSent_Type = TimeStamp
+_TmnxCFHostLastPktSent_Object = MibTableColumn
+tmnxCFHostLastPktSent = _TmnxCFHostLastPktSent_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 11),
+    _TmnxCFHostLastPktSent_Type()
+)
+tmnxCFHostLastPktSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostLastPktSent.setStatus("current")
+
+
+class _TmnxCFHostVersion_Type(Unsigned32):
+    """Custom type tmnxCFHostVersion based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(5, 5),
+        ValueRangeConstraint(8, 10),
+    )
+
+
+_TmnxCFHostVersion_Type.__name__ = "Unsigned32"
+_TmnxCFHostVersion_Object = MibTableColumn
+tmnxCFHostVersion = _TmnxCFHostVersion_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 12),
+    _TmnxCFHostVersion_Type()
+)
+tmnxCFHostVersion.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostVersion.setStatus("current")
+
+
+class _TmnxCFHostTemplateSet_Type(TmnxCflowdTemplateSet):
+    """Custom type tmnxCFHostTemplateSet based on TmnxCflowdTemplateSet"""
+    defaultValue = 0
+
+
+_TmnxCFHostTemplateSet_Type.__name__ = "TmnxCflowdTemplateSet"
+_TmnxCFHostTemplateSet_Object = MibTableColumn
+tmnxCFHostTemplateSet = _TmnxCFHostTemplateSet_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 13),
+    _TmnxCFHostTemplateSet_Type()
+)
+tmnxCFHostTemplateSet.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostTemplateSet.setStatus("current")
+_TmnxCFHostPacketsSent_Type = Counter32
+_TmnxCFHostPacketsSent_Object = MibTableColumn
+tmnxCFHostPacketsSent = _TmnxCFHostPacketsSent_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 3, 1, 14),
+    _TmnxCFHostPacketsSent_Type()
+)
+tmnxCFHostPacketsSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostPacketsSent.setStatus("current")
+_TmnxCflowdVersionStatsTable_Object = MibTable
+tmnxCflowdVersionStatsTable = _TmnxCflowdVersionStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4)
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdVersionStatsTable.setStatus("current")
+_TmnxCflowdVersionStatsEntry_Object = MibTableRow
+tmnxCflowdVersionStatsEntry = _TmnxCflowdVersionStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1)
+)
+tmnxCflowdVersionStatsEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCflowdVersionIndex"),
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdVersionStatsEntry.setStatus("current")
+
+
+class _TmnxCflowdVersionIndex_Type(Unsigned32):
+    """Custom type tmnxCflowdVersionIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 5),
+        ValueRangeConstraint(8, 10),
+    )
+
+
+_TmnxCflowdVersionIndex_Type.__name__ = "Unsigned32"
+_TmnxCflowdVersionIndex_Object = MibTableColumn
+tmnxCflowdVersionIndex = _TmnxCflowdVersionIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1, 1),
+    _TmnxCflowdVersionIndex_Type()
+)
+tmnxCflowdVersionIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCflowdVersionIndex.setStatus("current")
+_TmnxCflowdVersionStatus_Type = TmnxEnabledDisabled
+_TmnxCflowdVersionStatus_Object = MibTableColumn
+tmnxCflowdVersionStatus = _TmnxCflowdVersionStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1, 2),
+    _TmnxCflowdVersionStatus_Type()
+)
+tmnxCflowdVersionStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdVersionStatus.setStatus("current")
+_TmnxCflowdVersionSent_Type = Counter64
+_TmnxCflowdVersionSent_Object = MibTableColumn
+tmnxCflowdVersionSent = _TmnxCflowdVersionSent_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1, 3),
+    _TmnxCflowdVersionSent_Type()
+)
+tmnxCflowdVersionSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdVersionSent.setStatus("current")
+_TmnxCflowdVersionOpen_Type = Counter64
+_TmnxCflowdVersionOpen_Object = MibTableColumn
+tmnxCflowdVersionOpen = _TmnxCflowdVersionOpen_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1, 4),
+    _TmnxCflowdVersionOpen_Type()
+)
+tmnxCflowdVersionOpen.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdVersionOpen.setStatus("current")
+_TmnxCflowdVersionErrors_Type = Counter64
+_TmnxCflowdVersionErrors_Object = MibTableColumn
+tmnxCflowdVersionErrors = _TmnxCflowdVersionErrors_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 4, 1, 5),
+    _TmnxCflowdVersionErrors_Type()
+)
+tmnxCflowdVersionErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdVersionErrors.setStatus("current")
+_TmnxCflowdV5StatsTable_Object = MibTable
+tmnxCflowdV5StatsTable = _TmnxCflowdV5StatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 5)
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdV5StatsTable.setStatus("current")
+_TmnxCflowdV5StatsEntry_Object = MibTableRow
+tmnxCflowdV5StatsEntry = _TmnxCflowdV5StatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 5, 1)
+)
+tmnxCflowdV5StatsEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostAddress"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostUdpPort"),
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdV5StatsEntry.setStatus("current")
+_TmnxCflowdV5Sent_Type = Counter32
+_TmnxCflowdV5Sent_Object = MibTableColumn
+tmnxCflowdV5Sent = _TmnxCflowdV5Sent_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 5, 1, 1),
+    _TmnxCflowdV5Sent_Type()
+)
+tmnxCflowdV5Sent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdV5Sent.setStatus("current")
+_TmnxCflowdV5Open_Type = Counter32
+_TmnxCflowdV5Open_Object = MibTableColumn
+tmnxCflowdV5Open = _TmnxCflowdV5Open_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 5, 1, 2),
+    _TmnxCflowdV5Open_Type()
+)
+tmnxCflowdV5Open.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdV5Open.setStatus("current")
+_TmnxCflowdV5Errors_Type = Counter32
+_TmnxCflowdV5Errors_Object = MibTableColumn
+tmnxCflowdV5Errors = _TmnxCflowdV5Errors_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 5, 1, 3),
+    _TmnxCflowdV5Errors_Type()
+)
+tmnxCflowdV5Errors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdV5Errors.setStatus("current")
+_TmnxCflowdAggregationStatsTable_Object = MibTable
+tmnxCflowdAggregationStatsTable = _TmnxCflowdAggregationStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6)
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdAggregationStatsTable.setStatus("current")
+_TmnxCflowdAggregationStatsEntry_Object = MibTableRow
+tmnxCflowdAggregationStatsEntry = _TmnxCflowdAggregationStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1)
+)
+tmnxCflowdAggregationStatsEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostAddress"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostUdpPort"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregationIndex"),
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdAggregationStatsEntry.setStatus("current")
+
+
+class _TmnxCflowdAggregationIndex_Type(Integer32):
+    """Custom type tmnxCflowdAggregationIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nonAggregate", 0),
+          ("asMatrix", 1),
+          ("protocolPort", 2),
+          ("sourcePrefix", 3),
+          ("destinationPrefix", 4),
+          ("sourceDestinationPrefix", 5),
+          ("raw", 6))
+    )
+
+
+_TmnxCflowdAggregationIndex_Type.__name__ = "Integer32"
+_TmnxCflowdAggregationIndex_Object = MibTableColumn
+tmnxCflowdAggregationIndex = _TmnxCflowdAggregationIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1, 1),
+    _TmnxCflowdAggregationIndex_Type()
+)
+tmnxCflowdAggregationIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCflowdAggregationIndex.setStatus("current")
+_TmnxCflowdAggregationStatus_Type = TmnxEnabledDisabled
+_TmnxCflowdAggregationStatus_Object = MibTableColumn
+tmnxCflowdAggregationStatus = _TmnxCflowdAggregationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1, 2),
+    _TmnxCflowdAggregationStatus_Type()
+)
+tmnxCflowdAggregationStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdAggregationStatus.setStatus("current")
+_TmnxCflowdAggregationSent_Type = Counter32
+_TmnxCflowdAggregationSent_Object = MibTableColumn
+tmnxCflowdAggregationSent = _TmnxCflowdAggregationSent_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1, 3),
+    _TmnxCflowdAggregationSent_Type()
+)
+tmnxCflowdAggregationSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdAggregationSent.setStatus("current")
+_TmnxCflowdAggregationOpen_Type = Counter32
+_TmnxCflowdAggregationOpen_Object = MibTableColumn
+tmnxCflowdAggregationOpen = _TmnxCflowdAggregationOpen_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1, 4),
+    _TmnxCflowdAggregationOpen_Type()
+)
+tmnxCflowdAggregationOpen.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdAggregationOpen.setStatus("current")
+_TmnxCflowdAggregationErrors_Type = Counter32
+_TmnxCflowdAggregationErrors_Object = MibTableColumn
+tmnxCflowdAggregationErrors = _TmnxCflowdAggregationErrors_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 6, 1, 5),
+    _TmnxCflowdAggregationErrors_Type()
+)
+tmnxCflowdAggregationErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdAggregationErrors.setStatus("current")
+_TmnxCflowdTemplateStatsTable_Object = MibTable
+tmnxCflowdTemplateStatsTable = _TmnxCflowdTemplateStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7)
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdTemplateStatsTable.setStatus("current")
+_TmnxCflowdTemplateStatsEntry_Object = MibTableRow
+tmnxCflowdTemplateStatsEntry = _TmnxCflowdTemplateStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1)
+)
+tmnxCflowdTemplateStatsEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostAddress"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostUdpPort"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateFlowIndex"),
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdTemplateStatsEntry.setStatus("current")
+
+
+class _TmnxCflowdTemplateFlowIndex_Type(Integer32):
+    """Custom type tmnxCflowdTemplateFlowIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 1),
+          ("mpls", 2),
+          ("ipv6", 3),
+          ("l2", 4))
+    )
+
+
+_TmnxCflowdTemplateFlowIndex_Type.__name__ = "Integer32"
+_TmnxCflowdTemplateFlowIndex_Object = MibTableColumn
+tmnxCflowdTemplateFlowIndex = _TmnxCflowdTemplateFlowIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1, 1),
+    _TmnxCflowdTemplateFlowIndex_Type()
+)
+tmnxCflowdTemplateFlowIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCflowdTemplateFlowIndex.setStatus("current")
+_TmnxCflowdTemplateLastTxTime_Type = TimeStamp
+_TmnxCflowdTemplateLastTxTime_Object = MibTableColumn
+tmnxCflowdTemplateLastTxTime = _TmnxCflowdTemplateLastTxTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1, 2),
+    _TmnxCflowdTemplateLastTxTime_Type()
+)
+tmnxCflowdTemplateLastTxTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdTemplateLastTxTime.setStatus("current")
+_TmnxCflowdTemplateSent_Type = Counter32
+_TmnxCflowdTemplateSent_Object = MibTableColumn
+tmnxCflowdTemplateSent = _TmnxCflowdTemplateSent_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1, 3),
+    _TmnxCflowdTemplateSent_Type()
+)
+tmnxCflowdTemplateSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdTemplateSent.setStatus("current")
+_TmnxCflowdTemplateOpen_Type = Counter32
+_TmnxCflowdTemplateOpen_Object = MibTableColumn
+tmnxCflowdTemplateOpen = _TmnxCflowdTemplateOpen_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1, 4),
+    _TmnxCflowdTemplateOpen_Type()
+)
+tmnxCflowdTemplateOpen.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdTemplateOpen.setStatus("current")
+_TmnxCflowdTemplateErrors_Type = Counter32
+_TmnxCflowdTemplateErrors_Object = MibTableColumn
+tmnxCflowdTemplateErrors = _TmnxCflowdTemplateErrors_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 7, 1, 5),
+    _TmnxCflowdTemplateErrors_Type()
+)
+tmnxCflowdTemplateErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdTemplateErrors.setStatus("current")
+_TmnxCflowdV2Objs_ObjectIdentity = ObjectIdentity
+tmnxCflowdV2Objs = _TmnxCflowdV2Objs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8)
+)
+_TmnxCflowdGeneralV2Objs_ObjectIdentity = ObjectIdentity
+tmnxCflowdGeneralV2Objs = _TmnxCflowdGeneralV2Objs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 1)
+)
+_TmnxCFHostCollectorTable_Object = MibTable
+tmnxCFHostCollectorTable = _TmnxCFHostCollectorTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollectorTable.setStatus("current")
+_TmnxCFHostCollectorEntry_Object = MibTableRow
+tmnxCFHostCollectorEntry = _TmnxCFHostCollectorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1)
+)
+tmnxCFHostCollectorEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"),
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollectorEntry.setStatus("current")
+_TmnxCFHostCollAddressType_Type = InetAddressType
+_TmnxCFHostCollAddressType_Object = MibTableColumn
+tmnxCFHostCollAddressType = _TmnxCFHostCollAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 1),
+    _TmnxCFHostCollAddressType_Type()
+)
+tmnxCFHostCollAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollAddressType.setStatus("current")
+
+
+class _TmnxCFHostCollAddress_Type(InetAddress):
+    """Custom type tmnxCFHostCollAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxCFHostCollAddress_Type.__name__ = "InetAddress"
+_TmnxCFHostCollAddress_Object = MibTableColumn
+tmnxCFHostCollAddress = _TmnxCFHostCollAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 2),
+    _TmnxCFHostCollAddress_Type()
+)
+tmnxCFHostCollAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollAddress.setStatus("current")
+
+
+class _TmnxCFHostCollUdpPort_Type(Integer32):
+    """Custom type tmnxCFHostCollUdpPort based on Integer32"""
+    defaultValue = 2055
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_TmnxCFHostCollUdpPort_Type.__name__ = "Integer32"
+_TmnxCFHostCollUdpPort_Object = MibTableColumn
+tmnxCFHostCollUdpPort = _TmnxCFHostCollUdpPort_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 3),
+    _TmnxCFHostCollUdpPort_Type()
+)
+tmnxCFHostCollUdpPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollUdpPort.setStatus("current")
+_TmnxCFHostCollRowStatus_Type = RowStatus
+_TmnxCFHostCollRowStatus_Object = MibTableColumn
+tmnxCFHostCollRowStatus = _TmnxCFHostCollRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 4),
+    _TmnxCFHostCollRowStatus_Type()
+)
+tmnxCFHostCollRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollRowStatus.setStatus("current")
+_TmnxCFHostCollEntryLastChanged_Type = TimeStamp
+_TmnxCFHostCollEntryLastChanged_Object = MibTableColumn
+tmnxCFHostCollEntryLastChanged = _TmnxCFHostCollEntryLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 5),
+    _TmnxCFHostCollEntryLastChanged_Type()
+)
+tmnxCFHostCollEntryLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollEntryLastChanged.setStatus("current")
+
+
+class _TmnxCFHostCollDescription_Type(TItemDescription):
+    """Custom type tmnxCFHostCollDescription based on TItemDescription"""
+    defaultHexValue = ""
+
+
+_TmnxCFHostCollDescription_Type.__name__ = "TItemDescription"
+_TmnxCFHostCollDescription_Object = MibTableColumn
+tmnxCFHostCollDescription = _TmnxCFHostCollDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 6),
+    _TmnxCFHostCollDescription_Type()
+)
+tmnxCFHostCollDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollDescription.setStatus("current")
+
+
+class _TmnxCFHostCollAdminStatus_Type(TmnxAdminState):
+    """Custom type tmnxCFHostCollAdminStatus based on TmnxAdminState"""
+    defaultValue = 2
+
+
+_TmnxCFHostCollAdminStatus_Type.__name__ = "TmnxAdminState"
+_TmnxCFHostCollAdminStatus_Object = MibTableColumn
+tmnxCFHostCollAdminStatus = _TmnxCFHostCollAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 7),
+    _TmnxCFHostCollAdminStatus_Type()
+)
+tmnxCFHostCollAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollAdminStatus.setStatus("current")
+_TmnxCFHostCollOperStatus_Type = TmnxOperState
+_TmnxCFHostCollOperStatus_Object = MibTableColumn
+tmnxCFHostCollOperStatus = _TmnxCFHostCollOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 8),
+    _TmnxCFHostCollOperStatus_Type()
+)
+tmnxCFHostCollOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollOperStatus.setStatus("current")
+
+
+class _TmnxCFHostCollASType_Type(Integer32):
+    """Custom type tmnxCFHostCollASType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("origin", 1),
+          ("peer", 2))
+    )
+
+
+_TmnxCFHostCollASType_Type.__name__ = "Integer32"
+_TmnxCFHostCollASType_Object = MibTableColumn
+tmnxCFHostCollASType = _TmnxCFHostCollASType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 9),
+    _TmnxCFHostCollASType_Type()
+)
+tmnxCFHostCollASType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollASType.setStatus("current")
+
+
+class _TmnxCFHostCollAggregation_Type(TmnxCflowdAggScheme):
+    """Custom type tmnxCFHostCollAggregation based on TmnxCflowdAggScheme"""
+    defaultBinValue = "0"
+
+
+_TmnxCFHostCollAggregation_Type.__name__ = "TmnxCflowdAggScheme"
+_TmnxCFHostCollAggregation_Object = MibTableColumn
+tmnxCFHostCollAggregation = _TmnxCFHostCollAggregation_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 10),
+    _TmnxCFHostCollAggregation_Type()
+)
+tmnxCFHostCollAggregation.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollAggregation.setStatus("current")
+_TmnxCFHostCollRecordsSent_Type = Counter64
+_TmnxCFHostCollRecordsSent_Object = MibTableColumn
+tmnxCFHostCollRecordsSent = _TmnxCFHostCollRecordsSent_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 11),
+    _TmnxCFHostCollRecordsSent_Type()
+)
+tmnxCFHostCollRecordsSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollRecordsSent.setStatus("current")
+_TmnxCFHostCollLastPktSent_Type = TimeStamp
+_TmnxCFHostCollLastPktSent_Object = MibTableColumn
+tmnxCFHostCollLastPktSent = _TmnxCFHostCollLastPktSent_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 12),
+    _TmnxCFHostCollLastPktSent_Type()
+)
+tmnxCFHostCollLastPktSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollLastPktSent.setStatus("current")
+
+
+class _TmnxCFHostCollVersion_Type(Unsigned32):
+    """Custom type tmnxCFHostCollVersion based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(5, 5),
+        ValueRangeConstraint(8, 10),
+    )
+
+
+_TmnxCFHostCollVersion_Type.__name__ = "Unsigned32"
+_TmnxCFHostCollVersion_Object = MibTableColumn
+tmnxCFHostCollVersion = _TmnxCFHostCollVersion_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 13),
+    _TmnxCFHostCollVersion_Type()
+)
+tmnxCFHostCollVersion.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollVersion.setStatus("current")
+
+
+class _TmnxCFHostCollTemplateSet_Type(TmnxCflowdTemplateSet):
+    """Custom type tmnxCFHostCollTemplateSet based on TmnxCflowdTemplateSet"""
+    defaultValue = 0
+
+
+_TmnxCFHostCollTemplateSet_Type.__name__ = "TmnxCflowdTemplateSet"
+_TmnxCFHostCollTemplateSet_Object = MibTableColumn
+tmnxCFHostCollTemplateSet = _TmnxCFHostCollTemplateSet_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 14),
+    _TmnxCFHostCollTemplateSet_Type()
+)
+tmnxCFHostCollTemplateSet.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollTemplateSet.setStatus("current")
+_TmnxCFHostCollPacketsSent_Type = Counter64
+_TmnxCFHostCollPacketsSent_Object = MibTableColumn
+tmnxCFHostCollPacketsSent = _TmnxCFHostCollPacketsSent_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 15),
+    _TmnxCFHostCollPacketsSent_Type()
+)
+tmnxCFHostCollPacketsSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollPacketsSent.setStatus("current")
+
+
+class _TmnxCFHostCollExpFilterAdrFamily_Type(Bits):
+    """Custom type tmnxCFHostCollExpFilterAdrFamily based on Bits"""
+    defaultBinValue = "0"
+
+    namedValues = NamedValues(
+        *(("ipv4", 0),
+          ("ipv6", 1),
+          ("mcastIPv4", 2),
+          ("mcastIPv6", 3),
+          ("l2IP", 4),
+          ("mpls", 5))
+    )
+
+_TmnxCFHostCollExpFilterAdrFamily_Type.__name__ = "Bits"
+_TmnxCFHostCollExpFilterAdrFamily_Object = MibTableColumn
+tmnxCFHostCollExpFilterAdrFamily = _TmnxCFHostCollExpFilterAdrFamily_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 16),
+    _TmnxCFHostCollExpFilterAdrFamily_Type()
+)
+tmnxCFHostCollExpFilterAdrFamily.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollExpFilterAdrFamily.setStatus("current")
+
+
+class _TmnxCFHostCollVRtrID_Type(TmnxVRtrID):
+    """Custom type tmnxCFHostCollVRtrID based on TmnxVRtrID"""
+    defaultValue = 4095
+
+
+_TmnxCFHostCollVRtrID_Type.__name__ = "TmnxVRtrID"
+_TmnxCFHostCollVRtrID_Object = MibTableColumn
+tmnxCFHostCollVRtrID = _TmnxCFHostCollVRtrID_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 2, 1, 17),
+    _TmnxCFHostCollVRtrID_Type()
+)
+tmnxCFHostCollVRtrID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollVRtrID.setStatus("current")
+_TmnxCFHostCollV5StatsTable_Object = MibTable
+tmnxCFHostCollV5StatsTable = _TmnxCFHostCollV5StatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 3)
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollV5StatsTable.setStatus("current")
+_TmnxCFHostCollV5StatsEntry_Object = MibTableRow
+tmnxCFHostCollV5StatsEntry = _TmnxCFHostCollV5StatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 3, 1)
+)
+tmnxCFHostCollV5StatsEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"),
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollV5StatsEntry.setStatus("current")
+_TmnxCFHostCollV5SentPackets_Type = Counter64
+_TmnxCFHostCollV5SentPackets_Object = MibTableColumn
+tmnxCFHostCollV5SentPackets = _TmnxCFHostCollV5SentPackets_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 3, 1, 1),
+    _TmnxCFHostCollV5SentPackets_Type()
+)
+tmnxCFHostCollV5SentPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollV5SentPackets.setStatus("current")
+_TmnxCFHostCollV5OpenPackets_Type = Counter64
+_TmnxCFHostCollV5OpenPackets_Object = MibTableColumn
+tmnxCFHostCollV5OpenPackets = _TmnxCFHostCollV5OpenPackets_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 3, 1, 2),
+    _TmnxCFHostCollV5OpenPackets_Type()
+)
+tmnxCFHostCollV5OpenPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollV5OpenPackets.setStatus("current")
+_TmnxCFHostCollV5ErrorPackets_Type = Counter64
+_TmnxCFHostCollV5ErrorPackets_Object = MibTableColumn
+tmnxCFHostCollV5ErrorPackets = _TmnxCFHostCollV5ErrorPackets_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 3, 1, 3),
+    _TmnxCFHostCollV5ErrorPackets_Type()
+)
+tmnxCFHostCollV5ErrorPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollV5ErrorPackets.setStatus("current")
+_TmnxCFHostCollAggrStatsTable_Object = MibTable
+tmnxCFHostCollAggrStatsTable = _TmnxCFHostCollAggrStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4)
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollAggrStatsTable.setStatus("current")
+_TmnxCFHostCollAggrStatsEntry_Object = MibTableRow
+tmnxCFHostCollAggrStatsEntry = _TmnxCFHostCollAggrStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1)
+)
+tmnxCFHostCollAggrStatsEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggrIndex"),
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollAggrStatsEntry.setStatus("current")
+
+
+class _TmnxCFHostCollAggrIndex_Type(Integer32):
+    """Custom type tmnxCFHostCollAggrIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("nonAggregate", 0),
+          ("asMatrix", 1),
+          ("protocolPort", 2),
+          ("sourcePrefix", 3),
+          ("destinationPrefix", 4),
+          ("sourceDestinationPrefix", 5),
+          ("raw", 6))
+    )
+
+
+_TmnxCFHostCollAggrIndex_Type.__name__ = "Integer32"
+_TmnxCFHostCollAggrIndex_Object = MibTableColumn
+tmnxCFHostCollAggrIndex = _TmnxCFHostCollAggrIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1, 1),
+    _TmnxCFHostCollAggrIndex_Type()
+)
+tmnxCFHostCollAggrIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollAggrIndex.setStatus("current")
+_TmnxCFHostCollAggrStatus_Type = TmnxEnabledDisabled
+_TmnxCFHostCollAggrStatus_Object = MibTableColumn
+tmnxCFHostCollAggrStatus = _TmnxCFHostCollAggrStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1, 2),
+    _TmnxCFHostCollAggrStatus_Type()
+)
+tmnxCFHostCollAggrStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollAggrStatus.setStatus("current")
+_TmnxCFHostCollAggrSentPackets_Type = Counter64
+_TmnxCFHostCollAggrSentPackets_Object = MibTableColumn
+tmnxCFHostCollAggrSentPackets = _TmnxCFHostCollAggrSentPackets_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1, 3),
+    _TmnxCFHostCollAggrSentPackets_Type()
+)
+tmnxCFHostCollAggrSentPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollAggrSentPackets.setStatus("current")
+_TmnxCFHostCollAggrOpenPackets_Type = Counter64
+_TmnxCFHostCollAggrOpenPackets_Object = MibTableColumn
+tmnxCFHostCollAggrOpenPackets = _TmnxCFHostCollAggrOpenPackets_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1, 4),
+    _TmnxCFHostCollAggrOpenPackets_Type()
+)
+tmnxCFHostCollAggrOpenPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollAggrOpenPackets.setStatus("current")
+_TmnxCFHostCollAggrErrorPackets_Type = Counter64
+_TmnxCFHostCollAggrErrorPackets_Object = MibTableColumn
+tmnxCFHostCollAggrErrorPackets = _TmnxCFHostCollAggrErrorPackets_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 4, 1, 5),
+    _TmnxCFHostCollAggrErrorPackets_Type()
+)
+tmnxCFHostCollAggrErrorPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollAggrErrorPackets.setStatus("current")
+_TmnxCFHostCollTemplStatsTable_Object = MibTable
+tmnxCFHostCollTemplStatsTable = _TmnxCFHostCollTemplStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5)
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollTemplStatsTable.setStatus("current")
+_TmnxCFHostCollTemplStatsEntry_Object = MibTableRow
+tmnxCFHostCollTemplStatsEntry = _TmnxCFHostCollTemplStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1)
+)
+tmnxCFHostCollTemplStatsEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplFlowIndex"),
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollTemplStatsEntry.setStatus("current")
+
+
+class _TmnxCFHostCollTemplFlowIndex_Type(Integer32):
+    """Custom type tmnxCFHostCollTemplFlowIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 1),
+          ("mpls", 2),
+          ("ipv6", 3),
+          ("l2", 4))
+    )
+
+
+_TmnxCFHostCollTemplFlowIndex_Type.__name__ = "Integer32"
+_TmnxCFHostCollTemplFlowIndex_Object = MibTableColumn
+tmnxCFHostCollTemplFlowIndex = _TmnxCFHostCollTemplFlowIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1, 1),
+    _TmnxCFHostCollTemplFlowIndex_Type()
+)
+tmnxCFHostCollTemplFlowIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollTemplFlowIndex.setStatus("current")
+_TmnxCFHostCollTemplLastTxTime_Type = TimeStamp
+_TmnxCFHostCollTemplLastTxTime_Object = MibTableColumn
+tmnxCFHostCollTemplLastTxTime = _TmnxCFHostCollTemplLastTxTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1, 2),
+    _TmnxCFHostCollTemplLastTxTime_Type()
+)
+tmnxCFHostCollTemplLastTxTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollTemplLastTxTime.setStatus("current")
+_TmnxCFHostCollTemplSentPackets_Type = Counter64
+_TmnxCFHostCollTemplSentPackets_Object = MibTableColumn
+tmnxCFHostCollTemplSentPackets = _TmnxCFHostCollTemplSentPackets_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1, 3),
+    _TmnxCFHostCollTemplSentPackets_Type()
+)
+tmnxCFHostCollTemplSentPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollTemplSentPackets.setStatus("current")
+_TmnxCFHostCollTemplOpenPackets_Type = Counter64
+_TmnxCFHostCollTemplOpenPackets_Object = MibTableColumn
+tmnxCFHostCollTemplOpenPackets = _TmnxCFHostCollTemplOpenPackets_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1, 4),
+    _TmnxCFHostCollTemplOpenPackets_Type()
+)
+tmnxCFHostCollTemplOpenPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollTemplOpenPackets.setStatus("current")
+_TmnxCFHostCollTemplErrorPackets_Type = Counter64
+_TmnxCFHostCollTemplErrorPackets_Object = MibTableColumn
+tmnxCFHostCollTemplErrorPackets = _TmnxCFHostCollTemplErrorPackets_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 5, 1, 5),
+    _TmnxCFHostCollTemplErrorPackets_Type()
+)
+tmnxCFHostCollTemplErrorPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollTemplErrorPackets.setStatus("current")
+_TmnxCFHostCollExpFilVrtrObjects_ObjectIdentity = ObjectIdentity
+tmnxCFHostCollExpFilVrtrObjects = _TmnxCFHostCollExpFilVrtrObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6)
+)
+_TmnxCFHostCollExFlVrtrTblLastChg_Type = TimeStamp
+_TmnxCFHostCollExFlVrtrTblLastChg_Object = MibScalar
+tmnxCFHostCollExFlVrtrTblLastChg = _TmnxCFHostCollExFlVrtrTblLastChg_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 1),
+    _TmnxCFHostCollExFlVrtrTblLastChg_Type()
+)
+tmnxCFHostCollExFlVrtrTblLastChg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollExFlVrtrTblLastChg.setStatus("current")
+_TmnxCFHostCollExpFilterVrtrTable_Object = MibTable
+tmnxCFHostCollExpFilterVrtrTable = _TmnxCFHostCollExpFilterVrtrTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollExpFilterVrtrTable.setStatus("current")
+_TmnxCFHostCollExpFilterVrtrEntry_Object = MibTableRow
+tmnxCFHostCollExpFilterVrtrEntry = _TmnxCFHostCollExpFilterVrtrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 2, 1)
+)
+tmnxCFHostCollExpFilterVrtrEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"),
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollExpFilterVrtrEntry.setStatus("current")
+_TmnxCFHostCollExpFlVrtrRowStatus_Type = RowStatus
+_TmnxCFHostCollExpFlVrtrRowStatus_Object = MibTableColumn
+tmnxCFHostCollExpFlVrtrRowStatus = _TmnxCFHostCollExpFlVrtrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 2, 1, 1),
+    _TmnxCFHostCollExpFlVrtrRowStatus_Type()
+)
+tmnxCFHostCollExpFlVrtrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollExpFlVrtrRowStatus.setStatus("current")
+_TmnxCFHostCollExpFltVrtrLastChg_Type = TimeStamp
+_TmnxCFHostCollExpFltVrtrLastChg_Object = MibTableColumn
+tmnxCFHostCollExpFltVrtrLastChg = _TmnxCFHostCollExpFltVrtrLastChg_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 2, 1, 2),
+    _TmnxCFHostCollExpFltVrtrLastChg_Type()
+)
+tmnxCFHostCollExpFltVrtrLastChg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollExpFltVrtrLastChg.setStatus("current")
+_TmnxCFHostCollExFlVrIfTblLastChg_Type = TimeStamp
+_TmnxCFHostCollExFlVrIfTblLastChg_Object = MibScalar
+tmnxCFHostCollExFlVrIfTblLastChg = _TmnxCFHostCollExFlVrIfTblLastChg_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 3),
+    _TmnxCFHostCollExFlVrIfTblLastChg_Type()
+)
+tmnxCFHostCollExFlVrIfTblLastChg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollExFlVrIfTblLastChg.setStatus("current")
+_TmnxCFHostCollExpFiltVrtrIfTable_Object = MibTable
+tmnxCFHostCollExpFiltVrtrIfTable = _TmnxCFHostCollExpFiltVrtrIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 4)
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollExpFiltVrtrIfTable.setStatus("current")
+_TmnxCFHostCollExpFiltVrtrIfEntry_Object = MibTableRow
+tmnxCFHostCollExpFiltVrtrIfEntry = _TmnxCFHostCollExpFiltVrtrIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 4, 1)
+)
+tmnxCFHostCollExpFiltVrtrIfEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddressType"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAddress"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCFHostCollUdpPort"),
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-VRTR-MIB", "vRtrIfIndex"),
+)
+if mibBuilder.loadTexts:
+    tmnxCFHostCollExpFiltVrtrIfEntry.setStatus("current")
+_TmnxCFHostCollExpFlVrIfRowStatus_Type = RowStatus
+_TmnxCFHostCollExpFlVrIfRowStatus_Object = MibTableColumn
+tmnxCFHostCollExpFlVrIfRowStatus = _TmnxCFHostCollExpFlVrIfRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 4, 1, 1),
+    _TmnxCFHostCollExpFlVrIfRowStatus_Type()
+)
+tmnxCFHostCollExpFlVrIfRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollExpFlVrIfRowStatus.setStatus("current")
+_TmnxCFHostCollExpFltVrIfLastChg_Type = TimeStamp
+_TmnxCFHostCollExpFltVrIfLastChg_Object = MibTableColumn
+tmnxCFHostCollExpFltVrIfLastChg = _TmnxCFHostCollExpFltVrIfLastChg_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 8, 6, 4, 1, 2),
+    _TmnxCFHostCollExpFltVrIfLastChg_Type()
+)
+tmnxCFHostCollExpFltVrIfLastChg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCFHostCollExpFltVrIfLastChg.setStatus("current")
+_TmnxCflowdVRtrObjs_ObjectIdentity = ObjectIdentity
+tmnxCflowdVRtrObjs = _TmnxCflowdVRtrObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9)
+)
+_TmnxCflowdVRtrIfTableLastChanged_Type = TimeStamp
+_TmnxCflowdVRtrIfTableLastChanged_Object = MibScalar
+tmnxCflowdVRtrIfTableLastChanged = _TmnxCflowdVRtrIfTableLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 1),
+    _TmnxCflowdVRtrIfTableLastChanged_Type()
+)
+tmnxCflowdVRtrIfTableLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdVRtrIfTableLastChanged.setStatus("current")
+_TmnxCflowdVRtrIfTable_Object = MibTable
+tmnxCflowdVRtrIfTable = _TmnxCflowdVRtrIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdVRtrIfTable.setStatus("current")
+_TmnxCflowdVRtrIfEntry_Object = MibTableRow
+tmnxCflowdVRtrIfEntry = _TmnxCflowdVRtrIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1)
+)
+tmnxCflowdVRtrIfEntry.setIndexNames(
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-VRTR-MIB", "vRtrIfIndex"),
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfSamplingType"),
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdVRtrIfEntry.setStatus("current")
+
+
+class _TmnxCflowdVRtrIfSamplingType_Type(Integer32):
+    """Custom type tmnxCflowdVRtrIfSamplingType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unicast", 1),
+          ("multicast", 2),
+          ("both", 3))
+    )
+
+
+_TmnxCflowdVRtrIfSamplingType_Type.__name__ = "Integer32"
+_TmnxCflowdVRtrIfSamplingType_Object = MibTableColumn
+tmnxCflowdVRtrIfSamplingType = _TmnxCflowdVRtrIfSamplingType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 1),
+    _TmnxCflowdVRtrIfSamplingType_Type()
+)
+tmnxCflowdVRtrIfSamplingType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCflowdVRtrIfSamplingType.setStatus("current")
+_TmnxCflowdVRtrIfRowStatus_Type = RowStatus
+_TmnxCflowdVRtrIfRowStatus_Object = MibTableColumn
+tmnxCflowdVRtrIfRowStatus = _TmnxCflowdVRtrIfRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 2),
+    _TmnxCflowdVRtrIfRowStatus_Type()
+)
+tmnxCflowdVRtrIfRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCflowdVRtrIfRowStatus.setStatus("current")
+_TmnxCflowdVRtrIfLastChanged_Type = TimeStamp
+_TmnxCflowdVRtrIfLastChanged_Object = MibTableColumn
+tmnxCflowdVRtrIfLastChanged = _TmnxCflowdVRtrIfLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 3),
+    _TmnxCflowdVRtrIfLastChanged_Type()
+)
+tmnxCflowdVRtrIfLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdVRtrIfLastChanged.setStatus("current")
+
+
+class _TmnxCflowdVRtrIfType_Type(Integer32):
+    """Custom type tmnxCflowdVRtrIfType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("acl", 1),
+          ("interface", 2))
+    )
+
+
+_TmnxCflowdVRtrIfType_Type.__name__ = "Integer32"
+_TmnxCflowdVRtrIfType_Object = MibTableColumn
+tmnxCflowdVRtrIfType = _TmnxCflowdVRtrIfType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 4),
+    _TmnxCflowdVRtrIfType_Type()
+)
+tmnxCflowdVRtrIfType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCflowdVRtrIfType.setStatus("current")
+
+
+class _TmnxCflowdVRtrIfDirection_Type(Integer32):
+    """Custom type tmnxCflowdVRtrIfDirection based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ingressOnly", 1),
+          ("egressOnly", 2),
+          ("both", 3))
+    )
+
+
+_TmnxCflowdVRtrIfDirection_Type.__name__ = "Integer32"
+_TmnxCflowdVRtrIfDirection_Object = MibTableColumn
+tmnxCflowdVRtrIfDirection = _TmnxCflowdVRtrIfDirection_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 5),
+    _TmnxCflowdVRtrIfDirection_Type()
+)
+tmnxCflowdVRtrIfDirection.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCflowdVRtrIfDirection.setStatus("current")
+
+
+class _TmnxCflowdVRtrIfSampleProfileID_Type(TmnxCflowdSampleProfileID):
+    """Custom type tmnxCflowdVRtrIfSampleProfileID based on TmnxCflowdSampleProfileID"""
+    defaultValue = 1
+
+
+_TmnxCflowdVRtrIfSampleProfileID_Type.__name__ = "TmnxCflowdSampleProfileID"
+_TmnxCflowdVRtrIfSampleProfileID_Object = MibTableColumn
+tmnxCflowdVRtrIfSampleProfileID = _TmnxCflowdVRtrIfSampleProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 9, 2, 1, 6),
+    _TmnxCflowdVRtrIfSampleProfileID_Type()
+)
+tmnxCflowdVRtrIfSampleProfileID.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCflowdVRtrIfSampleProfileID.setStatus("current")
+_TmnxCflowdSampleProfileObjs_ObjectIdentity = ObjectIdentity
+tmnxCflowdSampleProfileObjs = _TmnxCflowdSampleProfileObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10)
+)
+_TmnxCflowdSampProfTblLastChanged_Type = TimeStamp
+_TmnxCflowdSampProfTblLastChanged_Object = MibScalar
+tmnxCflowdSampProfTblLastChanged = _TmnxCflowdSampProfTblLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 1),
+    _TmnxCflowdSampProfTblLastChanged_Type()
+)
+tmnxCflowdSampProfTblLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdSampProfTblLastChanged.setStatus("current")
+_TmnxCflowdSampleProfileTable_Object = MibTable
+tmnxCflowdSampleProfileTable = _TmnxCflowdSampleProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdSampleProfileTable.setStatus("current")
+_TmnxCflowdSampleProfileEntry_Object = MibTableRow
+tmnxCflowdSampleProfileEntry = _TmnxCflowdSampleProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2, 1)
+)
+tmnxCflowdSampleProfileEntry.setIndexNames(
+    (0, "TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleProfileProfileID"),
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdSampleProfileEntry.setStatus("current")
+_TmnxCflowdSampleProfileProfileID_Type = TmnxCflowdSampleProfileID
+_TmnxCflowdSampleProfileProfileID_Object = MibTableColumn
+tmnxCflowdSampleProfileProfileID = _TmnxCflowdSampleProfileProfileID_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2, 1, 1),
+    _TmnxCflowdSampleProfileProfileID_Type()
+)
+tmnxCflowdSampleProfileProfileID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxCflowdSampleProfileProfileID.setStatus("current")
+_TmnxCflowdSampleProfileRowStatus_Type = RowStatus
+_TmnxCflowdSampleProfileRowStatus_Object = MibTableColumn
+tmnxCflowdSampleProfileRowStatus = _TmnxCflowdSampleProfileRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2, 1, 2),
+    _TmnxCflowdSampleProfileRowStatus_Type()
+)
+tmnxCflowdSampleProfileRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCflowdSampleProfileRowStatus.setStatus("current")
+_TmnxCflowdSampleProfLastChanged_Type = TimeStamp
+_TmnxCflowdSampleProfLastChanged_Object = MibTableColumn
+tmnxCflowdSampleProfLastChanged = _TmnxCflowdSampleProfLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2, 1, 3),
+    _TmnxCflowdSampleProfLastChanged_Type()
+)
+tmnxCflowdSampleProfLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxCflowdSampleProfLastChanged.setStatus("current")
+
+
+class _TmnxCflowdSampleProfileRate_Type(Unsigned32):
+    """Custom type tmnxCflowdSampleProfileRate based on Unsigned32"""
+    defaultValue = 1000
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10000),
+    )
+
+
+_TmnxCflowdSampleProfileRate_Type.__name__ = "Unsigned32"
+_TmnxCflowdSampleProfileRate_Object = MibTableColumn
+tmnxCflowdSampleProfileRate = _TmnxCflowdSampleProfileRate_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 19, 10, 2, 1, 4),
+    _TmnxCflowdSampleProfileRate_Type()
+)
+tmnxCflowdSampleProfileRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxCflowdSampleProfileRate.setStatus("current")
+_TmnxCflowdNotificationsPrefix_ObjectIdentity = ObjectIdentity
+tmnxCflowdNotificationsPrefix = _TmnxCflowdNotificationsPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19)
+)
+_TmnxCflowdNotifications_ObjectIdentity = ObjectIdentity
+tmnxCflowdNotifications = _TmnxCflowdNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0)
+)
+
+# Managed Objects groups
+
+tmnxCflowdGlobalGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 1)
+)
+tmnxCflowdGlobalGroup.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdActiveTimeout"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdInactiveTimeout"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdCacheSize"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleRate"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdOverflow"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAdminStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdOperStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdActiveFlows"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregation"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdMaxCollectors"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdGlobalGroup.setStatus("current")
+
+tmnxCflowdHostGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 2)
+)
+tmnxCflowdHostGroup.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCFHostTableLastChanged"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostRowStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostEntryLastChanged"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostDescription"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostAdminStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostOperStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostASType"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostAggregation"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostRecordsSent"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostLastPktSent"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdHostGroup.setStatus("current")
+
+tmnxCflowdNotifyObjsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 3)
+)
+tmnxCflowdNotifyObjsGroup.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowUnsuppIPProtoNum"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFailureReasonCode"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdNotifyObjsGroup.setStatus("obsolete")
+
+tmnxCflowdGlobalGroupV6v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 5)
+)
+tmnxCflowdGlobalGroupV6v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdTotalPktsRcvd"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdTotalPktsDropped"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdGlobalGroupV6v0.setStatus("current")
+
+tmnxCflowdObsoleteV8v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 6)
+)
+tmnxCflowdObsoleteV8v0Group.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowUnsuppIPProtoNum")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdObsoleteV8v0Group.setStatus("current")
+
+tmnxCflowdGroupV8v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 7)
+)
+tmnxCflowdGroupV8v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateRetransmit"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateLastTxTime"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostVersion"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostTemplateSet"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostPacketsSent"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVersionStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVersionSent"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVersionOpen"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVersionErrors"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV5Sent"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV5Open"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV5Errors"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregationStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregationSent"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregationOpen"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAggregationErrors"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateSent"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateOpen"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdTemplateErrors"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdGroupV8v0.setStatus("current")
+
+tmnxCflowdNotifyObjsV8v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 8)
+)
+tmnxCflowdNotifyObjsV8v0Group.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFailureReasonCode")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdNotifyObjsV8v0Group.setStatus("current")
+
+tmnxCflowdStatisticsV10v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 10)
+)
+tmnxCflowdStatisticsV10v0Group.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenRawFlowsCreated"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenAggrFlowsCreated"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenRawFlowsMatched"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenAggrFlowsMatched"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenRawFlowsFlushed"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenAggrFlowsFlushed"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenOverflowEvents"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGenDroppedFlows"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdStatisticsV10v0Group.setStatus("current")
+
+tmnxCflowdV2HostCfgGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 11, 1)
+)
+tmnxCflowdV2HostCfgGroup.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollRowStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollEntryLastChanged"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollDescription"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAdminStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollOperStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollASType"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggregation"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollRecordsSent"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollLastPktSent"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollVersion"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplateSet"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollPacketsSent"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdV2HostCfgGroup.setStatus("current")
+
+tmnxCflowdV2HostStatisticsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 11, 2)
+)
+tmnxCflowdV2HostStatisticsGroup.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollV5SentPackets"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollV5OpenPackets"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollV5ErrorPackets"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggrStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggrSentPackets"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggrOpenPackets"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollAggrErrorPackets"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplLastTxTime"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplSentPackets"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplOpenPackets"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollTemplErrorPackets"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdV2HostStatisticsGroup.setStatus("current")
+
+tmnxCflowdV2HostCfgGroupv15v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 11, 3)
+)
+tmnxCflowdV2HostCfgGroupv15v0.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollVRtrID")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdV2HostCfgGroupv15v0.setStatus("current")
+
+tmnxCflowdExportFilterGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 11, 4)
+)
+tmnxCflowdExportFilterGroup.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExpFilterAdrFamily"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExpFltVrtrLastChg"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExpFlVrtrRowStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExFlVrtrTblLastChg"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExFlVrIfTblLastChg"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExpFlVrIfRowStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollExpFltVrIfLastChg"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdExportFilterGroup.setStatus("current")
+
+tmnxCflowdExportGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 12)
+)
+tmnxCflowdExportGroup.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdExportMode"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdExportManual"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdExportGroup.setStatus("current")
+
+tmnxCflowdGroupV12v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 14, 1)
+)
+tmnxCflowdGroupV12v0.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfIndexContext")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdGroupV12v0.setStatus("current")
+
+tmnxCflowdVRtrGroupV13v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 15, 1)
+)
+tmnxCflowdVRtrGroupV13v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfTableLastChanged"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfRowStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfLastChanged"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfType"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfDirection"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdVRtrGroupV13v0.setStatus("current")
+
+tmnxCflowdEnhancedDistGrpV13v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 15, 2)
+)
+tmnxCflowdEnhancedDistGrpV13v0.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdEnhancedDistribution")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdEnhancedDistGrpV13v0.setStatus("current")
+
+tmnxCflowdInbandCollExportV14v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 16, 1)
+)
+tmnxCflowdInbandCollExportV14v0.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdInbandCollExportOnly")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdInbandCollExportV14v0.setStatus("current")
+
+tmnxCflowdAnalyzeGrePayloadV16v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 17, 1)
+)
+tmnxCflowdAnalyzeGrePayloadV16v0.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAnalyzeGrePayload")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdAnalyzeGrePayloadV16v0.setStatus("current")
+
+tmnxCflowdSampleProfGroupV19v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 18, 1)
+)
+tmnxCflowdSampleProfGroupV19v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrIfSampleProfileID"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampProfTblLastChanged"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleProfileRowStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleProfLastChanged"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleProfileRate"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdSampleProfGroupV19v0.setStatus("current")
+
+tmnxCflowdObsoleteV19v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 18, 2)
+)
+tmnxCflowdObsoleteV19v0Group.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleRate")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdObsoleteV19v0Group.setStatus("current")
+
+tmnxCflowdAnalyzeTunneledV19v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 18, 3)
+)
+tmnxCflowdAnalyzeTunneledV19v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdAnalyzeL2TP"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAnalyzeV4OverV6"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdAnalyzeTunneledV19v0.setStatus("current")
+
+tmnxCflowdObsoleteV20v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 19, 1)
+)
+tmnxCflowdObsoleteV20v0Group.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdActiveTimeout")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdObsoleteV20v0Group.setStatus("current")
+
+tmnxCflowdActiveTimeoutGrpV20v0 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 19, 2)
+)
+tmnxCflowdActiveTimeoutGrpV20v0.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdActiveFlowTimeout")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdActiveTimeoutGrpV20v0.setStatus("current")
+
+
+# Notification objects
+
+tmnxCflowdCreated = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 1)
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdCreated.setStatus(
+        "obsolete"
+    )
+
+tmnxCflowdCreateFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdCreateFailure.setStatus(
+        "current"
+    )
+
+tmnxCflowdDeleted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 3)
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdDeleted.setStatus(
+        "obsolete"
+    )
+
+tmnxCflowdStateChange = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 4)
+)
+tmnxCflowdStateChange.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdAdminStatus"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdOperStatus"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdStateChange.setStatus(
+        "current"
+    )
+
+tmnxCflowdCleared = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 5)
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdCleared.setStatus(
+        "obsolete"
+    )
+
+tmnxCflowdFlowCreateFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 6)
+)
+tmnxCflowdFlowCreateFailure.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFailureReasonCode")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdFlowCreateFailure.setStatus(
+        "current"
+    )
+
+tmnxCflowdFlowFlushFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 7)
+)
+tmnxCflowdFlowFlushFailure.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFailureReasonCode")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdFlowFlushFailure.setStatus(
+        "obsolete"
+    )
+
+tmnxCflowdFlowUnsuppProto = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 8)
+)
+tmnxCflowdFlowUnsuppProto.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowUnsuppIPProtoNum")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdFlowUnsuppProto.setStatus(
+        "obsolete"
+    )
+
+tmnxCflowdPacketTxFailure = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 19, 0, 9)
+)
+tmnxCflowdPacketTxFailure.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCFHostCollVersion"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFailureReasonCode"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdPacketTxFailure.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+tmnxCflowdNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 4)
+)
+tmnxCflowdNotificationGroup.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdCreated"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdCreateFailure"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdDeleted"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdStateChange"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdCleared"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowCreateFailure"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowFlushFailure"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowUnsuppProto"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdNotificationGroup.setStatus(
+        "obsolete"
+    )
+
+tmnxCflowdNotificationV8v0Group = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 2, 9)
+)
+tmnxCflowdNotificationV8v0Group.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdCreateFailure"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdStateChange"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdFlowCreateFailure"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdPacketTxFailure"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdNotificationV8v0Group.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tmnxCflowdCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 1)
+)
+tmnxCflowdCompliance.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdHostGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdNotificationGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdCompliance.setStatus(
+        "obsolete"
+    )
+
+tmnxCflowdComplianceV6v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 2)
+)
+tmnxCflowdComplianceV6v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdHostGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdNotificationGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroupV6v0"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdComplianceV6v0.setStatus(
+        "obsolete"
+    )
+
+tmnxCflowdComplianceV8v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 3)
+)
+tmnxCflowdComplianceV8v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroupV6v0"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdHostGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdNotificationV8v0Group"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGroupV8v0"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdComplianceV8v0.setStatus(
+        "obsolete"
+    )
+
+tmnxCflowdComplianceV10v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 4)
+)
+tmnxCflowdComplianceV10v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroupV6v0"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdHostGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdNotificationV8v0Group"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGroupV8v0"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdStatisticsV10v0Group"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV2HostCfgGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV2HostStatisticsGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdComplianceV10v0.setStatus(
+        "obsolete"
+    )
+
+tmnxCflowdComplianceV12v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 5)
+)
+tmnxCflowdComplianceV12v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGlobalGroupV6v0"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdHostGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdNotificationV8v0Group"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGroupV8v0"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdGroupV12v0"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdStatisticsV10v0Group"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV2HostCfgGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdV2HostStatisticsGroup"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdExportGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdComplianceV12v0.setStatus(
+        "current"
+    )
+
+tmnxCflowdComplianceV13v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 6)
+)
+tmnxCflowdComplianceV13v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdVRtrGroupV13v0"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdEnhancedDistGrpV13v0"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdComplianceV13v0.setStatus(
+        "current"
+    )
+
+tmnxCflowdComplianceV15v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 7)
+)
+tmnxCflowdComplianceV15v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdV2HostCfgGroupv15v0"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdExportFilterGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdComplianceV15v0.setStatus(
+        "current"
+    )
+
+tmnxCflowdComplianceV14v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 8)
+)
+tmnxCflowdComplianceV14v0.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdInbandCollExportV14v0")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdComplianceV14v0.setStatus(
+        "current"
+    )
+
+tmnxCflowdComplianceV16v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 9)
+)
+tmnxCflowdComplianceV16v0.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAnalyzeGrePayloadV16v0")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdComplianceV16v0.setStatus(
+        "current"
+    )
+
+tmnxCflowdComplianceV19v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 10)
+)
+tmnxCflowdComplianceV19v0.setObjects(
+      *(("TIMETRA-CFLOWD-MIB", "tmnxCflowdSampleProfGroupV19v0"),
+        ("TIMETRA-CFLOWD-MIB", "tmnxCflowdAnalyzeTunneledV19v0"))
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdComplianceV19v0.setStatus(
+        "current"
+    )
+
+tmnxCflowdComplianceV20v0 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 19, 1, 11)
+)
+tmnxCflowdComplianceV20v0.setObjects(
+    ("TIMETRA-CFLOWD-MIB", "tmnxCflowdActiveTimeoutGrpV20v0")
+)
+if mibBuilder.loadTexts:
+    tmnxCflowdComplianceV20v0.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TIMETRA-CFLOWD-MIB",
+    **{"TmnxCflowdAggScheme": TmnxCflowdAggScheme,
+       "TmnxCflowdTemplateSet": TmnxCflowdTemplateSet,
+       "TmnxCflowdSampleProfileID": TmnxCflowdSampleProfileID,
+       "timetraCflowdMIBModule": timetraCflowdMIBModule,
+       "tmnxCflowdConformance": tmnxCflowdConformance,
+       "tmnxCflowdCompliances": tmnxCflowdCompliances,
+       "tmnxCflowdCompliance": tmnxCflowdCompliance,
+       "tmnxCflowdComplianceV6v0": tmnxCflowdComplianceV6v0,
+       "tmnxCflowdComplianceV8v0": tmnxCflowdComplianceV8v0,
+       "tmnxCflowdComplianceV10v0": tmnxCflowdComplianceV10v0,
+       "tmnxCflowdComplianceV12v0": tmnxCflowdComplianceV12v0,
+       "tmnxCflowdComplianceV13v0": tmnxCflowdComplianceV13v0,
+       "tmnxCflowdComplianceV15v0": tmnxCflowdComplianceV15v0,
+       "tmnxCflowdComplianceV14v0": tmnxCflowdComplianceV14v0,
+       "tmnxCflowdComplianceV16v0": tmnxCflowdComplianceV16v0,
+       "tmnxCflowdComplianceV19v0": tmnxCflowdComplianceV19v0,
+       "tmnxCflowdComplianceV20v0": tmnxCflowdComplianceV20v0,
+       "tmnxCflowdGroups": tmnxCflowdGroups,
+       "tmnxCflowdGlobalGroup": tmnxCflowdGlobalGroup,
+       "tmnxCflowdHostGroup": tmnxCflowdHostGroup,
+       "tmnxCflowdNotifyObjsGroup": tmnxCflowdNotifyObjsGroup,
+       "tmnxCflowdNotificationGroup": tmnxCflowdNotificationGroup,
+       "tmnxCflowdGlobalGroupV6v0": tmnxCflowdGlobalGroupV6v0,
+       "tmnxCflowdObsoleteV8v0Group": tmnxCflowdObsoleteV8v0Group,
+       "tmnxCflowdGroupV8v0": tmnxCflowdGroupV8v0,
+       "tmnxCflowdNotifyObjsV8v0Group": tmnxCflowdNotifyObjsV8v0Group,
+       "tmnxCflowdNotificationV8v0Group": tmnxCflowdNotificationV8v0Group,
+       "tmnxCflowdStatisticsV10v0Group": tmnxCflowdStatisticsV10v0Group,
+       "tmnxCflowdV10v0Groups": tmnxCflowdV10v0Groups,
+       "tmnxCflowdV2HostCfgGroup": tmnxCflowdV2HostCfgGroup,
+       "tmnxCflowdV2HostStatisticsGroup": tmnxCflowdV2HostStatisticsGroup,
+       "tmnxCflowdV2HostCfgGroupv15v0": tmnxCflowdV2HostCfgGroupv15v0,
+       "tmnxCflowdExportFilterGroup": tmnxCflowdExportFilterGroup,
+       "tmnxCflowdExportGroup": tmnxCflowdExportGroup,
+       "tmnxCflowdV11v0Groups": tmnxCflowdV11v0Groups,
+       "tmnxCflowdV12v0Groups": tmnxCflowdV12v0Groups,
+       "tmnxCflowdGroupV12v0": tmnxCflowdGroupV12v0,
+       "tmnxCflowdV13v0Groups": tmnxCflowdV13v0Groups,
+       "tmnxCflowdVRtrGroupV13v0": tmnxCflowdVRtrGroupV13v0,
+       "tmnxCflowdEnhancedDistGrpV13v0": tmnxCflowdEnhancedDistGrpV13v0,
+       "tmnxCflowdV14v0Groups": tmnxCflowdV14v0Groups,
+       "tmnxCflowdInbandCollExportV14v0": tmnxCflowdInbandCollExportV14v0,
+       "tmnxCflowdV16v0Groups": tmnxCflowdV16v0Groups,
+       "tmnxCflowdAnalyzeGrePayloadV16v0": tmnxCflowdAnalyzeGrePayloadV16v0,
+       "tmnxCflowdV19v0Groups": tmnxCflowdV19v0Groups,
+       "tmnxCflowdSampleProfGroupV19v0": tmnxCflowdSampleProfGroupV19v0,
+       "tmnxCflowdObsoleteV19v0Group": tmnxCflowdObsoleteV19v0Group,
+       "tmnxCflowdAnalyzeTunneledV19v0": tmnxCflowdAnalyzeTunneledV19v0,
+       "tmnxCflowdV20v0Groups": tmnxCflowdV20v0Groups,
+       "tmnxCflowdObsoleteV20v0Group": tmnxCflowdObsoleteV20v0Group,
+       "tmnxCflowdActiveTimeoutGrpV20v0": tmnxCflowdActiveTimeoutGrpV20v0,
+       "tmnxCflowdObjs": tmnxCflowdObjs,
+       "tmnxCflowdGeneralObjs": tmnxCflowdGeneralObjs,
+       "tmnxCflowdStatus": tmnxCflowdStatus,
+       "tmnxCflowdActiveTimeout": tmnxCflowdActiveTimeout,
+       "tmnxCflowdInactiveTimeout": tmnxCflowdInactiveTimeout,
+       "tmnxCflowdCacheSize": tmnxCflowdCacheSize,
+       "tmnxCflowdSampleRate": tmnxCflowdSampleRate,
+       "tmnxCflowdOverflow": tmnxCflowdOverflow,
+       "tmnxCflowdAdminStatus": tmnxCflowdAdminStatus,
+       "tmnxCflowdOperStatus": tmnxCflowdOperStatus,
+       "tmnxCflowdActiveFlows": tmnxCflowdActiveFlows,
+       "tmnxCflowdAggregation": tmnxCflowdAggregation,
+       "tmnxCFHostTableLastChanged": tmnxCFHostTableLastChanged,
+       "tmnxCflowdMaxCollectors": tmnxCflowdMaxCollectors,
+       "tmnxCflowdTotalPktsRcvd": tmnxCflowdTotalPktsRcvd,
+       "tmnxCflowdTotalPktsDropped": tmnxCflowdTotalPktsDropped,
+       "tmnxCflowdTemplateRetransmit": tmnxCflowdTemplateRetransmit,
+       "tmnxCflowdGeneralStatisticsObjs": tmnxCflowdGeneralStatisticsObjs,
+       "tmnxCflowdGenRawFlowsCreated": tmnxCflowdGenRawFlowsCreated,
+       "tmnxCflowdGenAggrFlowsCreated": tmnxCflowdGenAggrFlowsCreated,
+       "tmnxCflowdGenRawFlowsMatched": tmnxCflowdGenRawFlowsMatched,
+       "tmnxCflowdGenAggrFlowsMatched": tmnxCflowdGenAggrFlowsMatched,
+       "tmnxCflowdGenRawFlowsFlushed": tmnxCflowdGenRawFlowsFlushed,
+       "tmnxCflowdGenAggrFlowsFlushed": tmnxCflowdGenAggrFlowsFlushed,
+       "tmnxCflowdGenOverflowEvents": tmnxCflowdGenOverflowEvents,
+       "tmnxCflowdGenDroppedFlows": tmnxCflowdGenDroppedFlows,
+       "tmnxCflowdExportMode": tmnxCflowdExportMode,
+       "tmnxCflowdExportManual": tmnxCflowdExportManual,
+       "tmnxCflowdVRtrIfIndexContext": tmnxCflowdVRtrIfIndexContext,
+       "tmnxCflowdEnhancedDistribution": tmnxCflowdEnhancedDistribution,
+       "tmnxCflowdInbandCollExportOnly": tmnxCflowdInbandCollExportOnly,
+       "tmnxCflowdAnalyzeGrePayload": tmnxCflowdAnalyzeGrePayload,
+       "tmnxCflowdAnalyzeL2TP": tmnxCflowdAnalyzeL2TP,
+       "tmnxCflowdAnalyzeV4OverV6": tmnxCflowdAnalyzeV4OverV6,
+       "tmnxCflowdActiveFlowTimeout": tmnxCflowdActiveFlowTimeout,
+       "tmnxCflowdNotificationObjects": tmnxCflowdNotificationObjects,
+       "tmnxCflowdFlowFailureReasonCode": tmnxCflowdFlowFailureReasonCode,
+       "tmnxCflowdFlowUnsuppIPProtoNum": tmnxCflowdFlowUnsuppIPProtoNum,
+       "tmnxCFHostTable": tmnxCFHostTable,
+       "tmnxCFHostEntry": tmnxCFHostEntry,
+       "tmnxCFHostAddress": tmnxCFHostAddress,
+       "tmnxCFHostUdpPort": tmnxCFHostUdpPort,
+       "tmnxCFHostRowStatus": tmnxCFHostRowStatus,
+       "tmnxCFHostEntryLastChanged": tmnxCFHostEntryLastChanged,
+       "tmnxCFHostDescription": tmnxCFHostDescription,
+       "tmnxCFHostAdminStatus": tmnxCFHostAdminStatus,
+       "tmnxCFHostOperStatus": tmnxCFHostOperStatus,
+       "tmnxCFHostASType": tmnxCFHostASType,
+       "tmnxCFHostAggregation": tmnxCFHostAggregation,
+       "tmnxCFHostRecordsSent": tmnxCFHostRecordsSent,
+       "tmnxCFHostLastPktSent": tmnxCFHostLastPktSent,
+       "tmnxCFHostVersion": tmnxCFHostVersion,
+       "tmnxCFHostTemplateSet": tmnxCFHostTemplateSet,
+       "tmnxCFHostPacketsSent": tmnxCFHostPacketsSent,
+       "tmnxCflowdVersionStatsTable": tmnxCflowdVersionStatsTable,
+       "tmnxCflowdVersionStatsEntry": tmnxCflowdVersionStatsEntry,
+       "tmnxCflowdVersionIndex": tmnxCflowdVersionIndex,
+       "tmnxCflowdVersionStatus": tmnxCflowdVersionStatus,
+       "tmnxCflowdVersionSent": tmnxCflowdVersionSent,
+       "tmnxCflowdVersionOpen": tmnxCflowdVersionOpen,
+       "tmnxCflowdVersionErrors": tmnxCflowdVersionErrors,
+       "tmnxCflowdV5StatsTable": tmnxCflowdV5StatsTable,
+       "tmnxCflowdV5StatsEntry": tmnxCflowdV5StatsEntry,
+       "tmnxCflowdV5Sent": tmnxCflowdV5Sent,
+       "tmnxCflowdV5Open": tmnxCflowdV5Open,
+       "tmnxCflowdV5Errors": tmnxCflowdV5Errors,
+       "tmnxCflowdAggregationStatsTable": tmnxCflowdAggregationStatsTable,
+       "tmnxCflowdAggregationStatsEntry": tmnxCflowdAggregationStatsEntry,
+       "tmnxCflowdAggregationIndex": tmnxCflowdAggregationIndex,
+       "tmnxCflowdAggregationStatus": tmnxCflowdAggregationStatus,
+       "tmnxCflowdAggregationSent": tmnxCflowdAggregationSent,
+       "tmnxCflowdAggregationOpen": tmnxCflowdAggregationOpen,
+       "tmnxCflowdAggregationErrors": tmnxCflowdAggregationErrors,
+       "tmnxCflowdTemplateStatsTable": tmnxCflowdTemplateStatsTable,
+       "tmnxCflowdTemplateStatsEntry": tmnxCflowdTemplateStatsEntry,
+       "tmnxCflowdTemplateFlowIndex": tmnxCflowdTemplateFlowIndex,
+       "tmnxCflowdTemplateLastTxTime": tmnxCflowdTemplateLastTxTime,
+       "tmnxCflowdTemplateSent": tmnxCflowdTemplateSent,
+       "tmnxCflowdTemplateOpen": tmnxCflowdTemplateOpen,
+       "tmnxCflowdTemplateErrors": tmnxCflowdTemplateErrors,
+       "tmnxCflowdV2Objs": tmnxCflowdV2Objs,
+       "tmnxCflowdGeneralV2Objs": tmnxCflowdGeneralV2Objs,
+       "tmnxCFHostCollectorTable": tmnxCFHostCollectorTable,
+       "tmnxCFHostCollectorEntry": tmnxCFHostCollectorEntry,
+       "tmnxCFHostCollAddressType": tmnxCFHostCollAddressType,
+       "tmnxCFHostCollAddress": tmnxCFHostCollAddress,
+       "tmnxCFHostCollUdpPort": tmnxCFHostCollUdpPort,
+       "tmnxCFHostCollRowStatus": tmnxCFHostCollRowStatus,
+       "tmnxCFHostCollEntryLastChanged": tmnxCFHostCollEntryLastChanged,
+       "tmnxCFHostCollDescription": tmnxCFHostCollDescription,
+       "tmnxCFHostCollAdminStatus": tmnxCFHostCollAdminStatus,
+       "tmnxCFHostCollOperStatus": tmnxCFHostCollOperStatus,
+       "tmnxCFHostCollASType": tmnxCFHostCollASType,
+       "tmnxCFHostCollAggregation": tmnxCFHostCollAggregation,
+       "tmnxCFHostCollRecordsSent": tmnxCFHostCollRecordsSent,
+       "tmnxCFHostCollLastPktSent": tmnxCFHostCollLastPktSent,
+       "tmnxCFHostCollVersion": tmnxCFHostCollVersion,
+       "tmnxCFHostCollTemplateSet": tmnxCFHostCollTemplateSet,
+       "tmnxCFHostCollPacketsSent": tmnxCFHostCollPacketsSent,
+       "tmnxCFHostCollExpFilterAdrFamily": tmnxCFHostCollExpFilterAdrFamily,
+       "tmnxCFHostCollVRtrID": tmnxCFHostCollVRtrID,
+       "tmnxCFHostCollV5StatsTable": tmnxCFHostCollV5StatsTable,
+       "tmnxCFHostCollV5StatsEntry": tmnxCFHostCollV5StatsEntry,
+       "tmnxCFHostCollV5SentPackets": tmnxCFHostCollV5SentPackets,
+       "tmnxCFHostCollV5OpenPackets": tmnxCFHostCollV5OpenPackets,
+       "tmnxCFHostCollV5ErrorPackets": tmnxCFHostCollV5ErrorPackets,
+       "tmnxCFHostCollAggrStatsTable": tmnxCFHostCollAggrStatsTable,
+       "tmnxCFHostCollAggrStatsEntry": tmnxCFHostCollAggrStatsEntry,
+       "tmnxCFHostCollAggrIndex": tmnxCFHostCollAggrIndex,
+       "tmnxCFHostCollAggrStatus": tmnxCFHostCollAggrStatus,
+       "tmnxCFHostCollAggrSentPackets": tmnxCFHostCollAggrSentPackets,
+       "tmnxCFHostCollAggrOpenPackets": tmnxCFHostCollAggrOpenPackets,
+       "tmnxCFHostCollAggrErrorPackets": tmnxCFHostCollAggrErrorPackets,
+       "tmnxCFHostCollTemplStatsTable": tmnxCFHostCollTemplStatsTable,
+       "tmnxCFHostCollTemplStatsEntry": tmnxCFHostCollTemplStatsEntry,
+       "tmnxCFHostCollTemplFlowIndex": tmnxCFHostCollTemplFlowIndex,
+       "tmnxCFHostCollTemplLastTxTime": tmnxCFHostCollTemplLastTxTime,
+       "tmnxCFHostCollTemplSentPackets": tmnxCFHostCollTemplSentPackets,
+       "tmnxCFHostCollTemplOpenPackets": tmnxCFHostCollTemplOpenPackets,
+       "tmnxCFHostCollTemplErrorPackets": tmnxCFHostCollTemplErrorPackets,
+       "tmnxCFHostCollExpFilVrtrObjects": tmnxCFHostCollExpFilVrtrObjects,
+       "tmnxCFHostCollExFlVrtrTblLastChg": tmnxCFHostCollExFlVrtrTblLastChg,
+       "tmnxCFHostCollExpFilterVrtrTable": tmnxCFHostCollExpFilterVrtrTable,
+       "tmnxCFHostCollExpFilterVrtrEntry": tmnxCFHostCollExpFilterVrtrEntry,
+       "tmnxCFHostCollExpFlVrtrRowStatus": tmnxCFHostCollExpFlVrtrRowStatus,
+       "tmnxCFHostCollExpFltVrtrLastChg": tmnxCFHostCollExpFltVrtrLastChg,
+       "tmnxCFHostCollExFlVrIfTblLastChg": tmnxCFHostCollExFlVrIfTblLastChg,
+       "tmnxCFHostCollExpFiltVrtrIfTable": tmnxCFHostCollExpFiltVrtrIfTable,
+       "tmnxCFHostCollExpFiltVrtrIfEntry": tmnxCFHostCollExpFiltVrtrIfEntry,
+       "tmnxCFHostCollExpFlVrIfRowStatus": tmnxCFHostCollExpFlVrIfRowStatus,
+       "tmnxCFHostCollExpFltVrIfLastChg": tmnxCFHostCollExpFltVrIfLastChg,
+       "tmnxCflowdVRtrObjs": tmnxCflowdVRtrObjs,
+       "tmnxCflowdVRtrIfTableLastChanged": tmnxCflowdVRtrIfTableLastChanged,
+       "tmnxCflowdVRtrIfTable": tmnxCflowdVRtrIfTable,
+       "tmnxCflowdVRtrIfEntry": tmnxCflowdVRtrIfEntry,
+       "tmnxCflowdVRtrIfSamplingType": tmnxCflowdVRtrIfSamplingType,
+       "tmnxCflowdVRtrIfRowStatus": tmnxCflowdVRtrIfRowStatus,
+       "tmnxCflowdVRtrIfLastChanged": tmnxCflowdVRtrIfLastChanged,
+       "tmnxCflowdVRtrIfType": tmnxCflowdVRtrIfType,
+       "tmnxCflowdVRtrIfDirection": tmnxCflowdVRtrIfDirection,
+       "tmnxCflowdVRtrIfSampleProfileID": tmnxCflowdVRtrIfSampleProfileID,
+       "tmnxCflowdSampleProfileObjs": tmnxCflowdSampleProfileObjs,
+       "tmnxCflowdSampProfTblLastChanged": tmnxCflowdSampProfTblLastChanged,
+       "tmnxCflowdSampleProfileTable": tmnxCflowdSampleProfileTable,
+       "tmnxCflowdSampleProfileEntry": tmnxCflowdSampleProfileEntry,
+       "tmnxCflowdSampleProfileProfileID": tmnxCflowdSampleProfileProfileID,
+       "tmnxCflowdSampleProfileRowStatus": tmnxCflowdSampleProfileRowStatus,
+       "tmnxCflowdSampleProfLastChanged": tmnxCflowdSampleProfLastChanged,
+       "tmnxCflowdSampleProfileRate": tmnxCflowdSampleProfileRate,
+       "tmnxCflowdNotificationsPrefix": tmnxCflowdNotificationsPrefix,
+       "tmnxCflowdNotifications": tmnxCflowdNotifications,
+       "tmnxCflowdCreated": tmnxCflowdCreated,
+       "tmnxCflowdCreateFailure": tmnxCflowdCreateFailure,
+       "tmnxCflowdDeleted": tmnxCflowdDeleted,
+       "tmnxCflowdStateChange": tmnxCflowdStateChange,
+       "tmnxCflowdCleared": tmnxCflowdCleared,
+       "tmnxCflowdFlowCreateFailure": tmnxCflowdFlowCreateFailure,
+       "tmnxCflowdFlowFlushFailure": tmnxCflowdFlowFlushFailure,
+       "tmnxCflowdFlowUnsuppProto": tmnxCflowdFlowUnsuppProto,
+       "tmnxCflowdPacketTxFailure": tmnxCflowdPacketTxFailure}
+)

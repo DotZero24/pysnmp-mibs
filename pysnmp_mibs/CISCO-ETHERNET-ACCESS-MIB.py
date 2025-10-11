@@ -1,60 +1,378 @@
+# SNMP MIB module (CISCO-ETHERNET-ACCESS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-ETHERNET-ACCESS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-ETHERNET-ACCESS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:31:59 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-ETHERNET-ACCESS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:42:08 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-vtpVlanIndex, managementDomainIndex = mibBuilder.importSymbols("CISCO-VTP-MIB", "vtpVlanIndex", "managementDomainIndex")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-ciscoEthernetAccessMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 466))
-ciscoEthernetAccessMIB.setRevisions(('2007-09-14 00:00', '2005-01-18 00:00',))
-if mibBuilder.loadTexts: ciscoEthernetAccessMIB.setLastUpdated('200709140000Z')
-if mibBuilder.loadTexts: ciscoEthernetAccessMIB.setOrganization('Cisco Systems, Inc.')
-ciscoEthernetAccessMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 466, 1))
-ciscoEthernetAccessMIBConform = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 466, 2))
-ceaGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 1))
-ceaConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(managementDomainIndex,
+ vtpVlanIndex) = mibBuilder.importSymbols(
+    "CISCO-VTP-MIB",
+    "managementDomainIndex",
+    "vtpVlanIndex")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoEthernetAccessMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466)
+)
+if mibBuilder.loadTexts:
+    ciscoEthernetAccessMIB.setRevisions(
+        ("2007-09-14 00:00",
+         "2005-01-18 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class CeaVlanUNIType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("other", 1), ("isolated", 2), ("community", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("isolated", 2),
+          ("community", 3))
+    )
 
-ceaMaxNNIPorts = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 512))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceaMaxNNIPorts.setStatus('current')
-ceaMaxUNIVlanCommunityPorts = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 512))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceaMaxUNIVlanCommunityPorts.setStatus('current')
-ceaPortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 1), )
-if mibBuilder.loadTexts: ceaPortTable.setStatus('current')
-ceaPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ceaPortEntry.setStatus('current')
-ceaPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unspecified", 1), ("uni", 2), ("nni", 3), ("eni", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ceaPortType.setStatus('current')
-ceaPortCapability = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 1, 1, 2), Bits().clone(namedValues=NamedValues(("nni", 0), ("uni", 1), ("eni", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceaPortCapability.setStatus('current')
-ceaUNIVlanTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 2), )
-if mibBuilder.loadTexts: ceaUNIVlanTable.setStatus('current')
-ceaUNIVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 2, 1), ).setIndexNames((0, "CISCO-VTP-MIB", "managementDomainIndex"), (0, "CISCO-VTP-MIB", "vtpVlanIndex"))
-if mibBuilder.loadTexts: ceaUNIVlanEntry.setStatus('current')
-ceaUNIVlanType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 2, 1, 1), CeaVlanUNIType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ceaUNIVlanType.setStatus('current')
-cEthernetAccessMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 466, 2, 1))
-cEthernetAccessMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 466, 2, 2))
-cEthernetAccessMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 466, 2, 1, 1)).setObjects(("CISCO-ETHERNET-ACCESS-MIB", "ceaPortGroup"), ("CISCO-ETHERNET-ACCESS-MIB", "ceaVlanGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cEthernetAccessMIBCompliance = cEthernetAccessMIBCompliance.setStatus('current')
-ceaPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 466, 2, 2, 1)).setObjects(("CISCO-ETHERNET-ACCESS-MIB", "ceaMaxNNIPorts"), ("CISCO-ETHERNET-ACCESS-MIB", "ceaPortType"), ("CISCO-ETHERNET-ACCESS-MIB", "ceaPortCapability"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceaPortGroup = ceaPortGroup.setStatus('current')
-ceaVlanGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 466, 2, 2, 2)).setObjects(("CISCO-ETHERNET-ACCESS-MIB", "ceaMaxUNIVlanCommunityPorts"), ("CISCO-ETHERNET-ACCESS-MIB", "ceaUNIVlanType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceaVlanGroup = ceaVlanGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-ETHERNET-ACCESS-MIB", ceaPortCapability=ceaPortCapability, ceaMaxNNIPorts=ceaMaxNNIPorts, ciscoEthernetAccessMIBObjects=ciscoEthernetAccessMIBObjects, cEthernetAccessMIBGroups=cEthernetAccessMIBGroups, ciscoEthernetAccessMIB=ciscoEthernetAccessMIB, ceaPortType=ceaPortType, cEthernetAccessMIBCompliances=cEthernetAccessMIBCompliances, CeaVlanUNIType=CeaVlanUNIType, ceaGlobals=ceaGlobals, cEthernetAccessMIBCompliance=cEthernetAccessMIBCompliance, ceaConfig=ceaConfig, ceaPortGroup=ceaPortGroup, ceaPortTable=ceaPortTable, ceaUNIVlanEntry=ceaUNIVlanEntry, ciscoEthernetAccessMIBConform=ciscoEthernetAccessMIBConform, ceaPortEntry=ceaPortEntry, ceaUNIVlanType=ceaUNIVlanType, PYSNMP_MODULE_ID=ciscoEthernetAccessMIB, ceaVlanGroup=ceaVlanGroup, ceaMaxUNIVlanCommunityPorts=ceaMaxUNIVlanCommunityPorts, ceaUNIVlanTable=ceaUNIVlanTable)
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoEthernetAccessMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoEthernetAccessMIBObjects = _CiscoEthernetAccessMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1)
+)
+_CeaGlobals_ObjectIdentity = ObjectIdentity
+ceaGlobals = _CeaGlobals_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 1)
+)
+
+
+class _CeaMaxNNIPorts_Type(Integer32):
+    """Custom type ceaMaxNNIPorts based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 512),
+    )
+
+
+_CeaMaxNNIPorts_Type.__name__ = "Integer32"
+_CeaMaxNNIPorts_Object = MibScalar
+ceaMaxNNIPorts = _CeaMaxNNIPorts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 1, 1),
+    _CeaMaxNNIPorts_Type()
+)
+ceaMaxNNIPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceaMaxNNIPorts.setStatus("current")
+
+
+class _CeaMaxUNIVlanCommunityPorts_Type(Integer32):
+    """Custom type ceaMaxUNIVlanCommunityPorts based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 512),
+    )
+
+
+_CeaMaxUNIVlanCommunityPorts_Type.__name__ = "Integer32"
+_CeaMaxUNIVlanCommunityPorts_Object = MibScalar
+ceaMaxUNIVlanCommunityPorts = _CeaMaxUNIVlanCommunityPorts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 1, 2),
+    _CeaMaxUNIVlanCommunityPorts_Type()
+)
+ceaMaxUNIVlanCommunityPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceaMaxUNIVlanCommunityPorts.setStatus("current")
+_CeaConfig_ObjectIdentity = ObjectIdentity
+ceaConfig = _CeaConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2)
+)
+_CeaPortTable_Object = MibTable
+ceaPortTable = _CeaPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    ceaPortTable.setStatus("current")
+_CeaPortEntry_Object = MibTableRow
+ceaPortEntry = _CeaPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 1, 1)
+)
+ceaPortEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    ceaPortEntry.setStatus("current")
+
+
+class _CeaPortType_Type(Integer32):
+    """Custom type ceaPortType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unspecified", 1),
+          ("uni", 2),
+          ("nni", 3),
+          ("eni", 4))
+    )
+
+
+_CeaPortType_Type.__name__ = "Integer32"
+_CeaPortType_Object = MibTableColumn
+ceaPortType = _CeaPortType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 1, 1, 1),
+    _CeaPortType_Type()
+)
+ceaPortType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ceaPortType.setStatus("current")
+
+
+class _CeaPortCapability_Type(Bits):
+    """Custom type ceaPortCapability based on Bits"""
+    namedValues = NamedValues(
+        *(("nni", 0),
+          ("uni", 1),
+          ("eni", 2))
+    )
+
+_CeaPortCapability_Type.__name__ = "Bits"
+_CeaPortCapability_Object = MibTableColumn
+ceaPortCapability = _CeaPortCapability_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 1, 1, 2),
+    _CeaPortCapability_Type()
+)
+ceaPortCapability.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceaPortCapability.setStatus("current")
+_CeaUNIVlanTable_Object = MibTable
+ceaUNIVlanTable = _CeaUNIVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    ceaUNIVlanTable.setStatus("current")
+_CeaUNIVlanEntry_Object = MibTableRow
+ceaUNIVlanEntry = _CeaUNIVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 2, 1)
+)
+ceaUNIVlanEntry.setIndexNames(
+    (0, "CISCO-VTP-MIB", "managementDomainIndex"),
+    (0, "CISCO-VTP-MIB", "vtpVlanIndex"),
+)
+if mibBuilder.loadTexts:
+    ceaUNIVlanEntry.setStatus("current")
+_CeaUNIVlanType_Type = CeaVlanUNIType
+_CeaUNIVlanType_Object = MibTableColumn
+ceaUNIVlanType = _CeaUNIVlanType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 1, 2, 2, 1, 1),
+    _CeaUNIVlanType_Type()
+)
+ceaUNIVlanType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ceaUNIVlanType.setStatus("current")
+_CiscoEthernetAccessMIBConform_ObjectIdentity = ObjectIdentity
+ciscoEthernetAccessMIBConform = _CiscoEthernetAccessMIBConform_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 2)
+)
+_CEthernetAccessMIBCompliances_ObjectIdentity = ObjectIdentity
+cEthernetAccessMIBCompliances = _CEthernetAccessMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 2, 1)
+)
+_CEthernetAccessMIBGroups_ObjectIdentity = ObjectIdentity
+cEthernetAccessMIBGroups = _CEthernetAccessMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 2, 2)
+)
+
+# Managed Objects groups
+
+ceaPortGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 2, 2, 1)
+)
+ceaPortGroup.setObjects(
+      *(("CISCO-ETHERNET-ACCESS-MIB", "ceaMaxNNIPorts"),
+        ("CISCO-ETHERNET-ACCESS-MIB", "ceaPortType"),
+        ("CISCO-ETHERNET-ACCESS-MIB", "ceaPortCapability"))
+)
+if mibBuilder.loadTexts:
+    ceaPortGroup.setStatus("current")
+
+ceaVlanGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 2, 2, 2)
+)
+ceaVlanGroup.setObjects(
+      *(("CISCO-ETHERNET-ACCESS-MIB", "ceaMaxUNIVlanCommunityPorts"),
+        ("CISCO-ETHERNET-ACCESS-MIB", "ceaUNIVlanType"))
+)
+if mibBuilder.loadTexts:
+    ceaVlanGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cEthernetAccessMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 466, 2, 1, 1)
+)
+cEthernetAccessMIBCompliance.setObjects(
+      *(("CISCO-ETHERNET-ACCESS-MIB", "ceaPortGroup"),
+        ("CISCO-ETHERNET-ACCESS-MIB", "ceaVlanGroup"))
+)
+if mibBuilder.loadTexts:
+    cEthernetAccessMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-ETHERNET-ACCESS-MIB",
+    **{"CeaVlanUNIType": CeaVlanUNIType,
+       "ciscoEthernetAccessMIB": ciscoEthernetAccessMIB,
+       "ciscoEthernetAccessMIBObjects": ciscoEthernetAccessMIBObjects,
+       "ceaGlobals": ceaGlobals,
+       "ceaMaxNNIPorts": ceaMaxNNIPorts,
+       "ceaMaxUNIVlanCommunityPorts": ceaMaxUNIVlanCommunityPorts,
+       "ceaConfig": ceaConfig,
+       "ceaPortTable": ceaPortTable,
+       "ceaPortEntry": ceaPortEntry,
+       "ceaPortType": ceaPortType,
+       "ceaPortCapability": ceaPortCapability,
+       "ceaUNIVlanTable": ceaUNIVlanTable,
+       "ceaUNIVlanEntry": ceaUNIVlanEntry,
+       "ceaUNIVlanType": ceaUNIVlanType,
+       "ciscoEthernetAccessMIBConform": ciscoEthernetAccessMIBConform,
+       "cEthernetAccessMIBCompliances": cEthernetAccessMIBCompliances,
+       "cEthernetAccessMIBCompliance": cEthernetAccessMIBCompliance,
+       "cEthernetAccessMIBGroups": cEthernetAccessMIBGroups,
+       "ceaPortGroup": ceaPortGroup,
+       "ceaVlanGroup": ceaVlanGroup}
+)

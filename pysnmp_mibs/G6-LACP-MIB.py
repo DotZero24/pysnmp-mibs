@@ -1,132 +1,1242 @@
+# SNMP MIB module (G6-LACP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module G6-LACP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/microsens/G6-LACP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:09 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/microsens/G6-LACP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:54:16 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-g6, = mibBuilder.importSymbols("MICROSENS-G6-MIB", "g6")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-protocol = ModuleIdentity((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2))
-protocol.setRevisions(('2018-02-12 16:19',))
-if mibBuilder.loadTexts: protocol.setLastUpdated('201802121619Z')
-if mibBuilder.loadTexts: protocol.setOrganization('MICROSENS GmbH & Co. KG')
-lacp = MibIdentifier((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54))
-lacpEnableLacp = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: lacpEnableLacp.setStatus('current')
-configTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2), )
-if mibBuilder.loadTexts: configTable.setStatus('current')
-configEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1), ).setIndexNames((0, "G6-LACP-MIB", "configIndex"))
-if mibBuilder.loadTexts: configEntry.setStatus('current')
-configIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 0)))
-if mibBuilder.loadTexts: configIndex.setStatus('current')
-configLinkAggregation = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("static", 0), ("dynamic", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configLinkAggregation.setStatus('current')
-configSystemPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configSystemPriority.setStatus('current')
-configMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("passive", 0), ("active", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configMode.setStatus('current')
-configTransmitInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("slow", 0), ("fast", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configTransmitInterval.setStatus('current')
-portConfigTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 3), )
-if mibBuilder.loadTexts: portConfigTable.setStatus('current')
-portConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 3, 1), ).setIndexNames((0, "G6-LACP-MIB", "portConfigPortIndex"))
-if mibBuilder.loadTexts: portConfigEntry.setStatus('current')
-portConfigPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24)))
-if mibBuilder.loadTexts: portConfigPortIndex.setStatus('current')
-portConfigTrunkId = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: portConfigTrunkId.setStatus('current')
-trunkConfigTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 4), )
-if mibBuilder.loadTexts: trunkConfigTable.setStatus('current')
-trunkConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 4, 1), ).setIndexNames((0, "G6-LACP-MIB", "trunkConfigIndex"))
-if mibBuilder.loadTexts: trunkConfigEntry.setStatus('current')
-trunkConfigIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 15)))
-if mibBuilder.loadTexts: trunkConfigIndex.setStatus('current')
-trunkConfigName = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 4, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trunkConfigName.setStatus('current')
-trunkConfigTrunkEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trunkConfigTrunkEnable.setStatus('current')
-portStatusTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100), )
-if mibBuilder.loadTexts: portStatusTable.setStatus('current')
-portStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1), ).setIndexNames((0, "G6-LACP-MIB", "portStatusPortIndex"))
-if mibBuilder.loadTexts: portStatusEntry.setStatus('current')
-portStatusPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24)))
-if mibBuilder.loadTexts: portStatusPortIndex.setStatus('current')
-portStatusTrunkName = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portStatusTrunkName.setStatus('current')
-portStatusTrunkId = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portStatusTrunkId.setStatus('current')
-portStatusActivityMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("passive", 0), ("active", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portStatusActivityMode.setStatus('current')
-portStatusSynchronized = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portStatusSynchronized.setStatus('current')
-portStatusAggregationPossible = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portStatusAggregationPossible.setStatus('current')
-portStatusCollection = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portStatusCollection.setStatus('current')
-portStatusDistribution = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portStatusDistribution.setStatus('current')
-portStatusExpiredState = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portStatusExpiredState.setStatus('current')
-portStatusDefaultedState = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: portStatusDefaultedState.setStatus('current')
-actorStatusTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101), )
-if mibBuilder.loadTexts: actorStatusTable.setStatus('current')
-actorStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1), ).setIndexNames((0, "G6-LACP-MIB", "actorStatusPortIndex"))
-if mibBuilder.loadTexts: actorStatusEntry.setStatus('current')
-actorStatusPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24)))
-if mibBuilder.loadTexts: actorStatusPortIndex.setStatus('current')
-actorStatusSystemPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: actorStatusSystemPriority.setStatus('current')
-actorStatusSystemId = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: actorStatusSystemId.setStatus('current')
-actorStatusPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: actorStatusPort.setStatus('current')
-actorStatusPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: actorStatusPriority.setStatus('current')
-actorStatusAdminKey = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: actorStatusAdminKey.setStatus('current')
-actorStatusOperKey = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: actorStatusOperKey.setStatus('current')
-actorStatusTransmitInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("slow", 0), ("fast", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: actorStatusTransmitInterval.setStatus('current')
-partnerStatusTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102), )
-if mibBuilder.loadTexts: partnerStatusTable.setStatus('current')
-partnerStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1), ).setIndexNames((0, "G6-LACP-MIB", "partnerStatusPortIndex"))
-if mibBuilder.loadTexts: partnerStatusEntry.setStatus('current')
-partnerStatusPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24)))
-if mibBuilder.loadTexts: partnerStatusPortIndex.setStatus('current')
-partnerStatusSystemPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusSystemPriority.setStatus('current')
-partnerStatusSystemId = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 3), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusSystemId.setStatus('current')
-partnerStatusPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusPort.setStatus('current')
-partnerStatusPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusPriority.setStatus('current')
-partnerStatusAdminKey = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusAdminKey.setStatus('current')
-partnerStatusOperKey = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusOperKey.setStatus('current')
-partnerStatusReceiveInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("slow", 0), ("fast", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusReceiveInterval.setStatus('current')
-partnerStatusActivityMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("passive", 0), ("active", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusActivityMode.setStatus('current')
-partnerStatusSynchronized = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusSynchronized.setStatus('current')
-partnerStatusAggregationPossible = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusAggregationPossible.setStatus('current')
-partnerStatusCollection = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusCollection.setStatus('current')
-partnerStatusDistribution = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusDistribution.setStatus('current')
-partnerStatusExpiredState = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusExpiredState.setStatus('current')
-partnerStatusDefaultedState = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 15), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("false", 0), ("true", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: partnerStatusDefaultedState.setStatus('current')
-mibBuilder.exportSymbols("G6-LACP-MIB", trunkConfigTrunkEnable=trunkConfigTrunkEnable, lacpEnableLacp=lacpEnableLacp, configMode=configMode, portConfigTrunkId=portConfigTrunkId, partnerStatusTable=partnerStatusTable, partnerStatusAdminKey=partnerStatusAdminKey, partnerStatusEntry=partnerStatusEntry, partnerStatusActivityMode=partnerStatusActivityMode, partnerStatusExpiredState=partnerStatusExpiredState, PYSNMP_MODULE_ID=protocol, portStatusExpiredState=portStatusExpiredState, actorStatusOperKey=actorStatusOperKey, actorStatusSystemId=actorStatusSystemId, partnerStatusDefaultedState=partnerStatusDefaultedState, portStatusEntry=portStatusEntry, actorStatusPort=actorStatusPort, trunkConfigTable=trunkConfigTable, protocol=protocol, portStatusActivityMode=portStatusActivityMode, actorStatusPriority=actorStatusPriority, trunkConfigName=trunkConfigName, portStatusDefaultedState=portStatusDefaultedState, partnerStatusSynchronized=partnerStatusSynchronized, partnerStatusDistribution=partnerStatusDistribution, trunkConfigEntry=trunkConfigEntry, configTransmitInterval=configTransmitInterval, partnerStatusAggregationPossible=partnerStatusAggregationPossible, portConfigPortIndex=portConfigPortIndex, portStatusTrunkId=portStatusTrunkId, portStatusAggregationPossible=portStatusAggregationPossible, trunkConfigIndex=trunkConfigIndex, actorStatusPortIndex=actorStatusPortIndex, lacp=lacp, partnerStatusReceiveInterval=partnerStatusReceiveInterval, portConfigTable=portConfigTable, configTable=configTable, actorStatusTransmitInterval=actorStatusTransmitInterval, actorStatusAdminKey=actorStatusAdminKey, partnerStatusPortIndex=partnerStatusPortIndex, configEntry=configEntry, partnerStatusSystemPriority=partnerStatusSystemPriority, partnerStatusPriority=partnerStatusPriority, partnerStatusOperKey=partnerStatusOperKey, partnerStatusCollection=partnerStatusCollection, partnerStatusSystemId=partnerStatusSystemId, actorStatusSystemPriority=actorStatusSystemPriority, portStatusTable=portStatusTable, partnerStatusPort=partnerStatusPort, portStatusPortIndex=portStatusPortIndex, configIndex=configIndex, portConfigEntry=portConfigEntry, portStatusDistribution=portStatusDistribution, configLinkAggregation=configLinkAggregation, configSystemPriority=configSystemPriority, actorStatusTable=actorStatusTable, portStatusSynchronized=portStatusSynchronized, portStatusCollection=portStatusCollection, actorStatusEntry=actorStatusEntry, portStatusTrunkName=portStatusTrunkName)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(g6,) = mibBuilder.importSymbols(
+    "MICROSENS-G6-MIB",
+    "g6")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+protocol = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2)
+)
+if mibBuilder.loadTexts:
+    protocol.setRevisions(
+        ("2018-02-12 16:19",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Lacp_ObjectIdentity = ObjectIdentity
+lacp = _Lacp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54)
+)
+
+
+class _LacpEnableLacp_Type(Integer32):
+    """Custom type lacpEnableLacp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_LacpEnableLacp_Type.__name__ = "Integer32"
+_LacpEnableLacp_Object = MibScalar
+lacpEnableLacp = _LacpEnableLacp_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 1),
+    _LacpEnableLacp_Type()
+)
+lacpEnableLacp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    lacpEnableLacp.setStatus("current")
+_ConfigTable_Object = MibTable
+configTable = _ConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2)
+)
+if mibBuilder.loadTexts:
+    configTable.setStatus("current")
+_ConfigEntry_Object = MibTableRow
+configEntry = _ConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1)
+)
+configEntry.setIndexNames(
+    (0, "G6-LACP-MIB", "configIndex"),
+)
+if mibBuilder.loadTexts:
+    configEntry.setStatus("current")
+
+
+class _ConfigIndex_Type(Integer32):
+    """Custom type configIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+    )
+
+
+_ConfigIndex_Type.__name__ = "Integer32"
+_ConfigIndex_Object = MibTableColumn
+configIndex = _ConfigIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1, 1),
+    _ConfigIndex_Type()
+)
+configIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    configIndex.setStatus("current")
+
+
+class _ConfigLinkAggregation_Type(Integer32):
+    """Custom type configLinkAggregation based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("static", 0),
+          ("dynamic", 1))
+    )
+
+
+_ConfigLinkAggregation_Type.__name__ = "Integer32"
+_ConfigLinkAggregation_Object = MibTableColumn
+configLinkAggregation = _ConfigLinkAggregation_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1, 2),
+    _ConfigLinkAggregation_Type()
+)
+configLinkAggregation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configLinkAggregation.setStatus("current")
+
+
+class _ConfigSystemPriority_Type(Integer32):
+    """Custom type configSystemPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ConfigSystemPriority_Type.__name__ = "Integer32"
+_ConfigSystemPriority_Object = MibTableColumn
+configSystemPriority = _ConfigSystemPriority_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1, 3),
+    _ConfigSystemPriority_Type()
+)
+configSystemPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configSystemPriority.setStatus("current")
+
+
+class _ConfigMode_Type(Integer32):
+    """Custom type configMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("passive", 0),
+          ("active", 1))
+    )
+
+
+_ConfigMode_Type.__name__ = "Integer32"
+_ConfigMode_Object = MibTableColumn
+configMode = _ConfigMode_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1, 4),
+    _ConfigMode_Type()
+)
+configMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configMode.setStatus("current")
+
+
+class _ConfigTransmitInterval_Type(Integer32):
+    """Custom type configTransmitInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("slow", 0),
+          ("fast", 1))
+    )
+
+
+_ConfigTransmitInterval_Type.__name__ = "Integer32"
+_ConfigTransmitInterval_Object = MibTableColumn
+configTransmitInterval = _ConfigTransmitInterval_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 2, 1, 5),
+    _ConfigTransmitInterval_Type()
+)
+configTransmitInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configTransmitInterval.setStatus("current")
+_PortConfigTable_Object = MibTable
+portConfigTable = _PortConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 3)
+)
+if mibBuilder.loadTexts:
+    portConfigTable.setStatus("current")
+_PortConfigEntry_Object = MibTableRow
+portConfigEntry = _PortConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 3, 1)
+)
+portConfigEntry.setIndexNames(
+    (0, "G6-LACP-MIB", "portConfigPortIndex"),
+)
+if mibBuilder.loadTexts:
+    portConfigEntry.setStatus("current")
+
+
+class _PortConfigPortIndex_Type(Integer32):
+    """Custom type portConfigPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 24),
+    )
+
+
+_PortConfigPortIndex_Type.__name__ = "Integer32"
+_PortConfigPortIndex_Object = MibTableColumn
+portConfigPortIndex = _PortConfigPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 3, 1, 1),
+    _PortConfigPortIndex_Type()
+)
+portConfigPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    portConfigPortIndex.setStatus("current")
+
+
+class _PortConfigTrunkId_Type(Integer32):
+    """Custom type portConfigTrunkId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_PortConfigTrunkId_Type.__name__ = "Integer32"
+_PortConfigTrunkId_Object = MibTableColumn
+portConfigTrunkId = _PortConfigTrunkId_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 3, 1, 2),
+    _PortConfigTrunkId_Type()
+)
+portConfigTrunkId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    portConfigTrunkId.setStatus("current")
+_TrunkConfigTable_Object = MibTable
+trunkConfigTable = _TrunkConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 4)
+)
+if mibBuilder.loadTexts:
+    trunkConfigTable.setStatus("current")
+_TrunkConfigEntry_Object = MibTableRow
+trunkConfigEntry = _TrunkConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 4, 1)
+)
+trunkConfigEntry.setIndexNames(
+    (0, "G6-LACP-MIB", "trunkConfigIndex"),
+)
+if mibBuilder.loadTexts:
+    trunkConfigEntry.setStatus("current")
+
+
+class _TrunkConfigIndex_Type(Integer32):
+    """Custom type trunkConfigIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 15),
+    )
+
+
+_TrunkConfigIndex_Type.__name__ = "Integer32"
+_TrunkConfigIndex_Object = MibTableColumn
+trunkConfigIndex = _TrunkConfigIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 4, 1, 1),
+    _TrunkConfigIndex_Type()
+)
+trunkConfigIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    trunkConfigIndex.setStatus("current")
+_TrunkConfigName_Type = DisplayString
+_TrunkConfigName_Object = MibTableColumn
+trunkConfigName = _TrunkConfigName_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 4, 1, 2),
+    _TrunkConfigName_Type()
+)
+trunkConfigName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trunkConfigName.setStatus("current")
+
+
+class _TrunkConfigTrunkEnable_Type(Integer32):
+    """Custom type trunkConfigTrunkEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_TrunkConfigTrunkEnable_Type.__name__ = "Integer32"
+_TrunkConfigTrunkEnable_Object = MibTableColumn
+trunkConfigTrunkEnable = _TrunkConfigTrunkEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 4, 1, 3),
+    _TrunkConfigTrunkEnable_Type()
+)
+trunkConfigTrunkEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trunkConfigTrunkEnable.setStatus("current")
+_PortStatusTable_Object = MibTable
+portStatusTable = _PortStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100)
+)
+if mibBuilder.loadTexts:
+    portStatusTable.setStatus("current")
+_PortStatusEntry_Object = MibTableRow
+portStatusEntry = _PortStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1)
+)
+portStatusEntry.setIndexNames(
+    (0, "G6-LACP-MIB", "portStatusPortIndex"),
+)
+if mibBuilder.loadTexts:
+    portStatusEntry.setStatus("current")
+
+
+class _PortStatusPortIndex_Type(Integer32):
+    """Custom type portStatusPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 24),
+    )
+
+
+_PortStatusPortIndex_Type.__name__ = "Integer32"
+_PortStatusPortIndex_Object = MibTableColumn
+portStatusPortIndex = _PortStatusPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 1),
+    _PortStatusPortIndex_Type()
+)
+portStatusPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    portStatusPortIndex.setStatus("current")
+_PortStatusTrunkName_Type = DisplayString
+_PortStatusTrunkName_Object = MibTableColumn
+portStatusTrunkName = _PortStatusTrunkName_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 2),
+    _PortStatusTrunkName_Type()
+)
+portStatusTrunkName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portStatusTrunkName.setStatus("current")
+
+
+class _PortStatusTrunkId_Type(Integer32):
+    """Custom type portStatusTrunkId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_PortStatusTrunkId_Type.__name__ = "Integer32"
+_PortStatusTrunkId_Object = MibTableColumn
+portStatusTrunkId = _PortStatusTrunkId_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 3),
+    _PortStatusTrunkId_Type()
+)
+portStatusTrunkId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portStatusTrunkId.setStatus("current")
+
+
+class _PortStatusActivityMode_Type(Integer32):
+    """Custom type portStatusActivityMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("passive", 0),
+          ("active", 1))
+    )
+
+
+_PortStatusActivityMode_Type.__name__ = "Integer32"
+_PortStatusActivityMode_Object = MibTableColumn
+portStatusActivityMode = _PortStatusActivityMode_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 4),
+    _PortStatusActivityMode_Type()
+)
+portStatusActivityMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portStatusActivityMode.setStatus("current")
+
+
+class _PortStatusSynchronized_Type(Integer32):
+    """Custom type portStatusSynchronized based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PortStatusSynchronized_Type.__name__ = "Integer32"
+_PortStatusSynchronized_Object = MibTableColumn
+portStatusSynchronized = _PortStatusSynchronized_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 5),
+    _PortStatusSynchronized_Type()
+)
+portStatusSynchronized.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portStatusSynchronized.setStatus("current")
+
+
+class _PortStatusAggregationPossible_Type(Integer32):
+    """Custom type portStatusAggregationPossible based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PortStatusAggregationPossible_Type.__name__ = "Integer32"
+_PortStatusAggregationPossible_Object = MibTableColumn
+portStatusAggregationPossible = _PortStatusAggregationPossible_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 6),
+    _PortStatusAggregationPossible_Type()
+)
+portStatusAggregationPossible.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portStatusAggregationPossible.setStatus("current")
+
+
+class _PortStatusCollection_Type(Integer32):
+    """Custom type portStatusCollection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PortStatusCollection_Type.__name__ = "Integer32"
+_PortStatusCollection_Object = MibTableColumn
+portStatusCollection = _PortStatusCollection_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 7),
+    _PortStatusCollection_Type()
+)
+portStatusCollection.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portStatusCollection.setStatus("current")
+
+
+class _PortStatusDistribution_Type(Integer32):
+    """Custom type portStatusDistribution based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PortStatusDistribution_Type.__name__ = "Integer32"
+_PortStatusDistribution_Object = MibTableColumn
+portStatusDistribution = _PortStatusDistribution_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 8),
+    _PortStatusDistribution_Type()
+)
+portStatusDistribution.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portStatusDistribution.setStatus("current")
+
+
+class _PortStatusExpiredState_Type(Integer32):
+    """Custom type portStatusExpiredState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PortStatusExpiredState_Type.__name__ = "Integer32"
+_PortStatusExpiredState_Object = MibTableColumn
+portStatusExpiredState = _PortStatusExpiredState_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 9),
+    _PortStatusExpiredState_Type()
+)
+portStatusExpiredState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portStatusExpiredState.setStatus("current")
+
+
+class _PortStatusDefaultedState_Type(Integer32):
+    """Custom type portStatusDefaultedState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PortStatusDefaultedState_Type.__name__ = "Integer32"
+_PortStatusDefaultedState_Object = MibTableColumn
+portStatusDefaultedState = _PortStatusDefaultedState_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 100, 1, 10),
+    _PortStatusDefaultedState_Type()
+)
+portStatusDefaultedState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    portStatusDefaultedState.setStatus("current")
+_ActorStatusTable_Object = MibTable
+actorStatusTable = _ActorStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101)
+)
+if mibBuilder.loadTexts:
+    actorStatusTable.setStatus("current")
+_ActorStatusEntry_Object = MibTableRow
+actorStatusEntry = _ActorStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1)
+)
+actorStatusEntry.setIndexNames(
+    (0, "G6-LACP-MIB", "actorStatusPortIndex"),
+)
+if mibBuilder.loadTexts:
+    actorStatusEntry.setStatus("current")
+
+
+class _ActorStatusPortIndex_Type(Integer32):
+    """Custom type actorStatusPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 24),
+    )
+
+
+_ActorStatusPortIndex_Type.__name__ = "Integer32"
+_ActorStatusPortIndex_Object = MibTableColumn
+actorStatusPortIndex = _ActorStatusPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 1),
+    _ActorStatusPortIndex_Type()
+)
+actorStatusPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    actorStatusPortIndex.setStatus("current")
+
+
+class _ActorStatusSystemPriority_Type(Integer32):
+    """Custom type actorStatusSystemPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ActorStatusSystemPriority_Type.__name__ = "Integer32"
+_ActorStatusSystemPriority_Object = MibTableColumn
+actorStatusSystemPriority = _ActorStatusSystemPriority_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 2),
+    _ActorStatusSystemPriority_Type()
+)
+actorStatusSystemPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    actorStatusSystemPriority.setStatus("current")
+_ActorStatusSystemId_Type = MacAddress
+_ActorStatusSystemId_Object = MibTableColumn
+actorStatusSystemId = _ActorStatusSystemId_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 3),
+    _ActorStatusSystemId_Type()
+)
+actorStatusSystemId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    actorStatusSystemId.setStatus("current")
+
+
+class _ActorStatusPort_Type(Integer32):
+    """Custom type actorStatusPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ActorStatusPort_Type.__name__ = "Integer32"
+_ActorStatusPort_Object = MibTableColumn
+actorStatusPort = _ActorStatusPort_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 4),
+    _ActorStatusPort_Type()
+)
+actorStatusPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    actorStatusPort.setStatus("current")
+
+
+class _ActorStatusPriority_Type(Integer32):
+    """Custom type actorStatusPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ActorStatusPriority_Type.__name__ = "Integer32"
+_ActorStatusPriority_Object = MibTableColumn
+actorStatusPriority = _ActorStatusPriority_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 5),
+    _ActorStatusPriority_Type()
+)
+actorStatusPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    actorStatusPriority.setStatus("current")
+
+
+class _ActorStatusAdminKey_Type(Integer32):
+    """Custom type actorStatusAdminKey based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ActorStatusAdminKey_Type.__name__ = "Integer32"
+_ActorStatusAdminKey_Object = MibTableColumn
+actorStatusAdminKey = _ActorStatusAdminKey_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 6),
+    _ActorStatusAdminKey_Type()
+)
+actorStatusAdminKey.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    actorStatusAdminKey.setStatus("current")
+
+
+class _ActorStatusOperKey_Type(Integer32):
+    """Custom type actorStatusOperKey based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_ActorStatusOperKey_Type.__name__ = "Integer32"
+_ActorStatusOperKey_Object = MibTableColumn
+actorStatusOperKey = _ActorStatusOperKey_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 7),
+    _ActorStatusOperKey_Type()
+)
+actorStatusOperKey.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    actorStatusOperKey.setStatus("current")
+
+
+class _ActorStatusTransmitInterval_Type(Integer32):
+    """Custom type actorStatusTransmitInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("slow", 0),
+          ("fast", 1))
+    )
+
+
+_ActorStatusTransmitInterval_Type.__name__ = "Integer32"
+_ActorStatusTransmitInterval_Object = MibTableColumn
+actorStatusTransmitInterval = _ActorStatusTransmitInterval_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 101, 1, 8),
+    _ActorStatusTransmitInterval_Type()
+)
+actorStatusTransmitInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    actorStatusTransmitInterval.setStatus("current")
+_PartnerStatusTable_Object = MibTable
+partnerStatusTable = _PartnerStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102)
+)
+if mibBuilder.loadTexts:
+    partnerStatusTable.setStatus("current")
+_PartnerStatusEntry_Object = MibTableRow
+partnerStatusEntry = _PartnerStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1)
+)
+partnerStatusEntry.setIndexNames(
+    (0, "G6-LACP-MIB", "partnerStatusPortIndex"),
+)
+if mibBuilder.loadTexts:
+    partnerStatusEntry.setStatus("current")
+
+
+class _PartnerStatusPortIndex_Type(Integer32):
+    """Custom type partnerStatusPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 24),
+    )
+
+
+_PartnerStatusPortIndex_Type.__name__ = "Integer32"
+_PartnerStatusPortIndex_Object = MibTableColumn
+partnerStatusPortIndex = _PartnerStatusPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 1),
+    _PartnerStatusPortIndex_Type()
+)
+partnerStatusPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    partnerStatusPortIndex.setStatus("current")
+
+
+class _PartnerStatusSystemPriority_Type(Integer32):
+    """Custom type partnerStatusSystemPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PartnerStatusSystemPriority_Type.__name__ = "Integer32"
+_PartnerStatusSystemPriority_Object = MibTableColumn
+partnerStatusSystemPriority = _PartnerStatusSystemPriority_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 2),
+    _PartnerStatusSystemPriority_Type()
+)
+partnerStatusSystemPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusSystemPriority.setStatus("current")
+_PartnerStatusSystemId_Type = MacAddress
+_PartnerStatusSystemId_Object = MibTableColumn
+partnerStatusSystemId = _PartnerStatusSystemId_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 3),
+    _PartnerStatusSystemId_Type()
+)
+partnerStatusSystemId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusSystemId.setStatus("current")
+
+
+class _PartnerStatusPort_Type(Integer32):
+    """Custom type partnerStatusPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PartnerStatusPort_Type.__name__ = "Integer32"
+_PartnerStatusPort_Object = MibTableColumn
+partnerStatusPort = _PartnerStatusPort_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 4),
+    _PartnerStatusPort_Type()
+)
+partnerStatusPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusPort.setStatus("current")
+
+
+class _PartnerStatusPriority_Type(Integer32):
+    """Custom type partnerStatusPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PartnerStatusPriority_Type.__name__ = "Integer32"
+_PartnerStatusPriority_Object = MibTableColumn
+partnerStatusPriority = _PartnerStatusPriority_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 5),
+    _PartnerStatusPriority_Type()
+)
+partnerStatusPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusPriority.setStatus("current")
+
+
+class _PartnerStatusAdminKey_Type(Integer32):
+    """Custom type partnerStatusAdminKey based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PartnerStatusAdminKey_Type.__name__ = "Integer32"
+_PartnerStatusAdminKey_Object = MibTableColumn
+partnerStatusAdminKey = _PartnerStatusAdminKey_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 6),
+    _PartnerStatusAdminKey_Type()
+)
+partnerStatusAdminKey.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusAdminKey.setStatus("current")
+
+
+class _PartnerStatusOperKey_Type(Integer32):
+    """Custom type partnerStatusOperKey based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PartnerStatusOperKey_Type.__name__ = "Integer32"
+_PartnerStatusOperKey_Object = MibTableColumn
+partnerStatusOperKey = _PartnerStatusOperKey_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 7),
+    _PartnerStatusOperKey_Type()
+)
+partnerStatusOperKey.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusOperKey.setStatus("current")
+
+
+class _PartnerStatusReceiveInterval_Type(Integer32):
+    """Custom type partnerStatusReceiveInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("slow", 0),
+          ("fast", 1))
+    )
+
+
+_PartnerStatusReceiveInterval_Type.__name__ = "Integer32"
+_PartnerStatusReceiveInterval_Object = MibTableColumn
+partnerStatusReceiveInterval = _PartnerStatusReceiveInterval_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 8),
+    _PartnerStatusReceiveInterval_Type()
+)
+partnerStatusReceiveInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusReceiveInterval.setStatus("current")
+
+
+class _PartnerStatusActivityMode_Type(Integer32):
+    """Custom type partnerStatusActivityMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("passive", 0),
+          ("active", 1))
+    )
+
+
+_PartnerStatusActivityMode_Type.__name__ = "Integer32"
+_PartnerStatusActivityMode_Object = MibTableColumn
+partnerStatusActivityMode = _PartnerStatusActivityMode_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 9),
+    _PartnerStatusActivityMode_Type()
+)
+partnerStatusActivityMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusActivityMode.setStatus("current")
+
+
+class _PartnerStatusSynchronized_Type(Integer32):
+    """Custom type partnerStatusSynchronized based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PartnerStatusSynchronized_Type.__name__ = "Integer32"
+_PartnerStatusSynchronized_Object = MibTableColumn
+partnerStatusSynchronized = _PartnerStatusSynchronized_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 10),
+    _PartnerStatusSynchronized_Type()
+)
+partnerStatusSynchronized.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusSynchronized.setStatus("current")
+
+
+class _PartnerStatusAggregationPossible_Type(Integer32):
+    """Custom type partnerStatusAggregationPossible based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PartnerStatusAggregationPossible_Type.__name__ = "Integer32"
+_PartnerStatusAggregationPossible_Object = MibTableColumn
+partnerStatusAggregationPossible = _PartnerStatusAggregationPossible_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 11),
+    _PartnerStatusAggregationPossible_Type()
+)
+partnerStatusAggregationPossible.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusAggregationPossible.setStatus("current")
+
+
+class _PartnerStatusCollection_Type(Integer32):
+    """Custom type partnerStatusCollection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PartnerStatusCollection_Type.__name__ = "Integer32"
+_PartnerStatusCollection_Object = MibTableColumn
+partnerStatusCollection = _PartnerStatusCollection_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 12),
+    _PartnerStatusCollection_Type()
+)
+partnerStatusCollection.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusCollection.setStatus("current")
+
+
+class _PartnerStatusDistribution_Type(Integer32):
+    """Custom type partnerStatusDistribution based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PartnerStatusDistribution_Type.__name__ = "Integer32"
+_PartnerStatusDistribution_Object = MibTableColumn
+partnerStatusDistribution = _PartnerStatusDistribution_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 13),
+    _PartnerStatusDistribution_Type()
+)
+partnerStatusDistribution.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusDistribution.setStatus("current")
+
+
+class _PartnerStatusExpiredState_Type(Integer32):
+    """Custom type partnerStatusExpiredState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PartnerStatusExpiredState_Type.__name__ = "Integer32"
+_PartnerStatusExpiredState_Object = MibTableColumn
+partnerStatusExpiredState = _PartnerStatusExpiredState_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 14),
+    _PartnerStatusExpiredState_Type()
+)
+partnerStatusExpiredState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusExpiredState.setStatus("current")
+
+
+class _PartnerStatusDefaultedState_Type(Integer32):
+    """Custom type partnerStatusDefaultedState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("false", 0),
+          ("true", 1))
+    )
+
+
+_PartnerStatusDefaultedState_Type.__name__ = "Integer32"
+_PartnerStatusDefaultedState_Object = MibTableColumn
+partnerStatusDefaultedState = _PartnerStatusDefaultedState_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 2, 54, 102, 1, 15),
+    _PartnerStatusDefaultedState_Type()
+)
+partnerStatusDefaultedState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    partnerStatusDefaultedState.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "G6-LACP-MIB",
+    **{"protocol": protocol,
+       "lacp": lacp,
+       "lacpEnableLacp": lacpEnableLacp,
+       "configTable": configTable,
+       "configEntry": configEntry,
+       "configIndex": configIndex,
+       "configLinkAggregation": configLinkAggregation,
+       "configSystemPriority": configSystemPriority,
+       "configMode": configMode,
+       "configTransmitInterval": configTransmitInterval,
+       "portConfigTable": portConfigTable,
+       "portConfigEntry": portConfigEntry,
+       "portConfigPortIndex": portConfigPortIndex,
+       "portConfigTrunkId": portConfigTrunkId,
+       "trunkConfigTable": trunkConfigTable,
+       "trunkConfigEntry": trunkConfigEntry,
+       "trunkConfigIndex": trunkConfigIndex,
+       "trunkConfigName": trunkConfigName,
+       "trunkConfigTrunkEnable": trunkConfigTrunkEnable,
+       "portStatusTable": portStatusTable,
+       "portStatusEntry": portStatusEntry,
+       "portStatusPortIndex": portStatusPortIndex,
+       "portStatusTrunkName": portStatusTrunkName,
+       "portStatusTrunkId": portStatusTrunkId,
+       "portStatusActivityMode": portStatusActivityMode,
+       "portStatusSynchronized": portStatusSynchronized,
+       "portStatusAggregationPossible": portStatusAggregationPossible,
+       "portStatusCollection": portStatusCollection,
+       "portStatusDistribution": portStatusDistribution,
+       "portStatusExpiredState": portStatusExpiredState,
+       "portStatusDefaultedState": portStatusDefaultedState,
+       "actorStatusTable": actorStatusTable,
+       "actorStatusEntry": actorStatusEntry,
+       "actorStatusPortIndex": actorStatusPortIndex,
+       "actorStatusSystemPriority": actorStatusSystemPriority,
+       "actorStatusSystemId": actorStatusSystemId,
+       "actorStatusPort": actorStatusPort,
+       "actorStatusPriority": actorStatusPriority,
+       "actorStatusAdminKey": actorStatusAdminKey,
+       "actorStatusOperKey": actorStatusOperKey,
+       "actorStatusTransmitInterval": actorStatusTransmitInterval,
+       "partnerStatusTable": partnerStatusTable,
+       "partnerStatusEntry": partnerStatusEntry,
+       "partnerStatusPortIndex": partnerStatusPortIndex,
+       "partnerStatusSystemPriority": partnerStatusSystemPriority,
+       "partnerStatusSystemId": partnerStatusSystemId,
+       "partnerStatusPort": partnerStatusPort,
+       "partnerStatusPriority": partnerStatusPriority,
+       "partnerStatusAdminKey": partnerStatusAdminKey,
+       "partnerStatusOperKey": partnerStatusOperKey,
+       "partnerStatusReceiveInterval": partnerStatusReceiveInterval,
+       "partnerStatusActivityMode": partnerStatusActivityMode,
+       "partnerStatusSynchronized": partnerStatusSynchronized,
+       "partnerStatusAggregationPossible": partnerStatusAggregationPossible,
+       "partnerStatusCollection": partnerStatusCollection,
+       "partnerStatusDistribution": partnerStatusDistribution,
+       "partnerStatusExpiredState": partnerStatusExpiredState,
+       "partnerStatusDefaultedState": partnerStatusDefaultedState}
+)

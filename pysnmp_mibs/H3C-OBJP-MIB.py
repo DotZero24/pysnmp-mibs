@@ -1,36 +1,276 @@
+# SNMP MIB module (H3C-OBJP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-OBJP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-OBJP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:28 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/H3C-OBJP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:19:37 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-h3cObjp = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 155))
-h3cObjp.setRevisions(('2014-03-10 15:36',))
-if mibBuilder.loadTexts: h3cObjp.setLastUpdated('201403101536Z')
-if mibBuilder.loadTexts: h3cObjp.setOrganization('Hangzhou H3C Technologies Co., Ltd.')
-h3cObjpZonePairObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1))
-h3cObjpZonePairRunningInfoTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1), )
-if mibBuilder.loadTexts: h3cObjpZonePairRunningInfoTable.setStatus('current')
-h3cObjpZonePairRunningInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1), ).setIndexNames((0, "H3C-OBJP-MIB", "h3cObjpZonePairSrcZone"), (0, "H3C-OBJP-MIB", "h3cObjpZonePairDstZone"), (0, "H3C-OBJP-MIB", "h3cObjpZonePairIPVersion"), (0, "H3C-OBJP-MIB", "h3cObjpZonePairRuleID"))
-if mibBuilder.loadTexts: h3cObjpZonePairRunningInfoEntry.setStatus('current')
-h3cObjpZonePairSrcZone = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 31)))
-if mibBuilder.loadTexts: h3cObjpZonePairSrcZone.setStatus('current')
-h3cObjpZonePairDstZone = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 31)))
-if mibBuilder.loadTexts: h3cObjpZonePairDstZone.setStatus('current')
-h3cObjpZonePairIPVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ipv4", 1), ("ipv6", 2))))
-if mibBuilder.loadTexts: h3cObjpZonePairIPVersion.setStatus('current')
-h3cObjpZonePairRuleID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 65534)))
-if mibBuilder.loadTexts: h3cObjpZonePairRuleID.setStatus('current')
-h3cObjpZonePairMatchPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cObjpZonePairMatchPacketCount.setStatus('current')
-h3cObjpZonePairLastMatchTime = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cObjpZonePairLastMatchTime.setStatus('current')
-mibBuilder.exportSymbols("H3C-OBJP-MIB", h3cObjpZonePairSrcZone=h3cObjpZonePairSrcZone, h3cObjpZonePairRuleID=h3cObjpZonePairRuleID, h3cObjpZonePairLastMatchTime=h3cObjpZonePairLastMatchTime, h3cObjpZonePairMatchPacketCount=h3cObjpZonePairMatchPacketCount, h3cObjpZonePairObjects=h3cObjpZonePairObjects, h3cObjpZonePairRunningInfoEntry=h3cObjpZonePairRunningInfoEntry, h3cObjp=h3cObjp, h3cObjpZonePairRunningInfoTable=h3cObjpZonePairRunningInfoTable, PYSNMP_MODULE_ID=h3cObjp, h3cObjpZonePairDstZone=h3cObjpZonePairDstZone, h3cObjpZonePairIPVersion=h3cObjpZonePairIPVersion)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+h3cObjp = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 155)
+)
+if mibBuilder.loadTexts:
+    h3cObjp.setRevisions(
+        ("2014-03-10 15:36",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cObjpZonePairObjects_ObjectIdentity = ObjectIdentity
+h3cObjpZonePairObjects = _H3cObjpZonePairObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1)
+)
+_H3cObjpZonePairRunningInfoTable_Object = MibTable
+h3cObjpZonePairRunningInfoTable = _H3cObjpZonePairRunningInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1)
+)
+if mibBuilder.loadTexts:
+    h3cObjpZonePairRunningInfoTable.setStatus("current")
+_H3cObjpZonePairRunningInfoEntry_Object = MibTableRow
+h3cObjpZonePairRunningInfoEntry = _H3cObjpZonePairRunningInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1)
+)
+h3cObjpZonePairRunningInfoEntry.setIndexNames(
+    (0, "H3C-OBJP-MIB", "h3cObjpZonePairSrcZone"),
+    (0, "H3C-OBJP-MIB", "h3cObjpZonePairDstZone"),
+    (0, "H3C-OBJP-MIB", "h3cObjpZonePairIPVersion"),
+    (0, "H3C-OBJP-MIB", "h3cObjpZonePairRuleID"),
+)
+if mibBuilder.loadTexts:
+    h3cObjpZonePairRunningInfoEntry.setStatus("current")
+
+
+class _H3cObjpZonePairSrcZone_Type(OctetString):
+    """Custom type h3cObjpZonePairSrcZone based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_H3cObjpZonePairSrcZone_Type.__name__ = "OctetString"
+_H3cObjpZonePairSrcZone_Object = MibTableColumn
+h3cObjpZonePairSrcZone = _H3cObjpZonePairSrcZone_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 1),
+    _H3cObjpZonePairSrcZone_Type()
+)
+h3cObjpZonePairSrcZone.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cObjpZonePairSrcZone.setStatus("current")
+
+
+class _H3cObjpZonePairDstZone_Type(OctetString):
+    """Custom type h3cObjpZonePairDstZone based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_H3cObjpZonePairDstZone_Type.__name__ = "OctetString"
+_H3cObjpZonePairDstZone_Object = MibTableColumn
+h3cObjpZonePairDstZone = _H3cObjpZonePairDstZone_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 2),
+    _H3cObjpZonePairDstZone_Type()
+)
+h3cObjpZonePairDstZone.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cObjpZonePairDstZone.setStatus("current")
+
+
+class _H3cObjpZonePairIPVersion_Type(Integer32):
+    """Custom type h3cObjpZonePairIPVersion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 1),
+          ("ipv6", 2))
+    )
+
+
+_H3cObjpZonePairIPVersion_Type.__name__ = "Integer32"
+_H3cObjpZonePairIPVersion_Object = MibTableColumn
+h3cObjpZonePairIPVersion = _H3cObjpZonePairIPVersion_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 3),
+    _H3cObjpZonePairIPVersion_Type()
+)
+h3cObjpZonePairIPVersion.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cObjpZonePairIPVersion.setStatus("current")
+
+
+class _H3cObjpZonePairRuleID_Type(Unsigned32):
+    """Custom type h3cObjpZonePairRuleID based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65534),
+    )
+
+
+_H3cObjpZonePairRuleID_Type.__name__ = "Unsigned32"
+_H3cObjpZonePairRuleID_Object = MibTableColumn
+h3cObjpZonePairRuleID = _H3cObjpZonePairRuleID_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 4),
+    _H3cObjpZonePairRuleID_Type()
+)
+h3cObjpZonePairRuleID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cObjpZonePairRuleID.setStatus("current")
+_H3cObjpZonePairMatchPacketCount_Type = Counter64
+_H3cObjpZonePairMatchPacketCount_Object = MibTableColumn
+h3cObjpZonePairMatchPacketCount = _H3cObjpZonePairMatchPacketCount_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 5),
+    _H3cObjpZonePairMatchPacketCount_Type()
+)
+h3cObjpZonePairMatchPacketCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cObjpZonePairMatchPacketCount.setStatus("current")
+_H3cObjpZonePairLastMatchTime_Type = Unsigned32
+_H3cObjpZonePairLastMatchTime_Object = MibTableColumn
+h3cObjpZonePairLastMatchTime = _H3cObjpZonePairLastMatchTime_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 155, 1, 1, 1, 6),
+    _H3cObjpZonePairLastMatchTime_Type()
+)
+h3cObjpZonePairLastMatchTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cObjpZonePairLastMatchTime.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-OBJP-MIB",
+    **{"h3cObjp": h3cObjp,
+       "h3cObjpZonePairObjects": h3cObjpZonePairObjects,
+       "h3cObjpZonePairRunningInfoTable": h3cObjpZonePairRunningInfoTable,
+       "h3cObjpZonePairRunningInfoEntry": h3cObjpZonePairRunningInfoEntry,
+       "h3cObjpZonePairSrcZone": h3cObjpZonePairSrcZone,
+       "h3cObjpZonePairDstZone": h3cObjpZonePairDstZone,
+       "h3cObjpZonePairIPVersion": h3cObjpZonePairIPVersion,
+       "h3cObjpZonePairRuleID": h3cObjpZonePairRuleID,
+       "h3cObjpZonePairMatchPacketCount": h3cObjpZonePairMatchPacketCount,
+       "h3cObjpZonePairLastMatchTime": h3cObjpZonePairLastMatchTime}
+)

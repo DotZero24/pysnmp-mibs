@@ -1,36 +1,285 @@
+# SNMP MIB module (TPLINK-DDMBIASCURTHRESHOLD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPLINK-DDMBIASCURTHRESHOLD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/tplink/TPLINK-DDMBIASCURTHRESHOLD-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:26 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/tplink/TPLINK-DDMBIASCURTHRESHOLD-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:55:04 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-tplinkDdmManageMIBObjects, = mibBuilder.importSymbols("TPLINK-DDMMANAGE-MIB", "tplinkDdmManageMIBObjects")
-ddmBiasCurThreshold = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4))
-ddmBiasCurThreshold.setRevisions(('2009-08-27 00:00',))
-if mibBuilder.loadTexts: ddmBiasCurThreshold.setLastUpdated('200908270000Z')
-if mibBuilder.loadTexts: ddmBiasCurThreshold.setOrganization('TPLINK')
-ddmBiasCurThresholdTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1), )
-if mibBuilder.loadTexts: ddmBiasCurThresholdTable.setStatus('current')
-ddmBiasCurThresholdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ddmBiasCurThresholdEntry.setStatus('current')
-ddmBiasCurThresholdPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddmBiasCurThresholdPort.setStatus('current')
-ddmBiasCurThresholdHighAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ddmBiasCurThresholdHighAlarm.setStatus('current')
-ddmBiasCurThresholdLowAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ddmBiasCurThresholdLowAlarm.setStatus('current')
-ddmBiasCurThresholdHighWarn = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ddmBiasCurThresholdHighWarn.setStatus('current')
-ddmBiasCurThresholdLowWarn = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ddmBiasCurThresholdLowWarn.setStatus('current')
-ddmBiasCurThresholdPortLAG = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddmBiasCurThresholdPortLAG.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-DDMBIASCURTHRESHOLD-MIB", ddmBiasCurThreshold=ddmBiasCurThreshold, ddmBiasCurThresholdHighWarn=ddmBiasCurThresholdHighWarn, ddmBiasCurThresholdPort=ddmBiasCurThresholdPort, PYSNMP_MODULE_ID=ddmBiasCurThreshold, ddmBiasCurThresholdLowAlarm=ddmBiasCurThresholdLowAlarm, ddmBiasCurThresholdEntry=ddmBiasCurThresholdEntry, ddmBiasCurThresholdLowWarn=ddmBiasCurThresholdLowWarn, ddmBiasCurThresholdHighAlarm=ddmBiasCurThresholdHighAlarm, ddmBiasCurThresholdTable=ddmBiasCurThresholdTable, ddmBiasCurThresholdPortLAG=ddmBiasCurThresholdPortLAG)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(tplinkDdmManageMIBObjects,) = mibBuilder.importSymbols(
+    "TPLINK-DDMMANAGE-MIB",
+    "tplinkDdmManageMIBObjects")
+
+
+# MODULE-IDENTITY
+
+ddmBiasCurThreshold = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4)
+)
+if mibBuilder.loadTexts:
+    ddmBiasCurThreshold.setRevisions(
+        ("2009-08-27 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_DdmBiasCurThresholdTable_Object = MibTable
+ddmBiasCurThresholdTable = _DdmBiasCurThresholdTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    ddmBiasCurThresholdTable.setStatus("current")
+_DdmBiasCurThresholdEntry_Object = MibTableRow
+ddmBiasCurThresholdEntry = _DdmBiasCurThresholdEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1)
+)
+ddmBiasCurThresholdEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    ddmBiasCurThresholdEntry.setStatus("current")
+
+
+class _DdmBiasCurThresholdPort_Type(DisplayString):
+    """Custom type ddmBiasCurThresholdPort based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_DdmBiasCurThresholdPort_Type.__name__ = "DisplayString"
+_DdmBiasCurThresholdPort_Object = MibTableColumn
+ddmBiasCurThresholdPort = _DdmBiasCurThresholdPort_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 1),
+    _DdmBiasCurThresholdPort_Type()
+)
+ddmBiasCurThresholdPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ddmBiasCurThresholdPort.setStatus("current")
+
+
+class _DdmBiasCurThresholdHighAlarm_Type(OctetString):
+    """Custom type ddmBiasCurThresholdHighAlarm based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_DdmBiasCurThresholdHighAlarm_Type.__name__ = "OctetString"
+_DdmBiasCurThresholdHighAlarm_Object = MibTableColumn
+ddmBiasCurThresholdHighAlarm = _DdmBiasCurThresholdHighAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 2),
+    _DdmBiasCurThresholdHighAlarm_Type()
+)
+ddmBiasCurThresholdHighAlarm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ddmBiasCurThresholdHighAlarm.setStatus("current")
+
+
+class _DdmBiasCurThresholdLowAlarm_Type(OctetString):
+    """Custom type ddmBiasCurThresholdLowAlarm based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_DdmBiasCurThresholdLowAlarm_Type.__name__ = "OctetString"
+_DdmBiasCurThresholdLowAlarm_Object = MibTableColumn
+ddmBiasCurThresholdLowAlarm = _DdmBiasCurThresholdLowAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 3),
+    _DdmBiasCurThresholdLowAlarm_Type()
+)
+ddmBiasCurThresholdLowAlarm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ddmBiasCurThresholdLowAlarm.setStatus("current")
+
+
+class _DdmBiasCurThresholdHighWarn_Type(OctetString):
+    """Custom type ddmBiasCurThresholdHighWarn based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_DdmBiasCurThresholdHighWarn_Type.__name__ = "OctetString"
+_DdmBiasCurThresholdHighWarn_Object = MibTableColumn
+ddmBiasCurThresholdHighWarn = _DdmBiasCurThresholdHighWarn_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 4),
+    _DdmBiasCurThresholdHighWarn_Type()
+)
+ddmBiasCurThresholdHighWarn.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ddmBiasCurThresholdHighWarn.setStatus("current")
+
+
+class _DdmBiasCurThresholdLowWarn_Type(OctetString):
+    """Custom type ddmBiasCurThresholdLowWarn based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_DdmBiasCurThresholdLowWarn_Type.__name__ = "OctetString"
+_DdmBiasCurThresholdLowWarn_Object = MibTableColumn
+ddmBiasCurThresholdLowWarn = _DdmBiasCurThresholdLowWarn_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 5),
+    _DdmBiasCurThresholdLowWarn_Type()
+)
+ddmBiasCurThresholdLowWarn.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ddmBiasCurThresholdLowWarn.setStatus("current")
+
+
+class _DdmBiasCurThresholdPortLAG_Type(OctetString):
+    """Custom type ddmBiasCurThresholdPortLAG based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_DdmBiasCurThresholdPortLAG_Type.__name__ = "OctetString"
+_DdmBiasCurThresholdPortLAG_Object = MibTableColumn
+ddmBiasCurThresholdPortLAG = _DdmBiasCurThresholdPortLAG_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 4, 1, 1, 6),
+    _DdmBiasCurThresholdPortLAG_Type()
+)
+ddmBiasCurThresholdPortLAG.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ddmBiasCurThresholdPortLAG.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPLINK-DDMBIASCURTHRESHOLD-MIB",
+    **{"ddmBiasCurThreshold": ddmBiasCurThreshold,
+       "ddmBiasCurThresholdTable": ddmBiasCurThresholdTable,
+       "ddmBiasCurThresholdEntry": ddmBiasCurThresholdEntry,
+       "ddmBiasCurThresholdPort": ddmBiasCurThresholdPort,
+       "ddmBiasCurThresholdHighAlarm": ddmBiasCurThresholdHighAlarm,
+       "ddmBiasCurThresholdLowAlarm": ddmBiasCurThresholdLowAlarm,
+       "ddmBiasCurThresholdHighWarn": ddmBiasCurThresholdHighWarn,
+       "ddmBiasCurThresholdLowWarn": ddmBiasCurThresholdLowWarn,
+       "ddmBiasCurThresholdPortLAG": ddmBiasCurThresholdPortLAG}
+)

@@ -1,68 +1,429 @@
+# SNMP MIB module (HPN-ICF-IPRAN-DCN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-IPRAN-DCN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-IPRAN-DCN-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:08:22 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HPN-ICF-IPRAN-DCN-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:35:46 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "DisplayString", "TextualConvention")
-hpnicfIpRanDcn = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152))
-hpnicfIpRanDcn.setRevisions(('2013-07-24 00:00',))
-if mibBuilder.loadTexts: hpnicfIpRanDcn.setLastUpdated('201307240000Z')
-if mibBuilder.loadTexts: hpnicfIpRanDcn.setOrganization('')
-class HpnicfIpRanNeId(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '1d.1d.1d.1d'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
 
-hpnicfIpRanDcnMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1))
-hpnicfIpRanDcnObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1))
-hpnicfIpRanDcnInfoObject = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 1))
-hpnicfIpRanDcnNeId = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 1, 1), HpnicfIpRanNeId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeId.setStatus('current')
-hpnicfIpRanDcnNeIpType = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeIpType.setStatus('current')
-hpnicfIpRanDcnNeIp = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeIp.setStatus('current')
-hpnicfIpRanDcnMask = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 1, 4), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnMask.setStatus('current')
-hpnicfIpRanDcnNeInfoTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2), )
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeInfoTable.setStatus('current')
-hpnicfIpRanDcnNeInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1), ).setIndexNames((0, "HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeId"))
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeInfoEntry.setStatus('current')
-hpnicfIpRanDcnNeInfoNeId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1, 1), HpnicfIpRanNeId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeInfoNeId.setStatus('current')
-hpnicfIpRanDcnNeInfoNeIpType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeInfoNeIpType.setStatus('current')
-hpnicfIpRanDcnNeInfoNeIp = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeInfoNeIp.setStatus('current')
-hpnicfIpRanDcnNeInfoMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeInfoMetric.setStatus('current')
-hpnicfIpRanDcnNeInfoDeviceType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeInfoDeviceType.setStatus('current')
-hpnicfIpRanDcnTrapObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2))
-hpnicfIpRanDcnNeNumber = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeNumber.setStatus('current')
-hpnicfIpRanDcnNeChangeMode = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("online", 1), ("offline", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeChangeMode.setStatus('current')
-hpnicfIpRanDcnCompanyName = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnCompanyName.setStatus('current')
-hpnicfIpRanDcnDeviceType = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnDeviceType.setStatus('current')
-hpnicfIpRanDcnDeviceMac = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2, 5), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIpRanDcnDeviceMac.setStatus('current')
-hpnicfIpRanDcnTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 3))
-hpnicfIpRanDcnTrapsPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 3, 0))
-hpnicfIpRanDcnNeOnline = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 3, 0, 1)).setObjects(("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeId"), ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeIpType"), ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeIp"), ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnCompanyName"), ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnDeviceType"), ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnDeviceMac"))
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeOnline.setStatus('current')
-hpnicfIpRanDcnNeOffline = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 3, 0, 2)).setObjects(("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeId"), ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeIpType"), ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeIp"))
-if mibBuilder.loadTexts: hpnicfIpRanDcnNeOffline.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-IPRAN-DCN-MIB", hpnicfIpRanDcnMIB=hpnicfIpRanDcnMIB, hpnicfIpRanDcnNeNumber=hpnicfIpRanDcnNeNumber, hpnicfIpRanDcnNeInfoMetric=hpnicfIpRanDcnNeInfoMetric, hpnicfIpRanDcnNeOffline=hpnicfIpRanDcnNeOffline, hpnicfIpRanDcnDeviceMac=hpnicfIpRanDcnDeviceMac, hpnicfIpRanDcnInfoObject=hpnicfIpRanDcnInfoObject, hpnicfIpRanDcnNeInfoTable=hpnicfIpRanDcnNeInfoTable, hpnicfIpRanDcnNeIpType=hpnicfIpRanDcnNeIpType, hpnicfIpRanDcnCompanyName=hpnicfIpRanDcnCompanyName, hpnicfIpRanDcnTraps=hpnicfIpRanDcnTraps, hpnicfIpRanDcnNeInfoNeId=hpnicfIpRanDcnNeInfoNeId, hpnicfIpRanDcnTrapObjects=hpnicfIpRanDcnTrapObjects, hpnicfIpRanDcnNeInfoNeIpType=hpnicfIpRanDcnNeInfoNeIpType, HpnicfIpRanNeId=HpnicfIpRanNeId, hpnicfIpRanDcnNeInfoNeIp=hpnicfIpRanDcnNeInfoNeIp, hpnicfIpRanDcnNeChangeMode=hpnicfIpRanDcnNeChangeMode, hpnicfIpRanDcnNeOnline=hpnicfIpRanDcnNeOnline, hpnicfIpRanDcnNeId=hpnicfIpRanDcnNeId, PYSNMP_MODULE_ID=hpnicfIpRanDcn, hpnicfIpRanDcnMask=hpnicfIpRanDcnMask, hpnicfIpRanDcnObjects=hpnicfIpRanDcnObjects, hpnicfIpRanDcnNeInfoEntry=hpnicfIpRanDcnNeInfoEntry, hpnicfIpRanDcnNeIp=hpnicfIpRanDcnNeIp, hpnicfIpRanDcnTrapsPrefix=hpnicfIpRanDcnTrapsPrefix, hpnicfIpRanDcnNeInfoDeviceType=hpnicfIpRanDcnNeInfoDeviceType, hpnicfIpRanDcn=hpnicfIpRanDcn, hpnicfIpRanDcnDeviceType=hpnicfIpRanDcnDeviceType)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpnicfCommon,) = mibBuilder.importSymbols(
+    "HPN-ICF-OID-MIB",
+    "hpnicfCommon")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpnicfIpRanDcn = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152)
+)
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcn.setRevisions(
+        ("2013-07-24 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class HpnicfIpRanNeId(TextualConvention, OctetString):
+    status = "current"
+    displayHint = "1d.1d.1d.1d"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfIpRanDcnMIB_ObjectIdentity = ObjectIdentity
+hpnicfIpRanDcnMIB = _HpnicfIpRanDcnMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1)
+)
+_HpnicfIpRanDcnObjects_ObjectIdentity = ObjectIdentity
+hpnicfIpRanDcnObjects = _HpnicfIpRanDcnObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1)
+)
+_HpnicfIpRanDcnInfoObject_ObjectIdentity = ObjectIdentity
+hpnicfIpRanDcnInfoObject = _HpnicfIpRanDcnInfoObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 1)
+)
+_HpnicfIpRanDcnNeId_Type = HpnicfIpRanNeId
+_HpnicfIpRanDcnNeId_Object = MibScalar
+hpnicfIpRanDcnNeId = _HpnicfIpRanDcnNeId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 1, 1),
+    _HpnicfIpRanDcnNeId_Type()
+)
+hpnicfIpRanDcnNeId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeId.setStatus("current")
+_HpnicfIpRanDcnNeIpType_Type = InetAddressType
+_HpnicfIpRanDcnNeIpType_Object = MibScalar
+hpnicfIpRanDcnNeIpType = _HpnicfIpRanDcnNeIpType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 1, 2),
+    _HpnicfIpRanDcnNeIpType_Type()
+)
+hpnicfIpRanDcnNeIpType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeIpType.setStatus("current")
+_HpnicfIpRanDcnNeIp_Type = InetAddress
+_HpnicfIpRanDcnNeIp_Object = MibScalar
+hpnicfIpRanDcnNeIp = _HpnicfIpRanDcnNeIp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 1, 3),
+    _HpnicfIpRanDcnNeIp_Type()
+)
+hpnicfIpRanDcnNeIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeIp.setStatus("current")
+_HpnicfIpRanDcnMask_Type = InetAddress
+_HpnicfIpRanDcnMask_Object = MibScalar
+hpnicfIpRanDcnMask = _HpnicfIpRanDcnMask_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 1, 4),
+    _HpnicfIpRanDcnMask_Type()
+)
+hpnicfIpRanDcnMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnMask.setStatus("current")
+_HpnicfIpRanDcnNeInfoTable_Object = MibTable
+hpnicfIpRanDcnNeInfoTable = _HpnicfIpRanDcnNeInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeInfoTable.setStatus("current")
+_HpnicfIpRanDcnNeInfoEntry_Object = MibTableRow
+hpnicfIpRanDcnNeInfoEntry = _HpnicfIpRanDcnNeInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1)
+)
+hpnicfIpRanDcnNeInfoEntry.setIndexNames(
+    (0, "HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeId"),
+)
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeInfoEntry.setStatus("current")
+_HpnicfIpRanDcnNeInfoNeId_Type = HpnicfIpRanNeId
+_HpnicfIpRanDcnNeInfoNeId_Object = MibTableColumn
+hpnicfIpRanDcnNeInfoNeId = _HpnicfIpRanDcnNeInfoNeId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1, 1),
+    _HpnicfIpRanDcnNeInfoNeId_Type()
+)
+hpnicfIpRanDcnNeInfoNeId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeInfoNeId.setStatus("current")
+_HpnicfIpRanDcnNeInfoNeIpType_Type = InetAddressType
+_HpnicfIpRanDcnNeInfoNeIpType_Object = MibTableColumn
+hpnicfIpRanDcnNeInfoNeIpType = _HpnicfIpRanDcnNeInfoNeIpType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1, 2),
+    _HpnicfIpRanDcnNeInfoNeIpType_Type()
+)
+hpnicfIpRanDcnNeInfoNeIpType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeInfoNeIpType.setStatus("current")
+_HpnicfIpRanDcnNeInfoNeIp_Type = InetAddress
+_HpnicfIpRanDcnNeInfoNeIp_Object = MibTableColumn
+hpnicfIpRanDcnNeInfoNeIp = _HpnicfIpRanDcnNeInfoNeIp_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1, 3),
+    _HpnicfIpRanDcnNeInfoNeIp_Type()
+)
+hpnicfIpRanDcnNeInfoNeIp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeInfoNeIp.setStatus("current")
+_HpnicfIpRanDcnNeInfoMetric_Type = Integer32
+_HpnicfIpRanDcnNeInfoMetric_Object = MibTableColumn
+hpnicfIpRanDcnNeInfoMetric = _HpnicfIpRanDcnNeInfoMetric_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1, 4),
+    _HpnicfIpRanDcnNeInfoMetric_Type()
+)
+hpnicfIpRanDcnNeInfoMetric.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeInfoMetric.setStatus("current")
+
+
+class _HpnicfIpRanDcnNeInfoDeviceType_Type(DisplayString):
+    """Custom type hpnicfIpRanDcnNeInfoDeviceType based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_HpnicfIpRanDcnNeInfoDeviceType_Type.__name__ = "DisplayString"
+_HpnicfIpRanDcnNeInfoDeviceType_Object = MibTableColumn
+hpnicfIpRanDcnNeInfoDeviceType = _HpnicfIpRanDcnNeInfoDeviceType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 1, 2, 1, 5),
+    _HpnicfIpRanDcnNeInfoDeviceType_Type()
+)
+hpnicfIpRanDcnNeInfoDeviceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeInfoDeviceType.setStatus("current")
+_HpnicfIpRanDcnTrapObjects_ObjectIdentity = ObjectIdentity
+hpnicfIpRanDcnTrapObjects = _HpnicfIpRanDcnTrapObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2)
+)
+_HpnicfIpRanDcnNeNumber_Type = Integer32
+_HpnicfIpRanDcnNeNumber_Object = MibScalar
+hpnicfIpRanDcnNeNumber = _HpnicfIpRanDcnNeNumber_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2, 1),
+    _HpnicfIpRanDcnNeNumber_Type()
+)
+hpnicfIpRanDcnNeNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeNumber.setStatus("current")
+
+
+class _HpnicfIpRanDcnNeChangeMode_Type(Integer32):
+    """Custom type hpnicfIpRanDcnNeChangeMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("online", 1),
+          ("offline", 2))
+    )
+
+
+_HpnicfIpRanDcnNeChangeMode_Type.__name__ = "Integer32"
+_HpnicfIpRanDcnNeChangeMode_Object = MibScalar
+hpnicfIpRanDcnNeChangeMode = _HpnicfIpRanDcnNeChangeMode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2, 2),
+    _HpnicfIpRanDcnNeChangeMode_Type()
+)
+hpnicfIpRanDcnNeChangeMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeChangeMode.setStatus("current")
+
+
+class _HpnicfIpRanDcnCompanyName_Type(DisplayString):
+    """Custom type hpnicfIpRanDcnCompanyName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_HpnicfIpRanDcnCompanyName_Type.__name__ = "DisplayString"
+_HpnicfIpRanDcnCompanyName_Object = MibScalar
+hpnicfIpRanDcnCompanyName = _HpnicfIpRanDcnCompanyName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2, 3),
+    _HpnicfIpRanDcnCompanyName_Type()
+)
+hpnicfIpRanDcnCompanyName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnCompanyName.setStatus("current")
+
+
+class _HpnicfIpRanDcnDeviceType_Type(DisplayString):
+    """Custom type hpnicfIpRanDcnDeviceType based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_HpnicfIpRanDcnDeviceType_Type.__name__ = "DisplayString"
+_HpnicfIpRanDcnDeviceType_Object = MibScalar
+hpnicfIpRanDcnDeviceType = _HpnicfIpRanDcnDeviceType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2, 4),
+    _HpnicfIpRanDcnDeviceType_Type()
+)
+hpnicfIpRanDcnDeviceType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnDeviceType.setStatus("current")
+_HpnicfIpRanDcnDeviceMac_Type = MacAddress
+_HpnicfIpRanDcnDeviceMac_Object = MibScalar
+hpnicfIpRanDcnDeviceMac = _HpnicfIpRanDcnDeviceMac_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 2, 5),
+    _HpnicfIpRanDcnDeviceMac_Type()
+)
+hpnicfIpRanDcnDeviceMac.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnDeviceMac.setStatus("current")
+_HpnicfIpRanDcnTraps_ObjectIdentity = ObjectIdentity
+hpnicfIpRanDcnTraps = _HpnicfIpRanDcnTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 3)
+)
+_HpnicfIpRanDcnTrapsPrefix_ObjectIdentity = ObjectIdentity
+hpnicfIpRanDcnTrapsPrefix = _HpnicfIpRanDcnTrapsPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 3, 0)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hpnicfIpRanDcnNeOnline = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 3, 0, 1)
+)
+hpnicfIpRanDcnNeOnline.setObjects(
+      *(("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeId"),
+        ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeIpType"),
+        ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeIp"),
+        ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnCompanyName"),
+        ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnDeviceType"),
+        ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnDeviceMac"))
+)
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeOnline.setStatus(
+        "current"
+    )
+
+hpnicfIpRanDcnNeOffline = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 152, 1, 3, 0, 2)
+)
+hpnicfIpRanDcnNeOffline.setObjects(
+      *(("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeId"),
+        ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeIpType"),
+        ("HPN-ICF-IPRAN-DCN-MIB", "hpnicfIpRanDcnNeInfoNeIp"))
+)
+if mibBuilder.loadTexts:
+    hpnicfIpRanDcnNeOffline.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-IPRAN-DCN-MIB",
+    **{"HpnicfIpRanNeId": HpnicfIpRanNeId,
+       "hpnicfIpRanDcn": hpnicfIpRanDcn,
+       "hpnicfIpRanDcnMIB": hpnicfIpRanDcnMIB,
+       "hpnicfIpRanDcnObjects": hpnicfIpRanDcnObjects,
+       "hpnicfIpRanDcnInfoObject": hpnicfIpRanDcnInfoObject,
+       "hpnicfIpRanDcnNeId": hpnicfIpRanDcnNeId,
+       "hpnicfIpRanDcnNeIpType": hpnicfIpRanDcnNeIpType,
+       "hpnicfIpRanDcnNeIp": hpnicfIpRanDcnNeIp,
+       "hpnicfIpRanDcnMask": hpnicfIpRanDcnMask,
+       "hpnicfIpRanDcnNeInfoTable": hpnicfIpRanDcnNeInfoTable,
+       "hpnicfIpRanDcnNeInfoEntry": hpnicfIpRanDcnNeInfoEntry,
+       "hpnicfIpRanDcnNeInfoNeId": hpnicfIpRanDcnNeInfoNeId,
+       "hpnicfIpRanDcnNeInfoNeIpType": hpnicfIpRanDcnNeInfoNeIpType,
+       "hpnicfIpRanDcnNeInfoNeIp": hpnicfIpRanDcnNeInfoNeIp,
+       "hpnicfIpRanDcnNeInfoMetric": hpnicfIpRanDcnNeInfoMetric,
+       "hpnicfIpRanDcnNeInfoDeviceType": hpnicfIpRanDcnNeInfoDeviceType,
+       "hpnicfIpRanDcnTrapObjects": hpnicfIpRanDcnTrapObjects,
+       "hpnicfIpRanDcnNeNumber": hpnicfIpRanDcnNeNumber,
+       "hpnicfIpRanDcnNeChangeMode": hpnicfIpRanDcnNeChangeMode,
+       "hpnicfIpRanDcnCompanyName": hpnicfIpRanDcnCompanyName,
+       "hpnicfIpRanDcnDeviceType": hpnicfIpRanDcnDeviceType,
+       "hpnicfIpRanDcnDeviceMac": hpnicfIpRanDcnDeviceMac,
+       "hpnicfIpRanDcnTraps": hpnicfIpRanDcnTraps,
+       "hpnicfIpRanDcnTrapsPrefix": hpnicfIpRanDcnTrapsPrefix,
+       "hpnicfIpRanDcnNeOnline": hpnicfIpRanDcnNeOnline,
+       "hpnicfIpRanDcnNeOffline": hpnicfIpRanDcnNeOffline}
+)

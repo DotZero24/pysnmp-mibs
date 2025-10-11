@@ -1,22 +1,192 @@
+# SNMP MIB module (CTRON-DEVICE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CTRON-DEVICE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/CTRON-DEVICE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:10 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cabletron/CTRON-DEVICE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:54:12 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ctDevice, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctDevice")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-PhysAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "PhysAddress", "TextualConvention", "DisplayString")
-commonDev = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1))
-comDeviceIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: comDeviceIPAddress.setStatus('mandatory')
-comDeviceTime = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1, 2), DisplayString().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(6, 6), ValueSizeConstraint(8, 8), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: comDeviceTime.setStatus('mandatory')
-comDeviceDate = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: comDeviceDate.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-DEVICE-MIB", commonDev=commonDev, comDeviceIPAddress=comDeviceIPAddress, comDeviceDate=comDeviceDate, comDeviceTime=comDeviceTime)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ctDevice,) = mibBuilder.importSymbols(
+    "CTRON-MIB-NAMES",
+    "ctDevice")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CommonDev_ObjectIdentity = ObjectIdentity
+commonDev = _CommonDev_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1)
+)
+_ComDeviceIPAddress_Type = IpAddress
+_ComDeviceIPAddress_Object = MibScalar
+comDeviceIPAddress = _ComDeviceIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1, 1),
+    _ComDeviceIPAddress_Type()
+)
+comDeviceIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    comDeviceIPAddress.setStatus("mandatory")
+
+
+class _ComDeviceTime_Type(DisplayString):
+    """Custom type comDeviceTime based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+        ValueSizeConstraint(8, 8),
+    )
+
+
+_ComDeviceTime_Type.__name__ = "DisplayString"
+_ComDeviceTime_Object = MibScalar
+comDeviceTime = _ComDeviceTime_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1, 2),
+    _ComDeviceTime_Type()
+)
+comDeviceTime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    comDeviceTime.setStatus("mandatory")
+
+
+class _ComDeviceDate_Type(DisplayString):
+    """Custom type comDeviceDate based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_ComDeviceDate_Type.__name__ = "DisplayString"
+_ComDeviceDate_Object = MibScalar
+comDeviceDate = _ComDeviceDate_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 1, 1, 5, 1, 3),
+    _ComDeviceDate_Type()
+)
+comDeviceDate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    comDeviceDate.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CTRON-DEVICE-MIB",
+    **{"commonDev": commonDev,
+       "comDeviceIPAddress": comDeviceIPAddress,
+       "comDeviceTime": comDeviceTime,
+       "comDeviceDate": comDeviceDate}
+)

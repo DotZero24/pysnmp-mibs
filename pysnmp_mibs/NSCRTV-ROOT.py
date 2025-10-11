@@ -1,31 +1,218 @@
+# SNMP MIB module (NSCRTV-ROOT) expressed in pysnmp data model.
 #
-# PySNMP MIB module NSCRTV-ROOT (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nscrtv/NSCRTV-ROOT
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:11:56 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nscrtv/NSCRTV-ROOT
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:21:41 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nscrtvRoot = MibIdentifier((1, 3, 6, 1, 4, 1, 17409))
-nscrtvHFCemsTree = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1))
-propertyIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 1))
-alarmsIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 2))
-commonIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 3))
-tvmodIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 4))
-qammodIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 5))
-otdIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 6))
-otxIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 7))
-uporIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 8))
-dorIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 9))
-fnIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 10))
-oaIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 11))
-addIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 12))
-cacIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 13))
-lineIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 14))
-rfsIdent = MibIdentifier((1, 3, 6, 1, 4, 1, 17409, 1, 66))
-mibBuilder.exportSymbols("NSCRTV-ROOT", addIdent=addIdent, dorIdent=dorIdent, qammodIdent=qammodIdent, lineIdent=lineIdent, commonIdent=commonIdent, otxIdent=otxIdent, rfsIdent=rfsIdent, oaIdent=oaIdent, propertyIdent=propertyIdent, otdIdent=otdIdent, uporIdent=uporIdent, cacIdent=cacIdent, fnIdent=fnIdent, nscrtvHFCemsTree=nscrtvHFCemsTree, tvmodIdent=tvmodIdent, nscrtvRoot=nscrtvRoot, alarmsIdent=alarmsIdent)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NscrtvRoot_ObjectIdentity = ObjectIdentity
+nscrtvRoot = _NscrtvRoot_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409)
+)
+_NscrtvHFCemsTree_ObjectIdentity = ObjectIdentity
+nscrtvHFCemsTree = _NscrtvHFCemsTree_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1)
+)
+_PropertyIdent_ObjectIdentity = ObjectIdentity
+propertyIdent = _PropertyIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 1)
+)
+_AlarmsIdent_ObjectIdentity = ObjectIdentity
+alarmsIdent = _AlarmsIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 2)
+)
+_CommonIdent_ObjectIdentity = ObjectIdentity
+commonIdent = _CommonIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 3)
+)
+_TvmodIdent_ObjectIdentity = ObjectIdentity
+tvmodIdent = _TvmodIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 4)
+)
+_QammodIdent_ObjectIdentity = ObjectIdentity
+qammodIdent = _QammodIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 5)
+)
+_OtdIdent_ObjectIdentity = ObjectIdentity
+otdIdent = _OtdIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 6)
+)
+_OtxIdent_ObjectIdentity = ObjectIdentity
+otxIdent = _OtxIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 7)
+)
+_UporIdent_ObjectIdentity = ObjectIdentity
+uporIdent = _UporIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 8)
+)
+_DorIdent_ObjectIdentity = ObjectIdentity
+dorIdent = _DorIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 9)
+)
+_FnIdent_ObjectIdentity = ObjectIdentity
+fnIdent = _FnIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 10)
+)
+_OaIdent_ObjectIdentity = ObjectIdentity
+oaIdent = _OaIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 11)
+)
+_AddIdent_ObjectIdentity = ObjectIdentity
+addIdent = _AddIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 12)
+)
+_CacIdent_ObjectIdentity = ObjectIdentity
+cacIdent = _CacIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 13)
+)
+_LineIdent_ObjectIdentity = ObjectIdentity
+lineIdent = _LineIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 14)
+)
+_RfsIdent_ObjectIdentity = ObjectIdentity
+rfsIdent = _RfsIdent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 17409, 1, 66)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NSCRTV-ROOT",
+    **{"nscrtvRoot": nscrtvRoot,
+       "nscrtvHFCemsTree": nscrtvHFCemsTree,
+       "propertyIdent": propertyIdent,
+       "alarmsIdent": alarmsIdent,
+       "commonIdent": commonIdent,
+       "tvmodIdent": tvmodIdent,
+       "qammodIdent": qammodIdent,
+       "otdIdent": otdIdent,
+       "otxIdent": otxIdent,
+       "uporIdent": uporIdent,
+       "dorIdent": dorIdent,
+       "fnIdent": fnIdent,
+       "oaIdent": oaIdent,
+       "addIdent": addIdent,
+       "cacIdent": cacIdent,
+       "lineIdent": lineIdent,
+       "rfsIdent": rfsIdent}
+)

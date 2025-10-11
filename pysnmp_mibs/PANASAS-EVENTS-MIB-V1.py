@@ -1,45 +1,301 @@
+# SNMP MIB module (PANASAS-EVENTS-MIB-V1) expressed in pysnmp data model.
 #
-# PySNMP MIB module PANASAS-EVENTS-MIB-V1 (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/panasas/PANASAS-EVENTS-MIB-V1
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:34:22 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/panasas/PANASAS-EVENTS-MIB-V1
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:48:39 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-panFs, = mibBuilder.importSymbols("PANASAS-PANFS-MIB-V1", "panFs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-panEvents = ModuleIdentity((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1))
-panEvents.setRevisions(('2011-04-07 00:00',))
-if mibBuilder.loadTexts: panEvents.setLastUpdated('201104070000Z')
-if mibBuilder.loadTexts: panEvents.setOrganization('Panasas, Inc')
-panEventTableSize = MibScalar((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1024))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: panEventTableSize.setStatus('current')
-panEventTable = MibTable((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2), )
-if mibBuilder.loadTexts: panEventTable.setStatus('current')
-panEventEntry = MibTableRow((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1), ).setIndexNames((0, "PANASAS-EVENTS-MIB-V1", "panEventIndex"))
-if mibBuilder.loadTexts: panEventEntry.setStatus('current')
-panEventIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: panEventIndex.setStatus('current')
-panEventCategory = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: panEventCategory.setStatus('current')
-panEventDate = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: panEventDate.setStatus('current')
-panEventTime = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: panEventTime.setStatus('current')
-panEventShelfName = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: panEventShelfName.setStatus('current')
-panEventShelfSlot = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: panEventShelfSlot.setStatus('current')
-panEventHwDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: panEventHwDesc.setStatus('current')
-panEventBladeIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 8), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: panEventBladeIPAddr.setStatus('current')
-panEventText = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 9), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: panEventText.setStatus('current')
-panEventCode = MibTableColumn((1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: panEventCode.setStatus('current')
-mibBuilder.exportSymbols("PANASAS-EVENTS-MIB-V1", panEvents=panEvents, panEventEntry=panEventEntry, panEventTime=panEventTime, panEventBladeIPAddr=panEventBladeIPAddr, panEventCategory=panEventCategory, panEventIndex=panEventIndex, panEventDate=panEventDate, panEventTableSize=panEventTableSize, panEventText=panEventText, PYSNMP_MODULE_ID=panEvents, panEventShelfSlot=panEventShelfSlot, panEventHwDesc=panEventHwDesc, panEventCode=panEventCode, panEventShelfName=panEventShelfName, panEventTable=panEventTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(panFs,) = mibBuilder.importSymbols(
+    "PANASAS-PANFS-MIB-V1",
+    "panFs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+panEvents = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    panEvents.setRevisions(
+        ("2011-04-07 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+
+class _PanEventTableSize_Type(Integer32):
+    """Custom type panEventTableSize based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1024),
+    )
+
+
+_PanEventTableSize_Type.__name__ = "Integer32"
+_PanEventTableSize_Object = MibScalar
+panEventTableSize = _PanEventTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 1),
+    _PanEventTableSize_Type()
+)
+panEventTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    panEventTableSize.setStatus("current")
+_PanEventTable_Object = MibTable
+panEventTable = _PanEventTable_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2)
+)
+if mibBuilder.loadTexts:
+    panEventTable.setStatus("current")
+_PanEventEntry_Object = MibTableRow
+panEventEntry = _PanEventEntry_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1)
+)
+panEventEntry.setIndexNames(
+    (0, "PANASAS-EVENTS-MIB-V1", "panEventIndex"),
+)
+if mibBuilder.loadTexts:
+    panEventEntry.setStatus("current")
+
+
+class _PanEventIndex_Type(Integer32):
+    """Custom type panEventIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_PanEventIndex_Type.__name__ = "Integer32"
+_PanEventIndex_Object = MibTableColumn
+panEventIndex = _PanEventIndex_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 1),
+    _PanEventIndex_Type()
+)
+panEventIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    panEventIndex.setStatus("current")
+_PanEventCategory_Type = DisplayString
+_PanEventCategory_Object = MibTableColumn
+panEventCategory = _PanEventCategory_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 2),
+    _PanEventCategory_Type()
+)
+panEventCategory.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    panEventCategory.setStatus("current")
+_PanEventDate_Type = DisplayString
+_PanEventDate_Object = MibTableColumn
+panEventDate = _PanEventDate_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 3),
+    _PanEventDate_Type()
+)
+panEventDate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    panEventDate.setStatus("current")
+_PanEventTime_Type = DisplayString
+_PanEventTime_Object = MibTableColumn
+panEventTime = _PanEventTime_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 4),
+    _PanEventTime_Type()
+)
+panEventTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    panEventTime.setStatus("current")
+_PanEventShelfName_Type = DisplayString
+_PanEventShelfName_Object = MibTableColumn
+panEventShelfName = _PanEventShelfName_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 5),
+    _PanEventShelfName_Type()
+)
+panEventShelfName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    panEventShelfName.setStatus("current")
+_PanEventShelfSlot_Type = Unsigned32
+_PanEventShelfSlot_Object = MibTableColumn
+panEventShelfSlot = _PanEventShelfSlot_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 6),
+    _PanEventShelfSlot_Type()
+)
+panEventShelfSlot.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    panEventShelfSlot.setStatus("current")
+_PanEventHwDesc_Type = DisplayString
+_PanEventHwDesc_Object = MibTableColumn
+panEventHwDesc = _PanEventHwDesc_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 7),
+    _PanEventHwDesc_Type()
+)
+panEventHwDesc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    panEventHwDesc.setStatus("current")
+_PanEventBladeIPAddr_Type = IpAddress
+_PanEventBladeIPAddr_Object = MibTableColumn
+panEventBladeIPAddr = _PanEventBladeIPAddr_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 8),
+    _PanEventBladeIPAddr_Type()
+)
+panEventBladeIPAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    panEventBladeIPAddr.setStatus("current")
+_PanEventText_Type = DisplayString
+_PanEventText_Object = MibTableColumn
+panEventText = _PanEventText_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 9),
+    _PanEventText_Type()
+)
+panEventText.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    panEventText.setStatus("current")
+
+
+class _PanEventCode_Type(Integer32):
+    """Custom type panEventCode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_PanEventCode_Type.__name__ = "Integer32"
+_PanEventCode_Object = MibTableColumn
+panEventCode = _PanEventCode_Object(
+    (1, 3, 6, 1, 4, 1, 10159, 1, 3, 1, 2, 1, 10),
+    _PanEventCode_Type()
+)
+panEventCode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    panEventCode.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PANASAS-EVENTS-MIB-V1",
+    **{"panEvents": panEvents,
+       "panEventTableSize": panEventTableSize,
+       "panEventTable": panEventTable,
+       "panEventEntry": panEventEntry,
+       "panEventIndex": panEventIndex,
+       "panEventCategory": panEventCategory,
+       "panEventDate": panEventDate,
+       "panEventTime": panEventTime,
+       "panEventShelfName": panEventShelfName,
+       "panEventShelfSlot": panEventShelfSlot,
+       "panEventHwDesc": panEventHwDesc,
+       "panEventBladeIPAddr": panEventBladeIPAddr,
+       "panEventText": panEventText,
+       "panEventCode": panEventCode}
+)

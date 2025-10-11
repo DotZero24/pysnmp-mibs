@@ -1,39 +1,266 @@
+# SNMP MIB module (LEFTHAND-NETWORKS-NUS-COMMON-NETWORK-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module LEFTHAND-NETWORKS-NUS-COMMON-NETWORK-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/LEFTHAND-NETWORKS-NUS-COMMON-NETWORK-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:53 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/LEFTHAND-NETWORKS-NUS-COMMON-NETWORK-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:42:30 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-lhnModules, = mibBuilder.importSymbols("LEFTHAND-NETWORKS-GLOBAL-REG", "lhnModules")
-lhnNusCommonNetwork, = mibBuilder.importSymbols("LEFTHAND-NETWORKS-NUS-COMMON-MIB", "lhnNusCommonNetwork")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
-lhnNusCommonNetworkModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 9804, 1, 1, 5))
-if mibBuilder.loadTexts: lhnNusCommonNetworkModule.setLastUpdated('0106010000Z')
-if mibBuilder.loadTexts: lhnNusCommonNetworkModule.setOrganization('LeftHand Networks, Inc.')
-networkDeviceCount = MibScalar((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: networkDeviceCount.setStatus('current')
-networkDeviceTable = MibTable((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2), )
-if mibBuilder.loadTexts: networkDeviceTable.setStatus('current')
-networkDeviceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1), ).setIndexNames((0, "LEFTHAND-NETWORKS-NUS-COMMON-NETWORK-MIB", "networkIndex"))
-if mibBuilder.loadTexts: networkDeviceEntry.setStatus('current')
-networkDeviceIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: networkDeviceIndex.setStatus('current')
-networkDeviceName = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 6), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: networkDeviceName.setStatus('current')
-networkDeviceIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 7), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: networkDeviceIpAddress.setStatus('current')
-networkDeviceMask = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 8), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: networkDeviceMask.setStatus('current')
-networkDeviceDefaultGateway = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 9), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: networkDeviceDefaultGateway.setStatus('current')
-networkDeviceMode = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("disabled", 1), ("auto", 2), ("static", 3), ("slave", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: networkDeviceMode.setStatus('current')
-networkDeviceStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 11), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: networkDeviceStatus.setStatus('current')
-mibBuilder.exportSymbols("LEFTHAND-NETWORKS-NUS-COMMON-NETWORK-MIB", networkDeviceEntry=networkDeviceEntry, PYSNMP_MODULE_ID=lhnNusCommonNetworkModule, networkDeviceIpAddress=networkDeviceIpAddress, networkDeviceMode=networkDeviceMode, networkDeviceMask=networkDeviceMask, networkDeviceCount=networkDeviceCount, lhnNusCommonNetworkModule=lhnNusCommonNetworkModule, networkDeviceIndex=networkDeviceIndex, networkDeviceName=networkDeviceName, networkDeviceStatus=networkDeviceStatus, networkDeviceTable=networkDeviceTable, networkDeviceDefaultGateway=networkDeviceDefaultGateway)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(lhnModules,) = mibBuilder.importSymbols(
+    "LEFTHAND-NETWORKS-GLOBAL-REG",
+    "lhnModules")
+
+(lhnNusCommonNetwork,) = mibBuilder.importSymbols(
+    "LEFTHAND-NETWORKS-NUS-COMMON-MIB",
+    "lhnNusCommonNetwork")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+lhnNusCommonNetworkModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9804, 1, 1, 5)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NetworkDeviceCount_Type = Integer32
+_NetworkDeviceCount_Object = MibScalar
+networkDeviceCount = _NetworkDeviceCount_Object(
+    (1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 1),
+    _NetworkDeviceCount_Type()
+)
+networkDeviceCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    networkDeviceCount.setStatus("current")
+_NetworkDeviceTable_Object = MibTable
+networkDeviceTable = _NetworkDeviceTable_Object(
+    (1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2)
+)
+if mibBuilder.loadTexts:
+    networkDeviceTable.setStatus("current")
+_NetworkDeviceEntry_Object = MibTableRow
+networkDeviceEntry = _NetworkDeviceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1)
+)
+networkDeviceEntry.setIndexNames(
+    (0, "LEFTHAND-NETWORKS-NUS-COMMON-NETWORK-MIB", "networkIndex"),
+)
+if mibBuilder.loadTexts:
+    networkDeviceEntry.setStatus("current")
+_NetworkDeviceIndex_Type = Integer32
+_NetworkDeviceIndex_Object = MibTableColumn
+networkDeviceIndex = _NetworkDeviceIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 1),
+    _NetworkDeviceIndex_Type()
+)
+networkDeviceIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    networkDeviceIndex.setStatus("current")
+_NetworkDeviceName_Type = OctetString
+_NetworkDeviceName_Object = MibTableColumn
+networkDeviceName = _NetworkDeviceName_Object(
+    (1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 6),
+    _NetworkDeviceName_Type()
+)
+networkDeviceName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    networkDeviceName.setStatus("current")
+_NetworkDeviceIpAddress_Type = IpAddress
+_NetworkDeviceIpAddress_Object = MibTableColumn
+networkDeviceIpAddress = _NetworkDeviceIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 7),
+    _NetworkDeviceIpAddress_Type()
+)
+networkDeviceIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    networkDeviceIpAddress.setStatus("current")
+_NetworkDeviceMask_Type = IpAddress
+_NetworkDeviceMask_Object = MibTableColumn
+networkDeviceMask = _NetworkDeviceMask_Object(
+    (1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 8),
+    _NetworkDeviceMask_Type()
+)
+networkDeviceMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    networkDeviceMask.setStatus("current")
+_NetworkDeviceDefaultGateway_Type = IpAddress
+_NetworkDeviceDefaultGateway_Object = MibTableColumn
+networkDeviceDefaultGateway = _NetworkDeviceDefaultGateway_Object(
+    (1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 9),
+    _NetworkDeviceDefaultGateway_Type()
+)
+networkDeviceDefaultGateway.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    networkDeviceDefaultGateway.setStatus("current")
+
+
+class _NetworkDeviceMode_Type(Integer32):
+    """Custom type networkDeviceMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("auto", 2),
+          ("static", 3),
+          ("slave", 4))
+    )
+
+
+_NetworkDeviceMode_Type.__name__ = "Integer32"
+_NetworkDeviceMode_Object = MibTableColumn
+networkDeviceMode = _NetworkDeviceMode_Object(
+    (1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 10),
+    _NetworkDeviceMode_Type()
+)
+networkDeviceMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    networkDeviceMode.setStatus("current")
+_NetworkDeviceStatus_Type = OctetString
+_NetworkDeviceStatus_Object = MibTableColumn
+networkDeviceStatus = _NetworkDeviceStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9804, 3, 1, 1, 2, 2, 2, 1, 11),
+    _NetworkDeviceStatus_Type()
+)
+networkDeviceStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    networkDeviceStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "LEFTHAND-NETWORKS-NUS-COMMON-NETWORK-MIB",
+    **{"lhnNusCommonNetworkModule": lhnNusCommonNetworkModule,
+       "networkDeviceCount": networkDeviceCount,
+       "networkDeviceTable": networkDeviceTable,
+       "networkDeviceEntry": networkDeviceEntry,
+       "networkDeviceIndex": networkDeviceIndex,
+       "networkDeviceName": networkDeviceName,
+       "networkDeviceIpAddress": networkDeviceIpAddress,
+       "networkDeviceMask": networkDeviceMask,
+       "networkDeviceDefaultGateway": networkDeviceDefaultGateway,
+       "networkDeviceMode": networkDeviceMode,
+       "networkDeviceStatus": networkDeviceStatus}
+)

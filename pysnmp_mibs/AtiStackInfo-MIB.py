@@ -1,48 +1,371 @@
+# SNMP MIB module (AtiStackInfo-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module AtiStackInfo-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/allied-old/AtiStackInfo-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:15 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/allied-old/AtiStackInfo-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:12:29 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-alliedTelesyn = ModuleIdentity((1, 3, 6, 1, 4, 1, 207))
-if mibBuilder.loadTexts: alliedTelesyn.setLastUpdated('200407270000Z')
-if mibBuilder.loadTexts: alliedTelesyn.setOrganization('Allied Telesyn International')
-mibObject = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8))
-atiStackInfoMib = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 16))
-class MACAddress(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(6, 6)
-    fixedLength = 6
 
-atiswitchEnhancedStacking = MibIdentifier((1, 3, 6, 1, 4, 1, 207, 8, 16, 1))
-atiswitchEnhStackMode = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("master", 1), ("slave", 2), ("unavailable", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atiswitchEnhStackMode.setStatus('current')
-atiswitchEnhStackDiscover = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("discover", 1), ("do-not-discover", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atiswitchEnhStackDiscover.setStatus('current')
-atiswitchEnhStackRemoteNumber = MibScalar((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atiswitchEnhStackRemoteNumber.setStatus('current')
-atiswitchEnhStackTable = MibTable((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4), )
-if mibBuilder.loadTexts: atiswitchEnhStackTable.setStatus('current')
-atiswitchEnhStackEntry = MibTableRow((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1), ).setIndexNames((0, "AtiStackInfo-MIB", "atiswitchEnhStackSwId"))
-if mibBuilder.loadTexts: atiswitchEnhStackEntry.setStatus('current')
-atiswitchEnhStackSwId = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atiswitchEnhStackSwId.setStatus('current')
-atiswitchEnhStackSwMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 2), MACAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atiswitchEnhStackSwMacAddr.setStatus('current')
-atiswitchEnhStackSwName = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atiswitchEnhStackSwName.setStatus('current')
-atiswitchEnhStackSwMode = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atiswitchEnhStackSwMode.setStatus('current')
-atiswitchEnhStackSwSoftwareVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atiswitchEnhStackSwSoftwareVersion.setStatus('current')
-atiswitchEnhStackSwModel = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 20))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: atiswitchEnhStackSwModel.setStatus('current')
-atiswitchEnhStackConnect = MibTableColumn((1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 7), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: atiswitchEnhStackConnect.setStatus('current')
-mibBuilder.exportSymbols("AtiStackInfo-MIB", atiswitchEnhStackSwName=atiswitchEnhStackSwName, atiswitchEnhStackEntry=atiswitchEnhStackEntry, alliedTelesyn=alliedTelesyn, atiswitchEnhStackMode=atiswitchEnhStackMode, atiswitchEnhStackTable=atiswitchEnhStackTable, atiswitchEnhStackSwSoftwareVersion=atiswitchEnhStackSwSoftwareVersion, atiswitchEnhancedStacking=atiswitchEnhancedStacking, atiswitchEnhStackSwId=atiswitchEnhStackSwId, atiswitchEnhStackSwModel=atiswitchEnhStackSwModel, atiswitchEnhStackConnect=atiswitchEnhStackConnect, atiStackInfoMib=atiStackInfoMib, PYSNMP_MODULE_ID=alliedTelesyn, atiswitchEnhStackDiscover=atiswitchEnhStackDiscover, atiswitchEnhStackRemoteNumber=atiswitchEnhStackRemoteNumber, atiswitchEnhStackSwMode=atiswitchEnhStackSwMode, atiswitchEnhStackSwMacAddr=atiswitchEnhStackSwMacAddr, mibObject=mibObject, MACAddress=MACAddress)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+alliedTelesyn = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 207)
+)
+
+
+# Types definitions
+
+
+
+class MACAddress(OctetString):
+    """Custom type MACAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+    fixed_length = 6
+
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MibObject_ObjectIdentity = ObjectIdentity
+mibObject = _MibObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8)
+)
+_AtiStackInfoMib_ObjectIdentity = ObjectIdentity
+atiStackInfoMib = _AtiStackInfoMib_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16)
+)
+_AtiswitchEnhancedStacking_ObjectIdentity = ObjectIdentity
+atiswitchEnhancedStacking = _AtiswitchEnhancedStacking_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1)
+)
+
+
+class _AtiswitchEnhStackMode_Type(Integer32):
+    """Custom type atiswitchEnhStackMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("master", 1),
+          ("slave", 2),
+          ("unavailable", 3))
+    )
+
+
+_AtiswitchEnhStackMode_Type.__name__ = "Integer32"
+_AtiswitchEnhStackMode_Object = MibScalar
+atiswitchEnhStackMode = _AtiswitchEnhStackMode_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 1),
+    _AtiswitchEnhStackMode_Type()
+)
+atiswitchEnhStackMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atiswitchEnhStackMode.setStatus("current")
+
+
+class _AtiswitchEnhStackDiscover_Type(Integer32):
+    """Custom type atiswitchEnhStackDiscover based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("discover", 1),
+          ("do-not-discover", 2))
+    )
+
+
+_AtiswitchEnhStackDiscover_Type.__name__ = "Integer32"
+_AtiswitchEnhStackDiscover_Object = MibScalar
+atiswitchEnhStackDiscover = _AtiswitchEnhStackDiscover_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 2),
+    _AtiswitchEnhStackDiscover_Type()
+)
+atiswitchEnhStackDiscover.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atiswitchEnhStackDiscover.setStatus("current")
+_AtiswitchEnhStackRemoteNumber_Type = Integer32
+_AtiswitchEnhStackRemoteNumber_Object = MibScalar
+atiswitchEnhStackRemoteNumber = _AtiswitchEnhStackRemoteNumber_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 3),
+    _AtiswitchEnhStackRemoteNumber_Type()
+)
+atiswitchEnhStackRemoteNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atiswitchEnhStackRemoteNumber.setStatus("current")
+_AtiswitchEnhStackTable_Object = MibTable
+atiswitchEnhStackTable = _AtiswitchEnhStackTable_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4)
+)
+if mibBuilder.loadTexts:
+    atiswitchEnhStackTable.setStatus("current")
+_AtiswitchEnhStackEntry_Object = MibTableRow
+atiswitchEnhStackEntry = _AtiswitchEnhStackEntry_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1)
+)
+atiswitchEnhStackEntry.setIndexNames(
+    (0, "AtiStackInfo-MIB", "atiswitchEnhStackSwId"),
+)
+if mibBuilder.loadTexts:
+    atiswitchEnhStackEntry.setStatus("current")
+
+
+class _AtiswitchEnhStackSwId_Type(Integer32):
+    """Custom type atiswitchEnhStackSwId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_AtiswitchEnhStackSwId_Type.__name__ = "Integer32"
+_AtiswitchEnhStackSwId_Object = MibTableColumn
+atiswitchEnhStackSwId = _AtiswitchEnhStackSwId_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 1),
+    _AtiswitchEnhStackSwId_Type()
+)
+atiswitchEnhStackSwId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atiswitchEnhStackSwId.setStatus("current")
+_AtiswitchEnhStackSwMacAddr_Type = MACAddress
+_AtiswitchEnhStackSwMacAddr_Object = MibTableColumn
+atiswitchEnhStackSwMacAddr = _AtiswitchEnhStackSwMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 2),
+    _AtiswitchEnhStackSwMacAddr_Type()
+)
+atiswitchEnhStackSwMacAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atiswitchEnhStackSwMacAddr.setStatus("current")
+
+
+class _AtiswitchEnhStackSwName_Type(DisplayString):
+    """Custom type atiswitchEnhStackSwName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_AtiswitchEnhStackSwName_Type.__name__ = "DisplayString"
+_AtiswitchEnhStackSwName_Object = MibTableColumn
+atiswitchEnhStackSwName = _AtiswitchEnhStackSwName_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 3),
+    _AtiswitchEnhStackSwName_Type()
+)
+atiswitchEnhStackSwName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atiswitchEnhStackSwName.setStatus("current")
+
+
+class _AtiswitchEnhStackSwMode_Type(DisplayString):
+    """Custom type atiswitchEnhStackSwMode based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_AtiswitchEnhStackSwMode_Type.__name__ = "DisplayString"
+_AtiswitchEnhStackSwMode_Object = MibTableColumn
+atiswitchEnhStackSwMode = _AtiswitchEnhStackSwMode_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 4),
+    _AtiswitchEnhStackSwMode_Type()
+)
+atiswitchEnhStackSwMode.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atiswitchEnhStackSwMode.setStatus("current")
+
+
+class _AtiswitchEnhStackSwSoftwareVersion_Type(DisplayString):
+    """Custom type atiswitchEnhStackSwSoftwareVersion based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_AtiswitchEnhStackSwSoftwareVersion_Type.__name__ = "DisplayString"
+_AtiswitchEnhStackSwSoftwareVersion_Object = MibTableColumn
+atiswitchEnhStackSwSoftwareVersion = _AtiswitchEnhStackSwSoftwareVersion_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 5),
+    _AtiswitchEnhStackSwSoftwareVersion_Type()
+)
+atiswitchEnhStackSwSoftwareVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atiswitchEnhStackSwSoftwareVersion.setStatus("current")
+
+
+class _AtiswitchEnhStackSwModel_Type(DisplayString):
+    """Custom type atiswitchEnhStackSwModel based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 20),
+    )
+
+
+_AtiswitchEnhStackSwModel_Type.__name__ = "DisplayString"
+_AtiswitchEnhStackSwModel_Object = MibTableColumn
+atiswitchEnhStackSwModel = _AtiswitchEnhStackSwModel_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 6),
+    _AtiswitchEnhStackSwModel_Type()
+)
+atiswitchEnhStackSwModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    atiswitchEnhStackSwModel.setStatus("current")
+_AtiswitchEnhStackConnect_Type = TruthValue
+_AtiswitchEnhStackConnect_Object = MibTableColumn
+atiswitchEnhStackConnect = _AtiswitchEnhStackConnect_Object(
+    (1, 3, 6, 1, 4, 1, 207, 8, 16, 1, 4, 1, 7),
+    _AtiswitchEnhStackConnect_Type()
+)
+atiswitchEnhStackConnect.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    atiswitchEnhStackConnect.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "AtiStackInfo-MIB",
+    **{"MACAddress": MACAddress,
+       "alliedTelesyn": alliedTelesyn,
+       "mibObject": mibObject,
+       "atiStackInfoMib": atiStackInfoMib,
+       "atiswitchEnhancedStacking": atiswitchEnhancedStacking,
+       "atiswitchEnhStackMode": atiswitchEnhStackMode,
+       "atiswitchEnhStackDiscover": atiswitchEnhStackDiscover,
+       "atiswitchEnhStackRemoteNumber": atiswitchEnhStackRemoteNumber,
+       "atiswitchEnhStackTable": atiswitchEnhStackTable,
+       "atiswitchEnhStackEntry": atiswitchEnhStackEntry,
+       "atiswitchEnhStackSwId": atiswitchEnhStackSwId,
+       "atiswitchEnhStackSwMacAddr": atiswitchEnhStackSwMacAddr,
+       "atiswitchEnhStackSwName": atiswitchEnhStackSwName,
+       "atiswitchEnhStackSwMode": atiswitchEnhStackSwMode,
+       "atiswitchEnhStackSwSoftwareVersion": atiswitchEnhStackSwSoftwareVersion,
+       "atiswitchEnhStackSwModel": atiswitchEnhStackSwModel,
+       "atiswitchEnhStackConnect": atiswitchEnhStackConnect}
+)

@@ -1,41 +1,237 @@
+# SNMP MIB module (ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/enterasys/ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:48 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/enterasys/ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:47:08 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dot1dBasePortEntry, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePortEntry")
-etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-etsysIetfpBridgeMibExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 33))
-etsysIetfpBridgeMibExtMIB.setRevisions(('2002-12-20 22:16',))
-if mibBuilder.loadTexts: etsysIetfpBridgeMibExtMIB.setLastUpdated('200212202216Z')
-if mibBuilder.loadTexts: etsysIetfpBridgeMibExtMIB.setOrganization('Enterasys Networks, Inc')
-etsysIetfpBridgeMibExt = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 1))
-etsysDot1dPriority = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 1, 1))
-etsysDot1dPortPriorityTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 1, 1, 1), )
-if mibBuilder.loadTexts: etsysDot1dPortPriorityTable.setStatus('current')
-etsysDot1dPortPriorityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 1, 1, 1, 1), )
-dot1dBasePortEntry.registerAugmentions(("ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB", "etsysDot1dPortPriorityEntry"))
-etsysDot1dPortPriorityEntry.setIndexNames(*dot1dBasePortEntry.getIndexNames())
-if mibBuilder.loadTexts: etsysDot1dPortPriorityEntry.setStatus('current')
-etsysDot1dPortPriorityRewrite = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 1, 1, 1, 1, 1), EnabledStatus().clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysDot1dPortPriorityRewrite.setStatus('current')
-etsysIetfpBridgeConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 2))
-etsysIetfpBridgeGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 2, 1))
-etsysIetfpBridgeCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 2, 2))
-etsysDot1dPriorityRewriteGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 2, 1, 1)).setObjects(("ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB", "etsysDot1dPortPriorityRewrite"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysDot1dPriorityRewriteGroup = etsysDot1dPriorityRewriteGroup.setStatus('current')
-etsysIetfpBridgeCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 2, 2, 1)).setObjects(("ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB", "etsysDot1dPriorityRewriteGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysIetfpBridgeCompliance = etsysIetfpBridgeCompliance.setStatus('current')
-mibBuilder.exportSymbols("ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB", etsysIetfpBridgeMibExtMIB=etsysIetfpBridgeMibExtMIB, etsysDot1dPortPriorityTable=etsysDot1dPortPriorityTable, etsysDot1dPortPriorityRewrite=etsysDot1dPortPriorityRewrite, etsysIetfpBridgeConformance=etsysIetfpBridgeConformance, etsysDot1dPriorityRewriteGroup=etsysDot1dPriorityRewriteGroup, etsysIetfpBridgeMibExt=etsysIetfpBridgeMibExt, etsysIetfpBridgeCompliance=etsysIetfpBridgeCompliance, etsysDot1dPortPriorityEntry=etsysDot1dPortPriorityEntry, PYSNMP_MODULE_ID=etsysIetfpBridgeMibExtMIB, etsysIetfpBridgeCompliances=etsysIetfpBridgeCompliances, etsysIetfpBridgeGroups=etsysIetfpBridgeGroups, etsysDot1dPriority=etsysDot1dPriority)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dot1dBasePortEntry,) = mibBuilder.importSymbols(
+    "BRIDGE-MIB",
+    "dot1dBasePortEntry")
+
+(etsysModules,) = mibBuilder.importSymbols(
+    "ENTERASYS-MIB-NAMES",
+    "etsysModules")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+etsysIetfpBridgeMibExtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 33)
+)
+if mibBuilder.loadTexts:
+    etsysIetfpBridgeMibExtMIB.setRevisions(
+        ("2002-12-20 22:16",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EtsysIetfpBridgeMibExt_ObjectIdentity = ObjectIdentity
+etsysIetfpBridgeMibExt = _EtsysIetfpBridgeMibExt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 1)
+)
+_EtsysDot1dPriority_ObjectIdentity = ObjectIdentity
+etsysDot1dPriority = _EtsysDot1dPriority_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 1, 1)
+)
+_EtsysDot1dPortPriorityTable_Object = MibTable
+etsysDot1dPortPriorityTable = _EtsysDot1dPortPriorityTable_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    etsysDot1dPortPriorityTable.setStatus("current")
+_EtsysDot1dPortPriorityEntry_Object = MibTableRow
+etsysDot1dPortPriorityEntry = _EtsysDot1dPortPriorityEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 1, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    etsysDot1dPortPriorityEntry.setStatus("current")
+
+
+class _EtsysDot1dPortPriorityRewrite_Type(EnabledStatus):
+    """Custom type etsysDot1dPortPriorityRewrite based on EnabledStatus"""
+    defaultValue = 2
+
+
+_EtsysDot1dPortPriorityRewrite_Type.__name__ = "EnabledStatus"
+_EtsysDot1dPortPriorityRewrite_Object = MibTableColumn
+etsysDot1dPortPriorityRewrite = _EtsysDot1dPortPriorityRewrite_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 1, 1, 1, 1, 1),
+    _EtsysDot1dPortPriorityRewrite_Type()
+)
+etsysDot1dPortPriorityRewrite.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysDot1dPortPriorityRewrite.setStatus("current")
+_EtsysIetfpBridgeConformance_ObjectIdentity = ObjectIdentity
+etsysIetfpBridgeConformance = _EtsysIetfpBridgeConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 2)
+)
+_EtsysIetfpBridgeGroups_ObjectIdentity = ObjectIdentity
+etsysIetfpBridgeGroups = _EtsysIetfpBridgeGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 2, 1)
+)
+_EtsysIetfpBridgeCompliances_ObjectIdentity = ObjectIdentity
+etsysIetfpBridgeCompliances = _EtsysIetfpBridgeCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 2, 2)
+)
+dot1dBasePortEntry.registerAugmentions(
+    ("ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB",
+     "etsysDot1dPortPriorityEntry")
+)
+etsysDot1dPortPriorityEntry.setIndexNames(*dot1dBasePortEntry.getIndexNames())
+
+# Managed Objects groups
+
+etsysDot1dPriorityRewriteGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 2, 1, 1)
+)
+etsysDot1dPriorityRewriteGroup.setObjects(
+    ("ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB", "etsysDot1dPortPriorityRewrite")
+)
+if mibBuilder.loadTexts:
+    etsysDot1dPriorityRewriteGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+etsysIetfpBridgeCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 33, 2, 2, 1)
+)
+etsysIetfpBridgeCompliance.setObjects(
+    ("ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB", "etsysDot1dPriorityRewriteGroup")
+)
+if mibBuilder.loadTexts:
+    etsysIetfpBridgeCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ENTERASYS-IETF-P-BRIDGE-MIB-EXT-MIB",
+    **{"etsysIetfpBridgeMibExtMIB": etsysIetfpBridgeMibExtMIB,
+       "etsysIetfpBridgeMibExt": etsysIetfpBridgeMibExt,
+       "etsysDot1dPriority": etsysDot1dPriority,
+       "etsysDot1dPortPriorityTable": etsysDot1dPortPriorityTable,
+       "etsysDot1dPortPriorityEntry": etsysDot1dPortPriorityEntry,
+       "etsysDot1dPortPriorityRewrite": etsysDot1dPortPriorityRewrite,
+       "etsysIetfpBridgeConformance": etsysIetfpBridgeConformance,
+       "etsysIetfpBridgeGroups": etsysIetfpBridgeGroups,
+       "etsysDot1dPriorityRewriteGroup": etsysDot1dPriorityRewriteGroup,
+       "etsysIetfpBridgeCompliances": etsysIetfpBridgeCompliances,
+       "etsysIetfpBridgeCompliance": etsysIetfpBridgeCompliance}
+)

@@ -1,50 +1,305 @@
+# SNMP MIB module (STORMSHIELD-HOSTS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module STORMSHIELD-HOSTS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/stormshield/STORMSHIELD-HOSTS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:39 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/stormshield/STORMSHIELD-HOSTS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:06:44 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
-snsHosts = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 3))
-snsHosts.setRevisions(('2017-02-20 00:00',))
-if mibBuilder.loadTexts: snsHosts.setLastUpdated('201702200000Z')
-if mibBuilder.loadTexts: snsHosts.setOrganization('Stormshield')
-snsHostsTable = MibTable((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1), )
-if mibBuilder.loadTexts: snsHostsTable.setStatus('current')
-snsHostsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1), ).setIndexNames((0, "STORMSHIELD-HOSTS-MIB", "snsHostIPAddr"))
-if mibBuilder.loadTexts: snsHostsEntry.setStatus('current')
-snsHostIPAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsHostIPAddr.setStatus('current')
-snsHostName = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsHostName.setStatus('current')
-snsInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsInterface.setStatus('current')
-snsPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 4), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsPackets.setStatus('current')
-snsBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsBytes.setStatus('current')
-snsCurThroughput = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsCurThroughput.setStatus('current')
-snsMaxThroughput = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 8), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsMaxThroughput.setStatus('current')
-snsInBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsInBytes.setStatus('current')
-snsOutBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsOutBytes.setStatus('current')
-snsInCurThroughput = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 11), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsInCurThroughput.setStatus('current')
-snsOutCurThroughput = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 12), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsOutCurThroughput.setStatus('current')
-snsInMaxCurThroughput = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 13), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsInMaxCurThroughput.setStatus('current')
-snsOutMaxCurThroughput = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 14), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsOutMaxCurThroughput.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-HOSTS-MIB", snsInBytes=snsInBytes, snsHostName=snsHostName, snsOutMaxCurThroughput=snsOutMaxCurThroughput, snsOutCurThroughput=snsOutCurThroughput, PYSNMP_MODULE_ID=snsHosts, snsHostIPAddr=snsHostIPAddr, snsInMaxCurThroughput=snsInMaxCurThroughput, snsBytes=snsBytes, snsHostsTable=snsHostsTable, snsInterface=snsInterface, snsHosts=snsHosts, snsMaxThroughput=snsMaxThroughput, snsInCurThroughput=snsInCurThroughput, snsPackets=snsPackets, snsOutBytes=snsOutBytes, snsCurThroughput=snsCurThroughput, snsHostsEntry=snsHostsEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(stormshieldMIB,) = mibBuilder.importSymbols(
+    "STORMSHIELD-SMI-MIB",
+    "stormshieldMIB")
+
+
+# MODULE-IDENTITY
+
+snsHosts = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3)
+)
+if mibBuilder.loadTexts:
+    snsHosts.setRevisions(
+        ("2017-02-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SnsHostsTable_Object = MibTable
+snsHostsTable = _SnsHostsTable_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    snsHostsTable.setStatus("current")
+_SnsHostsEntry_Object = MibTableRow
+snsHostsEntry = _SnsHostsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1)
+)
+snsHostsEntry.setIndexNames(
+    (0, "STORMSHIELD-HOSTS-MIB", "snsHostIPAddr"),
+)
+if mibBuilder.loadTexts:
+    snsHostsEntry.setStatus("current")
+
+
+class _SnsHostIPAddr_Type(DisplayString):
+    """Custom type snsHostIPAddr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_SnsHostIPAddr_Type.__name__ = "DisplayString"
+_SnsHostIPAddr_Object = MibTableColumn
+snsHostIPAddr = _SnsHostIPAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 1),
+    _SnsHostIPAddr_Type()
+)
+snsHostIPAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsHostIPAddr.setStatus("current")
+_SnsHostName_Type = SnmpAdminString
+_SnsHostName_Object = MibTableColumn
+snsHostName = _SnsHostName_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 2),
+    _SnsHostName_Type()
+)
+snsHostName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsHostName.setStatus("current")
+_SnsInterface_Type = DisplayString
+_SnsInterface_Object = MibTableColumn
+snsInterface = _SnsInterface_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 3),
+    _SnsInterface_Type()
+)
+snsInterface.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsInterface.setStatus("current")
+_SnsPackets_Type = Counter64
+_SnsPackets_Object = MibTableColumn
+snsPackets = _SnsPackets_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 4),
+    _SnsPackets_Type()
+)
+snsPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsPackets.setStatus("current")
+_SnsBytes_Type = Counter64
+_SnsBytes_Object = MibTableColumn
+snsBytes = _SnsBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 5),
+    _SnsBytes_Type()
+)
+snsBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsBytes.setStatus("current")
+_SnsCurThroughput_Type = Counter64
+_SnsCurThroughput_Object = MibTableColumn
+snsCurThroughput = _SnsCurThroughput_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 7),
+    _SnsCurThroughput_Type()
+)
+snsCurThroughput.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsCurThroughput.setStatus("current")
+_SnsMaxThroughput_Type = Counter64
+_SnsMaxThroughput_Object = MibTableColumn
+snsMaxThroughput = _SnsMaxThroughput_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 8),
+    _SnsMaxThroughput_Type()
+)
+snsMaxThroughput.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsMaxThroughput.setStatus("current")
+_SnsInBytes_Type = Counter64
+_SnsInBytes_Object = MibTableColumn
+snsInBytes = _SnsInBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 9),
+    _SnsInBytes_Type()
+)
+snsInBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsInBytes.setStatus("current")
+_SnsOutBytes_Type = Counter64
+_SnsOutBytes_Object = MibTableColumn
+snsOutBytes = _SnsOutBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 10),
+    _SnsOutBytes_Type()
+)
+snsOutBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsOutBytes.setStatus("current")
+_SnsInCurThroughput_Type = Counter64
+_SnsInCurThroughput_Object = MibTableColumn
+snsInCurThroughput = _SnsInCurThroughput_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 11),
+    _SnsInCurThroughput_Type()
+)
+snsInCurThroughput.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsInCurThroughput.setStatus("current")
+_SnsOutCurThroughput_Type = Counter64
+_SnsOutCurThroughput_Object = MibTableColumn
+snsOutCurThroughput = _SnsOutCurThroughput_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 12),
+    _SnsOutCurThroughput_Type()
+)
+snsOutCurThroughput.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsOutCurThroughput.setStatus("current")
+_SnsInMaxCurThroughput_Type = Counter64
+_SnsInMaxCurThroughput_Object = MibTableColumn
+snsInMaxCurThroughput = _SnsInMaxCurThroughput_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 13),
+    _SnsInMaxCurThroughput_Type()
+)
+snsInMaxCurThroughput.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsInMaxCurThroughput.setStatus("current")
+_SnsOutMaxCurThroughput_Type = Counter64
+_SnsOutMaxCurThroughput_Object = MibTableColumn
+snsOutMaxCurThroughput = _SnsOutMaxCurThroughput_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 3, 1, 1, 14),
+    _SnsOutMaxCurThroughput_Type()
+)
+snsOutMaxCurThroughput.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsOutMaxCurThroughput.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "STORMSHIELD-HOSTS-MIB",
+    **{"snsHosts": snsHosts,
+       "snsHostsTable": snsHostsTable,
+       "snsHostsEntry": snsHostsEntry,
+       "snsHostIPAddr": snsHostIPAddr,
+       "snsHostName": snsHostName,
+       "snsInterface": snsInterface,
+       "snsPackets": snsPackets,
+       "snsBytes": snsBytes,
+       "snsCurThroughput": snsCurThroughput,
+       "snsMaxThroughput": snsMaxThroughput,
+       "snsInBytes": snsInBytes,
+       "snsOutBytes": snsOutBytes,
+       "snsInCurThroughput": snsInCurThroughput,
+       "snsOutCurThroughput": snsOutCurThroughput,
+       "snsInMaxCurThroughput": snsInMaxCurThroughput,
+       "snsOutMaxCurThroughput": snsOutMaxCurThroughput}
+)

@@ -1,49 +1,319 @@
+# SNMP MIB module (DELL-NETWORKING-MAC-NOTIFICATION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DELL-NETWORKING-MAC-NOTIFICATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/dell/DELL-NETWORKING-MAC-NOTIFICATION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:43:58 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/dell/DELL-NETWORKING-MAC-NOTIFICATION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:08:34 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dellNetMgmt, = mibBuilder.importSymbols("DELL-NETWORKING-SMI", "dellNetMgmt")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-VlanId, = mibBuilder.importSymbols("Q-BRIDGE-MIB", "VlanId")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-dellNetMacNotifMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 6027, 3, 28))
-dellNetMacNotifMib.setRevisions(('2017-01-01 12:00',))
-if mibBuilder.loadTexts: dellNetMacNotifMib.setLastUpdated('201701011200Z')
-if mibBuilder.loadTexts: dellNetMacNotifMib.setOrganization('Dell Inc')
-dellNetMacNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 28, 1))
-dellNetMacNotificationTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 1))
-macAddress = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 2), MacAddress()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: macAddress.setStatus('current')
-vlanId = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 3), VlanId()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: vlanId.setStatus('current')
-portId = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: portId.setStatus('current')
-newPortId = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: newPortId.setStatus('current')
-timeStamp = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 6), TimeTicks()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: timeStamp.setStatus('current')
-message = MibScalar((1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 7), OctetString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: message.setStatus('current')
-macLearnNotification = NotificationType((1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 1, 1)).setObjects(("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "macAddress"), ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "vlanId"), ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "portId"), ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "timeStamp"), ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "message"))
-if mibBuilder.loadTexts: macLearnNotification.setStatus('current')
-macMoveNotification = NotificationType((1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 1, 2)).setObjects(("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "macAddress"), ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "vlanId"), ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "portId"), ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "newPortId"), ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "timeStamp"), ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "message"))
-if mibBuilder.loadTexts: macMoveNotification.setStatus('current')
-dellNetMacMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 28, 2))
-dellNetMacMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 28, 2, 1))
-dellNetMacMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6027, 3, 28, 2, 2))
-dellNetMacMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6027, 3, 28, 2, 1, 1)).setObjects(("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "dellNetMacNotificationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    dellNetMacMibCompliance = dellNetMacMibCompliance.setStatus('current')
-dellNetMacNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6027, 3, 28, 2, 2, 1)).setObjects(("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "macLearnNotification"), ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "macMoveNotification"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    dellNetMacNotificationGroup = dellNetMacNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("DELL-NETWORKING-MAC-NOTIFICATION-MIB", vlanId=vlanId, portId=portId, newPortId=newPortId, dellNetMacNotificationObjects=dellNetMacNotificationObjects, dellNetMacMibConformance=dellNetMacMibConformance, macLearnNotification=macLearnNotification, dellNetMacNotificationTraps=dellNetMacNotificationTraps, macAddress=macAddress, dellNetMacNotificationGroup=dellNetMacNotificationGroup, timeStamp=timeStamp, dellNetMacMibCompliances=dellNetMacMibCompliances, dellNetMacMibCompliance=dellNetMacMibCompliance, dellNetMacNotifMib=dellNetMacNotifMib, PYSNMP_MODULE_ID=dellNetMacNotifMib, dellNetMacMibGroups=dellNetMacMibGroups, macMoveNotification=macMoveNotification, message=message)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dellNetMgmt,) = mibBuilder.importSymbols(
+    "DELL-NETWORKING-SMI",
+    "dellNetMgmt")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(VlanId,) = mibBuilder.importSymbols(
+    "Q-BRIDGE-MIB",
+    "VlanId")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+dellNetMacNotifMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28)
+)
+if mibBuilder.loadTexts:
+    dellNetMacNotifMib.setRevisions(
+        ("2017-01-01 12:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_DellNetMacNotificationObjects_ObjectIdentity = ObjectIdentity
+dellNetMacNotificationObjects = _DellNetMacNotificationObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 1)
+)
+_DellNetMacNotificationTraps_ObjectIdentity = ObjectIdentity
+dellNetMacNotificationTraps = _DellNetMacNotificationTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 1)
+)
+_MacAddress_Type = MacAddress
+_MacAddress_Object = MibScalar
+macAddress = _MacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 2),
+    _MacAddress_Type()
+)
+macAddress.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    macAddress.setStatus("current")
+_VlanId_Type = VlanId
+_VlanId_Object = MibScalar
+vlanId = _VlanId_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 3),
+    _VlanId_Type()
+)
+vlanId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    vlanId.setStatus("current")
+
+
+class _PortId_Type(Integer32):
+    """Custom type portId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PortId_Type.__name__ = "Integer32"
+_PortId_Object = MibScalar
+portId = _PortId_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 4),
+    _PortId_Type()
+)
+portId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    portId.setStatus("current")
+
+
+class _NewPortId_Type(Integer32):
+    """Custom type newPortId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_NewPortId_Type.__name__ = "Integer32"
+_NewPortId_Object = MibScalar
+newPortId = _NewPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 5),
+    _NewPortId_Type()
+)
+newPortId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    newPortId.setStatus("current")
+_TimeStamp_Type = TimeTicks
+_TimeStamp_Object = MibScalar
+timeStamp = _TimeStamp_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 6),
+    _TimeStamp_Type()
+)
+timeStamp.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    timeStamp.setStatus("current")
+_Message_Type = OctetString
+_Message_Object = MibScalar
+message = _Message_Object(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 7),
+    _Message_Type()
+)
+message.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    message.setStatus("current")
+_DellNetMacMibConformance_ObjectIdentity = ObjectIdentity
+dellNetMacMibConformance = _DellNetMacMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 2)
+)
+_DellNetMacMibCompliances_ObjectIdentity = ObjectIdentity
+dellNetMacMibCompliances = _DellNetMacMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 2, 1)
+)
+_DellNetMacMibGroups_ObjectIdentity = ObjectIdentity
+dellNetMacMibGroups = _DellNetMacMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 2, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+macLearnNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 1, 1)
+)
+macLearnNotification.setObjects(
+      *(("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "macAddress"),
+        ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "vlanId"),
+        ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "portId"),
+        ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "timeStamp"),
+        ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "message"))
+)
+if mibBuilder.loadTexts:
+    macLearnNotification.setStatus(
+        "current"
+    )
+
+macMoveNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 1, 1, 2)
+)
+macMoveNotification.setObjects(
+      *(("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "macAddress"),
+        ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "vlanId"),
+        ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "portId"),
+        ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "newPortId"),
+        ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "timeStamp"),
+        ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "message"))
+)
+if mibBuilder.loadTexts:
+    macMoveNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+dellNetMacNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 2, 2, 1)
+)
+dellNetMacNotificationGroup.setObjects(
+      *(("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "macLearnNotification"),
+        ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "macMoveNotification"))
+)
+if mibBuilder.loadTexts:
+    dellNetMacNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+dellNetMacMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6027, 3, 28, 2, 1, 1)
+)
+dellNetMacMibCompliance.setObjects(
+    ("DELL-NETWORKING-MAC-NOTIFICATION-MIB", "dellNetMacNotificationGroup")
+)
+if mibBuilder.loadTexts:
+    dellNetMacMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DELL-NETWORKING-MAC-NOTIFICATION-MIB",
+    **{"dellNetMacNotifMib": dellNetMacNotifMib,
+       "dellNetMacNotificationObjects": dellNetMacNotificationObjects,
+       "dellNetMacNotificationTraps": dellNetMacNotificationTraps,
+       "macLearnNotification": macLearnNotification,
+       "macMoveNotification": macMoveNotification,
+       "macAddress": macAddress,
+       "vlanId": vlanId,
+       "portId": portId,
+       "newPortId": newPortId,
+       "timeStamp": timeStamp,
+       "message": message,
+       "dellNetMacMibConformance": dellNetMacMibConformance,
+       "dellNetMacMibCompliances": dellNetMacMibCompliances,
+       "dellNetMacMibCompliance": dellNetMacMibCompliance,
+       "dellNetMacMibGroups": dellNetMacMibGroups,
+       "dellNetMacNotificationGroup": dellNetMacNotificationGroup}
+)

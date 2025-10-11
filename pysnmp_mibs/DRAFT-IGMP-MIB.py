@@ -1,112 +1,639 @@
+# SNMP MIB module (DRAFT-IGMP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DRAFT-IGMP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/juniper/DRAFT-IGMP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:55:08 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/juniper/DRAFT-IGMP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:38:02 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndexOrZero, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero", "InterfaceIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, experimental, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "experimental", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
-igmpStdMIB = ModuleIdentity((1, 3, 6, 1, 3, 59))
-igmpStdMIB.setRevisions(('1999-09-17 12:00',))
-if mibBuilder.loadTexts: igmpStdMIB.setLastUpdated('9909171200Z')
-if mibBuilder.loadTexts: igmpStdMIB.setOrganization('IETF IDMR Working Group.')
-igmpMIBObjects = MibIdentifier((1, 3, 6, 1, 3, 59, 1))
-igmp = MibIdentifier((1, 3, 6, 1, 3, 59, 1, 1))
-igmpInterfaceTable = MibTable((1, 3, 6, 1, 3, 59, 1, 1, 1), )
-if mibBuilder.loadTexts: igmpInterfaceTable.setStatus('current')
-igmpInterfaceEntry = MibTableRow((1, 3, 6, 1, 3, 59, 1, 1, 1, 1), ).setIndexNames((0, "DRAFT-IGMP-MIB", "igmpInterfaceIfIndex"))
-if mibBuilder.loadTexts: igmpInterfaceEntry.setStatus('current')
-igmpInterfaceIfIndex = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: igmpInterfaceIfIndex.setStatus('current')
-igmpInterfaceQueryInterval = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 2), Integer32().clone(125)).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceQueryInterval.setStatus('current')
-igmpInterfaceStatus = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 3), RowStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceStatus.setStatus('current')
-igmpInterfaceVersion = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("version1", 1), ("version2", 2))).clone('version2')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceVersion.setStatus('current')
-igmpInterfaceQuerier = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceQuerier.setStatus('current')
-igmpInterfaceQueryMaxResponseTime = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 6), Integer32().clone(100)).setUnits('tenths of seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceQueryMaxResponseTime.setStatus('current')
-igmpInterfaceVersion1QuerierTimer = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 9), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceVersion1QuerierTimer.setStatus('current')
-igmpInterfaceWrongVersionQueries = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceWrongVersionQueries.setStatus('current')
-igmpInterfaceJoins = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceJoins.setStatus('current')
-igmpInterfaceGroups = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 13), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceGroups.setStatus('current')
-igmpInterfaceRobustness = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 14), Integer32().clone(2)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceRobustness.setStatus('current')
-igmpInterfaceLastMembQueryIntvl = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 15), Integer32().clone(10)).setUnits('tenths of seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceLastMembQueryIntvl.setStatus('current')
-igmpInterfaceProxyIfIndex = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 16), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceProxyIfIndex.setStatus('current')
-igmpInterfaceQuerierUpTime = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 17), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceQuerierUpTime.setStatus('current')
-igmpInterfaceQuerierExpiryTime = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 18), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpInterfaceQuerierExpiryTime.setStatus('current')
-igmpCacheTable = MibTable((1, 3, 6, 1, 3, 59, 1, 1, 2), )
-if mibBuilder.loadTexts: igmpCacheTable.setStatus('current')
-igmpCacheEntry = MibTableRow((1, 3, 6, 1, 3, 59, 1, 1, 2, 1), ).setIndexNames((0, "DRAFT-IGMP-MIB", "igmpCacheAddress"), (0, "DRAFT-IGMP-MIB", "igmpCacheIfIndex"))
-if mibBuilder.loadTexts: igmpCacheEntry.setStatus('current')
-igmpCacheAddress = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 1), IpAddress())
-if mibBuilder.loadTexts: igmpCacheAddress.setStatus('current')
-igmpCacheIfIndex = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 2), InterfaceIndex())
-if mibBuilder.loadTexts: igmpCacheIfIndex.setStatus('current')
-igmpCacheSelf = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 3), TruthValue().clone('true')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpCacheSelf.setStatus('current')
-igmpCacheLastReporter = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpCacheLastReporter.setStatus('current')
-igmpCacheUpTime = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpCacheUpTime.setStatus('current')
-igmpCacheExpiryTime = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpCacheExpiryTime.setStatus('current')
-igmpCacheStatus = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 7), RowStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpCacheStatus.setStatus('current')
-igmpCacheVersion1HostTimer = MibTableColumn((1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 8), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: igmpCacheVersion1HostTimer.setStatus('current')
-igmpMIBConformance = MibIdentifier((1, 3, 6, 1, 3, 59, 2))
-igmpMIBCompliances = MibIdentifier((1, 3, 6, 1, 3, 59, 2, 1))
-igmpMIBGroups = MibIdentifier((1, 3, 6, 1, 3, 59, 2, 2))
-igmpV1HostMIBCompliance = ModuleCompliance((1, 3, 6, 1, 3, 59, 2, 1, 1)).setObjects(("DRAFT-IGMP-MIB", "igmpBaseMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    igmpV1HostMIBCompliance = igmpV1HostMIBCompliance.setStatus('current')
-igmpV1RouterMIBCompliance = ModuleCompliance((1, 3, 6, 1, 3, 59, 2, 1, 2)).setObjects(("DRAFT-IGMP-MIB", "igmpBaseMIBGroup"), ("DRAFT-IGMP-MIB", "igmpRouterMIBGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    igmpV1RouterMIBCompliance = igmpV1RouterMIBCompliance.setStatus('current')
-igmpV2HostMIBCompliance = ModuleCompliance((1, 3, 6, 1, 3, 59, 2, 1, 3)).setObjects(("DRAFT-IGMP-MIB", "igmpBaseMIBGroup"), ("DRAFT-IGMP-MIB", "igmpV2HostMIBGroup"))
+    sys.stderr.write(__doc__)
+    sys.exit(1)
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    igmpV2HostMIBCompliance = igmpV2HostMIBCompliance.setStatus('current')
-igmpV2RouterMIBCompliance = ModuleCompliance((1, 3, 6, 1, 3, 59, 2, 1, 4)).setObjects(("DRAFT-IGMP-MIB", "igmpBaseMIBGroup"), ("DRAFT-IGMP-MIB", "igmpRouterMIBGroup"), ("DRAFT-IGMP-MIB", "igmpV2RouterMIBGroup"))
+# Import base ASN.1 objects even if this MIB does not use it
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    igmpV2RouterMIBCompliance = igmpV2RouterMIBCompliance.setStatus('current')
-igmpBaseMIBGroup = ObjectGroup((1, 3, 6, 1, 3, 59, 2, 2, 1)).setObjects(("DRAFT-IGMP-MIB", "igmpCacheSelf"), ("DRAFT-IGMP-MIB", "igmpCacheStatus"), ("DRAFT-IGMP-MIB", "igmpInterfaceStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    igmpBaseMIBGroup = igmpBaseMIBGroup.setStatus('current')
-igmpRouterMIBGroup = ObjectGroup((1, 3, 6, 1, 3, 59, 2, 2, 2)).setObjects(("DRAFT-IGMP-MIB", "igmpCacheUpTime"), ("DRAFT-IGMP-MIB", "igmpCacheExpiryTime"), ("DRAFT-IGMP-MIB", "igmpInterfaceJoins"), ("DRAFT-IGMP-MIB", "igmpInterfaceGroups"), ("DRAFT-IGMP-MIB", "igmpCacheLastReporter"), ("DRAFT-IGMP-MIB", "igmpInterfaceQuerierUpTime"), ("DRAFT-IGMP-MIB", "igmpInterfaceQuerierExpiryTime"), ("DRAFT-IGMP-MIB", "igmpInterfaceQueryInterval"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    igmpRouterMIBGroup = igmpRouterMIBGroup.setStatus('current')
-igmpV2HostMIBGroup = ObjectGroup((1, 3, 6, 1, 3, 59, 2, 2, 3)).setObjects(("DRAFT-IGMP-MIB", "igmpInterfaceVersion1QuerierTimer"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    igmpV2HostMIBGroup = igmpV2HostMIBGroup.setStatus('current')
-igmpHostOptMIBGroup = ObjectGroup((1, 3, 6, 1, 3, 59, 2, 2, 4)).setObjects(("DRAFT-IGMP-MIB", "igmpCacheLastReporter"), ("DRAFT-IGMP-MIB", "igmpInterfaceQuerier"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    igmpHostOptMIBGroup = igmpHostOptMIBGroup.setStatus('current')
-igmpV2RouterMIBGroup = ObjectGroup((1, 3, 6, 1, 3, 59, 2, 2, 5)).setObjects(("DRAFT-IGMP-MIB", "igmpInterfaceVersion"), ("DRAFT-IGMP-MIB", "igmpInterfaceQuerier"), ("DRAFT-IGMP-MIB", "igmpInterfaceQueryMaxResponseTime"), ("DRAFT-IGMP-MIB", "igmpInterfaceRobustness"), ("DRAFT-IGMP-MIB", "igmpInterfaceWrongVersionQueries"), ("DRAFT-IGMP-MIB", "igmpInterfaceLastMembQueryIntvl"), ("DRAFT-IGMP-MIB", "igmpCacheVersion1HostTimer"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    igmpV2RouterMIBGroup = igmpV2RouterMIBGroup.setStatus('current')
-igmpV2ProxyMIBGroup = ObjectGroup((1, 3, 6, 1, 3, 59, 2, 2, 6)).setObjects(("DRAFT-IGMP-MIB", "igmpInterfaceProxyIfIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    igmpV2ProxyMIBGroup = igmpV2ProxyMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("DRAFT-IGMP-MIB", igmpMIBObjects=igmpMIBObjects, igmpInterfaceWrongVersionQueries=igmpInterfaceWrongVersionQueries, igmpCacheEntry=igmpCacheEntry, igmpMIBCompliances=igmpMIBCompliances, igmpV2HostMIBGroup=igmpV2HostMIBGroup, igmpHostOptMIBGroup=igmpHostOptMIBGroup, igmp=igmp, igmpInterfaceQuerierUpTime=igmpInterfaceQuerierUpTime, igmpInterfaceIfIndex=igmpInterfaceIfIndex, igmpInterfaceQuerierExpiryTime=igmpInterfaceQuerierExpiryTime, igmpInterfaceQueryInterval=igmpInterfaceQueryInterval, igmpInterfaceQuerier=igmpInterfaceQuerier, igmpV2RouterMIBCompliance=igmpV2RouterMIBCompliance, PYSNMP_MODULE_ID=igmpStdMIB, igmpInterfaceGroups=igmpInterfaceGroups, igmpStdMIB=igmpStdMIB, igmpInterfaceTable=igmpInterfaceTable, igmpInterfaceEntry=igmpInterfaceEntry, igmpCacheAddress=igmpCacheAddress, igmpRouterMIBGroup=igmpRouterMIBGroup, igmpCacheTable=igmpCacheTable, igmpBaseMIBGroup=igmpBaseMIBGroup, igmpMIBGroups=igmpMIBGroups, igmpInterfaceProxyIfIndex=igmpInterfaceProxyIfIndex, igmpInterfaceStatus=igmpInterfaceStatus, igmpInterfaceRobustness=igmpInterfaceRobustness, igmpCacheUpTime=igmpCacheUpTime, igmpCacheExpiryTime=igmpCacheExpiryTime, igmpInterfaceQueryMaxResponseTime=igmpInterfaceQueryMaxResponseTime, igmpInterfaceJoins=igmpInterfaceJoins, igmpInterfaceVersion=igmpInterfaceVersion, igmpV1RouterMIBCompliance=igmpV1RouterMIBCompliance, igmpInterfaceVersion1QuerierTimer=igmpInterfaceVersion1QuerierTimer, igmpCacheStatus=igmpCacheStatus, igmpV2HostMIBCompliance=igmpV2HostMIBCompliance, igmpCacheVersion1HostTimer=igmpCacheVersion1HostTimer, igmpV2RouterMIBGroup=igmpV2RouterMIBGroup, igmpCacheSelf=igmpCacheSelf, igmpInterfaceLastMembQueryIntvl=igmpInterfaceLastMembQueryIntvl, igmpCacheIfIndex=igmpCacheIfIndex, igmpCacheLastReporter=igmpCacheLastReporter, igmpMIBConformance=igmpMIBConformance, igmpV2ProxyMIBGroup=igmpV2ProxyMIBGroup, igmpV1HostMIBCompliance=igmpV1HostMIBCompliance)
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,
+ InterfaceIndexOrZero) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "InterfaceIndexOrZero")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ experimental,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "experimental",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+igmpStdMIB = ModuleIdentity(
+    (1, 3, 6, 1, 3, 59)
+)
+if mibBuilder.loadTexts:
+    igmpStdMIB.setRevisions(
+        ("1999-09-17 12:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_IgmpMIBObjects_ObjectIdentity = ObjectIdentity
+igmpMIBObjects = _IgmpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 3, 59, 1)
+)
+_Igmp_ObjectIdentity = ObjectIdentity
+igmp = _Igmp_ObjectIdentity(
+    (1, 3, 6, 1, 3, 59, 1, 1)
+)
+_IgmpInterfaceTable_Object = MibTable
+igmpInterfaceTable = _IgmpInterfaceTable_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    igmpInterfaceTable.setStatus("current")
+_IgmpInterfaceEntry_Object = MibTableRow
+igmpInterfaceEntry = _IgmpInterfaceEntry_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1)
+)
+igmpInterfaceEntry.setIndexNames(
+    (0, "DRAFT-IGMP-MIB", "igmpInterfaceIfIndex"),
+)
+if mibBuilder.loadTexts:
+    igmpInterfaceEntry.setStatus("current")
+_IgmpInterfaceIfIndex_Type = InterfaceIndex
+_IgmpInterfaceIfIndex_Object = MibTableColumn
+igmpInterfaceIfIndex = _IgmpInterfaceIfIndex_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 1),
+    _IgmpInterfaceIfIndex_Type()
+)
+igmpInterfaceIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    igmpInterfaceIfIndex.setStatus("current")
+
+
+class _IgmpInterfaceQueryInterval_Type(Integer32):
+    """Custom type igmpInterfaceQueryInterval based on Integer32"""
+    defaultValue = 125
+
+
+_IgmpInterfaceQueryInterval_Type.__name__ = "Integer32"
+_IgmpInterfaceQueryInterval_Object = MibTableColumn
+igmpInterfaceQueryInterval = _IgmpInterfaceQueryInterval_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 2),
+    _IgmpInterfaceQueryInterval_Type()
+)
+igmpInterfaceQueryInterval.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceQueryInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    igmpInterfaceQueryInterval.setUnits("seconds")
+_IgmpInterfaceStatus_Type = RowStatus
+_IgmpInterfaceStatus_Object = MibTableColumn
+igmpInterfaceStatus = _IgmpInterfaceStatus_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 3),
+    _IgmpInterfaceStatus_Type()
+)
+igmpInterfaceStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceStatus.setStatus("current")
+
+
+class _IgmpInterfaceVersion_Type(Integer32):
+    """Custom type igmpInterfaceVersion based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("version1", 1),
+          ("version2", 2))
+    )
+
+
+_IgmpInterfaceVersion_Type.__name__ = "Integer32"
+_IgmpInterfaceVersion_Object = MibTableColumn
+igmpInterfaceVersion = _IgmpInterfaceVersion_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 4),
+    _IgmpInterfaceVersion_Type()
+)
+igmpInterfaceVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceVersion.setStatus("current")
+_IgmpInterfaceQuerier_Type = IpAddress
+_IgmpInterfaceQuerier_Object = MibTableColumn
+igmpInterfaceQuerier = _IgmpInterfaceQuerier_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 5),
+    _IgmpInterfaceQuerier_Type()
+)
+igmpInterfaceQuerier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceQuerier.setStatus("current")
+
+
+class _IgmpInterfaceQueryMaxResponseTime_Type(Integer32):
+    """Custom type igmpInterfaceQueryMaxResponseTime based on Integer32"""
+    defaultValue = 100
+
+
+_IgmpInterfaceQueryMaxResponseTime_Type.__name__ = "Integer32"
+_IgmpInterfaceQueryMaxResponseTime_Object = MibTableColumn
+igmpInterfaceQueryMaxResponseTime = _IgmpInterfaceQueryMaxResponseTime_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 6),
+    _IgmpInterfaceQueryMaxResponseTime_Type()
+)
+igmpInterfaceQueryMaxResponseTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceQueryMaxResponseTime.setStatus("current")
+if mibBuilder.loadTexts:
+    igmpInterfaceQueryMaxResponseTime.setUnits("tenths of seconds")
+_IgmpInterfaceVersion1QuerierTimer_Type = TimeTicks
+_IgmpInterfaceVersion1QuerierTimer_Object = MibTableColumn
+igmpInterfaceVersion1QuerierTimer = _IgmpInterfaceVersion1QuerierTimer_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 9),
+    _IgmpInterfaceVersion1QuerierTimer_Type()
+)
+igmpInterfaceVersion1QuerierTimer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceVersion1QuerierTimer.setStatus("current")
+_IgmpInterfaceWrongVersionQueries_Type = Counter32
+_IgmpInterfaceWrongVersionQueries_Object = MibTableColumn
+igmpInterfaceWrongVersionQueries = _IgmpInterfaceWrongVersionQueries_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 10),
+    _IgmpInterfaceWrongVersionQueries_Type()
+)
+igmpInterfaceWrongVersionQueries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceWrongVersionQueries.setStatus("current")
+_IgmpInterfaceJoins_Type = Counter32
+_IgmpInterfaceJoins_Object = MibTableColumn
+igmpInterfaceJoins = _IgmpInterfaceJoins_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 11),
+    _IgmpInterfaceJoins_Type()
+)
+igmpInterfaceJoins.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceJoins.setStatus("current")
+_IgmpInterfaceGroups_Type = Gauge32
+_IgmpInterfaceGroups_Object = MibTableColumn
+igmpInterfaceGroups = _IgmpInterfaceGroups_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 13),
+    _IgmpInterfaceGroups_Type()
+)
+igmpInterfaceGroups.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceGroups.setStatus("current")
+
+
+class _IgmpInterfaceRobustness_Type(Integer32):
+    """Custom type igmpInterfaceRobustness based on Integer32"""
+    defaultValue = 2
+
+
+_IgmpInterfaceRobustness_Type.__name__ = "Integer32"
+_IgmpInterfaceRobustness_Object = MibTableColumn
+igmpInterfaceRobustness = _IgmpInterfaceRobustness_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 14),
+    _IgmpInterfaceRobustness_Type()
+)
+igmpInterfaceRobustness.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceRobustness.setStatus("current")
+
+
+class _IgmpInterfaceLastMembQueryIntvl_Type(Integer32):
+    """Custom type igmpInterfaceLastMembQueryIntvl based on Integer32"""
+    defaultValue = 10
+
+
+_IgmpInterfaceLastMembQueryIntvl_Type.__name__ = "Integer32"
+_IgmpInterfaceLastMembQueryIntvl_Object = MibTableColumn
+igmpInterfaceLastMembQueryIntvl = _IgmpInterfaceLastMembQueryIntvl_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 15),
+    _IgmpInterfaceLastMembQueryIntvl_Type()
+)
+igmpInterfaceLastMembQueryIntvl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceLastMembQueryIntvl.setStatus("current")
+if mibBuilder.loadTexts:
+    igmpInterfaceLastMembQueryIntvl.setUnits("tenths of seconds")
+
+
+class _IgmpInterfaceProxyIfIndex_Type(InterfaceIndexOrZero):
+    """Custom type igmpInterfaceProxyIfIndex based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_IgmpInterfaceProxyIfIndex_Type.__name__ = "InterfaceIndexOrZero"
+_IgmpInterfaceProxyIfIndex_Object = MibTableColumn
+igmpInterfaceProxyIfIndex = _IgmpInterfaceProxyIfIndex_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 16),
+    _IgmpInterfaceProxyIfIndex_Type()
+)
+igmpInterfaceProxyIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceProxyIfIndex.setStatus("current")
+_IgmpInterfaceQuerierUpTime_Type = TimeTicks
+_IgmpInterfaceQuerierUpTime_Object = MibTableColumn
+igmpInterfaceQuerierUpTime = _IgmpInterfaceQuerierUpTime_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 17),
+    _IgmpInterfaceQuerierUpTime_Type()
+)
+igmpInterfaceQuerierUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceQuerierUpTime.setStatus("current")
+_IgmpInterfaceQuerierExpiryTime_Type = TimeTicks
+_IgmpInterfaceQuerierExpiryTime_Object = MibTableColumn
+igmpInterfaceQuerierExpiryTime = _IgmpInterfaceQuerierExpiryTime_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 1, 1, 18),
+    _IgmpInterfaceQuerierExpiryTime_Type()
+)
+igmpInterfaceQuerierExpiryTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpInterfaceQuerierExpiryTime.setStatus("current")
+_IgmpCacheTable_Object = MibTable
+igmpCacheTable = _IgmpCacheTable_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    igmpCacheTable.setStatus("current")
+_IgmpCacheEntry_Object = MibTableRow
+igmpCacheEntry = _IgmpCacheEntry_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 2, 1)
+)
+igmpCacheEntry.setIndexNames(
+    (0, "DRAFT-IGMP-MIB", "igmpCacheAddress"),
+    (0, "DRAFT-IGMP-MIB", "igmpCacheIfIndex"),
+)
+if mibBuilder.loadTexts:
+    igmpCacheEntry.setStatus("current")
+_IgmpCacheAddress_Type = IpAddress
+_IgmpCacheAddress_Object = MibTableColumn
+igmpCacheAddress = _IgmpCacheAddress_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 1),
+    _IgmpCacheAddress_Type()
+)
+igmpCacheAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    igmpCacheAddress.setStatus("current")
+_IgmpCacheIfIndex_Type = InterfaceIndex
+_IgmpCacheIfIndex_Object = MibTableColumn
+igmpCacheIfIndex = _IgmpCacheIfIndex_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 2),
+    _IgmpCacheIfIndex_Type()
+)
+igmpCacheIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    igmpCacheIfIndex.setStatus("current")
+
+
+class _IgmpCacheSelf_Type(TruthValue):
+    """Custom type igmpCacheSelf based on TruthValue"""
+    defaultValue = 1
+
+
+_IgmpCacheSelf_Type.__name__ = "TruthValue"
+_IgmpCacheSelf_Object = MibTableColumn
+igmpCacheSelf = _IgmpCacheSelf_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 3),
+    _IgmpCacheSelf_Type()
+)
+igmpCacheSelf.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpCacheSelf.setStatus("current")
+_IgmpCacheLastReporter_Type = IpAddress
+_IgmpCacheLastReporter_Object = MibTableColumn
+igmpCacheLastReporter = _IgmpCacheLastReporter_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 4),
+    _IgmpCacheLastReporter_Type()
+)
+igmpCacheLastReporter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpCacheLastReporter.setStatus("current")
+_IgmpCacheUpTime_Type = TimeTicks
+_IgmpCacheUpTime_Object = MibTableColumn
+igmpCacheUpTime = _IgmpCacheUpTime_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 5),
+    _IgmpCacheUpTime_Type()
+)
+igmpCacheUpTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpCacheUpTime.setStatus("current")
+_IgmpCacheExpiryTime_Type = TimeTicks
+_IgmpCacheExpiryTime_Object = MibTableColumn
+igmpCacheExpiryTime = _IgmpCacheExpiryTime_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 6),
+    _IgmpCacheExpiryTime_Type()
+)
+igmpCacheExpiryTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpCacheExpiryTime.setStatus("current")
+_IgmpCacheStatus_Type = RowStatus
+_IgmpCacheStatus_Object = MibTableColumn
+igmpCacheStatus = _IgmpCacheStatus_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 7),
+    _IgmpCacheStatus_Type()
+)
+igmpCacheStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpCacheStatus.setStatus("current")
+_IgmpCacheVersion1HostTimer_Type = TimeTicks
+_IgmpCacheVersion1HostTimer_Object = MibTableColumn
+igmpCacheVersion1HostTimer = _IgmpCacheVersion1HostTimer_Object(
+    (1, 3, 6, 1, 3, 59, 1, 1, 2, 1, 8),
+    _IgmpCacheVersion1HostTimer_Type()
+)
+igmpCacheVersion1HostTimer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    igmpCacheVersion1HostTimer.setStatus("current")
+_IgmpMIBConformance_ObjectIdentity = ObjectIdentity
+igmpMIBConformance = _IgmpMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 3, 59, 2)
+)
+_IgmpMIBCompliances_ObjectIdentity = ObjectIdentity
+igmpMIBCompliances = _IgmpMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 3, 59, 2, 1)
+)
+_IgmpMIBGroups_ObjectIdentity = ObjectIdentity
+igmpMIBGroups = _IgmpMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 3, 59, 2, 2)
+)
+
+# Managed Objects groups
+
+igmpBaseMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 3, 59, 2, 2, 1)
+)
+igmpBaseMIBGroup.setObjects(
+      *(("DRAFT-IGMP-MIB", "igmpCacheSelf"),
+        ("DRAFT-IGMP-MIB", "igmpCacheStatus"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceStatus"))
+)
+if mibBuilder.loadTexts:
+    igmpBaseMIBGroup.setStatus("current")
+
+igmpRouterMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 3, 59, 2, 2, 2)
+)
+igmpRouterMIBGroup.setObjects(
+      *(("DRAFT-IGMP-MIB", "igmpCacheUpTime"),
+        ("DRAFT-IGMP-MIB", "igmpCacheExpiryTime"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceJoins"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceGroups"),
+        ("DRAFT-IGMP-MIB", "igmpCacheLastReporter"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceQuerierUpTime"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceQuerierExpiryTime"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceQueryInterval"))
+)
+if mibBuilder.loadTexts:
+    igmpRouterMIBGroup.setStatus("current")
+
+igmpV2HostMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 3, 59, 2, 2, 3)
+)
+igmpV2HostMIBGroup.setObjects(
+    ("DRAFT-IGMP-MIB", "igmpInterfaceVersion1QuerierTimer")
+)
+if mibBuilder.loadTexts:
+    igmpV2HostMIBGroup.setStatus("current")
+
+igmpHostOptMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 3, 59, 2, 2, 4)
+)
+igmpHostOptMIBGroup.setObjects(
+      *(("DRAFT-IGMP-MIB", "igmpCacheLastReporter"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceQuerier"))
+)
+if mibBuilder.loadTexts:
+    igmpHostOptMIBGroup.setStatus("current")
+
+igmpV2RouterMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 3, 59, 2, 2, 5)
+)
+igmpV2RouterMIBGroup.setObjects(
+      *(("DRAFT-IGMP-MIB", "igmpInterfaceVersion"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceQuerier"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceQueryMaxResponseTime"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceRobustness"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceWrongVersionQueries"),
+        ("DRAFT-IGMP-MIB", "igmpInterfaceLastMembQueryIntvl"),
+        ("DRAFT-IGMP-MIB", "igmpCacheVersion1HostTimer"))
+)
+if mibBuilder.loadTexts:
+    igmpV2RouterMIBGroup.setStatus("current")
+
+igmpV2ProxyMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 3, 59, 2, 2, 6)
+)
+igmpV2ProxyMIBGroup.setObjects(
+    ("DRAFT-IGMP-MIB", "igmpInterfaceProxyIfIndex")
+)
+if mibBuilder.loadTexts:
+    igmpV2ProxyMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+igmpV1HostMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 3, 59, 2, 1, 1)
+)
+igmpV1HostMIBCompliance.setObjects(
+    ("DRAFT-IGMP-MIB", "igmpBaseMIBGroup")
+)
+if mibBuilder.loadTexts:
+    igmpV1HostMIBCompliance.setStatus(
+        "current"
+    )
+
+igmpV1RouterMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 3, 59, 2, 1, 2)
+)
+igmpV1RouterMIBCompliance.setObjects(
+      *(("DRAFT-IGMP-MIB", "igmpBaseMIBGroup"),
+        ("DRAFT-IGMP-MIB", "igmpRouterMIBGroup"))
+)
+if mibBuilder.loadTexts:
+    igmpV1RouterMIBCompliance.setStatus(
+        "current"
+    )
+
+igmpV2HostMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 3, 59, 2, 1, 3)
+)
+igmpV2HostMIBCompliance.setObjects(
+      *(("DRAFT-IGMP-MIB", "igmpBaseMIBGroup"),
+        ("DRAFT-IGMP-MIB", "igmpV2HostMIBGroup"))
+)
+if mibBuilder.loadTexts:
+    igmpV2HostMIBCompliance.setStatus(
+        "current"
+    )
+
+igmpV2RouterMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 3, 59, 2, 1, 4)
+)
+igmpV2RouterMIBCompliance.setObjects(
+      *(("DRAFT-IGMP-MIB", "igmpBaseMIBGroup"),
+        ("DRAFT-IGMP-MIB", "igmpRouterMIBGroup"),
+        ("DRAFT-IGMP-MIB", "igmpV2RouterMIBGroup"))
+)
+if mibBuilder.loadTexts:
+    igmpV2RouterMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DRAFT-IGMP-MIB",
+    **{"igmpStdMIB": igmpStdMIB,
+       "igmpMIBObjects": igmpMIBObjects,
+       "igmp": igmp,
+       "igmpInterfaceTable": igmpInterfaceTable,
+       "igmpInterfaceEntry": igmpInterfaceEntry,
+       "igmpInterfaceIfIndex": igmpInterfaceIfIndex,
+       "igmpInterfaceQueryInterval": igmpInterfaceQueryInterval,
+       "igmpInterfaceStatus": igmpInterfaceStatus,
+       "igmpInterfaceVersion": igmpInterfaceVersion,
+       "igmpInterfaceQuerier": igmpInterfaceQuerier,
+       "igmpInterfaceQueryMaxResponseTime": igmpInterfaceQueryMaxResponseTime,
+       "igmpInterfaceVersion1QuerierTimer": igmpInterfaceVersion1QuerierTimer,
+       "igmpInterfaceWrongVersionQueries": igmpInterfaceWrongVersionQueries,
+       "igmpInterfaceJoins": igmpInterfaceJoins,
+       "igmpInterfaceGroups": igmpInterfaceGroups,
+       "igmpInterfaceRobustness": igmpInterfaceRobustness,
+       "igmpInterfaceLastMembQueryIntvl": igmpInterfaceLastMembQueryIntvl,
+       "igmpInterfaceProxyIfIndex": igmpInterfaceProxyIfIndex,
+       "igmpInterfaceQuerierUpTime": igmpInterfaceQuerierUpTime,
+       "igmpInterfaceQuerierExpiryTime": igmpInterfaceQuerierExpiryTime,
+       "igmpCacheTable": igmpCacheTable,
+       "igmpCacheEntry": igmpCacheEntry,
+       "igmpCacheAddress": igmpCacheAddress,
+       "igmpCacheIfIndex": igmpCacheIfIndex,
+       "igmpCacheSelf": igmpCacheSelf,
+       "igmpCacheLastReporter": igmpCacheLastReporter,
+       "igmpCacheUpTime": igmpCacheUpTime,
+       "igmpCacheExpiryTime": igmpCacheExpiryTime,
+       "igmpCacheStatus": igmpCacheStatus,
+       "igmpCacheVersion1HostTimer": igmpCacheVersion1HostTimer,
+       "igmpMIBConformance": igmpMIBConformance,
+       "igmpMIBCompliances": igmpMIBCompliances,
+       "igmpV1HostMIBCompliance": igmpV1HostMIBCompliance,
+       "igmpV1RouterMIBCompliance": igmpV1RouterMIBCompliance,
+       "igmpV2HostMIBCompliance": igmpV2HostMIBCompliance,
+       "igmpV2RouterMIBCompliance": igmpV2RouterMIBCompliance,
+       "igmpMIBGroups": igmpMIBGroups,
+       "igmpBaseMIBGroup": igmpBaseMIBGroup,
+       "igmpRouterMIBGroup": igmpRouterMIBGroup,
+       "igmpV2HostMIBGroup": igmpV2HostMIBGroup,
+       "igmpHostOptMIBGroup": igmpHostOptMIBGroup,
+       "igmpV2RouterMIBGroup": igmpV2RouterMIBGroup,
+       "igmpV2ProxyMIBGroup": igmpV2ProxyMIBGroup}
+)

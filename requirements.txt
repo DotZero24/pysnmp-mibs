@@ -1,1 +1,2 @@
-pysnmp>=4.3.0
+pysnmp>=7
+pysmi

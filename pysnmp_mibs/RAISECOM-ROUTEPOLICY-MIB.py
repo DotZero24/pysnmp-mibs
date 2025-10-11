@@ -1,123 +1,915 @@
+# SNMP MIB module (RAISECOM-ROUTEPOLICY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RAISECOM-ROUTEPOLICY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/raisecom/RAISECOM-ROUTEPOLICY-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:54:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/raisecom/RAISECOM-ROUTEPOLICY-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:36:44 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-raisecomAgent, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "raisecomAgent")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-raisecomRoutePolicy = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 1, 76))
-raisecomRoutePolicy.setRevisions(('1904-12-20 00:00',))
-if mibBuilder.loadTexts: raisecomRoutePolicy.setLastUpdated('0412200000Z')
-if mibBuilder.loadTexts: raisecomRoutePolicy.setOrganization('Wind River Systems, Inc.')
-raisecomRoutePolicyNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 76, 1))
-raisecomRoutePolicyObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2))
-raisecomRoutePolicyConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 76, 3))
-raisecomRoutePolicyScalar = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 1))
-raisecomRoutePolicyIpPrefixList = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2))
-raisecomRoutePolicyRouteMap = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3))
-raisecomRoutePolicyIpPrefixListScalar = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 1))
-raisecomRoutePolicyRouteMapScalar = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 1))
-raisecomRoutePolicyIpPrefixListTableNextIndex = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 400))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListTableNextIndex.setStatus('current')
-raisecomRoutePolicyRouteMapTableNextIndex = MibScalar((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 400))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapTableNextIndex.setStatus('current')
-raisecomRoutePolicyIpPrefixListTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2), )
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListTable.setStatus('current')
-raisecomRoutePolicyIpPrefixListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2, 1), ).setIndexNames((0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyIpPrefixListIndex"))
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListEntry.setStatus('current')
-raisecomRoutePolicyIpPrefixListIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListIndex.setStatus('current')
-raisecomRoutePolicyIpPrefixListName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 19))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListName.setStatus('current')
-raisecomRoutePolicyIpPrefixListNextNodeSeq = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListNextNodeSeq.setStatus('current')
-raisecomRoutePolicyIpPrefixListRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListRowStatus.setStatus('current')
-raisecomRoutePolicyIpPrefixListNodeTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3), )
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListNodeTable.setStatus('current')
-raisecomRoutePolicyIpPrefixListNodeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1), ).setIndexNames((0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyIpPrefixListIndex"), (0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyIpPrefixListNodeSeq"))
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListNodeEntry.setStatus('current')
-raisecomRoutePolicyIpPrefixListNodeSeq = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListNodeSeq.setStatus('current')
-raisecomRoutePolicyIpPrefixListNodeMode = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("permit", 0), ("deny", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListNodeMode.setStatus('current')
-raisecomRoutePolicyIpPrefixListNodePrefix = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 3), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListNodePrefix.setStatus('current')
-raisecomRoutePolicyIpPrefixListNodePrefixLen = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListNodePrefixLen.setStatus('current')
-raisecomRoutePolicyIpPrefixListNodePrefixLenMin = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListNodePrefixLenMin.setStatus('current')
-raisecomRoutePolicyIpPrefixListNodePrefixLenMax = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 32))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListNodePrefixLenMax.setStatus('current')
-raisecomRoutePolicyIpPrefixListNodeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListNodeRowStatus.setStatus('current')
-raisecomRoutePolicyIpPrefixListStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4), )
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListStatisticsTable.setStatus('current')
-raisecomRoutePolicyIpPrefixListStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4, 1), ).setIndexNames((0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyIpPrefixListIndex"))
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListStatisticsEntry.setStatus('current')
-raisecomRoutePolicyIpPrefixListStatsNodes = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListStatsNodes.setStatus('current')
-raisecomRoutePolicyIpPrefixListRefCount = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListRefCount.setStatus('current')
-raisecomRoutePolicyIpPrefixListStatsPermits = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListStatsPermits.setStatus('current')
-raisecomRoutePolicyIpPrefixListStatsDenies = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomRoutePolicyIpPrefixListStatsDenies.setStatus('current')
-raisecomRoutePolicyRouteMapTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 2), )
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapTable.setStatus('current')
-raisecomRoutePolicyRouteMapEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 2, 1), ).setIndexNames((0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyRouteMapIndex"))
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapEntry.setStatus('current')
-raisecomRoutePolicyRouteMapIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapIndex.setStatus('current')
-raisecomRoutePolicyRouteMapName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 2, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 19))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapName.setStatus('current')
-raisecomRoutePolicyRouteMapRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapRowStatus.setStatus('current')
-raisecomRoutePolicyRouteMapNodeTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3), )
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeTable.setStatus('current')
-raisecomRoutePolicyRouteMapNodeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1), ).setIndexNames((0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyRouteMapIndex"), (0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyRouteMapNodeSeq"))
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeEntry.setStatus('current')
-raisecomRoutePolicyRouteMapNodeSeq = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeSeq.setStatus('current')
-raisecomRoutePolicyRouteMapNodeMode = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("permit", 0), ("deny", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeMode.setStatus('current')
-raisecomRoutePolicyRouteMapNodeMatchFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 3), Bits().clone(namedValues=NamedValues(("ip-prefix-list", 0), ("ip-acl-num", 1), ("metric", 2), ("tag", 3), ("route-type", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeMatchFlag.setStatus('current')
-raisecomRoutePolicyRouteMapNodeSetFlag = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 4), Bits().clone(namedValues=NamedValues(("metric-rule", 0), ("metric", 1), ("metric-type", 2), ("tag", 3), ("level", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeSetFlag.setStatus('current')
-raisecomRoutePolicyRouteMapNodeMatchIpAclNum = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeMatchIpAclNum.setStatus('current')
-raisecomRoutePolicyRouteMapNodeMatchIpPrefixListName = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 19))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeMatchIpPrefixListName.setStatus('current')
-raisecomRoutePolicyRouteMapNodeMatchRouteType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 7), Bits().clone(namedValues=NamedValues(("internel", 0), ("external-type1", 1), ("external-type2", 2), ("nssa-external-type1", 3), ("nssa-external-type2", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeMatchRouteType.setStatus('current')
-raisecomRoutePolicyRouteMapNodeMatchTag = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeMatchTag.setStatus('current')
-raisecomRoutePolicyRouteMapNodeMatchMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeMatchMetric.setStatus('current')
-raisecomRoutePolicyRouteMapNodeSetLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 10), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("stub-area", 1), ("backbone", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeSetLevel.setStatus('current')
-raisecomRoutePolicyRouteMapNodeSetTag = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeSetTag.setStatus('current')
-raisecomRoutePolicyRouteMapNodeSetMetricRule = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("add", 1), ("subtract", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeSetMetricRule.setStatus('current')
-raisecomRoutePolicyRouteMapNodeSetMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeSetMetric.setStatus('current')
-raisecomRoutePolicyRouteMapNodeSetMetricType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("type-1", 1), ("type-2", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeSetMetricType.setStatus('current')
-raisecomRoutePolicyRouteMapNodeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 15), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapNodeRowStatus.setStatus('current')
-raisecomRoutePolicyRouteMapStatisticsTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 4), )
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapStatisticsTable.setStatus('current')
-raisecomRoutePolicyRouteMapStatisticsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 4, 1), ).setIndexNames((0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyRouteMapIndex"))
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapStatisticsEntry.setStatus('current')
-raisecomRoutePolicyRouteMapRefCount = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 4, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomRoutePolicyRouteMapRefCount.setStatus('current')
-mibBuilder.exportSymbols("RAISECOM-ROUTEPOLICY-MIB", raisecomRoutePolicyIpPrefixListStatisticsTable=raisecomRoutePolicyIpPrefixListStatisticsTable, raisecomRoutePolicyRouteMapNodeSetMetric=raisecomRoutePolicyRouteMapNodeSetMetric, raisecomRoutePolicyRouteMapNodeSetMetricType=raisecomRoutePolicyRouteMapNodeSetMetricType, raisecomRoutePolicyRouteMapRefCount=raisecomRoutePolicyRouteMapRefCount, raisecomRoutePolicyRouteMapIndex=raisecomRoutePolicyRouteMapIndex, raisecomRoutePolicyIpPrefixListNodeMode=raisecomRoutePolicyIpPrefixListNodeMode, raisecomRoutePolicyIpPrefixListEntry=raisecomRoutePolicyIpPrefixListEntry, raisecomRoutePolicyIpPrefixListStatisticsEntry=raisecomRoutePolicyIpPrefixListStatisticsEntry, raisecomRoutePolicyIpPrefixListRefCount=raisecomRoutePolicyIpPrefixListRefCount, raisecomRoutePolicyIpPrefixListStatsPermits=raisecomRoutePolicyIpPrefixListStatsPermits, raisecomRoutePolicyIpPrefixListTableNextIndex=raisecomRoutePolicyIpPrefixListTableNextIndex, raisecomRoutePolicyRouteMapStatisticsTable=raisecomRoutePolicyRouteMapStatisticsTable, raisecomRoutePolicyRouteMapNodeMatchMetric=raisecomRoutePolicyRouteMapNodeMatchMetric, raisecomRoutePolicyRouteMapNodeMatchFlag=raisecomRoutePolicyRouteMapNodeMatchFlag, raisecomRoutePolicyRouteMapNodeSetLevel=raisecomRoutePolicyRouteMapNodeSetLevel, raisecomRoutePolicyIpPrefixListNodePrefix=raisecomRoutePolicyIpPrefixListNodePrefix, raisecomRoutePolicyIpPrefixListNodePrefixLenMax=raisecomRoutePolicyIpPrefixListNodePrefixLenMax, raisecomRoutePolicyIpPrefixList=raisecomRoutePolicyIpPrefixList, raisecomRoutePolicyRouteMap=raisecomRoutePolicyRouteMap, raisecomRoutePolicyConformance=raisecomRoutePolicyConformance, raisecomRoutePolicyRouteMapEntry=raisecomRoutePolicyRouteMapEntry, raisecomRoutePolicyRouteMapNodeMode=raisecomRoutePolicyRouteMapNodeMode, raisecomRoutePolicyRouteMapNodeTable=raisecomRoutePolicyRouteMapNodeTable, raisecomRoutePolicyRouteMapRowStatus=raisecomRoutePolicyRouteMapRowStatus, raisecomRoutePolicyRouteMapScalar=raisecomRoutePolicyRouteMapScalar, raisecomRoutePolicyRouteMapNodeMatchRouteType=raisecomRoutePolicyRouteMapNodeMatchRouteType, raisecomRoutePolicyIpPrefixListIndex=raisecomRoutePolicyIpPrefixListIndex, raisecomRoutePolicyIpPrefixListStatsDenies=raisecomRoutePolicyIpPrefixListStatsDenies, raisecomRoutePolicyRouteMapNodeEntry=raisecomRoutePolicyRouteMapNodeEntry, raisecomRoutePolicyIpPrefixListNodeTable=raisecomRoutePolicyIpPrefixListNodeTable, raisecomRoutePolicyIpPrefixListNextNodeSeq=raisecomRoutePolicyIpPrefixListNextNodeSeq, raisecomRoutePolicyRouteMapNodeSetMetricRule=raisecomRoutePolicyRouteMapNodeSetMetricRule, raisecomRoutePolicyIpPrefixListNodePrefixLenMin=raisecomRoutePolicyIpPrefixListNodePrefixLenMin, raisecomRoutePolicyRouteMapTableNextIndex=raisecomRoutePolicyRouteMapTableNextIndex, raisecomRoutePolicy=raisecomRoutePolicy, raisecomRoutePolicyIpPrefixListNodeRowStatus=raisecomRoutePolicyIpPrefixListNodeRowStatus, raisecomRoutePolicyRouteMapNodeSeq=raisecomRoutePolicyRouteMapNodeSeq, raisecomRoutePolicyIpPrefixListNodeSeq=raisecomRoutePolicyIpPrefixListNodeSeq, raisecomRoutePolicyIpPrefixListName=raisecomRoutePolicyIpPrefixListName, raisecomRoutePolicyRouteMapNodeSetTag=raisecomRoutePolicyRouteMapNodeSetTag, raisecomRoutePolicyIpPrefixListRowStatus=raisecomRoutePolicyIpPrefixListRowStatus, PYSNMP_MODULE_ID=raisecomRoutePolicy, raisecomRoutePolicyRouteMapTable=raisecomRoutePolicyRouteMapTable, raisecomRoutePolicyIpPrefixListStatsNodes=raisecomRoutePolicyIpPrefixListStatsNodes, raisecomRoutePolicyRouteMapName=raisecomRoutePolicyRouteMapName, raisecomRoutePolicyNotifications=raisecomRoutePolicyNotifications, raisecomRoutePolicyObjects=raisecomRoutePolicyObjects, raisecomRoutePolicyRouteMapNodeRowStatus=raisecomRoutePolicyRouteMapNodeRowStatus, raisecomRoutePolicyRouteMapStatisticsEntry=raisecomRoutePolicyRouteMapStatisticsEntry, raisecomRoutePolicyRouteMapNodeMatchIpAclNum=raisecomRoutePolicyRouteMapNodeMatchIpAclNum, raisecomRoutePolicyRouteMapNodeSetFlag=raisecomRoutePolicyRouteMapNodeSetFlag, raisecomRoutePolicyIpPrefixListNodeEntry=raisecomRoutePolicyIpPrefixListNodeEntry, raisecomRoutePolicyRouteMapNodeMatchTag=raisecomRoutePolicyRouteMapNodeMatchTag, raisecomRoutePolicyScalar=raisecomRoutePolicyScalar, raisecomRoutePolicyRouteMapNodeMatchIpPrefixListName=raisecomRoutePolicyRouteMapNodeMatchIpPrefixListName, raisecomRoutePolicyIpPrefixListTable=raisecomRoutePolicyIpPrefixListTable, raisecomRoutePolicyIpPrefixListNodePrefixLen=raisecomRoutePolicyIpPrefixListNodePrefixLen, raisecomRoutePolicyIpPrefixListScalar=raisecomRoutePolicyIpPrefixListScalar)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(raisecomAgent,) = mibBuilder.importSymbols(
+    "RAISECOM-BASE-MIB",
+    "raisecomAgent")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+raisecomRoutePolicy = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76)
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicy.setRevisions(
+        ("1904-12-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RaisecomRoutePolicyNotifications_ObjectIdentity = ObjectIdentity
+raisecomRoutePolicyNotifications = _RaisecomRoutePolicyNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 1)
+)
+_RaisecomRoutePolicyObjects_ObjectIdentity = ObjectIdentity
+raisecomRoutePolicyObjects = _RaisecomRoutePolicyObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2)
+)
+_RaisecomRoutePolicyScalar_ObjectIdentity = ObjectIdentity
+raisecomRoutePolicyScalar = _RaisecomRoutePolicyScalar_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 1)
+)
+_RaisecomRoutePolicyIpPrefixList_ObjectIdentity = ObjectIdentity
+raisecomRoutePolicyIpPrefixList = _RaisecomRoutePolicyIpPrefixList_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2)
+)
+_RaisecomRoutePolicyIpPrefixListScalar_ObjectIdentity = ObjectIdentity
+raisecomRoutePolicyIpPrefixListScalar = _RaisecomRoutePolicyIpPrefixListScalar_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 1)
+)
+
+
+class _RaisecomRoutePolicyIpPrefixListTableNextIndex_Type(Integer32):
+    """Custom type raisecomRoutePolicyIpPrefixListTableNextIndex based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 400),
+    )
+
+
+_RaisecomRoutePolicyIpPrefixListTableNextIndex_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyIpPrefixListTableNextIndex_Object = MibScalar
+raisecomRoutePolicyIpPrefixListTableNextIndex = _RaisecomRoutePolicyIpPrefixListTableNextIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 1, 1),
+    _RaisecomRoutePolicyIpPrefixListTableNextIndex_Type()
+)
+raisecomRoutePolicyIpPrefixListTableNextIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListTableNextIndex.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListTable_Object = MibTable
+raisecomRoutePolicyIpPrefixListTable = _RaisecomRoutePolicyIpPrefixListTable_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2)
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListTable.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListEntry_Object = MibTableRow
+raisecomRoutePolicyIpPrefixListEntry = _RaisecomRoutePolicyIpPrefixListEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2, 1)
+)
+raisecomRoutePolicyIpPrefixListEntry.setIndexNames(
+    (0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyIpPrefixListIndex"),
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListEntry.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListIndex_Type = Integer32
+_RaisecomRoutePolicyIpPrefixListIndex_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListIndex = _RaisecomRoutePolicyIpPrefixListIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2, 1, 1),
+    _RaisecomRoutePolicyIpPrefixListIndex_Type()
+)
+raisecomRoutePolicyIpPrefixListIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListIndex.setStatus("current")
+
+
+class _RaisecomRoutePolicyIpPrefixListName_Type(OctetString):
+    """Custom type raisecomRoutePolicyIpPrefixListName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 19),
+    )
+
+
+_RaisecomRoutePolicyIpPrefixListName_Type.__name__ = "OctetString"
+_RaisecomRoutePolicyIpPrefixListName_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListName = _RaisecomRoutePolicyIpPrefixListName_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2, 1, 2),
+    _RaisecomRoutePolicyIpPrefixListName_Type()
+)
+raisecomRoutePolicyIpPrefixListName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListName.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListNextNodeSeq_Type = Integer32
+_RaisecomRoutePolicyIpPrefixListNextNodeSeq_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListNextNodeSeq = _RaisecomRoutePolicyIpPrefixListNextNodeSeq_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2, 1, 3),
+    _RaisecomRoutePolicyIpPrefixListNextNodeSeq_Type()
+)
+raisecomRoutePolicyIpPrefixListNextNodeSeq.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListNextNodeSeq.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListRowStatus_Type = RowStatus
+_RaisecomRoutePolicyIpPrefixListRowStatus_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListRowStatus = _RaisecomRoutePolicyIpPrefixListRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 2, 1, 4),
+    _RaisecomRoutePolicyIpPrefixListRowStatus_Type()
+)
+raisecomRoutePolicyIpPrefixListRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListRowStatus.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListNodeTable_Object = MibTable
+raisecomRoutePolicyIpPrefixListNodeTable = _RaisecomRoutePolicyIpPrefixListNodeTable_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3)
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListNodeTable.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListNodeEntry_Object = MibTableRow
+raisecomRoutePolicyIpPrefixListNodeEntry = _RaisecomRoutePolicyIpPrefixListNodeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1)
+)
+raisecomRoutePolicyIpPrefixListNodeEntry.setIndexNames(
+    (0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyIpPrefixListIndex"),
+    (0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyIpPrefixListNodeSeq"),
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListNodeEntry.setStatus("current")
+
+
+class _RaisecomRoutePolicyIpPrefixListNodeSeq_Type(Integer32):
+    """Custom type raisecomRoutePolicyIpPrefixListNodeSeq based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_RaisecomRoutePolicyIpPrefixListNodeSeq_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyIpPrefixListNodeSeq_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListNodeSeq = _RaisecomRoutePolicyIpPrefixListNodeSeq_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 1),
+    _RaisecomRoutePolicyIpPrefixListNodeSeq_Type()
+)
+raisecomRoutePolicyIpPrefixListNodeSeq.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListNodeSeq.setStatus("current")
+
+
+class _RaisecomRoutePolicyIpPrefixListNodeMode_Type(Integer32):
+    """Custom type raisecomRoutePolicyIpPrefixListNodeMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("permit", 0),
+          ("deny", 1))
+    )
+
+
+_RaisecomRoutePolicyIpPrefixListNodeMode_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyIpPrefixListNodeMode_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListNodeMode = _RaisecomRoutePolicyIpPrefixListNodeMode_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 2),
+    _RaisecomRoutePolicyIpPrefixListNodeMode_Type()
+)
+raisecomRoutePolicyIpPrefixListNodeMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListNodeMode.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListNodePrefix_Type = IpAddress
+_RaisecomRoutePolicyIpPrefixListNodePrefix_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListNodePrefix = _RaisecomRoutePolicyIpPrefixListNodePrefix_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 3),
+    _RaisecomRoutePolicyIpPrefixListNodePrefix_Type()
+)
+raisecomRoutePolicyIpPrefixListNodePrefix.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListNodePrefix.setStatus("current")
+
+
+class _RaisecomRoutePolicyIpPrefixListNodePrefixLen_Type(Integer32):
+    """Custom type raisecomRoutePolicyIpPrefixListNodePrefixLen based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32),
+    )
+
+
+_RaisecomRoutePolicyIpPrefixListNodePrefixLen_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyIpPrefixListNodePrefixLen_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListNodePrefixLen = _RaisecomRoutePolicyIpPrefixListNodePrefixLen_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 4),
+    _RaisecomRoutePolicyIpPrefixListNodePrefixLen_Type()
+)
+raisecomRoutePolicyIpPrefixListNodePrefixLen.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListNodePrefixLen.setStatus("current")
+
+
+class _RaisecomRoutePolicyIpPrefixListNodePrefixLenMin_Type(Integer32):
+    """Custom type raisecomRoutePolicyIpPrefixListNodePrefixLenMin based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32),
+    )
+
+
+_RaisecomRoutePolicyIpPrefixListNodePrefixLenMin_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyIpPrefixListNodePrefixLenMin_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListNodePrefixLenMin = _RaisecomRoutePolicyIpPrefixListNodePrefixLenMin_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 5),
+    _RaisecomRoutePolicyIpPrefixListNodePrefixLenMin_Type()
+)
+raisecomRoutePolicyIpPrefixListNodePrefixLenMin.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListNodePrefixLenMin.setStatus("current")
+
+
+class _RaisecomRoutePolicyIpPrefixListNodePrefixLenMax_Type(Integer32):
+    """Custom type raisecomRoutePolicyIpPrefixListNodePrefixLenMax based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 32),
+    )
+
+
+_RaisecomRoutePolicyIpPrefixListNodePrefixLenMax_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyIpPrefixListNodePrefixLenMax_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListNodePrefixLenMax = _RaisecomRoutePolicyIpPrefixListNodePrefixLenMax_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 6),
+    _RaisecomRoutePolicyIpPrefixListNodePrefixLenMax_Type()
+)
+raisecomRoutePolicyIpPrefixListNodePrefixLenMax.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListNodePrefixLenMax.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListNodeRowStatus_Type = RowStatus
+_RaisecomRoutePolicyIpPrefixListNodeRowStatus_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListNodeRowStatus = _RaisecomRoutePolicyIpPrefixListNodeRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 3, 1, 7),
+    _RaisecomRoutePolicyIpPrefixListNodeRowStatus_Type()
+)
+raisecomRoutePolicyIpPrefixListNodeRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListNodeRowStatus.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListStatisticsTable_Object = MibTable
+raisecomRoutePolicyIpPrefixListStatisticsTable = _RaisecomRoutePolicyIpPrefixListStatisticsTable_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4)
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListStatisticsTable.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListStatisticsEntry_Object = MibTableRow
+raisecomRoutePolicyIpPrefixListStatisticsEntry = _RaisecomRoutePolicyIpPrefixListStatisticsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4, 1)
+)
+raisecomRoutePolicyIpPrefixListStatisticsEntry.setIndexNames(
+    (0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyIpPrefixListIndex"),
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListStatisticsEntry.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListStatsNodes_Type = Counter32
+_RaisecomRoutePolicyIpPrefixListStatsNodes_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListStatsNodes = _RaisecomRoutePolicyIpPrefixListStatsNodes_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4, 1, 1),
+    _RaisecomRoutePolicyIpPrefixListStatsNodes_Type()
+)
+raisecomRoutePolicyIpPrefixListStatsNodes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListStatsNodes.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListRefCount_Type = Counter32
+_RaisecomRoutePolicyIpPrefixListRefCount_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListRefCount = _RaisecomRoutePolicyIpPrefixListRefCount_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4, 1, 2),
+    _RaisecomRoutePolicyIpPrefixListRefCount_Type()
+)
+raisecomRoutePolicyIpPrefixListRefCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListRefCount.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListStatsPermits_Type = Counter32
+_RaisecomRoutePolicyIpPrefixListStatsPermits_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListStatsPermits = _RaisecomRoutePolicyIpPrefixListStatsPermits_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4, 1, 3),
+    _RaisecomRoutePolicyIpPrefixListStatsPermits_Type()
+)
+raisecomRoutePolicyIpPrefixListStatsPermits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListStatsPermits.setStatus("current")
+_RaisecomRoutePolicyIpPrefixListStatsDenies_Type = Counter32
+_RaisecomRoutePolicyIpPrefixListStatsDenies_Object = MibTableColumn
+raisecomRoutePolicyIpPrefixListStatsDenies = _RaisecomRoutePolicyIpPrefixListStatsDenies_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 2, 4, 1, 4),
+    _RaisecomRoutePolicyIpPrefixListStatsDenies_Type()
+)
+raisecomRoutePolicyIpPrefixListStatsDenies.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyIpPrefixListStatsDenies.setStatus("current")
+_RaisecomRoutePolicyRouteMap_ObjectIdentity = ObjectIdentity
+raisecomRoutePolicyRouteMap = _RaisecomRoutePolicyRouteMap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3)
+)
+_RaisecomRoutePolicyRouteMapScalar_ObjectIdentity = ObjectIdentity
+raisecomRoutePolicyRouteMapScalar = _RaisecomRoutePolicyRouteMapScalar_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 1)
+)
+
+
+class _RaisecomRoutePolicyRouteMapTableNextIndex_Type(Integer32):
+    """Custom type raisecomRoutePolicyRouteMapTableNextIndex based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 400),
+    )
+
+
+_RaisecomRoutePolicyRouteMapTableNextIndex_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyRouteMapTableNextIndex_Object = MibScalar
+raisecomRoutePolicyRouteMapTableNextIndex = _RaisecomRoutePolicyRouteMapTableNextIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 1, 1),
+    _RaisecomRoutePolicyRouteMapTableNextIndex_Type()
+)
+raisecomRoutePolicyRouteMapTableNextIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapTableNextIndex.setStatus("current")
+_RaisecomRoutePolicyRouteMapTable_Object = MibTable
+raisecomRoutePolicyRouteMapTable = _RaisecomRoutePolicyRouteMapTable_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 2)
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapTable.setStatus("current")
+_RaisecomRoutePolicyRouteMapEntry_Object = MibTableRow
+raisecomRoutePolicyRouteMapEntry = _RaisecomRoutePolicyRouteMapEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 2, 1)
+)
+raisecomRoutePolicyRouteMapEntry.setIndexNames(
+    (0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyRouteMapIndex"),
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapEntry.setStatus("current")
+_RaisecomRoutePolicyRouteMapIndex_Type = Integer32
+_RaisecomRoutePolicyRouteMapIndex_Object = MibTableColumn
+raisecomRoutePolicyRouteMapIndex = _RaisecomRoutePolicyRouteMapIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 2, 1, 1),
+    _RaisecomRoutePolicyRouteMapIndex_Type()
+)
+raisecomRoutePolicyRouteMapIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapIndex.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapName_Type(OctetString):
+    """Custom type raisecomRoutePolicyRouteMapName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 19),
+    )
+
+
+_RaisecomRoutePolicyRouteMapName_Type.__name__ = "OctetString"
+_RaisecomRoutePolicyRouteMapName_Object = MibTableColumn
+raisecomRoutePolicyRouteMapName = _RaisecomRoutePolicyRouteMapName_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 2, 1, 2),
+    _RaisecomRoutePolicyRouteMapName_Type()
+)
+raisecomRoutePolicyRouteMapName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapName.setStatus("current")
+_RaisecomRoutePolicyRouteMapRowStatus_Type = RowStatus
+_RaisecomRoutePolicyRouteMapRowStatus_Object = MibTableColumn
+raisecomRoutePolicyRouteMapRowStatus = _RaisecomRoutePolicyRouteMapRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 2, 1, 3),
+    _RaisecomRoutePolicyRouteMapRowStatus_Type()
+)
+raisecomRoutePolicyRouteMapRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapRowStatus.setStatus("current")
+_RaisecomRoutePolicyRouteMapNodeTable_Object = MibTable
+raisecomRoutePolicyRouteMapNodeTable = _RaisecomRoutePolicyRouteMapNodeTable_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3)
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeTable.setStatus("current")
+_RaisecomRoutePolicyRouteMapNodeEntry_Object = MibTableRow
+raisecomRoutePolicyRouteMapNodeEntry = _RaisecomRoutePolicyRouteMapNodeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1)
+)
+raisecomRoutePolicyRouteMapNodeEntry.setIndexNames(
+    (0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyRouteMapIndex"),
+    (0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyRouteMapNodeSeq"),
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeEntry.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeSeq_Type(Integer32):
+    """Custom type raisecomRoutePolicyRouteMapNodeSeq based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_RaisecomRoutePolicyRouteMapNodeSeq_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyRouteMapNodeSeq_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeSeq = _RaisecomRoutePolicyRouteMapNodeSeq_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 1),
+    _RaisecomRoutePolicyRouteMapNodeSeq_Type()
+)
+raisecomRoutePolicyRouteMapNodeSeq.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeSeq.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeMode_Type(Integer32):
+    """Custom type raisecomRoutePolicyRouteMapNodeMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("permit", 0),
+          ("deny", 1))
+    )
+
+
+_RaisecomRoutePolicyRouteMapNodeMode_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyRouteMapNodeMode_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeMode = _RaisecomRoutePolicyRouteMapNodeMode_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 2),
+    _RaisecomRoutePolicyRouteMapNodeMode_Type()
+)
+raisecomRoutePolicyRouteMapNodeMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeMode.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeMatchFlag_Type(Bits):
+    """Custom type raisecomRoutePolicyRouteMapNodeMatchFlag based on Bits"""
+    namedValues = NamedValues(
+        *(("ip-prefix-list", 0),
+          ("ip-acl-num", 1),
+          ("metric", 2),
+          ("tag", 3),
+          ("route-type", 4))
+    )
+
+_RaisecomRoutePolicyRouteMapNodeMatchFlag_Type.__name__ = "Bits"
+_RaisecomRoutePolicyRouteMapNodeMatchFlag_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeMatchFlag = _RaisecomRoutePolicyRouteMapNodeMatchFlag_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 3),
+    _RaisecomRoutePolicyRouteMapNodeMatchFlag_Type()
+)
+raisecomRoutePolicyRouteMapNodeMatchFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeMatchFlag.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeSetFlag_Type(Bits):
+    """Custom type raisecomRoutePolicyRouteMapNodeSetFlag based on Bits"""
+    namedValues = NamedValues(
+        *(("metric-rule", 0),
+          ("metric", 1),
+          ("metric-type", 2),
+          ("tag", 3),
+          ("level", 4))
+    )
+
+_RaisecomRoutePolicyRouteMapNodeSetFlag_Type.__name__ = "Bits"
+_RaisecomRoutePolicyRouteMapNodeSetFlag_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeSetFlag = _RaisecomRoutePolicyRouteMapNodeSetFlag_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 4),
+    _RaisecomRoutePolicyRouteMapNodeSetFlag_Type()
+)
+raisecomRoutePolicyRouteMapNodeSetFlag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeSetFlag.setStatus("current")
+_RaisecomRoutePolicyRouteMapNodeMatchIpAclNum_Type = Integer32
+_RaisecomRoutePolicyRouteMapNodeMatchIpAclNum_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeMatchIpAclNum = _RaisecomRoutePolicyRouteMapNodeMatchIpAclNum_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 5),
+    _RaisecomRoutePolicyRouteMapNodeMatchIpAclNum_Type()
+)
+raisecomRoutePolicyRouteMapNodeMatchIpAclNum.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeMatchIpAclNum.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeMatchIpPrefixListName_Type(OctetString):
+    """Custom type raisecomRoutePolicyRouteMapNodeMatchIpPrefixListName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 19),
+    )
+
+
+_RaisecomRoutePolicyRouteMapNodeMatchIpPrefixListName_Type.__name__ = "OctetString"
+_RaisecomRoutePolicyRouteMapNodeMatchIpPrefixListName_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeMatchIpPrefixListName = _RaisecomRoutePolicyRouteMapNodeMatchIpPrefixListName_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 6),
+    _RaisecomRoutePolicyRouteMapNodeMatchIpPrefixListName_Type()
+)
+raisecomRoutePolicyRouteMapNodeMatchIpPrefixListName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeMatchIpPrefixListName.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeMatchRouteType_Type(Bits):
+    """Custom type raisecomRoutePolicyRouteMapNodeMatchRouteType based on Bits"""
+    namedValues = NamedValues(
+        *(("internel", 0),
+          ("external-type1", 1),
+          ("external-type2", 2),
+          ("nssa-external-type1", 3),
+          ("nssa-external-type2", 4))
+    )
+
+_RaisecomRoutePolicyRouteMapNodeMatchRouteType_Type.__name__ = "Bits"
+_RaisecomRoutePolicyRouteMapNodeMatchRouteType_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeMatchRouteType = _RaisecomRoutePolicyRouteMapNodeMatchRouteType_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 7),
+    _RaisecomRoutePolicyRouteMapNodeMatchRouteType_Type()
+)
+raisecomRoutePolicyRouteMapNodeMatchRouteType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeMatchRouteType.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeMatchTag_Type(Integer32):
+    """Custom type raisecomRoutePolicyRouteMapNodeMatchTag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_RaisecomRoutePolicyRouteMapNodeMatchTag_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyRouteMapNodeMatchTag_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeMatchTag = _RaisecomRoutePolicyRouteMapNodeMatchTag_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 8),
+    _RaisecomRoutePolicyRouteMapNodeMatchTag_Type()
+)
+raisecomRoutePolicyRouteMapNodeMatchTag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeMatchTag.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeMatchMetric_Type(Integer32):
+    """Custom type raisecomRoutePolicyRouteMapNodeMatchMetric based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_RaisecomRoutePolicyRouteMapNodeMatchMetric_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyRouteMapNodeMatchMetric_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeMatchMetric = _RaisecomRoutePolicyRouteMapNodeMatchMetric_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 9),
+    _RaisecomRoutePolicyRouteMapNodeMatchMetric_Type()
+)
+raisecomRoutePolicyRouteMapNodeMatchMetric.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeMatchMetric.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeSetLevel_Type(Integer32):
+    """Custom type raisecomRoutePolicyRouteMapNodeSetLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("stub-area", 1),
+          ("backbone", 2))
+    )
+
+
+_RaisecomRoutePolicyRouteMapNodeSetLevel_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyRouteMapNodeSetLevel_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeSetLevel = _RaisecomRoutePolicyRouteMapNodeSetLevel_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 10),
+    _RaisecomRoutePolicyRouteMapNodeSetLevel_Type()
+)
+raisecomRoutePolicyRouteMapNodeSetLevel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeSetLevel.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeSetTag_Type(Integer32):
+    """Custom type raisecomRoutePolicyRouteMapNodeSetTag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_RaisecomRoutePolicyRouteMapNodeSetTag_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyRouteMapNodeSetTag_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeSetTag = _RaisecomRoutePolicyRouteMapNodeSetTag_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 11),
+    _RaisecomRoutePolicyRouteMapNodeSetTag_Type()
+)
+raisecomRoutePolicyRouteMapNodeSetTag.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeSetTag.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeSetMetricRule_Type(Integer32):
+    """Custom type raisecomRoutePolicyRouteMapNodeSetMetricRule based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("add", 1),
+          ("subtract", 2))
+    )
+
+
+_RaisecomRoutePolicyRouteMapNodeSetMetricRule_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyRouteMapNodeSetMetricRule_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeSetMetricRule = _RaisecomRoutePolicyRouteMapNodeSetMetricRule_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 12),
+    _RaisecomRoutePolicyRouteMapNodeSetMetricRule_Type()
+)
+raisecomRoutePolicyRouteMapNodeSetMetricRule.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeSetMetricRule.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeSetMetric_Type(Integer32):
+    """Custom type raisecomRoutePolicyRouteMapNodeSetMetric based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_RaisecomRoutePolicyRouteMapNodeSetMetric_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyRouteMapNodeSetMetric_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeSetMetric = _RaisecomRoutePolicyRouteMapNodeSetMetric_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 13),
+    _RaisecomRoutePolicyRouteMapNodeSetMetric_Type()
+)
+raisecomRoutePolicyRouteMapNodeSetMetric.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeSetMetric.setStatus("current")
+
+
+class _RaisecomRoutePolicyRouteMapNodeSetMetricType_Type(Integer32):
+    """Custom type raisecomRoutePolicyRouteMapNodeSetMetricType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("type-1", 1),
+          ("type-2", 2))
+    )
+
+
+_RaisecomRoutePolicyRouteMapNodeSetMetricType_Type.__name__ = "Integer32"
+_RaisecomRoutePolicyRouteMapNodeSetMetricType_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeSetMetricType = _RaisecomRoutePolicyRouteMapNodeSetMetricType_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 14),
+    _RaisecomRoutePolicyRouteMapNodeSetMetricType_Type()
+)
+raisecomRoutePolicyRouteMapNodeSetMetricType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeSetMetricType.setStatus("current")
+_RaisecomRoutePolicyRouteMapNodeRowStatus_Type = RowStatus
+_RaisecomRoutePolicyRouteMapNodeRowStatus_Object = MibTableColumn
+raisecomRoutePolicyRouteMapNodeRowStatus = _RaisecomRoutePolicyRouteMapNodeRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 3, 1, 15),
+    _RaisecomRoutePolicyRouteMapNodeRowStatus_Type()
+)
+raisecomRoutePolicyRouteMapNodeRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapNodeRowStatus.setStatus("current")
+_RaisecomRoutePolicyRouteMapStatisticsTable_Object = MibTable
+raisecomRoutePolicyRouteMapStatisticsTable = _RaisecomRoutePolicyRouteMapStatisticsTable_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 4)
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapStatisticsTable.setStatus("current")
+_RaisecomRoutePolicyRouteMapStatisticsEntry_Object = MibTableRow
+raisecomRoutePolicyRouteMapStatisticsEntry = _RaisecomRoutePolicyRouteMapStatisticsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 4, 1)
+)
+raisecomRoutePolicyRouteMapStatisticsEntry.setIndexNames(
+    (0, "RAISECOM-ROUTEPOLICY-MIB", "raisecomRoutePolicyRouteMapIndex"),
+)
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapStatisticsEntry.setStatus("current")
+_RaisecomRoutePolicyRouteMapRefCount_Type = Counter32
+_RaisecomRoutePolicyRouteMapRefCount_Object = MibTableColumn
+raisecomRoutePolicyRouteMapRefCount = _RaisecomRoutePolicyRouteMapRefCount_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 2, 3, 4, 1, 1),
+    _RaisecomRoutePolicyRouteMapRefCount_Type()
+)
+raisecomRoutePolicyRouteMapRefCount.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomRoutePolicyRouteMapRefCount.setStatus("current")
+_RaisecomRoutePolicyConformance_ObjectIdentity = ObjectIdentity
+raisecomRoutePolicyConformance = _RaisecomRoutePolicyConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 76, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RAISECOM-ROUTEPOLICY-MIB",
+    **{"raisecomRoutePolicy": raisecomRoutePolicy,
+       "raisecomRoutePolicyNotifications": raisecomRoutePolicyNotifications,
+       "raisecomRoutePolicyObjects": raisecomRoutePolicyObjects,
+       "raisecomRoutePolicyScalar": raisecomRoutePolicyScalar,
+       "raisecomRoutePolicyIpPrefixList": raisecomRoutePolicyIpPrefixList,
+       "raisecomRoutePolicyIpPrefixListScalar": raisecomRoutePolicyIpPrefixListScalar,
+       "raisecomRoutePolicyIpPrefixListTableNextIndex": raisecomRoutePolicyIpPrefixListTableNextIndex,
+       "raisecomRoutePolicyIpPrefixListTable": raisecomRoutePolicyIpPrefixListTable,
+       "raisecomRoutePolicyIpPrefixListEntry": raisecomRoutePolicyIpPrefixListEntry,
+       "raisecomRoutePolicyIpPrefixListIndex": raisecomRoutePolicyIpPrefixListIndex,
+       "raisecomRoutePolicyIpPrefixListName": raisecomRoutePolicyIpPrefixListName,
+       "raisecomRoutePolicyIpPrefixListNextNodeSeq": raisecomRoutePolicyIpPrefixListNextNodeSeq,
+       "raisecomRoutePolicyIpPrefixListRowStatus": raisecomRoutePolicyIpPrefixListRowStatus,
+       "raisecomRoutePolicyIpPrefixListNodeTable": raisecomRoutePolicyIpPrefixListNodeTable,
+       "raisecomRoutePolicyIpPrefixListNodeEntry": raisecomRoutePolicyIpPrefixListNodeEntry,
+       "raisecomRoutePolicyIpPrefixListNodeSeq": raisecomRoutePolicyIpPrefixListNodeSeq,
+       "raisecomRoutePolicyIpPrefixListNodeMode": raisecomRoutePolicyIpPrefixListNodeMode,
+       "raisecomRoutePolicyIpPrefixListNodePrefix": raisecomRoutePolicyIpPrefixListNodePrefix,
+       "raisecomRoutePolicyIpPrefixListNodePrefixLen": raisecomRoutePolicyIpPrefixListNodePrefixLen,
+       "raisecomRoutePolicyIpPrefixListNodePrefixLenMin": raisecomRoutePolicyIpPrefixListNodePrefixLenMin,
+       "raisecomRoutePolicyIpPrefixListNodePrefixLenMax": raisecomRoutePolicyIpPrefixListNodePrefixLenMax,
+       "raisecomRoutePolicyIpPrefixListNodeRowStatus": raisecomRoutePolicyIpPrefixListNodeRowStatus,
+       "raisecomRoutePolicyIpPrefixListStatisticsTable": raisecomRoutePolicyIpPrefixListStatisticsTable,
+       "raisecomRoutePolicyIpPrefixListStatisticsEntry": raisecomRoutePolicyIpPrefixListStatisticsEntry,
+       "raisecomRoutePolicyIpPrefixListStatsNodes": raisecomRoutePolicyIpPrefixListStatsNodes,
+       "raisecomRoutePolicyIpPrefixListRefCount": raisecomRoutePolicyIpPrefixListRefCount,
+       "raisecomRoutePolicyIpPrefixListStatsPermits": raisecomRoutePolicyIpPrefixListStatsPermits,
+       "raisecomRoutePolicyIpPrefixListStatsDenies": raisecomRoutePolicyIpPrefixListStatsDenies,
+       "raisecomRoutePolicyRouteMap": raisecomRoutePolicyRouteMap,
+       "raisecomRoutePolicyRouteMapScalar": raisecomRoutePolicyRouteMapScalar,
+       "raisecomRoutePolicyRouteMapTableNextIndex": raisecomRoutePolicyRouteMapTableNextIndex,
+       "raisecomRoutePolicyRouteMapTable": raisecomRoutePolicyRouteMapTable,
+       "raisecomRoutePolicyRouteMapEntry": raisecomRoutePolicyRouteMapEntry,
+       "raisecomRoutePolicyRouteMapIndex": raisecomRoutePolicyRouteMapIndex,
+       "raisecomRoutePolicyRouteMapName": raisecomRoutePolicyRouteMapName,
+       "raisecomRoutePolicyRouteMapRowStatus": raisecomRoutePolicyRouteMapRowStatus,
+       "raisecomRoutePolicyRouteMapNodeTable": raisecomRoutePolicyRouteMapNodeTable,
+       "raisecomRoutePolicyRouteMapNodeEntry": raisecomRoutePolicyRouteMapNodeEntry,
+       "raisecomRoutePolicyRouteMapNodeSeq": raisecomRoutePolicyRouteMapNodeSeq,
+       "raisecomRoutePolicyRouteMapNodeMode": raisecomRoutePolicyRouteMapNodeMode,
+       "raisecomRoutePolicyRouteMapNodeMatchFlag": raisecomRoutePolicyRouteMapNodeMatchFlag,
+       "raisecomRoutePolicyRouteMapNodeSetFlag": raisecomRoutePolicyRouteMapNodeSetFlag,
+       "raisecomRoutePolicyRouteMapNodeMatchIpAclNum": raisecomRoutePolicyRouteMapNodeMatchIpAclNum,
+       "raisecomRoutePolicyRouteMapNodeMatchIpPrefixListName": raisecomRoutePolicyRouteMapNodeMatchIpPrefixListName,
+       "raisecomRoutePolicyRouteMapNodeMatchRouteType": raisecomRoutePolicyRouteMapNodeMatchRouteType,
+       "raisecomRoutePolicyRouteMapNodeMatchTag": raisecomRoutePolicyRouteMapNodeMatchTag,
+       "raisecomRoutePolicyRouteMapNodeMatchMetric": raisecomRoutePolicyRouteMapNodeMatchMetric,
+       "raisecomRoutePolicyRouteMapNodeSetLevel": raisecomRoutePolicyRouteMapNodeSetLevel,
+       "raisecomRoutePolicyRouteMapNodeSetTag": raisecomRoutePolicyRouteMapNodeSetTag,
+       "raisecomRoutePolicyRouteMapNodeSetMetricRule": raisecomRoutePolicyRouteMapNodeSetMetricRule,
+       "raisecomRoutePolicyRouteMapNodeSetMetric": raisecomRoutePolicyRouteMapNodeSetMetric,
+       "raisecomRoutePolicyRouteMapNodeSetMetricType": raisecomRoutePolicyRouteMapNodeSetMetricType,
+       "raisecomRoutePolicyRouteMapNodeRowStatus": raisecomRoutePolicyRouteMapNodeRowStatus,
+       "raisecomRoutePolicyRouteMapStatisticsTable": raisecomRoutePolicyRouteMapStatisticsTable,
+       "raisecomRoutePolicyRouteMapStatisticsEntry": raisecomRoutePolicyRouteMapStatisticsEntry,
+       "raisecomRoutePolicyRouteMapRefCount": raisecomRoutePolicyRouteMapRefCount,
+       "raisecomRoutePolicyConformance": raisecomRoutePolicyConformance}
+)

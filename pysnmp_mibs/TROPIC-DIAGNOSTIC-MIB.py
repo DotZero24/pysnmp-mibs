@@ -1,51 +1,307 @@
+# SNMP MIB module (TROPIC-DIAGNOSTIC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TROPIC-DIAGNOSTIC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TROPIC-DIAGNOSTIC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:40:13 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TROPIC-DIAGNOSTIC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:00:54 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-tnSystemModules, tnDiagnosticMIB = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnSystemModules", "tnDiagnosticMIB")
-tnShelfIndex, = mibBuilder.importSymbols("TROPIC-SHELF-MIB", "tnShelfIndex")
-tnSlotIndex, = mibBuilder.importSymbols("TROPIC-SLOT-MIB", "tnSlotIndex")
-tnDiagnosticMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 1, 1, 2, 1, 4))
-tnDiagnosticMibModule.setRevisions(('2018-02-23 12:00', '2016-11-16 12:00', '2010-07-15 12:00',))
-if mibBuilder.loadTexts: tnDiagnosticMibModule.setLastUpdated('201802231200Z')
-if mibBuilder.loadTexts: tnDiagnosticMibModule.setOrganization('Nokia')
-tnDiagnosticConf = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 1))
-tnDiagnosticGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 1, 1))
-tnDiagnosticCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 1, 2))
-tnDiagnosticObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(tnDiagnosticMIB,
+ tnSystemModules) = mibBuilder.importSymbols(
+    "TROPIC-GLOBAL-REG",
+    "tnDiagnosticMIB",
+    "tnSystemModules")
+
+(tnShelfIndex,) = mibBuilder.importSymbols(
+    "TROPIC-SHELF-MIB",
+    "tnShelfIndex")
+
+(tnSlotIndex,) = mibBuilder.importSymbols(
+    "TROPIC-SLOT-MIB",
+    "tnSlotIndex")
+
+
+# MODULE-IDENTITY
+
+tnDiagnosticMibModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 1, 1, 2, 1, 4)
+)
+if mibBuilder.loadTexts:
+    tnDiagnosticMibModule.setRevisions(
+        ("2018-02-23 12:00",
+         "2016-11-16 12:00",
+         "2010-07-15 12:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class TnEquipDiagDescription(SnmpAdminString):
-    status = 'current'
-    subtypeSpec = SnmpAdminString.subtypeSpec + ValueSizeConstraint(0, 60)
+    status = "current"
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 60),
+    )
 
-tnEquipmentDiagnosticStatusTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1), )
-if mibBuilder.loadTexts: tnEquipmentDiagnosticStatusTable.setStatus('current')
-tnEquipDiagStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1), ).setIndexNames((0, "TROPIC-SHELF-MIB", "tnShelfIndex"), (0, "TROPIC-SLOT-MIB", "tnSlotIndex"), (0, "TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagPort"), (0, "TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagId"), (0, "TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagUnit"))
-if mibBuilder.loadTexts: tnEquipDiagStatusEntry.setStatus('current')
-tnEquipDiagPort = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: tnEquipDiagPort.setStatus('current')
-tnEquipDiagId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1, 2), Unsigned32())
-if mibBuilder.loadTexts: tnEquipDiagId.setStatus('current')
-tnEquipDiagUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1, 3), Unsigned32())
-if mibBuilder.loadTexts: tnEquipDiagUnit.setStatus('current')
-tnEquipDiagStatusDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1, 4), TnEquipDiagDescription()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tnEquipDiagStatusDescr.setStatus('current')
-tnEquipDiagStatusResult = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("failed", 1), ("passed", 2), ("willNotRun", 3), ("notExecuted", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tnEquipDiagStatusResult.setStatus('current')
-tnEquipDiagStatusGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 1, 1, 1)).setObjects(("TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagStatusDescr"), ("TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagStatusResult"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tnEquipDiagStatusGroup = tnEquipDiagStatusGroup.setStatus('current')
-tnDiagnosticCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 1, 2, 1)).setObjects(("TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagStatusGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tnDiagnosticCompliance = tnDiagnosticCompliance.setStatus('current')
-mibBuilder.exportSymbols("TROPIC-DIAGNOSTIC-MIB", tnDiagnosticConf=tnDiagnosticConf, tnDiagnosticMibModule=tnDiagnosticMibModule, tnEquipDiagStatusGroup=tnEquipDiagStatusGroup, tnDiagnosticObjs=tnDiagnosticObjs, tnEquipDiagPort=tnEquipDiagPort, tnEquipDiagStatusEntry=tnEquipDiagStatusEntry, tnEquipDiagUnit=tnEquipDiagUnit, tnEquipDiagStatusDescr=tnEquipDiagStatusDescr, tnEquipDiagStatusResult=tnEquipDiagStatusResult, PYSNMP_MODULE_ID=tnDiagnosticMibModule, tnDiagnosticCompliances=tnDiagnosticCompliances, tnEquipDiagId=tnEquipDiagId, tnEquipmentDiagnosticStatusTable=tnEquipmentDiagnosticStatusTable, tnDiagnosticGroups=tnDiagnosticGroups, tnDiagnosticCompliance=tnDiagnosticCompliance, TnEquipDiagDescription=TnEquipDiagDescription)
+
+# MIB Managed Objects in the order of their OIDs
+
+_TnDiagnosticConf_ObjectIdentity = ObjectIdentity
+tnDiagnosticConf = _TnDiagnosticConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 1)
+)
+_TnDiagnosticGroups_ObjectIdentity = ObjectIdentity
+tnDiagnosticGroups = _TnDiagnosticGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 1, 1)
+)
+_TnDiagnosticCompliances_ObjectIdentity = ObjectIdentity
+tnDiagnosticCompliances = _TnDiagnosticCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 1, 2)
+)
+_TnDiagnosticObjs_ObjectIdentity = ObjectIdentity
+tnDiagnosticObjs = _TnDiagnosticObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2)
+)
+_TnEquipmentDiagnosticStatusTable_Object = MibTable
+tnEquipmentDiagnosticStatusTable = _TnEquipmentDiagnosticStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1)
+)
+if mibBuilder.loadTexts:
+    tnEquipmentDiagnosticStatusTable.setStatus("current")
+_TnEquipDiagStatusEntry_Object = MibTableRow
+tnEquipDiagStatusEntry = _TnEquipDiagStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1)
+)
+tnEquipDiagStatusEntry.setIndexNames(
+    (0, "TROPIC-SHELF-MIB", "tnShelfIndex"),
+    (0, "TROPIC-SLOT-MIB", "tnSlotIndex"),
+    (0, "TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagPort"),
+    (0, "TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagId"),
+    (0, "TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagUnit"),
+)
+if mibBuilder.loadTexts:
+    tnEquipDiagStatusEntry.setStatus("current")
+_TnEquipDiagPort_Type = Unsigned32
+_TnEquipDiagPort_Object = MibTableColumn
+tnEquipDiagPort = _TnEquipDiagPort_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1, 1),
+    _TnEquipDiagPort_Type()
+)
+tnEquipDiagPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tnEquipDiagPort.setStatus("current")
+_TnEquipDiagId_Type = Unsigned32
+_TnEquipDiagId_Object = MibTableColumn
+tnEquipDiagId = _TnEquipDiagId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1, 2),
+    _TnEquipDiagId_Type()
+)
+tnEquipDiagId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tnEquipDiagId.setStatus("current")
+_TnEquipDiagUnit_Type = Unsigned32
+_TnEquipDiagUnit_Object = MibTableColumn
+tnEquipDiagUnit = _TnEquipDiagUnit_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1, 3),
+    _TnEquipDiagUnit_Type()
+)
+tnEquipDiagUnit.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tnEquipDiagUnit.setStatus("current")
+_TnEquipDiagStatusDescr_Type = TnEquipDiagDescription
+_TnEquipDiagStatusDescr_Object = MibTableColumn
+tnEquipDiagStatusDescr = _TnEquipDiagStatusDescr_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1, 4),
+    _TnEquipDiagStatusDescr_Type()
+)
+tnEquipDiagStatusDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tnEquipDiagStatusDescr.setStatus("current")
+
+
+class _TnEquipDiagStatusResult_Type(Integer32):
+    """Custom type tnEquipDiagStatusResult based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("failed", 1),
+          ("passed", 2),
+          ("willNotRun", 3),
+          ("notExecuted", 4))
+    )
+
+
+_TnEquipDiagStatusResult_Type.__name__ = "Integer32"
+_TnEquipDiagStatusResult_Object = MibTableColumn
+tnEquipDiagStatusResult = _TnEquipDiagStatusResult_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 2, 1, 1, 5),
+    _TnEquipDiagStatusResult_Type()
+)
+tnEquipDiagStatusResult.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tnEquipDiagStatusResult.setStatus("current")
+
+# Managed Objects groups
+
+tnEquipDiagStatusGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 1, 1, 1)
+)
+tnEquipDiagStatusGroup.setObjects(
+      *(("TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagStatusDescr"),
+        ("TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagStatusResult"))
+)
+if mibBuilder.loadTexts:
+    tnEquipDiagStatusGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tnDiagnosticCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 4, 1, 2, 1)
+)
+tnDiagnosticCompliance.setObjects(
+    ("TROPIC-DIAGNOSTIC-MIB", "tnEquipDiagStatusGroup")
+)
+if mibBuilder.loadTexts:
+    tnDiagnosticCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TROPIC-DIAGNOSTIC-MIB",
+    **{"TnEquipDiagDescription": TnEquipDiagDescription,
+       "tnDiagnosticMibModule": tnDiagnosticMibModule,
+       "tnDiagnosticConf": tnDiagnosticConf,
+       "tnDiagnosticGroups": tnDiagnosticGroups,
+       "tnEquipDiagStatusGroup": tnEquipDiagStatusGroup,
+       "tnDiagnosticCompliances": tnDiagnosticCompliances,
+       "tnDiagnosticCompliance": tnDiagnosticCompliance,
+       "tnDiagnosticObjs": tnDiagnosticObjs,
+       "tnEquipmentDiagnosticStatusTable": tnEquipmentDiagnosticStatusTable,
+       "tnEquipDiagStatusEntry": tnEquipDiagStatusEntry,
+       "tnEquipDiagPort": tnEquipDiagPort,
+       "tnEquipDiagId": tnEquipDiagId,
+       "tnEquipDiagUnit": tnEquipDiagUnit,
+       "tnEquipDiagStatusDescr": tnEquipDiagStatusDescr,
+       "tnEquipDiagStatusResult": tnEquipDiagStatusResult}
+)

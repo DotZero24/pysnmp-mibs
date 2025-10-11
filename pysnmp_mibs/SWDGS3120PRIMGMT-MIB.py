@@ -1,55 +1,337 @@
+# SNMP MIB module (SWDGS3120PRIMGMT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SWDGS3120PRIMGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/SWDGS3120PRIMGMT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:06 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/SWDGS3120PRIMGMT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:51:44 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_mgmt, dlink_products = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-mgmt", "dlink-products")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-dlink_Dgs3120Prod = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117)).setLabel("dlink-Dgs3120Prod")
-dlink_Dgs3120ProdModel = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 1)).setLabel("dlink-Dgs3120ProdModel")
-dlink_Dgs3120Prod_Dgs3120_24TC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 1)).setLabel("dlink-Dgs3120Prod-Dgs3120-24TC")
-dlink_Dgs3120Prod_Dgs3120_24PC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 2)).setLabel("dlink-Dgs3120Prod-Dgs3120-24PC")
-dlink_Dgs3120Prod_Dgs3120_24SC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 3)).setLabel("dlink-Dgs3120Prod-Dgs3120-24SC")
-dlink_Dgs3120Prod_Dgs3120_48TC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 4)).setLabel("dlink-Dgs3120Prod-Dgs3120-48TC")
-dlink_Dgs3120Prod_Dgs3120_48PC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 5)).setLabel("dlink-Dgs3120Prod-Dgs3120-48PC")
-dlink_Dgs3120Prod_Dgs3120_24SC_DC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 6)).setLabel("dlink-Dgs3120Prod-Dgs3120-24SC-DC")
-dlink_Dgs3120Prod_DGS_3120_24TC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 2)).setLabel("dlink-Dgs3120Prod-DGS-3120-24TC")
-dlink_Dgs3120Prod_DGS_3120_24TC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 2, 1)).setLabel("dlink-Dgs3120Prod-DGS-3120-24TC-bx")
-dlink_Dgs3120Prod_DGS_3120_24PC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 3)).setLabel("dlink-Dgs3120Prod-DGS-3120-24PC")
-dlink_Dgs3120Prod_DGS_3120_24PC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 3, 1)).setLabel("dlink-Dgs3120Prod-DGS-3120-24PC-bx")
-dlink_Dgs3120Prod_DGS_3120_24SC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 4)).setLabel("dlink-Dgs3120Prod-DGS-3120-24SC")
-dlink_Dgs3120Prod_DGS_3120_24SC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 4, 1)).setLabel("dlink-Dgs3120Prod-DGS-3120-24SC-bx")
-dlink_Dgs3120Prod_DGS_3120_48TC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 5)).setLabel("dlink-Dgs3120Prod-DGS-3120-48TC")
-dlink_Dgs3120Prod_DGS_3120_48TC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 5, 1)).setLabel("dlink-Dgs3120Prod-DGS-3120-48TC-bx")
-dlink_Dgs3120Prod_DGS_3120_48PC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 6)).setLabel("dlink-Dgs3120Prod-DGS-3120-48PC")
-dlink_Dgs3120Prod_DGS_3120_48PC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 6, 1)).setLabel("dlink-Dgs3120Prod-DGS-3120-48PC-bx")
-dlink_Dgs3120Prod_DGS_3120_24SC_DC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 7)).setLabel("dlink-Dgs3120Prod-DGS-3120-24SC-DC")
-dlink_Dgs3120Prod_DGS_3120_24SC_DC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 117, 7, 1)).setLabel("dlink-Dgs3120Prod-DGS-3120-24SC-DC-bx")
-dlink_Dgs3120Proj = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117)).setLabel("dlink-Dgs3120Proj")
-dlink_Dgs3120ProjModel = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 1)).setLabel("dlink-Dgs3120ProjModel")
-dlink_Dgs3120Proj_Dgs3120_24TC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 1)).setLabel("dlink-Dgs3120Proj-Dgs3120-24TC")
-dlink_Dgs3120Proj_Dgs3120_24PC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 2)).setLabel("dlink-Dgs3120Proj-Dgs3120-24PC")
-dlink_Dgs3120Proj_Dgs3120_24SC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 3)).setLabel("dlink-Dgs3120Proj-Dgs3120-24SC")
-dlink_Dgs3120Proj_Dgs3120_48TC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 4)).setLabel("dlink-Dgs3120Proj-Dgs3120-48TC")
-dlink_Dgs3120Proj_Dgs3120_48PC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 5)).setLabel("dlink-Dgs3120Proj-Dgs3120-48PC")
-dlink_Dgs3120Proj_Dgs3120_24SC_DC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 6)).setLabel("dlink-Dgs3120Proj-Dgs3120-24SC-DC")
-dlink_Dgs3120Proj_DGS_3120_24TC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 2)).setLabel("dlink-Dgs3120Proj-DGS-3120-24TC")
-dlink_Dgs3120Proj_DGS_3120_24TC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 2, 1)).setLabel("dlink-Dgs3120Proj-DGS-3120-24TC-bx")
-dlink_Dgs3120Proj_DGS_3120_24PC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 3)).setLabel("dlink-Dgs3120Proj-DGS-3120-24PC")
-dlink_Dgs3120Proj_DGS_3120_24PC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 3, 1)).setLabel("dlink-Dgs3120Proj-DGS-3120-24PC-bx")
-dlink_Dgs3120Proj_DGS_3120_24SC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 4)).setLabel("dlink-Dgs3120Proj-DGS-3120-24SC")
-dlink_Dgs3120Proj_DGS_3120_24SC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 4, 1)).setLabel("dlink-Dgs3120Proj-DGS-3120-24SC-bx")
-dlink_Dgs3120Proj_DGS_3120_48TC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 5)).setLabel("dlink-Dgs3120Proj-DGS-3120-48TC")
-dlink_Dgs3120Proj_DGS_3120_48TC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 5, 1)).setLabel("dlink-Dgs3120Proj-DGS-3120-48TC-bx")
-dlink_Dgs3120Proj_DGS_3120_48PC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 6)).setLabel("dlink-Dgs3120Proj-DGS-3120-48PC")
-dlink_Dgs3120Proj_DGS_3120_48PC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 6, 1)).setLabel("dlink-Dgs3120Proj-DGS-3120-48PC-bx")
-dlink_Dgs3120Proj_DGS_3120_24SC_DC = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 7)).setLabel("dlink-Dgs3120Proj-DGS-3120-24SC-DC")
-dlink_Dgs3120Proj_DGS_3120_24SC_DC_bx = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 117, 7, 1)).setLabel("dlink-Dgs3120Proj-DGS-3120-24SC-DC-bx")
-mibBuilder.exportSymbols("SWDGS3120PRIMGMT-MIB", dlink_Dgs3120Prod_DGS_3120_48TC=dlink_Dgs3120Prod_DGS_3120_48TC, dlink_Dgs3120Prod_Dgs3120_24SC=dlink_Dgs3120Prod_Dgs3120_24SC, dlink_Dgs3120Prod_DGS_3120_24SC_DC_bx=dlink_Dgs3120Prod_DGS_3120_24SC_DC_bx, dlink_Dgs3120Proj_DGS_3120_24TC=dlink_Dgs3120Proj_DGS_3120_24TC, dlink_Dgs3120Prod_Dgs3120_24PC=dlink_Dgs3120Prod_Dgs3120_24PC, dlink_Dgs3120Prod_Dgs3120_24SC_DC=dlink_Dgs3120Prod_Dgs3120_24SC_DC, dlink_Dgs3120Prod_DGS_3120_48PC=dlink_Dgs3120Prod_DGS_3120_48PC, dlink_Dgs3120Proj_Dgs3120_24SC_DC=dlink_Dgs3120Proj_Dgs3120_24SC_DC, dlink_Dgs3120Proj_DGS_3120_48TC_bx=dlink_Dgs3120Proj_DGS_3120_48TC_bx, dlink_Dgs3120Proj_DGS_3120_24SC_bx=dlink_Dgs3120Proj_DGS_3120_24SC_bx, dlink_Dgs3120Prod_Dgs3120_24TC=dlink_Dgs3120Prod_Dgs3120_24TC, dlink_Dgs3120ProjModel=dlink_Dgs3120ProjModel, dlink_Dgs3120Prod_Dgs3120_48PC=dlink_Dgs3120Prod_Dgs3120_48PC, dlink_Dgs3120Prod_DGS_3120_24PC_bx=dlink_Dgs3120Prod_DGS_3120_24PC_bx, dlink_Dgs3120Proj_DGS_3120_24SC_DC_bx=dlink_Dgs3120Proj_DGS_3120_24SC_DC_bx, dlink_Dgs3120Proj_DGS_3120_24PC_bx=dlink_Dgs3120Proj_DGS_3120_24PC_bx, dlink_Dgs3120Prod_DGS_3120_24TC=dlink_Dgs3120Prod_DGS_3120_24TC, dlink_Dgs3120Proj=dlink_Dgs3120Proj, dlink_Dgs3120Prod=dlink_Dgs3120Prod, dlink_Dgs3120Proj_DGS_3120_24SC=dlink_Dgs3120Proj_DGS_3120_24SC, dlink_Dgs3120ProdModel=dlink_Dgs3120ProdModel, dlink_Dgs3120Prod_Dgs3120_48TC=dlink_Dgs3120Prod_Dgs3120_48TC, dlink_Dgs3120Proj_Dgs3120_24PC=dlink_Dgs3120Proj_Dgs3120_24PC, dlink_Dgs3120Proj_Dgs3120_24TC=dlink_Dgs3120Proj_Dgs3120_24TC, dlink_Dgs3120Proj_DGS_3120_24PC=dlink_Dgs3120Proj_DGS_3120_24PC, dlink_Dgs3120Prod_DGS_3120_48PC_bx=dlink_Dgs3120Prod_DGS_3120_48PC_bx, dlink_Dgs3120Proj_DGS_3120_24SC_DC=dlink_Dgs3120Proj_DGS_3120_24SC_DC, dlink_Dgs3120Proj_Dgs3120_48PC=dlink_Dgs3120Proj_Dgs3120_48PC, dlink_Dgs3120Proj_DGS_3120_24TC_bx=dlink_Dgs3120Proj_DGS_3120_24TC_bx, dlink_Dgs3120Prod_DGS_3120_24SC_DC=dlink_Dgs3120Prod_DGS_3120_24SC_DC, dlink_Dgs3120Proj_DGS_3120_48PC=dlink_Dgs3120Proj_DGS_3120_48PC, dlink_Dgs3120Proj_DGS_3120_48PC_bx=dlink_Dgs3120Proj_DGS_3120_48PC_bx, dlink_Dgs3120Prod_DGS_3120_24PC=dlink_Dgs3120Prod_DGS_3120_24PC, dlink_Dgs3120Proj_Dgs3120_48TC=dlink_Dgs3120Proj_Dgs3120_48TC, dlink_Dgs3120Prod_DGS_3120_48TC_bx=dlink_Dgs3120Prod_DGS_3120_48TC_bx, dlink_Dgs3120Proj_DGS_3120_48TC=dlink_Dgs3120Proj_DGS_3120_48TC, dlink_Dgs3120Prod_DGS_3120_24SC=dlink_Dgs3120Prod_DGS_3120_24SC, dlink_Dgs3120Proj_Dgs3120_24SC=dlink_Dgs3120Proj_Dgs3120_24SC, dlink_Dgs3120Prod_DGS_3120_24TC_bx=dlink_Dgs3120Prod_DGS_3120_24TC_bx, dlink_Dgs3120Prod_DGS_3120_24SC_bx=dlink_Dgs3120Prod_DGS_3120_24SC_bx)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_mgmt,
+ dlink_products) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-mgmt",
+    "dlink-products")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Dlink_Dgs3120Prod_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod = _Dlink_Dgs3120Prod_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117)
+)
+_Dlink_Dgs3120ProdModel_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120ProdModel = _Dlink_Dgs3120ProdModel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 1)
+)
+_Dlink_Dgs3120Prod_Dgs3120_24TC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_Dgs3120_24TC = _Dlink_Dgs3120Prod_Dgs3120_24TC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 1)
+)
+_Dlink_Dgs3120Prod_Dgs3120_24PC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_Dgs3120_24PC = _Dlink_Dgs3120Prod_Dgs3120_24PC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 2)
+)
+_Dlink_Dgs3120Prod_Dgs3120_24SC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_Dgs3120_24SC = _Dlink_Dgs3120Prod_Dgs3120_24SC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 3)
+)
+_Dlink_Dgs3120Prod_Dgs3120_48TC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_Dgs3120_48TC = _Dlink_Dgs3120Prod_Dgs3120_48TC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 4)
+)
+_Dlink_Dgs3120Prod_Dgs3120_48PC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_Dgs3120_48PC = _Dlink_Dgs3120Prod_Dgs3120_48PC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 5)
+)
+_Dlink_Dgs3120Prod_Dgs3120_24SC_DC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_Dgs3120_24SC_DC = _Dlink_Dgs3120Prod_Dgs3120_24SC_DC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 1, 6)
+)
+_Dlink_Dgs3120Prod_DGS_3120_24TC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_24TC = _Dlink_Dgs3120Prod_DGS_3120_24TC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 2)
+)
+_Dlink_Dgs3120Prod_DGS_3120_24TC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_24TC_bx = _Dlink_Dgs3120Prod_DGS_3120_24TC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 2, 1)
+)
+_Dlink_Dgs3120Prod_DGS_3120_24PC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_24PC = _Dlink_Dgs3120Prod_DGS_3120_24PC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 3)
+)
+_Dlink_Dgs3120Prod_DGS_3120_24PC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_24PC_bx = _Dlink_Dgs3120Prod_DGS_3120_24PC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 3, 1)
+)
+_Dlink_Dgs3120Prod_DGS_3120_24SC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_24SC = _Dlink_Dgs3120Prod_DGS_3120_24SC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 4)
+)
+_Dlink_Dgs3120Prod_DGS_3120_24SC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_24SC_bx = _Dlink_Dgs3120Prod_DGS_3120_24SC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 4, 1)
+)
+_Dlink_Dgs3120Prod_DGS_3120_48TC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_48TC = _Dlink_Dgs3120Prod_DGS_3120_48TC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 5)
+)
+_Dlink_Dgs3120Prod_DGS_3120_48TC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_48TC_bx = _Dlink_Dgs3120Prod_DGS_3120_48TC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 5, 1)
+)
+_Dlink_Dgs3120Prod_DGS_3120_48PC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_48PC = _Dlink_Dgs3120Prod_DGS_3120_48PC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 6)
+)
+_Dlink_Dgs3120Prod_DGS_3120_48PC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_48PC_bx = _Dlink_Dgs3120Prod_DGS_3120_48PC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 6, 1)
+)
+_Dlink_Dgs3120Prod_DGS_3120_24SC_DC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_24SC_DC = _Dlink_Dgs3120Prod_DGS_3120_24SC_DC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 7)
+)
+_Dlink_Dgs3120Prod_DGS_3120_24SC_DC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Prod_DGS_3120_24SC_DC_bx = _Dlink_Dgs3120Prod_DGS_3120_24SC_DC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 117, 7, 1)
+)
+_Dlink_Dgs3120Proj_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj = _Dlink_Dgs3120Proj_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117)
+)
+_Dlink_Dgs3120ProjModel_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120ProjModel = _Dlink_Dgs3120ProjModel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 1)
+)
+_Dlink_Dgs3120Proj_Dgs3120_24TC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_Dgs3120_24TC = _Dlink_Dgs3120Proj_Dgs3120_24TC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 1)
+)
+_Dlink_Dgs3120Proj_Dgs3120_24PC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_Dgs3120_24PC = _Dlink_Dgs3120Proj_Dgs3120_24PC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 2)
+)
+_Dlink_Dgs3120Proj_Dgs3120_24SC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_Dgs3120_24SC = _Dlink_Dgs3120Proj_Dgs3120_24SC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 3)
+)
+_Dlink_Dgs3120Proj_Dgs3120_48TC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_Dgs3120_48TC = _Dlink_Dgs3120Proj_Dgs3120_48TC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 4)
+)
+_Dlink_Dgs3120Proj_Dgs3120_48PC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_Dgs3120_48PC = _Dlink_Dgs3120Proj_Dgs3120_48PC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 5)
+)
+_Dlink_Dgs3120Proj_Dgs3120_24SC_DC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_Dgs3120_24SC_DC = _Dlink_Dgs3120Proj_Dgs3120_24SC_DC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 1, 6)
+)
+_Dlink_Dgs3120Proj_DGS_3120_24TC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_24TC = _Dlink_Dgs3120Proj_DGS_3120_24TC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 2)
+)
+_Dlink_Dgs3120Proj_DGS_3120_24TC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_24TC_bx = _Dlink_Dgs3120Proj_DGS_3120_24TC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 2, 1)
+)
+_Dlink_Dgs3120Proj_DGS_3120_24PC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_24PC = _Dlink_Dgs3120Proj_DGS_3120_24PC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 3)
+)
+_Dlink_Dgs3120Proj_DGS_3120_24PC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_24PC_bx = _Dlink_Dgs3120Proj_DGS_3120_24PC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 3, 1)
+)
+_Dlink_Dgs3120Proj_DGS_3120_24SC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_24SC = _Dlink_Dgs3120Proj_DGS_3120_24SC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 4)
+)
+_Dlink_Dgs3120Proj_DGS_3120_24SC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_24SC_bx = _Dlink_Dgs3120Proj_DGS_3120_24SC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 4, 1)
+)
+_Dlink_Dgs3120Proj_DGS_3120_48TC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_48TC = _Dlink_Dgs3120Proj_DGS_3120_48TC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 5)
+)
+_Dlink_Dgs3120Proj_DGS_3120_48TC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_48TC_bx = _Dlink_Dgs3120Proj_DGS_3120_48TC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 5, 1)
+)
+_Dlink_Dgs3120Proj_DGS_3120_48PC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_48PC = _Dlink_Dgs3120Proj_DGS_3120_48PC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 6)
+)
+_Dlink_Dgs3120Proj_DGS_3120_48PC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_48PC_bx = _Dlink_Dgs3120Proj_DGS_3120_48PC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 6, 1)
+)
+_Dlink_Dgs3120Proj_DGS_3120_24SC_DC_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_24SC_DC = _Dlink_Dgs3120Proj_DGS_3120_24SC_DC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 7)
+)
+_Dlink_Dgs3120Proj_DGS_3120_24SC_DC_bx_ObjectIdentity = ObjectIdentity
+dlink_Dgs3120Proj_DGS_3120_24SC_DC_bx = _Dlink_Dgs3120Proj_DGS_3120_24SC_DC_bx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 117, 7, 1)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SWDGS3120PRIMGMT-MIB",
+    **{"dlink-Dgs3120Prod": dlink_Dgs3120Prod,
+       "dlink-Dgs3120ProdModel": dlink_Dgs3120ProdModel,
+       "dlink-Dgs3120Prod-Dgs3120-24TC": dlink_Dgs3120Prod_Dgs3120_24TC,
+       "dlink-Dgs3120Prod-Dgs3120-24PC": dlink_Dgs3120Prod_Dgs3120_24PC,
+       "dlink-Dgs3120Prod-Dgs3120-24SC": dlink_Dgs3120Prod_Dgs3120_24SC,
+       "dlink-Dgs3120Prod-Dgs3120-48TC": dlink_Dgs3120Prod_Dgs3120_48TC,
+       "dlink-Dgs3120Prod-Dgs3120-48PC": dlink_Dgs3120Prod_Dgs3120_48PC,
+       "dlink-Dgs3120Prod-Dgs3120-24SC-DC": dlink_Dgs3120Prod_Dgs3120_24SC_DC,
+       "dlink-Dgs3120Prod-DGS-3120-24TC": dlink_Dgs3120Prod_DGS_3120_24TC,
+       "dlink-Dgs3120Prod-DGS-3120-24TC-bx": dlink_Dgs3120Prod_DGS_3120_24TC_bx,
+       "dlink-Dgs3120Prod-DGS-3120-24PC": dlink_Dgs3120Prod_DGS_3120_24PC,
+       "dlink-Dgs3120Prod-DGS-3120-24PC-bx": dlink_Dgs3120Prod_DGS_3120_24PC_bx,
+       "dlink-Dgs3120Prod-DGS-3120-24SC": dlink_Dgs3120Prod_DGS_3120_24SC,
+       "dlink-Dgs3120Prod-DGS-3120-24SC-bx": dlink_Dgs3120Prod_DGS_3120_24SC_bx,
+       "dlink-Dgs3120Prod-DGS-3120-48TC": dlink_Dgs3120Prod_DGS_3120_48TC,
+       "dlink-Dgs3120Prod-DGS-3120-48TC-bx": dlink_Dgs3120Prod_DGS_3120_48TC_bx,
+       "dlink-Dgs3120Prod-DGS-3120-48PC": dlink_Dgs3120Prod_DGS_3120_48PC,
+       "dlink-Dgs3120Prod-DGS-3120-48PC-bx": dlink_Dgs3120Prod_DGS_3120_48PC_bx,
+       "dlink-Dgs3120Prod-DGS-3120-24SC-DC": dlink_Dgs3120Prod_DGS_3120_24SC_DC,
+       "dlink-Dgs3120Prod-DGS-3120-24SC-DC-bx": dlink_Dgs3120Prod_DGS_3120_24SC_DC_bx,
+       "dlink-Dgs3120Proj": dlink_Dgs3120Proj,
+       "dlink-Dgs3120ProjModel": dlink_Dgs3120ProjModel,
+       "dlink-Dgs3120Proj-Dgs3120-24TC": dlink_Dgs3120Proj_Dgs3120_24TC,
+       "dlink-Dgs3120Proj-Dgs3120-24PC": dlink_Dgs3120Proj_Dgs3120_24PC,
+       "dlink-Dgs3120Proj-Dgs3120-24SC": dlink_Dgs3120Proj_Dgs3120_24SC,
+       "dlink-Dgs3120Proj-Dgs3120-48TC": dlink_Dgs3120Proj_Dgs3120_48TC,
+       "dlink-Dgs3120Proj-Dgs3120-48PC": dlink_Dgs3120Proj_Dgs3120_48PC,
+       "dlink-Dgs3120Proj-Dgs3120-24SC-DC": dlink_Dgs3120Proj_Dgs3120_24SC_DC,
+       "dlink-Dgs3120Proj-DGS-3120-24TC": dlink_Dgs3120Proj_DGS_3120_24TC,
+       "dlink-Dgs3120Proj-DGS-3120-24TC-bx": dlink_Dgs3120Proj_DGS_3120_24TC_bx,
+       "dlink-Dgs3120Proj-DGS-3120-24PC": dlink_Dgs3120Proj_DGS_3120_24PC,
+       "dlink-Dgs3120Proj-DGS-3120-24PC-bx": dlink_Dgs3120Proj_DGS_3120_24PC_bx,
+       "dlink-Dgs3120Proj-DGS-3120-24SC": dlink_Dgs3120Proj_DGS_3120_24SC,
+       "dlink-Dgs3120Proj-DGS-3120-24SC-bx": dlink_Dgs3120Proj_DGS_3120_24SC_bx,
+       "dlink-Dgs3120Proj-DGS-3120-48TC": dlink_Dgs3120Proj_DGS_3120_48TC,
+       "dlink-Dgs3120Proj-DGS-3120-48TC-bx": dlink_Dgs3120Proj_DGS_3120_48TC_bx,
+       "dlink-Dgs3120Proj-DGS-3120-48PC": dlink_Dgs3120Proj_DGS_3120_48PC,
+       "dlink-Dgs3120Proj-DGS-3120-48PC-bx": dlink_Dgs3120Proj_DGS_3120_48PC_bx,
+       "dlink-Dgs3120Proj-DGS-3120-24SC-DC": dlink_Dgs3120Proj_DGS_3120_24SC_DC,
+       "dlink-Dgs3120Proj-DGS-3120-24SC-DC-bx": dlink_Dgs3120Proj_DGS_3120_24SC_DC_bx}
+)

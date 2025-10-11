@@ -1,32 +1,220 @@
+# SNMP MIB module (DEVSERVER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DEVSERVER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/aperto/DEVSERVER-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:18 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/aperto/DEVSERVER-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:06:16 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-device, = mibBuilder.importSymbols("ANIROOT-MIB", "device")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-aniDevServer = ModuleIdentity((1, 3, 6, 1, 4, 1, 4325, 2, 5))
-if mibBuilder.loadTexts: aniDevServer.setLastUpdated('0105091130Z')
-if mibBuilder.loadTexts: aniDevServer.setOrganization('Aperto Networks')
-aniDevTftpServer = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 5, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevTftpServer.setStatus('current')
-aniDevDhcpServer = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 5, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevDhcpServer.setStatus('current')
-aniDevDhcpLeaseExpiration = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 5, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 22))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevDhcpLeaseExpiration.setStatus('current')
-aniDevSuDhcpServer = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 5, 4), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevSuDhcpServer.setStatus('current')
-aniDevTimeServer = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 5, 5), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevTimeServer.setStatus('current')
-aniDevSyslogServer = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 5, 6), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aniDevSyslogServer.setStatus('current')
-aniDevSmtpServer = MibScalar((1, 3, 6, 1, 4, 1, 4325, 2, 5, 7), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aniDevSmtpServer.setStatus('current')
-mibBuilder.exportSymbols("DEVSERVER-MIB", PYSNMP_MODULE_ID=aniDevServer, aniDevSyslogServer=aniDevSyslogServer, aniDevSuDhcpServer=aniDevSuDhcpServer, aniDevTftpServer=aniDevTftpServer, aniDevTimeServer=aniDevTimeServer, aniDevDhcpLeaseExpiration=aniDevDhcpLeaseExpiration, aniDevSmtpServer=aniDevSmtpServer, aniDevServer=aniDevServer, aniDevDhcpServer=aniDevDhcpServer)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(device,) = mibBuilder.importSymbols(
+    "ANIROOT-MIB",
+    "device")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aniDevServer = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 5)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AniDevTftpServer_Type = IpAddress
+_AniDevTftpServer_Object = MibScalar
+aniDevTftpServer = _AniDevTftpServer_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 5, 1),
+    _AniDevTftpServer_Type()
+)
+aniDevTftpServer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevTftpServer.setStatus("current")
+_AniDevDhcpServer_Type = IpAddress
+_AniDevDhcpServer_Object = MibScalar
+aniDevDhcpServer = _AniDevDhcpServer_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 5, 2),
+    _AniDevDhcpServer_Type()
+)
+aniDevDhcpServer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevDhcpServer.setStatus("current")
+
+
+class _AniDevDhcpLeaseExpiration_Type(DisplayString):
+    """Custom type aniDevDhcpLeaseExpiration based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 22),
+    )
+
+
+_AniDevDhcpLeaseExpiration_Type.__name__ = "DisplayString"
+_AniDevDhcpLeaseExpiration_Object = MibScalar
+aniDevDhcpLeaseExpiration = _AniDevDhcpLeaseExpiration_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 5, 3),
+    _AniDevDhcpLeaseExpiration_Type()
+)
+aniDevDhcpLeaseExpiration.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevDhcpLeaseExpiration.setStatus("current")
+_AniDevSuDhcpServer_Type = IpAddress
+_AniDevSuDhcpServer_Object = MibScalar
+aniDevSuDhcpServer = _AniDevSuDhcpServer_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 5, 4),
+    _AniDevSuDhcpServer_Type()
+)
+aniDevSuDhcpServer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevSuDhcpServer.setStatus("current")
+_AniDevTimeServer_Type = IpAddress
+_AniDevTimeServer_Object = MibScalar
+aniDevTimeServer = _AniDevTimeServer_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 5, 5),
+    _AniDevTimeServer_Type()
+)
+aniDevTimeServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevTimeServer.setStatus("current")
+_AniDevSyslogServer_Type = IpAddress
+_AniDevSyslogServer_Object = MibScalar
+aniDevSyslogServer = _AniDevSyslogServer_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 5, 6),
+    _AniDevSyslogServer_Type()
+)
+aniDevSyslogServer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aniDevSyslogServer.setStatus("current")
+_AniDevSmtpServer_Type = IpAddress
+_AniDevSmtpServer_Object = MibScalar
+aniDevSmtpServer = _AniDevSmtpServer_Object(
+    (1, 3, 6, 1, 4, 1, 4325, 2, 5, 7),
+    _AniDevSmtpServer_Type()
+)
+aniDevSmtpServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aniDevSmtpServer.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DEVSERVER-MIB",
+    **{"aniDevServer": aniDevServer,
+       "aniDevTftpServer": aniDevTftpServer,
+       "aniDevDhcpServer": aniDevDhcpServer,
+       "aniDevDhcpLeaseExpiration": aniDevDhcpLeaseExpiration,
+       "aniDevSuDhcpServer": aniDevSuDhcpServer,
+       "aniDevTimeServer": aniDevTimeServer,
+       "aniDevSyslogServer": aniDevSyslogServer,
+       "aniDevSmtpServer": aniDevSmtpServer}
+)

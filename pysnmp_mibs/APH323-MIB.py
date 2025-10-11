@@ -1,49 +1,314 @@
+# SNMP MIB module (APH323-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module APH323-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/acme/APH323-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:12:26 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/acme/APH323-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:51:48 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-acmepacketMgmt, = mibBuilder.importSymbols("ACMEPACKET-SMI", "acmepacketMgmt")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetZoneIndex, InetAddressPrefixLength, InetVersion, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetZoneIndex", "InetAddressPrefixLength", "InetVersion", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-apH323Module = ModuleIdentity((1, 3, 6, 1, 4, 1, 9148, 3, 10))
-apH323Module.setRevisions(('2012-07-16 00:00',))
-if mibBuilder.loadTexts: apH323Module.setLastUpdated('201207160000Z')
-if mibBuilder.loadTexts: apH323Module.setOrganization('Acme Packet, Inc')
-apH323MIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 10, 1))
-apH323NotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 10, 2))
-apH323NotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 10, 3))
-apH323Conformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 10, 4))
-apH323Notifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 10, 3, 0))
-apH323Groups = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 10, 4, 1))
-apH323NotificationGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9148, 3, 10, 4, 2))
-apH323StackTable = MibTable((1, 3, 6, 1, 4, 1, 9148, 3, 10, 1, 1), )
-if mibBuilder.loadTexts: apH323StackTable.setStatus('current')
-apH323StackEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9148, 3, 10, 1, 1, 1), ).setIndexNames((1, "APH323-MIB", "apH323StackName"))
-if mibBuilder.loadTexts: apH323StackEntry.setStatus('current')
-apH323StackName = MibTableColumn((1, 3, 6, 1, 4, 1, 9148, 3, 10, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apH323StackName.setStatus('current')
-apH323StackCurrentCalls = MibTableColumn((1, 3, 6, 1, 4, 1, 9148, 3, 10, 1, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: apH323StackCurrentCalls.setStatus('current')
-apH323StackMaxCalls = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 10, 2, 1), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: apH323StackMaxCalls.setStatus('current')
-apH323StackMaxCallsThreshold = MibScalar((1, 3, 6, 1, 4, 1, 9148, 3, 10, 2, 2), Unsigned32()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: apH323StackMaxCallsThreshold.setStatus('current')
-apH323StackMaxCallThresholdTrap = NotificationType((1, 3, 6, 1, 4, 1, 9148, 3, 10, 3, 0, 1)).setObjects(("APH323-MIB", "apH323StackName"), ("APH323-MIB", "apH323StackMaxCalls"), ("APH323-MIB", "apH323StackMaxCallsThreshold"), ("APH323-MIB", "apH323StackCurrentCalls"))
-if mibBuilder.loadTexts: apH323StackMaxCallThresholdTrap.setStatus('current')
-apH323StackMaxCallThresholdClearTrap = NotificationType((1, 3, 6, 1, 4, 1, 9148, 3, 10, 3, 0, 2)).setObjects(("APH323-MIB", "apH323StackName"), ("APH323-MIB", "apH323StackMaxCalls"), ("APH323-MIB", "apH323StackMaxCallsThreshold"), ("APH323-MIB", "apH323StackCurrentCalls"))
-if mibBuilder.loadTexts: apH323StackMaxCallThresholdClearTrap.setStatus('current')
-apH323StackObjectsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9148, 3, 10, 4, 1, 1)).setObjects(("APH323-MIB", "apH323StackName"), ("APH323-MIB", "apH323StackCurrentCalls"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    apH323StackObjectsGroup = apH323StackObjectsGroup.setStatus('current')
-apH323StackNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9148, 3, 10, 4, 2, 1)).setObjects(("APH323-MIB", "apH323StackMaxCallThresholdTrap"), ("APH323-MIB", "apH323StackMaxCallThresholdClearTrap"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    apH323StackNotificationsGroup = apH323StackNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("APH323-MIB", apH323StackObjectsGroup=apH323StackObjectsGroup, apH323StackCurrentCalls=apH323StackCurrentCalls, apH323StackEntry=apH323StackEntry, apH323NotificationObjects=apH323NotificationObjects, apH323NotificationPrefix=apH323NotificationPrefix, apH323StackMaxCallThresholdClearTrap=apH323StackMaxCallThresholdClearTrap, apH323Module=apH323Module, apH323NotificationGroups=apH323NotificationGroups, apH323Groups=apH323Groups, apH323StackTable=apH323StackTable, apH323StackNotificationsGroup=apH323StackNotificationsGroup, apH323StackName=apH323StackName, apH323Notifications=apH323Notifications, apH323StackMaxCalls=apH323StackMaxCalls, PYSNMP_MODULE_ID=apH323Module, apH323MIBObjects=apH323MIBObjects, apH323StackMaxCallThresholdTrap=apH323StackMaxCallThresholdTrap, apH323StackMaxCallsThreshold=apH323StackMaxCallsThreshold, apH323Conformance=apH323Conformance)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(acmepacketMgmt,) = mibBuilder.importSymbols(
+    "ACMEPACKET-SMI",
+    "acmepacketMgmt")
+
+(InetAddress,
+ InetAddressPrefixLength,
+ InetAddressType,
+ InetVersion,
+ InetZoneIndex) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressPrefixLength",
+    "InetAddressType",
+    "InetVersion",
+    "InetZoneIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+apH323Module = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10)
+)
+if mibBuilder.loadTexts:
+    apH323Module.setRevisions(
+        ("2012-07-16 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ApH323MIBObjects_ObjectIdentity = ObjectIdentity
+apH323MIBObjects = _ApH323MIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 1)
+)
+_ApH323StackTable_Object = MibTable
+apH323StackTable = _ApH323StackTable_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 1, 1)
+)
+if mibBuilder.loadTexts:
+    apH323StackTable.setStatus("current")
+_ApH323StackEntry_Object = MibTableRow
+apH323StackEntry = _ApH323StackEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 1, 1, 1)
+)
+apH323StackEntry.setIndexNames(
+    (1, "APH323-MIB", "apH323StackName"),
+)
+if mibBuilder.loadTexts:
+    apH323StackEntry.setStatus("current")
+
+
+class _ApH323StackName_Type(DisplayString):
+    """Custom type apH323StackName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 255),
+    )
+
+
+_ApH323StackName_Type.__name__ = "DisplayString"
+_ApH323StackName_Object = MibTableColumn
+apH323StackName = _ApH323StackName_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 1, 1, 1, 1),
+    _ApH323StackName_Type()
+)
+apH323StackName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apH323StackName.setStatus("current")
+_ApH323StackCurrentCalls_Type = Unsigned32
+_ApH323StackCurrentCalls_Object = MibTableColumn
+apH323StackCurrentCalls = _ApH323StackCurrentCalls_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 1, 1, 1, 2),
+    _ApH323StackCurrentCalls_Type()
+)
+apH323StackCurrentCalls.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    apH323StackCurrentCalls.setStatus("current")
+_ApH323NotificationObjects_ObjectIdentity = ObjectIdentity
+apH323NotificationObjects = _ApH323NotificationObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 2)
+)
+_ApH323StackMaxCalls_Type = Unsigned32
+_ApH323StackMaxCalls_Object = MibScalar
+apH323StackMaxCalls = _ApH323StackMaxCalls_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 2, 1),
+    _ApH323StackMaxCalls_Type()
+)
+apH323StackMaxCalls.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    apH323StackMaxCalls.setStatus("current")
+_ApH323StackMaxCallsThreshold_Type = Unsigned32
+_ApH323StackMaxCallsThreshold_Object = MibScalar
+apH323StackMaxCallsThreshold = _ApH323StackMaxCallsThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 2, 2),
+    _ApH323StackMaxCallsThreshold_Type()
+)
+apH323StackMaxCallsThreshold.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    apH323StackMaxCallsThreshold.setStatus("current")
+_ApH323NotificationPrefix_ObjectIdentity = ObjectIdentity
+apH323NotificationPrefix = _ApH323NotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 3)
+)
+_ApH323Notifications_ObjectIdentity = ObjectIdentity
+apH323Notifications = _ApH323Notifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 3, 0)
+)
+_ApH323Conformance_ObjectIdentity = ObjectIdentity
+apH323Conformance = _ApH323Conformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 4)
+)
+_ApH323Groups_ObjectIdentity = ObjectIdentity
+apH323Groups = _ApH323Groups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 4, 1)
+)
+_ApH323NotificationGroups_ObjectIdentity = ObjectIdentity
+apH323NotificationGroups = _ApH323NotificationGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 4, 2)
+)
+
+# Managed Objects groups
+
+apH323StackObjectsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 4, 1, 1)
+)
+apH323StackObjectsGroup.setObjects(
+      *(("APH323-MIB", "apH323StackName"),
+        ("APH323-MIB", "apH323StackCurrentCalls"))
+)
+if mibBuilder.loadTexts:
+    apH323StackObjectsGroup.setStatus("current")
+
+
+# Notification objects
+
+apH323StackMaxCallThresholdTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 3, 0, 1)
+)
+apH323StackMaxCallThresholdTrap.setObjects(
+      *(("APH323-MIB", "apH323StackName"),
+        ("APH323-MIB", "apH323StackMaxCalls"),
+        ("APH323-MIB", "apH323StackMaxCallsThreshold"),
+        ("APH323-MIB", "apH323StackCurrentCalls"))
+)
+if mibBuilder.loadTexts:
+    apH323StackMaxCallThresholdTrap.setStatus(
+        "current"
+    )
+
+apH323StackMaxCallThresholdClearTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 3, 0, 2)
+)
+apH323StackMaxCallThresholdClearTrap.setObjects(
+      *(("APH323-MIB", "apH323StackName"),
+        ("APH323-MIB", "apH323StackMaxCalls"),
+        ("APH323-MIB", "apH323StackMaxCallsThreshold"),
+        ("APH323-MIB", "apH323StackCurrentCalls"))
+)
+if mibBuilder.loadTexts:
+    apH323StackMaxCallThresholdClearTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+apH323StackNotificationsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9148, 3, 10, 4, 2, 1)
+)
+apH323StackNotificationsGroup.setObjects(
+      *(("APH323-MIB", "apH323StackMaxCallThresholdTrap"),
+        ("APH323-MIB", "apH323StackMaxCallThresholdClearTrap"))
+)
+if mibBuilder.loadTexts:
+    apH323StackNotificationsGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "APH323-MIB",
+    **{"apH323Module": apH323Module,
+       "apH323MIBObjects": apH323MIBObjects,
+       "apH323StackTable": apH323StackTable,
+       "apH323StackEntry": apH323StackEntry,
+       "apH323StackName": apH323StackName,
+       "apH323StackCurrentCalls": apH323StackCurrentCalls,
+       "apH323NotificationObjects": apH323NotificationObjects,
+       "apH323StackMaxCalls": apH323StackMaxCalls,
+       "apH323StackMaxCallsThreshold": apH323StackMaxCallsThreshold,
+       "apH323NotificationPrefix": apH323NotificationPrefix,
+       "apH323Notifications": apH323Notifications,
+       "apH323StackMaxCallThresholdTrap": apH323StackMaxCallThresholdTrap,
+       "apH323StackMaxCallThresholdClearTrap": apH323StackMaxCallThresholdClearTrap,
+       "apH323Conformance": apH323Conformance,
+       "apH323Groups": apH323Groups,
+       "apH323StackObjectsGroup": apH323StackObjectsGroup,
+       "apH323NotificationGroups": apH323NotificationGroups,
+       "apH323StackNotificationsGroup": apH323StackNotificationsGroup}
+)

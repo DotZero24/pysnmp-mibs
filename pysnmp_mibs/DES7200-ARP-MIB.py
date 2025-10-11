@@ -1,62 +1,403 @@
+# SNMP MIB module (DES7200-ARP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module DES7200-ARP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/DES7200-ARP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:58:35 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/DES7200-ARP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:48:03 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-myMgmt, = mibBuilder.importSymbols("DES7200-SMI", "myMgmt")
-IfIndex, = mibBuilder.importSymbols("DES7200-TC", "IfIndex")
-ip, = mibBuilder.importSymbols("IP-MIB", "ip")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, PhysAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "PhysAddress", "TruthValue", "DisplayString")
-myArpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2))
-myArpMIB.setRevisions(('2002-03-20 00:00',))
-if mibBuilder.loadTexts: myArpMIB.setLastUpdated('200203200000Z')
-if mibBuilder.loadTexts: myArpMIB.setOrganization('D-Link Crop.')
-myArpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1))
-myArpTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1), )
-if mibBuilder.loadTexts: myArpTable.setStatus('current')
-myArpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1), ).setIndexNames((0, "DES7200-ARP-MIB", "myArpIfIndex"), (0, "DES7200-ARP-MIB", "myArpNetAddress"))
-if mibBuilder.loadTexts: myArpEntry.setStatus('current')
-myArpIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 1), IfIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myArpIfIndex.setStatus('current')
-myArpPhysAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 2), PhysAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myArpPhysAddress.setStatus('current')
-myArpNetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myArpNetAddress.setStatus('current')
-myArpRemainAge = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myArpRemainAge.setStatus('current')
-myArpType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("arpa", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myArpType.setStatus('current')
-myArpEntryType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("static", 1), ("dynamic", 2), ("interface", 3), ("vrrp", 4), ("trusted", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myArpEntryType.setStatus('current')
-myArpStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 7), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: myArpStatus.setStatus('current')
-myArpIfTable = MibTable((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 2), )
-if mibBuilder.loadTexts: myArpIfTable.setStatus('current')
-myArpIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 2, 1), ).setIndexNames((0, "DES7200-ARP-MIB", "myArpIfIfIndex"))
-if mibBuilder.loadTexts: myArpIfEntry.setStatus('current')
-myArpIfIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 2, 1, 1), IfIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myArpIfIfIndex.setStatus('current')
-myArpIfCacheTimeOut = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 18000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: myArpIfCacheTimeOut.setStatus('current')
-myArpCurrentTotalNumber = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myArpCurrentTotalNumber.setStatus('current')
-myArpCurrentUnresolveNumber = MibScalar((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: myArpCurrentUnresolveNumber.setStatus('current')
-myArpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 2))
-myArpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 2, 1))
-myArpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 2, 2))
-myArpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 2, 1, 1)).setObjects(("DES7200-ARP-MIB", "myArpMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    myArpMIBCompliance = myArpMIBCompliance.setStatus('current')
-myArpMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 2, 2, 1)).setObjects(("DES7200-ARP-MIB", "myArpIfIndex"), ("DES7200-ARP-MIB", "myArpPhysAddress"), ("DES7200-ARP-MIB", "myArpNetAddress"), ("DES7200-ARP-MIB", "myArpRemainAge"), ("DES7200-ARP-MIB", "myArpType"), ("DES7200-ARP-MIB", "myArpEntryType"), ("DES7200-ARP-MIB", "myArpStatus"), ("DES7200-ARP-MIB", "myArpIfIfIndex"), ("DES7200-ARP-MIB", "myArpIfCacheTimeOut"), ("DES7200-ARP-MIB", "myArpCurrentTotalNumber"), ("DES7200-ARP-MIB", "myArpCurrentUnresolveNumber"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    myArpMIBGroup = myArpMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("DES7200-ARP-MIB", myArpEntryType=myArpEntryType, myArpIfIfIndex=myArpIfIfIndex, myArpMIBCompliance=myArpMIBCompliance, myArpCurrentUnresolveNumber=myArpCurrentUnresolveNumber, myArpRemainAge=myArpRemainAge, myArpMIBCompliances=myArpMIBCompliances, myArpIfCacheTimeOut=myArpIfCacheTimeOut, myArpMIB=myArpMIB, myArpMIBObjects=myArpMIBObjects, myArpType=myArpType, myArpMIBGroup=myArpMIBGroup, myArpTable=myArpTable, myArpIfIndex=myArpIfIndex, myArpMIBConformance=myArpMIBConformance, PYSNMP_MODULE_ID=myArpMIB, myArpIfEntry=myArpIfEntry, myArpNetAddress=myArpNetAddress, myArpCurrentTotalNumber=myArpCurrentTotalNumber, myArpMIBGroups=myArpMIBGroups, myArpEntry=myArpEntry, myArpPhysAddress=myArpPhysAddress, myArpIfTable=myArpIfTable, myArpStatus=myArpStatus)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(myMgmt,) = mibBuilder.importSymbols(
+    "DES7200-SMI",
+    "myMgmt")
+
+(IfIndex,) = mibBuilder.importSymbols(
+    "DES7200-TC",
+    "IfIndex")
+
+(ip,) = mibBuilder.importSymbols(
+    "IP-MIB",
+    "ip")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+myArpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2)
+)
+if mibBuilder.loadTexts:
+    myArpMIB.setRevisions(
+        ("2002-03-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_MyArpMIBObjects_ObjectIdentity = ObjectIdentity
+myArpMIBObjects = _MyArpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1)
+)
+_MyArpTable_Object = MibTable
+myArpTable = _MyArpTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    myArpTable.setStatus("current")
+_MyArpEntry_Object = MibTableRow
+myArpEntry = _MyArpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1)
+)
+myArpEntry.setIndexNames(
+    (0, "DES7200-ARP-MIB", "myArpIfIndex"),
+    (0, "DES7200-ARP-MIB", "myArpNetAddress"),
+)
+if mibBuilder.loadTexts:
+    myArpEntry.setStatus("current")
+_MyArpIfIndex_Type = IfIndex
+_MyArpIfIndex_Object = MibTableColumn
+myArpIfIndex = _MyArpIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 1),
+    _MyArpIfIndex_Type()
+)
+myArpIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myArpIfIndex.setStatus("current")
+_MyArpPhysAddress_Type = PhysAddress
+_MyArpPhysAddress_Object = MibTableColumn
+myArpPhysAddress = _MyArpPhysAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 2),
+    _MyArpPhysAddress_Type()
+)
+myArpPhysAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myArpPhysAddress.setStatus("current")
+_MyArpNetAddress_Type = IpAddress
+_MyArpNetAddress_Object = MibTableColumn
+myArpNetAddress = _MyArpNetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 3),
+    _MyArpNetAddress_Type()
+)
+myArpNetAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myArpNetAddress.setStatus("current")
+_MyArpRemainAge_Type = Integer32
+_MyArpRemainAge_Object = MibTableColumn
+myArpRemainAge = _MyArpRemainAge_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 4),
+    _MyArpRemainAge_Type()
+)
+myArpRemainAge.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myArpRemainAge.setStatus("current")
+
+
+class _MyArpType_Type(Integer32):
+    """Custom type myArpType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("arpa", 1)
+    )
+
+
+_MyArpType_Type.__name__ = "Integer32"
+_MyArpType_Object = MibTableColumn
+myArpType = _MyArpType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 5),
+    _MyArpType_Type()
+)
+myArpType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myArpType.setStatus("current")
+
+
+class _MyArpEntryType_Type(Integer32):
+    """Custom type myArpEntryType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("static", 1),
+          ("dynamic", 2),
+          ("interface", 3),
+          ("vrrp", 4),
+          ("trusted", 5))
+    )
+
+
+_MyArpEntryType_Type.__name__ = "Integer32"
+_MyArpEntryType_Object = MibTableColumn
+myArpEntryType = _MyArpEntryType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 6),
+    _MyArpEntryType_Type()
+)
+myArpEntryType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myArpEntryType.setStatus("current")
+_MyArpStatus_Type = RowStatus
+_MyArpStatus_Object = MibTableColumn
+myArpStatus = _MyArpStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 1, 1, 7),
+    _MyArpStatus_Type()
+)
+myArpStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    myArpStatus.setStatus("current")
+_MyArpIfTable_Object = MibTable
+myArpIfTable = _MyArpIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 2)
+)
+if mibBuilder.loadTexts:
+    myArpIfTable.setStatus("current")
+_MyArpIfEntry_Object = MibTableRow
+myArpIfEntry = _MyArpIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 2, 1)
+)
+myArpIfEntry.setIndexNames(
+    (0, "DES7200-ARP-MIB", "myArpIfIfIndex"),
+)
+if mibBuilder.loadTexts:
+    myArpIfEntry.setStatus("current")
+_MyArpIfIfIndex_Type = IfIndex
+_MyArpIfIfIndex_Object = MibTableColumn
+myArpIfIfIndex = _MyArpIfIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 2, 1, 1),
+    _MyArpIfIfIndex_Type()
+)
+myArpIfIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myArpIfIfIndex.setStatus("current")
+
+
+class _MyArpIfCacheTimeOut_Type(Integer32):
+    """Custom type myArpIfCacheTimeOut based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(60, 18000),
+    )
+
+
+_MyArpIfCacheTimeOut_Type.__name__ = "Integer32"
+_MyArpIfCacheTimeOut_Object = MibTableColumn
+myArpIfCacheTimeOut = _MyArpIfCacheTimeOut_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 2, 1, 2),
+    _MyArpIfCacheTimeOut_Type()
+)
+myArpIfCacheTimeOut.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    myArpIfCacheTimeOut.setStatus("current")
+_MyArpCurrentTotalNumber_Type = Counter32
+_MyArpCurrentTotalNumber_Object = MibScalar
+myArpCurrentTotalNumber = _MyArpCurrentTotalNumber_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 3),
+    _MyArpCurrentTotalNumber_Type()
+)
+myArpCurrentTotalNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myArpCurrentTotalNumber.setStatus("current")
+_MyArpCurrentUnresolveNumber_Type = Counter32
+_MyArpCurrentUnresolveNumber_Object = MibScalar
+myArpCurrentUnresolveNumber = _MyArpCurrentUnresolveNumber_Object(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 1, 4),
+    _MyArpCurrentUnresolveNumber_Type()
+)
+myArpCurrentUnresolveNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    myArpCurrentUnresolveNumber.setStatus("current")
+_MyArpMIBConformance_ObjectIdentity = ObjectIdentity
+myArpMIBConformance = _MyArpMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 2)
+)
+_MyArpMIBCompliances_ObjectIdentity = ObjectIdentity
+myArpMIBCompliances = _MyArpMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 2, 1)
+)
+_MyArpMIBGroups_ObjectIdentity = ObjectIdentity
+myArpMIBGroups = _MyArpMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 2, 2)
+)
+
+# Managed Objects groups
+
+myArpMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 2, 2, 1)
+)
+myArpMIBGroup.setObjects(
+      *(("DES7200-ARP-MIB", "myArpIfIndex"),
+        ("DES7200-ARP-MIB", "myArpPhysAddress"),
+        ("DES7200-ARP-MIB", "myArpNetAddress"),
+        ("DES7200-ARP-MIB", "myArpRemainAge"),
+        ("DES7200-ARP-MIB", "myArpType"),
+        ("DES7200-ARP-MIB", "myArpEntryType"),
+        ("DES7200-ARP-MIB", "myArpStatus"),
+        ("DES7200-ARP-MIB", "myArpIfIfIndex"),
+        ("DES7200-ARP-MIB", "myArpIfCacheTimeOut"),
+        ("DES7200-ARP-MIB", "myArpCurrentTotalNumber"),
+        ("DES7200-ARP-MIB", "myArpCurrentUnresolveNumber"))
+)
+if mibBuilder.loadTexts:
+    myArpMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+myArpMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 171, 10, 97, 2, 2, 2, 1, 1)
+)
+myArpMIBCompliance.setObjects(
+    ("DES7200-ARP-MIB", "myArpMIBGroup")
+)
+if mibBuilder.loadTexts:
+    myArpMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "DES7200-ARP-MIB",
+    **{"myArpMIB": myArpMIB,
+       "myArpMIBObjects": myArpMIBObjects,
+       "myArpTable": myArpTable,
+       "myArpEntry": myArpEntry,
+       "myArpIfIndex": myArpIfIndex,
+       "myArpPhysAddress": myArpPhysAddress,
+       "myArpNetAddress": myArpNetAddress,
+       "myArpRemainAge": myArpRemainAge,
+       "myArpType": myArpType,
+       "myArpEntryType": myArpEntryType,
+       "myArpStatus": myArpStatus,
+       "myArpIfTable": myArpIfTable,
+       "myArpIfEntry": myArpIfEntry,
+       "myArpIfIfIndex": myArpIfIfIndex,
+       "myArpIfCacheTimeOut": myArpIfCacheTimeOut,
+       "myArpCurrentTotalNumber": myArpCurrentTotalNumber,
+       "myArpCurrentUnresolveNumber": myArpCurrentUnresolveNumber,
+       "myArpMIBConformance": myArpMIBConformance,
+       "myArpMIBCompliances": myArpMIBCompliances,
+       "myArpMIBCompliance": myArpMIBCompliance,
+       "myArpMIBGroups": myArpMIBGroups,
+       "myArpMIBGroup": myArpMIBGroup}
+)

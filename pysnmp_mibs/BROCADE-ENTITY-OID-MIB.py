@@ -1,375 +1,1920 @@
+# SNMP MIB module (BROCADE-ENTITY-OID-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BROCADE-ENTITY-OID-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/brocade/BROCADE-ENTITY-OID-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:15:29 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/brocade/BROCADE-ENTITY-OID-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:02:03 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-products, = mibBuilder.importSymbols("FOUNDRY-SN-ROOT-MIB", "products")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-brcdEntityOIDMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 1991, 1, 17))
-brcdEntityOIDMIB.setRevisions(('2013-02-06 09:30', '2017-08-07 00:00',))
-if mibBuilder.loadTexts: brcdEntityOIDMIB.setLastUpdated('201708070000Z')
-if mibBuilder.loadTexts: brcdEntityOIDMIB.setOrganization('Ruckus Wireless, Inc.')
-brcdEntityOIDMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1))
-brcdEntityOIDOther = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 1))
-brcdEntityOIDUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 2))
-brcdEntityOIDChassis = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3))
-brcdEntityOIDChassisUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 1))
-brcdEntityOIDChassisNetIronCes2000Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2))
-brcdEntityOIDChassisNetIronCes2024F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 1))
-brcdEntityOIDChassisNetIronCes2024C = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 2))
-brcdEntityOIDChassisNetIronCes2048F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 3))
-brcdEntityOIDChassisNetIronCes2048C = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 4))
-brcdEntityOIDChassisNetIronCes2048FX = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 5))
-brcdEntityOIDChassisNetIronCes2048CX = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 6))
-brcdEntityOIDChassisNetIronCes2024F4X = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 7))
-brcdEntityOIDChassisNetIronCes2024C4X = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 8))
-brcdEntityOIDChassisNetIronCer2000Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3))
-brcdEntityOIDChassisNetIronCer2024F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 1))
-brcdEntityOIDChassisNetIronCer2024C = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 2))
-brcdEntityOIDChassisNetIronCer2048F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 3))
-brcdEntityOIDChassisNetIronCer2048C = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 4))
-brcdEntityOIDChassisNetIronCer2048FX = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 5))
-brcdEntityOIDChassisNetIronCer2048CX = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 6))
-brcdEntityOIDChassisNetIronCer2024F4X = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 7))
-brcdEntityOIDChassisNetIronCer2024C4X = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 8))
-brcdEntityOIDChassisNetIronXMRFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 4))
-brcdEntityOIDChassisNetIronXMR4000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 4, 1))
-brcdEntityOIDChassisNetIronXMR8000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 4, 2))
-brcdEntityOIDChassisNetIronXMR16000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 4, 3))
-brcdEntityOIDChassisNetIronXMR32000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 4, 4))
-brcdEntityOIDChassisMLXFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 5))
-brcdEntityOIDChassisMLX4 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 5, 1))
-brcdEntityOIDChassisMLX8 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 5, 2))
-brcdEntityOIDChassisMLX16 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 5, 3))
-brcdEntityOIDChassisMLX32 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 5, 4))
-brcdEntityOIDChassisMLXeFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 6))
-brcdEntityOIDChassisMLXe4 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 6, 1))
-brcdEntityOIDChassisMLXe8 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 6, 2))
-brcdEntityOIDChassisMLXe16 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 6, 3))
-brcdEntityOIDChassisMLXe32 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 6, 4))
-brcdEntityOIDChassisICX7250Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7))
-brcdEntityOIDChassisICX725024 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7, 1))
-brcdEntityOIDChassisICX725024HPOE = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7, 2))
-brcdEntityOIDChassisICX725024G = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7, 3))
-brcdEntityOIDChassisICX725048 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7, 4))
-brcdEntityOIDChassisICX725048HPOE = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7, 5))
-brcdEntityOIDChassisICX7450Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8))
-brcdEntityOIDChassisICX745024 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 1))
-brcdEntityOIDChassisICX745024HPOE = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 2))
-brcdEntityOIDChassisICX745032ZP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 3))
-brcdEntityOIDChassisICX745048 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 4))
-brcdEntityOIDChassisICX745048HPOE = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 5))
-brcdEntityOIDChassisICX745048F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 6))
-brcdEntityOIDChassisICX7750Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 9))
-brcdEntityOIDChassisICX775048C = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 9, 1))
-brcdEntityOIDChassisICX775048F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 9, 2))
-brcdEntityOIDChassisICX775026Q = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 9, 3))
-brcdEntityOIDChassisICX7150Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10))
-brcdEntityOIDChassisICX715024 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 1))
-brcdEntityOIDChassisICX715024POE = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 2))
-brcdEntityOIDChassisICX715048 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 3))
-brcdEntityOIDChassisICX715048POE = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 4))
-brcdEntityOIDChassisICX715048POEF = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 5))
-brcdEntityOIDChassisICX7150C12POE = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 6))
-brcdEntityOIDChassisICX715048ZP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 7))
-brcdEntityOIDChassisICX715024F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 8))
-brcdEntityOIDChassisICX7150C10ZP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 9))
-brcdEntityOIDChassisICX7150C08P = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 10))
-brcdEntityOIDChassisICX7150C08PT = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 11))
-brcdEntityOIDChassisICX7650Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 11))
-brcdEntityOIDChassisICX765048F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 11, 1))
-brcdEntityOIDChassisICX765048P = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 11, 2))
-brcdEntityOIDChassisICX765048ZP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 11, 3))
-brcdEntityOIDChassisICX7850Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 12))
-brcdEntityOIDChassisICX785032Q = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 12, 1))
-brcdEntityOIDChassisICX785048F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 12, 2))
-brcdEntityOIDChassisICX785048FS = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 12, 3))
-brcdEntityOIDChassisICX785048C = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 12, 4))
-brcdEntityOIDChassisICX7550Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13))
-brcdEntityOIDChassisICX755024 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 1))
-brcdEntityOIDChassisICX755024F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 2))
-brcdEntityOIDChassisICX755024P = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 3))
-brcdEntityOIDChassisICX755024ZP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 4))
-brcdEntityOIDChassisICX755048 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 5))
-brcdEntityOIDChassisICX755048F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 6))
-brcdEntityOIDChassisICX755048P = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 7))
-brcdEntityOIDChassisICX755048ZP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 8))
-brcdEntityOIDChassisICX8200Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14))
-brcdEntityOIDChassisICX820024 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 1))
-brcdEntityOIDChassisICX820024F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 2))
-brcdEntityOIDChassisICX820024FX = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 3))
-brcdEntityOIDChassisICX820024P = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 4))
-brcdEntityOIDChassisICX820024ZP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 5))
-brcdEntityOIDChassisICX820048 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 6))
-brcdEntityOIDChassisICX820048F = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 7))
-brcdEntityOIDChassisICX820048P = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 8))
-brcdEntityOIDChassisICX820048PF = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 9))
-brcdEntityOIDChassisICX820048PF2 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 10))
-brcdEntityOIDChassisICX820048ZP2 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 11))
-brcdEntityOIDChassisICX8200C08P = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 12))
-brcdEntityOIDChassisICX8200C08PF = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 13))
-brcdEntityOIDChassisICX8200C08PT = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 14))
-brcdEntityOIDChassisICX8200C08PDC = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 15))
-brcdEntityOIDChassisICX8200C08ZP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 16))
-brcdEntityOIDBackplane = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4))
-brcdEntityOIDBackplaneUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 1))
-brcdEntityOIDBackplaneNetIronFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 2))
-brcdEntityOIDBackplaneNetIronCes2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 2, 1))
-brcdEntityOIDBackplaneNetIronCer2000 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 2, 2))
-brcdEntityOIDBackplaneNetIronXMR = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 2, 3))
-brcdEntityOIDBackplaneMlxFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 3))
-brcdEntityOIDBackplaneMLX = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 3, 1))
-brcdEntityOIDBackplaneMLXe = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 3, 2))
-brcdEntityOIDContainer = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5))
-brcdEntityOIDContainerUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 1))
-brcdEntityOIDContainerPowerSupply = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 2))
-brcdEntityOIDContainerFanTray = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 3))
-brcdEntityOIDContainerMgmtModuleSlot = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 4))
-brcdEntityOIDContainerSwitchFabricModuleSlot = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 5))
-brcdEntityOIDContainerIntfModuleSlot = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 6))
-brcdEntityOIDPowerSupply = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6))
-brcdEntityOIDPowerSupplyUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 1))
-brcdEntityOIDPowerSupplyAC500W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 2))
-brcdEntityOIDPowerSupplyDC500W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 3))
-brcdEntityOIDPowerSupplyAC1200W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 4))
-brcdEntityOIDPowerSupplyDC1200W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 5))
-brcdEntityOIDPowerSupplyAC1200WA = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 6))
-brcdEntityOIDPowerSupplyDC1200WA = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 7))
-brcdEntityOIDPowerSupplyAC1800W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 8))
-brcdEntityOIDPowerSupplyDC1800W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 9))
-brcdEntityOIDPowerSupplyAC2100W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 10))
-brcdEntityOIDPowerSupplyDC2100W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 11))
-brcdEntityOIDPowerSupplyAC2400W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 12))
-brcdEntityOIDPowerSupplyDC2400W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 13))
-brcdEntityOIDPowerSupplyAC3000W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 14))
-brcdEntityOIDPowerSupplyDC3000W = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 15))
-brcdEntityOIDPowerSupplyACPOE = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 16))
-brcdEntityOIDPowerSupplyACRegular = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 17))
-brcdEntityOIDPowerSupplyDCPOE = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 18))
-brcdEntityOIDPowerSupplyDCRegular = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 19))
-brcdEntityOIDFan = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 7))
-brcdEntityOIDFanUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 7, 1))
-brcdEntityOIDChassisFanTray = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 7, 2))
-brcdEntityOIDChassisFan = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 7, 3))
-brcdEntityOIDSensor = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 8))
-brcdEntityOIDSensorUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 8, 1))
-brcdEntityOIDSensorChipTemp = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 8, 2))
-brcdEntityOIDSensorModuleTemp = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 8, 3))
-brcdEntityOIDModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9))
-brcdEntityOIDModuleUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 1))
-brcdEntityOIDModuleMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2))
-brcdEntityOIDModuleMgmtUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 1))
-brcdEntityOIDModuleMgmtNetIronFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 2))
-brcdEntityOIDModuleMgmtNiMlxMr = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 2, 1))
-brcdEntityOIDModuleMgmtNiMlx32Mr = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 2, 2))
-brcdEntityOIDModuleMgmtNiXmrMr = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 2, 3))
-brcdEntityOIDModuleMgmtNiXmr32Mr = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 2, 4))
-brcdEntityOIDModuleMgmtMlxFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 3))
-brcdEntityOIDModuleMgmtBrMlxMr2M = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 3, 1))
-brcdEntityOIDModuleMgmtBrMlxMr2X = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 3, 2))
-brcdEntityOIDModuleMgmtBrMlx32Mr2M = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 3, 3))
-brcdEntityOIDModuleMgmtBrMlx32Mr2X = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 3, 4))
-brcdEntityOIDModuleMgmtIcx7250Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4))
-brcdEntityOIDModuleMgmtIcx7250624BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4, 1))
-brcdEntityOIDModuleMgmtIcx7250648BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4, 2))
-brcdEntityOIDModuleMgmtIcx7250624GBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4, 3))
-brcdEntityOIDModuleMgmtIcx7250624PoeBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4, 4))
-brcdEntityOIDModuleMgmtIcx7250648PoeBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4, 5))
-brcdEntityOIDModuleMgmtIcx7450Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5))
-brcdEntityOIDModuleMgmtIcx7450624BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 1))
-brcdEntityOIDModuleMgmtIcx7450648BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 2))
-brcdEntityOIDModuleMgmtIcx7450648FBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 3))
-brcdEntityOIDModuleMgmtIcx7450624PoeBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 4))
-brcdEntityOIDModuleMgmtIcx7450648PoeBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 5))
-brcdEntityOIDModuleMgmtIcx7450632ZPBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 6))
-brcdEntityOIDModuleMgmtIcx7750Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 6))
-brcdEntityOIDModuleMgmtIcx775048CBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 6, 1))
-brcdEntityOIDModuleMgmtIcx775048FBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 6, 2))
-brcdEntityOIDModuleMgmtIcx775026QBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 6, 3))
-brcdEntityOIDModuleMgmtIcx775020QBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 6, 4))
-brcdEntityOIDModuleMgmtIcx7150Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7))
-brcdEntityOIDModuleMgmtIcx7150624BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 1))
-brcdEntityOIDModuleMgmtIcx7150648BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 2))
-brcdEntityOIDModuleMgmtIcx7150624PoeBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 3))
-brcdEntityOIDModuleMgmtIcx7150648PoeBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 4))
-brcdEntityOIDModuleMgmtIcx7150648PoeFBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 5))
-brcdEntityOIDModuleMgmtIcx7150612CPoeBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 6))
-brcdEntityOIDModuleMgmtIcx7150648ZPBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 7))
-brcdEntityOIDModuleMgmtIcx7150624FBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 8))
-brcdEntityOIDModuleMgmtIcx7150C10ZPBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 9))
-brcdEntityOIDModuleMgmtIcx7150C08PBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 10))
-brcdEntityOIDModuleMgmtIcx7150C08PTBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 11))
-brcdEntityOIDModuleMgmtIcx7650Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 8))
-brcdEntityOIDModuleMgmtIcx7650648FBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 8, 1))
-brcdEntityOIDModuleMgmtIcx7650648PoeBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 8, 2))
-brcdEntityOIDModuleMgmtIcx7650648ZPBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 8, 3))
-brcdEntityOIDModuleMgmtIcx7850Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 9))
-brcdEntityOIDModuleMgmtIcx7850632QBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 9, 1))
-brcdEntityOIDModuleMgmtIcx7850648FBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 9, 2))
-brcdEntityOIDModuleMgmtIcx7850648FSBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 9, 3))
-brcdEntityOIDModuleMgmtIcx7550Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10))
-brcdEntityOIDModuleMgmtIcx7550624BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 1))
-brcdEntityOIDModuleMgmtIcx7550648BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 2))
-brcdEntityOIDModuleMgmtIcx7550624FBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 3))
-brcdEntityOIDModuleMgmtIcx7550648FBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 4))
-brcdEntityOIDModuleMgmtIcx7550624PoeBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 5))
-brcdEntityOIDModuleMgmtIcx7550648PoeBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 6))
-brcdEntityOIDModuleMgmtIcx7550624ZPBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 7))
-brcdEntityOIDModuleMgmtIcx7550648ZPBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 8))
-brcdEntityOIDModuleMgmtIcx8200Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11))
-brcdEntityOIDModuleMgmtIcx8200624BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 1))
-brcdEntityOIDModuleMgmtIcx8200624FBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 2))
-brcdEntityOIDModuleMgmtIcx8200624FXBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 3))
-brcdEntityOIDModuleMgmtIcx8200624PBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 4))
-brcdEntityOIDModuleMgmtIcx8200624ZPBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 5))
-brcdEntityOIDModuleMgmtIcx8200648BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 6))
-brcdEntityOIDModuleMgmtIcx8200648FBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 7))
-brcdEntityOIDModuleMgmtIcx8200648PBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 8))
-brcdEntityOIDModuleMgmtIcx8200648PFBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 9))
-brcdEntityOIDModuleMgmtIcx8200648PF2BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 10))
-brcdEntityOIDModuleMgmtIcx8200648ZP2BaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 11))
-brcdEntityOIDModuleMgmtIcx82006C08PBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 12))
-brcdEntityOIDModuleMgmtIcx82006C08PDCBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 13))
-brcdEntityOIDModuleMgmtIcx82006C08PFBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 14))
-brcdEntityOIDModuleMgmtIcx82006C08PTBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 15))
-brcdEntityOIDModuleMgmtIcx82006C08ZPBaseModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 16))
-brcdEntityOIDModuleSfm = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3))
-brcdEntityOIDModuleSfmUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 1))
-brcdEntityOIDModuleSfmNetIronFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2))
-brcdEntityOIDModuleSfmNiXSf1 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 1))
-brcdEntityOIDModuleSfmNiXSf3 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 2))
-brcdEntityOIDModuleSfmNiX32Sf = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 3))
-brcdEntityOIDModuleSfmNiX4Hsf = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 4))
-brcdEntityOIDModuleSfmNiX16n8Hsf = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 5))
-brcdEntityOIDModuleSfmNiX32Hsf = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 6))
-brcdEntityOIDModuleIntf = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4))
-brcdEntityOIDModuleIntfUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 1))
-brcdEntityOIDModuleIntfNetIronFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2))
-brcdEntityOIDModuleIntfNiMlx1Gx20Gc = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 1))
-brcdEntityOIDModuleIntfNiXmr1Gx20Gc = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 2))
-brcdEntityOIDModuleIntfNiMlx1Gx48Ta = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 3))
-brcdEntityOIDModuleIntfNiMlx1Gx20Sfp = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 4))
-brcdEntityOIDModuleIntfNiXmr1Gx20Sfp = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 5))
-brcdEntityOIDModuleIntfNiMlx10Gx2 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 6))
-brcdEntityOIDModuleIntfNiXmr10Gx2 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 7))
-brcdEntityOIDModuleIntfNiMlx10Gx4 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 8))
-brcdEntityOIDModuleIntfNiXmr10Gx4 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 9))
-brcdEntityOIDModuleIntfNiMlx10Gx8D = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 10))
-brcdEntityOIDModuleIntfNiMlx10Gx8M = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 11))
-brcdEntityOIDModuleIntfMlxFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3))
-brcdEntityOIDModuleIntfBrMlx1Gcx24X = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 1))
-brcdEntityOIDModuleIntfBrMlx1Gcx24xMl = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 2))
-brcdEntityOIDModuleIntfBrMlx1Gfx24X = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 3))
-brcdEntityOIDModuleIntfBrMlx1Gfx24xMl = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 4))
-brcdEntityOIDModuleIntfBrMlx10Gx4X = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 5))
-brcdEntityOIDModuleIntfBrMlx10Gx4xMl = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 6))
-brcdEntityOIDModuleIntfBrMlx10Gx8X = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 7))
-brcdEntityOIDModuleIntfBrMlx10Gx24Dm = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 8))
-brcdEntityOIDModuleIntfBrMlx40Gx2 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 9))
-brcdEntityOIDModuleIntfBrMlx40Gx4 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 10))
-brcdEntityOIDModuleIntfBrMlx100Gx1 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 11))
-brcdEntityOIDModuleIntfBrMlx100Gx2 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 12))
-brcdEntityOIDModuleIntfBrMlx100Gx2CFP2 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 13))
-brcdEntityOIDModuleIntfBrMlx10Gx20 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 14))
-brcdEntityOIDModuleIntfBrMlx10Gx4IPSecModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 15))
-brcdEntityOIDModuleOptics = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5))
-brcdEntityOIDModuleOpticsUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 1))
-brcdEntityOIDModuleOpticsSFP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 2))
-brcdEntityOIDModuleOpticsSFPP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 3))
-brcdEntityOIDModuleOpticsXFP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 4))
-brcdEntityOIDModuleOpticsCFP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 5))
-brcdEntityOIDModuleOpticsQSFPP = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 6))
-brcdEntityOIDModuleOpticsCFP2 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 7))
-brcdEntityOIDModuleOpticsGBIC = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 8))
-brcdEntityOIDModuleService = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6))
-brcdEntityOIDModuleServiceUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 1))
-brcdEntityOIDModuleServiceIcx7250Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 2))
-brcdEntityOIDModuleServiceIcx7250sfpplus8Port80gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 2, 1))
-brcdEntityOIDModuleServiceIcx7250sfpplus4Port4gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 2, 2))
-brcdEntityOIDModuleServiceIcx7450Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3))
-brcdEntityOIDModuleServiceIcx7400sfpplus4Port40gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3, 1))
-brcdEntityOIDModuleServiceIcx7400copper4Port40gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3, 2))
-brcdEntityOIDModuleServiceIcx7400sfp4Port4gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3, 3))
-brcdEntityOIDModuleServiceIcx7400qsfpplus1Port40gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3, 4))
-brcdEntityOIDModuleServiceIcx7400ServiceModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3, 5))
-brcdEntityOIDModuleServiceIcx7750Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 4))
-brcdEntityOIDModuleServiceIcx7750QSFP6port40gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 4, 1))
-brcdEntityOIDModuleServiceIcx77506Q6port40gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 4, 2))
-brcdEntityOIDModuleServiceIcx7150Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5))
-brcdEntityOIDModuleServiceIcx7150sfpplus2Port20gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 1))
-brcdEntityOIDModuleServiceIcx7150sfpplus4Port40gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 2))
-brcdEntityOIDModuleServiceIcx7150gc2Port2gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 3))
-brcdEntityOIDModuleServiceIcx7150sfpplus8Port80gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 4))
-brcdEntityOIDModuleServiceIcx7150gsfp2Port2gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 5))
-brcdEntityOIDModuleServiceIcx7150gc2Port20gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 6))
-brcdEntityOIDModuleServiceIcx7650Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6))
-brcdEntityOIDModuleServiceIcx7600xgf4Port40gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 1))
-brcdEntityOIDModuleServiceIcx7600qsfp2port80gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 2))
-brcdEntityOIDModuleServiceIcx7600100g1port100gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 3))
-brcdEntityOIDModuleServiceIcx7650qsfp4port160gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 4))
-brcdEntityOIDModuleServiceIcx7650100g2port200gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 5))
-brcdEntityOIDModuleServiceIcx7650qsfp2port80gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 6))
-brcdEntityOIDModuleServiceIcx7850Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 7))
-brcdEntityOIDModuleServiceIcx78508port800gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 7, 1))
-brcdEntityOIDModuleServiceIcx785012port1200gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 7, 2))
-brcdEntityOIDModuleServiceIcx7550Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 8))
-brcdEntityOIDModuleServiceIcx75502port80gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 8, 1))
-brcdEntityOIDModuleServiceIcx75502port200gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 8, 2))
-brcdEntityOIDModuleServiceIcx8200Family = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9))
-brcdEntityOIDModuleServiceIcx82004Port100gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 1))
-brcdEntityOIDModuleServiceIcx82008Port200gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 2))
-brcdEntityOIDModuleServiceIcx82002Port2gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 3))
-brcdEntityOIDModuleServiceIcx82002Port20gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 4))
-brcdEntityOIDModuleServiceIcx82002Port50gModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 5))
-brcdEntityOIDModuleServiceIcx82002Port20gcfModule = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 6))
-brcdEntityOIDPort = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10))
-brcdEntityOIDPortUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 1))
-brcdEntityOIDPortMgmtSerial = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 2))
-brcdEntityOIDPortMgmtEth = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 3))
-brcdEntityOIDPort100BaseTx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 4))
-brcdEntityOIDPort100BaseFx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 5))
-brcdEntityOIDPortGigBaseTx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 6))
-brcdEntityOIDPortGigBaseFx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 7))
-brcdEntityOIDPort10GigBaseFx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 8))
-brcdEntityOIDPort40GigBaseFx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 9))
-brcdEntityOIDPort100GigBaseFx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 10))
-brcdEntityOIDPort10GigBaseTx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 11))
-brcdEntityOIDPort25GigBaseTx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 12))
-brcdEntityOIDPort40GigBaseTx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 13))
-brcdEntityOIDPort2500BaseTx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 14))
-brcdEntityOIDPort5GigBaseTx = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 15))
-brcdEntityOIDStack = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11))
-brcdEntityOIDStackUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 1))
-brcdEntityOIDStackICXStackFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2))
-brcdEntityOIDStackICXStackIcx7250 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 1))
-brcdEntityOIDStackICXStackIcx7450 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 2))
-brcdEntityOIDStackICXStackIcx7750 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 3))
-brcdEntityOIDStackICXStackIcx7150 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 4))
-brcdEntityOIDStackICXStackIcx7650 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 5))
-brcdEntityOIDStackICXStackIcx7850 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 6))
-brcdEntityOIDStackICXSPXFamily = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 3))
-brcdEntityOIDStackICXSPX = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 3, 1))
-brcdEntityOIDStackICXStackIcx7550 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 7))
-brcdEntityOIDStackICXStackIcx8200 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 8))
-brcdEntityOIDCpu = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12))
-brcdEntityOIDCpuUnknown = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 1))
-brcdEntityOIDCpuPPC7447A = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 2))
-brcdEntityOIDCpuPPC7448 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 3))
-brcdEntityOIDCpuPPC7451 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 4))
-brcdEntityOIDCpuPPC7455 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 5))
-brcdEntityOIDCpuPPC7457 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 6))
-brcdEntityOIDCpuPPC8541 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 7))
-brcdEntityOIDCpuPPC8541E = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 8))
-brcdEntityOIDCpuPPC8544 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 9))
-brcdEntityOIDCpuPPC8544E = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 10))
-brcdEntityOIDCpuPPC8572 = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 11))
-brcdEntityOIDCpuPPC8572E = MibIdentifier((1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 12))
-mibBuilder.exportSymbols("BROCADE-ENTITY-OID-MIB", brcdEntityOIDModuleMgmtIcx7650648FBaseModule=brcdEntityOIDModuleMgmtIcx7650648FBaseModule, brcdEntityOIDModuleMgmtIcx7550648FBaseModule=brcdEntityOIDModuleMgmtIcx7550648FBaseModule, brcdEntityOIDModuleMgmtIcx7250624GBaseModule=brcdEntityOIDModuleMgmtIcx7250624GBaseModule, brcdEntityOIDChassisNetIronCes2024C4X=brcdEntityOIDChassisNetIronCes2024C4X, brcdEntityOIDChassisICX785032Q=brcdEntityOIDChassisICX785032Q, brcdEntityOIDModuleServiceIcx7650qsfp2port80gModule=brcdEntityOIDModuleServiceIcx7650qsfp2port80gModule, brcdEntityOIDPowerSupplyDC1800W=brcdEntityOIDPowerSupplyDC1800W, brcdEntityOIDCpuPPC7455=brcdEntityOIDCpuPPC7455, brcdEntityOIDModuleIntfUnknown=brcdEntityOIDModuleIntfUnknown, brcdEntityOIDStackICXStackIcx8200=brcdEntityOIDStackICXStackIcx8200, brcdEntityOIDModuleMgmtIcx7650648ZPBaseModule=brcdEntityOIDModuleMgmtIcx7650648ZPBaseModule, brcdEntityOIDModuleServiceUnknown=brcdEntityOIDModuleServiceUnknown, brcdEntityOIDPort40GigBaseFx=brcdEntityOIDPort40GigBaseFx, brcdEntityOIDContainerUnknown=brcdEntityOIDContainerUnknown, brcdEntityOIDChassisICX820048PF=brcdEntityOIDChassisICX820048PF, brcdEntityOIDModuleServiceIcx75502port80gModule=brcdEntityOIDModuleServiceIcx75502port80gModule, brcdEntityOIDModuleOpticsSFP=brcdEntityOIDModuleOpticsSFP, brcdEntityOIDPowerSupplyDCRegular=brcdEntityOIDPowerSupplyDCRegular, brcdEntityOIDChassisICX715048=brcdEntityOIDChassisICX715048, brcdEntityOIDCpuPPC7447A=brcdEntityOIDCpuPPC7447A, brcdEntityOIDModuleServiceIcx8200Family=brcdEntityOIDModuleServiceIcx8200Family, brcdEntityOIDPowerSupplyAC2100W=brcdEntityOIDPowerSupplyAC2100W, brcdEntityOIDChassisICX7150C10ZP=brcdEntityOIDChassisICX7150C10ZP, brcdEntityOIDModuleIntfNiMlx1Gx20Sfp=brcdEntityOIDModuleIntfNiMlx1Gx20Sfp, brcdEntityOIDModuleMgmtIcx7250648PoeBaseModule=brcdEntityOIDModuleMgmtIcx7250648PoeBaseModule, brcdEntityOIDPortGigBaseFx=brcdEntityOIDPortGigBaseFx, brcdEntityOIDPowerSupplyDC2100W=brcdEntityOIDPowerSupplyDC2100W, brcdEntityOIDModuleIntfNiXmr1Gx20Gc=brcdEntityOIDModuleIntfNiXmr1Gx20Gc, brcdEntityOIDOther=brcdEntityOIDOther, brcdEntityOIDChassisNetIronCes2024F4X=brcdEntityOIDChassisNetIronCes2024F4X, brcdEntityOIDModuleServiceIcx7550Family=brcdEntityOIDModuleServiceIcx7550Family, brcdEntityOIDModuleMgmtIcx7150C08PBaseModule=brcdEntityOIDModuleMgmtIcx7150C08PBaseModule, brcdEntityOIDChassisICX765048P=brcdEntityOIDChassisICX765048P, brcdEntityOIDModuleServiceIcx785012port1200gModule=brcdEntityOIDModuleServiceIcx785012port1200gModule, brcdEntityOIDModuleSfmNiX4Hsf=brcdEntityOIDModuleSfmNiX4Hsf, brcdEntityOIDChassisMLX32=brcdEntityOIDChassisMLX32, brcdEntityOIDModuleMgmtIcx7450648FBaseModule=brcdEntityOIDModuleMgmtIcx7450648FBaseModule, brcdEntityOIDChassisFanTray=brcdEntityOIDChassisFanTray, brcdEntityOIDCpuPPC8544E=brcdEntityOIDCpuPPC8544E, brcdEntityOIDChassisICX745048=brcdEntityOIDChassisICX745048, brcdEntityOIDModuleIntfBrMlx100Gx1=brcdEntityOIDModuleIntfBrMlx100Gx1, brcdEntityOIDContainerMgmtModuleSlot=brcdEntityOIDContainerMgmtModuleSlot, brcdEntityOIDModuleMgmtIcx82006C08PBaseModule=brcdEntityOIDModuleMgmtIcx82006C08PBaseModule, brcdEntityOIDModuleIntfNiMlx1Gx20Gc=brcdEntityOIDModuleIntfNiMlx1Gx20Gc, brcdEntityOIDChassisICX7850Family=brcdEntityOIDChassisICX7850Family, brcdEntityOIDChassisICX755024ZP=brcdEntityOIDChassisICX755024ZP, brcdEntityOIDPowerSupplyDCPOE=brcdEntityOIDPowerSupplyDCPOE, brcdEntityOIDChassisICX745024HPOE=brcdEntityOIDChassisICX745024HPOE, brcdEntityOIDChassisICX755048P=brcdEntityOIDChassisICX755048P, brcdEntityOIDModuleMgmtIcx7450648PoeBaseModule=brcdEntityOIDModuleMgmtIcx7450648PoeBaseModule, brcdEntityOIDModuleMgmtIcx7250624PoeBaseModule=brcdEntityOIDModuleMgmtIcx7250624PoeBaseModule, brcdEntityOIDModuleIntfNiMlx10Gx2=brcdEntityOIDModuleIntfNiMlx10Gx2, brcdEntityOIDModuleServiceIcx7850Family=brcdEntityOIDModuleServiceIcx7850Family, brcdEntityOIDModuleMgmtIcx775020QBaseModule=brcdEntityOIDModuleMgmtIcx775020QBaseModule, brcdEntityOIDModuleMgmtIcx8200624FBaseModule=brcdEntityOIDModuleMgmtIcx8200624FBaseModule, brcdEntityOIDContainerPowerSupply=brcdEntityOIDContainerPowerSupply, PYSNMP_MODULE_ID=brcdEntityOIDMIB, brcdEntityOIDChassisICX820024F=brcdEntityOIDChassisICX820024F, brcdEntityOIDModuleMgmtIcx82006C08PTBaseModule=brcdEntityOIDModuleMgmtIcx82006C08PTBaseModule, brcdEntityOIDModuleServiceIcx7650Family=brcdEntityOIDModuleServiceIcx7650Family, brcdEntityOIDChassisMLXe16=brcdEntityOIDChassisMLXe16, brcdEntityOIDModuleMgmtIcx7150612CPoeBaseModule=brcdEntityOIDModuleMgmtIcx7150612CPoeBaseModule, brcdEntityOIDModuleMgmtBrMlx32Mr2M=brcdEntityOIDModuleMgmtBrMlx32Mr2M, brcdEntityOIDChassisMLXFamily=brcdEntityOIDChassisMLXFamily, brcdEntityOIDModuleMgmtIcx8200648FBaseModule=brcdEntityOIDModuleMgmtIcx8200648FBaseModule, brcdEntityOIDChassisFan=brcdEntityOIDChassisFan, brcdEntityOIDModuleMgmtIcx8200Family=brcdEntityOIDModuleMgmtIcx8200Family, brcdEntityOIDPort100BaseFx=brcdEntityOIDPort100BaseFx, brcdEntityOIDModuleIntfBrMlx10Gx20=brcdEntityOIDModuleIntfBrMlx10Gx20, brcdEntityOIDModuleMgmtIcx775048FBaseModule=brcdEntityOIDModuleMgmtIcx775048FBaseModule, brcdEntityOIDModuleOpticsCFP=brcdEntityOIDModuleOpticsCFP, brcdEntityOIDModuleIntfBrMlx100Gx2CFP2=brcdEntityOIDModuleIntfBrMlx100Gx2CFP2, brcdEntityOIDModuleMgmtIcx7450632ZPBaseModule=brcdEntityOIDModuleMgmtIcx7450632ZPBaseModule, brcdEntityOIDModuleMgmtIcx7550624FBaseModule=brcdEntityOIDModuleMgmtIcx7550624FBaseModule, brcdEntityOIDBackplaneUnknown=brcdEntityOIDBackplaneUnknown, brcdEntityOIDModuleMgmtIcx7150648BaseModule=brcdEntityOIDModuleMgmtIcx7150648BaseModule, brcdEntityOIDPowerSupply=brcdEntityOIDPowerSupply, brcdEntityOIDChassisICX7750Family=brcdEntityOIDChassisICX7750Family, brcdEntityOIDModuleMgmtIcx82006C08PDCBaseModule=brcdEntityOIDModuleMgmtIcx82006C08PDCBaseModule, brcdEntityOIDPowerSupplyDC1200W=brcdEntityOIDPowerSupplyDC1200W, brcdEntityOIDModuleMgmtIcx82006C08PFBaseModule=brcdEntityOIDModuleMgmtIcx82006C08PFBaseModule, brcdEntityOIDModuleMgmtIcx7450648BaseModule=brcdEntityOIDModuleMgmtIcx7450648BaseModule, brcdEntityOIDModuleServiceIcx82002Port50gModule=brcdEntityOIDModuleServiceIcx82002Port50gModule, brcdEntityOIDModuleMgmtIcx8200624BaseModule=brcdEntityOIDModuleMgmtIcx8200624BaseModule, brcdEntityOIDModuleMgmtIcx7550624PoeBaseModule=brcdEntityOIDModuleMgmtIcx7550624PoeBaseModule, brcdEntityOIDChassisNetIronCer2048C=brcdEntityOIDChassisNetIronCer2048C, brcdEntityOIDChassisICX820048F=brcdEntityOIDChassisICX820048F, brcdEntityOIDCpuPPC8572E=brcdEntityOIDCpuPPC8572E, brcdEntityOIDModuleServiceIcx77506Q6port40gModule=brcdEntityOIDModuleServiceIcx77506Q6port40gModule, brcdEntityOIDBackplaneNetIronCer2000=brcdEntityOIDBackplaneNetIronCer2000, brcdEntityOIDChassisICX745048HPOE=brcdEntityOIDChassisICX745048HPOE, brcdEntityOIDChassisICX7150C12POE=brcdEntityOIDChassisICX7150C12POE, brcdEntityOIDModuleSfmNiX32Hsf=brcdEntityOIDModuleSfmNiX32Hsf, brcdEntityOIDModuleIntfBrMlx1Gfx24xMl=brcdEntityOIDModuleIntfBrMlx1Gfx24xMl, brcdEntityOIDModuleServiceIcx7400ServiceModule=brcdEntityOIDModuleServiceIcx7400ServiceModule, brcdEntityOIDChassisICX820024FX=brcdEntityOIDChassisICX820024FX, brcdEntityOIDChassisNetIronXMRFamily=brcdEntityOIDChassisNetIronXMRFamily, brcdEntityOIDChassisICX785048C=brcdEntityOIDChassisICX785048C, brcdEntityOIDChassisICX8200Family=brcdEntityOIDChassisICX8200Family, brcdEntityOIDChassisMLXeFamily=brcdEntityOIDChassisMLXeFamily, brcdEntityOIDChassisICX725024HPOE=brcdEntityOIDChassisICX725024HPOE, brcdEntityOIDChassisICX8200C08PF=brcdEntityOIDChassisICX8200C08PF, brcdEntityOIDModuleServiceIcx7250sfpplus8Port80gModule=brcdEntityOIDModuleServiceIcx7250sfpplus8Port80gModule, brcdEntityOIDModuleMgmtIcx7250Family=brcdEntityOIDModuleMgmtIcx7250Family, brcdEntityOIDModuleMgmtIcx7150648ZPBaseModule=brcdEntityOIDModuleMgmtIcx7150648ZPBaseModule, brcdEntityOIDModuleMgmt=brcdEntityOIDModuleMgmt, brcdEntityOIDPort100GigBaseFx=brcdEntityOIDPort100GigBaseFx, brcdEntityOIDPowerSupplyAC1200WA=brcdEntityOIDPowerSupplyAC1200WA, brcdEntityOIDModuleMgmtIcx775048CBaseModule=brcdEntityOIDModuleMgmtIcx775048CBaseModule, brcdEntityOIDModuleOpticsCFP2=brcdEntityOIDModuleOpticsCFP2, brcdEntityOIDModuleOpticsUnknown=brcdEntityOIDModuleOpticsUnknown, brcdEntityOIDPowerSupplyDC1200WA=brcdEntityOIDPowerSupplyDC1200WA, brcdEntityOIDModuleServiceIcx82002Port20gcfModule=brcdEntityOIDModuleServiceIcx82002Port20gcfModule, brcdEntityOIDChassisICX820024=brcdEntityOIDChassisICX820024, brcdEntityOIDModuleMgmtBrMlxMr2M=brcdEntityOIDModuleMgmtBrMlxMr2M, brcdEntityOIDChassisNetIronCes2048FX=brcdEntityOIDChassisNetIronCes2048FX, brcdEntityOIDChassisICX820048P=brcdEntityOIDChassisICX820048P, brcdEntityOIDModuleServiceIcx7400copper4Port40gModule=brcdEntityOIDModuleServiceIcx7400copper4Port40gModule, brcdEntityOIDChassisICX775048F=brcdEntityOIDChassisICX775048F, brcdEntityOIDChassisICX7150C08P=brcdEntityOIDChassisICX7150C08P, brcdEntityOIDPortMgmtEth=brcdEntityOIDPortMgmtEth, brcdEntityOIDStackICXStackIcx7750=brcdEntityOIDStackICXStackIcx7750, brcdEntityOIDModuleMgmtIcx7150624BaseModule=brcdEntityOIDModuleMgmtIcx7150624BaseModule, brcdEntityOIDChassisICX8200C08ZP=brcdEntityOIDChassisICX8200C08ZP, brcdEntityOIDChassisNetIronCer2048F=brcdEntityOIDChassisNetIronCer2048F, brcdEntityOIDModuleOpticsSFPP=brcdEntityOIDModuleOpticsSFPP, brcdEntityOIDModuleMgmtIcx7550624ZPBaseModule=brcdEntityOIDModuleMgmtIcx7550624ZPBaseModule, brcdEntityOIDModuleMgmtNiXmrMr=brcdEntityOIDModuleMgmtNiXmrMr, brcdEntityOIDChassisNetIronCes2000Family=brcdEntityOIDChassisNetIronCes2000Family, brcdEntityOIDPort2500BaseTx=brcdEntityOIDPort2500BaseTx, brcdEntityOIDChassisMLX16=brcdEntityOIDChassisMLX16, brcdEntityOIDModuleIntf=brcdEntityOIDModuleIntf, brcdEntityOIDModuleIntfNiMlx10Gx8M=brcdEntityOIDModuleIntfNiMlx10Gx8M, brcdEntityOIDModuleServiceIcx82008Port200gModule=brcdEntityOIDModuleServiceIcx82008Port200gModule, brcdEntityOIDPowerSupplyUnknown=brcdEntityOIDPowerSupplyUnknown, brcdEntityOIDPort=brcdEntityOIDPort, brcdEntityOIDPowerSupplyACPOE=brcdEntityOIDPowerSupplyACPOE, brcdEntityOIDModuleServiceIcx7150gc2Port20gModule=brcdEntityOIDModuleServiceIcx7150gc2Port20gModule, brcdEntityOIDPowerSupplyACRegular=brcdEntityOIDPowerSupplyACRegular, brcdEntityOIDChassisNetIronCer2024C=brcdEntityOIDChassisNetIronCer2024C, brcdEntityOIDModuleMgmtIcx7850632QBaseModule=brcdEntityOIDModuleMgmtIcx7850632QBaseModule, brcdEntityOIDChassisICX765048ZP=brcdEntityOIDChassisICX765048ZP, brcdEntityOIDModuleMgmtNiMlxMr=brcdEntityOIDModuleMgmtNiMlxMr, brcdEntityOIDChassisNetIronCer2048FX=brcdEntityOIDChassisNetIronCer2048FX, brcdEntityOIDContainerSwitchFabricModuleSlot=brcdEntityOIDContainerSwitchFabricModuleSlot, brcdEntityOIDModuleIntfBrMlx100Gx2=brcdEntityOIDModuleIntfBrMlx100Gx2, brcdEntityOIDModuleMgmtIcx7850648FBaseModule=brcdEntityOIDModuleMgmtIcx7850648FBaseModule, brcdEntityOIDModuleIntfBrMlx40Gx2=brcdEntityOIDModuleIntfBrMlx40Gx2, brcdEntityOIDSensorUnknown=brcdEntityOIDSensorUnknown, brcdEntityOIDChassisICX820048PF2=brcdEntityOIDChassisICX820048PF2, brcdEntityOIDModuleIntfBrMlx10Gx8X=brcdEntityOIDModuleIntfBrMlx10Gx8X, brcdEntityOIDPort10GigBaseFx=brcdEntityOIDPort10GigBaseFx, brcdEntityOIDModuleIntfNetIronFamily=brcdEntityOIDModuleIntfNetIronFamily, brcdEntityOIDModuleIntfBrMlx10Gx4IPSecModule=brcdEntityOIDModuleIntfBrMlx10Gx4IPSecModule, brcdEntityOIDModuleServiceIcx7600qsfp2port80gModule=brcdEntityOIDModuleServiceIcx7600qsfp2port80gModule, brcdEntityOIDModuleServiceIcx7400qsfpplus1Port40gModule=brcdEntityOIDModuleServiceIcx7400qsfpplus1Port40gModule, brcdEntityOIDCpuPPC7457=brcdEntityOIDCpuPPC7457, brcdEntityOIDChassisICX7150Family=brcdEntityOIDChassisICX7150Family, brcdEntityOIDModuleServiceIcx7150Family=brcdEntityOIDModuleServiceIcx7150Family, brcdEntityOIDCpuPPC7448=brcdEntityOIDCpuPPC7448, brcdEntityOIDModuleServiceIcx7150sfpplus4Port40gModule=brcdEntityOIDModuleServiceIcx7150sfpplus4Port40gModule, brcdEntityOIDModuleServiceIcx7250Family=brcdEntityOIDModuleServiceIcx7250Family, brcdEntityOIDModuleMgmtNiXmr32Mr=brcdEntityOIDModuleMgmtNiXmr32Mr, brcdEntityOIDModuleIntfBrMlx1Gcx24xMl=brcdEntityOIDModuleIntfBrMlx1Gcx24xMl, brcdEntityOIDModuleMgmtIcx8200648PFBaseModule=brcdEntityOIDModuleMgmtIcx8200648PFBaseModule, brcdEntityOIDModuleMgmtIcx8200624FXBaseModule=brcdEntityOIDModuleMgmtIcx8200624FXBaseModule, brcdEntityOIDBackplaneNetIronXMR=brcdEntityOIDBackplaneNetIronXMR, brcdEntityOIDModuleIntfBrMlx40Gx4=brcdEntityOIDModuleIntfBrMlx40Gx4, brcdEntityOIDModuleMgmtIcx8200648PF2BaseModule=brcdEntityOIDModuleMgmtIcx8200648PF2BaseModule, brcdEntityOIDModuleSfmNiX32Sf=brcdEntityOIDModuleSfmNiX32Sf, brcdEntityOIDStackICXStackIcx7550=brcdEntityOIDStackICXStackIcx7550, brcdEntityOIDPowerSupplyDC3000W=brcdEntityOIDPowerSupplyDC3000W, brcdEntityOIDModuleSfmUnknown=brcdEntityOIDModuleSfmUnknown, brcdEntityOIDChassisMLXe4=brcdEntityOIDChassisMLXe4, brcdEntityOIDBackplaneNetIronCes2000=brcdEntityOIDBackplaneNetIronCes2000, brcdEntityOIDChassisICX755048=brcdEntityOIDChassisICX755048, brcdEntityOIDModuleIntfBrMlx10Gx4xMl=brcdEntityOIDModuleIntfBrMlx10Gx4xMl, brcdEntityOIDPowerSupplyAC500W=brcdEntityOIDPowerSupplyAC500W, brcdEntityOIDModuleMgmtIcx7850648FSBaseModule=brcdEntityOIDModuleMgmtIcx7850648FSBaseModule, brcdEntityOIDCpuPPC8541=brcdEntityOIDCpuPPC8541, brcdEntityOIDFanUnknown=brcdEntityOIDFanUnknown, brcdEntityOIDModuleIntfNiMlx1Gx48Ta=brcdEntityOIDModuleIntfNiMlx1Gx48Ta, brcdEntityOIDModuleServiceIcx7250sfpplus4Port4gModule=brcdEntityOIDModuleServiceIcx7250sfpplus4Port4gModule, brcdEntityOIDChassisICX775048C=brcdEntityOIDChassisICX775048C, brcdEntityOIDModuleMgmtNiMlx32Mr=brcdEntityOIDModuleMgmtNiMlx32Mr, brcdEntityOIDStackICXStackIcx7250=brcdEntityOIDStackICXStackIcx7250, brcdEntityOIDModuleMgmtIcx7150Family=brcdEntityOIDModuleMgmtIcx7150Family, brcdEntityOIDChassisICX755024F=brcdEntityOIDChassisICX755024F, brcdEntityOIDPortUnknown=brcdEntityOIDPortUnknown, brcdEntityOIDModuleMgmtIcx8200624ZPBaseModule=brcdEntityOIDModuleMgmtIcx8200624ZPBaseModule, brcdEntityOIDModuleIntfNiMlx10Gx8D=brcdEntityOIDModuleIntfNiMlx10Gx8D, brcdEntityOIDModuleServiceIcx7750Family=brcdEntityOIDModuleServiceIcx7750Family, brcdEntityOIDChassisICX745024=brcdEntityOIDChassisICX745024, brcdEntityOIDModuleMgmtIcx8200648PBaseModule=brcdEntityOIDModuleMgmtIcx8200648PBaseModule, brcdEntityOIDBackplaneMlxFamily=brcdEntityOIDBackplaneMlxFamily, brcdEntityOIDModuleIntfNiMlx10Gx4=brcdEntityOIDModuleIntfNiMlx10Gx4, brcdEntityOIDChassisNetIronCer2000Family=brcdEntityOIDChassisNetIronCer2000Family, brcdEntityOIDPort10GigBaseTx=brcdEntityOIDPort10GigBaseTx, brcdEntityOIDUnknown=brcdEntityOIDUnknown, brcdEntityOIDModuleMgmtIcx7250624BaseModule=brcdEntityOIDModuleMgmtIcx7250624BaseModule, brcdEntityOIDModuleServiceIcx7150gc2Port2gModule=brcdEntityOIDModuleServiceIcx7150gc2Port2gModule, brcdEntityOIDModuleMgmtBrMlxMr2X=brcdEntityOIDModuleMgmtBrMlxMr2X, brcdEntityOIDModuleIntfNiXmr10Gx4=brcdEntityOIDModuleIntfNiXmr10Gx4, brcdEntityOIDModuleUnknown=brcdEntityOIDModuleUnknown, brcdEntityOIDModuleSfmNiX16n8Hsf=brcdEntityOIDModuleSfmNiX16n8Hsf, brcdEntityOIDModuleMgmtNetIronFamily=brcdEntityOIDModuleMgmtNetIronFamily, brcdEntityOIDModuleServiceIcx7600100g1port100gModule=brcdEntityOIDModuleServiceIcx7600100g1port100gModule, brcdEntityOIDModuleMgmtIcx8200648ZP2BaseModule=brcdEntityOIDModuleMgmtIcx8200648ZP2BaseModule, brcdEntityOIDModuleIntfBrMlx1Gfx24X=brcdEntityOIDModuleIntfBrMlx1Gfx24X, brcdEntityOIDMIBObjects=brcdEntityOIDMIBObjects, brcdEntityOIDModuleMgmtIcx775026QBaseModule=brcdEntityOIDModuleMgmtIcx775026QBaseModule, brcdEntityOIDModuleMgmtIcx7150C08PTBaseModule=brcdEntityOIDModuleMgmtIcx7150C08PTBaseModule, brcdEntityOIDChassisICX7150C08PT=brcdEntityOIDChassisICX7150C08PT, brcdEntityOIDBackplane=brcdEntityOIDBackplane, brcdEntityOIDModuleIntfBrMlx10Gx24Dm=brcdEntityOIDModuleIntfBrMlx10Gx24Dm, brcdEntityOIDChassisICX785048F=brcdEntityOIDChassisICX785048F, brcdEntityOIDSensorChipTemp=brcdEntityOIDSensorChipTemp, brcdEntityOIDModuleServiceIcx7600xgf4Port40gModule=brcdEntityOIDModuleServiceIcx7600xgf4Port40gModule, brcdEntityOIDChassisICX8200C08P=brcdEntityOIDChassisICX8200C08P, brcdEntityOIDModuleMgmtIcx7750Family=brcdEntityOIDModuleMgmtIcx7750Family, brcdEntityOIDChassisICX725048=brcdEntityOIDChassisICX725048, brcdEntityOIDChassis=brcdEntityOIDChassis, brcdEntityOIDChassisICX745048F=brcdEntityOIDChassisICX745048F, brcdEntityOIDPort40GigBaseTx=brcdEntityOIDPort40GigBaseTx, brcdEntityOIDChassisICX715048POEF=brcdEntityOIDChassisICX715048POEF, brcdEntityOIDCpuPPC8572=brcdEntityOIDCpuPPC8572, brcdEntityOIDContainerFanTray=brcdEntityOIDContainerFanTray, brcdEntityOIDStackICXStackIcx7650=brcdEntityOIDStackICXStackIcx7650, brcdEntityOIDModuleService=brcdEntityOIDModuleService, brcdEntityOIDModuleOpticsGBIC=brcdEntityOIDModuleOpticsGBIC, brcdEntityOIDStackICXStackIcx7150=brcdEntityOIDStackICXStackIcx7150, brcdEntityOIDChassisICX755048ZP=brcdEntityOIDChassisICX755048ZP, brcdEntityOIDPort100BaseTx=brcdEntityOIDPort100BaseTx, brcdEntityOIDModuleServiceIcx7450Family=brcdEntityOIDModuleServiceIcx7450Family, brcdEntityOIDPort5GigBaseTx=brcdEntityOIDPort5GigBaseTx, brcdEntityOIDChassisNetIronCes2048CX=brcdEntityOIDChassisNetIronCes2048CX, brcdEntityOIDChassisICX715048ZP=brcdEntityOIDChassisICX715048ZP, brcdEntityOIDModuleMgmtIcx8200624PBaseModule=brcdEntityOIDModuleMgmtIcx8200624PBaseModule, brcdEntityOIDChassisICX8200C08PT=brcdEntityOIDChassisICX8200C08PT, brcdEntityOIDCpu=brcdEntityOIDCpu, brcdEntityOIDPortMgmtSerial=brcdEntityOIDPortMgmtSerial, brcdEntityOIDBackplaneMLXe=brcdEntityOIDBackplaneMLXe, brcdEntityOIDModuleServiceIcx82002Port2gModule=brcdEntityOIDModuleServiceIcx82002Port2gModule, brcdEntityOIDChassisNetIronCes2024C=brcdEntityOIDChassisNetIronCes2024C, brcdEntityOIDChassisICX725024G=brcdEntityOIDChassisICX725024G, brcdEntityOIDModuleServiceIcx7650100g2port200gModule=brcdEntityOIDModuleServiceIcx7650100g2port200gModule, brcdEntityOIDModuleServiceIcx7150sfpplus2Port20gModule=brcdEntityOIDModuleServiceIcx7150sfpplus2Port20gModule, brcdEntityOIDModuleMgmtIcx7650648PoeBaseModule=brcdEntityOIDModuleMgmtIcx7650648PoeBaseModule, brcdEntityOIDCpuPPC8544=brcdEntityOIDCpuPPC8544, brcdEntityOIDChassisICX715024F=brcdEntityOIDChassisICX715024F, brcdEntityOIDChassisNetIronCer2024F4X=brcdEntityOIDChassisNetIronCer2024F4X, brcdEntityOIDContainerIntfModuleSlot=brcdEntityOIDContainerIntfModuleSlot, brcdEntityOIDCpuPPC7451=brcdEntityOIDCpuPPC7451, brcdEntityOIDChassisICX7250Family=brcdEntityOIDChassisICX7250Family)
-mibBuilder.exportSymbols("BROCADE-ENTITY-OID-MIB", brcdEntityOIDModuleMgmtIcx7450Family=brcdEntityOIDModuleMgmtIcx7450Family, brcdEntityOIDChassisICX775026Q=brcdEntityOIDChassisICX775026Q, brcdEntityOIDModuleSfmNetIronFamily=brcdEntityOIDModuleSfmNetIronFamily, brcdEntityOIDChassisICX820024P=brcdEntityOIDChassisICX820024P, brcdEntityOIDModuleMgmtIcx82006C08ZPBaseModule=brcdEntityOIDModuleMgmtIcx82006C08ZPBaseModule, brcdEntityOIDChassisICX715024=brcdEntityOIDChassisICX715024, brcdEntityOIDModuleMgmtIcx7150648PoeBaseModule=brcdEntityOIDModuleMgmtIcx7150648PoeBaseModule, brcdEntityOIDModuleSfmNiXSf3=brcdEntityOIDModuleSfmNiXSf3, brcdEntityOIDModuleServiceIcx7150gsfp2Port2gModule=brcdEntityOIDModuleServiceIcx7150gsfp2Port2gModule, brcdEntityOIDModuleServiceIcx78508port800gModule=brcdEntityOIDModuleServiceIcx78508port800gModule, brcdEntityOIDChassisMLX4=brcdEntityOIDChassisMLX4, brcdEntityOIDPowerSupplyAC1200W=brcdEntityOIDPowerSupplyAC1200W, brcdEntityOIDPowerSupplyAC1800W=brcdEntityOIDPowerSupplyAC1800W, brcdEntityOIDChassisICX820024ZP=brcdEntityOIDChassisICX820024ZP, brcdEntityOIDStackICXSPX=brcdEntityOIDStackICXSPX, brcdEntityOIDChassisICX820048=brcdEntityOIDChassisICX820048, brcdEntityOIDModuleServiceIcx82002Port20gModule=brcdEntityOIDModuleServiceIcx82002Port20gModule, brcdEntityOIDPowerSupplyAC2400W=brcdEntityOIDPowerSupplyAC2400W, brcdEntityOIDChassisICX725048HPOE=brcdEntityOIDChassisICX725048HPOE, brcdEntityOIDModuleServiceIcx7650qsfp4port160gModule=brcdEntityOIDModuleServiceIcx7650qsfp4port160gModule, brcdEntityOIDCpuPPC8541E=brcdEntityOIDCpuPPC8541E, brcdEntityOIDModuleServiceIcx82004Port100gModule=brcdEntityOIDModuleServiceIcx82004Port100gModule, brcdEntityOIDChassisNetIronCer2048CX=brcdEntityOIDChassisNetIronCer2048CX, brcdEntityOIDModuleMgmtBrMlx32Mr2X=brcdEntityOIDModuleMgmtBrMlx32Mr2X, brcdEntityOIDModuleServiceIcx7150sfpplus8Port80gModule=brcdEntityOIDModuleServiceIcx7150sfpplus8Port80gModule, brcdEntityOIDBackplaneMLX=brcdEntityOIDBackplaneMLX, brcdEntityOIDChassisICX755024P=brcdEntityOIDChassisICX755024P, brcdEntityOIDModuleOpticsQSFPP=brcdEntityOIDModuleOpticsQSFPP, brcdEntityOIDChassisICX820048ZP2=brcdEntityOIDChassisICX820048ZP2, brcdEntityOIDPowerSupplyDC2400W=brcdEntityOIDPowerSupplyDC2400W, brcdEntityOIDModuleMgmtIcx7150C10ZPBaseModule=brcdEntityOIDModuleMgmtIcx7150C10ZPBaseModule, brcdEntityOIDModuleServiceIcx7400sfpplus4Port40gModule=brcdEntityOIDModuleServiceIcx7400sfpplus4Port40gModule, brcdEntityOIDPowerSupplyDC500W=brcdEntityOIDPowerSupplyDC500W, brcdEntityOIDStackICXStackIcx7850=brcdEntityOIDStackICXStackIcx7850, brcdEntityOIDStackICXStackFamily=brcdEntityOIDStackICXStackFamily, brcdEntityOIDModuleSfm=brcdEntityOIDModuleSfm, brcdEntityOIDModuleMgmtIcx7550624BaseModule=brcdEntityOIDModuleMgmtIcx7550624BaseModule, brcdEntityOIDChassisNetIronCes2048C=brcdEntityOIDChassisNetIronCes2048C, brcdEntityOIDStackICXStackIcx7450=brcdEntityOIDStackICXStackIcx7450, brcdEntityOIDChassisNetIronCer2024C4X=brcdEntityOIDChassisNetIronCer2024C4X, brcdEntityOIDModuleMgmtIcx7450624BaseModule=brcdEntityOIDModuleMgmtIcx7450624BaseModule, brcdEntityOIDBackplaneNetIronFamily=brcdEntityOIDBackplaneNetIronFamily, brcdEntityOIDSensorModuleTemp=brcdEntityOIDSensorModuleTemp, brcdEntityOIDModuleMgmtIcx8200648BaseModule=brcdEntityOIDModuleMgmtIcx8200648BaseModule, brcdEntityOIDStack=brcdEntityOIDStack, brcdEntityOIDChassisNetIronXMR4000=brcdEntityOIDChassisNetIronXMR4000, brcdEntityOIDModuleSfmNiXSf1=brcdEntityOIDModuleSfmNiXSf1, brcdEntityOIDChassisICX725024=brcdEntityOIDChassisICX725024, brcdEntityOIDChassisNetIronXMR8000=brcdEntityOIDChassisNetIronXMR8000, brcdEntityOIDContainer=brcdEntityOIDContainer, brcdEntityOIDModuleMgmtUnknown=brcdEntityOIDModuleMgmtUnknown, brcdEntityOIDModuleMgmtIcx7550648ZPBaseModule=brcdEntityOIDModuleMgmtIcx7550648ZPBaseModule, brcdEntityOIDChassisNetIronXMR16000=brcdEntityOIDChassisNetIronXMR16000, brcdEntityOIDSensor=brcdEntityOIDSensor, brcdEntityOIDChassisNetIronXMR32000=brcdEntityOIDChassisNetIronXMR32000, brcdEntityOIDModuleMgmtIcx7550648PoeBaseModule=brcdEntityOIDModuleMgmtIcx7550648PoeBaseModule, brcdEntityOIDChassisNetIronCes2048F=brcdEntityOIDChassisNetIronCes2048F, brcdEntityOIDStackUnknown=brcdEntityOIDStackUnknown, brcdEntityOIDModuleMgmtMlxFamily=brcdEntityOIDModuleMgmtMlxFamily, brcdEntityOIDChassisMLXe8=brcdEntityOIDChassisMLXe8, brcdEntityOIDChassisUnknown=brcdEntityOIDChassisUnknown, brcdEntityOIDChassisICX8200C08PDC=brcdEntityOIDChassisICX8200C08PDC, brcdEntityOIDModuleMgmtIcx7450624PoeBaseModule=brcdEntityOIDModuleMgmtIcx7450624PoeBaseModule, brcdEntityOIDPortGigBaseTx=brcdEntityOIDPortGigBaseTx, brcdEntityOIDModule=brcdEntityOIDModule, brcdEntityOIDPowerSupplyAC3000W=brcdEntityOIDPowerSupplyAC3000W, brcdEntityOIDModuleServiceIcx75502port200gModule=brcdEntityOIDModuleServiceIcx75502port200gModule, brcdEntityOIDModuleMgmtIcx7150648PoeFBaseModule=brcdEntityOIDModuleMgmtIcx7150648PoeFBaseModule, brcdEntityOIDModuleMgmtIcx7250648BaseModule=brcdEntityOIDModuleMgmtIcx7250648BaseModule, brcdEntityOIDModuleMgmtIcx7650Family=brcdEntityOIDModuleMgmtIcx7650Family, brcdEntityOIDModuleIntfNiXmr10Gx2=brcdEntityOIDModuleIntfNiXmr10Gx2, brcdEntityOIDModuleMgmtIcx7550648BaseModule=brcdEntityOIDModuleMgmtIcx7550648BaseModule, brcdEntityOIDChassisMLXe32=brcdEntityOIDChassisMLXe32, brcdEntityOIDChassisNetIronCer2024F=brcdEntityOIDChassisNetIronCer2024F, brcdEntityOIDModuleMgmtIcx7550Family=brcdEntityOIDModuleMgmtIcx7550Family, brcdEntityOIDChassisICX785048FS=brcdEntityOIDChassisICX785048FS, brcdEntityOIDMIB=brcdEntityOIDMIB, brcdEntityOIDModuleOpticsXFP=brcdEntityOIDModuleOpticsXFP, brcdEntityOIDChassisICX755024=brcdEntityOIDChassisICX755024, brcdEntityOIDCpuUnknown=brcdEntityOIDCpuUnknown, brcdEntityOIDModuleIntfBrMlx1Gcx24X=brcdEntityOIDModuleIntfBrMlx1Gcx24X, brcdEntityOIDChassisICX7450Family=brcdEntityOIDChassisICX7450Family, brcdEntityOIDModuleMgmtIcx7850Family=brcdEntityOIDModuleMgmtIcx7850Family, brcdEntityOIDChassisICX7550Family=brcdEntityOIDChassisICX7550Family, brcdEntityOIDModuleServiceIcx7750QSFP6port40gModule=brcdEntityOIDModuleServiceIcx7750QSFP6port40gModule, brcdEntityOIDPort25GigBaseTx=brcdEntityOIDPort25GigBaseTx, brcdEntityOIDChassisICX715024POE=brcdEntityOIDChassisICX715024POE, brcdEntityOIDChassisNetIronCes2024F=brcdEntityOIDChassisNetIronCes2024F, brcdEntityOIDChassisICX715048POE=brcdEntityOIDChassisICX715048POE, brcdEntityOIDModuleIntfMlxFamily=brcdEntityOIDModuleIntfMlxFamily, brcdEntityOIDStackICXSPXFamily=brcdEntityOIDStackICXSPXFamily, brcdEntityOIDFan=brcdEntityOIDFan, brcdEntityOIDModuleIntfBrMlx10Gx4X=brcdEntityOIDModuleIntfBrMlx10Gx4X, brcdEntityOIDChassisICX755048F=brcdEntityOIDChassisICX755048F, brcdEntityOIDChassisICX7650Family=brcdEntityOIDChassisICX7650Family, brcdEntityOIDChassisICX765048F=brcdEntityOIDChassisICX765048F, brcdEntityOIDModuleServiceIcx7400sfp4Port4gModule=brcdEntityOIDModuleServiceIcx7400sfp4Port4gModule, brcdEntityOIDModuleIntfNiXmr1Gx20Sfp=brcdEntityOIDModuleIntfNiXmr1Gx20Sfp, brcdEntityOIDChassisMLX8=brcdEntityOIDChassisMLX8, brcdEntityOIDModuleMgmtIcx7150624FBaseModule=brcdEntityOIDModuleMgmtIcx7150624FBaseModule, brcdEntityOIDModuleMgmtIcx7150624PoeBaseModule=brcdEntityOIDModuleMgmtIcx7150624PoeBaseModule, brcdEntityOIDModuleOptics=brcdEntityOIDModuleOptics, brcdEntityOIDChassisICX745032ZP=brcdEntityOIDChassisICX745032ZP)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(products,) = mibBuilder.importSymbols(
+    "FOUNDRY-SN-ROOT-MIB",
+    "products")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+brcdEntityOIDMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17)
+)
+if mibBuilder.loadTexts:
+    brcdEntityOIDMIB.setRevisions(
+        ("2013-02-06 09:30",
+         "2017-08-07 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_BrcdEntityOIDMIBObjects_ObjectIdentity = ObjectIdentity
+brcdEntityOIDMIBObjects = _BrcdEntityOIDMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1)
+)
+_BrcdEntityOIDOther_ObjectIdentity = ObjectIdentity
+brcdEntityOIDOther = _BrcdEntityOIDOther_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 1)
+)
+_BrcdEntityOIDUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDUnknown = _BrcdEntityOIDUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 2)
+)
+_BrcdEntityOIDChassis_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassis = _BrcdEntityOIDChassis_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3)
+)
+_BrcdEntityOIDChassisUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisUnknown = _BrcdEntityOIDChassisUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 1)
+)
+_BrcdEntityOIDChassisNetIronCes2000Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCes2000Family = _BrcdEntityOIDChassisNetIronCes2000Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2)
+)
+_BrcdEntityOIDChassisNetIronCes2024F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCes2024F = _BrcdEntityOIDChassisNetIronCes2024F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 1)
+)
+_BrcdEntityOIDChassisNetIronCes2024C_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCes2024C = _BrcdEntityOIDChassisNetIronCes2024C_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 2)
+)
+_BrcdEntityOIDChassisNetIronCes2048F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCes2048F = _BrcdEntityOIDChassisNetIronCes2048F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 3)
+)
+_BrcdEntityOIDChassisNetIronCes2048C_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCes2048C = _BrcdEntityOIDChassisNetIronCes2048C_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 4)
+)
+_BrcdEntityOIDChassisNetIronCes2048FX_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCes2048FX = _BrcdEntityOIDChassisNetIronCes2048FX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 5)
+)
+_BrcdEntityOIDChassisNetIronCes2048CX_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCes2048CX = _BrcdEntityOIDChassisNetIronCes2048CX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 6)
+)
+_BrcdEntityOIDChassisNetIronCes2024F4X_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCes2024F4X = _BrcdEntityOIDChassisNetIronCes2024F4X_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 7)
+)
+_BrcdEntityOIDChassisNetIronCes2024C4X_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCes2024C4X = _BrcdEntityOIDChassisNetIronCes2024C4X_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 2, 8)
+)
+_BrcdEntityOIDChassisNetIronCer2000Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCer2000Family = _BrcdEntityOIDChassisNetIronCer2000Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3)
+)
+_BrcdEntityOIDChassisNetIronCer2024F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCer2024F = _BrcdEntityOIDChassisNetIronCer2024F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 1)
+)
+_BrcdEntityOIDChassisNetIronCer2024C_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCer2024C = _BrcdEntityOIDChassisNetIronCer2024C_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 2)
+)
+_BrcdEntityOIDChassisNetIronCer2048F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCer2048F = _BrcdEntityOIDChassisNetIronCer2048F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 3)
+)
+_BrcdEntityOIDChassisNetIronCer2048C_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCer2048C = _BrcdEntityOIDChassisNetIronCer2048C_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 4)
+)
+_BrcdEntityOIDChassisNetIronCer2048FX_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCer2048FX = _BrcdEntityOIDChassisNetIronCer2048FX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 5)
+)
+_BrcdEntityOIDChassisNetIronCer2048CX_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCer2048CX = _BrcdEntityOIDChassisNetIronCer2048CX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 6)
+)
+_BrcdEntityOIDChassisNetIronCer2024F4X_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCer2024F4X = _BrcdEntityOIDChassisNetIronCer2024F4X_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 7)
+)
+_BrcdEntityOIDChassisNetIronCer2024C4X_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronCer2024C4X = _BrcdEntityOIDChassisNetIronCer2024C4X_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 3, 8)
+)
+_BrcdEntityOIDChassisNetIronXMRFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronXMRFamily = _BrcdEntityOIDChassisNetIronXMRFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 4)
+)
+_BrcdEntityOIDChassisNetIronXMR4000_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronXMR4000 = _BrcdEntityOIDChassisNetIronXMR4000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 4, 1)
+)
+_BrcdEntityOIDChassisNetIronXMR8000_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronXMR8000 = _BrcdEntityOIDChassisNetIronXMR8000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 4, 2)
+)
+_BrcdEntityOIDChassisNetIronXMR16000_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronXMR16000 = _BrcdEntityOIDChassisNetIronXMR16000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 4, 3)
+)
+_BrcdEntityOIDChassisNetIronXMR32000_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisNetIronXMR32000 = _BrcdEntityOIDChassisNetIronXMR32000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 4, 4)
+)
+_BrcdEntityOIDChassisMLXFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisMLXFamily = _BrcdEntityOIDChassisMLXFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 5)
+)
+_BrcdEntityOIDChassisMLX4_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisMLX4 = _BrcdEntityOIDChassisMLX4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 5, 1)
+)
+_BrcdEntityOIDChassisMLX8_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisMLX8 = _BrcdEntityOIDChassisMLX8_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 5, 2)
+)
+_BrcdEntityOIDChassisMLX16_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisMLX16 = _BrcdEntityOIDChassisMLX16_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 5, 3)
+)
+_BrcdEntityOIDChassisMLX32_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisMLX32 = _BrcdEntityOIDChassisMLX32_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 5, 4)
+)
+_BrcdEntityOIDChassisMLXeFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisMLXeFamily = _BrcdEntityOIDChassisMLXeFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 6)
+)
+_BrcdEntityOIDChassisMLXe4_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisMLXe4 = _BrcdEntityOIDChassisMLXe4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 6, 1)
+)
+_BrcdEntityOIDChassisMLXe8_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisMLXe8 = _BrcdEntityOIDChassisMLXe8_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 6, 2)
+)
+_BrcdEntityOIDChassisMLXe16_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisMLXe16 = _BrcdEntityOIDChassisMLXe16_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 6, 3)
+)
+_BrcdEntityOIDChassisMLXe32_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisMLXe32 = _BrcdEntityOIDChassisMLXe32_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 6, 4)
+)
+_BrcdEntityOIDChassisICX7250Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX7250Family = _BrcdEntityOIDChassisICX7250Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7)
+)
+_BrcdEntityOIDChassisICX725024_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX725024 = _BrcdEntityOIDChassisICX725024_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7, 1)
+)
+_BrcdEntityOIDChassisICX725024HPOE_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX725024HPOE = _BrcdEntityOIDChassisICX725024HPOE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7, 2)
+)
+_BrcdEntityOIDChassisICX725024G_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX725024G = _BrcdEntityOIDChassisICX725024G_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7, 3)
+)
+_BrcdEntityOIDChassisICX725048_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX725048 = _BrcdEntityOIDChassisICX725048_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7, 4)
+)
+_BrcdEntityOIDChassisICX725048HPOE_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX725048HPOE = _BrcdEntityOIDChassisICX725048HPOE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 7, 5)
+)
+_BrcdEntityOIDChassisICX7450Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX7450Family = _BrcdEntityOIDChassisICX7450Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8)
+)
+_BrcdEntityOIDChassisICX745024_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX745024 = _BrcdEntityOIDChassisICX745024_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 1)
+)
+_BrcdEntityOIDChassisICX745024HPOE_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX745024HPOE = _BrcdEntityOIDChassisICX745024HPOE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 2)
+)
+_BrcdEntityOIDChassisICX745032ZP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX745032ZP = _BrcdEntityOIDChassisICX745032ZP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 3)
+)
+_BrcdEntityOIDChassisICX745048_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX745048 = _BrcdEntityOIDChassisICX745048_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 4)
+)
+_BrcdEntityOIDChassisICX745048HPOE_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX745048HPOE = _BrcdEntityOIDChassisICX745048HPOE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 5)
+)
+_BrcdEntityOIDChassisICX745048F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX745048F = _BrcdEntityOIDChassisICX745048F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 8, 6)
+)
+_BrcdEntityOIDChassisICX7750Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX7750Family = _BrcdEntityOIDChassisICX7750Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 9)
+)
+_BrcdEntityOIDChassisICX775048C_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX775048C = _BrcdEntityOIDChassisICX775048C_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 9, 1)
+)
+_BrcdEntityOIDChassisICX775048F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX775048F = _BrcdEntityOIDChassisICX775048F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 9, 2)
+)
+_BrcdEntityOIDChassisICX775026Q_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX775026Q = _BrcdEntityOIDChassisICX775026Q_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 9, 3)
+)
+_BrcdEntityOIDChassisICX7150Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX7150Family = _BrcdEntityOIDChassisICX7150Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10)
+)
+_BrcdEntityOIDChassisICX715024_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX715024 = _BrcdEntityOIDChassisICX715024_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 1)
+)
+_BrcdEntityOIDChassisICX715024POE_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX715024POE = _BrcdEntityOIDChassisICX715024POE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 2)
+)
+_BrcdEntityOIDChassisICX715048_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX715048 = _BrcdEntityOIDChassisICX715048_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 3)
+)
+_BrcdEntityOIDChassisICX715048POE_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX715048POE = _BrcdEntityOIDChassisICX715048POE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 4)
+)
+_BrcdEntityOIDChassisICX715048POEF_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX715048POEF = _BrcdEntityOIDChassisICX715048POEF_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 5)
+)
+_BrcdEntityOIDChassisICX7150C12POE_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX7150C12POE = _BrcdEntityOIDChassisICX7150C12POE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 6)
+)
+_BrcdEntityOIDChassisICX715048ZP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX715048ZP = _BrcdEntityOIDChassisICX715048ZP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 7)
+)
+_BrcdEntityOIDChassisICX715024F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX715024F = _BrcdEntityOIDChassisICX715024F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 8)
+)
+_BrcdEntityOIDChassisICX7150C10ZP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX7150C10ZP = _BrcdEntityOIDChassisICX7150C10ZP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 9)
+)
+_BrcdEntityOIDChassisICX7150C08P_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX7150C08P = _BrcdEntityOIDChassisICX7150C08P_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 10)
+)
+_BrcdEntityOIDChassisICX7150C08PT_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX7150C08PT = _BrcdEntityOIDChassisICX7150C08PT_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 10, 11)
+)
+_BrcdEntityOIDChassisICX7650Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX7650Family = _BrcdEntityOIDChassisICX7650Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 11)
+)
+_BrcdEntityOIDChassisICX765048F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX765048F = _BrcdEntityOIDChassisICX765048F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 11, 1)
+)
+_BrcdEntityOIDChassisICX765048P_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX765048P = _BrcdEntityOIDChassisICX765048P_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 11, 2)
+)
+_BrcdEntityOIDChassisICX765048ZP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX765048ZP = _BrcdEntityOIDChassisICX765048ZP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 11, 3)
+)
+_BrcdEntityOIDChassisICX7850Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX7850Family = _BrcdEntityOIDChassisICX7850Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 12)
+)
+_BrcdEntityOIDChassisICX785032Q_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX785032Q = _BrcdEntityOIDChassisICX785032Q_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 12, 1)
+)
+_BrcdEntityOIDChassisICX785048F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX785048F = _BrcdEntityOIDChassisICX785048F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 12, 2)
+)
+_BrcdEntityOIDChassisICX785048FS_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX785048FS = _BrcdEntityOIDChassisICX785048FS_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 12, 3)
+)
+_BrcdEntityOIDChassisICX785048C_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX785048C = _BrcdEntityOIDChassisICX785048C_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 12, 4)
+)
+_BrcdEntityOIDChassisICX7550Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX7550Family = _BrcdEntityOIDChassisICX7550Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13)
+)
+_BrcdEntityOIDChassisICX755024_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX755024 = _BrcdEntityOIDChassisICX755024_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 1)
+)
+_BrcdEntityOIDChassisICX755024F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX755024F = _BrcdEntityOIDChassisICX755024F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 2)
+)
+_BrcdEntityOIDChassisICX755024P_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX755024P = _BrcdEntityOIDChassisICX755024P_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 3)
+)
+_BrcdEntityOIDChassisICX755024ZP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX755024ZP = _BrcdEntityOIDChassisICX755024ZP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 4)
+)
+_BrcdEntityOIDChassisICX755048_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX755048 = _BrcdEntityOIDChassisICX755048_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 5)
+)
+_BrcdEntityOIDChassisICX755048F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX755048F = _BrcdEntityOIDChassisICX755048F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 6)
+)
+_BrcdEntityOIDChassisICX755048P_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX755048P = _BrcdEntityOIDChassisICX755048P_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 7)
+)
+_BrcdEntityOIDChassisICX755048ZP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX755048ZP = _BrcdEntityOIDChassisICX755048ZP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 13, 8)
+)
+_BrcdEntityOIDChassisICX8200Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX8200Family = _BrcdEntityOIDChassisICX8200Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14)
+)
+_BrcdEntityOIDChassisICX820024_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX820024 = _BrcdEntityOIDChassisICX820024_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 1)
+)
+_BrcdEntityOIDChassisICX820024F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX820024F = _BrcdEntityOIDChassisICX820024F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 2)
+)
+_BrcdEntityOIDChassisICX820024FX_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX820024FX = _BrcdEntityOIDChassisICX820024FX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 3)
+)
+_BrcdEntityOIDChassisICX820024P_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX820024P = _BrcdEntityOIDChassisICX820024P_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 4)
+)
+_BrcdEntityOIDChassisICX820024ZP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX820024ZP = _BrcdEntityOIDChassisICX820024ZP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 5)
+)
+_BrcdEntityOIDChassisICX820048_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX820048 = _BrcdEntityOIDChassisICX820048_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 6)
+)
+_BrcdEntityOIDChassisICX820048F_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX820048F = _BrcdEntityOIDChassisICX820048F_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 7)
+)
+_BrcdEntityOIDChassisICX820048P_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX820048P = _BrcdEntityOIDChassisICX820048P_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 8)
+)
+_BrcdEntityOIDChassisICX820048PF_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX820048PF = _BrcdEntityOIDChassisICX820048PF_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 9)
+)
+_BrcdEntityOIDChassisICX820048PF2_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX820048PF2 = _BrcdEntityOIDChassisICX820048PF2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 10)
+)
+_BrcdEntityOIDChassisICX820048ZP2_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX820048ZP2 = _BrcdEntityOIDChassisICX820048ZP2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 11)
+)
+_BrcdEntityOIDChassisICX8200C08P_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX8200C08P = _BrcdEntityOIDChassisICX8200C08P_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 12)
+)
+_BrcdEntityOIDChassisICX8200C08PF_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX8200C08PF = _BrcdEntityOIDChassisICX8200C08PF_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 13)
+)
+_BrcdEntityOIDChassisICX8200C08PT_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX8200C08PT = _BrcdEntityOIDChassisICX8200C08PT_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 14)
+)
+_BrcdEntityOIDChassisICX8200C08PDC_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX8200C08PDC = _BrcdEntityOIDChassisICX8200C08PDC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 15)
+)
+_BrcdEntityOIDChassisICX8200C08ZP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisICX8200C08ZP = _BrcdEntityOIDChassisICX8200C08ZP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 3, 14, 16)
+)
+_BrcdEntityOIDBackplane_ObjectIdentity = ObjectIdentity
+brcdEntityOIDBackplane = _BrcdEntityOIDBackplane_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4)
+)
+_BrcdEntityOIDBackplaneUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDBackplaneUnknown = _BrcdEntityOIDBackplaneUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 1)
+)
+_BrcdEntityOIDBackplaneNetIronFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDBackplaneNetIronFamily = _BrcdEntityOIDBackplaneNetIronFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 2)
+)
+_BrcdEntityOIDBackplaneNetIronCes2000_ObjectIdentity = ObjectIdentity
+brcdEntityOIDBackplaneNetIronCes2000 = _BrcdEntityOIDBackplaneNetIronCes2000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 2, 1)
+)
+_BrcdEntityOIDBackplaneNetIronCer2000_ObjectIdentity = ObjectIdentity
+brcdEntityOIDBackplaneNetIronCer2000 = _BrcdEntityOIDBackplaneNetIronCer2000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 2, 2)
+)
+_BrcdEntityOIDBackplaneNetIronXMR_ObjectIdentity = ObjectIdentity
+brcdEntityOIDBackplaneNetIronXMR = _BrcdEntityOIDBackplaneNetIronXMR_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 2, 3)
+)
+_BrcdEntityOIDBackplaneMlxFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDBackplaneMlxFamily = _BrcdEntityOIDBackplaneMlxFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 3)
+)
+_BrcdEntityOIDBackplaneMLX_ObjectIdentity = ObjectIdentity
+brcdEntityOIDBackplaneMLX = _BrcdEntityOIDBackplaneMLX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 3, 1)
+)
+_BrcdEntityOIDBackplaneMLXe_ObjectIdentity = ObjectIdentity
+brcdEntityOIDBackplaneMLXe = _BrcdEntityOIDBackplaneMLXe_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 4, 3, 2)
+)
+_BrcdEntityOIDContainer_ObjectIdentity = ObjectIdentity
+brcdEntityOIDContainer = _BrcdEntityOIDContainer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5)
+)
+_BrcdEntityOIDContainerUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDContainerUnknown = _BrcdEntityOIDContainerUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 1)
+)
+_BrcdEntityOIDContainerPowerSupply_ObjectIdentity = ObjectIdentity
+brcdEntityOIDContainerPowerSupply = _BrcdEntityOIDContainerPowerSupply_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 2)
+)
+_BrcdEntityOIDContainerFanTray_ObjectIdentity = ObjectIdentity
+brcdEntityOIDContainerFanTray = _BrcdEntityOIDContainerFanTray_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 3)
+)
+_BrcdEntityOIDContainerMgmtModuleSlot_ObjectIdentity = ObjectIdentity
+brcdEntityOIDContainerMgmtModuleSlot = _BrcdEntityOIDContainerMgmtModuleSlot_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 4)
+)
+_BrcdEntityOIDContainerSwitchFabricModuleSlot_ObjectIdentity = ObjectIdentity
+brcdEntityOIDContainerSwitchFabricModuleSlot = _BrcdEntityOIDContainerSwitchFabricModuleSlot_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 5)
+)
+_BrcdEntityOIDContainerIntfModuleSlot_ObjectIdentity = ObjectIdentity
+brcdEntityOIDContainerIntfModuleSlot = _BrcdEntityOIDContainerIntfModuleSlot_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 5, 6)
+)
+_BrcdEntityOIDPowerSupply_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupply = _BrcdEntityOIDPowerSupply_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6)
+)
+_BrcdEntityOIDPowerSupplyUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyUnknown = _BrcdEntityOIDPowerSupplyUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 1)
+)
+_BrcdEntityOIDPowerSupplyAC500W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyAC500W = _BrcdEntityOIDPowerSupplyAC500W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 2)
+)
+_BrcdEntityOIDPowerSupplyDC500W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyDC500W = _BrcdEntityOIDPowerSupplyDC500W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 3)
+)
+_BrcdEntityOIDPowerSupplyAC1200W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyAC1200W = _BrcdEntityOIDPowerSupplyAC1200W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 4)
+)
+_BrcdEntityOIDPowerSupplyDC1200W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyDC1200W = _BrcdEntityOIDPowerSupplyDC1200W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 5)
+)
+_BrcdEntityOIDPowerSupplyAC1200WA_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyAC1200WA = _BrcdEntityOIDPowerSupplyAC1200WA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 6)
+)
+_BrcdEntityOIDPowerSupplyDC1200WA_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyDC1200WA = _BrcdEntityOIDPowerSupplyDC1200WA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 7)
+)
+_BrcdEntityOIDPowerSupplyAC1800W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyAC1800W = _BrcdEntityOIDPowerSupplyAC1800W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 8)
+)
+_BrcdEntityOIDPowerSupplyDC1800W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyDC1800W = _BrcdEntityOIDPowerSupplyDC1800W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 9)
+)
+_BrcdEntityOIDPowerSupplyAC2100W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyAC2100W = _BrcdEntityOIDPowerSupplyAC2100W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 10)
+)
+_BrcdEntityOIDPowerSupplyDC2100W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyDC2100W = _BrcdEntityOIDPowerSupplyDC2100W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 11)
+)
+_BrcdEntityOIDPowerSupplyAC2400W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyAC2400W = _BrcdEntityOIDPowerSupplyAC2400W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 12)
+)
+_BrcdEntityOIDPowerSupplyDC2400W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyDC2400W = _BrcdEntityOIDPowerSupplyDC2400W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 13)
+)
+_BrcdEntityOIDPowerSupplyAC3000W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyAC3000W = _BrcdEntityOIDPowerSupplyAC3000W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 14)
+)
+_BrcdEntityOIDPowerSupplyDC3000W_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyDC3000W = _BrcdEntityOIDPowerSupplyDC3000W_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 15)
+)
+_BrcdEntityOIDPowerSupplyACPOE_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyACPOE = _BrcdEntityOIDPowerSupplyACPOE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 16)
+)
+_BrcdEntityOIDPowerSupplyACRegular_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyACRegular = _BrcdEntityOIDPowerSupplyACRegular_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 17)
+)
+_BrcdEntityOIDPowerSupplyDCPOE_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyDCPOE = _BrcdEntityOIDPowerSupplyDCPOE_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 18)
+)
+_BrcdEntityOIDPowerSupplyDCRegular_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPowerSupplyDCRegular = _BrcdEntityOIDPowerSupplyDCRegular_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 6, 19)
+)
+_BrcdEntityOIDFan_ObjectIdentity = ObjectIdentity
+brcdEntityOIDFan = _BrcdEntityOIDFan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 7)
+)
+_BrcdEntityOIDFanUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDFanUnknown = _BrcdEntityOIDFanUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 7, 1)
+)
+_BrcdEntityOIDChassisFanTray_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisFanTray = _BrcdEntityOIDChassisFanTray_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 7, 2)
+)
+_BrcdEntityOIDChassisFan_ObjectIdentity = ObjectIdentity
+brcdEntityOIDChassisFan = _BrcdEntityOIDChassisFan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 7, 3)
+)
+_BrcdEntityOIDSensor_ObjectIdentity = ObjectIdentity
+brcdEntityOIDSensor = _BrcdEntityOIDSensor_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 8)
+)
+_BrcdEntityOIDSensorUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDSensorUnknown = _BrcdEntityOIDSensorUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 8, 1)
+)
+_BrcdEntityOIDSensorChipTemp_ObjectIdentity = ObjectIdentity
+brcdEntityOIDSensorChipTemp = _BrcdEntityOIDSensorChipTemp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 8, 2)
+)
+_BrcdEntityOIDSensorModuleTemp_ObjectIdentity = ObjectIdentity
+brcdEntityOIDSensorModuleTemp = _BrcdEntityOIDSensorModuleTemp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 8, 3)
+)
+_BrcdEntityOIDModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModule = _BrcdEntityOIDModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9)
+)
+_BrcdEntityOIDModuleUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleUnknown = _BrcdEntityOIDModuleUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 1)
+)
+_BrcdEntityOIDModuleMgmt_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmt = _BrcdEntityOIDModuleMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2)
+)
+_BrcdEntityOIDModuleMgmtUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtUnknown = _BrcdEntityOIDModuleMgmtUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 1)
+)
+_BrcdEntityOIDModuleMgmtNetIronFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtNetIronFamily = _BrcdEntityOIDModuleMgmtNetIronFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 2)
+)
+_BrcdEntityOIDModuleMgmtNiMlxMr_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtNiMlxMr = _BrcdEntityOIDModuleMgmtNiMlxMr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 2, 1)
+)
+_BrcdEntityOIDModuleMgmtNiMlx32Mr_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtNiMlx32Mr = _BrcdEntityOIDModuleMgmtNiMlx32Mr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 2, 2)
+)
+_BrcdEntityOIDModuleMgmtNiXmrMr_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtNiXmrMr = _BrcdEntityOIDModuleMgmtNiXmrMr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 2, 3)
+)
+_BrcdEntityOIDModuleMgmtNiXmr32Mr_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtNiXmr32Mr = _BrcdEntityOIDModuleMgmtNiXmr32Mr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 2, 4)
+)
+_BrcdEntityOIDModuleMgmtMlxFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtMlxFamily = _BrcdEntityOIDModuleMgmtMlxFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 3)
+)
+_BrcdEntityOIDModuleMgmtBrMlxMr2M_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtBrMlxMr2M = _BrcdEntityOIDModuleMgmtBrMlxMr2M_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 3, 1)
+)
+_BrcdEntityOIDModuleMgmtBrMlxMr2X_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtBrMlxMr2X = _BrcdEntityOIDModuleMgmtBrMlxMr2X_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 3, 2)
+)
+_BrcdEntityOIDModuleMgmtBrMlx32Mr2M_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtBrMlx32Mr2M = _BrcdEntityOIDModuleMgmtBrMlx32Mr2M_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 3, 3)
+)
+_BrcdEntityOIDModuleMgmtBrMlx32Mr2X_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtBrMlx32Mr2X = _BrcdEntityOIDModuleMgmtBrMlx32Mr2X_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 3, 4)
+)
+_BrcdEntityOIDModuleMgmtIcx7250Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7250Family = _BrcdEntityOIDModuleMgmtIcx7250Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4)
+)
+_BrcdEntityOIDModuleMgmtIcx7250624BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7250624BaseModule = _BrcdEntityOIDModuleMgmtIcx7250624BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4, 1)
+)
+_BrcdEntityOIDModuleMgmtIcx7250648BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7250648BaseModule = _BrcdEntityOIDModuleMgmtIcx7250648BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4, 2)
+)
+_BrcdEntityOIDModuleMgmtIcx7250624GBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7250624GBaseModule = _BrcdEntityOIDModuleMgmtIcx7250624GBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4, 3)
+)
+_BrcdEntityOIDModuleMgmtIcx7250624PoeBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7250624PoeBaseModule = _BrcdEntityOIDModuleMgmtIcx7250624PoeBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4, 4)
+)
+_BrcdEntityOIDModuleMgmtIcx7250648PoeBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7250648PoeBaseModule = _BrcdEntityOIDModuleMgmtIcx7250648PoeBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 4, 5)
+)
+_BrcdEntityOIDModuleMgmtIcx7450Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7450Family = _BrcdEntityOIDModuleMgmtIcx7450Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5)
+)
+_BrcdEntityOIDModuleMgmtIcx7450624BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7450624BaseModule = _BrcdEntityOIDModuleMgmtIcx7450624BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 1)
+)
+_BrcdEntityOIDModuleMgmtIcx7450648BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7450648BaseModule = _BrcdEntityOIDModuleMgmtIcx7450648BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 2)
+)
+_BrcdEntityOIDModuleMgmtIcx7450648FBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7450648FBaseModule = _BrcdEntityOIDModuleMgmtIcx7450648FBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 3)
+)
+_BrcdEntityOIDModuleMgmtIcx7450624PoeBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7450624PoeBaseModule = _BrcdEntityOIDModuleMgmtIcx7450624PoeBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 4)
+)
+_BrcdEntityOIDModuleMgmtIcx7450648PoeBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7450648PoeBaseModule = _BrcdEntityOIDModuleMgmtIcx7450648PoeBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 5)
+)
+_BrcdEntityOIDModuleMgmtIcx7450632ZPBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7450632ZPBaseModule = _BrcdEntityOIDModuleMgmtIcx7450632ZPBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 5, 6)
+)
+_BrcdEntityOIDModuleMgmtIcx7750Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7750Family = _BrcdEntityOIDModuleMgmtIcx7750Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 6)
+)
+_BrcdEntityOIDModuleMgmtIcx775048CBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx775048CBaseModule = _BrcdEntityOIDModuleMgmtIcx775048CBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 6, 1)
+)
+_BrcdEntityOIDModuleMgmtIcx775048FBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx775048FBaseModule = _BrcdEntityOIDModuleMgmtIcx775048FBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 6, 2)
+)
+_BrcdEntityOIDModuleMgmtIcx775026QBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx775026QBaseModule = _BrcdEntityOIDModuleMgmtIcx775026QBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 6, 3)
+)
+_BrcdEntityOIDModuleMgmtIcx775020QBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx775020QBaseModule = _BrcdEntityOIDModuleMgmtIcx775020QBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 6, 4)
+)
+_BrcdEntityOIDModuleMgmtIcx7150Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150Family = _BrcdEntityOIDModuleMgmtIcx7150Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7)
+)
+_BrcdEntityOIDModuleMgmtIcx7150624BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150624BaseModule = _BrcdEntityOIDModuleMgmtIcx7150624BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 1)
+)
+_BrcdEntityOIDModuleMgmtIcx7150648BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150648BaseModule = _BrcdEntityOIDModuleMgmtIcx7150648BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 2)
+)
+_BrcdEntityOIDModuleMgmtIcx7150624PoeBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150624PoeBaseModule = _BrcdEntityOIDModuleMgmtIcx7150624PoeBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 3)
+)
+_BrcdEntityOIDModuleMgmtIcx7150648PoeBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150648PoeBaseModule = _BrcdEntityOIDModuleMgmtIcx7150648PoeBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 4)
+)
+_BrcdEntityOIDModuleMgmtIcx7150648PoeFBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150648PoeFBaseModule = _BrcdEntityOIDModuleMgmtIcx7150648PoeFBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 5)
+)
+_BrcdEntityOIDModuleMgmtIcx7150612CPoeBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150612CPoeBaseModule = _BrcdEntityOIDModuleMgmtIcx7150612CPoeBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 6)
+)
+_BrcdEntityOIDModuleMgmtIcx7150648ZPBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150648ZPBaseModule = _BrcdEntityOIDModuleMgmtIcx7150648ZPBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 7)
+)
+_BrcdEntityOIDModuleMgmtIcx7150624FBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150624FBaseModule = _BrcdEntityOIDModuleMgmtIcx7150624FBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 8)
+)
+_BrcdEntityOIDModuleMgmtIcx7150C10ZPBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150C10ZPBaseModule = _BrcdEntityOIDModuleMgmtIcx7150C10ZPBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 9)
+)
+_BrcdEntityOIDModuleMgmtIcx7150C08PBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150C08PBaseModule = _BrcdEntityOIDModuleMgmtIcx7150C08PBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 10)
+)
+_BrcdEntityOIDModuleMgmtIcx7150C08PTBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7150C08PTBaseModule = _BrcdEntityOIDModuleMgmtIcx7150C08PTBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 7, 11)
+)
+_BrcdEntityOIDModuleMgmtIcx7650Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7650Family = _BrcdEntityOIDModuleMgmtIcx7650Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 8)
+)
+_BrcdEntityOIDModuleMgmtIcx7650648FBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7650648FBaseModule = _BrcdEntityOIDModuleMgmtIcx7650648FBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 8, 1)
+)
+_BrcdEntityOIDModuleMgmtIcx7650648PoeBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7650648PoeBaseModule = _BrcdEntityOIDModuleMgmtIcx7650648PoeBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 8, 2)
+)
+_BrcdEntityOIDModuleMgmtIcx7650648ZPBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7650648ZPBaseModule = _BrcdEntityOIDModuleMgmtIcx7650648ZPBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 8, 3)
+)
+_BrcdEntityOIDModuleMgmtIcx7850Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7850Family = _BrcdEntityOIDModuleMgmtIcx7850Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 9)
+)
+_BrcdEntityOIDModuleMgmtIcx7850632QBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7850632QBaseModule = _BrcdEntityOIDModuleMgmtIcx7850632QBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 9, 1)
+)
+_BrcdEntityOIDModuleMgmtIcx7850648FBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7850648FBaseModule = _BrcdEntityOIDModuleMgmtIcx7850648FBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 9, 2)
+)
+_BrcdEntityOIDModuleMgmtIcx7850648FSBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7850648FSBaseModule = _BrcdEntityOIDModuleMgmtIcx7850648FSBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 9, 3)
+)
+_BrcdEntityOIDModuleMgmtIcx7550Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7550Family = _BrcdEntityOIDModuleMgmtIcx7550Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10)
+)
+_BrcdEntityOIDModuleMgmtIcx7550624BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7550624BaseModule = _BrcdEntityOIDModuleMgmtIcx7550624BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 1)
+)
+_BrcdEntityOIDModuleMgmtIcx7550648BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7550648BaseModule = _BrcdEntityOIDModuleMgmtIcx7550648BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 2)
+)
+_BrcdEntityOIDModuleMgmtIcx7550624FBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7550624FBaseModule = _BrcdEntityOIDModuleMgmtIcx7550624FBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 3)
+)
+_BrcdEntityOIDModuleMgmtIcx7550648FBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7550648FBaseModule = _BrcdEntityOIDModuleMgmtIcx7550648FBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 4)
+)
+_BrcdEntityOIDModuleMgmtIcx7550624PoeBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7550624PoeBaseModule = _BrcdEntityOIDModuleMgmtIcx7550624PoeBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 5)
+)
+_BrcdEntityOIDModuleMgmtIcx7550648PoeBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7550648PoeBaseModule = _BrcdEntityOIDModuleMgmtIcx7550648PoeBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 6)
+)
+_BrcdEntityOIDModuleMgmtIcx7550624ZPBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7550624ZPBaseModule = _BrcdEntityOIDModuleMgmtIcx7550624ZPBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 7)
+)
+_BrcdEntityOIDModuleMgmtIcx7550648ZPBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx7550648ZPBaseModule = _BrcdEntityOIDModuleMgmtIcx7550648ZPBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 10, 8)
+)
+_BrcdEntityOIDModuleMgmtIcx8200Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200Family = _BrcdEntityOIDModuleMgmtIcx8200Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11)
+)
+_BrcdEntityOIDModuleMgmtIcx8200624BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200624BaseModule = _BrcdEntityOIDModuleMgmtIcx8200624BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 1)
+)
+_BrcdEntityOIDModuleMgmtIcx8200624FBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200624FBaseModule = _BrcdEntityOIDModuleMgmtIcx8200624FBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 2)
+)
+_BrcdEntityOIDModuleMgmtIcx8200624FXBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200624FXBaseModule = _BrcdEntityOIDModuleMgmtIcx8200624FXBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 3)
+)
+_BrcdEntityOIDModuleMgmtIcx8200624PBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200624PBaseModule = _BrcdEntityOIDModuleMgmtIcx8200624PBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 4)
+)
+_BrcdEntityOIDModuleMgmtIcx8200624ZPBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200624ZPBaseModule = _BrcdEntityOIDModuleMgmtIcx8200624ZPBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 5)
+)
+_BrcdEntityOIDModuleMgmtIcx8200648BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200648BaseModule = _BrcdEntityOIDModuleMgmtIcx8200648BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 6)
+)
+_BrcdEntityOIDModuleMgmtIcx8200648FBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200648FBaseModule = _BrcdEntityOIDModuleMgmtIcx8200648FBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 7)
+)
+_BrcdEntityOIDModuleMgmtIcx8200648PBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200648PBaseModule = _BrcdEntityOIDModuleMgmtIcx8200648PBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 8)
+)
+_BrcdEntityOIDModuleMgmtIcx8200648PFBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200648PFBaseModule = _BrcdEntityOIDModuleMgmtIcx8200648PFBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 9)
+)
+_BrcdEntityOIDModuleMgmtIcx8200648PF2BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200648PF2BaseModule = _BrcdEntityOIDModuleMgmtIcx8200648PF2BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 10)
+)
+_BrcdEntityOIDModuleMgmtIcx8200648ZP2BaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx8200648ZP2BaseModule = _BrcdEntityOIDModuleMgmtIcx8200648ZP2BaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 11)
+)
+_BrcdEntityOIDModuleMgmtIcx82006C08PBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx82006C08PBaseModule = _BrcdEntityOIDModuleMgmtIcx82006C08PBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 12)
+)
+_BrcdEntityOIDModuleMgmtIcx82006C08PDCBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx82006C08PDCBaseModule = _BrcdEntityOIDModuleMgmtIcx82006C08PDCBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 13)
+)
+_BrcdEntityOIDModuleMgmtIcx82006C08PFBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx82006C08PFBaseModule = _BrcdEntityOIDModuleMgmtIcx82006C08PFBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 14)
+)
+_BrcdEntityOIDModuleMgmtIcx82006C08PTBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx82006C08PTBaseModule = _BrcdEntityOIDModuleMgmtIcx82006C08PTBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 15)
+)
+_BrcdEntityOIDModuleMgmtIcx82006C08ZPBaseModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleMgmtIcx82006C08ZPBaseModule = _BrcdEntityOIDModuleMgmtIcx82006C08ZPBaseModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 2, 11, 16)
+)
+_BrcdEntityOIDModuleSfm_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleSfm = _BrcdEntityOIDModuleSfm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3)
+)
+_BrcdEntityOIDModuleSfmUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleSfmUnknown = _BrcdEntityOIDModuleSfmUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 1)
+)
+_BrcdEntityOIDModuleSfmNetIronFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleSfmNetIronFamily = _BrcdEntityOIDModuleSfmNetIronFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2)
+)
+_BrcdEntityOIDModuleSfmNiXSf1_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleSfmNiXSf1 = _BrcdEntityOIDModuleSfmNiXSf1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 1)
+)
+_BrcdEntityOIDModuleSfmNiXSf3_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleSfmNiXSf3 = _BrcdEntityOIDModuleSfmNiXSf3_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 2)
+)
+_BrcdEntityOIDModuleSfmNiX32Sf_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleSfmNiX32Sf = _BrcdEntityOIDModuleSfmNiX32Sf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 3)
+)
+_BrcdEntityOIDModuleSfmNiX4Hsf_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleSfmNiX4Hsf = _BrcdEntityOIDModuleSfmNiX4Hsf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 4)
+)
+_BrcdEntityOIDModuleSfmNiX16n8Hsf_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleSfmNiX16n8Hsf = _BrcdEntityOIDModuleSfmNiX16n8Hsf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 5)
+)
+_BrcdEntityOIDModuleSfmNiX32Hsf_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleSfmNiX32Hsf = _BrcdEntityOIDModuleSfmNiX32Hsf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 3, 2, 6)
+)
+_BrcdEntityOIDModuleIntf_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntf = _BrcdEntityOIDModuleIntf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4)
+)
+_BrcdEntityOIDModuleIntfUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfUnknown = _BrcdEntityOIDModuleIntfUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 1)
+)
+_BrcdEntityOIDModuleIntfNetIronFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNetIronFamily = _BrcdEntityOIDModuleIntfNetIronFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2)
+)
+_BrcdEntityOIDModuleIntfNiMlx1Gx20Gc_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNiMlx1Gx20Gc = _BrcdEntityOIDModuleIntfNiMlx1Gx20Gc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 1)
+)
+_BrcdEntityOIDModuleIntfNiXmr1Gx20Gc_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNiXmr1Gx20Gc = _BrcdEntityOIDModuleIntfNiXmr1Gx20Gc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 2)
+)
+_BrcdEntityOIDModuleIntfNiMlx1Gx48Ta_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNiMlx1Gx48Ta = _BrcdEntityOIDModuleIntfNiMlx1Gx48Ta_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 3)
+)
+_BrcdEntityOIDModuleIntfNiMlx1Gx20Sfp_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNiMlx1Gx20Sfp = _BrcdEntityOIDModuleIntfNiMlx1Gx20Sfp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 4)
+)
+_BrcdEntityOIDModuleIntfNiXmr1Gx20Sfp_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNiXmr1Gx20Sfp = _BrcdEntityOIDModuleIntfNiXmr1Gx20Sfp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 5)
+)
+_BrcdEntityOIDModuleIntfNiMlx10Gx2_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNiMlx10Gx2 = _BrcdEntityOIDModuleIntfNiMlx10Gx2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 6)
+)
+_BrcdEntityOIDModuleIntfNiXmr10Gx2_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNiXmr10Gx2 = _BrcdEntityOIDModuleIntfNiXmr10Gx2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 7)
+)
+_BrcdEntityOIDModuleIntfNiMlx10Gx4_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNiMlx10Gx4 = _BrcdEntityOIDModuleIntfNiMlx10Gx4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 8)
+)
+_BrcdEntityOIDModuleIntfNiXmr10Gx4_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNiXmr10Gx4 = _BrcdEntityOIDModuleIntfNiXmr10Gx4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 9)
+)
+_BrcdEntityOIDModuleIntfNiMlx10Gx8D_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNiMlx10Gx8D = _BrcdEntityOIDModuleIntfNiMlx10Gx8D_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 10)
+)
+_BrcdEntityOIDModuleIntfNiMlx10Gx8M_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfNiMlx10Gx8M = _BrcdEntityOIDModuleIntfNiMlx10Gx8M_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 2, 11)
+)
+_BrcdEntityOIDModuleIntfMlxFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfMlxFamily = _BrcdEntityOIDModuleIntfMlxFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3)
+)
+_BrcdEntityOIDModuleIntfBrMlx1Gcx24X_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx1Gcx24X = _BrcdEntityOIDModuleIntfBrMlx1Gcx24X_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 1)
+)
+_BrcdEntityOIDModuleIntfBrMlx1Gcx24xMl_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx1Gcx24xMl = _BrcdEntityOIDModuleIntfBrMlx1Gcx24xMl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 2)
+)
+_BrcdEntityOIDModuleIntfBrMlx1Gfx24X_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx1Gfx24X = _BrcdEntityOIDModuleIntfBrMlx1Gfx24X_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 3)
+)
+_BrcdEntityOIDModuleIntfBrMlx1Gfx24xMl_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx1Gfx24xMl = _BrcdEntityOIDModuleIntfBrMlx1Gfx24xMl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 4)
+)
+_BrcdEntityOIDModuleIntfBrMlx10Gx4X_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx10Gx4X = _BrcdEntityOIDModuleIntfBrMlx10Gx4X_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 5)
+)
+_BrcdEntityOIDModuleIntfBrMlx10Gx4xMl_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx10Gx4xMl = _BrcdEntityOIDModuleIntfBrMlx10Gx4xMl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 6)
+)
+_BrcdEntityOIDModuleIntfBrMlx10Gx8X_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx10Gx8X = _BrcdEntityOIDModuleIntfBrMlx10Gx8X_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 7)
+)
+_BrcdEntityOIDModuleIntfBrMlx10Gx24Dm_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx10Gx24Dm = _BrcdEntityOIDModuleIntfBrMlx10Gx24Dm_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 8)
+)
+_BrcdEntityOIDModuleIntfBrMlx40Gx2_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx40Gx2 = _BrcdEntityOIDModuleIntfBrMlx40Gx2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 9)
+)
+_BrcdEntityOIDModuleIntfBrMlx40Gx4_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx40Gx4 = _BrcdEntityOIDModuleIntfBrMlx40Gx4_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 10)
+)
+_BrcdEntityOIDModuleIntfBrMlx100Gx1_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx100Gx1 = _BrcdEntityOIDModuleIntfBrMlx100Gx1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 11)
+)
+_BrcdEntityOIDModuleIntfBrMlx100Gx2_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx100Gx2 = _BrcdEntityOIDModuleIntfBrMlx100Gx2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 12)
+)
+_BrcdEntityOIDModuleIntfBrMlx100Gx2CFP2_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx100Gx2CFP2 = _BrcdEntityOIDModuleIntfBrMlx100Gx2CFP2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 13)
+)
+_BrcdEntityOIDModuleIntfBrMlx10Gx20_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx10Gx20 = _BrcdEntityOIDModuleIntfBrMlx10Gx20_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 14)
+)
+_BrcdEntityOIDModuleIntfBrMlx10Gx4IPSecModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleIntfBrMlx10Gx4IPSecModule = _BrcdEntityOIDModuleIntfBrMlx10Gx4IPSecModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 4, 3, 15)
+)
+_BrcdEntityOIDModuleOptics_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleOptics = _BrcdEntityOIDModuleOptics_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5)
+)
+_BrcdEntityOIDModuleOpticsUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleOpticsUnknown = _BrcdEntityOIDModuleOpticsUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 1)
+)
+_BrcdEntityOIDModuleOpticsSFP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleOpticsSFP = _BrcdEntityOIDModuleOpticsSFP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 2)
+)
+_BrcdEntityOIDModuleOpticsSFPP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleOpticsSFPP = _BrcdEntityOIDModuleOpticsSFPP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 3)
+)
+_BrcdEntityOIDModuleOpticsXFP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleOpticsXFP = _BrcdEntityOIDModuleOpticsXFP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 4)
+)
+_BrcdEntityOIDModuleOpticsCFP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleOpticsCFP = _BrcdEntityOIDModuleOpticsCFP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 5)
+)
+_BrcdEntityOIDModuleOpticsQSFPP_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleOpticsQSFPP = _BrcdEntityOIDModuleOpticsQSFPP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 6)
+)
+_BrcdEntityOIDModuleOpticsCFP2_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleOpticsCFP2 = _BrcdEntityOIDModuleOpticsCFP2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 7)
+)
+_BrcdEntityOIDModuleOpticsGBIC_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleOpticsGBIC = _BrcdEntityOIDModuleOpticsGBIC_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 5, 8)
+)
+_BrcdEntityOIDModuleService_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleService = _BrcdEntityOIDModuleService_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6)
+)
+_BrcdEntityOIDModuleServiceUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceUnknown = _BrcdEntityOIDModuleServiceUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 1)
+)
+_BrcdEntityOIDModuleServiceIcx7250Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7250Family = _BrcdEntityOIDModuleServiceIcx7250Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 2)
+)
+_BrcdEntityOIDModuleServiceIcx7250sfpplus8Port80gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7250sfpplus8Port80gModule = _BrcdEntityOIDModuleServiceIcx7250sfpplus8Port80gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 2, 1)
+)
+_BrcdEntityOIDModuleServiceIcx7250sfpplus4Port4gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7250sfpplus4Port4gModule = _BrcdEntityOIDModuleServiceIcx7250sfpplus4Port4gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 2, 2)
+)
+_BrcdEntityOIDModuleServiceIcx7450Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7450Family = _BrcdEntityOIDModuleServiceIcx7450Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3)
+)
+_BrcdEntityOIDModuleServiceIcx7400sfpplus4Port40gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7400sfpplus4Port40gModule = _BrcdEntityOIDModuleServiceIcx7400sfpplus4Port40gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3, 1)
+)
+_BrcdEntityOIDModuleServiceIcx7400copper4Port40gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7400copper4Port40gModule = _BrcdEntityOIDModuleServiceIcx7400copper4Port40gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3, 2)
+)
+_BrcdEntityOIDModuleServiceIcx7400sfp4Port4gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7400sfp4Port4gModule = _BrcdEntityOIDModuleServiceIcx7400sfp4Port4gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3, 3)
+)
+_BrcdEntityOIDModuleServiceIcx7400qsfpplus1Port40gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7400qsfpplus1Port40gModule = _BrcdEntityOIDModuleServiceIcx7400qsfpplus1Port40gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3, 4)
+)
+_BrcdEntityOIDModuleServiceIcx7400ServiceModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7400ServiceModule = _BrcdEntityOIDModuleServiceIcx7400ServiceModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 3, 5)
+)
+_BrcdEntityOIDModuleServiceIcx7750Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7750Family = _BrcdEntityOIDModuleServiceIcx7750Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 4)
+)
+_BrcdEntityOIDModuleServiceIcx7750QSFP6port40gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7750QSFP6port40gModule = _BrcdEntityOIDModuleServiceIcx7750QSFP6port40gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 4, 1)
+)
+_BrcdEntityOIDModuleServiceIcx77506Q6port40gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx77506Q6port40gModule = _BrcdEntityOIDModuleServiceIcx77506Q6port40gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 4, 2)
+)
+_BrcdEntityOIDModuleServiceIcx7150Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7150Family = _BrcdEntityOIDModuleServiceIcx7150Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5)
+)
+_BrcdEntityOIDModuleServiceIcx7150sfpplus2Port20gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7150sfpplus2Port20gModule = _BrcdEntityOIDModuleServiceIcx7150sfpplus2Port20gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 1)
+)
+_BrcdEntityOIDModuleServiceIcx7150sfpplus4Port40gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7150sfpplus4Port40gModule = _BrcdEntityOIDModuleServiceIcx7150sfpplus4Port40gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 2)
+)
+_BrcdEntityOIDModuleServiceIcx7150gc2Port2gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7150gc2Port2gModule = _BrcdEntityOIDModuleServiceIcx7150gc2Port2gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 3)
+)
+_BrcdEntityOIDModuleServiceIcx7150sfpplus8Port80gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7150sfpplus8Port80gModule = _BrcdEntityOIDModuleServiceIcx7150sfpplus8Port80gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 4)
+)
+_BrcdEntityOIDModuleServiceIcx7150gsfp2Port2gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7150gsfp2Port2gModule = _BrcdEntityOIDModuleServiceIcx7150gsfp2Port2gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 5)
+)
+_BrcdEntityOIDModuleServiceIcx7150gc2Port20gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7150gc2Port20gModule = _BrcdEntityOIDModuleServiceIcx7150gc2Port20gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 5, 6)
+)
+_BrcdEntityOIDModuleServiceIcx7650Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7650Family = _BrcdEntityOIDModuleServiceIcx7650Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6)
+)
+_BrcdEntityOIDModuleServiceIcx7600xgf4Port40gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7600xgf4Port40gModule = _BrcdEntityOIDModuleServiceIcx7600xgf4Port40gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 1)
+)
+_BrcdEntityOIDModuleServiceIcx7600qsfp2port80gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7600qsfp2port80gModule = _BrcdEntityOIDModuleServiceIcx7600qsfp2port80gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 2)
+)
+_BrcdEntityOIDModuleServiceIcx7600100g1port100gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7600100g1port100gModule = _BrcdEntityOIDModuleServiceIcx7600100g1port100gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 3)
+)
+_BrcdEntityOIDModuleServiceIcx7650qsfp4port160gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7650qsfp4port160gModule = _BrcdEntityOIDModuleServiceIcx7650qsfp4port160gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 4)
+)
+_BrcdEntityOIDModuleServiceIcx7650100g2port200gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7650100g2port200gModule = _BrcdEntityOIDModuleServiceIcx7650100g2port200gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 5)
+)
+_BrcdEntityOIDModuleServiceIcx7650qsfp2port80gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7650qsfp2port80gModule = _BrcdEntityOIDModuleServiceIcx7650qsfp2port80gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 6, 6)
+)
+_BrcdEntityOIDModuleServiceIcx7850Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7850Family = _BrcdEntityOIDModuleServiceIcx7850Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 7)
+)
+_BrcdEntityOIDModuleServiceIcx78508port800gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx78508port800gModule = _BrcdEntityOIDModuleServiceIcx78508port800gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 7, 1)
+)
+_BrcdEntityOIDModuleServiceIcx785012port1200gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx785012port1200gModule = _BrcdEntityOIDModuleServiceIcx785012port1200gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 7, 2)
+)
+_BrcdEntityOIDModuleServiceIcx7550Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx7550Family = _BrcdEntityOIDModuleServiceIcx7550Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 8)
+)
+_BrcdEntityOIDModuleServiceIcx75502port80gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx75502port80gModule = _BrcdEntityOIDModuleServiceIcx75502port80gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 8, 1)
+)
+_BrcdEntityOIDModuleServiceIcx75502port200gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx75502port200gModule = _BrcdEntityOIDModuleServiceIcx75502port200gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 8, 2)
+)
+_BrcdEntityOIDModuleServiceIcx8200Family_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx8200Family = _BrcdEntityOIDModuleServiceIcx8200Family_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9)
+)
+_BrcdEntityOIDModuleServiceIcx82004Port100gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx82004Port100gModule = _BrcdEntityOIDModuleServiceIcx82004Port100gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 1)
+)
+_BrcdEntityOIDModuleServiceIcx82008Port200gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx82008Port200gModule = _BrcdEntityOIDModuleServiceIcx82008Port200gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 2)
+)
+_BrcdEntityOIDModuleServiceIcx82002Port2gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx82002Port2gModule = _BrcdEntityOIDModuleServiceIcx82002Port2gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 3)
+)
+_BrcdEntityOIDModuleServiceIcx82002Port20gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx82002Port20gModule = _BrcdEntityOIDModuleServiceIcx82002Port20gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 4)
+)
+_BrcdEntityOIDModuleServiceIcx82002Port50gModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx82002Port50gModule = _BrcdEntityOIDModuleServiceIcx82002Port50gModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 5)
+)
+_BrcdEntityOIDModuleServiceIcx82002Port20gcfModule_ObjectIdentity = ObjectIdentity
+brcdEntityOIDModuleServiceIcx82002Port20gcfModule = _BrcdEntityOIDModuleServiceIcx82002Port20gcfModule_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 9, 6, 9, 6)
+)
+_BrcdEntityOIDPort_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPort = _BrcdEntityOIDPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10)
+)
+_BrcdEntityOIDPortUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPortUnknown = _BrcdEntityOIDPortUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 1)
+)
+_BrcdEntityOIDPortMgmtSerial_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPortMgmtSerial = _BrcdEntityOIDPortMgmtSerial_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 2)
+)
+_BrcdEntityOIDPortMgmtEth_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPortMgmtEth = _BrcdEntityOIDPortMgmtEth_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 3)
+)
+_BrcdEntityOIDPort100BaseTx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPort100BaseTx = _BrcdEntityOIDPort100BaseTx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 4)
+)
+_BrcdEntityOIDPort100BaseFx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPort100BaseFx = _BrcdEntityOIDPort100BaseFx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 5)
+)
+_BrcdEntityOIDPortGigBaseTx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPortGigBaseTx = _BrcdEntityOIDPortGigBaseTx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 6)
+)
+_BrcdEntityOIDPortGigBaseFx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPortGigBaseFx = _BrcdEntityOIDPortGigBaseFx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 7)
+)
+_BrcdEntityOIDPort10GigBaseFx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPort10GigBaseFx = _BrcdEntityOIDPort10GigBaseFx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 8)
+)
+_BrcdEntityOIDPort40GigBaseFx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPort40GigBaseFx = _BrcdEntityOIDPort40GigBaseFx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 9)
+)
+_BrcdEntityOIDPort100GigBaseFx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPort100GigBaseFx = _BrcdEntityOIDPort100GigBaseFx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 10)
+)
+_BrcdEntityOIDPort10GigBaseTx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPort10GigBaseTx = _BrcdEntityOIDPort10GigBaseTx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 11)
+)
+_BrcdEntityOIDPort25GigBaseTx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPort25GigBaseTx = _BrcdEntityOIDPort25GigBaseTx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 12)
+)
+_BrcdEntityOIDPort40GigBaseTx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPort40GigBaseTx = _BrcdEntityOIDPort40GigBaseTx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 13)
+)
+_BrcdEntityOIDPort2500BaseTx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPort2500BaseTx = _BrcdEntityOIDPort2500BaseTx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 14)
+)
+_BrcdEntityOIDPort5GigBaseTx_ObjectIdentity = ObjectIdentity
+brcdEntityOIDPort5GigBaseTx = _BrcdEntityOIDPort5GigBaseTx_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 10, 15)
+)
+_BrcdEntityOIDStack_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStack = _BrcdEntityOIDStack_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11)
+)
+_BrcdEntityOIDStackUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackUnknown = _BrcdEntityOIDStackUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 1)
+)
+_BrcdEntityOIDStackICXStackFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackICXStackFamily = _BrcdEntityOIDStackICXStackFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2)
+)
+_BrcdEntityOIDStackICXStackIcx7250_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackICXStackIcx7250 = _BrcdEntityOIDStackICXStackIcx7250_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 1)
+)
+_BrcdEntityOIDStackICXStackIcx7450_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackICXStackIcx7450 = _BrcdEntityOIDStackICXStackIcx7450_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 2)
+)
+_BrcdEntityOIDStackICXStackIcx7750_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackICXStackIcx7750 = _BrcdEntityOIDStackICXStackIcx7750_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 3)
+)
+_BrcdEntityOIDStackICXStackIcx7150_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackICXStackIcx7150 = _BrcdEntityOIDStackICXStackIcx7150_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 4)
+)
+_BrcdEntityOIDStackICXStackIcx7650_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackICXStackIcx7650 = _BrcdEntityOIDStackICXStackIcx7650_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 5)
+)
+_BrcdEntityOIDStackICXStackIcx7850_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackICXStackIcx7850 = _BrcdEntityOIDStackICXStackIcx7850_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 6)
+)
+_BrcdEntityOIDStackICXStackIcx7550_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackICXStackIcx7550 = _BrcdEntityOIDStackICXStackIcx7550_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 7)
+)
+_BrcdEntityOIDStackICXStackIcx8200_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackICXStackIcx8200 = _BrcdEntityOIDStackICXStackIcx8200_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 2, 8)
+)
+_BrcdEntityOIDStackICXSPXFamily_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackICXSPXFamily = _BrcdEntityOIDStackICXSPXFamily_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 3)
+)
+_BrcdEntityOIDStackICXSPX_ObjectIdentity = ObjectIdentity
+brcdEntityOIDStackICXSPX = _BrcdEntityOIDStackICXSPX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 11, 3, 1)
+)
+_BrcdEntityOIDCpu_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpu = _BrcdEntityOIDCpu_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12)
+)
+_BrcdEntityOIDCpuUnknown_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuUnknown = _BrcdEntityOIDCpuUnknown_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 1)
+)
+_BrcdEntityOIDCpuPPC7447A_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuPPC7447A = _BrcdEntityOIDCpuPPC7447A_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 2)
+)
+_BrcdEntityOIDCpuPPC7448_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuPPC7448 = _BrcdEntityOIDCpuPPC7448_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 3)
+)
+_BrcdEntityOIDCpuPPC7451_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuPPC7451 = _BrcdEntityOIDCpuPPC7451_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 4)
+)
+_BrcdEntityOIDCpuPPC7455_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuPPC7455 = _BrcdEntityOIDCpuPPC7455_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 5)
+)
+_BrcdEntityOIDCpuPPC7457_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuPPC7457 = _BrcdEntityOIDCpuPPC7457_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 6)
+)
+_BrcdEntityOIDCpuPPC8541_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuPPC8541 = _BrcdEntityOIDCpuPPC8541_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 7)
+)
+_BrcdEntityOIDCpuPPC8541E_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuPPC8541E = _BrcdEntityOIDCpuPPC8541E_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 8)
+)
+_BrcdEntityOIDCpuPPC8544_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuPPC8544 = _BrcdEntityOIDCpuPPC8544_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 9)
+)
+_BrcdEntityOIDCpuPPC8544E_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuPPC8544E = _BrcdEntityOIDCpuPPC8544E_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 10)
+)
+_BrcdEntityOIDCpuPPC8572_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuPPC8572 = _BrcdEntityOIDCpuPPC8572_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 11)
+)
+_BrcdEntityOIDCpuPPC8572E_ObjectIdentity = ObjectIdentity
+brcdEntityOIDCpuPPC8572E = _BrcdEntityOIDCpuPPC8572E_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1991, 1, 17, 1, 12, 12)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BROCADE-ENTITY-OID-MIB",
+    **{"brcdEntityOIDMIB": brcdEntityOIDMIB,
+       "brcdEntityOIDMIBObjects": brcdEntityOIDMIBObjects,
+       "brcdEntityOIDOther": brcdEntityOIDOther,
+       "brcdEntityOIDUnknown": brcdEntityOIDUnknown,
+       "brcdEntityOIDChassis": brcdEntityOIDChassis,
+       "brcdEntityOIDChassisUnknown": brcdEntityOIDChassisUnknown,
+       "brcdEntityOIDChassisNetIronCes2000Family": brcdEntityOIDChassisNetIronCes2000Family,
+       "brcdEntityOIDChassisNetIronCes2024F": brcdEntityOIDChassisNetIronCes2024F,
+       "brcdEntityOIDChassisNetIronCes2024C": brcdEntityOIDChassisNetIronCes2024C,
+       "brcdEntityOIDChassisNetIronCes2048F": brcdEntityOIDChassisNetIronCes2048F,
+       "brcdEntityOIDChassisNetIronCes2048C": brcdEntityOIDChassisNetIronCes2048C,
+       "brcdEntityOIDChassisNetIronCes2048FX": brcdEntityOIDChassisNetIronCes2048FX,
+       "brcdEntityOIDChassisNetIronCes2048CX": brcdEntityOIDChassisNetIronCes2048CX,
+       "brcdEntityOIDChassisNetIronCes2024F4X": brcdEntityOIDChassisNetIronCes2024F4X,
+       "brcdEntityOIDChassisNetIronCes2024C4X": brcdEntityOIDChassisNetIronCes2024C4X,
+       "brcdEntityOIDChassisNetIronCer2000Family": brcdEntityOIDChassisNetIronCer2000Family,
+       "brcdEntityOIDChassisNetIronCer2024F": brcdEntityOIDChassisNetIronCer2024F,
+       "brcdEntityOIDChassisNetIronCer2024C": brcdEntityOIDChassisNetIronCer2024C,
+       "brcdEntityOIDChassisNetIronCer2048F": brcdEntityOIDChassisNetIronCer2048F,
+       "brcdEntityOIDChassisNetIronCer2048C": brcdEntityOIDChassisNetIronCer2048C,
+       "brcdEntityOIDChassisNetIronCer2048FX": brcdEntityOIDChassisNetIronCer2048FX,
+       "brcdEntityOIDChassisNetIronCer2048CX": brcdEntityOIDChassisNetIronCer2048CX,
+       "brcdEntityOIDChassisNetIronCer2024F4X": brcdEntityOIDChassisNetIronCer2024F4X,
+       "brcdEntityOIDChassisNetIronCer2024C4X": brcdEntityOIDChassisNetIronCer2024C4X,
+       "brcdEntityOIDChassisNetIronXMRFamily": brcdEntityOIDChassisNetIronXMRFamily,
+       "brcdEntityOIDChassisNetIronXMR4000": brcdEntityOIDChassisNetIronXMR4000,
+       "brcdEntityOIDChassisNetIronXMR8000": brcdEntityOIDChassisNetIronXMR8000,
+       "brcdEntityOIDChassisNetIronXMR16000": brcdEntityOIDChassisNetIronXMR16000,
+       "brcdEntityOIDChassisNetIronXMR32000": brcdEntityOIDChassisNetIronXMR32000,
+       "brcdEntityOIDChassisMLXFamily": brcdEntityOIDChassisMLXFamily,
+       "brcdEntityOIDChassisMLX4": brcdEntityOIDChassisMLX4,
+       "brcdEntityOIDChassisMLX8": brcdEntityOIDChassisMLX8,
+       "brcdEntityOIDChassisMLX16": brcdEntityOIDChassisMLX16,
+       "brcdEntityOIDChassisMLX32": brcdEntityOIDChassisMLX32,
+       "brcdEntityOIDChassisMLXeFamily": brcdEntityOIDChassisMLXeFamily,
+       "brcdEntityOIDChassisMLXe4": brcdEntityOIDChassisMLXe4,
+       "brcdEntityOIDChassisMLXe8": brcdEntityOIDChassisMLXe8,
+       "brcdEntityOIDChassisMLXe16": brcdEntityOIDChassisMLXe16,
+       "brcdEntityOIDChassisMLXe32": brcdEntityOIDChassisMLXe32,
+       "brcdEntityOIDChassisICX7250Family": brcdEntityOIDChassisICX7250Family,
+       "brcdEntityOIDChassisICX725024": brcdEntityOIDChassisICX725024,
+       "brcdEntityOIDChassisICX725024HPOE": brcdEntityOIDChassisICX725024HPOE,
+       "brcdEntityOIDChassisICX725024G": brcdEntityOIDChassisICX725024G,
+       "brcdEntityOIDChassisICX725048": brcdEntityOIDChassisICX725048,
+       "brcdEntityOIDChassisICX725048HPOE": brcdEntityOIDChassisICX725048HPOE,
+       "brcdEntityOIDChassisICX7450Family": brcdEntityOIDChassisICX7450Family,
+       "brcdEntityOIDChassisICX745024": brcdEntityOIDChassisICX745024,
+       "brcdEntityOIDChassisICX745024HPOE": brcdEntityOIDChassisICX745024HPOE,
+       "brcdEntityOIDChassisICX745032ZP": brcdEntityOIDChassisICX745032ZP,
+       "brcdEntityOIDChassisICX745048": brcdEntityOIDChassisICX745048,
+       "brcdEntityOIDChassisICX745048HPOE": brcdEntityOIDChassisICX745048HPOE,
+       "brcdEntityOIDChassisICX745048F": brcdEntityOIDChassisICX745048F,
+       "brcdEntityOIDChassisICX7750Family": brcdEntityOIDChassisICX7750Family,
+       "brcdEntityOIDChassisICX775048C": brcdEntityOIDChassisICX775048C,
+       "brcdEntityOIDChassisICX775048F": brcdEntityOIDChassisICX775048F,
+       "brcdEntityOIDChassisICX775026Q": brcdEntityOIDChassisICX775026Q,
+       "brcdEntityOIDChassisICX7150Family": brcdEntityOIDChassisICX7150Family,
+       "brcdEntityOIDChassisICX715024": brcdEntityOIDChassisICX715024,
+       "brcdEntityOIDChassisICX715024POE": brcdEntityOIDChassisICX715024POE,
+       "brcdEntityOIDChassisICX715048": brcdEntityOIDChassisICX715048,
+       "brcdEntityOIDChassisICX715048POE": brcdEntityOIDChassisICX715048POE,
+       "brcdEntityOIDChassisICX715048POEF": brcdEntityOIDChassisICX715048POEF,
+       "brcdEntityOIDChassisICX7150C12POE": brcdEntityOIDChassisICX7150C12POE,
+       "brcdEntityOIDChassisICX715048ZP": brcdEntityOIDChassisICX715048ZP,
+       "brcdEntityOIDChassisICX715024F": brcdEntityOIDChassisICX715024F,
+       "brcdEntityOIDChassisICX7150C10ZP": brcdEntityOIDChassisICX7150C10ZP,
+       "brcdEntityOIDChassisICX7150C08P": brcdEntityOIDChassisICX7150C08P,
+       "brcdEntityOIDChassisICX7150C08PT": brcdEntityOIDChassisICX7150C08PT,
+       "brcdEntityOIDChassisICX7650Family": brcdEntityOIDChassisICX7650Family,
+       "brcdEntityOIDChassisICX765048F": brcdEntityOIDChassisICX765048F,
+       "brcdEntityOIDChassisICX765048P": brcdEntityOIDChassisICX765048P,
+       "brcdEntityOIDChassisICX765048ZP": brcdEntityOIDChassisICX765048ZP,
+       "brcdEntityOIDChassisICX7850Family": brcdEntityOIDChassisICX7850Family,
+       "brcdEntityOIDChassisICX785032Q": brcdEntityOIDChassisICX785032Q,
+       "brcdEntityOIDChassisICX785048F": brcdEntityOIDChassisICX785048F,
+       "brcdEntityOIDChassisICX785048FS": brcdEntityOIDChassisICX785048FS,
+       "brcdEntityOIDChassisICX785048C": brcdEntityOIDChassisICX785048C,
+       "brcdEntityOIDChassisICX7550Family": brcdEntityOIDChassisICX7550Family,
+       "brcdEntityOIDChassisICX755024": brcdEntityOIDChassisICX755024,
+       "brcdEntityOIDChassisICX755024F": brcdEntityOIDChassisICX755024F,
+       "brcdEntityOIDChassisICX755024P": brcdEntityOIDChassisICX755024P,
+       "brcdEntityOIDChassisICX755024ZP": brcdEntityOIDChassisICX755024ZP,
+       "brcdEntityOIDChassisICX755048": brcdEntityOIDChassisICX755048,
+       "brcdEntityOIDChassisICX755048F": brcdEntityOIDChassisICX755048F,
+       "brcdEntityOIDChassisICX755048P": brcdEntityOIDChassisICX755048P,
+       "brcdEntityOIDChassisICX755048ZP": brcdEntityOIDChassisICX755048ZP,
+       "brcdEntityOIDChassisICX8200Family": brcdEntityOIDChassisICX8200Family,
+       "brcdEntityOIDChassisICX820024": brcdEntityOIDChassisICX820024,
+       "brcdEntityOIDChassisICX820024F": brcdEntityOIDChassisICX820024F,
+       "brcdEntityOIDChassisICX820024FX": brcdEntityOIDChassisICX820024FX,
+       "brcdEntityOIDChassisICX820024P": brcdEntityOIDChassisICX820024P,
+       "brcdEntityOIDChassisICX820024ZP": brcdEntityOIDChassisICX820024ZP,
+       "brcdEntityOIDChassisICX820048": brcdEntityOIDChassisICX820048,
+       "brcdEntityOIDChassisICX820048F": brcdEntityOIDChassisICX820048F,
+       "brcdEntityOIDChassisICX820048P": brcdEntityOIDChassisICX820048P,
+       "brcdEntityOIDChassisICX820048PF": brcdEntityOIDChassisICX820048PF,
+       "brcdEntityOIDChassisICX820048PF2": brcdEntityOIDChassisICX820048PF2,
+       "brcdEntityOIDChassisICX820048ZP2": brcdEntityOIDChassisICX820048ZP2,
+       "brcdEntityOIDChassisICX8200C08P": brcdEntityOIDChassisICX8200C08P,
+       "brcdEntityOIDChassisICX8200C08PF": brcdEntityOIDChassisICX8200C08PF,
+       "brcdEntityOIDChassisICX8200C08PT": brcdEntityOIDChassisICX8200C08PT,
+       "brcdEntityOIDChassisICX8200C08PDC": brcdEntityOIDChassisICX8200C08PDC,
+       "brcdEntityOIDChassisICX8200C08ZP": brcdEntityOIDChassisICX8200C08ZP,
+       "brcdEntityOIDBackplane": brcdEntityOIDBackplane,
+       "brcdEntityOIDBackplaneUnknown": brcdEntityOIDBackplaneUnknown,
+       "brcdEntityOIDBackplaneNetIronFamily": brcdEntityOIDBackplaneNetIronFamily,
+       "brcdEntityOIDBackplaneNetIronCes2000": brcdEntityOIDBackplaneNetIronCes2000,
+       "brcdEntityOIDBackplaneNetIronCer2000": brcdEntityOIDBackplaneNetIronCer2000,
+       "brcdEntityOIDBackplaneNetIronXMR": brcdEntityOIDBackplaneNetIronXMR,
+       "brcdEntityOIDBackplaneMlxFamily": brcdEntityOIDBackplaneMlxFamily,
+       "brcdEntityOIDBackplaneMLX": brcdEntityOIDBackplaneMLX,
+       "brcdEntityOIDBackplaneMLXe": brcdEntityOIDBackplaneMLXe,
+       "brcdEntityOIDContainer": brcdEntityOIDContainer,
+       "brcdEntityOIDContainerUnknown": brcdEntityOIDContainerUnknown,
+       "brcdEntityOIDContainerPowerSupply": brcdEntityOIDContainerPowerSupply,
+       "brcdEntityOIDContainerFanTray": brcdEntityOIDContainerFanTray,
+       "brcdEntityOIDContainerMgmtModuleSlot": brcdEntityOIDContainerMgmtModuleSlot,
+       "brcdEntityOIDContainerSwitchFabricModuleSlot": brcdEntityOIDContainerSwitchFabricModuleSlot,
+       "brcdEntityOIDContainerIntfModuleSlot": brcdEntityOIDContainerIntfModuleSlot,
+       "brcdEntityOIDPowerSupply": brcdEntityOIDPowerSupply,
+       "brcdEntityOIDPowerSupplyUnknown": brcdEntityOIDPowerSupplyUnknown,
+       "brcdEntityOIDPowerSupplyAC500W": brcdEntityOIDPowerSupplyAC500W,
+       "brcdEntityOIDPowerSupplyDC500W": brcdEntityOIDPowerSupplyDC500W,
+       "brcdEntityOIDPowerSupplyAC1200W": brcdEntityOIDPowerSupplyAC1200W,
+       "brcdEntityOIDPowerSupplyDC1200W": brcdEntityOIDPowerSupplyDC1200W,
+       "brcdEntityOIDPowerSupplyAC1200WA": brcdEntityOIDPowerSupplyAC1200WA,
+       "brcdEntityOIDPowerSupplyDC1200WA": brcdEntityOIDPowerSupplyDC1200WA,
+       "brcdEntityOIDPowerSupplyAC1800W": brcdEntityOIDPowerSupplyAC1800W,
+       "brcdEntityOIDPowerSupplyDC1800W": brcdEntityOIDPowerSupplyDC1800W,
+       "brcdEntityOIDPowerSupplyAC2100W": brcdEntityOIDPowerSupplyAC2100W,
+       "brcdEntityOIDPowerSupplyDC2100W": brcdEntityOIDPowerSupplyDC2100W,
+       "brcdEntityOIDPowerSupplyAC2400W": brcdEntityOIDPowerSupplyAC2400W,
+       "brcdEntityOIDPowerSupplyDC2400W": brcdEntityOIDPowerSupplyDC2400W,
+       "brcdEntityOIDPowerSupplyAC3000W": brcdEntityOIDPowerSupplyAC3000W,
+       "brcdEntityOIDPowerSupplyDC3000W": brcdEntityOIDPowerSupplyDC3000W,
+       "brcdEntityOIDPowerSupplyACPOE": brcdEntityOIDPowerSupplyACPOE,
+       "brcdEntityOIDPowerSupplyACRegular": brcdEntityOIDPowerSupplyACRegular,
+       "brcdEntityOIDPowerSupplyDCPOE": brcdEntityOIDPowerSupplyDCPOE,
+       "brcdEntityOIDPowerSupplyDCRegular": brcdEntityOIDPowerSupplyDCRegular,
+       "brcdEntityOIDFan": brcdEntityOIDFan,
+       "brcdEntityOIDFanUnknown": brcdEntityOIDFanUnknown,
+       "brcdEntityOIDChassisFanTray": brcdEntityOIDChassisFanTray,
+       "brcdEntityOIDChassisFan": brcdEntityOIDChassisFan,
+       "brcdEntityOIDSensor": brcdEntityOIDSensor,
+       "brcdEntityOIDSensorUnknown": brcdEntityOIDSensorUnknown,
+       "brcdEntityOIDSensorChipTemp": brcdEntityOIDSensorChipTemp,
+       "brcdEntityOIDSensorModuleTemp": brcdEntityOIDSensorModuleTemp,
+       "brcdEntityOIDModule": brcdEntityOIDModule,
+       "brcdEntityOIDModuleUnknown": brcdEntityOIDModuleUnknown,
+       "brcdEntityOIDModuleMgmt": brcdEntityOIDModuleMgmt,
+       "brcdEntityOIDModuleMgmtUnknown": brcdEntityOIDModuleMgmtUnknown,
+       "brcdEntityOIDModuleMgmtNetIronFamily": brcdEntityOIDModuleMgmtNetIronFamily,
+       "brcdEntityOIDModuleMgmtNiMlxMr": brcdEntityOIDModuleMgmtNiMlxMr,
+       "brcdEntityOIDModuleMgmtNiMlx32Mr": brcdEntityOIDModuleMgmtNiMlx32Mr,
+       "brcdEntityOIDModuleMgmtNiXmrMr": brcdEntityOIDModuleMgmtNiXmrMr,
+       "brcdEntityOIDModuleMgmtNiXmr32Mr": brcdEntityOIDModuleMgmtNiXmr32Mr,
+       "brcdEntityOIDModuleMgmtMlxFamily": brcdEntityOIDModuleMgmtMlxFamily,
+       "brcdEntityOIDModuleMgmtBrMlxMr2M": brcdEntityOIDModuleMgmtBrMlxMr2M,
+       "brcdEntityOIDModuleMgmtBrMlxMr2X": brcdEntityOIDModuleMgmtBrMlxMr2X,
+       "brcdEntityOIDModuleMgmtBrMlx32Mr2M": brcdEntityOIDModuleMgmtBrMlx32Mr2M,
+       "brcdEntityOIDModuleMgmtBrMlx32Mr2X": brcdEntityOIDModuleMgmtBrMlx32Mr2X,
+       "brcdEntityOIDModuleMgmtIcx7250Family": brcdEntityOIDModuleMgmtIcx7250Family,
+       "brcdEntityOIDModuleMgmtIcx7250624BaseModule": brcdEntityOIDModuleMgmtIcx7250624BaseModule,
+       "brcdEntityOIDModuleMgmtIcx7250648BaseModule": brcdEntityOIDModuleMgmtIcx7250648BaseModule,
+       "brcdEntityOIDModuleMgmtIcx7250624GBaseModule": brcdEntityOIDModuleMgmtIcx7250624GBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7250624PoeBaseModule": brcdEntityOIDModuleMgmtIcx7250624PoeBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7250648PoeBaseModule": brcdEntityOIDModuleMgmtIcx7250648PoeBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7450Family": brcdEntityOIDModuleMgmtIcx7450Family,
+       "brcdEntityOIDModuleMgmtIcx7450624BaseModule": brcdEntityOIDModuleMgmtIcx7450624BaseModule,
+       "brcdEntityOIDModuleMgmtIcx7450648BaseModule": brcdEntityOIDModuleMgmtIcx7450648BaseModule,
+       "brcdEntityOIDModuleMgmtIcx7450648FBaseModule": brcdEntityOIDModuleMgmtIcx7450648FBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7450624PoeBaseModule": brcdEntityOIDModuleMgmtIcx7450624PoeBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7450648PoeBaseModule": brcdEntityOIDModuleMgmtIcx7450648PoeBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7450632ZPBaseModule": brcdEntityOIDModuleMgmtIcx7450632ZPBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7750Family": brcdEntityOIDModuleMgmtIcx7750Family,
+       "brcdEntityOIDModuleMgmtIcx775048CBaseModule": brcdEntityOIDModuleMgmtIcx775048CBaseModule,
+       "brcdEntityOIDModuleMgmtIcx775048FBaseModule": brcdEntityOIDModuleMgmtIcx775048FBaseModule,
+       "brcdEntityOIDModuleMgmtIcx775026QBaseModule": brcdEntityOIDModuleMgmtIcx775026QBaseModule,
+       "brcdEntityOIDModuleMgmtIcx775020QBaseModule": brcdEntityOIDModuleMgmtIcx775020QBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7150Family": brcdEntityOIDModuleMgmtIcx7150Family,
+       "brcdEntityOIDModuleMgmtIcx7150624BaseModule": brcdEntityOIDModuleMgmtIcx7150624BaseModule,
+       "brcdEntityOIDModuleMgmtIcx7150648BaseModule": brcdEntityOIDModuleMgmtIcx7150648BaseModule,
+       "brcdEntityOIDModuleMgmtIcx7150624PoeBaseModule": brcdEntityOIDModuleMgmtIcx7150624PoeBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7150648PoeBaseModule": brcdEntityOIDModuleMgmtIcx7150648PoeBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7150648PoeFBaseModule": brcdEntityOIDModuleMgmtIcx7150648PoeFBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7150612CPoeBaseModule": brcdEntityOIDModuleMgmtIcx7150612CPoeBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7150648ZPBaseModule": brcdEntityOIDModuleMgmtIcx7150648ZPBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7150624FBaseModule": brcdEntityOIDModuleMgmtIcx7150624FBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7150C10ZPBaseModule": brcdEntityOIDModuleMgmtIcx7150C10ZPBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7150C08PBaseModule": brcdEntityOIDModuleMgmtIcx7150C08PBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7150C08PTBaseModule": brcdEntityOIDModuleMgmtIcx7150C08PTBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7650Family": brcdEntityOIDModuleMgmtIcx7650Family,
+       "brcdEntityOIDModuleMgmtIcx7650648FBaseModule": brcdEntityOIDModuleMgmtIcx7650648FBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7650648PoeBaseModule": brcdEntityOIDModuleMgmtIcx7650648PoeBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7650648ZPBaseModule": brcdEntityOIDModuleMgmtIcx7650648ZPBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7850Family": brcdEntityOIDModuleMgmtIcx7850Family,
+       "brcdEntityOIDModuleMgmtIcx7850632QBaseModule": brcdEntityOIDModuleMgmtIcx7850632QBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7850648FBaseModule": brcdEntityOIDModuleMgmtIcx7850648FBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7850648FSBaseModule": brcdEntityOIDModuleMgmtIcx7850648FSBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7550Family": brcdEntityOIDModuleMgmtIcx7550Family,
+       "brcdEntityOIDModuleMgmtIcx7550624BaseModule": brcdEntityOIDModuleMgmtIcx7550624BaseModule,
+       "brcdEntityOIDModuleMgmtIcx7550648BaseModule": brcdEntityOIDModuleMgmtIcx7550648BaseModule,
+       "brcdEntityOIDModuleMgmtIcx7550624FBaseModule": brcdEntityOIDModuleMgmtIcx7550624FBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7550648FBaseModule": brcdEntityOIDModuleMgmtIcx7550648FBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7550624PoeBaseModule": brcdEntityOIDModuleMgmtIcx7550624PoeBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7550648PoeBaseModule": brcdEntityOIDModuleMgmtIcx7550648PoeBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7550624ZPBaseModule": brcdEntityOIDModuleMgmtIcx7550624ZPBaseModule,
+       "brcdEntityOIDModuleMgmtIcx7550648ZPBaseModule": brcdEntityOIDModuleMgmtIcx7550648ZPBaseModule,
+       "brcdEntityOIDModuleMgmtIcx8200Family": brcdEntityOIDModuleMgmtIcx8200Family,
+       "brcdEntityOIDModuleMgmtIcx8200624BaseModule": brcdEntityOIDModuleMgmtIcx8200624BaseModule,
+       "brcdEntityOIDModuleMgmtIcx8200624FBaseModule": brcdEntityOIDModuleMgmtIcx8200624FBaseModule,
+       "brcdEntityOIDModuleMgmtIcx8200624FXBaseModule": brcdEntityOIDModuleMgmtIcx8200624FXBaseModule,
+       "brcdEntityOIDModuleMgmtIcx8200624PBaseModule": brcdEntityOIDModuleMgmtIcx8200624PBaseModule,
+       "brcdEntityOIDModuleMgmtIcx8200624ZPBaseModule": brcdEntityOIDModuleMgmtIcx8200624ZPBaseModule,
+       "brcdEntityOIDModuleMgmtIcx8200648BaseModule": brcdEntityOIDModuleMgmtIcx8200648BaseModule,
+       "brcdEntityOIDModuleMgmtIcx8200648FBaseModule": brcdEntityOIDModuleMgmtIcx8200648FBaseModule,
+       "brcdEntityOIDModuleMgmtIcx8200648PBaseModule": brcdEntityOIDModuleMgmtIcx8200648PBaseModule,
+       "brcdEntityOIDModuleMgmtIcx8200648PFBaseModule": brcdEntityOIDModuleMgmtIcx8200648PFBaseModule,
+       "brcdEntityOIDModuleMgmtIcx8200648PF2BaseModule": brcdEntityOIDModuleMgmtIcx8200648PF2BaseModule,
+       "brcdEntityOIDModuleMgmtIcx8200648ZP2BaseModule": brcdEntityOIDModuleMgmtIcx8200648ZP2BaseModule,
+       "brcdEntityOIDModuleMgmtIcx82006C08PBaseModule": brcdEntityOIDModuleMgmtIcx82006C08PBaseModule,
+       "brcdEntityOIDModuleMgmtIcx82006C08PDCBaseModule": brcdEntityOIDModuleMgmtIcx82006C08PDCBaseModule,
+       "brcdEntityOIDModuleMgmtIcx82006C08PFBaseModule": brcdEntityOIDModuleMgmtIcx82006C08PFBaseModule,
+       "brcdEntityOIDModuleMgmtIcx82006C08PTBaseModule": brcdEntityOIDModuleMgmtIcx82006C08PTBaseModule,
+       "brcdEntityOIDModuleMgmtIcx82006C08ZPBaseModule": brcdEntityOIDModuleMgmtIcx82006C08ZPBaseModule,
+       "brcdEntityOIDModuleSfm": brcdEntityOIDModuleSfm,
+       "brcdEntityOIDModuleSfmUnknown": brcdEntityOIDModuleSfmUnknown,
+       "brcdEntityOIDModuleSfmNetIronFamily": brcdEntityOIDModuleSfmNetIronFamily,
+       "brcdEntityOIDModuleSfmNiXSf1": brcdEntityOIDModuleSfmNiXSf1,
+       "brcdEntityOIDModuleSfmNiXSf3": brcdEntityOIDModuleSfmNiXSf3,
+       "brcdEntityOIDModuleSfmNiX32Sf": brcdEntityOIDModuleSfmNiX32Sf,
+       "brcdEntityOIDModuleSfmNiX4Hsf": brcdEntityOIDModuleSfmNiX4Hsf,
+       "brcdEntityOIDModuleSfmNiX16n8Hsf": brcdEntityOIDModuleSfmNiX16n8Hsf,
+       "brcdEntityOIDModuleSfmNiX32Hsf": brcdEntityOIDModuleSfmNiX32Hsf,
+       "brcdEntityOIDModuleIntf": brcdEntityOIDModuleIntf,
+       "brcdEntityOIDModuleIntfUnknown": brcdEntityOIDModuleIntfUnknown,
+       "brcdEntityOIDModuleIntfNetIronFamily": brcdEntityOIDModuleIntfNetIronFamily,
+       "brcdEntityOIDModuleIntfNiMlx1Gx20Gc": brcdEntityOIDModuleIntfNiMlx1Gx20Gc,
+       "brcdEntityOIDModuleIntfNiXmr1Gx20Gc": brcdEntityOIDModuleIntfNiXmr1Gx20Gc,
+       "brcdEntityOIDModuleIntfNiMlx1Gx48Ta": brcdEntityOIDModuleIntfNiMlx1Gx48Ta,
+       "brcdEntityOIDModuleIntfNiMlx1Gx20Sfp": brcdEntityOIDModuleIntfNiMlx1Gx20Sfp,
+       "brcdEntityOIDModuleIntfNiXmr1Gx20Sfp": brcdEntityOIDModuleIntfNiXmr1Gx20Sfp,
+       "brcdEntityOIDModuleIntfNiMlx10Gx2": brcdEntityOIDModuleIntfNiMlx10Gx2,
+       "brcdEntityOIDModuleIntfNiXmr10Gx2": brcdEntityOIDModuleIntfNiXmr10Gx2,
+       "brcdEntityOIDModuleIntfNiMlx10Gx4": brcdEntityOIDModuleIntfNiMlx10Gx4,
+       "brcdEntityOIDModuleIntfNiXmr10Gx4": brcdEntityOIDModuleIntfNiXmr10Gx4,
+       "brcdEntityOIDModuleIntfNiMlx10Gx8D": brcdEntityOIDModuleIntfNiMlx10Gx8D,
+       "brcdEntityOIDModuleIntfNiMlx10Gx8M": brcdEntityOIDModuleIntfNiMlx10Gx8M,
+       "brcdEntityOIDModuleIntfMlxFamily": brcdEntityOIDModuleIntfMlxFamily,
+       "brcdEntityOIDModuleIntfBrMlx1Gcx24X": brcdEntityOIDModuleIntfBrMlx1Gcx24X,
+       "brcdEntityOIDModuleIntfBrMlx1Gcx24xMl": brcdEntityOIDModuleIntfBrMlx1Gcx24xMl,
+       "brcdEntityOIDModuleIntfBrMlx1Gfx24X": brcdEntityOIDModuleIntfBrMlx1Gfx24X,
+       "brcdEntityOIDModuleIntfBrMlx1Gfx24xMl": brcdEntityOIDModuleIntfBrMlx1Gfx24xMl,
+       "brcdEntityOIDModuleIntfBrMlx10Gx4X": brcdEntityOIDModuleIntfBrMlx10Gx4X,
+       "brcdEntityOIDModuleIntfBrMlx10Gx4xMl": brcdEntityOIDModuleIntfBrMlx10Gx4xMl,
+       "brcdEntityOIDModuleIntfBrMlx10Gx8X": brcdEntityOIDModuleIntfBrMlx10Gx8X,
+       "brcdEntityOIDModuleIntfBrMlx10Gx24Dm": brcdEntityOIDModuleIntfBrMlx10Gx24Dm,
+       "brcdEntityOIDModuleIntfBrMlx40Gx2": brcdEntityOIDModuleIntfBrMlx40Gx2,
+       "brcdEntityOIDModuleIntfBrMlx40Gx4": brcdEntityOIDModuleIntfBrMlx40Gx4,
+       "brcdEntityOIDModuleIntfBrMlx100Gx1": brcdEntityOIDModuleIntfBrMlx100Gx1,
+       "brcdEntityOIDModuleIntfBrMlx100Gx2": brcdEntityOIDModuleIntfBrMlx100Gx2,
+       "brcdEntityOIDModuleIntfBrMlx100Gx2CFP2": brcdEntityOIDModuleIntfBrMlx100Gx2CFP2,
+       "brcdEntityOIDModuleIntfBrMlx10Gx20": brcdEntityOIDModuleIntfBrMlx10Gx20,
+       "brcdEntityOIDModuleIntfBrMlx10Gx4IPSecModule": brcdEntityOIDModuleIntfBrMlx10Gx4IPSecModule,
+       "brcdEntityOIDModuleOptics": brcdEntityOIDModuleOptics,
+       "brcdEntityOIDModuleOpticsUnknown": brcdEntityOIDModuleOpticsUnknown,
+       "brcdEntityOIDModuleOpticsSFP": brcdEntityOIDModuleOpticsSFP,
+       "brcdEntityOIDModuleOpticsSFPP": brcdEntityOIDModuleOpticsSFPP,
+       "brcdEntityOIDModuleOpticsXFP": brcdEntityOIDModuleOpticsXFP,
+       "brcdEntityOIDModuleOpticsCFP": brcdEntityOIDModuleOpticsCFP,
+       "brcdEntityOIDModuleOpticsQSFPP": brcdEntityOIDModuleOpticsQSFPP,
+       "brcdEntityOIDModuleOpticsCFP2": brcdEntityOIDModuleOpticsCFP2,
+       "brcdEntityOIDModuleOpticsGBIC": brcdEntityOIDModuleOpticsGBIC,
+       "brcdEntityOIDModuleService": brcdEntityOIDModuleService,
+       "brcdEntityOIDModuleServiceUnknown": brcdEntityOIDModuleServiceUnknown,
+       "brcdEntityOIDModuleServiceIcx7250Family": brcdEntityOIDModuleServiceIcx7250Family,
+       "brcdEntityOIDModuleServiceIcx7250sfpplus8Port80gModule": brcdEntityOIDModuleServiceIcx7250sfpplus8Port80gModule,
+       "brcdEntityOIDModuleServiceIcx7250sfpplus4Port4gModule": brcdEntityOIDModuleServiceIcx7250sfpplus4Port4gModule,
+       "brcdEntityOIDModuleServiceIcx7450Family": brcdEntityOIDModuleServiceIcx7450Family,
+       "brcdEntityOIDModuleServiceIcx7400sfpplus4Port40gModule": brcdEntityOIDModuleServiceIcx7400sfpplus4Port40gModule,
+       "brcdEntityOIDModuleServiceIcx7400copper4Port40gModule": brcdEntityOIDModuleServiceIcx7400copper4Port40gModule,
+       "brcdEntityOIDModuleServiceIcx7400sfp4Port4gModule": brcdEntityOIDModuleServiceIcx7400sfp4Port4gModule,
+       "brcdEntityOIDModuleServiceIcx7400qsfpplus1Port40gModule": brcdEntityOIDModuleServiceIcx7400qsfpplus1Port40gModule,
+       "brcdEntityOIDModuleServiceIcx7400ServiceModule": brcdEntityOIDModuleServiceIcx7400ServiceModule,
+       "brcdEntityOIDModuleServiceIcx7750Family": brcdEntityOIDModuleServiceIcx7750Family,
+       "brcdEntityOIDModuleServiceIcx7750QSFP6port40gModule": brcdEntityOIDModuleServiceIcx7750QSFP6port40gModule,
+       "brcdEntityOIDModuleServiceIcx77506Q6port40gModule": brcdEntityOIDModuleServiceIcx77506Q6port40gModule,
+       "brcdEntityOIDModuleServiceIcx7150Family": brcdEntityOIDModuleServiceIcx7150Family,
+       "brcdEntityOIDModuleServiceIcx7150sfpplus2Port20gModule": brcdEntityOIDModuleServiceIcx7150sfpplus2Port20gModule,
+       "brcdEntityOIDModuleServiceIcx7150sfpplus4Port40gModule": brcdEntityOIDModuleServiceIcx7150sfpplus4Port40gModule,
+       "brcdEntityOIDModuleServiceIcx7150gc2Port2gModule": brcdEntityOIDModuleServiceIcx7150gc2Port2gModule,
+       "brcdEntityOIDModuleServiceIcx7150sfpplus8Port80gModule": brcdEntityOIDModuleServiceIcx7150sfpplus8Port80gModule,
+       "brcdEntityOIDModuleServiceIcx7150gsfp2Port2gModule": brcdEntityOIDModuleServiceIcx7150gsfp2Port2gModule,
+       "brcdEntityOIDModuleServiceIcx7150gc2Port20gModule": brcdEntityOIDModuleServiceIcx7150gc2Port20gModule,
+       "brcdEntityOIDModuleServiceIcx7650Family": brcdEntityOIDModuleServiceIcx7650Family,
+       "brcdEntityOIDModuleServiceIcx7600xgf4Port40gModule": brcdEntityOIDModuleServiceIcx7600xgf4Port40gModule,
+       "brcdEntityOIDModuleServiceIcx7600qsfp2port80gModule": brcdEntityOIDModuleServiceIcx7600qsfp2port80gModule,
+       "brcdEntityOIDModuleServiceIcx7600100g1port100gModule": brcdEntityOIDModuleServiceIcx7600100g1port100gModule,
+       "brcdEntityOIDModuleServiceIcx7650qsfp4port160gModule": brcdEntityOIDModuleServiceIcx7650qsfp4port160gModule,
+       "brcdEntityOIDModuleServiceIcx7650100g2port200gModule": brcdEntityOIDModuleServiceIcx7650100g2port200gModule,
+       "brcdEntityOIDModuleServiceIcx7650qsfp2port80gModule": brcdEntityOIDModuleServiceIcx7650qsfp2port80gModule,
+       "brcdEntityOIDModuleServiceIcx7850Family": brcdEntityOIDModuleServiceIcx7850Family,
+       "brcdEntityOIDModuleServiceIcx78508port800gModule": brcdEntityOIDModuleServiceIcx78508port800gModule,
+       "brcdEntityOIDModuleServiceIcx785012port1200gModule": brcdEntityOIDModuleServiceIcx785012port1200gModule,
+       "brcdEntityOIDModuleServiceIcx7550Family": brcdEntityOIDModuleServiceIcx7550Family,
+       "brcdEntityOIDModuleServiceIcx75502port80gModule": brcdEntityOIDModuleServiceIcx75502port80gModule,
+       "brcdEntityOIDModuleServiceIcx75502port200gModule": brcdEntityOIDModuleServiceIcx75502port200gModule,
+       "brcdEntityOIDModuleServiceIcx8200Family": brcdEntityOIDModuleServiceIcx8200Family,
+       "brcdEntityOIDModuleServiceIcx82004Port100gModule": brcdEntityOIDModuleServiceIcx82004Port100gModule,
+       "brcdEntityOIDModuleServiceIcx82008Port200gModule": brcdEntityOIDModuleServiceIcx82008Port200gModule,
+       "brcdEntityOIDModuleServiceIcx82002Port2gModule": brcdEntityOIDModuleServiceIcx82002Port2gModule,
+       "brcdEntityOIDModuleServiceIcx82002Port20gModule": brcdEntityOIDModuleServiceIcx82002Port20gModule,
+       "brcdEntityOIDModuleServiceIcx82002Port50gModule": brcdEntityOIDModuleServiceIcx82002Port50gModule,
+       "brcdEntityOIDModuleServiceIcx82002Port20gcfModule": brcdEntityOIDModuleServiceIcx82002Port20gcfModule,
+       "brcdEntityOIDPort": brcdEntityOIDPort,
+       "brcdEntityOIDPortUnknown": brcdEntityOIDPortUnknown,
+       "brcdEntityOIDPortMgmtSerial": brcdEntityOIDPortMgmtSerial,
+       "brcdEntityOIDPortMgmtEth": brcdEntityOIDPortMgmtEth,
+       "brcdEntityOIDPort100BaseTx": brcdEntityOIDPort100BaseTx,
+       "brcdEntityOIDPort100BaseFx": brcdEntityOIDPort100BaseFx,
+       "brcdEntityOIDPortGigBaseTx": brcdEntityOIDPortGigBaseTx,
+       "brcdEntityOIDPortGigBaseFx": brcdEntityOIDPortGigBaseFx,
+       "brcdEntityOIDPort10GigBaseFx": brcdEntityOIDPort10GigBaseFx,
+       "brcdEntityOIDPort40GigBaseFx": brcdEntityOIDPort40GigBaseFx,
+       "brcdEntityOIDPort100GigBaseFx": brcdEntityOIDPort100GigBaseFx,
+       "brcdEntityOIDPort10GigBaseTx": brcdEntityOIDPort10GigBaseTx,
+       "brcdEntityOIDPort25GigBaseTx": brcdEntityOIDPort25GigBaseTx,
+       "brcdEntityOIDPort40GigBaseTx": brcdEntityOIDPort40GigBaseTx,
+       "brcdEntityOIDPort2500BaseTx": brcdEntityOIDPort2500BaseTx,
+       "brcdEntityOIDPort5GigBaseTx": brcdEntityOIDPort5GigBaseTx,
+       "brcdEntityOIDStack": brcdEntityOIDStack,
+       "brcdEntityOIDStackUnknown": brcdEntityOIDStackUnknown,
+       "brcdEntityOIDStackICXStackFamily": brcdEntityOIDStackICXStackFamily,
+       "brcdEntityOIDStackICXStackIcx7250": brcdEntityOIDStackICXStackIcx7250,
+       "brcdEntityOIDStackICXStackIcx7450": brcdEntityOIDStackICXStackIcx7450,
+       "brcdEntityOIDStackICXStackIcx7750": brcdEntityOIDStackICXStackIcx7750,
+       "brcdEntityOIDStackICXStackIcx7150": brcdEntityOIDStackICXStackIcx7150,
+       "brcdEntityOIDStackICXStackIcx7650": brcdEntityOIDStackICXStackIcx7650,
+       "brcdEntityOIDStackICXStackIcx7850": brcdEntityOIDStackICXStackIcx7850,
+       "brcdEntityOIDStackICXStackIcx7550": brcdEntityOIDStackICXStackIcx7550,
+       "brcdEntityOIDStackICXStackIcx8200": brcdEntityOIDStackICXStackIcx8200,
+       "brcdEntityOIDStackICXSPXFamily": brcdEntityOIDStackICXSPXFamily,
+       "brcdEntityOIDStackICXSPX": brcdEntityOIDStackICXSPX,
+       "brcdEntityOIDCpu": brcdEntityOIDCpu,
+       "brcdEntityOIDCpuUnknown": brcdEntityOIDCpuUnknown,
+       "brcdEntityOIDCpuPPC7447A": brcdEntityOIDCpuPPC7447A,
+       "brcdEntityOIDCpuPPC7448": brcdEntityOIDCpuPPC7448,
+       "brcdEntityOIDCpuPPC7451": brcdEntityOIDCpuPPC7451,
+       "brcdEntityOIDCpuPPC7455": brcdEntityOIDCpuPPC7455,
+       "brcdEntityOIDCpuPPC7457": brcdEntityOIDCpuPPC7457,
+       "brcdEntityOIDCpuPPC8541": brcdEntityOIDCpuPPC8541,
+       "brcdEntityOIDCpuPPC8541E": brcdEntityOIDCpuPPC8541E,
+       "brcdEntityOIDCpuPPC8544": brcdEntityOIDCpuPPC8544,
+       "brcdEntityOIDCpuPPC8544E": brcdEntityOIDCpuPPC8544E,
+       "brcdEntityOIDCpuPPC8572": brcdEntityOIDCpuPPC8572,
+       "brcdEntityOIDCpuPPC8572E": brcdEntityOIDCpuPPC8572E}
+)

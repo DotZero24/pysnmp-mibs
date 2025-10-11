@@ -1,482 +1,3364 @@
+# SNMP MIB module (TIMETRA-LAG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TIMETRA-LAG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TIMETRA-LAG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:40:08 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TIMETRA-LAG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:00:44 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dot3adAggPortEntry, = mibBuilder.importSymbols("IEEE8023-LAG-MIB", "dot3adAggPortEntry")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ObjectGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ObjectGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, ModuleIdentity, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "ModuleIdentity", "TimeTicks", "Gauge32")
-RowStatus, TextualConvention, MacAddress, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "TimeStamp", "DisplayString")
-tmnxSRObjs, timetraSRMIBModules, tmnxSRNotifyPrefix, tmnxSRConfs = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRNotifyPrefix", "tmnxSRConfs")
-tmnxPortPortID, tmnxPortLagId = mibBuilder.importSymbols("TIMETRA-PORT-MIB", "tmnxPortPortID", "tmnxPortLagId")
-LAGInterfaceNumber, TmnxActionType, TmnxPortID, TItemDescription, TmnxEnabledDisabled, TItemLongDescription, TmnxLagPerLinkHashClass, TNamedItemOrEmpty, TmnxLagPerLinkHashClassOrNone, TmnxLinkMapProfileId = mibBuilder.importSymbols("TIMETRA-TC-MIB", "LAGInterfaceNumber", "TmnxActionType", "TmnxPortID", "TItemDescription", "TmnxEnabledDisabled", "TItemLongDescription", "TmnxLagPerLinkHashClass", "TNamedItemOrEmpty", "TmnxLagPerLinkHashClassOrNone", "TmnxLinkMapProfileId")
-timetraLagMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 15))
-timetraLagMIBModule.setRevisions(('2019-04-15 00:00', '2016-01-01 00:00', '2015-01-01 00:00', '2014-01-01 00:00', '2012-04-11 00:00', '2012-04-06 00:00', '2011-02-01 00:00', '2009-02-28 00:00', '2008-07-01 00:00', '2008-01-01 00:00', '2007-01-01 00:00', '2006-03-15 00:00', '2005-08-31 00:00', '2005-01-24 00:00', '2004-01-15 00:00', '2003-08-15 00:00', '2003-01-20 00:00', '2001-02-09 00:00',))
-if mibBuilder.loadTexts: timetraLagMIBModule.setLastUpdated('201904150000Z')
-if mibBuilder.loadTexts: timetraLagMIBModule.setOrganization('Nokia')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dot3adAggPortEntry,) = mibBuilder.importSymbols(
+    "IEEE8023-LAG-MIB",
+    "dot3adAggPortEntry")
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+(timetraSRMIBModules,
+ tmnxSRConfs,
+ tmnxSRNotifyPrefix,
+ tmnxSRObjs) = mibBuilder.importSymbols(
+    "TIMETRA-GLOBAL-MIB",
+    "timetraSRMIBModules",
+    "tmnxSRConfs",
+    "tmnxSRNotifyPrefix",
+    "tmnxSRObjs")
+
+(tmnxPortLagId,
+ tmnxPortPortID) = mibBuilder.importSymbols(
+    "TIMETRA-PORT-MIB",
+    "tmnxPortLagId",
+    "tmnxPortPortID")
+
+(LAGInterfaceNumber,
+ TItemDescription,
+ TItemLongDescription,
+ TNamedItemOrEmpty,
+ TmnxActionType,
+ TmnxEnabledDisabled,
+ TmnxLagPerLinkHashClass,
+ TmnxLagPerLinkHashClassOrNone,
+ TmnxLinkMapProfileId,
+ TmnxPortID) = mibBuilder.importSymbols(
+    "TIMETRA-TC-MIB",
+    "LAGInterfaceNumber",
+    "TItemDescription",
+    "TItemLongDescription",
+    "TNamedItemOrEmpty",
+    "TmnxActionType",
+    "TmnxEnabledDisabled",
+    "TmnxLagPerLinkHashClass",
+    "TmnxLagPerLinkHashClassOrNone",
+    "TmnxLinkMapProfileId",
+    "TmnxPortID")
+
+
+# MODULE-IDENTITY
+
+timetraLagMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 15)
+)
+if mibBuilder.loadTexts:
+    timetraLagMIBModule.setRevisions(
+        ("2019-04-15 00:00",
+         "2016-01-01 00:00",
+         "2015-01-01 00:00",
+         "2014-01-01 00:00",
+         "2012-04-11 00:00",
+         "2012-04-06 00:00",
+         "2011-02-01 00:00",
+         "2009-02-28 00:00",
+         "2008-07-01 00:00",
+         "2008-01-01 00:00",
+         "2007-01-01 00:00",
+         "2006-03-15 00:00",
+         "2005-08-31 00:00",
+         "2005-01-24 00:00",
+         "2004-01-15 00:00",
+         "2003-08-15 00:00",
+         "2003-01-20 00:00",
+         "2001-02-09 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class LAGSubgroup(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(ValueRangeConstraint(-2, -2), ValueRangeConstraint(-1, -1), ValueRangeConstraint(1, 8), )
-tLagObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15))
-tLagConfigTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2), )
-if mibBuilder.loadTexts: tLagConfigTable.setStatus('current')
-tLagConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1), ).setIndexNames((0, "TIMETRA-LAG-MIB", "tLagIndex"))
-if mibBuilder.loadTexts: tLagConfigEntry.setStatus('current')
-tLagIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 1), LAGInterfaceNumber())
-if mibBuilder.loadTexts: tLagIndex.setStatus('current')
-tLagRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagRowStatus.setStatus('current')
-tLagPortThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagPortThreshold.setStatus('current')
-tLagPortThresholdAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("down", 1), ("dynamicCost", 2), ("staticCost", 3))).clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagPortThresholdAction.setStatus('current')
-tLagEnableMarkerGenerator = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 5), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagEnableMarkerGenerator.setStatus('current')
-tLagEnableLACP = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 6), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagEnableLACP.setStatus('current')
-tLagDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 7), TItemLongDescription().subtype(subtypeSpec=ValueSizeConstraint(0, 160)).clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagDescription.setStatus('current')
-tLagDynamicCosting = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 8), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagDynamicCosting.setStatus('current')
-tLagLACPMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("passive", 1), ("active", 2))).clone('passive')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLACPMode.setStatus('current')
-tLagLACPAdminKeyAutogen = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 10), TruthValue().clone('true')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagLACPAdminKeyAutogen.setStatus('current')
-tLagLACPTransmitInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("slow", 1), ("fast", 2))).clone('fast')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLACPTransmitInterval.setStatus('current')
-tLagAccessAdaptQos = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("link", 1), ("distribute", 2), ("portFair", 3))).clone('distribute')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagAccessAdaptQos.setStatus('current')
-tLagLACPXmitStdby = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 13), TruthValue().clone('true')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLACPXmitStdby.setStatus('current')
-tLagLACPSelCrit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("highestCount", 1), ("highestWeight", 2), ("bestPort", 3))).clone('highestCount')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLACPSelCrit.setStatus('current')
-tLagLACPSelCritSlaveToPartner = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 15), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLACPSelCritSlaveToPartner.setStatus('current')
-tLagLACPNbrOfSubGroups = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 16), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagLACPNbrOfSubGroups.setStatus('current')
-tLagholdTimeDown = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 17), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2000))).setUnits('deciseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagholdTimeDown.setStatus('current')
-tLagPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 3, 4))).clone(namedValues=NamedValues(("standard", 1), ("hsmdaV2", 3), ("hs", 4))).clone('standard')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagPortType.setStatus('current')
-tLagPerFpIngQueuing = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 19), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagPerFpIngQueuing.setStatus('current')
-tLagSystemId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 20), MacAddress().clone(hexValue="000000000000")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagSystemId.setStatus('current')
-tLagSystemPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 21), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 65535), )).clone(-1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagSystemPriority.setStatus('current')
-tLagStandbySignaling = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 22), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("lacp", 1), ("powerOff", 2))).clone('lacp')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagStandbySignaling.setStatus('current')
-tLagPerLinkHash = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 23), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagPerLinkHash.setStatus('current')
-tLagPerFpEgrQueuing = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 24), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagPerFpEgrQueuing.setStatus('current')
-tLagIncludeEgrHashCfg = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 25), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagIncludeEgrHashCfg.setStatus('current')
-tLagPerFpSapInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 26), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagPerFpSapInstance.setStatus('current')
-tLagLacpHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 27), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 2000), ValueRangeConstraint(4294967295, 4294967295), ))).setUnits('deciseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLacpHoldTime.setStatus('current')
-tLagPerLinkHashWeighted = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 29), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagPerLinkHashWeighted.setStatus('current')
-tLagPerLinkHashWeightedRebalance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 30), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagPerLinkHashWeightedRebalance.setStatus('current')
-tLagPortWeightSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 31), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 1), ValueRangeConstraint(10, 10), ))).setUnits('gigabps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagPortWeightSpeed.setStatus('current')
-tLagWeightThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 33), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagWeightThreshold.setStatus('current')
-tLagWeightThresholdAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 34), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("down", 1), ("dynamicCost", 2), ("staticCost", 3))).clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagWeightThresholdAction.setStatus('current')
-tLagMonitorOperGrpName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 36), TNamedItemOrEmpty()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagMonitorOperGrpName.setStatus('current')
-tLagLacpMuxControl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 37), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("coupled", 1), ("independent", 2))).clone('coupled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLacpMuxControl.setStatus('current')
-tLagBfdDisableSoftResetExt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 38), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagBfdDisableSoftResetExt.setStatus('current')
-tLagAccessBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 39), Unsigned32()).setUnits('kilobps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagAccessBandwidth.setStatus('current')
-tLagAccessBookingFactor = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 40), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1000)).clone(100)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagAccessBookingFactor.setStatus('current')
-tLagAccessAvailableBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 41), Counter64()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagAccessAvailableBW.setStatus('current')
-tLagAccessBookedBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 42), Counter64()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagAccessBookedBW.setStatus('current')
-tLagPortThresholdStaticCost = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 43), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagPortThresholdStaticCost.setStatus('current')
-tLagWeightThresholdStaticCost = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 44), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagWeightThresholdStaticCost.setStatus('current')
-tLagAccessBandwidthHigh = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 45), Unsigned32()).setUnits('kilobps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagAccessBandwidthHigh.setStatus('current')
-tLagHashWeightThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 46), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 6400000))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagHashWeightThreshold.setStatus('current')
-tLagHashWeightThresholdAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 47), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("down", 1), ("dynamicCost", 2), ("staticCost", 3))).clone('down')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagHashWeightThresholdAction.setStatus('current')
-tLagHashWeightThresholdStaticCst = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 48), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagHashWeightThresholdStaticCst.setStatus('current')
-tLagAdaptiveLb = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 49), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagAdaptiveLb.setStatus('current')
-tLagAdaptiveLbTolerance = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 50), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 100)).clone(20)).setUnits('percent').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagAdaptiveLbTolerance.setStatus('current')
-tLagOperationTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3), )
-if mibBuilder.loadTexts: tLagOperationTable.setStatus('current')
-tLagOperationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1), )
-tLagConfigEntry.registerAugmentions(("TIMETRA-LAG-MIB", "tLagOperationEntry"))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-2, -2),
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(1, 8),
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TmnxLagConformance_ObjectIdentity = ObjectIdentity
+tmnxLagConformance = _TmnxLagConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15)
+)
+_TmnxLagCompliances_ObjectIdentity = ObjectIdentity
+tmnxLagCompliances = _TmnxLagCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1)
+)
+_TmnxLagGroups_ObjectIdentity = ObjectIdentity
+tmnxLagGroups = _TmnxLagGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2)
+)
+_TmnxLagDCCompliances_ObjectIdentity = ObjectIdentity
+tmnxLagDCCompliances = _TmnxLagDCCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 3)
+)
+_TmnxLagDCGroups_ObjectIdentity = ObjectIdentity
+tmnxLagDCGroups = _TmnxLagDCGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 4)
+)
+_TLagObjects_ObjectIdentity = ObjectIdentity
+tLagObjects = _TLagObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15)
+)
+_TLagConfigTable_Object = MibTable
+tLagConfigTable = _TLagConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2)
+)
+if mibBuilder.loadTexts:
+    tLagConfigTable.setStatus("current")
+_TLagConfigEntry_Object = MibTableRow
+tLagConfigEntry = _TLagConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1)
+)
+tLagConfigEntry.setIndexNames(
+    (0, "TIMETRA-LAG-MIB", "tLagIndex"),
+)
+if mibBuilder.loadTexts:
+    tLagConfigEntry.setStatus("current")
+_TLagIndex_Type = LAGInterfaceNumber
+_TLagIndex_Object = MibTableColumn
+tLagIndex = _TLagIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 1),
+    _TLagIndex_Type()
+)
+tLagIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tLagIndex.setStatus("current")
+_TLagRowStatus_Type = RowStatus
+_TLagRowStatus_Object = MibTableColumn
+tLagRowStatus = _TLagRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 2),
+    _TLagRowStatus_Type()
+)
+tLagRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagRowStatus.setStatus("current")
+
+
+class _TLagPortThreshold_Type(Integer32):
+    """Custom type tLagPortThreshold based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_TLagPortThreshold_Type.__name__ = "Integer32"
+_TLagPortThreshold_Object = MibTableColumn
+tLagPortThreshold = _TLagPortThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 3),
+    _TLagPortThreshold_Type()
+)
+tLagPortThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagPortThreshold.setStatus("current")
+
+
+class _TLagPortThresholdAction_Type(Integer32):
+    """Custom type tLagPortThresholdAction based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("dynamicCost", 2),
+          ("staticCost", 3))
+    )
+
+
+_TLagPortThresholdAction_Type.__name__ = "Integer32"
+_TLagPortThresholdAction_Object = MibTableColumn
+tLagPortThresholdAction = _TLagPortThresholdAction_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 4),
+    _TLagPortThresholdAction_Type()
+)
+tLagPortThresholdAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagPortThresholdAction.setStatus("current")
+
+
+class _TLagEnableMarkerGenerator_Type(TruthValue):
+    """Custom type tLagEnableMarkerGenerator based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagEnableMarkerGenerator_Type.__name__ = "TruthValue"
+_TLagEnableMarkerGenerator_Object = MibTableColumn
+tLagEnableMarkerGenerator = _TLagEnableMarkerGenerator_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 5),
+    _TLagEnableMarkerGenerator_Type()
+)
+tLagEnableMarkerGenerator.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagEnableMarkerGenerator.setStatus("current")
+
+
+class _TLagEnableLACP_Type(TruthValue):
+    """Custom type tLagEnableLACP based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagEnableLACP_Type.__name__ = "TruthValue"
+_TLagEnableLACP_Object = MibTableColumn
+tLagEnableLACP = _TLagEnableLACP_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 6),
+    _TLagEnableLACP_Type()
+)
+tLagEnableLACP.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagEnableLACP.setStatus("current")
+
+
+class _TLagDescription_Type(TItemLongDescription):
+    """Custom type tLagDescription based on TItemLongDescription"""
+    defaultHexValue = ""
+
+    subtypeSpec = TItemLongDescription.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 160),
+    )
+
+
+_TLagDescription_Type.__name__ = "TItemLongDescription"
+_TLagDescription_Object = MibTableColumn
+tLagDescription = _TLagDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 7),
+    _TLagDescription_Type()
+)
+tLagDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagDescription.setStatus("current")
+
+
+class _TLagDynamicCosting_Type(TruthValue):
+    """Custom type tLagDynamicCosting based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagDynamicCosting_Type.__name__ = "TruthValue"
+_TLagDynamicCosting_Object = MibTableColumn
+tLagDynamicCosting = _TLagDynamicCosting_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 8),
+    _TLagDynamicCosting_Type()
+)
+tLagDynamicCosting.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagDynamicCosting.setStatus("current")
+
+
+class _TLagLACPMode_Type(Integer32):
+    """Custom type tLagLACPMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("passive", 1),
+          ("active", 2))
+    )
+
+
+_TLagLACPMode_Type.__name__ = "Integer32"
+_TLagLACPMode_Object = MibTableColumn
+tLagLACPMode = _TLagLACPMode_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 9),
+    _TLagLACPMode_Type()
+)
+tLagLACPMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLACPMode.setStatus("current")
+
+
+class _TLagLACPAdminKeyAutogen_Type(TruthValue):
+    """Custom type tLagLACPAdminKeyAutogen based on TruthValue"""
+    defaultValue = 1
+
+
+_TLagLACPAdminKeyAutogen_Type.__name__ = "TruthValue"
+_TLagLACPAdminKeyAutogen_Object = MibTableColumn
+tLagLACPAdminKeyAutogen = _TLagLACPAdminKeyAutogen_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 10),
+    _TLagLACPAdminKeyAutogen_Type()
+)
+tLagLACPAdminKeyAutogen.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagLACPAdminKeyAutogen.setStatus("current")
+
+
+class _TLagLACPTransmitInterval_Type(Integer32):
+    """Custom type tLagLACPTransmitInterval based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("slow", 1),
+          ("fast", 2))
+    )
+
+
+_TLagLACPTransmitInterval_Type.__name__ = "Integer32"
+_TLagLACPTransmitInterval_Object = MibTableColumn
+tLagLACPTransmitInterval = _TLagLACPTransmitInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 11),
+    _TLagLACPTransmitInterval_Type()
+)
+tLagLACPTransmitInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLACPTransmitInterval.setStatus("current")
+
+
+class _TLagAccessAdaptQos_Type(Integer32):
+    """Custom type tLagAccessAdaptQos based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("link", 1),
+          ("distribute", 2),
+          ("portFair", 3))
+    )
+
+
+_TLagAccessAdaptQos_Type.__name__ = "Integer32"
+_TLagAccessAdaptQos_Object = MibTableColumn
+tLagAccessAdaptQos = _TLagAccessAdaptQos_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 12),
+    _TLagAccessAdaptQos_Type()
+)
+tLagAccessAdaptQos.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagAccessAdaptQos.setStatus("current")
+
+
+class _TLagLACPXmitStdby_Type(TruthValue):
+    """Custom type tLagLACPXmitStdby based on TruthValue"""
+    defaultValue = 1
+
+
+_TLagLACPXmitStdby_Type.__name__ = "TruthValue"
+_TLagLACPXmitStdby_Object = MibTableColumn
+tLagLACPXmitStdby = _TLagLACPXmitStdby_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 13),
+    _TLagLACPXmitStdby_Type()
+)
+tLagLACPXmitStdby.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLACPXmitStdby.setStatus("current")
+
+
+class _TLagLACPSelCrit_Type(Integer32):
+    """Custom type tLagLACPSelCrit based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("highestCount", 1),
+          ("highestWeight", 2),
+          ("bestPort", 3))
+    )
+
+
+_TLagLACPSelCrit_Type.__name__ = "Integer32"
+_TLagLACPSelCrit_Object = MibTableColumn
+tLagLACPSelCrit = _TLagLACPSelCrit_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 14),
+    _TLagLACPSelCrit_Type()
+)
+tLagLACPSelCrit.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLACPSelCrit.setStatus("current")
+
+
+class _TLagLACPSelCritSlaveToPartner_Type(TruthValue):
+    """Custom type tLagLACPSelCritSlaveToPartner based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagLACPSelCritSlaveToPartner_Type.__name__ = "TruthValue"
+_TLagLACPSelCritSlaveToPartner_Object = MibTableColumn
+tLagLACPSelCritSlaveToPartner = _TLagLACPSelCritSlaveToPartner_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 15),
+    _TLagLACPSelCritSlaveToPartner_Type()
+)
+tLagLACPSelCritSlaveToPartner.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLACPSelCritSlaveToPartner.setStatus("current")
+_TLagLACPNbrOfSubGroups_Type = Unsigned32
+_TLagLACPNbrOfSubGroups_Object = MibTableColumn
+tLagLACPNbrOfSubGroups = _TLagLACPNbrOfSubGroups_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 16),
+    _TLagLACPNbrOfSubGroups_Type()
+)
+tLagLACPNbrOfSubGroups.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagLACPNbrOfSubGroups.setStatus("current")
+
+
+class _TLagholdTimeDown_Type(Unsigned32):
+    """Custom type tLagholdTimeDown based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2000),
+    )
+
+
+_TLagholdTimeDown_Type.__name__ = "Unsigned32"
+_TLagholdTimeDown_Object = MibTableColumn
+tLagholdTimeDown = _TLagholdTimeDown_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 17),
+    _TLagholdTimeDown_Type()
+)
+tLagholdTimeDown.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagholdTimeDown.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagholdTimeDown.setUnits("deciseconds")
+
+
+class _TLagPortType_Type(Integer32):
+    """Custom type tLagPortType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("standard", 1),
+          ("hsmdaV2", 3),
+          ("hs", 4))
+    )
+
+
+_TLagPortType_Type.__name__ = "Integer32"
+_TLagPortType_Object = MibTableColumn
+tLagPortType = _TLagPortType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 18),
+    _TLagPortType_Type()
+)
+tLagPortType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagPortType.setStatus("current")
+
+
+class _TLagPerFpIngQueuing_Type(TruthValue):
+    """Custom type tLagPerFpIngQueuing based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagPerFpIngQueuing_Type.__name__ = "TruthValue"
+_TLagPerFpIngQueuing_Object = MibTableColumn
+tLagPerFpIngQueuing = _TLagPerFpIngQueuing_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 19),
+    _TLagPerFpIngQueuing_Type()
+)
+tLagPerFpIngQueuing.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagPerFpIngQueuing.setStatus("current")
+
+
+class _TLagSystemId_Type(MacAddress):
+    """Custom type tLagSystemId based on MacAddress"""
+    defaultHexValue = "000000000000"
+
+
+_TLagSystemId_Type.__name__ = "MacAddress"
+_TLagSystemId_Object = MibTableColumn
+tLagSystemId = _TLagSystemId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 20),
+    _TLagSystemId_Type()
+)
+tLagSystemId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagSystemId.setStatus("current")
+
+
+class _TLagSystemPriority_Type(Integer32):
+    """Custom type tLagSystemPriority based on Integer32"""
+    defaultValue = -1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_TLagSystemPriority_Type.__name__ = "Integer32"
+_TLagSystemPriority_Object = MibTableColumn
+tLagSystemPriority = _TLagSystemPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 21),
+    _TLagSystemPriority_Type()
+)
+tLagSystemPriority.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagSystemPriority.setStatus("current")
+
+
+class _TLagStandbySignaling_Type(Integer32):
+    """Custom type tLagStandbySignaling based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("lacp", 1),
+          ("powerOff", 2))
+    )
+
+
+_TLagStandbySignaling_Type.__name__ = "Integer32"
+_TLagStandbySignaling_Object = MibTableColumn
+tLagStandbySignaling = _TLagStandbySignaling_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 22),
+    _TLagStandbySignaling_Type()
+)
+tLagStandbySignaling.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagStandbySignaling.setStatus("current")
+
+
+class _TLagPerLinkHash_Type(TruthValue):
+    """Custom type tLagPerLinkHash based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagPerLinkHash_Type.__name__ = "TruthValue"
+_TLagPerLinkHash_Object = MibTableColumn
+tLagPerLinkHash = _TLagPerLinkHash_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 23),
+    _TLagPerLinkHash_Type()
+)
+tLagPerLinkHash.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagPerLinkHash.setStatus("current")
+
+
+class _TLagPerFpEgrQueuing_Type(TruthValue):
+    """Custom type tLagPerFpEgrQueuing based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagPerFpEgrQueuing_Type.__name__ = "TruthValue"
+_TLagPerFpEgrQueuing_Object = MibTableColumn
+tLagPerFpEgrQueuing = _TLagPerFpEgrQueuing_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 24),
+    _TLagPerFpEgrQueuing_Type()
+)
+tLagPerFpEgrQueuing.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagPerFpEgrQueuing.setStatus("current")
+
+
+class _TLagIncludeEgrHashCfg_Type(TruthValue):
+    """Custom type tLagIncludeEgrHashCfg based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagIncludeEgrHashCfg_Type.__name__ = "TruthValue"
+_TLagIncludeEgrHashCfg_Object = MibTableColumn
+tLagIncludeEgrHashCfg = _TLagIncludeEgrHashCfg_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 25),
+    _TLagIncludeEgrHashCfg_Type()
+)
+tLagIncludeEgrHashCfg.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagIncludeEgrHashCfg.setStatus("current")
+
+
+class _TLagPerFpSapInstance_Type(TruthValue):
+    """Custom type tLagPerFpSapInstance based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagPerFpSapInstance_Type.__name__ = "TruthValue"
+_TLagPerFpSapInstance_Object = MibTableColumn
+tLagPerFpSapInstance = _TLagPerFpSapInstance_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 26),
+    _TLagPerFpSapInstance_Type()
+)
+tLagPerFpSapInstance.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagPerFpSapInstance.setStatus("current")
+
+
+class _TLagLacpHoldTime_Type(Unsigned32):
+    """Custom type tLagLacpHoldTime based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2000),
+        ValueRangeConstraint(4294967295, 4294967295),
+    )
+
+
+_TLagLacpHoldTime_Type.__name__ = "Unsigned32"
+_TLagLacpHoldTime_Object = MibTableColumn
+tLagLacpHoldTime = _TLagLacpHoldTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 27),
+    _TLagLacpHoldTime_Type()
+)
+tLagLacpHoldTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLacpHoldTime.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagLacpHoldTime.setUnits("deciseconds")
+
+
+class _TLagPerLinkHashWeighted_Type(TruthValue):
+    """Custom type tLagPerLinkHashWeighted based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagPerLinkHashWeighted_Type.__name__ = "TruthValue"
+_TLagPerLinkHashWeighted_Object = MibTableColumn
+tLagPerLinkHashWeighted = _TLagPerLinkHashWeighted_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 29),
+    _TLagPerLinkHashWeighted_Type()
+)
+tLagPerLinkHashWeighted.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagPerLinkHashWeighted.setStatus("current")
+
+
+class _TLagPerLinkHashWeightedRebalance_Type(TruthValue):
+    """Custom type tLagPerLinkHashWeightedRebalance based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagPerLinkHashWeightedRebalance_Type.__name__ = "TruthValue"
+_TLagPerLinkHashWeightedRebalance_Object = MibTableColumn
+tLagPerLinkHashWeightedRebalance = _TLagPerLinkHashWeightedRebalance_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 30),
+    _TLagPerLinkHashWeightedRebalance_Type()
+)
+tLagPerLinkHashWeightedRebalance.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagPerLinkHashWeightedRebalance.setStatus("current")
+
+
+class _TLagPortWeightSpeed_Type(Unsigned32):
+    """Custom type tLagPortWeightSpeed based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 1),
+        ValueRangeConstraint(10, 10),
+    )
+
+
+_TLagPortWeightSpeed_Type.__name__ = "Unsigned32"
+_TLagPortWeightSpeed_Object = MibTableColumn
+tLagPortWeightSpeed = _TLagPortWeightSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 31),
+    _TLagPortWeightSpeed_Type()
+)
+tLagPortWeightSpeed.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagPortWeightSpeed.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagPortWeightSpeed.setUnits("gigabps")
+
+
+class _TLagWeightThreshold_Type(Integer32):
+    """Custom type tLagWeightThreshold based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_TLagWeightThreshold_Type.__name__ = "Integer32"
+_TLagWeightThreshold_Object = MibTableColumn
+tLagWeightThreshold = _TLagWeightThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 33),
+    _TLagWeightThreshold_Type()
+)
+tLagWeightThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagWeightThreshold.setStatus("current")
+
+
+class _TLagWeightThresholdAction_Type(Integer32):
+    """Custom type tLagWeightThresholdAction based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("dynamicCost", 2),
+          ("staticCost", 3))
+    )
+
+
+_TLagWeightThresholdAction_Type.__name__ = "Integer32"
+_TLagWeightThresholdAction_Object = MibTableColumn
+tLagWeightThresholdAction = _TLagWeightThresholdAction_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 34),
+    _TLagWeightThresholdAction_Type()
+)
+tLagWeightThresholdAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagWeightThresholdAction.setStatus("current")
+
+
+class _TLagMonitorOperGrpName_Type(TNamedItemOrEmpty):
+    """Custom type tLagMonitorOperGrpName based on TNamedItemOrEmpty"""
+    defaultValue = OctetString("")
+
+
+_TLagMonitorOperGrpName_Type.__name__ = "TNamedItemOrEmpty"
+_TLagMonitorOperGrpName_Object = MibTableColumn
+tLagMonitorOperGrpName = _TLagMonitorOperGrpName_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 36),
+    _TLagMonitorOperGrpName_Type()
+)
+tLagMonitorOperGrpName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagMonitorOperGrpName.setStatus("current")
+
+
+class _TLagLacpMuxControl_Type(Integer32):
+    """Custom type tLagLacpMuxControl based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("coupled", 1),
+          ("independent", 2))
+    )
+
+
+_TLagLacpMuxControl_Type.__name__ = "Integer32"
+_TLagLacpMuxControl_Object = MibTableColumn
+tLagLacpMuxControl = _TLagLacpMuxControl_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 37),
+    _TLagLacpMuxControl_Type()
+)
+tLagLacpMuxControl.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLacpMuxControl.setStatus("current")
+
+
+class _TLagBfdDisableSoftResetExt_Type(TruthValue):
+    """Custom type tLagBfdDisableSoftResetExt based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagBfdDisableSoftResetExt_Type.__name__ = "TruthValue"
+_TLagBfdDisableSoftResetExt_Object = MibTableColumn
+tLagBfdDisableSoftResetExt = _TLagBfdDisableSoftResetExt_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 38),
+    _TLagBfdDisableSoftResetExt_Type()
+)
+tLagBfdDisableSoftResetExt.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagBfdDisableSoftResetExt.setStatus("current")
+
+
+class _TLagAccessBandwidth_Type(Unsigned32):
+    """Custom type tLagAccessBandwidth based on Unsigned32"""
+    defaultValue = 0
+
+
+_TLagAccessBandwidth_Type.__name__ = "Unsigned32"
+_TLagAccessBandwidth_Object = MibTableColumn
+tLagAccessBandwidth = _TLagAccessBandwidth_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 39),
+    _TLagAccessBandwidth_Type()
+)
+tLagAccessBandwidth.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagAccessBandwidth.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagAccessBandwidth.setUnits("kilobps")
+
+
+class _TLagAccessBookingFactor_Type(Unsigned32):
+    """Custom type tLagAccessBookingFactor based on Unsigned32"""
+    defaultValue = 100
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1000),
+    )
+
+
+_TLagAccessBookingFactor_Type.__name__ = "Unsigned32"
+_TLagAccessBookingFactor_Object = MibTableColumn
+tLagAccessBookingFactor = _TLagAccessBookingFactor_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 40),
+    _TLagAccessBookingFactor_Type()
+)
+tLagAccessBookingFactor.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagAccessBookingFactor.setStatus("current")
+_TLagAccessAvailableBW_Type = Counter64
+_TLagAccessAvailableBW_Object = MibTableColumn
+tLagAccessAvailableBW = _TLagAccessAvailableBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 41),
+    _TLagAccessAvailableBW_Type()
+)
+tLagAccessAvailableBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagAccessAvailableBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagAccessAvailableBW.setUnits("kilobps")
+_TLagAccessBookedBW_Type = Counter64
+_TLagAccessBookedBW_Object = MibTableColumn
+tLagAccessBookedBW = _TLagAccessBookedBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 42),
+    _TLagAccessBookedBW_Type()
+)
+tLagAccessBookedBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagAccessBookedBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagAccessBookedBW.setUnits("kilobps")
+
+
+class _TLagPortThresholdStaticCost_Type(Unsigned32):
+    """Custom type tLagPortThresholdStaticCost based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16777215),
+    )
+
+
+_TLagPortThresholdStaticCost_Type.__name__ = "Unsigned32"
+_TLagPortThresholdStaticCost_Object = MibTableColumn
+tLagPortThresholdStaticCost = _TLagPortThresholdStaticCost_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 43),
+    _TLagPortThresholdStaticCost_Type()
+)
+tLagPortThresholdStaticCost.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagPortThresholdStaticCost.setStatus("current")
+
+
+class _TLagWeightThresholdStaticCost_Type(Unsigned32):
+    """Custom type tLagWeightThresholdStaticCost based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16777215),
+    )
+
+
+_TLagWeightThresholdStaticCost_Type.__name__ = "Unsigned32"
+_TLagWeightThresholdStaticCost_Object = MibTableColumn
+tLagWeightThresholdStaticCost = _TLagWeightThresholdStaticCost_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 44),
+    _TLagWeightThresholdStaticCost_Type()
+)
+tLagWeightThresholdStaticCost.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagWeightThresholdStaticCost.setStatus("current")
+
+
+class _TLagAccessBandwidthHigh_Type(Unsigned32):
+    """Custom type tLagAccessBandwidthHigh based on Unsigned32"""
+    defaultValue = 0
+
+
+_TLagAccessBandwidthHigh_Type.__name__ = "Unsigned32"
+_TLagAccessBandwidthHigh_Object = MibTableColumn
+tLagAccessBandwidthHigh = _TLagAccessBandwidthHigh_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 45),
+    _TLagAccessBandwidthHigh_Type()
+)
+tLagAccessBandwidthHigh.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagAccessBandwidthHigh.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagAccessBandwidthHigh.setUnits("kilobps")
+
+
+class _TLagHashWeightThreshold_Type(Integer32):
+    """Custom type tLagHashWeightThreshold based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 6400000),
+    )
+
+
+_TLagHashWeightThreshold_Type.__name__ = "Integer32"
+_TLagHashWeightThreshold_Object = MibTableColumn
+tLagHashWeightThreshold = _TLagHashWeightThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 46),
+    _TLagHashWeightThreshold_Type()
+)
+tLagHashWeightThreshold.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagHashWeightThreshold.setStatus("current")
+
+
+class _TLagHashWeightThresholdAction_Type(Integer32):
+    """Custom type tLagHashWeightThresholdAction based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("dynamicCost", 2),
+          ("staticCost", 3))
+    )
+
+
+_TLagHashWeightThresholdAction_Type.__name__ = "Integer32"
+_TLagHashWeightThresholdAction_Object = MibTableColumn
+tLagHashWeightThresholdAction = _TLagHashWeightThresholdAction_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 47),
+    _TLagHashWeightThresholdAction_Type()
+)
+tLagHashWeightThresholdAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagHashWeightThresholdAction.setStatus("current")
+
+
+class _TLagHashWeightThresholdStaticCst_Type(Unsigned32):
+    """Custom type tLagHashWeightThresholdStaticCst based on Unsigned32"""
+    defaultValue = 0
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16777215),
+    )
+
+
+_TLagHashWeightThresholdStaticCst_Type.__name__ = "Unsigned32"
+_TLagHashWeightThresholdStaticCst_Object = MibTableColumn
+tLagHashWeightThresholdStaticCst = _TLagHashWeightThresholdStaticCst_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 48),
+    _TLagHashWeightThresholdStaticCst_Type()
+)
+tLagHashWeightThresholdStaticCst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagHashWeightThresholdStaticCst.setStatus("current")
+
+
+class _TLagAdaptiveLb_Type(TruthValue):
+    """Custom type tLagAdaptiveLb based on TruthValue"""
+    defaultValue = 2
+
+
+_TLagAdaptiveLb_Type.__name__ = "TruthValue"
+_TLagAdaptiveLb_Object = MibTableColumn
+tLagAdaptiveLb = _TLagAdaptiveLb_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 49),
+    _TLagAdaptiveLb_Type()
+)
+tLagAdaptiveLb.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagAdaptiveLb.setStatus("current")
+
+
+class _TLagAdaptiveLbTolerance_Type(Unsigned32):
+    """Custom type tLagAdaptiveLbTolerance based on Unsigned32"""
+    defaultValue = 20
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 100),
+    )
+
+
+_TLagAdaptiveLbTolerance_Type.__name__ = "Unsigned32"
+_TLagAdaptiveLbTolerance_Object = MibTableColumn
+tLagAdaptiveLbTolerance = _TLagAdaptiveLbTolerance_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 2, 1, 50),
+    _TLagAdaptiveLbTolerance_Type()
+)
+tLagAdaptiveLbTolerance.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagAdaptiveLbTolerance.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagAdaptiveLbTolerance.setUnits("percent")
+_TLagOperationTable_Object = MibTable
+tLagOperationTable = _TLagOperationTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3)
+)
+if mibBuilder.loadTexts:
+    tLagOperationTable.setStatus("current")
+_TLagOperationEntry_Object = MibTableRow
+tLagOperationEntry = _TLagOperationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1)
+)
+if mibBuilder.loadTexts:
+    tLagOperationEntry.setStatus("current")
+_TLagIfIndex_Type = InterfaceIndexOrZero
+_TLagIfIndex_Object = MibTableColumn
+tLagIfIndex = _TLagIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 1),
+    _TLagIfIndex_Type()
+)
+tLagIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagIfIndex.setStatus("current")
+_TLagConfigLastChange_Type = TimeStamp
+_TLagConfigLastChange_Object = MibTableColumn
+tLagConfigLastChange = _TLagConfigLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 2),
+    _TLagConfigLastChange_Type()
+)
+tLagConfigLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagConfigLastChange.setStatus("current")
+_TLagPortThresholdFalling_Type = Counter32
+_TLagPortThresholdFalling_Object = MibTableColumn
+tLagPortThresholdFalling = _TLagPortThresholdFalling_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 3),
+    _TLagPortThresholdFalling_Type()
+)
+tLagPortThresholdFalling.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortThresholdFalling.setStatus("current")
+_TLagPortThresholdRising_Type = Counter32
+_TLagPortThresholdRising_Object = MibTableColumn
+tLagPortThresholdRising = _TLagPortThresholdRising_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 4),
+    _TLagPortThresholdRising_Type()
+)
+tLagPortThresholdRising.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortThresholdRising.setStatus("current")
+_TLagLACPPrimaryPort_Type = TmnxPortID
+_TLagLACPPrimaryPort_Object = MibTableColumn
+tLagLACPPrimaryPort = _TLagLACPPrimaryPort_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 5),
+    _TLagLACPPrimaryPort_Type()
+)
+tLagLACPPrimaryPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagLACPPrimaryPort.setStatus("obsolete")
+
+
+class _TLagPortReasonDownFlags_Type(Bits):
+    """Custom type tLagPortReasonDownFlags based on Bits"""
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("linklossFwd", 1))
+    )
+
+_TLagPortReasonDownFlags_Type.__name__ = "Bits"
+_TLagPortReasonDownFlags_Object = MibTableColumn
+tLagPortReasonDownFlags = _TLagPortReasonDownFlags_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 6),
+    _TLagPortReasonDownFlags_Type()
+)
+tLagPortReasonDownFlags.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortReasonDownFlags.setStatus("obsolete")
+_TLagSelectedSubGroup_Type = Integer32
+_TLagSelectedSubGroup_Object = MibTableColumn
+tLagSelectedSubGroup = _TLagSelectedSubGroup_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 7),
+    _TLagSelectedSubGroup_Type()
+)
+tLagSelectedSubGroup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagSelectedSubGroup.setStatus("current")
+_TLagCandidateSubGroup_Type = Integer32
+_TLagCandidateSubGroup_Object = MibTableColumn
+tLagCandidateSubGroup = _TLagCandidateSubGroup_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 8),
+    _TLagCandidateSubGroup_Type()
+)
+tLagCandidateSubGroup.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagCandidateSubGroup.setStatus("current")
+_TLagRemainingHoldTime_Type = Unsigned32
+_TLagRemainingHoldTime_Object = MibTableColumn
+tLagRemainingHoldTime = _TLagRemainingHoldTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 9),
+    _TLagRemainingHoldTime_Type()
+)
+tLagRemainingHoldTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagRemainingHoldTime.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagRemainingHoldTime.setUnits("deciseconds")
+_TLagPortWeightUp_Type = Gauge32
+_TLagPortWeightUp_Object = MibTableColumn
+tLagPortWeightUp = _TLagPortWeightUp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 10),
+    _TLagPortWeightUp_Type()
+)
+tLagPortWeightUp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortWeightUp.setStatus("current")
+
+
+class _TLagAdaptiveLbVariation_Type(Unsigned32):
+    """Custom type tLagAdaptiveLbVariation based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_TLagAdaptiveLbVariation_Type.__name__ = "Unsigned32"
+_TLagAdaptiveLbVariation_Object = MibTableColumn
+tLagAdaptiveLbVariation = _TLagAdaptiveLbVariation_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 11),
+    _TLagAdaptiveLbVariation_Type()
+)
+tLagAdaptiveLbVariation.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagAdaptiveLbVariation.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagAdaptiveLbVariation.setUnits("percent")
+_TLagAdaptiveLbChanged_Type = Counter32
+_TLagAdaptiveLbChanged_Object = MibTableColumn
+tLagAdaptiveLbChanged = _TLagAdaptiveLbChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 12),
+    _TLagAdaptiveLbChanged_Type()
+)
+tLagAdaptiveLbChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagAdaptiveLbChanged.setStatus("current")
+_TLagNotificationObjects_ObjectIdentity = ObjectIdentity
+tLagNotificationObjects = _TLagNotificationObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 4)
+)
+
+
+class _TLagNotifyPortAddFailReason_Type(Integer32):
+    """Custom type tLagNotifyPortAddFailReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("adminkey-mismatch", 1),
+          ("sysid-mismatch", 2),
+          ("lacp-passive-both-ends", 3),
+          ("link-down", 4))
+    )
+
+
+_TLagNotifyPortAddFailReason_Type.__name__ = "Integer32"
+_TLagNotifyPortAddFailReason_Object = MibScalar
+tLagNotifyPortAddFailReason = _TLagNotifyPortAddFailReason_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 4, 1),
+    _TLagNotifyPortAddFailReason_Type()
+)
+tLagNotifyPortAddFailReason.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tLagNotifyPortAddFailReason.setStatus("current")
+_TLagNotifySubGroupSelected_Type = DisplayString
+_TLagNotifySubGroupSelected_Object = MibScalar
+tLagNotifySubGroupSelected = _TLagNotifySubGroupSelected_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 4, 2),
+    _TLagNotifySubGroupSelected_Type()
+)
+tLagNotifySubGroupSelected.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tLagNotifySubGroupSelected.setStatus("current")
+_TLagNotifyAdditionalInfo_Type = DisplayString
+_TLagNotifyAdditionalInfo_Object = MibScalar
+tLagNotifyAdditionalInfo = _TLagNotifyAdditionalInfo_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 4, 3),
+    _TLagNotifyAdditionalInfo_Type()
+)
+tLagNotifyAdditionalInfo.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tLagNotifyAdditionalInfo.setStatus("current")
+
+
+class _TLagNotifyStateChangedReason_Type(Integer32):
+    """Custom type tLagNotifyStateChangedReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("partner-oper-state-changed", 1),
+          ("lacp-expired", 2),
+          ("lacp-rx-state-machine", 3),
+          ("efm-oam-state-changed", 4),
+          ("dot1ag-state-changed", 5),
+          ("bfd-state-changed", 6))
+    )
+
+
+_TLagNotifyStateChangedReason_Type.__name__ = "Integer32"
+_TLagNotifyStateChangedReason_Object = MibScalar
+tLagNotifyStateChangedReason = _TLagNotifyStateChangedReason_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 4, 4),
+    _TLagNotifyStateChangedReason_Type()
+)
+tLagNotifyStateChangedReason.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    tLagNotifyStateChangedReason.setStatus("current")
+_TLagMemberTable_Object = MibTable
+tLagMemberTable = _TLagMemberTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 5)
+)
+if mibBuilder.loadTexts:
+    tLagMemberTable.setStatus("current")
+_TLagMemberEntry_Object = MibTableRow
+tLagMemberEntry = _TLagMemberEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 5, 1)
+)
+tLagMemberEntry.setIndexNames(
+    (0, "TIMETRA-LAG-MIB", "tLagIndex"),
+    (0, "TIMETRA-PORT-MIB", "tmnxPortPortID"),
+)
+if mibBuilder.loadTexts:
+    tLagMemberEntry.setStatus("current")
+_TLagMemberPortName_Type = TNamedItemOrEmpty
+_TLagMemberPortName_Object = MibTableColumn
+tLagMemberPortName = _TLagMemberPortName_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 5, 1, 1),
+    _TLagMemberPortName_Type()
+)
+tLagMemberPortName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagMemberPortName.setStatus("current")
+_TLagMemberPortIsPrimary_Type = TruthValue
+_TLagMemberPortIsPrimary_Object = MibTableColumn
+tLagMemberPortIsPrimary = _TLagMemberPortIsPrimary_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 5, 1, 2),
+    _TLagMemberPortIsPrimary_Type()
+)
+tLagMemberPortIsPrimary.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagMemberPortIsPrimary.setStatus("current")
+_TLagPortTable_Object = MibTable
+tLagPortTable = _TLagPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6)
+)
+if mibBuilder.loadTexts:
+    tLagPortTable.setStatus("current")
+_TLagPortEntry_Object = MibTableRow
+tLagPortEntry = _TLagPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1)
+)
+if mibBuilder.loadTexts:
+    tLagPortEntry.setStatus("current")
+
+
+class _TLagPortSubgroup_Type(LAGSubgroup):
+    """Custom type tLagPortSubgroup based on LAGSubgroup"""
+    defaultValue = 1
+
+
+_TLagPortSubgroup_Type.__name__ = "LAGSubgroup"
+_TLagPortSubgroup_Object = MibTableColumn
+tLagPortSubgroup = _TLagPortSubgroup_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 1),
+    _TLagPortSubgroup_Type()
+)
+tLagPortSubgroup.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tLagPortSubgroup.setStatus("current")
+
+
+class _TLagPortActiveStdby_Type(Integer32):
+    """Custom type tLagPortActiveStdby based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("stand-by", 2))
+    )
+
+
+_TLagPortActiveStdby_Type.__name__ = "Integer32"
+_TLagPortActiveStdby_Object = MibTableColumn
+tLagPortActiveStdby = _TLagPortActiveStdby_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 2),
+    _TLagPortActiveStdby_Type()
+)
+tLagPortActiveStdby.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortActiveStdby.setStatus("current")
+
+
+class _TLagPortHashWeight_Type(Integer32):
+    """Custom type tLagPortHashWeight based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(1, 100000),
+    )
+
+
+_TLagPortHashWeight_Type.__name__ = "Integer32"
+_TLagPortHashWeight_Object = MibTableColumn
+tLagPortHashWeight = _TLagPortHashWeight_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 3),
+    _TLagPortHashWeight_Type()
+)
+tLagPortHashWeight.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tLagPortHashWeight.setStatus("current")
+
+
+class _TLagPortOperHashWeight_Type(Integer32):
+    """Custom type tLagPortOperHashWeight based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 100000),
+    )
+
+
+_TLagPortOperHashWeight_Type.__name__ = "Integer32"
+_TLagPortOperHashWeight_Object = MibTableColumn
+tLagPortOperHashWeight = _TLagPortOperHashWeight_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 4),
+    _TLagPortOperHashWeight_Type()
+)
+tLagPortOperHashWeight.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortOperHashWeight.setStatus("current")
+
+
+class _TLagPortFlowShare_Type(Unsigned32):
+    """Custom type tLagPortFlowShare based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 10000),
+    )
+
+
+_TLagPortFlowShare_Type.__name__ = "Unsigned32"
+_TLagPortFlowShare_Object = MibTableColumn
+tLagPortFlowShare = _TLagPortFlowShare_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 5),
+    _TLagPortFlowShare_Type()
+)
+tLagPortFlowShare.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortFlowShare.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagPortFlowShare.setUnits("centipercent")
+_TLagPortAdaptiveLbEgressRate_Type = Counter64
+_TLagPortAdaptiveLbEgressRate_Object = MibTableColumn
+tLagPortAdaptiveLbEgressRate = _TLagPortAdaptiveLbEgressRate_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 6),
+    _TLagPortAdaptiveLbEgressRate_Type()
+)
+tLagPortAdaptiveLbEgressRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortAdaptiveLbEgressRate.setStatus("current")
+if mibBuilder.loadTexts:
+    tLagPortAdaptiveLbEgressRate.setUnits("kilobps")
+_TLagLinkMapProfileTableLastChgd_Type = TimeStamp
+_TLagLinkMapProfileTableLastChgd_Object = MibScalar
+tLagLinkMapProfileTableLastChgd = _TLagLinkMapProfileTableLastChgd_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 7),
+    _TLagLinkMapProfileTableLastChgd_Type()
+)
+tLagLinkMapProfileTableLastChgd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfileTableLastChgd.setStatus("current")
+_TLagLinkMapProfileTable_Object = MibTable
+tLagLinkMapProfileTable = _TLagLinkMapProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8)
+)
+if mibBuilder.loadTexts:
+    tLagLinkMapProfileTable.setStatus("current")
+_TLagLinkMapProfileEntry_Object = MibTableRow
+tLagLinkMapProfileEntry = _TLagLinkMapProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1)
+)
+tLagLinkMapProfileEntry.setIndexNames(
+    (0, "TIMETRA-LAG-MIB", "tLagIndex"),
+    (0, "TIMETRA-LAG-MIB", "tLagLinkMapProfileId"),
+)
+if mibBuilder.loadTexts:
+    tLagLinkMapProfileEntry.setStatus("current")
+_TLagLinkMapProfileId_Type = TmnxLinkMapProfileId
+_TLagLinkMapProfileId_Object = MibTableColumn
+tLagLinkMapProfileId = _TLagLinkMapProfileId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 1),
+    _TLagLinkMapProfileId_Type()
+)
+tLagLinkMapProfileId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfileId.setStatus("current")
+_TLagLinkMapProfileRowStatus_Type = RowStatus
+_TLagLinkMapProfileRowStatus_Object = MibTableColumn
+tLagLinkMapProfileRowStatus = _TLagLinkMapProfileRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 2),
+    _TLagLinkMapProfileRowStatus_Type()
+)
+tLagLinkMapProfileRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfileRowStatus.setStatus("current")
+_TLagLinkMapProfileLastChanged_Type = TimeStamp
+_TLagLinkMapProfileLastChanged_Object = MibTableColumn
+tLagLinkMapProfileLastChanged = _TLagLinkMapProfileLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 3),
+    _TLagLinkMapProfileLastChanged_Type()
+)
+tLagLinkMapProfileLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfileLastChanged.setStatus("current")
+
+
+class _TLagLinkMapProfileDescription_Type(TItemDescription):
+    """Custom type tLagLinkMapProfileDescription based on TItemDescription"""
+    defaultValue = OctetString("")
+
+
+_TLagLinkMapProfileDescription_Type.__name__ = "TItemDescription"
+_TLagLinkMapProfileDescription_Object = MibTableColumn
+tLagLinkMapProfileDescription = _TLagLinkMapProfileDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 4),
+    _TLagLinkMapProfileDescription_Type()
+)
+tLagLinkMapProfileDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfileDescription.setStatus("current")
+
+
+class _TLagLinkMapProfileFailureMode_Type(Integer32):
+    """Custom type tLagLinkMapProfileFailureMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("perLinkHash", 1),
+          ("discard", 2))
+    )
+
+
+_TLagLinkMapProfileFailureMode_Type.__name__ = "Integer32"
+_TLagLinkMapProfileFailureMode_Object = MibTableColumn
+tLagLinkMapProfileFailureMode = _TLagLinkMapProfileFailureMode_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 5),
+    _TLagLinkMapProfileFailureMode_Type()
+)
+tLagLinkMapProfileFailureMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfileFailureMode.setStatus("current")
+_TLagLinkMapProfileActiveLink_Type = TmnxPortID
+_TLagLinkMapProfileActiveLink_Object = MibTableColumn
+tLagLinkMapProfileActiveLink = _TLagLinkMapProfileActiveLink_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 6),
+    _TLagLinkMapProfileActiveLink_Type()
+)
+tLagLinkMapProfileActiveLink.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfileActiveLink.setStatus("current")
+_TLagLinkMapProfPortTableLastChgd_Type = TimeStamp
+_TLagLinkMapProfPortTableLastChgd_Object = MibScalar
+tLagLinkMapProfPortTableLastChgd = _TLagLinkMapProfPortTableLastChgd_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 9),
+    _TLagLinkMapProfPortTableLastChgd_Type()
+)
+tLagLinkMapProfPortTableLastChgd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfPortTableLastChgd.setStatus("current")
+_TLagLinkMapProfPortTable_Object = MibTable
+tLagLinkMapProfPortTable = _TLagLinkMapProfPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10)
+)
+if mibBuilder.loadTexts:
+    tLagLinkMapProfPortTable.setStatus("current")
+_TLagLinkMapProfPortEntry_Object = MibTableRow
+tLagLinkMapProfPortEntry = _TLagLinkMapProfPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10, 1)
+)
+tLagLinkMapProfPortEntry.setIndexNames(
+    (0, "TIMETRA-LAG-MIB", "tLagIndex"),
+    (0, "TIMETRA-LAG-MIB", "tLagLinkMapProfileId"),
+    (0, "TIMETRA-LAG-MIB", "tLagLinkMapProfPortId"),
+)
+if mibBuilder.loadTexts:
+    tLagLinkMapProfPortEntry.setStatus("current")
+_TLagLinkMapProfPortId_Type = TmnxPortID
+_TLagLinkMapProfPortId_Object = MibTableColumn
+tLagLinkMapProfPortId = _TLagLinkMapProfPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10, 1, 1),
+    _TLagLinkMapProfPortId_Type()
+)
+tLagLinkMapProfPortId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfPortId.setStatus("current")
+_TLagLinkMapProfPortRowStatus_Type = RowStatus
+_TLagLinkMapProfPortRowStatus_Object = MibTableColumn
+tLagLinkMapProfPortRowStatus = _TLagLinkMapProfPortRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10, 1, 2),
+    _TLagLinkMapProfPortRowStatus_Type()
+)
+tLagLinkMapProfPortRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfPortRowStatus.setStatus("current")
+_TLagLinkMapProfPortLastChanged_Type = TimeStamp
+_TLagLinkMapProfPortLastChanged_Object = MibTableColumn
+tLagLinkMapProfPortLastChanged = _TLagLinkMapProfPortLastChanged_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10, 1, 3),
+    _TLagLinkMapProfPortLastChanged_Type()
+)
+tLagLinkMapProfPortLastChanged.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfPortLastChanged.setStatus("current")
+
+
+class _TLagLinkMapProfPortType_Type(Integer32):
+    """Custom type tLagLinkMapProfPortType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("primary", 1),
+          ("secondary", 2))
+    )
+
+
+_TLagLinkMapProfPortType_Type.__name__ = "Integer32"
+_TLagLinkMapProfPortType_Object = MibTableColumn
+tLagLinkMapProfPortType = _TLagLinkMapProfPortType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10, 1, 4),
+    _TLagLinkMapProfPortType_Type()
+)
+tLagLinkMapProfPortType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tLagLinkMapProfPortType.setStatus("current")
+_TLagPerLinkHashWtPortClassTable_Object = MibTable
+tLagPerLinkHashWtPortClassTable = _TLagPerLinkHashWtPortClassTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11)
+)
+if mibBuilder.loadTexts:
+    tLagPerLinkHashWtPortClassTable.setStatus("current")
+_TLagPerLinkHashWtPortClassEntry_Object = MibTableRow
+tLagPerLinkHashWtPortClassEntry = _TLagPerLinkHashWtPortClassEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11, 1)
+)
+tLagPerLinkHashWtPortClassEntry.setIndexNames(
+    (0, "TIMETRA-LAG-MIB", "tLagIndex"),
+    (0, "TIMETRA-LAG-MIB", "tLagPerLinkHashWtPort"),
+    (0, "TIMETRA-LAG-MIB", "tLagPerLinkHashWtPortClassId"),
+)
+if mibBuilder.loadTexts:
+    tLagPerLinkHashWtPortClassEntry.setStatus("current")
+_TLagPerLinkHashWtPort_Type = TmnxPortID
+_TLagPerLinkHashWtPort_Object = MibTableColumn
+tLagPerLinkHashWtPort = _TLagPerLinkHashWtPort_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11, 1, 1),
+    _TLagPerLinkHashWtPort_Type()
+)
+tLagPerLinkHashWtPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPerLinkHashWtPort.setStatus("current")
+_TLagPerLinkHashWtPortClassId_Type = TmnxLagPerLinkHashClass
+_TLagPerLinkHashWtPortClassId_Object = MibTableColumn
+tLagPerLinkHashWtPortClassId = _TLagPerLinkHashWtPortClassId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11, 1, 2),
+    _TLagPerLinkHashWtPortClassId_Type()
+)
+tLagPerLinkHashWtPortClassId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPerLinkHashWtPortClassId.setStatus("current")
+_TLagPerLinkHashWtPortClassUsers_Type = Integer32
+_TLagPerLinkHashWtPortClassUsers_Object = MibTableColumn
+tLagPerLinkHashWtPortClassUsers = _TLagPerLinkHashWtPortClassUsers_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11, 1, 3),
+    _TLagPerLinkHashWtPortClassUsers_Type()
+)
+tLagPerLinkHashWtPortClassUsers.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPerLinkHashWtPortClassUsers.setStatus("current")
+_TLagPerLinkHashWtPortClassAggWt_Type = Integer32
+_TLagPerLinkHashWtPortClassAggWt_Object = MibTableColumn
+tLagPerLinkHashWtPortClassAggWt = _TLagPerLinkHashWtPortClassAggWt_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11, 1, 4),
+    _TLagPerLinkHashWtPortClassAggWt_Type()
+)
+tLagPerLinkHashWtPortClassAggWt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPerLinkHashWtPortClassAggWt.setStatus("current")
+_TmnxLagActionTable_Object = MibTable
+tmnxLagActionTable = _TmnxLagActionTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 12)
+)
+if mibBuilder.loadTexts:
+    tmnxLagActionTable.setStatus("current")
+_TmnxLagActionEntry_Object = MibTableRow
+tmnxLagActionEntry = _TmnxLagActionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 12, 1)
+)
+tmnxLagActionEntry.setIndexNames(
+    (0, "TIMETRA-LAG-MIB", "tLagIndex"),
+)
+if mibBuilder.loadTexts:
+    tmnxLagActionEntry.setStatus("current")
+
+
+class _TmnxLagActionType_Type(Integer32):
+    """Custom type tmnxLagActionType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("loadBalance", 1))
+    )
+
+
+_TmnxLagActionType_Type.__name__ = "Integer32"
+_TmnxLagActionType_Object = MibTableColumn
+tmnxLagActionType = _TmnxLagActionType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 12, 1, 1),
+    _TmnxLagActionType_Type()
+)
+tmnxLagActionType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxLagActionType.setStatus("current")
+
+
+class _TmnxLagAction_Type(TmnxActionType):
+    """Custom type tmnxLagAction based on TmnxActionType"""
+    defaultValue = 2
+
+
+_TmnxLagAction_Type.__name__ = "TmnxActionType"
+_TmnxLagAction_Object = MibTableColumn
+tmnxLagAction = _TmnxLagAction_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 12, 1, 2),
+    _TmnxLagAction_Type()
+)
+tmnxLagAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxLagAction.setStatus("current")
+
+
+class _TmnxLagActionClassId_Type(TmnxLagPerLinkHashClassOrNone):
+    """Custom type tmnxLagActionClassId based on TmnxLagPerLinkHashClassOrNone"""
+    defaultValue = 0
+
+
+_TmnxLagActionClassId_Type.__name__ = "TmnxLagPerLinkHashClassOrNone"
+_TmnxLagActionClassId_Object = MibTableColumn
+tmnxLagActionClassId = _TmnxLagActionClassId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 12, 1, 3),
+    _TmnxLagActionClassId_Type()
+)
+tmnxLagActionClassId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tmnxLagActionClassId.setStatus("current")
+_TLagPortStatsLacpTable_Object = MibTable
+tLagPortStatsLacpTable = _TLagPortStatsLacpTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13)
+)
+if mibBuilder.loadTexts:
+    tLagPortStatsLacpTable.setStatus("current")
+_TLagPortStatsLacpEntry_Object = MibTableRow
+tLagPortStatsLacpEntry = _TLagPortStatsLacpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13, 1)
+)
+if mibBuilder.loadTexts:
+    tLagPortStatsLacpEntry.setStatus("current")
+_TLagPortStatsLacpTx_Type = Counter32
+_TLagPortStatsLacpTx_Object = MibTableColumn
+tLagPortStatsLacpTx = _TLagPortStatsLacpTx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13, 1, 1),
+    _TLagPortStatsLacpTx_Type()
+)
+tLagPortStatsLacpTx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortStatsLacpTx.setStatus("current")
+_TLagPortStatsLacpRx_Type = Counter32
+_TLagPortStatsLacpRx_Object = MibTableColumn
+tLagPortStatsLacpRx = _TLagPortStatsLacpRx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13, 1, 2),
+    _TLagPortStatsLacpRx_Type()
+)
+tLagPortStatsLacpRx.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortStatsLacpRx.setStatus("current")
+_TLagPortStatsLacpRxErrors_Type = Counter32
+_TLagPortStatsLacpRxErrors_Object = MibTableColumn
+tLagPortStatsLacpRxErrors = _TLagPortStatsLacpRxErrors_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13, 1, 3),
+    _TLagPortStatsLacpRxErrors_Type()
+)
+tLagPortStatsLacpRxErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortStatsLacpRxErrors.setStatus("current")
+_TLagPortStatsLacpRxIllegal_Type = Counter32
+_TLagPortStatsLacpRxIllegal_Object = MibTableColumn
+tLagPortStatsLacpRxIllegal = _TLagPortStatsLacpRxIllegal_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13, 1, 4),
+    _TLagPortStatsLacpRxIllegal_Type()
+)
+tLagPortStatsLacpRxIllegal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tLagPortStatsLacpRxIllegal.setStatus("current")
+_TLagBfdObs_ObjectIdentity = ObjectIdentity
+tLagBfdObs = _TLagBfdObs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50)
+)
+_TmnxLagBfdFamTableLastChgd_Type = TimeStamp
+_TmnxLagBfdFamTableLastChgd_Object = MibScalar
+tmnxLagBfdFamTableLastChgd = _TmnxLagBfdFamTableLastChgd_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 1),
+    _TmnxLagBfdFamTableLastChgd_Type()
+)
+tmnxLagBfdFamTableLastChgd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamTableLastChgd.setStatus("current")
+_TmnxLagBfdFamTable_Object = MibTable
+tmnxLagBfdFamTable = _TmnxLagBfdFamTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamTable.setStatus("current")
+_TmnxLagBfdFamEntry_Object = MibTableRow
+tmnxLagBfdFamEntry = _TmnxLagBfdFamEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1)
+)
+tmnxLagBfdFamEntry.setIndexNames(
+    (0, "TIMETRA-LAG-MIB", "tLagIndex"),
+    (0, "TIMETRA-LAG-MIB", "tmnxLagBfdFamAddressType"),
+)
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamEntry.setStatus("current")
+_TmnxLagBfdFamAddressType_Type = InetAddressType
+_TmnxLagBfdFamAddressType_Object = MibTableColumn
+tmnxLagBfdFamAddressType = _TmnxLagBfdFamAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 1),
+    _TmnxLagBfdFamAddressType_Type()
+)
+tmnxLagBfdFamAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamAddressType.setStatus("current")
+_TmnxLagBfdFamLastCh_Type = TimeStamp
+_TmnxLagBfdFamLastCh_Object = MibTableColumn
+tmnxLagBfdFamLastCh = _TmnxLagBfdFamLastCh_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 2),
+    _TmnxLagBfdFamLastCh_Type()
+)
+tmnxLagBfdFamLastCh.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamLastCh.setStatus("current")
+
+
+class _TmnxLagBfdFamAdminState_Type(TmnxEnabledDisabled):
+    """Custom type tmnxLagBfdFamAdminState based on TmnxEnabledDisabled"""
+    defaultValue = 2
+
+
+_TmnxLagBfdFamAdminState_Type.__name__ = "TmnxEnabledDisabled"
+_TmnxLagBfdFamAdminState_Object = MibTableColumn
+tmnxLagBfdFamAdminState = _TmnxLagBfdFamAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 3),
+    _TmnxLagBfdFamAdminState_Type()
+)
+tmnxLagBfdFamAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamAdminState.setStatus("current")
+
+
+class _TmnxLagBfdFamAddrType_Type(InetAddressType):
+    """Custom type tmnxLagBfdFamAddrType based on InetAddressType"""
+    defaultValue = 0
+
+
+_TmnxLagBfdFamAddrType_Type.__name__ = "InetAddressType"
+_TmnxLagBfdFamAddrType_Object = MibTableColumn
+tmnxLagBfdFamAddrType = _TmnxLagBfdFamAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 4),
+    _TmnxLagBfdFamAddrType_Type()
+)
+tmnxLagBfdFamAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamAddrType.setStatus("current")
+
+
+class _TmnxLagBfdFamAddr_Type(InetAddress):
+    """Custom type tmnxLagBfdFamAddr based on InetAddress"""
+    defaultHexValue = ""
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxLagBfdFamAddr_Type.__name__ = "InetAddress"
+_TmnxLagBfdFamAddr_Object = MibTableColumn
+tmnxLagBfdFamAddr = _TmnxLagBfdFamAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 5),
+    _TmnxLagBfdFamAddr_Type()
+)
+tmnxLagBfdFamAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamAddr.setStatus("current")
+
+
+class _TmnxLagBfdFamRemAddrType_Type(InetAddressType):
+    """Custom type tmnxLagBfdFamRemAddrType based on InetAddressType"""
+    defaultValue = 0
+
+
+_TmnxLagBfdFamRemAddrType_Type.__name__ = "InetAddressType"
+_TmnxLagBfdFamRemAddrType_Object = MibTableColumn
+tmnxLagBfdFamRemAddrType = _TmnxLagBfdFamRemAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 6),
+    _TmnxLagBfdFamRemAddrType_Type()
+)
+tmnxLagBfdFamRemAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamRemAddrType.setStatus("current")
+
+
+class _TmnxLagBfdFamRemAddr_Type(InetAddress):
+    """Custom type tmnxLagBfdFamRemAddr based on InetAddress"""
+    defaultHexValue = ""
+
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxLagBfdFamRemAddr_Type.__name__ = "InetAddress"
+_TmnxLagBfdFamRemAddr_Object = MibTableColumn
+tmnxLagBfdFamRemAddr = _TmnxLagBfdFamRemAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 7),
+    _TmnxLagBfdFamRemAddr_Type()
+)
+tmnxLagBfdFamRemAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamRemAddr.setStatus("current")
+
+
+class _TmnxLagBfdFamTransmitInterval_Type(Unsigned32):
+    """Custom type tmnxLagBfdFamTransmitInterval based on Unsigned32"""
+    defaultValue = 100
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 100000),
+    )
+
+
+_TmnxLagBfdFamTransmitInterval_Type.__name__ = "Unsigned32"
+_TmnxLagBfdFamTransmitInterval_Object = MibTableColumn
+tmnxLagBfdFamTransmitInterval = _TmnxLagBfdFamTransmitInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 8),
+    _TmnxLagBfdFamTransmitInterval_Type()
+)
+tmnxLagBfdFamTransmitInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamTransmitInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamTransmitInterval.setUnits("milliseconds")
+
+
+class _TmnxLagBfdFamReceiveInterval_Type(Unsigned32):
+    """Custom type tmnxLagBfdFamReceiveInterval based on Unsigned32"""
+    defaultValue = 100
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 100000),
+    )
+
+
+_TmnxLagBfdFamReceiveInterval_Type.__name__ = "Unsigned32"
+_TmnxLagBfdFamReceiveInterval_Object = MibTableColumn
+tmnxLagBfdFamReceiveInterval = _TmnxLagBfdFamReceiveInterval_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 9),
+    _TmnxLagBfdFamReceiveInterval_Type()
+)
+tmnxLagBfdFamReceiveInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamReceiveInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamReceiveInterval.setUnits("milliseconds")
+
+
+class _TmnxLagBfdFamMultiplier_Type(Unsigned32):
+    """Custom type tmnxLagBfdFamMultiplier based on Unsigned32"""
+    defaultValue = 3
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(3, 20),
+    )
+
+
+_TmnxLagBfdFamMultiplier_Type.__name__ = "Unsigned32"
+_TmnxLagBfdFamMultiplier_Object = MibTableColumn
+tmnxLagBfdFamMultiplier = _TmnxLagBfdFamMultiplier_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 10),
+    _TmnxLagBfdFamMultiplier_Type()
+)
+tmnxLagBfdFamMultiplier.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamMultiplier.setStatus("current")
+
+
+class _TmnxLagBfdFamMaxSetupTime_Type(Integer32):
+    """Custom type tmnxLagBfdFamMaxSetupTime based on Integer32"""
+    defaultValue = -1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(0, 60000),
+    )
+
+
+_TmnxLagBfdFamMaxSetupTime_Type.__name__ = "Integer32"
+_TmnxLagBfdFamMaxSetupTime_Object = MibTableColumn
+tmnxLagBfdFamMaxSetupTime = _TmnxLagBfdFamMaxSetupTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 11),
+    _TmnxLagBfdFamMaxSetupTime_Type()
+)
+tmnxLagBfdFamMaxSetupTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamMaxSetupTime.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamMaxSetupTime.setUnits("milliseconds")
+
+
+class _TmnxLagBfdFamMaxAdminDownTime_Type(Integer32):
+    """Custom type tmnxLagBfdFamMaxAdminDownTime based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(0, 3600),
+    )
+
+
+_TmnxLagBfdFamMaxAdminDownTime_Type.__name__ = "Integer32"
+_TmnxLagBfdFamMaxAdminDownTime_Object = MibTableColumn
+tmnxLagBfdFamMaxAdminDownTime = _TmnxLagBfdFamMaxAdminDownTime_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 12),
+    _TmnxLagBfdFamMaxAdminDownTime_Type()
+)
+tmnxLagBfdFamMaxAdminDownTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamMaxAdminDownTime.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamMaxAdminDownTime.setUnits("seconds")
+
+
+class _TmnxLagBfdFamBfdOnDistributing_Type(TruthValue):
+    """Custom type tmnxLagBfdFamBfdOnDistributing based on TruthValue"""
+    defaultValue = 2
+
+
+_TmnxLagBfdFamBfdOnDistributing_Type.__name__ = "TruthValue"
+_TmnxLagBfdFamBfdOnDistributing_Object = MibTableColumn
+tmnxLagBfdFamBfdOnDistributing = _TmnxLagBfdFamBfdOnDistributing_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 13),
+    _TmnxLagBfdFamBfdOnDistributing_Type()
+)
+tmnxLagBfdFamBfdOnDistributing.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxLagBfdFamBfdOnDistributing.setStatus("current")
+_TmnxLagBfdMemTable_Object = MibTable
+tmnxLagBfdMemTable = _TmnxLagBfdMemTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 3)
+)
+if mibBuilder.loadTexts:
+    tmnxLagBfdMemTable.setStatus("current")
+_TmnxLagBfdMemEntry_Object = MibTableRow
+tmnxLagBfdMemEntry = _TmnxLagBfdMemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 3, 1)
+)
+if mibBuilder.loadTexts:
+    tmnxLagBfdMemEntry.setStatus("current")
+
+
+class _TmnxLagBfdMemState_Type(Integer32):
+    """Custom type tmnxLagBfdMemState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("idle", 0),
+          ("failed", 1),
+          ("failedFwd", 2),
+          ("waiting", 3),
+          ("waitingFwd", 4),
+          ("up", 5),
+          ("down", 6))
+    )
+
+
+_TmnxLagBfdMemState_Type.__name__ = "Integer32"
+_TmnxLagBfdMemState_Object = MibTableColumn
+tmnxLagBfdMemState = _TmnxLagBfdMemState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 3, 1, 1),
+    _TmnxLagBfdMemState_Type()
+)
+tmnxLagBfdMemState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxLagBfdMemState.setStatus("current")
+_TmnxLagBfdMemSetupTimeLeft_Type = Unsigned32
+_TmnxLagBfdMemSetupTimeLeft_Object = MibTableColumn
+tmnxLagBfdMemSetupTimeLeft = _TmnxLagBfdMemSetupTimeLeft_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 3, 1, 2),
+    _TmnxLagBfdMemSetupTimeLeft_Type()
+)
+tmnxLagBfdMemSetupTimeLeft.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxLagBfdMemSetupTimeLeft.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxLagBfdMemSetupTimeLeft.setUnits("milliseconds")
+_TmnxLagBfdMemAdminDownLeft_Type = Unsigned32
+_TmnxLagBfdMemAdminDownLeft_Object = MibTableColumn
+tmnxLagBfdMemAdminDownLeft = _TmnxLagBfdMemAdminDownLeft_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 3, 1, 3),
+    _TmnxLagBfdMemAdminDownLeft_Type()
+)
+tmnxLagBfdMemAdminDownLeft.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxLagBfdMemAdminDownLeft.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxLagBfdMemAdminDownLeft.setUnits("seconds")
+_TLagNotifyPrefix_ObjectIdentity = ObjectIdentity
+tLagNotifyPrefix = _TLagNotifyPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15)
+)
+_TLagNotifications_ObjectIdentity = ObjectIdentity
+tLagNotifications = _TLagNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0)
+)
+tLagConfigEntry.registerAugmentions(
+    ("TIMETRA-LAG-MIB",
+     "tLagOperationEntry")
+)
 tLagOperationEntry.setIndexNames(*tLagConfigEntry.getIndexNames())
-if mibBuilder.loadTexts: tLagOperationEntry.setStatus('current')
-tLagIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 1), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagIfIndex.setStatus('current')
-tLagConfigLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagConfigLastChange.setStatus('current')
-tLagPortThresholdFalling = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortThresholdFalling.setStatus('current')
-tLagPortThresholdRising = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortThresholdRising.setStatus('current')
-tLagLACPPrimaryPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 5), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagLACPPrimaryPort.setStatus('obsolete')
-tLagPortReasonDownFlags = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 6), Bits().clone(namedValues=NamedValues(("unknown", 0), ("linklossFwd", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortReasonDownFlags.setStatus('obsolete')
-tLagSelectedSubGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagSelectedSubGroup.setStatus('current')
-tLagCandidateSubGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagCandidateSubGroup.setStatus('current')
-tLagRemainingHoldTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 9), Unsigned32()).setUnits('deciseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagRemainingHoldTime.setStatus('current')
-tLagPortWeightUp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 10), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortWeightUp.setStatus('current')
-tLagAdaptiveLbVariation = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setUnits('percent').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagAdaptiveLbVariation.setStatus('current')
-tLagAdaptiveLbChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 3, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagAdaptiveLbChanged.setStatus('current')
-tLagNotificationObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 4))
-tLagNotifyPortAddFailReason = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 0), ("adminkey-mismatch", 1), ("sysid-mismatch", 2), ("lacp-passive-both-ends", 3), ("link-down", 4)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tLagNotifyPortAddFailReason.setStatus('current')
-tLagNotifySubGroupSelected = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 4, 2), DisplayString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tLagNotifySubGroupSelected.setStatus('current')
-tLagNotifyAdditionalInfo = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 4, 3), DisplayString()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tLagNotifyAdditionalInfo.setStatus('current')
-tLagNotifyStateChangedReason = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 4, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("partner-oper-state-changed", 1), ("lacp-expired", 2), ("lacp-rx-state-machine", 3), ("efm-oam-state-changed", 4), ("dot1ag-state-changed", 5), ("bfd-state-changed", 6)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: tLagNotifyStateChangedReason.setStatus('current')
-tLagMemberTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 5), )
-if mibBuilder.loadTexts: tLagMemberTable.setStatus('current')
-tLagMemberEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 5, 1), ).setIndexNames((0, "TIMETRA-LAG-MIB", "tLagIndex"), (0, "TIMETRA-PORT-MIB", "tmnxPortPortID"))
-if mibBuilder.loadTexts: tLagMemberEntry.setStatus('current')
-tLagMemberPortName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 5, 1, 1), TNamedItemOrEmpty()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagMemberPortName.setStatus('current')
-tLagMemberPortIsPrimary = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 5, 1, 2), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagMemberPortIsPrimary.setStatus('current')
-tLagPortTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6), )
-if mibBuilder.loadTexts: tLagPortTable.setStatus('current')
-tLagPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1), )
-dot3adAggPortEntry.registerAugmentions(("TIMETRA-LAG-MIB", "tLagPortEntry"))
+dot3adAggPortEntry.registerAugmentions(
+    ("TIMETRA-LAG-MIB",
+     "tLagPortEntry")
+)
 tLagPortEntry.setIndexNames(*dot3adAggPortEntry.getIndexNames())
-if mibBuilder.loadTexts: tLagPortEntry.setStatus('current')
-tLagPortSubgroup = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 1), LAGSubgroup().clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tLagPortSubgroup.setStatus('current')
-tLagPortActiveStdby = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("active", 1), ("stand-by", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortActiveStdby.setStatus('current')
-tLagPortHashWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 0), ValueRangeConstraint(1, 100000), ))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tLagPortHashWeight.setStatus('current')
-tLagPortOperHashWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortOperHashWeight.setStatus('current')
-tLagPortFlowShare = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 10000))).setUnits('centipercent').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortFlowShare.setStatus('current')
-tLagPortAdaptiveLbEgressRate = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 6, 1, 6), Counter64()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortAdaptiveLbEgressRate.setStatus('current')
-tLagLinkMapProfileTableLastChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 7), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagLinkMapProfileTableLastChgd.setStatus('current')
-tLagLinkMapProfileTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8), )
-if mibBuilder.loadTexts: tLagLinkMapProfileTable.setStatus('current')
-tLagLinkMapProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1), ).setIndexNames((0, "TIMETRA-LAG-MIB", "tLagIndex"), (0, "TIMETRA-LAG-MIB", "tLagLinkMapProfileId"))
-if mibBuilder.loadTexts: tLagLinkMapProfileEntry.setStatus('current')
-tLagLinkMapProfileId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 1), TmnxLinkMapProfileId())
-if mibBuilder.loadTexts: tLagLinkMapProfileId.setStatus('current')
-tLagLinkMapProfileRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLinkMapProfileRowStatus.setStatus('current')
-tLagLinkMapProfileLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagLinkMapProfileLastChanged.setStatus('current')
-tLagLinkMapProfileDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 4), TItemDescription()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLinkMapProfileDescription.setStatus('current')
-tLagLinkMapProfileFailureMode = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("perLinkHash", 1), ("discard", 2))).clone('perLinkHash')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLinkMapProfileFailureMode.setStatus('current')
-tLagLinkMapProfileActiveLink = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 8, 1, 6), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagLinkMapProfileActiveLink.setStatus('current')
-tLagLinkMapProfPortTableLastChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagLinkMapProfPortTableLastChgd.setStatus('current')
-tLagLinkMapProfPortTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10), )
-if mibBuilder.loadTexts: tLagLinkMapProfPortTable.setStatus('current')
-tLagLinkMapProfPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10, 1), ).setIndexNames((0, "TIMETRA-LAG-MIB", "tLagIndex"), (0, "TIMETRA-LAG-MIB", "tLagLinkMapProfileId"), (0, "TIMETRA-LAG-MIB", "tLagLinkMapProfPortId"))
-if mibBuilder.loadTexts: tLagLinkMapProfPortEntry.setStatus('current')
-tLagLinkMapProfPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10, 1, 1), TmnxPortID())
-if mibBuilder.loadTexts: tLagLinkMapProfPortId.setStatus('current')
-tLagLinkMapProfPortRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLinkMapProfPortRowStatus.setStatus('current')
-tLagLinkMapProfPortLastChanged = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10, 1, 3), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagLinkMapProfPortLastChanged.setStatus('current')
-tLagLinkMapProfPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 10, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("primary", 1), ("secondary", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tLagLinkMapProfPortType.setStatus('current')
-tLagPerLinkHashWtPortClassTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11), )
-if mibBuilder.loadTexts: tLagPerLinkHashWtPortClassTable.setStatus('current')
-tLagPerLinkHashWtPortClassEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11, 1), ).setIndexNames((0, "TIMETRA-LAG-MIB", "tLagIndex"), (0, "TIMETRA-LAG-MIB", "tLagPerLinkHashWtPort"), (0, "TIMETRA-LAG-MIB", "tLagPerLinkHashWtPortClassId"))
-if mibBuilder.loadTexts: tLagPerLinkHashWtPortClassEntry.setStatus('current')
-tLagPerLinkHashWtPort = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11, 1, 1), TmnxPortID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPerLinkHashWtPort.setStatus('current')
-tLagPerLinkHashWtPortClassId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11, 1, 2), TmnxLagPerLinkHashClass()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPerLinkHashWtPortClassId.setStatus('current')
-tLagPerLinkHashWtPortClassUsers = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPerLinkHashWtPortClassUsers.setStatus('current')
-tLagPerLinkHashWtPortClassAggWt = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 11, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPerLinkHashWtPortClassAggWt.setStatus('current')
-tmnxLagActionTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 12), )
-if mibBuilder.loadTexts: tmnxLagActionTable.setStatus('current')
-tmnxLagActionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 12, 1), ).setIndexNames((0, "TIMETRA-LAG-MIB", "tLagIndex"))
-if mibBuilder.loadTexts: tmnxLagActionEntry.setStatus('current')
-tmnxLagActionType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 12, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("loadBalance", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxLagActionType.setStatus('current')
-tmnxLagAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 12, 1, 2), TmnxActionType().clone('notApplicable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxLagAction.setStatus('current')
-tmnxLagActionClassId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 12, 1, 3), TmnxLagPerLinkHashClassOrNone()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tmnxLagActionClassId.setStatus('current')
-tLagPortStatsLacpTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13), )
-if mibBuilder.loadTexts: tLagPortStatsLacpTable.setStatus('current')
-tLagPortStatsLacpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13, 1), )
-dot3adAggPortEntry.registerAugmentions(("TIMETRA-LAG-MIB", "tLagPortStatsLacpEntry"))
+dot3adAggPortEntry.registerAugmentions(
+    ("TIMETRA-LAG-MIB",
+     "tLagPortStatsLacpEntry")
+)
 tLagPortStatsLacpEntry.setIndexNames(*dot3adAggPortEntry.getIndexNames())
-if mibBuilder.loadTexts: tLagPortStatsLacpEntry.setStatus('current')
-tLagPortStatsLacpTx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13, 1, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortStatsLacpTx.setStatus('current')
-tLagPortStatsLacpRx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortStatsLacpRx.setStatus('current')
-tLagPortStatsLacpRxErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortStatsLacpRxErrors.setStatus('current')
-tLagPortStatsLacpRxIllegal = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 13, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tLagPortStatsLacpRxIllegal.setStatus('current')
-tLagBfdObs = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50))
-tmnxLagBfdFamTableLastChgd = MibScalar((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 1), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxLagBfdFamTableLastChgd.setStatus('current')
-tmnxLagBfdFamTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2), )
-if mibBuilder.loadTexts: tmnxLagBfdFamTable.setStatus('current')
-tmnxLagBfdFamEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1), ).setIndexNames((0, "TIMETRA-LAG-MIB", "tLagIndex"), (0, "TIMETRA-LAG-MIB", "tmnxLagBfdFamAddressType"))
-if mibBuilder.loadTexts: tmnxLagBfdFamEntry.setStatus('current')
-tmnxLagBfdFamAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: tmnxLagBfdFamAddressType.setStatus('current')
-tmnxLagBfdFamLastCh = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 2), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxLagBfdFamLastCh.setStatus('current')
-tmnxLagBfdFamAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 3), TmnxEnabledDisabled().clone('disabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxLagBfdFamAdminState.setStatus('current')
-tmnxLagBfdFamAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 4), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxLagBfdFamAddrType.setStatus('current')
-tmnxLagBfdFamAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 5), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )).clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxLagBfdFamAddr.setStatus('current')
-tmnxLagBfdFamRemAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 6), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxLagBfdFamRemAddrType.setStatus('current')
-tmnxLagBfdFamRemAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 7), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )).clone(hexValue="")).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxLagBfdFamRemAddr.setStatus('current')
-tmnxLagBfdFamTransmitInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 8), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 100000)).clone(100)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxLagBfdFamTransmitInterval.setStatus('current')
-tmnxLagBfdFamReceiveInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 100000)).clone(100)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxLagBfdFamReceiveInterval.setStatus('current')
-tmnxLagBfdFamMultiplier = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 10), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(3, 20)).clone(3)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxLagBfdFamMultiplier.setStatus('current')
-tmnxLagBfdFamMaxSetupTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 11), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 60000), )).clone(-1)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxLagBfdFamMaxSetupTime.setStatus('current')
-tmnxLagBfdFamMaxAdminDownTime = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 3600), ))).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxLagBfdFamMaxAdminDownTime.setStatus('current')
-tmnxLagBfdFamBfdOnDistributing = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 2, 1, 13), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxLagBfdFamBfdOnDistributing.setStatus('current')
-tmnxLagBfdMemTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 3), )
-if mibBuilder.loadTexts: tmnxLagBfdMemTable.setStatus('current')
-tmnxLagBfdMemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 3, 1), )
-tLagMemberEntry.registerAugmentions(("TIMETRA-LAG-MIB", "tmnxLagBfdMemEntry"))
+tLagMemberEntry.registerAugmentions(
+    ("TIMETRA-LAG-MIB",
+     "tmnxLagBfdMemEntry")
+)
 tmnxLagBfdMemEntry.setIndexNames(*tLagMemberEntry.getIndexNames())
-if mibBuilder.loadTexts: tmnxLagBfdMemEntry.setStatus('current')
-tmnxLagBfdMemState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("idle", 0), ("failed", 1), ("failedFwd", 2), ("waiting", 3), ("waitingFwd", 4), ("up", 5), ("down", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxLagBfdMemState.setStatus('current')
-tmnxLagBfdMemSetupTimeLeft = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 3, 1, 2), Unsigned32()).setUnits('milliseconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxLagBfdMemSetupTimeLeft.setStatus('current')
-tmnxLagBfdMemAdminDownLeft = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 15, 50, 3, 1, 3), Unsigned32()).setUnits('seconds').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxLagBfdMemAdminDownLeft.setStatus('current')
-tmnxLagConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15))
-tmnxLagCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1))
-tmnxLagV4v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 3)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV4v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagNotifyObjsGroup"), ("TIMETRA-LAG-MIB", "tmnxLagNotificationsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV4v0Compliance = tmnxLagV4v0Compliance.setStatus('obsolete')
-tmnxLagV5v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 4)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV5v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV5v0NotifGroup"))
+# Managed Objects groups
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV5v0Compliance = tmnxLagV5v0Compliance.setStatus('obsolete')
-tmnxLagV6v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 5)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"))
+tmnxLagNotifyObjsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 2)
+)
+tmnxLagNotifyObjsGroup.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagNotifyPortAddFailReason")
+)
+if mibBuilder.loadTexts:
+    tmnxLagNotifyObjsGroup.setStatus("obsolete")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV6v0Compliance = tmnxLagV6v0Compliance.setStatus('obsolete')
-tmnxLagV6v1Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 6)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"))
+tmnxLagInstanceV4v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 5)
+)
+tmnxLagInstanceV4v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagRowStatus"),
+        ("TIMETRA-LAG-MIB", "tLagPortThreshold"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdAction"),
+        ("TIMETRA-LAG-MIB", "tLagEnableMarkerGenerator"),
+        ("TIMETRA-LAG-MIB", "tLagEnableLACP"),
+        ("TIMETRA-LAG-MIB", "tLagDescription"),
+        ("TIMETRA-LAG-MIB", "tLagDynamicCosting"),
+        ("TIMETRA-LAG-MIB", "tLagLACPMode"),
+        ("TIMETRA-LAG-MIB", "tLagLACPAdminKeyAutogen"),
+        ("TIMETRA-LAG-MIB", "tLagLACPTransmitInterval"),
+        ("TIMETRA-LAG-MIB", "tLagAccessAdaptQos"),
+        ("TIMETRA-LAG-MIB", "tLagLACPXmitStdby"),
+        ("TIMETRA-LAG-MIB", "tLagLACPSelCrit"),
+        ("TIMETRA-LAG-MIB", "tLagLACPSelCritSlaveToPartner"),
+        ("TIMETRA-LAG-MIB", "tLagLACPNbrOfSubGroups"),
+        ("TIMETRA-LAG-MIB", "tLagholdTimeDown"),
+        ("TIMETRA-LAG-MIB", "tLagIfIndex"),
+        ("TIMETRA-LAG-MIB", "tLagConfigLastChange"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdFalling"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdRising"),
+        ("TIMETRA-LAG-MIB", "tLagMemberPortName"),
+        ("TIMETRA-LAG-MIB", "tLagMemberPortIsPrimary"),
+        ("TIMETRA-LAG-MIB", "tLagPortSubgroup"),
+        ("TIMETRA-LAG-MIB", "tLagPortActiveStdby"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagInstanceV4v0Group.setStatus("obsolete")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV6v1Compliance = tmnxLagV6v1Compliance.setStatus('obsolete')
-tmnxLagV7v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 7)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV7v0Group"))
+tmnxObsoletedObjectsV4v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 6)
+)
+tmnxObsoletedObjectsV4v0Group.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagLACPPrimaryPort")
+)
+if mibBuilder.loadTexts:
+    tmnxObsoletedObjectsV4v0Group.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV7v0Compliance = tmnxLagV7v0Compliance.setStatus('obsolete')
-tmnxLagV8v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 8)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"))
+tmnxLagInstanceV5v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 7)
+)
+tmnxLagInstanceV5v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagRowStatus"),
+        ("TIMETRA-LAG-MIB", "tLagPortThreshold"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdAction"),
+        ("TIMETRA-LAG-MIB", "tLagEnableMarkerGenerator"),
+        ("TIMETRA-LAG-MIB", "tLagEnableLACP"),
+        ("TIMETRA-LAG-MIB", "tLagDescription"),
+        ("TIMETRA-LAG-MIB", "tLagDynamicCosting"),
+        ("TIMETRA-LAG-MIB", "tLagLACPMode"),
+        ("TIMETRA-LAG-MIB", "tLagLACPAdminKeyAutogen"),
+        ("TIMETRA-LAG-MIB", "tLagLACPTransmitInterval"),
+        ("TIMETRA-LAG-MIB", "tLagAccessAdaptQos"),
+        ("TIMETRA-LAG-MIB", "tLagLACPXmitStdby"),
+        ("TIMETRA-LAG-MIB", "tLagLACPSelCrit"),
+        ("TIMETRA-LAG-MIB", "tLagLACPSelCritSlaveToPartner"),
+        ("TIMETRA-LAG-MIB", "tLagLACPNbrOfSubGroups"),
+        ("TIMETRA-LAG-MIB", "tLagholdTimeDown"),
+        ("TIMETRA-LAG-MIB", "tLagIfIndex"),
+        ("TIMETRA-LAG-MIB", "tLagConfigLastChange"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdFalling"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdRising"),
+        ("TIMETRA-LAG-MIB", "tLagMemberPortName"),
+        ("TIMETRA-LAG-MIB", "tLagMemberPortIsPrimary"),
+        ("TIMETRA-LAG-MIB", "tLagPortSubgroup"),
+        ("TIMETRA-LAG-MIB", "tLagPortActiveStdby"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagInstanceV5v0Group.setStatus("obsolete")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV8v0Compliance = tmnxLagV8v0Compliance.setStatus('obsolete')
-tmnxLagV9v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 9)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"))
+tmnxLagNotifyObjsV5v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 9)
+)
+tmnxLagNotifyObjsV5v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagNotifyPortAddFailReason"),
+        ("TIMETRA-LAG-MIB", "tLagNotifySubGroupSelected"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagNotifyObjsV5v0Group.setStatus("obsolete")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV9v0Compliance = tmnxLagV9v0Compliance.setStatus('obsolete')
-tmnxLagV10v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 10)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"))
+tmnxLagHsmdaV6v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 10)
+)
+tmnxLagHsmdaV6v0Group.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagPortType")
+)
+if mibBuilder.loadTexts:
+    tmnxLagHsmdaV6v0Group.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV10v0Compliance = tmnxLagV10v0Compliance.setStatus('obsolete')
-tmnxLagV11v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 11)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"), ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"))
+tmnxLagInstanceV6v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 11)
+)
+tmnxLagInstanceV6v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagRowStatus"),
+        ("TIMETRA-LAG-MIB", "tLagPortThreshold"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdAction"),
+        ("TIMETRA-LAG-MIB", "tLagEnableMarkerGenerator"),
+        ("TIMETRA-LAG-MIB", "tLagEnableLACP"),
+        ("TIMETRA-LAG-MIB", "tLagDescription"),
+        ("TIMETRA-LAG-MIB", "tLagDynamicCosting"),
+        ("TIMETRA-LAG-MIB", "tLagLACPMode"),
+        ("TIMETRA-LAG-MIB", "tLagLACPAdminKeyAutogen"),
+        ("TIMETRA-LAG-MIB", "tLagLACPTransmitInterval"),
+        ("TIMETRA-LAG-MIB", "tLagAccessAdaptQos"),
+        ("TIMETRA-LAG-MIB", "tLagLACPXmitStdby"),
+        ("TIMETRA-LAG-MIB", "tLagLACPSelCrit"),
+        ("TIMETRA-LAG-MIB", "tLagLACPSelCritSlaveToPartner"),
+        ("TIMETRA-LAG-MIB", "tLagLACPNbrOfSubGroups"),
+        ("TIMETRA-LAG-MIB", "tLagholdTimeDown"),
+        ("TIMETRA-LAG-MIB", "tLagIfIndex"),
+        ("TIMETRA-LAG-MIB", "tLagConfigLastChange"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdFalling"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdRising"),
+        ("TIMETRA-LAG-MIB", "tLagMemberPortName"),
+        ("TIMETRA-LAG-MIB", "tLagMemberPortIsPrimary"),
+        ("TIMETRA-LAG-MIB", "tLagPortSubgroup"),
+        ("TIMETRA-LAG-MIB", "tLagPortActiveStdby"),
+        ("TIMETRA-LAG-MIB", "tLagPortReasonDownFlags"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagInstanceV6v0Group.setStatus("obsolete")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV11v0Compliance = tmnxLagV11v0Compliance.setStatus('obsolete')
-tmnxLagV12v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 12)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"), ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagPerFpSapV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagSelectionHoldV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagPerLinkHashV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagMixed10g100gV12v0Group"))
+tmnxLagV7v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 13)
+)
+tmnxLagV7v0Group.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagPerFpIngQueuing")
+)
+if mibBuilder.loadTexts:
+    tmnxLagV7v0Group.setStatus("obsolete")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV12v0Compliance = tmnxLagV12v0Compliance.setStatus('obsolete')
-tmnxLagV13v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 13)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"), ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagPerFpSapV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagSelectionHoldV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagPerLinkHashV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagMixed10g100gV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagIndependentMuxGroup"), ("TIMETRA-LAG-MIB", "tmnxLagV13v0Group"))
+tmnxObsoletedObjectsV7v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 14)
+)
+tmnxObsoletedObjectsV7v0Group.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagPortReasonDownFlags")
+)
+if mibBuilder.loadTexts:
+    tmnxObsoletedObjectsV7v0Group.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV13v0Compliance = tmnxLagV13v0Compliance.setStatus('obsolete')
-tmnxLagV14v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 14)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagAccessV14v0Group"))
+tmnxLagInstanceV7v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 15)
+)
+tmnxLagInstanceV7v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagRowStatus"),
+        ("TIMETRA-LAG-MIB", "tLagPortThreshold"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdAction"),
+        ("TIMETRA-LAG-MIB", "tLagEnableMarkerGenerator"),
+        ("TIMETRA-LAG-MIB", "tLagEnableLACP"),
+        ("TIMETRA-LAG-MIB", "tLagDescription"),
+        ("TIMETRA-LAG-MIB", "tLagDynamicCosting"),
+        ("TIMETRA-LAG-MIB", "tLagLACPMode"),
+        ("TIMETRA-LAG-MIB", "tLagLACPAdminKeyAutogen"),
+        ("TIMETRA-LAG-MIB", "tLagLACPTransmitInterval"),
+        ("TIMETRA-LAG-MIB", "tLagAccessAdaptQos"),
+        ("TIMETRA-LAG-MIB", "tLagLACPXmitStdby"),
+        ("TIMETRA-LAG-MIB", "tLagLACPSelCrit"),
+        ("TIMETRA-LAG-MIB", "tLagLACPSelCritSlaveToPartner"),
+        ("TIMETRA-LAG-MIB", "tLagLACPNbrOfSubGroups"),
+        ("TIMETRA-LAG-MIB", "tLagholdTimeDown"),
+        ("TIMETRA-LAG-MIB", "tLagIfIndex"),
+        ("TIMETRA-LAG-MIB", "tLagConfigLastChange"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdFalling"),
+        ("TIMETRA-LAG-MIB", "tLagPortThresholdRising"),
+        ("TIMETRA-LAG-MIB", "tLagMemberPortName"),
+        ("TIMETRA-LAG-MIB", "tLagMemberPortIsPrimary"),
+        ("TIMETRA-LAG-MIB", "tLagPortSubgroup"),
+        ("TIMETRA-LAG-MIB", "tLagPortActiveStdby"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagInstanceV7v0Group.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV14v0Compliance = tmnxLagV14v0Compliance.setStatus('obsolete')
-tmnxLagV16v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 16)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"), ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagPerFpSapV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagSelectionHoldV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagPerLinkHashV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagMixed10g100gV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagIndependentMuxGroup"), ("TIMETRA-LAG-MIB", "tmnxLagV13v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagAccessV14v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV16v0Group"))
+tmnxLagV8v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 16)
+)
+tmnxLagV8v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagPerFpIngQueuing"),
+        ("TIMETRA-LAG-MIB", "tLagSystemId"),
+        ("TIMETRA-LAG-MIB", "tLagSystemPriority"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV8v0Group.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV16v0Compliance = tmnxLagV16v0Compliance.setStatus('obsolete')
-tmnxLagV19v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 19)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"), ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagPerFpSapV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagSelectionHoldV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagPerLinkHashV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagMixed10g100gV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagIndependentMuxGroup"), ("TIMETRA-LAG-MIB", "tmnxLagV13v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagAccessV14v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV16v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV19v0Group"))
+tmnxLagInstanceV9v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 17)
+)
+tmnxLagInstanceV9v0Group.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagStandbySignaling")
+)
+if mibBuilder.loadTexts:
+    tmnxLagInstanceV9v0Group.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV19v0Compliance = tmnxLagV19v0Compliance.setStatus('obsolete')
-tmnxLagV20v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 20)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"), ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"), ("TIMETRA-LAG-MIB", "tmnxLagPerFpSapV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagSelectionHoldV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagPerLinkHashV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagMixed10g100gV12v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagIndependentMuxGroup"), ("TIMETRA-LAG-MIB", "tmnxLagV13v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagAccessV14v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV16v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV19v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV20v0Group"), ("TIMETRA-LAG-MIB", "tmnxLagV20v0NotifGroup"))
+tmnxLagNotifyObjsV10v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 18)
+)
+tmnxLagNotifyObjsV10v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagNotifyPortAddFailReason"),
+        ("TIMETRA-LAG-MIB", "tLagNotifySubGroupSelected"),
+        ("TIMETRA-LAG-MIB", "tLagNotifyAdditionalInfo"),
+        ("TIMETRA-LAG-MIB", "tLagNotifyStateChangedReason"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagNotifyObjsV10v0Group.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV20v0Compliance = tmnxLagV20v0Compliance.setStatus('current')
-tmnxLagGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2))
-tmnxLagNotifyObjsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 2)).setObjects(("TIMETRA-LAG-MIB", "tLagNotifyPortAddFailReason"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagNotifyObjsGroup = tmnxLagNotifyObjsGroup.setStatus('obsolete')
-tmnxLagNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 3)).setObjects(("TIMETRA-LAG-MIB", "tLagDynamicCostOn"), ("TIMETRA-LAG-MIB", "tLagDynamicCostOff"), ("TIMETRA-LAG-MIB", "tLagPortAddFailed"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagNotificationsGroup = tmnxLagNotificationsGroup.setStatus('obsolete')
-tmnxLagInstanceV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 5)).setObjects(("TIMETRA-LAG-MIB", "tLagRowStatus"), ("TIMETRA-LAG-MIB", "tLagPortThreshold"), ("TIMETRA-LAG-MIB", "tLagPortThresholdAction"), ("TIMETRA-LAG-MIB", "tLagEnableMarkerGenerator"), ("TIMETRA-LAG-MIB", "tLagEnableLACP"), ("TIMETRA-LAG-MIB", "tLagDescription"), ("TIMETRA-LAG-MIB", "tLagDynamicCosting"), ("TIMETRA-LAG-MIB", "tLagLACPMode"), ("TIMETRA-LAG-MIB", "tLagLACPAdminKeyAutogen"), ("TIMETRA-LAG-MIB", "tLagLACPTransmitInterval"), ("TIMETRA-LAG-MIB", "tLagAccessAdaptQos"), ("TIMETRA-LAG-MIB", "tLagLACPXmitStdby"), ("TIMETRA-LAG-MIB", "tLagLACPSelCrit"), ("TIMETRA-LAG-MIB", "tLagLACPSelCritSlaveToPartner"), ("TIMETRA-LAG-MIB", "tLagLACPNbrOfSubGroups"), ("TIMETRA-LAG-MIB", "tLagholdTimeDown"), ("TIMETRA-LAG-MIB", "tLagIfIndex"), ("TIMETRA-LAG-MIB", "tLagConfigLastChange"), ("TIMETRA-LAG-MIB", "tLagPortThresholdFalling"), ("TIMETRA-LAG-MIB", "tLagPortThresholdRising"), ("TIMETRA-LAG-MIB", "tLagMemberPortName"), ("TIMETRA-LAG-MIB", "tLagMemberPortIsPrimary"), ("TIMETRA-LAG-MIB", "tLagPortSubgroup"), ("TIMETRA-LAG-MIB", "tLagPortActiveStdby"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagInstanceV4v0Group = tmnxLagInstanceV4v0Group.setStatus('obsolete')
-tmnxObsoletedObjectsV4v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 6)).setObjects(("TIMETRA-LAG-MIB", "tLagLACPPrimaryPort"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxObsoletedObjectsV4v0Group = tmnxObsoletedObjectsV4v0Group.setStatus('current')
-tmnxLagInstanceV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 7)).setObjects(("TIMETRA-LAG-MIB", "tLagRowStatus"), ("TIMETRA-LAG-MIB", "tLagPortThreshold"), ("TIMETRA-LAG-MIB", "tLagPortThresholdAction"), ("TIMETRA-LAG-MIB", "tLagEnableMarkerGenerator"), ("TIMETRA-LAG-MIB", "tLagEnableLACP"), ("TIMETRA-LAG-MIB", "tLagDescription"), ("TIMETRA-LAG-MIB", "tLagDynamicCosting"), ("TIMETRA-LAG-MIB", "tLagLACPMode"), ("TIMETRA-LAG-MIB", "tLagLACPAdminKeyAutogen"), ("TIMETRA-LAG-MIB", "tLagLACPTransmitInterval"), ("TIMETRA-LAG-MIB", "tLagAccessAdaptQos"), ("TIMETRA-LAG-MIB", "tLagLACPXmitStdby"), ("TIMETRA-LAG-MIB", "tLagLACPSelCrit"), ("TIMETRA-LAG-MIB", "tLagLACPSelCritSlaveToPartner"), ("TIMETRA-LAG-MIB", "tLagLACPNbrOfSubGroups"), ("TIMETRA-LAG-MIB", "tLagholdTimeDown"), ("TIMETRA-LAG-MIB", "tLagIfIndex"), ("TIMETRA-LAG-MIB", "tLagConfigLastChange"), ("TIMETRA-LAG-MIB", "tLagPortThresholdFalling"), ("TIMETRA-LAG-MIB", "tLagPortThresholdRising"), ("TIMETRA-LAG-MIB", "tLagMemberPortName"), ("TIMETRA-LAG-MIB", "tLagMemberPortIsPrimary"), ("TIMETRA-LAG-MIB", "tLagPortSubgroup"), ("TIMETRA-LAG-MIB", "tLagPortActiveStdby"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagInstanceV5v0Group = tmnxLagInstanceV5v0Group.setStatus('obsolete')
-tmnxLagV5v0NotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 8)).setObjects(("TIMETRA-LAG-MIB", "tLagDynamicCostOn"), ("TIMETRA-LAG-MIB", "tLagDynamicCostOff"), ("TIMETRA-LAG-MIB", "tLagPortAddFailed"), ("TIMETRA-LAG-MIB", "tLagSubGroupSelected"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV5v0NotifGroup = tmnxLagV5v0NotifGroup.setStatus('obsolete')
-tmnxLagNotifyObjsV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 9)).setObjects(("TIMETRA-LAG-MIB", "tLagNotifyPortAddFailReason"), ("TIMETRA-LAG-MIB", "tLagNotifySubGroupSelected"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagNotifyObjsV5v0Group = tmnxLagNotifyObjsV5v0Group.setStatus('obsolete')
-tmnxLagHsmdaV6v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 10)).setObjects(("TIMETRA-LAG-MIB", "tLagPortType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagHsmdaV6v0Group = tmnxLagHsmdaV6v0Group.setStatus('current')
-tmnxLagInstanceV6v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 11)).setObjects(("TIMETRA-LAG-MIB", "tLagRowStatus"), ("TIMETRA-LAG-MIB", "tLagPortThreshold"), ("TIMETRA-LAG-MIB", "tLagPortThresholdAction"), ("TIMETRA-LAG-MIB", "tLagEnableMarkerGenerator"), ("TIMETRA-LAG-MIB", "tLagEnableLACP"), ("TIMETRA-LAG-MIB", "tLagDescription"), ("TIMETRA-LAG-MIB", "tLagDynamicCosting"), ("TIMETRA-LAG-MIB", "tLagLACPMode"), ("TIMETRA-LAG-MIB", "tLagLACPAdminKeyAutogen"), ("TIMETRA-LAG-MIB", "tLagLACPTransmitInterval"), ("TIMETRA-LAG-MIB", "tLagAccessAdaptQos"), ("TIMETRA-LAG-MIB", "tLagLACPXmitStdby"), ("TIMETRA-LAG-MIB", "tLagLACPSelCrit"), ("TIMETRA-LAG-MIB", "tLagLACPSelCritSlaveToPartner"), ("TIMETRA-LAG-MIB", "tLagLACPNbrOfSubGroups"), ("TIMETRA-LAG-MIB", "tLagholdTimeDown"), ("TIMETRA-LAG-MIB", "tLagIfIndex"), ("TIMETRA-LAG-MIB", "tLagConfigLastChange"), ("TIMETRA-LAG-MIB", "tLagPortThresholdFalling"), ("TIMETRA-LAG-MIB", "tLagPortThresholdRising"), ("TIMETRA-LAG-MIB", "tLagMemberPortName"), ("TIMETRA-LAG-MIB", "tLagMemberPortIsPrimary"), ("TIMETRA-LAG-MIB", "tLagPortSubgroup"), ("TIMETRA-LAG-MIB", "tLagPortActiveStdby"), ("TIMETRA-LAG-MIB", "tLagPortReasonDownFlags"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagInstanceV6v0Group = tmnxLagInstanceV6v0Group.setStatus('obsolete')
-tmnxLagV6v0NotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 12)).setObjects(("TIMETRA-LAG-MIB", "tLagDynamicCostOn"), ("TIMETRA-LAG-MIB", "tLagDynamicCostOff"), ("TIMETRA-LAG-MIB", "tLagPortAddFailed"), ("TIMETRA-LAG-MIB", "tLagSubGroupSelected"), ("TIMETRA-LAG-MIB", "tLagPortAddFailureCleared"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV6v0NotifGroup = tmnxLagV6v0NotifGroup.setStatus('current')
-tmnxLagV7v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 13)).setObjects(("TIMETRA-LAG-MIB", "tLagPerFpIngQueuing"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV7v0Group = tmnxLagV7v0Group.setStatus('obsolete')
-tmnxObsoletedObjectsV7v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 14)).setObjects(("TIMETRA-LAG-MIB", "tLagPortReasonDownFlags"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxObsoletedObjectsV7v0Group = tmnxObsoletedObjectsV7v0Group.setStatus('current')
-tmnxLagInstanceV7v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 15)).setObjects(("TIMETRA-LAG-MIB", "tLagRowStatus"), ("TIMETRA-LAG-MIB", "tLagPortThreshold"), ("TIMETRA-LAG-MIB", "tLagPortThresholdAction"), ("TIMETRA-LAG-MIB", "tLagEnableMarkerGenerator"), ("TIMETRA-LAG-MIB", "tLagEnableLACP"), ("TIMETRA-LAG-MIB", "tLagDescription"), ("TIMETRA-LAG-MIB", "tLagDynamicCosting"), ("TIMETRA-LAG-MIB", "tLagLACPMode"), ("TIMETRA-LAG-MIB", "tLagLACPAdminKeyAutogen"), ("TIMETRA-LAG-MIB", "tLagLACPTransmitInterval"), ("TIMETRA-LAG-MIB", "tLagAccessAdaptQos"), ("TIMETRA-LAG-MIB", "tLagLACPXmitStdby"), ("TIMETRA-LAG-MIB", "tLagLACPSelCrit"), ("TIMETRA-LAG-MIB", "tLagLACPSelCritSlaveToPartner"), ("TIMETRA-LAG-MIB", "tLagLACPNbrOfSubGroups"), ("TIMETRA-LAG-MIB", "tLagholdTimeDown"), ("TIMETRA-LAG-MIB", "tLagIfIndex"), ("TIMETRA-LAG-MIB", "tLagConfigLastChange"), ("TIMETRA-LAG-MIB", "tLagPortThresholdFalling"), ("TIMETRA-LAG-MIB", "tLagPortThresholdRising"), ("TIMETRA-LAG-MIB", "tLagMemberPortName"), ("TIMETRA-LAG-MIB", "tLagMemberPortIsPrimary"), ("TIMETRA-LAG-MIB", "tLagPortSubgroup"), ("TIMETRA-LAG-MIB", "tLagPortActiveStdby"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagInstanceV7v0Group = tmnxLagInstanceV7v0Group.setStatus('current')
-tmnxLagV8v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 16)).setObjects(("TIMETRA-LAG-MIB", "tLagPerFpIngQueuing"), ("TIMETRA-LAG-MIB", "tLagSystemId"), ("TIMETRA-LAG-MIB", "tLagSystemPriority"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV8v0Group = tmnxLagV8v0Group.setStatus('current')
-tmnxLagInstanceV9v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 17)).setObjects(("TIMETRA-LAG-MIB", "tLagStandbySignaling"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagInstanceV9v0Group = tmnxLagInstanceV9v0Group.setStatus('current')
-tmnxLagNotifyObjsV10v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 18)).setObjects(("TIMETRA-LAG-MIB", "tLagNotifyPortAddFailReason"), ("TIMETRA-LAG-MIB", "tLagNotifySubGroupSelected"), ("TIMETRA-LAG-MIB", "tLagNotifyAdditionalInfo"), ("TIMETRA-LAG-MIB", "tLagNotifyStateChangedReason"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagNotifyObjsV10v0Group = tmnxLagNotifyObjsV10v0Group.setStatus('current')
-tmnxLagV10v0NotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 19)).setObjects(("TIMETRA-LAG-MIB", "tLagStateEvent"), ("TIMETRA-LAG-MIB", "tLagMemberStateEvent"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV10v0NotifGroup = tmnxLagV10v0NotifGroup.setStatus('current')
-tmnxLagV11v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 20)).setObjects(("TIMETRA-LAG-MIB", "tLagLinkMapProfPortTableLastChgd"), ("TIMETRA-LAG-MIB", "tLagLinkMapProfPortRowStatus"), ("TIMETRA-LAG-MIB", "tLagLinkMapProfPortLastChanged"), ("TIMETRA-LAG-MIB", "tLagLinkMapProfPortType"), ("TIMETRA-LAG-MIB", "tLagLinkMapProfileDescription"), ("TIMETRA-LAG-MIB", "tLagLinkMapProfileFailureMode"), ("TIMETRA-LAG-MIB", "tLagLinkMapProfileLastChanged"), ("TIMETRA-LAG-MIB", "tLagLinkMapProfileActiveLink"), ("TIMETRA-LAG-MIB", "tLagLinkMapProfileRowStatus"), ("TIMETRA-LAG-MIB", "tLagLinkMapProfileTableLastChgd"), ("TIMETRA-LAG-MIB", "tLagPerLinkHash"), ("TIMETRA-LAG-MIB", "tLagPerFpEgrQueuing"), ("TIMETRA-LAG-MIB", "tLagIncludeEgrHashCfg"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV11v0Group = tmnxLagV11v0Group.setStatus('current')
-tmnxLagBfdGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 21)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagBfdFamTableLastChgd"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamLastCh"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamAdminState"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamAddrType"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamAddr"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamRemAddrType"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamRemAddr"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamTransmitInterval"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamReceiveInterval"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamMultiplier"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamMaxSetupTime"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamMaxAdminDownTime"), ("TIMETRA-LAG-MIB", "tmnxLagBfdFamBfdOnDistributing"), ("TIMETRA-LAG-MIB", "tmnxLagBfdMemState"), ("TIMETRA-LAG-MIB", "tmnxLagBfdMemSetupTimeLeft"), ("TIMETRA-LAG-MIB", "tmnxLagBfdMemAdminDownLeft"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagBfdGroup = tmnxLagBfdGroup.setStatus('current')
-tmnxLagBfdNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 22)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagBfdMemStateChanged"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagBfdNotifGroup = tmnxLagBfdNotifGroup.setStatus('current')
-tmnxLagPerFpSapV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 23)).setObjects(("TIMETRA-LAG-MIB", "tLagPerFpSapInstance"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagPerFpSapV12v0Group = tmnxLagPerFpSapV12v0Group.setStatus('current')
-tmnxLagSelectionHoldV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 24)).setObjects(("TIMETRA-LAG-MIB", "tLagLacpHoldTime"), ("TIMETRA-LAG-MIB", "tLagSelectedSubGroup"), ("TIMETRA-LAG-MIB", "tLagCandidateSubGroup"), ("TIMETRA-LAG-MIB", "tLagRemainingHoldTime"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagSelectionHoldV12v0Group = tmnxLagSelectionHoldV12v0Group.setStatus('current')
-tmnxLagPerLinkHashV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 25)).setObjects(("TIMETRA-LAG-MIB", "tLagPerLinkHashWeighted"), ("TIMETRA-LAG-MIB", "tLagPerLinkHashWeightedRebalance"), ("TIMETRA-LAG-MIB", "tLagPerLinkHashWtPort"), ("TIMETRA-LAG-MIB", "tLagPerLinkHashWtPortClassId"), ("TIMETRA-LAG-MIB", "tLagPerLinkHashWtPortClassUsers"), ("TIMETRA-LAG-MIB", "tLagPerLinkHashWtPortClassAggWt"), ("TIMETRA-LAG-MIB", "tmnxLagActionType"), ("TIMETRA-LAG-MIB", "tmnxLagAction"), ("TIMETRA-LAG-MIB", "tmnxLagActionClassId"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagPerLinkHashV12v0Group = tmnxLagPerLinkHashV12v0Group.setStatus('current')
-tmnxLagMixed10g100gV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 26)).setObjects(("TIMETRA-LAG-MIB", "tLagPortWeightSpeed"), ("TIMETRA-LAG-MIB", "tLagWeightThreshold"), ("TIMETRA-LAG-MIB", "tLagWeightThresholdAction"), ("TIMETRA-LAG-MIB", "tLagPortWeightUp"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagMixed10g100gV12v0Group = tmnxLagMixed10g100gV12v0Group.setStatus('current')
-tmnxLagIndependentMuxGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 27)).setObjects(("TIMETRA-LAG-MIB", "tLagLacpMuxControl"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagIndependentMuxGroup = tmnxLagIndependentMuxGroup.setStatus('current')
-tmnxLagV13v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 28)).setObjects(("TIMETRA-LAG-MIB", "tLagBfdDisableSoftResetExt"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV13v0Group = tmnxLagV13v0Group.setStatus('current')
-tmnxLagAccessV14v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 29)).setObjects(("TIMETRA-LAG-MIB", "tLagAccessBandwidth"), ("TIMETRA-LAG-MIB", "tLagAccessBookingFactor"), ("TIMETRA-LAG-MIB", "tLagAccessAvailableBW"), ("TIMETRA-LAG-MIB", "tLagAccessBookedBW"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagAccessV14v0Group = tmnxLagAccessV14v0Group.setStatus('current')
-tmnxLagV16v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 30)).setObjects(("TIMETRA-LAG-MIB", "tLagPortThresholdStaticCost"), ("TIMETRA-LAG-MIB", "tLagWeightThresholdStaticCost"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV16v0Group = tmnxLagV16v0Group.setStatus('current')
-tmnxLagV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 31)).setObjects(("TIMETRA-LAG-MIB", "tLagPortHashWeight"), ("TIMETRA-LAG-MIB", "tLagPortOperHashWeight"), ("TIMETRA-LAG-MIB", "tLagPortFlowShare"), ("TIMETRA-LAG-MIB", "tLagMonitorOperGrpName"), ("TIMETRA-LAG-MIB", "tLagAccessBandwidthHigh"), ("TIMETRA-LAG-MIB", "tLagHashWeightThreshold"), ("TIMETRA-LAG-MIB", "tLagHashWeightThresholdAction"), ("TIMETRA-LAG-MIB", "tLagHashWeightThresholdStaticCst"), ("TIMETRA-LAG-MIB", "tLagPortStatsLacpTx"), ("TIMETRA-LAG-MIB", "tLagPortStatsLacpRx"), ("TIMETRA-LAG-MIB", "tLagPortStatsLacpRxErrors"), ("TIMETRA-LAG-MIB", "tLagPortStatsLacpRxIllegal"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV19v0Group = tmnxLagV19v0Group.setStatus('current')
-tmnxLagV20v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 32)).setObjects(("TIMETRA-LAG-MIB", "tLagAdaptiveLb"), ("TIMETRA-LAG-MIB", "tLagAdaptiveLbTolerance"), ("TIMETRA-LAG-MIB", "tLagAdaptiveLbVariation"), ("TIMETRA-LAG-MIB", "tLagAdaptiveLbChanged"), ("TIMETRA-LAG-MIB", "tLagPortAdaptiveLbEgressRate"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV20v0Group = tmnxLagV20v0Group.setStatus('current')
-tmnxLagV20v0NotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 33)).setObjects(("TIMETRA-LAG-MIB", "tLagAdaptiveLoadbalancingChanged"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxLagV20v0NotifGroup = tmnxLagV20v0NotifGroup.setStatus('current')
-tmnxLagDCCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 3))
-tmnxLagDCGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 4))
-tLagNotifyPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15))
-tLagNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0))
-tLagDynamicCostOn = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 1)).setObjects(("TIMETRA-LAG-MIB", "tLagPortThreshold"))
-if mibBuilder.loadTexts: tLagDynamicCostOn.setStatus('current')
-tLagDynamicCostOff = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 2)).setObjects(("TIMETRA-LAG-MIB", "tLagPortThreshold"))
-if mibBuilder.loadTexts: tLagDynamicCostOff.setStatus('current')
-tLagPortAddFailed = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 3)).setObjects(("TIMETRA-LAG-MIB", "tLagRowStatus"), ("TIMETRA-PORT-MIB", "tmnxPortLagId"), ("TIMETRA-LAG-MIB", "tLagNotifyPortAddFailReason"))
-if mibBuilder.loadTexts: tLagPortAddFailed.setStatus('current')
-tLagSubGroupSelected = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 4)).setObjects(("TIMETRA-LAG-MIB", "tLagNotifySubGroupSelected"))
-if mibBuilder.loadTexts: tLagSubGroupSelected.setStatus('current')
-tLagPortAddFailureCleared = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 5)).setObjects(("TIMETRA-LAG-MIB", "tLagRowStatus"), ("TIMETRA-PORT-MIB", "tmnxPortLagId"), ("TIMETRA-LAG-MIB", "tLagNotifyPortAddFailReason"))
-if mibBuilder.loadTexts: tLagPortAddFailureCleared.setStatus('current')
-tLagStateEvent = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 6)).setObjects(("TIMETRA-LAG-MIB", "tLagRowStatus"), ("TIMETRA-LAG-MIB", "tLagNotifyAdditionalInfo"))
-if mibBuilder.loadTexts: tLagStateEvent.setStatus('current')
-tLagMemberStateEvent = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 7)).setObjects(("TIMETRA-LAG-MIB", "tLagRowStatus"), ("TIMETRA-PORT-MIB", "tmnxPortLagId"), ("TIMETRA-LAG-MIB", "tLagNotifyAdditionalInfo"), ("TIMETRA-LAG-MIB", "tLagNotifyStateChangedReason"))
-if mibBuilder.loadTexts: tLagMemberStateEvent.setStatus('current')
-tmnxLagBfdMemStateChanged = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 8)).setObjects(("TIMETRA-LAG-MIB", "tmnxLagBfdMemState"), ("TIMETRA-LAG-MIB", "tLagNotifyAdditionalInfo"))
-if mibBuilder.loadTexts: tmnxLagBfdMemStateChanged.setStatus('current')
-tLagAdaptiveLoadbalancingChanged = NotificationType((1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 9)).setObjects(("TIMETRA-LAG-MIB", "tLagRowStatus"), ("TIMETRA-LAG-MIB", "tLagNotifyAdditionalInfo"))
-if mibBuilder.loadTexts: tLagAdaptiveLoadbalancingChanged.setStatus('current')
-mibBuilder.exportSymbols("TIMETRA-LAG-MIB", tmnxLagBfdFamLastCh=tmnxLagBfdFamLastCh, tLagPortAddFailureCleared=tLagPortAddFailureCleared, tmnxLagV9v0Compliance=tmnxLagV9v0Compliance, tLagLinkMapProfileRowStatus=tLagLinkMapProfileRowStatus, tLagSystemId=tLagSystemId, tLagWeightThresholdAction=tLagWeightThresholdAction, tmnxLagMixed10g100gV12v0Group=tmnxLagMixed10g100gV12v0Group, tLagPortEntry=tLagPortEntry, tLagOperationEntry=tLagOperationEntry, tLagBfdObs=tLagBfdObs, tLagPortType=tLagPortType, tmnxLagBfdGroup=tmnxLagBfdGroup, tLagPortStatsLacpTable=tLagPortStatsLacpTable, tLagNotifyAdditionalInfo=tLagNotifyAdditionalInfo, tLagLACPSelCritSlaveToPartner=tLagLACPSelCritSlaveToPartner, tLagPerLinkHashWtPortClassUsers=tLagPerLinkHashWtPortClassUsers, tmnxLagBfdMemEntry=tmnxLagBfdMemEntry, tmnxLagBfdFamReceiveInterval=tmnxLagBfdFamReceiveInterval, tmnxLagBfdMemStateChanged=tmnxLagBfdMemStateChanged, tLagLinkMapProfileLastChanged=tLagLinkMapProfileLastChanged, tmnxLagV16v0Compliance=tmnxLagV16v0Compliance, tmnxLagBfdFamTableLastChgd=tmnxLagBfdFamTableLastChgd, tLagAdaptiveLoadbalancingChanged=tLagAdaptiveLoadbalancingChanged, tLagPortWeightUp=tLagPortWeightUp, tmnxLagV16v0Group=tmnxLagV16v0Group, tLagBfdDisableSoftResetExt=tLagBfdDisableSoftResetExt, tLagLACPPrimaryPort=tLagLACPPrimaryPort, tmnxLagActionType=tmnxLagActionType, tmnxLagBfdMemAdminDownLeft=tmnxLagBfdMemAdminDownLeft, tLagPerLinkHashWtPortClassId=tLagPerLinkHashWtPortClassId, tLagIncludeEgrHashCfg=tLagIncludeEgrHashCfg, tLagPerLinkHashWtPortClassTable=tLagPerLinkHashWtPortClassTable, tLagSystemPriority=tLagSystemPriority, tLagIfIndex=tLagIfIndex, tLagLACPXmitStdby=tLagLACPXmitStdby, tLagMonitorOperGrpName=tLagMonitorOperGrpName, tmnxLagV6v0Compliance=tmnxLagV6v0Compliance, tLagNotifySubGroupSelected=tLagNotifySubGroupSelected, tmnxLagV20v0NotifGroup=tmnxLagV20v0NotifGroup, tLagOperationTable=tLagOperationTable, tLagNotifications=tLagNotifications, tmnxLagInstanceV5v0Group=tmnxLagInstanceV5v0Group, tmnxLagV11v0Group=tmnxLagV11v0Group, tmnxLagPerLinkHashV12v0Group=tmnxLagPerLinkHashV12v0Group, tLagNotifyStateChangedReason=tLagNotifyStateChangedReason, tLagLacpMuxControl=tLagLacpMuxControl, tLagConfigLastChange=tLagConfigLastChange, tmnxLagBfdFamAdminState=tmnxLagBfdFamAdminState, tmnxLagV4v0Compliance=tmnxLagV4v0Compliance, tmnxLagInstanceV6v0Group=tmnxLagInstanceV6v0Group, tLagDynamicCosting=tLagDynamicCosting, tLagDynamicCostOff=tLagDynamicCostOff, tLagMemberEntry=tLagMemberEntry, tmnxLagConformance=tmnxLagConformance, tmnxLagV19v0Compliance=tmnxLagV19v0Compliance, tmnxLagNotificationsGroup=tmnxLagNotificationsGroup, tLagSubGroupSelected=tLagSubGroupSelected, tmnxLagActionEntry=tmnxLagActionEntry, tmnxLagBfdFamMultiplier=tmnxLagBfdFamMultiplier, tmnxLagV5v0NotifGroup=tmnxLagV5v0NotifGroup, tLagLinkMapProfPortLastChanged=tLagLinkMapProfPortLastChanged, tmnxLagV7v0Compliance=tmnxLagV7v0Compliance, tLagPortWeightSpeed=tLagPortWeightSpeed, tLagAdaptiveLbTolerance=tLagAdaptiveLbTolerance, tLagAccessBandwidth=tLagAccessBandwidth, tLagPortStatsLacpEntry=tLagPortStatsLacpEntry, tLagPortOperHashWeight=tLagPortOperHashWeight, tLagLACPTransmitInterval=tLagLACPTransmitInterval, tLagLinkMapProfPortType=tLagLinkMapProfPortType, PYSNMP_MODULE_ID=timetraLagMIBModule, tLagPerLinkHashWeighted=tLagPerLinkHashWeighted, tLagLinkMapProfileId=tLagLinkMapProfileId, tLagAdaptiveLb=tLagAdaptiveLb, tmnxObsoletedObjectsV7v0Group=tmnxObsoletedObjectsV7v0Group, tLagWeightThresholdStaticCost=tLagWeightThresholdStaticCost, tLagSelectedSubGroup=tLagSelectedSubGroup, tLagLacpHoldTime=tLagLacpHoldTime, tLagLinkMapProfPortId=tLagLinkMapProfPortId, tmnxLagInstanceV4v0Group=tmnxLagInstanceV4v0Group, tLagLACPAdminKeyAutogen=tLagLACPAdminKeyAutogen, tLagConfigEntry=tLagConfigEntry, tmnxLagV13v0Group=tmnxLagV13v0Group, tLagPortThreshold=tLagPortThreshold, tLagPortReasonDownFlags=tLagPortReasonDownFlags, tLagIndex=tLagIndex, tLagEnableMarkerGenerator=tLagEnableMarkerGenerator, tmnxLagAction=tmnxLagAction, tmnxLagBfdFamBfdOnDistributing=tmnxLagBfdFamBfdOnDistributing, tmnxLagHsmdaV6v0Group=tmnxLagHsmdaV6v0Group, tmnxLagSelectionHoldV12v0Group=tmnxLagSelectionHoldV12v0Group, tmnxLagBfdFamTable=tmnxLagBfdFamTable, tmnxLagBfdFamEntry=tmnxLagBfdFamEntry, tLagLinkMapProfileEntry=tLagLinkMapProfileEntry, tLagAccessBandwidthHigh=tLagAccessBandwidthHigh, tLagLinkMapProfPortTable=tLagLinkMapProfPortTable, tLagLinkMapProfileFailureMode=tLagLinkMapProfileFailureMode, tmnxLagPerFpSapV12v0Group=tmnxLagPerFpSapV12v0Group, tLagNotificationObjects=tLagNotificationObjects, tmnxLagDCCompliances=tmnxLagDCCompliances, tLagPortHashWeight=tLagPortHashWeight, tmnxLagActionClassId=tmnxLagActionClassId, tmnxLagAccessV14v0Group=tmnxLagAccessV14v0Group, tLagMemberTable=tLagMemberTable, tLagPerFpEgrQueuing=tLagPerFpEgrQueuing, tLagholdTimeDown=tLagholdTimeDown, tmnxLagBfdFamRemAddr=tmnxLagBfdFamRemAddr, tLagPortThresholdStaticCost=tLagPortThresholdStaticCost, tmnxLagBfdNotifGroup=tmnxLagBfdNotifGroup, tLagStateEvent=tLagStateEvent, tmnxLagBfdFamAddrType=tmnxLagBfdFamAddrType, tLagLinkMapProfPortEntry=tLagLinkMapProfPortEntry, tLagPortStatsLacpTx=tLagPortStatsLacpTx, tLagHashWeightThreshold=tLagHashWeightThreshold, tLagLACPSelCrit=tLagLACPSelCrit, tmnxLagInstanceV7v0Group=tmnxLagInstanceV7v0Group, tLagPortStatsLacpRx=tLagPortStatsLacpRx, tmnxLagNotifyObjsV10v0Group=tmnxLagNotifyObjsV10v0Group, tmnxLagV6v0NotifGroup=tmnxLagV6v0NotifGroup, tLagNotifyPortAddFailReason=tLagNotifyPortAddFailReason, tmnxLagIndependentMuxGroup=tmnxLagIndependentMuxGroup, tLagPerLinkHash=tLagPerLinkHash, tmnxLagV11v0Compliance=tmnxLagV11v0Compliance, tLagPortStatsLacpRxIllegal=tLagPortStatsLacpRxIllegal, tmnxLagActionTable=tmnxLagActionTable, tmnxLagDCGroups=tmnxLagDCGroups, tLagLinkMapProfileActiveLink=tLagLinkMapProfileActiveLink, tmnxLagBfdFamMaxSetupTime=tmnxLagBfdFamMaxSetupTime, tLagMemberPortName=tLagMemberPortName, tmnxLagV20v0Group=tmnxLagV20v0Group, tLagAccessBookingFactor=tLagAccessBookingFactor, tmnxLagNotifyObjsV5v0Group=tmnxLagNotifyObjsV5v0Group, tLagConfigTable=tLagConfigTable, tmnxLagV7v0Group=tmnxLagV7v0Group, tmnxLagV13v0Compliance=tmnxLagV13v0Compliance, tLagAccessAdaptQos=tLagAccessAdaptQos, LAGSubgroup=LAGSubgroup, tLagLACPNbrOfSubGroups=tLagLACPNbrOfSubGroups, tmnxLagV19v0Group=tmnxLagV19v0Group, tLagPerLinkHashWeightedRebalance=tLagPerLinkHashWeightedRebalance, tLagMemberPortIsPrimary=tLagMemberPortIsPrimary, tLagLinkMapProfPortRowStatus=tLagLinkMapProfPortRowStatus, tLagLinkMapProfPortTableLastChgd=tLagLinkMapProfPortTableLastChgd, tmnxLagV20v0Compliance=tmnxLagV20v0Compliance, tmnxLagBfdFamTransmitInterval=tmnxLagBfdFamTransmitInterval, tmnxLagV12v0Compliance=tmnxLagV12v0Compliance, tLagPortThresholdFalling=tLagPortThresholdFalling, tLagPerLinkHashWtPort=tLagPerLinkHashWtPort, tmnxLagV14v0Compliance=tmnxLagV14v0Compliance, tLagLinkMapProfileTableLastChgd=tLagLinkMapProfileTableLastChgd, tmnxLagGroups=tmnxLagGroups, tLagPortAdaptiveLbEgressRate=tLagPortAdaptiveLbEgressRate, tLagLinkMapProfileTable=tLagLinkMapProfileTable, tLagPortStatsLacpRxErrors=tLagPortStatsLacpRxErrors, tmnxLagBfdFamAddr=tmnxLagBfdFamAddr, tLagPortActiveStdby=tLagPortActiveStdby, tLagPortThresholdRising=tLagPortThresholdRising, tLagPortSubgroup=tLagPortSubgroup, tLagAccessBookedBW=tLagAccessBookedBW, tLagPortThresholdAction=tLagPortThresholdAction, tLagPortTable=tLagPortTable, tmnxLagBfdFamRemAddrType=tmnxLagBfdFamRemAddrType, tLagObjects=tLagObjects, tLagPerLinkHashWtPortClassEntry=tLagPerLinkHashWtPortClassEntry, tLagAccessAvailableBW=tLagAccessAvailableBW, tmnxLagCompliances=tmnxLagCompliances, tLagLACPMode=tLagLACPMode, tLagRemainingHoldTime=tLagRemainingHoldTime, tLagRowStatus=tLagRowStatus, tLagPortAddFailed=tLagPortAddFailed, tLagNotifyPrefix=tLagNotifyPrefix, tLagPerLinkHashWtPortClassAggWt=tLagPerLinkHashWtPortClassAggWt, tLagPerFpSapInstance=tLagPerFpSapInstance, tLagCandidateSubGroup=tLagCandidateSubGroup, tmnxObsoletedObjectsV4v0Group=tmnxObsoletedObjectsV4v0Group, tmnxLagNotifyObjsGroup=tmnxLagNotifyObjsGroup, tmnxLagV8v0Group=tmnxLagV8v0Group, timetraLagMIBModule=timetraLagMIBModule, tmnxLagBfdMemSetupTimeLeft=tmnxLagBfdMemSetupTimeLeft, tLagEnableLACP=tLagEnableLACP, tLagWeightThreshold=tLagWeightThreshold, tLagAdaptiveLbChanged=tLagAdaptiveLbChanged, tLagPortFlowShare=tLagPortFlowShare, tmnxLagV8v0Compliance=tmnxLagV8v0Compliance, tLagLinkMapProfileDescription=tLagLinkMapProfileDescription, tmnxLagV6v1Compliance=tmnxLagV6v1Compliance, tLagAdaptiveLbVariation=tLagAdaptiveLbVariation, tLagDescription=tLagDescription, tLagStandbySignaling=tLagStandbySignaling, tmnxLagV10v0Compliance=tmnxLagV10v0Compliance, tmnxLagBfdFamAddressType=tmnxLagBfdFamAddressType, tLagHashWeightThresholdAction=tLagHashWeightThresholdAction, tLagHashWeightThresholdStaticCst=tLagHashWeightThresholdStaticCst, tmnxLagBfdMemState=tmnxLagBfdMemState, tLagPerFpIngQueuing=tLagPerFpIngQueuing, tmnxLagBfdFamMaxAdminDownTime=tmnxLagBfdFamMaxAdminDownTime, tmnxLagBfdMemTable=tmnxLagBfdMemTable, tLagDynamicCostOn=tLagDynamicCostOn, tLagMemberStateEvent=tLagMemberStateEvent, tmnxLagInstanceV9v0Group=tmnxLagInstanceV9v0Group, tmnxLagV5v0Compliance=tmnxLagV5v0Compliance, tmnxLagV10v0NotifGroup=tmnxLagV10v0NotifGroup)
+tmnxLagV11v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 20)
+)
+tmnxLagV11v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagLinkMapProfPortTableLastChgd"),
+        ("TIMETRA-LAG-MIB", "tLagLinkMapProfPortRowStatus"),
+        ("TIMETRA-LAG-MIB", "tLagLinkMapProfPortLastChanged"),
+        ("TIMETRA-LAG-MIB", "tLagLinkMapProfPortType"),
+        ("TIMETRA-LAG-MIB", "tLagLinkMapProfileDescription"),
+        ("TIMETRA-LAG-MIB", "tLagLinkMapProfileFailureMode"),
+        ("TIMETRA-LAG-MIB", "tLagLinkMapProfileLastChanged"),
+        ("TIMETRA-LAG-MIB", "tLagLinkMapProfileActiveLink"),
+        ("TIMETRA-LAG-MIB", "tLagLinkMapProfileRowStatus"),
+        ("TIMETRA-LAG-MIB", "tLagLinkMapProfileTableLastChgd"),
+        ("TIMETRA-LAG-MIB", "tLagPerLinkHash"),
+        ("TIMETRA-LAG-MIB", "tLagPerFpEgrQueuing"),
+        ("TIMETRA-LAG-MIB", "tLagIncludeEgrHashCfg"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV11v0Group.setStatus("current")
+
+tmnxLagBfdGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 21)
+)
+tmnxLagBfdGroup.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagBfdFamTableLastChgd"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamLastCh"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamAdminState"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamAddrType"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamAddr"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamRemAddrType"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamRemAddr"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamTransmitInterval"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamReceiveInterval"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamMultiplier"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamMaxSetupTime"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamMaxAdminDownTime"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdFamBfdOnDistributing"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdMemState"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdMemSetupTimeLeft"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdMemAdminDownLeft"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagBfdGroup.setStatus("current")
+
+tmnxLagPerFpSapV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 23)
+)
+tmnxLagPerFpSapV12v0Group.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagPerFpSapInstance")
+)
+if mibBuilder.loadTexts:
+    tmnxLagPerFpSapV12v0Group.setStatus("current")
+
+tmnxLagSelectionHoldV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 24)
+)
+tmnxLagSelectionHoldV12v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagLacpHoldTime"),
+        ("TIMETRA-LAG-MIB", "tLagSelectedSubGroup"),
+        ("TIMETRA-LAG-MIB", "tLagCandidateSubGroup"),
+        ("TIMETRA-LAG-MIB", "tLagRemainingHoldTime"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagSelectionHoldV12v0Group.setStatus("current")
+
+tmnxLagPerLinkHashV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 25)
+)
+tmnxLagPerLinkHashV12v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagPerLinkHashWeighted"),
+        ("TIMETRA-LAG-MIB", "tLagPerLinkHashWeightedRebalance"),
+        ("TIMETRA-LAG-MIB", "tLagPerLinkHashWtPort"),
+        ("TIMETRA-LAG-MIB", "tLagPerLinkHashWtPortClassId"),
+        ("TIMETRA-LAG-MIB", "tLagPerLinkHashWtPortClassUsers"),
+        ("TIMETRA-LAG-MIB", "tLagPerLinkHashWtPortClassAggWt"),
+        ("TIMETRA-LAG-MIB", "tmnxLagActionType"),
+        ("TIMETRA-LAG-MIB", "tmnxLagAction"),
+        ("TIMETRA-LAG-MIB", "tmnxLagActionClassId"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagPerLinkHashV12v0Group.setStatus("current")
+
+tmnxLagMixed10g100gV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 26)
+)
+tmnxLagMixed10g100gV12v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagPortWeightSpeed"),
+        ("TIMETRA-LAG-MIB", "tLagWeightThreshold"),
+        ("TIMETRA-LAG-MIB", "tLagWeightThresholdAction"),
+        ("TIMETRA-LAG-MIB", "tLagPortWeightUp"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagMixed10g100gV12v0Group.setStatus("current")
+
+tmnxLagIndependentMuxGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 27)
+)
+tmnxLagIndependentMuxGroup.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagLacpMuxControl")
+)
+if mibBuilder.loadTexts:
+    tmnxLagIndependentMuxGroup.setStatus("current")
+
+tmnxLagV13v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 28)
+)
+tmnxLagV13v0Group.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagBfdDisableSoftResetExt")
+)
+if mibBuilder.loadTexts:
+    tmnxLagV13v0Group.setStatus("current")
+
+tmnxLagAccessV14v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 29)
+)
+tmnxLagAccessV14v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagAccessBandwidth"),
+        ("TIMETRA-LAG-MIB", "tLagAccessBookingFactor"),
+        ("TIMETRA-LAG-MIB", "tLagAccessAvailableBW"),
+        ("TIMETRA-LAG-MIB", "tLagAccessBookedBW"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagAccessV14v0Group.setStatus("current")
+
+tmnxLagV16v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 30)
+)
+tmnxLagV16v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagPortThresholdStaticCost"),
+        ("TIMETRA-LAG-MIB", "tLagWeightThresholdStaticCost"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV16v0Group.setStatus("current")
+
+tmnxLagV19v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 31)
+)
+tmnxLagV19v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagPortHashWeight"),
+        ("TIMETRA-LAG-MIB", "tLagPortOperHashWeight"),
+        ("TIMETRA-LAG-MIB", "tLagPortFlowShare"),
+        ("TIMETRA-LAG-MIB", "tLagMonitorOperGrpName"),
+        ("TIMETRA-LAG-MIB", "tLagAccessBandwidthHigh"),
+        ("TIMETRA-LAG-MIB", "tLagHashWeightThreshold"),
+        ("TIMETRA-LAG-MIB", "tLagHashWeightThresholdAction"),
+        ("TIMETRA-LAG-MIB", "tLagHashWeightThresholdStaticCst"),
+        ("TIMETRA-LAG-MIB", "tLagPortStatsLacpTx"),
+        ("TIMETRA-LAG-MIB", "tLagPortStatsLacpRx"),
+        ("TIMETRA-LAG-MIB", "tLagPortStatsLacpRxErrors"),
+        ("TIMETRA-LAG-MIB", "tLagPortStatsLacpRxIllegal"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV19v0Group.setStatus("current")
+
+tmnxLagV20v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 32)
+)
+tmnxLagV20v0Group.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagAdaptiveLb"),
+        ("TIMETRA-LAG-MIB", "tLagAdaptiveLbTolerance"),
+        ("TIMETRA-LAG-MIB", "tLagAdaptiveLbVariation"),
+        ("TIMETRA-LAG-MIB", "tLagAdaptiveLbChanged"),
+        ("TIMETRA-LAG-MIB", "tLagPortAdaptiveLbEgressRate"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV20v0Group.setStatus("current")
+
+
+# Notification objects
+
+tLagDynamicCostOn = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 1)
+)
+tLagDynamicCostOn.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagPortThreshold")
+)
+if mibBuilder.loadTexts:
+    tLagDynamicCostOn.setStatus(
+        "current"
+    )
+
+tLagDynamicCostOff = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 2)
+)
+tLagDynamicCostOff.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagPortThreshold")
+)
+if mibBuilder.loadTexts:
+    tLagDynamicCostOff.setStatus(
+        "current"
+    )
+
+tLagPortAddFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 3)
+)
+tLagPortAddFailed.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagRowStatus"),
+        ("TIMETRA-PORT-MIB", "tmnxPortLagId"),
+        ("TIMETRA-LAG-MIB", "tLagNotifyPortAddFailReason"))
+)
+if mibBuilder.loadTexts:
+    tLagPortAddFailed.setStatus(
+        "current"
+    )
+
+tLagSubGroupSelected = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 4)
+)
+tLagSubGroupSelected.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagNotifySubGroupSelected")
+)
+if mibBuilder.loadTexts:
+    tLagSubGroupSelected.setStatus(
+        "current"
+    )
+
+tLagPortAddFailureCleared = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 5)
+)
+tLagPortAddFailureCleared.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagRowStatus"),
+        ("TIMETRA-PORT-MIB", "tmnxPortLagId"),
+        ("TIMETRA-LAG-MIB", "tLagNotifyPortAddFailReason"))
+)
+if mibBuilder.loadTexts:
+    tLagPortAddFailureCleared.setStatus(
+        "current"
+    )
+
+tLagStateEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 6)
+)
+tLagStateEvent.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagRowStatus"),
+        ("TIMETRA-LAG-MIB", "tLagNotifyAdditionalInfo"))
+)
+if mibBuilder.loadTexts:
+    tLagStateEvent.setStatus(
+        "current"
+    )
+
+tLagMemberStateEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 7)
+)
+tLagMemberStateEvent.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagRowStatus"),
+        ("TIMETRA-PORT-MIB", "tmnxPortLagId"),
+        ("TIMETRA-LAG-MIB", "tLagNotifyAdditionalInfo"),
+        ("TIMETRA-LAG-MIB", "tLagNotifyStateChangedReason"))
+)
+if mibBuilder.loadTexts:
+    tLagMemberStateEvent.setStatus(
+        "current"
+    )
+
+tmnxLagBfdMemStateChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 8)
+)
+tmnxLagBfdMemStateChanged.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagBfdMemState"),
+        ("TIMETRA-LAG-MIB", "tLagNotifyAdditionalInfo"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagBfdMemStateChanged.setStatus(
+        "current"
+    )
+
+tLagAdaptiveLoadbalancingChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 3, 15, 0, 9)
+)
+tLagAdaptiveLoadbalancingChanged.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagRowStatus"),
+        ("TIMETRA-LAG-MIB", "tLagNotifyAdditionalInfo"))
+)
+if mibBuilder.loadTexts:
+    tLagAdaptiveLoadbalancingChanged.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+tmnxLagNotificationsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 3)
+)
+tmnxLagNotificationsGroup.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagDynamicCostOn"),
+        ("TIMETRA-LAG-MIB", "tLagDynamicCostOff"),
+        ("TIMETRA-LAG-MIB", "tLagPortAddFailed"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagNotificationsGroup.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV5v0NotifGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 8)
+)
+tmnxLagV5v0NotifGroup.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagDynamicCostOn"),
+        ("TIMETRA-LAG-MIB", "tLagDynamicCostOff"),
+        ("TIMETRA-LAG-MIB", "tLagPortAddFailed"),
+        ("TIMETRA-LAG-MIB", "tLagSubGroupSelected"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV5v0NotifGroup.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV6v0NotifGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 12)
+)
+tmnxLagV6v0NotifGroup.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagDynamicCostOn"),
+        ("TIMETRA-LAG-MIB", "tLagDynamicCostOff"),
+        ("TIMETRA-LAG-MIB", "tLagPortAddFailed"),
+        ("TIMETRA-LAG-MIB", "tLagSubGroupSelected"),
+        ("TIMETRA-LAG-MIB", "tLagPortAddFailureCleared"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV6v0NotifGroup.setStatus(
+        "current"
+    )
+
+tmnxLagV10v0NotifGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 19)
+)
+tmnxLagV10v0NotifGroup.setObjects(
+      *(("TIMETRA-LAG-MIB", "tLagStateEvent"),
+        ("TIMETRA-LAG-MIB", "tLagMemberStateEvent"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV10v0NotifGroup.setStatus(
+        "current"
+    )
+
+tmnxLagBfdNotifGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 22)
+)
+tmnxLagBfdNotifGroup.setObjects(
+    ("TIMETRA-LAG-MIB", "tmnxLagBfdMemStateChanged")
+)
+if mibBuilder.loadTexts:
+    tmnxLagBfdNotifGroup.setStatus(
+        "current"
+    )
+
+tmnxLagV20v0NotifGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 2, 33)
+)
+tmnxLagV20v0NotifGroup.setObjects(
+    ("TIMETRA-LAG-MIB", "tLagAdaptiveLoadbalancingChanged")
+)
+if mibBuilder.loadTexts:
+    tmnxLagV20v0NotifGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tmnxLagV4v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 3)
+)
+tmnxLagV4v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV4v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagNotifyObjsGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagNotificationsGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV4v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV5v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 4)
+)
+tmnxLagV5v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV5v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV5v0NotifGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV5v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV6v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 5)
+)
+tmnxLagV6v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV6v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV6v1Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 6)
+)
+tmnxLagV6v1Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV6v1Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV7v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 7)
+)
+tmnxLagV7v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV7v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV7v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV8v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 8)
+)
+tmnxLagV8v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV8v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV9v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 9)
+)
+tmnxLagV9v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV9v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV10v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 10)
+)
+tmnxLagV10v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV10v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV11v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 11)
+)
+tmnxLagV11v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV11v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV12v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 12)
+)
+tmnxLagV12v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagPerFpSapV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagSelectionHoldV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagPerLinkHashV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagMixed10g100gV12v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV12v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV13v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 13)
+)
+tmnxLagV13v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagPerFpSapV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagSelectionHoldV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagPerLinkHashV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagMixed10g100gV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagIndependentMuxGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV13v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV13v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV14v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 14)
+)
+tmnxLagV14v0Compliance.setObjects(
+    ("TIMETRA-LAG-MIB", "tmnxLagAccessV14v0Group")
+)
+if mibBuilder.loadTexts:
+    tmnxLagV14v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV16v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 16)
+)
+tmnxLagV16v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagPerFpSapV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagSelectionHoldV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagPerLinkHashV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagMixed10g100gV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagIndependentMuxGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV13v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagAccessV14v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV16v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV16v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV19v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 19)
+)
+tmnxLagV19v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagPerFpSapV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagSelectionHoldV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagPerLinkHashV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagMixed10g100gV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagIndependentMuxGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV13v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagAccessV14v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV16v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV19v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV19v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxLagV20v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 15, 1, 20)
+)
+tmnxLagV20v0Compliance.setObjects(
+      *(("TIMETRA-LAG-MIB", "tmnxLagInstanceV7v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagInstanceV9v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV6v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV10v0NotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagHsmdaV6v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV11v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV8v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagBfdNotifGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagPerFpSapV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagSelectionHoldV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagPerLinkHashV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagMixed10g100gV12v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagIndependentMuxGroup"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV13v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagAccessV14v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV16v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV19v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV20v0Group"),
+        ("TIMETRA-LAG-MIB", "tmnxLagV20v0NotifGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxLagV20v0Compliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TIMETRA-LAG-MIB",
+    **{"LAGSubgroup": LAGSubgroup,
+       "timetraLagMIBModule": timetraLagMIBModule,
+       "tmnxLagConformance": tmnxLagConformance,
+       "tmnxLagCompliances": tmnxLagCompliances,
+       "tmnxLagV4v0Compliance": tmnxLagV4v0Compliance,
+       "tmnxLagV5v0Compliance": tmnxLagV5v0Compliance,
+       "tmnxLagV6v0Compliance": tmnxLagV6v0Compliance,
+       "tmnxLagV6v1Compliance": tmnxLagV6v1Compliance,
+       "tmnxLagV7v0Compliance": tmnxLagV7v0Compliance,
+       "tmnxLagV8v0Compliance": tmnxLagV8v0Compliance,
+       "tmnxLagV9v0Compliance": tmnxLagV9v0Compliance,
+       "tmnxLagV10v0Compliance": tmnxLagV10v0Compliance,
+       "tmnxLagV11v0Compliance": tmnxLagV11v0Compliance,
+       "tmnxLagV12v0Compliance": tmnxLagV12v0Compliance,
+       "tmnxLagV13v0Compliance": tmnxLagV13v0Compliance,
+       "tmnxLagV14v0Compliance": tmnxLagV14v0Compliance,
+       "tmnxLagV16v0Compliance": tmnxLagV16v0Compliance,
+       "tmnxLagV19v0Compliance": tmnxLagV19v0Compliance,
+       "tmnxLagV20v0Compliance": tmnxLagV20v0Compliance,
+       "tmnxLagGroups": tmnxLagGroups,
+       "tmnxLagNotifyObjsGroup": tmnxLagNotifyObjsGroup,
+       "tmnxLagNotificationsGroup": tmnxLagNotificationsGroup,
+       "tmnxLagInstanceV4v0Group": tmnxLagInstanceV4v0Group,
+       "tmnxObsoletedObjectsV4v0Group": tmnxObsoletedObjectsV4v0Group,
+       "tmnxLagInstanceV5v0Group": tmnxLagInstanceV5v0Group,
+       "tmnxLagV5v0NotifGroup": tmnxLagV5v0NotifGroup,
+       "tmnxLagNotifyObjsV5v0Group": tmnxLagNotifyObjsV5v0Group,
+       "tmnxLagHsmdaV6v0Group": tmnxLagHsmdaV6v0Group,
+       "tmnxLagInstanceV6v0Group": tmnxLagInstanceV6v0Group,
+       "tmnxLagV6v0NotifGroup": tmnxLagV6v0NotifGroup,
+       "tmnxLagV7v0Group": tmnxLagV7v0Group,
+       "tmnxObsoletedObjectsV7v0Group": tmnxObsoletedObjectsV7v0Group,
+       "tmnxLagInstanceV7v0Group": tmnxLagInstanceV7v0Group,
+       "tmnxLagV8v0Group": tmnxLagV8v0Group,
+       "tmnxLagInstanceV9v0Group": tmnxLagInstanceV9v0Group,
+       "tmnxLagNotifyObjsV10v0Group": tmnxLagNotifyObjsV10v0Group,
+       "tmnxLagV10v0NotifGroup": tmnxLagV10v0NotifGroup,
+       "tmnxLagV11v0Group": tmnxLagV11v0Group,
+       "tmnxLagBfdGroup": tmnxLagBfdGroup,
+       "tmnxLagBfdNotifGroup": tmnxLagBfdNotifGroup,
+       "tmnxLagPerFpSapV12v0Group": tmnxLagPerFpSapV12v0Group,
+       "tmnxLagSelectionHoldV12v0Group": tmnxLagSelectionHoldV12v0Group,
+       "tmnxLagPerLinkHashV12v0Group": tmnxLagPerLinkHashV12v0Group,
+       "tmnxLagMixed10g100gV12v0Group": tmnxLagMixed10g100gV12v0Group,
+       "tmnxLagIndependentMuxGroup": tmnxLagIndependentMuxGroup,
+       "tmnxLagV13v0Group": tmnxLagV13v0Group,
+       "tmnxLagAccessV14v0Group": tmnxLagAccessV14v0Group,
+       "tmnxLagV16v0Group": tmnxLagV16v0Group,
+       "tmnxLagV19v0Group": tmnxLagV19v0Group,
+       "tmnxLagV20v0Group": tmnxLagV20v0Group,
+       "tmnxLagV20v0NotifGroup": tmnxLagV20v0NotifGroup,
+       "tmnxLagDCCompliances": tmnxLagDCCompliances,
+       "tmnxLagDCGroups": tmnxLagDCGroups,
+       "tLagObjects": tLagObjects,
+       "tLagConfigTable": tLagConfigTable,
+       "tLagConfigEntry": tLagConfigEntry,
+       "tLagIndex": tLagIndex,
+       "tLagRowStatus": tLagRowStatus,
+       "tLagPortThreshold": tLagPortThreshold,
+       "tLagPortThresholdAction": tLagPortThresholdAction,
+       "tLagEnableMarkerGenerator": tLagEnableMarkerGenerator,
+       "tLagEnableLACP": tLagEnableLACP,
+       "tLagDescription": tLagDescription,
+       "tLagDynamicCosting": tLagDynamicCosting,
+       "tLagLACPMode": tLagLACPMode,
+       "tLagLACPAdminKeyAutogen": tLagLACPAdminKeyAutogen,
+       "tLagLACPTransmitInterval": tLagLACPTransmitInterval,
+       "tLagAccessAdaptQos": tLagAccessAdaptQos,
+       "tLagLACPXmitStdby": tLagLACPXmitStdby,
+       "tLagLACPSelCrit": tLagLACPSelCrit,
+       "tLagLACPSelCritSlaveToPartner": tLagLACPSelCritSlaveToPartner,
+       "tLagLACPNbrOfSubGroups": tLagLACPNbrOfSubGroups,
+       "tLagholdTimeDown": tLagholdTimeDown,
+       "tLagPortType": tLagPortType,
+       "tLagPerFpIngQueuing": tLagPerFpIngQueuing,
+       "tLagSystemId": tLagSystemId,
+       "tLagSystemPriority": tLagSystemPriority,
+       "tLagStandbySignaling": tLagStandbySignaling,
+       "tLagPerLinkHash": tLagPerLinkHash,
+       "tLagPerFpEgrQueuing": tLagPerFpEgrQueuing,
+       "tLagIncludeEgrHashCfg": tLagIncludeEgrHashCfg,
+       "tLagPerFpSapInstance": tLagPerFpSapInstance,
+       "tLagLacpHoldTime": tLagLacpHoldTime,
+       "tLagPerLinkHashWeighted": tLagPerLinkHashWeighted,
+       "tLagPerLinkHashWeightedRebalance": tLagPerLinkHashWeightedRebalance,
+       "tLagPortWeightSpeed": tLagPortWeightSpeed,
+       "tLagWeightThreshold": tLagWeightThreshold,
+       "tLagWeightThresholdAction": tLagWeightThresholdAction,
+       "tLagMonitorOperGrpName": tLagMonitorOperGrpName,
+       "tLagLacpMuxControl": tLagLacpMuxControl,
+       "tLagBfdDisableSoftResetExt": tLagBfdDisableSoftResetExt,
+       "tLagAccessBandwidth": tLagAccessBandwidth,
+       "tLagAccessBookingFactor": tLagAccessBookingFactor,
+       "tLagAccessAvailableBW": tLagAccessAvailableBW,
+       "tLagAccessBookedBW": tLagAccessBookedBW,
+       "tLagPortThresholdStaticCost": tLagPortThresholdStaticCost,
+       "tLagWeightThresholdStaticCost": tLagWeightThresholdStaticCost,
+       "tLagAccessBandwidthHigh": tLagAccessBandwidthHigh,
+       "tLagHashWeightThreshold": tLagHashWeightThreshold,
+       "tLagHashWeightThresholdAction": tLagHashWeightThresholdAction,
+       "tLagHashWeightThresholdStaticCst": tLagHashWeightThresholdStaticCst,
+       "tLagAdaptiveLb": tLagAdaptiveLb,
+       "tLagAdaptiveLbTolerance": tLagAdaptiveLbTolerance,
+       "tLagOperationTable": tLagOperationTable,
+       "tLagOperationEntry": tLagOperationEntry,
+       "tLagIfIndex": tLagIfIndex,
+       "tLagConfigLastChange": tLagConfigLastChange,
+       "tLagPortThresholdFalling": tLagPortThresholdFalling,
+       "tLagPortThresholdRising": tLagPortThresholdRising,
+       "tLagLACPPrimaryPort": tLagLACPPrimaryPort,
+       "tLagPortReasonDownFlags": tLagPortReasonDownFlags,
+       "tLagSelectedSubGroup": tLagSelectedSubGroup,
+       "tLagCandidateSubGroup": tLagCandidateSubGroup,
+       "tLagRemainingHoldTime": tLagRemainingHoldTime,
+       "tLagPortWeightUp": tLagPortWeightUp,
+       "tLagAdaptiveLbVariation": tLagAdaptiveLbVariation,
+       "tLagAdaptiveLbChanged": tLagAdaptiveLbChanged,
+       "tLagNotificationObjects": tLagNotificationObjects,
+       "tLagNotifyPortAddFailReason": tLagNotifyPortAddFailReason,
+       "tLagNotifySubGroupSelected": tLagNotifySubGroupSelected,
+       "tLagNotifyAdditionalInfo": tLagNotifyAdditionalInfo,
+       "tLagNotifyStateChangedReason": tLagNotifyStateChangedReason,
+       "tLagMemberTable": tLagMemberTable,
+       "tLagMemberEntry": tLagMemberEntry,
+       "tLagMemberPortName": tLagMemberPortName,
+       "tLagMemberPortIsPrimary": tLagMemberPortIsPrimary,
+       "tLagPortTable": tLagPortTable,
+       "tLagPortEntry": tLagPortEntry,
+       "tLagPortSubgroup": tLagPortSubgroup,
+       "tLagPortActiveStdby": tLagPortActiveStdby,
+       "tLagPortHashWeight": tLagPortHashWeight,
+       "tLagPortOperHashWeight": tLagPortOperHashWeight,
+       "tLagPortFlowShare": tLagPortFlowShare,
+       "tLagPortAdaptiveLbEgressRate": tLagPortAdaptiveLbEgressRate,
+       "tLagLinkMapProfileTableLastChgd": tLagLinkMapProfileTableLastChgd,
+       "tLagLinkMapProfileTable": tLagLinkMapProfileTable,
+       "tLagLinkMapProfileEntry": tLagLinkMapProfileEntry,
+       "tLagLinkMapProfileId": tLagLinkMapProfileId,
+       "tLagLinkMapProfileRowStatus": tLagLinkMapProfileRowStatus,
+       "tLagLinkMapProfileLastChanged": tLagLinkMapProfileLastChanged,
+       "tLagLinkMapProfileDescription": tLagLinkMapProfileDescription,
+       "tLagLinkMapProfileFailureMode": tLagLinkMapProfileFailureMode,
+       "tLagLinkMapProfileActiveLink": tLagLinkMapProfileActiveLink,
+       "tLagLinkMapProfPortTableLastChgd": tLagLinkMapProfPortTableLastChgd,
+       "tLagLinkMapProfPortTable": tLagLinkMapProfPortTable,
+       "tLagLinkMapProfPortEntry": tLagLinkMapProfPortEntry,
+       "tLagLinkMapProfPortId": tLagLinkMapProfPortId,
+       "tLagLinkMapProfPortRowStatus": tLagLinkMapProfPortRowStatus,
+       "tLagLinkMapProfPortLastChanged": tLagLinkMapProfPortLastChanged,
+       "tLagLinkMapProfPortType": tLagLinkMapProfPortType,
+       "tLagPerLinkHashWtPortClassTable": tLagPerLinkHashWtPortClassTable,
+       "tLagPerLinkHashWtPortClassEntry": tLagPerLinkHashWtPortClassEntry,
+       "tLagPerLinkHashWtPort": tLagPerLinkHashWtPort,
+       "tLagPerLinkHashWtPortClassId": tLagPerLinkHashWtPortClassId,
+       "tLagPerLinkHashWtPortClassUsers": tLagPerLinkHashWtPortClassUsers,
+       "tLagPerLinkHashWtPortClassAggWt": tLagPerLinkHashWtPortClassAggWt,
+       "tmnxLagActionTable": tmnxLagActionTable,
+       "tmnxLagActionEntry": tmnxLagActionEntry,
+       "tmnxLagActionType": tmnxLagActionType,
+       "tmnxLagAction": tmnxLagAction,
+       "tmnxLagActionClassId": tmnxLagActionClassId,
+       "tLagPortStatsLacpTable": tLagPortStatsLacpTable,
+       "tLagPortStatsLacpEntry": tLagPortStatsLacpEntry,
+       "tLagPortStatsLacpTx": tLagPortStatsLacpTx,
+       "tLagPortStatsLacpRx": tLagPortStatsLacpRx,
+       "tLagPortStatsLacpRxErrors": tLagPortStatsLacpRxErrors,
+       "tLagPortStatsLacpRxIllegal": tLagPortStatsLacpRxIllegal,
+       "tLagBfdObs": tLagBfdObs,
+       "tmnxLagBfdFamTableLastChgd": tmnxLagBfdFamTableLastChgd,
+       "tmnxLagBfdFamTable": tmnxLagBfdFamTable,
+       "tmnxLagBfdFamEntry": tmnxLagBfdFamEntry,
+       "tmnxLagBfdFamAddressType": tmnxLagBfdFamAddressType,
+       "tmnxLagBfdFamLastCh": tmnxLagBfdFamLastCh,
+       "tmnxLagBfdFamAdminState": tmnxLagBfdFamAdminState,
+       "tmnxLagBfdFamAddrType": tmnxLagBfdFamAddrType,
+       "tmnxLagBfdFamAddr": tmnxLagBfdFamAddr,
+       "tmnxLagBfdFamRemAddrType": tmnxLagBfdFamRemAddrType,
+       "tmnxLagBfdFamRemAddr": tmnxLagBfdFamRemAddr,
+       "tmnxLagBfdFamTransmitInterval": tmnxLagBfdFamTransmitInterval,
+       "tmnxLagBfdFamReceiveInterval": tmnxLagBfdFamReceiveInterval,
+       "tmnxLagBfdFamMultiplier": tmnxLagBfdFamMultiplier,
+       "tmnxLagBfdFamMaxSetupTime": tmnxLagBfdFamMaxSetupTime,
+       "tmnxLagBfdFamMaxAdminDownTime": tmnxLagBfdFamMaxAdminDownTime,
+       "tmnxLagBfdFamBfdOnDistributing": tmnxLagBfdFamBfdOnDistributing,
+       "tmnxLagBfdMemTable": tmnxLagBfdMemTable,
+       "tmnxLagBfdMemEntry": tmnxLagBfdMemEntry,
+       "tmnxLagBfdMemState": tmnxLagBfdMemState,
+       "tmnxLagBfdMemSetupTimeLeft": tmnxLagBfdMemSetupTimeLeft,
+       "tmnxLagBfdMemAdminDownLeft": tmnxLagBfdMemAdminDownLeft,
+       "tLagNotifyPrefix": tLagNotifyPrefix,
+       "tLagNotifications": tLagNotifications,
+       "tLagDynamicCostOn": tLagDynamicCostOn,
+       "tLagDynamicCostOff": tLagDynamicCostOff,
+       "tLagPortAddFailed": tLagPortAddFailed,
+       "tLagSubGroupSelected": tLagSubGroupSelected,
+       "tLagPortAddFailureCleared": tLagPortAddFailureCleared,
+       "tLagStateEvent": tLagStateEvent,
+       "tLagMemberStateEvent": tLagMemberStateEvent,
+       "tmnxLagBfdMemStateChanged": tmnxLagBfdMemStateChanged,
+       "tLagAdaptiveLoadbalancingChanged": tLagAdaptiveLoadbalancingChanged}
+)

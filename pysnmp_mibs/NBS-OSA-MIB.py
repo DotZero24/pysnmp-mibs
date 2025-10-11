@@ -1,102 +1,676 @@
+# SNMP MIB module (NBS-OSA-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NBS-OSA-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/NBS-OSA-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:25 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/mrv/NBS-OSA-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:04:20 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifAlias, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifAlias", "InterfaceIndex")
-NbsCmmcChannelBand, = mibBuilder.importSymbols("NBS-CMMCENUM-MIB", "NbsCmmcChannelBand")
-NbsTcMHz, nbs = mibBuilder.importSymbols("NBS-MIB", "NbsTcMHz", "nbs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nbsOsaMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 207))
-if mibBuilder.loadTexts: nbsOsaMib.setLastUpdated('201503190000Z')
-if mibBuilder.loadTexts: nbsOsaMib.setOrganization('NBS')
-nbsOsaPortGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 207, 1))
-if mibBuilder.loadTexts: nbsOsaPortGrp.setStatus('current')
-nbsOsaSpectrumGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 207, 2))
-if mibBuilder.loadTexts: nbsOsaSpectrumGrp.setStatus('current')
-nbsOsaChannelGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 207, 3))
-if mibBuilder.loadTexts: nbsOsaChannelGrp.setStatus('current')
-nbsOsaTraps = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 207, 4))
-if mibBuilder.loadTexts: nbsOsaTraps.setStatus('current')
-nbsOsaPortTableSize = MibScalar((1, 3, 6, 1, 4, 1, 629, 207, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaPortTableSize.setStatus('current')
-nbsOsaPortTable = MibTable((1, 3, 6, 1, 4, 1, 629, 207, 1, 2), )
-if mibBuilder.loadTexts: nbsOsaPortTable.setStatus('current')
-nbsOsaPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 207, 1, 2, 1), ).setIndexNames((0, "NBS-OSA-MIB", "nbsOsaPortIfIndex"))
-if mibBuilder.loadTexts: nbsOsaPortEntry.setStatus('current')
-nbsOsaPortIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 1, 2, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaPortIfIndex.setStatus('current')
-nbsOsaPortAttenuation = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100000, 100000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsOsaPortAttenuation.setStatus('current')
-nbsOsaPortChannels = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 1, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaPortChannels.setStatus('current')
-nbsOsaSpectrumTableSize = MibScalar((1, 3, 6, 1, 4, 1, 629, 207, 2, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaSpectrumTableSize.setStatus('current')
-nbsOsaSpectrumTable = MibTable((1, 3, 6, 1, 4, 1, 629, 207, 2, 2), )
-if mibBuilder.loadTexts: nbsOsaSpectrumTable.setStatus('current')
-nbsOsaSpectrumEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 207, 2, 2, 1), ).setIndexNames((0, "NBS-OSA-MIB", "nbsOsaSpectrumIfIndex"), (0, "NBS-OSA-MIB", "nbsOsaSpectrumWavelength"))
-if mibBuilder.loadTexts: nbsOsaSpectrumEntry.setStatus('current')
-nbsOsaSpectrumIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 2, 2, 1, 2), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaSpectrumIfIndex.setStatus('current')
-nbsOsaSpectrumWavelength = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 2, 2, 1, 3), Integer32())
-if mibBuilder.loadTexts: nbsOsaSpectrumWavelength.setStatus('current')
-nbsOsaSpectrumTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 2, 2, 1, 4), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaSpectrumTimestamp.setStatus('current')
-nbsOsaSpectrumRxPowerOper = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 2, 2, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaSpectrumRxPowerOper.setStatus('current')
-nbsOsaChannelTableSize = MibScalar((1, 3, 6, 1, 4, 1, 629, 207, 3, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaChannelTableSize.setStatus('current')
-nbsOsaChannelTable = MibTable((1, 3, 6, 1, 4, 1, 629, 207, 3, 2), )
-if mibBuilder.loadTexts: nbsOsaChannelTable.setStatus('current')
-nbsOsaChannelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1), ).setIndexNames((0, "NBS-OSA-MIB", "nbsOsaChannelIfIndex"), (0, "NBS-OSA-MIB", "nbsOsaChannelFrequencyNominal"))
-if mibBuilder.loadTexts: nbsOsaChannelEntry.setStatus('current')
-nbsOsaChannelIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 1), InterfaceIndex()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaChannelIfIndex.setStatus('current')
-nbsOsaChannelFrequencyNominal = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 2), NbsTcMHz()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaChannelFrequencyNominal.setStatus('current')
-nbsOsaChannelBand = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 3), NbsCmmcChannelBand()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaChannelBand.setStatus('current')
-nbsOsaChannelNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaChannelNumber.setStatus('current')
-nbsOsaChannelStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("absent", 1), ("present", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaChannelStatus.setStatus('current')
-nbsOsaChannelTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaChannelTimestamp.setStatus('current')
-nbsOsaChannelFrequencyOper = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 7), NbsTcMHz()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaChannelFrequencyOper.setStatus('current')
-nbsOsaChannelRxPowerOper = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 8), Integer32().clone(-100000)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaChannelRxPowerOper.setStatus('current')
-nbsOsaChannelRxPowerMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100000, 100000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsOsaChannelRxPowerMin.setStatus('current')
-nbsOsaChannelRxPowerMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-100000, 100000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsOsaChannelRxPowerMax.setStatus('current')
-nbsOsaChannelOSNROper = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 11), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsOsaChannelOSNROper.setStatus('current')
-nbsOsaChannelOSNRMin = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 12), Integer32().clone(1000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsOsaChannelOSNRMin.setStatus('current')
-nbsOsaChannelOSNRMax = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 13), Integer32().clone(1000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsOsaChannelOSNRMax.setStatus('current')
-nbsOsaTrapPortChannelAdded = NotificationType((1, 3, 6, 1, 4, 1, 629, 207, 4, 1)).setObjects(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"), ("IF-MIB", "ifAlias"), ("NBS-OSA-MIB", "nbsOsaChannelBand"), ("NBS-OSA-MIB", "nbsOsaChannelNumber"), ("NBS-OSA-MIB", "nbsOsaChannelFrequencyNominal"))
-if mibBuilder.loadTexts: nbsOsaTrapPortChannelAdded.setStatus('current')
-nbsOsaTrapPortChannelDropped = NotificationType((1, 3, 6, 1, 4, 1, 629, 207, 4, 2)).setObjects(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"), ("IF-MIB", "ifAlias"), ("NBS-OSA-MIB", "nbsOsaChannelBand"), ("NBS-OSA-MIB", "nbsOsaChannelNumber"), ("NBS-OSA-MIB", "nbsOsaChannelFrequencyNominal"))
-if mibBuilder.loadTexts: nbsOsaTrapPortChannelDropped.setStatus('current')
-nbsOsaTrapPortRxPowerTooLow = NotificationType((1, 3, 6, 1, 4, 1, 629, 207, 4, 3)).setObjects(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"), ("IF-MIB", "ifAlias"), ("NBS-OSA-MIB", "nbsOsaChannelBand"), ("NBS-OSA-MIB", "nbsOsaChannelNumber"), ("NBS-OSA-MIB", "nbsOsaChannelRxPowerMin"), ("NBS-OSA-MIB", "nbsOsaChannelRxPowerOper"))
-if mibBuilder.loadTexts: nbsOsaTrapPortRxPowerTooLow.setStatus('current')
-nbsOsaTrapPortRxPowerOK = NotificationType((1, 3, 6, 1, 4, 1, 629, 207, 4, 4)).setObjects(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"), ("IF-MIB", "ifAlias"), ("NBS-OSA-MIB", "nbsOsaChannelBand"), ("NBS-OSA-MIB", "nbsOsaChannelNumber"), ("NBS-OSA-MIB", "nbsOsaChannelRxPowerOper"))
-if mibBuilder.loadTexts: nbsOsaTrapPortRxPowerOK.setStatus('current')
-nbsOsaTrapPortRxPowerTooHigh = NotificationType((1, 3, 6, 1, 4, 1, 629, 207, 4, 5)).setObjects(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"), ("IF-MIB", "ifAlias"), ("NBS-OSA-MIB", "nbsOsaChannelBand"), ("NBS-OSA-MIB", "nbsOsaChannelNumber"), ("NBS-OSA-MIB", "nbsOsaChannelRxPowerMax"), ("NBS-OSA-MIB", "nbsOsaChannelRxPowerOper"))
-if mibBuilder.loadTexts: nbsOsaTrapPortRxPowerTooHigh.setStatus('current')
-nbsOsaTrapPortOSNRTooLow = NotificationType((1, 3, 6, 1, 4, 1, 629, 207, 4, 6)).setObjects(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"), ("IF-MIB", "ifAlias"), ("NBS-OSA-MIB", "nbsOsaChannelBand"), ("NBS-OSA-MIB", "nbsOsaChannelNumber"), ("NBS-OSA-MIB", "nbsOsaChannelOSNRMin"), ("NBS-OSA-MIB", "nbsOsaChannelOSNROper"))
-if mibBuilder.loadTexts: nbsOsaTrapPortOSNRTooLow.setStatus('current')
-nbsOsaTrapPortOSNROk = NotificationType((1, 3, 6, 1, 4, 1, 629, 207, 4, 7)).setObjects(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"), ("IF-MIB", "ifAlias"), ("NBS-OSA-MIB", "nbsOsaChannelBand"), ("NBS-OSA-MIB", "nbsOsaChannelNumber"), ("NBS-OSA-MIB", "nbsOsaChannelOSNROper"))
-if mibBuilder.loadTexts: nbsOsaTrapPortOSNROk.setStatus('current')
-nbsOsaTrapPortOSNRTooHigh = NotificationType((1, 3, 6, 1, 4, 1, 629, 207, 4, 8)).setObjects(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"), ("IF-MIB", "ifAlias"), ("NBS-OSA-MIB", "nbsOsaChannelBand"), ("NBS-OSA-MIB", "nbsOsaChannelNumber"), ("NBS-OSA-MIB", "nbsOsaChannelOSNRMax"), ("NBS-OSA-MIB", "nbsOsaChannelOSNROper"))
-if mibBuilder.loadTexts: nbsOsaTrapPortOSNRTooHigh.setStatus('current')
-mibBuilder.exportSymbols("NBS-OSA-MIB", nbsOsaChannelBand=nbsOsaChannelBand, nbsOsaChannelFrequencyNominal=nbsOsaChannelFrequencyNominal, nbsOsaPortTableSize=nbsOsaPortTableSize, nbsOsaChannelOSNROper=nbsOsaChannelOSNROper, nbsOsaChannelEntry=nbsOsaChannelEntry, nbsOsaTrapPortChannelAdded=nbsOsaTrapPortChannelAdded, nbsOsaPortAttenuation=nbsOsaPortAttenuation, nbsOsaSpectrumIfIndex=nbsOsaSpectrumIfIndex, nbsOsaPortTable=nbsOsaPortTable, nbsOsaTraps=nbsOsaTraps, nbsOsaSpectrumGrp=nbsOsaSpectrumGrp, nbsOsaChannelGrp=nbsOsaChannelGrp, nbsOsaChannelRxPowerMax=nbsOsaChannelRxPowerMax, nbsOsaTrapPortOSNROk=nbsOsaTrapPortOSNROk, nbsOsaTrapPortOSNRTooHigh=nbsOsaTrapPortOSNRTooHigh, nbsOsaSpectrumEntry=nbsOsaSpectrumEntry, nbsOsaChannelOSNRMax=nbsOsaChannelOSNRMax, nbsOsaPortGrp=nbsOsaPortGrp, nbsOsaPortEntry=nbsOsaPortEntry, nbsOsaChannelIfIndex=nbsOsaChannelIfIndex, nbsOsaChannelOSNRMin=nbsOsaChannelOSNRMin, nbsOsaTrapPortRxPowerTooHigh=nbsOsaTrapPortRxPowerTooHigh, nbsOsaChannelRxPowerMin=nbsOsaChannelRxPowerMin, nbsOsaChannelTimestamp=nbsOsaChannelTimestamp, nbsOsaChannelTableSize=nbsOsaChannelTableSize, nbsOsaMib=nbsOsaMib, nbsOsaChannelTable=nbsOsaChannelTable, nbsOsaPortChannels=nbsOsaPortChannels, nbsOsaSpectrumTableSize=nbsOsaSpectrumTableSize, nbsOsaChannelRxPowerOper=nbsOsaChannelRxPowerOper, nbsOsaSpectrumTable=nbsOsaSpectrumTable, nbsOsaTrapPortOSNRTooLow=nbsOsaTrapPortOSNRTooLow, nbsOsaPortIfIndex=nbsOsaPortIfIndex, nbsOsaChannelStatus=nbsOsaChannelStatus, nbsOsaTrapPortRxPowerTooLow=nbsOsaTrapPortRxPowerTooLow, nbsOsaSpectrumWavelength=nbsOsaSpectrumWavelength, nbsOsaChannelFrequencyOper=nbsOsaChannelFrequencyOper, nbsOsaTrapPortRxPowerOK=nbsOsaTrapPortRxPowerOK, nbsOsaChannelNumber=nbsOsaChannelNumber, nbsOsaTrapPortChannelDropped=nbsOsaTrapPortChannelDropped, nbsOsaSpectrumTimestamp=nbsOsaSpectrumTimestamp, nbsOsaSpectrumRxPowerOper=nbsOsaSpectrumRxPowerOper, PYSNMP_MODULE_ID=nbsOsaMib)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,
+ ifAlias) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "ifAlias")
+
+(NbsCmmcChannelBand,) = mibBuilder.importSymbols(
+    "NBS-CMMCENUM-MIB",
+    "NbsCmmcChannelBand")
+
+(NbsTcMHz,
+ nbs) = mibBuilder.importSymbols(
+    "NBS-MIB",
+    "NbsTcMHz",
+    "nbs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+nbsOsaMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 207)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NbsOsaPortGrp_ObjectIdentity = ObjectIdentity
+nbsOsaPortGrp = _NbsOsaPortGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 207, 1)
+)
+if mibBuilder.loadTexts:
+    nbsOsaPortGrp.setStatus("current")
+_NbsOsaPortTableSize_Type = Unsigned32
+_NbsOsaPortTableSize_Object = MibScalar
+nbsOsaPortTableSize = _NbsOsaPortTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 1, 1),
+    _NbsOsaPortTableSize_Type()
+)
+nbsOsaPortTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaPortTableSize.setStatus("current")
+_NbsOsaPortTable_Object = MibTable
+nbsOsaPortTable = _NbsOsaPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 1, 2)
+)
+if mibBuilder.loadTexts:
+    nbsOsaPortTable.setStatus("current")
+_NbsOsaPortEntry_Object = MibTableRow
+nbsOsaPortEntry = _NbsOsaPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 1, 2, 1)
+)
+nbsOsaPortEntry.setIndexNames(
+    (0, "NBS-OSA-MIB", "nbsOsaPortIfIndex"),
+)
+if mibBuilder.loadTexts:
+    nbsOsaPortEntry.setStatus("current")
+_NbsOsaPortIfIndex_Type = InterfaceIndex
+_NbsOsaPortIfIndex_Object = MibTableColumn
+nbsOsaPortIfIndex = _NbsOsaPortIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 1, 2, 1, 2),
+    _NbsOsaPortIfIndex_Type()
+)
+nbsOsaPortIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaPortIfIndex.setStatus("current")
+
+
+class _NbsOsaPortAttenuation_Type(Integer32):
+    """Custom type nbsOsaPortAttenuation based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-100000, 100000),
+    )
+
+
+_NbsOsaPortAttenuation_Type.__name__ = "Integer32"
+_NbsOsaPortAttenuation_Object = MibTableColumn
+nbsOsaPortAttenuation = _NbsOsaPortAttenuation_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 1, 2, 1, 3),
+    _NbsOsaPortAttenuation_Type()
+)
+nbsOsaPortAttenuation.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsOsaPortAttenuation.setStatus("current")
+
+
+class _NbsOsaPortChannels_Type(Integer32):
+    """Custom type nbsOsaPortChannels based on Integer32"""
+    defaultValue = 0
+
+
+_NbsOsaPortChannels_Type.__name__ = "Integer32"
+_NbsOsaPortChannels_Object = MibTableColumn
+nbsOsaPortChannels = _NbsOsaPortChannels_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 1, 2, 1, 4),
+    _NbsOsaPortChannels_Type()
+)
+nbsOsaPortChannels.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaPortChannels.setStatus("current")
+_NbsOsaSpectrumGrp_ObjectIdentity = ObjectIdentity
+nbsOsaSpectrumGrp = _NbsOsaSpectrumGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 207, 2)
+)
+if mibBuilder.loadTexts:
+    nbsOsaSpectrumGrp.setStatus("current")
+_NbsOsaSpectrumTableSize_Type = Unsigned32
+_NbsOsaSpectrumTableSize_Object = MibScalar
+nbsOsaSpectrumTableSize = _NbsOsaSpectrumTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 2, 1),
+    _NbsOsaSpectrumTableSize_Type()
+)
+nbsOsaSpectrumTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaSpectrumTableSize.setStatus("current")
+_NbsOsaSpectrumTable_Object = MibTable
+nbsOsaSpectrumTable = _NbsOsaSpectrumTable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 2, 2)
+)
+if mibBuilder.loadTexts:
+    nbsOsaSpectrumTable.setStatus("current")
+_NbsOsaSpectrumEntry_Object = MibTableRow
+nbsOsaSpectrumEntry = _NbsOsaSpectrumEntry_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 2, 2, 1)
+)
+nbsOsaSpectrumEntry.setIndexNames(
+    (0, "NBS-OSA-MIB", "nbsOsaSpectrumIfIndex"),
+    (0, "NBS-OSA-MIB", "nbsOsaSpectrumWavelength"),
+)
+if mibBuilder.loadTexts:
+    nbsOsaSpectrumEntry.setStatus("current")
+_NbsOsaSpectrumIfIndex_Type = InterfaceIndex
+_NbsOsaSpectrumIfIndex_Object = MibTableColumn
+nbsOsaSpectrumIfIndex = _NbsOsaSpectrumIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 2, 2, 1, 2),
+    _NbsOsaSpectrumIfIndex_Type()
+)
+nbsOsaSpectrumIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaSpectrumIfIndex.setStatus("current")
+_NbsOsaSpectrumWavelength_Type = Integer32
+_NbsOsaSpectrumWavelength_Object = MibTableColumn
+nbsOsaSpectrumWavelength = _NbsOsaSpectrumWavelength_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 2, 2, 1, 3),
+    _NbsOsaSpectrumWavelength_Type()
+)
+nbsOsaSpectrumWavelength.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbsOsaSpectrumWavelength.setStatus("current")
+_NbsOsaSpectrumTimestamp_Type = TimeTicks
+_NbsOsaSpectrumTimestamp_Object = MibTableColumn
+nbsOsaSpectrumTimestamp = _NbsOsaSpectrumTimestamp_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 2, 2, 1, 4),
+    _NbsOsaSpectrumTimestamp_Type()
+)
+nbsOsaSpectrumTimestamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaSpectrumTimestamp.setStatus("current")
+_NbsOsaSpectrumRxPowerOper_Type = Integer32
+_NbsOsaSpectrumRxPowerOper_Object = MibTableColumn
+nbsOsaSpectrumRxPowerOper = _NbsOsaSpectrumRxPowerOper_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 2, 2, 1, 5),
+    _NbsOsaSpectrumRxPowerOper_Type()
+)
+nbsOsaSpectrumRxPowerOper.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaSpectrumRxPowerOper.setStatus("current")
+_NbsOsaChannelGrp_ObjectIdentity = ObjectIdentity
+nbsOsaChannelGrp = _NbsOsaChannelGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3)
+)
+if mibBuilder.loadTexts:
+    nbsOsaChannelGrp.setStatus("current")
+_NbsOsaChannelTableSize_Type = Unsigned32
+_NbsOsaChannelTableSize_Object = MibScalar
+nbsOsaChannelTableSize = _NbsOsaChannelTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 1),
+    _NbsOsaChannelTableSize_Type()
+)
+nbsOsaChannelTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaChannelTableSize.setStatus("current")
+_NbsOsaChannelTable_Object = MibTable
+nbsOsaChannelTable = _NbsOsaChannelTable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2)
+)
+if mibBuilder.loadTexts:
+    nbsOsaChannelTable.setStatus("current")
+_NbsOsaChannelEntry_Object = MibTableRow
+nbsOsaChannelEntry = _NbsOsaChannelEntry_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1)
+)
+nbsOsaChannelEntry.setIndexNames(
+    (0, "NBS-OSA-MIB", "nbsOsaChannelIfIndex"),
+    (0, "NBS-OSA-MIB", "nbsOsaChannelFrequencyNominal"),
+)
+if mibBuilder.loadTexts:
+    nbsOsaChannelEntry.setStatus("current")
+_NbsOsaChannelIfIndex_Type = InterfaceIndex
+_NbsOsaChannelIfIndex_Object = MibTableColumn
+nbsOsaChannelIfIndex = _NbsOsaChannelIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 1),
+    _NbsOsaChannelIfIndex_Type()
+)
+nbsOsaChannelIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaChannelIfIndex.setStatus("current")
+_NbsOsaChannelFrequencyNominal_Type = NbsTcMHz
+_NbsOsaChannelFrequencyNominal_Object = MibTableColumn
+nbsOsaChannelFrequencyNominal = _NbsOsaChannelFrequencyNominal_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 2),
+    _NbsOsaChannelFrequencyNominal_Type()
+)
+nbsOsaChannelFrequencyNominal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaChannelFrequencyNominal.setStatus("current")
+_NbsOsaChannelBand_Type = NbsCmmcChannelBand
+_NbsOsaChannelBand_Object = MibTableColumn
+nbsOsaChannelBand = _NbsOsaChannelBand_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 3),
+    _NbsOsaChannelBand_Type()
+)
+nbsOsaChannelBand.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaChannelBand.setStatus("current")
+_NbsOsaChannelNumber_Type = Integer32
+_NbsOsaChannelNumber_Object = MibTableColumn
+nbsOsaChannelNumber = _NbsOsaChannelNumber_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 4),
+    _NbsOsaChannelNumber_Type()
+)
+nbsOsaChannelNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaChannelNumber.setStatus("current")
+
+
+class _NbsOsaChannelStatus_Type(Integer32):
+    """Custom type nbsOsaChannelStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("absent", 1),
+          ("present", 2))
+    )
+
+
+_NbsOsaChannelStatus_Type.__name__ = "Integer32"
+_NbsOsaChannelStatus_Object = MibTableColumn
+nbsOsaChannelStatus = _NbsOsaChannelStatus_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 5),
+    _NbsOsaChannelStatus_Type()
+)
+nbsOsaChannelStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaChannelStatus.setStatus("current")
+_NbsOsaChannelTimestamp_Type = TimeTicks
+_NbsOsaChannelTimestamp_Object = MibTableColumn
+nbsOsaChannelTimestamp = _NbsOsaChannelTimestamp_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 6),
+    _NbsOsaChannelTimestamp_Type()
+)
+nbsOsaChannelTimestamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaChannelTimestamp.setStatus("current")
+_NbsOsaChannelFrequencyOper_Type = NbsTcMHz
+_NbsOsaChannelFrequencyOper_Object = MibTableColumn
+nbsOsaChannelFrequencyOper = _NbsOsaChannelFrequencyOper_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 7),
+    _NbsOsaChannelFrequencyOper_Type()
+)
+nbsOsaChannelFrequencyOper.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaChannelFrequencyOper.setStatus("current")
+
+
+class _NbsOsaChannelRxPowerOper_Type(Integer32):
+    """Custom type nbsOsaChannelRxPowerOper based on Integer32"""
+    defaultValue = -100000
+
+
+_NbsOsaChannelRxPowerOper_Type.__name__ = "Integer32"
+_NbsOsaChannelRxPowerOper_Object = MibTableColumn
+nbsOsaChannelRxPowerOper = _NbsOsaChannelRxPowerOper_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 8),
+    _NbsOsaChannelRxPowerOper_Type()
+)
+nbsOsaChannelRxPowerOper.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaChannelRxPowerOper.setStatus("current")
+
+
+class _NbsOsaChannelRxPowerMin_Type(Integer32):
+    """Custom type nbsOsaChannelRxPowerMin based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-100000, 100000),
+    )
+
+
+_NbsOsaChannelRxPowerMin_Type.__name__ = "Integer32"
+_NbsOsaChannelRxPowerMin_Object = MibTableColumn
+nbsOsaChannelRxPowerMin = _NbsOsaChannelRxPowerMin_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 9),
+    _NbsOsaChannelRxPowerMin_Type()
+)
+nbsOsaChannelRxPowerMin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsOsaChannelRxPowerMin.setStatus("current")
+
+
+class _NbsOsaChannelRxPowerMax_Type(Integer32):
+    """Custom type nbsOsaChannelRxPowerMax based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-100000, 100000),
+    )
+
+
+_NbsOsaChannelRxPowerMax_Type.__name__ = "Integer32"
+_NbsOsaChannelRxPowerMax_Object = MibTableColumn
+nbsOsaChannelRxPowerMax = _NbsOsaChannelRxPowerMax_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 10),
+    _NbsOsaChannelRxPowerMax_Type()
+)
+nbsOsaChannelRxPowerMax.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsOsaChannelRxPowerMax.setStatus("current")
+_NbsOsaChannelOSNROper_Type = Integer32
+_NbsOsaChannelOSNROper_Object = MibTableColumn
+nbsOsaChannelOSNROper = _NbsOsaChannelOSNROper_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 11),
+    _NbsOsaChannelOSNROper_Type()
+)
+nbsOsaChannelOSNROper.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsOsaChannelOSNROper.setStatus("current")
+
+
+class _NbsOsaChannelOSNRMin_Type(Integer32):
+    """Custom type nbsOsaChannelOSNRMin based on Integer32"""
+    defaultValue = 1000
+
+
+_NbsOsaChannelOSNRMin_Type.__name__ = "Integer32"
+_NbsOsaChannelOSNRMin_Object = MibTableColumn
+nbsOsaChannelOSNRMin = _NbsOsaChannelOSNRMin_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 12),
+    _NbsOsaChannelOSNRMin_Type()
+)
+nbsOsaChannelOSNRMin.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsOsaChannelOSNRMin.setStatus("current")
+
+
+class _NbsOsaChannelOSNRMax_Type(Integer32):
+    """Custom type nbsOsaChannelOSNRMax based on Integer32"""
+    defaultValue = 1000
+
+
+_NbsOsaChannelOSNRMax_Type.__name__ = "Integer32"
+_NbsOsaChannelOSNRMax_Object = MibTableColumn
+nbsOsaChannelOSNRMax = _NbsOsaChannelOSNRMax_Object(
+    (1, 3, 6, 1, 4, 1, 629, 207, 3, 2, 1, 13),
+    _NbsOsaChannelOSNRMax_Type()
+)
+nbsOsaChannelOSNRMax.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsOsaChannelOSNRMax.setStatus("current")
+_NbsOsaTraps_ObjectIdentity = ObjectIdentity
+nbsOsaTraps = _NbsOsaTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 207, 4)
+)
+if mibBuilder.loadTexts:
+    nbsOsaTraps.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+nbsOsaTrapPortChannelAdded = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 207, 4, 1)
+)
+nbsOsaTrapPortChannelAdded.setObjects(
+      *(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"),
+        ("IF-MIB", "ifAlias"),
+        ("NBS-OSA-MIB", "nbsOsaChannelBand"),
+        ("NBS-OSA-MIB", "nbsOsaChannelNumber"),
+        ("NBS-OSA-MIB", "nbsOsaChannelFrequencyNominal"))
+)
+if mibBuilder.loadTexts:
+    nbsOsaTrapPortChannelAdded.setStatus(
+        "current"
+    )
+
+nbsOsaTrapPortChannelDropped = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 207, 4, 2)
+)
+nbsOsaTrapPortChannelDropped.setObjects(
+      *(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"),
+        ("IF-MIB", "ifAlias"),
+        ("NBS-OSA-MIB", "nbsOsaChannelBand"),
+        ("NBS-OSA-MIB", "nbsOsaChannelNumber"),
+        ("NBS-OSA-MIB", "nbsOsaChannelFrequencyNominal"))
+)
+if mibBuilder.loadTexts:
+    nbsOsaTrapPortChannelDropped.setStatus(
+        "current"
+    )
+
+nbsOsaTrapPortRxPowerTooLow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 207, 4, 3)
+)
+nbsOsaTrapPortRxPowerTooLow.setObjects(
+      *(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"),
+        ("IF-MIB", "ifAlias"),
+        ("NBS-OSA-MIB", "nbsOsaChannelBand"),
+        ("NBS-OSA-MIB", "nbsOsaChannelNumber"),
+        ("NBS-OSA-MIB", "nbsOsaChannelRxPowerMin"),
+        ("NBS-OSA-MIB", "nbsOsaChannelRxPowerOper"))
+)
+if mibBuilder.loadTexts:
+    nbsOsaTrapPortRxPowerTooLow.setStatus(
+        "current"
+    )
+
+nbsOsaTrapPortRxPowerOK = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 207, 4, 4)
+)
+nbsOsaTrapPortRxPowerOK.setObjects(
+      *(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"),
+        ("IF-MIB", "ifAlias"),
+        ("NBS-OSA-MIB", "nbsOsaChannelBand"),
+        ("NBS-OSA-MIB", "nbsOsaChannelNumber"),
+        ("NBS-OSA-MIB", "nbsOsaChannelRxPowerOper"))
+)
+if mibBuilder.loadTexts:
+    nbsOsaTrapPortRxPowerOK.setStatus(
+        "current"
+    )
+
+nbsOsaTrapPortRxPowerTooHigh = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 207, 4, 5)
+)
+nbsOsaTrapPortRxPowerTooHigh.setObjects(
+      *(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"),
+        ("IF-MIB", "ifAlias"),
+        ("NBS-OSA-MIB", "nbsOsaChannelBand"),
+        ("NBS-OSA-MIB", "nbsOsaChannelNumber"),
+        ("NBS-OSA-MIB", "nbsOsaChannelRxPowerMax"),
+        ("NBS-OSA-MIB", "nbsOsaChannelRxPowerOper"))
+)
+if mibBuilder.loadTexts:
+    nbsOsaTrapPortRxPowerTooHigh.setStatus(
+        "current"
+    )
+
+nbsOsaTrapPortOSNRTooLow = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 207, 4, 6)
+)
+nbsOsaTrapPortOSNRTooLow.setObjects(
+      *(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"),
+        ("IF-MIB", "ifAlias"),
+        ("NBS-OSA-MIB", "nbsOsaChannelBand"),
+        ("NBS-OSA-MIB", "nbsOsaChannelNumber"),
+        ("NBS-OSA-MIB", "nbsOsaChannelOSNRMin"),
+        ("NBS-OSA-MIB", "nbsOsaChannelOSNROper"))
+)
+if mibBuilder.loadTexts:
+    nbsOsaTrapPortOSNRTooLow.setStatus(
+        "current"
+    )
+
+nbsOsaTrapPortOSNROk = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 207, 4, 7)
+)
+nbsOsaTrapPortOSNROk.setObjects(
+      *(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"),
+        ("IF-MIB", "ifAlias"),
+        ("NBS-OSA-MIB", "nbsOsaChannelBand"),
+        ("NBS-OSA-MIB", "nbsOsaChannelNumber"),
+        ("NBS-OSA-MIB", "nbsOsaChannelOSNROper"))
+)
+if mibBuilder.loadTexts:
+    nbsOsaTrapPortOSNROk.setStatus(
+        "current"
+    )
+
+nbsOsaTrapPortOSNRTooHigh = NotificationType(
+    (1, 3, 6, 1, 4, 1, 629, 207, 4, 8)
+)
+nbsOsaTrapPortOSNRTooHigh.setObjects(
+      *(("NBS-OSA-MIB", "nbsOsaChannelIfIndex"),
+        ("IF-MIB", "ifAlias"),
+        ("NBS-OSA-MIB", "nbsOsaChannelBand"),
+        ("NBS-OSA-MIB", "nbsOsaChannelNumber"),
+        ("NBS-OSA-MIB", "nbsOsaChannelOSNRMax"),
+        ("NBS-OSA-MIB", "nbsOsaChannelOSNROper"))
+)
+if mibBuilder.loadTexts:
+    nbsOsaTrapPortOSNRTooHigh.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NBS-OSA-MIB",
+    **{"nbsOsaMib": nbsOsaMib,
+       "nbsOsaPortGrp": nbsOsaPortGrp,
+       "nbsOsaPortTableSize": nbsOsaPortTableSize,
+       "nbsOsaPortTable": nbsOsaPortTable,
+       "nbsOsaPortEntry": nbsOsaPortEntry,
+       "nbsOsaPortIfIndex": nbsOsaPortIfIndex,
+       "nbsOsaPortAttenuation": nbsOsaPortAttenuation,
+       "nbsOsaPortChannels": nbsOsaPortChannels,
+       "nbsOsaSpectrumGrp": nbsOsaSpectrumGrp,
+       "nbsOsaSpectrumTableSize": nbsOsaSpectrumTableSize,
+       "nbsOsaSpectrumTable": nbsOsaSpectrumTable,
+       "nbsOsaSpectrumEntry": nbsOsaSpectrumEntry,
+       "nbsOsaSpectrumIfIndex": nbsOsaSpectrumIfIndex,
+       "nbsOsaSpectrumWavelength": nbsOsaSpectrumWavelength,
+       "nbsOsaSpectrumTimestamp": nbsOsaSpectrumTimestamp,
+       "nbsOsaSpectrumRxPowerOper": nbsOsaSpectrumRxPowerOper,
+       "nbsOsaChannelGrp": nbsOsaChannelGrp,
+       "nbsOsaChannelTableSize": nbsOsaChannelTableSize,
+       "nbsOsaChannelTable": nbsOsaChannelTable,
+       "nbsOsaChannelEntry": nbsOsaChannelEntry,
+       "nbsOsaChannelIfIndex": nbsOsaChannelIfIndex,
+       "nbsOsaChannelFrequencyNominal": nbsOsaChannelFrequencyNominal,
+       "nbsOsaChannelBand": nbsOsaChannelBand,
+       "nbsOsaChannelNumber": nbsOsaChannelNumber,
+       "nbsOsaChannelStatus": nbsOsaChannelStatus,
+       "nbsOsaChannelTimestamp": nbsOsaChannelTimestamp,
+       "nbsOsaChannelFrequencyOper": nbsOsaChannelFrequencyOper,
+       "nbsOsaChannelRxPowerOper": nbsOsaChannelRxPowerOper,
+       "nbsOsaChannelRxPowerMin": nbsOsaChannelRxPowerMin,
+       "nbsOsaChannelRxPowerMax": nbsOsaChannelRxPowerMax,
+       "nbsOsaChannelOSNROper": nbsOsaChannelOSNROper,
+       "nbsOsaChannelOSNRMin": nbsOsaChannelOSNRMin,
+       "nbsOsaChannelOSNRMax": nbsOsaChannelOSNRMax,
+       "nbsOsaTraps": nbsOsaTraps,
+       "nbsOsaTrapPortChannelAdded": nbsOsaTrapPortChannelAdded,
+       "nbsOsaTrapPortChannelDropped": nbsOsaTrapPortChannelDropped,
+       "nbsOsaTrapPortRxPowerTooLow": nbsOsaTrapPortRxPowerTooLow,
+       "nbsOsaTrapPortRxPowerOK": nbsOsaTrapPortRxPowerOK,
+       "nbsOsaTrapPortRxPowerTooHigh": nbsOsaTrapPortRxPowerTooHigh,
+       "nbsOsaTrapPortOSNRTooLow": nbsOsaTrapPortOSNRTooLow,
+       "nbsOsaTrapPortOSNROk": nbsOsaTrapPortOSNROk,
+       "nbsOsaTrapPortOSNRTooHigh": nbsOsaTrapPortOSNRTooHigh}
+)

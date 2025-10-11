@@ -1,65 +1,579 @@
+# SNMP MIB module (SIAE-IFEXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SIAE-IFEXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/siaemic/SIAE-IFEXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:45:44 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/siaemic/SIAE-IFEXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:13:10 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-AlarmSeverityCode, AlarmStatus = mibBuilder.importSymbols("SIAE-ALARM-MIB", "AlarmSeverityCode", "AlarmStatus")
-siaeMib, = mibBuilder.importSymbols("SIAE-TREE-MIB", "siaeMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-ifext = ModuleIdentity((1, 3, 6, 1, 4, 1, 3373, 1103, 73))
-ifext.setRevisions(('2019-05-29 00:00', '2016-11-02 00:00', '2016-09-14 00:00', '2016-08-05 00:00', '2016-07-13 00:00', '2016-04-18 00:00', '2015-07-21 00:00', '2014-12-02 00:00', '2014-09-26 00:00', '2014-06-05 00:00', '2014-02-21 00:00', '2013-10-28 00:00',))
-if mibBuilder.loadTexts: ifext.setLastUpdated('201611020000Z')
-if mibBuilder.loadTexts: ifext.setOrganization('SIAE MICROELETTRONICA spa')
-ifextMibVersion = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 1), Integer32().clone(1)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifextMibVersion.setStatus('current')
-ifextTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2), )
-if mibBuilder.loadTexts: ifextTable.setStatus('current')
-ifextTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1), ).setIndexNames((0, "SIAE-IFEXT-MIB", "ifextIfIndex"))
-if mibBuilder.loadTexts: ifextTableEntry.setStatus('current')
-ifextIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: ifextIfIndex.setStatus('current')
-ifextLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 31))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifextLabel.setStatus('current')
-ifextAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3), ("loopback", 4), ("loopbackExternal", 5))).clone('down')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifextAdminStatus.setStatus('current')
-ifextPortUsage = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("unused", 0), ("lan", 1), ("radio", 2), ("mgmt", 3), ("stack", 4), ("aux", 5), ("pwe3", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifextPortUsage.setStatus('current')
-ifextMediumType = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("copper", 1), ("fiber", 2), ("combo", 3), ("other", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifextMediumType.setStatus('current')
-ifextMediumSelection = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("copper", 1), ("fiber", 2))).clone('none')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifextMediumSelection.setStatus('current')
-ifextAlarmReportEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2))).clone('enable')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ifextAlarmReportEnable.setStatus('current')
-ifextSfpId = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifextSfpId.setStatus('current')
-ifextCapabilities = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 9), Bits().clone(namedValues=NamedValues(("ifextCapabilityLoop", 0), ("ifextCapability2g5Bps", 1), ("ifextCapabilityMabSensor", 2), ("ifextCapabilityEncrypt", 3), ("ifextCapability10gBps", 4), ("ifextCapabilityIeee1588", 5), ("ifextCapabilityHRLmember", 6), ("ifextCapabilityHRLcarrier", 7), ("ifextCapabilityFixedSpeed", 8), ("ifextCapabilityPortProtection", 9)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifextCapabilities.setStatus('current')
-ifextLosAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 10), AlarmStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifextLosAlarm.setStatus('current')
-ifextRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ifextRowStatus.setStatus('current')
-ifextMaintTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 3), )
-if mibBuilder.loadTexts: ifextMaintTable.setStatus('current')
-ifextMaintTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 3, 1), ).setIndexNames((0, "SIAE-IFEXT-MIB", "ifextIfIndex"))
-if mibBuilder.loadTexts: ifextMaintTableEntry.setStatus('current')
-ifextLineLoop = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("disable", 1), ("enable", 2), ("enableExt", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ifextLineLoop.setStatus('current')
-ifextRmonTable = MibTable((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 4), )
-if mibBuilder.loadTexts: ifextRmonTable.setStatus('current')
-ifextRmonTableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 4, 1), ).setIndexNames((0, "SIAE-IFEXT-MIB", "ifextIfIndex"))
-if mibBuilder.loadTexts: ifextRmonTableEntry.setStatus('current')
-ifextRmonPortSpeedMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("rmonSpeedCurrent", 1), ("rmonSpeedConfigured", 2))).clone('rmonSpeedCurrent')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ifextRmonPortSpeedMode.setStatus('current')
-ifextRmonPortSpeedValue = MibTableColumn((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 4, 1, 2), Integer32().clone(1000)).setUnits('Mbps').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ifextRmonPortSpeedValue.setStatus('current')
-ifextLosAlarmSeverityCode = MibScalar((1, 3, 6, 1, 4, 1, 3373, 1103, 73, 5), AlarmSeverityCode().clone('majorTrapEnable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ifextLosAlarmSeverityCode.setStatus('current')
-mibBuilder.exportSymbols("SIAE-IFEXT-MIB", ifextMibVersion=ifextMibVersion, ifextMaintTable=ifextMaintTable, ifextMediumSelection=ifextMediumSelection, ifextRmonTableEntry=ifextRmonTableEntry, ifextTableEntry=ifextTableEntry, ifextAdminStatus=ifextAdminStatus, ifextRmonPortSpeedValue=ifextRmonPortSpeedValue, ifextLabel=ifextLabel, ifextTable=ifextTable, ifextCapabilities=ifextCapabilities, ifextRmonTable=ifextRmonTable, ifextPortUsage=ifextPortUsage, ifextIfIndex=ifextIfIndex, ifext=ifext, PYSNMP_MODULE_ID=ifext, ifextRmonPortSpeedMode=ifextRmonPortSpeedMode, ifextAlarmReportEnable=ifextAlarmReportEnable, ifextMaintTableEntry=ifextMaintTableEntry, ifextRowStatus=ifextRowStatus, ifextSfpId=ifextSfpId, ifextLineLoop=ifextLineLoop, ifextLosAlarmSeverityCode=ifextLosAlarmSeverityCode, ifextMediumType=ifextMediumType, ifextLosAlarm=ifextLosAlarm)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(AlarmSeverityCode,
+ AlarmStatus) = mibBuilder.importSymbols(
+    "SIAE-ALARM-MIB",
+    "AlarmSeverityCode",
+    "AlarmStatus")
+
+(siaeMib,) = mibBuilder.importSymbols(
+    "SIAE-TREE-MIB",
+    "siaeMib")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ifext = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73)
+)
+if mibBuilder.loadTexts:
+    ifext.setRevisions(
+        ("2019-05-29 00:00",
+         "2016-11-02 00:00",
+         "2016-09-14 00:00",
+         "2016-08-05 00:00",
+         "2016-07-13 00:00",
+         "2016-04-18 00:00",
+         "2015-07-21 00:00",
+         "2014-12-02 00:00",
+         "2014-09-26 00:00",
+         "2014-06-05 00:00",
+         "2014-02-21 00:00",
+         "2013-10-28 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+
+class _IfextMibVersion_Type(Integer32):
+    """Custom type ifextMibVersion based on Integer32"""
+    defaultValue = 1
+
+
+_IfextMibVersion_Type.__name__ = "Integer32"
+_IfextMibVersion_Object = MibScalar
+ifextMibVersion = _IfextMibVersion_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 1),
+    _IfextMibVersion_Type()
+)
+ifextMibVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifextMibVersion.setStatus("current")
+_IfextTable_Object = MibTable
+ifextTable = _IfextTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2)
+)
+if mibBuilder.loadTexts:
+    ifextTable.setStatus("current")
+_IfextTableEntry_Object = MibTableRow
+ifextTableEntry = _IfextTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1)
+)
+ifextTableEntry.setIndexNames(
+    (0, "SIAE-IFEXT-MIB", "ifextIfIndex"),
+)
+if mibBuilder.loadTexts:
+    ifextTableEntry.setStatus("current")
+_IfextIfIndex_Type = InterfaceIndex
+_IfextIfIndex_Object = MibTableColumn
+ifextIfIndex = _IfextIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 1),
+    _IfextIfIndex_Type()
+)
+ifextIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ifextIfIndex.setStatus("current")
+
+
+class _IfextLabel_Type(DisplayString):
+    """Custom type ifextLabel based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 31),
+    )
+
+
+_IfextLabel_Type.__name__ = "DisplayString"
+_IfextLabel_Object = MibTableColumn
+ifextLabel = _IfextLabel_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 2),
+    _IfextLabel_Type()
+)
+ifextLabel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifextLabel.setStatus("current")
+
+
+class _IfextAdminStatus_Type(Integer32):
+    """Custom type ifextAdminStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2),
+          ("testing", 3),
+          ("loopback", 4),
+          ("loopbackExternal", 5))
+    )
+
+
+_IfextAdminStatus_Type.__name__ = "Integer32"
+_IfextAdminStatus_Object = MibTableColumn
+ifextAdminStatus = _IfextAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 3),
+    _IfextAdminStatus_Type()
+)
+ifextAdminStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifextAdminStatus.setStatus("current")
+
+
+class _IfextPortUsage_Type(Integer32):
+    """Custom type ifextPortUsage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unused", 0),
+          ("lan", 1),
+          ("radio", 2),
+          ("mgmt", 3),
+          ("stack", 4),
+          ("aux", 5),
+          ("pwe3", 6))
+    )
+
+
+_IfextPortUsage_Type.__name__ = "Integer32"
+_IfextPortUsage_Object = MibTableColumn
+ifextPortUsage = _IfextPortUsage_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 4),
+    _IfextPortUsage_Type()
+)
+ifextPortUsage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifextPortUsage.setStatus("current")
+
+
+class _IfextMediumType_Type(Integer32):
+    """Custom type ifextMediumType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("copper", 1),
+          ("fiber", 2),
+          ("combo", 3),
+          ("other", 4))
+    )
+
+
+_IfextMediumType_Type.__name__ = "Integer32"
+_IfextMediumType_Object = MibTableColumn
+ifextMediumType = _IfextMediumType_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 5),
+    _IfextMediumType_Type()
+)
+ifextMediumType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifextMediumType.setStatus("current")
+
+
+class _IfextMediumSelection_Type(Integer32):
+    """Custom type ifextMediumSelection based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("copper", 1),
+          ("fiber", 2))
+    )
+
+
+_IfextMediumSelection_Type.__name__ = "Integer32"
+_IfextMediumSelection_Object = MibTableColumn
+ifextMediumSelection = _IfextMediumSelection_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 6),
+    _IfextMediumSelection_Type()
+)
+ifextMediumSelection.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifextMediumSelection.setStatus("current")
+
+
+class _IfextAlarmReportEnable_Type(Integer32):
+    """Custom type ifextAlarmReportEnable based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 2))
+    )
+
+
+_IfextAlarmReportEnable_Type.__name__ = "Integer32"
+_IfextAlarmReportEnable_Object = MibTableColumn
+ifextAlarmReportEnable = _IfextAlarmReportEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 7),
+    _IfextAlarmReportEnable_Type()
+)
+ifextAlarmReportEnable.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ifextAlarmReportEnable.setStatus("current")
+_IfextSfpId_Type = Integer32
+_IfextSfpId_Object = MibTableColumn
+ifextSfpId = _IfextSfpId_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 8),
+    _IfextSfpId_Type()
+)
+ifextSfpId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifextSfpId.setStatus("current")
+
+
+class _IfextCapabilities_Type(Bits):
+    """Custom type ifextCapabilities based on Bits"""
+    namedValues = NamedValues(
+        *(("ifextCapabilityLoop", 0),
+          ("ifextCapability2g5Bps", 1),
+          ("ifextCapabilityMabSensor", 2),
+          ("ifextCapabilityEncrypt", 3),
+          ("ifextCapability10gBps", 4),
+          ("ifextCapabilityIeee1588", 5),
+          ("ifextCapabilityHRLmember", 6),
+          ("ifextCapabilityHRLcarrier", 7),
+          ("ifextCapabilityFixedSpeed", 8),
+          ("ifextCapabilityPortProtection", 9))
+    )
+
+_IfextCapabilities_Type.__name__ = "Bits"
+_IfextCapabilities_Object = MibTableColumn
+ifextCapabilities = _IfextCapabilities_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 9),
+    _IfextCapabilities_Type()
+)
+ifextCapabilities.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifextCapabilities.setStatus("current")
+_IfextLosAlarm_Type = AlarmStatus
+_IfextLosAlarm_Object = MibTableColumn
+ifextLosAlarm = _IfextLosAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 10),
+    _IfextLosAlarm_Type()
+)
+ifextLosAlarm.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifextLosAlarm.setStatus("current")
+_IfextRowStatus_Type = RowStatus
+_IfextRowStatus_Object = MibTableColumn
+ifextRowStatus = _IfextRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 2, 1, 11),
+    _IfextRowStatus_Type()
+)
+ifextRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ifextRowStatus.setStatus("current")
+_IfextMaintTable_Object = MibTable
+ifextMaintTable = _IfextMaintTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 3)
+)
+if mibBuilder.loadTexts:
+    ifextMaintTable.setStatus("current")
+_IfextMaintTableEntry_Object = MibTableRow
+ifextMaintTableEntry = _IfextMaintTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 3, 1)
+)
+ifextMaintTableEntry.setIndexNames(
+    (0, "SIAE-IFEXT-MIB", "ifextIfIndex"),
+)
+if mibBuilder.loadTexts:
+    ifextMaintTableEntry.setStatus("current")
+
+
+class _IfextLineLoop_Type(Integer32):
+    """Custom type ifextLineLoop based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 1),
+          ("enable", 2),
+          ("enableExt", 3))
+    )
+
+
+_IfextLineLoop_Type.__name__ = "Integer32"
+_IfextLineLoop_Object = MibTableColumn
+ifextLineLoop = _IfextLineLoop_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 3, 1, 1),
+    _IfextLineLoop_Type()
+)
+ifextLineLoop.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ifextLineLoop.setStatus("current")
+_IfextRmonTable_Object = MibTable
+ifextRmonTable = _IfextRmonTable_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 4)
+)
+if mibBuilder.loadTexts:
+    ifextRmonTable.setStatus("current")
+_IfextRmonTableEntry_Object = MibTableRow
+ifextRmonTableEntry = _IfextRmonTableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 4, 1)
+)
+ifextRmonTableEntry.setIndexNames(
+    (0, "SIAE-IFEXT-MIB", "ifextIfIndex"),
+)
+if mibBuilder.loadTexts:
+    ifextRmonTableEntry.setStatus("current")
+
+
+class _IfextRmonPortSpeedMode_Type(Integer32):
+    """Custom type ifextRmonPortSpeedMode based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("rmonSpeedCurrent", 1),
+          ("rmonSpeedConfigured", 2))
+    )
+
+
+_IfextRmonPortSpeedMode_Type.__name__ = "Integer32"
+_IfextRmonPortSpeedMode_Object = MibTableColumn
+ifextRmonPortSpeedMode = _IfextRmonPortSpeedMode_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 4, 1, 1),
+    _IfextRmonPortSpeedMode_Type()
+)
+ifextRmonPortSpeedMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ifextRmonPortSpeedMode.setStatus("current")
+
+
+class _IfextRmonPortSpeedValue_Type(Integer32):
+    """Custom type ifextRmonPortSpeedValue based on Integer32"""
+    defaultValue = 1000
+
+
+_IfextRmonPortSpeedValue_Type.__name__ = "Integer32"
+_IfextRmonPortSpeedValue_Object = MibTableColumn
+ifextRmonPortSpeedValue = _IfextRmonPortSpeedValue_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 4, 1, 2),
+    _IfextRmonPortSpeedValue_Type()
+)
+ifextRmonPortSpeedValue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ifextRmonPortSpeedValue.setStatus("current")
+if mibBuilder.loadTexts:
+    ifextRmonPortSpeedValue.setUnits("Mbps")
+
+
+class _IfextLosAlarmSeverityCode_Type(AlarmSeverityCode):
+    """Custom type ifextLosAlarmSeverityCode based on AlarmSeverityCode"""
+    defaultValue = 5
+
+
+_IfextLosAlarmSeverityCode_Type.__name__ = "AlarmSeverityCode"
+_IfextLosAlarmSeverityCode_Object = MibScalar
+ifextLosAlarmSeverityCode = _IfextLosAlarmSeverityCode_Object(
+    (1, 3, 6, 1, 4, 1, 3373, 1103, 73, 5),
+    _IfextLosAlarmSeverityCode_Type()
+)
+ifextLosAlarmSeverityCode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ifextLosAlarmSeverityCode.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SIAE-IFEXT-MIB",
+    **{"ifext": ifext,
+       "ifextMibVersion": ifextMibVersion,
+       "ifextTable": ifextTable,
+       "ifextTableEntry": ifextTableEntry,
+       "ifextIfIndex": ifextIfIndex,
+       "ifextLabel": ifextLabel,
+       "ifextAdminStatus": ifextAdminStatus,
+       "ifextPortUsage": ifextPortUsage,
+       "ifextMediumType": ifextMediumType,
+       "ifextMediumSelection": ifextMediumSelection,
+       "ifextAlarmReportEnable": ifextAlarmReportEnable,
+       "ifextSfpId": ifextSfpId,
+       "ifextCapabilities": ifextCapabilities,
+       "ifextLosAlarm": ifextLosAlarm,
+       "ifextRowStatus": ifextRowStatus,
+       "ifextMaintTable": ifextMaintTable,
+       "ifextMaintTableEntry": ifextMaintTableEntry,
+       "ifextLineLoop": ifextLineLoop,
+       "ifextRmonTable": ifextRmonTable,
+       "ifextRmonTableEntry": ifextRmonTableEntry,
+       "ifextRmonPortSpeedMode": ifextRmonPortSpeedMode,
+       "ifextRmonPortSpeedValue": ifextRmonPortSpeedValue,
+       "ifextLosAlarmSeverityCode": ifextLosAlarmSeverityCode}
+)

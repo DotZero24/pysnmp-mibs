@@ -1,32 +1,215 @@
+# SNMP MIB module (STORMSHIELD-AUTOUPDATE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module STORMSHIELD-AUTOUPDATE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/stormshield/STORMSHIELD-AUTOUPDATE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:37 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/stormshield/STORMSHIELD-AUTOUPDATE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:06:35 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-stormshieldMIB, = mibBuilder.importSymbols("STORMSHIELD-SMI-MIB", "stormshieldMIB")
-snsAutoupdate = ModuleIdentity((1, 3, 6, 1, 4, 1, 11256, 1, 9))
-snsAutoupdate.setRevisions(('2017-02-20 00:00',))
-if mibBuilder.loadTexts: snsAutoupdate.setLastUpdated('201702200000Z')
-if mibBuilder.loadTexts: snsAutoupdate.setOrganization('Stormshield')
-snsAutoupdateTable = MibTable((1, 3, 6, 1, 4, 1, 11256, 1, 9, 1), )
-if mibBuilder.loadTexts: snsAutoupdateTable.setStatus('current')
-snsAutoupdateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11256, 1, 9, 1, 1), ).setIndexNames((0, "STORMSHIELD-AUTOUPDATE-MIB", "snsAutoupdateIndex"))
-if mibBuilder.loadTexts: snsAutoupdateEntry.setStatus('current')
-snsAutoupdateIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 9, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsAutoupdateIndex.setStatus('current')
-snsAutoupdateSubsys = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 9, 1, 1, 2), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsAutoupdateSubsys.setStatus('current')
-snsAutoupdateState = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 9, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsAutoupdateState.setStatus('current')
-snsAutoupdateLast = MibTableColumn((1, 3, 6, 1, 4, 1, 11256, 1, 9, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snsAutoupdateLast.setStatus('current')
-mibBuilder.exportSymbols("STORMSHIELD-AUTOUPDATE-MIB", snsAutoupdateTable=snsAutoupdateTable, snsAutoupdateLast=snsAutoupdateLast, PYSNMP_MODULE_ID=snsAutoupdate, snsAutoupdate=snsAutoupdate, snsAutoupdateEntry=snsAutoupdateEntry, snsAutoupdateSubsys=snsAutoupdateSubsys, snsAutoupdateState=snsAutoupdateState, snsAutoupdateIndex=snsAutoupdateIndex)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(stormshieldMIB,) = mibBuilder.importSymbols(
+    "STORMSHIELD-SMI-MIB",
+    "stormshieldMIB")
+
+
+# MODULE-IDENTITY
+
+snsAutoupdate = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 9)
+)
+if mibBuilder.loadTexts:
+    snsAutoupdate.setRevisions(
+        ("2017-02-20 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SnsAutoupdateTable_Object = MibTable
+snsAutoupdateTable = _SnsAutoupdateTable_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 9, 1)
+)
+if mibBuilder.loadTexts:
+    snsAutoupdateTable.setStatus("current")
+_SnsAutoupdateEntry_Object = MibTableRow
+snsAutoupdateEntry = _SnsAutoupdateEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 9, 1, 1)
+)
+snsAutoupdateEntry.setIndexNames(
+    (0, "STORMSHIELD-AUTOUPDATE-MIB", "snsAutoupdateIndex"),
+)
+if mibBuilder.loadTexts:
+    snsAutoupdateEntry.setStatus("current")
+
+
+class _SnsAutoupdateIndex_Type(Integer32):
+    """Custom type snsAutoupdateIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_SnsAutoupdateIndex_Type.__name__ = "Integer32"
+_SnsAutoupdateIndex_Object = MibTableColumn
+snsAutoupdateIndex = _SnsAutoupdateIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 9, 1, 1, 1),
+    _SnsAutoupdateIndex_Type()
+)
+snsAutoupdateIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsAutoupdateIndex.setStatus("current")
+_SnsAutoupdateSubsys_Type = SnmpAdminString
+_SnsAutoupdateSubsys_Object = MibTableColumn
+snsAutoupdateSubsys = _SnsAutoupdateSubsys_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 9, 1, 1, 2),
+    _SnsAutoupdateSubsys_Type()
+)
+snsAutoupdateSubsys.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsAutoupdateSubsys.setStatus("current")
+_SnsAutoupdateState_Type = DisplayString
+_SnsAutoupdateState_Object = MibTableColumn
+snsAutoupdateState = _SnsAutoupdateState_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 9, 1, 1, 3),
+    _SnsAutoupdateState_Type()
+)
+snsAutoupdateState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsAutoupdateState.setStatus("current")
+_SnsAutoupdateLast_Type = DisplayString
+_SnsAutoupdateLast_Object = MibTableColumn
+snsAutoupdateLast = _SnsAutoupdateLast_Object(
+    (1, 3, 6, 1, 4, 1, 11256, 1, 9, 1, 1, 4),
+    _SnsAutoupdateLast_Type()
+)
+snsAutoupdateLast.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snsAutoupdateLast.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "STORMSHIELD-AUTOUPDATE-MIB",
+    **{"snsAutoupdate": snsAutoupdate,
+       "snsAutoupdateTable": snsAutoupdateTable,
+       "snsAutoupdateEntry": snsAutoupdateEntry,
+       "snsAutoupdateIndex": snsAutoupdateIndex,
+       "snsAutoupdateSubsys": snsAutoupdateSubsys,
+       "snsAutoupdateState": snsAutoupdateState,
+       "snsAutoupdateLast": snsAutoupdateLast}
+)

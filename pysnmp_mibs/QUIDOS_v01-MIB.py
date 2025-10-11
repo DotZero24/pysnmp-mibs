@@ -1,76 +1,503 @@
+# SNMP MIB module (QUIDOS_v01-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module QUIDOS_v01-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/papouch/QUIDOS_v01-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:50:28 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/papouch/QUIDOS_v01-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:25:20 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-papouchProjekt = MibIdentifier((1, 3, 6, 1, 4, 1, 18248))
-quidos = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 16))
-quido_var = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 16, 1))
-table_in = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 16, 2))
-table_out = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 16, 3))
-table_term = MibIdentifier((1, 3, 6, 1, 4, 1, 18248, 16, 4))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class PositiveInteger(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 65535)
+    """Custom type PositiveInteger based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+
+
 
 class OnOff(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("off", 0), ("on", 1))
+    """Custom type OnOff based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+
+
 
 class StatCit(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
-    namedValues = NamedValues(("none", 0), ("falling", 1), ("rising", 2), ("both", 3))
+    """Custom type StatCit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("falling", 1),
+          ("rising", 2),
+          ("both", 3))
+    )
 
-temperatureReading = MibScalar((1, 3, 6, 1, 4, 1, 18248, 16, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: temperatureReading.setStatus('current')
-temperature_S_Reading = MibScalar((1, 3, 6, 1, 4, 1, 18248, 16, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: temperature_S_Reading.setStatus('current')
-user_name = MibScalar((1, 3, 6, 1, 4, 1, 18248, 16, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: user_name.setStatus('current')
-device_msg = MibScalar((1, 3, 6, 1, 4, 1, 18248, 16, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: device_msg.setStatus('current')
-temp_msg = NotificationType((1, 3, 6, 1, 4, 1, 18248, 16, 1) + (0,1)).setObjects(("QUIDOS_v01-MIB", "user_name"), ("QUIDOS_v01-MIB", "device_msg"))
-inTable = MibTable((1, 3, 6, 1, 4, 1, 18248, 16, 2, 1), )
-if mibBuilder.loadTexts: inTable.setStatus('current')
-inEntry = MibTableRow((1, 3, 6, 1, 4, 1, 18248, 16, 2, 1, 1), ).setIndexNames((0, "QUIDOS_v01-MIB", "index"))
-if mibBuilder.loadTexts: inEntry.setStatus('current')
-pysmi_in = MibScalar((1, 3, 6, 1, 4, 1, 18248, 16, 2, 1, 1, 1), OnOff()).setLabel("in").setMaxAccess("readonly")
-if mibBuilder.loadTexts: pysmi_in.setStatus('current')
-in_name = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 2, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: in_name.setStatus('current')
-citrwS = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 2, 1, 1, 3), StatCit()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: citrwS.setStatus('current')
-citrw = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: citrw.setStatus('current')
-outTable = MibTable((1, 3, 6, 1, 4, 1, 18248, 16, 3, 1), )
-if mibBuilder.loadTexts: outTable.setStatus('current')
-outEntry = MibTableRow((1, 3, 6, 1, 4, 1, 18248, 16, 3, 1, 1), ).setIndexNames((0, "QUIDOS_v01-MIB", "index"))
-if mibBuilder.loadTexts: outEntry.setStatus('current')
-out = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 3, 1, 1, 1), OnOff()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: out.setStatus('current')
-out_name = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 3, 1, 1, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: out_name.setStatus('current')
-outTwr = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 3, 1, 1, 3), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: outTwr.setStatus('current')
-termTable = MibTable((1, 3, 6, 1, 4, 1, 18248, 16, 4, 1), )
-if mibBuilder.loadTexts: termTable.setStatus('current')
-termEntry = MibTableRow((1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1), ).setIndexNames((0, "QUIDOS_v01-MIB", "index"))
-if mibBuilder.loadTexts: termEntry.setStatus('current')
-modeTerm = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 6))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: modeTerm.setStatus('current')
-mezHi = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-550, 1250))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mezHi.setStatus('current')
-mezLo = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-550, 1250))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mezLo.setStatus('current')
-time = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: time.setStatus('current')
-err = MibTableColumn((1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: err.setStatus('current')
-mibBuilder.exportSymbols("QUIDOS_v01-MIB", outEntry=outEntry, StatCit=StatCit, table_in=table_in, quidos=quidos, outTwr=outTwr, PositiveInteger=PositiveInteger, device_msg=device_msg, in_name=in_name, temp_msg=temp_msg, temperatureReading=temperatureReading, citrwS=citrwS, modeTerm=modeTerm, time=time, out=out, papouchProjekt=papouchProjekt, user_name=user_name, inTable=inTable, inEntry=inEntry, termTable=termTable, outTable=outTable, termEntry=termEntry, citrw=citrw, mezHi=mezHi, temperature_S_Reading=temperature_S_Reading, quido_var=quido_var, pysmi_in=pysmi_in, table_term=table_term, mezLo=mezLo, err=err, out_name=out_name, OnOff=OnOff, table_out=table_out)
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PapouchProjekt_ObjectIdentity = ObjectIdentity
+papouchProjekt = _PapouchProjekt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18248)
+)
+_Quidos_ObjectIdentity = ObjectIdentity
+quidos = _Quidos_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18248, 16)
+)
+_Quido_var_ObjectIdentity = ObjectIdentity
+quido_var = _Quido_var_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 1)
+)
+_TemperatureReading_Type = Integer32
+_TemperatureReading_Object = MibScalar
+temperatureReading = _TemperatureReading_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 1, 1),
+    _TemperatureReading_Type()
+)
+temperatureReading.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    temperatureReading.setStatus("current")
+_Temperature_S_Reading_Type = DisplayString
+_Temperature_S_Reading_Object = MibScalar
+temperature_S_Reading = _Temperature_S_Reading_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 1, 2),
+    _Temperature_S_Reading_Type()
+)
+temperature_S_Reading.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    temperature_S_Reading.setStatus("current")
+_User_name_Type = DisplayString
+_User_name_Object = MibScalar
+user_name = _User_name_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 1, 3),
+    _User_name_Type()
+)
+user_name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    user_name.setStatus("current")
+_Device_msg_Type = DisplayString
+_Device_msg_Object = MibScalar
+device_msg = _Device_msg_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 1, 4),
+    _Device_msg_Type()
+)
+device_msg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    device_msg.setStatus("current")
+_Table_in_ObjectIdentity = ObjectIdentity
+table_in = _Table_in_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 2)
+)
+_InTable_Object = MibTable
+inTable = _InTable_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 2, 1)
+)
+if mibBuilder.loadTexts:
+    inTable.setStatus("current")
+_InEntry_Object = MibTableRow
+inEntry = _InEntry_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 2, 1, 1)
+)
+inEntry.setIndexNames(
+    (0, "QUIDOS_v01-MIB", "index"),
+)
+if mibBuilder.loadTexts:
+    inEntry.setStatus("current")
+__pysmi_in_Type = OnOff
+__pysmi_in_Object = MibTableColumn
+_pysmi_in = __pysmi_in_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 2, 1, 1, 1),
+    __pysmi_in_Type()
+)
+_pysmi_in.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    _pysmi_in.setStatus("current")
+_In_name_Type = DisplayString
+_In_name_Object = MibTableColumn
+in_name = _In_name_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 2, 1, 1, 2),
+    _In_name_Type()
+)
+in_name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    in_name.setStatus("current")
+_CitrwS_Type = StatCit
+_CitrwS_Object = MibTableColumn
+citrwS = _CitrwS_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 2, 1, 1, 3),
+    _CitrwS_Type()
+)
+citrwS.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    citrwS.setStatus("current")
+
+
+class _Citrw_Type(Integer32):
+    """Custom type citrw based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_Citrw_Type.__name__ = "Integer32"
+_Citrw_Object = MibTableColumn
+citrw = _Citrw_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 2, 1, 1, 4),
+    _Citrw_Type()
+)
+citrw.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    citrw.setStatus("current")
+_Table_out_ObjectIdentity = ObjectIdentity
+table_out = _Table_out_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 3)
+)
+_OutTable_Object = MibTable
+outTable = _OutTable_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 3, 1)
+)
+if mibBuilder.loadTexts:
+    outTable.setStatus("current")
+_OutEntry_Object = MibTableRow
+outEntry = _OutEntry_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 3, 1, 1)
+)
+outEntry.setIndexNames(
+    (0, "QUIDOS_v01-MIB", "index"),
+)
+if mibBuilder.loadTexts:
+    outEntry.setStatus("current")
+_Out_Type = OnOff
+_Out_Object = MibTableColumn
+out = _Out_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 3, 1, 1, 1),
+    _Out_Type()
+)
+out.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    out.setStatus("current")
+_Out_name_Type = DisplayString
+_Out_name_Object = MibTableColumn
+out_name = _Out_name_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 3, 1, 1, 2),
+    _Out_name_Type()
+)
+out_name.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    out_name.setStatus("current")
+_OutTwr_Type = Integer32
+_OutTwr_Object = MibTableColumn
+outTwr = _OutTwr_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 3, 1, 1, 3),
+    _OutTwr_Type()
+)
+outTwr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    outTwr.setStatus("current")
+_Table_term_ObjectIdentity = ObjectIdentity
+table_term = _Table_term_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 4)
+)
+_TermTable_Object = MibTable
+termTable = _TermTable_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 4, 1)
+)
+if mibBuilder.loadTexts:
+    termTable.setStatus("current")
+_TermEntry_Object = MibTableRow
+termEntry = _TermEntry_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1)
+)
+termEntry.setIndexNames(
+    (0, "QUIDOS_v01-MIB", "index"),
+)
+if mibBuilder.loadTexts:
+    termEntry.setStatus("current")
+
+
+class _ModeTerm_Type(Integer32):
+    """Custom type modeTerm based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 6),
+    )
+
+
+_ModeTerm_Type.__name__ = "Integer32"
+_ModeTerm_Object = MibTableColumn
+modeTerm = _ModeTerm_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 1),
+    _ModeTerm_Type()
+)
+modeTerm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    modeTerm.setStatus("current")
+
+
+class _MezHi_Type(Integer32):
+    """Custom type mezHi based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-550, 1250),
+    )
+
+
+_MezHi_Type.__name__ = "Integer32"
+_MezHi_Object = MibTableColumn
+mezHi = _MezHi_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 2),
+    _MezHi_Type()
+)
+mezHi.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mezHi.setStatus("current")
+
+
+class _MezLo_Type(Integer32):
+    """Custom type mezLo based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-550, 1250),
+    )
+
+
+_MezLo_Type.__name__ = "Integer32"
+_MezLo_Object = MibTableColumn
+mezLo = _MezLo_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 3),
+    _MezLo_Type()
+)
+mezLo.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mezLo.setStatus("current")
+
+
+class _Time_Type(Integer32):
+    """Custom type time based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_Time_Type.__name__ = "Integer32"
+_Time_Object = MibTableColumn
+time = _Time_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 4),
+    _Time_Type()
+)
+time.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    time.setStatus("current")
+
+
+class _Err_Type(Integer32):
+    """Custom type err based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2),
+    )
+
+
+_Err_Type.__name__ = "Integer32"
+_Err_Object = MibTableColumn
+err = _Err_Object(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 4, 1, 1, 5),
+    _Err_Type()
+)
+err.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    err.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+temp_msg = NotificationType(
+    (1, 3, 6, 1, 4, 1, 18248, 16, 1, 0, 1)
+)
+temp_msg.setObjects(
+      *(("QUIDOS_v01-MIB", "user_name"),
+        ("QUIDOS_v01-MIB", "device_msg"))
+)
+if mibBuilder.loadTexts:
+    temp_msg.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "QUIDOS_v01-MIB",
+    **{"PositiveInteger": PositiveInteger,
+       "OnOff": OnOff,
+       "StatCit": StatCit,
+       "papouchProjekt": papouchProjekt,
+       "quidos": quidos,
+       "quido_var": quido_var,
+       "temp_msg": temp_msg,
+       "temperatureReading": temperatureReading,
+       "temperature_S_Reading": temperature_S_Reading,
+       "user_name": user_name,
+       "device_msg": device_msg,
+       "table_in": table_in,
+       "inTable": inTable,
+       "inEntry": inEntry,
+       "in": _pysmi_in,
+       "in_name": in_name,
+       "citrwS": citrwS,
+       "citrw": citrw,
+       "table_out": table_out,
+       "outTable": outTable,
+       "outEntry": outEntry,
+       "out": out,
+       "out_name": out_name,
+       "outTwr": outTwr,
+       "table_term": table_term,
+       "termTable": termTable,
+       "termEntry": termEntry,
+       "modeTerm": modeTerm,
+       "mezHi": mezHi,
+       "mezLo": mezLo,
+       "time": time,
+       "err": err}
+)

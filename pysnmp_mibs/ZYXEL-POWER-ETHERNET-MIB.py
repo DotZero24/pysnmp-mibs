@@ -1,113 +1,791 @@
+# SNMP MIB module (ZYXEL-POWER-ETHERNET-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZYXEL-POWER-ETHERNET-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zyxel/ZYXEL-POWER-ETHERNET-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:03:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zyxel/ZYXEL-POWER-ETHERNET-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:02:03 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dot1dBasePort, = mibBuilder.importSymbols("BRIDGE-MIB", "dot1dBasePort")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-esMgmt, = mibBuilder.importSymbols("ZYXEL-ES-SMI", "esMgmt")
-zyxelPoe = ModuleIdentity((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59))
-if mibBuilder.loadTexts: zyxelPoe.setLastUpdated('201207010000Z')
-if mibBuilder.loadTexts: zyxelPoe.setOrganization('Enterprise Solution ZyXEL')
-zyxelPoeSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1))
-zyxelPoeStatus = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2))
-zyxelPoeTrapInfoObject = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 3))
-zyxelPoeNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4))
-zyxelPoeAutoPdRecoverySetup = MibIdentifier((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5))
-zyPoeMode = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("consumption", 0), ("classification", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeMode.setStatus('current')
-zyxelPoePsePortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2), )
-if mibBuilder.loadTexts: zyxelPoePsePortTable.setStatus('current')
-zyxelPoePsePortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
-if mibBuilder.loadTexts: zyxelPoePsePortEntry.setStatus('current')
-zyPoePsePortMaxPower = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoePsePortMaxPower.setStatus('current')
-zyPoePsePowerUp = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("ieee802dot3af", 0), ("legacy", 1), ("preIeee802dot3at", 2), ("ieee802dot3at", 3), ("ieee802dot3bt", 4), ("preIeee802dot3bt", 5), ("forceIeee802dot3at", 6)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoePsePowerUp.setStatus('current')
-zyPoePsePortTimeRange = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2, 1, 3), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoePsePortTimeRange.setStatus('current')
-zyPoePseWideRangeDetection = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2, 1, 4), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoePseWideRangeDetection.setStatus('current')
-zyPoePreAllocate = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 3), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoePreAllocate.setStatus('current')
-zyPoeDualDetection = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 4), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeDualDetection.setStatus('current')
-zyPoePowerSequenceDelay = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 5), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoePowerSequenceDelay.setStatus('current')
-zyxelPoePsePortTimeRangeTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 6), )
-if mibBuilder.loadTexts: zyxelPoePsePortTimeRangeTable.setStatus('current')
-zyxelPoePsePortTimeRangeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 6, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"), (0, "ZYXEL-POWER-ETHERNET-MIB", "zyPoePsePortTimeRangeName"))
-if mibBuilder.loadTexts: zyxelPoePsePortTimeRangeEntry.setStatus('current')
-zyPoePsePortTimeRangeName = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 6, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyPoePsePortTimeRangeName.setStatus('current')
-zyPoePsePortTimeRangeRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 6, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: zyPoePsePortTimeRangeRowStatus.setStatus('current')
-zyPoeContinuousPoE = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 7), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeContinuousPoE.setStatus('current')
-zyxelPoePsePortInfoTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2, 1), )
-if mibBuilder.loadTexts: zyxelPoePsePortInfoTable.setStatus('current')
-zyxelPoePsePortInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2, 1, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
-if mibBuilder.loadTexts: zyxelPoePsePortInfoEntry.setStatus('current')
-zyPoePsePortInfoPowerConsumption = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyPoePsePortInfoPowerConsumption.setStatus('current')
-zyPoePsePortTimeRangeState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("in", 1), ("out", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyPoePsePortTimeRangeState.setStatus('current')
-zyPoePsePortTimeRangeInProfile = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zyPoePsePortTimeRangeInProfile.setStatus('current')
-zyPoeTrapPsePowerSupplyFailedReason = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))).clone(namedValues=NamedValues(("internalPowerSupplyForPoeFailed", 0), ("rpsForPoeFailed", 1), ("rpsFanFailed", 2), ("rpsOverTemperature", 3))))
-if mibBuilder.loadTexts: zyPoeTrapPsePowerSupplyFailedReason.setStatus('current')
-zyPoePowerPortOverload = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 1)).setObjects(("IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: zyPoePowerPortOverload.setStatus('current')
-zyPoePowerPortShortCircuit = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 2)).setObjects(("IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: zyPoePowerPortShortCircuit.setStatus('current')
-zyPoePowerPortOverSystemBudget = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 3)).setObjects(("IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: zyPoePowerPortOverSystemBudget.setStatus('current')
-zyPoePsePowerSupplyFailed = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 4)).setObjects(("ZYXEL-POWER-ETHERNET-MIB", "zyPoeTrapPsePowerSupplyFailedReason"))
-if mibBuilder.loadTexts: zyPoePsePowerSupplyFailed.setStatus('current')
-zyPoePowerPortOverloadRecovered = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 5)).setObjects(("IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: zyPoePowerPortOverloadRecovered.setStatus('current')
-zyPoePowerPortShortCircuitRecovered = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 6)).setObjects(("IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: zyPoePowerPortShortCircuitRecovered.setStatus('current')
-zyPoePowerPortOverSystemBudgetRecovered = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 7)).setObjects(("IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: zyPoePowerPortOverSystemBudgetRecovered.setStatus('current')
-zyPoeAutoPdRecoveryAlarm = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 8)).setObjects(("IF-MIB", "ifIndex"), ("ZYXEL-POWER-ETHERNET-MIB", "zyPoeAutoPdRecoveryPortMode"))
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryAlarm.setStatus('current')
-zyPoePowerPortOverStandard = NotificationType((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 9)).setObjects(("IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: zyPoePowerPortOverStandard.setStatus('current')
-zyPoeAutoPdRecoveryState = MibScalar((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 1), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryState.setStatus('current')
-zyxelPoeAutoPdRecoveryPortTable = MibTable((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2), )
-if mibBuilder.loadTexts: zyxelPoeAutoPdRecoveryPortTable.setStatus('current')
-zyxelPoeAutoPdRecoveryPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1), ).setIndexNames((0, "BRIDGE-MIB", "dot1dBasePort"))
-if mibBuilder.loadTexts: zyxelPoeAutoPdRecoveryPortEntry.setStatus('current')
-zyPoeAutoPdRecoveryPortState = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryPortState.setStatus('current')
-zyPoeAutoPdRecoveryPortMode = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("lldp", 1), ("ping", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryPortMode.setStatus('current')
-zyPoeAutoPdRecoveryPortIpAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 3), InetAddressType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryPortIpAddressType.setStatus('current')
-zyPoeAutoPdRecoveryPortIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 4), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryPortIpAddress.setStatus('current')
-zyPoeAutoPdRecoveryPollingInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 300))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryPollingInterval.setStatus('current')
-zyPoeAutoPdRecoveryPortPollingCount = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(2, 5))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryPortPollingCount.setStatus('current')
-zyPoeAutoPdRecoveryPortAction = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("reboot-alarm", 1), ("alarm", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryPortAction.setStatus('current')
-zyPoeAutoPdRecoveryPortResumePollingInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(60, 800))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryPortResumePollingInterval.setStatus('current')
-zyPoeAutoPdRecoveryPortPdRebootCount = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 5))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryPortPdRebootCount.setStatus('current')
-zyPoeAutoPdRecoveryPortResumePowerInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 120))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zyPoeAutoPdRecoveryPortResumePowerInterval.setStatus('current')
-mibBuilder.exportSymbols("ZYXEL-POWER-ETHERNET-MIB", zyPoePowerPortShortCircuitRecovered=zyPoePowerPortShortCircuitRecovered, zyPoePsePortTimeRangeState=zyPoePsePortTimeRangeState, zyPoeAutoPdRecoveryPortAction=zyPoeAutoPdRecoveryPortAction, zyPoePowerPortShortCircuit=zyPoePowerPortShortCircuit, zyPoeContinuousPoE=zyPoeContinuousPoE, zyPoePowerPortOverloadRecovered=zyPoePowerPortOverloadRecovered, zyPoePsePortTimeRangeRowStatus=zyPoePsePortTimeRangeRowStatus, zyPoePsePowerSupplyFailed=zyPoePsePowerSupplyFailed, zyPoeDualDetection=zyPoeDualDetection, PYSNMP_MODULE_ID=zyxelPoe, zyxelPoePsePortTable=zyxelPoePsePortTable, zyxelPoe=zyxelPoe, zyPoePowerPortOverSystemBudget=zyPoePowerPortOverSystemBudget, zyPoePsePortTimeRange=zyPoePsePortTimeRange, zyPoePsePortInfoPowerConsumption=zyPoePsePortInfoPowerConsumption, zyPoeAutoPdRecoveryPortIpAddressType=zyPoeAutoPdRecoveryPortIpAddressType, zyxelPoeAutoPdRecoverySetup=zyxelPoeAutoPdRecoverySetup, zyxelPoePsePortTimeRangeEntry=zyxelPoePsePortTimeRangeEntry, zyxelPoePsePortTimeRangeTable=zyxelPoePsePortTimeRangeTable, zyPoeTrapPsePowerSupplyFailedReason=zyPoeTrapPsePowerSupplyFailedReason, zyPoeAutoPdRecoveryPortState=zyPoeAutoPdRecoveryPortState, zyxelPoeNotifications=zyxelPoeNotifications, zyPoeAutoPdRecoveryPortPollingCount=zyPoeAutoPdRecoveryPortPollingCount, zyxelPoeAutoPdRecoveryPortTable=zyxelPoeAutoPdRecoveryPortTable, zyPoePowerPortOverStandard=zyPoePowerPortOverStandard, zyPoeAutoPdRecoveryState=zyPoeAutoPdRecoveryState, zyPoeMode=zyPoeMode, zyPoePowerPortOverSystemBudgetRecovered=zyPoePowerPortOverSystemBudgetRecovered, zyPoeAutoPdRecoveryPollingInterval=zyPoeAutoPdRecoveryPollingInterval, zyPoeAutoPdRecoveryPortIpAddress=zyPoeAutoPdRecoveryPortIpAddress, zyPoePreAllocate=zyPoePreAllocate, zyPoeAutoPdRecoveryPortPdRebootCount=zyPoeAutoPdRecoveryPortPdRebootCount, zyPoePsePowerUp=zyPoePsePowerUp, zyPoeAutoPdRecoveryPortMode=zyPoeAutoPdRecoveryPortMode, zyxelPoeAutoPdRecoveryPortEntry=zyxelPoeAutoPdRecoveryPortEntry, zyPoePseWideRangeDetection=zyPoePseWideRangeDetection, zyPoePowerSequenceDelay=zyPoePowerSequenceDelay, zyPoePsePortMaxPower=zyPoePsePortMaxPower, zyPoePsePortTimeRangeName=zyPoePsePortTimeRangeName, zyxelPoePsePortInfoTable=zyxelPoePsePortInfoTable, zyxelPoeSetup=zyxelPoeSetup, zyPoeAutoPdRecoveryPortResumePollingInterval=zyPoeAutoPdRecoveryPortResumePollingInterval, zyPoeAutoPdRecoveryAlarm=zyPoeAutoPdRecoveryAlarm, zyPoeAutoPdRecoveryPortResumePowerInterval=zyPoeAutoPdRecoveryPortResumePowerInterval, zyPoePowerPortOverload=zyPoePowerPortOverload, zyxelPoeStatus=zyxelPoeStatus, zyxelPoePsePortEntry=zyxelPoePsePortEntry, zyxelPoePsePortInfoEntry=zyxelPoePsePortInfoEntry, zyPoePsePortTimeRangeInProfile=zyPoePsePortTimeRangeInProfile, zyxelPoeTrapInfoObject=zyxelPoeTrapInfoObject)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dot1dBasePort,) = mibBuilder.importSymbols(
+    "BRIDGE-MIB",
+    "dot1dBasePort")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+(esMgmt,) = mibBuilder.importSymbols(
+    "ZYXEL-ES-SMI",
+    "esMgmt")
+
+
+# MODULE-IDENTITY
+
+zyxelPoe = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ZyxelPoeSetup_ObjectIdentity = ObjectIdentity
+zyxelPoeSetup = _ZyxelPoeSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1)
+)
+
+
+class _ZyPoeMode_Type(Integer32):
+    """Custom type zyPoeMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("consumption", 0),
+          ("classification", 1))
+    )
+
+
+_ZyPoeMode_Type.__name__ = "Integer32"
+_ZyPoeMode_Object = MibScalar
+zyPoeMode = _ZyPoeMode_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 1),
+    _ZyPoeMode_Type()
+)
+zyPoeMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeMode.setStatus("current")
+_ZyxelPoePsePortTable_Object = MibTable
+zyxelPoePsePortTable = _ZyxelPoePsePortTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2)
+)
+if mibBuilder.loadTexts:
+    zyxelPoePsePortTable.setStatus("current")
+_ZyxelPoePsePortEntry_Object = MibTableRow
+zyxelPoePsePortEntry = _ZyxelPoePsePortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2, 1)
+)
+zyxelPoePsePortEntry.setIndexNames(
+    (0, "BRIDGE-MIB", "dot1dBasePort"),
+)
+if mibBuilder.loadTexts:
+    zyxelPoePsePortEntry.setStatus("current")
+_ZyPoePsePortMaxPower_Type = Integer32
+_ZyPoePsePortMaxPower_Object = MibTableColumn
+zyPoePsePortMaxPower = _ZyPoePsePortMaxPower_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2, 1, 1),
+    _ZyPoePsePortMaxPower_Type()
+)
+zyPoePsePortMaxPower.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoePsePortMaxPower.setStatus("current")
+
+
+class _ZyPoePsePowerUp_Type(Integer32):
+    """Custom type zyPoePsePowerUp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ieee802dot3af", 0),
+          ("legacy", 1),
+          ("preIeee802dot3at", 2),
+          ("ieee802dot3at", 3),
+          ("ieee802dot3bt", 4),
+          ("preIeee802dot3bt", 5),
+          ("forceIeee802dot3at", 6))
+    )
+
+
+_ZyPoePsePowerUp_Type.__name__ = "Integer32"
+_ZyPoePsePowerUp_Object = MibTableColumn
+zyPoePsePowerUp = _ZyPoePsePowerUp_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2, 1, 2),
+    _ZyPoePsePowerUp_Type()
+)
+zyPoePsePowerUp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoePsePowerUp.setStatus("current")
+_ZyPoePsePortTimeRange_Type = DisplayString
+_ZyPoePsePortTimeRange_Object = MibTableColumn
+zyPoePsePortTimeRange = _ZyPoePsePortTimeRange_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2, 1, 3),
+    _ZyPoePsePortTimeRange_Type()
+)
+zyPoePsePortTimeRange.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoePsePortTimeRange.setStatus("current")
+_ZyPoePseWideRangeDetection_Type = EnabledStatus
+_ZyPoePseWideRangeDetection_Object = MibTableColumn
+zyPoePseWideRangeDetection = _ZyPoePseWideRangeDetection_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 2, 1, 4),
+    _ZyPoePseWideRangeDetection_Type()
+)
+zyPoePseWideRangeDetection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoePseWideRangeDetection.setStatus("current")
+_ZyPoePreAllocate_Type = EnabledStatus
+_ZyPoePreAllocate_Object = MibScalar
+zyPoePreAllocate = _ZyPoePreAllocate_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 3),
+    _ZyPoePreAllocate_Type()
+)
+zyPoePreAllocate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoePreAllocate.setStatus("current")
+_ZyPoeDualDetection_Type = EnabledStatus
+_ZyPoeDualDetection_Object = MibScalar
+zyPoeDualDetection = _ZyPoeDualDetection_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 4),
+    _ZyPoeDualDetection_Type()
+)
+zyPoeDualDetection.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeDualDetection.setStatus("current")
+_ZyPoePowerSequenceDelay_Type = EnabledStatus
+_ZyPoePowerSequenceDelay_Object = MibScalar
+zyPoePowerSequenceDelay = _ZyPoePowerSequenceDelay_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 5),
+    _ZyPoePowerSequenceDelay_Type()
+)
+zyPoePowerSequenceDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoePowerSequenceDelay.setStatus("current")
+_ZyxelPoePsePortTimeRangeTable_Object = MibTable
+zyxelPoePsePortTimeRangeTable = _ZyxelPoePsePortTimeRangeTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 6)
+)
+if mibBuilder.loadTexts:
+    zyxelPoePsePortTimeRangeTable.setStatus("current")
+_ZyxelPoePsePortTimeRangeEntry_Object = MibTableRow
+zyxelPoePsePortTimeRangeEntry = _ZyxelPoePsePortTimeRangeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 6, 1)
+)
+zyxelPoePsePortTimeRangeEntry.setIndexNames(
+    (0, "BRIDGE-MIB", "dot1dBasePort"),
+    (0, "ZYXEL-POWER-ETHERNET-MIB", "zyPoePsePortTimeRangeName"),
+)
+if mibBuilder.loadTexts:
+    zyxelPoePsePortTimeRangeEntry.setStatus("current")
+_ZyPoePsePortTimeRangeName_Type = DisplayString
+_ZyPoePsePortTimeRangeName_Object = MibTableColumn
+zyPoePsePortTimeRangeName = _ZyPoePsePortTimeRangeName_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 6, 1, 1),
+    _ZyPoePsePortTimeRangeName_Type()
+)
+zyPoePsePortTimeRangeName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyPoePsePortTimeRangeName.setStatus("current")
+_ZyPoePsePortTimeRangeRowStatus_Type = RowStatus
+_ZyPoePsePortTimeRangeRowStatus_Object = MibTableColumn
+zyPoePsePortTimeRangeRowStatus = _ZyPoePsePortTimeRangeRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 6, 1, 2),
+    _ZyPoePsePortTimeRangeRowStatus_Type()
+)
+zyPoePsePortTimeRangeRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    zyPoePsePortTimeRangeRowStatus.setStatus("current")
+_ZyPoeContinuousPoE_Type = EnabledStatus
+_ZyPoeContinuousPoE_Object = MibScalar
+zyPoeContinuousPoE = _ZyPoeContinuousPoE_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 1, 7),
+    _ZyPoeContinuousPoE_Type()
+)
+zyPoeContinuousPoE.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeContinuousPoE.setStatus("current")
+_ZyxelPoeStatus_ObjectIdentity = ObjectIdentity
+zyxelPoeStatus = _ZyxelPoeStatus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2)
+)
+_ZyxelPoePsePortInfoTable_Object = MibTable
+zyxelPoePsePortInfoTable = _ZyxelPoePsePortInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2, 1)
+)
+if mibBuilder.loadTexts:
+    zyxelPoePsePortInfoTable.setStatus("current")
+_ZyxelPoePsePortInfoEntry_Object = MibTableRow
+zyxelPoePsePortInfoEntry = _ZyxelPoePsePortInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2, 1, 1)
+)
+zyxelPoePsePortInfoEntry.setIndexNames(
+    (0, "BRIDGE-MIB", "dot1dBasePort"),
+)
+if mibBuilder.loadTexts:
+    zyxelPoePsePortInfoEntry.setStatus("current")
+_ZyPoePsePortInfoPowerConsumption_Type = Integer32
+_ZyPoePsePortInfoPowerConsumption_Object = MibTableColumn
+zyPoePsePortInfoPowerConsumption = _ZyPoePsePortInfoPowerConsumption_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2, 1, 1, 1),
+    _ZyPoePsePortInfoPowerConsumption_Type()
+)
+zyPoePsePortInfoPowerConsumption.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyPoePsePortInfoPowerConsumption.setStatus("current")
+
+
+class _ZyPoePsePortTimeRangeState_Type(Integer32):
+    """Custom type zyPoePsePortTimeRangeState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("in", 1),
+          ("out", 2))
+    )
+
+
+_ZyPoePsePortTimeRangeState_Type.__name__ = "Integer32"
+_ZyPoePsePortTimeRangeState_Object = MibTableColumn
+zyPoePsePortTimeRangeState = _ZyPoePsePortTimeRangeState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2, 1, 1, 2),
+    _ZyPoePsePortTimeRangeState_Type()
+)
+zyPoePsePortTimeRangeState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyPoePsePortTimeRangeState.setStatus("current")
+_ZyPoePsePortTimeRangeInProfile_Type = DisplayString
+_ZyPoePsePortTimeRangeInProfile_Object = MibTableColumn
+zyPoePsePortTimeRangeInProfile = _ZyPoePsePortTimeRangeInProfile_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 2, 1, 1, 3),
+    _ZyPoePsePortTimeRangeInProfile_Type()
+)
+zyPoePsePortTimeRangeInProfile.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zyPoePsePortTimeRangeInProfile.setStatus("current")
+_ZyxelPoeTrapInfoObject_ObjectIdentity = ObjectIdentity
+zyxelPoeTrapInfoObject = _ZyxelPoeTrapInfoObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 3)
+)
+
+
+class _ZyPoeTrapPsePowerSupplyFailedReason_Type(Integer32):
+    """Custom type zyPoeTrapPsePowerSupplyFailedReason based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("internalPowerSupplyForPoeFailed", 0),
+          ("rpsForPoeFailed", 1),
+          ("rpsFanFailed", 2),
+          ("rpsOverTemperature", 3))
+    )
+
+
+_ZyPoeTrapPsePowerSupplyFailedReason_Type.__name__ = "Integer32"
+_ZyPoeTrapPsePowerSupplyFailedReason_Object = MibScalar
+zyPoeTrapPsePowerSupplyFailedReason = _ZyPoeTrapPsePowerSupplyFailedReason_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 3, 1),
+    _ZyPoeTrapPsePowerSupplyFailedReason_Type()
+)
+zyPoeTrapPsePowerSupplyFailedReason.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    zyPoeTrapPsePowerSupplyFailedReason.setStatus("current")
+_ZyxelPoeNotifications_ObjectIdentity = ObjectIdentity
+zyxelPoeNotifications = _ZyxelPoeNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4)
+)
+_ZyxelPoeAutoPdRecoverySetup_ObjectIdentity = ObjectIdentity
+zyxelPoeAutoPdRecoverySetup = _ZyxelPoeAutoPdRecoverySetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5)
+)
+_ZyPoeAutoPdRecoveryState_Type = EnabledStatus
+_ZyPoeAutoPdRecoveryState_Object = MibScalar
+zyPoeAutoPdRecoveryState = _ZyPoeAutoPdRecoveryState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 1),
+    _ZyPoeAutoPdRecoveryState_Type()
+)
+zyPoeAutoPdRecoveryState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryState.setStatus("current")
+_ZyxelPoeAutoPdRecoveryPortTable_Object = MibTable
+zyxelPoeAutoPdRecoveryPortTable = _ZyxelPoeAutoPdRecoveryPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2)
+)
+if mibBuilder.loadTexts:
+    zyxelPoeAutoPdRecoveryPortTable.setStatus("current")
+_ZyxelPoeAutoPdRecoveryPortEntry_Object = MibTableRow
+zyxelPoeAutoPdRecoveryPortEntry = _ZyxelPoeAutoPdRecoveryPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1)
+)
+zyxelPoeAutoPdRecoveryPortEntry.setIndexNames(
+    (0, "BRIDGE-MIB", "dot1dBasePort"),
+)
+if mibBuilder.loadTexts:
+    zyxelPoeAutoPdRecoveryPortEntry.setStatus("current")
+_ZyPoeAutoPdRecoveryPortState_Type = EnabledStatus
+_ZyPoeAutoPdRecoveryPortState_Object = MibTableColumn
+zyPoeAutoPdRecoveryPortState = _ZyPoeAutoPdRecoveryPortState_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 1),
+    _ZyPoeAutoPdRecoveryPortState_Type()
+)
+zyPoeAutoPdRecoveryPortState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryPortState.setStatus("current")
+
+
+class _ZyPoeAutoPdRecoveryPortMode_Type(Integer32):
+    """Custom type zyPoeAutoPdRecoveryPortMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("lldp", 1),
+          ("ping", 2))
+    )
+
+
+_ZyPoeAutoPdRecoveryPortMode_Type.__name__ = "Integer32"
+_ZyPoeAutoPdRecoveryPortMode_Object = MibTableColumn
+zyPoeAutoPdRecoveryPortMode = _ZyPoeAutoPdRecoveryPortMode_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 2),
+    _ZyPoeAutoPdRecoveryPortMode_Type()
+)
+zyPoeAutoPdRecoveryPortMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryPortMode.setStatus("current")
+_ZyPoeAutoPdRecoveryPortIpAddressType_Type = InetAddressType
+_ZyPoeAutoPdRecoveryPortIpAddressType_Object = MibTableColumn
+zyPoeAutoPdRecoveryPortIpAddressType = _ZyPoeAutoPdRecoveryPortIpAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 3),
+    _ZyPoeAutoPdRecoveryPortIpAddressType_Type()
+)
+zyPoeAutoPdRecoveryPortIpAddressType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryPortIpAddressType.setStatus("current")
+_ZyPoeAutoPdRecoveryPortIpAddress_Type = InetAddress
+_ZyPoeAutoPdRecoveryPortIpAddress_Object = MibTableColumn
+zyPoeAutoPdRecoveryPortIpAddress = _ZyPoeAutoPdRecoveryPortIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 4),
+    _ZyPoeAutoPdRecoveryPortIpAddress_Type()
+)
+zyPoeAutoPdRecoveryPortIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryPortIpAddress.setStatus("current")
+
+
+class _ZyPoeAutoPdRecoveryPollingInterval_Type(Integer32):
+    """Custom type zyPoeAutoPdRecoveryPollingInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 300),
+    )
+
+
+_ZyPoeAutoPdRecoveryPollingInterval_Type.__name__ = "Integer32"
+_ZyPoeAutoPdRecoveryPollingInterval_Object = MibTableColumn
+zyPoeAutoPdRecoveryPollingInterval = _ZyPoeAutoPdRecoveryPollingInterval_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 5),
+    _ZyPoeAutoPdRecoveryPollingInterval_Type()
+)
+zyPoeAutoPdRecoveryPollingInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryPollingInterval.setStatus("current")
+
+
+class _ZyPoeAutoPdRecoveryPortPollingCount_Type(Integer32):
+    """Custom type zyPoeAutoPdRecoveryPortPollingCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(2, 5),
+    )
+
+
+_ZyPoeAutoPdRecoveryPortPollingCount_Type.__name__ = "Integer32"
+_ZyPoeAutoPdRecoveryPortPollingCount_Object = MibTableColumn
+zyPoeAutoPdRecoveryPortPollingCount = _ZyPoeAutoPdRecoveryPortPollingCount_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 6),
+    _ZyPoeAutoPdRecoveryPortPollingCount_Type()
+)
+zyPoeAutoPdRecoveryPortPollingCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryPortPollingCount.setStatus("current")
+
+
+class _ZyPoeAutoPdRecoveryPortAction_Type(Integer32):
+    """Custom type zyPoeAutoPdRecoveryPortAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("reboot-alarm", 1),
+          ("alarm", 2))
+    )
+
+
+_ZyPoeAutoPdRecoveryPortAction_Type.__name__ = "Integer32"
+_ZyPoeAutoPdRecoveryPortAction_Object = MibTableColumn
+zyPoeAutoPdRecoveryPortAction = _ZyPoeAutoPdRecoveryPortAction_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 7),
+    _ZyPoeAutoPdRecoveryPortAction_Type()
+)
+zyPoeAutoPdRecoveryPortAction.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryPortAction.setStatus("current")
+
+
+class _ZyPoeAutoPdRecoveryPortResumePollingInterval_Type(Integer32):
+    """Custom type zyPoeAutoPdRecoveryPortResumePollingInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(60, 800),
+    )
+
+
+_ZyPoeAutoPdRecoveryPortResumePollingInterval_Type.__name__ = "Integer32"
+_ZyPoeAutoPdRecoveryPortResumePollingInterval_Object = MibTableColumn
+zyPoeAutoPdRecoveryPortResumePollingInterval = _ZyPoeAutoPdRecoveryPortResumePollingInterval_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 8),
+    _ZyPoeAutoPdRecoveryPortResumePollingInterval_Type()
+)
+zyPoeAutoPdRecoveryPortResumePollingInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryPortResumePollingInterval.setStatus("current")
+
+
+class _ZyPoeAutoPdRecoveryPortPdRebootCount_Type(Integer32):
+    """Custom type zyPoeAutoPdRecoveryPortPdRebootCount based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 5),
+    )
+
+
+_ZyPoeAutoPdRecoveryPortPdRebootCount_Type.__name__ = "Integer32"
+_ZyPoeAutoPdRecoveryPortPdRebootCount_Object = MibTableColumn
+zyPoeAutoPdRecoveryPortPdRebootCount = _ZyPoeAutoPdRecoveryPortPdRebootCount_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 9),
+    _ZyPoeAutoPdRecoveryPortPdRebootCount_Type()
+)
+zyPoeAutoPdRecoveryPortPdRebootCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryPortPdRebootCount.setStatus("current")
+
+
+class _ZyPoeAutoPdRecoveryPortResumePowerInterval_Type(Integer32):
+    """Custom type zyPoeAutoPdRecoveryPortResumePowerInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 120),
+    )
+
+
+_ZyPoeAutoPdRecoveryPortResumePowerInterval_Type.__name__ = "Integer32"
+_ZyPoeAutoPdRecoveryPortResumePowerInterval_Object = MibTableColumn
+zyPoeAutoPdRecoveryPortResumePowerInterval = _ZyPoeAutoPdRecoveryPortResumePowerInterval_Object(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 5, 2, 1, 10),
+    _ZyPoeAutoPdRecoveryPortResumePowerInterval_Type()
+)
+zyPoeAutoPdRecoveryPortResumePowerInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryPortResumePowerInterval.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+zyPoePowerPortOverload = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 1)
+)
+zyPoePowerPortOverload.setObjects(
+    ("IF-MIB", "ifIndex")
+)
+if mibBuilder.loadTexts:
+    zyPoePowerPortOverload.setStatus(
+        "current"
+    )
+
+zyPoePowerPortShortCircuit = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 2)
+)
+zyPoePowerPortShortCircuit.setObjects(
+    ("IF-MIB", "ifIndex")
+)
+if mibBuilder.loadTexts:
+    zyPoePowerPortShortCircuit.setStatus(
+        "current"
+    )
+
+zyPoePowerPortOverSystemBudget = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 3)
+)
+zyPoePowerPortOverSystemBudget.setObjects(
+    ("IF-MIB", "ifIndex")
+)
+if mibBuilder.loadTexts:
+    zyPoePowerPortOverSystemBudget.setStatus(
+        "current"
+    )
+
+zyPoePsePowerSupplyFailed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 4)
+)
+zyPoePsePowerSupplyFailed.setObjects(
+    ("ZYXEL-POWER-ETHERNET-MIB", "zyPoeTrapPsePowerSupplyFailedReason")
+)
+if mibBuilder.loadTexts:
+    zyPoePsePowerSupplyFailed.setStatus(
+        "current"
+    )
+
+zyPoePowerPortOverloadRecovered = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 5)
+)
+zyPoePowerPortOverloadRecovered.setObjects(
+    ("IF-MIB", "ifIndex")
+)
+if mibBuilder.loadTexts:
+    zyPoePowerPortOverloadRecovered.setStatus(
+        "current"
+    )
+
+zyPoePowerPortShortCircuitRecovered = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 6)
+)
+zyPoePowerPortShortCircuitRecovered.setObjects(
+    ("IF-MIB", "ifIndex")
+)
+if mibBuilder.loadTexts:
+    zyPoePowerPortShortCircuitRecovered.setStatus(
+        "current"
+    )
+
+zyPoePowerPortOverSystemBudgetRecovered = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 7)
+)
+zyPoePowerPortOverSystemBudgetRecovered.setObjects(
+    ("IF-MIB", "ifIndex")
+)
+if mibBuilder.loadTexts:
+    zyPoePowerPortOverSystemBudgetRecovered.setStatus(
+        "current"
+    )
+
+zyPoeAutoPdRecoveryAlarm = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 8)
+)
+zyPoeAutoPdRecoveryAlarm.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("ZYXEL-POWER-ETHERNET-MIB", "zyPoeAutoPdRecoveryPortMode"))
+)
+if mibBuilder.loadTexts:
+    zyPoeAutoPdRecoveryAlarm.setStatus(
+        "current"
+    )
+
+zyPoePowerPortOverStandard = NotificationType(
+    (1, 3, 6, 1, 4, 1, 890, 1, 15, 3, 59, 4, 9)
+)
+zyPoePowerPortOverStandard.setObjects(
+    ("IF-MIB", "ifIndex")
+)
+if mibBuilder.loadTexts:
+    zyPoePowerPortOverStandard.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZYXEL-POWER-ETHERNET-MIB",
+    **{"zyxelPoe": zyxelPoe,
+       "zyxelPoeSetup": zyxelPoeSetup,
+       "zyPoeMode": zyPoeMode,
+       "zyxelPoePsePortTable": zyxelPoePsePortTable,
+       "zyxelPoePsePortEntry": zyxelPoePsePortEntry,
+       "zyPoePsePortMaxPower": zyPoePsePortMaxPower,
+       "zyPoePsePowerUp": zyPoePsePowerUp,
+       "zyPoePsePortTimeRange": zyPoePsePortTimeRange,
+       "zyPoePseWideRangeDetection": zyPoePseWideRangeDetection,
+       "zyPoePreAllocate": zyPoePreAllocate,
+       "zyPoeDualDetection": zyPoeDualDetection,
+       "zyPoePowerSequenceDelay": zyPoePowerSequenceDelay,
+       "zyxelPoePsePortTimeRangeTable": zyxelPoePsePortTimeRangeTable,
+       "zyxelPoePsePortTimeRangeEntry": zyxelPoePsePortTimeRangeEntry,
+       "zyPoePsePortTimeRangeName": zyPoePsePortTimeRangeName,
+       "zyPoePsePortTimeRangeRowStatus": zyPoePsePortTimeRangeRowStatus,
+       "zyPoeContinuousPoE": zyPoeContinuousPoE,
+       "zyxelPoeStatus": zyxelPoeStatus,
+       "zyxelPoePsePortInfoTable": zyxelPoePsePortInfoTable,
+       "zyxelPoePsePortInfoEntry": zyxelPoePsePortInfoEntry,
+       "zyPoePsePortInfoPowerConsumption": zyPoePsePortInfoPowerConsumption,
+       "zyPoePsePortTimeRangeState": zyPoePsePortTimeRangeState,
+       "zyPoePsePortTimeRangeInProfile": zyPoePsePortTimeRangeInProfile,
+       "zyxelPoeTrapInfoObject": zyxelPoeTrapInfoObject,
+       "zyPoeTrapPsePowerSupplyFailedReason": zyPoeTrapPsePowerSupplyFailedReason,
+       "zyxelPoeNotifications": zyxelPoeNotifications,
+       "zyPoePowerPortOverload": zyPoePowerPortOverload,
+       "zyPoePowerPortShortCircuit": zyPoePowerPortShortCircuit,
+       "zyPoePowerPortOverSystemBudget": zyPoePowerPortOverSystemBudget,
+       "zyPoePsePowerSupplyFailed": zyPoePsePowerSupplyFailed,
+       "zyPoePowerPortOverloadRecovered": zyPoePowerPortOverloadRecovered,
+       "zyPoePowerPortShortCircuitRecovered": zyPoePowerPortShortCircuitRecovered,
+       "zyPoePowerPortOverSystemBudgetRecovered": zyPoePowerPortOverSystemBudgetRecovered,
+       "zyPoeAutoPdRecoveryAlarm": zyPoeAutoPdRecoveryAlarm,
+       "zyPoePowerPortOverStandard": zyPoePowerPortOverStandard,
+       "zyxelPoeAutoPdRecoverySetup": zyxelPoeAutoPdRecoverySetup,
+       "zyPoeAutoPdRecoveryState": zyPoeAutoPdRecoveryState,
+       "zyxelPoeAutoPdRecoveryPortTable": zyxelPoeAutoPdRecoveryPortTable,
+       "zyxelPoeAutoPdRecoveryPortEntry": zyxelPoeAutoPdRecoveryPortEntry,
+       "zyPoeAutoPdRecoveryPortState": zyPoeAutoPdRecoveryPortState,
+       "zyPoeAutoPdRecoveryPortMode": zyPoeAutoPdRecoveryPortMode,
+       "zyPoeAutoPdRecoveryPortIpAddressType": zyPoeAutoPdRecoveryPortIpAddressType,
+       "zyPoeAutoPdRecoveryPortIpAddress": zyPoeAutoPdRecoveryPortIpAddress,
+       "zyPoeAutoPdRecoveryPollingInterval": zyPoeAutoPdRecoveryPollingInterval,
+       "zyPoeAutoPdRecoveryPortPollingCount": zyPoeAutoPdRecoveryPortPollingCount,
+       "zyPoeAutoPdRecoveryPortAction": zyPoeAutoPdRecoveryPortAction,
+       "zyPoeAutoPdRecoveryPortResumePollingInterval": zyPoeAutoPdRecoveryPortResumePollingInterval,
+       "zyPoeAutoPdRecoveryPortPdRebootCount": zyPoeAutoPdRecoveryPortPdRebootCount,
+       "zyPoeAutoPdRecoveryPortResumePowerInterval": zyPoeAutoPdRecoveryPortResumePowerInterval}
+)

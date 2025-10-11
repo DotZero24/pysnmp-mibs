@@ -1,113 +1,670 @@
+# SNMP MIB module (HPN-ICF-USER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-USER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-USER-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:08:51 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HPN-ICF-USER-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:37:58 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DateAndTime, TextualConvention, MacAddress, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DateAndTime", "TextualConvention", "MacAddress", "DisplayString")
-hpnicfUser = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12))
-if mibBuilder.loadTexts: hpnicfUser.setLastUpdated('201210110000Z')
-if mibBuilder.loadTexts: hpnicfUser.setOrganization('')
-class ServiceType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("enable", 1), ("disable", 2))
 
-hpnicfUserObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1))
-hpnicfUserInfoTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1), )
-if mibBuilder.loadTexts: hpnicfUserInfoTable.setStatus('current')
-hpnicfUserInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1), ).setIndexNames((0, "HPN-ICF-USER-MIB", "hpnicfUserIndex"))
-if mibBuilder.loadTexts: hpnicfUserInfoEntry.setStatus('current')
-hpnicfUserName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 1), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfUserName.setStatus('current')
-hpnicfUserPassword = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfUserPassword.setStatus('current')
-hpnicfAuthMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 3), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfAuthMode.setStatus('current')
-hpnicfUserLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 4), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfUserLevel.setStatus('current')
-hpnicfUserState = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("active", 0), ("block", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfUserState.setStatus('current')
-hpnicfUserInfoRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfUserInfoRowStatus.setStatus('current')
-hpnicfUserIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483646)))
-if mibBuilder.loadTexts: hpnicfUserIndex.setStatus('current')
-hpnicfUserAttributeTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2), )
-if mibBuilder.loadTexts: hpnicfUserAttributeTable.setStatus('current')
-hpnicfUserAttributeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1), ).setIndexNames((0, "HPN-ICF-USER-MIB", "hpnicfUserIndex"))
-if mibBuilder.loadTexts: hpnicfUserAttributeEntry.setStatus('current')
-hpnicfAccessLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 1), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfAccessLimit.setStatus('current')
-hpnicfIdleCut = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfIdleCut.setStatus('current')
-hpnicfIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfIPAddress.setStatus('current')
-hpnicfNasIPAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfNasIPAddress.setStatus('current')
-hpnicfSlotNum = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfSlotNum.setStatus('current')
-hpnicfSubSlotNum = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 6), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfSubSlotNum.setStatus('current')
-hpnicfPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 7), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfPortNum.setStatus('current')
-hpnicfMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 8), MacAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfMacAddress.setStatus('current')
-hpnicfVlan = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4094))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfVlan.setStatus('current')
-hpnicfFtpService = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 10), ServiceType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfFtpService.setStatus('current')
-hpnicfFtpDirectory = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 11), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfFtpDirectory.setStatus('current')
-hpnicfLanAccessService = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 12), ServiceType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfLanAccessService.setStatus('current')
-hpnicfSshService = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 13), ServiceType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfSshService.setStatus('current')
-hpnicfTelnetService = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 14), ServiceType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfTelnetService.setStatus('current')
-hpnicfTerminalService = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 15), ServiceType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfTerminalService.setStatus('current')
-hpnicfExpirationDate = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 16), DateAndTime().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfExpirationDate.setStatus('current')
-hpnicfUserGroup = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 17), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfUserGroup.setStatus('current')
-hpnicfPortalService = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 18), ServiceType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfPortalService.setStatus('current')
-hpnicfPPPService = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 19), ServiceType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfPPPService.setStatus('current')
-hpnicfHttpService = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 20), ServiceType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfHttpService.setStatus('current')
-hpnicfHttpsService = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 21), ServiceType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfHttpsService.setStatus('current')
-hpnicfUserIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 22), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfUserIfIndex.setStatus('current')
-hpnicfUserMaxNum = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfUserMaxNum.setStatus('current')
-hpnicfUserCurrNum = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfUserCurrNum.setStatus('current')
-hpnicfUserIndexIndicator = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfUserIndexIndicator.setStatus('current')
-hpnicfUserRoleTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 6), )
-if mibBuilder.loadTexts: hpnicfUserRoleTable.setStatus('current')
-hpnicfUserRoleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 6, 1), ).setIndexNames((0, "HPN-ICF-USER-MIB", "hpnicfUserIndex"), (0, "HPN-ICF-USER-MIB", "hpnicfUserRole"))
-if mibBuilder.loadTexts: hpnicfUserRoleEntry.setStatus('current')
-hpnicfUserRole = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 6, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 63)))
-if mibBuilder.loadTexts: hpnicfUserRole.setStatus('current')
-hpnicfUserRoleStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 6, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfUserRoleStatus.setStatus('current')
-hpnicfUserGroupObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 2))
-hpnicfUserGroupInfoTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 2, 1), )
-if mibBuilder.loadTexts: hpnicfUserGroupInfoTable.setStatus('current')
-hpnicfUserGroupInfoEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 2, 1, 1), ).setIndexNames((0, "HPN-ICF-USER-MIB", "hpnicfUserGroupName"))
-if mibBuilder.loadTexts: hpnicfUserGroupInfoEntry.setStatus('current')
-hpnicfUserGroupName = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 2, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 80)))
-if mibBuilder.loadTexts: hpnicfUserGroupName.setStatus('current')
-hpnicfUserGroupInfoRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 2, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfUserGroupInfoRowStatus.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-USER-MIB", hpnicfSubSlotNum=hpnicfSubSlotNum, hpnicfUserRoleEntry=hpnicfUserRoleEntry, hpnicfPPPService=hpnicfPPPService, hpnicfHttpsService=hpnicfHttpsService, hpnicfTerminalService=hpnicfTerminalService, hpnicfUserIfIndex=hpnicfUserIfIndex, hpnicfUserGroupObjects=hpnicfUserGroupObjects, hpnicfUserGroup=hpnicfUserGroup, hpnicfUserGroupName=hpnicfUserGroupName, PYSNMP_MODULE_ID=hpnicfUser, hpnicfUserCurrNum=hpnicfUserCurrNum, hpnicfIdleCut=hpnicfIdleCut, hpnicfUserInfoRowStatus=hpnicfUserInfoRowStatus, hpnicfMacAddress=hpnicfMacAddress, hpnicfFtpDirectory=hpnicfFtpDirectory, hpnicfPortNum=hpnicfPortNum, hpnicfUserRole=hpnicfUserRole, hpnicfUserGroupInfoRowStatus=hpnicfUserGroupInfoRowStatus, hpnicfUserGroupInfoTable=hpnicfUserGroupInfoTable, hpnicfUser=hpnicfUser, hpnicfUserInfoEntry=hpnicfUserInfoEntry, ServiceType=ServiceType, hpnicfTelnetService=hpnicfTelnetService, hpnicfUserName=hpnicfUserName, hpnicfUserMaxNum=hpnicfUserMaxNum, hpnicfVlan=hpnicfVlan, hpnicfUserPassword=hpnicfUserPassword, hpnicfExpirationDate=hpnicfExpirationDate, hpnicfUserAttributeEntry=hpnicfUserAttributeEntry, hpnicfUserInfoTable=hpnicfUserInfoTable, hpnicfSshService=hpnicfSshService, hpnicfLanAccessService=hpnicfLanAccessService, hpnicfUserGroupInfoEntry=hpnicfUserGroupInfoEntry, hpnicfUserState=hpnicfUserState, hpnicfUserIndexIndicator=hpnicfUserIndexIndicator, hpnicfUserRoleTable=hpnicfUserRoleTable, hpnicfPortalService=hpnicfPortalService, hpnicfIPAddress=hpnicfIPAddress, hpnicfNasIPAddress=hpnicfNasIPAddress, hpnicfUserIndex=hpnicfUserIndex, hpnicfFtpService=hpnicfFtpService, hpnicfUserObjects=hpnicfUserObjects, hpnicfUserAttributeTable=hpnicfUserAttributeTable, hpnicfHttpService=hpnicfHttpService, hpnicfAuthMode=hpnicfAuthMode, hpnicfUserLevel=hpnicfUserLevel, hpnicfAccessLimit=hpnicfAccessLimit, hpnicfSlotNum=hpnicfSlotNum, hpnicfUserRoleStatus=hpnicfUserRoleStatus)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpnicfCommon,) = mibBuilder.importSymbols(
+    "HPN-ICF-OID-MIB",
+    "hpnicfCommon")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpnicfUser = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class ServiceType(TextualConvention, Integer32):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfUserObjects_ObjectIdentity = ObjectIdentity
+hpnicfUserObjects = _HpnicfUserObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1)
+)
+_HpnicfUserInfoTable_Object = MibTable
+hpnicfUserInfoTable = _HpnicfUserInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hpnicfUserInfoTable.setStatus("current")
+_HpnicfUserInfoEntry_Object = MibTableRow
+hpnicfUserInfoEntry = _HpnicfUserInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1)
+)
+hpnicfUserInfoEntry.setIndexNames(
+    (0, "HPN-ICF-USER-MIB", "hpnicfUserIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfUserInfoEntry.setStatus("current")
+_HpnicfUserName_Type = DisplayString
+_HpnicfUserName_Object = MibTableColumn
+hpnicfUserName = _HpnicfUserName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 1),
+    _HpnicfUserName_Type()
+)
+hpnicfUserName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfUserName.setStatus("current")
+_HpnicfUserPassword_Type = DisplayString
+_HpnicfUserPassword_Object = MibTableColumn
+hpnicfUserPassword = _HpnicfUserPassword_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 2),
+    _HpnicfUserPassword_Type()
+)
+hpnicfUserPassword.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfUserPassword.setStatus("current")
+_HpnicfAuthMode_Type = Integer32
+_HpnicfAuthMode_Object = MibTableColumn
+hpnicfAuthMode = _HpnicfAuthMode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 3),
+    _HpnicfAuthMode_Type()
+)
+hpnicfAuthMode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfAuthMode.setStatus("current")
+_HpnicfUserLevel_Type = Integer32
+_HpnicfUserLevel_Object = MibTableColumn
+hpnicfUserLevel = _HpnicfUserLevel_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 4),
+    _HpnicfUserLevel_Type()
+)
+hpnicfUserLevel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfUserLevel.setStatus("current")
+
+
+class _HpnicfUserState_Type(Integer32):
+    """Custom type hpnicfUserState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 0),
+          ("block", 1))
+    )
+
+
+_HpnicfUserState_Type.__name__ = "Integer32"
+_HpnicfUserState_Object = MibTableColumn
+hpnicfUserState = _HpnicfUserState_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 5),
+    _HpnicfUserState_Type()
+)
+hpnicfUserState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfUserState.setStatus("current")
+_HpnicfUserInfoRowStatus_Type = RowStatus
+_HpnicfUserInfoRowStatus_Object = MibTableColumn
+hpnicfUserInfoRowStatus = _HpnicfUserInfoRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 6),
+    _HpnicfUserInfoRowStatus_Type()
+)
+hpnicfUserInfoRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfUserInfoRowStatus.setStatus("current")
+
+
+class _HpnicfUserIndex_Type(Integer32):
+    """Custom type hpnicfUserIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483646),
+    )
+
+
+_HpnicfUserIndex_Type.__name__ = "Integer32"
+_HpnicfUserIndex_Object = MibTableColumn
+hpnicfUserIndex = _HpnicfUserIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 1, 1, 7),
+    _HpnicfUserIndex_Type()
+)
+hpnicfUserIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpnicfUserIndex.setStatus("current")
+_HpnicfUserAttributeTable_Object = MibTable
+hpnicfUserAttributeTable = _HpnicfUserAttributeTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2)
+)
+if mibBuilder.loadTexts:
+    hpnicfUserAttributeTable.setStatus("current")
+_HpnicfUserAttributeEntry_Object = MibTableRow
+hpnicfUserAttributeEntry = _HpnicfUserAttributeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1)
+)
+hpnicfUserAttributeEntry.setIndexNames(
+    (0, "HPN-ICF-USER-MIB", "hpnicfUserIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfUserAttributeEntry.setStatus("current")
+_HpnicfAccessLimit_Type = Integer32
+_HpnicfAccessLimit_Object = MibTableColumn
+hpnicfAccessLimit = _HpnicfAccessLimit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 1),
+    _HpnicfAccessLimit_Type()
+)
+hpnicfAccessLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfAccessLimit.setStatus("current")
+_HpnicfIdleCut_Type = Integer32
+_HpnicfIdleCut_Object = MibTableColumn
+hpnicfIdleCut = _HpnicfIdleCut_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 2),
+    _HpnicfIdleCut_Type()
+)
+hpnicfIdleCut.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfIdleCut.setStatus("current")
+_HpnicfIPAddress_Type = IpAddress
+_HpnicfIPAddress_Object = MibTableColumn
+hpnicfIPAddress = _HpnicfIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 3),
+    _HpnicfIPAddress_Type()
+)
+hpnicfIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfIPAddress.setStatus("current")
+_HpnicfNasIPAddress_Type = IpAddress
+_HpnicfNasIPAddress_Object = MibTableColumn
+hpnicfNasIPAddress = _HpnicfNasIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 4),
+    _HpnicfNasIPAddress_Type()
+)
+hpnicfNasIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfNasIPAddress.setStatus("current")
+_HpnicfSlotNum_Type = Integer32
+_HpnicfSlotNum_Object = MibTableColumn
+hpnicfSlotNum = _HpnicfSlotNum_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 5),
+    _HpnicfSlotNum_Type()
+)
+hpnicfSlotNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfSlotNum.setStatus("current")
+_HpnicfSubSlotNum_Type = Integer32
+_HpnicfSubSlotNum_Object = MibTableColumn
+hpnicfSubSlotNum = _HpnicfSubSlotNum_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 6),
+    _HpnicfSubSlotNum_Type()
+)
+hpnicfSubSlotNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfSubSlotNum.setStatus("current")
+_HpnicfPortNum_Type = Integer32
+_HpnicfPortNum_Object = MibTableColumn
+hpnicfPortNum = _HpnicfPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 7),
+    _HpnicfPortNum_Type()
+)
+hpnicfPortNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfPortNum.setStatus("current")
+_HpnicfMacAddress_Type = MacAddress
+_HpnicfMacAddress_Object = MibTableColumn
+hpnicfMacAddress = _HpnicfMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 8),
+    _HpnicfMacAddress_Type()
+)
+hpnicfMacAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfMacAddress.setStatus("current")
+
+
+class _HpnicfVlan_Type(Integer32):
+    """Custom type hpnicfVlan based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4094),
+    )
+
+
+_HpnicfVlan_Type.__name__ = "Integer32"
+_HpnicfVlan_Object = MibTableColumn
+hpnicfVlan = _HpnicfVlan_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 9),
+    _HpnicfVlan_Type()
+)
+hpnicfVlan.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfVlan.setStatus("current")
+_HpnicfFtpService_Type = ServiceType
+_HpnicfFtpService_Object = MibTableColumn
+hpnicfFtpService = _HpnicfFtpService_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 10),
+    _HpnicfFtpService_Type()
+)
+hpnicfFtpService.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfFtpService.setStatus("current")
+_HpnicfFtpDirectory_Type = OctetString
+_HpnicfFtpDirectory_Object = MibTableColumn
+hpnicfFtpDirectory = _HpnicfFtpDirectory_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 11),
+    _HpnicfFtpDirectory_Type()
+)
+hpnicfFtpDirectory.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfFtpDirectory.setStatus("current")
+_HpnicfLanAccessService_Type = ServiceType
+_HpnicfLanAccessService_Object = MibTableColumn
+hpnicfLanAccessService = _HpnicfLanAccessService_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 12),
+    _HpnicfLanAccessService_Type()
+)
+hpnicfLanAccessService.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfLanAccessService.setStatus("current")
+_HpnicfSshService_Type = ServiceType
+_HpnicfSshService_Object = MibTableColumn
+hpnicfSshService = _HpnicfSshService_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 13),
+    _HpnicfSshService_Type()
+)
+hpnicfSshService.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfSshService.setStatus("current")
+_HpnicfTelnetService_Type = ServiceType
+_HpnicfTelnetService_Object = MibTableColumn
+hpnicfTelnetService = _HpnicfTelnetService_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 14),
+    _HpnicfTelnetService_Type()
+)
+hpnicfTelnetService.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfTelnetService.setStatus("current")
+_HpnicfTerminalService_Type = ServiceType
+_HpnicfTerminalService_Object = MibTableColumn
+hpnicfTerminalService = _HpnicfTerminalService_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 15),
+    _HpnicfTerminalService_Type()
+)
+hpnicfTerminalService.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfTerminalService.setStatus("current")
+
+
+class _HpnicfExpirationDate_Type(DateAndTime):
+    """Custom type hpnicfExpirationDate based on DateAndTime"""
+    subtypeSpec = DateAndTime.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_HpnicfExpirationDate_Type.__name__ = "DateAndTime"
+_HpnicfExpirationDate_Object = MibTableColumn
+hpnicfExpirationDate = _HpnicfExpirationDate_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 16),
+    _HpnicfExpirationDate_Type()
+)
+hpnicfExpirationDate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfExpirationDate.setStatus("current")
+_HpnicfUserGroup_Type = DisplayString
+_HpnicfUserGroup_Object = MibTableColumn
+hpnicfUserGroup = _HpnicfUserGroup_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 17),
+    _HpnicfUserGroup_Type()
+)
+hpnicfUserGroup.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfUserGroup.setStatus("current")
+_HpnicfPortalService_Type = ServiceType
+_HpnicfPortalService_Object = MibTableColumn
+hpnicfPortalService = _HpnicfPortalService_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 18),
+    _HpnicfPortalService_Type()
+)
+hpnicfPortalService.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfPortalService.setStatus("current")
+_HpnicfPPPService_Type = ServiceType
+_HpnicfPPPService_Object = MibTableColumn
+hpnicfPPPService = _HpnicfPPPService_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 19),
+    _HpnicfPPPService_Type()
+)
+hpnicfPPPService.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfPPPService.setStatus("current")
+_HpnicfHttpService_Type = ServiceType
+_HpnicfHttpService_Object = MibTableColumn
+hpnicfHttpService = _HpnicfHttpService_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 20),
+    _HpnicfHttpService_Type()
+)
+hpnicfHttpService.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfHttpService.setStatus("current")
+_HpnicfHttpsService_Type = ServiceType
+_HpnicfHttpsService_Object = MibTableColumn
+hpnicfHttpsService = _HpnicfHttpsService_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 21),
+    _HpnicfHttpsService_Type()
+)
+hpnicfHttpsService.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfHttpsService.setStatus("current")
+_HpnicfUserIfIndex_Type = Integer32
+_HpnicfUserIfIndex_Object = MibTableColumn
+hpnicfUserIfIndex = _HpnicfUserIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 2, 1, 22),
+    _HpnicfUserIfIndex_Type()
+)
+hpnicfUserIfIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfUserIfIndex.setStatus("current")
+_HpnicfUserMaxNum_Type = Integer32
+_HpnicfUserMaxNum_Object = MibScalar
+hpnicfUserMaxNum = _HpnicfUserMaxNum_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 3),
+    _HpnicfUserMaxNum_Type()
+)
+hpnicfUserMaxNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfUserMaxNum.setStatus("current")
+_HpnicfUserCurrNum_Type = Integer32
+_HpnicfUserCurrNum_Object = MibScalar
+hpnicfUserCurrNum = _HpnicfUserCurrNum_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 4),
+    _HpnicfUserCurrNum_Type()
+)
+hpnicfUserCurrNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfUserCurrNum.setStatus("current")
+_HpnicfUserIndexIndicator_Type = Integer32
+_HpnicfUserIndexIndicator_Object = MibScalar
+hpnicfUserIndexIndicator = _HpnicfUserIndexIndicator_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 5),
+    _HpnicfUserIndexIndicator_Type()
+)
+hpnicfUserIndexIndicator.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfUserIndexIndicator.setStatus("current")
+_HpnicfUserRoleTable_Object = MibTable
+hpnicfUserRoleTable = _HpnicfUserRoleTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 6)
+)
+if mibBuilder.loadTexts:
+    hpnicfUserRoleTable.setStatus("current")
+_HpnicfUserRoleEntry_Object = MibTableRow
+hpnicfUserRoleEntry = _HpnicfUserRoleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 6, 1)
+)
+hpnicfUserRoleEntry.setIndexNames(
+    (0, "HPN-ICF-USER-MIB", "hpnicfUserIndex"),
+    (0, "HPN-ICF-USER-MIB", "hpnicfUserRole"),
+)
+if mibBuilder.loadTexts:
+    hpnicfUserRoleEntry.setStatus("current")
+
+
+class _HpnicfUserRole_Type(DisplayString):
+    """Custom type hpnicfUserRole based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 63),
+    )
+
+
+_HpnicfUserRole_Type.__name__ = "DisplayString"
+_HpnicfUserRole_Object = MibTableColumn
+hpnicfUserRole = _HpnicfUserRole_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 6, 1, 1),
+    _HpnicfUserRole_Type()
+)
+hpnicfUserRole.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpnicfUserRole.setStatus("current")
+_HpnicfUserRoleStatus_Type = RowStatus
+_HpnicfUserRoleStatus_Object = MibTableColumn
+hpnicfUserRoleStatus = _HpnicfUserRoleStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 1, 6, 1, 2),
+    _HpnicfUserRoleStatus_Type()
+)
+hpnicfUserRoleStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfUserRoleStatus.setStatus("current")
+_HpnicfUserGroupObjects_ObjectIdentity = ObjectIdentity
+hpnicfUserGroupObjects = _HpnicfUserGroupObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 2)
+)
+_HpnicfUserGroupInfoTable_Object = MibTable
+hpnicfUserGroupInfoTable = _HpnicfUserGroupInfoTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hpnicfUserGroupInfoTable.setStatus("current")
+_HpnicfUserGroupInfoEntry_Object = MibTableRow
+hpnicfUserGroupInfoEntry = _HpnicfUserGroupInfoEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 2, 1, 1)
+)
+hpnicfUserGroupInfoEntry.setIndexNames(
+    (0, "HPN-ICF-USER-MIB", "hpnicfUserGroupName"),
+)
+if mibBuilder.loadTexts:
+    hpnicfUserGroupInfoEntry.setStatus("current")
+
+
+class _HpnicfUserGroupName_Type(DisplayString):
+    """Custom type hpnicfUserGroupName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 80),
+    )
+
+
+_HpnicfUserGroupName_Type.__name__ = "DisplayString"
+_HpnicfUserGroupName_Object = MibTableColumn
+hpnicfUserGroupName = _HpnicfUserGroupName_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 2, 1, 1, 1),
+    _HpnicfUserGroupName_Type()
+)
+hpnicfUserGroupName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpnicfUserGroupName.setStatus("current")
+_HpnicfUserGroupInfoRowStatus_Type = RowStatus
+_HpnicfUserGroupInfoRowStatus_Object = MibTableColumn
+hpnicfUserGroupInfoRowStatus = _HpnicfUserGroupInfoRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 12, 2, 1, 1, 2),
+    _HpnicfUserGroupInfoRowStatus_Type()
+)
+hpnicfUserGroupInfoRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfUserGroupInfoRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-USER-MIB",
+    **{"ServiceType": ServiceType,
+       "hpnicfUser": hpnicfUser,
+       "hpnicfUserObjects": hpnicfUserObjects,
+       "hpnicfUserInfoTable": hpnicfUserInfoTable,
+       "hpnicfUserInfoEntry": hpnicfUserInfoEntry,
+       "hpnicfUserName": hpnicfUserName,
+       "hpnicfUserPassword": hpnicfUserPassword,
+       "hpnicfAuthMode": hpnicfAuthMode,
+       "hpnicfUserLevel": hpnicfUserLevel,
+       "hpnicfUserState": hpnicfUserState,
+       "hpnicfUserInfoRowStatus": hpnicfUserInfoRowStatus,
+       "hpnicfUserIndex": hpnicfUserIndex,
+       "hpnicfUserAttributeTable": hpnicfUserAttributeTable,
+       "hpnicfUserAttributeEntry": hpnicfUserAttributeEntry,
+       "hpnicfAccessLimit": hpnicfAccessLimit,
+       "hpnicfIdleCut": hpnicfIdleCut,
+       "hpnicfIPAddress": hpnicfIPAddress,
+       "hpnicfNasIPAddress": hpnicfNasIPAddress,
+       "hpnicfSlotNum": hpnicfSlotNum,
+       "hpnicfSubSlotNum": hpnicfSubSlotNum,
+       "hpnicfPortNum": hpnicfPortNum,
+       "hpnicfMacAddress": hpnicfMacAddress,
+       "hpnicfVlan": hpnicfVlan,
+       "hpnicfFtpService": hpnicfFtpService,
+       "hpnicfFtpDirectory": hpnicfFtpDirectory,
+       "hpnicfLanAccessService": hpnicfLanAccessService,
+       "hpnicfSshService": hpnicfSshService,
+       "hpnicfTelnetService": hpnicfTelnetService,
+       "hpnicfTerminalService": hpnicfTerminalService,
+       "hpnicfExpirationDate": hpnicfExpirationDate,
+       "hpnicfUserGroup": hpnicfUserGroup,
+       "hpnicfPortalService": hpnicfPortalService,
+       "hpnicfPPPService": hpnicfPPPService,
+       "hpnicfHttpService": hpnicfHttpService,
+       "hpnicfHttpsService": hpnicfHttpsService,
+       "hpnicfUserIfIndex": hpnicfUserIfIndex,
+       "hpnicfUserMaxNum": hpnicfUserMaxNum,
+       "hpnicfUserCurrNum": hpnicfUserCurrNum,
+       "hpnicfUserIndexIndicator": hpnicfUserIndexIndicator,
+       "hpnicfUserRoleTable": hpnicfUserRoleTable,
+       "hpnicfUserRoleEntry": hpnicfUserRoleEntry,
+       "hpnicfUserRole": hpnicfUserRole,
+       "hpnicfUserRoleStatus": hpnicfUserRoleStatus,
+       "hpnicfUserGroupObjects": hpnicfUserGroupObjects,
+       "hpnicfUserGroupInfoTable": hpnicfUserGroupInfoTable,
+       "hpnicfUserGroupInfoEntry": hpnicfUserGroupInfoEntry,
+       "hpnicfUserGroupName": hpnicfUserGroupName,
+       "hpnicfUserGroupInfoRowStatus": hpnicfUserGroupInfoRowStatus}
+)

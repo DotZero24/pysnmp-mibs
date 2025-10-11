@@ -1,143 +1,579 @@
+# SNMP MIB module (A10-COMMON-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module A10-COMMON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a10/A10-COMMON-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:52 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/a10/A10-COMMON-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:00:03 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-a10 = ModuleIdentity((1, 3, 6, 1, 4, 1, 22610))
-if mibBuilder.loadTexts: a10.setLastUpdated('200611071327Z')
-if mibBuilder.loadTexts: a10.setOrganization('A10 Networks, Inc.')
-a10Products = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1))
-if mibBuilder.loadTexts: a10Products.setStatus('current')
-a10Mgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 2))
-if mibBuilder.loadTexts: a10Mgmt.setStatus('current')
-a10IDsentrie = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 1))
-if mibBuilder.loadTexts: a10IDsentrie.setStatus('current')
-a10IDsentrie1000 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 1, 1))
-if mibBuilder.loadTexts: a10IDsentrie1000.setStatus('current')
-a10StealthWatch = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 1, 2))
-if mibBuilder.loadTexts: a10StealthWatch.setStatus('current')
-a10RetiEntity1000 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 1, 3))
-if mibBuilder.loadTexts: a10RetiEntity1000.setStatus('current')
-a10EX = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 2))
-if mibBuilder.loadTexts: a10EX.setStatus('current')
-a10EX2100 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 2, 1))
-if mibBuilder.loadTexts: a10EX2100.setStatus('current')
-a10EX2180 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 2, 2))
-if mibBuilder.loadTexts: a10EX2180.setStatus('current')
-a10EX2200 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 2, 3))
-if mibBuilder.loadTexts: a10EX2200.setStatus('current')
-a10EX2280 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 2, 4))
-if mibBuilder.loadTexts: a10EX2280.setStatus('current')
-a10AX = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3))
-if mibBuilder.loadTexts: a10AX.setStatus('current')
-a10AX2100 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 1))
-if mibBuilder.loadTexts: a10AX2100.setStatus('current')
-a10AX3100 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 2))
-if mibBuilder.loadTexts: a10AX3100.setStatus('current')
-a10AX3200 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 3))
-if mibBuilder.loadTexts: a10AX3200.setStatus('current')
-a10AX2200 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 4))
-if mibBuilder.loadTexts: a10AX2200.setStatus('current')
-a10AX2000 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 5))
-if mibBuilder.loadTexts: a10AX2000.setStatus('current')
-a10AX1000 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 6))
-if mibBuilder.loadTexts: a10AX1000.setStatus('current')
-a10AX5200 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 7))
-if mibBuilder.loadTexts: a10AX5200.setStatus('current')
-a10AX2500 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 8))
-if mibBuilder.loadTexts: a10AX2500.setStatus('current')
-a10AX2600 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 9))
-if mibBuilder.loadTexts: a10AX2600.setStatus('current')
-a10AX3000 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 10))
-if mibBuilder.loadTexts: a10AX3000.setStatus('current')
-a10HitachiBladeServer = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 11))
-if mibBuilder.loadTexts: a10HitachiBladeServer.setStatus('current')
-a10AX5100 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 12))
-if mibBuilder.loadTexts: a10AX5100.setStatus('current')
-a10SoftAX = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 13))
-if mibBuilder.loadTexts: a10SoftAX.setStatus('current')
-a10AX3030 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 14))
-if mibBuilder.loadTexts: a10AX3030.setStatus('current')
-a10AX1030 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 15))
-if mibBuilder.loadTexts: a10AX1030.setStatus('current')
-a10AX3200_12 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 16)).setLabel("a10AX3200-12")
-if mibBuilder.loadTexts: a10AX3200_12.setStatus('current')
-a10AX3400 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 17))
-if mibBuilder.loadTexts: a10AX3400.setStatus('current')
-a10AX3530 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 18))
-if mibBuilder.loadTexts: a10AX3530.setStatus('current')
-a10AX5630 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 19))
-if mibBuilder.loadTexts: a10AX5630.setStatus('current')
-a10TH6430 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 20))
-if mibBuilder.loadTexts: a10TH6430.setStatus('current')
-a10TH5430 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 21))
-if mibBuilder.loadTexts: a10TH5430.setStatus('current')
-a10TH3030S = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 22))
-if mibBuilder.loadTexts: a10TH3030S.setStatus('current')
-a10TH1030S = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 23))
-if mibBuilder.loadTexts: a10TH1030S.setStatus('current')
-a10TH930S = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 24))
-if mibBuilder.loadTexts: a10TH930S.setStatus('current')
-a10TH4430 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 25))
-if mibBuilder.loadTexts: a10TH4430.setStatus('current')
-a10TH5330 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 26))
-if mibBuilder.loadTexts: a10TH5330.setStatus('current')
-a10TH4435 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 27))
-if mibBuilder.loadTexts: a10TH4435.setStatus('current')
-a10TH5630 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 28))
-if mibBuilder.loadTexts: a10TH5630.setStatus('current')
-a10TH6630 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 29))
-if mibBuilder.loadTexts: a10TH6630.setStatus('current')
-a10TH3430 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 30))
-if mibBuilder.loadTexts: a10TH3430.setStatus('current')
-a10TH5430_11 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 31)).setLabel("a10TH5430-11")
-if mibBuilder.loadTexts: a10TH5430_11.setStatus('current')
-a10TH5840 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 32))
-if mibBuilder.loadTexts: a10TH5840.setStatus('current')
-a10TH940 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 33))
-if mibBuilder.loadTexts: a10TH940.setStatus('current')
-a10TH1040 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 34))
-if mibBuilder.loadTexts: a10TH1040.setStatus('current')
-a10TH3040 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 35))
-if mibBuilder.loadTexts: a10TH3040.setStatus('current')
-a10TH7440 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 37))
-if mibBuilder.loadTexts: a10TH7440.setStatus('current')
-a10TH840 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 38))
-if mibBuilder.loadTexts: a10TH840.setStatus('current')
-a10AX12040 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 39))
-if mibBuilder.loadTexts: a10AX12040.setStatus('current')
-a10AX12050 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 40))
-if mibBuilder.loadTexts: a10AX12050.setStatus('current')
-a10TH3745 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 41))
-if mibBuilder.loadTexts: a10TH3745.setStatus('current')
-a10TH3230 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 42))
-if mibBuilder.loadTexts: a10TH3230.setStatus('current')
-a10TH4440 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 43))
-if mibBuilder.loadTexts: a10TH4440.setStatus('current')
-a10TH5440 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 44))
-if mibBuilder.loadTexts: a10TH5440.setStatus('current')
-a10TH6440 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 45))
-if mibBuilder.loadTexts: a10TH6440.setStatus('current')
-a10TH5650 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 46))
-if mibBuilder.loadTexts: a10TH5650.setStatus('current')
-a10TH7650 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 47))
-if mibBuilder.loadTexts: a10TH7650.setStatus('current')
-a10TH3350 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 3, 51))
-if mibBuilder.loadTexts: a10TH3350.setStatus('current')
-a10CentMgmt = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 4))
-if mibBuilder.loadTexts: a10CentMgmt.setStatus('current')
-a10AGA1 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 4, 1))
-if mibBuilder.loadTexts: a10AGA1.setStatus('current')
-a10AGA5000 = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 4, 2))
-if mibBuilder.loadTexts: a10AGA5000.setStatus('current')
-a10SoftAGA = ObjectIdentity((1, 3, 6, 1, 4, 1, 22610, 1, 4, 3))
-if mibBuilder.loadTexts: a10SoftAGA.setStatus('current')
-mibBuilder.exportSymbols("A10-COMMON-MIB", a10TH4440=a10TH4440, a10TH7650=a10TH7650, a10AX3400=a10AX3400, a10AX3200_12=a10AX3200_12, a10TH7440=a10TH7440, a10TH5440=a10TH5440, a10AX2100=a10AX2100, a10RetiEntity1000=a10RetiEntity1000, a10AX1000=a10AX1000, a10AX3030=a10AX3030, a10TH5330=a10TH5330, a10AGA1=a10AGA1, a10TH840=a10TH840, a10TH4435=a10TH4435, a10AX12040=a10AX12040, a10IDsentrie=a10IDsentrie, a10AX2000=a10AX2000, a10TH6430=a10TH6430, a10AX2600=a10AX2600, a10AX2200=a10AX2200, a10TH4430=a10TH4430, a10Mgmt=a10Mgmt, a10TH6630=a10TH6630, a10AX5630=a10AX5630, a10TH940=a10TH940, a10TH3745=a10TH3745, a10TH3430=a10TH3430, a10TH3230=a10TH3230, a10TH5840=a10TH5840, a10IDsentrie1000=a10IDsentrie1000, a10Products=a10Products, a10TH6440=a10TH6440, a10TH3040=a10TH3040, a10CentMgmt=a10CentMgmt, a10EX=a10EX, a10TH5430=a10TH5430, a10AX3100=a10AX3100, a10TH5430_11=a10TH5430_11, a10AX12050=a10AX12050, a10SoftAGA=a10SoftAGA, a10=a10, a10StealthWatch=a10StealthWatch, a10HitachiBladeServer=a10HitachiBladeServer, a10AX=a10AX, PYSNMP_MODULE_ID=a10, a10AX3000=a10AX3000, a10AX3200=a10AX3200, a10AX5100=a10AX5100, a10TH930S=a10TH930S, a10TH5650=a10TH5650, a10AX3530=a10AX3530, a10TH3030S=a10TH3030S, a10TH5630=a10TH5630, a10AX1030=a10AX1030, a10AX2500=a10AX2500, a10TH1030S=a10TH1030S, a10TH1040=a10TH1040, a10AX5200=a10AX5200, a10EX2200=a10EX2200, a10TH3350=a10TH3350, a10AGA5000=a10AGA5000, a10EX2280=a10EX2280, a10EX2180=a10EX2180, a10EX2100=a10EX2100, a10SoftAX=a10SoftAX)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+a10 = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 22610)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_A10Products_ObjectIdentity = ObjectIdentity
+a10Products = _A10Products_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1)
+)
+if mibBuilder.loadTexts:
+    a10Products.setStatus("current")
+_A10IDsentrie_ObjectIdentity = ObjectIdentity
+a10IDsentrie = _A10IDsentrie_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 1)
+)
+if mibBuilder.loadTexts:
+    a10IDsentrie.setStatus("current")
+_A10IDsentrie1000_ObjectIdentity = ObjectIdentity
+a10IDsentrie1000 = _A10IDsentrie1000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    a10IDsentrie1000.setStatus("current")
+_A10StealthWatch_ObjectIdentity = ObjectIdentity
+a10StealthWatch = _A10StealthWatch_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    a10StealthWatch.setStatus("current")
+_A10RetiEntity1000_ObjectIdentity = ObjectIdentity
+a10RetiEntity1000 = _A10RetiEntity1000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    a10RetiEntity1000.setStatus("current")
+_A10EX_ObjectIdentity = ObjectIdentity
+a10EX = _A10EX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 2)
+)
+if mibBuilder.loadTexts:
+    a10EX.setStatus("current")
+_A10EX2100_ObjectIdentity = ObjectIdentity
+a10EX2100 = _A10EX2100_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    a10EX2100.setStatus("current")
+_A10EX2180_ObjectIdentity = ObjectIdentity
+a10EX2180 = _A10EX2180_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    a10EX2180.setStatus("current")
+_A10EX2200_ObjectIdentity = ObjectIdentity
+a10EX2200 = _A10EX2200_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    a10EX2200.setStatus("current")
+_A10EX2280_ObjectIdentity = ObjectIdentity
+a10EX2280 = _A10EX2280_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 2, 4)
+)
+if mibBuilder.loadTexts:
+    a10EX2280.setStatus("current")
+_A10AX_ObjectIdentity = ObjectIdentity
+a10AX = _A10AX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3)
+)
+if mibBuilder.loadTexts:
+    a10AX.setStatus("current")
+_A10AX2100_ObjectIdentity = ObjectIdentity
+a10AX2100 = _A10AX2100_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    a10AX2100.setStatus("current")
+_A10AX3100_ObjectIdentity = ObjectIdentity
+a10AX3100 = _A10AX3100_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    a10AX3100.setStatus("current")
+_A10AX3200_ObjectIdentity = ObjectIdentity
+a10AX3200 = _A10AX3200_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 3)
+)
+if mibBuilder.loadTexts:
+    a10AX3200.setStatus("current")
+_A10AX2200_ObjectIdentity = ObjectIdentity
+a10AX2200 = _A10AX2200_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 4)
+)
+if mibBuilder.loadTexts:
+    a10AX2200.setStatus("current")
+_A10AX2000_ObjectIdentity = ObjectIdentity
+a10AX2000 = _A10AX2000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 5)
+)
+if mibBuilder.loadTexts:
+    a10AX2000.setStatus("current")
+_A10AX1000_ObjectIdentity = ObjectIdentity
+a10AX1000 = _A10AX1000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 6)
+)
+if mibBuilder.loadTexts:
+    a10AX1000.setStatus("current")
+_A10AX5200_ObjectIdentity = ObjectIdentity
+a10AX5200 = _A10AX5200_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 7)
+)
+if mibBuilder.loadTexts:
+    a10AX5200.setStatus("current")
+_A10AX2500_ObjectIdentity = ObjectIdentity
+a10AX2500 = _A10AX2500_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 8)
+)
+if mibBuilder.loadTexts:
+    a10AX2500.setStatus("current")
+_A10AX2600_ObjectIdentity = ObjectIdentity
+a10AX2600 = _A10AX2600_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 9)
+)
+if mibBuilder.loadTexts:
+    a10AX2600.setStatus("current")
+_A10AX3000_ObjectIdentity = ObjectIdentity
+a10AX3000 = _A10AX3000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 10)
+)
+if mibBuilder.loadTexts:
+    a10AX3000.setStatus("current")
+_A10HitachiBladeServer_ObjectIdentity = ObjectIdentity
+a10HitachiBladeServer = _A10HitachiBladeServer_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 11)
+)
+if mibBuilder.loadTexts:
+    a10HitachiBladeServer.setStatus("current")
+_A10AX5100_ObjectIdentity = ObjectIdentity
+a10AX5100 = _A10AX5100_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 12)
+)
+if mibBuilder.loadTexts:
+    a10AX5100.setStatus("current")
+_A10SoftAX_ObjectIdentity = ObjectIdentity
+a10SoftAX = _A10SoftAX_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 13)
+)
+if mibBuilder.loadTexts:
+    a10SoftAX.setStatus("current")
+_A10AX3030_ObjectIdentity = ObjectIdentity
+a10AX3030 = _A10AX3030_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 14)
+)
+if mibBuilder.loadTexts:
+    a10AX3030.setStatus("current")
+_A10AX1030_ObjectIdentity = ObjectIdentity
+a10AX1030 = _A10AX1030_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 15)
+)
+if mibBuilder.loadTexts:
+    a10AX1030.setStatus("current")
+_A10AX3200_12_ObjectIdentity = ObjectIdentity
+a10AX3200_12 = _A10AX3200_12_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 16)
+)
+if mibBuilder.loadTexts:
+    a10AX3200_12.setStatus("current")
+_A10AX3400_ObjectIdentity = ObjectIdentity
+a10AX3400 = _A10AX3400_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 17)
+)
+if mibBuilder.loadTexts:
+    a10AX3400.setStatus("current")
+_A10AX3530_ObjectIdentity = ObjectIdentity
+a10AX3530 = _A10AX3530_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 18)
+)
+if mibBuilder.loadTexts:
+    a10AX3530.setStatus("current")
+_A10AX5630_ObjectIdentity = ObjectIdentity
+a10AX5630 = _A10AX5630_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 19)
+)
+if mibBuilder.loadTexts:
+    a10AX5630.setStatus("current")
+_A10TH6430_ObjectIdentity = ObjectIdentity
+a10TH6430 = _A10TH6430_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 20)
+)
+if mibBuilder.loadTexts:
+    a10TH6430.setStatus("current")
+_A10TH5430_ObjectIdentity = ObjectIdentity
+a10TH5430 = _A10TH5430_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 21)
+)
+if mibBuilder.loadTexts:
+    a10TH5430.setStatus("current")
+_A10TH3030S_ObjectIdentity = ObjectIdentity
+a10TH3030S = _A10TH3030S_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 22)
+)
+if mibBuilder.loadTexts:
+    a10TH3030S.setStatus("current")
+_A10TH1030S_ObjectIdentity = ObjectIdentity
+a10TH1030S = _A10TH1030S_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 23)
+)
+if mibBuilder.loadTexts:
+    a10TH1030S.setStatus("current")
+_A10TH930S_ObjectIdentity = ObjectIdentity
+a10TH930S = _A10TH930S_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 24)
+)
+if mibBuilder.loadTexts:
+    a10TH930S.setStatus("current")
+_A10TH4430_ObjectIdentity = ObjectIdentity
+a10TH4430 = _A10TH4430_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 25)
+)
+if mibBuilder.loadTexts:
+    a10TH4430.setStatus("current")
+_A10TH5330_ObjectIdentity = ObjectIdentity
+a10TH5330 = _A10TH5330_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 26)
+)
+if mibBuilder.loadTexts:
+    a10TH5330.setStatus("current")
+_A10TH4435_ObjectIdentity = ObjectIdentity
+a10TH4435 = _A10TH4435_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 27)
+)
+if mibBuilder.loadTexts:
+    a10TH4435.setStatus("current")
+_A10TH5630_ObjectIdentity = ObjectIdentity
+a10TH5630 = _A10TH5630_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 28)
+)
+if mibBuilder.loadTexts:
+    a10TH5630.setStatus("current")
+_A10TH6630_ObjectIdentity = ObjectIdentity
+a10TH6630 = _A10TH6630_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 29)
+)
+if mibBuilder.loadTexts:
+    a10TH6630.setStatus("current")
+_A10TH3430_ObjectIdentity = ObjectIdentity
+a10TH3430 = _A10TH3430_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 30)
+)
+if mibBuilder.loadTexts:
+    a10TH3430.setStatus("current")
+_A10TH5430_11_ObjectIdentity = ObjectIdentity
+a10TH5430_11 = _A10TH5430_11_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 31)
+)
+if mibBuilder.loadTexts:
+    a10TH5430_11.setStatus("current")
+_A10TH5840_ObjectIdentity = ObjectIdentity
+a10TH5840 = _A10TH5840_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 32)
+)
+if mibBuilder.loadTexts:
+    a10TH5840.setStatus("current")
+_A10TH940_ObjectIdentity = ObjectIdentity
+a10TH940 = _A10TH940_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 33)
+)
+if mibBuilder.loadTexts:
+    a10TH940.setStatus("current")
+_A10TH1040_ObjectIdentity = ObjectIdentity
+a10TH1040 = _A10TH1040_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 34)
+)
+if mibBuilder.loadTexts:
+    a10TH1040.setStatus("current")
+_A10TH3040_ObjectIdentity = ObjectIdentity
+a10TH3040 = _A10TH3040_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 35)
+)
+if mibBuilder.loadTexts:
+    a10TH3040.setStatus("current")
+_A10TH7440_ObjectIdentity = ObjectIdentity
+a10TH7440 = _A10TH7440_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 37)
+)
+if mibBuilder.loadTexts:
+    a10TH7440.setStatus("current")
+_A10TH840_ObjectIdentity = ObjectIdentity
+a10TH840 = _A10TH840_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 38)
+)
+if mibBuilder.loadTexts:
+    a10TH840.setStatus("current")
+_A10AX12040_ObjectIdentity = ObjectIdentity
+a10AX12040 = _A10AX12040_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 39)
+)
+if mibBuilder.loadTexts:
+    a10AX12040.setStatus("current")
+_A10AX12050_ObjectIdentity = ObjectIdentity
+a10AX12050 = _A10AX12050_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 40)
+)
+if mibBuilder.loadTexts:
+    a10AX12050.setStatus("current")
+_A10TH3745_ObjectIdentity = ObjectIdentity
+a10TH3745 = _A10TH3745_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 41)
+)
+if mibBuilder.loadTexts:
+    a10TH3745.setStatus("current")
+_A10TH3230_ObjectIdentity = ObjectIdentity
+a10TH3230 = _A10TH3230_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 42)
+)
+if mibBuilder.loadTexts:
+    a10TH3230.setStatus("current")
+_A10TH4440_ObjectIdentity = ObjectIdentity
+a10TH4440 = _A10TH4440_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 43)
+)
+if mibBuilder.loadTexts:
+    a10TH4440.setStatus("current")
+_A10TH5440_ObjectIdentity = ObjectIdentity
+a10TH5440 = _A10TH5440_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 44)
+)
+if mibBuilder.loadTexts:
+    a10TH5440.setStatus("current")
+_A10TH6440_ObjectIdentity = ObjectIdentity
+a10TH6440 = _A10TH6440_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 45)
+)
+if mibBuilder.loadTexts:
+    a10TH6440.setStatus("current")
+_A10TH5650_ObjectIdentity = ObjectIdentity
+a10TH5650 = _A10TH5650_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 46)
+)
+if mibBuilder.loadTexts:
+    a10TH5650.setStatus("current")
+_A10TH7650_ObjectIdentity = ObjectIdentity
+a10TH7650 = _A10TH7650_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 47)
+)
+if mibBuilder.loadTexts:
+    a10TH7650.setStatus("current")
+_A10TH3350_ObjectIdentity = ObjectIdentity
+a10TH3350 = _A10TH3350_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 3, 51)
+)
+if mibBuilder.loadTexts:
+    a10TH3350.setStatus("current")
+_A10CentMgmt_ObjectIdentity = ObjectIdentity
+a10CentMgmt = _A10CentMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 4)
+)
+if mibBuilder.loadTexts:
+    a10CentMgmt.setStatus("current")
+_A10AGA1_ObjectIdentity = ObjectIdentity
+a10AGA1 = _A10AGA1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    a10AGA1.setStatus("current")
+_A10AGA5000_ObjectIdentity = ObjectIdentity
+a10AGA5000 = _A10AGA5000_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 4, 2)
+)
+if mibBuilder.loadTexts:
+    a10AGA5000.setStatus("current")
+_A10SoftAGA_ObjectIdentity = ObjectIdentity
+a10SoftAGA = _A10SoftAGA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 1, 4, 3)
+)
+if mibBuilder.loadTexts:
+    a10SoftAGA.setStatus("current")
+_A10Mgmt_ObjectIdentity = ObjectIdentity
+a10Mgmt = _A10Mgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 22610, 2)
+)
+if mibBuilder.loadTexts:
+    a10Mgmt.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "A10-COMMON-MIB",
+    **{"a10": a10,
+       "a10Products": a10Products,
+       "a10IDsentrie": a10IDsentrie,
+       "a10IDsentrie1000": a10IDsentrie1000,
+       "a10StealthWatch": a10StealthWatch,
+       "a10RetiEntity1000": a10RetiEntity1000,
+       "a10EX": a10EX,
+       "a10EX2100": a10EX2100,
+       "a10EX2180": a10EX2180,
+       "a10EX2200": a10EX2200,
+       "a10EX2280": a10EX2280,
+       "a10AX": a10AX,
+       "a10AX2100": a10AX2100,
+       "a10AX3100": a10AX3100,
+       "a10AX3200": a10AX3200,
+       "a10AX2200": a10AX2200,
+       "a10AX2000": a10AX2000,
+       "a10AX1000": a10AX1000,
+       "a10AX5200": a10AX5200,
+       "a10AX2500": a10AX2500,
+       "a10AX2600": a10AX2600,
+       "a10AX3000": a10AX3000,
+       "a10HitachiBladeServer": a10HitachiBladeServer,
+       "a10AX5100": a10AX5100,
+       "a10SoftAX": a10SoftAX,
+       "a10AX3030": a10AX3030,
+       "a10AX1030": a10AX1030,
+       "a10AX3200-12": a10AX3200_12,
+       "a10AX3400": a10AX3400,
+       "a10AX3530": a10AX3530,
+       "a10AX5630": a10AX5630,
+       "a10TH6430": a10TH6430,
+       "a10TH5430": a10TH5430,
+       "a10TH3030S": a10TH3030S,
+       "a10TH1030S": a10TH1030S,
+       "a10TH930S": a10TH930S,
+       "a10TH4430": a10TH4430,
+       "a10TH5330": a10TH5330,
+       "a10TH4435": a10TH4435,
+       "a10TH5630": a10TH5630,
+       "a10TH6630": a10TH6630,
+       "a10TH3430": a10TH3430,
+       "a10TH5430-11": a10TH5430_11,
+       "a10TH5840": a10TH5840,
+       "a10TH940": a10TH940,
+       "a10TH1040": a10TH1040,
+       "a10TH3040": a10TH3040,
+       "a10TH7440": a10TH7440,
+       "a10TH840": a10TH840,
+       "a10AX12040": a10AX12040,
+       "a10AX12050": a10AX12050,
+       "a10TH3745": a10TH3745,
+       "a10TH3230": a10TH3230,
+       "a10TH4440": a10TH4440,
+       "a10TH5440": a10TH5440,
+       "a10TH6440": a10TH6440,
+       "a10TH5650": a10TH5650,
+       "a10TH7650": a10TH7650,
+       "a10TH3350": a10TH3350,
+       "a10CentMgmt": a10CentMgmt,
+       "a10AGA1": a10AGA1,
+       "a10AGA5000": a10AGA5000,
+       "a10SoftAGA": a10SoftAGA,
+       "a10Mgmt": a10Mgmt}
+)

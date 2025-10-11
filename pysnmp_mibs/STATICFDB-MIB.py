@@ -1,35 +1,256 @@
+# SNMP MIB module (STATICFDB-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module STATICFDB-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/STATICFDB-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:59:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/STATICFDB-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:50:49 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_common_mgmt, = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-common-mgmt")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "RowStatus", "TextualConvention", "DisplayString")
-swStaticFdbMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 171, 12, 70))
-if mibBuilder.loadTexts: swStaticFdbMIB.setLastUpdated('0811180000Z')
-if mibBuilder.loadTexts: swStaticFdbMIB.setOrganization('D-Link Corp.')
-swStaticFdbMgmt = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 12, 70, 1))
-swStaticFdbMgmtTable = MibTable((1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1), )
-if mibBuilder.loadTexts: swStaticFdbMgmtTable.setStatus('current')
-swStaticFdbMgmtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1), ).setIndexNames((0, "STATICFDB-MIB", "swStaticFdbMgmtVlanID"), (0, "STATICFDB-MIB", "swStaticFdbMgmtMacAddr"))
-if mibBuilder.loadTexts: swStaticFdbMgmtEntry.setStatus('current')
-swStaticFdbMgmtVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4094))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swStaticFdbMgmtVlanID.setStatus('current')
-swStaticFdbMgmtMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 2), MacAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swStaticFdbMgmtMacAddr.setStatus('current')
-swStaticFdbMgmtVlanName = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: swStaticFdbMgmtVlanName.setStatus('current')
-swStaticFdbMgmtType = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("self", 1), ("permanent", 2), ("permanentdrop", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swStaticFdbMgmtType.setStatus('current')
-swStaticFdbMgmtPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 5), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swStaticFdbMgmtPortNum.setStatus('current')
-swStaticFdbMgmtRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: swStaticFdbMgmtRowStatus.setStatus('current')
-mibBuilder.exportSymbols("STATICFDB-MIB", swStaticFdbMgmtEntry=swStaticFdbMgmtEntry, swStaticFdbMgmt=swStaticFdbMgmt, swStaticFdbMgmtVlanName=swStaticFdbMgmtVlanName, swStaticFdbMgmtVlanID=swStaticFdbMgmtVlanID, PYSNMP_MODULE_ID=swStaticFdbMIB, swStaticFdbMgmtPortNum=swStaticFdbMgmtPortNum, swStaticFdbMgmtTable=swStaticFdbMgmtTable, swStaticFdbMgmtMacAddr=swStaticFdbMgmtMacAddr, swStaticFdbMgmtType=swStaticFdbMgmtType, swStaticFdbMIB=swStaticFdbMIB, swStaticFdbMgmtRowStatus=swStaticFdbMgmtRowStatus)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_common_mgmt,) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-common-mgmt")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+swStaticFdbMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 70)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SwStaticFdbMgmt_ObjectIdentity = ObjectIdentity
+swStaticFdbMgmt = _SwStaticFdbMgmt_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 12, 70, 1)
+)
+_SwStaticFdbMgmtTable_Object = MibTable
+swStaticFdbMgmtTable = _SwStaticFdbMgmtTable_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1)
+)
+if mibBuilder.loadTexts:
+    swStaticFdbMgmtTable.setStatus("current")
+_SwStaticFdbMgmtEntry_Object = MibTableRow
+swStaticFdbMgmtEntry = _SwStaticFdbMgmtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1)
+)
+swStaticFdbMgmtEntry.setIndexNames(
+    (0, "STATICFDB-MIB", "swStaticFdbMgmtVlanID"),
+    (0, "STATICFDB-MIB", "swStaticFdbMgmtMacAddr"),
+)
+if mibBuilder.loadTexts:
+    swStaticFdbMgmtEntry.setStatus("current")
+
+
+class _SwStaticFdbMgmtVlanID_Type(Integer32):
+    """Custom type swStaticFdbMgmtVlanID based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4094),
+    )
+
+
+_SwStaticFdbMgmtVlanID_Type.__name__ = "Integer32"
+_SwStaticFdbMgmtVlanID_Object = MibTableColumn
+swStaticFdbMgmtVlanID = _SwStaticFdbMgmtVlanID_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 1),
+    _SwStaticFdbMgmtVlanID_Type()
+)
+swStaticFdbMgmtVlanID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swStaticFdbMgmtVlanID.setStatus("current")
+_SwStaticFdbMgmtMacAddr_Type = MacAddress
+_SwStaticFdbMgmtMacAddr_Object = MibTableColumn
+swStaticFdbMgmtMacAddr = _SwStaticFdbMgmtMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 2),
+    _SwStaticFdbMgmtMacAddr_Type()
+)
+swStaticFdbMgmtMacAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swStaticFdbMgmtMacAddr.setStatus("current")
+_SwStaticFdbMgmtVlanName_Type = DisplayString
+_SwStaticFdbMgmtVlanName_Object = MibTableColumn
+swStaticFdbMgmtVlanName = _SwStaticFdbMgmtVlanName_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 3),
+    _SwStaticFdbMgmtVlanName_Type()
+)
+swStaticFdbMgmtVlanName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    swStaticFdbMgmtVlanName.setStatus("current")
+
+
+class _SwStaticFdbMgmtType_Type(Integer32):
+    """Custom type swStaticFdbMgmtType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("self", 1),
+          ("permanent", 2),
+          ("permanentdrop", 3))
+    )
+
+
+_SwStaticFdbMgmtType_Type.__name__ = "Integer32"
+_SwStaticFdbMgmtType_Object = MibTableColumn
+swStaticFdbMgmtType = _SwStaticFdbMgmtType_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 4),
+    _SwStaticFdbMgmtType_Type()
+)
+swStaticFdbMgmtType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swStaticFdbMgmtType.setStatus("current")
+_SwStaticFdbMgmtPortNum_Type = Integer32
+_SwStaticFdbMgmtPortNum_Object = MibTableColumn
+swStaticFdbMgmtPortNum = _SwStaticFdbMgmtPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 5),
+    _SwStaticFdbMgmtPortNum_Type()
+)
+swStaticFdbMgmtPortNum.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swStaticFdbMgmtPortNum.setStatus("current")
+_SwStaticFdbMgmtRowStatus_Type = RowStatus
+_SwStaticFdbMgmtRowStatus_Object = MibTableColumn
+swStaticFdbMgmtRowStatus = _SwStaticFdbMgmtRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 171, 12, 70, 1, 1, 1, 6),
+    _SwStaticFdbMgmtRowStatus_Type()
+)
+swStaticFdbMgmtRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    swStaticFdbMgmtRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "STATICFDB-MIB",
+    **{"swStaticFdbMIB": swStaticFdbMIB,
+       "swStaticFdbMgmt": swStaticFdbMgmt,
+       "swStaticFdbMgmtTable": swStaticFdbMgmtTable,
+       "swStaticFdbMgmtEntry": swStaticFdbMgmtEntry,
+       "swStaticFdbMgmtVlanID": swStaticFdbMgmtVlanID,
+       "swStaticFdbMgmtMacAddr": swStaticFdbMgmtMacAddr,
+       "swStaticFdbMgmtVlanName": swStaticFdbMgmtVlanName,
+       "swStaticFdbMgmtType": swStaticFdbMgmtType,
+       "swStaticFdbMgmtPortNum": swStaticFdbMgmtPortNum,
+       "swStaticFdbMgmtRowStatus": swStaticFdbMgmtRowStatus}
+)

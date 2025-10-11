@@ -1,44 +1,311 @@
+# SNMP MIB module (RAISECOM-POWERMONITOR-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RAISECOM-POWERMONITOR-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/raisecom/RAISECOM-POWERMONITOR-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:54:57 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/raisecom/RAISECOM-POWERMONITOR-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:37:27 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-raisecomAgent, = mibBuilder.importSymbols("RAISECOM-BASE-MIB", "raisecomAgent")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-raisecomPowerMonitor = ModuleIdentity((1, 3, 6, 1, 4, 1, 8886, 1, 24))
-if mibBuilder.loadTexts: raisecomPowerMonitor.setLastUpdated('201101190000Z')
-if mibBuilder.loadTexts: raisecomPowerMonitor.setOrganization('Raisecom, Inc.')
-raisecomPowerMonitorNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 24, 1))
-raisecomPowerMonitorMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 8886, 1, 24, 2))
-raisecomPowerVoltNormal = NotificationType((1, 3, 6, 1, 4, 1, 8886, 1, 24, 1, 1)).setObjects(("RAISECOM-POWERMONITOR-MIB", "raisecomPowerIndex"), ("RAISECOM-POWERMONITOR-MIB", "raisecomPowerVoltReference"), ("RAISECOM-POWERMONITOR-MIB", "raisecomPowerVoltValue"))
-if mibBuilder.loadTexts: raisecomPowerVoltNormal.setStatus('current')
-raisecomPowerVoltAbnormal = NotificationType((1, 3, 6, 1, 4, 1, 8886, 1, 24, 1, 2)).setObjects(("RAISECOM-POWERMONITOR-MIB", "raisecomPowerIndex"), ("RAISECOM-POWERMONITOR-MIB", "raisecomPowerVoltReference"), ("RAISECOM-POWERMONITOR-MIB", "raisecomPowerVoltValue"))
-if mibBuilder.loadTexts: raisecomPowerVoltAbnormal.setStatus('current')
-raisecomPowerStatusTrap = NotificationType((1, 3, 6, 1, 4, 1, 8886, 1, 24, 1, 3)).setObjects(("RAISECOM-POWERMONITOR-MIB", "raisecomPowerIndex"), ("RAISECOM-POWERMONITOR-MIB", "raisecomPowerStatus"))
-if mibBuilder.loadTexts: raisecomPowerStatusTrap.setStatus('current')
-raisecomDyingGaspTrap = NotificationType((1, 3, 6, 1, 4, 1, 8886, 1, 24, 1, 4))
-if mibBuilder.loadTexts: raisecomDyingGaspTrap.setStatus('current')
-raisecomPowerMonitorStateTable = MibTable((1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1), )
-if mibBuilder.loadTexts: raisecomPowerMonitorStateTable.setStatus('current')
-raisecomPowerMonitorStateEntry = MibTableRow((1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1), ).setIndexNames((0, "RAISECOM-POWERMONITOR-MIB", "raisecomPowerIndex"))
-if mibBuilder.loadTexts: raisecomPowerMonitorStateEntry.setStatus('current')
-raisecomPowerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: raisecomPowerIndex.setStatus('current')
-raisecomPowerSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomPowerSerialNumber.setStatus('current')
-raisecomPowerType = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("ac", 1), ("dc", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomPowerType.setStatus('current')
-raisecomPowerVoltReference = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomPowerVoltReference.setStatus('current')
-raisecomPowerVoltValue = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomPowerVoltValue.setStatus('current')
-raisecomPowerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("power-on", 1), ("power-off", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: raisecomPowerStatus.setStatus('current')
-mibBuilder.exportSymbols("RAISECOM-POWERMONITOR-MIB", raisecomPowerVoltValue=raisecomPowerVoltValue, raisecomPowerMonitorNotification=raisecomPowerMonitorNotification, raisecomPowerMonitorMibObjects=raisecomPowerMonitorMibObjects, raisecomPowerVoltReference=raisecomPowerVoltReference, raisecomPowerVoltNormal=raisecomPowerVoltNormal, raisecomDyingGaspTrap=raisecomDyingGaspTrap, raisecomPowerMonitor=raisecomPowerMonitor, raisecomPowerSerialNumber=raisecomPowerSerialNumber, raisecomPowerStatusTrap=raisecomPowerStatusTrap, raisecomPowerVoltAbnormal=raisecomPowerVoltAbnormal, raisecomPowerMonitorStateTable=raisecomPowerMonitorStateTable, raisecomPowerMonitorStateEntry=raisecomPowerMonitorStateEntry, raisecomPowerIndex=raisecomPowerIndex, raisecomPowerType=raisecomPowerType, raisecomPowerStatus=raisecomPowerStatus, PYSNMP_MODULE_ID=raisecomPowerMonitor)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(raisecomAgent,) = mibBuilder.importSymbols(
+    "RAISECOM-BASE-MIB",
+    "raisecomAgent")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+raisecomPowerMonitor = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RaisecomPowerMonitorNotification_ObjectIdentity = ObjectIdentity
+raisecomPowerMonitorNotification = _RaisecomPowerMonitorNotification_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 1)
+)
+_RaisecomPowerMonitorMibObjects_ObjectIdentity = ObjectIdentity
+raisecomPowerMonitorMibObjects = _RaisecomPowerMonitorMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 2)
+)
+_RaisecomPowerMonitorStateTable_Object = MibTable
+raisecomPowerMonitorStateTable = _RaisecomPowerMonitorStateTable_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1)
+)
+if mibBuilder.loadTexts:
+    raisecomPowerMonitorStateTable.setStatus("current")
+_RaisecomPowerMonitorStateEntry_Object = MibTableRow
+raisecomPowerMonitorStateEntry = _RaisecomPowerMonitorStateEntry_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1)
+)
+raisecomPowerMonitorStateEntry.setIndexNames(
+    (0, "RAISECOM-POWERMONITOR-MIB", "raisecomPowerIndex"),
+)
+if mibBuilder.loadTexts:
+    raisecomPowerMonitorStateEntry.setStatus("current")
+_RaisecomPowerIndex_Type = Unsigned32
+_RaisecomPowerIndex_Object = MibTableColumn
+raisecomPowerIndex = _RaisecomPowerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 1),
+    _RaisecomPowerIndex_Type()
+)
+raisecomPowerIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    raisecomPowerIndex.setStatus("current")
+_RaisecomPowerSerialNumber_Type = OctetString
+_RaisecomPowerSerialNumber_Object = MibTableColumn
+raisecomPowerSerialNumber = _RaisecomPowerSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 2),
+    _RaisecomPowerSerialNumber_Type()
+)
+raisecomPowerSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomPowerSerialNumber.setStatus("current")
+
+
+class _RaisecomPowerType_Type(Integer32):
+    """Custom type raisecomPowerType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ac", 1),
+          ("dc", 2))
+    )
+
+
+_RaisecomPowerType_Type.__name__ = "Integer32"
+_RaisecomPowerType_Object = MibTableColumn
+raisecomPowerType = _RaisecomPowerType_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 3),
+    _RaisecomPowerType_Type()
+)
+raisecomPowerType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomPowerType.setStatus("current")
+_RaisecomPowerVoltReference_Type = Integer32
+_RaisecomPowerVoltReference_Object = MibTableColumn
+raisecomPowerVoltReference = _RaisecomPowerVoltReference_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 4),
+    _RaisecomPowerVoltReference_Type()
+)
+raisecomPowerVoltReference.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomPowerVoltReference.setStatus("current")
+_RaisecomPowerVoltValue_Type = Integer32
+_RaisecomPowerVoltValue_Object = MibTableColumn
+raisecomPowerVoltValue = _RaisecomPowerVoltValue_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 5),
+    _RaisecomPowerVoltValue_Type()
+)
+raisecomPowerVoltValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomPowerVoltValue.setStatus("current")
+
+
+class _RaisecomPowerStatus_Type(Integer32):
+    """Custom type raisecomPowerStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("power-on", 1),
+          ("power-off", 2))
+    )
+
+
+_RaisecomPowerStatus_Type.__name__ = "Integer32"
+_RaisecomPowerStatus_Object = MibTableColumn
+raisecomPowerStatus = _RaisecomPowerStatus_Object(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 2, 1, 1, 6),
+    _RaisecomPowerStatus_Type()
+)
+raisecomPowerStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    raisecomPowerStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+raisecomPowerVoltNormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 1, 1)
+)
+raisecomPowerVoltNormal.setObjects(
+      *(("RAISECOM-POWERMONITOR-MIB", "raisecomPowerIndex"),
+        ("RAISECOM-POWERMONITOR-MIB", "raisecomPowerVoltReference"),
+        ("RAISECOM-POWERMONITOR-MIB", "raisecomPowerVoltValue"))
+)
+if mibBuilder.loadTexts:
+    raisecomPowerVoltNormal.setStatus(
+        "current"
+    )
+
+raisecomPowerVoltAbnormal = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 1, 2)
+)
+raisecomPowerVoltAbnormal.setObjects(
+      *(("RAISECOM-POWERMONITOR-MIB", "raisecomPowerIndex"),
+        ("RAISECOM-POWERMONITOR-MIB", "raisecomPowerVoltReference"),
+        ("RAISECOM-POWERMONITOR-MIB", "raisecomPowerVoltValue"))
+)
+if mibBuilder.loadTexts:
+    raisecomPowerVoltAbnormal.setStatus(
+        "current"
+    )
+
+raisecomPowerStatusTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 1, 3)
+)
+raisecomPowerStatusTrap.setObjects(
+      *(("RAISECOM-POWERMONITOR-MIB", "raisecomPowerIndex"),
+        ("RAISECOM-POWERMONITOR-MIB", "raisecomPowerStatus"))
+)
+if mibBuilder.loadTexts:
+    raisecomPowerStatusTrap.setStatus(
+        "current"
+    )
+
+raisecomDyingGaspTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 8886, 1, 24, 1, 4)
+)
+if mibBuilder.loadTexts:
+    raisecomDyingGaspTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RAISECOM-POWERMONITOR-MIB",
+    **{"raisecomPowerMonitor": raisecomPowerMonitor,
+       "raisecomPowerMonitorNotification": raisecomPowerMonitorNotification,
+       "raisecomPowerVoltNormal": raisecomPowerVoltNormal,
+       "raisecomPowerVoltAbnormal": raisecomPowerVoltAbnormal,
+       "raisecomPowerStatusTrap": raisecomPowerStatusTrap,
+       "raisecomDyingGaspTrap": raisecomDyingGaspTrap,
+       "raisecomPowerMonitorMibObjects": raisecomPowerMonitorMibObjects,
+       "raisecomPowerMonitorStateTable": raisecomPowerMonitorStateTable,
+       "raisecomPowerMonitorStateEntry": raisecomPowerMonitorStateEntry,
+       "raisecomPowerIndex": raisecomPowerIndex,
+       "raisecomPowerSerialNumber": raisecomPowerSerialNumber,
+       "raisecomPowerType": raisecomPowerType,
+       "raisecomPowerVoltReference": raisecomPowerVoltReference,
+       "raisecomPowerVoltValue": raisecomPowerVoltValue,
+       "raisecomPowerStatus": raisecomPowerStatus}
+)

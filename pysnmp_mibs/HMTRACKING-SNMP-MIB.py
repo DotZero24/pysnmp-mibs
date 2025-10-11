@@ -1,81 +1,673 @@
+# SNMP MIB module (HMTRACKING-SNMP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HMTRACKING-SNMP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hirschmann/HMTRACKING-SNMP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:22 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hirschmann/HMTRACKING-SNMP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:54:59 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hmConfiguration, = mibBuilder.importSymbols("HMPRIV-MGMT-SNMP-MIB", "hmConfiguration")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-hmTracking = ModuleIdentity((1, 3, 6, 1, 4, 1, 248, 14, 15))
-hmTracking.setRevisions(('2007-09-13 12:00',))
-if mibBuilder.loadTexts: hmTracking.setLastUpdated('200709131200Z')
-if mibBuilder.loadTexts: hmTracking.setOrganization('Hirschmann Automation and Control GmbH')
-hmTrackingGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 248, 14, 15, 1))
-hmTrackingTable = MibTable((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1), )
-if mibBuilder.loadTexts: hmTrackingTable.setStatus('current')
-hmTrackingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1), ).setIndexNames((0, "HMTRACKING-SNMP-MIB", "hmTrackId"))
-if mibBuilder.loadTexts: hmTrackingEntry.setStatus('current')
-hmTrackId = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hmTrackId.setStatus('current')
-hmTrackRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 2), RowStatus().clone('notReady')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hmTrackRowStatus.setStatus('current')
-hmTrackType = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("undefined", 1), ("interface", 2), ("ping", 3), ("logical", 4))).clone('undefined')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackType.setStatus('current')
-hmTrackState = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2))).clone('up')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hmTrackState.setStatus('current')
-hmTrackNumberOfChanges = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hmTrackNumberOfChanges.setStatus('current')
-hmTrackTimeSinceLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 6), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hmTrackTimeSinceLastChange.setStatus('current')
-hmTrackIfNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 7), InterfaceIndexOrZero()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackIfNumber.setStatus('current')
-hmTrackIfLinkUpDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackIfLinkUpDelay.setStatus('current')
-hmTrackIfLinkDownDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackIfLinkDownDelay.setStatus('current')
-hmTrackPingIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 10), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackPingIpAddress.setStatus('current')
-hmTrackPingInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(1)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackPingInterval.setStatus('current')
-hmTrackPingMiss = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(3)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackPingMiss.setStatus('current')
-hmTrackPingSuccess = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackPingSuccess.setStatus('current')
-hmTrackPingTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(10, 10000)).clone(100)).setUnits('milliseconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackPingTimeout.setStatus('current')
-hmTrackPingTTL = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 15), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(128)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackPingTTL.setStatus('current')
-hmTrackPingBestRouteIfNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 16), InterfaceIndexOrZero()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hmTrackPingBestRouteIfNumber.setStatus('current')
-hmTrackLogicalOperator = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 17), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("and", 1), ("or", 2))).clone('or')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackLogicalOperator.setStatus('current')
-hmTrackSendStateChangeTrap = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 18), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hmTrackSendStateChangeTrap.setStatus('current')
-hmTrackingApplicationTable = MibTable((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 2), )
-if mibBuilder.loadTexts: hmTrackingApplicationTable.setStatus('current')
-hmTrackingApplicationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 2, 1), ).setIndexNames((0, "HMTRACKING-SNMP-MIB", "hmTrackId"), (0, "HMTRACKING-SNMP-MIB", "hmTrackAppId"))
-if mibBuilder.loadTexts: hmTrackingApplicationEntry.setStatus('current')
-hmTrackAppId = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 2, 1, 2), Integer32())
-if mibBuilder.loadTexts: hmTrackAppId.setStatus('current')
-hmTrackAppName = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hmTrackAppName.setStatus('current')
-hmTrackLogicalInstanceTable = MibTable((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 3), )
-if mibBuilder.loadTexts: hmTrackLogicalInstanceTable.setStatus('current')
-hmTrackLogicalInstanceEntry = MibTableRow((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 3, 1), ).setIndexNames((0, "HMTRACKING-SNMP-MIB", "hmTrackId"), (0, "HMTRACKING-SNMP-MIB", "hmTrackLogicalInstanceId"))
-if mibBuilder.loadTexts: hmTrackLogicalInstanceEntry.setStatus('current')
-hmTrackLogicalInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 3, 1, 2), Integer32())
-if mibBuilder.loadTexts: hmTrackLogicalInstanceId.setStatus('current')
-hmTrackLogicInstRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 3, 1, 3), RowStatus().clone('notReady')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hmTrackLogicInstRowStatus.setStatus('current')
-hmTrackEvent = ObjectIdentity((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 0))
-if mibBuilder.loadTexts: hmTrackEvent.setStatus('current')
-hmTrackStatusChangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 0, 1)).setObjects(("HMTRACKING-SNMP-MIB", "hmTrackId"), ("HMTRACKING-SNMP-MIB", "hmTrackRowStatus"), ("HMTRACKING-SNMP-MIB", "hmTrackState"))
-if mibBuilder.loadTexts: hmTrackStatusChangeEvent.setStatus('current')
-mibBuilder.exportSymbols("HMTRACKING-SNMP-MIB", hmTrackType=hmTrackType, hmTrackAppId=hmTrackAppId, hmTrackIfLinkUpDelay=hmTrackIfLinkUpDelay, hmTrackSendStateChangeTrap=hmTrackSendStateChangeTrap, hmTrackLogicalInstanceEntry=hmTrackLogicalInstanceEntry, hmTrackLogicalOperator=hmTrackLogicalOperator, PYSNMP_MODULE_ID=hmTracking, hmTrackPingIpAddress=hmTrackPingIpAddress, hmTrackState=hmTrackState, hmTrackStatusChangeEvent=hmTrackStatusChangeEvent, hmTrackingEntry=hmTrackingEntry, hmTrackPingInterval=hmTrackPingInterval, hmTrackPingTimeout=hmTrackPingTimeout, hmTrackLogicInstRowStatus=hmTrackLogicInstRowStatus, hmTrackingGroup=hmTrackingGroup, hmTrackPingTTL=hmTrackPingTTL, hmTrackPingBestRouteIfNumber=hmTrackPingBestRouteIfNumber, hmTrackIfNumber=hmTrackIfNumber, hmTrackLogicalInstanceId=hmTrackLogicalInstanceId, hmTrackAppName=hmTrackAppName, hmTrackEvent=hmTrackEvent, hmTrackingApplicationTable=hmTrackingApplicationTable, hmTrackIfLinkDownDelay=hmTrackIfLinkDownDelay, hmTrackRowStatus=hmTrackRowStatus, hmTrackPingSuccess=hmTrackPingSuccess, hmTrackPingMiss=hmTrackPingMiss, hmTrackingTable=hmTrackingTable, hmTrackNumberOfChanges=hmTrackNumberOfChanges, hmTrackTimeSinceLastChange=hmTrackTimeSinceLastChange, hmTracking=hmTracking, hmTrackingApplicationEntry=hmTrackingApplicationEntry, hmTrackId=hmTrackId, hmTrackLogicalInstanceTable=hmTrackLogicalInstanceTable)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hmConfiguration,) = mibBuilder.importSymbols(
+    "HMPRIV-MGMT-SNMP-MIB",
+    "hmConfiguration")
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hmTracking = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15)
+)
+if mibBuilder.loadTexts:
+    hmTracking.setRevisions(
+        ("2007-09-13 12:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HmTrackingGroup_ObjectIdentity = ObjectIdentity
+hmTrackingGroup = _HmTrackingGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1)
+)
+_HmTrackEvent_ObjectIdentity = ObjectIdentity
+hmTrackEvent = _HmTrackEvent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 0)
+)
+if mibBuilder.loadTexts:
+    hmTrackEvent.setStatus("current")
+_HmTrackingTable_Object = MibTable
+hmTrackingTable = _HmTrackingTable_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hmTrackingTable.setStatus("current")
+_HmTrackingEntry_Object = MibTableRow
+hmTrackingEntry = _HmTrackingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1)
+)
+hmTrackingEntry.setIndexNames(
+    (0, "HMTRACKING-SNMP-MIB", "hmTrackId"),
+)
+if mibBuilder.loadTexts:
+    hmTrackingEntry.setStatus("current")
+_HmTrackId_Type = Integer32
+_HmTrackId_Object = MibTableColumn
+hmTrackId = _HmTrackId_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 1),
+    _HmTrackId_Type()
+)
+hmTrackId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hmTrackId.setStatus("current")
+
+
+class _HmTrackRowStatus_Type(RowStatus):
+    """Custom type hmTrackRowStatus based on RowStatus"""
+    defaultValue = 3
+
+
+_HmTrackRowStatus_Type.__name__ = "RowStatus"
+_HmTrackRowStatus_Object = MibTableColumn
+hmTrackRowStatus = _HmTrackRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 2),
+    _HmTrackRowStatus_Type()
+)
+hmTrackRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hmTrackRowStatus.setStatus("current")
+
+
+class _HmTrackType_Type(Integer32):
+    """Custom type hmTrackType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("undefined", 1),
+          ("interface", 2),
+          ("ping", 3),
+          ("logical", 4))
+    )
+
+
+_HmTrackType_Type.__name__ = "Integer32"
+_HmTrackType_Object = MibTableColumn
+hmTrackType = _HmTrackType_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 3),
+    _HmTrackType_Type()
+)
+hmTrackType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackType.setStatus("current")
+
+
+class _HmTrackState_Type(Integer32):
+    """Custom type hmTrackState based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2))
+    )
+
+
+_HmTrackState_Type.__name__ = "Integer32"
+_HmTrackState_Object = MibTableColumn
+hmTrackState = _HmTrackState_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 4),
+    _HmTrackState_Type()
+)
+hmTrackState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hmTrackState.setStatus("current")
+
+
+class _HmTrackNumberOfChanges_Type(Integer32):
+    """Custom type hmTrackNumberOfChanges based on Integer32"""
+    defaultValue = 0
+
+
+_HmTrackNumberOfChanges_Type.__name__ = "Integer32"
+_HmTrackNumberOfChanges_Object = MibTableColumn
+hmTrackNumberOfChanges = _HmTrackNumberOfChanges_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 5),
+    _HmTrackNumberOfChanges_Type()
+)
+hmTrackNumberOfChanges.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hmTrackNumberOfChanges.setStatus("current")
+
+
+class _HmTrackTimeSinceLastChange_Type(TimeTicks):
+    """Custom type hmTrackTimeSinceLastChange based on TimeTicks"""
+    defaultValue = 0
+
+
+_HmTrackTimeSinceLastChange_Type.__name__ = "TimeTicks"
+_HmTrackTimeSinceLastChange_Object = MibTableColumn
+hmTrackTimeSinceLastChange = _HmTrackTimeSinceLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 6),
+    _HmTrackTimeSinceLastChange_Type()
+)
+hmTrackTimeSinceLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hmTrackTimeSinceLastChange.setStatus("current")
+
+
+class _HmTrackIfNumber_Type(InterfaceIndexOrZero):
+    """Custom type hmTrackIfNumber based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_HmTrackIfNumber_Type.__name__ = "InterfaceIndexOrZero"
+_HmTrackIfNumber_Object = MibTableColumn
+hmTrackIfNumber = _HmTrackIfNumber_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 7),
+    _HmTrackIfNumber_Type()
+)
+hmTrackIfNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackIfNumber.setStatus("current")
+
+
+class _HmTrackIfLinkUpDelay_Type(Integer32):
+    """Custom type hmTrackIfLinkUpDelay based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_HmTrackIfLinkUpDelay_Type.__name__ = "Integer32"
+_HmTrackIfLinkUpDelay_Object = MibTableColumn
+hmTrackIfLinkUpDelay = _HmTrackIfLinkUpDelay_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 8),
+    _HmTrackIfLinkUpDelay_Type()
+)
+hmTrackIfLinkUpDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackIfLinkUpDelay.setStatus("current")
+if mibBuilder.loadTexts:
+    hmTrackIfLinkUpDelay.setUnits("seconds")
+
+
+class _HmTrackIfLinkDownDelay_Type(Integer32):
+    """Custom type hmTrackIfLinkDownDelay based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_HmTrackIfLinkDownDelay_Type.__name__ = "Integer32"
+_HmTrackIfLinkDownDelay_Object = MibTableColumn
+hmTrackIfLinkDownDelay = _HmTrackIfLinkDownDelay_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 9),
+    _HmTrackIfLinkDownDelay_Type()
+)
+hmTrackIfLinkDownDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackIfLinkDownDelay.setStatus("current")
+if mibBuilder.loadTexts:
+    hmTrackIfLinkDownDelay.setUnits("seconds")
+_HmTrackPingIpAddress_Type = IpAddress
+_HmTrackPingIpAddress_Object = MibTableColumn
+hmTrackPingIpAddress = _HmTrackPingIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 10),
+    _HmTrackPingIpAddress_Type()
+)
+hmTrackPingIpAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackPingIpAddress.setStatus("current")
+
+
+class _HmTrackPingInterval_Type(Integer32):
+    """Custom type hmTrackPingInterval based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_HmTrackPingInterval_Type.__name__ = "Integer32"
+_HmTrackPingInterval_Object = MibTableColumn
+hmTrackPingInterval = _HmTrackPingInterval_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 11),
+    _HmTrackPingInterval_Type()
+)
+hmTrackPingInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackPingInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    hmTrackPingInterval.setUnits("seconds")
+
+
+class _HmTrackPingMiss_Type(Integer32):
+    """Custom type hmTrackPingMiss based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_HmTrackPingMiss_Type.__name__ = "Integer32"
+_HmTrackPingMiss_Object = MibTableColumn
+hmTrackPingMiss = _HmTrackPingMiss_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 12),
+    _HmTrackPingMiss_Type()
+)
+hmTrackPingMiss.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackPingMiss.setStatus("current")
+
+
+class _HmTrackPingSuccess_Type(Integer32):
+    """Custom type hmTrackPingSuccess based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_HmTrackPingSuccess_Type.__name__ = "Integer32"
+_HmTrackPingSuccess_Object = MibTableColumn
+hmTrackPingSuccess = _HmTrackPingSuccess_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 13),
+    _HmTrackPingSuccess_Type()
+)
+hmTrackPingSuccess.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackPingSuccess.setStatus("current")
+
+
+class _HmTrackPingTimeout_Type(Integer32):
+    """Custom type hmTrackPingTimeout based on Integer32"""
+    defaultValue = 100
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 10000),
+    )
+
+
+_HmTrackPingTimeout_Type.__name__ = "Integer32"
+_HmTrackPingTimeout_Object = MibTableColumn
+hmTrackPingTimeout = _HmTrackPingTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 14),
+    _HmTrackPingTimeout_Type()
+)
+hmTrackPingTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackPingTimeout.setStatus("current")
+if mibBuilder.loadTexts:
+    hmTrackPingTimeout.setUnits("milliseconds")
+
+
+class _HmTrackPingTTL_Type(Integer32):
+    """Custom type hmTrackPingTTL based on Integer32"""
+    defaultValue = 128
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_HmTrackPingTTL_Type.__name__ = "Integer32"
+_HmTrackPingTTL_Object = MibTableColumn
+hmTrackPingTTL = _HmTrackPingTTL_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 15),
+    _HmTrackPingTTL_Type()
+)
+hmTrackPingTTL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackPingTTL.setStatus("current")
+
+
+class _HmTrackPingBestRouteIfNumber_Type(InterfaceIndexOrZero):
+    """Custom type hmTrackPingBestRouteIfNumber based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_HmTrackPingBestRouteIfNumber_Type.__name__ = "InterfaceIndexOrZero"
+_HmTrackPingBestRouteIfNumber_Object = MibTableColumn
+hmTrackPingBestRouteIfNumber = _HmTrackPingBestRouteIfNumber_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 16),
+    _HmTrackPingBestRouteIfNumber_Type()
+)
+hmTrackPingBestRouteIfNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hmTrackPingBestRouteIfNumber.setStatus("current")
+
+
+class _HmTrackLogicalOperator_Type(Integer32):
+    """Custom type hmTrackLogicalOperator based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("and", 1),
+          ("or", 2))
+    )
+
+
+_HmTrackLogicalOperator_Type.__name__ = "Integer32"
+_HmTrackLogicalOperator_Object = MibTableColumn
+hmTrackLogicalOperator = _HmTrackLogicalOperator_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 17),
+    _HmTrackLogicalOperator_Type()
+)
+hmTrackLogicalOperator.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackLogicalOperator.setStatus("current")
+
+
+class _HmTrackSendStateChangeTrap_Type(Integer32):
+    """Custom type hmTrackSendStateChangeTrap based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_HmTrackSendStateChangeTrap_Type.__name__ = "Integer32"
+_HmTrackSendStateChangeTrap_Object = MibTableColumn
+hmTrackSendStateChangeTrap = _HmTrackSendStateChangeTrap_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 1, 1, 18),
+    _HmTrackSendStateChangeTrap_Type()
+)
+hmTrackSendStateChangeTrap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hmTrackSendStateChangeTrap.setStatus("current")
+_HmTrackingApplicationTable_Object = MibTable
+hmTrackingApplicationTable = _HmTrackingApplicationTable_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 2)
+)
+if mibBuilder.loadTexts:
+    hmTrackingApplicationTable.setStatus("current")
+_HmTrackingApplicationEntry_Object = MibTableRow
+hmTrackingApplicationEntry = _HmTrackingApplicationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 2, 1)
+)
+hmTrackingApplicationEntry.setIndexNames(
+    (0, "HMTRACKING-SNMP-MIB", "hmTrackId"),
+    (0, "HMTRACKING-SNMP-MIB", "hmTrackAppId"),
+)
+if mibBuilder.loadTexts:
+    hmTrackingApplicationEntry.setStatus("current")
+_HmTrackAppId_Type = Integer32
+_HmTrackAppId_Object = MibTableColumn
+hmTrackAppId = _HmTrackAppId_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 2, 1, 2),
+    _HmTrackAppId_Type()
+)
+hmTrackAppId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hmTrackAppId.setStatus("current")
+
+
+class _HmTrackAppName_Type(DisplayString):
+    """Custom type hmTrackAppName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_HmTrackAppName_Type.__name__ = "DisplayString"
+_HmTrackAppName_Object = MibTableColumn
+hmTrackAppName = _HmTrackAppName_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 2, 1, 3),
+    _HmTrackAppName_Type()
+)
+hmTrackAppName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hmTrackAppName.setStatus("current")
+_HmTrackLogicalInstanceTable_Object = MibTable
+hmTrackLogicalInstanceTable = _HmTrackLogicalInstanceTable_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 3)
+)
+if mibBuilder.loadTexts:
+    hmTrackLogicalInstanceTable.setStatus("current")
+_HmTrackLogicalInstanceEntry_Object = MibTableRow
+hmTrackLogicalInstanceEntry = _HmTrackLogicalInstanceEntry_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 3, 1)
+)
+hmTrackLogicalInstanceEntry.setIndexNames(
+    (0, "HMTRACKING-SNMP-MIB", "hmTrackId"),
+    (0, "HMTRACKING-SNMP-MIB", "hmTrackLogicalInstanceId"),
+)
+if mibBuilder.loadTexts:
+    hmTrackLogicalInstanceEntry.setStatus("current")
+_HmTrackLogicalInstanceId_Type = Integer32
+_HmTrackLogicalInstanceId_Object = MibTableColumn
+hmTrackLogicalInstanceId = _HmTrackLogicalInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 3, 1, 2),
+    _HmTrackLogicalInstanceId_Type()
+)
+hmTrackLogicalInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hmTrackLogicalInstanceId.setStatus("current")
+
+
+class _HmTrackLogicInstRowStatus_Type(RowStatus):
+    """Custom type hmTrackLogicInstRowStatus based on RowStatus"""
+    defaultValue = 3
+
+
+_HmTrackLogicInstRowStatus_Type.__name__ = "RowStatus"
+_HmTrackLogicInstRowStatus_Object = MibTableColumn
+hmTrackLogicInstRowStatus = _HmTrackLogicInstRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 3, 1, 3),
+    _HmTrackLogicInstRowStatus_Type()
+)
+hmTrackLogicInstRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hmTrackLogicInstRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hmTrackStatusChangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 248, 14, 15, 1, 0, 1)
+)
+hmTrackStatusChangeEvent.setObjects(
+      *(("HMTRACKING-SNMP-MIB", "hmTrackId"),
+        ("HMTRACKING-SNMP-MIB", "hmTrackRowStatus"),
+        ("HMTRACKING-SNMP-MIB", "hmTrackState"))
+)
+if mibBuilder.loadTexts:
+    hmTrackStatusChangeEvent.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HMTRACKING-SNMP-MIB",
+    **{"hmTracking": hmTracking,
+       "hmTrackingGroup": hmTrackingGroup,
+       "hmTrackEvent": hmTrackEvent,
+       "hmTrackStatusChangeEvent": hmTrackStatusChangeEvent,
+       "hmTrackingTable": hmTrackingTable,
+       "hmTrackingEntry": hmTrackingEntry,
+       "hmTrackId": hmTrackId,
+       "hmTrackRowStatus": hmTrackRowStatus,
+       "hmTrackType": hmTrackType,
+       "hmTrackState": hmTrackState,
+       "hmTrackNumberOfChanges": hmTrackNumberOfChanges,
+       "hmTrackTimeSinceLastChange": hmTrackTimeSinceLastChange,
+       "hmTrackIfNumber": hmTrackIfNumber,
+       "hmTrackIfLinkUpDelay": hmTrackIfLinkUpDelay,
+       "hmTrackIfLinkDownDelay": hmTrackIfLinkDownDelay,
+       "hmTrackPingIpAddress": hmTrackPingIpAddress,
+       "hmTrackPingInterval": hmTrackPingInterval,
+       "hmTrackPingMiss": hmTrackPingMiss,
+       "hmTrackPingSuccess": hmTrackPingSuccess,
+       "hmTrackPingTimeout": hmTrackPingTimeout,
+       "hmTrackPingTTL": hmTrackPingTTL,
+       "hmTrackPingBestRouteIfNumber": hmTrackPingBestRouteIfNumber,
+       "hmTrackLogicalOperator": hmTrackLogicalOperator,
+       "hmTrackSendStateChangeTrap": hmTrackSendStateChangeTrap,
+       "hmTrackingApplicationTable": hmTrackingApplicationTable,
+       "hmTrackingApplicationEntry": hmTrackingApplicationEntry,
+       "hmTrackAppId": hmTrackAppId,
+       "hmTrackAppName": hmTrackAppName,
+       "hmTrackLogicalInstanceTable": hmTrackLogicalInstanceTable,
+       "hmTrackLogicalInstanceEntry": hmTrackLogicalInstanceEntry,
+       "hmTrackLogicalInstanceId": hmTrackLogicalInstanceId,
+       "hmTrackLogicInstRowStatus": hmTrackLogicInstRowStatus}
+)

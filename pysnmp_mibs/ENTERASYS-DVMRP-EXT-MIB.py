@@ -1,72 +1,536 @@
+# SNMP MIB module (ENTERASYS-DVMRP-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ENTERASYS-DVMRP-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/enterasys/ENTERASYS-DVMRP-EXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:34:10 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/enterasys/ENTERASYS-DVMRP-EXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:48:07 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dvmrpInterfaceEntry, = mibBuilder.importSymbols("DVMRP-MIB", "dvmrpInterfaceEntry")
-etsysModules, = mibBuilder.importSymbols("ENTERASYS-MIB-NAMES", "etsysModules")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-etsysDvmrpExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69))
-etsysDvmrpExtMIB.setRevisions(('2009-02-27 19:29',))
-if mibBuilder.loadTexts: etsysDvmrpExtMIB.setLastUpdated('200902271929Z')
-if mibBuilder.loadTexts: etsysDvmrpExtMIB.setOrganization('Enterasys Networks, Inc')
-etsysDvmrpExtObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1))
-etsysDvmrpExtGlobals = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 1))
-etsysDvmrpExtTables = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2))
-etsysDvmrpExtIfTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1), )
-if mibBuilder.loadTexts: etsysDvmrpExtIfTable.setStatus('current')
-etsysDvmrpExtIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1), )
-dvmrpInterfaceEntry.registerAugmentions(("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfEntry"))
-etsysDvmrpExtIfEntry.setIndexNames(*dvmrpInterfaceEntry.getIndexNames())
-if mibBuilder.loadTexts: etsysDvmrpExtIfEntry.setStatus('current')
-etsysDvmrpExtIfAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("adminStatusUp", 1), ("adminStatusDown", 2))).clone('adminStatusUp')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: etsysDvmrpExtIfAdminStatus.setStatus('current')
-etsysDvmrpExtIfIfOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 8, 10, 11))).clone(namedValues=NamedValues(("operStatusUp", 1), ("operStatusDown", 2), ("operStatusGoingUp", 3), ("operStatusGoingDown", 4), ("operStatusActFailed", 5), ("operStatusFailed", 8), ("operStatusFailedPerm", 10), ("operStatusFailing", 11)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysDvmrpExtIfIfOperStatus.setStatus('current')
-etsysDvmrpExtIfStubInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: etsysDvmrpExtIfStubInterface.setStatus('current')
-etsysDvmrpExtIfP2PNoHellos = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 4), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: etsysDvmrpExtIfP2PNoHellos.setStatus('current')
-etsysDvmrpExtIfHelloInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 18000)).clone(10)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: etsysDvmrpExtIfHelloInterval.setStatus('current')
-etsysDvmrpExtIfHelloHoldtime = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(35)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: etsysDvmrpExtIfHelloHoldtime.setStatus('current')
-etsysDvmrpExtIfReportInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 7), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 18000)).clone(60)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: etsysDvmrpExtIfReportInterval.setStatus('current')
-etsysDvmrpExtTibMgrTable = MibTable((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2), )
-if mibBuilder.loadTexts: etsysDvmrpExtTibMgrTable.setStatus('current')
-etsysDvmrpExtTibMgrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1), ).setIndexNames((0, "ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrIndex"))
-if mibBuilder.loadTexts: etsysDvmrpExtTibMgrEntry.setStatus('current')
-etsysDvmrpExtTibMgrIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: etsysDvmrpExtTibMgrIndex.setStatus('current')
-etsysDvmrpExtTibMgrKeepalivePeriod = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 180)).clone(120)).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysDvmrpExtTibMgrKeepalivePeriod.setStatus('current')
-etsysDvmrpExtTibMgrMetric = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 31)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysDvmrpExtTibMgrMetric.setStatus('current')
-etsysDvmrpExtTibMgrSGStateLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 4), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysDvmrpExtTibMgrSGStateLimit.setStatus('current')
-etsysDvmrpExtTibMgrSGStateWarnThold = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 5), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: etsysDvmrpExtTibMgrSGStateWarnThold.setStatus('current')
-etsysDvmrpExtTibMgrSGStateStored = MibTableColumn((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 6), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: etsysDvmrpExtTibMgrSGStateStored.setStatus('current')
-etsysDvmrpExtConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2))
-etsysDvmrpExtGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2, 1))
-etsysDvmrpExtCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2, 2))
-etsysDvmrpExtIfGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2, 1, 1)).setObjects(("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfAdminStatus"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfIfOperStatus"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfStubInterface"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfP2PNoHellos"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfHelloInterval"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfHelloHoldtime"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfReportInterval"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysDvmrpExtIfGroup = etsysDvmrpExtIfGroup.setStatus('current')
-etsysDvmrpExtTibMgrGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2, 1, 2)).setObjects(("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrIndex"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrKeepalivePeriod"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrMetric"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrSGStateLimit"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrSGStateWarnThold"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrSGStateStored"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysDvmrpExtTibMgrGroup = etsysDvmrpExtTibMgrGroup.setStatus('current')
-etsysDvmrpExtCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2, 2, 1)).setObjects(("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfGroup"), ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    etsysDvmrpExtCompliance = etsysDvmrpExtCompliance.setStatus('current')
-mibBuilder.exportSymbols("ENTERASYS-DVMRP-EXT-MIB", etsysDvmrpExtIfIfOperStatus=etsysDvmrpExtIfIfOperStatus, etsysDvmrpExtCompliance=etsysDvmrpExtCompliance, etsysDvmrpExtGroups=etsysDvmrpExtGroups, etsysDvmrpExtTibMgrSGStateWarnThold=etsysDvmrpExtTibMgrSGStateWarnThold, etsysDvmrpExtIfGroup=etsysDvmrpExtIfGroup, etsysDvmrpExtTibMgrKeepalivePeriod=etsysDvmrpExtTibMgrKeepalivePeriod, etsysDvmrpExtConformance=etsysDvmrpExtConformance, etsysDvmrpExtTibMgrSGStateStored=etsysDvmrpExtTibMgrSGStateStored, PYSNMP_MODULE_ID=etsysDvmrpExtMIB, etsysDvmrpExtIfHelloHoldtime=etsysDvmrpExtIfHelloHoldtime, etsysDvmrpExtIfEntry=etsysDvmrpExtIfEntry, etsysDvmrpExtTibMgrSGStateLimit=etsysDvmrpExtTibMgrSGStateLimit, etsysDvmrpExtTibMgrIndex=etsysDvmrpExtTibMgrIndex, etsysDvmrpExtTibMgrTable=etsysDvmrpExtTibMgrTable, etsysDvmrpExtTibMgrGroup=etsysDvmrpExtTibMgrGroup, etsysDvmrpExtObjects=etsysDvmrpExtObjects, etsysDvmrpExtTables=etsysDvmrpExtTables, etsysDvmrpExtMIB=etsysDvmrpExtMIB, etsysDvmrpExtIfStubInterface=etsysDvmrpExtIfStubInterface, etsysDvmrpExtIfHelloInterval=etsysDvmrpExtIfHelloInterval, etsysDvmrpExtIfReportInterval=etsysDvmrpExtIfReportInterval, etsysDvmrpExtCompliances=etsysDvmrpExtCompliances, etsysDvmrpExtTibMgrMetric=etsysDvmrpExtTibMgrMetric, etsysDvmrpExtTibMgrEntry=etsysDvmrpExtTibMgrEntry, etsysDvmrpExtIfP2PNoHellos=etsysDvmrpExtIfP2PNoHellos, etsysDvmrpExtIfTable=etsysDvmrpExtIfTable, etsysDvmrpExtIfAdminStatus=etsysDvmrpExtIfAdminStatus, etsysDvmrpExtGlobals=etsysDvmrpExtGlobals)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dvmrpInterfaceEntry,) = mibBuilder.importSymbols(
+    "DVMRP-MIB",
+    "dvmrpInterfaceEntry")
+
+(etsysModules,) = mibBuilder.importSymbols(
+    "ENTERASYS-MIB-NAMES",
+    "etsysModules")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+etsysDvmrpExtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69)
+)
+if mibBuilder.loadTexts:
+    etsysDvmrpExtMIB.setRevisions(
+        ("2009-02-27 19:29",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EtsysDvmrpExtObjects_ObjectIdentity = ObjectIdentity
+etsysDvmrpExtObjects = _EtsysDvmrpExtObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1)
+)
+_EtsysDvmrpExtGlobals_ObjectIdentity = ObjectIdentity
+etsysDvmrpExtGlobals = _EtsysDvmrpExtGlobals_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 1)
+)
+_EtsysDvmrpExtTables_ObjectIdentity = ObjectIdentity
+etsysDvmrpExtTables = _EtsysDvmrpExtTables_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2)
+)
+_EtsysDvmrpExtIfTable_Object = MibTable
+etsysDvmrpExtIfTable = _EtsysDvmrpExtIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfTable.setStatus("current")
+_EtsysDvmrpExtIfEntry_Object = MibTableRow
+etsysDvmrpExtIfEntry = _EtsysDvmrpExtIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfEntry.setStatus("current")
+
+
+class _EtsysDvmrpExtIfAdminStatus_Type(Integer32):
+    """Custom type etsysDvmrpExtIfAdminStatus based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("adminStatusUp", 1),
+          ("adminStatusDown", 2))
+    )
+
+
+_EtsysDvmrpExtIfAdminStatus_Type.__name__ = "Integer32"
+_EtsysDvmrpExtIfAdminStatus_Object = MibTableColumn
+etsysDvmrpExtIfAdminStatus = _EtsysDvmrpExtIfAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 1),
+    _EtsysDvmrpExtIfAdminStatus_Type()
+)
+etsysDvmrpExtIfAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfAdminStatus.setStatus("current")
+
+
+class _EtsysDvmrpExtIfIfOperStatus_Type(Integer32):
+    """Custom type etsysDvmrpExtIfIfOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              8,
+              10,
+              11)
+        )
+    )
+    namedValues = NamedValues(
+        *(("operStatusUp", 1),
+          ("operStatusDown", 2),
+          ("operStatusGoingUp", 3),
+          ("operStatusGoingDown", 4),
+          ("operStatusActFailed", 5),
+          ("operStatusFailed", 8),
+          ("operStatusFailedPerm", 10),
+          ("operStatusFailing", 11))
+    )
+
+
+_EtsysDvmrpExtIfIfOperStatus_Type.__name__ = "Integer32"
+_EtsysDvmrpExtIfIfOperStatus_Object = MibTableColumn
+etsysDvmrpExtIfIfOperStatus = _EtsysDvmrpExtIfIfOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 2),
+    _EtsysDvmrpExtIfIfOperStatus_Type()
+)
+etsysDvmrpExtIfIfOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfIfOperStatus.setStatus("current")
+
+
+class _EtsysDvmrpExtIfStubInterface_Type(TruthValue):
+    """Custom type etsysDvmrpExtIfStubInterface based on TruthValue"""
+    defaultValue = 2
+
+
+_EtsysDvmrpExtIfStubInterface_Type.__name__ = "TruthValue"
+_EtsysDvmrpExtIfStubInterface_Object = MibTableColumn
+etsysDvmrpExtIfStubInterface = _EtsysDvmrpExtIfStubInterface_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 3),
+    _EtsysDvmrpExtIfStubInterface_Type()
+)
+etsysDvmrpExtIfStubInterface.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfStubInterface.setStatus("current")
+
+
+class _EtsysDvmrpExtIfP2PNoHellos_Type(TruthValue):
+    """Custom type etsysDvmrpExtIfP2PNoHellos based on TruthValue"""
+    defaultValue = 2
+
+
+_EtsysDvmrpExtIfP2PNoHellos_Type.__name__ = "TruthValue"
+_EtsysDvmrpExtIfP2PNoHellos_Object = MibTableColumn
+etsysDvmrpExtIfP2PNoHellos = _EtsysDvmrpExtIfP2PNoHellos_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 4),
+    _EtsysDvmrpExtIfP2PNoHellos_Type()
+)
+etsysDvmrpExtIfP2PNoHellos.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfP2PNoHellos.setStatus("current")
+
+
+class _EtsysDvmrpExtIfHelloInterval_Type(Unsigned32):
+    """Custom type etsysDvmrpExtIfHelloInterval based on Unsigned32"""
+    defaultValue = 10
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 18000),
+    )
+
+
+_EtsysDvmrpExtIfHelloInterval_Type.__name__ = "Unsigned32"
+_EtsysDvmrpExtIfHelloInterval_Object = MibTableColumn
+etsysDvmrpExtIfHelloInterval = _EtsysDvmrpExtIfHelloInterval_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 5),
+    _EtsysDvmrpExtIfHelloInterval_Type()
+)
+etsysDvmrpExtIfHelloInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfHelloInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfHelloInterval.setUnits("seconds")
+
+
+class _EtsysDvmrpExtIfHelloHoldtime_Type(Unsigned32):
+    """Custom type etsysDvmrpExtIfHelloHoldtime based on Unsigned32"""
+    defaultValue = 35
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_EtsysDvmrpExtIfHelloHoldtime_Type.__name__ = "Unsigned32"
+_EtsysDvmrpExtIfHelloHoldtime_Object = MibTableColumn
+etsysDvmrpExtIfHelloHoldtime = _EtsysDvmrpExtIfHelloHoldtime_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 6),
+    _EtsysDvmrpExtIfHelloHoldtime_Type()
+)
+etsysDvmrpExtIfHelloHoldtime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfHelloHoldtime.setStatus("current")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfHelloHoldtime.setUnits("seconds")
+
+
+class _EtsysDvmrpExtIfReportInterval_Type(Unsigned32):
+    """Custom type etsysDvmrpExtIfReportInterval based on Unsigned32"""
+    defaultValue = 60
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 18000),
+    )
+
+
+_EtsysDvmrpExtIfReportInterval_Type.__name__ = "Unsigned32"
+_EtsysDvmrpExtIfReportInterval_Object = MibTableColumn
+etsysDvmrpExtIfReportInterval = _EtsysDvmrpExtIfReportInterval_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 1, 1, 7),
+    _EtsysDvmrpExtIfReportInterval_Type()
+)
+etsysDvmrpExtIfReportInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfReportInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfReportInterval.setUnits("seconds")
+_EtsysDvmrpExtTibMgrTable_Object = MibTable
+etsysDvmrpExtTibMgrTable = _EtsysDvmrpExtTibMgrTable_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    etsysDvmrpExtTibMgrTable.setStatus("current")
+_EtsysDvmrpExtTibMgrEntry_Object = MibTableRow
+etsysDvmrpExtTibMgrEntry = _EtsysDvmrpExtTibMgrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1)
+)
+etsysDvmrpExtTibMgrEntry.setIndexNames(
+    (0, "ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrIndex"),
+)
+if mibBuilder.loadTexts:
+    etsysDvmrpExtTibMgrEntry.setStatus("current")
+_EtsysDvmrpExtTibMgrIndex_Type = Unsigned32
+_EtsysDvmrpExtTibMgrIndex_Object = MibTableColumn
+etsysDvmrpExtTibMgrIndex = _EtsysDvmrpExtTibMgrIndex_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 1),
+    _EtsysDvmrpExtTibMgrIndex_Type()
+)
+etsysDvmrpExtTibMgrIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtTibMgrIndex.setStatus("current")
+
+
+class _EtsysDvmrpExtTibMgrKeepalivePeriod_Type(Unsigned32):
+    """Custom type etsysDvmrpExtTibMgrKeepalivePeriod based on Unsigned32"""
+    defaultValue = 120
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 180),
+    )
+
+
+_EtsysDvmrpExtTibMgrKeepalivePeriod_Type.__name__ = "Unsigned32"
+_EtsysDvmrpExtTibMgrKeepalivePeriod_Object = MibTableColumn
+etsysDvmrpExtTibMgrKeepalivePeriod = _EtsysDvmrpExtTibMgrKeepalivePeriod_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 2),
+    _EtsysDvmrpExtTibMgrKeepalivePeriod_Type()
+)
+etsysDvmrpExtTibMgrKeepalivePeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtTibMgrKeepalivePeriod.setStatus("current")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtTibMgrKeepalivePeriod.setUnits("seconds")
+
+
+class _EtsysDvmrpExtTibMgrMetric_Type(Unsigned32):
+    """Custom type etsysDvmrpExtTibMgrMetric based on Unsigned32"""
+    defaultValue = 1
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 31),
+    )
+
+
+_EtsysDvmrpExtTibMgrMetric_Type.__name__ = "Unsigned32"
+_EtsysDvmrpExtTibMgrMetric_Object = MibTableColumn
+etsysDvmrpExtTibMgrMetric = _EtsysDvmrpExtTibMgrMetric_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 3),
+    _EtsysDvmrpExtTibMgrMetric_Type()
+)
+etsysDvmrpExtTibMgrMetric.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtTibMgrMetric.setStatus("current")
+
+
+class _EtsysDvmrpExtTibMgrSGStateLimit_Type(Unsigned32):
+    """Custom type etsysDvmrpExtTibMgrSGStateLimit based on Unsigned32"""
+    defaultValue = 0
+
+
+_EtsysDvmrpExtTibMgrSGStateLimit_Type.__name__ = "Unsigned32"
+_EtsysDvmrpExtTibMgrSGStateLimit_Object = MibTableColumn
+etsysDvmrpExtTibMgrSGStateLimit = _EtsysDvmrpExtTibMgrSGStateLimit_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 4),
+    _EtsysDvmrpExtTibMgrSGStateLimit_Type()
+)
+etsysDvmrpExtTibMgrSGStateLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtTibMgrSGStateLimit.setStatus("current")
+
+
+class _EtsysDvmrpExtTibMgrSGStateWarnThold_Type(Unsigned32):
+    """Custom type etsysDvmrpExtTibMgrSGStateWarnThold based on Unsigned32"""
+    defaultValue = 0
+
+
+_EtsysDvmrpExtTibMgrSGStateWarnThold_Type.__name__ = "Unsigned32"
+_EtsysDvmrpExtTibMgrSGStateWarnThold_Object = MibTableColumn
+etsysDvmrpExtTibMgrSGStateWarnThold = _EtsysDvmrpExtTibMgrSGStateWarnThold_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 5),
+    _EtsysDvmrpExtTibMgrSGStateWarnThold_Type()
+)
+etsysDvmrpExtTibMgrSGStateWarnThold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtTibMgrSGStateWarnThold.setStatus("current")
+_EtsysDvmrpExtTibMgrSGStateStored_Type = Gauge32
+_EtsysDvmrpExtTibMgrSGStateStored_Object = MibTableColumn
+etsysDvmrpExtTibMgrSGStateStored = _EtsysDvmrpExtTibMgrSGStateStored_Object(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 1, 2, 2, 1, 6),
+    _EtsysDvmrpExtTibMgrSGStateStored_Type()
+)
+etsysDvmrpExtTibMgrSGStateStored.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    etsysDvmrpExtTibMgrSGStateStored.setStatus("current")
+_EtsysDvmrpExtConformance_ObjectIdentity = ObjectIdentity
+etsysDvmrpExtConformance = _EtsysDvmrpExtConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2)
+)
+_EtsysDvmrpExtGroups_ObjectIdentity = ObjectIdentity
+etsysDvmrpExtGroups = _EtsysDvmrpExtGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2, 1)
+)
+_EtsysDvmrpExtCompliances_ObjectIdentity = ObjectIdentity
+etsysDvmrpExtCompliances = _EtsysDvmrpExtCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2, 2)
+)
+dvmrpInterfaceEntry.registerAugmentions(
+    ("ENTERASYS-DVMRP-EXT-MIB",
+     "etsysDvmrpExtIfEntry")
+)
+etsysDvmrpExtIfEntry.setIndexNames(*dvmrpInterfaceEntry.getIndexNames())
+
+# Managed Objects groups
+
+etsysDvmrpExtIfGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2, 1, 1)
+)
+etsysDvmrpExtIfGroup.setObjects(
+      *(("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfAdminStatus"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfIfOperStatus"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfStubInterface"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfP2PNoHellos"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfHelloInterval"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfHelloHoldtime"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfReportInterval"))
+)
+if mibBuilder.loadTexts:
+    etsysDvmrpExtIfGroup.setStatus("current")
+
+etsysDvmrpExtTibMgrGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2, 1, 2)
+)
+etsysDvmrpExtTibMgrGroup.setObjects(
+      *(("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrIndex"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrKeepalivePeriod"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrMetric"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrSGStateLimit"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrSGStateWarnThold"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrSGStateStored"))
+)
+if mibBuilder.loadTexts:
+    etsysDvmrpExtTibMgrGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+etsysDvmrpExtCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 5624, 1, 2, 69, 2, 2, 1)
+)
+etsysDvmrpExtCompliance.setObjects(
+      *(("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtIfGroup"),
+        ("ENTERASYS-DVMRP-EXT-MIB", "etsysDvmrpExtTibMgrGroup"))
+)
+if mibBuilder.loadTexts:
+    etsysDvmrpExtCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ENTERASYS-DVMRP-EXT-MIB",
+    **{"etsysDvmrpExtMIB": etsysDvmrpExtMIB,
+       "etsysDvmrpExtObjects": etsysDvmrpExtObjects,
+       "etsysDvmrpExtGlobals": etsysDvmrpExtGlobals,
+       "etsysDvmrpExtTables": etsysDvmrpExtTables,
+       "etsysDvmrpExtIfTable": etsysDvmrpExtIfTable,
+       "etsysDvmrpExtIfEntry": etsysDvmrpExtIfEntry,
+       "etsysDvmrpExtIfAdminStatus": etsysDvmrpExtIfAdminStatus,
+       "etsysDvmrpExtIfIfOperStatus": etsysDvmrpExtIfIfOperStatus,
+       "etsysDvmrpExtIfStubInterface": etsysDvmrpExtIfStubInterface,
+       "etsysDvmrpExtIfP2PNoHellos": etsysDvmrpExtIfP2PNoHellos,
+       "etsysDvmrpExtIfHelloInterval": etsysDvmrpExtIfHelloInterval,
+       "etsysDvmrpExtIfHelloHoldtime": etsysDvmrpExtIfHelloHoldtime,
+       "etsysDvmrpExtIfReportInterval": etsysDvmrpExtIfReportInterval,
+       "etsysDvmrpExtTibMgrTable": etsysDvmrpExtTibMgrTable,
+       "etsysDvmrpExtTibMgrEntry": etsysDvmrpExtTibMgrEntry,
+       "etsysDvmrpExtTibMgrIndex": etsysDvmrpExtTibMgrIndex,
+       "etsysDvmrpExtTibMgrKeepalivePeriod": etsysDvmrpExtTibMgrKeepalivePeriod,
+       "etsysDvmrpExtTibMgrMetric": etsysDvmrpExtTibMgrMetric,
+       "etsysDvmrpExtTibMgrSGStateLimit": etsysDvmrpExtTibMgrSGStateLimit,
+       "etsysDvmrpExtTibMgrSGStateWarnThold": etsysDvmrpExtTibMgrSGStateWarnThold,
+       "etsysDvmrpExtTibMgrSGStateStored": etsysDvmrpExtTibMgrSGStateStored,
+       "etsysDvmrpExtConformance": etsysDvmrpExtConformance,
+       "etsysDvmrpExtGroups": etsysDvmrpExtGroups,
+       "etsysDvmrpExtIfGroup": etsysDvmrpExtIfGroup,
+       "etsysDvmrpExtTibMgrGroup": etsysDvmrpExtTibMgrGroup,
+       "etsysDvmrpExtCompliances": etsysDvmrpExtCompliances,
+       "etsysDvmrpExtCompliance": etsysDvmrpExtCompliance}
+)

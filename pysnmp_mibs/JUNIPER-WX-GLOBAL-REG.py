@@ -1,66 +1,317 @@
+# SNMP MIB module (JUNIPER-WX-GLOBAL-REG) expressed in pysnmp data model.
 #
-# PySNMP MIB module JUNIPER-WX-GLOBAL-REG (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/juniper/JUNIPER-WX-GLOBAL-REG
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:55:45 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/juniper/JUNIPER-WX-GLOBAL-REG
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:39:29 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-jnxWxGlobalRegModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 1, 1))
-jnxWxGlobalRegModule.setRevisions(('2007-11-17 10:00', '2007-11-17 10:00', '2007-11-14 01:30', '2006-06-08 18:00', '2005-05-09 10:12', '2004-03-15 14:00', '2003-06-26 20:00', '2001-07-29 22:00',))
-if mibBuilder.loadTexts: jnxWxGlobalRegModule.setLastUpdated('200107292200Z')
-if mibBuilder.loadTexts: jnxWxGlobalRegModule.setOrganization('Juniper Networks, Inc')
-juniperWxRoot = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239))
-if mibBuilder.loadTexts: juniperWxRoot.setStatus('current')
-jnxWxReg = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1))
-if mibBuilder.loadTexts: jnxWxReg.setStatus('current')
-jnxWxModules = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 1))
-if mibBuilder.loadTexts: jnxWxModules.setStatus('current')
-jnxWxMibs = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 2))
-if mibBuilder.loadTexts: jnxWxMibs.setStatus('current')
-jnxWxCaps = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 3))
-if mibBuilder.loadTexts: jnxWxCaps.setStatus('current')
-jnxWxReqs = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 4))
-if mibBuilder.loadTexts: jnxWxReqs.setStatus('current')
-jnxWxExpr = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 5))
-if mibBuilder.loadTexts: jnxWxExpr.setStatus('current')
-jnxWxCommonMib = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 2, 1))
-if mibBuilder.loadTexts: jnxWxCommonMib.setStatus('current')
-jnxWxSpecificMib = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 2, 2))
-if mibBuilder.loadTexts: jnxWxSpecificMib.setStatus('current')
-jnxWxProduct = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2))
-if mibBuilder.loadTexts: jnxWxProduct.setStatus('current')
-jnxWxProductWx50 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 1))
-if mibBuilder.loadTexts: jnxWxProductWx50.setStatus('current')
-jnxWxProductWx55 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 2))
-if mibBuilder.loadTexts: jnxWxProductWx55.setStatus('current')
-jnxWxProductWx20 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 3))
-if mibBuilder.loadTexts: jnxWxProductWx20.setStatus('current')
-jnxWxProductWx80 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 4))
-if mibBuilder.loadTexts: jnxWxProductWx80.setStatus('current')
-jnxWxProductWx100 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 5))
-if mibBuilder.loadTexts: jnxWxProductWx100.setStatus('current')
-jnxWxProductWxc500 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 6))
-if mibBuilder.loadTexts: jnxWxProductWxc500.setStatus('current')
-jnxWxProductWx15 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 7))
-if mibBuilder.loadTexts: jnxWxProductWx15.setStatus('current')
-jnxWxProductWxc250 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 8))
-if mibBuilder.loadTexts: jnxWxProductWxc250.setStatus('current')
-jnxWxProductWx60 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 9))
-if mibBuilder.loadTexts: jnxWxProductWx60.setStatus('current')
-jnxWxProductWxc590 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 10))
-if mibBuilder.loadTexts: jnxWxProductWxc590.setStatus('current')
-jnxWxProductIsm200Wxc = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 11))
-if mibBuilder.loadTexts: jnxWxProductIsm200Wxc.setStatus('current')
-jnxWxProductWxc1800 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 12))
-if mibBuilder.loadTexts: jnxWxProductWxc1800.setStatus('current')
-jnxWxProductWxc2600 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 13))
-if mibBuilder.loadTexts: jnxWxProductWxc2600.setStatus('current')
-jnxWxProductWxc3400 = ObjectIdentity((1, 3, 6, 1, 4, 1, 8239, 1, 2, 14))
-if mibBuilder.loadTexts: jnxWxProductWxc3400.setStatus('current')
-mibBuilder.exportSymbols("JUNIPER-WX-GLOBAL-REG", PYSNMP_MODULE_ID=jnxWxGlobalRegModule, jnxWxGlobalRegModule=jnxWxGlobalRegModule, jnxWxReqs=jnxWxReqs, jnxWxMibs=jnxWxMibs, jnxWxProductIsm200Wxc=jnxWxProductIsm200Wxc, jnxWxProduct=jnxWxProduct, jnxWxProductWx55=jnxWxProductWx55, jnxWxSpecificMib=jnxWxSpecificMib, jnxWxProductWxc590=jnxWxProductWxc590, jnxWxProductWxc1800=jnxWxProductWxc1800, jnxWxCommonMib=jnxWxCommonMib, jnxWxProductWx20=jnxWxProductWx20, jnxWxProductWx80=jnxWxProductWx80, jnxWxCaps=jnxWxCaps, jnxWxProductWxc3400=jnxWxProductWxc3400, juniperWxRoot=juniperWxRoot, jnxWxProductWx60=jnxWxProductWx60, jnxWxReg=jnxWxReg, jnxWxProductWx100=jnxWxProductWx100, jnxWxModules=jnxWxModules, jnxWxProductWxc2600=jnxWxProductWxc2600, jnxWxProductWx50=jnxWxProductWx50, jnxWxProductWxc500=jnxWxProductWxc500, jnxWxProductWxc250=jnxWxProductWxc250, jnxWxProductWx15=jnxWxProductWx15, jnxWxExpr=jnxWxExpr)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+jnxWxGlobalRegModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    jnxWxGlobalRegModule.setRevisions(
+        ("2007-11-17 10:00",
+         "2007-11-17 10:00",
+         "2007-11-14 01:30",
+         "2006-06-08 18:00",
+         "2005-05-09 10:12",
+         "2004-03-15 14:00",
+         "2003-06-26 20:00",
+         "2001-07-29 22:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_JuniperWxRoot_ObjectIdentity = ObjectIdentity
+juniperWxRoot = _JuniperWxRoot_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239)
+)
+if mibBuilder.loadTexts:
+    juniperWxRoot.setStatus("current")
+_JnxWxReg_ObjectIdentity = ObjectIdentity
+jnxWxReg = _JnxWxReg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1)
+)
+if mibBuilder.loadTexts:
+    jnxWxReg.setStatus("current")
+_JnxWxModules_ObjectIdentity = ObjectIdentity
+jnxWxModules = _JnxWxModules_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 1)
+)
+if mibBuilder.loadTexts:
+    jnxWxModules.setStatus("current")
+_JnxWxProduct_ObjectIdentity = ObjectIdentity
+jnxWxProduct = _JnxWxProduct_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2)
+)
+if mibBuilder.loadTexts:
+    jnxWxProduct.setStatus("current")
+_JnxWxProductWx50_ObjectIdentity = ObjectIdentity
+jnxWxProductWx50 = _JnxWxProductWx50_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWx50.setStatus("current")
+_JnxWxProductWx55_ObjectIdentity = ObjectIdentity
+jnxWxProductWx55 = _JnxWxProductWx55_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWx55.setStatus("current")
+_JnxWxProductWx20_ObjectIdentity = ObjectIdentity
+jnxWxProductWx20 = _JnxWxProductWx20_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWx20.setStatus("current")
+_JnxWxProductWx80_ObjectIdentity = ObjectIdentity
+jnxWxProductWx80 = _JnxWxProductWx80_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 4)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWx80.setStatus("current")
+_JnxWxProductWx100_ObjectIdentity = ObjectIdentity
+jnxWxProductWx100 = _JnxWxProductWx100_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 5)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWx100.setStatus("current")
+_JnxWxProductWxc500_ObjectIdentity = ObjectIdentity
+jnxWxProductWxc500 = _JnxWxProductWxc500_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 6)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWxc500.setStatus("current")
+_JnxWxProductWx15_ObjectIdentity = ObjectIdentity
+jnxWxProductWx15 = _JnxWxProductWx15_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 7)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWx15.setStatus("current")
+_JnxWxProductWxc250_ObjectIdentity = ObjectIdentity
+jnxWxProductWxc250 = _JnxWxProductWxc250_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 8)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWxc250.setStatus("current")
+_JnxWxProductWx60_ObjectIdentity = ObjectIdentity
+jnxWxProductWx60 = _JnxWxProductWx60_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 9)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWx60.setStatus("current")
+_JnxWxProductWxc590_ObjectIdentity = ObjectIdentity
+jnxWxProductWxc590 = _JnxWxProductWxc590_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 10)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWxc590.setStatus("current")
+_JnxWxProductIsm200Wxc_ObjectIdentity = ObjectIdentity
+jnxWxProductIsm200Wxc = _JnxWxProductIsm200Wxc_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 11)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductIsm200Wxc.setStatus("current")
+_JnxWxProductWxc1800_ObjectIdentity = ObjectIdentity
+jnxWxProductWxc1800 = _JnxWxProductWxc1800_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 12)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWxc1800.setStatus("current")
+_JnxWxProductWxc2600_ObjectIdentity = ObjectIdentity
+jnxWxProductWxc2600 = _JnxWxProductWxc2600_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 13)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWxc2600.setStatus("current")
+_JnxWxProductWxc3400_ObjectIdentity = ObjectIdentity
+jnxWxProductWxc3400 = _JnxWxProductWxc3400_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 1, 2, 14)
+)
+if mibBuilder.loadTexts:
+    jnxWxProductWxc3400.setStatus("current")
+_JnxWxMibs_ObjectIdentity = ObjectIdentity
+jnxWxMibs = _JnxWxMibs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 2)
+)
+if mibBuilder.loadTexts:
+    jnxWxMibs.setStatus("current")
+_JnxWxCommonMib_ObjectIdentity = ObjectIdentity
+jnxWxCommonMib = _JnxWxCommonMib_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 2, 1)
+)
+if mibBuilder.loadTexts:
+    jnxWxCommonMib.setStatus("current")
+_JnxWxSpecificMib_ObjectIdentity = ObjectIdentity
+jnxWxSpecificMib = _JnxWxSpecificMib_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 2, 2)
+)
+if mibBuilder.loadTexts:
+    jnxWxSpecificMib.setStatus("current")
+_JnxWxCaps_ObjectIdentity = ObjectIdentity
+jnxWxCaps = _JnxWxCaps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 3)
+)
+if mibBuilder.loadTexts:
+    jnxWxCaps.setStatus("current")
+_JnxWxReqs_ObjectIdentity = ObjectIdentity
+jnxWxReqs = _JnxWxReqs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 4)
+)
+if mibBuilder.loadTexts:
+    jnxWxReqs.setStatus("current")
+_JnxWxExpr_ObjectIdentity = ObjectIdentity
+jnxWxExpr = _JnxWxExpr_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8239, 5)
+)
+if mibBuilder.loadTexts:
+    jnxWxExpr.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "JUNIPER-WX-GLOBAL-REG",
+    **{"juniperWxRoot": juniperWxRoot,
+       "jnxWxReg": jnxWxReg,
+       "jnxWxModules": jnxWxModules,
+       "jnxWxGlobalRegModule": jnxWxGlobalRegModule,
+       "jnxWxProduct": jnxWxProduct,
+       "jnxWxProductWx50": jnxWxProductWx50,
+       "jnxWxProductWx55": jnxWxProductWx55,
+       "jnxWxProductWx20": jnxWxProductWx20,
+       "jnxWxProductWx80": jnxWxProductWx80,
+       "jnxWxProductWx100": jnxWxProductWx100,
+       "jnxWxProductWxc500": jnxWxProductWxc500,
+       "jnxWxProductWx15": jnxWxProductWx15,
+       "jnxWxProductWxc250": jnxWxProductWxc250,
+       "jnxWxProductWx60": jnxWxProductWx60,
+       "jnxWxProductWxc590": jnxWxProductWxc590,
+       "jnxWxProductIsm200Wxc": jnxWxProductIsm200Wxc,
+       "jnxWxProductWxc1800": jnxWxProductWxc1800,
+       "jnxWxProductWxc2600": jnxWxProductWxc2600,
+       "jnxWxProductWxc3400": jnxWxProductWxc3400,
+       "jnxWxMibs": jnxWxMibs,
+       "jnxWxCommonMib": jnxWxCommonMib,
+       "jnxWxSpecificMib": jnxWxSpecificMib,
+       "jnxWxCaps": jnxWxCaps,
+       "jnxWxReqs": jnxWxReqs,
+       "jnxWxExpr": jnxWxExpr}
+)

@@ -1,24 +1,180 @@
+# SNMP MIB module (MX-PRODUCTS2-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MX-PRODUCTS2-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/media5/MX-PRODUCTS2-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:06:04 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/media5/MX-PRODUCTS2-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:06:52 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-mediatrixProducts, = mibBuilder.importSymbols("MX-SMI2", "mediatrixProducts")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-mediatrix3000Series = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 100))
-mediatrix4400Series = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 200))
-mediatrix4100Series = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 300))
-mediatrixLPSeries = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 400))
-mediatrixiPBXSeries = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 500))
-mediatrixC7Series = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 600))
-mediatrixSentinelSeries = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 700))
-mediatrixG7Series = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 800))
-mediatrixS7Series = MibIdentifier((1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 900))
-mibBuilder.exportSymbols("MX-PRODUCTS2-MIB", mediatrix3000Series=mediatrix3000Series, mediatrixS7Series=mediatrixS7Series, mediatrix4100Series=mediatrix4100Series, mediatrix4400Series=mediatrix4400Series, mediatrixLPSeries=mediatrixLPSeries, mediatrixSentinelSeries=mediatrixSentinelSeries, mediatrixG7Series=mediatrixG7Series, mediatrixC7Series=mediatrixC7Series, mediatrixiPBXSeries=mediatrixiPBXSeries)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(mediatrixProducts,) = mibBuilder.importSymbols(
+    "MX-SMI2",
+    "mediatrixProducts")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Mediatrix3000Series_ObjectIdentity = ObjectIdentity
+mediatrix3000Series = _Mediatrix3000Series_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 100)
+)
+_Mediatrix4400Series_ObjectIdentity = ObjectIdentity
+mediatrix4400Series = _Mediatrix4400Series_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 200)
+)
+_Mediatrix4100Series_ObjectIdentity = ObjectIdentity
+mediatrix4100Series = _Mediatrix4100Series_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 300)
+)
+_MediatrixLPSeries_ObjectIdentity = ObjectIdentity
+mediatrixLPSeries = _MediatrixLPSeries_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 400)
+)
+_MediatrixiPBXSeries_ObjectIdentity = ObjectIdentity
+mediatrixiPBXSeries = _MediatrixiPBXSeries_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 500)
+)
+_MediatrixC7Series_ObjectIdentity = ObjectIdentity
+mediatrixC7Series = _MediatrixC7Series_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 600)
+)
+_MediatrixSentinelSeries_ObjectIdentity = ObjectIdentity
+mediatrixSentinelSeries = _MediatrixSentinelSeries_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 700)
+)
+_MediatrixG7Series_ObjectIdentity = ObjectIdentity
+mediatrixG7Series = _MediatrixG7Series_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 800)
+)
+_MediatrixS7Series_ObjectIdentity = ObjectIdentity
+mediatrixS7Series = _MediatrixS7Series_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4935, 1000, 100, 100, 900)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MX-PRODUCTS2-MIB",
+    **{"mediatrix3000Series": mediatrix3000Series,
+       "mediatrix4400Series": mediatrix4400Series,
+       "mediatrix4100Series": mediatrix4100Series,
+       "mediatrixLPSeries": mediatrixLPSeries,
+       "mediatrixiPBXSeries": mediatrixiPBXSeries,
+       "mediatrixC7Series": mediatrixC7Series,
+       "mediatrixSentinelSeries": mediatrixSentinelSeries,
+       "mediatrixG7Series": mediatrixG7Series,
+       "mediatrixS7Series": mediatrixS7Series}
+)

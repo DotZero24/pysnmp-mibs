@@ -1,40 +1,245 @@
+# SNMP MIB module (ALVARION-CONNECTION-LIMITING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ALVARION-CONNECTION-LIMITING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/alvarion/ALVARION-CONNECTION-LIMITING-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:17:41 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/alvarion/ALVARION-CONNECTION-LIMITING-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:07:17 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-alvarionMgmtV2, = mibBuilder.importSymbols("ALVARION-SMI", "alvarionMgmtV2")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-alvarionConnectionLimitingMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18))
-if mibBuilder.loadTexts: alvarionConnectionLimitingMIB.setLastUpdated('200710310000Z')
-if mibBuilder.loadTexts: alvarionConnectionLimitingMIB.setOrganization('Alvarion Ltd.')
-alvarionConnectionLimitingMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 1))
-connectionLimitingConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 1, 1))
-connectionLimitingInfo = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 1, 2))
-connectionLimitingMaximumUserConnections = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(20, 2000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: connectionLimitingMaximumUserConnections.setStatus('current')
-connectionLimitingMaximumSystemConnections = MibScalar((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 1, 2, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: connectionLimitingMaximumSystemConnections.setStatus('current')
-alvarionConnectionLimitingMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 2))
-alvarionConnectionLimitingMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 2, 0))
-alvarionConnectionLimitingMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3))
-alvarionConnectionLimitingMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3, 1))
-alvarionConnectionLimitingMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3, 2))
-alvarionConnectionLimitingMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3, 1, 1)).setObjects(("ALVARION-CONNECTION-LIMITING-MIB", "alvarionConnectionLimitingConfigMIBGroup"), ("ALVARION-CONNECTION-LIMITING-MIB", "alvarionConnectionLimitingInfoMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alvarionConnectionLimitingMIBCompliance = alvarionConnectionLimitingMIBCompliance.setStatus('current')
-alvarionConnectionLimitingConfigMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3, 2, 1)).setObjects(("ALVARION-CONNECTION-LIMITING-MIB", "connectionLimitingMaximumUserConnections"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alvarionConnectionLimitingConfigMIBGroup = alvarionConnectionLimitingConfigMIBGroup.setStatus('current')
-alvarionConnectionLimitingInfoMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3, 2, 2)).setObjects(("ALVARION-CONNECTION-LIMITING-MIB", "connectionLimitingMaximumSystemConnections"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    alvarionConnectionLimitingInfoMIBGroup = alvarionConnectionLimitingInfoMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("ALVARION-CONNECTION-LIMITING-MIB", alvarionConnectionLimitingMIBNotifications=alvarionConnectionLimitingMIBNotifications, alvarionConnectionLimitingInfoMIBGroup=alvarionConnectionLimitingInfoMIBGroup, alvarionConnectionLimitingConfigMIBGroup=alvarionConnectionLimitingConfigMIBGroup, alvarionConnectionLimitingMIBGroups=alvarionConnectionLimitingMIBGroups, connectionLimitingInfo=connectionLimitingInfo, alvarionConnectionLimitingMIBCompliance=alvarionConnectionLimitingMIBCompliance, alvarionConnectionLimitingMIB=alvarionConnectionLimitingMIB, alvarionConnectionLimitingMIBConformance=alvarionConnectionLimitingMIBConformance, PYSNMP_MODULE_ID=alvarionConnectionLimitingMIB, alvarionConnectionLimitingMIBCompliances=alvarionConnectionLimitingMIBCompliances, alvarionConnectionLimitingMIBNotificationPrefix=alvarionConnectionLimitingMIBNotificationPrefix, alvarionConnectionLimitingMIBObjects=alvarionConnectionLimitingMIBObjects, connectionLimitingConfig=connectionLimitingConfig, connectionLimitingMaximumSystemConnections=connectionLimitingMaximumSystemConnections, connectionLimitingMaximumUserConnections=connectionLimitingMaximumUserConnections)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(alvarionMgmtV2,) = mibBuilder.importSymbols(
+    "ALVARION-SMI",
+    "alvarionMgmtV2")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+alvarionConnectionLimitingMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AlvarionConnectionLimitingMIBObjects_ObjectIdentity = ObjectIdentity
+alvarionConnectionLimitingMIBObjects = _AlvarionConnectionLimitingMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 1)
+)
+_ConnectionLimitingConfig_ObjectIdentity = ObjectIdentity
+connectionLimitingConfig = _ConnectionLimitingConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 1, 1)
+)
+
+
+class _ConnectionLimitingMaximumUserConnections_Type(Integer32):
+    """Custom type connectionLimitingMaximumUserConnections based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(20, 2000),
+    )
+
+
+_ConnectionLimitingMaximumUserConnections_Type.__name__ = "Integer32"
+_ConnectionLimitingMaximumUserConnections_Object = MibScalar
+connectionLimitingMaximumUserConnections = _ConnectionLimitingMaximumUserConnections_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 1, 1, 1),
+    _ConnectionLimitingMaximumUserConnections_Type()
+)
+connectionLimitingMaximumUserConnections.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    connectionLimitingMaximumUserConnections.setStatus("current")
+_ConnectionLimitingInfo_ObjectIdentity = ObjectIdentity
+connectionLimitingInfo = _ConnectionLimitingInfo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 1, 2)
+)
+_ConnectionLimitingMaximumSystemConnections_Type = Integer32
+_ConnectionLimitingMaximumSystemConnections_Object = MibScalar
+connectionLimitingMaximumSystemConnections = _ConnectionLimitingMaximumSystemConnections_Object(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 1, 2, 1),
+    _ConnectionLimitingMaximumSystemConnections_Type()
+)
+connectionLimitingMaximumSystemConnections.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    connectionLimitingMaximumSystemConnections.setStatus("current")
+_AlvarionConnectionLimitingMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+alvarionConnectionLimitingMIBNotificationPrefix = _AlvarionConnectionLimitingMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 2)
+)
+_AlvarionConnectionLimitingMIBNotifications_ObjectIdentity = ObjectIdentity
+alvarionConnectionLimitingMIBNotifications = _AlvarionConnectionLimitingMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 2, 0)
+)
+_AlvarionConnectionLimitingMIBConformance_ObjectIdentity = ObjectIdentity
+alvarionConnectionLimitingMIBConformance = _AlvarionConnectionLimitingMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3)
+)
+_AlvarionConnectionLimitingMIBCompliances_ObjectIdentity = ObjectIdentity
+alvarionConnectionLimitingMIBCompliances = _AlvarionConnectionLimitingMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3, 1)
+)
+_AlvarionConnectionLimitingMIBGroups_ObjectIdentity = ObjectIdentity
+alvarionConnectionLimitingMIBGroups = _AlvarionConnectionLimitingMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3, 2)
+)
+
+# Managed Objects groups
+
+alvarionConnectionLimitingConfigMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3, 2, 1)
+)
+alvarionConnectionLimitingConfigMIBGroup.setObjects(
+    ("ALVARION-CONNECTION-LIMITING-MIB", "connectionLimitingMaximumUserConnections")
+)
+if mibBuilder.loadTexts:
+    alvarionConnectionLimitingConfigMIBGroup.setStatus("current")
+
+alvarionConnectionLimitingInfoMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3, 2, 2)
+)
+alvarionConnectionLimitingInfoMIBGroup.setObjects(
+    ("ALVARION-CONNECTION-LIMITING-MIB", "connectionLimitingMaximumSystemConnections")
+)
+if mibBuilder.loadTexts:
+    alvarionConnectionLimitingInfoMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+alvarionConnectionLimitingMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 12394, 1, 10, 5, 18, 3, 1, 1)
+)
+alvarionConnectionLimitingMIBCompliance.setObjects(
+      *(("ALVARION-CONNECTION-LIMITING-MIB", "alvarionConnectionLimitingConfigMIBGroup"),
+        ("ALVARION-CONNECTION-LIMITING-MIB", "alvarionConnectionLimitingInfoMIBGroup"))
+)
+if mibBuilder.loadTexts:
+    alvarionConnectionLimitingMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ALVARION-CONNECTION-LIMITING-MIB",
+    **{"alvarionConnectionLimitingMIB": alvarionConnectionLimitingMIB,
+       "alvarionConnectionLimitingMIBObjects": alvarionConnectionLimitingMIBObjects,
+       "connectionLimitingConfig": connectionLimitingConfig,
+       "connectionLimitingMaximumUserConnections": connectionLimitingMaximumUserConnections,
+       "connectionLimitingInfo": connectionLimitingInfo,
+       "connectionLimitingMaximumSystemConnections": connectionLimitingMaximumSystemConnections,
+       "alvarionConnectionLimitingMIBNotificationPrefix": alvarionConnectionLimitingMIBNotificationPrefix,
+       "alvarionConnectionLimitingMIBNotifications": alvarionConnectionLimitingMIBNotifications,
+       "alvarionConnectionLimitingMIBConformance": alvarionConnectionLimitingMIBConformance,
+       "alvarionConnectionLimitingMIBCompliances": alvarionConnectionLimitingMIBCompliances,
+       "alvarionConnectionLimitingMIBCompliance": alvarionConnectionLimitingMIBCompliance,
+       "alvarionConnectionLimitingMIBGroups": alvarionConnectionLimitingMIBGroups,
+       "alvarionConnectionLimitingConfigMIBGroup": alvarionConnectionLimitingConfigMIBGroup,
+       "alvarionConnectionLimitingInfoMIBGroup": alvarionConnectionLimitingInfoMIBGroup}
+)

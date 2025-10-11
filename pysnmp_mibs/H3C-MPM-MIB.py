@@ -1,82 +1,480 @@
+# SNMP MIB module (H3C-MPM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module H3C-MPM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/h3c/H3C-MPM-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:22:10 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/h3c/H3C-MPM-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:18:24 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-h3cCommon, = mibBuilder.importSymbols("HUAWEI-3COM-OID-MIB", "h3cCommon")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-Gauge32, MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "mib-2")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-h3cMpm = ModuleIdentity((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51))
-h3cMpm.setRevisions(('2005-03-22 00:00',))
-if mibBuilder.loadTexts: h3cMpm.setLastUpdated('200503220000Z')
-if mibBuilder.loadTexts: h3cMpm.setOrganization('Hangzhou H3C Tech. Co., Ltd.')
-class EnabledStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("enabled", 1), ("disabled", 2))
 
-h3cMPMObject = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 1))
-h3cMPortGroupLimitMinNumber = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cMPortGroupLimitMinNumber.setStatus('current')
-h3cMPortGroupLimitMaxNumber = MibScalar((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cMPortGroupLimitMaxNumber.setStatus('current')
-h3cMPMTable = MibIdentifier((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2))
-h3cMPortGroupJoinTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1), )
-if mibBuilder.loadTexts: h3cMPortGroupJoinTable.setStatus('current')
-h3cMPortGroupJoinEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "H3C-MPM-MIB", "h3cMPortGroupJoinVlanID"), (0, "H3C-MPM-MIB", "h3cMPortGroupJoinAddressType"), (0, "H3C-MPM-MIB", "h3cMPortGroupJoinAddress"))
-if mibBuilder.loadTexts: h3cMPortGroupJoinEntry.setStatus('current')
-h3cMPortGroupJoinVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: h3cMPortGroupJoinVlanID.setStatus('current')
-h3cMPortGroupJoinAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: h3cMPortGroupJoinAddressType.setStatus('current')
-h3cMPortGroupJoinAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1, 1, 3), InetAddress())
-if mibBuilder.loadTexts: h3cMPortGroupJoinAddress.setStatus('current')
-h3cMPortGroupJoinStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cMPortGroupJoinStatus.setStatus('current')
-h3cMPortGroupTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 2), )
-if mibBuilder.loadTexts: h3cMPortGroupTable.setStatus('current')
-h3cMPortGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "H3C-MPM-MIB", "h3cMPortGroupVlanID"), (0, "H3C-MPM-MIB", "h3cMPortGroupAddressType"), (0, "H3C-MPM-MIB", "h3cMPortGroupAddress"))
-if mibBuilder.loadTexts: h3cMPortGroupEntry.setStatus('current')
-h3cMPortGroupVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 2, 1, 1), Integer32())
-if mibBuilder.loadTexts: h3cMPortGroupVlanID.setStatus('current')
-h3cMPortGroupAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 2, 1, 2), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cMPortGroupAddressType.setStatus('current')
-h3cMPortGroupAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 2, 1, 3), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: h3cMPortGroupAddress.setStatus('current')
-h3cMPortConfigTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3), )
-if mibBuilder.loadTexts: h3cMPortConfigTable.setStatus('current')
-h3cMPortConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "H3C-MPM-MIB", "h3cMPortConfigVlanID"))
-if mibBuilder.loadTexts: h3cMPortConfigEntry.setStatus('current')
-h3cMPortConfigVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 1), Integer32())
-if mibBuilder.loadTexts: h3cMPortConfigVlanID.setStatus('current')
-h3cMPortGroupLimitNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 2), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cMPortGroupLimitNumber.setStatus('current')
-h3cMPortFastLeaveStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 3), EnabledStatus().clone(2)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cMPortFastLeaveStatus.setStatus('current')
-h3cMPortGroupPolicyParameter = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(2000, 2999), ))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cMPortGroupPolicyParameter.setStatus('current')
-h3cMPortConfigRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cMPortConfigRowStatus.setStatus('current')
-h3cMPortGroupLimitReplace = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 6), EnabledStatus().clone('disabled')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cMPortGroupLimitReplace.setStatus('current')
-h3cHostStaticJoinTable = MibTable((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4), )
-if mibBuilder.loadTexts: h3cHostStaticJoinTable.setStatus('current')
-h3cHostStaticJoinEntry = MibTableRow((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "H3C-MPM-MIB", "h3cHostStaticJoinVlanID"), (0, "H3C-MPM-MIB", "h3cHostStaticJoinAddressType"), (0, "H3C-MPM-MIB", "h3cHostStaticJoinAddress"))
-if mibBuilder.loadTexts: h3cHostStaticJoinEntry.setStatus('current')
-h3cHostStaticJoinVlanID = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4, 1, 1), Integer32())
-if mibBuilder.loadTexts: h3cHostStaticJoinVlanID.setStatus('current')
-h3cHostStaticJoinAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4, 1, 2), InetAddressType())
-if mibBuilder.loadTexts: h3cHostStaticJoinAddressType.setStatus('current')
-h3cHostStaticJoinAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4, 1, 3), InetAddress())
-if mibBuilder.loadTexts: h3cHostStaticJoinAddress.setStatus('current')
-h3cHostStaticJoinStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: h3cHostStaticJoinStatus.setStatus('current')
-mibBuilder.exportSymbols("H3C-MPM-MIB", h3cHostStaticJoinEntry=h3cHostStaticJoinEntry, h3cMPortFastLeaveStatus=h3cMPortFastLeaveStatus, h3cHostStaticJoinAddress=h3cHostStaticJoinAddress, PYSNMP_MODULE_ID=h3cMpm, h3cMPortConfigTable=h3cMPortConfigTable, h3cMPMTable=h3cMPMTable, h3cMPortGroupPolicyParameter=h3cMPortGroupPolicyParameter, h3cMPortGroupJoinVlanID=h3cMPortGroupJoinVlanID, h3cMPortGroupLimitNumber=h3cMPortGroupLimitNumber, h3cMPortGroupLimitMinNumber=h3cMPortGroupLimitMinNumber, EnabledStatus=EnabledStatus, h3cMPortGroupEntry=h3cMPortGroupEntry, h3cMPortGroupVlanID=h3cMPortGroupVlanID, h3cMPortConfigRowStatus=h3cMPortConfigRowStatus, h3cMPortGroupJoinAddress=h3cMPortGroupJoinAddress, h3cMPortGroupJoinAddressType=h3cMPortGroupJoinAddressType, h3cMPortGroupJoinTable=h3cMPortGroupJoinTable, h3cMPortGroupLimitMaxNumber=h3cMPortGroupLimitMaxNumber, h3cHostStaticJoinTable=h3cHostStaticJoinTable, h3cMPMObject=h3cMPMObject, h3cMPortGroupAddress=h3cMPortGroupAddress, h3cHostStaticJoinAddressType=h3cHostStaticJoinAddressType, h3cHostStaticJoinVlanID=h3cHostStaticJoinVlanID, h3cHostStaticJoinStatus=h3cHostStaticJoinStatus, h3cMPortGroupLimitReplace=h3cMPortGroupLimitReplace, h3cMPortGroupJoinStatus=h3cMPortGroupJoinStatus, h3cMPortConfigVlanID=h3cMPortConfigVlanID, h3cMPortGroupAddressType=h3cMPortGroupAddressType, h3cMpm=h3cMpm, h3cMPortGroupTable=h3cMPortGroupTable, h3cMPortConfigEntry=h3cMPortConfigEntry, h3cMPortGroupJoinEntry=h3cMPortGroupJoinEntry)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(h3cCommon,) = mibBuilder.importSymbols(
+    "HUAWEI-3COM-OID-MIB",
+    "h3cCommon")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+h3cMpm = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51)
+)
+if mibBuilder.loadTexts:
+    h3cMpm.setRevisions(
+        ("2005-03-22 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class EnabledStatus(TextualConvention, Integer32):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_H3cMPMObject_ObjectIdentity = ObjectIdentity
+h3cMPMObject = _H3cMPMObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 1)
+)
+_H3cMPortGroupLimitMinNumber_Type = Unsigned32
+_H3cMPortGroupLimitMinNumber_Object = MibScalar
+h3cMPortGroupLimitMinNumber = _H3cMPortGroupLimitMinNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 1, 1),
+    _H3cMPortGroupLimitMinNumber_Type()
+)
+h3cMPortGroupLimitMinNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cMPortGroupLimitMinNumber.setStatus("current")
+_H3cMPortGroupLimitMaxNumber_Type = Unsigned32
+_H3cMPortGroupLimitMaxNumber_Object = MibScalar
+h3cMPortGroupLimitMaxNumber = _H3cMPortGroupLimitMaxNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 1, 2),
+    _H3cMPortGroupLimitMaxNumber_Type()
+)
+h3cMPortGroupLimitMaxNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cMPortGroupLimitMaxNumber.setStatus("current")
+_H3cMPMTable_ObjectIdentity = ObjectIdentity
+h3cMPMTable = _H3cMPMTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2)
+)
+_H3cMPortGroupJoinTable_Object = MibTable
+h3cMPortGroupJoinTable = _H3cMPortGroupJoinTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1)
+)
+if mibBuilder.loadTexts:
+    h3cMPortGroupJoinTable.setStatus("current")
+_H3cMPortGroupJoinEntry_Object = MibTableRow
+h3cMPortGroupJoinEntry = _H3cMPortGroupJoinEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1, 1)
+)
+h3cMPortGroupJoinEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "H3C-MPM-MIB", "h3cMPortGroupJoinVlanID"),
+    (0, "H3C-MPM-MIB", "h3cMPortGroupJoinAddressType"),
+    (0, "H3C-MPM-MIB", "h3cMPortGroupJoinAddress"),
+)
+if mibBuilder.loadTexts:
+    h3cMPortGroupJoinEntry.setStatus("current")
+_H3cMPortGroupJoinVlanID_Type = Integer32
+_H3cMPortGroupJoinVlanID_Object = MibTableColumn
+h3cMPortGroupJoinVlanID = _H3cMPortGroupJoinVlanID_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1, 1, 1),
+    _H3cMPortGroupJoinVlanID_Type()
+)
+h3cMPortGroupJoinVlanID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cMPortGroupJoinVlanID.setStatus("current")
+_H3cMPortGroupJoinAddressType_Type = InetAddressType
+_H3cMPortGroupJoinAddressType_Object = MibTableColumn
+h3cMPortGroupJoinAddressType = _H3cMPortGroupJoinAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1, 1, 2),
+    _H3cMPortGroupJoinAddressType_Type()
+)
+h3cMPortGroupJoinAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cMPortGroupJoinAddressType.setStatus("current")
+_H3cMPortGroupJoinAddress_Type = InetAddress
+_H3cMPortGroupJoinAddress_Object = MibTableColumn
+h3cMPortGroupJoinAddress = _H3cMPortGroupJoinAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1, 1, 3),
+    _H3cMPortGroupJoinAddress_Type()
+)
+h3cMPortGroupJoinAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cMPortGroupJoinAddress.setStatus("current")
+_H3cMPortGroupJoinStatus_Type = RowStatus
+_H3cMPortGroupJoinStatus_Object = MibTableColumn
+h3cMPortGroupJoinStatus = _H3cMPortGroupJoinStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 1, 1, 4),
+    _H3cMPortGroupJoinStatus_Type()
+)
+h3cMPortGroupJoinStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cMPortGroupJoinStatus.setStatus("current")
+_H3cMPortGroupTable_Object = MibTable
+h3cMPortGroupTable = _H3cMPortGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 2)
+)
+if mibBuilder.loadTexts:
+    h3cMPortGroupTable.setStatus("current")
+_H3cMPortGroupEntry_Object = MibTableRow
+h3cMPortGroupEntry = _H3cMPortGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 2, 1)
+)
+h3cMPortGroupEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "H3C-MPM-MIB", "h3cMPortGroupVlanID"),
+    (0, "H3C-MPM-MIB", "h3cMPortGroupAddressType"),
+    (0, "H3C-MPM-MIB", "h3cMPortGroupAddress"),
+)
+if mibBuilder.loadTexts:
+    h3cMPortGroupEntry.setStatus("current")
+_H3cMPortGroupVlanID_Type = Integer32
+_H3cMPortGroupVlanID_Object = MibTableColumn
+h3cMPortGroupVlanID = _H3cMPortGroupVlanID_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 2, 1, 1),
+    _H3cMPortGroupVlanID_Type()
+)
+h3cMPortGroupVlanID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cMPortGroupVlanID.setStatus("current")
+_H3cMPortGroupAddressType_Type = InetAddressType
+_H3cMPortGroupAddressType_Object = MibTableColumn
+h3cMPortGroupAddressType = _H3cMPortGroupAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 2, 1, 2),
+    _H3cMPortGroupAddressType_Type()
+)
+h3cMPortGroupAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cMPortGroupAddressType.setStatus("current")
+_H3cMPortGroupAddress_Type = InetAddress
+_H3cMPortGroupAddress_Object = MibTableColumn
+h3cMPortGroupAddress = _H3cMPortGroupAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 2, 1, 3),
+    _H3cMPortGroupAddress_Type()
+)
+h3cMPortGroupAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    h3cMPortGroupAddress.setStatus("current")
+_H3cMPortConfigTable_Object = MibTable
+h3cMPortConfigTable = _H3cMPortConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3)
+)
+if mibBuilder.loadTexts:
+    h3cMPortConfigTable.setStatus("current")
+_H3cMPortConfigEntry_Object = MibTableRow
+h3cMPortConfigEntry = _H3cMPortConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1)
+)
+h3cMPortConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "H3C-MPM-MIB", "h3cMPortConfigVlanID"),
+)
+if mibBuilder.loadTexts:
+    h3cMPortConfigEntry.setStatus("current")
+_H3cMPortConfigVlanID_Type = Integer32
+_H3cMPortConfigVlanID_Object = MibTableColumn
+h3cMPortConfigVlanID = _H3cMPortConfigVlanID_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 1),
+    _H3cMPortConfigVlanID_Type()
+)
+h3cMPortConfigVlanID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cMPortConfigVlanID.setStatus("current")
+_H3cMPortGroupLimitNumber_Type = Unsigned32
+_H3cMPortGroupLimitNumber_Object = MibTableColumn
+h3cMPortGroupLimitNumber = _H3cMPortGroupLimitNumber_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 2),
+    _H3cMPortGroupLimitNumber_Type()
+)
+h3cMPortGroupLimitNumber.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cMPortGroupLimitNumber.setStatus("current")
+
+
+class _H3cMPortFastLeaveStatus_Type(EnabledStatus):
+    """Custom type h3cMPortFastLeaveStatus based on EnabledStatus"""
+    defaultValue = 2
+
+
+_H3cMPortFastLeaveStatus_Type.__name__ = "EnabledStatus"
+_H3cMPortFastLeaveStatus_Object = MibTableColumn
+h3cMPortFastLeaveStatus = _H3cMPortFastLeaveStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 3),
+    _H3cMPortFastLeaveStatus_Type()
+)
+h3cMPortFastLeaveStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cMPortFastLeaveStatus.setStatus("current")
+
+
+class _H3cMPortGroupPolicyParameter_Type(Integer32):
+    """Custom type h3cMPortGroupPolicyParameter based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(2000, 2999),
+    )
+
+
+_H3cMPortGroupPolicyParameter_Type.__name__ = "Integer32"
+_H3cMPortGroupPolicyParameter_Object = MibTableColumn
+h3cMPortGroupPolicyParameter = _H3cMPortGroupPolicyParameter_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 4),
+    _H3cMPortGroupPolicyParameter_Type()
+)
+h3cMPortGroupPolicyParameter.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cMPortGroupPolicyParameter.setStatus("current")
+_H3cMPortConfigRowStatus_Type = RowStatus
+_H3cMPortConfigRowStatus_Object = MibTableColumn
+h3cMPortConfigRowStatus = _H3cMPortConfigRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 5),
+    _H3cMPortConfigRowStatus_Type()
+)
+h3cMPortConfigRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cMPortConfigRowStatus.setStatus("current")
+
+
+class _H3cMPortGroupLimitReplace_Type(EnabledStatus):
+    """Custom type h3cMPortGroupLimitReplace based on EnabledStatus"""
+    defaultValue = 2
+
+
+_H3cMPortGroupLimitReplace_Type.__name__ = "EnabledStatus"
+_H3cMPortGroupLimitReplace_Object = MibTableColumn
+h3cMPortGroupLimitReplace = _H3cMPortGroupLimitReplace_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 3, 1, 6),
+    _H3cMPortGroupLimitReplace_Type()
+)
+h3cMPortGroupLimitReplace.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cMPortGroupLimitReplace.setStatus("current")
+_H3cHostStaticJoinTable_Object = MibTable
+h3cHostStaticJoinTable = _H3cHostStaticJoinTable_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4)
+)
+if mibBuilder.loadTexts:
+    h3cHostStaticJoinTable.setStatus("current")
+_H3cHostStaticJoinEntry_Object = MibTableRow
+h3cHostStaticJoinEntry = _H3cHostStaticJoinEntry_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4, 1)
+)
+h3cHostStaticJoinEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "H3C-MPM-MIB", "h3cHostStaticJoinVlanID"),
+    (0, "H3C-MPM-MIB", "h3cHostStaticJoinAddressType"),
+    (0, "H3C-MPM-MIB", "h3cHostStaticJoinAddress"),
+)
+if mibBuilder.loadTexts:
+    h3cHostStaticJoinEntry.setStatus("current")
+_H3cHostStaticJoinVlanID_Type = Integer32
+_H3cHostStaticJoinVlanID_Object = MibTableColumn
+h3cHostStaticJoinVlanID = _H3cHostStaticJoinVlanID_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4, 1, 1),
+    _H3cHostStaticJoinVlanID_Type()
+)
+h3cHostStaticJoinVlanID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cHostStaticJoinVlanID.setStatus("current")
+_H3cHostStaticJoinAddressType_Type = InetAddressType
+_H3cHostStaticJoinAddressType_Object = MibTableColumn
+h3cHostStaticJoinAddressType = _H3cHostStaticJoinAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4, 1, 2),
+    _H3cHostStaticJoinAddressType_Type()
+)
+h3cHostStaticJoinAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cHostStaticJoinAddressType.setStatus("current")
+_H3cHostStaticJoinAddress_Type = InetAddress
+_H3cHostStaticJoinAddress_Object = MibTableColumn
+h3cHostStaticJoinAddress = _H3cHostStaticJoinAddress_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4, 1, 3),
+    _H3cHostStaticJoinAddress_Type()
+)
+h3cHostStaticJoinAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    h3cHostStaticJoinAddress.setStatus("current")
+_H3cHostStaticJoinStatus_Type = RowStatus
+_H3cHostStaticJoinStatus_Object = MibTableColumn
+h3cHostStaticJoinStatus = _H3cHostStaticJoinStatus_Object(
+    (1, 3, 6, 1, 4, 1, 2011, 10, 2, 51, 2, 4, 1, 4),
+    _H3cHostStaticJoinStatus_Type()
+)
+h3cHostStaticJoinStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    h3cHostStaticJoinStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "H3C-MPM-MIB",
+    **{"EnabledStatus": EnabledStatus,
+       "h3cMpm": h3cMpm,
+       "h3cMPMObject": h3cMPMObject,
+       "h3cMPortGroupLimitMinNumber": h3cMPortGroupLimitMinNumber,
+       "h3cMPortGroupLimitMaxNumber": h3cMPortGroupLimitMaxNumber,
+       "h3cMPMTable": h3cMPMTable,
+       "h3cMPortGroupJoinTable": h3cMPortGroupJoinTable,
+       "h3cMPortGroupJoinEntry": h3cMPortGroupJoinEntry,
+       "h3cMPortGroupJoinVlanID": h3cMPortGroupJoinVlanID,
+       "h3cMPortGroupJoinAddressType": h3cMPortGroupJoinAddressType,
+       "h3cMPortGroupJoinAddress": h3cMPortGroupJoinAddress,
+       "h3cMPortGroupJoinStatus": h3cMPortGroupJoinStatus,
+       "h3cMPortGroupTable": h3cMPortGroupTable,
+       "h3cMPortGroupEntry": h3cMPortGroupEntry,
+       "h3cMPortGroupVlanID": h3cMPortGroupVlanID,
+       "h3cMPortGroupAddressType": h3cMPortGroupAddressType,
+       "h3cMPortGroupAddress": h3cMPortGroupAddress,
+       "h3cMPortConfigTable": h3cMPortConfigTable,
+       "h3cMPortConfigEntry": h3cMPortConfigEntry,
+       "h3cMPortConfigVlanID": h3cMPortConfigVlanID,
+       "h3cMPortGroupLimitNumber": h3cMPortGroupLimitNumber,
+       "h3cMPortFastLeaveStatus": h3cMPortFastLeaveStatus,
+       "h3cMPortGroupPolicyParameter": h3cMPortGroupPolicyParameter,
+       "h3cMPortConfigRowStatus": h3cMPortConfigRowStatus,
+       "h3cMPortGroupLimitReplace": h3cMPortGroupLimitReplace,
+       "h3cHostStaticJoinTable": h3cHostStaticJoinTable,
+       "h3cHostStaticJoinEntry": h3cHostStaticJoinEntry,
+       "h3cHostStaticJoinVlanID": h3cHostStaticJoinVlanID,
+       "h3cHostStaticJoinAddressType": h3cHostStaticJoinAddressType,
+       "h3cHostStaticJoinAddress": h3cHostStaticJoinAddress,
+       "h3cHostStaticJoinStatus": h3cHostStaticJoinStatus}
+)

@@ -1,68 +1,440 @@
+# SNMP MIB module (ADTRAN-AOS-VRRP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ADTRAN-AOS-VRRP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/adtran/ADTRAN-AOS-VRRP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:53:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/adtran/ADTRAN-AOS-VRRP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:33:47 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-adGenAOSConformance, adGenAOSRouter = mibBuilder.importSymbols("ADTRAN-AOS", "adGenAOSConformance", "adGenAOSRouter")
-adIdentity, = mibBuilder.importSymbols("ADTRAN-MIB", "adIdentity")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-adGenAOSVrrpMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 664, 6, 10000, 53, 2, 3))
-adGenAOSVrrpMib.setRevisions(('2014-07-29 00:00', '2014-04-17 00:00',))
-if mibBuilder.loadTexts: adGenAOSVrrpMib.setLastUpdated('201404170000Z')
-if mibBuilder.loadTexts: adGenAOSVrrpMib.setOrganization('ADTRAN, Inc.')
-adGenAOSVrrp = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3))
-adGenAOSVrrpTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 0))
-adGenAOSVrrpTrapCntl = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 1))
-adGenAOSVrrpTable = MibTable((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2), )
-if mibBuilder.loadTexts: adGenAOSVrrpTable.setStatus('current')
-adGenAOSVrrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpVersion"), (0, "ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpId"), (0, "ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpInetAddrType"))
-if mibBuilder.loadTexts: adGenAOSVrrpEntry.setStatus('current')
-adGenAOSVrrpVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(2, 3))).clone(namedValues=NamedValues(("v2", 2), ("v3", 3))))
-if mibBuilder.loadTexts: adGenAOSVrrpVersion.setStatus('current')
-adGenAOSVrrpId = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)))
-if mibBuilder.loadTexts: adGenAOSVrrpId.setStatus('current')
-adGenAOSVrrpInetAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 3), InetAddressType())
-if mibBuilder.loadTexts: adGenAOSVrrpInetAddrType.setStatus('current')
-adGenAOSVrrpInetAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 4), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAOSVrrpInetAddr.setStatus('current')
-adGenAOSVrrpOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("initialize", 1), ("backup", 2), ("master", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAOSVrrpOperStatus.setStatus('current')
-adGenAOSVrrpPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adGenAOSVrrpPriority.setStatus('current')
-adGenAOSVrrpMasterTrapCntl = MibScalar((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: adGenAOSVrrpMasterTrapCntl.setStatus('current')
-adGenAOSVrrpMasterTrap = NotificationType((1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 0, 1)).setObjects(("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpOperStatus"))
-if mibBuilder.loadTexts: adGenAOSVrrpMasterTrap.setStatus('current')
-adGenAOSVrrpConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20))
-adGenAOSVrrpGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 1))
-adGenAOSVrrpCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 2))
-adGenAOSVrrpFullCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 2, 1)).setObjects(("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpObjectGroup"), ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpTrapCfgGroup"), ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpTrapGroup"), ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpNotificationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSVrrpFullCompliance = adGenAOSVrrpFullCompliance.setStatus('current')
-adGenAOSVrrpReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 2, 2)).setObjects(("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpObjectGroup"))
+if 'mibBuilder' not in globals():
+    import sys
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSVrrpReadOnlyCompliance = adGenAOSVrrpReadOnlyCompliance.setStatus('current')
-adGenAOSVrrpObjectGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 1, 1)).setObjects(("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpInetAddr"), ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpPriority"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSVrrpObjectGroup = adGenAOSVrrpObjectGroup.setStatus('current')
-adGenAOSVrrpTrapCfgGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 1, 2)).setObjects(("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpMasterTrapCntl"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSVrrpTrapCfgGroup = adGenAOSVrrpTrapCfgGroup.setStatus('current')
-adGenAOSVrrpTrapGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 1, 3)).setObjects(("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpOperStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSVrrpTrapGroup = adGenAOSVrrpTrapGroup.setStatus('current')
-adGenAOSVrrpNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 1, 4)).setObjects(("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpMasterTrap"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    adGenAOSVrrpNotificationGroup = adGenAOSVrrpNotificationGroup.setStatus('current')
-mibBuilder.exportSymbols("ADTRAN-AOS-VRRP-MIB", adGenAOSVrrpInetAddr=adGenAOSVrrpInetAddr, adGenAOSVrrpPriority=adGenAOSVrrpPriority, PYSNMP_MODULE_ID=adGenAOSVrrpMib, adGenAOSVrrpCompliances=adGenAOSVrrpCompliances, adGenAOSVrrpTrapCntl=adGenAOSVrrpTrapCntl, adGenAOSVrrpMasterTrap=adGenAOSVrrpMasterTrap, adGenAOSVrrpId=adGenAOSVrrpId, adGenAOSVrrpVersion=adGenAOSVrrpVersion, adGenAOSVrrpConformance=adGenAOSVrrpConformance, adGenAOSVrrpTable=adGenAOSVrrpTable, adGenAOSVrrpFullCompliance=adGenAOSVrrpFullCompliance, adGenAOSVrrpGroups=adGenAOSVrrpGroups, adGenAOSVrrpMib=adGenAOSVrrpMib, adGenAOSVrrpTrapCfgGroup=adGenAOSVrrpTrapCfgGroup, adGenAOSVrrpEntry=adGenAOSVrrpEntry, adGenAOSVrrpObjectGroup=adGenAOSVrrpObjectGroup, adGenAOSVrrpOperStatus=adGenAOSVrrpOperStatus, adGenAOSVrrpReadOnlyCompliance=adGenAOSVrrpReadOnlyCompliance, adGenAOSVrrp=adGenAOSVrrp, adGenAOSVrrpInetAddrType=adGenAOSVrrpInetAddrType, adGenAOSVrrpMasterTrapCntl=adGenAOSVrrpMasterTrapCntl, adGenAOSVrrpTrap=adGenAOSVrrpTrap, adGenAOSVrrpTrapGroup=adGenAOSVrrpTrapGroup, adGenAOSVrrpNotificationGroup=adGenAOSVrrpNotificationGroup)
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(adGenAOSConformance,
+ adGenAOSRouter) = mibBuilder.importSymbols(
+    "ADTRAN-AOS",
+    "adGenAOSConformance",
+    "adGenAOSRouter")
+
+(adIdentity,) = mibBuilder.importSymbols(
+    "ADTRAN-MIB",
+    "adIdentity")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+adGenAOSVrrpMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 6, 10000, 53, 2, 3)
+)
+if mibBuilder.loadTexts:
+    adGenAOSVrrpMib.setRevisions(
+        ("2014-07-29 00:00",
+         "2014-04-17 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AdGenAOSVrrp_ObjectIdentity = ObjectIdentity
+adGenAOSVrrp = _AdGenAOSVrrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3)
+)
+_AdGenAOSVrrpTrap_ObjectIdentity = ObjectIdentity
+adGenAOSVrrpTrap = _AdGenAOSVrrpTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 0)
+)
+_AdGenAOSVrrpTrapCntl_ObjectIdentity = ObjectIdentity
+adGenAOSVrrpTrapCntl = _AdGenAOSVrrpTrapCntl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 1)
+)
+
+
+class _AdGenAOSVrrpMasterTrapCntl_Type(Integer32):
+    """Custom type adGenAOSVrrpMasterTrapCntl based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_AdGenAOSVrrpMasterTrapCntl_Type.__name__ = "Integer32"
+_AdGenAOSVrrpMasterTrapCntl_Object = MibScalar
+adGenAOSVrrpMasterTrapCntl = _AdGenAOSVrrpMasterTrapCntl_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 1, 1),
+    _AdGenAOSVrrpMasterTrapCntl_Type()
+)
+adGenAOSVrrpMasterTrapCntl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    adGenAOSVrrpMasterTrapCntl.setStatus("current")
+_AdGenAOSVrrpTable_Object = MibTable
+adGenAOSVrrpTable = _AdGenAOSVrrpTable_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2)
+)
+if mibBuilder.loadTexts:
+    adGenAOSVrrpTable.setStatus("current")
+_AdGenAOSVrrpEntry_Object = MibTableRow
+adGenAOSVrrpEntry = _AdGenAOSVrrpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1)
+)
+adGenAOSVrrpEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpVersion"),
+    (0, "ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpId"),
+    (0, "ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpInetAddrType"),
+)
+if mibBuilder.loadTexts:
+    adGenAOSVrrpEntry.setStatus("current")
+
+
+class _AdGenAOSVrrpVersion_Type(Integer32):
+    """Custom type adGenAOSVrrpVersion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("v2", 2),
+          ("v3", 3))
+    )
+
+
+_AdGenAOSVrrpVersion_Type.__name__ = "Integer32"
+_AdGenAOSVrrpVersion_Object = MibTableColumn
+adGenAOSVrrpVersion = _AdGenAOSVrrpVersion_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 1),
+    _AdGenAOSVrrpVersion_Type()
+)
+adGenAOSVrrpVersion.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    adGenAOSVrrpVersion.setStatus("current")
+
+
+class _AdGenAOSVrrpId_Type(Integer32):
+    """Custom type adGenAOSVrrpId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AdGenAOSVrrpId_Type.__name__ = "Integer32"
+_AdGenAOSVrrpId_Object = MibTableColumn
+adGenAOSVrrpId = _AdGenAOSVrrpId_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 2),
+    _AdGenAOSVrrpId_Type()
+)
+adGenAOSVrrpId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    adGenAOSVrrpId.setStatus("current")
+_AdGenAOSVrrpInetAddrType_Type = InetAddressType
+_AdGenAOSVrrpInetAddrType_Object = MibTableColumn
+adGenAOSVrrpInetAddrType = _AdGenAOSVrrpInetAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 3),
+    _AdGenAOSVrrpInetAddrType_Type()
+)
+adGenAOSVrrpInetAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    adGenAOSVrrpInetAddrType.setStatus("current")
+_AdGenAOSVrrpInetAddr_Type = InetAddress
+_AdGenAOSVrrpInetAddr_Object = MibTableColumn
+adGenAOSVrrpInetAddr = _AdGenAOSVrrpInetAddr_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 4),
+    _AdGenAOSVrrpInetAddr_Type()
+)
+adGenAOSVrrpInetAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAOSVrrpInetAddr.setStatus("current")
+
+
+class _AdGenAOSVrrpOperStatus_Type(Integer32):
+    """Custom type adGenAOSVrrpOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("initialize", 1),
+          ("backup", 2),
+          ("master", 3))
+    )
+
+
+_AdGenAOSVrrpOperStatus_Type.__name__ = "Integer32"
+_AdGenAOSVrrpOperStatus_Object = MibTableColumn
+adGenAOSVrrpOperStatus = _AdGenAOSVrrpOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 5),
+    _AdGenAOSVrrpOperStatus_Type()
+)
+adGenAOSVrrpOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAOSVrrpOperStatus.setStatus("current")
+
+
+class _AdGenAOSVrrpPriority_Type(Integer32):
+    """Custom type adGenAOSVrrpPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_AdGenAOSVrrpPriority_Type.__name__ = "Integer32"
+_AdGenAOSVrrpPriority_Object = MibTableColumn
+adGenAOSVrrpPriority = _AdGenAOSVrrpPriority_Object(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 2, 1, 6),
+    _AdGenAOSVrrpPriority_Type()
+)
+adGenAOSVrrpPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adGenAOSVrrpPriority.setStatus("current")
+_AdGenAOSVrrpConformance_ObjectIdentity = ObjectIdentity
+adGenAOSVrrpConformance = _AdGenAOSVrrpConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20)
+)
+_AdGenAOSVrrpGroups_ObjectIdentity = ObjectIdentity
+adGenAOSVrrpGroups = _AdGenAOSVrrpGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 1)
+)
+_AdGenAOSVrrpCompliances_ObjectIdentity = ObjectIdentity
+adGenAOSVrrpCompliances = _AdGenAOSVrrpCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 2)
+)
+
+# Managed Objects groups
+
+adGenAOSVrrpObjectGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 1, 1)
+)
+adGenAOSVrrpObjectGroup.setObjects(
+      *(("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpInetAddr"),
+        ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpPriority"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSVrrpObjectGroup.setStatus("current")
+
+adGenAOSVrrpTrapCfgGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 1, 2)
+)
+adGenAOSVrrpTrapCfgGroup.setObjects(
+    ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpMasterTrapCntl")
+)
+if mibBuilder.loadTexts:
+    adGenAOSVrrpTrapCfgGroup.setStatus("current")
+
+adGenAOSVrrpTrapGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 1, 3)
+)
+adGenAOSVrrpTrapGroup.setObjects(
+    ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpOperStatus")
+)
+if mibBuilder.loadTexts:
+    adGenAOSVrrpTrapGroup.setStatus("current")
+
+
+# Notification objects
+
+adGenAOSVrrpMasterTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 2, 3, 0, 1)
+)
+adGenAOSVrrpMasterTrap.setObjects(
+    ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpOperStatus")
+)
+if mibBuilder.loadTexts:
+    adGenAOSVrrpMasterTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+adGenAOSVrrpNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 1, 4)
+)
+adGenAOSVrrpNotificationGroup.setObjects(
+    ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpMasterTrap")
+)
+if mibBuilder.loadTexts:
+    adGenAOSVrrpNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+adGenAOSVrrpFullCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 2, 1)
+)
+adGenAOSVrrpFullCompliance.setObjects(
+      *(("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpObjectGroup"),
+        ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpTrapCfgGroup"),
+        ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpTrapGroup"),
+        ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpNotificationGroup"))
+)
+if mibBuilder.loadTexts:
+    adGenAOSVrrpFullCompliance.setStatus(
+        "current"
+    )
+
+adGenAOSVrrpReadOnlyCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 664, 5, 53, 99, 20, 2, 2)
+)
+adGenAOSVrrpReadOnlyCompliance.setObjects(
+    ("ADTRAN-AOS-VRRP-MIB", "adGenAOSVrrpObjectGroup")
+)
+if mibBuilder.loadTexts:
+    adGenAOSVrrpReadOnlyCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ADTRAN-AOS-VRRP-MIB",
+    **{"adGenAOSVrrp": adGenAOSVrrp,
+       "adGenAOSVrrpTrap": adGenAOSVrrpTrap,
+       "adGenAOSVrrpMasterTrap": adGenAOSVrrpMasterTrap,
+       "adGenAOSVrrpTrapCntl": adGenAOSVrrpTrapCntl,
+       "adGenAOSVrrpMasterTrapCntl": adGenAOSVrrpMasterTrapCntl,
+       "adGenAOSVrrpTable": adGenAOSVrrpTable,
+       "adGenAOSVrrpEntry": adGenAOSVrrpEntry,
+       "adGenAOSVrrpVersion": adGenAOSVrrpVersion,
+       "adGenAOSVrrpId": adGenAOSVrrpId,
+       "adGenAOSVrrpInetAddrType": adGenAOSVrrpInetAddrType,
+       "adGenAOSVrrpInetAddr": adGenAOSVrrpInetAddr,
+       "adGenAOSVrrpOperStatus": adGenAOSVrrpOperStatus,
+       "adGenAOSVrrpPriority": adGenAOSVrrpPriority,
+       "adGenAOSVrrpConformance": adGenAOSVrrpConformance,
+       "adGenAOSVrrpGroups": adGenAOSVrrpGroups,
+       "adGenAOSVrrpObjectGroup": adGenAOSVrrpObjectGroup,
+       "adGenAOSVrrpTrapCfgGroup": adGenAOSVrrpTrapCfgGroup,
+       "adGenAOSVrrpTrapGroup": adGenAOSVrrpTrapGroup,
+       "adGenAOSVrrpNotificationGroup": adGenAOSVrrpNotificationGroup,
+       "adGenAOSVrrpCompliances": adGenAOSVrrpCompliances,
+       "adGenAOSVrrpFullCompliance": adGenAOSVrrpFullCompliance,
+       "adGenAOSVrrpReadOnlyCompliance": adGenAOSVrrpReadOnlyCompliance,
+       "adGenAOSVrrpMib": adGenAOSVrrpMib}
+)

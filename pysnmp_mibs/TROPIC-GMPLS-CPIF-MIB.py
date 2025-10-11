@@ -1,136 +1,948 @@
+# SNMP MIB module (TROPIC-GMPLS-CPIF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TROPIC-GMPLS-CPIF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TROPIC-GMPLS-CPIF-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:38:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TROPIC-GMPLS-CPIF-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:57:43 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddressIPv4, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
-tnGmplsMIBModules, tnGmplsObjs = mibBuilder.importSymbols("TROPIC-GLOBAL-REG", "tnGmplsMIBModules", "tnGmplsObjs")
-tnGmplsCpifMibModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 7483, 1, 1, 2, 6, 1))
-tnGmplsCpifMibModule.setRevisions(('2018-02-23 12:00', '2016-11-16 12:00', '2013-06-27 12:00',))
-if mibBuilder.loadTexts: tnGmplsCpifMibModule.setLastUpdated('201802231200Z')
-if mibBuilder.loadTexts: tnGmplsCpifMibModule.setOrganization('Nokia')
-tnGmplsCpifMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1))
-tnGmplsCpifObjs = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1))
-tnGmplsCpifConf = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3))
-tnGmplsCpifGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1))
-tnGmplsCpifCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 2))
-tnGmplsCpifAttributeTotal = MibScalar((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tnGmplsCpifAttributeTotal.setStatus('current')
-tnGmplsCPNbrTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2), )
-if mibBuilder.loadTexts: tnGmplsCPNbrTable.setStatus('current')
-tnGmplsCPNbrEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1), ).setIndexNames((0, "TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrIfId"))
-if mibBuilder.loadTexts: tnGmplsCPNbrEntry.setStatus('current')
-tnGmplsCPNbrIfId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: tnGmplsCPNbrIfId.setStatus('current')
-tnGmplsCPNbrIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsCPNbrIfName.setStatus('current')
-tnGmplsCPNbrAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 3), InetAddressType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsCPNbrAddrType.setStatus('current')
-tnGmplsCPNbrRemoteRouterAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 4), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsCPNbrRemoteRouterAddr.setStatus('current')
-tnGmplsCPNbrEncaps = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("ipinip", 2), ("gre", 3))).clone('none')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsCPNbrEncaps.setStatus('current')
-tnGmplsCPNbrRemoteTEP = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 6), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsCPNbrRemoteTEP.setStatus('current')
-tnGmplsCPNbrOspfArea = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 7), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsCPNbrOspfArea.setStatus('current')
-tnGmplsCPNbrAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("down", 1), ("up", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsCPNbrAdminStatus.setStatus('current')
-tnGmplsCPNbrRemoteCPNodeId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 9), InetAddressIPv4()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsCPNbrRemoteCPNodeId.setStatus('current')
-tnGmplsCPNbrRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsCPNbrRowStatus.setStatus('current')
-tnGmplsRsvpIfTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3), )
-if mibBuilder.loadTexts: tnGmplsRsvpIfTable.setStatus('current')
-tnGmplsRsvpIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1), ).setIndexNames((0, "TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfId"))
-if mibBuilder.loadTexts: tnGmplsRsvpIfEntry.setStatus('current')
-tnGmplsRsvpIfId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: tnGmplsRsvpIfId.setStatus('current')
-tnGmplsRsvpIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsRsvpIfName.setStatus('current')
-tnGmplsRsvpIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("uni", 1), ("nni", 2))).clone('nni')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsRsvpIfType.setStatus('current')
-tnGmplsRsvpIfEncaps = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("none", 1), ("ipminimal", 2))).clone('none')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsRsvpIfEncaps.setStatus('current')
-tnGmplsRsvpIfCPNbr = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 5), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsRsvpIfCPNbr.setStatus('current')
-tnGmplsRsvpIfAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("down", 1), ("up", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsRsvpIfAdminStatus.setStatus('current')
-tnGmplsRsvpIfOpState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("down", 1), ("up", 2), ("degraded", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tnGmplsRsvpIfOpState.setStatus('current')
-tnGmplsRsvpIfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsRsvpIfRowStatus.setStatus('current')
-tnGmplsDprIfTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4), )
-if mibBuilder.loadTexts: tnGmplsDprIfTable.setStatus('current')
-tnGmplsDprIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1), ).setIndexNames((0, "TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfId"))
-if mibBuilder.loadTexts: tnGmplsDprIfEntry.setStatus('current')
-tnGmplsDprIfId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: tnGmplsDprIfId.setStatus('current')
-tnGmplsDprIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsDprIfName.setStatus('current')
-tnGmplsDprIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("nni", 1))).clone('nni')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsDprIfType.setStatus('current')
-tnGmplsDprIfEncaps = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1))).clone(namedValues=NamedValues(("ipminimal", 1))).clone('ipminimal')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsDprIfEncaps.setStatus('current')
-tnGmplsDprIfCPNbr = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 5), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsDprIfCPNbr.setStatus('current')
-tnGmplsDprIfAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("down", 1), ("up", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsDprIfAdminStatus.setStatus('current')
-tnGmplsDprIfOpState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("down", 1), ("up", 2), ("degraded", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tnGmplsDprIfOpState.setStatus('current')
-tnGmplsDprIfNVMismatch = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tnGmplsDprIfNVMismatch.setStatus('current')
-tnGmplsDprIfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 9), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsDprIfRowStatus.setStatus('current')
-tnGmplsLmpIfTable = MibTable((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5), )
-if mibBuilder.loadTexts: tnGmplsLmpIfTable.setStatus('current')
-tnGmplsLmpIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1), ).setIndexNames((0, "TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfId"))
-if mibBuilder.loadTexts: tnGmplsLmpIfEntry.setStatus('current')
-tnGmplsLmpIfId = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: tnGmplsLmpIfId.setStatus('current')
-tnGmplsLmpIfName = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 2), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsLmpIfName.setStatus('current')
-tnGmplsLmpIfCPNbr = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 3), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsLmpIfCPNbr.setStatus('current')
-tnGmplsLmpIfHelloEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 4), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsLmpIfHelloEnabled.setStatus('current')
-tnGmplsLmpIfLinkPropCorrEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 5), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsLmpIfLinkPropCorrEnabled.setStatus('current')
-tnGmplsLmpIfTraceMonEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 6), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsLmpIfTraceMonEnabled.setStatus('current')
-tnGmplsLmpIfEndPointDiscEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 7), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsLmpIfEndPointDiscEnabled.setStatus('current')
-tnGmplsLmpIfAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("down", 1), ("up", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsLmpIfAdminStatus.setStatus('current')
-tnGmplsLmpIfOpState = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("down", 1), ("up", 2), ("degraded", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tnGmplsLmpIfOpState.setStatus('current')
-tnGmplsLmpIfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 10), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tnGmplsLmpIfRowStatus.setStatus('current')
-tnGmplsCpifObjsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1, 1)).setObjects(("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCpifAttributeTotal"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tnGmplsCpifObjsGroup = tnGmplsCpifObjsGroup.setStatus('current')
-tnGmplsCPNbrGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1, 2)).setObjects(("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrIfName"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrAddrType"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrRemoteRouterAddr"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrEncaps"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrRemoteTEP"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrOspfArea"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrAdminStatus"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrRemoteCPNodeId"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tnGmplsCPNbrGroup = tnGmplsCPNbrGroup.setStatus('current')
-tnGmplsRsvpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1, 3)).setObjects(("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfName"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfType"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfEncaps"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfCPNbr"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfAdminStatus"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfOpState"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tnGmplsRsvpGroup = tnGmplsRsvpGroup.setStatus('current')
-tnGmplsDprGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1, 4)).setObjects(("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfName"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfType"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfEncaps"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfCPNbr"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfAdminStatus"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfOpState"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfNVMismatch"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tnGmplsDprGroup = tnGmplsDprGroup.setStatus('current')
-tnGmplsLmpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1, 5)).setObjects(("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfName"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfCPNbr"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfHelloEnabled"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfLinkPropCorrEnabled"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfTraceMonEnabled"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfEndPointDiscEnabled"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfAdminStatus"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfOpState"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tnGmplsLmpGroup = tnGmplsLmpGroup.setStatus('current')
-tnGmplsCpifCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 2, 1)).setObjects(("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCpifObjsGroup"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrGroup"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpGroup"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprGroup"), ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tnGmplsCpifCompliance = tnGmplsCpifCompliance.setStatus('current')
-mibBuilder.exportSymbols("TROPIC-GMPLS-CPIF-MIB", tnGmplsCpifObjs=tnGmplsCpifObjs, tnGmplsCPNbrEncaps=tnGmplsCPNbrEncaps, tnGmplsCPNbrIfName=tnGmplsCPNbrIfName, tnGmplsLmpIfHelloEnabled=tnGmplsLmpIfHelloEnabled, tnGmplsCpifCompliance=tnGmplsCpifCompliance, tnGmplsDprIfName=tnGmplsDprIfName, tnGmplsCPNbrRemoteCPNodeId=tnGmplsCPNbrRemoteCPNodeId, tnGmplsRsvpIfEntry=tnGmplsRsvpIfEntry, tnGmplsDprIfEntry=tnGmplsDprIfEntry, tnGmplsLmpIfTable=tnGmplsLmpIfTable, tnGmplsCPNbrGroup=tnGmplsCPNbrGroup, tnGmplsRsvpIfType=tnGmplsRsvpIfType, tnGmplsRsvpIfName=tnGmplsRsvpIfName, tnGmplsDprIfAdminStatus=tnGmplsDprIfAdminStatus, tnGmplsLmpIfCPNbr=tnGmplsLmpIfCPNbr, tnGmplsLmpIfName=tnGmplsLmpIfName, tnGmplsDprIfCPNbr=tnGmplsDprIfCPNbr, tnGmplsDprIfType=tnGmplsDprIfType, tnGmplsDprIfId=tnGmplsDprIfId, tnGmplsLmpIfRowStatus=tnGmplsLmpIfRowStatus, tnGmplsLmpIfOpState=tnGmplsLmpIfOpState, tnGmplsCPNbrRemoteRouterAddr=tnGmplsCPNbrRemoteRouterAddr, tnGmplsCPNbrRemoteTEP=tnGmplsCPNbrRemoteTEP, tnGmplsRsvpIfOpState=tnGmplsRsvpIfOpState, tnGmplsDprIfEncaps=tnGmplsDprIfEncaps, tnGmplsLmpIfEndPointDiscEnabled=tnGmplsLmpIfEndPointDiscEnabled, tnGmplsDprGroup=tnGmplsDprGroup, tnGmplsCpifMibModule=tnGmplsCpifMibModule, tnGmplsCpifConf=tnGmplsCpifConf, PYSNMP_MODULE_ID=tnGmplsCpifMibModule, tnGmplsDprIfOpState=tnGmplsDprIfOpState, tnGmplsDprIfTable=tnGmplsDprIfTable, tnGmplsDprIfRowStatus=tnGmplsDprIfRowStatus, tnGmplsLmpIfEntry=tnGmplsLmpIfEntry, tnGmplsCpifMIB=tnGmplsCpifMIB, tnGmplsCPNbrRowStatus=tnGmplsCPNbrRowStatus, tnGmplsDprIfNVMismatch=tnGmplsDprIfNVMismatch, tnGmplsRsvpIfEncaps=tnGmplsRsvpIfEncaps, tnGmplsRsvpIfRowStatus=tnGmplsRsvpIfRowStatus, tnGmplsCpifCompliances=tnGmplsCpifCompliances, tnGmplsCPNbrIfId=tnGmplsCPNbrIfId, tnGmplsRsvpIfTable=tnGmplsRsvpIfTable, tnGmplsCpifGroups=tnGmplsCpifGroups, tnGmplsCpifObjsGroup=tnGmplsCpifObjsGroup, tnGmplsCPNbrAdminStatus=tnGmplsCPNbrAdminStatus, tnGmplsLmpIfLinkPropCorrEnabled=tnGmplsLmpIfLinkPropCorrEnabled, tnGmplsLmpIfAdminStatus=tnGmplsLmpIfAdminStatus, tnGmplsLmpGroup=tnGmplsLmpGroup, tnGmplsCPNbrOspfArea=tnGmplsCPNbrOspfArea, tnGmplsRsvpIfId=tnGmplsRsvpIfId, tnGmplsRsvpGroup=tnGmplsRsvpGroup, tnGmplsLmpIfId=tnGmplsLmpIfId, tnGmplsCpifAttributeTotal=tnGmplsCpifAttributeTotal, tnGmplsCPNbrEntry=tnGmplsCPNbrEntry, tnGmplsRsvpIfCPNbr=tnGmplsRsvpIfCPNbr, tnGmplsCPNbrAddrType=tnGmplsCPNbrAddrType, tnGmplsCPNbrTable=tnGmplsCPNbrTable, tnGmplsLmpIfTraceMonEnabled=tnGmplsLmpIfTraceMonEnabled, tnGmplsRsvpIfAdminStatus=tnGmplsRsvpIfAdminStatus)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressIPv4,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressIPv4",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+(tnGmplsMIBModules,
+ tnGmplsObjs) = mibBuilder.importSymbols(
+    "TROPIC-GLOBAL-REG",
+    "tnGmplsMIBModules",
+    "tnGmplsObjs")
+
+
+# MODULE-IDENTITY
+
+tnGmplsCpifMibModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 1, 1, 2, 6, 1)
+)
+if mibBuilder.loadTexts:
+    tnGmplsCpifMibModule.setRevisions(
+        ("2018-02-23 12:00",
+         "2016-11-16 12:00",
+         "2013-06-27 12:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TnGmplsCpifMIB_ObjectIdentity = ObjectIdentity
+tnGmplsCpifMIB = _TnGmplsCpifMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1)
+)
+_TnGmplsCpifObjs_ObjectIdentity = ObjectIdentity
+tnGmplsCpifObjs = _TnGmplsCpifObjs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1)
+)
+_TnGmplsCpifAttributeTotal_Type = Integer32
+_TnGmplsCpifAttributeTotal_Object = MibScalar
+tnGmplsCpifAttributeTotal = _TnGmplsCpifAttributeTotal_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 1),
+    _TnGmplsCpifAttributeTotal_Type()
+)
+tnGmplsCpifAttributeTotal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tnGmplsCpifAttributeTotal.setStatus("current")
+_TnGmplsCPNbrTable_Object = MibTable
+tnGmplsCPNbrTable = _TnGmplsCPNbrTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrTable.setStatus("current")
+_TnGmplsCPNbrEntry_Object = MibTableRow
+tnGmplsCPNbrEntry = _TnGmplsCPNbrEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1)
+)
+tnGmplsCPNbrEntry.setIndexNames(
+    (0, "TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrIfId"),
+)
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrEntry.setStatus("current")
+_TnGmplsCPNbrIfId_Type = Unsigned32
+_TnGmplsCPNbrIfId_Object = MibTableColumn
+tnGmplsCPNbrIfId = _TnGmplsCPNbrIfId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 1),
+    _TnGmplsCPNbrIfId_Type()
+)
+tnGmplsCPNbrIfId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrIfId.setStatus("current")
+_TnGmplsCPNbrIfName_Type = DisplayString
+_TnGmplsCPNbrIfName_Object = MibTableColumn
+tnGmplsCPNbrIfName = _TnGmplsCPNbrIfName_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 2),
+    _TnGmplsCPNbrIfName_Type()
+)
+tnGmplsCPNbrIfName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrIfName.setStatus("current")
+_TnGmplsCPNbrAddrType_Type = InetAddressType
+_TnGmplsCPNbrAddrType_Object = MibTableColumn
+tnGmplsCPNbrAddrType = _TnGmplsCPNbrAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 3),
+    _TnGmplsCPNbrAddrType_Type()
+)
+tnGmplsCPNbrAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrAddrType.setStatus("current")
+_TnGmplsCPNbrRemoteRouterAddr_Type = InetAddress
+_TnGmplsCPNbrRemoteRouterAddr_Object = MibTableColumn
+tnGmplsCPNbrRemoteRouterAddr = _TnGmplsCPNbrRemoteRouterAddr_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 4),
+    _TnGmplsCPNbrRemoteRouterAddr_Type()
+)
+tnGmplsCPNbrRemoteRouterAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrRemoteRouterAddr.setStatus("current")
+
+
+class _TnGmplsCPNbrEncaps_Type(Integer32):
+    """Custom type tnGmplsCPNbrEncaps based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("ipinip", 2),
+          ("gre", 3))
+    )
+
+
+_TnGmplsCPNbrEncaps_Type.__name__ = "Integer32"
+_TnGmplsCPNbrEncaps_Object = MibTableColumn
+tnGmplsCPNbrEncaps = _TnGmplsCPNbrEncaps_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 5),
+    _TnGmplsCPNbrEncaps_Type()
+)
+tnGmplsCPNbrEncaps.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrEncaps.setStatus("current")
+_TnGmplsCPNbrRemoteTEP_Type = InetAddress
+_TnGmplsCPNbrRemoteTEP_Object = MibTableColumn
+tnGmplsCPNbrRemoteTEP = _TnGmplsCPNbrRemoteTEP_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 6),
+    _TnGmplsCPNbrRemoteTEP_Type()
+)
+tnGmplsCPNbrRemoteTEP.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrRemoteTEP.setStatus("current")
+_TnGmplsCPNbrOspfArea_Type = IpAddress
+_TnGmplsCPNbrOspfArea_Object = MibTableColumn
+tnGmplsCPNbrOspfArea = _TnGmplsCPNbrOspfArea_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 7),
+    _TnGmplsCPNbrOspfArea_Type()
+)
+tnGmplsCPNbrOspfArea.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrOspfArea.setStatus("current")
+
+
+class _TnGmplsCPNbrAdminStatus_Type(Integer32):
+    """Custom type tnGmplsCPNbrAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("up", 2))
+    )
+
+
+_TnGmplsCPNbrAdminStatus_Type.__name__ = "Integer32"
+_TnGmplsCPNbrAdminStatus_Object = MibTableColumn
+tnGmplsCPNbrAdminStatus = _TnGmplsCPNbrAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 8),
+    _TnGmplsCPNbrAdminStatus_Type()
+)
+tnGmplsCPNbrAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrAdminStatus.setStatus("current")
+_TnGmplsCPNbrRemoteCPNodeId_Type = InetAddressIPv4
+_TnGmplsCPNbrRemoteCPNodeId_Object = MibTableColumn
+tnGmplsCPNbrRemoteCPNodeId = _TnGmplsCPNbrRemoteCPNodeId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 9),
+    _TnGmplsCPNbrRemoteCPNodeId_Type()
+)
+tnGmplsCPNbrRemoteCPNodeId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrRemoteCPNodeId.setStatus("current")
+_TnGmplsCPNbrRowStatus_Type = RowStatus
+_TnGmplsCPNbrRowStatus_Object = MibTableColumn
+tnGmplsCPNbrRowStatus = _TnGmplsCPNbrRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 2, 1, 10),
+    _TnGmplsCPNbrRowStatus_Type()
+)
+tnGmplsCPNbrRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrRowStatus.setStatus("current")
+_TnGmplsRsvpIfTable_Object = MibTable
+tnGmplsRsvpIfTable = _TnGmplsRsvpIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    tnGmplsRsvpIfTable.setStatus("current")
+_TnGmplsRsvpIfEntry_Object = MibTableRow
+tnGmplsRsvpIfEntry = _TnGmplsRsvpIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1)
+)
+tnGmplsRsvpIfEntry.setIndexNames(
+    (0, "TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfId"),
+)
+if mibBuilder.loadTexts:
+    tnGmplsRsvpIfEntry.setStatus("current")
+_TnGmplsRsvpIfId_Type = Unsigned32
+_TnGmplsRsvpIfId_Object = MibTableColumn
+tnGmplsRsvpIfId = _TnGmplsRsvpIfId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 1),
+    _TnGmplsRsvpIfId_Type()
+)
+tnGmplsRsvpIfId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tnGmplsRsvpIfId.setStatus("current")
+_TnGmplsRsvpIfName_Type = DisplayString
+_TnGmplsRsvpIfName_Object = MibTableColumn
+tnGmplsRsvpIfName = _TnGmplsRsvpIfName_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 2),
+    _TnGmplsRsvpIfName_Type()
+)
+tnGmplsRsvpIfName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsRsvpIfName.setStatus("current")
+
+
+class _TnGmplsRsvpIfType_Type(Integer32):
+    """Custom type tnGmplsRsvpIfType based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("uni", 1),
+          ("nni", 2))
+    )
+
+
+_TnGmplsRsvpIfType_Type.__name__ = "Integer32"
+_TnGmplsRsvpIfType_Object = MibTableColumn
+tnGmplsRsvpIfType = _TnGmplsRsvpIfType_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 3),
+    _TnGmplsRsvpIfType_Type()
+)
+tnGmplsRsvpIfType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsRsvpIfType.setStatus("current")
+
+
+class _TnGmplsRsvpIfEncaps_Type(Integer32):
+    """Custom type tnGmplsRsvpIfEncaps based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("ipminimal", 2))
+    )
+
+
+_TnGmplsRsvpIfEncaps_Type.__name__ = "Integer32"
+_TnGmplsRsvpIfEncaps_Object = MibTableColumn
+tnGmplsRsvpIfEncaps = _TnGmplsRsvpIfEncaps_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 4),
+    _TnGmplsRsvpIfEncaps_Type()
+)
+tnGmplsRsvpIfEncaps.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsRsvpIfEncaps.setStatus("current")
+_TnGmplsRsvpIfCPNbr_Type = Unsigned32
+_TnGmplsRsvpIfCPNbr_Object = MibTableColumn
+tnGmplsRsvpIfCPNbr = _TnGmplsRsvpIfCPNbr_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 5),
+    _TnGmplsRsvpIfCPNbr_Type()
+)
+tnGmplsRsvpIfCPNbr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsRsvpIfCPNbr.setStatus("current")
+
+
+class _TnGmplsRsvpIfAdminStatus_Type(Integer32):
+    """Custom type tnGmplsRsvpIfAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("up", 2))
+    )
+
+
+_TnGmplsRsvpIfAdminStatus_Type.__name__ = "Integer32"
+_TnGmplsRsvpIfAdminStatus_Object = MibTableColumn
+tnGmplsRsvpIfAdminStatus = _TnGmplsRsvpIfAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 6),
+    _TnGmplsRsvpIfAdminStatus_Type()
+)
+tnGmplsRsvpIfAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsRsvpIfAdminStatus.setStatus("current")
+
+
+class _TnGmplsRsvpIfOpState_Type(Integer32):
+    """Custom type tnGmplsRsvpIfOpState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("up", 2),
+          ("degraded", 3))
+    )
+
+
+_TnGmplsRsvpIfOpState_Type.__name__ = "Integer32"
+_TnGmplsRsvpIfOpState_Object = MibTableColumn
+tnGmplsRsvpIfOpState = _TnGmplsRsvpIfOpState_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 7),
+    _TnGmplsRsvpIfOpState_Type()
+)
+tnGmplsRsvpIfOpState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tnGmplsRsvpIfOpState.setStatus("current")
+_TnGmplsRsvpIfRowStatus_Type = RowStatus
+_TnGmplsRsvpIfRowStatus_Object = MibTableColumn
+tnGmplsRsvpIfRowStatus = _TnGmplsRsvpIfRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 3, 1, 8),
+    _TnGmplsRsvpIfRowStatus_Type()
+)
+tnGmplsRsvpIfRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsRsvpIfRowStatus.setStatus("current")
+_TnGmplsDprIfTable_Object = MibTable
+tnGmplsDprIfTable = _TnGmplsDprIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    tnGmplsDprIfTable.setStatus("current")
+_TnGmplsDprIfEntry_Object = MibTableRow
+tnGmplsDprIfEntry = _TnGmplsDprIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1)
+)
+tnGmplsDprIfEntry.setIndexNames(
+    (0, "TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfId"),
+)
+if mibBuilder.loadTexts:
+    tnGmplsDprIfEntry.setStatus("current")
+_TnGmplsDprIfId_Type = Unsigned32
+_TnGmplsDprIfId_Object = MibTableColumn
+tnGmplsDprIfId = _TnGmplsDprIfId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 1),
+    _TnGmplsDprIfId_Type()
+)
+tnGmplsDprIfId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tnGmplsDprIfId.setStatus("current")
+_TnGmplsDprIfName_Type = DisplayString
+_TnGmplsDprIfName_Object = MibTableColumn
+tnGmplsDprIfName = _TnGmplsDprIfName_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 2),
+    _TnGmplsDprIfName_Type()
+)
+tnGmplsDprIfName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsDprIfName.setStatus("current")
+
+
+class _TnGmplsDprIfType_Type(Integer32):
+    """Custom type tnGmplsDprIfType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("nni", 1)
+    )
+
+
+_TnGmplsDprIfType_Type.__name__ = "Integer32"
+_TnGmplsDprIfType_Object = MibTableColumn
+tnGmplsDprIfType = _TnGmplsDprIfType_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 3),
+    _TnGmplsDprIfType_Type()
+)
+tnGmplsDprIfType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsDprIfType.setStatus("current")
+
+
+class _TnGmplsDprIfEncaps_Type(Integer32):
+    """Custom type tnGmplsDprIfEncaps based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("ipminimal", 1)
+    )
+
+
+_TnGmplsDprIfEncaps_Type.__name__ = "Integer32"
+_TnGmplsDprIfEncaps_Object = MibTableColumn
+tnGmplsDprIfEncaps = _TnGmplsDprIfEncaps_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 4),
+    _TnGmplsDprIfEncaps_Type()
+)
+tnGmplsDprIfEncaps.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsDprIfEncaps.setStatus("current")
+_TnGmplsDprIfCPNbr_Type = Unsigned32
+_TnGmplsDprIfCPNbr_Object = MibTableColumn
+tnGmplsDprIfCPNbr = _TnGmplsDprIfCPNbr_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 5),
+    _TnGmplsDprIfCPNbr_Type()
+)
+tnGmplsDprIfCPNbr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsDprIfCPNbr.setStatus("current")
+
+
+class _TnGmplsDprIfAdminStatus_Type(Integer32):
+    """Custom type tnGmplsDprIfAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("up", 2))
+    )
+
+
+_TnGmplsDprIfAdminStatus_Type.__name__ = "Integer32"
+_TnGmplsDprIfAdminStatus_Object = MibTableColumn
+tnGmplsDprIfAdminStatus = _TnGmplsDprIfAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 6),
+    _TnGmplsDprIfAdminStatus_Type()
+)
+tnGmplsDprIfAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsDprIfAdminStatus.setStatus("current")
+
+
+class _TnGmplsDprIfOpState_Type(Integer32):
+    """Custom type tnGmplsDprIfOpState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("up", 2),
+          ("degraded", 3))
+    )
+
+
+_TnGmplsDprIfOpState_Type.__name__ = "Integer32"
+_TnGmplsDprIfOpState_Object = MibTableColumn
+tnGmplsDprIfOpState = _TnGmplsDprIfOpState_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 7),
+    _TnGmplsDprIfOpState_Type()
+)
+tnGmplsDprIfOpState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tnGmplsDprIfOpState.setStatus("current")
+_TnGmplsDprIfNVMismatch_Type = TruthValue
+_TnGmplsDprIfNVMismatch_Object = MibTableColumn
+tnGmplsDprIfNVMismatch = _TnGmplsDprIfNVMismatch_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 8),
+    _TnGmplsDprIfNVMismatch_Type()
+)
+tnGmplsDprIfNVMismatch.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tnGmplsDprIfNVMismatch.setStatus("current")
+_TnGmplsDprIfRowStatus_Type = RowStatus
+_TnGmplsDprIfRowStatus_Object = MibTableColumn
+tnGmplsDprIfRowStatus = _TnGmplsDprIfRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 4, 1, 9),
+    _TnGmplsDprIfRowStatus_Type()
+)
+tnGmplsDprIfRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsDprIfRowStatus.setStatus("current")
+_TnGmplsLmpIfTable_Object = MibTable
+tnGmplsLmpIfTable = _TnGmplsLmpIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfTable.setStatus("current")
+_TnGmplsLmpIfEntry_Object = MibTableRow
+tnGmplsLmpIfEntry = _TnGmplsLmpIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1)
+)
+tnGmplsLmpIfEntry.setIndexNames(
+    (0, "TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfId"),
+)
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfEntry.setStatus("current")
+_TnGmplsLmpIfId_Type = Unsigned32
+_TnGmplsLmpIfId_Object = MibTableColumn
+tnGmplsLmpIfId = _TnGmplsLmpIfId_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 1),
+    _TnGmplsLmpIfId_Type()
+)
+tnGmplsLmpIfId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfId.setStatus("current")
+_TnGmplsLmpIfName_Type = DisplayString
+_TnGmplsLmpIfName_Object = MibTableColumn
+tnGmplsLmpIfName = _TnGmplsLmpIfName_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 2),
+    _TnGmplsLmpIfName_Type()
+)
+tnGmplsLmpIfName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfName.setStatus("current")
+_TnGmplsLmpIfCPNbr_Type = Unsigned32
+_TnGmplsLmpIfCPNbr_Object = MibTableColumn
+tnGmplsLmpIfCPNbr = _TnGmplsLmpIfCPNbr_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 3),
+    _TnGmplsLmpIfCPNbr_Type()
+)
+tnGmplsLmpIfCPNbr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfCPNbr.setStatus("current")
+_TnGmplsLmpIfHelloEnabled_Type = TruthValue
+_TnGmplsLmpIfHelloEnabled_Object = MibTableColumn
+tnGmplsLmpIfHelloEnabled = _TnGmplsLmpIfHelloEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 4),
+    _TnGmplsLmpIfHelloEnabled_Type()
+)
+tnGmplsLmpIfHelloEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfHelloEnabled.setStatus("current")
+_TnGmplsLmpIfLinkPropCorrEnabled_Type = TruthValue
+_TnGmplsLmpIfLinkPropCorrEnabled_Object = MibTableColumn
+tnGmplsLmpIfLinkPropCorrEnabled = _TnGmplsLmpIfLinkPropCorrEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 5),
+    _TnGmplsLmpIfLinkPropCorrEnabled_Type()
+)
+tnGmplsLmpIfLinkPropCorrEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfLinkPropCorrEnabled.setStatus("current")
+_TnGmplsLmpIfTraceMonEnabled_Type = TruthValue
+_TnGmplsLmpIfTraceMonEnabled_Object = MibTableColumn
+tnGmplsLmpIfTraceMonEnabled = _TnGmplsLmpIfTraceMonEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 6),
+    _TnGmplsLmpIfTraceMonEnabled_Type()
+)
+tnGmplsLmpIfTraceMonEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfTraceMonEnabled.setStatus("current")
+_TnGmplsLmpIfEndPointDiscEnabled_Type = TruthValue
+_TnGmplsLmpIfEndPointDiscEnabled_Object = MibTableColumn
+tnGmplsLmpIfEndPointDiscEnabled = _TnGmplsLmpIfEndPointDiscEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 7),
+    _TnGmplsLmpIfEndPointDiscEnabled_Type()
+)
+tnGmplsLmpIfEndPointDiscEnabled.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfEndPointDiscEnabled.setStatus("current")
+
+
+class _TnGmplsLmpIfAdminStatus_Type(Integer32):
+    """Custom type tnGmplsLmpIfAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("up", 2))
+    )
+
+
+_TnGmplsLmpIfAdminStatus_Type.__name__ = "Integer32"
+_TnGmplsLmpIfAdminStatus_Object = MibTableColumn
+tnGmplsLmpIfAdminStatus = _TnGmplsLmpIfAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 8),
+    _TnGmplsLmpIfAdminStatus_Type()
+)
+tnGmplsLmpIfAdminStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfAdminStatus.setStatus("current")
+
+
+class _TnGmplsLmpIfOpState_Type(Integer32):
+    """Custom type tnGmplsLmpIfOpState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("down", 1),
+          ("up", 2),
+          ("degraded", 3))
+    )
+
+
+_TnGmplsLmpIfOpState_Type.__name__ = "Integer32"
+_TnGmplsLmpIfOpState_Object = MibTableColumn
+tnGmplsLmpIfOpState = _TnGmplsLmpIfOpState_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 9),
+    _TnGmplsLmpIfOpState_Type()
+)
+tnGmplsLmpIfOpState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfOpState.setStatus("current")
+_TnGmplsLmpIfRowStatus_Type = RowStatus
+_TnGmplsLmpIfRowStatus_Object = MibTableColumn
+tnGmplsLmpIfRowStatus = _TnGmplsLmpIfRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 1, 5, 1, 10),
+    _TnGmplsLmpIfRowStatus_Type()
+)
+tnGmplsLmpIfRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tnGmplsLmpIfRowStatus.setStatus("current")
+_TnGmplsCpifConf_ObjectIdentity = ObjectIdentity
+tnGmplsCpifConf = _TnGmplsCpifConf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3)
+)
+_TnGmplsCpifGroups_ObjectIdentity = ObjectIdentity
+tnGmplsCpifGroups = _TnGmplsCpifGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1)
+)
+_TnGmplsCpifCompliances_ObjectIdentity = ObjectIdentity
+tnGmplsCpifCompliances = _TnGmplsCpifCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 2)
+)
+
+# Managed Objects groups
+
+tnGmplsCpifObjsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1, 1)
+)
+tnGmplsCpifObjsGroup.setObjects(
+    ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCpifAttributeTotal")
+)
+if mibBuilder.loadTexts:
+    tnGmplsCpifObjsGroup.setStatus("current")
+
+tnGmplsCPNbrGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1, 2)
+)
+tnGmplsCPNbrGroup.setObjects(
+      *(("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrIfName"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrAddrType"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrRemoteRouterAddr"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrEncaps"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrRemoteTEP"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrOspfArea"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrAdminStatus"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrRemoteCPNodeId"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrRowStatus"))
+)
+if mibBuilder.loadTexts:
+    tnGmplsCPNbrGroup.setStatus("current")
+
+tnGmplsRsvpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1, 3)
+)
+tnGmplsRsvpGroup.setObjects(
+      *(("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfName"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfType"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfEncaps"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfCPNbr"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfAdminStatus"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfOpState"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpIfRowStatus"))
+)
+if mibBuilder.loadTexts:
+    tnGmplsRsvpGroup.setStatus("current")
+
+tnGmplsDprGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1, 4)
+)
+tnGmplsDprGroup.setObjects(
+      *(("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfName"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfType"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfEncaps"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfCPNbr"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfAdminStatus"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfOpState"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfNVMismatch"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprIfRowStatus"))
+)
+if mibBuilder.loadTexts:
+    tnGmplsDprGroup.setStatus("current")
+
+tnGmplsLmpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 1, 5)
+)
+tnGmplsLmpGroup.setObjects(
+      *(("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfName"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfCPNbr"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfHelloEnabled"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfLinkPropCorrEnabled"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfTraceMonEnabled"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfEndPointDiscEnabled"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfAdminStatus"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfOpState"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpIfRowStatus"))
+)
+if mibBuilder.loadTexts:
+    tnGmplsLmpGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tnGmplsCpifCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 7483, 2, 1, 10, 1, 1, 3, 2, 1)
+)
+tnGmplsCpifCompliance.setObjects(
+      *(("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCpifObjsGroup"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsCPNbrGroup"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsRsvpGroup"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsDprGroup"),
+        ("TROPIC-GMPLS-CPIF-MIB", "tnGmplsLmpGroup"))
+)
+if mibBuilder.loadTexts:
+    tnGmplsCpifCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TROPIC-GMPLS-CPIF-MIB",
+    **{"tnGmplsCpifMibModule": tnGmplsCpifMibModule,
+       "tnGmplsCpifMIB": tnGmplsCpifMIB,
+       "tnGmplsCpifObjs": tnGmplsCpifObjs,
+       "tnGmplsCpifAttributeTotal": tnGmplsCpifAttributeTotal,
+       "tnGmplsCPNbrTable": tnGmplsCPNbrTable,
+       "tnGmplsCPNbrEntry": tnGmplsCPNbrEntry,
+       "tnGmplsCPNbrIfId": tnGmplsCPNbrIfId,
+       "tnGmplsCPNbrIfName": tnGmplsCPNbrIfName,
+       "tnGmplsCPNbrAddrType": tnGmplsCPNbrAddrType,
+       "tnGmplsCPNbrRemoteRouterAddr": tnGmplsCPNbrRemoteRouterAddr,
+       "tnGmplsCPNbrEncaps": tnGmplsCPNbrEncaps,
+       "tnGmplsCPNbrRemoteTEP": tnGmplsCPNbrRemoteTEP,
+       "tnGmplsCPNbrOspfArea": tnGmplsCPNbrOspfArea,
+       "tnGmplsCPNbrAdminStatus": tnGmplsCPNbrAdminStatus,
+       "tnGmplsCPNbrRemoteCPNodeId": tnGmplsCPNbrRemoteCPNodeId,
+       "tnGmplsCPNbrRowStatus": tnGmplsCPNbrRowStatus,
+       "tnGmplsRsvpIfTable": tnGmplsRsvpIfTable,
+       "tnGmplsRsvpIfEntry": tnGmplsRsvpIfEntry,
+       "tnGmplsRsvpIfId": tnGmplsRsvpIfId,
+       "tnGmplsRsvpIfName": tnGmplsRsvpIfName,
+       "tnGmplsRsvpIfType": tnGmplsRsvpIfType,
+       "tnGmplsRsvpIfEncaps": tnGmplsRsvpIfEncaps,
+       "tnGmplsRsvpIfCPNbr": tnGmplsRsvpIfCPNbr,
+       "tnGmplsRsvpIfAdminStatus": tnGmplsRsvpIfAdminStatus,
+       "tnGmplsRsvpIfOpState": tnGmplsRsvpIfOpState,
+       "tnGmplsRsvpIfRowStatus": tnGmplsRsvpIfRowStatus,
+       "tnGmplsDprIfTable": tnGmplsDprIfTable,
+       "tnGmplsDprIfEntry": tnGmplsDprIfEntry,
+       "tnGmplsDprIfId": tnGmplsDprIfId,
+       "tnGmplsDprIfName": tnGmplsDprIfName,
+       "tnGmplsDprIfType": tnGmplsDprIfType,
+       "tnGmplsDprIfEncaps": tnGmplsDprIfEncaps,
+       "tnGmplsDprIfCPNbr": tnGmplsDprIfCPNbr,
+       "tnGmplsDprIfAdminStatus": tnGmplsDprIfAdminStatus,
+       "tnGmplsDprIfOpState": tnGmplsDprIfOpState,
+       "tnGmplsDprIfNVMismatch": tnGmplsDprIfNVMismatch,
+       "tnGmplsDprIfRowStatus": tnGmplsDprIfRowStatus,
+       "tnGmplsLmpIfTable": tnGmplsLmpIfTable,
+       "tnGmplsLmpIfEntry": tnGmplsLmpIfEntry,
+       "tnGmplsLmpIfId": tnGmplsLmpIfId,
+       "tnGmplsLmpIfName": tnGmplsLmpIfName,
+       "tnGmplsLmpIfCPNbr": tnGmplsLmpIfCPNbr,
+       "tnGmplsLmpIfHelloEnabled": tnGmplsLmpIfHelloEnabled,
+       "tnGmplsLmpIfLinkPropCorrEnabled": tnGmplsLmpIfLinkPropCorrEnabled,
+       "tnGmplsLmpIfTraceMonEnabled": tnGmplsLmpIfTraceMonEnabled,
+       "tnGmplsLmpIfEndPointDiscEnabled": tnGmplsLmpIfEndPointDiscEnabled,
+       "tnGmplsLmpIfAdminStatus": tnGmplsLmpIfAdminStatus,
+       "tnGmplsLmpIfOpState": tnGmplsLmpIfOpState,
+       "tnGmplsLmpIfRowStatus": tnGmplsLmpIfRowStatus,
+       "tnGmplsCpifConf": tnGmplsCpifConf,
+       "tnGmplsCpifGroups": tnGmplsCpifGroups,
+       "tnGmplsCpifObjsGroup": tnGmplsCpifObjsGroup,
+       "tnGmplsCPNbrGroup": tnGmplsCPNbrGroup,
+       "tnGmplsRsvpGroup": tnGmplsRsvpGroup,
+       "tnGmplsDprGroup": tnGmplsDprGroup,
+       "tnGmplsLmpGroup": tnGmplsLmpGroup,
+       "tnGmplsCpifCompliances": tnGmplsCpifCompliances,
+       "tnGmplsCpifCompliance": tnGmplsCpifCompliance}
+)

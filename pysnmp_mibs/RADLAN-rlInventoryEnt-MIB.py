@@ -1,40 +1,250 @@
+# SNMP MIB module (RADLAN-rlInventoryEnt-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module RADLAN-rlInventoryEnt-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/radlan/RADLAN-rlInventoryEnt-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:08:01 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/radlan/RADLAN-rlInventoryEnt-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:11:50 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rnd, = mibBuilder.importSymbols("RADLAN-MIB", "rnd")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-class UnitIfindexType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("unit", 0), ("ifindex", 1))
 
-rlInventoryEntTable = MibTable((1, 3, 6, 1, 4, 1, 89, 217), )
-if mibBuilder.loadTexts: rlInventoryEntTable.setStatus('current')
-rlInventoryEntEntry = MibTableRow((1, 3, 6, 1, 4, 1, 89, 217, 1), ).setIndexNames((0, "RADLAN-rlInventoryEnt-MIB", "rlInventoryEntUnitOrIfindex"), (0, "RADLAN-rlInventoryEnt-MIB", "rlInventoryEntUnitIfindexID"))
-if mibBuilder.loadTexts: rlInventoryEntEntry.setStatus('current')
-rlInventoryEntUnitOrIfindex = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 217, 1, 1), UnitIfindexType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlInventoryEntUnitOrIfindex.setStatus('current')
-rlInventoryEntUnitIfindexID = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 217, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlInventoryEntUnitIfindexID.setStatus('current')
-rlInventoryEntVendorID = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 217, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlInventoryEntVendorID.setStatus('current')
-rlInventoryEntPID = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 217, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlInventoryEntPID.setStatus('current')
-rlInventoryEntName = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 217, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlInventoryEntName.setStatus('current')
-rlInventoryEntDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 217, 1, 6), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlInventoryEntDescription.setStatus('current')
-rlInventoryEntSerialNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 217, 1, 7), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlInventoryEntSerialNumber.setStatus('current')
-rlInventoryEntUnitNum = MibTableColumn((1, 3, 6, 1, 4, 1, 89, 217, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlInventoryEntUnitNum.setStatus('current')
-mibBuilder.exportSymbols("RADLAN-rlInventoryEnt-MIB", rlInventoryEntUnitIfindexID=rlInventoryEntUnitIfindexID, rlInventoryEntVendorID=rlInventoryEntVendorID, rlInventoryEntName=rlInventoryEntName, rlInventoryEntTable=rlInventoryEntTable, rlInventoryEntSerialNumber=rlInventoryEntSerialNumber, rlInventoryEntEntry=rlInventoryEntEntry, UnitIfindexType=UnitIfindexType, rlInventoryEntUnitNum=rlInventoryEntUnitNum, rlInventoryEntDescription=rlInventoryEntDescription, rlInventoryEntUnitOrIfindex=rlInventoryEntUnitOrIfindex, rlInventoryEntPID=rlInventoryEntPID)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rnd,) = mibBuilder.importSymbols(
+    "RADLAN-MIB",
+    "rnd")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class UnitIfindexType(TextualConvention, Integer32):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unit", 0),
+          ("ifindex", 1))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlInventoryEntTable_Object = MibTable
+rlInventoryEntTable = _RlInventoryEntTable_Object(
+    (1, 3, 6, 1, 4, 1, 89, 217)
+)
+if mibBuilder.loadTexts:
+    rlInventoryEntTable.setStatus("current")
+_RlInventoryEntEntry_Object = MibTableRow
+rlInventoryEntEntry = _RlInventoryEntEntry_Object(
+    (1, 3, 6, 1, 4, 1, 89, 217, 1)
+)
+rlInventoryEntEntry.setIndexNames(
+    (0, "RADLAN-rlInventoryEnt-MIB", "rlInventoryEntUnitOrIfindex"),
+    (0, "RADLAN-rlInventoryEnt-MIB", "rlInventoryEntUnitIfindexID"),
+)
+if mibBuilder.loadTexts:
+    rlInventoryEntEntry.setStatus("current")
+_RlInventoryEntUnitOrIfindex_Type = UnitIfindexType
+_RlInventoryEntUnitOrIfindex_Object = MibTableColumn
+rlInventoryEntUnitOrIfindex = _RlInventoryEntUnitOrIfindex_Object(
+    (1, 3, 6, 1, 4, 1, 89, 217, 1, 1),
+    _RlInventoryEntUnitOrIfindex_Type()
+)
+rlInventoryEntUnitOrIfindex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlInventoryEntUnitOrIfindex.setStatus("current")
+_RlInventoryEntUnitIfindexID_Type = Unsigned32
+_RlInventoryEntUnitIfindexID_Object = MibTableColumn
+rlInventoryEntUnitIfindexID = _RlInventoryEntUnitIfindexID_Object(
+    (1, 3, 6, 1, 4, 1, 89, 217, 1, 2),
+    _RlInventoryEntUnitIfindexID_Type()
+)
+rlInventoryEntUnitIfindexID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlInventoryEntUnitIfindexID.setStatus("current")
+_RlInventoryEntVendorID_Type = DisplayString
+_RlInventoryEntVendorID_Object = MibTableColumn
+rlInventoryEntVendorID = _RlInventoryEntVendorID_Object(
+    (1, 3, 6, 1, 4, 1, 89, 217, 1, 3),
+    _RlInventoryEntVendorID_Type()
+)
+rlInventoryEntVendorID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlInventoryEntVendorID.setStatus("current")
+_RlInventoryEntPID_Type = DisplayString
+_RlInventoryEntPID_Object = MibTableColumn
+rlInventoryEntPID = _RlInventoryEntPID_Object(
+    (1, 3, 6, 1, 4, 1, 89, 217, 1, 4),
+    _RlInventoryEntPID_Type()
+)
+rlInventoryEntPID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlInventoryEntPID.setStatus("current")
+_RlInventoryEntName_Type = DisplayString
+_RlInventoryEntName_Object = MibTableColumn
+rlInventoryEntName = _RlInventoryEntName_Object(
+    (1, 3, 6, 1, 4, 1, 89, 217, 1, 5),
+    _RlInventoryEntName_Type()
+)
+rlInventoryEntName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlInventoryEntName.setStatus("current")
+_RlInventoryEntDescription_Type = DisplayString
+_RlInventoryEntDescription_Object = MibTableColumn
+rlInventoryEntDescription = _RlInventoryEntDescription_Object(
+    (1, 3, 6, 1, 4, 1, 89, 217, 1, 6),
+    _RlInventoryEntDescription_Type()
+)
+rlInventoryEntDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlInventoryEntDescription.setStatus("current")
+_RlInventoryEntSerialNumber_Type = DisplayString
+_RlInventoryEntSerialNumber_Object = MibTableColumn
+rlInventoryEntSerialNumber = _RlInventoryEntSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 89, 217, 1, 7),
+    _RlInventoryEntSerialNumber_Type()
+)
+rlInventoryEntSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlInventoryEntSerialNumber.setStatus("current")
+_RlInventoryEntUnitNum_Type = Unsigned32
+_RlInventoryEntUnitNum_Object = MibTableColumn
+rlInventoryEntUnitNum = _RlInventoryEntUnitNum_Object(
+    (1, 3, 6, 1, 4, 1, 89, 217, 1, 8),
+    _RlInventoryEntUnitNum_Type()
+)
+rlInventoryEntUnitNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlInventoryEntUnitNum.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "RADLAN-rlInventoryEnt-MIB",
+    **{"UnitIfindexType": UnitIfindexType,
+       "rlInventoryEntTable": rlInventoryEntTable,
+       "rlInventoryEntEntry": rlInventoryEntEntry,
+       "rlInventoryEntUnitOrIfindex": rlInventoryEntUnitOrIfindex,
+       "rlInventoryEntUnitIfindexID": rlInventoryEntUnitIfindexID,
+       "rlInventoryEntVendorID": rlInventoryEntVendorID,
+       "rlInventoryEntPID": rlInventoryEntPID,
+       "rlInventoryEntName": rlInventoryEntName,
+       "rlInventoryEntDescription": rlInventoryEntDescription,
+       "rlInventoryEntSerialNumber": rlInventoryEntSerialNumber,
+       "rlInventoryEntUnitNum": rlInventoryEntUnitNum}
+)

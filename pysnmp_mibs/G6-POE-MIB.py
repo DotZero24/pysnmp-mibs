@@ -1,78 +1,631 @@
+# SNMP MIB module (G6-POE-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module G6-POE-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/microsens/G6-POE-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:06 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/microsens/G6-POE-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:54:09 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-g6, = mibBuilder.importSymbols("MICROSENS-G6-MIB", "g6")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-device = ModuleIdentity((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1))
-device.setRevisions(('2018-02-12 16:19',))
-if mibBuilder.loadTexts: device.setLastUpdated('201802121619Z')
-if mibBuilder.loadTexts: device.setOrganization('MICROSENS GmbH & Co. KG')
-poe = MibIdentifier((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33))
-poePoeMaxPowerAvailable = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: poePoeMaxPowerAvailable.setStatus('current')
-poeRestartPoePort = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 2), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: poeRestartPoePort.setStatus('current')
-configTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3), )
-if mibBuilder.loadTexts: configTable.setStatus('current')
-configEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3, 1), ).setIndexNames((0, "G6-POE-MIB", "configPortIndex"))
-if mibBuilder.loadTexts: configEntry.setStatus('current')
-configPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 24)))
-if mibBuilder.loadTexts: configPortIndex.setStatus('current')
-configMode = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("disabled", 0), ("automatic", 1), ("class0", 2), ("class1", 3), ("class2", 4), ("class3", 5), ("class4", 6), ("forcedOn", 7)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configMode.setStatus('current')
-configPriorityPort = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configPriorityPort.setStatus('current')
-configEnablePoePlus = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1), ("lldpControlled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configEnablePoePlus.setStatus('current')
-poeTotalPowerConsumed = MibScalar((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 100), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: poeTotalPowerConsumed.setStatus('current')
-statusTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101), )
-if mibBuilder.loadTexts: statusTable.setStatus('current')
-statusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1), ).setIndexNames((0, "G6-POE-MIB", "statusPortIndex"))
-if mibBuilder.loadTexts: statusEntry.setStatus('current')
-statusPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31)))
-if mibBuilder.loadTexts: statusPortIndex.setStatus('current')
-statusCondition = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))).clone(namedValues=NamedValues(("disabled", 0), ("powerOff", 1), ("discovering", 2), ("powered", 3), ("classMismatch", 4), ("shortCircuit", 5), ("rejected", 6), ("overCurrent", 7), ("overTemp", 8), ("voltageTooLow", 9)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statusCondition.setStatus('current')
-statusDeterminedClass = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 7, 255))).clone(namedValues=NamedValues(("isClass0", 0), ("isClass1", 1), ("isClass2", 2), ("isClass3", 3), ("isClass4", 4), ("isOverload", 5), ("probesNotEqual", 7), ("isUnknown", 255)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statusDeterminedClass.setStatus('current')
-statusOutputCurrent = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statusOutputCurrent.setStatus('current')
-statusOutputVoltage = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statusOutputVoltage.setStatus('current')
-statusOutputPower = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statusOutputPower.setStatus('current')
-statusPowerDeniedCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statusPowerDeniedCounter.setStatus('current')
-statusOverCurrentCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 8), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statusOverCurrentCounter.setStatus('current')
-statusShortCircuitCounter = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 9), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: statusShortCircuitCounter.setStatus('current')
-energySuppliedTable = MibTable((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102), )
-if mibBuilder.loadTexts: energySuppliedTable.setStatus('current')
-energySuppliedEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1), ).setIndexNames((0, "G6-POE-MIB", "energySuppliedPortIndex"))
-if mibBuilder.loadTexts: energySuppliedEntry.setStatus('current')
-energySuppliedPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 31)))
-if mibBuilder.loadTexts: energySuppliedPortIndex.setStatus('current')
-energySuppliedLast5Seconds = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: energySuppliedLast5Seconds.setStatus('current')
-energySuppliedLast15Seconds = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: energySuppliedLast15Seconds.setStatus('current')
-energySuppliedLastMinute = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: energySuppliedLastMinute.setStatus('current')
-energySuppliedLast15Minutes = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: energySuppliedLast15Minutes.setStatus('current')
-energySuppliedLastHour = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: energySuppliedLastHour.setStatus('current')
-energySuppliedLastDay = MibTableColumn((1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: energySuppliedLastDay.setStatus('current')
-mibBuilder.exportSymbols("G6-POE-MIB", poeTotalPowerConsumed=poeTotalPowerConsumed, configMode=configMode, energySuppliedLastMinute=energySuppliedLastMinute, statusShortCircuitCounter=statusShortCircuitCounter, statusTable=statusTable, device=device, energySuppliedEntry=energySuppliedEntry, poe=poe, energySuppliedTable=energySuppliedTable, statusCondition=statusCondition, configEnablePoePlus=configEnablePoePlus, energySuppliedPortIndex=energySuppliedPortIndex, energySuppliedLast5Seconds=energySuppliedLast5Seconds, poeRestartPoePort=poeRestartPoePort, statusOutputCurrent=statusOutputCurrent, poePoeMaxPowerAvailable=poePoeMaxPowerAvailable, statusDeterminedClass=statusDeterminedClass, statusOutputVoltage=statusOutputVoltage, energySuppliedLast15Minutes=energySuppliedLast15Minutes, energySuppliedLastDay=energySuppliedLastDay, configTable=configTable, configPriorityPort=configPriorityPort, statusOverCurrentCounter=statusOverCurrentCounter, configEntry=configEntry, configPortIndex=configPortIndex, energySuppliedLast15Seconds=energySuppliedLast15Seconds, energySuppliedLastHour=energySuppliedLastHour, PYSNMP_MODULE_ID=device, statusPowerDeniedCounter=statusPowerDeniedCounter, statusEntry=statusEntry, statusOutputPower=statusOutputPower, statusPortIndex=statusPortIndex)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(g6,) = mibBuilder.importSymbols(
+    "MICROSENS-G6-MIB",
+    "g6")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+device = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1)
+)
+if mibBuilder.loadTexts:
+    device.setRevisions(
+        ("2018-02-12 16:19",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Poe_ObjectIdentity = ObjectIdentity
+poe = _Poe_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33)
+)
+
+
+class _PoePoeMaxPowerAvailable_Type(Integer32):
+    """Custom type poePoeMaxPowerAvailable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_PoePoeMaxPowerAvailable_Type.__name__ = "Integer32"
+_PoePoeMaxPowerAvailable_Object = MibScalar
+poePoeMaxPowerAvailable = _PoePoeMaxPowerAvailable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 1),
+    _PoePoeMaxPowerAvailable_Type()
+)
+poePoeMaxPowerAvailable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    poePoeMaxPowerAvailable.setStatus("current")
+_PoeRestartPoePort_Type = DisplayString
+_PoeRestartPoePort_Object = MibScalar
+poeRestartPoePort = _PoeRestartPoePort_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 2),
+    _PoeRestartPoePort_Type()
+)
+poeRestartPoePort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    poeRestartPoePort.setStatus("current")
+_ConfigTable_Object = MibTable
+configTable = _ConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3)
+)
+if mibBuilder.loadTexts:
+    configTable.setStatus("current")
+_ConfigEntry_Object = MibTableRow
+configEntry = _ConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3, 1)
+)
+configEntry.setIndexNames(
+    (0, "G6-POE-MIB", "configPortIndex"),
+)
+if mibBuilder.loadTexts:
+    configEntry.setStatus("current")
+
+
+class _ConfigPortIndex_Type(Integer32):
+    """Custom type configPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 24),
+    )
+
+
+_ConfigPortIndex_Type.__name__ = "Integer32"
+_ConfigPortIndex_Object = MibTableColumn
+configPortIndex = _ConfigPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3, 1, 1),
+    _ConfigPortIndex_Type()
+)
+configPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    configPortIndex.setStatus("current")
+
+
+class _ConfigMode_Type(Integer32):
+    """Custom type configMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("automatic", 1),
+          ("class0", 2),
+          ("class1", 3),
+          ("class2", 4),
+          ("class3", 5),
+          ("class4", 6),
+          ("forcedOn", 7))
+    )
+
+
+_ConfigMode_Type.__name__ = "Integer32"
+_ConfigMode_Object = MibTableColumn
+configMode = _ConfigMode_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3, 1, 2),
+    _ConfigMode_Type()
+)
+configMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configMode.setStatus("current")
+
+
+class _ConfigPriorityPort_Type(Integer32):
+    """Custom type configPriorityPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_ConfigPriorityPort_Type.__name__ = "Integer32"
+_ConfigPriorityPort_Object = MibTableColumn
+configPriorityPort = _ConfigPriorityPort_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3, 1, 3),
+    _ConfigPriorityPort_Type()
+)
+configPriorityPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configPriorityPort.setStatus("current")
+
+
+class _ConfigEnablePoePlus_Type(Integer32):
+    """Custom type configEnablePoePlus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1),
+          ("lldpControlled", 2))
+    )
+
+
+_ConfigEnablePoePlus_Type.__name__ = "Integer32"
+_ConfigEnablePoePlus_Object = MibTableColumn
+configEnablePoePlus = _ConfigEnablePoePlus_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 3, 1, 4),
+    _ConfigEnablePoePlus_Type()
+)
+configEnablePoePlus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configEnablePoePlus.setStatus("current")
+_PoeTotalPowerConsumed_Type = Unsigned32
+_PoeTotalPowerConsumed_Object = MibScalar
+poeTotalPowerConsumed = _PoeTotalPowerConsumed_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 100),
+    _PoeTotalPowerConsumed_Type()
+)
+poeTotalPowerConsumed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    poeTotalPowerConsumed.setStatus("current")
+_StatusTable_Object = MibTable
+statusTable = _StatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101)
+)
+if mibBuilder.loadTexts:
+    statusTable.setStatus("current")
+_StatusEntry_Object = MibTableRow
+statusEntry = _StatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1)
+)
+statusEntry.setIndexNames(
+    (0, "G6-POE-MIB", "statusPortIndex"),
+)
+if mibBuilder.loadTexts:
+    statusEntry.setStatus("current")
+
+
+class _StatusPortIndex_Type(Integer32):
+    """Custom type statusPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_StatusPortIndex_Type.__name__ = "Integer32"
+_StatusPortIndex_Object = MibTableColumn
+statusPortIndex = _StatusPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 1),
+    _StatusPortIndex_Type()
+)
+statusPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    statusPortIndex.setStatus("current")
+
+
+class _StatusCondition_Type(Integer32):
+    """Custom type statusCondition based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("powerOff", 1),
+          ("discovering", 2),
+          ("powered", 3),
+          ("classMismatch", 4),
+          ("shortCircuit", 5),
+          ("rejected", 6),
+          ("overCurrent", 7),
+          ("overTemp", 8),
+          ("voltageTooLow", 9))
+    )
+
+
+_StatusCondition_Type.__name__ = "Integer32"
+_StatusCondition_Object = MibTableColumn
+statusCondition = _StatusCondition_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 2),
+    _StatusCondition_Type()
+)
+statusCondition.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statusCondition.setStatus("current")
+
+
+class _StatusDeterminedClass_Type(Integer32):
+    """Custom type statusDeterminedClass based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              7,
+              255)
+        )
+    )
+    namedValues = NamedValues(
+        *(("isClass0", 0),
+          ("isClass1", 1),
+          ("isClass2", 2),
+          ("isClass3", 3),
+          ("isClass4", 4),
+          ("isOverload", 5),
+          ("probesNotEqual", 7),
+          ("isUnknown", 255))
+    )
+
+
+_StatusDeterminedClass_Type.__name__ = "Integer32"
+_StatusDeterminedClass_Object = MibTableColumn
+statusDeterminedClass = _StatusDeterminedClass_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 3),
+    _StatusDeterminedClass_Type()
+)
+statusDeterminedClass.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statusDeterminedClass.setStatus("current")
+
+
+class _StatusOutputCurrent_Type(Integer32):
+    """Custom type statusOutputCurrent based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_StatusOutputCurrent_Type.__name__ = "Integer32"
+_StatusOutputCurrent_Object = MibTableColumn
+statusOutputCurrent = _StatusOutputCurrent_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 4),
+    _StatusOutputCurrent_Type()
+)
+statusOutputCurrent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statusOutputCurrent.setStatus("current")
+
+
+class _StatusOutputVoltage_Type(Integer32):
+    """Custom type statusOutputVoltage based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_StatusOutputVoltage_Type.__name__ = "Integer32"
+_StatusOutputVoltage_Object = MibTableColumn
+statusOutputVoltage = _StatusOutputVoltage_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 5),
+    _StatusOutputVoltage_Type()
+)
+statusOutputVoltage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statusOutputVoltage.setStatus("current")
+
+
+class _StatusOutputPower_Type(Integer32):
+    """Custom type statusOutputPower based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_StatusOutputPower_Type.__name__ = "Integer32"
+_StatusOutputPower_Object = MibTableColumn
+statusOutputPower = _StatusOutputPower_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 6),
+    _StatusOutputPower_Type()
+)
+statusOutputPower.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statusOutputPower.setStatus("current")
+_StatusPowerDeniedCounter_Type = Unsigned32
+_StatusPowerDeniedCounter_Object = MibTableColumn
+statusPowerDeniedCounter = _StatusPowerDeniedCounter_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 7),
+    _StatusPowerDeniedCounter_Type()
+)
+statusPowerDeniedCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statusPowerDeniedCounter.setStatus("current")
+_StatusOverCurrentCounter_Type = Unsigned32
+_StatusOverCurrentCounter_Object = MibTableColumn
+statusOverCurrentCounter = _StatusOverCurrentCounter_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 8),
+    _StatusOverCurrentCounter_Type()
+)
+statusOverCurrentCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statusOverCurrentCounter.setStatus("current")
+_StatusShortCircuitCounter_Type = Unsigned32
+_StatusShortCircuitCounter_Object = MibTableColumn
+statusShortCircuitCounter = _StatusShortCircuitCounter_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 101, 1, 9),
+    _StatusShortCircuitCounter_Type()
+)
+statusShortCircuitCounter.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    statusShortCircuitCounter.setStatus("current")
+_EnergySuppliedTable_Object = MibTable
+energySuppliedTable = _EnergySuppliedTable_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102)
+)
+if mibBuilder.loadTexts:
+    energySuppliedTable.setStatus("current")
+_EnergySuppliedEntry_Object = MibTableRow
+energySuppliedEntry = _EnergySuppliedEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1)
+)
+energySuppliedEntry.setIndexNames(
+    (0, "G6-POE-MIB", "energySuppliedPortIndex"),
+)
+if mibBuilder.loadTexts:
+    energySuppliedEntry.setStatus("current")
+
+
+class _EnergySuppliedPortIndex_Type(Integer32):
+    """Custom type energySuppliedPortIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 31),
+    )
+
+
+_EnergySuppliedPortIndex_Type.__name__ = "Integer32"
+_EnergySuppliedPortIndex_Object = MibTableColumn
+energySuppliedPortIndex = _EnergySuppliedPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 1),
+    _EnergySuppliedPortIndex_Type()
+)
+energySuppliedPortIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    energySuppliedPortIndex.setStatus("current")
+_EnergySuppliedLast5Seconds_Type = Unsigned32
+_EnergySuppliedLast5Seconds_Object = MibTableColumn
+energySuppliedLast5Seconds = _EnergySuppliedLast5Seconds_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 2),
+    _EnergySuppliedLast5Seconds_Type()
+)
+energySuppliedLast5Seconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    energySuppliedLast5Seconds.setStatus("current")
+_EnergySuppliedLast15Seconds_Type = Unsigned32
+_EnergySuppliedLast15Seconds_Object = MibTableColumn
+energySuppliedLast15Seconds = _EnergySuppliedLast15Seconds_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 3),
+    _EnergySuppliedLast15Seconds_Type()
+)
+energySuppliedLast15Seconds.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    energySuppliedLast15Seconds.setStatus("current")
+_EnergySuppliedLastMinute_Type = Unsigned32
+_EnergySuppliedLastMinute_Object = MibTableColumn
+energySuppliedLastMinute = _EnergySuppliedLastMinute_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 4),
+    _EnergySuppliedLastMinute_Type()
+)
+energySuppliedLastMinute.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    energySuppliedLastMinute.setStatus("current")
+_EnergySuppliedLast15Minutes_Type = Unsigned32
+_EnergySuppliedLast15Minutes_Object = MibTableColumn
+energySuppliedLast15Minutes = _EnergySuppliedLast15Minutes_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 5),
+    _EnergySuppliedLast15Minutes_Type()
+)
+energySuppliedLast15Minutes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    energySuppliedLast15Minutes.setStatus("current")
+_EnergySuppliedLastHour_Type = Unsigned32
+_EnergySuppliedLastHour_Object = MibTableColumn
+energySuppliedLastHour = _EnergySuppliedLastHour_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 6),
+    _EnergySuppliedLastHour_Type()
+)
+energySuppliedLastHour.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    energySuppliedLastHour.setStatus("current")
+_EnergySuppliedLastDay_Type = Unsigned32
+_EnergySuppliedLastDay_Object = MibTableColumn
+energySuppliedLastDay = _EnergySuppliedLastDay_Object(
+    (1, 3, 6, 1, 4, 1, 3181, 10, 6, 1, 33, 102, 1, 7),
+    _EnergySuppliedLastDay_Type()
+)
+energySuppliedLastDay.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    energySuppliedLastDay.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "G6-POE-MIB",
+    **{"device": device,
+       "poe": poe,
+       "poePoeMaxPowerAvailable": poePoeMaxPowerAvailable,
+       "poeRestartPoePort": poeRestartPoePort,
+       "configTable": configTable,
+       "configEntry": configEntry,
+       "configPortIndex": configPortIndex,
+       "configMode": configMode,
+       "configPriorityPort": configPriorityPort,
+       "configEnablePoePlus": configEnablePoePlus,
+       "poeTotalPowerConsumed": poeTotalPowerConsumed,
+       "statusTable": statusTable,
+       "statusEntry": statusEntry,
+       "statusPortIndex": statusPortIndex,
+       "statusCondition": statusCondition,
+       "statusDeterminedClass": statusDeterminedClass,
+       "statusOutputCurrent": statusOutputCurrent,
+       "statusOutputVoltage": statusOutputVoltage,
+       "statusOutputPower": statusOutputPower,
+       "statusPowerDeniedCounter": statusPowerDeniedCounter,
+       "statusOverCurrentCounter": statusOverCurrentCounter,
+       "statusShortCircuitCounter": statusShortCircuitCounter,
+       "energySuppliedTable": energySuppliedTable,
+       "energySuppliedEntry": energySuppliedEntry,
+       "energySuppliedPortIndex": energySuppliedPortIndex,
+       "energySuppliedLast5Seconds": energySuppliedLast5Seconds,
+       "energySuppliedLast15Seconds": energySuppliedLast15Seconds,
+       "energySuppliedLastMinute": energySuppliedLastMinute,
+       "energySuppliedLast15Minutes": energySuppliedLast15Minutes,
+       "energySuppliedLastHour": energySuppliedLastHour,
+       "energySuppliedLastDay": energySuppliedLastDay}
+)

@@ -1,102 +1,629 @@
+# SNMP MIB module (SYSLOG-MSG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SYSLOG-MSG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rfc/SYSLOG-MSG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:48:25 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/rfc/SYSLOG-MSG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:20:04 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-Gauge32, MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, mib_2 = mibBuilder.importSymbols("SNMPv2-SMI", "Gauge32", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "mib-2")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-SyslogFacility, SyslogSeverity = mibBuilder.importSymbols("SYSLOG-TC-MIB", "SyslogFacility", "SyslogSeverity")
-syslogMsgMib = ModuleIdentity((1, 3, 6, 1, 2, 1, 192))
-syslogMsgMib.setRevisions(('2009-08-13 08:00',))
-if mibBuilder.loadTexts: syslogMsgMib.setLastUpdated('200908130800Z')
-if mibBuilder.loadTexts: syslogMsgMib.setOrganization('IETF OPSAWG Working Group')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+(SyslogFacility,
+ SyslogSeverity) = mibBuilder.importSymbols(
+    "SYSLOG-TC-MIB",
+    "SyslogFacility",
+    "SyslogSeverity")
+
+
+# MODULE-IDENTITY
+
+syslogMsgMib = ModuleIdentity(
+    (1, 3, 6, 1, 2, 1, 192)
+)
+if mibBuilder.loadTexts:
+    syslogMsgMib.setRevisions(
+        ("2009-08-13 08:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class SyslogTimeStamp(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '2d-1d-1d,1d:1d:1d.3d,1a1d:1d'
-    subtypeSpec = OctetString.subtypeSpec + ConstraintsUnion(ValueSizeConstraint(0, 0), ValueSizeConstraint(10, 10), ValueSizeConstraint(13, 13), )
+    status = "current"
+    displayHint = "2d-1d-1d,1d:1d:1d.3d,1a1d:1d"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 0),
+        ValueSizeConstraint(10, 10),
+        ValueSizeConstraint(13, 13),
+    )
+
+
+
 class SyslogParamValueString(TextualConvention, OctetString):
-    reference = 'RFC 3629: UTF-8, a transformation format of ISO 10646'
-    status = 'current'
-    displayHint = '65535t'
+    status = "current"
+    displayHint = "65535t"
 
-syslogMsgNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 192, 0))
-syslogMsgObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 192, 1))
-syslogMsgConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 192, 2))
-syslogMsgControl = MibIdentifier((1, 3, 6, 1, 2, 1, 192, 1, 1))
-syslogMsgTableMaxSize = MibScalar((1, 3, 6, 1, 2, 1, 192, 1, 1, 1), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: syslogMsgTableMaxSize.setStatus('current')
-syslogMsgEnableNotifications = MibScalar((1, 3, 6, 1, 2, 1, 192, 1, 1, 2), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: syslogMsgEnableNotifications.setStatus('current')
-syslogMsgTable = MibTable((1, 3, 6, 1, 2, 1, 192, 1, 2), )
-if mibBuilder.loadTexts: syslogMsgTable.setStatus('current')
-syslogMsgEntry = MibTableRow((1, 3, 6, 1, 2, 1, 192, 1, 2, 1), ).setIndexNames((0, "SYSLOG-MSG-MIB", "syslogMsgIndex"))
-if mibBuilder.loadTexts: syslogMsgEntry.setStatus('current')
-syslogMsgIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
-if mibBuilder.loadTexts: syslogMsgIndex.setStatus('current')
-syslogMsgFacility = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 2), SyslogFacility()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: syslogMsgFacility.setStatus('current')
-syslogMsgSeverity = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 3), SyslogSeverity()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: syslogMsgSeverity.setStatus('current')
-syslogMsgVersion = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 999))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: syslogMsgVersion.setStatus('current')
-syslogMsgTimeStamp = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 5), SyslogTimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: syslogMsgTimeStamp.setStatus('current')
-syslogMsgHostName = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: syslogMsgHostName.setStatus('current')
-syslogMsgAppName = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 48))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: syslogMsgAppName.setStatus('current')
-syslogMsgProcID = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 8), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 128))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: syslogMsgProcID.setStatus('current')
-syslogMsgMsgID = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 9), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: syslogMsgMsgID.setStatus('current')
-syslogMsgSDParams = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 10), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: syslogMsgSDParams.setStatus('current')
-syslogMsgMsg = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 11), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: syslogMsgMsg.setStatus('current')
-syslogMsgSDTable = MibTable((1, 3, 6, 1, 2, 1, 192, 1, 3), )
-if mibBuilder.loadTexts: syslogMsgSDTable.setStatus('current')
-syslogMsgSDEntry = MibTableRow((1, 3, 6, 1, 2, 1, 192, 1, 3, 1), ).setIndexNames((0, "SYSLOG-MSG-MIB", "syslogMsgIndex"), (0, "SYSLOG-MSG-MIB", "syslogMsgSDParamIndex"), (0, "SYSLOG-MSG-MIB", "syslogMsgSDID"), (0, "SYSLOG-MSG-MIB", "syslogMsgSDParamName"))
-if mibBuilder.loadTexts: syslogMsgSDEntry.setStatus('current')
-syslogMsgSDParamIndex = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
-if mibBuilder.loadTexts: syslogMsgSDParamIndex.setStatus('current')
-syslogMsgSDID = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 3, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
-if mibBuilder.loadTexts: syslogMsgSDID.setStatus('current')
-syslogMsgSDParamName = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 3, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 32)))
-if mibBuilder.loadTexts: syslogMsgSDParamName.setStatus('current')
-syslogMsgSDParamValue = MibTableColumn((1, 3, 6, 1, 2, 1, 192, 1, 3, 1, 4), SyslogParamValueString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: syslogMsgSDParamValue.setStatus('current')
-syslogMsgNotification = NotificationType((1, 3, 6, 1, 2, 1, 192, 0, 1)).setObjects(("SYSLOG-MSG-MIB", "syslogMsgFacility"), ("SYSLOG-MSG-MIB", "syslogMsgSeverity"), ("SYSLOG-MSG-MIB", "syslogMsgVersion"), ("SYSLOG-MSG-MIB", "syslogMsgTimeStamp"), ("SYSLOG-MSG-MIB", "syslogMsgHostName"), ("SYSLOG-MSG-MIB", "syslogMsgAppName"), ("SYSLOG-MSG-MIB", "syslogMsgProcID"), ("SYSLOG-MSG-MIB", "syslogMsgMsgID"), ("SYSLOG-MSG-MIB", "syslogMsgSDParams"), ("SYSLOG-MSG-MIB", "syslogMsgMsg"))
-if mibBuilder.loadTexts: syslogMsgNotification.setStatus('current')
-syslogMsgGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 192, 2, 1))
-syslogMsgCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 192, 2, 2))
-syslogMsgFullCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 192, 2, 2, 1)).setObjects(("SYSLOG-MSG-MIB", "syslogMsgGroup"), ("SYSLOG-MSG-MIB", "syslogMsgSDGroup"), ("SYSLOG-MSG-MIB", "syslogMsgControlGroup"), ("SYSLOG-MSG-MIB", "syslogMsgNotificationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    syslogMsgFullCompliance = syslogMsgFullCompliance.setStatus('current')
-syslogMsgReadOnlyCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 192, 2, 2, 2)).setObjects(("SYSLOG-MSG-MIB", "syslogMsgGroup"), ("SYSLOG-MSG-MIB", "syslogMsgSDGroup"), ("SYSLOG-MSG-MIB", "syslogMsgControlGroup"), ("SYSLOG-MSG-MIB", "syslogMsgNotificationGroup"))
+# MIB Managed Objects in the order of their OIDs
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    syslogMsgReadOnlyCompliance = syslogMsgReadOnlyCompliance.setStatus('current')
-syslogMsgNotificationCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 192, 2, 2, 3)).setObjects(("SYSLOG-MSG-MIB", "syslogMsgGroup"), ("SYSLOG-MSG-MIB", "syslogMsgSDGroup"), ("SYSLOG-MSG-MIB", "syslogMsgNotificationGroup"))
+_SyslogMsgNotifications_ObjectIdentity = ObjectIdentity
+syslogMsgNotifications = _SyslogMsgNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 192, 0)
+)
+_SyslogMsgObjects_ObjectIdentity = ObjectIdentity
+syslogMsgObjects = _SyslogMsgObjects_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 192, 1)
+)
+_SyslogMsgControl_ObjectIdentity = ObjectIdentity
+syslogMsgControl = _SyslogMsgControl_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 192, 1, 1)
+)
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    syslogMsgNotificationCompliance = syslogMsgNotificationCompliance.setStatus('current')
-syslogMsgNotificationGroup = NotificationGroup((1, 3, 6, 1, 2, 1, 192, 2, 1, 1)).setObjects(("SYSLOG-MSG-MIB", "syslogMsgNotification"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    syslogMsgNotificationGroup = syslogMsgNotificationGroup.setStatus('current')
-syslogMsgGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 192, 2, 1, 2)).setObjects(("SYSLOG-MSG-MIB", "syslogMsgFacility"), ("SYSLOG-MSG-MIB", "syslogMsgSeverity"), ("SYSLOG-MSG-MIB", "syslogMsgVersion"), ("SYSLOG-MSG-MIB", "syslogMsgTimeStamp"), ("SYSLOG-MSG-MIB", "syslogMsgHostName"), ("SYSLOG-MSG-MIB", "syslogMsgAppName"), ("SYSLOG-MSG-MIB", "syslogMsgProcID"), ("SYSLOG-MSG-MIB", "syslogMsgMsgID"), ("SYSLOG-MSG-MIB", "syslogMsgSDParams"), ("SYSLOG-MSG-MIB", "syslogMsgMsg"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    syslogMsgGroup = syslogMsgGroup.setStatus('current')
-syslogMsgSDGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 192, 2, 1, 3)).setObjects(("SYSLOG-MSG-MIB", "syslogMsgSDParamValue"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    syslogMsgSDGroup = syslogMsgSDGroup.setStatus('current')
-syslogMsgControlGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 192, 2, 1, 4)).setObjects(("SYSLOG-MSG-MIB", "syslogMsgTableMaxSize"), ("SYSLOG-MSG-MIB", "syslogMsgEnableNotifications"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    syslogMsgControlGroup = syslogMsgControlGroup.setStatus('current')
-mibBuilder.exportSymbols("SYSLOG-MSG-MIB", syslogMsgTableMaxSize=syslogMsgTableMaxSize, syslogMsgSDParams=syslogMsgSDParams, syslogMsgTable=syslogMsgTable, syslogMsgMsg=syslogMsgMsg, syslogMsgControlGroup=syslogMsgControlGroup, syslogMsgSeverity=syslogMsgSeverity, syslogMsgControl=syslogMsgControl, syslogMsgObjects=syslogMsgObjects, syslogMsgSDID=syslogMsgSDID, syslogMsgNotificationGroup=syslogMsgNotificationGroup, syslogMsgProcID=syslogMsgProcID, syslogMsgMib=syslogMsgMib, syslogMsgEnableNotifications=syslogMsgEnableNotifications, syslogMsgIndex=syslogMsgIndex, syslogMsgReadOnlyCompliance=syslogMsgReadOnlyCompliance, syslogMsgSDTable=syslogMsgSDTable, syslogMsgNotification=syslogMsgNotification, syslogMsgTimeStamp=syslogMsgTimeStamp, syslogMsgFullCompliance=syslogMsgFullCompliance, syslogMsgNotifications=syslogMsgNotifications, syslogMsgAppName=syslogMsgAppName, SyslogParamValueString=SyslogParamValueString, syslogMsgSDParamValue=syslogMsgSDParamValue, SyslogTimeStamp=SyslogTimeStamp, syslogMsgVersion=syslogMsgVersion, syslogMsgHostName=syslogMsgHostName, syslogMsgSDEntry=syslogMsgSDEntry, syslogMsgSDParamName=syslogMsgSDParamName, syslogMsgCompliances=syslogMsgCompliances, syslogMsgMsgID=syslogMsgMsgID, syslogMsgGroup=syslogMsgGroup, syslogMsgSDGroup=syslogMsgSDGroup, syslogMsgEntry=syslogMsgEntry, syslogMsgGroups=syslogMsgGroups, PYSNMP_MODULE_ID=syslogMsgMib, syslogMsgSDParamIndex=syslogMsgSDParamIndex, syslogMsgFacility=syslogMsgFacility, syslogMsgConformance=syslogMsgConformance, syslogMsgNotificationCompliance=syslogMsgNotificationCompliance)
+
+class _SyslogMsgTableMaxSize_Type(Unsigned32):
+    """Custom type syslogMsgTableMaxSize based on Unsigned32"""
+    defaultValue = 0
+
+
+_SyslogMsgTableMaxSize_Type.__name__ = "Unsigned32"
+_SyslogMsgTableMaxSize_Object = MibScalar
+syslogMsgTableMaxSize = _SyslogMsgTableMaxSize_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 1, 1),
+    _SyslogMsgTableMaxSize_Type()
+)
+syslogMsgTableMaxSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    syslogMsgTableMaxSize.setStatus("current")
+
+
+class _SyslogMsgEnableNotifications_Type(TruthValue):
+    """Custom type syslogMsgEnableNotifications based on TruthValue"""
+    defaultValue = 2
+
+
+_SyslogMsgEnableNotifications_Type.__name__ = "TruthValue"
+_SyslogMsgEnableNotifications_Object = MibScalar
+syslogMsgEnableNotifications = _SyslogMsgEnableNotifications_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 1, 2),
+    _SyslogMsgEnableNotifications_Type()
+)
+syslogMsgEnableNotifications.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    syslogMsgEnableNotifications.setStatus("current")
+_SyslogMsgTable_Object = MibTable
+syslogMsgTable = _SyslogMsgTable_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2)
+)
+if mibBuilder.loadTexts:
+    syslogMsgTable.setStatus("current")
+_SyslogMsgEntry_Object = MibTableRow
+syslogMsgEntry = _SyslogMsgEntry_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1)
+)
+syslogMsgEntry.setIndexNames(
+    (0, "SYSLOG-MSG-MIB", "syslogMsgIndex"),
+)
+if mibBuilder.loadTexts:
+    syslogMsgEntry.setStatus("current")
+
+
+class _SyslogMsgIndex_Type(Unsigned32):
+    """Custom type syslogMsgIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_SyslogMsgIndex_Type.__name__ = "Unsigned32"
+_SyslogMsgIndex_Object = MibTableColumn
+syslogMsgIndex = _SyslogMsgIndex_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 1),
+    _SyslogMsgIndex_Type()
+)
+syslogMsgIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    syslogMsgIndex.setStatus("current")
+_SyslogMsgFacility_Type = SyslogFacility
+_SyslogMsgFacility_Object = MibTableColumn
+syslogMsgFacility = _SyslogMsgFacility_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 2),
+    _SyslogMsgFacility_Type()
+)
+syslogMsgFacility.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syslogMsgFacility.setStatus("current")
+_SyslogMsgSeverity_Type = SyslogSeverity
+_SyslogMsgSeverity_Object = MibTableColumn
+syslogMsgSeverity = _SyslogMsgSeverity_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 3),
+    _SyslogMsgSeverity_Type()
+)
+syslogMsgSeverity.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syslogMsgSeverity.setStatus("current")
+
+
+class _SyslogMsgVersion_Type(Unsigned32):
+    """Custom type syslogMsgVersion based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 999),
+    )
+
+
+_SyslogMsgVersion_Type.__name__ = "Unsigned32"
+_SyslogMsgVersion_Object = MibTableColumn
+syslogMsgVersion = _SyslogMsgVersion_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 4),
+    _SyslogMsgVersion_Type()
+)
+syslogMsgVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syslogMsgVersion.setStatus("current")
+_SyslogMsgTimeStamp_Type = SyslogTimeStamp
+_SyslogMsgTimeStamp_Object = MibTableColumn
+syslogMsgTimeStamp = _SyslogMsgTimeStamp_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 5),
+    _SyslogMsgTimeStamp_Type()
+)
+syslogMsgTimeStamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syslogMsgTimeStamp.setStatus("current")
+
+
+class _SyslogMsgHostName_Type(DisplayString):
+    """Custom type syslogMsgHostName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_SyslogMsgHostName_Type.__name__ = "DisplayString"
+_SyslogMsgHostName_Object = MibTableColumn
+syslogMsgHostName = _SyslogMsgHostName_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 6),
+    _SyslogMsgHostName_Type()
+)
+syslogMsgHostName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syslogMsgHostName.setStatus("current")
+
+
+class _SyslogMsgAppName_Type(DisplayString):
+    """Custom type syslogMsgAppName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 48),
+    )
+
+
+_SyslogMsgAppName_Type.__name__ = "DisplayString"
+_SyslogMsgAppName_Object = MibTableColumn
+syslogMsgAppName = _SyslogMsgAppName_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 7),
+    _SyslogMsgAppName_Type()
+)
+syslogMsgAppName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syslogMsgAppName.setStatus("current")
+
+
+class _SyslogMsgProcID_Type(DisplayString):
+    """Custom type syslogMsgProcID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 128),
+    )
+
+
+_SyslogMsgProcID_Type.__name__ = "DisplayString"
+_SyslogMsgProcID_Object = MibTableColumn
+syslogMsgProcID = _SyslogMsgProcID_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 8),
+    _SyslogMsgProcID_Type()
+)
+syslogMsgProcID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syslogMsgProcID.setStatus("current")
+
+
+class _SyslogMsgMsgID_Type(DisplayString):
+    """Custom type syslogMsgMsgID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_SyslogMsgMsgID_Type.__name__ = "DisplayString"
+_SyslogMsgMsgID_Object = MibTableColumn
+syslogMsgMsgID = _SyslogMsgMsgID_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 9),
+    _SyslogMsgMsgID_Type()
+)
+syslogMsgMsgID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syslogMsgMsgID.setStatus("current")
+_SyslogMsgSDParams_Type = Unsigned32
+_SyslogMsgSDParams_Object = MibTableColumn
+syslogMsgSDParams = _SyslogMsgSDParams_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 10),
+    _SyslogMsgSDParams_Type()
+)
+syslogMsgSDParams.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syslogMsgSDParams.setStatus("current")
+_SyslogMsgMsg_Type = OctetString
+_SyslogMsgMsg_Object = MibTableColumn
+syslogMsgMsg = _SyslogMsgMsg_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 2, 1, 11),
+    _SyslogMsgMsg_Type()
+)
+syslogMsgMsg.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syslogMsgMsg.setStatus("current")
+_SyslogMsgSDTable_Object = MibTable
+syslogMsgSDTable = _SyslogMsgSDTable_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 3)
+)
+if mibBuilder.loadTexts:
+    syslogMsgSDTable.setStatus("current")
+_SyslogMsgSDEntry_Object = MibTableRow
+syslogMsgSDEntry = _SyslogMsgSDEntry_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 3, 1)
+)
+syslogMsgSDEntry.setIndexNames(
+    (0, "SYSLOG-MSG-MIB", "syslogMsgIndex"),
+    (0, "SYSLOG-MSG-MIB", "syslogMsgSDParamIndex"),
+    (0, "SYSLOG-MSG-MIB", "syslogMsgSDID"),
+    (0, "SYSLOG-MSG-MIB", "syslogMsgSDParamName"),
+)
+if mibBuilder.loadTexts:
+    syslogMsgSDEntry.setStatus("current")
+
+
+class _SyslogMsgSDParamIndex_Type(Unsigned32):
+    """Custom type syslogMsgSDParamIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_SyslogMsgSDParamIndex_Type.__name__ = "Unsigned32"
+_SyslogMsgSDParamIndex_Object = MibTableColumn
+syslogMsgSDParamIndex = _SyslogMsgSDParamIndex_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 3, 1, 1),
+    _SyslogMsgSDParamIndex_Type()
+)
+syslogMsgSDParamIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    syslogMsgSDParamIndex.setStatus("current")
+
+
+class _SyslogMsgSDID_Type(DisplayString):
+    """Custom type syslogMsgSDID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SyslogMsgSDID_Type.__name__ = "DisplayString"
+_SyslogMsgSDID_Object = MibTableColumn
+syslogMsgSDID = _SyslogMsgSDID_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 3, 1, 2),
+    _SyslogMsgSDID_Type()
+)
+syslogMsgSDID.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    syslogMsgSDID.setStatus("current")
+
+
+class _SyslogMsgSDParamName_Type(DisplayString):
+    """Custom type syslogMsgSDParamName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 32),
+    )
+
+
+_SyslogMsgSDParamName_Type.__name__ = "DisplayString"
+_SyslogMsgSDParamName_Object = MibTableColumn
+syslogMsgSDParamName = _SyslogMsgSDParamName_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 3, 1, 3),
+    _SyslogMsgSDParamName_Type()
+)
+syslogMsgSDParamName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    syslogMsgSDParamName.setStatus("current")
+_SyslogMsgSDParamValue_Type = SyslogParamValueString
+_SyslogMsgSDParamValue_Object = MibTableColumn
+syslogMsgSDParamValue = _SyslogMsgSDParamValue_Object(
+    (1, 3, 6, 1, 2, 1, 192, 1, 3, 1, 4),
+    _SyslogMsgSDParamValue_Type()
+)
+syslogMsgSDParamValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    syslogMsgSDParamValue.setStatus("current")
+_SyslogMsgConformance_ObjectIdentity = ObjectIdentity
+syslogMsgConformance = _SyslogMsgConformance_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 192, 2)
+)
+_SyslogMsgGroups_ObjectIdentity = ObjectIdentity
+syslogMsgGroups = _SyslogMsgGroups_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 192, 2, 1)
+)
+_SyslogMsgCompliances_ObjectIdentity = ObjectIdentity
+syslogMsgCompliances = _SyslogMsgCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 192, 2, 2)
+)
+
+# Managed Objects groups
+
+syslogMsgGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 192, 2, 1, 2)
+)
+syslogMsgGroup.setObjects(
+      *(("SYSLOG-MSG-MIB", "syslogMsgFacility"),
+        ("SYSLOG-MSG-MIB", "syslogMsgSeverity"),
+        ("SYSLOG-MSG-MIB", "syslogMsgVersion"),
+        ("SYSLOG-MSG-MIB", "syslogMsgTimeStamp"),
+        ("SYSLOG-MSG-MIB", "syslogMsgHostName"),
+        ("SYSLOG-MSG-MIB", "syslogMsgAppName"),
+        ("SYSLOG-MSG-MIB", "syslogMsgProcID"),
+        ("SYSLOG-MSG-MIB", "syslogMsgMsgID"),
+        ("SYSLOG-MSG-MIB", "syslogMsgSDParams"),
+        ("SYSLOG-MSG-MIB", "syslogMsgMsg"))
+)
+if mibBuilder.loadTexts:
+    syslogMsgGroup.setStatus("current")
+
+syslogMsgSDGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 192, 2, 1, 3)
+)
+syslogMsgSDGroup.setObjects(
+    ("SYSLOG-MSG-MIB", "syslogMsgSDParamValue")
+)
+if mibBuilder.loadTexts:
+    syslogMsgSDGroup.setStatus("current")
+
+syslogMsgControlGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 192, 2, 1, 4)
+)
+syslogMsgControlGroup.setObjects(
+      *(("SYSLOG-MSG-MIB", "syslogMsgTableMaxSize"),
+        ("SYSLOG-MSG-MIB", "syslogMsgEnableNotifications"))
+)
+if mibBuilder.loadTexts:
+    syslogMsgControlGroup.setStatus("current")
+
+
+# Notification objects
+
+syslogMsgNotification = NotificationType(
+    (1, 3, 6, 1, 2, 1, 192, 0, 1)
+)
+syslogMsgNotification.setObjects(
+      *(("SYSLOG-MSG-MIB", "syslogMsgFacility"),
+        ("SYSLOG-MSG-MIB", "syslogMsgSeverity"),
+        ("SYSLOG-MSG-MIB", "syslogMsgVersion"),
+        ("SYSLOG-MSG-MIB", "syslogMsgTimeStamp"),
+        ("SYSLOG-MSG-MIB", "syslogMsgHostName"),
+        ("SYSLOG-MSG-MIB", "syslogMsgAppName"),
+        ("SYSLOG-MSG-MIB", "syslogMsgProcID"),
+        ("SYSLOG-MSG-MIB", "syslogMsgMsgID"),
+        ("SYSLOG-MSG-MIB", "syslogMsgSDParams"),
+        ("SYSLOG-MSG-MIB", "syslogMsgMsg"))
+)
+if mibBuilder.loadTexts:
+    syslogMsgNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+syslogMsgNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 2, 1, 192, 2, 1, 1)
+)
+syslogMsgNotificationGroup.setObjects(
+    ("SYSLOG-MSG-MIB", "syslogMsgNotification")
+)
+if mibBuilder.loadTexts:
+    syslogMsgNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+syslogMsgFullCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 192, 2, 2, 1)
+)
+syslogMsgFullCompliance.setObjects(
+      *(("SYSLOG-MSG-MIB", "syslogMsgGroup"),
+        ("SYSLOG-MSG-MIB", "syslogMsgSDGroup"),
+        ("SYSLOG-MSG-MIB", "syslogMsgControlGroup"),
+        ("SYSLOG-MSG-MIB", "syslogMsgNotificationGroup"))
+)
+if mibBuilder.loadTexts:
+    syslogMsgFullCompliance.setStatus(
+        "current"
+    )
+
+syslogMsgReadOnlyCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 192, 2, 2, 2)
+)
+syslogMsgReadOnlyCompliance.setObjects(
+      *(("SYSLOG-MSG-MIB", "syslogMsgGroup"),
+        ("SYSLOG-MSG-MIB", "syslogMsgSDGroup"),
+        ("SYSLOG-MSG-MIB", "syslogMsgControlGroup"),
+        ("SYSLOG-MSG-MIB", "syslogMsgNotificationGroup"))
+)
+if mibBuilder.loadTexts:
+    syslogMsgReadOnlyCompliance.setStatus(
+        "current"
+    )
+
+syslogMsgNotificationCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 192, 2, 2, 3)
+)
+syslogMsgNotificationCompliance.setObjects(
+      *(("SYSLOG-MSG-MIB", "syslogMsgGroup"),
+        ("SYSLOG-MSG-MIB", "syslogMsgSDGroup"),
+        ("SYSLOG-MSG-MIB", "syslogMsgNotificationGroup"))
+)
+if mibBuilder.loadTexts:
+    syslogMsgNotificationCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SYSLOG-MSG-MIB",
+    **{"SyslogTimeStamp": SyslogTimeStamp,
+       "SyslogParamValueString": SyslogParamValueString,
+       "syslogMsgMib": syslogMsgMib,
+       "syslogMsgNotifications": syslogMsgNotifications,
+       "syslogMsgNotification": syslogMsgNotification,
+       "syslogMsgObjects": syslogMsgObjects,
+       "syslogMsgControl": syslogMsgControl,
+       "syslogMsgTableMaxSize": syslogMsgTableMaxSize,
+       "syslogMsgEnableNotifications": syslogMsgEnableNotifications,
+       "syslogMsgTable": syslogMsgTable,
+       "syslogMsgEntry": syslogMsgEntry,
+       "syslogMsgIndex": syslogMsgIndex,
+       "syslogMsgFacility": syslogMsgFacility,
+       "syslogMsgSeverity": syslogMsgSeverity,
+       "syslogMsgVersion": syslogMsgVersion,
+       "syslogMsgTimeStamp": syslogMsgTimeStamp,
+       "syslogMsgHostName": syslogMsgHostName,
+       "syslogMsgAppName": syslogMsgAppName,
+       "syslogMsgProcID": syslogMsgProcID,
+       "syslogMsgMsgID": syslogMsgMsgID,
+       "syslogMsgSDParams": syslogMsgSDParams,
+       "syslogMsgMsg": syslogMsgMsg,
+       "syslogMsgSDTable": syslogMsgSDTable,
+       "syslogMsgSDEntry": syslogMsgSDEntry,
+       "syslogMsgSDParamIndex": syslogMsgSDParamIndex,
+       "syslogMsgSDID": syslogMsgSDID,
+       "syslogMsgSDParamName": syslogMsgSDParamName,
+       "syslogMsgSDParamValue": syslogMsgSDParamValue,
+       "syslogMsgConformance": syslogMsgConformance,
+       "syslogMsgGroups": syslogMsgGroups,
+       "syslogMsgNotificationGroup": syslogMsgNotificationGroup,
+       "syslogMsgGroup": syslogMsgGroup,
+       "syslogMsgSDGroup": syslogMsgSDGroup,
+       "syslogMsgControlGroup": syslogMsgControlGroup,
+       "syslogMsgCompliances": syslogMsgCompliances,
+       "syslogMsgFullCompliance": syslogMsgFullCompliance,
+       "syslogMsgReadOnlyCompliance": syslogMsgReadOnlyCompliance,
+       "syslogMsgNotificationCompliance": syslogMsgNotificationCompliance}
+)

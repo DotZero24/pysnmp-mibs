@@ -1,51 +1,476 @@
+# SNMP MIB module (BIANCA-BRICK-PING-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BIANCA-BRICK-PING-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/bintec/BIANCA-BRICK-PING-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:58 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/bintec/BIANCA-BRICK-PING-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:07:11 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-DisplayString, = mibBuilder.importSymbols("RFC1158-MIB", "DisplayString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-bintec = MibIdentifier((1, 3, 6, 1, 4, 1, 272))
-bibo = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4))
-biboip = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 5))
-biboping = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 5, 27))
-biboPingTable = MibTable((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1), )
-if mibBuilder.loadTexts: biboPingTable.setStatus('mandatory')
-biboPingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1), ).setIndexNames((0, "BIANCA-BRICK-PING-MIB", "biboPingIndex"))
-if mibBuilder.loadTexts: biboPingEntry.setStatus('mandatory')
-biboPingIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboPingIndex.setStatus('mandatory')
-biboPingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("active", 1), ("notinservice", 2), ("notready", 3), ("createandgo", 4), ("createandwait", 5), ("delete", 6))).clone('createandwait')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboPingStatus.setStatus('mandatory')
-biboPingCompleted = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("true", 1), ("false", 2))).clone('false')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboPingCompleted.setStatus('mandatory')
-biboPingSourceAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboPingSourceAddress.setStatus('mandatory')
-biboPingAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 5), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboPingAddress.setStatus('mandatory')
-biboPingPacketCount = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535)).clone(4)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboPingPacketCount.setStatus('mandatory')
-biboPingPacketSize = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(8, 4096)).clone(64)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboPingPacketSize.setStatus('mandatory')
-biboPingPacketTimeout = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)).clone(1000)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboPingPacketTimeout.setStatus('mandatory')
-biboPingReceivedPackets = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboPingReceivedPackets.setStatus('mandatory')
-biboPingMinRoundTrip = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboPingMinRoundTrip.setStatus('mandatory')
-biboPingMaxRoundTrip = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboPingMaxRoundTrip.setStatus('mandatory')
-biboPingAvgRoundTrip = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboPingAvgRoundTrip.setStatus('mandatory')
-biboPingTTL = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboPingTTL.setStatus('mandatory')
-biboPingTOS = MibTableColumn((1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 14), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboPingTOS.setStatus('mandatory')
-mibBuilder.exportSymbols("BIANCA-BRICK-PING-MIB", biboPingTable=biboPingTable, biboPingPacketSize=biboPingPacketSize, biboPingTOS=biboPingTOS, biboping=biboping, biboPingSourceAddress=biboPingSourceAddress, biboPingMaxRoundTrip=biboPingMaxRoundTrip, biboPingReceivedPackets=biboPingReceivedPackets, biboPingAddress=biboPingAddress, biboPingStatus=biboPingStatus, biboPingPacketCount=biboPingPacketCount, bibo=bibo, biboPingCompleted=biboPingCompleted, bintec=bintec, biboPingEntry=biboPingEntry, biboPingPacketTimeout=biboPingPacketTimeout, biboPingMinRoundTrip=biboPingMinRoundTrip, biboPingTTL=biboPingTTL, biboPingIndex=biboPingIndex, biboPingAvgRoundTrip=biboPingAvgRoundTrip, biboip=biboip)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Bintec_ObjectIdentity = ObjectIdentity
+bintec = _Bintec_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272)
+)
+_Bibo_ObjectIdentity = ObjectIdentity
+bibo = _Bibo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272, 4)
+)
+_Biboip_ObjectIdentity = ObjectIdentity
+biboip = _Biboip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5)
+)
+_Biboping_ObjectIdentity = ObjectIdentity
+biboping = _Biboping_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27)
+)
+_BiboPingTable_Object = MibTable
+biboPingTable = _BiboPingTable_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1)
+)
+if mibBuilder.loadTexts:
+    biboPingTable.setStatus("mandatory")
+_BiboPingEntry_Object = MibTableRow
+biboPingEntry = _BiboPingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1)
+)
+biboPingEntry.setIndexNames(
+    (0, "BIANCA-BRICK-PING-MIB", "biboPingIndex"),
+)
+if mibBuilder.loadTexts:
+    biboPingEntry.setStatus("mandatory")
+
+
+class _BiboPingIndex_Type(Integer32):
+    """Custom type biboPingIndex based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_BiboPingIndex_Type.__name__ = "Integer32"
+_BiboPingIndex_Object = MibTableColumn
+biboPingIndex = _BiboPingIndex_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 1),
+    _BiboPingIndex_Type()
+)
+biboPingIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboPingIndex.setStatus("mandatory")
+
+
+class _BiboPingStatus_Type(Integer32):
+    """Custom type biboPingStatus based on Integer32"""
+    defaultValue = 5
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("notinservice", 2),
+          ("notready", 3),
+          ("createandgo", 4),
+          ("createandwait", 5),
+          ("delete", 6))
+    )
+
+
+_BiboPingStatus_Type.__name__ = "Integer32"
+_BiboPingStatus_Object = MibTableColumn
+biboPingStatus = _BiboPingStatus_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 2),
+    _BiboPingStatus_Type()
+)
+biboPingStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboPingStatus.setStatus("mandatory")
+
+
+class _BiboPingCompleted_Type(Integer32):
+    """Custom type biboPingCompleted based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("true", 1),
+          ("false", 2))
+    )
+
+
+_BiboPingCompleted_Type.__name__ = "Integer32"
+_BiboPingCompleted_Object = MibTableColumn
+biboPingCompleted = _BiboPingCompleted_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 3),
+    _BiboPingCompleted_Type()
+)
+biboPingCompleted.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboPingCompleted.setStatus("mandatory")
+_BiboPingSourceAddress_Type = IpAddress
+_BiboPingSourceAddress_Object = MibTableColumn
+biboPingSourceAddress = _BiboPingSourceAddress_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 4),
+    _BiboPingSourceAddress_Type()
+)
+biboPingSourceAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboPingSourceAddress.setStatus("mandatory")
+_BiboPingAddress_Type = IpAddress
+_BiboPingAddress_Object = MibTableColumn
+biboPingAddress = _BiboPingAddress_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 5),
+    _BiboPingAddress_Type()
+)
+biboPingAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboPingAddress.setStatus("mandatory")
+
+
+class _BiboPingPacketCount_Type(Integer32):
+    """Custom type biboPingPacketCount based on Integer32"""
+    defaultValue = 4
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_BiboPingPacketCount_Type.__name__ = "Integer32"
+_BiboPingPacketCount_Object = MibTableColumn
+biboPingPacketCount = _BiboPingPacketCount_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 6),
+    _BiboPingPacketCount_Type()
+)
+biboPingPacketCount.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboPingPacketCount.setStatus("mandatory")
+
+
+class _BiboPingPacketSize_Type(Integer32):
+    """Custom type biboPingPacketSize based on Integer32"""
+    defaultValue = 64
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(8, 4096),
+    )
+
+
+_BiboPingPacketSize_Type.__name__ = "Integer32"
+_BiboPingPacketSize_Object = MibTableColumn
+biboPingPacketSize = _BiboPingPacketSize_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 7),
+    _BiboPingPacketSize_Type()
+)
+biboPingPacketSize.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboPingPacketSize.setStatus("mandatory")
+
+
+class _BiboPingPacketTimeout_Type(Integer32):
+    """Custom type biboPingPacketTimeout based on Integer32"""
+    defaultValue = 1000
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_BiboPingPacketTimeout_Type.__name__ = "Integer32"
+_BiboPingPacketTimeout_Object = MibTableColumn
+biboPingPacketTimeout = _BiboPingPacketTimeout_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 8),
+    _BiboPingPacketTimeout_Type()
+)
+biboPingPacketTimeout.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboPingPacketTimeout.setStatus("mandatory")
+
+
+class _BiboPingReceivedPackets_Type(Integer32):
+    """Custom type biboPingReceivedPackets based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_BiboPingReceivedPackets_Type.__name__ = "Integer32"
+_BiboPingReceivedPackets_Object = MibTableColumn
+biboPingReceivedPackets = _BiboPingReceivedPackets_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 9),
+    _BiboPingReceivedPackets_Type()
+)
+biboPingReceivedPackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboPingReceivedPackets.setStatus("mandatory")
+
+
+class _BiboPingMinRoundTrip_Type(Integer32):
+    """Custom type biboPingMinRoundTrip based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_BiboPingMinRoundTrip_Type.__name__ = "Integer32"
+_BiboPingMinRoundTrip_Object = MibTableColumn
+biboPingMinRoundTrip = _BiboPingMinRoundTrip_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 10),
+    _BiboPingMinRoundTrip_Type()
+)
+biboPingMinRoundTrip.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboPingMinRoundTrip.setStatus("mandatory")
+
+
+class _BiboPingMaxRoundTrip_Type(Integer32):
+    """Custom type biboPingMaxRoundTrip based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_BiboPingMaxRoundTrip_Type.__name__ = "Integer32"
+_BiboPingMaxRoundTrip_Object = MibTableColumn
+biboPingMaxRoundTrip = _BiboPingMaxRoundTrip_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 11),
+    _BiboPingMaxRoundTrip_Type()
+)
+biboPingMaxRoundTrip.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboPingMaxRoundTrip.setStatus("mandatory")
+
+
+class _BiboPingAvgRoundTrip_Type(Integer32):
+    """Custom type biboPingAvgRoundTrip based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_BiboPingAvgRoundTrip_Type.__name__ = "Integer32"
+_BiboPingAvgRoundTrip_Object = MibTableColumn
+biboPingAvgRoundTrip = _BiboPingAvgRoundTrip_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 12),
+    _BiboPingAvgRoundTrip_Type()
+)
+biboPingAvgRoundTrip.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboPingAvgRoundTrip.setStatus("mandatory")
+
+
+class _BiboPingTTL_Type(Integer32):
+    """Custom type biboPingTTL based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_BiboPingTTL_Type.__name__ = "Integer32"
+_BiboPingTTL_Object = MibTableColumn
+biboPingTTL = _BiboPingTTL_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 13),
+    _BiboPingTTL_Type()
+)
+biboPingTTL.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboPingTTL.setStatus("mandatory")
+
+
+class _BiboPingTOS_Type(Integer32):
+    """Custom type biboPingTOS based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_BiboPingTOS_Type.__name__ = "Integer32"
+_BiboPingTOS_Object = MibTableColumn
+biboPingTOS = _BiboPingTOS_Object(
+    (1, 3, 6, 1, 4, 1, 272, 4, 5, 27, 1, 1, 14),
+    _BiboPingTOS_Type()
+)
+biboPingTOS.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboPingTOS.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BIANCA-BRICK-PING-MIB",
+    **{"bintec": bintec,
+       "bibo": bibo,
+       "biboip": biboip,
+       "biboping": biboping,
+       "biboPingTable": biboPingTable,
+       "biboPingEntry": biboPingEntry,
+       "biboPingIndex": biboPingIndex,
+       "biboPingStatus": biboPingStatus,
+       "biboPingCompleted": biboPingCompleted,
+       "biboPingSourceAddress": biboPingSourceAddress,
+       "biboPingAddress": biboPingAddress,
+       "biboPingPacketCount": biboPingPacketCount,
+       "biboPingPacketSize": biboPingPacketSize,
+       "biboPingPacketTimeout": biboPingPacketTimeout,
+       "biboPingReceivedPackets": biboPingReceivedPackets,
+       "biboPingMinRoundTrip": biboPingMinRoundTrip,
+       "biboPingMaxRoundTrip": biboPingMaxRoundTrip,
+       "biboPingAvgRoundTrip": biboPingAvgRoundTrip,
+       "biboPingTTL": biboPingTTL,
+       "biboPingTOS": biboPingTOS}
+)

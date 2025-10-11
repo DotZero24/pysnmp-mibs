@@ -1,49 +1,368 @@
+# SNMP MIB module (CISCOSB-ISCSI-QOS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCOSB-ISCSI-QOS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ciscosb/CISCOSB-ISCSI-QOS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:56:35 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ciscosb/CISCOSB-ISCSI-QOS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:41:44 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rlQosApps, = mibBuilder.importSymbols("CISCOSB-MIB", "rlQosApps")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
-rlIscsiQos = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1))
-if mibBuilder.loadTexts: rlIscsiQos.setLastUpdated('200604020000Z')
-if mibBuilder.loadTexts: rlIscsiQos.setOrganization('Cisco Systems, Inc.')
-rlIscsiQosEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlIscsiQosEnable.setStatus('current')
-rlIscsiQosFlowTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2), )
-if mibBuilder.loadTexts: rlIscsiQosFlowTable.setStatus('current')
-rlIscsiQosFlowEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1), ).setIndexNames((0, "CISCOSB-ISCSI-QOS-MIB", "rlIscsiQosFlowDestTcpPort"), (0, "CISCOSB-ISCSI-QOS-MIB", "rlIscsiQosFlowType"), (0, "CISCOSB-ISCSI-QOS-MIB", "rlIscsiQosFlowDestAddressType"), (0, "CISCOSB-ISCSI-QOS-MIB", "rlIscsiQosFlowDestAddress"))
-if mibBuilder.loadTexts: rlIscsiQosFlowEntry.setStatus('current')
-rlIscsiQosFlowDestTcpPort = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: rlIscsiQosFlowDestTcpPort.setStatus('current')
-rlIscsiQosFlowType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ipv4", 1), ("ipv6", 2), ("both", 3))).clone('ipv4'))
-if mibBuilder.loadTexts: rlIscsiQosFlowType.setStatus('current')
-rlIscsiQosFlowDestAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1, 3), InetAddressType())
-if mibBuilder.loadTexts: rlIscsiQosFlowDestAddressType.setStatus('current')
-rlIscsiQosFlowDestAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1, 4), InetAddress())
-if mibBuilder.loadTexts: rlIscsiQosFlowDestAddress.setStatus('current')
-rlIscsiQosFlowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1, 5), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlIscsiQosFlowStatus.setStatus('current')
-rlIscsiQosProfileTable = MibTable((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3), )
-if mibBuilder.loadTexts: rlIscsiQosProfileTable.setStatus('current')
-rlIscsiQosProfileEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1), ).setIndexNames((0, "CISCOSB-ISCSI-QOS-MIB", "rlIscsiQosProfileIndex"))
-if mibBuilder.loadTexts: rlIscsiQosProfileEntry.setStatus('current')
-rlIscsiQosProfileIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: rlIscsiQosProfileIndex.setStatus('current')
-rlIscsiQosProfileVpt = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlIscsiQosProfileVpt.setStatus('current')
-rlIscsiQosProfileDscp = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 63))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlIscsiQosProfileDscp.setStatus('current')
-rlIscsiQosProfileQueue = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlIscsiQosProfileQueue.setStatus('current')
-rlIscsiQosProfileStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1, 5), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlIscsiQosProfileStatus.setStatus('current')
-mibBuilder.exportSymbols("CISCOSB-ISCSI-QOS-MIB", rlIscsiQosFlowEntry=rlIscsiQosFlowEntry, rlIscsiQosFlowType=rlIscsiQosFlowType, rlIscsiQosFlowDestAddress=rlIscsiQosFlowDestAddress, rlIscsiQosProfileTable=rlIscsiQosProfileTable, rlIscsiQosFlowDestTcpPort=rlIscsiQosFlowDestTcpPort, rlIscsiQosFlowDestAddressType=rlIscsiQosFlowDestAddressType, rlIscsiQosProfileEntry=rlIscsiQosProfileEntry, rlIscsiQosProfileIndex=rlIscsiQosProfileIndex, rlIscsiQosProfileDscp=rlIscsiQosProfileDscp, rlIscsiQosProfileQueue=rlIscsiQosProfileQueue, rlIscsiQosProfileStatus=rlIscsiQosProfileStatus, rlIscsiQosEnable=rlIscsiQosEnable, rlIscsiQosFlowTable=rlIscsiQosFlowTable, rlIscsiQosFlowStatus=rlIscsiQosFlowStatus, rlIscsiQos=rlIscsiQos, PYSNMP_MODULE_ID=rlIscsiQos, rlIscsiQosProfileVpt=rlIscsiQosProfileVpt)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rlQosApps,) = mibBuilder.importSymbols(
+    "CISCOSB-MIB",
+    "rlQosApps")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rlIscsiQos = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlIscsiQosEnable_Type = TruthValue
+_RlIscsiQosEnable_Object = MibScalar
+rlIscsiQosEnable = _RlIscsiQosEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 1),
+    _RlIscsiQosEnable_Type()
+)
+rlIscsiQosEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlIscsiQosEnable.setStatus("current")
+_RlIscsiQosFlowTable_Object = MibTable
+rlIscsiQosFlowTable = _RlIscsiQosFlowTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2)
+)
+if mibBuilder.loadTexts:
+    rlIscsiQosFlowTable.setStatus("current")
+_RlIscsiQosFlowEntry_Object = MibTableRow
+rlIscsiQosFlowEntry = _RlIscsiQosFlowEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1)
+)
+rlIscsiQosFlowEntry.setIndexNames(
+    (0, "CISCOSB-ISCSI-QOS-MIB", "rlIscsiQosFlowDestTcpPort"),
+    (0, "CISCOSB-ISCSI-QOS-MIB", "rlIscsiQosFlowType"),
+    (0, "CISCOSB-ISCSI-QOS-MIB", "rlIscsiQosFlowDestAddressType"),
+    (0, "CISCOSB-ISCSI-QOS-MIB", "rlIscsiQosFlowDestAddress"),
+)
+if mibBuilder.loadTexts:
+    rlIscsiQosFlowEntry.setStatus("current")
+
+
+class _RlIscsiQosFlowDestTcpPort_Type(Integer32):
+    """Custom type rlIscsiQosFlowDestTcpPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_RlIscsiQosFlowDestTcpPort_Type.__name__ = "Integer32"
+_RlIscsiQosFlowDestTcpPort_Object = MibTableColumn
+rlIscsiQosFlowDestTcpPort = _RlIscsiQosFlowDestTcpPort_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1, 1),
+    _RlIscsiQosFlowDestTcpPort_Type()
+)
+rlIscsiQosFlowDestTcpPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlIscsiQosFlowDestTcpPort.setStatus("current")
+
+
+class _RlIscsiQosFlowType_Type(Integer32):
+    """Custom type rlIscsiQosFlowType based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 1),
+          ("ipv6", 2),
+          ("both", 3))
+    )
+
+
+_RlIscsiQosFlowType_Type.__name__ = "Integer32"
+_RlIscsiQosFlowType_Object = MibTableColumn
+rlIscsiQosFlowType = _RlIscsiQosFlowType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1, 2),
+    _RlIscsiQosFlowType_Type()
+)
+rlIscsiQosFlowType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlIscsiQosFlowType.setStatus("current")
+_RlIscsiQosFlowDestAddressType_Type = InetAddressType
+_RlIscsiQosFlowDestAddressType_Object = MibTableColumn
+rlIscsiQosFlowDestAddressType = _RlIscsiQosFlowDestAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1, 3),
+    _RlIscsiQosFlowDestAddressType_Type()
+)
+rlIscsiQosFlowDestAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlIscsiQosFlowDestAddressType.setStatus("current")
+_RlIscsiQosFlowDestAddress_Type = InetAddress
+_RlIscsiQosFlowDestAddress_Object = MibTableColumn
+rlIscsiQosFlowDestAddress = _RlIscsiQosFlowDestAddress_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1, 4),
+    _RlIscsiQosFlowDestAddress_Type()
+)
+rlIscsiQosFlowDestAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlIscsiQosFlowDestAddress.setStatus("current")
+_RlIscsiQosFlowStatus_Type = RowStatus
+_RlIscsiQosFlowStatus_Object = MibTableColumn
+rlIscsiQosFlowStatus = _RlIscsiQosFlowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 2, 1, 5),
+    _RlIscsiQosFlowStatus_Type()
+)
+rlIscsiQosFlowStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlIscsiQosFlowStatus.setStatus("current")
+_RlIscsiQosProfileTable_Object = MibTable
+rlIscsiQosProfileTable = _RlIscsiQosProfileTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3)
+)
+if mibBuilder.loadTexts:
+    rlIscsiQosProfileTable.setStatus("current")
+_RlIscsiQosProfileEntry_Object = MibTableRow
+rlIscsiQosProfileEntry = _RlIscsiQosProfileEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1)
+)
+rlIscsiQosProfileEntry.setIndexNames(
+    (0, "CISCOSB-ISCSI-QOS-MIB", "rlIscsiQosProfileIndex"),
+)
+if mibBuilder.loadTexts:
+    rlIscsiQosProfileEntry.setStatus("current")
+
+
+class _RlIscsiQosProfileIndex_Type(Integer32):
+    """Custom type rlIscsiQosProfileIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_RlIscsiQosProfileIndex_Type.__name__ = "Integer32"
+_RlIscsiQosProfileIndex_Object = MibTableColumn
+rlIscsiQosProfileIndex = _RlIscsiQosProfileIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1, 1),
+    _RlIscsiQosProfileIndex_Type()
+)
+rlIscsiQosProfileIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlIscsiQosProfileIndex.setStatus("current")
+
+
+class _RlIscsiQosProfileVpt_Type(Integer32):
+    """Custom type rlIscsiQosProfileVpt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_RlIscsiQosProfileVpt_Type.__name__ = "Integer32"
+_RlIscsiQosProfileVpt_Object = MibTableColumn
+rlIscsiQosProfileVpt = _RlIscsiQosProfileVpt_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1, 2),
+    _RlIscsiQosProfileVpt_Type()
+)
+rlIscsiQosProfileVpt.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlIscsiQosProfileVpt.setStatus("current")
+
+
+class _RlIscsiQosProfileDscp_Type(Integer32):
+    """Custom type rlIscsiQosProfileDscp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 63),
+    )
+
+
+_RlIscsiQosProfileDscp_Type.__name__ = "Integer32"
+_RlIscsiQosProfileDscp_Object = MibTableColumn
+rlIscsiQosProfileDscp = _RlIscsiQosProfileDscp_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1, 3),
+    _RlIscsiQosProfileDscp_Type()
+)
+rlIscsiQosProfileDscp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlIscsiQosProfileDscp.setStatus("current")
+
+
+class _RlIscsiQosProfileQueue_Type(Integer32):
+    """Custom type rlIscsiQosProfileQueue based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_RlIscsiQosProfileQueue_Type.__name__ = "Integer32"
+_RlIscsiQosProfileQueue_Object = MibTableColumn
+rlIscsiQosProfileQueue = _RlIscsiQosProfileQueue_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1, 4),
+    _RlIscsiQosProfileQueue_Type()
+)
+rlIscsiQosProfileQueue.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlIscsiQosProfileQueue.setStatus("current")
+_RlIscsiQosProfileStatus_Type = RowStatus
+_RlIscsiQosProfileStatus_Object = MibTableColumn
+rlIscsiQosProfileStatus = _RlIscsiQosProfileStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 6, 1, 101, 232, 1, 3, 1, 5),
+    _RlIscsiQosProfileStatus_Type()
+)
+rlIscsiQosProfileStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlIscsiQosProfileStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCOSB-ISCSI-QOS-MIB",
+    **{"rlIscsiQos": rlIscsiQos,
+       "rlIscsiQosEnable": rlIscsiQosEnable,
+       "rlIscsiQosFlowTable": rlIscsiQosFlowTable,
+       "rlIscsiQosFlowEntry": rlIscsiQosFlowEntry,
+       "rlIscsiQosFlowDestTcpPort": rlIscsiQosFlowDestTcpPort,
+       "rlIscsiQosFlowType": rlIscsiQosFlowType,
+       "rlIscsiQosFlowDestAddressType": rlIscsiQosFlowDestAddressType,
+       "rlIscsiQosFlowDestAddress": rlIscsiQosFlowDestAddress,
+       "rlIscsiQosFlowStatus": rlIscsiQosFlowStatus,
+       "rlIscsiQosProfileTable": rlIscsiQosProfileTable,
+       "rlIscsiQosProfileEntry": rlIscsiQosProfileEntry,
+       "rlIscsiQosProfileIndex": rlIscsiQosProfileIndex,
+       "rlIscsiQosProfileVpt": rlIscsiQosProfileVpt,
+       "rlIscsiQosProfileDscp": rlIscsiQosProfileDscp,
+       "rlIscsiQosProfileQueue": rlIscsiQosProfileQueue,
+       "rlIscsiQosProfileStatus": rlIscsiQosProfileStatus}
+)

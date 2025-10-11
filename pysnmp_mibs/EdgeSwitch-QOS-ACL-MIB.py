@@ -1,389 +1,2846 @@
+# SNMP MIB module (EdgeSwitch-QOS-ACL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EdgeSwitch-QOS-ACL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ubiquiti/EdgeSwitch-QOS-ACL-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:57:04 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ubiquiti/EdgeSwitch-QOS-ACL-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:59:22 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-fastPathQOS, = mibBuilder.importSymbols("EdgeSwitch-QOS-MIB", "fastPathQOS")
-InterfaceIndexOrZero, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndexOrZero")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-RowStatus, TextualConvention, MacAddress, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "TruthValue", "DisplayString")
-fastPathQOSACL = ModuleIdentity((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2))
-fastPathQOSACL.setRevisions(('2012-04-27 00:00', '2012-02-14 00:00', '2011-01-26 00:00', '2007-05-23 00:00', '2005-07-08 00:00', '2004-09-20 00:00', '2003-11-21 00:00', '2003-02-06 23:34',))
-if mibBuilder.loadTexts: fastPathQOSACL.setLastUpdated('201204270000Z')
-if mibBuilder.loadTexts: fastPathQOSACL.setOrganization('Broadcom Inc')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(fastPathQOS,) = mibBuilder.importSymbols(
+    "EdgeSwitch-QOS-MIB",
+    "fastPathQOS")
+
+(InterfaceIndexOrZero,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndexOrZero")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+fastPathQOSACL = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2)
+)
+if mibBuilder.loadTexts:
+    fastPathQOSACL.setRevisions(
+        ("2012-04-27 00:00",
+         "2012-02-14 00:00",
+         "2011-01-26 00:00",
+         "2007-05-23 00:00",
+         "2005-07-08 00:00",
+         "2004-09-20 00:00",
+         "2003-11-21 00:00",
+         "2003-02-06 23:34")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class EtypeValue(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'x'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1536, 65535)
+    status = "current"
+    displayHint = "x"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1536, 65535),
+    )
+
+
 
 class Ipv6AddressPrefix(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '2x:'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 16)
+    status = "current"
+    displayHint = "2x:"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 16),
+    )
+
+
 
 class AclBurstSize(TextualConvention, Unsigned32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Unsigned32.subtypeSpec + ValueRangeConstraint(1, 128)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
 
-aclNamedIpv4IndexNextFree = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 14), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aclNamedIpv4IndexNextFree.setStatus('current')
-aclTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1), )
-if mibBuilder.loadTexts: aclTable.setStatus('current')
-aclEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclIndex"))
-if mibBuilder.loadTexts: aclEntry.setStatus('current')
-aclIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: aclIndex.setStatus('current')
-aclStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclStatus.setStatus('current')
-aclName = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclName.setStatus('current')
-aclResquenceStartRuleNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aclResquenceStartRuleNumber.setStatus('current')
-aclResequenceIncrement = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aclResequenceIncrement.setStatus('current')
-aclIfTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8), )
-if mibBuilder.loadTexts: aclIfTable.setStatus('current')
-aclIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclIfIndex"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclIfDirection"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclIfSequence"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclIfAclType"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclIfAclId"))
-if mibBuilder.loadTexts: aclIfEntry.setStatus('current')
-aclIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: aclIfIndex.setStatus('current')
-aclIfDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inbound", 1), ("outbound", 2))))
-if mibBuilder.loadTexts: aclIfDirection.setStatus('current')
-aclIfSequence = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
-if mibBuilder.loadTexts: aclIfSequence.setStatus('current')
-aclIfAclType = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ip", 1), ("mac", 2), ("ipv6", 3))))
-if mibBuilder.loadTexts: aclIfAclType.setStatus('current')
-aclIfAclId = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: aclIfAclId.setStatus('current')
-aclIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIfStatus.setStatus('current')
-aclRuleTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4), )
-if mibBuilder.loadTexts: aclRuleTable.setStatus('current')
-aclRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclIndex"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclRuleIndex"))
-if mibBuilder.loadTexts: aclRuleEntry.setStatus('current')
-aclRuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleIndex.setStatus('current')
-aclRuleAction = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("permit", 1), ("deny", 2))).clone('deny')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleAction.setStatus('current')
-aclRuleProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleProtocol.setStatus('current')
-aclRuleSrcIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 4), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleSrcIpAddress.setStatus('current')
-aclRuleSrcIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 5), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleSrcIpMask.setStatus('current')
-aclRuleSrcL4Port = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 6), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleSrcL4Port.setStatus('current')
-aclRuleSrcL4PortRangeStart = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 7), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleSrcL4PortRangeStart.setStatus('current')
-aclRuleSrcL4PortRangeEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 8), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleSrcL4PortRangeEnd.setStatus('current')
-aclRuleDestIpAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 9), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleDestIpAddress.setStatus('current')
-aclRuleDestIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 10), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleDestIpMask.setStatus('current')
-aclRuleDestL4Port = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 11), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleDestL4Port.setStatus('current')
-aclRuleDestL4PortRangeStart = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 12), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleDestL4PortRangeStart.setStatus('current')
-aclRuleDestL4PortRangeEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 13), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleDestL4PortRangeEnd.setStatus('current')
-aclRuleIPDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 14), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleIPDSCP.setStatus('current')
-aclRuleIpPrecedence = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 15), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleIpPrecedence.setStatus('current')
-aclRuleIpTosBits = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 16), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleIpTosBits.setStatus('current')
-aclRuleIpTosMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 17), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleIpTosMask.setStatus('current')
-aclRuleStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 18), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleStatus.setStatus('current')
-aclRuleAssignQueueId = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 19), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleAssignQueueId.setStatus('current')
-aclRuleRedirectIntf = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 20), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleRedirectIntf.setStatus('current')
-aclRuleMatchEvery = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 21), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleMatchEvery.setStatus('current')
-aclRuleMirrorIntf = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 22), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleMirrorIntf.setStatus('current')
-aclRuleLogging = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 23), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleLogging.setStatus('current')
-aclRuleTimeRangeName = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 24), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleTimeRangeName.setStatus('current')
-aclRuleTimeRangeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 25), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aclRuleTimeRangeStatus.setStatus('current')
-aclRuleRateLimitCrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 26), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleRateLimitCrate.setStatus('current')
-aclRuleRateLimitCburst = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 27), AclBurstSize()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleRateLimitCburst.setStatus('current')
-aclRuleIcmpType = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 29), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleIcmpType.setStatus('current')
-aclRuleIcmpCode = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 30), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleIcmpCode.setStatus('current')
-aclRuleIgmpType = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 31), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleIgmpType.setStatus('current')
-aclRuleEstablished = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 32), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleEstablished.setStatus('current')
-aclRuleFragments = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 33), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleFragments.setStatus('current')
-aclRuleIsDuplicated = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 34), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleIsDuplicated.setStatus('current')
-agentAclRemarkConfigTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 15), )
-if mibBuilder.loadTexts: agentAclRemarkConfigTable.setStatus('current')
-agentAclRemarkConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 15, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclIndex"), (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclRemarkIndex"))
-if mibBuilder.loadTexts: agentAclRemarkConfigEntry.setStatus('current')
-agentAclRemarkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 15, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclRemarkIndex.setStatus('current')
-agentAclRemarkStr = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 15, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclRemarkStr.setStatus('current')
-agentAclRemarkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 15, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclRemarkStatus.setStatus('current')
-agentAclRemarkRuleTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 16), )
-if mibBuilder.loadTexts: agentAclRemarkRuleTable.setStatus('current')
-agentAclRemarkRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 16, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclIndex"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclRuleIndex"), (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclRuleRemarkIndex"))
-if mibBuilder.loadTexts: agentAclRemarkRuleEntry.setStatus('current')
-agentAclRuleRemarkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 16, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentAclRuleRemarkIndex.setStatus('current')
-agentAclRuleRemarkStr = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 16, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentAclRuleRemarkStr.setStatus('current')
-agentAclRuleRemarkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 16, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclRuleRemarkStatus.setStatus('current')
-agentAclIpv6RemarkConfigTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 17), )
-if mibBuilder.loadTexts: agentAclIpv6RemarkConfigTable.setStatus('current')
-agentAclIpv6RemarkConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 17, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6Index"), (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclIpv6RemarkIndex"))
-if mibBuilder.loadTexts: agentAclIpv6RemarkConfigEntry.setStatus('current')
-agentAclIpv6RemarkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 17, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclIpv6RemarkIndex.setStatus('current')
-agentAclIpv6RemarkStr = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 17, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclIpv6RemarkStr.setStatus('current')
-agentAclIpv6RemarkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 17, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclIpv6RemarkStatus.setStatus('current')
-agentAclIpv6RemarkRuleTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 18), )
-if mibBuilder.loadTexts: agentAclIpv6RemarkRuleTable.setStatus('current')
-agentAclIpv6RemarkRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 18, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6Index"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6RuleIndex"), (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclIpv6RuleRemarkIndex"))
-if mibBuilder.loadTexts: agentAclIpv6RemarkRuleEntry.setStatus('current')
-agentAclIpv6RuleRemarkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 18, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentAclIpv6RuleRemarkIndex.setStatus('current')
-agentAclIpv6RuleRemarkStr = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 18, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentAclIpv6RuleRemarkStr.setStatus('current')
-agentAclIpv6RuleRemarkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 18, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclIpv6RuleRemarkStatus.setStatus('current')
-agentAclMacRemarkConfigTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 19), )
-if mibBuilder.loadTexts: agentAclMacRemarkConfigTable.setStatus('current')
-agentAclMacRemarkConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 19, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclMacIndex"), (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclMacRemarkIndex"))
-if mibBuilder.loadTexts: agentAclMacRemarkConfigEntry.setStatus('current')
-agentAclMacRemarkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 19, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclMacRemarkIndex.setStatus('current')
-agentAclMacRemarkStr = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 19, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclMacRemarkStr.setStatus('current')
-agentAclMacRemarkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 19, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclMacRemarkStatus.setStatus('current')
-agentAclMacRemarkRuleTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 20), )
-if mibBuilder.loadTexts: agentAclMacRemarkRuleTable.setStatus('current')
-agentAclMacRemarkRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 20, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclMacIndex"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclMacRuleIndex"), (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclMacRuleRemarkIndex"))
-if mibBuilder.loadTexts: agentAclMacRemarkRuleEntry.setStatus('current')
-agentAclMacRuleRemarkIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 20, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentAclMacRuleRemarkIndex.setStatus('current')
-agentAclMacRuleRemarkStr = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 20, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: agentAclMacRuleRemarkStr.setStatus('current')
-agentAclMacRuleRemarkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 20, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: agentAclMacRuleRemarkStatus.setStatus('current')
-aclMacIndexNextFree = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aclMacIndexNextFree.setStatus('current')
-aclMacTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6), )
-if mibBuilder.loadTexts: aclMacTable.setStatus('current')
-aclMacEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclMacIndex"))
-if mibBuilder.loadTexts: aclMacEntry.setStatus('current')
-aclMacIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: aclMacIndex.setStatus('current')
-aclMacName = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacName.setStatus('current')
-aclMacStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacStatus.setStatus('current')
-aclMacResquenceStartRuleNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aclMacResquenceStartRuleNumber.setStatus('current')
-aclMacResequenceIncrement = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aclMacResequenceIncrement.setStatus('current')
-aclMacRuleTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7), )
-if mibBuilder.loadTexts: aclMacRuleTable.setStatus('current')
-aclMacRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclMacIndex"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclMacRuleIndex"))
-if mibBuilder.loadTexts: aclMacRuleEntry.setStatus('current')
-aclMacRuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleIndex.setStatus('current')
-aclMacRuleAction = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("permit", 1), ("deny", 2))).clone('deny')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleAction.setStatus('current')
-aclMacRuleCos = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleCos.setStatus('current')
-aclMacRuleCos2 = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 4), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 7))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleCos2.setStatus('current')
-aclMacRuleDestMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 5), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleDestMacAddr.setStatus('current')
-aclMacRuleDestMacMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 6), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleDestMacMask.setStatus('current')
-aclMacRuleEtypeKey = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13))).clone(namedValues=NamedValues(("custom", 1), ("appletalk", 2), ("arp", 3), ("ibmsna", 4), ("ipv4", 5), ("ipv6", 6), ("ipx", 7), ("mplsmcast", 8), ("mplsucast", 9), ("netbios", 10), ("novell", 11), ("pppoe", 12), ("rarp", 13)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleEtypeKey.setStatus('current')
-aclMacRuleEtypeValue = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 8), EtypeValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleEtypeValue.setStatus('current')
-aclMacRuleSrcMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 9), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleSrcMacAddr.setStatus('current')
-aclMacRuleSrcMacMask = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 10), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleSrcMacMask.setStatus('current')
-aclMacRuleVlanId = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 11), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4093))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleVlanId.setStatus('current')
-aclMacRuleVlanIdRangeStart = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 12), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4093))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleVlanIdRangeStart.setStatus('current')
-aclMacRuleVlanIdRangeEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4093))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleVlanIdRangeEnd.setStatus('current')
-aclMacRuleVlanId2 = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 14), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4093))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleVlanId2.setStatus('current')
-aclMacRuleVlanId2RangeStart = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 15), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4093))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleVlanId2RangeStart.setStatus('current')
-aclMacRuleVlanId2RangeEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 16), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4093))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleVlanId2RangeEnd.setStatus('current')
-aclMacRuleStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 17), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleStatus.setStatus('current')
-aclMacRuleAssignQueueId = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 18), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleAssignQueueId.setStatus('current')
-aclMacRuleRedirectIntf = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 19), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleRedirectIntf.setStatus('current')
-aclMacRuleMatchEvery = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 20), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleMatchEvery.setStatus('current')
-aclMacRuleMirrorIntf = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 21), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleMirrorIntf.setStatus('current')
-aclMacRuleLogging = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 22), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleLogging.setStatus('current')
-aclMacRuleTimeRangeName = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 23), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleTimeRangeName.setStatus('current')
-aclMacRuleTimeRangeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 24), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aclMacRuleTimeRangeStatus.setStatus('current')
-aclMacRuleRateLimitCrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 25), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleRateLimitCrate.setStatus('current')
-aclMacRuleRateLimitCburst = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 26), AclBurstSize()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleRateLimitCburst.setStatus('current')
-aclMacRuleIsDuplicated = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 28), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclMacRuleIsDuplicated.setStatus('current')
-aclLoggingGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9))
-aclTrapRuleIndex = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aclTrapRuleIndex.setStatus('current')
-aclTrapRuleAction = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("permit", 1), ("deny", 2)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aclTrapRuleAction.setStatus('current')
-aclTrapRuleHitCount = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 4), Counter64()).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aclTrapRuleHitCount.setStatus('current')
-aclTrapFlag = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aclTrapFlag.setStatus('current')
-aclTrapRuleTimeRangeName = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aclTrapRuleTimeRangeName.setStatus('current')
-aclTrapRuleTimeRangeNotification = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("activate", 1), ("deactivate", 2), ("delete", 3)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aclTrapRuleTimeRangeNotification.setStatus('current')
-aclTrapRuleInstallationStatus = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("failure", 1), ("success", 2)))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: aclTrapRuleInstallationStatus.setStatus('current')
-aclNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 0))
-aclTrapRuleLogEvent = NotificationType((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 0, 1)).setObjects(("EdgeSwitch-QOS-ACL-MIB", "aclIfAclType"), ("EdgeSwitch-QOS-ACL-MIB", "aclIfAclId"), ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleIndex"), ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleAction"), ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleHitCount"))
-if mibBuilder.loadTexts: aclTrapRuleLogEvent.setStatus('current')
-aclTrapRuleTimeRangeEvent = NotificationType((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 0, 2)).setObjects(("EdgeSwitch-QOS-ACL-MIB", "aclIfAclType"), ("EdgeSwitch-QOS-ACL-MIB", "aclIfAclId"), ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleIndex"), ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleTimeRangeName"), ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleTimeRangeNotification"), ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleInstallationStatus"))
-if mibBuilder.loadTexts: aclTrapRuleTimeRangeEvent.setStatus('current')
-aclIpv6IndexNextFree = MibScalar((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aclIpv6IndexNextFree.setStatus('current')
-aclIpv6Table = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11), )
-if mibBuilder.loadTexts: aclIpv6Table.setStatus('current')
-aclIpv6Entry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6Index"))
-if mibBuilder.loadTexts: aclIpv6Entry.setStatus('current')
-aclIpv6Index = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: aclIpv6Index.setStatus('current')
-aclIpv6Name = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6Name.setStatus('current')
-aclIpv6Status = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6Status.setStatus('current')
-aclIpv6ResquenceStartRuleNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aclIpv6ResquenceStartRuleNumber.setStatus('current')
-aclIpv6ResequenceIncrement = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aclIpv6ResequenceIncrement.setStatus('current')
-aclIpv6RuleTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12), )
-if mibBuilder.loadTexts: aclIpv6RuleTable.setStatus('current')
-aclIpv6RuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6Index"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6RuleIndex"))
-if mibBuilder.loadTexts: aclIpv6RuleEntry.setStatus('current')
-aclIpv6RuleIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleIndex.setStatus('current')
-aclIpv6RuleAction = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("permit", 1), ("deny", 2))).clone('deny')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleAction.setStatus('current')
-aclIpv6RuleLogging = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 3), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleLogging.setStatus('current')
-aclIpv6RuleAssignQueueId = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 4), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleAssignQueueId.setStatus('current')
-aclIpv6RuleRedirectIntf = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 5), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleRedirectIntf.setStatus('current')
-aclIpv6RuleMirrorIntf = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 6), InterfaceIndexOrZero()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleMirrorIntf.setStatus('current')
-aclIpv6RuleMatchEvery = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 7), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleMatchEvery.setStatus('current')
-aclIpv6RuleProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleProtocol.setStatus('current')
-aclIpv6RuleSrcL4Port = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 9), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleSrcL4Port.setStatus('current')
-aclIpv6RuleSrcL4PortRangeStart = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 10), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleSrcL4PortRangeStart.setStatus('current')
-aclIpv6RuleSrcL4PortRangeEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 11), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleSrcL4PortRangeEnd.setStatus('current')
-aclIpv6RuleDestL4Port = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 12), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleDestL4Port.setStatus('current')
-aclIpv6RuleDestL4PortRangeStart = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 13), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleDestL4PortRangeStart.setStatus('current')
-aclIpv6RuleDestL4PortRangeEnd = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 14), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleDestL4PortRangeEnd.setStatus('current')
-aclIpv6RuleStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 15), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleStatus.setStatus('current')
-aclIpv6RuleFlowLabel = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 16), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1048575))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleFlowLabel.setStatus('current')
-aclIpv6RuleIPDSCP = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 17), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleIPDSCP.setStatus('current')
-aclRuleSrcIpv6Prefix = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 18), Ipv6AddressPrefix()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aclRuleSrcIpv6Prefix.setStatus('current')
-aclRuleSrcIpv6PrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 19), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleSrcIpv6PrefixLength.setStatus('current')
-aclRuleDstIpv6Prefix = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 20), Ipv6AddressPrefix()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: aclRuleDstIpv6Prefix.setStatus('current')
-aclRuleDstIpv6PrefixLength = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 21), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 128))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclRuleDstIpv6PrefixLength.setStatus('current')
-aclIpv6RuleTimeRangeName = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 22), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleTimeRangeName.setStatus('current')
-aclIpv6RuleTimeRangeStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 23), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inactive", 1), ("active", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aclIpv6RuleTimeRangeStatus.setStatus('current')
-aclIpv6RuleRateLimitCrate = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 24), Unsigned32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleRateLimitCrate.setStatus('current')
-aclIpv6RuleRateLimitCburst = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 25), AclBurstSize()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleRateLimitCburst.setStatus('current')
-aclIpv6RuleIcmpType = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 27), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleIcmpType.setStatus('current')
-aclIpv6RuleIcmpCode = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 28), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleIcmpCode.setStatus('current')
-aclIpv6RuleRouting = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 29), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleRouting.setStatus('current')
-aclIpv6RuleFragments = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 30), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleFragments.setStatus('current')
-aclIpv6RuleEstablished = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 31), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleEstablished.setStatus('current')
-aclIpv6RuleIsDuplicated = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 32), TruthValue()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclIpv6RuleIsDuplicated.setStatus('current')
-aclVlanTable = MibTable((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13), )
-if mibBuilder.loadTexts: aclVlanTable.setStatus('current')
-aclVlanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1), ).setIndexNames((0, "EdgeSwitch-QOS-ACL-MIB", "aclVlanIndex"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclVlanDirection"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclVlanSequence"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclVlanAclType"), (0, "EdgeSwitch-QOS-ACL-MIB", "aclVlanAclId"))
-if mibBuilder.loadTexts: aclVlanEntry.setStatus('current')
-aclVlanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: aclVlanIndex.setStatus('current')
-aclVlanDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("inbound", 1), ("outbound", 2))))
-if mibBuilder.loadTexts: aclVlanDirection.setStatus('current')
-aclVlanSequence = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
-if mibBuilder.loadTexts: aclVlanSequence.setStatus('current')
-aclVlanAclType = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("ip", 1), ("mac", 2), ("ipv6", 3))))
-if mibBuilder.loadTexts: aclVlanAclType.setStatus('current')
-aclVlanAclId = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: aclVlanAclId.setStatus('current')
-aclVlanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: aclVlanStatus.setStatus('current')
-mibBuilder.exportSymbols("EdgeSwitch-QOS-ACL-MIB", aclRuleMatchEvery=aclRuleMatchEvery, PYSNMP_MODULE_ID=fastPathQOSACL, aclResequenceIncrement=aclResequenceIncrement, aclResquenceStartRuleNumber=aclResquenceStartRuleNumber, aclMacRuleDestMacAddr=aclMacRuleDestMacAddr, aclVlanTable=aclVlanTable, aclRuleIpPrecedence=aclRuleIpPrecedence, agentAclIpv6RuleRemarkIndex=agentAclIpv6RuleRemarkIndex, aclRuleIndex=aclRuleIndex, aclIpv6RuleFragments=aclIpv6RuleFragments, aclMacTable=aclMacTable, agentAclMacRemarkIndex=agentAclMacRemarkIndex, aclRuleMirrorIntf=aclRuleMirrorIntf, aclIfTable=aclIfTable, aclRuleTimeRangeStatus=aclRuleTimeRangeStatus, agentAclRemarkStr=agentAclRemarkStr, aclRuleIcmpType=aclRuleIcmpType, aclTrapFlag=aclTrapFlag, aclMacRuleTimeRangeName=aclMacRuleTimeRangeName, aclIfDirection=aclIfDirection, aclRuleIPDSCP=aclRuleIPDSCP, aclMacRuleSrcMacMask=aclMacRuleSrcMacMask, aclMacRuleIsDuplicated=aclMacRuleIsDuplicated, aclTable=aclTable, agentAclIpv6RuleRemarkStatus=agentAclIpv6RuleRemarkStatus, aclMacRuleStatus=aclMacRuleStatus, aclIfAclId=aclIfAclId, aclName=aclName, aclMacRuleVlanId2=aclMacRuleVlanId2, aclTrapRuleTimeRangeNotification=aclTrapRuleTimeRangeNotification, aclIpv6RuleLogging=aclIpv6RuleLogging, aclTrapRuleAction=aclTrapRuleAction, aclTrapRuleTimeRangeEvent=aclTrapRuleTimeRangeEvent, agentAclIpv6RemarkRuleEntry=agentAclIpv6RemarkRuleEntry, aclIpv6RuleEntry=aclIpv6RuleEntry, aclIpv6RuleProtocol=aclIpv6RuleProtocol, aclMacRuleRateLimitCburst=aclMacRuleRateLimitCburst, aclRuleLogging=aclRuleLogging, EtypeValue=EtypeValue, aclMacRuleEntry=aclMacRuleEntry, aclRuleEstablished=aclRuleEstablished, aclIpv6RuleIcmpType=aclIpv6RuleIcmpType, Ipv6AddressPrefix=Ipv6AddressPrefix, aclIpv6Entry=aclIpv6Entry, aclIfIndex=aclIfIndex, agentAclRemarkRuleEntry=agentAclRemarkRuleEntry, agentAclMacRemarkConfigEntry=agentAclMacRemarkConfigEntry, aclTrapRuleInstallationStatus=aclTrapRuleInstallationStatus, aclRuleDestL4PortRangeStart=aclRuleDestL4PortRangeStart, aclRuleSrcL4PortRangeStart=aclRuleSrcL4PortRangeStart, aclIpv6RuleRateLimitCrate=aclIpv6RuleRateLimitCrate, aclMacRuleVlanIdRangeStart=aclMacRuleVlanIdRangeStart, agentAclRuleRemarkIndex=agentAclRuleRemarkIndex, aclIpv6RuleTimeRangeName=aclIpv6RuleTimeRangeName, agentAclRemarkRuleTable=agentAclRemarkRuleTable, aclStatus=aclStatus, aclVlanEntry=aclVlanEntry, aclRuleSrcL4PortRangeEnd=aclRuleSrcL4PortRangeEnd, aclRuleTable=aclRuleTable, agentAclIpv6RemarkStatus=agentAclIpv6RemarkStatus, aclMacRuleSrcMacAddr=aclMacRuleSrcMacAddr, agentAclRemarkConfigEntry=agentAclRemarkConfigEntry, aclIpv6RuleDestL4PortRangeEnd=aclIpv6RuleDestL4PortRangeEnd, aclIpv6RuleTimeRangeStatus=aclIpv6RuleTimeRangeStatus, aclRuleRedirectIntf=aclRuleRedirectIntf, fastPathQOSACL=fastPathQOSACL, aclLoggingGroup=aclLoggingGroup, agentAclIpv6RemarkConfigTable=agentAclIpv6RemarkConfigTable, aclMacResquenceStartRuleNumber=aclMacResquenceStartRuleNumber, aclMacRuleEtypeValue=aclMacRuleEtypeValue, aclRuleDstIpv6Prefix=aclRuleDstIpv6Prefix, aclMacRuleCos=aclMacRuleCos, aclMacRuleAction=aclMacRuleAction, aclIpv6RuleAssignQueueId=aclIpv6RuleAssignQueueId, aclRuleAction=aclRuleAction, aclIpv6RuleSrcL4PortRangeStart=aclIpv6RuleSrcL4PortRangeStart, aclMacRuleRedirectIntf=aclMacRuleRedirectIntf, aclIpv6RuleIndex=aclIpv6RuleIndex, aclIpv6RuleStatus=aclIpv6RuleStatus, aclIpv6Name=aclIpv6Name, agentAclMacRuleRemarkIndex=agentAclMacRuleRemarkIndex, aclVlanDirection=aclVlanDirection, agentAclRuleRemarkStatus=agentAclRuleRemarkStatus, aclMacRuleRateLimitCrate=aclMacRuleRateLimitCrate, aclIpv6IndexNextFree=aclIpv6IndexNextFree, aclIpv6RuleMirrorIntf=aclIpv6RuleMirrorIntf, aclRuleDstIpv6PrefixLength=aclRuleDstIpv6PrefixLength, agentAclRemarkIndex=agentAclRemarkIndex, aclRuleStatus=aclRuleStatus, aclTrapRuleIndex=aclTrapRuleIndex, agentAclMacRemarkRuleEntry=agentAclMacRemarkRuleEntry, aclMacRuleVlanIdRangeEnd=aclMacRuleVlanIdRangeEnd, AclBurstSize=AclBurstSize, aclRuleSrcIpv6Prefix=aclRuleSrcIpv6Prefix, aclMacStatus=aclMacStatus, aclIfStatus=aclIfStatus, aclMacIndex=aclMacIndex, aclMacRuleVlanId2RangeEnd=aclMacRuleVlanId2RangeEnd, aclIpv6Status=aclIpv6Status, aclMacIndexNextFree=aclMacIndexNextFree, aclIpv6ResequenceIncrement=aclIpv6ResequenceIncrement, aclIpv6RuleAction=aclIpv6RuleAction, aclIpv6RuleFlowLabel=aclIpv6RuleFlowLabel, aclMacRuleDestMacMask=aclMacRuleDestMacMask, aclRuleIpTosMask=aclRuleIpTosMask, aclRuleIsDuplicated=aclRuleIsDuplicated, agentAclMacRemarkConfigTable=agentAclMacRemarkConfigTable, aclIpv6Index=aclIpv6Index, aclRuleSrcIpMask=aclRuleSrcIpMask, aclRuleFragments=aclRuleFragments, agentAclIpv6RuleRemarkStr=agentAclIpv6RuleRemarkStr, aclRuleTimeRangeName=aclRuleTimeRangeName, aclIpv6Table=aclIpv6Table, aclMacRuleMirrorIntf=aclMacRuleMirrorIntf, aclIfEntry=aclIfEntry, aclMacRuleMatchEvery=aclMacRuleMatchEvery, aclMacRuleVlanId=aclMacRuleVlanId, aclVlanIndex=aclVlanIndex, agentAclMacRuleRemarkStr=agentAclMacRuleRemarkStr, aclRuleProtocol=aclRuleProtocol, aclRuleDestIpMask=aclRuleDestIpMask, aclIndex=aclIndex, aclIpv6RuleIPDSCP=aclIpv6RuleIPDSCP, aclTrapRuleHitCount=aclTrapRuleHitCount, aclRuleAssignQueueId=aclRuleAssignQueueId, agentAclRuleRemarkStr=agentAclRuleRemarkStr, aclIpv6RuleSrcL4Port=aclIpv6RuleSrcL4Port, agentAclMacRemarkRuleTable=agentAclMacRemarkRuleTable, aclNotifications=aclNotifications, aclMacRuleLogging=aclMacRuleLogging, aclRuleIgmpType=aclRuleIgmpType, aclMacResequenceIncrement=aclMacResequenceIncrement, aclRuleSrcIpAddress=aclRuleSrcIpAddress, aclMacRuleTable=aclMacRuleTable, aclTrapRuleTimeRangeName=aclTrapRuleTimeRangeName, aclEntry=aclEntry, aclRuleDestIpAddress=aclRuleDestIpAddress, aclMacRuleAssignQueueId=aclMacRuleAssignQueueId, aclVlanAclType=aclVlanAclType, aclIpv6RuleRedirectIntf=aclIpv6RuleRedirectIntf, agentAclIpv6RemarkRuleTable=agentAclIpv6RemarkRuleTable, aclMacRuleCos2=aclMacRuleCos2, aclRuleEntry=aclRuleEntry, aclMacRuleEtypeKey=aclMacRuleEtypeKey, aclIpv6RuleEstablished=aclIpv6RuleEstablished, agentAclIpv6RemarkIndex=agentAclIpv6RemarkIndex, aclMacEntry=aclMacEntry, aclVlanAclId=aclVlanAclId, aclIfSequence=aclIfSequence, aclIpv6RuleDestL4PortRangeStart=aclIpv6RuleDestL4PortRangeStart, aclIpv6RuleTable=aclIpv6RuleTable, aclMacRuleTimeRangeStatus=aclMacRuleTimeRangeStatus, aclIpv6RuleIsDuplicated=aclIpv6RuleIsDuplicated, agentAclMacRuleRemarkStatus=agentAclMacRuleRemarkStatus, aclRuleDestL4PortRangeEnd=aclRuleDestL4PortRangeEnd, aclTrapRuleLogEvent=aclTrapRuleLogEvent, agentAclRemarkConfigTable=agentAclRemarkConfigTable, aclIpv6RuleRateLimitCburst=aclIpv6RuleRateLimitCburst, aclIpv6ResquenceStartRuleNumber=aclIpv6ResquenceStartRuleNumber, aclIpv6RuleRouting=aclIpv6RuleRouting, aclIfAclType=aclIfAclType, agentAclIpv6RemarkConfigEntry=agentAclIpv6RemarkConfigEntry, aclVlanStatus=aclVlanStatus, aclNamedIpv4IndexNextFree=aclNamedIpv4IndexNextFree, aclIpv6RuleMatchEvery=aclIpv6RuleMatchEvery, aclRuleRateLimitCburst=aclRuleRateLimitCburst, aclIpv6RuleIcmpCode=aclIpv6RuleIcmpCode, aclRuleDestL4Port=aclRuleDestL4Port, aclRuleIpTosBits=aclRuleIpTosBits, aclMacName=aclMacName, agentAclMacRemarkStr=agentAclMacRemarkStr, aclRuleSrcIpv6PrefixLength=aclRuleSrcIpv6PrefixLength, aclRuleRateLimitCrate=aclRuleRateLimitCrate, aclIpv6RuleSrcL4PortRangeEnd=aclIpv6RuleSrcL4PortRangeEnd, aclIpv6RuleDestL4Port=aclIpv6RuleDestL4Port, agentAclRemarkStatus=agentAclRemarkStatus, aclMacRuleVlanId2RangeStart=aclMacRuleVlanId2RangeStart, agentAclIpv6RemarkStr=agentAclIpv6RemarkStr, aclRuleSrcL4Port=aclRuleSrcL4Port, aclVlanSequence=aclVlanSequence, aclRuleIcmpCode=aclRuleIcmpCode, agentAclMacRemarkStatus=agentAclMacRemarkStatus, aclMacRuleIndex=aclMacRuleIndex)
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AclNotifications_ObjectIdentity = ObjectIdentity
+aclNotifications = _AclNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 0)
+)
+_AclTable_Object = MibTable
+aclTable = _AclTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1)
+)
+if mibBuilder.loadTexts:
+    aclTable.setStatus("current")
+_AclEntry_Object = MibTableRow
+aclEntry = _AclEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1)
+)
+aclEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIndex"),
+)
+if mibBuilder.loadTexts:
+    aclEntry.setStatus("current")
+
+
+class _AclIndex_Type(Integer32):
+    """Custom type aclIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AclIndex_Type.__name__ = "Integer32"
+_AclIndex_Object = MibTableColumn
+aclIndex = _AclIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1, 1),
+    _AclIndex_Type()
+)
+aclIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclIndex.setStatus("current")
+_AclStatus_Type = RowStatus
+_AclStatus_Object = MibTableColumn
+aclStatus = _AclStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1, 2),
+    _AclStatus_Type()
+)
+aclStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclStatus.setStatus("current")
+
+
+class _AclName_Type(DisplayString):
+    """Custom type aclName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AclName_Type.__name__ = "DisplayString"
+_AclName_Object = MibTableColumn
+aclName = _AclName_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1, 3),
+    _AclName_Type()
+)
+aclName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclName.setStatus("current")
+
+
+class _AclResquenceStartRuleNumber_Type(Integer32):
+    """Custom type aclResquenceStartRuleNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AclResquenceStartRuleNumber_Type.__name__ = "Integer32"
+_AclResquenceStartRuleNumber_Object = MibTableColumn
+aclResquenceStartRuleNumber = _AclResquenceStartRuleNumber_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1, 4),
+    _AclResquenceStartRuleNumber_Type()
+)
+aclResquenceStartRuleNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aclResquenceStartRuleNumber.setStatus("current")
+
+
+class _AclResequenceIncrement_Type(Integer32):
+    """Custom type aclResequenceIncrement based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AclResequenceIncrement_Type.__name__ = "Integer32"
+_AclResequenceIncrement_Object = MibTableColumn
+aclResequenceIncrement = _AclResequenceIncrement_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 1, 1, 5),
+    _AclResequenceIncrement_Type()
+)
+aclResequenceIncrement.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aclResequenceIncrement.setStatus("current")
+_AclRuleTable_Object = MibTable
+aclRuleTable = _AclRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4)
+)
+if mibBuilder.loadTexts:
+    aclRuleTable.setStatus("current")
+_AclRuleEntry_Object = MibTableRow
+aclRuleEntry = _AclRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1)
+)
+aclRuleEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIndex"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclRuleIndex"),
+)
+if mibBuilder.loadTexts:
+    aclRuleEntry.setStatus("current")
+
+
+class _AclRuleIndex_Type(Integer32):
+    """Custom type aclRuleIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AclRuleIndex_Type.__name__ = "Integer32"
+_AclRuleIndex_Object = MibTableColumn
+aclRuleIndex = _AclRuleIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 1),
+    _AclRuleIndex_Type()
+)
+aclRuleIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleIndex.setStatus("current")
+
+
+class _AclRuleAction_Type(Integer32):
+    """Custom type aclRuleAction based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("permit", 1),
+          ("deny", 2))
+    )
+
+
+_AclRuleAction_Type.__name__ = "Integer32"
+_AclRuleAction_Object = MibTableColumn
+aclRuleAction = _AclRuleAction_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 2),
+    _AclRuleAction_Type()
+)
+aclRuleAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleAction.setStatus("current")
+
+
+class _AclRuleProtocol_Type(Integer32):
+    """Custom type aclRuleProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AclRuleProtocol_Type.__name__ = "Integer32"
+_AclRuleProtocol_Object = MibTableColumn
+aclRuleProtocol = _AclRuleProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 3),
+    _AclRuleProtocol_Type()
+)
+aclRuleProtocol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleProtocol.setStatus("current")
+_AclRuleSrcIpAddress_Type = IpAddress
+_AclRuleSrcIpAddress_Object = MibTableColumn
+aclRuleSrcIpAddress = _AclRuleSrcIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 4),
+    _AclRuleSrcIpAddress_Type()
+)
+aclRuleSrcIpAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleSrcIpAddress.setStatus("current")
+_AclRuleSrcIpMask_Type = IpAddress
+_AclRuleSrcIpMask_Object = MibTableColumn
+aclRuleSrcIpMask = _AclRuleSrcIpMask_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 5),
+    _AclRuleSrcIpMask_Type()
+)
+aclRuleSrcIpMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleSrcIpMask.setStatus("current")
+_AclRuleSrcL4Port_Type = Integer32
+_AclRuleSrcL4Port_Object = MibTableColumn
+aclRuleSrcL4Port = _AclRuleSrcL4Port_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 6),
+    _AclRuleSrcL4Port_Type()
+)
+aclRuleSrcL4Port.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleSrcL4Port.setStatus("current")
+_AclRuleSrcL4PortRangeStart_Type = Integer32
+_AclRuleSrcL4PortRangeStart_Object = MibTableColumn
+aclRuleSrcL4PortRangeStart = _AclRuleSrcL4PortRangeStart_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 7),
+    _AclRuleSrcL4PortRangeStart_Type()
+)
+aclRuleSrcL4PortRangeStart.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleSrcL4PortRangeStart.setStatus("current")
+_AclRuleSrcL4PortRangeEnd_Type = Integer32
+_AclRuleSrcL4PortRangeEnd_Object = MibTableColumn
+aclRuleSrcL4PortRangeEnd = _AclRuleSrcL4PortRangeEnd_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 8),
+    _AclRuleSrcL4PortRangeEnd_Type()
+)
+aclRuleSrcL4PortRangeEnd.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleSrcL4PortRangeEnd.setStatus("current")
+_AclRuleDestIpAddress_Type = IpAddress
+_AclRuleDestIpAddress_Object = MibTableColumn
+aclRuleDestIpAddress = _AclRuleDestIpAddress_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 9),
+    _AclRuleDestIpAddress_Type()
+)
+aclRuleDestIpAddress.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleDestIpAddress.setStatus("current")
+_AclRuleDestIpMask_Type = IpAddress
+_AclRuleDestIpMask_Object = MibTableColumn
+aclRuleDestIpMask = _AclRuleDestIpMask_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 10),
+    _AclRuleDestIpMask_Type()
+)
+aclRuleDestIpMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleDestIpMask.setStatus("current")
+_AclRuleDestL4Port_Type = Integer32
+_AclRuleDestL4Port_Object = MibTableColumn
+aclRuleDestL4Port = _AclRuleDestL4Port_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 11),
+    _AclRuleDestL4Port_Type()
+)
+aclRuleDestL4Port.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleDestL4Port.setStatus("current")
+_AclRuleDestL4PortRangeStart_Type = Integer32
+_AclRuleDestL4PortRangeStart_Object = MibTableColumn
+aclRuleDestL4PortRangeStart = _AclRuleDestL4PortRangeStart_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 12),
+    _AclRuleDestL4PortRangeStart_Type()
+)
+aclRuleDestL4PortRangeStart.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleDestL4PortRangeStart.setStatus("current")
+_AclRuleDestL4PortRangeEnd_Type = Integer32
+_AclRuleDestL4PortRangeEnd_Object = MibTableColumn
+aclRuleDestL4PortRangeEnd = _AclRuleDestL4PortRangeEnd_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 13),
+    _AclRuleDestL4PortRangeEnd_Type()
+)
+aclRuleDestL4PortRangeEnd.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleDestL4PortRangeEnd.setStatus("current")
+_AclRuleIPDSCP_Type = Integer32
+_AclRuleIPDSCP_Object = MibTableColumn
+aclRuleIPDSCP = _AclRuleIPDSCP_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 14),
+    _AclRuleIPDSCP_Type()
+)
+aclRuleIPDSCP.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleIPDSCP.setStatus("current")
+_AclRuleIpPrecedence_Type = Integer32
+_AclRuleIpPrecedence_Object = MibTableColumn
+aclRuleIpPrecedence = _AclRuleIpPrecedence_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 15),
+    _AclRuleIpPrecedence_Type()
+)
+aclRuleIpPrecedence.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleIpPrecedence.setStatus("current")
+_AclRuleIpTosBits_Type = Integer32
+_AclRuleIpTosBits_Object = MibTableColumn
+aclRuleIpTosBits = _AclRuleIpTosBits_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 16),
+    _AclRuleIpTosBits_Type()
+)
+aclRuleIpTosBits.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleIpTosBits.setStatus("current")
+_AclRuleIpTosMask_Type = Integer32
+_AclRuleIpTosMask_Object = MibTableColumn
+aclRuleIpTosMask = _AclRuleIpTosMask_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 17),
+    _AclRuleIpTosMask_Type()
+)
+aclRuleIpTosMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleIpTosMask.setStatus("current")
+_AclRuleStatus_Type = RowStatus
+_AclRuleStatus_Object = MibTableColumn
+aclRuleStatus = _AclRuleStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 18),
+    _AclRuleStatus_Type()
+)
+aclRuleStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleStatus.setStatus("current")
+_AclRuleAssignQueueId_Type = Unsigned32
+_AclRuleAssignQueueId_Object = MibTableColumn
+aclRuleAssignQueueId = _AclRuleAssignQueueId_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 19),
+    _AclRuleAssignQueueId_Type()
+)
+aclRuleAssignQueueId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleAssignQueueId.setStatus("current")
+
+
+class _AclRuleRedirectIntf_Type(InterfaceIndexOrZero):
+    """Custom type aclRuleRedirectIntf based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_AclRuleRedirectIntf_Type.__name__ = "InterfaceIndexOrZero"
+_AclRuleRedirectIntf_Object = MibTableColumn
+aclRuleRedirectIntf = _AclRuleRedirectIntf_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 20),
+    _AclRuleRedirectIntf_Type()
+)
+aclRuleRedirectIntf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleRedirectIntf.setStatus("current")
+_AclRuleMatchEvery_Type = TruthValue
+_AclRuleMatchEvery_Object = MibTableColumn
+aclRuleMatchEvery = _AclRuleMatchEvery_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 21),
+    _AclRuleMatchEvery_Type()
+)
+aclRuleMatchEvery.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleMatchEvery.setStatus("current")
+
+
+class _AclRuleMirrorIntf_Type(InterfaceIndexOrZero):
+    """Custom type aclRuleMirrorIntf based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_AclRuleMirrorIntf_Type.__name__ = "InterfaceIndexOrZero"
+_AclRuleMirrorIntf_Object = MibTableColumn
+aclRuleMirrorIntf = _AclRuleMirrorIntf_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 22),
+    _AclRuleMirrorIntf_Type()
+)
+aclRuleMirrorIntf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleMirrorIntf.setStatus("current")
+_AclRuleLogging_Type = TruthValue
+_AclRuleLogging_Object = MibTableColumn
+aclRuleLogging = _AclRuleLogging_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 23),
+    _AclRuleLogging_Type()
+)
+aclRuleLogging.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleLogging.setStatus("current")
+
+
+class _AclRuleTimeRangeName_Type(DisplayString):
+    """Custom type aclRuleTimeRangeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AclRuleTimeRangeName_Type.__name__ = "DisplayString"
+_AclRuleTimeRangeName_Object = MibTableColumn
+aclRuleTimeRangeName = _AclRuleTimeRangeName_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 24),
+    _AclRuleTimeRangeName_Type()
+)
+aclRuleTimeRangeName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleTimeRangeName.setStatus("current")
+
+
+class _AclRuleTimeRangeStatus_Type(Integer32):
+    """Custom type aclRuleTimeRangeStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("active", 2))
+    )
+
+
+_AclRuleTimeRangeStatus_Type.__name__ = "Integer32"
+_AclRuleTimeRangeStatus_Object = MibTableColumn
+aclRuleTimeRangeStatus = _AclRuleTimeRangeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 25),
+    _AclRuleTimeRangeStatus_Type()
+)
+aclRuleTimeRangeStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aclRuleTimeRangeStatus.setStatus("current")
+_AclRuleRateLimitCrate_Type = Unsigned32
+_AclRuleRateLimitCrate_Object = MibTableColumn
+aclRuleRateLimitCrate = _AclRuleRateLimitCrate_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 26),
+    _AclRuleRateLimitCrate_Type()
+)
+aclRuleRateLimitCrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleRateLimitCrate.setStatus("current")
+_AclRuleRateLimitCburst_Type = AclBurstSize
+_AclRuleRateLimitCburst_Object = MibTableColumn
+aclRuleRateLimitCburst = _AclRuleRateLimitCburst_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 27),
+    _AclRuleRateLimitCburst_Type()
+)
+aclRuleRateLimitCburst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleRateLimitCburst.setStatus("current")
+
+
+class _AclRuleIcmpType_Type(Integer32):
+    """Custom type aclRuleIcmpType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AclRuleIcmpType_Type.__name__ = "Integer32"
+_AclRuleIcmpType_Object = MibTableColumn
+aclRuleIcmpType = _AclRuleIcmpType_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 29),
+    _AclRuleIcmpType_Type()
+)
+aclRuleIcmpType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleIcmpType.setStatus("current")
+
+
+class _AclRuleIcmpCode_Type(Integer32):
+    """Custom type aclRuleIcmpCode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AclRuleIcmpCode_Type.__name__ = "Integer32"
+_AclRuleIcmpCode_Object = MibTableColumn
+aclRuleIcmpCode = _AclRuleIcmpCode_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 30),
+    _AclRuleIcmpCode_Type()
+)
+aclRuleIcmpCode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleIcmpCode.setStatus("current")
+
+
+class _AclRuleIgmpType_Type(Integer32):
+    """Custom type aclRuleIgmpType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AclRuleIgmpType_Type.__name__ = "Integer32"
+_AclRuleIgmpType_Object = MibTableColumn
+aclRuleIgmpType = _AclRuleIgmpType_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 31),
+    _AclRuleIgmpType_Type()
+)
+aclRuleIgmpType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleIgmpType.setStatus("current")
+_AclRuleEstablished_Type = TruthValue
+_AclRuleEstablished_Object = MibTableColumn
+aclRuleEstablished = _AclRuleEstablished_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 32),
+    _AclRuleEstablished_Type()
+)
+aclRuleEstablished.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleEstablished.setStatus("current")
+_AclRuleFragments_Type = TruthValue
+_AclRuleFragments_Object = MibTableColumn
+aclRuleFragments = _AclRuleFragments_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 33),
+    _AclRuleFragments_Type()
+)
+aclRuleFragments.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleFragments.setStatus("current")
+_AclRuleIsDuplicated_Type = TruthValue
+_AclRuleIsDuplicated_Object = MibTableColumn
+aclRuleIsDuplicated = _AclRuleIsDuplicated_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 4, 1, 34),
+    _AclRuleIsDuplicated_Type()
+)
+aclRuleIsDuplicated.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleIsDuplicated.setStatus("current")
+_AclMacIndexNextFree_Type = Integer32
+_AclMacIndexNextFree_Object = MibScalar
+aclMacIndexNextFree = _AclMacIndexNextFree_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 5),
+    _AclMacIndexNextFree_Type()
+)
+aclMacIndexNextFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aclMacIndexNextFree.setStatus("current")
+_AclMacTable_Object = MibTable
+aclMacTable = _AclMacTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6)
+)
+if mibBuilder.loadTexts:
+    aclMacTable.setStatus("current")
+_AclMacEntry_Object = MibTableRow
+aclMacEntry = _AclMacEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1)
+)
+aclMacEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclMacIndex"),
+)
+if mibBuilder.loadTexts:
+    aclMacEntry.setStatus("current")
+
+
+class _AclMacIndex_Type(Integer32):
+    """Custom type aclMacIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AclMacIndex_Type.__name__ = "Integer32"
+_AclMacIndex_Object = MibTableColumn
+aclMacIndex = _AclMacIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1, 1),
+    _AclMacIndex_Type()
+)
+aclMacIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclMacIndex.setStatus("current")
+
+
+class _AclMacName_Type(DisplayString):
+    """Custom type aclMacName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AclMacName_Type.__name__ = "DisplayString"
+_AclMacName_Object = MibTableColumn
+aclMacName = _AclMacName_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1, 2),
+    _AclMacName_Type()
+)
+aclMacName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacName.setStatus("current")
+_AclMacStatus_Type = RowStatus
+_AclMacStatus_Object = MibTableColumn
+aclMacStatus = _AclMacStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1, 3),
+    _AclMacStatus_Type()
+)
+aclMacStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacStatus.setStatus("current")
+
+
+class _AclMacResquenceStartRuleNumber_Type(Integer32):
+    """Custom type aclMacResquenceStartRuleNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AclMacResquenceStartRuleNumber_Type.__name__ = "Integer32"
+_AclMacResquenceStartRuleNumber_Object = MibTableColumn
+aclMacResquenceStartRuleNumber = _AclMacResquenceStartRuleNumber_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1, 4),
+    _AclMacResquenceStartRuleNumber_Type()
+)
+aclMacResquenceStartRuleNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aclMacResquenceStartRuleNumber.setStatus("current")
+
+
+class _AclMacResequenceIncrement_Type(Integer32):
+    """Custom type aclMacResequenceIncrement based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AclMacResequenceIncrement_Type.__name__ = "Integer32"
+_AclMacResequenceIncrement_Object = MibTableColumn
+aclMacResequenceIncrement = _AclMacResequenceIncrement_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 6, 1, 5),
+    _AclMacResequenceIncrement_Type()
+)
+aclMacResequenceIncrement.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aclMacResequenceIncrement.setStatus("current")
+_AclMacRuleTable_Object = MibTable
+aclMacRuleTable = _AclMacRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7)
+)
+if mibBuilder.loadTexts:
+    aclMacRuleTable.setStatus("current")
+_AclMacRuleEntry_Object = MibTableRow
+aclMacRuleEntry = _AclMacRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1)
+)
+aclMacRuleEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclMacIndex"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclMacRuleIndex"),
+)
+if mibBuilder.loadTexts:
+    aclMacRuleEntry.setStatus("current")
+
+
+class _AclMacRuleIndex_Type(Integer32):
+    """Custom type aclMacRuleIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AclMacRuleIndex_Type.__name__ = "Integer32"
+_AclMacRuleIndex_Object = MibTableColumn
+aclMacRuleIndex = _AclMacRuleIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 1),
+    _AclMacRuleIndex_Type()
+)
+aclMacRuleIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleIndex.setStatus("current")
+
+
+class _AclMacRuleAction_Type(Integer32):
+    """Custom type aclMacRuleAction based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("permit", 1),
+          ("deny", 2))
+    )
+
+
+_AclMacRuleAction_Type.__name__ = "Integer32"
+_AclMacRuleAction_Object = MibTableColumn
+aclMacRuleAction = _AclMacRuleAction_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 2),
+    _AclMacRuleAction_Type()
+)
+aclMacRuleAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleAction.setStatus("current")
+
+
+class _AclMacRuleCos_Type(Unsigned32):
+    """Custom type aclMacRuleCos based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_AclMacRuleCos_Type.__name__ = "Unsigned32"
+_AclMacRuleCos_Object = MibTableColumn
+aclMacRuleCos = _AclMacRuleCos_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 3),
+    _AclMacRuleCos_Type()
+)
+aclMacRuleCos.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleCos.setStatus("current")
+
+
+class _AclMacRuleCos2_Type(Unsigned32):
+    """Custom type aclMacRuleCos2 based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 7),
+    )
+
+
+_AclMacRuleCos2_Type.__name__ = "Unsigned32"
+_AclMacRuleCos2_Object = MibTableColumn
+aclMacRuleCos2 = _AclMacRuleCos2_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 4),
+    _AclMacRuleCos2_Type()
+)
+aclMacRuleCos2.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleCos2.setStatus("current")
+_AclMacRuleDestMacAddr_Type = MacAddress
+_AclMacRuleDestMacAddr_Object = MibTableColumn
+aclMacRuleDestMacAddr = _AclMacRuleDestMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 5),
+    _AclMacRuleDestMacAddr_Type()
+)
+aclMacRuleDestMacAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleDestMacAddr.setStatus("current")
+_AclMacRuleDestMacMask_Type = MacAddress
+_AclMacRuleDestMacMask_Object = MibTableColumn
+aclMacRuleDestMacMask = _AclMacRuleDestMacMask_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 6),
+    _AclMacRuleDestMacMask_Type()
+)
+aclMacRuleDestMacMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleDestMacMask.setStatus("current")
+
+
+class _AclMacRuleEtypeKey_Type(Integer32):
+    """Custom type aclMacRuleEtypeKey based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13)
+        )
+    )
+    namedValues = NamedValues(
+        *(("custom", 1),
+          ("appletalk", 2),
+          ("arp", 3),
+          ("ibmsna", 4),
+          ("ipv4", 5),
+          ("ipv6", 6),
+          ("ipx", 7),
+          ("mplsmcast", 8),
+          ("mplsucast", 9),
+          ("netbios", 10),
+          ("novell", 11),
+          ("pppoe", 12),
+          ("rarp", 13))
+    )
+
+
+_AclMacRuleEtypeKey_Type.__name__ = "Integer32"
+_AclMacRuleEtypeKey_Object = MibTableColumn
+aclMacRuleEtypeKey = _AclMacRuleEtypeKey_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 7),
+    _AclMacRuleEtypeKey_Type()
+)
+aclMacRuleEtypeKey.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleEtypeKey.setStatus("current")
+_AclMacRuleEtypeValue_Type = EtypeValue
+_AclMacRuleEtypeValue_Object = MibTableColumn
+aclMacRuleEtypeValue = _AclMacRuleEtypeValue_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 8),
+    _AclMacRuleEtypeValue_Type()
+)
+aclMacRuleEtypeValue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleEtypeValue.setStatus("current")
+_AclMacRuleSrcMacAddr_Type = MacAddress
+_AclMacRuleSrcMacAddr_Object = MibTableColumn
+aclMacRuleSrcMacAddr = _AclMacRuleSrcMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 9),
+    _AclMacRuleSrcMacAddr_Type()
+)
+aclMacRuleSrcMacAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleSrcMacAddr.setStatus("current")
+_AclMacRuleSrcMacMask_Type = MacAddress
+_AclMacRuleSrcMacMask_Object = MibTableColumn
+aclMacRuleSrcMacMask = _AclMacRuleSrcMacMask_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 10),
+    _AclMacRuleSrcMacMask_Type()
+)
+aclMacRuleSrcMacMask.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleSrcMacMask.setStatus("current")
+
+
+class _AclMacRuleVlanId_Type(Unsigned32):
+    """Custom type aclMacRuleVlanId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4093),
+    )
+
+
+_AclMacRuleVlanId_Type.__name__ = "Unsigned32"
+_AclMacRuleVlanId_Object = MibTableColumn
+aclMacRuleVlanId = _AclMacRuleVlanId_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 11),
+    _AclMacRuleVlanId_Type()
+)
+aclMacRuleVlanId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleVlanId.setStatus("current")
+
+
+class _AclMacRuleVlanIdRangeStart_Type(Unsigned32):
+    """Custom type aclMacRuleVlanIdRangeStart based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4093),
+    )
+
+
+_AclMacRuleVlanIdRangeStart_Type.__name__ = "Unsigned32"
+_AclMacRuleVlanIdRangeStart_Object = MibTableColumn
+aclMacRuleVlanIdRangeStart = _AclMacRuleVlanIdRangeStart_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 12),
+    _AclMacRuleVlanIdRangeStart_Type()
+)
+aclMacRuleVlanIdRangeStart.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleVlanIdRangeStart.setStatus("current")
+
+
+class _AclMacRuleVlanIdRangeEnd_Type(Unsigned32):
+    """Custom type aclMacRuleVlanIdRangeEnd based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4093),
+    )
+
+
+_AclMacRuleVlanIdRangeEnd_Type.__name__ = "Unsigned32"
+_AclMacRuleVlanIdRangeEnd_Object = MibTableColumn
+aclMacRuleVlanIdRangeEnd = _AclMacRuleVlanIdRangeEnd_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 13),
+    _AclMacRuleVlanIdRangeEnd_Type()
+)
+aclMacRuleVlanIdRangeEnd.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleVlanIdRangeEnd.setStatus("current")
+
+
+class _AclMacRuleVlanId2_Type(Unsigned32):
+    """Custom type aclMacRuleVlanId2 based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4093),
+    )
+
+
+_AclMacRuleVlanId2_Type.__name__ = "Unsigned32"
+_AclMacRuleVlanId2_Object = MibTableColumn
+aclMacRuleVlanId2 = _AclMacRuleVlanId2_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 14),
+    _AclMacRuleVlanId2_Type()
+)
+aclMacRuleVlanId2.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleVlanId2.setStatus("current")
+
+
+class _AclMacRuleVlanId2RangeStart_Type(Unsigned32):
+    """Custom type aclMacRuleVlanId2RangeStart based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4093),
+    )
+
+
+_AclMacRuleVlanId2RangeStart_Type.__name__ = "Unsigned32"
+_AclMacRuleVlanId2RangeStart_Object = MibTableColumn
+aclMacRuleVlanId2RangeStart = _AclMacRuleVlanId2RangeStart_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 15),
+    _AclMacRuleVlanId2RangeStart_Type()
+)
+aclMacRuleVlanId2RangeStart.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleVlanId2RangeStart.setStatus("current")
+
+
+class _AclMacRuleVlanId2RangeEnd_Type(Unsigned32):
+    """Custom type aclMacRuleVlanId2RangeEnd based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4093),
+    )
+
+
+_AclMacRuleVlanId2RangeEnd_Type.__name__ = "Unsigned32"
+_AclMacRuleVlanId2RangeEnd_Object = MibTableColumn
+aclMacRuleVlanId2RangeEnd = _AclMacRuleVlanId2RangeEnd_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 16),
+    _AclMacRuleVlanId2RangeEnd_Type()
+)
+aclMacRuleVlanId2RangeEnd.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleVlanId2RangeEnd.setStatus("current")
+_AclMacRuleStatus_Type = RowStatus
+_AclMacRuleStatus_Object = MibTableColumn
+aclMacRuleStatus = _AclMacRuleStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 17),
+    _AclMacRuleStatus_Type()
+)
+aclMacRuleStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleStatus.setStatus("current")
+_AclMacRuleAssignQueueId_Type = Unsigned32
+_AclMacRuleAssignQueueId_Object = MibTableColumn
+aclMacRuleAssignQueueId = _AclMacRuleAssignQueueId_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 18),
+    _AclMacRuleAssignQueueId_Type()
+)
+aclMacRuleAssignQueueId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleAssignQueueId.setStatus("current")
+
+
+class _AclMacRuleRedirectIntf_Type(InterfaceIndexOrZero):
+    """Custom type aclMacRuleRedirectIntf based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_AclMacRuleRedirectIntf_Type.__name__ = "InterfaceIndexOrZero"
+_AclMacRuleRedirectIntf_Object = MibTableColumn
+aclMacRuleRedirectIntf = _AclMacRuleRedirectIntf_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 19),
+    _AclMacRuleRedirectIntf_Type()
+)
+aclMacRuleRedirectIntf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleRedirectIntf.setStatus("current")
+_AclMacRuleMatchEvery_Type = TruthValue
+_AclMacRuleMatchEvery_Object = MibTableColumn
+aclMacRuleMatchEvery = _AclMacRuleMatchEvery_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 20),
+    _AclMacRuleMatchEvery_Type()
+)
+aclMacRuleMatchEvery.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleMatchEvery.setStatus("current")
+
+
+class _AclMacRuleMirrorIntf_Type(InterfaceIndexOrZero):
+    """Custom type aclMacRuleMirrorIntf based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_AclMacRuleMirrorIntf_Type.__name__ = "InterfaceIndexOrZero"
+_AclMacRuleMirrorIntf_Object = MibTableColumn
+aclMacRuleMirrorIntf = _AclMacRuleMirrorIntf_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 21),
+    _AclMacRuleMirrorIntf_Type()
+)
+aclMacRuleMirrorIntf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleMirrorIntf.setStatus("current")
+_AclMacRuleLogging_Type = TruthValue
+_AclMacRuleLogging_Object = MibTableColumn
+aclMacRuleLogging = _AclMacRuleLogging_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 22),
+    _AclMacRuleLogging_Type()
+)
+aclMacRuleLogging.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleLogging.setStatus("current")
+
+
+class _AclMacRuleTimeRangeName_Type(DisplayString):
+    """Custom type aclMacRuleTimeRangeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AclMacRuleTimeRangeName_Type.__name__ = "DisplayString"
+_AclMacRuleTimeRangeName_Object = MibTableColumn
+aclMacRuleTimeRangeName = _AclMacRuleTimeRangeName_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 23),
+    _AclMacRuleTimeRangeName_Type()
+)
+aclMacRuleTimeRangeName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleTimeRangeName.setStatus("current")
+
+
+class _AclMacRuleTimeRangeStatus_Type(Integer32):
+    """Custom type aclMacRuleTimeRangeStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("active", 2))
+    )
+
+
+_AclMacRuleTimeRangeStatus_Type.__name__ = "Integer32"
+_AclMacRuleTimeRangeStatus_Object = MibTableColumn
+aclMacRuleTimeRangeStatus = _AclMacRuleTimeRangeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 24),
+    _AclMacRuleTimeRangeStatus_Type()
+)
+aclMacRuleTimeRangeStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aclMacRuleTimeRangeStatus.setStatus("current")
+_AclMacRuleRateLimitCrate_Type = Unsigned32
+_AclMacRuleRateLimitCrate_Object = MibTableColumn
+aclMacRuleRateLimitCrate = _AclMacRuleRateLimitCrate_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 25),
+    _AclMacRuleRateLimitCrate_Type()
+)
+aclMacRuleRateLimitCrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleRateLimitCrate.setStatus("current")
+_AclMacRuleRateLimitCburst_Type = AclBurstSize
+_AclMacRuleRateLimitCburst_Object = MibTableColumn
+aclMacRuleRateLimitCburst = _AclMacRuleRateLimitCburst_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 26),
+    _AclMacRuleRateLimitCburst_Type()
+)
+aclMacRuleRateLimitCburst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleRateLimitCburst.setStatus("current")
+_AclMacRuleIsDuplicated_Type = TruthValue
+_AclMacRuleIsDuplicated_Object = MibTableColumn
+aclMacRuleIsDuplicated = _AclMacRuleIsDuplicated_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 7, 1, 28),
+    _AclMacRuleIsDuplicated_Type()
+)
+aclMacRuleIsDuplicated.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclMacRuleIsDuplicated.setStatus("current")
+_AclIfTable_Object = MibTable
+aclIfTable = _AclIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8)
+)
+if mibBuilder.loadTexts:
+    aclIfTable.setStatus("current")
+_AclIfEntry_Object = MibTableRow
+aclIfEntry = _AclIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1)
+)
+aclIfEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIfIndex"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIfDirection"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIfSequence"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIfAclType"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIfAclId"),
+)
+if mibBuilder.loadTexts:
+    aclIfEntry.setStatus("current")
+
+
+class _AclIfIndex_Type(Integer32):
+    """Custom type aclIfIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AclIfIndex_Type.__name__ = "Integer32"
+_AclIfIndex_Object = MibTableColumn
+aclIfIndex = _AclIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 1),
+    _AclIfIndex_Type()
+)
+aclIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclIfIndex.setStatus("current")
+
+
+class _AclIfDirection_Type(Integer32):
+    """Custom type aclIfDirection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inbound", 1),
+          ("outbound", 2))
+    )
+
+
+_AclIfDirection_Type.__name__ = "Integer32"
+_AclIfDirection_Object = MibTableColumn
+aclIfDirection = _AclIfDirection_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 2),
+    _AclIfDirection_Type()
+)
+aclIfDirection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclIfDirection.setStatus("current")
+
+
+class _AclIfSequence_Type(Unsigned32):
+    """Custom type aclIfSequence based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_AclIfSequence_Type.__name__ = "Unsigned32"
+_AclIfSequence_Object = MibTableColumn
+aclIfSequence = _AclIfSequence_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 3),
+    _AclIfSequence_Type()
+)
+aclIfSequence.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclIfSequence.setStatus("current")
+
+
+class _AclIfAclType_Type(Integer32):
+    """Custom type aclIfAclType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ip", 1),
+          ("mac", 2),
+          ("ipv6", 3))
+    )
+
+
+_AclIfAclType_Type.__name__ = "Integer32"
+_AclIfAclType_Object = MibTableColumn
+aclIfAclType = _AclIfAclType_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 4),
+    _AclIfAclType_Type()
+)
+aclIfAclType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclIfAclType.setStatus("current")
+
+
+class _AclIfAclId_Type(Integer32):
+    """Custom type aclIfAclId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AclIfAclId_Type.__name__ = "Integer32"
+_AclIfAclId_Object = MibTableColumn
+aclIfAclId = _AclIfAclId_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 5),
+    _AclIfAclId_Type()
+)
+aclIfAclId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclIfAclId.setStatus("current")
+_AclIfStatus_Type = RowStatus
+_AclIfStatus_Object = MibTableColumn
+aclIfStatus = _AclIfStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 8, 1, 6),
+    _AclIfStatus_Type()
+)
+aclIfStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIfStatus.setStatus("current")
+_AclLoggingGroup_ObjectIdentity = ObjectIdentity
+aclLoggingGroup = _AclLoggingGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9)
+)
+
+
+class _AclTrapRuleIndex_Type(Integer32):
+    """Custom type aclTrapRuleIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AclTrapRuleIndex_Type.__name__ = "Integer32"
+_AclTrapRuleIndex_Object = MibScalar
+aclTrapRuleIndex = _AclTrapRuleIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 2),
+    _AclTrapRuleIndex_Type()
+)
+aclTrapRuleIndex.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aclTrapRuleIndex.setStatus("current")
+
+
+class _AclTrapRuleAction_Type(Integer32):
+    """Custom type aclTrapRuleAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("permit", 1),
+          ("deny", 2))
+    )
+
+
+_AclTrapRuleAction_Type.__name__ = "Integer32"
+_AclTrapRuleAction_Object = MibScalar
+aclTrapRuleAction = _AclTrapRuleAction_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 3),
+    _AclTrapRuleAction_Type()
+)
+aclTrapRuleAction.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aclTrapRuleAction.setStatus("current")
+_AclTrapRuleHitCount_Type = Counter64
+_AclTrapRuleHitCount_Object = MibScalar
+aclTrapRuleHitCount = _AclTrapRuleHitCount_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 4),
+    _AclTrapRuleHitCount_Type()
+)
+aclTrapRuleHitCount.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aclTrapRuleHitCount.setStatus("current")
+
+
+class _AclTrapFlag_Type(Integer32):
+    """Custom type aclTrapFlag based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_AclTrapFlag_Type.__name__ = "Integer32"
+_AclTrapFlag_Object = MibScalar
+aclTrapFlag = _AclTrapFlag_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 5),
+    _AclTrapFlag_Type()
+)
+aclTrapFlag.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aclTrapFlag.setStatus("current")
+
+
+class _AclTrapRuleTimeRangeName_Type(DisplayString):
+    """Custom type aclTrapRuleTimeRangeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AclTrapRuleTimeRangeName_Type.__name__ = "DisplayString"
+_AclTrapRuleTimeRangeName_Object = MibScalar
+aclTrapRuleTimeRangeName = _AclTrapRuleTimeRangeName_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 6),
+    _AclTrapRuleTimeRangeName_Type()
+)
+aclTrapRuleTimeRangeName.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aclTrapRuleTimeRangeName.setStatus("current")
+
+
+class _AclTrapRuleTimeRangeNotification_Type(Integer32):
+    """Custom type aclTrapRuleTimeRangeNotification based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("activate", 1),
+          ("deactivate", 2),
+          ("delete", 3))
+    )
+
+
+_AclTrapRuleTimeRangeNotification_Type.__name__ = "Integer32"
+_AclTrapRuleTimeRangeNotification_Object = MibScalar
+aclTrapRuleTimeRangeNotification = _AclTrapRuleTimeRangeNotification_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 7),
+    _AclTrapRuleTimeRangeNotification_Type()
+)
+aclTrapRuleTimeRangeNotification.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aclTrapRuleTimeRangeNotification.setStatus("current")
+
+
+class _AclTrapRuleInstallationStatus_Type(Integer32):
+    """Custom type aclTrapRuleInstallationStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("failure", 1),
+          ("success", 2))
+    )
+
+
+_AclTrapRuleInstallationStatus_Type.__name__ = "Integer32"
+_AclTrapRuleInstallationStatus_Object = MibScalar
+aclTrapRuleInstallationStatus = _AclTrapRuleInstallationStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 9, 8),
+    _AclTrapRuleInstallationStatus_Type()
+)
+aclTrapRuleInstallationStatus.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    aclTrapRuleInstallationStatus.setStatus("current")
+_AclIpv6IndexNextFree_Type = Integer32
+_AclIpv6IndexNextFree_Object = MibScalar
+aclIpv6IndexNextFree = _AclIpv6IndexNextFree_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 10),
+    _AclIpv6IndexNextFree_Type()
+)
+aclIpv6IndexNextFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aclIpv6IndexNextFree.setStatus("current")
+_AclIpv6Table_Object = MibTable
+aclIpv6Table = _AclIpv6Table_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11)
+)
+if mibBuilder.loadTexts:
+    aclIpv6Table.setStatus("current")
+_AclIpv6Entry_Object = MibTableRow
+aclIpv6Entry = _AclIpv6Entry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1)
+)
+aclIpv6Entry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6Index"),
+)
+if mibBuilder.loadTexts:
+    aclIpv6Entry.setStatus("current")
+
+
+class _AclIpv6Index_Type(Integer32):
+    """Custom type aclIpv6Index based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AclIpv6Index_Type.__name__ = "Integer32"
+_AclIpv6Index_Object = MibTableColumn
+aclIpv6Index = _AclIpv6Index_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1, 1),
+    _AclIpv6Index_Type()
+)
+aclIpv6Index.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclIpv6Index.setStatus("current")
+
+
+class _AclIpv6Name_Type(DisplayString):
+    """Custom type aclIpv6Name based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AclIpv6Name_Type.__name__ = "DisplayString"
+_AclIpv6Name_Object = MibTableColumn
+aclIpv6Name = _AclIpv6Name_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1, 2),
+    _AclIpv6Name_Type()
+)
+aclIpv6Name.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6Name.setStatus("current")
+_AclIpv6Status_Type = RowStatus
+_AclIpv6Status_Object = MibTableColumn
+aclIpv6Status = _AclIpv6Status_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1, 3),
+    _AclIpv6Status_Type()
+)
+aclIpv6Status.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6Status.setStatus("current")
+
+
+class _AclIpv6ResquenceStartRuleNumber_Type(Integer32):
+    """Custom type aclIpv6ResquenceStartRuleNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AclIpv6ResquenceStartRuleNumber_Type.__name__ = "Integer32"
+_AclIpv6ResquenceStartRuleNumber_Object = MibTableColumn
+aclIpv6ResquenceStartRuleNumber = _AclIpv6ResquenceStartRuleNumber_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1, 4),
+    _AclIpv6ResquenceStartRuleNumber_Type()
+)
+aclIpv6ResquenceStartRuleNumber.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aclIpv6ResquenceStartRuleNumber.setStatus("current")
+
+
+class _AclIpv6ResequenceIncrement_Type(Integer32):
+    """Custom type aclIpv6ResequenceIncrement based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_AclIpv6ResequenceIncrement_Type.__name__ = "Integer32"
+_AclIpv6ResequenceIncrement_Object = MibTableColumn
+aclIpv6ResequenceIncrement = _AclIpv6ResequenceIncrement_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 11, 1, 5),
+    _AclIpv6ResequenceIncrement_Type()
+)
+aclIpv6ResequenceIncrement.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aclIpv6ResequenceIncrement.setStatus("current")
+_AclIpv6RuleTable_Object = MibTable
+aclIpv6RuleTable = _AclIpv6RuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12)
+)
+if mibBuilder.loadTexts:
+    aclIpv6RuleTable.setStatus("current")
+_AclIpv6RuleEntry_Object = MibTableRow
+aclIpv6RuleEntry = _AclIpv6RuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1)
+)
+aclIpv6RuleEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6Index"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6RuleIndex"),
+)
+if mibBuilder.loadTexts:
+    aclIpv6RuleEntry.setStatus("current")
+
+
+class _AclIpv6RuleIndex_Type(Integer32):
+    """Custom type aclIpv6RuleIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AclIpv6RuleIndex_Type.__name__ = "Integer32"
+_AclIpv6RuleIndex_Object = MibTableColumn
+aclIpv6RuleIndex = _AclIpv6RuleIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 1),
+    _AclIpv6RuleIndex_Type()
+)
+aclIpv6RuleIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleIndex.setStatus("current")
+
+
+class _AclIpv6RuleAction_Type(Integer32):
+    """Custom type aclIpv6RuleAction based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("permit", 1),
+          ("deny", 2))
+    )
+
+
+_AclIpv6RuleAction_Type.__name__ = "Integer32"
+_AclIpv6RuleAction_Object = MibTableColumn
+aclIpv6RuleAction = _AclIpv6RuleAction_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 2),
+    _AclIpv6RuleAction_Type()
+)
+aclIpv6RuleAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleAction.setStatus("current")
+_AclIpv6RuleLogging_Type = TruthValue
+_AclIpv6RuleLogging_Object = MibTableColumn
+aclIpv6RuleLogging = _AclIpv6RuleLogging_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 3),
+    _AclIpv6RuleLogging_Type()
+)
+aclIpv6RuleLogging.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleLogging.setStatus("current")
+_AclIpv6RuleAssignQueueId_Type = Unsigned32
+_AclIpv6RuleAssignQueueId_Object = MibTableColumn
+aclIpv6RuleAssignQueueId = _AclIpv6RuleAssignQueueId_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 4),
+    _AclIpv6RuleAssignQueueId_Type()
+)
+aclIpv6RuleAssignQueueId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleAssignQueueId.setStatus("current")
+
+
+class _AclIpv6RuleRedirectIntf_Type(InterfaceIndexOrZero):
+    """Custom type aclIpv6RuleRedirectIntf based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_AclIpv6RuleRedirectIntf_Type.__name__ = "InterfaceIndexOrZero"
+_AclIpv6RuleRedirectIntf_Object = MibTableColumn
+aclIpv6RuleRedirectIntf = _AclIpv6RuleRedirectIntf_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 5),
+    _AclIpv6RuleRedirectIntf_Type()
+)
+aclIpv6RuleRedirectIntf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleRedirectIntf.setStatus("current")
+
+
+class _AclIpv6RuleMirrorIntf_Type(InterfaceIndexOrZero):
+    """Custom type aclIpv6RuleMirrorIntf based on InterfaceIndexOrZero"""
+    defaultValue = 0
+
+
+_AclIpv6RuleMirrorIntf_Type.__name__ = "InterfaceIndexOrZero"
+_AclIpv6RuleMirrorIntf_Object = MibTableColumn
+aclIpv6RuleMirrorIntf = _AclIpv6RuleMirrorIntf_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 6),
+    _AclIpv6RuleMirrorIntf_Type()
+)
+aclIpv6RuleMirrorIntf.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleMirrorIntf.setStatus("current")
+_AclIpv6RuleMatchEvery_Type = TruthValue
+_AclIpv6RuleMatchEvery_Object = MibTableColumn
+aclIpv6RuleMatchEvery = _AclIpv6RuleMatchEvery_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 7),
+    _AclIpv6RuleMatchEvery_Type()
+)
+aclIpv6RuleMatchEvery.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleMatchEvery.setStatus("current")
+
+
+class _AclIpv6RuleProtocol_Type(Integer32):
+    """Custom type aclIpv6RuleProtocol based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AclIpv6RuleProtocol_Type.__name__ = "Integer32"
+_AclIpv6RuleProtocol_Object = MibTableColumn
+aclIpv6RuleProtocol = _AclIpv6RuleProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 8),
+    _AclIpv6RuleProtocol_Type()
+)
+aclIpv6RuleProtocol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleProtocol.setStatus("current")
+_AclIpv6RuleSrcL4Port_Type = Integer32
+_AclIpv6RuleSrcL4Port_Object = MibTableColumn
+aclIpv6RuleSrcL4Port = _AclIpv6RuleSrcL4Port_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 9),
+    _AclIpv6RuleSrcL4Port_Type()
+)
+aclIpv6RuleSrcL4Port.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleSrcL4Port.setStatus("current")
+_AclIpv6RuleSrcL4PortRangeStart_Type = Integer32
+_AclIpv6RuleSrcL4PortRangeStart_Object = MibTableColumn
+aclIpv6RuleSrcL4PortRangeStart = _AclIpv6RuleSrcL4PortRangeStart_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 10),
+    _AclIpv6RuleSrcL4PortRangeStart_Type()
+)
+aclIpv6RuleSrcL4PortRangeStart.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleSrcL4PortRangeStart.setStatus("current")
+_AclIpv6RuleSrcL4PortRangeEnd_Type = Integer32
+_AclIpv6RuleSrcL4PortRangeEnd_Object = MibTableColumn
+aclIpv6RuleSrcL4PortRangeEnd = _AclIpv6RuleSrcL4PortRangeEnd_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 11),
+    _AclIpv6RuleSrcL4PortRangeEnd_Type()
+)
+aclIpv6RuleSrcL4PortRangeEnd.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleSrcL4PortRangeEnd.setStatus("current")
+_AclIpv6RuleDestL4Port_Type = Integer32
+_AclIpv6RuleDestL4Port_Object = MibTableColumn
+aclIpv6RuleDestL4Port = _AclIpv6RuleDestL4Port_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 12),
+    _AclIpv6RuleDestL4Port_Type()
+)
+aclIpv6RuleDestL4Port.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleDestL4Port.setStatus("current")
+_AclIpv6RuleDestL4PortRangeStart_Type = Integer32
+_AclIpv6RuleDestL4PortRangeStart_Object = MibTableColumn
+aclIpv6RuleDestL4PortRangeStart = _AclIpv6RuleDestL4PortRangeStart_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 13),
+    _AclIpv6RuleDestL4PortRangeStart_Type()
+)
+aclIpv6RuleDestL4PortRangeStart.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleDestL4PortRangeStart.setStatus("current")
+_AclIpv6RuleDestL4PortRangeEnd_Type = Integer32
+_AclIpv6RuleDestL4PortRangeEnd_Object = MibTableColumn
+aclIpv6RuleDestL4PortRangeEnd = _AclIpv6RuleDestL4PortRangeEnd_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 14),
+    _AclIpv6RuleDestL4PortRangeEnd_Type()
+)
+aclIpv6RuleDestL4PortRangeEnd.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleDestL4PortRangeEnd.setStatus("current")
+_AclIpv6RuleStatus_Type = RowStatus
+_AclIpv6RuleStatus_Object = MibTableColumn
+aclIpv6RuleStatus = _AclIpv6RuleStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 15),
+    _AclIpv6RuleStatus_Type()
+)
+aclIpv6RuleStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleStatus.setStatus("current")
+
+
+class _AclIpv6RuleFlowLabel_Type(Integer32):
+    """Custom type aclIpv6RuleFlowLabel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1048575),
+    )
+
+
+_AclIpv6RuleFlowLabel_Type.__name__ = "Integer32"
+_AclIpv6RuleFlowLabel_Object = MibTableColumn
+aclIpv6RuleFlowLabel = _AclIpv6RuleFlowLabel_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 16),
+    _AclIpv6RuleFlowLabel_Type()
+)
+aclIpv6RuleFlowLabel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleFlowLabel.setStatus("current")
+_AclIpv6RuleIPDSCP_Type = Integer32
+_AclIpv6RuleIPDSCP_Object = MibTableColumn
+aclIpv6RuleIPDSCP = _AclIpv6RuleIPDSCP_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 17),
+    _AclIpv6RuleIPDSCP_Type()
+)
+aclIpv6RuleIPDSCP.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleIPDSCP.setStatus("current")
+_AclRuleSrcIpv6Prefix_Type = Ipv6AddressPrefix
+_AclRuleSrcIpv6Prefix_Object = MibTableColumn
+aclRuleSrcIpv6Prefix = _AclRuleSrcIpv6Prefix_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 18),
+    _AclRuleSrcIpv6Prefix_Type()
+)
+aclRuleSrcIpv6Prefix.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aclRuleSrcIpv6Prefix.setStatus("current")
+
+
+class _AclRuleSrcIpv6PrefixLength_Type(Integer32):
+    """Custom type aclRuleSrcIpv6PrefixLength based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+_AclRuleSrcIpv6PrefixLength_Type.__name__ = "Integer32"
+_AclRuleSrcIpv6PrefixLength_Object = MibTableColumn
+aclRuleSrcIpv6PrefixLength = _AclRuleSrcIpv6PrefixLength_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 19),
+    _AclRuleSrcIpv6PrefixLength_Type()
+)
+aclRuleSrcIpv6PrefixLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleSrcIpv6PrefixLength.setStatus("current")
+_AclRuleDstIpv6Prefix_Type = Ipv6AddressPrefix
+_AclRuleDstIpv6Prefix_Object = MibTableColumn
+aclRuleDstIpv6Prefix = _AclRuleDstIpv6Prefix_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 20),
+    _AclRuleDstIpv6Prefix_Type()
+)
+aclRuleDstIpv6Prefix.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    aclRuleDstIpv6Prefix.setStatus("current")
+
+
+class _AclRuleDstIpv6PrefixLength_Type(Integer32):
+    """Custom type aclRuleDstIpv6PrefixLength based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 128),
+    )
+
+
+_AclRuleDstIpv6PrefixLength_Type.__name__ = "Integer32"
+_AclRuleDstIpv6PrefixLength_Object = MibTableColumn
+aclRuleDstIpv6PrefixLength = _AclRuleDstIpv6PrefixLength_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 21),
+    _AclRuleDstIpv6PrefixLength_Type()
+)
+aclRuleDstIpv6PrefixLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclRuleDstIpv6PrefixLength.setStatus("current")
+
+
+class _AclIpv6RuleTimeRangeName_Type(DisplayString):
+    """Custom type aclIpv6RuleTimeRangeName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_AclIpv6RuleTimeRangeName_Type.__name__ = "DisplayString"
+_AclIpv6RuleTimeRangeName_Object = MibTableColumn
+aclIpv6RuleTimeRangeName = _AclIpv6RuleTimeRangeName_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 22),
+    _AclIpv6RuleTimeRangeName_Type()
+)
+aclIpv6RuleTimeRangeName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleTimeRangeName.setStatus("current")
+
+
+class _AclIpv6RuleTimeRangeStatus_Type(Integer32):
+    """Custom type aclIpv6RuleTimeRangeStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inactive", 1),
+          ("active", 2))
+    )
+
+
+_AclIpv6RuleTimeRangeStatus_Type.__name__ = "Integer32"
+_AclIpv6RuleTimeRangeStatus_Object = MibTableColumn
+aclIpv6RuleTimeRangeStatus = _AclIpv6RuleTimeRangeStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 23),
+    _AclIpv6RuleTimeRangeStatus_Type()
+)
+aclIpv6RuleTimeRangeStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aclIpv6RuleTimeRangeStatus.setStatus("current")
+_AclIpv6RuleRateLimitCrate_Type = Unsigned32
+_AclIpv6RuleRateLimitCrate_Object = MibTableColumn
+aclIpv6RuleRateLimitCrate = _AclIpv6RuleRateLimitCrate_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 24),
+    _AclIpv6RuleRateLimitCrate_Type()
+)
+aclIpv6RuleRateLimitCrate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleRateLimitCrate.setStatus("current")
+_AclIpv6RuleRateLimitCburst_Type = AclBurstSize
+_AclIpv6RuleRateLimitCburst_Object = MibTableColumn
+aclIpv6RuleRateLimitCburst = _AclIpv6RuleRateLimitCburst_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 25),
+    _AclIpv6RuleRateLimitCburst_Type()
+)
+aclIpv6RuleRateLimitCburst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleRateLimitCburst.setStatus("current")
+
+
+class _AclIpv6RuleIcmpType_Type(Integer32):
+    """Custom type aclIpv6RuleIcmpType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AclIpv6RuleIcmpType_Type.__name__ = "Integer32"
+_AclIpv6RuleIcmpType_Object = MibTableColumn
+aclIpv6RuleIcmpType = _AclIpv6RuleIcmpType_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 27),
+    _AclIpv6RuleIcmpType_Type()
+)
+aclIpv6RuleIcmpType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleIcmpType.setStatus("current")
+
+
+class _AclIpv6RuleIcmpCode_Type(Integer32):
+    """Custom type aclIpv6RuleIcmpCode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_AclIpv6RuleIcmpCode_Type.__name__ = "Integer32"
+_AclIpv6RuleIcmpCode_Object = MibTableColumn
+aclIpv6RuleIcmpCode = _AclIpv6RuleIcmpCode_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 28),
+    _AclIpv6RuleIcmpCode_Type()
+)
+aclIpv6RuleIcmpCode.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleIcmpCode.setStatus("current")
+_AclIpv6RuleRouting_Type = TruthValue
+_AclIpv6RuleRouting_Object = MibTableColumn
+aclIpv6RuleRouting = _AclIpv6RuleRouting_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 29),
+    _AclIpv6RuleRouting_Type()
+)
+aclIpv6RuleRouting.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleRouting.setStatus("current")
+_AclIpv6RuleFragments_Type = TruthValue
+_AclIpv6RuleFragments_Object = MibTableColumn
+aclIpv6RuleFragments = _AclIpv6RuleFragments_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 30),
+    _AclIpv6RuleFragments_Type()
+)
+aclIpv6RuleFragments.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleFragments.setStatus("current")
+_AclIpv6RuleEstablished_Type = TruthValue
+_AclIpv6RuleEstablished_Object = MibTableColumn
+aclIpv6RuleEstablished = _AclIpv6RuleEstablished_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 31),
+    _AclIpv6RuleEstablished_Type()
+)
+aclIpv6RuleEstablished.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleEstablished.setStatus("current")
+_AclIpv6RuleIsDuplicated_Type = TruthValue
+_AclIpv6RuleIsDuplicated_Object = MibTableColumn
+aclIpv6RuleIsDuplicated = _AclIpv6RuleIsDuplicated_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 12, 1, 32),
+    _AclIpv6RuleIsDuplicated_Type()
+)
+aclIpv6RuleIsDuplicated.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclIpv6RuleIsDuplicated.setStatus("current")
+_AclVlanTable_Object = MibTable
+aclVlanTable = _AclVlanTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13)
+)
+if mibBuilder.loadTexts:
+    aclVlanTable.setStatus("current")
+_AclVlanEntry_Object = MibTableRow
+aclVlanEntry = _AclVlanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1)
+)
+aclVlanEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclVlanIndex"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclVlanDirection"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclVlanSequence"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclVlanAclType"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclVlanAclId"),
+)
+if mibBuilder.loadTexts:
+    aclVlanEntry.setStatus("current")
+
+
+class _AclVlanIndex_Type(Integer32):
+    """Custom type aclVlanIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AclVlanIndex_Type.__name__ = "Integer32"
+_AclVlanIndex_Object = MibTableColumn
+aclVlanIndex = _AclVlanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 1),
+    _AclVlanIndex_Type()
+)
+aclVlanIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclVlanIndex.setStatus("current")
+
+
+class _AclVlanDirection_Type(Integer32):
+    """Custom type aclVlanDirection based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("inbound", 1),
+          ("outbound", 2))
+    )
+
+
+_AclVlanDirection_Type.__name__ = "Integer32"
+_AclVlanDirection_Object = MibTableColumn
+aclVlanDirection = _AclVlanDirection_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 2),
+    _AclVlanDirection_Type()
+)
+aclVlanDirection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclVlanDirection.setStatus("current")
+
+
+class _AclVlanSequence_Type(Unsigned32):
+    """Custom type aclVlanSequence based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_AclVlanSequence_Type.__name__ = "Unsigned32"
+_AclVlanSequence_Object = MibTableColumn
+aclVlanSequence = _AclVlanSequence_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 3),
+    _AclVlanSequence_Type()
+)
+aclVlanSequence.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclVlanSequence.setStatus("current")
+
+
+class _AclVlanAclType_Type(Integer32):
+    """Custom type aclVlanAclType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ip", 1),
+          ("mac", 2),
+          ("ipv6", 3))
+    )
+
+
+_AclVlanAclType_Type.__name__ = "Integer32"
+_AclVlanAclType_Object = MibTableColumn
+aclVlanAclType = _AclVlanAclType_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 4),
+    _AclVlanAclType_Type()
+)
+aclVlanAclType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclVlanAclType.setStatus("current")
+
+
+class _AclVlanAclId_Type(Integer32):
+    """Custom type aclVlanAclId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_AclVlanAclId_Type.__name__ = "Integer32"
+_AclVlanAclId_Object = MibTableColumn
+aclVlanAclId = _AclVlanAclId_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 5),
+    _AclVlanAclId_Type()
+)
+aclVlanAclId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aclVlanAclId.setStatus("current")
+_AclVlanStatus_Type = RowStatus
+_AclVlanStatus_Object = MibTableColumn
+aclVlanStatus = _AclVlanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 13, 1, 6),
+    _AclVlanStatus_Type()
+)
+aclVlanStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    aclVlanStatus.setStatus("current")
+_AclNamedIpv4IndexNextFree_Type = Integer32
+_AclNamedIpv4IndexNextFree_Object = MibScalar
+aclNamedIpv4IndexNextFree = _AclNamedIpv4IndexNextFree_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 14),
+    _AclNamedIpv4IndexNextFree_Type()
+)
+aclNamedIpv4IndexNextFree.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aclNamedIpv4IndexNextFree.setStatus("current")
+_AgentAclRemarkConfigTable_Object = MibTable
+agentAclRemarkConfigTable = _AgentAclRemarkConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 15)
+)
+if mibBuilder.loadTexts:
+    agentAclRemarkConfigTable.setStatus("current")
+_AgentAclRemarkConfigEntry_Object = MibTableRow
+agentAclRemarkConfigEntry = _AgentAclRemarkConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 15, 1)
+)
+agentAclRemarkConfigEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIndex"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclRemarkIndex"),
+)
+if mibBuilder.loadTexts:
+    agentAclRemarkConfigEntry.setStatus("current")
+
+
+class _AgentAclRemarkIndex_Type(Unsigned32):
+    """Custom type agentAclRemarkIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_AgentAclRemarkIndex_Type.__name__ = "Unsigned32"
+_AgentAclRemarkIndex_Object = MibTableColumn
+agentAclRemarkIndex = _AgentAclRemarkIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 15, 1, 1),
+    _AgentAclRemarkIndex_Type()
+)
+agentAclRemarkIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclRemarkIndex.setStatus("current")
+
+
+class _AgentAclRemarkStr_Type(DisplayString):
+    """Custom type agentAclRemarkStr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 100),
+    )
+
+
+_AgentAclRemarkStr_Type.__name__ = "DisplayString"
+_AgentAclRemarkStr_Object = MibTableColumn
+agentAclRemarkStr = _AgentAclRemarkStr_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 15, 1, 2),
+    _AgentAclRemarkStr_Type()
+)
+agentAclRemarkStr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclRemarkStr.setStatus("current")
+_AgentAclRemarkStatus_Type = RowStatus
+_AgentAclRemarkStatus_Object = MibTableColumn
+agentAclRemarkStatus = _AgentAclRemarkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 15, 1, 3),
+    _AgentAclRemarkStatus_Type()
+)
+agentAclRemarkStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclRemarkStatus.setStatus("current")
+_AgentAclRemarkRuleTable_Object = MibTable
+agentAclRemarkRuleTable = _AgentAclRemarkRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 16)
+)
+if mibBuilder.loadTexts:
+    agentAclRemarkRuleTable.setStatus("current")
+_AgentAclRemarkRuleEntry_Object = MibTableRow
+agentAclRemarkRuleEntry = _AgentAclRemarkRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 16, 1)
+)
+agentAclRemarkRuleEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIndex"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclRuleIndex"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclRuleRemarkIndex"),
+)
+if mibBuilder.loadTexts:
+    agentAclRemarkRuleEntry.setStatus("current")
+
+
+class _AgentAclRuleRemarkIndex_Type(Unsigned32):
+    """Custom type agentAclRuleRemarkIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_AgentAclRuleRemarkIndex_Type.__name__ = "Unsigned32"
+_AgentAclRuleRemarkIndex_Object = MibTableColumn
+agentAclRuleRemarkIndex = _AgentAclRuleRemarkIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 16, 1, 1),
+    _AgentAclRuleRemarkIndex_Type()
+)
+agentAclRuleRemarkIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentAclRuleRemarkIndex.setStatus("current")
+
+
+class _AgentAclRuleRemarkStr_Type(DisplayString):
+    """Custom type agentAclRuleRemarkStr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 100),
+    )
+
+
+_AgentAclRuleRemarkStr_Type.__name__ = "DisplayString"
+_AgentAclRuleRemarkStr_Object = MibTableColumn
+agentAclRuleRemarkStr = _AgentAclRuleRemarkStr_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 16, 1, 2),
+    _AgentAclRuleRemarkStr_Type()
+)
+agentAclRuleRemarkStr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentAclRuleRemarkStr.setStatus("current")
+_AgentAclRuleRemarkStatus_Type = RowStatus
+_AgentAclRuleRemarkStatus_Object = MibTableColumn
+agentAclRuleRemarkStatus = _AgentAclRuleRemarkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 16, 1, 3),
+    _AgentAclRuleRemarkStatus_Type()
+)
+agentAclRuleRemarkStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclRuleRemarkStatus.setStatus("current")
+_AgentAclIpv6RemarkConfigTable_Object = MibTable
+agentAclIpv6RemarkConfigTable = _AgentAclIpv6RemarkConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 17)
+)
+if mibBuilder.loadTexts:
+    agentAclIpv6RemarkConfigTable.setStatus("current")
+_AgentAclIpv6RemarkConfigEntry_Object = MibTableRow
+agentAclIpv6RemarkConfigEntry = _AgentAclIpv6RemarkConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 17, 1)
+)
+agentAclIpv6RemarkConfigEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6Index"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclIpv6RemarkIndex"),
+)
+if mibBuilder.loadTexts:
+    agentAclIpv6RemarkConfigEntry.setStatus("current")
+
+
+class _AgentAclIpv6RemarkIndex_Type(Unsigned32):
+    """Custom type agentAclIpv6RemarkIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_AgentAclIpv6RemarkIndex_Type.__name__ = "Unsigned32"
+_AgentAclIpv6RemarkIndex_Object = MibTableColumn
+agentAclIpv6RemarkIndex = _AgentAclIpv6RemarkIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 17, 1, 1),
+    _AgentAclIpv6RemarkIndex_Type()
+)
+agentAclIpv6RemarkIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclIpv6RemarkIndex.setStatus("current")
+
+
+class _AgentAclIpv6RemarkStr_Type(DisplayString):
+    """Custom type agentAclIpv6RemarkStr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 100),
+    )
+
+
+_AgentAclIpv6RemarkStr_Type.__name__ = "DisplayString"
+_AgentAclIpv6RemarkStr_Object = MibTableColumn
+agentAclIpv6RemarkStr = _AgentAclIpv6RemarkStr_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 17, 1, 2),
+    _AgentAclIpv6RemarkStr_Type()
+)
+agentAclIpv6RemarkStr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclIpv6RemarkStr.setStatus("current")
+_AgentAclIpv6RemarkStatus_Type = RowStatus
+_AgentAclIpv6RemarkStatus_Object = MibTableColumn
+agentAclIpv6RemarkStatus = _AgentAclIpv6RemarkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 17, 1, 3),
+    _AgentAclIpv6RemarkStatus_Type()
+)
+agentAclIpv6RemarkStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclIpv6RemarkStatus.setStatus("current")
+_AgentAclIpv6RemarkRuleTable_Object = MibTable
+agentAclIpv6RemarkRuleTable = _AgentAclIpv6RemarkRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 18)
+)
+if mibBuilder.loadTexts:
+    agentAclIpv6RemarkRuleTable.setStatus("current")
+_AgentAclIpv6RemarkRuleEntry_Object = MibTableRow
+agentAclIpv6RemarkRuleEntry = _AgentAclIpv6RemarkRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 18, 1)
+)
+agentAclIpv6RemarkRuleEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6Index"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclIpv6RuleIndex"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclIpv6RuleRemarkIndex"),
+)
+if mibBuilder.loadTexts:
+    agentAclIpv6RemarkRuleEntry.setStatus("current")
+
+
+class _AgentAclIpv6RuleRemarkIndex_Type(Unsigned32):
+    """Custom type agentAclIpv6RuleRemarkIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_AgentAclIpv6RuleRemarkIndex_Type.__name__ = "Unsigned32"
+_AgentAclIpv6RuleRemarkIndex_Object = MibTableColumn
+agentAclIpv6RuleRemarkIndex = _AgentAclIpv6RuleRemarkIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 18, 1, 1),
+    _AgentAclIpv6RuleRemarkIndex_Type()
+)
+agentAclIpv6RuleRemarkIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentAclIpv6RuleRemarkIndex.setStatus("current")
+
+
+class _AgentAclIpv6RuleRemarkStr_Type(DisplayString):
+    """Custom type agentAclIpv6RuleRemarkStr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 100),
+    )
+
+
+_AgentAclIpv6RuleRemarkStr_Type.__name__ = "DisplayString"
+_AgentAclIpv6RuleRemarkStr_Object = MibTableColumn
+agentAclIpv6RuleRemarkStr = _AgentAclIpv6RuleRemarkStr_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 18, 1, 2),
+    _AgentAclIpv6RuleRemarkStr_Type()
+)
+agentAclIpv6RuleRemarkStr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentAclIpv6RuleRemarkStr.setStatus("current")
+_AgentAclIpv6RuleRemarkStatus_Type = RowStatus
+_AgentAclIpv6RuleRemarkStatus_Object = MibTableColumn
+agentAclIpv6RuleRemarkStatus = _AgentAclIpv6RuleRemarkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 18, 1, 3),
+    _AgentAclIpv6RuleRemarkStatus_Type()
+)
+agentAclIpv6RuleRemarkStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclIpv6RuleRemarkStatus.setStatus("current")
+_AgentAclMacRemarkConfigTable_Object = MibTable
+agentAclMacRemarkConfigTable = _AgentAclMacRemarkConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 19)
+)
+if mibBuilder.loadTexts:
+    agentAclMacRemarkConfigTable.setStatus("current")
+_AgentAclMacRemarkConfigEntry_Object = MibTableRow
+agentAclMacRemarkConfigEntry = _AgentAclMacRemarkConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 19, 1)
+)
+agentAclMacRemarkConfigEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclMacIndex"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclMacRemarkIndex"),
+)
+if mibBuilder.loadTexts:
+    agentAclMacRemarkConfigEntry.setStatus("current")
+
+
+class _AgentAclMacRemarkIndex_Type(Unsigned32):
+    """Custom type agentAclMacRemarkIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_AgentAclMacRemarkIndex_Type.__name__ = "Unsigned32"
+_AgentAclMacRemarkIndex_Object = MibTableColumn
+agentAclMacRemarkIndex = _AgentAclMacRemarkIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 19, 1, 1),
+    _AgentAclMacRemarkIndex_Type()
+)
+agentAclMacRemarkIndex.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclMacRemarkIndex.setStatus("current")
+
+
+class _AgentAclMacRemarkStr_Type(DisplayString):
+    """Custom type agentAclMacRemarkStr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 100),
+    )
+
+
+_AgentAclMacRemarkStr_Type.__name__ = "DisplayString"
+_AgentAclMacRemarkStr_Object = MibTableColumn
+agentAclMacRemarkStr = _AgentAclMacRemarkStr_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 19, 1, 2),
+    _AgentAclMacRemarkStr_Type()
+)
+agentAclMacRemarkStr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclMacRemarkStr.setStatus("current")
+_AgentAclMacRemarkStatus_Type = RowStatus
+_AgentAclMacRemarkStatus_Object = MibTableColumn
+agentAclMacRemarkStatus = _AgentAclMacRemarkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 19, 1, 3),
+    _AgentAclMacRemarkStatus_Type()
+)
+agentAclMacRemarkStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclMacRemarkStatus.setStatus("current")
+_AgentAclMacRemarkRuleTable_Object = MibTable
+agentAclMacRemarkRuleTable = _AgentAclMacRemarkRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 20)
+)
+if mibBuilder.loadTexts:
+    agentAclMacRemarkRuleTable.setStatus("current")
+_AgentAclMacRemarkRuleEntry_Object = MibTableRow
+agentAclMacRemarkRuleEntry = _AgentAclMacRemarkRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 20, 1)
+)
+agentAclMacRemarkRuleEntry.setIndexNames(
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclMacIndex"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "aclMacRuleIndex"),
+    (0, "EdgeSwitch-QOS-ACL-MIB", "agentAclMacRuleRemarkIndex"),
+)
+if mibBuilder.loadTexts:
+    agentAclMacRemarkRuleEntry.setStatus("current")
+
+
+class _AgentAclMacRuleRemarkIndex_Type(Unsigned32):
+    """Custom type agentAclMacRuleRemarkIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_AgentAclMacRuleRemarkIndex_Type.__name__ = "Unsigned32"
+_AgentAclMacRuleRemarkIndex_Object = MibTableColumn
+agentAclMacRuleRemarkIndex = _AgentAclMacRuleRemarkIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 20, 1, 1),
+    _AgentAclMacRuleRemarkIndex_Type()
+)
+agentAclMacRuleRemarkIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentAclMacRuleRemarkIndex.setStatus("current")
+
+
+class _AgentAclMacRuleRemarkStr_Type(DisplayString):
+    """Custom type agentAclMacRuleRemarkStr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 100),
+    )
+
+
+_AgentAclMacRuleRemarkStr_Type.__name__ = "DisplayString"
+_AgentAclMacRuleRemarkStr_Object = MibTableColumn
+agentAclMacRuleRemarkStr = _AgentAclMacRuleRemarkStr_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 20, 1, 2),
+    _AgentAclMacRuleRemarkStr_Type()
+)
+agentAclMacRuleRemarkStr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    agentAclMacRuleRemarkStr.setStatus("current")
+_AgentAclMacRuleRemarkStatus_Type = RowStatus
+_AgentAclMacRuleRemarkStatus_Object = MibTableColumn
+agentAclMacRuleRemarkStatus = _AgentAclMacRuleRemarkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 20, 1, 3),
+    _AgentAclMacRuleRemarkStatus_Type()
+)
+agentAclMacRuleRemarkStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    agentAclMacRuleRemarkStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+aclTrapRuleLogEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 0, 1)
+)
+aclTrapRuleLogEvent.setObjects(
+      *(("EdgeSwitch-QOS-ACL-MIB", "aclIfAclType"),
+        ("EdgeSwitch-QOS-ACL-MIB", "aclIfAclId"),
+        ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleIndex"),
+        ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleAction"),
+        ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleHitCount"))
+)
+if mibBuilder.loadTexts:
+    aclTrapRuleLogEvent.setStatus(
+        "current"
+    )
+
+aclTrapRuleTimeRangeEvent = NotificationType(
+    (1, 3, 6, 1, 4, 1, 4413, 1, 1, 3, 2, 0, 2)
+)
+aclTrapRuleTimeRangeEvent.setObjects(
+      *(("EdgeSwitch-QOS-ACL-MIB", "aclIfAclType"),
+        ("EdgeSwitch-QOS-ACL-MIB", "aclIfAclId"),
+        ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleIndex"),
+        ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleTimeRangeName"),
+        ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleTimeRangeNotification"),
+        ("EdgeSwitch-QOS-ACL-MIB", "aclTrapRuleInstallationStatus"))
+)
+if mibBuilder.loadTexts:
+    aclTrapRuleTimeRangeEvent.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EdgeSwitch-QOS-ACL-MIB",
+    **{"EtypeValue": EtypeValue,
+       "Ipv6AddressPrefix": Ipv6AddressPrefix,
+       "AclBurstSize": AclBurstSize,
+       "fastPathQOSACL": fastPathQOSACL,
+       "aclNotifications": aclNotifications,
+       "aclTrapRuleLogEvent": aclTrapRuleLogEvent,
+       "aclTrapRuleTimeRangeEvent": aclTrapRuleTimeRangeEvent,
+       "aclTable": aclTable,
+       "aclEntry": aclEntry,
+       "aclIndex": aclIndex,
+       "aclStatus": aclStatus,
+       "aclName": aclName,
+       "aclResquenceStartRuleNumber": aclResquenceStartRuleNumber,
+       "aclResequenceIncrement": aclResequenceIncrement,
+       "aclRuleTable": aclRuleTable,
+       "aclRuleEntry": aclRuleEntry,
+       "aclRuleIndex": aclRuleIndex,
+       "aclRuleAction": aclRuleAction,
+       "aclRuleProtocol": aclRuleProtocol,
+       "aclRuleSrcIpAddress": aclRuleSrcIpAddress,
+       "aclRuleSrcIpMask": aclRuleSrcIpMask,
+       "aclRuleSrcL4Port": aclRuleSrcL4Port,
+       "aclRuleSrcL4PortRangeStart": aclRuleSrcL4PortRangeStart,
+       "aclRuleSrcL4PortRangeEnd": aclRuleSrcL4PortRangeEnd,
+       "aclRuleDestIpAddress": aclRuleDestIpAddress,
+       "aclRuleDestIpMask": aclRuleDestIpMask,
+       "aclRuleDestL4Port": aclRuleDestL4Port,
+       "aclRuleDestL4PortRangeStart": aclRuleDestL4PortRangeStart,
+       "aclRuleDestL4PortRangeEnd": aclRuleDestL4PortRangeEnd,
+       "aclRuleIPDSCP": aclRuleIPDSCP,
+       "aclRuleIpPrecedence": aclRuleIpPrecedence,
+       "aclRuleIpTosBits": aclRuleIpTosBits,
+       "aclRuleIpTosMask": aclRuleIpTosMask,
+       "aclRuleStatus": aclRuleStatus,
+       "aclRuleAssignQueueId": aclRuleAssignQueueId,
+       "aclRuleRedirectIntf": aclRuleRedirectIntf,
+       "aclRuleMatchEvery": aclRuleMatchEvery,
+       "aclRuleMirrorIntf": aclRuleMirrorIntf,
+       "aclRuleLogging": aclRuleLogging,
+       "aclRuleTimeRangeName": aclRuleTimeRangeName,
+       "aclRuleTimeRangeStatus": aclRuleTimeRangeStatus,
+       "aclRuleRateLimitCrate": aclRuleRateLimitCrate,
+       "aclRuleRateLimitCburst": aclRuleRateLimitCburst,
+       "aclRuleIcmpType": aclRuleIcmpType,
+       "aclRuleIcmpCode": aclRuleIcmpCode,
+       "aclRuleIgmpType": aclRuleIgmpType,
+       "aclRuleEstablished": aclRuleEstablished,
+       "aclRuleFragments": aclRuleFragments,
+       "aclRuleIsDuplicated": aclRuleIsDuplicated,
+       "aclMacIndexNextFree": aclMacIndexNextFree,
+       "aclMacTable": aclMacTable,
+       "aclMacEntry": aclMacEntry,
+       "aclMacIndex": aclMacIndex,
+       "aclMacName": aclMacName,
+       "aclMacStatus": aclMacStatus,
+       "aclMacResquenceStartRuleNumber": aclMacResquenceStartRuleNumber,
+       "aclMacResequenceIncrement": aclMacResequenceIncrement,
+       "aclMacRuleTable": aclMacRuleTable,
+       "aclMacRuleEntry": aclMacRuleEntry,
+       "aclMacRuleIndex": aclMacRuleIndex,
+       "aclMacRuleAction": aclMacRuleAction,
+       "aclMacRuleCos": aclMacRuleCos,
+       "aclMacRuleCos2": aclMacRuleCos2,
+       "aclMacRuleDestMacAddr": aclMacRuleDestMacAddr,
+       "aclMacRuleDestMacMask": aclMacRuleDestMacMask,
+       "aclMacRuleEtypeKey": aclMacRuleEtypeKey,
+       "aclMacRuleEtypeValue": aclMacRuleEtypeValue,
+       "aclMacRuleSrcMacAddr": aclMacRuleSrcMacAddr,
+       "aclMacRuleSrcMacMask": aclMacRuleSrcMacMask,
+       "aclMacRuleVlanId": aclMacRuleVlanId,
+       "aclMacRuleVlanIdRangeStart": aclMacRuleVlanIdRangeStart,
+       "aclMacRuleVlanIdRangeEnd": aclMacRuleVlanIdRangeEnd,
+       "aclMacRuleVlanId2": aclMacRuleVlanId2,
+       "aclMacRuleVlanId2RangeStart": aclMacRuleVlanId2RangeStart,
+       "aclMacRuleVlanId2RangeEnd": aclMacRuleVlanId2RangeEnd,
+       "aclMacRuleStatus": aclMacRuleStatus,
+       "aclMacRuleAssignQueueId": aclMacRuleAssignQueueId,
+       "aclMacRuleRedirectIntf": aclMacRuleRedirectIntf,
+       "aclMacRuleMatchEvery": aclMacRuleMatchEvery,
+       "aclMacRuleMirrorIntf": aclMacRuleMirrorIntf,
+       "aclMacRuleLogging": aclMacRuleLogging,
+       "aclMacRuleTimeRangeName": aclMacRuleTimeRangeName,
+       "aclMacRuleTimeRangeStatus": aclMacRuleTimeRangeStatus,
+       "aclMacRuleRateLimitCrate": aclMacRuleRateLimitCrate,
+       "aclMacRuleRateLimitCburst": aclMacRuleRateLimitCburst,
+       "aclMacRuleIsDuplicated": aclMacRuleIsDuplicated,
+       "aclIfTable": aclIfTable,
+       "aclIfEntry": aclIfEntry,
+       "aclIfIndex": aclIfIndex,
+       "aclIfDirection": aclIfDirection,
+       "aclIfSequence": aclIfSequence,
+       "aclIfAclType": aclIfAclType,
+       "aclIfAclId": aclIfAclId,
+       "aclIfStatus": aclIfStatus,
+       "aclLoggingGroup": aclLoggingGroup,
+       "aclTrapRuleIndex": aclTrapRuleIndex,
+       "aclTrapRuleAction": aclTrapRuleAction,
+       "aclTrapRuleHitCount": aclTrapRuleHitCount,
+       "aclTrapFlag": aclTrapFlag,
+       "aclTrapRuleTimeRangeName": aclTrapRuleTimeRangeName,
+       "aclTrapRuleTimeRangeNotification": aclTrapRuleTimeRangeNotification,
+       "aclTrapRuleInstallationStatus": aclTrapRuleInstallationStatus,
+       "aclIpv6IndexNextFree": aclIpv6IndexNextFree,
+       "aclIpv6Table": aclIpv6Table,
+       "aclIpv6Entry": aclIpv6Entry,
+       "aclIpv6Index": aclIpv6Index,
+       "aclIpv6Name": aclIpv6Name,
+       "aclIpv6Status": aclIpv6Status,
+       "aclIpv6ResquenceStartRuleNumber": aclIpv6ResquenceStartRuleNumber,
+       "aclIpv6ResequenceIncrement": aclIpv6ResequenceIncrement,
+       "aclIpv6RuleTable": aclIpv6RuleTable,
+       "aclIpv6RuleEntry": aclIpv6RuleEntry,
+       "aclIpv6RuleIndex": aclIpv6RuleIndex,
+       "aclIpv6RuleAction": aclIpv6RuleAction,
+       "aclIpv6RuleLogging": aclIpv6RuleLogging,
+       "aclIpv6RuleAssignQueueId": aclIpv6RuleAssignQueueId,
+       "aclIpv6RuleRedirectIntf": aclIpv6RuleRedirectIntf,
+       "aclIpv6RuleMirrorIntf": aclIpv6RuleMirrorIntf,
+       "aclIpv6RuleMatchEvery": aclIpv6RuleMatchEvery,
+       "aclIpv6RuleProtocol": aclIpv6RuleProtocol,
+       "aclIpv6RuleSrcL4Port": aclIpv6RuleSrcL4Port,
+       "aclIpv6RuleSrcL4PortRangeStart": aclIpv6RuleSrcL4PortRangeStart,
+       "aclIpv6RuleSrcL4PortRangeEnd": aclIpv6RuleSrcL4PortRangeEnd,
+       "aclIpv6RuleDestL4Port": aclIpv6RuleDestL4Port,
+       "aclIpv6RuleDestL4PortRangeStart": aclIpv6RuleDestL4PortRangeStart,
+       "aclIpv6RuleDestL4PortRangeEnd": aclIpv6RuleDestL4PortRangeEnd,
+       "aclIpv6RuleStatus": aclIpv6RuleStatus,
+       "aclIpv6RuleFlowLabel": aclIpv6RuleFlowLabel,
+       "aclIpv6RuleIPDSCP": aclIpv6RuleIPDSCP,
+       "aclRuleSrcIpv6Prefix": aclRuleSrcIpv6Prefix,
+       "aclRuleSrcIpv6PrefixLength": aclRuleSrcIpv6PrefixLength,
+       "aclRuleDstIpv6Prefix": aclRuleDstIpv6Prefix,
+       "aclRuleDstIpv6PrefixLength": aclRuleDstIpv6PrefixLength,
+       "aclIpv6RuleTimeRangeName": aclIpv6RuleTimeRangeName,
+       "aclIpv6RuleTimeRangeStatus": aclIpv6RuleTimeRangeStatus,
+       "aclIpv6RuleRateLimitCrate": aclIpv6RuleRateLimitCrate,
+       "aclIpv6RuleRateLimitCburst": aclIpv6RuleRateLimitCburst,
+       "aclIpv6RuleIcmpType": aclIpv6RuleIcmpType,
+       "aclIpv6RuleIcmpCode": aclIpv6RuleIcmpCode,
+       "aclIpv6RuleRouting": aclIpv6RuleRouting,
+       "aclIpv6RuleFragments": aclIpv6RuleFragments,
+       "aclIpv6RuleEstablished": aclIpv6RuleEstablished,
+       "aclIpv6RuleIsDuplicated": aclIpv6RuleIsDuplicated,
+       "aclVlanTable": aclVlanTable,
+       "aclVlanEntry": aclVlanEntry,
+       "aclVlanIndex": aclVlanIndex,
+       "aclVlanDirection": aclVlanDirection,
+       "aclVlanSequence": aclVlanSequence,
+       "aclVlanAclType": aclVlanAclType,
+       "aclVlanAclId": aclVlanAclId,
+       "aclVlanStatus": aclVlanStatus,
+       "aclNamedIpv4IndexNextFree": aclNamedIpv4IndexNextFree,
+       "agentAclRemarkConfigTable": agentAclRemarkConfigTable,
+       "agentAclRemarkConfigEntry": agentAclRemarkConfigEntry,
+       "agentAclRemarkIndex": agentAclRemarkIndex,
+       "agentAclRemarkStr": agentAclRemarkStr,
+       "agentAclRemarkStatus": agentAclRemarkStatus,
+       "agentAclRemarkRuleTable": agentAclRemarkRuleTable,
+       "agentAclRemarkRuleEntry": agentAclRemarkRuleEntry,
+       "agentAclRuleRemarkIndex": agentAclRuleRemarkIndex,
+       "agentAclRuleRemarkStr": agentAclRuleRemarkStr,
+       "agentAclRuleRemarkStatus": agentAclRuleRemarkStatus,
+       "agentAclIpv6RemarkConfigTable": agentAclIpv6RemarkConfigTable,
+       "agentAclIpv6RemarkConfigEntry": agentAclIpv6RemarkConfigEntry,
+       "agentAclIpv6RemarkIndex": agentAclIpv6RemarkIndex,
+       "agentAclIpv6RemarkStr": agentAclIpv6RemarkStr,
+       "agentAclIpv6RemarkStatus": agentAclIpv6RemarkStatus,
+       "agentAclIpv6RemarkRuleTable": agentAclIpv6RemarkRuleTable,
+       "agentAclIpv6RemarkRuleEntry": agentAclIpv6RemarkRuleEntry,
+       "agentAclIpv6RuleRemarkIndex": agentAclIpv6RuleRemarkIndex,
+       "agentAclIpv6RuleRemarkStr": agentAclIpv6RuleRemarkStr,
+       "agentAclIpv6RuleRemarkStatus": agentAclIpv6RuleRemarkStatus,
+       "agentAclMacRemarkConfigTable": agentAclMacRemarkConfigTable,
+       "agentAclMacRemarkConfigEntry": agentAclMacRemarkConfigEntry,
+       "agentAclMacRemarkIndex": agentAclMacRemarkIndex,
+       "agentAclMacRemarkStr": agentAclMacRemarkStr,
+       "agentAclMacRemarkStatus": agentAclMacRemarkStatus,
+       "agentAclMacRemarkRuleTable": agentAclMacRemarkRuleTable,
+       "agentAclMacRemarkRuleEntry": agentAclMacRemarkRuleEntry,
+       "agentAclMacRuleRemarkIndex": agentAclMacRuleRemarkIndex,
+       "agentAclMacRuleRemarkStr": agentAclMacRuleRemarkStr,
+       "agentAclMacRuleRemarkStatus": agentAclMacRuleRemarkStatus}
+)

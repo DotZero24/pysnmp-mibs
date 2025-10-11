@@ -1,33 +1,311 @@
+# SNMP MIB module (CTRON-BUS-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CTRON-BUS-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/CTRON-BUS-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:21 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cabletron/CTRON-BUS-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:54:45 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ctAtmfLanEmulation, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctAtmfLanEmulation")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ctBus = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4))
-ctBusConfGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1))
-class CtLaneDebugLevel(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))
-    namedValues = NamedValues(("user", 1), ("all", 2), ("error", 3), ("warning", 4), ("informational", 5), ("detailed", 6), ("trace", 7))
 
-ctBusDSStatus = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("connected", 1), ("connectionLost", 2), ("unknown", 3))).clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctBusDSStatus.setStatus('mandatory')
-ctBusUNIVersion = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 1), ("uni30", 2), ("uni31", 3), ("uni40", 4))).clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctBusUNIVersion.setStatus('mandatory')
-ctBusLaneDbgOutputFile = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctBusLaneDbgOutputFile.setStatus('mandatory')
-ctBusLaneDbgConnectionServices = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 4), CtLaneDebugLevel().clone('user')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctBusLaneDbgConnectionServices.setStatus('mandatory')
-ctBusLaneDbgSNMP = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 5), CtLaneDebugLevel().clone('user')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctBusLaneDbgSNMP.setStatus('mandatory')
-ctBusLaneDbgBUS = MibScalar((1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 6), CtLaneDebugLevel().clone('user')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctBusLaneDbgBUS.setStatus('mandatory')
-mibBuilder.exportSymbols("CTRON-BUS-MIB", ctBusLaneDbgBUS=ctBusLaneDbgBUS, ctBusUNIVersion=ctBusUNIVersion, ctBusLaneDbgSNMP=ctBusLaneDbgSNMP, ctBusConfGroup=ctBusConfGroup, ctBusLaneDbgOutputFile=ctBusLaneDbgOutputFile, ctBus=ctBus, ctBusLaneDbgConnectionServices=ctBusLaneDbgConnectionServices, CtLaneDebugLevel=CtLaneDebugLevel, ctBusDSStatus=ctBusDSStatus)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ctAtmfLanEmulation,) = mibBuilder.importSymbols(
+    "CTRON-MIB-NAMES",
+    "ctAtmfLanEmulation")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class CtLaneDebugLevel(Integer32):
+    """Custom type CtLaneDebugLevel based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("user", 1),
+          ("all", 2),
+          ("error", 3),
+          ("warning", 4),
+          ("informational", 5),
+          ("detailed", 6),
+          ("trace", 7))
+    )
+
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CtBus_ObjectIdentity = ObjectIdentity
+ctBus = _CtBus_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4)
+)
+_CtBusConfGroup_ObjectIdentity = ObjectIdentity
+ctBusConfGroup = _CtBusConfGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1)
+)
+
+
+class _CtBusDSStatus_Type(Integer32):
+    """Custom type ctBusDSStatus based on Integer32"""
+    defaultValue = 3
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("connected", 1),
+          ("connectionLost", 2),
+          ("unknown", 3))
+    )
+
+
+_CtBusDSStatus_Type.__name__ = "Integer32"
+_CtBusDSStatus_Object = MibScalar
+ctBusDSStatus = _CtBusDSStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 1),
+    _CtBusDSStatus_Type()
+)
+ctBusDSStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctBusDSStatus.setStatus("mandatory")
+
+
+class _CtBusUNIVersion_Type(Integer32):
+    """Custom type ctBusUNIVersion based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("uni30", 2),
+          ("uni31", 3),
+          ("uni40", 4))
+    )
+
+
+_CtBusUNIVersion_Type.__name__ = "Integer32"
+_CtBusUNIVersion_Object = MibScalar
+ctBusUNIVersion = _CtBusUNIVersion_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 2),
+    _CtBusUNIVersion_Type()
+)
+ctBusUNIVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctBusUNIVersion.setStatus("mandatory")
+
+
+class _CtBusLaneDbgOutputFile_Type(DisplayString):
+    """Custom type ctBusLaneDbgOutputFile based on DisplayString"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_CtBusLaneDbgOutputFile_Type.__name__ = "DisplayString"
+_CtBusLaneDbgOutputFile_Object = MibScalar
+ctBusLaneDbgOutputFile = _CtBusLaneDbgOutputFile_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 3),
+    _CtBusLaneDbgOutputFile_Type()
+)
+ctBusLaneDbgOutputFile.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctBusLaneDbgOutputFile.setStatus("mandatory")
+
+
+class _CtBusLaneDbgConnectionServices_Type(CtLaneDebugLevel):
+    """Custom type ctBusLaneDbgConnectionServices based on CtLaneDebugLevel"""
+    defaultValue = 1
+
+
+_CtBusLaneDbgConnectionServices_Type.__name__ = "CtLaneDebugLevel"
+_CtBusLaneDbgConnectionServices_Object = MibScalar
+ctBusLaneDbgConnectionServices = _CtBusLaneDbgConnectionServices_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 4),
+    _CtBusLaneDbgConnectionServices_Type()
+)
+ctBusLaneDbgConnectionServices.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctBusLaneDbgConnectionServices.setStatus("mandatory")
+
+
+class _CtBusLaneDbgSNMP_Type(CtLaneDebugLevel):
+    """Custom type ctBusLaneDbgSNMP based on CtLaneDebugLevel"""
+    defaultValue = 1
+
+
+_CtBusLaneDbgSNMP_Type.__name__ = "CtLaneDebugLevel"
+_CtBusLaneDbgSNMP_Object = MibScalar
+ctBusLaneDbgSNMP = _CtBusLaneDbgSNMP_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 5),
+    _CtBusLaneDbgSNMP_Type()
+)
+ctBusLaneDbgSNMP.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctBusLaneDbgSNMP.setStatus("mandatory")
+
+
+class _CtBusLaneDbgBUS_Type(CtLaneDebugLevel):
+    """Custom type ctBusLaneDbgBUS based on CtLaneDebugLevel"""
+    defaultValue = 1
+
+
+_CtBusLaneDbgBUS_Type.__name__ = "CtLaneDebugLevel"
+_CtBusLaneDbgBUS_Object = MibScalar
+ctBusLaneDbgBUS = _CtBusLaneDbgBUS_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 3, 5, 4, 1, 6),
+    _CtBusLaneDbgBUS_Type()
+)
+ctBusLaneDbgBUS.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctBusLaneDbgBUS.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CTRON-BUS-MIB",
+    **{"CtLaneDebugLevel": CtLaneDebugLevel,
+       "ctBus": ctBus,
+       "ctBusConfGroup": ctBusConfGroup,
+       "ctBusDSStatus": ctBusDSStatus,
+       "ctBusUNIVersion": ctBusUNIVersion,
+       "ctBusLaneDbgOutputFile": ctBusLaneDbgOutputFile,
+       "ctBusLaneDbgConnectionServices": ctBusLaneDbgConnectionServices,
+       "ctBusLaneDbgSNMP": ctBusLaneDbgSNMP,
+       "ctBusLaneDbgBUS": ctBusLaneDbgBUS}
+)

@@ -1,37 +1,251 @@
+# SNMP MIB module (CT-FASTPATH-ARPACL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CT-FASTPATH-ARPACL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/CT-FASTPATH-ARPACL-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:33 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cabletron/CT-FASTPATH-ARPACL-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:55:20 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ctArpAclExpMib, = mibBuilder.importSymbols("CTRON-MIB-NAMES", "ctArpAclExpMib")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, MacAddress, StorageType, PhysAddress, RowPointer, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "MacAddress", "StorageType", "PhysAddress", "RowPointer", "TruthValue", "DisplayString")
-ctFastPathArpAclMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1))
-if mibBuilder.loadTexts: ctFastPathArpAclMIB.setLastUpdated('200807231519Z')
-if mibBuilder.loadTexts: ctFastPathArpAclMIB.setOrganization('Enterasys Networks, Inc.')
-ctAgentArpAclGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1))
-ctAgentArpAclTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 1), )
-if mibBuilder.loadTexts: ctAgentArpAclTable.setStatus('current')
-ctAgentArpAclEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 1, 1), ).setIndexNames((0, "CT-FASTPATH-ARPACL-MIB", "ctAgentArpAclName"))
-if mibBuilder.loadTexts: ctAgentArpAclEntry.setStatus('current')
-ctAgentArpAclName = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 31))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ctAgentArpAclName.setStatus('current')
-ctAgentArpAclRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ctAgentArpAclRowStatus.setStatus('current')
-ctAgentArpAclRuleTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 2), )
-if mibBuilder.loadTexts: ctAgentArpAclRuleTable.setStatus('current')
-ctAgentArpAclRuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 2, 1), ).setIndexNames((0, "CT-FASTPATH-ARPACL-MIB", "ctAgentArpAclName"), (0, "CT-FASTPATH-ARPACL-MIB", "ctAgentArpAclRuleMatchSenderIpAddr"), (0, "CT-FASTPATH-ARPACL-MIB", "ctAgentArpAclRuleMatchSenderMacAddr"))
-if mibBuilder.loadTexts: ctAgentArpAclRuleEntry.setStatus('current')
-ctAgentArpAclRuleMatchSenderIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 2, 1, 1), IpAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ctAgentArpAclRuleMatchSenderIpAddr.setStatus('current')
-ctAgentArpAclRuleMatchSenderMacAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 2, 1, 2), MacAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ctAgentArpAclRuleMatchSenderMacAddr.setStatus('current')
-ctAgentArpAclRuleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: ctAgentArpAclRuleRowStatus.setStatus('current')
-mibBuilder.exportSymbols("CT-FASTPATH-ARPACL-MIB", ctAgentArpAclEntry=ctAgentArpAclEntry, ctAgentArpAclRuleMatchSenderIpAddr=ctAgentArpAclRuleMatchSenderIpAddr, ctAgentArpAclRuleEntry=ctAgentArpAclRuleEntry, PYSNMP_MODULE_ID=ctFastPathArpAclMIB, ctAgentArpAclRowStatus=ctAgentArpAclRowStatus, ctAgentArpAclName=ctAgentArpAclName, ctAgentArpAclRuleRowStatus=ctAgentArpAclRuleRowStatus, ctAgentArpAclRuleTable=ctAgentArpAclRuleTable, ctAgentArpAclTable=ctAgentArpAclTable, ctAgentArpAclGroup=ctAgentArpAclGroup, ctAgentArpAclRuleMatchSenderMacAddr=ctAgentArpAclRuleMatchSenderMacAddr, ctFastPathArpAclMIB=ctFastPathArpAclMIB)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ctArpAclExpMib,) = mibBuilder.importSymbols(
+    "CTRON-MIB-NAMES",
+    "ctArpAclExpMib")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ RowStatus,
+ StorageType,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "RowStatus",
+    "StorageType",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ctFastPathArpAclMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CtAgentArpAclGroup_ObjectIdentity = ObjectIdentity
+ctAgentArpAclGroup = _CtAgentArpAclGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1)
+)
+_CtAgentArpAclTable_Object = MibTable
+ctAgentArpAclTable = _CtAgentArpAclTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ctAgentArpAclTable.setStatus("current")
+_CtAgentArpAclEntry_Object = MibTableRow
+ctAgentArpAclEntry = _CtAgentArpAclEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 1, 1)
+)
+ctAgentArpAclEntry.setIndexNames(
+    (0, "CT-FASTPATH-ARPACL-MIB", "ctAgentArpAclName"),
+)
+if mibBuilder.loadTexts:
+    ctAgentArpAclEntry.setStatus("current")
+
+
+class _CtAgentArpAclName_Type(DisplayString):
+    """Custom type ctAgentArpAclName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 31),
+    )
+
+
+_CtAgentArpAclName_Type.__name__ = "DisplayString"
+_CtAgentArpAclName_Object = MibTableColumn
+ctAgentArpAclName = _CtAgentArpAclName_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 1, 1, 1),
+    _CtAgentArpAclName_Type()
+)
+ctAgentArpAclName.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ctAgentArpAclName.setStatus("current")
+_CtAgentArpAclRowStatus_Type = RowStatus
+_CtAgentArpAclRowStatus_Object = MibTableColumn
+ctAgentArpAclRowStatus = _CtAgentArpAclRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 1, 1, 2),
+    _CtAgentArpAclRowStatus_Type()
+)
+ctAgentArpAclRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ctAgentArpAclRowStatus.setStatus("current")
+_CtAgentArpAclRuleTable_Object = MibTable
+ctAgentArpAclRuleTable = _CtAgentArpAclRuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    ctAgentArpAclRuleTable.setStatus("current")
+_CtAgentArpAclRuleEntry_Object = MibTableRow
+ctAgentArpAclRuleEntry = _CtAgentArpAclRuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 2, 1)
+)
+ctAgentArpAclRuleEntry.setIndexNames(
+    (0, "CT-FASTPATH-ARPACL-MIB", "ctAgentArpAclName"),
+    (0, "CT-FASTPATH-ARPACL-MIB", "ctAgentArpAclRuleMatchSenderIpAddr"),
+    (0, "CT-FASTPATH-ARPACL-MIB", "ctAgentArpAclRuleMatchSenderMacAddr"),
+)
+if mibBuilder.loadTexts:
+    ctAgentArpAclRuleEntry.setStatus("current")
+_CtAgentArpAclRuleMatchSenderIpAddr_Type = IpAddress
+_CtAgentArpAclRuleMatchSenderIpAddr_Object = MibTableColumn
+ctAgentArpAclRuleMatchSenderIpAddr = _CtAgentArpAclRuleMatchSenderIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 2, 1, 1),
+    _CtAgentArpAclRuleMatchSenderIpAddr_Type()
+)
+ctAgentArpAclRuleMatchSenderIpAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ctAgentArpAclRuleMatchSenderIpAddr.setStatus("current")
+_CtAgentArpAclRuleMatchSenderMacAddr_Type = MacAddress
+_CtAgentArpAclRuleMatchSenderMacAddr_Object = MibTableColumn
+ctAgentArpAclRuleMatchSenderMacAddr = _CtAgentArpAclRuleMatchSenderMacAddr_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 2, 1, 2),
+    _CtAgentArpAclRuleMatchSenderMacAddr_Type()
+)
+ctAgentArpAclRuleMatchSenderMacAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ctAgentArpAclRuleMatchSenderMacAddr.setStatus("current")
+_CtAgentArpAclRuleRowStatus_Type = RowStatus
+_CtAgentArpAclRuleRowStatus_Object = MibTableColumn
+ctAgentArpAclRuleRowStatus = _CtAgentArpAclRuleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4, 2, 34, 1, 1, 2, 1, 3),
+    _CtAgentArpAclRuleRowStatus_Type()
+)
+ctAgentArpAclRuleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    ctAgentArpAclRuleRowStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CT-FASTPATH-ARPACL-MIB",
+    **{"ctFastPathArpAclMIB": ctFastPathArpAclMIB,
+       "ctAgentArpAclGroup": ctAgentArpAclGroup,
+       "ctAgentArpAclTable": ctAgentArpAclTable,
+       "ctAgentArpAclEntry": ctAgentArpAclEntry,
+       "ctAgentArpAclName": ctAgentArpAclName,
+       "ctAgentArpAclRowStatus": ctAgentArpAclRowStatus,
+       "ctAgentArpAclRuleTable": ctAgentArpAclRuleTable,
+       "ctAgentArpAclRuleEntry": ctAgentArpAclRuleEntry,
+       "ctAgentArpAclRuleMatchSenderIpAddr": ctAgentArpAclRuleMatchSenderIpAddr,
+       "ctAgentArpAclRuleMatchSenderMacAddr": ctAgentArpAclRuleMatchSenderMacAddr,
+       "ctAgentArpAclRuleRowStatus": ctAgentArpAclRuleRowStatus}
+)

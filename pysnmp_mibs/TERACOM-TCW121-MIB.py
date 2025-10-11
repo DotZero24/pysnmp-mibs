@@ -1,199 +1,1744 @@
+# SNMP MIB module (TERACOM-TCW121-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TERACOM-TCW121-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/teracom/TERACOM-TCW121-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:14:45 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/teracom/TERACOM-TCW121-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:59:52 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, NotificationType, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "NotificationType", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-teracom = MibIdentifier((1, 3, 6, 1, 4, 1, 38783))
-product = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 1))
-setup = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2))
-monitorNcontrol = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 3))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ NotificationType,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "NotificationType",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
 class RANGE(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("range-0-5V", 0), ("range-0-100V", 1))
+    """Custom type RANGE based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("range-0-5V", 0),
+          ("range-0-100V", 1))
+    )
+
+
+
+
 
 class CONTROLLED(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("manual", 0), ("temperature1", 1), ("humidity1", 2), ("analogInput1", 3), ("digitalInput1", 4), ("temperature2", 5), ("humidity2", 6), ("analogInput2", 7), ("digitalInput2", 8))
+    """Custom type CONTROLLED based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("manual", 0),
+          ("temperature1", 1),
+          ("humidity1", 2),
+          ("analogInput1", 3),
+          ("digitalInput1", 4),
+          ("temperature2", 5),
+          ("humidity2", 6),
+          ("analogInput2", 7),
+          ("digitalInput2", 8))
+    )
+
+
+
+
 
 class ACTION(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1))
-    namedValues = NamedValues(("noAction", 0), ("sendMail", 1))
+    """Custom type ACTION based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noAction", 0),
+          ("sendMail", 1))
+    )
+
+
+
+
 
 class DACTION(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("noAction", 0), ("mailIfFalled", 1), ("mailIfRised", 2))
+    """Custom type DACTION based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noAction", 0),
+          ("mailIfFalled", 1),
+          ("mailIfRised", 2))
+    )
 
-name = MibScalar((1, 3, 6, 1, 4, 1, 38783, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: name.setStatus('mandatory')
-version = MibScalar((1, 3, 6, 1, 4, 1, 38783, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: version.setStatus('mandatory')
-date = MibScalar((1, 3, 6, 1, 4, 1, 38783, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: date.setStatus('mandatory')
-network = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 1))
-vlan = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 2))
-macFilter = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 3))
-snmpSetup = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 4))
-sensor1 = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 5))
-sensor2 = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 6))
-analogInput = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 7))
-digitalInput = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 8))
-relay = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 9))
-recipients = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 10))
-deviceIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 1, 1), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceIPAddress.setStatus('mandatory')
-subnetMask = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: subnetMask.setStatus('mandatory')
-gateway = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 1, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: gateway.setStatus('mandatory')
-deviceMACAddress = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: deviceMACAddress.setStatus('mandatory')
-dhcpConfig = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dhcpConfig.setStatus('mandatory')
-dns = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 1, 6), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dns.setStatus('mandatory')
-hostName = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 1, 7), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 38))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hostName.setStatus('mandatory')
-filterMACAddress1 = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 3, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: filterMACAddress1.setStatus('mandatory')
-filterMACEnable1 = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: filterMACEnable1.setStatus('mandatory')
-filterMACAddress2 = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 3, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: filterMACAddress2.setStatus('mandatory')
-filterMACEnable2 = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: filterMACEnable2.setStatus('mandatory')
-filterMACAddress3 = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 3, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(6, 6)).setFixedLength(6)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: filterMACAddress3.setStatus('mandatory')
-filterMACEnable3 = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 3, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: filterMACEnable3.setStatus('mandatory')
-vlanStatus = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 2, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vlanStatus.setStatus('mandatory')
-vlanId = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 4095))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: vlanId.setStatus('mandatory')
-snmpConfiguration = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 4, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disabled", 0), ("enabled", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: snmpConfiguration.setStatus('mandatory')
-trapEnabled = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 4, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("no", 0), ("yes", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapEnabled.setStatus('mandatory')
-trapReceiverIPAddress = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 4, 3), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapReceiverIPAddress.setStatus('mandatory')
-trapCommunity = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 4, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 13))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapCommunity.setStatus('mandatory')
-trapInterval = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 4, 5), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: trapInterval.setStatus('mandatory')
-maxNumberOfTraps = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 4, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: maxNumberOfTraps.setStatus('mandatory')
-temperature1 = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 5, 1))
-temperature1Min = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 5, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-400, 1250))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: temperature1Min.setStatus('mandatory')
-temperature1Max = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 5, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-400, 1250))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: temperature1Max.setStatus('mandatory')
-temperature1Hyst = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 5, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-400, 1250))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: temperature1Hyst.setStatus('mandatory')
-temperature1Action = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 5, 1, 4), ACTION()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: temperature1Action.setStatus('mandatory')
-humidity1 = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 5, 2))
-humidity1Min = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 5, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidity1Min.setStatus('mandatory')
-humidity1Max = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 5, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidity1Max.setStatus('mandatory')
-humidity1Hyst = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 5, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidity1Hyst.setStatus('mandatory')
-humidity1Action = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 5, 2, 4), ACTION()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidity1Action.setStatus('mandatory')
-temperature2 = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 6, 1))
-temperature2Min = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-400, 1250))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: temperature2Min.setStatus('mandatory')
-temperature2Max = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 6, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-400, 1250))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: temperature2Max.setStatus('mandatory')
-temperature2Hyst = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 6, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-400, 1250))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: temperature2Hyst.setStatus('mandatory')
-temperature2Action = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 6, 1, 4), ACTION()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: temperature2Action.setStatus('mandatory')
-humidity2 = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 6, 2))
-humidity2Min = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 6, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidity2Min.setStatus('mandatory')
-humidity2Max = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 6, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidity2Max.setStatus('mandatory')
-humidity2Hyst = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 6, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidity2Hyst.setStatus('mandatory')
-humidity2Action = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 6, 2, 4), ACTION()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: humidity2Action.setStatus('mandatory')
-input1 = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 7, 1))
-input2 = MibIdentifier((1, 3, 6, 1, 4, 1, 38783, 2, 7, 2))
-voltage1Min = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 7, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: voltage1Min.setStatus('mandatory')
-voltage1Max = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 7, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: voltage1Max.setStatus('mandatory')
-voltage1Hyst = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 7, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: voltage1Hyst.setStatus('mandatory')
-voltage1Action = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 7, 1, 4), ACTION()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: voltage1Action.setStatus('mandatory')
-voltage1Range = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 7, 1, 5), RANGE()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: voltage1Range.setStatus('mandatory')
-voltage2Min = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 7, 2, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: voltage2Min.setStatus('mandatory')
-voltage2Max = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 7, 2, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: voltage2Max.setStatus('mandatory')
-voltage2Hyst = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 7, 2, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: voltage2Hyst.setStatus('mandatory')
-voltage2Action = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 7, 2, 4), ACTION()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: voltage2Action.setStatus('mandatory')
-voltage2Range = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 7, 2, 5), RANGE()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: voltage2Range.setStatus('mandatory')
-digitalInput1Action = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 8, 1), DACTION()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: digitalInput1Action.setStatus('mandatory')
-digitalInput2Action = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 8, 2), DACTION()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: digitalInput2Action.setStatus('mandatory')
-relay1ControledBy = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 9, 1), CONTROLLED()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay1ControledBy.setStatus('mandatory')
-relay2ControledBy = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 9, 2), CONTROLLED()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay2ControledBy.setStatus('mandatory')
-relayPulseWidth = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 9, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relayPulseWidth.setStatus('mandatory')
-recipient1EmailAddress = MibScalar((1, 3, 6, 1, 4, 1, 38783, 2, 10, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 38))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: recipient1EmailAddress.setStatus('mandatory')
-digitalInput1State = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: digitalInput1State.setStatus('mandatory')
-digitalInput2State = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: digitalInput2State.setStatus('mandatory')
-relay1State = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay1State.setStatus('mandatory')
-relay1Pulse = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay1Pulse.setStatus('mandatory')
-relay2State = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay2State.setStatus('mandatory')
-relay2Pulse = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("off", 0), ("on", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: relay2Pulse.setStatus('mandatory')
-voltage1x10Int = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: voltage1x10Int.setStatus('mandatory')
-voltage2x10Int = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 8), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: voltage2x10Int.setStatus('mandatory')
-temp1x10Int = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 9), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-400, 1250))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: temp1x10Int.setStatus('mandatory')
-temp2x10Int = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-400, 1250))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: temp2x10Int.setStatus('mandatory')
-humi1x10Int = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humi1x10Int.setStatus('mandatory')
-humi2x10Int = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 12), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 1000))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: humi2x10Int.setStatus('mandatory')
-configurationSaved = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 13), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("unsaved", 0), ("saved", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: configurationSaved.setStatus('mandatory')
-restartDevice = MibScalar((1, 3, 6, 1, 4, 1, 38783, 3, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("cancel", 0), ("restart", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: restartDevice.setStatus('mandatory')
-trcDigitalInput1State = NotificationType((1, 3, 6, 1, 4, 1, 38783) + (0,101)).setObjects(("TERACOM-TCW121-MIB", "digitalInput1State"))
-trcDigitalInput2State = NotificationType((1, 3, 6, 1, 4, 1, 38783) + (0,102)).setObjects(("TERACOM-TCW121-MIB", "digitalInput2State"))
-trcVoltage1x10Int = NotificationType((1, 3, 6, 1, 4, 1, 38783) + (0,103)).setObjects(("TERACOM-TCW121-MIB", "voltage1x10Int"))
-trcVoltage2x10Int = NotificationType((1, 3, 6, 1, 4, 1, 38783) + (0,104)).setObjects(("TERACOM-TCW121-MIB", "voltage2x10Int"))
-trcTemp1x10Int = NotificationType((1, 3, 6, 1, 4, 1, 38783) + (0,105)).setObjects(("TERACOM-TCW121-MIB", "temp1x10Int"))
-trcTemp2x10Int = NotificationType((1, 3, 6, 1, 4, 1, 38783) + (0,106)).setObjects(("TERACOM-TCW121-MIB", "temp2x10Int"))
-trcHumi1x10Int = NotificationType((1, 3, 6, 1, 4, 1, 38783) + (0,107)).setObjects(("TERACOM-TCW121-MIB", "humi1x10Int"))
-trcHumi2x10Int = NotificationType((1, 3, 6, 1, 4, 1, 38783) + (0,108)).setObjects(("TERACOM-TCW121-MIB", "humi2x10Int"))
-trcRestartDevice = NotificationType((1, 3, 6, 1, 4, 1, 38783) + (0,109)).setObjects(("TERACOM-TCW121-MIB", "restartDevice"))
-mibBuilder.exportSymbols("TERACOM-TCW121-MIB", product=product, temperature2Hyst=temperature2Hyst, voltage2Min=voltage2Min, gateway=gateway, relay2Pulse=relay2Pulse, trcTemp1x10Int=trcTemp1x10Int, humidity2Max=humidity2Max, voltage1Hyst=voltage1Hyst, voltage2Action=voltage2Action, sensor2=sensor2, trcVoltage2x10Int=trcVoltage2x10Int, relayPulseWidth=relayPulseWidth, voltage2Max=voltage2Max, relay2ControledBy=relay2ControledBy, voltage2x10Int=voltage2x10Int, temp2x10Int=temp2x10Int, filterMACAddress1=filterMACAddress1, voltage1Action=voltage1Action, recipient1EmailAddress=recipient1EmailAddress, DACTION=DACTION, humi2x10Int=humi2x10Int, dhcpConfig=dhcpConfig, humidity1Action=humidity1Action, subnetMask=subnetMask, voltage1Min=voltage1Min, voltage1Max=voltage1Max, sensor1=sensor1, configurationSaved=configurationSaved, digitalInput=digitalInput, temperature2=temperature2, trcHumi2x10Int=trcHumi2x10Int, filterMACEnable1=filterMACEnable1, digitalInput1State=digitalInput1State, digitalInput2State=digitalInput2State, voltage1Range=voltage1Range, input1=input1, vlanId=vlanId, setup=setup, humidity2Min=humidity2Min, vlan=vlan, voltage1x10Int=voltage1x10Int, humidity2=humidity2, input2=input2, relay1State=relay1State, macFilter=macFilter, trapReceiverIPAddress=trapReceiverIPAddress, name=name, voltage2Hyst=voltage2Hyst, trapInterval=trapInterval, restartDevice=restartDevice, trcDigitalInput2State=trcDigitalInput2State, monitorNcontrol=monitorNcontrol, trapEnabled=trapEnabled, snmpSetup=snmpSetup, vlanStatus=vlanStatus, dns=dns, temperature1Hyst=temperature1Hyst, temp1x10Int=temp1x10Int, date=date, network=network, analogInput=analogInput, relay=relay, humidity1Min=humidity1Min, humidity1Hyst=humidity1Hyst, temperature1Min=temperature1Min, relay2State=relay2State, trcTemp2x10Int=trcTemp2x10Int, deviceMACAddress=deviceMACAddress, trcRestartDevice=trcRestartDevice, filterMACEnable3=filterMACEnable3, ACTION=ACTION, humidity2Hyst=humidity2Hyst, filterMACAddress3=filterMACAddress3, version=version, humidity1=humidity1, digitalInput2Action=digitalInput2Action, recipients=recipients, voltage2Range=voltage2Range, hostName=hostName, relay1ControledBy=relay1ControledBy, filterMACEnable2=filterMACEnable2, filterMACAddress2=filterMACAddress2, temperature2Action=temperature2Action, digitalInput1Action=digitalInput1Action, temperature2Min=temperature2Min, trcHumi1x10Int=trcHumi1x10Int, humidity2Action=humidity2Action, CONTROLLED=CONTROLLED, maxNumberOfTraps=maxNumberOfTraps, temperature1=temperature1, teracom=teracom, snmpConfiguration=snmpConfiguration, trcVoltage1x10Int=trcVoltage1x10Int, deviceIPAddress=deviceIPAddress, temperature1Action=temperature1Action, humi1x10Int=humi1x10Int, RANGE=RANGE, humidity1Max=humidity1Max, trapCommunity=trapCommunity, trcDigitalInput1State=trcDigitalInput1State, relay1Pulse=relay1Pulse, temperature2Max=temperature2Max, temperature1Max=temperature1Max)
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Teracom_ObjectIdentity = ObjectIdentity
+teracom = _Teracom_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783)
+)
+_Product_ObjectIdentity = ObjectIdentity
+product = _Product_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 1)
+)
+_Name_Type = DisplayString
+_Name_Object = MibScalar
+name = _Name_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 1, 1),
+    _Name_Type()
+)
+name.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    name.setStatus("mandatory")
+_Version_Type = DisplayString
+_Version_Object = MibScalar
+version = _Version_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 1, 2),
+    _Version_Type()
+)
+version.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    version.setStatus("mandatory")
+_Date_Type = DisplayString
+_Date_Object = MibScalar
+date = _Date_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 1, 3),
+    _Date_Type()
+)
+date.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    date.setStatus("mandatory")
+_Setup_ObjectIdentity = ObjectIdentity
+setup = _Setup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2)
+)
+_Network_ObjectIdentity = ObjectIdentity
+network = _Network_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 1)
+)
+_DeviceIPAddress_Type = IpAddress
+_DeviceIPAddress_Object = MibScalar
+deviceIPAddress = _DeviceIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 1, 1),
+    _DeviceIPAddress_Type()
+)
+deviceIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceIPAddress.setStatus("mandatory")
+_SubnetMask_Type = IpAddress
+_SubnetMask_Object = MibScalar
+subnetMask = _SubnetMask_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 1, 2),
+    _SubnetMask_Type()
+)
+subnetMask.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    subnetMask.setStatus("mandatory")
+_Gateway_Type = IpAddress
+_Gateway_Object = MibScalar
+gateway = _Gateway_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 1, 3),
+    _Gateway_Type()
+)
+gateway.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    gateway.setStatus("mandatory")
+
+
+class _DeviceMACAddress_Type(OctetString):
+    """Custom type deviceMACAddress based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+    fixed_length = 6
+
+
+_DeviceMACAddress_Type.__name__ = "OctetString"
+_DeviceMACAddress_Object = MibScalar
+deviceMACAddress = _DeviceMACAddress_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 1, 4),
+    _DeviceMACAddress_Type()
+)
+deviceMACAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    deviceMACAddress.setStatus("mandatory")
+
+
+class _DhcpConfig_Type(Integer32):
+    """Custom type dhcpConfig based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_DhcpConfig_Type.__name__ = "Integer32"
+_DhcpConfig_Object = MibScalar
+dhcpConfig = _DhcpConfig_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 1, 5),
+    _DhcpConfig_Type()
+)
+dhcpConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dhcpConfig.setStatus("mandatory")
+_Dns_Type = IpAddress
+_Dns_Object = MibScalar
+dns = _Dns_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 1, 6),
+    _Dns_Type()
+)
+dns.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dns.setStatus("mandatory")
+
+
+class _HostName_Type(DisplayString):
+    """Custom type hostName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 38),
+    )
+
+
+_HostName_Type.__name__ = "DisplayString"
+_HostName_Object = MibScalar
+hostName = _HostName_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 1, 7),
+    _HostName_Type()
+)
+hostName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hostName.setStatus("mandatory")
+_Vlan_ObjectIdentity = ObjectIdentity
+vlan = _Vlan_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 2)
+)
+
+
+class _VlanStatus_Type(Integer32):
+    """Custom type vlanStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_VlanStatus_Type.__name__ = "Integer32"
+_VlanStatus_Object = MibScalar
+vlanStatus = _VlanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 2, 1),
+    _VlanStatus_Type()
+)
+vlanStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vlanStatus.setStatus("mandatory")
+
+
+class _VlanId_Type(Integer32):
+    """Custom type vlanId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 4095),
+    )
+
+
+_VlanId_Type.__name__ = "Integer32"
+_VlanId_Object = MibScalar
+vlanId = _VlanId_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 2, 2),
+    _VlanId_Type()
+)
+vlanId.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    vlanId.setStatus("mandatory")
+_MacFilter_ObjectIdentity = ObjectIdentity
+macFilter = _MacFilter_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 3)
+)
+
+
+class _FilterMACAddress1_Type(OctetString):
+    """Custom type filterMACAddress1 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+    fixed_length = 6
+
+
+_FilterMACAddress1_Type.__name__ = "OctetString"
+_FilterMACAddress1_Object = MibScalar
+filterMACAddress1 = _FilterMACAddress1_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 3, 1),
+    _FilterMACAddress1_Type()
+)
+filterMACAddress1.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    filterMACAddress1.setStatus("mandatory")
+
+
+class _FilterMACEnable1_Type(Integer32):
+    """Custom type filterMACEnable1 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_FilterMACEnable1_Type.__name__ = "Integer32"
+_FilterMACEnable1_Object = MibScalar
+filterMACEnable1 = _FilterMACEnable1_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 3, 2),
+    _FilterMACEnable1_Type()
+)
+filterMACEnable1.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    filterMACEnable1.setStatus("mandatory")
+
+
+class _FilterMACAddress2_Type(OctetString):
+    """Custom type filterMACAddress2 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+    fixed_length = 6
+
+
+_FilterMACAddress2_Type.__name__ = "OctetString"
+_FilterMACAddress2_Object = MibScalar
+filterMACAddress2 = _FilterMACAddress2_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 3, 3),
+    _FilterMACAddress2_Type()
+)
+filterMACAddress2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    filterMACAddress2.setStatus("mandatory")
+
+
+class _FilterMACEnable2_Type(Integer32):
+    """Custom type filterMACEnable2 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_FilterMACEnable2_Type.__name__ = "Integer32"
+_FilterMACEnable2_Object = MibScalar
+filterMACEnable2 = _FilterMACEnable2_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 3, 4),
+    _FilterMACEnable2_Type()
+)
+filterMACEnable2.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    filterMACEnable2.setStatus("mandatory")
+
+
+class _FilterMACAddress3_Type(OctetString):
+    """Custom type filterMACAddress3 based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(6, 6),
+    )
+    fixed_length = 6
+
+
+_FilterMACAddress3_Type.__name__ = "OctetString"
+_FilterMACAddress3_Object = MibScalar
+filterMACAddress3 = _FilterMACAddress3_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 3, 5),
+    _FilterMACAddress3_Type()
+)
+filterMACAddress3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    filterMACAddress3.setStatus("mandatory")
+
+
+class _FilterMACEnable3_Type(Integer32):
+    """Custom type filterMACEnable3 based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_FilterMACEnable3_Type.__name__ = "Integer32"
+_FilterMACEnable3_Object = MibScalar
+filterMACEnable3 = _FilterMACEnable3_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 3, 6),
+    _FilterMACEnable3_Type()
+)
+filterMACEnable3.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    filterMACEnable3.setStatus("mandatory")
+_SnmpSetup_ObjectIdentity = ObjectIdentity
+snmpSetup = _SnmpSetup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 4)
+)
+
+
+class _SnmpConfiguration_Type(Integer32):
+    """Custom type snmpConfiguration based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 0),
+          ("enabled", 1))
+    )
+
+
+_SnmpConfiguration_Type.__name__ = "Integer32"
+_SnmpConfiguration_Object = MibScalar
+snmpConfiguration = _SnmpConfiguration_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 4, 1),
+    _SnmpConfiguration_Type()
+)
+snmpConfiguration.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    snmpConfiguration.setStatus("mandatory")
+
+
+class _TrapEnabled_Type(Integer32):
+    """Custom type trapEnabled based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("no", 0),
+          ("yes", 1))
+    )
+
+
+_TrapEnabled_Type.__name__ = "Integer32"
+_TrapEnabled_Object = MibScalar
+trapEnabled = _TrapEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 4, 2),
+    _TrapEnabled_Type()
+)
+trapEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapEnabled.setStatus("mandatory")
+_TrapReceiverIPAddress_Type = IpAddress
+_TrapReceiverIPAddress_Object = MibScalar
+trapReceiverIPAddress = _TrapReceiverIPAddress_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 4, 3),
+    _TrapReceiverIPAddress_Type()
+)
+trapReceiverIPAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapReceiverIPAddress.setStatus("mandatory")
+
+
+class _TrapCommunity_Type(DisplayString):
+    """Custom type trapCommunity based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 13),
+    )
+
+
+_TrapCommunity_Type.__name__ = "DisplayString"
+_TrapCommunity_Object = MibScalar
+trapCommunity = _TrapCommunity_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 4, 4),
+    _TrapCommunity_Type()
+)
+trapCommunity.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapCommunity.setStatus("mandatory")
+
+
+class _TrapInterval_Type(Integer32):
+    """Custom type trapInterval based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_TrapInterval_Type.__name__ = "Integer32"
+_TrapInterval_Object = MibScalar
+trapInterval = _TrapInterval_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 4, 5),
+    _TrapInterval_Type()
+)
+trapInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    trapInterval.setStatus("mandatory")
+
+
+class _MaxNumberOfTraps_Type(Integer32):
+    """Custom type maxNumberOfTraps based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_MaxNumberOfTraps_Type.__name__ = "Integer32"
+_MaxNumberOfTraps_Object = MibScalar
+maxNumberOfTraps = _MaxNumberOfTraps_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 4, 6),
+    _MaxNumberOfTraps_Type()
+)
+maxNumberOfTraps.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    maxNumberOfTraps.setStatus("mandatory")
+_Sensor1_ObjectIdentity = ObjectIdentity
+sensor1 = _Sensor1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 5)
+)
+_Temperature1_ObjectIdentity = ObjectIdentity
+temperature1 = _Temperature1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 5, 1)
+)
+
+
+class _Temperature1Min_Type(Integer32):
+    """Custom type temperature1Min based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-400, 1250),
+    )
+
+
+_Temperature1Min_Type.__name__ = "Integer32"
+_Temperature1Min_Object = MibScalar
+temperature1Min = _Temperature1Min_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 5, 1, 1),
+    _Temperature1Min_Type()
+)
+temperature1Min.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    temperature1Min.setStatus("mandatory")
+
+
+class _Temperature1Max_Type(Integer32):
+    """Custom type temperature1Max based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-400, 1250),
+    )
+
+
+_Temperature1Max_Type.__name__ = "Integer32"
+_Temperature1Max_Object = MibScalar
+temperature1Max = _Temperature1Max_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 5, 1, 2),
+    _Temperature1Max_Type()
+)
+temperature1Max.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    temperature1Max.setStatus("mandatory")
+
+
+class _Temperature1Hyst_Type(Integer32):
+    """Custom type temperature1Hyst based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-400, 1250),
+    )
+
+
+_Temperature1Hyst_Type.__name__ = "Integer32"
+_Temperature1Hyst_Object = MibScalar
+temperature1Hyst = _Temperature1Hyst_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 5, 1, 3),
+    _Temperature1Hyst_Type()
+)
+temperature1Hyst.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    temperature1Hyst.setStatus("mandatory")
+_Temperature1Action_Type = ACTION
+_Temperature1Action_Object = MibScalar
+temperature1Action = _Temperature1Action_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 5, 1, 4),
+    _Temperature1Action_Type()
+)
+temperature1Action.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    temperature1Action.setStatus("mandatory")
+_Humidity1_ObjectIdentity = ObjectIdentity
+humidity1 = _Humidity1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 5, 2)
+)
+
+
+class _Humidity1Min_Type(Integer32):
+    """Custom type humidity1Min based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Humidity1Min_Type.__name__ = "Integer32"
+_Humidity1Min_Object = MibScalar
+humidity1Min = _Humidity1Min_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 5, 2, 1),
+    _Humidity1Min_Type()
+)
+humidity1Min.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidity1Min.setStatus("mandatory")
+
+
+class _Humidity1Max_Type(Integer32):
+    """Custom type humidity1Max based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Humidity1Max_Type.__name__ = "Integer32"
+_Humidity1Max_Object = MibScalar
+humidity1Max = _Humidity1Max_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 5, 2, 2),
+    _Humidity1Max_Type()
+)
+humidity1Max.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidity1Max.setStatus("mandatory")
+
+
+class _Humidity1Hyst_Type(Integer32):
+    """Custom type humidity1Hyst based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Humidity1Hyst_Type.__name__ = "Integer32"
+_Humidity1Hyst_Object = MibScalar
+humidity1Hyst = _Humidity1Hyst_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 5, 2, 3),
+    _Humidity1Hyst_Type()
+)
+humidity1Hyst.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidity1Hyst.setStatus("mandatory")
+_Humidity1Action_Type = ACTION
+_Humidity1Action_Object = MibScalar
+humidity1Action = _Humidity1Action_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 5, 2, 4),
+    _Humidity1Action_Type()
+)
+humidity1Action.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidity1Action.setStatus("mandatory")
+_Sensor2_ObjectIdentity = ObjectIdentity
+sensor2 = _Sensor2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 6)
+)
+_Temperature2_ObjectIdentity = ObjectIdentity
+temperature2 = _Temperature2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 6, 1)
+)
+
+
+class _Temperature2Min_Type(Integer32):
+    """Custom type temperature2Min based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-400, 1250),
+    )
+
+
+_Temperature2Min_Type.__name__ = "Integer32"
+_Temperature2Min_Object = MibScalar
+temperature2Min = _Temperature2Min_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 6, 1, 1),
+    _Temperature2Min_Type()
+)
+temperature2Min.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    temperature2Min.setStatus("mandatory")
+
+
+class _Temperature2Max_Type(Integer32):
+    """Custom type temperature2Max based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-400, 1250),
+    )
+
+
+_Temperature2Max_Type.__name__ = "Integer32"
+_Temperature2Max_Object = MibScalar
+temperature2Max = _Temperature2Max_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 6, 1, 2),
+    _Temperature2Max_Type()
+)
+temperature2Max.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    temperature2Max.setStatus("mandatory")
+
+
+class _Temperature2Hyst_Type(Integer32):
+    """Custom type temperature2Hyst based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-400, 1250),
+    )
+
+
+_Temperature2Hyst_Type.__name__ = "Integer32"
+_Temperature2Hyst_Object = MibScalar
+temperature2Hyst = _Temperature2Hyst_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 6, 1, 3),
+    _Temperature2Hyst_Type()
+)
+temperature2Hyst.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    temperature2Hyst.setStatus("mandatory")
+_Temperature2Action_Type = ACTION
+_Temperature2Action_Object = MibScalar
+temperature2Action = _Temperature2Action_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 6, 1, 4),
+    _Temperature2Action_Type()
+)
+temperature2Action.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    temperature2Action.setStatus("mandatory")
+_Humidity2_ObjectIdentity = ObjectIdentity
+humidity2 = _Humidity2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 6, 2)
+)
+
+
+class _Humidity2Min_Type(Integer32):
+    """Custom type humidity2Min based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Humidity2Min_Type.__name__ = "Integer32"
+_Humidity2Min_Object = MibScalar
+humidity2Min = _Humidity2Min_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 6, 2, 1),
+    _Humidity2Min_Type()
+)
+humidity2Min.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidity2Min.setStatus("mandatory")
+
+
+class _Humidity2Max_Type(Integer32):
+    """Custom type humidity2Max based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Humidity2Max_Type.__name__ = "Integer32"
+_Humidity2Max_Object = MibScalar
+humidity2Max = _Humidity2Max_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 6, 2, 2),
+    _Humidity2Max_Type()
+)
+humidity2Max.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidity2Max.setStatus("mandatory")
+
+
+class _Humidity2Hyst_Type(Integer32):
+    """Custom type humidity2Hyst based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Humidity2Hyst_Type.__name__ = "Integer32"
+_Humidity2Hyst_Object = MibScalar
+humidity2Hyst = _Humidity2Hyst_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 6, 2, 3),
+    _Humidity2Hyst_Type()
+)
+humidity2Hyst.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidity2Hyst.setStatus("mandatory")
+_Humidity2Action_Type = ACTION
+_Humidity2Action_Object = MibScalar
+humidity2Action = _Humidity2Action_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 6, 2, 4),
+    _Humidity2Action_Type()
+)
+humidity2Action.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    humidity2Action.setStatus("mandatory")
+_AnalogInput_ObjectIdentity = ObjectIdentity
+analogInput = _AnalogInput_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7)
+)
+_Input1_ObjectIdentity = ObjectIdentity
+input1 = _Input1_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 1)
+)
+
+
+class _Voltage1Min_Type(Integer32):
+    """Custom type voltage1Min based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Voltage1Min_Type.__name__ = "Integer32"
+_Voltage1Min_Object = MibScalar
+voltage1Min = _Voltage1Min_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 1, 1),
+    _Voltage1Min_Type()
+)
+voltage1Min.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    voltage1Min.setStatus("mandatory")
+
+
+class _Voltage1Max_Type(Integer32):
+    """Custom type voltage1Max based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Voltage1Max_Type.__name__ = "Integer32"
+_Voltage1Max_Object = MibScalar
+voltage1Max = _Voltage1Max_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 1, 2),
+    _Voltage1Max_Type()
+)
+voltage1Max.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    voltage1Max.setStatus("mandatory")
+
+
+class _Voltage1Hyst_Type(Integer32):
+    """Custom type voltage1Hyst based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Voltage1Hyst_Type.__name__ = "Integer32"
+_Voltage1Hyst_Object = MibScalar
+voltage1Hyst = _Voltage1Hyst_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 1, 3),
+    _Voltage1Hyst_Type()
+)
+voltage1Hyst.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    voltage1Hyst.setStatus("mandatory")
+_Voltage1Action_Type = ACTION
+_Voltage1Action_Object = MibScalar
+voltage1Action = _Voltage1Action_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 1, 4),
+    _Voltage1Action_Type()
+)
+voltage1Action.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    voltage1Action.setStatus("mandatory")
+_Voltage1Range_Type = RANGE
+_Voltage1Range_Object = MibScalar
+voltage1Range = _Voltage1Range_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 1, 5),
+    _Voltage1Range_Type()
+)
+voltage1Range.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    voltage1Range.setStatus("mandatory")
+_Input2_ObjectIdentity = ObjectIdentity
+input2 = _Input2_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 2)
+)
+
+
+class _Voltage2Min_Type(Integer32):
+    """Custom type voltage2Min based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Voltage2Min_Type.__name__ = "Integer32"
+_Voltage2Min_Object = MibScalar
+voltage2Min = _Voltage2Min_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 2, 1),
+    _Voltage2Min_Type()
+)
+voltage2Min.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    voltage2Min.setStatus("mandatory")
+
+
+class _Voltage2Max_Type(Integer32):
+    """Custom type voltage2Max based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Voltage2Max_Type.__name__ = "Integer32"
+_Voltage2Max_Object = MibScalar
+voltage2Max = _Voltage2Max_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 2, 2),
+    _Voltage2Max_Type()
+)
+voltage2Max.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    voltage2Max.setStatus("mandatory")
+
+
+class _Voltage2Hyst_Type(Integer32):
+    """Custom type voltage2Hyst based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Voltage2Hyst_Type.__name__ = "Integer32"
+_Voltage2Hyst_Object = MibScalar
+voltage2Hyst = _Voltage2Hyst_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 2, 3),
+    _Voltage2Hyst_Type()
+)
+voltage2Hyst.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    voltage2Hyst.setStatus("mandatory")
+_Voltage2Action_Type = ACTION
+_Voltage2Action_Object = MibScalar
+voltage2Action = _Voltage2Action_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 2, 4),
+    _Voltage2Action_Type()
+)
+voltage2Action.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    voltage2Action.setStatus("mandatory")
+_Voltage2Range_Type = RANGE
+_Voltage2Range_Object = MibScalar
+voltage2Range = _Voltage2Range_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 7, 2, 5),
+    _Voltage2Range_Type()
+)
+voltage2Range.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    voltage2Range.setStatus("mandatory")
+_DigitalInput_ObjectIdentity = ObjectIdentity
+digitalInput = _DigitalInput_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 8)
+)
+_DigitalInput1Action_Type = DACTION
+_DigitalInput1Action_Object = MibScalar
+digitalInput1Action = _DigitalInput1Action_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 8, 1),
+    _DigitalInput1Action_Type()
+)
+digitalInput1Action.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    digitalInput1Action.setStatus("mandatory")
+_DigitalInput2Action_Type = DACTION
+_DigitalInput2Action_Object = MibScalar
+digitalInput2Action = _DigitalInput2Action_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 8, 2),
+    _DigitalInput2Action_Type()
+)
+digitalInput2Action.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    digitalInput2Action.setStatus("mandatory")
+_Relay_ObjectIdentity = ObjectIdentity
+relay = _Relay_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 9)
+)
+_Relay1ControledBy_Type = CONTROLLED
+_Relay1ControledBy_Object = MibScalar
+relay1ControledBy = _Relay1ControledBy_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 9, 1),
+    _Relay1ControledBy_Type()
+)
+relay1ControledBy.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay1ControledBy.setStatus("mandatory")
+_Relay2ControledBy_Type = CONTROLLED
+_Relay2ControledBy_Object = MibScalar
+relay2ControledBy = _Relay2ControledBy_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 9, 2),
+    _Relay2ControledBy_Type()
+)
+relay2ControledBy.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay2ControledBy.setStatus("mandatory")
+
+
+class _RelayPulseWidth_Type(Integer32):
+    """Custom type relayPulseWidth based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_RelayPulseWidth_Type.__name__ = "Integer32"
+_RelayPulseWidth_Object = MibScalar
+relayPulseWidth = _RelayPulseWidth_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 9, 3),
+    _RelayPulseWidth_Type()
+)
+relayPulseWidth.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relayPulseWidth.setStatus("mandatory")
+_Recipients_ObjectIdentity = ObjectIdentity
+recipients = _Recipients_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 10)
+)
+
+
+class _Recipient1EmailAddress_Type(DisplayString):
+    """Custom type recipient1EmailAddress based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 38),
+    )
+
+
+_Recipient1EmailAddress_Type.__name__ = "DisplayString"
+_Recipient1EmailAddress_Object = MibScalar
+recipient1EmailAddress = _Recipient1EmailAddress_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 2, 10, 1),
+    _Recipient1EmailAddress_Type()
+)
+recipient1EmailAddress.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    recipient1EmailAddress.setStatus("mandatory")
+_MonitorNcontrol_ObjectIdentity = ObjectIdentity
+monitorNcontrol = _MonitorNcontrol_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 38783, 3)
+)
+
+
+class _DigitalInput1State_Type(Integer32):
+    """Custom type digitalInput1State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_DigitalInput1State_Type.__name__ = "Integer32"
+_DigitalInput1State_Object = MibScalar
+digitalInput1State = _DigitalInput1State_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 1),
+    _DigitalInput1State_Type()
+)
+digitalInput1State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    digitalInput1State.setStatus("mandatory")
+
+
+class _DigitalInput2State_Type(Integer32):
+    """Custom type digitalInput2State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_DigitalInput2State_Type.__name__ = "Integer32"
+_DigitalInput2State_Object = MibScalar
+digitalInput2State = _DigitalInput2State_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 2),
+    _DigitalInput2State_Type()
+)
+digitalInput2State.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    digitalInput2State.setStatus("mandatory")
+
+
+class _Relay1State_Type(Integer32):
+    """Custom type relay1State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_Relay1State_Type.__name__ = "Integer32"
+_Relay1State_Object = MibScalar
+relay1State = _Relay1State_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 3),
+    _Relay1State_Type()
+)
+relay1State.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay1State.setStatus("mandatory")
+
+
+class _Relay1Pulse_Type(Integer32):
+    """Custom type relay1Pulse based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_Relay1Pulse_Type.__name__ = "Integer32"
+_Relay1Pulse_Object = MibScalar
+relay1Pulse = _Relay1Pulse_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 4),
+    _Relay1Pulse_Type()
+)
+relay1Pulse.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay1Pulse.setStatus("mandatory")
+
+
+class _Relay2State_Type(Integer32):
+    """Custom type relay2State based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_Relay2State_Type.__name__ = "Integer32"
+_Relay2State_Object = MibScalar
+relay2State = _Relay2State_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 5),
+    _Relay2State_Type()
+)
+relay2State.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay2State.setStatus("mandatory")
+
+
+class _Relay2Pulse_Type(Integer32):
+    """Custom type relay2Pulse based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 0),
+          ("on", 1))
+    )
+
+
+_Relay2Pulse_Type.__name__ = "Integer32"
+_Relay2Pulse_Object = MibScalar
+relay2Pulse = _Relay2Pulse_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 6),
+    _Relay2Pulse_Type()
+)
+relay2Pulse.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    relay2Pulse.setStatus("mandatory")
+
+
+class _Voltage1x10Int_Type(Integer32):
+    """Custom type voltage1x10Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Voltage1x10Int_Type.__name__ = "Integer32"
+_Voltage1x10Int_Object = MibScalar
+voltage1x10Int = _Voltage1x10Int_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 7),
+    _Voltage1x10Int_Type()
+)
+voltage1x10Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    voltage1x10Int.setStatus("mandatory")
+
+
+class _Voltage2x10Int_Type(Integer32):
+    """Custom type voltage2x10Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Voltage2x10Int_Type.__name__ = "Integer32"
+_Voltage2x10Int_Object = MibScalar
+voltage2x10Int = _Voltage2x10Int_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 8),
+    _Voltage2x10Int_Type()
+)
+voltage2x10Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    voltage2x10Int.setStatus("mandatory")
+
+
+class _Temp1x10Int_Type(Integer32):
+    """Custom type temp1x10Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-400, 1250),
+    )
+
+
+_Temp1x10Int_Type.__name__ = "Integer32"
+_Temp1x10Int_Object = MibScalar
+temp1x10Int = _Temp1x10Int_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 9),
+    _Temp1x10Int_Type()
+)
+temp1x10Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    temp1x10Int.setStatus("mandatory")
+
+
+class _Temp2x10Int_Type(Integer32):
+    """Custom type temp2x10Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-400, 1250),
+    )
+
+
+_Temp2x10Int_Type.__name__ = "Integer32"
+_Temp2x10Int_Object = MibScalar
+temp2x10Int = _Temp2x10Int_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 10),
+    _Temp2x10Int_Type()
+)
+temp2x10Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    temp2x10Int.setStatus("mandatory")
+
+
+class _Humi1x10Int_Type(Integer32):
+    """Custom type humi1x10Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Humi1x10Int_Type.__name__ = "Integer32"
+_Humi1x10Int_Object = MibScalar
+humi1x10Int = _Humi1x10Int_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 11),
+    _Humi1x10Int_Type()
+)
+humi1x10Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humi1x10Int.setStatus("mandatory")
+
+
+class _Humi2x10Int_Type(Integer32):
+    """Custom type humi2x10Int based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 1000),
+    )
+
+
+_Humi2x10Int_Type.__name__ = "Integer32"
+_Humi2x10Int_Object = MibScalar
+humi2x10Int = _Humi2x10Int_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 12),
+    _Humi2x10Int_Type()
+)
+humi2x10Int.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    humi2x10Int.setStatus("mandatory")
+
+
+class _ConfigurationSaved_Type(Integer32):
+    """Custom type configurationSaved based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unsaved", 0),
+          ("saved", 1))
+    )
+
+
+_ConfigurationSaved_Type.__name__ = "Integer32"
+_ConfigurationSaved_Object = MibScalar
+configurationSaved = _ConfigurationSaved_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 13),
+    _ConfigurationSaved_Type()
+)
+configurationSaved.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    configurationSaved.setStatus("mandatory")
+
+
+class _RestartDevice_Type(Integer32):
+    """Custom type restartDevice based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("cancel", 0),
+          ("restart", 1))
+    )
+
+
+_RestartDevice_Type.__name__ = "Integer32"
+_RestartDevice_Object = MibScalar
+restartDevice = _RestartDevice_Object(
+    (1, 3, 6, 1, 4, 1, 38783, 3, 14),
+    _RestartDevice_Type()
+)
+restartDevice.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    restartDevice.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+trcDigitalInput1State = NotificationType(
+    (1, 3, 6, 1, 4, 1, 38783, 0, 101)
+)
+trcDigitalInput1State.setObjects(
+    ("TERACOM-TCW121-MIB", "digitalInput1State")
+)
+if mibBuilder.loadTexts:
+    trcDigitalInput1State.setStatus(
+        ""
+    )
+
+trcDigitalInput2State = NotificationType(
+    (1, 3, 6, 1, 4, 1, 38783, 0, 102)
+)
+trcDigitalInput2State.setObjects(
+    ("TERACOM-TCW121-MIB", "digitalInput2State")
+)
+if mibBuilder.loadTexts:
+    trcDigitalInput2State.setStatus(
+        ""
+    )
+
+trcVoltage1x10Int = NotificationType(
+    (1, 3, 6, 1, 4, 1, 38783, 0, 103)
+)
+trcVoltage1x10Int.setObjects(
+    ("TERACOM-TCW121-MIB", "voltage1x10Int")
+)
+if mibBuilder.loadTexts:
+    trcVoltage1x10Int.setStatus(
+        ""
+    )
+
+trcVoltage2x10Int = NotificationType(
+    (1, 3, 6, 1, 4, 1, 38783, 0, 104)
+)
+trcVoltage2x10Int.setObjects(
+    ("TERACOM-TCW121-MIB", "voltage2x10Int")
+)
+if mibBuilder.loadTexts:
+    trcVoltage2x10Int.setStatus(
+        ""
+    )
+
+trcTemp1x10Int = NotificationType(
+    (1, 3, 6, 1, 4, 1, 38783, 0, 105)
+)
+trcTemp1x10Int.setObjects(
+    ("TERACOM-TCW121-MIB", "temp1x10Int")
+)
+if mibBuilder.loadTexts:
+    trcTemp1x10Int.setStatus(
+        ""
+    )
+
+trcTemp2x10Int = NotificationType(
+    (1, 3, 6, 1, 4, 1, 38783, 0, 106)
+)
+trcTemp2x10Int.setObjects(
+    ("TERACOM-TCW121-MIB", "temp2x10Int")
+)
+if mibBuilder.loadTexts:
+    trcTemp2x10Int.setStatus(
+        ""
+    )
+
+trcHumi1x10Int = NotificationType(
+    (1, 3, 6, 1, 4, 1, 38783, 0, 107)
+)
+trcHumi1x10Int.setObjects(
+    ("TERACOM-TCW121-MIB", "humi1x10Int")
+)
+if mibBuilder.loadTexts:
+    trcHumi1x10Int.setStatus(
+        ""
+    )
+
+trcHumi2x10Int = NotificationType(
+    (1, 3, 6, 1, 4, 1, 38783, 0, 108)
+)
+trcHumi2x10Int.setObjects(
+    ("TERACOM-TCW121-MIB", "humi2x10Int")
+)
+if mibBuilder.loadTexts:
+    trcHumi2x10Int.setStatus(
+        ""
+    )
+
+trcRestartDevice = NotificationType(
+    (1, 3, 6, 1, 4, 1, 38783, 0, 109)
+)
+trcRestartDevice.setObjects(
+    ("TERACOM-TCW121-MIB", "restartDevice")
+)
+if mibBuilder.loadTexts:
+    trcRestartDevice.setStatus(
+        ""
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TERACOM-TCW121-MIB",
+    **{"RANGE": RANGE,
+       "CONTROLLED": CONTROLLED,
+       "ACTION": ACTION,
+       "DACTION": DACTION,
+       "teracom": teracom,
+       "trcDigitalInput1State": trcDigitalInput1State,
+       "trcDigitalInput2State": trcDigitalInput2State,
+       "trcVoltage1x10Int": trcVoltage1x10Int,
+       "trcVoltage2x10Int": trcVoltage2x10Int,
+       "trcTemp1x10Int": trcTemp1x10Int,
+       "trcTemp2x10Int": trcTemp2x10Int,
+       "trcHumi1x10Int": trcHumi1x10Int,
+       "trcHumi2x10Int": trcHumi2x10Int,
+       "trcRestartDevice": trcRestartDevice,
+       "product": product,
+       "name": name,
+       "version": version,
+       "date": date,
+       "setup": setup,
+       "network": network,
+       "deviceIPAddress": deviceIPAddress,
+       "subnetMask": subnetMask,
+       "gateway": gateway,
+       "deviceMACAddress": deviceMACAddress,
+       "dhcpConfig": dhcpConfig,
+       "dns": dns,
+       "hostName": hostName,
+       "vlan": vlan,
+       "vlanStatus": vlanStatus,
+       "vlanId": vlanId,
+       "macFilter": macFilter,
+       "filterMACAddress1": filterMACAddress1,
+       "filterMACEnable1": filterMACEnable1,
+       "filterMACAddress2": filterMACAddress2,
+       "filterMACEnable2": filterMACEnable2,
+       "filterMACAddress3": filterMACAddress3,
+       "filterMACEnable3": filterMACEnable3,
+       "snmpSetup": snmpSetup,
+       "snmpConfiguration": snmpConfiguration,
+       "trapEnabled": trapEnabled,
+       "trapReceiverIPAddress": trapReceiverIPAddress,
+       "trapCommunity": trapCommunity,
+       "trapInterval": trapInterval,
+       "maxNumberOfTraps": maxNumberOfTraps,
+       "sensor1": sensor1,
+       "temperature1": temperature1,
+       "temperature1Min": temperature1Min,
+       "temperature1Max": temperature1Max,
+       "temperature1Hyst": temperature1Hyst,
+       "temperature1Action": temperature1Action,
+       "humidity1": humidity1,
+       "humidity1Min": humidity1Min,
+       "humidity1Max": humidity1Max,
+       "humidity1Hyst": humidity1Hyst,
+       "humidity1Action": humidity1Action,
+       "sensor2": sensor2,
+       "temperature2": temperature2,
+       "temperature2Min": temperature2Min,
+       "temperature2Max": temperature2Max,
+       "temperature2Hyst": temperature2Hyst,
+       "temperature2Action": temperature2Action,
+       "humidity2": humidity2,
+       "humidity2Min": humidity2Min,
+       "humidity2Max": humidity2Max,
+       "humidity2Hyst": humidity2Hyst,
+       "humidity2Action": humidity2Action,
+       "analogInput": analogInput,
+       "input1": input1,
+       "voltage1Min": voltage1Min,
+       "voltage1Max": voltage1Max,
+       "voltage1Hyst": voltage1Hyst,
+       "voltage1Action": voltage1Action,
+       "voltage1Range": voltage1Range,
+       "input2": input2,
+       "voltage2Min": voltage2Min,
+       "voltage2Max": voltage2Max,
+       "voltage2Hyst": voltage2Hyst,
+       "voltage2Action": voltage2Action,
+       "voltage2Range": voltage2Range,
+       "digitalInput": digitalInput,
+       "digitalInput1Action": digitalInput1Action,
+       "digitalInput2Action": digitalInput2Action,
+       "relay": relay,
+       "relay1ControledBy": relay1ControledBy,
+       "relay2ControledBy": relay2ControledBy,
+       "relayPulseWidth": relayPulseWidth,
+       "recipients": recipients,
+       "recipient1EmailAddress": recipient1EmailAddress,
+       "monitorNcontrol": monitorNcontrol,
+       "digitalInput1State": digitalInput1State,
+       "digitalInput2State": digitalInput2State,
+       "relay1State": relay1State,
+       "relay1Pulse": relay1Pulse,
+       "relay2State": relay2State,
+       "relay2Pulse": relay2Pulse,
+       "voltage1x10Int": voltage1x10Int,
+       "voltage2x10Int": voltage2x10Int,
+       "temp1x10Int": temp1x10Int,
+       "temp2x10Int": temp2x10Int,
+       "humi1x10Int": humi1x10Int,
+       "humi2x10Int": humi2x10Int,
+       "configurationSaved": configurationSaved,
+       "restartDevice": restartDevice}
+)

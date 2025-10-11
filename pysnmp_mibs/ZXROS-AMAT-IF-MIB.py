@@ -1,37 +1,276 @@
+# SNMP MIB module (ZXROS-AMAT-IF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ZXROS-AMAT-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/zte/ZXROS-AMAT-IF-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:10:41 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/zte/ZXROS-AMAT-IF-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:45:30 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-zte = MibIdentifier((1, 3, 6, 1, 4, 1, 3902))
-zxros = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 100))
-zxrosAMATIF = MibIdentifier((1, 3, 6, 1, 4, 1, 3902, 100, 1001))
-zxrosAMATInterfaceEnableTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 100, 1001, 1), )
-if mibBuilder.loadTexts: zxrosAMATInterfaceEnableTable.setStatus('current')
-zxrosAMATInterfaceEnableEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 100, 1001, 1, 1), ).setIndexNames((0, "ZXROS-AMAT-IF-MIB", "zxrosAMATInterfaceEnableIfIndex"))
-if mibBuilder.loadTexts: zxrosAMATInterfaceEnableEntry.setStatus('current')
-zxrosAMATInterfaceEnableIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 100, 1001, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxrosAMATInterfaceEnableIfIndex.setStatus('current')
-zxrosAMATInterfaceInAmatEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 100, 1001, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zxrosAMATInterfaceInAmatEnable.setStatus('current')
-zxrosAMATInterfaceOutAmatEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 100, 1001, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: zxrosAMATInterfaceOutAmatEnable.setStatus('current')
-zxrosAMATInterfaceStatisticTable = MibTable((1, 3, 6, 1, 4, 1, 3902, 100, 1001, 2), )
-if mibBuilder.loadTexts: zxrosAMATInterfaceStatisticTable.setStatus('current')
-zxrosAMATInterfaceStatisticEntry = MibTableRow((1, 3, 6, 1, 4, 1, 3902, 100, 1001, 2, 1), ).setIndexNames((0, "ZXROS-AMAT-IF-MIB", "zxrosAMATInterfaceStatisticIfIndex"))
-if mibBuilder.loadTexts: zxrosAMATInterfaceStatisticEntry.setStatus('current')
-zxrosAMATInterfaceStatisticIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 100, 1001, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxrosAMATInterfaceStatisticIfIndex.setStatus('current')
-zxrosAMATInFilterpackets = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 100, 1001, 2, 1, 2), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxrosAMATInFilterpackets.setStatus('current')
-zxrosAMATOutFilterpackets = MibTableColumn((1, 3, 6, 1, 4, 1, 3902, 100, 1001, 2, 1, 3), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: zxrosAMATOutFilterpackets.setStatus('current')
-mibBuilder.exportSymbols("ZXROS-AMAT-IF-MIB", zxrosAMATOutFilterpackets=zxrosAMATOutFilterpackets, zxrosAMATInterfaceInAmatEnable=zxrosAMATInterfaceInAmatEnable, zxrosAMATIF=zxrosAMATIF, zxrosAMATInterfaceEnableIfIndex=zxrosAMATInterfaceEnableIfIndex, zxrosAMATInterfaceStatisticTable=zxrosAMATInterfaceStatisticTable, zxrosAMATInFilterpackets=zxrosAMATInFilterpackets, zte=zte, zxros=zxros, zxrosAMATInterfaceEnableTable=zxrosAMATInterfaceEnableTable, zxrosAMATInterfaceEnableEntry=zxrosAMATInterfaceEnableEntry, zxrosAMATInterfaceStatisticIfIndex=zxrosAMATInterfaceStatisticIfIndex, zxrosAMATInterfaceOutAmatEnable=zxrosAMATInterfaceOutAmatEnable, zxrosAMATInterfaceStatisticEntry=zxrosAMATInterfaceStatisticEntry)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Zte_ObjectIdentity = ObjectIdentity
+zte = _Zte_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902)
+)
+_Zxros_ObjectIdentity = ObjectIdentity
+zxros = _Zxros_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 100)
+)
+_ZxrosAMATIF_ObjectIdentity = ObjectIdentity
+zxrosAMATIF = _ZxrosAMATIF_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 3902, 100, 1001)
+)
+_ZxrosAMATInterfaceEnableTable_Object = MibTable
+zxrosAMATInterfaceEnableTable = _ZxrosAMATInterfaceEnableTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 100, 1001, 1)
+)
+if mibBuilder.loadTexts:
+    zxrosAMATInterfaceEnableTable.setStatus("current")
+_ZxrosAMATInterfaceEnableEntry_Object = MibTableRow
+zxrosAMATInterfaceEnableEntry = _ZxrosAMATInterfaceEnableEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 100, 1001, 1, 1)
+)
+zxrosAMATInterfaceEnableEntry.setIndexNames(
+    (0, "ZXROS-AMAT-IF-MIB", "zxrosAMATInterfaceEnableIfIndex"),
+)
+if mibBuilder.loadTexts:
+    zxrosAMATInterfaceEnableEntry.setStatus("current")
+_ZxrosAMATInterfaceEnableIfIndex_Type = Integer32
+_ZxrosAMATInterfaceEnableIfIndex_Object = MibTableColumn
+zxrosAMATInterfaceEnableIfIndex = _ZxrosAMATInterfaceEnableIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 100, 1001, 1, 1, 1),
+    _ZxrosAMATInterfaceEnableIfIndex_Type()
+)
+zxrosAMATInterfaceEnableIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxrosAMATInterfaceEnableIfIndex.setStatus("current")
+
+
+class _ZxrosAMATInterfaceInAmatEnable_Type(Integer32):
+    """Custom type zxrosAMATInterfaceInAmatEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_ZxrosAMATInterfaceInAmatEnable_Type.__name__ = "Integer32"
+_ZxrosAMATInterfaceInAmatEnable_Object = MibTableColumn
+zxrosAMATInterfaceInAmatEnable = _ZxrosAMATInterfaceInAmatEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 100, 1001, 1, 1, 2),
+    _ZxrosAMATInterfaceInAmatEnable_Type()
+)
+zxrosAMATInterfaceInAmatEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zxrosAMATInterfaceInAmatEnable.setStatus("current")
+
+
+class _ZxrosAMATInterfaceOutAmatEnable_Type(Integer32):
+    """Custom type zxrosAMATInterfaceOutAmatEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_ZxrosAMATInterfaceOutAmatEnable_Type.__name__ = "Integer32"
+_ZxrosAMATInterfaceOutAmatEnable_Object = MibTableColumn
+zxrosAMATInterfaceOutAmatEnable = _ZxrosAMATInterfaceOutAmatEnable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 100, 1001, 1, 1, 3),
+    _ZxrosAMATInterfaceOutAmatEnable_Type()
+)
+zxrosAMATInterfaceOutAmatEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    zxrosAMATInterfaceOutAmatEnable.setStatus("current")
+_ZxrosAMATInterfaceStatisticTable_Object = MibTable
+zxrosAMATInterfaceStatisticTable = _ZxrosAMATInterfaceStatisticTable_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 100, 1001, 2)
+)
+if mibBuilder.loadTexts:
+    zxrosAMATInterfaceStatisticTable.setStatus("current")
+_ZxrosAMATInterfaceStatisticEntry_Object = MibTableRow
+zxrosAMATInterfaceStatisticEntry = _ZxrosAMATInterfaceStatisticEntry_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 100, 1001, 2, 1)
+)
+zxrosAMATInterfaceStatisticEntry.setIndexNames(
+    (0, "ZXROS-AMAT-IF-MIB", "zxrosAMATInterfaceStatisticIfIndex"),
+)
+if mibBuilder.loadTexts:
+    zxrosAMATInterfaceStatisticEntry.setStatus("current")
+_ZxrosAMATInterfaceStatisticIfIndex_Type = Integer32
+_ZxrosAMATInterfaceStatisticIfIndex_Object = MibTableColumn
+zxrosAMATInterfaceStatisticIfIndex = _ZxrosAMATInterfaceStatisticIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 100, 1001, 2, 1, 1),
+    _ZxrosAMATInterfaceStatisticIfIndex_Type()
+)
+zxrosAMATInterfaceStatisticIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxrosAMATInterfaceStatisticIfIndex.setStatus("current")
+_ZxrosAMATInFilterpackets_Type = Counter64
+_ZxrosAMATInFilterpackets_Object = MibTableColumn
+zxrosAMATInFilterpackets = _ZxrosAMATInFilterpackets_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 100, 1001, 2, 1, 2),
+    _ZxrosAMATInFilterpackets_Type()
+)
+zxrosAMATInFilterpackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxrosAMATInFilterpackets.setStatus("current")
+_ZxrosAMATOutFilterpackets_Type = Counter64
+_ZxrosAMATOutFilterpackets_Object = MibTableColumn
+zxrosAMATOutFilterpackets = _ZxrosAMATOutFilterpackets_Object(
+    (1, 3, 6, 1, 4, 1, 3902, 100, 1001, 2, 1, 3),
+    _ZxrosAMATOutFilterpackets_Type()
+)
+zxrosAMATOutFilterpackets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    zxrosAMATOutFilterpackets.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ZXROS-AMAT-IF-MIB",
+    **{"zte": zte,
+       "zxros": zxros,
+       "zxrosAMATIF": zxrosAMATIF,
+       "zxrosAMATInterfaceEnableTable": zxrosAMATInterfaceEnableTable,
+       "zxrosAMATInterfaceEnableEntry": zxrosAMATInterfaceEnableEntry,
+       "zxrosAMATInterfaceEnableIfIndex": zxrosAMATInterfaceEnableIfIndex,
+       "zxrosAMATInterfaceInAmatEnable": zxrosAMATInterfaceInAmatEnable,
+       "zxrosAMATInterfaceOutAmatEnable": zxrosAMATInterfaceOutAmatEnable,
+       "zxrosAMATInterfaceStatisticTable": zxrosAMATInterfaceStatisticTable,
+       "zxrosAMATInterfaceStatisticEntry": zxrosAMATInterfaceStatisticEntry,
+       "zxrosAMATInterfaceStatisticIfIndex": zxrosAMATInterfaceStatisticIfIndex,
+       "zxrosAMATInFilterpackets": zxrosAMATInFilterpackets,
+       "zxrosAMATOutFilterpackets": zxrosAMATOutFilterpackets}
+)

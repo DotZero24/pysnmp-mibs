@@ -1,63 +1,386 @@
+# SNMP MIB module (CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:31:51 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:41:49 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoInetAddressMask, CiscoNetworkAddress, CiscoAlarmSeverity, TimeIntervalSec, Unsigned64 = mibBuilder.importSymbols("CISCO-TC", "CiscoInetAddressMask", "CiscoNetworkAddress", "CiscoAlarmSeverity", "TimeIntervalSec", "Unsigned64")
-CucsManagedObjectDn, ciscoUnifiedComputingMIBObjects, CucsManagedObjectId = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-MIB", "CucsManagedObjectDn", "ciscoUnifiedComputingMIBObjects", "CucsManagedObjectId")
-CucsPolicyPolicyOwner, CucsFlowctrlConfig, CucsFlowctrlPriorityPause, CucsFlowctrlFlowControl = mibBuilder.importSymbols("CISCO-UNIFIED-COMPUTING-TC-MIB", "CucsPolicyPolicyOwner", "CucsFlowctrlConfig", "CucsFlowctrlPriorityPause", "CucsFlowctrlFlowControl")
-InetAddressIPv4, InetAddressIPv6 = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressIPv4", "InetAddressIPv6")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DateAndTime, TextualConvention, TimeInterval, MacAddress, RowPointer, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "TimeInterval", "MacAddress", "RowPointer", "TruthValue", "TimeStamp", "DisplayString")
-cucsFlowctrlObjects = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23))
-if mibBuilder.loadTexts: cucsFlowctrlObjects.setLastUpdated('201807260000Z')
-if mibBuilder.loadTexts: cucsFlowctrlObjects.setOrganization('Cisco Systems Inc.')
-cucsFlowctrlDefinitionTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1), )
-if mibBuilder.loadTexts: cucsFlowctrlDefinitionTable.setStatus('current')
-cucsFlowctrlDefinitionEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB", "cucsFlowctrlDefinitionInstanceId"))
-if mibBuilder.loadTexts: cucsFlowctrlDefinitionEntry.setStatus('current')
-cucsFlowctrlDefinitionInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 1), CucsManagedObjectId())
-if mibBuilder.loadTexts: cucsFlowctrlDefinitionInstanceId.setStatus('current')
-cucsFlowctrlDefinitionDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlDefinitionDn.setStatus('current')
-cucsFlowctrlDefinitionRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlDefinitionRn.setStatus('current')
-cucsFlowctrlDefinitionDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlDefinitionDescr.setStatus('current')
-cucsFlowctrlDefinitionIntId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 5), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlDefinitionIntId.setStatus('current')
-cucsFlowctrlDefinitionName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlDefinitionName.setStatus('current')
-cucsFlowctrlDefinitionPolicyLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 7), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlDefinitionPolicyLevel.setStatus('current')
-cucsFlowctrlDefinitionPolicyOwner = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 8), CucsPolicyPolicyOwner()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlDefinitionPolicyOwner.setStatus('current')
-cucsFlowctrlItemTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2), )
-if mibBuilder.loadTexts: cucsFlowctrlItemTable.setStatus('current')
-cucsFlowctrlItemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1), ).setIndexNames((0, "CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB", "cucsFlowctrlItemInstanceId"))
-if mibBuilder.loadTexts: cucsFlowctrlItemEntry.setStatus('current')
-cucsFlowctrlItemInstanceId = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 1), CucsManagedObjectId())
-if mibBuilder.loadTexts: cucsFlowctrlItemInstanceId.setStatus('current')
-cucsFlowctrlItemDn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 2), CucsManagedObjectDn()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlItemDn.setStatus('current')
-cucsFlowctrlItemRn = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlItemRn.setStatus('current')
-cucsFlowctrlItemName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 4), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlItemName.setStatus('current')
-cucsFlowctrlItemPrio = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 5), CucsFlowctrlPriorityPause()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlItemPrio.setStatus('current')
-cucsFlowctrlItemRcv = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 6), CucsFlowctrlFlowControl()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlItemRcv.setStatus('current')
-cucsFlowctrlItemSnd = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 7), CucsFlowctrlFlowControl()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlItemSnd.setStatus('current')
-cucsFlowctrlItemConfig = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 8), CucsFlowctrlConfig()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: cucsFlowctrlItemConfig.setStatus('current')
-mibBuilder.exportSymbols("CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB", cucsFlowctrlObjects=cucsFlowctrlObjects, cucsFlowctrlDefinitionName=cucsFlowctrlDefinitionName, cucsFlowctrlItemName=cucsFlowctrlItemName, cucsFlowctrlDefinitionDn=cucsFlowctrlDefinitionDn, cucsFlowctrlItemConfig=cucsFlowctrlItemConfig, cucsFlowctrlItemTable=cucsFlowctrlItemTable, cucsFlowctrlDefinitionPolicyOwner=cucsFlowctrlDefinitionPolicyOwner, cucsFlowctrlDefinitionIntId=cucsFlowctrlDefinitionIntId, cucsFlowctrlItemPrio=cucsFlowctrlItemPrio, cucsFlowctrlItemRn=cucsFlowctrlItemRn, cucsFlowctrlDefinitionPolicyLevel=cucsFlowctrlDefinitionPolicyLevel, cucsFlowctrlDefinitionEntry=cucsFlowctrlDefinitionEntry, cucsFlowctrlItemRcv=cucsFlowctrlItemRcv, cucsFlowctrlDefinitionTable=cucsFlowctrlDefinitionTable, cucsFlowctrlItemSnd=cucsFlowctrlItemSnd, cucsFlowctrlDefinitionDescr=cucsFlowctrlDefinitionDescr, cucsFlowctrlItemEntry=cucsFlowctrlItemEntry, cucsFlowctrlDefinitionInstanceId=cucsFlowctrlDefinitionInstanceId, PYSNMP_MODULE_ID=cucsFlowctrlObjects, cucsFlowctrlItemInstanceId=cucsFlowctrlItemInstanceId, cucsFlowctrlItemDn=cucsFlowctrlItemDn, cucsFlowctrlDefinitionRn=cucsFlowctrlDefinitionRn)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CiscoAlarmSeverity,
+ CiscoInetAddressMask,
+ CiscoNetworkAddress,
+ TimeIntervalSec,
+ Unsigned64) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoAlarmSeverity",
+    "CiscoInetAddressMask",
+    "CiscoNetworkAddress",
+    "TimeIntervalSec",
+    "Unsigned64")
+
+(CucsManagedObjectDn,
+ CucsManagedObjectId,
+ ciscoUnifiedComputingMIBObjects) = mibBuilder.importSymbols(
+    "CISCO-UNIFIED-COMPUTING-MIB",
+    "CucsManagedObjectDn",
+    "CucsManagedObjectId",
+    "ciscoUnifiedComputingMIBObjects")
+
+(CucsFlowctrlConfig,
+ CucsFlowctrlFlowControl,
+ CucsFlowctrlPriorityPause,
+ CucsPolicyPolicyOwner) = mibBuilder.importSymbols(
+    "CISCO-UNIFIED-COMPUTING-TC-MIB",
+    "CucsFlowctrlConfig",
+    "CucsFlowctrlFlowControl",
+    "CucsFlowctrlPriorityPause",
+    "CucsPolicyPolicyOwner")
+
+(InetAddressIPv4,
+ InetAddressIPv6) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddressIPv4",
+    "InetAddressIPv6")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ MacAddress,
+ PhysAddress,
+ RowPointer,
+ TextualConvention,
+ TimeInterval,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "RowPointer",
+    "TextualConvention",
+    "TimeInterval",
+    "TimeStamp",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+cucsFlowctrlObjects = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CucsFlowctrlDefinitionTable_Object = MibTable
+cucsFlowctrlDefinitionTable = _CucsFlowctrlDefinitionTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1)
+)
+if mibBuilder.loadTexts:
+    cucsFlowctrlDefinitionTable.setStatus("current")
+_CucsFlowctrlDefinitionEntry_Object = MibTableRow
+cucsFlowctrlDefinitionEntry = _CucsFlowctrlDefinitionEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1)
+)
+cucsFlowctrlDefinitionEntry.setIndexNames(
+    (0, "CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB", "cucsFlowctrlDefinitionInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cucsFlowctrlDefinitionEntry.setStatus("current")
+_CucsFlowctrlDefinitionInstanceId_Type = CucsManagedObjectId
+_CucsFlowctrlDefinitionInstanceId_Object = MibTableColumn
+cucsFlowctrlDefinitionInstanceId = _CucsFlowctrlDefinitionInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 1),
+    _CucsFlowctrlDefinitionInstanceId_Type()
+)
+cucsFlowctrlDefinitionInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cucsFlowctrlDefinitionInstanceId.setStatus("current")
+_CucsFlowctrlDefinitionDn_Type = CucsManagedObjectDn
+_CucsFlowctrlDefinitionDn_Object = MibTableColumn
+cucsFlowctrlDefinitionDn = _CucsFlowctrlDefinitionDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 2),
+    _CucsFlowctrlDefinitionDn_Type()
+)
+cucsFlowctrlDefinitionDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlDefinitionDn.setStatus("current")
+_CucsFlowctrlDefinitionRn_Type = SnmpAdminString
+_CucsFlowctrlDefinitionRn_Object = MibTableColumn
+cucsFlowctrlDefinitionRn = _CucsFlowctrlDefinitionRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 3),
+    _CucsFlowctrlDefinitionRn_Type()
+)
+cucsFlowctrlDefinitionRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlDefinitionRn.setStatus("current")
+_CucsFlowctrlDefinitionDescr_Type = SnmpAdminString
+_CucsFlowctrlDefinitionDescr_Object = MibTableColumn
+cucsFlowctrlDefinitionDescr = _CucsFlowctrlDefinitionDescr_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 4),
+    _CucsFlowctrlDefinitionDescr_Type()
+)
+cucsFlowctrlDefinitionDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlDefinitionDescr.setStatus("current")
+_CucsFlowctrlDefinitionIntId_Type = SnmpAdminString
+_CucsFlowctrlDefinitionIntId_Object = MibTableColumn
+cucsFlowctrlDefinitionIntId = _CucsFlowctrlDefinitionIntId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 5),
+    _CucsFlowctrlDefinitionIntId_Type()
+)
+cucsFlowctrlDefinitionIntId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlDefinitionIntId.setStatus("current")
+_CucsFlowctrlDefinitionName_Type = SnmpAdminString
+_CucsFlowctrlDefinitionName_Object = MibTableColumn
+cucsFlowctrlDefinitionName = _CucsFlowctrlDefinitionName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 6),
+    _CucsFlowctrlDefinitionName_Type()
+)
+cucsFlowctrlDefinitionName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlDefinitionName.setStatus("current")
+_CucsFlowctrlDefinitionPolicyLevel_Type = Gauge32
+_CucsFlowctrlDefinitionPolicyLevel_Object = MibTableColumn
+cucsFlowctrlDefinitionPolicyLevel = _CucsFlowctrlDefinitionPolicyLevel_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 7),
+    _CucsFlowctrlDefinitionPolicyLevel_Type()
+)
+cucsFlowctrlDefinitionPolicyLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlDefinitionPolicyLevel.setStatus("current")
+_CucsFlowctrlDefinitionPolicyOwner_Type = CucsPolicyPolicyOwner
+_CucsFlowctrlDefinitionPolicyOwner_Object = MibTableColumn
+cucsFlowctrlDefinitionPolicyOwner = _CucsFlowctrlDefinitionPolicyOwner_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 1, 1, 8),
+    _CucsFlowctrlDefinitionPolicyOwner_Type()
+)
+cucsFlowctrlDefinitionPolicyOwner.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlDefinitionPolicyOwner.setStatus("current")
+_CucsFlowctrlItemTable_Object = MibTable
+cucsFlowctrlItemTable = _CucsFlowctrlItemTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2)
+)
+if mibBuilder.loadTexts:
+    cucsFlowctrlItemTable.setStatus("current")
+_CucsFlowctrlItemEntry_Object = MibTableRow
+cucsFlowctrlItemEntry = _CucsFlowctrlItemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1)
+)
+cucsFlowctrlItemEntry.setIndexNames(
+    (0, "CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB", "cucsFlowctrlItemInstanceId"),
+)
+if mibBuilder.loadTexts:
+    cucsFlowctrlItemEntry.setStatus("current")
+_CucsFlowctrlItemInstanceId_Type = CucsManagedObjectId
+_CucsFlowctrlItemInstanceId_Object = MibTableColumn
+cucsFlowctrlItemInstanceId = _CucsFlowctrlItemInstanceId_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 1),
+    _CucsFlowctrlItemInstanceId_Type()
+)
+cucsFlowctrlItemInstanceId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    cucsFlowctrlItemInstanceId.setStatus("current")
+_CucsFlowctrlItemDn_Type = CucsManagedObjectDn
+_CucsFlowctrlItemDn_Object = MibTableColumn
+cucsFlowctrlItemDn = _CucsFlowctrlItemDn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 2),
+    _CucsFlowctrlItemDn_Type()
+)
+cucsFlowctrlItemDn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlItemDn.setStatus("current")
+_CucsFlowctrlItemRn_Type = SnmpAdminString
+_CucsFlowctrlItemRn_Object = MibTableColumn
+cucsFlowctrlItemRn = _CucsFlowctrlItemRn_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 3),
+    _CucsFlowctrlItemRn_Type()
+)
+cucsFlowctrlItemRn.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlItemRn.setStatus("current")
+_CucsFlowctrlItemName_Type = SnmpAdminString
+_CucsFlowctrlItemName_Object = MibTableColumn
+cucsFlowctrlItemName = _CucsFlowctrlItemName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 4),
+    _CucsFlowctrlItemName_Type()
+)
+cucsFlowctrlItemName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlItemName.setStatus("current")
+_CucsFlowctrlItemPrio_Type = CucsFlowctrlPriorityPause
+_CucsFlowctrlItemPrio_Object = MibTableColumn
+cucsFlowctrlItemPrio = _CucsFlowctrlItemPrio_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 5),
+    _CucsFlowctrlItemPrio_Type()
+)
+cucsFlowctrlItemPrio.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlItemPrio.setStatus("current")
+_CucsFlowctrlItemRcv_Type = CucsFlowctrlFlowControl
+_CucsFlowctrlItemRcv_Object = MibTableColumn
+cucsFlowctrlItemRcv = _CucsFlowctrlItemRcv_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 6),
+    _CucsFlowctrlItemRcv_Type()
+)
+cucsFlowctrlItemRcv.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlItemRcv.setStatus("current")
+_CucsFlowctrlItemSnd_Type = CucsFlowctrlFlowControl
+_CucsFlowctrlItemSnd_Object = MibTableColumn
+cucsFlowctrlItemSnd = _CucsFlowctrlItemSnd_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 7),
+    _CucsFlowctrlItemSnd_Type()
+)
+cucsFlowctrlItemSnd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlItemSnd.setStatus("current")
+_CucsFlowctrlItemConfig_Type = CucsFlowctrlConfig
+_CucsFlowctrlItemConfig_Object = MibTableColumn
+cucsFlowctrlItemConfig = _CucsFlowctrlItemConfig_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 719, 1, 23, 2, 1, 8),
+    _CucsFlowctrlItemConfig_Type()
+)
+cucsFlowctrlItemConfig.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    cucsFlowctrlItemConfig.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-UNIFIED-COMPUTING-FLOWCTRL-MIB",
+    **{"cucsFlowctrlObjects": cucsFlowctrlObjects,
+       "cucsFlowctrlDefinitionTable": cucsFlowctrlDefinitionTable,
+       "cucsFlowctrlDefinitionEntry": cucsFlowctrlDefinitionEntry,
+       "cucsFlowctrlDefinitionInstanceId": cucsFlowctrlDefinitionInstanceId,
+       "cucsFlowctrlDefinitionDn": cucsFlowctrlDefinitionDn,
+       "cucsFlowctrlDefinitionRn": cucsFlowctrlDefinitionRn,
+       "cucsFlowctrlDefinitionDescr": cucsFlowctrlDefinitionDescr,
+       "cucsFlowctrlDefinitionIntId": cucsFlowctrlDefinitionIntId,
+       "cucsFlowctrlDefinitionName": cucsFlowctrlDefinitionName,
+       "cucsFlowctrlDefinitionPolicyLevel": cucsFlowctrlDefinitionPolicyLevel,
+       "cucsFlowctrlDefinitionPolicyOwner": cucsFlowctrlDefinitionPolicyOwner,
+       "cucsFlowctrlItemTable": cucsFlowctrlItemTable,
+       "cucsFlowctrlItemEntry": cucsFlowctrlItemEntry,
+       "cucsFlowctrlItemInstanceId": cucsFlowctrlItemInstanceId,
+       "cucsFlowctrlItemDn": cucsFlowctrlItemDn,
+       "cucsFlowctrlItemRn": cucsFlowctrlItemRn,
+       "cucsFlowctrlItemName": cucsFlowctrlItemName,
+       "cucsFlowctrlItemPrio": cucsFlowctrlItemPrio,
+       "cucsFlowctrlItemRcv": cucsFlowctrlItemRcv,
+       "cucsFlowctrlItemSnd": cucsFlowctrlItemSnd,
+       "cucsFlowctrlItemConfig": cucsFlowctrlItemConfig}
+)

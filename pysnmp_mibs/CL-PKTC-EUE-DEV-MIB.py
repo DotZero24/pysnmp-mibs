@@ -1,155 +1,1094 @@
+# SNMP MIB module (CL-PKTC-EUE-DEV-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CL-PKTC-EUE-DEV-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rfc/CL-PKTC-EUE-DEV-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:49:52 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/rfc/CL-PKTC-EUE-DEV-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:23:44 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-PktcEUETCCreds, PktcEUETCCredsType = mibBuilder.importSymbols("CL-PKTC-EUE-TC-MIB", "PktcEUETCCreds", "PktcEUETCCredsType")
-pktcEUEMibs, = mibBuilder.importSymbols("CLAB-DEF-MIB", "pktcEUEMibs")
-InetAddressDNS, InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressDNS", "InetPortNumber", "InetAddressType", "InetAddress")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
-pktcEUEDevMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3))
-pktcEUEDevMIB.setRevisions(('2010-04-26 00:00', '2008-07-10 00:00', '2007-11-06 00:00',))
-if mibBuilder.loadTexts: pktcEUEDevMIB.setLastUpdated('201004260000Z')
-if mibBuilder.loadTexts: pktcEUEDevMIB.setOrganization('Cable Television Laboratories, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(PktcEUETCCreds,
+ PktcEUETCCredsType) = mibBuilder.importSymbols(
+    "CL-PKTC-EUE-TC-MIB",
+    "PktcEUETCCreds",
+    "PktcEUETCCredsType")
+
+(pktcEUEMibs,) = mibBuilder.importSymbols(
+    "CLAB-DEF-MIB",
+    "pktcEUEMibs")
+
+(InetAddress,
+ InetAddressDNS,
+ InetAddressType,
+ InetPortNumber) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressDNS",
+    "InetAddressType",
+    "InetPortNumber")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+pktcEUEDevMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3)
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevMIB.setRevisions(
+        ("2010-04-26 00:00",
+         "2008-07-10 00:00",
+         "2007-11-06 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class PktcEUEDevSipProtID(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("other", 1), ("udp", 2), ("tcp", 3), ("tls", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("udp", 2),
+          ("tcp", 3),
+          ("tls", 4))
+    )
 
-pktcEUEDevNotification = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 0))
-pktcEUEDevObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1))
-pktcEUEDevConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2))
-pktcEUEDevCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 1))
-pktcEUEDevGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2))
-pktcEUEDevProfile = MibIdentifier((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1))
-pktcEUEDevProfileVersion = MibScalar((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 6))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcEUEDevProfileVersion.setStatus('current')
-pktcEUEDevOpTable = MibTable((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2), )
-if mibBuilder.loadTexts: pktcEUEDevOpTable.setStatus('current')
-pktcEUEDevOpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1), ).setIndexNames((0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpIndex"))
-if mibBuilder.loadTexts: pktcEUEDevOpEntry.setStatus('current')
-pktcEUEDevOpIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: pktcEUEDevOpIndex.setStatus('current')
-pktcEUEDevOpDomain = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 2), InetAddressDNS()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevOpDomain.setStatus('current')
-pktcEUEDevOpSTUNAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 3), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevOpSTUNAddrType.setStatus('current')
-pktcEUEDevOpSTUNAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 4), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevOpSTUNAddr.setStatus('current')
-pktcEUEDevOpSTUNAddrPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 5), InetPortNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevOpSTUNAddrPort.setStatus('current')
-pktcEUEDevOpSTUNRelayAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 6), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevOpSTUNRelayAddrType.setStatus('current')
-pktcEUEDevOpSTUNRelayAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 7), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevOpSTUNRelayAddr.setStatus('current')
-pktcEUEDevOpSTUNRelayAddrPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 8), InetPortNumber()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevOpSTUNRelayAddrPort.setStatus('current')
-pktcEUEDevOpSTUNRelayCredsType = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 9), PktcEUETCCredsType().clone('none')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevOpSTUNRelayCredsType.setStatus('current')
-pktcEUEDevOpSTUNRelayCreds = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 10), PktcEUETCCreds()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevOpSTUNRelayCreds.setStatus('current')
-pktcEUEDevOpRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 11), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevOpRowStatus.setStatus('current')
-pktcEUEDevDnsTable = MibTable((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3), )
-if mibBuilder.loadTexts: pktcEUEDevDnsTable.setStatus('current')
-pktcEUEDevDnsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3, 1), ).setIndexNames((0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpIndex"), (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevDnsIndex"))
-if mibBuilder.loadTexts: pktcEUEDevDnsEntry.setStatus('current')
-pktcEUEDevDnsIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: pktcEUEDevDnsIndex.setStatus('current')
-pktcEUEDevDnsAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3, 1, 2), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevDnsAddrType.setStatus('current')
-pktcEUEDevDnsAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3, 1, 3), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevDnsAddr.setStatus('current')
-pktcEUEDevDnsRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevDnsRowStatus.setStatus('current')
-pktcEUEDevPCSCFTable = MibTable((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4), )
-if mibBuilder.loadTexts: pktcEUEDevPCSCFTable.setStatus('current')
-pktcEUEDevPCSCFEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1), ).setIndexNames((0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpIndex"), (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFIndex"))
-if mibBuilder.loadTexts: pktcEUEDevPCSCFEntry.setStatus('current')
-pktcEUEDevPCSCFIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: pktcEUEDevPCSCFIndex.setStatus('current')
-pktcEUEDevPCSCFAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 2), InetAddressType().clone('unknown')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFAddrType.setStatus('current')
-pktcEUEDevPCSCFAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 3), InetAddress()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFAddr.setStatus('current')
-pktcEUEDevPCSCFSipPort = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 4), InetPortNumber().clone(5060)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFSipPort.setStatus('current')
-pktcEUEDevPCSCFUsedProtocol = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 5), PktcEUEDevSipProtID()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFUsedProtocol.setStatus('current')
-pktcEUEDevPCSCFUsedInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 6), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFUsedInetAddressType.setStatus('current')
-pktcEUEDevPCSCFUsedInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 7), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFUsedInetAddress.setStatus('current')
-pktcEUEDevPCSCFTimerT1 = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 8), Unsigned32().clone(500)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFTimerT1.setStatus('current')
-pktcEUEDevPCSCFTimerT2 = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 9), Unsigned32().clone(4000)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFTimerT2.setStatus('current')
-pktcEUEDevPCSCFTimerT4 = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 10), Unsigned32().clone(5000)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFTimerT4.setStatus('current')
-pktcEUEDevPCSCFTimerTD = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 11), Unsigned32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(0, 0), ValueRangeConstraint(32000, 4294967295), )).clone(32000)).setUnits('milliseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFTimerTD.setStatus('current')
-pktcEUEDevPCSCFRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 12), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFRowStatus.setStatus('current')
-pktcEUEDevPCSCFInviteAttempts = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 13), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 7)).clone(3)).setUnits('attempts').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFInviteAttempts.setStatus('current')
-pktcEUEDevPCSCFMaxTime = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 14), Unsigned32().clone(1800)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFMaxTime.setStatus('current')
-pktcEUEDevPCSCFBaseTimeAllFailed = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 15), Unsigned32().clone(30)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFBaseTimeAllFailed.setStatus('current')
-pktcEUEDevPCSCFBaseTimeAllNotFailed = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 16), Unsigned32().clone(90)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFBaseTimeAllNotFailed.setStatus('current')
-pktcEUEDevPCSCFSubscribeRetry = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 17), Unsigned32().clone(900)).setUnits('seconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevPCSCFSubscribeRetry.setStatus('current')
-pktcEUEDevBSFTable = MibTable((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5), )
-if mibBuilder.loadTexts: pktcEUEDevBSFTable.setStatus('current')
-pktcEUEDevBSFEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1), ).setIndexNames((0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpIndex"), (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFASType"), (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFIndex"))
-if mibBuilder.loadTexts: pktcEUEDevBSFEntry.setStatus('current')
-pktcEUEDevBSFASType = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1, 1), SnmpAdminString())
-if mibBuilder.loadTexts: pktcEUEDevBSFASType.setStatus('current')
-pktcEUEDevBSFIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 16)))
-if mibBuilder.loadTexts: pktcEUEDevBSFIndex.setStatus('current')
-pktcEUEDevBSFAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1, 3), InetAddressType().clone('unknown')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcEUEDevBSFAddrType.setStatus('current')
-pktcEUEDevBSFAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1, 4), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcEUEDevBSFAddr.setStatus('current')
-pktcEUEDevBSFRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: pktcEUEDevBSFRowStatus.setStatus('current')
-pktcEUECBSupport = MibScalar((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 6), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pktcEUECBSupport.setStatus('current')
-pktcEUECBEnable = MibScalar((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 7), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcEUECBEnable.setStatus('current')
-pktcEUECBData = MibScalar((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 8), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 1023))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcEUECBData.setStatus('current')
-pktcEUEDevSipPort = MibScalar((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 9), InetPortNumber().clone(5060)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: pktcEUEDevSipPort.setStatus('current')
-pktcEUEDevMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 1, 1)).setObjects(("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevProfileGroup"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpGroup"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevDnsGroup"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFGroup"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFGroup"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPerDeviceGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pktcEUEDevMIBCompliance = pktcEUEDevMIBCompliance.setStatus('current')
-pktcEUEDevProfileGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 1)).setObjects(("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevProfileVersion"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pktcEUEDevProfileGroup = pktcEUEDevProfileGroup.setStatus('current')
-pktcEUEDevOpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 2)).setObjects(("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpDomain"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNAddrType"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNAddr"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNAddrPort"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNRelayAddrType"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNRelayAddr"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNRelayAddrPort"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNRelayCredsType"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNRelayCreds"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pktcEUEDevOpGroup = pktcEUEDevOpGroup.setStatus('current')
-pktcEUEDevDnsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 3)).setObjects(("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevDnsAddrType"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevDnsAddr"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevDnsRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pktcEUEDevDnsGroup = pktcEUEDevDnsGroup.setStatus('current')
-pktcEUEDevPCSCFGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 4)).setObjects(("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFAddrType"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFAddr"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFSipPort"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFUsedProtocol"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFUsedInetAddressType"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFUsedInetAddress"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFTimerT1"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFTimerT2"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFTimerT4"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFTimerTD"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFRowStatus"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFInviteAttempts"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFMaxTime"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFBaseTimeAllFailed"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFBaseTimeAllNotFailed"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFSubscribeRetry"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pktcEUEDevPCSCFGroup = pktcEUEDevPCSCFGroup.setStatus('current')
-pktcEUEDevBSFGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 5)).setObjects(("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFAddrType"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFAddr"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pktcEUEDevBSFGroup = pktcEUEDevBSFGroup.setStatus('current')
-pktcEUEDevPerDeviceGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 6)).setObjects(("CL-PKTC-EUE-DEV-MIB", "pktcEUECBSupport"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUECBEnable"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUECBData"), ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevSipPort"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pktcEUEDevPerDeviceGroup = pktcEUEDevPerDeviceGroup.setStatus('current')
-mibBuilder.exportSymbols("CL-PKTC-EUE-DEV-MIB", pktcEUEDevDnsEntry=pktcEUEDevDnsEntry, pktcEUEDevNotification=pktcEUEDevNotification, pktcEUEDevBSFIndex=pktcEUEDevBSFIndex, pktcEUEDevGroups=pktcEUEDevGroups, pktcEUEDevObjects=pktcEUEDevObjects, pktcEUEDevPCSCFUsedInetAddress=pktcEUEDevPCSCFUsedInetAddress, pktcEUEDevBSFRowStatus=pktcEUEDevBSFRowStatus, pktcEUEDevPCSCFAddrType=pktcEUEDevPCSCFAddrType, pktcEUEDevPCSCFMaxTime=pktcEUEDevPCSCFMaxTime, pktcEUEDevOpDomain=pktcEUEDevOpDomain, pktcEUEDevPCSCFGroup=pktcEUEDevPCSCFGroup, pktcEUEDevDnsAddrType=pktcEUEDevDnsAddrType, pktcEUEDevOpGroup=pktcEUEDevOpGroup, pktcEUEDevMIB=pktcEUEDevMIB, pktcEUEDevBSFAddr=pktcEUEDevBSFAddr, PYSNMP_MODULE_ID=pktcEUEDevMIB, PktcEUEDevSipProtID=PktcEUEDevSipProtID, pktcEUEDevProfile=pktcEUEDevProfile, pktcEUEDevPCSCFUsedProtocol=pktcEUEDevPCSCFUsedProtocol, pktcEUEDevPCSCFTimerTD=pktcEUEDevPCSCFTimerTD, pktcEUEDevMIBCompliance=pktcEUEDevMIBCompliance, pktcEUEDevProfileGroup=pktcEUEDevProfileGroup, pktcEUEDevBSFTable=pktcEUEDevBSFTable, pktcEUEDevDnsAddr=pktcEUEDevDnsAddr, pktcEUEDevDnsGroup=pktcEUEDevDnsGroup, pktcEUEDevOpSTUNAddrPort=pktcEUEDevOpSTUNAddrPort, pktcEUEDevPCSCFEntry=pktcEUEDevPCSCFEntry, pktcEUEDevPCSCFSubscribeRetry=pktcEUEDevPCSCFSubscribeRetry, pktcEUEDevPCSCFUsedInetAddressType=pktcEUEDevPCSCFUsedInetAddressType, pktcEUEDevBSFEntry=pktcEUEDevBSFEntry, pktcEUEDevPCSCFTable=pktcEUEDevPCSCFTable, pktcEUEDevOpRowStatus=pktcEUEDevOpRowStatus, pktcEUEDevPCSCFTimerT2=pktcEUEDevPCSCFTimerT2, pktcEUEDevPCSCFInviteAttempts=pktcEUEDevPCSCFInviteAttempts, pktcEUEDevPCSCFSipPort=pktcEUEDevPCSCFSipPort, pktcEUEDevOpEntry=pktcEUEDevOpEntry, pktcEUEDevOpSTUNAddr=pktcEUEDevOpSTUNAddr, pktcEUEDevSipPort=pktcEUEDevSipPort, pktcEUEDevCompliances=pktcEUEDevCompliances, pktcEUEDevDnsRowStatus=pktcEUEDevDnsRowStatus, pktcEUECBEnable=pktcEUECBEnable, pktcEUEDevPCSCFTimerT1=pktcEUEDevPCSCFTimerT1, pktcEUEDevBSFAddrType=pktcEUEDevBSFAddrType, pktcEUECBData=pktcEUECBData, pktcEUEDevOpSTUNRelayAddrPort=pktcEUEDevOpSTUNRelayAddrPort, pktcEUEDevPCSCFAddr=pktcEUEDevPCSCFAddr, pktcEUEDevBSFASType=pktcEUEDevBSFASType, pktcEUECBSupport=pktcEUECBSupport, pktcEUEDevPerDeviceGroup=pktcEUEDevPerDeviceGroup, pktcEUEDevOpIndex=pktcEUEDevOpIndex, pktcEUEDevOpTable=pktcEUEDevOpTable, pktcEUEDevPCSCFBaseTimeAllNotFailed=pktcEUEDevPCSCFBaseTimeAllNotFailed, pktcEUEDevOpSTUNRelayAddrType=pktcEUEDevOpSTUNRelayAddrType, pktcEUEDevConformance=pktcEUEDevConformance, pktcEUEDevOpSTUNRelayCreds=pktcEUEDevOpSTUNRelayCreds, pktcEUEDevPCSCFBaseTimeAllFailed=pktcEUEDevPCSCFBaseTimeAllFailed, pktcEUEDevDnsIndex=pktcEUEDevDnsIndex, pktcEUEDevPCSCFIndex=pktcEUEDevPCSCFIndex, pktcEUEDevPCSCFTimerT4=pktcEUEDevPCSCFTimerT4, pktcEUEDevDnsTable=pktcEUEDevDnsTable, pktcEUEDevPCSCFRowStatus=pktcEUEDevPCSCFRowStatus, pktcEUEDevOpSTUNRelayAddr=pktcEUEDevOpSTUNRelayAddr, pktcEUEDevOpSTUNRelayCredsType=pktcEUEDevOpSTUNRelayCredsType, pktcEUEDevProfileVersion=pktcEUEDevProfileVersion, pktcEUEDevOpSTUNAddrType=pktcEUEDevOpSTUNAddrType, pktcEUEDevBSFGroup=pktcEUEDevBSFGroup)
+
+# MIB Managed Objects in the order of their OIDs
+
+_PktcEUEDevNotification_ObjectIdentity = ObjectIdentity
+pktcEUEDevNotification = _PktcEUEDevNotification_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 0)
+)
+_PktcEUEDevObjects_ObjectIdentity = ObjectIdentity
+pktcEUEDevObjects = _PktcEUEDevObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1)
+)
+_PktcEUEDevProfile_ObjectIdentity = ObjectIdentity
+pktcEUEDevProfile = _PktcEUEDevProfile_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1)
+)
+
+
+class _PktcEUEDevProfileVersion_Type(SnmpAdminString):
+    """Custom type pktcEUEDevProfileVersion based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 6),
+    )
+
+
+_PktcEUEDevProfileVersion_Type.__name__ = "SnmpAdminString"
+_PktcEUEDevProfileVersion_Object = MibScalar
+pktcEUEDevProfileVersion = _PktcEUEDevProfileVersion_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 1),
+    _PktcEUEDevProfileVersion_Type()
+)
+pktcEUEDevProfileVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pktcEUEDevProfileVersion.setStatus("current")
+_PktcEUEDevOpTable_Object = MibTable
+pktcEUEDevOpTable = _PktcEUEDevOpTable_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevOpTable.setStatus("current")
+_PktcEUEDevOpEntry_Object = MibTableRow
+pktcEUEDevOpEntry = _PktcEUEDevOpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1)
+)
+pktcEUEDevOpEntry.setIndexNames(
+    (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpIndex"),
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevOpEntry.setStatus("current")
+
+
+class _PktcEUEDevOpIndex_Type(Unsigned32):
+    """Custom type pktcEUEDevOpIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_PktcEUEDevOpIndex_Type.__name__ = "Unsigned32"
+_PktcEUEDevOpIndex_Object = MibTableColumn
+pktcEUEDevOpIndex = _PktcEUEDevOpIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 1),
+    _PktcEUEDevOpIndex_Type()
+)
+pktcEUEDevOpIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pktcEUEDevOpIndex.setStatus("current")
+_PktcEUEDevOpDomain_Type = InetAddressDNS
+_PktcEUEDevOpDomain_Object = MibTableColumn
+pktcEUEDevOpDomain = _PktcEUEDevOpDomain_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 2),
+    _PktcEUEDevOpDomain_Type()
+)
+pktcEUEDevOpDomain.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevOpDomain.setStatus("current")
+
+
+class _PktcEUEDevOpSTUNAddrType_Type(InetAddressType):
+    """Custom type pktcEUEDevOpSTUNAddrType based on InetAddressType"""
+    defaultValue = 0
+
+
+_PktcEUEDevOpSTUNAddrType_Type.__name__ = "InetAddressType"
+_PktcEUEDevOpSTUNAddrType_Object = MibTableColumn
+pktcEUEDevOpSTUNAddrType = _PktcEUEDevOpSTUNAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 3),
+    _PktcEUEDevOpSTUNAddrType_Type()
+)
+pktcEUEDevOpSTUNAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevOpSTUNAddrType.setStatus("current")
+
+
+class _PktcEUEDevOpSTUNAddr_Type(InetAddress):
+    """Custom type pktcEUEDevOpSTUNAddr based on InetAddress"""
+    defaultValue = OctetString("")
+
+
+_PktcEUEDevOpSTUNAddr_Type.__name__ = "InetAddress"
+_PktcEUEDevOpSTUNAddr_Object = MibTableColumn
+pktcEUEDevOpSTUNAddr = _PktcEUEDevOpSTUNAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 4),
+    _PktcEUEDevOpSTUNAddr_Type()
+)
+pktcEUEDevOpSTUNAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevOpSTUNAddr.setStatus("current")
+
+
+class _PktcEUEDevOpSTUNAddrPort_Type(InetPortNumber):
+    """Custom type pktcEUEDevOpSTUNAddrPort based on InetPortNumber"""
+    defaultValue = 0
+
+
+_PktcEUEDevOpSTUNAddrPort_Type.__name__ = "InetPortNumber"
+_PktcEUEDevOpSTUNAddrPort_Object = MibTableColumn
+pktcEUEDevOpSTUNAddrPort = _PktcEUEDevOpSTUNAddrPort_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 5),
+    _PktcEUEDevOpSTUNAddrPort_Type()
+)
+pktcEUEDevOpSTUNAddrPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevOpSTUNAddrPort.setStatus("current")
+
+
+class _PktcEUEDevOpSTUNRelayAddrType_Type(InetAddressType):
+    """Custom type pktcEUEDevOpSTUNRelayAddrType based on InetAddressType"""
+    defaultValue = 0
+
+
+_PktcEUEDevOpSTUNRelayAddrType_Type.__name__ = "InetAddressType"
+_PktcEUEDevOpSTUNRelayAddrType_Object = MibTableColumn
+pktcEUEDevOpSTUNRelayAddrType = _PktcEUEDevOpSTUNRelayAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 6),
+    _PktcEUEDevOpSTUNRelayAddrType_Type()
+)
+pktcEUEDevOpSTUNRelayAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevOpSTUNRelayAddrType.setStatus("current")
+
+
+class _PktcEUEDevOpSTUNRelayAddr_Type(InetAddress):
+    """Custom type pktcEUEDevOpSTUNRelayAddr based on InetAddress"""
+    defaultValue = OctetString("")
+
+
+_PktcEUEDevOpSTUNRelayAddr_Type.__name__ = "InetAddress"
+_PktcEUEDevOpSTUNRelayAddr_Object = MibTableColumn
+pktcEUEDevOpSTUNRelayAddr = _PktcEUEDevOpSTUNRelayAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 7),
+    _PktcEUEDevOpSTUNRelayAddr_Type()
+)
+pktcEUEDevOpSTUNRelayAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevOpSTUNRelayAddr.setStatus("current")
+
+
+class _PktcEUEDevOpSTUNRelayAddrPort_Type(InetPortNumber):
+    """Custom type pktcEUEDevOpSTUNRelayAddrPort based on InetPortNumber"""
+    defaultValue = 0
+
+
+_PktcEUEDevOpSTUNRelayAddrPort_Type.__name__ = "InetPortNumber"
+_PktcEUEDevOpSTUNRelayAddrPort_Object = MibTableColumn
+pktcEUEDevOpSTUNRelayAddrPort = _PktcEUEDevOpSTUNRelayAddrPort_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 8),
+    _PktcEUEDevOpSTUNRelayAddrPort_Type()
+)
+pktcEUEDevOpSTUNRelayAddrPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevOpSTUNRelayAddrPort.setStatus("current")
+
+
+class _PktcEUEDevOpSTUNRelayCredsType_Type(PktcEUETCCredsType):
+    """Custom type pktcEUEDevOpSTUNRelayCredsType based on PktcEUETCCredsType"""
+    defaultValue = 2
+
+
+_PktcEUEDevOpSTUNRelayCredsType_Type.__name__ = "PktcEUETCCredsType"
+_PktcEUEDevOpSTUNRelayCredsType_Object = MibTableColumn
+pktcEUEDevOpSTUNRelayCredsType = _PktcEUEDevOpSTUNRelayCredsType_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 9),
+    _PktcEUEDevOpSTUNRelayCredsType_Type()
+)
+pktcEUEDevOpSTUNRelayCredsType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevOpSTUNRelayCredsType.setStatus("current")
+
+
+class _PktcEUEDevOpSTUNRelayCreds_Type(PktcEUETCCreds):
+    """Custom type pktcEUEDevOpSTUNRelayCreds based on PktcEUETCCreds"""
+    defaultValue = OctetString("")
+
+
+_PktcEUEDevOpSTUNRelayCreds_Type.__name__ = "PktcEUETCCreds"
+_PktcEUEDevOpSTUNRelayCreds_Object = MibTableColumn
+pktcEUEDevOpSTUNRelayCreds = _PktcEUEDevOpSTUNRelayCreds_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 10),
+    _PktcEUEDevOpSTUNRelayCreds_Type()
+)
+pktcEUEDevOpSTUNRelayCreds.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevOpSTUNRelayCreds.setStatus("current")
+_PktcEUEDevOpRowStatus_Type = RowStatus
+_PktcEUEDevOpRowStatus_Object = MibTableColumn
+pktcEUEDevOpRowStatus = _PktcEUEDevOpRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 2, 1, 11),
+    _PktcEUEDevOpRowStatus_Type()
+)
+pktcEUEDevOpRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevOpRowStatus.setStatus("current")
+_PktcEUEDevDnsTable_Object = MibTable
+pktcEUEDevDnsTable = _PktcEUEDevDnsTable_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3)
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevDnsTable.setStatus("current")
+_PktcEUEDevDnsEntry_Object = MibTableRow
+pktcEUEDevDnsEntry = _PktcEUEDevDnsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3, 1)
+)
+pktcEUEDevDnsEntry.setIndexNames(
+    (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpIndex"),
+    (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevDnsIndex"),
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevDnsEntry.setStatus("current")
+
+
+class _PktcEUEDevDnsIndex_Type(Unsigned32):
+    """Custom type pktcEUEDevDnsIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_PktcEUEDevDnsIndex_Type.__name__ = "Unsigned32"
+_PktcEUEDevDnsIndex_Object = MibTableColumn
+pktcEUEDevDnsIndex = _PktcEUEDevDnsIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3, 1, 1),
+    _PktcEUEDevDnsIndex_Type()
+)
+pktcEUEDevDnsIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pktcEUEDevDnsIndex.setStatus("current")
+
+
+class _PktcEUEDevDnsAddrType_Type(InetAddressType):
+    """Custom type pktcEUEDevDnsAddrType based on InetAddressType"""
+    defaultValue = 0
+
+
+_PktcEUEDevDnsAddrType_Type.__name__ = "InetAddressType"
+_PktcEUEDevDnsAddrType_Object = MibTableColumn
+pktcEUEDevDnsAddrType = _PktcEUEDevDnsAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3, 1, 2),
+    _PktcEUEDevDnsAddrType_Type()
+)
+pktcEUEDevDnsAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevDnsAddrType.setStatus("current")
+
+
+class _PktcEUEDevDnsAddr_Type(InetAddress):
+    """Custom type pktcEUEDevDnsAddr based on InetAddress"""
+    defaultValue = OctetString("")
+
+
+_PktcEUEDevDnsAddr_Type.__name__ = "InetAddress"
+_PktcEUEDevDnsAddr_Object = MibTableColumn
+pktcEUEDevDnsAddr = _PktcEUEDevDnsAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3, 1, 3),
+    _PktcEUEDevDnsAddr_Type()
+)
+pktcEUEDevDnsAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevDnsAddr.setStatus("current")
+_PktcEUEDevDnsRowStatus_Type = RowStatus
+_PktcEUEDevDnsRowStatus_Object = MibTableColumn
+pktcEUEDevDnsRowStatus = _PktcEUEDevDnsRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 3, 1, 4),
+    _PktcEUEDevDnsRowStatus_Type()
+)
+pktcEUEDevDnsRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevDnsRowStatus.setStatus("current")
+_PktcEUEDevPCSCFTable_Object = MibTable
+pktcEUEDevPCSCFTable = _PktcEUEDevPCSCFTable_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFTable.setStatus("current")
+_PktcEUEDevPCSCFEntry_Object = MibTableRow
+pktcEUEDevPCSCFEntry = _PktcEUEDevPCSCFEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1)
+)
+pktcEUEDevPCSCFEntry.setIndexNames(
+    (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpIndex"),
+    (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFIndex"),
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFEntry.setStatus("current")
+
+
+class _PktcEUEDevPCSCFIndex_Type(Unsigned32):
+    """Custom type pktcEUEDevPCSCFIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_PktcEUEDevPCSCFIndex_Type.__name__ = "Unsigned32"
+_PktcEUEDevPCSCFIndex_Object = MibTableColumn
+pktcEUEDevPCSCFIndex = _PktcEUEDevPCSCFIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 1),
+    _PktcEUEDevPCSCFIndex_Type()
+)
+pktcEUEDevPCSCFIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFIndex.setStatus("current")
+
+
+class _PktcEUEDevPCSCFAddrType_Type(InetAddressType):
+    """Custom type pktcEUEDevPCSCFAddrType based on InetAddressType"""
+    defaultValue = 0
+
+
+_PktcEUEDevPCSCFAddrType_Type.__name__ = "InetAddressType"
+_PktcEUEDevPCSCFAddrType_Object = MibTableColumn
+pktcEUEDevPCSCFAddrType = _PktcEUEDevPCSCFAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 2),
+    _PktcEUEDevPCSCFAddrType_Type()
+)
+pktcEUEDevPCSCFAddrType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFAddrType.setStatus("current")
+
+
+class _PktcEUEDevPCSCFAddr_Type(InetAddress):
+    """Custom type pktcEUEDevPCSCFAddr based on InetAddress"""
+    defaultValue = OctetString("")
+
+
+_PktcEUEDevPCSCFAddr_Type.__name__ = "InetAddress"
+_PktcEUEDevPCSCFAddr_Object = MibTableColumn
+pktcEUEDevPCSCFAddr = _PktcEUEDevPCSCFAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 3),
+    _PktcEUEDevPCSCFAddr_Type()
+)
+pktcEUEDevPCSCFAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFAddr.setStatus("current")
+
+
+class _PktcEUEDevPCSCFSipPort_Type(InetPortNumber):
+    """Custom type pktcEUEDevPCSCFSipPort based on InetPortNumber"""
+    defaultValue = 5060
+
+
+_PktcEUEDevPCSCFSipPort_Type.__name__ = "InetPortNumber"
+_PktcEUEDevPCSCFSipPort_Object = MibTableColumn
+pktcEUEDevPCSCFSipPort = _PktcEUEDevPCSCFSipPort_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 4),
+    _PktcEUEDevPCSCFSipPort_Type()
+)
+pktcEUEDevPCSCFSipPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFSipPort.setStatus("current")
+_PktcEUEDevPCSCFUsedProtocol_Type = PktcEUEDevSipProtID
+_PktcEUEDevPCSCFUsedProtocol_Object = MibTableColumn
+pktcEUEDevPCSCFUsedProtocol = _PktcEUEDevPCSCFUsedProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 5),
+    _PktcEUEDevPCSCFUsedProtocol_Type()
+)
+pktcEUEDevPCSCFUsedProtocol.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFUsedProtocol.setStatus("current")
+_PktcEUEDevPCSCFUsedInetAddressType_Type = InetAddressType
+_PktcEUEDevPCSCFUsedInetAddressType_Object = MibTableColumn
+pktcEUEDevPCSCFUsedInetAddressType = _PktcEUEDevPCSCFUsedInetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 6),
+    _PktcEUEDevPCSCFUsedInetAddressType_Type()
+)
+pktcEUEDevPCSCFUsedInetAddressType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFUsedInetAddressType.setStatus("current")
+_PktcEUEDevPCSCFUsedInetAddress_Type = InetAddress
+_PktcEUEDevPCSCFUsedInetAddress_Object = MibTableColumn
+pktcEUEDevPCSCFUsedInetAddress = _PktcEUEDevPCSCFUsedInetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 7),
+    _PktcEUEDevPCSCFUsedInetAddress_Type()
+)
+pktcEUEDevPCSCFUsedInetAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFUsedInetAddress.setStatus("current")
+
+
+class _PktcEUEDevPCSCFTimerT1_Type(Unsigned32):
+    """Custom type pktcEUEDevPCSCFTimerT1 based on Unsigned32"""
+    defaultValue = 500
+
+
+_PktcEUEDevPCSCFTimerT1_Type.__name__ = "Unsigned32"
+_PktcEUEDevPCSCFTimerT1_Object = MibTableColumn
+pktcEUEDevPCSCFTimerT1 = _PktcEUEDevPCSCFTimerT1_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 8),
+    _PktcEUEDevPCSCFTimerT1_Type()
+)
+pktcEUEDevPCSCFTimerT1.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFTimerT1.setStatus("current")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFTimerT1.setUnits("milliseconds")
+
+
+class _PktcEUEDevPCSCFTimerT2_Type(Unsigned32):
+    """Custom type pktcEUEDevPCSCFTimerT2 based on Unsigned32"""
+    defaultValue = 4000
+
+
+_PktcEUEDevPCSCFTimerT2_Type.__name__ = "Unsigned32"
+_PktcEUEDevPCSCFTimerT2_Object = MibTableColumn
+pktcEUEDevPCSCFTimerT2 = _PktcEUEDevPCSCFTimerT2_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 9),
+    _PktcEUEDevPCSCFTimerT2_Type()
+)
+pktcEUEDevPCSCFTimerT2.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFTimerT2.setStatus("current")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFTimerT2.setUnits("milliseconds")
+
+
+class _PktcEUEDevPCSCFTimerT4_Type(Unsigned32):
+    """Custom type pktcEUEDevPCSCFTimerT4 based on Unsigned32"""
+    defaultValue = 5000
+
+
+_PktcEUEDevPCSCFTimerT4_Type.__name__ = "Unsigned32"
+_PktcEUEDevPCSCFTimerT4_Object = MibTableColumn
+pktcEUEDevPCSCFTimerT4 = _PktcEUEDevPCSCFTimerT4_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 10),
+    _PktcEUEDevPCSCFTimerT4_Type()
+)
+pktcEUEDevPCSCFTimerT4.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFTimerT4.setStatus("current")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFTimerT4.setUnits("milliseconds")
+
+
+class _PktcEUEDevPCSCFTimerTD_Type(Unsigned32):
+    """Custom type pktcEUEDevPCSCFTimerTD based on Unsigned32"""
+    defaultValue = 32000
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 0),
+        ValueRangeConstraint(32000, 4294967295),
+    )
+
+
+_PktcEUEDevPCSCFTimerTD_Type.__name__ = "Unsigned32"
+_PktcEUEDevPCSCFTimerTD_Object = MibTableColumn
+pktcEUEDevPCSCFTimerTD = _PktcEUEDevPCSCFTimerTD_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 11),
+    _PktcEUEDevPCSCFTimerTD_Type()
+)
+pktcEUEDevPCSCFTimerTD.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFTimerTD.setStatus("current")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFTimerTD.setUnits("milliseconds")
+_PktcEUEDevPCSCFRowStatus_Type = RowStatus
+_PktcEUEDevPCSCFRowStatus_Object = MibTableColumn
+pktcEUEDevPCSCFRowStatus = _PktcEUEDevPCSCFRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 12),
+    _PktcEUEDevPCSCFRowStatus_Type()
+)
+pktcEUEDevPCSCFRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFRowStatus.setStatus("current")
+
+
+class _PktcEUEDevPCSCFInviteAttempts_Type(Unsigned32):
+    """Custom type pktcEUEDevPCSCFInviteAttempts based on Unsigned32"""
+    defaultValue = 3
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 7),
+    )
+
+
+_PktcEUEDevPCSCFInviteAttempts_Type.__name__ = "Unsigned32"
+_PktcEUEDevPCSCFInviteAttempts_Object = MibTableColumn
+pktcEUEDevPCSCFInviteAttempts = _PktcEUEDevPCSCFInviteAttempts_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 13),
+    _PktcEUEDevPCSCFInviteAttempts_Type()
+)
+pktcEUEDevPCSCFInviteAttempts.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFInviteAttempts.setStatus("current")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFInviteAttempts.setUnits("attempts")
+
+
+class _PktcEUEDevPCSCFMaxTime_Type(Unsigned32):
+    """Custom type pktcEUEDevPCSCFMaxTime based on Unsigned32"""
+    defaultValue = 1800
+
+
+_PktcEUEDevPCSCFMaxTime_Type.__name__ = "Unsigned32"
+_PktcEUEDevPCSCFMaxTime_Object = MibTableColumn
+pktcEUEDevPCSCFMaxTime = _PktcEUEDevPCSCFMaxTime_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 14),
+    _PktcEUEDevPCSCFMaxTime_Type()
+)
+pktcEUEDevPCSCFMaxTime.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFMaxTime.setStatus("current")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFMaxTime.setUnits("seconds")
+
+
+class _PktcEUEDevPCSCFBaseTimeAllFailed_Type(Unsigned32):
+    """Custom type pktcEUEDevPCSCFBaseTimeAllFailed based on Unsigned32"""
+    defaultValue = 30
+
+
+_PktcEUEDevPCSCFBaseTimeAllFailed_Type.__name__ = "Unsigned32"
+_PktcEUEDevPCSCFBaseTimeAllFailed_Object = MibTableColumn
+pktcEUEDevPCSCFBaseTimeAllFailed = _PktcEUEDevPCSCFBaseTimeAllFailed_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 15),
+    _PktcEUEDevPCSCFBaseTimeAllFailed_Type()
+)
+pktcEUEDevPCSCFBaseTimeAllFailed.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFBaseTimeAllFailed.setStatus("current")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFBaseTimeAllFailed.setUnits("seconds")
+
+
+class _PktcEUEDevPCSCFBaseTimeAllNotFailed_Type(Unsigned32):
+    """Custom type pktcEUEDevPCSCFBaseTimeAllNotFailed based on Unsigned32"""
+    defaultValue = 90
+
+
+_PktcEUEDevPCSCFBaseTimeAllNotFailed_Type.__name__ = "Unsigned32"
+_PktcEUEDevPCSCFBaseTimeAllNotFailed_Object = MibTableColumn
+pktcEUEDevPCSCFBaseTimeAllNotFailed = _PktcEUEDevPCSCFBaseTimeAllNotFailed_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 16),
+    _PktcEUEDevPCSCFBaseTimeAllNotFailed_Type()
+)
+pktcEUEDevPCSCFBaseTimeAllNotFailed.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFBaseTimeAllNotFailed.setStatus("current")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFBaseTimeAllNotFailed.setUnits("seconds")
+
+
+class _PktcEUEDevPCSCFSubscribeRetry_Type(Unsigned32):
+    """Custom type pktcEUEDevPCSCFSubscribeRetry based on Unsigned32"""
+    defaultValue = 900
+
+
+_PktcEUEDevPCSCFSubscribeRetry_Type.__name__ = "Unsigned32"
+_PktcEUEDevPCSCFSubscribeRetry_Object = MibTableColumn
+pktcEUEDevPCSCFSubscribeRetry = _PktcEUEDevPCSCFSubscribeRetry_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 4, 1, 17),
+    _PktcEUEDevPCSCFSubscribeRetry_Type()
+)
+pktcEUEDevPCSCFSubscribeRetry.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFSubscribeRetry.setStatus("current")
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFSubscribeRetry.setUnits("seconds")
+_PktcEUEDevBSFTable_Object = MibTable
+pktcEUEDevBSFTable = _PktcEUEDevBSFTable_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevBSFTable.setStatus("current")
+_PktcEUEDevBSFEntry_Object = MibTableRow
+pktcEUEDevBSFEntry = _PktcEUEDevBSFEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1)
+)
+pktcEUEDevBSFEntry.setIndexNames(
+    (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpIndex"),
+    (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFASType"),
+    (0, "CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFIndex"),
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevBSFEntry.setStatus("current")
+_PktcEUEDevBSFASType_Type = SnmpAdminString
+_PktcEUEDevBSFASType_Object = MibTableColumn
+pktcEUEDevBSFASType = _PktcEUEDevBSFASType_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1, 1),
+    _PktcEUEDevBSFASType_Type()
+)
+pktcEUEDevBSFASType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pktcEUEDevBSFASType.setStatus("current")
+
+
+class _PktcEUEDevBSFIndex_Type(Unsigned32):
+    """Custom type pktcEUEDevBSFIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 16),
+    )
+
+
+_PktcEUEDevBSFIndex_Type.__name__ = "Unsigned32"
+_PktcEUEDevBSFIndex_Object = MibTableColumn
+pktcEUEDevBSFIndex = _PktcEUEDevBSFIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1, 2),
+    _PktcEUEDevBSFIndex_Type()
+)
+pktcEUEDevBSFIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    pktcEUEDevBSFIndex.setStatus("current")
+
+
+class _PktcEUEDevBSFAddrType_Type(InetAddressType):
+    """Custom type pktcEUEDevBSFAddrType based on InetAddressType"""
+    defaultValue = 0
+
+
+_PktcEUEDevBSFAddrType_Type.__name__ = "InetAddressType"
+_PktcEUEDevBSFAddrType_Object = MibTableColumn
+pktcEUEDevBSFAddrType = _PktcEUEDevBSFAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1, 3),
+    _PktcEUEDevBSFAddrType_Type()
+)
+pktcEUEDevBSFAddrType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pktcEUEDevBSFAddrType.setStatus("current")
+
+
+class _PktcEUEDevBSFAddr_Type(InetAddress):
+    """Custom type pktcEUEDevBSFAddr based on InetAddress"""
+    defaultValue = OctetString("")
+
+
+_PktcEUEDevBSFAddr_Type.__name__ = "InetAddress"
+_PktcEUEDevBSFAddr_Object = MibTableColumn
+pktcEUEDevBSFAddr = _PktcEUEDevBSFAddr_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1, 4),
+    _PktcEUEDevBSFAddr_Type()
+)
+pktcEUEDevBSFAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pktcEUEDevBSFAddr.setStatus("current")
+_PktcEUEDevBSFRowStatus_Type = RowStatus
+_PktcEUEDevBSFRowStatus_Object = MibTableColumn
+pktcEUEDevBSFRowStatus = _PktcEUEDevBSFRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 5, 1, 5),
+    _PktcEUEDevBSFRowStatus_Type()
+)
+pktcEUEDevBSFRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    pktcEUEDevBSFRowStatus.setStatus("current")
+_PktcEUECBSupport_Type = TruthValue
+_PktcEUECBSupport_Object = MibScalar
+pktcEUECBSupport = _PktcEUECBSupport_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 6),
+    _PktcEUECBSupport_Type()
+)
+pktcEUECBSupport.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pktcEUECBSupport.setStatus("current")
+
+
+class _PktcEUECBEnable_Type(TruthValue):
+    """Custom type pktcEUECBEnable based on TruthValue"""
+    defaultValue = 2
+
+
+_PktcEUECBEnable_Type.__name__ = "TruthValue"
+_PktcEUECBEnable_Object = MibScalar
+pktcEUECBEnable = _PktcEUECBEnable_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 7),
+    _PktcEUECBEnable_Type()
+)
+pktcEUECBEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pktcEUECBEnable.setStatus("current")
+
+
+class _PktcEUECBData_Type(OctetString):
+    """Custom type pktcEUECBData based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 1023),
+    )
+
+
+_PktcEUECBData_Type.__name__ = "OctetString"
+_PktcEUECBData_Object = MibScalar
+pktcEUECBData = _PktcEUECBData_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 8),
+    _PktcEUECBData_Type()
+)
+pktcEUECBData.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pktcEUECBData.setStatus("current")
+
+
+class _PktcEUEDevSipPort_Type(InetPortNumber):
+    """Custom type pktcEUEDevSipPort based on InetPortNumber"""
+    defaultValue = 5060
+
+
+_PktcEUEDevSipPort_Type.__name__ = "InetPortNumber"
+_PktcEUEDevSipPort_Object = MibScalar
+pktcEUEDevSipPort = _PktcEUEDevSipPort_Object(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 1, 1, 9),
+    _PktcEUEDevSipPort_Type()
+)
+pktcEUEDevSipPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    pktcEUEDevSipPort.setStatus("current")
+_PktcEUEDevConformance_ObjectIdentity = ObjectIdentity
+pktcEUEDevConformance = _PktcEUEDevConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2)
+)
+_PktcEUEDevCompliances_ObjectIdentity = ObjectIdentity
+pktcEUEDevCompliances = _PktcEUEDevCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 1)
+)
+_PktcEUEDevGroups_ObjectIdentity = ObjectIdentity
+pktcEUEDevGroups = _PktcEUEDevGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2)
+)
+
+# Managed Objects groups
+
+pktcEUEDevProfileGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 1)
+)
+pktcEUEDevProfileGroup.setObjects(
+    ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevProfileVersion")
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevProfileGroup.setStatus("current")
+
+pktcEUEDevOpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 2)
+)
+pktcEUEDevOpGroup.setObjects(
+      *(("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpDomain"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNAddrType"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNAddr"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNAddrPort"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNRelayAddrType"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNRelayAddr"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNRelayAddrPort"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNRelayCredsType"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpSTUNRelayCreds"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpRowStatus"))
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevOpGroup.setStatus("current")
+
+pktcEUEDevDnsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 3)
+)
+pktcEUEDevDnsGroup.setObjects(
+      *(("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevDnsAddrType"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevDnsAddr"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevDnsRowStatus"))
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevDnsGroup.setStatus("current")
+
+pktcEUEDevPCSCFGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 4)
+)
+pktcEUEDevPCSCFGroup.setObjects(
+      *(("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFAddrType"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFAddr"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFSipPort"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFUsedProtocol"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFUsedInetAddressType"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFUsedInetAddress"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFTimerT1"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFTimerT2"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFTimerT4"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFTimerTD"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFRowStatus"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFInviteAttempts"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFMaxTime"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFBaseTimeAllFailed"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFBaseTimeAllNotFailed"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFSubscribeRetry"))
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevPCSCFGroup.setStatus("current")
+
+pktcEUEDevBSFGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 5)
+)
+pktcEUEDevBSFGroup.setObjects(
+      *(("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFAddrType"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFAddr"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFRowStatus"))
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevBSFGroup.setStatus("current")
+
+pktcEUEDevPerDeviceGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 2, 6)
+)
+pktcEUEDevPerDeviceGroup.setObjects(
+      *(("CL-PKTC-EUE-DEV-MIB", "pktcEUECBSupport"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUECBEnable"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUECBData"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevSipPort"))
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevPerDeviceGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+pktcEUEDevMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 4491, 2, 2, 10, 3, 2, 1, 1)
+)
+pktcEUEDevMIBCompliance.setObjects(
+      *(("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevProfileGroup"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevOpGroup"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevDnsGroup"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPCSCFGroup"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevBSFGroup"),
+        ("CL-PKTC-EUE-DEV-MIB", "pktcEUEDevPerDeviceGroup"))
+)
+if mibBuilder.loadTexts:
+    pktcEUEDevMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CL-PKTC-EUE-DEV-MIB",
+    **{"PktcEUEDevSipProtID": PktcEUEDevSipProtID,
+       "pktcEUEDevMIB": pktcEUEDevMIB,
+       "pktcEUEDevNotification": pktcEUEDevNotification,
+       "pktcEUEDevObjects": pktcEUEDevObjects,
+       "pktcEUEDevProfile": pktcEUEDevProfile,
+       "pktcEUEDevProfileVersion": pktcEUEDevProfileVersion,
+       "pktcEUEDevOpTable": pktcEUEDevOpTable,
+       "pktcEUEDevOpEntry": pktcEUEDevOpEntry,
+       "pktcEUEDevOpIndex": pktcEUEDevOpIndex,
+       "pktcEUEDevOpDomain": pktcEUEDevOpDomain,
+       "pktcEUEDevOpSTUNAddrType": pktcEUEDevOpSTUNAddrType,
+       "pktcEUEDevOpSTUNAddr": pktcEUEDevOpSTUNAddr,
+       "pktcEUEDevOpSTUNAddrPort": pktcEUEDevOpSTUNAddrPort,
+       "pktcEUEDevOpSTUNRelayAddrType": pktcEUEDevOpSTUNRelayAddrType,
+       "pktcEUEDevOpSTUNRelayAddr": pktcEUEDevOpSTUNRelayAddr,
+       "pktcEUEDevOpSTUNRelayAddrPort": pktcEUEDevOpSTUNRelayAddrPort,
+       "pktcEUEDevOpSTUNRelayCredsType": pktcEUEDevOpSTUNRelayCredsType,
+       "pktcEUEDevOpSTUNRelayCreds": pktcEUEDevOpSTUNRelayCreds,
+       "pktcEUEDevOpRowStatus": pktcEUEDevOpRowStatus,
+       "pktcEUEDevDnsTable": pktcEUEDevDnsTable,
+       "pktcEUEDevDnsEntry": pktcEUEDevDnsEntry,
+       "pktcEUEDevDnsIndex": pktcEUEDevDnsIndex,
+       "pktcEUEDevDnsAddrType": pktcEUEDevDnsAddrType,
+       "pktcEUEDevDnsAddr": pktcEUEDevDnsAddr,
+       "pktcEUEDevDnsRowStatus": pktcEUEDevDnsRowStatus,
+       "pktcEUEDevPCSCFTable": pktcEUEDevPCSCFTable,
+       "pktcEUEDevPCSCFEntry": pktcEUEDevPCSCFEntry,
+       "pktcEUEDevPCSCFIndex": pktcEUEDevPCSCFIndex,
+       "pktcEUEDevPCSCFAddrType": pktcEUEDevPCSCFAddrType,
+       "pktcEUEDevPCSCFAddr": pktcEUEDevPCSCFAddr,
+       "pktcEUEDevPCSCFSipPort": pktcEUEDevPCSCFSipPort,
+       "pktcEUEDevPCSCFUsedProtocol": pktcEUEDevPCSCFUsedProtocol,
+       "pktcEUEDevPCSCFUsedInetAddressType": pktcEUEDevPCSCFUsedInetAddressType,
+       "pktcEUEDevPCSCFUsedInetAddress": pktcEUEDevPCSCFUsedInetAddress,
+       "pktcEUEDevPCSCFTimerT1": pktcEUEDevPCSCFTimerT1,
+       "pktcEUEDevPCSCFTimerT2": pktcEUEDevPCSCFTimerT2,
+       "pktcEUEDevPCSCFTimerT4": pktcEUEDevPCSCFTimerT4,
+       "pktcEUEDevPCSCFTimerTD": pktcEUEDevPCSCFTimerTD,
+       "pktcEUEDevPCSCFRowStatus": pktcEUEDevPCSCFRowStatus,
+       "pktcEUEDevPCSCFInviteAttempts": pktcEUEDevPCSCFInviteAttempts,
+       "pktcEUEDevPCSCFMaxTime": pktcEUEDevPCSCFMaxTime,
+       "pktcEUEDevPCSCFBaseTimeAllFailed": pktcEUEDevPCSCFBaseTimeAllFailed,
+       "pktcEUEDevPCSCFBaseTimeAllNotFailed": pktcEUEDevPCSCFBaseTimeAllNotFailed,
+       "pktcEUEDevPCSCFSubscribeRetry": pktcEUEDevPCSCFSubscribeRetry,
+       "pktcEUEDevBSFTable": pktcEUEDevBSFTable,
+       "pktcEUEDevBSFEntry": pktcEUEDevBSFEntry,
+       "pktcEUEDevBSFASType": pktcEUEDevBSFASType,
+       "pktcEUEDevBSFIndex": pktcEUEDevBSFIndex,
+       "pktcEUEDevBSFAddrType": pktcEUEDevBSFAddrType,
+       "pktcEUEDevBSFAddr": pktcEUEDevBSFAddr,
+       "pktcEUEDevBSFRowStatus": pktcEUEDevBSFRowStatus,
+       "pktcEUECBSupport": pktcEUECBSupport,
+       "pktcEUECBEnable": pktcEUECBEnable,
+       "pktcEUECBData": pktcEUECBData,
+       "pktcEUEDevSipPort": pktcEUEDevSipPort,
+       "pktcEUEDevConformance": pktcEUEDevConformance,
+       "pktcEUEDevCompliances": pktcEUEDevCompliances,
+       "pktcEUEDevMIBCompliance": pktcEUEDevMIBCompliance,
+       "pktcEUEDevGroups": pktcEUEDevGroups,
+       "pktcEUEDevProfileGroup": pktcEUEDevProfileGroup,
+       "pktcEUEDevOpGroup": pktcEUEDevOpGroup,
+       "pktcEUEDevDnsGroup": pktcEUEDevDnsGroup,
+       "pktcEUEDevPCSCFGroup": pktcEUEDevPCSCFGroup,
+       "pktcEUEDevBSFGroup": pktcEUEDevBSFGroup,
+       "pktcEUEDevPerDeviceGroup": pktcEUEDevPerDeviceGroup}
+)

@@ -1,147 +1,817 @@
+# SNMP MIB module (INT-SERV-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module INT-SERV-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/rfc/INT-SERV-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:50:21 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/rfc/INT-SERV-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:24:59 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, InterfaceIndex = mibBuilder.importSymbols("IF-MIB", "ifIndex", "InterfaceIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, mib_2, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "mib-2", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, TestAndIncr, TruthValue, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "TestAndIncr", "TruthValue", "DisplayString")
-intSrv = ModuleIdentity((1, 3, 6, 1, 2, 1, 52))
-if mibBuilder.loadTexts: intSrv.setLastUpdated('9710030642Z')
-if mibBuilder.loadTexts: intSrv.setOrganization('IETF Integrated Services Working Group')
-intSrvObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 52, 1))
-intSrvGenObjects = MibIdentifier((1, 3, 6, 1, 2, 1, 52, 2))
-intSrvNotifications = MibIdentifier((1, 3, 6, 1, 2, 1, 52, 3))
-intSrvConformance = MibIdentifier((1, 3, 6, 1, 2, 1, 52, 4))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso,
+ mib_2) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso",
+    "mib-2")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TestAndIncr,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TestAndIncr",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+intSrv = ModuleIdentity(
+    (1, 3, 6, 1, 2, 1, 52)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class SessionNumber(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
 
 class Protocol(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 255)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
 
 class SessionType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(1, 255)
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
 
 class Port(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(2, 4)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 4),
+    )
+
+
 
 class MessageSize(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
 
 class BitRate(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
 
 class BurstSize(TextualConvention, Integer32):
-    status = 'current'
-    displayHint = 'd'
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 2147483647)
+    status = "current"
+    displayHint = "d"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
 
 class QosService(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 5))
-    namedValues = NamedValues(("bestEffort", 1), ("guaranteedDelay", 2), ("controlledLoad", 5))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bestEffort", 1),
+          ("guaranteedDelay", 2),
+          ("controlledLoad", 5))
+    )
 
-intSrvIfAttribTable = MibTable((1, 3, 6, 1, 2, 1, 52, 1, 1), )
-if mibBuilder.loadTexts: intSrvIfAttribTable.setStatus('current')
-intSrvIfAttribEntry = MibTableRow((1, 3, 6, 1, 2, 1, 52, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: intSrvIfAttribEntry.setStatus('current')
-intSrvIfAttribAllocatedBits = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 1), BitRate()).setUnits('Bits per second').setMaxAccess("readonly")
-if mibBuilder.loadTexts: intSrvIfAttribAllocatedBits.setStatus('current')
-intSrvIfAttribMaxAllocatedBits = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 2), BitRate()).setUnits('Bits per second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvIfAttribMaxAllocatedBits.setStatus('current')
-intSrvIfAttribAllocatedBuffer = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 3), BurstSize()).setUnits('Bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: intSrvIfAttribAllocatedBuffer.setStatus('current')
-intSrvIfAttribFlows = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 4), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: intSrvIfAttribFlows.setStatus('current')
-intSrvIfAttribPropagationDelay = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 5), Integer32()).setUnits('microseconds').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvIfAttribPropagationDelay.setStatus('current')
-intSrvIfAttribStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvIfAttribStatus.setStatus('current')
-intSrvFlowTable = MibTable((1, 3, 6, 1, 2, 1, 52, 1, 2), )
-if mibBuilder.loadTexts: intSrvFlowTable.setStatus('current')
-intSrvFlowEntry = MibTableRow((1, 3, 6, 1, 2, 1, 52, 1, 2, 1), ).setIndexNames((0, "INT-SERV-MIB", "intSrvFlowNumber"))
-if mibBuilder.loadTexts: intSrvFlowEntry.setStatus('current')
-intSrvFlowNumber = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 1), SessionNumber())
-if mibBuilder.loadTexts: intSrvFlowNumber.setStatus('current')
-intSrvFlowType = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 2), SessionType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowType.setStatus('current')
-intSrvFlowOwner = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("rsvp", 2), ("management", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowOwner.setStatus('current')
-intSrvFlowDestAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowDestAddr.setStatus('current')
-intSrvFlowSenderAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowSenderAddr.setStatus('current')
-intSrvFlowDestAddrLength = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowDestAddrLength.setStatus('current')
-intSrvFlowSenderAddrLength = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 7), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 128))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowSenderAddrLength.setStatus('current')
-intSrvFlowProtocol = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 8), Protocol()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowProtocol.setStatus('current')
-intSrvFlowDestPort = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 9), Port()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowDestPort.setStatus('current')
-intSrvFlowPort = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 10), Port()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowPort.setStatus('current')
-intSrvFlowFlowId = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 11), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 16777215))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: intSrvFlowFlowId.setStatus('current')
-intSrvFlowInterface = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 12), InterfaceIndex()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowInterface.setStatus('current')
-intSrvFlowIfAddr = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 13), OctetString().subtype(subtypeSpec=ValueSizeConstraint(4, 16))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowIfAddr.setStatus('current')
-intSrvFlowRate = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 14), BitRate()).setUnits('bits per second').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowRate.setStatus('current')
-intSrvFlowBurst = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 15), BurstSize()).setUnits('bytes').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowBurst.setStatus('current')
-intSrvFlowWeight = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 16), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowWeight.setStatus('current')
-intSrvFlowQueue = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 17), Integer32()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowQueue.setStatus('current')
-intSrvFlowMinTU = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 18), MessageSize()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowMinTU.setStatus('current')
-intSrvFlowMaxTU = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 19), MessageSize()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowMaxTU.setStatus('current')
-intSrvFlowBestEffort = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 20), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: intSrvFlowBestEffort.setStatus('current')
-intSrvFlowPoliced = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 21), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: intSrvFlowPoliced.setStatus('current')
-intSrvFlowDiscard = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 22), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowDiscard.setStatus('current')
-intSrvFlowService = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 23), QosService()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: intSrvFlowService.setStatus('current')
-intSrvFlowOrder = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 24), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 65535))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowOrder.setStatus('current')
-intSrvFlowStatus = MibTableColumn((1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 25), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: intSrvFlowStatus.setStatus('current')
-intSrvFlowNewIndex = MibScalar((1, 3, 6, 1, 2, 1, 52, 2, 1), TestAndIncr()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: intSrvFlowNewIndex.setStatus('current')
-intSrvGroups = MibIdentifier((1, 3, 6, 1, 2, 1, 52, 4, 1))
-intSrvCompliances = MibIdentifier((1, 3, 6, 1, 2, 1, 52, 4, 2))
-intSrvCompliance = ModuleCompliance((1, 3, 6, 1, 2, 1, 52, 4, 2, 1)).setObjects(("INT-SERV-MIB", "intSrvIfAttribGroup"), ("INT-SERV-MIB", "intSrvFlowsGroup"), ("INT-SERV-MIB", "intSrvGenObjectsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    intSrvCompliance = intSrvCompliance.setStatus('current')
-intSrvIfAttribGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 52, 4, 1, 1)).setObjects(("INT-SERV-MIB", "intSrvIfAttribAllocatedBits"), ("INT-SERV-MIB", "intSrvIfAttribMaxAllocatedBits"), ("INT-SERV-MIB", "intSrvIfAttribAllocatedBuffer"), ("INT-SERV-MIB", "intSrvIfAttribFlows"), ("INT-SERV-MIB", "intSrvIfAttribPropagationDelay"), ("INT-SERV-MIB", "intSrvIfAttribStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    intSrvIfAttribGroup = intSrvIfAttribGroup.setStatus('current')
-intSrvFlowsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 52, 4, 1, 2)).setObjects(("INT-SERV-MIB", "intSrvFlowType"), ("INT-SERV-MIB", "intSrvFlowOwner"), ("INT-SERV-MIB", "intSrvFlowDestAddr"), ("INT-SERV-MIB", "intSrvFlowSenderAddr"), ("INT-SERV-MIB", "intSrvFlowDestAddrLength"), ("INT-SERV-MIB", "intSrvFlowSenderAddrLength"), ("INT-SERV-MIB", "intSrvFlowProtocol"), ("INT-SERV-MIB", "intSrvFlowDestPort"), ("INT-SERV-MIB", "intSrvFlowPort"), ("INT-SERV-MIB", "intSrvFlowFlowId"), ("INT-SERV-MIB", "intSrvFlowInterface"), ("INT-SERV-MIB", "intSrvFlowBestEffort"), ("INT-SERV-MIB", "intSrvFlowRate"), ("INT-SERV-MIB", "intSrvFlowBurst"), ("INT-SERV-MIB", "intSrvFlowWeight"), ("INT-SERV-MIB", "intSrvFlowQueue"), ("INT-SERV-MIB", "intSrvFlowMinTU"), ("INT-SERV-MIB", "intSrvFlowMaxTU"), ("INT-SERV-MIB", "intSrvFlowDiscard"), ("INT-SERV-MIB", "intSrvFlowPoliced"), ("INT-SERV-MIB", "intSrvFlowService"), ("INT-SERV-MIB", "intSrvFlowIfAddr"), ("INT-SERV-MIB", "intSrvFlowOrder"), ("INT-SERV-MIB", "intSrvFlowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    intSrvFlowsGroup = intSrvFlowsGroup.setStatus('current')
-intSrvGenObjectsGroup = ObjectGroup((1, 3, 6, 1, 2, 1, 52, 4, 1, 3)).setObjects(("INT-SERV-MIB", "intSrvFlowNewIndex"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    intSrvGenObjectsGroup = intSrvGenObjectsGroup.setStatus('current')
-mibBuilder.exportSymbols("INT-SERV-MIB", SessionNumber=SessionNumber, intSrvIfAttribFlows=intSrvIfAttribFlows, intSrvFlowOwner=intSrvFlowOwner, intSrvFlowMinTU=intSrvFlowMinTU, intSrvFlowDiscard=intSrvFlowDiscard, intSrvFlowBestEffort=intSrvFlowBestEffort, Port=Port, intSrvObjects=intSrvObjects, intSrvFlowDestPort=intSrvFlowDestPort, intSrvFlowWeight=intSrvFlowWeight, intSrvFlowsGroup=intSrvFlowsGroup, intSrvIfAttribTable=intSrvIfAttribTable, intSrvFlowType=intSrvFlowType, BitRate=BitRate, intSrvFlowFlowId=intSrvFlowFlowId, intSrvFlowService=intSrvFlowService, intSrvFlowPort=intSrvFlowPort, intSrvIfAttribGroup=intSrvIfAttribGroup, SessionType=SessionType, intSrvFlowBurst=intSrvFlowBurst, PYSNMP_MODULE_ID=intSrv, intSrvGenObjects=intSrvGenObjects, MessageSize=MessageSize, intSrvIfAttribEntry=intSrvIfAttribEntry, intSrv=intSrv, BurstSize=BurstSize, intSrvIfAttribAllocatedBits=intSrvIfAttribAllocatedBits, intSrvFlowInterface=intSrvFlowInterface, intSrvNotifications=intSrvNotifications, intSrvFlowSenderAddr=intSrvFlowSenderAddr, intSrvIfAttribStatus=intSrvIfAttribStatus, QosService=QosService, intSrvFlowNumber=intSrvFlowNumber, intSrvFlowTable=intSrvFlowTable, intSrvFlowPoliced=intSrvFlowPoliced, intSrvConformance=intSrvConformance, intSrvIfAttribPropagationDelay=intSrvIfAttribPropagationDelay, Protocol=Protocol, intSrvFlowProtocol=intSrvFlowProtocol, intSrvIfAttribAllocatedBuffer=intSrvIfAttribAllocatedBuffer, intSrvCompliances=intSrvCompliances, intSrvIfAttribMaxAllocatedBits=intSrvIfAttribMaxAllocatedBits, intSrvGenObjectsGroup=intSrvGenObjectsGroup, intSrvFlowDestAddrLength=intSrvFlowDestAddrLength, intSrvFlowQueue=intSrvFlowQueue, intSrvFlowOrder=intSrvFlowOrder, intSrvFlowRate=intSrvFlowRate, intSrvGroups=intSrvGroups, intSrvCompliance=intSrvCompliance, intSrvFlowIfAddr=intSrvFlowIfAddr, intSrvFlowStatus=intSrvFlowStatus, intSrvFlowEntry=intSrvFlowEntry, intSrvFlowSenderAddrLength=intSrvFlowSenderAddrLength, intSrvFlowMaxTU=intSrvFlowMaxTU, intSrvFlowNewIndex=intSrvFlowNewIndex, intSrvFlowDestAddr=intSrvFlowDestAddr)
+
+# MIB Managed Objects in the order of their OIDs
+
+_IntSrvObjects_ObjectIdentity = ObjectIdentity
+intSrvObjects = _IntSrvObjects_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 52, 1)
+)
+_IntSrvIfAttribTable_Object = MibTable
+intSrvIfAttribTable = _IntSrvIfAttribTable_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 1)
+)
+if mibBuilder.loadTexts:
+    intSrvIfAttribTable.setStatus("current")
+_IntSrvIfAttribEntry_Object = MibTableRow
+intSrvIfAttribEntry = _IntSrvIfAttribEntry_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 1, 1)
+)
+intSrvIfAttribEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    intSrvIfAttribEntry.setStatus("current")
+_IntSrvIfAttribAllocatedBits_Type = BitRate
+_IntSrvIfAttribAllocatedBits_Object = MibTableColumn
+intSrvIfAttribAllocatedBits = _IntSrvIfAttribAllocatedBits_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 1),
+    _IntSrvIfAttribAllocatedBits_Type()
+)
+intSrvIfAttribAllocatedBits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    intSrvIfAttribAllocatedBits.setStatus("current")
+if mibBuilder.loadTexts:
+    intSrvIfAttribAllocatedBits.setUnits("Bits per second")
+_IntSrvIfAttribMaxAllocatedBits_Type = BitRate
+_IntSrvIfAttribMaxAllocatedBits_Object = MibTableColumn
+intSrvIfAttribMaxAllocatedBits = _IntSrvIfAttribMaxAllocatedBits_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 2),
+    _IntSrvIfAttribMaxAllocatedBits_Type()
+)
+intSrvIfAttribMaxAllocatedBits.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvIfAttribMaxAllocatedBits.setStatus("current")
+if mibBuilder.loadTexts:
+    intSrvIfAttribMaxAllocatedBits.setUnits("Bits per second")
+_IntSrvIfAttribAllocatedBuffer_Type = BurstSize
+_IntSrvIfAttribAllocatedBuffer_Object = MibTableColumn
+intSrvIfAttribAllocatedBuffer = _IntSrvIfAttribAllocatedBuffer_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 3),
+    _IntSrvIfAttribAllocatedBuffer_Type()
+)
+intSrvIfAttribAllocatedBuffer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    intSrvIfAttribAllocatedBuffer.setStatus("current")
+if mibBuilder.loadTexts:
+    intSrvIfAttribAllocatedBuffer.setUnits("Bytes")
+_IntSrvIfAttribFlows_Type = Gauge32
+_IntSrvIfAttribFlows_Object = MibTableColumn
+intSrvIfAttribFlows = _IntSrvIfAttribFlows_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 4),
+    _IntSrvIfAttribFlows_Type()
+)
+intSrvIfAttribFlows.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    intSrvIfAttribFlows.setStatus("current")
+
+
+class _IntSrvIfAttribPropagationDelay_Type(Integer32):
+    """Custom type intSrvIfAttribPropagationDelay based on Integer32"""
+    defaultValue = 0
+
+
+_IntSrvIfAttribPropagationDelay_Type.__name__ = "Integer32"
+_IntSrvIfAttribPropagationDelay_Object = MibTableColumn
+intSrvIfAttribPropagationDelay = _IntSrvIfAttribPropagationDelay_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 5),
+    _IntSrvIfAttribPropagationDelay_Type()
+)
+intSrvIfAttribPropagationDelay.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvIfAttribPropagationDelay.setStatus("current")
+if mibBuilder.loadTexts:
+    intSrvIfAttribPropagationDelay.setUnits("microseconds")
+_IntSrvIfAttribStatus_Type = RowStatus
+_IntSrvIfAttribStatus_Object = MibTableColumn
+intSrvIfAttribStatus = _IntSrvIfAttribStatus_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 1, 1, 6),
+    _IntSrvIfAttribStatus_Type()
+)
+intSrvIfAttribStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvIfAttribStatus.setStatus("current")
+_IntSrvFlowTable_Object = MibTable
+intSrvFlowTable = _IntSrvFlowTable_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2)
+)
+if mibBuilder.loadTexts:
+    intSrvFlowTable.setStatus("current")
+_IntSrvFlowEntry_Object = MibTableRow
+intSrvFlowEntry = _IntSrvFlowEntry_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1)
+)
+intSrvFlowEntry.setIndexNames(
+    (0, "INT-SERV-MIB", "intSrvFlowNumber"),
+)
+if mibBuilder.loadTexts:
+    intSrvFlowEntry.setStatus("current")
+_IntSrvFlowNumber_Type = SessionNumber
+_IntSrvFlowNumber_Object = MibTableColumn
+intSrvFlowNumber = _IntSrvFlowNumber_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 1),
+    _IntSrvFlowNumber_Type()
+)
+intSrvFlowNumber.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    intSrvFlowNumber.setStatus("current")
+_IntSrvFlowType_Type = SessionType
+_IntSrvFlowType_Object = MibTableColumn
+intSrvFlowType = _IntSrvFlowType_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 2),
+    _IntSrvFlowType_Type()
+)
+intSrvFlowType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowType.setStatus("current")
+
+
+class _IntSrvFlowOwner_Type(Integer32):
+    """Custom type intSrvFlowOwner based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("rsvp", 2),
+          ("management", 3))
+    )
+
+
+_IntSrvFlowOwner_Type.__name__ = "Integer32"
+_IntSrvFlowOwner_Object = MibTableColumn
+intSrvFlowOwner = _IntSrvFlowOwner_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 3),
+    _IntSrvFlowOwner_Type()
+)
+intSrvFlowOwner.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowOwner.setStatus("current")
+
+
+class _IntSrvFlowDestAddr_Type(OctetString):
+    """Custom type intSrvFlowDestAddr based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 16),
+    )
+
+
+_IntSrvFlowDestAddr_Type.__name__ = "OctetString"
+_IntSrvFlowDestAddr_Object = MibTableColumn
+intSrvFlowDestAddr = _IntSrvFlowDestAddr_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 4),
+    _IntSrvFlowDestAddr_Type()
+)
+intSrvFlowDestAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowDestAddr.setStatus("current")
+
+
+class _IntSrvFlowSenderAddr_Type(OctetString):
+    """Custom type intSrvFlowSenderAddr based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 16),
+    )
+
+
+_IntSrvFlowSenderAddr_Type.__name__ = "OctetString"
+_IntSrvFlowSenderAddr_Object = MibTableColumn
+intSrvFlowSenderAddr = _IntSrvFlowSenderAddr_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 5),
+    _IntSrvFlowSenderAddr_Type()
+)
+intSrvFlowSenderAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowSenderAddr.setStatus("current")
+
+
+class _IntSrvFlowDestAddrLength_Type(Integer32):
+    """Custom type intSrvFlowDestAddrLength based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 128),
+    )
+
+
+_IntSrvFlowDestAddrLength_Type.__name__ = "Integer32"
+_IntSrvFlowDestAddrLength_Object = MibTableColumn
+intSrvFlowDestAddrLength = _IntSrvFlowDestAddrLength_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 6),
+    _IntSrvFlowDestAddrLength_Type()
+)
+intSrvFlowDestAddrLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowDestAddrLength.setStatus("current")
+
+
+class _IntSrvFlowSenderAddrLength_Type(Integer32):
+    """Custom type intSrvFlowSenderAddrLength based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 128),
+    )
+
+
+_IntSrvFlowSenderAddrLength_Type.__name__ = "Integer32"
+_IntSrvFlowSenderAddrLength_Object = MibTableColumn
+intSrvFlowSenderAddrLength = _IntSrvFlowSenderAddrLength_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 7),
+    _IntSrvFlowSenderAddrLength_Type()
+)
+intSrvFlowSenderAddrLength.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowSenderAddrLength.setStatus("current")
+_IntSrvFlowProtocol_Type = Protocol
+_IntSrvFlowProtocol_Object = MibTableColumn
+intSrvFlowProtocol = _IntSrvFlowProtocol_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 8),
+    _IntSrvFlowProtocol_Type()
+)
+intSrvFlowProtocol.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowProtocol.setStatus("current")
+_IntSrvFlowDestPort_Type = Port
+_IntSrvFlowDestPort_Object = MibTableColumn
+intSrvFlowDestPort = _IntSrvFlowDestPort_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 9),
+    _IntSrvFlowDestPort_Type()
+)
+intSrvFlowDestPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowDestPort.setStatus("current")
+_IntSrvFlowPort_Type = Port
+_IntSrvFlowPort_Object = MibTableColumn
+intSrvFlowPort = _IntSrvFlowPort_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 10),
+    _IntSrvFlowPort_Type()
+)
+intSrvFlowPort.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowPort.setStatus("current")
+
+
+class _IntSrvFlowFlowId_Type(Integer32):
+    """Custom type intSrvFlowFlowId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 16777215),
+    )
+
+
+_IntSrvFlowFlowId_Type.__name__ = "Integer32"
+_IntSrvFlowFlowId_Object = MibTableColumn
+intSrvFlowFlowId = _IntSrvFlowFlowId_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 11),
+    _IntSrvFlowFlowId_Type()
+)
+intSrvFlowFlowId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    intSrvFlowFlowId.setStatus("current")
+_IntSrvFlowInterface_Type = InterfaceIndex
+_IntSrvFlowInterface_Object = MibTableColumn
+intSrvFlowInterface = _IntSrvFlowInterface_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 12),
+    _IntSrvFlowInterface_Type()
+)
+intSrvFlowInterface.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowInterface.setStatus("current")
+
+
+class _IntSrvFlowIfAddr_Type(OctetString):
+    """Custom type intSrvFlowIfAddr based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 16),
+    )
+
+
+_IntSrvFlowIfAddr_Type.__name__ = "OctetString"
+_IntSrvFlowIfAddr_Object = MibTableColumn
+intSrvFlowIfAddr = _IntSrvFlowIfAddr_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 13),
+    _IntSrvFlowIfAddr_Type()
+)
+intSrvFlowIfAddr.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowIfAddr.setStatus("current")
+_IntSrvFlowRate_Type = BitRate
+_IntSrvFlowRate_Object = MibTableColumn
+intSrvFlowRate = _IntSrvFlowRate_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 14),
+    _IntSrvFlowRate_Type()
+)
+intSrvFlowRate.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowRate.setStatus("current")
+if mibBuilder.loadTexts:
+    intSrvFlowRate.setUnits("bits per second")
+_IntSrvFlowBurst_Type = BurstSize
+_IntSrvFlowBurst_Object = MibTableColumn
+intSrvFlowBurst = _IntSrvFlowBurst_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 15),
+    _IntSrvFlowBurst_Type()
+)
+intSrvFlowBurst.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowBurst.setStatus("current")
+if mibBuilder.loadTexts:
+    intSrvFlowBurst.setUnits("bytes")
+_IntSrvFlowWeight_Type = Integer32
+_IntSrvFlowWeight_Object = MibTableColumn
+intSrvFlowWeight = _IntSrvFlowWeight_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 16),
+    _IntSrvFlowWeight_Type()
+)
+intSrvFlowWeight.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowWeight.setStatus("current")
+_IntSrvFlowQueue_Type = Integer32
+_IntSrvFlowQueue_Object = MibTableColumn
+intSrvFlowQueue = _IntSrvFlowQueue_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 17),
+    _IntSrvFlowQueue_Type()
+)
+intSrvFlowQueue.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowQueue.setStatus("current")
+_IntSrvFlowMinTU_Type = MessageSize
+_IntSrvFlowMinTU_Object = MibTableColumn
+intSrvFlowMinTU = _IntSrvFlowMinTU_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 18),
+    _IntSrvFlowMinTU_Type()
+)
+intSrvFlowMinTU.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowMinTU.setStatus("current")
+_IntSrvFlowMaxTU_Type = MessageSize
+_IntSrvFlowMaxTU_Object = MibTableColumn
+intSrvFlowMaxTU = _IntSrvFlowMaxTU_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 19),
+    _IntSrvFlowMaxTU_Type()
+)
+intSrvFlowMaxTU.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowMaxTU.setStatus("current")
+_IntSrvFlowBestEffort_Type = Counter32
+_IntSrvFlowBestEffort_Object = MibTableColumn
+intSrvFlowBestEffort = _IntSrvFlowBestEffort_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 20),
+    _IntSrvFlowBestEffort_Type()
+)
+intSrvFlowBestEffort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    intSrvFlowBestEffort.setStatus("current")
+_IntSrvFlowPoliced_Type = Counter32
+_IntSrvFlowPoliced_Object = MibTableColumn
+intSrvFlowPoliced = _IntSrvFlowPoliced_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 21),
+    _IntSrvFlowPoliced_Type()
+)
+intSrvFlowPoliced.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    intSrvFlowPoliced.setStatus("current")
+
+
+class _IntSrvFlowDiscard_Type(TruthValue):
+    """Custom type intSrvFlowDiscard based on TruthValue"""
+    defaultValue = 2
+
+
+_IntSrvFlowDiscard_Type.__name__ = "TruthValue"
+_IntSrvFlowDiscard_Object = MibTableColumn
+intSrvFlowDiscard = _IntSrvFlowDiscard_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 22),
+    _IntSrvFlowDiscard_Type()
+)
+intSrvFlowDiscard.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowDiscard.setStatus("current")
+_IntSrvFlowService_Type = QosService
+_IntSrvFlowService_Object = MibTableColumn
+intSrvFlowService = _IntSrvFlowService_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 23),
+    _IntSrvFlowService_Type()
+)
+intSrvFlowService.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    intSrvFlowService.setStatus("current")
+
+
+class _IntSrvFlowOrder_Type(Integer32):
+    """Custom type intSrvFlowOrder based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 65535),
+    )
+
+
+_IntSrvFlowOrder_Type.__name__ = "Integer32"
+_IntSrvFlowOrder_Object = MibTableColumn
+intSrvFlowOrder = _IntSrvFlowOrder_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 24),
+    _IntSrvFlowOrder_Type()
+)
+intSrvFlowOrder.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowOrder.setStatus("current")
+_IntSrvFlowStatus_Type = RowStatus
+_IntSrvFlowStatus_Object = MibTableColumn
+intSrvFlowStatus = _IntSrvFlowStatus_Object(
+    (1, 3, 6, 1, 2, 1, 52, 1, 2, 1, 25),
+    _IntSrvFlowStatus_Type()
+)
+intSrvFlowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    intSrvFlowStatus.setStatus("current")
+_IntSrvGenObjects_ObjectIdentity = ObjectIdentity
+intSrvGenObjects = _IntSrvGenObjects_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 52, 2)
+)
+_IntSrvFlowNewIndex_Type = TestAndIncr
+_IntSrvFlowNewIndex_Object = MibScalar
+intSrvFlowNewIndex = _IntSrvFlowNewIndex_Object(
+    (1, 3, 6, 1, 2, 1, 52, 2, 1),
+    _IntSrvFlowNewIndex_Type()
+)
+intSrvFlowNewIndex.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    intSrvFlowNewIndex.setStatus("current")
+_IntSrvNotifications_ObjectIdentity = ObjectIdentity
+intSrvNotifications = _IntSrvNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 52, 3)
+)
+_IntSrvConformance_ObjectIdentity = ObjectIdentity
+intSrvConformance = _IntSrvConformance_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 52, 4)
+)
+_IntSrvGroups_ObjectIdentity = ObjectIdentity
+intSrvGroups = _IntSrvGroups_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 52, 4, 1)
+)
+_IntSrvCompliances_ObjectIdentity = ObjectIdentity
+intSrvCompliances = _IntSrvCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 2, 1, 52, 4, 2)
+)
+
+# Managed Objects groups
+
+intSrvIfAttribGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 52, 4, 1, 1)
+)
+intSrvIfAttribGroup.setObjects(
+      *(("INT-SERV-MIB", "intSrvIfAttribAllocatedBits"),
+        ("INT-SERV-MIB", "intSrvIfAttribMaxAllocatedBits"),
+        ("INT-SERV-MIB", "intSrvIfAttribAllocatedBuffer"),
+        ("INT-SERV-MIB", "intSrvIfAttribFlows"),
+        ("INT-SERV-MIB", "intSrvIfAttribPropagationDelay"),
+        ("INT-SERV-MIB", "intSrvIfAttribStatus"))
+)
+if mibBuilder.loadTexts:
+    intSrvIfAttribGroup.setStatus("current")
+
+intSrvFlowsGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 52, 4, 1, 2)
+)
+intSrvFlowsGroup.setObjects(
+      *(("INT-SERV-MIB", "intSrvFlowType"),
+        ("INT-SERV-MIB", "intSrvFlowOwner"),
+        ("INT-SERV-MIB", "intSrvFlowDestAddr"),
+        ("INT-SERV-MIB", "intSrvFlowSenderAddr"),
+        ("INT-SERV-MIB", "intSrvFlowDestAddrLength"),
+        ("INT-SERV-MIB", "intSrvFlowSenderAddrLength"),
+        ("INT-SERV-MIB", "intSrvFlowProtocol"),
+        ("INT-SERV-MIB", "intSrvFlowDestPort"),
+        ("INT-SERV-MIB", "intSrvFlowPort"),
+        ("INT-SERV-MIB", "intSrvFlowFlowId"),
+        ("INT-SERV-MIB", "intSrvFlowInterface"),
+        ("INT-SERV-MIB", "intSrvFlowBestEffort"),
+        ("INT-SERV-MIB", "intSrvFlowRate"),
+        ("INT-SERV-MIB", "intSrvFlowBurst"),
+        ("INT-SERV-MIB", "intSrvFlowWeight"),
+        ("INT-SERV-MIB", "intSrvFlowQueue"),
+        ("INT-SERV-MIB", "intSrvFlowMinTU"),
+        ("INT-SERV-MIB", "intSrvFlowMaxTU"),
+        ("INT-SERV-MIB", "intSrvFlowDiscard"),
+        ("INT-SERV-MIB", "intSrvFlowPoliced"),
+        ("INT-SERV-MIB", "intSrvFlowService"),
+        ("INT-SERV-MIB", "intSrvFlowIfAddr"),
+        ("INT-SERV-MIB", "intSrvFlowOrder"),
+        ("INT-SERV-MIB", "intSrvFlowStatus"))
+)
+if mibBuilder.loadTexts:
+    intSrvFlowsGroup.setStatus("current")
+
+intSrvGenObjectsGroup = ObjectGroup(
+    (1, 3, 6, 1, 2, 1, 52, 4, 1, 3)
+)
+intSrvGenObjectsGroup.setObjects(
+    ("INT-SERV-MIB", "intSrvFlowNewIndex")
+)
+if mibBuilder.loadTexts:
+    intSrvGenObjectsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+intSrvCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 2, 1, 52, 4, 2, 1)
+)
+intSrvCompliance.setObjects(
+      *(("INT-SERV-MIB", "intSrvIfAttribGroup"),
+        ("INT-SERV-MIB", "intSrvFlowsGroup"),
+        ("INT-SERV-MIB", "intSrvGenObjectsGroup"))
+)
+if mibBuilder.loadTexts:
+    intSrvCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "INT-SERV-MIB",
+    **{"SessionNumber": SessionNumber,
+       "Protocol": Protocol,
+       "SessionType": SessionType,
+       "Port": Port,
+       "MessageSize": MessageSize,
+       "BitRate": BitRate,
+       "BurstSize": BurstSize,
+       "QosService": QosService,
+       "intSrv": intSrv,
+       "intSrvObjects": intSrvObjects,
+       "intSrvIfAttribTable": intSrvIfAttribTable,
+       "intSrvIfAttribEntry": intSrvIfAttribEntry,
+       "intSrvIfAttribAllocatedBits": intSrvIfAttribAllocatedBits,
+       "intSrvIfAttribMaxAllocatedBits": intSrvIfAttribMaxAllocatedBits,
+       "intSrvIfAttribAllocatedBuffer": intSrvIfAttribAllocatedBuffer,
+       "intSrvIfAttribFlows": intSrvIfAttribFlows,
+       "intSrvIfAttribPropagationDelay": intSrvIfAttribPropagationDelay,
+       "intSrvIfAttribStatus": intSrvIfAttribStatus,
+       "intSrvFlowTable": intSrvFlowTable,
+       "intSrvFlowEntry": intSrvFlowEntry,
+       "intSrvFlowNumber": intSrvFlowNumber,
+       "intSrvFlowType": intSrvFlowType,
+       "intSrvFlowOwner": intSrvFlowOwner,
+       "intSrvFlowDestAddr": intSrvFlowDestAddr,
+       "intSrvFlowSenderAddr": intSrvFlowSenderAddr,
+       "intSrvFlowDestAddrLength": intSrvFlowDestAddrLength,
+       "intSrvFlowSenderAddrLength": intSrvFlowSenderAddrLength,
+       "intSrvFlowProtocol": intSrvFlowProtocol,
+       "intSrvFlowDestPort": intSrvFlowDestPort,
+       "intSrvFlowPort": intSrvFlowPort,
+       "intSrvFlowFlowId": intSrvFlowFlowId,
+       "intSrvFlowInterface": intSrvFlowInterface,
+       "intSrvFlowIfAddr": intSrvFlowIfAddr,
+       "intSrvFlowRate": intSrvFlowRate,
+       "intSrvFlowBurst": intSrvFlowBurst,
+       "intSrvFlowWeight": intSrvFlowWeight,
+       "intSrvFlowQueue": intSrvFlowQueue,
+       "intSrvFlowMinTU": intSrvFlowMinTU,
+       "intSrvFlowMaxTU": intSrvFlowMaxTU,
+       "intSrvFlowBestEffort": intSrvFlowBestEffort,
+       "intSrvFlowPoliced": intSrvFlowPoliced,
+       "intSrvFlowDiscard": intSrvFlowDiscard,
+       "intSrvFlowService": intSrvFlowService,
+       "intSrvFlowOrder": intSrvFlowOrder,
+       "intSrvFlowStatus": intSrvFlowStatus,
+       "intSrvGenObjects": intSrvGenObjects,
+       "intSrvFlowNewIndex": intSrvFlowNewIndex,
+       "intSrvNotifications": intSrvNotifications,
+       "intSrvConformance": intSrvConformance,
+       "intSrvGroups": intSrvGroups,
+       "intSrvIfAttribGroup": intSrvIfAttribGroup,
+       "intSrvFlowsGroup": intSrvFlowsGroup,
+       "intSrvGenObjectsGroup": intSrvGenObjectsGroup,
+       "intSrvCompliances": intSrvCompliances,
+       "intSrvCompliance": intSrvCompliance}
+)

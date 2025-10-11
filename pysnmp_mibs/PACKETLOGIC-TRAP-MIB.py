@@ -1,58 +1,430 @@
+# SNMP MIB module (PACKETLOGIC-TRAP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PACKETLOGIC-TRAP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/procera/PACKETLOGIC-TRAP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:38 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/procera/PACKETLOGIC-TRAP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:56:48 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
-packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
-pl2Trap = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 8))
-pl2Trap.setRevisions(('2012-12-13 13:22',))
-if mibBuilder.loadTexts: pl2Trap.setLastUpdated('201212131322Z')
-if mibBuilder.loadTexts: pl2Trap.setOrganization('Procera Networks, Inc.')
-pl2Traps = MibIdentifier((1, 3, 6, 1, 4, 1, 15397, 2, 8, 0))
-pl2TrapVals = MibIdentifier((1, 3, 6, 1, 4, 1, 15397, 2, 8, 1))
-pl2ChannelTraps = MibIdentifier((1, 3, 6, 1, 4, 1, 15397, 2, 8, 2))
-pl2ChannelTrapVals = MibIdentifier((1, 3, 6, 1, 4, 1, 15397, 2, 8, 3))
-pl2TrapMessage = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pl2TrapMessage.setStatus('current')
-pl2TrapOid = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 2), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pl2TrapOid.setStatus('current')
-pl2TrapValue = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pl2TrapValue.setStatus('current')
-pl2TrapThreshold = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pl2TrapThreshold.setStatus('current')
-pl2TrapValue64 = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 5), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pl2TrapValue64.setStatus('current')
-pl2TrapThreshold64 = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pl2TrapThreshold64.setStatus('current')
-channelIndex = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 8, 3, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: channelIndex.setStatus('current')
-channelDescr = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 8, 3, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: channelDescr.setStatus('current')
-channelPort = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 8, 3, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("external", 0), ("internal", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: channelPort.setStatus('current')
-prevState = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 8, 3, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("auto", 0), ("hd-10", 1), ("fd-10", 2), ("hd-100", 3), ("fd-100", 4), ("fd-1000", 5), ("fd-10000", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: prevState.setStatus('current')
-newState = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 8, 3, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4, 5, 6))).clone(namedValues=NamedValues(("auto", 0), ("hd-10", 1), ("fd-10", 2), ("hd-100", 3), ("fd-100", 4), ("fd-1000", 5), ("fd-10000", 6)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: newState.setStatus('current')
-pl2TrapGenericMsg = NotificationType((1, 3, 6, 1, 4, 1, 15397, 2, 8, 0, 1)).setObjects(("PACKETLOGIC-TRAP-MIB", "pl2TrapMessage"))
-if mibBuilder.loadTexts: pl2TrapGenericMsg.setStatus('current')
-pl2TrapGeneric = NotificationType((1, 3, 6, 1, 4, 1, 15397, 2, 8, 0, 2))
-if mibBuilder.loadTexts: pl2TrapGeneric.setStatus('current')
-pl2TrapSystemStatsAlert = NotificationType((1, 3, 6, 1, 4, 1, 15397, 2, 8, 0, 3)).setObjects(("PACKETLOGIC-TRAP-MIB", "pl2TrapThreshold"), ("PACKETLOGIC-TRAP-MIB", "pl2TrapMessage"), ("PACKETLOGIC-TRAP-MIB", "pl2TrapValue"), ("PACKETLOGIC-TRAP-MIB", "pl2TrapOid"))
-if mibBuilder.loadTexts: pl2TrapSystemStatsAlert.setStatus('current')
-pl2TrapSystemStatsAlert64 = NotificationType((1, 3, 6, 1, 4, 1, 15397, 2, 8, 0, 4)).setObjects(("PACKETLOGIC-TRAP-MIB", "pl2TrapThreshold64"), ("PACKETLOGIC-TRAP-MIB", "pl2TrapMessage"), ("PACKETLOGIC-TRAP-MIB", "pl2TrapValue64"), ("PACKETLOGIC-TRAP-MIB", "pl2TrapOid"))
-if mibBuilder.loadTexts: pl2TrapSystemStatsAlert64.setStatus('current')
-pl2TrapSystemStatsAlertClear = NotificationType((1, 3, 6, 1, 4, 1, 15397, 2, 8, 0, 5)).setObjects(("PACKETLOGIC-TRAP-MIB", "pl2TrapOid"))
-if mibBuilder.loadTexts: pl2TrapSystemStatsAlertClear.setStatus('current')
-pl2ChannelStateChanged = NotificationType((1, 3, 6, 1, 4, 1, 15397, 2, 8, 2, 1)).setObjects(("PACKETLOGIC-TRAP-MIB", "channelIndex"), ("PACKETLOGIC-TRAP-MIB", "channelDescr"), ("PACKETLOGIC-TRAP-MIB", "channelPort"), ("PACKETLOGIC-TRAP-MIB", "newState"), ("PACKETLOGIC-TRAP-MIB", "prevState"))
-if mibBuilder.loadTexts: pl2ChannelStateChanged.setStatus('current')
-mibBuilder.exportSymbols("PACKETLOGIC-TRAP-MIB", pl2TrapValue=pl2TrapValue, pl2TrapSystemStatsAlertClear=pl2TrapSystemStatsAlertClear, pl2TrapThreshold=pl2TrapThreshold, channelDescr=channelDescr, pl2Trap=pl2Trap, pl2TrapThreshold64=pl2TrapThreshold64, pl2ChannelTrapVals=pl2ChannelTrapVals, PYSNMP_MODULE_ID=pl2Trap, pl2Traps=pl2Traps, pl2TrapOid=pl2TrapOid, channelPort=channelPort, pl2ChannelStateChanged=pl2ChannelStateChanged, pl2TrapMessage=pl2TrapMessage, pl2ChannelTraps=pl2ChannelTraps, pl2TrapSystemStatsAlert64=pl2TrapSystemStatsAlert64, prevState=prevState, pl2TrapValue64=pl2TrapValue64, newState=newState, pl2TrapGeneric=pl2TrapGeneric, channelIndex=channelIndex, pl2TrapGenericMsg=pl2TrapGenericMsg, pl2TrapVals=pl2TrapVals, pl2TrapSystemStatsAlert=pl2TrapSystemStatsAlert)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(CounterBasedGauge64,) = mibBuilder.importSymbols(
+    "HCNUM-TC",
+    "CounterBasedGauge64")
+
+(packetlogic2,) = mibBuilder.importSymbols(
+    "PACKETLOGIC-MIB",
+    "packetlogic2")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pl2Trap = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8)
+)
+if mibBuilder.loadTexts:
+    pl2Trap.setRevisions(
+        ("2012-12-13 13:22",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Pl2Traps_ObjectIdentity = ObjectIdentity
+pl2Traps = _Pl2Traps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 0)
+)
+_Pl2TrapVals_ObjectIdentity = ObjectIdentity
+pl2TrapVals = _Pl2TrapVals_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 1)
+)
+_Pl2TrapMessage_Type = DisplayString
+_Pl2TrapMessage_Object = MibScalar
+pl2TrapMessage = _Pl2TrapMessage_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 1),
+    _Pl2TrapMessage_Type()
+)
+pl2TrapMessage.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pl2TrapMessage.setStatus("current")
+_Pl2TrapOid_Type = ObjectIdentifier
+_Pl2TrapOid_Object = MibScalar
+pl2TrapOid = _Pl2TrapOid_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 2),
+    _Pl2TrapOid_Type()
+)
+pl2TrapOid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pl2TrapOid.setStatus("current")
+_Pl2TrapValue_Type = Unsigned32
+_Pl2TrapValue_Object = MibScalar
+pl2TrapValue = _Pl2TrapValue_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 3),
+    _Pl2TrapValue_Type()
+)
+pl2TrapValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pl2TrapValue.setStatus("current")
+_Pl2TrapThreshold_Type = Unsigned32
+_Pl2TrapThreshold_Object = MibScalar
+pl2TrapThreshold = _Pl2TrapThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 4),
+    _Pl2TrapThreshold_Type()
+)
+pl2TrapThreshold.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pl2TrapThreshold.setStatus("current")
+_Pl2TrapValue64_Type = Counter64
+_Pl2TrapValue64_Object = MibScalar
+pl2TrapValue64 = _Pl2TrapValue64_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 5),
+    _Pl2TrapValue64_Type()
+)
+pl2TrapValue64.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pl2TrapValue64.setStatus("current")
+_Pl2TrapThreshold64_Type = Counter64
+_Pl2TrapThreshold64_Object = MibScalar
+pl2TrapThreshold64 = _Pl2TrapThreshold64_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 1, 6),
+    _Pl2TrapThreshold64_Type()
+)
+pl2TrapThreshold64.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pl2TrapThreshold64.setStatus("current")
+_Pl2ChannelTraps_ObjectIdentity = ObjectIdentity
+pl2ChannelTraps = _Pl2ChannelTraps_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 2)
+)
+_Pl2ChannelTrapVals_ObjectIdentity = ObjectIdentity
+pl2ChannelTrapVals = _Pl2ChannelTrapVals_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 3)
+)
+_ChannelIndex_Type = Unsigned32
+_ChannelIndex_Object = MibScalar
+channelIndex = _ChannelIndex_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 3, 1),
+    _ChannelIndex_Type()
+)
+channelIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    channelIndex.setStatus("current")
+_ChannelDescr_Type = DisplayString
+_ChannelDescr_Object = MibScalar
+channelDescr = _ChannelDescr_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 3, 2),
+    _ChannelDescr_Type()
+)
+channelDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    channelDescr.setStatus("current")
+
+
+class _ChannelPort_Type(Integer32):
+    """Custom type channelPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("external", 0),
+          ("internal", 1))
+    )
+
+
+_ChannelPort_Type.__name__ = "Integer32"
+_ChannelPort_Object = MibScalar
+channelPort = _ChannelPort_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 3, 3),
+    _ChannelPort_Type()
+)
+channelPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    channelPort.setStatus("current")
+
+
+class _PrevState_Type(Integer32):
+    """Custom type prevState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 0),
+          ("hd-10", 1),
+          ("fd-10", 2),
+          ("hd-100", 3),
+          ("fd-100", 4),
+          ("fd-1000", 5),
+          ("fd-10000", 6))
+    )
+
+
+_PrevState_Type.__name__ = "Integer32"
+_PrevState_Object = MibScalar
+prevState = _PrevState_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 3, 4),
+    _PrevState_Type()
+)
+prevState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    prevState.setStatus("current")
+
+
+class _NewState_Type(Integer32):
+    """Custom type newState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("auto", 0),
+          ("hd-10", 1),
+          ("fd-10", 2),
+          ("hd-100", 3),
+          ("fd-100", 4),
+          ("fd-1000", 5),
+          ("fd-10000", 6))
+    )
+
+
+_NewState_Type.__name__ = "Integer32"
+_NewState_Object = MibScalar
+newState = _NewState_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 3, 5),
+    _NewState_Type()
+)
+newState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    newState.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+pl2TrapGenericMsg = NotificationType(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 0, 1)
+)
+pl2TrapGenericMsg.setObjects(
+    ("PACKETLOGIC-TRAP-MIB", "pl2TrapMessage")
+)
+if mibBuilder.loadTexts:
+    pl2TrapGenericMsg.setStatus(
+        "current"
+    )
+
+pl2TrapGeneric = NotificationType(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 0, 2)
+)
+if mibBuilder.loadTexts:
+    pl2TrapGeneric.setStatus(
+        "current"
+    )
+
+pl2TrapSystemStatsAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 0, 3)
+)
+pl2TrapSystemStatsAlert.setObjects(
+      *(("PACKETLOGIC-TRAP-MIB", "pl2TrapThreshold"),
+        ("PACKETLOGIC-TRAP-MIB", "pl2TrapMessage"),
+        ("PACKETLOGIC-TRAP-MIB", "pl2TrapValue"),
+        ("PACKETLOGIC-TRAP-MIB", "pl2TrapOid"))
+)
+if mibBuilder.loadTexts:
+    pl2TrapSystemStatsAlert.setStatus(
+        "current"
+    )
+
+pl2TrapSystemStatsAlert64 = NotificationType(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 0, 4)
+)
+pl2TrapSystemStatsAlert64.setObjects(
+      *(("PACKETLOGIC-TRAP-MIB", "pl2TrapThreshold64"),
+        ("PACKETLOGIC-TRAP-MIB", "pl2TrapMessage"),
+        ("PACKETLOGIC-TRAP-MIB", "pl2TrapValue64"),
+        ("PACKETLOGIC-TRAP-MIB", "pl2TrapOid"))
+)
+if mibBuilder.loadTexts:
+    pl2TrapSystemStatsAlert64.setStatus(
+        "current"
+    )
+
+pl2TrapSystemStatsAlertClear = NotificationType(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 0, 5)
+)
+pl2TrapSystemStatsAlertClear.setObjects(
+    ("PACKETLOGIC-TRAP-MIB", "pl2TrapOid")
+)
+if mibBuilder.loadTexts:
+    pl2TrapSystemStatsAlertClear.setStatus(
+        "current"
+    )
+
+pl2ChannelStateChanged = NotificationType(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 8, 2, 1)
+)
+pl2ChannelStateChanged.setObjects(
+      *(("PACKETLOGIC-TRAP-MIB", "channelIndex"),
+        ("PACKETLOGIC-TRAP-MIB", "channelDescr"),
+        ("PACKETLOGIC-TRAP-MIB", "channelPort"),
+        ("PACKETLOGIC-TRAP-MIB", "newState"),
+        ("PACKETLOGIC-TRAP-MIB", "prevState"))
+)
+if mibBuilder.loadTexts:
+    pl2ChannelStateChanged.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PACKETLOGIC-TRAP-MIB",
+    **{"pl2Trap": pl2Trap,
+       "pl2Traps": pl2Traps,
+       "pl2TrapGenericMsg": pl2TrapGenericMsg,
+       "pl2TrapGeneric": pl2TrapGeneric,
+       "pl2TrapSystemStatsAlert": pl2TrapSystemStatsAlert,
+       "pl2TrapSystemStatsAlert64": pl2TrapSystemStatsAlert64,
+       "pl2TrapSystemStatsAlertClear": pl2TrapSystemStatsAlertClear,
+       "pl2TrapVals": pl2TrapVals,
+       "pl2TrapMessage": pl2TrapMessage,
+       "pl2TrapOid": pl2TrapOid,
+       "pl2TrapValue": pl2TrapValue,
+       "pl2TrapThreshold": pl2TrapThreshold,
+       "pl2TrapValue64": pl2TrapValue64,
+       "pl2TrapThreshold64": pl2TrapThreshold64,
+       "pl2ChannelTraps": pl2ChannelTraps,
+       "pl2ChannelStateChanged": pl2ChannelStateChanged,
+       "pl2ChannelTrapVals": pl2ChannelTrapVals,
+       "channelIndex": channelIndex,
+       "channelDescr": channelDescr,
+       "channelPort": channelPort,
+       "prevState": prevState,
+       "newState": newState}
+)

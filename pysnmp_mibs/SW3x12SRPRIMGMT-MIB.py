@@ -1,21 +1,167 @@
+# SNMP MIB module (SW3x12SRPRIMGMT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SW3x12SRPRIMGMT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/d-link/SW3x12SRPRIMGMT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:00:44 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/d-link/SW3x12SRPRIMGMT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:53:12 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-dlink_mgmt, dlink_products = mibBuilder.importSymbols("DLINK-ID-REC-MIB", "dlink-mgmt", "dlink-products")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-dlink_Dgs3x12SRSeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 55)).setLabel("dlink-Dgs3x12SRSeriesProd")
-dlink_Dgs3212SR = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 55, 1)).setLabel("dlink-Dgs3212SR")
-dlink_Dgs3312SR = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 10, 55, 2)).setLabel("dlink-Dgs3312SR")
-dgs3x12SRSeriesProd = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 55))
-dgs3212SR = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 55, 1))
-dgs3312SR = MibIdentifier((1, 3, 6, 1, 4, 1, 171, 11, 55, 2))
-mibBuilder.exportSymbols("SW3x12SRPRIMGMT-MIB", dgs3312SR=dgs3312SR, dgs3x12SRSeriesProd=dgs3x12SRSeriesProd, dlink_Dgs3x12SRSeriesProd=dlink_Dgs3x12SRSeriesProd, dlink_Dgs3212SR=dlink_Dgs3212SR, dgs3212SR=dgs3212SR, dlink_Dgs3312SR=dlink_Dgs3312SR)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(dlink_mgmt,
+ dlink_products) = mibBuilder.importSymbols(
+    "DLINK-ID-REC-MIB",
+    "dlink-mgmt",
+    "dlink-products")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Dlink_Dgs3x12SRSeriesProd_ObjectIdentity = ObjectIdentity
+dlink_Dgs3x12SRSeriesProd = _Dlink_Dgs3x12SRSeriesProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 55)
+)
+_Dlink_Dgs3212SR_ObjectIdentity = ObjectIdentity
+dlink_Dgs3212SR = _Dlink_Dgs3212SR_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 55, 1)
+)
+_Dlink_Dgs3312SR_ObjectIdentity = ObjectIdentity
+dlink_Dgs3312SR = _Dlink_Dgs3312SR_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 10, 55, 2)
+)
+_Dgs3x12SRSeriesProd_ObjectIdentity = ObjectIdentity
+dgs3x12SRSeriesProd = _Dgs3x12SRSeriesProd_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 55)
+)
+_Dgs3212SR_ObjectIdentity = ObjectIdentity
+dgs3212SR = _Dgs3212SR_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 55, 1)
+)
+_Dgs3312SR_ObjectIdentity = ObjectIdentity
+dgs3312SR = _Dgs3312SR_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 171, 11, 55, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SW3x12SRPRIMGMT-MIB",
+    **{"dlink-Dgs3x12SRSeriesProd": dlink_Dgs3x12SRSeriesProd,
+       "dlink-Dgs3212SR": dlink_Dgs3212SR,
+       "dlink-Dgs3312SR": dlink_Dgs3312SR,
+       "dgs3x12SRSeriesProd": dgs3x12SRSeriesProd,
+       "dgs3212SR": dgs3212SR,
+       "dgs3312SR": dgs3312SR}
+)

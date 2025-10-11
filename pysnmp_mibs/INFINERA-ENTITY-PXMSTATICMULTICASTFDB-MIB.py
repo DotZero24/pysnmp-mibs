@@ -1,35 +1,210 @@
+# SNMP MIB module (INFINERA-ENTITY-PXMSTATICMULTICASTFDB-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module INFINERA-ENTITY-PXMSTATICMULTICASTFDB-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-PXMSTATICMULTICASTFDB-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:20:44 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/infinera/INFINERA-ENTITY-PXMSTATICMULTICASTFDB-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:14:26 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-terminationPoint, = mibBuilder.importSymbols("INFINERA-REG-MIB", "terminationPoint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-pxmStaticMulticastFdbMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67))
-if mibBuilder.loadTexts: pxmStaticMulticastFdbMIB.setLastUpdated('201605200000Z')
-if mibBuilder.loadTexts: pxmStaticMulticastFdbMIB.setOrganization('INFINERA')
-pxmStaticMulticastFdbConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 3))
-pxmStaticMulticastFdbCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 3, 1))
-pxmStaticMulticastFdbGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 3, 2))
-pxmStaticMulticastFdbTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 1), )
-if mibBuilder.loadTexts: pxmStaticMulticastFdbTable.setStatus('current')
-pxmStaticMulticastFdbEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: pxmStaticMulticastFdbEntry.setStatus('current')
-pxmStaticMulticastFdbMacAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: pxmStaticMulticastFdbMacAddress.setStatus('current')
-pxmStaticMulticastFdbCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 3, 1, 1)).setObjects(("INFINERA-ENTITY-PXMSTATICMULTICASTFDB-MIB", "pxmStaticMulticastFdbGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pxmStaticMulticastFdbCompliance = pxmStaticMulticastFdbCompliance.setStatus('current')
-pxmStaticMulticastFdbGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 3, 2, 1)).setObjects(("INFINERA-ENTITY-PXMSTATICMULTICASTFDB-MIB", "pxmStaticMulticastFdbMacAddress"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    pxmStaticMulticastFdbGroup = pxmStaticMulticastFdbGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-ENTITY-PXMSTATICMULTICASTFDB-MIB", PYSNMP_MODULE_ID=pxmStaticMulticastFdbMIB, pxmStaticMulticastFdbCompliance=pxmStaticMulticastFdbCompliance, pxmStaticMulticastFdbGroup=pxmStaticMulticastFdbGroup, pxmStaticMulticastFdbConformance=pxmStaticMulticastFdbConformance, pxmStaticMulticastFdbCompliances=pxmStaticMulticastFdbCompliances, pxmStaticMulticastFdbMacAddress=pxmStaticMulticastFdbMacAddress, pxmStaticMulticastFdbTable=pxmStaticMulticastFdbTable, pxmStaticMulticastFdbEntry=pxmStaticMulticastFdbEntry, pxmStaticMulticastFdbMIB=pxmStaticMulticastFdbMIB, pxmStaticMulticastFdbGroups=pxmStaticMulticastFdbGroups)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(terminationPoint,) = mibBuilder.importSymbols(
+    "INFINERA-REG-MIB",
+    "terminationPoint")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+pxmStaticMulticastFdbMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_PxmStaticMulticastFdbTable_Object = MibTable
+pxmStaticMulticastFdbTable = _PxmStaticMulticastFdbTable_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 1)
+)
+if mibBuilder.loadTexts:
+    pxmStaticMulticastFdbTable.setStatus("current")
+_PxmStaticMulticastFdbEntry_Object = MibTableRow
+pxmStaticMulticastFdbEntry = _PxmStaticMulticastFdbEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 1, 1)
+)
+pxmStaticMulticastFdbEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    pxmStaticMulticastFdbEntry.setStatus("current")
+_PxmStaticMulticastFdbMacAddress_Type = DisplayString
+_PxmStaticMulticastFdbMacAddress_Object = MibTableColumn
+pxmStaticMulticastFdbMacAddress = _PxmStaticMulticastFdbMacAddress_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 1, 1, 1),
+    _PxmStaticMulticastFdbMacAddress_Type()
+)
+pxmStaticMulticastFdbMacAddress.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    pxmStaticMulticastFdbMacAddress.setStatus("current")
+_PxmStaticMulticastFdbConformance_ObjectIdentity = ObjectIdentity
+pxmStaticMulticastFdbConformance = _PxmStaticMulticastFdbConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 3)
+)
+_PxmStaticMulticastFdbCompliances_ObjectIdentity = ObjectIdentity
+pxmStaticMulticastFdbCompliances = _PxmStaticMulticastFdbCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 3, 1)
+)
+_PxmStaticMulticastFdbGroups_ObjectIdentity = ObjectIdentity
+pxmStaticMulticastFdbGroups = _PxmStaticMulticastFdbGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 3, 2)
+)
+
+# Managed Objects groups
+
+pxmStaticMulticastFdbGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 3, 2, 1)
+)
+pxmStaticMulticastFdbGroup.setObjects(
+    ("INFINERA-ENTITY-PXMSTATICMULTICASTFDB-MIB", "pxmStaticMulticastFdbMacAddress")
+)
+if mibBuilder.loadTexts:
+    pxmStaticMulticastFdbGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+pxmStaticMulticastFdbCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 2, 67, 3, 1, 1)
+)
+pxmStaticMulticastFdbCompliance.setObjects(
+    ("INFINERA-ENTITY-PXMSTATICMULTICASTFDB-MIB", "pxmStaticMulticastFdbGroup")
+)
+if mibBuilder.loadTexts:
+    pxmStaticMulticastFdbCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "INFINERA-ENTITY-PXMSTATICMULTICASTFDB-MIB",
+    **{"pxmStaticMulticastFdbMIB": pxmStaticMulticastFdbMIB,
+       "pxmStaticMulticastFdbTable": pxmStaticMulticastFdbTable,
+       "pxmStaticMulticastFdbEntry": pxmStaticMulticastFdbEntry,
+       "pxmStaticMulticastFdbMacAddress": pxmStaticMulticastFdbMacAddress,
+       "pxmStaticMulticastFdbConformance": pxmStaticMulticastFdbConformance,
+       "pxmStaticMulticastFdbCompliances": pxmStaticMulticastFdbCompliances,
+       "pxmStaticMulticastFdbCompliance": pxmStaticMulticastFdbCompliance,
+       "pxmStaticMulticastFdbGroups": pxmStaticMulticastFdbGroups,
+       "pxmStaticMulticastFdbGroup": pxmStaticMulticastFdbGroup}
+)

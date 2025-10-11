@@ -12,3 +12,6 @@ build/
 
 # PyCharm stuff
 .idea/
+.vscode/
+.venv/
+.DS_Store

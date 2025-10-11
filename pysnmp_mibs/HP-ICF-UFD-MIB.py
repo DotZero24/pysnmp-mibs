@@ -1,107 +1,696 @@
+# SNMP MIB module (HP-ICF-UFD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HP-ICF-UFD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HP-ICF-UFD-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:08:50 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HP-ICF-UFD-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:37:53 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-hpicfUfdMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74))
-hpicfUfdMIB.setRevisions(('2018-05-23 00:00', '2012-04-30 00:00', '2011-05-12 00:00', '2010-02-06 15:39',))
-if mibBuilder.loadTexts: hpicfUfdMIB.setLastUpdated('201805230000Z')
-if mibBuilder.loadTexts: hpicfUfdMIB.setOrganization('HP Networking')
-hpicfUfdNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 0))
-hpicfUfdConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1))
-hpicfUfdConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpSwitch,) = mibBuilder.importSymbols(
+    "HP-ICF-OID",
+    "hpSwitch")
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpicfUfdMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74)
+)
+if mibBuilder.loadTexts:
+    hpicfUfdMIB.setRevisions(
+        ("2018-05-23 00:00",
+         "2012-04-30 00:00",
+         "2011-05-12 00:00",
+         "2010-02-06 15:39")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class HpUfdTrackEntityType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1))
-    namedValues = NamedValues(("ufd", 1))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("ufd", 1)
+    )
+
+
 
 class HpUfdTrackLinksSubtype(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("none", 0), ("portMap", 1), ("lacpKey", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("portMap", 1),
+          ("lacpKey", 2))
+    )
 
-hpicfUfdScalars = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 1))
-hpicfUfdAdminStatus = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enable", 1), ("disable", 2))).clone('disable')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfUfdAdminStatus.setStatus('current')
-hpicfUfdNotifyTrackId = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4096))).setMaxAccess("accessiblefornotify")
-if mibBuilder.loadTexts: hpicfUfdNotifyTrackId.setStatus('current')
-hpicfUfdTrackEntities = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2))
-hpicfUfdTrackTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1), )
-if mibBuilder.loadTexts: hpicfUfdTrackTable.setStatus('current')
-hpicfUfdTrackEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1), ).setIndexNames((0, "HP-ICF-UFD-MIB", "hpicfUfdTrackId"))
-if mibBuilder.loadTexts: hpicfUfdTrackEntry.setStatus('current')
-hpicfUfdTrackId = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 4096)))
-if mibBuilder.loadTexts: hpicfUfdTrackId.setStatus('current')
-hpicfUfdTrackEntityType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 2), HpUfdTrackEntityType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfUfdTrackEntityType.setStatus('current')
-hpicfUfdLinksToMonitor = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1024))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfUfdLinksToMonitor.setStatus('current')
-hpicfUfdLinksToTransition = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 1024))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfUfdLinksToTransition.setStatus('current')
-hpicfUfdLinksToMonitorState = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("down", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpicfUfdLinksToMonitorState.setStatus('current')
-hpicfUfdLinksToTransitionState = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("up", 1), ("autoDisabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpicfUfdLinksToTransitionState.setStatus('current')
-hpicfUfdTrackEntityState = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 7), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2))).clone(namedValues=NamedValues(("none", 0), ("ok", 1), ("failed", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpicfUfdTrackEntityState.setStatus('current')
-hpicfUfdTrackEntityRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpicfUfdTrackEntityRowStatus.setStatus('current')
-hpicfUfdLinksToMonitorType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 9), HpUfdTrackLinksSubtype()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfUfdLinksToMonitorType.setStatus('current')
-hpicfUfdLinksToTransitionType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 10), HpUfdTrackLinksSubtype()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfUfdLinksToTransitionType.setStatus('current')
-hpicfUfdLinksTransitionDelay = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 13), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 300))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfUfdLinksTransitionDelay.setStatus('current')
-hpicfUfdTrackedLinkTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 2), )
-if mibBuilder.loadTexts: hpicfUfdTrackedLinkTable.setStatus('current')
-hpicfUfdTrackedLinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 2, 1), ).setIndexNames((0, "HP-ICF-UFD-MIB", "hpicfUfdTrackId"), (0, "HP-ICF-UFD-MIB", "hpicfUfdIfIndex"))
-if mibBuilder.loadTexts: hpicfUfdTrackedLinkEntry.setStatus('current')
-hpicfUfdIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 2, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: hpicfUfdIfIndex.setStatus('current')
-hpicfUfdLinkRole = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("uplink", 1), ("downlink", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpicfUfdLinkRole.setStatus('current')
-hpicfUfdNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 0, 0))
-hpicfUfdLtDAutoDisabled = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 0, 0, 3)).setObjects(("HP-ICF-UFD-MIB", "hpicfUfdNotifyTrackId"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransition"))
-if mibBuilder.loadTexts: hpicfUfdLtDAutoDisabled.setStatus('current')
-hpicfUfdLtDAutoEnabled = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 0, 0, 4)).setObjects(("HP-ICF-UFD-MIB", "hpicfUfdNotifyTrackId"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransition"))
-if mibBuilder.loadTexts: hpicfUfdLtDAutoEnabled.setStatus('current')
-hpicfUfdCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 1))
-hpicfUfdGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2))
-hpicfUfdCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 1, 1)).setObjects(("HP-ICF-UFD-MIB", "hpicfUfdBaseGroup"), ("HP-ICF-UFD-MIB", "hpicfUfdConfigGroup"), ("HP-ICF-UFD-MIB", "hpicfUfdNotificationGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfUfdCompliance = hpicfUfdCompliance.setStatus('deprecated')
-hpicfUfdCompliance1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 1, 2)).setObjects(("HP-ICF-UFD-MIB", "hpicfUfdBaseGroup"), ("HP-ICF-UFD-MIB", "hpicfUfdConfigGroup"), ("HP-ICF-UFD-MIB", "hpicfUfdNotificationGroup"), ("HP-ICF-UFD-MIB", "hpicfUfdConfigGroup1"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfUfdCompliance1 = hpicfUfdCompliance1.setStatus('deprecated')
-hpicfUfdCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 1, 3)).setObjects(("HP-ICF-UFD-MIB", "hpicfUfdBaseGroup"), ("HP-ICF-UFD-MIB", "hpicfUfdConfigGroup2"), ("HP-ICF-UFD-MIB", "hpicfUfdNotificationGroup"), ("HP-ICF-UFD-MIB", "hpicfUfdConfigGroup1"))
+# MIB Managed Objects in the order of their OIDs
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfUfdCompliance2 = hpicfUfdCompliance2.setStatus('current')
-hpicfUfdBaseGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2, 1)).setObjects(("HP-ICF-UFD-MIB", "hpicfUfdAdminStatus"), ("HP-ICF-UFD-MIB", "hpicfUfdNotifyTrackId"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfUfdBaseGroup = hpicfUfdBaseGroup.setStatus('current')
-hpicfUfdConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2, 2)).setObjects(("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityType"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitor"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransition"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitorState"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransitionState"), ("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityState"), ("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityRowStatus"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitorType"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransitionType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfUfdConfigGroup = hpicfUfdConfigGroup.setStatus('deprecated')
-hpicfUfdNotificationGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2, 3)).setObjects(("HP-ICF-UFD-MIB", "hpicfUfdLtDAutoDisabled"), ("HP-ICF-UFD-MIB", "hpicfUfdLtDAutoEnabled"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfUfdNotificationGroup = hpicfUfdNotificationGroup.setStatus('current')
-hpicfUfdConfigGroup1 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2, 4)).setObjects(("HP-ICF-UFD-MIB", "hpicfUfdLinkRole"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfUfdConfigGroup1 = hpicfUfdConfigGroup1.setStatus('current')
-hpicfUfdConfigGroup2 = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2, 5)).setObjects(("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityType"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitor"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransition"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitorState"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransitionState"), ("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityState"), ("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityRowStatus"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitorType"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransitionType"), ("HP-ICF-UFD-MIB", "hpicfUfdLinksTransitionDelay"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfUfdConfigGroup2 = hpicfUfdConfigGroup2.setStatus('current')
-mibBuilder.exportSymbols("HP-ICF-UFD-MIB", hpicfUfdGroups=hpicfUfdGroups, hpicfUfdTrackEntityRowStatus=hpicfUfdTrackEntityRowStatus, hpicfUfdLinksToMonitorState=hpicfUfdLinksToMonitorState, hpicfUfdCompliance=hpicfUfdCompliance, PYSNMP_MODULE_ID=hpicfUfdMIB, hpicfUfdConfigObjects=hpicfUfdConfigObjects, hpicfUfdLinksToTransitionType=hpicfUfdLinksToTransitionType, HpUfdTrackEntityType=HpUfdTrackEntityType, hpicfUfdConfigGroup=hpicfUfdConfigGroup, hpicfUfdCompliance1=hpicfUfdCompliance1, hpicfUfdLinksToTransitionState=hpicfUfdLinksToTransitionState, hpicfUfdTrackTable=hpicfUfdTrackTable, hpicfUfdLinksTransitionDelay=hpicfUfdLinksTransitionDelay, hpicfUfdLtDAutoDisabled=hpicfUfdLtDAutoDisabled, hpicfUfdConfigGroup1=hpicfUfdConfigGroup1, hpicfUfdLinksToTransition=hpicfUfdLinksToTransition, hpicfUfdTrackEntry=hpicfUfdTrackEntry, hpicfUfdScalars=hpicfUfdScalars, hpicfUfdTrackedLinkTable=hpicfUfdTrackedLinkTable, hpicfUfdMIB=hpicfUfdMIB, hpicfUfdTrackedLinkEntry=hpicfUfdTrackedLinkEntry, hpicfUfdConfigGroup2=hpicfUfdConfigGroup2, hpicfUfdNotifyTrackId=hpicfUfdNotifyTrackId, hpicfUfdIfIndex=hpicfUfdIfIndex, hpicfUfdLtDAutoEnabled=hpicfUfdLtDAutoEnabled, hpicfUfdConformance=hpicfUfdConformance, hpicfUfdLinksToMonitor=hpicfUfdLinksToMonitor, hpicfUfdAdminStatus=hpicfUfdAdminStatus, hpicfUfdTrackEntityState=hpicfUfdTrackEntityState, hpicfUfdNotificationGroup=hpicfUfdNotificationGroup, hpicfUfdNotificationPrefix=hpicfUfdNotificationPrefix, hpicfUfdNotifications=hpicfUfdNotifications, hpicfUfdCompliance2=hpicfUfdCompliance2, hpicfUfdBaseGroup=hpicfUfdBaseGroup, HpUfdTrackLinksSubtype=HpUfdTrackLinksSubtype, hpicfUfdTrackEntities=hpicfUfdTrackEntities, hpicfUfdCompliances=hpicfUfdCompliances, hpicfUfdTrackEntityType=hpicfUfdTrackEntityType, hpicfUfdLinksToMonitorType=hpicfUfdLinksToMonitorType, hpicfUfdTrackId=hpicfUfdTrackId, hpicfUfdLinkRole=hpicfUfdLinkRole)
+_HpicfUfdNotifications_ObjectIdentity = ObjectIdentity
+hpicfUfdNotifications = _HpicfUfdNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 0)
+)
+_HpicfUfdNotificationPrefix_ObjectIdentity = ObjectIdentity
+hpicfUfdNotificationPrefix = _HpicfUfdNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 0, 0)
+)
+_HpicfUfdConfigObjects_ObjectIdentity = ObjectIdentity
+hpicfUfdConfigObjects = _HpicfUfdConfigObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1)
+)
+_HpicfUfdScalars_ObjectIdentity = ObjectIdentity
+hpicfUfdScalars = _HpicfUfdScalars_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 1)
+)
+
+
+class _HpicfUfdAdminStatus_Type(Integer32):
+    """Custom type hpicfUfdAdminStatus based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enable", 1),
+          ("disable", 2))
+    )
+
+
+_HpicfUfdAdminStatus_Type.__name__ = "Integer32"
+_HpicfUfdAdminStatus_Object = MibScalar
+hpicfUfdAdminStatus = _HpicfUfdAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 1, 1),
+    _HpicfUfdAdminStatus_Type()
+)
+hpicfUfdAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfUfdAdminStatus.setStatus("current")
+
+
+class _HpicfUfdNotifyTrackId_Type(Integer32):
+    """Custom type hpicfUfdNotifyTrackId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4096),
+    )
+
+
+_HpicfUfdNotifyTrackId_Type.__name__ = "Integer32"
+_HpicfUfdNotifyTrackId_Object = MibScalar
+hpicfUfdNotifyTrackId = _HpicfUfdNotifyTrackId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 1, 2),
+    _HpicfUfdNotifyTrackId_Type()
+)
+hpicfUfdNotifyTrackId.setMaxAccess("accessible-for-notify")
+if mibBuilder.loadTexts:
+    hpicfUfdNotifyTrackId.setStatus("current")
+_HpicfUfdTrackEntities_ObjectIdentity = ObjectIdentity
+hpicfUfdTrackEntities = _HpicfUfdTrackEntities_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2)
+)
+_HpicfUfdTrackTable_Object = MibTable
+hpicfUfdTrackTable = _HpicfUfdTrackTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hpicfUfdTrackTable.setStatus("current")
+_HpicfUfdTrackEntry_Object = MibTableRow
+hpicfUfdTrackEntry = _HpicfUfdTrackEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1)
+)
+hpicfUfdTrackEntry.setIndexNames(
+    (0, "HP-ICF-UFD-MIB", "hpicfUfdTrackId"),
+)
+if mibBuilder.loadTexts:
+    hpicfUfdTrackEntry.setStatus("current")
+
+
+class _HpicfUfdTrackId_Type(Integer32):
+    """Custom type hpicfUfdTrackId based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4096),
+    )
+
+
+_HpicfUfdTrackId_Type.__name__ = "Integer32"
+_HpicfUfdTrackId_Object = MibTableColumn
+hpicfUfdTrackId = _HpicfUfdTrackId_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 1),
+    _HpicfUfdTrackId_Type()
+)
+hpicfUfdTrackId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpicfUfdTrackId.setStatus("current")
+_HpicfUfdTrackEntityType_Type = HpUfdTrackEntityType
+_HpicfUfdTrackEntityType_Object = MibTableColumn
+hpicfUfdTrackEntityType = _HpicfUfdTrackEntityType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 2),
+    _HpicfUfdTrackEntityType_Type()
+)
+hpicfUfdTrackEntityType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfUfdTrackEntityType.setStatus("current")
+
+
+class _HpicfUfdLinksToMonitor_Type(OctetString):
+    """Custom type hpicfUfdLinksToMonitor based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1024),
+    )
+
+
+_HpicfUfdLinksToMonitor_Type.__name__ = "OctetString"
+_HpicfUfdLinksToMonitor_Object = MibTableColumn
+hpicfUfdLinksToMonitor = _HpicfUfdLinksToMonitor_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 3),
+    _HpicfUfdLinksToMonitor_Type()
+)
+hpicfUfdLinksToMonitor.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfUfdLinksToMonitor.setStatus("current")
+
+
+class _HpicfUfdLinksToTransition_Type(OctetString):
+    """Custom type hpicfUfdLinksToTransition based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 1024),
+    )
+
+
+_HpicfUfdLinksToTransition_Type.__name__ = "OctetString"
+_HpicfUfdLinksToTransition_Object = MibTableColumn
+hpicfUfdLinksToTransition = _HpicfUfdLinksToTransition_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 4),
+    _HpicfUfdLinksToTransition_Type()
+)
+hpicfUfdLinksToTransition.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfUfdLinksToTransition.setStatus("current")
+
+
+class _HpicfUfdLinksToMonitorState_Type(Integer32):
+    """Custom type hpicfUfdLinksToMonitorState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2))
+    )
+
+
+_HpicfUfdLinksToMonitorState_Type.__name__ = "Integer32"
+_HpicfUfdLinksToMonitorState_Object = MibTableColumn
+hpicfUfdLinksToMonitorState = _HpicfUfdLinksToMonitorState_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 5),
+    _HpicfUfdLinksToMonitorState_Type()
+)
+hpicfUfdLinksToMonitorState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpicfUfdLinksToMonitorState.setStatus("current")
+
+
+class _HpicfUfdLinksToTransitionState_Type(Integer32):
+    """Custom type hpicfUfdLinksToTransitionState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("autoDisabled", 2))
+    )
+
+
+_HpicfUfdLinksToTransitionState_Type.__name__ = "Integer32"
+_HpicfUfdLinksToTransitionState_Object = MibTableColumn
+hpicfUfdLinksToTransitionState = _HpicfUfdLinksToTransitionState_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 6),
+    _HpicfUfdLinksToTransitionState_Type()
+)
+hpicfUfdLinksToTransitionState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpicfUfdLinksToTransitionState.setStatus("current")
+
+
+class _HpicfUfdTrackEntityState_Type(Integer32):
+    """Custom type hpicfUfdTrackEntityState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("ok", 1),
+          ("failed", 2))
+    )
+
+
+_HpicfUfdTrackEntityState_Type.__name__ = "Integer32"
+_HpicfUfdTrackEntityState_Object = MibTableColumn
+hpicfUfdTrackEntityState = _HpicfUfdTrackEntityState_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 7),
+    _HpicfUfdTrackEntityState_Type()
+)
+hpicfUfdTrackEntityState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpicfUfdTrackEntityState.setStatus("current")
+_HpicfUfdTrackEntityRowStatus_Type = RowStatus
+_HpicfUfdTrackEntityRowStatus_Object = MibTableColumn
+hpicfUfdTrackEntityRowStatus = _HpicfUfdTrackEntityRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 8),
+    _HpicfUfdTrackEntityRowStatus_Type()
+)
+hpicfUfdTrackEntityRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpicfUfdTrackEntityRowStatus.setStatus("current")
+_HpicfUfdLinksToMonitorType_Type = HpUfdTrackLinksSubtype
+_HpicfUfdLinksToMonitorType_Object = MibTableColumn
+hpicfUfdLinksToMonitorType = _HpicfUfdLinksToMonitorType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 9),
+    _HpicfUfdLinksToMonitorType_Type()
+)
+hpicfUfdLinksToMonitorType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfUfdLinksToMonitorType.setStatus("current")
+_HpicfUfdLinksToTransitionType_Type = HpUfdTrackLinksSubtype
+_HpicfUfdLinksToTransitionType_Object = MibTableColumn
+hpicfUfdLinksToTransitionType = _HpicfUfdLinksToTransitionType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 10),
+    _HpicfUfdLinksToTransitionType_Type()
+)
+hpicfUfdLinksToTransitionType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfUfdLinksToTransitionType.setStatus("current")
+
+
+class _HpicfUfdLinksTransitionDelay_Type(Integer32):
+    """Custom type hpicfUfdLinksTransitionDelay based on Integer32"""
+    defaultValue = 0
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 300),
+    )
+
+
+_HpicfUfdLinksTransitionDelay_Type.__name__ = "Integer32"
+_HpicfUfdLinksTransitionDelay_Object = MibTableColumn
+hpicfUfdLinksTransitionDelay = _HpicfUfdLinksTransitionDelay_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 1, 1, 13),
+    _HpicfUfdLinksTransitionDelay_Type()
+)
+hpicfUfdLinksTransitionDelay.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfUfdLinksTransitionDelay.setStatus("current")
+_HpicfUfdTrackedLinkTable_Object = MibTable
+hpicfUfdTrackedLinkTable = _HpicfUfdTrackedLinkTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    hpicfUfdTrackedLinkTable.setStatus("current")
+_HpicfUfdTrackedLinkEntry_Object = MibTableRow
+hpicfUfdTrackedLinkEntry = _HpicfUfdTrackedLinkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 2, 1)
+)
+hpicfUfdTrackedLinkEntry.setIndexNames(
+    (0, "HP-ICF-UFD-MIB", "hpicfUfdTrackId"),
+    (0, "HP-ICF-UFD-MIB", "hpicfUfdIfIndex"),
+)
+if mibBuilder.loadTexts:
+    hpicfUfdTrackedLinkEntry.setStatus("current")
+_HpicfUfdIfIndex_Type = InterfaceIndex
+_HpicfUfdIfIndex_Object = MibTableColumn
+hpicfUfdIfIndex = _HpicfUfdIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 2, 1, 1),
+    _HpicfUfdIfIndex_Type()
+)
+hpicfUfdIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpicfUfdIfIndex.setStatus("current")
+
+
+class _HpicfUfdLinkRole_Type(Integer32):
+    """Custom type hpicfUfdLinkRole based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("uplink", 1),
+          ("downlink", 2))
+    )
+
+
+_HpicfUfdLinkRole_Type.__name__ = "Integer32"
+_HpicfUfdLinkRole_Object = MibTableColumn
+hpicfUfdLinkRole = _HpicfUfdLinkRole_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 1, 2, 2, 1, 2),
+    _HpicfUfdLinkRole_Type()
+)
+hpicfUfdLinkRole.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpicfUfdLinkRole.setStatus("current")
+_HpicfUfdConformance_ObjectIdentity = ObjectIdentity
+hpicfUfdConformance = _HpicfUfdConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3)
+)
+_HpicfUfdCompliances_ObjectIdentity = ObjectIdentity
+hpicfUfdCompliances = _HpicfUfdCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 1)
+)
+_HpicfUfdGroups_ObjectIdentity = ObjectIdentity
+hpicfUfdGroups = _HpicfUfdGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2)
+)
+
+# Managed Objects groups
+
+hpicfUfdBaseGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2, 1)
+)
+hpicfUfdBaseGroup.setObjects(
+      *(("HP-ICF-UFD-MIB", "hpicfUfdAdminStatus"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdNotifyTrackId"))
+)
+if mibBuilder.loadTexts:
+    hpicfUfdBaseGroup.setStatus("current")
+
+hpicfUfdConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2, 2)
+)
+hpicfUfdConfigGroup.setObjects(
+      *(("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityType"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitor"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransition"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitorState"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransitionState"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityState"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityRowStatus"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitorType"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransitionType"))
+)
+if mibBuilder.loadTexts:
+    hpicfUfdConfigGroup.setStatus("deprecated")
+
+hpicfUfdConfigGroup1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2, 4)
+)
+hpicfUfdConfigGroup1.setObjects(
+    ("HP-ICF-UFD-MIB", "hpicfUfdLinkRole")
+)
+if mibBuilder.loadTexts:
+    hpicfUfdConfigGroup1.setStatus("current")
+
+hpicfUfdConfigGroup2 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2, 5)
+)
+hpicfUfdConfigGroup2.setObjects(
+      *(("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityType"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitor"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransition"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitorState"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransitionState"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityState"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdTrackEntityRowStatus"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToMonitorType"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransitionType"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksTransitionDelay"))
+)
+if mibBuilder.loadTexts:
+    hpicfUfdConfigGroup2.setStatus("current")
+
+
+# Notification objects
+
+hpicfUfdLtDAutoDisabled = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 0, 0, 3)
+)
+hpicfUfdLtDAutoDisabled.setObjects(
+      *(("HP-ICF-UFD-MIB", "hpicfUfdNotifyTrackId"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransition"))
+)
+if mibBuilder.loadTexts:
+    hpicfUfdLtDAutoDisabled.setStatus(
+        "current"
+    )
+
+hpicfUfdLtDAutoEnabled = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 0, 0, 4)
+)
+hpicfUfdLtDAutoEnabled.setObjects(
+      *(("HP-ICF-UFD-MIB", "hpicfUfdNotifyTrackId"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLinksToTransition"))
+)
+if mibBuilder.loadTexts:
+    hpicfUfdLtDAutoEnabled.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+hpicfUfdNotificationGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 2, 3)
+)
+hpicfUfdNotificationGroup.setObjects(
+      *(("HP-ICF-UFD-MIB", "hpicfUfdLtDAutoDisabled"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdLtDAutoEnabled"))
+)
+if mibBuilder.loadTexts:
+    hpicfUfdNotificationGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+hpicfUfdCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 1, 1)
+)
+hpicfUfdCompliance.setObjects(
+      *(("HP-ICF-UFD-MIB", "hpicfUfdBaseGroup"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdConfigGroup"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdNotificationGroup"))
+)
+if mibBuilder.loadTexts:
+    hpicfUfdCompliance.setStatus(
+        "deprecated"
+    )
+
+hpicfUfdCompliance1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 1, 2)
+)
+hpicfUfdCompliance1.setObjects(
+      *(("HP-ICF-UFD-MIB", "hpicfUfdBaseGroup"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdConfigGroup"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdNotificationGroup"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdConfigGroup1"))
+)
+if mibBuilder.loadTexts:
+    hpicfUfdCompliance1.setStatus(
+        "deprecated"
+    )
+
+hpicfUfdCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 74, 3, 1, 3)
+)
+hpicfUfdCompliance2.setObjects(
+      *(("HP-ICF-UFD-MIB", "hpicfUfdBaseGroup"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdConfigGroup2"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdNotificationGroup"),
+        ("HP-ICF-UFD-MIB", "hpicfUfdConfigGroup1"))
+)
+if mibBuilder.loadTexts:
+    hpicfUfdCompliance2.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HP-ICF-UFD-MIB",
+    **{"HpUfdTrackEntityType": HpUfdTrackEntityType,
+       "HpUfdTrackLinksSubtype": HpUfdTrackLinksSubtype,
+       "hpicfUfdMIB": hpicfUfdMIB,
+       "hpicfUfdNotifications": hpicfUfdNotifications,
+       "hpicfUfdNotificationPrefix": hpicfUfdNotificationPrefix,
+       "hpicfUfdLtDAutoDisabled": hpicfUfdLtDAutoDisabled,
+       "hpicfUfdLtDAutoEnabled": hpicfUfdLtDAutoEnabled,
+       "hpicfUfdConfigObjects": hpicfUfdConfigObjects,
+       "hpicfUfdScalars": hpicfUfdScalars,
+       "hpicfUfdAdminStatus": hpicfUfdAdminStatus,
+       "hpicfUfdNotifyTrackId": hpicfUfdNotifyTrackId,
+       "hpicfUfdTrackEntities": hpicfUfdTrackEntities,
+       "hpicfUfdTrackTable": hpicfUfdTrackTable,
+       "hpicfUfdTrackEntry": hpicfUfdTrackEntry,
+       "hpicfUfdTrackId": hpicfUfdTrackId,
+       "hpicfUfdTrackEntityType": hpicfUfdTrackEntityType,
+       "hpicfUfdLinksToMonitor": hpicfUfdLinksToMonitor,
+       "hpicfUfdLinksToTransition": hpicfUfdLinksToTransition,
+       "hpicfUfdLinksToMonitorState": hpicfUfdLinksToMonitorState,
+       "hpicfUfdLinksToTransitionState": hpicfUfdLinksToTransitionState,
+       "hpicfUfdTrackEntityState": hpicfUfdTrackEntityState,
+       "hpicfUfdTrackEntityRowStatus": hpicfUfdTrackEntityRowStatus,
+       "hpicfUfdLinksToMonitorType": hpicfUfdLinksToMonitorType,
+       "hpicfUfdLinksToTransitionType": hpicfUfdLinksToTransitionType,
+       "hpicfUfdLinksTransitionDelay": hpicfUfdLinksTransitionDelay,
+       "hpicfUfdTrackedLinkTable": hpicfUfdTrackedLinkTable,
+       "hpicfUfdTrackedLinkEntry": hpicfUfdTrackedLinkEntry,
+       "hpicfUfdIfIndex": hpicfUfdIfIndex,
+       "hpicfUfdLinkRole": hpicfUfdLinkRole,
+       "hpicfUfdConformance": hpicfUfdConformance,
+       "hpicfUfdCompliances": hpicfUfdCompliances,
+       "hpicfUfdCompliance": hpicfUfdCompliance,
+       "hpicfUfdCompliance1": hpicfUfdCompliance1,
+       "hpicfUfdCompliance2": hpicfUfdCompliance2,
+       "hpicfUfdGroups": hpicfUfdGroups,
+       "hpicfUfdBaseGroup": hpicfUfdBaseGroup,
+       "hpicfUfdConfigGroup": hpicfUfdConfigGroup,
+       "hpicfUfdNotificationGroup": hpicfUfdNotificationGroup,
+       "hpicfUfdConfigGroup1": hpicfUfdConfigGroup1,
+       "hpicfUfdConfigGroup2": hpicfUfdConfigGroup2}
+)

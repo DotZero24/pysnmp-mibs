@@ -1,30 +1,200 @@
+# SNMP MIB module (SNWL-COMMON-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module SNWL-COMMON-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/sonicwall/SNWL-COMMON-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:34:19 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/sonicwall/SNWL-COMMON-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:48:30 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-sonicwallCommon, = mibBuilder.importSymbols("SONICWALL-SMI", "sonicwallCommon")
-snwlCommonModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 8741, 2, 1))
-snwlCommonModule.setRevisions(('2017-01-06 00:00', '2007-11-09 00:00',))
-if mibBuilder.loadTexts: snwlCommonModule.setLastUpdated('201701060000Z')
-if mibBuilder.loadTexts: snwlCommonModule.setOrganization('SonicWall')
-snwlSys = MibIdentifier((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1))
-snwlSysModel = MibScalar((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snwlSysModel.setStatus('current')
-snwlSysSerialNumber = MibScalar((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snwlSysSerialNumber.setStatus('current')
-snwlSysFirmwareVersion = MibScalar((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snwlSysFirmwareVersion.setStatus('current')
-snwlSysROMVersion = MibScalar((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 4), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snwlSysROMVersion.setStatus('current')
-snwlSysAssetNumber = MibScalar((1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 5), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: snwlSysAssetNumber.setStatus('current')
-mibBuilder.exportSymbols("SNWL-COMMON-MIB", snwlSysSerialNumber=snwlSysSerialNumber, snwlSysFirmwareVersion=snwlSysFirmwareVersion, snwlSysModel=snwlSysModel, snwlSys=snwlSys, PYSNMP_MODULE_ID=snwlCommonModule, snwlSysAssetNumber=snwlSysAssetNumber, snwlCommonModule=snwlCommonModule, snwlSysROMVersion=snwlSysROMVersion)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(sonicwallCommon,) = mibBuilder.importSymbols(
+    "SONICWALL-SMI",
+    "sonicwallCommon")
+
+
+# MODULE-IDENTITY
+
+snwlCommonModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 8741, 2, 1)
+)
+if mibBuilder.loadTexts:
+    snwlCommonModule.setRevisions(
+        ("2017-01-06 00:00",
+         "2007-11-09 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_SnwlSys_ObjectIdentity = ObjectIdentity
+snwlSys = _SnwlSys_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 8741, 2, 1, 1)
+)
+_SnwlSysModel_Type = DisplayString
+_SnwlSysModel_Object = MibScalar
+snwlSysModel = _SnwlSysModel_Object(
+    (1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 1),
+    _SnwlSysModel_Type()
+)
+snwlSysModel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snwlSysModel.setStatus("current")
+_SnwlSysSerialNumber_Type = DisplayString
+_SnwlSysSerialNumber_Object = MibScalar
+snwlSysSerialNumber = _SnwlSysSerialNumber_Object(
+    (1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 2),
+    _SnwlSysSerialNumber_Type()
+)
+snwlSysSerialNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snwlSysSerialNumber.setStatus("current")
+_SnwlSysFirmwareVersion_Type = DisplayString
+_SnwlSysFirmwareVersion_Object = MibScalar
+snwlSysFirmwareVersion = _SnwlSysFirmwareVersion_Object(
+    (1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 3),
+    _SnwlSysFirmwareVersion_Type()
+)
+snwlSysFirmwareVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snwlSysFirmwareVersion.setStatus("current")
+_SnwlSysROMVersion_Type = DisplayString
+_SnwlSysROMVersion_Object = MibScalar
+snwlSysROMVersion = _SnwlSysROMVersion_Object(
+    (1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 4),
+    _SnwlSysROMVersion_Type()
+)
+snwlSysROMVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snwlSysROMVersion.setStatus("current")
+_SnwlSysAssetNumber_Type = DisplayString
+_SnwlSysAssetNumber_Object = MibScalar
+snwlSysAssetNumber = _SnwlSysAssetNumber_Object(
+    (1, 3, 6, 1, 4, 1, 8741, 2, 1, 1, 5),
+    _SnwlSysAssetNumber_Type()
+)
+snwlSysAssetNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    snwlSysAssetNumber.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "SNWL-COMMON-MIB",
+    **{"snwlCommonModule": snwlCommonModule,
+       "snwlSys": snwlSys,
+       "snwlSysModel": snwlSysModel,
+       "snwlSysSerialNumber": snwlSysSerialNumber,
+       "snwlSysFirmwareVersion": snwlSysFirmwareVersion,
+       "snwlSysROMVersion": snwlSysROMVersion,
+       "snwlSysAssetNumber": snwlSysAssetNumber}
+)

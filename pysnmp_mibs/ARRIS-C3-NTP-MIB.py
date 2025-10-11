@@ -1,37 +1,241 @@
+# SNMP MIB module (ARRIS-C3-NTP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ARRIS-C3-NTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arris/ARRIS-C3-NTP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:18:39 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/arris/ARRIS-C3-NTP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:09:51 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-cmtsC3, = mibBuilder.importSymbols("ARRIS-MIB", "cmtsC3")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-cmtsC3NTPMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7))
-if mibBuilder.loadTexts: cmtsC3NTPMIB.setLastUpdated('200403300000Z')
-if mibBuilder.loadTexts: cmtsC3NTPMIB.setOrganization('Arris International')
-dcxNTPObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1))
-dcxNTPServerTable = MibTable((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1), )
-if mibBuilder.loadTexts: dcxNTPServerTable.setStatus('current')
-dcxNTPServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1), ).setIndexNames((0, "ARRIS-C3-NTP-MIB", "dcxNTPServerIp"))
-if mibBuilder.loadTexts: dcxNTPServerEntry.setStatus('current')
-dcxNTPServerIp = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 1), IpAddress())
-if mibBuilder.loadTexts: dcxNTPServerIp.setStatus('current')
-dcxNTPServerInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 2), Integer32().clone(300)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dcxNTPServerInterval.setStatus('current')
-dcxNTPServerSuccess = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dcxNTPServerSuccess.setStatus('current')
-dcxNTPServerAttempts = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dcxNTPServerAttempts.setStatus('current')
-dcxNTPServerOffset = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 5), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: dcxNTPServerOffset.setStatus('current')
-dcxNTPServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: dcxNTPServerStatus.setStatus('current')
-dcxNTPMasterServer = MibScalar((1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: dcxNTPMasterServer.setStatus('current')
-mibBuilder.exportSymbols("ARRIS-C3-NTP-MIB", dcxNTPServerEntry=dcxNTPServerEntry, dcxNTPServerInterval=dcxNTPServerInterval, PYSNMP_MODULE_ID=cmtsC3NTPMIB, dcxNTPObjects=dcxNTPObjects, dcxNTPServerSuccess=dcxNTPServerSuccess, dcxNTPMasterServer=dcxNTPMasterServer, dcxNTPServerTable=dcxNTPServerTable, dcxNTPServerStatus=dcxNTPServerStatus, cmtsC3NTPMIB=cmtsC3NTPMIB, dcxNTPServerOffset=dcxNTPServerOffset, dcxNTPServerIp=dcxNTPServerIp, dcxNTPServerAttempts=dcxNTPServerAttempts)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cmtsC3,) = mibBuilder.importSymbols(
+    "ARRIS-MIB",
+    "cmtsC3")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+cmtsC3NTPMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_DcxNTPObjects_ObjectIdentity = ObjectIdentity
+dcxNTPObjects = _DcxNTPObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1)
+)
+_DcxNTPServerTable_Object = MibTable
+dcxNTPServerTable = _DcxNTPServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1)
+)
+if mibBuilder.loadTexts:
+    dcxNTPServerTable.setStatus("current")
+_DcxNTPServerEntry_Object = MibTableRow
+dcxNTPServerEntry = _DcxNTPServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1)
+)
+dcxNTPServerEntry.setIndexNames(
+    (0, "ARRIS-C3-NTP-MIB", "dcxNTPServerIp"),
+)
+if mibBuilder.loadTexts:
+    dcxNTPServerEntry.setStatus("current")
+_DcxNTPServerIp_Type = IpAddress
+_DcxNTPServerIp_Object = MibTableColumn
+dcxNTPServerIp = _DcxNTPServerIp_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 1),
+    _DcxNTPServerIp_Type()
+)
+dcxNTPServerIp.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    dcxNTPServerIp.setStatus("current")
+
+
+class _DcxNTPServerInterval_Type(Integer32):
+    """Custom type dcxNTPServerInterval based on Integer32"""
+    defaultValue = 300
+
+
+_DcxNTPServerInterval_Type.__name__ = "Integer32"
+_DcxNTPServerInterval_Object = MibTableColumn
+dcxNTPServerInterval = _DcxNTPServerInterval_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 2),
+    _DcxNTPServerInterval_Type()
+)
+dcxNTPServerInterval.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    dcxNTPServerInterval.setStatus("current")
+_DcxNTPServerSuccess_Type = Counter32
+_DcxNTPServerSuccess_Object = MibTableColumn
+dcxNTPServerSuccess = _DcxNTPServerSuccess_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 3),
+    _DcxNTPServerSuccess_Type()
+)
+dcxNTPServerSuccess.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dcxNTPServerSuccess.setStatus("current")
+_DcxNTPServerAttempts_Type = Counter32
+_DcxNTPServerAttempts_Object = MibTableColumn
+dcxNTPServerAttempts = _DcxNTPServerAttempts_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 4),
+    _DcxNTPServerAttempts_Type()
+)
+dcxNTPServerAttempts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dcxNTPServerAttempts.setStatus("current")
+_DcxNTPServerOffset_Type = Integer32
+_DcxNTPServerOffset_Object = MibTableColumn
+dcxNTPServerOffset = _DcxNTPServerOffset_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 5),
+    _DcxNTPServerOffset_Type()
+)
+dcxNTPServerOffset.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    dcxNTPServerOffset.setStatus("current")
+_DcxNTPServerStatus_Type = RowStatus
+_DcxNTPServerStatus_Object = MibTableColumn
+dcxNTPServerStatus = _DcxNTPServerStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 1, 1, 6),
+    _DcxNTPServerStatus_Type()
+)
+dcxNTPServerStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    dcxNTPServerStatus.setStatus("current")
+_DcxNTPMasterServer_Type = IpAddress
+_DcxNTPMasterServer_Object = MibScalar
+dcxNTPMasterServer = _DcxNTPMasterServer_Object(
+    (1, 3, 6, 1, 4, 1, 4115, 1, 4, 3, 7, 1, 2),
+    _DcxNTPMasterServer_Type()
+)
+dcxNTPMasterServer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    dcxNTPMasterServer.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ARRIS-C3-NTP-MIB",
+    **{"cmtsC3NTPMIB": cmtsC3NTPMIB,
+       "dcxNTPObjects": dcxNTPObjects,
+       "dcxNTPServerTable": dcxNTPServerTable,
+       "dcxNTPServerEntry": dcxNTPServerEntry,
+       "dcxNTPServerIp": dcxNTPServerIp,
+       "dcxNTPServerInterval": dcxNTPServerInterval,
+       "dcxNTPServerSuccess": dcxNTPServerSuccess,
+       "dcxNTPServerAttempts": dcxNTPServerAttempts,
+       "dcxNTPServerOffset": dcxNTPServerOffset,
+       "dcxNTPServerStatus": dcxNTPServerStatus,
+       "dcxNTPMasterServer": dcxNTPMasterServer}
+)

@@ -1,42 +1,251 @@
+# SNMP MIB module (INFINERA-ENTITY-XMM-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module INFINERA-ENTITY-XMM-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/infinera/INFINERA-ENTITY-XMM-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:20:36 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/infinera/INFINERA-ENTITY-XMM-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:14:04 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-entLPPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entLPPhysicalIndex")
-equipment, = mibBuilder.importSymbols("INFINERA-REG-MIB", "equipment")
-InfnEqptType, = mibBuilder.importSymbols("INFINERA-TC-MIB", "InfnEqptType")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
-xmmMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36))
-if mibBuilder.loadTexts: xmmMIB.setLastUpdated('200810200000Z')
-if mibBuilder.loadTexts: xmmMIB.setOrganization('INFINERA')
-xmmConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 3))
-xmmCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 3, 1))
-xmmGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 3, 2))
-xmmTable = MibTable((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1), )
-if mibBuilder.loadTexts: xmmTable.setStatus('current')
-xmmEntry = MibTableRow((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entLPPhysicalIndex"))
-if mibBuilder.loadTexts: xmmEntry.setStatus('current')
-xmmMoId = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1, 1, 1), DisplayString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: xmmMoId.setStatus('current')
-xmmProvType = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1, 1, 2), InfnEqptType()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: xmmProvType.setStatus('current')
-xmmBrandingFault = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: xmmBrandingFault.setStatus('current')
-xmmRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: xmmRowStatus.setStatus('current')
-xmmCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 3, 1, 1)).setObjects(("INFINERA-ENTITY-XMM-MIB", "xmmGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    xmmCompliance = xmmCompliance.setStatus('current')
-xmmGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 3, 2, 1)).setObjects(("INFINERA-ENTITY-XMM-MIB", "xmmBrandingFault"), ("INFINERA-ENTITY-XMM-MIB", "xmmMoId"), ("INFINERA-ENTITY-XMM-MIB", "xmmProvType"), ("INFINERA-ENTITY-XMM-MIB", "xmmRowStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    xmmGroup = xmmGroup.setStatus('current')
-mibBuilder.exportSymbols("INFINERA-ENTITY-XMM-MIB", xmmEntry=xmmEntry, xmmCompliance=xmmCompliance, xmmCompliances=xmmCompliances, xmmConformance=xmmConformance, xmmRowStatus=xmmRowStatus, xmmGroup=xmmGroup, xmmMoId=xmmMoId, xmmTable=xmmTable, xmmMIB=xmmMIB, xmmBrandingFault=xmmBrandingFault, xmmProvType=xmmProvType, xmmGroups=xmmGroups, PYSNMP_MODULE_ID=xmmMIB)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(entLPPhysicalIndex,) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "entLPPhysicalIndex")
+
+(equipment,) = mibBuilder.importSymbols(
+    "INFINERA-REG-MIB",
+    "equipment")
+
+(InfnEqptType,) = mibBuilder.importSymbols(
+    "INFINERA-TC-MIB",
+    "InfnEqptType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+xmmMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_XmmTable_Object = MibTable
+xmmTable = _XmmTable_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1)
+)
+if mibBuilder.loadTexts:
+    xmmTable.setStatus("current")
+_XmmEntry_Object = MibTableRow
+xmmEntry = _XmmEntry_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1, 1)
+)
+xmmEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entLPPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    xmmEntry.setStatus("current")
+_XmmMoId_Type = DisplayString
+_XmmMoId_Object = MibTableColumn
+xmmMoId = _XmmMoId_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1, 1, 1),
+    _XmmMoId_Type()
+)
+xmmMoId.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    xmmMoId.setStatus("current")
+_XmmProvType_Type = InfnEqptType
+_XmmProvType_Object = MibTableColumn
+xmmProvType = _XmmProvType_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1, 1, 2),
+    _XmmProvType_Type()
+)
+xmmProvType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    xmmProvType.setStatus("current")
+_XmmBrandingFault_Type = TruthValue
+_XmmBrandingFault_Object = MibTableColumn
+xmmBrandingFault = _XmmBrandingFault_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1, 1, 3),
+    _XmmBrandingFault_Type()
+)
+xmmBrandingFault.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    xmmBrandingFault.setStatus("current")
+_XmmRowStatus_Type = RowStatus
+_XmmRowStatus_Object = MibTableColumn
+xmmRowStatus = _XmmRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 1, 1, 4),
+    _XmmRowStatus_Type()
+)
+xmmRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    xmmRowStatus.setStatus("current")
+_XmmConformance_ObjectIdentity = ObjectIdentity
+xmmConformance = _XmmConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 3)
+)
+_XmmCompliances_ObjectIdentity = ObjectIdentity
+xmmCompliances = _XmmCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 3, 1)
+)
+_XmmGroups_ObjectIdentity = ObjectIdentity
+xmmGroups = _XmmGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 3, 2)
+)
+
+# Managed Objects groups
+
+xmmGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 3, 2, 1)
+)
+xmmGroup.setObjects(
+      *(("INFINERA-ENTITY-XMM-MIB", "xmmBrandingFault"),
+        ("INFINERA-ENTITY-XMM-MIB", "xmmMoId"),
+        ("INFINERA-ENTITY-XMM-MIB", "xmmProvType"),
+        ("INFINERA-ENTITY-XMM-MIB", "xmmRowStatus"))
+)
+if mibBuilder.loadTexts:
+    xmmGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+xmmCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 21296, 2, 2, 2, 1, 36, 3, 1, 1)
+)
+xmmCompliance.setObjects(
+    ("INFINERA-ENTITY-XMM-MIB", "xmmGroup")
+)
+if mibBuilder.loadTexts:
+    xmmCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "INFINERA-ENTITY-XMM-MIB",
+    **{"xmmMIB": xmmMIB,
+       "xmmTable": xmmTable,
+       "xmmEntry": xmmEntry,
+       "xmmMoId": xmmMoId,
+       "xmmProvType": xmmProvType,
+       "xmmBrandingFault": xmmBrandingFault,
+       "xmmRowStatus": xmmRowStatus,
+       "xmmConformance": xmmConformance,
+       "xmmCompliances": xmmCompliances,
+       "xmmCompliance": xmmCompliance,
+       "xmmGroups": xmmGroups,
+       "xmmGroup": xmmGroup}
+)

@@ -1,171 +1,1083 @@
+# SNMP MIB module (HPN-ICF-IF-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HPN-ICF-IF-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HPN-ICF-IF-EXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:08:12 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HPN-ICF-IF-EXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:35:00 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
-hpnicfCommon, = mibBuilder.importSymbols("HPN-ICF-OID-MIB", "hpnicfCommon")
-ifDescr, ifIndex = mibBuilder.importSymbols("IF-MIB", "ifDescr", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TruthValue, RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "TextualConvention", "DisplayString")
-hpnicfIfExt = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40))
-hpnicfIfExt.setRevisions(('2009-05-06 19:36', '2004-11-13 19:36',))
-if mibBuilder.loadTexts: hpnicfIfExt.setLastUpdated('200905061936Z')
-if mibBuilder.loadTexts: hpnicfIfExt.setOrganization('')
-hpnicfIfExtScalarGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 1))
-hpnicfIfStatGlobalFlowInterval = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 1, 1), Integer32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfIfStatGlobalFlowInterval.setStatus('current')
-hpnicfIfShutDownInterval = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 1, 2), Integer32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfIfShutDownInterval.setStatus('current')
-hpnicfIfExtGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2))
-hpnicfIfStat = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1))
-hpnicfIfStatScalarGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 1))
-hpnicfIfStatTable = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2))
-hpnicfIfFlowStatTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1), )
-if mibBuilder.loadTexts: hpnicfIfFlowStatTable.setStatus('current')
-hpnicfIfFlowStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hpnicfIfFlowStatEntry.setStatus('current')
-hpnicfIfStatFlowInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 1), Integer32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfIfStatFlowInterval.setStatus('current')
-hpnicfIfStatFlowInBits = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowInBits.setStatus('current')
-hpnicfIfStatFlowOutBits = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowOutBits.setStatus('current')
-hpnicfIfStatFlowInPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowInPkts.setStatus('current')
-hpnicfIfStatFlowOutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowOutPkts.setStatus('current')
-hpnicfIfStatFlowInBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowInBytes.setStatus('current')
-hpnicfIfStatFlowOutBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowOutBytes.setStatus('current')
-hpnicfIfSpeedStatTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2), )
-if mibBuilder.loadTexts: hpnicfIfSpeedStatTable.setStatus('current')
-hpnicfIfSpeedStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hpnicfIfSpeedStatEntry.setStatus('current')
-hpnicfIfSpeedStatInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1, 1), Integer32()).setUnits('seconds').setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfIfSpeedStatInterval.setStatus('current')
-hpnicfIfSpeedStatInPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfSpeedStatInPkts.setStatus('current')
-hpnicfIfSpeedStatOutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfSpeedStatOutPkts.setStatus('current')
-hpnicfIfSpeedStatInBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfSpeedStatInBytes.setStatus('current')
-hpnicfIfSpeedStatOutBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1, 5), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfSpeedStatOutBytes.setStatus('current')
-hpnicfIfHCFlowStatTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3), )
-if mibBuilder.loadTexts: hpnicfIfHCFlowStatTable.setStatus('current')
-hpnicfIfHCFlowStatEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hpnicfIfHCFlowStatEntry.setStatus('current')
-hpnicfIfStatFlowHCInBits = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 1), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowHCInBits.setStatus('current')
-hpnicfIfStatFlowHCOutBits = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 2), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowHCOutBits.setStatus('current')
-hpnicfIfStatFlowHCInPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 3), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowHCInPkts.setStatus('current')
-hpnicfIfStatFlowHCOutPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 4), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowHCOutPkts.setStatus('current')
-hpnicfIfStatFlowHCInBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 5), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowHCInBytes.setStatus('current')
-hpnicfIfStatFlowHCOutBytes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 6), CounterBasedGauge64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatFlowHCOutBytes.setStatus('current')
-hpnicfIfControl = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2))
-hpnicfRTParentIfTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 1), )
-if mibBuilder.loadTexts: hpnicfRTParentIfTable.setStatus('current')
-hpnicfRTParentIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 1, 1), ).setIndexNames((0, "HPN-ICF-IF-EXT-MIB", "hpnicfRTParentIfIndex"))
-if mibBuilder.loadTexts: hpnicfRTParentIfEntry.setStatus('current')
-hpnicfRTParentIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: hpnicfRTParentIfIndex.setStatus('current')
-hpnicfRTMinSubIfOrdinal = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfRTMinSubIfOrdinal.setStatus('current')
-hpnicfRTMaxSubIfOrdinal = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfRTMaxSubIfOrdinal.setStatus('current')
-hpnicfRTSubIfTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2), )
-if mibBuilder.loadTexts: hpnicfRTSubIfTable.setStatus('current')
-hpnicfRTSubIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1), ).setIndexNames((0, "HPN-ICF-IF-EXT-MIB", "hpnicfRTSubIfParentIfIndex"), (0, "HPN-ICF-IF-EXT-MIB", "hpnicfRTSubIfOrdinal"))
-if mibBuilder.loadTexts: hpnicfRTSubIfEntry.setStatus('current')
-hpnicfRTSubIfParentIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: hpnicfRTSubIfParentIfIndex.setStatus('current')
-hpnicfRTSubIfOrdinal = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: hpnicfRTSubIfOrdinal.setStatus('current')
-hpnicfRTSubIfSubIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfRTSubIfSubIfIndex.setStatus('current')
-hpnicfRTSubIfSubIfDesc = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfRTSubIfSubIfDesc.setStatus('current')
-hpnicfRTSubIfRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: hpnicfRTSubIfRowStatus.setStatus('current')
-hpnicfIfLinkModeTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 3), )
-if mibBuilder.loadTexts: hpnicfIfLinkModeTable.setStatus('current')
-hpnicfIfLinkModeEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 3, 1), ).setIndexNames((0, "HPN-ICF-IF-EXT-MIB", "hpnicfIfLinkModeIndex"))
-if mibBuilder.loadTexts: hpnicfIfLinkModeEntry.setStatus('current')
-hpnicfIfLinkModeIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: hpnicfIfLinkModeIndex.setStatus('current')
-hpnicfIfLinkMode = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("bridgeMode", 1), ("routeMode", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfIfLinkMode.setStatus('current')
-hpnicfIfLinkModeSwitchSupport = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 3, 1, 3), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfLinkModeSwitchSupport.setStatus('current')
-hpnicfIfInterfaces = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3))
-hpnicfIfPhysicalNumber = MibScalar((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfPhysicalNumber.setStatus('current')
-hpnicfIfTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2), )
-if mibBuilder.loadTexts: hpnicfIfTable.setStatus('current')
-hpnicfIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hpnicfIfEntry.setStatus('current')
-hpnicfIfUpDownTimes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfUpDownTimes.setStatus('current')
-hpnicfIfMtu = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 2), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfIfMtu.setStatus('current')
-hpnicfIfBandwidthRate = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfBandwidthRate.setStatus('current')
-hpnicfIfDiscardPktRate = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfDiscardPktRate.setStatus('current')
-hpnicfIfStatusKeepTime = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfStatusKeepTime.setStatus('current')
-hpnicfIfInNUcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 6), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfInNUcastPkts.setStatus('current')
-hpnicfIfOutNUcastPkts = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 7), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfOutNUcastPkts.setStatus('current')
-hpnicfIfIsPoe = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 8), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfIsPoe.setStatus('current')
-hpnicfIfOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 9), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3), ("admindown", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfOperStatus.setStatus('current')
-hpnicfIfDownTimes = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 10), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfDownTimes.setStatus('current')
-hpnicfIfUsingTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3), )
-if mibBuilder.loadTexts: hpnicfIfUsingTable.setStatus('current')
-hpnicfIfUsingEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3, 1), ).setIndexNames((0, "HPN-ICF-IF-EXT-MIB", "hpnicfIfUsingIndex"))
-if mibBuilder.loadTexts: hpnicfIfUsingEntry.setStatus('current')
-hpnicfIfUsingIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: hpnicfIfUsingIndex.setStatus('current')
-hpnicfIfUsingSupportType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfUsingSupportType.setStatus('current')
-hpnicfIfUsingType = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("noUsing", 0), ("using10GE", 1), ("using20GE", 2), ("using40GE", 3), ("using100GE", 4)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfIfUsingType.setStatus('current')
-hpnicfIfUsingStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("noUsing", 0), ("needReboot", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: hpnicfIfUsingStatus.setStatus('current')
-hpnicfIfExtTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3))
-hpnicfIfExtTrapPrex = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 0))
-hpnicfIfBandwidthUsageHigh = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 0, 1)).setObjects(("IF-MIB", "ifDescr"), ("HPN-ICF-IF-EXT-MIB", "hpnicfIfBandwidthRate"), ("HPN-ICF-IF-EXT-MIB", "hpnicfIfBandwidthUpperLimit"))
-if mibBuilder.loadTexts: hpnicfIfBandwidthUsageHigh.setStatus('current')
-hpnicfIfDiscardPktRateHigh = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 0, 2)).setObjects(("IF-MIB", "ifDescr"), ("HPN-ICF-IF-EXT-MIB", "hpnicfIfDiscardPktRate"), ("HPN-ICF-IF-EXT-MIB", "hpnicfIfDiscardPktRateUpperLimit"))
-if mibBuilder.loadTexts: hpnicfIfDiscardPktRateHigh.setStatus('current')
-hpnicfIfDampeningSuppressed = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 0, 3)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
-if mibBuilder.loadTexts: hpnicfIfDampeningSuppressed.setStatus('current')
-hpnicfIfDampeningNotSuppressed = NotificationType((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 0, 4)).setObjects(("IF-MIB", "ifIndex"), ("IF-MIB", "ifDescr"))
-if mibBuilder.loadTexts: hpnicfIfDampeningNotSuppressed.setStatus('current')
-hpnicfIfExtTrapObject = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 1))
-hpnicfIfExtTrapCfgTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 1, 1), )
-if mibBuilder.loadTexts: hpnicfIfExtTrapCfgTable.setStatus('current')
-hpnicfIfExtTrapCfgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: hpnicfIfExtTrapCfgEntry.setStatus('current')
-hpnicfIfBandwidthUpperLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfIfBandwidthUpperLimit.setStatus('current')
-hpnicfIfDiscardPktRateUpperLimit = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 100))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpnicfIfDiscardPktRateUpperLimit.setStatus('current')
-mibBuilder.exportSymbols("HPN-ICF-IF-EXT-MIB", hpnicfIfUsingIndex=hpnicfIfUsingIndex, hpnicfIfStatFlowHCInBytes=hpnicfIfStatFlowHCInBytes, hpnicfIfSpeedStatInPkts=hpnicfIfSpeedStatInPkts, hpnicfIfExtGroup=hpnicfIfExtGroup, hpnicfIfExtTrapPrex=hpnicfIfExtTrapPrex, hpnicfIfSpeedStatOutPkts=hpnicfIfSpeedStatOutPkts, hpnicfIfShutDownInterval=hpnicfIfShutDownInterval, hpnicfIfFlowStatTable=hpnicfIfFlowStatTable, hpnicfIfBandwidthUpperLimit=hpnicfIfBandwidthUpperLimit, hpnicfIfStatFlowInBits=hpnicfIfStatFlowInBits, hpnicfIfExtTrapObject=hpnicfIfExtTrapObject, hpnicfIfStatGlobalFlowInterval=hpnicfIfStatGlobalFlowInterval, hpnicfIfLinkModeTable=hpnicfIfLinkModeTable, hpnicfIfStatFlowHCInBits=hpnicfIfStatFlowHCInBits, hpnicfRTMinSubIfOrdinal=hpnicfRTMinSubIfOrdinal, hpnicfRTParentIfTable=hpnicfRTParentIfTable, hpnicfIfSpeedStatOutBytes=hpnicfIfSpeedStatOutBytes, hpnicfIfOperStatus=hpnicfIfOperStatus, hpnicfIfOutNUcastPkts=hpnicfIfOutNUcastPkts, hpnicfIfUsingType=hpnicfIfUsingType, hpnicfIfBandwidthRate=hpnicfIfBandwidthRate, hpnicfRTMaxSubIfOrdinal=hpnicfRTMaxSubIfOrdinal, PYSNMP_MODULE_ID=hpnicfIfExt, hpnicfIfStatFlowInBytes=hpnicfIfStatFlowInBytes, hpnicfIfEntry=hpnicfIfEntry, hpnicfIfUsingEntry=hpnicfIfUsingEntry, hpnicfIfDiscardPktRateHigh=hpnicfIfDiscardPktRateHigh, hpnicfIfStatFlowOutPkts=hpnicfIfStatFlowOutPkts, hpnicfIfLinkMode=hpnicfIfLinkMode, hpnicfIfDiscardPktRateUpperLimit=hpnicfIfDiscardPktRateUpperLimit, hpnicfIfStatFlowHCInPkts=hpnicfIfStatFlowHCInPkts, hpnicfIfLinkModeIndex=hpnicfIfLinkModeIndex, hpnicfIfDampeningNotSuppressed=hpnicfIfDampeningNotSuppressed, hpnicfIfHCFlowStatTable=hpnicfIfHCFlowStatTable, hpnicfIfStatFlowHCOutBytes=hpnicfIfStatFlowHCOutBytes, hpnicfIfInNUcastPkts=hpnicfIfInNUcastPkts, hpnicfIfHCFlowStatEntry=hpnicfIfHCFlowStatEntry, hpnicfIfUsingTable=hpnicfIfUsingTable, hpnicfIfTable=hpnicfIfTable, hpnicfIfInterfaces=hpnicfIfInterfaces, hpnicfIfUsingStatus=hpnicfIfUsingStatus, hpnicfRTSubIfParentIfIndex=hpnicfRTSubIfParentIfIndex, hpnicfIfBandwidthUsageHigh=hpnicfIfBandwidthUsageHigh, hpnicfRTParentIfIndex=hpnicfRTParentIfIndex, hpnicfIfStat=hpnicfIfStat, hpnicfIfStatFlowInterval=hpnicfIfStatFlowInterval, hpnicfIfDampeningSuppressed=hpnicfIfDampeningSuppressed, hpnicfIfExt=hpnicfIfExt, hpnicfRTSubIfTable=hpnicfRTSubIfTable, hpnicfRTSubIfEntry=hpnicfRTSubIfEntry, hpnicfIfControl=hpnicfIfControl, hpnicfIfStatusKeepTime=hpnicfIfStatusKeepTime, hpnicfIfStatFlowInPkts=hpnicfIfStatFlowInPkts, hpnicfIfStatScalarGroup=hpnicfIfStatScalarGroup, hpnicfIfFlowStatEntry=hpnicfIfFlowStatEntry, hpnicfIfSpeedStatTable=hpnicfIfSpeedStatTable, hpnicfIfPhysicalNumber=hpnicfIfPhysicalNumber, hpnicfIfExtScalarGroup=hpnicfIfExtScalarGroup, hpnicfIfUsingSupportType=hpnicfIfUsingSupportType, hpnicfRTSubIfSubIfDesc=hpnicfRTSubIfSubIfDesc, hpnicfRTSubIfRowStatus=hpnicfRTSubIfRowStatus, hpnicfIfSpeedStatInterval=hpnicfIfSpeedStatInterval, hpnicfIfStatFlowHCOutBits=hpnicfIfStatFlowHCOutBits, hpnicfIfStatTable=hpnicfIfStatTable, hpnicfIfIsPoe=hpnicfIfIsPoe, hpnicfRTSubIfOrdinal=hpnicfRTSubIfOrdinal, hpnicfIfSpeedStatEntry=hpnicfIfSpeedStatEntry, hpnicfIfSpeedStatInBytes=hpnicfIfSpeedStatInBytes, hpnicfIfExtTrapCfgEntry=hpnicfIfExtTrapCfgEntry, hpnicfIfStatFlowOutBits=hpnicfIfStatFlowOutBits, hpnicfIfExtTrap=hpnicfIfExtTrap, hpnicfIfLinkModeSwitchSupport=hpnicfIfLinkModeSwitchSupport, hpnicfIfUpDownTimes=hpnicfIfUpDownTimes, hpnicfIfStatFlowOutBytes=hpnicfIfStatFlowOutBytes, hpnicfIfDiscardPktRate=hpnicfIfDiscardPktRate, hpnicfIfStatFlowHCOutPkts=hpnicfIfStatFlowHCOutPkts, hpnicfRTParentIfEntry=hpnicfRTParentIfEntry, hpnicfIfLinkModeEntry=hpnicfIfLinkModeEntry, hpnicfRTSubIfSubIfIndex=hpnicfRTSubIfSubIfIndex, hpnicfIfDownTimes=hpnicfIfDownTimes, hpnicfIfExtTrapCfgTable=hpnicfIfExtTrapCfgTable, hpnicfIfMtu=hpnicfIfMtu)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(CounterBasedGauge64,) = mibBuilder.importSymbols(
+    "HCNUM-TC",
+    "CounterBasedGauge64")
+
+(hpnicfCommon,) = mibBuilder.importSymbols(
+    "HPN-ICF-OID-MIB",
+    "hpnicfCommon")
+
+(ifDescr,
+ ifIndex) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifDescr",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+hpnicfIfExt = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40)
+)
+if mibBuilder.loadTexts:
+    hpnicfIfExt.setRevisions(
+        ("2009-05-06 19:36",
+         "2004-11-13 19:36")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpnicfIfExtScalarGroup_ObjectIdentity = ObjectIdentity
+hpnicfIfExtScalarGroup = _HpnicfIfExtScalarGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 1)
+)
+_HpnicfIfStatGlobalFlowInterval_Type = Integer32
+_HpnicfIfStatGlobalFlowInterval_Object = MibScalar
+hpnicfIfStatGlobalFlowInterval = _HpnicfIfStatGlobalFlowInterval_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 1, 1),
+    _HpnicfIfStatGlobalFlowInterval_Type()
+)
+hpnicfIfStatGlobalFlowInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfIfStatGlobalFlowInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfIfStatGlobalFlowInterval.setUnits("seconds")
+_HpnicfIfShutDownInterval_Type = Integer32
+_HpnicfIfShutDownInterval_Object = MibScalar
+hpnicfIfShutDownInterval = _HpnicfIfShutDownInterval_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 1, 2),
+    _HpnicfIfShutDownInterval_Type()
+)
+hpnicfIfShutDownInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfIfShutDownInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfIfShutDownInterval.setUnits("seconds")
+_HpnicfIfExtGroup_ObjectIdentity = ObjectIdentity
+hpnicfIfExtGroup = _HpnicfIfExtGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2)
+)
+_HpnicfIfStat_ObjectIdentity = ObjectIdentity
+hpnicfIfStat = _HpnicfIfStat_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1)
+)
+_HpnicfIfStatScalarGroup_ObjectIdentity = ObjectIdentity
+hpnicfIfStatScalarGroup = _HpnicfIfStatScalarGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 1)
+)
+_HpnicfIfStatTable_ObjectIdentity = ObjectIdentity
+hpnicfIfStatTable = _HpnicfIfStatTable_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2)
+)
+_HpnicfIfFlowStatTable_Object = MibTable
+hpnicfIfFlowStatTable = _HpnicfIfFlowStatTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hpnicfIfFlowStatTable.setStatus("current")
+_HpnicfIfFlowStatEntry_Object = MibTableRow
+hpnicfIfFlowStatEntry = _HpnicfIfFlowStatEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1)
+)
+hpnicfIfFlowStatEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfIfFlowStatEntry.setStatus("current")
+_HpnicfIfStatFlowInterval_Type = Integer32
+_HpnicfIfStatFlowInterval_Object = MibTableColumn
+hpnicfIfStatFlowInterval = _HpnicfIfStatFlowInterval_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 1),
+    _HpnicfIfStatFlowInterval_Type()
+)
+hpnicfIfStatFlowInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowInterval.setUnits("seconds")
+_HpnicfIfStatFlowInBits_Type = Unsigned32
+_HpnicfIfStatFlowInBits_Object = MibTableColumn
+hpnicfIfStatFlowInBits = _HpnicfIfStatFlowInBits_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 2),
+    _HpnicfIfStatFlowInBits_Type()
+)
+hpnicfIfStatFlowInBits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowInBits.setStatus("current")
+_HpnicfIfStatFlowOutBits_Type = Unsigned32
+_HpnicfIfStatFlowOutBits_Object = MibTableColumn
+hpnicfIfStatFlowOutBits = _HpnicfIfStatFlowOutBits_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 3),
+    _HpnicfIfStatFlowOutBits_Type()
+)
+hpnicfIfStatFlowOutBits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowOutBits.setStatus("current")
+_HpnicfIfStatFlowInPkts_Type = Unsigned32
+_HpnicfIfStatFlowInPkts_Object = MibTableColumn
+hpnicfIfStatFlowInPkts = _HpnicfIfStatFlowInPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 4),
+    _HpnicfIfStatFlowInPkts_Type()
+)
+hpnicfIfStatFlowInPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowInPkts.setStatus("current")
+_HpnicfIfStatFlowOutPkts_Type = Unsigned32
+_HpnicfIfStatFlowOutPkts_Object = MibTableColumn
+hpnicfIfStatFlowOutPkts = _HpnicfIfStatFlowOutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 5),
+    _HpnicfIfStatFlowOutPkts_Type()
+)
+hpnicfIfStatFlowOutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowOutPkts.setStatus("current")
+_HpnicfIfStatFlowInBytes_Type = Unsigned32
+_HpnicfIfStatFlowInBytes_Object = MibTableColumn
+hpnicfIfStatFlowInBytes = _HpnicfIfStatFlowInBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 6),
+    _HpnicfIfStatFlowInBytes_Type()
+)
+hpnicfIfStatFlowInBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowInBytes.setStatus("current")
+_HpnicfIfStatFlowOutBytes_Type = Unsigned32
+_HpnicfIfStatFlowOutBytes_Object = MibTableColumn
+hpnicfIfStatFlowOutBytes = _HpnicfIfStatFlowOutBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 1, 1, 7),
+    _HpnicfIfStatFlowOutBytes_Type()
+)
+hpnicfIfStatFlowOutBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowOutBytes.setStatus("current")
+_HpnicfIfSpeedStatTable_Object = MibTable
+hpnicfIfSpeedStatTable = _HpnicfIfSpeedStatTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    hpnicfIfSpeedStatTable.setStatus("current")
+_HpnicfIfSpeedStatEntry_Object = MibTableRow
+hpnicfIfSpeedStatEntry = _HpnicfIfSpeedStatEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1)
+)
+hpnicfIfSpeedStatEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfIfSpeedStatEntry.setStatus("current")
+_HpnicfIfSpeedStatInterval_Type = Integer32
+_HpnicfIfSpeedStatInterval_Object = MibTableColumn
+hpnicfIfSpeedStatInterval = _HpnicfIfSpeedStatInterval_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1, 1),
+    _HpnicfIfSpeedStatInterval_Type()
+)
+hpnicfIfSpeedStatInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfIfSpeedStatInterval.setStatus("current")
+if mibBuilder.loadTexts:
+    hpnicfIfSpeedStatInterval.setUnits("seconds")
+_HpnicfIfSpeedStatInPkts_Type = Unsigned32
+_HpnicfIfSpeedStatInPkts_Object = MibTableColumn
+hpnicfIfSpeedStatInPkts = _HpnicfIfSpeedStatInPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1, 2),
+    _HpnicfIfSpeedStatInPkts_Type()
+)
+hpnicfIfSpeedStatInPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfSpeedStatInPkts.setStatus("current")
+_HpnicfIfSpeedStatOutPkts_Type = Unsigned32
+_HpnicfIfSpeedStatOutPkts_Object = MibTableColumn
+hpnicfIfSpeedStatOutPkts = _HpnicfIfSpeedStatOutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1, 3),
+    _HpnicfIfSpeedStatOutPkts_Type()
+)
+hpnicfIfSpeedStatOutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfSpeedStatOutPkts.setStatus("current")
+_HpnicfIfSpeedStatInBytes_Type = Unsigned32
+_HpnicfIfSpeedStatInBytes_Object = MibTableColumn
+hpnicfIfSpeedStatInBytes = _HpnicfIfSpeedStatInBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1, 4),
+    _HpnicfIfSpeedStatInBytes_Type()
+)
+hpnicfIfSpeedStatInBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfSpeedStatInBytes.setStatus("current")
+_HpnicfIfSpeedStatOutBytes_Type = Unsigned32
+_HpnicfIfSpeedStatOutBytes_Object = MibTableColumn
+hpnicfIfSpeedStatOutBytes = _HpnicfIfSpeedStatOutBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 2, 1, 5),
+    _HpnicfIfSpeedStatOutBytes_Type()
+)
+hpnicfIfSpeedStatOutBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfSpeedStatOutBytes.setStatus("current")
+_HpnicfIfHCFlowStatTable_Object = MibTable
+hpnicfIfHCFlowStatTable = _HpnicfIfHCFlowStatTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3)
+)
+if mibBuilder.loadTexts:
+    hpnicfIfHCFlowStatTable.setStatus("current")
+_HpnicfIfHCFlowStatEntry_Object = MibTableRow
+hpnicfIfHCFlowStatEntry = _HpnicfIfHCFlowStatEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1)
+)
+hpnicfIfHCFlowStatEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfIfHCFlowStatEntry.setStatus("current")
+_HpnicfIfStatFlowHCInBits_Type = CounterBasedGauge64
+_HpnicfIfStatFlowHCInBits_Object = MibTableColumn
+hpnicfIfStatFlowHCInBits = _HpnicfIfStatFlowHCInBits_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 1),
+    _HpnicfIfStatFlowHCInBits_Type()
+)
+hpnicfIfStatFlowHCInBits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowHCInBits.setStatus("current")
+_HpnicfIfStatFlowHCOutBits_Type = CounterBasedGauge64
+_HpnicfIfStatFlowHCOutBits_Object = MibTableColumn
+hpnicfIfStatFlowHCOutBits = _HpnicfIfStatFlowHCOutBits_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 2),
+    _HpnicfIfStatFlowHCOutBits_Type()
+)
+hpnicfIfStatFlowHCOutBits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowHCOutBits.setStatus("current")
+_HpnicfIfStatFlowHCInPkts_Type = CounterBasedGauge64
+_HpnicfIfStatFlowHCInPkts_Object = MibTableColumn
+hpnicfIfStatFlowHCInPkts = _HpnicfIfStatFlowHCInPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 3),
+    _HpnicfIfStatFlowHCInPkts_Type()
+)
+hpnicfIfStatFlowHCInPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowHCInPkts.setStatus("current")
+_HpnicfIfStatFlowHCOutPkts_Type = CounterBasedGauge64
+_HpnicfIfStatFlowHCOutPkts_Object = MibTableColumn
+hpnicfIfStatFlowHCOutPkts = _HpnicfIfStatFlowHCOutPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 4),
+    _HpnicfIfStatFlowHCOutPkts_Type()
+)
+hpnicfIfStatFlowHCOutPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowHCOutPkts.setStatus("current")
+_HpnicfIfStatFlowHCInBytes_Type = CounterBasedGauge64
+_HpnicfIfStatFlowHCInBytes_Object = MibTableColumn
+hpnicfIfStatFlowHCInBytes = _HpnicfIfStatFlowHCInBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 5),
+    _HpnicfIfStatFlowHCInBytes_Type()
+)
+hpnicfIfStatFlowHCInBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowHCInBytes.setStatus("current")
+_HpnicfIfStatFlowHCOutBytes_Type = CounterBasedGauge64
+_HpnicfIfStatFlowHCOutBytes_Object = MibTableColumn
+hpnicfIfStatFlowHCOutBytes = _HpnicfIfStatFlowHCOutBytes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 1, 2, 3, 1, 6),
+    _HpnicfIfStatFlowHCOutBytes_Type()
+)
+hpnicfIfStatFlowHCOutBytes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatFlowHCOutBytes.setStatus("current")
+_HpnicfIfControl_ObjectIdentity = ObjectIdentity
+hpnicfIfControl = _HpnicfIfControl_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2)
+)
+_HpnicfRTParentIfTable_Object = MibTable
+hpnicfRTParentIfTable = _HpnicfRTParentIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 1)
+)
+if mibBuilder.loadTexts:
+    hpnicfRTParentIfTable.setStatus("current")
+_HpnicfRTParentIfEntry_Object = MibTableRow
+hpnicfRTParentIfEntry = _HpnicfRTParentIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 1, 1)
+)
+hpnicfRTParentIfEntry.setIndexNames(
+    (0, "HPN-ICF-IF-EXT-MIB", "hpnicfRTParentIfIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfRTParentIfEntry.setStatus("current")
+
+
+class _HpnicfRTParentIfIndex_Type(Integer32):
+    """Custom type hpnicfRTParentIfIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HpnicfRTParentIfIndex_Type.__name__ = "Integer32"
+_HpnicfRTParentIfIndex_Object = MibTableColumn
+hpnicfRTParentIfIndex = _HpnicfRTParentIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 1, 1, 1),
+    _HpnicfRTParentIfIndex_Type()
+)
+hpnicfRTParentIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpnicfRTParentIfIndex.setStatus("current")
+_HpnicfRTMinSubIfOrdinal_Type = Integer32
+_HpnicfRTMinSubIfOrdinal_Object = MibTableColumn
+hpnicfRTMinSubIfOrdinal = _HpnicfRTMinSubIfOrdinal_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 1, 1, 2),
+    _HpnicfRTMinSubIfOrdinal_Type()
+)
+hpnicfRTMinSubIfOrdinal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfRTMinSubIfOrdinal.setStatus("current")
+_HpnicfRTMaxSubIfOrdinal_Type = Integer32
+_HpnicfRTMaxSubIfOrdinal_Object = MibTableColumn
+hpnicfRTMaxSubIfOrdinal = _HpnicfRTMaxSubIfOrdinal_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 1, 1, 3),
+    _HpnicfRTMaxSubIfOrdinal_Type()
+)
+hpnicfRTMaxSubIfOrdinal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfRTMaxSubIfOrdinal.setStatus("current")
+_HpnicfRTSubIfTable_Object = MibTable
+hpnicfRTSubIfTable = _HpnicfRTSubIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2)
+)
+if mibBuilder.loadTexts:
+    hpnicfRTSubIfTable.setStatus("current")
+_HpnicfRTSubIfEntry_Object = MibTableRow
+hpnicfRTSubIfEntry = _HpnicfRTSubIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1)
+)
+hpnicfRTSubIfEntry.setIndexNames(
+    (0, "HPN-ICF-IF-EXT-MIB", "hpnicfRTSubIfParentIfIndex"),
+    (0, "HPN-ICF-IF-EXT-MIB", "hpnicfRTSubIfOrdinal"),
+)
+if mibBuilder.loadTexts:
+    hpnicfRTSubIfEntry.setStatus("current")
+
+
+class _HpnicfRTSubIfParentIfIndex_Type(Integer32):
+    """Custom type hpnicfRTSubIfParentIfIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HpnicfRTSubIfParentIfIndex_Type.__name__ = "Integer32"
+_HpnicfRTSubIfParentIfIndex_Object = MibTableColumn
+hpnicfRTSubIfParentIfIndex = _HpnicfRTSubIfParentIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1, 1),
+    _HpnicfRTSubIfParentIfIndex_Type()
+)
+hpnicfRTSubIfParentIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpnicfRTSubIfParentIfIndex.setStatus("current")
+
+
+class _HpnicfRTSubIfOrdinal_Type(Integer32):
+    """Custom type hpnicfRTSubIfOrdinal based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HpnicfRTSubIfOrdinal_Type.__name__ = "Integer32"
+_HpnicfRTSubIfOrdinal_Object = MibTableColumn
+hpnicfRTSubIfOrdinal = _HpnicfRTSubIfOrdinal_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1, 2),
+    _HpnicfRTSubIfOrdinal_Type()
+)
+hpnicfRTSubIfOrdinal.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpnicfRTSubIfOrdinal.setStatus("current")
+_HpnicfRTSubIfSubIfIndex_Type = Integer32
+_HpnicfRTSubIfSubIfIndex_Object = MibTableColumn
+hpnicfRTSubIfSubIfIndex = _HpnicfRTSubIfSubIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1, 3),
+    _HpnicfRTSubIfSubIfIndex_Type()
+)
+hpnicfRTSubIfSubIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfRTSubIfSubIfIndex.setStatus("current")
+
+
+class _HpnicfRTSubIfSubIfDesc_Type(DisplayString):
+    """Custom type hpnicfRTSubIfSubIfDesc based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_HpnicfRTSubIfSubIfDesc_Type.__name__ = "DisplayString"
+_HpnicfRTSubIfSubIfDesc_Object = MibTableColumn
+hpnicfRTSubIfSubIfDesc = _HpnicfRTSubIfSubIfDesc_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1, 4),
+    _HpnicfRTSubIfSubIfDesc_Type()
+)
+hpnicfRTSubIfSubIfDesc.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfRTSubIfSubIfDesc.setStatus("current")
+_HpnicfRTSubIfRowStatus_Type = RowStatus
+_HpnicfRTSubIfRowStatus_Object = MibTableColumn
+hpnicfRTSubIfRowStatus = _HpnicfRTSubIfRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 2, 1, 5),
+    _HpnicfRTSubIfRowStatus_Type()
+)
+hpnicfRTSubIfRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    hpnicfRTSubIfRowStatus.setStatus("current")
+_HpnicfIfLinkModeTable_Object = MibTable
+hpnicfIfLinkModeTable = _HpnicfIfLinkModeTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 3)
+)
+if mibBuilder.loadTexts:
+    hpnicfIfLinkModeTable.setStatus("current")
+_HpnicfIfLinkModeEntry_Object = MibTableRow
+hpnicfIfLinkModeEntry = _HpnicfIfLinkModeEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 3, 1)
+)
+hpnicfIfLinkModeEntry.setIndexNames(
+    (0, "HPN-ICF-IF-EXT-MIB", "hpnicfIfLinkModeIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfIfLinkModeEntry.setStatus("current")
+
+
+class _HpnicfIfLinkModeIndex_Type(Integer32):
+    """Custom type hpnicfIfLinkModeIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HpnicfIfLinkModeIndex_Type.__name__ = "Integer32"
+_HpnicfIfLinkModeIndex_Object = MibTableColumn
+hpnicfIfLinkModeIndex = _HpnicfIfLinkModeIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 3, 1, 1),
+    _HpnicfIfLinkModeIndex_Type()
+)
+hpnicfIfLinkModeIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpnicfIfLinkModeIndex.setStatus("current")
+
+
+class _HpnicfIfLinkMode_Type(Integer32):
+    """Custom type hpnicfIfLinkMode based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bridgeMode", 1),
+          ("routeMode", 2))
+    )
+
+
+_HpnicfIfLinkMode_Type.__name__ = "Integer32"
+_HpnicfIfLinkMode_Object = MibTableColumn
+hpnicfIfLinkMode = _HpnicfIfLinkMode_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 3, 1, 2),
+    _HpnicfIfLinkMode_Type()
+)
+hpnicfIfLinkMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfIfLinkMode.setStatus("current")
+_HpnicfIfLinkModeSwitchSupport_Type = TruthValue
+_HpnicfIfLinkModeSwitchSupport_Object = MibTableColumn
+hpnicfIfLinkModeSwitchSupport = _HpnicfIfLinkModeSwitchSupport_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 2, 3, 1, 3),
+    _HpnicfIfLinkModeSwitchSupport_Type()
+)
+hpnicfIfLinkModeSwitchSupport.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfLinkModeSwitchSupport.setStatus("current")
+_HpnicfIfInterfaces_ObjectIdentity = ObjectIdentity
+hpnicfIfInterfaces = _HpnicfIfInterfaces_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3)
+)
+_HpnicfIfPhysicalNumber_Type = Integer32
+_HpnicfIfPhysicalNumber_Object = MibScalar
+hpnicfIfPhysicalNumber = _HpnicfIfPhysicalNumber_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 1),
+    _HpnicfIfPhysicalNumber_Type()
+)
+hpnicfIfPhysicalNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfPhysicalNumber.setStatus("current")
+_HpnicfIfTable_Object = MibTable
+hpnicfIfTable = _HpnicfIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2)
+)
+if mibBuilder.loadTexts:
+    hpnicfIfTable.setStatus("current")
+_HpnicfIfEntry_Object = MibTableRow
+hpnicfIfEntry = _HpnicfIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1)
+)
+hpnicfIfEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfIfEntry.setStatus("current")
+_HpnicfIfUpDownTimes_Type = Integer32
+_HpnicfIfUpDownTimes_Object = MibTableColumn
+hpnicfIfUpDownTimes = _HpnicfIfUpDownTimes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 1),
+    _HpnicfIfUpDownTimes_Type()
+)
+hpnicfIfUpDownTimes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfUpDownTimes.setStatus("current")
+_HpnicfIfMtu_Type = Integer32
+_HpnicfIfMtu_Object = MibTableColumn
+hpnicfIfMtu = _HpnicfIfMtu_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 2),
+    _HpnicfIfMtu_Type()
+)
+hpnicfIfMtu.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfIfMtu.setStatus("current")
+
+
+class _HpnicfIfBandwidthRate_Type(Integer32):
+    """Custom type hpnicfIfBandwidthRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_HpnicfIfBandwidthRate_Type.__name__ = "Integer32"
+_HpnicfIfBandwidthRate_Object = MibTableColumn
+hpnicfIfBandwidthRate = _HpnicfIfBandwidthRate_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 3),
+    _HpnicfIfBandwidthRate_Type()
+)
+hpnicfIfBandwidthRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfBandwidthRate.setStatus("current")
+
+
+class _HpnicfIfDiscardPktRate_Type(Integer32):
+    """Custom type hpnicfIfDiscardPktRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 100),
+    )
+
+
+_HpnicfIfDiscardPktRate_Type.__name__ = "Integer32"
+_HpnicfIfDiscardPktRate_Object = MibTableColumn
+hpnicfIfDiscardPktRate = _HpnicfIfDiscardPktRate_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 4),
+    _HpnicfIfDiscardPktRate_Type()
+)
+hpnicfIfDiscardPktRate.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfDiscardPktRate.setStatus("current")
+_HpnicfIfStatusKeepTime_Type = TimeTicks
+_HpnicfIfStatusKeepTime_Object = MibTableColumn
+hpnicfIfStatusKeepTime = _HpnicfIfStatusKeepTime_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 5),
+    _HpnicfIfStatusKeepTime_Type()
+)
+hpnicfIfStatusKeepTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfStatusKeepTime.setStatus("current")
+_HpnicfIfInNUcastPkts_Type = Counter64
+_HpnicfIfInNUcastPkts_Object = MibTableColumn
+hpnicfIfInNUcastPkts = _HpnicfIfInNUcastPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 6),
+    _HpnicfIfInNUcastPkts_Type()
+)
+hpnicfIfInNUcastPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfInNUcastPkts.setStatus("current")
+_HpnicfIfOutNUcastPkts_Type = Counter64
+_HpnicfIfOutNUcastPkts_Object = MibTableColumn
+hpnicfIfOutNUcastPkts = _HpnicfIfOutNUcastPkts_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 7),
+    _HpnicfIfOutNUcastPkts_Type()
+)
+hpnicfIfOutNUcastPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfOutNUcastPkts.setStatus("current")
+_HpnicfIfIsPoe_Type = TruthValue
+_HpnicfIfIsPoe_Object = MibTableColumn
+hpnicfIfIsPoe = _HpnicfIfIsPoe_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 8),
+    _HpnicfIfIsPoe_Type()
+)
+hpnicfIfIsPoe.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfIsPoe.setStatus("current")
+
+
+class _HpnicfIfOperStatus_Type(Integer32):
+    """Custom type hpnicfIfOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2),
+          ("testing", 3),
+          ("admindown", 4))
+    )
+
+
+_HpnicfIfOperStatus_Type.__name__ = "Integer32"
+_HpnicfIfOperStatus_Object = MibTableColumn
+hpnicfIfOperStatus = _HpnicfIfOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 9),
+    _HpnicfIfOperStatus_Type()
+)
+hpnicfIfOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfOperStatus.setStatus("current")
+_HpnicfIfDownTimes_Type = Integer32
+_HpnicfIfDownTimes_Object = MibTableColumn
+hpnicfIfDownTimes = _HpnicfIfDownTimes_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 2, 1, 10),
+    _HpnicfIfDownTimes_Type()
+)
+hpnicfIfDownTimes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfDownTimes.setStatus("current")
+_HpnicfIfUsingTable_Object = MibTable
+hpnicfIfUsingTable = _HpnicfIfUsingTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3)
+)
+if mibBuilder.loadTexts:
+    hpnicfIfUsingTable.setStatus("current")
+_HpnicfIfUsingEntry_Object = MibTableRow
+hpnicfIfUsingEntry = _HpnicfIfUsingEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3, 1)
+)
+hpnicfIfUsingEntry.setIndexNames(
+    (0, "HPN-ICF-IF-EXT-MIB", "hpnicfIfUsingIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfIfUsingEntry.setStatus("current")
+
+
+class _HpnicfIfUsingIndex_Type(Integer32):
+    """Custom type hpnicfIfUsingIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_HpnicfIfUsingIndex_Type.__name__ = "Integer32"
+_HpnicfIfUsingIndex_Object = MibTableColumn
+hpnicfIfUsingIndex = _HpnicfIfUsingIndex_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3, 1, 1),
+    _HpnicfIfUsingIndex_Type()
+)
+hpnicfIfUsingIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    hpnicfIfUsingIndex.setStatus("current")
+_HpnicfIfUsingSupportType_Type = Integer32
+_HpnicfIfUsingSupportType_Object = MibTableColumn
+hpnicfIfUsingSupportType = _HpnicfIfUsingSupportType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3, 1, 2),
+    _HpnicfIfUsingSupportType_Type()
+)
+hpnicfIfUsingSupportType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfUsingSupportType.setStatus("current")
+
+
+class _HpnicfIfUsingType_Type(Integer32):
+    """Custom type hpnicfIfUsingType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noUsing", 0),
+          ("using10GE", 1),
+          ("using20GE", 2),
+          ("using40GE", 3),
+          ("using100GE", 4))
+    )
+
+
+_HpnicfIfUsingType_Type.__name__ = "Integer32"
+_HpnicfIfUsingType_Object = MibTableColumn
+hpnicfIfUsingType = _HpnicfIfUsingType_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3, 1, 3),
+    _HpnicfIfUsingType_Type()
+)
+hpnicfIfUsingType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfIfUsingType.setStatus("current")
+
+
+class _HpnicfIfUsingStatus_Type(Integer32):
+    """Custom type hpnicfIfUsingStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noUsing", 0),
+          ("needReboot", 1))
+    )
+
+
+_HpnicfIfUsingStatus_Type.__name__ = "Integer32"
+_HpnicfIfUsingStatus_Object = MibTableColumn
+hpnicfIfUsingStatus = _HpnicfIfUsingStatus_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 2, 3, 3, 1, 4),
+    _HpnicfIfUsingStatus_Type()
+)
+hpnicfIfUsingStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    hpnicfIfUsingStatus.setStatus("current")
+_HpnicfIfExtTrap_ObjectIdentity = ObjectIdentity
+hpnicfIfExtTrap = _HpnicfIfExtTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3)
+)
+_HpnicfIfExtTrapPrex_ObjectIdentity = ObjectIdentity
+hpnicfIfExtTrapPrex = _HpnicfIfExtTrapPrex_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 0)
+)
+_HpnicfIfExtTrapObject_ObjectIdentity = ObjectIdentity
+hpnicfIfExtTrapObject = _HpnicfIfExtTrapObject_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 1)
+)
+_HpnicfIfExtTrapCfgTable_Object = MibTable
+hpnicfIfExtTrapCfgTable = _HpnicfIfExtTrapCfgTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hpnicfIfExtTrapCfgTable.setStatus("current")
+_HpnicfIfExtTrapCfgEntry_Object = MibTableRow
+hpnicfIfExtTrapCfgEntry = _HpnicfIfExtTrapCfgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 1, 1, 1)
+)
+hpnicfIfExtTrapCfgEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    hpnicfIfExtTrapCfgEntry.setStatus("current")
+
+
+class _HpnicfIfBandwidthUpperLimit_Type(Integer32):
+    """Custom type hpnicfIfBandwidthUpperLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 100),
+    )
+
+
+_HpnicfIfBandwidthUpperLimit_Type.__name__ = "Integer32"
+_HpnicfIfBandwidthUpperLimit_Object = MibTableColumn
+hpnicfIfBandwidthUpperLimit = _HpnicfIfBandwidthUpperLimit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 1, 1, 1, 1),
+    _HpnicfIfBandwidthUpperLimit_Type()
+)
+hpnicfIfBandwidthUpperLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfIfBandwidthUpperLimit.setStatus("current")
+
+
+class _HpnicfIfDiscardPktRateUpperLimit_Type(Integer32):
+    """Custom type hpnicfIfDiscardPktRateUpperLimit based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 100),
+    )
+
+
+_HpnicfIfDiscardPktRateUpperLimit_Type.__name__ = "Integer32"
+_HpnicfIfDiscardPktRateUpperLimit_Object = MibTableColumn
+hpnicfIfDiscardPktRateUpperLimit = _HpnicfIfDiscardPktRateUpperLimit_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 1, 1, 1, 2),
+    _HpnicfIfDiscardPktRateUpperLimit_Type()
+)
+hpnicfIfDiscardPktRateUpperLimit.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpnicfIfDiscardPktRateUpperLimit.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+hpnicfIfBandwidthUsageHigh = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 0, 1)
+)
+hpnicfIfBandwidthUsageHigh.setObjects(
+      *(("IF-MIB", "ifDescr"),
+        ("HPN-ICF-IF-EXT-MIB", "hpnicfIfBandwidthRate"),
+        ("HPN-ICF-IF-EXT-MIB", "hpnicfIfBandwidthUpperLimit"))
+)
+if mibBuilder.loadTexts:
+    hpnicfIfBandwidthUsageHigh.setStatus(
+        "current"
+    )
+
+hpnicfIfDiscardPktRateHigh = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 0, 2)
+)
+hpnicfIfDiscardPktRateHigh.setObjects(
+      *(("IF-MIB", "ifDescr"),
+        ("HPN-ICF-IF-EXT-MIB", "hpnicfIfDiscardPktRate"),
+        ("HPN-ICF-IF-EXT-MIB", "hpnicfIfDiscardPktRateUpperLimit"))
+)
+if mibBuilder.loadTexts:
+    hpnicfIfDiscardPktRateHigh.setStatus(
+        "current"
+    )
+
+hpnicfIfDampeningSuppressed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 0, 3)
+)
+hpnicfIfDampeningSuppressed.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifDescr"))
+)
+if mibBuilder.loadTexts:
+    hpnicfIfDampeningSuppressed.setStatus(
+        "current"
+    )
+
+hpnicfIfDampeningNotSuppressed = NotificationType(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 15, 2, 40, 3, 0, 4)
+)
+hpnicfIfDampeningNotSuppressed.setObjects(
+      *(("IF-MIB", "ifIndex"),
+        ("IF-MIB", "ifDescr"))
+)
+if mibBuilder.loadTexts:
+    hpnicfIfDampeningNotSuppressed.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HPN-ICF-IF-EXT-MIB",
+    **{"hpnicfIfExt": hpnicfIfExt,
+       "hpnicfIfExtScalarGroup": hpnicfIfExtScalarGroup,
+       "hpnicfIfStatGlobalFlowInterval": hpnicfIfStatGlobalFlowInterval,
+       "hpnicfIfShutDownInterval": hpnicfIfShutDownInterval,
+       "hpnicfIfExtGroup": hpnicfIfExtGroup,
+       "hpnicfIfStat": hpnicfIfStat,
+       "hpnicfIfStatScalarGroup": hpnicfIfStatScalarGroup,
+       "hpnicfIfStatTable": hpnicfIfStatTable,
+       "hpnicfIfFlowStatTable": hpnicfIfFlowStatTable,
+       "hpnicfIfFlowStatEntry": hpnicfIfFlowStatEntry,
+       "hpnicfIfStatFlowInterval": hpnicfIfStatFlowInterval,
+       "hpnicfIfStatFlowInBits": hpnicfIfStatFlowInBits,
+       "hpnicfIfStatFlowOutBits": hpnicfIfStatFlowOutBits,
+       "hpnicfIfStatFlowInPkts": hpnicfIfStatFlowInPkts,
+       "hpnicfIfStatFlowOutPkts": hpnicfIfStatFlowOutPkts,
+       "hpnicfIfStatFlowInBytes": hpnicfIfStatFlowInBytes,
+       "hpnicfIfStatFlowOutBytes": hpnicfIfStatFlowOutBytes,
+       "hpnicfIfSpeedStatTable": hpnicfIfSpeedStatTable,
+       "hpnicfIfSpeedStatEntry": hpnicfIfSpeedStatEntry,
+       "hpnicfIfSpeedStatInterval": hpnicfIfSpeedStatInterval,
+       "hpnicfIfSpeedStatInPkts": hpnicfIfSpeedStatInPkts,
+       "hpnicfIfSpeedStatOutPkts": hpnicfIfSpeedStatOutPkts,
+       "hpnicfIfSpeedStatInBytes": hpnicfIfSpeedStatInBytes,
+       "hpnicfIfSpeedStatOutBytes": hpnicfIfSpeedStatOutBytes,
+       "hpnicfIfHCFlowStatTable": hpnicfIfHCFlowStatTable,
+       "hpnicfIfHCFlowStatEntry": hpnicfIfHCFlowStatEntry,
+       "hpnicfIfStatFlowHCInBits": hpnicfIfStatFlowHCInBits,
+       "hpnicfIfStatFlowHCOutBits": hpnicfIfStatFlowHCOutBits,
+       "hpnicfIfStatFlowHCInPkts": hpnicfIfStatFlowHCInPkts,
+       "hpnicfIfStatFlowHCOutPkts": hpnicfIfStatFlowHCOutPkts,
+       "hpnicfIfStatFlowHCInBytes": hpnicfIfStatFlowHCInBytes,
+       "hpnicfIfStatFlowHCOutBytes": hpnicfIfStatFlowHCOutBytes,
+       "hpnicfIfControl": hpnicfIfControl,
+       "hpnicfRTParentIfTable": hpnicfRTParentIfTable,
+       "hpnicfRTParentIfEntry": hpnicfRTParentIfEntry,
+       "hpnicfRTParentIfIndex": hpnicfRTParentIfIndex,
+       "hpnicfRTMinSubIfOrdinal": hpnicfRTMinSubIfOrdinal,
+       "hpnicfRTMaxSubIfOrdinal": hpnicfRTMaxSubIfOrdinal,
+       "hpnicfRTSubIfTable": hpnicfRTSubIfTable,
+       "hpnicfRTSubIfEntry": hpnicfRTSubIfEntry,
+       "hpnicfRTSubIfParentIfIndex": hpnicfRTSubIfParentIfIndex,
+       "hpnicfRTSubIfOrdinal": hpnicfRTSubIfOrdinal,
+       "hpnicfRTSubIfSubIfIndex": hpnicfRTSubIfSubIfIndex,
+       "hpnicfRTSubIfSubIfDesc": hpnicfRTSubIfSubIfDesc,
+       "hpnicfRTSubIfRowStatus": hpnicfRTSubIfRowStatus,
+       "hpnicfIfLinkModeTable": hpnicfIfLinkModeTable,
+       "hpnicfIfLinkModeEntry": hpnicfIfLinkModeEntry,
+       "hpnicfIfLinkModeIndex": hpnicfIfLinkModeIndex,
+       "hpnicfIfLinkMode": hpnicfIfLinkMode,
+       "hpnicfIfLinkModeSwitchSupport": hpnicfIfLinkModeSwitchSupport,
+       "hpnicfIfInterfaces": hpnicfIfInterfaces,
+       "hpnicfIfPhysicalNumber": hpnicfIfPhysicalNumber,
+       "hpnicfIfTable": hpnicfIfTable,
+       "hpnicfIfEntry": hpnicfIfEntry,
+       "hpnicfIfUpDownTimes": hpnicfIfUpDownTimes,
+       "hpnicfIfMtu": hpnicfIfMtu,
+       "hpnicfIfBandwidthRate": hpnicfIfBandwidthRate,
+       "hpnicfIfDiscardPktRate": hpnicfIfDiscardPktRate,
+       "hpnicfIfStatusKeepTime": hpnicfIfStatusKeepTime,
+       "hpnicfIfInNUcastPkts": hpnicfIfInNUcastPkts,
+       "hpnicfIfOutNUcastPkts": hpnicfIfOutNUcastPkts,
+       "hpnicfIfIsPoe": hpnicfIfIsPoe,
+       "hpnicfIfOperStatus": hpnicfIfOperStatus,
+       "hpnicfIfDownTimes": hpnicfIfDownTimes,
+       "hpnicfIfUsingTable": hpnicfIfUsingTable,
+       "hpnicfIfUsingEntry": hpnicfIfUsingEntry,
+       "hpnicfIfUsingIndex": hpnicfIfUsingIndex,
+       "hpnicfIfUsingSupportType": hpnicfIfUsingSupportType,
+       "hpnicfIfUsingType": hpnicfIfUsingType,
+       "hpnicfIfUsingStatus": hpnicfIfUsingStatus,
+       "hpnicfIfExtTrap": hpnicfIfExtTrap,
+       "hpnicfIfExtTrapPrex": hpnicfIfExtTrapPrex,
+       "hpnicfIfBandwidthUsageHigh": hpnicfIfBandwidthUsageHigh,
+       "hpnicfIfDiscardPktRateHigh": hpnicfIfDiscardPktRateHigh,
+       "hpnicfIfDampeningSuppressed": hpnicfIfDampeningSuppressed,
+       "hpnicfIfDampeningNotSuppressed": hpnicfIfDampeningNotSuppressed,
+       "hpnicfIfExtTrapObject": hpnicfIfExtTrapObject,
+       "hpnicfIfExtTrapCfgTable": hpnicfIfExtTrapCfgTable,
+       "hpnicfIfExtTrapCfgEntry": hpnicfIfExtTrapCfgEntry,
+       "hpnicfIfBandwidthUpperLimit": hpnicfIfBandwidthUpperLimit,
+       "hpnicfIfDiscardPktRateUpperLimit": hpnicfIfDiscardPktRateUpperLimit}
+)

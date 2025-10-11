@@ -1,39 +1,235 @@
+# SNMP MIB module (HP-ICF-L3MAC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module HP-ICF-L3MAC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/hp/HP-ICF-L3MAC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:09:11 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/hp/HP-ICF-L3MAC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:39:29 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-hpSwitch, = mibBuilder.importSymbols("HP-ICF-OID", "hpSwitch")
-ifRcvAddressEntry, = mibBuilder.importSymbols("IF-MIB", "ifRcvAddressEntry")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-hpicfL3MacConfigMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36))
-hpicfL3MacConfigMIB.setRevisions(('2008-10-01 00:00', '2006-08-08 16:00',))
-if mibBuilder.loadTexts: hpicfL3MacConfigMIB.setLastUpdated('200810010000Z')
-if mibBuilder.loadTexts: hpicfL3MacConfigMIB.setOrganization('HP Networking')
-hpicfL3MacConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 1))
-hpicfL3MacConfigConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 2))
-hpicfL3MacConfigIfTable = MibTable((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 1, 1), )
-if mibBuilder.loadTexts: hpicfL3MacConfigIfTable.setStatus('current')
-hpicfL3MacConfigIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 1, 1, 1), )
-ifRcvAddressEntry.registerAugmentions(("HP-ICF-L3MAC-MIB", "hpicfL3MacConfigIfEntry"))
-hpicfL3MacConfigIfEntry.setIndexNames(*ifRcvAddressEntry.getIndexNames())
-if mibBuilder.loadTexts: hpicfL3MacConfigIfEntry.setStatus('current')
-hpicfL3MacConfigIfAdvTimer = MibTableColumn((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 255)).clone(60)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: hpicfL3MacConfigIfAdvTimer.setStatus('current')
-hpicfL3MacConfigMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 2, 1))
-hpicfL3MacConfigMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 2, 2))
-hpicfL3MacConfigMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 2, 1, 1)).setObjects(("HP-ICF-L3MAC-MIB", "hpicfL3MacConfigGroup"), ("HP-ICF-L3MAC-MIB", "hpicfL3MacConfigGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfL3MacConfigMIBCompliance = hpicfL3MacConfigMIBCompliance.setStatus('current')
-hpicfL3MacConfigGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 2, 2, 1)).setObjects(("HP-ICF-L3MAC-MIB", "hpicfL3MacConfigIfAdvTimer"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    hpicfL3MacConfigGroup = hpicfL3MacConfigGroup.setStatus('current')
-mibBuilder.exportSymbols("HP-ICF-L3MAC-MIB", hpicfL3MacConfigGroup=hpicfL3MacConfigGroup, hpicfL3MacConfigObjects=hpicfL3MacConfigObjects, hpicfL3MacConfigConformance=hpicfL3MacConfigConformance, PYSNMP_MODULE_ID=hpicfL3MacConfigMIB, hpicfL3MacConfigMIBCompliances=hpicfL3MacConfigMIBCompliances, hpicfL3MacConfigMIBCompliance=hpicfL3MacConfigMIBCompliance, hpicfL3MacConfigIfEntry=hpicfL3MacConfigIfEntry, hpicfL3MacConfigMIBGroups=hpicfL3MacConfigMIBGroups, hpicfL3MacConfigIfTable=hpicfL3MacConfigIfTable, hpicfL3MacConfigIfAdvTimer=hpicfL3MacConfigIfAdvTimer, hpicfL3MacConfigMIB=hpicfL3MacConfigMIB)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(hpSwitch,) = mibBuilder.importSymbols(
+    "HP-ICF-OID",
+    "hpSwitch")
+
+(ifRcvAddressEntry,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifRcvAddressEntry")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+hpicfL3MacConfigMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36)
+)
+if mibBuilder.loadTexts:
+    hpicfL3MacConfigMIB.setRevisions(
+        ("2008-10-01 00:00",
+         "2006-08-08 16:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_HpicfL3MacConfigObjects_ObjectIdentity = ObjectIdentity
+hpicfL3MacConfigObjects = _HpicfL3MacConfigObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 1)
+)
+_HpicfL3MacConfigIfTable_Object = MibTable
+hpicfL3MacConfigIfTable = _HpicfL3MacConfigIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hpicfL3MacConfigIfTable.setStatus("current")
+_HpicfL3MacConfigIfEntry_Object = MibTableRow
+hpicfL3MacConfigIfEntry = _HpicfL3MacConfigIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    hpicfL3MacConfigIfEntry.setStatus("current")
+
+
+class _HpicfL3MacConfigIfAdvTimer_Type(Integer32):
+    """Custom type hpicfL3MacConfigIfAdvTimer based on Integer32"""
+    defaultValue = 60
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+_HpicfL3MacConfigIfAdvTimer_Type.__name__ = "Integer32"
+_HpicfL3MacConfigIfAdvTimer_Object = MibTableColumn
+hpicfL3MacConfigIfAdvTimer = _HpicfL3MacConfigIfAdvTimer_Object(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 1, 1, 1, 1),
+    _HpicfL3MacConfigIfAdvTimer_Type()
+)
+hpicfL3MacConfigIfAdvTimer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    hpicfL3MacConfigIfAdvTimer.setStatus("current")
+_HpicfL3MacConfigConformance_ObjectIdentity = ObjectIdentity
+hpicfL3MacConfigConformance = _HpicfL3MacConfigConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 2)
+)
+_HpicfL3MacConfigMIBCompliances_ObjectIdentity = ObjectIdentity
+hpicfL3MacConfigMIBCompliances = _HpicfL3MacConfigMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 2, 1)
+)
+_HpicfL3MacConfigMIBGroups_ObjectIdentity = ObjectIdentity
+hpicfL3MacConfigMIBGroups = _HpicfL3MacConfigMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 2, 2)
+)
+ifRcvAddressEntry.registerAugmentions(
+    ("HP-ICF-L3MAC-MIB",
+     "hpicfL3MacConfigIfEntry")
+)
+hpicfL3MacConfigIfEntry.setIndexNames(*ifRcvAddressEntry.getIndexNames())
+
+# Managed Objects groups
+
+hpicfL3MacConfigGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 2, 2, 1)
+)
+hpicfL3MacConfigGroup.setObjects(
+    ("HP-ICF-L3MAC-MIB", "hpicfL3MacConfigIfAdvTimer")
+)
+if mibBuilder.loadTexts:
+    hpicfL3MacConfigGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+hpicfL3MacConfigMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 11, 2, 14, 11, 5, 1, 36, 2, 1, 1)
+)
+hpicfL3MacConfigMIBCompliance.setObjects(
+      *(("HP-ICF-L3MAC-MIB", "hpicfL3MacConfigGroup"),
+        ("HP-ICF-L3MAC-MIB", "hpicfL3MacConfigGroup"))
+)
+if mibBuilder.loadTexts:
+    hpicfL3MacConfigMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "HP-ICF-L3MAC-MIB",
+    **{"hpicfL3MacConfigMIB": hpicfL3MacConfigMIB,
+       "hpicfL3MacConfigObjects": hpicfL3MacConfigObjects,
+       "hpicfL3MacConfigIfTable": hpicfL3MacConfigIfTable,
+       "hpicfL3MacConfigIfEntry": hpicfL3MacConfigIfEntry,
+       "hpicfL3MacConfigIfAdvTimer": hpicfL3MacConfigIfAdvTimer,
+       "hpicfL3MacConfigConformance": hpicfL3MacConfigConformance,
+       "hpicfL3MacConfigMIBCompliances": hpicfL3MacConfigMIBCompliances,
+       "hpicfL3MacConfigMIBCompliance": hpicfL3MacConfigMIBCompliance,
+       "hpicfL3MacConfigMIBGroups": hpicfL3MacConfigMIBGroups,
+       "hpicfL3MacConfigGroup": hpicfL3MacConfigGroup}
+)

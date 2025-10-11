@@ -1,51 +1,370 @@
+# SNMP MIB module (EQLREPLPARTNER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EQLREPLPARTNER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/equallogic/EQLREPLPARTNER-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:46:43 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/equallogic/EQLREPLPARTNER-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:15:52 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-SiteIndex, eqliscsiVolumeReplSiteIndex = mibBuilder.importSymbols("EQLVOLUME-MIB", "SiteIndex", "eqliscsiVolumeReplSiteIndex")
-equalLogic, = mibBuilder.importSymbols("EQUALLOGIC-SMI", "equalLogic")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-eqlReplPartnerModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 12740, 26))
-eqlReplPartnerModule.setRevisions(('2013-03-28 00:00',))
-if mibBuilder.loadTexts: eqlReplPartnerModule.setLastUpdated('201403121459Z')
-if mibBuilder.loadTexts: eqlReplPartnerModule.setOrganization('EqualLogic Inc.')
-eqlReplPartnerObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12740, 26, 1))
-eqlReplPartnerTestTable = MibTable((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1), )
-if mibBuilder.loadTexts: eqlReplPartnerTestTable.setStatus('current')
-eqlReplPartnerTestEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1), ).setIndexNames((0, "EQLVOLUME-MIB", "eqliscsiVolumeReplSiteIndex"))
-if mibBuilder.loadTexts: eqlReplPartnerTestEntry.setStatus('current')
-class EqlReplPartnerTestStatus(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
-    namedValues = NamedValues(("unknown", 0), ("valid", 1), ("invalid", 2), ("remote-partner-not-configured", 3))
 
-eqlReplPartnerTestRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 1), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlReplPartnerTestRowStatus.setStatus('current')
-eqlReplPartnerTestIPAddrStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 2), EqlReplPartnerTestStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlReplPartnerTestIPAddrStatus.setStatus('current')
-eqlReplPartnerTestAuthStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 3), EqlReplPartnerTestStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlReplPartnerTestAuthStatus.setStatus('current')
-eqlReplPartnerTestAction = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("start", 1)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlReplPartnerTestAction.setStatus('current')
-eqlReplPartnerTestState = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3, 4))).clone(namedValues=NamedValues(("unknown", 0), ("in-progress", 1), ("complete", 2), ("error", 3), ("restarted", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: eqlReplPartnerTestState.setStatus('current')
-eqlReplPartnerTestMajorVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 6), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlReplPartnerTestMajorVersion.setStatus('current')
-eqlReplPartnerTestMinorVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 7), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlReplPartnerTestMinorVersion.setStatus('current')
-eqlReplPartnerTestMaintVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 8), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlReplPartnerTestMaintVersion.setStatus('current')
-eqlReplPartnerTestDelegatedSpace = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 9), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlReplPartnerTestDelegatedSpace.setStatus('current')
-eqlReplPartnerTestDelegatedSpaceUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 10), Counter64()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlReplPartnerTestDelegatedSpaceUsed.setStatus('current')
-eqlReplPartnerTestTimestamp = MibTableColumn((1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: eqlReplPartnerTestTimestamp.setStatus('current')
-mibBuilder.exportSymbols("EQLREPLPARTNER-MIB", eqlReplPartnerTestTimestamp=eqlReplPartnerTestTimestamp, eqlReplPartnerTestState=eqlReplPartnerTestState, eqlReplPartnerTestAuthStatus=eqlReplPartnerTestAuthStatus, eqlReplPartnerTestDelegatedSpaceUsed=eqlReplPartnerTestDelegatedSpaceUsed, eqlReplPartnerObjects=eqlReplPartnerObjects, eqlReplPartnerTestAction=eqlReplPartnerTestAction, PYSNMP_MODULE_ID=eqlReplPartnerModule, eqlReplPartnerModule=eqlReplPartnerModule, eqlReplPartnerTestEntry=eqlReplPartnerTestEntry, eqlReplPartnerTestMaintVersion=eqlReplPartnerTestMaintVersion, eqlReplPartnerTestMinorVersion=eqlReplPartnerTestMinorVersion, eqlReplPartnerTestTable=eqlReplPartnerTestTable, eqlReplPartnerTestIPAddrStatus=eqlReplPartnerTestIPAddrStatus, eqlReplPartnerTestMajorVersion=eqlReplPartnerTestMajorVersion, eqlReplPartnerTestDelegatedSpace=eqlReplPartnerTestDelegatedSpace, EqlReplPartnerTestStatus=EqlReplPartnerTestStatus, eqlReplPartnerTestRowStatus=eqlReplPartnerTestRowStatus)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(SiteIndex,
+ eqliscsiVolumeReplSiteIndex) = mibBuilder.importSymbols(
+    "EQLVOLUME-MIB",
+    "SiteIndex",
+    "eqliscsiVolumeReplSiteIndex")
+
+(equalLogic,) = mibBuilder.importSymbols(
+    "EQUALLOGIC-SMI",
+    "equalLogic")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+eqlReplPartnerModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12740, 26)
+)
+if mibBuilder.loadTexts:
+    eqlReplPartnerModule.setRevisions(
+        ("2013-03-28 00:00",)
+    )
+
+
+# Types definitions
+
+
+
+class EqlReplPartnerTestStatus(Integer32):
+    """Custom type EqlReplPartnerTestStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("valid", 1),
+          ("invalid", 2),
+          ("remote-partner-not-configured", 3))
+    )
+
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_EqlReplPartnerObjects_ObjectIdentity = ObjectIdentity
+eqlReplPartnerObjects = _EqlReplPartnerObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1)
+)
+_EqlReplPartnerTestTable_Object = MibTable
+eqlReplPartnerTestTable = _EqlReplPartnerTestTable_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1)
+)
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestTable.setStatus("current")
+_EqlReplPartnerTestEntry_Object = MibTableRow
+eqlReplPartnerTestEntry = _EqlReplPartnerTestEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1)
+)
+eqlReplPartnerTestEntry.setIndexNames(
+    (0, "EQLVOLUME-MIB", "eqliscsiVolumeReplSiteIndex"),
+)
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestEntry.setStatus("current")
+_EqlReplPartnerTestRowStatus_Type = RowStatus
+_EqlReplPartnerTestRowStatus_Object = MibTableColumn
+eqlReplPartnerTestRowStatus = _EqlReplPartnerTestRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 1),
+    _EqlReplPartnerTestRowStatus_Type()
+)
+eqlReplPartnerTestRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestRowStatus.setStatus("current")
+_EqlReplPartnerTestIPAddrStatus_Type = EqlReplPartnerTestStatus
+_EqlReplPartnerTestIPAddrStatus_Object = MibTableColumn
+eqlReplPartnerTestIPAddrStatus = _EqlReplPartnerTestIPAddrStatus_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 2),
+    _EqlReplPartnerTestIPAddrStatus_Type()
+)
+eqlReplPartnerTestIPAddrStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestIPAddrStatus.setStatus("current")
+_EqlReplPartnerTestAuthStatus_Type = EqlReplPartnerTestStatus
+_EqlReplPartnerTestAuthStatus_Object = MibTableColumn
+eqlReplPartnerTestAuthStatus = _EqlReplPartnerTestAuthStatus_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 3),
+    _EqlReplPartnerTestAuthStatus_Type()
+)
+eqlReplPartnerTestAuthStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestAuthStatus.setStatus("current")
+
+
+class _EqlReplPartnerTestAction_Type(Integer32):
+    """Custom type eqlReplPartnerTestAction based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("start", 1))
+    )
+
+
+_EqlReplPartnerTestAction_Type.__name__ = "Integer32"
+_EqlReplPartnerTestAction_Object = MibTableColumn
+eqlReplPartnerTestAction = _EqlReplPartnerTestAction_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 4),
+    _EqlReplPartnerTestAction_Type()
+)
+eqlReplPartnerTestAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestAction.setStatus("current")
+
+
+class _EqlReplPartnerTestState_Type(Integer32):
+    """Custom type eqlReplPartnerTestState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 0),
+          ("in-progress", 1),
+          ("complete", 2),
+          ("error", 3),
+          ("restarted", 4))
+    )
+
+
+_EqlReplPartnerTestState_Type.__name__ = "Integer32"
+_EqlReplPartnerTestState_Object = MibTableColumn
+eqlReplPartnerTestState = _EqlReplPartnerTestState_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 5),
+    _EqlReplPartnerTestState_Type()
+)
+eqlReplPartnerTestState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestState.setStatus("current")
+
+
+class _EqlReplPartnerTestMajorVersion_Type(Integer32):
+    """Custom type eqlReplPartnerTestMajorVersion based on Integer32"""
+    defaultValue = 0
+
+
+_EqlReplPartnerTestMajorVersion_Type.__name__ = "Integer32"
+_EqlReplPartnerTestMajorVersion_Object = MibTableColumn
+eqlReplPartnerTestMajorVersion = _EqlReplPartnerTestMajorVersion_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 6),
+    _EqlReplPartnerTestMajorVersion_Type()
+)
+eqlReplPartnerTestMajorVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestMajorVersion.setStatus("current")
+
+
+class _EqlReplPartnerTestMinorVersion_Type(Integer32):
+    """Custom type eqlReplPartnerTestMinorVersion based on Integer32"""
+    defaultValue = 0
+
+
+_EqlReplPartnerTestMinorVersion_Type.__name__ = "Integer32"
+_EqlReplPartnerTestMinorVersion_Object = MibTableColumn
+eqlReplPartnerTestMinorVersion = _EqlReplPartnerTestMinorVersion_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 7),
+    _EqlReplPartnerTestMinorVersion_Type()
+)
+eqlReplPartnerTestMinorVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestMinorVersion.setStatus("current")
+
+
+class _EqlReplPartnerTestMaintVersion_Type(Integer32):
+    """Custom type eqlReplPartnerTestMaintVersion based on Integer32"""
+    defaultValue = 0
+
+
+_EqlReplPartnerTestMaintVersion_Type.__name__ = "Integer32"
+_EqlReplPartnerTestMaintVersion_Object = MibTableColumn
+eqlReplPartnerTestMaintVersion = _EqlReplPartnerTestMaintVersion_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 8),
+    _EqlReplPartnerTestMaintVersion_Type()
+)
+eqlReplPartnerTestMaintVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestMaintVersion.setStatus("current")
+_EqlReplPartnerTestDelegatedSpace_Type = Counter64
+_EqlReplPartnerTestDelegatedSpace_Object = MibTableColumn
+eqlReplPartnerTestDelegatedSpace = _EqlReplPartnerTestDelegatedSpace_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 9),
+    _EqlReplPartnerTestDelegatedSpace_Type()
+)
+eqlReplPartnerTestDelegatedSpace.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestDelegatedSpace.setStatus("current")
+_EqlReplPartnerTestDelegatedSpaceUsed_Type = Counter64
+_EqlReplPartnerTestDelegatedSpaceUsed_Object = MibTableColumn
+eqlReplPartnerTestDelegatedSpaceUsed = _EqlReplPartnerTestDelegatedSpaceUsed_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 10),
+    _EqlReplPartnerTestDelegatedSpaceUsed_Type()
+)
+eqlReplPartnerTestDelegatedSpaceUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestDelegatedSpaceUsed.setStatus("current")
+_EqlReplPartnerTestTimestamp_Type = Counter32
+_EqlReplPartnerTestTimestamp_Object = MibTableColumn
+eqlReplPartnerTestTimestamp = _EqlReplPartnerTestTimestamp_Object(
+    (1, 3, 6, 1, 4, 1, 12740, 26, 1, 1, 1, 11),
+    _EqlReplPartnerTestTimestamp_Type()
+)
+eqlReplPartnerTestTimestamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    eqlReplPartnerTestTimestamp.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EQLREPLPARTNER-MIB",
+    **{"EqlReplPartnerTestStatus": EqlReplPartnerTestStatus,
+       "eqlReplPartnerModule": eqlReplPartnerModule,
+       "eqlReplPartnerObjects": eqlReplPartnerObjects,
+       "eqlReplPartnerTestTable": eqlReplPartnerTestTable,
+       "eqlReplPartnerTestEntry": eqlReplPartnerTestEntry,
+       "eqlReplPartnerTestRowStatus": eqlReplPartnerTestRowStatus,
+       "eqlReplPartnerTestIPAddrStatus": eqlReplPartnerTestIPAddrStatus,
+       "eqlReplPartnerTestAuthStatus": eqlReplPartnerTestAuthStatus,
+       "eqlReplPartnerTestAction": eqlReplPartnerTestAction,
+       "eqlReplPartnerTestState": eqlReplPartnerTestState,
+       "eqlReplPartnerTestMajorVersion": eqlReplPartnerTestMajorVersion,
+       "eqlReplPartnerTestMinorVersion": eqlReplPartnerTestMinorVersion,
+       "eqlReplPartnerTestMaintVersion": eqlReplPartnerTestMaintVersion,
+       "eqlReplPartnerTestDelegatedSpace": eqlReplPartnerTestDelegatedSpace,
+       "eqlReplPartnerTestDelegatedSpaceUsed": eqlReplPartnerTestDelegatedSpaceUsed,
+       "eqlReplPartnerTestTimestamp": eqlReplPartnerTestTimestamp}
+)

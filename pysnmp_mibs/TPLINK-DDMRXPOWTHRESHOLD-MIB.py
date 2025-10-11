@@ -1,36 +1,285 @@
+# SNMP MIB module (TPLINK-DDMRXPOWTHRESHOLD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPLINK-DDMRXPOWTHRESHOLD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/tplink/TPLINK-DDMRXPOWTHRESHOLD-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:29 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/tplink/TPLINK-DDMRXPOWTHRESHOLD-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:55:13 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-tplinkDdmManageMIBObjects, = mibBuilder.importSymbols("TPLINK-DDMMANAGE-MIB", "tplinkDdmManageMIBObjects")
-ddmRxPowThreshold = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6))
-ddmRxPowThreshold.setRevisions(('2009-08-27 00:00',))
-if mibBuilder.loadTexts: ddmRxPowThreshold.setLastUpdated('200908270000Z')
-if mibBuilder.loadTexts: ddmRxPowThreshold.setOrganization('TPLINK')
-ddmRxPowThresholdTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1), )
-if mibBuilder.loadTexts: ddmRxPowThresholdTable.setStatus('current')
-ddmRxPowThresholdEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ddmRxPowThresholdEntry.setStatus('current')
-ddmRxPowThresholdPort = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddmRxPowThresholdPort.setStatus('current')
-ddmRxPowThresholdHighAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ddmRxPowThresholdHighAlarm.setStatus('current')
-ddmRxPowThresholdLowAlarm = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ddmRxPowThresholdLowAlarm.setStatus('current')
-ddmRxPowThresholdHighWarn = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 4), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ddmRxPowThresholdHighWarn.setStatus('current')
-ddmRxPowThresholdLowWarn = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 5), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ddmRxPowThresholdLowWarn.setStatus('current')
-ddmRxPowThresholdPortLAG = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 6), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 30))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ddmRxPowThresholdPortLAG.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-DDMRXPOWTHRESHOLD-MIB", ddmRxPowThreshold=ddmRxPowThreshold, ddmRxPowThresholdHighAlarm=ddmRxPowThresholdHighAlarm, ddmRxPowThresholdLowAlarm=ddmRxPowThresholdLowAlarm, ddmRxPowThresholdPort=ddmRxPowThresholdPort, ddmRxPowThresholdEntry=ddmRxPowThresholdEntry, ddmRxPowThresholdPortLAG=ddmRxPowThresholdPortLAG, PYSNMP_MODULE_ID=ddmRxPowThreshold, ddmRxPowThresholdHighWarn=ddmRxPowThresholdHighWarn, ddmRxPowThresholdTable=ddmRxPowThresholdTable, ddmRxPowThresholdLowWarn=ddmRxPowThresholdLowWarn)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(tplinkDdmManageMIBObjects,) = mibBuilder.importSymbols(
+    "TPLINK-DDMMANAGE-MIB",
+    "tplinkDdmManageMIBObjects")
+
+
+# MODULE-IDENTITY
+
+ddmRxPowThreshold = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6)
+)
+if mibBuilder.loadTexts:
+    ddmRxPowThreshold.setRevisions(
+        ("2009-08-27 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_DdmRxPowThresholdTable_Object = MibTable
+ddmRxPowThresholdTable = _DdmRxPowThresholdTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1)
+)
+if mibBuilder.loadTexts:
+    ddmRxPowThresholdTable.setStatus("current")
+_DdmRxPowThresholdEntry_Object = MibTableRow
+ddmRxPowThresholdEntry = _DdmRxPowThresholdEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1)
+)
+ddmRxPowThresholdEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    ddmRxPowThresholdEntry.setStatus("current")
+
+
+class _DdmRxPowThresholdPort_Type(DisplayString):
+    """Custom type ddmRxPowThresholdPort based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_DdmRxPowThresholdPort_Type.__name__ = "DisplayString"
+_DdmRxPowThresholdPort_Object = MibTableColumn
+ddmRxPowThresholdPort = _DdmRxPowThresholdPort_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 1),
+    _DdmRxPowThresholdPort_Type()
+)
+ddmRxPowThresholdPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ddmRxPowThresholdPort.setStatus("current")
+
+
+class _DdmRxPowThresholdHighAlarm_Type(OctetString):
+    """Custom type ddmRxPowThresholdHighAlarm based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_DdmRxPowThresholdHighAlarm_Type.__name__ = "OctetString"
+_DdmRxPowThresholdHighAlarm_Object = MibTableColumn
+ddmRxPowThresholdHighAlarm = _DdmRxPowThresholdHighAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 2),
+    _DdmRxPowThresholdHighAlarm_Type()
+)
+ddmRxPowThresholdHighAlarm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ddmRxPowThresholdHighAlarm.setStatus("current")
+
+
+class _DdmRxPowThresholdLowAlarm_Type(OctetString):
+    """Custom type ddmRxPowThresholdLowAlarm based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_DdmRxPowThresholdLowAlarm_Type.__name__ = "OctetString"
+_DdmRxPowThresholdLowAlarm_Object = MibTableColumn
+ddmRxPowThresholdLowAlarm = _DdmRxPowThresholdLowAlarm_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 3),
+    _DdmRxPowThresholdLowAlarm_Type()
+)
+ddmRxPowThresholdLowAlarm.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ddmRxPowThresholdLowAlarm.setStatus("current")
+
+
+class _DdmRxPowThresholdHighWarn_Type(OctetString):
+    """Custom type ddmRxPowThresholdHighWarn based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_DdmRxPowThresholdHighWarn_Type.__name__ = "OctetString"
+_DdmRxPowThresholdHighWarn_Object = MibTableColumn
+ddmRxPowThresholdHighWarn = _DdmRxPowThresholdHighWarn_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 4),
+    _DdmRxPowThresholdHighWarn_Type()
+)
+ddmRxPowThresholdHighWarn.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ddmRxPowThresholdHighWarn.setStatus("current")
+
+
+class _DdmRxPowThresholdLowWarn_Type(OctetString):
+    """Custom type ddmRxPowThresholdLowWarn based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_DdmRxPowThresholdLowWarn_Type.__name__ = "OctetString"
+_DdmRxPowThresholdLowWarn_Object = MibTableColumn
+ddmRxPowThresholdLowWarn = _DdmRxPowThresholdLowWarn_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 5),
+    _DdmRxPowThresholdLowWarn_Type()
+)
+ddmRxPowThresholdLowWarn.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ddmRxPowThresholdLowWarn.setStatus("current")
+
+
+class _DdmRxPowThresholdPortLAG_Type(OctetString):
+    """Custom type ddmRxPowThresholdPortLAG based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 30),
+    )
+
+
+_DdmRxPowThresholdPortLAG_Type.__name__ = "OctetString"
+_DdmRxPowThresholdPortLAG_Object = MibTableColumn
+ddmRxPowThresholdPortLAG = _DdmRxPowThresholdPortLAG_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 96, 1, 6, 1, 1, 6),
+    _DdmRxPowThresholdPortLAG_Type()
+)
+ddmRxPowThresholdPortLAG.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ddmRxPowThresholdPortLAG.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPLINK-DDMRXPOWTHRESHOLD-MIB",
+    **{"ddmRxPowThreshold": ddmRxPowThreshold,
+       "ddmRxPowThresholdTable": ddmRxPowThresholdTable,
+       "ddmRxPowThresholdEntry": ddmRxPowThresholdEntry,
+       "ddmRxPowThresholdPort": ddmRxPowThresholdPort,
+       "ddmRxPowThresholdHighAlarm": ddmRxPowThresholdHighAlarm,
+       "ddmRxPowThresholdLowAlarm": ddmRxPowThresholdLowAlarm,
+       "ddmRxPowThresholdHighWarn": ddmRxPowThresholdHighWarn,
+       "ddmRxPowThresholdLowWarn": ddmRxPowThresholdLowWarn,
+       "ddmRxPowThresholdPortLAG": ddmRxPowThresholdPortLAG}
+)

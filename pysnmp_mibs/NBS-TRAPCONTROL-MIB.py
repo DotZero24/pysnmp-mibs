@@ -1,51 +1,332 @@
+# SNMP MIB module (NBS-TRAPCONTROL-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module NBS-TRAPCONTROL-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mrv/NBS-TRAPCONTROL-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:16:14 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/mrv/NBS-TRAPCONTROL-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:03:48 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-nbs, = mibBuilder.importSymbols("NBS-MIB", "nbs")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-nbsTrapControlMib = ModuleIdentity((1, 3, 6, 1, 4, 1, 629, 209))
-if mibBuilder.loadTexts: nbsTrapControlMib.setLastUpdated('201209260000Z')
-if mibBuilder.loadTexts: nbsTrapControlMib.setOrganization('NBS')
-nbsTrapListGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 209, 1))
-if mibBuilder.loadTexts: nbsTrapListGrp.setStatus('current')
-nbsTrapIfGrp = ObjectIdentity((1, 3, 6, 1, 4, 1, 629, 209, 2))
-if mibBuilder.loadTexts: nbsTrapIfGrp.setStatus('current')
-nbsTrapListTableSize = MibScalar((1, 3, 6, 1, 4, 1, 629, 209, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsTrapListTableSize.setStatus('current')
-nbsTrapListTable = MibTable((1, 3, 6, 1, 4, 1, 629, 209, 1, 2), )
-if mibBuilder.loadTexts: nbsTrapListTable.setStatus('current')
-nbsTrapListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1), ).setIndexNames((0, "NBS-TRAPCONTROL-MIB", "nbsTrapListIndex"))
-if mibBuilder.loadTexts: nbsTrapListEntry.setStatus('current')
-nbsTrapListIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1, 1), Unsigned32())
-if mibBuilder.loadTexts: nbsTrapListIndex.setStatus('current')
-nbsTrapListTrapMib = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsTrapListTrapMib.setStatus('current')
-nbsTrapListTrapName = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 50))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsTrapListTrapName.setStatus('current')
-nbsTrapListTrapDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1, 4), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsTrapListTrapDescription.setStatus('current')
-nbsTrapListTrapOID = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1, 5), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 100))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsTrapListTrapOID.setStatus('current')
-nbsTrapIfTableSize = MibScalar((1, 3, 6, 1, 4, 1, 629, 209, 2, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsTrapIfTableSize.setStatus('current')
-nbsTrapIfTable = MibTable((1, 3, 6, 1, 4, 1, 629, 209, 2, 2), )
-if mibBuilder.loadTexts: nbsTrapIfTable.setStatus('current')
-nbsTrapIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 629, 209, 2, 2, 1), ).setIndexNames((0, "NBS-TRAPCONTROL-MIB", "nbsTrapIfIndex"))
-if mibBuilder.loadTexts: nbsTrapIfEntry.setStatus('current')
-nbsTrapIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 209, 2, 2, 1, 1), InterfaceIndex())
-if mibBuilder.loadTexts: nbsTrapIfIndex.setStatus('current')
-nbsTrapIfTrapsCaps = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 209, 2, 2, 1, 2), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: nbsTrapIfTrapsCaps.setStatus('current')
-nbsTrapIfTrapsSelect = MibTableColumn((1, 3, 6, 1, 4, 1, 629, 209, 2, 2, 1, 3), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: nbsTrapIfTrapsSelect.setStatus('current')
-mibBuilder.exportSymbols("NBS-TRAPCONTROL-MIB", nbsTrapListTableSize=nbsTrapListTableSize, nbsTrapIfTrapsSelect=nbsTrapIfTrapsSelect, nbsTrapListEntry=nbsTrapListEntry, nbsTrapListIndex=nbsTrapListIndex, nbsTrapIfTableSize=nbsTrapIfTableSize, nbsTrapIfTable=nbsTrapIfTable, nbsTrapIfTrapsCaps=nbsTrapIfTrapsCaps, nbsTrapListTrapMib=nbsTrapListTrapMib, nbsTrapListTrapName=nbsTrapListTrapName, PYSNMP_MODULE_ID=nbsTrapControlMib, nbsTrapListTable=nbsTrapListTable, nbsTrapIfIndex=nbsTrapIfIndex, nbsTrapControlMib=nbsTrapControlMib, nbsTrapListGrp=nbsTrapListGrp, nbsTrapIfGrp=nbsTrapIfGrp, nbsTrapIfEntry=nbsTrapIfEntry, nbsTrapListTrapOID=nbsTrapListTrapOID, nbsTrapListTrapDescription=nbsTrapListTrapDescription)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(nbs,) = mibBuilder.importSymbols(
+    "NBS-MIB",
+    "nbs")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+nbsTrapControlMib = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 209)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_NbsTrapListGrp_ObjectIdentity = ObjectIdentity
+nbsTrapListGrp = _NbsTrapListGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 209, 1)
+)
+if mibBuilder.loadTexts:
+    nbsTrapListGrp.setStatus("current")
+_NbsTrapListTableSize_Type = Unsigned32
+_NbsTrapListTableSize_Object = MibScalar
+nbsTrapListTableSize = _NbsTrapListTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 1, 1),
+    _NbsTrapListTableSize_Type()
+)
+nbsTrapListTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsTrapListTableSize.setStatus("current")
+_NbsTrapListTable_Object = MibTable
+nbsTrapListTable = _NbsTrapListTable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 1, 2)
+)
+if mibBuilder.loadTexts:
+    nbsTrapListTable.setStatus("current")
+_NbsTrapListEntry_Object = MibTableRow
+nbsTrapListEntry = _NbsTrapListEntry_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1)
+)
+nbsTrapListEntry.setIndexNames(
+    (0, "NBS-TRAPCONTROL-MIB", "nbsTrapListIndex"),
+)
+if mibBuilder.loadTexts:
+    nbsTrapListEntry.setStatus("current")
+_NbsTrapListIndex_Type = Unsigned32
+_NbsTrapListIndex_Object = MibTableColumn
+nbsTrapListIndex = _NbsTrapListIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1, 1),
+    _NbsTrapListIndex_Type()
+)
+nbsTrapListIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbsTrapListIndex.setStatus("current")
+
+
+class _NbsTrapListTrapMib_Type(DisplayString):
+    """Custom type nbsTrapListTrapMib based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_NbsTrapListTrapMib_Type.__name__ = "DisplayString"
+_NbsTrapListTrapMib_Object = MibTableColumn
+nbsTrapListTrapMib = _NbsTrapListTrapMib_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1, 2),
+    _NbsTrapListTrapMib_Type()
+)
+nbsTrapListTrapMib.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsTrapListTrapMib.setStatus("current")
+
+
+class _NbsTrapListTrapName_Type(DisplayString):
+    """Custom type nbsTrapListTrapName based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 50),
+    )
+
+
+_NbsTrapListTrapName_Type.__name__ = "DisplayString"
+_NbsTrapListTrapName_Object = MibTableColumn
+nbsTrapListTrapName = _NbsTrapListTrapName_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1, 3),
+    _NbsTrapListTrapName_Type()
+)
+nbsTrapListTrapName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsTrapListTrapName.setStatus("current")
+
+
+class _NbsTrapListTrapDescription_Type(DisplayString):
+    """Custom type nbsTrapListTrapDescription based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 100),
+    )
+
+
+_NbsTrapListTrapDescription_Type.__name__ = "DisplayString"
+_NbsTrapListTrapDescription_Object = MibTableColumn
+nbsTrapListTrapDescription = _NbsTrapListTrapDescription_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1, 4),
+    _NbsTrapListTrapDescription_Type()
+)
+nbsTrapListTrapDescription.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsTrapListTrapDescription.setStatus("current")
+
+
+class _NbsTrapListTrapOID_Type(DisplayString):
+    """Custom type nbsTrapListTrapOID based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 100),
+    )
+
+
+_NbsTrapListTrapOID_Type.__name__ = "DisplayString"
+_NbsTrapListTrapOID_Object = MibTableColumn
+nbsTrapListTrapOID = _NbsTrapListTrapOID_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 1, 2, 1, 5),
+    _NbsTrapListTrapOID_Type()
+)
+nbsTrapListTrapOID.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsTrapListTrapOID.setStatus("current")
+_NbsTrapIfGrp_ObjectIdentity = ObjectIdentity
+nbsTrapIfGrp = _NbsTrapIfGrp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 629, 209, 2)
+)
+if mibBuilder.loadTexts:
+    nbsTrapIfGrp.setStatus("current")
+_NbsTrapIfTableSize_Type = Unsigned32
+_NbsTrapIfTableSize_Object = MibScalar
+nbsTrapIfTableSize = _NbsTrapIfTableSize_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 2, 1),
+    _NbsTrapIfTableSize_Type()
+)
+nbsTrapIfTableSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsTrapIfTableSize.setStatus("current")
+_NbsTrapIfTable_Object = MibTable
+nbsTrapIfTable = _NbsTrapIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 2, 2)
+)
+if mibBuilder.loadTexts:
+    nbsTrapIfTable.setStatus("current")
+_NbsTrapIfEntry_Object = MibTableRow
+nbsTrapIfEntry = _NbsTrapIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 2, 2, 1)
+)
+nbsTrapIfEntry.setIndexNames(
+    (0, "NBS-TRAPCONTROL-MIB", "nbsTrapIfIndex"),
+)
+if mibBuilder.loadTexts:
+    nbsTrapIfEntry.setStatus("current")
+_NbsTrapIfIndex_Type = InterfaceIndex
+_NbsTrapIfIndex_Object = MibTableColumn
+nbsTrapIfIndex = _NbsTrapIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 2, 2, 1, 1),
+    _NbsTrapIfIndex_Type()
+)
+nbsTrapIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    nbsTrapIfIndex.setStatus("current")
+_NbsTrapIfTrapsCaps_Type = OctetString
+_NbsTrapIfTrapsCaps_Object = MibTableColumn
+nbsTrapIfTrapsCaps = _NbsTrapIfTrapsCaps_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 2, 2, 1, 2),
+    _NbsTrapIfTrapsCaps_Type()
+)
+nbsTrapIfTrapsCaps.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    nbsTrapIfTrapsCaps.setStatus("current")
+_NbsTrapIfTrapsSelect_Type = OctetString
+_NbsTrapIfTrapsSelect_Object = MibTableColumn
+nbsTrapIfTrapsSelect = _NbsTrapIfTrapsSelect_Object(
+    (1, 3, 6, 1, 4, 1, 629, 209, 2, 2, 1, 3),
+    _NbsTrapIfTrapsSelect_Type()
+)
+nbsTrapIfTrapsSelect.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    nbsTrapIfTrapsSelect.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NBS-TRAPCONTROL-MIB",
+    **{"nbsTrapControlMib": nbsTrapControlMib,
+       "nbsTrapListGrp": nbsTrapListGrp,
+       "nbsTrapListTableSize": nbsTrapListTableSize,
+       "nbsTrapListTable": nbsTrapListTable,
+       "nbsTrapListEntry": nbsTrapListEntry,
+       "nbsTrapListIndex": nbsTrapListIndex,
+       "nbsTrapListTrapMib": nbsTrapListTrapMib,
+       "nbsTrapListTrapName": nbsTrapListTrapName,
+       "nbsTrapListTrapDescription": nbsTrapListTrapDescription,
+       "nbsTrapListTrapOID": nbsTrapListTrapOID,
+       "nbsTrapIfGrp": nbsTrapIfGrp,
+       "nbsTrapIfTableSize": nbsTrapIfTableSize,
+       "nbsTrapIfTable": nbsTrapIfTable,
+       "nbsTrapIfEntry": nbsTrapIfEntry,
+       "nbsTrapIfIndex": nbsTrapIfIndex,
+       "nbsTrapIfTrapsCaps": nbsTrapIfTrapsCaps,
+       "nbsTrapIfTrapsSelect": nbsTrapIfTrapsSelect}
+)

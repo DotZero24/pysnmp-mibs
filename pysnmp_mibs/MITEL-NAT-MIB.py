@@ -1,61 +1,417 @@
+# SNMP MIB module (MITEL-NAT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module MITEL-NAT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/mitel/MITEL-NAT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:05:02 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/mitel/MITEL-NAT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 22:04:44 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-mitelIpGrpNatGroup = ModuleIdentity((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2))
-mitelIpGrpNatGroup.setRevisions(('2003-03-24 10:01', '1999-03-01 00:00',))
-if mibBuilder.loadTexts: mitelIpGrpNatGroup.setLastUpdated('200303241001Z')
-if mibBuilder.loadTexts: mitelIpGrpNatGroup.setOrganization('MITEL Corporation')
-mitel = MibIdentifier((1, 3, 6, 1, 4, 1, 1027))
-mitelProprietary = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 4))
-mitelPropIpNetworking = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 4, 8))
-mitelIpNetRouter = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1))
-mitelRouterIpGroup = MibIdentifier((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1))
-mitelNatGrpIfTable = MibTable((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1), )
-if mibBuilder.loadTexts: mitelNatGrpIfTable.setStatus('current')
-mitelNatGrpIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1), ).setIndexNames((0, "MITEL-NAT-MIB", "mitelNatGrpIfAddr"))
-if mibBuilder.loadTexts: mitelNatGrpIfEntry.setStatus('current')
-mitelNatGrpIfAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mitelNatGrpIfAddr.setStatus('current')
-mitelNatGrpIfEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone(2)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mitelNatGrpIfEnable.setStatus('current')
-mitelNatGrpIfUdpLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 3), Integer32().clone(900)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mitelNatGrpIfUdpLifetime.setStatus('current')
-mitelNatGrpIfTcpLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 4), Integer32().clone(900)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mitelNatGrpIfTcpLifetime.setStatus('current')
-mitelNatGrpIfTcpFinLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 5), Integer32().clone(120)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mitelNatGrpIfTcpFinLifetime.setStatus('current')
-mitelNatGrpIfTcpRstLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 6), Integer32().clone(120)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mitelNatGrpIfTcpRstLifetime.setStatus('current')
-mitelNatGrpIfPingLifetime = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 7), Integer32().clone(120)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mitelNatGrpIfPingLifetime.setStatus('current')
-mitelNatGrpIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mitelNatGrpIfStatus.setStatus('current')
-mitelNatGrpIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 9), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mitelNatGrpIfIndex.setStatus('current')
-mitelNatGrpRedirTable = MibTable((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2), )
-if mibBuilder.loadTexts: mitelNatGrpRedirTable.setStatus('current')
-mitelNatGrpRedirEntry = MibTableRow((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1), ).setIndexNames((0, "MITEL-NAT-MIB", "mitelNatGrpRedirOldAddr"), (0, "MITEL-NAT-MIB", "mitelNatGrpRedirProto"), (0, "MITEL-NAT-MIB", "mitelNatGrpRedirOldPort"))
-if mibBuilder.loadTexts: mitelNatGrpRedirEntry.setStatus('current')
-mitelNatGrpRedirOldAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mitelNatGrpRedirOldAddr.setStatus('current')
-mitelNatGrpRedirProto = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mitelNatGrpRedirProto.setStatus('current')
-mitelNatGrpRedirOldPort = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: mitelNatGrpRedirOldPort.setStatus('current')
-mitelNatGrpRedirNewAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mitelNatGrpRedirNewAddr.setStatus('current')
-mitelNatGrpRedirNewPort = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: mitelNatGrpRedirNewPort.setStatus('current')
-mitelNatGrpRedirStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: mitelNatGrpRedirStatus.setStatus('current')
-mibBuilder.exportSymbols("MITEL-NAT-MIB", mitelNatGrpIfAddr=mitelNatGrpIfAddr, mitelNatGrpIfEnable=mitelNatGrpIfEnable, mitelNatGrpRedirProto=mitelNatGrpRedirProto, mitelNatGrpIfUdpLifetime=mitelNatGrpIfUdpLifetime, mitelNatGrpIfIndex=mitelNatGrpIfIndex, mitelNatGrpRedirOldPort=mitelNatGrpRedirOldPort, mitel=mitel, mitelNatGrpIfTcpRstLifetime=mitelNatGrpIfTcpRstLifetime, mitelNatGrpRedirNewPort=mitelNatGrpRedirNewPort, mitelPropIpNetworking=mitelPropIpNetworking, mitelNatGrpIfEntry=mitelNatGrpIfEntry, mitelNatGrpIfStatus=mitelNatGrpIfStatus, mitelRouterIpGroup=mitelRouterIpGroup, mitelNatGrpIfPingLifetime=mitelNatGrpIfPingLifetime, mitelNatGrpIfTcpLifetime=mitelNatGrpIfTcpLifetime, mitelNatGrpRedirStatus=mitelNatGrpRedirStatus, mitelNatGrpRedirNewAddr=mitelNatGrpRedirNewAddr, mitelNatGrpRedirOldAddr=mitelNatGrpRedirOldAddr, mitelProprietary=mitelProprietary, mitelNatGrpIfTcpFinLifetime=mitelNatGrpIfTcpFinLifetime, PYSNMP_MODULE_ID=mitelIpGrpNatGroup, mitelNatGrpRedirTable=mitelNatGrpRedirTable, mitelIpNetRouter=mitelIpNetRouter, mitelNatGrpIfTable=mitelNatGrpIfTable, mitelNatGrpRedirEntry=mitelNatGrpRedirEntry, mitelIpGrpNatGroup=mitelIpGrpNatGroup)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+mitelIpGrpNatGroup = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    mitelIpGrpNatGroup.setRevisions(
+        ("2003-03-24 10:01",
+         "1999-03-01 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Mitel_ObjectIdentity = ObjectIdentity
+mitel = _Mitel_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1027)
+)
+_MitelProprietary_ObjectIdentity = ObjectIdentity
+mitelProprietary = _MitelProprietary_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1027, 4)
+)
+_MitelPropIpNetworking_ObjectIdentity = ObjectIdentity
+mitelPropIpNetworking = _MitelPropIpNetworking_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8)
+)
+_MitelIpNetRouter_ObjectIdentity = ObjectIdentity
+mitelIpNetRouter = _MitelIpNetRouter_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1)
+)
+_MitelRouterIpGroup_ObjectIdentity = ObjectIdentity
+mitelRouterIpGroup = _MitelRouterIpGroup_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1)
+)
+_MitelNatGrpIfTable_Object = MibTable
+mitelNatGrpIfTable = _MitelNatGrpIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    mitelNatGrpIfTable.setStatus("current")
+_MitelNatGrpIfEntry_Object = MibTableRow
+mitelNatGrpIfEntry = _MitelNatGrpIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1)
+)
+mitelNatGrpIfEntry.setIndexNames(
+    (0, "MITEL-NAT-MIB", "mitelNatGrpIfAddr"),
+)
+if mibBuilder.loadTexts:
+    mitelNatGrpIfEntry.setStatus("current")
+_MitelNatGrpIfAddr_Type = IpAddress
+_MitelNatGrpIfAddr_Object = MibTableColumn
+mitelNatGrpIfAddr = _MitelNatGrpIfAddr_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 1),
+    _MitelNatGrpIfAddr_Type()
+)
+mitelNatGrpIfAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mitelNatGrpIfAddr.setStatus("current")
+
+
+class _MitelNatGrpIfEnable_Type(Integer32):
+    """Custom type mitelNatGrpIfEnable based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_MitelNatGrpIfEnable_Type.__name__ = "Integer32"
+_MitelNatGrpIfEnable_Object = MibTableColumn
+mitelNatGrpIfEnable = _MitelNatGrpIfEnable_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 2),
+    _MitelNatGrpIfEnable_Type()
+)
+mitelNatGrpIfEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mitelNatGrpIfEnable.setStatus("current")
+
+
+class _MitelNatGrpIfUdpLifetime_Type(Integer32):
+    """Custom type mitelNatGrpIfUdpLifetime based on Integer32"""
+    defaultValue = 900
+
+
+_MitelNatGrpIfUdpLifetime_Type.__name__ = "Integer32"
+_MitelNatGrpIfUdpLifetime_Object = MibTableColumn
+mitelNatGrpIfUdpLifetime = _MitelNatGrpIfUdpLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 3),
+    _MitelNatGrpIfUdpLifetime_Type()
+)
+mitelNatGrpIfUdpLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mitelNatGrpIfUdpLifetime.setStatus("current")
+
+
+class _MitelNatGrpIfTcpLifetime_Type(Integer32):
+    """Custom type mitelNatGrpIfTcpLifetime based on Integer32"""
+    defaultValue = 900
+
+
+_MitelNatGrpIfTcpLifetime_Type.__name__ = "Integer32"
+_MitelNatGrpIfTcpLifetime_Object = MibTableColumn
+mitelNatGrpIfTcpLifetime = _MitelNatGrpIfTcpLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 4),
+    _MitelNatGrpIfTcpLifetime_Type()
+)
+mitelNatGrpIfTcpLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mitelNatGrpIfTcpLifetime.setStatus("current")
+
+
+class _MitelNatGrpIfTcpFinLifetime_Type(Integer32):
+    """Custom type mitelNatGrpIfTcpFinLifetime based on Integer32"""
+    defaultValue = 120
+
+
+_MitelNatGrpIfTcpFinLifetime_Type.__name__ = "Integer32"
+_MitelNatGrpIfTcpFinLifetime_Object = MibTableColumn
+mitelNatGrpIfTcpFinLifetime = _MitelNatGrpIfTcpFinLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 5),
+    _MitelNatGrpIfTcpFinLifetime_Type()
+)
+mitelNatGrpIfTcpFinLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mitelNatGrpIfTcpFinLifetime.setStatus("current")
+
+
+class _MitelNatGrpIfTcpRstLifetime_Type(Integer32):
+    """Custom type mitelNatGrpIfTcpRstLifetime based on Integer32"""
+    defaultValue = 120
+
+
+_MitelNatGrpIfTcpRstLifetime_Type.__name__ = "Integer32"
+_MitelNatGrpIfTcpRstLifetime_Object = MibTableColumn
+mitelNatGrpIfTcpRstLifetime = _MitelNatGrpIfTcpRstLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 6),
+    _MitelNatGrpIfTcpRstLifetime_Type()
+)
+mitelNatGrpIfTcpRstLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mitelNatGrpIfTcpRstLifetime.setStatus("current")
+
+
+class _MitelNatGrpIfPingLifetime_Type(Integer32):
+    """Custom type mitelNatGrpIfPingLifetime based on Integer32"""
+    defaultValue = 120
+
+
+_MitelNatGrpIfPingLifetime_Type.__name__ = "Integer32"
+_MitelNatGrpIfPingLifetime_Object = MibTableColumn
+mitelNatGrpIfPingLifetime = _MitelNatGrpIfPingLifetime_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 7),
+    _MitelNatGrpIfPingLifetime_Type()
+)
+mitelNatGrpIfPingLifetime.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mitelNatGrpIfPingLifetime.setStatus("current")
+_MitelNatGrpIfStatus_Type = RowStatus
+_MitelNatGrpIfStatus_Object = MibTableColumn
+mitelNatGrpIfStatus = _MitelNatGrpIfStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 8),
+    _MitelNatGrpIfStatus_Type()
+)
+mitelNatGrpIfStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mitelNatGrpIfStatus.setStatus("current")
+_MitelNatGrpIfIndex_Type = Integer32
+_MitelNatGrpIfIndex_Object = MibTableColumn
+mitelNatGrpIfIndex = _MitelNatGrpIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 1, 1, 9),
+    _MitelNatGrpIfIndex_Type()
+)
+mitelNatGrpIfIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mitelNatGrpIfIndex.setStatus("current")
+_MitelNatGrpRedirTable_Object = MibTable
+mitelNatGrpRedirTable = _MitelNatGrpRedirTable_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2)
+)
+if mibBuilder.loadTexts:
+    mitelNatGrpRedirTable.setStatus("current")
+_MitelNatGrpRedirEntry_Object = MibTableRow
+mitelNatGrpRedirEntry = _MitelNatGrpRedirEntry_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1)
+)
+mitelNatGrpRedirEntry.setIndexNames(
+    (0, "MITEL-NAT-MIB", "mitelNatGrpRedirOldAddr"),
+    (0, "MITEL-NAT-MIB", "mitelNatGrpRedirProto"),
+    (0, "MITEL-NAT-MIB", "mitelNatGrpRedirOldPort"),
+)
+if mibBuilder.loadTexts:
+    mitelNatGrpRedirEntry.setStatus("current")
+_MitelNatGrpRedirOldAddr_Type = IpAddress
+_MitelNatGrpRedirOldAddr_Object = MibTableColumn
+mitelNatGrpRedirOldAddr = _MitelNatGrpRedirOldAddr_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 1),
+    _MitelNatGrpRedirOldAddr_Type()
+)
+mitelNatGrpRedirOldAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mitelNatGrpRedirOldAddr.setStatus("current")
+_MitelNatGrpRedirProto_Type = Integer32
+_MitelNatGrpRedirProto_Object = MibTableColumn
+mitelNatGrpRedirProto = _MitelNatGrpRedirProto_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 2),
+    _MitelNatGrpRedirProto_Type()
+)
+mitelNatGrpRedirProto.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mitelNatGrpRedirProto.setStatus("current")
+_MitelNatGrpRedirOldPort_Type = Integer32
+_MitelNatGrpRedirOldPort_Object = MibTableColumn
+mitelNatGrpRedirOldPort = _MitelNatGrpRedirOldPort_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 3),
+    _MitelNatGrpRedirOldPort_Type()
+)
+mitelNatGrpRedirOldPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    mitelNatGrpRedirOldPort.setStatus("current")
+_MitelNatGrpRedirNewAddr_Type = IpAddress
+_MitelNatGrpRedirNewAddr_Object = MibTableColumn
+mitelNatGrpRedirNewAddr = _MitelNatGrpRedirNewAddr_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 4),
+    _MitelNatGrpRedirNewAddr_Type()
+)
+mitelNatGrpRedirNewAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mitelNatGrpRedirNewAddr.setStatus("current")
+
+
+class _MitelNatGrpRedirNewPort_Type(Integer32):
+    """Custom type mitelNatGrpRedirNewPort based on Integer32"""
+    defaultValue = 0
+
+
+_MitelNatGrpRedirNewPort_Type.__name__ = "Integer32"
+_MitelNatGrpRedirNewPort_Object = MibTableColumn
+mitelNatGrpRedirNewPort = _MitelNatGrpRedirNewPort_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 5),
+    _MitelNatGrpRedirNewPort_Type()
+)
+mitelNatGrpRedirNewPort.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    mitelNatGrpRedirNewPort.setStatus("current")
+_MitelNatGrpRedirStatus_Type = RowStatus
+_MitelNatGrpRedirStatus_Object = MibTableColumn
+mitelNatGrpRedirStatus = _MitelNatGrpRedirStatus_Object(
+    (1, 3, 6, 1, 4, 1, 1027, 4, 8, 1, 1, 2, 2, 1, 6),
+    _MitelNatGrpRedirStatus_Type()
+)
+mitelNatGrpRedirStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    mitelNatGrpRedirStatus.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "MITEL-NAT-MIB",
+    **{"mitel": mitel,
+       "mitelProprietary": mitelProprietary,
+       "mitelPropIpNetworking": mitelPropIpNetworking,
+       "mitelIpNetRouter": mitelIpNetRouter,
+       "mitelRouterIpGroup": mitelRouterIpGroup,
+       "mitelIpGrpNatGroup": mitelIpGrpNatGroup,
+       "mitelNatGrpIfTable": mitelNatGrpIfTable,
+       "mitelNatGrpIfEntry": mitelNatGrpIfEntry,
+       "mitelNatGrpIfAddr": mitelNatGrpIfAddr,
+       "mitelNatGrpIfEnable": mitelNatGrpIfEnable,
+       "mitelNatGrpIfUdpLifetime": mitelNatGrpIfUdpLifetime,
+       "mitelNatGrpIfTcpLifetime": mitelNatGrpIfTcpLifetime,
+       "mitelNatGrpIfTcpFinLifetime": mitelNatGrpIfTcpFinLifetime,
+       "mitelNatGrpIfTcpRstLifetime": mitelNatGrpIfTcpRstLifetime,
+       "mitelNatGrpIfPingLifetime": mitelNatGrpIfPingLifetime,
+       "mitelNatGrpIfStatus": mitelNatGrpIfStatus,
+       "mitelNatGrpIfIndex": mitelNatGrpIfIndex,
+       "mitelNatGrpRedirTable": mitelNatGrpRedirTable,
+       "mitelNatGrpRedirEntry": mitelNatGrpRedirEntry,
+       "mitelNatGrpRedirOldAddr": mitelNatGrpRedirOldAddr,
+       "mitelNatGrpRedirProto": mitelNatGrpRedirProto,
+       "mitelNatGrpRedirOldPort": mitelNatGrpRedirOldPort,
+       "mitelNatGrpRedirNewAddr": mitelNatGrpRedirNewAddr,
+       "mitelNatGrpRedirNewPort": mitelNatGrpRedirNewPort,
+       "mitelNatGrpRedirStatus": mitelNatGrpRedirStatus}
+)

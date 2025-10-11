@@ -1,198 +1,1105 @@
+# SNMP MIB module (CISCO-ENTITY-EXT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-ENTITY-EXT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-ENTITY-EXT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:25:49 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-ENTITY-EXT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:29:25 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-Unsigned64, = mibBuilder.importSymbols("CISCO-TC", "Unsigned64")
-entPhysicalIndex, entPhysicalContainedIn, entPhysicalEntry, entPhysicalName, entPhysicalDescr = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex", "entPhysicalContainedIn", "entPhysicalEntry", "entPhysicalName", "entPhysicalDescr")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-ciscoEntityExtMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 195))
-ciscoEntityExtMIB.setRevisions(('2018-04-04 00:00', '2015-04-17 00:00', '2014-09-12 00:00', '2014-03-27 00:00', '2013-08-06 00:00', '2013-08-05 00:00', '2008-11-24 00:00', '2004-07-06 00:00', '2004-03-03 00:00', '2004-01-26 00:00', '2003-08-24 00:00', '2001-05-17 00:00', '2001-04-05 00:00',))
-if mibBuilder.loadTexts: ciscoEntityExtMIB.setLastUpdated('201804040000Z')
-if mibBuilder.loadTexts: ciscoEntityExtMIB.setOrganization('Cisco Systems, Inc.')
-ciscoEntityExtMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 195, 1))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(Unsigned64,) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "Unsigned64")
+
+(entPhysicalContainedIn,
+ entPhysicalDescr,
+ entPhysicalEntry,
+ entPhysicalIndex,
+ entPhysicalName) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "entPhysicalContainedIn",
+    "entPhysicalDescr",
+    "entPhysicalEntry",
+    "entPhysicalIndex",
+    "entPhysicalName")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoEntityExtMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195)
+)
+if mibBuilder.loadTexts:
+    ciscoEntityExtMIB.setRevisions(
+        ("2018-04-04 00:00",
+         "2015-04-17 00:00",
+         "2014-09-12 00:00",
+         "2014-03-27 00:00",
+         "2013-08-06 00:00",
+         "2013-08-05 00:00",
+         "2008-11-24 00:00",
+         "2004-07-06 00:00",
+         "2004-03-03 00:00",
+         "2004-01-26 00:00",
+         "2003-08-24 00:00",
+         "2001-05-17 00:00",
+         "2001-04-05 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class ConfigRegisterValue(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '2x'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(2, 2)
-    fixedLength = 2
+    status = "current"
+    displayHint = "2x"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 2),
+    )
+    fixed_length = 2
+
+
 
 class BootImageList(TextualConvention, OctetString):
-    status = 'current'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(0, 255)
+    status = "current"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
 
-ceExtPhysicalProcessorTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1), )
-if mibBuilder.loadTexts: ceExtPhysicalProcessorTable.setStatus('current')
-ceExtPhysicalProcessorEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: ceExtPhysicalProcessorEntry.setStatus('current')
-ceExtProcessorRam = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 1), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtProcessorRam.setStatus('current')
-ceExtNVRAMSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 2), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtNVRAMSize.setStatus('current')
-ceExtNVRAMUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 3), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtNVRAMUsed.setStatus('current')
-ceExtProcessorRamOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 4), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtProcessorRamOverflow.setStatus('current')
-ceExtHCProcessorRam = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 5), Unsigned64()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtHCProcessorRam.setStatus('current')
-ceExtNVRAMSizeOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 6), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtNVRAMSizeOverflow.setStatus('current')
-ceExtHCNVRAMSize = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 7), Unsigned64()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtHCNVRAMSize.setStatus('current')
-ceExtNVRAMUsedOverflow = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 8), Unsigned32()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtNVRAMUsedOverflow.setStatus('current')
-ceExtHCNVRAMUsed = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 9), Unsigned64()).setUnits('bytes').setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtHCNVRAMUsed.setStatus('current')
-ceExtConfigRegTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2), )
-if mibBuilder.loadTexts: ceExtConfigRegTable.setStatus('current')
-ceExtConfigRegEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: ceExtConfigRegEntry.setStatus('current')
-ceExtConfigRegister = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2, 1, 1), ConfigRegisterValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtConfigRegister.setStatus('current')
-ceExtConfigRegNext = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2, 1, 2), ConfigRegisterValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ceExtConfigRegNext.setStatus('current')
-ceExtSysBootImageList = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2, 1, 3), BootImageList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ceExtSysBootImageList.setStatus('current')
-ceExtKickstartImageList = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2, 1, 4), BootImageList()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ceExtKickstartImageList.setStatus('current')
-ceExtEntityLEDTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 3), )
-if mibBuilder.loadTexts: ceExtEntityLEDTable.setStatus('current')
-ceExtEntityLEDEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 3, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-ENTITY-EXT-MIB", "ceExtEntityLEDType"))
-if mibBuilder.loadTexts: ceExtEntityLEDEntry.setStatus('current')
-ceExtEntityLEDType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 3, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("status", 1), ("system", 2), ("active", 3), ("power", 4), ("battery", 5))))
-if mibBuilder.loadTexts: ceExtEntityLEDType.setStatus('current')
-ceExtEntityLEDColor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 3, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("green", 2), ("amber", 3), ("red", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtEntityLEDColor.setStatus('current')
-ceExtEntPhysicalTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 4), )
-if mibBuilder.loadTexts: ceExtEntPhysicalTable.setStatus('current')
-ceExtEntPhysicalEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 4, 1), )
-entPhysicalEntry.registerAugmentions(("CISCO-ENTITY-EXT-MIB", "ceExtEntPhysicalEntry"))
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoEntityExtMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoEntityExtMIBObjects = _CiscoEntityExtMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1)
+)
+_CeExtPhysicalProcessorTable_Object = MibTable
+ceExtPhysicalProcessorTable = _CeExtPhysicalProcessorTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ceExtPhysicalProcessorTable.setStatus("current")
+_CeExtPhysicalProcessorEntry_Object = MibTableRow
+ceExtPhysicalProcessorEntry = _CeExtPhysicalProcessorEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1)
+)
+ceExtPhysicalProcessorEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    ceExtPhysicalProcessorEntry.setStatus("current")
+_CeExtProcessorRam_Type = Unsigned32
+_CeExtProcessorRam_Object = MibTableColumn
+ceExtProcessorRam = _CeExtProcessorRam_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 1),
+    _CeExtProcessorRam_Type()
+)
+ceExtProcessorRam.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtProcessorRam.setStatus("current")
+if mibBuilder.loadTexts:
+    ceExtProcessorRam.setUnits("bytes")
+_CeExtNVRAMSize_Type = Unsigned32
+_CeExtNVRAMSize_Object = MibTableColumn
+ceExtNVRAMSize = _CeExtNVRAMSize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 2),
+    _CeExtNVRAMSize_Type()
+)
+ceExtNVRAMSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtNVRAMSize.setStatus("current")
+if mibBuilder.loadTexts:
+    ceExtNVRAMSize.setUnits("bytes")
+_CeExtNVRAMUsed_Type = Unsigned32
+_CeExtNVRAMUsed_Object = MibTableColumn
+ceExtNVRAMUsed = _CeExtNVRAMUsed_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 3),
+    _CeExtNVRAMUsed_Type()
+)
+ceExtNVRAMUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtNVRAMUsed.setStatus("current")
+if mibBuilder.loadTexts:
+    ceExtNVRAMUsed.setUnits("bytes")
+_CeExtProcessorRamOverflow_Type = Unsigned32
+_CeExtProcessorRamOverflow_Object = MibTableColumn
+ceExtProcessorRamOverflow = _CeExtProcessorRamOverflow_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 4),
+    _CeExtProcessorRamOverflow_Type()
+)
+ceExtProcessorRamOverflow.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtProcessorRamOverflow.setStatus("current")
+if mibBuilder.loadTexts:
+    ceExtProcessorRamOverflow.setUnits("bytes")
+_CeExtHCProcessorRam_Type = Unsigned64
+_CeExtHCProcessorRam_Object = MibTableColumn
+ceExtHCProcessorRam = _CeExtHCProcessorRam_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 5),
+    _CeExtHCProcessorRam_Type()
+)
+ceExtHCProcessorRam.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtHCProcessorRam.setStatus("current")
+if mibBuilder.loadTexts:
+    ceExtHCProcessorRam.setUnits("bytes")
+_CeExtNVRAMSizeOverflow_Type = Unsigned32
+_CeExtNVRAMSizeOverflow_Object = MibTableColumn
+ceExtNVRAMSizeOverflow = _CeExtNVRAMSizeOverflow_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 6),
+    _CeExtNVRAMSizeOverflow_Type()
+)
+ceExtNVRAMSizeOverflow.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtNVRAMSizeOverflow.setStatus("current")
+if mibBuilder.loadTexts:
+    ceExtNVRAMSizeOverflow.setUnits("bytes")
+_CeExtHCNVRAMSize_Type = Unsigned64
+_CeExtHCNVRAMSize_Object = MibTableColumn
+ceExtHCNVRAMSize = _CeExtHCNVRAMSize_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 7),
+    _CeExtHCNVRAMSize_Type()
+)
+ceExtHCNVRAMSize.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtHCNVRAMSize.setStatus("current")
+if mibBuilder.loadTexts:
+    ceExtHCNVRAMSize.setUnits("bytes")
+_CeExtNVRAMUsedOverflow_Type = Unsigned32
+_CeExtNVRAMUsedOverflow_Object = MibTableColumn
+ceExtNVRAMUsedOverflow = _CeExtNVRAMUsedOverflow_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 8),
+    _CeExtNVRAMUsedOverflow_Type()
+)
+ceExtNVRAMUsedOverflow.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtNVRAMUsedOverflow.setStatus("current")
+if mibBuilder.loadTexts:
+    ceExtNVRAMUsedOverflow.setUnits("bytes")
+_CeExtHCNVRAMUsed_Type = Unsigned64
+_CeExtHCNVRAMUsed_Object = MibTableColumn
+ceExtHCNVRAMUsed = _CeExtHCNVRAMUsed_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 1, 1, 9),
+    _CeExtHCNVRAMUsed_Type()
+)
+ceExtHCNVRAMUsed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtHCNVRAMUsed.setStatus("current")
+if mibBuilder.loadTexts:
+    ceExtHCNVRAMUsed.setUnits("bytes")
+_CeExtConfigRegTable_Object = MibTable
+ceExtConfigRegTable = _CeExtConfigRegTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2)
+)
+if mibBuilder.loadTexts:
+    ceExtConfigRegTable.setStatus("current")
+_CeExtConfigRegEntry_Object = MibTableRow
+ceExtConfigRegEntry = _CeExtConfigRegEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2, 1)
+)
+ceExtConfigRegEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    ceExtConfigRegEntry.setStatus("current")
+_CeExtConfigRegister_Type = ConfigRegisterValue
+_CeExtConfigRegister_Object = MibTableColumn
+ceExtConfigRegister = _CeExtConfigRegister_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2, 1, 1),
+    _CeExtConfigRegister_Type()
+)
+ceExtConfigRegister.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtConfigRegister.setStatus("current")
+_CeExtConfigRegNext_Type = ConfigRegisterValue
+_CeExtConfigRegNext_Object = MibTableColumn
+ceExtConfigRegNext = _CeExtConfigRegNext_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2, 1, 2),
+    _CeExtConfigRegNext_Type()
+)
+ceExtConfigRegNext.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ceExtConfigRegNext.setStatus("current")
+
+
+class _CeExtSysBootImageList_Type(BootImageList):
+    """Custom type ceExtSysBootImageList based on BootImageList"""
+    defaultValue = OctetString("")
+
+
+_CeExtSysBootImageList_Type.__name__ = "BootImageList"
+_CeExtSysBootImageList_Object = MibTableColumn
+ceExtSysBootImageList = _CeExtSysBootImageList_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2, 1, 3),
+    _CeExtSysBootImageList_Type()
+)
+ceExtSysBootImageList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ceExtSysBootImageList.setStatus("current")
+
+
+class _CeExtKickstartImageList_Type(BootImageList):
+    """Custom type ceExtKickstartImageList based on BootImageList"""
+    defaultValue = OctetString("")
+
+
+_CeExtKickstartImageList_Type.__name__ = "BootImageList"
+_CeExtKickstartImageList_Object = MibTableColumn
+ceExtKickstartImageList = _CeExtKickstartImageList_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 2, 1, 4),
+    _CeExtKickstartImageList_Type()
+)
+ceExtKickstartImageList.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ceExtKickstartImageList.setStatus("current")
+_CeExtEntityLEDTable_Object = MibTable
+ceExtEntityLEDTable = _CeExtEntityLEDTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 3)
+)
+if mibBuilder.loadTexts:
+    ceExtEntityLEDTable.setStatus("current")
+_CeExtEntityLEDEntry_Object = MibTableRow
+ceExtEntityLEDEntry = _CeExtEntityLEDEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 3, 1)
+)
+ceExtEntityLEDEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+    (0, "CISCO-ENTITY-EXT-MIB", "ceExtEntityLEDType"),
+)
+if mibBuilder.loadTexts:
+    ceExtEntityLEDEntry.setStatus("current")
+
+
+class _CeExtEntityLEDType_Type(Integer32):
+    """Custom type ceExtEntityLEDType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("status", 1),
+          ("system", 2),
+          ("active", 3),
+          ("power", 4),
+          ("battery", 5))
+    )
+
+
+_CeExtEntityLEDType_Type.__name__ = "Integer32"
+_CeExtEntityLEDType_Object = MibTableColumn
+ceExtEntityLEDType = _CeExtEntityLEDType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 3, 1, 1),
+    _CeExtEntityLEDType_Type()
+)
+ceExtEntityLEDType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ceExtEntityLEDType.setStatus("current")
+
+
+class _CeExtEntityLEDColor_Type(Integer32):
+    """Custom type ceExtEntityLEDColor based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("green", 2),
+          ("amber", 3),
+          ("red", 4))
+    )
+
+
+_CeExtEntityLEDColor_Type.__name__ = "Integer32"
+_CeExtEntityLEDColor_Object = MibTableColumn
+ceExtEntityLEDColor = _CeExtEntityLEDColor_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 3, 1, 2),
+    _CeExtEntityLEDColor_Type()
+)
+ceExtEntityLEDColor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtEntityLEDColor.setStatus("current")
+_CeExtEntPhysicalTable_Object = MibTable
+ceExtEntPhysicalTable = _CeExtEntPhysicalTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 4)
+)
+if mibBuilder.loadTexts:
+    ceExtEntPhysicalTable.setStatus("current")
+_CeExtEntPhysicalEntry_Object = MibTableRow
+ceExtEntPhysicalEntry = _CeExtEntPhysicalEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    ceExtEntPhysicalEntry.setStatus("current")
+
+
+class _CeEntPhysicalSecondSerialNum_Type(SnmpAdminString):
+    """Custom type ceEntPhysicalSecondSerialNum based on SnmpAdminString"""
+    defaultValue = OctetString("")
+
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_CeEntPhysicalSecondSerialNum_Type.__name__ = "SnmpAdminString"
+_CeEntPhysicalSecondSerialNum_Object = MibTableColumn
+ceEntPhysicalSecondSerialNum = _CeEntPhysicalSecondSerialNum_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 4, 1, 1),
+    _CeEntPhysicalSecondSerialNum_Type()
+)
+ceEntPhysicalSecondSerialNum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ceEntPhysicalSecondSerialNum.setStatus("current")
+_CeExtNotificationControlObjects_ObjectIdentity = ObjectIdentity
+ceExtNotificationControlObjects = _CeExtNotificationControlObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 5)
+)
+
+
+class _CeExtEntDoorNotifEnable_Type(TruthValue):
+    """Custom type ceExtEntDoorNotifEnable based on TruthValue"""
+    defaultValue = 2
+
+
+_CeExtEntDoorNotifEnable_Type.__name__ = "TruthValue"
+_CeExtEntDoorNotifEnable_Object = MibScalar
+ceExtEntDoorNotifEnable = _CeExtEntDoorNotifEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 5, 1),
+    _CeExtEntDoorNotifEnable_Type()
+)
+ceExtEntDoorNotifEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ceExtEntDoorNotifEnable.setStatus("current")
+
+
+class _CeExtEntBreakOutPortNotifEnable_Type(TruthValue):
+    """Custom type ceExtEntBreakOutPortNotifEnable based on TruthValue"""
+    defaultValue = 2
+
+
+_CeExtEntBreakOutPortNotifEnable_Type.__name__ = "TruthValue"
+_CeExtEntBreakOutPortNotifEnable_Object = MibScalar
+ceExtEntBreakOutPortNotifEnable = _CeExtEntBreakOutPortNotifEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 5, 2),
+    _CeExtEntBreakOutPortNotifEnable_Type()
+)
+ceExtEntBreakOutPortNotifEnable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtEntBreakOutPortNotifEnable.setStatus("current")
+
+
+class _CeExtEntUsbModemNotifEnable_Type(TruthValue):
+    """Custom type ceExtEntUsbModemNotifEnable based on TruthValue"""
+    defaultValue = 2
+
+
+_CeExtEntUsbModemNotifEnable_Type.__name__ = "TruthValue"
+_CeExtEntUsbModemNotifEnable_Object = MibScalar
+ceExtEntUsbModemNotifEnable = _CeExtEntUsbModemNotifEnable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 5, 3),
+    _CeExtEntUsbModemNotifEnable_Type()
+)
+ceExtEntUsbModemNotifEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ceExtEntUsbModemNotifEnable.setStatus("current")
+_CeExtUSBModemTable_Object = MibTable
+ceExtUSBModemTable = _CeExtUSBModemTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6)
+)
+if mibBuilder.loadTexts:
+    ceExtUSBModemTable.setStatus("current")
+_CeExtUSBModemEntry_Object = MibTableRow
+ceExtUSBModemEntry = _CeExtUSBModemEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6, 1)
+)
+ceExtUSBModemEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+)
+if mibBuilder.loadTexts:
+    ceExtUSBModemEntry.setStatus("current")
+
+
+class _CeExtUSBModemIMEI_Type(SnmpAdminString):
+    """Custom type ceExtUSBModemIMEI based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_CeExtUSBModemIMEI_Type.__name__ = "SnmpAdminString"
+_CeExtUSBModemIMEI_Object = MibTableColumn
+ceExtUSBModemIMEI = _CeExtUSBModemIMEI_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6, 1, 1),
+    _CeExtUSBModemIMEI_Type()
+)
+ceExtUSBModemIMEI.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtUSBModemIMEI.setStatus("current")
+
+
+class _CeExtUSBModemIMSI_Type(SnmpAdminString):
+    """Custom type ceExtUSBModemIMSI based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_CeExtUSBModemIMSI_Type.__name__ = "SnmpAdminString"
+_CeExtUSBModemIMSI_Object = MibTableColumn
+ceExtUSBModemIMSI = _CeExtUSBModemIMSI_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6, 1, 2),
+    _CeExtUSBModemIMSI_Type()
+)
+ceExtUSBModemIMSI.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtUSBModemIMSI.setStatus("current")
+
+
+class _CeExtUSBModemServiceProvider_Type(SnmpAdminString):
+    """Custom type ceExtUSBModemServiceProvider based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_CeExtUSBModemServiceProvider_Type.__name__ = "SnmpAdminString"
+_CeExtUSBModemServiceProvider_Object = MibTableColumn
+ceExtUSBModemServiceProvider = _CeExtUSBModemServiceProvider_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6, 1, 3),
+    _CeExtUSBModemServiceProvider_Type()
+)
+ceExtUSBModemServiceProvider.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtUSBModemServiceProvider.setStatus("current")
+
+
+class _CeExtUSBModemSignalStrength_Type(SnmpAdminString):
+    """Custom type ceExtUSBModemSignalStrength based on SnmpAdminString"""
+    subtypeSpec = SnmpAdminString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_CeExtUSBModemSignalStrength_Type.__name__ = "SnmpAdminString"
+_CeExtUSBModemSignalStrength_Object = MibTableColumn
+ceExtUSBModemSignalStrength = _CeExtUSBModemSignalStrength_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6, 1, 4),
+    _CeExtUSBModemSignalStrength_Type()
+)
+ceExtUSBModemSignalStrength.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceExtUSBModemSignalStrength.setStatus("current")
+_CeExtMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+ceExtMIBNotificationPrefix = _CeExtMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 2)
+)
+_CiscoEntityExtMIBNotifications_ObjectIdentity = ObjectIdentity
+ciscoEntityExtMIBNotifications = _CiscoEntityExtMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0)
+)
+_CiscoEntityExtMIBConformance_ObjectIdentity = ObjectIdentity
+ciscoEntityExtMIBConformance = _CiscoEntityExtMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3)
+)
+_CiscoEntityExtMIBCompliances_ObjectIdentity = ObjectIdentity
+ciscoEntityExtMIBCompliances = _CiscoEntityExtMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1)
+)
+_CiscoEntityExtMIBGroups_ObjectIdentity = ObjectIdentity
+ciscoEntityExtMIBGroups = _CiscoEntityExtMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2)
+)
+entPhysicalEntry.registerAugmentions(
+    ("CISCO-ENTITY-EXT-MIB",
+     "ceExtEntPhysicalEntry")
+)
 ceExtEntPhysicalEntry.setIndexNames(*entPhysicalEntry.getIndexNames())
-if mibBuilder.loadTexts: ceExtEntPhysicalEntry.setStatus('current')
-ceEntPhysicalSecondSerialNum = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 4, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ceEntPhysicalSecondSerialNum.setStatus('current')
-ceExtNotificationControlObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 5))
-ceExtEntDoorNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 5, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ceExtEntDoorNotifEnable.setStatus('current')
-ceExtEntBreakOutPortNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 5, 2), TruthValue().clone('false')).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtEntBreakOutPortNotifEnable.setStatus('current')
-ceExtEntUsbModemNotifEnable = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 5, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ceExtEntUsbModemNotifEnable.setStatus('current')
-ceExtUSBModemTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6), )
-if mibBuilder.loadTexts: ceExtUSBModemTable.setStatus('current')
-ceExtUSBModemEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"))
-if mibBuilder.loadTexts: ceExtUSBModemEntry.setStatus('current')
-ceExtUSBModemIMEI = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6, 1, 1), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtUSBModemIMEI.setStatus('current')
-ceExtUSBModemIMSI = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6, 1, 2), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtUSBModemIMSI.setStatus('current')
-ceExtUSBModemServiceProvider = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6, 1, 3), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtUSBModemServiceProvider.setStatus('current')
-ceExtUSBModemSignalStrength = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 195, 1, 6, 1, 4), SnmpAdminString().subtype(subtypeSpec=ValueSizeConstraint(0, 64))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceExtUSBModemSignalStrength.setStatus('current')
-ceExtMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 195, 2))
-ciscoEntityExtMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0))
-ceExtEntDoorCloseNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 1)).setObjects(("ENTITY-MIB", "entPhysicalDescr"), ("ENTITY-MIB", "entPhysicalName"))
-if mibBuilder.loadTexts: ceExtEntDoorCloseNotif.setStatus('current')
-ceExtEntDoorOpenNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 2)).setObjects(("ENTITY-MIB", "entPhysicalDescr"), ("ENTITY-MIB", "entPhysicalName"))
-if mibBuilder.loadTexts: ceExtEntDoorOpenNotif.setStatus('current')
-ceExtBreakOutPortInserted = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 3)).setObjects(("ENTITY-MIB", "entPhysicalContainedIn"), ("ENTITY-MIB", "entPhysicalName"))
-if mibBuilder.loadTexts: ceExtBreakOutPortInserted.setStatus('current')
-ceExtBreakOutPortRemoved = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 4)).setObjects(("ENTITY-MIB", "entPhysicalContainedIn"), ("ENTITY-MIB", "entPhysicalName"))
-if mibBuilder.loadTexts: ceExtBreakOutPortRemoved.setStatus('current')
-ceExtUSBModemPlugInNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 5)).setObjects(("ENTITY-MIB", "entPhysicalContainedIn"), ("ENTITY-MIB", "entPhysicalDescr"))
-if mibBuilder.loadTexts: ceExtUSBModemPlugInNotif.setStatus('current')
-ceExtUSBModemPlugOutNotif = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 6)).setObjects(("ENTITY-MIB", "entPhysicalContainedIn"), ("ENTITY-MIB", "entPhysicalDescr"))
-if mibBuilder.loadTexts: ceExtUSBModemPlugOutNotif.setStatus('current')
-ciscoEntityExtMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 195, 3))
-ciscoEntityExtMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1))
-ciscoEntityExtMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2))
-ciscoEntityExtMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 1)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoEntityExtMIBCompliance = ciscoEntityExtMIBCompliance.setStatus('deprecated')
-ciscoEntityExtMIBComplianceRev1 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 2)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"))
+# Managed Objects groups
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoEntityExtMIBComplianceRev1 = ciscoEntityExtMIBComplianceRev1.setStatus('deprecated')
-ciscoEntityExtMIBComplianceRev2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 3)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"), ("CISCO-ENTITY-EXT-MIB", "ciscoExtEntityPhysicalGroup"))
+ceExtPhysicalProcessorGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 1)
+)
+ceExtPhysicalProcessorGroup.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtProcessorRam"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtNVRAMSize"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtNVRAMUsed"))
+)
+if mibBuilder.loadTexts:
+    ceExtPhysicalProcessorGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoEntityExtMIBComplianceRev2 = ciscoEntityExtMIBComplianceRev2.setStatus('deprecated')
-ciscoEntityExtMIBComplianceRev3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 4)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"), ("CISCO-ENTITY-EXT-MIB", "ciscoExtEntityPhysicalGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorOverflowGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorHCGroup"))
+ciscoEntityExtConfigRegGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 2)
+)
+ciscoEntityExtConfigRegGroup.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtConfigRegister"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtConfigRegNext"))
+)
+if mibBuilder.loadTexts:
+    ciscoEntityExtConfigRegGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoEntityExtMIBComplianceRev3 = ciscoEntityExtMIBComplianceRev3.setStatus('deprecated')
-ciscoEntityExtMIBComplianceRev4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 5)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"), ("CISCO-ENTITY-EXT-MIB", "ciscoExtEntityPhysicalGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorOverflowGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorHCGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifControlGroup"))
+ceExtSysBootImageListGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 3)
+)
+ceExtSysBootImageListGroup.setObjects(
+    ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageList")
+)
+if mibBuilder.loadTexts:
+    ceExtSysBootImageListGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoEntityExtMIBComplianceRev4 = ciscoEntityExtMIBComplianceRev4.setStatus('deprecated')
-ciscoEntityExtMIBComplianceRev5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 6)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"), ("CISCO-ENTITY-EXT-MIB", "ciscoExtEntityPhysicalGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorOverflowGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorHCGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifControlGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortNotifGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortNotifControlGroup"))
+ciscoEntityExtLEDGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 4)
+)
+ciscoEntityExtLEDGroup.setObjects(
+    ("CISCO-ENTITY-EXT-MIB", "ceExtEntityLEDColor")
+)
+if mibBuilder.loadTexts:
+    ciscoEntityExtLEDGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoEntityExtMIBComplianceRev5 = ciscoEntityExtMIBComplianceRev5.setStatus('deprecated')
-ciscoEntityExtMIBComplianceRev6 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 7)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"), ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"), ("CISCO-ENTITY-EXT-MIB", "ciscoExtEntityPhysicalGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorOverflowGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorHCGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifControlGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortNotifGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortNotifControlGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtUsbModemNotificationsGroup"), ("CISCO-ENTITY-EXT-MIB", "ceExtUsbModemNotifControlGroup"))
+ceExtSysBootImageListGroupRev1 = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 5)
+)
+ceExtSysBootImageListGroupRev1.setObjects(
+    ("CISCO-ENTITY-EXT-MIB", "ceExtKickstartImageList")
+)
+if mibBuilder.loadTexts:
+    ceExtSysBootImageListGroupRev1.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoEntityExtMIBComplianceRev6 = ciscoEntityExtMIBComplianceRev6.setStatus('current')
-ceExtPhysicalProcessorGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 1)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtProcessorRam"), ("CISCO-ENTITY-EXT-MIB", "ceExtNVRAMSize"), ("CISCO-ENTITY-EXT-MIB", "ceExtNVRAMUsed"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtPhysicalProcessorGroup = ceExtPhysicalProcessorGroup.setStatus('current')
-ciscoEntityExtConfigRegGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 2)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtConfigRegister"), ("CISCO-ENTITY-EXT-MIB", "ceExtConfigRegNext"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoEntityExtConfigRegGroup = ciscoEntityExtConfigRegGroup.setStatus('current')
-ceExtSysBootImageListGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 3)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageList"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtSysBootImageListGroup = ceExtSysBootImageListGroup.setStatus('current')
-ciscoEntityExtLEDGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 4)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtEntityLEDColor"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoEntityExtLEDGroup = ciscoEntityExtLEDGroup.setStatus('current')
-ceExtSysBootImageListGroupRev1 = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 5)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtKickstartImageList"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtSysBootImageListGroupRev1 = ceExtSysBootImageListGroupRev1.setStatus('current')
-ciscoExtEntityPhysicalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 6)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceEntPhysicalSecondSerialNum"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciscoExtEntityPhysicalGroup = ciscoExtEntityPhysicalGroup.setStatus('current')
-ceExtPhyProcessorOverflowGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 7)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtProcessorRamOverflow"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtPhyProcessorOverflowGroup = ceExtPhyProcessorOverflowGroup.setStatus('current')
-ceExtPhyProcessorHCGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 8)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtHCProcessorRam"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtPhyProcessorHCGroup = ceExtPhyProcessorHCGroup.setStatus('current')
-ceExtEntDoorNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 9)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorCloseNotif"), ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorOpenNotif"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtEntDoorNotifGroup = ceExtEntDoorNotifGroup.setStatus('current')
-ceExtEntDoorNotifControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 10)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifEnable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtEntDoorNotifControlGroup = ceExtEntDoorNotifControlGroup.setStatus('current')
-ceExtBreakOutPortNotifGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 11)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortInserted"), ("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortRemoved"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtBreakOutPortNotifGroup = ceExtBreakOutPortNotifGroup.setStatus('current')
-ceExtBreakOutPortNotifControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 12)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtEntBreakOutPortNotifEnable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtBreakOutPortNotifControlGroup = ceExtBreakOutPortNotifControlGroup.setStatus('current')
-ceExtUSBModemGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 13)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemIMEI"), ("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemIMSI"), ("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemServiceProvider"), ("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemSignalStrength"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtUSBModemGroup = ceExtUSBModemGroup.setStatus('current')
-ceExtUsbModemNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 14)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemPlugInNotif"), ("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemPlugOutNotif"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtUsbModemNotificationsGroup = ceExtUsbModemNotificationsGroup.setStatus('current')
-ceExtUsbModemNotifControlGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 15)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtEntUsbModemNotifEnable"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtUsbModemNotifControlGroup = ceExtUsbModemNotifControlGroup.setStatus('current')
-ceExtNVRAMOverflowGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 16)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtNVRAMSizeOverflow"), ("CISCO-ENTITY-EXT-MIB", "ceExtNVRAMUsedOverflow"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtNVRAMOverflowGroup = ceExtNVRAMOverflowGroup.setStatus('current')
-ceExtHCNVRAMGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 17)).setObjects(("CISCO-ENTITY-EXT-MIB", "ceExtHCNVRAMSize"), ("CISCO-ENTITY-EXT-MIB", "ceExtHCNVRAMUsed"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceExtHCNVRAMGroup = ceExtHCNVRAMGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-ENTITY-EXT-MIB", ceExtUSBModemGroup=ceExtUSBModemGroup, ceExtConfigRegEntry=ceExtConfigRegEntry, ciscoEntityExtMIBObjects=ciscoEntityExtMIBObjects, ceExtProcessorRamOverflow=ceExtProcessorRamOverflow, ceExtKickstartImageList=ceExtKickstartImageList, ciscoEntityExtLEDGroup=ciscoEntityExtLEDGroup, ceExtUSBModemEntry=ceExtUSBModemEntry, ceExtEntDoorNotifControlGroup=ceExtEntDoorNotifControlGroup, ceExtEntDoorNotifGroup=ceExtEntDoorNotifGroup, ceExtPhyProcessorOverflowGroup=ceExtPhyProcessorOverflowGroup, ceExtSysBootImageListGroup=ceExtSysBootImageListGroup, ceExtUSBModemSignalStrength=ceExtUSBModemSignalStrength, ciscoEntityExtMIBComplianceRev3=ciscoEntityExtMIBComplianceRev3, ceExtEntUsbModemNotifEnable=ceExtEntUsbModemNotifEnable, ciscoEntityExtMIBCompliances=ciscoEntityExtMIBCompliances, ciscoEntityExtMIBComplianceRev2=ciscoEntityExtMIBComplianceRev2, ceExtUsbModemNotifControlGroup=ceExtUsbModemNotifControlGroup, ceExtSysBootImageList=ceExtSysBootImageList, ceExtUSBModemPlugInNotif=ceExtUSBModemPlugInNotif, ceExtHCNVRAMGroup=ceExtHCNVRAMGroup, ceEntPhysicalSecondSerialNum=ceEntPhysicalSecondSerialNum, ceExtUSBModemPlugOutNotif=ceExtUSBModemPlugOutNotif, ceExtMIBNotificationPrefix=ceExtMIBNotificationPrefix, ceExtNVRAMSizeOverflow=ceExtNVRAMSizeOverflow, ceExtConfigRegTable=ceExtConfigRegTable, ConfigRegisterValue=ConfigRegisterValue, ciscoEntityExtMIBComplianceRev6=ciscoEntityExtMIBComplianceRev6, BootImageList=BootImageList, ceExtEntityLEDColor=ceExtEntityLEDColor, ceExtConfigRegNext=ceExtConfigRegNext, ceExtBreakOutPortNotifGroup=ceExtBreakOutPortNotifGroup, ceExtEntBreakOutPortNotifEnable=ceExtEntBreakOutPortNotifEnable, ceExtEntityLEDEntry=ceExtEntityLEDEntry, ceExtHCNVRAMUsed=ceExtHCNVRAMUsed, ceExtUSBModemIMEI=ceExtUSBModemIMEI, ceExtUSBModemServiceProvider=ceExtUSBModemServiceProvider, ciscoEntityExtMIBConformance=ciscoEntityExtMIBConformance, ciscoEntityExtMIBGroups=ciscoEntityExtMIBGroups, ceExtNotificationControlObjects=ceExtNotificationControlObjects, ceExtHCProcessorRam=ceExtHCProcessorRam, ceExtEntityLEDType=ceExtEntityLEDType, ceExtHCNVRAMSize=ceExtHCNVRAMSize, ceExtEntPhysicalTable=ceExtEntPhysicalTable, ceExtEntDoorNotifEnable=ceExtEntDoorNotifEnable, ceExtSysBootImageListGroupRev1=ceExtSysBootImageListGroupRev1, ceExtEntityLEDTable=ceExtEntityLEDTable, ceExtNVRAMOverflowGroup=ceExtNVRAMOverflowGroup, PYSNMP_MODULE_ID=ciscoEntityExtMIB, ceExtBreakOutPortInserted=ceExtBreakOutPortInserted, ciscoEntityExtMIBComplianceRev5=ciscoEntityExtMIBComplianceRev5, ceExtBreakOutPortNotifControlGroup=ceExtBreakOutPortNotifControlGroup, ceExtNVRAMSize=ceExtNVRAMSize, ceExtNVRAMUsed=ceExtNVRAMUsed, ceExtBreakOutPortRemoved=ceExtBreakOutPortRemoved, ceExtPhyProcessorHCGroup=ceExtPhyProcessorHCGroup, ceExtUsbModemNotificationsGroup=ceExtUsbModemNotificationsGroup, ceExtUSBModemIMSI=ceExtUSBModemIMSI, ciscoEntityExtMIB=ciscoEntityExtMIB, ceExtProcessorRam=ceExtProcessorRam, ceExtPhysicalProcessorEntry=ceExtPhysicalProcessorEntry, ciscoEntityExtMIBNotifications=ciscoEntityExtMIBNotifications, ceExtEntDoorCloseNotif=ceExtEntDoorCloseNotif, ciscoEntityExtMIBComplianceRev4=ciscoEntityExtMIBComplianceRev4, ceExtPhysicalProcessorGroup=ceExtPhysicalProcessorGroup, ceExtPhysicalProcessorTable=ceExtPhysicalProcessorTable, ciscoEntityExtConfigRegGroup=ciscoEntityExtConfigRegGroup, ciscoExtEntityPhysicalGroup=ciscoExtEntityPhysicalGroup, ceExtEntPhysicalEntry=ceExtEntPhysicalEntry, ceExtConfigRegister=ceExtConfigRegister, ceExtNVRAMUsedOverflow=ceExtNVRAMUsedOverflow, ceExtEntDoorOpenNotif=ceExtEntDoorOpenNotif, ciscoEntityExtMIBCompliance=ciscoEntityExtMIBCompliance, ceExtUSBModemTable=ceExtUSBModemTable, ciscoEntityExtMIBComplianceRev1=ciscoEntityExtMIBComplianceRev1)
+ciscoExtEntityPhysicalGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 6)
+)
+ciscoExtEntityPhysicalGroup.setObjects(
+    ("CISCO-ENTITY-EXT-MIB", "ceEntPhysicalSecondSerialNum")
+)
+if mibBuilder.loadTexts:
+    ciscoExtEntityPhysicalGroup.setStatus("current")
+
+ceExtPhyProcessorOverflowGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 7)
+)
+ceExtPhyProcessorOverflowGroup.setObjects(
+    ("CISCO-ENTITY-EXT-MIB", "ceExtProcessorRamOverflow")
+)
+if mibBuilder.loadTexts:
+    ceExtPhyProcessorOverflowGroup.setStatus("current")
+
+ceExtPhyProcessorHCGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 8)
+)
+ceExtPhyProcessorHCGroup.setObjects(
+    ("CISCO-ENTITY-EXT-MIB", "ceExtHCProcessorRam")
+)
+if mibBuilder.loadTexts:
+    ceExtPhyProcessorHCGroup.setStatus("current")
+
+ceExtEntDoorNotifControlGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 10)
+)
+ceExtEntDoorNotifControlGroup.setObjects(
+    ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifEnable")
+)
+if mibBuilder.loadTexts:
+    ceExtEntDoorNotifControlGroup.setStatus("current")
+
+ceExtBreakOutPortNotifControlGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 12)
+)
+ceExtBreakOutPortNotifControlGroup.setObjects(
+    ("CISCO-ENTITY-EXT-MIB", "ceExtEntBreakOutPortNotifEnable")
+)
+if mibBuilder.loadTexts:
+    ceExtBreakOutPortNotifControlGroup.setStatus("current")
+
+ceExtUSBModemGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 13)
+)
+ceExtUSBModemGroup.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemIMEI"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemIMSI"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemServiceProvider"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemSignalStrength"))
+)
+if mibBuilder.loadTexts:
+    ceExtUSBModemGroup.setStatus("current")
+
+ceExtUsbModemNotifControlGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 15)
+)
+ceExtUsbModemNotifControlGroup.setObjects(
+    ("CISCO-ENTITY-EXT-MIB", "ceExtEntUsbModemNotifEnable")
+)
+if mibBuilder.loadTexts:
+    ceExtUsbModemNotifControlGroup.setStatus("current")
+
+ceExtNVRAMOverflowGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 16)
+)
+ceExtNVRAMOverflowGroup.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtNVRAMSizeOverflow"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtNVRAMUsedOverflow"))
+)
+if mibBuilder.loadTexts:
+    ceExtNVRAMOverflowGroup.setStatus("current")
+
+ceExtHCNVRAMGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 17)
+)
+ceExtHCNVRAMGroup.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtHCNVRAMSize"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtHCNVRAMUsed"))
+)
+if mibBuilder.loadTexts:
+    ceExtHCNVRAMGroup.setStatus("current")
+
+
+# Notification objects
+
+ceExtEntDoorCloseNotif = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 1)
+)
+ceExtEntDoorCloseNotif.setObjects(
+      *(("ENTITY-MIB", "entPhysicalDescr"),
+        ("ENTITY-MIB", "entPhysicalName"))
+)
+if mibBuilder.loadTexts:
+    ceExtEntDoorCloseNotif.setStatus(
+        "current"
+    )
+
+ceExtEntDoorOpenNotif = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 2)
+)
+ceExtEntDoorOpenNotif.setObjects(
+      *(("ENTITY-MIB", "entPhysicalDescr"),
+        ("ENTITY-MIB", "entPhysicalName"))
+)
+if mibBuilder.loadTexts:
+    ceExtEntDoorOpenNotif.setStatus(
+        "current"
+    )
+
+ceExtBreakOutPortInserted = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 3)
+)
+ceExtBreakOutPortInserted.setObjects(
+      *(("ENTITY-MIB", "entPhysicalContainedIn"),
+        ("ENTITY-MIB", "entPhysicalName"))
+)
+if mibBuilder.loadTexts:
+    ceExtBreakOutPortInserted.setStatus(
+        "current"
+    )
+
+ceExtBreakOutPortRemoved = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 4)
+)
+ceExtBreakOutPortRemoved.setObjects(
+      *(("ENTITY-MIB", "entPhysicalContainedIn"),
+        ("ENTITY-MIB", "entPhysicalName"))
+)
+if mibBuilder.loadTexts:
+    ceExtBreakOutPortRemoved.setStatus(
+        "current"
+    )
+
+ceExtUSBModemPlugInNotif = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 5)
+)
+ceExtUSBModemPlugInNotif.setObjects(
+      *(("ENTITY-MIB", "entPhysicalContainedIn"),
+        ("ENTITY-MIB", "entPhysicalDescr"))
+)
+if mibBuilder.loadTexts:
+    ceExtUSBModemPlugInNotif.setStatus(
+        "current"
+    )
+
+ceExtUSBModemPlugOutNotif = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 2, 0, 6)
+)
+ceExtUSBModemPlugOutNotif.setObjects(
+      *(("ENTITY-MIB", "entPhysicalContainedIn"),
+        ("ENTITY-MIB", "entPhysicalDescr"))
+)
+if mibBuilder.loadTexts:
+    ceExtUSBModemPlugOutNotif.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+ceExtEntDoorNotifGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 9)
+)
+ceExtEntDoorNotifGroup.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorCloseNotif"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorOpenNotif"))
+)
+if mibBuilder.loadTexts:
+    ceExtEntDoorNotifGroup.setStatus(
+        "current"
+    )
+
+ceExtBreakOutPortNotifGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 11)
+)
+ceExtBreakOutPortNotifGroup.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortInserted"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortRemoved"))
+)
+if mibBuilder.loadTexts:
+    ceExtBreakOutPortNotifGroup.setStatus(
+        "current"
+    )
+
+ceExtUsbModemNotificationsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 2, 14)
+)
+ceExtUsbModemNotificationsGroup.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemPlugInNotif"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemPlugOutNotif"))
+)
+if mibBuilder.loadTexts:
+    ceExtUsbModemNotificationsGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciscoEntityExtMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 1)
+)
+ciscoEntityExtMIBCompliance.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"))
+)
+if mibBuilder.loadTexts:
+    ciscoEntityExtMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+ciscoEntityExtMIBComplianceRev1 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 2)
+)
+ciscoEntityExtMIBComplianceRev1.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"))
+)
+if mibBuilder.loadTexts:
+    ciscoEntityExtMIBComplianceRev1.setStatus(
+        "deprecated"
+    )
+
+ciscoEntityExtMIBComplianceRev2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 3)
+)
+ciscoEntityExtMIBComplianceRev2.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoExtEntityPhysicalGroup"))
+)
+if mibBuilder.loadTexts:
+    ciscoEntityExtMIBComplianceRev2.setStatus(
+        "deprecated"
+    )
+
+ciscoEntityExtMIBComplianceRev3 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 4)
+)
+ciscoEntityExtMIBComplianceRev3.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoExtEntityPhysicalGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorOverflowGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorHCGroup"))
+)
+if mibBuilder.loadTexts:
+    ciscoEntityExtMIBComplianceRev3.setStatus(
+        "deprecated"
+    )
+
+ciscoEntityExtMIBComplianceRev4 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 5)
+)
+ciscoEntityExtMIBComplianceRev4.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoExtEntityPhysicalGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorOverflowGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorHCGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifControlGroup"))
+)
+if mibBuilder.loadTexts:
+    ciscoEntityExtMIBComplianceRev4.setStatus(
+        "deprecated"
+    )
+
+ciscoEntityExtMIBComplianceRev5 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 6)
+)
+ciscoEntityExtMIBComplianceRev5.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoExtEntityPhysicalGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorOverflowGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorHCGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifControlGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortNotifGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortNotifControlGroup"))
+)
+if mibBuilder.loadTexts:
+    ciscoEntityExtMIBComplianceRev5.setStatus(
+        "deprecated"
+    )
+
+ciscoEntityExtMIBComplianceRev6 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 195, 3, 1, 7)
+)
+ciscoEntityExtMIBComplianceRev6.setObjects(
+      *(("CISCO-ENTITY-EXT-MIB", "ceExtPhysicalProcessorGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtConfigRegGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoEntityExtLEDGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtSysBootImageListGroupRev1"),
+        ("CISCO-ENTITY-EXT-MIB", "ciscoExtEntityPhysicalGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorOverflowGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtPhyProcessorHCGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtEntDoorNotifControlGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortNotifGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtBreakOutPortNotifControlGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtUSBModemGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtUsbModemNotificationsGroup"),
+        ("CISCO-ENTITY-EXT-MIB", "ceExtUsbModemNotifControlGroup"))
+)
+if mibBuilder.loadTexts:
+    ciscoEntityExtMIBComplianceRev6.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-ENTITY-EXT-MIB",
+    **{"ConfigRegisterValue": ConfigRegisterValue,
+       "BootImageList": BootImageList,
+       "ciscoEntityExtMIB": ciscoEntityExtMIB,
+       "ciscoEntityExtMIBObjects": ciscoEntityExtMIBObjects,
+       "ceExtPhysicalProcessorTable": ceExtPhysicalProcessorTable,
+       "ceExtPhysicalProcessorEntry": ceExtPhysicalProcessorEntry,
+       "ceExtProcessorRam": ceExtProcessorRam,
+       "ceExtNVRAMSize": ceExtNVRAMSize,
+       "ceExtNVRAMUsed": ceExtNVRAMUsed,
+       "ceExtProcessorRamOverflow": ceExtProcessorRamOverflow,
+       "ceExtHCProcessorRam": ceExtHCProcessorRam,
+       "ceExtNVRAMSizeOverflow": ceExtNVRAMSizeOverflow,
+       "ceExtHCNVRAMSize": ceExtHCNVRAMSize,
+       "ceExtNVRAMUsedOverflow": ceExtNVRAMUsedOverflow,
+       "ceExtHCNVRAMUsed": ceExtHCNVRAMUsed,
+       "ceExtConfigRegTable": ceExtConfigRegTable,
+       "ceExtConfigRegEntry": ceExtConfigRegEntry,
+       "ceExtConfigRegister": ceExtConfigRegister,
+       "ceExtConfigRegNext": ceExtConfigRegNext,
+       "ceExtSysBootImageList": ceExtSysBootImageList,
+       "ceExtKickstartImageList": ceExtKickstartImageList,
+       "ceExtEntityLEDTable": ceExtEntityLEDTable,
+       "ceExtEntityLEDEntry": ceExtEntityLEDEntry,
+       "ceExtEntityLEDType": ceExtEntityLEDType,
+       "ceExtEntityLEDColor": ceExtEntityLEDColor,
+       "ceExtEntPhysicalTable": ceExtEntPhysicalTable,
+       "ceExtEntPhysicalEntry": ceExtEntPhysicalEntry,
+       "ceEntPhysicalSecondSerialNum": ceEntPhysicalSecondSerialNum,
+       "ceExtNotificationControlObjects": ceExtNotificationControlObjects,
+       "ceExtEntDoorNotifEnable": ceExtEntDoorNotifEnable,
+       "ceExtEntBreakOutPortNotifEnable": ceExtEntBreakOutPortNotifEnable,
+       "ceExtEntUsbModemNotifEnable": ceExtEntUsbModemNotifEnable,
+       "ceExtUSBModemTable": ceExtUSBModemTable,
+       "ceExtUSBModemEntry": ceExtUSBModemEntry,
+       "ceExtUSBModemIMEI": ceExtUSBModemIMEI,
+       "ceExtUSBModemIMSI": ceExtUSBModemIMSI,
+       "ceExtUSBModemServiceProvider": ceExtUSBModemServiceProvider,
+       "ceExtUSBModemSignalStrength": ceExtUSBModemSignalStrength,
+       "ceExtMIBNotificationPrefix": ceExtMIBNotificationPrefix,
+       "ciscoEntityExtMIBNotifications": ciscoEntityExtMIBNotifications,
+       "ceExtEntDoorCloseNotif": ceExtEntDoorCloseNotif,
+       "ceExtEntDoorOpenNotif": ceExtEntDoorOpenNotif,
+       "ceExtBreakOutPortInserted": ceExtBreakOutPortInserted,
+       "ceExtBreakOutPortRemoved": ceExtBreakOutPortRemoved,
+       "ceExtUSBModemPlugInNotif": ceExtUSBModemPlugInNotif,
+       "ceExtUSBModemPlugOutNotif": ceExtUSBModemPlugOutNotif,
+       "ciscoEntityExtMIBConformance": ciscoEntityExtMIBConformance,
+       "ciscoEntityExtMIBCompliances": ciscoEntityExtMIBCompliances,
+       "ciscoEntityExtMIBCompliance": ciscoEntityExtMIBCompliance,
+       "ciscoEntityExtMIBComplianceRev1": ciscoEntityExtMIBComplianceRev1,
+       "ciscoEntityExtMIBComplianceRev2": ciscoEntityExtMIBComplianceRev2,
+       "ciscoEntityExtMIBComplianceRev3": ciscoEntityExtMIBComplianceRev3,
+       "ciscoEntityExtMIBComplianceRev4": ciscoEntityExtMIBComplianceRev4,
+       "ciscoEntityExtMIBComplianceRev5": ciscoEntityExtMIBComplianceRev5,
+       "ciscoEntityExtMIBComplianceRev6": ciscoEntityExtMIBComplianceRev6,
+       "ciscoEntityExtMIBGroups": ciscoEntityExtMIBGroups,
+       "ceExtPhysicalProcessorGroup": ceExtPhysicalProcessorGroup,
+       "ciscoEntityExtConfigRegGroup": ciscoEntityExtConfigRegGroup,
+       "ceExtSysBootImageListGroup": ceExtSysBootImageListGroup,
+       "ciscoEntityExtLEDGroup": ciscoEntityExtLEDGroup,
+       "ceExtSysBootImageListGroupRev1": ceExtSysBootImageListGroupRev1,
+       "ciscoExtEntityPhysicalGroup": ciscoExtEntityPhysicalGroup,
+       "ceExtPhyProcessorOverflowGroup": ceExtPhyProcessorOverflowGroup,
+       "ceExtPhyProcessorHCGroup": ceExtPhyProcessorHCGroup,
+       "ceExtEntDoorNotifGroup": ceExtEntDoorNotifGroup,
+       "ceExtEntDoorNotifControlGroup": ceExtEntDoorNotifControlGroup,
+       "ceExtBreakOutPortNotifGroup": ceExtBreakOutPortNotifGroup,
+       "ceExtBreakOutPortNotifControlGroup": ceExtBreakOutPortNotifControlGroup,
+       "ceExtUSBModemGroup": ceExtUSBModemGroup,
+       "ceExtUsbModemNotificationsGroup": ceExtUsbModemNotificationsGroup,
+       "ceExtUsbModemNotifControlGroup": ceExtUsbModemNotifControlGroup,
+       "ceExtNVRAMOverflowGroup": ceExtNVRAMOverflowGroup,
+       "ceExtHCNVRAMGroup": ceExtHCNVRAMGroup}
+)

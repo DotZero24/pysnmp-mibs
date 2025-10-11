@@ -1,403 +1,2482 @@
+# SNMP MIB module (TIMETRA-MCAST-CAC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TIMETRA-MCAST-CAC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/nokia/TIMETRA-MCAST-CAC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:40:08 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/nokia/TIMETRA-MCAST-CAC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:00:44 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InterfaceIndex, = mibBuilder.importSymbols("IF-MIB", "InterfaceIndex")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, TruthValue, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "TruthValue", "TimeStamp", "DisplayString")
-tmnxSRObjs, timetraSRMIBModules, tmnxSRConfs = mibBuilder.importSymbols("TIMETRA-GLOBAL-MIB", "tmnxSRObjs", "timetraSRMIBModules", "tmnxSRConfs")
-tLagIndex, = mibBuilder.importSymbols("TIMETRA-LAG-MIB", "tLagIndex")
-svcId, = mibBuilder.importSymbols("TIMETRA-SERV-MIB", "svcId")
-TmnxAdminState, TmnxAddressAndPrefixType, TmnxPortID, TNamedItem, TItemDescription, TNamedItemOrEmpty, TmnxEncapVal, TmnxAddressAndPrefixAddress, TmnxAddressAndPrefixPrefix = mibBuilder.importSymbols("TIMETRA-TC-MIB", "TmnxAdminState", "TmnxAddressAndPrefixType", "TmnxPortID", "TNamedItem", "TItemDescription", "TNamedItemOrEmpty", "TmnxEncapVal", "TmnxAddressAndPrefixAddress", "TmnxAddressAndPrefixPrefix")
-vRtrID, = mibBuilder.importSymbols("TIMETRA-VRTR-MIB", "vRtrID")
-timetraMcastCacMIBModule = ModuleIdentity((1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 41))
-timetraMcastCacMIBModule.setRevisions(('2019-03-01 00:00', '2016-01-01 00:00', '2015-01-01 00:00', '2014-01-01 00:00', '2008-01-01 00:00', '2006-08-10 00:00',))
-if mibBuilder.loadTexts: timetraMcastCacMIBModule.setLastUpdated('201903010000Z')
-if mibBuilder.loadTexts: timetraMcastCacMIBModule.setOrganization('Nokia')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InterfaceIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "InterfaceIndex")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TimeStamp,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TimeStamp",
+    "TruthValue")
+
+(timetraSRMIBModules,
+ tmnxSRConfs,
+ tmnxSRObjs) = mibBuilder.importSymbols(
+    "TIMETRA-GLOBAL-MIB",
+    "timetraSRMIBModules",
+    "tmnxSRConfs",
+    "tmnxSRObjs")
+
+(tLagIndex,) = mibBuilder.importSymbols(
+    "TIMETRA-LAG-MIB",
+    "tLagIndex")
+
+(svcId,) = mibBuilder.importSymbols(
+    "TIMETRA-SERV-MIB",
+    "svcId")
+
+(TItemDescription,
+ TNamedItem,
+ TNamedItemOrEmpty,
+ TmnxAddressAndPrefixAddress,
+ TmnxAddressAndPrefixPrefix,
+ TmnxAddressAndPrefixType,
+ TmnxAdminState,
+ TmnxEncapVal,
+ TmnxPortID) = mibBuilder.importSymbols(
+    "TIMETRA-TC-MIB",
+    "TItemDescription",
+    "TNamedItem",
+    "TNamedItemOrEmpty",
+    "TmnxAddressAndPrefixAddress",
+    "TmnxAddressAndPrefixPrefix",
+    "TmnxAddressAndPrefixType",
+    "TmnxAdminState",
+    "TmnxEncapVal",
+    "TmnxPortID")
+
+(vRtrID,) = mibBuilder.importSymbols(
+    "TIMETRA-VRTR-MIB",
+    "vRtrID")
+
+
+# MODULE-IDENTITY
+
+timetraMcastCacMIBModule = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 1, 1, 3, 41)
+)
+if mibBuilder.loadTexts:
+    timetraMcastCacMIBModule.setRevisions(
+        ("2019-03-01 00:00",
+         "2016-01-01 00:00",
+         "2015-01-01 00:00",
+         "2014-01-01 00:00",
+         "2008-01-01 00:00",
+         "2006-08-10 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class TmnxMcacActionTc(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("accept", 1), ("discard", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("accept", 1),
+          ("discard", 2))
+    )
+
+
 
 class TmnxMcacReasonTc(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))
-    namedValues = NamedValues(("bundleDisabled", 1), ("bundleNoAvailBw", 2), ("interfaceNoAvailBw", 3), ("noChlInPlcy", 4), ("algoPass", 5), ("userNoAvailBw", 6), ("subscrNoMcacPol", 7), ("ifPolNoAvailBw", 8), ("lowMemory", 9))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("bundleDisabled", 1),
+          ("bundleNoAvailBw", 2),
+          ("interfaceNoAvailBw", 3),
+          ("noChlInPlcy", 4),
+          ("algoPass", 5),
+          ("userNoAvailBw", 6),
+          ("subscrNoMcacPol", 7),
+          ("ifPolNoAvailBw", 8),
+          ("lowMemory", 9))
+    )
+
+
 
 class TmnxMcacApplTc(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("igmp", 1), ("pim", 2), ("igmpSnpg", 3), ("mld", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("igmp", 1),
+          ("pim", 2),
+          ("igmpSnpg", 3),
+          ("mld", 4))
+    )
+
+
 
 class TmnxMcacChlTypeTc(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2))
-    namedValues = NamedValues(("none", 0), ("notMandatory", 1), ("mandatory", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("notMandatory", 1),
+          ("mandatory", 2))
+    )
+
+
 
 class TmnxMcacChlClassTc(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("low", 1), ("high", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("low", 1),
+          ("high", 2))
+    )
 
-tmnxMcacObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41))
-tmnxMcacPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1), )
-if mibBuilder.loadTexts: tmnxMcacPolicyTable.setStatus('current')
-tmnxMcacPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"))
-if mibBuilder.loadTexts: tmnxMcacPolicyEntry.setStatus('current')
-tmnxMcacPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1, 1, 1), TNamedItem())
-if mibBuilder.loadTexts: tmnxMcacPolicyName.setStatus('current')
-tmnxMcacPolicyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacPolicyRowStatus.setStatus('current')
-tmnxMcacPolicyDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1, 1, 3), TItemDescription()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacPolicyDescription.setStatus('current')
-tmnxMcacPolicyDefaultAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1, 1, 4), TmnxMcacActionTc().clone('discard')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacPolicyDefaultAction.setStatus('current')
-tmnxMcacBundleTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2), )
-if mibBuilder.loadTexts: tmnxMcacBundleTable.setStatus('current')
-tmnxMcacBundleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"))
-if mibBuilder.loadTexts: tmnxMcacBundleEntry.setStatus('current')
-tmnxMcacBundleName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 1), TNamedItem())
-if mibBuilder.loadTexts: tmnxMcacBundleName.setStatus('current')
-tmnxMcacBundleRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBundleRowStatus.setStatus('current')
-tmnxMcacBundleDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 3), TItemDescription()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBundleDescription.setStatus('current')
-tmnxMcacBundleAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 4), TmnxAdminState().clone('outOfService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBundleAdminState.setStatus('current')
-tmnxMcacBundleBandwidth = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)).clone(100)).setUnits('kilobps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBundleBandwidth.setStatus('current')
-tmnxMcacBundleUseLagPortWeight = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 6), TruthValue().clone('false')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBundleUseLagPortWeight.setStatus('current')
-tmnxMcacBdlChlTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3), )
-if mibBuilder.loadTexts: tmnxMcacBdlChlTable.setStatus('obsolete')
-tmnxMcacBdlChlEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlStartAddrType"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlStartAddr"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlEndAddrType"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlEndAddr"))
-if mibBuilder.loadTexts: tmnxMcacBdlChlEntry.setStatus('current')
-tmnxMcacBdlChlStartAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: tmnxMcacBdlChlStartAddrType.setStatus('current')
-tmnxMcacBdlChlStartAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: tmnxMcacBdlChlStartAddr.setStatus('current')
-tmnxMcacBdlChlEndAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 3), InetAddressType())
-if mibBuilder.loadTexts: tmnxMcacBdlChlEndAddrType.setStatus('current')
-tmnxMcacBdlChlEndAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: tmnxMcacBdlChlEndAddr.setStatus('current')
-tmnxMcacBdlChlRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBdlChlRowStatus.setStatus('obsolete')
-tmnxMcacBdlChlBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 6), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 10000000)).clone(10)).setUnits('kilobps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBdlChlBW.setStatus('obsolete')
-tmnxMcacBdlChlClass = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 7), TmnxMcacChlClassTc().clone('low')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBdlChlClass.setStatus('obsolete')
-tmnxMcacBdlChlType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 8), TmnxMcacChlTypeTc().clone('notMandatory')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBdlChlType.setStatus('obsolete')
-tmnxMcacLevelTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 4), )
-if mibBuilder.loadTexts: tmnxMcacLevelTable.setStatus('current')
-tmnxMcacLevelEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 4, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacLevelId"))
-if mibBuilder.loadTexts: tmnxMcacLevelEntry.setStatus('current')
-tmnxMcacLevelId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 4, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
-if mibBuilder.loadTexts: tmnxMcacLevelId.setStatus('current')
-tmnxMcacLevelRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 4, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacLevelRowStatus.setStatus('current')
-tmnxMcacLevelBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 4, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)).clone(1)).setUnits('kilobps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacLevelBW.setStatus('current')
-tmnxMcacLagTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 5), )
-if mibBuilder.loadTexts: tmnxMcacLagTable.setStatus('current')
-tmnxMcacLagEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 5, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"), (0, "TIMETRA-LAG-MIB", "tLagIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacLagPortsDown"))
-if mibBuilder.loadTexts: tmnxMcacLagEntry.setStatus('current')
-tmnxMcacLagPortsDown = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 5, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 64)))
-if mibBuilder.loadTexts: tmnxMcacLagPortsDown.setStatus('current')
-tmnxMcacLagRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 5, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacLagRowStatus.setStatus('current')
-tmnxMcacLagBundleLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 5, 1, 3), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)).clone(1)).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacLagBundleLevel.setStatus('current')
-tmnxMcacStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6), )
-if mibBuilder.loadTexts: tmnxMcacStatsTable.setStatus('obsolete')
-tmnxMcacStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsBundleName"), (0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIfIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChlAddrType"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChlAddr"))
-if mibBuilder.loadTexts: tmnxMcacStatsEntry.setStatus('current')
-tmnxMcacStatsBundleName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 1), TNamedItemOrEmpty())
-if mibBuilder.loadTexts: tmnxMcacStatsBundleName.setStatus('current')
-tmnxMcacStatsProtocolIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 2), TmnxMcacApplTc())
-if mibBuilder.loadTexts: tmnxMcacStatsProtocolIndex.setStatus('current')
-tmnxMcacStatsIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 3), InterfaceIndex())
-if mibBuilder.loadTexts: tmnxMcacStatsIfIndex.setStatus('current')
-tmnxMcacStatsChlAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 4), InetAddressType())
-if mibBuilder.loadTexts: tmnxMcacStatsChlAddrType.setStatus('current')
-tmnxMcacStatsChlAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 5), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: tmnxMcacStatsChlAddr.setStatus('current')
-tmnxMcacStatsAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 6), TmnxMcacActionTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsAction.setStatus('obsolete')
-tmnxMcacStatsReason = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 7), TmnxMcacReasonTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsReason.setStatus('obsolete')
-tmnxMcacStatsChannelType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 8), TmnxMcacChlTypeTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsChannelType.setStatus('obsolete')
-tmnxMcacStatsChannelBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 9), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsChannelBW.setStatus('obsolete')
-tmnxMcacStatsBundleAvailBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 10), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsBundleAvailBW.setStatus('obsolete')
-tmnxMcacStatsIntfAvailBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 11), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsIntfAvailBW.setStatus('obsolete')
-tmnxMcacStatsAlgoReapply = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 12), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsAlgoReapply.setStatus('obsolete')
-tmnxMcacStatsApplyAttempts = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsApplyAttempts.setStatus('obsolete')
-tmnxMcacStatsTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 14), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsTimeStamp.setStatus('obsolete')
-tmnxMcacOperTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7), )
-if mibBuilder.loadTexts: tmnxMcacOperTable.setStatus('current')
-tmnxMcacOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"), (0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIfIndex"))
-if mibBuilder.loadTexts: tmnxMcacOperEntry.setStatus('current')
-tmnxMcacOperActiveChannels = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacOperActiveChannels.setStatus('current')
-tmnxMcacOperMaxBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 2), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacOperMaxBw.setStatus('current')
-tmnxMcacOperAvailOptnlBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 3), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacOperAvailOptnlBw.setStatus('current')
-tmnxMcacOperAvailMandBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 4), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacOperAvailMandBw.setStatus('current')
-tmnxMcacOperInUseMandBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 5), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacOperInUseMandBw.setStatus('current')
-tmnxMcacOperPortsDown = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacOperPortsDown.setStatus('current')
-tmnxMcacOperCurrConstrtLvl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacOperCurrConstrtLvl.setStatus('current')
-tmnxMcacOperInUseOptnlBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 8), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacOperInUseOptnlBw.setStatus('current')
-tmnxMcacOperValuesInTransit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacOperValuesInTransit.setStatus('current')
-tmnxMcacServStatsTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8), )
-if mibBuilder.loadTexts: tmnxMcacServStatsTable.setStatus('obsolete')
-tmnxMcacServStatsEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsBundleName"), (0, "TIMETRA-SERV-MIB", "svcId"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsPortId"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsEncapValue"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChlAddrType"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChlAddr"))
-if mibBuilder.loadTexts: tmnxMcacServStatsEntry.setStatus('current')
-tmnxMcacServStatsPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 1), TmnxPortID())
-if mibBuilder.loadTexts: tmnxMcacServStatsPortId.setStatus('current')
-tmnxMcacServStatsEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 2), TmnxEncapVal())
-if mibBuilder.loadTexts: tmnxMcacServStatsEncapValue.setStatus('current')
-tmnxMcacServStatsAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 3), TmnxMcacActionTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsAction.setStatus('obsolete')
-tmnxMcacServStatsReason = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 4), TmnxMcacReasonTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsReason.setStatus('obsolete')
-tmnxMcacServStatsChannelType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 5), TmnxMcacChlTypeTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsChannelType.setStatus('obsolete')
-tmnxMcacServStatsChannelBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 6), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsChannelBW.setStatus('obsolete')
-tmnxMcacServStatsBundleAvailBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 7), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsBundleAvailBW.setStatus('obsolete')
-tmnxMcacServStatsIntfAvailBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 8), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsIntfAvailBW.setStatus('obsolete')
-tmnxMcacServStatsAlgoReapply = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsAlgoReapply.setStatus('obsolete')
-tmnxMcacServStatsApplyAttempts = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsApplyAttempts.setStatus('obsolete')
-tmnxMcacServStatsTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 11), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsTimeStamp.setStatus('obsolete')
-tmnxMcacServOperTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9), )
-if mibBuilder.loadTexts: tmnxMcacServOperTable.setStatus('current')
-tmnxMcacServOperEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"), (0, "TIMETRA-SERV-MIB", "svcId"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsPortId"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsEncapValue"))
-if mibBuilder.loadTexts: tmnxMcacServOperEntry.setStatus('current')
-tmnxMcacServOperActiveChannels = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 1), Gauge32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServOperActiveChannels.setStatus('current')
-tmnxMcacServOperMaxBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 2), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServOperMaxBw.setStatus('current')
-tmnxMcacServOperAvailOptnlBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 3), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServOperAvailOptnlBw.setStatus('current')
-tmnxMcacServOperAvailMandBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 4), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServOperAvailMandBw.setStatus('current')
-tmnxMcacServOperInUseMandBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 5), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServOperInUseMandBw.setStatus('current')
-tmnxMcacServOperPortsDown = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 6), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServOperPortsDown.setStatus('current')
-tmnxMcacServOperCurrConstrtLvl = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 7), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServOperCurrConstrtLvl.setStatus('current')
-tmnxMcacServOperInUseOptnlBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 8), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServOperInUseOptnlBw.setStatus('current')
-tmnxMcacServOperValuesInTransit = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServOperValuesInTransit.setStatus('current')
-tmnxMcacPolicyUserTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 10), )
-if mibBuilder.loadTexts: tmnxMcacPolicyUserTable.setStatus('current')
-tmnxMcacPolicyUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 10, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIfIndex"))
-if mibBuilder.loadTexts: tmnxMcacPolicyUserEntry.setStatus('current')
-tmnxMcacPolicyUserConfigured = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 10, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacPolicyUserConfigured.setStatus('current')
-tmnxMcacPolicyServUserTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 11), )
-if mibBuilder.loadTexts: tmnxMcacPolicyServUserTable.setStatus('current')
-tmnxMcacPolicyServUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 11, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-SERV-MIB", "svcId"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsPortId"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsEncapValue"))
-if mibBuilder.loadTexts: tmnxMcacPolicyServUserEntry.setStatus('current')
-tmnxMcacPolicyServUserConfigured = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 11, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacPolicyServUserConfigured.setStatus('current')
-tmnxMcacBdlChlNgTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12), )
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgTable.setStatus('current')
-tmnxMcacBdlChlNgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgStartAddrType"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgStartAddr"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgEndAddrType"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgEndAddr"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgSrcPfxType"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgSrcPfx"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgSrcPfxLen"))
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgEntry.setStatus('current')
-tmnxMcacBdlChlNgStartAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgStartAddrType.setStatus('current')
-tmnxMcacBdlChlNgStartAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 2), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgStartAddr.setStatus('current')
-tmnxMcacBdlChlNgEndAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 3), InetAddressType())
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgEndAddrType.setStatus('current')
-tmnxMcacBdlChlNgEndAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 4), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgEndAddr.setStatus('current')
-tmnxMcacBdlChlNgSrcPfxType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 5), TmnxAddressAndPrefixType())
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgSrcPfxType.setStatus('current')
-tmnxMcacBdlChlNgSrcPfx = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 6), TmnxAddressAndPrefixAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgSrcPfx.setStatus('current')
-tmnxMcacBdlChlNgSrcPfxLen = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 7), TmnxAddressAndPrefixPrefix().subtype(subtypeSpec=ValueRangeConstraint(0, 128)))
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgSrcPfxLen.setStatus('current')
-tmnxMcacBdlChlNgRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 8), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgRowStatus.setStatus('current')
-tmnxMcacBdlChlNgBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 9), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(10, 10000000)).clone(10)).setUnits('kilobps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgBW.setStatus('current')
-tmnxMcacBdlChlNgClass = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 10), TmnxMcacChlClassTc().clone('low')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgClass.setStatus('current')
-tmnxMcacBdlChlNgType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 11), TmnxMcacChlTypeTc().clone('notMandatory')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacBdlChlNgType.setStatus('current')
-tmnxMcacStatsNgTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13), )
-if mibBuilder.loadTexts: tmnxMcacStatsNgTable.setStatus('current')
-tmnxMcacStatsNgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgBundleName"), (0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgProtocolIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgIfIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChlAddrType"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChlAddr"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgSrcAddrType"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgSrcAddr"))
-if mibBuilder.loadTexts: tmnxMcacStatsNgEntry.setStatus('current')
-tmnxMcacStatsNgBundleName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 1), TNamedItemOrEmpty())
-if mibBuilder.loadTexts: tmnxMcacStatsNgBundleName.setStatus('current')
-tmnxMcacStatsNgProtocolIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 2), TmnxMcacApplTc())
-if mibBuilder.loadTexts: tmnxMcacStatsNgProtocolIndex.setStatus('current')
-tmnxMcacStatsNgIfIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 3), InterfaceIndex())
-if mibBuilder.loadTexts: tmnxMcacStatsNgIfIndex.setStatus('current')
-tmnxMcacStatsNgChlAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 4), InetAddressType())
-if mibBuilder.loadTexts: tmnxMcacStatsNgChlAddrType.setStatus('current')
-tmnxMcacStatsNgChlAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 5), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: tmnxMcacStatsNgChlAddr.setStatus('current')
-tmnxMcacStatsNgSrcAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 6), InetAddressType())
-if mibBuilder.loadTexts: tmnxMcacStatsNgSrcAddrType.setStatus('current')
-tmnxMcacStatsNgSrcAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 7), InetAddress().subtype(subtypeSpec=ConstraintsUnion(ValueSizeConstraint(4, 4), ValueSizeConstraint(16, 16), )))
-if mibBuilder.loadTexts: tmnxMcacStatsNgSrcAddr.setStatus('current')
-tmnxMcacStatsNgAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 8), TmnxMcacActionTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsNgAction.setStatus('current')
-tmnxMcacStatsNgReason = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 9), TmnxMcacReasonTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsNgReason.setStatus('current')
-tmnxMcacStatsNgChannelType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 10), TmnxMcacChlTypeTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsNgChannelType.setStatus('current')
-tmnxMcacStatsNgChannelBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 11), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsNgChannelBW.setStatus('current')
-tmnxMcacStatsNgBundleAvailBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 12), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsNgBundleAvailBW.setStatus('current')
-tmnxMcacStatsNgIntfAvailBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 13), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsNgIntfAvailBW.setStatus('current')
-tmnxMcacStatsNgAlgoReapply = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 14), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsNgAlgoReapply.setStatus('current')
-tmnxMcacStatsNgApplyAttempts = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 15), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsNgApplyAttempts.setStatus('current')
-tmnxMcacStatsNgTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 16), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacStatsNgTimeStamp.setStatus('current')
-tmnxMcacServStatsNgTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14), )
-if mibBuilder.loadTexts: tmnxMcacServStatsNgTable.setStatus('current')
-tmnxMcacServStatsNgEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgBundleName"), (0, "TIMETRA-SERV-MIB", "svcId"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgProtocolIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgPortId"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgEncapValue"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChlAddrType"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChlAddr"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgSrcAddrType"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgSrcAddr"))
-if mibBuilder.loadTexts: tmnxMcacServStatsNgEntry.setStatus('current')
-tmnxMcacServStatsNgPortId = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 1), TmnxPortID())
-if mibBuilder.loadTexts: tmnxMcacServStatsNgPortId.setStatus('current')
-tmnxMcacServStatsNgEncapValue = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 2), TmnxEncapVal())
-if mibBuilder.loadTexts: tmnxMcacServStatsNgEncapValue.setStatus('current')
-tmnxMcacServStatsNgAction = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 3), TmnxMcacActionTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsNgAction.setStatus('current')
-tmnxMcacServStatsNgReason = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 4), TmnxMcacReasonTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsNgReason.setStatus('current')
-tmnxMcacServStatsNgChannelType = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 5), TmnxMcacChlTypeTc()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsNgChannelType.setStatus('current')
-tmnxMcacServStatsNgChannelBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 6), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsNgChannelBW.setStatus('current')
-tmnxMcacServStatsNgBundleAvailBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 7), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsNgBundleAvailBW.setStatus('current')
-tmnxMcacServStatsNgIntfAvailBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 8), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsNgIntfAvailBW.setStatus('current')
-tmnxMcacServStatsNgAlgoReapply = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 9), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsNgAlgoReapply.setStatus('current')
-tmnxMcacServStatsNgApplyAttempts = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsNgApplyAttempts.setStatus('current')
-tmnxMcacServStatsNgTimeStamp = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 11), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacServStatsNgTimeStamp.setStatus('current')
-tmnxMcacIfPolicyTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15), )
-if mibBuilder.loadTexts: tmnxMcacIfPolicyTable.setStatus('current')
-tmnxMcacIfPolicyEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyName"))
-if mibBuilder.loadTexts: tmnxMcacIfPolicyEntry.setStatus('current')
-tmnxMcacIfPolicyName = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 1), TNamedItem())
-if mibBuilder.loadTexts: tmnxMcacIfPolicyName.setStatus('current')
-tmnxMcacIfPolicyRowStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 2), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacIfPolicyRowStatus.setStatus('current')
-tmnxMcacIfPolicyDescription = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 3), TItemDescription()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacIfPolicyDescription.setStatus('current')
-tmnxMcacIfPolicyAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 4), TmnxAdminState().clone('inService')).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacIfPolicyAdminState.setStatus('current')
-tmnxMcacIfPolicyUnconstrainedBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 2147483647), )).clone(-1)).setUnits('kilobps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacIfPolicyUnconstrainedBW.setStatus('current')
-tmnxMcacIfPolicyPreRsvdMandBW = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(ValueRangeConstraint(-1, -1), ValueRangeConstraint(0, 2147483647), )).clone(-1)).setUnits('kilobps').setMaxAccess("readcreate")
-if mibBuilder.loadTexts: tmnxMcacIfPolicyPreRsvdMandBW.setStatus('current')
-tmnxMcacIfPolicyInUseMandBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 7), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacIfPolicyInUseMandBw.setStatus('current')
-tmnxMcacIfPolicyInUseOpnlBw = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 8), Unsigned32()).setUnits('kilobps').setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacIfPolicyInUseOpnlBw.setStatus('current')
-tmnxMcacIfPolicyUserTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 16), )
-if mibBuilder.loadTexts: tmnxMcacIfPolicyUserTable.setStatus('current')
-tmnxMcacIfPolicyUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 16, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyName"), (0, "TIMETRA-VRTR-MIB", "vRtrID"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIfIndex"))
-if mibBuilder.loadTexts: tmnxMcacIfPolicyUserEntry.setStatus('current')
-tmnxMcacIfPolicyUserCfgrd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 16, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacIfPolicyUserCfgrd.setStatus('current')
-tmnxMcacIfPolicyServUserTable = MibTable((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 17), )
-if mibBuilder.loadTexts: tmnxMcacIfPolicyServUserTable.setStatus('current')
-tmnxMcacIfPolicyServUserEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 17, 1), ).setIndexNames((0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyName"), (0, "TIMETRA-SERV-MIB", "svcId"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsPortId"), (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsEncapValue"))
-if mibBuilder.loadTexts: tmnxMcacIfPolicyServUserEntry.setStatus('current')
-tmnxMcacIfPolicyServUserCfgrd = MibTableColumn((1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 17, 1, 1), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tmnxMcacIfPolicyServUserCfgrd.setStatus('current')
-tmnxMcacConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41))
-tmnxMcacCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1))
-tmnxMcacV5v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1, 1)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserV5v0Group"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacV5v0Compliance = tmnxMcacV5v0Compliance.setStatus('obsolete')
-tmnxMcacV6v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1, 2)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserV5v0Group"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacV6v0Compliance = tmnxMcacV6v0Compliance.setStatus('obsolete')
-tmnxMcacV12v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1, 3)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV12v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV12v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserV5v0Group"))
+# MIB Managed Objects in the order of their OIDs
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacV12v0Compliance = tmnxMcacV12v0Compliance.setStatus('obsolete')
-tmnxMcacV14v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1, 4)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV12v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV14v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV12v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserV5v0Group"))
+_TmnxMcacConformance_ObjectIdentity = ObjectIdentity
+tmnxMcacConformance = _TmnxMcacConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41)
+)
+_TmnxMcacCompliances_ObjectIdentity = ObjectIdentity
+tmnxMcacCompliances = _TmnxMcacCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1)
+)
+_TmnxMcacGroups_ObjectIdentity = ObjectIdentity
+tmnxMcacGroups = _TmnxMcacGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2)
+)
+_TmnxMcacObjects_ObjectIdentity = ObjectIdentity
+tmnxMcacObjects = _TmnxMcacObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41)
+)
+_TmnxMcacPolicyTable_Object = MibTable
+tmnxMcacPolicyTable = _TmnxMcacPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyTable.setStatus("current")
+_TmnxMcacPolicyEntry_Object = MibTableRow
+tmnxMcacPolicyEntry = _TmnxMcacPolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1, 1)
+)
+tmnxMcacPolicyEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyEntry.setStatus("current")
+_TmnxMcacPolicyName_Type = TNamedItem
+_TmnxMcacPolicyName_Object = MibTableColumn
+tmnxMcacPolicyName = _TmnxMcacPolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1, 1, 1),
+    _TmnxMcacPolicyName_Type()
+)
+tmnxMcacPolicyName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyName.setStatus("current")
+_TmnxMcacPolicyRowStatus_Type = RowStatus
+_TmnxMcacPolicyRowStatus_Object = MibTableColumn
+tmnxMcacPolicyRowStatus = _TmnxMcacPolicyRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1, 1, 2),
+    _TmnxMcacPolicyRowStatus_Type()
+)
+tmnxMcacPolicyRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyRowStatus.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacV14v0Compliance = tmnxMcacV14v0Compliance.setStatus('obsolete')
-tmnxMcacV19v0Compliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1, 5)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV12v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV14v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV19v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV12v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserV5v0Group"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacObsoleteObjsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacV19v0Compliance = tmnxMcacV19v0Compliance.setStatus('current')
-tmnxMcacGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2))
-tmnxMcacV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 1)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyDescription"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyDefaultAction"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleDescription"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleAdminState"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleBandwidth"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlClass"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlType"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLevelRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLevelBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLagRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLagBundleLevel"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacV5v0Group = tmnxMcacV5v0Group.setStatus('obsolete')
-tmnxMcacStatV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 2)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsAction"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsReason"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChannelType"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChannelBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsBundleAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIntfAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsAlgoReapply"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsApplyAttempts"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsTimeStamp"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsAction"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsReason"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsChannelType"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsChannelBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsBundleAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsIntfAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsAlgoReapply"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsApplyAttempts"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsTimeStamp"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacStatV5v0Group = tmnxMcacStatV5v0Group.setStatus('obsolete')
-tmnxMcacOperV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 3)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperActiveChannels"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperMaxBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperAvailOptnlBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperAvailMandBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperInUseMandBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperPortsDown"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperCurrConstrtLvl"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperInUseOptnlBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperValuesInTransit"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperActiveChannels"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperMaxBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperAvailOptnlBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperAvailMandBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperInUseMandBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperPortsDown"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperCurrConstrtLvl"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperInUseOptnlBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperValuesInTransit"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacOperV5v0Group = tmnxMcacOperV5v0Group.setStatus('current')
-tmnxMcacPolicyUserV5v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 4)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserConfigured"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyServUserConfigured"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacPolicyUserV5v0Group = tmnxMcacPolicyUserV5v0Group.setStatus('current')
-tmnxMcacV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 5)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgClass"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgType"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleUseLagPortWeight"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacV12v0Group = tmnxMcacV12v0Group.setStatus('current')
-tmnxMcacStatV12v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 6)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgAction"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgReason"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChannelType"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChannelBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgBundleAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgIntfAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgAlgoReapply"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgApplyAttempts"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgTimeStamp"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgAction"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgReason"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgChannelType"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgChannelBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgBundleAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgIntfAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgAlgoReapply"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgApplyAttempts"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgTimeStamp"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacStatV12v0Group = tmnxMcacStatV12v0Group.setStatus('current')
-tmnxMcacV14v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 7)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyDescription"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyAdminState"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyUnconstrainedBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyPreRsvdMandBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyInUseMandBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyInUseOpnlBw"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyUserCfgrd"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyServUserCfgrd"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacV14v0Group = tmnxMcacV14v0Group.setStatus('current')
-tmnxMcacV19v0Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 8)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyDescription"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyDefaultAction"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleDescription"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleAdminState"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleBandwidth"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLevelRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLevelBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLagRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLagBundleLevel"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacV19v0Group = tmnxMcacV19v0Group.setStatus('current')
-tmnxMcacObsoleteObjsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 100)).setObjects(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsAction"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsReason"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChannelType"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChannelBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsBundleAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIntfAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsAlgoReapply"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsApplyAttempts"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsTimeStamp"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsAction"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsReason"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsChannelType"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsChannelBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsBundleAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsIntfAvailBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsAlgoReapply"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsApplyAttempts"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsTimeStamp"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlRowStatus"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlBW"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlClass"), ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    tmnxMcacObsoleteObjsGroup = tmnxMcacObsoleteObjsGroup.setStatus('current')
-mibBuilder.exportSymbols("TIMETRA-MCAST-CAC-MIB", tmnxMcacStatsIfIndex=tmnxMcacStatsIfIndex, tmnxMcacBdlChlEntry=tmnxMcacBdlChlEntry, tmnxMcacStatsTable=tmnxMcacStatsTable, tmnxMcacStatsNgEntry=tmnxMcacStatsNgEntry, tmnxMcacServStatsNgChannelType=tmnxMcacServStatsNgChannelType, tmnxMcacBdlChlType=tmnxMcacBdlChlType, tmnxMcacServOperEntry=tmnxMcacServOperEntry, tmnxMcacBdlChlStartAddr=tmnxMcacBdlChlStartAddr, tmnxMcacStatsChannelType=tmnxMcacStatsChannelType, tmnxMcacLevelTable=tmnxMcacLevelTable, TmnxMcacChlTypeTc=TmnxMcacChlTypeTc, tmnxMcacServStatsNgTimeStamp=tmnxMcacServStatsNgTimeStamp, tmnxMcacPolicyRowStatus=tmnxMcacPolicyRowStatus, tmnxMcacStatsNgChannelType=tmnxMcacStatsNgChannelType, tmnxMcacBdlChlNgSrcPfxType=tmnxMcacBdlChlNgSrcPfxType, tmnxMcacIfPolicyRowStatus=tmnxMcacIfPolicyRowStatus, tmnxMcacServStatsApplyAttempts=tmnxMcacServStatsApplyAttempts, tmnxMcacBdlChlNgEndAddrType=tmnxMcacBdlChlNgEndAddrType, tmnxMcacServStatsNgChannelBW=tmnxMcacServStatsNgChannelBW, tmnxMcacStatsAction=tmnxMcacStatsAction, tmnxMcacStatsNgIfIndex=tmnxMcacStatsNgIfIndex, tmnxMcacIfPolicyServUserEntry=tmnxMcacIfPolicyServUserEntry, tmnxMcacBundleDescription=tmnxMcacBundleDescription, tmnxMcacIfPolicyName=tmnxMcacIfPolicyName, tmnxMcacPolicyDefaultAction=tmnxMcacPolicyDefaultAction, tmnxMcacOperInUseMandBw=tmnxMcacOperInUseMandBw, tmnxMcacStatsNgAction=tmnxMcacStatsNgAction, tmnxMcacBdlChlNgStartAddr=tmnxMcacBdlChlNgStartAddr, tmnxMcacConformance=tmnxMcacConformance, tmnxMcacLagPortsDown=tmnxMcacLagPortsDown, tmnxMcacStatsNgBundleName=tmnxMcacStatsNgBundleName, tmnxMcacBdlChlBW=tmnxMcacBdlChlBW, tmnxMcacStatsBundleName=tmnxMcacStatsBundleName, tmnxMcacServOperAvailOptnlBw=tmnxMcacServOperAvailOptnlBw, tmnxMcacServOperCurrConstrtLvl=tmnxMcacServOperCurrConstrtLvl, tmnxMcacBdlChlClass=tmnxMcacBdlChlClass, tmnxMcacBdlChlNgClass=tmnxMcacBdlChlNgClass, tmnxMcacServStatsNgAction=tmnxMcacServStatsNgAction, tmnxMcacStatsChannelBW=tmnxMcacStatsChannelBW, tmnxMcacPolicyServUserEntry=tmnxMcacPolicyServUserEntry, tmnxMcacLagTable=tmnxMcacLagTable, tmnxMcacBdlChlNgSrcPfx=tmnxMcacBdlChlNgSrcPfx, tmnxMcacPolicyName=tmnxMcacPolicyName, tmnxMcacStatsNgSrcAddrType=tmnxMcacStatsNgSrcAddrType, tmnxMcacServStatsEncapValue=tmnxMcacServStatsEncapValue, tmnxMcacBdlChlEndAddrType=tmnxMcacBdlChlEndAddrType, tmnxMcacOperEntry=tmnxMcacOperEntry, tmnxMcacPolicyEntry=tmnxMcacPolicyEntry, tmnxMcacStatsNgApplyAttempts=tmnxMcacStatsNgApplyAttempts, tmnxMcacStatsNgProtocolIndex=tmnxMcacStatsNgProtocolIndex, tmnxMcacOperCurrConstrtLvl=tmnxMcacOperCurrConstrtLvl, tmnxMcacIfPolicyTable=tmnxMcacIfPolicyTable, tmnxMcacOperAvailMandBw=tmnxMcacOperAvailMandBw, tmnxMcacIfPolicyDescription=tmnxMcacIfPolicyDescription, tmnxMcacIfPolicyServUserTable=tmnxMcacIfPolicyServUserTable, tmnxMcacGroups=tmnxMcacGroups, tmnxMcacStatsIntfAvailBW=tmnxMcacStatsIntfAvailBW, tmnxMcacOperActiveChannels=tmnxMcacOperActiveChannels, tmnxMcacV19v0Compliance=tmnxMcacV19v0Compliance, tmnxMcacServOperAvailMandBw=tmnxMcacServOperAvailMandBw, tmnxMcacOperValuesInTransit=tmnxMcacOperValuesInTransit, tmnxMcacServStatsNgReason=tmnxMcacServStatsNgReason, tmnxMcacBdlChlNgStartAddrType=tmnxMcacBdlChlNgStartAddrType, tmnxMcacCompliances=tmnxMcacCompliances, tmnxMcacIfPolicyUserEntry=tmnxMcacIfPolicyUserEntry, tmnxMcacStatsNgTimeStamp=tmnxMcacStatsNgTimeStamp, tmnxMcacIfPolicyEntry=tmnxMcacIfPolicyEntry, tmnxMcacServStatsEntry=tmnxMcacServStatsEntry, tmnxMcacPolicyServUserTable=tmnxMcacPolicyServUserTable, tmnxMcacObsoleteObjsGroup=tmnxMcacObsoleteObjsGroup, tmnxMcacStatsApplyAttempts=tmnxMcacStatsApplyAttempts, tmnxMcacIfPolicyServUserCfgrd=tmnxMcacIfPolicyServUserCfgrd, tmnxMcacV5v0Compliance=tmnxMcacV5v0Compliance, tmnxMcacV6v0Compliance=tmnxMcacV6v0Compliance, tmnxMcacStatsBundleAvailBW=tmnxMcacStatsBundleAvailBW, tmnxMcacServStatsNgTable=tmnxMcacServStatsNgTable, tmnxMcacServStatsNgAlgoReapply=tmnxMcacServStatsNgAlgoReapply, tmnxMcacStatsNgChlAddr=tmnxMcacStatsNgChlAddr, tmnxMcacServOperActiveChannels=tmnxMcacServOperActiveChannels, tmnxMcacOperAvailOptnlBw=tmnxMcacOperAvailOptnlBw, tmnxMcacStatsEntry=tmnxMcacStatsEntry, tmnxMcacStatsNgChlAddrType=tmnxMcacStatsNgChlAddrType, tmnxMcacLagBundleLevel=tmnxMcacLagBundleLevel, tmnxMcacServStatsNgPortId=tmnxMcacServStatsNgPortId, tmnxMcacBdlChlNgTable=tmnxMcacBdlChlNgTable, tmnxMcacBdlChlTable=tmnxMcacBdlChlTable, TmnxMcacApplTc=TmnxMcacApplTc, tmnxMcacBdlChlNgBW=tmnxMcacBdlChlNgBW, TmnxMcacReasonTc=TmnxMcacReasonTc, tmnxMcacServOperMaxBw=tmnxMcacServOperMaxBw, tmnxMcacServStatsNgApplyAttempts=tmnxMcacServStatsNgApplyAttempts, tmnxMcacLevelId=tmnxMcacLevelId, tmnxMcacPolicyUserEntry=tmnxMcacPolicyUserEntry, tmnxMcacStatsNgIntfAvailBW=tmnxMcacStatsNgIntfAvailBW, tmnxMcacBdlChlNgEndAddr=tmnxMcacBdlChlNgEndAddr, tmnxMcacOperInUseOptnlBw=tmnxMcacOperInUseOptnlBw, tmnxMcacPolicyDescription=tmnxMcacPolicyDescription, tmnxMcacServOperValuesInTransit=tmnxMcacServOperValuesInTransit, tmnxMcacLevelBW=tmnxMcacLevelBW, tmnxMcacStatsChlAddrType=tmnxMcacStatsChlAddrType, tmnxMcacServStatsReason=tmnxMcacServStatsReason, tmnxMcacBundleRowStatus=tmnxMcacBundleRowStatus, tmnxMcacStatsChlAddr=tmnxMcacStatsChlAddr, tmnxMcacServStatsTable=tmnxMcacServStatsTable, tmnxMcacIfPolicyAdminState=tmnxMcacIfPolicyAdminState, tmnxMcacServOperInUseMandBw=tmnxMcacServOperInUseMandBw, tmnxMcacBdlChlNgSrcPfxLen=tmnxMcacBdlChlNgSrcPfxLen, tmnxMcacServStatsIntfAvailBW=tmnxMcacServStatsIntfAvailBW, tmnxMcacIfPolicyUserCfgrd=tmnxMcacIfPolicyUserCfgrd, tmnxMcacPolicyUserTable=tmnxMcacPolicyUserTable, tmnxMcacIfPolicyUnconstrainedBW=tmnxMcacIfPolicyUnconstrainedBW, tmnxMcacServOperInUseOptnlBw=tmnxMcacServOperInUseOptnlBw, tmnxMcacPolicyServUserConfigured=tmnxMcacPolicyServUserConfigured, tmnxMcacLevelEntry=tmnxMcacLevelEntry, tmnxMcacServStatsChannelBW=tmnxMcacServStatsChannelBW, tmnxMcacServStatsTimeStamp=tmnxMcacServStatsTimeStamp, tmnxMcacV19v0Group=tmnxMcacV19v0Group, tmnxMcacIfPolicyInUseOpnlBw=tmnxMcacIfPolicyInUseOpnlBw, tmnxMcacV5v0Group=tmnxMcacV5v0Group, tmnxMcacStatV12v0Group=tmnxMcacStatV12v0Group, tmnxMcacStatsTimeStamp=tmnxMcacStatsTimeStamp, tmnxMcacStatsAlgoReapply=tmnxMcacStatsAlgoReapply, TmnxMcacActionTc=TmnxMcacActionTc, tmnxMcacLagEntry=tmnxMcacLagEntry, tmnxMcacPolicyUserConfigured=tmnxMcacPolicyUserConfigured, tmnxMcacStatsNgAlgoReapply=tmnxMcacStatsNgAlgoReapply, tmnxMcacBundleAdminState=tmnxMcacBundleAdminState, tmnxMcacStatsProtocolIndex=tmnxMcacStatsProtocolIndex, tmnxMcacIfPolicyUserTable=tmnxMcacIfPolicyUserTable, tmnxMcacBdlChlNgType=tmnxMcacBdlChlNgType, tmnxMcacServStatsNgEncapValue=tmnxMcacServStatsNgEncapValue, tmnxMcacLagRowStatus=tmnxMcacLagRowStatus, tmnxMcacStatsNgReason=tmnxMcacStatsNgReason, tmnxMcacStatV5v0Group=tmnxMcacStatV5v0Group, tmnxMcacStatsReason=tmnxMcacStatsReason, tmnxMcacBundleBandwidth=tmnxMcacBundleBandwidth, tmnxMcacStatsNgSrcAddr=tmnxMcacStatsNgSrcAddr, tmnxMcacBdlChlEndAddr=tmnxMcacBdlChlEndAddr, tmnxMcacOperMaxBw=tmnxMcacOperMaxBw, tmnxMcacServStatsPortId=tmnxMcacServStatsPortId, tmnxMcacBdlChlNgRowStatus=tmnxMcacBdlChlNgRowStatus, tmnxMcacBdlChlStartAddrType=tmnxMcacBdlChlStartAddrType, tmnxMcacV12v0Compliance=tmnxMcacV12v0Compliance, tmnxMcacOperV5v0Group=tmnxMcacOperV5v0Group, tmnxMcacV12v0Group=tmnxMcacV12v0Group, tmnxMcacServStatsBundleAvailBW=tmnxMcacServStatsBundleAvailBW, tmnxMcacLevelRowStatus=tmnxMcacLevelRowStatus, tmnxMcacBundleUseLagPortWeight=tmnxMcacBundleUseLagPortWeight, tmnxMcacStatsNgTable=tmnxMcacStatsNgTable, tmnxMcacBundleEntry=tmnxMcacBundleEntry, tmnxMcacOperPortsDown=tmnxMcacOperPortsDown, PYSNMP_MODULE_ID=timetraMcastCacMIBModule, tmnxMcacServStatsAlgoReapply=tmnxMcacServStatsAlgoReapply, tmnxMcacServStatsAction=tmnxMcacServStatsAction, tmnxMcacServOperTable=tmnxMcacServOperTable, timetraMcastCacMIBModule=timetraMcastCacMIBModule, tmnxMcacBundleTable=tmnxMcacBundleTable, tmnxMcacStatsNgChannelBW=tmnxMcacStatsNgChannelBW, tmnxMcacIfPolicyInUseMandBw=tmnxMcacIfPolicyInUseMandBw, tmnxMcacServStatsChannelType=tmnxMcacServStatsChannelType, tmnxMcacObjects=tmnxMcacObjects, TmnxMcacChlClassTc=TmnxMcacChlClassTc, tmnxMcacStatsNgBundleAvailBW=tmnxMcacStatsNgBundleAvailBW, tmnxMcacBundleName=tmnxMcacBundleName, tmnxMcacServStatsNgBundleAvailBW=tmnxMcacServStatsNgBundleAvailBW, tmnxMcacServStatsNgEntry=tmnxMcacServStatsNgEntry, tmnxMcacServStatsNgIntfAvailBW=tmnxMcacServStatsNgIntfAvailBW, tmnxMcacPolicyUserV5v0Group=tmnxMcacPolicyUserV5v0Group, tmnxMcacV14v0Group=tmnxMcacV14v0Group, tmnxMcacV14v0Compliance=tmnxMcacV14v0Compliance, tmnxMcacOperTable=tmnxMcacOperTable, tmnxMcacBdlChlNgEntry=tmnxMcacBdlChlNgEntry, tmnxMcacPolicyTable=tmnxMcacPolicyTable, tmnxMcacIfPolicyPreRsvdMandBW=tmnxMcacIfPolicyPreRsvdMandBW, tmnxMcacServOperPortsDown=tmnxMcacServOperPortsDown, tmnxMcacBdlChlRowStatus=tmnxMcacBdlChlRowStatus)
+class _TmnxMcacPolicyDescription_Type(TItemDescription):
+    """Custom type tmnxMcacPolicyDescription based on TItemDescription"""
+    defaultValue = OctetString("")
+
+
+_TmnxMcacPolicyDescription_Type.__name__ = "TItemDescription"
+_TmnxMcacPolicyDescription_Object = MibTableColumn
+tmnxMcacPolicyDescription = _TmnxMcacPolicyDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1, 1, 3),
+    _TmnxMcacPolicyDescription_Type()
+)
+tmnxMcacPolicyDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyDescription.setStatus("current")
+
+
+class _TmnxMcacPolicyDefaultAction_Type(TmnxMcacActionTc):
+    """Custom type tmnxMcacPolicyDefaultAction based on TmnxMcacActionTc"""
+    defaultValue = 2
+
+
+_TmnxMcacPolicyDefaultAction_Type.__name__ = "TmnxMcacActionTc"
+_TmnxMcacPolicyDefaultAction_Object = MibTableColumn
+tmnxMcacPolicyDefaultAction = _TmnxMcacPolicyDefaultAction_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 1, 1, 4),
+    _TmnxMcacPolicyDefaultAction_Type()
+)
+tmnxMcacPolicyDefaultAction.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyDefaultAction.setStatus("current")
+_TmnxMcacBundleTable_Object = MibTable
+tmnxMcacBundleTable = _TmnxMcacBundleTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacBundleTable.setStatus("current")
+_TmnxMcacBundleEntry_Object = MibTableRow
+tmnxMcacBundleEntry = _TmnxMcacBundleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1)
+)
+tmnxMcacBundleEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacBundleEntry.setStatus("current")
+_TmnxMcacBundleName_Type = TNamedItem
+_TmnxMcacBundleName_Object = MibTableColumn
+tmnxMcacBundleName = _TmnxMcacBundleName_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 1),
+    _TmnxMcacBundleName_Type()
+)
+tmnxMcacBundleName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBundleName.setStatus("current")
+_TmnxMcacBundleRowStatus_Type = RowStatus
+_TmnxMcacBundleRowStatus_Object = MibTableColumn
+tmnxMcacBundleRowStatus = _TmnxMcacBundleRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 2),
+    _TmnxMcacBundleRowStatus_Type()
+)
+tmnxMcacBundleRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBundleRowStatus.setStatus("current")
+
+
+class _TmnxMcacBundleDescription_Type(TItemDescription):
+    """Custom type tmnxMcacBundleDescription based on TItemDescription"""
+    defaultValue = OctetString("")
+
+
+_TmnxMcacBundleDescription_Type.__name__ = "TItemDescription"
+_TmnxMcacBundleDescription_Object = MibTableColumn
+tmnxMcacBundleDescription = _TmnxMcacBundleDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 3),
+    _TmnxMcacBundleDescription_Type()
+)
+tmnxMcacBundleDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBundleDescription.setStatus("current")
+
+
+class _TmnxMcacBundleAdminState_Type(TmnxAdminState):
+    """Custom type tmnxMcacBundleAdminState based on TmnxAdminState"""
+    defaultValue = 3
+
+
+_TmnxMcacBundleAdminState_Type.__name__ = "TmnxAdminState"
+_TmnxMcacBundleAdminState_Object = MibTableColumn
+tmnxMcacBundleAdminState = _TmnxMcacBundleAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 4),
+    _TmnxMcacBundleAdminState_Type()
+)
+tmnxMcacBundleAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBundleAdminState.setStatus("current")
+
+
+class _TmnxMcacBundleBandwidth_Type(Unsigned32):
+    """Custom type tmnxMcacBundleBandwidth based on Unsigned32"""
+    defaultValue = 100
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_TmnxMcacBundleBandwidth_Type.__name__ = "Unsigned32"
+_TmnxMcacBundleBandwidth_Object = MibTableColumn
+tmnxMcacBundleBandwidth = _TmnxMcacBundleBandwidth_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 5),
+    _TmnxMcacBundleBandwidth_Type()
+)
+tmnxMcacBundleBandwidth.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBundleBandwidth.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacBundleBandwidth.setUnits("kilobps")
+
+
+class _TmnxMcacBundleUseLagPortWeight_Type(TruthValue):
+    """Custom type tmnxMcacBundleUseLagPortWeight based on TruthValue"""
+    defaultValue = 2
+
+
+_TmnxMcacBundleUseLagPortWeight_Type.__name__ = "TruthValue"
+_TmnxMcacBundleUseLagPortWeight_Object = MibTableColumn
+tmnxMcacBundleUseLagPortWeight = _TmnxMcacBundleUseLagPortWeight_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 2, 1, 6),
+    _TmnxMcacBundleUseLagPortWeight_Type()
+)
+tmnxMcacBundleUseLagPortWeight.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBundleUseLagPortWeight.setStatus("current")
+_TmnxMcacBdlChlTable_Object = MibTable
+tmnxMcacBdlChlTable = _TmnxMcacBdlChlTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlTable.setStatus("obsolete")
+_TmnxMcacBdlChlEntry_Object = MibTableRow
+tmnxMcacBdlChlEntry = _TmnxMcacBdlChlEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1)
+)
+tmnxMcacBdlChlEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlStartAddrType"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlStartAddr"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlEndAddrType"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlEndAddr"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlEntry.setStatus("current")
+_TmnxMcacBdlChlStartAddrType_Type = InetAddressType
+_TmnxMcacBdlChlStartAddrType_Object = MibTableColumn
+tmnxMcacBdlChlStartAddrType = _TmnxMcacBdlChlStartAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 1),
+    _TmnxMcacBdlChlStartAddrType_Type()
+)
+tmnxMcacBdlChlStartAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlStartAddrType.setStatus("current")
+
+
+class _TmnxMcacBdlChlStartAddr_Type(InetAddress):
+    """Custom type tmnxMcacBdlChlStartAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxMcacBdlChlStartAddr_Type.__name__ = "InetAddress"
+_TmnxMcacBdlChlStartAddr_Object = MibTableColumn
+tmnxMcacBdlChlStartAddr = _TmnxMcacBdlChlStartAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 2),
+    _TmnxMcacBdlChlStartAddr_Type()
+)
+tmnxMcacBdlChlStartAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlStartAddr.setStatus("current")
+_TmnxMcacBdlChlEndAddrType_Type = InetAddressType
+_TmnxMcacBdlChlEndAddrType_Object = MibTableColumn
+tmnxMcacBdlChlEndAddrType = _TmnxMcacBdlChlEndAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 3),
+    _TmnxMcacBdlChlEndAddrType_Type()
+)
+tmnxMcacBdlChlEndAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlEndAddrType.setStatus("current")
+
+
+class _TmnxMcacBdlChlEndAddr_Type(InetAddress):
+    """Custom type tmnxMcacBdlChlEndAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxMcacBdlChlEndAddr_Type.__name__ = "InetAddress"
+_TmnxMcacBdlChlEndAddr_Object = MibTableColumn
+tmnxMcacBdlChlEndAddr = _TmnxMcacBdlChlEndAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 4),
+    _TmnxMcacBdlChlEndAddr_Type()
+)
+tmnxMcacBdlChlEndAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlEndAddr.setStatus("current")
+_TmnxMcacBdlChlRowStatus_Type = RowStatus
+_TmnxMcacBdlChlRowStatus_Object = MibTableColumn
+tmnxMcacBdlChlRowStatus = _TmnxMcacBdlChlRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 5),
+    _TmnxMcacBdlChlRowStatus_Type()
+)
+tmnxMcacBdlChlRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlRowStatus.setStatus("obsolete")
+
+
+class _TmnxMcacBdlChlBW_Type(Unsigned32):
+    """Custom type tmnxMcacBdlChlBW based on Unsigned32"""
+    defaultValue = 10
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 10000000),
+    )
+
+
+_TmnxMcacBdlChlBW_Type.__name__ = "Unsigned32"
+_TmnxMcacBdlChlBW_Object = MibTableColumn
+tmnxMcacBdlChlBW = _TmnxMcacBdlChlBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 6),
+    _TmnxMcacBdlChlBW_Type()
+)
+tmnxMcacBdlChlBW.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlBW.setStatus("obsolete")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlBW.setUnits("kilobps")
+
+
+class _TmnxMcacBdlChlClass_Type(TmnxMcacChlClassTc):
+    """Custom type tmnxMcacBdlChlClass based on TmnxMcacChlClassTc"""
+    defaultValue = 1
+
+
+_TmnxMcacBdlChlClass_Type.__name__ = "TmnxMcacChlClassTc"
+_TmnxMcacBdlChlClass_Object = MibTableColumn
+tmnxMcacBdlChlClass = _TmnxMcacBdlChlClass_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 7),
+    _TmnxMcacBdlChlClass_Type()
+)
+tmnxMcacBdlChlClass.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlClass.setStatus("obsolete")
+
+
+class _TmnxMcacBdlChlType_Type(TmnxMcacChlTypeTc):
+    """Custom type tmnxMcacBdlChlType based on TmnxMcacChlTypeTc"""
+    defaultValue = 1
+
+
+_TmnxMcacBdlChlType_Type.__name__ = "TmnxMcacChlTypeTc"
+_TmnxMcacBdlChlType_Object = MibTableColumn
+tmnxMcacBdlChlType = _TmnxMcacBdlChlType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 3, 1, 8),
+    _TmnxMcacBdlChlType_Type()
+)
+tmnxMcacBdlChlType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlType.setStatus("obsolete")
+_TmnxMcacLevelTable_Object = MibTable
+tmnxMcacLevelTable = _TmnxMcacLevelTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 4)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacLevelTable.setStatus("current")
+_TmnxMcacLevelEntry_Object = MibTableRow
+tmnxMcacLevelEntry = _TmnxMcacLevelEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 4, 1)
+)
+tmnxMcacLevelEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacLevelId"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacLevelEntry.setStatus("current")
+
+
+class _TmnxMcacLevelId_Type(Unsigned32):
+    """Custom type tmnxMcacLevelId based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_TmnxMcacLevelId_Type.__name__ = "Unsigned32"
+_TmnxMcacLevelId_Object = MibTableColumn
+tmnxMcacLevelId = _TmnxMcacLevelId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 4, 1, 1),
+    _TmnxMcacLevelId_Type()
+)
+tmnxMcacLevelId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacLevelId.setStatus("current")
+_TmnxMcacLevelRowStatus_Type = RowStatus
+_TmnxMcacLevelRowStatus_Object = MibTableColumn
+tmnxMcacLevelRowStatus = _TmnxMcacLevelRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 4, 1, 2),
+    _TmnxMcacLevelRowStatus_Type()
+)
+tmnxMcacLevelRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacLevelRowStatus.setStatus("current")
+
+
+class _TmnxMcacLevelBW_Type(Unsigned32):
+    """Custom type tmnxMcacLevelBW based on Unsigned32"""
+    defaultValue = 1
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_TmnxMcacLevelBW_Type.__name__ = "Unsigned32"
+_TmnxMcacLevelBW_Object = MibTableColumn
+tmnxMcacLevelBW = _TmnxMcacLevelBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 4, 1, 3),
+    _TmnxMcacLevelBW_Type()
+)
+tmnxMcacLevelBW.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacLevelBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacLevelBW.setUnits("kilobps")
+_TmnxMcacLagTable_Object = MibTable
+tmnxMcacLagTable = _TmnxMcacLagTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 5)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacLagTable.setStatus("current")
+_TmnxMcacLagEntry_Object = MibTableRow
+tmnxMcacLagEntry = _TmnxMcacLagEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 5, 1)
+)
+tmnxMcacLagEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"),
+    (0, "TIMETRA-LAG-MIB", "tLagIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacLagPortsDown"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacLagEntry.setStatus("current")
+
+
+class _TmnxMcacLagPortsDown_Type(Unsigned32):
+    """Custom type tmnxMcacLagPortsDown based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 64),
+    )
+
+
+_TmnxMcacLagPortsDown_Type.__name__ = "Unsigned32"
+_TmnxMcacLagPortsDown_Object = MibTableColumn
+tmnxMcacLagPortsDown = _TmnxMcacLagPortsDown_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 5, 1, 1),
+    _TmnxMcacLagPortsDown_Type()
+)
+tmnxMcacLagPortsDown.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacLagPortsDown.setStatus("current")
+_TmnxMcacLagRowStatus_Type = RowStatus
+_TmnxMcacLagRowStatus_Object = MibTableColumn
+tmnxMcacLagRowStatus = _TmnxMcacLagRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 5, 1, 2),
+    _TmnxMcacLagRowStatus_Type()
+)
+tmnxMcacLagRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacLagRowStatus.setStatus("current")
+
+
+class _TmnxMcacLagBundleLevel_Type(Unsigned32):
+    """Custom type tmnxMcacLagBundleLevel based on Unsigned32"""
+    defaultValue = 1
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_TmnxMcacLagBundleLevel_Type.__name__ = "Unsigned32"
+_TmnxMcacLagBundleLevel_Object = MibTableColumn
+tmnxMcacLagBundleLevel = _TmnxMcacLagBundleLevel_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 5, 1, 3),
+    _TmnxMcacLagBundleLevel_Type()
+)
+tmnxMcacLagBundleLevel.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacLagBundleLevel.setStatus("current")
+_TmnxMcacStatsTable_Object = MibTable
+tmnxMcacStatsTable = _TmnxMcacStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacStatsTable.setStatus("obsolete")
+_TmnxMcacStatsEntry_Object = MibTableRow
+tmnxMcacStatsEntry = _TmnxMcacStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1)
+)
+tmnxMcacStatsEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsBundleName"),
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIfIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChlAddrType"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChlAddr"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacStatsEntry.setStatus("current")
+_TmnxMcacStatsBundleName_Type = TNamedItemOrEmpty
+_TmnxMcacStatsBundleName_Object = MibTableColumn
+tmnxMcacStatsBundleName = _TmnxMcacStatsBundleName_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 1),
+    _TmnxMcacStatsBundleName_Type()
+)
+tmnxMcacStatsBundleName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsBundleName.setStatus("current")
+_TmnxMcacStatsProtocolIndex_Type = TmnxMcacApplTc
+_TmnxMcacStatsProtocolIndex_Object = MibTableColumn
+tmnxMcacStatsProtocolIndex = _TmnxMcacStatsProtocolIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 2),
+    _TmnxMcacStatsProtocolIndex_Type()
+)
+tmnxMcacStatsProtocolIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsProtocolIndex.setStatus("current")
+_TmnxMcacStatsIfIndex_Type = InterfaceIndex
+_TmnxMcacStatsIfIndex_Object = MibTableColumn
+tmnxMcacStatsIfIndex = _TmnxMcacStatsIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 3),
+    _TmnxMcacStatsIfIndex_Type()
+)
+tmnxMcacStatsIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsIfIndex.setStatus("current")
+_TmnxMcacStatsChlAddrType_Type = InetAddressType
+_TmnxMcacStatsChlAddrType_Object = MibTableColumn
+tmnxMcacStatsChlAddrType = _TmnxMcacStatsChlAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 4),
+    _TmnxMcacStatsChlAddrType_Type()
+)
+tmnxMcacStatsChlAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsChlAddrType.setStatus("current")
+
+
+class _TmnxMcacStatsChlAddr_Type(InetAddress):
+    """Custom type tmnxMcacStatsChlAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxMcacStatsChlAddr_Type.__name__ = "InetAddress"
+_TmnxMcacStatsChlAddr_Object = MibTableColumn
+tmnxMcacStatsChlAddr = _TmnxMcacStatsChlAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 5),
+    _TmnxMcacStatsChlAddr_Type()
+)
+tmnxMcacStatsChlAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsChlAddr.setStatus("current")
+_TmnxMcacStatsAction_Type = TmnxMcacActionTc
+_TmnxMcacStatsAction_Object = MibTableColumn
+tmnxMcacStatsAction = _TmnxMcacStatsAction_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 6),
+    _TmnxMcacStatsAction_Type()
+)
+tmnxMcacStatsAction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsAction.setStatus("obsolete")
+_TmnxMcacStatsReason_Type = TmnxMcacReasonTc
+_TmnxMcacStatsReason_Object = MibTableColumn
+tmnxMcacStatsReason = _TmnxMcacStatsReason_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 7),
+    _TmnxMcacStatsReason_Type()
+)
+tmnxMcacStatsReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsReason.setStatus("obsolete")
+_TmnxMcacStatsChannelType_Type = TmnxMcacChlTypeTc
+_TmnxMcacStatsChannelType_Object = MibTableColumn
+tmnxMcacStatsChannelType = _TmnxMcacStatsChannelType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 8),
+    _TmnxMcacStatsChannelType_Type()
+)
+tmnxMcacStatsChannelType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsChannelType.setStatus("obsolete")
+_TmnxMcacStatsChannelBW_Type = Unsigned32
+_TmnxMcacStatsChannelBW_Object = MibTableColumn
+tmnxMcacStatsChannelBW = _TmnxMcacStatsChannelBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 9),
+    _TmnxMcacStatsChannelBW_Type()
+)
+tmnxMcacStatsChannelBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsChannelBW.setStatus("obsolete")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsChannelBW.setUnits("kilobps")
+_TmnxMcacStatsBundleAvailBW_Type = Unsigned32
+_TmnxMcacStatsBundleAvailBW_Object = MibTableColumn
+tmnxMcacStatsBundleAvailBW = _TmnxMcacStatsBundleAvailBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 10),
+    _TmnxMcacStatsBundleAvailBW_Type()
+)
+tmnxMcacStatsBundleAvailBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsBundleAvailBW.setStatus("obsolete")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsBundleAvailBW.setUnits("kilobps")
+_TmnxMcacStatsIntfAvailBW_Type = Unsigned32
+_TmnxMcacStatsIntfAvailBW_Object = MibTableColumn
+tmnxMcacStatsIntfAvailBW = _TmnxMcacStatsIntfAvailBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 11),
+    _TmnxMcacStatsIntfAvailBW_Type()
+)
+tmnxMcacStatsIntfAvailBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsIntfAvailBW.setStatus("obsolete")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsIntfAvailBW.setUnits("kilobps")
+_TmnxMcacStatsAlgoReapply_Type = TruthValue
+_TmnxMcacStatsAlgoReapply_Object = MibTableColumn
+tmnxMcacStatsAlgoReapply = _TmnxMcacStatsAlgoReapply_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 12),
+    _TmnxMcacStatsAlgoReapply_Type()
+)
+tmnxMcacStatsAlgoReapply.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsAlgoReapply.setStatus("obsolete")
+_TmnxMcacStatsApplyAttempts_Type = Counter32
+_TmnxMcacStatsApplyAttempts_Object = MibTableColumn
+tmnxMcacStatsApplyAttempts = _TmnxMcacStatsApplyAttempts_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 13),
+    _TmnxMcacStatsApplyAttempts_Type()
+)
+tmnxMcacStatsApplyAttempts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsApplyAttempts.setStatus("obsolete")
+_TmnxMcacStatsTimeStamp_Type = TimeStamp
+_TmnxMcacStatsTimeStamp_Object = MibTableColumn
+tmnxMcacStatsTimeStamp = _TmnxMcacStatsTimeStamp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 6, 1, 14),
+    _TmnxMcacStatsTimeStamp_Type()
+)
+tmnxMcacStatsTimeStamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsTimeStamp.setStatus("obsolete")
+_TmnxMcacOperTable_Object = MibTable
+tmnxMcacOperTable = _TmnxMcacOperTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacOperTable.setStatus("current")
+_TmnxMcacOperEntry_Object = MibTableRow
+tmnxMcacOperEntry = _TmnxMcacOperEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1)
+)
+tmnxMcacOperEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"),
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIfIndex"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacOperEntry.setStatus("current")
+_TmnxMcacOperActiveChannels_Type = Gauge32
+_TmnxMcacOperActiveChannels_Object = MibTableColumn
+tmnxMcacOperActiveChannels = _TmnxMcacOperActiveChannels_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 1),
+    _TmnxMcacOperActiveChannels_Type()
+)
+tmnxMcacOperActiveChannels.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacOperActiveChannels.setStatus("current")
+_TmnxMcacOperMaxBw_Type = Unsigned32
+_TmnxMcacOperMaxBw_Object = MibTableColumn
+tmnxMcacOperMaxBw = _TmnxMcacOperMaxBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 2),
+    _TmnxMcacOperMaxBw_Type()
+)
+tmnxMcacOperMaxBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacOperMaxBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacOperMaxBw.setUnits("kilobps")
+_TmnxMcacOperAvailOptnlBw_Type = Unsigned32
+_TmnxMcacOperAvailOptnlBw_Object = MibTableColumn
+tmnxMcacOperAvailOptnlBw = _TmnxMcacOperAvailOptnlBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 3),
+    _TmnxMcacOperAvailOptnlBw_Type()
+)
+tmnxMcacOperAvailOptnlBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacOperAvailOptnlBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacOperAvailOptnlBw.setUnits("kilobps")
+_TmnxMcacOperAvailMandBw_Type = Unsigned32
+_TmnxMcacOperAvailMandBw_Object = MibTableColumn
+tmnxMcacOperAvailMandBw = _TmnxMcacOperAvailMandBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 4),
+    _TmnxMcacOperAvailMandBw_Type()
+)
+tmnxMcacOperAvailMandBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacOperAvailMandBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacOperAvailMandBw.setUnits("kilobps")
+_TmnxMcacOperInUseMandBw_Type = Unsigned32
+_TmnxMcacOperInUseMandBw_Object = MibTableColumn
+tmnxMcacOperInUseMandBw = _TmnxMcacOperInUseMandBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 5),
+    _TmnxMcacOperInUseMandBw_Type()
+)
+tmnxMcacOperInUseMandBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacOperInUseMandBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacOperInUseMandBw.setUnits("kilobps")
+_TmnxMcacOperPortsDown_Type = Unsigned32
+_TmnxMcacOperPortsDown_Object = MibTableColumn
+tmnxMcacOperPortsDown = _TmnxMcacOperPortsDown_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 6),
+    _TmnxMcacOperPortsDown_Type()
+)
+tmnxMcacOperPortsDown.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacOperPortsDown.setStatus("current")
+_TmnxMcacOperCurrConstrtLvl_Type = Unsigned32
+_TmnxMcacOperCurrConstrtLvl_Object = MibTableColumn
+tmnxMcacOperCurrConstrtLvl = _TmnxMcacOperCurrConstrtLvl_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 7),
+    _TmnxMcacOperCurrConstrtLvl_Type()
+)
+tmnxMcacOperCurrConstrtLvl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacOperCurrConstrtLvl.setStatus("current")
+_TmnxMcacOperInUseOptnlBw_Type = Unsigned32
+_TmnxMcacOperInUseOptnlBw_Object = MibTableColumn
+tmnxMcacOperInUseOptnlBw = _TmnxMcacOperInUseOptnlBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 8),
+    _TmnxMcacOperInUseOptnlBw_Type()
+)
+tmnxMcacOperInUseOptnlBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacOperInUseOptnlBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacOperInUseOptnlBw.setUnits("kilobps")
+_TmnxMcacOperValuesInTransit_Type = TruthValue
+_TmnxMcacOperValuesInTransit_Object = MibTableColumn
+tmnxMcacOperValuesInTransit = _TmnxMcacOperValuesInTransit_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 7, 1, 9),
+    _TmnxMcacOperValuesInTransit_Type()
+)
+tmnxMcacOperValuesInTransit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacOperValuesInTransit.setStatus("current")
+_TmnxMcacServStatsTable_Object = MibTable
+tmnxMcacServStatsTable = _TmnxMcacServStatsTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsTable.setStatus("obsolete")
+_TmnxMcacServStatsEntry_Object = MibTableRow
+tmnxMcacServStatsEntry = _TmnxMcacServStatsEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1)
+)
+tmnxMcacServStatsEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsBundleName"),
+    (0, "TIMETRA-SERV-MIB", "svcId"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsPortId"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsEncapValue"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChlAddrType"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChlAddr"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsEntry.setStatus("current")
+_TmnxMcacServStatsPortId_Type = TmnxPortID
+_TmnxMcacServStatsPortId_Object = MibTableColumn
+tmnxMcacServStatsPortId = _TmnxMcacServStatsPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 1),
+    _TmnxMcacServStatsPortId_Type()
+)
+tmnxMcacServStatsPortId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsPortId.setStatus("current")
+_TmnxMcacServStatsEncapValue_Type = TmnxEncapVal
+_TmnxMcacServStatsEncapValue_Object = MibTableColumn
+tmnxMcacServStatsEncapValue = _TmnxMcacServStatsEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 2),
+    _TmnxMcacServStatsEncapValue_Type()
+)
+tmnxMcacServStatsEncapValue.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsEncapValue.setStatus("current")
+_TmnxMcacServStatsAction_Type = TmnxMcacActionTc
+_TmnxMcacServStatsAction_Object = MibTableColumn
+tmnxMcacServStatsAction = _TmnxMcacServStatsAction_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 3),
+    _TmnxMcacServStatsAction_Type()
+)
+tmnxMcacServStatsAction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsAction.setStatus("obsolete")
+_TmnxMcacServStatsReason_Type = TmnxMcacReasonTc
+_TmnxMcacServStatsReason_Object = MibTableColumn
+tmnxMcacServStatsReason = _TmnxMcacServStatsReason_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 4),
+    _TmnxMcacServStatsReason_Type()
+)
+tmnxMcacServStatsReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsReason.setStatus("obsolete")
+_TmnxMcacServStatsChannelType_Type = TmnxMcacChlTypeTc
+_TmnxMcacServStatsChannelType_Object = MibTableColumn
+tmnxMcacServStatsChannelType = _TmnxMcacServStatsChannelType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 5),
+    _TmnxMcacServStatsChannelType_Type()
+)
+tmnxMcacServStatsChannelType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsChannelType.setStatus("obsolete")
+_TmnxMcacServStatsChannelBW_Type = Unsigned32
+_TmnxMcacServStatsChannelBW_Object = MibTableColumn
+tmnxMcacServStatsChannelBW = _TmnxMcacServStatsChannelBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 6),
+    _TmnxMcacServStatsChannelBW_Type()
+)
+tmnxMcacServStatsChannelBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsChannelBW.setStatus("obsolete")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsChannelBW.setUnits("kilobps")
+_TmnxMcacServStatsBundleAvailBW_Type = Unsigned32
+_TmnxMcacServStatsBundleAvailBW_Object = MibTableColumn
+tmnxMcacServStatsBundleAvailBW = _TmnxMcacServStatsBundleAvailBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 7),
+    _TmnxMcacServStatsBundleAvailBW_Type()
+)
+tmnxMcacServStatsBundleAvailBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsBundleAvailBW.setStatus("obsolete")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsBundleAvailBW.setUnits("kilobps")
+_TmnxMcacServStatsIntfAvailBW_Type = Unsigned32
+_TmnxMcacServStatsIntfAvailBW_Object = MibTableColumn
+tmnxMcacServStatsIntfAvailBW = _TmnxMcacServStatsIntfAvailBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 8),
+    _TmnxMcacServStatsIntfAvailBW_Type()
+)
+tmnxMcacServStatsIntfAvailBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsIntfAvailBW.setStatus("obsolete")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsIntfAvailBW.setUnits("kilobps")
+_TmnxMcacServStatsAlgoReapply_Type = TruthValue
+_TmnxMcacServStatsAlgoReapply_Object = MibTableColumn
+tmnxMcacServStatsAlgoReapply = _TmnxMcacServStatsAlgoReapply_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 9),
+    _TmnxMcacServStatsAlgoReapply_Type()
+)
+tmnxMcacServStatsAlgoReapply.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsAlgoReapply.setStatus("obsolete")
+_TmnxMcacServStatsApplyAttempts_Type = Counter32
+_TmnxMcacServStatsApplyAttempts_Object = MibTableColumn
+tmnxMcacServStatsApplyAttempts = _TmnxMcacServStatsApplyAttempts_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 10),
+    _TmnxMcacServStatsApplyAttempts_Type()
+)
+tmnxMcacServStatsApplyAttempts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsApplyAttempts.setStatus("obsolete")
+_TmnxMcacServStatsTimeStamp_Type = TimeStamp
+_TmnxMcacServStatsTimeStamp_Object = MibTableColumn
+tmnxMcacServStatsTimeStamp = _TmnxMcacServStatsTimeStamp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 8, 1, 11),
+    _TmnxMcacServStatsTimeStamp_Type()
+)
+tmnxMcacServStatsTimeStamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsTimeStamp.setStatus("obsolete")
+_TmnxMcacServOperTable_Object = MibTable
+tmnxMcacServOperTable = _TmnxMcacServOperTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacServOperTable.setStatus("current")
+_TmnxMcacServOperEntry_Object = MibTableRow
+tmnxMcacServOperEntry = _TmnxMcacServOperEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1)
+)
+tmnxMcacServOperEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"),
+    (0, "TIMETRA-SERV-MIB", "svcId"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsPortId"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsEncapValue"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacServOperEntry.setStatus("current")
+_TmnxMcacServOperActiveChannels_Type = Gauge32
+_TmnxMcacServOperActiveChannels_Object = MibTableColumn
+tmnxMcacServOperActiveChannels = _TmnxMcacServOperActiveChannels_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 1),
+    _TmnxMcacServOperActiveChannels_Type()
+)
+tmnxMcacServOperActiveChannels.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperActiveChannels.setStatus("current")
+_TmnxMcacServOperMaxBw_Type = Unsigned32
+_TmnxMcacServOperMaxBw_Object = MibTableColumn
+tmnxMcacServOperMaxBw = _TmnxMcacServOperMaxBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 2),
+    _TmnxMcacServOperMaxBw_Type()
+)
+tmnxMcacServOperMaxBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperMaxBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperMaxBw.setUnits("kilobps")
+_TmnxMcacServOperAvailOptnlBw_Type = Unsigned32
+_TmnxMcacServOperAvailOptnlBw_Object = MibTableColumn
+tmnxMcacServOperAvailOptnlBw = _TmnxMcacServOperAvailOptnlBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 3),
+    _TmnxMcacServOperAvailOptnlBw_Type()
+)
+tmnxMcacServOperAvailOptnlBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperAvailOptnlBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperAvailOptnlBw.setUnits("kilobps")
+_TmnxMcacServOperAvailMandBw_Type = Unsigned32
+_TmnxMcacServOperAvailMandBw_Object = MibTableColumn
+tmnxMcacServOperAvailMandBw = _TmnxMcacServOperAvailMandBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 4),
+    _TmnxMcacServOperAvailMandBw_Type()
+)
+tmnxMcacServOperAvailMandBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperAvailMandBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperAvailMandBw.setUnits("kilobps")
+_TmnxMcacServOperInUseMandBw_Type = Unsigned32
+_TmnxMcacServOperInUseMandBw_Object = MibTableColumn
+tmnxMcacServOperInUseMandBw = _TmnxMcacServOperInUseMandBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 5),
+    _TmnxMcacServOperInUseMandBw_Type()
+)
+tmnxMcacServOperInUseMandBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperInUseMandBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperInUseMandBw.setUnits("kilobps")
+_TmnxMcacServOperPortsDown_Type = Unsigned32
+_TmnxMcacServOperPortsDown_Object = MibTableColumn
+tmnxMcacServOperPortsDown = _TmnxMcacServOperPortsDown_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 6),
+    _TmnxMcacServOperPortsDown_Type()
+)
+tmnxMcacServOperPortsDown.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperPortsDown.setStatus("current")
+_TmnxMcacServOperCurrConstrtLvl_Type = Unsigned32
+_TmnxMcacServOperCurrConstrtLvl_Object = MibTableColumn
+tmnxMcacServOperCurrConstrtLvl = _TmnxMcacServOperCurrConstrtLvl_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 7),
+    _TmnxMcacServOperCurrConstrtLvl_Type()
+)
+tmnxMcacServOperCurrConstrtLvl.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperCurrConstrtLvl.setStatus("current")
+_TmnxMcacServOperInUseOptnlBw_Type = Unsigned32
+_TmnxMcacServOperInUseOptnlBw_Object = MibTableColumn
+tmnxMcacServOperInUseOptnlBw = _TmnxMcacServOperInUseOptnlBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 8),
+    _TmnxMcacServOperInUseOptnlBw_Type()
+)
+tmnxMcacServOperInUseOptnlBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperInUseOptnlBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperInUseOptnlBw.setUnits("kilobps")
+_TmnxMcacServOperValuesInTransit_Type = TruthValue
+_TmnxMcacServOperValuesInTransit_Object = MibTableColumn
+tmnxMcacServOperValuesInTransit = _TmnxMcacServOperValuesInTransit_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 9, 1, 9),
+    _TmnxMcacServOperValuesInTransit_Type()
+)
+tmnxMcacServOperValuesInTransit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServOperValuesInTransit.setStatus("current")
+_TmnxMcacPolicyUserTable_Object = MibTable
+tmnxMcacPolicyUserTable = _TmnxMcacPolicyUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 10)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyUserTable.setStatus("current")
+_TmnxMcacPolicyUserEntry_Object = MibTableRow
+tmnxMcacPolicyUserEntry = _TmnxMcacPolicyUserEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 10, 1)
+)
+tmnxMcacPolicyUserEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIfIndex"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyUserEntry.setStatus("current")
+_TmnxMcacPolicyUserConfigured_Type = TruthValue
+_TmnxMcacPolicyUserConfigured_Object = MibTableColumn
+tmnxMcacPolicyUserConfigured = _TmnxMcacPolicyUserConfigured_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 10, 1, 1),
+    _TmnxMcacPolicyUserConfigured_Type()
+)
+tmnxMcacPolicyUserConfigured.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyUserConfigured.setStatus("current")
+_TmnxMcacPolicyServUserTable_Object = MibTable
+tmnxMcacPolicyServUserTable = _TmnxMcacPolicyServUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 11)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyServUserTable.setStatus("current")
+_TmnxMcacPolicyServUserEntry_Object = MibTableRow
+tmnxMcacPolicyServUserEntry = _TmnxMcacPolicyServUserEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 11, 1)
+)
+tmnxMcacPolicyServUserEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-SERV-MIB", "svcId"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsPortId"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsEncapValue"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyServUserEntry.setStatus("current")
+_TmnxMcacPolicyServUserConfigured_Type = TruthValue
+_TmnxMcacPolicyServUserConfigured_Object = MibTableColumn
+tmnxMcacPolicyServUserConfigured = _TmnxMcacPolicyServUserConfigured_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 11, 1, 1),
+    _TmnxMcacPolicyServUserConfigured_Type()
+)
+tmnxMcacPolicyServUserConfigured.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyServUserConfigured.setStatus("current")
+_TmnxMcacBdlChlNgTable_Object = MibTable
+tmnxMcacBdlChlNgTable = _TmnxMcacBdlChlNgTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgTable.setStatus("current")
+_TmnxMcacBdlChlNgEntry_Object = MibTableRow
+tmnxMcacBdlChlNgEntry = _TmnxMcacBdlChlNgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1)
+)
+tmnxMcacBdlChlNgEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgStartAddrType"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgStartAddr"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgEndAddrType"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgEndAddr"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgSrcPfxType"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgSrcPfx"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgSrcPfxLen"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgEntry.setStatus("current")
+_TmnxMcacBdlChlNgStartAddrType_Type = InetAddressType
+_TmnxMcacBdlChlNgStartAddrType_Object = MibTableColumn
+tmnxMcacBdlChlNgStartAddrType = _TmnxMcacBdlChlNgStartAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 1),
+    _TmnxMcacBdlChlNgStartAddrType_Type()
+)
+tmnxMcacBdlChlNgStartAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgStartAddrType.setStatus("current")
+
+
+class _TmnxMcacBdlChlNgStartAddr_Type(InetAddress):
+    """Custom type tmnxMcacBdlChlNgStartAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxMcacBdlChlNgStartAddr_Type.__name__ = "InetAddress"
+_TmnxMcacBdlChlNgStartAddr_Object = MibTableColumn
+tmnxMcacBdlChlNgStartAddr = _TmnxMcacBdlChlNgStartAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 2),
+    _TmnxMcacBdlChlNgStartAddr_Type()
+)
+tmnxMcacBdlChlNgStartAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgStartAddr.setStatus("current")
+_TmnxMcacBdlChlNgEndAddrType_Type = InetAddressType
+_TmnxMcacBdlChlNgEndAddrType_Object = MibTableColumn
+tmnxMcacBdlChlNgEndAddrType = _TmnxMcacBdlChlNgEndAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 3),
+    _TmnxMcacBdlChlNgEndAddrType_Type()
+)
+tmnxMcacBdlChlNgEndAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgEndAddrType.setStatus("current")
+
+
+class _TmnxMcacBdlChlNgEndAddr_Type(InetAddress):
+    """Custom type tmnxMcacBdlChlNgEndAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxMcacBdlChlNgEndAddr_Type.__name__ = "InetAddress"
+_TmnxMcacBdlChlNgEndAddr_Object = MibTableColumn
+tmnxMcacBdlChlNgEndAddr = _TmnxMcacBdlChlNgEndAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 4),
+    _TmnxMcacBdlChlNgEndAddr_Type()
+)
+tmnxMcacBdlChlNgEndAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgEndAddr.setStatus("current")
+_TmnxMcacBdlChlNgSrcPfxType_Type = TmnxAddressAndPrefixType
+_TmnxMcacBdlChlNgSrcPfxType_Object = MibTableColumn
+tmnxMcacBdlChlNgSrcPfxType = _TmnxMcacBdlChlNgSrcPfxType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 5),
+    _TmnxMcacBdlChlNgSrcPfxType_Type()
+)
+tmnxMcacBdlChlNgSrcPfxType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgSrcPfxType.setStatus("current")
+
+
+class _TmnxMcacBdlChlNgSrcPfx_Type(TmnxAddressAndPrefixAddress):
+    """Custom type tmnxMcacBdlChlNgSrcPfx based on TmnxAddressAndPrefixAddress"""
+    subtypeSpec = TmnxAddressAndPrefixAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxMcacBdlChlNgSrcPfx_Type.__name__ = "TmnxAddressAndPrefixAddress"
+_TmnxMcacBdlChlNgSrcPfx_Object = MibTableColumn
+tmnxMcacBdlChlNgSrcPfx = _TmnxMcacBdlChlNgSrcPfx_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 6),
+    _TmnxMcacBdlChlNgSrcPfx_Type()
+)
+tmnxMcacBdlChlNgSrcPfx.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgSrcPfx.setStatus("current")
+
+
+class _TmnxMcacBdlChlNgSrcPfxLen_Type(TmnxAddressAndPrefixPrefix):
+    """Custom type tmnxMcacBdlChlNgSrcPfxLen based on TmnxAddressAndPrefixPrefix"""
+    subtypeSpec = TmnxAddressAndPrefixPrefix.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 128),
+    )
+
+
+_TmnxMcacBdlChlNgSrcPfxLen_Type.__name__ = "TmnxAddressAndPrefixPrefix"
+_TmnxMcacBdlChlNgSrcPfxLen_Object = MibTableColumn
+tmnxMcacBdlChlNgSrcPfxLen = _TmnxMcacBdlChlNgSrcPfxLen_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 7),
+    _TmnxMcacBdlChlNgSrcPfxLen_Type()
+)
+tmnxMcacBdlChlNgSrcPfxLen.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgSrcPfxLen.setStatus("current")
+_TmnxMcacBdlChlNgRowStatus_Type = RowStatus
+_TmnxMcacBdlChlNgRowStatus_Object = MibTableColumn
+tmnxMcacBdlChlNgRowStatus = _TmnxMcacBdlChlNgRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 8),
+    _TmnxMcacBdlChlNgRowStatus_Type()
+)
+tmnxMcacBdlChlNgRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgRowStatus.setStatus("current")
+
+
+class _TmnxMcacBdlChlNgBW_Type(Unsigned32):
+    """Custom type tmnxMcacBdlChlNgBW based on Unsigned32"""
+    defaultValue = 10
+
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(10, 10000000),
+    )
+
+
+_TmnxMcacBdlChlNgBW_Type.__name__ = "Unsigned32"
+_TmnxMcacBdlChlNgBW_Object = MibTableColumn
+tmnxMcacBdlChlNgBW = _TmnxMcacBdlChlNgBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 9),
+    _TmnxMcacBdlChlNgBW_Type()
+)
+tmnxMcacBdlChlNgBW.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgBW.setUnits("kilobps")
+
+
+class _TmnxMcacBdlChlNgClass_Type(TmnxMcacChlClassTc):
+    """Custom type tmnxMcacBdlChlNgClass based on TmnxMcacChlClassTc"""
+    defaultValue = 1
+
+
+_TmnxMcacBdlChlNgClass_Type.__name__ = "TmnxMcacChlClassTc"
+_TmnxMcacBdlChlNgClass_Object = MibTableColumn
+tmnxMcacBdlChlNgClass = _TmnxMcacBdlChlNgClass_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 10),
+    _TmnxMcacBdlChlNgClass_Type()
+)
+tmnxMcacBdlChlNgClass.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgClass.setStatus("current")
+
+
+class _TmnxMcacBdlChlNgType_Type(TmnxMcacChlTypeTc):
+    """Custom type tmnxMcacBdlChlNgType based on TmnxMcacChlTypeTc"""
+    defaultValue = 1
+
+
+_TmnxMcacBdlChlNgType_Type.__name__ = "TmnxMcacChlTypeTc"
+_TmnxMcacBdlChlNgType_Object = MibTableColumn
+tmnxMcacBdlChlNgType = _TmnxMcacBdlChlNgType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 12, 1, 11),
+    _TmnxMcacBdlChlNgType_Type()
+)
+tmnxMcacBdlChlNgType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacBdlChlNgType.setStatus("current")
+_TmnxMcacStatsNgTable_Object = MibTable
+tmnxMcacStatsNgTable = _TmnxMcacStatsNgTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgTable.setStatus("current")
+_TmnxMcacStatsNgEntry_Object = MibTableRow
+tmnxMcacStatsNgEntry = _TmnxMcacStatsNgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1)
+)
+tmnxMcacStatsNgEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgBundleName"),
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgProtocolIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgIfIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChlAddrType"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChlAddr"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgSrcAddrType"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgSrcAddr"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgEntry.setStatus("current")
+_TmnxMcacStatsNgBundleName_Type = TNamedItemOrEmpty
+_TmnxMcacStatsNgBundleName_Object = MibTableColumn
+tmnxMcacStatsNgBundleName = _TmnxMcacStatsNgBundleName_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 1),
+    _TmnxMcacStatsNgBundleName_Type()
+)
+tmnxMcacStatsNgBundleName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgBundleName.setStatus("current")
+_TmnxMcacStatsNgProtocolIndex_Type = TmnxMcacApplTc
+_TmnxMcacStatsNgProtocolIndex_Object = MibTableColumn
+tmnxMcacStatsNgProtocolIndex = _TmnxMcacStatsNgProtocolIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 2),
+    _TmnxMcacStatsNgProtocolIndex_Type()
+)
+tmnxMcacStatsNgProtocolIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgProtocolIndex.setStatus("current")
+_TmnxMcacStatsNgIfIndex_Type = InterfaceIndex
+_TmnxMcacStatsNgIfIndex_Object = MibTableColumn
+tmnxMcacStatsNgIfIndex = _TmnxMcacStatsNgIfIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 3),
+    _TmnxMcacStatsNgIfIndex_Type()
+)
+tmnxMcacStatsNgIfIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgIfIndex.setStatus("current")
+_TmnxMcacStatsNgChlAddrType_Type = InetAddressType
+_TmnxMcacStatsNgChlAddrType_Object = MibTableColumn
+tmnxMcacStatsNgChlAddrType = _TmnxMcacStatsNgChlAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 4),
+    _TmnxMcacStatsNgChlAddrType_Type()
+)
+tmnxMcacStatsNgChlAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgChlAddrType.setStatus("current")
+
+
+class _TmnxMcacStatsNgChlAddr_Type(InetAddress):
+    """Custom type tmnxMcacStatsNgChlAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxMcacStatsNgChlAddr_Type.__name__ = "InetAddress"
+_TmnxMcacStatsNgChlAddr_Object = MibTableColumn
+tmnxMcacStatsNgChlAddr = _TmnxMcacStatsNgChlAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 5),
+    _TmnxMcacStatsNgChlAddr_Type()
+)
+tmnxMcacStatsNgChlAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgChlAddr.setStatus("current")
+_TmnxMcacStatsNgSrcAddrType_Type = InetAddressType
+_TmnxMcacStatsNgSrcAddrType_Object = MibTableColumn
+tmnxMcacStatsNgSrcAddrType = _TmnxMcacStatsNgSrcAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 6),
+    _TmnxMcacStatsNgSrcAddrType_Type()
+)
+tmnxMcacStatsNgSrcAddrType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgSrcAddrType.setStatus("current")
+
+
+class _TmnxMcacStatsNgSrcAddr_Type(InetAddress):
+    """Custom type tmnxMcacStatsNgSrcAddr based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+        ValueSizeConstraint(16, 16),
+    )
+
+
+_TmnxMcacStatsNgSrcAddr_Type.__name__ = "InetAddress"
+_TmnxMcacStatsNgSrcAddr_Object = MibTableColumn
+tmnxMcacStatsNgSrcAddr = _TmnxMcacStatsNgSrcAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 7),
+    _TmnxMcacStatsNgSrcAddr_Type()
+)
+tmnxMcacStatsNgSrcAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgSrcAddr.setStatus("current")
+_TmnxMcacStatsNgAction_Type = TmnxMcacActionTc
+_TmnxMcacStatsNgAction_Object = MibTableColumn
+tmnxMcacStatsNgAction = _TmnxMcacStatsNgAction_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 8),
+    _TmnxMcacStatsNgAction_Type()
+)
+tmnxMcacStatsNgAction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgAction.setStatus("current")
+_TmnxMcacStatsNgReason_Type = TmnxMcacReasonTc
+_TmnxMcacStatsNgReason_Object = MibTableColumn
+tmnxMcacStatsNgReason = _TmnxMcacStatsNgReason_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 9),
+    _TmnxMcacStatsNgReason_Type()
+)
+tmnxMcacStatsNgReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgReason.setStatus("current")
+_TmnxMcacStatsNgChannelType_Type = TmnxMcacChlTypeTc
+_TmnxMcacStatsNgChannelType_Object = MibTableColumn
+tmnxMcacStatsNgChannelType = _TmnxMcacStatsNgChannelType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 10),
+    _TmnxMcacStatsNgChannelType_Type()
+)
+tmnxMcacStatsNgChannelType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgChannelType.setStatus("current")
+_TmnxMcacStatsNgChannelBW_Type = Unsigned32
+_TmnxMcacStatsNgChannelBW_Object = MibTableColumn
+tmnxMcacStatsNgChannelBW = _TmnxMcacStatsNgChannelBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 11),
+    _TmnxMcacStatsNgChannelBW_Type()
+)
+tmnxMcacStatsNgChannelBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgChannelBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgChannelBW.setUnits("kilobps")
+_TmnxMcacStatsNgBundleAvailBW_Type = Unsigned32
+_TmnxMcacStatsNgBundleAvailBW_Object = MibTableColumn
+tmnxMcacStatsNgBundleAvailBW = _TmnxMcacStatsNgBundleAvailBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 12),
+    _TmnxMcacStatsNgBundleAvailBW_Type()
+)
+tmnxMcacStatsNgBundleAvailBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgBundleAvailBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgBundleAvailBW.setUnits("kilobps")
+_TmnxMcacStatsNgIntfAvailBW_Type = Unsigned32
+_TmnxMcacStatsNgIntfAvailBW_Object = MibTableColumn
+tmnxMcacStatsNgIntfAvailBW = _TmnxMcacStatsNgIntfAvailBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 13),
+    _TmnxMcacStatsNgIntfAvailBW_Type()
+)
+tmnxMcacStatsNgIntfAvailBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgIntfAvailBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgIntfAvailBW.setUnits("kilobps")
+_TmnxMcacStatsNgAlgoReapply_Type = TruthValue
+_TmnxMcacStatsNgAlgoReapply_Object = MibTableColumn
+tmnxMcacStatsNgAlgoReapply = _TmnxMcacStatsNgAlgoReapply_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 14),
+    _TmnxMcacStatsNgAlgoReapply_Type()
+)
+tmnxMcacStatsNgAlgoReapply.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgAlgoReapply.setStatus("current")
+_TmnxMcacStatsNgApplyAttempts_Type = Counter32
+_TmnxMcacStatsNgApplyAttempts_Object = MibTableColumn
+tmnxMcacStatsNgApplyAttempts = _TmnxMcacStatsNgApplyAttempts_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 15),
+    _TmnxMcacStatsNgApplyAttempts_Type()
+)
+tmnxMcacStatsNgApplyAttempts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgApplyAttempts.setStatus("current")
+_TmnxMcacStatsNgTimeStamp_Type = TimeStamp
+_TmnxMcacStatsNgTimeStamp_Object = MibTableColumn
+tmnxMcacStatsNgTimeStamp = _TmnxMcacStatsNgTimeStamp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 13, 1, 16),
+    _TmnxMcacStatsNgTimeStamp_Type()
+)
+tmnxMcacStatsNgTimeStamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacStatsNgTimeStamp.setStatus("current")
+_TmnxMcacServStatsNgTable_Object = MibTable
+tmnxMcacServStatsNgTable = _TmnxMcacServStatsNgTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgTable.setStatus("current")
+_TmnxMcacServStatsNgEntry_Object = MibTableRow
+tmnxMcacServStatsNgEntry = _TmnxMcacServStatsNgEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1)
+)
+tmnxMcacServStatsNgEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyName"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgBundleName"),
+    (0, "TIMETRA-SERV-MIB", "svcId"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgProtocolIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgPortId"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgEncapValue"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChlAddrType"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChlAddr"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgSrcAddrType"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgSrcAddr"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgEntry.setStatus("current")
+_TmnxMcacServStatsNgPortId_Type = TmnxPortID
+_TmnxMcacServStatsNgPortId_Object = MibTableColumn
+tmnxMcacServStatsNgPortId = _TmnxMcacServStatsNgPortId_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 1),
+    _TmnxMcacServStatsNgPortId_Type()
+)
+tmnxMcacServStatsNgPortId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgPortId.setStatus("current")
+_TmnxMcacServStatsNgEncapValue_Type = TmnxEncapVal
+_TmnxMcacServStatsNgEncapValue_Object = MibTableColumn
+tmnxMcacServStatsNgEncapValue = _TmnxMcacServStatsNgEncapValue_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 2),
+    _TmnxMcacServStatsNgEncapValue_Type()
+)
+tmnxMcacServStatsNgEncapValue.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgEncapValue.setStatus("current")
+_TmnxMcacServStatsNgAction_Type = TmnxMcacActionTc
+_TmnxMcacServStatsNgAction_Object = MibTableColumn
+tmnxMcacServStatsNgAction = _TmnxMcacServStatsNgAction_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 3),
+    _TmnxMcacServStatsNgAction_Type()
+)
+tmnxMcacServStatsNgAction.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgAction.setStatus("current")
+_TmnxMcacServStatsNgReason_Type = TmnxMcacReasonTc
+_TmnxMcacServStatsNgReason_Object = MibTableColumn
+tmnxMcacServStatsNgReason = _TmnxMcacServStatsNgReason_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 4),
+    _TmnxMcacServStatsNgReason_Type()
+)
+tmnxMcacServStatsNgReason.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgReason.setStatus("current")
+_TmnxMcacServStatsNgChannelType_Type = TmnxMcacChlTypeTc
+_TmnxMcacServStatsNgChannelType_Object = MibTableColumn
+tmnxMcacServStatsNgChannelType = _TmnxMcacServStatsNgChannelType_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 5),
+    _TmnxMcacServStatsNgChannelType_Type()
+)
+tmnxMcacServStatsNgChannelType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgChannelType.setStatus("current")
+_TmnxMcacServStatsNgChannelBW_Type = Unsigned32
+_TmnxMcacServStatsNgChannelBW_Object = MibTableColumn
+tmnxMcacServStatsNgChannelBW = _TmnxMcacServStatsNgChannelBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 6),
+    _TmnxMcacServStatsNgChannelBW_Type()
+)
+tmnxMcacServStatsNgChannelBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgChannelBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgChannelBW.setUnits("kilobps")
+_TmnxMcacServStatsNgBundleAvailBW_Type = Unsigned32
+_TmnxMcacServStatsNgBundleAvailBW_Object = MibTableColumn
+tmnxMcacServStatsNgBundleAvailBW = _TmnxMcacServStatsNgBundleAvailBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 7),
+    _TmnxMcacServStatsNgBundleAvailBW_Type()
+)
+tmnxMcacServStatsNgBundleAvailBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgBundleAvailBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgBundleAvailBW.setUnits("kilobps")
+_TmnxMcacServStatsNgIntfAvailBW_Type = Unsigned32
+_TmnxMcacServStatsNgIntfAvailBW_Object = MibTableColumn
+tmnxMcacServStatsNgIntfAvailBW = _TmnxMcacServStatsNgIntfAvailBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 8),
+    _TmnxMcacServStatsNgIntfAvailBW_Type()
+)
+tmnxMcacServStatsNgIntfAvailBW.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgIntfAvailBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgIntfAvailBW.setUnits("kilobps")
+_TmnxMcacServStatsNgAlgoReapply_Type = TruthValue
+_TmnxMcacServStatsNgAlgoReapply_Object = MibTableColumn
+tmnxMcacServStatsNgAlgoReapply = _TmnxMcacServStatsNgAlgoReapply_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 9),
+    _TmnxMcacServStatsNgAlgoReapply_Type()
+)
+tmnxMcacServStatsNgAlgoReapply.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgAlgoReapply.setStatus("current")
+_TmnxMcacServStatsNgApplyAttempts_Type = Counter32
+_TmnxMcacServStatsNgApplyAttempts_Object = MibTableColumn
+tmnxMcacServStatsNgApplyAttempts = _TmnxMcacServStatsNgApplyAttempts_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 10),
+    _TmnxMcacServStatsNgApplyAttempts_Type()
+)
+tmnxMcacServStatsNgApplyAttempts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgApplyAttempts.setStatus("current")
+_TmnxMcacServStatsNgTimeStamp_Type = TimeStamp
+_TmnxMcacServStatsNgTimeStamp_Object = MibTableColumn
+tmnxMcacServStatsNgTimeStamp = _TmnxMcacServStatsNgTimeStamp_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 14, 1, 11),
+    _TmnxMcacServStatsNgTimeStamp_Type()
+)
+tmnxMcacServStatsNgTimeStamp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacServStatsNgTimeStamp.setStatus("current")
+_TmnxMcacIfPolicyTable_Object = MibTable
+tmnxMcacIfPolicyTable = _TmnxMcacIfPolicyTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyTable.setStatus("current")
+_TmnxMcacIfPolicyEntry_Object = MibTableRow
+tmnxMcacIfPolicyEntry = _TmnxMcacIfPolicyEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1)
+)
+tmnxMcacIfPolicyEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyName"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyEntry.setStatus("current")
+_TmnxMcacIfPolicyName_Type = TNamedItem
+_TmnxMcacIfPolicyName_Object = MibTableColumn
+tmnxMcacIfPolicyName = _TmnxMcacIfPolicyName_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 1),
+    _TmnxMcacIfPolicyName_Type()
+)
+tmnxMcacIfPolicyName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyName.setStatus("current")
+_TmnxMcacIfPolicyRowStatus_Type = RowStatus
+_TmnxMcacIfPolicyRowStatus_Object = MibTableColumn
+tmnxMcacIfPolicyRowStatus = _TmnxMcacIfPolicyRowStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 2),
+    _TmnxMcacIfPolicyRowStatus_Type()
+)
+tmnxMcacIfPolicyRowStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyRowStatus.setStatus("current")
+
+
+class _TmnxMcacIfPolicyDescription_Type(TItemDescription):
+    """Custom type tmnxMcacIfPolicyDescription based on TItemDescription"""
+    defaultValue = OctetString("")
+
+
+_TmnxMcacIfPolicyDescription_Type.__name__ = "TItemDescription"
+_TmnxMcacIfPolicyDescription_Object = MibTableColumn
+tmnxMcacIfPolicyDescription = _TmnxMcacIfPolicyDescription_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 3),
+    _TmnxMcacIfPolicyDescription_Type()
+)
+tmnxMcacIfPolicyDescription.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyDescription.setStatus("current")
+
+
+class _TmnxMcacIfPolicyAdminState_Type(TmnxAdminState):
+    """Custom type tmnxMcacIfPolicyAdminState based on TmnxAdminState"""
+    defaultValue = 2
+
+
+_TmnxMcacIfPolicyAdminState_Type.__name__ = "TmnxAdminState"
+_TmnxMcacIfPolicyAdminState_Object = MibTableColumn
+tmnxMcacIfPolicyAdminState = _TmnxMcacIfPolicyAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 4),
+    _TmnxMcacIfPolicyAdminState_Type()
+)
+tmnxMcacIfPolicyAdminState.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyAdminState.setStatus("current")
+
+
+class _TmnxMcacIfPolicyUnconstrainedBW_Type(Integer32):
+    """Custom type tmnxMcacIfPolicyUnconstrainedBW based on Integer32"""
+    defaultValue = -1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_TmnxMcacIfPolicyUnconstrainedBW_Type.__name__ = "Integer32"
+_TmnxMcacIfPolicyUnconstrainedBW_Object = MibTableColumn
+tmnxMcacIfPolicyUnconstrainedBW = _TmnxMcacIfPolicyUnconstrainedBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 5),
+    _TmnxMcacIfPolicyUnconstrainedBW_Type()
+)
+tmnxMcacIfPolicyUnconstrainedBW.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyUnconstrainedBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyUnconstrainedBW.setUnits("kilobps")
+
+
+class _TmnxMcacIfPolicyPreRsvdMandBW_Type(Integer32):
+    """Custom type tmnxMcacIfPolicyPreRsvdMandBW based on Integer32"""
+    defaultValue = -1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-1, -1),
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_TmnxMcacIfPolicyPreRsvdMandBW_Type.__name__ = "Integer32"
+_TmnxMcacIfPolicyPreRsvdMandBW_Object = MibTableColumn
+tmnxMcacIfPolicyPreRsvdMandBW = _TmnxMcacIfPolicyPreRsvdMandBW_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 6),
+    _TmnxMcacIfPolicyPreRsvdMandBW_Type()
+)
+tmnxMcacIfPolicyPreRsvdMandBW.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyPreRsvdMandBW.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyPreRsvdMandBW.setUnits("kilobps")
+_TmnxMcacIfPolicyInUseMandBw_Type = Unsigned32
+_TmnxMcacIfPolicyInUseMandBw_Object = MibTableColumn
+tmnxMcacIfPolicyInUseMandBw = _TmnxMcacIfPolicyInUseMandBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 7),
+    _TmnxMcacIfPolicyInUseMandBw_Type()
+)
+tmnxMcacIfPolicyInUseMandBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyInUseMandBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyInUseMandBw.setUnits("kilobps")
+_TmnxMcacIfPolicyInUseOpnlBw_Type = Unsigned32
+_TmnxMcacIfPolicyInUseOpnlBw_Object = MibTableColumn
+tmnxMcacIfPolicyInUseOpnlBw = _TmnxMcacIfPolicyInUseOpnlBw_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 15, 1, 8),
+    _TmnxMcacIfPolicyInUseOpnlBw_Type()
+)
+tmnxMcacIfPolicyInUseOpnlBw.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyInUseOpnlBw.setStatus("current")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyInUseOpnlBw.setUnits("kilobps")
+_TmnxMcacIfPolicyUserTable_Object = MibTable
+tmnxMcacIfPolicyUserTable = _TmnxMcacIfPolicyUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 16)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyUserTable.setStatus("current")
+_TmnxMcacIfPolicyUserEntry_Object = MibTableRow
+tmnxMcacIfPolicyUserEntry = _TmnxMcacIfPolicyUserEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 16, 1)
+)
+tmnxMcacIfPolicyUserEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyName"),
+    (0, "TIMETRA-VRTR-MIB", "vRtrID"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIfIndex"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyUserEntry.setStatus("current")
+_TmnxMcacIfPolicyUserCfgrd_Type = TruthValue
+_TmnxMcacIfPolicyUserCfgrd_Object = MibTableColumn
+tmnxMcacIfPolicyUserCfgrd = _TmnxMcacIfPolicyUserCfgrd_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 16, 1, 1),
+    _TmnxMcacIfPolicyUserCfgrd_Type()
+)
+tmnxMcacIfPolicyUserCfgrd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyUserCfgrd.setStatus("current")
+_TmnxMcacIfPolicyServUserTable_Object = MibTable
+tmnxMcacIfPolicyServUserTable = _TmnxMcacIfPolicyServUserTable_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 17)
+)
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyServUserTable.setStatus("current")
+_TmnxMcacIfPolicyServUserEntry_Object = MibTableRow
+tmnxMcacIfPolicyServUserEntry = _TmnxMcacIfPolicyServUserEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 17, 1)
+)
+tmnxMcacIfPolicyServUserEntry.setIndexNames(
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyName"),
+    (0, "TIMETRA-SERV-MIB", "svcId"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsProtocolIndex"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsPortId"),
+    (0, "TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsEncapValue"),
+)
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyServUserEntry.setStatus("current")
+_TmnxMcacIfPolicyServUserCfgrd_Type = TruthValue
+_TmnxMcacIfPolicyServUserCfgrd_Object = MibTableColumn
+tmnxMcacIfPolicyServUserCfgrd = _TmnxMcacIfPolicyServUserCfgrd_Object(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 2, 41, 17, 1, 1),
+    _TmnxMcacIfPolicyServUserCfgrd_Type()
+)
+tmnxMcacIfPolicyServUserCfgrd.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tmnxMcacIfPolicyServUserCfgrd.setStatus("current")
+
+# Managed Objects groups
+
+tmnxMcacV5v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 1)
+)
+tmnxMcacV5v0Group.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyDescription"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyDefaultAction"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleDescription"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleAdminState"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleBandwidth"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlClass"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlType"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLevelRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLevelBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLagRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLagBundleLevel"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacV5v0Group.setStatus("obsolete")
+
+tmnxMcacStatV5v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 2)
+)
+tmnxMcacStatV5v0Group.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsAction"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsReason"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChannelType"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChannelBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsBundleAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIntfAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsAlgoReapply"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsApplyAttempts"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsTimeStamp"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsAction"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsReason"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsChannelType"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsChannelBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsBundleAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsIntfAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsAlgoReapply"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsApplyAttempts"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsTimeStamp"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacStatV5v0Group.setStatus("obsolete")
+
+tmnxMcacOperV5v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 3)
+)
+tmnxMcacOperV5v0Group.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperActiveChannels"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperMaxBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperAvailOptnlBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperAvailMandBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperInUseMandBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperPortsDown"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperCurrConstrtLvl"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperInUseOptnlBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperValuesInTransit"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperActiveChannels"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperMaxBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperAvailOptnlBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperAvailMandBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperInUseMandBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperPortsDown"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperCurrConstrtLvl"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperInUseOptnlBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServOperValuesInTransit"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacOperV5v0Group.setStatus("current")
+
+tmnxMcacPolicyUserV5v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 4)
+)
+tmnxMcacPolicyUserV5v0Group.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserConfigured"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyServUserConfigured"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacPolicyUserV5v0Group.setStatus("current")
+
+tmnxMcacV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 5)
+)
+tmnxMcacV12v0Group.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgClass"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlNgType"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleUseLagPortWeight"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacV12v0Group.setStatus("current")
+
+tmnxMcacStatV12v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 6)
+)
+tmnxMcacStatV12v0Group.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgAction"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgReason"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChannelType"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgChannelBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgBundleAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgIntfAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgAlgoReapply"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgApplyAttempts"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsNgTimeStamp"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgAction"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgReason"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgChannelType"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgChannelBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgBundleAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgIntfAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgAlgoReapply"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgApplyAttempts"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsNgTimeStamp"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacStatV12v0Group.setStatus("current")
+
+tmnxMcacV14v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 7)
+)
+tmnxMcacV14v0Group.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyDescription"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyAdminState"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyUnconstrainedBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyPreRsvdMandBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyInUseMandBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyInUseOpnlBw"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyUserCfgrd"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacIfPolicyServUserCfgrd"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacV14v0Group.setStatus("current")
+
+tmnxMcacV19v0Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 8)
+)
+tmnxMcacV19v0Group.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyDescription"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyDefaultAction"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleDescription"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleAdminState"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBundleBandwidth"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLevelRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLevelBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLagRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacLagBundleLevel"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacV19v0Group.setStatus("current")
+
+tmnxMcacObsoleteObjsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 2, 100)
+)
+tmnxMcacObsoleteObjsGroup.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsAction"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsReason"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChannelType"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsChannelBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsBundleAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsIntfAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsAlgoReapply"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsApplyAttempts"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatsTimeStamp"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsAction"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsReason"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsChannelType"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsChannelBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsBundleAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsIntfAvailBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsAlgoReapply"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsApplyAttempts"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacServStatsTimeStamp"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlRowStatus"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlBW"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlClass"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacBdlChlType"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacObsoleteObjsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+tmnxMcacV5v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1, 1)
+)
+tmnxMcacV5v0Compliance.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserV5v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacV5v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxMcacV6v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1, 2)
+)
+tmnxMcacV6v0Compliance.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserV5v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacV6v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxMcacV12v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1, 3)
+)
+tmnxMcacV12v0Compliance.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV12v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV12v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserV5v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacV12v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxMcacV14v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1, 4)
+)
+tmnxMcacV14v0Compliance.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV12v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV14v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV12v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserV5v0Group"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacV14v0Compliance.setStatus(
+        "obsolete"
+    )
+
+tmnxMcacV19v0Compliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6527, 3, 1, 1, 41, 1, 5)
+)
+tmnxMcacV19v0Compliance.setObjects(
+      *(("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV12v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV14v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacV19v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacStatV12v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacOperV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacPolicyUserV5v0Group"),
+        ("TIMETRA-MCAST-CAC-MIB", "tmnxMcacObsoleteObjsGroup"))
+)
+if mibBuilder.loadTexts:
+    tmnxMcacV19v0Compliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TIMETRA-MCAST-CAC-MIB",
+    **{"TmnxMcacActionTc": TmnxMcacActionTc,
+       "TmnxMcacReasonTc": TmnxMcacReasonTc,
+       "TmnxMcacApplTc": TmnxMcacApplTc,
+       "TmnxMcacChlTypeTc": TmnxMcacChlTypeTc,
+       "TmnxMcacChlClassTc": TmnxMcacChlClassTc,
+       "timetraMcastCacMIBModule": timetraMcastCacMIBModule,
+       "tmnxMcacConformance": tmnxMcacConformance,
+       "tmnxMcacCompliances": tmnxMcacCompliances,
+       "tmnxMcacV5v0Compliance": tmnxMcacV5v0Compliance,
+       "tmnxMcacV6v0Compliance": tmnxMcacV6v0Compliance,
+       "tmnxMcacV12v0Compliance": tmnxMcacV12v0Compliance,
+       "tmnxMcacV14v0Compliance": tmnxMcacV14v0Compliance,
+       "tmnxMcacV19v0Compliance": tmnxMcacV19v0Compliance,
+       "tmnxMcacGroups": tmnxMcacGroups,
+       "tmnxMcacV5v0Group": tmnxMcacV5v0Group,
+       "tmnxMcacStatV5v0Group": tmnxMcacStatV5v0Group,
+       "tmnxMcacOperV5v0Group": tmnxMcacOperV5v0Group,
+       "tmnxMcacPolicyUserV5v0Group": tmnxMcacPolicyUserV5v0Group,
+       "tmnxMcacV12v0Group": tmnxMcacV12v0Group,
+       "tmnxMcacStatV12v0Group": tmnxMcacStatV12v0Group,
+       "tmnxMcacV14v0Group": tmnxMcacV14v0Group,
+       "tmnxMcacV19v0Group": tmnxMcacV19v0Group,
+       "tmnxMcacObsoleteObjsGroup": tmnxMcacObsoleteObjsGroup,
+       "tmnxMcacObjects": tmnxMcacObjects,
+       "tmnxMcacPolicyTable": tmnxMcacPolicyTable,
+       "tmnxMcacPolicyEntry": tmnxMcacPolicyEntry,
+       "tmnxMcacPolicyName": tmnxMcacPolicyName,
+       "tmnxMcacPolicyRowStatus": tmnxMcacPolicyRowStatus,
+       "tmnxMcacPolicyDescription": tmnxMcacPolicyDescription,
+       "tmnxMcacPolicyDefaultAction": tmnxMcacPolicyDefaultAction,
+       "tmnxMcacBundleTable": tmnxMcacBundleTable,
+       "tmnxMcacBundleEntry": tmnxMcacBundleEntry,
+       "tmnxMcacBundleName": tmnxMcacBundleName,
+       "tmnxMcacBundleRowStatus": tmnxMcacBundleRowStatus,
+       "tmnxMcacBundleDescription": tmnxMcacBundleDescription,
+       "tmnxMcacBundleAdminState": tmnxMcacBundleAdminState,
+       "tmnxMcacBundleBandwidth": tmnxMcacBundleBandwidth,
+       "tmnxMcacBundleUseLagPortWeight": tmnxMcacBundleUseLagPortWeight,
+       "tmnxMcacBdlChlTable": tmnxMcacBdlChlTable,
+       "tmnxMcacBdlChlEntry": tmnxMcacBdlChlEntry,
+       "tmnxMcacBdlChlStartAddrType": tmnxMcacBdlChlStartAddrType,
+       "tmnxMcacBdlChlStartAddr": tmnxMcacBdlChlStartAddr,
+       "tmnxMcacBdlChlEndAddrType": tmnxMcacBdlChlEndAddrType,
+       "tmnxMcacBdlChlEndAddr": tmnxMcacBdlChlEndAddr,
+       "tmnxMcacBdlChlRowStatus": tmnxMcacBdlChlRowStatus,
+       "tmnxMcacBdlChlBW": tmnxMcacBdlChlBW,
+       "tmnxMcacBdlChlClass": tmnxMcacBdlChlClass,
+       "tmnxMcacBdlChlType": tmnxMcacBdlChlType,
+       "tmnxMcacLevelTable": tmnxMcacLevelTable,
+       "tmnxMcacLevelEntry": tmnxMcacLevelEntry,
+       "tmnxMcacLevelId": tmnxMcacLevelId,
+       "tmnxMcacLevelRowStatus": tmnxMcacLevelRowStatus,
+       "tmnxMcacLevelBW": tmnxMcacLevelBW,
+       "tmnxMcacLagTable": tmnxMcacLagTable,
+       "tmnxMcacLagEntry": tmnxMcacLagEntry,
+       "tmnxMcacLagPortsDown": tmnxMcacLagPortsDown,
+       "tmnxMcacLagRowStatus": tmnxMcacLagRowStatus,
+       "tmnxMcacLagBundleLevel": tmnxMcacLagBundleLevel,
+       "tmnxMcacStatsTable": tmnxMcacStatsTable,
+       "tmnxMcacStatsEntry": tmnxMcacStatsEntry,
+       "tmnxMcacStatsBundleName": tmnxMcacStatsBundleName,
+       "tmnxMcacStatsProtocolIndex": tmnxMcacStatsProtocolIndex,
+       "tmnxMcacStatsIfIndex": tmnxMcacStatsIfIndex,
+       "tmnxMcacStatsChlAddrType": tmnxMcacStatsChlAddrType,
+       "tmnxMcacStatsChlAddr": tmnxMcacStatsChlAddr,
+       "tmnxMcacStatsAction": tmnxMcacStatsAction,
+       "tmnxMcacStatsReason": tmnxMcacStatsReason,
+       "tmnxMcacStatsChannelType": tmnxMcacStatsChannelType,
+       "tmnxMcacStatsChannelBW": tmnxMcacStatsChannelBW,
+       "tmnxMcacStatsBundleAvailBW": tmnxMcacStatsBundleAvailBW,
+       "tmnxMcacStatsIntfAvailBW": tmnxMcacStatsIntfAvailBW,
+       "tmnxMcacStatsAlgoReapply": tmnxMcacStatsAlgoReapply,
+       "tmnxMcacStatsApplyAttempts": tmnxMcacStatsApplyAttempts,
+       "tmnxMcacStatsTimeStamp": tmnxMcacStatsTimeStamp,
+       "tmnxMcacOperTable": tmnxMcacOperTable,
+       "tmnxMcacOperEntry": tmnxMcacOperEntry,
+       "tmnxMcacOperActiveChannels": tmnxMcacOperActiveChannels,
+       "tmnxMcacOperMaxBw": tmnxMcacOperMaxBw,
+       "tmnxMcacOperAvailOptnlBw": tmnxMcacOperAvailOptnlBw,
+       "tmnxMcacOperAvailMandBw": tmnxMcacOperAvailMandBw,
+       "tmnxMcacOperInUseMandBw": tmnxMcacOperInUseMandBw,
+       "tmnxMcacOperPortsDown": tmnxMcacOperPortsDown,
+       "tmnxMcacOperCurrConstrtLvl": tmnxMcacOperCurrConstrtLvl,
+       "tmnxMcacOperInUseOptnlBw": tmnxMcacOperInUseOptnlBw,
+       "tmnxMcacOperValuesInTransit": tmnxMcacOperValuesInTransit,
+       "tmnxMcacServStatsTable": tmnxMcacServStatsTable,
+       "tmnxMcacServStatsEntry": tmnxMcacServStatsEntry,
+       "tmnxMcacServStatsPortId": tmnxMcacServStatsPortId,
+       "tmnxMcacServStatsEncapValue": tmnxMcacServStatsEncapValue,
+       "tmnxMcacServStatsAction": tmnxMcacServStatsAction,
+       "tmnxMcacServStatsReason": tmnxMcacServStatsReason,
+       "tmnxMcacServStatsChannelType": tmnxMcacServStatsChannelType,
+       "tmnxMcacServStatsChannelBW": tmnxMcacServStatsChannelBW,
+       "tmnxMcacServStatsBundleAvailBW": tmnxMcacServStatsBundleAvailBW,
+       "tmnxMcacServStatsIntfAvailBW": tmnxMcacServStatsIntfAvailBW,
+       "tmnxMcacServStatsAlgoReapply": tmnxMcacServStatsAlgoReapply,
+       "tmnxMcacServStatsApplyAttempts": tmnxMcacServStatsApplyAttempts,
+       "tmnxMcacServStatsTimeStamp": tmnxMcacServStatsTimeStamp,
+       "tmnxMcacServOperTable": tmnxMcacServOperTable,
+       "tmnxMcacServOperEntry": tmnxMcacServOperEntry,
+       "tmnxMcacServOperActiveChannels": tmnxMcacServOperActiveChannels,
+       "tmnxMcacServOperMaxBw": tmnxMcacServOperMaxBw,
+       "tmnxMcacServOperAvailOptnlBw": tmnxMcacServOperAvailOptnlBw,
+       "tmnxMcacServOperAvailMandBw": tmnxMcacServOperAvailMandBw,
+       "tmnxMcacServOperInUseMandBw": tmnxMcacServOperInUseMandBw,
+       "tmnxMcacServOperPortsDown": tmnxMcacServOperPortsDown,
+       "tmnxMcacServOperCurrConstrtLvl": tmnxMcacServOperCurrConstrtLvl,
+       "tmnxMcacServOperInUseOptnlBw": tmnxMcacServOperInUseOptnlBw,
+       "tmnxMcacServOperValuesInTransit": tmnxMcacServOperValuesInTransit,
+       "tmnxMcacPolicyUserTable": tmnxMcacPolicyUserTable,
+       "tmnxMcacPolicyUserEntry": tmnxMcacPolicyUserEntry,
+       "tmnxMcacPolicyUserConfigured": tmnxMcacPolicyUserConfigured,
+       "tmnxMcacPolicyServUserTable": tmnxMcacPolicyServUserTable,
+       "tmnxMcacPolicyServUserEntry": tmnxMcacPolicyServUserEntry,
+       "tmnxMcacPolicyServUserConfigured": tmnxMcacPolicyServUserConfigured,
+       "tmnxMcacBdlChlNgTable": tmnxMcacBdlChlNgTable,
+       "tmnxMcacBdlChlNgEntry": tmnxMcacBdlChlNgEntry,
+       "tmnxMcacBdlChlNgStartAddrType": tmnxMcacBdlChlNgStartAddrType,
+       "tmnxMcacBdlChlNgStartAddr": tmnxMcacBdlChlNgStartAddr,
+       "tmnxMcacBdlChlNgEndAddrType": tmnxMcacBdlChlNgEndAddrType,
+       "tmnxMcacBdlChlNgEndAddr": tmnxMcacBdlChlNgEndAddr,
+       "tmnxMcacBdlChlNgSrcPfxType": tmnxMcacBdlChlNgSrcPfxType,
+       "tmnxMcacBdlChlNgSrcPfx": tmnxMcacBdlChlNgSrcPfx,
+       "tmnxMcacBdlChlNgSrcPfxLen": tmnxMcacBdlChlNgSrcPfxLen,
+       "tmnxMcacBdlChlNgRowStatus": tmnxMcacBdlChlNgRowStatus,
+       "tmnxMcacBdlChlNgBW": tmnxMcacBdlChlNgBW,
+       "tmnxMcacBdlChlNgClass": tmnxMcacBdlChlNgClass,
+       "tmnxMcacBdlChlNgType": tmnxMcacBdlChlNgType,
+       "tmnxMcacStatsNgTable": tmnxMcacStatsNgTable,
+       "tmnxMcacStatsNgEntry": tmnxMcacStatsNgEntry,
+       "tmnxMcacStatsNgBundleName": tmnxMcacStatsNgBundleName,
+       "tmnxMcacStatsNgProtocolIndex": tmnxMcacStatsNgProtocolIndex,
+       "tmnxMcacStatsNgIfIndex": tmnxMcacStatsNgIfIndex,
+       "tmnxMcacStatsNgChlAddrType": tmnxMcacStatsNgChlAddrType,
+       "tmnxMcacStatsNgChlAddr": tmnxMcacStatsNgChlAddr,
+       "tmnxMcacStatsNgSrcAddrType": tmnxMcacStatsNgSrcAddrType,
+       "tmnxMcacStatsNgSrcAddr": tmnxMcacStatsNgSrcAddr,
+       "tmnxMcacStatsNgAction": tmnxMcacStatsNgAction,
+       "tmnxMcacStatsNgReason": tmnxMcacStatsNgReason,
+       "tmnxMcacStatsNgChannelType": tmnxMcacStatsNgChannelType,
+       "tmnxMcacStatsNgChannelBW": tmnxMcacStatsNgChannelBW,
+       "tmnxMcacStatsNgBundleAvailBW": tmnxMcacStatsNgBundleAvailBW,
+       "tmnxMcacStatsNgIntfAvailBW": tmnxMcacStatsNgIntfAvailBW,
+       "tmnxMcacStatsNgAlgoReapply": tmnxMcacStatsNgAlgoReapply,
+       "tmnxMcacStatsNgApplyAttempts": tmnxMcacStatsNgApplyAttempts,
+       "tmnxMcacStatsNgTimeStamp": tmnxMcacStatsNgTimeStamp,
+       "tmnxMcacServStatsNgTable": tmnxMcacServStatsNgTable,
+       "tmnxMcacServStatsNgEntry": tmnxMcacServStatsNgEntry,
+       "tmnxMcacServStatsNgPortId": tmnxMcacServStatsNgPortId,
+       "tmnxMcacServStatsNgEncapValue": tmnxMcacServStatsNgEncapValue,
+       "tmnxMcacServStatsNgAction": tmnxMcacServStatsNgAction,
+       "tmnxMcacServStatsNgReason": tmnxMcacServStatsNgReason,
+       "tmnxMcacServStatsNgChannelType": tmnxMcacServStatsNgChannelType,
+       "tmnxMcacServStatsNgChannelBW": tmnxMcacServStatsNgChannelBW,
+       "tmnxMcacServStatsNgBundleAvailBW": tmnxMcacServStatsNgBundleAvailBW,
+       "tmnxMcacServStatsNgIntfAvailBW": tmnxMcacServStatsNgIntfAvailBW,
+       "tmnxMcacServStatsNgAlgoReapply": tmnxMcacServStatsNgAlgoReapply,
+       "tmnxMcacServStatsNgApplyAttempts": tmnxMcacServStatsNgApplyAttempts,
+       "tmnxMcacServStatsNgTimeStamp": tmnxMcacServStatsNgTimeStamp,
+       "tmnxMcacIfPolicyTable": tmnxMcacIfPolicyTable,
+       "tmnxMcacIfPolicyEntry": tmnxMcacIfPolicyEntry,
+       "tmnxMcacIfPolicyName": tmnxMcacIfPolicyName,
+       "tmnxMcacIfPolicyRowStatus": tmnxMcacIfPolicyRowStatus,
+       "tmnxMcacIfPolicyDescription": tmnxMcacIfPolicyDescription,
+       "tmnxMcacIfPolicyAdminState": tmnxMcacIfPolicyAdminState,
+       "tmnxMcacIfPolicyUnconstrainedBW": tmnxMcacIfPolicyUnconstrainedBW,
+       "tmnxMcacIfPolicyPreRsvdMandBW": tmnxMcacIfPolicyPreRsvdMandBW,
+       "tmnxMcacIfPolicyInUseMandBw": tmnxMcacIfPolicyInUseMandBw,
+       "tmnxMcacIfPolicyInUseOpnlBw": tmnxMcacIfPolicyInUseOpnlBw,
+       "tmnxMcacIfPolicyUserTable": tmnxMcacIfPolicyUserTable,
+       "tmnxMcacIfPolicyUserEntry": tmnxMcacIfPolicyUserEntry,
+       "tmnxMcacIfPolicyUserCfgrd": tmnxMcacIfPolicyUserCfgrd,
+       "tmnxMcacIfPolicyServUserTable": tmnxMcacIfPolicyServUserTable,
+       "tmnxMcacIfPolicyServUserEntry": tmnxMcacIfPolicyServUserEntry,
+       "tmnxMcacIfPolicyServUserCfgrd": tmnxMcacIfPolicyServUserCfgrd}
+)

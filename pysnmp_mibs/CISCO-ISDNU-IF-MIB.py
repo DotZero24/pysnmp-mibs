@@ -1,69 +1,509 @@
+# SNMP MIB module (CISCO-ISDNU-IF-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-ISDNU-IF-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-ISDNU-IF-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:30:51 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-ISDNU-IF-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:39:30 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "TextualConvention", "DisplayString")
-ciscoIsdnuIfMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 18))
-if mibBuilder.loadTexts: ciscoIsdnuIfMIB.setLastUpdated('9603180000Z')
-if mibBuilder.loadTexts: ciscoIsdnuIfMIB.setOrganization('Cisco Systems, Inc.')
-ciuIfObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 18, 1))
-ciuInterface = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1))
-ciuIfExternalSTPort = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 2))
-ciuIfMIBNotificationEnables = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 3))
-ciuIfStaticConfigTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 1), )
-if mibBuilder.loadTexts: ciuIfStaticConfigTable.setStatus('current')
-ciuIfStaticConfigEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ciuIfStaticConfigEntry.setStatus('current')
-ciuIfType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("other", 1), ("addOnU", 2), ("onBoardU", 3), ("onBoardIntegUandSTPort", 4), ("addOnIntegUandSTPort", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciuIfType.setStatus('current')
-ciuIfStatusTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2), )
-if mibBuilder.loadTexts: ciuIfStatusTable.setStatus('current')
-ciuIfStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: ciuIfStatusEntry.setStatus('current')
-ciuIfStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("activated", 1), ("activationPending", 2), ("deactivated", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciuIfStatus.setStatus('current')
-ciuIfEocCommand = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(1, 48))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciuIfEocCommand.setStatus('current')
-ciuIfOverHeadBits = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 3), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciuIfOverHeadBits.setStatus('current')
-ciuIfFebeErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciuIfFebeErrors.setStatus('current')
-ciuIfNebeErrors = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciuIfNebeErrors.setStatus('current')
-ciuIfLoopStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("none", 1), ("type2Loopback", 2), ("type3Loopback", 3), ("ntQuietMode", 4), ("ilmtMode", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciuIfLoopStatus.setStatus('current')
-ciuIfExternalSTPortStatusTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 2, 1), )
-if mibBuilder.loadTexts: ciuIfExternalSTPortStatusTable.setStatus('current')
-ciuIfExternalSTPortStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"), (0, "CISCO-ISDNU-IF-MIB", "ciuIfExternalSTPortNumber"))
-if mibBuilder.loadTexts: ciuIfExternalSTPortStatusEntry.setStatus('current')
-ciuIfExternalSTPortNumber = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 2, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 8)))
-if mibBuilder.loadTexts: ciuIfExternalSTPortNumber.setStatus('current')
-ciuIfExternalSTPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("activated", 1), ("activationPending", 2), ("deactivated", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ciuIfExternalSTPortStatus.setStatus('current')
-ciuIfEnableULoopStatusNotification = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 3, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ciuIfEnableULoopStatusNotification.setStatus('current')
-ciuIfMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 18, 2))
-ciuIfMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 18, 2, 0))
-ciuIfLoopStatusNotification = NotificationType((1, 3, 6, 1, 4, 1, 9, 9, 18, 2, 0, 1)).setObjects(("CISCO-ISDNU-IF-MIB", "ciuIfLoopStatus"))
-if mibBuilder.loadTexts: ciuIfLoopStatusNotification.setStatus('current')
-ciuIfMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 18, 3))
-ciuIfMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 18, 3, 1))
-ciuIfMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 18, 3, 2))
-ciuIfMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 18, 3, 1, 1)).setObjects(("CISCO-ISDNU-IF-MIB", "ciuIfMIBGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciuIfMIBCompliance = ciuIfMIBCompliance.setStatus('current')
-ciuIfMIBGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 18, 3, 2, 1)).setObjects(("CISCO-ISDNU-IF-MIB", "ciuIfType"), ("CISCO-ISDNU-IF-MIB", "ciuIfStatus"), ("CISCO-ISDNU-IF-MIB", "ciuIfEocCommand"), ("CISCO-ISDNU-IF-MIB", "ciuIfOverHeadBits"), ("CISCO-ISDNU-IF-MIB", "ciuIfFebeErrors"), ("CISCO-ISDNU-IF-MIB", "ciuIfNebeErrors"), ("CISCO-ISDNU-IF-MIB", "ciuIfLoopStatus"), ("CISCO-ISDNU-IF-MIB", "ciuIfExternalSTPortStatus"), ("CISCO-ISDNU-IF-MIB", "ciuIfEnableULoopStatusNotification"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ciuIfMIBGroup = ciuIfMIBGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-ISDNU-IF-MIB", ciuIfMIBNotificationEnables=ciuIfMIBNotificationEnables, ciuInterface=ciuInterface, ciuIfStatus=ciuIfStatus, ciuIfMIBNotificationPrefix=ciuIfMIBNotificationPrefix, ciuIfLoopStatusNotification=ciuIfLoopStatusNotification, ciuIfType=ciuIfType, ciuIfMIBCompliances=ciuIfMIBCompliances, ciuIfMIBCompliance=ciuIfMIBCompliance, PYSNMP_MODULE_ID=ciscoIsdnuIfMIB, ciuIfExternalSTPortStatusTable=ciuIfExternalSTPortStatusTable, ciuIfObjects=ciuIfObjects, ciuIfMIBNotifications=ciuIfMIBNotifications, ciuIfStaticConfigEntry=ciuIfStaticConfigEntry, ciuIfMIBConformance=ciuIfMIBConformance, ciuIfMIBGroup=ciuIfMIBGroup, ciuIfFebeErrors=ciuIfFebeErrors, ciuIfLoopStatus=ciuIfLoopStatus, ciuIfNebeErrors=ciuIfNebeErrors, ciuIfMIBGroups=ciuIfMIBGroups, ciuIfExternalSTPortNumber=ciuIfExternalSTPortNumber, ciuIfExternalSTPort=ciuIfExternalSTPort, ciuIfEnableULoopStatusNotification=ciuIfEnableULoopStatusNotification, ciscoIsdnuIfMIB=ciscoIsdnuIfMIB, ciuIfEocCommand=ciuIfEocCommand, ciuIfExternalSTPortStatus=ciuIfExternalSTPortStatus, ciuIfStatusEntry=ciuIfStatusEntry, ciuIfStaticConfigTable=ciuIfStaticConfigTable, ciuIfOverHeadBits=ciuIfOverHeadBits, ciuIfExternalSTPortStatusEntry=ciuIfExternalSTPortStatusEntry, ciuIfStatusTable=ciuIfStatusTable)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoIsdnuIfMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18)
+)
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CiuIfObjects_ObjectIdentity = ObjectIdentity
+ciuIfObjects = _CiuIfObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1)
+)
+_CiuInterface_ObjectIdentity = ObjectIdentity
+ciuInterface = _CiuInterface_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1)
+)
+_CiuIfStaticConfigTable_Object = MibTable
+ciuIfStaticConfigTable = _CiuIfStaticConfigTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ciuIfStaticConfigTable.setStatus("current")
+_CiuIfStaticConfigEntry_Object = MibTableRow
+ciuIfStaticConfigEntry = _CiuIfStaticConfigEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 1, 1)
+)
+ciuIfStaticConfigEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    ciuIfStaticConfigEntry.setStatus("current")
+
+
+class _CiuIfType_Type(Integer32):
+    """Custom type ciuIfType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("addOnU", 2),
+          ("onBoardU", 3),
+          ("onBoardIntegUandSTPort", 4),
+          ("addOnIntegUandSTPort", 5))
+    )
+
+
+_CiuIfType_Type.__name__ = "Integer32"
+_CiuIfType_Object = MibTableColumn
+ciuIfType = _CiuIfType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 1, 1, 1),
+    _CiuIfType_Type()
+)
+ciuIfType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ciuIfType.setStatus("current")
+_CiuIfStatusTable_Object = MibTable
+ciuIfStatusTable = _CiuIfStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    ciuIfStatusTable.setStatus("current")
+_CiuIfStatusEntry_Object = MibTableRow
+ciuIfStatusEntry = _CiuIfStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1)
+)
+ciuIfStatusEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    ciuIfStatusEntry.setStatus("current")
+
+
+class _CiuIfStatus_Type(Integer32):
+    """Custom type ciuIfStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("activated", 1),
+          ("activationPending", 2),
+          ("deactivated", 3))
+    )
+
+
+_CiuIfStatus_Type.__name__ = "Integer32"
+_CiuIfStatus_Object = MibTableColumn
+ciuIfStatus = _CiuIfStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 1),
+    _CiuIfStatus_Type()
+)
+ciuIfStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ciuIfStatus.setStatus("current")
+
+
+class _CiuIfEocCommand_Type(DisplayString):
+    """Custom type ciuIfEocCommand based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 48),
+    )
+
+
+_CiuIfEocCommand_Type.__name__ = "DisplayString"
+_CiuIfEocCommand_Object = MibTableColumn
+ciuIfEocCommand = _CiuIfEocCommand_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 2),
+    _CiuIfEocCommand_Type()
+)
+ciuIfEocCommand.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ciuIfEocCommand.setStatus("current")
+
+
+class _CiuIfOverHeadBits_Type(OctetString):
+    """Custom type ciuIfOverHeadBits based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_CiuIfOverHeadBits_Type.__name__ = "OctetString"
+_CiuIfOverHeadBits_Object = MibTableColumn
+ciuIfOverHeadBits = _CiuIfOverHeadBits_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 3),
+    _CiuIfOverHeadBits_Type()
+)
+ciuIfOverHeadBits.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ciuIfOverHeadBits.setStatus("current")
+_CiuIfFebeErrors_Type = Counter32
+_CiuIfFebeErrors_Object = MibTableColumn
+ciuIfFebeErrors = _CiuIfFebeErrors_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 4),
+    _CiuIfFebeErrors_Type()
+)
+ciuIfFebeErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ciuIfFebeErrors.setStatus("current")
+_CiuIfNebeErrors_Type = Counter32
+_CiuIfNebeErrors_Object = MibTableColumn
+ciuIfNebeErrors = _CiuIfNebeErrors_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 5),
+    _CiuIfNebeErrors_Type()
+)
+ciuIfNebeErrors.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ciuIfNebeErrors.setStatus("current")
+
+
+class _CiuIfLoopStatus_Type(Integer32):
+    """Custom type ciuIfLoopStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("type2Loopback", 2),
+          ("type3Loopback", 3),
+          ("ntQuietMode", 4),
+          ("ilmtMode", 5))
+    )
+
+
+_CiuIfLoopStatus_Type.__name__ = "Integer32"
+_CiuIfLoopStatus_Object = MibTableColumn
+ciuIfLoopStatus = _CiuIfLoopStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 1, 2, 1, 6),
+    _CiuIfLoopStatus_Type()
+)
+ciuIfLoopStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ciuIfLoopStatus.setStatus("current")
+_CiuIfExternalSTPort_ObjectIdentity = ObjectIdentity
+ciuIfExternalSTPort = _CiuIfExternalSTPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 2)
+)
+_CiuIfExternalSTPortStatusTable_Object = MibTable
+ciuIfExternalSTPortStatusTable = _CiuIfExternalSTPortStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    ciuIfExternalSTPortStatusTable.setStatus("current")
+_CiuIfExternalSTPortStatusEntry_Object = MibTableRow
+ciuIfExternalSTPortStatusEntry = _CiuIfExternalSTPortStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 2, 1, 1)
+)
+ciuIfExternalSTPortStatusEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+    (0, "CISCO-ISDNU-IF-MIB", "ciuIfExternalSTPortNumber"),
+)
+if mibBuilder.loadTexts:
+    ciuIfExternalSTPortStatusEntry.setStatus("current")
+
+
+class _CiuIfExternalSTPortNumber_Type(Integer32):
+    """Custom type ciuIfExternalSTPortNumber based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 8),
+    )
+
+
+_CiuIfExternalSTPortNumber_Type.__name__ = "Integer32"
+_CiuIfExternalSTPortNumber_Object = MibTableColumn
+ciuIfExternalSTPortNumber = _CiuIfExternalSTPortNumber_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 2, 1, 1, 1),
+    _CiuIfExternalSTPortNumber_Type()
+)
+ciuIfExternalSTPortNumber.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ciuIfExternalSTPortNumber.setStatus("current")
+
+
+class _CiuIfExternalSTPortStatus_Type(Integer32):
+    """Custom type ciuIfExternalSTPortStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("activated", 1),
+          ("activationPending", 2),
+          ("deactivated", 3))
+    )
+
+
+_CiuIfExternalSTPortStatus_Type.__name__ = "Integer32"
+_CiuIfExternalSTPortStatus_Object = MibTableColumn
+ciuIfExternalSTPortStatus = _CiuIfExternalSTPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 2, 1, 1, 2),
+    _CiuIfExternalSTPortStatus_Type()
+)
+ciuIfExternalSTPortStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ciuIfExternalSTPortStatus.setStatus("current")
+_CiuIfMIBNotificationEnables_ObjectIdentity = ObjectIdentity
+ciuIfMIBNotificationEnables = _CiuIfMIBNotificationEnables_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 3)
+)
+
+
+class _CiuIfEnableULoopStatusNotification_Type(TruthValue):
+    """Custom type ciuIfEnableULoopStatusNotification based on TruthValue"""
+    defaultValue = 2
+
+
+_CiuIfEnableULoopStatusNotification_Type.__name__ = "TruthValue"
+_CiuIfEnableULoopStatusNotification_Object = MibScalar
+ciuIfEnableULoopStatusNotification = _CiuIfEnableULoopStatusNotification_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 1, 3, 1),
+    _CiuIfEnableULoopStatusNotification_Type()
+)
+ciuIfEnableULoopStatusNotification.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ciuIfEnableULoopStatusNotification.setStatus("current")
+_CiuIfMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+ciuIfMIBNotificationPrefix = _CiuIfMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 2)
+)
+_CiuIfMIBNotifications_ObjectIdentity = ObjectIdentity
+ciuIfMIBNotifications = _CiuIfMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 2, 0)
+)
+_CiuIfMIBConformance_ObjectIdentity = ObjectIdentity
+ciuIfMIBConformance = _CiuIfMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 3)
+)
+_CiuIfMIBCompliances_ObjectIdentity = ObjectIdentity
+ciuIfMIBCompliances = _CiuIfMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 3, 1)
+)
+_CiuIfMIBGroups_ObjectIdentity = ObjectIdentity
+ciuIfMIBGroups = _CiuIfMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 3, 2)
+)
+
+# Managed Objects groups
+
+ciuIfMIBGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 3, 2, 1)
+)
+ciuIfMIBGroup.setObjects(
+      *(("CISCO-ISDNU-IF-MIB", "ciuIfType"),
+        ("CISCO-ISDNU-IF-MIB", "ciuIfStatus"),
+        ("CISCO-ISDNU-IF-MIB", "ciuIfEocCommand"),
+        ("CISCO-ISDNU-IF-MIB", "ciuIfOverHeadBits"),
+        ("CISCO-ISDNU-IF-MIB", "ciuIfFebeErrors"),
+        ("CISCO-ISDNU-IF-MIB", "ciuIfNebeErrors"),
+        ("CISCO-ISDNU-IF-MIB", "ciuIfLoopStatus"),
+        ("CISCO-ISDNU-IF-MIB", "ciuIfExternalSTPortStatus"),
+        ("CISCO-ISDNU-IF-MIB", "ciuIfEnableULoopStatusNotification"))
+)
+if mibBuilder.loadTexts:
+    ciuIfMIBGroup.setStatus("current")
+
+
+# Notification objects
+
+ciuIfLoopStatusNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 2, 0, 1)
+)
+ciuIfLoopStatusNotification.setObjects(
+    ("CISCO-ISDNU-IF-MIB", "ciuIfLoopStatus")
+)
+if mibBuilder.loadTexts:
+    ciuIfLoopStatusNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ciuIfMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 18, 3, 1, 1)
+)
+ciuIfMIBCompliance.setObjects(
+    ("CISCO-ISDNU-IF-MIB", "ciuIfMIBGroup")
+)
+if mibBuilder.loadTexts:
+    ciuIfMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-ISDNU-IF-MIB",
+    **{"ciscoIsdnuIfMIB": ciscoIsdnuIfMIB,
+       "ciuIfObjects": ciuIfObjects,
+       "ciuInterface": ciuInterface,
+       "ciuIfStaticConfigTable": ciuIfStaticConfigTable,
+       "ciuIfStaticConfigEntry": ciuIfStaticConfigEntry,
+       "ciuIfType": ciuIfType,
+       "ciuIfStatusTable": ciuIfStatusTable,
+       "ciuIfStatusEntry": ciuIfStatusEntry,
+       "ciuIfStatus": ciuIfStatus,
+       "ciuIfEocCommand": ciuIfEocCommand,
+       "ciuIfOverHeadBits": ciuIfOverHeadBits,
+       "ciuIfFebeErrors": ciuIfFebeErrors,
+       "ciuIfNebeErrors": ciuIfNebeErrors,
+       "ciuIfLoopStatus": ciuIfLoopStatus,
+       "ciuIfExternalSTPort": ciuIfExternalSTPort,
+       "ciuIfExternalSTPortStatusTable": ciuIfExternalSTPortStatusTable,
+       "ciuIfExternalSTPortStatusEntry": ciuIfExternalSTPortStatusEntry,
+       "ciuIfExternalSTPortNumber": ciuIfExternalSTPortNumber,
+       "ciuIfExternalSTPortStatus": ciuIfExternalSTPortStatus,
+       "ciuIfMIBNotificationEnables": ciuIfMIBNotificationEnables,
+       "ciuIfEnableULoopStatusNotification": ciuIfEnableULoopStatusNotification,
+       "ciuIfMIBNotificationPrefix": ciuIfMIBNotificationPrefix,
+       "ciuIfMIBNotifications": ciuIfMIBNotifications,
+       "ciuIfLoopStatusNotification": ciuIfLoopStatusNotification,
+       "ciuIfMIBConformance": ciuIfMIBConformance,
+       "ciuIfMIBCompliances": ciuIfMIBCompliances,
+       "ciuIfMIBCompliance": ciuIfMIBCompliance,
+       "ciuIfMIBGroups": ciuIfMIBGroups,
+       "ciuIfMIBGroup": ciuIfMIBGroup}
+)

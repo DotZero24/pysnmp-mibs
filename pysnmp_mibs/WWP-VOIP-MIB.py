@@ -1,48 +1,334 @@
+# SNMP MIB module (WWP-VOIP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module WWP-VOIP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ciena/WWP-VOIP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:07 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ciena/WWP-VOIP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:47:06 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-MacAddress, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "MacAddress", "TextualConvention", "DisplayString")
-wwpModules, = mibBuilder.importSymbols("WWP-SMI", "wwpModules")
-wwpVoipMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 15))
-wwpVoipMIB.setRevisions(('2001-04-03 17:00',))
-if mibBuilder.loadTexts: wwpVoipMIB.setLastUpdated('200104031700Z')
-if mibBuilder.loadTexts: wwpVoipMIB.setOrganization('World Wide Packets, Inc')
-wwpVoipMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1))
-wwpVoip = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1))
-wwpVoipMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 15, 2))
-wwpVoipMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 15, 2, 0))
-wwpVoipMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 15, 3))
-wwpVoipMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 15, 3, 1))
-wwpVoipMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 15, 3, 2))
-wwpVoipTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1), )
-if mibBuilder.loadTexts: wwpVoipTable.setStatus('current')
-wwpVoipEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1), ).setIndexNames((0, "WWP-VOIP-MIB", "wwpVoipIndex"))
-if mibBuilder.loadTexts: wwpVoipEntry.setStatus('current')
-wwpVoipIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpVoipIndex.setStatus('current')
-wwpVoipDownLoaderVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpVoipDownLoaderVersion.setStatus('current')
-wwpVoipApplicationVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 3), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpVoipApplicationVersion.setStatus('current')
-wwpVoipPortNum = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpVoipPortNum.setStatus('current')
-wwpVoipIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 5), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpVoipIpAddr.setStatus('current')
-wwpVoipNumResets = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 6), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpVoipNumResets.setStatus('current')
-wwpVoipCallAgentAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 7), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpVoipCallAgentAddr.setStatus('current')
-wwpVoipResetOp = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 8), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("none", 0), ("reset", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpVoipResetOp.setStatus('current')
-wwpVoipDiagFailNotification = NotificationType((1, 3, 6, 1, 4, 1, 6141, 2, 15, 2, 0, 1))
-if mibBuilder.loadTexts: wwpVoipDiagFailNotification.setStatus('current')
-mibBuilder.exportSymbols("WWP-VOIP-MIB", wwpVoipTable=wwpVoipTable, wwpVoipIndex=wwpVoipIndex, wwpVoipEntry=wwpVoipEntry, wwpVoipNumResets=wwpVoipNumResets, wwpVoipPortNum=wwpVoipPortNum, PYSNMP_MODULE_ID=wwpVoipMIB, wwpVoipResetOp=wwpVoipResetOp, wwpVoipMIBCompliances=wwpVoipMIBCompliances, wwpVoipCallAgentAddr=wwpVoipCallAgentAddr, wwpVoipApplicationVersion=wwpVoipApplicationVersion, wwpVoipMIBGroups=wwpVoipMIBGroups, wwpVoipMIBNotificationPrefix=wwpVoipMIBNotificationPrefix, wwpVoipDownLoaderVersion=wwpVoipDownLoaderVersion, wwpVoipMIBObjects=wwpVoipMIBObjects, wwpVoip=wwpVoip, wwpVoipDiagFailNotification=wwpVoipDiagFailNotification, wwpVoipMIBConformance=wwpVoipMIBConformance, wwpVoipIpAddr=wwpVoipIpAddr, wwpVoipMIBNotifications=wwpVoipMIBNotifications, wwpVoipMIB=wwpVoipMIB)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ MacAddress,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "MacAddress",
+    "PhysAddress",
+    "TextualConvention")
+
+(wwpModules,) = mibBuilder.importSymbols(
+    "WWP-SMI",
+    "wwpModules")
+
+
+# MODULE-IDENTITY
+
+wwpVoipMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15)
+)
+if mibBuilder.loadTexts:
+    wwpVoipMIB.setRevisions(
+        ("2001-04-03 17:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_WwpVoipMIBObjects_ObjectIdentity = ObjectIdentity
+wwpVoipMIBObjects = _WwpVoipMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1)
+)
+_WwpVoip_ObjectIdentity = ObjectIdentity
+wwpVoip = _WwpVoip_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1)
+)
+_WwpVoipTable_Object = MibTable
+wwpVoipTable = _WwpVoipTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1)
+)
+if mibBuilder.loadTexts:
+    wwpVoipTable.setStatus("current")
+_WwpVoipEntry_Object = MibTableRow
+wwpVoipEntry = _WwpVoipEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1)
+)
+wwpVoipEntry.setIndexNames(
+    (0, "WWP-VOIP-MIB", "wwpVoipIndex"),
+)
+if mibBuilder.loadTexts:
+    wwpVoipEntry.setStatus("current")
+
+
+class _WwpVoipIndex_Type(Integer32):
+    """Custom type wwpVoipIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_WwpVoipIndex_Type.__name__ = "Integer32"
+_WwpVoipIndex_Object = MibTableColumn
+wwpVoipIndex = _WwpVoipIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 1),
+    _WwpVoipIndex_Type()
+)
+wwpVoipIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpVoipIndex.setStatus("current")
+_WwpVoipDownLoaderVersion_Type = DisplayString
+_WwpVoipDownLoaderVersion_Object = MibTableColumn
+wwpVoipDownLoaderVersion = _WwpVoipDownLoaderVersion_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 2),
+    _WwpVoipDownLoaderVersion_Type()
+)
+wwpVoipDownLoaderVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpVoipDownLoaderVersion.setStatus("current")
+_WwpVoipApplicationVersion_Type = DisplayString
+_WwpVoipApplicationVersion_Object = MibTableColumn
+wwpVoipApplicationVersion = _WwpVoipApplicationVersion_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 3),
+    _WwpVoipApplicationVersion_Type()
+)
+wwpVoipApplicationVersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpVoipApplicationVersion.setStatus("current")
+
+
+class _WwpVoipPortNum_Type(Integer32):
+    """Custom type wwpVoipPortNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_WwpVoipPortNum_Type.__name__ = "Integer32"
+_WwpVoipPortNum_Object = MibTableColumn
+wwpVoipPortNum = _WwpVoipPortNum_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 4),
+    _WwpVoipPortNum_Type()
+)
+wwpVoipPortNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpVoipPortNum.setStatus("current")
+_WwpVoipIpAddr_Type = IpAddress
+_WwpVoipIpAddr_Object = MibTableColumn
+wwpVoipIpAddr = _WwpVoipIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 5),
+    _WwpVoipIpAddr_Type()
+)
+wwpVoipIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpVoipIpAddr.setStatus("current")
+
+
+class _WwpVoipNumResets_Type(Integer32):
+    """Custom type wwpVoipNumResets based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_WwpVoipNumResets_Type.__name__ = "Integer32"
+_WwpVoipNumResets_Object = MibTableColumn
+wwpVoipNumResets = _WwpVoipNumResets_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 6),
+    _WwpVoipNumResets_Type()
+)
+wwpVoipNumResets.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpVoipNumResets.setStatus("current")
+_WwpVoipCallAgentAddr_Type = IpAddress
+_WwpVoipCallAgentAddr_Object = MibTableColumn
+wwpVoipCallAgentAddr = _WwpVoipCallAgentAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 7),
+    _WwpVoipCallAgentAddr_Type()
+)
+wwpVoipCallAgentAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpVoipCallAgentAddr.setStatus("current")
+
+
+class _WwpVoipResetOp_Type(Integer32):
+    """Custom type wwpVoipResetOp based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 0),
+          ("reset", 1))
+    )
+
+
+_WwpVoipResetOp_Type.__name__ = "Integer32"
+_WwpVoipResetOp_Object = MibTableColumn
+wwpVoipResetOp = _WwpVoipResetOp_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 1, 1, 1, 1, 8),
+    _WwpVoipResetOp_Type()
+)
+wwpVoipResetOp.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpVoipResetOp.setStatus("current")
+_WwpVoipMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+wwpVoipMIBNotificationPrefix = _WwpVoipMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 2)
+)
+_WwpVoipMIBNotifications_ObjectIdentity = ObjectIdentity
+wwpVoipMIBNotifications = _WwpVoipMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 2, 0)
+)
+_WwpVoipMIBConformance_ObjectIdentity = ObjectIdentity
+wwpVoipMIBConformance = _WwpVoipMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 3)
+)
+_WwpVoipMIBCompliances_ObjectIdentity = ObjectIdentity
+wwpVoipMIBCompliances = _WwpVoipMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 3, 1)
+)
+_WwpVoipMIBGroups_ObjectIdentity = ObjectIdentity
+wwpVoipMIBGroups = _WwpVoipMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 3, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+wwpVoipDiagFailNotification = NotificationType(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 15, 2, 0, 1)
+)
+if mibBuilder.loadTexts:
+    wwpVoipDiagFailNotification.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "WWP-VOIP-MIB",
+    **{"wwpVoipMIB": wwpVoipMIB,
+       "wwpVoipMIBObjects": wwpVoipMIBObjects,
+       "wwpVoip": wwpVoip,
+       "wwpVoipTable": wwpVoipTable,
+       "wwpVoipEntry": wwpVoipEntry,
+       "wwpVoipIndex": wwpVoipIndex,
+       "wwpVoipDownLoaderVersion": wwpVoipDownLoaderVersion,
+       "wwpVoipApplicationVersion": wwpVoipApplicationVersion,
+       "wwpVoipPortNum": wwpVoipPortNum,
+       "wwpVoipIpAddr": wwpVoipIpAddr,
+       "wwpVoipNumResets": wwpVoipNumResets,
+       "wwpVoipCallAgentAddr": wwpVoipCallAgentAddr,
+       "wwpVoipResetOp": wwpVoipResetOp,
+       "wwpVoipMIBNotificationPrefix": wwpVoipMIBNotificationPrefix,
+       "wwpVoipMIBNotifications": wwpVoipMIBNotifications,
+       "wwpVoipDiagFailNotification": wwpVoipDiagFailNotification,
+       "wwpVoipMIBConformance": wwpVoipMIBConformance,
+       "wwpVoipMIBCompliances": wwpVoipMIBCompliances,
+       "wwpVoipMIBGroups": wwpVoipMIBGroups}
+)

@@ -1,48 +1,288 @@
+# SNMP MIB module (EDGECORE-BANNER-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module EDGECORE-BANNER-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/edgecore/EDGECORE-BANNER-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:00 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/edgecore/EDGECORE-BANNER-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:53:40 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rnd, = mibBuilder.importSymbols("EDGECORE-MIB", "rnd")
-EnabledStatus, = mibBuilder.importSymbols("P-BRIDGE-MIB", "EnabledStatus")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "DisplayString", "TextualConvention")
-rlBanner = ModuleIdentity((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133))
-rlBanner.setRevisions(('2007-12-16 00:00',))
-if mibBuilder.loadTexts: rlBanner.setLastUpdated('200803160000Z')
-if mibBuilder.loadTexts: rlBanner.setOrganization('Marvell Computer Communications Ltd.')
-class BannerMessageType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("rlBannerMOTD", 1), ("rlBannerLogin", 2), ("rlBannerExec", 3))
 
-rlBannerMessageTable = MibTable((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 1), )
-if mibBuilder.loadTexts: rlBannerMessageTable.setStatus('current')
-rlBannerMessageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 1, 1), ).setIndexNames((0, "EDGECORE-BANNER-MIB", "rlBannerMessageType"), (0, "EDGECORE-BANNER-MIB", "rlBannerMessageIndex"))
-if mibBuilder.loadTexts: rlBannerMessageEntry.setStatus('current')
-rlBannerMessageType = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 1, 1, 1), BannerMessageType())
-if mibBuilder.loadTexts: rlBannerMessageType.setStatus('current')
-rlBannerMessageIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 13)))
-if mibBuilder.loadTexts: rlBannerMessageIndex.setStatus('current')
-rlBannerMessageText = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 1, 1, 3), SnmpAdminString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlBannerMessageText.setStatus('current')
-rlBannerManageTable = MibTable((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 2), )
-if mibBuilder.loadTexts: rlBannerManageTable.setStatus('current')
-rlBannerManageEntry = MibTableRow((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 2, 1), ).setIndexNames((0, "EDGECORE-BANNER-MIB", "rlBannerMessageType"))
-if mibBuilder.loadTexts: rlBannerManageEntry.setStatus('current')
-rlBannerManageSSH = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 2, 1, 1), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlBannerManageSSH.setStatus('current')
-rlBannerManageTelnet = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 2, 1, 2), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlBannerManageTelnet.setStatus('current')
-rlBannerManageConsole = MibTableColumn((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 2, 1, 3), EnabledStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlBannerManageConsole.setStatus('current')
-rlBannerMessageClear = MibScalar((1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 3), BannerMessageType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlBannerMessageClear.setStatus('current')
-mibBuilder.exportSymbols("EDGECORE-BANNER-MIB", rlBannerManageSSH=rlBannerManageSSH, rlBannerManageEntry=rlBannerManageEntry, BannerMessageType=BannerMessageType, rlBannerMessageType=rlBannerMessageType, rlBannerMessageEntry=rlBannerMessageEntry, rlBannerMessageText=rlBannerMessageText, rlBannerManageTable=rlBannerManageTable, rlBannerMessageIndex=rlBannerMessageIndex, PYSNMP_MODULE_ID=rlBanner, rlBannerManageConsole=rlBannerManageConsole, rlBannerMessageClear=rlBannerMessageClear, rlBanner=rlBanner, rlBannerManageTelnet=rlBannerManageTelnet, rlBannerMessageTable=rlBannerMessageTable)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rnd,) = mibBuilder.importSymbols(
+    "EDGECORE-MIB",
+    "rnd")
+
+(EnabledStatus,) = mibBuilder.importSymbols(
+    "P-BRIDGE-MIB",
+    "EnabledStatus")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+rlBanner = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133)
+)
+if mibBuilder.loadTexts:
+    rlBanner.setRevisions(
+        ("2007-12-16 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+class BannerMessageType(TextualConvention, Integer32):
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("rlBannerMOTD", 1),
+          ("rlBannerLogin", 2),
+          ("rlBannerExec", 3))
+    )
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlBannerMessageTable_Object = MibTable
+rlBannerMessageTable = _RlBannerMessageTable_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 1)
+)
+if mibBuilder.loadTexts:
+    rlBannerMessageTable.setStatus("current")
+_RlBannerMessageEntry_Object = MibTableRow
+rlBannerMessageEntry = _RlBannerMessageEntry_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 1, 1)
+)
+rlBannerMessageEntry.setIndexNames(
+    (0, "EDGECORE-BANNER-MIB", "rlBannerMessageType"),
+    (0, "EDGECORE-BANNER-MIB", "rlBannerMessageIndex"),
+)
+if mibBuilder.loadTexts:
+    rlBannerMessageEntry.setStatus("current")
+_RlBannerMessageType_Type = BannerMessageType
+_RlBannerMessageType_Object = MibTableColumn
+rlBannerMessageType = _RlBannerMessageType_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 1, 1, 1),
+    _RlBannerMessageType_Type()
+)
+rlBannerMessageType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlBannerMessageType.setStatus("current")
+
+
+class _RlBannerMessageIndex_Type(Integer32):
+    """Custom type rlBannerMessageIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 13),
+    )
+
+
+_RlBannerMessageIndex_Type.__name__ = "Integer32"
+_RlBannerMessageIndex_Object = MibTableColumn
+rlBannerMessageIndex = _RlBannerMessageIndex_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 1, 1, 2),
+    _RlBannerMessageIndex_Type()
+)
+rlBannerMessageIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlBannerMessageIndex.setStatus("current")
+_RlBannerMessageText_Type = SnmpAdminString
+_RlBannerMessageText_Object = MibTableColumn
+rlBannerMessageText = _RlBannerMessageText_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 1, 1, 3),
+    _RlBannerMessageText_Type()
+)
+rlBannerMessageText.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlBannerMessageText.setStatus("current")
+_RlBannerManageTable_Object = MibTable
+rlBannerManageTable = _RlBannerManageTable_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 2)
+)
+if mibBuilder.loadTexts:
+    rlBannerManageTable.setStatus("current")
+_RlBannerManageEntry_Object = MibTableRow
+rlBannerManageEntry = _RlBannerManageEntry_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 2, 1)
+)
+rlBannerManageEntry.setIndexNames(
+    (0, "EDGECORE-BANNER-MIB", "rlBannerMessageType"),
+)
+if mibBuilder.loadTexts:
+    rlBannerManageEntry.setStatus("current")
+_RlBannerManageSSH_Type = EnabledStatus
+_RlBannerManageSSH_Object = MibTableColumn
+rlBannerManageSSH = _RlBannerManageSSH_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 2, 1, 1),
+    _RlBannerManageSSH_Type()
+)
+rlBannerManageSSH.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlBannerManageSSH.setStatus("current")
+_RlBannerManageTelnet_Type = EnabledStatus
+_RlBannerManageTelnet_Object = MibTableColumn
+rlBannerManageTelnet = _RlBannerManageTelnet_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 2, 1, 2),
+    _RlBannerManageTelnet_Type()
+)
+rlBannerManageTelnet.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlBannerManageTelnet.setStatus("current")
+_RlBannerManageConsole_Type = EnabledStatus
+_RlBannerManageConsole_Object = MibTableColumn
+rlBannerManageConsole = _RlBannerManageConsole_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 2, 1, 3),
+    _RlBannerManageConsole_Type()
+)
+rlBannerManageConsole.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlBannerManageConsole.setStatus("current")
+_RlBannerMessageClear_Type = BannerMessageType
+_RlBannerMessageClear_Object = MibScalar
+rlBannerMessageClear = _RlBannerMessageClear_Object(
+    (1, 3, 6, 1, 4, 1, 259, 10, 1, 14, 89, 133, 3),
+    _RlBannerMessageClear_Type()
+)
+rlBannerMessageClear.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlBannerMessageClear.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "EDGECORE-BANNER-MIB",
+    **{"BannerMessageType": BannerMessageType,
+       "rlBanner": rlBanner,
+       "rlBannerMessageTable": rlBannerMessageTable,
+       "rlBannerMessageEntry": rlBannerMessageEntry,
+       "rlBannerMessageType": rlBannerMessageType,
+       "rlBannerMessageIndex": rlBannerMessageIndex,
+       "rlBannerMessageText": rlBannerMessageText,
+       "rlBannerManageTable": rlBannerManageTable,
+       "rlBannerManageEntry": rlBannerManageEntry,
+       "rlBannerManageSSH": rlBannerManageSSH,
+       "rlBannerManageTelnet": rlBannerManageTelnet,
+       "rlBannerManageConsole": rlBannerManageConsole,
+       "rlBannerMessageClear": rlBannerMessageClear}
+)

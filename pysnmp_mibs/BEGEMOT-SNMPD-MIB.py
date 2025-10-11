@@ -1,144 +1,933 @@
+# SNMP MIB module (BEGEMOT-SNMPD-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BEGEMOT-SNMPD-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/bsd/BEGEMOT-SNMPD-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:23:01 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/bsd/BEGEMOT-SNMPD-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:21:31 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-begemot, = mibBuilder.importSymbols("BEGEMOT-MIB", "begemot")
-InetPortNumber, InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetPortNumber", "InetAddressType", "InetAddress")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, RowStatus, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "RowStatus", "DisplayString", "TextualConvention")
-begemotSnmpd = ModuleIdentity((1, 3, 6, 1, 4, 1, 12325, 1, 1))
-begemotSnmpd.setRevisions(('2018-08-08 00:00',))
-if mibBuilder.loadTexts: begemotSnmpd.setLastUpdated('201808080000Z')
-if mibBuilder.loadTexts: begemotSnmpd.setOrganization('Fraunhofer FOKUS, CATS')
-begemotSnmpdObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1))
-begemotSnmpdDefs = MibIdentifier((1, 3, 6, 1, 4, 1, 12325, 1, 1, 2))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(begemot,) = mibBuilder.importSymbols(
+    "BEGEMOT-MIB",
+    "begemot")
+
+(InetAddress,
+ InetAddressType,
+ InetPortNumber) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType",
+    "InetPortNumber")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+begemotSnmpd = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1)
+)
+if mibBuilder.loadTexts:
+    begemotSnmpd.setRevisions(
+        ("2018-08-08 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class SectionName(TextualConvention, OctetString):
-    status = 'current'
-    displayHint = '14a'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(1, 14)
+    status = "current"
+    displayHint = "14a"
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 14),
+    )
 
-begemotSnmpdAgent = MibIdentifier((1, 3, 6, 1, 4, 1, 12325, 1, 1, 2, 1))
-begemotSnmpdAgentFreeBSD = ObjectIdentity((1, 3, 6, 1, 4, 1, 12325, 1, 1, 2, 1, 1))
-if mibBuilder.loadTexts: begemotSnmpdAgentFreeBSD.setStatus('current')
-begemotSnmpdConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1))
-begemotSnmpdTransmitBuffer = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(484, 65535)).clone(2048)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: begemotSnmpdTransmitBuffer.setStatus('current')
-begemotSnmpdReceiveBuffer = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(484, 65535)).clone(2048)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: begemotSnmpdReceiveBuffer.setStatus('current')
-begemotSnmpdCommunityDisable = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1, 3), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: begemotSnmpdCommunityDisable.setStatus('current')
-begemotSnmpdTrap1Addr = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1, 4), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: begemotSnmpdTrap1Addr.setStatus('current')
-begemotSnmpdVersionEnable = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1, 5), Unsigned32().clone(3)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: begemotSnmpdVersionEnable.setStatus('current')
-begemotTrapSinkTable = MibTable((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 2), ).setIndexNames((0, "BEGEMOT-SNMPD-MIB", "begemotTrapSinkAddr"), (0, "BEGEMOT-SNMPD-MIB", "begemotTrapSinkPort"))
-if mibBuilder.loadTexts: begemotTrapSinkTable.setStatus('current')
-begemotTrapSinkEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 2, 1), ).setIndexNames((0, "BEGEMOT-SNMPD-MIB", "begemotTrapSinkAddr"), (0, "BEGEMOT-SNMPD-MIB", "begemotTrapSinkPort"))
-if mibBuilder.loadTexts: begemotTrapSinkEntry.setStatus('current')
-begemotTrapSinkAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 2, 1, 1), IpAddress())
-if mibBuilder.loadTexts: begemotTrapSinkAddr.setStatus('current')
-begemotTrapSinkPort = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 2, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: begemotTrapSinkPort.setStatus('current')
-begemotTrapSinkStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 2, 1, 3), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: begemotTrapSinkStatus.setStatus('current')
-begemotSnmpdPortTable = MibTable((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 4), )
-if mibBuilder.loadTexts: begemotSnmpdPortTable.setStatus('deprecated')
-begemotSnmpdPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 4, 1), ).setIndexNames((0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdPortAddress"), (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdPortPort"))
-if mibBuilder.loadTexts: begemotSnmpdPortEntry.setStatus('deprecated')
-begemotSnmpdPortAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 4, 1, 1), IpAddress())
-if mibBuilder.loadTexts: begemotSnmpdPortAddress.setStatus('deprecated')
-begemotSnmpdPortPort = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 4, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: begemotSnmpdPortPort.setStatus('deprecated')
-begemotSnmpdPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 4, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: begemotSnmpdPortStatus.setStatus('deprecated')
-begemotSnmpdCommunityTable = MibTable((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5), )
-if mibBuilder.loadTexts: begemotSnmpdCommunityTable.setStatus('current')
-begemotSnmpdCommunityEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1), ).setIndexNames((0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdCommunityModule"), (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdCommunityIndex"))
-if mibBuilder.loadTexts: begemotSnmpdCommunityEntry.setStatus('current')
-begemotSnmpdCommunityModule = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1, 1), SectionName())
-if mibBuilder.loadTexts: begemotSnmpdCommunityModule.setStatus('current')
-begemotSnmpdCommunityIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
-if mibBuilder.loadTexts: begemotSnmpdCommunityIndex.setStatus('current')
-begemotSnmpdCommunityString = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1, 3), OctetString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: begemotSnmpdCommunityString.setStatus('current')
-begemotSnmpdCommunityDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1, 4), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: begemotSnmpdCommunityDescr.setStatus('current')
-begemotSnmpdCommunityPermission = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1, 5), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295)))
-if mibBuilder.loadTexts: begemotSnmpdCommunityPermission.setStatus('current')
-begemotSnmpdModuleTable = MibTable((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 6), )
-if mibBuilder.loadTexts: begemotSnmpdModuleTable.setStatus('current')
-begemotSnmpdModuleEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 6, 1), ).setIndexNames((0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdModuleSection"))
-if mibBuilder.loadTexts: begemotSnmpdModuleEntry.setStatus('current')
-begemotSnmpdModuleSection = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 6, 1, 1), SectionName())
-if mibBuilder.loadTexts: begemotSnmpdModuleSection.setStatus('current')
-begemotSnmpdModulePath = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 6, 1, 2), OctetString()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: begemotSnmpdModulePath.setStatus('current')
-begemotSnmpdModuleComment = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 6, 1, 3), OctetString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: begemotSnmpdModuleComment.setStatus('current')
-begemotSnmpdStats = MibIdentifier((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 7))
-begemotSnmpdStatsNoRxBufs = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 7, 1), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: begemotSnmpdStatsNoRxBufs.setStatus('current')
-begemotSnmpdStatsNoTxBufs = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 7, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: begemotSnmpdStatsNoTxBufs.setStatus('current')
-begemotSnmpdStatsInTooLongPkts = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 7, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: begemotSnmpdStatsInTooLongPkts.setStatus('current')
-begemotSnmpdStatsInBadPduTypes = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 7, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: begemotSnmpdStatsInBadPduTypes.setStatus('current')
-begemotSnmpdDebug = MibIdentifier((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 8))
-begemotSnmpdDebugDumpPdus = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 8, 1), TruthValue().clone('false')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: begemotSnmpdDebugDumpPdus.setStatus('current')
-begemotSnmpdDebugSnmpTrace = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 8, 2), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: begemotSnmpdDebugSnmpTrace.setStatus('current')
-begemotSnmpdDebugSyslogPri = MibScalar((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 8, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8)).clone(7)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: begemotSnmpdDebugSyslogPri.setStatus('current')
-begemotSnmpdLocalPortTable = MibTable((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 9), )
-if mibBuilder.loadTexts: begemotSnmpdLocalPortTable.setStatus('current')
-begemotSnmpdLocalPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 9, 1), ).setIndexNames((0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdLocalPortPath"))
-if mibBuilder.loadTexts: begemotSnmpdLocalPortEntry.setStatus('current')
-begemotSnmpdLocalPortPath = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 9, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 104)))
-if mibBuilder.loadTexts: begemotSnmpdLocalPortPath.setStatus('current')
-begemotSnmpdLocalPortStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 9, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("valid", 1), ("invalid", 2)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: begemotSnmpdLocalPortStatus.setStatus('current')
-begemotSnmpdLocalPortType = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 9, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("dgram-unpriv", 1), ("dgram-priv", 2), ("stream-unpriv", 3), ("stream-priv", 4)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: begemotSnmpdLocalPortType.setStatus('current')
-begemotSnmpdTransportMappings = MibIdentifier((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10))
-begemotSnmpdTransportTable = MibTable((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 1), )
-if mibBuilder.loadTexts: begemotSnmpdTransportTable.setStatus('current')
-begemotSnmpdTransportEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 1, 1), ).setIndexNames((0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdTransportName"))
-if mibBuilder.loadTexts: begemotSnmpdTransportEntry.setStatus('current')
-begemotSnmpdTransportName = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(1, 256)))
-if mibBuilder.loadTexts: begemotSnmpdTransportName.setStatus('current')
-begemotSnmpdTransportStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 1, 1, 2), RowStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: begemotSnmpdTransportStatus.setStatus('current')
-begemotSnmpdTransportOid = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 1, 1, 3), ObjectIdentifier()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: begemotSnmpdTransportOid.setStatus('current')
+
+
 class BegemotSnmpdTransportProto(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1))
-    namedValues = NamedValues(("udp", 1))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            1
+        )
+    )
+    namedValues = NamedValues(
+        ("udp", 1)
+    )
 
-begemotSnmpdTransInetTable = MibTable((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11), )
-if mibBuilder.loadTexts: begemotSnmpdTransInetTable.setStatus('current')
-begemotSnmpdTransInetEntry = MibTableRow((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1), ).setIndexNames((0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdTransInetAddressType"), (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdTransInetAddress"), (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdTransInetPort"), (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdTransInetProto"))
-if mibBuilder.loadTexts: begemotSnmpdTransInetEntry.setStatus('current')
-begemotSnmpdTransInetAddressType = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1, 1), InetAddressType())
-if mibBuilder.loadTexts: begemotSnmpdTransInetAddressType.setStatus('current')
-begemotSnmpdTransInetAddress = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1, 2), InetAddress().subtype(subtypeSpec=ValueSizeConstraint(0, 64)))
-if mibBuilder.loadTexts: begemotSnmpdTransInetAddress.setStatus('current')
-begemotSnmpdTransInetPort = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1, 3), InetPortNumber().subtype(subtypeSpec=ValueRangeConstraint(1, 65535)))
-if mibBuilder.loadTexts: begemotSnmpdTransInetPort.setStatus('current')
-begemotSnmpdTransInetProto = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1, 4), BegemotSnmpdTransportProto())
-if mibBuilder.loadTexts: begemotSnmpdTransInetProto.setStatus('current')
-begemotSnmpdTransInetStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1, 5), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: begemotSnmpdTransInetStatus.setStatus('current')
-begemotSnmpdTransUdp = MibIdentifier((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 2))
-begemotSnmpdTransLsock = MibIdentifier((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 3))
-begemotSnmpdTransInet = MibIdentifier((1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 4))
-mibBuilder.exportSymbols("BEGEMOT-SNMPD-MIB", begemotSnmpdPortEntry=begemotSnmpdPortEntry, begemotSnmpdLocalPortTable=begemotSnmpdLocalPortTable, begemotSnmpdPortAddress=begemotSnmpdPortAddress, begemotSnmpdCommunityEntry=begemotSnmpdCommunityEntry, begemotSnmpdLocalPortStatus=begemotSnmpdLocalPortStatus, begemotSnmpdStatsInBadPduTypes=begemotSnmpdStatsInBadPduTypes, begemotSnmpdCommunityDisable=begemotSnmpdCommunityDisable, begemotSnmpdPortPort=begemotSnmpdPortPort, begemotSnmpdStatsInTooLongPkts=begemotSnmpdStatsInTooLongPkts, begemotSnmpdTransportOid=begemotSnmpdTransportOid, SectionName=SectionName, begemotSnmpdDebugSnmpTrace=begemotSnmpdDebugSnmpTrace, begemotSnmpdTransportMappings=begemotSnmpdTransportMappings, begemotSnmpdTransInetAddressType=begemotSnmpdTransInetAddressType, begemotSnmpdTransInetStatus=begemotSnmpdTransInetStatus, begemotSnmpdTransportName=begemotSnmpdTransportName, begemotTrapSinkAddr=begemotTrapSinkAddr, begemotSnmpdModuleEntry=begemotSnmpdModuleEntry, begemotTrapSinkStatus=begemotTrapSinkStatus, begemotSnmpdStats=begemotSnmpdStats, begemotTrapSinkTable=begemotTrapSinkTable, begemotSnmpdCommunityString=begemotSnmpdCommunityString, begemotSnmpdReceiveBuffer=begemotSnmpdReceiveBuffer, begemotSnmpdModulePath=begemotSnmpdModulePath, begemotSnmpdDebug=begemotSnmpdDebug, begemotSnmpdModuleTable=begemotSnmpdModuleTable, begemotSnmpdTransportStatus=begemotSnmpdTransportStatus, begemotSnmpdTransInetEntry=begemotSnmpdTransInetEntry, begemotSnmpdCommunityPermission=begemotSnmpdCommunityPermission, begemotSnmpd=begemotSnmpd, begemotSnmpdConfig=begemotSnmpdConfig, begemotSnmpdLocalPortPath=begemotSnmpdLocalPortPath, begemotSnmpdTransInetPort=begemotSnmpdTransInetPort, begemotSnmpdDebugSyslogPri=begemotSnmpdDebugSyslogPri, begemotSnmpdVersionEnable=begemotSnmpdVersionEnable, begemotSnmpdDebugDumpPdus=begemotSnmpdDebugDumpPdus, begemotSnmpdTransportEntry=begemotSnmpdTransportEntry, PYSNMP_MODULE_ID=begemotSnmpd, begemotSnmpdObjects=begemotSnmpdObjects, begemotSnmpdTransInet=begemotSnmpdTransInet, begemotSnmpdModuleComment=begemotSnmpdModuleComment, begemotTrapSinkPort=begemotTrapSinkPort, begemotSnmpdTransInetProto=begemotSnmpdTransInetProto, begemotSnmpdTransmitBuffer=begemotSnmpdTransmitBuffer, begemotSnmpdCommunityTable=begemotSnmpdCommunityTable, begemotSnmpdCommunityDescr=begemotSnmpdCommunityDescr, begemotSnmpdStatsNoRxBufs=begemotSnmpdStatsNoRxBufs, begemotSnmpdModuleSection=begemotSnmpdModuleSection, begemotSnmpdTransInetTable=begemotSnmpdTransInetTable, begemotSnmpdTransLsock=begemotSnmpdTransLsock, BegemotSnmpdTransportProto=BegemotSnmpdTransportProto, begemotSnmpdLocalPortEntry=begemotSnmpdLocalPortEntry, begemotSnmpdDefs=begemotSnmpdDefs, begemotSnmpdAgentFreeBSD=begemotSnmpdAgentFreeBSD, begemotSnmpdCommunityIndex=begemotSnmpdCommunityIndex, begemotSnmpdPortTable=begemotSnmpdPortTable, begemotSnmpdStatsNoTxBufs=begemotSnmpdStatsNoTxBufs, begemotSnmpdLocalPortType=begemotSnmpdLocalPortType, begemotSnmpdTransportTable=begemotSnmpdTransportTable, begemotSnmpdTransUdp=begemotSnmpdTransUdp, begemotSnmpdCommunityModule=begemotSnmpdCommunityModule, begemotSnmpdAgent=begemotSnmpdAgent, begemotSnmpdTransInetAddress=begemotSnmpdTransInetAddress, begemotTrapSinkEntry=begemotTrapSinkEntry, begemotSnmpdPortStatus=begemotSnmpdPortStatus, begemotSnmpdTrap1Addr=begemotSnmpdTrap1Addr)
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_BegemotSnmpdObjects_ObjectIdentity = ObjectIdentity
+begemotSnmpdObjects = _BegemotSnmpdObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1)
+)
+_BegemotSnmpdConfig_ObjectIdentity = ObjectIdentity
+begemotSnmpdConfig = _BegemotSnmpdConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1)
+)
+
+
+class _BegemotSnmpdTransmitBuffer_Type(Integer32):
+    """Custom type begemotSnmpdTransmitBuffer based on Integer32"""
+    defaultValue = 2048
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(484, 65535),
+    )
+
+
+_BegemotSnmpdTransmitBuffer_Type.__name__ = "Integer32"
+_BegemotSnmpdTransmitBuffer_Object = MibScalar
+begemotSnmpdTransmitBuffer = _BegemotSnmpdTransmitBuffer_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1, 1),
+    _BegemotSnmpdTransmitBuffer_Type()
+)
+begemotSnmpdTransmitBuffer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    begemotSnmpdTransmitBuffer.setStatus("current")
+
+
+class _BegemotSnmpdReceiveBuffer_Type(Integer32):
+    """Custom type begemotSnmpdReceiveBuffer based on Integer32"""
+    defaultValue = 2048
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(484, 65535),
+    )
+
+
+_BegemotSnmpdReceiveBuffer_Type.__name__ = "Integer32"
+_BegemotSnmpdReceiveBuffer_Object = MibScalar
+begemotSnmpdReceiveBuffer = _BegemotSnmpdReceiveBuffer_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1, 2),
+    _BegemotSnmpdReceiveBuffer_Type()
+)
+begemotSnmpdReceiveBuffer.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    begemotSnmpdReceiveBuffer.setStatus("current")
+
+
+class _BegemotSnmpdCommunityDisable_Type(TruthValue):
+    """Custom type begemotSnmpdCommunityDisable based on TruthValue"""
+    defaultValue = 2
+
+
+_BegemotSnmpdCommunityDisable_Type.__name__ = "TruthValue"
+_BegemotSnmpdCommunityDisable_Object = MibScalar
+begemotSnmpdCommunityDisable = _BegemotSnmpdCommunityDisable_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1, 3),
+    _BegemotSnmpdCommunityDisable_Type()
+)
+begemotSnmpdCommunityDisable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    begemotSnmpdCommunityDisable.setStatus("current")
+_BegemotSnmpdTrap1Addr_Type = IpAddress
+_BegemotSnmpdTrap1Addr_Object = MibScalar
+begemotSnmpdTrap1Addr = _BegemotSnmpdTrap1Addr_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1, 4),
+    _BegemotSnmpdTrap1Addr_Type()
+)
+begemotSnmpdTrap1Addr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    begemotSnmpdTrap1Addr.setStatus("current")
+
+
+class _BegemotSnmpdVersionEnable_Type(Unsigned32):
+    """Custom type begemotSnmpdVersionEnable based on Unsigned32"""
+    defaultValue = 3
+
+
+_BegemotSnmpdVersionEnable_Type.__name__ = "Unsigned32"
+_BegemotSnmpdVersionEnable_Object = MibScalar
+begemotSnmpdVersionEnable = _BegemotSnmpdVersionEnable_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 1, 5),
+    _BegemotSnmpdVersionEnable_Type()
+)
+begemotSnmpdVersionEnable.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    begemotSnmpdVersionEnable.setStatus("current")
+_BegemotTrapSinkTable_Object = MibTable
+begemotTrapSinkTable = _BegemotTrapSinkTable_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 2)
+)
+if mibBuilder.loadTexts:
+    begemotTrapSinkTable.setStatus("current")
+_BegemotTrapSinkEntry_Object = MibTableRow
+begemotTrapSinkEntry = _BegemotTrapSinkEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 2, 1)
+)
+begemotTrapSinkEntry.setIndexNames(
+    (0, "BEGEMOT-SNMPD-MIB", "begemotTrapSinkAddr"),
+    (0, "BEGEMOT-SNMPD-MIB", "begemotTrapSinkPort"),
+)
+if mibBuilder.loadTexts:
+    begemotTrapSinkEntry.setStatus("current")
+_BegemotTrapSinkAddr_Type = IpAddress
+_BegemotTrapSinkAddr_Object = MibTableColumn
+begemotTrapSinkAddr = _BegemotTrapSinkAddr_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 2, 1, 1),
+    _BegemotTrapSinkAddr_Type()
+)
+begemotTrapSinkAddr.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotTrapSinkAddr.setStatus("current")
+
+
+class _BegemotTrapSinkPort_Type(Integer32):
+    """Custom type begemotTrapSinkPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_BegemotTrapSinkPort_Type.__name__ = "Integer32"
+_BegemotTrapSinkPort_Object = MibTableColumn
+begemotTrapSinkPort = _BegemotTrapSinkPort_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 2, 1, 2),
+    _BegemotTrapSinkPort_Type()
+)
+begemotTrapSinkPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotTrapSinkPort.setStatus("current")
+_BegemotTrapSinkStatus_Type = RowStatus
+_BegemotTrapSinkStatus_Object = MibTableColumn
+begemotTrapSinkStatus = _BegemotTrapSinkStatus_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 2, 1, 3),
+    _BegemotTrapSinkStatus_Type()
+)
+begemotTrapSinkStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    begemotTrapSinkStatus.setStatus("current")
+_BegemotSnmpdPortTable_Object = MibTable
+begemotSnmpdPortTable = _BegemotSnmpdPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 4)
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdPortTable.setStatus("deprecated")
+_BegemotSnmpdPortEntry_Object = MibTableRow
+begemotSnmpdPortEntry = _BegemotSnmpdPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 4, 1)
+)
+begemotSnmpdPortEntry.setIndexNames(
+    (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdPortAddress"),
+    (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdPortPort"),
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdPortEntry.setStatus("deprecated")
+_BegemotSnmpdPortAddress_Type = IpAddress
+_BegemotSnmpdPortAddress_Object = MibTableColumn
+begemotSnmpdPortAddress = _BegemotSnmpdPortAddress_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 4, 1, 1),
+    _BegemotSnmpdPortAddress_Type()
+)
+begemotSnmpdPortAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdPortAddress.setStatus("deprecated")
+
+
+class _BegemotSnmpdPortPort_Type(Integer32):
+    """Custom type begemotSnmpdPortPort based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_BegemotSnmpdPortPort_Type.__name__ = "Integer32"
+_BegemotSnmpdPortPort_Object = MibTableColumn
+begemotSnmpdPortPort = _BegemotSnmpdPortPort_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 4, 1, 2),
+    _BegemotSnmpdPortPort_Type()
+)
+begemotSnmpdPortPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdPortPort.setStatus("deprecated")
+
+
+class _BegemotSnmpdPortStatus_Type(Integer32):
+    """Custom type begemotSnmpdPortStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("valid", 1),
+          ("invalid", 2))
+    )
+
+
+_BegemotSnmpdPortStatus_Type.__name__ = "Integer32"
+_BegemotSnmpdPortStatus_Object = MibTableColumn
+begemotSnmpdPortStatus = _BegemotSnmpdPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 4, 1, 3),
+    _BegemotSnmpdPortStatus_Type()
+)
+begemotSnmpdPortStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    begemotSnmpdPortStatus.setStatus("deprecated")
+_BegemotSnmpdCommunityTable_Object = MibTable
+begemotSnmpdCommunityTable = _BegemotSnmpdCommunityTable_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5)
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdCommunityTable.setStatus("current")
+_BegemotSnmpdCommunityEntry_Object = MibTableRow
+begemotSnmpdCommunityEntry = _BegemotSnmpdCommunityEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1)
+)
+begemotSnmpdCommunityEntry.setIndexNames(
+    (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdCommunityModule"),
+    (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdCommunityIndex"),
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdCommunityEntry.setStatus("current")
+_BegemotSnmpdCommunityModule_Type = SectionName
+_BegemotSnmpdCommunityModule_Object = MibTableColumn
+begemotSnmpdCommunityModule = _BegemotSnmpdCommunityModule_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1, 1),
+    _BegemotSnmpdCommunityModule_Type()
+)
+begemotSnmpdCommunityModule.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdCommunityModule.setStatus("current")
+
+
+class _BegemotSnmpdCommunityIndex_Type(Unsigned32):
+    """Custom type begemotSnmpdCommunityIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_BegemotSnmpdCommunityIndex_Type.__name__ = "Unsigned32"
+_BegemotSnmpdCommunityIndex_Object = MibTableColumn
+begemotSnmpdCommunityIndex = _BegemotSnmpdCommunityIndex_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1, 2),
+    _BegemotSnmpdCommunityIndex_Type()
+)
+begemotSnmpdCommunityIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdCommunityIndex.setStatus("current")
+_BegemotSnmpdCommunityString_Type = OctetString
+_BegemotSnmpdCommunityString_Object = MibTableColumn
+begemotSnmpdCommunityString = _BegemotSnmpdCommunityString_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1, 3),
+    _BegemotSnmpdCommunityString_Type()
+)
+begemotSnmpdCommunityString.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    begemotSnmpdCommunityString.setStatus("current")
+_BegemotSnmpdCommunityDescr_Type = OctetString
+_BegemotSnmpdCommunityDescr_Object = MibTableColumn
+begemotSnmpdCommunityDescr = _BegemotSnmpdCommunityDescr_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1, 4),
+    _BegemotSnmpdCommunityDescr_Type()
+)
+begemotSnmpdCommunityDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    begemotSnmpdCommunityDescr.setStatus("current")
+
+
+class _BegemotSnmpdCommunityPermission_Type(Unsigned32):
+    """Custom type begemotSnmpdCommunityPermission based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_BegemotSnmpdCommunityPermission_Type.__name__ = "Unsigned32"
+_BegemotSnmpdCommunityPermission_Object = MibTableColumn
+begemotSnmpdCommunityPermission = _BegemotSnmpdCommunityPermission_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 5, 1, 5),
+    _BegemotSnmpdCommunityPermission_Type()
+)
+begemotSnmpdCommunityPermission.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdCommunityPermission.setStatus("current")
+_BegemotSnmpdModuleTable_Object = MibTable
+begemotSnmpdModuleTable = _BegemotSnmpdModuleTable_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 6)
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdModuleTable.setStatus("current")
+_BegemotSnmpdModuleEntry_Object = MibTableRow
+begemotSnmpdModuleEntry = _BegemotSnmpdModuleEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 6, 1)
+)
+begemotSnmpdModuleEntry.setIndexNames(
+    (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdModuleSection"),
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdModuleEntry.setStatus("current")
+_BegemotSnmpdModuleSection_Type = SectionName
+_BegemotSnmpdModuleSection_Object = MibTableColumn
+begemotSnmpdModuleSection = _BegemotSnmpdModuleSection_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 6, 1, 1),
+    _BegemotSnmpdModuleSection_Type()
+)
+begemotSnmpdModuleSection.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdModuleSection.setStatus("current")
+_BegemotSnmpdModulePath_Type = OctetString
+_BegemotSnmpdModulePath_Object = MibTableColumn
+begemotSnmpdModulePath = _BegemotSnmpdModulePath_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 6, 1, 2),
+    _BegemotSnmpdModulePath_Type()
+)
+begemotSnmpdModulePath.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    begemotSnmpdModulePath.setStatus("current")
+_BegemotSnmpdModuleComment_Type = OctetString
+_BegemotSnmpdModuleComment_Object = MibTableColumn
+begemotSnmpdModuleComment = _BegemotSnmpdModuleComment_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 6, 1, 3),
+    _BegemotSnmpdModuleComment_Type()
+)
+begemotSnmpdModuleComment.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    begemotSnmpdModuleComment.setStatus("current")
+_BegemotSnmpdStats_ObjectIdentity = ObjectIdentity
+begemotSnmpdStats = _BegemotSnmpdStats_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 7)
+)
+_BegemotSnmpdStatsNoRxBufs_Type = Counter32
+_BegemotSnmpdStatsNoRxBufs_Object = MibScalar
+begemotSnmpdStatsNoRxBufs = _BegemotSnmpdStatsNoRxBufs_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 7, 1),
+    _BegemotSnmpdStatsNoRxBufs_Type()
+)
+begemotSnmpdStatsNoRxBufs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    begemotSnmpdStatsNoRxBufs.setStatus("current")
+_BegemotSnmpdStatsNoTxBufs_Type = Counter32
+_BegemotSnmpdStatsNoTxBufs_Object = MibScalar
+begemotSnmpdStatsNoTxBufs = _BegemotSnmpdStatsNoTxBufs_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 7, 2),
+    _BegemotSnmpdStatsNoTxBufs_Type()
+)
+begemotSnmpdStatsNoTxBufs.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    begemotSnmpdStatsNoTxBufs.setStatus("current")
+_BegemotSnmpdStatsInTooLongPkts_Type = Counter32
+_BegemotSnmpdStatsInTooLongPkts_Object = MibScalar
+begemotSnmpdStatsInTooLongPkts = _BegemotSnmpdStatsInTooLongPkts_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 7, 3),
+    _BegemotSnmpdStatsInTooLongPkts_Type()
+)
+begemotSnmpdStatsInTooLongPkts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    begemotSnmpdStatsInTooLongPkts.setStatus("current")
+_BegemotSnmpdStatsInBadPduTypes_Type = Counter32
+_BegemotSnmpdStatsInBadPduTypes_Object = MibScalar
+begemotSnmpdStatsInBadPduTypes = _BegemotSnmpdStatsInBadPduTypes_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 7, 4),
+    _BegemotSnmpdStatsInBadPduTypes_Type()
+)
+begemotSnmpdStatsInBadPduTypes.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    begemotSnmpdStatsInBadPduTypes.setStatus("current")
+_BegemotSnmpdDebug_ObjectIdentity = ObjectIdentity
+begemotSnmpdDebug = _BegemotSnmpdDebug_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 8)
+)
+
+
+class _BegemotSnmpdDebugDumpPdus_Type(TruthValue):
+    """Custom type begemotSnmpdDebugDumpPdus based on TruthValue"""
+    defaultValue = 2
+
+
+_BegemotSnmpdDebugDumpPdus_Type.__name__ = "TruthValue"
+_BegemotSnmpdDebugDumpPdus_Object = MibScalar
+begemotSnmpdDebugDumpPdus = _BegemotSnmpdDebugDumpPdus_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 8, 1),
+    _BegemotSnmpdDebugDumpPdus_Type()
+)
+begemotSnmpdDebugDumpPdus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    begemotSnmpdDebugDumpPdus.setStatus("current")
+
+
+class _BegemotSnmpdDebugSnmpTrace_Type(Unsigned32):
+    """Custom type begemotSnmpdDebugSnmpTrace based on Unsigned32"""
+    defaultValue = 0
+
+
+_BegemotSnmpdDebugSnmpTrace_Type.__name__ = "Unsigned32"
+_BegemotSnmpdDebugSnmpTrace_Object = MibScalar
+begemotSnmpdDebugSnmpTrace = _BegemotSnmpdDebugSnmpTrace_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 8, 2),
+    _BegemotSnmpdDebugSnmpTrace_Type()
+)
+begemotSnmpdDebugSnmpTrace.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    begemotSnmpdDebugSnmpTrace.setStatus("current")
+
+
+class _BegemotSnmpdDebugSyslogPri_Type(Integer32):
+    """Custom type begemotSnmpdDebugSyslogPri based on Integer32"""
+    defaultValue = 7
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 8),
+    )
+
+
+_BegemotSnmpdDebugSyslogPri_Type.__name__ = "Integer32"
+_BegemotSnmpdDebugSyslogPri_Object = MibScalar
+begemotSnmpdDebugSyslogPri = _BegemotSnmpdDebugSyslogPri_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 8, 3),
+    _BegemotSnmpdDebugSyslogPri_Type()
+)
+begemotSnmpdDebugSyslogPri.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    begemotSnmpdDebugSyslogPri.setStatus("current")
+_BegemotSnmpdLocalPortTable_Object = MibTable
+begemotSnmpdLocalPortTable = _BegemotSnmpdLocalPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 9)
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdLocalPortTable.setStatus("current")
+_BegemotSnmpdLocalPortEntry_Object = MibTableRow
+begemotSnmpdLocalPortEntry = _BegemotSnmpdLocalPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 9, 1)
+)
+begemotSnmpdLocalPortEntry.setIndexNames(
+    (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdLocalPortPath"),
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdLocalPortEntry.setStatus("current")
+
+
+class _BegemotSnmpdLocalPortPath_Type(OctetString):
+    """Custom type begemotSnmpdLocalPortPath based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 104),
+    )
+
+
+_BegemotSnmpdLocalPortPath_Type.__name__ = "OctetString"
+_BegemotSnmpdLocalPortPath_Object = MibTableColumn
+begemotSnmpdLocalPortPath = _BegemotSnmpdLocalPortPath_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 9, 1, 1),
+    _BegemotSnmpdLocalPortPath_Type()
+)
+begemotSnmpdLocalPortPath.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdLocalPortPath.setStatus("current")
+
+
+class _BegemotSnmpdLocalPortStatus_Type(Integer32):
+    """Custom type begemotSnmpdLocalPortStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("valid", 1),
+          ("invalid", 2))
+    )
+
+
+_BegemotSnmpdLocalPortStatus_Type.__name__ = "Integer32"
+_BegemotSnmpdLocalPortStatus_Object = MibTableColumn
+begemotSnmpdLocalPortStatus = _BegemotSnmpdLocalPortStatus_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 9, 1, 2),
+    _BegemotSnmpdLocalPortStatus_Type()
+)
+begemotSnmpdLocalPortStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    begemotSnmpdLocalPortStatus.setStatus("current")
+
+
+class _BegemotSnmpdLocalPortType_Type(Integer32):
+    """Custom type begemotSnmpdLocalPortType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("dgram-unpriv", 1),
+          ("dgram-priv", 2),
+          ("stream-unpriv", 3),
+          ("stream-priv", 4))
+    )
+
+
+_BegemotSnmpdLocalPortType_Type.__name__ = "Integer32"
+_BegemotSnmpdLocalPortType_Object = MibTableColumn
+begemotSnmpdLocalPortType = _BegemotSnmpdLocalPortType_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 9, 1, 3),
+    _BegemotSnmpdLocalPortType_Type()
+)
+begemotSnmpdLocalPortType.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    begemotSnmpdLocalPortType.setStatus("current")
+_BegemotSnmpdTransportMappings_ObjectIdentity = ObjectIdentity
+begemotSnmpdTransportMappings = _BegemotSnmpdTransportMappings_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10)
+)
+_BegemotSnmpdTransportTable_Object = MibTable
+begemotSnmpdTransportTable = _BegemotSnmpdTransportTable_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 1)
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdTransportTable.setStatus("current")
+_BegemotSnmpdTransportEntry_Object = MibTableRow
+begemotSnmpdTransportEntry = _BegemotSnmpdTransportEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 1, 1)
+)
+begemotSnmpdTransportEntry.setIndexNames(
+    (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdTransportName"),
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdTransportEntry.setStatus("current")
+
+
+class _BegemotSnmpdTransportName_Type(OctetString):
+    """Custom type begemotSnmpdTransportName based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(1, 256),
+    )
+
+
+_BegemotSnmpdTransportName_Type.__name__ = "OctetString"
+_BegemotSnmpdTransportName_Object = MibTableColumn
+begemotSnmpdTransportName = _BegemotSnmpdTransportName_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 1, 1, 1),
+    _BegemotSnmpdTransportName_Type()
+)
+begemotSnmpdTransportName.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdTransportName.setStatus("current")
+_BegemotSnmpdTransportStatus_Type = RowStatus
+_BegemotSnmpdTransportStatus_Object = MibTableColumn
+begemotSnmpdTransportStatus = _BegemotSnmpdTransportStatus_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 1, 1, 2),
+    _BegemotSnmpdTransportStatus_Type()
+)
+begemotSnmpdTransportStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    begemotSnmpdTransportStatus.setStatus("current")
+_BegemotSnmpdTransportOid_Type = ObjectIdentifier
+_BegemotSnmpdTransportOid_Object = MibTableColumn
+begemotSnmpdTransportOid = _BegemotSnmpdTransportOid_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 1, 1, 3),
+    _BegemotSnmpdTransportOid_Type()
+)
+begemotSnmpdTransportOid.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    begemotSnmpdTransportOid.setStatus("current")
+_BegemotSnmpdTransUdp_ObjectIdentity = ObjectIdentity
+begemotSnmpdTransUdp = _BegemotSnmpdTransUdp_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 2)
+)
+_BegemotSnmpdTransLsock_ObjectIdentity = ObjectIdentity
+begemotSnmpdTransLsock = _BegemotSnmpdTransLsock_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 3)
+)
+_BegemotSnmpdTransInet_ObjectIdentity = ObjectIdentity
+begemotSnmpdTransInet = _BegemotSnmpdTransInet_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 10, 4)
+)
+_BegemotSnmpdTransInetTable_Object = MibTable
+begemotSnmpdTransInetTable = _BegemotSnmpdTransInetTable_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11)
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdTransInetTable.setStatus("current")
+_BegemotSnmpdTransInetEntry_Object = MibTableRow
+begemotSnmpdTransInetEntry = _BegemotSnmpdTransInetEntry_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1)
+)
+begemotSnmpdTransInetEntry.setIndexNames(
+    (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdTransInetAddressType"),
+    (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdTransInetAddress"),
+    (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdTransInetPort"),
+    (0, "BEGEMOT-SNMPD-MIB", "begemotSnmpdTransInetProto"),
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdTransInetEntry.setStatus("current")
+_BegemotSnmpdTransInetAddressType_Type = InetAddressType
+_BegemotSnmpdTransInetAddressType_Object = MibTableColumn
+begemotSnmpdTransInetAddressType = _BegemotSnmpdTransInetAddressType_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1, 1),
+    _BegemotSnmpdTransInetAddressType_Type()
+)
+begemotSnmpdTransInetAddressType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdTransInetAddressType.setStatus("current")
+
+
+class _BegemotSnmpdTransInetAddress_Type(InetAddress):
+    """Custom type begemotSnmpdTransInetAddress based on InetAddress"""
+    subtypeSpec = InetAddress.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 64),
+    )
+
+
+_BegemotSnmpdTransInetAddress_Type.__name__ = "InetAddress"
+_BegemotSnmpdTransInetAddress_Object = MibTableColumn
+begemotSnmpdTransInetAddress = _BegemotSnmpdTransInetAddress_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1, 2),
+    _BegemotSnmpdTransInetAddress_Type()
+)
+begemotSnmpdTransInetAddress.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdTransInetAddress.setStatus("current")
+
+
+class _BegemotSnmpdTransInetPort_Type(InetPortNumber):
+    """Custom type begemotSnmpdTransInetPort based on InetPortNumber"""
+    subtypeSpec = InetPortNumber.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 65535),
+    )
+
+
+_BegemotSnmpdTransInetPort_Type.__name__ = "InetPortNumber"
+_BegemotSnmpdTransInetPort_Object = MibTableColumn
+begemotSnmpdTransInetPort = _BegemotSnmpdTransInetPort_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1, 3),
+    _BegemotSnmpdTransInetPort_Type()
+)
+begemotSnmpdTransInetPort.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdTransInetPort.setStatus("current")
+_BegemotSnmpdTransInetProto_Type = BegemotSnmpdTransportProto
+_BegemotSnmpdTransInetProto_Object = MibTableColumn
+begemotSnmpdTransInetProto = _BegemotSnmpdTransInetProto_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1, 4),
+    _BegemotSnmpdTransInetProto_Type()
+)
+begemotSnmpdTransInetProto.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    begemotSnmpdTransInetProto.setStatus("current")
+_BegemotSnmpdTransInetStatus_Type = RowStatus
+_BegemotSnmpdTransInetStatus_Object = MibTableColumn
+begemotSnmpdTransInetStatus = _BegemotSnmpdTransInetStatus_Object(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 1, 11, 1, 5),
+    _BegemotSnmpdTransInetStatus_Type()
+)
+begemotSnmpdTransInetStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    begemotSnmpdTransInetStatus.setStatus("current")
+_BegemotSnmpdDefs_ObjectIdentity = ObjectIdentity
+begemotSnmpdDefs = _BegemotSnmpdDefs_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 2)
+)
+_BegemotSnmpdAgent_ObjectIdentity = ObjectIdentity
+begemotSnmpdAgent = _BegemotSnmpdAgent_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 2, 1)
+)
+_BegemotSnmpdAgentFreeBSD_ObjectIdentity = ObjectIdentity
+begemotSnmpdAgentFreeBSD = _BegemotSnmpdAgentFreeBSD_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 12325, 1, 1, 2, 1, 1)
+)
+if mibBuilder.loadTexts:
+    begemotSnmpdAgentFreeBSD.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BEGEMOT-SNMPD-MIB",
+    **{"SectionName": SectionName,
+       "BegemotSnmpdTransportProto": BegemotSnmpdTransportProto,
+       "begemotSnmpd": begemotSnmpd,
+       "begemotSnmpdObjects": begemotSnmpdObjects,
+       "begemotSnmpdConfig": begemotSnmpdConfig,
+       "begemotSnmpdTransmitBuffer": begemotSnmpdTransmitBuffer,
+       "begemotSnmpdReceiveBuffer": begemotSnmpdReceiveBuffer,
+       "begemotSnmpdCommunityDisable": begemotSnmpdCommunityDisable,
+       "begemotSnmpdTrap1Addr": begemotSnmpdTrap1Addr,
+       "begemotSnmpdVersionEnable": begemotSnmpdVersionEnable,
+       "begemotTrapSinkTable": begemotTrapSinkTable,
+       "begemotTrapSinkEntry": begemotTrapSinkEntry,
+       "begemotTrapSinkAddr": begemotTrapSinkAddr,
+       "begemotTrapSinkPort": begemotTrapSinkPort,
+       "begemotTrapSinkStatus": begemotTrapSinkStatus,
+       "begemotSnmpdPortTable": begemotSnmpdPortTable,
+       "begemotSnmpdPortEntry": begemotSnmpdPortEntry,
+       "begemotSnmpdPortAddress": begemotSnmpdPortAddress,
+       "begemotSnmpdPortPort": begemotSnmpdPortPort,
+       "begemotSnmpdPortStatus": begemotSnmpdPortStatus,
+       "begemotSnmpdCommunityTable": begemotSnmpdCommunityTable,
+       "begemotSnmpdCommunityEntry": begemotSnmpdCommunityEntry,
+       "begemotSnmpdCommunityModule": begemotSnmpdCommunityModule,
+       "begemotSnmpdCommunityIndex": begemotSnmpdCommunityIndex,
+       "begemotSnmpdCommunityString": begemotSnmpdCommunityString,
+       "begemotSnmpdCommunityDescr": begemotSnmpdCommunityDescr,
+       "begemotSnmpdCommunityPermission": begemotSnmpdCommunityPermission,
+       "begemotSnmpdModuleTable": begemotSnmpdModuleTable,
+       "begemotSnmpdModuleEntry": begemotSnmpdModuleEntry,
+       "begemotSnmpdModuleSection": begemotSnmpdModuleSection,
+       "begemotSnmpdModulePath": begemotSnmpdModulePath,
+       "begemotSnmpdModuleComment": begemotSnmpdModuleComment,
+       "begemotSnmpdStats": begemotSnmpdStats,
+       "begemotSnmpdStatsNoRxBufs": begemotSnmpdStatsNoRxBufs,
+       "begemotSnmpdStatsNoTxBufs": begemotSnmpdStatsNoTxBufs,
+       "begemotSnmpdStatsInTooLongPkts": begemotSnmpdStatsInTooLongPkts,
+       "begemotSnmpdStatsInBadPduTypes": begemotSnmpdStatsInBadPduTypes,
+       "begemotSnmpdDebug": begemotSnmpdDebug,
+       "begemotSnmpdDebugDumpPdus": begemotSnmpdDebugDumpPdus,
+       "begemotSnmpdDebugSnmpTrace": begemotSnmpdDebugSnmpTrace,
+       "begemotSnmpdDebugSyslogPri": begemotSnmpdDebugSyslogPri,
+       "begemotSnmpdLocalPortTable": begemotSnmpdLocalPortTable,
+       "begemotSnmpdLocalPortEntry": begemotSnmpdLocalPortEntry,
+       "begemotSnmpdLocalPortPath": begemotSnmpdLocalPortPath,
+       "begemotSnmpdLocalPortStatus": begemotSnmpdLocalPortStatus,
+       "begemotSnmpdLocalPortType": begemotSnmpdLocalPortType,
+       "begemotSnmpdTransportMappings": begemotSnmpdTransportMappings,
+       "begemotSnmpdTransportTable": begemotSnmpdTransportTable,
+       "begemotSnmpdTransportEntry": begemotSnmpdTransportEntry,
+       "begemotSnmpdTransportName": begemotSnmpdTransportName,
+       "begemotSnmpdTransportStatus": begemotSnmpdTransportStatus,
+       "begemotSnmpdTransportOid": begemotSnmpdTransportOid,
+       "begemotSnmpdTransUdp": begemotSnmpdTransUdp,
+       "begemotSnmpdTransLsock": begemotSnmpdTransLsock,
+       "begemotSnmpdTransInet": begemotSnmpdTransInet,
+       "begemotSnmpdTransInetTable": begemotSnmpdTransInetTable,
+       "begemotSnmpdTransInetEntry": begemotSnmpdTransInetEntry,
+       "begemotSnmpdTransInetAddressType": begemotSnmpdTransInetAddressType,
+       "begemotSnmpdTransInetAddress": begemotSnmpdTransInetAddress,
+       "begemotSnmpdTransInetPort": begemotSnmpdTransInetPort,
+       "begemotSnmpdTransInetProto": begemotSnmpdTransInetProto,
+       "begemotSnmpdTransInetStatus": begemotSnmpdTransInetStatus,
+       "begemotSnmpdDefs": begemotSnmpdDefs,
+       "begemotSnmpdAgent": begemotSnmpdAgent,
+       "begemotSnmpdAgentFreeBSD": begemotSnmpdAgentFreeBSD}
+)

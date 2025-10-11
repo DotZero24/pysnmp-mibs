@@ -1,92 +1,554 @@
+# SNMP MIB module (FS-NTP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module FS-NTP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/fscom/FS-NTP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:01:42 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/fscom/FS-NTP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:15:39 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-fsMgmt, = mibBuilder.importSymbols("FS-SMI", "fsMgmt")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-fsNtpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49))
-fsNtpMIB.setRevisions(('2009-05-14 00:00',))
-if mibBuilder.loadTexts: fsNtpMIB.setLastUpdated('200905140000Z')
-if mibBuilder.loadTexts: fsNtpMIB.setOrganization('FS.COM Inc..')
-fsNtpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1))
-fsNtpMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 2))
-fsntpSystem = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1))
-fsNtpMIBTrap = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 2))
-fsNtpMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 2, 1))
-fsNtpMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 2, 2))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(fsMgmt,) = mibBuilder.importSymbols(
+    "FS-SMI",
+    "fsMgmt")
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+fsNtpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49)
+)
+if mibBuilder.loadTexts:
+    fsNtpMIB.setRevisions(
+        ("2009-05-14 00:00",)
+    )
+
+
+# Types definitions
+
+
+
 class NTPTimeStamp(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(8, 8)
-    fixedLength = 8
+    """Custom type NTPTimeStamp based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+
+
 
 class NTPLeapIndicator(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(0, 1, 2, 3))
-    namedValues = NamedValues(("noWarning", 0), ("addSecond", 1), ("subtractSecond", 2), ("alarm", 3))
+    """Custom type NTPLeapIndicator based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noWarning", 0),
+          ("addSecond", 1),
+          ("subtractSecond", 2),
+          ("alarm", 3))
+    )
+
+
+
+
 
 class NTPSignedTimeValue(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
+    """Custom type NTPSignedTimeValue based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+
+
 
 class NTPUnsignedTimeValue(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
+    """Custom type NTPUnsignedTimeValue based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
+
+
 
 class NTPStratum(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ValueRangeConstraint(0, 255)
+    """Custom type NTPStratum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 255),
+    )
+
+
+
+
 
 class NTPRefId(OctetString):
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
+    """Custom type NTPRefId based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
 
-fsntpSysLeap = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 1), NTPLeapIndicator()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsntpSysLeap.setStatus('current')
-fsntpSysStratum = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 2), NTPStratum()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsntpSysStratum.setStatus('current')
-fsntpSysPrecision = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(-24, 24))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsntpSysPrecision.setStatus('current')
-fsntpSysRootDelay = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 4), NTPSignedTimeValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsntpSysRootDelay.setStatus('current')
-fsntpSysRootDispersion = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 5), NTPUnsignedTimeValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsntpSysRootDispersion.setStatus('current')
-fsntpSysRefId = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 6), NTPRefId()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsntpSysRefId.setStatus('current')
-fsntpSysRefTime = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 7), NTPTimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsntpSysRefTime.setStatus('current')
-fsNTPServerIPAdd = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 8), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsNTPServerIPAdd.setStatus('current')
-fsTimeAfterNTPCal = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 9), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsTimeAfterNTPCal.setStatus('current')
-fsTimeSyncPeriod = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 10), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 8640000))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: fsTimeSyncPeriod.setStatus('current')
-fsNtpServerTable = MibTable((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11), )
-if mibBuilder.loadTexts: fsNtpServerTable.setStatus('current')
-fsNtpServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11, 1), ).setIndexNames((0, "FS-NTP-MIB", "fsNtpServerNetType"), (0, "FS-NTP-MIB", "fsNtpServerNetAddr"))
-if mibBuilder.loadTexts: fsNtpServerEntry.setStatus('current')
-fsNtpServerNetType = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11, 1, 1), InetAddressType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsNtpServerNetType.setStatus('current')
-fsNtpServerNetAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11, 1, 2), InetAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsNtpServerNetAddr.setStatus('current')
-fsNtpServerVersion = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("version1", 1), ("version2", 2), ("version3", 3)))).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fsNtpServerVersion.setStatus('current')
-fsNtpServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11, 1, 4), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: fsNtpServerStatus.setStatus('current')
-fsntpSysState = MibScalar((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 12), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("unsynchronized", 0), ("synchronized", 1)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: fsntpSysState.setStatus('current')
-fsNtpStatussyncTrap = NotificationType((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 2, 1)).setObjects(("FS-NTP-MIB", "fsntpSysState"))
-if mibBuilder.loadTexts: fsNtpStatussyncTrap.setStatus('current')
-fsNtpSysGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 2, 2, 1)).setObjects(("FS-NTP-MIB", "fsntpSysLeap"), ("FS-NTP-MIB", "fsntpSysStratum"), ("FS-NTP-MIB", "fsntpSysPrecision"), ("FS-NTP-MIB", "fsntpSysRootDelay"), ("FS-NTP-MIB", "fsntpSysRootDispersion"), ("FS-NTP-MIB", "fsntpSysRefId"), ("FS-NTP-MIB", "fsntpSysRefTime"), ("FS-NTP-MIB", "fsNTPServerIPAdd"), ("FS-NTP-MIB", "fsTimeAfterNTPCal"), ("FS-NTP-MIB", "fsTimeSyncPeriod"), ("FS-NTP-MIB", "fsNtpServerNetType"), ("FS-NTP-MIB", "fsNtpServerNetAddr"), ("FS-NTP-MIB", "fsNtpServerVersion"), ("FS-NTP-MIB", "fsNtpServerStatus"), ("FS-NTP-MIB", "fsntpSysState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    fsNtpSysGroup = fsNtpSysGroup.setStatus('current')
-fsNtpMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 2, 1, 1)).setObjects(("FS-NTP-MIB", "fsNtpMIBGroups"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    fsNtpMIBCompliance = fsNtpMIBCompliance.setStatus('current')
-mibBuilder.exportSymbols("FS-NTP-MIB", fsNTPServerIPAdd=fsNTPServerIPAdd, NTPSignedTimeValue=NTPSignedTimeValue, fsntpSystem=fsntpSystem, fsTimeAfterNTPCal=fsTimeAfterNTPCal, fsNtpMIBCompliances=fsNtpMIBCompliances, fsNtpServerVersion=fsNtpServerVersion, NTPLeapIndicator=NTPLeapIndicator, fsntpSysLeap=fsntpSysLeap, fsNtpServerTable=fsNtpServerTable, fsNtpMIBCompliance=fsNtpMIBCompliance, NTPUnsignedTimeValue=NTPUnsignedTimeValue, fsNtpServerEntry=fsNtpServerEntry, fsntpSysRootDelay=fsntpSysRootDelay, NTPStratum=NTPStratum, fsNtpServerNetAddr=fsNtpServerNetAddr, fsNtpMIB=fsNtpMIB, fsNtpServerStatus=fsNtpServerStatus, fsNtpStatussyncTrap=fsNtpStatussyncTrap, fsntpSysRootDispersion=fsntpSysRootDispersion, fsNtpMIBObjects=fsNtpMIBObjects, fsntpSysRefId=fsntpSysRefId, fsTimeSyncPeriod=fsTimeSyncPeriod, fsNtpServerNetType=fsNtpServerNetType, fsNtpSysGroup=fsNtpSysGroup, fsntpSysPrecision=fsntpSysPrecision, fsNtpMIBGroups=fsNtpMIBGroups, fsntpSysState=fsntpSysState, fsNtpMIBTrap=fsNtpMIBTrap, NTPRefId=NTPRefId, fsntpSysStratum=fsntpSysStratum, fsNtpMIBConformance=fsNtpMIBConformance, fsntpSysRefTime=fsntpSysRefTime, NTPTimeStamp=NTPTimeStamp, PYSNMP_MODULE_ID=fsNtpMIB)
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_FsNtpMIBObjects_ObjectIdentity = ObjectIdentity
+fsNtpMIBObjects = _FsNtpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1)
+)
+_FsntpSystem_ObjectIdentity = ObjectIdentity
+fsntpSystem = _FsntpSystem_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1)
+)
+_FsntpSysLeap_Type = NTPLeapIndicator
+_FsntpSysLeap_Object = MibScalar
+fsntpSysLeap = _FsntpSysLeap_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 1),
+    _FsntpSysLeap_Type()
+)
+fsntpSysLeap.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsntpSysLeap.setStatus("current")
+_FsntpSysStratum_Type = NTPStratum
+_FsntpSysStratum_Object = MibScalar
+fsntpSysStratum = _FsntpSysStratum_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 2),
+    _FsntpSysStratum_Type()
+)
+fsntpSysStratum.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsntpSysStratum.setStatus("current")
+
+
+class _FsntpSysPrecision_Type(Integer32):
+    """Custom type fsntpSysPrecision based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(-24, 24),
+    )
+
+
+_FsntpSysPrecision_Type.__name__ = "Integer32"
+_FsntpSysPrecision_Object = MibScalar
+fsntpSysPrecision = _FsntpSysPrecision_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 3),
+    _FsntpSysPrecision_Type()
+)
+fsntpSysPrecision.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsntpSysPrecision.setStatus("current")
+_FsntpSysRootDelay_Type = NTPSignedTimeValue
+_FsntpSysRootDelay_Object = MibScalar
+fsntpSysRootDelay = _FsntpSysRootDelay_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 4),
+    _FsntpSysRootDelay_Type()
+)
+fsntpSysRootDelay.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsntpSysRootDelay.setStatus("current")
+_FsntpSysRootDispersion_Type = NTPUnsignedTimeValue
+_FsntpSysRootDispersion_Object = MibScalar
+fsntpSysRootDispersion = _FsntpSysRootDispersion_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 5),
+    _FsntpSysRootDispersion_Type()
+)
+fsntpSysRootDispersion.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsntpSysRootDispersion.setStatus("current")
+_FsntpSysRefId_Type = NTPRefId
+_FsntpSysRefId_Object = MibScalar
+fsntpSysRefId = _FsntpSysRefId_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 6),
+    _FsntpSysRefId_Type()
+)
+fsntpSysRefId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsntpSysRefId.setStatus("current")
+_FsntpSysRefTime_Type = NTPTimeStamp
+_FsntpSysRefTime_Object = MibScalar
+fsntpSysRefTime = _FsntpSysRefTime_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 7),
+    _FsntpSysRefTime_Type()
+)
+fsntpSysRefTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsntpSysRefTime.setStatus("current")
+_FsNTPServerIPAdd_Type = IpAddress
+_FsNTPServerIPAdd_Object = MibScalar
+fsNTPServerIPAdd = _FsNTPServerIPAdd_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 8),
+    _FsNTPServerIPAdd_Type()
+)
+fsNTPServerIPAdd.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsNTPServerIPAdd.setStatus("current")
+
+
+class _FsTimeAfterNTPCal_Type(OctetString):
+    """Custom type fsTimeAfterNTPCal based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_FsTimeAfterNTPCal_Type.__name__ = "OctetString"
+_FsTimeAfterNTPCal_Object = MibScalar
+fsTimeAfterNTPCal = _FsTimeAfterNTPCal_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 9),
+    _FsTimeAfterNTPCal_Type()
+)
+fsTimeAfterNTPCal.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsTimeAfterNTPCal.setStatus("current")
+
+
+class _FsTimeSyncPeriod_Type(Integer32):
+    """Custom type fsTimeSyncPeriod based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 8640000),
+    )
+
+
+_FsTimeSyncPeriod_Type.__name__ = "Integer32"
+_FsTimeSyncPeriod_Object = MibScalar
+fsTimeSyncPeriod = _FsTimeSyncPeriod_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 10),
+    _FsTimeSyncPeriod_Type()
+)
+fsTimeSyncPeriod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    fsTimeSyncPeriod.setStatus("current")
+_FsNtpServerTable_Object = MibTable
+fsNtpServerTable = _FsNtpServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11)
+)
+if mibBuilder.loadTexts:
+    fsNtpServerTable.setStatus("current")
+_FsNtpServerEntry_Object = MibTableRow
+fsNtpServerEntry = _FsNtpServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11, 1)
+)
+fsNtpServerEntry.setIndexNames(
+    (0, "FS-NTP-MIB", "fsNtpServerNetType"),
+    (0, "FS-NTP-MIB", "fsNtpServerNetAddr"),
+)
+if mibBuilder.loadTexts:
+    fsNtpServerEntry.setStatus("current")
+_FsNtpServerNetType_Type = InetAddressType
+_FsNtpServerNetType_Object = MibTableColumn
+fsNtpServerNetType = _FsNtpServerNetType_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11, 1, 1),
+    _FsNtpServerNetType_Type()
+)
+fsNtpServerNetType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsNtpServerNetType.setStatus("current")
+_FsNtpServerNetAddr_Type = InetAddress
+_FsNtpServerNetAddr_Object = MibTableColumn
+fsNtpServerNetAddr = _FsNtpServerNetAddr_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11, 1, 2),
+    _FsNtpServerNetAddr_Type()
+)
+fsNtpServerNetAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsNtpServerNetAddr.setStatus("current")
+
+
+class _FsNtpServerVersion_Type(Integer32):
+    """Custom type fsNtpServerVersion based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("version1", 1),
+          ("version2", 2),
+          ("version3", 3))
+    )
+
+
+_FsNtpServerVersion_Type.__name__ = "Integer32"
+_FsNtpServerVersion_Object = MibTableColumn
+fsNtpServerVersion = _FsNtpServerVersion_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11, 1, 3),
+    _FsNtpServerVersion_Type()
+)
+fsNtpServerVersion.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fsNtpServerVersion.setStatus("current")
+_FsNtpServerStatus_Type = RowStatus
+_FsNtpServerStatus_Object = MibTableColumn
+fsNtpServerStatus = _FsNtpServerStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 11, 1, 4),
+    _FsNtpServerStatus_Type()
+)
+fsNtpServerStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    fsNtpServerStatus.setStatus("current")
+
+
+class _FsntpSysState_Type(Integer32):
+    """Custom type fsntpSysState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unsynchronized", 0),
+          ("synchronized", 1))
+    )
+
+
+_FsntpSysState_Type.__name__ = "Integer32"
+_FsntpSysState_Object = MibScalar
+fsntpSysState = _FsntpSysState_Object(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 1, 12),
+    _FsntpSysState_Type()
+)
+fsntpSysState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    fsntpSysState.setStatus("current")
+_FsNtpMIBTrap_ObjectIdentity = ObjectIdentity
+fsNtpMIBTrap = _FsNtpMIBTrap_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 2)
+)
+_FsNtpMIBConformance_ObjectIdentity = ObjectIdentity
+fsNtpMIBConformance = _FsNtpMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 2)
+)
+_FsNtpMIBCompliances_ObjectIdentity = ObjectIdentity
+fsNtpMIBCompliances = _FsNtpMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 2, 1)
+)
+_FsNtpMIBGroups_ObjectIdentity = ObjectIdentity
+fsNtpMIBGroups = _FsNtpMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 2, 2)
+)
+
+# Managed Objects groups
+
+fsNtpSysGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 2, 2, 1)
+)
+fsNtpSysGroup.setObjects(
+      *(("FS-NTP-MIB", "fsntpSysLeap"),
+        ("FS-NTP-MIB", "fsntpSysStratum"),
+        ("FS-NTP-MIB", "fsntpSysPrecision"),
+        ("FS-NTP-MIB", "fsntpSysRootDelay"),
+        ("FS-NTP-MIB", "fsntpSysRootDispersion"),
+        ("FS-NTP-MIB", "fsntpSysRefId"),
+        ("FS-NTP-MIB", "fsntpSysRefTime"),
+        ("FS-NTP-MIB", "fsNTPServerIPAdd"),
+        ("FS-NTP-MIB", "fsTimeAfterNTPCal"),
+        ("FS-NTP-MIB", "fsTimeSyncPeriod"),
+        ("FS-NTP-MIB", "fsNtpServerNetType"),
+        ("FS-NTP-MIB", "fsNtpServerNetAddr"),
+        ("FS-NTP-MIB", "fsNtpServerVersion"),
+        ("FS-NTP-MIB", "fsNtpServerStatus"),
+        ("FS-NTP-MIB", "fsntpSysState"))
+)
+if mibBuilder.loadTexts:
+    fsNtpSysGroup.setStatus("current")
+
+
+# Notification objects
+
+fsNtpStatussyncTrap = NotificationType(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 1, 2, 1)
+)
+fsNtpStatussyncTrap.setObjects(
+    ("FS-NTP-MIB", "fsntpSysState")
+)
+if mibBuilder.loadTexts:
+    fsNtpStatussyncTrap.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+fsNtpMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 52642, 1, 1, 10, 2, 49, 2, 1, 1)
+)
+fsNtpMIBCompliance.setObjects(
+    ("FS-NTP-MIB", "fsNtpMIBGroups")
+)
+if mibBuilder.loadTexts:
+    fsNtpMIBCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "FS-NTP-MIB",
+    **{"NTPTimeStamp": NTPTimeStamp,
+       "NTPLeapIndicator": NTPLeapIndicator,
+       "NTPSignedTimeValue": NTPSignedTimeValue,
+       "NTPUnsignedTimeValue": NTPUnsignedTimeValue,
+       "NTPStratum": NTPStratum,
+       "NTPRefId": NTPRefId,
+       "fsNtpMIB": fsNtpMIB,
+       "fsNtpMIBObjects": fsNtpMIBObjects,
+       "fsntpSystem": fsntpSystem,
+       "fsntpSysLeap": fsntpSysLeap,
+       "fsntpSysStratum": fsntpSysStratum,
+       "fsntpSysPrecision": fsntpSysPrecision,
+       "fsntpSysRootDelay": fsntpSysRootDelay,
+       "fsntpSysRootDispersion": fsntpSysRootDispersion,
+       "fsntpSysRefId": fsntpSysRefId,
+       "fsntpSysRefTime": fsntpSysRefTime,
+       "fsNTPServerIPAdd": fsNTPServerIPAdd,
+       "fsTimeAfterNTPCal": fsTimeAfterNTPCal,
+       "fsTimeSyncPeriod": fsTimeSyncPeriod,
+       "fsNtpServerTable": fsNtpServerTable,
+       "fsNtpServerEntry": fsNtpServerEntry,
+       "fsNtpServerNetType": fsNtpServerNetType,
+       "fsNtpServerNetAddr": fsNtpServerNetAddr,
+       "fsNtpServerVersion": fsNtpServerVersion,
+       "fsNtpServerStatus": fsNtpServerStatus,
+       "fsntpSysState": fsntpSysState,
+       "fsNtpMIBTrap": fsNtpMIBTrap,
+       "fsNtpStatussyncTrap": fsNtpStatussyncTrap,
+       "fsNtpMIBConformance": fsNtpMIBConformance,
+       "fsNtpMIBCompliances": fsNtpMIBCompliances,
+       "fsNtpMIBCompliance": fsNtpMIBCompliance,
+       "fsNtpMIBGroups": fsNtpMIBGroups,
+       "fsNtpSysGroup": fsNtpSysGroup}
+)

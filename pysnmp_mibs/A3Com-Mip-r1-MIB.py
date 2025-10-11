@@ -1,62 +1,479 @@
+# SNMP MIB module (A3Com-Mip-r1-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module A3Com-Mip-r1-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/a3com/A3Com-Mip-r1-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:33:28 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/a3com/A3Com-Mip-r1-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:46:07 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-a3Com = MibIdentifier((1, 3, 6, 1, 4, 1, 43))
-brouterMIB = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2))
-a3ComMIP = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2, 27))
-a3ComMipSConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2, 27, 1))
-a3ComMipCConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2, 27, 2))
-a3ComMipData = MibIdentifier((1, 3, 6, 1, 4, 1, 43, 2, 27, 3))
-class RowStatus(Integer32):
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("active", 1), ("notInService", 2), ("notReady", 3), ("createAndGo", 4), ("createAndWait", 5), ("destroy", 6))
 
-a3ComMipControl = MibScalar((1, 3, 6, 1, 4, 1, 43, 2, 27, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a3ComMipControl.setStatus('mandatory')
-a3ComMipPortTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1), )
-if mibBuilder.loadTexts: a3ComMipPortTable.setStatus('mandatory')
-a3ComMipPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1), ).setIndexNames((0, "A3Com-Mip-r1-MIB", "a3ComMipPortIndex"))
-if mibBuilder.loadTexts: a3ComMipPortEntry.setStatus('mandatory')
-a3ComMipPortIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3ComMipPortIndex.setStatus('mandatory')
-a3ComMipPortQueryInterval = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(5, 5400)).clone(120)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a3ComMipPortQueryInterval.setStatus('mandatory')
-a3ComMipPortThreshold = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 255)).clone(1)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a3ComMipPortThreshold.setStatus('mandatory')
-a3ComMipPortQuerier = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("yes", 1), ("no", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3ComMipPortQuerier.setStatus('mandatory')
-a3ComMipPortPaceMode = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a3ComMipPortPaceMode.setStatus('mandatory')
-a3ComMipLocalGroupTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2), )
-if mibBuilder.loadTexts: a3ComMipLocalGroupTable.setStatus('mandatory')
-a3ComMipLocalGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1), ).setIndexNames((0, "A3Com-Mip-r1-MIB", "a3ComMipLocalGroupPort"), (0, "A3Com-Mip-r1-MIB", "a3ComMipLocalGroupIpAddr"))
-if mibBuilder.loadTexts: a3ComMipLocalGroupEntry.setStatus('mandatory')
-a3ComMipLocalGroupPort = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3ComMipLocalGroupPort.setStatus('mandatory')
-a3ComMipLocalGroupIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3ComMipLocalGroupIpAddr.setStatus('mandatory')
-a3ComMipLocalGroupType = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("static", 1), ("igmp", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3ComMipLocalGroupType.setStatus('mandatory')
-a3ComMipLocalGroupStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1, 4), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a3ComMipLocalGroupStatus.setStatus('mandatory')
-a3ComMipSmdsGroupTable = MibTable((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3), )
-if mibBuilder.loadTexts: a3ComMipSmdsGroupTable.setStatus('mandatory')
-a3ComMipSmdsGroupEntry = MibTableRow((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1), ).setIndexNames((0, "A3Com-Mip-r1-MIB", "a3ComMipSmdsGroupIpAddr"))
-if mibBuilder.loadTexts: a3ComMipSmdsGroupEntry.setStatus('mandatory')
-a3ComMipSmdsGroupIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1, 1), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: a3ComMipSmdsGroupIpAddr.setStatus('mandatory')
-a3ComMipSmdsGroupMediaAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1, 2), OctetString().subtype(subtypeSpec=ValueSizeConstraint(8, 8)).setFixedLength(8)).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a3ComMipSmdsGroupMediaAddr.setStatus('mandatory')
-a3ComMipSmdsGroupStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1, 3), RowStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: a3ComMipSmdsGroupStatus.setStatus('mandatory')
-mibBuilder.exportSymbols("A3Com-Mip-r1-MIB", a3ComMipPortQueryInterval=a3ComMipPortQueryInterval, a3ComMipPortTable=a3ComMipPortTable, a3ComMipLocalGroupEntry=a3ComMipLocalGroupEntry, a3ComMipSmdsGroupEntry=a3ComMipSmdsGroupEntry, a3ComMipSmdsGroupStatus=a3ComMipSmdsGroupStatus, a3ComMipLocalGroupType=a3ComMipLocalGroupType, a3ComMipLocalGroupPort=a3ComMipLocalGroupPort, a3ComMipPortEntry=a3ComMipPortEntry, a3ComMipPortQuerier=a3ComMipPortQuerier, a3ComMipControl=a3ComMipControl, a3ComMipSmdsGroupTable=a3ComMipSmdsGroupTable, a3ComMipSmdsGroupIpAddr=a3ComMipSmdsGroupIpAddr, a3ComMipLocalGroupTable=a3ComMipLocalGroupTable, a3ComMipPortThreshold=a3ComMipPortThreshold, a3ComMIP=a3ComMIP, a3ComMipSmdsGroupMediaAddr=a3ComMipSmdsGroupMediaAddr, a3ComMipData=a3ComMipData, RowStatus=RowStatus, a3ComMipCConfig=a3ComMipCConfig, a3ComMipLocalGroupStatus=a3ComMipLocalGroupStatus, a3ComMipSConfig=a3ComMipSConfig, a3ComMipPortPaceMode=a3ComMipPortPaceMode, a3ComMipLocalGroupIpAddr=a3ComMipLocalGroupIpAddr, a3ComMipPortIndex=a3ComMipPortIndex, a3Com=a3Com, brouterMIB=brouterMIB)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class RowStatus(Integer32):
+    """Custom type RowStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("active", 1),
+          ("notInService", 2),
+          ("notReady", 3),
+          ("createAndGo", 4),
+          ("createAndWait", 5),
+          ("destroy", 6))
+    )
+
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_A3Com_ObjectIdentity = ObjectIdentity
+a3Com = _A3Com_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43)
+)
+_BrouterMIB_ObjectIdentity = ObjectIdentity
+brouterMIB = _BrouterMIB_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 2)
+)
+_A3ComMIP_ObjectIdentity = ObjectIdentity
+a3ComMIP = _A3ComMIP_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27)
+)
+_A3ComMipSConfig_ObjectIdentity = ObjectIdentity
+a3ComMipSConfig = _A3ComMipSConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 1)
+)
+
+
+class _A3ComMipControl_Type(Integer32):
+    """Custom type a3ComMipControl based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_A3ComMipControl_Type.__name__ = "Integer32"
+_A3ComMipControl_Object = MibScalar
+a3ComMipControl = _A3ComMipControl_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 1, 1),
+    _A3ComMipControl_Type()
+)
+a3ComMipControl.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a3ComMipControl.setStatus("mandatory")
+_A3ComMipCConfig_ObjectIdentity = ObjectIdentity
+a3ComMipCConfig = _A3ComMipCConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2)
+)
+_A3ComMipPortTable_Object = MibTable
+a3ComMipPortTable = _A3ComMipPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1)
+)
+if mibBuilder.loadTexts:
+    a3ComMipPortTable.setStatus("mandatory")
+_A3ComMipPortEntry_Object = MibTableRow
+a3ComMipPortEntry = _A3ComMipPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1)
+)
+a3ComMipPortEntry.setIndexNames(
+    (0, "A3Com-Mip-r1-MIB", "a3ComMipPortIndex"),
+)
+if mibBuilder.loadTexts:
+    a3ComMipPortEntry.setStatus("mandatory")
+_A3ComMipPortIndex_Type = Integer32
+_A3ComMipPortIndex_Object = MibTableColumn
+a3ComMipPortIndex = _A3ComMipPortIndex_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1, 1),
+    _A3ComMipPortIndex_Type()
+)
+a3ComMipPortIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3ComMipPortIndex.setStatus("mandatory")
+
+
+class _A3ComMipPortQueryInterval_Type(Integer32):
+    """Custom type a3ComMipPortQueryInterval based on Integer32"""
+    defaultValue = 120
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(5, 5400),
+    )
+
+
+_A3ComMipPortQueryInterval_Type.__name__ = "Integer32"
+_A3ComMipPortQueryInterval_Object = MibTableColumn
+a3ComMipPortQueryInterval = _A3ComMipPortQueryInterval_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1, 2),
+    _A3ComMipPortQueryInterval_Type()
+)
+a3ComMipPortQueryInterval.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a3ComMipPortQueryInterval.setStatus("mandatory")
+
+
+class _A3ComMipPortThreshold_Type(Integer32):
+    """Custom type a3ComMipPortThreshold based on Integer32"""
+    defaultValue = 1
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 255),
+    )
+
+
+_A3ComMipPortThreshold_Type.__name__ = "Integer32"
+_A3ComMipPortThreshold_Object = MibTableColumn
+a3ComMipPortThreshold = _A3ComMipPortThreshold_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1, 3),
+    _A3ComMipPortThreshold_Type()
+)
+a3ComMipPortThreshold.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a3ComMipPortThreshold.setStatus("mandatory")
+
+
+class _A3ComMipPortQuerier_Type(Integer32):
+    """Custom type a3ComMipPortQuerier based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("yes", 1),
+          ("no", 2))
+    )
+
+
+_A3ComMipPortQuerier_Type.__name__ = "Integer32"
+_A3ComMipPortQuerier_Object = MibTableColumn
+a3ComMipPortQuerier = _A3ComMipPortQuerier_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1, 4),
+    _A3ComMipPortQuerier_Type()
+)
+a3ComMipPortQuerier.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3ComMipPortQuerier.setStatus("mandatory")
+
+
+class _A3ComMipPortPaceMode_Type(Integer32):
+    """Custom type a3ComMipPortPaceMode based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_A3ComMipPortPaceMode_Type.__name__ = "Integer32"
+_A3ComMipPortPaceMode_Object = MibTableColumn
+a3ComMipPortPaceMode = _A3ComMipPortPaceMode_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 1, 1, 5),
+    _A3ComMipPortPaceMode_Type()
+)
+a3ComMipPortPaceMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a3ComMipPortPaceMode.setStatus("mandatory")
+_A3ComMipLocalGroupTable_Object = MibTable
+a3ComMipLocalGroupTable = _A3ComMipLocalGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2)
+)
+if mibBuilder.loadTexts:
+    a3ComMipLocalGroupTable.setStatus("mandatory")
+_A3ComMipLocalGroupEntry_Object = MibTableRow
+a3ComMipLocalGroupEntry = _A3ComMipLocalGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1)
+)
+a3ComMipLocalGroupEntry.setIndexNames(
+    (0, "A3Com-Mip-r1-MIB", "a3ComMipLocalGroupPort"),
+    (0, "A3Com-Mip-r1-MIB", "a3ComMipLocalGroupIpAddr"),
+)
+if mibBuilder.loadTexts:
+    a3ComMipLocalGroupEntry.setStatus("mandatory")
+_A3ComMipLocalGroupPort_Type = Integer32
+_A3ComMipLocalGroupPort_Object = MibTableColumn
+a3ComMipLocalGroupPort = _A3ComMipLocalGroupPort_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1, 1),
+    _A3ComMipLocalGroupPort_Type()
+)
+a3ComMipLocalGroupPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3ComMipLocalGroupPort.setStatus("mandatory")
+_A3ComMipLocalGroupIpAddr_Type = IpAddress
+_A3ComMipLocalGroupIpAddr_Object = MibTableColumn
+a3ComMipLocalGroupIpAddr = _A3ComMipLocalGroupIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1, 2),
+    _A3ComMipLocalGroupIpAddr_Type()
+)
+a3ComMipLocalGroupIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3ComMipLocalGroupIpAddr.setStatus("mandatory")
+
+
+class _A3ComMipLocalGroupType_Type(Integer32):
+    """Custom type a3ComMipLocalGroupType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("static", 1),
+          ("igmp", 2))
+    )
+
+
+_A3ComMipLocalGroupType_Type.__name__ = "Integer32"
+_A3ComMipLocalGroupType_Object = MibTableColumn
+a3ComMipLocalGroupType = _A3ComMipLocalGroupType_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1, 3),
+    _A3ComMipLocalGroupType_Type()
+)
+a3ComMipLocalGroupType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3ComMipLocalGroupType.setStatus("mandatory")
+_A3ComMipLocalGroupStatus_Type = RowStatus
+_A3ComMipLocalGroupStatus_Object = MibTableColumn
+a3ComMipLocalGroupStatus = _A3ComMipLocalGroupStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 2, 1, 4),
+    _A3ComMipLocalGroupStatus_Type()
+)
+a3ComMipLocalGroupStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a3ComMipLocalGroupStatus.setStatus("mandatory")
+_A3ComMipSmdsGroupTable_Object = MibTable
+a3ComMipSmdsGroupTable = _A3ComMipSmdsGroupTable_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3)
+)
+if mibBuilder.loadTexts:
+    a3ComMipSmdsGroupTable.setStatus("mandatory")
+_A3ComMipSmdsGroupEntry_Object = MibTableRow
+a3ComMipSmdsGroupEntry = _A3ComMipSmdsGroupEntry_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1)
+)
+a3ComMipSmdsGroupEntry.setIndexNames(
+    (0, "A3Com-Mip-r1-MIB", "a3ComMipSmdsGroupIpAddr"),
+)
+if mibBuilder.loadTexts:
+    a3ComMipSmdsGroupEntry.setStatus("mandatory")
+_A3ComMipSmdsGroupIpAddr_Type = IpAddress
+_A3ComMipSmdsGroupIpAddr_Object = MibTableColumn
+a3ComMipSmdsGroupIpAddr = _A3ComMipSmdsGroupIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1, 1),
+    _A3ComMipSmdsGroupIpAddr_Type()
+)
+a3ComMipSmdsGroupIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    a3ComMipSmdsGroupIpAddr.setStatus("mandatory")
+
+
+class _A3ComMipSmdsGroupMediaAddr_Type(OctetString):
+    """Custom type a3ComMipSmdsGroupMediaAddr based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(8, 8),
+    )
+    fixed_length = 8
+
+
+_A3ComMipSmdsGroupMediaAddr_Type.__name__ = "OctetString"
+_A3ComMipSmdsGroupMediaAddr_Object = MibTableColumn
+a3ComMipSmdsGroupMediaAddr = _A3ComMipSmdsGroupMediaAddr_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1, 2),
+    _A3ComMipSmdsGroupMediaAddr_Type()
+)
+a3ComMipSmdsGroupMediaAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a3ComMipSmdsGroupMediaAddr.setStatus("mandatory")
+_A3ComMipSmdsGroupStatus_Type = RowStatus
+_A3ComMipSmdsGroupStatus_Object = MibTableColumn
+a3ComMipSmdsGroupStatus = _A3ComMipSmdsGroupStatus_Object(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 2, 3, 1, 3),
+    _A3ComMipSmdsGroupStatus_Type()
+)
+a3ComMipSmdsGroupStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    a3ComMipSmdsGroupStatus.setStatus("mandatory")
+_A3ComMipData_ObjectIdentity = ObjectIdentity
+a3ComMipData = _A3ComMipData_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 43, 2, 27, 3)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "A3Com-Mip-r1-MIB",
+    **{"RowStatus": RowStatus,
+       "a3Com": a3Com,
+       "brouterMIB": brouterMIB,
+       "a3ComMIP": a3ComMIP,
+       "a3ComMipSConfig": a3ComMipSConfig,
+       "a3ComMipControl": a3ComMipControl,
+       "a3ComMipCConfig": a3ComMipCConfig,
+       "a3ComMipPortTable": a3ComMipPortTable,
+       "a3ComMipPortEntry": a3ComMipPortEntry,
+       "a3ComMipPortIndex": a3ComMipPortIndex,
+       "a3ComMipPortQueryInterval": a3ComMipPortQueryInterval,
+       "a3ComMipPortThreshold": a3ComMipPortThreshold,
+       "a3ComMipPortQuerier": a3ComMipPortQuerier,
+       "a3ComMipPortPaceMode": a3ComMipPortPaceMode,
+       "a3ComMipLocalGroupTable": a3ComMipLocalGroupTable,
+       "a3ComMipLocalGroupEntry": a3ComMipLocalGroupEntry,
+       "a3ComMipLocalGroupPort": a3ComMipLocalGroupPort,
+       "a3ComMipLocalGroupIpAddr": a3ComMipLocalGroupIpAddr,
+       "a3ComMipLocalGroupType": a3ComMipLocalGroupType,
+       "a3ComMipLocalGroupStatus": a3ComMipLocalGroupStatus,
+       "a3ComMipSmdsGroupTable": a3ComMipSmdsGroupTable,
+       "a3ComMipSmdsGroupEntry": a3ComMipSmdsGroupEntry,
+       "a3ComMipSmdsGroupIpAddr": a3ComMipSmdsGroupIpAddr,
+       "a3ComMipSmdsGroupMediaAddr": a3ComMipSmdsGroupMediaAddr,
+       "a3ComMipSmdsGroupStatus": a3ComMipSmdsGroupStatus,
+       "a3ComMipData": a3ComMipData}
+)

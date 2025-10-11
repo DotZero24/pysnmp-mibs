@@ -1,44 +1,232 @@
+# SNMP MIB module (ARISTA-BGP4V2-TC-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ARISTA-BGP4V2-TC-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arista/ARISTA-BGP4V2-TC-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:43 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/arista/ARISTA-BGP4V2-TC-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:57:21 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-aristaExperiment, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaExperiment")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "DisplayString", "TextualConvention")
-aristaBgp4V2TC = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 4, 2))
-aristaBgp4V2TC.setRevisions(('2020-12-29 00:00', '2014-08-15 00:00', '2012-10-19 00:00', '2011-01-17 00:00',))
-if mibBuilder.loadTexts: aristaBgp4V2TC.setLastUpdated('202012290000Z')
-if mibBuilder.loadTexts: aristaBgp4V2TC.setOrganization('Arista Networks, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(aristaExperiment,) = mibBuilder.importSymbols(
+    "ARISTA-SMI-MIB",
+    "aristaExperiment")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+aristaBgp4V2TC = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 4, 2)
+)
+if mibBuilder.loadTexts:
+    aristaBgp4V2TC.setRevisions(
+        ("2020-12-29 00:00",
+         "2014-08-15 00:00",
+         "2012-10-19 00:00",
+         "2011-01-17 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class AristaBgp4V2IdentifierTC(TextualConvention, OctetString):
-    reference = 'RFC 4273, Section 4.2'
-    status = 'current'
-    displayHint = '1d.'
-    subtypeSpec = OctetString.subtypeSpec + ValueSizeConstraint(4, 4)
-    fixedLength = 4
+    status = "current"
+    displayHint = "1d."
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(4, 4),
+    )
+    fixed_length = 4
+
+
 
 class AristaBgp4V2AddressFamilyIdentifierTC(TextualConvention, Integer32):
-    reference = 'RFC 4760, Section 3'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 25))
-    namedValues = NamedValues(("ipv4", 1), ("ipv6", 2), ("l2vpn", 25))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              25)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ipv4", 1),
+          ("ipv6", 2),
+          ("l2vpn", 25))
+    )
+
+
 
 class AristaBgp4V2SubsequentAddressFamilyIdentifierTC(TextualConvention, Integer32):
-    reference = 'RFC 4760, Section 3. The value of this object should be restricted to be between the values of 0 and 255.'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 4, 70))
-    namedValues = NamedValues(("unicast", 1), ("multicast", 2), ("mpls", 4), ("evpn", 70))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              4,
+              70)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unicast", 1),
+          ("multicast", 2),
+          ("mpls", 4),
+          ("evpn", 70))
+    )
+
+
 
 class AristaBgp4V2EvpnNlriTC(TextualConvention, Integer32):
-    reference = 'RFC 4760, Section 3. For EVPN route types see https://www.iana.org/assignments/evpn/evpn.xhtml.'
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
-    namedValues = NamedValues(("autoDiscovery", 1), ("macIp", 2), ("imet", 3), ("ethernetSegment", 4), ("ipPrefixIpv4", 5), ("ipPrefixIpv6", 6), ("smet", 7), ("joinSync", 8), ("leaveSync", 9), ("spmsi", 10))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10)
+        )
+    )
+    namedValues = NamedValues(
+        *(("autoDiscovery", 1),
+          ("macIp", 2),
+          ("imet", 3),
+          ("ethernetSegment", 4),
+          ("ipPrefixIpv4", 5),
+          ("ipPrefixIpv6", 6),
+          ("smet", 7),
+          ("joinSync", 8),
+          ("leaveSync", 9),
+          ("spmsi", 10))
+    )
 
-mibBuilder.exportSymbols("ARISTA-BGP4V2-TC-MIB", AristaBgp4V2AddressFamilyIdentifierTC=AristaBgp4V2AddressFamilyIdentifierTC, AristaBgp4V2IdentifierTC=AristaBgp4V2IdentifierTC, aristaBgp4V2TC=aristaBgp4V2TC, PYSNMP_MODULE_ID=aristaBgp4V2TC, AristaBgp4V2EvpnNlriTC=AristaBgp4V2EvpnNlriTC, AristaBgp4V2SubsequentAddressFamilyIdentifierTC=AristaBgp4V2SubsequentAddressFamilyIdentifierTC)
+
+
+# MIB Managed Objects in the order of their OIDs
+
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ARISTA-BGP4V2-TC-MIB",
+    **{"AristaBgp4V2IdentifierTC": AristaBgp4V2IdentifierTC,
+       "AristaBgp4V2AddressFamilyIdentifierTC": AristaBgp4V2AddressFamilyIdentifierTC,
+       "AristaBgp4V2SubsequentAddressFamilyIdentifierTC": AristaBgp4V2SubsequentAddressFamilyIdentifierTC,
+       "AristaBgp4V2EvpnNlriTC": AristaBgp4V2EvpnNlriTC,
+       "aristaBgp4V2TC": aristaBgp4V2TC}
+)

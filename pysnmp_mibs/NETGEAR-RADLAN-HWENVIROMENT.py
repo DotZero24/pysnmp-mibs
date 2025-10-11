@@ -1,100 +1,619 @@
+# SNMP MIB module (NETGEAR-RADLAN-HWENVIROMENT) expressed in pysnmp data model.
 #
-# PySNMP MIB module NETGEAR-RADLAN-HWENVIROMENT (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/netgear/NETGEAR-RADLAN-HWENVIROMENT
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:51:31 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/netgear/NETGEAR-RADLAN-HWENVIROMENT
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:28:18 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-rnd, = mibBuilder.importSymbols("NETGEAR-RADLAN-MIB", "rnd")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-rlEnv = ModuleIdentity((1, 3, 6, 1, 4, 1, 4526, 17, 83))
-rlEnv.setRevisions(('2003-09-21 00:00',))
-if mibBuilder.loadTexts: rlEnv.setLastUpdated('200309210000Z')
-if mibBuilder.loadTexts: rlEnv.setOrganization('Radlan Computer Communications Ltd.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(rnd,) = mibBuilder.importSymbols(
+    "NETGEAR-RADLAN-MIB",
+    "rnd")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+rlEnv = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83)
+)
+if mibBuilder.loadTexts:
+    rlEnv.setRevisions(
+        ("2003-09-21 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class RlEnvMonState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))
-    namedValues = NamedValues(("normal", 1), ("warning", 2), ("critical", 3), ("shutdown", 4), ("notPresent", 5), ("notFunctioning", 6), ("restore", 7), ("notAvailable", 8), ("backingUp", 9))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("normal", 1),
+          ("warning", 2),
+          ("critical", 3),
+          ("shutdown", 4),
+          ("notPresent", 5),
+          ("notFunctioning", 6),
+          ("restore", 7),
+          ("notAvailable", 8),
+          ("backingUp", 9))
+    )
+
+
 
 class RlEnvMonDirection(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8, 9))
-    namedValues = NamedValues(("unKnown", 1), ("frontToBack", 2), ("backToFront", 3), ("clockwise", 4), ("unClockwise", 5), ("insideOut", 6), ("outsideIn", 7), ("rightToLeft", 8), ("leftToRight", 9))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unKnown", 1),
+          ("frontToBack", 2),
+          ("backToFront", 3),
+          ("clockwise", 4),
+          ("unClockwise", 5),
+          ("insideOut", 6),
+          ("outsideIn", 7),
+          ("rightToLeft", 8),
+          ("leftToRight", 9))
+    )
 
-rlEnvPhysicalDescription = MibIdentifier((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1))
-rlEnvMonFanStatusTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 1), )
-if mibBuilder.loadTexts: rlEnvMonFanStatusTable.setStatus('current')
-rlEnvMonFanStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 1, 1), ).setIndexNames((0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvMonFanStatusIndex"))
-if mibBuilder.loadTexts: rlEnvMonFanStatusEntry.setStatus('current')
-rlEnvMonFanStatusIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 1, 1, 1), Integer32())
-if mibBuilder.loadTexts: rlEnvMonFanStatusIndex.setStatus('current')
-rlEnvMonFanStatusDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvMonFanStatusDescr.setStatus('current')
-rlEnvMonFanState = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 1, 1, 3), RlEnvMonState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvMonFanState.setStatus('current')
-rlEnvMonSupplyStatusTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2), )
-if mibBuilder.loadTexts: rlEnvMonSupplyStatusTable.setStatus('current')
-rlEnvMonSupplyStatusEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1), ).setIndexNames((0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvMonSupplyStatusIndex"))
-if mibBuilder.loadTexts: rlEnvMonSupplyStatusEntry.setStatus('current')
-rlEnvMonSupplyStatusIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647)))
-if mibBuilder.loadTexts: rlEnvMonSupplyStatusIndex.setStatus('current')
-rlEnvMonSupplyStatusDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 32))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvMonSupplyStatusDescr.setStatus('current')
-rlEnvMonSupplyState = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1, 3), RlEnvMonState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvMonSupplyState.setStatus('current')
-rlEnvMonSupplySource = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5))).clone(namedValues=NamedValues(("unknown", 1), ("ac", 2), ("dc", 3), ("externalPowerSupply", 4), ("internalRedundant", 5)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvMonSupplySource.setStatus('current')
-rlEnvMonSupplyFanDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1, 5), RlEnvMonDirection()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvMonSupplyFanDirection.setStatus('current')
-rlEnvMonIndexTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10), )
-if mibBuilder.loadTexts: rlEnvMonIndexTable.setStatus('current')
-rlEnvMonIndexEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10, 1), ).setIndexNames((0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvMonIndexUnitId"), (0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvMonIndexObjType"), (0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvMonIndexObjIndex"))
-if mibBuilder.loadTexts: rlEnvMonIndexEntry.setStatus('current')
-rlEnvMonIndexUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10, 1, 1), Integer32())
-if mibBuilder.loadTexts: rlEnvMonIndexUnitId.setStatus('current')
-rlEnvMonIndexObjType = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(5, 6, 14))).clone(namedValues=NamedValues(("powerSupply", 5), ("fan", 6), ("thermalSensorUnderCard", 14))))
-if mibBuilder.loadTexts: rlEnvMonIndexObjType.setStatus('current')
-rlEnvMonIndexObjIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10, 1, 3), Integer32())
-if mibBuilder.loadTexts: rlEnvMonIndexObjIndex.setStatus('current')
-rlEnvMonIndexValue = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvMonIndexValue.setStatus('current')
-rlEnvFanData = MibIdentifier((1, 3, 6, 1, 4, 1, 4526, 17, 83, 5))
-rlEnvFanDataTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1), )
-if mibBuilder.loadTexts: rlEnvFanDataTable.setStatus('current')
-rlEnvFanDataEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1), ).setIndexNames((0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvFanDataStackUnit"))
-if mibBuilder.loadTexts: rlEnvFanDataEntry.setStatus('current')
-rlEnvFanDataStackUnit = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 1), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvFanDataStackUnit.setStatus('current')
-rlEnvFanDataTemp = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvFanDataTemp.setStatus('current')
-rlEnvFanDataSpeed = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 3), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvFanDataSpeed.setStatus('current')
-rlEnvFanDataOperLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 4), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvFanDataOperLevel.setStatus('current')
-rlEnvFanDataAdminLevel = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 5), Integer32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: rlEnvFanDataAdminLevel.setStatus('current')
-rlEnvFanDataDirection = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 6), RlEnvMonDirection()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvFanDataDirection.setStatus('current')
+
+
 class RlEnvRedundantFanStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("ready", 1), ("active", 2), ("failure", 3), ("notPresent", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ready", 1),
+          ("active", 2),
+          ("failure", 3),
+          ("notPresent", 4))
+    )
 
-rlEnvRedundantFanTable = MibTable((1, 3, 6, 1, 4, 1, 4526, 17, 83, 6), )
-if mibBuilder.loadTexts: rlEnvRedundantFanTable.setStatus('current')
-rlEnvRedundantFanEntry = MibTableRow((1, 3, 6, 1, 4, 1, 4526, 17, 83, 6, 1), ).setIndexNames((0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvRedundantFanUnitId"), (0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvRedundantFanIndex"))
-if mibBuilder.loadTexts: rlEnvRedundantFanEntry.setStatus('current')
-rlEnvRedundantFanUnitId = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 6, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvRedundantFanUnitId.setStatus('current')
-rlEnvRedundantFanIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 6, 1, 2), Integer32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvRedundantFanIndex.setStatus('current')
-rlEnvRedundantFanStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 4526, 17, 83, 6, 1, 3), RlEnvRedundantFanStatus()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvRedundantFanStatus.setStatus('current')
-rlEnvRedundantFanSupported = MibScalar((1, 3, 6, 1, 4, 1, 4526, 17, 83, 7), TruthValue()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: rlEnvRedundantFanSupported.setStatus('current')
-mibBuilder.exportSymbols("NETGEAR-RADLAN-HWENVIROMENT", rlEnvMonSupplyStatusEntry=rlEnvMonSupplyStatusEntry, rlEnvRedundantFanUnitId=rlEnvRedundantFanUnitId, rlEnvRedundantFanIndex=rlEnvRedundantFanIndex, rlEnvMonFanStatusDescr=rlEnvMonFanStatusDescr, rlEnvFanData=rlEnvFanData, rlEnvMonIndexValue=rlEnvMonIndexValue, rlEnvFanDataOperLevel=rlEnvFanDataOperLevel, RlEnvMonState=RlEnvMonState, rlEnvMonSupplyFanDirection=rlEnvMonSupplyFanDirection, rlEnvFanDataStackUnit=rlEnvFanDataStackUnit, rlEnvMonSupplyStatusDescr=rlEnvMonSupplyStatusDescr, rlEnvMonIndexEntry=rlEnvMonIndexEntry, rlEnvMonFanState=rlEnvMonFanState, rlEnvMonSupplyStatusTable=rlEnvMonSupplyStatusTable, rlEnvFanDataEntry=rlEnvFanDataEntry, rlEnvRedundantFanEntry=rlEnvRedundantFanEntry, rlEnvFanDataTable=rlEnvFanDataTable, rlEnvMonSupplySource=rlEnvMonSupplySource, rlEnvMonFanStatusTable=rlEnvMonFanStatusTable, rlEnvMonSupplyState=rlEnvMonSupplyState, rlEnvMonIndexTable=rlEnvMonIndexTable, RlEnvMonDirection=RlEnvMonDirection, rlEnvFanDataTemp=rlEnvFanDataTemp, rlEnvPhysicalDescription=rlEnvPhysicalDescription, PYSNMP_MODULE_ID=rlEnv, rlEnvMonFanStatusIndex=rlEnvMonFanStatusIndex, rlEnvFanDataSpeed=rlEnvFanDataSpeed, rlEnvRedundantFanSupported=rlEnvRedundantFanSupported, rlEnvMonIndexObjIndex=rlEnvMonIndexObjIndex, rlEnvFanDataDirection=rlEnvFanDataDirection, rlEnv=rlEnv, rlEnvMonFanStatusEntry=rlEnvMonFanStatusEntry, rlEnvMonIndexUnitId=rlEnvMonIndexUnitId, RlEnvRedundantFanStatus=RlEnvRedundantFanStatus, rlEnvFanDataAdminLevel=rlEnvFanDataAdminLevel, rlEnvMonSupplyStatusIndex=rlEnvMonSupplyStatusIndex, rlEnvRedundantFanTable=rlEnvRedundantFanTable, rlEnvMonIndexObjType=rlEnvMonIndexObjType, rlEnvRedundantFanStatus=rlEnvRedundantFanStatus)
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RlEnvPhysicalDescription_ObjectIdentity = ObjectIdentity
+rlEnvPhysicalDescription = _RlEnvPhysicalDescription_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1)
+)
+_RlEnvMonFanStatusTable_Object = MibTable
+rlEnvMonFanStatusTable = _RlEnvMonFanStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 1)
+)
+if mibBuilder.loadTexts:
+    rlEnvMonFanStatusTable.setStatus("current")
+_RlEnvMonFanStatusEntry_Object = MibTableRow
+rlEnvMonFanStatusEntry = _RlEnvMonFanStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 1, 1)
+)
+rlEnvMonFanStatusEntry.setIndexNames(
+    (0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvMonFanStatusIndex"),
+)
+if mibBuilder.loadTexts:
+    rlEnvMonFanStatusEntry.setStatus("current")
+_RlEnvMonFanStatusIndex_Type = Integer32
+_RlEnvMonFanStatusIndex_Object = MibTableColumn
+rlEnvMonFanStatusIndex = _RlEnvMonFanStatusIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 1, 1, 1),
+    _RlEnvMonFanStatusIndex_Type()
+)
+rlEnvMonFanStatusIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlEnvMonFanStatusIndex.setStatus("current")
+
+
+class _RlEnvMonFanStatusDescr_Type(DisplayString):
+    """Custom type rlEnvMonFanStatusDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_RlEnvMonFanStatusDescr_Type.__name__ = "DisplayString"
+_RlEnvMonFanStatusDescr_Object = MibTableColumn
+rlEnvMonFanStatusDescr = _RlEnvMonFanStatusDescr_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 1, 1, 2),
+    _RlEnvMonFanStatusDescr_Type()
+)
+rlEnvMonFanStatusDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvMonFanStatusDescr.setStatus("current")
+_RlEnvMonFanState_Type = RlEnvMonState
+_RlEnvMonFanState_Object = MibTableColumn
+rlEnvMonFanState = _RlEnvMonFanState_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 1, 1, 3),
+    _RlEnvMonFanState_Type()
+)
+rlEnvMonFanState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvMonFanState.setStatus("current")
+_RlEnvMonSupplyStatusTable_Object = MibTable
+rlEnvMonSupplyStatusTable = _RlEnvMonSupplyStatusTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2)
+)
+if mibBuilder.loadTexts:
+    rlEnvMonSupplyStatusTable.setStatus("current")
+_RlEnvMonSupplyStatusEntry_Object = MibTableRow
+rlEnvMonSupplyStatusEntry = _RlEnvMonSupplyStatusEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1)
+)
+rlEnvMonSupplyStatusEntry.setIndexNames(
+    (0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvMonSupplyStatusIndex"),
+)
+if mibBuilder.loadTexts:
+    rlEnvMonSupplyStatusEntry.setStatus("current")
+
+
+class _RlEnvMonSupplyStatusIndex_Type(Integer32):
+    """Custom type rlEnvMonSupplyStatusIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_RlEnvMonSupplyStatusIndex_Type.__name__ = "Integer32"
+_RlEnvMonSupplyStatusIndex_Object = MibTableColumn
+rlEnvMonSupplyStatusIndex = _RlEnvMonSupplyStatusIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1, 1),
+    _RlEnvMonSupplyStatusIndex_Type()
+)
+rlEnvMonSupplyStatusIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlEnvMonSupplyStatusIndex.setStatus("current")
+
+
+class _RlEnvMonSupplyStatusDescr_Type(DisplayString):
+    """Custom type rlEnvMonSupplyStatusDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 32),
+    )
+
+
+_RlEnvMonSupplyStatusDescr_Type.__name__ = "DisplayString"
+_RlEnvMonSupplyStatusDescr_Object = MibTableColumn
+rlEnvMonSupplyStatusDescr = _RlEnvMonSupplyStatusDescr_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1, 2),
+    _RlEnvMonSupplyStatusDescr_Type()
+)
+rlEnvMonSupplyStatusDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvMonSupplyStatusDescr.setStatus("current")
+_RlEnvMonSupplyState_Type = RlEnvMonState
+_RlEnvMonSupplyState_Object = MibTableColumn
+rlEnvMonSupplyState = _RlEnvMonSupplyState_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1, 3),
+    _RlEnvMonSupplyState_Type()
+)
+rlEnvMonSupplyState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvMonSupplyState.setStatus("current")
+
+
+class _RlEnvMonSupplySource_Type(Integer32):
+    """Custom type rlEnvMonSupplySource based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("ac", 2),
+          ("dc", 3),
+          ("externalPowerSupply", 4),
+          ("internalRedundant", 5))
+    )
+
+
+_RlEnvMonSupplySource_Type.__name__ = "Integer32"
+_RlEnvMonSupplySource_Object = MibTableColumn
+rlEnvMonSupplySource = _RlEnvMonSupplySource_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1, 4),
+    _RlEnvMonSupplySource_Type()
+)
+rlEnvMonSupplySource.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvMonSupplySource.setStatus("current")
+_RlEnvMonSupplyFanDirection_Type = RlEnvMonDirection
+_RlEnvMonSupplyFanDirection_Object = MibTableColumn
+rlEnvMonSupplyFanDirection = _RlEnvMonSupplyFanDirection_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 2, 1, 5),
+    _RlEnvMonSupplyFanDirection_Type()
+)
+rlEnvMonSupplyFanDirection.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvMonSupplyFanDirection.setStatus("current")
+_RlEnvMonIndexTable_Object = MibTable
+rlEnvMonIndexTable = _RlEnvMonIndexTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10)
+)
+if mibBuilder.loadTexts:
+    rlEnvMonIndexTable.setStatus("current")
+_RlEnvMonIndexEntry_Object = MibTableRow
+rlEnvMonIndexEntry = _RlEnvMonIndexEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10, 1)
+)
+rlEnvMonIndexEntry.setIndexNames(
+    (0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvMonIndexUnitId"),
+    (0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvMonIndexObjType"),
+    (0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvMonIndexObjIndex"),
+)
+if mibBuilder.loadTexts:
+    rlEnvMonIndexEntry.setStatus("current")
+_RlEnvMonIndexUnitId_Type = Integer32
+_RlEnvMonIndexUnitId_Object = MibTableColumn
+rlEnvMonIndexUnitId = _RlEnvMonIndexUnitId_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10, 1, 1),
+    _RlEnvMonIndexUnitId_Type()
+)
+rlEnvMonIndexUnitId.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlEnvMonIndexUnitId.setStatus("current")
+
+
+class _RlEnvMonIndexObjType_Type(Integer32):
+    """Custom type rlEnvMonIndexObjType based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(5,
+              6,
+              14)
+        )
+    )
+    namedValues = NamedValues(
+        *(("powerSupply", 5),
+          ("fan", 6),
+          ("thermalSensorUnderCard", 14))
+    )
+
+
+_RlEnvMonIndexObjType_Type.__name__ = "Integer32"
+_RlEnvMonIndexObjType_Object = MibTableColumn
+rlEnvMonIndexObjType = _RlEnvMonIndexObjType_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10, 1, 2),
+    _RlEnvMonIndexObjType_Type()
+)
+rlEnvMonIndexObjType.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlEnvMonIndexObjType.setStatus("current")
+_RlEnvMonIndexObjIndex_Type = Integer32
+_RlEnvMonIndexObjIndex_Object = MibTableColumn
+rlEnvMonIndexObjIndex = _RlEnvMonIndexObjIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10, 1, 3),
+    _RlEnvMonIndexObjIndex_Type()
+)
+rlEnvMonIndexObjIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    rlEnvMonIndexObjIndex.setStatus("current")
+_RlEnvMonIndexValue_Type = Integer32
+_RlEnvMonIndexValue_Object = MibTableColumn
+rlEnvMonIndexValue = _RlEnvMonIndexValue_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 1, 10, 1, 4),
+    _RlEnvMonIndexValue_Type()
+)
+rlEnvMonIndexValue.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvMonIndexValue.setStatus("current")
+_RlEnvFanData_ObjectIdentity = ObjectIdentity
+rlEnvFanData = _RlEnvFanData_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 5)
+)
+_RlEnvFanDataTable_Object = MibTable
+rlEnvFanDataTable = _RlEnvFanDataTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1)
+)
+if mibBuilder.loadTexts:
+    rlEnvFanDataTable.setStatus("current")
+_RlEnvFanDataEntry_Object = MibTableRow
+rlEnvFanDataEntry = _RlEnvFanDataEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1)
+)
+rlEnvFanDataEntry.setIndexNames(
+    (0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvFanDataStackUnit"),
+)
+if mibBuilder.loadTexts:
+    rlEnvFanDataEntry.setStatus("current")
+_RlEnvFanDataStackUnit_Type = Integer32
+_RlEnvFanDataStackUnit_Object = MibTableColumn
+rlEnvFanDataStackUnit = _RlEnvFanDataStackUnit_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 1),
+    _RlEnvFanDataStackUnit_Type()
+)
+rlEnvFanDataStackUnit.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvFanDataStackUnit.setStatus("current")
+_RlEnvFanDataTemp_Type = Integer32
+_RlEnvFanDataTemp_Object = MibTableColumn
+rlEnvFanDataTemp = _RlEnvFanDataTemp_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 2),
+    _RlEnvFanDataTemp_Type()
+)
+rlEnvFanDataTemp.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvFanDataTemp.setStatus("current")
+_RlEnvFanDataSpeed_Type = Integer32
+_RlEnvFanDataSpeed_Object = MibTableColumn
+rlEnvFanDataSpeed = _RlEnvFanDataSpeed_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 3),
+    _RlEnvFanDataSpeed_Type()
+)
+rlEnvFanDataSpeed.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvFanDataSpeed.setStatus("current")
+_RlEnvFanDataOperLevel_Type = Integer32
+_RlEnvFanDataOperLevel_Object = MibTableColumn
+rlEnvFanDataOperLevel = _RlEnvFanDataOperLevel_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 4),
+    _RlEnvFanDataOperLevel_Type()
+)
+rlEnvFanDataOperLevel.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvFanDataOperLevel.setStatus("current")
+_RlEnvFanDataAdminLevel_Type = Integer32
+_RlEnvFanDataAdminLevel_Object = MibTableColumn
+rlEnvFanDataAdminLevel = _RlEnvFanDataAdminLevel_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 5),
+    _RlEnvFanDataAdminLevel_Type()
+)
+rlEnvFanDataAdminLevel.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    rlEnvFanDataAdminLevel.setStatus("current")
+_RlEnvFanDataDirection_Type = RlEnvMonDirection
+_RlEnvFanDataDirection_Object = MibTableColumn
+rlEnvFanDataDirection = _RlEnvFanDataDirection_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 5, 1, 1, 6),
+    _RlEnvFanDataDirection_Type()
+)
+rlEnvFanDataDirection.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvFanDataDirection.setStatus("current")
+_RlEnvRedundantFanTable_Object = MibTable
+rlEnvRedundantFanTable = _RlEnvRedundantFanTable_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 6)
+)
+if mibBuilder.loadTexts:
+    rlEnvRedundantFanTable.setStatus("current")
+_RlEnvRedundantFanEntry_Object = MibTableRow
+rlEnvRedundantFanEntry = _RlEnvRedundantFanEntry_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 6, 1)
+)
+rlEnvRedundantFanEntry.setIndexNames(
+    (0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvRedundantFanUnitId"),
+    (0, "NETGEAR-RADLAN-HWENVIROMENT", "rlEnvRedundantFanIndex"),
+)
+if mibBuilder.loadTexts:
+    rlEnvRedundantFanEntry.setStatus("current")
+_RlEnvRedundantFanUnitId_Type = Unsigned32
+_RlEnvRedundantFanUnitId_Object = MibTableColumn
+rlEnvRedundantFanUnitId = _RlEnvRedundantFanUnitId_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 6, 1, 1),
+    _RlEnvRedundantFanUnitId_Type()
+)
+rlEnvRedundantFanUnitId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvRedundantFanUnitId.setStatus("current")
+_RlEnvRedundantFanIndex_Type = Integer32
+_RlEnvRedundantFanIndex_Object = MibTableColumn
+rlEnvRedundantFanIndex = _RlEnvRedundantFanIndex_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 6, 1, 2),
+    _RlEnvRedundantFanIndex_Type()
+)
+rlEnvRedundantFanIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvRedundantFanIndex.setStatus("current")
+_RlEnvRedundantFanStatus_Type = RlEnvRedundantFanStatus
+_RlEnvRedundantFanStatus_Object = MibTableColumn
+rlEnvRedundantFanStatus = _RlEnvRedundantFanStatus_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 6, 1, 3),
+    _RlEnvRedundantFanStatus_Type()
+)
+rlEnvRedundantFanStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvRedundantFanStatus.setStatus("current")
+_RlEnvRedundantFanSupported_Type = TruthValue
+_RlEnvRedundantFanSupported_Object = MibScalar
+rlEnvRedundantFanSupported = _RlEnvRedundantFanSupported_Object(
+    (1, 3, 6, 1, 4, 1, 4526, 17, 83, 7),
+    _RlEnvRedundantFanSupported_Type()
+)
+rlEnvRedundantFanSupported.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    rlEnvRedundantFanSupported.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "NETGEAR-RADLAN-HWENVIROMENT",
+    **{"RlEnvMonState": RlEnvMonState,
+       "RlEnvMonDirection": RlEnvMonDirection,
+       "RlEnvRedundantFanStatus": RlEnvRedundantFanStatus,
+       "rlEnv": rlEnv,
+       "rlEnvPhysicalDescription": rlEnvPhysicalDescription,
+       "rlEnvMonFanStatusTable": rlEnvMonFanStatusTable,
+       "rlEnvMonFanStatusEntry": rlEnvMonFanStatusEntry,
+       "rlEnvMonFanStatusIndex": rlEnvMonFanStatusIndex,
+       "rlEnvMonFanStatusDescr": rlEnvMonFanStatusDescr,
+       "rlEnvMonFanState": rlEnvMonFanState,
+       "rlEnvMonSupplyStatusTable": rlEnvMonSupplyStatusTable,
+       "rlEnvMonSupplyStatusEntry": rlEnvMonSupplyStatusEntry,
+       "rlEnvMonSupplyStatusIndex": rlEnvMonSupplyStatusIndex,
+       "rlEnvMonSupplyStatusDescr": rlEnvMonSupplyStatusDescr,
+       "rlEnvMonSupplyState": rlEnvMonSupplyState,
+       "rlEnvMonSupplySource": rlEnvMonSupplySource,
+       "rlEnvMonSupplyFanDirection": rlEnvMonSupplyFanDirection,
+       "rlEnvMonIndexTable": rlEnvMonIndexTable,
+       "rlEnvMonIndexEntry": rlEnvMonIndexEntry,
+       "rlEnvMonIndexUnitId": rlEnvMonIndexUnitId,
+       "rlEnvMonIndexObjType": rlEnvMonIndexObjType,
+       "rlEnvMonIndexObjIndex": rlEnvMonIndexObjIndex,
+       "rlEnvMonIndexValue": rlEnvMonIndexValue,
+       "rlEnvFanData": rlEnvFanData,
+       "rlEnvFanDataTable": rlEnvFanDataTable,
+       "rlEnvFanDataEntry": rlEnvFanDataEntry,
+       "rlEnvFanDataStackUnit": rlEnvFanDataStackUnit,
+       "rlEnvFanDataTemp": rlEnvFanDataTemp,
+       "rlEnvFanDataSpeed": rlEnvFanDataSpeed,
+       "rlEnvFanDataOperLevel": rlEnvFanDataOperLevel,
+       "rlEnvFanDataAdminLevel": rlEnvFanDataAdminLevel,
+       "rlEnvFanDataDirection": rlEnvFanDataDirection,
+       "rlEnvRedundantFanTable": rlEnvRedundantFanTable,
+       "rlEnvRedundantFanEntry": rlEnvRedundantFanEntry,
+       "rlEnvRedundantFanUnitId": rlEnvRedundantFanUnitId,
+       "rlEnvRedundantFanIndex": rlEnvRedundantFanIndex,
+       "rlEnvRedundantFanStatus": rlEnvRedundantFanStatus,
+       "rlEnvRedundantFanSupported": rlEnvRedundantFanSupported}
+)

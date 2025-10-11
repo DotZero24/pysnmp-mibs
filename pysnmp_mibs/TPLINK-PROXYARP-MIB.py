@@ -1,34 +1,243 @@
+# SNMP MIB module (TPLINK-PROXYARP-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module TPLINK-PROXYARP-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/tplink/TPLINK-PROXYARP-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 11:01:48 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/tplink/TPLINK-PROXYARP-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 21:56:15 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-tplinkMgmt, = mibBuilder.importSymbols("TPLINK-MIB", "tplinkMgmt")
-tplinkProxyArpMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 11863, 6, 37))
-tplinkProxyArpMIB.setRevisions(('2012-12-13 09:30',))
-if mibBuilder.loadTexts: tplinkProxyArpMIB.setLastUpdated('201212130930Z')
-if mibBuilder.loadTexts: tplinkProxyArpMIB.setOrganization('TPLINK')
-tplinkProxyArpMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 37, 1))
-tplinkProxyArpNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 37, 2))
-tpProxyArpConfig = MibIdentifier((1, 3, 6, 1, 4, 1, 11863, 6, 37, 1))
-tpProxyArpTable = MibTable((1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1), )
-if mibBuilder.loadTexts: tpProxyArpTable.setStatus('current')
-tpProxyArpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1, 1), ).setIndexNames((0, "TPLINK-PROXYARP-MIB", "tpProxyArpInterface"))
-if mibBuilder.loadTexts: tpProxyArpEntry.setStatus('current')
-tpProxyArpInterface = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(0, 50))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tpProxyArpInterface.setStatus('current')
-tpProxyArpIpAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1, 1, 2), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tpProxyArpIpAddr.setStatus('current')
-tpProxyArpIpMask = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1, 1, 3), IpAddress()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: tpProxyArpIpMask.setStatus('current')
-tpProxyArpEnable = MibTableColumn((1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(0, 1))).clone(namedValues=NamedValues(("disable", 0), ("enable", 1)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: tpProxyArpEnable.setStatus('current')
-mibBuilder.exportSymbols("TPLINK-PROXYARP-MIB", tplinkProxyArpMIBObjects=tplinkProxyArpMIBObjects, tpProxyArpTable=tpProxyArpTable, tpProxyArpConfig=tpProxyArpConfig, tpProxyArpIpAddr=tpProxyArpIpAddr, tplinkProxyArpMIB=tplinkProxyArpMIB, tplinkProxyArpNotifications=tplinkProxyArpNotifications, tpProxyArpIpMask=tpProxyArpIpMask, tpProxyArpEnable=tpProxyArpEnable, PYSNMP_MODULE_ID=tplinkProxyArpMIB, tpProxyArpEntry=tpProxyArpEntry, tpProxyArpInterface=tpProxyArpInterface)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+(tplinkMgmt,) = mibBuilder.importSymbols(
+    "TPLINK-MIB",
+    "tplinkMgmt")
+
+
+# MODULE-IDENTITY
+
+tplinkProxyArpMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 37)
+)
+if mibBuilder.loadTexts:
+    tplinkProxyArpMIB.setRevisions(
+        ("2012-12-13 09:30",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_TplinkProxyArpMIBObjects_ObjectIdentity = ObjectIdentity
+tplinkProxyArpMIBObjects = _TplinkProxyArpMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 37, 1)
+)
+_TpProxyArpConfig_ObjectIdentity = ObjectIdentity
+tpProxyArpConfig = _TpProxyArpConfig_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 37, 1)
+)
+_TpProxyArpTable_Object = MibTable
+tpProxyArpTable = _TpProxyArpTable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1)
+)
+if mibBuilder.loadTexts:
+    tpProxyArpTable.setStatus("current")
+_TpProxyArpEntry_Object = MibTableRow
+tpProxyArpEntry = _TpProxyArpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1, 1)
+)
+tpProxyArpEntry.setIndexNames(
+    (0, "TPLINK-PROXYARP-MIB", "tpProxyArpInterface"),
+)
+if mibBuilder.loadTexts:
+    tpProxyArpEntry.setStatus("current")
+
+
+class _TpProxyArpInterface_Type(OctetString):
+    """Custom type tpProxyArpInterface based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 50),
+    )
+
+
+_TpProxyArpInterface_Type.__name__ = "OctetString"
+_TpProxyArpInterface_Object = MibTableColumn
+tpProxyArpInterface = _TpProxyArpInterface_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1, 1, 1),
+    _TpProxyArpInterface_Type()
+)
+tpProxyArpInterface.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tpProxyArpInterface.setStatus("current")
+_TpProxyArpIpAddr_Type = IpAddress
+_TpProxyArpIpAddr_Object = MibTableColumn
+tpProxyArpIpAddr = _TpProxyArpIpAddr_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1, 1, 2),
+    _TpProxyArpIpAddr_Type()
+)
+tpProxyArpIpAddr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tpProxyArpIpAddr.setStatus("current")
+_TpProxyArpIpMask_Type = IpAddress
+_TpProxyArpIpMask_Object = MibTableColumn
+tpProxyArpIpMask = _TpProxyArpIpMask_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1, 1, 3),
+    _TpProxyArpIpMask_Type()
+)
+tpProxyArpIpMask.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    tpProxyArpIpMask.setStatus("current")
+
+
+class _TpProxyArpEnable_Type(Integer32):
+    """Custom type tpProxyArpEnable based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(0,
+              1)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disable", 0),
+          ("enable", 1))
+    )
+
+
+_TpProxyArpEnable_Type.__name__ = "Integer32"
+_TpProxyArpEnable_Object = MibTableColumn
+tpProxyArpEnable = _TpProxyArpEnable_Object(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 37, 1, 1, 1, 4),
+    _TpProxyArpEnable_Type()
+)
+tpProxyArpEnable.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    tpProxyArpEnable.setStatus("current")
+_TplinkProxyArpNotifications_ObjectIdentity = ObjectIdentity
+tplinkProxyArpNotifications = _TplinkProxyArpNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 11863, 6, 37, 2)
+)
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "TPLINK-PROXYARP-MIB",
+    **{"tplinkProxyArpMIB": tplinkProxyArpMIB,
+       "tplinkProxyArpMIBObjects": tplinkProxyArpMIBObjects,
+       "tpProxyArpConfig": tpProxyArpConfig,
+       "tpProxyArpTable": tpProxyArpTable,
+       "tpProxyArpEntry": tpProxyArpEntry,
+       "tpProxyArpInterface": tpProxyArpInterface,
+       "tpProxyArpIpAddr": tpProxyArpIpAddr,
+       "tpProxyArpIpMask": tpProxyArpIpMask,
+       "tpProxyArpEnable": tpProxyArpEnable,
+       "tplinkProxyArpNotifications": tplinkProxyArpNotifications}
+)

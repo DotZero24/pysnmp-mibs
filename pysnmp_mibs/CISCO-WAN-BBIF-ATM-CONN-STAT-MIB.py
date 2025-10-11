@@ -1,62 +1,384 @@
+# SNMP MIB module (CISCO-WAN-BBIF-ATM-CONN-STAT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-WAN-BBIF-ATM-CONN-STAT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-WAN-BBIF-ATM-CONN-STAT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:31:22 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-WAN-BBIF-ATM-CONN-STAT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:40:41 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-bbChanCntGrp, = mibBuilder.importSymbols("BASIS-MIB", "bbChanCntGrp")
-ciscoWan, = mibBuilder.importSymbols("CISCOWAN-SMI", "ciscoWan")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ciscoWanBbifAtmConnStatMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 351, 150, 36))
-ciscoWanBbifAtmConnStatMIB.setRevisions(('2002-10-18 00:00',))
-if mibBuilder.loadTexts: ciscoWanBbifAtmConnStatMIB.setLastUpdated('200210180000Z')
-if mibBuilder.loadTexts: ciscoWanBbifAtmConnStatMIB.setOrganization('Cisco Systems, Inc.')
-bbChanCntGrpTable = MibTable((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1), )
-if mibBuilder.loadTexts: bbChanCntGrpTable.setStatus('current')
-bbChanCntGrpEntry = MibTableRow((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1), ).setIndexNames((0, "CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanCntNum"))
-if mibBuilder.loadTexts: bbChanCntGrpEntry.setStatus('current')
-bbChanCntNum = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(16, 4111))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanCntNum.setStatus('current')
-bbChanRcvClp0Cells = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 2), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanRcvClp0Cells.setStatus('current')
-bbChanRcvClp1Cells = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 3), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanRcvClp1Cells.setStatus('current')
-bbChanNonConformCellsAtGcra1Policer = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanNonConformCellsAtGcra1Policer.setStatus('current')
-bbChanNonConformCellsAtGcra2Policer = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanNonConformCellsAtGcra2Policer.setStatus('current')
-bbChanRcvEOFCells = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanRcvEOFCells.setStatus('current')
-bbChanDscdClp0Cells = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanDscdClp0Cells.setStatus('current')
-bbChanDscdClp1Cells = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanDscdClp1Cells.setStatus('current')
-bbChanRcvCellsSent = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 9), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanRcvCellsSent.setStatus('current')
-bbChanXmtClp0Cells = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 10), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanXmtClp0Cells.setStatus('current')
-bbChanXmtClp1Cells = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 11), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanXmtClp1Cells.setStatus('current')
-bbChanDscdClpZeroCellsToPort = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 12), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanDscdClpZeroCellsToPort.setStatus('current')
-bbChanDscdClpOneCellsToPort = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 13), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: bbChanDscdClpOneCellsToPort.setStatus('current')
-bbChanCntClrButton = MibTableColumn((1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 14), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("noAction", 1), ("resetCounters", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: bbChanCntClrButton.setStatus('current')
-cwbAtmConnStatMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 36, 2))
-cwbAtmConnStatMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 36, 2, 1))
-cwbAtmConnStatMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 351, 150, 36, 2, 2))
-cwbAtmConnStatCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 351, 150, 36, 2, 2, 1)).setObjects(("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "cwbAtmConnStatsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cwbAtmConnStatCompliance = cwbAtmConnStatCompliance.setStatus('current')
-cwbAtmConnStatsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 351, 150, 36, 2, 1, 1)).setObjects(("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanCntNum"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanRcvClp0Cells"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanRcvClp1Cells"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanNonConformCellsAtGcra1Policer"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanNonConformCellsAtGcra2Policer"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanRcvEOFCells"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanDscdClp0Cells"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanDscdClp1Cells"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanRcvCellsSent"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanXmtClp0Cells"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanXmtClp1Cells"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanDscdClpZeroCellsToPort"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanDscdClpOneCellsToPort"), ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanCntClrButton"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    cwbAtmConnStatsGroup = cwbAtmConnStatsGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", cwbAtmConnStatsGroup=cwbAtmConnStatsGroup, bbChanCntGrpTable=bbChanCntGrpTable, bbChanRcvClp0Cells=bbChanRcvClp0Cells, bbChanRcvEOFCells=bbChanRcvEOFCells, cwbAtmConnStatMIBCompliances=cwbAtmConnStatMIBCompliances, cwbAtmConnStatMIBGroups=cwbAtmConnStatMIBGroups, bbChanCntClrButton=bbChanCntClrButton, bbChanDscdClpOneCellsToPort=bbChanDscdClpOneCellsToPort, bbChanRcvCellsSent=bbChanRcvCellsSent, ciscoWanBbifAtmConnStatMIB=ciscoWanBbifAtmConnStatMIB, cwbAtmConnStatCompliance=cwbAtmConnStatCompliance, bbChanNonConformCellsAtGcra1Policer=bbChanNonConformCellsAtGcra1Policer, bbChanXmtClp1Cells=bbChanXmtClp1Cells, PYSNMP_MODULE_ID=ciscoWanBbifAtmConnStatMIB, bbChanDscdClp1Cells=bbChanDscdClp1Cells, cwbAtmConnStatMIBConformance=cwbAtmConnStatMIBConformance, bbChanNonConformCellsAtGcra2Policer=bbChanNonConformCellsAtGcra2Policer, bbChanCntGrpEntry=bbChanCntGrpEntry, bbChanRcvClp1Cells=bbChanRcvClp1Cells, bbChanCntNum=bbChanCntNum, bbChanDscdClpZeroCellsToPort=bbChanDscdClpZeroCellsToPort, bbChanDscdClp0Cells=bbChanDscdClp0Cells, bbChanXmtClp0Cells=bbChanXmtClp0Cells)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(bbChanCntGrp,) = mibBuilder.importSymbols(
+    "BASIS-MIB",
+    "bbChanCntGrp")
+
+(ciscoWan,) = mibBuilder.importSymbols(
+    "CISCOWAN-SMI",
+    "ciscoWan")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+ciscoWanBbifAtmConnStatMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 351, 150, 36)
+)
+if mibBuilder.loadTexts:
+    ciscoWanBbifAtmConnStatMIB.setRevisions(
+        ("2002-10-18 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_BbChanCntGrpTable_Object = MibTable
+bbChanCntGrpTable = _BbChanCntGrpTable_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1)
+)
+if mibBuilder.loadTexts:
+    bbChanCntGrpTable.setStatus("current")
+_BbChanCntGrpEntry_Object = MibTableRow
+bbChanCntGrpEntry = _BbChanCntGrpEntry_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1)
+)
+bbChanCntGrpEntry.setIndexNames(
+    (0, "CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanCntNum"),
+)
+if mibBuilder.loadTexts:
+    bbChanCntGrpEntry.setStatus("current")
+
+
+class _BbChanCntNum_Type(Integer32):
+    """Custom type bbChanCntNum based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(16, 4111),
+    )
+
+
+_BbChanCntNum_Type.__name__ = "Integer32"
+_BbChanCntNum_Object = MibTableColumn
+bbChanCntNum = _BbChanCntNum_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 1),
+    _BbChanCntNum_Type()
+)
+bbChanCntNum.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanCntNum.setStatus("current")
+_BbChanRcvClp0Cells_Type = Counter32
+_BbChanRcvClp0Cells_Object = MibTableColumn
+bbChanRcvClp0Cells = _BbChanRcvClp0Cells_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 2),
+    _BbChanRcvClp0Cells_Type()
+)
+bbChanRcvClp0Cells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanRcvClp0Cells.setStatus("current")
+_BbChanRcvClp1Cells_Type = Counter32
+_BbChanRcvClp1Cells_Object = MibTableColumn
+bbChanRcvClp1Cells = _BbChanRcvClp1Cells_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 3),
+    _BbChanRcvClp1Cells_Type()
+)
+bbChanRcvClp1Cells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanRcvClp1Cells.setStatus("current")
+_BbChanNonConformCellsAtGcra1Policer_Type = Counter32
+_BbChanNonConformCellsAtGcra1Policer_Object = MibTableColumn
+bbChanNonConformCellsAtGcra1Policer = _BbChanNonConformCellsAtGcra1Policer_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 4),
+    _BbChanNonConformCellsAtGcra1Policer_Type()
+)
+bbChanNonConformCellsAtGcra1Policer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanNonConformCellsAtGcra1Policer.setStatus("current")
+_BbChanNonConformCellsAtGcra2Policer_Type = Counter32
+_BbChanNonConformCellsAtGcra2Policer_Object = MibTableColumn
+bbChanNonConformCellsAtGcra2Policer = _BbChanNonConformCellsAtGcra2Policer_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 5),
+    _BbChanNonConformCellsAtGcra2Policer_Type()
+)
+bbChanNonConformCellsAtGcra2Policer.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanNonConformCellsAtGcra2Policer.setStatus("current")
+_BbChanRcvEOFCells_Type = Counter32
+_BbChanRcvEOFCells_Object = MibTableColumn
+bbChanRcvEOFCells = _BbChanRcvEOFCells_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 6),
+    _BbChanRcvEOFCells_Type()
+)
+bbChanRcvEOFCells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanRcvEOFCells.setStatus("current")
+_BbChanDscdClp0Cells_Type = Counter32
+_BbChanDscdClp0Cells_Object = MibTableColumn
+bbChanDscdClp0Cells = _BbChanDscdClp0Cells_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 7),
+    _BbChanDscdClp0Cells_Type()
+)
+bbChanDscdClp0Cells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanDscdClp0Cells.setStatus("current")
+_BbChanDscdClp1Cells_Type = Counter32
+_BbChanDscdClp1Cells_Object = MibTableColumn
+bbChanDscdClp1Cells = _BbChanDscdClp1Cells_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 8),
+    _BbChanDscdClp1Cells_Type()
+)
+bbChanDscdClp1Cells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanDscdClp1Cells.setStatus("current")
+_BbChanRcvCellsSent_Type = Counter32
+_BbChanRcvCellsSent_Object = MibTableColumn
+bbChanRcvCellsSent = _BbChanRcvCellsSent_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 9),
+    _BbChanRcvCellsSent_Type()
+)
+bbChanRcvCellsSent.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanRcvCellsSent.setStatus("current")
+_BbChanXmtClp0Cells_Type = Counter32
+_BbChanXmtClp0Cells_Object = MibTableColumn
+bbChanXmtClp0Cells = _BbChanXmtClp0Cells_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 10),
+    _BbChanXmtClp0Cells_Type()
+)
+bbChanXmtClp0Cells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanXmtClp0Cells.setStatus("current")
+_BbChanXmtClp1Cells_Type = Counter32
+_BbChanXmtClp1Cells_Object = MibTableColumn
+bbChanXmtClp1Cells = _BbChanXmtClp1Cells_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 11),
+    _BbChanXmtClp1Cells_Type()
+)
+bbChanXmtClp1Cells.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanXmtClp1Cells.setStatus("current")
+_BbChanDscdClpZeroCellsToPort_Type = Counter32
+_BbChanDscdClpZeroCellsToPort_Object = MibTableColumn
+bbChanDscdClpZeroCellsToPort = _BbChanDscdClpZeroCellsToPort_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 12),
+    _BbChanDscdClpZeroCellsToPort_Type()
+)
+bbChanDscdClpZeroCellsToPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanDscdClpZeroCellsToPort.setStatus("current")
+_BbChanDscdClpOneCellsToPort_Type = Counter32
+_BbChanDscdClpOneCellsToPort_Object = MibTableColumn
+bbChanDscdClpOneCellsToPort = _BbChanDscdClpOneCellsToPort_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 13),
+    _BbChanDscdClpOneCellsToPort_Type()
+)
+bbChanDscdClpOneCellsToPort.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    bbChanDscdClpOneCellsToPort.setStatus("current")
+
+
+class _BbChanCntClrButton_Type(Integer32):
+    """Custom type bbChanCntClrButton based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("noAction", 1),
+          ("resetCounters", 2))
+    )
+
+
+_BbChanCntClrButton_Type.__name__ = "Integer32"
+_BbChanCntClrButton_Object = MibTableColumn
+bbChanCntClrButton = _BbChanCntClrButton_Object(
+    (1, 3, 6, 1, 4, 1, 351, 110, 5, 2, 7, 3, 1, 1, 14),
+    _BbChanCntClrButton_Type()
+)
+bbChanCntClrButton.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    bbChanCntClrButton.setStatus("current")
+_CwbAtmConnStatMIBConformance_ObjectIdentity = ObjectIdentity
+cwbAtmConnStatMIBConformance = _CwbAtmConnStatMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 351, 150, 36, 2)
+)
+_CwbAtmConnStatMIBGroups_ObjectIdentity = ObjectIdentity
+cwbAtmConnStatMIBGroups = _CwbAtmConnStatMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 351, 150, 36, 2, 1)
+)
+_CwbAtmConnStatMIBCompliances_ObjectIdentity = ObjectIdentity
+cwbAtmConnStatMIBCompliances = _CwbAtmConnStatMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 351, 150, 36, 2, 2)
+)
+
+# Managed Objects groups
+
+cwbAtmConnStatsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 351, 150, 36, 2, 1, 1)
+)
+cwbAtmConnStatsGroup.setObjects(
+      *(("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanCntNum"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanRcvClp0Cells"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanRcvClp1Cells"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanNonConformCellsAtGcra1Policer"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanNonConformCellsAtGcra2Policer"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanRcvEOFCells"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanDscdClp0Cells"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanDscdClp1Cells"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanRcvCellsSent"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanXmtClp0Cells"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanXmtClp1Cells"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanDscdClpZeroCellsToPort"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanDscdClpOneCellsToPort"),
+        ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "bbChanCntClrButton"))
+)
+if mibBuilder.loadTexts:
+    cwbAtmConnStatsGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+cwbAtmConnStatCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 351, 150, 36, 2, 2, 1)
+)
+cwbAtmConnStatCompliance.setObjects(
+    ("CISCO-WAN-BBIF-ATM-CONN-STAT-MIB", "cwbAtmConnStatsGroup")
+)
+if mibBuilder.loadTexts:
+    cwbAtmConnStatCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-WAN-BBIF-ATM-CONN-STAT-MIB",
+    **{"bbChanCntGrpTable": bbChanCntGrpTable,
+       "bbChanCntGrpEntry": bbChanCntGrpEntry,
+       "bbChanCntNum": bbChanCntNum,
+       "bbChanRcvClp0Cells": bbChanRcvClp0Cells,
+       "bbChanRcvClp1Cells": bbChanRcvClp1Cells,
+       "bbChanNonConformCellsAtGcra1Policer": bbChanNonConformCellsAtGcra1Policer,
+       "bbChanNonConformCellsAtGcra2Policer": bbChanNonConformCellsAtGcra2Policer,
+       "bbChanRcvEOFCells": bbChanRcvEOFCells,
+       "bbChanDscdClp0Cells": bbChanDscdClp0Cells,
+       "bbChanDscdClp1Cells": bbChanDscdClp1Cells,
+       "bbChanRcvCellsSent": bbChanRcvCellsSent,
+       "bbChanXmtClp0Cells": bbChanXmtClp0Cells,
+       "bbChanXmtClp1Cells": bbChanXmtClp1Cells,
+       "bbChanDscdClpZeroCellsToPort": bbChanDscdClpZeroCellsToPort,
+       "bbChanDscdClpOneCellsToPort": bbChanDscdClpOneCellsToPort,
+       "bbChanCntClrButton": bbChanCntClrButton,
+       "ciscoWanBbifAtmConnStatMIB": ciscoWanBbifAtmConnStatMIB,
+       "cwbAtmConnStatMIBConformance": cwbAtmConnStatMIBConformance,
+       "cwbAtmConnStatMIBGroups": cwbAtmConnStatMIBGroups,
+       "cwbAtmConnStatsGroup": cwbAtmConnStatsGroup,
+       "cwbAtmConnStatMIBCompliances": cwbAtmConnStatMIBCompliances,
+       "cwbAtmConnStatCompliance": cwbAtmConnStatCompliance}
+)

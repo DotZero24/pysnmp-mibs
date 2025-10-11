@@ -1,167 +1,863 @@
+# SNMP MIB module (CISCO-LAG-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-LAG-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-LAG-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:26:46 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-LAG-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:32:06 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-CiscoInterfaceIndexList, = mibBuilder.importSymbols("CISCO-TC", "CiscoInterfaceIndexList")
-dot3adAggPortListEntry, dot3adAggPortEntry = mibBuilder.importSymbols("IEEE8023-LAG-MIB", "dot3adAggPortListEntry", "dot3adAggPortEntry")
-ifIndex, = mibBuilder.importSymbols("IF-MIB", "ifIndex")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-ciscoLagMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 225))
-ciscoLagMIB.setRevisions(('2014-01-14 00:00', '2010-10-20 00:00', '2009-11-19 00:00', '2008-01-08 00:00', '2006-06-21 00:00', '2004-06-11 00:00', '2002-12-13 00:00', '2002-01-02 00:00', '2001-10-23 00:00',))
-if mibBuilder.loadTexts: ciscoLagMIB.setLastUpdated('201401140000Z')
-if mibBuilder.loadTexts: ciscoLagMIB.setOrganization('Cisco Systems, Inc.')
-clagMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 225, 1))
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(CiscoInterfaceIndexList,) = mibBuilder.importSymbols(
+    "CISCO-TC",
+    "CiscoInterfaceIndexList")
+
+(dot3adAggPortEntry,
+ dot3adAggPortListEntry) = mibBuilder.importSymbols(
+    "IEEE8023-LAG-MIB",
+    "dot3adAggPortEntry",
+    "dot3adAggPortListEntry")
+
+(ifIndex,) = mibBuilder.importSymbols(
+    "IF-MIB",
+    "ifIndex")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoLagMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225)
+)
+if mibBuilder.loadTexts:
+    ciscoLagMIB.setRevisions(
+        ("2014-01-14 00:00",
+         "2010-10-20 00:00",
+         "2009-11-19 00:00",
+         "2008-01-08 00:00",
+         "2006-06-21 00:00",
+         "2004-06-11 00:00",
+         "2002-12-13 00:00",
+         "2002-01-02 00:00",
+         "2001-10-23 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class ClagDistributionProtocol(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6))
-    namedValues = NamedValues(("ip", 1), ("mac", 2), ("port", 3), ("vlanIpPort", 4), ("vlanIp", 5), ("ipPort", 6))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6)
+        )
+    )
+    namedValues = NamedValues(
+        *(("ip", 1),
+          ("mac", 2),
+          ("port", 3),
+          ("vlanIpPort", 4),
+          ("vlanIp", 5),
+          ("ipPort", 6))
+    )
+
+
 
 class ClagDistributionAddressMode(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3))
-    namedValues = NamedValues(("source", 1), ("destination", 2), ("both", 3))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("source", 1),
+          ("destination", 2),
+          ("both", 3))
+    )
+
+
 
 class ClagDistributionMplsProtocol(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("label", 1), ("labelIp", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("label", 1),
+          ("labelIp", 2))
+    )
+
+
 
 class ClagAggregationProtocol(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("lacp", 1), ("pagp", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("lacp", 1),
+          ("pagp", 2))
+    )
+
+
 
 class ClagPortAdminStatus(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("off", 1), ("on", 2), ("active", 3), ("passive", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2),
+          ("active", 3),
+          ("passive", 4))
+    )
 
-clagGlobalConfigObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1))
-clagAgg = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 2))
-clagAggPort = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 3))
-clagAggPortList = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 4))
-clagAggChannelIntf = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5))
-clagAggDistributionProtocol = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1, 1), ClagDistributionProtocol()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clagAggDistributionProtocol.setStatus('current')
-clagAggDistributionAddressMode = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1, 2), ClagDistributionAddressMode()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clagAggDistributionAddressMode.setStatus('current')
-clagAggDistributionMplsProtocol = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1, 3), ClagDistributionMplsProtocol()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clagAggDistributionMplsProtocol.setStatus('current')
-clagAggMaxAggregators = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1, 4), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: clagAggMaxAggregators.setStatus('current')
-clagAggHashDistMethodGlobalConfig = MibScalar((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("adaptive", 1), ("fixed", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clagAggHashDistMethodGlobalConfig.setStatus('current')
-clagAggProtocolTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 2, 1), )
-if mibBuilder.loadTexts: clagAggProtocolTable.setStatus('current')
-clagAggProtocolEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 2, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: clagAggProtocolEntry.setStatus('current')
-clagAggProtocolType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 2, 1, 1, 1), ClagAggregationProtocol()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clagAggProtocolType.setStatus('current')
-clagAggPortTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 3, 1), )
-if mibBuilder.loadTexts: clagAggPortTable.setStatus('current')
-clagAggPortEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 3, 1, 1), )
-dot3adAggPortEntry.registerAugmentions(("CISCO-LAG-MIB", "clagAggPortEntry"))
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_ClagMIBObjects_ObjectIdentity = ObjectIdentity
+clagMIBObjects = _ClagMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1)
+)
+_ClagGlobalConfigObjects_ObjectIdentity = ObjectIdentity
+clagGlobalConfigObjects = _ClagGlobalConfigObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1)
+)
+_ClagAggDistributionProtocol_Type = ClagDistributionProtocol
+_ClagAggDistributionProtocol_Object = MibScalar
+clagAggDistributionProtocol = _ClagAggDistributionProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1, 1),
+    _ClagAggDistributionProtocol_Type()
+)
+clagAggDistributionProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clagAggDistributionProtocol.setStatus("current")
+_ClagAggDistributionAddressMode_Type = ClagDistributionAddressMode
+_ClagAggDistributionAddressMode_Object = MibScalar
+clagAggDistributionAddressMode = _ClagAggDistributionAddressMode_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1, 2),
+    _ClagAggDistributionAddressMode_Type()
+)
+clagAggDistributionAddressMode.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clagAggDistributionAddressMode.setStatus("current")
+_ClagAggDistributionMplsProtocol_Type = ClagDistributionMplsProtocol
+_ClagAggDistributionMplsProtocol_Object = MibScalar
+clagAggDistributionMplsProtocol = _ClagAggDistributionMplsProtocol_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1, 3),
+    _ClagAggDistributionMplsProtocol_Type()
+)
+clagAggDistributionMplsProtocol.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clagAggDistributionMplsProtocol.setStatus("current")
+_ClagAggMaxAggregators_Type = Unsigned32
+_ClagAggMaxAggregators_Object = MibScalar
+clagAggMaxAggregators = _ClagAggMaxAggregators_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1, 4),
+    _ClagAggMaxAggregators_Type()
+)
+clagAggMaxAggregators.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    clagAggMaxAggregators.setStatus("current")
+
+
+class _ClagAggHashDistMethodGlobalConfig_Type(Integer32):
+    """Custom type clagAggHashDistMethodGlobalConfig based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("adaptive", 1),
+          ("fixed", 2))
+    )
+
+
+_ClagAggHashDistMethodGlobalConfig_Type.__name__ = "Integer32"
+_ClagAggHashDistMethodGlobalConfig_Object = MibScalar
+clagAggHashDistMethodGlobalConfig = _ClagAggHashDistMethodGlobalConfig_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 1, 5),
+    _ClagAggHashDistMethodGlobalConfig_Type()
+)
+clagAggHashDistMethodGlobalConfig.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clagAggHashDistMethodGlobalConfig.setStatus("current")
+_ClagAgg_ObjectIdentity = ObjectIdentity
+clagAgg = _ClagAgg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 2)
+)
+_ClagAggProtocolTable_Object = MibTable
+clagAggProtocolTable = _ClagAggProtocolTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 2, 1)
+)
+if mibBuilder.loadTexts:
+    clagAggProtocolTable.setStatus("current")
+_ClagAggProtocolEntry_Object = MibTableRow
+clagAggProtocolEntry = _ClagAggProtocolEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 2, 1, 1)
+)
+clagAggProtocolEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    clagAggProtocolEntry.setStatus("current")
+_ClagAggProtocolType_Type = ClagAggregationProtocol
+_ClagAggProtocolType_Object = MibTableColumn
+clagAggProtocolType = _ClagAggProtocolType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 2, 1, 1, 1),
+    _ClagAggProtocolType_Type()
+)
+clagAggProtocolType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clagAggProtocolType.setStatus("current")
+_ClagAggPort_ObjectIdentity = ObjectIdentity
+clagAggPort = _ClagAggPort_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 3)
+)
+_ClagAggPortTable_Object = MibTable
+clagAggPortTable = _ClagAggPortTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 3, 1)
+)
+if mibBuilder.loadTexts:
+    clagAggPortTable.setStatus("current")
+_ClagAggPortEntry_Object = MibTableRow
+clagAggPortEntry = _ClagAggPortEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 3, 1, 1)
+)
+if mibBuilder.loadTexts:
+    clagAggPortEntry.setStatus("current")
+_ClagAggPortAdminStatus_Type = ClagPortAdminStatus
+_ClagAggPortAdminStatus_Object = MibTableColumn
+clagAggPortAdminStatus = _ClagAggPortAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 3, 1, 1, 1),
+    _ClagAggPortAdminStatus_Type()
+)
+clagAggPortAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clagAggPortAdminStatus.setStatus("current")
+
+
+class _ClagAggPortRate_Type(Integer32):
+    """Custom type clagAggPortRate based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("fast", 1),
+          ("normal", 2))
+    )
+
+
+_ClagAggPortRate_Type.__name__ = "Integer32"
+_ClagAggPortRate_Object = MibTableColumn
+clagAggPortRate = _ClagAggPortRate_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 3, 1, 1, 2),
+    _ClagAggPortRate_Type()
+)
+clagAggPortRate.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clagAggPortRate.setStatus("current")
+_ClagAggPortList_ObjectIdentity = ObjectIdentity
+clagAggPortList = _ClagAggPortList_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 4)
+)
+_ClagAggPortListTable_Object = MibTable
+clagAggPortListTable = _ClagAggPortListTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 4, 1)
+)
+if mibBuilder.loadTexts:
+    clagAggPortListTable.setStatus("current")
+_ClagAggPortListEntry_Object = MibTableRow
+clagAggPortListEntry = _ClagAggPortListEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 4, 1, 1)
+)
+if mibBuilder.loadTexts:
+    clagAggPortListEntry.setStatus("current")
+
+
+class _ClagAggPortListPorts_Type(OctetString):
+    """Custom type clagAggPortListPorts based on OctetString"""
+    subtypeSpec = OctetString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(2, 256),
+    )
+
+
+_ClagAggPortListPorts_Type.__name__ = "OctetString"
+_ClagAggPortListPorts_Object = MibTableColumn
+clagAggPortListPorts = _ClagAggPortListPorts_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 4, 1, 1, 1),
+    _ClagAggPortListPorts_Type()
+)
+clagAggPortListPorts.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    clagAggPortListPorts.setStatus("current")
+_ClagAggPortListInterfaceIndexList_Type = CiscoInterfaceIndexList
+_ClagAggPortListInterfaceIndexList_Object = MibTableColumn
+clagAggPortListInterfaceIndexList = _ClagAggPortListInterfaceIndexList_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 4, 1, 1, 2),
+    _ClagAggPortListInterfaceIndexList_Type()
+)
+clagAggPortListInterfaceIndexList.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    clagAggPortListInterfaceIndexList.setStatus("current")
+_ClagAggChannelIntf_ObjectIdentity = ObjectIdentity
+clagAggChannelIntf = _ClagAggChannelIntf_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5)
+)
+_ClagAggChannelIfTable_Object = MibTable
+clagAggChannelIfTable = _ClagAggChannelIfTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1)
+)
+if mibBuilder.loadTexts:
+    clagAggChannelIfTable.setStatus("current")
+_ClagAggChannelIfEntry_Object = MibTableRow
+clagAggChannelIfEntry = _ClagAggChannelIfEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1)
+)
+clagAggChannelIfEntry.setIndexNames(
+    (0, "IF-MIB", "ifIndex"),
+)
+if mibBuilder.loadTexts:
+    clagAggChannelIfEntry.setStatus("current")
+_ClagAggChannelIfFastSwitchOver_Type = TruthValue
+_ClagAggChannelIfFastSwitchOver_Object = MibTableColumn
+clagAggChannelIfFastSwitchOver = _ClagAggChannelIfFastSwitchOver_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1, 1),
+    _ClagAggChannelIfFastSwitchOver_Type()
+)
+clagAggChannelIfFastSwitchOver.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clagAggChannelIfFastSwitchOver.setStatus("current")
+
+
+class _ClagAggChannelIfMaxBundle_Type(Unsigned32):
+    """Custom type clagAggChannelIfMaxBundle based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 4294967295),
+    )
+
+
+_ClagAggChannelIfMaxBundle_Type.__name__ = "Unsigned32"
+_ClagAggChannelIfMaxBundle_Object = MibTableColumn
+clagAggChannelIfMaxBundle = _ClagAggChannelIfMaxBundle_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1, 2),
+    _ClagAggChannelIfMaxBundle_Type()
+)
+clagAggChannelIfMaxBundle.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clagAggChannelIfMaxBundle.setStatus("current")
+_ClagAggChannelIfMinLink_Type = Unsigned32
+_ClagAggChannelIfMinLink_Object = MibTableColumn
+clagAggChannelIfMinLink = _ClagAggChannelIfMinLink_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1, 3),
+    _ClagAggChannelIfMinLink_Type()
+)
+clagAggChannelIfMinLink.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clagAggChannelIfMinLink.setStatus("current")
+
+
+class _ClagAggChannelIfHashDistAdminMethod_Type(Integer32):
+    """Custom type clagAggChannelIfHashDistAdminMethod based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("none", 1),
+          ("adaptive", 2),
+          ("fixed", 3))
+    )
+
+
+_ClagAggChannelIfHashDistAdminMethod_Type.__name__ = "Integer32"
+_ClagAggChannelIfHashDistAdminMethod_Object = MibTableColumn
+clagAggChannelIfHashDistAdminMethod = _ClagAggChannelIfHashDistAdminMethod_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1, 4),
+    _ClagAggChannelIfHashDistAdminMethod_Type()
+)
+clagAggChannelIfHashDistAdminMethod.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    clagAggChannelIfHashDistAdminMethod.setStatus("current")
+
+
+class _ClagAggChannelIfHashDistOperMethod_Type(Integer32):
+    """Custom type clagAggChannelIfHashDistOperMethod based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("other", 1),
+          ("adaptive", 2),
+          ("fixed", 3))
+    )
+
+
+_ClagAggChannelIfHashDistOperMethod_Type.__name__ = "Integer32"
+_ClagAggChannelIfHashDistOperMethod_Object = MibTableColumn
+clagAggChannelIfHashDistOperMethod = _ClagAggChannelIfHashDistOperMethod_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1, 5),
+    _ClagAggChannelIfHashDistOperMethod_Type()
+)
+clagAggChannelIfHashDistOperMethod.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    clagAggChannelIfHashDistOperMethod.setStatus("current")
+_ClagMIBNotifications_ObjectIdentity = ObjectIdentity
+clagMIBNotifications = _ClagMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 2)
+)
+_ClagMIBConformance_ObjectIdentity = ObjectIdentity
+clagMIBConformance = _ClagMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3)
+)
+_ClagMIBCompliances_ObjectIdentity = ObjectIdentity
+clagMIBCompliances = _ClagMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1)
+)
+_ClagMIBGroups_ObjectIdentity = ObjectIdentity
+clagMIBGroups = _ClagMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2)
+)
+dot3adAggPortEntry.registerAugmentions(
+    ("CISCO-LAG-MIB",
+     "clagAggPortEntry")
+)
 clagAggPortEntry.setIndexNames(*dot3adAggPortEntry.getIndexNames())
-if mibBuilder.loadTexts: clagAggPortEntry.setStatus('current')
-clagAggPortAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 3, 1, 1, 1), ClagPortAdminStatus()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clagAggPortAdminStatus.setStatus('current')
-clagAggPortRate = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 3, 1, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("fast", 1), ("normal", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clagAggPortRate.setStatus('current')
-clagAggPortListTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 4, 1), )
-if mibBuilder.loadTexts: clagAggPortListTable.setStatus('current')
-clagAggPortListEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 4, 1, 1), )
-dot3adAggPortListEntry.registerAugmentions(("CISCO-LAG-MIB", "clagAggPortListEntry"))
+dot3adAggPortListEntry.registerAugmentions(
+    ("CISCO-LAG-MIB",
+     "clagAggPortListEntry")
+)
 clagAggPortListEntry.setIndexNames(*dot3adAggPortListEntry.getIndexNames())
-if mibBuilder.loadTexts: clagAggPortListEntry.setStatus('current')
-clagAggPortListPorts = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 4, 1, 1, 1), OctetString().subtype(subtypeSpec=ValueSizeConstraint(2, 256))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: clagAggPortListPorts.setStatus('current')
-clagAggPortListInterfaceIndexList = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 4, 1, 1, 2), CiscoInterfaceIndexList()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: clagAggPortListInterfaceIndexList.setStatus('current')
-clagAggChannelIfTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1), )
-if mibBuilder.loadTexts: clagAggChannelIfTable.setStatus('current')
-clagAggChannelIfEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1), ).setIndexNames((0, "IF-MIB", "ifIndex"))
-if mibBuilder.loadTexts: clagAggChannelIfEntry.setStatus('current')
-clagAggChannelIfFastSwitchOver = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clagAggChannelIfFastSwitchOver.setStatus('current')
-clagAggChannelIfMaxBundle = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1, 2), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 4294967295))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clagAggChannelIfMaxBundle.setStatus('current')
-clagAggChannelIfMinLink = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1, 3), Unsigned32()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clagAggChannelIfMinLink.setStatus('current')
-clagAggChannelIfHashDistAdminMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("none", 1), ("adaptive", 2), ("fixed", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: clagAggChannelIfHashDistAdminMethod.setStatus('current')
-clagAggChannelIfHashDistOperMethod = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 225, 1, 5, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("other", 1), ("adaptive", 2), ("fixed", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: clagAggChannelIfHashDistOperMethod.setStatus('current')
-clagMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 225, 2))
-clagMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 225, 3))
-clagMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1))
-clagMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2))
-clagMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 1)).setObjects(("CISCO-LAG-MIB", "clagAggProtocolGroup"), ("CISCO-LAG-MIB", "clagAggPortGroup"), ("CISCO-LAG-MIB", "clagAggDistributionGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagMIBCompliance = clagMIBCompliance.setStatus('deprecated')
-clagMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 2)).setObjects(("CISCO-LAG-MIB", "clagAggProtocolGroup"), ("CISCO-LAG-MIB", "clagAggPortGroup"), ("CISCO-LAG-MIB", "clagAggDistributionGroup"), ("CISCO-LAG-MIB", "clagAggDistributionMplsGroup"))
+# Managed Objects groups
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagMIBCompliance2 = clagMIBCompliance2.setStatus('deprecated')
-clagMIBCompliance3 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 3)).setObjects(("CISCO-LAG-MIB", "clagAggProtocolGroup"), ("CISCO-LAG-MIB", "clagAggPortGroup"), ("CISCO-LAG-MIB", "clagAggDistributionGroup"), ("CISCO-LAG-MIB", "clagAggDistributionMplsGroup"), ("CISCO-LAG-MIB", "clagAggPortListGroup"))
+clagAggProtocolGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 1)
+)
+clagAggProtocolGroup.setObjects(
+    ("CISCO-LAG-MIB", "clagAggProtocolType")
+)
+if mibBuilder.loadTexts:
+    clagAggProtocolGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagMIBCompliance3 = clagMIBCompliance3.setStatus('deprecated')
-clagMIBCompliance4 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 4)).setObjects(("CISCO-LAG-MIB", "clagAggProtocolGroup"), ("CISCO-LAG-MIB", "clagAggPortGroup"), ("CISCO-LAG-MIB", "clagAggDistributionGroup"), ("CISCO-LAG-MIB", "clagAggDistributionMplsGroup"), ("CISCO-LAG-MIB", "clagAggPortListGroup"), ("CISCO-LAG-MIB", "clagAggMaxAggregatorsGroup"))
+clagAggPortGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 2)
+)
+clagAggPortGroup.setObjects(
+    ("CISCO-LAG-MIB", "clagAggPortAdminStatus")
+)
+if mibBuilder.loadTexts:
+    clagAggPortGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagMIBCompliance4 = clagMIBCompliance4.setStatus('deprecated')
-clagMIBCompliance5 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 5)).setObjects(("CISCO-LAG-MIB", "clagAggProtocolGroup"), ("CISCO-LAG-MIB", "clagAggPortGroup"), ("CISCO-LAG-MIB", "clagAggDistributionGroup"), ("CISCO-LAG-MIB", "clagAggDistributionMplsGroup"), ("CISCO-LAG-MIB", "clagAggPortListGroup"), ("CISCO-LAG-MIB", "clagAggMaxAggregatorsGroup"), ("CISCO-LAG-MIB", "clagAggRateGroup"), ("CISCO-LAG-MIB", "clagAggChannelIfLacpGroup"), ("CISCO-LAG-MIB", "clagAggChannelIfHashDistMethodGroup"), ("CISCO-LAG-MIB", "clagAggHashDistGlobalGroup"), ("CISCO-LAG-MIB", "clagAggChannelIfMinLinkGroup"))
+clagAggDistributionGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 3)
+)
+clagAggDistributionGroup.setObjects(
+      *(("CISCO-LAG-MIB", "clagAggDistributionProtocol"),
+        ("CISCO-LAG-MIB", "clagAggDistributionAddressMode"))
+)
+if mibBuilder.loadTexts:
+    clagAggDistributionGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagMIBCompliance5 = clagMIBCompliance5.setStatus('deprecated')
-clagMIBCompliance6 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 6)).setObjects(("CISCO-LAG-MIB", "clagAggProtocolGroup"), ("CISCO-LAG-MIB", "clagAggPortGroup"), ("CISCO-LAG-MIB", "clagAggDistributionGroup"), ("CISCO-LAG-MIB", "clagAggDistributionMplsGroup"), ("CISCO-LAG-MIB", "clagAggPortListGroup"), ("CISCO-LAG-MIB", "clagAggMaxAggregatorsGroup"), ("CISCO-LAG-MIB", "clagAggRateGroup"), ("CISCO-LAG-MIB", "clagAggChannelIfLacpGroup"), ("CISCO-LAG-MIB", "clagAggChannelIfHashDistMethodGroup"), ("CISCO-LAG-MIB", "clagAggHashDistGlobalGroup"), ("CISCO-LAG-MIB", "clagAggChannelIfMinLinkGroup"), ("CISCO-LAG-MIB", "clagAggPortListInterfaceIndexGroup"))
+clagAggDistributionMplsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 4)
+)
+clagAggDistributionMplsGroup.setObjects(
+    ("CISCO-LAG-MIB", "clagAggDistributionMplsProtocol")
+)
+if mibBuilder.loadTexts:
+    clagAggDistributionMplsGroup.setStatus("current")
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagMIBCompliance6 = clagMIBCompliance6.setStatus('current')
-clagAggProtocolGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 1)).setObjects(("CISCO-LAG-MIB", "clagAggProtocolType"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggProtocolGroup = clagAggProtocolGroup.setStatus('current')
-clagAggPortGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 2)).setObjects(("CISCO-LAG-MIB", "clagAggPortAdminStatus"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggPortGroup = clagAggPortGroup.setStatus('current')
-clagAggDistributionGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 3)).setObjects(("CISCO-LAG-MIB", "clagAggDistributionProtocol"), ("CISCO-LAG-MIB", "clagAggDistributionAddressMode"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggDistributionGroup = clagAggDistributionGroup.setStatus('current')
-clagAggDistributionMplsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 4)).setObjects(("CISCO-LAG-MIB", "clagAggDistributionMplsProtocol"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggDistributionMplsGroup = clagAggDistributionMplsGroup.setStatus('current')
-clagAggPortListGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 5)).setObjects(("CISCO-LAG-MIB", "clagAggPortListPorts"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggPortListGroup = clagAggPortListGroup.setStatus('current')
-clagAggMaxAggregatorsGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 6)).setObjects(("CISCO-LAG-MIB", "clagAggMaxAggregators"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggMaxAggregatorsGroup = clagAggMaxAggregatorsGroup.setStatus('current')
-clagAggRateGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 7)).setObjects(("CISCO-LAG-MIB", "clagAggPortRate"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggRateGroup = clagAggRateGroup.setStatus('current')
-clagAggChannelIfLacpGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 8)).setObjects(("CISCO-LAG-MIB", "clagAggChannelIfFastSwitchOver"), ("CISCO-LAG-MIB", "clagAggChannelIfMaxBundle"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggChannelIfLacpGroup = clagAggChannelIfLacpGroup.setStatus('current')
-clagAggChannelIfHashDistMethodGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 9)).setObjects(("CISCO-LAG-MIB", "clagAggChannelIfHashDistAdminMethod"), ("CISCO-LAG-MIB", "clagAggChannelIfHashDistOperMethod"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggChannelIfHashDistMethodGroup = clagAggChannelIfHashDistMethodGroup.setStatus('current')
-clagAggHashDistGlobalGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 10)).setObjects(("CISCO-LAG-MIB", "clagAggHashDistMethodGlobalConfig"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggHashDistGlobalGroup = clagAggHashDistGlobalGroup.setStatus('current')
-clagAggChannelIfMinLinkGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 11)).setObjects(("CISCO-LAG-MIB", "clagAggChannelIfMinLink"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggChannelIfMinLinkGroup = clagAggChannelIfMinLinkGroup.setStatus('current')
-clagAggPortListInterfaceIndexGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 12)).setObjects(("CISCO-LAG-MIB", "clagAggPortListInterfaceIndexList"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    clagAggPortListInterfaceIndexGroup = clagAggPortListInterfaceIndexGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-LAG-MIB", clagAggPortListTable=clagAggPortListTable, clagAgg=clagAgg, clagAggChannelIfMinLink=clagAggChannelIfMinLink, clagAggPort=clagAggPort, clagMIBGroups=clagMIBGroups, clagAggHashDistMethodGlobalConfig=clagAggHashDistMethodGlobalConfig, clagAggProtocolEntry=clagAggProtocolEntry, clagAggDistributionMplsGroup=clagAggDistributionMplsGroup, clagAggDistributionProtocol=clagAggDistributionProtocol, clagAggProtocolGroup=clagAggProtocolGroup, clagAggDistributionMplsProtocol=clagAggDistributionMplsProtocol, clagAggChannelIfHashDistAdminMethod=clagAggChannelIfHashDistAdminMethod, clagAggPortRate=clagAggPortRate, clagAggChannelIfEntry=clagAggChannelIfEntry, clagMIBCompliance6=clagMIBCompliance6, clagAggPortListPorts=clagAggPortListPorts, PYSNMP_MODULE_ID=ciscoLagMIB, clagAggChannelIfHashDistOperMethod=clagAggChannelIfHashDistOperMethod, clagAggPortListInterfaceIndexList=clagAggPortListInterfaceIndexList, clagMIBConformance=clagMIBConformance, clagMIBCompliance4=clagMIBCompliance4, clagAggPortGroup=clagAggPortGroup, clagAggHashDistGlobalGroup=clagAggHashDistGlobalGroup, clagAggPortListEntry=clagAggPortListEntry, clagAggDistributionGroup=clagAggDistributionGroup, clagAggProtocolType=clagAggProtocolType, clagAggChannelIfLacpGroup=clagAggChannelIfLacpGroup, clagAggChannelIfMinLinkGroup=clagAggChannelIfMinLinkGroup, clagMIBObjects=clagMIBObjects, clagAggChannelIfFastSwitchOver=clagAggChannelIfFastSwitchOver, ciscoLagMIB=ciscoLagMIB, clagAggDistributionAddressMode=clagAggDistributionAddressMode, clagAggRateGroup=clagAggRateGroup, clagAggChannelIfMaxBundle=clagAggChannelIfMaxBundle, clagMIBCompliance=clagMIBCompliance, ClagDistributionProtocol=ClagDistributionProtocol, clagAggChannelIfTable=clagAggChannelIfTable, clagMIBCompliance2=clagMIBCompliance2, clagAggPortListInterfaceIndexGroup=clagAggPortListInterfaceIndexGroup, clagAggPortAdminStatus=clagAggPortAdminStatus, clagMIBCompliances=clagMIBCompliances, clagAggMaxAggregatorsGroup=clagAggMaxAggregatorsGroup, clagAggMaxAggregators=clagAggMaxAggregators, ClagDistributionAddressMode=ClagDistributionAddressMode, clagAggChannelIfHashDistMethodGroup=clagAggChannelIfHashDistMethodGroup, clagMIBCompliance5=clagMIBCompliance5, ClagDistributionMplsProtocol=ClagDistributionMplsProtocol, ClagAggregationProtocol=ClagAggregationProtocol, ClagPortAdminStatus=ClagPortAdminStatus, clagMIBCompliance3=clagMIBCompliance3, clagAggProtocolTable=clagAggProtocolTable, clagAggPortList=clagAggPortList, clagAggPortListGroup=clagAggPortListGroup, clagAggChannelIntf=clagAggChannelIntf, clagAggPortEntry=clagAggPortEntry, clagAggPortTable=clagAggPortTable, clagGlobalConfigObjects=clagGlobalConfigObjects, clagMIBNotifications=clagMIBNotifications)
+clagAggPortListGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 5)
+)
+clagAggPortListGroup.setObjects(
+    ("CISCO-LAG-MIB", "clagAggPortListPorts")
+)
+if mibBuilder.loadTexts:
+    clagAggPortListGroup.setStatus("current")
+
+clagAggMaxAggregatorsGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 6)
+)
+clagAggMaxAggregatorsGroup.setObjects(
+    ("CISCO-LAG-MIB", "clagAggMaxAggregators")
+)
+if mibBuilder.loadTexts:
+    clagAggMaxAggregatorsGroup.setStatus("current")
+
+clagAggRateGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 7)
+)
+clagAggRateGroup.setObjects(
+    ("CISCO-LAG-MIB", "clagAggPortRate")
+)
+if mibBuilder.loadTexts:
+    clagAggRateGroup.setStatus("current")
+
+clagAggChannelIfLacpGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 8)
+)
+clagAggChannelIfLacpGroup.setObjects(
+      *(("CISCO-LAG-MIB", "clagAggChannelIfFastSwitchOver"),
+        ("CISCO-LAG-MIB", "clagAggChannelIfMaxBundle"))
+)
+if mibBuilder.loadTexts:
+    clagAggChannelIfLacpGroup.setStatus("current")
+
+clagAggChannelIfHashDistMethodGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 9)
+)
+clagAggChannelIfHashDistMethodGroup.setObjects(
+      *(("CISCO-LAG-MIB", "clagAggChannelIfHashDistAdminMethod"),
+        ("CISCO-LAG-MIB", "clagAggChannelIfHashDistOperMethod"))
+)
+if mibBuilder.loadTexts:
+    clagAggChannelIfHashDistMethodGroup.setStatus("current")
+
+clagAggHashDistGlobalGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 10)
+)
+clagAggHashDistGlobalGroup.setObjects(
+    ("CISCO-LAG-MIB", "clagAggHashDistMethodGlobalConfig")
+)
+if mibBuilder.loadTexts:
+    clagAggHashDistGlobalGroup.setStatus("current")
+
+clagAggChannelIfMinLinkGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 11)
+)
+clagAggChannelIfMinLinkGroup.setObjects(
+    ("CISCO-LAG-MIB", "clagAggChannelIfMinLink")
+)
+if mibBuilder.loadTexts:
+    clagAggChannelIfMinLinkGroup.setStatus("current")
+
+clagAggPortListInterfaceIndexGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 2, 12)
+)
+clagAggPortListInterfaceIndexGroup.setObjects(
+    ("CISCO-LAG-MIB", "clagAggPortListInterfaceIndexList")
+)
+if mibBuilder.loadTexts:
+    clagAggPortListInterfaceIndexGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+clagMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 1)
+)
+clagMIBCompliance.setObjects(
+      *(("CISCO-LAG-MIB", "clagAggProtocolGroup"),
+        ("CISCO-LAG-MIB", "clagAggPortGroup"),
+        ("CISCO-LAG-MIB", "clagAggDistributionGroup"))
+)
+if mibBuilder.loadTexts:
+    clagMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+clagMIBCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 2)
+)
+clagMIBCompliance2.setObjects(
+      *(("CISCO-LAG-MIB", "clagAggProtocolGroup"),
+        ("CISCO-LAG-MIB", "clagAggPortGroup"),
+        ("CISCO-LAG-MIB", "clagAggDistributionGroup"),
+        ("CISCO-LAG-MIB", "clagAggDistributionMplsGroup"))
+)
+if mibBuilder.loadTexts:
+    clagMIBCompliance2.setStatus(
+        "deprecated"
+    )
+
+clagMIBCompliance3 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 3)
+)
+clagMIBCompliance3.setObjects(
+      *(("CISCO-LAG-MIB", "clagAggProtocolGroup"),
+        ("CISCO-LAG-MIB", "clagAggPortGroup"),
+        ("CISCO-LAG-MIB", "clagAggDistributionGroup"),
+        ("CISCO-LAG-MIB", "clagAggDistributionMplsGroup"),
+        ("CISCO-LAG-MIB", "clagAggPortListGroup"))
+)
+if mibBuilder.loadTexts:
+    clagMIBCompliance3.setStatus(
+        "deprecated"
+    )
+
+clagMIBCompliance4 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 4)
+)
+clagMIBCompliance4.setObjects(
+      *(("CISCO-LAG-MIB", "clagAggProtocolGroup"),
+        ("CISCO-LAG-MIB", "clagAggPortGroup"),
+        ("CISCO-LAG-MIB", "clagAggDistributionGroup"),
+        ("CISCO-LAG-MIB", "clagAggDistributionMplsGroup"),
+        ("CISCO-LAG-MIB", "clagAggPortListGroup"),
+        ("CISCO-LAG-MIB", "clagAggMaxAggregatorsGroup"))
+)
+if mibBuilder.loadTexts:
+    clagMIBCompliance4.setStatus(
+        "deprecated"
+    )
+
+clagMIBCompliance5 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 5)
+)
+clagMIBCompliance5.setObjects(
+      *(("CISCO-LAG-MIB", "clagAggProtocolGroup"),
+        ("CISCO-LAG-MIB", "clagAggPortGroup"),
+        ("CISCO-LAG-MIB", "clagAggDistributionGroup"),
+        ("CISCO-LAG-MIB", "clagAggDistributionMplsGroup"),
+        ("CISCO-LAG-MIB", "clagAggPortListGroup"),
+        ("CISCO-LAG-MIB", "clagAggMaxAggregatorsGroup"),
+        ("CISCO-LAG-MIB", "clagAggRateGroup"),
+        ("CISCO-LAG-MIB", "clagAggChannelIfLacpGroup"),
+        ("CISCO-LAG-MIB", "clagAggChannelIfHashDistMethodGroup"),
+        ("CISCO-LAG-MIB", "clagAggHashDistGlobalGroup"),
+        ("CISCO-LAG-MIB", "clagAggChannelIfMinLinkGroup"))
+)
+if mibBuilder.loadTexts:
+    clagMIBCompliance5.setStatus(
+        "deprecated"
+    )
+
+clagMIBCompliance6 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 225, 3, 1, 6)
+)
+clagMIBCompliance6.setObjects(
+      *(("CISCO-LAG-MIB", "clagAggProtocolGroup"),
+        ("CISCO-LAG-MIB", "clagAggPortGroup"),
+        ("CISCO-LAG-MIB", "clagAggDistributionGroup"),
+        ("CISCO-LAG-MIB", "clagAggDistributionMplsGroup"),
+        ("CISCO-LAG-MIB", "clagAggPortListGroup"),
+        ("CISCO-LAG-MIB", "clagAggMaxAggregatorsGroup"),
+        ("CISCO-LAG-MIB", "clagAggRateGroup"),
+        ("CISCO-LAG-MIB", "clagAggChannelIfLacpGroup"),
+        ("CISCO-LAG-MIB", "clagAggChannelIfHashDistMethodGroup"),
+        ("CISCO-LAG-MIB", "clagAggHashDistGlobalGroup"),
+        ("CISCO-LAG-MIB", "clagAggChannelIfMinLinkGroup"),
+        ("CISCO-LAG-MIB", "clagAggPortListInterfaceIndexGroup"))
+)
+if mibBuilder.loadTexts:
+    clagMIBCompliance6.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-LAG-MIB",
+    **{"ClagDistributionProtocol": ClagDistributionProtocol,
+       "ClagDistributionAddressMode": ClagDistributionAddressMode,
+       "ClagDistributionMplsProtocol": ClagDistributionMplsProtocol,
+       "ClagAggregationProtocol": ClagAggregationProtocol,
+       "ClagPortAdminStatus": ClagPortAdminStatus,
+       "ciscoLagMIB": ciscoLagMIB,
+       "clagMIBObjects": clagMIBObjects,
+       "clagGlobalConfigObjects": clagGlobalConfigObjects,
+       "clagAggDistributionProtocol": clagAggDistributionProtocol,
+       "clagAggDistributionAddressMode": clagAggDistributionAddressMode,
+       "clagAggDistributionMplsProtocol": clagAggDistributionMplsProtocol,
+       "clagAggMaxAggregators": clagAggMaxAggregators,
+       "clagAggHashDistMethodGlobalConfig": clagAggHashDistMethodGlobalConfig,
+       "clagAgg": clagAgg,
+       "clagAggProtocolTable": clagAggProtocolTable,
+       "clagAggProtocolEntry": clagAggProtocolEntry,
+       "clagAggProtocolType": clagAggProtocolType,
+       "clagAggPort": clagAggPort,
+       "clagAggPortTable": clagAggPortTable,
+       "clagAggPortEntry": clagAggPortEntry,
+       "clagAggPortAdminStatus": clagAggPortAdminStatus,
+       "clagAggPortRate": clagAggPortRate,
+       "clagAggPortList": clagAggPortList,
+       "clagAggPortListTable": clagAggPortListTable,
+       "clagAggPortListEntry": clagAggPortListEntry,
+       "clagAggPortListPorts": clagAggPortListPorts,
+       "clagAggPortListInterfaceIndexList": clagAggPortListInterfaceIndexList,
+       "clagAggChannelIntf": clagAggChannelIntf,
+       "clagAggChannelIfTable": clagAggChannelIfTable,
+       "clagAggChannelIfEntry": clagAggChannelIfEntry,
+       "clagAggChannelIfFastSwitchOver": clagAggChannelIfFastSwitchOver,
+       "clagAggChannelIfMaxBundle": clagAggChannelIfMaxBundle,
+       "clagAggChannelIfMinLink": clagAggChannelIfMinLink,
+       "clagAggChannelIfHashDistAdminMethod": clagAggChannelIfHashDistAdminMethod,
+       "clagAggChannelIfHashDistOperMethod": clagAggChannelIfHashDistOperMethod,
+       "clagMIBNotifications": clagMIBNotifications,
+       "clagMIBConformance": clagMIBConformance,
+       "clagMIBCompliances": clagMIBCompliances,
+       "clagMIBCompliance": clagMIBCompliance,
+       "clagMIBCompliance2": clagMIBCompliance2,
+       "clagMIBCompliance3": clagMIBCompliance3,
+       "clagMIBCompliance4": clagMIBCompliance4,
+       "clagMIBCompliance5": clagMIBCompliance5,
+       "clagMIBCompliance6": clagMIBCompliance6,
+       "clagMIBGroups": clagMIBGroups,
+       "clagAggProtocolGroup": clagAggProtocolGroup,
+       "clagAggPortGroup": clagAggPortGroup,
+       "clagAggDistributionGroup": clagAggDistributionGroup,
+       "clagAggDistributionMplsGroup": clagAggDistributionMplsGroup,
+       "clagAggPortListGroup": clagAggPortListGroup,
+       "clagAggMaxAggregatorsGroup": clagAggMaxAggregatorsGroup,
+       "clagAggRateGroup": clagAggRateGroup,
+       "clagAggChannelIfLacpGroup": clagAggChannelIfLacpGroup,
+       "clagAggChannelIfHashDistMethodGroup": clagAggChannelIfHashDistMethodGroup,
+       "clagAggHashDistGlobalGroup": clagAggHashDistGlobalGroup,
+       "clagAggChannelIfMinLinkGroup": clagAggChannelIfMinLinkGroup,
+       "clagAggPortListInterfaceIndexGroup": clagAggPortListInterfaceIndexGroup}
+)

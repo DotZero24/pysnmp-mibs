@@ -1,35 +1,301 @@
+# SNMP MIB module (CT-DAREGISTRY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CT-DAREGISTRY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cabletron/CT-DAREGISTRY-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:13:08 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cabletron/CT-DAREGISTRY-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:54:08 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-cabletron, = mibBuilder.importSymbols("CTRON-OIDS", "cabletron")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-ctSSA = MibIdentifier((1, 3, 6, 1, 4, 1, 52, 4497))
-class DisplayString(OctetString):
-    pass
 
-ctDARegistryTable = MibTable((1, 3, 6, 1, 4, 1, 52, 4497, 1), )
-if mibBuilder.loadTexts: ctDARegistryTable.setStatus('mandatory')
-ctDARegistryEntry = MibTableRow((1, 3, 6, 1, 4, 1, 52, 4497, 1, 1), ).setIndexNames((0, "CT-DAREGISTRY-MIB", "ctDARegistryIndex"), (0, "CT-DAREGISTRY-MIB", "ctDARegistryInstance"))
-if mibBuilder.loadTexts: ctDARegistryEntry.setStatus('mandatory')
-ctDARegistryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctDARegistryIndex.setStatus('mandatory')
-ctDARegistryInstance = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 2), Integer32().subtype(subtypeSpec=ValueRangeConstraint(0, 2147483647))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctDARegistryInstance.setStatus('mandatory')
-ctDARegistryAdminStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ctDARegistryAdminStatus.setStatus('mandatory')
-ctDARegistryOperStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7))).clone(namedValues=NamedValues(("up", 1), ("down", 2), ("testing", 3), ("unknown", 4), ("dormant", 5), ("notPresent", 6), ("lowerLayerDown", 7)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctDARegistryOperStatus.setStatus('mandatory')
-ctDARegistryLastChange = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 5), TimeTicks()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctDARegistryLastChange.setStatus('mandatory')
-ctDARegistryDescr = MibTableColumn((1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 6), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 255))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ctDARegistryDescr.setStatus('mandatory')
-mibBuilder.exportSymbols("CT-DAREGISTRY-MIB", ctDARegistryTable=ctDARegistryTable, ctDARegistryLastChange=ctDARegistryLastChange, ctSSA=ctSSA, DisplayString=DisplayString, ctDARegistryEntry=ctDARegistryEntry, ctDARegistryAdminStatus=ctDARegistryAdminStatus, ctDARegistryOperStatus=ctDARegistryOperStatus, ctDARegistryIndex=ctDARegistryIndex, ctDARegistryInstance=ctDARegistryInstance, ctDARegistryDescr=ctDARegistryDescr)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(cabletron,) = mibBuilder.importSymbols(
+    "CTRON-OIDS",
+    "cabletron")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+
+class DisplayString(OctetString):
+    """Custom type DisplayString based on OctetString"""
+
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_CtSSA_ObjectIdentity = ObjectIdentity
+ctSSA = _CtSSA_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 52, 4497)
+)
+_CtDARegistryTable_Object = MibTable
+ctDARegistryTable = _CtDARegistryTable_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 1)
+)
+if mibBuilder.loadTexts:
+    ctDARegistryTable.setStatus("mandatory")
+_CtDARegistryEntry_Object = MibTableRow
+ctDARegistryEntry = _CtDARegistryEntry_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 1, 1)
+)
+ctDARegistryEntry.setIndexNames(
+    (0, "CT-DAREGISTRY-MIB", "ctDARegistryIndex"),
+    (0, "CT-DAREGISTRY-MIB", "ctDARegistryInstance"),
+)
+if mibBuilder.loadTexts:
+    ctDARegistryEntry.setStatus("mandatory")
+
+
+class _CtDARegistryIndex_Type(Integer32):
+    """Custom type ctDARegistryIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_CtDARegistryIndex_Type.__name__ = "Integer32"
+_CtDARegistryIndex_Object = MibTableColumn
+ctDARegistryIndex = _CtDARegistryIndex_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 1),
+    _CtDARegistryIndex_Type()
+)
+ctDARegistryIndex.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctDARegistryIndex.setStatus("mandatory")
+
+
+class _CtDARegistryInstance_Type(Integer32):
+    """Custom type ctDARegistryInstance based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(0, 2147483647),
+    )
+
+
+_CtDARegistryInstance_Type.__name__ = "Integer32"
+_CtDARegistryInstance_Object = MibTableColumn
+ctDARegistryInstance = _CtDARegistryInstance_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 2),
+    _CtDARegistryInstance_Type()
+)
+ctDARegistryInstance.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctDARegistryInstance.setStatus("mandatory")
+
+
+class _CtDARegistryAdminStatus_Type(Integer32):
+    """Custom type ctDARegistryAdminStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2),
+          ("testing", 3))
+    )
+
+
+_CtDARegistryAdminStatus_Type.__name__ = "Integer32"
+_CtDARegistryAdminStatus_Object = MibTableColumn
+ctDARegistryAdminStatus = _CtDARegistryAdminStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 3),
+    _CtDARegistryAdminStatus_Type()
+)
+ctDARegistryAdminStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ctDARegistryAdminStatus.setStatus("mandatory")
+
+
+class _CtDARegistryOperStatus_Type(Integer32):
+    """Custom type ctDARegistryOperStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7)
+        )
+    )
+    namedValues = NamedValues(
+        *(("up", 1),
+          ("down", 2),
+          ("testing", 3),
+          ("unknown", 4),
+          ("dormant", 5),
+          ("notPresent", 6),
+          ("lowerLayerDown", 7))
+    )
+
+
+_CtDARegistryOperStatus_Type.__name__ = "Integer32"
+_CtDARegistryOperStatus_Object = MibTableColumn
+ctDARegistryOperStatus = _CtDARegistryOperStatus_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 4),
+    _CtDARegistryOperStatus_Type()
+)
+ctDARegistryOperStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctDARegistryOperStatus.setStatus("mandatory")
+_CtDARegistryLastChange_Type = TimeTicks
+_CtDARegistryLastChange_Object = MibTableColumn
+ctDARegistryLastChange = _CtDARegistryLastChange_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 5),
+    _CtDARegistryLastChange_Type()
+)
+ctDARegistryLastChange.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctDARegistryLastChange.setStatus("mandatory")
+
+
+class _CtDARegistryDescr_Type(DisplayString):
+    """Custom type ctDARegistryDescr based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 255),
+    )
+
+
+_CtDARegistryDescr_Type.__name__ = "DisplayString"
+_CtDARegistryDescr_Object = MibTableColumn
+ctDARegistryDescr = _CtDARegistryDescr_Object(
+    (1, 3, 6, 1, 4, 1, 52, 4497, 1, 1, 6),
+    _CtDARegistryDescr_Type()
+)
+ctDARegistryDescr.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ctDARegistryDescr.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CT-DAREGISTRY-MIB",
+    **{"DisplayString": DisplayString,
+       "ctSSA": ctSSA,
+       "ctDARegistryTable": ctDARegistryTable,
+       "ctDARegistryEntry": ctDARegistryEntry,
+       "ctDARegistryIndex": ctDARegistryIndex,
+       "ctDARegistryInstance": ctDARegistryInstance,
+       "ctDARegistryAdminStatus": ctDARegistryAdminStatus,
+       "ctDARegistryOperStatus": ctDARegistryOperStatus,
+       "ctDARegistryLastChange": ctDARegistryLastChange,
+       "ctDARegistryDescr": ctDARegistryDescr}
+)

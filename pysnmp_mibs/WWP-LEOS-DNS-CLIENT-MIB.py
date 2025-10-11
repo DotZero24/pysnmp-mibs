@@ -1,72 +1,531 @@
+# SNMP MIB module (WWP-LEOS-DNS-CLIENT-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module WWP-LEOS-DNS-CLIENT-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/ciena/WWP-LEOS-DNS-CLIENT-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:11:10 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/ciena/WWP-LEOS-DNS-CLIENT-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:47:23 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-InetAddressType, InetAddress = mibBuilder.importSymbols("INET-ADDRESS-MIB", "InetAddressType", "InetAddress")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-RowStatus, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "RowStatus", "TextualConvention", "DisplayString")
-wwpModulesLeos, = mibBuilder.importSymbols("WWP-SMI", "wwpModulesLeos")
-wwpLeosDnsClientMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16))
-wwpLeosDnsClientMIB.setRevisions(('2012-03-20 07:00', '2003-03-19 10:12',))
-if mibBuilder.loadTexts: wwpLeosDnsClientMIB.setLastUpdated('201203200700Z')
-if mibBuilder.loadTexts: wwpLeosDnsClientMIB.setOrganization(' Ciena Inc')
-wwpLeosDnsClientMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1))
-wwpLeosDnsClient = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1))
-wwpLeosDnsClientMIBNotificationPrefix = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 2))
-wwpLeosDnsClientMIBNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 2, 0))
-wwpLeosDnsClientMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 3))
-wwpLeosDnsClientMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 3, 1))
-wwpLeosDnsClientMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 3, 2))
-wwpLeosDnsClientStatus = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpLeosDnsClientStatus.setStatus('current')
-wwpLeosDnsClientDhcpDomainName = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosDnsClientDhcpDomainName.setStatus('current')
-wwpLeosDnsClientDhcpDomainNameState = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosDnsClientDhcpDomainNameState.setStatus('current')
-wwpLeosDnsClientUserDomainName = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 4), DisplayString()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpLeosDnsClientUserDomainName.setStatus('current')
-wwpLeosDnsClientUserDomainNameState = MibScalar((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosDnsClientUserDomainNameState.setStatus('current')
-wwpLeosDnsServerTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6), )
-if mibBuilder.loadTexts: wwpLeosDnsServerTable.setStatus('current')
-wwpLeosDnsServerEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1), ).setIndexNames((0, "WWP-LEOS-DNS-CLIENT-MIB", "wwpLeosDnsServerIndex"))
-if mibBuilder.loadTexts: wwpLeosDnsServerEntry.setStatus('current')
-wwpLeosDnsServerIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 1), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10)))
-if mibBuilder.loadTexts: wwpLeosDnsServerIndex.setStatus('current')
-wwpLeosDnsServerAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 2), IpAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpLeosDnsServerAddr.setStatus('current')
-wwpLeosDnsServerUserPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 3), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpLeosDnsServerUserPriority.setStatus('current')
-wwpLeosDnsServerDhcpPriority = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 4), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 10))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosDnsServerDhcpPriority.setStatus('current')
-wwpLeosDnsServerScope = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3))).clone(namedValues=NamedValues(("user", 1), ("dhcp", 2), ("both", 3)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosDnsServerScope.setStatus('current')
-wwpLeosDnsServerStatus = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 6), RowStatus()).setMaxAccess("readcreate")
-if mibBuilder.loadTexts: wwpLeosDnsServerStatus.setStatus('current')
-wwpLeosDnsServerInetAddrType = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 7), InetAddressType()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpLeosDnsServerInetAddrType.setStatus('current')
-wwpLeosDnsServerInetAddr = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 8), InetAddress()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpLeosDnsServerInetAddr.setStatus('current')
-wwpLeosDnsServerExtTable = MibTable((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 7), )
-if mibBuilder.loadTexts: wwpLeosDnsServerExtTable.setStatus('current')
-wwpLeosDnsServerExtEntry = MibTableRow((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 7, 1), ).setIndexNames((0, "WWP-LEOS-DNS-CLIENT-MIB", "wwpLeosDnsServerIndex"))
-if mibBuilder.loadTexts: wwpLeosDnsServerExtEntry.setStatus('current')
-wwpLeosDnsServerAdminState = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 7, 1, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: wwpLeosDnsServerAdminState.setStatus('current')
-wwpLeosDnsServerOperState = MibTableColumn((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 7, 1, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("disabled", 1), ("enabled", 2)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: wwpLeosDnsServerOperState.setStatus('current')
-wwpLeosDnsServerEntryCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 3, 1, 1)).setObjects(("WWP-LEOS-DNS-CLIENT-MIB", "wwpLeosDnsServerEntryIpv6Group"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    wwpLeosDnsServerEntryCompliance = wwpLeosDnsServerEntryCompliance.setStatus('current')
-wwpLeosDnsServerEntryIpv6Group = ObjectGroup((1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 3, 2, 1)).setObjects(("WWP-LEOS-DNS-CLIENT-MIB", "wwpLeosDnsServerInetAddrType"), ("WWP-LEOS-DNS-CLIENT-MIB", "wwpLeosDnsServerInetAddr"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    wwpLeosDnsServerEntryIpv6Group = wwpLeosDnsServerEntryIpv6Group.setStatus('current')
-mibBuilder.exportSymbols("WWP-LEOS-DNS-CLIENT-MIB", wwpLeosDnsClientMIBGroups=wwpLeosDnsClientMIBGroups, wwpLeosDnsServerEntryCompliance=wwpLeosDnsServerEntryCompliance, wwpLeosDnsClientDhcpDomainNameState=wwpLeosDnsClientDhcpDomainNameState, wwpLeosDnsClientUserDomainNameState=wwpLeosDnsClientUserDomainNameState, wwpLeosDnsServerExtEntry=wwpLeosDnsServerExtEntry, wwpLeosDnsServerInetAddr=wwpLeosDnsServerInetAddr, wwpLeosDnsServerExtTable=wwpLeosDnsServerExtTable, wwpLeosDnsServerTable=wwpLeosDnsServerTable, wwpLeosDnsServerEntryIpv6Group=wwpLeosDnsServerEntryIpv6Group, wwpLeosDnsClientMIBNotifications=wwpLeosDnsClientMIBNotifications, wwpLeosDnsClientMIBCompliances=wwpLeosDnsClientMIBCompliances, wwpLeosDnsClientDhcpDomainName=wwpLeosDnsClientDhcpDomainName, wwpLeosDnsClientMIB=wwpLeosDnsClientMIB, wwpLeosDnsClientMIBNotificationPrefix=wwpLeosDnsClientMIBNotificationPrefix, wwpLeosDnsClient=wwpLeosDnsClient, wwpLeosDnsClientMIBConformance=wwpLeosDnsClientMIBConformance, wwpLeosDnsServerEntry=wwpLeosDnsServerEntry, wwpLeosDnsServerAddr=wwpLeosDnsServerAddr, wwpLeosDnsClientMIBObjects=wwpLeosDnsClientMIBObjects, wwpLeosDnsClientStatus=wwpLeosDnsClientStatus, wwpLeosDnsServerDhcpPriority=wwpLeosDnsServerDhcpPriority, wwpLeosDnsServerOperState=wwpLeosDnsServerOperState, PYSNMP_MODULE_ID=wwpLeosDnsClientMIB, wwpLeosDnsServerInetAddrType=wwpLeosDnsServerInetAddrType, wwpLeosDnsClientUserDomainName=wwpLeosDnsClientUserDomainName, wwpLeosDnsServerScope=wwpLeosDnsServerScope, wwpLeosDnsServerAdminState=wwpLeosDnsServerAdminState, wwpLeosDnsServerIndex=wwpLeosDnsServerIndex, wwpLeosDnsServerStatus=wwpLeosDnsServerStatus, wwpLeosDnsServerUserPriority=wwpLeosDnsServerUserPriority)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(InetAddress,
+ InetAddressType) = mibBuilder.importSymbols(
+    "INET-ADDRESS-MIB",
+    "InetAddress",
+    "InetAddressType")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ RowStatus,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "RowStatus",
+    "TextualConvention")
+
+(wwpModulesLeos,) = mibBuilder.importSymbols(
+    "WWP-SMI",
+    "wwpModulesLeos")
+
+
+# MODULE-IDENTITY
+
+wwpLeosDnsClientMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16)
+)
+if mibBuilder.loadTexts:
+    wwpLeosDnsClientMIB.setRevisions(
+        ("2012-03-20 07:00",
+         "2003-03-19 10:12")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_WwpLeosDnsClientMIBObjects_ObjectIdentity = ObjectIdentity
+wwpLeosDnsClientMIBObjects = _WwpLeosDnsClientMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1)
+)
+_WwpLeosDnsClient_ObjectIdentity = ObjectIdentity
+wwpLeosDnsClient = _WwpLeosDnsClient_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1)
+)
+
+
+class _WwpLeosDnsClientStatus_Type(Integer32):
+    """Custom type wwpLeosDnsClientStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_WwpLeosDnsClientStatus_Type.__name__ = "Integer32"
+_WwpLeosDnsClientStatus_Object = MibScalar
+wwpLeosDnsClientStatus = _WwpLeosDnsClientStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 1),
+    _WwpLeosDnsClientStatus_Type()
+)
+wwpLeosDnsClientStatus.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpLeosDnsClientStatus.setStatus("current")
+_WwpLeosDnsClientDhcpDomainName_Type = DisplayString
+_WwpLeosDnsClientDhcpDomainName_Object = MibScalar
+wwpLeosDnsClientDhcpDomainName = _WwpLeosDnsClientDhcpDomainName_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 2),
+    _WwpLeosDnsClientDhcpDomainName_Type()
+)
+wwpLeosDnsClientDhcpDomainName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosDnsClientDhcpDomainName.setStatus("current")
+
+
+class _WwpLeosDnsClientDhcpDomainNameState_Type(Integer32):
+    """Custom type wwpLeosDnsClientDhcpDomainNameState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_WwpLeosDnsClientDhcpDomainNameState_Type.__name__ = "Integer32"
+_WwpLeosDnsClientDhcpDomainNameState_Object = MibScalar
+wwpLeosDnsClientDhcpDomainNameState = _WwpLeosDnsClientDhcpDomainNameState_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 3),
+    _WwpLeosDnsClientDhcpDomainNameState_Type()
+)
+wwpLeosDnsClientDhcpDomainNameState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosDnsClientDhcpDomainNameState.setStatus("current")
+_WwpLeosDnsClientUserDomainName_Type = DisplayString
+_WwpLeosDnsClientUserDomainName_Object = MibScalar
+wwpLeosDnsClientUserDomainName = _WwpLeosDnsClientUserDomainName_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 4),
+    _WwpLeosDnsClientUserDomainName_Type()
+)
+wwpLeosDnsClientUserDomainName.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpLeosDnsClientUserDomainName.setStatus("current")
+
+
+class _WwpLeosDnsClientUserDomainNameState_Type(Integer32):
+    """Custom type wwpLeosDnsClientUserDomainNameState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_WwpLeosDnsClientUserDomainNameState_Type.__name__ = "Integer32"
+_WwpLeosDnsClientUserDomainNameState_Object = MibScalar
+wwpLeosDnsClientUserDomainNameState = _WwpLeosDnsClientUserDomainNameState_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 5),
+    _WwpLeosDnsClientUserDomainNameState_Type()
+)
+wwpLeosDnsClientUserDomainNameState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosDnsClientUserDomainNameState.setStatus("current")
+_WwpLeosDnsServerTable_Object = MibTable
+wwpLeosDnsServerTable = _WwpLeosDnsServerTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6)
+)
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerTable.setStatus("current")
+_WwpLeosDnsServerEntry_Object = MibTableRow
+wwpLeosDnsServerEntry = _WwpLeosDnsServerEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1)
+)
+wwpLeosDnsServerEntry.setIndexNames(
+    (0, "WWP-LEOS-DNS-CLIENT-MIB", "wwpLeosDnsServerIndex"),
+)
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerEntry.setStatus("current")
+
+
+class _WwpLeosDnsServerIndex_Type(Integer32):
+    """Custom type wwpLeosDnsServerIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_WwpLeosDnsServerIndex_Type.__name__ = "Integer32"
+_WwpLeosDnsServerIndex_Object = MibTableColumn
+wwpLeosDnsServerIndex = _WwpLeosDnsServerIndex_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 1),
+    _WwpLeosDnsServerIndex_Type()
+)
+wwpLeosDnsServerIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerIndex.setStatus("current")
+_WwpLeosDnsServerAddr_Type = IpAddress
+_WwpLeosDnsServerAddr_Object = MibTableColumn
+wwpLeosDnsServerAddr = _WwpLeosDnsServerAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 2),
+    _WwpLeosDnsServerAddr_Type()
+)
+wwpLeosDnsServerAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerAddr.setStatus("current")
+
+
+class _WwpLeosDnsServerUserPriority_Type(Integer32):
+    """Custom type wwpLeosDnsServerUserPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_WwpLeosDnsServerUserPriority_Type.__name__ = "Integer32"
+_WwpLeosDnsServerUserPriority_Object = MibTableColumn
+wwpLeosDnsServerUserPriority = _WwpLeosDnsServerUserPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 3),
+    _WwpLeosDnsServerUserPriority_Type()
+)
+wwpLeosDnsServerUserPriority.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerUserPriority.setStatus("current")
+
+
+class _WwpLeosDnsServerDhcpPriority_Type(Integer32):
+    """Custom type wwpLeosDnsServerDhcpPriority based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 10),
+    )
+
+
+_WwpLeosDnsServerDhcpPriority_Type.__name__ = "Integer32"
+_WwpLeosDnsServerDhcpPriority_Object = MibTableColumn
+wwpLeosDnsServerDhcpPriority = _WwpLeosDnsServerDhcpPriority_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 4),
+    _WwpLeosDnsServerDhcpPriority_Type()
+)
+wwpLeosDnsServerDhcpPriority.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerDhcpPriority.setStatus("current")
+
+
+class _WwpLeosDnsServerScope_Type(Integer32):
+    """Custom type wwpLeosDnsServerScope based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3)
+        )
+    )
+    namedValues = NamedValues(
+        *(("user", 1),
+          ("dhcp", 2),
+          ("both", 3))
+    )
+
+
+_WwpLeosDnsServerScope_Type.__name__ = "Integer32"
+_WwpLeosDnsServerScope_Object = MibTableColumn
+wwpLeosDnsServerScope = _WwpLeosDnsServerScope_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 5),
+    _WwpLeosDnsServerScope_Type()
+)
+wwpLeosDnsServerScope.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerScope.setStatus("current")
+_WwpLeosDnsServerStatus_Type = RowStatus
+_WwpLeosDnsServerStatus_Object = MibTableColumn
+wwpLeosDnsServerStatus = _WwpLeosDnsServerStatus_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 6),
+    _WwpLeosDnsServerStatus_Type()
+)
+wwpLeosDnsServerStatus.setMaxAccess("read-create")
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerStatus.setStatus("current")
+_WwpLeosDnsServerInetAddrType_Type = InetAddressType
+_WwpLeosDnsServerInetAddrType_Object = MibTableColumn
+wwpLeosDnsServerInetAddrType = _WwpLeosDnsServerInetAddrType_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 7),
+    _WwpLeosDnsServerInetAddrType_Type()
+)
+wwpLeosDnsServerInetAddrType.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerInetAddrType.setStatus("current")
+_WwpLeosDnsServerInetAddr_Type = InetAddress
+_WwpLeosDnsServerInetAddr_Object = MibTableColumn
+wwpLeosDnsServerInetAddr = _WwpLeosDnsServerInetAddr_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 6, 1, 8),
+    _WwpLeosDnsServerInetAddr_Type()
+)
+wwpLeosDnsServerInetAddr.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerInetAddr.setStatus("current")
+_WwpLeosDnsServerExtTable_Object = MibTable
+wwpLeosDnsServerExtTable = _WwpLeosDnsServerExtTable_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 7)
+)
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerExtTable.setStatus("current")
+_WwpLeosDnsServerExtEntry_Object = MibTableRow
+wwpLeosDnsServerExtEntry = _WwpLeosDnsServerExtEntry_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 7, 1)
+)
+wwpLeosDnsServerExtEntry.setIndexNames(
+    (0, "WWP-LEOS-DNS-CLIENT-MIB", "wwpLeosDnsServerIndex"),
+)
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerExtEntry.setStatus("current")
+
+
+class _WwpLeosDnsServerAdminState_Type(Integer32):
+    """Custom type wwpLeosDnsServerAdminState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("enabled", 2))
+    )
+
+
+_WwpLeosDnsServerAdminState_Type.__name__ = "Integer32"
+_WwpLeosDnsServerAdminState_Object = MibTableColumn
+wwpLeosDnsServerAdminState = _WwpLeosDnsServerAdminState_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 7, 1, 1),
+    _WwpLeosDnsServerAdminState_Type()
+)
+wwpLeosDnsServerAdminState.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerAdminState.setStatus("current")
+
+
+class _WwpLeosDnsServerOperState_Type(Integer32):
+    """Custom type wwpLeosDnsServerOperState based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("disabled", 1),
+          ("enabled", 2))
+    )
+
+
+_WwpLeosDnsServerOperState_Type.__name__ = "Integer32"
+_WwpLeosDnsServerOperState_Object = MibTableColumn
+wwpLeosDnsServerOperState = _WwpLeosDnsServerOperState_Object(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 1, 1, 7, 1, 2),
+    _WwpLeosDnsServerOperState_Type()
+)
+wwpLeosDnsServerOperState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerOperState.setStatus("current")
+_WwpLeosDnsClientMIBNotificationPrefix_ObjectIdentity = ObjectIdentity
+wwpLeosDnsClientMIBNotificationPrefix = _WwpLeosDnsClientMIBNotificationPrefix_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 2)
+)
+_WwpLeosDnsClientMIBNotifications_ObjectIdentity = ObjectIdentity
+wwpLeosDnsClientMIBNotifications = _WwpLeosDnsClientMIBNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 2, 0)
+)
+_WwpLeosDnsClientMIBConformance_ObjectIdentity = ObjectIdentity
+wwpLeosDnsClientMIBConformance = _WwpLeosDnsClientMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 3)
+)
+_WwpLeosDnsClientMIBCompliances_ObjectIdentity = ObjectIdentity
+wwpLeosDnsClientMIBCompliances = _WwpLeosDnsClientMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 3, 1)
+)
+_WwpLeosDnsClientMIBGroups_ObjectIdentity = ObjectIdentity
+wwpLeosDnsClientMIBGroups = _WwpLeosDnsClientMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 3, 2)
+)
+
+# Managed Objects groups
+
+wwpLeosDnsServerEntryIpv6Group = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 3, 2, 1)
+)
+wwpLeosDnsServerEntryIpv6Group.setObjects(
+      *(("WWP-LEOS-DNS-CLIENT-MIB", "wwpLeosDnsServerInetAddrType"),
+        ("WWP-LEOS-DNS-CLIENT-MIB", "wwpLeosDnsServerInetAddr"))
+)
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerEntryIpv6Group.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+wwpLeosDnsServerEntryCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 6141, 2, 60, 16, 3, 1, 1)
+)
+wwpLeosDnsServerEntryCompliance.setObjects(
+    ("WWP-LEOS-DNS-CLIENT-MIB", "wwpLeosDnsServerEntryIpv6Group")
+)
+if mibBuilder.loadTexts:
+    wwpLeosDnsServerEntryCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "WWP-LEOS-DNS-CLIENT-MIB",
+    **{"wwpLeosDnsClientMIB": wwpLeosDnsClientMIB,
+       "wwpLeosDnsClientMIBObjects": wwpLeosDnsClientMIBObjects,
+       "wwpLeosDnsClient": wwpLeosDnsClient,
+       "wwpLeosDnsClientStatus": wwpLeosDnsClientStatus,
+       "wwpLeosDnsClientDhcpDomainName": wwpLeosDnsClientDhcpDomainName,
+       "wwpLeosDnsClientDhcpDomainNameState": wwpLeosDnsClientDhcpDomainNameState,
+       "wwpLeosDnsClientUserDomainName": wwpLeosDnsClientUserDomainName,
+       "wwpLeosDnsClientUserDomainNameState": wwpLeosDnsClientUserDomainNameState,
+       "wwpLeosDnsServerTable": wwpLeosDnsServerTable,
+       "wwpLeosDnsServerEntry": wwpLeosDnsServerEntry,
+       "wwpLeosDnsServerIndex": wwpLeosDnsServerIndex,
+       "wwpLeosDnsServerAddr": wwpLeosDnsServerAddr,
+       "wwpLeosDnsServerUserPriority": wwpLeosDnsServerUserPriority,
+       "wwpLeosDnsServerDhcpPriority": wwpLeosDnsServerDhcpPriority,
+       "wwpLeosDnsServerScope": wwpLeosDnsServerScope,
+       "wwpLeosDnsServerStatus": wwpLeosDnsServerStatus,
+       "wwpLeosDnsServerInetAddrType": wwpLeosDnsServerInetAddrType,
+       "wwpLeosDnsServerInetAddr": wwpLeosDnsServerInetAddr,
+       "wwpLeosDnsServerExtTable": wwpLeosDnsServerExtTable,
+       "wwpLeosDnsServerExtEntry": wwpLeosDnsServerExtEntry,
+       "wwpLeosDnsServerAdminState": wwpLeosDnsServerAdminState,
+       "wwpLeosDnsServerOperState": wwpLeosDnsServerOperState,
+       "wwpLeosDnsClientMIBNotificationPrefix": wwpLeosDnsClientMIBNotificationPrefix,
+       "wwpLeosDnsClientMIBNotifications": wwpLeosDnsClientMIBNotifications,
+       "wwpLeosDnsClientMIBConformance": wwpLeosDnsClientMIBConformance,
+       "wwpLeosDnsClientMIBCompliances": wwpLeosDnsClientMIBCompliances,
+       "wwpLeosDnsServerEntryCompliance": wwpLeosDnsServerEntryCompliance,
+       "wwpLeosDnsClientMIBGroups": wwpLeosDnsClientMIBGroups,
+       "wwpLeosDnsServerEntryIpv6Group": wwpLeosDnsServerEntryIpv6Group}
+)

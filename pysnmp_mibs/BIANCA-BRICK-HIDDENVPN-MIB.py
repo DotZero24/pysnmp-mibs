@@ -1,30 +1,337 @@
+# SNMP MIB module (BIANCA-BRICK-HIDDENVPN-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module BIANCA-BRICK-HIDDENVPN-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/bintec/BIANCA-BRICK-HIDDENVPN-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:58:52 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/bintec/BIANCA-BRICK-HIDDENVPN-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 19:07:02 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, enterprises, NotificationType, Bits, Integer32, Unsigned32, iso, IpAddress, MibScalar, MibTable, MibTableRow, MibTableColumn, ObjectIdentity, Counter32, Counter64, TimeTicks, ModuleIdentity, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "enterprises", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "IpAddress", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "ObjectIdentity", "Counter32", "Counter64", "TimeTicks", "ModuleIdentity", "Gauge32")
-TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "DisplayString")
-bintec = MibIdentifier((1, 3, 6, 1, 4, 1, 272))
-bibo = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4))
-admin = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 4, 1))
-biboAdmLed = MibIdentifier((1, 3, 6, 1, 4, 1, 272, 253))
-biboAdmLedStatus = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 1), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("blink", 3), ("flash", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboAdmLedStatus.setStatus('mandatory')
-biboAdmLedMgmt = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 2), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("blink", 3), ("flash", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboAdmLedMgmt.setStatus('mandatory')
-biboAdmLedHA = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 3), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("blink", 3), ("flash", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboAdmLedHA.setStatus('mandatory')
-biboAdmLedInternet = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 4), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("blink", 3), ("flash", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboAdmLedInternet.setStatus('mandatory')
-biboAdmLedSwitch = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 5), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))).clone(namedValues=NamedValues(("off", 1), ("on", 2), ("blink", 3), ("linkact", 4)))).setMaxAccess("readonly")
-if mibBuilder.loadTexts: biboAdmLedSwitch.setStatus('mandatory')
-biboAdmLedMeter = MibScalar((1, 3, 6, 1, 4, 1, 272, 253, 6), Integer32().subtype(subtypeSpec=ConstraintsUnion(SingleValueConstraint(1, 2))).clone(namedValues=NamedValues(("enabled", 1), ("disabled", 2))).clone('disabled')).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: biboAdmLedMeter.setStatus('mandatory')
-mibBuilder.exportSymbols("BIANCA-BRICK-HIDDENVPN-MIB", biboAdmLedSwitch=biboAdmLedSwitch, biboAdmLed=biboAdmLed, bintec=bintec, biboAdmLedMgmt=biboAdmLedMgmt, biboAdmLedStatus=biboAdmLedStatus, admin=admin, biboAdmLedMeter=biboAdmLedMeter, biboAdmLedInternet=biboAdmLedInternet, biboAdmLedHA=biboAdmLedHA, bibo=bibo)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ enterprises,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "enterprises",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_Bintec_ObjectIdentity = ObjectIdentity
+bintec = _Bintec_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272)
+)
+_Bibo_ObjectIdentity = ObjectIdentity
+bibo = _Bibo_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272, 4)
+)
+_Admin_ObjectIdentity = ObjectIdentity
+admin = _Admin_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272, 4, 1)
+)
+_BiboAdmLed_ObjectIdentity = ObjectIdentity
+biboAdmLed = _BiboAdmLed_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 272, 253)
+)
+
+
+class _BiboAdmLedStatus_Type(Integer32):
+    """Custom type biboAdmLedStatus based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2),
+          ("blink", 3),
+          ("flash", 4))
+    )
+
+
+_BiboAdmLedStatus_Type.__name__ = "Integer32"
+_BiboAdmLedStatus_Object = MibScalar
+biboAdmLedStatus = _BiboAdmLedStatus_Object(
+    (1, 3, 6, 1, 4, 1, 272, 253, 1),
+    _BiboAdmLedStatus_Type()
+)
+biboAdmLedStatus.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboAdmLedStatus.setStatus("mandatory")
+
+
+class _BiboAdmLedMgmt_Type(Integer32):
+    """Custom type biboAdmLedMgmt based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2),
+          ("blink", 3),
+          ("flash", 4))
+    )
+
+
+_BiboAdmLedMgmt_Type.__name__ = "Integer32"
+_BiboAdmLedMgmt_Object = MibScalar
+biboAdmLedMgmt = _BiboAdmLedMgmt_Object(
+    (1, 3, 6, 1, 4, 1, 272, 253, 2),
+    _BiboAdmLedMgmt_Type()
+)
+biboAdmLedMgmt.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboAdmLedMgmt.setStatus("mandatory")
+
+
+class _BiboAdmLedHA_Type(Integer32):
+    """Custom type biboAdmLedHA based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2),
+          ("blink", 3),
+          ("flash", 4))
+    )
+
+
+_BiboAdmLedHA_Type.__name__ = "Integer32"
+_BiboAdmLedHA_Object = MibScalar
+biboAdmLedHA = _BiboAdmLedHA_Object(
+    (1, 3, 6, 1, 4, 1, 272, 253, 3),
+    _BiboAdmLedHA_Type()
+)
+biboAdmLedHA.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboAdmLedHA.setStatus("mandatory")
+
+
+class _BiboAdmLedInternet_Type(Integer32):
+    """Custom type biboAdmLedInternet based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2),
+          ("blink", 3),
+          ("flash", 4))
+    )
+
+
+_BiboAdmLedInternet_Type.__name__ = "Integer32"
+_BiboAdmLedInternet_Object = MibScalar
+biboAdmLedInternet = _BiboAdmLedInternet_Object(
+    (1, 3, 6, 1, 4, 1, 272, 253, 4),
+    _BiboAdmLedInternet_Type()
+)
+biboAdmLedInternet.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboAdmLedInternet.setStatus("mandatory")
+
+
+class _BiboAdmLedSwitch_Type(Integer32):
+    """Custom type biboAdmLedSwitch based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("off", 1),
+          ("on", 2),
+          ("blink", 3),
+          ("linkact", 4))
+    )
+
+
+_BiboAdmLedSwitch_Type.__name__ = "Integer32"
+_BiboAdmLedSwitch_Object = MibScalar
+biboAdmLedSwitch = _BiboAdmLedSwitch_Object(
+    (1, 3, 6, 1, 4, 1, 272, 253, 5),
+    _BiboAdmLedSwitch_Type()
+)
+biboAdmLedSwitch.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    biboAdmLedSwitch.setStatus("mandatory")
+
+
+class _BiboAdmLedMeter_Type(Integer32):
+    """Custom type biboAdmLedMeter based on Integer32"""
+    defaultValue = 2
+
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("enabled", 1),
+          ("disabled", 2))
+    )
+
+
+_BiboAdmLedMeter_Type.__name__ = "Integer32"
+_BiboAdmLedMeter_Object = MibScalar
+biboAdmLedMeter = _BiboAdmLedMeter_Object(
+    (1, 3, 6, 1, 4, 1, 272, 253, 6),
+    _BiboAdmLedMeter_Type()
+)
+biboAdmLedMeter.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    biboAdmLedMeter.setStatus("mandatory")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "BIANCA-BRICK-HIDDENVPN-MIB",
+    **{"bintec": bintec,
+       "bibo": bibo,
+       "admin": admin,
+       "biboAdmLed": biboAdmLed,
+       "biboAdmLedStatus": biboAdmLedStatus,
+       "biboAdmLedMgmt": biboAdmLedMgmt,
+       "biboAdmLedHA": biboAdmLedHA,
+       "biboAdmLedInternet": biboAdmLedInternet,
+       "biboAdmLedSwitch": biboAdmLedSwitch,
+       "biboAdmLedMeter": biboAdmLedMeter}
+)

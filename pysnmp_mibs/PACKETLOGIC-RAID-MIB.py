@@ -1,48 +1,303 @@
+# SNMP MIB module (PACKETLOGIC-RAID-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module PACKETLOGIC-RAID-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/procera/PACKETLOGIC-RAID-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:38 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/procera/PACKETLOGIC-RAID-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:56:47 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-CounterBasedGauge64, = mibBuilder.importSymbols("HCNUM-TC", "CounterBasedGauge64")
-hw, = mibBuilder.importSymbols("PACKETLOGIC-HW-MIB", "hw")
-packetlogic2, = mibBuilder.importSymbols("PACKETLOGIC-MIB", "packetlogic2")
-NotificationGroup, ModuleCompliance = mibBuilder.importSymbols("SNMPv2-CONF", "NotificationGroup", "ModuleCompliance")
-MibIdentifier, NotificationType, Integer32, Bits, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, Counter64, TimeTicks, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Integer32", "Bits", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "Counter64", "TimeTicks", "Gauge32")
-DateAndTime, TextualConvention, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "DateAndTime", "TextualConvention", "DisplayString")
-raid = ModuleIdentity((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1))
-raid.setRevisions(('2012-12-13 13:22',))
-if mibBuilder.loadTexts: raid.setLastUpdated('201212131322Z')
-if mibBuilder.loadTexts: raid.setOrganization('Procera Networks, Inc.')
-raidCfg = MibIdentifier((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1))
-ld = MibTable((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3), )
-if mibBuilder.loadTexts: ld.setStatus('current')
-ldEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1), ).setIndexNames((0, "PACKETLOGIC-RAID-MIB", "ldEntryIndex"))
-if mibBuilder.loadTexts: ldEntry.setStatus('current')
-ldEntryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1, 999), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: ldEntryIndex.setStatus('current')
-disk = MibTable((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4), )
-if mibBuilder.loadTexts: disk.setStatus('current')
-diskEntry = MibTableRow((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1), ).setIndexNames((0, "PACKETLOGIC-RAID-MIB", "diskEntryIndex"))
-if mibBuilder.loadTexts: diskEntry.setStatus('current')
-diskEntryIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1, 999), Integer32().subtype(subtypeSpec=ValueRangeConstraint(1, 2147483647)))
-if mibBuilder.loadTexts: diskEntryIndex.setStatus('current')
-adpNumber = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1, 1), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: adpNumber.setStatus('current')
-ldNumber = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1, 2), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ldNumber.setStatus('current')
-diskNumber = MibScalar((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1, 3), Unsigned32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskNumber.setStatus('current')
-ldId = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ldId.setStatus('current')
-ldState = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ldState.setStatus('current')
-diskId = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1, 1), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskId.setStatus('current')
-diskState = MibTableColumn((1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1, 2), DisplayString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: diskState.setStatus('current')
-mibBuilder.exportSymbols("PACKETLOGIC-RAID-MIB", diskState=diskState, raidCfg=raidCfg, ldId=ldId, diskId=diskId, PYSNMP_MODULE_ID=raid, diskEntry=diskEntry, diskEntryIndex=diskEntryIndex, disk=disk, adpNumber=adpNumber, ldEntryIndex=ldEntryIndex, raid=raid, ldEntry=ldEntry, ld=ld, ldNumber=ldNumber, diskNumber=diskNumber, ldState=ldState)
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(CounterBasedGauge64,) = mibBuilder.importSymbols(
+    "HCNUM-TC",
+    "CounterBasedGauge64")
+
+(hw,) = mibBuilder.importSymbols(
+    "PACKETLOGIC-HW-MIB",
+    "hw")
+
+(packetlogic2,) = mibBuilder.importSymbols(
+    "PACKETLOGIC-MIB",
+    "packetlogic2")
+
+(ModuleCompliance,
+ NotificationGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DateAndTime,
+ DisplayString,
+ PhysAddress,
+ TextualConvention) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DateAndTime",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention")
+
+
+# MODULE-IDENTITY
+
+raid = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1)
+)
+if mibBuilder.loadTexts:
+    raid.setRevisions(
+        ("2012-12-13 13:22",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_RaidCfg_ObjectIdentity = ObjectIdentity
+raidCfg = _RaidCfg_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1)
+)
+_AdpNumber_Type = Unsigned32
+_AdpNumber_Object = MibScalar
+adpNumber = _AdpNumber_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1, 1),
+    _AdpNumber_Type()
+)
+adpNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    adpNumber.setStatus("current")
+_LdNumber_Type = Unsigned32
+_LdNumber_Object = MibScalar
+ldNumber = _LdNumber_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1, 2),
+    _LdNumber_Type()
+)
+ldNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ldNumber.setStatus("current")
+_DiskNumber_Type = Unsigned32
+_DiskNumber_Object = MibScalar
+diskNumber = _DiskNumber_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 1, 3),
+    _DiskNumber_Type()
+)
+diskNumber.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskNumber.setStatus("current")
+_Ld_Object = MibTable
+ld = _Ld_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3)
+)
+if mibBuilder.loadTexts:
+    ld.setStatus("current")
+_LdEntry_Object = MibTableRow
+ldEntry = _LdEntry_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1)
+)
+ldEntry.setIndexNames(
+    (0, "PACKETLOGIC-RAID-MIB", "ldEntryIndex"),
+)
+if mibBuilder.loadTexts:
+    ldEntry.setStatus("current")
+_LdId_Type = DisplayString
+_LdId_Object = MibTableColumn
+ldId = _LdId_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1, 1),
+    _LdId_Type()
+)
+ldId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ldId.setStatus("current")
+_LdState_Type = DisplayString
+_LdState_Object = MibTableColumn
+ldState = _LdState_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1, 2),
+    _LdState_Type()
+)
+ldState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ldState.setStatus("current")
+
+
+class _LdEntryIndex_Type(Integer32):
+    """Custom type ldEntryIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_LdEntryIndex_Type.__name__ = "Integer32"
+_LdEntryIndex_Object = MibTableColumn
+ldEntryIndex = _LdEntryIndex_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 3, 1, 999),
+    _LdEntryIndex_Type()
+)
+ldEntryIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ldEntryIndex.setStatus("current")
+_Disk_Object = MibTable
+disk = _Disk_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4)
+)
+if mibBuilder.loadTexts:
+    disk.setStatus("current")
+_DiskEntry_Object = MibTableRow
+diskEntry = _DiskEntry_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1)
+)
+diskEntry.setIndexNames(
+    (0, "PACKETLOGIC-RAID-MIB", "diskEntryIndex"),
+)
+if mibBuilder.loadTexts:
+    diskEntry.setStatus("current")
+_DiskId_Type = DisplayString
+_DiskId_Object = MibTableColumn
+diskId = _DiskId_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1, 1),
+    _DiskId_Type()
+)
+diskId.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskId.setStatus("current")
+_DiskState_Type = DisplayString
+_DiskState_Object = MibTableColumn
+diskState = _DiskState_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1, 2),
+    _DiskState_Type()
+)
+diskState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    diskState.setStatus("current")
+
+
+class _DiskEntryIndex_Type(Integer32):
+    """Custom type diskEntryIndex based on Integer32"""
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 2147483647),
+    )
+
+
+_DiskEntryIndex_Type.__name__ = "Integer32"
+_DiskEntryIndex_Object = MibTableColumn
+diskEntryIndex = _DiskEntryIndex_Object(
+    (1, 3, 6, 1, 4, 1, 15397, 2, 30, 1, 4, 1, 999),
+    _DiskEntryIndex_Type()
+)
+diskEntryIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    diskEntryIndex.setStatus("current")
+
+# Managed Objects groups
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "PACKETLOGIC-RAID-MIB",
+    **{"raid": raid,
+       "raidCfg": raidCfg,
+       "adpNumber": adpNumber,
+       "ldNumber": ldNumber,
+       "diskNumber": diskNumber,
+       "ld": ld,
+       "ldEntry": ldEntry,
+       "ldId": ldId,
+       "ldState": ldState,
+       "ldEntryIndex": ldEntryIndex,
+       "disk": disk,
+       "diskEntry": diskEntry,
+       "diskId": diskId,
+       "diskState": diskState,
+       "diskEntryIndex": diskEntryIndex}
+)

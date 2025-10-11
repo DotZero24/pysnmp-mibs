@@ -1,58 +1,366 @@
+# SNMP MIB module (ARISTA-HARDWARE-UTILIZATION-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module ARISTA-HARDWARE-UTILIZATION-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/arista/ARISTA-HARDWARE-UTILIZATION-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 09:56:41 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/arista/ARISTA-HARDWARE-UTILIZATION-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 18:57:06 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-aristaMibs, = mibBuilder.importSymbols("ARISTA-SMI-MIB", "aristaMibs")
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TextualConvention, TimeStamp, DisplayString = mibBuilder.importSymbols("SNMPv2-TC", "TextualConvention", "TimeStamp", "DisplayString")
-aristaHardwareUtilizationMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 30065, 3, 22))
-aristaHardwareUtilizationMIB.setRevisions(('2016-05-24 00:00',))
-if mibBuilder.loadTexts: aristaHardwareUtilizationMIB.setLastUpdated('201605240000Z')
-if mibBuilder.loadTexts: aristaHardwareUtilizationMIB.setOrganization('Arista Networks, Inc.')
-aristaHardwareUtilizationMibNotifications = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 22, 0))
-aristaHardwareUtilizationMibObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1))
-aristaHardwareUtilizationMibConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 22, 2))
-aristaHardwareUtilizationTable = MibTable((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1), )
-if mibBuilder.loadTexts: aristaHardwareUtilizationTable.setStatus('current')
-aristaHardwareUtilizationEntry = MibTableRow((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1), ).setIndexNames((0, "ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationResource"), (0, "ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationFeature"), (0, "ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationForwardingElement"))
-if mibBuilder.loadTexts: aristaHardwareUtilizationEntry.setStatus('current')
-aristaHardwareUtilizationResource = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 1), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 35)))
-if mibBuilder.loadTexts: aristaHardwareUtilizationResource.setStatus('current')
-aristaHardwareUtilizationFeature = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 2), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 35)))
-if mibBuilder.loadTexts: aristaHardwareUtilizationFeature.setStatus('current')
-aristaHardwareUtilizationForwardingElement = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 3), DisplayString().subtype(subtypeSpec=ValueSizeConstraint(0, 35)))
-if mibBuilder.loadTexts: aristaHardwareUtilizationForwardingElement.setStatus('current')
-aristaHardwareUtilizationInUseEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 4), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaHardwareUtilizationInUseEntries.setStatus('current')
-aristaHardwareUtilizationFreeEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 5), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaHardwareUtilizationFreeEntries.setStatus('current')
-aristaHardwareUtilizationCommittedEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 6), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaHardwareUtilizationCommittedEntries.setStatus('current')
-aristaHardwareUtilizationMaxEntries = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 7), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaHardwareUtilizationMaxEntries.setStatus('current')
-aristaHardwareUtilizationHighWatermark = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 8), Counter32()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaHardwareUtilizationHighWatermark.setStatus('current')
-aristaHardwareUtilizationHighWatermarkTime = MibTableColumn((1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 9), TimeStamp()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: aristaHardwareUtilizationHighWatermarkTime.setStatus('current')
-aristaHardwareUtilizationAlert = NotificationType((1, 3, 6, 1, 4, 1, 30065, 3, 22, 0, 1)).setObjects(("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationInUseEntries"), ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationHighWatermark"), ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationHighWatermarkTime"))
-if mibBuilder.loadTexts: aristaHardwareUtilizationAlert.setStatus('current')
-aristaHardwareUtilizationMibCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 22, 2, 1))
-aristaHardwareUtilizationMibGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 30065, 3, 22, 2, 2))
-aristaHardwareUtilizationMibCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 30065, 3, 22, 2, 1, 1)).setObjects(("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationTableGroup"), ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationNotificationsGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aristaHardwareUtilizationMibCompliance = aristaHardwareUtilizationMibCompliance.setStatus('current')
-aristaHardwareUtilizationTableGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 30065, 3, 22, 2, 2, 1)).setObjects(("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationInUseEntries"), ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationFreeEntries"), ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationCommittedEntries"), ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationMaxEntries"), ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationHighWatermark"), ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationHighWatermarkTime"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aristaHardwareUtilizationTableGroup = aristaHardwareUtilizationTableGroup.setStatus('current')
-aristaHardwareUtilizationNotificationsGroup = NotificationGroup((1, 3, 6, 1, 4, 1, 30065, 3, 22, 2, 2, 2)).setObjects(("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationAlert"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    aristaHardwareUtilizationNotificationsGroup = aristaHardwareUtilizationNotificationsGroup.setStatus('current')
-mibBuilder.exportSymbols("ARISTA-HARDWARE-UTILIZATION-MIB", PYSNMP_MODULE_ID=aristaHardwareUtilizationMIB, aristaHardwareUtilizationInUseEntries=aristaHardwareUtilizationInUseEntries, aristaHardwareUtilizationMibCompliances=aristaHardwareUtilizationMibCompliances, aristaHardwareUtilizationMibObjects=aristaHardwareUtilizationMibObjects, aristaHardwareUtilizationMibNotifications=aristaHardwareUtilizationMibNotifications, aristaHardwareUtilizationMibConformance=aristaHardwareUtilizationMibConformance, aristaHardwareUtilizationTable=aristaHardwareUtilizationTable, aristaHardwareUtilizationForwardingElement=aristaHardwareUtilizationForwardingElement, aristaHardwareUtilizationCommittedEntries=aristaHardwareUtilizationCommittedEntries, aristaHardwareUtilizationMibGroups=aristaHardwareUtilizationMibGroups, aristaHardwareUtilizationNotificationsGroup=aristaHardwareUtilizationNotificationsGroup, aristaHardwareUtilizationFeature=aristaHardwareUtilizationFeature, aristaHardwareUtilizationTableGroup=aristaHardwareUtilizationTableGroup, aristaHardwareUtilizationResource=aristaHardwareUtilizationResource, aristaHardwareUtilizationAlert=aristaHardwareUtilizationAlert, aristaHardwareUtilizationHighWatermark=aristaHardwareUtilizationHighWatermark, aristaHardwareUtilizationMaxEntries=aristaHardwareUtilizationMaxEntries, aristaHardwareUtilizationMIB=aristaHardwareUtilizationMIB, aristaHardwareUtilizationHighWatermarkTime=aristaHardwareUtilizationHighWatermarkTime, aristaHardwareUtilizationMibCompliance=aristaHardwareUtilizationMibCompliance, aristaHardwareUtilizationEntry=aristaHardwareUtilizationEntry, aristaHardwareUtilizationFreeEntries=aristaHardwareUtilizationFreeEntries)
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(aristaMibs,) = mibBuilder.importSymbols(
+    "ARISTA-SMI-MIB",
+    "aristaMibs")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TimeStamp) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TimeStamp")
+
+
+# MODULE-IDENTITY
+
+aristaHardwareUtilizationMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22)
+)
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationMIB.setRevisions(
+        ("2016-05-24 00:00",)
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
+# MIB Managed Objects in the order of their OIDs
+
+_AristaHardwareUtilizationMibNotifications_ObjectIdentity = ObjectIdentity
+aristaHardwareUtilizationMibNotifications = _AristaHardwareUtilizationMibNotifications_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 0)
+)
+_AristaHardwareUtilizationMibObjects_ObjectIdentity = ObjectIdentity
+aristaHardwareUtilizationMibObjects = _AristaHardwareUtilizationMibObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1)
+)
+_AristaHardwareUtilizationTable_Object = MibTable
+aristaHardwareUtilizationTable = _AristaHardwareUtilizationTable_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1)
+)
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationTable.setStatus("current")
+_AristaHardwareUtilizationEntry_Object = MibTableRow
+aristaHardwareUtilizationEntry = _AristaHardwareUtilizationEntry_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1)
+)
+aristaHardwareUtilizationEntry.setIndexNames(
+    (0, "ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationResource"),
+    (0, "ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationFeature"),
+    (0, "ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationForwardingElement"),
+)
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationEntry.setStatus("current")
+
+
+class _AristaHardwareUtilizationResource_Type(DisplayString):
+    """Custom type aristaHardwareUtilizationResource based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 35),
+    )
+
+
+_AristaHardwareUtilizationResource_Type.__name__ = "DisplayString"
+_AristaHardwareUtilizationResource_Object = MibTableColumn
+aristaHardwareUtilizationResource = _AristaHardwareUtilizationResource_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 1),
+    _AristaHardwareUtilizationResource_Type()
+)
+aristaHardwareUtilizationResource.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationResource.setStatus("current")
+
+
+class _AristaHardwareUtilizationFeature_Type(DisplayString):
+    """Custom type aristaHardwareUtilizationFeature based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 35),
+    )
+
+
+_AristaHardwareUtilizationFeature_Type.__name__ = "DisplayString"
+_AristaHardwareUtilizationFeature_Object = MibTableColumn
+aristaHardwareUtilizationFeature = _AristaHardwareUtilizationFeature_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 2),
+    _AristaHardwareUtilizationFeature_Type()
+)
+aristaHardwareUtilizationFeature.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationFeature.setStatus("current")
+
+
+class _AristaHardwareUtilizationForwardingElement_Type(DisplayString):
+    """Custom type aristaHardwareUtilizationForwardingElement based on DisplayString"""
+    subtypeSpec = DisplayString.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueSizeConstraint(0, 35),
+    )
+
+
+_AristaHardwareUtilizationForwardingElement_Type.__name__ = "DisplayString"
+_AristaHardwareUtilizationForwardingElement_Object = MibTableColumn
+aristaHardwareUtilizationForwardingElement = _AristaHardwareUtilizationForwardingElement_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 3),
+    _AristaHardwareUtilizationForwardingElement_Type()
+)
+aristaHardwareUtilizationForwardingElement.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationForwardingElement.setStatus("current")
+_AristaHardwareUtilizationInUseEntries_Type = Counter32
+_AristaHardwareUtilizationInUseEntries_Object = MibTableColumn
+aristaHardwareUtilizationInUseEntries = _AristaHardwareUtilizationInUseEntries_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 4),
+    _AristaHardwareUtilizationInUseEntries_Type()
+)
+aristaHardwareUtilizationInUseEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationInUseEntries.setStatus("current")
+_AristaHardwareUtilizationFreeEntries_Type = Counter32
+_AristaHardwareUtilizationFreeEntries_Object = MibTableColumn
+aristaHardwareUtilizationFreeEntries = _AristaHardwareUtilizationFreeEntries_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 5),
+    _AristaHardwareUtilizationFreeEntries_Type()
+)
+aristaHardwareUtilizationFreeEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationFreeEntries.setStatus("current")
+_AristaHardwareUtilizationCommittedEntries_Type = Counter32
+_AristaHardwareUtilizationCommittedEntries_Object = MibTableColumn
+aristaHardwareUtilizationCommittedEntries = _AristaHardwareUtilizationCommittedEntries_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 6),
+    _AristaHardwareUtilizationCommittedEntries_Type()
+)
+aristaHardwareUtilizationCommittedEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationCommittedEntries.setStatus("current")
+_AristaHardwareUtilizationMaxEntries_Type = Counter32
+_AristaHardwareUtilizationMaxEntries_Object = MibTableColumn
+aristaHardwareUtilizationMaxEntries = _AristaHardwareUtilizationMaxEntries_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 7),
+    _AristaHardwareUtilizationMaxEntries_Type()
+)
+aristaHardwareUtilizationMaxEntries.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationMaxEntries.setStatus("current")
+_AristaHardwareUtilizationHighWatermark_Type = Counter32
+_AristaHardwareUtilizationHighWatermark_Object = MibTableColumn
+aristaHardwareUtilizationHighWatermark = _AristaHardwareUtilizationHighWatermark_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 8),
+    _AristaHardwareUtilizationHighWatermark_Type()
+)
+aristaHardwareUtilizationHighWatermark.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationHighWatermark.setStatus("current")
+_AristaHardwareUtilizationHighWatermarkTime_Type = TimeStamp
+_AristaHardwareUtilizationHighWatermarkTime_Object = MibTableColumn
+aristaHardwareUtilizationHighWatermarkTime = _AristaHardwareUtilizationHighWatermarkTime_Object(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 1, 1, 1, 9),
+    _AristaHardwareUtilizationHighWatermarkTime_Type()
+)
+aristaHardwareUtilizationHighWatermarkTime.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationHighWatermarkTime.setStatus("current")
+_AristaHardwareUtilizationMibConformance_ObjectIdentity = ObjectIdentity
+aristaHardwareUtilizationMibConformance = _AristaHardwareUtilizationMibConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 2)
+)
+_AristaHardwareUtilizationMibCompliances_ObjectIdentity = ObjectIdentity
+aristaHardwareUtilizationMibCompliances = _AristaHardwareUtilizationMibCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 2, 1)
+)
+_AristaHardwareUtilizationMibGroups_ObjectIdentity = ObjectIdentity
+aristaHardwareUtilizationMibGroups = _AristaHardwareUtilizationMibGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 2, 2)
+)
+
+# Managed Objects groups
+
+aristaHardwareUtilizationTableGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 2, 2, 1)
+)
+aristaHardwareUtilizationTableGroup.setObjects(
+      *(("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationInUseEntries"),
+        ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationFreeEntries"),
+        ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationCommittedEntries"),
+        ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationMaxEntries"),
+        ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationHighWatermark"),
+        ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationHighWatermarkTime"))
+)
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationTableGroup.setStatus("current")
+
+
+# Notification objects
+
+aristaHardwareUtilizationAlert = NotificationType(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 0, 1)
+)
+aristaHardwareUtilizationAlert.setObjects(
+      *(("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationInUseEntries"),
+        ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationHighWatermark"),
+        ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationHighWatermarkTime"))
+)
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationAlert.setStatus(
+        "current"
+    )
+
+
+# Notifications groups
+
+aristaHardwareUtilizationNotificationsGroup = NotificationGroup(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 2, 2, 2)
+)
+aristaHardwareUtilizationNotificationsGroup.setObjects(
+    ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationAlert")
+)
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationNotificationsGroup.setStatus(
+        "current"
+    )
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+aristaHardwareUtilizationMibCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 30065, 3, 22, 2, 1, 1)
+)
+aristaHardwareUtilizationMibCompliance.setObjects(
+      *(("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationTableGroup"),
+        ("ARISTA-HARDWARE-UTILIZATION-MIB", "aristaHardwareUtilizationNotificationsGroup"))
+)
+if mibBuilder.loadTexts:
+    aristaHardwareUtilizationMibCompliance.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "ARISTA-HARDWARE-UTILIZATION-MIB",
+    **{"aristaHardwareUtilizationMIB": aristaHardwareUtilizationMIB,
+       "aristaHardwareUtilizationMibNotifications": aristaHardwareUtilizationMibNotifications,
+       "aristaHardwareUtilizationAlert": aristaHardwareUtilizationAlert,
+       "aristaHardwareUtilizationMibObjects": aristaHardwareUtilizationMibObjects,
+       "aristaHardwareUtilizationTable": aristaHardwareUtilizationTable,
+       "aristaHardwareUtilizationEntry": aristaHardwareUtilizationEntry,
+       "aristaHardwareUtilizationResource": aristaHardwareUtilizationResource,
+       "aristaHardwareUtilizationFeature": aristaHardwareUtilizationFeature,
+       "aristaHardwareUtilizationForwardingElement": aristaHardwareUtilizationForwardingElement,
+       "aristaHardwareUtilizationInUseEntries": aristaHardwareUtilizationInUseEntries,
+       "aristaHardwareUtilizationFreeEntries": aristaHardwareUtilizationFreeEntries,
+       "aristaHardwareUtilizationCommittedEntries": aristaHardwareUtilizationCommittedEntries,
+       "aristaHardwareUtilizationMaxEntries": aristaHardwareUtilizationMaxEntries,
+       "aristaHardwareUtilizationHighWatermark": aristaHardwareUtilizationHighWatermark,
+       "aristaHardwareUtilizationHighWatermarkTime": aristaHardwareUtilizationHighWatermarkTime,
+       "aristaHardwareUtilizationMibConformance": aristaHardwareUtilizationMibConformance,
+       "aristaHardwareUtilizationMibCompliances": aristaHardwareUtilizationMibCompliances,
+       "aristaHardwareUtilizationMibCompliance": aristaHardwareUtilizationMibCompliance,
+       "aristaHardwareUtilizationMibGroups": aristaHardwareUtilizationMibGroups,
+       "aristaHardwareUtilizationTableGroup": aristaHardwareUtilizationTableGroup,
+       "aristaHardwareUtilizationNotificationsGroup": aristaHardwareUtilizationNotificationsGroup}
+)

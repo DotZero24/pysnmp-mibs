@@ -1,82 +1,431 @@
+# SNMP MIB module (CISCO-ENTITY-DISPLAY-MIB) expressed in pysnmp data model.
 #
-# PySNMP MIB module CISCO-ENTITY-DISPLAY-MIB (http://snmplabs.com/pysmi)
-# ASN.1 source file:///Users/rob/Code/pysnmp-mibs/mibs/cisco/CISCO-ENTITY-DISPLAY-MIB
-# Produced by pysmi-1.1.12 at Wed Oct  8 10:23:10 2025
-# On host macmini.vegmond.io platform Darwin version 25.0.0 by user rob
+# This Python module is designed to be imported and executed by the
+# pysnmp library.
+#
+# See https://www.pysnmp.com/pysnmp for further information.
+#
+# Notes
+# -----
+# ASN.1 source file://mibs/cisco/CISCO-ENTITY-DISPLAY-MIB
+# Produced by pysmi-1.6.2 at Fri Oct 10 20:21:57 2025
+# On host Robs-Air.vegmond.io platform Darwin version 25.0.0 by user rob
 # Using Python version 3.12.11 (main, Jun  3 2025, 15:41:47) [Clang 17.0.0 (clang-1700.0.13.3)]
-#
-ObjectIdentifier, OctetString, Integer = mibBuilder.importSymbols("ASN1", "ObjectIdentifier", "OctetString", "Integer")
-NamedValues, = mibBuilder.importSymbols("ASN1-ENUMERATION", "NamedValues")
-ValueRangeConstraint, SingleValueConstraint, ConstraintsUnion, ConstraintsIntersection, ValueSizeConstraint = mibBuilder.importSymbols("ASN1-REFINEMENT", "ValueRangeConstraint", "SingleValueConstraint", "ConstraintsUnion", "ConstraintsIntersection", "ValueSizeConstraint")
-ciscoMgmt, = mibBuilder.importSymbols("CISCO-SMI", "ciscoMgmt")
-entPhysicalIndex, = mibBuilder.importSymbols("ENTITY-MIB", "entPhysicalIndex")
-SnmpAdminString, = mibBuilder.importSymbols("SNMP-FRAMEWORK-MIB", "SnmpAdminString")
-ObjectGroup, ModuleCompliance, NotificationGroup = mibBuilder.importSymbols("SNMPv2-CONF", "ObjectGroup", "ModuleCompliance", "NotificationGroup")
-MibIdentifier, NotificationType, Bits, Integer32, Unsigned32, iso, MibScalar, MibTable, MibTableRow, MibTableColumn, IpAddress, ObjectIdentity, Counter32, ModuleIdentity, TimeTicks, Counter64, Gauge32 = mibBuilder.importSymbols("SNMPv2-SMI", "MibIdentifier", "NotificationType", "Bits", "Integer32", "Unsigned32", "iso", "MibScalar", "MibTable", "MibTableRow", "MibTableColumn", "IpAddress", "ObjectIdentity", "Counter32", "ModuleIdentity", "TimeTicks", "Counter64", "Gauge32")
-TruthValue, DisplayString, TextualConvention = mibBuilder.importSymbols("SNMPv2-TC", "TruthValue", "DisplayString", "TextualConvention")
-ciscoEntityDisplayMIB = ModuleIdentity((1, 3, 6, 1, 4, 1, 9, 9, 344))
-ciscoEntityDisplayMIB.setRevisions(('2009-10-05 00:00', '2003-03-20 00:00',))
-if mibBuilder.loadTexts: ciscoEntityDisplayMIB.setLastUpdated('200910050000Z')
-if mibBuilder.loadTexts: ciscoEntityDisplayMIB.setOrganization('Cisco Systems, Inc.')
+
+if 'mibBuilder' not in globals():
+    import sys
+
+    sys.stderr.write(__doc__)
+    sys.exit(1)
+
+# Import base ASN.1 objects even if this MIB does not use it
+
+(Integer,
+ OctetString,
+ ObjectIdentifier) = mibBuilder.importSymbols(
+    "ASN1",
+    "Integer",
+    "OctetString",
+    "ObjectIdentifier")
+
+(NamedValues,) = mibBuilder.importSymbols(
+    "ASN1-ENUMERATION",
+    "NamedValues")
+(ConstraintsIntersection,
+ ConstraintsUnion,
+ SingleValueConstraint,
+ ValueRangeConstraint,
+ ValueSizeConstraint) = mibBuilder.importSymbols(
+    "ASN1-REFINEMENT",
+    "ConstraintsIntersection",
+    "ConstraintsUnion",
+    "SingleValueConstraint",
+    "ValueRangeConstraint",
+    "ValueSizeConstraint")
+
+# Import SMI symbols from the MIBs this MIB depends on
+
+(ciscoMgmt,) = mibBuilder.importSymbols(
+    "CISCO-SMI",
+    "ciscoMgmt")
+
+(entPhysicalIndex,) = mibBuilder.importSymbols(
+    "ENTITY-MIB",
+    "entPhysicalIndex")
+
+(SnmpAdminString,) = mibBuilder.importSymbols(
+    "SNMP-FRAMEWORK-MIB",
+    "SnmpAdminString")
+
+(ModuleCompliance,
+ NotificationGroup,
+ ObjectGroup) = mibBuilder.importSymbols(
+    "SNMPv2-CONF",
+    "ModuleCompliance",
+    "NotificationGroup",
+    "ObjectGroup")
+
+(Bits,
+ Counter32,
+ Counter64,
+ Gauge32,
+ Integer32,
+ IpAddress,
+ ModuleIdentity,
+ MibIdentifier,
+ NotificationType,
+ ObjectIdentity,
+ MibScalar,
+ MibTable,
+ MibTableRow,
+ MibTableColumn,
+ TimeTicks,
+ Unsigned32,
+ iso) = mibBuilder.importSymbols(
+    "SNMPv2-SMI",
+    "Bits",
+    "Counter32",
+    "Counter64",
+    "Gauge32",
+    "Integer32",
+    "IpAddress",
+    "ModuleIdentity",
+    "MibIdentifier",
+    "NotificationType",
+    "ObjectIdentity",
+    "MibScalar",
+    "MibTable",
+    "MibTableRow",
+    "MibTableColumn",
+    "TimeTicks",
+    "Unsigned32",
+    "iso")
+
+(DisplayString,
+ PhysAddress,
+ TextualConvention,
+ TruthValue) = mibBuilder.importSymbols(
+    "SNMPv2-TC",
+    "DisplayString",
+    "PhysAddress",
+    "TextualConvention",
+    "TruthValue")
+
+
+# MODULE-IDENTITY
+
+ciscoEntityDisplayMIB = ModuleIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344)
+)
+if mibBuilder.loadTexts:
+    ciscoEntityDisplayMIB.setRevisions(
+        ("2009-10-05 00:00",
+         "2003-03-20 00:00")
+    )
+
+
+# Types definitions
+
+
+# TEXTUAL-CONVENTIONS
+
+
+
 class CDisplayType(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2))
-    namedValues = NamedValues(("led", 1), ("alphanumeric", 2))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2)
+        )
+    )
+    namedValues = NamedValues(
+        *(("led", 1),
+          ("alphanumeric", 2))
+    )
+
+
 
 class CDisplayColor(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4, 5, 6, 7, 8))
-    namedValues = NamedValues(("unknown", 1), ("white", 2), ("red", 3), ("green", 4), ("yellow", 5), ("amber", 6), ("blue", 7), ("greenAndAmber", 8))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("white", 2),
+          ("red", 3),
+          ("green", 4),
+          ("yellow", 5),
+          ("amber", 6),
+          ("blue", 7),
+          ("greenAndAmber", 8))
+    )
+
+
 
 class CDisplayState(TextualConvention, Integer32):
-    status = 'current'
-    subtypeSpec = Integer32.subtypeSpec + ConstraintsUnion(SingleValueConstraint(1, 2, 3, 4))
-    namedValues = NamedValues(("unknown", 1), ("off", 2), ("on", 3), ("blinking", 4))
+    status = "current"
+    subtypeSpec = Integer32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        SingleValueConstraint(
+            *(1,
+              2,
+              3,
+              4)
+        )
+    )
+    namedValues = NamedValues(
+        *(("unknown", 1),
+          ("off", 2),
+          ("on", 3),
+          ("blinking", 4))
+    )
 
-ciscoEntityDisplayMIBObjects = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 344, 1))
-ceDisplayTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1), )
-if mibBuilder.loadTexts: ceDisplayTable.setStatus('current')
-ceDisplayEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-ENTITY-DISPLAY-MIB", "ceDisplayIndex"))
-if mibBuilder.loadTexts: ceDisplayEntry.setStatus('current')
-ceDisplayIndex = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 1), Unsigned32().subtype(subtypeSpec=ValueRangeConstraint(1, 1024)))
-if mibBuilder.loadTexts: ceDisplayIndex.setStatus('current')
-ceDisplayType = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 2), CDisplayType()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceDisplayType.setStatus('current')
-ceDisplayName = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 3), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceDisplayName.setStatus('current')
-ceDisplayState = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 4), CDisplayState()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceDisplayState.setStatus('current')
-ceDisplayColor = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 5), CDisplayColor()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceDisplayColor.setStatus('current')
-ceDisplayText = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 6), SnmpAdminString()).setMaxAccess("readonly")
-if mibBuilder.loadTexts: ceDisplayText.setStatus('current')
-ceDisplayBeaconTable = MibTable((1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 2), )
-if mibBuilder.loadTexts: ceDisplayBeaconTable.setStatus('current')
-ceDisplayBeaconEntry = MibTableRow((1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 2, 1), ).setIndexNames((0, "ENTITY-MIB", "entPhysicalIndex"), (0, "CISCO-ENTITY-DISPLAY-MIB", "ceDisplayIndex"))
-if mibBuilder.loadTexts: ceDisplayBeaconEntry.setStatus('current')
-ceDisplayBeaconEnabled = MibTableColumn((1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 2, 1, 1), TruthValue()).setMaxAccess("readwrite")
-if mibBuilder.loadTexts: ceDisplayBeaconEnabled.setStatus('current')
-ceDisplayMIBConformance = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 344, 2))
-ceDisplayMIBCompliances = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 1))
-ceDisplayMIBGroups = MibIdentifier((1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 2))
-ceDisplayMIBCompliance = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 1, 1)).setObjects(("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayGroup"), ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayLEDGroup"), ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayAlphaNumericGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceDisplayMIBCompliance = ceDisplayMIBCompliance.setStatus('deprecated')
-ceDisplayMIBCompliance2 = ModuleCompliance((1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 1, 2)).setObjects(("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayGroup"), ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayLEDGroup"), ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayAlphaNumericGroup"), ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayBeaconGroup"))
 
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceDisplayMIBCompliance2 = ceDisplayMIBCompliance2.setStatus('current')
-ceDisplayGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 2, 1)).setObjects(("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayType"), ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayName"), ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayState"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceDisplayGroup = ceDisplayGroup.setStatus('current')
-ceDisplayLEDGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 2, 2)).setObjects(("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayColor"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceDisplayLEDGroup = ceDisplayLEDGroup.setStatus('current')
-ceDisplayAlphaNumericGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 2, 3)).setObjects(("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayText"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceDisplayAlphaNumericGroup = ceDisplayAlphaNumericGroup.setStatus('current')
-ceDisplayBeaconGroup = ObjectGroup((1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 2, 4)).setObjects(("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayBeaconEnabled"))
-if getattr(mibBuilder, 'version', (0, 0, 0)) > (4, 4, 0):
-    ceDisplayBeaconGroup = ceDisplayBeaconGroup.setStatus('current')
-mibBuilder.exportSymbols("CISCO-ENTITY-DISPLAY-MIB", ceDisplayBeaconGroup=ceDisplayBeaconGroup, ceDisplayTable=ceDisplayTable, ceDisplayName=ceDisplayName, ceDisplayType=ceDisplayType, ciscoEntityDisplayMIB=ciscoEntityDisplayMIB, ceDisplayLEDGroup=ceDisplayLEDGroup, ceDisplayMIBCompliance2=ceDisplayMIBCompliance2, CDisplayColor=CDisplayColor, ceDisplayBeaconTable=ceDisplayBeaconTable, ceDisplayMIBCompliances=ceDisplayMIBCompliances, ciscoEntityDisplayMIBObjects=ciscoEntityDisplayMIBObjects, ceDisplayMIBCompliance=ceDisplayMIBCompliance, ceDisplayBeaconEnabled=ceDisplayBeaconEnabled, ceDisplayColor=ceDisplayColor, ceDisplayAlphaNumericGroup=ceDisplayAlphaNumericGroup, CDisplayType=CDisplayType, ceDisplayState=ceDisplayState, ceDisplayMIBConformance=ceDisplayMIBConformance, ceDisplayMIBGroups=ceDisplayMIBGroups, PYSNMP_MODULE_ID=ciscoEntityDisplayMIB, ceDisplayGroup=ceDisplayGroup, ceDisplayEntry=ceDisplayEntry, CDisplayState=CDisplayState, ceDisplayText=ceDisplayText, ceDisplayBeaconEntry=ceDisplayBeaconEntry, ceDisplayIndex=ceDisplayIndex)
+# MIB Managed Objects in the order of their OIDs
+
+_CiscoEntityDisplayMIBObjects_ObjectIdentity = ObjectIdentity
+ciscoEntityDisplayMIBObjects = _CiscoEntityDisplayMIBObjects_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1)
+)
+_CeDisplayTable_Object = MibTable
+ceDisplayTable = _CeDisplayTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1)
+)
+if mibBuilder.loadTexts:
+    ceDisplayTable.setStatus("current")
+_CeDisplayEntry_Object = MibTableRow
+ceDisplayEntry = _CeDisplayEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1)
+)
+ceDisplayEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+    (0, "CISCO-ENTITY-DISPLAY-MIB", "ceDisplayIndex"),
+)
+if mibBuilder.loadTexts:
+    ceDisplayEntry.setStatus("current")
+
+
+class _CeDisplayIndex_Type(Unsigned32):
+    """Custom type ceDisplayIndex based on Unsigned32"""
+    subtypeSpec = Unsigned32.subtypeSpec
+    subtypeSpec += ConstraintsUnion(
+        ValueRangeConstraint(1, 1024),
+    )
+
+
+_CeDisplayIndex_Type.__name__ = "Unsigned32"
+_CeDisplayIndex_Object = MibTableColumn
+ceDisplayIndex = _CeDisplayIndex_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 1),
+    _CeDisplayIndex_Type()
+)
+ceDisplayIndex.setMaxAccess("not-accessible")
+if mibBuilder.loadTexts:
+    ceDisplayIndex.setStatus("current")
+_CeDisplayType_Type = CDisplayType
+_CeDisplayType_Object = MibTableColumn
+ceDisplayType = _CeDisplayType_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 2),
+    _CeDisplayType_Type()
+)
+ceDisplayType.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceDisplayType.setStatus("current")
+_CeDisplayName_Type = SnmpAdminString
+_CeDisplayName_Object = MibTableColumn
+ceDisplayName = _CeDisplayName_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 3),
+    _CeDisplayName_Type()
+)
+ceDisplayName.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceDisplayName.setStatus("current")
+_CeDisplayState_Type = CDisplayState
+_CeDisplayState_Object = MibTableColumn
+ceDisplayState = _CeDisplayState_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 4),
+    _CeDisplayState_Type()
+)
+ceDisplayState.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceDisplayState.setStatus("current")
+_CeDisplayColor_Type = CDisplayColor
+_CeDisplayColor_Object = MibTableColumn
+ceDisplayColor = _CeDisplayColor_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 5),
+    _CeDisplayColor_Type()
+)
+ceDisplayColor.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceDisplayColor.setStatus("current")
+_CeDisplayText_Type = SnmpAdminString
+_CeDisplayText_Object = MibTableColumn
+ceDisplayText = _CeDisplayText_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 1, 1, 6),
+    _CeDisplayText_Type()
+)
+ceDisplayText.setMaxAccess("read-only")
+if mibBuilder.loadTexts:
+    ceDisplayText.setStatus("current")
+_CeDisplayBeaconTable_Object = MibTable
+ceDisplayBeaconTable = _CeDisplayBeaconTable_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 2)
+)
+if mibBuilder.loadTexts:
+    ceDisplayBeaconTable.setStatus("current")
+_CeDisplayBeaconEntry_Object = MibTableRow
+ceDisplayBeaconEntry = _CeDisplayBeaconEntry_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 2, 1)
+)
+ceDisplayBeaconEntry.setIndexNames(
+    (0, "ENTITY-MIB", "entPhysicalIndex"),
+    (0, "CISCO-ENTITY-DISPLAY-MIB", "ceDisplayIndex"),
+)
+if mibBuilder.loadTexts:
+    ceDisplayBeaconEntry.setStatus("current")
+_CeDisplayBeaconEnabled_Type = TruthValue
+_CeDisplayBeaconEnabled_Object = MibTableColumn
+ceDisplayBeaconEnabled = _CeDisplayBeaconEnabled_Object(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 1, 2, 1, 1),
+    _CeDisplayBeaconEnabled_Type()
+)
+ceDisplayBeaconEnabled.setMaxAccess("read-write")
+if mibBuilder.loadTexts:
+    ceDisplayBeaconEnabled.setStatus("current")
+_CeDisplayMIBConformance_ObjectIdentity = ObjectIdentity
+ceDisplayMIBConformance = _CeDisplayMIBConformance_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 2)
+)
+_CeDisplayMIBCompliances_ObjectIdentity = ObjectIdentity
+ceDisplayMIBCompliances = _CeDisplayMIBCompliances_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 1)
+)
+_CeDisplayMIBGroups_ObjectIdentity = ObjectIdentity
+ceDisplayMIBGroups = _CeDisplayMIBGroups_ObjectIdentity(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 2)
+)
+
+# Managed Objects groups
+
+ceDisplayGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 2, 1)
+)
+ceDisplayGroup.setObjects(
+      *(("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayType"),
+        ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayName"),
+        ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayState"))
+)
+if mibBuilder.loadTexts:
+    ceDisplayGroup.setStatus("current")
+
+ceDisplayLEDGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 2, 2)
+)
+ceDisplayLEDGroup.setObjects(
+    ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayColor")
+)
+if mibBuilder.loadTexts:
+    ceDisplayLEDGroup.setStatus("current")
+
+ceDisplayAlphaNumericGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 2, 3)
+)
+ceDisplayAlphaNumericGroup.setObjects(
+    ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayText")
+)
+if mibBuilder.loadTexts:
+    ceDisplayAlphaNumericGroup.setStatus("current")
+
+ceDisplayBeaconGroup = ObjectGroup(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 2, 4)
+)
+ceDisplayBeaconGroup.setObjects(
+    ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayBeaconEnabled")
+)
+if mibBuilder.loadTexts:
+    ceDisplayBeaconGroup.setStatus("current")
+
+
+# Notification objects
+
+
+# Notifications groups
+
+
+# Agent capabilities
+
+
+# Module compliance
+
+ceDisplayMIBCompliance = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 1, 1)
+)
+ceDisplayMIBCompliance.setObjects(
+      *(("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayGroup"),
+        ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayLEDGroup"),
+        ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayAlphaNumericGroup"))
+)
+if mibBuilder.loadTexts:
+    ceDisplayMIBCompliance.setStatus(
+        "deprecated"
+    )
+
+ceDisplayMIBCompliance2 = ModuleCompliance(
+    (1, 3, 6, 1, 4, 1, 9, 9, 344, 2, 1, 2)
+)
+ceDisplayMIBCompliance2.setObjects(
+      *(("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayGroup"),
+        ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayLEDGroup"),
+        ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayAlphaNumericGroup"),
+        ("CISCO-ENTITY-DISPLAY-MIB", "ceDisplayBeaconGroup"))
+)
+if mibBuilder.loadTexts:
+    ceDisplayMIBCompliance2.setStatus(
+        "current"
+    )
+
+
+# Export all MIB objects to the MIB builder
+
+mibBuilder.exportSymbols(
+    "CISCO-ENTITY-DISPLAY-MIB",
+    **{"CDisplayType": CDisplayType,
+       "CDisplayColor": CDisplayColor,
+       "CDisplayState": CDisplayState,
+       "ciscoEntityDisplayMIB": ciscoEntityDisplayMIB,
+       "ciscoEntityDisplayMIBObjects": ciscoEntityDisplayMIBObjects,
+       "ceDisplayTable": ceDisplayTable,
+       "ceDisplayEntry": ceDisplayEntry,
+       "ceDisplayIndex": ceDisplayIndex,
+       "ceDisplayType": ceDisplayType,
+       "ceDisplayName": ceDisplayName,
+       "ceDisplayState": ceDisplayState,
+       "ceDisplayColor": ceDisplayColor,
+       "ceDisplayText": ceDisplayText,
+       "ceDisplayBeaconTable": ceDisplayBeaconTable,
+       "ceDisplayBeaconEntry": ceDisplayBeaconEntry,
+       "ceDisplayBeaconEnabled": ceDisplayBeaconEnabled,
+       "ceDisplayMIBConformance": ceDisplayMIBConformance,
+       "ceDisplayMIBCompliances": ceDisplayMIBCompliances,
+       "ceDisplayMIBCompliance": ceDisplayMIBCompliance,
+       "ceDisplayMIBCompliance2": ceDisplayMIBCompliance2,
+       "ceDisplayMIBGroups": ceDisplayMIBGroups,
+       "ceDisplayGroup": ceDisplayGroup,
+       "ceDisplayLEDGroup": ceDisplayLEDGroup,
+       "ceDisplayAlphaNumericGroup": ceDisplayAlphaNumericGroup,
+       "ceDisplayBeaconGroup": ceDisplayBeaconGroup}
+)
